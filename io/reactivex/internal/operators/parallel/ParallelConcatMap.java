@@ -22,16 +22,16 @@ public final class ParallelConcatMap<T, R> extends ParallelFlowable<R> {
     public final int prefetch;
     public final ParallelFlowable<T> source;
 
-    public ParallelConcatMap(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends Publisher<? extends R>> function, int i2, ErrorMode errorMode) {
+    public ParallelConcatMap(ParallelFlowable<T> parallelFlowable, Function<? super T, ? extends Publisher<? extends R>> function, int i, ErrorMode errorMode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parallelFlowable, function, Integer.valueOf(i2), errorMode};
+            Object[] objArr = {parallelFlowable, function, Integer.valueOf(i), errorMode};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,7 +39,7 @@ public final class ParallelConcatMap<T, R> extends ParallelFlowable<R> {
         }
         this.source = parallelFlowable;
         this.mapper = (Function) ObjectHelper.requireNonNull(function, "mapper");
-        this.prefetch = i2;
+        this.prefetch = i;
         this.errorMode = (ErrorMode) ObjectHelper.requireNonNull(errorMode, "errorMode");
     }
 
@@ -56,8 +56,8 @@ public final class ParallelConcatMap<T, R> extends ParallelFlowable<R> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
             Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                subscriberArr2[i2] = FlowableConcatMap.subscribe(subscriberArr[i2], this.mapper, this.prefetch, this.errorMode);
+            for (int i = 0; i < length; i++) {
+                subscriberArr2[i] = FlowableConcatMap.subscribe(subscriberArr[i], this.mapper, this.prefetch, this.errorMode);
             }
             this.source.subscribe(subscriberArr2);
         }

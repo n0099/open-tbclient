@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.concurrent.CancellationException;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ListDataSource<T> extends AbstractDataSource<List<CloseableReference<T>>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
     public int mFinishedDataSources;
 
     /* renamed from: com.facebook.imagepipeline.datasource.ListDataSource$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSourceArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,9 +75,9 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             synchronized (this) {
-                int i2 = this.mFinishedDataSources + 1;
-                this.mFinishedDataSources = i2;
-                z = i2 == this.mDataSources.length;
+                int i = this.mFinishedDataSources + 1;
+                this.mFinishedDataSources = i;
+                z = i == this.mDataSources.length;
             }
             return z;
         }
@@ -152,7 +152,7 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class InternalDataSubscriber implements DataSubscriber<CloseableReference<T>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,9 +167,9 @@ public class ListDataSource<T> extends AbstractDataSource<List<CloseableReferenc
                 newInitContext.initArgs = r2;
                 Object[] objArr = {listDataSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PrivacyMarkActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAZHU_SHOW_INSIDE = "bazhu_show_inside";
@@ -23,9 +23,9 @@ public class PrivacyMarkActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,12 +34,12 @@ public class PrivacyMarkActivityConfig extends IntentConfig {
         }
     }
 
-    public void setMarkState(int i2, int i3) {
+    public void setMarkState(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             Intent intent = getIntent();
-            intent.putExtra(BAZHU_SHOW_INSIDE, i2);
-            intent.putExtra(BAZHU_SHOW_OUTSIDE, i3);
+            intent.putExtra(BAZHU_SHOW_INSIDE, i);
+            intent.putExtra(BAZHU_SHOW_OUTSIDE, i2);
         }
     }
 }

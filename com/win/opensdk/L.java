@@ -9,28 +9,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class L {
     public static /* synthetic */ Interceptable $ic;
     public static final L a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final L f59357b;
+    public static final L f43985b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final L f59358c;
+    public static final L f43986c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final L f59359d;
+    public static final L f43987d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final L f59360e;
+    public static final L f43988e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final L f59361f;
+    public static final L f43989f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ L[] f59362g;
+    public static final /* synthetic */ L[] f43990g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,25 +47,25 @@ public final class L {
             }
         }
         a = new L("BANNER", 0);
-        f59357b = new L("INTERSTITIAL", 1);
-        f59358c = new L(Constant.TYPE_NATIVE, 2);
-        f59359d = new L("Video", 3);
-        f59360e = new L("SPLASH", 4);
+        f43985b = new L("INTERSTITIAL", 1);
+        f43986c = new L(Constant.TYPE_NATIVE, 2);
+        f43987d = new L("Video", 3);
+        f43988e = new L("SPLASH", 4);
         L l = new L("DRAW_VIDEO", 5);
-        f59361f = l;
-        f59362g = new L[]{a, f59357b, f59358c, f59359d, f59360e, l};
+        f43989f = l;
+        f43990g = new L[]{a, f43985b, f43986c, f43987d, f43988e, l};
     }
 
-    public L(String str, int i2) {
+    public L(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -84,6 +84,6 @@ public final class L {
     public static L[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f59362g.clone() : (L[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (L[]) f43990g.clone() : (L[]) invokeV.objValue;
     }
 }

@@ -13,9 +13,9 @@ public interface QueueDrain<T, U> {
 
     Throwable error();
 
-    int leave(int i2);
+    int leave(int i);
 
-    long produced(long j2);
+    long produced(long j);
 
     long requested();
 }

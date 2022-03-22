@@ -35,9 +35,9 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -212,10 +212,10 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void seekToMs(int i2, int i3) {
+    public void seekToMs(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            this.mVideoView.seekTo(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            this.mVideoView.seekTo(i, i2);
         }
     }
 
@@ -236,10 +236,10 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setDecodeMode(int i2) {
+    public void setDecodeMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mVideoView.setDecodeMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mVideoView.setDecodeMode(i);
         }
     }
 
@@ -334,18 +334,18 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoRotation(int i2) {
+    public void setVideoRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mVideoView.setVideoRotation(i2);
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mVideoView.setVideoRotation(i);
         }
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void setVideoScalingMode(int i2) {
+    public void setVideoScalingMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mVideoView.setVideoScalingMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mVideoView.setVideoScalingMode(i);
         }
     }
 
@@ -404,10 +404,10 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
     }
 
     @Override // com.baidu.searchbox.player.kernel.AbsVideoKernel
-    public void switchMediaSource(int i2) {
+    public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mVideoView.switchMediaSource(i2);
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mVideoView.switchMediaSource(i);
         }
     }
 
@@ -430,9 +430,9 @@ public class NormalVideoKernel extends BaseDumediaVideoKernel {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, onSnapShotFrameListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

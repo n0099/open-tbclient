@@ -4,7 +4,7 @@ import java.io.Serializable;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KDeclarationContainer;
 @SinceKotlin(version = "1.4")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AdaptedFunctionReference implements FunctionBase, Serializable {
     public final int arity;
     public final int flags;
@@ -14,8 +14,8 @@ public class AdaptedFunctionReference implements FunctionBase, Serializable {
     public final Object receiver;
     public final String signature;
 
-    public AdaptedFunctionReference(int i2, Class cls, String str, String str2, int i3) {
-        this(i2, CallableReference.NO_RECEIVER, cls, str, str2, i3);
+    public AdaptedFunctionReference(int i, Class cls, String str, String str2, int i2) {
+        this(i, CallableReference.NO_RECEIVER, cls, str, str2, i2);
     }
 
     public boolean equals(Object obj) {
@@ -53,13 +53,13 @@ public class AdaptedFunctionReference implements FunctionBase, Serializable {
         return Reflection.renderLambdaToString(this);
     }
 
-    public AdaptedFunctionReference(int i2, Object obj, Class cls, String str, String str2, int i3) {
+    public AdaptedFunctionReference(int i, Object obj, Class cls, String str, String str2, int i2) {
         this.receiver = obj;
         this.owner = cls;
         this.name = str;
         this.signature = str2;
-        this.isTopLevel = (i3 & 1) == 1;
-        this.arity = i2;
-        this.flags = i3 >> 1;
+        this.isTopLevel = (i2 & 1) == 1;
+        this.arity = i;
+        this.flags = i2 >> 1;
     }
 }

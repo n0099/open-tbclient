@@ -11,7 +11,7 @@ import org.apache.http.io.HttpTransportMetrics;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionOutputBuffer, wire};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,9 +53,9 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -69,9 +69,9 @@ public class LoggingSessionOutputBuffer implements SessionOutputBuffer {
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

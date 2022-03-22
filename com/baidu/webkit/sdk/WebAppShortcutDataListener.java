@@ -5,5 +5,5 @@ import android.graphics.Bitmap;
 public interface WebAppShortcutDataListener {
     void onWebAppIconAvailable(Bitmap bitmap);
 
-    void onWebAppInfoAvailable(String str, String str2, String str3, String str4, int i2, int i3, int i4, long j2, long j3, boolean z);
+    void onWebAppInfoAvailable(String str, String str2, String str3, String str4, int i, int i2, int i3, long j, long j2, boolean z);
 }

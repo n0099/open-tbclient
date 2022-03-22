@@ -17,7 +17,7 @@ public final class DisposeOnCancel implements Future<Object> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Disposable f60751d;
+    public final Disposable f45360d;
 
     public DisposeOnCancel(Disposable disposable) {
         Interceptable interceptable = $ic;
@@ -26,15 +26,15 @@ public final class DisposeOnCancel implements Future<Object> {
             newInitContext.initArgs = r2;
             Object[] objArr = {disposable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f60751d = disposable;
+        this.f45360d = disposable;
     }
 
     @Override // java.util.concurrent.Future
@@ -42,7 +42,7 @@ public final class DisposeOnCancel implements Future<Object> {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.f60751d.dispose();
+            this.f45360d.dispose();
             return false;
         }
         return invokeZ.booleanValue;
@@ -59,10 +59,10 @@ public final class DisposeOnCancel implements Future<Object> {
     }
 
     @Override // java.util.concurrent.Future
-    public Object get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public Object get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, timeUnit)) == null) {
             return null;
         }
         return invokeJL.objValue;

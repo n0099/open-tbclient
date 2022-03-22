@@ -45,9 +45,9 @@ public class Path {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -90,16 +90,16 @@ public class Path {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, box, str)) == null) {
             Container parent = box.getParent();
-            int i2 = 0;
+            int i = 0;
             for (Box box2 : parent.getBoxes()) {
                 if (box2.getType().equals(box.getType())) {
                     if (box2 == box) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             }
-            String str2 = String.valueOf(String.format("/%s[%d]", box.getType(), Integer.valueOf(i2))) + str;
+            String str2 = String.valueOf(String.format("/%s[%d]", box.getType(), Integer.valueOf(i))) + str;
             return parent instanceof Box ? createPath((Box) parent, str2) : str2;
         }
         return (String) invokeLL.objValue;
@@ -179,7 +179,7 @@ public class Path {
                 }
                 throw new RuntimeException("Result of path expression seems to be the root container. This is not allowed!");
             }
-            int i2 = 0;
+            int i = 0;
             if (str.contains("/")) {
                 str2 = str.substring(str.indexOf(47) + 1);
                 str = str.substring(0, str.indexOf(47));
@@ -199,10 +199,10 @@ public class Path {
                     LinkedList linkedList = new LinkedList();
                     for (Box box : ((Container) obj).getBoxes()) {
                         if (box.getType().matches(group)) {
-                            if (parseInt == -1 || parseInt == i2) {
+                            if (parseInt == -1 || parseInt == i) {
                                 linkedList.addAll(getPaths(box, str2, z));
                             }
-                            i2++;
+                            i++;
                         }
                         if (z || parseInt >= 0) {
                             if (!linkedList.isEmpty()) {

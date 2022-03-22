@@ -12,7 +12,7 @@ public class ShapePathParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", FunAdSdk.PLATFORM_KS, "hd");
 
     public static ShapePath parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
-        int i2 = 0;
+        int i = 0;
         String str = null;
         AnimatableShapeValue animatableShapeValue = null;
         boolean z = false;
@@ -21,7 +21,7 @@ public class ShapePathParser {
             if (selectName == 0) {
                 str = jsonReader.nextString();
             } else if (selectName == 1) {
-                i2 = jsonReader.nextInt();
+                i = jsonReader.nextInt();
             } else if (selectName == 2) {
                 animatableShapeValue = AnimatableValueParser.parseShapeData(jsonReader, lottieComposition);
             } else if (selectName != 3) {
@@ -30,6 +30,6 @@ public class ShapePathParser {
                 z = jsonReader.nextBoolean();
             }
         }
-        return new ShapePath(str, i2, animatableShapeValue, z);
+        return new ShapePath(str, i, animatableShapeValue, z);
     }
 }

@@ -25,7 +25,7 @@ import java.security.MessageDigest;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitmapPreFillRunner implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BACKOFF_RATIO = 4;
@@ -46,7 +46,7 @@ public final class BitmapPreFillRunner implements Runnable {
     public final PreFillQueue toPrefill;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Clock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public final class BitmapPreFillRunner implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,7 +72,7 @@ public final class BitmapPreFillRunner implements Runnable {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UniqueKey implements Key {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,9 +82,9 @@ public final class BitmapPreFillRunner implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -126,9 +126,9 @@ public final class BitmapPreFillRunner implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool, memoryCache, preFillQueue};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BitmapPool) objArr2[0], (MemoryCache) objArr2[1], (PreFillQueue) objArr2[2], (Clock) objArr2[3], (Handler) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -148,17 +148,17 @@ public final class BitmapPreFillRunner implements Runnable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            long j2 = this.currentDelay;
-            this.currentDelay = Math.min(4 * j2, MAX_BACKOFF_MS);
-            return j2;
+            long j = this.currentDelay;
+            this.currentDelay = Math.min(4 * j, MAX_BACKOFF_MS);
+            return j;
         }
         return invokeV.longValue;
     }
 
-    private boolean isGcDetected(long j2) {
+    private boolean isGcDetected(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j2)) == null) ? this.clock.now() - j2 >= 32 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, this, j)) == null) ? this.clock.now() - j >= 32 : invokeJ.booleanValue;
     }
 
     @VisibleForTesting
@@ -183,7 +183,7 @@ public final class BitmapPreFillRunner implements Runnable {
                     this.bitmapPool.put(createBitmap);
                 }
                 if (Log.isLoggable(TAG, 3)) {
-                    String str = "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize;
+                    Log.d(TAG, "allocated [" + remove.getWidth() + "x" + remove.getHeight() + "] " + remove.getConfig() + " size: " + bitmapByteSize);
                 }
             }
             return (this.isCancelled || this.toPrefill.isEmpty()) ? false : true;
@@ -214,9 +214,9 @@ public final class BitmapPreFillRunner implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool, memoryCache, preFillQueue, clock, handler};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

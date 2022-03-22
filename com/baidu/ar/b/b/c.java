@@ -13,25 +13,25 @@ public abstract class c<T> extends com.baidu.ar.c.a {
     public int cI;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f31462cn;
+    public FramePixels f24824cn;
 
-    public c(int i2, FramePixels framePixels) {
+    public c(int i, FramePixels framePixels) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), framePixels};
+            Object[] objArr = {Integer.valueOf(i), framePixels};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.cI = i2;
-        this.f31462cn = framePixels;
+        this.cI = i;
+        this.f24824cn = framePixels;
     }
 
     @Override // com.baidu.ar.c.a
@@ -42,7 +42,7 @@ public abstract class c<T> extends com.baidu.ar.c.a {
             if (com.baidu.ar.b.a.as().c(this.cI)) {
                 try {
                     com.baidu.ar.b.a.as().a(this.cI, true);
-                    return e(this.f31462cn);
+                    return e(this.f24824cn);
                 } finally {
                     com.baidu.ar.b.a.as().a(this.cI, false);
                 }

@@ -6,7 +6,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import c.a.d.f.p.i;
 import c.a.d.f.p.o;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
@@ -32,8 +32,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FatalErrorService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_TYPE_KEY = "errortype";
@@ -43,17 +42,17 @@ public class FatalErrorService extends BdBaseService {
     public transient /* synthetic */ FieldHolder $fh;
     public a mTask;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public NetWork f46345b;
+        public NetWork f35852b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ FatalErrorService f46346c;
+        public final /* synthetic */ FatalErrorService f35853c;
 
         public a(FatalErrorService fatalErrorService, Intent intent) {
             Interceptable interceptable = $ic;
@@ -62,16 +61,16 @@ public class FatalErrorService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fatalErrorService, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46346c = fatalErrorService;
-            this.f46345b = null;
+            this.f35853c = fatalErrorService;
+            this.f35852b = null;
             this.a = intent;
         }
 
@@ -84,7 +83,7 @@ public class FatalErrorService extends BdBaseService {
                         fileWriter.append("=");
                         fileWriter.append((CharSequence) str2);
                     }
-                    fileWriter.append(StringUtils.LF);
+                    fileWriter.append("\n");
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -138,13 +137,13 @@ public class FatalErrorService extends BdBaseService {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                NetWork netWork = this.f46345b;
+                NetWork netWork = this.f35852b;
                 if (netWork != null) {
                     netWork.cancelNetConnect();
                 }
-                this.f46346c.mTask = null;
+                this.f35853c.mTask = null;
                 super.cancel(true);
-                this.f46346c.stopSelf();
+                this.f35853c.stopSelf();
             }
         }
 
@@ -270,15 +269,15 @@ public class FatalErrorService extends BdBaseService {
                                             }
                                         }
                                         NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
-                                        this.f46345b = netWork;
+                                        this.f35852b = netWork;
                                         netWork.addPostData("logfile", byteArray);
                                         if (!TextUtils.isEmpty(str2) && !"0".equals(str2)) {
-                                            this.f46345b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
+                                            this.f35852b.addPostData(FatalErrorService.ERROR_TYPE_KEY, str2);
                                         }
-                                        this.f46345b.postMultiNetData();
+                                        this.f35852b.postMultiNetData();
                                         byteArrayOutputStream.close();
                                         fileInputStream.close();
-                                        if (this.f46345b.getNetContext().getResponse().isRequestSuccess()) {
+                                        if (this.f35852b.getNetContext().getResponse().isRequestSuccess()) {
                                             if (z2) {
                                                 d(file);
                                             }
@@ -474,8 +473,8 @@ public class FatalErrorService extends BdBaseService {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
                 super.onPostExecute((a) str);
-                this.f46346c.mTask = null;
-                this.f46346c.stopSelf();
+                this.f35853c.mTask = null;
+                this.f35853c.stopSelf();
             }
         }
     }
@@ -485,9 +484,9 @@ public class FatalErrorService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -519,10 +518,10 @@ public class FatalErrorService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
+            super.onStart(intent, i);
             if (this.mTask == null) {
                 a aVar = new a(this, intent);
                 this.mTask = aVar;

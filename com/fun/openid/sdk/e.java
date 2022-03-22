@@ -3,6 +3,7 @@ package com.fun.openid.sdk;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.e;
 import com.fun.openid.sdk.f;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OnGetOaidListener f52905b;
+    public final OnGetOaidListener f38666b;
 
     public e(Context context, OnGetOaidListener onGetOaidListener) {
         Interceptable interceptable = $ic;
@@ -27,23 +28,23 @@ public class e implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, onGetOaidListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context.getApplicationContext();
-        this.f52905b = onGetOaidListener;
+        this.f38666b = onGetOaidListener;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Context context = this.a;
-            f.a aVar = new f.a() { // from class: c.g.g0.a.a
+            f.a aVar = new f.a() { // from class: c.d.e0.a.a
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,11 +63,11 @@ public class e implements Runnable {
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     throw new IllegalStateException("Cannot be called from the main thread");
                 }
-                if (i.a == null && !i.f52906b) {
+                if (i.a == null && !i.f38667b) {
                     synchronized (i.class) {
-                        if (i.a == null && !i.f52906b) {
+                        if (i.a == null && !i.f38667b) {
                             i.a = b.a();
-                            i.f52906b = true;
+                            i.f38667b = true;
                         }
                     }
                 }
@@ -90,9 +91,9 @@ public class e implements Runnable {
                 return;
             }
             if (FunOpenIDSdk.isLogEnabled()) {
-                String str = "==========在缓存中查找到oaid，直接返回 oaid = " + string;
+                Log.e(FunOpenIDSdk.TAG, "==========在缓存中查找到oaid，直接返回 oaid = " + string);
             }
-            OnGetOaidListener onGetOaidListener = this.f52905b;
+            OnGetOaidListener onGetOaidListener = this.f38666b;
             if (onGetOaidListener != null) {
                 onGetOaidListener.onGetOaid(string);
             }
@@ -105,40 +106,40 @@ public class e implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZL(65537, this, z, str) == null) {
             if (FunOpenIDSdk.isLogEnabled()) {
-                String str2 = "==========getOAID 结果 oaid = " + str + ", this = " + this;
+                Log.e(FunOpenIDSdk.TAG, "==========getOAID 结果 oaid = " + str + ", this = " + this);
             }
             this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putString("key_oaid", str).apply();
             if (TextUtils.isEmpty(str) && z) {
-                int i2 = this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).getInt("key_retry_count", 0);
+                int i = this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).getInt("key_retry_count", 0);
                 if (FunOpenIDSdk.isLogEnabled()) {
-                    String str3 = "==========获取oaid失败 已重试 " + i2 + " 次，最多重试 3 次";
+                    Log.e(FunOpenIDSdk.TAG, "==========获取oaid失败 已重试 " + i + " 次，最多重试 3 次");
                 }
-                int i3 = i2 != 0 ? i2 == 1 ? 4 : i2 == 2 ? 6 : 0 : 2;
-                if (i2 < 3) {
+                int i2 = i != 0 ? i == 1 ? 4 : i == 2 ? 6 : 0 : 2;
+                if (i < 3) {
                     try {
                         if (FunOpenIDSdk.isLogEnabled()) {
-                            String str4 = "==========获取oaid失败 " + i3 + " 秒后重试";
+                            Log.e(FunOpenIDSdk.TAG, "==========获取oaid失败 " + i2 + " 秒后重试");
                         }
-                        TimeUnit.SECONDS.sleep(i3);
-                        this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putInt("key_retry_count", i2 + 1).apply();
+                        TimeUnit.SECONDS.sleep(i2);
+                        this.a.getSharedPreferences("openid_sdk_oaid_spf", 0).edit().putInt("key_retry_count", i + 1).apply();
                         a();
                         return;
                     } catch (InterruptedException e2) {
                         e2.printStackTrace();
-                        onGetOaidListener = this.f52905b;
+                        onGetOaidListener = this.f38666b;
                         if (onGetOaidListener == null) {
                             return;
                         }
                     }
                 } else {
-                    onGetOaidListener = this.f52905b;
+                    onGetOaidListener = this.f38666b;
                     if (onGetOaidListener == null) {
                         return;
                     }
                 }
                 str = null;
             } else {
-                onGetOaidListener = this.f52905b;
+                onGetOaidListener = this.f38666b;
                 if (onGetOaidListener == null) {
                     return;
                 }

@@ -1,7 +1,6 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +14,7 @@ import java.io.IOException;
 import java.io.InterruptedIOException;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AsyncTimeout extends Timeout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long IDLE_TIMEOUT_MILLIS;
@@ -29,7 +28,7 @@ public class AsyncTimeout extends Timeout {
     public AsyncTimeout next;
     public long timeoutAt;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Watchdog extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +40,9 @@ public class AsyncTimeout extends Timeout {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -101,9 +100,9 @@ public class AsyncTimeout extends Timeout {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -126,8 +125,8 @@ public class AsyncTimeout extends Timeout {
             }
             long remainingNanos = asyncTimeout.remainingNanos(System.nanoTime());
             if (remainingNanos > 0) {
-                long j2 = remainingNanos / 1000000;
-                AsyncTimeout.class.wait(j2, (int) (remainingNanos - (1000000 * j2)));
+                long j = remainingNanos / 1000000;
+                AsyncTimeout.class.wait(j, (int) (remainingNanos - (1000000 * j)));
                 return null;
             }
             head.next = asyncTimeout.next;
@@ -155,26 +154,26 @@ public class AsyncTimeout extends Timeout {
         return invokeL.booleanValue;
     }
 
-    private long remainingNanos(long j2) {
+    private long remainingNanos(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2)) == null) ? this.timeoutAt - j2 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j)) == null) ? this.timeoutAt - j : invokeJ.longValue;
     }
 
-    public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j2, boolean z) {
+    public static synchronized void scheduleTimeout(AsyncTimeout asyncTimeout, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{asyncTimeout, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{asyncTimeout, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             synchronized (AsyncTimeout.class) {
                 if (head == null) {
                     head = new AsyncTimeout();
                     new Watchdog().start();
                 }
                 long nanoTime = System.nanoTime();
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                if (i2 != 0 && z) {
-                    asyncTimeout.timeoutAt = Math.min(j2, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
-                } else if (i2 != 0) {
-                    asyncTimeout.timeoutAt = j2 + nanoTime;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i != 0 && z) {
+                    asyncTimeout.timeoutAt = Math.min(j, asyncTimeout.deadlineNanoTime() - nanoTime) + nanoTime;
+                } else if (i != 0) {
+                    asyncTimeout.timeoutAt = j + nanoTime;
                 } else if (z) {
                     asyncTimeout.timeoutAt = asyncTimeout.deadlineNanoTime();
                 } else {
@@ -228,7 +227,7 @@ public class AsyncTimeout extends Timeout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iOException)) == null) {
-            InterruptedIOException interruptedIOException = new InterruptedIOException(a.O);
+            InterruptedIOException interruptedIOException = new InterruptedIOException("timeout");
             if (iOException != null) {
                 interruptedIOException.initCause(iOException);
             }
@@ -253,9 +252,9 @@ public class AsyncTimeout extends Timeout {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, sink};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -320,25 +319,25 @@ public class AsyncTimeout extends Timeout {
             }
 
             @Override // okio.Sink
-            public void write(Buffer buffer, long j2) throws IOException {
+            public void write(Buffer buffer, long j) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 != null && interceptable2.invokeLJ(1048580, this, buffer, j2) != null) {
+                if (interceptable2 != null && interceptable2.invokeLJ(1048580, this, buffer, j) != null) {
                     return;
                 }
-                Util.checkOffsetAndCount(buffer.size, 0L, j2);
+                Util.checkOffsetAndCount(buffer.size, 0L, j);
                 while (true) {
-                    long j3 = 0;
-                    if (j2 <= 0) {
+                    long j2 = 0;
+                    if (j <= 0) {
                         return;
                     }
                     Segment segment = buffer.head;
                     while (true) {
-                        if (j3 >= 65536) {
+                        if (j2 >= 65536) {
                             break;
                         }
-                        j3 += segment.limit - segment.pos;
-                        if (j3 >= j2) {
-                            j3 = j2;
+                        j2 += segment.limit - segment.pos;
+                        if (j2 >= j) {
+                            j2 = j;
                             break;
                         }
                         segment = segment.next;
@@ -346,8 +345,8 @@ public class AsyncTimeout extends Timeout {
                     this.this$0.enter();
                     try {
                         try {
-                            this.val$sink.write(buffer, j3);
-                            j2 -= j3;
+                            this.val$sink.write(buffer, j2);
+                            j -= j2;
                             this.this$0.exit(true);
                         } catch (IOException e2) {
                             throw this.this$0.exit(e2);
@@ -377,9 +376,9 @@ public class AsyncTimeout extends Timeout {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, source};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -408,14 +407,14 @@ public class AsyncTimeout extends Timeout {
             }
 
             @Override // okio.Source
-            public long read(Buffer buffer, long j2) throws IOException {
+            public long read(Buffer buffer, long j) throws IOException {
                 InterceptResult invokeLJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
+                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
                     this.this$0.enter();
                     try {
                         try {
-                            long read = this.val$source.read(buffer, j2);
+                            long read = this.val$source.read(buffer, j);
                             this.this$0.exit(true);
                             return read;
                         } catch (IOException e2) {

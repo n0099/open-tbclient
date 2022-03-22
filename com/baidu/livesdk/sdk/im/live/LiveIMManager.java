@@ -36,9 +36,9 @@ public class LiveIMManager implements LiveIM {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iMManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,9 +95,9 @@ public class LiveIMManager implements LiveIM {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -107,12 +107,12 @@ public class LiveIMManager implements LiveIM {
             }
 
             @Override // com.baidu.livesdk.api.im.ConnectListener
-            public void onResult(int i2) {
+            public void onResult(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                    if (i2 == 0) {
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                    if (i == 0) {
                         this.this$0.reconnect();
-                    } else if (1 == i2) {
+                    } else if (1 == i) {
                         this.this$0.mIMManager.tryConnection();
                     }
                 }
@@ -122,12 +122,12 @@ public class LiveIMManager implements LiveIM {
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public synchronized void enterRoom(String str, String str2, int i2, IMCastSetListener iMCastSetListener, boolean z) {
+    public synchronized void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), iMCastSetListener, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), iMCastSetListener, Boolean.valueOf(z)}) == null) {
             synchronized (this) {
                 register();
-                create(str, str2, z).enterRoom(str, str2, i2, iMCastSetListener, z);
+                create(str, str2, z).enterRoom(str, str2, i, iMCastSetListener, z);
             }
         }
     }

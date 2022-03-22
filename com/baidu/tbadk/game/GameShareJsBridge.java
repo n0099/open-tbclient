@@ -2,6 +2,7 @@ package com.baidu.tbadk.game;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,9 +45,9 @@ public class GameShareJsBridge {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -118,7 +119,7 @@ public class GameShareJsBridge {
                 this.mShareContentUrl = String.valueOf(jSONObject.opt("app_link"));
                 this.mShareImage = String.valueOf(jSONObject.opt("img"));
                 this.mShareName = String.valueOf(jSONObject.opt("app_name"));
-                this.mGameId = String.valueOf(jSONObject.opt("app_key"));
+                this.mGameId = String.valueOf(jSONObject.opt(GameGuideConfigInfo.KEY_APP_KEY));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             } catch (Exception e3) {

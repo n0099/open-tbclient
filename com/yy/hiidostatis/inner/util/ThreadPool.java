@@ -18,7 +18,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ThreadPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HIIDO_FIXED_THREAD_NAME = "hiido_fixed_thread";
@@ -39,9 +39,9 @@ public class ThreadPool {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,9 +61,9 @@ public class ThreadPool {
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -96,9 +96,9 @@ public class ThreadPool {
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -131,9 +131,9 @@ public class ThreadPool {
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -310,14 +310,14 @@ public class ThreadPool {
         return (Future) invokeL.objValue;
     }
 
-    public void execute(Runnable runnable, long j2) {
+    public void execute(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) {
             try {
                 if (this.taskExecutor != null) {
-                    this.taskExecutor.execute(runnable, j2);
+                    this.taskExecutor.execute(runnable, j);
                 } else {
-                    this.scheduledExecutorService.schedule(runnable, j2, TimeUnit.MILLISECONDS);
+                    this.scheduledExecutorService.schedule(runnable, j, TimeUnit.MILLISECONDS);
                 }
             } catch (Throwable th) {
                 L.debug(this, th.getMessage(), new Object[0]);

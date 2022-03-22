@@ -8,8 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.i0.a.d.b;
-import c.a.b0.v.v0.h;
+import c.a.a0.i0.a.d.b;
+import c.a.a0.v.v0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.loading.BdVideoLoadingView;
 import com.baidu.tbadk.core.data.SmallTailInfo;
@@ -25,22 +25,22 @@ import java.util.Locale;
 public class BdVideoCacheView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f35813h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f35814i;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: e  reason: collision with root package name */
-    public final Context f35815e;
+    public static final int f27681e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f35816f;
+    public static final int f27682f;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
 
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f35817g;
-    public BdVideoLoadingView mLoadingView;
+    /* renamed from: b  reason: collision with root package name */
+    public BdVideoLoadingView f27683b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f27684c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f27685d;
 
     static {
         InterceptResult invokeClinit;
@@ -57,8 +57,8 @@ public class BdVideoCacheView extends FrameLayout {
         }
         b.c(18.0f);
         b.c(22.0f);
-        f35813h = b.d(200.0f);
-        f35814i = b.d(200.0f);
+        f27681e = b.d(200.0f);
+        f27682f = b.d(200.0f);
         b.d(10.0f);
         b.d(25.0f);
         b.d(6.0f);
@@ -74,9 +74,9 @@ public class BdVideoCacheView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -86,11 +86,11 @@ public class BdVideoCacheView extends FrameLayout {
         }
     }
 
-    public final String a(int i2) {
+    public final String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            float f2 = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            float f2 = i;
             String str = " KB/s";
             if (f2 >= 1024.0f) {
                 f2 /= 1024.0f;
@@ -109,116 +109,84 @@ public class BdVideoCacheView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
-            BdVideoLoadingView bdVideoLoadingView = new BdVideoLoadingView(this.f35815e);
-            this.mLoadingView = bdVideoLoadingView;
+            BdVideoLoadingView bdVideoLoadingView = new BdVideoLoadingView(this.a);
+            this.f27683b = bdVideoLoadingView;
             addView(bdVideoLoadingView, layoutParams);
         }
     }
 
-    public void hideLoadingView() {
-        BdVideoLoadingView bdVideoLoadingView;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (bdVideoLoadingView = this.mLoadingView) == null) {
-            return;
-        }
-        bdVideoLoadingView.stopAnimation();
-        this.mLoadingView.setVisibility(4);
-    }
-
-    public boolean isLoadingAnimRunning() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            BdVideoLoadingView bdVideoLoadingView = this.mLoadingView;
-            if (bdVideoLoadingView != null) {
-                return bdVideoLoadingView.isRunning();
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i != 0) {
+                this.f27683b.clearAnimation();
+                this.f27683b.d();
+            } else if (!this.f27683b.b()) {
+                this.f27683b.c();
             }
-            return false;
+            setVisibility(i);
+            this.f27683b.setVisibility(i);
         }
-        return invokeV.booleanValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            setMeasuredDimension(f35813h, f35814i);
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(f27681e, f27682f);
         }
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i2) {
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (i2 != 0) {
-                h.a("onWindowVisibilityChanged(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i != 0) {
+                h.a("onWindowVisibilityChanged(" + i + SmallTailInfo.EMOTION_SUFFIX);
                 setVisibility(4);
             }
-            super.onWindowVisibilityChanged(i2);
+            super.onWindowVisibilityChanged(i);
         }
-    }
-
-    public void removeLoadingAnimListener() {
-        BdVideoLoadingView bdVideoLoadingView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (bdVideoLoadingView = this.mLoadingView) == null) {
-            return;
-        }
-        bdVideoLoadingView.removeLoadingAnimListener();
     }
 
     @Override // android.view.View, android.view.ViewParent
     public void requestLayout() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.requestLayout();
         }
     }
 
     @SuppressLint({"SetTextI18n"})
-    public void setCacheHint(int i2) {
+    public void setCacheHint(int i) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) && this.f35816f.getVisibility() == 0) {
-            if (i2 < 10) {
-                str = "   " + i2;
-            } else if (i2 < 100) {
-                str = " " + i2;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && this.f27684c.getVisibility() == 0) {
+            if (i < 10) {
+                str = "   " + i;
+            } else if (i < 100) {
+                str = " " + i;
             } else {
                 str = "";
             }
-            this.f35816f.setText(str + "%");
+            this.f27684c.setText(str + "%");
         }
     }
 
     public void setLoadingAnimListener(BdVideoLoadingView.a aVar) {
         BdVideoLoadingView bdVideoLoadingView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) || (bdVideoLoadingView = this.mLoadingView) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) || (bdVideoLoadingView = this.f27683b) == null) {
             return;
         }
         bdVideoLoadingView.setLoadingAnimListener(aVar);
     }
 
-    public void setSpeedHint(int i2) {
+    public void setSpeedHint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f35817g.setText(a(i2));
-        }
-    }
-
-    public void startCacheRotation(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            if (i2 != 0) {
-                this.mLoadingView.clearAnimation();
-                this.mLoadingView.stopAnimation();
-            } else if (!this.mLoadingView.isRunning()) {
-                this.mLoadingView.startAnimation();
-            }
-            setVisibility(i2);
-            this.mLoadingView.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f27685d.setText(a(i));
         }
     }
 
@@ -231,9 +199,9 @@ public class BdVideoCacheView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -241,7 +209,7 @@ public class BdVideoCacheView extends FrameLayout {
                 return;
             }
         }
-        this.f35815e = context;
+        this.a = context;
         b();
     }
 }

@@ -8,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class DefaultRetryPolicy implements RetryPolicy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CANCEL = -1;
@@ -38,9 +37,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((Handler) objArr[0], ((Integer) objArr[1]).intValue(), ((Integer) objArr[2]).intValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue());
                 newInitContext.thisArg = this;
@@ -73,9 +72,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -100,7 +99,7 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.mStatus = -1;
-            RLog.info(TAG, QueryResponse.Options.CANCEL);
+            RLog.info(TAG, "cancel");
         }
     }
 
@@ -130,9 +129,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
             }
             if (hasAttemptRemaining()) {
                 if (this.mRetryType == 1) {
-                    int i2 = this.mCurrentRetryCount + 1;
-                    this.mCurrentRetryCount = i2;
-                    if (i2 <= this.mMaxNumRetries / 2) {
+                    int i = this.mCurrentRetryCount + 1;
+                    this.mCurrentRetryCount = i;
+                    if (i <= this.mMaxNumRetries / 2) {
                         this.mHander.postDelayed(new Runnable(this) { // from class: com.yy.mobile.framework.revenuesdk.payservice.revenueservice.DefaultRetryPolicy.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -145,9 +144,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -179,9 +178,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -215,9 +214,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -242,16 +241,16 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         }
     }
 
-    public DefaultRetryPolicy(Handler handler, int i2, int i3, int i4, int i5) {
+    public DefaultRetryPolicy(Handler handler, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {handler, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -259,9 +258,9 @@ public abstract class DefaultRetryPolicy implements RetryPolicy {
         }
         this.mStatus = 0;
         this.mHander = handler;
-        this.mTimeoutMs = i2;
-        this.mMaxNumRetries = i3;
-        this.mIntervalMs = i4;
-        this.mRetryType = i5;
+        this.mTimeoutMs = i;
+        this.mMaxNumRetries = i2;
+        this.mIntervalMs = i3;
+        this.mRetryType = i4;
     }
 }

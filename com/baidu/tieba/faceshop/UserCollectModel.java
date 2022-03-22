@@ -1,9 +1,9 @@
 package com.baidu.tieba.faceshop;
 
 import android.os.Handler;
-import c.a.q0.b0.d;
-import c.a.q0.l.e;
-import c.a.r0.y0.g;
+import c.a.o0.b0.d;
+import c.a.o0.l.e;
+import c.a.p0.a1.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -30,17 +30,13 @@ public class UserCollectModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALL_DELETE = "all_delete";
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f41522e;
+    public final HttpMessageListener a;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserCollectModel f41523e;
+        public final /* synthetic */ UserCollectModel a;
 
         public a(UserCollectModel userCollectModel) {
             Interceptable interceptable = $ic;
@@ -49,15 +45,15 @@ public class UserCollectModel extends FaceBaseModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userCollectModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41523e = userCollectModel;
+            this.a = userCollectModel;
         }
 
         @Override // java.lang.Runnable
@@ -72,7 +68,7 @@ public class UserCollectModel extends FaceBaseModel {
                 JSONArray jSONArray = new JSONArray();
                 try {
                     for (CollectEmotionData collectEmotionData : n) {
-                        if (!d.f12089d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
+                        if (!d.f9862d.equals(collectEmotionData.sharpText) && !hashSet.contains(collectEmotionData.sharpText)) {
                             jSONArray.put(collectEmotionData.toJSON());
                             hashSet.add(collectEmotionData.sharpText);
                         }
@@ -88,8 +84,8 @@ public class UserCollectModel extends FaceBaseModel {
                     httpMessage.addParam(SocialConstants.PARAM_IMAGE, UserCollectModel.ALL_DELETE);
                 }
                 httpMessage.addParam("pic_update_time", currentTimeMillis);
-                this.f41523e.sendMessage(httpMessage);
-                c.a.r0.p2.d.s(currentTimeMillis);
+                this.a.sendMessage(httpMessage);
+                c.a.p0.r2.d.s(currentTimeMillis);
             }
         }
     }
@@ -104,9 +100,7 @@ public class UserCollectModel extends FaceBaseModel {
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f41524e;
+            public final /* synthetic */ b a;
 
             public a(b bVar) {
                 Interceptable interceptable = $ic;
@@ -115,15 +109,15 @@ public class UserCollectModel extends FaceBaseModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f41524e = bVar;
+                this.a = bVar;
             }
 
             @Override // java.lang.Runnable
@@ -131,7 +125,7 @@ public class UserCollectModel extends FaceBaseModel {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     try {
-                        this.f41524e.a.cancelLoadData();
+                        this.a.a.cancelLoadData();
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
@@ -140,17 +134,17 @@ public class UserCollectModel extends FaceBaseModel {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(UserCollectModel userCollectModel, int i2) {
-            super(i2);
+        public b(UserCollectModel userCollectModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {userCollectModel, Integer.valueOf(i2)};
+                Object[] objArr = {userCollectModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -176,20 +170,20 @@ public class UserCollectModel extends FaceBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41522e = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
+        this.a = new b(this, CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f41522e.setTag(getUniqueId());
-        this.f41522e.setSelfListener(true);
-        registerListener(this.f41522e);
+        this.a.setTag(getUniqueId());
+        this.a.setSelfListener(true);
+        registerListener(this.a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -197,7 +191,7 @@ public class UserCollectModel extends FaceBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f41522e);
+            MessageManager.getInstance().unRegisterListener(this.a);
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_COLLECT_EMOTION_INFO);
             return true;
         }
@@ -223,7 +217,7 @@ public class UserCollectModel extends FaceBaseModel {
         }
     }
 
-    public void w() {
+    public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             new Thread(new a(this)).start();

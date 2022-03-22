@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.PollInfo;
 import tbclient.PollOption;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PollData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class PollData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,7 +107,7 @@ public class PollData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.totalPoll : invokeV.longValue;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048586, this, jSONObject) == null) || jSONObject == null) {
@@ -126,9 +126,9 @@ public class PollData extends p implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("options");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     PollOptionData pollOptionData = new PollOptionData();
-                    pollOptionData.parserJson(optJSONArray.optJSONObject(i2));
+                    pollOptionData.parserJson(optJSONArray.optJSONObject(i));
                     this.options.add(pollOptionData);
                 }
             }
@@ -154,39 +154,39 @@ public class PollData extends p implements Serializable {
         List<PollOption> list = pollInfo.options;
         if (list != null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 PollOptionData pollOptionData = new PollOptionData();
-                pollOptionData.parserProtobuf(pollInfo.options.get(i2));
+                pollOptionData.parserProtobuf(pollInfo.options.get(i));
                 this.options.add(pollOptionData);
             }
         }
     }
 
-    public void setEndTime(int i2) {
+    public void setEndTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.endTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.endTime = i;
         }
     }
 
-    public void setIsMulti(int i2) {
+    public void setIsMulti(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.isMulti = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.isMulti = i;
         }
     }
 
-    public void setIsPolled(int i2) {
+    public void setIsPolled(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.isPolled = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.isPolled = i;
         }
     }
 
-    public void setLastTime(int i2) {
+    public void setLastTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.lastTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.lastTime = i;
         }
     }
 
@@ -197,10 +197,10 @@ public class PollData extends p implements Serializable {
         }
     }
 
-    public void setOptionsCount(int i2) {
+    public void setOptionsCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.optionsCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.optionsCount = i;
         }
     }
 
@@ -218,17 +218,17 @@ public class PollData extends p implements Serializable {
         }
     }
 
-    public void setTotalNum(long j2) {
+    public void setTotalNum(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.totalNum = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.totalNum = j;
         }
     }
 
-    public void setTotalPoll(long j2) {
+    public void setTotalPoll(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.totalPoll = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.totalPoll = j;
         }
     }
 }

@@ -23,27 +23,29 @@ import java.util.Arrays;
 /* loaded from: classes6.dex */
 public class RoundRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int l = 2131100810;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public float f46862e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Shape f46863f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f46864g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f46865h;
+    public static final int f36229h = 2131100693;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: i  reason: collision with root package name */
-    public RectF f46866i;
+    /* renamed from: b  reason: collision with root package name */
+    public Shape f36230b;
 
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f46867j;
-    public int k;
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f36231c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f36232d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public RectF f36233e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public Paint f36234f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f36235g;
 
     static {
         InterceptResult invokeClinit;
@@ -69,9 +71,9 @@ public class RoundRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -87,17 +89,17 @@ public class RoundRelativeLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             int saveCount = canvas.getSaveCount();
             canvas.save();
-            RectF rectF = this.f46866i;
-            float f2 = this.f46862e;
-            canvas.drawRoundRect(rectF, f2, f2, this.f46867j);
+            RectF rectF = this.f36233e;
+            float f2 = this.a;
+            canvas.drawRoundRect(rectF, f2, f2, this.f36234f);
             super.dispatchDraw(canvas);
-            Shape shape = this.f46863f;
+            Shape shape = this.f36230b;
             if (shape != null) {
-                shape.draw(canvas, this.f46864g);
+                shape.draw(canvas, this.f36231c);
             }
-            RectF rectF2 = this.f46866i;
-            float f3 = this.f46862e;
-            canvas.drawRoundRect(rectF2, f3, f3, this.f46865h);
+            RectF rectF2 = this.f36233e;
+            float f3 = this.a;
+            canvas.drawRoundRect(rectF2, f3, f3, this.f36232d);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
             }
@@ -106,12 +108,12 @@ public class RoundRelativeLayout extends RelativeLayout {
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (z) {
-                if (this.f46863f == null) {
+                if (this.f36230b == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     float dimension = ((float) getPaddingLeft()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingLeft();
@@ -120,21 +122,21 @@ public class RoundRelativeLayout extends RelativeLayout {
                     float dimension3 = ((float) getPaddingBottom()) <= getResources().getDimension(R.dimen.tbds8) ? getResources().getDimension(R.dimen.tbds8) : getPaddingBottom();
                     RectF rectF = new RectF(dimension, paddingTop, dimension2, dimension3);
                     float[] fArr2 = new float[8];
-                    Arrays.fill(fArr2, this.f46862e);
-                    this.f46863f = new RoundRectShape(fArr, rectF, fArr2);
-                    this.f46866i.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
+                    Arrays.fill(fArr2, this.a);
+                    this.f36230b = new RoundRectShape(fArr, rectF, fArr2);
+                    this.f36233e.set(dimension, paddingTop, getWidth() - dimension2, getHeight() - dimension3);
                 }
-                this.f46863f.resize(getWidth(), getHeight());
+                this.f36230b.resize(getWidth(), getHeight());
             }
         }
     }
 
-    public void setBgColorRes(int i2) {
+    public void setBgColorRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.k = i2;
-            if (i2 != 0) {
-                this.f46867j.setColor(getContext().getResources().getColor(this.k));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f36235g = i;
+            if (i != 0) {
+                this.f36234f.setColor(getContext().getResources().getColor(this.f36235g));
                 invalidate();
             }
         }
@@ -143,7 +145,7 @@ public class RoundRelativeLayout extends RelativeLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
-            this.f46862e = f2;
+            this.a = f2;
         }
     }
 
@@ -156,9 +158,9 @@ public class RoundRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -169,17 +171,17 @@ public class RoundRelativeLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -187,26 +189,26 @@ public class RoundRelativeLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f46862e = 0.0f;
+        this.a = 0.0f;
         setLayerType(1, null);
         Paint paint = new Paint();
-        this.f46864g = paint;
+        this.f36231c = paint;
         paint.setAntiAlias(true);
-        this.f46864g.setColor(-1);
-        this.f46864g.setStyle(Paint.Style.FILL);
-        this.f46864g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f36231c.setColor(-1);
+        this.f36231c.setStyle(Paint.Style.FILL);
+        this.f36231c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f46865h = paint2;
+        this.f36232d = paint2;
         paint2.setAntiAlias(true);
-        this.f46865h.setColor(0);
-        this.f46865h.setStyle(Paint.Style.FILL);
-        this.f46865h.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(l));
-        this.f46865h.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
-        this.f46866i = new RectF();
+        this.f36232d.setColor(0);
+        this.f36232d.setStyle(Paint.Style.FILL);
+        this.f36232d.setShadowLayer(getResources().getDimension(R.dimen.tbds5), 0.0f, getResources().getDimension(R.dimen.tbds8), getResources().getColor(f36229h));
+        this.f36232d.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OVER));
+        this.f36233e = new RectF();
         Paint paint3 = new Paint();
-        this.f46867j = paint3;
+        this.f36234f = paint3;
         paint3.setAntiAlias(true);
-        this.f46867j.setColor(-1);
-        this.f46864g.setStyle(Paint.Style.FILL);
+        this.f36234f.setColor(-1);
+        this.f36231c.setStyle(Paint.Style.FILL);
     }
 }

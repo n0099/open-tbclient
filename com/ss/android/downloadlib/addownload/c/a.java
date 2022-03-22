@@ -7,7 +7,7 @@ import com.ss.android.socialbase.downloader.depend.q;
 import com.ss.android.socialbase.downloader.depend.r;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements r {
     public int a;
 
@@ -29,13 +29,13 @@ public class a implements r {
         return a;
     }
 
-    public void a(int i2) {
-        this.a = i2;
+    public void a(int i) {
+        this.a = i;
     }
 
     @Override // com.ss.android.socialbase.downloader.depend.r
-    public boolean a(long j2, long j3, q qVar) {
-        long j4;
+    public boolean a(long j, long j2, q qVar) {
+        long j3;
         com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(this.a);
         if (a(a)) {
             long currentTimeMillis = System.currentTimeMillis();
@@ -44,18 +44,18 @@ public class a implements r {
             a();
             long a3 = l.a(0L);
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-            if (a3 < j3) {
+            if (a3 < j2) {
                 long b2 = b(a);
                 if (b2 > 0) {
                     a3 = l.a(0L);
                 }
-                j4 = b2;
+                j3 = b2;
             } else {
-                j4 = 0;
+                j3 = 0;
             }
-            k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j3 + ", byteAvailableAfter = " + a3 + ", cleaned = " + (a3 - a2), null);
-            a(a2, a3, j3, currentTimeMillis2, j4);
-            if (a3 < j3) {
+            k.b("AppDownloadDiskSpaceHandler", "cleanUpDisk, byteRequired = " + j2 + ", byteAvailableAfter = " + a3 + ", cleaned = " + (a3 - a2), null);
+            a(a2, a3, j2, currentTimeMillis2, j3);
+            if (a3 < j2) {
                 return false;
             }
             if (qVar != null) {
@@ -83,13 +83,13 @@ public class a implements r {
         c.b();
     }
 
-    private void a(long j2, long j3, long j4, long j5, long j6) {
+    private void a(long j, long j2, long j3, long j4, long j5) {
         DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(this.a);
         if (downloadInfo == null) {
             return;
         }
         try {
-            com.ss.android.downloadlib.a.a().a(downloadInfo, j2, j3, j4, j5, j6, j3 > j4);
+            com.ss.android.downloadlib.a.a().a(downloadInfo, j, j2, j3, j4, j5, j2 > j3);
         } catch (Exception e2) {
             e2.printStackTrace();
         }

@@ -29,8 +29,8 @@ public final class SharedPreferencesKt {
         }
     }
 
-    public static /* synthetic */ void edit$default(SharedPreferences sharedPreferences, boolean z, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ void edit$default(SharedPreferences sharedPreferences, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         SharedPreferences.Editor editor = sharedPreferences.edit();

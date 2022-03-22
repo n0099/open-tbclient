@@ -36,16 +36,16 @@ public class PASSMethodCallTransfer implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract void onFailure(int i2, String str);
+        public abstract void onFailure(int i, String str);
     }
 
     /* loaded from: classes4.dex */
@@ -77,9 +77,9 @@ public class PASSMethodCallTransfer implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -92,9 +92,9 @@ public class PASSMethodCallTransfer implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -107,15 +107,15 @@ public class PASSMethodCallTransfer implements NoProguard {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, objArr, sapiAccount)) == null) {
             Object[] objArr2 = new Object[objArr.length];
             int length = objArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                Object obj = objArr[i2];
+            for (int i = 0; i < length; i++) {
+                Object obj = objArr[i];
                 if (!(obj instanceof ParamsWap)) {
-                    objArr2[i2] = obj;
+                    objArr2[i] = obj;
                 } else {
                     ParamsWap paramsWap = (ParamsWap) obj;
                     Map<String, String> map = paramsWap.attributes;
                     if (map == null) {
-                        objArr2[i2] = paramsWap.param;
+                        objArr2[i] = paramsWap.param;
                     } else {
                         for (String str : map.keySet()) {
                             Object obj2 = null;
@@ -124,7 +124,7 @@ public class PASSMethodCallTransfer implements NoProguard {
                             } else if (ParamsWap.BDUSS.equals(str)) {
                                 obj2 = setObjectValue(paramsWap.param, paramsWap.attributes.get(str), sapiAccount.bduss);
                             }
-                            objArr2[i2] = obj2;
+                            objArr2[i] = obj2;
                         }
                     }
                 }

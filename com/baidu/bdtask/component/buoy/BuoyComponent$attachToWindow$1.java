@@ -32,9 +32,9 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
             newInitContext.initArgs = r2;
             Object[] objArr = {buoyComponent, viewGroup, layoutParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -66,28 +66,28 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
         a aVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            aVar = this.this$0.f31575f;
+            aVar = this.this$0.f24915f;
             View contentView = aVar.getContentView();
             if ((contentView != null ? contentView.getParent() : null) != null) {
-                aVar6 = this.this$0.f31575f;
+                aVar6 = this.this$0.f24915f;
                 View contentView2 = aVar6.getContentView();
                 ViewParent parent = contentView2 != null ? contentView2.getParent() : null;
                 if (!(parent instanceof ViewGroup)) {
                     parent = null;
                 }
                 if (((ViewGroup) parent) != null) {
-                    aVar7 = this.this$0.f31575f;
+                    aVar7 = this.this$0.f24915f;
                     View contentView3 = aVar7.getContentView();
                     ViewParent parent2 = contentView3 != null ? contentView3.getParent() : null;
                     if (parent2 == null) {
                         throw new TypeCastException("null cannot be cast to non-null type android.view.ViewGroup");
                     }
-                    aVar8 = this.this$0.f31575f;
+                    aVar8 = this.this$0.f24915f;
                     ((ViewGroup) parent2).removeView(aVar8.getContentView());
                 }
             }
             ViewGroup viewGroup = this.$viewGroup;
-            aVar2 = this.this$0.f31575f;
+            aVar2 = this.this$0.f24915f;
             if (viewGroup.indexOfChild(aVar2.getContentView()) != -1) {
                 ViewGroup viewGroup2 = this.$viewGroup;
                 viewGroup2.removeView(viewGroup2);
@@ -96,19 +96,19 @@ public final class BuoyComponent$attachToWindow$1 extends Lambda implements Func
             if (findViewWithTag != null) {
                 this.$viewGroup.removeView(findViewWithTag);
             }
-            aVar3 = this.this$0.f31575f;
+            aVar3 = this.this$0.f24915f;
             View contentView4 = aVar3.getContentView();
             if (contentView4 != null) {
                 contentView4.setTag("TaskSDKBuoyViewTag");
             }
             if (this.$layoutParams == null) {
                 ViewGroup viewGroup3 = this.$viewGroup;
-                aVar5 = this.this$0.f31575f;
+                aVar5 = this.this$0.f24915f;
                 viewGroup3.addView(aVar5.getContentView());
                 return;
             }
             ViewGroup viewGroup4 = this.$viewGroup;
-            aVar4 = this.this$0.f31575f;
+            aVar4 = this.this$0.f24915f;
             viewGroup4.addView(aVar4.getContentView(), this.$layoutParams);
         }
     }

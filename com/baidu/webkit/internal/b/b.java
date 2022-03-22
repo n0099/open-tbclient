@@ -16,12 +16,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.baidu.adp.plugin.PluginCenter;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.Log;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import java.net.URISyntaxException;
 /* loaded from: classes6.dex */
 public final class b extends g {
@@ -34,9 +36,9 @@ public final class b extends g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,16 +56,16 @@ public final class b extends g {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             String[] strArr = this.a;
-            if (i2 >= strArr.length) {
+            if (i >= strArr.length) {
                 return false;
             }
-            if (str.startsWith(strArr[i2])) {
+            if (str.startsWith(strArr[i])) {
                 return true;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -88,12 +90,12 @@ public final class b extends g {
                             return true;
                         }
                         String substring = str.substring(0, str.indexOf(":"));
-                        View inflate = LayoutInflater.from(context).inflate(context.getResources().getIdentifier("sailor_noapp_support_warnings", "layout", context.getPackageName()), (ViewGroup) null);
-                        ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_header", "id", context.getPackageName()))).setText(context.getResources().getIdentifier("sailor_noapp_support_warning", "string", context.getPackageName()));
-                        String str3 = context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_start", "string", context.getPackageName())) + substring;
-                        int identifier = context.getResources().getIdentifier("zeus_popup_not_support_protocol_end", "string", context.getPackageName());
+                        View inflate = LayoutInflater.from(context).inflate(context.getResources().getIdentifier("sailor_noapp_support_warnings", TtmlNode.TAG_LAYOUT, context.getPackageName()), (ViewGroup) null);
+                        ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_header", "id", context.getPackageName()))).setText(context.getResources().getIdentifier("sailor_noapp_support_warning", EMABTest.TYPE_STRING, context.getPackageName()));
+                        String str3 = context.getResources().getString(context.getResources().getIdentifier("zeus_popup_not_support_protocol_start", EMABTest.TYPE_STRING, context.getPackageName())) + substring;
+                        int identifier = context.getResources().getIdentifier("zeus_popup_not_support_protocol_end", EMABTest.TYPE_STRING, context.getPackageName());
                         ((TextView) inflate.findViewById(context.getResources().getIdentifier("sailor_noapp_support_warnings_text", "id", context.getPackageName()))).setText(str3 + context.getResources().getString(identifier));
-                        AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", "string", context.getPackageName()), new DialogInterface.OnClickListener(this) { // from class: com.baidu.webkit.internal.b.b.2
+                        AlertDialog show = new AlertDialog.Builder(context).setView(inflate).setPositiveButton(context.getResources().getIdentifier("sailor_common_ok", EMABTest.TYPE_STRING, context.getPackageName()), new DialogInterface.OnClickListener(this) { // from class: com.baidu.webkit.internal.b.b.2
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ b a;
@@ -105,9 +107,9 @@ public final class b extends g {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -117,9 +119,9 @@ public final class b extends g {
                             }
 
                             @Override // android.content.DialogInterface.OnClickListener
-                            public final void onClick(DialogInterface dialogInterface, int i2) {
+                            public final void onClick(DialogInterface dialogInterface, int i) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                                 }
                             }
                         }).setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.webkit.internal.b.b.1
@@ -134,9 +136,9 @@ public final class b extends g {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -159,7 +161,7 @@ public final class b extends g {
                             public final /* synthetic */ AlertDialog a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ b f51378b;
+                            public final /* synthetic */ b f37835b;
 
                             {
                                 Interceptable interceptable2 = $ic;
@@ -168,15 +170,15 @@ public final class b extends g {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, show};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
                                     }
                                 }
-                                this.f51378b = this;
+                                this.f37835b = this;
                                 this.a = show;
                             }
 

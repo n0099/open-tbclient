@@ -19,7 +19,7 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static String A(@Nullable AdInfo adInfo) {
         if (adInfo == null) {
@@ -45,15 +45,15 @@ public class a {
     }
 
     public static int E(@NonNull AdInfo adInfo) {
-        int i2 = adInfo.adBaseInfo.adOperationType;
-        int i3 = 1;
-        if (i2 != 1) {
-            i3 = 2;
-            if (i2 != 2) {
+        int i = adInfo.adBaseInfo.adOperationType;
+        int i2 = 1;
+        if (i != 1) {
+            i2 = 2;
+            if (i != 2) {
                 return 0;
             }
         }
-        return i3;
+        return i2;
     }
 
     public static int F(@NonNull AdInfo adInfo) {
@@ -137,18 +137,18 @@ public class a {
     }
 
     public static int R(AdInfo adInfo) {
-        int i2 = adInfo.adMaterialInfo.materialType;
-        int i3 = 1;
-        if (i2 != 1) {
-            i3 = 2;
-            if (i2 != 2) {
-                i3 = 3;
-                if (i2 != 3) {
+        int i = adInfo.adMaterialInfo.materialType;
+        int i2 = 1;
+        if (i != 1) {
+            i2 = 2;
+            if (i != 2) {
+                i2 = 3;
+                if (i != 3) {
                     return 0;
                 }
             }
         }
-        return i3;
+        return i2;
     }
 
     @Nullable
@@ -237,7 +237,7 @@ public class a {
     }
 
     @Nullable
-    public static SpannableString a(AdInfo adInfo, @ColorInt int i2) {
+    public static SpannableString a(AdInfo adInfo, @ColorInt int i) {
         String format;
         int indexOf;
         String aB = aB(adInfo);
@@ -245,7 +245,7 @@ public class a {
             return null;
         }
         SpannableString spannableString = new SpannableString(format);
-        spannableString.setSpan(new ForegroundColorSpan(i2), indexOf, aB.length() + indexOf, 18);
+        spannableString.setSpan(new ForegroundColorSpan(i), indexOf, aB.length() + indexOf, 18);
         return spannableString;
     }
 
@@ -254,15 +254,15 @@ public class a {
     }
 
     @Deprecated
-    public static String a(int i2) {
-        return a(i2, "下载中  %s%%");
+    public static String a(int i) {
+        return a(i, "下载中  %s%%");
     }
 
-    public static String a(int i2, String str) {
+    public static String a(int i, String str) {
         if (str == null) {
             str = "下载中  %s%%";
         }
-        return String.format(str, Integer.valueOf(i2));
+        return String.format(str, Integer.valueOf(i));
     }
 
     public static String a(Context context, @NonNull AdInfo adInfo) {
@@ -284,8 +284,8 @@ public class a {
             if (adTemplate == null) {
                 return "立即安装";
             }
-            AdInfo j2 = d.j(adTemplate);
-            return TextUtils.isEmpty(j2.adBaseInfo.installAppLabel) ? "立即安装" : j2.adBaseInfo.installAppLabel;
+            AdInfo j = d.j(adTemplate);
+            return TextUtils.isEmpty(j.adBaseInfo.installAppLabel) ? "立即安装" : j.adBaseInfo.installAppLabel;
         }
         return "安装获取奖励";
     }
@@ -296,15 +296,15 @@ public class a {
 
     @Nullable
     public static String aB(@NonNull AdInfo adInfo) {
-        int i2 = adInfo.advertiserInfo.fansCount;
-        if (i2 < 200 || i2 >= 10000) {
-            if (i2 >= 10000) {
+        int i = adInfo.advertiserInfo.fansCount;
+        if (i < 200 || i >= 10000) {
+            if (i >= 10000) {
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
-                return decimalFormat.format(i2 / 10000.0d) + "w";
+                return decimalFormat.format(i / 10000.0d) + "w";
             }
             return null;
         }
-        return String.valueOf(i2);
+        return String.valueOf(i);
     }
 
     public static String aC(@NonNull AdInfo adInfo) {
@@ -360,8 +360,8 @@ public class a {
         if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null || (playableStyleInfo = adConversionInfo.playableStyleInfo) == null) {
             return false;
         }
-        int i2 = playableStyleInfo.playableOrientation;
-        return i2 == 0 || i2 == 2;
+        int i = playableStyleInfo.playableOrientation;
+        return i == 0 || i == 2;
     }
 
     public static boolean aO(AdInfo adInfo) {
@@ -370,14 +370,14 @@ public class a {
         if (adInfo == null || (adConversionInfo = adInfo.adConversionInfo) == null || (playableStyleInfo = adConversionInfo.playableStyleInfo) == null) {
             return false;
         }
-        int i2 = playableStyleInfo.playableOrientation;
-        return i2 == 0 || i2 == 1;
+        int i = playableStyleInfo.playableOrientation;
+        return i == 0 || i == 1;
     }
 
     @NonNull
     public static com.kwad.sdk.core.response.model.c aa(@NonNull AdInfo adInfo) {
         String str;
-        int j2;
+        int j;
         int k;
         boolean z;
         String c2 = c(adInfo);
@@ -386,17 +386,17 @@ public class a {
         if (at.a(c2) || at.b(c2) || e2 == 0 || f2 == 0) {
             String h2 = h(adInfo);
             str = h2;
-            j2 = j(adInfo);
+            j = j(adInfo);
             k = k(adInfo);
             z = true;
         } else {
             str = c2;
-            j2 = e2;
+            j = e2;
             k = f2;
             z = false;
         }
         com.kwad.sdk.core.d.a.a("AdInfoHelper", "frameUrl=" + str + " useCover=" + z + " isAd=true");
-        return new com.kwad.sdk.core.response.model.c(str, j2, k, true, z);
+        return new com.kwad.sdk.core.response.model.c(str, j, k, true, z);
     }
 
     public static String ab(AdInfo adInfo) {
@@ -422,14 +422,14 @@ public class a {
 
     public static int ag(AdInfo adInfo) {
         if (adInfo != null) {
-            int i2 = adInfo.status;
-            if (i2 == 0) {
+            int i = adInfo.status;
+            if (i == 0) {
                 return 1;
             }
-            if (1 == i2 || 2 == i2 || 3 == i2 || 4 == i2) {
+            if (1 == i || 2 == i || 3 == i || 4 == i) {
                 return 2;
             }
-            return 8 == i2 ? 3 : 0;
+            return 8 == i ? 3 : 0;
         }
         return 0;
     }
@@ -571,8 +571,8 @@ public class a {
         return J(adInfo).videoDuration;
     }
 
-    public static String b(int i2) {
-        return "继续下载 " + i2 + "%";
+    public static String b(int i) {
+        return "继续下载 " + i + "%";
     }
 
     public static String c(@NonNull AdInfo adInfo) {
@@ -713,11 +713,11 @@ public class a {
     }
 
     public static float x(@NonNull AdInfo adInfo) {
-        int i2 = adInfo.adBaseInfo.appScore;
-        if (i2 <= 0) {
+        int i = adInfo.adBaseInfo.appScore;
+        if (i <= 0) {
             return 0.0f;
         }
-        return i2 / 10.0f;
+        return i / 10.0f;
     }
 
     public static float y(@NonNull AdInfo adInfo) {

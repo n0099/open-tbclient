@@ -97,10 +97,10 @@ public interface IFragment {
     Object getSharedElementReturnTransition();
 
     @NonNull
-    String getString(@StringRes int i2);
+    String getString(@StringRes int i);
 
     @NonNull
-    String getString(@StringRes int i2, Object... objArr);
+    String getString(@StringRes int i, Object... objArr);
 
     @Nullable
     String getTag();
@@ -108,7 +108,7 @@ public interface IFragment {
     int getTargetRequestCode();
 
     @NonNull
-    CharSequence getText(@StringRes int i2);
+    CharSequence getText(@StringRes int i);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -151,7 +151,7 @@ public interface IFragment {
     @Keep
     void registerForContextMenu(View view);
 
-    void requestPermissions(@NonNull String[] strArr, int i2);
+    void requestPermissions(@NonNull String[] strArr, int i);
 
     @KsAdSdkDynamicApi
     @Keep
@@ -221,15 +221,15 @@ public interface IFragment {
 
     @KsAdSdkDynamicApi
     @Keep
-    void startActivityForResult(Intent intent, int i2);
+    void startActivityForResult(Intent intent, int i);
 
     @KsAdSdkDynamicApi
     @Keep
-    void startActivityForResult(Intent intent, int i2, @Nullable Bundle bundle);
+    void startActivityForResult(Intent intent, int i, @Nullable Bundle bundle);
 
     @KsAdSdkDynamicApi
     @Keep
-    void startIntentSenderForResult(IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, Bundle bundle);
+    void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle);
 
     @KsAdSdkDynamicApi
     @Keep

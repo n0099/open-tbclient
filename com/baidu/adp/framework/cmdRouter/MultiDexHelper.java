@@ -52,9 +52,9 @@ public class MultiDexHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -131,9 +131,9 @@ public class MultiDexHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -179,9 +179,9 @@ public class MultiDexHelper {
             ArrayList arrayList = new ArrayList();
             arrayList.add(applicationInfo.sourceDir);
             String str = file.getName() + ".classes";
-            int i2 = getMultiDexPreferences(context).getInt("dex.number", 1);
-            for (int i3 = 2; i3 <= i2; i3++) {
-                File file3 = new File(file2, str + i3 + ".zip");
+            int i = getMultiDexPreferences(context).getInt("dex.number", 1);
+            for (int i2 = 2; i2 <= i; i2++) {
+                File file3 = new File(file2, str + i2 + ".zip");
                 if (file3.isFile()) {
                     arrayList.add(file3.getAbsolutePath());
                 } else {

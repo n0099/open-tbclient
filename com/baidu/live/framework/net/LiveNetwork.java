@@ -1,17 +1,17 @@
 package com.baidu.live.framework.net;
 
 import android.os.Handler;
-import c.a.w.f.d.c;
+import c.a.v.f.d.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +20,7 @@ import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000:\u00016B\u0007¢\u0006\u0004\b5\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J'\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\f\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\f\u0010\u000bJ7\u0010\u0011\u001a\u00020\u0001\"\u0004\b\u0000\u0010\r2\u0012\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u000e2\u000e\u0010\t\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0010¢\u0006\u0004\b\u0011\u0010\u0012JI\u0010\u0015\u001a\u00020\u0001\"\u0004\b\u0000\u0010\r2\u0012\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u000e2\u000e\u0010\t\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u00102\u0010\b\u0002\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\r\u0010\u0017\u001a\u00020\u0001¢\u0006\u0004\b\u0017\u0010\u0003J\u0015\u0010\u001a\u001a\u00020\u00012\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ#\u0010\u001d\u001a\u00020\u00012\u0014\u0010\u001c\u001a\u0010\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e¢\u0006\u0004\b\u001d\u0010\u001eJ5\u0010\"\u001a\u00020\u00012&\u0010!\u001a\"\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u001fj\u0010\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0018\u0001` ¢\u0006\u0004\b\"\u0010#J\u0015\u0010$\u001a\u00020\u00012\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b$\u0010\u001bJ\u0015\u0010&\u001a\u00020\u00012\u0006\u0010%\u001a\u00020\u0018¢\u0006\u0004\b&\u0010\u001bJ\u0015\u0010(\u001a\u00020\u00012\u0006\u0010'\u001a\u00020\u0006¢\u0006\u0004\b(\u0010)R\u001d\u0010/\u001a\u00020*8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.R\u001e\u00102\u001a\n 1*\u0004\u0018\u000100008\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0018\u0010'\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u00104¨\u00067"}, d2 = {"Lcom/baidu/live/framework/net/LiveNetwork;", "", QueryResponse.Options.CANCEL, "()V", "", "key", "", "localPath", "Lcom/baidu/live/framework/net/LiveNetDownloadCallback;", WebChromeClient.KEY_ARG_CALLBACK, "download", "(Ljava/lang/Object;Ljava/lang/String;Lcom/baidu/live/framework/net/LiveNetDownloadCallback;)V", "downloadSync", "ResponseDataT", "", "params", "Lcom/baidu/live/framework/net/LiveNetCallback;", "get", "(Ljava/util/Map;Lcom/baidu/live/framework/net/LiveNetCallback;)V", "", "grFeedList", "post", "(Ljava/util/Map;Lcom/baidu/live/framework/net/LiveNetCallback;Ljava/util/List;)V", "release", "", com.alipay.sdk.data.a.O, "setConnectTimeout", "(I)V", "extra", "setExtra", "(Ljava/util/Map;)V", "Ljava/util/HashMap;", "Lkotlin/collections/HashMap;", "headers", "setHeaderData", "(Ljava/util/HashMap;)V", "setReadTimeout", "retryCount", "setRetryCount", "url", "setUrl", "(Ljava/lang/String;)V", "Landroid/os/Handler;", "mainHandler$delegate", "Lkotlin/Lazy;", "getMainHandler", "()Landroid/os/Handler;", "mainHandler", "Lcom/baidu/searchbox/live/interfaces/net/INetWork;", "kotlin.jvm.PlatformType", "netImpl", "Lcom/baidu/searchbox/live/interfaces/net/INetWork;", "Ljava/lang/String;", "<init>", "Response", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010$\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\u0018\u0000:\u00016B\u0007¢\u0006\u0004\b5\u0010\u0003J\r\u0010\u0002\u001a\u00020\u0001¢\u0006\u0004\b\u0002\u0010\u0003J'\u0010\n\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\n\u0010\u000bJ'\u0010\f\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\b\u0010\t\u001a\u0004\u0018\u00010\b¢\u0006\u0004\b\f\u0010\u000bJ7\u0010\u0011\u001a\u00020\u0001\"\u0004\b\u0000\u0010\r2\u0012\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u000e2\u000e\u0010\t\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u0010¢\u0006\u0004\b\u0011\u0010\u0012JI\u0010\u0015\u001a\u00020\u0001\"\u0004\b\u0000\u0010\r2\u0012\u0010\u000f\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u00060\u000e2\u000e\u0010\t\u001a\n\u0012\u0004\u0012\u00028\u0000\u0018\u00010\u00102\u0010\b\u0002\u0010\u0014\u001a\n\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u0013¢\u0006\u0004\b\u0015\u0010\u0016J\r\u0010\u0017\u001a\u00020\u0001¢\u0006\u0004\b\u0017\u0010\u0003J\u0015\u0010\u001a\u001a\u00020\u00012\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b\u001a\u0010\u001bJ#\u0010\u001d\u001a\u00020\u00012\u0014\u0010\u001c\u001a\u0010\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u000e¢\u0006\u0004\b\u001d\u0010\u001eJ5\u0010\"\u001a\u00020\u00012&\u0010!\u001a\"\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0018\u00010\u001fj\u0010\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020\u0006\u0018\u0001` ¢\u0006\u0004\b\"\u0010#J\u0015\u0010$\u001a\u00020\u00012\u0006\u0010\u0019\u001a\u00020\u0018¢\u0006\u0004\b$\u0010\u001bJ\u0015\u0010&\u001a\u00020\u00012\u0006\u0010%\u001a\u00020\u0018¢\u0006\u0004\b&\u0010\u001bJ\u0015\u0010(\u001a\u00020\u00012\u0006\u0010'\u001a\u00020\u0006¢\u0006\u0004\b(\u0010)R\u001d\u0010/\u001a\u00020*8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.R\u001e\u00102\u001a\n 1*\u0004\u0018\u000100008\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0018\u0010'\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b'\u00104¨\u00067"}, d2 = {"Lcom/baidu/live/framework/net/LiveNetwork;", "", "cancel", "()V", "", "key", "", "localPath", "Lcom/baidu/live/framework/net/LiveNetDownloadCallback;", WebChromeClient.KEY_ARG_CALLBACK, "download", "(Ljava/lang/Object;Ljava/lang/String;Lcom/baidu/live/framework/net/LiveNetDownloadCallback;)V", "downloadSync", "ResponseDataT", "", "params", "Lcom/baidu/live/framework/net/LiveNetCallback;", SharedPreferenceManager.OPERATION_GET_PERFIX, "(Ljava/util/Map;Lcom/baidu/live/framework/net/LiveNetCallback;)V", "", "grFeedList", "post", "(Ljava/util/Map;Lcom/baidu/live/framework/net/LiveNetCallback;Ljava/util/List;)V", "release", "", "timeout", "setConnectTimeout", "(I)V", "extra", "setExtra", "(Ljava/util/Map;)V", "Ljava/util/HashMap;", "Lkotlin/collections/HashMap;", "headers", "setHeaderData", "(Ljava/util/HashMap;)V", "setReadTimeout", "retryCount", "setRetryCount", "url", "setUrl", "(Ljava/lang/String;)V", "Landroid/os/Handler;", "mainHandler$delegate", "Lkotlin/Lazy;", "getMainHandler", "()Landroid/os/Handler;", "mainHandler", "Lcom/baidu/searchbox/live/interfaces/net/INetWork;", "kotlin.jvm.PlatformType", "netImpl", "Lcom/baidu/searchbox/live/interfaces/net/INetWork;", "Ljava/lang/String;", "<init>", "Response", "lib-live-feed-page_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
 public final class LiveNetwork {
     public static /* synthetic */ Interceptable $ic;
@@ -28,10 +28,10 @@ public final class LiveNetwork {
     public final Lazy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33524b;
+    public String f25841b;
 
     /* renamed from: c  reason: collision with root package name */
-    public INetWork f33525c;
+    public INetWork f25842c;
 
     /* loaded from: classes4.dex */
     public static final class a<T> {
@@ -40,7 +40,7 @@ public final class LiveNetwork {
         public final NetResponse a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f33526b;
+        public final T f25843b;
 
         public a(NetResponse response, T t) {
             Interceptable interceptable = $ic;
@@ -49,9 +49,9 @@ public final class LiveNetwork {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {response, t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,13 +59,13 @@ public final class LiveNetwork {
             }
             Intrinsics.checkNotNullParameter(response, "response");
             this.a = response;
-            this.f33526b = t;
+            this.f25843b = t;
         }
 
         public final T a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f33526b : (T) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f25843b : (T) invokeV.objValue;
         }
 
         public final NetResponse b() {
@@ -81,7 +81,7 @@ public final class LiveNetwork {
                 if (this != obj) {
                     if (obj instanceof a) {
                         a aVar = (a) obj;
-                        return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f33526b, aVar.f33526b);
+                        return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f25843b, aVar.f25843b);
                     }
                     return false;
                 }
@@ -96,7 +96,7 @@ public final class LiveNetwork {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 NetResponse netResponse = this.a;
                 int hashCode = (netResponse != null ? netResponse.hashCode() : 0) * 31;
-                T t = this.f33526b;
+                T t = this.f25843b;
                 return hashCode + (t != null ? t.hashCode() : 0);
             }
             return invokeV.intValue;
@@ -106,7 +106,7 @@ public final class LiveNetwork {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Response(response=" + this.a + ", data=" + this.f33526b + SmallTailInfo.EMOTION_SUFFIX;
+                return "Response(response=" + this.a + ", data=" + this.f25843b + SmallTailInfo.EMOTION_SUFFIX;
             }
             return (String) invokeV.objValue;
         }
@@ -116,29 +116,25 @@ public final class LiveNetwork {
     public static final class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ LiveNetwork a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LiveNetwork f33527e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ Map f25844b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Map f33528f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ c.a.v.f.d.a f25845c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ c.a.w.f.d.a f33529g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ List f33530h;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ List f25846d;
 
         /* loaded from: classes4.dex */
         public static final class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f33531e;
-
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f33532f;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ a f25847b;
 
             public a(b bVar, a aVar) {
                 Interceptable interceptable = $ic;
@@ -147,73 +143,73 @@ public final class LiveNetwork {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar, aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f33531e = bVar;
-                this.f33532f = aVar;
+                this.a = bVar;
+                this.f25847b = aVar;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
-                c.a.w.f.d.a aVar;
+                c.a.v.f.d.a aVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.f33531e.f33529g) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.a.f25845c) == null) {
                     return;
                 }
-                a aVar2 = this.f33532f;
+                a aVar2 = this.f25847b;
                 NetResponse b2 = aVar2 != null ? aVar2.b() : null;
-                a aVar3 = this.f33532f;
+                a aVar3 = this.f25847b;
                 Object a = aVar3 != null ? aVar3.a() : null;
-                b bVar = this.f33531e;
-                aVar.a(b2, a, bVar.f33528f, bVar.f33530h);
+                b bVar = this.a;
+                aVar.a(b2, a, bVar.f25844b, bVar.f25846d);
             }
         }
 
-        public b(LiveNetwork liveNetwork, Map map, c.a.w.f.d.a aVar, List list) {
+        public b(LiveNetwork liveNetwork, Map map, c.a.v.f.d.a aVar, List list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {liveNetwork, map, aVar, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33527e = liveNetwork;
-            this.f33528f = map;
-            this.f33529g = aVar;
-            this.f33530h = list;
+            this.a = liveNetwork;
+            this.f25844b = map;
+            this.f25845c = aVar;
+            this.f25846d = list;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                INetWork iNetWork = this.f33527e.f33525c;
+                INetWork iNetWork = this.a.f25842c;
                 Intrinsics.checkNotNull(iNetWork);
-                NetResponse res = iNetWork.postSync(this.f33528f);
+                NetResponse res = iNetWork.postSync(this.f25844b);
                 Object obj = null;
                 try {
-                    c.a.w.f.d.a aVar = this.f33529g;
+                    c.a.v.f.d.a aVar = this.f25845c;
                     if (aVar != null) {
                         obj = aVar.onParseResponseInBackground(res);
                     }
                 } catch (Exception e2) {
-                    c.a.w.f.g.a.a(e2);
+                    c.a.v.f.g.a.a(e2);
                 }
                 Intrinsics.checkNotNullExpressionValue(res, "res");
-                this.f33527e.c().post(new a(this, new a(res, obj)));
+                this.a.c().post(new a(this, new a(res, obj)));
             }
         }
     }
@@ -223,16 +219,16 @@ public final class LiveNetwork {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = LazyKt__LazyJVMKt.lazy(LiveNetwork$mainHandler$2.INSTANCE);
-        this.f33525c = c.a();
+        this.f25842c = c.a();
     }
 
     public final Handler c() {
@@ -241,22 +237,22 @@ public final class LiveNetwork {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (Handler) this.a.getValue() : (Handler) invokeV.objValue;
     }
 
-    public final <ResponseDataT> void d(Map<String, String> params, c.a.w.f.d.a<ResponseDataT> aVar, List<String> list) {
+    public final <ResponseDataT> void d(Map<String, String> params, c.a.v.f.d.a<ResponseDataT> aVar, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params, aVar, list) == null) {
             Intrinsics.checkNotNullParameter(params, "params");
-            String str = this.f33524b;
-            if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f33525c == null) {
+            String str = this.f25841b;
+            if (str == null || !(!StringsKt__StringsJVMKt.isBlank(str)) || this.f25842c == null) {
                 return;
             }
-            c.a.w.f.f.a.b(new b(this, params, aVar, list), "live-feedpage-net", 0);
+            c.a.v.f.f.a.b(new b(this, params, aVar, list), "live-feedpage-net", 0);
         }
     }
 
     public final void e(Map<String, ? extends Object> map) {
         INetWork iNetWork;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || (iNetWork = this.f33525c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) || (iNetWork = this.f25842c) == null) {
             return;
         }
         iNetWork.setExtra(map);
@@ -266,8 +262,8 @@ public final class LiveNetwork {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, url) == null) {
             Intrinsics.checkNotNullParameter(url, "url");
-            this.f33524b = url;
-            INetWork iNetWork = this.f33525c;
+            this.f25841b = url;
+            INetWork iNetWork = this.f25842c;
             if (iNetWork != null) {
                 iNetWork.setUrl(url);
             }

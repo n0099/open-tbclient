@@ -25,23 +25,23 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     public String mKey;
     public long mPaId;
 
-    public IMGetPaTypeRequest(Context context, String str, long j2) {
+    public IMGetPaTypeRequest(Context context, String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2)};
+            Object[] objArr = {context, str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mPaId = j2;
+        this.mPaId = j;
         this.mKey = str;
     }
 
@@ -77,50 +77,50 @@ public class IMGetPaTypeRequest extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, bArr, th) == null) {
-            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + bArr);
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
+            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + bArr);
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mPaId, -1);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
+        int i2;
         int i3;
         int i4;
-        int i5;
         String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
-            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + bArr);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
+            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + bArr);
             String str2 = new String(bArr);
-            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i2 + " " + str2);
-            int i6 = -1;
+            LogUtils.d(RetrieveReportRequest.APP_NAME, "IMGetPaTypeRequest " + this.mPaId + GlideException.IndentedAppendable.INDENT + i + " " + str2);
+            int i5 = -1;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i5 = jSONObject2.getInt("error_code");
-                    i6 = jSONObject2.optInt("type");
+                    i4 = jSONObject2.getInt("error_code");
+                    i5 = jSONObject2.optInt("type");
                     optString = Constants.ERROR_MSG_SUCCESS;
                 } else {
-                    i5 = jSONObject.getInt("error_code");
+                    i4 = jSONObject.getInt("error_code");
                     optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
                 }
-                i4 = i6;
-                str = optString;
                 i3 = i5;
+                str = optString;
+                i2 = i4;
             } catch (JSONException e2) {
                 LogUtils.e("IMQueryZhidaSubscribedStateRequest", "JSONException", e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
-                i4 = -1;
+                i2 = 1010;
+                i3 = -1;
             }
-            PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, i3, str, this.mPaId, i4);
+            PaManagerImpl.getInstance(this.mContext).onGetPaTypeResult(this.mKey, i2, str, this.mPaId, i3);
         }
     }
 

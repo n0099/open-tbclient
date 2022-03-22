@@ -9,14 +9,14 @@ public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
             if (i.i()) {
                 return CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
             }
-            switch (i2) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 4:

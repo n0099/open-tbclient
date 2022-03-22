@@ -67,7 +67,6 @@ import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuListener, LifecycleOwner, ViewModelStoreOwner, HasDefaultViewModelProviderFactory, SavedStateRegistryOwner {
     public static /* synthetic */ Interceptable $ic = null;
@@ -162,9 +161,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -196,9 +195,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, exc};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -237,9 +236,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -264,9 +263,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -318,9 +317,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -860,10 +859,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @NonNull
-    public final String getString(@StringRes int i2) {
+    public final String getString(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) ? getResources().getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) ? getResources().getString(i) : (String) invokeI.objValue;
     }
 
     @Nullable
@@ -899,10 +898,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @NonNull
-    public final CharSequence getText(@StringRes int i2) {
+    public final CharSequence getText(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i2)) == null) ? getResources().getText(i2) : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048617, this, i)) == null) ? getResources().getText(i) : (CharSequence) invokeI.objValue;
     }
 
     @Deprecated
@@ -1114,9 +1113,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048641, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048641, this, i, i2, intent) == null) {
         }
     }
 
@@ -1177,10 +1176,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     @Nullable
     @MainThread
-    public Animation onCreateAnimation(int i2, boolean z, int i3) {
+    public Animation onCreateAnimation(int i, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048648, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048648, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             return null;
         }
         return (Animation) invokeCommon.objValue;
@@ -1188,10 +1187,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     @Nullable
     @MainThread
-    public Animator onCreateAnimator(int i2, boolean z, int i3) {
+    public Animator onCreateAnimator(int i, boolean z, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
             return null;
         }
         return (Animator) invokeCommon.objValue;
@@ -1219,9 +1218,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048652, this, layoutInflater, viewGroup, bundle)) == null) {
-            int i2 = this.mContentLayoutId;
-            if (i2 != 0) {
-                return layoutInflater.inflate(i2, viewGroup, false);
+            int i = this.mContentLayoutId;
+            if (i != 0) {
+                return layoutInflater.inflate(i, viewGroup, false);
             }
             return null;
         }
@@ -1353,9 +1352,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048669, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048669, this, i, strArr, iArr) == null) {
         }
     }
 
@@ -1439,9 +1438,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1452,13 +1451,13 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
                 @Override // androidx.fragment.app.FragmentContainer
                 @Nullable
-                public View onFindViewById(int i2) {
+                public View onFindViewById(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) {
+                    if (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) {
                         View view = this.this$0.mView;
                         if (view != null) {
-                            return view.findViewById(i2);
+                            return view.findViewById(i);
                         }
                         throw new IllegalStateException("Fragment " + this + " does not have a view");
                     }
@@ -1800,12 +1799,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public final void requestPermissions(@NonNull String[] strArr, int i2) {
+    public final void requestPermissions(@NonNull String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048702, this, strArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048702, this, strArr, i) == null) {
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
             if (fragmentHostCallback != null) {
-                fragmentHostCallback.onRequestPermissionsFromFragment(this, strArr, i2);
+                fragmentHostCallback.onRequestPermissionsFromFragment(this, strArr, i);
                 return;
             }
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
@@ -2045,24 +2044,24 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void setNextAnim(int i2) {
+    public void setNextAnim(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048725, this, i2) == null) {
-            if (this.mAnimationInfo == null && i2 == 0) {
+        if (interceptable == null || interceptable.invokeI(1048725, this, i) == null) {
+            if (this.mAnimationInfo == null && i == 0) {
                 return;
             }
-            ensureAnimationInfo().mNextAnim = i2;
+            ensureAnimationInfo().mNextAnim = i;
         }
     }
 
-    public void setNextTransition(int i2) {
+    public void setNextTransition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048726, this, i2) == null) {
-            if (this.mAnimationInfo == null && i2 == 0) {
+        if (interceptable == null || interceptable.invokeI(1048726, this, i) == null) {
+            if (this.mAnimationInfo == null && i == 0) {
                 return;
             }
             ensureAnimationInfo();
-            this.mAnimationInfo.mNextTransition = i2;
+            this.mAnimationInfo.mNextTransition = i;
         }
     }
 
@@ -2130,16 +2129,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void setStateAfterAnimating(int i2) {
+    public void setStateAfterAnimating(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048733, this, i2) == null) {
-            ensureAnimationInfo().mStateAfterAnimating = i2;
+        if (interceptable == null || interceptable.invokeI(1048733, this, i) == null) {
+            ensureAnimationInfo().mStateAfterAnimating = i;
         }
     }
 
-    public void setTargetFragment(@Nullable Fragment fragment, int i2) {
+    public void setTargetFragment(@Nullable Fragment fragment, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048734, this, fragment, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048734, this, fragment, i) == null) {
             FragmentManager fragmentManager = this.mFragmentManager;
             FragmentManager fragmentManager2 = fragment != null ? fragment.mFragmentManager : null;
             if (fragmentManager != null && fragmentManager2 != null && fragmentManager != fragmentManager2) {
@@ -2160,7 +2159,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.mTargetWho = null;
                 this.mTarget = fragment;
             }
-            this.mTargetRequestCode = i2;
+            this.mTargetRequestCode = i;
         }
     }
 
@@ -2199,19 +2198,19 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i2) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048739, this, intent, i2) == null) {
-            startActivityForResult(intent, i2, null);
+        if (interceptable == null || interceptable.invokeLI(1048739, this, intent, i) == null) {
+            startActivityForResult(intent, i, null);
         }
     }
 
-    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048741, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048741, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
             if (fragmentHostCallback != null) {
-                fragmentHostCallback.onStartIntentSenderFromFragment(this, intentSender, i2, intent, i3, i4, i5, bundle);
+                fragmentHostCallback.onStartIntentSenderFromFragment(this, intentSender, i, intent, i2, i3, i4, bundle);
                 return;
             }
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
@@ -2236,9 +2235,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -2286,7 +2285,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 sb.append(" ");
                 sb.append(this.mTag);
             }
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -2330,9 +2329,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -2341,10 +2340,10 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -2373,9 +2372,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bundle};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -2395,9 +2394,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 parcel.writeBundle(this.mState);
             }
         }
@@ -2409,9 +2408,9 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -2453,16 +2452,16 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     @NonNull
-    public final String getString(@StringRes int i2, @Nullable Object... objArr) {
+    public final String getString(@StringRes int i, @Nullable Object... objArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i2, objArr)) == null) ? getResources().getString(i2, objArr) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, objArr)) == null) ? getResources().getString(i, objArr) : (String) invokeIL.objValue;
     }
 
-    public final void postponeEnterTransition(long j2, @NonNull TimeUnit timeUnit) {
+    public final void postponeEnterTransition(long j, @NonNull TimeUnit timeUnit) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048700, this, j2, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048700, this, j, timeUnit) == null) {
             ensureAnimationInfo().mEnterTransitionPostponed = true;
             FragmentManager fragmentManager = this.mFragmentManager;
             if (fragmentManager != null) {
@@ -2471,7 +2470,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 handler = new Handler(Looper.getMainLooper());
             }
             handler.removeCallbacks(this.mPostponedDurationRunnable);
-            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j2));
+            handler.postDelayed(this.mPostponedDurationRunnable, timeUnit.toMillis(j));
         }
     }
 
@@ -2487,12 +2486,12 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         }
     }
 
-    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i2, @Nullable Bundle bundle) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048740, this, intent, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048740, this, intent, i, bundle) == null) {
             FragmentHostCallback<?> fragmentHostCallback = this.mHost;
             if (fragmentHostCallback != null) {
-                fragmentHostCallback.onStartActivityFromFragment(this, intent, i2, bundle);
+                fragmentHostCallback.onStartActivityFromFragment(this, intent, i, bundle);
                 return;
             }
             throw new IllegalStateException("Fragment " + this + " not attached to Activity");
@@ -2539,23 +2538,23 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @ContentView
-    public Fragment(@LayoutRes int i2) {
+    public Fragment(@LayoutRes int i) {
         this();
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.mContentLayoutId = i2;
+        this.mContentLayoutId = i;
     }
 }

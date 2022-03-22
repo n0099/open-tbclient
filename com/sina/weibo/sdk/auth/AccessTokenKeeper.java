@@ -15,7 +15,7 @@ import com.sina.weibo.sdk.network.IRequestService;
 import com.sina.weibo.sdk.network.impl.RequestParam;
 import com.sina.weibo.sdk.network.impl.RequestService;
 import com.sina.weibo.sdk.network.target.SimpleTarget;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AccessTokenKeeper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ACCESS_TOKEN = "access_token";
@@ -30,9 +30,9 @@ public class AccessTokenKeeper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -93,9 +93,9 @@ public class AccessTokenKeeper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context, requestListener};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

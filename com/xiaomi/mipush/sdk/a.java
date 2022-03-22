@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +16,7 @@ import com.xiaomi.push.el;
 import java.util.HashSet;
 import java.util.Set;
 @TargetApi(14)
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +27,9 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,8 +78,8 @@ public class a implements Application.ActivityLifecycleCallbacks {
         Intent intent;
         el a;
         String packageName;
-        String m349a;
-        int i2;
+        String m328a;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, activity) == null) || (intent = activity.getIntent()) == null) {
             return;
@@ -94,17 +93,17 @@ public class a implements Application.ActivityLifecycleCallbacks {
         if (intExtra == 3000) {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m349a = ek.m349a(intExtra);
-            i2 = SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY;
+            m328a = ek.m328a(intExtra);
+            i = 3008;
         } else if (intExtra != 1000) {
             return;
         } else {
             a = el.a(activity.getApplicationContext());
             packageName = activity.getPackageName();
-            m349a = ek.m349a(intExtra);
-            i2 = 1008;
+            m328a = ek.m328a(intExtra);
+            i = 1008;
         }
-        a.a(packageName, m349a, stringExtra, i2, null);
+        a.a(packageName, m328a, stringExtra, i, null);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

@@ -19,9 +19,9 @@ public class DownloadConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,17 +43,17 @@ public class DownloadConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.threadNum : invokeV.intValue;
     }
 
-    public void setMaxThreadNum(int i2) {
+    public void setMaxThreadNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.maxThreadNum = i2;
+        if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.maxThreadNum = i;
         }
     }
 
-    public void setThreadNum(int i2) {
+    public void setThreadNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.threadNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.threadNum = i;
         }
     }
 }

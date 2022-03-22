@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,9 +87,9 @@ public abstract class AppCompatDelegate {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -170,11 +171,13 @@ public abstract class AppCompatDelegate {
         }
     }
 
-    public static void setDefaultNightMode(int i2) {
+    public static void setDefaultNightMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i2) == null) {
-            if ((i2 == -1 || i2 == 0 || i2 == 1 || i2 == 2 || i2 == 3) && sDefaultNightMode != i2) {
-                sDefaultNightMode = i2;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            if (i != -1 && i != 0 && i != 1 && i != 2 && i != 3) {
+                Log.d(TAG, "setDefaultNightMode() called with an unknown mode");
+            } else if (sDefaultNightMode != i) {
+                sDefaultNightMode = i;
                 applyDayNightToActiveDelegates();
             }
         }
@@ -206,7 +209,7 @@ public abstract class AppCompatDelegate {
     public abstract View createView(@Nullable View view, String str, @NonNull Context context, @NonNull AttributeSet attributeSet);
 
     @Nullable
-    public abstract <T extends View> T findViewById(@IdRes int i2);
+    public abstract <T extends View> T findViewById(@IdRes int i);
 
     @Nullable
     public abstract ActionBarDrawerToggle.Delegate getDrawerToggleDelegate();
@@ -225,7 +228,7 @@ public abstract class AppCompatDelegate {
     @Nullable
     public abstract ActionBar getSupportActionBar();
 
-    public abstract boolean hasWindowFeature(int i2);
+    public abstract boolean hasWindowFeature(int i);
 
     public abstract void installViewFactory();
 
@@ -249,9 +252,9 @@ public abstract class AppCompatDelegate {
 
     public abstract void onStop();
 
-    public abstract boolean requestWindowFeature(int i2);
+    public abstract boolean requestWindowFeature(int i);
 
-    public abstract void setContentView(@LayoutRes int i2);
+    public abstract void setContentView(@LayoutRes int i);
 
     public abstract void setContentView(View view);
 
@@ -260,13 +263,13 @@ public abstract class AppCompatDelegate {
     public abstract void setHandleNativeActionModesEnabled(boolean z);
 
     @RequiresApi(17)
-    public abstract void setLocalNightMode(int i2);
+    public abstract void setLocalNightMode(int i);
 
     public abstract void setSupportActionBar(@Nullable Toolbar toolbar);
 
-    public void setTheme(@StyleRes int i2) {
+    public void setTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
         }
     }
 

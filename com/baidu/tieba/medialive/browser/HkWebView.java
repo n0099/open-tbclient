@@ -21,11 +21,11 @@ public class HkWebView extends HkMWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: g  reason: collision with root package name */
-    public HkWebView f44355g;
+    /* renamed from: d  reason: collision with root package name */
+    public HkWebView f34387d;
 
-    /* renamed from: h  reason: collision with root package name */
-    public Context f44356h;
+    /* renamed from: e  reason: collision with root package name */
+    public Context f34388e;
 
     /* loaded from: classes5.dex */
     public class a extends HkMWebView.c {
@@ -33,7 +33,7 @@ public class HkWebView extends HkMWebView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ HkWebView f44357c;
+        public final /* synthetic */ HkWebView f34389c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(HkWebView hkWebView, HkMWebView hkMWebView, Activity activity) {
@@ -44,9 +44,9 @@ public class HkWebView extends HkMWebView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {hkWebView, hkMWebView, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((HkMWebView) objArr2[0], (Activity) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -54,7 +54,7 @@ public class HkWebView extends HkMWebView {
                     return;
                 }
             }
-            this.f44357c = hkWebView;
+            this.f34389c = hkWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
@@ -74,11 +74,11 @@ public class HkWebView extends HkMWebView {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-                super.onReceivedError(webView, i2, str, str2);
-                if (-10 == i2) {
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
+                if (-10 == i) {
                 }
             }
         }
@@ -106,21 +106,21 @@ public class HkWebView extends HkMWebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44355g = this;
-        this.f44356h = context;
+        this.f34387d = this;
+        this.f34388e = context;
         init();
     }
 
-    public final void a(Context context) {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && Build.VERSION.SDK_INT == 17 && context != null) {
             try {
@@ -152,18 +152,18 @@ public class HkWebView extends HkMWebView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    this.f44355g.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.f44355g.removeJavascriptInterface("accessibility");
-                    this.f44355g.removeJavascriptInterface("accessibilityTraversal");
+                    this.f34387d.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.f34387d.removeJavascriptInterface("accessibility");
+                    this.f34387d.removeJavascriptInterface("accessibilityTraversal");
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            a(this.f44356h);
+            b(this.f34388e);
             getSettings().setCacheMode(-1);
             getSettings().setUserAgentString(getUserAgent());
-            setDownloadListener(new HkMWebView.b(this.f44355g, (Activity) this.f44356h));
-            setWebViewClient(new a(this, this.f44355g, (Activity) this.f44356h));
+            setDownloadListener(new HkMWebView.b(this.f34387d, (Activity) this.f34388e));
+            setWebViewClient(new a(this, this.f34387d, (Activity) this.f34388e));
         }
     }
 
@@ -176,9 +176,9 @@ public class HkWebView extends HkMWebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -186,8 +186,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.f44355g = this;
-        this.f44356h = context;
+        this.f34387d = this;
+        this.f34388e = context;
         init();
     }
 }

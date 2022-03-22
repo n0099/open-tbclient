@@ -11,15 +11,15 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a extends com.kwad.sdk.h.d {
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f54538b;
+    public d f39653b;
 
     private void g() {
-        this.a.setAdapter(this.f54538b);
+        this.a.setAdapter(this.f39653b);
     }
 
     public View a(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
@@ -33,7 +33,7 @@ public abstract class a extends com.kwad.sdk.h.d {
     public void c() {
         this.a.setItemAnimator(null);
         this.a.setLayoutManager(e());
-        this.f54538b = a(this.a);
+        this.f39653b = a(this.a);
     }
 
     public RecyclerView d() {
@@ -45,12 +45,12 @@ public abstract class a extends com.kwad.sdk.h.d {
     }
 
     public int f() {
-        return R.id.ksad_recycler_view;
+        return R.id.obfuscated_res_0x7f0910ca;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

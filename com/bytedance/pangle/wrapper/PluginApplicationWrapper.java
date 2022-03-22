@@ -20,7 +20,7 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.io.File;
 @Keep
 @SuppressLint({"MissingSuperCall", "NewApi"})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PluginApplicationWrapper extends Application {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class PluginApplicationWrapper extends Application {
             newInitContext.initArgs = r2;
             Object[] objArr = {application, pluginContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,10 +91,10 @@ public class PluginApplicationWrapper extends Application {
     }
 
     @Override // android.app.Application, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i2) {
+    public void onTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mOriginApplication.onTrimMemory(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mOriginApplication.onTrimMemory(i);
         }
     }
 
@@ -115,10 +115,10 @@ public class PluginApplicationWrapper extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mOriginApplication.setTheme(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mOriginApplication.setTheme(i);
         }
     }
 
@@ -139,10 +139,10 @@ public class PluginApplicationWrapper extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.mOriginApplication.startIntentSender(intentSender, intent, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            this.mOriginApplication.startIntentSender(intentSender, intent, i, i2, i3);
         }
     }
 
@@ -179,10 +179,10 @@ public class PluginApplicationWrapper extends Application {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void startIntentSender(IntentSender intentSender, Intent intent, int i2, int i3, int i4, Bundle bundle) {
+    public void startIntentSender(IntentSender intentSender, Intent intent, int i, int i2, int i3, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{intentSender, intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
-            this.mOriginApplication.startIntentSender(intentSender, intent, i2, i3, i4, bundle);
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{intentSender, intent, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bundle}) == null) {
+            this.mOriginApplication.startIntentSender(intentSender, intent, i, i2, i3, bundle);
         }
     }
 }

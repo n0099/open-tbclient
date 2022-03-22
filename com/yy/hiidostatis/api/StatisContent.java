@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.BaseStatisContent;
 import com.yy.hiidostatis.inner.util.StringUtil;
 import java.util.TreeMap;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StatisContent extends BaseStatisContent {
     public static /* synthetic */ Interceptable $ic;
     public static AtomicInteger TMP_START_ID;
@@ -30,7 +30,7 @@ public class StatisContent extends BaseStatisContent {
     public int tmpId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Priority {
         public static final /* synthetic */ Priority[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -59,16 +59,16 @@ public class StatisContent extends BaseStatisContent {
             $VALUES = new Priority[]{PRIORITY_HIGH, PRIORITY_NORMAL, priority};
         }
 
-        public Priority(String str, int i2) {
+        public Priority(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -112,9 +112,9 @@ public class StatisContent extends BaseStatisContent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -230,10 +230,10 @@ public class StatisContent extends BaseStatisContent {
         }
     }
 
-    public void setAutoId(long j2) {
+    public void setAutoId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mAutoId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mAutoId = j;
         }
     }
 
@@ -244,10 +244,10 @@ public class StatisContent extends BaseStatisContent {
         }
     }
 
-    public void setCrepid(int i2) {
+    public void setCrepid(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mCrepid = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mCrepid = i;
         }
     }
 
@@ -318,9 +318,9 @@ public class StatisContent extends BaseStatisContent {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

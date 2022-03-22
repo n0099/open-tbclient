@@ -2,11 +2,11 @@ package com.kwad.sdk.core.video.videoview;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdVideoPlayerViewCache {
     public HashMap<String, WeakReference<b>> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public enum Holder {
         INSTANCE;
         

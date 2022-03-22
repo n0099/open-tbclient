@@ -27,13 +27,13 @@ public class h {
         notificationManager.cancelAll();
     }
 
-    public static void a(Context context, int i2) {
+    public static void a(Context context, int i) {
         NotificationManager notificationManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, null, context, i2) == null) || (notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65537, null, context, i) == null) || (notificationManager = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)) == null) {
             return;
         }
-        notificationManager.cancel(i2);
+        notificationManager.cancel(i);
     }
 
     @SuppressLint({"NewApi"})
@@ -89,9 +89,9 @@ public class h {
             try {
                 ApplicationInfo applicationInfo = context.getApplicationInfo();
                 String packageName = context.getApplicationContext().getPackageName();
-                int i2 = applicationInfo.uid;
+                int i = applicationInfo.uid;
                 Class<?> cls = Class.forName(AppOpsManager.class.getName());
-                return ((Integer) cls.getMethod(NotificationManagerCompat.CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(((Integer) cls.getDeclaredField(NotificationManagerCompat.OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i2), packageName)).intValue() == 0 ? 1 : 0;
+                return ((Integer) cls.getMethod(NotificationManagerCompat.CHECK_OP_NO_THROW, Integer.TYPE, Integer.TYPE, String.class).invoke((AppOpsManager) context.getSystemService("appops"), Integer.valueOf(((Integer) cls.getDeclaredField(NotificationManagerCompat.OP_POST_NOTIFICATION).get(Integer.class)).intValue()), Integer.valueOf(i), packageName)).intValue() == 0 ? 1 : 0;
             } catch (Throwable unused3) {
                 return 2;
             }

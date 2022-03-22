@@ -25,28 +25,30 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ShareDialogItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final int ITEM_ICON_WIDTH_AND_HEIGHT;
-    public static final int ITEM_NAME_TEXT_SIZE;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final int f46473i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final int f46474j;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public Context f46475e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f46476f;
+    public static final int f35935f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout.LayoutParams f46477g;
+    public static final int f35936g;
 
     /* renamed from: h  reason: collision with root package name */
-    public LinearLayout.LayoutParams f46478h;
-    public ImageView itemIcon;
+    public static final int f35937h;
+    public static final int i;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f35938b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EMTextView f35939c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public LinearLayout.LayoutParams f35940d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public LinearLayout.LayoutParams f35941e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,10 +63,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        ITEM_ICON_WIDTH_AND_HEIGHT = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        f46473i = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        f46474j = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        ITEM_NAME_TEXT_SIZE = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        f35935f = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        f35936g = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        f35937h = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        i = n.f(TbadkCoreApplication.getInst(), R.dimen.T_X09);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -88,62 +90,62 @@ public class ShareDialogItemView extends LinearLayout {
         }
     }
 
-    public ShareDialogItemView create() {
+    public ShareDialogItemView a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             setOrientation(1);
-            addView(this.itemIcon, this.f46477g);
-            addView(this.f46476f, this.f46478h);
+            addView(this.f35938b, this.f35940d);
+            addView(this.f35939c, this.f35941e);
             return this;
         }
         return (ShareDialogItemView) invokeV.objValue;
     }
 
-    public void initItemIconLayoutParams() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = ITEM_ICON_WIDTH_AND_HEIGHT;
+            int i2 = f35935f;
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
-            this.f46477g = layoutParams;
-            layoutParams.topMargin = f46473i;
-            layoutParams.bottomMargin = f46474j;
+            this.f35940d = layoutParams;
+            layoutParams.topMargin = f35936g;
+            layoutParams.bottomMargin = f35937h;
             layoutParams.gravity = 1;
+        }
+    }
+
+    public void c(int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+            this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
         }
     }
 
     public void setItemIcon(AbsSvgType absSvgType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, absSvgType) == null) {
-            this.itemIcon = new ImageView(this.f46475e);
+        if (interceptable == null || interceptable.invokeL(1048581, this, absSvgType) == null) {
+            this.f35938b = new ImageView(this.a);
             setTag(Integer.valueOf(absSvgType.drawableId));
             if (absSvgType instanceof SvgPureType) {
-                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.itemIcon);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f35938b);
             }
-            this.itemIcon.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.itemIcon.setImageDrawable(absSvgType.getDrawable());
-            initItemIconLayoutParams();
+            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.f35938b.setImageDrawable(absSvgType.getDrawable());
+            b();
         }
     }
 
     public void setItemName(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            EMTextView eMTextView = new EMTextView(this.f46475e);
-            this.f46476f = eMTextView;
-            eMTextView.setTextSize(0, ITEM_NAME_TEXT_SIZE);
-            this.f46476f.setText(i2);
-            SkinManager.setViewTextColor(this.f46476f, (int) R.color.CAM_X0107);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+            EMTextView eMTextView = new EMTextView(this.a);
+            this.f35939c = eMTextView;
+            eMTextView.setTextSize(0, i);
+            this.f35939c.setText(i2);
+            SkinManager.setViewTextColor(this.f35939c, (int) R.color.CAM_X0107);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            this.f46478h = layoutParams;
+            this.f35941e = layoutParams;
             layoutParams.gravity = 1;
-        }
-    }
-
-    public void updateItemIcon(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.itemIcon.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
         }
     }
 
@@ -187,48 +189,48 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        this.f46475e = context;
+        this.a = context;
     }
 
     public void setItemIcon(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.itemIcon = new ImageView(this.f46475e);
+        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            this.f35938b = new ImageView(this.a);
             setTag(Integer.valueOf(i2));
-            this.itemIcon.setScaleType(ImageView.ScaleType.FIT_XY);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.itemIcon);
-            this.itemIcon.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
-            initItemIconLayoutParams();
+            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f35938b);
+            this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
+            b();
         }
     }
 
     public void setItemIcon(int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048579, this, i2, i3, i4) == null) {
-            this.itemIcon = new ImageView(this.f46475e);
+        if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
+            this.f35938b = new ImageView(this.a);
             setTag(Integer.valueOf(i4));
-            this.itemIcon.setScaleType(ImageView.ScaleType.FIT_XY);
-            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.itemIcon);
+            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
+            TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.f35938b);
             if (i3 == 0) {
-                this.itemIcon.setImageDrawable(WebPManager.getMaskDrawable(i2, true));
+                this.f35938b.setImageDrawable(WebPManager.getMaskDrawable(i2, true));
             } else {
-                this.itemIcon.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
+                this.f35938b.setImageDrawable(WebPManager.getPureDrawable(i2, i3, null));
             }
-            initItemIconLayoutParams();
+            b();
         }
     }
 
     public void setItemIcon(AbsSvgType absSvgType, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, absSvgType, i2) == null) {
-            this.itemIcon = new ImageView(this.f46475e);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, absSvgType, i2) == null) {
+            this.f35938b = new ImageView(this.a);
             setTag(Integer.valueOf(i2));
             if (absSvgType instanceof SvgPureType) {
-                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.itemIcon);
+                TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0213).into(this.f35938b);
             }
-            this.itemIcon.setScaleType(ImageView.ScaleType.FIT_XY);
-            this.itemIcon.setImageDrawable(absSvgType.getDrawable());
-            initItemIconLayoutParams();
+            this.f35938b.setScaleType(ImageView.ScaleType.FIT_XY);
+            this.f35938b.setImageDrawable(absSvgType.getDrawable());
+            b();
         }
     }
 }

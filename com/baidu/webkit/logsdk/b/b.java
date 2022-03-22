@@ -24,21 +24,21 @@ public final class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51457b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
+    public static String f37910b = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjTe6LTkPFvWowhciLFGS+nqhc\nhfaYCwBhVIkmZXNNiqdBMcNBUmqaAIKYB8lh1+UFf/KmuO14QbAKqzE/FjHWAV51\n68IJCk+DLxu885hYRiNH+kJDRuzDVMOv4NudroOwY1zB3c8VOjjLuz7xE7rRet7d\nAjH9k8YPZuedladalwIDAQAB";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f51458c = "1_0";
+    public static String f37911c = "1_0";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap<String, a> f51459d;
+    public HashMap<String, a> f37912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public HashMap<String, String> f51460e;
+    public HashMap<String, String> f37913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HashMap<String, c> f51461f;
+    public HashMap<String, c> f37914f;
 
     static {
         InterceptResult invokeClinit;
@@ -60,19 +60,19 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f51459d = new HashMap<>();
-        this.f51460e = new HashMap<>();
-        this.f51461f = new HashMap<>();
-        this.f51459d.clear();
-        this.f51460e.clear();
+        this.f37912d = new HashMap<>();
+        this.f37913e = new HashMap<>();
+        this.f37914f = new HashMap<>();
+        this.f37912d.clear();
+        this.f37913e.clear();
     }
 
     public static SharedPreferences a() {
@@ -81,22 +81,22 @@ public final class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? com.baidu.webkit.logsdk.a.b.d().getSharedPreferences("log_config_pref", 0) : (SharedPreferences) invokeV.objValue;
     }
 
-    public static a a(String str, int i2, JSONObject jSONObject) {
+    public static a a(String str, int i, JSONObject jSONObject) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, str, i2, jSONObject)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, str, i, jSONObject)) == null) {
             a aVar = new a(str);
-            aVar.f51455d = d();
-            aVar.f51454c = f();
+            aVar.f37908d = d();
+            aVar.f37907c = f();
             String str2 = "full";
             if (jSONObject != null && jSONObject.length() > 0) {
-                i2 = jSONObject.optInt("log_level", i2);
+                i = jSONObject.optInt("log_level", i);
                 str2 = jSONObject.optString(EditNickNameActivityConfig.PARAM_TYPE, "full");
             }
-            aVar.f51453b = i2;
-            aVar.f51456e = str2;
-            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createConfig type = " + str + ", level = " + i2 + ", params = " + str2);
-            if (i2 == 3) {
+            aVar.f37906b = i;
+            aVar.f37909e = str2;
+            com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "createConfig type = " + str + ", level = " + i + ", params = " + str2);
+            if (i == 3) {
                 com.baidu.webkit.logsdk.a.b.a().h().b().a(str, false);
             }
             return aVar;
@@ -104,11 +104,11 @@ public final class b {
         return (a) invokeLIL.objValue;
     }
 
-    public static void a(String str, long j2) {
+    public static void a(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
             SharedPreferences.Editor edit = a().edit();
-            edit.putLong("upload_".concat(String.valueOf(str)), j2);
+            edit.putLong("upload_".concat(String.valueOf(str)), j);
             edit.apply();
         }
     }
@@ -128,13 +128,13 @@ public final class b {
     public static long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong(com.alipay.sdk.data.a.O, 604800000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? a().getLong("timeout", 604800000L) : invokeV.longValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a().getString("publickey", f51457b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? a().getString("publickey", f37910b) : (String) invokeV.objValue;
     }
 
     public static String e() {
@@ -146,7 +146,7 @@ public final class b {
     public static String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a().getString("f2", f51458c) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? a().getString("f2", f37911c) : (String) invokeV.objValue;
     }
 
     public static String g() {
@@ -160,21 +160,21 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             String str2 = "";
-            if (this.f51459d.containsKey(str)) {
-                return this.f51459d.get(str);
+            if (this.f37912d.containsKey(str)) {
+                return this.f37912d.get(str);
             }
             SharedPreferences a = a();
-            int i2 = 1;
+            int i = 1;
             if ("frame_pv".equals(str)) {
-                i2 = 2;
+                i = 2;
             } else if ("frame_event".equals(str)) {
-                i2 = 3;
+                i = 3;
             }
             try {
                 str2 = a.getString(str, "");
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig = ".concat(String.valueOf(str2)));
             } catch (ClassCastException unused) {
-                i2 = a.getInt(str, i2);
+                i = a.getInt(str, i);
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "getConfig level = ".concat(String.valueOf(str2)));
             }
             JSONObject jSONObject = null;
@@ -183,8 +183,8 @@ public final class b {
             } catch (JSONException e2) {
                 com.baidu.webkit.logsdk.d.c.a(e2);
             }
-            a a2 = a(str, i2, jSONObject);
-            this.f51459d.put(str, a2);
+            a a2 = a(str, i, jSONObject);
+            this.f37912d.put(str, a2);
             return a2;
         }
         return (a) invokeL.objValue;
@@ -193,7 +193,7 @@ public final class b {
     public final void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f51459d.put(aVar.a, aVar);
+            this.f37912d.put(aVar.a, aVar);
         }
     }
 
@@ -202,7 +202,7 @@ public final class b {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || TextUtils.isEmpty(str2)) {
             return;
         }
-        this.f51460e.put(str, str2);
+        this.f37913e.put(str, str2);
     }
 
     public final void a(JSONObject jSONObject, SharedPreferences.Editor editor) throws JSONException {
@@ -224,7 +224,7 @@ public final class b {
                     cVar.a(jSONArray2);
                     editor.putString(next + "@url", jSONArray2.toString());
                 }
-                this.f51461f.put(next, cVar);
+                this.f37914f.put(next, cVar);
             }
         }
     }
@@ -234,25 +234,25 @@ public final class b {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void a(JSONObject jSONObject, boolean z, SharedPreferences.Editor editor) throws JSONException {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONObject, Boolean.valueOf(z), editor}) == null) && jSONObject.has("array")) {
             JSONArray jSONArray = jSONObject.getJSONArray("array");
-            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                 if (jSONObject2.has("log_type")) {
                     String string = jSONObject2.getString("log_type");
                     if (!TextUtils.isEmpty(string)) {
-                        int i4 = 1;
+                        int i3 = 1;
                         if (z && jSONObject2.has("master")) {
                             String string2 = jSONObject2.getString("master");
                             if (!TextUtils.isEmpty(string2)) {
-                                i2 = !string2.equals("0");
+                                i = !string2.equals("0");
                                 JSONObject jSONObject3 = new JSONObject();
-                                if (i2 > 0 || !jSONObject2.has("log_level") || ((i2 = jSONObject2.getInt("log_level")) >= 0 && i2 <= 3)) {
-                                    i4 = i2;
+                                if (i > 0 || !jSONObject2.has("log_level") || ((i = jSONObject2.getInt("log_level")) >= 0 && i <= 3)) {
+                                    i3 = i;
                                 }
-                                jSONObject3.put("log_level", i4);
+                                jSONObject3.put("log_level", i3);
                                 if (jSONObject2.has(EditNickNameActivityConfig.PARAM_TYPE)) {
                                     String string3 = jSONObject2.getString(EditNickNameActivityConfig.PARAM_TYPE);
                                     if (TextUtils.isEmpty(string3)) {
@@ -261,21 +261,21 @@ public final class b {
                                     jSONObject3.put(EditNickNameActivityConfig.PARAM_TYPE, string3);
                                 }
                                 editor.putString(string, jSONObject3.toString());
-                                com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject3);
-                                this.f51459d.put(string, a(string, i4, jSONObject3));
+                                com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i3 + ", extra = " + jSONObject3);
+                                this.f37912d.put(string, a(string, i3, jSONObject3));
                             }
                         }
-                        i2 = z ? 1 : 0;
+                        i = z ? 1 : 0;
                         JSONObject jSONObject32 = new JSONObject();
-                        if (i2 > 0) {
+                        if (i > 0) {
                         }
-                        i4 = i2;
-                        jSONObject32.put("log_level", i4);
+                        i3 = i;
+                        jSONObject32.put("log_level", i3);
                         if (jSONObject2.has(EditNickNameActivityConfig.PARAM_TYPE)) {
                         }
                         editor.putString(string, jSONObject32.toString());
-                        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i4 + ", extra = " + jSONObject32);
-                        this.f51459d.put(string, a(string, i4, jSONObject32));
+                        com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "setConfig: " + string + " = " + i3 + ", extra = " + jSONObject32);
+                        this.f37912d.put(string, a(string, i3, jSONObject32));
                     }
                 }
             }
@@ -285,15 +285,15 @@ public final class b {
     public final String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f51460e.get(str) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? this.f37913e.get(str) : (String) invokeL.objValue;
     }
 
     public final c d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (this.f51461f.containsKey(str)) {
-                return this.f51461f.get(str);
+            if (this.f37914f.containsKey(str)) {
+                return this.f37914f.get(str);
             }
             SharedPreferences a = a();
             String string = a.getString(str + "@body", "");
@@ -303,7 +303,7 @@ public final class b {
                     c cVar = new c(str);
                     cVar.b(new JSONArray(string));
                     cVar.a(new JSONArray(string2));
-                    this.f51461f.put(str, cVar);
+                    this.f37914f.put(str, cVar);
                     return cVar;
                 } catch (JSONException e2) {
                     com.baidu.webkit.logsdk.d.c.a(e2);

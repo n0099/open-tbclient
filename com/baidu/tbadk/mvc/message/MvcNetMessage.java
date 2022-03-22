@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mvc.message;
 
-import c.a.q0.k0.b.g;
-import c.a.q0.k0.b.h;
+import c.a.o0.k0.b.g;
+import c.a.o0.k0.b.h;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,17 +18,17 @@ public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
     public Class<D> responseDataClass;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MvcNetMessage(T t, int i2, int i3) {
-        super(i2, i3);
+    public MvcNetMessage(T t, int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {t, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -44,7 +44,7 @@ public class MvcNetMessage<T extends g, D extends h> extends NetMessage {
     public Object encode(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.requestData.e(z) : invokeZ.objValue;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) ? this.requestData.f(z) : invokeZ.objValue;
     }
 
     public T getRequestData() {

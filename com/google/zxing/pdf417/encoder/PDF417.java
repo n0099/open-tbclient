@@ -53,9 +53,9 @@ public final class PDF417 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -64,38 +64,38 @@ public final class PDF417 {
         }
     }
 
-    public static int calculateNumberOfRows(int i2, int i3, int i4) {
+    public static int calculateNumberOfRows(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i2, i3, i4)) == null) {
-            int i5 = i2 + 1 + i3;
-            int i6 = (i5 / i4) + 1;
-            return i4 * i6 >= i5 + i4 ? i6 - 1 : i6;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            int i4 = i + 1 + i2;
+            int i5 = (i4 / i3) + 1;
+            return i3 * i5 >= i4 + i3 ? i5 - 1 : i5;
         }
         return invokeIII.intValue;
     }
 
-    private int[] determineDimensions(int i2, int i3) throws WriterException {
+    private int[] determineDimensions(int i, int i2) throws WriterException {
         InterceptResult invokeII;
         int calculateNumberOfRows;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2)) == null) {
             float f2 = 0.0f;
             int[] iArr = null;
-            for (int i4 = this.minCols; i4 <= this.maxCols && (calculateNumberOfRows = calculateNumberOfRows(i2, i3, i4)) >= this.minRows; i4++) {
+            for (int i3 = this.minCols; i3 <= this.maxCols && (calculateNumberOfRows = calculateNumberOfRows(i, i2, i3)) >= this.minRows; i3++) {
                 if (calculateNumberOfRows <= this.maxRows) {
-                    float f3 = (((i4 * 17) + 69) * 0.357f) / (calculateNumberOfRows * 2.0f);
+                    float f3 = (((i3 * 17) + 69) * 0.357f) / (calculateNumberOfRows * 2.0f);
                     if (iArr == null || Math.abs(f3 - 3.0f) <= Math.abs(f2 - 3.0f)) {
-                        iArr = new int[]{i4, calculateNumberOfRows};
+                        iArr = new int[]{i3, calculateNumberOfRows};
                         f2 = f3;
                     }
                 }
             }
             if (iArr == null) {
-                int calculateNumberOfRows2 = calculateNumberOfRows(i2, i3, this.minCols);
-                int i5 = this.minRows;
-                if (calculateNumberOfRows2 < i5) {
-                    iArr = new int[]{this.minCols, i5};
+                int calculateNumberOfRows2 = calculateNumberOfRows(i, i2, this.minCols);
+                int i4 = this.minRows;
+                if (calculateNumberOfRows2 < i4) {
+                    iArr = new int[]{this.minCols, i4};
                 }
             }
             if (iArr != null) {
@@ -106,104 +106,104 @@ public final class PDF417 {
         return (int[]) invokeII.objValue;
     }
 
-    public static void encodeChar(int i2, int i3, BarcodeRow barcodeRow) {
+    public static void encodeChar(int i, int i2, BarcodeRow barcodeRow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65541, null, i2, i3, barcodeRow) == null) {
-            int i4 = 1 << (i3 - 1);
-            boolean z = (i2 & i4) != 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < i3; i6++) {
-                boolean z2 = (i2 & i4) != 0;
+        if (interceptable == null || interceptable.invokeIIL(65541, null, i, i2, barcodeRow) == null) {
+            int i3 = 1 << (i2 - 1);
+            boolean z = (i & i3) != 0;
+            int i4 = 0;
+            for (int i5 = 0; i5 < i2; i5++) {
+                boolean z2 = (i & i3) != 0;
                 if (z == z2) {
-                    i5++;
+                    i4++;
                 } else {
-                    barcodeRow.addBar(z, i5);
+                    barcodeRow.addBar(z, i4);
                     z = z2;
-                    i5 = 1;
+                    i4 = 1;
                 }
-                i4 >>= 1;
+                i3 >>= 1;
             }
-            barcodeRow.addBar(z, i5);
+            barcodeRow.addBar(z, i4);
         }
     }
 
-    private void encodeLowLevel(CharSequence charSequence, int i2, int i3, int i4, BarcodeMatrix barcodeMatrix) {
+    private void encodeLowLevel(CharSequence charSequence, int i, int i2, int i3, BarcodeMatrix barcodeMatrix) {
+        int i4;
         int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), barcodeMatrix}) == null) {
-            int i8 = 0;
-            for (int i9 = 0; i9 < i3; i9++) {
-                int i10 = i9 % 3;
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), barcodeMatrix}) == null) {
+            int i7 = 0;
+            for (int i8 = 0; i8 < i2; i8++) {
+                int i9 = i8 % 3;
                 barcodeMatrix.startRow();
                 encodeChar(START_PATTERN, 17, barcodeMatrix.getCurrentRow());
-                if (i10 == 0) {
-                    i6 = (i9 / 3) * 30;
-                    i5 = ((i3 - 1) / 3) + i6;
-                    i7 = i2 - 1;
-                } else if (i10 == 1) {
-                    i6 = (i9 / 3) * 30;
-                    int i11 = i3 - 1;
-                    i5 = (i4 * 3) + i6 + (i11 % 3);
-                    i7 = i11 / 3;
+                if (i9 == 0) {
+                    i5 = (i8 / 3) * 30;
+                    i4 = ((i2 - 1) / 3) + i5;
+                    i6 = i - 1;
+                } else if (i9 == 1) {
+                    i5 = (i8 / 3) * 30;
+                    int i10 = i2 - 1;
+                    i4 = (i3 * 3) + i5 + (i10 % 3);
+                    i6 = i10 / 3;
                 } else {
-                    int i12 = (i9 / 3) * 30;
-                    i5 = (i2 - 1) + i12;
-                    i6 = i12 + (i4 * 3);
-                    i7 = (i3 - 1) % 3;
+                    int i11 = (i8 / 3) * 30;
+                    i4 = (i - 1) + i11;
+                    i5 = i11 + (i3 * 3);
+                    i6 = (i2 - 1) % 3;
                 }
-                int i13 = i6 + i7;
-                encodeChar(CODEWORD_TABLE[i10][i5], 17, barcodeMatrix.getCurrentRow());
-                for (int i14 = 0; i14 < i2; i14++) {
-                    encodeChar(CODEWORD_TABLE[i10][charSequence.charAt(i8)], 17, barcodeMatrix.getCurrentRow());
-                    i8++;
+                int i12 = i5 + i6;
+                encodeChar(CODEWORD_TABLE[i9][i4], 17, barcodeMatrix.getCurrentRow());
+                for (int i13 = 0; i13 < i; i13++) {
+                    encodeChar(CODEWORD_TABLE[i9][charSequence.charAt(i7)], 17, barcodeMatrix.getCurrentRow());
+                    i7++;
                 }
                 if (this.compact) {
                     encodeChar(STOP_PATTERN, 1, barcodeMatrix.getCurrentRow());
                 } else {
-                    encodeChar(CODEWORD_TABLE[i10][i13], 17, barcodeMatrix.getCurrentRow());
+                    encodeChar(CODEWORD_TABLE[i9][i12], 17, barcodeMatrix.getCurrentRow());
                     encodeChar(STOP_PATTERN, 18, barcodeMatrix.getCurrentRow());
                 }
             }
         }
     }
 
-    public static int getNumberOfPadCodewords(int i2, int i3, int i4, int i5) {
+    public static int getNumberOfPadCodewords(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65543, null, i2, i3, i4, i5)) == null) {
-            int i6 = (i4 * i5) - i3;
-            if (i6 > i2 + 1) {
-                return (i6 - i2) - 1;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65543, null, i, i2, i3, i4)) == null) {
+            int i5 = (i3 * i4) - i2;
+            if (i5 > i + 1) {
+                return (i5 - i) - 1;
             }
             return 0;
         }
         return invokeIIII.intValue;
     }
 
-    public void generateBarcodeLogic(String str, int i2) throws WriterException {
+    public void generateBarcodeLogic(String str, int i) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            int errorCorrectionCodewordCount = PDF417ErrorCorrection.getErrorCorrectionCodewordCount(i2);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            int errorCorrectionCodewordCount = PDF417ErrorCorrection.getErrorCorrectionCodewordCount(i);
             String encodeHighLevel = PDF417HighLevelEncoder.encodeHighLevel(str, this.compaction, this.encoding);
             int length = encodeHighLevel.length();
             int[] determineDimensions = determineDimensions(length, errorCorrectionCodewordCount);
-            int i3 = determineDimensions[0];
-            int i4 = determineDimensions[1];
-            int numberOfPadCodewords = getNumberOfPadCodewords(length, errorCorrectionCodewordCount, i3, i4);
+            int i2 = determineDimensions[0];
+            int i3 = determineDimensions[1];
+            int numberOfPadCodewords = getNumberOfPadCodewords(length, errorCorrectionCodewordCount, i2, i3);
             if (errorCorrectionCodewordCount + length + 1 <= 929) {
-                int i5 = length + numberOfPadCodewords + 1;
-                StringBuilder sb = new StringBuilder(i5);
-                sb.append((char) i5);
+                int i4 = length + numberOfPadCodewords + 1;
+                StringBuilder sb = new StringBuilder(i4);
+                sb.append((char) i4);
                 sb.append(encodeHighLevel);
-                for (int i6 = 0; i6 < numberOfPadCodewords; i6++) {
+                for (int i5 = 0; i5 < numberOfPadCodewords; i5++) {
                     sb.append((char) 900);
                 }
                 String sb2 = sb.toString();
-                String generateErrorCorrection = PDF417ErrorCorrection.generateErrorCorrection(sb2, i2);
-                this.barcodeMatrix = new BarcodeMatrix(i4, i3);
-                encodeLowLevel(sb2 + generateErrorCorrection, i3, i4, i2, this.barcodeMatrix);
+                String generateErrorCorrection = PDF417ErrorCorrection.generateErrorCorrection(sb2, i);
+                this.barcodeMatrix = new BarcodeMatrix(i3, i2);
+                encodeLowLevel(sb2 + generateErrorCorrection, i2, i3, i, this.barcodeMatrix);
                 return;
             }
             throw new WriterException("Encoded message contains too many code words, message too big (" + str.length() + " bytes)");
@@ -230,13 +230,13 @@ public final class PDF417 {
         }
     }
 
-    public void setDimensions(int i2, int i3, int i4, int i5) {
+    public void setDimensions(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
-            this.maxCols = i2;
-            this.minCols = i3;
-            this.maxRows = i4;
-            this.minRows = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
+            this.maxCols = i;
+            this.minCols = i2;
+            this.maxRows = i3;
+            this.minRows = i4;
         }
     }
 
@@ -254,9 +254,9 @@ public final class PDF417 {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

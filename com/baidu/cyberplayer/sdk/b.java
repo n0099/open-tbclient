@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b extends GLSurfaceView implements i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class b extends GLSurfaceView implements i {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -54,9 +54,9 @@ public class b extends GLSurfaceView implements i {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -78,11 +78,11 @@ public class b extends GLSurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public Bitmap a(float f2, int i2, int i3) {
+    public Bitmap a(float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            this.a.a(f2, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.a.a(f2, i, i2);
             return null;
         }
         return (Bitmap) invokeCommon.objValue;
@@ -97,10 +97,10 @@ public class b extends GLSurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void a(int i2, int i3, int i4, int i5) {
+    public void a(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            this.a.a(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            this.a.a(i, i2, i3, i4);
         }
     }
 
@@ -151,10 +151,10 @@ public class b extends GLSurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setClientRotation(int i2) {
+    public void setClientRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.a.b(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a.b(i);
         }
     }
 
@@ -167,18 +167,18 @@ public class b extends GLSurfaceView implements i {
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setDisplayMode(int i2) {
+    public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.a.a(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.a.a(i);
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.i
-    public void setRawFrameRotation(int i2) {
+    public void setRawFrameRotation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.a.c(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.a.c(i);
         }
     }
 

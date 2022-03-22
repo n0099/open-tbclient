@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.jni;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.pushservice.message.h;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -14,24 +15,24 @@ public class PushSocket {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f30908b = null;
+    public static byte[] f24749b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f30909c = 0;
+    public static int f24750c = 0;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f30910d = "PushSocket";
+    public static String f24751d = "PushSocket";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f30911e = 36;
+    public static int f24752e = 36;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int f30912f = 32;
+    public static int f24753f = 32;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
     public interface OnCreateSocketListener {
-        void onConnect(int i2);
+        void onConnect(int i);
     }
 
     static {
@@ -54,31 +55,31 @@ public class PushSocket {
         }
     }
 
-    public static int a(int i2, byte[] bArr, int i3) {
+    public static int a(int i, byte[] bArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3)})) == null) {
-            if (i2 >= 0) {
-                return sendMsg(i2, bArr, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2)})) == null) {
+            if (i >= 0) {
+                return sendMsg(i, bArr, i2);
             }
             return -1;
         }
         return invokeCommon.intValue;
     }
 
-    public static short a(byte[] bArr, int i2) {
+    public static short a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) ? (short) ((bArr[i2 + 0] & 255) | (bArr[i2 + 1] << 8)) : invokeLI.shortValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) ? (short) ((bArr[i + 0] & 255) | (bArr[i + 1] << 8)) : invokeLI.shortValue;
     }
 
-    public static void a(int i2) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            f30908b = null;
-            f30909c = 0;
-            if (i2 >= 0) {
-                closeSocket(i2);
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            f24749b = null;
+            f24750c = 0;
+            if (i >= 0) {
+                closeSocket(i);
             }
         }
     }
@@ -92,7 +93,7 @@ public class PushSocket {
                     System.loadLibrary("bdpush_V3_5");
                     a = true;
                 } catch (Throwable unused) {
-                    String str = "BDPushSDK-" + f30910d;
+                    Log.e("BDPushSDK-" + f24751d, "Native library not found! Please copy libbdpush_V3_5.so into your project!");
                 }
             }
             return a;
@@ -102,9 +103,9 @@ public class PushSocket {
 
     /* JADX WARN: Code restructure failed: missing block: B:31:0x006d, code lost:
         r7 = new byte[2];
-        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f30908b, com.baidu.android.pushservice.jni.PushSocket.f30909c, r7, 0, 2);
-        com.baidu.android.pushservice.message.h.f30941g.b();
-        com.baidu.android.pushservice.jni.PushSocket.f30909c += 2;
+        java.lang.System.arraycopy(com.baidu.android.pushservice.jni.PushSocket.f24749b, com.baidu.android.pushservice.jni.PushSocket.f24750c, r7, 0, 2);
+        com.baidu.android.pushservice.message.h.f24780g.b();
+        com.baidu.android.pushservice.jni.PushSocket.f24750c += 2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:32:0x0081, code lost:
         return r7;
@@ -112,84 +113,84 @@ public class PushSocket {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] a(Context context, int i2) {
+    public static byte[] a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, null, context, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65541, null, context, i)) != null) {
             return (byte[]) invokeLI.objValue;
         }
-        if (i2 < 0) {
+        if (i < 0) {
             return null;
         }
         while (true) {
-            byte[] bArr = f30908b;
+            byte[] bArr = f24749b;
             if (bArr != null) {
                 int length = bArr.length;
-                int i3 = f30909c;
-                if (length == i3) {
-                    f30908b = null;
-                    f30909c = 0;
-                } else if (length - i3 > 1) {
-                    short a2 = a(bArr, i3);
-                    if (a2 == h.f30940f.b() || a2 == h.f30941g.b()) {
+                int i2 = f24750c;
+                if (length == i2) {
+                    f24749b = null;
+                    f24750c = 0;
+                } else if (length - i2 > 1) {
+                    short a2 = a(bArr, i2);
+                    if (a2 == h.f24779f.b() || a2 == h.f24780g.b()) {
                         break;
-                    } else if (length - f30909c < f30911e && !b(i2)) {
+                    } else if (length - f24750c < f24752e && !b(i)) {
                         return null;
                     } else {
-                        int b2 = b(f30908b, f30909c + f30912f);
-                        int i4 = f30909c;
-                        int i5 = f30911e;
-                        if (i4 + b2 + i5 <= length - i4) {
-                            int i6 = i5 + b2;
-                            byte[] bArr2 = new byte[i6];
-                            System.arraycopy(f30908b, i4, bArr2, 0, i6);
-                            f30909c += b2 + f30911e;
+                        int b2 = b(f24749b, f24750c + f24753f);
+                        int i3 = f24750c;
+                        int i4 = f24752e;
+                        if (i3 + b2 + i4 <= length - i3) {
+                            int i5 = i4 + b2;
+                            byte[] bArr2 = new byte[i5];
+                            System.arraycopy(f24749b, i3, bArr2, 0, i5);
+                            f24750c += b2 + f24752e;
                             return bArr2;
-                        } else if (!b(i2)) {
+                        } else if (!b(i)) {
                             return null;
                         }
                     }
-                } else if (!b(i2)) {
+                } else if (!b(i)) {
                     return null;
                 }
-            } else if (!b(i2)) {
+            } else if (!b(i)) {
                 return null;
             }
         }
     }
 
-    public static int b(byte[] bArr, int i2) {
+    public static int b(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i2)) == null) ? ((bArr[i2 + 0] & 255) << 0) | ((bArr[i2 + 3] & 255) << 24) | ((bArr[i2 + 2] & 255) << 16) | ((bArr[i2 + 1] & 255) << 8) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) ? ((bArr[i + 0] & 255) << 0) | ((bArr[i + 3] & 255) << 24) | ((bArr[i + 2] & 255) << 16) | ((bArr[i + 1] & 255) << 8) : invokeLI.intValue;
     }
 
-    public static boolean b(int i2) {
+    public static boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            byte[] rcvMsg = rcvMsg(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            byte[] rcvMsg = rcvMsg(i);
             if (rcvMsg == null || rcvMsg.length == 0) {
                 return false;
             }
-            byte[] bArr = f30908b;
+            byte[] bArr = f24749b;
             if (bArr == null) {
-                f30908b = rcvMsg;
+                f24749b = rcvMsg;
                 return true;
             }
             byte[] bArr2 = new byte[bArr.length + rcvMsg.length];
-            int i3 = f30909c;
-            System.arraycopy(bArr, i3, bArr2, 0, bArr.length - i3);
-            System.arraycopy(rcvMsg, 0, bArr2, f30908b.length, rcvMsg.length);
-            f30908b = bArr2;
+            int i2 = f24750c;
+            System.arraycopy(bArr, i2, bArr2, 0, bArr.length - i2);
+            System.arraycopy(rcvMsg, 0, bArr2, f24749b.length, rcvMsg.length);
+            f24749b = bArr2;
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    public static native int closeSocket(int i2);
+    public static native int closeSocket(int i);
 
-    public static native int createSocket(String str, int i2, OnCreateSocketListener onCreateSocketListener);
+    public static native int createSocket(String str, int i, OnCreateSocketListener onCreateSocketListener);
 
     public static native int getLastSocketError();
 
@@ -197,7 +198,7 @@ public class PushSocket {
 
     public static native boolean isIPv4Reachable();
 
-    public static native byte[] rcvMsg(int i2);
+    public static native byte[] rcvMsg(int i);
 
-    public static native int sendMsg(int i2, byte[] bArr, int i3);
+    public static native int sendMsg(int i, byte[] bArr, int i2);
 }

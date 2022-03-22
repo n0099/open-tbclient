@@ -14,29 +14,29 @@ public final class h {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f3605b;
+    public final boolean f3101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f3606c;
+    public final boolean f3102c;
 
-    public h(int i2, boolean z, boolean z2) {
+    public h(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f3605b = z;
-        this.f3606c = z2;
+        this.a = i;
+        this.f3101b = z;
+        this.f3102c = z2;
     }
 
     public boolean equals(Object obj) {
@@ -44,13 +44,13 @@ public final class h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj instanceof h) {
-                int i2 = this.a;
+                int i = this.a;
                 h hVar = (h) obj;
-                if (i2 != hVar.a) {
+                if (i != hVar.a) {
                     return false;
                 }
-                if (i2 == 8) {
-                    return this.f3605b == hVar.f3605b && this.f3606c == hVar.f3606c;
+                if (i == 8) {
+                    return this.f3101b == hVar.f3101b && this.f3102c == hVar.f3102c;
                 }
                 return true;
             }
@@ -65,15 +65,15 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.a * 31;
-            boolean z = this.f3605b;
-            int i3 = z;
+            int i = this.a * 31;
+            boolean z = this.f3101b;
+            int i2 = z;
             if (z != 0) {
-                i3 = 1;
+                i2 = 1;
             }
-            int i4 = (i2 + i3) * 31;
-            boolean z2 = this.f3606c;
-            return i4 + (z2 ? 1 : z2 ? 1 : 0);
+            int i3 = (i + i2) * 31;
+            boolean z2 = this.f3102c;
+            return i3 + (z2 ? 1 : z2 ? 1 : 0);
         }
         return invokeV.intValue;
     }
@@ -82,7 +82,7 @@ public final class h {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.f3605b + ", isRepeated=" + this.f3606c + SmallTailInfo.EMOTION_SUFFIX;
+            return "TaskBuoyViewModelHolder(status=" + this.a + ", hasComplete=" + this.f3101b + ", isRepeated=" + this.f3102c + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

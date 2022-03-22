@@ -13,7 +13,7 @@ public interface IMarker {
 
     void postArrow(float f2, float f3, float f4);
 
-    void postArrow(String str, int i2, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3);
+    void postArrow(String str, int i, double[] dArr, double[] dArr2, double[] dArr3, float f2, float f3);
 
     void postFinalArrow(String str, double[] dArr);
 

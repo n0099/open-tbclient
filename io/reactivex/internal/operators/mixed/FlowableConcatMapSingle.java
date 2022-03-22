@@ -77,9 +77,9 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {concatMapSingleSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -120,16 +120,16 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
             }
         }
 
-        public ConcatMapSingleSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends SingleSource<? extends R>> function, int i2, ErrorMode errorMode) {
+        public ConcatMapSingleSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends SingleSource<? extends R>> function, int i, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2), errorMode};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i), errorMode};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -137,12 +137,12 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
             }
             this.downstream = subscriber;
             this.mapper = function;
-            this.prefetch = i2;
+            this.prefetch = i;
             this.errorMode = errorMode;
             this.requested = new AtomicLong();
             this.errors = new AtomicThrowable();
             this.inner = new ConcatMapSingleObserver<>(this);
-            this.queue = new SpscArrayQueue(i2);
+            this.queue = new SpscArrayQueue(i);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -168,17 +168,17 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
                 SimplePlainQueue<T> simplePlainQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
                 AtomicLong atomicLong = this.requested;
-                int i2 = this.prefetch;
-                int i3 = i2 - (i2 >> 1);
-                int i4 = 1;
+                int i = this.prefetch;
+                int i2 = i - (i >> 1);
+                int i3 = 1;
                 while (true) {
                     if (this.cancelled) {
                         simplePlainQueue.clear();
                         this.item = null;
                     }
-                    int i5 = this.state;
-                    if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i5 != 0))) {
-                        if (i5 == 0) {
+                    int i4 = this.state;
+                    if (atomicThrowable.get() == null || (errorMode != ErrorMode.IMMEDIATE && (errorMode != ErrorMode.BOUNDARY || i4 != 0))) {
+                        if (i4 == 0) {
                             boolean z = this.done;
                             T poll = simplePlainQueue.poll();
                             boolean z2 = poll == null;
@@ -192,12 +192,12 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
                                     return;
                                 }
                             } else if (!z2) {
-                                int i6 = this.consumed + 1;
-                                if (i6 == i3) {
+                                int i5 = this.consumed + 1;
+                                if (i5 == i2) {
                                     this.consumed = 0;
-                                    this.upstream.request(i3);
+                                    this.upstream.request(i2);
                                 } else {
-                                    this.consumed = i6;
+                                    this.consumed = i5;
                                 }
                                 try {
                                     SingleSource singleSource = (SingleSource) ObjectHelper.requireNonNull(this.mapper.apply(poll), "The mapper returned a null SingleSource");
@@ -212,17 +212,17 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
                                     return;
                                 }
                             }
-                        } else if (i5 == 2) {
-                            long j2 = this.emitted;
-                            if (j2 != atomicLong.get()) {
+                        } else if (i4 == 2) {
+                            long j = this.emitted;
+                            if (j != atomicLong.get()) {
                                 this.item = null;
                                 subscriber.onNext((R) this.item);
-                                this.emitted = j2 + 1;
+                                this.emitted = j + 1;
                                 this.state = 0;
                             }
                         }
-                        i4 = addAndGet(-i4);
-                        if (i4 == 0) {
+                        i3 = addAndGet(-i3);
+                        if (i3 == 0) {
                             return;
                         }
                     }
@@ -306,25 +306,25 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                BackpressureHelper.add(this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
-    public FlowableConcatMapSingle(Flowable<T> flowable, Function<? super T, ? extends SingleSource<? extends R>> function, ErrorMode errorMode, int i2) {
+    public FlowableConcatMapSingle(Flowable<T> flowable, Function<? super T, ? extends SingleSource<? extends R>> function, ErrorMode errorMode, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, function, errorMode, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, function, errorMode, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -333,7 +333,7 @@ public final class FlowableConcatMapSingle<T, R> extends Flowable<R> {
         this.source = flowable;
         this.mapper = function;
         this.errorMode = errorMode;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Flowable

@@ -1,16 +1,16 @@
 package com.cmic.sso.sdk.auth;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.MiPushCommandMessage;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,10 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
+                jSONObject.put("resultCode", str);
                 jSONObject.put("desc", str2);
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.e("AuthnResult", "Exception", e2);
             }
             return jSONObject;
         }
@@ -36,7 +37,7 @@ public class c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
+                jSONObject.put("resultCode", str);
                 jSONObject.put("desc", str2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -54,7 +55,8 @@ public class c {
             String[] strArr = {FileUtils.UNKNOW, "移动", "联通", "电信"};
             try {
                 b2 = aVar.b("operatortype", "0");
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.e("AuthnResult", "JSONException", e2);
             }
             if (!"0".equals(b2) && !TextUtils.isEmpty(b2)) {
                 jSONObject.put("operatorType", strArr[Integer.parseInt(b2)]);
@@ -76,7 +78,7 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(MiPushCommandMessage.KEY_RESULT_CODE, "103000");
+                jSONObject.put("resultCode", "103000");
                 jSONObject.put("desc", "true");
                 jSONObject.put("securityphone", str);
             } catch (JSONException e2) {
@@ -113,7 +115,7 @@ public class c {
                 } else {
                     str3 = "其他";
                 }
-                jSONObject2.put(MiPushCommandMessage.KEY_RESULT_CODE, str);
+                jSONObject2.put("resultCode", str);
                 jSONObject2.put("authType", str6);
                 jSONObject2.put("authTypeDes", str3);
                 if ("103000".equals(str)) {
@@ -129,7 +131,7 @@ public class c {
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            com.cmic.sso.sdk.d.c.b("AuthnResult", "返回参数:" + jSONObject2.toString());
+            com.cmic.sso.sdk.e.c.b("AuthnResult", "返回参数:" + jSONObject2.toString());
             return jSONObject2;
         }
         return (JSONObject) invokeLLLL.objValue;

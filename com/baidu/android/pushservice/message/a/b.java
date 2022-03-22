@@ -51,9 +51,9 @@ public class b extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -69,23 +69,23 @@ public class b extends c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
             int b2 = kVar.b();
-            int i2 = 12;
+            int i = 12;
             if (AnonymousClass1.a[com.baidu.android.pushservice.a.d.a(this.a, kVar.e()).a().ordinal()] != 1) {
-                i2 = 7;
+                i = 7;
             } else {
-                if (kVar.i() == k.f30926h.b()) {
+                if (kVar.i() == k.f24767h.b()) {
                     if (kVar.b() != 0 && com.baidu.android.pushservice.c.c.a(this.a, b2)) {
                         com.baidu.android.pushservice.i.h.a(this.a, b2);
                         if (com.baidu.android.pushservice.c.c.b(this.a, b2)) {
-                            i2 = 10;
+                            i = 10;
                         }
                     } else {
                         com.baidu.android.pushservice.i.h.a(this.a);
                     }
                 }
-                i2 = 1;
+                i = 1;
             }
-            gVar.a(i2);
+            gVar.a(i);
             return gVar;
         }
         return (com.baidu.android.pushservice.message.g) invokeLL.objValue;

@@ -27,9 +27,9 @@ public class GroupSettingItemData extends ChatSetting implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -106,10 +106,10 @@ public class GroupSettingItemData extends ChatSetting implements Serializable {
         }
     }
 
-    public void setLastApplyTimeStamp(long j2) {
+    public void setLastApplyTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.lastApplyTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.lastApplyTimeStamp = j;
         }
     }
 

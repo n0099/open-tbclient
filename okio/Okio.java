@@ -1,7 +1,6 @@
 package okio;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -26,7 +25,8 @@ import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
+/* loaded from: classes8.dex */
 public final class Okio {
     public static /* synthetic */ Interceptable $ic;
     public static final Logger logger;
@@ -53,9 +53,9 @@ public final class Okio {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -86,9 +86,9 @@ public final class Okio {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -117,10 +117,10 @@ public final class Okio {
             }
 
             @Override // okio.Sink
-            public void write(Buffer buffer, long j2) throws IOException {
+            public void write(Buffer buffer, long j) throws IOException {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j2) == null) {
-                    buffer.skip(j2);
+                if (interceptable2 == null || interceptable2.invokeLJ(1048579, this, buffer, j) == null) {
+                    buffer.skip(j);
                 }
             }
         } : (Sink) invokeV.objValue;
@@ -165,9 +165,9 @@ public final class Okio {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {socket};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -181,7 +181,7 @@ public final class Okio {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, iOException)) == null) {
-                    SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.O);
+                    SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
                     if (iOException != null) {
                         socketTimeoutException.initCause(iOException);
                     }
@@ -239,9 +239,9 @@ public final class Okio {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {timeout, outputStream};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -284,21 +284,21 @@ public final class Okio {
                         }
 
                         @Override // okio.Sink
-                        public void write(Buffer buffer, long j2) throws IOException {
+                        public void write(Buffer buffer, long j) throws IOException {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLJ(1048580, this, buffer, j2) == null) {
-                                Util.checkOffsetAndCount(buffer.size, 0L, j2);
-                                while (j2 > 0) {
+                            if (interceptable2 == null || interceptable2.invokeLJ(1048580, this, buffer, j) == null) {
+                                Util.checkOffsetAndCount(buffer.size, 0L, j);
+                                while (j > 0) {
                                     this.val$timeout.throwIfReached();
                                     Segment segment = buffer.head;
-                                    int min = (int) Math.min(j2, segment.limit - segment.pos);
+                                    int min = (int) Math.min(j, segment.limit - segment.pos);
                                     this.val$out.write(segment.data, segment.pos, min);
-                                    int i2 = segment.pos + min;
-                                    segment.pos = i2;
-                                    long j3 = min;
-                                    j2 -= j3;
-                                    buffer.size -= j3;
-                                    if (i2 == segment.limit) {
+                                    int i = segment.pos + min;
+                                    segment.pos = i;
+                                    long j2 = min;
+                                    j -= j2;
+                                    buffer.size -= j2;
+                                    if (i == segment.limit) {
                                         buffer.head = segment.pop();
                                         SegmentPool.recycle(segment);
                                     }
@@ -333,9 +333,9 @@ public final class Okio {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {timeout, inputStream};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -354,27 +354,27 @@ public final class Okio {
                         }
 
                         @Override // okio.Source
-                        public long read(Buffer buffer, long j2) throws IOException {
+                        public long read(Buffer buffer, long j) throws IOException {
                             InterceptResult invokeLJ;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
-                                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                                if (i2 < 0) {
-                                    throw new IllegalArgumentException("byteCount < 0: " + j2);
-                                } else if (i2 == 0) {
+                            if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                                if (i < 0) {
+                                    throw new IllegalArgumentException("byteCount < 0: " + j);
+                                } else if (i == 0) {
                                     return 0L;
                                 } else {
                                     try {
                                         this.val$timeout.throwIfReached();
                                         Segment writableSegment = buffer.writableSegment(1);
-                                        int read = this.val$in.read(writableSegment.data, writableSegment.limit, (int) Math.min(j2, 8192 - writableSegment.limit));
+                                        int read = this.val$in.read(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
                                         if (read == -1) {
                                             return -1L;
                                         }
                                         writableSegment.limit += read;
-                                        long j3 = read;
-                                        buffer.size += j3;
-                                        return j3;
+                                        long j2 = read;
+                                        buffer.size += j2;
+                                        return j2;
                                     } catch (AssertionError e2) {
                                         if (Okio.isAndroidGetsocknameError(e2)) {
                                             throw new IOException(e2);
@@ -438,6 +438,7 @@ public final class Okio {
         return (Source) invokeL.objValue;
     }
 
+    @IgnoreJRERequirement
     public static Source source(Path path, OpenOption... openOptionArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -478,6 +479,7 @@ public final class Okio {
         return (Sink) invokeL.objValue;
     }
 
+    @IgnoreJRERequirement
     public static Sink sink(Path path, OpenOption... openOptionArr) throws IOException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

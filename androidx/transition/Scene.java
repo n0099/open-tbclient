@@ -33,9 +33,9 @@ public class Scene {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,21 +53,21 @@ public class Scene {
     }
 
     @NonNull
-    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i2, @NonNull Context context) {
+    public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, i2, context)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, i, context)) == null) {
             SparseArray sparseArray = (SparseArray) viewGroup.getTag(R$id.transition_scene_layoutid_cache);
             if (sparseArray == null) {
                 sparseArray = new SparseArray();
                 viewGroup.setTag(R$id.transition_scene_layoutid_cache, sparseArray);
             }
-            Scene scene = (Scene) sparseArray.get(i2);
+            Scene scene = (Scene) sparseArray.get(i);
             if (scene != null) {
                 return scene;
             }
-            Scene scene2 = new Scene(viewGroup, i2, context);
-            sparseArray.put(i2, scene2);
+            Scene scene2 = new Scene(viewGroup, i, context);
+            sparseArray.put(i, scene2);
             return scene2;
         }
         return (Scene) invokeLIL.objValue;
@@ -134,16 +134,16 @@ public class Scene {
         }
     }
 
-    public Scene(ViewGroup viewGroup, int i2, Context context) {
+    public Scene(ViewGroup viewGroup, int i, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup, Integer.valueOf(i2), context};
+            Object[] objArr = {viewGroup, Integer.valueOf(i), context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,7 +152,7 @@ public class Scene {
         this.mLayoutId = -1;
         this.mContext = context;
         this.mSceneRoot = viewGroup;
-        this.mLayoutId = i2;
+        this.mLayoutId = i;
     }
 
     public Scene(@NonNull ViewGroup viewGroup, @NonNull View view) {
@@ -162,9 +162,9 @@ public class Scene {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewGroup, view};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

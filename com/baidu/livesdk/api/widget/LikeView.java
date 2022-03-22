@@ -7,15 +7,15 @@ public interface LikeView {
 
     /* loaded from: classes4.dex */
     public interface LikeViewListener {
-        void onView(int i2, View view);
+        void onView(int i, View view);
     }
 
     /* loaded from: classes4.dex */
     public interface ViewLocationListener {
-        void onLocation(int i2, int i3);
+        void onLocation(int i, int i2);
     }
 
-    void addLikeAnimation(View view, int i2);
+    void addLikeAnimation(View view, int i);
 
     void getLikeRippleView(Activity activity, LikeViewListener likeViewListener);
 

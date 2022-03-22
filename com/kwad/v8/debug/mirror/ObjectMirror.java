@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ObjectMirror extends ValueMirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROPERTIES = "properties";
@@ -18,7 +18,7 @@ public class ObjectMirror extends ValueMirror {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class PropertyKind {
         public static final /* synthetic */ PropertyKind[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -46,16 +46,16 @@ public class ObjectMirror extends ValueMirror {
             $VALUES = new PropertyKind[]{Named, propertyKind};
         }
 
-        public PropertyKind(String str, int i2, int i3) {
+        public PropertyKind(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -64,7 +64,7 @@ public class ObjectMirror extends ValueMirror {
                     return;
                 }
             }
-            this.index = i3;
+            this.index = i2;
         }
 
         public static PropertyKind valueOf(String str) {
@@ -89,9 +89,9 @@ public class ObjectMirror extends ValueMirror {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8Object) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -100,13 +100,13 @@ public class ObjectMirror extends ValueMirror {
         }
     }
 
-    public PropertiesArray getProperties(PropertyKind propertyKind, int i2) {
+    public PropertiesArray getProperties(PropertyKind propertyKind, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, propertyKind, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, propertyKind, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
             v8Array.push(propertyKind.index);
-            v8Array.push(i2);
+            v8Array.push(i);
             V8Array v8Array2 = null;
             try {
                 v8Array2 = this.v8Object.executeArrayFunction(PROPERTIES, v8Array);
@@ -121,20 +121,20 @@ public class ObjectMirror extends ValueMirror {
         return (PropertiesArray) invokeLI.objValue;
     }
 
-    public String[] getPropertyNames(PropertyKind propertyKind, int i2) {
+    public String[] getPropertyNames(PropertyKind propertyKind, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, propertyKind, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, propertyKind, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
             v8Array.push(propertyKind.index);
-            v8Array.push(i2);
+            v8Array.push(i);
             V8Array v8Array2 = null;
             try {
                 v8Array2 = this.v8Object.executeArrayFunction(PROPERTY_NAMES, v8Array);
                 int length = v8Array2.length();
                 String[] strArr = new String[length];
-                for (int i3 = 0; i3 < length; i3++) {
-                    strArr[i3] = v8Array2.getString(i3);
+                for (int i2 = 0; i2 < length; i2++) {
+                    strArr[i2] = v8Array2.getString(i2);
                 }
                 return strArr;
             } finally {

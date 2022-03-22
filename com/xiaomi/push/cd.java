@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.push.cg;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cd extends cg.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class cd extends cg.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, contentValues, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (ContentValues) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -53,7 +53,7 @@ public class cd extends cg.e {
             contentValues.put("messageItemId", hjVar.d());
             contentValues.put("messageItem", a);
             contentValues.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bu.a(context).b());
-            contentValues.put("packageName", bu.a(context).m255a());
+            contentValues.put("packageName", bu.a(context).m234a());
             contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
             contentValues.put("uploadTimestamp", (Integer) 0);
             return new cd(str, contentValues, "a job build to insert message to db");

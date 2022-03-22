@@ -7,49 +7,45 @@ import com.kwad.sdk.core.download.a.a;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h implements com.kwad.sdk.core.webview.kwai.a {
     public final com.kwad.sdk.core.webview.a a;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f54944c;
+    public com.kwad.sdk.core.download.a.b f40032c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f54945d = new Handler(Looper.getMainLooper());
+    public final Handler f40033d = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f54943b = new AdTemplate();
+    public final AdTemplate f40031b = new AdTemplate();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f54946b;
+        public String f40034b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54947c;
+        public String f40035c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54948d;
+        public String f40036d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54949e;
+        public int f40037e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f54950f;
+        public int f40038f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f54951g;
+        public String f40039g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f54952h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f54953i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f54954j;
+        public String f40040h;
+        public String i;
+        public String j;
         public String k;
         public String l;
         public String m;
@@ -65,9 +61,9 @@ public class h implements com.kwad.sdk.core.webview.kwai.a {
             AdTemplate a2 = this.a.a();
             if (a2 != null) {
                 if (a2.mOriginJString != null) {
-                    this.f54943b.parseJson(new JSONObject(a2.mOriginJString));
+                    this.f40031b.parseJson(new JSONObject(a2.mOriginJString));
                 } else {
-                    this.f54943b.parseJson(a2.toJson());
+                    this.f40031b.parseJson(a2.toJson());
                 }
             }
         } catch (Exception e2) {
@@ -77,22 +73,22 @@ public class h implements com.kwad.sdk.core.webview.kwai.a {
 
     public static void a(@NonNull AdInfo adInfo, @NonNull a aVar) {
         AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
-        adConversionInfo.deeplinkUrl = aVar.f54953i;
+        adConversionInfo.deeplinkUrl = aVar.i;
         adConversionInfo.marketUrl = aVar.m;
         AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
         adBaseInfo.adOperationType = aVar.a;
-        adBaseInfo.appPackageName = aVar.f54947c;
-        adBaseInfo.appName = aVar.f54946b;
-        adBaseInfo.appVersion = aVar.f54948d;
-        adBaseInfo.packageSize = aVar.f54950f;
-        adBaseInfo.appIconUrl = aVar.f54954j;
+        adBaseInfo.appPackageName = aVar.f40035c;
+        adBaseInfo.appName = aVar.f40034b;
+        adBaseInfo.appVersion = aVar.f40036d;
+        adBaseInfo.packageSize = aVar.f40038f;
+        adBaseInfo.appIconUrl = aVar.j;
         adBaseInfo.appDescription = aVar.k;
         if (!com.kwad.sdk.core.response.a.a.B(adInfo)) {
-            adInfo.adConversionInfo.h5Url = aVar.f54952h;
+            adInfo.adConversionInfo.h5Url = aVar.f40040h;
             return;
         }
         AdInfo.AdConversionInfo adConversionInfo2 = adInfo.adConversionInfo;
-        String str = aVar.f54952h;
+        String str = aVar.f40040h;
         adConversionInfo2.appDownloadUrl = str;
         adInfo.downloadId = com.kwad.sdk.utils.aa.a(str);
     }
@@ -106,37 +102,37 @@ public class h implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.kwai.c cVar) {
         com.kwad.sdk.core.download.a.b bVar;
-        int i2;
-        if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(this.f54943b))) {
-            if (this.f54944c == null) {
-                this.f54944c = new com.kwad.sdk.core.download.a.b(this.f54943b);
+        int i;
+        if (com.kwad.sdk.core.response.a.a.B(com.kwad.sdk.core.response.a.d.j(this.f40031b))) {
+            if (this.f40032c == null) {
+                this.f40032c = new com.kwad.sdk.core.download.a.b(this.f40031b);
             }
-            bVar = this.f54944c;
-            i2 = 2;
+            bVar = this.f40032c;
+            i = 2;
         } else {
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(this.f54943b);
+            AdInfo j = com.kwad.sdk.core.response.a.d.j(this.f40031b);
             a aVar = new a();
             try {
                 aVar.parseJson(new JSONObject(str));
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
-            a(j2, aVar);
-            if (this.f54944c == null) {
-                this.f54944c = new com.kwad.sdk.core.download.a.b(this.f54943b);
+            a(j, aVar);
+            if (this.f40032c == null) {
+                this.f40032c = new com.kwad.sdk.core.download.a.b(this.f40031b);
             }
-            bVar = this.f54944c;
-            i2 = 1;
+            bVar = this.f40032c;
+            i = 1;
         }
-        bVar.a(i2);
-        this.f54945d.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
+        bVar.a(i);
+        this.f40033d.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.h.1
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.core.download.a.a.a(h.this.a.f54891d.getContext(), h.this.f54943b, new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.h.1.1
+                com.kwad.sdk.core.download.a.a.a(h.this.a.f39983d.getContext(), h.this.f40031b, new a.b() { // from class: com.kwad.sdk.core.webview.jshandler.h.1.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                     }
-                }, h.this.f54944c, false);
+                }, h.this.f40032c, false);
             }
         });
         cVar.a(null);
@@ -144,6 +140,6 @@ public class h implements com.kwad.sdk.core.webview.kwai.a {
 
     @Override // com.kwad.sdk.core.webview.kwai.a
     public void b() {
-        this.f54945d.removeCallbacksAndMessages(null);
+        this.f40033d.removeCallbacksAndMessages(null);
     }
 }

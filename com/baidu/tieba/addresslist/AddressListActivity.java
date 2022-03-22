@@ -20,9 +20,7 @@ public class AddressListActivity extends BaseFragmentActivity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddressListActivity f40422e;
+        public final /* synthetic */ AddressListActivity a;
 
         public a(AddressListActivity addressListActivity) {
             Interceptable interceptable = $ic;
@@ -31,22 +29,22 @@ public class AddressListActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addressListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40422e = addressListActivity;
+            this.a = addressListActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40422e.finish();
+                this.a.finish();
             }
         }
     }
@@ -56,9 +54,9 @@ public class AddressListActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,10 +64,10 @@ public class AddressListActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -78,12 +76,12 @@ public class AddressListActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.addresslist_activity);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            setContentView(R.layout.obfuscated_res_0x7f0d007e);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.my_good_friends));
-            getSupportFragmentManager().beginTransaction().add(R.id.address_list_fragment_container, new AddressListFragment()).commit();
+            this.mNavigationBar.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b2a));
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09012c, new AddressListFragment()).commit();
         }
     }
 }

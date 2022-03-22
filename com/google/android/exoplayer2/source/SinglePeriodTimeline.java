@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SinglePeriodTimeline extends Timeline {
     public static /* synthetic */ Interceptable $ic;
     public static final Object ID;
@@ -42,17 +42,17 @@ public final class SinglePeriodTimeline extends Timeline {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SinglePeriodTimeline(long j2, boolean z) {
-        this(j2, j2, 0L, 0L, z, false);
+    public SinglePeriodTimeline(long j, boolean z) {
+        this(j, j, 0L, 0L, z, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
@@ -70,11 +70,11 @@ public final class SinglePeriodTimeline extends Timeline {
     }
 
     @Override // com.google.android.exoplayer2.Timeline
-    public Timeline.Period getPeriod(int i2, Timeline.Period period, boolean z) {
+    public Timeline.Period getPeriod(int i, Timeline.Period period, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), period, Boolean.valueOf(z)})) == null) {
-            Assertions.checkIndex(i2, 0, 1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), period, Boolean.valueOf(z)})) == null) {
+            Assertions.checkIndex(i, 0, 1);
             Object obj = z ? ID : null;
             return period.set(obj, obj, 0, this.periodDurationUs, -this.windowPositionInPeriodUs);
         }
@@ -92,20 +92,20 @@ public final class SinglePeriodTimeline extends Timeline {
     }
 
     @Override // com.google.android.exoplayer2.Timeline
-    public Timeline.Window getWindow(int i2, Timeline.Window window, boolean z, long j2) {
+    public Timeline.Window getWindow(int i, Timeline.Window window, boolean z, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), window, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
-            Assertions.checkIndex(i2, 0, 1);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+            Assertions.checkIndex(i, 0, 1);
             Object obj = z ? ID : null;
-            long j3 = this.windowDefaultStartPositionUs;
+            long j2 = this.windowDefaultStartPositionUs;
             if (this.isDynamic) {
-                j3 += j2;
-                if (j3 > this.windowDurationUs) {
-                    j3 = C.TIME_UNSET;
+                j2 += j;
+                if (j2 > this.windowDurationUs) {
+                    j2 = C.TIME_UNSET;
                 }
             }
-            return window.set(obj, this.presentationStartTimeMs, this.windowStartTimeMs, this.isSeekable, this.isDynamic, j3, this.windowDurationUs, 0, 0, this.windowPositionInPeriodUs);
+            return window.set(obj, this.presentationStartTimeMs, this.windowStartTimeMs, this.isSeekable, this.isDynamic, j2, this.windowDurationUs, 0, 0, this.windowPositionInPeriodUs);
         }
         return (Timeline.Window) invokeCommon.objValue;
     }
@@ -121,17 +121,17 @@ public final class SinglePeriodTimeline extends Timeline {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SinglePeriodTimeline(long j2, long j3, long j4, long j5, boolean z, boolean z2) {
-        this(C.TIME_UNSET, C.TIME_UNSET, j2, j3, j4, j5, z, z2);
+    public SinglePeriodTimeline(long j, long j2, long j3, long j4, boolean z, boolean z2) {
+        this(C.TIME_UNSET, C.TIME_UNSET, j, j2, j3, j4, z, z2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), ((Long) objArr2[5]).longValue(), ((Boolean) objArr2[6]).booleanValue(), ((Boolean) objArr2[7]).booleanValue());
                 newInitContext.thisArg = this;
@@ -141,27 +141,27 @@ public final class SinglePeriodTimeline extends Timeline {
         }
     }
 
-    public SinglePeriodTimeline(long j2, long j3, long j4, long j5, long j6, long j7, boolean z, boolean z2) {
+    public SinglePeriodTimeline(long j, long j2, long j3, long j4, long j5, long j6, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.presentationStartTimeMs = j2;
-        this.windowStartTimeMs = j3;
-        this.periodDurationUs = j4;
-        this.windowDurationUs = j5;
-        this.windowPositionInPeriodUs = j6;
-        this.windowDefaultStartPositionUs = j7;
+        this.presentationStartTimeMs = j;
+        this.windowStartTimeMs = j2;
+        this.periodDurationUs = j3;
+        this.windowDurationUs = j4;
+        this.windowPositionInPeriodUs = j5;
+        this.windowDefaultStartPositionUs = j6;
         this.isSeekable = z;
         this.isDynamic = z2;
     }

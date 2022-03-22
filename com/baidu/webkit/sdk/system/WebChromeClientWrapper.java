@@ -57,9 +57,9 @@ public final class WebChromeClientWrapper extends WebChromeClient {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {customViewCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,9 +95,9 @@ public final class WebChromeClientWrapper extends WebChromeClient {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fileChooserParams};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -174,9 +174,9 @@ public final class WebChromeClientWrapper extends WebChromeClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {webViewImpl, webChromeClient};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -217,10 +217,10 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onConsoleMessage(String str, int i2, String str2) {
+    public final void onConsoleMessage(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, str2) == null) {
-            this.mClient.onConsoleMessage(str, i2, str2);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            this.mClient.onConsoleMessage(str, i, str2);
         }
     }
 
@@ -247,10 +247,10 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onExceededDatabaseQuota(String str, String str2, long j2, long j3, long j4, WebStorage.QuotaUpdater quotaUpdater) {
+    public final void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), quotaUpdater}) == null) {
-            this.mClient.onExceededDatabaseQuota(str, str2, j2, j3, j4, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            this.mClient.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
         }
     }
 
@@ -330,18 +330,18 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onProgressChanged(WebView webView, int i2) {
+    public final void onProgressChanged(WebView webView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048594, this, webView, i2) == null) {
-            this.mClient.onProgressChanged(this.mWebView.getWebView(), i2);
+        if (interceptable == null || interceptable.invokeLI(1048594, this, webView, i) == null) {
+            this.mClient.onProgressChanged(this.mWebView.getWebView(), i);
         }
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onReachedMaxAppCacheSize(long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+    public final void onReachedMaxAppCacheSize(long j, long j2, WebStorage.QuotaUpdater quotaUpdater) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            this.mClient.onReachedMaxAppCacheSize(j2, j3, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), quotaUpdater}) == null) {
+            this.mClient.onReachedMaxAppCacheSize(j, j2, quotaUpdater == null ? null : new WebStorageImpl.QuotaUpdater(quotaUpdater));
         }
     }
 
@@ -378,10 +378,10 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @Override // android.webkit.WebChromeClient
-    public final void onShowCustomView(View view, int i2, WebChromeClient.CustomViewCallback customViewCallback) {
+    public final void onShowCustomView(View view, int i, WebChromeClient.CustomViewCallback customViewCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048600, this, view, i2, customViewCallback) == null) {
-            this.mClient.onShowCustomView(view, i2, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
+        if (interceptable == null || interceptable.invokeLIL(1048600, this, view, i, customViewCallback) == null) {
+            this.mClient.onShowCustomView(view, i, customViewCallback != null ? new CustomViewCallbackImpl(customViewCallback, null) : null);
         }
     }
 

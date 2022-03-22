@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.ThemeCardInUser;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThemeCardInUserData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -27,9 +27,9 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -78,10 +78,10 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         this.coordinate = themeCardInUser.coordinate;
     }
 
-    public void setCardId(long j2) {
+    public void setCardId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.cardId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.cardId = j;
         }
     }
 
@@ -106,10 +106,10 @@ public class ThemeCardInUserData extends OrmObject implements Serializable {
         }
     }
 
-    public void setFreeLevel(int i2) {
+    public void setFreeLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.freeLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.freeLevel = i;
         }
     }
 

@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.text.SubtitleOutputBuffer;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class CeaDecoder implements SubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_INPUT_BUFFERS = 10;
@@ -31,20 +31,20 @@ public abstract class CeaDecoder implements SubtitleDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.availableInputBuffers = new LinkedList<>();
-        for (int i4 = 0; i4 < 10; i4++) {
+        for (int i3 = 0; i3 < 10; i3++) {
             this.availableInputBuffers.add(new SubtitleInputBuffer());
         }
         this.availableOutputBuffers = new LinkedList<>();
-        for (int i5 = 0; i5 < 2; i5++) {
+        for (int i4 = 0; i4 < 2; i4++) {
             this.availableOutputBuffers.add(new CeaOutputBuffer(this));
         }
         this.queuedInputBuffers = new PriorityQueue<>();
@@ -99,10 +99,10 @@ public abstract class CeaDecoder implements SubtitleDecoder {
     }
 
     @Override // com.google.android.exoplayer2.text.SubtitleDecoder
-    public void setPositionUs(long j2) {
+    public void setPositionUs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.playbackPositionUs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.playbackPositionUs = j;
         }
     }
 

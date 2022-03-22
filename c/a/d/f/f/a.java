@@ -24,21 +24,21 @@ public abstract class a {
 
     /* renamed from: c.a.d.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0103a implements b.a {
+    public class C0092a implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0103a(a aVar) {
+        public C0092a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,10 +48,10 @@ public abstract class a {
         }
 
         @Override // c.a.d.f.f.b.a
-        public void a(String str, int i2, boolean z) {
+        public void a(String str, int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.a.changeSettingByType(i2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.a.changeSettingByType(i);
             }
         }
     }
@@ -61,9 +61,9 @@ public abstract class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,7 +72,7 @@ public abstract class a {
         this.mDefaultType = 0;
         this.mOffType = 1;
         this.mMaxCrashTimes = 10;
-        this.mSwitchListener = new C0103a(this);
+        this.mSwitchListener = new C0092a(this);
         initData();
         addToManager();
     }
@@ -87,7 +87,7 @@ public abstract class a {
         }
     }
 
-    public abstract void changeSettingByType(int i2);
+    public abstract void changeSettingByType(int i);
 
     public abstract String[] getCrashKeys();
 

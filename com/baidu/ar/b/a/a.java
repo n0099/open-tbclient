@@ -26,9 +26,9 @@ public abstract class a extends j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,13 +94,13 @@ public abstract class a extends j {
         c.cd().c((com.baidu.ar.c.a) at);
     }
 
-    public void b(long j2) {
+    public void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) || (algoHandleController = this.cb) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) || (algoHandleController = this.cb) == null) {
             return;
         }
-        algoHandleController.destroyHandle(j2);
+        algoHandleController.destroyHandle(j);
     }
 
     public final void b(Bundle bundle) {

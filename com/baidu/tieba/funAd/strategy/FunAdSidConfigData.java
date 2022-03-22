@@ -1,7 +1,7 @@
 package com.baidu.tieba.funAd.strategy;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,9 +32,9 @@ public class FunAdSidConfigData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,7 +79,7 @@ public class FunAdSidConfigData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mThreshold : invokeV.intValue;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || jSONObject == null) {
@@ -89,8 +89,8 @@ public class FunAdSidConfigData extends p implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("bear_sid_list");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.mBearSidList.add(optJSONArray.getString(i2));
+                for (int i = 0; i < length; i++) {
+                    this.mBearSidList.add(optJSONArray.getString(i));
                 }
             }
             this.mThreshold = jSONObject.optInt("threshold", 0);
@@ -110,38 +110,38 @@ public class FunAdSidConfigData extends p implements Serializable {
         }
     }
 
-    public void setExpiryTime(long j2) {
+    public void setExpiryTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mExpiryTime = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mExpiryTime = j;
         }
     }
 
-    public void setForce(int i2) {
+    public void setForce(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mForce = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mForce = i;
         }
     }
 
-    public void setRecordNum(int i2) {
+    public void setRecordNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mRecordNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mRecordNum = i;
         }
     }
 
-    public void setSpace(long j2) {
+    public void setSpace(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mSpace = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mSpace = j;
         }
     }
 
-    public void setThreshold(int i2) {
+    public void setThreshold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mThreshold = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mThreshold = i;
         }
     }
 

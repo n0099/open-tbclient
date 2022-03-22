@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JavaVersion {
     public static /* synthetic */ Interceptable $ic;
     public static final int majorJavaVersion;
@@ -35,9 +35,9 @@ public final class JavaVersion {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -56,8 +56,8 @@ public final class JavaVersion {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
                 StringBuilder sb = new StringBuilder();
-                for (int i2 = 0; i2 < str.length(); i2++) {
-                    char charAt = str.charAt(i2);
+                for (int i = 0; i < str.length(); i++) {
+                    char charAt = str.charAt(i);
                     if (!Character.isDigit(charAt)) {
                         break;
                     }

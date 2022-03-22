@@ -2,7 +2,7 @@ package com.meizu.cloud.pushsdk.b.g;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class f implements l {
     public final l a;
 
@@ -14,8 +14,8 @@ public abstract class f implements l {
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l
-    public void a(b bVar, long j2) throws IOException {
-        this.a.a(bVar, j2);
+    public void a(b bVar, long j) throws IOException {
+        this.a.a(bVar, j);
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m

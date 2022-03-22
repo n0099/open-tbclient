@@ -19,12 +19,12 @@ public class MusicPlayer {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static MusicPlayer f47903c;
+    public static MusicPlayer f37056c;
     public transient /* synthetic */ FieldHolder $fh;
     public MediaPlayer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MusicPlayerState f47904b;
+    public MusicPlayerState f37057b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -62,16 +62,16 @@ public class MusicPlayer {
             $VALUES = new MusicPlayerState[]{WAIT, PAUSE, PREPARED, REPLAY, RESUME, musicPlayerState};
         }
 
-        public MusicPlayerState(String str, int i2) {
+        public MusicPlayerState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -98,12 +98,10 @@ public class MusicPlayer {
     public class a implements MediaPlayer.OnPreparedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList f47905e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MusicPlayer f47906f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ MusicPlayer f37058b;
 
         public a(MusicPlayer musicPlayer, CloudMusicData.MusicTagList.MusicList musicList) {
             Interceptable interceptable = $ic;
@@ -112,27 +110,27 @@ public class MusicPlayer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {musicPlayer, musicList};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47906f = musicPlayer;
-            this.f47905e = musicList;
+            this.f37058b = musicPlayer;
+            this.a = musicList;
         }
 
         @Override // android.media.MediaPlayer.OnPreparedListener
         public void onPrepared(MediaPlayer mediaPlayer) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                c.a.r0.o4.l.i.a.b().d(this.f47905e);
+                c.a.p0.q4.m.i.a.b().d(this.a);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921307));
-                this.f47906f.a.setLooping(true);
-                this.f47906f.a.start();
-                this.f47906f.f47904b = MusicPlayerState.PREPARED;
+                this.f37058b.a.setLooping(true);
+                this.f37058b.a.start();
+                this.f37058b.f37057b = MusicPlayerState.PREPARED;
             }
         }
     }
@@ -162,15 +160,15 @@ public class MusicPlayer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f47904b = MusicPlayerState.WAIT;
+        this.f37057b = MusicPlayerState.WAIT;
     }
 
     public static synchronized MusicPlayer c() {
@@ -179,10 +177,10 @@ public class MusicPlayer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             synchronized (MusicPlayer.class) {
-                if (f47903c == null) {
-                    f47903c = new MusicPlayer();
+                if (f37056c == null) {
+                    f37056c = new MusicPlayer();
                 }
-                musicPlayer = f47903c;
+                musicPlayer = f37056c;
             }
             return musicPlayer;
         }
@@ -196,13 +194,13 @@ public class MusicPlayer {
             if (mediaPlayer != null && mediaPlayer.isPlaying()) {
                 this.a.pause();
             }
-            this.f47904b = MusicPlayerState.PAUSE;
+            this.f37057b = MusicPlayerState.PAUSE;
         }
     }
 
     public void e(String str, CloudMusicData.MusicTagList.MusicList musicList, b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f47904b == MusicPlayerState.PAUSE) {
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, musicList, bVar) == null) || this.f37057b == MusicPlayerState.PAUSE) {
             return;
         }
         if (this.a == null) {
@@ -214,11 +212,11 @@ public class MusicPlayer {
             this.a.reset();
             this.a.setDataSource(str);
             this.a.prepare();
-            this.f47904b = MusicPlayerState.WAIT;
+            this.f37057b = MusicPlayerState.WAIT;
             this.a.setOnPreparedListener(new a(this, musicList));
         } catch (IOException e2) {
             e2.printStackTrace();
-            this.f47904b = MusicPlayerState.ERROR;
+            this.f37057b = MusicPlayerState.ERROR;
             if (bVar != null) {
                 bVar.a();
             }
@@ -246,7 +244,7 @@ public class MusicPlayer {
                 mediaPlayer.start();
                 this.a.seekTo(0);
             }
-            this.f47904b = MusicPlayerState.RESUME;
+            this.f37057b = MusicPlayerState.RESUME;
         }
     }
 }

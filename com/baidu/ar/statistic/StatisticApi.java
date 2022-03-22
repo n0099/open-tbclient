@@ -23,9 +23,9 @@ public final class StatisticApi {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -103,22 +103,22 @@ public final class StatisticApi {
         gVar.onEvent(str, map);
     }
 
-    public static void onEventDebounce(String str, long j2, String str2) {
+    public static void onEventDebounce(String str, long j, String str2) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j2), str2}) == null) || (gVar = wU) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), str2}) == null) || (gVar = wU) == null) {
             return;
         }
-        gVar.onEventDebounce(str, j2, str2);
+        gVar.onEventDebounce(str, j, str2);
     }
 
-    public static void onEventDebounce(String str, long j2, Map<String, String> map) {
+    public static void onEventDebounce(String str, long j, Map<String, String> map) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j2), map}) == null) || (gVar = wU) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, Long.valueOf(j), map}) == null) || (gVar = wU) == null) {
             return;
         }
-        gVar.onEventDebounce(str, j2, map);
+        gVar.onEventDebounce(str, j, map);
     }
 
     public static void onEventEnd(String str) {

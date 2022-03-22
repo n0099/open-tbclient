@@ -1,7 +1,6 @@
 package com.coremedia.iso.boxes;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -23,7 +22,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HandlerBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "hdlr";
@@ -38,10 +37,10 @@ public class HandlerBox extends AbstractFullBox {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f52099b;
+    public long f38498b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f52100c;
+    public long f38499c;
     public String handlerType;
     public String name;
     public long shouldBeZeroButAppleWritesHereSomeValue;
@@ -87,9 +86,9 @@ public class HandlerBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -107,7 +106,7 @@ public class HandlerBox extends AbstractFullBox {
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setHandlerType", "com.coremedia.iso.boxes.HandlerBox", "java.lang.String", "handlerType", "", "void"), 91);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getName", "com.coremedia.iso.boxes.HandlerBox", "", "", "", "java.lang.String"), 95);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getHumanReadableTrackType", "com.coremedia.iso.boxes.HandlerBox", "", "", "", "java.lang.String"), 99);
-        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.HandlerBox", "", "", "", "java.lang.String"), Opcodes.FCMPL);
+        ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.HandlerBox", "", "", "", "java.lang.String"), 149);
     }
 
     @Override // com.googlecode.mp4parser.AbstractBox
@@ -118,8 +117,8 @@ public class HandlerBox extends AbstractFullBox {
             this.shouldBeZeroButAppleWritesHereSomeValue = IsoTypeReader.readUInt32(byteBuffer);
             this.handlerType = IsoTypeReader.read4cc(byteBuffer);
             this.a = IsoTypeReader.readUInt32(byteBuffer);
-            this.f52099b = IsoTypeReader.readUInt32(byteBuffer);
-            this.f52100c = IsoTypeReader.readUInt32(byteBuffer);
+            this.f38498b = IsoTypeReader.readUInt32(byteBuffer);
+            this.f38499c = IsoTypeReader.readUInt32(byteBuffer);
             if (byteBuffer.remaining() > 0) {
                 String readString = IsoTypeReader.readString(byteBuffer, byteBuffer.remaining());
                 this.name = readString;
@@ -144,8 +143,8 @@ public class HandlerBox extends AbstractFullBox {
             IsoTypeWriter.writeUInt32(byteBuffer, this.shouldBeZeroButAppleWritesHereSomeValue);
             byteBuffer.put(IsoFile.fourCCtoBytes(this.handlerType));
             IsoTypeWriter.writeUInt32(byteBuffer, this.a);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f52099b);
-            IsoTypeWriter.writeUInt32(byteBuffer, this.f52100c);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f38498b);
+            IsoTypeWriter.writeUInt32(byteBuffer, this.f38499c);
             String str = this.name;
             if (str != null) {
                 byteBuffer.put(Utf8.convert(str));

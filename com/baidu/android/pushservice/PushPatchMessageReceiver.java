@@ -35,22 +35,22 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private void handleXiaomiMsg(Context context, MiPushMessage miPushMessage, int i2) {
+    private void handleXiaomiMsg(Context context, MiPushMessage miPushMessage, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, this, context, miPushMessage, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65537, this, context, miPushMessage, i) == null) {
             try {
                 Intent intent = new Intent("com.xiaomi.mipush.PUSH_MSG");
                 intent.putExtra(PUSH_MSG, miPushMessage);
-                intent.putExtra(PUSH_MSG_TYPE, i2);
+                intent.putExtra(PUSH_MSG_TYPE, i);
                 m.a(intent, context.getApplicationContext());
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -91,7 +91,7 @@ public class PushPatchMessageReceiver extends com.xiaomi.mipush.sdk.PushMessageR
             String content = miPushMessage.getContent();
             com.baidu.android.pushservice.message.i iVar = new com.baidu.android.pushservice.message.i();
             if (msgFromXMConsole(context, content)) {
-                iVar.k = k.f30920b.b();
+                iVar.k = k.f24761b.b();
             } else {
                 content = iVar.b(context, content);
             }

@@ -18,9 +18,9 @@ public class TurbonetException extends UrlRequestException {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -31,17 +31,17 @@ public class TurbonetException extends UrlRequestException {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TurbonetException(String str, int i2, int i3) {
-        super(str, i2, i3);
+    public TurbonetException(String str, int i, int i2) {
+        super(str, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

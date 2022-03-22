@@ -9,7 +9,7 @@ import android.view.ViewParent;
 import androidx.annotation.RequiresApi;
 import com.kwad.sdk.api.core.ApiWebView;
 import com.kwad.sdk.utils.bb;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends ApiWebView {
     public boolean a;
 
@@ -23,25 +23,25 @@ public class a extends ApiWebView {
         this.a = true;
     }
 
-    public a(Context context, AttributeSet attributeSet, int i2) {
-        super(a(bb.d(context)), attributeSet, i2);
+    public a(Context context, AttributeSet attributeSet, int i) {
+        super(a(bb.d(context)), attributeSet, i);
         this.a = true;
     }
 
     @RequiresApi(api = 21)
-    public a(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(a(bb.d(context)), attributeSet, i2, i3);
+    public a(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(a(bb.d(context)), attributeSet, i, i2);
         this.a = true;
     }
 
-    public a(Context context, AttributeSet attributeSet, int i2, boolean z) {
-        super(a(bb.d(context)), attributeSet, i2, z);
+    public a(Context context, AttributeSet attributeSet, int i, boolean z) {
+        super(a(bb.d(context)), attributeSet, i, z);
         this.a = true;
     }
 
     public static Context a(Context context) {
-        int i2 = Build.VERSION.SDK_INT;
-        return (i2 < 21 || i2 >= 23) ? context : context.createConfigurationContext(new Configuration());
+        int i = Build.VERSION.SDK_INT;
+        return (i < 21 || i >= 23) ? context : context.createConfigurationContext(new Configuration());
     }
 
     public void a() {

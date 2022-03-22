@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,10 +56,10 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         this.mIsVertical = false;
     }
 
-    private void drawBar(Canvas canvas, int i2) {
+    private void drawBar(Canvas canvas, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, this, canvas, i2) == null) {
-            this.mPaint.setColor(i2);
+        if (interceptable == null || interceptable.invokeLI(65537, this, canvas, i) == null) {
+            this.mPaint.setColor(i);
             this.mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
             this.mPath.reset();
             this.mPath.setFillType(Path.FillType.EVEN_ODD);
@@ -68,31 +68,31 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         }
     }
 
-    private void drawHorizontalBar(Canvas canvas, int i2, int i3) {
+    private void drawHorizontalBar(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, this, canvas, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65538, this, canvas, i, i2) == null) {
             Rect bounds = getBounds();
             int width = bounds.width();
-            int i4 = this.mPadding;
-            int i5 = bounds.left + i4;
-            int i6 = bounds.bottom - i4;
-            int i7 = this.mBarWidth;
-            int i8 = i6 - i7;
-            this.mRect.set(i5, i8, i5 + (((width - (i4 * 2)) * i2) / 10000), i8 + i7);
-            drawBar(canvas, i3);
+            int i3 = this.mPadding;
+            int i4 = bounds.left + i3;
+            int i5 = bounds.bottom - i3;
+            int i6 = this.mBarWidth;
+            int i7 = i5 - i6;
+            this.mRect.set(i4, i7, i4 + (((width - (i3 * 2)) * i) / 10000), i7 + i6);
+            drawBar(canvas, i2);
         }
     }
 
-    private void drawVerticalBar(Canvas canvas, int i2, int i3) {
+    private void drawVerticalBar(Canvas canvas, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, canvas, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(65539, this, canvas, i, i2) == null) {
             Rect bounds = getBounds();
             int height = bounds.height();
-            int i4 = this.mPadding;
-            int i5 = bounds.left + i4;
-            int i6 = bounds.top + i4;
-            this.mRect.set(i5, i6, i5 + this.mBarWidth, i6 + (((height - (i4 * 2)) * i2) / 10000));
-            drawBar(canvas, i3);
+            int i3 = this.mPadding;
+            int i4 = bounds.left + i3;
+            int i5 = bounds.top + i3;
+            this.mRect.set(i4, i5, i4 + this.mBarWidth, i5 + (((height - (i3 * 2)) * i) / 10000));
+            drawBar(canvas, i2);
         }
     }
 
@@ -174,8 +174,8 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect)) == null) {
-            int i2 = this.mPadding;
-            rect.set(i2, i2, i2, i2);
+            int i = this.mPadding;
+            rect.set(i, i, i, i);
             return this.mPadding != 0;
         }
         return invokeL.booleanValue;
@@ -188,11 +188,11 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.mLevel = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.mLevel = i;
             invalidateSelf();
             return true;
         }
@@ -200,37 +200,37 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mPaint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mPaint.setAlpha(i);
         }
     }
 
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || this.mBackgroundColor == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || this.mBackgroundColor == i) {
             return;
         }
-        this.mBackgroundColor = i2;
+        this.mBackgroundColor = i;
         invalidateSelf();
     }
 
-    public void setBarWidth(int i2) {
+    public void setBarWidth(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || this.mBarWidth == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || this.mBarWidth == i) {
             return;
         }
-        this.mBarWidth = i2;
+        this.mBarWidth = i;
         invalidateSelf();
     }
 
-    public void setColor(int i2) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || this.mColor == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || this.mColor == i) {
             return;
         }
-        this.mColor = i2;
+        this.mColor = i;
         invalidateSelf();
     }
 
@@ -258,21 +258,21 @@ public class ProgressBarDrawable extends Drawable implements CloneableDrawable {
         invalidateSelf();
     }
 
-    public void setPadding(int i2) {
+    public void setPadding(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || this.mPadding == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || this.mPadding == i) {
             return;
         }
-        this.mPadding = i2;
+        this.mPadding = i;
         invalidateSelf();
     }
 
-    public void setRadius(int i2) {
+    public void setRadius(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || this.mRadius == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || this.mRadius == i) {
             return;
         }
-        this.mRadius = i2;
+        this.mRadius = i;
         invalidateSelf();
     }
 }

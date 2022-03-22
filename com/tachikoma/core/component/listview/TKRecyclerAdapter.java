@@ -19,7 +19,7 @@ import com.tachikoma.core.component.recyclerview.export.ITKListViewDelegate;
 import com.tachikoma.core.utility.ObjectUtils;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implements ITKListViewDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
     public TKJSContext mTKJSContext;
     public V8Object mV8AssociatedObject;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -63,9 +63,9 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,25 +81,25 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void didSelectItemView(int i2) {
+    public void didSelectItemView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-            didSelectItemView(this.mV8AssociatedObject, i2);
+        if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
+            didSelectItemView(this.mV8AssociatedObject, i);
         }
     }
 
-    private void willDisplayItemView(int i2) {
+    private void willDisplayItemView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            willDisplayItemView(this.mV8AssociatedObject, i2);
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
+            willDisplayItemView(this.mV8AssociatedObject, i);
         }
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListViewDelegate
-    public void didSelectItemView(V8Object v8Object, int i2) {
+    public void didSelectItemView(V8Object v8Object, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048576, this, v8Object, i2) == null) && V8Proxy.isV8Valid(this.mDelegateV8)) {
-            this.mDelegateV8.executeJSFunction("didSelectItemView", v8Object, Integer.valueOf(i2));
+        if ((interceptable == null || interceptable.invokeLI(1048576, this, v8Object, i) == null) && V8Proxy.isV8Valid(this.mDelegateV8)) {
+            this.mDelegateV8.executeJSFunction("didSelectItemView", v8Object, Integer.valueOf(i));
         }
     }
 
@@ -111,25 +111,25 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mAdapter.getItemViewType(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mAdapter.getItemViewType(i) : invokeI.intValue;
     }
 
-    public boolean isFullWidgetForView(int i2) {
+    public boolean isFullWidgetForView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.mAdapter.isFullWidgetForView(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mAdapter.isFullWidgetForView(i) : invokeI.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(@NonNull TKViewHolder tKViewHolder, int i2) {
+    public void onBindViewHolder(@NonNull TKViewHolder tKViewHolder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, tKViewHolder, i2) == null) {
-            this.mAdapter.onBindViewHolder(tKViewHolder, i2);
-            tKViewHolder.itemView.setOnClickListener(new View.OnClickListener(this, i2) { // from class: com.tachikoma.core.component.listview.TKRecyclerAdapter.1
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tKViewHolder, i) == null) {
+            this.mAdapter.onBindViewHolder(tKViewHolder, i);
+            tKViewHolder.itemView.setOnClickListener(new View.OnClickListener(this, i) { // from class: com.tachikoma.core.component.listview.TKRecyclerAdapter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ TKRecyclerAdapter this$0;
@@ -140,18 +140,18 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$position = i2;
+                    this.val$position = i;
                 }
 
                 @Override // android.view.View.OnClickListener
@@ -162,16 +162,16 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
                     }
                 }
             });
-            willDisplayItemView(i2);
+            willDisplayItemView(i);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public TKViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+    public TKViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i2)) == null) ? this.mAdapter.onCreateViewHolder(viewGroup, i2) : (TKViewHolder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, viewGroup, i)) == null) ? this.mAdapter.onCreateViewHolder(viewGroup, i) : (TKViewHolder) invokeLI.objValue;
     }
 
     public void onDestroy() {
@@ -225,10 +225,10 @@ public class TKRecyclerAdapter extends RecyclerView.Adapter<TKViewHolder> implem
     }
 
     @Override // com.tachikoma.core.component.recyclerview.export.ITKListViewDelegate
-    public void willDisplayItemView(V8Object v8Object, int i2) {
+    public void willDisplayItemView(V8Object v8Object, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048589, this, v8Object, i2) == null) && V8Proxy.isV8Valid(this.mDelegateV8)) {
-            this.mDelegateV8.executeJSFunction("willDisplayItemView", v8Object, Integer.valueOf(i2));
+        if ((interceptable == null || interceptable.invokeLI(1048589, this, v8Object, i) == null) && V8Proxy.isV8Valid(this.mDelegateV8)) {
+            this.mDelegateV8.executeJSFunction("willDisplayItemView", v8Object, Integer.valueOf(i));
         }
     }
 }

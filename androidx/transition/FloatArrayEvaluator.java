@@ -20,9 +20,9 @@ public class FloatArrayEvaluator implements TypeEvaluator<float[]> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,9 +41,9 @@ public class FloatArrayEvaluator implements TypeEvaluator<float[]> {
             if (fArr3 == null) {
                 fArr3 = new float[fArr.length];
             }
-            for (int i2 = 0; i2 < fArr3.length; i2++) {
-                float f3 = fArr[i2];
-                fArr3[i2] = f3 + ((fArr2[i2] - f3) * f2);
+            for (int i = 0; i < fArr3.length; i++) {
+                float f3 = fArr[i];
+                fArr3[i] = f3 + ((fArr2[i] - f3) * f2);
             }
             return fArr3;
         }

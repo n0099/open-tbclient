@@ -20,7 +20,7 @@ import com.tachikoma.core.event.base.IBaseEvent;
 import com.tachikoma.core.event.view.TKSwitchEvent;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKSwitch extends TKBase<Switch> implements CompoundButton.OnCheckedChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class TKSwitch extends TKBase<Switch> implements CompoundButton.OnChecked
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -118,9 +118,9 @@ public class TKSwitch extends TKBase<Switch> implements CompoundButton.OnChecked
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -170,31 +170,31 @@ public class TKSwitch extends TKBase<Switch> implements CompoundButton.OnChecked
         }
     }
 
-    public void setOffColor(int i2) {
+    public void setOffColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mOffTrackColor = Integer.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mOffTrackColor = Integer.valueOf(i);
             if (getView().isChecked()) {
                 return;
             }
-            setTrackColor(Integer.valueOf(i2));
+            setTrackColor(Integer.valueOf(i));
         }
     }
 
-    public void setOnColor(int i2) {
+    public void setOnColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mOnTrackColor = Integer.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mOnTrackColor = Integer.valueOf(i);
             if (getView().isChecked()) {
-                setTrackColor(Integer.valueOf(i2));
+                setTrackColor(Integer.valueOf(i));
             }
         }
     }
 
-    public void setThumbColor(int i2) {
+    public void setThumbColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            setColor(getView().getThumbDrawable(), Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            setColor(getView().getThumbDrawable(), Integer.valueOf(i));
         }
     }
 }

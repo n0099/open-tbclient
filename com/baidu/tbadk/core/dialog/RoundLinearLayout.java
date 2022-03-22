@@ -17,22 +17,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RoundLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f38848e;
+    /* renamed from: b  reason: collision with root package name */
+    public Shape f29853b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Shape f38849f;
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f29854c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Paint f38850g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f38851h;
+    /* renamed from: d  reason: collision with root package name */
+    public int f29855d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundLinearLayout(Context context) {
@@ -43,9 +41,9 @@ public class RoundLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -62,9 +60,9 @@ public class RoundLinearLayout extends LinearLayout {
             int saveCount = canvas.getSaveCount();
             canvas.save();
             super.dispatchDraw(canvas);
-            Shape shape = this.f38849f;
+            Shape shape = this.f29853b;
             if (shape != null) {
-                shape.draw(canvas, this.f38850g);
+                shape.draw(canvas, this.f29854c);
             }
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -74,21 +72,21 @@ public class RoundLinearLayout extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (z) {
-                if (this.f38849f == null) {
+                if (this.f29853b == null) {
                     float[] fArr = new float[8];
                     Arrays.fill(fArr, 0.0f);
                     RectF rectF = new RectF(getPaddingLeft(), getPaddingTop() > 0 ? getPaddingTop() : 1.0f, getPaddingRight() <= 0 ? 1.0f : getPaddingRight(), getPaddingBottom());
                     float[] fArr2 = new float[8];
                     Arrays.fill(fArr, 0.0f);
-                    Arrays.fill(fArr2, 0, this.f38851h, this.f38848e);
-                    this.f38849f = new RoundRectShape(fArr, rectF, fArr2);
+                    Arrays.fill(fArr2, 0, this.f29855d, this.a);
+                    this.f29853b = new RoundRectShape(fArr, rectF, fArr2);
                 }
-                this.f38849f.resize(getWidth(), getHeight());
+                this.f29853b.resize(getWidth(), getHeight());
             }
         }
     }
@@ -96,14 +94,14 @@ public class RoundLinearLayout extends LinearLayout {
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f38848e = f2;
+            this.a = f2;
         }
     }
 
-    public void setRoundCount(int i2) {
+    public void setRoundCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38851h = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f29855d = i;
         }
     }
 
@@ -116,9 +114,9 @@ public class RoundLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -129,17 +127,17 @@ public class RoundLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundLinearLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundLinearLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -147,15 +145,15 @@ public class RoundLinearLayout extends LinearLayout {
                 return;
             }
         }
-        this.f38848e = 0.0f;
-        this.f38851h = 4;
+        this.a = 0.0f;
+        this.f29855d = 4;
         setLayerType(1, null);
-        this.f38848e = getResources().getDimension(R.dimen.tbds32);
+        this.a = getResources().getDimension(R.dimen.tbds32);
         Paint paint = new Paint();
-        this.f38850g = paint;
+        this.f29854c = paint;
         paint.setAntiAlias(true);
-        this.f38850g.setColor(-7829368);
-        this.f38850g.setStyle(Paint.Style.FILL);
-        this.f38850g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f29854c.setColor(-7829368);
+        this.f29854c.setStyle(Paint.Style.FILL);
+        this.f29854c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 }

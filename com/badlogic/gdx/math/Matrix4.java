@@ -74,9 +74,9 @@ public class Matrix4 implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -101,7 +101,7 @@ public class Matrix4 implements Serializable {
         }
     }
 
-    public static native void mulVec(float[] fArr, float[] fArr2, int i2, int i3, int i4);
+    public static native void mulVec(float[] fArr, float[] fArr2, int i, int i2, int i3);
 
     public static void prj(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
@@ -113,7 +113,7 @@ public class Matrix4 implements Serializable {
         }
     }
 
-    public static native void prj(float[] fArr, float[] fArr2, int i2, int i3, int i4);
+    public static native void prj(float[] fArr, float[] fArr2, int i, int i2, int i3);
 
     public static void rot(float[] fArr, float[] fArr2) {
         Interceptable interceptable = $ic;
@@ -126,7 +126,7 @@ public class Matrix4 implements Serializable {
         }
     }
 
-    public static native void rot(float[] fArr, float[] fArr2, int i2, int i3, int i4);
+    public static native void rot(float[] fArr, float[] fArr2, int i, int i2, int i3);
 
     public Matrix4 avg(Matrix4 matrix4, float f2) {
         InterceptResult invokeLF;
@@ -139,9 +139,9 @@ public class Matrix4 implements Serializable {
             getTranslation(tmpUp);
             matrix4.getTranslation(right);
             float f3 = 1.0f - f2;
-            setToScaling(tmpVec.m23scl(f2).add(tmpForward.m23scl(f3)));
+            setToScaling(tmpVec.m21scl(f2).add(tmpForward.m21scl(f3)));
             rotate(quat.slerp(quat2, f3));
-            setTranslation(tmpUp.m23scl(f2).add(right.m23scl(f3)));
+            setTranslation(tmpUp.m21scl(f2).add(right.m21scl(f3)));
             return this;
         }
         return (Matrix4) invokeLF.objValue;
@@ -354,9 +354,9 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048597, this, matrix4, f2)) == null) {
-            for (int i2 = 0; i2 < 16; i2++) {
+            for (int i = 0; i < 16; i++) {
                 float[] fArr = this.val;
-                fArr[i2] = (fArr[i2] * (1.0f - f2)) + (matrix4.val[i2] * f2);
+                fArr[i] = (fArr[i] * (1.0f - f2)) + (matrix4.val[i] * f2);
             }
             return this;
         }
@@ -414,9 +414,9 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048606, this, vector3, vector32)) == null) {
-            l_vez.set(vector3).m22nor();
-            l_vex.set(vector3).crs(vector32).m22nor();
-            l_vey.set(l_vex).crs(l_vez).m22nor();
+            l_vez.set(vector3).m20nor();
+            l_vex.set(vector3).crs(vector32).m20nor();
+            l_vey.set(l_vex).crs(l_vez).m20nor();
             float[] fArr = this.val;
             float f2 = fArr[0];
             Vector3 vector33 = l_vex;
@@ -561,9 +561,9 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048627, this, vector3, vector32)) == null) {
-            l_vez.set(vector3).m22nor();
-            l_vex.set(vector3).crs(vector32).m22nor();
-            l_vey.set(l_vex).crs(l_vez).m22nor();
+            l_vez.set(vector3).m20nor();
+            l_vex.set(vector3).crs(vector32).m20nor();
+            l_vey.set(l_vex).crs(l_vez).m20nor();
             idt();
             float[] fArr = this.val;
             Vector3 vector33 = l_vex;
@@ -726,10 +726,10 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048646, this, vector3, vector32, vector33)) == null) {
-            tmpForward.set(vector32).m22nor();
-            right.set(tmpForward).crs(vector33).m22nor();
-            tmpUp.set(right).crs(tmpForward).m22nor();
-            set(right, tmpUp, tmpForward.m23scl(-1.0f), vector3);
+            tmpForward.set(vector32).m20nor();
+            right.set(tmpForward).crs(vector33).m20nor();
+            tmpUp.set(right).crs(tmpForward).m20nor();
+            set(right, tmpUp, tmpForward.m21scl(-1.0f), vector3);
             return this;
         }
         return (Matrix4) invokeLLL.objValue;
@@ -908,9 +908,9 @@ public class Matrix4 implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {matrix4};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1121,9 +1121,9 @@ public class Matrix4 implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {fArr};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -1231,9 +1231,9 @@ public class Matrix4 implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {quaternion};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -1248,13 +1248,13 @@ public class Matrix4 implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, matrix4Arr)) == null) {
             float length = 1.0f / matrix4Arr.length;
-            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m23scl(length));
+            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m21scl(length));
             quat.set(matrix4Arr[0].getRotation(quat2).exp(length));
-            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m23scl(length));
-            for (int i2 = 1; i2 < matrix4Arr.length; i2++) {
-                tmpVec.add(matrix4Arr[i2].getScale(tmpUp).m23scl(length));
-                quat.mul(matrix4Arr[i2].getRotation(quat2).exp(length));
-                tmpForward.add(matrix4Arr[i2].getTranslation(tmpUp).m23scl(length));
+            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m21scl(length));
+            for (int i = 1; i < matrix4Arr.length; i++) {
+                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m21scl(length));
+                quat.mul(matrix4Arr[i].getRotation(quat2).exp(length));
+                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m21scl(length));
             }
             quat.nor();
             setToScaling(tmpVec);
@@ -1272,9 +1272,9 @@ public class Matrix4 implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector3, quaternion, vector32};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -1332,13 +1332,13 @@ public class Matrix4 implements Serializable {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, matrix4Arr, fArr)) == null) {
-            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m23scl(fArr[0]));
+            tmpVec.set(matrix4Arr[0].getScale(tmpUp).m21scl(fArr[0]));
             quat.set(matrix4Arr[0].getRotation(quat2).exp(fArr[0]));
-            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m23scl(fArr[0]));
-            for (int i2 = 1; i2 < matrix4Arr.length; i2++) {
-                tmpVec.add(matrix4Arr[i2].getScale(tmpUp).m23scl(fArr[i2]));
-                quat.mul(matrix4Arr[i2].getRotation(quat2).exp(fArr[i2]));
-                tmpForward.add(matrix4Arr[i2].getTranslation(tmpUp).m23scl(fArr[i2]));
+            tmpForward.set(matrix4Arr[0].getTranslation(tmpUp).m21scl(fArr[0]));
+            for (int i = 1; i < matrix4Arr.length; i++) {
+                tmpVec.add(matrix4Arr[i].getScale(tmpUp).m21scl(fArr[i]));
+                quat.mul(matrix4Arr[i].getRotation(quat2).exp(fArr[i]));
+                tmpForward.add(matrix4Arr[i].getTranslation(tmpUp).m21scl(fArr[i]));
             }
             quat.nor();
             setToScaling(tmpVec);

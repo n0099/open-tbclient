@@ -43,9 +43,9 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, c2, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -125,9 +125,9 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
             newInitContext.initArgs = r2;
             Object[] objArr = {parallelFlowable, callable, biConsumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -160,9 +160,9 @@ public final class ParallelCollect<T, C> extends ParallelFlowable<C> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
             Subscriber<? super Object>[] subscriberArr2 = new Subscriber[length];
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 try {
-                    subscriberArr2[i2] = new ParallelCollectSubscriber(subscriberArr[i2], ObjectHelper.requireNonNull(this.initialCollection.call(), "The initialSupplier returned a null value"), this.collector);
+                    subscriberArr2[i] = new ParallelCollectSubscriber(subscriberArr[i], ObjectHelper.requireNonNull(this.initialCollection.call(), "The initialSupplier returned a null value"), this.collector);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     reportError(subscriberArr, th);

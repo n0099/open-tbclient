@@ -36,7 +36,7 @@ import org.apache.http.protocol.HttpContext;
 import org.apache.http.protocol.HttpProcessor;
 import org.apache.http.protocol.HttpRequestExecutor;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractHttpClient implements HttpClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public abstract class AbstractHttpClient implements HttpClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {clientConnectionManager, httpParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -302,10 +302,10 @@ public abstract class AbstractHttpClient implements HttpClient {
         return (HttpRequestExecutor) invokeV.objValue;
     }
 
-    public synchronized HttpRequestInterceptor getRequestInterceptor(int i2) {
+    public synchronized HttpRequestInterceptor getRequestInterceptor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }
@@ -324,10 +324,10 @@ public abstract class AbstractHttpClient implements HttpClient {
         return invokeV.intValue;
     }
 
-    public synchronized HttpResponseInterceptor getResponseInterceptor(int i2) {
+    public synchronized HttpResponseInterceptor getResponseInterceptor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }
@@ -510,18 +510,18 @@ public abstract class AbstractHttpClient implements HttpClient {
         }
     }
 
-    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i2) {
+    public synchronized void addRequestInterceptor(HttpRequestInterceptor httpRequestInterceptor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRequestInterceptor, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpRequestInterceptor, i) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }
         }
     }
 
-    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i2) {
+    public synchronized void addResponseInterceptor(HttpResponseInterceptor httpResponseInterceptor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, httpResponseInterceptor, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, httpResponseInterceptor, i) == null) {
             synchronized (this) {
                 throw new RuntimeException("Stub!");
             }

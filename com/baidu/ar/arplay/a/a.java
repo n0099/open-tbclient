@@ -14,7 +14,6 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.down.manage.DownloadConstants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,6 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Hashtable;
@@ -34,7 +34,7 @@ public final class a {
     public static /* synthetic */ Interceptable $ic;
     public static final String TAG;
     public static a cL;
-    public static ConcurrentHashMap<String, C1746a> cO;
+    public static ConcurrentHashMap<String, C1707a> cO;
     public static HandlerThread cP;
     public static Handler cQ;
     public static b cR;
@@ -51,20 +51,20 @@ public final class a {
 
     /* renamed from: com.baidu.ar.arplay.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1746a {
+    public static class C1707a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public MediaPlayer df;
         public com.baidu.ar.arplay.a.a.b dg;
 
-        public C1746a() {
+        public C1707a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,9 +94,9 @@ public final class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -125,9 +125,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, exc};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -167,9 +167,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -215,9 +215,9 @@ public final class a {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -241,9 +241,9 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -263,9 +263,9 @@ public final class a {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -290,13 +290,13 @@ public final class a {
                             case 3006:
                                 this.da.c(message);
                                 break;
-                            case 3007:
+                            case w0.d3 /* 3007 */:
                                 this.da.e(message);
                                 break;
-                            case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_CREATE_END_STAMP_KEY /* 3008 */:
+                            case 3008:
                                 this.da.f(message);
                                 break;
-                            case SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY /* 3009 */:
+                            case 3009:
                                 this.da.d(message);
                                 break;
                         }
@@ -334,15 +334,15 @@ public final class a {
         return invokeLL.intValue;
     }
 
-    private C1746a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    private C1707a a(MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, onCompletionListener, onErrorListener)) == null) {
             com.baidu.ar.arplay.c.b.b(TAG, "initMediaPlayerInMsg start()");
             try {
-                C1746a c1746a = new C1746a();
+                C1707a c1707a = new C1707a();
                 MediaPlayer mediaPlayer = new MediaPlayer();
-                c1746a.df = mediaPlayer;
+                c1707a.df = mediaPlayer;
                 mediaPlayer.setAudioStreamType(3);
                 if (onCompletionListener == null) {
                     onCompletionListener = new MediaPlayer.OnCompletionListener(this) { // from class: com.baidu.ar.arplay.a.a.9
@@ -357,9 +357,9 @@ public final class a {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -382,43 +382,43 @@ public final class a {
                 }
                 mediaPlayer.setOnCompletionListener(onCompletionListener);
                 if (onErrorListener == null) {
-                    onErrorListener = new MediaPlayer.OnErrorListener(this, c1746a) { // from class: com.baidu.ar.arplay.a.a.10
+                    onErrorListener = new MediaPlayer.OnErrorListener(this, c1707a) { // from class: com.baidu.ar.arplay.a.a.10
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ a da;
-                        public final /* synthetic */ C1746a db;
+                        public final /* synthetic */ C1707a db;
 
                         {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, c1746a};
+                                Object[] objArr = {this, c1707a};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.da = this;
-                            this.db = c1746a;
+                            this.db = c1707a;
                         }
 
                         @Override // android.media.MediaPlayer.OnErrorListener
-                        public boolean onError(MediaPlayer mediaPlayer2, int i2, int i3) {
+                        public boolean onError(MediaPlayer mediaPlayer2, int i, int i2) {
                             InterceptResult invokeLII;
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i2, i3)) == null) {
+                            if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i, i2)) == null) {
                                 String str = a.TAG;
-                                com.baidu.ar.arplay.c.b.b(str, "onError: " + i2);
-                                C1746a c1746a2 = this.db;
-                                com.baidu.ar.arplay.a.a.b bVar = c1746a2.dg;
+                                com.baidu.ar.arplay.c.b.b(str, "onError: " + i);
+                                C1707a c1707a2 = this.db;
+                                com.baidu.ar.arplay.a.a.b bVar = c1707a2.dg;
                                 bVar.dX = "ERROR";
-                                bVar.dY = i2;
-                                a.a(c1746a2);
+                                bVar.dY = i;
+                                a.a(c1707a2);
                                 this.da.b(new b(this) { // from class: com.baidu.ar.arplay.a.a.10.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -431,9 +431,9 @@ public final class a {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i4 = newInitContext.flag;
-                                            if ((i4 & 1) != 0) {
-                                                int i5 = i4 & 2;
+                                            int i3 = newInitContext.flag;
+                                            if ((i3 & 1) != 0) {
+                                                int i4 = i3 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -464,27 +464,27 @@ public final class a {
                     };
                 }
                 mediaPlayer.setOnErrorListener(onErrorListener);
-                return c1746a;
+                return c1707a;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
             }
         }
-        return (C1746a) invokeLL.objValue;
+        return (C1707a) invokeLL.objValue;
     }
 
-    public static C1746a a(C1746a c1746a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
+    public static C1707a a(C1707a c1707a, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{c1746a, str, str2, assetFileDescriptor, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)})) == null) {
-            if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c1746a == null) {
-                return c1746a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{c1707a, str, str2, assetFileDescriptor, onCompletionListener, Integer.valueOf(i), str3, Long.valueOf(j)})) == null) {
+            if ((TextUtils.isEmpty(str2) && assetFileDescriptor == null) || c1707a == null) {
+                return c1707a;
             }
-            c1746a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
-            com.baidu.ar.arplay.a.a.b bVar = c1746a.dg;
+            c1707a.dg.dT = com.baidu.ar.arplay.c.c.a((Object) str, 0L);
+            com.baidu.ar.arplay.a.a.b bVar = c1707a.dg;
             bVar.dW = str;
             bVar.dU = str3;
-            MediaPlayer mediaPlayer = c1746a.df;
+            MediaPlayer mediaPlayer = c1707a.df;
             if (onCompletionListener != null) {
                 mediaPlayer.setOnCompletionListener(onCompletionListener);
             }
@@ -503,10 +503,10 @@ public final class a {
                 mediaPlayer.prepareAsync();
                 mediaPlayer.setLooping(false);
                 com.baidu.ar.arplay.c.b.b(TAG, "wrapper.mMediaPlayer.prepareAsync()");
-                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener(c1746a, str, j2) { // from class: com.baidu.ar.arplay.a.a.11
+                mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener(c1707a, str, j) { // from class: com.baidu.ar.arplay.a.a.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1746a db;
+                    public final /* synthetic */ C1707a db;
                     public final /* synthetic */ String dd;
                     public final /* synthetic */ long de;
 
@@ -515,19 +515,19 @@ public final class a {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1746a, str, Long.valueOf(j2)};
+                            Object[] objArr = {c1707a, str, Long.valueOf(j)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.db = c1746a;
+                        this.db = c1707a;
                         this.dd = str;
-                        this.de = j2;
+                        this.de = j;
                     }
 
                     @Override // android.media.MediaPlayer.OnPreparedListener
@@ -535,11 +535,11 @@ public final class a {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, mediaPlayer2) == null) {
                             com.baidu.ar.arplay.c.b.b(a.TAG, "mMediaPlayer onPrepared");
-                            C1746a c1746a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1746a2.dg;
+                            C1707a c1707a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1707a2.dg;
                             bVar2.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                             bVar2.dZ = DpStatConstants.KEY_PREPARED;
-                            a.a(c1746a2);
+                            a.a(c1707a2);
                             if (ARPEngine.getInstance().isPaused() || a.cT == null || a.cT.get(this.dd) == null) {
                                 return;
                             }
@@ -563,82 +563,82 @@ public final class a {
                         }
                     }
                 });
-                c1746a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener(c1746a) { // from class: com.baidu.ar.arplay.a.a.12
+                c1707a.df.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener(c1707a) { // from class: com.baidu.ar.arplay.a.a.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1746a db;
+                    public final /* synthetic */ C1707a db;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1746a};
+                            Object[] objArr = {c1707a};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.db = c1746a;
+                        this.db = c1707a;
                     }
 
                     @Override // android.media.MediaPlayer.OnBufferingUpdateListener
-                    public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i3) {
+                    public void onBufferingUpdate(MediaPlayer mediaPlayer2, int i2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, mediaPlayer2, i3) == null) {
-                            C1746a c1746a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1746a2.dg;
+                        if (interceptable2 == null || interceptable2.invokeLI(1048576, this, mediaPlayer2, i2) == null) {
+                            C1707a c1707a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1707a2.dg;
                             bVar2.dX = "INFO";
-                            bVar2.eb = i3;
-                            a.a(c1746a2);
+                            bVar2.eb = i2;
+                            a.a(c1707a2);
                         }
                     }
                 });
-                c1746a.df.setOnInfoListener(new MediaPlayer.OnInfoListener(c1746a) { // from class: com.baidu.ar.arplay.a.a.13
+                c1707a.df.setOnInfoListener(new MediaPlayer.OnInfoListener(c1707a) { // from class: com.baidu.ar.arplay.a.a.13
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ C1746a db;
+                    public final /* synthetic */ C1707a db;
 
                     {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c1746a};
+                            Object[] objArr = {c1707a};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.db = c1746a;
+                        this.db = c1707a;
                     }
 
                     @Override // android.media.MediaPlayer.OnInfoListener
-                    public boolean onInfo(MediaPlayer mediaPlayer2, int i3, int i4) {
+                    public boolean onInfo(MediaPlayer mediaPlayer2, int i2, int i3) {
                         InterceptResult invokeLII;
                         String str4;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
-                            C1746a c1746a2 = this.db;
-                            com.baidu.ar.arplay.a.a.b bVar2 = c1746a2.dg;
+                        if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i2, i3)) == null) {
+                            C1707a c1707a2 = this.db;
+                            com.baidu.ar.arplay.a.a.b bVar2 = c1707a2.dg;
                             bVar2.dX = "INFO";
-                            if (i3 == 701) {
+                            if (i2 == 701) {
                                 str4 = "buffer_start";
-                            } else if (i3 != 702) {
+                            } else if (i2 != 702) {
                                 return false;
                             } else {
                                 str4 = "buffer_end";
                             }
                             bVar2.ea = str4;
-                            a.a(c1746a2);
+                            a.a(c1707a2);
                             return false;
                         }
                         return invokeLII.booleanValue;
@@ -653,9 +653,9 @@ public final class a {
             } catch (SecurityException e5) {
                 e5.printStackTrace();
             }
-            return c1746a;
+            return c1707a;
         }
-        return (C1746a) invokeCommon.objValue;
+        return (C1707a) invokeCommon.objValue;
     }
 
     public static void a(MediaPlayer mediaPlayer) {
@@ -673,14 +673,14 @@ public final class a {
         }
     }
 
-    public static void a(C1746a c1746a) {
+    public static void a(C1707a c1707a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65545, null, c1746a) == null) || c1746a == null) {
+        if (!(interceptable == null || interceptable.invokeL(65545, null, c1707a) == null) || c1707a == null) {
             return;
         }
-        b(c1746a);
-        a(c1746a.dg);
-        com.baidu.ar.arplay.a.a.b bVar = c1746a.dg;
+        b(c1707a);
+        a(c1707a.dg);
+        com.baidu.ar.arplay.a.a.b bVar = c1707a.dg;
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", Integer.valueOf((int) ARPMessageType.MSG_TYPE_AUDIO));
         HashMap hashMap2 = new HashMap();
@@ -698,29 +698,29 @@ public final class a {
         ARPMessage.getInstance().sendMessage(1902, hashMap);
     }
 
-    private void a(b bVar, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i2, String str3, long j2) {
+    private void a(b bVar, String str, String str2, AssetFileDescriptor assetFileDescriptor, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener, int i, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{bVar, str, str2, assetFileDescriptor, onCompletionListener, onErrorListener, Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{bVar, str, str2, assetFileDescriptor, onCompletionListener, onErrorListener, Integer.valueOf(i), str3, Long.valueOf(j)}) == null) {
             try {
-                C1746a a = a(str, onCompletionListener, onErrorListener);
+                C1707a a = a(str, onCompletionListener, onErrorListener);
                 if (a != null) {
-                    a(a, str, str2, assetFileDescriptor, onCompletionListener, i2, str3, j2);
+                    a(a, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
                 }
                 if (bVar != null) {
                     bVar.onResult(true);
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
-                C1746a z = z(str);
+                C1707a z = z(str);
                 A(str);
                 try {
                     if (z.df != null) {
                         z.df.release();
                     }
                     try {
-                        C1746a a2 = aA().a(str, onCompletionListener, onErrorListener);
+                        C1707a a2 = aA().a(str, onCompletionListener, onErrorListener);
                         if (a2 != null) {
-                            a(a2, str, str2, assetFileDescriptor, onCompletionListener, i2, str3, j2);
+                            a(a2, str, str2, assetFileDescriptor, onCompletionListener, i, str3, j);
                         }
                         if (bVar != null) {
                             bVar.onResult(true);
@@ -790,9 +790,9 @@ public final class a {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                 }
@@ -801,15 +801,15 @@ public final class a {
 
                         @Override // java.util.TimerTask, java.lang.Runnable
                         public void run() {
-                            C1746a c1746a;
+                            C1707a c1707a;
                             com.baidu.ar.arplay.a.a.b bVar;
                             Interceptable interceptable2 = $ic;
                             if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.cO == null) {
                                 return;
                             }
                             for (Map.Entry entry : a.cO.entrySet()) {
-                                if (entry != null && (c1746a = (C1746a) entry.getValue()) != null && (bVar = c1746a.dg) != null && bVar.dZ == "playing") {
-                                    a.a((C1746a) entry.getValue());
+                                if (entry != null && (c1707a = (C1707a) entry.getValue()) != null && (bVar = c1707a.dg) != null && bVar.dZ == "playing") {
+                                    a.a((C1707a) entry.getValue());
                                 }
                             }
                         }
@@ -822,21 +822,21 @@ public final class a {
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:22:0x0040 -> B:33:0x0043). Please submit an issue!!! */
-    public static void b(C1746a c1746a) {
+    public static void b(C1707a c1707a) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65556, null, c1746a) == null) || c1746a == null || c1746a.df == null) {
+        if (!(interceptable == null || interceptable.invokeL(65556, null, c1707a) == null) || c1707a == null || c1707a.df == null) {
             return;
         }
-        com.baidu.ar.arplay.a.a.b bVar = c1746a.dg;
+        com.baidu.ar.arplay.a.a.b bVar = c1707a.dg;
         String str = bVar.dZ;
         if (str == "playing" || str == "paused") {
             try {
-                int duration = c1746a.df.getDuration();
+                int duration = c1707a.df.getDuration();
                 bVar.dV = duration;
                 if (duration <= 0) {
                     bVar.ec = 0.0f;
                 } else {
-                    bVar.ec = (c1746a.df.getCurrentPosition() * 1.0f) / bVar.dV;
+                    bVar.ec = (c1707a.df.getCurrentPosition() * 1.0f) / bVar.dV;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -852,10 +852,10 @@ public final class a {
         }
     }
 
-    private void b(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
+    private void b(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
-            C1746a z = z(str);
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i), str3, Long.valueOf(j)}) == null) {
+            C1707a z = z(str);
             A(str);
             if (z != null) {
                 try {
@@ -872,9 +872,9 @@ public final class a {
                 }
             }
             try {
-                C1746a a = a(str, onCompletionListener, null);
+                C1707a a = a(str, onCompletionListener, null);
                 if (a != null) {
-                    a(a, str, str2, null, onCompletionListener, i2, str3, j2);
+                    a(a, str, str2, null, onCompletionListener, i, str3, j);
                 }
                 if (bVar != null) {
                     bVar.onResult(true);
@@ -896,16 +896,16 @@ public final class a {
         cO.remove(str);
     }
 
-    public C1746a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
+    public C1707a a(String str, MediaPlayer.OnCompletionListener onCompletionListener, MediaPlayer.OnErrorListener onErrorListener) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, onCompletionListener, onErrorListener)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            ConcurrentHashMap<String, C1746a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1707a> concurrentHashMap = cO;
             if (concurrentHashMap == null || !concurrentHashMap.containsKey(str)) {
-                C1746a a = a(onCompletionListener, onErrorListener);
+                C1707a a = a(onCompletionListener, onErrorListener);
                 if (a == null) {
                     return null;
                 }
@@ -917,7 +917,7 @@ public final class a {
             }
             return cO.get(str);
         }
-        return (C1746a) invokeLLL.objValue;
+        return (C1707a) invokeLLL.objValue;
     }
 
     public void a(Message message) {
@@ -941,20 +941,20 @@ public final class a {
         }
     }
 
-    public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2) {
+    public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i2)}) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage(3007);
-            obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i2)};
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i)}) == null) {
+            Message obtainMessage = this.mHandler.obtainMessage(w0.d3);
+            obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i)};
             obtainMessage.sendToTarget();
         }
     }
 
-    public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i2, String str3, long j2) {
+    public void a(b bVar, String str, String str2, MediaPlayer.OnCompletionListener onCompletionListener, int i, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bVar, str, str2, onCompletionListener, Integer.valueOf(i), str3, Long.valueOf(j)}) == null) {
             Message obtainMessage = this.mHandler.obtainMessage(3004);
-            obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i2), str3, Long.valueOf(j2)};
+            obtainMessage.obj = new Object[]{new c(this, bVar), str, str2, onCompletionListener, Integer.valueOf(i), str3, Long.valueOf(j)};
             obtainMessage.sendToTarget();
         }
     }
@@ -979,9 +979,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1019,9 +1019,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, aVar, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1041,7 +1041,7 @@ public final class a {
                         if (this.da.cS == null) {
                             return;
                         }
-                        C1746a z = this.da.z(this.cY.getId());
+                        C1707a z = this.da.z(this.cY.getId());
                         if (z == null || z.dg.dZ != "paused") {
                             if (z != null) {
                                 com.baidu.ar.arplay.a.a.b bVar = z.dg;
@@ -1061,9 +1061,9 @@ public final class a {
                             }
                             com.baidu.ar.arplay.c.b.b(a.TAG, "openAudio mMediaPlayer onCompletion  count open ！");
                             this.da.a(this.cY, this.cZ);
-                            int i2 = a - 1;
-                            this.da.cS.put(this.cY.getId(), Integer.valueOf(i2));
-                            this.cY.i(i2);
+                            int i = a - 1;
+                            this.da.cS.put(this.cY.getId(), Integer.valueOf(i));
+                            this.cY.i(i);
                         }
                     }
                 }
@@ -1087,18 +1087,18 @@ public final class a {
             if (map != null) {
                 map.clear();
             }
-            ConcurrentHashMap<String, C1746a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1707a> concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
-                    for (C1746a c1746a : concurrentHashMap.values()) {
-                        c1746a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
-                        c1746a.dg.dZ = "unstarted";
-                        a(c1746a.df);
+                    for (C1707a c1707a : concurrentHashMap.values()) {
+                        c1707a.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
+                        c1707a.dg.dZ = "unstarted";
+                        a(c1707a.df);
                     }
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                ConcurrentHashMap<String, C1746a> concurrentHashMap2 = cO;
+                ConcurrentHashMap<String, C1707a> concurrentHashMap2 = cO;
                 if (concurrentHashMap2 != null) {
                     concurrentHashMap2.clear();
                 }
@@ -1117,7 +1117,7 @@ public final class a {
             b bVar = (b) objArr[0];
             String str = (String) objArr[1];
             cT.put(str, 3005);
-            C1746a z = z(str);
+            C1707a z = z(str);
             if (z != null) {
                 try {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -1168,9 +1168,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1198,10 +1198,10 @@ public final class a {
         }
     }
 
-    public void c(int i2, HashMap<String, Object> hashMap) {
+    public void c(int i, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i2, hashMap) == null) {
-            ARPMessage.getInstance().sendMessage(i2, hashMap);
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, hashMap) == null) {
+            ARPMessage.getInstance().sendMessage(i, hashMap);
         }
     }
 
@@ -1213,7 +1213,7 @@ public final class a {
             String str = (String) objArr[1];
             cT.put(str, 3006);
             try {
-                C1746a z = z(str);
+                C1707a z = z(str);
                 if (z.df != null && z.dg.dZ != "unstarted" && z.df.isPlaying()) {
                     z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                     z.dg.dZ = "paused";
@@ -1236,7 +1236,7 @@ public final class a {
     public void c(b bVar, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, bVar, str) == null) {
-            Message obtainMessage = this.mHandler.obtainMessage(SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY);
+            Message obtainMessage = this.mHandler.obtainMessage(3009);
             obtainMessage.obj = new Object[]{new c(this, bVar), str};
             obtainMessage.sendToTarget();
         }
@@ -1259,9 +1259,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1299,9 +1299,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, aVar, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1319,7 +1319,7 @@ public final class a {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, mediaPlayer) == null) || this.da.cS == null) {
                         return;
                     }
-                    C1746a z = this.da.z(this.cY.getId());
+                    C1707a z = this.da.z(this.cY.getId());
                     if (z != null) {
                         com.baidu.ar.arplay.a.a.b bVar = z.dg;
                         bVar.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
@@ -1335,9 +1335,9 @@ public final class a {
                         return;
                     }
                     this.da.a(this.cY, this.cZ);
-                    int i2 = a - 1;
-                    this.da.cS.put(this.cY.getId(), Integer.valueOf(i2));
-                    this.cY.i(i2);
+                    int i = a - 1;
+                    this.da.cS.put(this.cY.getId(), Integer.valueOf(i));
+                    this.cY.i(i);
                 }
             }, aVar.aN());
         }
@@ -1352,9 +1352,9 @@ public final class a {
             }
             b bVar = (b) objArr[0];
             String str = (String) objArr[1];
-            cT.put(str, Integer.valueOf((int) SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_START_STAMP_KEY));
+            cT.put(str, 3009);
             try {
-                C1746a z = z(str);
+                C1707a z = z(str);
                 if (z == null || z.dg.dZ == "unstarted") {
                     return;
                 }
@@ -1385,9 +1385,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1416,7 +1416,7 @@ public final class a {
     }
 
     public void e(Message message) {
-        long j2;
+        long j;
         String str;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048593, this, message) == null) || ARPEngine.getInstance().isPaused()) {
@@ -1432,15 +1432,15 @@ public final class a {
         MediaPlayer.OnCompletionListener onCompletionListener = (MediaPlayer.OnCompletionListener) objArr[3];
         int intValue = ((Integer) objArr[4]).intValue();
         if (objArr.length > 6) {
-            j2 = ((Long) objArr[6]).longValue();
+            j = ((Long) objArr[6]).longValue();
             str = (String) objArr[5];
         } else {
-            j2 = 0;
+            j = 0;
             str = null;
         }
-        cT.put(str2, 3007);
+        cT.put(str2, Integer.valueOf((int) w0.d3));
         try {
-            C1746a z = z(str2);
+            C1707a z = z(str2);
             if (z != null && !z.df.isPlaying() && z.dg.dZ != "unstarted") {
                 z.dg.dX = DownloadConstants.DownloadColumns.COLUMN_STATUS;
                 z.dg.dZ = "playing";
@@ -1454,7 +1454,7 @@ public final class a {
             }
         } catch (Exception e2) {
             e2.printStackTrace();
-            b(bVar, str2, str3, onCompletionListener, intValue, str, j2);
+            b(bVar, str2, str3, onCompletionListener, intValue, str, j);
         }
     }
 
@@ -1475,9 +1475,9 @@ public final class a {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, hashMap};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1511,12 +1511,12 @@ public final class a {
             b bVar = (b) ((Object[]) message.obj)[0];
             this.cN = false;
             this.cM = 0;
-            ConcurrentHashMap<String, C1746a> concurrentHashMap = cO;
+            ConcurrentHashMap<String, C1707a> concurrentHashMap = cO;
             if (concurrentHashMap != null) {
                 try {
-                    for (C1746a c1746a : concurrentHashMap.values()) {
-                        if (c1746a != null) {
-                            c1746a.df.release();
+                    for (C1707a c1707a : concurrentHashMap.values()) {
+                        if (c1707a != null) {
+                            c1707a.df.release();
                         }
                     }
                 } catch (Exception e2) {
@@ -1530,7 +1530,7 @@ public final class a {
         }
     }
 
-    public C1746a z(String str) {
+    public C1707a z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
@@ -1539,6 +1539,6 @@ public final class a {
             }
             return cO.get(str);
         }
-        return (C1746a) invokeL.objValue;
+        return (C1707a) invokeL.objValue;
     }
 }

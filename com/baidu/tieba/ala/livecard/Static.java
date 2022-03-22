@@ -1,13 +1,12 @@
 package com.baidu.tieba.ala.livecard;
 
-import c.a.q0.r.r.e2;
-import c.a.r0.a0.k.a.d;
-import c.a.r0.a0.k.a.e;
-import c.a.r0.a0.k.a.f;
-import c.a.r0.d1.f0;
-import c.a.r0.d1.g0;
-import c.a.r0.y3.g;
-import c.a.r0.y3.h;
+import c.a.p0.a4.g;
+import c.a.p0.a4.h;
+import c.a.p0.c0.k.a.d;
+import c.a.p0.c0.k.a.e;
+import c.a.p0.c0.k.a.f;
+import c.a.p0.f1.f0;
+import c.a.p0.f1.g0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,6 +14,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.ala.AlaConfig;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
@@ -39,17 +39,17 @@ public class Static {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -65,11 +65,11 @@ public class Static {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
                 CustomMessage customMessage = (CustomMessage) customResponsedMessage.getOrginalMessage();
-                absDelegateAdapterList.add(new c.a.r0.a0.k.a.c(null, e2.J3, null));
-                absDelegateAdapterList.add(new f(null, e2.I3, null));
-                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, e2.K3, null));
-                absDelegateAdapterList.add(new c.a.r0.a0.k.a.a(null, g.f24989g, null));
-                absDelegateAdapterList.add(new d(null, h.f24992f, null));
+                absDelegateAdapterList.add(new c.a.p0.c0.k.a.c(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new f(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
+                absDelegateAdapterList.add(new c.a.p0.c0.k.a.a(null, g.f12195c, null));
+                absDelegateAdapterList.add(new d(null, h.f12197b, null));
             }
         }
     }
@@ -80,17 +80,17 @@ public class Static {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -105,10 +105,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003022 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new c.a.r0.a0.k.a.c(null, e2.J3, null));
-                absDelegateAdapterList.add(new e(null, e2.I3, null));
-                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, e2.K3, null));
-                absDelegateAdapterList.add(new e(null, h.f24992f, null));
+                absDelegateAdapterList.add(new c.a.p0.c0.k.a.c(null, ThreadData.TYPE_ALA_LIVE_EMPTY, null));
+                absDelegateAdapterList.add(new e(null, ThreadData.TYPE_VIDEO_ALA_ONLIVE, null));
+                absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, ThreadData.TYPE_ALA_SHARE_THREAD, null));
+                absDelegateAdapterList.add(new e(null, h.f12197b, null));
             }
         }
     }
@@ -119,17 +119,17 @@ public class Static {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -144,8 +144,8 @@ public class Static {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof f0)) {
                 f0 f0Var = (f0) customResponsedMessage.getData();
-                c.a.r0.a0.k.c.a aVar = new c.a.r0.a0.k.c.a();
-                aVar.h(f0Var.f15468e);
+                c.a.p0.c0.k.c.a aVar = new c.a.p0.c0.k.c.a();
+                aVar.g(f0Var.a);
                 f0Var.a(49, aVar);
             }
         }
@@ -182,9 +182,9 @@ public class Static {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

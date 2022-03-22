@@ -18,13 +18,13 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferFileLoader";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ByteBufferFetcher implements DataFetcher<ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,14 +85,16 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
                 try {
                     dataCallback.onDataReady(ByteBufferUtil.fromFile(this.file));
                 } catch (IOException e2) {
-                    Log.isLoggable(ByteBufferFileLoader.TAG, 3);
+                    if (Log.isLoggable(ByteBufferFileLoader.TAG, 3)) {
+                        Log.d(ByteBufferFileLoader.TAG, "Failed to obtain ByteBuffer for file", e2);
+                    }
                     dataCallback.onLoadFailed(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Factory implements ModelLoaderFactory<File, ByteBuffer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +104,9 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -132,9 +134,9 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -154,9 +156,9 @@ public class ByteBufferFileLoader implements ModelLoader<File, ByteBuffer> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<ByteBuffer> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(file), new ByteBufferFetcher(file)) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

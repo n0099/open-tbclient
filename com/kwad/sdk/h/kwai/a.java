@@ -2,7 +2,7 @@ package com.kwad.sdk.h.kwai;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public final List<b> a = new ArrayList();
 
@@ -12,9 +12,9 @@ public class a {
         }
     }
 
-    public void a(b bVar, int i2) {
+    public void a(b bVar, int i) {
         if (bVar != null) {
-            this.a.add(i2, bVar);
+            this.a.add(i, bVar);
         }
     }
 

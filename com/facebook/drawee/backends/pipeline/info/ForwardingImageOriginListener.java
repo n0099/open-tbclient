@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ForwardingImageOriginListener implements ImageOriginListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingImageOriginListener";
@@ -24,9 +24,9 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,16 +45,16 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
     }
 
     @Override // com.facebook.drawee.backends.pipeline.info.ImageOriginListener
-    public synchronized void onImageLoaded(String str, int i2, boolean z) {
+    public synchronized void onImageLoaded(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             synchronized (this) {
                 int size = this.mImageOriginListeners.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i3);
+                for (int i2 = 0; i2 < size; i2++) {
+                    ImageOriginListener imageOriginListener = this.mImageOriginListeners.get(i2);
                     if (imageOriginListener != null) {
                         try {
-                            imageOriginListener.onImageLoaded(str, i2, z);
+                            imageOriginListener.onImageLoaded(str, i, z);
                         } catch (Exception e2) {
                             FLog.e(TAG, "InternalListener exception in onImageLoaded", e2);
                         }
@@ -80,9 +80,9 @@ public class ForwardingImageOriginListener implements ImageOriginListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageOriginListenerArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

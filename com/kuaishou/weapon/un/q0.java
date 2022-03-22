@@ -21,31 +21,27 @@ public class q0 {
     public static String a = "1001001";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53772b = "1001002";
+    public static String f38949b = "1001002";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f53773c = "1001003";
+    public static String f38950c = "1001003";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f53774d = "1001004";
+    public static String f38951d = "1001004";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f53775e = "1001005";
+    public static String f38952e = "1001005";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f53776f = "ANDROID";
+    public static String f38953f = "ANDROID";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f53777g = "CBH ak or sk is null";
+    public static String f38954g = "CBH ak or sk is null";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f53778h = "SDK has been initialized by host";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f53779i = "Plugins will be loaded";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f53780j = "T run has exit: ";
+    public static String f38955h = "SDK has been initialized by host";
+    public static String i = "Plugins will be loaded";
+    public static String j = "T run has exit: ";
     public static String k = "SDK will execute Plugins Upgrade handler interval: ";
     public static String l = "Pull Plugins Setting Response = ";
     public static String m = "Response is null = ";

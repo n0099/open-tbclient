@@ -21,7 +21,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public List<BikingRouteLine> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SuggestAddrInfo f34216b;
+    public SuggestAddrInfo f26447b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,9 +44,9 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,9 +60,9 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -71,7 +71,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
         ArrayList arrayList = new ArrayList();
         this.a = arrayList;
         parcel.readList(arrayList, BikingRouteLine.class.getClassLoader());
-        this.f34216b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f26447b = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -93,7 +93,7 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34216b : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26447b : (SuggestAddrInfo) invokeV.objValue;
     }
 
     public void setRouteLines(List<BikingRouteLine> list) {
@@ -106,16 +106,16 @@ public class BikingRouteResult extends SearchResult implements Parcelable {
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, suggestAddrInfo) == null) {
-            this.f34216b = suggestAddrInfo;
+            this.f26447b = suggestAddrInfo;
         }
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
             parcel.writeList(this.a);
-            parcel.writeParcelable(this.f34216b, 1);
+            parcel.writeParcelable(this.f26447b, 1);
         }
     }
 }

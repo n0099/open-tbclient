@@ -18,7 +18,7 @@ public class a {
     public CropAlgo lL;
     public HandlerThread lM;
     public Handler lN;
-    public InterfaceC1754a lO;
+    public InterfaceC1715a lO;
     public boolean lP;
     public boolean lQ;
     public d lR;
@@ -27,8 +27,8 @@ public class a {
 
     /* renamed from: com.baidu.ar.child.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1754a {
-        void a(long j2, byte[] bArr, int i2);
+    public interface InterfaceC1715a {
+        void a(long j, byte[] bArr, int i);
     }
 
     /* loaded from: classes3.dex */
@@ -46,9 +46,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -87,9 +87,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,9 +102,9 @@ public class a {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                if (i2 != 1002) {
-                    if (i2 != 1003) {
+                int i = message.what;
+                if (i != 1002) {
+                    if (i != 1003) {
                         return;
                     }
                     this.lT.clear();
@@ -138,24 +138,24 @@ public class a {
         }
     }
 
-    public a(int i2, int i3) {
+    public a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.lP = true;
-        this.mInputHeight = i3;
-        this.mInputWidth = i2;
+        this.mInputHeight = i2;
+        this.mInputWidth = i;
         HandlerThread handlerThread = new HandlerThread("ChildAlgoController");
         this.lM = handlerThread;
         handlerThread.start();
@@ -209,34 +209,34 @@ public class a {
         }
     }
 
-    public long a(long j2, byte[] bArr) {
+    public long a(long j, byte[] bArr) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, bArr)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, bArr)) == null) {
+            if (j <= 0) {
                 return 0L;
             }
-            return this.lL.nativeWriteFaceDataToHandel(j2, bArr);
+            return this.lL.nativeWriteFaceDataToHandel(j, bArr);
         }
         return invokeJL.longValue;
     }
 
-    public long a(long j2, byte[] bArr, int i2, int i3, float f2) {
+    public long a(long j, byte[] bArr, int i, int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), bArr, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), bArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+            if (j <= 0) {
                 return 0L;
             }
-            return this.lL.nativeWriteCameraDataToHandel(j2, bArr, i2, i3, f2);
+            return this.lL.nativeWriteCameraDataToHandel(j, bArr, i, i2, f2);
         }
         return invokeCommon.longValue;
     }
 
-    public void a(InterfaceC1754a interfaceC1754a) {
+    public void a(InterfaceC1715a interfaceC1715a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1754a) == null) {
-            this.lO = interfaceC1754a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interfaceC1715a) == null) {
+            this.lO = interfaceC1715a;
         }
     }
 
@@ -261,35 +261,35 @@ public class a {
         handler2.sendMessage(handler2.obtainMessage(1003));
     }
 
-    public float[] i(long j2) {
+    public float[] i(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            if (j <= 0) {
                 return null;
             }
-            return this.lL.nativeTrackingPoints(j2);
+            return this.lL.nativeTrackingPoints(j);
         }
         return (float[]) invokeJ.objValue;
     }
 
-    public float[] j(long j2) {
+    public float[] j(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+            if (j <= 0) {
                 return null;
             }
-            return this.lL.nativeGetFaceBoxList(j2);
+            return this.lL.nativeGetFaceBoxList(j);
         }
         return (float[]) invokeJ.objValue;
     }
 
-    public void k(long j2) {
+    public void k(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j) == null) || j <= 0) {
             return;
         }
-        this.lL.nativeWriteTypeToHandle(j2);
+        this.lL.nativeWriteTypeToHandle(j);
     }
 }

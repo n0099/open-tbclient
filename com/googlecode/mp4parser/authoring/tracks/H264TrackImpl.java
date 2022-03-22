@@ -41,7 +41,6 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class H264TrackImpl extends AbstractTrack {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions;
@@ -133,9 +132,9 @@ public class H264TrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {h264TrackImpl, dataSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -158,9 +157,9 @@ public class H264TrackImpl extends AbstractTrack {
         public void discardNext3AndMarkStart() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                int i2 = this.inBufferPos + 3;
-                this.inBufferPos = i2;
-                this.start = this.bufferStartPos + i2;
+                int i = this.inBufferPos + 3;
+                this.inBufferPos = i;
+                this.start = this.bufferStartPos + i;
             }
         }
 
@@ -176,10 +175,10 @@ public class H264TrackImpl extends AbstractTrack {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                long j2 = this.start;
-                long j3 = this.bufferStartPos;
-                if (j2 >= j3) {
-                    this.buffer.position((int) (j2 - j3));
+                long j = this.start;
+                long j2 = this.bufferStartPos;
+                if (j >= j2) {
+                    this.buffer.position((int) (j - j2));
                     ByteBuffer slice = this.buffer.slice();
                     slice.limit((int) (this.inBufferPos - (this.start - this.bufferStartPos)));
                     return slice;
@@ -194,10 +193,10 @@ public class H264TrackImpl extends AbstractTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 int limit = this.buffer.limit();
-                int i2 = this.inBufferPos;
-                if (limit - i2 >= 3) {
-                    return this.buffer.get(i2) == 0 && this.buffer.get(this.inBufferPos + 1) == 0 && (this.buffer.get(this.inBufferPos + 2) == 0 || this.buffer.get(this.inBufferPos + 2) == 1);
-                } else if (this.bufferStartPos + i2 + 3 > this.dataSource.size()) {
+                int i = this.inBufferPos;
+                if (limit - i >= 3) {
+                    return this.buffer.get(i) == 0 && this.buffer.get(this.inBufferPos + 1) == 0 && (this.buffer.get(this.inBufferPos + 2) == 0 || this.buffer.get(this.inBufferPos + 2) == 1);
+                } else if (this.bufferStartPos + i + 3 > this.dataSource.size()) {
                     return this.bufferStartPos + ((long) this.inBufferPos) == this.dataSource.size();
                 } else {
                     this.bufferStartPos = this.start;
@@ -214,10 +213,10 @@ public class H264TrackImpl extends AbstractTrack {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 int limit = this.buffer.limit();
-                int i2 = this.inBufferPos;
-                if (limit - i2 >= 3) {
-                    return this.buffer.get(i2) == 0 && this.buffer.get(this.inBufferPos + 1) == 0 && this.buffer.get(this.inBufferPos + 2) == 1;
-                } else if (this.bufferStartPos + i2 != this.dataSource.size()) {
+                int i = this.inBufferPos;
+                if (limit - i >= 3) {
+                    return this.buffer.get(i) == 0 && this.buffer.get(this.inBufferPos + 1) == 0 && this.buffer.get(this.inBufferPos + 2) == 1;
+                } else if (this.bufferStartPos + i != this.dataSource.size()) {
                     System.err.println(this.this$0.samples.size());
                     throw new RuntimeException("buffer repositioning require");
                 } else {
@@ -260,16 +259,16 @@ public class H264TrackImpl extends AbstractTrack {
             ENUM$VALUES = new NALActions[]{IGNORE, BUFFER, STORE, nALActions};
         }
 
-        public NALActions(String str, int i2) {
+        public NALActions(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -326,16 +325,16 @@ public class H264TrackImpl extends AbstractTrack {
         public int time_offset_length;
 
         public SEIMessage(H264TrackImpl h264TrackImpl, InputStream inputStream, SeqParameterSet seqParameterSet) throws IOException {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
                 Object[] objArr = {h264TrackImpl, inputStream, seqParameterSet};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -348,37 +347,37 @@ public class H264TrackImpl extends AbstractTrack {
             this.sps = seqParameterSet;
             inputStream.read();
             int available = inputStream.available();
-            int i5 = 0;
-            while (i5 < available) {
+            int i4 = 0;
+            while (i4 < available) {
                 this.payloadType = z ? 1 : 0;
                 this.payloadSize = z ? 1 : 0;
                 int read = inputStream.read();
-                int i6 = i5 + 1;
+                int i5 = i4 + 1;
                 while (read == 255) {
                     this.payloadType += read;
                     read = inputStream.read();
-                    i6++;
+                    i5++;
                     z = false;
                 }
                 this.payloadType += read;
                 int read2 = inputStream.read();
-                i5 = i6 + 1;
+                i4 = i5 + 1;
                 while (read2 == 255) {
                     this.payloadSize += read2;
                     read2 = inputStream.read();
-                    i5++;
+                    i4++;
                     z = false;
                 }
-                int i7 = this.payloadSize + read2;
-                this.payloadSize = i7;
-                if (available - i5 < i7) {
-                    i5 = available;
+                int i6 = this.payloadSize + read2;
+                this.payloadSize = i6;
+                if (available - i4 < i6) {
+                    i4 = available;
                 } else if (this.payloadType == 1) {
                     VUIParameters vUIParameters = seqParameterSet.vuiParams;
                     if (vUIParameters != null && (vUIParameters.nalHRDParams != null || vUIParameters.vclHRDParams != null || vUIParameters.pic_struct_present_flag)) {
                         byte[] bArr = new byte[this.payloadSize];
                         inputStream.read(bArr);
-                        i5 += this.payloadSize;
+                        i4 += this.payloadSize;
                         CAVLCReader cAVLCReader = new CAVLCReader(new ByteArrayInputStream(bArr));
                         VUIParameters vUIParameters2 = seqParameterSet.vuiParams;
                         if (vUIParameters2.nalHRDParams == null && vUIParameters2.vclHRDParams == null) {
@@ -395,19 +394,19 @@ public class H264TrackImpl extends AbstractTrack {
                                 case 3:
                                 case 4:
                                 case 7:
-                                    i2 = 2;
+                                    i = 2;
                                     break;
                                 case 5:
                                 case 6:
                                 case 8:
-                                    i2 = 3;
+                                    i = 3;
                                     break;
                                 default:
-                                    i2 = 1;
+                                    i = 1;
                                     break;
                             }
-                            for (int i8 = 0; i8 < i2; i8++) {
-                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i8 + PreferencesUtil.RIGHT_MOUNT);
+                            for (int i7 = 0; i7 < i; i7++) {
+                                boolean readBool = cAVLCReader.readBool("pic_timing SEI: clock_timestamp_flag[" + i7 + PreferencesUtil.RIGHT_MOUNT);
                                 this.clock_timestamp_flag = readBool;
                                 if (readBool) {
                                     this.ct_type = cAVLCReader.readU(2, "pic_timing SEI: ct_type");
@@ -447,15 +446,15 @@ public class H264TrackImpl extends AbstractTrack {
                             }
                         }
                     } else {
-                        for (int i9 = 0; i9 < this.payloadSize; i9++) {
+                        for (int i8 = 0; i8 < this.payloadSize; i8++) {
                             inputStream.read();
-                            i5++;
+                            i4++;
                         }
                     }
                 } else {
-                    for (int i10 = 0; i10 < this.payloadSize; i10++) {
+                    for (int i9 = 0; i9 < this.payloadSize; i9++) {
                         inputStream.read();
-                        i5++;
+                        i4++;
                     }
                 }
                 H264TrackImpl.LOG.fine(toString());
@@ -480,7 +479,7 @@ public class H264TrackImpl extends AbstractTrack {
                         }
                     }
                 }
-                return String.valueOf(str) + ExtendedMessageFormat.END_FE;
+                return String.valueOf(str) + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -535,16 +534,16 @@ public class H264TrackImpl extends AbstractTrack {
                 ENUM$VALUES = new SliceType[]{P, B, I, SP, sliceType};
             }
 
-            public SliceType(String str, int i2) {
+            public SliceType(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -581,9 +580,9 @@ public class H264TrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {inputStream, seqParameterSet, pictureParameterSet, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -644,7 +643,7 @@ public class H264TrackImpl extends AbstractTrack {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "SliceHeader{first_mb_in_slice=" + this.first_mb_in_slice + ", slice_type=" + this.slice_type + ", pic_parameter_set_id=" + this.pic_parameter_set_id + ", colour_plane_id=" + this.colour_plane_id + ", frame_num=" + this.frame_num + ", field_pic_flag=" + this.field_pic_flag + ", bottom_field_flag=" + this.bottom_field_flag + ", idr_pic_id=" + this.idr_pic_id + ", pic_order_cnt_lsb=" + this.pic_order_cnt_lsb + ", delta_pic_order_cnt_bottom=" + this.delta_pic_order_cnt_bottom + ExtendedMessageFormat.END_FE;
+                return "SliceHeader{first_mb_in_slice=" + this.first_mb_in_slice + ", slice_type=" + this.slice_type + ", pic_parameter_set_id=" + this.pic_parameter_set_id + ", colour_plane_id=" + this.colour_plane_id + ", frame_num=" + this.frame_num + ", field_pic_flag=" + this.field_pic_flag + ", bottom_field_flag=" + this.bottom_field_flag + ", idr_pic_id=" + this.idr_pic_id + ", pic_order_cnt_lsb=" + this.pic_order_cnt_lsb + ", delta_pic_order_cnt_bottom=" + this.delta_pic_order_cnt_bottom + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -693,16 +692,16 @@ public class H264TrackImpl extends AbstractTrack {
         BUFFER = 67107840;
     }
 
-    public H264TrackImpl(DataSource dataSource, String str, long j2, int i2) throws IOException {
+    public H264TrackImpl(DataSource dataSource, String str, long j, int i) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, str, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {dataSource, str, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -719,10 +718,10 @@ public class H264TrackImpl extends AbstractTrack {
         this.lang = "eng";
         this.sixtyFourK = ByteBuffer.allocate(1);
         this.lang = str;
-        this.timescale = j2;
-        this.frametick = i2;
+        this.timescale = j;
+        this.frametick = i;
         this.dataSource = dataSource;
-        if (j2 > 0 && i2 > 0) {
+        if (j > 0 && i > 0) {
             this.determineFrameRate = false;
         }
         parse(new LookAhead(this, this.dataSource));
@@ -733,11 +732,11 @@ public class H264TrackImpl extends AbstractTrack {
         if ((interceptable == null || interceptable.invokeV(65543, this) == null) && this.determineFrameRate) {
             VUIParameters vUIParameters = this.seqParameterSet.vuiParams;
             if (vUIParameters != null) {
-                long j2 = vUIParameters.time_scale >> 1;
-                this.timescale = j2;
-                int i2 = vUIParameters.num_units_in_tick;
-                this.frametick = i2;
-                if (j2 == 0 || i2 == 0) {
+                long j = vUIParameters.time_scale >> 1;
+                this.timescale = j;
+                int i = vUIParameters.num_units_in_tick;
+                this.frametick = i;
+                if (j == 0 || i == 0) {
                     System.err.println("Warning: vuiParams contain invalid values: time_scale: " + this.timescale + " and frame_tick: " + this.frametick + ". Setting frame rate to 25fps");
                     this.timescale = SapiWebView.DEFAULT_TIMEOUT_MILLIS;
                     this.frametick = 3600;
@@ -771,11 +770,11 @@ public class H264TrackImpl extends AbstractTrack {
         return (ByteBuffer) invokeL.objValue;
     }
 
-    private NALActions handleNALUnit(int i2, int i3, ByteBuffer byteBuffer) throws IOException {
+    private NALActions handleNALUnit(int i, int i2, ByteBuffer byteBuffer) throws IOException {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65545, this, i2, i3, byteBuffer)) == null) {
-            switch (i3) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65545, this, i, i2, byteBuffer)) == null) {
+            switch (i2) {
                 case 1:
                 case 2:
                 case 3:
@@ -809,7 +808,7 @@ public class H264TrackImpl extends AbstractTrack {
                     return NALActions.END;
                 default:
                     PrintStream printStream = System.err;
-                    printStream.println("Unknown NAL unit type: " + i3);
+                    printStream.println("Unknown NAL unit type: " + i2);
                     return NALActions.IGNORE;
             }
         }
@@ -865,7 +864,7 @@ public class H264TrackImpl extends AbstractTrack {
     private boolean readSamples(LookAhead lookAhead) throws IOException {
         InterceptResult invokeL;
         boolean z;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65547, this, lookAhead)) != null) {
             return invokeL.booleanValue;
@@ -875,7 +874,7 @@ public class H264TrackImpl extends AbstractTrack {
         }
         this.readSamples = true;
         ArrayList arrayList = new ArrayList();
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
             ByteBuffer findNextSample = findNextSample(lookAhead);
             if (findNextSample == null) {
@@ -885,28 +884,28 @@ public class H264TrackImpl extends AbstractTrack {
                 return true;
             }
             byte b2 = findNextSample.get(0);
-            int i4 = b2 & 31;
-            int i5 = $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions()[handleNALUnit((b2 >> 5) & 3, i4, findNextSample).ordinal()];
-            if (i5 == 2) {
+            int i3 = b2 & 31;
+            int i4 = $SWITCH_TABLE$com$googlecode$mp4parser$authoring$tracks$H264TrackImpl$NALActions()[handleNALUnit((b2 >> 5) & 3, i3, findNextSample).ordinal()];
+            if (i4 == 2) {
                 arrayList.add(findNextSample);
-            } else if (i5 == 3) {
-                int i6 = 22;
-                i3++;
+            } else if (i4 == 3) {
+                int i5 = 22;
+                i2++;
                 arrayList.add(findNextSample);
-                if (i4 == 5) {
-                    i6 = 38;
+                if (i3 == 5) {
+                    i5 = 38;
                     z = true;
                 } else {
                     z = false;
                 }
                 if (new SliceHeader(cleanBuffer(new ByteBufferBackedInputStream(this, (ByteBuffer) arrayList.get(arrayList.size() - 1))), this.seqParameterSet, this.pictureParameterSet, z).slice_type == SliceHeader.SliceType.B) {
-                    i6 += 4;
+                    i5 += 4;
                 }
                 Sample createSample = createSample(arrayList);
                 ArrayList arrayList2 = new ArrayList();
                 this.samples.add(createSample);
-                if (i4 == 5) {
-                    this.stss.add(Integer.valueOf(i3));
+                if (i3 == 5) {
+                    this.stss.add(Integer.valueOf(i2));
                 }
                 SEIMessage sEIMessage = this.seiMessage;
                 if (sEIMessage == null || sEIMessage.n_frames == 0) {
@@ -914,16 +913,16 @@ public class H264TrackImpl extends AbstractTrack {
                 }
                 SEIMessage sEIMessage2 = this.seiMessage;
                 if (sEIMessage2 != null && sEIMessage2.clock_timestamp_flag) {
-                    i2 = sEIMessage2.n_frames - this.frameNrInGop;
+                    i = sEIMessage2.n_frames - this.frameNrInGop;
                 } else {
                     SEIMessage sEIMessage3 = this.seiMessage;
-                    i2 = (sEIMessage3 == null || !sEIMessage3.removal_delay_flag) ? 0 : sEIMessage3.dpb_removal_delay / 2;
+                    i = (sEIMessage3 == null || !sEIMessage3.removal_delay_flag) ? 0 : sEIMessage3.dpb_removal_delay / 2;
                 }
-                this.ctts.add(new CompositionTimeToSample.Entry(1, i2 * this.frametick));
-                this.sdtp.add(new SampleDependencyTypeBox.Entry(i6));
+                this.ctts.add(new CompositionTimeToSample.Entry(1, i * this.frametick));
+                this.sdtp.add(new SampleDependencyTypeBox.Entry(i5));
                 this.frameNrInGop++;
                 arrayList = arrayList2;
-            } else if (i5 == 4) {
+            } else if (i4 == 4) {
                 return true;
             }
         }
@@ -931,25 +930,25 @@ public class H264TrackImpl extends AbstractTrack {
 
     private boolean readVariables() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             SeqParameterSet seqParameterSet = this.seqParameterSet;
             this.width = (seqParameterSet.pic_width_in_mbs_minus1 + 1) * 16;
-            int i3 = seqParameterSet.frame_mbs_only_flag ? 1 : 2;
+            int i2 = seqParameterSet.frame_mbs_only_flag ? 1 : 2;
             SeqParameterSet seqParameterSet2 = this.seqParameterSet;
-            this.height = (seqParameterSet2.pic_height_in_map_units_minus1 + 1) * 16 * i3;
+            this.height = (seqParameterSet2.pic_height_in_map_units_minus1 + 1) * 16 * i2;
             if (seqParameterSet2.frame_cropping_flag) {
                 if ((seqParameterSet2.residual_color_transform_flag ? 0 : seqParameterSet2.chroma_format_idc.getId()) != 0) {
-                    i2 = this.seqParameterSet.chroma_format_idc.getSubWidth();
-                    i3 *= this.seqParameterSet.chroma_format_idc.getSubHeight();
+                    i = this.seqParameterSet.chroma_format_idc.getSubWidth();
+                    i2 *= this.seqParameterSet.chroma_format_idc.getSubHeight();
                 } else {
-                    i2 = 1;
+                    i = 1;
                 }
-                int i4 = this.width;
+                int i3 = this.width;
                 SeqParameterSet seqParameterSet3 = this.seqParameterSet;
-                this.width = i4 - (i2 * (seqParameterSet3.frame_crop_left_offset + seqParameterSet3.frame_crop_right_offset));
-                this.height -= i3 * (seqParameterSet3.frame_crop_top_offset + seqParameterSet3.frame_crop_bottom_offset);
+                this.width = i3 - (i * (seqParameterSet3.frame_crop_left_offset + seqParameterSet3.frame_crop_right_offset));
+                this.height -= i2 * (seqParameterSet3.frame_crop_top_offset + seqParameterSet3.frame_crop_bottom_offset);
             }
             return true;
         }
@@ -985,10 +984,10 @@ public class H264TrackImpl extends AbstractTrack {
                 wrap.putInt(byteBuffer.remaining());
             }
             ByteBuffer[] byteBufferArr = new ByteBuffer[list.size() * 2];
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                int i3 = i2 * 2;
-                byteBufferArr[i3] = ByteBuffer.wrap(bArr, i2 * 4, 4);
-                byteBufferArr[i3 + 1] = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                int i2 = i * 2;
+                byteBufferArr[i2] = ByteBuffer.wrap(bArr, i * 4, 4);
+                byteBufferArr[i2 + 1] = list.get(i);
             }
             return new SampleImpl(byteBufferArr);
         }
@@ -1043,8 +1042,8 @@ public class H264TrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             long[] jArr = new long[this.stss.size()];
-            for (int i2 = 0; i2 < this.stss.size(); i2++) {
-                jArr[i2] = this.stss.get(i2).intValue();
+            for (int i = 0; i < this.stss.size(); i++) {
+                jArr[i] = this.stss.get(i).intValue();
             }
             return jArr;
         }
@@ -1072,9 +1071,9 @@ public class H264TrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {h264TrackImpl, byteBuffer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1098,13 +1097,13 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         @Override // java.io.InputStream
-        public int read(byte[] bArr, int i2, int i3) throws IOException {
+        public int read(byte[] bArr, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
                 if (this.buf.hasRemaining()) {
-                    int min = Math.min(i3, this.buf.remaining());
-                    this.buf.get(bArr, i2, min);
+                    int min = Math.min(i2, this.buf.remaining());
+                    this.buf.get(bArr, i, min);
                     return min;
                 }
                 return -1;
@@ -1138,9 +1137,9 @@ public class H264TrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {h264TrackImpl, inputStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((InputStream) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1181,38 +1180,38 @@ public class H264TrackImpl extends AbstractTrack {
         }
 
         @Override // java.io.FilterInputStream, java.io.InputStream
-        public int read(byte[] bArr, int i2, int i3) throws IOException {
+        public int read(byte[] bArr, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
                 if (bArr != null) {
-                    if (i2 < 0 || i3 < 0 || i3 > bArr.length - i2) {
+                    if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
                         throw new IndexOutOfBoundsException();
                     }
-                    if (i3 == 0) {
+                    if (i2 == 0) {
                         return 0;
                     }
                     int read = read();
                     if (read == -1) {
                         return -1;
                     }
-                    bArr[i2] = (byte) read;
-                    int i4 = 1;
+                    bArr[i] = (byte) read;
+                    int i3 = 1;
                     while (true) {
-                        if (i4 < i3) {
+                        if (i3 < i2) {
                             try {
                                 int read2 = read();
                                 if (read2 == -1) {
                                     break;
                                 }
-                                bArr[i2 + i4] = (byte) read2;
-                                i4++;
+                                bArr[i + i3] = (byte) read2;
+                                i3++;
                             } catch (IOException unused) {
                             }
                         }
-                        return i4;
+                        return i3;
                     }
-                    return i4;
+                    return i3;
                 }
                 throw null;
             }
@@ -1227,9 +1226,9 @@ public class H264TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -1257,9 +1256,9 @@ public class H264TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

@@ -40,9 +40,9 @@ public class b implements k.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, dVar, strArr, map, kVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,31 +59,31 @@ public class b implements k.a {
         kVar.a(this);
     }
 
-    private Pair<Long, Long> a(long j2, long j3) {
+    private Pair<Long, Long> a(long j, long j2) {
         InterceptResult invokeCommon;
+        long j3;
         long j4;
-        long j5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j6 = this.wu;
-            if (j6 <= 0 || j2 > j6) {
-                j4 = j3 - j2;
-                j5 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j5 = this.wu;
+            if (j5 <= 0 || j > j5) {
+                j3 = j2 - j;
+                j4 = 0;
             } else {
-                long j7 = this.wv;
-                if (j7 <= 0 || j3 < j7) {
-                    long j8 = this.wu;
-                    j4 = j8 - j2;
-                    j5 = j3 - j8;
+                long j6 = this.wv;
+                if (j6 <= 0 || j2 < j6) {
+                    long j7 = this.wu;
+                    j3 = j7 - j;
+                    j4 = j2 - j7;
                 } else {
-                    j4 = (j6 - j2) + (j7 - j3);
-                    j5 = j7 - j6;
+                    j3 = (j5 - j) + (j6 - j2);
+                    j4 = j6 - j5;
                 }
             }
-            if (j4 < 0) {
-                j4 = 0;
+            if (j3 < 0) {
+                j3 = 0;
             }
-            return new Pair<>(Long.valueOf(j4), Long.valueOf(j5 >= 0 ? j5 : 0L));
+            return new Pair<>(Long.valueOf(j3), Long.valueOf(j4 >= 0 ? j4 : 0L));
         }
         return (Pair) invokeCommon.objValue;
     }
@@ -97,8 +97,8 @@ public class b implements k.a {
             if (strArr != null && strArr.length > 0) {
                 for (String[] strArr2 : strArr) {
                     if (strArr2 != null && strArr2.length >= 2 && str.equals(strArr2[0])) {
-                        for (int i2 = 1; i2 < strArr2.length; i2++) {
-                            arrayList.add(strArr2[i2]);
+                        for (int i = 1; i < strArr2.length; i++) {
+                            arrayList.add(strArr2[i]);
                         }
                     }
                 }
@@ -118,8 +118,8 @@ public class b implements k.a {
             }
             for (Object[] objArr2 : objArr) {
                 if (objArr2 != null && objArr2.length >= 2) {
-                    for (int i2 = 1; i2 < objArr2.length; i2++) {
-                        if (str.equals(objArr2[i2])) {
+                    for (int i = 1; i < objArr2.length; i++) {
+                        if (str.equals(objArr2[i])) {
                             return objArr2[0];
                         }
                     }
@@ -179,35 +179,35 @@ public class b implements k.a {
         return (String) invokeV.objValue;
     }
 
-    private void x(long j2) {
+    private void x(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, this, j2) == null) {
-            this.wu = j2;
+        if (interceptable == null || interceptable.invokeJ(65544, this, j) == null) {
+            this.wu = j;
         }
     }
 
-    private void y(long j2) {
+    private void y(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65545, this, j2) == null) {
-            long j3 = this.wu;
-            if (j2 < j3) {
-                j2 = j3;
+        if (interceptable == null || interceptable.invokeJ(65545, this, j) == null) {
+            long j2 = this.wu;
+            if (j < j2) {
+                j = j2;
             }
-            this.wv = j2;
+            this.wv = j;
         }
     }
 
-    public void A(long j2) {
+    public void A(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            y(j2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            y(j);
         }
     }
 
     @Override // com.baidu.ar.statistic.k.a
-    public void R(int i2) {
+    public void R(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
             return;
         }
         synchronized (this.wp) {
@@ -233,10 +233,10 @@ public class b implements k.a {
                 long longValue = ((Number) aVar.aC("_db_period")).longValue();
                 ArrayList arrayList = new ArrayList();
                 int size = this.wp.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    a aVar2 = this.wp.get(i2);
+                for (int i = 0; i < size; i++) {
+                    a aVar2 = this.wp.get(i);
                     if (gf.equals(aVar2.gf()) && longValue == aVar2.aD("_db_period") && aVar.getTimestamp() - aVar2.getTimestamp() < longValue) {
-                        arrayList.add(Integer.valueOf(i2));
+                        arrayList.add(Integer.valueOf(i));
                     }
                 }
                 if (!arrayList.isEmpty()) {
@@ -357,10 +357,10 @@ public class b implements k.a {
         }
     }
 
-    public void z(long j2) {
+    public void z(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            x(j2);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            x(j);
             synchronized (this.wp) {
                 this.wp.flush();
             }

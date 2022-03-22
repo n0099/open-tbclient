@@ -28,11 +28,11 @@ public class a {
         a = new DecimalFormat("0.00");
     }
 
-    public static String a(long j2, long j3) {
+    public static String a(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            return a.format(((float) j2) / 1048576.0f) + "M/" + a.format(((float) j3) / 1048576.0f) + "M";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
         }
         return (String) invokeCommon.objValue;
     }

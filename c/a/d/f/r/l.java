@@ -13,19 +13,19 @@ public class l extends r {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2912b;
+    public String f2425b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f2913c;
+    public String f2426c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2914d;
+    public String f2427d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String[] f2915e;
+    public String[] f2428e;
 
     /* renamed from: f  reason: collision with root package name */
-    public List<BasicNameValuePair> f2916f;
+    public List<BasicNameValuePair> f2429f;
 
     public l(String str) {
         Interceptable interceptable = $ic;
@@ -34,18 +34,18 @@ public class l extends r {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f2912b = "/";
-        this.f2914d = null;
-        this.f2915e = null;
-        this.f2916f = null;
+        this.f2425b = "/";
+        this.f2427d = null;
+        this.f2428e = null;
+        this.f2429f = null;
     }
 }

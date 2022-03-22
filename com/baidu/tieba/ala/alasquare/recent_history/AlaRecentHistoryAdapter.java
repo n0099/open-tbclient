@@ -15,16 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int PAGE_COUNT = 2;
-    public static final int PAGE_TYPE_LIVING = 100;
-    public static final int PAGE_TYPE_WHOLE = 200;
+    public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f40606b;
+    public static final String[] f31321b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int[] f40607c;
+    public static final int[] f31322c;
     public transient /* synthetic */ FieldHolder $fh;
     public Fragment[] a;
 
@@ -41,8 +38,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
                 return;
             }
         }
-        f40606b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_living), TbadkCoreApplication.getInst().getResources().getString(R.string.square_recent_tab_title_whole)};
-        f40607c = new int[]{100, 200};
+        f31321b = new String[]{TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11ad), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f11ae)};
+        f31322c = new int[]{100, 200};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,9 +51,9 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((FragmentManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -65,8 +62,8 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
         }
         Fragment[] fragmentArr = new Fragment[2];
         this.a = fragmentArr;
-        fragmentArr[0] = AlaRecentHistoryFragment.newInstance(0);
-        this.a[1] = AlaRecentHistoryFragment.newInstance(1);
+        fragmentArr[0] = AlaRecentHistoryFragment.H0(0);
+        this.a[1] = AlaRecentHistoryFragment.H0(1);
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -80,23 +77,23 @@ public class AlaRecentHistoryAdapter extends AbsTabPagerAdapter {
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i2) {
+    public Fragment getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.a[i2] : (Fragment) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a[i] : (Fragment) invokeI.objValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
-    public int getPageType(int i2) {
+    public int getPageType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? f40607c[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? f31322c[i] : invokeI.intValue;
     }
 
     @Override // com.baidu.ala.widget.multicolumn.absView.AbsTabPagerAdapter
-    public String getTabTitle(int i2) {
+    public String getTabTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? f40606b[i2] : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? f31321b[i] : (String) invokeI.objValue;
     }
 }

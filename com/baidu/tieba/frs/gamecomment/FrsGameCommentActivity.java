@@ -50,9 +50,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f42048e;
+        public final /* synthetic */ FrsGameCommentActivity a;
 
         public a(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -61,15 +59,15 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsGameCommentActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42048e = frsGameCommentActivity;
+            this.a = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -77,13 +75,13 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (!l.z()) {
-                    this.f42048e.showToast(R.string.frs_head_video_slide_no_network);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f06ec);
                     return;
                 }
-                this.f42048e.closeLoadingDialog();
-                FrsGameCommentActivity frsGameCommentActivity = this.f42048e;
-                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.frs_game_comment_loading_tip));
-                this.f42048e.publishComment();
+                this.a.closeLoadingDialog();
+                FrsGameCommentActivity frsGameCommentActivity = this.a;
+                frsGameCommentActivity.showLoadingDialog(frsGameCommentActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c6));
+                this.a.publishComment();
             }
         }
     }
@@ -92,9 +90,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f42049e;
+        public final /* synthetic */ FrsGameCommentActivity a;
 
         public b(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -103,51 +99,51 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsGameCommentActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42049e = frsGameCommentActivity;
+            this.a = frsGameCommentActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f42049e.mGrade1) {
-                    this.f42049e.mGrade2.setChecked(false);
-                    this.f42049e.mGrade3.setChecked(false);
-                    this.f42049e.mGrade4.setChecked(false);
-                    this.f42049e.mGrade5.setChecked(false);
-                    this.f42049e.mScore = 2;
-                } else if (view == this.f42049e.mGrade2) {
-                    this.f42049e.mGrade1.setChecked(true);
-                    this.f42049e.mGrade3.setChecked(false);
-                    this.f42049e.mGrade4.setChecked(false);
-                    this.f42049e.mGrade5.setChecked(false);
-                    this.f42049e.mScore = 4;
-                } else if (view == this.f42049e.mGrade3) {
-                    this.f42049e.mGrade1.setChecked(true);
-                    this.f42049e.mGrade2.setChecked(true);
-                    this.f42049e.mGrade4.setChecked(false);
-                    this.f42049e.mGrade5.setChecked(false);
-                    this.f42049e.mScore = 6;
-                } else if (view == this.f42049e.mGrade4) {
-                    this.f42049e.mGrade1.setChecked(true);
-                    this.f42049e.mGrade2.setChecked(true);
-                    this.f42049e.mGrade3.setChecked(true);
-                    this.f42049e.mGrade5.setChecked(false);
-                    this.f42049e.mScore = 8;
-                } else if (view == this.f42049e.mGrade5) {
-                    this.f42049e.mGrade1.setChecked(true);
-                    this.f42049e.mGrade2.setChecked(true);
-                    this.f42049e.mGrade3.setChecked(true);
-                    this.f42049e.mGrade4.setChecked(true);
-                    this.f42049e.mScore = 10;
+                if (view == this.a.mGrade1) {
+                    this.a.mGrade2.setChecked(false);
+                    this.a.mGrade3.setChecked(false);
+                    this.a.mGrade4.setChecked(false);
+                    this.a.mGrade5.setChecked(false);
+                    this.a.mScore = 2;
+                } else if (view == this.a.mGrade2) {
+                    this.a.mGrade1.setChecked(true);
+                    this.a.mGrade3.setChecked(false);
+                    this.a.mGrade4.setChecked(false);
+                    this.a.mGrade5.setChecked(false);
+                    this.a.mScore = 4;
+                } else if (view == this.a.mGrade3) {
+                    this.a.mGrade1.setChecked(true);
+                    this.a.mGrade2.setChecked(true);
+                    this.a.mGrade4.setChecked(false);
+                    this.a.mGrade5.setChecked(false);
+                    this.a.mScore = 6;
+                } else if (view == this.a.mGrade4) {
+                    this.a.mGrade1.setChecked(true);
+                    this.a.mGrade2.setChecked(true);
+                    this.a.mGrade3.setChecked(true);
+                    this.a.mGrade5.setChecked(false);
+                    this.a.mScore = 8;
+                } else if (view == this.a.mGrade5) {
+                    this.a.mGrade1.setChecked(true);
+                    this.a.mGrade2.setChecked(true);
+                    this.a.mGrade3.setChecked(true);
+                    this.a.mGrade4.setChecked(true);
+                    this.a.mScore = 10;
                 }
             }
         }
@@ -157,9 +153,7 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     public class c implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsGameCommentActivity f42050e;
+        public final /* synthetic */ FrsGameCommentActivity a;
 
         public c(FrsGameCommentActivity frsGameCommentActivity) {
             Interceptable interceptable = $ic;
@@ -168,42 +162,42 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsGameCommentActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42050e = frsGameCommentActivity;
+            this.a = frsGameCommentActivity;
         }
 
         @Override // android.text.TextWatcher
         public void afterTextChanged(Editable editable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
-                if (this.f42050e.mCommentEdit.getText().length() > 0) {
-                    this.f42050e.mPublish.setEnabled(true);
-                    SkinManager.setViewTextColor(this.f42050e.mPublish, (int) R.color.cp_link_tip_g);
+                if (this.a.mCommentEdit.getText().length() > 0) {
+                    this.a.mPublish.setEnabled(true);
+                    SkinManager.setViewTextColor(this.a.mPublish, (int) R.color.cp_link_tip_g);
                     return;
                 }
-                this.f42050e.mPublish.setEnabled(false);
-                SkinManager.setViewTextColor(this.f42050e.mPublish, (int) R.color.CAM_X0110);
+                this.a.mPublish.setEnabled(false);
+                SkinManager.setViewTextColor(this.a.mPublish, (int) R.color.CAM_X0110);
             }
         }
 
         @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
             }
         }
 
         @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
             }
         }
     }
@@ -215,17 +209,17 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         public final /* synthetic */ FrsGameCommentActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(FrsGameCommentActivity frsGameCommentActivity, int i2) {
-            super(i2);
+        public d(FrsGameCommentActivity frsGameCommentActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {frsGameCommentActivity, Integer.valueOf(i2)};
+                Object[] objArr = {frsGameCommentActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -261,9 +255,9 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -277,61 +271,61 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            setContentView(R.layout.frs_game_comment_layout);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.frs_game_comment_navigation_bar);
+            setContentView(R.layout.obfuscated_res_0x7f0d0314);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f090af6);
             this.mNavBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.frs_game_comment_title));
+            this.mTitle = this.mNavBar.setCenterTextTitle(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f06c8));
             this.mNavBar.showBottomLine(true);
             TextView addCreateGroupButton = this.mNavBar.addCreateGroupButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, new a(this));
             this.mPublish = addCreateGroupButton;
-            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.send_post));
+            addCreateGroupButton.setText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f10e1));
             this.mPublish.setTextColor(getPageContext().getPageActivity().getResources().getColor(R.color.CAM_X0110));
             this.mPublish.setEnabled(false);
-            RadioButton radioButton = (RadioButton) findViewById(R.id.frs_game_comment_grade_1);
+            RadioButton radioButton = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af1);
             this.mGrade1 = radioButton;
             radioButton.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton2 = (RadioButton) findViewById(R.id.frs_game_comment_grade_2);
+            RadioButton radioButton2 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af2);
             this.mGrade2 = radioButton2;
             radioButton2.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton3 = (RadioButton) findViewById(R.id.frs_game_comment_grade_3);
+            RadioButton radioButton3 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af3);
             this.mGrade3 = radioButton3;
             radioButton3.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton4 = (RadioButton) findViewById(R.id.frs_game_comment_grade_4);
+            RadioButton radioButton4 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af4);
             this.mGrade4 = radioButton4;
             radioButton4.setOnClickListener(this.mOnClickListener);
-            RadioButton radioButton5 = (RadioButton) findViewById(R.id.frs_game_comment_grade_5);
+            RadioButton radioButton5 = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090af5);
             this.mGrade5 = radioButton5;
             radioButton5.setOnClickListener(this.mOnClickListener);
-            EditText editText = (EditText) findViewById(R.id.frs_game_comment_edit);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090af0);
             this.mCommentEdit = editText;
             editText.addTextChangedListener(this.mCommentChangeListener);
-            int i2 = this.mScore;
-            if (i2 == 2) {
+            int i = this.mScore;
+            if (i == 2) {
                 this.mGrade1.setChecked(true);
                 this.mGrade2.setChecked(false);
                 this.mGrade3.setChecked(false);
                 this.mGrade4.setChecked(false);
                 this.mGrade5.setChecked(false);
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 this.mGrade1.setChecked(true);
                 this.mGrade2.setChecked(true);
                 this.mGrade3.setChecked(false);
                 this.mGrade4.setChecked(false);
                 this.mGrade5.setChecked(false);
-            } else if (i2 == 6) {
+            } else if (i == 6) {
                 this.mGrade1.setChecked(true);
                 this.mGrade2.setChecked(true);
                 this.mGrade3.setChecked(true);
                 this.mGrade4.setChecked(false);
                 this.mGrade5.setChecked(false);
-            } else if (i2 == 8) {
+            } else if (i == 8) {
                 this.mGrade1.setChecked(true);
                 this.mGrade2.setChecked(true);
                 this.mGrade3.setChecked(true);
                 this.mGrade4.setChecked(true);
                 this.mGrade5.setChecked(false);
-            } else if (i2 != 10) {
+            } else if (i != 10) {
             } else {
                 this.mGrade1.setChecked(true);
                 this.mGrade2.setChecked(true);
@@ -374,10 +368,10 @@ public class FrsGameCommentActivity extends BaseActivity<FrsGameCommentActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             SkinManager.setBackgroundResource(this.mGrade1, R.drawable.game_comment_score_btn_bg);
             SkinManager.setBackgroundResource(this.mGrade2, R.drawable.game_comment_score_btn_bg);
             SkinManager.setBackgroundResource(this.mGrade3, R.drawable.game_comment_score_btn_bg);

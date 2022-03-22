@@ -14,7 +14,7 @@ public class c {
         this.a = iProgressRemoteView;
     }
 
-    public static c a(Context context, int i2, boolean z) {
+    public static c a(Context context, int i, boolean z) {
         c cVar;
         int sDKType = KsAdSDKImpl.get().getSDKType();
         int apiVersionCode = KsAdSDKImpl.get().getApiVersionCode();
@@ -24,7 +24,7 @@ public class c {
         }
         if (z2) {
             try {
-                cVar = new c(RemoteViewBuilder.createProgressView(context, i2, z));
+                cVar = new c(RemoteViewBuilder.createProgressView(context, i, z));
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.b(th);
                 cVar = null;
@@ -51,10 +51,10 @@ public class c {
         return null;
     }
 
-    public void a(int i2, int i3, boolean z) {
+    public void a(int i, int i2, boolean z) {
         IProgressRemoteView iProgressRemoteView = this.a;
         if (iProgressRemoteView != null) {
-            iProgressRemoteView.setProgress(i2, i3, z);
+            iProgressRemoteView.setProgress(i, i2, z);
         }
     }
 

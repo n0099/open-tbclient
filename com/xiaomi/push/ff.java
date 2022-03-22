@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ff {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class ff {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,13 +53,13 @@ public class ff {
                     return gk.a(this.a, flVar);
                 }
                 if (name.equals("presence")) {
-                    return gk.m415a(this.a);
+                    return gk.m394a(this.a);
                 }
                 if (this.a.getName().equals("stream")) {
                     return null;
                 }
                 if (this.a.getName().equals("error")) {
-                    throw new fw(gk.m416a(this.a));
+                    throw new fw(gk.m395a(this.a));
                 }
                 if (!this.a.getName().equals("warning")) {
                     this.a.getName().equals("bind");

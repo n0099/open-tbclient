@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,10 +48,10 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         this.verticalLayoutGap = 0;
     }
 
-    public static int resolveGravity(int i2) {
+    public static int resolveGravity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == 0 ? BadgeDrawable.TOP_START : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_START : i : invokeI.intValue;
     }
 
     @Nullable
@@ -65,8 +65,8 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 return 0;
             }
             float overlapRatioForOffset = getOverlapRatioForOffset(view);
-            int i2 = this.overlayTop;
-            return MathUtils.clamp((int) (overlapRatioForOffset * i2), 0, i2);
+            int i = this.overlayTop;
+            return MathUtils.clamp((int) (overlapRatioForOffset * i), 0, i);
         }
         return invokeL.intValue;
     }
@@ -99,9 +99,9 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
     }
 
     @Override // com.google.android.material.appbar.ViewOffsetBehavior
-    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i2) {
+    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, coordinatorLayout, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, coordinatorLayout, view, i) == null) {
             View findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view));
             if (findFirstDependency != null) {
                 CoordinatorLayout.LayoutParams layoutParams = (CoordinatorLayout.LayoutParams) view.getLayoutParams();
@@ -113,27 +113,27 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                     rect.right -= lastWindowInsets.getSystemWindowInsetRight();
                 }
                 Rect rect2 = this.tempRect2;
-                GravityCompat.apply(resolveGravity(layoutParams.gravity), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i2);
+                GravityCompat.apply(resolveGravity(layoutParams.gravity), view.getMeasuredWidth(), view.getMeasuredHeight(), rect, rect2, i);
                 int overlapPixelsForOffset = getOverlapPixelsForOffset(findFirstDependency);
                 view.layout(rect2.left, rect2.top - overlapPixelsForOffset, rect2.right, rect2.bottom - overlapPixelsForOffset);
                 this.verticalLayoutGap = rect2.top - findFirstDependency.getBottom();
                 return;
             }
-            super.layoutChild(coordinatorLayout, view, i2);
+            super.layoutChild(coordinatorLayout, view, i);
             this.verticalLayoutGap = 0;
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i2, int i3, int i4, int i5) {
+    public boolean onMeasureChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         View findFirstDependency;
         WindowInsetsCompat lastWindowInsets;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{coordinatorLayout, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            int i6 = view.getLayoutParams().height;
-            if ((i6 == -1 || i6 == -2) && (findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view))) != null) {
-                int size = View.MeasureSpec.getSize(i4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{coordinatorLayout, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            int i5 = view.getLayoutParams().height;
+            if ((i5 == -1 || i5 == -2) && (findFirstDependency = findFirstDependency(coordinatorLayout.getDependencies(view))) != null) {
+                int size = View.MeasureSpec.getSize(i3);
                 if (size > 0) {
                     if (ViewCompat.getFitsSystemWindows(findFirstDependency) && (lastWindowInsets = coordinatorLayout.getLastWindowInsets()) != null) {
                         size += lastWindowInsets.getSystemWindowInsetTop() + lastWindowInsets.getSystemWindowInsetBottom();
@@ -148,7 +148,7 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
                 } else {
                     scrollRange -= measuredHeight;
                 }
-                coordinatorLayout.onMeasureChild(view, i2, i3, View.MeasureSpec.makeMeasureSpec(scrollRange, i6 == -1 ? 1073741824 : Integer.MIN_VALUE), i5);
+                coordinatorLayout.onMeasureChild(view, i, i2, View.MeasureSpec.makeMeasureSpec(scrollRange, i5 == -1 ? 1073741824 : Integer.MIN_VALUE), i4);
                 return true;
             }
             return false;
@@ -156,10 +156,10 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
         return invokeCommon.booleanValue;
     }
 
-    public final void setOverlayTop(int i2) {
+    public final void setOverlayTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.overlayTop = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.overlayTop = i;
         }
     }
 
@@ -181,9 +181,9 @@ public abstract class HeaderScrollingViewBehavior extends ViewOffsetBehavior<Vie
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

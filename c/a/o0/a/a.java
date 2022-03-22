@@ -1,265 +1,280 @@
 package c.a.o0.a;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.Callable;
-/* loaded from: classes.dex */
-public class a extends SwanKV implements SharedPreferences, SharedPreferences.Editor {
+import java.util.LinkedList;
+import java.util.List;
+/* loaded from: classes2.dex */
+public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.o0.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes.dex */
-    public static final class RunnableC0221a implements Runnable {
+    /* loaded from: classes2.dex */
+    public static class C0778a {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ a f4488e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Callable f4489f;
-
-        public RunnableC0221a(a aVar, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(448182163, "Lc/a/o0/a/a$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(448182163, "Lc/a/o0/a/a$a;");
                     return;
                 }
             }
-            this.f4488e = aVar;
-            this.f4489f = callable;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: c.a.o0.a.a */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public final void run() {
-            SharedPreferences sharedPreferences;
-            Map<String, ?> all;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (sharedPreferences = (SharedPreferences) this.f4489f.call()) == null || (all = sharedPreferences.getAll()) == null) {
-                return;
-            }
-            this.f4488e.importFromMap(all, false);
+            a = new a();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(Context context, String str, int i2, String str2) {
-        super(context, str, i2, str2);
+    public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // android.content.SharedPreferences.Editor
-    public void apply() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.sync(false);
-        }
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor clear() {
+    public static final a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            super.clearAll();
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? C0778a.a : (a) invokeV.objValue;
     }
 
-    @Override // android.content.SharedPreferences.Editor
-    public boolean commit() {
-        InterceptResult invokeV;
+    public synchronized long a(c cVar) {
+        InterceptResult invokeL;
+        long h2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            super.sync(true);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                h2 = h(f2, cVar);
+                f2.setTransactionSuccessful();
+                f2.endTransaction();
+            }
+            return h2;
         }
-        return invokeV.booleanValue;
+        return invokeL.longValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    public synchronized void b(List<c> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                for (c cVar : list) {
+                    h(f2, cVar);
+                }
+                f2.setTransactionSuccessful();
+                f2.endTransaction();
+            }
+        }
+    }
+
+    public final ContentValues c(c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? super.containKey(str) : invokeL.booleanValue;
-    }
-
-    public void d(Callable<SharedPreferences> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
-            new Thread(new RunnableC0221a(this, callable), "SharedPreferences-import").start();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+            if (cVar == null) {
+                return null;
+            }
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("activityid", Integer.valueOf(cVar.d()));
+            contentValues.put("missionid", Integer.valueOf(cVar.q()));
+            contentValues.put("activitysource", cVar.e());
+            contentValues.put("calltype", Integer.valueOf(cVar.i()));
+            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(cVar.x()));
+            contentValues.put("browsetimepage", cVar.g());
+            contentValues.put("browsetime", Long.valueOf(cVar.f()));
+            contentValues.put("threadnum", Integer.valueOf(cVar.A()));
+            contentValues.put("forumnum", Integer.valueOf(cVar.p()));
+            contentValues.put("cleartype", Integer.valueOf(cVar.k()));
+            contentValues.put("cleartime", Long.valueOf(cVar.j()));
+            contentValues.put("specificcleartime", Long.valueOf(cVar.t()));
+            contentValues.put("tid", Long.valueOf(cVar.C()));
+            contentValues.put("fid", Long.valueOf(cVar.o()));
+            contentValues.put("threadtext", cVar.B());
+            contentValues.put("threadimg", cVar.z());
+            contentValues.put("threadforum", Long.valueOf(cVar.y()));
+            contentValues.put("totalLimit", Integer.valueOf(cVar.F()));
+            contentValues.put("completedLimitCount", Integer.valueOf(cVar.w()));
+            contentValues.put("token", cVar.E());
+            contentValues.put("executingMissionList", cVar.b());
+            return contentValues;
         }
+        return (ContentValues) invokeL.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? super.getAll() : (Map) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) ? super.getBool(str, z) : invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
-    public float getFloat(String str, float f2) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f2)) == null) ? super.getFloat(str, f2) : invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) ? super.getString(str, str2) : (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) ? super.getStringSet(str, set) : (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) {
-            super.writeBool(str, z);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLZ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f2) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048588, this, str, f2)) == null) {
-            super.writeFloat(str, f2);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLF.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putInt(String str, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i2)) == null) {
-            super.writeInt(str, i2);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLI.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putLong(String str, long j2) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j2)) == null) {
-            super.writeLong(str, j2);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLJ.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
-            super.writeString(str, str2);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) {
-            super.writeStringSet(str, set);
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
-            throw new UnsupportedOperationException("Not support registerOnSharedPreferenceChangeListener");
-        }
-    }
-
-    @Override // android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor remove(String str) {
+    public final c d(Cursor cursor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            super.removeKey(str);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
+            if (cursor == null || cursor.isClosed()) {
+                return null;
+            }
+            c cVar = new c();
+            cVar.S(cursor.getInt(cursor.getColumnIndex("activityid")));
+            cVar.b0(cursor.getInt(cursor.getColumnIndex("missionid")));
+            cVar.T(cursor.getString(cursor.getColumnIndex("activitysource")));
+            cVar.W(cursor.getInt(cursor.getColumnIndex("calltype")));
+            cVar.f0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
+            cVar.V(cursor.getString(cursor.getColumnIndex("browsetimepage")));
+            cVar.U(cursor.getLong(cursor.getColumnIndex("browsetime")));
+            cVar.i0(cursor.getInt(cursor.getColumnIndex("threadnum")));
+            cVar.a0(cursor.getInt(cursor.getColumnIndex("forumnum")));
+            cVar.Y(cursor.getInt(cursor.getColumnIndex("cleartype")));
+            cVar.X(cursor.getLong(cursor.getColumnIndex("cleartime")));
+            cVar.d0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
+            cVar.k0(cursor.getLong(cursor.getColumnIndex("tid")));
+            cVar.Z(cursor.getLong(cursor.getColumnIndex("fid")));
+            cVar.j0(cursor.getString(cursor.getColumnIndex("threadtext")));
+            cVar.h0(cursor.getString(cursor.getColumnIndex("threadimg")));
+            cVar.g0(cursor.getInt(cursor.getColumnIndex("threadforum")));
+            cVar.m0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
+            cVar.e0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
+            cVar.P(cVar.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
+            cVar.l0(cursor.getString(cursor.getColumnIndex("token")));
+            return cVar;
         }
-        return (SharedPreferences.Editor) invokeL.objValue;
+        return (c) invokeL.objValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public synchronized boolean e(c cVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, onSharedPreferenceChangeListener) == null) {
-            throw new UnsupportedOperationException("Not support unregisterOnSharedPreferenceChangeListener");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cVar)) == null) {
+            synchronized (this) {
+                if (cVar == null) {
+                    return false;
+                }
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                int delete = f2.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
+                f2.setTransactionSuccessful();
+                f2.endTransaction();
+                return delete >= 0;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized List<c> f() {
+        InterceptResult invokeV;
+        LinkedList linkedList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                linkedList = new LinkedList();
+                Cursor rawQuery = f2.rawQuery("SELECT * FROM activity_mission_info", null);
+                while (rawQuery.moveToNext()) {
+                    c d2 = d(rawQuery);
+                    if (d2 != null) {
+                        linkedList.add(d2);
+                    }
+                }
+                f2.setTransactionSuccessful();
+                c.a.d.f.p.o.a(rawQuery);
+                f2.endTransaction();
+            }
+            return linkedList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final long h(SQLiteDatabase sQLiteDatabase, c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, cVar)) == null) {
+            try {
+                return sQLiteDatabase.insert("activity_mission_info", null, c(cVar));
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public synchronized long i(c cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cVar)) == null) {
+            synchronized (this) {
+                if (cVar == null) {
+                    return -1L;
+                }
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                long j = j(f2, cVar);
+                f2.setTransactionSuccessful();
+                f2.endTransaction();
+                return j;
+            }
+        }
+        return invokeL.longValue;
+    }
+
+    public final long j(SQLiteDatabase sQLiteDatabase, c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, cVar)) == null) {
+            try {
+                return sQLiteDatabase.update("activity_mission_info", c(cVar), "activityid = ? and missionid = ?", new String[]{String.valueOf(cVar.d()), String.valueOf(cVar.q())});
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return -1L;
+            }
+        }
+        return invokeLL.longValue;
+    }
+
+    public synchronized void k(List<c> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            synchronized (this) {
+                if (ListUtils.isEmpty(list)) {
+                    return;
+                }
+                SQLiteDatabase f2 = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
+                f2.beginTransaction();
+                for (c cVar : list) {
+                    j(f2, cVar);
+                }
+                f2.setTransactionSuccessful();
+                f2.endTransaction();
+            }
         }
     }
 }

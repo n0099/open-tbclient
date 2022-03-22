@@ -30,9 +30,9 @@ public class DBTableConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,9 +58,9 @@ public class DBTableConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -84,9 +84,9 @@ public class DBTableConfig {
                     return null;
                 }
                 String str = "";
-                for (int i2 = 0; i2 < sRegisterIds.size(); i2++) {
-                    String str2 = sRegisterIds.get(i2);
-                    str = i2 == sRegisterIds.size() - 1 ? str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0" : str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0,";
+                for (int i = 0; i < sRegisterIds.size(); i++) {
+                    String str2 = sRegisterIds.get(i);
+                    str = i == sRegisterIds.size() - 1 ? str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0" : str + UserStickinessSQLiteOpenHelper.COUNT_PREFIX + str2 + " long default 0,first_time_" + str2 + " long default 0,";
                 }
                 return str;
             }
@@ -106,9 +106,9 @@ public class DBTableConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

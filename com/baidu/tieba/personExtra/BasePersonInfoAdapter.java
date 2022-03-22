@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f45676b;
+    public ArrayList<BaseFragment> f35389b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BasePersonInfoAdapter(BasePersonInfoActivity basePersonInfoActivity, boolean z) {
@@ -30,58 +30,58 @@ public abstract class BasePersonInfoAdapter extends FragmentPagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {basePersonInfoActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((FragmentManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45676b = new ArrayList<>();
+        this.f35389b = new ArrayList<>();
         Bundle bundle = new Bundle();
         bundle.putInt("page_type", 0);
-        BaseFragment createPersonalFramget = createPersonalFramget();
-        createPersonalFramget.setArguments(bundle);
-        this.f45676b.add(createPersonalFramget);
+        BaseFragment b2 = b();
+        b2.setArguments(bundle);
+        this.f35389b.add(b2);
         if (z) {
             this.a = new int[]{0};
             return;
         }
         Bundle bundle2 = new Bundle();
         bundle2.putInt("page_type", 1);
-        BaseFragment createPersonalFramget2 = createPersonalFramget();
-        createPersonalFramget2.setArguments(bundle2);
-        this.f45676b.add(createPersonalFramget2);
+        BaseFragment b3 = b();
+        b3.setArguments(bundle2);
+        this.f35389b.add(b3);
         this.a = new int[]{0, 1};
     }
 
-    public abstract BaseFragment createPersonalFramget();
+    public abstract BaseFragment b();
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.a[i] : invokeI.intValue;
+    }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.length : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.length : invokeV.intValue;
     }
 
     @Override // androidx.fragment.app.FragmentPagerAdapter
-    public Fragment getItem(int i2) {
+    public Fragment getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 >= this.a.length || i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i >= this.a.length || i < 0) {
                 return null;
             }
-            return this.f45676b.get(i2);
+            return this.f35389b.get(i);
         }
         return (Fragment) invokeI.objValue;
-    }
-
-    public int getItemPageType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.a[i2] : invokeI.intValue;
     }
 }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.r0.j3.a0;
+import c.a.p0.l3.a0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,32 +28,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import tbclient.AdCloseInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View m;
+    public ViewStub n;
+    public View o;
+    public TextView p;
+    public TextView q;
+    public FrameLayout r;
+    public LinearLayout s;
+    public AdCloseView t;
 
-    /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f46138f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f46139g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public AdCloseView f46140h;
-    public TextView mAdTitle;
-    public View mCustomRoot;
-    public ViewStub mCustomViewStub;
-    public View mRootView;
-    public TextView mTextViewAdvertName;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f46141e;
+        public final /* synthetic */ AdSimpleCardBaseView a;
 
         public a(AdSimpleCardBaseView adSimpleCardBaseView) {
             Interceptable interceptable = $ic;
@@ -62,36 +54,34 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adSimpleCardBaseView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46141e = adSimpleCardBaseView;
+            this.a = adSimpleCardBaseView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46141e.f46140h.performClick();
+                this.a.t.performClick();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public AdCard a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public AdCard f46142e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdSimpleCardBaseView f46143f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ AdSimpleCardBaseView f35723b;
 
         public b(AdSimpleCardBaseView adSimpleCardBaseView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -100,24 +90,24 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adSimpleCardBaseView, adCard};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46143f = adSimpleCardBaseView;
-            this.f46142e = adCard;
+            this.f35723b = adSimpleCardBaseView;
+            this.a = adCard;
         }
 
         public final void a(AdvertAppInfo advertAppInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, advertAppInfo) == null) {
-                int d2 = a0.d(this.f46143f.mContext.getPageActivity(), this.f46142e.getScheme(), this.f46142e.getDownloadId(), this.f46142e.getExtInfo(), this.f46142e.cmdScheme);
-                if (this.f46143f.afterClickSchemeListener != null) {
-                    this.f46143f.afterClickSchemeListener.a(d2, null);
+                int d2 = a0.d(this.f35723b.i.getPageActivity(), this.a.getScheme(), this.a.getDownloadId(), this.a.getExtInfo(), this.a.cmdScheme);
+                if (this.f35723b.k != null) {
+                    this.f35723b.k.a(d2, null);
                 }
             }
         }
@@ -127,10 +117,10 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
                 if (!l.A()) {
-                    this.f46143f.mContext.showToast(R.string.neterror);
+                    this.f35723b.i.showToast(R.string.obfuscated_res_0x7f0f0c15);
                     return;
                 }
-                AdCard adCard = this.f46142e;
+                AdCard adCard = this.a;
                 if (adCard == null) {
                     return;
                 }
@@ -148,9 +138,9 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -159,101 +149,103 @@ public abstract class AdSimpleCardBaseView extends BaseLegoCardView<AdCard> {
         }
     }
 
-    public abstract void fillCustomView(AdCard adCard);
-
-    public abstract int getCustomLayout();
-
-    public abstract int getLayout();
-
-    public final void h(View view) {
+    public final void H(View view) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view) == null) && view != null && view.getVisibility() == 0) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view.getVisibility() == 0) {
             if (view.getParent() != null) {
                 ((FrameLayout) view.getParent()).removeView(view);
             }
-            this.f46138f.setVisibility(0);
-            this.f46138f.removeAllViews();
+            this.r.setVisibility(0);
+            this.r.removeAllViews();
             view.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            this.f46138f.addView(view);
+            this.r.addView(view);
         }
     }
 
-    public final void i(AdvertAppInfo advertAppInfo, AdCard adCard) {
+    public abstract void I(AdCard adCard);
+
+    public final void J(AdvertAppInfo advertAppInfo, AdCard adCard) {
         AdCloseInfo adCloseInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, advertAppInfo, adCard) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo, adCard) == null) {
             if (adCard != null && (adCloseInfo = adCard.closeInfo) != null && adCloseInfo.support_close.intValue() > 0) {
-                this.f46140h.setVisibility(0);
-                this.f46140h.setPage(getBusinessType());
-                this.f46140h.setData(advertAppInfo, adCard.closeInfo);
-                n.b(this.mContext.getPageActivity(), this.f46139g, 40, 40, 40, 120);
-                this.f46139g.setOnClickListener(new a(this));
+                this.t.setVisibility(0);
+                this.t.setPage(getBusinessType());
+                this.t.setData(advertAppInfo, adCard.closeInfo);
+                n.b(this.i.getPageActivity(), this.s, 40, 40, 40, 120);
+                this.s.setOnClickListener(new a(this));
                 return;
             }
-            this.f46140h.setVisibility(8);
+            this.t.setVisibility(8);
         }
     }
 
-    public abstract void initCustomView(View view);
-
-    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public View initLayout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
-            this.mRootView = inflate;
-            ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.ad_custom_view_stub);
-            this.mCustomViewStub = viewStub;
-            viewStub.setLayoutResource(getCustomLayout());
-            View inflate2 = this.mCustomViewStub.inflate();
-            this.mCustomRoot = inflate2;
-            initCustomView(inflate2);
-            this.mAdTitle = (TextView) this.mRootView.findViewById(R.id.ad_title);
-            this.mTextViewAdvertName = (TextView) this.mRootView.findViewById(R.id.advert_app_name);
-            this.f46138f = (FrameLayout) this.mRootView.findViewById(R.id.btn_pb_card_bottom_op_more_container);
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.ad_post_tag_close, (ViewGroup) null);
-            this.f46139g = linearLayout;
-            this.f46140h = (AdCloseView) linearLayout.findViewById(R.id.ad_close_view);
-            return this.mRootView;
-        }
-        return (View) invokeV.objValue;
-    }
+    public abstract void K(View view);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void onChangeSkinType(AdCard adCard, int i2) {
+    /* renamed from: L */
+    public void t(AdCard adCard, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, adCard, i2) == null) {
-            this.f46140h.onChangeSkinType();
-            SkinManager.setViewTextColor(this.mAdTitle, R.color.CAM_X0105, 1, i2);
-            SkinManager.setViewTextColor(this.mTextViewAdvertName, R.color.CAM_X0109, 1, i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, adCard, i) == null) {
+            this.t.onChangeSkinType();
+            SkinManager.setViewTextColor(this.p, R.color.CAM_X0105, 1, i);
+            SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1, i);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
-    public void onUpdateCardView(AdCard adCard) {
+    /* renamed from: M */
+    public void u(AdCard adCard) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, adCard) == null) || adCard == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, adCard) == null) || adCard == null) {
             return;
         }
-        this.mRootView.setOnClickListener(new b(this, adCard));
+        this.m.setOnClickListener(new b(this, adCard));
         String str = adCard.threadTitle;
         if (!TextUtils.isEmpty(str)) {
-            this.mAdTitle.setText(str);
-            this.mAdTitle.setVisibility(0);
+            this.p.setText(str);
+            this.p.setVisibility(0);
         } else {
-            this.mAdTitle.setVisibility(8);
+            this.p.setVisibility(8);
         }
         String str2 = adCard.userName;
         if (!TextUtils.isEmpty(str2)) {
             str2 = str2 + GlideException.IndentedAppendable.INDENT;
         }
-        this.mTextViewAdvertName.setText(str2 + "广告");
-        h(this.f46139g);
-        onChangeSkinType(adCard, TbadkCoreApplication.getInst().getSkinType());
-        fillCustomView(adCard);
-        i(adCard.getAdvertAppInfo(), adCard);
+        this.q.setText(str2 + "广告");
+        H(this.s);
+        t(adCard, TbadkCoreApplication.getInst().getSkinType());
+        I(adCard);
+        J(adCard.getAdvertAppInfo(), adCard);
+    }
+
+    public abstract int getCustomLayout();
+
+    public abstract int getLayout();
+
+    @Override // com.baidu.tieba.lego.card.view.BaseLegoCardView
+    public View q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(getLayout(), (ViewGroup) null);
+            this.m = inflate;
+            ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.obfuscated_res_0x7f09009a);
+            this.n = viewStub;
+            viewStub.setLayoutResource(getCustomLayout());
+            View inflate2 = this.n.inflate();
+            this.o = inflate2;
+            K(inflate2);
+            this.p = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f0900f3);
+            this.q = (TextView) this.m.findViewById(R.id.obfuscated_res_0x7f090146);
+            this.r = (FrameLayout) this.m.findViewById(R.id.obfuscated_res_0x7f09042c);
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0071, (ViewGroup) null);
+            this.s = linearLayout;
+            this.t = (AdCloseView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090092);
+            return this.m;
+        }
+        return (View) invokeV.objValue;
     }
 }

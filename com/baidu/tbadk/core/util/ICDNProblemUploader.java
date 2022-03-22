@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.util;
 
-import c.a.q0.r.r.s;
+import c.a.o0.r.r.s;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class ICDNProblemUploader {
     public static /* synthetic */ Interceptable $ic;
     public static ICDNProblemUploader problemUploader;
@@ -36,9 +36,9 @@ public abstract class ICDNProblemUploader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,9 +67,9 @@ public abstract class ICDNProblemUploader {
 
     public abstract s getmCdnLogData();
 
-    public abstract void insertErrorData(int i2, String str);
+    public abstract void insertErrorData(int i, String str);
 
-    public abstract void insertNormalData(long j2, String str);
+    public abstract void insertNormalData(long j, String str);
 
     public abstract void setmCdnLogData(s sVar);
 }

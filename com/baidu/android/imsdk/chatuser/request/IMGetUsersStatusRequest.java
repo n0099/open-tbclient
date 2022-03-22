@@ -33,9 +33,9 @@ public class IMGetUsersStatusRequest extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,8 +59,8 @@ public class IMGetUsersStatusRequest extends Message {
             }
             JSONArray jSONArray = new JSONArray();
             if (arrayList != null && arrayList.size() > 0) {
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    jSONArray.put(arrayList.get(i2));
+                for (int i = 0; i < arrayList.size(); i++) {
+                    jSONArray.put(arrayList.get(i));
                 }
             }
             IMGetUsersStatusRequest iMGetUsersStatusRequest = new IMGetUsersStatusRequest(context, jSONArray);
@@ -92,38 +92,38 @@ public class IMGetUsersStatusRequest extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            if (i2 != 0) {
-                int i3 = this.mReSendCount;
-                if (i3 >= 3) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            if (i != 0) {
+                int i2 = this.mReSendCount;
+                if (i2 >= 3) {
                     setNeedReSend(false);
                 } else {
-                    this.mReSendCount = i3 + 1;
+                    this.mReSendCount = i2 + 1;
                     setNeedReSend(true);
                     return;
                 }
             }
             ArrayList<UserStatus> arrayList = null;
-            if (i2 == 0) {
+            if (i == 0) {
                 try {
                     if (jSONObject.has("user_status") && (jSONArray = jSONObject.getJSONArray("user_status")) != null && jSONArray.length() > 0) {
                         ArrayList<UserStatus> arrayList2 = new ArrayList<>();
-                        for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                        for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                             try {
-                                JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                                 if (jSONObject2.has("uid") && jSONObject2.has("status")) {
-                                    long j2 = jSONObject2.getLong("uid");
-                                    int i5 = jSONObject2.getInt("status");
-                                    arrayList2.add(new UserStatus(j2, i5 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
+                                    long j = jSONObject2.getLong("uid");
+                                    int i4 = jSONObject2.getInt("status");
+                                    arrayList2.add(new UserStatus(j, i4 == 1, jSONObject2.has("last_operate_time") ? jSONObject2.getLong("last_operate_time") : 0L));
                                 }
                             } catch (Exception e2) {
                                 e = e2;
                                 arrayList = arrayList2;
                                 LogUtils.e("IMGetUsersStatusRequest", "handleMessageResult :", e);
-                                super.handleMessageResult(context, jSONObject, i2, str);
+                                super.handleMessageResult(context, jSONObject, i, str);
                                 if (arrayList == null) {
                                 }
                                 ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList);
@@ -135,9 +135,9 @@ public class IMGetUsersStatusRequest extends Message {
                     e = e3;
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
+            super.handleMessageResult(context, jSONObject, i, str);
             if (arrayList == null && arrayList.size() > 0) {
-                ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), i2, str, arrayList);
+                ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), i, str, arrayList);
             } else {
                 ChatUserManagerImpl.getInstance(context).onGetUsersStatusResult(getListenerKey(), 1005, Constants.ERROR_MSG_PARAMETER_ERROR, arrayList);
             }

@@ -30,9 +30,7 @@ public class BdSocketDaemonService extends BdBaseService {
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f29786e;
+        public final /* synthetic */ BdSocketDaemonService a;
 
         public a(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -41,15 +39,15 @@ public class BdSocketDaemonService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSocketDaemonService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29786e = bdSocketDaemonService;
+            this.a = bdSocketDaemonService;
         }
 
         @Override // android.content.ServiceConnection
@@ -76,9 +74,7 @@ public class BdSocketDaemonService extends BdBaseService {
     public class b extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketDaemonService f29787e;
+        public final /* synthetic */ BdSocketDaemonService a;
 
         public b(BdSocketDaemonService bdSocketDaemonService) {
             Interceptable interceptable = $ic;
@@ -87,15 +83,15 @@ public class BdSocketDaemonService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSocketDaemonService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29787e = bdSocketDaemonService;
+            this.a = bdSocketDaemonService;
         }
     }
 
@@ -104,9 +100,9 @@ public class BdSocketDaemonService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -187,10 +183,10 @@ public class BdSocketDaemonService extends BdBaseService {
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i, i2)) == null) {
             return 1;
         }
         return invokeLII.intValue;

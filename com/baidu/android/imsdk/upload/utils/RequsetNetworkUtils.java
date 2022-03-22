@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -47,9 +47,9 @@ public class RequsetNetworkUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -88,7 +88,7 @@ public class RequsetNetworkUtils {
                     }
                 }
             } catch (Exception e2) {
-                String str2 = "getMobileIp exception :" + e2.getMessage();
+                Log.d("RequsetNetworkUtils", "getMobileIp exception :" + e2.getMessage());
             }
             return str;
         }
@@ -157,16 +157,25 @@ public class RequsetNetworkUtils {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            NetworkInfo networkInfo = null;
             try {
-                ConnectivityManager connectivityManager = getConnectivityManager(context.getApplicationContext());
-                if (connectivityManager != null) {
-                    return connectivityManager.getActiveNetworkInfo();
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.d("RequsetNetworkUtils", "context is null !!!");
                 }
-                return null;
+                ConnectivityManager connectivityManager = getConnectivityManager(applicationContext);
+                if (connectivityManager != null) {
+                    networkInfo = connectivityManager.getActiveNetworkInfo();
+                    if (networkInfo == null) {
+                        Log.e("RequsetNetworkUtils", "networkInfo is null !!!");
+                    }
+                } else {
+                    Log.e("RequsetNetworkUtils", "connManager is null !!!");
+                }
             } catch (Exception e2) {
-                String str = "exp: " + e2.getMessage();
-                return null;
+                Log.e("RequsetNetworkUtils", "exp: " + e2.getMessage());
             }
+            return networkInfo;
         }
         return (NetworkInfo) invokeL.objValue;
     }
@@ -184,7 +193,7 @@ public class RequsetNetworkUtils {
             if (context == null) {
                 return mTelephonyManager;
             }
-            if (context.checkCallingOrSelfPermission(s.f53804c) == 0 && mTelephonyManager == null) {
+            if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0 && mTelephonyManager == null) {
                 mTelephonyManager = (TelephonyManager) context.getSystemService("phone");
             }
             return mTelephonyManager;
@@ -197,7 +206,7 @@ public class RequsetNetworkUtils {
         WifiInfo connectionInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context.checkCallingOrSelfPermission(s.f53805d) != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
+            if (context.checkCallingOrSelfPermission("android.permission.ACCESS_WIFI_STATE") != 0 || (connectionInfo = ((WifiManager) context.getSystemService("wifi")).getConnectionInfo()) == null) {
                 return "nonWifiIp";
             }
             int ipAddress = connectionInfo.getIpAddress();

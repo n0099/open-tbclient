@@ -2,17 +2,16 @@ package com.kwad.sdk.pngencrypt.chunk;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ah {
     public final e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f55621b;
+    public final boolean f40635b;
 
     public ah(e eVar) {
         this.a = eVar;
-        this.f55621b = !(eVar instanceof f);
+        this.f40635b = !(eVar instanceof f);
     }
 
     public List<? extends ae> a(String str) {
@@ -31,7 +30,7 @@ public class ah {
         StringBuilder sb = new StringBuilder();
         for (ae aeVar : a) {
             sb.append(aeVar.d());
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         }
         return sb.toString().trim();
     }

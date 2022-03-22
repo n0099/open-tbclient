@@ -3,6 +3,7 @@ package c.a.l;
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import c.a.l.a;
 import c.a.l.w0.a;
 import com.baidu.android.imsdk.internal.Constants;
@@ -21,19 +22,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class o extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NewGridImageLayout l;
-    public c.a.q0.r.r.a m;
-    public int n;
-    public String o;
-    public int p;
+
+    /* renamed from: h  reason: collision with root package name */
+    public NewGridImageLayout f3468h;
+    public c.a.o0.r.r.a i;
+    public int j;
+    public String k;
+    public int l;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ o f4070e;
+        public final /* synthetic */ o a;
 
         public a(o oVar) {
             Interceptable interceptable = $ic;
@@ -42,26 +43,26 @@ public class o extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f4070e = oVar;
+            this.a = oVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             o oVar;
-            a.InterfaceC0201a interfaceC0201a;
+            a.InterfaceC0194a interfaceC0194a;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0201a = (oVar = this.f4070e).f4010i) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (interfaceC0194a = (oVar = this.a).f3395e) == null) {
                 return;
             }
-            interfaceC0201a.a(oVar.m);
+            interfaceC0194a.a(oVar.i);
         }
     }
 
@@ -78,9 +79,9 @@ public class o extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,14 +91,14 @@ public class o extends h {
         }
 
         @Override // c.a.l.w0.a.b
-        public boolean a(a.C0203a c0203a) {
+        public boolean a(a.C0196a c0196a) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0203a)) == null) {
-                if (this.a.m != null && this.a.m.getThreadData() != null && !this.a.e().booleanValue()) {
-                    c.a.r0.f0.m.a(this.a.m.getThreadData().h0());
-                    c.a.r0.f0.m.l(this.a.l.mTitle, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    c.a.r0.f0.m.l(this.a.l.mAbstract, this.a.m.getThreadData().h0(), R.color.CAM_X0105, R.color.CAM_X0109);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c0196a)) == null) {
+                if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.f().booleanValue()) {
+                    c.a.p0.h0.m.a(this.a.i.getThreadData().getId());
+                    c.a.p0.h0.m.l(this.a.f3468h.f25158b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    c.a.p0.h0.m.l(this.a.f3468h.f25159c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -114,153 +115,153 @@ public class o extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = 3;
-        this.l = new NewGridImageLayout(context);
+        this.j = 3;
+        this.f3468h = new NewGridImageLayout(context);
     }
 
-    public void A(boolean z) {
+    public void A(a.InterfaceC0194a interfaceC0194a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.l.setNeedFrsTabName(z);
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0194a) == null) {
+            this.f3395e = interfaceC0194a;
         }
     }
 
-    public void B(c.a.d.f.k.b<ImageView> bVar, c.a.d.f.k.b<GifView> bVar2) {
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f3468h.setNeedFrsTabName(z);
+        }
+    }
+
+    public void C(c.a.d.f.k.b<ImageView> bVar, c.a.d.f.k.b<GifView> bVar2) {
         NewGridImageLayout newGridImageLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2) == null) || (newGridImageLayout = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bVar, bVar2) == null) || (newGridImageLayout = this.f3468h) == null) {
             return;
         }
         newGridImageLayout.setObjectPool(bVar, bVar2);
     }
 
-    public void C(boolean z) {
+    public void D(boolean z) {
         NewGridImageLayout newGridImageLayout;
         GridImageLayout gridImageLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || (newGridImageLayout = this.l) == null || (gridImageLayout = newGridImageLayout.mGridImageLayout) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (newGridImageLayout = this.f3468h) == null || (gridImageLayout = newGridImageLayout.f25162f) == null) {
             return;
         }
         gridImageLayout.setIsTransform(z);
     }
 
-    public void D(int i2, int i3, int i4, int i5) {
+    public void E(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i2, i3, i4, i5) == null) && e().booleanValue()) {
-            this.l.setPadding(i2, i3, i4, i5);
+        if ((interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) && f().booleanValue()) {
+            this.f3468h.setPadding(i, i2, i3, i4);
         }
     }
 
-    public void E(boolean z) {
+    public void F(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.l.isUseInCard = z;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.f3468h.n = z;
         }
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.l : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3468h : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            h(1, new b(this));
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            i(1, new b(this));
         }
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, b0Var) == null) {
-            this.l.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(1048585, this, b0Var) == null) {
+            this.f3468h.setSubClickListener(b0Var);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i2) == null) {
-            if (this.n != i2 && e().booleanValue()) {
-                SkinManager.setBackgroundColor(this.l, R.color.CAM_X0206);
+        if (interceptable == null || interceptable.invokeLI(1048586, this, tbPageContext, i) == null) {
+            if (this.j != i && f().booleanValue()) {
+                SkinManager.setBackgroundColor(this.f3468h, R.color.CAM_X0206);
             }
-            NewGridImageLayout newGridImageLayout = this.l;
+            NewGridImageLayout newGridImageLayout = this.f3468h;
             if (newGridImageLayout != null) {
-                newGridImageLayout.onChangeSkinType(i2);
+                newGridImageLayout.r(i);
             }
-            this.n = i2;
+            this.j = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: t */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: u */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            this.m = aVar;
-            this.l.setFrom(this.o);
-            this.l.setFromForPb(this.p);
-            this.l.setTransmit(e().booleanValue());
-            this.l.onBindDataToView(aVar);
-            this.l.setJumpToPbListener(new a(this));
+        if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
+            this.i = aVar;
+            this.f3468h.setFrom(this.k);
+            this.f3468h.setFromForPb(this.l);
+            this.f3468h.setTransmit(f().booleanValue());
+            this.f3468h.a(aVar);
+            this.f3468h.setJumpToPbListener(new a(this));
         }
     }
 
-    public void u(int i2) {
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.l.setBackgroundColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f3468h.setBackgroundColor(i);
         }
     }
 
-    public void v(int i2) {
+    public void w(int i) {
         NewGridImageLayout newGridImageLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || (newGridImageLayout = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || (newGridImageLayout = this.f3468h) == null) {
             return;
         }
-        newGridImageLayout.setCornerStyle(i2);
+        newGridImageLayout.setCornerStyle(i);
     }
 
-    public void w(String str) {
+    public void x(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.o = str;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.k = str;
         }
     }
 
-    public void x(boolean z) {
+    public void y(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
-            this.l.setFromCDN(z);
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.f3468h.setFromCDN(z);
         }
     }
 
-    public void y(int i2) {
+    public void z(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.p = i2;
-        }
-    }
-
-    public void z(a.InterfaceC0201a interfaceC0201a) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, interfaceC0201a) == null) {
-            this.f4010i = interfaceC0201a;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.l = i;
         }
     }
 }

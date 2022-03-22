@@ -1,6 +1,6 @@
 package com.baidu.tieba.godMultiAttention;
 
-import c.a.r0.y3.g0.a;
+import c.a.p0.a4.g0.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;

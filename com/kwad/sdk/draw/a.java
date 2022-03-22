@@ -17,56 +17,52 @@ import com.kwad.sdk.draw.a.c;
 import com.kwad.sdk.draw.a.d;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends KSFrameLayout {
     @Nullable
     public KsDrawAd.AdInteractionListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f55234b;
+    public AdBaseFrameLayout f40299b;
 
     /* renamed from: c  reason: collision with root package name */
-    public DetailVideoView f55235c;
+    public DetailVideoView f40300c;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.kwad.sdk.draw.kwai.b f55236d;
+    public com.kwad.sdk.draw.kwai.b f40301d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Presenter f55237e;
+    public Presenter f40302e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public AdTemplate f55238f;
+    public AdTemplate f40303f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdInfo f55239g;
+    public AdInfo f40304g;
 
     /* renamed from: h  reason: collision with root package name */
-    public com.kwad.sdk.draw.b.a f55240h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public f f55241i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Context f55242j;
+    public com.kwad.sdk.draw.b.a f40305h;
+    public f i;
+    public Context j;
 
     public a(@NonNull Context context) {
         super(context);
-        this.f55242j = context;
+        this.j = context;
         c();
     }
 
     private void c() {
-        FrameLayout.inflate(this.f55242j, R.layout.ksad_draw_layout, this);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.ksad_root_container);
-        this.f55234b = adBaseFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.ksad_video_player);
-        this.f55235c = detailVideoView;
+        FrameLayout.inflate(this.j, R.layout.obfuscated_res_0x7f0d0431, this);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091131);
+        this.f40299b = adBaseFrameLayout;
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091177);
+        this.f40300c = detailVideoView;
         detailVideoView.setAd(true);
-        this.f55235c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.a.1
+        this.f40300c.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.draw.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                com.kwad.sdk.core.download.a.a.a(new a.C2095a(a.this.f55236d.f55300b.getContext()).a(a.this.f55236d.f55301c).a(a.this.f55236d.f55302d).a(false).a(3).a(new a.b() { // from class: com.kwad.sdk.draw.a.1.1
+                com.kwad.sdk.core.download.a.a.a(new a.C1956a(a.this.f40301d.f40359b.getContext()).a(a.this.f40301d.f40360c).a(a.this.f40301d.f40361d).a(false).a(3).a(new a.b() { // from class: com.kwad.sdk.draw.a.1.1
                     @Override // com.kwad.sdk.core.download.a.a.b
                     public void a() {
                     }
@@ -78,15 +74,15 @@ public class a extends KSFrameLayout {
     private com.kwad.sdk.draw.kwai.b d() {
         com.kwad.sdk.draw.kwai.b bVar = new com.kwad.sdk.draw.kwai.b();
         bVar.a = this.a;
-        bVar.f55300b = this.f55234b;
-        bVar.f55301c = this.f55238f;
-        if (com.kwad.sdk.core.response.a.a.B(this.f55239g)) {
-            bVar.f55302d = new com.kwad.sdk.core.download.a.b(this.f55238f);
+        bVar.f40359b = this.f40299b;
+        bVar.f40360c = this.f40303f;
+        if (com.kwad.sdk.core.response.a.a.B(this.f40304g)) {
+            bVar.f40361d = new com.kwad.sdk.core.download.a.b(this.f40303f);
         }
-        bVar.f55303e = this.f55240h;
-        bVar.f55304f = new com.kwad.sdk.draw.a.a.a(this.f55238f);
-        if (com.kwad.sdk.core.response.a.b.h(this.f55238f)) {
-            bVar.f55305g = new com.kwad.sdk.i.b();
+        bVar.f40362e = this.f40305h;
+        bVar.f40363f = new com.kwad.sdk.draw.a.a.a(this.f40303f);
+        if (com.kwad.sdk.core.response.a.b.h(this.f40303f)) {
+            bVar.f40364g = new com.kwad.sdk.i.b();
         }
         return bVar;
     }
@@ -98,14 +94,14 @@ public class a extends KSFrameLayout {
         presenter.a((Presenter) new d());
         presenter.a((Presenter) new c());
         presenter.a((Presenter) new com.kwad.sdk.draw.a.a.b());
-        if (com.kwad.sdk.core.response.a.b.d(this.f55238f)) {
+        if (com.kwad.sdk.core.response.a.b.d(this.f40303f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.a.a.c());
         }
         presenter.a((Presenter) new com.kwad.sdk.draw.a.b.a());
-        if (com.kwad.sdk.core.response.a.b.h(this.f55238f)) {
+        if (com.kwad.sdk.core.response.a.b.h(this.f40303f)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.a.b.b());
         }
-        if (com.kwad.sdk.core.response.a.a.D(this.f55239g)) {
+        if (com.kwad.sdk.core.response.a.a.D(this.f40304g)) {
             presenter.a((Presenter) new com.kwad.sdk.draw.a.a());
         }
         return presenter;
@@ -114,39 +110,39 @@ public class a extends KSFrameLayout {
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public void a() {
         super.a();
-        this.f55236d = d();
+        this.f40301d = d();
         Presenter e2 = e();
-        this.f55237e = e2;
-        e2.c(this.f55234b);
-        this.f55237e.a(this.f55236d);
-        this.f55241i.a();
-        this.f55240h.a();
+        this.f40302e = e2;
+        e2.c(this.f40299b);
+        this.f40302e.a(this.f40301d);
+        this.i.a();
+        this.f40305h.a();
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f55238f = adTemplate;
-        this.f55239g = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f40303f = adTemplate;
+        this.f40304g = com.kwad.sdk.core.response.a.d.j(adTemplate);
         f fVar = new f(this, 70);
-        this.f55241i = fVar;
-        this.f55240h = new com.kwad.sdk.draw.b.a(this.f55238f, fVar, this.f55235c);
+        this.i = fVar;
+        this.f40305h = new com.kwad.sdk.draw.b.a(this.f40303f, fVar, this.f40300c);
     }
 
     @Override // com.kwad.sdk.widget.KSFrameLayout
     public void b() {
         super.b();
-        f fVar = this.f55241i;
+        f fVar = this.i;
         if (fVar != null) {
             fVar.g();
         }
-        com.kwad.sdk.draw.b.a aVar = this.f55240h;
+        com.kwad.sdk.draw.b.a aVar = this.f40305h;
         if (aVar != null) {
             aVar.b();
         }
-        com.kwad.sdk.draw.kwai.b bVar = this.f55236d;
+        com.kwad.sdk.draw.kwai.b bVar = this.f40301d;
         if (bVar != null) {
             bVar.a();
         }
-        Presenter presenter = this.f55237e;
+        Presenter presenter = this.f40302e;
         if (presenter != null) {
             presenter.k();
         }

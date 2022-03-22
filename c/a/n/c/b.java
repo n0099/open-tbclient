@@ -15,16 +15,16 @@ public class b {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f4262b;
+    public boolean f3839b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,7 +35,7 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.f4262b) {
+            if (!this.f3839b) {
                 StringBuilder sb = new StringBuilder();
                 if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
                     String harmonyVersion = DeviceUtils.getHarmonyVersion();
@@ -47,7 +47,7 @@ public class b {
                     sb.append(harmonyVersion);
                 }
                 this.a = sb.toString();
-                this.f4262b = true;
+                this.f3839b = true;
             }
             return this.a;
         }

@@ -27,9 +27,9 @@ public class AdDownloadExtra implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {adDownloadData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,10 +63,10 @@ public class AdDownloadExtra implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mState : (DownloadStatus) invokeV.objValue;
     }
 
-    public void setDownloadFakePercent(int i2) {
+    public void setDownloadFakePercent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mDownloadFakePercent = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mDownloadFakePercent = i;
         }
     }
 
@@ -77,17 +77,17 @@ public class AdDownloadExtra implements Serializable {
         }
     }
 
-    public void setPercent(int i2) {
+    public void setPercent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mPercent = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mPercent = i;
         }
     }
 
-    public void setPercentAndStatus(int i2, DownloadStatus downloadStatus) {
+    public void setPercentAndStatus(int i, DownloadStatus downloadStatus) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, downloadStatus) == null) {
-            setPercent(i2);
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, downloadStatus) == null) {
+            setPercent(i);
             setStatus(downloadStatus);
         }
     }

@@ -1,7 +1,7 @@
 package com.ss.android.download.api.download;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface DownloadController {
     boolean enableAH();
 
@@ -35,13 +35,13 @@ public interface DownloadController {
     @Deprecated
     boolean isEnableMultipleDownload();
 
-    void setDownloadMode(int i2);
+    void setDownloadMode(int i);
 
     void setEnableNewActivity(boolean z);
 
     void setEnableShowComplianceDialog(boolean z);
 
-    void setLinkMode(int i2);
+    void setLinkMode(int i);
 
     boolean shouldUseNewWebView();
 }

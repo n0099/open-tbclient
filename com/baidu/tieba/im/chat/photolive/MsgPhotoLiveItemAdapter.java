@@ -33,9 +33,9 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgPhotoLiveItemAdapter, view, msgPhotoLiveCardVew};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((View) objArr2[0], objArr2[1]);
                     newInitContext.thisArg = this;
@@ -55,9 +55,9 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -69,23 +69,23 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
-    public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    public /* bridge */ /* synthetic */ View S(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        c0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
+    public View c0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<MsgPhotoLiveCardVew> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i2, view, viewGroup, chatMessage, msgViewHolder);
-            MsgPhotoLiveCardVew msgItemView = msgViewHolder.getMsgItemView();
-            msgItemView.R(this.m, chatMessage, viewGroup);
-            msgItemView.t(this.n);
-            msgItemView.v(i2);
-            this.m.getLayoutMode().k(false);
-            this.m.getLayoutMode().j(view);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.S(i, view, viewGroup, chatMessage, msgViewHolder);
+            MsgPhotoLiveCardVew c2 = msgViewHolder.c();
+            c2.T(this.i, chatMessage, viewGroup);
+            c2.t(this.j);
+            c2.v(i);
+            this.i.getLayoutMode().k(false);
+            this.i.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeCommon.objValue;
@@ -98,7 +98,7 @@ public class MsgPhotoLiveItemAdapter extends MsgCommonItemAdapter<MsgPhotoLiveCa
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.m);
+            MsgPhotoLiveCardVew msgPhotoLiveCardVew = new MsgPhotoLiveCardVew(this.i);
             return new a(this, msgPhotoLiveCardVew.d(), msgPhotoLiveCardVew);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;

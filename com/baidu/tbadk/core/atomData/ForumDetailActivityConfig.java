@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ForumDetailActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_ID = "forum_id";
@@ -23,7 +23,7 @@ public class ForumDetailActivityConfig extends IntentConfig {
     public ArrayList<String> tabs;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class FromType {
         public static final /* synthetic */ FromType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -68,16 +68,16 @@ public class ForumDetailActivityConfig extends IntentConfig {
             $VALUES = new FromType[]{BAR, FRS, FRS_SIDE, BAR_DIR, BAR_RANK, BAR_SQUARE, GAME_FRS_GOOD, FRS_GAME_INFO, FRS_GAME_STRATEGY, FRS_GAME_LIVE, fromType};
         }
 
-        public FromType(String str, int i2) {
+        public FromType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -109,9 +109,9 @@ public class ForumDetailActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, fromType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

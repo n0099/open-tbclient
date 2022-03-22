@@ -1,5 +1,6 @@
 package com.baidu.pass.main.facesdk;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.callback.Callback;
 import com.baidu.pass.main.facesdk.model.BDFaceSDKCommon;
@@ -8,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 /* loaded from: classes4.dex */
 public class FaceAuth {
     public static /* synthetic */ Interceptable $ic = null;
@@ -21,9 +21,9 @@ public class FaceAuth {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,9 +41,9 @@ public class FaceAuth {
     /* JADX INFO: Access modifiers changed from: private */
     public native int nativeCreatInstance();
 
-    private native void nativeSetActiveLog(int i2, int i3);
+    private native void nativeSetActiveLog(int i, int i2);
 
-    private native void nativeSetCoreConfigure(int i2, int i3);
+    private native void nativeSetCoreConfigure(int i, int i2);
 
     public void initLicense(Callback callback) {
         Interceptable interceptable = $ic;
@@ -61,9 +61,9 @@ public class FaceAuth {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, callback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -75,16 +75,16 @@ public class FaceAuth {
 
                 @Override // java.lang.Runnable
                 public void run() {
-                    int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        int i = -1;
                         try {
-                            i2 = this.this$0.nativeCreatInstance();
+                            i = this.this$0.nativeCreatInstance();
                         } catch (Throwable th) {
                             th.printStackTrace();
-                            i2 = -1;
+                            Log.e(FaceAuth.TAG, "bdface_create_instance status -1");
                         }
-                        this.val$callback.onResponse(i2, StatHelper.SENSOR_OK);
+                        this.val$callback.onResponse(i, "OK");
                     }
                 }
             });
@@ -97,22 +97,22 @@ public class FaceAuth {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.isLoadSucess : invokeV.booleanValue;
     }
 
-    public void setActiveLog(BDFaceSDKCommon.BDFaceLogInfo bDFaceLogInfo, int i2) {
+    public void setActiveLog(BDFaceSDKCommon.BDFaceLogInfo bDFaceLogInfo, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bDFaceLogInfo, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bDFaceLogInfo, i) == null) {
             try {
-                nativeSetActiveLog(bDFaceLogInfo.ordinal(), i2);
+                nativeSetActiveLog(bDFaceLogInfo.ordinal(), i);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
     }
 
-    public void setCoreConfigure(BDFaceSDKCommon.BDFaceCoreRunMode bDFaceCoreRunMode, int i2) {
+    public void setCoreConfigure(BDFaceSDKCommon.BDFaceCoreRunMode bDFaceCoreRunMode, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, bDFaceCoreRunMode, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, bDFaceCoreRunMode, i) == null) {
             try {
-                nativeSetCoreConfigure(bDFaceCoreRunMode.ordinal(), i2);
+                nativeSetCoreConfigure(bDFaceCoreRunMode.ordinal(), i);
             } catch (Throwable th) {
                 th.printStackTrace();
             }

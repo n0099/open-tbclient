@@ -1,29 +1,33 @@
 package com.baidu.sofire.ac;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteDatabase;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sofire.core.ApkInfo;
-import com.baidu.sofire.core.e;
-import com.baidu.sofire.core.f;
-import com.baidu.sofire.core.g;
-import com.baidu.sofire.h.a;
+import com.baidu.sofire.core.ForHostApp;
+import com.baidu.sofire.core.PluginloaderDexClassLoader;
+import com.baidu.sofire.core.PluginloaderHub;
+import com.baidu.sofire.core.PluginloaderIntentFilter;
+import com.baidu.sofire.d.D;
 import com.baidu.sofire.jni.Asc;
-import com.baidu.sofire.utility.c;
-import com.baidu.sofire.utility.h;
-import com.baidu.sofire.utility.v;
-import com.baidu.sofire.utility.z;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.sofire.utility.CommonMethods;
+import com.baidu.sofire.utility.DbUtil;
+import com.baidu.sofire.utility.EncryptUtil;
+import com.baidu.sofire.utility.LocalConstant;
+import com.baidu.sofire.utility.PrivacyOperationUtil;
+import com.baidu.sofire.utility.PrivacyPolicyUtil;
+import com.baidu.sofire.utility.ThreadPoolManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventType;
 import java.util.Map;
 /* loaded from: classes4.dex */
 public class F implements FI {
@@ -37,9 +41,9 @@ public class F implements FI {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,14 +74,14 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a = h.a(bArr2, bArr);
-                        if (a != null && a.length != 0) {
-                            return a;
+                        byte[] aesDecrypt = EncryptUtil.aesDecrypt(bArr2, bArr, true);
+                        if (aesDecrypt != null && aesDecrypt.length != 0) {
+                            return aesDecrypt;
                         }
                         return new byte[0];
                     }
-                } catch (Throwable unused) {
-                    c.a();
+                } catch (Throwable th) {
+                    CommonMethods.handleNuLException(th);
                     return new byte[0];
                 }
             }
@@ -94,14 +98,14 @@ public class F implements FI {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] a = h.a(bArr2, bArr, true);
-                        if (a != null && a.length != 0) {
-                            return a;
+                        byte[] aesEncrypt = EncryptUtil.aesEncrypt(bArr2, bArr, true);
+                        if (aesEncrypt != null && aesEncrypt.length != 0) {
+                            return aesEncrypt;
                         }
                         return new byte[0];
                     }
-                } catch (Throwable unused) {
-                    c.a();
+                } catch (Throwable th) {
+                    CommonMethods.handleNuLException(th);
                     return new byte[0];
                 }
             }
@@ -135,47 +139,47 @@ public class F implements FI {
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, callback, clsArr, objArr}) == null) {
             try {
                 if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3)) {
-                    f a = f.a();
-                    if (a == null) {
+                    PluginloaderHub peekInstance = PluginloaderHub.peekInstance();
+                    if (peekInstance == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                             return;
                         }
                         return;
                     }
-                    ApkInfo d2 = a.d(str2);
-                    if (a.d(str) == null || d2 == null) {
+                    ApkInfo apkInfoByPackageName = peekInstance.getApkInfoByPackageName(str2);
+                    if (peekInstance.getApkInfoByPackageName(str) == null || apkInfoByPackageName == null) {
                         if (callback != null) {
                             callback.onEnd(new Object[0]);
                             return;
                         }
                         return;
                     }
-                    Class<?> a2 = ((e) d2.classLoader).a("com.baidu.sofire.engine.EngineImpl");
-                    Object a3 = c.a(a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, null), str3, clsArr, objArr);
+                    Class<?> loadClassWithoutParentClass = ((PluginloaderDexClassLoader) apkInfoByPackageName.classLoader).loadClassWithoutParentClass(LocalConstant.ENGINE_IMPL_CLASS_FULL_PATH);
+                    Object callMethodOfClass = CommonMethods.callMethodOfClass(loadClassWithoutParentClass.getDeclaredMethod("getInstance", Context.class).invoke(loadClassWithoutParentClass, null), str3, clsArr, objArr);
                     if (callback != null) {
-                        callback.onEnd(a3);
+                        callback.onEnd(callMethodOfClass);
                     }
                 }
-            } catch (Throwable unused) {
-                c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public Pair<Integer, Object> cmsi(int i2, String str, Class<?>[] clsArr, Object... objArr) {
+    public Pair<Integer, Object> cmsi(int i, String str, Class<?>[] clsArr, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), str, clsArr, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, clsArr, objArr})) == null) {
             try {
-                com.baidu.sofire.core.c a = com.baidu.sofire.core.c.a();
-                if (a == null) {
+                ForHostApp peekInstance = ForHostApp.peekInstance();
+                if (peekInstance == null) {
                     return new Pair<>(4, null);
                 }
-                return a.a(i2, str, clsArr, objArr);
-            } catch (Throwable unused) {
-                c.a();
+                return peekInstance.execEngineImplSync(i, str, clsArr, objArr);
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return new Pair<>(3, null);
             }
         }
@@ -190,7 +194,7 @@ public class F implements FI {
             if (context == null) {
                 return false;
             }
-            return v.a(context);
+            return PrivacyPolicyUtil.check(context);
         }
         return invokeL.booleanValue;
     }
@@ -203,20 +207,27 @@ public class F implements FI {
             if (context == null) {
                 return null;
             }
-            return a.a(context).a(str);
+            return SharedPreferenceManager.getInstance(context).getCustomMutiProcessSharedPreferences(str);
         }
         return (SharedPreferences) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public Pair<Boolean, DeviceInfoCallback> getDeviceInfoCallback() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new Pair<>(Boolean.FALSE, PrivacyOperationUtil.getDeviceInfoCallback()) : (Pair) invokeV.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public SharedPreferences getPlatformPrivateSharedPreferences(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
             if (context == null) {
                 return null;
             }
-            return a.a(context).a;
+            return SharedPreferenceManager.getInstance(context).getPlatformPrivateSharedPreferences();
         }
         return (SharedPreferences) invokeL.objValue;
     }
@@ -225,28 +236,62 @@ public class F implements FI {
     public SharedPreferences getPlatformSharedSharedPreferences(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
             if (context == null) {
                 return null;
             }
-            return a.a(context).f37109c;
+            return SharedPreferenceManager.getInstance(context).getPlatformSharedSharedPreferences();
         }
         return (SharedPreferences) invokeL.objValue;
+    }
+
+    @Override // com.baidu.sofire.ac.FI
+    public String gm(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) {
+            try {
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                    PluginloaderHub peekInstance = PluginloaderHub.peekInstance();
+                    if (peekInstance == null) {
+                        return "-2";
+                    }
+                    ApkInfo apkInfoByPackageName = peekInstance.getApkInfoByPackageName(str);
+                    if (apkInfoByPackageName == null) {
+                        return "-3";
+                    }
+                    if (str2.equals(apkInfoByPackageName.versionName)) {
+                        String str3 = apkInfoByPackageName.apkMD5;
+                        if (U.sRealtimeMd5Map != null) {
+                            String str4 = U.sRealtimeMd5Map.get(apkInfoByPackageName.key + apkInfoByPackageName.versionName);
+                            return !TextUtils.isEmpty(str4) ? str4 : str3;
+                        }
+                        return str3;
+                    }
+                    return EventType.PayEventID.QUERY_PRODUCT_LIST_FAIL;
+                }
+                return "-1";
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
+                return EventType.PayEventID.QUERY_PRODUCT_LIST_SUCCESS;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public Map<Integer, String> gpd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f36987d;
-                if (aVar != null) {
-                    return aVar.b();
+                D peekInstance = D.peekInstance();
+                if (peekInstance != null) {
+                    return peekInstance.getInitSuceedPluginKeys();
                 }
                 return null;
-            } catch (Throwable unused) {
-                c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return null;
             }
         }
@@ -256,14 +301,14 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public String gs(String str) {
         InterceptResult invokeL;
-        ApkInfo d2;
+        ApkInfo apkInfoByPackageName;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             try {
-                f a = f.a();
-                return (a == null || (d2 = a.d(str)) == null) ? "" : d2.libPath;
-            } catch (Throwable unused) {
-                c.a();
+                PluginloaderHub peekInstance = PluginloaderHub.peekInstance();
+                return (peekInstance == null || (apkInfoByPackageName = peekInstance.getApkInfoByPackageName(str)) == null) ? "" : apkInfoByPackageName.libPath;
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return "";
             }
         }
@@ -274,29 +319,25 @@ public class F implements FI {
     public String gta(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) ? "" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? "" : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public String gzd(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) ? context == null ? "" : com.baidu.sofire.utility.e.b(context) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) ? context == null ? "" : DbUtil.getCUID(context) : (String) invokeL.objValue;
     }
 
     @Override // com.baidu.sofire.ac.FI
     public String p(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             try {
-                ApkInfo apkInfo = f.a().a.get(str);
-                if (apkInfo == null) {
-                    return null;
-                }
-                return apkInfo.pkgPath;
-            } catch (Throwable unused) {
-                c.a();
+                return PluginloaderHub.peekInstance().getApkPathByPackageName(str);
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return "";
             }
         }
@@ -305,16 +346,16 @@ public class F implements FI {
 
     @Override // com.baidu.sofire.ac.FI
     public void r(String str, IntentFilter intentFilter, String str2, String str3) {
-        f a;
+        PluginloaderHub peekInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, intentFilter, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048592, this, str, intentFilter, str2, str3) == null) {
             try {
-                if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a = f.a()) == null) {
+                if (TextUtils.isEmpty(str) || intentFilter == null || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (peekInstance = PluginloaderHub.peekInstance()) == null) {
                     return;
                 }
-                a.a(new g(str, intentFilter, str2, str3));
-            } catch (Throwable unused) {
-                c.a();
+                peekInstance.addOneRegisterReceiver(new PluginloaderIntentFilter(str, intentFilter, str2, str3));
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }
@@ -323,18 +364,18 @@ public class F implements FI {
     public byte[] rd(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, bArr, bArr2)) == null) {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] c2 = h.c(bArr, bArr2);
-                        if (c2 != null && c2.length != 0) {
-                            return c2;
+                        byte[] rc4Decrypt = EncryptUtil.rc4Decrypt(bArr, bArr2);
+                        if (rc4Decrypt != null && rc4Decrypt.length != 0) {
+                            return rc4Decrypt;
                         }
                         return new byte[0];
                     }
-                } catch (Throwable unused) {
-                    c.a();
+                } catch (Throwable th) {
+                    CommonMethods.handleNuLException(th);
                     return new byte[0];
                 }
             }
@@ -347,18 +388,18 @@ public class F implements FI {
     public byte[] re(byte[] bArr, byte[] bArr2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, bArr, bArr2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, bArr, bArr2)) == null) {
             if (bArr2 != null) {
                 try {
                     if (bArr2.length > 0 && bArr != null && bArr.length > 0) {
-                        byte[] b2 = h.b(bArr, bArr2);
-                        if (b2 != null && b2.length != 0) {
-                            return b2;
+                        byte[] rc4Encrypt = EncryptUtil.rc4Encrypt(bArr, bArr2);
+                        if (rc4Encrypt != null && rc4Encrypt.length != 0) {
+                            return rc4Encrypt;
                         }
                         return new byte[0];
                     }
-                } catch (Throwable unused) {
-                    c.a();
+                } catch (Throwable th) {
+                    CommonMethods.handleNuLException(th);
                     return new byte[0];
                 }
             }
@@ -370,31 +411,27 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void rf(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, context) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, context) == null) || context == null) {
             return;
         }
         try {
-            z.a(context).b(new U(context.getApplicationContext(), 5, true));
-        } catch (Throwable unused) {
-            c.a();
+            ThreadPoolManager.getInstance(context).executeCore(new U(context.getApplicationContext(), 5, true));
+        } catch (Throwable th) {
+            CommonMethods.handleNuLException(th);
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
-    public void s(int i2, boolean z) {
+    public void s(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f36987d;
-                if (aVar != null) {
-                    int i3 = z ? 1 : 0;
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("s", Integer.valueOf(i3));
-                    SQLiteDatabase sQLiteDatabase = aVar.f36989c;
-                    sQLiteDatabase.update("pgn", contentValues, "k=" + i2 + " and n=1", null);
+                D peekInstance = D.peekInstance();
+                if (peekInstance != null) {
+                    peekInstance.changePluginBusyStatus(i, z ? 1 : 0);
                 }
-            } catch (Throwable unused) {
-                c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }
@@ -402,17 +439,14 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void sp(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048595, this, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048597, this, str, z) == null) {
             try {
-                com.baidu.sofire.a.a aVar = com.baidu.sofire.a.a.f36987d;
-                if (aVar != null) {
-                    int i2 = z ? 1 : 0;
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("s", Integer.valueOf(i2));
-                    aVar.f36989c.update("pgn", contentValues, "p=? and n=1", new String[]{str});
+                D peekInstance = D.peekInstance();
+                if (peekInstance != null) {
+                    peekInstance.changePluginBusyStatusByPkg(str, z ? 1 : 0);
                 }
-            } catch (Throwable unused) {
-                c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }
@@ -420,27 +454,27 @@ public class F implements FI {
     @Override // com.baidu.sofire.ac.FI
     public void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             try {
-                com.baidu.sofire.core.c.a().a(str);
-            } catch (Throwable unused) {
-                c.a();
+                ForHostApp.peekInstance().unloadPlugin(str);
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }
 
     @Override // com.baidu.sofire.ac.FI
     public void ur(String str, IntentFilter intentFilter, String str2, String str3) {
-        f a;
+        PluginloaderHub peekInstance;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048597, this, str, intentFilter, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048599, this, str, intentFilter, str2, str3) == null) {
             try {
-                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (a = f.a()) == null) {
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3) || (peekInstance = PluginloaderHub.peekInstance()) == null) {
                     return;
                 }
-                a.b(new g(str, intentFilter, str2, str3));
-            } catch (Throwable unused) {
-                c.a();
+                peekInstance.removeOneRegisterReceiver(new PluginloaderIntentFilter(str, intentFilter, str2, str3));
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
         }
     }

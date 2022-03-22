@@ -10,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AudioAttributes {
     public static /* synthetic */ Interceptable $ic;
     public static final AudioAttributes DEFAULT;
@@ -22,13 +21,13 @@ public final class AudioAttributes {
     public final int usage;
 
     /* renamed from: com.google.android.exoplayer2.audio.AudioAttributes$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +40,9 @@ public final class AudioAttributes {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,31 +59,31 @@ public final class AudioAttributes {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new AudioAttributes(this.contentType, this.flags, this.usage, null) : (AudioAttributes) invokeV.objValue;
         }
 
-        public Builder setContentType(int i2) {
+        public Builder setContentType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.contentType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.contentType = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setFlags(int i2) {
+        public Builder setFlags(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.flags = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.flags = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setUsage(int i2) {
+        public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.usage = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.usage = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -107,8 +106,8 @@ public final class AudioAttributes {
         DEFAULT = new Builder().build();
     }
 
-    public /* synthetic */ AudioAttributes(int i2, int i3, int i4, AnonymousClass1 anonymousClass1) {
-        this(i2, i3, i4);
+    public /* synthetic */ AudioAttributes(int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
+        this(i, i2, i3);
     }
 
     public boolean equals(Object obj) {
@@ -143,26 +142,26 @@ public final class AudioAttributes {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.contentType) * 31) + this.flags) * 31) + this.usage : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((((527 + this.contentType) * 31) + this.flags) * 31) + this.usage : invokeV.intValue;
     }
 
-    public AudioAttributes(int i2, int i3, int i4) {
+    public AudioAttributes(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.contentType = i2;
-        this.flags = i3;
-        this.usage = i4;
+        this.contentType = i;
+        this.flags = i2;
+        this.usage = i3;
     }
 }

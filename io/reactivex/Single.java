@@ -108,7 +108,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.reactivestreams.Publisher;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class Single<T> implements SingleSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -118,9 +118,9 @@ public abstract class Single<T> implements SingleSource<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -307,23 +307,23 @@ public abstract class Single<T> implements SingleSource<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65571, null)) == null) ? RxJavaPlugins.onAssembly(SingleNever.INSTANCE) : (Single) invokeV.objValue;
     }
 
-    private Single<T> timeout0(long j2, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
+    private Single<T> timeout0(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, singleSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65572, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, singleSource})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new SingleTimeout(this, j2, timeUnit, scheduler, singleSource));
+            return RxJavaPlugins.onAssembly(new SingleTimeout(this, j, timeUnit, scheduler, singleSource));
         }
         return (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public static Single<Long> timer(long j2, TimeUnit timeUnit) {
+    public static Single<Long> timer(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65573, null, j2, timeUnit)) == null) ? timer(j2, timeUnit, Schedulers.computation()) : (Single) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65573, null, j, timeUnit)) == null) ? timer(j, timeUnit, Schedulers.computation()) : (Single) invokeJL.objValue;
     }
 
     public static <T> Single<T> toSingle(Flowable<T> flowable) {
@@ -480,10 +480,10 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single<T> delay(long j2, TimeUnit timeUnit) {
+    public final Single<T> delay(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, timeUnit)) == null) ? delay(j2, timeUnit, Schedulers.computation(), false) : (Single) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, timeUnit)) == null) ? delay(j, timeUnit, Schedulers.computation(), false) : (Single) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -885,10 +885,10 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single<T> timeout(long j2, TimeUnit timeUnit) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048644, this, j2, timeUnit)) == null) ? timeout0(j2, timeUnit, Schedulers.computation(), null) : (Single) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048644, this, j, timeUnit)) == null) ? timeout0(j, timeUnit, Schedulers.computation(), null) : (Single) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1001,10 +1001,10 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public static <T> Single<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{future, Long.valueOf(j2), timeUnit})) == null) ? toSingle(Flowable.fromFuture(future, j2, timeUnit)) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{future, Long.valueOf(j), timeUnit})) == null) ? toSingle(Flowable.fromFuture(future, j, timeUnit)) : (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1036,13 +1036,13 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static Single<Long> timer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static Single<Long> timer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new SingleTimer(j2, timeUnit, scheduler));
+            return RxJavaPlugins.onAssembly(new SingleTimer(j, timeUnit, scheduler));
         }
         return (Single) invokeCommon.objValue;
     }
@@ -1077,27 +1077,27 @@ public abstract class Single<T> implements SingleSource<T> {
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
     @Experimental
-    public final Single<T> delay(long j2, TimeUnit timeUnit, boolean z) {
+    public final Single<T> delay(long j, TimeUnit timeUnit, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j2), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j2, timeUnit, Schedulers.computation(), z) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Long.valueOf(j), timeUnit, Boolean.valueOf(z)})) == null) ? delay(j, timeUnit, Schedulers.computation(), z) : (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public final Flowable<T> repeat(long j2) {
+    public final Flowable<T> repeat(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j2)) == null) ? toFlowable().repeat(j2) : (Flowable) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) ? toFlowable().repeat(j) : (Flowable) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
     @CheckReturnValue
-    public final Single<T> retry(long j2) {
+    public final Single<T> retry(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) ? toSingle(toFlowable().retry(j2)) : (Single) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) ? toSingle(toFlowable().retry(j)) : (Single) invokeJ.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1116,10 +1116,10 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? timeout0(j2, timeUnit, scheduler, null) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? timeout0(j, timeUnit, scheduler, null) : (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1136,18 +1136,18 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public static <T> Single<T> fromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Single<T> fromFuture(Future<? extends T> future, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{future, Long.valueOf(j2), timeUnit, scheduler})) == null) ? toSingle(Flowable.fromFuture(future, j2, timeUnit, scheduler)) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, null, new Object[]{future, Long.valueOf(j), timeUnit, scheduler})) == null) ? toSingle(Flowable.fromFuture(future, j, timeUnit, scheduler)) : (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delay(j2, timeUnit, scheduler, false) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delay(j, timeUnit, scheduler, false) : (Single) invokeCommon.objValue;
     }
 
     @SchedulerSupport("none")
@@ -1213,12 +1213,12 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single<T> timeout(long j2, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, Scheduler scheduler, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, singleSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, singleSource})) == null) {
             ObjectHelper.requireNonNull(singleSource, "other is null");
-            return timeout0(j2, timeUnit, scheduler, singleSource);
+            return timeout0(j, timeUnit, scheduler, singleSource);
         }
         return (Single) invokeCommon.objValue;
     }
@@ -1283,13 +1283,13 @@ public abstract class Single<T> implements SingleSource<T> {
     @SchedulerSupport("custom")
     @CheckReturnValue
     @Experimental
-    public final Single<T> delay(long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public final Single<T> delay(long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)})) == null) {
             ObjectHelper.requireNonNull(timeUnit, "unit is null");
             ObjectHelper.requireNonNull(scheduler, "scheduler is null");
-            return RxJavaPlugins.onAssembly(new SingleDelay(this, j2, timeUnit, scheduler, z));
+            return RxJavaPlugins.onAssembly(new SingleDelay(this, j, timeUnit, scheduler, z));
         }
         return (Single) invokeCommon.objValue;
     }
@@ -1297,22 +1297,22 @@ public abstract class Single<T> implements SingleSource<T> {
     @SchedulerSupport("none")
     @CheckReturnValue
     @Experimental
-    public final Single<T> retry(long j2, Predicate<? super Throwable> predicate) {
+    public final Single<T> retry(long j, Predicate<? super Throwable> predicate) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048627, this, j2, predicate)) == null) ? toSingle(toFlowable().retry(j2, predicate)) : (Single) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048627, this, j, predicate)) == null) ? toSingle(toFlowable().retry(j, predicate)) : (Single) invokeJL.objValue;
     }
 
     @SchedulerSupport("none")
     @BackpressureSupport(BackpressureKind.FULL)
     @CheckReturnValue
-    public static <T> Flowable<T> concat(Publisher<? extends SingleSource<? extends T>> publisher, int i2) {
+    public static <T> Flowable<T> concat(Publisher<? extends SingleSource<? extends T>> publisher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, publisher, i)) == null) {
             ObjectHelper.requireNonNull(publisher, "sources is null");
-            ObjectHelper.verifyPositive(i2, PrefetchEvent.MODULE);
-            return RxJavaPlugins.onAssembly(new FlowableConcatMapPublisher(publisher, SingleInternalHelper.toFlowable(), i2, ErrorMode.IMMEDIATE));
+            ObjectHelper.verifyPositive(i, PrefetchEvent.MODULE);
+            return RxJavaPlugins.onAssembly(new FlowableConcatMapPublisher(publisher, SingleInternalHelper.toFlowable(), i, ErrorMode.IMMEDIATE));
         }
         return (Flowable) invokeLI.objValue;
     }
@@ -1359,12 +1359,12 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single<T> timeout(long j2, TimeUnit timeUnit, SingleSource<? extends T> singleSource) {
+    public final Single<T> timeout(long j, TimeUnit timeUnit, SingleSource<? extends T> singleSource) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048647, this, new Object[]{Long.valueOf(j2), timeUnit, singleSource})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048647, this, new Object[]{Long.valueOf(j), timeUnit, singleSource})) == null) {
             ObjectHelper.requireNonNull(singleSource, "other is null");
-            return timeout0(j2, timeUnit, Schedulers.computation(), singleSource);
+            return timeout0(j, timeUnit, Schedulers.computation(), singleSource);
         }
         return (Single) invokeCommon.objValue;
     }
@@ -1472,18 +1472,18 @@ public abstract class Single<T> implements SingleSource<T> {
 
     @SchedulerSupport(SchedulerSupport.COMPUTATION)
     @CheckReturnValue
-    public final Single<T> delaySubscription(long j2, TimeUnit timeUnit) {
+    public final Single<T> delaySubscription(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048589, this, j2, timeUnit)) == null) ? delaySubscription(j2, timeUnit, Schedulers.computation()) : (Single) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048589, this, j, timeUnit)) == null) ? delaySubscription(j, timeUnit, Schedulers.computation()) : (Single) invokeJL.objValue;
     }
 
     @SchedulerSupport("custom")
     @CheckReturnValue
-    public final Single<T> delaySubscription(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public final Single<T> delaySubscription(long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), timeUnit, scheduler})) == null) ? delaySubscription(Observable.timer(j2, timeUnit, scheduler)) : (Single) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), timeUnit, scheduler})) == null) ? delaySubscription(Observable.timer(j, timeUnit, scheduler)) : (Single) invokeCommon.objValue;
     }
 
     @Override // io.reactivex.SingleSource

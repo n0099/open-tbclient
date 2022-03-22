@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdPermissionActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class BdPermissionActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,12 +72,12 @@ public class BdPermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
             ActivityCompat.OnRequestPermissionsResultCallback c2 = a.b().c(this.mReqCode);
             if (c2 != null) {
-                c2.onRequestPermissionsResult(i2, strArr, iArr);
+                c2.onRequestPermissionsResult(i, strArr, iArr);
             }
             finish();
         }

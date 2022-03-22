@@ -17,14 +17,14 @@ import com.kwad.sdk.reflux.b;
 import com.kwad.sdk.reflux.kwai.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsRefluxNativeView extends FrameLayout {
     public RecyclerView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public b f55722b;
+    public b f40705b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends RecyclerView.ViewHolder {
         public a(View view) {
             super(view);
@@ -40,12 +40,12 @@ public class KsRefluxNativeView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends RecyclerView.Adapter {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<com.kwad.sdk.reflux.b> f55723b = new ArrayList();
+        public List<com.kwad.sdk.reflux.b> f40706b = new ArrayList();
 
         public b(Context context) {
             this.a = context;
@@ -53,18 +53,18 @@ public class KsRefluxNativeView extends FrameLayout {
 
         private void a(List<com.kwad.sdk.reflux.b> list, List<com.kwad.sdk.reflux.b> list2) {
             com.kwad.sdk.reflux.b bVar;
-            int i2;
+            int i;
             int size = list2.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                list.add(list2.get(i3));
-                if (i3 == size - 1) {
+            for (int i2 = 0; i2 < size; i2++) {
+                list.add(list2.get(i2));
+                if (i2 == size - 1) {
                     bVar = new com.kwad.sdk.reflux.b();
-                    i2 = -2;
+                    i = -2;
                 } else {
                     bVar = new com.kwad.sdk.reflux.b();
-                    i2 = -1;
+                    i = -1;
                 }
-                bVar.b(i2);
+                bVar.b(i);
                 list.add(bVar);
             }
         }
@@ -73,29 +73,29 @@ public class KsRefluxNativeView extends FrameLayout {
             if (list == null) {
                 return;
             }
-            this.f55723b.clear();
-            a(this.f55723b, list);
+            this.f40706b.clear();
+            a(this.f40706b, list);
             notifyDataSetChanged();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         public int getItemCount() {
-            return this.f55723b.size();
+            return this.f40706b.size();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public long getItemId(int i2) {
-            return i2;
+        public long getItemId(int i) {
+            return i;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemViewType(int i2) {
-            return this.f55723b.get(i2).k();
+        public int getItemViewType(int i) {
+            return this.f40706b.get(i).k();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
-            com.kwad.sdk.reflux.b bVar = this.f55723b.get(i2);
+        public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+            com.kwad.sdk.reflux.b bVar = this.f40706b.get(i);
             a aVar = (a) viewHolder;
             int itemViewType = aVar.getItemViewType();
             if (itemViewType == FeedType.FEED_TYPE_UNKNOWN.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_ABOVE.getType() || itemViewType == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
@@ -119,24 +119,24 @@ public class KsRefluxNativeView extends FrameLayout {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             View cVar;
-            int i3;
+            int i2;
             ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -2);
             LayoutInflater from = LayoutInflater.from(viewGroup.getContext());
-            if (i2 == FeedType.FEED_TYPE_TEXT_ABOVE.getType()) {
+            if (i == FeedType.FEED_TYPE_TEXT_ABOVE.getType()) {
                 cVar = new c(this.a);
-            } else if (i2 == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
+            } else if (i == FeedType.FEED_TYPE_TEXT_LEFT.getType()) {
                 cVar = new com.kwad.sdk.reflux.kwai.b(this.a);
             } else {
-                if (i2 == -1) {
-                    i3 = R.layout.ksad_reflux_card_divider;
-                } else if (i2 == -2) {
-                    i3 = R.layout.ksad_reflux_native_list_footer;
+                if (i == -1) {
+                    i2 = R.layout.obfuscated_res_0x7f0d045a;
+                } else if (i == -2) {
+                    i2 = R.layout.obfuscated_res_0x7f0d045f;
                 } else {
                     cVar = new c(this.a);
                 }
-                cVar = from.inflate(i3, viewGroup, false);
+                cVar = from.inflate(i2, viewGroup, false);
             }
             cVar.setLayoutParams(layoutParams);
             return new a(cVar);
@@ -153,29 +153,29 @@ public class KsRefluxNativeView extends FrameLayout {
         a(context, attributeSet, 0);
     }
 
-    public KsRefluxNativeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        a(context, attributeSet, i2);
+    public KsRefluxNativeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        a(context, attributeSet, i);
     }
 
     @RequiresApi(api = 21)
-    public KsRefluxNativeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        a(context, attributeSet, i2);
+    public KsRefluxNativeView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        a(context, attributeSet, i);
     }
 
-    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        FrameLayout.inflate(context, R.layout.ksad_reflux_native, this);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.ksad_reflux_native_list);
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d045e, this);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f0910dc);
         this.a = recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), 1, false));
         b bVar = new b(getContext());
-        this.f55722b = bVar;
+        this.f40705b = bVar;
         bVar.setHasStableIds(true);
-        this.a.setAdapter(this.f55722b);
+        this.a.setAdapter(this.f40705b);
     }
 
     public void a(List<com.kwad.sdk.reflux.b> list) {
-        this.f55722b.a(list);
+        this.f40705b.a(list);
     }
 }

@@ -6,14 +6,15 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
 import android.text.TextUtils;
-import c.a.r0.h.e.e;
-import c.a.r0.j3.b0;
-import c.a.r0.j3.f;
-import c.a.r0.j3.h;
-import c.a.r0.j3.j;
-import c.a.r0.j3.l;
-import c.a.r0.j3.y;
-import c.a.r0.j3.z;
+import c.a.p0.h.e.e;
+import c.a.p0.l3.b0;
+import c.a.p0.l3.f;
+import c.a.p0.l3.h;
+import c.a.p0.l3.j;
+import c.a.p0.l3.l;
+import c.a.p0.l3.y;
+import c.a.p0.l3.z;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivity;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -27,12 +28,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class RecAppStatic {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements l.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,16 +43,16 @@ public class RecAppStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // c.a.r0.j3.l.a
+        @Override // c.a.p0.l3.l.a
         public int a(Context context, String[] strArr) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -63,7 +64,7 @@ public class RecAppStatic {
                         if (!TextUtils.isEmpty(queryParameter)) {
                             if (queryParameter.startsWith("tel:")) {
                                 Intent intent = new Intent("android.intent.action.DIAL", Uri.parse(queryParameter));
-                                intent.addFlags(268435456);
+                                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                                 TbadkCoreApplication.getInst().startActivity(intent);
                                 context.startActivity(intent);
                                 return 0;
@@ -71,7 +72,7 @@ public class RecAppStatic {
                             String queryParameter2 = parse.getQueryParameter("params");
                             if (!TextUtils.isEmpty(queryParameter2)) {
                                 Intent intent2 = new Intent("android.intent.action.VIEW", Uri.parse(queryParameter));
-                                intent2.addFlags(268435456);
+                                intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                                 try {
                                     JSONObject jSONObject = new JSONObject(queryParameter2);
                                     Iterator<String> keys = jSONObject.keys();
@@ -95,7 +96,7 @@ public class RecAppStatic {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,9 +109,9 @@ public class RecAppStatic {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tbadkCoreApplication};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,9 +143,9 @@ public class RecAppStatic {
             }
         }
         z.a.set(new b0());
-        c.a.r0.j3.h0.a.a.set(new y());
+        c.a.p0.l3.h0.a.a.set(new y());
         TbadkCoreApplication.getInst().setRecAppExist(true);
-        c.a.r0.v.b.l().e(new a());
+        c.a.p0.x.b.l().e(new a());
         e.b().c(1, new j());
         e.b().c(2, new h());
         TbadkCoreApplication inst = TbadkCoreApplication.getInst();
@@ -155,7 +156,7 @@ public class RecAppStatic {
         inst.registerReceiver(bVar, intentFilter);
         f.t().b();
         f.t().f();
-        c.a.r0.v.g.i.a.a.set(new c.a.r0.j3.g0.b());
+        c.a.p0.x.g.i.a.a.set(new c.a.p0.l3.g0.b());
     }
 
     public RecAppStatic() {
@@ -163,9 +164,9 @@ public class RecAppStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

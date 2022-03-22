@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecordVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENTRANCE_FLAG = "entrance_flag";
@@ -27,17 +27,17 @@ public class RecordVideoActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecordVideoActivityConfig(Context context, int i2, ForumWriteData forumWriteData, WriteImagesInfo writeImagesInfo, String str, int i3) {
+    public RecordVideoActivityConfig(Context context, int i, ForumWriteData forumWriteData, WriteImagesInfo writeImagesInfo, String str, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), forumWriteData, writeImagesInfo, str, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), forumWriteData, writeImagesInfo, str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,8 +47,8 @@ public class RecordVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("forum_write_data", forumWriteData);
         getIntent().putExtra(WRITE_IMAGE_INFO, writeImagesInfo);
         getIntent().putExtra("video_title", str);
-        getIntent().putExtra(ENTRANCE_FLAG, i2);
-        getIntent().putExtra("from_type", i3);
+        getIntent().putExtra(ENTRANCE_FLAG, i);
+        getIntent().putExtra("from_type", i2);
         setRequestCode(w0.A6);
         setIntentAction(IntentAction.ActivityForResult);
     }
@@ -64,11 +64,11 @@ public class RecordVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("anti_data", antiData);
     }
 
-    public void setShowType(int i2) {
+    public void setShowType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(SHOW_TYPE, i2);
+        getIntent().putExtra(SHOW_TYPE, i);
     }
 }

@@ -48,9 +48,9 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {coroutineLiveData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -77,8 +77,8 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
         }
     }
 
-    public /* synthetic */ CoroutineLiveData(CoroutineContext coroutineContext, long j2, Function2 function2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? EmptyCoroutineContext.INSTANCE : coroutineContext, (i2 & 2) != 0 ? 5000L : j2, function2);
+    public /* synthetic */ CoroutineLiveData(CoroutineContext coroutineContext, long j, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? EmptyCoroutineContext.INSTANCE : coroutineContext, (i & 2) != 0 ? 5000L : j, function2);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:12:0x0027  */
@@ -89,19 +89,19 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
     public final Object clearSource$lifecycle_livedata_ktx_release(Continuation<? super Unit> continuation) {
         InterceptResult invokeL;
         CoroutineLiveData$clearSource$1 coroutineLiveData$clearSource$1;
-        int i2;
+        int i;
         CoroutineLiveData<T> coroutineLiveData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, continuation)) == null) {
             if (continuation instanceof CoroutineLiveData$clearSource$1) {
                 coroutineLiveData$clearSource$1 = (CoroutineLiveData$clearSource$1) continuation;
-                int i3 = coroutineLiveData$clearSource$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    coroutineLiveData$clearSource$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = coroutineLiveData$clearSource$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    coroutineLiveData$clearSource$1.label = i2 - Integer.MIN_VALUE;
                     Object obj = coroutineLiveData$clearSource$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = coroutineLiveData$clearSource$1.label;
-                    if (i2 != 0) {
+                    i = coroutineLiveData$clearSource$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         EmittedSource emittedSource = this.emittedSource;
                         if (emittedSource == null) {
@@ -116,7 +116,7 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
                             return coroutine_suspended;
                         }
                         coroutineLiveData = this;
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         coroutineLiveData = (CoroutineLiveData) coroutineLiveData$clearSource$1.L$0;
@@ -130,8 +130,8 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
             coroutineLiveData$clearSource$1 = new CoroutineLiveData$clearSource$1(this, continuation);
             Object obj2 = coroutineLiveData$clearSource$1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = coroutineLiveData$clearSource$1.label;
-            if (i2 != 0) {
+            i = coroutineLiveData$clearSource$1.label;
+            if (i != 0) {
             }
             Unit unit2 = (Unit) obj2;
             coroutineLiveData.emittedSource = null;
@@ -151,20 +151,20 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
         CoroutineLiveData$emitSource$1 coroutineLiveData$emitSource$1;
         Object obj;
         Object coroutine_suspended;
-        int i2;
+        int i;
         LiveData<T> liveData2;
         CoroutineLiveData<T> coroutineLiveData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveData, continuation)) == null) {
             if (continuation instanceof CoroutineLiveData$emitSource$1) {
                 coroutineLiveData$emitSource$1 = (CoroutineLiveData$emitSource$1) continuation;
-                int i3 = coroutineLiveData$emitSource$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    coroutineLiveData$emitSource$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = coroutineLiveData$emitSource$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    coroutineLiveData$emitSource$1.label = i2 - Integer.MIN_VALUE;
                     obj = coroutineLiveData$emitSource$1.result;
                     coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = coroutineLiveData$emitSource$1.label;
-                    if (i2 != 0) {
+                    i = coroutineLiveData$emitSource$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         coroutineLiveData$emitSource$1.L$0 = this;
                         coroutineLiveData$emitSource$1.L$1 = liveData;
@@ -174,8 +174,8 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
                         }
                         liveData2 = liveData;
                         coroutineLiveData = this;
-                    } else if (i2 != 1) {
-                        if (i2 != 2) {
+                    } else if (i != 1) {
+                        if (i != 2) {
                             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                         }
                         LiveData liveData3 = (LiveData) coroutineLiveData$emitSource$1.L$1;
@@ -204,8 +204,8 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
             coroutineLiveData$emitSource$1 = new CoroutineLiveData$emitSource$1(this, continuation);
             obj = coroutineLiveData$emitSource$1.result;
             coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = coroutineLiveData$emitSource$1.label;
-            if (i2 != 0) {
+            i = coroutineLiveData$emitSource$1.label;
+            if (i != 0) {
             }
             coroutineLiveData$emitSource$1.L$0 = coroutineLiveData;
             coroutineLiveData$emitSource$1.L$1 = liveData2;
@@ -244,21 +244,21 @@ public final class CoroutineLiveData<T> extends MediatorLiveData<T> {
         }
     }
 
-    public CoroutineLiveData(CoroutineContext coroutineContext, long j2, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
+    public CoroutineLiveData(CoroutineContext coroutineContext, long j, Function2<? super LiveDataScope<T>, ? super Continuation<? super Unit>, ? extends Object> function2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {coroutineContext, Long.valueOf(j2), function2};
+            Object[] objArr = {coroutineContext, Long.valueOf(j), function2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.blockRunner = new BlockRunner<>(this, function2, j2, CoroutineScopeKt.CoroutineScope(Dispatchers.getMain().getImmediate().plus(coroutineContext).plus(SupervisorKt.SupervisorJob((Job) coroutineContext.get(Job.Key)))), new AnonymousClass1(this));
+        this.blockRunner = new BlockRunner<>(this, function2, j, CoroutineScopeKt.CoroutineScope(Dispatchers.getMain().getImmediate().plus(coroutineContext).plus(SupervisorKt.SupervisorJob((Job) coroutineContext.get(Job.Key)))), new AnonymousClass1(this));
     }
 }

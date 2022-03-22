@@ -2,8 +2,8 @@ package com.baidu.nps.stub.pkginfo;
 
 import android.app.Application;
 import android.content.pm.PackageInfo;
-import c.a.c0.h.c;
-import c.a.c0.h.e;
+import c.a.b0.h.c;
+import c.a.b0.h.e;
 import com.baidu.nps.stub.context.ContextHolderImpl;
 import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,21 +21,21 @@ public class PackageInfoHolder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static PackageInfo getPackageInfo(String str, int i2) {
+    public static PackageInfo getPackageInfo(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             Application applicationContext = ContextHolderImpl.getApplicationContext();
-            return e.a(c.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i2);
+            return e.a(c.d(applicationContext, str + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), i);
         }
         return (PackageInfo) invokeLI.objValue;
     }

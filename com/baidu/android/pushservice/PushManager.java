@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Handler;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.pushservice.frequency.GetFrequencyListener;
@@ -35,9 +36,9 @@ public class PushManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -113,7 +114,7 @@ public class PushManager {
     public static void enableHuaweiProxy(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, context, z) == null) {
-            PushSettings.f30262c = z ? 1 : 0;
+            PushSettings.f24164c = z ? 1 : 0;
             com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.hw_proxy_mode", z ? 1 : 0);
         }
     }
@@ -123,11 +124,11 @@ public class PushManager {
         if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        e.f30523e = str;
+        e.f24401e = str;
         com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPID_KEY", str);
-        e.f30524f = str2;
+        e.f24402f = str2;
         com.baidu.android.pushservice.i.i.a(context, "BD_MEIZU_PROXY_APPKEY_KEY", str2);
-        PushSettings.f30263d = z ? 1 : 0;
+        PushSettings.f24165d = z ? 1 : 0;
         com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.mz_proxy_mode", z ? 1 : 0);
     }
 
@@ -136,18 +137,18 @@ public class PushManager {
         if (!(interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        e.f30525g = str;
+        e.f24403g = str;
         com.baidu.android.pushservice.i.i.a(context, "BD_OPPO_PROXY_APPKEY_KEY", str);
-        e.f30526h = str2;
+        e.f24404h = str2;
         com.baidu.android.pushservice.i.i.a(context, "BD_OPPO_PROXY_APPSECRET_KEY", str2);
-        PushSettings.f30264e = z ? 1 : 0;
+        PushSettings.f24166e = z ? 1 : 0;
         com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.op_proxy_mode", z ? 1 : 0);
     }
 
     public static void enableVivoProxy(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65547, null, context, z) == null) {
-            PushSettings.f30265f = z ? 1 : 0;
+            PushSettings.f24167f = z ? 1 : 0;
             com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.vi_proxy_mode", z ? 1 : 0);
         }
     }
@@ -156,14 +157,14 @@ public class PushManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{context, Boolean.valueOf(z), str, str2}) == null) {
             if (!TextUtils.isEmpty(str)) {
-                e.f30521c = str;
+                e.f24399c = str;
                 com.baidu.android.pushservice.i.i.a(context, "BD_PROXY_APPID_KEY", str);
             }
             if (!TextUtils.isEmpty(str2)) {
-                e.f30522d = str2;
+                e.f24400d = str2;
                 com.baidu.android.pushservice.i.i.a(context, "BD_PROXY_APPKEY_KEY", str2);
             }
-            PushSettings.f30261b = z ? 1 : 0;
+            PushSettings.f24163b = z ? 1 : 0;
             com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", z ? 1 : 0);
         }
     }
@@ -271,9 +272,9 @@ public class PushManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {context};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -312,19 +313,19 @@ public class PushManager {
         l.a(context, 0);
     }
 
-    public static void resumeWork(Context context, int i2) {
+    public static void resumeWork(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65558, null, context, i2) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLI(65558, null, context, i) == null) || e.m(context)) {
             return;
         }
         a.a(context, true);
-        l.a(context, i2);
+        l.a(context, i);
     }
 
-    public static void sendPushMsgAck(Context context, String str, int i2) {
+    public static void sendPushMsgAck(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65559, null, context, str, i2) == null) {
-            m.a(context, str, i2);
+        if (interceptable == null || interceptable.invokeLLI(65559, null, context, str, i) == null) {
+            m.a(context, str, i);
         }
     }
 
@@ -336,51 +337,51 @@ public class PushManager {
         NotificationBuilderManager.a(context, pushNotificationBuilder);
     }
 
-    public static void setNoDisturbMode(Context context, int i2, int i3, int i4, int i5) {
+    public static void setNoDisturbMode(Context context, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || e.m(context)) {
             return;
         }
-        if (i2 < 0 || i2 > 23 || i4 < 0 || i4 > 23) {
+        if (i < 0 || i > 23 || i3 < 0 || i3 > 23) {
             com.baidu.android.pushservice.f.a.a(TAG, "setNoDisturbMode hour parameters illegal!", context.getApplicationContext());
-        } else if (i3 < 0 || i3 > 59 || i5 < 0 || i5 > 59) {
+        } else if (i2 < 0 || i2 > 59 || i4 < 0 || i4 > 59) {
             com.baidu.android.pushservice.f.a.a(TAG, "setNoDisturbMode minute parameters illegal!", context.getApplicationContext());
         } else {
             String packageName = context.getPackageName();
             com.baidu.android.pushservice.f.a.a(TAG, "PushManager setNoDisturbMode package name: " + packageName, context.getApplicationContext());
-            com.baidu.android.pushservice.c.a.a(context, packageName, i2, i3, i4, i5);
+            com.baidu.android.pushservice.c.a.a(context, packageName, i, i2, i3, i4);
         }
     }
 
-    public static void setNoDisturbOnline(Context context, int i2, int i3, UploadDataListener uploadDataListener) {
+    public static void setNoDisturbOnline(Context context, int i, int i2, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), uploadDataListener}) == null) && e.a(context, uploadDataListener)) {
-            if (i2 > 86400 || i3 > 86400 || i2 < 0 || i3 < 0) {
+        if ((interceptable == null || interceptable.invokeCommon(65562, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), uploadDataListener}) == null) && e.a(context, uploadDataListener)) {
+            if (i > 86400 || i2 > 86400 || i < 0 || i2 < 0) {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(i2, i3));
+            hashMap.put("do_not_disturb", com.baidu.android.pushservice.frequency.b.a().a(i, i2));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
     }
 
-    public static void setNotificationBuilder(Context context, int i2, PushNotificationBuilder pushNotificationBuilder) {
+    public static void setNotificationBuilder(Context context, int i, PushNotificationBuilder pushNotificationBuilder) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65563, null, context, i2, pushNotificationBuilder) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLIL(65563, null, context, i, pushNotificationBuilder) == null) || e.m(context)) {
             return;
         }
-        if (i2 < 1 || i2 > 1000) {
+        if (i < 1 || i > 1000) {
             com.baidu.android.pushservice.f.a.b(TAG, "set notification builder error, id is illegal !", context.getApplicationContext());
         } else {
-            NotificationBuilderManager.a(context, i2, pushNotificationBuilder);
+            NotificationBuilderManager.a(context, i, pushNotificationBuilder);
         }
     }
 
     public static void setPushBackStatus(Context context, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65564, null, context, z) == null) {
-            com.baidu.android.pushservice.b.d.f30291d = 1;
+            com.baidu.android.pushservice.b.d.f24192d = 1;
             if (e.m(context)) {
                 return;
             }
@@ -398,26 +399,26 @@ public class PushManager {
         }
     }
 
-    public static void setPushFrequency(Context context, int i2, UploadDataListener uploadDataListener) {
+    public static void setPushFrequency(Context context, int i, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65565, null, context, i2, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
-            if (i2 < 1 || i2 > 7) {
+        if ((interceptable == null || interceptable.invokeLIL(65565, null, context, i, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
+            if (i < 1 || i > 7) {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(PushConstants.EXTRA_PUSH_FREQ, Integer.valueOf(i2));
+            hashMap.put(PushConstants.EXTRA_PUSH_FREQ, Integer.valueOf(i));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
     }
 
-    public static void setPushLaunchTaskLevel(int i2, Context context) {
+    public static void setPushLaunchTaskLevel(int i, Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65566, null, i2, context) == null) || context == null || com.baidu.android.pushservice.i.i.b(context, "key_push_launch_task_level", 0) == i2) {
+        if (!(interceptable == null || interceptable.invokeIL(65566, null, i, context) == null) || context == null || com.baidu.android.pushservice.i.i.b(context, "key_push_launch_task_level", 0) == i) {
             return;
         }
-        com.baidu.android.pushservice.i.i.a(context, "key_push_launch_task_level", i2);
-        if (i2 != 1) {
+        com.baidu.android.pushservice.i.i.a(context, "key_push_launch_task_level", i);
+        if (i != 1) {
             e.b(context, 1);
             resumeWork(context);
             return;
@@ -447,13 +448,13 @@ public class PushManager {
         e.b(context, c2);
     }
 
-    public static void startWork(Context context, int i2, String str) {
+    public static void startWork(Context context, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65568, null, context, i2, str) == null) || e.m(context)) {
+        if (!(interceptable == null || interceptable.invokeLIL(65568, null, context, i, str) == null) || e.m(context)) {
             return;
         }
-        e.a = i2;
-        e.f30520b = str;
+        e.a = i;
+        e.f24398b = str;
         e.a(0);
         g.b(context);
         String f2 = m.f(context, str);
@@ -462,23 +463,26 @@ public class PushManager {
         }
         com.baidu.android.pushservice.i.i.a(context, "com.baidu.android.pushservice.CHECK_SDK", f2);
         com.baidu.android.pushservice.f.a.a(TAG, "startWork from " + context.getPackageName() + " checkResult: " + f2, context.getApplicationContext());
-        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i2 == 0) {
-            e.a(context, i2, e.f30520b);
+        if ((TextUtils.equals("com.baidu.android.pushservice.CHECK_SDK_RESULT_OK", f2) || !PushSettings.e(context)) && i == 0) {
+            e.a(context, i, e.f24398b);
         } else {
+            if (i != 0) {
+                Log.e("BDPushSDK-PushManager", "Wrong LOGIN TYPE, Please use LOGIN_TYPE_API_KEY !");
+            }
             e.c(context, 10101, f2);
         }
         m.k(context);
     }
 
-    public static void startWorkWithSource(Context context, int i2, String str, int i3) {
+    public static void startWorkWithSource(Context context, int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
             if (j.a(context.getApplicationContext()).e()) {
-                l.a(context.getApplicationContext(), (Intent) null, i3);
+                l.a(context.getApplicationContext(), (Intent) null, i2);
             } else {
-                e.a(i3);
+                e.a(i2);
             }
-            startWork(context, i2, str);
+            startWork(context, i, str);
         }
     }
 
@@ -496,38 +500,38 @@ public class PushManager {
         e.n(context);
     }
 
-    public static void tokenBind(Context context, String str, int i2, String str2, TokenBindListener tokenBindListener) {
+    public static void tokenBind(Context context, String str, int i, String str2, TokenBindListener tokenBindListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65571, null, new Object[]{context, str, Integer.valueOf(i2), str2, tokenBindListener}) == null) || context == null || m.i(context) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65571, null, new Object[]{context, str, Integer.valueOf(i), str2, tokenBindListener}) == null) || context == null || m.i(context) || TextUtils.isEmpty(str)) {
             return;
         }
         if (tokenBindListener != null) {
             tokenBindListener.onResult(0, "sdk_bind");
         }
-        i.a(context).a(i2, str2, tokenBindListener);
+        i.a(context).a(i, str2, tokenBindListener);
         e.b(context, 0, str);
     }
 
-    public static void uploadBduss(Context context, int i2, String str, UploadDataListener uploadDataListener) {
+    public static void uploadBduss(Context context, int i, String str, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65572, null, context, i2, str, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
-            if (i2 < 0 || i2 > 2 || TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLILL(65572, null, context, i, str, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
+            if (i < 0 || i > 2 || TextUtils.isEmpty(str)) {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(PushConstants.EXTRA_BDUSS_ACTION, Integer.valueOf(i2));
+            hashMap.put(PushConstants.EXTRA_BDUSS_ACTION, Integer.valueOf(i));
             hashMap.put("bduss", str);
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
     }
 
-    public static void uploadClickData(Context context, int i2, String str, String str2) {
+    public static void uploadClickData(Context context, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65573, null, context, i2, str, str2) == null) || context == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(65573, null, context, i, str, str2) == null) || context == null) {
             return;
         }
-        com.baidu.android.pushservice.frequency.b.a().a(context.getApplicationContext(), true, i2, str, str2);
+        com.baidu.android.pushservice.frequency.b.a().a(context.getApplicationContext(), true, i, str, str2);
     }
 
     public static void uploadData(Context context, HashMap<String, Object> hashMap, UploadDataListener uploadDataListener) {
@@ -554,15 +558,15 @@ public class PushManager {
         }
     }
 
-    public static void uploadNotifyStatus(Context context, int i2, UploadDataListener uploadDataListener) {
+    public static void uploadNotifyStatus(Context context, int i, UploadDataListener uploadDataListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65576, null, context, i2, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
-            if (i2 < 0 || i2 > 2) {
+        if ((interceptable == null || interceptable.invokeLIL(65576, null, context, i, uploadDataListener) == null) && e.a(context, uploadDataListener)) {
+            if (i < 0 || i > 2) {
                 uploadDataListener.onResult(IMConstants.ERROR_GROUP_DISBAND);
                 return;
             }
             HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put(PushConstants.EXTRA_APP_NOTIFY_STATUS, Integer.valueOf(i2));
+            hashMap.put(PushConstants.EXTRA_APP_NOTIFY_STATUS, Integer.valueOf(i));
             com.baidu.android.pushservice.frequency.b.a().a(context, hashMap, uploadDataListener);
         }
     }

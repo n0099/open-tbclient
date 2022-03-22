@@ -72,9 +72,9 @@ public class PoiDetailInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -88,9 +88,9 @@ public class PoiDetailInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -339,10 +339,10 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setCheckinNum(int i2) {
+    public void setCheckinNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.checkinNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.checkinNum = i;
         }
     }
 
@@ -353,10 +353,10 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setCommentNum(int i2) {
+    public void setCommentNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.commentNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.commentNum = i;
         }
     }
 
@@ -378,17 +378,17 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setDiscountNum(int i2) {
+    public void setDiscountNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.discountNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.discountNum = i;
         }
     }
 
-    public void setDistance(int i2) {
+    public void setDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.distance = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.distance = i;
         }
     }
 
@@ -406,17 +406,17 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setFavoriteNum(int i2) {
+    public void setFavoriteNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.favoriteNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.favoriteNum = i;
         }
     }
 
-    public void setGrouponNum(int i2) {
+    public void setGrouponNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.grouponNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.grouponNum = i;
         }
     }
 
@@ -427,10 +427,10 @@ public class PoiDetailInfo implements Parcelable {
         }
     }
 
-    public void setImageNum(int i2) {
+    public void setImageNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.imageNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.imageNum = i;
         }
     }
 
@@ -621,11 +621,11 @@ public class PoiDetailInfo implements Parcelable {
             stringBuffer.append(this.checkinNum);
             List<PoiChildrenInfo> list = this.poiChildrenInfoList;
             if (list != null && !list.isEmpty()) {
-                for (int i2 = 0; i2 < this.poiChildrenInfoList.size(); i2++) {
+                for (int i = 0; i < this.poiChildrenInfoList.size(); i++) {
                     stringBuffer.append("; The ");
-                    stringBuffer.append(i2);
+                    stringBuffer.append(i);
                     stringBuffer.append(" poiChildrenInfo is: ");
-                    PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i2);
+                    PoiChildrenInfo poiChildrenInfo = this.poiChildrenInfoList.get(i);
                     if (poiChildrenInfo != null) {
                         stringBuffer.append(poiChildrenInfo.toString());
                     } else {
@@ -639,11 +639,11 @@ public class PoiDetailInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048640, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048640, this, parcel, i) == null) {
             parcel.writeString(this.name);
-            parcel.writeParcelable(this.location, i2);
+            parcel.writeParcelable(this.location, i);
             parcel.writeString(this.address);
             parcel.writeString(this.province);
             parcel.writeString(this.city);
@@ -655,7 +655,7 @@ public class PoiDetailInfo implements Parcelable {
             parcel.writeInt(this.distance);
             parcel.writeString(this.type);
             parcel.writeString(this.tag);
-            parcel.writeParcelable(this.naviLocation, i2);
+            parcel.writeParcelable(this.naviLocation, i);
             parcel.writeString(this.detailUrl);
             parcel.writeDouble(this.price);
             parcel.writeString(this.shopHours);

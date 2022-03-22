@@ -23,9 +23,9 @@ public final class AztecCode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,10 +62,10 @@ public final class AztecCode {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.compact : invokeV.booleanValue;
     }
 
-    public void setCodeWords(int i2) {
+    public void setCodeWords(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.codeWords = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.codeWords = i;
         }
     }
 
@@ -76,10 +76,10 @@ public final class AztecCode {
         }
     }
 
-    public void setLayers(int i2) {
+    public void setLayers(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.layers = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.layers = i;
         }
     }
 
@@ -90,10 +90,10 @@ public final class AztecCode {
         }
     }
 
-    public void setSize(int i2) {
+    public void setSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.size = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.size = i;
         }
     }
 }

@@ -1,7 +1,7 @@
 package org.chromium.support_lib_boundary;
 
 import java.util.concurrent.Executor;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ProxyControllerBoundaryInterface {
     void clearProxyOverride(Runnable runnable, Executor executor);
 

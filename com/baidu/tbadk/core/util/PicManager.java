@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.d.a;
-import c.a.q0.b0.c;
+import c.a.o0.b0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
@@ -43,9 +43,9 @@ public class PicManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {picManager, str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,9 +98,9 @@ public class PicManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -149,62 +149,62 @@ public class PicManager {
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public IMImageSize getImageSize(int i2, int i3, boolean z) {
+    public IMImageSize getImageSize(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
+        int i3;
         int i4;
-        int i5;
         boolean z2;
-        int i6;
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             int msgSPicMaxSizeInt = LocalViewSize.getInstance().getMsgSPicMaxSizeInt();
             if (z) {
-                if (i2 / i3 >= 3) {
-                    i5 = i2 / 2;
+                if (i / i2 >= 3) {
+                    i4 = i / 2;
                     z2 = true;
+                    i3 = i;
+                } else if (i2 / i >= 3) {
+                    i3 = i2 / 2;
                     i4 = i2;
-                } else if (i3 / i2 >= 3) {
-                    i4 = i3 / 2;
-                    i5 = i3;
                     z2 = true;
                 }
-                if (i4 <= i5 && i4 > msgSPicMaxSizeInt) {
-                    i6 = (int) (i5 / (i4 / msgSPicMaxSizeInt));
-                } else if (i5 > i4 || i5 <= msgSPicMaxSizeInt) {
-                    msgSPicMaxSizeInt = i4;
-                    i6 = i5;
+                if (i3 <= i4 && i3 > msgSPicMaxSizeInt) {
+                    i5 = (int) (i4 / (i3 / msgSPicMaxSizeInt));
+                } else if (i4 > i3 || i4 <= msgSPicMaxSizeInt) {
+                    msgSPicMaxSizeInt = i3;
+                    i5 = i4;
                 } else {
-                    msgSPicMaxSizeInt = (int) (i4 / (i5 / msgSPicMaxSizeInt));
-                    i6 = msgSPicMaxSizeInt;
+                    msgSPicMaxSizeInt = (int) (i3 / (i4 / msgSPicMaxSizeInt));
+                    i5 = msgSPicMaxSizeInt;
                 }
-                if (z2 && i2 <= msgSPicMaxSizeInt && i3 <= i6) {
-                    i6 = (int) (i6 * 0.9d);
+                if (z2 && i <= msgSPicMaxSizeInt && i2 <= i5) {
+                    i5 = (int) (i5 * 0.9d);
                     msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
                 }
-                if (msgSPicMaxSizeInt < 70 && i6 < 70) {
-                    i6 = 70;
+                if (msgSPicMaxSizeInt < 70 && i5 < 70) {
+                    i5 = 70;
                     msgSPicMaxSizeInt = 70;
                 }
-                return new IMImageSize(msgSPicMaxSizeInt, i6, z2);
+                return new IMImageSize(msgSPicMaxSizeInt, i5, z2);
             }
+            i3 = i;
             i4 = i2;
-            i5 = i3;
             z2 = false;
-            if (i4 <= i5) {
+            if (i3 <= i4) {
             }
-            if (i5 > i4) {
+            if (i4 > i3) {
             }
-            msgSPicMaxSizeInt = i4;
-            i6 = i5;
+            msgSPicMaxSizeInt = i3;
+            i5 = i4;
             if (z2) {
-                i6 = (int) (i6 * 0.9d);
+                i5 = (int) (i5 * 0.9d);
                 msgSPicMaxSizeInt = (int) (msgSPicMaxSizeInt * 0.9d);
             }
             if (msgSPicMaxSizeInt < 70) {
-                i6 = 70;
+                i5 = 70;
                 msgSPicMaxSizeInt = 70;
             }
-            return new IMImageSize(msgSPicMaxSizeInt, i6, z2);
+            return new IMImageSize(msgSPicMaxSizeInt, i5, z2);
         }
         return (IMImageSize) invokeCommon.objValue;
     }
@@ -267,12 +267,12 @@ public class PicManager {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, bitmap, z)) == null) {
             try {
                 IMImageSize imageSize = getImageSize(bitmap.getWidth(), bitmap.getHeight(), z);
-                int i2 = imageSize.width;
-                int i3 = imageSize.height;
-                if (i2 == bitmap.getWidth() && i3 == bitmap.getHeight()) {
+                int i = imageSize.width;
+                int i2 = imageSize.height;
+                if (i == bitmap.getWidth() && i2 == bitmap.getHeight()) {
                     return bitmap;
                 }
-                Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i2, i3);
+                Bitmap resizedBitmap = BitmapHelper.getResizedBitmap(bitmap, i, i2);
                 return resizedBitmap != null ? resizedBitmap : bitmap;
             } catch (Exception e2) {
                 FieldBuilder fieldBuilder = new FieldBuilder();

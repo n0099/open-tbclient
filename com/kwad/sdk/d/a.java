@@ -10,70 +10,70 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.plugin.DevelopMangerPlugin;
 import com.kwad.sdk.plugin.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements KsInterstitialAd {
     public KsScene a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public final AdTemplate f55144b;
+    public final AdTemplate f40219b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KsInterstitialAd.AdInteractionListener f55145c;
+    public KsInterstitialAd.AdInteractionListener f40220c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f55146d;
+    public b f40221d;
 
     public a(@NonNull KsScene ksScene, @NonNull AdTemplate adTemplate) {
         this.a = ksScene;
-        this.f55144b = adTemplate;
+        this.f40219b = adTemplate;
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getECPM() {
-        return com.kwad.sdk.core.response.a.a.F(d.j(this.f55144b));
+        return com.kwad.sdk.core.response.a.a.F(d.j(this.f40219b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getInteractionType() {
-        return com.kwad.sdk.core.response.a.a.E(d.j(this.f55144b));
+        return com.kwad.sdk.core.response.a.a.E(d.j(this.f40219b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public int getMaterialType() {
-        return com.kwad.sdk.core.response.a.a.R(d.j(this.f55144b));
+        return com.kwad.sdk.core.response.a.a.R(d.j(this.f40219b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public boolean isVideo() {
-        return com.kwad.sdk.core.response.a.a.P(d.j(this.f55144b));
+        return com.kwad.sdk.core.response.a.a.P(d.j(this.f40219b));
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
-    public void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason) {
-        com.kwad.sdk.core.report.a.a(this.f55144b, i2, adExposureFailedReason);
+    public void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason) {
+        com.kwad.sdk.core.report.a.a(this.f40219b, i, adExposureFailedReason);
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void setAdInteractionListener(@NonNull KsInterstitialAd.AdInteractionListener adInteractionListener) {
-        this.f55145c = adInteractionListener;
-        b bVar = this.f55146d;
+        this.f40220c = adInteractionListener;
+        b bVar = this.f40221d;
         if (bVar != null) {
             bVar.a(adInteractionListener);
         }
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
-    public void setBidEcpm(int i2) {
-        AdTemplate adTemplate = this.f55144b;
-        adTemplate.mBidEcpm = i2;
+    public void setBidEcpm(int i) {
+        AdTemplate adTemplate = this.f40219b;
+        adTemplate.mBidEcpm = i;
         com.kwad.sdk.core.report.a.m(adTemplate);
     }
 
     @Override // com.kwad.sdk.api.KsInterstitialAd
     public void showInterstitialAd(Activity activity, KsVideoPlayConfig ksVideoPlayConfig) {
         AdTemplate adTemplate;
-        int i2;
+        int i;
         DevelopMangerPlugin.DevelopValue a;
         if (activity == null) {
             com.kwad.sdk.core.d.a.e("StayAdHelper", "showInterstitialAd activity must not be null");
@@ -84,16 +84,16 @@ public class a implements KsInterstitialAd {
             ksVideoPlayConfig.setVideoSoundEnable(((Boolean) a.getValue()).booleanValue());
         }
         if (ksVideoPlayConfig.isVideoSoundEnable()) {
-            adTemplate = this.f55144b;
-            i2 = 2;
+            adTemplate = this.f40219b;
+            i = 2;
         } else {
-            adTemplate = this.f55144b;
-            i2 = 1;
+            adTemplate = this.f40219b;
+            i = 1;
         }
-        adTemplate.mInitVoiceStatus = i2;
-        if (this.f55146d == null) {
-            b bVar = new b(activity, this.f55144b, ksVideoPlayConfig, this.f55145c);
-            this.f55146d = bVar;
+        adTemplate.mInitVoiceStatus = i;
+        if (this.f40221d == null) {
+            b bVar = new b(activity, this.f40219b, ksVideoPlayConfig, this.f40220c);
+            this.f40221d = bVar;
             bVar.a();
         }
     }

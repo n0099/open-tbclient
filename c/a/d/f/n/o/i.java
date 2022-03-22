@@ -32,9 +32,9 @@ public class i {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -47,21 +47,21 @@ public class i {
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (c2 = c.a.d.f.n.j.b.c(true)) == null || c2.size() == 0) {
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             Iterator<c.a.d.f.n.j.d> it = c2.iterator();
             while (it.hasNext()) {
-                i2 = (int) (i2 + it.next().a);
+                i = (int) (i + it.next().a);
             }
-            int i3 = i2 - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
+            int i2 = i - IMConstants.MAX_IMAGE_CACHE_DISC_SIZE;
             ArrayList arrayList = new ArrayList();
-            if (i3 > 0) {
+            if (i2 > 0) {
                 Collections.sort(c2, new c.a.d.f.n.j.e());
                 Iterator<c.a.d.f.n.j.d> it2 = c2.iterator();
                 while (it2.hasNext()) {
                     c.a.d.f.n.j.d next = it2.next();
-                    arrayList.add(next.f2745b);
-                    i3 = (int) (i3 - next.a);
-                    if (i3 <= 0) {
+                    arrayList.add(next.f2269b);
+                    i2 = (int) (i2 - next.a);
+                    if (i2 <= 0) {
                         break;
                     }
                 }
@@ -71,9 +71,9 @@ public class i {
             while (it3.hasNext()) {
                 c.a.d.f.n.j.d next2 = it3.next();
                 if (next2 != null) {
-                    long j2 = next2.f2746c;
-                    if (j2 != 0 && j2 + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2745b)) {
-                        arrayList.add(next2.f2745b);
+                    long j = next2.f2270c;
+                    if (j != 0 && j + 604800000 < currentTimeMillis && !arrayList.contains(next2.f2269b)) {
+                        arrayList.add(next2.f2269b);
                     }
                 }
             }
@@ -104,9 +104,9 @@ public class i {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

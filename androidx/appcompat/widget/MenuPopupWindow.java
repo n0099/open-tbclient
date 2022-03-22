@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.transition.Transition;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -57,9 +58,9 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -105,42 +106,42 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
         }
 
         @Override // androidx.appcompat.widget.DropDownListView
-        public /* bridge */ /* synthetic */ int lookForSelectablePosition(int i2, boolean z) {
-            return super.lookForSelectablePosition(i2, z);
+        public /* bridge */ /* synthetic */ int lookForSelectablePosition(int i, boolean z) {
+            return super.lookForSelectablePosition(i, z);
         }
 
         @Override // androidx.appcompat.widget.DropDownListView
-        public /* bridge */ /* synthetic */ int measureHeightOfChildrenCompat(int i2, int i3, int i4, int i5, int i6) {
-            return super.measureHeightOfChildrenCompat(i2, i3, i4, i5, i6);
+        public /* bridge */ /* synthetic */ int measureHeightOfChildrenCompat(int i, int i2, int i3, int i4, int i5) {
+            return super.measureHeightOfChildrenCompat(i, i2, i3, i4, i5);
         }
 
         @Override // androidx.appcompat.widget.DropDownListView
-        public /* bridge */ /* synthetic */ boolean onForwardedEvent(MotionEvent motionEvent, int i2) {
-            return super.onForwardedEvent(motionEvent, i2);
+        public /* bridge */ /* synthetic */ boolean onForwardedEvent(MotionEvent motionEvent, int i) {
+            return super.onForwardedEvent(motionEvent, i);
         }
 
         @Override // androidx.appcompat.widget.DropDownListView, android.view.View
         public boolean onHoverEvent(MotionEvent motionEvent) {
             InterceptResult invokeL;
-            int i2;
+            int i;
             MenuAdapter menuAdapter;
             int pointToPosition;
-            int i3;
+            int i2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
                 if (this.mHoverListener != null) {
                     ListAdapter adapter = getAdapter();
                     if (adapter instanceof HeaderViewListAdapter) {
                         HeaderViewListAdapter headerViewListAdapter = (HeaderViewListAdapter) adapter;
-                        i2 = headerViewListAdapter.getHeadersCount();
+                        i = headerViewListAdapter.getHeadersCount();
                         menuAdapter = (MenuAdapter) headerViewListAdapter.getWrappedAdapter();
                     } else {
-                        i2 = 0;
+                        i = 0;
                         menuAdapter = (MenuAdapter) adapter;
                     }
                     MenuItemImpl menuItemImpl = null;
-                    if (motionEvent.getAction() != 10 && (pointToPosition = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY())) != -1 && (i3 = pointToPosition - i2) >= 0 && i3 < menuAdapter.getCount()) {
-                        menuItemImpl = menuAdapter.getItem(i3);
+                    if (motionEvent.getAction() != 10 && (pointToPosition = pointToPosition((int) motionEvent.getX(), (int) motionEvent.getY())) != -1 && (i2 = pointToPosition - i) >= 0 && i2 < menuAdapter.getCount()) {
+                        menuItemImpl = menuAdapter.getItem(i2);
                     }
                     MenuItem menuItem = this.mHoveredMenuItem;
                     if (menuItem != menuItemImpl) {
@@ -160,22 +161,22 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
         }
 
         @Override // android.widget.ListView, android.widget.AbsListView, android.view.View, android.view.KeyEvent.Callback
-        public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+        public boolean onKeyDown(int i, KeyEvent keyEvent) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i2, keyEvent)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048585, this, i, keyEvent)) == null) {
                 ListMenuItemView listMenuItemView = (ListMenuItemView) getSelectedView();
-                if (listMenuItemView != null && i2 == this.mAdvanceKey) {
+                if (listMenuItemView != null && i == this.mAdvanceKey) {
                     if (listMenuItemView.isEnabled() && listMenuItemView.getItemData().hasSubMenu()) {
                         performItemClick(listMenuItemView, getSelectedItemPosition(), getSelectedItemId());
                     }
                     return true;
-                } else if (listMenuItemView != null && i2 == this.mRetreatKey) {
+                } else if (listMenuItemView != null && i == this.mRetreatKey) {
                     setSelection(-1);
                     ((MenuAdapter) getAdapter()).getAdapterMenu().close(false);
                     return true;
                 } else {
-                    return super.onKeyDown(i2, keyEvent);
+                    return super.onKeyDown(i, keyEvent);
                 }
             }
             return invokeIL.booleanValue;
@@ -217,21 +218,22 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                 sSetTouchModalMethod = PopupWindow.class.getDeclaredMethod("setTouchModal", Boolean.TYPE);
             }
         } catch (NoSuchMethodException unused) {
+            Log.i(TAG, "Could not find method setTouchModal() on PopupWindow. Oh well.");
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MenuPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
+    public MenuPopupWindow(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -307,6 +309,7 @@ public class MenuPopupWindow extends ListPopupWindow implements MenuItemHoverLis
                         method.invoke(this.mPopup, Boolean.valueOf(z));
                         return;
                     } catch (Exception unused) {
+                        Log.i(TAG, "Could not invoke setTouchModal() on PopupWindow. Oh well.");
                         return;
                     }
                 }

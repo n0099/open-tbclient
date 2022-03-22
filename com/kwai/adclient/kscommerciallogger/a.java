@@ -9,31 +9,31 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public com.kwai.adclient.kscommerciallogger.kwai.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwai.adclient.kscommerciallogger.kwai.b f56687b;
+    public com.kwai.adclient.kscommerciallogger.kwai.b f41563b;
 
     /* renamed from: c  reason: collision with root package name */
-    public JSONObject f56688c;
+    public JSONObject f41564c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f56689d;
+    public boolean f41565d;
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* renamed from: com.kwai.adclient.kscommerciallogger.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static final class C2147a {
+    /* loaded from: classes7.dex */
+    public static final class C2008a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,15 +56,15 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f56689d = false;
+        this.f41565d = false;
     }
 
     public /* synthetic */ a(AnonymousClass1 anonymousClass1) {
@@ -74,7 +74,7 @@ public class a {
     public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2147a.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2008a.a() : (a) invokeV.objValue;
     }
 
     private void b(@NonNull com.kwai.adclient.kscommerciallogger.model.a aVar) {
@@ -98,9 +98,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{aVar, bVar, jSONObject, Boolean.valueOf(z)}) == null) {
             this.a = aVar;
-            this.f56687b = bVar;
-            this.f56688c = jSONObject;
-            this.f56689d = z;
+            this.f41563b = bVar;
+            this.f41564c = jSONObject;
+            this.f41565d = z;
         }
     }
 
@@ -108,7 +108,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             b(aVar);
-            com.kwai.adclient.kscommerciallogger.kwai.b bVar = this.f56687b;
+            com.kwai.adclient.kscommerciallogger.kwai.b bVar = this.f41563b;
             if (bVar != null) {
                 bVar.a(aVar.a(), aVar.toString());
             }
@@ -118,12 +118,12 @@ public class a {
     public JSONObject b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f56688c : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41564c : (JSONObject) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f56689d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f41565d : invokeV.booleanValue;
     }
 }

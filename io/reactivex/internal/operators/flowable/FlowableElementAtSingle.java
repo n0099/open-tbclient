@@ -16,7 +16,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.NoSuchElementException;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableElementAtSingle<T> extends Single<T> implements FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public final class FlowableElementAtSingle<T> extends Single<T> implements FuseT
     public final long index;
     public final Flowable<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ElementAtSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,23 +35,23 @@ public final class FlowableElementAtSingle<T> extends Single<T> implements FuseT
         public final long index;
         public Subscription s;
 
-        public ElementAtSubscriber(SingleObserver<? super T> singleObserver, long j2, T t) {
+        public ElementAtSubscriber(SingleObserver<? super T> singleObserver, long j, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, Long.valueOf(j2), t};
+                Object[] objArr = {singleObserver, Long.valueOf(j), t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = singleObserver;
-            this.index = j2;
+            this.index = j;
             this.defaultValue = t;
         }
 
@@ -109,15 +109,15 @@ public final class FlowableElementAtSingle<T> extends Single<T> implements FuseT
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.cancel();
                 this.s = SubscriptionHelper.CANCELLED;
                 this.actual.onSuccess(t);
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -131,23 +131,23 @@ public final class FlowableElementAtSingle<T> extends Single<T> implements FuseT
         }
     }
 
-    public FlowableElementAtSingle(Flowable<T> flowable, long j2, T t) {
+    public FlowableElementAtSingle(Flowable<T> flowable, long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), t};
+            Object[] objArr = {flowable, Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = flowable;
-        this.index = j2;
+        this.index = j;
         this.defaultValue = t;
     }
 

@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RawCcExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_ID;
@@ -65,9 +65,9 @@ public final class RawCcExtractor implements Extractor {
             newInitContext.initArgs = r2;
             Object[] objArr = {format};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -105,9 +105,9 @@ public final class RawCcExtractor implements Extractor {
                 this.sampleBytesWritten += 3;
                 this.remainingSampleCount--;
             }
-            int i2 = this.sampleBytesWritten;
-            if (i2 > 0) {
-                this.trackOutput.sampleMetadata(this.timestampUs, 1, i2, 0, null);
+            int i = this.sampleBytesWritten;
+            if (i > 0) {
+                this.trackOutput.sampleMetadata(this.timestampUs, 1, i, 0, null);
             }
         }
     }
@@ -117,13 +117,13 @@ public final class RawCcExtractor implements Extractor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, extractorInput)) == null) {
             this.dataScratch.reset();
-            int i2 = this.version;
-            if (i2 == 0) {
+            int i = this.version;
+            if (i == 0) {
                 if (!extractorInput.readFully(this.dataScratch.data, 0, 5, true)) {
                     return false;
                 }
                 this.timestampUs = (this.dataScratch.readUnsignedInt() * 1000) / 45;
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 if (!extractorInput.readFully(this.dataScratch.data, 0, 9, true)) {
                     return false;
                 }
@@ -157,10 +157,10 @@ public final class RawCcExtractor implements Extractor {
             return invokeLL.intValue;
         }
         while (true) {
-            int i2 = this.parserState;
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 == 2) {
+            int i = this.parserState;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
                         parseSamples(extractorInput);
                         this.parserState = 1;
                         return 0;
@@ -188,9 +188,9 @@ public final class RawCcExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.parserState = 0;
         }
     }

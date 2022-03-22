@@ -15,16 +15,16 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
     public int fragmentLength;
     public Movie movie;
 
-    public TwoSecondIntersectionFinder(Movie movie, int i2) {
+    public TwoSecondIntersectionFinder(Movie movie, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {movie, Integer.valueOf(i2)};
+            Object[] objArr = {movie, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,7 +32,7 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
         }
         this.fragmentLength = 2;
         this.movie = movie;
-        this.fragmentLength = i2;
+        this.fragmentLength = i;
     }
 
     @Override // com.googlecode.mp4parser.authoring.builder.FragmentIntersectionFinder
@@ -47,36 +47,36 @@ public class TwoSecondIntersectionFinder implements FragmentIntersectionFinder {
                     d2 = duration;
                 }
             }
-            int i2 = 1;
+            int i = 1;
             int ceil = ((int) Math.ceil(d2 / this.fragmentLength)) - 1;
-            int i3 = ceil < 1 ? 1 : ceil;
-            long[] jArr = new long[i3];
+            int i2 = ceil < 1 ? 1 : ceil;
+            long[] jArr = new long[i2];
             Arrays.fill(jArr, -1L);
-            int i4 = 0;
+            int i3 = 0;
             jArr[0] = 1;
-            long j2 = 0;
+            long j = 0;
             long[] sampleDurations = track.getSampleDurations();
             int length = sampleDurations.length;
-            int i5 = 0;
-            while (i4 < length) {
-                long j3 = sampleDurations[i4];
-                int timescale = ((int) ((j2 / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i2;
-                if (timescale >= i3) {
+            int i4 = 0;
+            while (i3 < length) {
+                long j2 = sampleDurations[i3];
+                int timescale = ((int) ((j / track.getTrackMetaData().getTimescale()) / this.fragmentLength)) + i;
+                if (timescale >= i2) {
                     break;
                 }
-                i5++;
-                jArr[timescale] = i5;
-                j2 += j3;
                 i4++;
-                i3 = i3;
-                i2 = 1;
+                jArr[timescale] = i4;
+                j += j2;
+                i3++;
+                i2 = i2;
+                i = 1;
             }
-            long j4 = i5 + i2;
-            for (int i6 = i3 - i2; i6 >= 0; i6--) {
-                if (jArr[i6] == -1) {
-                    jArr[i6] = j4;
+            long j3 = i4 + i;
+            for (int i5 = i2 - i; i5 >= 0; i5--) {
+                if (jArr[i5] == -1) {
+                    jArr[i5] = j3;
                 }
-                j4 = jArr[i6];
+                j3 = jArr[i5];
             }
             return jArr;
         }

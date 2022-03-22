@@ -4,21 +4,21 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwad.sdk.core.config.b;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f extends b<ReportAction, e> {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f54614b = new f();
+    public static f f39723b = new f();
 
     public static void a(@NonNull ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        if (com.kwad.sdk.b.f54002c.booleanValue()) {
-            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.f54586i);
+        if (com.kwad.sdk.b.f39154c.booleanValue()) {
+            com.kwad.sdk.core.d.a.a("BatchReporter", "report actionType:" + reportAction.i);
         }
-        if (b(reportAction.f54586i)) {
+        if (b(reportAction.i)) {
             b(reportAction);
         } else {
             c(reportAction);
@@ -29,7 +29,7 @@ public class f extends b<ReportAction, e> {
         if (reportAction == null) {
             return;
         }
-        f54614b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
+        f39723b.b(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */
@@ -39,19 +39,19 @@ public class f extends b<ReportAction, e> {
         });
     }
 
-    public static boolean b(long j2) {
-        return b.a.aU.a(j2);
+    public static boolean b(long j) {
+        return b.a.aU.a(j);
     }
 
     public static f c() {
-        return f54614b;
+        return f39723b;
     }
 
     public static void c(final ReportAction reportAction) {
         if (reportAction == null) {
             return;
         }
-        f54614b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
+        f39723b.a(new g<ReportAction>() { // from class: com.kwad.sdk.core.report.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.report.g
             /* renamed from: b */

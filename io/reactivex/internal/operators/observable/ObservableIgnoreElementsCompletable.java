@@ -27,7 +27,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60729d;
+        public Disposable f45339d;
 
         public IgnoreObservable(CompletableObserver completableObserver) {
             Interceptable interceptable = $ic;
@@ -36,9 +36,9 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,7 +51,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60729d.dispose();
+                this.f45339d.dispose();
             }
         }
 
@@ -59,7 +59,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60729d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45339d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -89,7 +89,7 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) {
-                this.f60729d = disposable;
+                this.f45339d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -102,9 +102,9 @@ public final class ObservableIgnoreElementsCompletable<T> extends Completable im
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

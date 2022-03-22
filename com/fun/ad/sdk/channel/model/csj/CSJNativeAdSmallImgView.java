@@ -15,18 +15,18 @@ import com.bytedance.sdk.openadsdk.TTImage;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
 import com.fun.ad.sdk.internal.api.utils.GlideHelper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.module.csj.e0;
+import com.fun.module.csj.f0;
 import java.util.List;
-/* loaded from: classes7.dex */
-public final class CSJNativeAdSmallImgView extends e0 {
+/* loaded from: classes6.dex */
+public final class CSJNativeAdSmallImgView extends f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f52786f;
+    public ImageView f38532f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f52787g;
+    public float f38533g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdSmallImgView(Context context) {
@@ -37,16 +37,16 @@ public final class CSJNativeAdSmallImgView extends e0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f52787g = 1.78f;
+        this.f38533g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,9 +58,9 @@ public final class CSJNativeAdSmallImgView extends e0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -68,21 +68,21 @@ public final class CSJNativeAdSmallImgView extends e0 {
                 return;
             }
         }
-        this.f52787g = 1.78f;
+        this.f38533g = 1.78f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CSJNativeAdSmallImgView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -90,10 +90,10 @@ public final class CSJNativeAdSmallImgView extends e0 {
                 return;
             }
         }
-        this.f52787g = 1.78f;
+        this.f38533g = 1.78f;
     }
 
-    @Override // com.fun.module.csj.e0
+    @Override // com.fun.module.csj.f0
     public void a(TTNativeAd tTNativeAd) {
         TTImage tTImage;
         Interceptable interceptable = $ic;
@@ -104,31 +104,31 @@ public final class CSJNativeAdSmallImgView extends e0 {
                 return;
             }
             LogPrinter.e("CSJNativeAdView ttImage width: " + tTImage.getWidth() + ", height: " + tTImage.getHeight(), new Object[0]);
-            this.f52787g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
-            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f52786f);
+            this.f38533g = (((float) tTImage.getWidth()) * 1.0f) / (((float) tTImage.getHeight()) * 1.0f);
+            GlideHelper.get().load(getContext(), tTImage.getImageUrl(), this.f38532f);
             LogPrinter.e("CSJNativeAdView ttImage url: " + tTImage.getImageUrl(), new Object[0]);
         }
     }
 
-    @Override // com.fun.module.csj.e0, android.view.View
+    @Override // com.fun.module.csj.f0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f52786f = (ImageView) findViewById(R.id.ad_img);
+            this.f38532f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900a9);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52786f.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / this.f52787g);
-            this.f52786f.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38532f.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / this.f38533g);
+            this.f38532f.setLayoutParams(layoutParams);
         }
     }
 }

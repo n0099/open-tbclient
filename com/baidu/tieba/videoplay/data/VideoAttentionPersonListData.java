@@ -1,7 +1,7 @@
 package com.baidu.tieba.videoplay.data;
 
-import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,9 +29,9 @@ public class VideoAttentionPersonListData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,9 +58,9 @@ public class VideoAttentionPersonListData implements Serializable {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONArray, jSONObject) == null) || jSONArray == null || jSONObject == null) {
             return;
         }
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+        for (int i = 0; i < jSONArray.length(); i++) {
             VideoItemData videoItemData = new VideoItemData();
-            videoItemData.parseFeedJson(jSONArray.getString(i2), "");
+            videoItemData.parseFeedJson(jSONArray.getString(i), "");
             this.mVideoItemDatas.add(videoItemData);
         }
         this.mUserData.parserJson(jSONObject);
@@ -71,11 +71,11 @@ public class VideoAttentionPersonListData implements Serializable {
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, user) == null) || list == null || user == null) {
             return;
         }
-        for (int i2 = 0; i2 < list.size(); i2++) {
+        for (int i = 0; i < list.size(); i++) {
             VideoItemData videoItemData = new VideoItemData();
-            e2 e2Var = new e2();
-            e2Var.d3(list.get(i2));
-            videoItemData.parseProto(e2Var);
+            ThreadData threadData = new ThreadData();
+            threadData.parserProtobuf(list.get(i));
+            videoItemData.parseProto(threadData);
             this.mVideoItemDatas.add(videoItemData);
         }
         this.mUserData.parserProtobuf(user);

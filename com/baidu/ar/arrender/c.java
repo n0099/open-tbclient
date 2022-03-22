@@ -104,12 +104,12 @@ public class c extends e implements OrientationManager.OrientationListener, l {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onInputSizeChange(int i2, int i3);
+        void onInputSizeChange(int i, int i2);
     }
 
     /* loaded from: classes3.dex */
     public interface b {
-        void a(int i2, int i3);
+        void a(int i, int i2);
     }
 
     static {
@@ -136,9 +136,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, looper, bVar, eGLContext, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (Looper) objArr2[1], (com.baidu.ar.lua.b) objArr2[2], (EGLContext) objArr2[3], (String) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -159,9 +159,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, looper, bVar, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Looper) objArr2[1], (com.baidu.ar.lua.b) objArr2[2], (EGLContext) objArr2[3], (String) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -182,12 +182,12 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     private void bz() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.hy && (i2 = this.gR) >= 0) {
-            if (i2 == 3) {
+        if ((interceptable == null || interceptable.invokeV(65542, this) == null) && this.hy && (i = this.gR) >= 0) {
+            if (i == 3) {
                 this.hx.setEngineBlendState(0);
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 this.hx.setEngineBlendState(1);
             }
             this.gR--;
@@ -202,13 +202,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
 
     private void n(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f31451f == null) {
+        if (!(interceptable == null || interceptable.invokeZ(65545, this, z) == null) || this.f24815f == null) {
             return;
         }
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("id", 10200);
         hashMap.put("front_camera", Integer.valueOf(!z ? 1 : 0));
-        this.f31451f.b(1902, hashMap);
+        this.f24815f.b(1902, hashMap);
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
@@ -217,20 +217,20 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.l
-    public void a(long j2, String str) {
+    public void a(long j, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, str) == null) || this.hx == null || j2 <= 0 || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) || this.hx == null || j <= 0 || TextUtils.isEmpty(str)) {
             return;
         }
         com.baidu.ar.ability.c cVar = new com.baidu.ar.ability.c();
         cVar.r(str);
-        cVar.setTimestamp(AlgoHandleAdapter.getHandleTimeStamp(j2));
-        cVar.d(AlgoHandleAdapter.getHandleIsFront(j2));
-        cVar.c(AlgoHandleAdapter.getHandleEnableSync(j2));
+        cVar.setTimestamp(AlgoHandleAdapter.getHandleTimeStamp(j));
+        cVar.d(AlgoHandleAdapter.getHandleIsFront(j));
+        cVar.c(AlgoHandleAdapter.getHandleEnableSync(j));
         if (a(cVar)) {
             return;
         }
-        this.hx.setAlgoDataHandle(j2);
+        this.hx.setAlgoDataHandle(j);
     }
 
     public void a(Bitmap bitmap, float f2, float f3, float f4, float f5) {
@@ -306,14 +306,14 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                 com.baidu.ar.h.b.b("ARRenderer", "updateFilterData error!!!");
                 return;
             }
-            int i2 = AnonymousClass6.ha[iVar.bS().ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass6.ha[iVar.bS().ordinal()];
+            if (i == 1) {
                 this.hx.adjustFilterWithIntParam(iVar.getFilterName(), iVar.bQ(), ((Integer) iVar.bR()).intValue(), iVar.getTimestamp());
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 this.hx.adjustFilterWithFloatParam(iVar.getFilterName(), iVar.bQ(), ((Float) iVar.bR()).floatValue(), iVar.getTimestamp());
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 this.hx.adjustFilterWithFloatArrayParam(iVar.getFilterName(), iVar.bQ(), (float[]) iVar.bR(), iVar.getTimestamp());
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 com.baidu.ar.h.b.b("ARRenderer", "updateFilterData filterData.getAdjustValueType() error!!!");
             } else {
                 this.hx.adjustFilterWithStringParam(iVar.getFilterName(), iVar.bQ(), (String) iVar.bR(), iVar.getTimestamp());
@@ -344,9 +344,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -399,9 +399,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -451,9 +451,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -489,13 +489,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.f
-    public void a(Object obj, int i2, int i3) {
+    public void a(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048591, this, obj, i2, i3) == null) {
-            super.a(obj, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048591, this, obj, i, i2) == null) {
+            super.a(obj, i, i2);
             a aVar = this.gI;
             if (aVar != null) {
-                aVar.onInputSizeChange(i2, i3);
+                aVar.onInputSizeChange(i, i2);
             }
         }
     }
@@ -521,9 +521,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, str, obj};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -602,18 +602,18 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.l
-    public void b(int i2, boolean z) {
+    public void b(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || this.hx == null || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || this.hx == null || i < 0) {
             return;
         }
-        com.baidu.ar.h.b.c("ARRenderer", "addAlgoCache type = " + i2 + " && sync = " + z);
-        this.hx.addAlgoType(new int[]{i2}, z ? 1 : 0);
+        com.baidu.ar.h.b.c("ARRenderer", "addAlgoCache type = " + i + " && sync = " + z);
+        this.hx.addAlgoType(new int[]{i}, z ? 1 : 0);
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
-    public /* bridge */ /* synthetic */ void b(Object obj, int i2, int i3) {
-        super.b(obj, i2, i3);
+    public /* bridge */ /* synthetic */ void b(Object obj, int i, int i2) {
+        super.b(obj, i, i2);
     }
 
     @Override // com.baidu.ar.arrender.e
@@ -700,13 +700,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arrender.f
-    public void changeOutputSize(int i2, int i3) {
+    public void changeOutputSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048614, this, i2, i3) == null) {
-            super.changeOutputSize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048614, this, i, i2) == null) {
+            super.changeOutputSize(i, i2);
             b bVar = this.R;
             if (bVar != null) {
-                bVar.a(i2, i3);
+                bVar.a(i, i2);
             }
         }
     }
@@ -728,13 +728,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
         super.destroyPixelReader(pixelReadParams, pixelReadListener);
     }
 
-    public void f(long j2) {
+    public void f(long j) {
         ARPEngine aRPEngine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j2) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048618, this, j) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
             return;
         }
-        this.hx.getARPRenderer().setAlgoPts(j2);
+        this.hx.getARPRenderer().setAlgoPts(j);
     }
 
     @Override // com.baidu.ar.arrender.l
@@ -834,14 +834,14 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderFinishedListener
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
             ARRenderFpsCallback aRRenderFpsCallback = this.gW;
             if (aRRenderFpsCallback != null && (aRRenderFpsCallback.listenType() & 2) != 0) {
                 this.gW.onRenderFinished();
             }
-            super.onRenderFinished(j2);
+            super.onRenderFinished(j);
             if (gS) {
                 com.baidu.ar.h.b.c("profile_frame_time_cpu", "= " + (System.currentTimeMillis() - this.gU));
             }
@@ -849,9 +849,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderStartedListener
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
             ARRenderFpsCallback aRRenderFpsCallback = this.gW;
             if (aRRenderFpsCallback != null && (aRRenderFpsCallback.listenType() & 1) != 0) {
                 this.gW.onRenderStarted();
@@ -859,25 +859,25 @@ public class c extends e implements OrientationManager.OrientationListener, l {
             if (gS) {
                 if (this.gU != 0) {
                     com.baidu.ar.h.b.c("profile_frame_interval", "= " + (System.currentTimeMillis() - this.gU));
-                    int i2 = this.gT;
-                    if (i2 == 50) {
-                        int i3 = (int) (50000 / this.gV);
-                        com.baidu.ar.h.b.c("profile_frame_fps_avg", "= " + i3);
+                    int i = this.gT;
+                    if (i == 50) {
+                        int i2 = (int) (50000 / this.gV);
+                        com.baidu.ar.h.b.c("profile_frame_fps_avg", "= " + i2);
                         com.baidu.ar.h.b.c("profile_frame_interval_avg", "= " + (this.gV / 50));
                         this.gT = 0;
                         this.gV = 0L;
                         ARRenderFpsCallback aRRenderFpsCallback2 = this.gW;
                         if (aRRenderFpsCallback2 != null && (aRRenderFpsCallback2.listenType() & 4) != 0) {
-                            this.gW.renderFps(i3);
+                            this.gW.renderFps(i2);
                         }
                     } else {
-                        this.gT = i2 + 1;
+                        this.gT = i + 1;
                         this.gV += System.currentTimeMillis() - this.gU;
                     }
                 }
                 this.gU = System.currentTimeMillis();
             }
-            super.onRenderStarted(j2);
+            super.onRenderStarted(j);
             bz();
         }
     }
@@ -885,11 +885,11 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     @Override // com.baidu.ar.arplay.core.engine.rotate.OrientationManager.OrientationListener
     public void onRotateOrientation(Orientation orientation) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f31451f == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048630, this, orientation) == null) || this.f24815f == null) {
             return;
         }
         com.baidu.ar.h.b.c("ARRenderer", "sendOrientation2Render orientation = " + orientation);
-        this.f31451f.b(4001, com.baidu.ar.arrender.b.a(orientation));
+        this.f24815f.b(4001, com.baidu.ar.arrender.b.a(orientation));
     }
 
     @Override // com.baidu.ar.arrender.e, android.view.View.OnTouchListener
@@ -920,13 +920,13 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.l
-    public void q(int i2) {
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048635, this, i2) == null) || this.hx == null || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048635, this, i) == null) || this.hx == null || i < 0) {
             return;
         }
-        com.baidu.ar.h.b.c("ARRenderer", "removeAlgoCache type = " + i2);
-        this.hx.removeAlgoType(new int[]{i2});
+        com.baidu.ar.h.b.c("ARRenderer", "removeAlgoCache type = " + i);
+        this.hx.removeAlgoType(new int[]{i});
     }
 
     @Override // com.baidu.ar.arrender.f
@@ -1046,9 +1046,9 @@ public class c extends e implements OrientationManager.OrientationListener, l {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1088,8 +1088,8 @@ public class c extends e implements OrientationManager.OrientationListener, l {
     }
 
     @Override // com.baidu.ar.arrender.f
-    public /* bridge */ /* synthetic */ void setLocalDeviceGrade(int i2) {
-        super.setLocalDeviceGrade(i2);
+    public /* bridge */ /* synthetic */ void setLocalDeviceGrade(int i) {
+        super.setLocalDeviceGrade(i);
     }
 
     public void setNativeWebViewUseable(Context context, ViewGroup viewGroup) {

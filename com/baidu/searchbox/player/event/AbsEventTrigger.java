@@ -20,9 +20,9 @@ public abstract class AbsEventTrigger implements IEventTrigger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,9 +54,9 @@ public abstract class AbsEventTrigger implements IEventTrigger {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, videoEvent) == null) {
             int size = this.mMessengers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                IMessenger iMessenger = this.mMessengers.get(i2);
-                if (i2 == 0) {
+            for (int i = 0; i < size; i++) {
+                IMessenger iMessenger = this.mMessengers.get(i);
+                if (i == 0) {
                     iMessenger.notifyEvent(videoEvent);
                 } else {
                     iMessenger.notifyEvent(VideoEvent.copy(videoEvent));

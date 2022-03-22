@@ -77,13 +77,13 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         }
         this.dashPatternAnimations = new ArrayList(list.size());
         this.dashPatternValues = new float[list.size()];
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            this.dashPatternAnimations.add(list.get(i2).createAnimation());
+        for (int i = 0; i < list.size(); i++) {
+            this.dashPatternAnimations.add(list.get(i).createAnimation());
         }
         baseLayer.addAnimation(this.opacityAnimation);
         baseLayer.addAnimation(this.widthAnimation);
-        for (int i3 = 0; i3 < this.dashPatternAnimations.size(); i3++) {
-            baseLayer.addAnimation(this.dashPatternAnimations.get(i3));
+        for (int i2 = 0; i2 < this.dashPatternAnimations.size(); i2++) {
+            baseLayer.addAnimation(this.dashPatternAnimations.get(i2));
         }
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation = this.dashPatternOffsetAnimation;
         if (baseKeyframeAnimation != null) {
@@ -91,8 +91,8 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         }
         this.opacityAnimation.addUpdateListener(this);
         this.widthAnimation.addUpdateListener(this);
-        for (int i4 = 0; i4 < list.size(); i4++) {
-            this.dashPatternAnimations.get(i4).addUpdateListener(this);
+        for (int i3 = 0; i3 < list.size(); i3++) {
+            this.dashPatternAnimations.get(i3).addUpdateListener(this);
         }
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation2 = this.dashPatternOffsetAnimation;
         if (baseKeyframeAnimation2 != null) {
@@ -107,21 +107,21 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
             return;
         }
         float scale = Utils.getScale(matrix);
-        for (int i2 = 0; i2 < this.dashPatternAnimations.size(); i2++) {
-            this.dashPatternValues[i2] = this.dashPatternAnimations.get(i2).getValue().floatValue();
-            if (i2 % 2 == 0) {
+        for (int i = 0; i < this.dashPatternAnimations.size(); i++) {
+            this.dashPatternValues[i] = this.dashPatternAnimations.get(i).getValue().floatValue();
+            if (i % 2 == 0) {
                 float[] fArr = this.dashPatternValues;
-                if (fArr[i2] < 1.0f) {
-                    fArr[i2] = 1.0f;
+                if (fArr[i] < 1.0f) {
+                    fArr[i] = 1.0f;
                 }
             } else {
                 float[] fArr2 = this.dashPatternValues;
-                if (fArr2[i2] < 0.1f) {
-                    fArr2[i2] = 0.1f;
+                if (fArr2[i] < 0.1f) {
+                    fArr2[i] = 0.1f;
                 }
             }
             float[] fArr3 = this.dashPatternValues;
-            fArr3[i2] = fArr3[i2] * scale;
+            fArr3[i] = fArr3[i] * scale;
         }
         BaseKeyframeAnimation<?, Float> baseKeyframeAnimation = this.dashPatternOffsetAnimation;
         this.paint.setPathEffect(new DashPathEffect(this.dashPatternValues, baseKeyframeAnimation == null ? 0.0f : scale * baseKeyframeAnimation.getValue().floatValue()));
@@ -198,13 +198,13 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         L.beginSection("StrokeContent#draw");
         if (Utils.hasZeroScaleAxis(matrix)) {
             L.endSection("StrokeContent#draw");
             return;
         }
-        this.paint.setAlpha(MiscUtils.clamp((int) ((((i2 / 255.0f) * ((IntegerKeyframeAnimation) this.opacityAnimation).getIntValue()) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setAlpha(MiscUtils.clamp((int) ((((i / 255.0f) * ((IntegerKeyframeAnimation) this.opacityAnimation).getIntValue()) / 100.0f) * 255.0f), 0, 255));
         this.paint.setStrokeWidth(((FloatKeyframeAnimation) this.widthAnimation).getFloatValue() * Utils.getScale(matrix));
         if (this.paint.getStrokeWidth() <= 0.0f) {
             L.endSection("StrokeContent#draw");
@@ -215,8 +215,8 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
         if (baseKeyframeAnimation != null) {
             this.paint.setColorFilter(baseKeyframeAnimation.getValue());
         }
-        for (int i3 = 0; i3 < this.pathGroups.size(); i3++) {
-            PathGroup pathGroup = this.pathGroups.get(i3);
+        for (int i2 = 0; i2 < this.pathGroups.size(); i2++) {
+            PathGroup pathGroup = this.pathGroups.get(i2);
             if (pathGroup.trimPath != null) {
                 applyTrimPath(canvas, pathGroup, matrix);
             } else {
@@ -238,10 +238,10 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
         L.beginSection("StrokeContent#getBounds");
         this.path.reset();
-        for (int i2 = 0; i2 < this.pathGroups.size(); i2++) {
-            PathGroup pathGroup = this.pathGroups.get(i2);
-            for (int i3 = 0; i3 < pathGroup.paths.size(); i3++) {
-                this.path.addPath(((PathContent) pathGroup.paths.get(i3)).getPath(), matrix);
+        for (int i = 0; i < this.pathGroups.size(); i++) {
+            PathGroup pathGroup = this.pathGroups.get(i);
+            for (int i2 = 0; i2 < pathGroup.paths.size(); i2++) {
+                this.path.addPath(((PathContent) pathGroup.paths.get(i2)).getPath(), matrix);
             }
         }
         this.path.computeBounds(this.rect, false);
@@ -260,8 +260,8 @@ public abstract class BaseStrokeContent implements BaseKeyframeAnimation.Animati
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content

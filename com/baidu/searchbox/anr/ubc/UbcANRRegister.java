@@ -1,12 +1,14 @@
 package com.baidu.searchbox.anr.ubc;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.anr.impl.ANRInfo;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.aperf.param.CommonUtils;
+import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
 import com.baidu.searchbox.ruka.Ruka;
@@ -59,9 +61,9 @@ public class UbcANRRegister implements IANRRegister {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -82,6 +84,7 @@ public class UbcANRRegister implements IANRRegister {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, aNRInfo) == null) && checkEnable()) {
             AppConfig.isDebug();
+            Log.d(BlockMonitor.TAG, "onANR  at UbcANRRegister");
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", aNRInfo.getType());
@@ -128,17 +131,17 @@ public class UbcANRRegister implements IANRRegister {
                 jSONObject.put("launchTime", String.valueOf(Ruka.getProcessLaunchTime()));
                 String stackTrace = aNRInfo.getStackTrace();
                 if (AppConfig.isDebug()) {
-                    String str = "stack format before: " + stackTrace;
+                    Log.d(TAG, "stack format before: " + stackTrace);
                 }
-                String str2 = "ANR" + this.separator + this.separator + stackTrace;
-                jSONObject.put("stacktrace", str2);
+                String str = "ANR" + this.separator + this.separator + stackTrace;
+                jSONObject.put("stacktrace", str);
                 if (AppConfig.isDebug()) {
-                    String str3 = "stack format after: " + str2;
+                    Log.d(TAG, "stack format after: " + str);
                 }
                 LinkedList<TrackUI> trackUIs = aNRInfo.getTrackUIs();
                 if (trackUIs != null && trackUIs.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    int i2 = 1;
+                    int i = 1;
                     int size = trackUIs.size() - 1;
                     while (true) {
                         TrackUI trackUI = trackUIs.get(size);
@@ -147,23 +150,23 @@ public class UbcANRRegister implements IANRRegister {
                         jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));
                         jSONObject2.put("event", trackUI.getEvent());
                         jSONArray.put(jSONObject2);
-                        int i3 = i2 + 1;
-                        if (i2 >= 20) {
+                        int i2 = i + 1;
+                        if (i >= 20) {
                             break;
                         }
-                        int i4 = size - 1;
+                        int i3 = size - 1;
                         if (size <= 0) {
                             break;
                         }
-                        size = i4;
-                        i2 = i3;
+                        size = i3;
+                        i = i2;
                     }
                     jSONObject.put("pageTrace", jSONArray);
                 }
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("ext", jSONObject);
                 if (AppConfig.isDebug()) {
-                    jSONObject3.toString();
+                    Log.d(TAG, jSONObject3.toString());
                 }
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                 if (uBCManager != null) {

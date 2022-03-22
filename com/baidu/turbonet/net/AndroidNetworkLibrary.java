@@ -7,7 +7,9 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.security.KeyChain;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,9 +34,9 @@ public class AndroidNetworkLibrary {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -135,7 +137,7 @@ public class AndroidNetworkLibrary {
                 }
                 return true;
             } catch (Exception e2) {
-                String str = "could not get network interfaces: " + e2;
+                Log.w("AndroidNetworkLibrary", "could not get network interfaces: " + e2);
                 return false;
             }
         }
@@ -143,17 +145,17 @@ public class AndroidNetworkLibrary {
     }
 
     @CalledByNative
-    public static boolean storeCertificate(Context context, int i2, byte[] bArr) {
+    public static boolean storeCertificate(Context context, int i, byte[] bArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, context, i2, bArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65545, null, context, i, bArr)) == null) {
             try {
                 Intent createInstallIntent = KeyChain.createInstallIntent();
-                createInstallIntent.addFlags(268435456);
-                if (i2 == 1 || i2 == 2) {
+                createInstallIntent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (i == 1 || i == 2) {
                     createInstallIntent.putExtra("CERT", bArr);
-                } else if (i2 != 3) {
-                    String str = "invalid certificate type: " + i2;
+                } else if (i != 3) {
+                    Log.w("AndroidNetworkLibrary", "invalid certificate type: " + i);
                     return false;
                 } else {
                     createInstallIntent.putExtra("PKCS12", bArr);
@@ -161,7 +163,7 @@ public class AndroidNetworkLibrary {
                 context.startActivity(createInstallIntent);
                 return true;
             } catch (ActivityNotFoundException e2) {
-                String str2 = "could not store crypto file: " + e2;
+                Log.w("AndroidNetworkLibrary", "could not store crypto file: " + e2);
                 return false;
             }
         }
@@ -177,11 +179,11 @@ public class AndroidNetworkLibrary {
                 Intent createInstallIntent = KeyChain.createInstallIntent();
                 createInstallIntent.putExtra("PKEY", bArr2);
                 createInstallIntent.putExtra("KEY", bArr);
-                createInstallIntent.addFlags(268435456);
+                createInstallIntent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 context.startActivity(createInstallIntent);
                 return true;
             } catch (ActivityNotFoundException e2) {
-                String str = "could not store key pair: " + e2;
+                Log.w("AndroidNetworkLibrary", "could not store key pair: " + e2);
                 return false;
             }
         }
@@ -189,12 +191,12 @@ public class AndroidNetworkLibrary {
     }
 
     @CalledByNative
-    public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2, int i2) {
+    public static AndroidCertVerifyResult verifyServerCertificates(byte[][] bArr, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65547, null, bArr, str, str2, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65547, null, bArr, str, str2, i)) == null) {
             try {
-                return X509Util.n(bArr, str, str2, i2);
+                return X509Util.n(bArr, str, str2, i);
             } catch (IllegalArgumentException unused) {
                 return new AndroidCertVerifyResult(-1);
             } catch (KeyStoreException unused2) {

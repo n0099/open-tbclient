@@ -39,9 +39,9 @@ public class ViewUtilsApi23 extends ViewUtilsApi22 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,14 +50,14 @@ public class ViewUtilsApi23 extends ViewUtilsApi22 {
 
     @Override // androidx.transition.ViewUtilsBase
     @SuppressLint({"NewApi"})
-    public void setTransitionVisibility(@NonNull View view, int i2) {
+    public void setTransitionVisibility(@NonNull View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
             if (Build.VERSION.SDK_INT == 28) {
-                super.setTransitionVisibility(view, i2);
+                super.setTransitionVisibility(view, i);
             } else if (sTryHiddenSetTransitionVisibility) {
                 try {
-                    view.setTransitionVisibility(i2);
+                    view.setTransitionVisibility(i);
                 } catch (NoSuchMethodError unused) {
                     sTryHiddenSetTransitionVisibility = false;
                 }

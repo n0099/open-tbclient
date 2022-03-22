@@ -17,14 +17,14 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26) {
                 return new d();
             }
-            if (i2 >= 23) {
+            if (i >= 23) {
                 return new f();
             }
-            return i2 >= 14 ? new a() : new e();
+            return i >= 14 ? new a() : new e();
         }
         return (b) invokeV.objValue;
     }
@@ -51,8 +51,8 @@ public class c {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, objArr, obj)) == null) {
             Object newInstance = Array.newInstance(cls, objArr.length + 1);
             Array.set(newInstance, 0, obj);
-            for (int i2 = 1; i2 < objArr.length + 1; i2++) {
-                Array.set(newInstance, i2, objArr[i2 - 1]);
+            for (int i = 1; i < objArr.length + 1; i++) {
+                Array.set(newInstance, i, objArr[i - 1]);
             }
             return newInstance;
         }
@@ -90,21 +90,21 @@ public class c {
 
     public static <T> boolean f(T[] tArr, T t) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, tArr, t)) == null) {
             if (tArr != null) {
-                i2 = 0;
-                while (i2 < tArr.length) {
-                    T t2 = tArr[i2];
+                i = 0;
+                while (i < tArr.length) {
+                    T t2 = tArr[i];
                     if (t2 == t || (t2 != null && t2.equals(t))) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             }
-            i2 = -1;
-            return i2 != -1;
+            i = -1;
+            return i != -1;
         }
         return invokeLL.booleanValue;
     }

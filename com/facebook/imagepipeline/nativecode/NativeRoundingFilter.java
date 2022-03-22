@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.DoNotStrip;
 import com.facebook.common.internal.Preconditions;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeRoundingFilter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class NativeRoundingFilter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -51,7 +51,7 @@ public class NativeRoundingFilter {
     public static native void nativeToCircleFilter(Bitmap bitmap, boolean z);
 
     @DoNotStrip
-    public static native void nativeToCircleWithBorderFilter(Bitmap bitmap, int i2, int i3, boolean z);
+    public static native void nativeToCircleWithBorderFilter(Bitmap bitmap, int i, int i2, boolean z);
 
     public static void toCircle(Bitmap bitmap) {
         Interceptable interceptable = $ic;
@@ -60,11 +60,11 @@ public class NativeRoundingFilter {
         }
     }
 
-    public static void toCircleWithBorder(Bitmap bitmap, int i2, int i3, boolean z) {
+    public static void toCircleWithBorder(Bitmap bitmap, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             Preconditions.checkNotNull(bitmap);
-            nativeToCircleWithBorderFilter(bitmap, i2, i3, z);
+            nativeToCircleWithBorderFilter(bitmap, i, i2, z);
         }
     }
 

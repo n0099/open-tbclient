@@ -22,41 +22,41 @@ public final class YYPluginBundleInfo {
     public final String packageName;
     public final int versionCode;
 
-    public YYPluginBundleInfo(String str, int i2, boolean z, String str2) {
+    public YYPluginBundleInfo(String str, int i, boolean z, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.packageName = str;
-        this.versionCode = i2;
+        this.versionCode = i;
         this.needUpdate = z;
         this.ext = str2;
     }
 
-    public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i2, boolean z, String str2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
+    public static /* synthetic */ YYPluginBundleInfo copy$default(YYPluginBundleInfo yYPluginBundleInfo, String str, int i, boolean z, String str2, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
             str = yYPluginBundleInfo.packageName;
         }
-        if ((i3 & 2) != 0) {
-            i2 = yYPluginBundleInfo.versionCode;
+        if ((i2 & 2) != 0) {
+            i = yYPluginBundleInfo.versionCode;
         }
-        if ((i3 & 4) != 0) {
+        if ((i2 & 4) != 0) {
             z = yYPluginBundleInfo.needUpdate;
         }
-        if ((i3 & 8) != 0) {
+        if ((i2 & 8) != 0) {
             str2 = yYPluginBundleInfo.ext;
         }
-        return yYPluginBundleInfo.copy(str, i2, z, str2);
+        return yYPluginBundleInfo.copy(str, i, z, str2);
     }
 
     public final String component1() {
@@ -83,10 +83,10 @@ public final class YYPluginBundleInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ext : (String) invokeV.objValue;
     }
 
-    public final YYPluginBundleInfo copy(String str, int i2, boolean z, String str2) {
+    public final YYPluginBundleInfo copy(String str, int i, boolean z, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), str2})) == null) ? new YYPluginBundleInfo(str, i2, z, str2) : (YYPluginBundleInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), str2})) == null) ? new YYPluginBundleInfo(str, i, z, str2) : (YYPluginBundleInfo) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -138,13 +138,13 @@ public final class YYPluginBundleInfo {
             String str = this.packageName;
             int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.versionCode) * 31;
             boolean z = this.needUpdate;
-            int i2 = z;
+            int i = z;
             if (z != 0) {
-                i2 = 1;
+                i = 1;
             }
-            int i3 = (hashCode + i2) * 31;
+            int i2 = (hashCode + i) * 31;
             String str2 = this.ext;
-            return i3 + (str2 != null ? str2.hashCode() : 0);
+            return i2 + (str2 != null ? str2.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -158,7 +158,7 @@ public final class YYPluginBundleInfo {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ YYPluginBundleInfo(String str, int i2, boolean z, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i3 & 2) != 0 ? 0 : i2, (i3 & 4) != 0 ? false : z, str2);
+    public /* synthetic */ YYPluginBundleInfo(String str, int i, boolean z, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i2 & 2) != 0 ? 0 : i, (i2 & 4) != 0 ? false : z, str2);
     }
 }

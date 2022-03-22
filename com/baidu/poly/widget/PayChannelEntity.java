@@ -2,7 +2,6 @@ package com.baidu.poly.widget;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.face.base.b.c;
 import com.baidu.poly.widget.entitiy.InstallmentEntity;
 import com.baidu.poly.widget.entitiy.PayChannelExtInfoEntity;
 import com.baidu.searchbox.live.interfaces.DI;
@@ -14,7 +13,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -55,9 +53,9 @@ public class PayChannelEntity implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -187,17 +185,17 @@ public class PayChannelEntity implements Serializable {
         }
     }
 
-    public void setIsFold(int i2) {
+    public void setIsFold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.is_fold = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.is_fold = i;
         }
     }
 
-    public void setIsSelected(int i2) {
+    public void setIsSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.is_selected = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.is_selected = i;
         }
     }
 
@@ -205,7 +203,7 @@ public class PayChannelEntity implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "PayChannelEntity{display_name='" + this.display_name + ExtendedMessageFormat.QUOTE + ", pay_channel='" + this.pay_channel + ExtendedMessageFormat.QUOTE + ", pay_text='" + this.pay_text + ExtendedMessageFormat.QUOTE + ", error_text='" + this.error_text + ExtendedMessageFormat.QUOTE + ", icon='" + this.icon + ExtendedMessageFormat.QUOTE + ", is_fold=" + this.is_fold + ", is_selected=" + this.is_selected + ", is_private=" + this.is_private + ", free_pay=" + this.free_pay + ", needAgreementGuide=" + this.needAgreementGuide + ", alreadySigned=" + this.alreadySigned + ", queryOrderString=" + this.queryOrderString + ", pre_pay_money=" + this.pre_pay_money + ", enable=" + this.enable + ", display_color='" + this.display_color + ExtendedMessageFormat.QUOTE + ", flow=" + this.flow + ", parasitifer=" + this.parasitifer + ExtendedMessageFormat.END_FE;
+            return "PayChannelEntity{display_name='" + this.display_name + "', pay_channel='" + this.pay_channel + "', pay_text='" + this.pay_text + "', error_text='" + this.error_text + "', icon='" + this.icon + "', is_fold=" + this.is_fold + ", is_selected=" + this.is_selected + ", is_private=" + this.is_private + ", free_pay=" + this.free_pay + ", needAgreementGuide=" + this.needAgreementGuide + ", alreadySigned=" + this.alreadySigned + ", queryOrderString=" + this.queryOrderString + ", pre_pay_money=" + this.pre_pay_money + ", enable=" + this.enable + ", display_color='" + this.display_color + "', flow=" + this.flow + ", parasitifer=" + this.parasitifer + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -214,17 +212,15 @@ public class PayChannelEntity implements Serializable {
         String str;
         JSONArray optJSONArray;
         String str2;
-        JSONObject jSONObject2;
-        PayChannelEntity payChannelEntity;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -241,7 +237,7 @@ public class PayChannelEntity implements Serializable {
         this.is_selected = jSONObject.optInt("is_selected");
         this.is_private = jSONObject.optInt("is_private");
         this.free_pay = jSONObject.optInt("free_pay");
-        this.enable = jSONObject.optInt(c.l);
+        this.enable = jSONObject.optInt("enable");
         this.display_color = jSONObject.optString("display_color");
         this.flow = jSONObject.optBoolean("flow");
         this.disAbled = jSONObject.optInt("disAbled", 0);
@@ -259,9 +255,9 @@ public class PayChannelEntity implements Serializable {
             String optString = optJSONObject.optString("total");
             if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                 ArrayList<InstallmentEntity> arrayList = new ArrayList<>();
-                int i4 = 0;
-                while (i4 < optJSONArray2.length()) {
-                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i4);
+                int i3 = 0;
+                while (i3 < optJSONArray2.length()) {
+                    JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
                     String optString2 = optJSONObject2.optString("title");
                     String optString3 = optJSONObject2.optString("pay_text");
                     String optString4 = optJSONObject2.optString("commission");
@@ -278,7 +274,7 @@ public class PayChannelEntity implements Serializable {
                     installmentEntity.setIsSelected(optString6);
                     installmentEntity.setInstallmentPeriod(optString7);
                     arrayList.add(installmentEntity);
-                    i4++;
+                    i3++;
                     optJSONArray2 = jSONArray;
                     str3 = str4;
                 }
@@ -291,30 +287,30 @@ public class PayChannelEntity implements Serializable {
                 if (optJSONArray != null || optJSONArray.length() <= 0) {
                 }
                 ArrayList arrayList2 = new ArrayList();
-                int i5 = 0;
-                while (i5 < optJSONArray.length()) {
+                int i4 = 0;
+                while (i4 < optJSONArray.length()) {
                     try {
-                        jSONObject2 = optJSONArray.getJSONObject(i5);
-                        payChannelEntity = new PayChannelEntity();
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i4);
+                        PayChannelEntity payChannelEntity = new PayChannelEntity();
                         payChannelEntity.display_name = jSONObject2.optString("display_name");
                         payChannelEntity.pay_channel = jSONObject2.optString(DI.PAY_CHANNEL);
                         payChannelEntity.pay_text = jSONObject2.optString("pay_text");
                         payChannelEntity.icon = jSONObject2.optString("icon");
                         str2 = str;
-                    } catch (JSONException e2) {
-                        e = e2;
-                        str2 = str;
-                    }
-                    try {
-                        payChannelEntity.is_selected = jSONObject2.optInt(str2);
-                        arrayList2.add(payChannelEntity);
+                        try {
+                            payChannelEntity.is_selected = jSONObject2.optInt(str2);
+                            arrayList2.add(payChannelEntity);
+                        } catch (JSONException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            i4++;
+                            str = str2;
+                        }
                     } catch (JSONException e3) {
                         e = e3;
-                        e.printStackTrace();
-                        i5++;
-                        str = str2;
+                        str2 = str;
                     }
-                    i5++;
+                    i4++;
                     str = str2;
                 }
                 this.childrenPayChannels = arrayList2;

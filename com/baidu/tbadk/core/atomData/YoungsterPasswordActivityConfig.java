@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class YoungsterPasswordActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_YOUNGSTER_PASSWORD_FROM = "key_youngster_password_from";
@@ -27,9 +27,9 @@ public class YoungsterPasswordActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,10 +38,10 @@ public class YoungsterPasswordActivityConfig extends IntentConfig {
         }
     }
 
-    public void setKeyYoungsterPasswordFrom(int i2) {
+    public void setKeyYoungsterPasswordFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_FROM, i);
         }
     }
 
@@ -52,10 +52,10 @@ public class YoungsterPasswordActivityConfig extends IntentConfig {
         }
     }
 
-    public void setYoungsterPasswordPageType(int i2) {
+    public void setYoungsterPasswordPageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra(KEY_YOUNGSTER_PASSWORD_PAGE_TYPE, i);
         }
     }
 }

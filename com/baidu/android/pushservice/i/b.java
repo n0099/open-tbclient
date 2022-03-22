@@ -13,12 +13,12 @@ public class b {
     public static Map<Long, c> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(long j2) {
+    public static synchronized void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65536, null, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65536, null, j) == null) {
             synchronized (b.class) {
-                if (a.containsKey(Long.valueOf(j2))) {
-                    a.remove(a.get(Long.valueOf(j2)));
+                if (a.containsKey(Long.valueOf(j))) {
+                    a.remove(a.get(Long.valueOf(j)));
                 }
             }
         }

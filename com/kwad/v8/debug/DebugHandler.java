@@ -18,7 +18,7 @@ import com.kwad.v8.V8Object;
 import com.kwad.v8.V8Value;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DebugHandler implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHANGE_BREAK_POINT_CONDITION = "changeBreakPointCondition";
@@ -41,7 +41,7 @@ public class DebugHandler implements Releasable {
     public V8 runtime;
 
     /* renamed from: com.kwad.v8.debug.DebugHandler$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$v8$debug$DebugHandler$DebugEvent;
         public static /* synthetic */ Interceptable $ic;
@@ -81,7 +81,7 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class BreakpointHandler implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public class DebugHandler implements Releasable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {debugHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,10 +113,10 @@ public class DebugHandler implements Releasable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, debugEvent, v8Object)) == null) {
-                int i2 = AnonymousClass1.$SwitchMap$com$kwad$v8$debug$DebugHandler$DebugEvent[debugEvent.ordinal()];
-                if (i2 != 1) {
-                    if (i2 != 2 && i2 != 3) {
-                        return i2 != 4 ? new EventData(v8Object) : new ExceptionEvent(v8Object);
+                int i = AnonymousClass1.$SwitchMap$com$kwad$v8$debug$DebugHandler$DebugEvent[debugEvent.ordinal()];
+                if (i != 1) {
+                    if (i != 2 && i != 3) {
+                        return i != 4 ? new EventData(v8Object) : new ExceptionEvent(v8Object);
                     }
                     return new CompileEvent(v8Object);
                 }
@@ -125,13 +125,13 @@ public class DebugHandler implements Releasable {
             return (EventData) invokeLL.objValue;
         }
 
-        private void invokeHandler(V8Array v8Array, int i2, BreakHandler breakHandler) {
+        private void invokeHandler(V8Array v8Array, int i, BreakHandler breakHandler) {
             V8Object v8Object;
             ExecutionState executionState;
             V8Object v8Object2;
             ExecutionState executionState2;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLIL(65539, this, v8Array, i2, breakHandler) != null) {
+            if (interceptable != null && interceptable.invokeLIL(65539, this, v8Array, i, breakHandler) != null) {
                 return;
             }
             V8Object v8Object3 = null;
@@ -145,7 +145,7 @@ public class DebugHandler implements Releasable {
                         try {
                             executionState2 = new ExecutionState(object);
                             try {
-                                DebugEvent debugEvent = DebugEvent.values()[i2];
+                                DebugEvent debugEvent = DebugEvent.values()[i];
                                 eventData = createDebugEvent(debugEvent, v8Object2);
                                 breakHandler.onBreak(debugEvent, executionState2, eventData, v8Object);
                                 safeRelease(object);
@@ -219,7 +219,7 @@ public class DebugHandler implements Releasable {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DebugEvent {
         public static final /* synthetic */ DebugEvent[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -261,16 +261,16 @@ public class DebugHandler implements Releasable {
             $VALUES = new DebugEvent[]{Undefined, Break, Exception, NewFunction, BeforeCompile, AfterCompile, CompileError, PromiseError, debugEvent};
         }
 
-        public DebugEvent(String str, int i2, int i3) {
+        public DebugEvent(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -279,7 +279,7 @@ public class DebugHandler implements Releasable {
                     return;
                 }
             }
-            this.index = i3;
+            this.index = i2;
         }
 
         public static DebugEvent valueOf(String str) {
@@ -317,9 +317,9 @@ public class DebugHandler implements Releasable {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -394,11 +394,11 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    public void changeBreakPointCondition(int i2, String str) {
+    public void changeBreakPointCondition(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             V8Array v8Array = new V8Array(this.runtime);
-            v8Array.push(i2);
+            v8Array.push(i);
             v8Array.push(str);
             try {
                 this.debugObject.executeVoidFunction(CHANGE_BREAK_POINT_CONDITION, v8Array);
@@ -408,11 +408,11 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    public void clearBreakPoint(int i2) {
+    public void clearBreakPoint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             V8Array v8Array = new V8Array(this.runtime);
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 this.debugObject.executeVoidFunction(CLEAR_BREAK_POINT, v8Array);
             } finally {
@@ -436,11 +436,11 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    public void disableScriptBreakPoint(int i2) {
+    public void disableScriptBreakPoint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             V8Array v8Array = new V8Array(this.runtime);
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 this.debugObject.executeVoidFunction(DISABLE_SCRIPT_BREAK_POINT, v8Array);
             } finally {
@@ -449,11 +449,11 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    public void enableScriptBreakPoint(int i2) {
+    public void enableScriptBreakPoint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             V8Array v8Array = new V8Array(this.runtime);
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 this.debugObject.executeVoidFunction(ENABLE_SCRIPT_BREAK_POINT, v8Array);
             } finally {
@@ -462,12 +462,12 @@ public class DebugHandler implements Releasable {
         }
     }
 
-    public ScriptBreakPoint getScriptBreakPoint(int i2) {
+    public ScriptBreakPoint getScriptBreakPoint(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             V8Array v8Array = new V8Array(this.runtime);
-            v8Array.push(i2);
+            v8Array.push(i);
             v8Array.push(false);
             V8Object v8Object = null;
             try {
@@ -504,9 +504,9 @@ public class DebugHandler implements Releasable {
             V8Array executeArrayFunction = this.debugObject.executeArrayFunction(SCRIPT_BREAK_POINTS, null);
             try {
                 int[] iArr = new int[executeArrayFunction.length()];
-                for (int i2 = 0; i2 < executeArrayFunction.length(); i2++) {
-                    V8Object object = executeArrayFunction.getObject(i2);
-                    iArr[i2] = object.executeIntegerFunction("number", null);
+                for (int i = 0; i < executeArrayFunction.length(); i++) {
+                    V8Object object = executeArrayFunction.getObject(i);
+                    iArr[i] = object.executeIntegerFunction("number", null);
                     object.close();
                 }
                 return iArr;
@@ -549,13 +549,13 @@ public class DebugHandler implements Releasable {
         return invokeL.intValue;
     }
 
-    public int setScriptBreakpoint(String str, int i2) {
+    public int setScriptBreakpoint(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i)) == null) {
             V8Array v8Array = new V8Array(this.runtime);
             v8Array.push(str);
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 return this.debugObject.executeIntegerFunction(SET_SCRIPT_BREAK_POINT_BY_NAME, v8Array);
             } finally {

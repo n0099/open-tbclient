@@ -12,14 +12,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import com.yxcorp.kuaishou.addfp.android.Orange;
 import com.yxcorp.kuaishou.addfp.android.a.c;
 import com.yxcorp.kuaishou.addfp.android.a.d;
 import com.yxcorp.kuaishou.addfp.android.a.e;
 import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KWEGIDDFP {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGID_LENGTH = 64;
@@ -57,9 +56,9 @@ public class KWEGIDDFP {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -129,7 +128,7 @@ public class KWEGIDDFP {
                     String str2 = "";
                     if (TextUtils.isEmpty(a2)) {
                         com.yxcorp.kuaishou.addfp.android.b.b.a();
-                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{s.f53810i, "android.permission.WRITE_EXTERNAL_STORAGE"})) {
+                        if (com.yxcorp.kuaishou.addfp.android.b.e.b(this.mParamContext, new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"})) {
                             str2 = c.a(this.mParamContext).b("Lm91a2R0ZnQ=");
                         }
                     }

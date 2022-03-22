@@ -27,9 +27,9 @@ public final class BdVideoLog {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -37,10 +37,10 @@ public final class BdVideoLog {
         }
 
         @Override // com.baidu.searchbox.player.utils.VideoLog
-        public boolean isLoggable(int i2, @Nullable String str) {
+        public boolean isLoggable(int i, @Nullable String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) ? BDPlayerConfig.isDebug() : invokeIL.booleanValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) ? BDPlayerConfig.isDebug() : invokeIL.booleanValue;
         }
     }
 
@@ -65,9 +65,9 @@ public final class BdVideoLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -81,10 +81,10 @@ public final class BdVideoLog {
         }
     }
 
-    public static void doLog(int i2, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+    public static void doLog(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
-            sVideoLog.doLog(i2, str, str2, th);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            sVideoLog.doLog(i, str, str2, th);
         }
     }
 

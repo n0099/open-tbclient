@@ -22,22 +22,22 @@ public class s0 {
     public static String a = "appkey";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f53812b = "secretkey";
+    public static String f38983b = "secretkey";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f53813c = "pver";
+    public static String f38984c = "pver";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f53814d = "sdkver";
+    public static String f38985d = "sdkver";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f53815e = "ksid";
+    public static String f38986e = "ksid";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f53816f = "timestamp";
+    public static String f38987f = "timestamp";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f53817g = "sign";
+    public static String f38988g = "sign";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,9 +60,9 @@ public class s0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -76,8 +76,8 @@ public class s0 {
             StringBuilder sb = new StringBuilder();
             try {
                 sb.append(map.get(a));
-                sb.append(map.get(f53812b));
-                sb.append(map.get(f53816f));
+                sb.append(map.get(f38983b));
+                sb.append(map.get(f38987f));
                 return s1.a(sb.toString());
             } catch (Exception unused) {
                 return null;
@@ -96,16 +96,16 @@ public class s0 {
                 String[] a2 = l1.a(context);
                 if (a2 == null || a2.length != 2 || TextUtils.isEmpty(a2[0]) || TextUtils.isEmpty(a2[1])) {
                     str = "16";
-                    str2 = l1.f53713d;
+                    str2 = l1.f38899d;
                 } else {
                     str = a2[0];
                     str2 = a2[1];
                 }
                 HashMap hashMap = new HashMap();
                 hashMap.put(a, str);
-                hashMap.put(f53812b, str2);
-                hashMap.put(f53816f, String.valueOf(System.currentTimeMillis() / 1000));
-                hashMap.put(f53817g, a(hashMap));
+                hashMap.put(f38983b, str2);
+                hashMap.put(f38987f, String.valueOf(System.currentTimeMillis() / 1000));
+                hashMap.put(f38988g, a(hashMap));
                 return hashMap;
             } catch (Exception e2) {
                 e2.printStackTrace();

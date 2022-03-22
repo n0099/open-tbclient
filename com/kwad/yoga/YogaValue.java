@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class YogaValue {
     public static /* synthetic */ Interceptable $ic;
     public static final YogaValue AUTO;
@@ -20,7 +20,7 @@ public class YogaValue {
     public final float value;
 
     /* renamed from: com.kwad.yoga.YogaValue$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaUnit;
         public static /* synthetic */ Interceptable $ic;
@@ -79,17 +79,17 @@ public class YogaValue {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public YogaValue(float f2, int i2) {
-        this(f2, YogaUnit.fromInt(i2));
+    public YogaValue(float f2, int i) {
+        this(f2, YogaUnit.fromInt(i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Integer.valueOf(i2)};
+            Object[] objArr = {Float.valueOf(f2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Float) objArr2[0]).floatValue(), (YogaUnit) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -106,9 +106,9 @@ public class YogaValue {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), yogaUnit};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -157,11 +157,11 @@ public class YogaValue {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$kwad$yoga$YogaUnit[this.unit.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 == 4) {
+            int i = AnonymousClass1.$SwitchMap$com$kwad$yoga$YogaUnit[this.unit.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 4) {
                             return "auto";
                         }
                         throw new IllegalStateException();

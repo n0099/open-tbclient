@@ -3,6 +3,7 @@ package c.a.a.b;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,13 +16,13 @@ public class b {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1061b;
+    public static String f1028b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TextUtils.isEmpty(a) ? "armeabi-v7a" : a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TextUtils.isEmpty(a) ? PassBiometricUtil.CPU_TYPE_ARMEABI_V7A : a : (String) invokeV.objValue;
     }
 
     public static String b(Context context) {
@@ -57,8 +58,8 @@ public class b {
                 bytes = null;
             } else {
                 int length = bytes.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    bytes[i2] = (byte) (bytes[i2] ^ 18);
+                for (int i = 0; i < length; i++) {
+                    bytes[i] = (byte) (bytes[i] ^ 18);
                 }
             }
             return new String(b.a.a.d.a.a(new String(bytes)));
@@ -130,7 +131,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
             String str = "https://rtc-so.cdn.bcebos.com" + i() + h();
-            f1061b = str;
+            f1028b = str;
             return str;
         }
         return (String) invokeV.objValue;
@@ -140,10 +141,10 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            if (TextUtils.isEmpty(f1061b)) {
+            if (TextUtils.isEmpty(f1028b)) {
                 j();
             }
-            return c(context, f1061b) + File.separator + "jniLibs" + File.separator + a();
+            return c(context, f1028b) + File.separator + "jniLibs" + File.separator + a();
         }
         return (String) invokeL.objValue;
     }
@@ -202,7 +203,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                str = "armeabi-v7a";
+                str = PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
             }
             a = str;
         }

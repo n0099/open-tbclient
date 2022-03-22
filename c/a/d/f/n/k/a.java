@@ -12,7 +12,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f2747b;
+    public static a f2271b;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
@@ -36,9 +36,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -51,21 +51,21 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2747b == null) {
+            if (f2271b == null) {
                 synchronized (a.class) {
-                    if (f2747b == null) {
-                        f2747b = new a();
+                    if (f2271b == null) {
+                        f2271b = new a();
                     }
                 }
             }
-            return f2747b;
+            return f2271b;
         }
         return (a) invokeV.objValue;
     }
 
     public synchronized long a() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
@@ -74,9 +74,9 @@ public class a {
                 } else {
                     this.a = System.currentTimeMillis();
                 }
-                j2 = this.a;
+                j = this.a;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

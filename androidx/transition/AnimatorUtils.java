@@ -26,9 +26,9 @@ public class AnimatorUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,8 +53,8 @@ public class AnimatorUtils {
             ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
             if (listeners != null) {
                 int size = listeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    Animator.AnimatorListener animatorListener = listeners.get(i2);
+                for (int i = 0; i < size; i++) {
+                    Animator.AnimatorListener animatorListener = listeners.get(i);
                     if (animatorListener instanceof AnimatorPauseListenerCompat) {
                         ((AnimatorPauseListenerCompat) animatorListener).onAnimationPause(animator);
                     }
@@ -73,8 +73,8 @@ public class AnimatorUtils {
             ArrayList<Animator.AnimatorListener> listeners = animator.getListeners();
             if (listeners != null) {
                 int size = listeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    Animator.AnimatorListener animatorListener = listeners.get(i2);
+                for (int i = 0; i < size; i++) {
+                    Animator.AnimatorListener animatorListener = listeners.get(i);
                     if (animatorListener instanceof AnimatorPauseListenerCompat) {
                         ((AnimatorPauseListenerCompat) animatorListener).onAnimationResume(animator);
                     }

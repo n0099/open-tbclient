@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class IceCandidate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,23 +15,23 @@ public class IceCandidate {
     public final String sdpMid;
     public final String serverUrl;
 
-    public IceCandidate(String str, int i2, String str2) {
+    public IceCandidate(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.sdpMid = str;
-        this.sdpMLineIndex = i2;
+        this.sdpMLineIndex = i;
         this.sdp = str2;
         this.serverUrl = "";
     }
@@ -60,23 +60,23 @@ public class IceCandidate {
     }
 
     @CalledByNative
-    public IceCandidate(String str, int i2, String str2, String str3) {
+    public IceCandidate(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.sdpMid = str;
-        this.sdpMLineIndex = i2;
+        this.sdpMLineIndex = i;
         this.sdp = str2;
         this.serverUrl = str3;
     }

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.retrieve.log;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.NetWorkUtils;
 import com.baidu.pyramid.annotation.Service;
@@ -48,9 +49,9 @@ public class FetchLogJob extends IFetchJob {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -74,7 +75,7 @@ public class FetchLogJob extends IFetchJob {
             return;
         }
         if (DEBUG) {
-            String str = "日志回捞收到命令 " + jSONObject;
+            Log.i(TAG, "日志回捞收到命令 " + jSONObject);
         }
         if ("1".equals(parseJsonContent.getNetwork()) && !NetWorkUtils.NetType.WIFI.equals(NetWorkUtils.getNetworkType())) {
             statDispatchData(false, parseJsonContent, "2");

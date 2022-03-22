@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ApkItemInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class ApkItemInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,9 +61,9 @@ public class ApkItemInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -160,10 +160,10 @@ public class ApkItemInfo {
         }
     }
 
-    public void setIsSystemApp(int i2) {
+    public void setIsSystemApp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.isSystemApp = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.isSystemApp = i;
         }
     }
 
@@ -188,10 +188,10 @@ public class ApkItemInfo {
         }
     }
 
-    public void setVersionCode(int i2) {
+    public void setVersionCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.versionCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.versionCode = i;
         }
     }
 

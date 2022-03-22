@@ -29,7 +29,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ResourceManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DRAWABLE = "drawable";
@@ -55,7 +55,7 @@ public class ResourceManager {
                 return;
             }
         }
-        PRE_INSTALL_DRAWBLE_PATHS = new String[]{DRAWABLE_XXHDPI, DRAWABLE_XHDPI, DRAWABLE_HDPI, DRAWABLE_MDPI, DRAWABLE_LDPI, "drawable"};
+        PRE_INSTALL_DRAWBLE_PATHS = new String[]{DRAWABLE_XXHDPI, DRAWABLE_XHDPI, DRAWABLE_HDPI, DRAWABLE_MDPI, DRAWABLE_LDPI, DRAWABLE};
     }
 
     public ResourceManager() {
@@ -63,19 +63,19 @@ public class ResourceManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ColorStateList createColorStateList(int i2, int i3) {
+    public static ColorStateList createColorStateList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? new ColorStateList(new int[][]{new int[]{16842919}, new int[]{16842913}, new int[]{16842908}, StateSet.WILD_CARD}, new int[]{i3, i3, i3, i2}) : (ColorStateList) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? new ColorStateList(new int[][]{new int[]{16842919}, new int[]{16842913}, new int[]{16842908}, StateSet.WILD_CARD}, new int[]{i2, i2, i2, i}) : (ColorStateList) invokeII.objValue;
     }
 
     public static StateListDrawable createStateListDrawable(Context context, String str, String str2) {
@@ -104,10 +104,10 @@ public class ResourceManager {
         return (StateListDrawable) invokeLLL.objValue;
     }
 
-    public static int dp2px(Context context, int i2) {
+    public static int dp2px(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) ? (int) ((i2 * context.getResources().getDisplayMetrics().density) + 0.5d) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) ? (int) ((i * context.getResources().getDisplayMetrics().density) + 0.5d) : invokeLI.intValue;
     }
 
     public static Drawable extractDrawable(Context context, String str) throws Exception {
@@ -147,46 +147,46 @@ public class ResourceManager {
             }
             String currentDpiFolder = getCurrentDpiFolder(context);
             LogUtil.d(TAG, "find Appropriate path...");
-            int i2 = 0;
+            int i = 0;
+            int i2 = -1;
             int i3 = -1;
             int i4 = -1;
-            int i5 = -1;
             while (true) {
                 String[] strArr = PRE_INSTALL_DRAWBLE_PATHS;
-                if (i2 >= strArr.length) {
-                    i2 = -1;
+                if (i >= strArr.length) {
+                    i = -1;
                     break;
                 }
-                if (strArr[i2].equals(currentDpiFolder)) {
-                    i4 = i2;
+                if (strArr[i].equals(currentDpiFolder)) {
+                    i3 = i;
                 }
-                String str2 = PRE_INSTALL_DRAWBLE_PATHS[i2] + "/" + str;
+                String str2 = PRE_INSTALL_DRAWBLE_PATHS[i] + "/" + str;
                 if (isFileExisted(context, str2)) {
-                    if (i4 != i2) {
-                        if (i4 >= 0) {
+                    if (i3 != i) {
+                        if (i3 >= 0) {
                             break;
                         }
-                        i5 = i2;
+                        i4 = i;
                     } else {
                         return str2;
                     }
                 }
-                i2++;
+                i++;
             }
-            if (i5 <= 0 || i2 <= 0) {
-                if (i5 <= 0 || i2 >= 0) {
-                    if (i5 >= 0 || i2 <= 0) {
+            if (i4 <= 0 || i <= 0) {
+                if (i4 <= 0 || i >= 0) {
+                    if (i4 >= 0 || i <= 0) {
                         LogUtil.e(TAG, "Not find the appropriate path for drawable");
                     }
-                    i3 = i2;
+                    i2 = i;
                 }
-                i3 = i5;
+                i2 = i4;
             }
-            if (i3 < 0) {
+            if (i2 < 0) {
                 LogUtil.e(TAG, "Not find the appropriate path for drawable");
                 return null;
             }
-            return PRE_INSTALL_DRAWBLE_PATHS[i3] + "/" + str;
+            return PRE_INSTALL_DRAWBLE_PATHS[i2] + "/" + str;
         }
         return (String) invokeLL.objValue;
     }
@@ -195,8 +195,8 @@ public class ResourceManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            int i2 = context.getResources().getDisplayMetrics().densityDpi;
-            return i2 <= 120 ? DRAWABLE_LDPI : (i2 <= 120 || i2 > 160) ? (i2 <= 160 || i2 > 240) ? (i2 <= 240 || i2 > 320) ? DRAWABLE_XXHDPI : DRAWABLE_XHDPI : DRAWABLE_HDPI : DRAWABLE_MDPI;
+            int i = context.getResources().getDisplayMetrics().densityDpi;
+            return i <= 120 ? DRAWABLE_LDPI : (i <= 120 || i > 160) ? (i <= 160 || i > 240) ? (i <= 240 || i > 320) ? DRAWABLE_XXHDPI : DRAWABLE_XHDPI : DRAWABLE_HDPI : DRAWABLE_MDPI;
         }
         return (String) invokeL.objValue;
     }

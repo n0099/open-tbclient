@@ -10,9 +10,13 @@ public final class R$attr {
     public static final int barrierAllowsGoneWidgets = 2130968684;
     public static final int barrierDirection = 2130968685;
     public static final int chainUseRtl = 2130968763;
-    public static final int constraintSet = 2130968823;
+
+    /* renamed from: constraintSet */
+    public static final int obfuscated = 2130968823;
     public static final int constraint_referenced_ids = 2130968824;
-    public static final int content = 2130968825;
+
+    /* renamed from: content */
+    public static final int obfuscated = 2130968825;
     public static final int emptyVisibility = 2130968898;
     public static final int layout_constrainedHeight = 2130969118;
     public static final int layout_constrainedWidth = 2130969119;
@@ -71,9 +75,9 @@ public final class R$attr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -2,8 +2,8 @@ package com.baidu.searchbox.network.outback;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.a.b.a;
-import c.a.i0.a.b.c;
+import c.a.g0.a.b.a;
+import c.a.g0.a.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.core.CallFactory;
 import com.baidu.searchbox.network.outback.core.CallFactoryParams;
@@ -25,9 +25,9 @@ public class OutbackComponent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -157,7 +157,7 @@ public class OutbackComponent {
             if (outbackComponentHolder.outbackContextHolder == null) {
                 outbackComponentHolder.outbackContextHolder = new a();
             }
-            this.componentHolder.outbackContextHolder.a(new c.a.i0.a.a<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
+            this.componentHolder.outbackContextHolder.a(new c.a.g0.a.a<IOutbackContext>(this, iOutbackContext) { // from class: com.baidu.searchbox.network.outback.OutbackComponent.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ OutbackComponent this$0;
@@ -170,9 +170,9 @@ public class OutbackComponent {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iOutbackContext};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -184,7 +184,7 @@ public class OutbackComponent {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.i0.a.a
+                @Override // c.a.g0.a.a
                 public IOutbackContext get() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;

@@ -19,23 +19,23 @@ public abstract class k {
     public static final k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final k f35530b;
+    public static final k f27412b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f35531c;
+    public static final k f27413c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final k f35532d;
+    public static final k f27414d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final k f35533e;
+    public static final k f27415e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final /* synthetic */ k[] f35534g;
+    public static final /* synthetic */ k[] f27416g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f35535f;
+    public int f27417f;
 
     static {
         InterceptResult invokeClinit;
@@ -63,9 +63,9 @@ public abstract class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -82,7 +82,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new n() : (j) invokeV.objValue;
             }
         };
-        f35530b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
+        f27412b = new k("APP_LIST", 1, 1) { // from class: com.baidu.mobstat.k.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -95,9 +95,9 @@ public abstract class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -114,7 +114,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new q() : (j) invokeV.objValue;
             }
         };
-        f35531c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
+        f27413c = new k("APP_TRACE", 2, 2) { // from class: com.baidu.mobstat.k.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -127,9 +127,9 @@ public abstract class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -146,7 +146,7 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new r() : (j) invokeV.objValue;
             }
         };
-        f35532d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
+        f27414d = new k("APP_CHANGE", 3, 3) { // from class: com.baidu.mobstat.k.4
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -159,9 +159,9 @@ public abstract class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -191,9 +191,9 @@ public abstract class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -210,8 +210,8 @@ public abstract class k {
                 return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? new o() : (j) invokeV.objValue;
             }
         };
-        f35533e = kVar;
-        f35534g = new k[]{a, f35530b, f35531c, f35532d, kVar};
+        f27415e = kVar;
+        f27416g = new k[]{a, f27412b, f27413c, f27414d, kVar};
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
@@ -260,7 +260,7 @@ public abstract class k {
     public static k[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (k[]) f35534g.clone() : (k[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? (k[]) f27416g.clone() : (k[]) invokeV.objValue;
     }
 
     public abstract j a();
@@ -280,10 +280,10 @@ public abstract class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized ArrayList<i> a(int i2, int i3) {
+    public synchronized ArrayList<i> a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(1048579, this, i2, i3)) != null) {
+        if (interceptable != null && (invokeII = interceptable.invokeII(1048579, this, i, i2)) != null) {
             return (ArrayList) invokeII.objValue;
         }
         synchronized (this) {
@@ -297,7 +297,7 @@ public abstract class k {
                     }
                     return arrayList;
                 }
-                arrayList = jVar.a(i2, i3);
+                arrayList = jVar.a(i, i2);
             } catch (Exception e2) {
                 bb.c().b(e2);
             }
@@ -321,19 +321,19 @@ public abstract class k {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f35535f) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? String.valueOf(this.f27417f) : (String) invokeV.objValue;
     }
 
-    public k(String str, int i2, int i3) {
+    public k(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -342,16 +342,16 @@ public abstract class k {
                 return;
             }
         }
-        this.f35535f = i3;
+        this.f27417f = i2;
     }
 
-    public synchronized boolean b(int i2) {
+    public synchronized boolean b(int i) {
         InterceptResult invokeI;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             synchronized (this) {
-                z = c() >= i2;
+                z = c() >= i;
             }
             return z;
         }
@@ -373,14 +373,14 @@ public abstract class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public synchronized long a(long j2, String str) {
+    public synchronized long a(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, str)) != null) {
+        if (interceptable != null && (invokeJL = interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str)) != null) {
             return invokeJL.longValue;
         }
         synchronized (this) {
-            long j3 = -1;
+            long j2 = -1;
             j jVar = null;
             try {
                 jVar = a();
@@ -390,7 +390,7 @@ public abstract class k {
                     }
                     return -1L;
                 }
-                j3 = jVar.a(String.valueOf(j2), str);
+                j2 = jVar.a(String.valueOf(j), str);
             } catch (Exception e2) {
                 bb.c().b(e2);
             }
@@ -402,7 +402,7 @@ public abstract class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (arrayList != null) {
                     if (arrayList.size() != 0) {
                         j jVar = null;
@@ -418,32 +418,32 @@ public abstract class k {
                             return 0;
                         }
                         int size = arrayList.size();
-                        int i3 = 0;
-                        while (i2 < size) {
+                        int i2 = 0;
+                        while (i < size) {
                             try {
-                                if (!jVar.b(arrayList.get(i2).longValue())) {
+                                if (!jVar.b(arrayList.get(i).longValue())) {
                                     if (jVar != null) {
                                         jVar.close();
                                     }
-                                    return i3;
+                                    return i2;
                                 }
-                                i3++;
                                 i2++;
+                                i++;
                             } catch (Exception e3) {
                                 e = e3;
-                                i2 = i3;
+                                i = i2;
                                 bb.c().b(e);
                                 if (jVar != null) {
                                     jVar.close();
                                 }
-                                i3 = i2;
-                                return i3;
+                                i2 = i;
+                                return i2;
                             }
                         }
                         if (jVar != null) {
                             jVar.close();
                         }
-                        return i3;
+                        return i2;
                     }
                 }
                 return 0;
@@ -452,16 +452,16 @@ public abstract class k {
         return invokeL.intValue;
     }
 
-    public synchronized List<String> a(int i2) {
+    public synchronized List<String> a(int i) {
         InterceptResult invokeI;
         List<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             synchronized (this) {
                 arrayList = new ArrayList<>();
                 ArrayList<Long> arrayList2 = new ArrayList<>();
                 ArrayList<i> arrayList3 = new ArrayList<>();
-                a(arrayList, arrayList2, arrayList3, i2, 500);
+                a(arrayList, arrayList2, arrayList3, i, 500);
                 if (arrayList3.size() != 0 && arrayList.size() == 0 && arrayList2.size() == 0) {
                     i iVar = arrayList3.get(0);
                     long a2 = iVar.a();
@@ -479,19 +479,19 @@ public abstract class k {
         return (List) invokeI.objValue;
     }
 
-    private int a(List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i2, int i3) {
+    private int a(List<String> list, ArrayList<Long> arrayList, ArrayList<i> arrayList2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{list, arrayList, arrayList2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{list, arrayList, arrayList2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             int c2 = c();
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
             while (c2 > 0) {
-                if (c2 < i3) {
-                    i3 = c2;
+                if (c2 < i2) {
+                    i2 = c2;
                 }
-                ArrayList<i> a2 = a(i3, i5);
-                if (i5 == 0 && a2.size() != 0) {
+                ArrayList<i> a2 = a(i2, i4);
+                if (i4 == 0 && a2.size() != 0) {
                     arrayList2.add(a2.get(0));
                 }
                 Iterator<i> it = a2.iterator();
@@ -499,18 +499,18 @@ public abstract class k {
                     i next = it.next();
                     long a3 = next.a();
                     String b2 = next.b();
-                    int length = b2.length() + i4;
-                    if (length > i2) {
+                    int length = b2.length() + i3;
+                    if (length > i) {
                         break;
                     }
                     arrayList.add(Long.valueOf(a3));
                     list.add(b2);
-                    i4 = length;
+                    i3 = length;
                 }
-                c2 -= i3;
-                i5 += i3;
+                c2 -= i2;
+                i4 += i2;
             }
-            return i4;
+            return i3;
         }
         return invokeCommon.intValue;
     }

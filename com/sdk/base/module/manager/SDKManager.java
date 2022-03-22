@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.a.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class SDKManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean closePermission = false;
@@ -45,9 +45,9 @@ public abstract class SDKManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -126,14 +126,14 @@ public abstract class SDKManager {
     public static void setDebug(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            f.f57798b = z;
+            f.f42567b = z;
         }
     }
 
     public static void setDebugHead(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            f.f57800d = z;
+            f.f42569d = z;
         }
     }
 
@@ -179,12 +179,12 @@ public abstract class SDKManager {
         }
     }
 
-    public static <T> void toFailed(CallBack<T> callBack, int i2, String str) {
+    public static <T> void toFailed(CallBack<T> callBack, int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65556, null, callBack, i2, str) == null) || callBack == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65556, null, callBack, i, str) == null) || callBack == null) {
             return;
         }
-        callBack.onFailed(1, i2, str, null);
+        callBack.onFailed(1, i, str, null);
     }
 
     public static boolean useCache() {

@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.accelerator;
 
-import c.a.r0.d1.r2.c;
+import c.a.p0.f1.r2.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,9 +31,9 @@ public class AcceleratorData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {tokenInfo, itemData, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,8 +63,8 @@ public class AcceleratorData implements Serializable {
             JSONArray optJSONArray = jSONObject.optJSONArray("tornado_node_info");
             if (optJSONArray != null) {
                 arrayList = new ArrayList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    arrayList.add(TornadoNodeInfo.parseJson(optJSONArray.optJSONObject(i2)));
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    arrayList.add(TornadoNodeInfo.parseJson(optJSONArray.optJSONObject(i)));
                 }
             }
             return new AcceleratorData(parseJson, itemData, arrayList);
@@ -90,10 +90,10 @@ public class AcceleratorData implements Serializable {
                 return this.availableTornadoNodeInfoList;
             }
             this.availableTornadoNodeInfoList = new ArrayList();
-            for (int i2 = 0; i2 < this.tornadoNodeInfoList.size(); i2++) {
-                if (c.a(this.tornadoNodeInfoList.get(i2).getPackageName()) != null) {
-                    this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i2));
-                    this.availableNodesNum += this.tornadoNodeInfoList.get(i2).getNodeInfoList().size();
+            for (int i = 0; i < this.tornadoNodeInfoList.size(); i++) {
+                if (c.a(this.tornadoNodeInfoList.get(i).getPackageName()) != null) {
+                    this.availableTornadoNodeInfoList.add(this.tornadoNodeInfoList.get(i));
+                    this.availableNodesNum += this.tornadoNodeInfoList.get(i).getNodeInfoList().size();
                 }
             }
             if (this.availableTornadoNodeInfoList.isEmpty()) {

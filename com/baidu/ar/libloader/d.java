@@ -21,9 +21,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,8 +40,8 @@ public class d {
         int size = list.size();
         ILibLoader.c[] cVarArr = new ILibLoader.c[size];
         list.toArray(cVarArr);
-        for (int i2 = 0; i2 < size; i2++) {
-            cVarArr[i2].onReady();
+        for (int i = 0; i < size; i++) {
+            cVarArr[i].onReady();
         }
     }
 

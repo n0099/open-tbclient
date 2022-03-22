@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
@@ -12,29 +12,40 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int ACTIVE_STATUS_JUST_BEEN_TO = 2;
-    public static final int ACTIVE_STATUS_OFFLINE = 3;
-    public static final int ACTIVE_STATUS_ONLINE = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public HeadImageView mForumFriendItemHeadImg;
-    public ImageView mIvForumFriendItemHi;
-    public ImageView mIvForumFriendItemSex;
-    public View mLayoutForumFriendItemHi;
-    public View mLayoutForumFriendItemSexAge;
-    public View mRootView;
-    public TextView mTvForumFriendItemActiveStatus;
-    public TextView mTvForumFriendItemAge;
-    public TextView mTvForumFriendItemDistance;
-    public TextView mTvForumFriendItemDot;
-    public TextView mTvForumFriendItemHi;
-    public TextView mTvForumFriendItemLabel;
-    public TextView mTvForumFriendItemNickname;
-    public TextView mTvForumFriendItemSign;
-    public TextView mTvForumFriendItemSlogan;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f34587b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public HeadImageView f34588c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34589d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f34590e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f34591f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public TextView f34592g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public TextView f34593h;
+    public TextView i;
+    public TextView j;
+    public View k;
+    public ImageView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendItemViewHolder(View view, Context context) {
@@ -45,9 +56,9 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -55,55 +66,55 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.mRootView = view.findViewById(R.id.rootview);
-        this.mForumFriendItemHeadImg = (HeadImageView) view.findViewById(R.id.img_forum_friend_item_head);
-        this.mTvForumFriendItemNickname = (TextView) view.findViewById(R.id.tv_forum_friend_item_nickname);
-        this.mTvForumFriendItemSlogan = (TextView) view.findViewById(R.id.tv_forum_friend_item_slogan);
-        this.mLayoutForumFriendItemSexAge = view.findViewById(R.id.layout_forum_friend_item_sex_age);
-        this.mIvForumFriendItemSex = (ImageView) view.findViewById(R.id.iv_forum_friend_item_sex);
-        this.mTvForumFriendItemAge = (TextView) view.findViewById(R.id.tv_forum_friend_item_age);
-        this.mTvForumFriendItemSign = (TextView) view.findViewById(R.id.tv_forum_friend_item_sign);
-        this.mTvForumFriendItemDistance = (TextView) view.findViewById(R.id.tv_forum_friend_item_distance);
-        this.mTvForumFriendItemLabel = (TextView) view.findViewById(R.id.tv_forum_friend_item_label);
-        this.mLayoutForumFriendItemHi = view.findViewById(R.id.layout_forum_friend_item_hi);
-        this.mIvForumFriendItemHi = (ImageView) view.findViewById(R.id.iv_forum_friend_item_hi);
-        this.mTvForumFriendItemHi = (TextView) view.findViewById(R.id.tv_forum_friend_item_hi);
-        this.mTvForumFriendItemDot = (TextView) view.findViewById(R.id.tv_forum_friend_item_dot);
-        this.mTvForumFriendItemActiveStatus = (TextView) view.findViewById(R.id.tv_forum_friend_item_active_status);
-        b();
+        this.f34587b = view.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.f34588c = (HeadImageView) view.findViewById(R.id.obfuscated_res_0x7f090eb4);
+        this.f34589d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b6);
+        this.n = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b8);
+        this.f34590e = view.findViewById(R.id.obfuscated_res_0x7f0911dd);
+        this.f34591f = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090fd4);
+        this.f34592g = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b1);
+        this.f34593h = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b7);
+        this.i = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b2);
+        this.j = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b5);
+        this.k = view.findViewById(R.id.obfuscated_res_0x7f0911dc);
+        this.l = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090fd3);
+        this.m = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b4);
+        this.o = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b3);
+        this.p = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921b0);
+        c();
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mForumFriendItemHeadImg.setConrers(15);
-            this.mForumFriendItemHeadImg.setIsRound(true);
-            this.mForumFriendItemHeadImg.setPlaceHolder(3);
-            c d2 = c.d(this.mTvForumFriendItemNickname);
+            this.f34588c.setConrers(15);
+            this.f34588c.setIsRound(true);
+            this.f34588c.setPlaceHolder(3);
+            c d2 = c.d(this.f34589d);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X06);
-            c d3 = c.d(this.mTvForumFriendItemAge);
+            c d3 = c.d(this.f34592g);
             d3.A(R.string.F_X01);
             d3.z(R.dimen.T_X10);
-            c d4 = c.d(this.mTvForumFriendItemSign);
+            c d4 = c.d(this.f34593h);
             d4.A(R.string.F_X01);
             d4.z(R.dimen.T_X10);
-            c d5 = c.d(this.mTvForumFriendItemDistance);
+            c d5 = c.d(this.i);
             d5.A(R.string.F_X01);
             d5.z(R.dimen.T_X10);
-            c d6 = c.d(this.mTvForumFriendItemDot);
+            c d6 = c.d(this.o);
             d6.A(R.string.F_X01);
             d6.z(R.dimen.T_X10);
-            c d7 = c.d(this.mTvForumFriendItemActiveStatus);
+            c d7 = c.d(this.p);
             d7.z(R.string.F_X01);
             d7.z(R.dimen.T_X10);
-            c d8 = c.d(this.mTvForumFriendItemHi);
+            c d8 = c.d(this.m);
             d8.A(R.string.F_X01);
             d8.z(R.dimen.T_X08);
-            c d9 = c.d(this.mTvForumFriendItemLabel);
+            c d9 = c.d(this.j);
             d9.A(R.string.F_X01);
             d9.z(R.dimen.T_X10);
-            c d10 = c.d(this.mTvForumFriendItemSlogan);
+            c d10 = c.d(this.n);
             d10.A(R.string.F_X01);
             d10.z(R.dimen.T_X08);
         }

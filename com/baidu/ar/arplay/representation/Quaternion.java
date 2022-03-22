@@ -21,9 +21,9 @@ public class Quaternion extends Vector4f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,40 +79,40 @@ public class Quaternion extends Vector4f {
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             float[] matrix = this.matrix.getMatrix();
             int[] iArr = this.matrix.size() == 16 ? this.matrix.isColumnMajor() ? Matrixf4x4.MAT_IND_COL_IN16_WITH3X3 : Matrixf4x4.MAT_IND_ROW_IN16_WITH3X3 : this.matrix.isColumnMajor() ? Matrixf4x4.MAT_IND_COL_IN9_WITH3X3 : Matrixf4x4.MAT_IND_ROW_IN9_WITH3X3;
-            int i2 = iArr[0];
-            int i3 = iArr[1];
-            int i4 = iArr[2];
-            int i5 = iArr[3];
-            int i6 = iArr[4];
-            int i7 = iArr[5];
-            int i8 = iArr[6];
-            int i9 = iArr[7];
-            int i10 = iArr[8];
+            int i = iArr[0];
+            int i2 = iArr[1];
+            int i3 = iArr[2];
+            int i4 = iArr[3];
+            int i5 = iArr[4];
+            int i6 = iArr[5];
+            int i7 = iArr[6];
+            int i8 = iArr[7];
+            int i9 = iArr[8];
             if (this.matrix.size() >= 9) {
-                float f6 = matrix[i2] + matrix[i6] + matrix[i10];
+                float f6 = matrix[i] + matrix[i5] + matrix[i9];
                 if (f6 > 0.0f) {
                     float sqrt = ((float) Math.sqrt(f6 + 1.0d)) * 2.0f;
                     f2 = 0.25f * sqrt;
-                    f3 = (matrix[i9] - matrix[i7]) / sqrt;
-                    f4 = (matrix[i4] - matrix[i8]) / sqrt;
-                    f5 = (matrix[i5] - matrix[i3]) / sqrt;
-                } else if (matrix[i2] > matrix[i6] && matrix[i2] > matrix[i10]) {
-                    float sqrt2 = ((float) Math.sqrt(((matrix[i2] + 1.0d) - matrix[i6]) - matrix[i10])) * 2.0f;
-                    f2 = (matrix[i9] - matrix[i7]) / sqrt2;
+                    f3 = (matrix[i8] - matrix[i6]) / sqrt;
+                    f4 = (matrix[i3] - matrix[i7]) / sqrt;
+                    f5 = (matrix[i4] - matrix[i2]) / sqrt;
+                } else if (matrix[i] > matrix[i5] && matrix[i] > matrix[i9]) {
+                    float sqrt2 = ((float) Math.sqrt(((matrix[i] + 1.0d) - matrix[i5]) - matrix[i9])) * 2.0f;
+                    f2 = (matrix[i8] - matrix[i6]) / sqrt2;
                     f3 = 0.25f * sqrt2;
-                    f5 = (matrix[i4] + matrix[i8]) / sqrt2;
-                    f4 = (matrix[i3] + matrix[i5]) / sqrt2;
-                } else if (matrix[i6] > matrix[i10]) {
-                    float sqrt3 = ((float) Math.sqrt(((matrix[i6] + 1.0d) - matrix[i2]) - matrix[i10])) * 2.0f;
-                    f2 = (matrix[i4] - matrix[i8]) / sqrt3;
-                    f3 = (matrix[i3] + matrix[i5]) / sqrt3;
+                    f5 = (matrix[i3] + matrix[i7]) / sqrt2;
+                    f4 = (matrix[i2] + matrix[i4]) / sqrt2;
+                } else if (matrix[i5] > matrix[i9]) {
+                    float sqrt3 = ((float) Math.sqrt(((matrix[i5] + 1.0d) - matrix[i]) - matrix[i9])) * 2.0f;
+                    f2 = (matrix[i3] - matrix[i7]) / sqrt3;
+                    f3 = (matrix[i2] + matrix[i4]) / sqrt3;
                     f4 = sqrt3 * 0.25f;
-                    f5 = (matrix[i7] + matrix[i9]) / sqrt3;
+                    f5 = (matrix[i6] + matrix[i8]) / sqrt3;
                 } else {
-                    float sqrt4 = ((float) Math.sqrt(((matrix[i10] + 1.0d) - matrix[i2]) - matrix[i6])) * 2.0f;
-                    f2 = (matrix[i5] - matrix[i3]) / sqrt4;
-                    f3 = (matrix[i4] + matrix[i8]) / sqrt4;
-                    f4 = (matrix[i7] + matrix[i9]) / sqrt4;
+                    float sqrt4 = ((float) Math.sqrt(((matrix[i9] + 1.0d) - matrix[i]) - matrix[i5])) * 2.0f;
+                    f2 = (matrix[i4] - matrix[i2]) / sqrt4;
+                    f3 = (matrix[i3] + matrix[i7]) / sqrt4;
+                    f4 = (matrix[i6] + matrix[i8]) / sqrt4;
                     f5 = sqrt4 * 0.25f;
                 }
                 setX(f3);
@@ -143,7 +143,7 @@ public class Quaternion extends Vector4f {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public Quaternion m33clone() {
+    public Quaternion m31clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {

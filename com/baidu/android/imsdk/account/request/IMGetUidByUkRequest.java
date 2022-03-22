@@ -36,9 +36,9 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
             newInitContext.initArgs = r2;
             Object[] objArr = {context, jArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,9 +54,9 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, jArr)) == null) {
             StringBuilder sb = new StringBuilder("" + jArr[0]);
-            for (int i2 = 1; i2 < jArr.length; i2++) {
+            for (int i = 1; i < jArr.length; i++) {
                 sb.append(",");
-                sb.append(jArr[i2]);
+                sb.append(jArr[i]);
             }
             return sb.toString();
         }
@@ -146,24 +146,24 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048583, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048583, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mUks, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         TreeMap treeMap;
         String str;
+        int i2;
         int i3;
-        int i4;
         String string;
         long[] jArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d("IMGetUidByUkRequest", str2);
             TreeMap treeMap2 = null;
@@ -171,13 +171,13 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i4 = jSONObject2.getInt("error_code");
-                    if (i4 == 0) {
+                    i3 = jSONObject2.getInt("error_code");
+                    if (i3 == 0) {
                         TreeMap treeMap3 = new TreeMap();
                         try {
                             JSONObject jSONObject3 = jSONObject2.getJSONObject("info");
-                            for (long j2 : this.mUks) {
-                                treeMap3.put(Long.valueOf(j2), Long.valueOf(jSONObject3.optLong("" + j2, -1L)));
+                            for (long j : this.mUks) {
+                                treeMap3.put(Long.valueOf(j), Long.valueOf(jSONObject3.optLong("" + j, -1L)));
                             }
                             treeMap2 = treeMap3;
                         } catch (JSONException e2) {
@@ -187,22 +187,22 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                             treeMap = treeMap2;
-                            i3 = 1010;
-                            AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i3, str, this.mUks, treeMap);
+                            i2 = 1010;
+                            AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
                         }
                     }
                     string = Constants.ERROR_MSG_SUCCESS;
                 } else {
-                    i4 = jSONObject.getInt("error_code");
+                    i3 = jSONObject.getInt("error_code");
                     string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 }
                 str = string;
-                i3 = i4;
+                i2 = i3;
                 treeMap = treeMap2;
             } catch (JSONException e3) {
                 e = e3;
             }
-            AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i3, str, this.mUks, treeMap);
+            AccountManagerImpl.getInstance(this.mContext).onGetUidByUkResult(this.mKey, i2, str, this.mUks, treeMap);
         }
     }
 
@@ -216,21 +216,21 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
         return invokeV.booleanValue;
     }
 
-    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i2, bArr, th)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, bArr, th)) == null) {
             if (th != null) {
-                i2 = 1012;
+                i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-            } else if (i2 == 1005) {
+            } else if (i == 1005) {
                 str = new String(bArr);
             } else {
-                str = "http response is error! response code:" + i2;
-                i2 = 1011;
+                str = "http response is error! response code:" + i;
+                i = 1011;
             }
-            return new Pair<>(Integer.valueOf(i2), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

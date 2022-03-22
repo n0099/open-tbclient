@@ -16,7 +16,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\t\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0013\n\u0002\u0010\u0000\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u001a\b\u0086\b\u0018\u0000 J2\u00020\u0001:\u0001JBk\u0012\b\b\u0002\u0010\u0014\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0015\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0016\u001a\u00020\t\u0012\b\b\u0002\u0010\u0017\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0018\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0019\u001a\u00020\u000e\u0012\b\b\u0002\u0010\u001a\u001a\u00020\u000e\u0012\b\b\u0002\u0010\u001b\u001a\u00020\u000e\u0012\b\b\u0002\u0010\u001c\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u001d\u001a\u00020\u0005¢\u0006\u0004\bH\u0010IJ\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0010\u0010\b\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\b\u0010\u0004J\u0010\u0010\n\u001a\u00020\tHÆ\u0003¢\u0006\u0004\b\n\u0010\u000bJ\u0010\u0010\f\u001a\u00020\u0005HÂ\u0003¢\u0006\u0004\b\f\u0010\u0007J\u0010\u0010\r\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\r\u0010\u0007J\u0010\u0010\u000f\u001a\u00020\u000eHÆ\u0003¢\u0006\u0004\b\u000f\u0010\u0010J\u0010\u0010\u0011\u001a\u00020\u000eHÆ\u0003¢\u0006\u0004\b\u0011\u0010\u0010J\u0010\u0010\u0012\u001a\u00020\u000eHÆ\u0003¢\u0006\u0004\b\u0012\u0010\u0010J\u0010\u0010\u0013\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0013\u0010\u0007Jt\u0010\u001e\u001a\u00020\u00002\b\b\u0002\u0010\u0014\u001a\u00020\u00022\b\b\u0002\u0010\u0015\u001a\u00020\u00022\b\b\u0002\u0010\u0016\u001a\u00020\t2\b\b\u0002\u0010\u0017\u001a\u00020\u00052\b\b\u0002\u0010\u0018\u001a\u00020\u00052\b\b\u0002\u0010\u0019\u001a\u00020\u000e2\b\b\u0002\u0010\u001a\u001a\u00020\u000e2\b\b\u0002\u0010\u001b\u001a\u00020\u000e2\b\b\u0002\u0010\u001c\u001a\u00020\u00052\b\b\u0002\u0010\u001d\u001a\u00020\u0005HÆ\u0001¢\u0006\u0004\b\u001e\u0010\u001fJ\u000f\u0010 \u001a\u00020\u0000H\u0016¢\u0006\u0004\b \u0010!J\u001a\u0010$\u001a\u00020\u000e2\b\u0010#\u001a\u0004\u0018\u00010\"HÖ\u0003¢\u0006\u0004\b$\u0010%J\r\u0010&\u001a\u00020\t¢\u0006\u0004\b&\u0010\u000bJ\u0010\u0010'\u001a\u00020\u0005HÖ\u0001¢\u0006\u0004\b'\u0010\u0007J\u000f\u0010(\u001a\u00020\u000eH\u0016¢\u0006\u0004\b(\u0010\u0010J\r\u0010)\u001a\u00020\u000e¢\u0006\u0004\b)\u0010\u0010J\r\u0010*\u001a\u00020\u000e¢\u0006\u0004\b*\u0010\u0010J\r\u0010+\u001a\u00020\u000e¢\u0006\u0004\b+\u0010\u0010J\u000f\u0010-\u001a\u00020,H\u0016¢\u0006\u0004\b-\u0010.J\u000f\u0010/\u001a\u00020\u0002H\u0016¢\u0006\u0004\b/\u0010\u0004J\u0015\u00102\u001a\u0002012\u0006\u00100\u001a\u00020\u0005¢\u0006\u0004\b2\u00103J\u0015\u00105\u001a\u0002012\u0006\u00104\u001a\u00020\u0005¢\u0006\u0004\b5\u00103R\u0016\u0010\u0017\u001a\u00020\u00058\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0017\u00106R\u0019\u0010\u001b\u001a\u00020\u000e8\u0006@\u0006¢\u0006\f\n\u0004\b\u001b\u00107\u001a\u0004\b8\u0010\u0010R\u0019\u0010\u0016\u001a\u00020\t8\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u00109\u001a\u0004\b:\u0010\u000bR\u0019\u0010\u001c\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u001c\u00106\u001a\u0004\b;\u0010\u0007R\u0019\u0010\u001a\u001a\u00020\u000e8\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u00107\u001a\u0004\b<\u0010\u0010R\u0019\u0010\u001d\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u001d\u00106\u001a\u0004\b=\u0010\u0007R\"\u0010\u0018\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0018\u00106\u001a\u0004\b>\u0010\u0007\"\u0004\b?\u00103R\"\u0010@\u001a\u00020\t8F@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b@\u00109\u001a\u0004\bA\u0010\u000b\"\u0004\bB\u0010CR\u0019\u0010\u0019\u001a\u00020\u000e8\u0006@\u0006¢\u0006\f\n\u0004\b\u0019\u00107\u001a\u0004\bD\u0010\u0010R\u0019\u0010\u0015\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0015\u0010E\u001a\u0004\bF\u0010\u0004R\u0019\u0010\u0014\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0014\u0010E\u001a\u0004\bG\u0010\u0004¨\u0006K"}, d2 = {"Lcom/baidu/bdtask/model/rule/TaskRuleData;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()Ljava/lang/String;", "", "component10", "()I", "component2", "", "component3", "()J", "component4", "component5", "", "component6", "()Z", "component7", "component8", "component9", "versionLimit", "url", "expireTime", "_stay", "repeat", TaskRuleData.keyUniq, TaskRuleData.keyPersist, "auto", TaskRuleData.keyNoClickTimes, TaskRuleData.keyPersistOnFail, "copy", "(Ljava/lang/String;Ljava/lang/String;JIIZZZII)Lcom/baidu/bdtask/model/rule/TaskRuleData;", "deepCopy", "()Lcom/baidu/bdtask/model/rule/TaskRuleData;", "", "other", "equals", "(Ljava/lang/Object;)Z", "getFormatStay", TTDownloadField.TT_HASHCODE, "isEmpty", "isNeedPersist", "isNeedSkipRequestError", "isNeedUnique", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "newRepeat", "", "updateMaxRepeat", "(I)V", "newStay", "updateMaxStay", "I", "Z", "getAuto", "J", "getExpireTime", "getNoclickTimes", "getPersist", "getPersistOnFail", "getRepeat", "setRepeat", "stay", "getStay", "setStay", "(J)V", "getUniq", "Ljava/lang/String;", "getUrl", "getVersionLimit", "<init>", "(Ljava/lang/String;Ljava/lang/String;JIIZZZII)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskRuleData implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -47,7 +47,7 @@ public final class TaskRuleData implements ITaskModelData {
     public final String url;
     public final String versionLimit;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public final class TaskRuleData implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -94,9 +94,9 @@ public final class TaskRuleData implements ITaskModelData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((String) objArr[0], (String) objArr[1], ((Long) objArr[2]).longValue(), ((Integer) objArr[3]).intValue(), ((Integer) objArr[4]).intValue(), ((Boolean) objArr[5]).booleanValue(), ((Boolean) objArr[6]).booleanValue(), ((Boolean) objArr[7]).booleanValue(), ((Integer) objArr[8]).intValue(), ((Integer) objArr[9]).intValue(), ((Integer) objArr[10]).intValue(), (DefaultConstructorMarker) objArr[11]);
                 newInitContext.thisArg = this;
@@ -106,16 +106,16 @@ public final class TaskRuleData implements ITaskModelData {
         }
     }
 
-    public TaskRuleData(String str, String str2, long j2, int i2, int i3, boolean z, boolean z2, boolean z3, int i4, int i5) {
+    public TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -123,15 +123,15 @@ public final class TaskRuleData implements ITaskModelData {
         }
         this.versionLimit = str;
         this.url = str2;
-        this.expireTime = j2;
-        this._stay = i2;
-        this.repeat = i3;
+        this.expireTime = j;
+        this._stay = i;
+        this.repeat = i2;
         this.uniq = z;
         this.persist = z2;
         this.auto = z3;
-        this.noclickTimes = i4;
-        this.persistOnFail = i5;
-        this.stay = i2;
+        this.noclickTimes = i3;
+        this.persistOnFail = i4;
+        this.stay = i;
     }
 
     private final int component4() {
@@ -140,8 +140,8 @@ public final class TaskRuleData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? this._stay : invokeV.intValue;
     }
 
-    public static /* synthetic */ TaskRuleData copy$default(TaskRuleData taskRuleData, String str, String str2, long j2, int i2, int i3, boolean z, boolean z2, boolean z3, int i4, int i5, int i6, Object obj) {
-        return taskRuleData.copy((i6 & 1) != 0 ? taskRuleData.versionLimit : str, (i6 & 2) != 0 ? taskRuleData.url : str2, (i6 & 4) != 0 ? taskRuleData.expireTime : j2, (i6 & 8) != 0 ? taskRuleData._stay : i2, (i6 & 16) != 0 ? taskRuleData.repeat : i3, (i6 & 32) != 0 ? taskRuleData.uniq : z, (i6 & 64) != 0 ? taskRuleData.persist : z2, (i6 & 128) != 0 ? taskRuleData.auto : z3, (i6 & 256) != 0 ? taskRuleData.noclickTimes : i4, (i6 & 512) != 0 ? taskRuleData.persistOnFail : i5);
+    public static /* synthetic */ TaskRuleData copy$default(TaskRuleData taskRuleData, String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4, int i5, Object obj) {
+        return taskRuleData.copy((i5 & 1) != 0 ? taskRuleData.versionLimit : str, (i5 & 2) != 0 ? taskRuleData.url : str2, (i5 & 4) != 0 ? taskRuleData.expireTime : j, (i5 & 8) != 0 ? taskRuleData._stay : i, (i5 & 16) != 0 ? taskRuleData.repeat : i2, (i5 & 32) != 0 ? taskRuleData.uniq : z, (i5 & 64) != 0 ? taskRuleData.persist : z2, (i5 & 128) != 0 ? taskRuleData.auto : z3, (i5 & 256) != 0 ? taskRuleData.noclickTimes : i3, (i5 & 512) != 0 ? taskRuleData.persistOnFail : i4);
     }
 
     public final String component1() {
@@ -198,10 +198,10 @@ public final class TaskRuleData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.noclickTimes : invokeV.intValue;
     }
 
-    public final TaskRuleData copy(String str, String str2, long j2, int i2, int i3, boolean z, boolean z2, boolean z3, int i4, int i5) {
+    public final TaskRuleData copy(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? new TaskRuleData(str, str2, j2, i2, i3, z, z2, z3, i4, i5) : (TaskRuleData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? new TaskRuleData(str, str2, j, i, i2, z, z2, z3, i3, i4) : (TaskRuleData) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -314,22 +314,22 @@ public final class TaskRuleData implements ITaskModelData {
             int hashCode = (str != null ? str.hashCode() : 0) * 31;
             String str2 = this.url;
             int hashCode2 = str2 != null ? str2.hashCode() : 0;
-            long j2 = this.expireTime;
-            int i2 = (((((((hashCode + hashCode2) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this._stay) * 31) + this.repeat) * 31;
+            long j = this.expireTime;
+            int i = (((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this._stay) * 31) + this.repeat) * 31;
             boolean z = this.uniq;
-            int i3 = z;
+            int i2 = z;
             if (z != 0) {
-                i3 = 1;
+                i2 = 1;
             }
-            int i4 = (i2 + i3) * 31;
+            int i3 = (i + i2) * 31;
             boolean z2 = this.persist;
-            int i5 = z2;
+            int i4 = z2;
             if (z2 != 0) {
-                i5 = 1;
+                i4 = 1;
             }
-            int i6 = (i4 + i5) * 31;
+            int i5 = (i3 + i4) * 31;
             boolean z3 = this.auto;
-            return ((((i6 + (z3 ? 1 : z3 ? 1 : 0)) * 31) + this.noclickTimes) * 31) + this.persistOnFail;
+            return ((((i5 + (z3 ? 1 : z3 ? 1 : 0)) * 31) + this.noclickTimes) * 31) + this.persistOnFail;
         }
         return invokeV.intValue;
     }
@@ -359,17 +359,17 @@ public final class TaskRuleData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.uniq : invokeV.booleanValue;
     }
 
-    public final void setRepeat(int i2) {
+    public final void setRepeat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.repeat = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.repeat = i;
         }
     }
 
-    public final void setStay(long j2) {
+    public final void setStay(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
-            this.stay = j2;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.stay = j;
         }
     }
 
@@ -405,17 +405,17 @@ public final class TaskRuleData implements ITaskModelData {
         return (String) invokeV.objValue;
     }
 
-    public final void updateMaxRepeat(int i2) {
+    public final void updateMaxRepeat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.repeat = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.repeat = i;
         }
     }
 
-    public final void updateMaxStay(int i2) {
+    public final void updateMaxStay(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this._stay = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this._stay = i;
         }
     }
 
@@ -427,7 +427,7 @@ public final class TaskRuleData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? copy$default(this, null, null, 0L, 0, 0, false, false, false, 0, 0, 1023, null) : (TaskRuleData) invokeV.objValue;
     }
 
-    public /* synthetic */ TaskRuleData(String str, String str2, long j2, int i2, int i3, boolean z, boolean z2, boolean z3, int i4, int i5, int i6, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i6 & 1) != 0 ? "" : str, (i6 & 2) == 0 ? str2 : "", (i6 & 4) != 0 ? 0L : j2, (i6 & 8) != 0 ? 0 : i2, (i6 & 16) != 0 ? 0 : i3, (i6 & 32) != 0 ? false : z, (i6 & 64) != 0 ? false : z2, (i6 & 128) != 0 ? true : z3, (i6 & 256) != 0 ? -1 : i4, (i6 & 512) == 0 ? i5 : 0);
+    public /* synthetic */ TaskRuleData(String str, String str2, long j, int i, int i2, boolean z, boolean z2, boolean z3, int i3, int i4, int i5, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i5 & 1) != 0 ? "" : str, (i5 & 2) == 0 ? str2 : "", (i5 & 4) != 0 ? 0L : j, (i5 & 8) != 0 ? 0 : i, (i5 & 16) != 0 ? 0 : i2, (i5 & 32) != 0 ? false : z, (i5 & 64) != 0 ? false : z2, (i5 & 128) != 0 ? true : z3, (i5 & 256) != 0 ? -1 : i3, (i5 & 512) == 0 ? i4 : 0);
     }
 }

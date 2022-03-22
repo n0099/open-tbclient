@@ -50,7 +50,7 @@ import com.google.android.material.shape.Shapeable;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FloatingActionButtonImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ANIM_STATE_HIDING = 1;
@@ -117,7 +117,7 @@ public class FloatingActionButtonImpl {
     public ArrayList<InternalTransformationCallback> transformationCallbacks;
     public final FloatingActionButton view;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class DisabledElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,9 +132,9 @@ public class FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButtonImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super();
                     newInitContext.thisArg = this;
@@ -156,7 +156,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ElevateToHoveredFocusedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -171,9 +171,9 @@ public class FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButtonImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super();
                     newInitContext.thisArg = this;
@@ -196,7 +196,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ElevateToPressedTranslationZAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -211,9 +211,9 @@ public class FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButtonImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super();
                     newInitContext.thisArg = this;
@@ -236,21 +236,21 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface InternalTransformationCallback {
         void onScaleChanged();
 
         void onTranslationChanged();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface InternalVisibilityChangedListener {
         void onHidden();
 
         void onShown();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ResetElevationAnimation extends ShadowAnimatorImpl {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -265,9 +265,9 @@ public class FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButtonImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super();
                     newInitContext.thisArg = this;
@@ -286,7 +286,7 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public abstract class ShadowAnimatorImpl extends AnimatorListenerAdapter implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,9 +302,9 @@ public class FloatingActionButtonImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingActionButtonImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -370,9 +370,9 @@ public class FloatingActionButtonImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {floatingActionButton, shadowViewDelegate};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -409,11 +409,11 @@ public class FloatingActionButtonImpl {
             RectF rectF = this.tmpRectF1;
             RectF rectF2 = this.tmpRectF2;
             rectF.set(0.0f, 0.0f, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            int i2 = this.maxImageSize;
-            rectF2.set(0.0f, 0.0f, i2, i2);
+            int i = this.maxImageSize;
+            rectF2.set(0.0f, 0.0f, i, i);
             matrix.setRectToRect(rectF, rectF2, Matrix.ScaleToFit.CENTER);
-            int i3 = this.maxImageSize;
-            matrix.postScale(f2, f2, i3 / 2.0f, i3 / 2.0f);
+            int i2 = this.maxImageSize;
+            matrix.postScale(f2, f2, i2 / 2.0f, i2 / 2.0f);
         }
     }
 
@@ -447,9 +447,9 @@ public class FloatingActionButtonImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -501,7 +501,7 @@ public class FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             if (this.defaultHideMotionSpec == null) {
-                this.defaultHideMotionSpec = MotionSpec.createFromResource(this.view.getContext(), R.animator.design_fab_hide_motion_spec);
+                this.defaultHideMotionSpec = MotionSpec.createFromResource(this.view.getContext(), R.animator.obfuscated_res_0x7f020001);
             }
             return (MotionSpec) Preconditions.checkNotNull(this.defaultHideMotionSpec);
         }
@@ -513,7 +513,7 @@ public class FloatingActionButtonImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             if (this.defaultShowMotionSpec == null) {
-                this.defaultShowMotionSpec = MotionSpec.createFromResource(this.view.getContext(), R.animator.design_fab_show_motion_spec);
+                this.defaultShowMotionSpec = MotionSpec.createFromResource(this.view.getContext(), R.animator.obfuscated_res_0x7f020002);
             }
             return (MotionSpec) Preconditions.checkNotNull(this.defaultShowMotionSpec);
         }
@@ -538,9 +538,9 @@ public class FloatingActionButtonImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -588,9 +588,9 @@ public class FloatingActionButtonImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -747,9 +747,9 @@ public class FloatingActionButtonImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), internalVisibilityChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -812,9 +812,9 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i2) {
+    public void initializeBackgroundDrawable(ColorStateList colorStateList, @Nullable PorterDuff.Mode mode, ColorStateList colorStateList2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048590, this, colorStateList, mode, colorStateList2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048590, this, colorStateList, mode, colorStateList2, i) == null) {
             MaterialShapeDrawable createShapeDrawable = createShapeDrawable();
             this.shapeDrawable = createShapeDrawable;
             createShapeDrawable.setTintList(colorStateList);
@@ -1043,19 +1043,19 @@ public class FloatingActionButtonImpl {
         }
     }
 
-    public final void setMaxImageSize(int i2) {
+    public final void setMaxImageSize(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048614, this, i2) == null) || this.maxImageSize == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048614, this, i) == null) || this.maxImageSize == i) {
             return;
         }
-        this.maxImageSize = i2;
+        this.maxImageSize = i;
         updateImageMatrixScale();
     }
 
-    public void setMinTouchTargetSize(int i2) {
+    public void setMinTouchTargetSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.minTouchTargetSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.minTouchTargetSize = i;
         }
     }
 
@@ -1161,9 +1161,9 @@ public class FloatingActionButtonImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), internalVisibilityChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

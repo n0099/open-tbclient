@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.c0.b.d;
-import c.a.r0.c0.b.f;
+import c.a.p0.e0.b.d;
+import c.a.p0.e0.b.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,11 +22,11 @@ public class VotedAreaLayout extends CardBasicLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f40915e;
+    /* renamed from: d  reason: collision with root package name */
+    public Context f31585d;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f40916f;
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f31586e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public VotedAreaLayout(Context context) {
@@ -37,9 +37,9 @@ public class VotedAreaLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -52,14 +52,14 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40916f = (TextView) findViewById(R.id.vote_num);
+            this.f31586e = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
         }
     }
 
-    public void initUI() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40915e = getContext();
+            this.f31585d = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(0);
@@ -68,28 +68,28 @@ public class VotedAreaLayout extends CardBasicLayout {
             setMinimumHeight(n.f(getContext(), R.dimen.tbds62));
             setMinimumWidth(n.f(getContext(), R.dimen.tbds172));
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.voted_area_layout, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ba, (ViewGroup) this, true);
             a();
         }
     }
 
-    public void onSkinChange(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setViewTextColor(this.f40916f, R.color.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            SkinManager.setViewTextColor(this.f31586e, R.color.CAM_X0105, 1, i);
+            SkinManager.setBackgroundResource(this, R.drawable.bar_select_bg_voted_area_layout, i);
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i2, f fVar) {
+    public void setData(int i, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fVar) == null) {
-            super.setData(i2, fVar);
-            if (this.mData != null && this.mElectionData != null && this.status >= 0) {
-                TextView textView = this.f40916f;
-                textView.setText(StringHelper.numFormatOverWan(this.mElectionData.m()) + "票");
-                onSkinChange(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, fVar) == null) {
+            super.setData(i, fVar);
+            if (this.f31572b != null && this.f31573c != null && this.a >= 0) {
+                TextView textView = this.f31586e;
+                textView.setText(StringHelper.numFormatOverWan(this.f31573c.m()) + "票");
+                c(TbadkCoreApplication.getInst().getSkinType());
                 return;
             }
             setVisibility(8);
@@ -101,9 +101,9 @@ public class VotedAreaLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) || dVar == null) {
             return;
         }
-        this.mElectionData = dVar;
-        TextView textView = this.f40916f;
-        textView.setText(StringHelper.numFormatOverWan(this.mElectionData.m()) + "票");
+        this.f31573c = dVar;
+        TextView textView = this.f31586e;
+        textView.setText(StringHelper.numFormatOverWan(this.f31573c.m()) + "票");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -115,9 +115,9 @@ public class VotedAreaLayout extends CardBasicLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -125,6 +125,6 @@ public class VotedAreaLayout extends CardBasicLayout {
                 return;
             }
         }
-        initUI();
+        b();
     }
 }

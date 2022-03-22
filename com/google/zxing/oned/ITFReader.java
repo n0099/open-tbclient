@@ -54,9 +54,9 @@ public final class ITFReader extends OneDReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -71,16 +71,16 @@ public final class ITFReader extends OneDReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, iArr)) == null) {
             int length = PATTERNS.length;
             float f2 = 0.38f;
-            int i2 = -1;
-            for (int i3 = 0; i3 < length; i3++) {
-                float patternMatchVariance = OneDReader.patternMatchVariance(iArr, PATTERNS[i3], 0.78f);
+            int i = -1;
+            for (int i2 = 0; i2 < length; i2++) {
+                float patternMatchVariance = OneDReader.patternMatchVariance(iArr, PATTERNS[i2], 0.78f);
                 if (patternMatchVariance < f2) {
-                    i2 = i3;
+                    i = i2;
                     f2 = patternMatchVariance;
                 }
             }
-            if (i2 >= 0) {
-                return i2;
+            if (i >= 0) {
+                return i;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -95,9 +95,9 @@ public final class ITFReader extends OneDReader {
             try {
                 int[] findGuardPattern = findGuardPattern(bitArray, skipWhiteSpace(bitArray), END_PATTERN_REVERSED);
                 validateQuietZone(bitArray, findGuardPattern[0]);
-                int i2 = findGuardPattern[0];
+                int i = findGuardPattern[0];
                 findGuardPattern[0] = bitArray.getSize() - findGuardPattern[1];
-                findGuardPattern[1] = bitArray.getSize() - i2;
+                findGuardPattern[1] = bitArray.getSize() - i;
                 return findGuardPattern;
             } finally {
                 bitArray.reverse();
@@ -106,23 +106,23 @@ public final class ITFReader extends OneDReader {
         return (int[]) invokeL.objValue;
     }
 
-    public static void decodeMiddle(BitArray bitArray, int i2, int i3, StringBuilder sb) throws NotFoundException {
+    public static void decodeMiddle(BitArray bitArray, int i, int i2, StringBuilder sb) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitArray, Integer.valueOf(i2), Integer.valueOf(i3), sb}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bitArray, Integer.valueOf(i), Integer.valueOf(i2), sb}) == null) {
             int[] iArr = new int[10];
             int[] iArr2 = new int[5];
             int[] iArr3 = new int[5];
-            while (i2 < i3) {
-                OneDReader.recordPattern(bitArray, i2, iArr);
-                for (int i4 = 0; i4 < 5; i4++) {
-                    int i5 = i4 * 2;
-                    iArr2[i4] = iArr[i5];
-                    iArr3[i4] = iArr[i5 + 1];
+            while (i < i2) {
+                OneDReader.recordPattern(bitArray, i, iArr);
+                for (int i3 = 0; i3 < 5; i3++) {
+                    int i4 = i3 * 2;
+                    iArr2[i3] = iArr[i4];
+                    iArr3[i3] = iArr[i4 + 1];
                 }
                 sb.append((char) (decodeDigit(iArr2) + 48));
                 sb.append((char) (decodeDigit(iArr3) + 48));
-                for (int i6 = 0; i6 < 10; i6++) {
-                    i2 += iArr[i6];
+                for (int i5 = 0; i5 < 10; i5++) {
+                    i += iArr[i5];
                 }
             }
         }
@@ -140,37 +140,37 @@ public final class ITFReader extends OneDReader {
         return (int[]) invokeL.objValue;
     }
 
-    public static int[] findGuardPattern(BitArray bitArray, int i2, int[] iArr) throws NotFoundException {
+    public static int[] findGuardPattern(BitArray bitArray, int i, int[] iArr) throws NotFoundException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, bitArray, i2, iArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, bitArray, i, iArr)) == null) {
             int length = iArr.length;
             int[] iArr2 = new int[length];
             int size = bitArray.getSize();
-            int i3 = i2;
+            int i2 = i;
             boolean z = false;
-            int i4 = 0;
-            while (i2 < size) {
-                if (bitArray.get(i2) ^ z) {
-                    iArr2[i4] = iArr2[i4] + 1;
+            int i3 = 0;
+            while (i < size) {
+                if (bitArray.get(i) ^ z) {
+                    iArr2[i3] = iArr2[i3] + 1;
                 } else {
-                    int i5 = length - 1;
-                    if (i4 != i5) {
-                        i4++;
+                    int i4 = length - 1;
+                    if (i3 != i4) {
+                        i3++;
                     } else if (OneDReader.patternMatchVariance(iArr2, iArr, 0.78f) < 0.38f) {
-                        return new int[]{i3, i2};
+                        return new int[]{i2, i};
                     } else {
-                        i3 += iArr2[0] + iArr2[1];
-                        int i6 = length - 2;
-                        System.arraycopy(iArr2, 2, iArr2, 0, i6);
-                        iArr2[i6] = 0;
+                        i2 += iArr2[0] + iArr2[1];
+                        int i5 = length - 2;
+                        System.arraycopy(iArr2, 2, iArr2, 0, i5);
                         iArr2[i5] = 0;
-                        i4--;
+                        iArr2[i4] = 0;
+                        i3--;
                     }
-                    iArr2[i4] = 1;
+                    iArr2[i3] = 1;
                     z = !z;
                 }
-                i2++;
+                i++;
             }
             throw NotFoundException.getNotFoundInstance();
         }
@@ -197,26 +197,26 @@ public final class ITFReader extends OneDReader {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private void validateQuietZone(BitArray bitArray, int i2) throws NotFoundException {
+    private void validateQuietZone(BitArray bitArray, int i) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, this, bitArray, i2) == null) {
-            int i3 = this.narrowLineWidth * 10;
-            if (i3 >= i2) {
-                i3 = i2;
+        if (interceptable == null || interceptable.invokeLI(65544, this, bitArray, i) == null) {
+            int i2 = this.narrowLineWidth * 10;
+            if (i2 >= i) {
+                i2 = i;
             }
-            for (int i4 = i2 - 1; i3 > 0 && i4 >= 0 && !bitArray.get(i4); i4--) {
-                i3--;
+            for (int i3 = i - 1; i2 > 0 && i3 >= 0 && !bitArray.get(i3); i3--) {
+                i2--;
             }
             throw NotFoundException.getNotFoundInstance();
         }
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws FormatException, NotFoundException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws FormatException, NotFoundException {
         InterceptResult invokeILL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, bitArray, map)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) == null) {
             int[] decodeStart = decodeStart(bitArray);
             int[] decodeEnd = decodeEnd(bitArray);
             StringBuilder sb = new StringBuilder(20);
@@ -228,28 +228,28 @@ public final class ITFReader extends OneDReader {
             }
             int length = sb2.length();
             int length2 = iArr.length;
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
             while (true) {
-                if (i3 >= length2) {
+                if (i2 >= length2) {
                     z = false;
                     break;
                 }
-                int i5 = iArr[i3];
-                if (length == i5) {
+                int i4 = iArr[i2];
+                if (length == i4) {
                     z = true;
                     break;
                 }
-                if (i5 > i4) {
-                    i4 = i5;
+                if (i4 > i3) {
+                    i3 = i4;
                 }
-                i3++;
+                i2++;
             }
-            if (!z && length > i4) {
+            if (!z && length > i3) {
                 z = true;
             }
             if (z) {
-                float f2 = i2;
+                float f2 = i;
                 return new Result(sb2, null, new ResultPoint[]{new ResultPoint(decodeStart[1], f2), new ResultPoint(decodeEnd[0], f2)}, BarcodeFormat.ITF);
             }
             throw FormatException.getFormatInstance();

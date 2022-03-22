@@ -21,16 +21,16 @@ public class IMPaSubscribedMsg extends Message {
     public Context mContext;
     public long mPaId;
 
-    public IMPaSubscribedMsg(Context context, long j2) {
+    public IMPaSubscribedMsg(Context context, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2)};
+            Object[] objArr = {context, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,7 +38,7 @@ public class IMPaSubscribedMsg extends Message {
         }
         this.mContext = context;
         initCommonParameter(context);
-        this.mPaId = j2;
+        this.mPaId = j;
         setNeedReplay(true);
         setType(109);
     }

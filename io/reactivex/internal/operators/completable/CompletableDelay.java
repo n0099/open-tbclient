@@ -12,7 +12,7 @@ import io.reactivex.Scheduler;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableDelay extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,7 +22,7 @@ public final class CompletableDelay extends Completable {
     public final CompletableSource source;
     public final TimeUnit unit;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class Delay implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class CompletableDelay extends Completable {
         public final CompositeDisposable set;
         public final /* synthetic */ CompletableDelay this$0;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class OnComplete implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public final class CompletableDelay extends Completable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delay};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -63,13 +63,13 @@ public final class CompletableDelay extends Completable {
             }
         }
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class OnError implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f60680e;
+            public final Throwable f45290e;
             public final /* synthetic */ Delay this$1;
 
             public OnError(Delay delay, Throwable th) {
@@ -79,23 +79,23 @@ public final class CompletableDelay extends Completable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delay, th};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$1 = delay;
-                this.f60680e = th;
+                this.f45290e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onError(this.f60680e);
+                    this.this$1.s.onError(this.f45290e);
                 }
             }
         }
@@ -107,9 +107,9 @@ public final class CompletableDelay extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableDelay, compositeDisposable, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,23 +154,23 @@ public final class CompletableDelay extends Completable {
         }
     }
 
-    public CompletableDelay(CompletableSource completableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public CompletableDelay(CompletableSource completableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {completableSource, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {completableSource, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = completableSource;
-        this.delay = j2;
+        this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.delayError = z;

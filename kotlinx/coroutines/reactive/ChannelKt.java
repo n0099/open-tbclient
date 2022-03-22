@@ -15,7 +15,7 @@ import kotlinx.coroutines.channels.ChannelsKt;
 import kotlinx.coroutines.channels.ReceiveChannel;
 import org.reactivestreams.Publisher;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000 \n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\u001a7\u0010\u0005\u001a\u00020\u0003\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00030\u0002H\u0086Hø\u0001\u0000¢\u0006\u0004\b\u0005\u0010\u0006\u001a7\u0010\u0007\u001a\u00020\u0003\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\u0012\u0010\u0004\u001a\u000e\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\u00030\u0002H\u0087Hø\u0001\u0000¢\u0006\u0004\b\u0007\u0010\u0006\u001a/\u0010\u000b\u001a\b\u0012\u0004\u0012\u00028\u00000\n\"\u0004\b\u0000\u0010\u0000*\b\u0012\u0004\u0012\u00028\u00000\u00012\b\b\u0002\u0010\t\u001a\u00020\bH\u0007¢\u0006\u0004\b\u000b\u0010\f\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\r"}, d2 = {"T", "Lorg/reactivestreams/Publisher;", "Lkotlin/Function1;", "", "action", "collect", "(Lorg/reactivestreams/Publisher;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "consumeEach", "", "request", "Lkotlinx/coroutines/channels/ReceiveChannel;", "openSubscription", "(Lorg/reactivestreams/Publisher;I)Lkotlinx/coroutines/channels/ReceiveChannel;", "kotlinx-coroutines-reactive"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelKt {
     /* JADX WARN: Removed duplicated region for block: B:10:0x0024  */
     /* JADX WARN: Removed duplicated region for block: B:18:0x0057  */
@@ -29,7 +29,7 @@ public final class ChannelKt {
     */
     public static final <T> Object collect(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
         ChannelKt$collect$1 channelKt$collect$1;
-        int i2;
+        int i;
         ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
         Throwable th;
@@ -42,13 +42,13 @@ public final class ChannelKt {
         Object hasNext;
         if (continuation instanceof ChannelKt$collect$1) {
             channelKt$collect$1 = (ChannelKt$collect$1) continuation;
-            int i3 = channelKt$collect$1.label;
-            if ((i3 & Integer.MIN_VALUE) != 0) {
-                channelKt$collect$1.label = i3 - Integer.MIN_VALUE;
+            int i2 = channelKt$collect$1.label;
+            if ((i2 & Integer.MIN_VALUE) != 0) {
+                channelKt$collect$1.label = i2 - Integer.MIN_VALUE;
                 Object obj2 = channelKt$collect$1.result;
                 Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                i2 = channelKt$collect$1.label;
-                if (i2 != 0) {
+                i = channelKt$collect$1.label;
+                if (i != 0) {
                     ResultKt.throwOnFailure(obj2);
                     ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
                     try {
@@ -78,7 +78,7 @@ public final class ChannelKt {
                         receiveChannel = openSubscription$default;
                         throw th;
                     }
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 } else {
                     channelIterator = (ChannelIterator) channelKt$collect$1.L$6;
@@ -137,8 +137,8 @@ public final class ChannelKt {
         channelKt$collect$1 = new ChannelKt$collect$1(continuation);
         Object obj22 = channelKt$collect$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i2 = channelKt$collect$1.label;
-        if (i2 != 0) {
+        i = channelKt$collect$1.label;
+        if (i != 0) {
         }
     }
 
@@ -177,7 +177,7 @@ public final class ChannelKt {
     */
     public static final <T> Object consumeEach(Publisher<T> publisher, Function1<? super T, Unit> function1, Continuation<? super Unit> continuation) {
         ChannelKt$consumeEach$1 channelKt$consumeEach$1;
-        int i2;
+        int i;
         ReceiveChannel receiveChannel;
         ReceiveChannel receiveChannel2;
         Throwable th;
@@ -190,13 +190,13 @@ public final class ChannelKt {
         Object hasNext;
         if (continuation instanceof ChannelKt$consumeEach$1) {
             channelKt$consumeEach$1 = (ChannelKt$consumeEach$1) continuation;
-            int i3 = channelKt$consumeEach$1.label;
-            if ((i3 & Integer.MIN_VALUE) != 0) {
-                channelKt$consumeEach$1.label = i3 - Integer.MIN_VALUE;
+            int i2 = channelKt$consumeEach$1.label;
+            if ((i2 & Integer.MIN_VALUE) != 0) {
+                channelKt$consumeEach$1.label = i2 - Integer.MIN_VALUE;
                 Object obj2 = channelKt$consumeEach$1.result;
                 Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                i2 = channelKt$consumeEach$1.label;
-                if (i2 != 0) {
+                i = channelKt$consumeEach$1.label;
+                if (i != 0) {
                     ResultKt.throwOnFailure(obj2);
                     ReceiveChannel openSubscription$default = openSubscription$default(publisher, 0, 1, null);
                     try {
@@ -226,7 +226,7 @@ public final class ChannelKt {
                         receiveChannel = openSubscription$default;
                         throw th;
                     }
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                     throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                 } else {
                     channelIterator = (ChannelIterator) channelKt$consumeEach$1.L$6;
@@ -285,8 +285,8 @@ public final class ChannelKt {
         channelKt$consumeEach$1 = new ChannelKt$consumeEach$1(continuation);
         Object obj22 = channelKt$consumeEach$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i2 = channelKt$consumeEach$1.label;
-        if (i2 != 0) {
+        i = channelKt$consumeEach$1.label;
+        if (i != 0) {
         }
     }
 
@@ -314,16 +314,16 @@ public final class ChannelKt {
     }
 
     @Deprecated(level = DeprecationLevel.WARNING, message = "Transforming publisher to channel is deprecated, use asFlow() instead")
-    public static final <T> ReceiveChannel<T> openSubscription(Publisher<T> publisher, int i2) {
-        SubscriptionChannel subscriptionChannel = new SubscriptionChannel(i2);
+    public static final <T> ReceiveChannel<T> openSubscription(Publisher<T> publisher, int i) {
+        SubscriptionChannel subscriptionChannel = new SubscriptionChannel(i);
         publisher.subscribe(subscriptionChannel);
         return subscriptionChannel;
     }
 
-    public static /* synthetic */ ReceiveChannel openSubscription$default(Publisher publisher, int i2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = 1;
+    public static /* synthetic */ ReceiveChannel openSubscription$default(Publisher publisher, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 1;
         }
-        return openSubscription(publisher, i2);
+        return openSubscription(publisher, i);
     }
 }

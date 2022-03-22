@@ -25,7 +25,7 @@ import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.interfaces.SettableDraweeHierarchy;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTUAL_IMAGE_INDEX = 2;
@@ -51,15 +51,15 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
             newInitContext.initArgs = r2;
             Object[] objArr = {genericDraweeHierarchyBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i4 = 0;
+        int i3 = 0;
         this.mEmptyActualImageDrawable = new ColorDrawable(0);
         if (FrescoSystrace.isTracing()) {
             FrescoSystrace.beginSection("GenericDraweeHierarchy()");
@@ -67,7 +67,7 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         this.mResources = genericDraweeHierarchyBuilder.getResources();
         this.mRoundingParams = genericDraweeHierarchyBuilder.getRoundingParams();
         this.mActualImageWrapper = new ForwardingDrawable(this.mEmptyActualImageDrawable);
-        int i5 = 1;
+        int i4 = 1;
         int size = (genericDraweeHierarchyBuilder.getOverlays() != null ? genericDraweeHierarchyBuilder.getOverlays().size() : 1) + (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null ? 1 : 0);
         Drawable[] drawableArr = new Drawable[size + 6];
         drawableArr[0] = buildBranch(genericDraweeHierarchyBuilder.getBackground(), null);
@@ -79,13 +79,13 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         if (size > 0) {
             if (genericDraweeHierarchyBuilder.getOverlays() != null) {
                 for (Drawable drawable : genericDraweeHierarchyBuilder.getOverlays()) {
-                    drawableArr[i4 + 6] = buildBranch(drawable, null);
-                    i4++;
+                    drawableArr[i3 + 6] = buildBranch(drawable, null);
+                    i3++;
                 }
-                i5 = i4;
+                i4 = i3;
             }
             if (genericDraweeHierarchyBuilder.getPressedStateOverlay() != null) {
-                drawableArr[i5 + 6] = buildBranch(genericDraweeHierarchyBuilder.getPressedStateOverlay(), null);
+                drawableArr[i4 + 6] = buildBranch(genericDraweeHierarchyBuilder.getPressedStateOverlay(), null);
             }
         }
         FadeDrawable fadeDrawable = new FadeDrawable(drawableArr);
@@ -119,12 +119,12 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, drawable, scaleType)) == null) ? WrappingUtils.maybeWrapWithScaleType(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources), scaleType) : (Drawable) invokeLL.objValue;
     }
 
-    private void fadeInLayer(int i2) {
+    private void fadeInLayer(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i) == null) || i < 0) {
             return;
         }
-        this.mFadeDrawable.fadeInLayer(i2);
+        this.mFadeDrawable.fadeInLayer(i);
     }
 
     private void fadeOutBranches() {
@@ -138,19 +138,19 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    private void fadeOutLayer(int i2) {
+    private void fadeOutLayer(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i) == null) || i < 0) {
             return;
         }
-        this.mFadeDrawable.fadeOutLayer(i2);
+        this.mFadeDrawable.fadeOutLayer(i);
     }
 
-    private DrawableParent getParentDrawableAtIndex(int i2) {
+    private DrawableParent getParentDrawableAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-            DrawableParent drawableParentForIndex = this.mFadeDrawable.getDrawableParentForIndex(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            DrawableParent drawableParentForIndex = this.mFadeDrawable.getDrawableParentForIndex(i);
             if (drawableParentForIndex.getDrawable() instanceof MatrixDrawable) {
                 drawableParentForIndex = (MatrixDrawable) drawableParentForIndex.getDrawable();
             }
@@ -159,11 +159,11 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return (DrawableParent) invokeI.objValue;
     }
 
-    private ScaleTypeDrawable getScaleTypeDrawableAtIndex(int i2) {
+    private ScaleTypeDrawable getScaleTypeDrawableAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
-            DrawableParent parentDrawableAtIndex = getParentDrawableAtIndex(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+            DrawableParent parentDrawableAtIndex = getParentDrawableAtIndex(i);
             if (parentDrawableAtIndex instanceof ScaleTypeDrawable) {
                 return (ScaleTypeDrawable) parentDrawableAtIndex;
             }
@@ -172,10 +172,10 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         return (ScaleTypeDrawable) invokeI.objValue;
     }
 
-    private boolean hasScaleTypeDrawableAtIndex(int i2) {
+    private boolean hasScaleTypeDrawableAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) ? getParentDrawableAtIndex(i2) instanceof ScaleTypeDrawable : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) ? getParentDrawableAtIndex(i) instanceof ScaleTypeDrawable : invokeI.booleanValue;
     }
 
     private void resetActualImages() {
@@ -199,14 +199,14 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         this.mFadeDrawable.endBatchMode();
     }
 
-    private void setChildDrawableAtIndex(int i2, @Nullable Drawable drawable) {
+    private void setChildDrawableAtIndex(int i, @Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65547, this, i2, drawable) == null) {
+        if (interceptable == null || interceptable.invokeIL(65547, this, i, drawable) == null) {
             if (drawable == null) {
-                this.mFadeDrawable.setDrawable(i2, null);
+                this.mFadeDrawable.setDrawable(i, null);
                 return;
             }
-            getParentDrawableAtIndex(i2).setDrawable(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources));
+            getParentDrawableAtIndex(i).setDrawable(WrappingUtils.maybeApplyLeafRounding(drawable, this.mRoundingParams, this.mResources));
         }
     }
 
@@ -336,10 +336,10 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    public void setFadeDuration(int i2) {
+    public void setFadeDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mFadeDrawable.setTransitionDuration(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mFadeDrawable.setTransitionDuration(i);
         }
     }
 
@@ -383,11 +383,11 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    public void setOverlayImage(int i2, @Nullable Drawable drawable) {
+    public void setOverlayImage(int i, @Nullable Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, drawable) == null) {
-            Preconditions.checkArgument(i2 >= 0 && i2 + 6 < this.mFadeDrawable.getNumberOfLayers(), "The given index does not correspond to an overlay image.");
-            setChildDrawableAtIndex(i2 + 6, drawable);
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, drawable) == null) {
+            Preconditions.checkArgument(i >= 0 && i + 6 < this.mFadeDrawable.getNumberOfLayers(), "The given index does not correspond to an overlay image.");
+            setChildDrawableAtIndex(i + 6, drawable);
         }
     }
 
@@ -440,8 +440,8 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         if (interceptable == null || interceptable.invokeL(1048614, this, roundingParams) == null) {
             this.mRoundingParams = roundingParams;
             WrappingUtils.updateOverlayColorRounding(this.mTopLevelDrawable, roundingParams);
-            for (int i2 = 0; i2 < this.mFadeDrawable.getNumberOfLayers(); i2++) {
-                WrappingUtils.updateLeafRounding(getParentDrawableAtIndex(i2), this.mRoundingParams, this.mResources);
+            for (int i = 0; i < this.mFadeDrawable.getNumberOfLayers(); i++) {
+                WrappingUtils.updateLeafRounding(getParentDrawableAtIndex(i), this.mRoundingParams, this.mResources);
             }
         }
     }
@@ -485,38 +485,38 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    public void setFailureImage(int i2) {
+    public void setFailureImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            setFailureImage(this.mResources.getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            setFailureImage(this.mResources.getDrawable(i));
         }
     }
 
-    public void setPlaceholderImage(int i2) {
+    public void setPlaceholderImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            setPlaceholderImage(this.mResources.getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            setPlaceholderImage(this.mResources.getDrawable(i));
         }
     }
 
-    public void setProgressBarImage(int i2) {
+    public void setProgressBarImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            setProgressBarImage(this.mResources.getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            setProgressBarImage(this.mResources.getDrawable(i));
         }
     }
 
-    public void setRetryImage(int i2) {
+    public void setRetryImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            setRetryImage(this.mResources.getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            setRetryImage(this.mResources.getDrawable(i));
         }
     }
 
-    public void setFailureImage(int i2, ScalingUtils.ScaleType scaleType) {
+    public void setFailureImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048593, this, i2, scaleType) == null) {
-            setFailureImage(this.mResources.getDrawable(i2), scaleType);
+        if (interceptable == null || interceptable.invokeIL(1048593, this, i, scaleType) == null) {
+            setFailureImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
@@ -527,24 +527,24 @@ public class GenericDraweeHierarchy implements SettableDraweeHierarchy {
         }
     }
 
-    public void setPlaceholderImage(int i2, ScalingUtils.ScaleType scaleType) {
+    public void setPlaceholderImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, scaleType) == null) {
-            setPlaceholderImage(this.mResources.getDrawable(i2), scaleType);
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i, scaleType) == null) {
+            setPlaceholderImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
-    public void setProgressBarImage(int i2, ScalingUtils.ScaleType scaleType) {
+    public void setProgressBarImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048606, this, i2, scaleType) == null) {
-            setProgressBarImage(this.mResources.getDrawable(i2), scaleType);
+        if (interceptable == null || interceptable.invokeIL(1048606, this, i, scaleType) == null) {
+            setProgressBarImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 
-    public void setRetryImage(int i2, ScalingUtils.ScaleType scaleType) {
+    public void setRetryImage(int i, ScalingUtils.ScaleType scaleType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048611, this, i2, scaleType) == null) {
-            setRetryImage(this.mResources.getDrawable(i2), scaleType);
+        if (interceptable == null || interceptable.invokeIL(1048611, this, i, scaleType) == null) {
+            setRetryImage(this.mResources.getDrawable(i), scaleType);
         }
     }
 

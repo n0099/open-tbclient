@@ -2,17 +2,18 @@ package com.baidu.swan.games.view.recommend.model;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecommendItemModel implements NoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("app_key")
+    @SerializedName(GameGuideConfigInfo.KEY_APP_KEY)
     public String appKey;
     @SerializedName("app_name")
     public String appName;
@@ -29,9 +30,9 @@ public class RecommendItemModel implements NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

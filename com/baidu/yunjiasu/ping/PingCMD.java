@@ -1,6 +1,7 @@
 package com.baidu.yunjiasu.ping;
 
 import android.os.Build;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -54,9 +55,9 @@ public final class PingCMD {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -91,7 +92,7 @@ public final class PingCMD {
                 exec.destroy();
                 return readText;
             } catch (Exception e2) {
-                Intrinsics.stringPlus("runCMD() failed: Exception: ", e2);
+                Log.e(TAG, Intrinsics.stringPlus("runCMD() failed: Exception: ", e2));
                 return null;
             }
         }
@@ -106,11 +107,12 @@ public final class PingCMD {
             String str = address instanceof Inet6Address ? "ping6" : "ping";
             String runCMD = runCMD(str + " -c " + PingSetting.INSTANCE.getCount() + " -i " + (PingSetting.INSTANCE.getTimeMicros() / 1000.0f) + WebvttCueParser.CHAR_SPACE + ((Object) address.getHostAddress()));
             if (runCMD == null) {
+                Log.e(TAG, "runCMD() failed");
                 return null;
             }
             MatchResult find$default = Regex.find$default(new Regex("([\\d.]+)/([\\d.]+)/([\\d.]+)/([\\d.]+)"), runCMD, 0, 2, null);
             if (find$default == null) {
-                Intrinsics.stringPlus("Parse failed: ", runCMD);
+                Log.e(TAG, Intrinsics.stringPlus("Parse failed: ", runCMD));
                 return null;
             }
             try {
@@ -126,7 +128,7 @@ public final class PingCMD {
                 List<String> groupValues2 = find$default2.getGroupValues();
                 return new PingStatistics(address, Long.parseLong(groupValues2.get(2)), Long.parseLong(groupValues2.get(1)), Float.parseFloat(groupValues2.get(3)) / 100, parseFloat, parseFloat3, parseFloat2, parseFloat4);
             } catch (Exception e2) {
-                Intrinsics.stringPlus("Parse failed: Exception: ", e2);
+                Log.e(TAG, Intrinsics.stringPlus("Parse failed: Exception: ", e2));
                 return null;
             }
         }

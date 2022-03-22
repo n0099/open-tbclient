@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Settings {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COUNT = 10;
@@ -28,9 +28,9 @@ public final class Settings {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,10 +47,10 @@ public final class Settings {
         }
     }
 
-    public int get(int i2) {
+    public int get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.values[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.values[i] : invokeI.intValue;
     }
 
     public boolean getEnablePush(boolean z) {
@@ -86,50 +86,50 @@ public final class Settings {
         return invokeV.intValue;
     }
 
-    public int getMaxConcurrentStreams(int i2) {
+    public int getMaxConcurrentStreams(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? (this.set & 16) != 0 ? this.values[4] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? (this.set & 16) != 0 ? this.values[4] : i : invokeI.intValue;
     }
 
-    public int getMaxFrameSize(int i2) {
+    public int getMaxFrameSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? (this.set & 32) != 0 ? this.values[5] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? (this.set & 32) != 0 ? this.values[5] : i : invokeI.intValue;
     }
 
-    public int getMaxHeaderListSize(int i2) {
+    public int getMaxHeaderListSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (this.set & 64) != 0 ? this.values[6] : i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (this.set & 64) != 0 ? this.values[6] : i : invokeI.intValue;
     }
 
-    public boolean isSet(int i2) {
+    public boolean isSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? ((1 << i2) & this.set) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? ((1 << i) & this.set) != 0 : invokeI.booleanValue;
     }
 
     public void merge(Settings settings) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, settings) == null) {
-            for (int i2 = 0; i2 < 10; i2++) {
-                if (settings.isSet(i2)) {
-                    set(i2, settings.get(i2));
+            for (int i = 0; i < 10; i++) {
+                if (settings.isSet(i)) {
+                    set(i, settings.get(i));
                 }
             }
         }
     }
 
-    public Settings set(int i2, int i3) {
+    public Settings set(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i2, i3)) == null) {
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+            if (i >= 0) {
                 int[] iArr = this.values;
-                if (i2 < iArr.length) {
-                    this.set = (1 << i2) | this.set;
-                    iArr[i2] = i3;
+                if (i < iArr.length) {
+                    this.set = (1 << i) | this.set;
+                    iArr[i] = i2;
                 }
             }
             return this;

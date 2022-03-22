@@ -10,15 +10,15 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static ExecutorService a = new ThreadPoolExecutor(2, 2, 60, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("Download_OP_Thread"));
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58654c = 0;
+    public int f43358c = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile SparseArray<c> f58653b = new SparseArray<>();
+    public volatile SparseArray<c> f43357b = new SparseArray<>();
 
     public static void a(Runnable runnable) {
         a.execute(runnable);
@@ -27,16 +27,16 @@ public class d {
     private void b() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f58653b.size(); i2++) {
-                int keyAt = this.f58653b.keyAt(i2);
-                if (!this.f58653b.get(keyAt).d()) {
+            for (int i = 0; i < this.f43357b.size(); i++) {
+                int keyAt = this.f43357b.keyAt(i);
+                if (!this.f43357b.get(keyAt).d()) {
                     arrayList.add(Integer.valueOf(keyAt));
                 }
             }
-            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                Integer num = (Integer) arrayList.get(i3);
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                Integer num = (Integer) arrayList.get(i2);
                 if (num != null) {
-                    this.f58653b.remove(num.intValue());
+                    this.f43357b.remove(num.intValue());
                 }
             }
         } catch (Throwable th) {
@@ -44,14 +44,14 @@ public class d {
         }
     }
 
-    public void c(int i2) {
+    public void c(int i) {
         synchronized (d.class) {
             b();
-            c cVar = this.f58653b.get(i2);
+            c cVar = this.f43357b.get(i);
             if (cVar != null) {
                 cVar.a();
                 c(cVar);
-                this.f58653b.remove(i2);
+                this.f43357b.remove(i);
             }
         }
     }
@@ -59,13 +59,13 @@ public class d {
     public void a(c cVar) {
         cVar.f();
         synchronized (d.class) {
-            if (this.f58654c >= 500) {
+            if (this.f43358c >= 500) {
                 b();
-                this.f58654c = 0;
+                this.f43358c = 0;
             } else {
-                this.f58654c++;
+                this.f43358c++;
             }
-            this.f58653b.put(cVar.e(), cVar);
+            this.f43357b.put(cVar.e(), cVar);
         }
         DownloadTask c2 = cVar.c();
         try {
@@ -140,36 +140,36 @@ public class d {
         synchronized (d.class) {
             try {
                 if (com.ss.android.socialbase.downloader.i.a.a(524288)) {
-                    int indexOfValue = this.f58653b.indexOfValue(cVar);
+                    int indexOfValue = this.f43357b.indexOfValue(cVar);
                     if (indexOfValue >= 0) {
-                        this.f58653b.removeAt(indexOfValue);
+                        this.f43357b.removeAt(indexOfValue);
                     }
                 } else {
-                    this.f58653b.remove(cVar.e());
+                    this.f43357b.remove(cVar.e());
                 }
             }
         }
     }
 
-    public c b(int i2) {
+    public c b(int i) {
         synchronized (d.class) {
             b();
-            c cVar = this.f58653b.get(i2);
+            c cVar = this.f43357b.get(i);
             if (cVar != null) {
                 cVar.b();
                 c(cVar);
-                this.f58653b.remove(i2);
+                this.f43357b.remove(i);
                 return cVar;
             }
             return null;
         }
     }
 
-    public boolean a(int i2) {
+    public boolean a(int i) {
         synchronized (d.class) {
             boolean z = false;
-            if (this.f58653b != null && this.f58653b.size() > 0) {
-                c cVar = this.f58653b.get(i2);
+            if (this.f43357b != null && this.f43357b.size() > 0) {
+                c cVar = this.f43357b.get(i);
                 if (cVar != null && cVar.d()) {
                     z = true;
                 }
@@ -184,8 +184,8 @@ public class d {
         synchronized (d.class) {
             b();
             arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.f58653b.size(); i2++) {
-                c cVar = this.f58653b.get(this.f58653b.keyAt(i2));
+            for (int i = 0; i < this.f43357b.size(); i++) {
+                c cVar = this.f43357b.get(this.f43357b.keyAt(i));
                 if (cVar != null) {
                     arrayList.add(Integer.valueOf(cVar.e()));
                 }
@@ -194,10 +194,10 @@ public class d {
         return arrayList;
     }
 
-    public void a(int i2, long j2) {
-        c cVar = this.f58653b.get(i2);
+    public void a(int i, long j) {
+        c cVar = this.f43357b.get(i);
         if (cVar != null) {
-            cVar.c(j2);
+            cVar.c(j);
         }
     }
 }

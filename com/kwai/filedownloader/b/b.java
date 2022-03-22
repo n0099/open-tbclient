@@ -13,40 +13,40 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.b.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.kwai.filedownloader.b.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2154a implements b {
+        /* loaded from: classes7.dex */
+        public static class C2015a implements b {
             public static /* synthetic */ Interceptable $ic;
             public static b a;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f56726b;
+            public IBinder f41602b;
 
-            public C2154a(IBinder iBinder) {
+            public C2015a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f56726b = iBinder;
+                this.f41602b = iBinder;
             }
 
             @Override // com.kwai.filedownloader.b.b
@@ -57,7 +57,7 @@ public interface b extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        if (this.f56726b.transact(6, obtain, obtain2, 0) || a.d() == null) {
+                        if (this.f41602b.transact(6, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                         } else {
                             a.d().a();
@@ -70,23 +70,23 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(int i2, Notification notification) {
+            public void a(int i, Notification notification) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, notification) == null) {
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, notification) == null) {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         if (notification != null) {
                             obtain.writeInt(1);
                             notification.writeToParcel(obtain, 0);
                         } else {
                             obtain.writeInt(0);
                         }
-                        if (this.f56726b.transact(12, obtain, null, 1) || a.d() == null) {
+                        if (this.f41602b.transact(12, obtain, null, 1) || a.d() == null) {
                             return;
                         }
-                        a.d().a(i2, notification);
+                        a.d().a(i, notification);
                     } finally {
                         obtain.recycle();
                     }
@@ -101,7 +101,7 @@ public interface b extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                         obtain.writeStrongBinder(aVar != null ? aVar.asBinder() : null);
-                        if (this.f56726b.transact(1, obtain, null, 1) || a.d() == null) {
+                        if (this.f41602b.transact(1, obtain, null, 1) || a.d() == null) {
                             return;
                         }
                         a.d().a(aVar);
@@ -112,9 +112,9 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public void a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
+            public void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3) {
                 Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) != null) {
+                if (interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), bVar, Boolean.valueOf(z3)}) != null) {
                     return;
                 }
                 Parcel obtain = Parcel.obtain();
@@ -123,11 +123,11 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    int i5 = 1;
+                    int i4 = 1;
                     obtain.writeInt(z ? 1 : 0);
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
                     obtain.writeInt(i3);
-                    obtain.writeInt(i4);
                     obtain.writeInt(z2 ? 1 : 0);
                     if (bVar != null) {
                         obtain.writeInt(1);
@@ -136,17 +136,17 @@ public interface b extends IInterface {
                         obtain.writeInt(0);
                     }
                     if (!z3) {
-                        i5 = 0;
+                        i4 = 0;
                     }
-                    obtain.writeInt(i5);
+                    obtain.writeInt(i4);
                     try {
-                        if (this.f56726b.transact(4, obtain, obtain2, 0) || a.d() == null) {
+                        if (this.f41602b.transact(4, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             obtain2.recycle();
                             obtain.recycle();
                             return;
                         }
-                        a.d().a(str, str2, z, i2, i3, i4, z2, bVar, z3);
+                        a.d().a(str, str2, z, i, i2, i3, z2, bVar, z3);
                         obtain2.recycle();
                         obtain.recycle();
                     } catch (Throwable th) {
@@ -168,7 +168,7 @@ public interface b extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                         obtain.writeInt(z ? 1 : 0);
-                        if (this.f56726b.transact(13, obtain, null, 1) || a.d() == null) {
+                        if (this.f41602b.transact(13, obtain, null, 1) || a.d() == null) {
                             return;
                         }
                         a.d().a(z);
@@ -179,20 +179,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean a(int i2) {
+            public boolean a(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(5, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(5, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
-                        return a.d().a(i2);
+                        return a.d().a(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -212,7 +212,7 @@ public interface b extends IInterface {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                         obtain.writeString(str);
                         obtain.writeString(str2);
-                        if (this.f56726b.transact(3, obtain, obtain2, 0) || a.d() == null) {
+                        if (this.f41602b.transact(3, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
@@ -229,7 +229,7 @@ public interface b extends IInterface {
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f56726b : (IBinder) invokeV.objValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f41602b : (IBinder) invokeV.objValue;
             }
 
             @Override // com.kwai.filedownloader.b.b
@@ -240,7 +240,7 @@ public interface b extends IInterface {
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
                         obtain.writeStrongBinder(aVar != null ? aVar.asBinder() : null);
-                        if (this.f56726b.transact(2, obtain, null, 1) || a.d() == null) {
+                        if (this.f41602b.transact(2, obtain, null, 1) || a.d() == null) {
                             return;
                         }
                         a.d().b(aVar);
@@ -259,7 +259,7 @@ public interface b extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        if (this.f56726b.transact(11, obtain, obtain2, 0) || a.d() == null) {
+                        if (this.f41602b.transact(11, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
@@ -273,20 +273,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean b(int i2) {
+            public boolean b(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(7, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(7, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
-                        return a.d().b(i2);
+                        return a.d().b(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -296,20 +296,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public long c(int i2) {
+            public long c(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(8, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(8, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readLong();
                         }
-                        return a.d().c(i2);
+                        return a.d().c(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -326,7 +326,7 @@ public interface b extends IInterface {
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        if (this.f56726b.transact(15, obtain, obtain2, 0) || a.d() == null) {
+                        if (this.f41602b.transact(15, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                         } else {
                             a.d().c();
@@ -339,20 +339,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public long d(int i2) {
+            public long d(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(9, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(9, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readLong();
                         }
-                        return a.d().d(i2);
+                        return a.d().d(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -362,20 +362,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public byte e(int i2) {
+            public byte e(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(10, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(10, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readByte();
                         }
-                        return a.d().e(i2);
+                        return a.d().e(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -385,20 +385,20 @@ public interface b extends IInterface {
             }
 
             @Override // com.kwai.filedownloader.b.b
-            public boolean f(int i2) {
+            public boolean f(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        obtain.writeInt(i2);
-                        if (this.f56726b.transact(14, obtain, obtain2, 0) || a.d() == null) {
+                        obtain.writeInt(i);
+                        if (this.f41602b.transact(14, obtain, obtain2, 0) || a.d() == null) {
                             obtain2.readException();
                             return obtain2.readInt() != 0;
                         }
-                        return a.d().f(i2);
+                        return a.d().f(i);
                     } finally {
                         obtain2.recycle();
                         obtain.recycle();
@@ -413,9 +413,9 @@ public interface b extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -432,7 +432,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C2154a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C2015a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -440,7 +440,7 @@ public interface b extends IInterface {
         public static b d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2154a.a : (b) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? C2015a.a : (b) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -451,22 +451,22 @@ public interface b extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1598968902) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1598968902) {
                     parcel2.writeString("com.kwai.filedownloader.i.IFileDownloadIPCService");
                     return true;
                 }
-                switch (i2) {
+                switch (i) {
                     case 1:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        a(a.AbstractBinderC2152a.a(parcel.readStrongBinder()));
+                        a(a.AbstractBinderC2013a.a(parcel.readStrongBinder()));
                         return true;
                     case 2:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
-                        b(a.AbstractBinderC2152a.a(parcel.readStrongBinder()));
+                        b(a.AbstractBinderC2013a.a(parcel.readStrongBinder()));
                         return true;
                     case 3:
                         parcel.enforceInterface("com.kwai.filedownloader.i.IFileDownloadIPCService");
@@ -540,7 +540,7 @@ public interface b extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                        return super.onTransact(i, parcel, parcel2, i2);
                 }
             }
             return invokeCommon.booleanValue;
@@ -549,15 +549,15 @@ public interface b extends IInterface {
 
     void a();
 
-    void a(int i2, Notification notification);
+    void a(int i, Notification notification);
 
     void a(com.kwai.filedownloader.b.a aVar);
 
-    void a(String str, String str2, boolean z, int i2, int i3, int i4, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3);
+    void a(String str, String str2, boolean z, int i, int i2, int i3, boolean z2, com.kwai.filedownloader.c.b bVar, boolean z3);
 
     void a(boolean z);
 
-    boolean a(int i2);
+    boolean a(int i);
 
     boolean a(String str, String str2);
 
@@ -565,15 +565,15 @@ public interface b extends IInterface {
 
     boolean b();
 
-    boolean b(int i2);
+    boolean b(int i);
 
-    long c(int i2);
+    long c(int i);
 
     void c();
 
-    long d(int i2);
+    long d(int i);
 
-    byte e(int i2);
+    byte e(int i);
 
-    boolean f(int i2);
+    boolean f(int i);
 }

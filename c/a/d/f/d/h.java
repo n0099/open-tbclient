@@ -11,28 +11,28 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2526b;
+    public String f2081b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f2527c;
+    public int f2082c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2528d;
+    public String f2083d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2529e;
+    public int f2084e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2530f;
+    public long f2085f;
 
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

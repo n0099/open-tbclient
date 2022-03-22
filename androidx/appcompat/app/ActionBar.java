@@ -61,7 +61,7 @@ public abstract class ActionBar {
     @Deprecated
     /* loaded from: classes.dex */
     public interface OnNavigationListener {
-        boolean onNavigationItemSelected(int i2, long j2);
+        boolean onNavigationItemSelected(int i, long j);
     }
 
     @Deprecated
@@ -76,9 +76,9 @@ public abstract class ActionBar {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -99,15 +99,15 @@ public abstract class ActionBar {
 
         public abstract void select();
 
-        public abstract Tab setContentDescription(@StringRes int i2);
+        public abstract Tab setContentDescription(@StringRes int i);
 
         public abstract Tab setContentDescription(CharSequence charSequence);
 
-        public abstract Tab setCustomView(int i2);
+        public abstract Tab setCustomView(int i);
 
         public abstract Tab setCustomView(View view);
 
-        public abstract Tab setIcon(@DrawableRes int i2);
+        public abstract Tab setIcon(@DrawableRes int i);
 
         public abstract Tab setIcon(Drawable drawable);
 
@@ -115,7 +115,7 @@ public abstract class ActionBar {
 
         public abstract Tab setTag(Object obj);
 
-        public abstract Tab setText(int i2);
+        public abstract Tab setText(int i);
 
         public abstract Tab setText(CharSequence charSequence);
     }
@@ -135,9 +135,9 @@ public abstract class ActionBar {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -150,10 +150,10 @@ public abstract class ActionBar {
     public abstract void addTab(Tab tab);
 
     @Deprecated
-    public abstract void addTab(Tab tab, int i2);
+    public abstract void addTab(Tab tab, int i);
 
     @Deprecated
-    public abstract void addTab(Tab tab, int i2, boolean z);
+    public abstract void addTab(Tab tab, int i, boolean z);
 
     @Deprecated
     public abstract void addTab(Tab tab, boolean z);
@@ -226,7 +226,7 @@ public abstract class ActionBar {
     public abstract CharSequence getSubtitle();
 
     @Deprecated
-    public abstract Tab getTabAt(int i2);
+    public abstract Tab getTabAt(int i);
 
     @Deprecated
     public abstract int getTabCount();
@@ -293,10 +293,10 @@ public abstract class ActionBar {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i, keyEvent)) == null) {
             return false;
         }
         return invokeIL.booleanValue;
@@ -331,7 +331,7 @@ public abstract class ActionBar {
     public abstract void removeTab(Tab tab);
 
     @Deprecated
-    public abstract void removeTabAt(int i2);
+    public abstract void removeTabAt(int i);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public boolean requestFocus() {
@@ -348,7 +348,7 @@ public abstract class ActionBar {
 
     public abstract void setBackgroundDrawable(@Nullable Drawable drawable);
 
-    public abstract void setCustomView(int i2);
+    public abstract void setCustomView(int i);
 
     public abstract void setCustomView(View view);
 
@@ -363,9 +363,9 @@ public abstract class ActionBar {
 
     public abstract void setDisplayHomeAsUpEnabled(boolean z);
 
-    public abstract void setDisplayOptions(int i2);
+    public abstract void setDisplayOptions(int i);
 
-    public abstract void setDisplayOptions(int i2, int i3);
+    public abstract void setDisplayOptions(int i, int i2);
 
     public abstract void setDisplayShowCustomEnabled(boolean z);
 
@@ -382,9 +382,9 @@ public abstract class ActionBar {
         }
     }
 
-    public void setHideOffset(int i2) {
+    public void setHideOffset(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048628, this, i2) == null) && i2 != 0) {
+        if ((interceptable == null || interceptable.invokeI(1048628, this, i) == null) && i != 0) {
             throw new UnsupportedOperationException("Setting an explicit action bar hide offset is not supported in this action bar configuration.");
         }
     }
@@ -396,9 +396,9 @@ public abstract class ActionBar {
         }
     }
 
-    public void setHomeActionContentDescription(@StringRes int i2) {
+    public void setHomeActionContentDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
         }
     }
 
@@ -408,9 +408,9 @@ public abstract class ActionBar {
         }
     }
 
-    public void setHomeAsUpIndicator(@DrawableRes int i2) {
+    public void setHomeAsUpIndicator(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
         }
     }
 
@@ -426,22 +426,22 @@ public abstract class ActionBar {
         }
     }
 
-    public abstract void setIcon(@DrawableRes int i2);
+    public abstract void setIcon(@DrawableRes int i);
 
     public abstract void setIcon(Drawable drawable);
 
     @Deprecated
     public abstract void setListNavigationCallbacks(SpinnerAdapter spinnerAdapter, OnNavigationListener onNavigationListener);
 
-    public abstract void setLogo(@DrawableRes int i2);
+    public abstract void setLogo(@DrawableRes int i);
 
     public abstract void setLogo(Drawable drawable);
 
     @Deprecated
-    public abstract void setNavigationMode(int i2);
+    public abstract void setNavigationMode(int i);
 
     @Deprecated
-    public abstract void setSelectedNavigationItem(int i2);
+    public abstract void setSelectedNavigationItem(int i);
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public void setShowHideAnimationEnabled(boolean z) {
@@ -462,11 +462,11 @@ public abstract class ActionBar {
         }
     }
 
-    public abstract void setSubtitle(int i2);
+    public abstract void setSubtitle(int i);
 
     public abstract void setSubtitle(CharSequence charSequence);
 
-    public abstract void setTitle(@StringRes int i2);
+    public abstract void setTitle(@StringRes int i);
 
     public abstract void setTitle(CharSequence charSequence);
 
@@ -504,9 +504,9 @@ public abstract class ActionBar {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -521,17 +521,17 @@ public abstract class ActionBar {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -544,17 +544,17 @@ public abstract class ActionBar {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3, int i4) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2, int i3) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -563,21 +563,21 @@ public abstract class ActionBar {
                 }
             }
             this.gravity = 0;
-            this.gravity = i4;
+            this.gravity = i3;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2) {
-            this(-2, -1, i2);
+        public LayoutParams(int i) {
+            this(-2, -1, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -596,9 +596,9 @@ public abstract class ActionBar {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
@@ -618,9 +618,9 @@ public abstract class ActionBar {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);

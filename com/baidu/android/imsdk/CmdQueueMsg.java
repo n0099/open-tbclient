@@ -43,9 +43,9 @@ public class CmdQueueMsg implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -64,10 +64,10 @@ public class CmdQueueMsg implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public CmdQueueMsg[] newArray(int i2) {
+            public CmdQueueMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new CmdQueueMsg[i2] : (CmdQueueMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CmdQueueMsg[i] : (CmdQueueMsg[]) invokeI.objValue;
             }
         };
     }
@@ -77,9 +77,9 @@ public class CmdQueueMsg implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -148,10 +148,10 @@ public class CmdQueueMsg implements Parcelable {
         }
     }
 
-    public void setMethodId(int i2) {
+    public void setMethodId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.methodId = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.methodId = i;
         }
     }
 
@@ -163,9 +163,9 @@ public class CmdQueueMsg implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             parcel.writeString(this.uuid);
             parcel.writeString(this.body);
             parcel.writeInt(this.methodId);

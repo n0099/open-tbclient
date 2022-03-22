@@ -35,9 +35,9 @@ public class j extends com.baidu.ar.d.h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((com.baidu.ar.d.i) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,17 +50,17 @@ public class j extends com.baidu.ar.d.h {
         this.mCacheSize = 5;
     }
 
-    public void I(int i2) {
+    public void I(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.pl = i2;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.pl = i;
         }
     }
 
-    public void J(int i2) {
+    public void J(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.pm = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.pm = i;
         }
     }
 

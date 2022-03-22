@@ -18,7 +18,7 @@ import com.google.android.exoplayer2.util.CodecSpecificDataUtil;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LatmReader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_BUFFER_SIZE = 1024;
@@ -58,9 +58,9 @@ public final class LatmReader implements ElementaryStreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,30 +138,30 @@ public final class LatmReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, parsableBitArray)) == null) {
             if (this.frameLengthType == 0) {
-                int i2 = 0;
+                int i = 0;
                 do {
                     readBits = parsableBitArray.readBits(8);
-                    i2 += readBits;
+                    i += readBits;
                 } while (readBits == 255);
-                return i2;
+                return i;
             }
             throw new ParserException();
         }
         return invokeL.intValue;
     }
 
-    private void parsePayloadMux(ParsableBitArray parsableBitArray, int i2) {
+    private void parsePayloadMux(ParsableBitArray parsableBitArray, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, this, parsableBitArray, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, this, parsableBitArray, i) == null) {
             int position = parsableBitArray.getPosition();
             if ((position & 7) == 0) {
                 this.sampleDataBuffer.setPosition(position >> 3);
             } else {
-                parsableBitArray.readBits(this.sampleDataBuffer.data, 0, i2 * 8);
+                parsableBitArray.readBits(this.sampleDataBuffer.data, 0, i * 8);
                 this.sampleDataBuffer.setPosition(0);
             }
-            this.output.sampleData(this.sampleDataBuffer, i2);
-            this.output.sampleMetadata(this.timeUs, 1, i2, 0, null);
+            this.output.sampleData(this.sampleDataBuffer, i);
+            this.output.sampleMetadata(this.timeUs, 1, i, 0, null);
             this.timeUs += this.sampleDurationUs;
         }
     }
@@ -226,10 +226,10 @@ public final class LatmReader implements ElementaryStreamReader {
         }
     }
 
-    private void resetBufferForSize(int i2) {
+    private void resetBufferForSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            this.sampleDataBuffer.reset(i2);
+        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
+            this.sampleDataBuffer.reset(i);
             this.sampleBitArray.reset(this.sampleDataBuffer.data);
         }
     }
@@ -239,9 +239,9 @@ public final class LatmReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.state;
-                if (i2 != 0) {
-                    if (i2 == 1) {
+                int i = this.state;
+                if (i != 0) {
+                    if (i == 1) {
                         int readUnsignedByte = parsableByteArray.readUnsignedByte();
                         if ((readUnsignedByte & 224) == 224) {
                             this.secondHeaderByte = readUnsignedByte;
@@ -249,7 +249,7 @@ public final class LatmReader implements ElementaryStreamReader {
                         } else if (readUnsignedByte != 86) {
                             this.state = 0;
                         }
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         int readUnsignedByte2 = ((this.secondHeaderByte & (-225)) << 8) | parsableByteArray.readUnsignedByte();
                         this.sampleSize = readUnsignedByte2;
                         if (readUnsignedByte2 > this.sampleDataBuffer.data.length) {
@@ -257,12 +257,12 @@ public final class LatmReader implements ElementaryStreamReader {
                         }
                         this.bytesRead = 0;
                         this.state = 3;
-                    } else if (i2 == 3) {
+                    } else if (i == 3) {
                         int min = Math.min(parsableByteArray.bytesLeft(), this.sampleSize - this.bytesRead);
                         parsableByteArray.readBytes(this.sampleBitArray.data, this.bytesRead, min);
-                        int i3 = this.bytesRead + min;
-                        this.bytesRead = i3;
-                        if (i3 == this.sampleSize) {
+                        int i2 = this.bytesRead + min;
+                        this.bytesRead = i2;
+                        if (i2 == this.sampleSize) {
                             this.sampleBitArray.setPosition(0);
                             parseAudioMuxElement(this.sampleBitArray);
                             this.state = 0;
@@ -293,10 +293,10 @@ public final class LatmReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.timeUs = j;
         }
     }
 

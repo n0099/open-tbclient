@@ -12,7 +12,7 @@ public class c extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static c f2466c;
+    public static c f2024c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,47 +35,47 @@ public class c extends d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = new e(20000, 10000, 5000);
-        this.f2467b = 3;
+        this.f2025b = 3;
     }
 
     public static c c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2466c == null) {
+            if (f2024c == null) {
                 synchronized (c.class) {
-                    if (f2466c == null) {
-                        f2466c = new c();
+                    if (f2024c == null) {
+                        f2024c = new c();
                     }
                 }
             }
-            return f2466c;
+            return f2024c;
         }
         return (c) invokeV.objValue;
     }
 
-    public void d(int i2, int i3, int i4) {
+    public void d(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+            if (i < 3000) {
+                i = 3000;
+            }
             if (i2 < 3000) {
                 i2 = 3000;
             }
             if (i3 < 3000) {
                 i3 = 3000;
             }
-            if (i4 < 3000) {
-                i4 = 3000;
-            }
-            this.a = new e(i2, i3, i4);
+            this.a = new e(i, i2, i3);
         }
     }
 }

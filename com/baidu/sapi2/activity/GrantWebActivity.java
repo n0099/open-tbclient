@@ -5,7 +5,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.statistics.h;
 import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
@@ -65,9 +64,9 @@ public class GrantWebActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -120,7 +119,7 @@ public class GrantWebActivity extends BaseActivity {
             if (data != null) {
                 this.t = data.getQueryParameter("channel_id");
                 this.u = data.getQueryParameter("u");
-                this.v = data.getQueryParameter(h.f32432f);
+                this.v = data.getQueryParameter("nu");
                 this.w = data.getQueryParameter(TTDownloadField.TT_FORCE);
                 this.x = data.getQueryParameter("wap_tpl");
             }
@@ -144,7 +143,7 @@ public class GrantWebActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 if (d() && c()) {
                     init();
                     setupViews();
@@ -199,9 +198,9 @@ public class GrantWebActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -233,9 +232,9 @@ public class GrantWebActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -264,9 +263,9 @@ public class GrantWebActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -276,9 +275,9 @@ public class GrantWebActivity extends BaseActivity {
                     }
 
                     @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                    public void onFailed(int i2, String str) {
+                    public void onFailed(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                             Log.d(GrantWebActivity.y, "GrantWebPage login failed");
                             this.a.finish();
                         }
@@ -305,9 +304,9 @@ public class GrantWebActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -317,10 +316,10 @@ public class GrantWebActivity extends BaseActivity {
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.GrantWebCallback
-                    public void onGrant(int i2) {
+                    public void onGrant(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            if (i2 == 0) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                            if (i == 0) {
                                 Log.d(GrantWebActivity.y, "after grant web, then back to wap");
                                 this.a.finish();
                                 return;
@@ -349,9 +348,9 @@ public class GrantWebActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -452,7 +451,7 @@ public class GrantWebActivity extends BaseActivity {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ GrantWebActivity f36655b;
+                public final /* synthetic */ GrantWebActivity f28425b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -461,15 +460,15 @@ public class GrantWebActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z3)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36655b = this;
+                    this.f28425b = this;
                     this.a = z3;
                 }
 
@@ -480,7 +479,7 @@ public class GrantWebActivity extends BaseActivity {
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
-                        this.f36655b.finish();
+                        this.f28425b.finish();
                     }
                 }
 
@@ -489,7 +488,7 @@ public class GrantWebActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f36655b.e();
+                        this.f28425b.e();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;

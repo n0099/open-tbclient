@@ -39,7 +39,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         public final CompletableObserver actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60723d;
+        public Disposable f45333d;
         public final boolean delayErrors;
         public volatile boolean disposed;
         public final AtomicThrowable errors;
@@ -60,9 +60,9 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
                     newInitContext.initArgs = r2;
                     Object[] objArr = {flatMapCompletableMainObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -118,9 +118,9 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver, function, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,7 +139,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.disposed = true;
-                this.f60723d.dispose();
+                this.f45333d.dispose();
                 this.set.dispose();
             }
         }
@@ -164,7 +164,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f60723d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f45333d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -217,7 +217,7 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
                     completableSource.subscribe(innerObserver);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
-                    this.f60723d.dispose();
+                    this.f45333d.dispose();
                     onError(th);
                 }
             }
@@ -226,8 +226,8 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f60723d, disposable)) {
-                this.f60723d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f45333d, disposable)) {
+                this.f45333d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -240,9 +240,9 @@ public final class ObservableFlatMapCompletableCompletable<T> extends Completabl
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, function, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

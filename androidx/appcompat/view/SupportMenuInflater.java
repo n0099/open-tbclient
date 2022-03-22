@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.graphics.PorterDuff;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 import android.view.InflateException;
 import android.view.Menu;
@@ -86,9 +87,9 @@ public class SupportMenuInflater extends MenuInflater {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj, str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -176,9 +177,9 @@ public class SupportMenuInflater extends MenuInflater {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {supportMenuInflater, menu};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -211,8 +212,8 @@ public class SupportMenuInflater extends MenuInflater {
                     Constructor<?> constructor = Class.forName(str, false, this.this$0.mContext.getClassLoader()).getConstructor(clsArr);
                     constructor.setAccessible(true);
                     return (T) constructor.newInstance(objArr);
-                } catch (Exception unused) {
-                    String str2 = "Cannot instantiate class: " + str;
+                } catch (Exception e2) {
+                    Log.w(SupportMenuInflater.LOG_TAG, "Cannot instantiate class: " + str, e2);
                     return null;
                 }
             }
@@ -224,9 +225,9 @@ public class SupportMenuInflater extends MenuInflater {
             if (interceptable == null || interceptable.invokeL(65539, this, menuItem) == null) {
                 boolean z = false;
                 menuItem.setChecked(this.itemChecked).setVisible(this.itemVisible).setEnabled(this.itemEnabled).setCheckable(this.itemCheckable >= 1).setTitleCondensed(this.itemTitleCondensed).setIcon(this.itemIconResId);
-                int i2 = this.itemShowAsAction;
-                if (i2 >= 0) {
-                    menuItem.setShowAsAction(i2);
+                int i = this.itemShowAsAction;
+                if (i >= 0) {
+                    menuItem.setShowAsAction(i);
                 }
                 if (this.itemListenerMethodName != null) {
                     if (!this.this$0.mContext.isRestricted()) {
@@ -247,9 +248,13 @@ public class SupportMenuInflater extends MenuInflater {
                     menuItem.setActionView((View) newInstance(str, SupportMenuInflater.ACTION_VIEW_CONSTRUCTOR_SIGNATURE, this.this$0.mActionViewConstructorArguments));
                     z = true;
                 }
-                int i3 = this.itemActionViewLayout;
-                if (i3 > 0 && !z) {
-                    menuItem.setActionView(i3);
+                int i2 = this.itemActionViewLayout;
+                if (i2 > 0) {
+                    if (!z) {
+                        menuItem.setActionView(i2);
+                    } else {
+                        Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'itemActionViewLayout'. Action view already specified.");
+                    }
                 }
                 ActionProvider actionProvider = this.itemActionProvider;
                 if (actionProvider != null) {
@@ -337,9 +342,13 @@ public class SupportMenuInflater extends MenuInflater {
                 this.itemActionViewClassName = obtainStyledAttributes.getString(R$styleable.MenuItem_actionViewClass);
                 String string = obtainStyledAttributes.getString(R$styleable.MenuItem_actionProviderClass);
                 this.itemActionProviderClassName = string;
-                if ((string != null) && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
+                boolean z = string != null;
+                if (z && this.itemActionViewLayout == 0 && this.itemActionViewClassName == null) {
                     this.itemActionProvider = (ActionProvider) newInstance(this.itemActionProviderClassName, SupportMenuInflater.ACTION_PROVIDER_CONSTRUCTOR_SIGNATURE, this.this$0.mActionProviderConstructorArguments);
                 } else {
+                    if (z) {
+                        Log.w(SupportMenuInflater.LOG_TAG, "Ignoring attribute 'actionProviderClass'. Action view already specified.");
+                    }
                     this.itemActionProvider = null;
                 }
                 this.itemContentDescription = obtainStyledAttributes.getText(R$styleable.MenuItem_contentDescription);
@@ -399,9 +408,9 @@ public class SupportMenuInflater extends MenuInflater {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -500,17 +509,17 @@ public class SupportMenuInflater extends MenuInflater {
     }
 
     @Override // android.view.MenuInflater
-    public void inflate(@LayoutRes int i2, Menu menu) {
+    public void inflate(@LayoutRes int i, Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, menu) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, menu) == null) {
             if (!(menu instanceof SupportMenu)) {
-                super.inflate(i2, menu);
+                super.inflate(i, menu);
                 return;
             }
             XmlResourceParser xmlResourceParser = null;
             try {
                 try {
-                    xmlResourceParser = this.mContext.getResources().getLayout(i2);
+                    xmlResourceParser = this.mContext.getResources().getLayout(i);
                     parseMenu(xmlResourceParser, Xml.asAttributeSet(xmlResourceParser), menu);
                 } catch (IOException e2) {
                     throw new InflateException("Error inflating menu XML", e2);

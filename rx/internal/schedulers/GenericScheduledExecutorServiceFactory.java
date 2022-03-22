@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.n.e;
-import i.r.c;
+import g.n.e;
+import g.r.c;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import rx.internal.util.RxThreadFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class GenericScheduledExecutorServiceFactory {
     public static final /* synthetic */ GenericScheduledExecutorServiceFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -40,16 +40,16 @@ public final class GenericScheduledExecutorServiceFactory {
         THREAD_FACTORY = new RxThreadFactory(THREAD_NAME_PREFIX);
     }
 
-    public GenericScheduledExecutorServiceFactory(String str, int i2) {
+    public GenericScheduledExecutorServiceFactory(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

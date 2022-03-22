@@ -20,16 +20,16 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     public IGetPaInfosListener paListener;
     public List<PaInfo> result;
 
-    public GetPaInfoSliceListener(IGetPaInfosListener iGetPaInfosListener, int i2) {
+    public GetPaInfoSliceListener(IGetPaInfosListener iGetPaInfosListener, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iGetPaInfosListener, Integer.valueOf(i2)};
+            Object[] objArr = {iGetPaInfosListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +37,7 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
         }
         this.count = 0;
         this.paListener = iGetPaInfosListener;
-        this.maxCount = i2;
+        this.maxCount = i;
         this.result = new ArrayList();
     }
 
@@ -56,14 +56,14 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
-    public void mergeErrorCode(int i2) {
+    public void mergeErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             List<PaInfo> list = this.result;
             if (list != null && !list.isEmpty()) {
                 this.errorCode = 0;
             } else {
-                this.errorCode = i2;
+                this.errorCode = i;
             }
         }
     }
@@ -90,16 +90,16 @@ public class GetPaInfoSliceListener implements IMSliceListener<PaInfo> {
     }
 
     @Override // com.baidu.android.imsdk.IMSliceListener
-    public synchronized void onResult(int i2, String str, List<PaInfo> list) {
+    public synchronized void onResult(int i, String str, List<PaInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, str, list) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, list) == null) {
             synchronized (this) {
                 if (isComplete()) {
                     return;
                 }
                 this.count++;
                 mergeSliceData(list);
-                mergeErrorCode(i2);
+                mergeErrorCode(i);
                 mergeErrorMsg(str);
                 if (isComplete() && this.paListener != null) {
                     this.paListener.onResult(this.errorCode, this.errorMsg, new ArrayList<>(this.result));

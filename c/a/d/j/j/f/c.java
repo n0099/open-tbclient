@@ -36,24 +36,24 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile c f3011g;
+    public static volatile c f2512g;
     public transient /* synthetic */ FieldHolder $fh;
     public PluginSettings a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f3012b;
+    public Messenger f2513b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Messenger f3013c;
+    public Messenger f2514c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ServiceConnection f3014d;
+    public ServiceConnection f2515d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f3015e;
+    public e f2516e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ArrayList<Message> f3016f;
+    public ArrayList<Message> f2517f;
 
     @SuppressLint({"HandlerLeak"})
     /* loaded from: classes.dex */
@@ -71,9 +71,9 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -95,9 +95,9 @@ public class c {
                             if (data != null && (serializable = data.getSerializable("plugin_settings")) != null && (serializable instanceof PluginSettings)) {
                                 this.a.a = (PluginSettings) data.getSerializable("plugin_settings");
                             }
-                            if (this.a.f3015e != null) {
-                                this.a.f3015e.a(this.a.a);
-                                this.a.f3015e = null;
+                            if (this.a.f2516e != null) {
+                                this.a.f2516e.a(this.a.a);
+                                this.a.f2516e = null;
                                 return;
                             }
                             return;
@@ -164,12 +164,12 @@ public class c {
                         case 11:
                             Bundle data7 = message.getData();
                             if (data7 != null) {
-                                int i2 = data7.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
+                                int i = data7.getInt(PluginSettingIOService.KEY_INSTALL_STATUS);
                                 PluginSetting findPluginSetting3 = this.a.a.findPluginSetting(data7.getString(PluginSettingIOService.KEY_SETTING_NAME));
-                                if (findPluginSetting3 == null || findPluginSetting3.installStatus == i2) {
+                                if (findPluginSetting3 == null || findPluginSetting3.installStatus == i) {
                                     return;
                                 }
-                                findPluginSetting3.installStatus = i2;
+                                findPluginSetting3.installStatus = i;
                                 return;
                             }
                             return;
@@ -193,9 +193,7 @@ public class c {
     public class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f3017e;
+        public final /* synthetic */ c a;
 
         public b(c cVar) {
             Interceptable interceptable = $ic;
@@ -204,33 +202,33 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3017e = cVar;
+            this.a = cVar;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-                this.f3017e.f3012b = new Messenger(iBinder);
-                this.f3017e.r();
-                if (this.f3017e.f3016f.size() > 0) {
-                    Iterator it = this.f3017e.f3016f.iterator();
+                this.a.f2513b = new Messenger(iBinder);
+                this.a.r();
+                if (this.a.f2517f.size() > 0) {
+                    Iterator it = this.a.f2517f.iterator();
                     while (it.hasNext()) {
                         try {
-                            this.f3017e.f3012b.send((Message) it.next());
+                            this.a.f2513b.send((Message) it.next());
                         } catch (RemoteException e2) {
                             e2.printStackTrace();
                         }
                     }
-                    this.f3017e.f3016f.clear();
+                    this.a.f2517f.clear();
                 }
             }
         }
@@ -239,8 +237,8 @@ public class c {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                this.f3017e.f3012b = null;
-                this.f3017e.f3016f.clear();
+                this.a.f2513b = null;
+                this.a.f2517f.clear();
             }
         }
     }
@@ -250,41 +248,41 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new PluginSettings();
-        this.f3013c = new Messenger(new a(this));
-        this.f3014d = new b(this);
-        this.f3016f = new ArrayList<>();
+        this.f2514c = new Messenger(new a(this));
+        this.f2515d = new b(this);
+        this.f2517f = new ArrayList<>();
     }
 
     public static c j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f3011g == null) {
+            if (f2512g == null) {
                 synchronized (c.class) {
-                    if (f3011g == null) {
-                        f3011g = new c();
+                    if (f2512g == null) {
+                        f2512g = new c();
                     }
                 }
             }
-            return f3011g;
+            return f2512g;
         }
         return (c) invokeV.objValue;
     }
 
-    public String g(int i2) {
+    public String g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            PluginSetting findPluginSettingByCmd = this.a.findPluginSettingByCmd(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            PluginSetting findPluginSettingByCmd = this.a.findPluginSettingByCmd(i);
             if (findPluginSettingByCmd != null) {
                 return findPluginSettingByCmd.packageName;
             }
@@ -378,15 +376,15 @@ public class c {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             Message obtain = Message.obtain((Handler) null, 4);
             Bundle bundle = new Bundle();
-            bundle.putSerializable("plugin_settings", this.a.m29clone());
+            bundle.putSerializable("plugin_settings", this.a.m27clone());
             if (obtain != null) {
                 obtain.setData(bundle);
                 try {
-                    if (this.f3012b != null && n()) {
-                        this.f3012b.send(obtain);
+                    if (this.f2513b != null && n()) {
+                        this.f2513b.send(obtain);
                     }
-                    this.f3016f.add(obtain);
-                    f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f3014d, 1);
+                    this.f2517f.add(obtain);
+                    f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f2515d, 1);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -394,19 +392,19 @@ public class c {
         }
     }
 
-    public final void q(int i2, Bundle bundle) {
+    public final void q(int i, Bundle bundle) {
         Message obtain;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, bundle) == null) || (obtain = Message.obtain((Handler) null, i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i, bundle) == null) || (obtain = Message.obtain((Handler) null, i)) == null) {
             return;
         }
         obtain.setData(bundle);
         try {
-            if (this.f3012b != null && n()) {
-                this.f3012b.send(obtain);
+            if (this.f2513b != null && n()) {
+                this.f2513b.send(obtain);
             }
-            this.f3016f.add(obtain);
-            f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f3014d, 1);
+            this.f2517f.add(obtain);
+            f.bindService(BdBaseApplication.getInst(), new Intent(BdBaseApplication.getInst(), PluginSettingIOService.class), this.f2515d, 1);
         } catch (RemoteException e2) {
             e2.printStackTrace();
         }
@@ -419,8 +417,8 @@ public class c {
             return;
         }
         try {
-            obtain.replyTo = this.f3013c;
-            this.f3012b.send(obtain);
+            obtain.replyTo = this.f2514c;
+            this.f2513b.send(obtain);
         } catch (RemoteException unused) {
         } catch (Throwable unused2) {
             c.a.d.f.n.a statsItem = BdStatisticsManager.getInstance().getStatsItem("dbg");
@@ -437,7 +435,7 @@ public class c {
         }
         h2.setAbandon_apk_path(str2);
         if (z) {
-            c.a.d.j.j.f.b.b().e(this.a.m29clone(), null);
+            c.a.d.j.j.f.b.b().e(this.a.m27clone(), null);
         }
     }
 
@@ -484,7 +482,7 @@ public class c {
     public void w(String str, PluginSetting pluginSetting, boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLZ(1048591, this, str, pluginSetting, z) == null) && this.a.insertOrUpdatePluginSetting(str, pluginSetting) && z) {
-            c.a.d.j.j.f.b.b().e(this.a.m29clone(), null);
+            c.a.d.j.j.f.b.b().e(this.a.m27clone(), null);
         }
     }
 

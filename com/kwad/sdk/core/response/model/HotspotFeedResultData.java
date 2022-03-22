@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotspotFeedResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "TrendsResultData";
     public static final long serialVersionUID = -1619392774105464372L;
@@ -48,8 +48,8 @@ public class HotspotFeedResultData extends BaseResultData implements com.kwad.sd
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     AdTemplate adTemplate = new AdTemplate();
                     adTemplate.parseJson(optJSONObject);

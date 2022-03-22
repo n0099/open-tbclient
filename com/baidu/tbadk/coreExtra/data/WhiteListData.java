@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import android.text.TextUtils;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,9 +26,9 @@ public class WhiteListData extends LinkedList<String> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,8 +55,8 @@ public class WhiteListData extends LinkedList<String> {
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    String optString = jSONArray.optString(i2);
+                for (int i = 0; i < length; i++) {
+                    String optString = jSONArray.optString(i);
                     if (!TextUtils.isEmpty(optString)) {
                         add(optString);
                     }

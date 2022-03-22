@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.sodler.lib.ext.PluginError;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements com.kwai.sodler.lib.kwai.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final File a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final File f56939b;
+    public final File f41803b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Context f56940c;
+    public final Context f41804c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.kwai.sodler.lib.ext.c f56941d;
+    public final com.kwai.sodler.lib.ext.c f41805d;
 
     public c(Context context, com.kwai.sodler.lib.ext.c cVar) {
         Interceptable interceptable = $ic;
@@ -36,19 +36,19 @@ public class c implements com.kwai.sodler.lib.kwai.c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Context applicationContext = context.getApplicationContext();
-        this.f56940c = applicationContext;
-        this.f56941d = cVar;
+        this.f41804c = applicationContext;
+        this.f41805d = cVar;
         this.a = applicationContext.getDir(cVar.b(), 0);
-        this.f56939b = this.f56940c.getCacheDir();
+        this.f41803b = this.f41804c.getCacheDir();
     }
 
     @Nullable
@@ -151,7 +151,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
             a.a("Sodler.installer", "Install path = " + a);
             File file2 = new File(a);
             if (file2.exists()) {
-                if (!this.f56941d.g() && a(file2.getAbsolutePath(), true)) {
+                if (!this.f41805d.g() && a(file2.getAbsolutePath(), true)) {
                     str = "Plugin has been already installed.";
                     a.b("Sodler.installer", str);
                     return a;
@@ -191,7 +191,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            return b() + File.separator + str + File.separator + str2 + File.separator + this.f56941d.f();
+            return b() + File.separator + str + File.separator + str2 + File.separator + this.f41805d.f();
         }
         return (String) invokeLL.objValue;
     }
@@ -221,7 +221,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (this.f56941d.g()) {
+            if (this.f41805d.g()) {
                 return false;
             }
             return a(str, str2, true);
@@ -234,7 +234,7 @@ public class c implements com.kwai.sodler.lib.kwai.c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return File.createTempFile(str + System.currentTimeMillis(), this.f56941d.e(), this.f56939b);
+            return File.createTempFile(str + System.currentTimeMillis(), this.f41805d.e(), this.f41803b);
         }
         return (File) invokeL.objValue;
     }

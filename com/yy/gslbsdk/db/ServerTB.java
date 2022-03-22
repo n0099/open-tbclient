@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ServerTB implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ID = "_id";
@@ -27,9 +27,9 @@ public class ServerTB implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,10 +65,10 @@ public class ServerTB implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.ver : invokeV.intValue;
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -79,17 +79,17 @@ public class ServerTB implements Serializable {
         }
     }
 
-    public void setIsp(int i2) {
+    public void setIsp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.isp = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.isp = i;
         }
     }
 
-    public void setVer(int i2) {
+    public void setVer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.ver = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.ver = i;
         }
     }
 

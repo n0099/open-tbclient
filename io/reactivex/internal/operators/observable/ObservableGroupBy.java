@@ -64,16 +64,16 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             NULL_KEY = new Object();
         }
 
-        public GroupByObserver(Observer<? super GroupedObservable<K, V>> observer, Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, int i2, boolean z) {
+        public GroupByObserver(Observer<? super GroupedObservable<K, V>> observer, Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, function2, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, function, function2, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -83,7 +83,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             this.actual = observer;
             this.keySelector = function;
             this.valueSelector = function2;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.delayError = z;
             this.groups = new ConcurrentHashMap();
             lazySet(1);
@@ -202,9 +202,9 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
                 newInitContext.initArgs = r2;
                 Object[] objArr = {k, state};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -214,10 +214,10 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             this.state = state;
         }
 
-        public static <T, K> GroupedUnicast<K, T> createWith(K k, int i2, GroupByObserver<?, K, T> groupByObserver, boolean z) {
+        public static <T, K> GroupedUnicast<K, T> createWith(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k, Integer.valueOf(i2), groupByObserver, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k, new State(i2, groupByObserver, k, z)) : (GroupedUnicast) invokeCommon.objValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{k, Integer.valueOf(i), groupByObserver, Boolean.valueOf(z)})) == null) ? new GroupedUnicast<>(k, new State(i, groupByObserver, k, z)) : (GroupedUnicast) invokeCommon.objValue;
         }
 
         public void onComplete() {
@@ -265,16 +265,16 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
         public final GroupByObserver<?, K, T> parent;
         public final SpscLinkedArrayQueue<T> queue;
 
-        public State(int i2, GroupByObserver<?, K, T> groupByObserver, K k, boolean z) {
+        public State(int i, GroupByObserver<?, K, T> groupByObserver, K k, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), groupByObserver, k, Boolean.valueOf(z)};
+                Object[] objArr = {Integer.valueOf(i), groupByObserver, k, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -283,7 +283,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             this.cancelled = new AtomicBoolean();
             this.once = new AtomicBoolean();
             this.actual = new AtomicReference<>();
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.parent = groupByObserver;
             this.key = k;
             this.delayError = z;
@@ -349,7 +349,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
             SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
             boolean z = this.delayError;
             Observer<? super T> observer = this.actual.get();
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 if (observer != null) {
                     while (true) {
@@ -365,8 +365,8 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
                         observer.onNext(obj);
                     }
                 }
-                i2 = addAndGet(-i2);
-                if (i2 == 0) {
+                i = addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
                 if (observer == null) {
@@ -428,17 +428,17 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableGroupBy(ObservableSource<T> observableSource, Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, int i2, boolean z) {
+    public ObservableGroupBy(ObservableSource<T> observableSource, Function<? super T, ? extends K> function, Function<? super T, ? extends V> function2, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, function, function2, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, function, function2, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -447,7 +447,7 @@ public final class ObservableGroupBy<T, K, V> extends AbstractObservableWithUpst
         }
         this.keySelector = function;
         this.valueSelector = function2;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayError = z;
     }
 

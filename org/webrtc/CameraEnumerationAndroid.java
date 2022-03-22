@@ -14,20 +14,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.baidu.wallet.qrcodescanner.beans.QRCodeScannerBeanFactory;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CameraEnumerationAndroid {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ArrayList<Size> COMMON_RESOLUTIONS;
     public static final String TAG = "CameraEnumerationAndroid";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CaptureFormat {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,30 +35,30 @@ public class CameraEnumerationAndroid {
         public final int imageFormat;
         public final int width;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static class FramerateRange {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int max;
             public int min;
 
-            public FramerateRange(int i2, int i3) {
+            public FramerateRange(int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.min = i2;
-                this.max = i3;
+                this.min = i;
+                this.max = i2;
             }
 
             public boolean equals(Object obj) {
@@ -91,25 +90,25 @@ public class CameraEnumerationAndroid {
             }
         }
 
-        public CaptureFormat(int i2, int i3, int i4, int i5) {
+        public CaptureFormat(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.imageFormat = 17;
-            this.width = i2;
-            this.height = i3;
-            this.framerate = new FramerateRange(i4, i5);
+            this.width = i;
+            this.height = i2;
+            this.framerate = new FramerateRange(i3, i4);
         }
 
         public boolean equals(Object obj) {
@@ -146,41 +145,41 @@ public class CameraEnumerationAndroid {
             return (String) invokeV.objValue;
         }
 
-        public static int frameSize(int i2, int i3, int i4) {
+        public static int frameSize(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) {
-                if (i4 == 17) {
-                    return ((i2 * i3) * ImageFormat.getBitsPerPixel(i4)) / 8;
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
+                if (i3 == 17) {
+                    return ((i * i2) * ImageFormat.getBitsPerPixel(i3)) / 8;
                 }
                 throw new UnsupportedOperationException("Don't know how to calculate the frame size of non-NV21 image formats.");
             }
             return invokeIII.intValue;
         }
 
-        public CaptureFormat(int i2, int i3, FramerateRange framerateRange) {
+        public CaptureFormat(int i, int i2, FramerateRange framerateRange) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), framerateRange};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), framerateRange};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.imageFormat = 17;
-            this.width = i2;
-            this.height = i3;
+            this.width = i;
+            this.height = i2;
             this.framerate = framerateRange;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ClosestComparator<T> implements Comparator<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -190,9 +189,9 @@ public class CameraEnumerationAndroid {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -222,7 +221,7 @@ public class CameraEnumerationAndroid {
                 return;
             }
         }
-        COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, RecordConstants.DEFAULT_PREVIEW_WIDTH), new Size(960, 640), new Size(1024, 576), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(QRCodeScannerBeanFactory.QRCODE_WHITE_LIST, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
+        COMMON_RESOLUTIONS = new ArrayList<>(Arrays.asList(new Size(160, 120), new Size(240, 160), new Size(MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 240), new Size(400, 240), new Size(480, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP), new Size(640, 360), new Size(640, 480), new Size(768, 480), new Size(854, 480), new Size(800, 600), new Size(960, RecordConstants.DEFAULT_PREVIEW_WIDTH), new Size(960, 640), new Size(1024, 576), new Size(1024, 600), new Size(1280, 720), new Size(1280, 1024), new Size(1920, 1080), new Size(1920, 1440), new Size(2560, 1440), new Size(3840, DisplayCompat.DISPLAY_SIZE_4K_HEIGHT)));
     }
 
     public CameraEnumerationAndroid() {
@@ -230,19 +229,19 @@ public class CameraEnumerationAndroid {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static CaptureFormat.FramerateRange getClosestSupportedFramerateRange(List<CaptureFormat.FramerateRange> list, int i2) {
+    public static CaptureFormat.FramerateRange getClosestSupportedFramerateRange(List<CaptureFormat.FramerateRange> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i2)) == null) ? (CaptureFormat.FramerateRange) Collections.min(list, new ClosestComparator<CaptureFormat.FramerateRange>(i2) { // from class: org.webrtc.CameraEnumerationAndroid.1
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) ? (CaptureFormat.FramerateRange) Collections.min(list, new ClosestComparator<CaptureFormat.FramerateRange>(i) { // from class: org.webrtc.CameraEnumerationAndroid.1
             public static /* synthetic */ Interceptable $ic = null;
             public static final int MAX_FPS_DIFF_THRESHOLD = 5000;
             public static final int MAX_FPS_HIGH_DIFF_WEIGHT = 3;
@@ -260,24 +259,24 @@ public class CameraEnumerationAndroid {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2)};
+                    Object[] objArr = {Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         super();
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.val$requestedFps = i2;
+                this.val$requestedFps = i;
             }
 
-            private int progressivePenalty(int i3, int i4, int i5, int i6) {
+            private int progressivePenalty(int i2, int i3, int i4, int i5) {
                 InterceptResult invokeIIII;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeIIII = interceptable2.invokeIIII(65537, this, i3, i4, i5, i6)) == null) ? i3 < i4 ? i3 * i5 : ((i3 - i4) * i6) + (i5 * i4) : invokeIIII.intValue;
+                return (interceptable2 == null || (invokeIIII = interceptable2.invokeIIII(65537, this, i2, i3, i4, i5)) == null) ? i2 < i3 ? i2 * i4 : ((i2 - i3) * i5) + (i4 * i3) : invokeIIII.intValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -290,10 +289,10 @@ public class CameraEnumerationAndroid {
         }) : (CaptureFormat.FramerateRange) invokeLI.objValue;
     }
 
-    public static Size getClosestSupportedSize(List<Size> list, int i2, int i3) {
+    public static Size getClosestSupportedSize(List<Size> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, list, i2, i3)) == null) ? (Size) Collections.min(list, new ClosestComparator<Size>(i2, i3) { // from class: org.webrtc.CameraEnumerationAndroid.2
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, list, i, i2)) == null) ? (Size) Collections.min(list, new ClosestComparator<Size>(i, i2) { // from class: org.webrtc.CameraEnumerationAndroid.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int val$requestedHeight;
@@ -306,19 +305,19 @@ public class CameraEnumerationAndroid {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super();
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.val$requestedWidth = i2;
-                this.val$requestedHeight = i3;
+                this.val$requestedWidth = i;
+                this.val$requestedHeight = i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */

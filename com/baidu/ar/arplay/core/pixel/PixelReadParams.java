@@ -60,16 +60,16 @@ public class PixelReadParams {
             $VALUES = new FrameType[]{STREAM_FRAME, frameType};
         }
 
-        public FrameType(String str, int i2, int i3) {
+        public FrameType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -78,14 +78,14 @@ public class PixelReadParams {
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
-        public static FrameType valueOf(int i2) {
+        public static FrameType valueOf(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != STREAM_FRAME.getValue() && i2 == SINGLE_FRAME.getValue()) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != STREAM_FRAME.getValue() && i == SINGLE_FRAME.getValue()) {
                     return SINGLE_FRAME;
                 }
                 return STREAM_FRAME;
@@ -144,16 +144,16 @@ public class PixelReadParams {
             $VALUES = new ScaleType[]{FIT_XY, FIT_CENTER, CENTER_CROP, scaleType};
         }
 
-        public ScaleType(String str, int i2) {
+        public ScaleType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -199,9 +199,9 @@ public class PixelReadParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {pixelType};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -307,10 +307,10 @@ public class PixelReadParams {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mScaleType : (ScaleType) invokeV.objValue;
     }
 
-    public void setCacheSize(int i2) {
+    public void setCacheSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mCacheSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mCacheSize = i;
         }
     }
 
@@ -328,17 +328,17 @@ public class PixelReadParams {
         }
     }
 
-    public void setOutputHeight(int i2) {
+    public void setOutputHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mOutputHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mOutputHeight = i;
         }
     }
 
-    public void setOutputWidth(int i2) {
+    public void setOutputWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mOutputWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mOutputWidth = i;
         }
     }
 

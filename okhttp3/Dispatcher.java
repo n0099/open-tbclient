@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
 import okhttp3.RealCall;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Dispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public final class Dispatcher {
             newInitContext.initArgs = r2;
             Object[] objArr = {executorService};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -80,13 +80,13 @@ public final class Dispatcher {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, asyncCall)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (RealCall.AsyncCall asyncCall2 : this.runningAsyncCalls) {
                 if (!asyncCall2.get().forWebSocket && asyncCall2.host().equals(asyncCall.host())) {
-                    i2++;
+                    i++;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -156,26 +156,26 @@ public final class Dispatcher {
 
     public synchronized int getMaxRequests() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                i2 = this.maxRequests;
+                i = this.maxRequests;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public synchronized int getMaxRequestsPerHost() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                i2 = this.maxRequestsPerHost;
+                i = this.maxRequestsPerHost;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -250,29 +250,29 @@ public final class Dispatcher {
         }
     }
 
-    public synchronized void setMaxRequests(int i2) {
+    public synchronized void setMaxRequests(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             synchronized (this) {
-                if (i2 >= 1) {
-                    this.maxRequests = i2;
+                if (i >= 1) {
+                    this.maxRequests = i;
                     promoteCalls();
                 } else {
-                    throw new IllegalArgumentException("max < 1: " + i2);
+                    throw new IllegalArgumentException("max < 1: " + i);
                 }
             }
         }
     }
 
-    public synchronized void setMaxRequestsPerHost(int i2) {
+    public synchronized void setMaxRequestsPerHost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             synchronized (this) {
-                if (i2 >= 1) {
-                    this.maxRequestsPerHost = i2;
+                if (i >= 1) {
+                    this.maxRequestsPerHost = i;
                     promoteCalls();
                 } else {
-                    throw new IllegalArgumentException("max < 1: " + i2);
+                    throw new IllegalArgumentException("max < 1: " + i);
                 }
             }
         }
@@ -313,9 +313,9 @@ public final class Dispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

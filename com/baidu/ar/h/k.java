@@ -2,6 +2,7 @@ package com.baidu.ar.h;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +32,7 @@ public class k {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
             if (inputStream != null) {
                 if (TextUtils.isEmpty(str)) {
-                    str = System.getProperty("file.encoding", "utf-8");
+                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
                 }
                 InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
                 StringWriter stringWriter = new StringWriter();
@@ -46,7 +47,7 @@ public class k {
                 String stringWriter2 = stringWriter.toString();
                 inputStreamReader.close();
                 stringWriter.close();
-                return ("utf-8".equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
+                return (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) ? stringWriter2.substring(1) : stringWriter2;
             }
             throw new IllegalArgumentException("stream may not be null.");
         }

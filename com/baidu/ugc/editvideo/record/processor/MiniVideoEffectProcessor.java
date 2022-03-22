@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor;
 
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.k.c;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
+import c.a.z.b.a.e;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +21,9 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,28 +40,28 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i2, float[] fArr) {
+    public int onProcessFrame(e eVar, int i, float[] fArr) {
         InterceptResult invokeLIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, i2, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, i, fArr)) == null) {
             if (eVar == null || !this.mIsDraw) {
-                return i2;
+                return i;
             }
-            int i4 = 1;
+            int i3 = 1;
             while (true) {
-                if (i4 >= h.b(eVar.l())) {
-                    i3 = i2;
+                if (i3 >= h.b(eVar.l())) {
+                    i2 = i;
                     break;
                 }
-                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), i4);
+                MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), i3);
                 if (mediaTrack != null && c.m(mediaTrack, "effect")) {
-                    i3 = eVar.i(mediaTrack, i2, null);
+                    i2 = eVar.i(mediaTrack, i, null);
                     break;
                 }
-                i4++;
+                i3++;
             }
-            return i3 == 0 ? i2 : i3;
+            return i2 == 0 ? i : i2;
         }
         return invokeLIL.intValue;
     }

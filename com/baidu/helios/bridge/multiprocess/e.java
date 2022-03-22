@@ -13,10 +13,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface e extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a implements e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public interface e extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,30 +80,30 @@ public interface e extends IInterface {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class b extends Binder implements e {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String a = "com.baidu.helios.bridge.multiprocess.IMultiProcessBridge";
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f33140b = 1;
+        public static final int f25505b = 1;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final int f33141c = 2;
+        public static final int f25506c = 2;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final int f33142d = 3;
+        public static final int f25507d = 3;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final int f33143e = 4;
+        public static final int f25508e = 4;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes4.dex */
+        /* loaded from: classes3.dex */
         public static class a implements e {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static e f33144b;
+            public static e f25509b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
@@ -114,9 +114,9 @@ public interface e extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -247,9 +247,9 @@ public interface e extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -275,10 +275,10 @@ public interface e extends IInterface {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, eVar)) == null) {
-                if (a.f33144b != null || eVar == null) {
+                if (a.f25509b != null || eVar == null) {
                     return false;
                 }
-                a.f33144b = eVar;
+                a.f25509b = eVar;
                 return true;
             }
             return invokeL.booleanValue;
@@ -287,7 +287,7 @@ public interface e extends IInterface {
         public static e b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f33144b : (e) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a.f25509b : (e) invokeV.objValue;
         }
 
         @Override // android.os.IInterface
@@ -298,20 +298,20 @@ public interface e extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1598968902) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1598968902) {
                     parcel2.writeString(a);
                     return true;
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     parcel.enforceInterface(a);
                     a();
                     parcel2.writeNoException();
                     return true;
                 } else {
-                    if (i2 == 2) {
+                    if (i == 2) {
                         parcel.enforceInterface(a);
                         Bundle a2 = a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                         parcel2.writeNoException();
@@ -322,13 +322,13 @@ public interface e extends IInterface {
                             parcel2.writeInt(0);
                         }
                         return true;
-                    } else if (i2 == 3) {
+                    } else if (i == 3) {
                         parcel.enforceInterface(a);
                         a(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, f.b.a(parcel.readStrongBinder()));
                         parcel2.writeNoException();
                         return true;
-                    } else if (i2 != 4) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                    } else if (i != 4) {
+                        return super.onTransact(i, parcel, parcel2, i2);
                     } else {
                         parcel.enforceInterface(a);
                         boolean a3 = a(parcel.readString());

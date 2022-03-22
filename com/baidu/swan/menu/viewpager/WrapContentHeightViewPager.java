@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WrapContentHeightViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class WrapContentHeightViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,12 +35,12 @@ public class WrapContentHeightViewPager extends ViewPager {
         }
     }
 
-    public final int a(int i2, View view) {
+    public final int a(int i, View view) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, view)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, view)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             if (mode == 1073741824) {
                 return size;
             }
@@ -51,22 +51,22 @@ public class WrapContentHeightViewPager extends ViewPager {
     }
 
     @Override // androidx.viewpager.widget.ViewPager, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             if (getChildCount() > 0) {
                 int childCount = getChildCount();
                 View view = null;
-                int i4 = -1;
-                for (int i5 = 0; i5 < childCount; i5++) {
-                    View childAt = getChildAt(i5);
+                int i3 = -1;
+                for (int i4 = 0; i4 < childCount; i4++) {
+                    View childAt = getChildAt(i4);
                     if (childAt != null) {
-                        childAt.measure(i2, i3);
+                        childAt.measure(i, i2);
                         int measuredHeight = childAt.getMeasuredHeight();
-                        if (measuredHeight > i4) {
+                        if (measuredHeight > i3) {
                             view = childAt;
-                            i4 = measuredHeight;
+                            i3 = measuredHeight;
                         }
                     }
                 }
@@ -74,9 +74,9 @@ public class WrapContentHeightViewPager extends ViewPager {
                     view = getChildAt(0);
                 }
                 if (view != null) {
-                    view.measure(i2, i3);
+                    view.measure(i, i2);
                 }
-                setMeasuredDimension(getMeasuredWidth(), a(i3, view));
+                setMeasuredDimension(getMeasuredWidth(), a(i2, view));
             }
         }
     }
@@ -90,9 +90,9 @@ public class WrapContentHeightViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

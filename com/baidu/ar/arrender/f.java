@@ -39,7 +39,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
     public String aL;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f31451f;
+    public com.baidu.ar.lua.b f24815f;
     public com.baidu.ar.arplay.a.c hA;
     public com.baidu.ar.arplay.d.b hB;
     public boolean hC;
@@ -69,9 +69,9 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bVar, eGLContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,12 +94,12 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         com.baidu.ar.libloader.a.require("opencv_java3");
         com.baidu.ar.libloader.a.require("EglCore");
         this.mContext = context;
-        this.f31451f = bVar;
+        this.f24815f = bVar;
         this.hG = eGLContext;
         this.hA = new com.baidu.ar.arplay.a.c(context);
         this.hB = com.baidu.ar.arplay.d.b.bm();
         this.hz = new a(context);
-        com.baidu.ar.statistic.p.b(this.f31451f);
+        com.baidu.ar.statistic.p.b(this.f24815f);
         this.aL = str;
         ARPEngine aRPEngine = ARPEngine.getInstance();
         this.hx = aRPEngine;
@@ -122,12 +122,12 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    private void a(SurfaceTexture surfaceTexture, int i2, int i3, int i4) {
+    private void a(SurfaceTexture surfaceTexture, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(65538, this, surfaceTexture, i2, i3, i4) == null) {
-            int textureId = this.hx.getARPRenderer().getTextureId(this.hx.getARPRenderer().createTexture(i2, i3, i4));
+        if (interceptable == null || interceptable.invokeLIII(65538, this, surfaceTexture, i, i2, i3) == null) {
+            int textureId = this.hx.getARPRenderer().getTextureId(this.hx.getARPRenderer().createTexture(i, i2, i3));
             surfaceTexture.setOnFrameAvailableListener(this);
-            this.hx.getARPRenderer().setInputTexture(i2, textureId, i3, i4);
+            this.hx.getARPRenderer().setInputTexture(i, textureId, i2, i3);
             try {
                 surfaceTexture.detachFromGLContext();
             } catch (Exception unused) {
@@ -147,9 +147,9 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, surfaceTexture, Integer.valueOf(textureId)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -174,7 +174,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                     }
                 }
             });
-            surfaceTexture.setDefaultBufferSize(i3, i4);
+            surfaceTexture.setDefaultBufferSize(i2, i3);
             DuMixStateListener duMixStateListener = this.hH;
             if (duMixStateListener != null) {
                 duMixStateListener.onInputSurfaceTextureAttach(surfaceTexture);
@@ -251,9 +251,9 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -306,9 +306,9 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -385,16 +385,16 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         aRPRenderer.updateOutputSurfaceRotation(ca, pixelRotation);
     }
 
-    private SurfaceTexture c(int i2, int i3, int i4) {
+    private SurfaceTexture c(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, this, i2, i3, i4)) == null) {
-            this.hw = this.hx.getARPRenderer().createTexture(i2, i3, i4);
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, this, i, i2, i3)) == null) {
+            this.hw = this.hx.getARPRenderer().createTexture(i, i2, i3);
             int textureId = this.hx.getARPRenderer().getTextureId(this.hw);
             SurfaceTexture surfaceTexture = new SurfaceTexture(textureId);
-            surfaceTexture.setDefaultBufferSize(i3, i4);
+            surfaceTexture.setDefaultBufferSize(i2, i3);
             surfaceTexture.setOnFrameAvailableListener(this);
-            this.hx.getARPRenderer().setInputTexture(i2, textureId, i3, i4);
+            this.hx.getARPRenderer().setInputTexture(i, textureId, i2, i3);
             this.hL = true;
             return surfaceTexture;
         }
@@ -512,14 +512,14 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public void a(Object obj, int i2, int i3) {
+    public void a(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048581, this, obj, i2, i3) == null) || this.V == null || this.hx == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048581, this, obj, i, i2) == null) || this.V == null || this.hx == null) {
             return;
         }
         bM();
-        this.V.setInputWidth(i2);
-        this.V.setInputHeight(i3);
+        this.V.setInputWidth(i);
+        this.V.setInputHeight(i2);
         if (obj != null && (obj instanceof SurfaceTexture)) {
             this.V.setInputSurface((SurfaceTexture) obj);
         }
@@ -539,10 +539,10 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public void b(Object obj, int i2, int i3) {
+    public void b(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, obj, i2, i3) == null) {
-            if (obj == null || i2 <= 0 || i3 <= 0 || this.W == null || !this.hy) {
+        if (interceptable == null || interceptable.invokeLII(1048583, this, obj, i, i2) == null) {
+            if (obj == null || i <= 0 || i2 <= 0 || this.W == null || !this.hy) {
                 com.baidu.ar.h.b.b("AbstractRenderer", "changeOutputSurface error!!!");
                 return;
             }
@@ -557,8 +557,8 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
             } else {
                 this.W.setOutputSurface((Surface) obj);
             }
-            this.W.setOutputWidth(i2);
-            this.W.setOutputHeight(i3);
+            this.W.setOutputWidth(i);
+            this.W.setOutputHeight(i2);
             a(this.W, obj);
         }
     }
@@ -630,7 +630,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             com.baidu.ar.h.b.c("AbstractRenderer", "stopARPEngine()");
             if (this.hx == null || !this.hy) {
-                com.baidu.ar.lua.b bVar = this.f31451f;
+                com.baidu.ar.lua.b bVar = this.f24815f;
                 if (bVar != null) {
                     bVar.handleMessage(7, 0, null);
                 }
@@ -671,9 +671,9 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -729,12 +729,12 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                 this.hx.getARPRenderer().setInputTexture(duMixInput.getInputTexture().getType(), duMixInput.getInputTexture().getId(), duMixInput.getInputWidth(), duMixInput.getInputHeight());
                 return;
             }
-            int i2 = duMixInput.isCameraInput() ? 36197 : 3553;
+            int i = duMixInput.isCameraInput() ? 36197 : 3553;
             if (duMixInput.getInputSurface() != null) {
-                a(duMixInput.getInputSurface(), i2, duMixInput.getInputWidth(), duMixInput.getInputHeight());
+                a(duMixInput.getInputSurface(), i, duMixInput.getInputWidth(), duMixInput.getInputHeight());
                 return;
             }
-            duMixInput.setInputSurface(c(i2, duMixInput.getInputWidth(), duMixInput.getInputHeight()));
+            duMixInput.setInputSurface(c(i, duMixInput.getInputWidth(), duMixInput.getInputHeight()));
             this.hu = true;
         }
     }
@@ -748,26 +748,26 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public void changeOutputSize(int i2, int i3) {
+    public void changeOutputSize(int i, int i2) {
         DuMixOutput duMixOutput;
         p pVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) || this.V == null || (duMixOutput = this.W) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) || this.V == null || (duMixOutput = this.W) == null) {
             return;
         }
-        if (duMixOutput.getOutputHeight() == i3 && this.W.getOutputWidth() == i2) {
+        if (duMixOutput.getOutputHeight() == i2 && this.W.getOutputWidth() == i) {
             return;
         }
-        com.baidu.ar.h.b.c("AbstractRenderer", "changeOutputSize() size = " + i2 + "x" + i3);
+        com.baidu.ar.h.b.c("AbstractRenderer", "changeOutputSize() size = " + i + "x" + i2);
         Object outputSurface = this.W.getOutputSurface();
         if (outputSurface instanceof SurfaceTexture) {
-            ((SurfaceTexture) outputSurface).setDefaultBufferSize(i2, i3);
+            ((SurfaceTexture) outputSurface).setDefaultBufferSize(i, i2);
         }
-        this.W.setOutputWidth(i2);
-        this.W.setOutputHeight(i3);
+        this.W.setOutputWidth(i);
+        this.W.setOutputHeight(i2);
         ARPEngine aRPEngine = this.hx;
         if (aRPEngine != null && aRPEngine.getARPRenderer() != null && (pVar = this.ht) != null && !TextUtils.isEmpty(pVar.ca())) {
-            this.hx.getARPRenderer().addOutputSurface(this.ht.getSurface(), i2, i3);
+            this.hx.getARPRenderer().addOutputSurface(this.ht.getSurface(), i, i2);
         }
         if (this.hx != null) {
             Size a = a(a(this.V), this.W);
@@ -855,7 +855,7 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
                 bVar.release();
                 this.hB = null;
             }
-            com.baidu.ar.statistic.p.c(this.f31451f);
+            com.baidu.ar.statistic.p.c(this.f24815f);
             bD();
             this.hH = null;
             bM();
@@ -891,14 +891,14 @@ public abstract class f implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public void setLocalDeviceGrade(int i2) {
+    public void setLocalDeviceGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.hE = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.hE = i;
             ARPEngine aRPEngine = this.hx;
             if (aRPEngine != null) {
                 try {
-                    aRPEngine.setLocalDeviceGrade(i2);
+                    aRPEngine.setLocalDeviceGrade(i);
                 } catch (Throwable unused) {
                 }
             }

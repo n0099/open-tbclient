@@ -45,7 +45,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BADGE_NUMBER_NONE = -1;
@@ -56,7 +56,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     @StyleRes
 
     /* renamed from: DEFAULT_STYLE */
-    public static final int Widget_MaterialComponents_Badge = 2131755871;
+    public static final int obfuscated_res_0x7f10033d = 2131755837;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130968757;
     public static final int MAX_CIRCULAR_BADGE_NUMBER_COUNT = 9;
@@ -88,7 +88,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public final TextDrawableHelper textDrawableHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface BadgeGravity {
     }
 
@@ -114,9 +114,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -127,21 +127,21 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         Resources resources = context.getResources();
         this.badgeBounds = new Rect();
         this.shapeDrawable = new MaterialShapeDrawable();
-        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.mtrl_badge_radius);
-        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.mtrl_badge_long_text_horizontal_padding);
-        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.mtrl_badge_with_text_radius);
+        this.badgeRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dd);
+        this.badgeWidePadding = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703dc);
+        this.badgeWithTextRadius = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e0);
         TextDrawableHelper textDrawableHelper = new TextDrawableHelper(this);
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
         this.savedState = new SavedState(context);
-        setTextAppearanceResource(2131755545);
+        setTextAppearanceResource(R.style.obfuscated_res_0x7f1001fd);
     }
 
     private void calculateCenterAndBounds(@NonNull Context context, @NonNull Rect rect, @NonNull View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, this, context, rect, view) == null) {
-            int i2 = this.savedState.badgeGravity;
-            if (i2 == 8388691 || i2 == 8388693) {
+            int i = this.savedState.badgeGravity;
+            if (i == 8388691 || i == 8388693) {
                 this.badgeCenterY = rect.bottom - this.savedState.verticalOffset;
             } else {
                 this.badgeCenterY = rect.top + this.savedState.verticalOffset;
@@ -157,9 +157,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 this.halfBadgeHeight = f3;
                 this.halfBadgeWidth = (this.textDrawableHelper.getTextWidth(getBadgeText()) / 2.0f) + this.badgeWidePadding;
             }
-            int dimensionPixelSize = context.getResources().getDimensionPixelSize(hasNumber() ? R.dimen.mtrl_badge_text_horizontal_edge_offset : R.dimen.mtrl_badge_horizontal_edge_offset);
-            int i3 = this.savedState.badgeGravity;
-            if (i3 != 8388659 && i3 != 8388691) {
+            int dimensionPixelSize = context.getResources().getDimensionPixelSize(hasNumber() ? R.dimen.obfuscated_res_0x7f0703de : R.dimen.obfuscated_res_0x7f0703db);
+            int i2 = this.savedState.badgeGravity;
+            if (i2 != 8388659 && i2 != 8388691) {
                 this.badgeCenterX = ViewCompat.getLayoutDirection(view) == 0 ? ((rect.right + this.halfBadgeWidth) - dimensionPixelSize) - this.savedState.horizontalOffset : (rect.left - this.halfBadgeWidth) + dimensionPixelSize + this.savedState.horizontalOffset;
             } else {
                 this.badgeCenterX = ViewCompat.getLayoutDirection(view) == 0 ? (rect.left - this.halfBadgeWidth) + dimensionPixelSize + this.savedState.horizontalOffset : ((rect.right + this.halfBadgeWidth) - dimensionPixelSize) - this.savedState.horizontalOffset;
@@ -171,30 +171,30 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static BadgeDrawable create(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, Widget_MaterialComponents_Badge) : (BadgeDrawable) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? createFromAttributes(context, null, DEFAULT_THEME_ATTR, obfuscated_res_0x7f10033d) : (BadgeDrawable) invokeL.objValue;
     }
 
     @NonNull
-    public static BadgeDrawable createFromAttributes(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+    public static BadgeDrawable createFromAttributes(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet, i, i2)) == null) {
             BadgeDrawable badgeDrawable = new BadgeDrawable(context);
-            badgeDrawable.loadDefaultStateFromAttributes(context, attributeSet, i2, i3);
+            badgeDrawable.loadDefaultStateFromAttributes(context, attributeSet, i, i2);
             return badgeDrawable;
         }
         return (BadgeDrawable) invokeLLII.objValue;
     }
 
     @NonNull
-    public static BadgeDrawable createFromResource(@NonNull Context context, @XmlRes int i2) {
+    public static BadgeDrawable createFromResource(@NonNull Context context, @XmlRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
-            AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i2, "badge");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
+            AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "badge");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = Widget_MaterialComponents_Badge;
+                styleAttribute = obfuscated_res_0x7f10033d;
             }
             return createFromAttributes(context, parseDrawableXml, DEFAULT_THEME_ATTR, styleAttribute);
         }
@@ -232,15 +232,15 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 return Integer.toString(getNumber());
             }
             Context context = this.contextRef.get();
-            return context == null ? "" : context.getString(R.string.mtrl_exceed_max_badge_number_suffix, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+            return context == null ? "" : context.getString(R.string.obfuscated_res_0x7f0f0ae6, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
         }
         return (String) invokeV.objValue;
     }
 
-    private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+    private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65545, this, context, attributeSet, i2, i3) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.backgroundColor, R.attr.badgeGravity, R.attr.badgeTextColor, R.attr.horizontalOffset, R.attr.maxCharacterCount, R.attr.number, R.attr.verticalOffset}, i2, i3, new int[0]);
+        if (interceptable == null || interceptable.invokeLLII(65545, this, context, attributeSet, i, i2) == null) {
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400a6, R.attr.obfuscated_res_0x7f0400b4, R.attr.obfuscated_res_0x7f0400b6, R.attr.obfuscated_res_0x7f0402a7, R.attr.obfuscated_res_0x7f040419, R.attr.obfuscated_res_0x7f040454, R.attr.obfuscated_res_0x7f040680}, i, i2, new int[0]);
             setMaxCharacterCount(obtainStyledAttributes.getInt(4, 4));
             if (obtainStyledAttributes.hasValue(5)) {
                 setNumber(obtainStyledAttributes.getInt(5, 0));
@@ -256,10 +256,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
     }
 
-    public static int readColorFromAttributes(Context context, @NonNull TypedArray typedArray, @StyleableRes int i2) {
+    public static int readColorFromAttributes(Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, context, typedArray, i2)) == null) ? MaterialResources.getColorStateList(context, typedArray, i2).getDefaultColor() : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, context, typedArray, i)) == null) ? MaterialResources.getColorStateList(context, typedArray, i).getDefaultColor() : invokeLLI.intValue;
     }
 
     private void restoreFromSavedState(@NonNull SavedState savedState) {
@@ -287,13 +287,13 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         updateCenterAndBounds();
     }
 
-    private void setTextAppearanceResource(@StyleRes int i2) {
+    private void setTextAppearanceResource(@StyleRes int i) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65549, this, i2) == null) || (context = this.contextRef.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65549, this, i) == null) || (context = this.contextRef.get()) == null) {
             return;
         }
-        setTextAppearance(new TextAppearance(context, i2));
+        setTextAppearance(new TextAppearance(context, i));
     }
 
     private void updateCenterAndBounds() {
@@ -498,20 +498,20 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.savedState.alpha = i2;
-            this.textDrawableHelper.getTextPaint().setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.savedState.alpha = i;
+            this.textDrawableHelper.getTextPaint().setAlpha(i);
             invalidateSelf();
         }
     }
 
-    public void setBackgroundColor(@ColorInt int i2) {
+    public void setBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.savedState.backgroundColor = i2;
-            ColorStateList valueOf = ColorStateList.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.savedState.backgroundColor = i;
+            ColorStateList valueOf = ColorStateList.valueOf(i);
             if (this.shapeDrawable.getFillColor() != valueOf) {
                 this.shapeDrawable.setFillColor(valueOf);
                 invalidateSelf();
@@ -519,12 +519,12 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
     }
 
-    public void setBadgeGravity(int i2) {
+    public void setBadgeGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || this.savedState.badgeGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || this.savedState.badgeGravity == i) {
             return;
         }
-        this.savedState.badgeGravity = i2;
+        this.savedState.badgeGravity = i;
         WeakReference<View> weakReference = this.anchorViewRef;
         if (weakReference == null || weakReference.get() == null) {
             return;
@@ -534,12 +534,12 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         updateBadgeCoordinates(view, weakReference2 != null ? weakReference2.get() : null);
     }
 
-    public void setBadgeTextColor(@ColorInt int i2) {
+    public void setBadgeTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.savedState.badgeTextColor = i2;
-            if (this.textDrawableHelper.getTextPaint().getColor() != i2) {
-                this.textDrawableHelper.getTextPaint().setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.savedState.badgeTextColor = i;
+            if (this.textDrawableHelper.getTextPaint().getColor() != i) {
+                this.textDrawableHelper.getTextPaint().setColor(i);
                 invalidateSelf();
             }
         }
@@ -552,10 +552,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
     }
 
-    public void setContentDescriptionExceedsMaxBadgeNumberStringResource(@StringRes int i2) {
+    public void setContentDescriptionExceedsMaxBadgeNumberStringResource(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.savedState.contentDescriptionExceedsMaxBadgeNumberRes = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.savedState.contentDescriptionExceedsMaxBadgeNumberRes = i;
         }
     }
 
@@ -566,37 +566,37 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
     }
 
-    public void setContentDescriptionQuantityStringsResource(@StringRes int i2) {
+    public void setContentDescriptionQuantityStringsResource(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.savedState.contentDescriptionQuantityStrings = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.savedState.contentDescriptionQuantityStrings = i;
         }
     }
 
-    public void setHorizontalOffset(int i2) {
+    public void setHorizontalOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.savedState.horizontalOffset = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.savedState.horizontalOffset = i;
             updateCenterAndBounds();
         }
     }
 
-    public void setMaxCharacterCount(int i2) {
+    public void setMaxCharacterCount(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || this.savedState.maxCharacterCount == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i) == null) || this.savedState.maxCharacterCount == i) {
             return;
         }
-        this.savedState.maxCharacterCount = i2;
+        this.savedState.maxCharacterCount = i;
         updateMaxBadgeNumber();
         this.textDrawableHelper.setTextWidthDirty(true);
         updateCenterAndBounds();
         invalidateSelf();
     }
 
-    public void setNumber(int i2) {
+    public void setNumber(int i) {
         int max;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048605, this, i2) == null) || this.savedState.number == (max = Math.max(0, i2))) {
+        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || this.savedState.number == (max = Math.max(0, i))) {
             return;
         }
         this.savedState.number = max;
@@ -605,10 +605,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         invalidateSelf();
     }
 
-    public void setVerticalOffset(int i2) {
+    public void setVerticalOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.savedState.verticalOffset = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.savedState.verticalOffset = i;
             updateCenterAndBounds();
         }
     }
@@ -631,7 +631,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SavedState implements Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -677,9 +677,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -700,10 +700,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
             };
         }
@@ -715,9 +715,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -725,10 +725,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             }
             this.alpha = 255;
             this.number = -1;
-            this.badgeTextColor = new TextAppearance(context, 2131755545).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.mtrl_badge_numberless_content_description);
-            this.contentDescriptionQuantityStrings = R.plurals.mtrl_badge_content_description;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.mtrl_exceed_max_badge_number_content_description;
+            this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f1001fd).textColor.getDefaultColor();
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0ae3);
+            this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0ae5;
         }
 
         @Override // android.os.Parcelable
@@ -742,9 +742,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
                 parcel.writeInt(this.backgroundColor);
                 parcel.writeInt(this.badgeTextColor);
                 parcel.writeInt(this.alpha);
@@ -765,9 +765,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;

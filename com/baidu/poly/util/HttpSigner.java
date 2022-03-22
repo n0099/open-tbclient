@@ -1,7 +1,7 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import c.a.f0.c.b;
+import c.a.e0.c.b;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,19 +38,19 @@ public class HttpSigner {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String a(b bVar, String str, int i2) {
+    public static String a(b bVar, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bVar, str, i)) == null) {
             if (bVar == null) {
                 return "";
             }
@@ -69,8 +69,8 @@ public class HttpSigner {
             }
             sb.append(str);
             sb.append("=");
-            sb.append(nativeGetStatisticsKey(i2));
-            return c.a.f0.d.i.b.c(sb.toString());
+            sb.append(nativeGetStatisticsKey(i));
+            return c.a.e0.d.i.b.c(sb.toString());
         }
         return (String) invokeLLI.objValue;
     }
@@ -103,14 +103,14 @@ public class HttpSigner {
         sb.append(nativeGetCommissionSk());
         sb.append("&");
         sb.append(bVar.a("timestamp"));
-        bVar.d("sign", c.a.f0.d.i.b.c(sb.toString()));
+        bVar.d("sign", c.a.e0.d.i.b.c(sb.toString()));
     }
 
-    public static native String nativeGetAppId(int i2);
+    public static native String nativeGetAppId(int i);
 
     public static native String nativeGetCommissionSk();
 
-    public static native String nativeGetStatisticsKey(int i2);
+    public static native String nativeGetStatisticsKey(int i);
 
-    public static native String nativeSignNop(String str, int i2);
+    public static native String nativeSignNop(String str, int i);
 }

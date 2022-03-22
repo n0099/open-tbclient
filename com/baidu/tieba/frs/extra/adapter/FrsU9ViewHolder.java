@@ -10,9 +10,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.f2;
-import c.a.q0.r.r.i2;
-import c.a.r0.y3.h0;
+import c.a.o0.r.r.b2;
+import c.a.o0.r.r.d2;
+import c.a.p0.a4.h0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ListView.TypeAdapter;
@@ -36,33 +36,29 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public TbPageContext a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f41972b;
+    public RelativeLayout f32485b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinearLayout f41973c;
+    public LinearLayout f32486c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbImageView f41974d;
+    public TbImageView f32487d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f41975e;
+    public TextView f32488e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f41976f;
+    public TextView f32489f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41977g;
+    public TextView f32490g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f41978h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f41979i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f41980j;
-    public f2 k;
-    public i2 l;
+    public TextView f32491h;
+    public View i;
+    public TextView j;
+    public b2 k;
+    public d2 l;
     public ImageView m;
     public View n;
     public int o;
@@ -72,9 +68,7 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FrsU9ViewHolder f41981e;
+        public final /* synthetic */ FrsU9ViewHolder a;
 
         public a(FrsU9ViewHolder frsU9ViewHolder) {
             Interceptable interceptable = $ic;
@@ -83,31 +77,31 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsU9ViewHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41981e = frsU9ViewHolder;
+            this.a = frsU9ViewHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f41981e.a.getPageActivity()) && n.C()) {
-                if (view == this.f41981e.f41972b) {
-                    if (this.f41981e.k == null || TextUtils.isEmpty(this.f41981e.k.b())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.a.a.getPageActivity()) && n.C()) {
+                if (view == this.a.f32485b) {
+                    if (this.a.k == null || TextUtils.isEmpty(this.a.k.b())) {
                         return;
                     }
-                    TiebaStatic.eventStat(this.f41981e.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f41981e.a.getPageActivity()), new String[]{this.f41981e.k.b()});
-                } else if (view != this.f41981e.f41973c || this.f41981e.l == null || TextUtils.isEmpty(this.f41981e.l.J0())) {
+                    TiebaStatic.eventStat(this.a.a.getPageActivity(), "num_click", "click", 1, new Object[0]);
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.a.getPageActivity()), new String[]{this.a.k.b()});
+                } else if (view != this.a.f32486c || this.a.l == null || TextUtils.isEmpty(this.a.l.J0())) {
                 } else {
-                    TiebaStatic.eventStat(this.f41981e.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f41981e.a.getPageActivity()), new String[]{this.f41981e.l.J0()});
+                    TiebaStatic.eventStat(this.a.a.getPageActivity(), "info_click", "click", 1, "page", "frs");
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.a.getPageActivity()), new String[]{this.a.l.J0()});
                 }
             }
         }
@@ -122,9 +116,9 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, view, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -134,110 +128,110 @@ public class FrsU9ViewHolder extends TypeAdapter.ViewHolder {
         this.o = 3;
         this.p = new a(this);
         this.a = tbPageContext;
-        this.f41972b = (RelativeLayout) view.findViewById(R.id.u9_top_code);
-        this.f41973c = (LinearLayout) view.findViewById(R.id.u9_news_info);
-        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.f41974d = tbImageView;
+        this.f32485b = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f092254);
+        this.f32486c = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f092253);
+        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f0920ac);
+        this.f32487d = tbImageView;
         tbImageView.setPageId(bdUniqueId);
-        this.f41975e = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.f41976f = (TextView) view.findViewById(R.id.top_code_detail_surplus_text);
-        this.f41977g = (TextView) view.findViewById(R.id.top_code_detail_giftworth_text);
-        this.f41978h = (TextView) view.findViewById(R.id.top_code_getnum_btn);
-        this.f41979i = view.findViewById(R.id.u9_top_code_divider);
-        ImageView imageView = (ImageView) view.findViewById(R.id.news_info_img);
+        this.f32488e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        this.f32489f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920a9);
+        this.f32490g = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920a5);
+        this.f32491h = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920ab);
+        this.i = view.findViewById(R.id.obfuscated_res_0x7f092255);
+        ImageView imageView = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f09156c);
         this.m = imageView;
         imageView.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.icon_frs_news));
-        this.f41980j = (TextView) view.findViewById(R.id.news_info_text);
-        this.n = view.findViewById(R.id.frs_list_item_u9_top_line);
-        SkinManager.setBackgroundResource(this.f41978h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f41978h, (int) R.drawable.frs_text_color_selector);
-        setOnClickListener();
+        this.j = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09156d);
+        this.n = view.findViewById(R.id.obfuscated_res_0x7f090b7a);
+        SkinManager.setBackgroundResource(this.f32491h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f32491h, (int) R.drawable.frs_text_color_selector);
+        j();
     }
 
-    public void bindDataToView(h0 h0Var) {
+    public void h(h0 h0Var) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, h0Var) == null) || h0Var == null) {
             return;
         }
-        f2 U4 = h0Var.U4();
-        i2 V4 = h0Var.V4();
-        this.k = U4;
-        this.l = V4;
-        if (h0Var.W4()) {
+        b2 e2 = h0Var.e();
+        d2 g2 = h0Var.g();
+        this.k = e2;
+        this.l = g2;
+        if (h0Var.i()) {
             this.n.setVisibility(0);
         } else {
             this.n.setVisibility(8);
         }
-        f2 f2Var = this.k;
-        if (f2Var == null) {
-            this.f41972b.setVisibility(8);
-            this.f41979i.setVisibility(8);
-        } else if (StringUtils.isNull(f2Var.g())) {
-            this.f41972b.setVisibility(8);
-            this.f41979i.setVisibility(8);
+        b2 b2Var = this.k;
+        if (b2Var == null) {
+            this.f32485b.setVisibility(8);
+            this.i.setVisibility(8);
+        } else if (StringUtils.isNull(b2Var.g())) {
+            this.f32485b.setVisibility(8);
+            this.i.setVisibility(8);
         } else {
-            this.f41972b.setVisibility(0);
-            this.f41979i.setVisibility(0);
-            this.f41974d.startLoad(this.k.e(), 10, false);
-            this.f41975e.setText(this.k.g());
-            if (StringUtils.isNull(U4.a())) {
-                this.f41978h.setVisibility(8);
+            this.f32485b.setVisibility(0);
+            this.i.setVisibility(0);
+            this.f32487d.J(this.k.e(), 10, false);
+            this.f32488e.setText(this.k.g());
+            if (StringUtils.isNull(e2.a())) {
+                this.f32491h.setVisibility(8);
             } else {
-                this.f41978h.setText(U4.a());
-                this.f41978h.setVisibility(0);
+                this.f32491h.setText(e2.a());
+                this.f32491h.setVisibility(0);
             }
             int c2 = this.k.c();
             if (c2 != 1 && c2 != 2) {
-                this.f41977g.setVisibility(8);
-                this.f41976f.setText(U4.f());
-                this.f41976f.setVisibility(0);
+                this.f32490g.setVisibility(8);
+                this.f32489f.setText(e2.f());
+                this.f32489f.setVisibility(0);
             } else {
                 if (StringUtils.isNull(this.k.h())) {
-                    this.f41976f.setVisibility(8);
+                    this.f32489f.setVisibility(8);
                 } else {
-                    String str = this.a.getResources().getString(R.string.u9_shengyu) + this.k.h();
+                    String str = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1458) + this.k.h();
                     SpannableString spannableString = new SpannableString(str);
                     UtilHelper.setSpan(spannableString, str, this.k.h(), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f41976f.setText(spannableString);
-                    this.f41976f.setVisibility(0);
+                    this.f32489f.setText(spannableString);
+                    this.f32489f.setVisibility(0);
                 }
-                if (U4.d() <= 0) {
-                    this.f41977g.setVisibility(8);
+                if (e2.d() <= 0) {
+                    this.f32490g.setVisibility(8);
                 } else {
-                    String str2 = this.a.getResources().getString(R.string.u9_worth) + this.k.d();
+                    String str2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1459) + this.k.d();
                     SpannableString spannableString2 = new SpannableString(str2);
                     UtilHelper.setSpan(spannableString2, str2, String.valueOf(this.k.d()), new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0305)));
-                    this.f41977g.setText(spannableString2);
-                    this.f41977g.setVisibility(0);
+                    this.f32490g.setText(spannableString2);
+                    this.f32490g.setVisibility(0);
                 }
             }
         }
-        if (this.l != null && !StringUtils.isNull(V4.K0())) {
-            this.f41973c.setVisibility(0);
-            this.f41980j.setText(V4.K0());
+        if (this.l != null && !StringUtils.isNull(g2.K0())) {
+            this.f32486c.setVisibility(0);
+            this.j.setText(g2.K0());
             return;
         }
-        this.f41973c.setVisibility(8);
+        this.f32486c.setVisibility(8);
     }
 
-    public void onChangeSkinType(int i2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.o == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.o == i) {
             return;
         }
         SkinManager.setBackgroundResource(this.m, R.drawable.icon_frs_news);
-        SkinManager.setBackgroundResource(this.f41978h, R.drawable.frs_star_btn_like);
-        SkinManager.setViewTextColor(this.f41978h, (int) R.drawable.frs_text_color_selector);
-        this.a.getLayoutMode().k(i2 == 1);
-        this.a.getLayoutMode().j(getView());
-        this.o = i2;
+        SkinManager.setBackgroundResource(this.f32491h, R.drawable.frs_star_btn_like);
+        SkinManager.setViewTextColor(this.f32491h, (int) R.drawable.frs_text_color_selector);
+        this.a.getLayoutMode().k(i == 1);
+        this.a.getLayoutMode().j(b());
+        this.o = i;
     }
 
-    public void setOnClickListener() {
+    public void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f41972b.setOnClickListener(this.p);
-            this.f41973c.setOnClickListener(this.p);
+            this.f32485b.setOnClickListener(this.p);
+            this.f32486c.setOnClickListener(this.p);
         }
     }
 }

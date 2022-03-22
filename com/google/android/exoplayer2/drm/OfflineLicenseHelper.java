@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.util.HashMap;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
             newInitContext.initArgs = r2;
             Object[] objArr = {uuid, exoMediaDrm, mediaDrmCallback, hashMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,9 +58,9 @@ public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -103,11 +103,11 @@ public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
         });
     }
 
-    private byte[] blockingKeyRequest(int i2, byte[] bArr, DrmInitData drmInitData) throws DrmSession.DrmSessionException {
+    private byte[] blockingKeyRequest(int i, byte[] bArr, DrmInitData drmInitData) throws DrmSession.DrmSessionException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, this, i2, bArr, drmInitData)) == null) {
-            DrmSession<T> openBlockingKeyRequest = openBlockingKeyRequest(i2, bArr, drmInitData);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65538, this, i, bArr, drmInitData)) == null) {
+            DrmSession<T> openBlockingKeyRequest = openBlockingKeyRequest(i, bArr, drmInitData);
             DrmSession.DrmSessionException error = openBlockingKeyRequest.getError();
             byte[] offlineLicenseKeySetId = openBlockingKeyRequest.getOfflineLicenseKeySetId();
             this.drmSessionManager.releaseSession(openBlockingKeyRequest);
@@ -125,11 +125,11 @@ public final class OfflineLicenseHelper<T extends ExoMediaCrypto> {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, factory)) == null) ? newWidevineInstance(str, false, factory, null) : (OfflineLicenseHelper) invokeLL.objValue;
     }
 
-    private DrmSession<T> openBlockingKeyRequest(int i2, byte[] bArr, DrmInitData drmInitData) {
+    private DrmSession<T> openBlockingKeyRequest(int i, byte[] bArr, DrmInitData drmInitData) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65542, this, i2, bArr, drmInitData)) == null) {
-            this.drmSessionManager.setMode(i2, bArr);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65542, this, i, bArr, drmInitData)) == null) {
+            this.drmSessionManager.setMode(i, bArr);
             this.conditionVariable.close();
             DrmSession<T> acquireSession = this.drmSessionManager.acquireSession(this.handlerThread.getLooper(), drmInitData);
             this.conditionVariable.block();

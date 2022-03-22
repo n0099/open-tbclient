@@ -13,11 +13,11 @@ public class bc extends ba {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static bc f35143c;
+    public static bc f27284c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35144b;
+    public boolean f27285b;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class bc extends ba {
                 return;
             }
         }
-        f35143c = new bc();
+        f27284c = new bc();
     }
 
     public bc() {
@@ -40,9 +40,9 @@ public class bc extends ba {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,7 +52,7 @@ public class bc extends ba {
     public static bc c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35143c : (bc) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27284c : (bc) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.ba
@@ -65,7 +65,7 @@ public class bc extends ba {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f35144b = z;
+            this.f27285b = z;
         }
     }
 
@@ -73,6 +73,6 @@ public class bc extends ba {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f35144b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27285b : invokeV.booleanValue;
     }
 }

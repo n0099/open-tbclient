@@ -14,61 +14,61 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class UnknownFieldMap {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, List<FieldValue>> fieldMap;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int tag;
         public final WireType wireType;
 
-        public FieldValue(int i2, WireType wireType) {
+        public FieldValue(int i, WireType wireType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), wireType};
+                Object[] objArr = {Integer.valueOf(i), wireType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.tag = i2;
+            this.tag = i;
             this.wireType = wireType;
         }
 
-        public static Fixed32FieldValue fixed32(int i2, Integer num) {
+        public static Fixed32FieldValue fixed32(int i, Integer num) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, num)) == null) ? new Fixed32FieldValue(i2, num) : (Fixed32FieldValue) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, num)) == null) ? new Fixed32FieldValue(i, num) : (Fixed32FieldValue) invokeIL.objValue;
         }
 
-        public static Fixed64FieldValue fixed64(int i2, Long l) {
+        public static Fixed64FieldValue fixed64(int i, Long l) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, l)) == null) ? new Fixed64FieldValue(i2, l) : (Fixed64FieldValue) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, l)) == null) ? new Fixed64FieldValue(i, l) : (Fixed64FieldValue) invokeIL.objValue;
         }
 
-        public static LengthDelimitedFieldValue lengthDelimited(int i2, ByteString byteString) {
+        public static LengthDelimitedFieldValue lengthDelimited(int i, ByteString byteString) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, byteString)) == null) ? new LengthDelimitedFieldValue(i2, byteString) : (LengthDelimitedFieldValue) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, byteString)) == null) ? new LengthDelimitedFieldValue(i, byteString) : (LengthDelimitedFieldValue) invokeIL.objValue;
         }
 
-        public static VarintFieldValue varint(int i2, Long l) {
+        public static VarintFieldValue varint(int i, Long l) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, l)) == null) ? new VarintFieldValue(i2, l) : (VarintFieldValue) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, l)) == null) ? new VarintFieldValue(i, l) : (VarintFieldValue) invokeIL.objValue;
         }
 
         public ByteString getAsBytes() {
@@ -112,27 +112,27 @@ public final class UnknownFieldMap {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.wireType : (WireType) invokeV.objValue;
         }
 
-        public abstract void write(int i2, WireOutput wireOutput) throws IOException;
+        public abstract void write(int i, WireOutput wireOutput) throws IOException;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Fixed32FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Integer value;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Fixed32FieldValue(int i2, Integer num) {
-            super(i2, WireType.FIXED32);
+        public Fixed32FieldValue(int i, Integer num) {
+            super(i, WireType.FIXED32);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), num};
+                Object[] objArr = {Integer.valueOf(i), num};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (WireType) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -161,33 +161,33 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i2, WireOutput wireOutput) throws IOException {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, wireOutput) == null) {
-                wireOutput.writeTag(i2, WireType.FIXED32);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wireOutput) == null) {
+                wireOutput.writeTag(i, WireType.FIXED32);
                 wireOutput.writeFixed32(this.value.intValue());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Fixed64FieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Long value;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Fixed64FieldValue(int i2, Long l) {
-            super(i2, WireType.FIXED64);
+        public Fixed64FieldValue(int i, Long l) {
+            super(i, WireType.FIXED64);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), l};
+                Object[] objArr = {Integer.valueOf(i), l};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (WireType) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -216,33 +216,33 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i2, WireOutput wireOutput) throws IOException {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, wireOutput) == null) {
-                wireOutput.writeTag(i2, WireType.FIXED64);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wireOutput) == null) {
+                wireOutput.writeTag(i, WireType.FIXED64);
                 wireOutput.writeFixed64(this.value.longValue());
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class LengthDelimitedFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final ByteString value;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LengthDelimitedFieldValue(int i2, ByteString byteString) {
-            super(i2, WireType.LENGTH_DELIMITED);
+        public LengthDelimitedFieldValue(int i, ByteString byteString) {
+            super(i, WireType.LENGTH_DELIMITED);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), byteString};
+                Object[] objArr = {Integer.valueOf(i), byteString};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (WireType) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -268,10 +268,10 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i2, WireOutput wireOutput) throws IOException {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, wireOutput) == null) {
-                wireOutput.writeTag(i2, WireType.LENGTH_DELIMITED);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wireOutput) == null) {
+                wireOutput.writeTag(i, WireType.LENGTH_DELIMITED);
                 wireOutput.writeVarint32(this.value.size());
                 wireOutput.writeRawBytes(this.value.toByteArray());
             }
@@ -279,7 +279,7 @@ public final class UnknownFieldMap {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class UnknownFieldType {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ UnknownFieldType[] ENUM$VALUES;
@@ -310,16 +310,16 @@ public final class UnknownFieldMap {
             ENUM$VALUES = new UnknownFieldType[]{VARINT, FIXED32, FIXED64, unknownFieldType};
         }
 
-        public UnknownFieldType(String str, int i2) {
+        public UnknownFieldType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -370,24 +370,24 @@ public final class UnknownFieldMap {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class VarintFieldValue extends FieldValue {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Long value;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public VarintFieldValue(int i2, Long l) {
-            super(i2, WireType.VARINT);
+        public VarintFieldValue(int i, Long l) {
+            super(i, WireType.VARINT);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), l};
+                Object[] objArr = {Integer.valueOf(i), l};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (WireType) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -413,10 +413,10 @@ public final class UnknownFieldMap {
         }
 
         @Override // com.squareup.wire.UnknownFieldMap.FieldValue
-        public void write(int i2, WireOutput wireOutput) throws IOException {
+        public void write(int i, WireOutput wireOutput) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, wireOutput) == null) {
-                wireOutput.writeTag(i2, WireType.VARINT);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, wireOutput) == null) {
+                wireOutput.writeTag(i, WireType.VARINT);
                 wireOutput.writeVarint64(this.value.longValue());
             }
         }
@@ -461,33 +461,33 @@ public final class UnknownFieldMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    private <T> void addElement(Map<Integer, List<FieldValue>> map, int i2, T t, WireType wireType) {
+    private <T> void addElement(Map<Integer, List<FieldValue>> map, int i, T t, WireType wireType) {
         FieldValue varint;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65539, this, map, i2, t, wireType) == null) {
-            List<FieldValue> list = map.get(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLILL(65539, this, map, i, t, wireType) == null) {
+            List<FieldValue> list = map.get(Integer.valueOf(i));
             if (list == null) {
                 list = new ArrayList<>();
-                map.put(Integer.valueOf(i2), list);
+                map.put(Integer.valueOf(i), list);
             }
-            int i3 = $SWITCH_TABLE$com$squareup$wire$WireType()[wireType.ordinal()];
-            if (i3 == 1) {
-                varint = FieldValue.varint(i2, (Long) t);
-            } else if (i3 == 2) {
-                varint = FieldValue.fixed64(i2, (Long) t);
-            } else if (i3 == 3) {
-                varint = FieldValue.lengthDelimited(i2, (ByteString) t);
-            } else if (i3 == 6) {
-                varint = FieldValue.fixed32(i2, (Integer) t);
+            int i2 = $SWITCH_TABLE$com$squareup$wire$WireType()[wireType.ordinal()];
+            if (i2 == 1) {
+                varint = FieldValue.varint(i, (Long) t);
+            } else if (i2 == 2) {
+                varint = FieldValue.fixed64(i, (Long) t);
+            } else if (i2 == 3) {
+                varint = FieldValue.lengthDelimited(i, (ByteString) t);
+            } else if (i2 == 6) {
+                varint = FieldValue.fixed32(i, (Integer) t);
             } else {
                 throw new IllegalArgumentException("Unsupported wireType = " + wireType);
             }
@@ -510,31 +510,31 @@ public final class UnknownFieldMap {
         return (Map) invokeV.objValue;
     }
 
-    public void addFixed32(int i2, Integer num) {
+    public void addFixed32(int i, Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, num) == null) {
-            addElement(ensureFieldMap(), i2, num, WireType.FIXED32);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, num) == null) {
+            addElement(ensureFieldMap(), i, num, WireType.FIXED32);
         }
     }
 
-    public void addFixed64(int i2, Long l) {
+    public void addFixed64(int i, Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, l) == null) {
-            addElement(ensureFieldMap(), i2, l, WireType.FIXED64);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, l) == null) {
+            addElement(ensureFieldMap(), i, l, WireType.FIXED64);
         }
     }
 
-    public void addLengthDelimited(int i2, ByteString byteString) {
+    public void addLengthDelimited(int i, ByteString byteString) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, byteString) == null) {
-            addElement(ensureFieldMap(), i2, byteString, WireType.LENGTH_DELIMITED);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, byteString) == null) {
+            addElement(ensureFieldMap(), i, byteString, WireType.LENGTH_DELIMITED);
         }
     }
 
-    public void addVarint(int i2, Long l) {
+    public void addVarint(int i, Long l) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, l) == null) {
-            addElement(ensureFieldMap(), i2, l, WireType.VARINT);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, l) == null) {
+            addElement(ensureFieldMap(), i, l, WireType.VARINT);
         }
     }
 
@@ -543,16 +543,16 @@ public final class UnknownFieldMap {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Map<Integer, List<FieldValue>> map = this.fieldMap;
-            int i2 = 0;
+            int i = 0;
             if (map != null) {
                 for (Map.Entry<Integer, List<FieldValue>> entry : map.entrySet()) {
-                    i2 += WireOutput.varintTagSize(entry.getKey().intValue());
+                    i += WireOutput.varintTagSize(entry.getKey().intValue());
                     for (FieldValue fieldValue : entry.getValue()) {
-                        i2 += fieldValue.getSerializedSize();
+                        i += fieldValue.getSerializedSize();
                     }
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -578,9 +578,9 @@ public final class UnknownFieldMap {
             newInitContext.initArgs = r2;
             Object[] objArr = {unknownFieldMap};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

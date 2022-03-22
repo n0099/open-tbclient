@@ -1,5 +1,5 @@
 package com.baidubce.auth;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface BceCredentials {
     String getAccessKeyId();
 

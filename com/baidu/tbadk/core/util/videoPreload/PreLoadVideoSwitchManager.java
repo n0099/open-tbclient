@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.util.videoPreload;
 
 import android.text.TextUtils;
 import c.a.d.f.p.l;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.switchs.VideoPreLoadSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,9 +29,9 @@ public class PreLoadVideoSwitchManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,11 +86,11 @@ public class PreLoadVideoSwitchManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.mSize;
-            if (i2 == 0) {
+            int i = this.mSize;
+            if (i == 0) {
                 return 512000;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

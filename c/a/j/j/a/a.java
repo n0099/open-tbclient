@@ -18,9 +18,9 @@ public final class a implements Application.ActivityLifecycleCallbacks {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,7 +31,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityCreated(Activity activity, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            c.a.j.h.b.b.f3674c.h().c(activity);
+            c.a.j.h.b.b.f3162c.h().c(activity);
         }
     }
 
@@ -53,7 +53,7 @@ public final class a implements Application.ActivityLifecycleCallbacks {
     public void onActivityResumed(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-            c.a.j.h.b.b.f3674c.h().c(activity);
+            c.a.j.h.b.b.f3162c.h().c(activity);
         }
     }
 

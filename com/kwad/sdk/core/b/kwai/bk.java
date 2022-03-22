@@ -15,9 +15,9 @@ public class bk implements com.kwad.sdk.core.d<AdStyleInfo.ExtraDisplayInfo> {
         extraDisplayInfo.exposeTagInfoList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("exposeTagInfoList");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 AdStyleInfo.ExposeTagInfo exposeTagInfo = new AdStyleInfo.ExposeTagInfo();
-                exposeTagInfo.parseJson(optJSONArray.optJSONObject(i2));
+                exposeTagInfo.parseJson(optJSONArray.optJSONObject(i));
                 extraDisplayInfo.exposeTagInfoList.add(exposeTagInfo);
             }
         }

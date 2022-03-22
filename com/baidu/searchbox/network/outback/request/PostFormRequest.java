@@ -38,9 +38,9 @@ public class PostFormRequest extends Request {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {map};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Map) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -94,8 +94,8 @@ public class PostFormRequest extends Request {
                 RequestBody requestBody = this.body;
                 if (requestBody != null) {
                     int size = ((FormBody) requestBody).size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        this.bodyBuilder.addEncoded(((FormBody) this.body).name(i2), ((FormBody) this.body).value(i2));
+                    for (int i = 0; i < size; i++) {
+                        this.bodyBuilder.addEncoded(((FormBody) this.body).name(i), ((FormBody) this.body).value(i));
                     }
                 }
                 return new PostFormRequest(post(this.bodyBuilder.build()), null);
@@ -112,9 +112,9 @@ public class PostFormRequest extends Request {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postFormRequest};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Request) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -138,9 +138,9 @@ public class PostFormRequest extends Request {
             newInitContext.initArgs = r2;
             Object[] objArr = {postFormRequestBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Request.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

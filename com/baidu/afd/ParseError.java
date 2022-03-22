@@ -36,23 +36,23 @@ public class ParseError extends Exception {
         ERROR_SMOOTH_SCROLL = new ParseError(4, "");
     }
 
-    public ParseError(int i2, String str) {
+    public ParseError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.tplName = "";
-        this.errorCode = i2;
+        this.errorCode = i;
         this.errorMessage = str;
     }
 }

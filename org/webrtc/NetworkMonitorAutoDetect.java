@@ -32,7 +32,7 @@ import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long INVALID_NET_ID = -1;
@@ -53,14 +53,14 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
     public String wifiSSID;
 
     /* renamed from: org.webrtc.NetworkMonitorAutoDetect$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ConnectionType {
         public static final /* synthetic */ ConnectionType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -103,16 +103,16 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             $VALUES = new ConnectionType[]{CONNECTION_UNKNOWN, CONNECTION_ETHERNET, CONNECTION_WIFI, CONNECTION_4G, CONNECTION_3G, CONNECTION_2G, CONNECTION_UNKNOWN_CELLULAR, CONNECTION_BLUETOOTH, CONNECTION_VPN, connectionType};
         }
 
-        public ConnectionType(String str, int i2) {
+        public ConnectionType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -135,7 +135,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class IPAddress {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,9 +148,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -167,7 +167,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkInformation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -177,16 +177,16 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public final ConnectionType type;
         public final ConnectionType underlyingTypeForVpn;
 
-        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j2, IPAddress[] iPAddressArr) {
+        public NetworkInformation(String str, ConnectionType connectionType, ConnectionType connectionType2, long j, IPAddress[] iPAddressArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j2), iPAddressArr};
+                Object[] objArr = {str, connectionType, connectionType2, Long.valueOf(j), iPAddressArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -195,7 +195,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             this.name = str;
             this.type = connectionType;
             this.underlyingTypeForVpn = connectionType2;
-            this.handle = j2;
+            this.handle = j;
             this.ipAddresses = iPAddressArr;
         }
 
@@ -235,7 +235,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class NetworkState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -245,26 +245,26 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         public final int underlyingNetworkSubtypeForVpn;
         public final int underlyingNetworkTypeForVpn;
 
-        public NetworkState(boolean z, int i2, int i3, int i4, int i5) {
+        public NetworkState(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.connected = z;
-            this.type = i2;
-            this.subtype = i3;
-            this.underlyingNetworkTypeForVpn = i4;
-            this.underlyingNetworkSubtypeForVpn = i5;
+            this.type = i;
+            this.subtype = i2;
+            this.underlyingNetworkTypeForVpn = i3;
+            this.underlyingNetworkSubtypeForVpn = i4;
         }
 
         public int getNetworkSubType() {
@@ -298,17 +298,17 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Observer {
         void onConnectionTypeChanged(ConnectionType connectionType);
 
         void onNetworkConnect(NetworkInformation networkInformation);
 
-        void onNetworkDisconnect(long j2);
+        void onNetworkDisconnect(long j);
     }
 
     @SuppressLint({"NewApi"})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class SimpleNetworkCallback extends ConnectivityManager.NetworkCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,10 +355,10 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
 
         @Override // android.net.ConnectivityManager.NetworkCallback
-        public void onLosing(Network network, int i2) {
+        public void onLosing(Network network, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048579, this, network, i2) == null) {
-                Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is about to lose in " + i2 + "ms");
+            if (interceptable == null || interceptable.invokeLI(1048579, this, network, i) == null) {
+                Logging.d(NetworkMonitorAutoDetect.TAG, "Network " + network.toString() + " is about to lose in " + i + "ms");
             }
         }
 
@@ -378,9 +378,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {networkMonitorAutoDetect};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -390,7 +390,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class WifiDirectManagerDelegate extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public static final int WIFI_P2P_NETWORK_HANDLE = 0;
@@ -407,9 +407,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -431,8 +431,8 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             try {
                 ArrayList list = Collections.list(NetworkInterface.getByName(wifiP2pGroup.getInterface()).getInetAddresses());
                 IPAddress[] iPAddressArr = new IPAddress[list.size()];
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    iPAddressArr[i2] = new IPAddress(((InetAddress) list.get(i2)).getAddress());
+                for (int i = 0; i < list.size(); i++) {
+                    iPAddressArr[i] = new IPAddress(((InetAddress) list.get(i)).getAddress());
                 }
                 NetworkInformation networkInformation = new NetworkInformation(wifiP2pGroup.getInterface(), ConnectionType.CONNECTION_WIFI, ConnectionType.CONNECTION_NONE, 0L, iPAddressArr);
                 this.wifiP2pNetworkInfo = networkInformation;
@@ -442,9 +442,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             }
         }
 
-        private void onWifiP2pStateChange(int i2) {
+        private void onWifiP2pStateChange(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(65538, this, i2) == null) && i2 == 1) {
+            if ((interceptable == null || interceptable.invokeI(65538, this, i) == null) && i == 1) {
                 this.wifiP2pNetworkInfo = null;
                 this.observer.onNetworkDisconnect(0L);
             }
@@ -489,9 +489,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             newInitContext.initArgs = r2;
             Object[] objArr = {observer, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -542,13 +542,13 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    public static ConnectionType getConnectionType(boolean z, int i2, int i3) {
+    public static ConnectionType getConnectionType(boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
             if (z) {
-                if (i2 == 0) {
-                    switch (i3) {
+                if (i == 0) {
+                    switch (i2) {
                         case 1:
                         case 2:
                         case 4:
@@ -570,11 +570,11 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                         default:
                             return ConnectionType.CONNECTION_UNKNOWN_CELLULAR;
                     }
-                } else if (i2 != 1) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            if (i2 != 9) {
-                                if (i2 != 17) {
+                } else if (i != 1) {
+                    if (i != 6) {
+                        if (i != 7) {
+                            if (i != 9) {
+                                if (i != 17) {
                                     return ConnectionType.CONNECTION_UNKNOWN;
                                 }
                                 return ConnectionType.CONNECTION_VPN;
@@ -725,7 +725,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.connectivityManagerDelegate.supportNetworkCallback() : invokeV.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ConnectivityManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -739,9 +739,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -824,17 +824,17 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (supportNetworkCallback() && (activeNetworkInfo = this.connectivityManager.getActiveNetworkInfo()) != null) {
-                    long j2 = -1;
+                    long j = -1;
                     for (Network network : getAllNetworks()) {
                         if (hasInternetCapability(network) && (networkInfo = this.connectivityManager.getNetworkInfo(network)) != null && networkInfo.getType() == activeNetworkInfo.getType()) {
-                            if (j2 == -1) {
-                                j2 = NetworkMonitorAutoDetect.networkToNetId(network);
+                            if (j == -1) {
+                                j = NetworkMonitorAutoDetect.networkToNetId(network);
                             } else {
                                 throw new RuntimeException("Multiple connected networks of same type are not supported.");
                             }
                         }
                     }
-                    return j2;
+                    return j;
                 }
                 return -1L;
             }
@@ -847,10 +847,10 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, linkProperties)) == null) {
                 IPAddress[] iPAddressArr = new IPAddress[linkProperties.getLinkAddresses().size()];
-                int i2 = 0;
+                int i = 0;
                 for (LinkAddress linkAddress : linkProperties.getLinkAddresses()) {
-                    iPAddressArr[i2] = new IPAddress(linkAddress.getAddress().getAddress());
-                    i2++;
+                    iPAddressArr[i] = new IPAddress(linkAddress.getAddress().getAddress());
+                    i++;
                 }
                 return iPAddressArr;
             }
@@ -920,9 +920,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -976,7 +976,7 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class WifiManagerDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -990,9 +990,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1018,9 +1018,9 @@ public class NetworkMonitorAutoDetect extends BroadcastReceiver {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

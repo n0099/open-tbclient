@@ -48,9 +48,9 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observableWithLatestFromMany};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,22 +77,22 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public final Function<? super Object[], R> combiner;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f60737d;
+        public final AtomicReference<Disposable> f45347d;
         public volatile boolean done;
         public final AtomicThrowable error;
         public final WithLatestInnerObserver[] observers;
         public final AtomicReferenceArray<Object> values;
 
-        public WithLatestFromObserver(Observer<? super R> observer, Function<? super Object[], R> function, int i2) {
+        public WithLatestFromObserver(Observer<? super R> observer, Function<? super Object[], R> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, function, Integer.valueOf(i2)};
+                Object[] objArr = {observer, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,23 +100,23 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             }
             this.actual = observer;
             this.combiner = function;
-            WithLatestInnerObserver[] withLatestInnerObserverArr = new WithLatestInnerObserver[i2];
-            for (int i5 = 0; i5 < i2; i5++) {
-                withLatestInnerObserverArr[i5] = new WithLatestInnerObserver(this, i5);
+            WithLatestInnerObserver[] withLatestInnerObserverArr = new WithLatestInnerObserver[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                withLatestInnerObserverArr[i4] = new WithLatestInnerObserver(this, i4);
             }
             this.observers = withLatestInnerObserverArr;
-            this.values = new AtomicReferenceArray<>(i2);
-            this.f60737d = new AtomicReference<>();
+            this.values = new AtomicReferenceArray<>(i);
+            this.f45347d = new AtomicReference<>();
             this.error = new AtomicThrowable();
         }
 
-        public void cancelAllBut(int i2) {
+        public void cancelAllBut(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 WithLatestInnerObserver[] withLatestInnerObserverArr = this.observers;
-                for (int i3 = 0; i3 < withLatestInnerObserverArr.length; i3++) {
-                    if (i3 != i2) {
-                        withLatestInnerObserverArr[i3].dispose();
+                for (int i2 = 0; i2 < withLatestInnerObserverArr.length; i2++) {
+                    if (i2 != i) {
+                        withLatestInnerObserverArr[i2].dispose();
                     }
                 }
             }
@@ -126,37 +126,37 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DisposableHelper.dispose(this.f60737d);
+                DisposableHelper.dispose(this.f45347d);
                 for (WithLatestInnerObserver withLatestInnerObserver : this.observers) {
                     withLatestInnerObserver.dispose();
                 }
             }
         }
 
-        public void innerComplete(int i2, boolean z) {
+        public void innerComplete(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || z) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || z) {
                 return;
             }
             this.done = true;
-            cancelAllBut(i2);
+            cancelAllBut(i);
             HalfSerializer.onComplete(this.actual, this, this.error);
         }
 
-        public void innerError(int i2, Throwable th) {
+        public void innerError(int i, Throwable th) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048579, this, i2, th) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, th) == null) {
                 this.done = true;
-                DisposableHelper.dispose(this.f60737d);
-                cancelAllBut(i2);
+                DisposableHelper.dispose(this.f45347d);
+                cancelAllBut(i);
                 HalfSerializer.onError(this.actual, th, this, this.error);
             }
         }
 
-        public void innerNext(int i2, Object obj) {
+        public void innerNext(int i, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048580, this, i2, obj) == null) {
-                this.values.set(i2, obj);
+            if (interceptable == null || interceptable.invokeIL(1048580, this, i, obj) == null) {
+                this.values.set(i, obj);
             }
         }
 
@@ -164,7 +164,7 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DisposableHelper.isDisposed(this.f60737d.get()) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? DisposableHelper.isDisposed(this.f45347d.get()) : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -201,15 +201,15 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             AtomicReferenceArray<Object> atomicReferenceArray = this.values;
             int length = atomicReferenceArray.length();
             Object[] objArr = new Object[length + 1];
-            int i2 = 0;
+            int i = 0;
             objArr[0] = t;
-            while (i2 < length) {
-                Object obj = atomicReferenceArray.get(i2);
+            while (i < length) {
+                Object obj = atomicReferenceArray.get(i);
                 if (obj == null) {
                     return;
                 }
-                i2++;
-                objArr[i2] = obj;
+                i++;
+                objArr[i] = obj;
             }
             try {
                 HalfSerializer.onNext(this.actual, ObjectHelper.requireNonNull(this.combiner.apply(objArr), "combiner returned a null value"), this, this.error);
@@ -224,17 +224,17 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, disposable) == null) {
-                DisposableHelper.setOnce(this.f60737d, disposable);
+                DisposableHelper.setOnce(this.f45347d, disposable);
             }
         }
 
-        public void subscribe(ObservableSource<?>[] observableSourceArr, int i2) {
+        public void subscribe(ObservableSource<?>[] observableSourceArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048586, this, observableSourceArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048586, this, observableSourceArr, i) == null) {
                 WithLatestInnerObserver[] withLatestInnerObserverArr = this.observers;
-                AtomicReference<Disposable> atomicReference = this.f60737d;
-                for (int i3 = 0; i3 < i2 && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i3++) {
-                    observableSourceArr[i3].subscribe(withLatestInnerObserverArr[i3]);
+                AtomicReference<Disposable> atomicReference = this.f45347d;
+                for (int i2 = 0; i2 < i && !DisposableHelper.isDisposed(atomicReference.get()) && !this.done; i2++) {
+                    observableSourceArr[i2].subscribe(withLatestInnerObserverArr[i2]);
                 }
             }
         }
@@ -249,23 +249,23 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
         public final int index;
         public final WithLatestFromObserver<?, ?> parent;
 
-        public WithLatestInnerObserver(WithLatestFromObserver<?, ?> withLatestFromObserver, int i2) {
+        public WithLatestInnerObserver(WithLatestFromObserver<?, ?> withLatestFromObserver, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {withLatestFromObserver, Integer.valueOf(i2)};
+                Object[] objArr = {withLatestFromObserver, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = withLatestFromObserver;
-            this.index = i2;
+            this.index = i;
         }
 
         public void dispose() {
@@ -320,9 +320,9 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSourceArr, function};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -348,9 +348,9 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
                         if (length == observableSourceArr.length) {
                             observableSourceArr = (ObservableSource[]) Arrays.copyOf(observableSourceArr, (length >> 1) + length);
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         observableSourceArr[length] = observableSource;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -380,9 +380,9 @@ public final class ObservableWithLatestFromMany<T, R> extends AbstractObservable
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, iterable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

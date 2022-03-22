@@ -31,9 +31,9 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,13 +43,13 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void getChatObjectInfo(long j2, CallBack callBack) {
+    public void getChatObjectInfo(long j, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, callBack) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
             if (IMConfigInternal.getInstance().getProductLine(this.mContext) == 4) {
                 deleteUUid();
                 if (callBack != null) {
-                    GroupInfo groupInfo = new GroupInfo(String.valueOf(j2));
+                    GroupInfo groupInfo = new GroupInfo(String.valueOf(j));
                     groupInfo.setDescription("no");
                     groupInfo.setGroupName("no");
                     groupInfo.setType(3);
@@ -59,9 +59,9 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                 return;
             }
             ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(String.valueOf(j2));
-            LogUtils.d("GetGroupfoForRecordHandler", "STAR Recordhandler get groupinfo " + j2);
-            GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j2) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
+            arrayList.add(String.valueOf(j));
+            LogUtils.d("GetGroupfoForRecordHandler", "STAR Recordhandler get groupinfo " + j);
+            GroupManagerImpl.getInstance(this.mContext).getGroupsInfo(1, arrayList, new BIMValueCallBack<ArrayList<GroupInfo>>(this, callBack, j) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ GetGroupfoForRecordHandler this$0;
@@ -73,11 +73,11 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, callBack, Long.valueOf(j2)};
+                        Object[] objArr = {this, callBack, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -85,14 +85,14 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                     }
                     this.this$0 = this;
                     this.val$callBack = callBack;
-                    this.val$contacter = j2;
+                    this.val$contacter = j;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i2, String str, ArrayList<GroupInfo> arrayList2) {
+                public void onResult(int i, String str, ArrayList<GroupInfo> arrayList2) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, arrayList2) == null) && i2 == 0) {
+                    if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, arrayList2) == null) && i == 0) {
                         this.this$0.deleteUUid();
                         if (arrayList2.size() != 0) {
                             ShieldAndTopManager.getInstance(this.this$0.mContext).getSingleContacterSetting(this.val$contacter, 3, new IGetShieldAndTopListener(this, arrayList2) { // from class: com.baidu.android.imsdk.group.GetGroupfoForRecordHandler.1.1
@@ -108,9 +108,9 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, arrayList2};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -145,12 +145,12 @@ public class GetGroupfoForRecordHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void updateChatRecord(ChatObject chatObject, int i2, int i3, Object obj) {
+    public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) && obj != null && (obj instanceof GroupInfo)) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) && obj != null && (obj instanceof GroupInfo)) {
             LogUtils.d("GetGroupfoForRecordHandler", "RECORDSESSION updatechatrecord " + obj.toString());
             GroupInfo groupInfo = (GroupInfo) obj;
-            updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i2, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
+            updateChatRecord(chatObject, groupInfo.getGroupName(), groupInfo.getType() == 2 ? 4 : i, "", 0, "", "", 0, groupInfo.getMarkTop(), groupInfo.getMarkTopTime(), 0, 0L, "", "", "");
         }
     }
 }

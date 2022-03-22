@@ -15,9 +15,9 @@ public class j implements com.kwad.sdk.core.d<AdMatrixInfo.AdDataV2> {
         adDataV2.templateDataList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("templateDatas");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 AdMatrixInfo.TemplateData templateData = new AdMatrixInfo.TemplateData();
-                templateData.parseJson(optJSONArray.optJSONObject(i2));
+                templateData.parseJson(optJSONArray.optJSONObject(i));
                 adDataV2.templateDataList.add(templateData);
             }
         }

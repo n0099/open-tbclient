@@ -30,9 +30,9 @@ public class FullFrameRect {
             newInitContext.initArgs = r2;
             Object[] objArr = {texture2dProgram};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,10 +81,10 @@ public class FullFrameRect {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mProgram.createTextureObject() : invokeV.intValue;
     }
 
-    public void drawFrame(int i2, float[] fArr) {
+    public void drawFrame(int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, fArr) == null) {
-            drawFrame(i2, fArr, false);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, fArr) == null) {
+            drawFrame(i, fArr, false);
         }
     }
 
@@ -150,13 +150,13 @@ public class FullFrameRect {
         texture2dProgram.setDxDy(f2, f3);
     }
 
-    public void setHumanSegMaskParams(int i2, String str, float f2) {
+    public void setHumanSegMaskParams(int i, String str, float f2) {
         Texture2dProgram texture2dProgram;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), str, Float.valueOf(f2)}) == null) || (texture2dProgram = this.mProgram) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f2)}) == null) || (texture2dProgram = this.mProgram) == null) {
             return;
         }
-        texture2dProgram.setHumanSegMaskParams(i2, str, f2);
+        texture2dProgram.setHumanSegMaskParams(i, str, f2);
     }
 
     public void setMirror(boolean z) {
@@ -196,9 +196,9 @@ public class FullFrameRect {
         }
     }
 
-    public void drawFrame(int i2, float[] fArr, boolean z) {
+    public void drawFrame(int i, float[] fArr, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), fArr, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), fArr, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
             return;
         }
         float[] fArr2 = this.mMvpMtx;
@@ -209,19 +209,19 @@ public class FullFrameRect {
         } else {
             this.mScratchMatrix = fArr2;
         }
-        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i2, this.mRectDrawable.getTexCoordStride());
+        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride());
     }
 
-    public void drawFrame(int i2, float[] fArr, int i3, float[] fArr2) {
+    public void drawFrame(int i, float[] fArr, int i2, float[] fArr2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3), fArr2}) == null) {
-            drawFrame(i2, fArr, i3, fArr2, false);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), fArr2}) == null) {
+            drawFrame(i, fArr, i2, fArr2, false);
         }
     }
 
-    public void drawFrame(int i2, float[] fArr, int i3, float[] fArr2, boolean z) {
+    public void drawFrame(int i, float[] fArr, int i2, float[] fArr2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3), fArr2, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), fArr2, Boolean.valueOf(z)}) == null) || this.mProgram == null) {
             return;
         }
         float[] fArr3 = GlUtil.IDENTITY_MATRIX;
@@ -234,7 +234,7 @@ public class FullFrameRect {
         } else {
             this.mScratchMatrix = fArr3;
         }
-        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i2, this.mRectDrawable.getTexCoordStride(), i3, fArr2, this.mRectDrawable.getTexCoordArray2());
+        this.mProgram.draw(this.mScratchMatrix, this.mRectDrawable.getVertexArray(), 0, this.mRectDrawable.getVertexCount(), this.mRectDrawable.getCoordsPerVertex(), this.mRectDrawable.getVertexStride(), fArr, this.mRectDrawable.getTexCoordArray(), i, this.mRectDrawable.getTexCoordStride(), i2, fArr2, this.mRectDrawable.getTexCoordArray2());
     }
 
     public void drawFrame(float[] fArr) {

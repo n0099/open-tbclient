@@ -14,7 +14,7 @@ public interface ICompletedRemoteView {
 
     @KsAdSdkDynamicApi
     @Keep
-    void setIcon(@DrawableRes int i2);
+    void setIcon(@DrawableRes int i);
 
     @KsAdSdkDynamicApi
     @Keep

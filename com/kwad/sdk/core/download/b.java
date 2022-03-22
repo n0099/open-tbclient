@@ -12,18 +12,18 @@ public class b {
         DownloadStatusManager.a().a(str);
     }
 
-    public static void a(String str, int i2, int i3, int i4) {
+    public static void a(String str, int i, int i2, int i3) {
         if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i2 + " soFarBytes=" + i3 + " totalBytes=" + i4);
+            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i + " soFarBytes=" + i2 + " totalBytes=" + i3);
         }
-        DownloadStatusManager.a().a(str, i2, i3, i4);
+        DownloadStatusManager.a().a(str, i, i2, i3);
     }
 
-    public static void a(String str, int i2, String str2) {
+    public static void a(String str, int i, String str2) {
         if (a) {
-            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=" + i2 + " errorMsg=" + str2);
+            com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " errorCode=" + i + " errorMsg=" + str2);
         }
-        DownloadStatusManager.a().a(str, i2, str2);
+        DownloadStatusManager.a().a(str, i, str2);
     }
 
     public static void a(String str, String str2) {

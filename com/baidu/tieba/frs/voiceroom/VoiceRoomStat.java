@@ -48,9 +48,9 @@ public final class VoiceRoomStat {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -85,16 +85,16 @@ public final class VoiceRoomStat {
             Companion = new a(null);
         }
 
-        public PageType(String str, int i2, String[] strArr) {
+        public PageType(String str, int i, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), strArr};
+                Object[] objArr = {str, Integer.valueOf(i), strArr};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -118,10 +118,10 @@ public final class VoiceRoomStat {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (PageType[]) $VALUES.clone() : (PageType[]) invokeV.objValue;
         }
 
-        public final String getPage(int i2) {
+        public final String getPage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.pageArray[i2] : (String) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.pageArray[i] : (String) invokeI.objValue;
         }
 
         public final String[] getPageArray() {
@@ -168,16 +168,16 @@ public final class VoiceRoomStat {
             $VALUES = $values();
         }
 
-        public StatType(String str, int i2, String[] strArr) {
+        public StatType(String str, int i, String[] strArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), strArr};
+                Object[] objArr = {str, Integer.valueOf(i), strArr};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -201,10 +201,10 @@ public final class VoiceRoomStat {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (StatType[]) $VALUES.clone() : (StatType[]) invokeV.objValue;
         }
 
-        public final String getUrlKey(int i2) {
+        public final String getUrlKey(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.urlKeyArray[i2] : (String) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.urlKeyArray[i] : (String) invokeI.objValue;
         }
     }
 
@@ -229,9 +229,9 @@ public final class VoiceRoomStat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -255,11 +255,11 @@ public final class VoiceRoomStat {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) ? (l == null || l.longValue() == 0) ? false : true : invokeL.booleanValue;
     }
 
-    public final StatisticItem b(int i2, StatType statType, Integer num, Long l, Long l2, String str) {
+    public final StatisticItem b(int i, StatType statType, Integer num, Long l, Long l2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), statType, num, l, l2, str})) == null) {
-            StatisticItem statisticItem = new StatisticItem(statType.getUrlKey(i2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), statType, num, l, l2, str})) == null) {
+            StatisticItem statisticItem = new StatisticItem(statType.getUrlKey(i));
             if (num != null) {
                 statisticItem.addParam(TiebaStatic.Params.OBJ_PARAM2, num.intValue());
             }

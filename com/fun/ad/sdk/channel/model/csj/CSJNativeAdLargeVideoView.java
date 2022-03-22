@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.TTFeedAd;
 import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.module.csj.e0;
-/* loaded from: classes7.dex */
-public final class CSJNativeAdLargeVideoView extends e0 {
+import com.fun.module.csj.f0;
+/* loaded from: classes6.dex */
+public final class CSJNativeAdLargeVideoView extends f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout f52785f;
+    public FrameLayout f38531f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CSJNativeAdLargeVideoView(Context context) {
@@ -33,9 +33,9 @@ public final class CSJNativeAdLargeVideoView extends e0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -53,9 +53,9 @@ public final class CSJNativeAdLargeVideoView extends e0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,17 +66,17 @@ public final class CSJNativeAdLargeVideoView extends e0 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CSJNativeAdLargeVideoView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -86,7 +86,7 @@ public final class CSJNativeAdLargeVideoView extends e0 {
         }
     }
 
-    @Override // com.fun.module.csj.e0
+    @Override // com.fun.module.csj.f0
     public void a(TTNativeAd tTNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tTNativeAd) == null) {
@@ -100,37 +100,37 @@ public final class CSJNativeAdLargeVideoView extends e0 {
                     TTFeedAd tTFeedAd = (TTFeedAd) tTNativeAd;
                     int adViewHeight = tTFeedAd.getAdViewHeight();
                     int adViewWidth = tTFeedAd.getAdViewWidth();
-                    ViewGroup.LayoutParams layoutParams = this.f52785f.getLayoutParams();
+                    ViewGroup.LayoutParams layoutParams = this.f38531f.getLayoutParams();
                     layoutParams.width = adViewWidth;
                     layoutParams.height = adViewHeight;
-                    this.f52785f.setLayoutParams(layoutParams);
-                    this.f52785f.requestLayout();
+                    this.f38531f.setLayoutParams(layoutParams);
+                    this.f38531f.requestLayout();
                 }
-                this.f52785f.removeAllViews();
-                this.f52785f.addView(adView);
+                this.f38531f.removeAllViews();
+                this.f38531f.addView(adView);
             }
         }
     }
 
-    @Override // com.fun.module.csj.e0, android.view.View
+    @Override // com.fun.module.csj.f0, android.view.View
     public void onFinishInflate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f52785f = (FrameLayout) findViewById(R.id.ad_video);
+            this.f38531f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f8);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52785f.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / 1.78f);
-            this.f52785f.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38531f.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / 1.78f);
+            this.f38531f.setLayoutParams(layoutParams);
         }
     }
 }

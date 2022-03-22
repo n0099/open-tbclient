@@ -19,12 +19,12 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f51465c;
+    public static boolean f37918c;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Boolean> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f51466b;
+    public c f37919b;
 
     public b(c cVar) {
         Interceptable interceptable = $ic;
@@ -33,16 +33,16 @@ public final class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new HashMap<>();
-        this.f51466b = cVar;
+        this.f37919b = cVar;
     }
 
     public static void b() {
@@ -81,11 +81,11 @@ public final class b {
         while (true) {
             boolean z = true;
             if (!it.hasNext()) {
-                f51465c = true;
+                f37918c = true;
                 return;
             }
             String next = it.next();
-            if (!this.f51466b.d(com.baidu.webkit.logsdk.d.c.c(next, StatConstants.VALUE_TYPE_UPLOAD))) {
+            if (!this.f37919b.d(com.baidu.webkit.logsdk.d.c.c(next, StatConstants.VALUE_TYPE_UPLOAD))) {
                 HashMap<String, Boolean> hashMap = this.a;
                 if (!hashMap.get(next).booleanValue()) {
                     b();
@@ -107,10 +107,10 @@ public final class b {
                             z2 = b3;
                         } else {
                             com.baidu.webkit.logsdk.a.b.a().e();
-                            long j2 = com.baidu.webkit.logsdk.b.b.a().getLong("timeup", 172800000L);
+                            long j = com.baidu.webkit.logsdk.b.b.a().getLong("timeup", 172800000L);
                             com.baidu.webkit.logsdk.a.b.a().e();
                             long b4 = com.baidu.webkit.logsdk.b.b.b(next);
-                            if (b4 != 0 && System.currentTimeMillis() - b4 >= j2) {
+                            if (b4 != 0 && System.currentTimeMillis() - b4 >= j) {
                                 z2 = true;
                             }
                         }
@@ -136,24 +136,24 @@ public final class b {
                 String a = file.exists() ? com.baidu.webkit.logsdk.d.c.a(file) : null;
                 com.baidu.webkit.logsdk.b.a a2 = com.baidu.webkit.logsdk.a.b.a().e().a(aVar.a);
                 JSONObject jSONObject = !TextUtils.isEmpty(a) ? new JSONObject(a) : new JSONObject();
-                String str = a2.f51454c;
+                String str = a2.f37907c;
                 JSONArray jSONArray = jSONObject.has(str) ? jSONObject.getJSONArray(str) : new JSONArray();
-                if (com.baidu.webkit.logsdk.a.f51426b) {
+                if (com.baidu.webkit.logsdk.a.f37883b) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "handleWriteDataToCacheFile jsonArray", jSONArray.toString());
                 }
-                int size = aVar.f51464b.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    jSONArray.put(aVar.f51464b.get(i2));
+                int size = aVar.f37917b.size();
+                for (int i = 0; i < size; i++) {
+                    jSONArray.put(aVar.f37917b.get(i));
                 }
-                jSONObject.put(a2.f51454c, jSONArray);
-                if (com.baidu.webkit.logsdk.a.f51426b) {
+                jSONObject.put(a2.f37907c, jSONArray);
+                if (com.baidu.webkit.logsdk.a.f37883b) {
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "handleWriteDataToCacheFile jsonObject", jSONObject.toString());
                 }
                 com.baidu.webkit.logsdk.d.c.b(b2, jSONObject.toString());
                 com.baidu.webkit.logsdk.d.c.e("BdLogSDK", "handleWriteDataToCacheFile writeDataToFile");
-                aVar.f51464b.clear();
+                aVar.f37917b.clear();
                 c.a(a2);
-                this.f51466b.b(c2);
+                this.f37919b.b(c2);
             } catch (Exception e2) {
                 com.baidu.webkit.logsdk.d.c.a(e2);
             }
@@ -176,18 +176,18 @@ public final class b {
                 }
                 com.baidu.webkit.logsdk.b.a a = com.baidu.webkit.logsdk.a.b.a().e().a(str);
                 JSONObject jSONObject = !TextUtils.isEmpty(str2) ? new JSONObject(str2) : new JSONObject();
-                String str3 = a.f51454c;
+                String str3 = a.f37907c;
                 JSONArray jSONArray = jSONObject.has(str3) ? jSONObject.getJSONArray(str3) : new JSONArray();
                 com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "createFromCache jsonArray", jSONArray.toString());
-                a a2 = this.f51466b.a(str);
-                int size = a2.f51464b.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    jSONArray.put(a2.f51464b.get(i2));
+                a a2 = this.f37919b.a(str);
+                int size = a2.f37917b.size();
+                for (int i = 0; i < size; i++) {
+                    jSONArray.put(a2.f37917b.get(i));
                 }
-                a2.f51464b.clear();
+                a2.f37917b.clear();
                 com.baidu.webkit.logsdk.d.c.d(str, SevenZipUtils.FILE_NAME_TEMP);
                 if (!TextUtils.isEmpty(str2) || jSONArray.length() > 0) {
-                    jSONObject.put(a.f51454c, jSONArray);
+                    jSONObject.put(a.f37907c, jSONArray);
                     if ("frame_event".equals(str)) {
                         JSONObject jSONObject2 = new JSONObject();
                         com.baidu.webkit.logsdk.a.b.a().c();
@@ -197,9 +197,9 @@ public final class b {
                         aVar = new com.baidu.webkit.logsdk.upload.a(a, jSONObject.toString());
                     }
                     com.baidu.webkit.logsdk.d.c.a("BdLogSDK", "createFromCache task", aVar.a);
-                    aVar.f51478f = a.f51454c;
-                    aVar.f51479g = a.f51455d;
-                    this.f51466b.a(aVar);
+                    aVar.f37931f = a.f37907c;
+                    aVar.f37932g = a.f37908d;
+                    this.f37919b.a(aVar);
                 }
             } catch (Exception e2) {
                 com.baidu.webkit.logsdk.d.c.a(e2);

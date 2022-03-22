@@ -20,38 +20,38 @@ public class b extends Dialog {
     public ViewSwitcher a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LinearLayout f36256b;
+    public LinearLayout f28010b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f36257c;
+    public TextView f28011c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f36258d;
+    public TextView f28012d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36259e;
+    public TextView f28013e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f36260f;
+    public TextView f28014f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f36261g;
+    public TextView f28015g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Context f36262h;
+    public Context f28016h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Context context) {
-        super(context, R.style.PassBioBeautyDialog);
+        super(context, R.style.obfuscated_res_0x7f100143);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -59,66 +59,66 @@ public class b extends Dialog {
                 return;
             }
         }
-        this.f36262h = context;
+        this.f28016h = context;
         a();
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.layout_pass_liveness_dialog_alert);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a8);
             setCanceledOnTouchOutside(false);
-            this.f36256b = (LinearLayout) findViewById(R.id.pass_bio_dialog_alert_ll_content);
-            this.a = (ViewSwitcher) findViewById(R.id.view_switcher);
-            this.f36257c = (TextView) findViewById(R.id.title_text);
-            this.f36258d = (TextView) findViewById(R.id.msg_text);
-            this.f36259e = (TextView) findViewById(R.id.positive_btn);
-            this.f36260f = (TextView) findViewById(R.id.negative_btn);
-            this.f36261g = (TextView) findViewById(R.id.neutral_btn);
+            this.f28010b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091655);
+            this.a = (ViewSwitcher) findViewById(R.id.obfuscated_res_0x7f0923db);
+            this.f28011c = (TextView) findViewById(R.id.obfuscated_res_0x7f092059);
+            this.f28012d = (TextView) findViewById(R.id.obfuscated_res_0x7f091460);
+            this.f28013e = (TextView) findViewById(R.id.obfuscated_res_0x7f0918a8);
+            this.f28014f = (TextView) findViewById(R.id.obfuscated_res_0x7f091534);
+            this.f28015g = (TextView) findViewById(R.id.obfuscated_res_0x7f091541);
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f36257c.setText(str);
+            this.f28011c.setText(str);
         }
     }
 
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f36257c.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f28011c.setVisibility(i);
         }
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f36258d.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f28012d.setVisibility(i);
         }
     }
 
     public void c(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, onClickListener) == null) {
-            this.f36259e.setText(str);
-            this.f36259e.setOnClickListener(onClickListener);
+            this.f28013e.setText(str);
+            this.f28013e.setOnClickListener(onClickListener);
         }
     }
 
     public void b(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, onClickListener) == null) {
-            this.f36261g.setText(str);
-            this.f36261g.setOnClickListener(onClickListener);
+            this.f28015g.setText(str);
+            this.f28015g.setOnClickListener(onClickListener);
         }
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            if ((i2 < 1 ? 1 : Math.min(i2, 2)) == 2) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
                 this.a.setDisplayedChild(0);
             } else {
                 this.a.setDisplayedChild(1);
@@ -129,15 +129,15 @@ public class b extends Dialog {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f36258d.setText(str);
+            this.f28012d.setText(str);
         }
     }
 
     public void a(String str, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, onClickListener) == null) {
-            this.f36260f.setText(str);
-            this.f36260f.setOnClickListener(onClickListener);
+            this.f28014f.setText(str);
+            this.f28014f.setOnClickListener(onClickListener);
         }
     }
 
@@ -145,26 +145,26 @@ public class b extends Dialog {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
-                this.f36256b.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg_night));
-                this.f36257c.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_title_text_color_night));
-                this.f36258d.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_content_text_color_night));
-                this.f36260f.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-                this.f36259e.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color_night));
-                this.f36261g.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color_night));
-                this.f36260f.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
-                this.f36259e.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg_night));
-                this.f36261g.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg_night));
+                this.f28010b.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e61));
+                this.f28011c.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f06088d));
+                this.f28012d.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060881));
+                this.f28014f.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060885));
+                this.f28013e.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060889));
+                this.f28015g.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060885));
+                this.f28014f.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5b));
+                this.f28013e.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5d));
+                this.f28015g.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5b));
                 return;
             }
-            this.f36256b.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_dialog_bg));
-            this.f36257c.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_title_text_color));
-            this.f36258d.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_content_text_color));
-            this.f36260f.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-            this.f36261g.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_negative_btn_text_color));
-            this.f36259e.setTextColor(this.f36262h.getResources().getColor(R.color.pass_bio_dialog_positive_btn_text_color));
-            this.f36260f.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
-            this.f36259e.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_positive_btn_bg));
-            this.f36261g.setBackgroundDrawable(this.f36262h.getResources().getDrawable(R.drawable.pass_liveness_bio_dialog_negative_btn_bg));
+            this.f28010b.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e60));
+            this.f28011c.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f06088c));
+            this.f28012d.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060880));
+            this.f28014f.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060884));
+            this.f28015g.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060884));
+            this.f28013e.setTextColor(this.f28016h.getResources().getColor(R.color.obfuscated_res_0x7f060888));
+            this.f28014f.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5a));
+            this.f28013e.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5c));
+            this.f28015g.setBackgroundDrawable(this.f28016h.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e5a));
         }
     }
 }

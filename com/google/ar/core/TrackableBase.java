@@ -6,43 +6,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class TrackableBase implements c.i.b.a.b {
+/* loaded from: classes6.dex */
+public class TrackableBase implements c.f.b.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Session f52963b;
+    public final Session f38709b;
 
-    public TrackableBase(long j2, Session session) {
+    public TrackableBase(long j, Session session) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), session};
+            Object[] objArr = {Long.valueOf(j), session};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f52963b = session;
-        this.a = j2;
+        this.f38709b = session;
+        this.a = j;
     }
 
-    private native long nativeCreateAnchor(long j2, long j3, Pose pose);
+    private native long nativeCreateAnchor(long j, long j2, Pose pose);
 
-    private native long[] nativeGetAnchors(long j2, long j3);
+    private native long[] nativeGetAnchors(long j, long j2);
 
-    private native int nativeGetTrackingState(long j2, long j3);
+    private native int nativeGetTrackingState(long j, long j2);
 
-    public static native int nativeGetType(long j2, long j3);
+    public static native int nativeGetType(long j, long j2);
 
-    public static native void nativeReleaseTrackable(long j2);
+    public static native void nativeReleaseTrackable(long j);
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -53,9 +53,9 @@ public class TrackableBase implements c.i.b.a.b {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                nativeReleaseTrackable(j2);
+            long j = this.a;
+            if (j != 0) {
+                nativeReleaseTrackable(j);
             }
             super.finalize();
         }

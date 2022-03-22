@@ -5,30 +5,29 @@ import android.content.res.Resources;
 import android.text.TextUtils;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import java.io.File;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class j {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f53965b;
+    public final String f39117b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f53966c;
+    public final String f39118c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Resources f53967d;
+    public Resources f39119d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ClassLoader f53968e;
+    public ClassLoader f39120e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IKsAdSDK f53969f;
+    public IKsAdSDK f39121f;
 
     public j(String str, String str2, String str3) {
         this.a = str;
-        this.f53965b = str2;
-        this.f53966c = str3;
+        this.f39117b = str2;
+        this.f39118c = str3;
     }
 
     public static synchronized j a(Context context, String str) {
@@ -60,11 +59,11 @@ public class j {
     private void a(Context context) {
         d();
         Resources a = o.a(context, context.getResources(), this.a);
-        ClassLoader a2 = d.a(context, this.a, this.f53965b, this.f53966c);
+        ClassLoader a2 = d.a(context, this.a, this.f39117b, this.f39118c);
         IKsAdSDK a3 = Loader.a(a2);
-        this.f53967d = a;
-        this.f53968e = a2;
-        this.f53969f = a3;
+        this.f39119d = a;
+        this.f39120e = a2;
+        this.f39121f = a3;
         int sDKType = a3.getSDKType();
         if (sDKType == 1) {
             return;
@@ -83,18 +82,18 @@ public class j {
     }
 
     public Resources a() {
-        return this.f53967d;
+        return this.f39119d;
     }
 
     public ClassLoader b() {
-        return this.f53968e;
+        return this.f39120e;
     }
 
     public IKsAdSDK c() {
-        return this.f53969f;
+        return this.f39121f;
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.a + ExtendedMessageFormat.QUOTE + ", mDexDir='" + this.f53965b + ExtendedMessageFormat.QUOTE + ", mNativeLibDir='" + this.f53966c + ExtendedMessageFormat.QUOTE + ", mResource=" + this.f53967d + ", mClassLoader=" + this.f53968e + ", mKsSdk=" + this.f53969f + ExtendedMessageFormat.END_FE;
+        return "ExternalPackage{mApk='" + this.a + "', mDexDir='" + this.f39117b + "', mNativeLibDir='" + this.f39118c + "', mResource=" + this.f39119d + ", mClassLoader=" + this.f39120e + ", mKsSdk=" + this.f39121f + '}';
     }
 }

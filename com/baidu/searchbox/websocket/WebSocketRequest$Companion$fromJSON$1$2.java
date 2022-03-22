@@ -28,9 +28,9 @@ public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implem
             newInitContext.initArgs = r2;
             Object[] objArr = {objectRef};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,9 +47,9 @@ public final class WebSocketRequest$Companion$fromJSON$1$2 extends Lambda implem
         return invoke(num.intValue());
     }
 
-    public final String invoke(int i2) {
+    public final String invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? ((JSONArray) this.$protocolsArray.element).getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? ((JSONArray) this.$protocolsArray.element).getString(i) : (String) invokeI.objValue;
     }
 }

@@ -30,23 +30,23 @@ public class PerformanceJsonBean {
         public String name;
         public long time;
 
-        public PerformanceJsonObject(String str, long j2) {
+        public PerformanceJsonObject(String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.name = str;
-            this.time = j2;
+            this.time = j;
         }
     }
 
@@ -55,9 +55,9 @@ public class PerformanceJsonBean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -143,10 +143,10 @@ public class PerformanceJsonBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? toJSONArray().toString() : (String) invokeV.objValue;
     }
 
-    public void put(String str, long j2) {
+    public void put(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
-            this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j2));
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+            this.mPerformanceJsonObjectList.add(new PerformanceJsonObject(str, j));
         }
     }
 

@@ -18,9 +18,9 @@ public class MsgUtility {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,8 +45,8 @@ public class MsgUtility {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             JSONArray jSONArray = new JSONArray();
             if (list != null && list.size() > 0) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    jSONArray.put(list.get(i2));
+                for (int i = 0; i < list.size(); i++) {
+                    jSONArray.put(list.get(i));
                 }
             }
             return jSONArray;

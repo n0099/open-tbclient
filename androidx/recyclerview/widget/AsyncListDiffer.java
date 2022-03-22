@@ -50,9 +50,9 @@ public class AsyncListDiffer<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,9 +95,9 @@ public class AsyncListDiffer<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {adapter, itemCallback};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ListUpdateCallback) objArr2[0], (AsyncDifferConfig) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -161,8 +161,8 @@ public class AsyncListDiffer<T> {
     public void submitList(@Nullable List<T> list, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, list, runnable) == null) {
-            int i2 = this.mMaxScheduledGeneration + 1;
-            this.mMaxScheduledGeneration = i2;
+            int i = this.mMaxScheduledGeneration + 1;
+            this.mMaxScheduledGeneration = i;
             List<T> list2 = this.mList;
             if (list == list2) {
                 if (runnable != null) {
@@ -184,7 +184,7 @@ public class AsyncListDiffer<T> {
                 this.mUpdateCallback.onInserted(0, list.size());
                 onCurrentListChanged(list3, runnable);
             } else {
-                this.mConfig.getBackgroundThreadExecutor().execute(new Runnable(this, list2, list, i2, runnable) { // from class: androidx.recyclerview.widget.AsyncListDiffer.1
+                this.mConfig.getBackgroundThreadExecutor().execute(new Runnable(this, list2, list, i, runnable) { // from class: androidx.recyclerview.widget.AsyncListDiffer.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AsyncListDiffer this$0;
@@ -198,11 +198,11 @@ public class AsyncListDiffer<T> {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, list2, list, Integer.valueOf(i2), runnable};
+                            Object[] objArr = {this, list2, list, Integer.valueOf(i), runnable};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -211,7 +211,7 @@ public class AsyncListDiffer<T> {
                         this.this$0 = this;
                         this.val$oldList = list2;
                         this.val$newList = list;
-                        this.val$runGeneration = i2;
+                        this.val$runGeneration = i;
                         this.val$commitCallback = runnable;
                     }
 
@@ -231,9 +231,9 @@ public class AsyncListDiffer<T> {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -243,12 +243,12 @@ public class AsyncListDiffer<T> {
                                 }
 
                                 @Override // androidx.recyclerview.widget.DiffUtil.Callback
-                                public boolean areContentsTheSame(int i3, int i4) {
+                                public boolean areContentsTheSame(int i2, int i3) {
                                     InterceptResult invokeII;
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(1048576, this, i3, i4)) == null) {
-                                        Object obj = this.this$1.val$oldList.get(i3);
-                                        Object obj2 = this.this$1.val$newList.get(i4);
+                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(1048576, this, i2, i3)) == null) {
+                                        Object obj = this.this$1.val$oldList.get(i2);
+                                        Object obj2 = this.this$1.val$newList.get(i3);
                                         if (obj == null || obj2 == null) {
                                             if (obj == null && obj2 == null) {
                                                 return true;
@@ -261,12 +261,12 @@ public class AsyncListDiffer<T> {
                                 }
 
                                 @Override // androidx.recyclerview.widget.DiffUtil.Callback
-                                public boolean areItemsTheSame(int i3, int i4) {
+                                public boolean areItemsTheSame(int i2, int i3) {
                                     InterceptResult invokeII;
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4)) == null) {
-                                        Object obj = this.this$1.val$oldList.get(i3);
-                                        Object obj2 = this.this$1.val$newList.get(i4);
+                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
+                                        Object obj = this.this$1.val$oldList.get(i2);
+                                        Object obj2 = this.this$1.val$newList.get(i3);
                                         if (obj == null || obj2 == null) {
                                             return obj == null && obj2 == null;
                                         }
@@ -277,12 +277,12 @@ public class AsyncListDiffer<T> {
 
                                 @Override // androidx.recyclerview.widget.DiffUtil.Callback
                                 @Nullable
-                                public Object getChangePayload(int i3, int i4) {
+                                public Object getChangePayload(int i2, int i3) {
                                     InterceptResult invokeII;
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(Constants.METHOD_SEND_USER_MSG, this, i3, i4)) == null) {
-                                        Object obj = this.this$1.val$oldList.get(i3);
-                                        Object obj2 = this.this$1.val$newList.get(i4);
+                                    if (interceptable3 == null || (invokeII = interceptable3.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) {
+                                        Object obj = this.this$1.val$oldList.get(i2);
+                                        Object obj2 = this.this$1.val$newList.get(i3);
                                         if (obj != null && obj2 != null) {
                                             return this.this$1.this$0.mConfig.getDiffCallback().getChangePayload(obj, obj2);
                                         }
@@ -317,9 +317,9 @@ public class AsyncListDiffer<T> {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, r7};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -355,9 +355,9 @@ public class AsyncListDiffer<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {listUpdateCallback, asyncDifferConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

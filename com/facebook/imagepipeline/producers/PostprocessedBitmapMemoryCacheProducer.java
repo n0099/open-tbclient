@@ -16,7 +16,7 @@ import com.facebook.imagepipeline.image.CloseableImage;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.Postprocessor;
 import com.facebook.imagepipeline.request.RepeatedPostprocessor;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PostprocessedBitmapMemoryCacheProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "PostprocessedBitmapMemoryCacheProducer";
@@ -27,7 +27,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
     public final MemoryCache<CacheKey, CloseableImage> mMemoryCache;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CachedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer, cacheKey, Boolean.valueOf(z), memoryCache, Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -62,14 +62,14 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i) == null) {
                 if (closeableReference == null) {
-                    if (BaseConsumer.isLast(i2)) {
-                        getConsumer().onNewResult(null, i2);
+                    if (BaseConsumer.isLast(i)) {
+                        getConsumer().onNewResult(null, i);
                     }
-                } else if (!BaseConsumer.isNotLast(i2) || this.mIsRepeatedProcessor) {
+                } else if (!BaseConsumer.isNotLast(i) || this.mIsRepeatedProcessor) {
                     CloseableReference<CloseableImage> cache = this.mIsMemoryCachedEnabled ? this.mMemoryCache.cache(this.mCacheKey, closeableReference) : null;
                     try {
                         getConsumer().onProgressUpdate(1.0f);
@@ -77,7 +77,7 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
                         if (cache != null) {
                             closeableReference = cache;
                         }
-                        consumer.onNewResult(closeableReference, i2);
+                        consumer.onNewResult(closeableReference, i);
                     } finally {
                         CloseableReference.closeSafely(cache);
                     }
@@ -93,9 +93,9 @@ public class PostprocessedBitmapMemoryCacheProducer implements Producer<Closeabl
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryCache, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

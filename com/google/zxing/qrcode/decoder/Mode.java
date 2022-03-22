@@ -55,16 +55,16 @@ public final class Mode {
         $VALUES = new Mode[]{TERMINATOR, NUMERIC, ALPHANUMERIC, STRUCTURED_APPEND, BYTE, ECI, KANJI, FNC1_FIRST_POSITION, FNC1_SECOND_POSITION, mode};
     }
 
-    public Mode(String str, int i2, int[] iArr, int i3) {
+    public Mode(String str, int i, int[] iArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), iArr, Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), iArr, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -74,23 +74,23 @@ public final class Mode {
             }
         }
         this.characterCountBitsForVersions = iArr;
-        this.bits = i3;
+        this.bits = i2;
     }
 
-    public static Mode forBits(int i2) {
+    public static Mode forBits(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 != 5) {
-                                    if (i2 != 7) {
-                                        if (i2 != 8) {
-                                            if (i2 != 9) {
-                                                if (i2 == 13) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
+                                    if (i != 7) {
+                                        if (i != 8) {
+                                            if (i != 9) {
+                                                if (i == 13) {
                                                     return HANZI;
                                                 }
                                                 throw new IllegalArgumentException();

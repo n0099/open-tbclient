@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AccountData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 4126203103788833116L;
@@ -52,9 +52,9 @@ public class AccountData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,7 +90,7 @@ public class AccountData implements Serializable {
             if (!TextUtils.isEmpty(this.mAccount)) {
                 return this.mAccount;
             }
-            return TbadkCoreApplication.getInst().getString(R.string.account_default_text);
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f006a);
         }
         return (String) invokeV.objValue;
     }
@@ -285,10 +285,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setGodType(int i2) {
+    public void setGodType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mGodType = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mGodType = i;
         }
     }
 
@@ -299,10 +299,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setIsActive(int i2) {
+    public void setIsActive(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.mIsActive = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.mIsActive = i;
         }
     }
 
@@ -320,24 +320,24 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setLiveLevel(int i2) {
+    public void setLiveLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.liveLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.liveLevel = i;
         }
     }
 
-    public void setMemberCloseAdIsOpen(int i2) {
+    public void setMemberCloseAdIsOpen(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mMemberCloseAdIsOpen = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mMemberCloseAdIsOpen = i;
         }
     }
 
-    public void setMemberCloseAdVipClose(int i2) {
+    public void setMemberCloseAdVipClose(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.mMemberCloseAdVipClose = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mMemberCloseAdVipClose = i;
         }
     }
 
@@ -348,10 +348,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setMemberType(int i2) {
+    public void setMemberType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.mMemberType = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mMemberType = i;
         }
     }
 
@@ -362,10 +362,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setNewGodStatus(int i2) {
+    public void setNewGodStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048619, this, i2) == null) {
-            this.mNewGodStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            this.mNewGodStatus = i;
         }
     }
 
@@ -383,10 +383,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setPersonalGid(long j2) {
+    public void setPersonalGid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.mPersonalGid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mPersonalGid = j;
         }
     }
 
@@ -397,10 +397,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
-            this.mSex = i2;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            this.mSex = i;
         }
     }
 
@@ -418,10 +418,10 @@ public class AccountData implements Serializable {
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            this.mTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            this.mTime = j;
         }
     }
 

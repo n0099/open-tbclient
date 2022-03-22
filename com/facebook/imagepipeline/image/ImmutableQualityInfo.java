@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImmutableQualityInfo implements QualityInfo {
     public static /* synthetic */ Interceptable $ic;
     public static final QualityInfo FULL_QUALITY;
@@ -33,30 +33,30 @@ public class ImmutableQualityInfo implements QualityInfo {
         FULL_QUALITY = of(Integer.MAX_VALUE, true, true);
     }
 
-    public ImmutableQualityInfo(int i2, boolean z, boolean z2) {
+    public ImmutableQualityInfo(int i, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mQuality = i2;
+        this.mQuality = i;
         this.mIsOfGoodEnoughQuality = z;
         this.mIsOfFullQuality = z2;
     }
 
-    public static QualityInfo of(int i2, boolean z, boolean z2) {
+    public static QualityInfo of(int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new ImmutableQualityInfo(i2, z, z2) : (QualityInfo) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? new ImmutableQualityInfo(i, z, z2) : (QualityInfo) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {

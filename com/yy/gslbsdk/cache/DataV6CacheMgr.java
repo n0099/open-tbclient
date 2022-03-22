@@ -19,7 +19,7 @@ import com.yy.gslbsdk.util.LogTools;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DataV6CacheMgr {
     public static final /* synthetic */ DataV6CacheMgr[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,16 +47,16 @@ public final class DataV6CacheMgr {
         $VALUES = new DataV6CacheMgr[]{dataV6CacheMgr};
     }
 
-    public DataV6CacheMgr(String str, int i2) {
+    public DataV6CacheMgr(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

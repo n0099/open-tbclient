@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebBackForwardList;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebBackForwardList implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class BdSailorWebBackForwardList implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {webBackForwardList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,10 +52,10 @@ public class BdSailorWebBackForwardList implements INoProGuard {
         return (BdSailorWebHistoryItem) invokeV.objValue;
     }
 
-    public BdSailorWebHistoryItem getItemAtIndex(int i2) {
+    public BdSailorWebHistoryItem getItemAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BdSailorWebHistoryItem(this.mBackForwardList.getItemAtIndex(i2)) : (BdSailorWebHistoryItem) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BdSailorWebHistoryItem(this.mBackForwardList.getItemAtIndex(i)) : (BdSailorWebHistoryItem) invokeI.objValue;
     }
 
     public int getSize() {

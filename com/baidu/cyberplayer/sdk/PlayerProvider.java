@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class PlayerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public abstract class PlayerProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,13 +65,13 @@ public abstract class PlayerProvider {
 
     public abstract void reset();
 
-    public abstract void seekTo(long j2);
+    public abstract void seekTo(long j);
 
-    public abstract void seekTo(long j2, int i2);
+    public abstract void seekTo(long j, int i);
 
-    public void sendCommand(int i2, int i3, long j2, String str) {
+    public void sendCommand(int i, int i2, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
         }
     }
 
@@ -121,9 +121,9 @@ public abstract class PlayerProvider {
 
     public abstract void setOnVideoSizeChangedListener(CyberPlayerManager.OnVideoSizeChangedListener onVideoSizeChangedListener);
 
-    public void setOption(String str, long j2) {
+    public void setOption(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048613, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048613, this, str, j) == null) {
         }
     }
 
@@ -147,21 +147,21 @@ public abstract class PlayerProvider {
 
     public abstract void setVolume(float f2, float f3);
 
-    public abstract void setWakeMode(Context context, int i2);
+    public abstract void setWakeMode(Context context, int i);
 
     public abstract void start();
 
     public abstract void stop();
 
-    public void switchMediaSource(int i2) {
+    public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
         }
     }
 
-    public void updateDisplaySize(int i2, int i3) {
+    public void updateDisplaySize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048624, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048624, this, i, i2) == null) {
         }
     }
 }

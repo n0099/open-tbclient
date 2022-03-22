@@ -27,9 +27,9 @@ public class PlayerUbcFlowStatisticsManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,9 +72,9 @@ public class PlayerUbcFlowStatisticsManager {
         return (IUbcFlow) invokeL.objValue;
     }
 
-    public void goBackOrForeground(boolean z, int i2) {
+    public void goBackOrForeground(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
                 if (this.currentSpeed != 1.0f) {
                     getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
@@ -86,10 +86,10 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void onInfo(int i2, int i3, Object obj) {
+    public void onInfo(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i2, i3, obj) == null) {
-            if (i2 == 904 || i2 == 956) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, obj) == null) {
+            if (i == 904 || i == 956) {
                 this.mIsShowFirstFrame = true;
                 if (this.currentSpeed != 1.0f) {
                     getFlow(IUbcFlow.TYPE_SPEED_DURATION_FLOW).createFlow();
@@ -98,9 +98,9 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void onPlayerEnd(int i2) {
+    public void onPlayerEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.mIsShowFirstFrame = false;
             upSpeedDurationFlow();
         }
@@ -125,9 +125,9 @@ public class PlayerUbcFlowStatisticsManager {
         }
     }
 
-    public void onPlayerStop(int i2) {
+    public void onPlayerStop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.mIsShowFirstFrame = false;
             upSpeedDurationFlow();
         }

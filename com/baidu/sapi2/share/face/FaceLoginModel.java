@@ -12,23 +12,23 @@ public class FaceLoginModel implements Comparable<FaceLoginModel> {
     public String livingUname;
     public long time;
 
-    public FaceLoginModel(String str, long j2) {
+    public FaceLoginModel(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2)};
+            Object[] objArr = {str, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.livingUname = str;
-        this.time = j2;
+        this.time = j;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,12 +37,12 @@ public class FaceLoginModel implements Comparable<FaceLoginModel> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faceLoginModel)) == null) {
-            long j2 = faceLoginModel.time;
-            long j3 = this.time;
-            if (j2 - j3 > 0) {
+            long j = faceLoginModel.time;
+            long j2 = this.time;
+            if (j - j2 > 0) {
                 return -1;
             }
-            return j2 - j3 == 0 ? 0 : 1;
+            return j - j2 == 0 ? 0 : 1;
         }
         return invokeL.intValue;
     }

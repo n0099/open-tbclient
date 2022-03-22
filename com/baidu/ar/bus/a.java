@@ -69,9 +69,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,10 +87,10 @@ public class a {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, gVar, obj) == null) {
-            int i2 = AnonymousClass1.kw[gVar.kW.kJ.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.kw[gVar.kW.kJ.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         com.baidu.ar.h.b.aS("Unknown thread mode: " + gVar.kW.kJ);
                         return;
                     } else if (!cG()) {
@@ -138,16 +138,16 @@ public class a {
             return;
         }
         int size = copyOnWriteArrayList.size();
-        int i2 = 0;
-        while (i2 < size) {
-            g gVar = copyOnWriteArrayList.get(i2);
+        int i = 0;
+        while (i < size) {
+            g gVar = copyOnWriteArrayList.get(i);
             if (gVar.kV == obj) {
                 gVar.kX = false;
-                copyOnWriteArrayList.remove(i2);
-                i2--;
+                copyOnWriteArrayList.remove(i);
+                i--;
                 size--;
             }
-            i2++;
+            i++;
         }
     }
 

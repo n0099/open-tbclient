@@ -31,7 +31,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LIMIT_COUNT = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.q4.o.a mAdapter;
+    public c.a.p0.s4.o.a mAdapter;
     public List<HotTopicBussinessData> mList;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -41,9 +41,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicChangeFourmActivity f48248e;
+        public final /* synthetic */ HotTopicChangeFourmActivity a;
 
         public a(HotTopicChangeFourmActivity hotTopicChangeFourmActivity) {
             Interceptable interceptable = $ic;
@@ -52,27 +50,27 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
                 newInitContext.initArgs = r2;
                 Object[] objArr = {hotTopicChangeFourmActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48248e = hotTopicChangeFourmActivity;
+            this.a = hotTopicChangeFourmActivity;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 Intent intent = new Intent();
-                intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i2);
-                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.f48248e.mList.get(i2)).getForumId());
-                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.f48248e.mList.get(i2)).getForumName());
-                this.f48248e.setResult(-1, intent);
-                this.f48248e.finish();
+                intent.putExtra(IntentConfig.HOT_TOPIC_CHANGE_FOURM, i);
+                intent.putExtra(VideoListActivityConfig.KEY_FORUM_ID, ((HotTopicBussinessData) this.a.mList.get(i)).getForumId());
+                intent.putExtra("KEY_FORUM_NAME", ((HotTopicBussinessData) this.a.mList.get(i)).getForumName());
+                this.a.setResult(-1, intent);
+                this.a.finish();
             }
         }
     }
@@ -82,9 +80,9 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,17 +95,17 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     private void initUi() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.change_fourm)), (int) R.color.CAM_X0106);
-            this.mListView = (BdListView) findViewById(R.id.hot_topic_listview);
-            this.mAdapter = new c.a.r0.q4.o.a(this);
+            SkinManager.setViewTextColor(this.mNavigationBar.setTitleText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f038c)), (int) R.color.CAM_X0106);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090de0);
+            this.mAdapter = new c.a.p0.s4.o.a(this);
             if (!this.mUseOriginList) {
                 int size = this.mList.size();
                 ArrayList arrayList = null;
-                for (int i2 = 0; i2 < size; i2++) {
-                    HotTopicBussinessData hotTopicBussinessData = this.mList.get(i2);
+                for (int i = 0; i < size; i++) {
+                    HotTopicBussinessData hotTopicBussinessData = this.mList.get(i);
                     if (hotTopicBussinessData == null || StringUtils.isNull(hotTopicBussinessData.mForumName)) {
                         if (arrayList == null) {
                             arrayList = new ArrayList();
@@ -125,13 +123,13 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
             this.mAdapter.e(this.mList);
             TextView textView = new TextView(getActivity());
             Resources resources = getResources();
-            textView.setHeight(resources.getDimensionPixelSize(R.dimen.ds54));
+            textView.setHeight(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702d3));
             textView.setWidth(-1);
-            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.ds5);
-            textView.setPadding(resources.getDimensionPixelSize(R.dimen.ds24), dimensionPixelSize, 0, dimensionPixelSize);
+            int dimensionPixelSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702ca);
+            textView.setPadding(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8), dimensionPixelSize, 0, dimensionPixelSize);
             textView.setGravity(16);
-            textView.setTextSize(0, resources.getDimensionPixelSize(R.dimen.fontsize24));
-            textView.setText(resources.getString(R.string.hot_topic_header_tip));
+            textView.setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b3));
+            textView.setText(resources.getString(R.string.obfuscated_res_0x7f0f086b));
             this.mListView.addHeaderView(textView);
             SkinManager.setBackgroundResource(textView, R.color.common_color_10238);
             SkinManager.setViewTextColor(textView, R.color.CAM_X0108, 1);
@@ -141,11 +139,11 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         }
     }
 
@@ -154,7 +152,7 @@ public class HotTopicChangeFourmActivity extends BaseActivity<HotTopicChangeFour
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.hot_topic_change_view);
+            setContentView(R.layout.obfuscated_res_0x7f0d03b1);
             if (getIntent() != null) {
                 this.mList = (ArrayList) getIntent().getSerializableExtra("hot_topic_forum_list");
                 this.mUseOriginList = getIntent().getBooleanExtra(HotTopicChangeActivityConfig.KEY_USE_ORIGIN_LIST, false);

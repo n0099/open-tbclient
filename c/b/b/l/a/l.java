@@ -2,6 +2,7 @@ package c.b.b.l.a;
 
 import android.content.Context;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
 import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
@@ -24,8 +25,8 @@ public final class l extends k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ l f27179h;
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ l f22431e;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(l lVar, Context context, c.b.b.l.a.b0.c cVar) {
@@ -36,9 +37,9 @@ public final class l extends k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lVar, context, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (c.b.b.l.a.b0.c) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -46,14 +47,14 @@ public final class l extends k {
                     return;
                 }
             }
-            this.f27179h = lVar;
+            this.f22431e = lVar;
         }
 
         @Override // android.view.SurfaceView
         public SurfaceHolder getHolder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27179h.y() : (SurfaceHolder) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22431e.y() : (SurfaceHolder) invokeV.objValue;
         }
     }
 
@@ -66,9 +67,9 @@ public final class l extends k {
             newInitContext.initArgs = r2;
             Object[] objArr = {nVar, bVar, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c.b.b.l.a.a) objArr2[0], (b) objArr2[1], (c.b.b.l.a.b0.c) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -89,8 +90,8 @@ public final class l extends k {
                 if (l != null) {
                     aVar2.setEGLConfigChooser(l);
                 } else {
-                    b bVar = this.w;
-                    aVar2.setEGLConfigChooser(bVar.a, bVar.f27150b, bVar.f27151c, bVar.f27152d, bVar.f27153e, bVar.f27154f);
+                    b bVar = this.s;
+                    aVar2.setEGLConfigChooser(bVar.a, bVar.f22405b, bVar.f22406c, bVar.f22407d, bVar.f22408e, bVar.f22409f);
                 }
                 aVar2.setRenderer(this);
                 return aVar2;
@@ -117,60 +118,60 @@ public final class l extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl10) == null) {
             long nanoTime = System.nanoTime();
-            if (!this.u) {
-                this.n = ((float) (nanoTime - this.m)) / 1.0E9f;
+            if (!this.q) {
+                this.j = ((float) (nanoTime - this.i)) / 1.0E9f;
             } else {
-                this.n = 0.0f;
+                this.j = 0.0f;
             }
-            this.m = nanoTime;
-            synchronized (this.z) {
-                z = this.s;
-                z2 = this.t;
-                z3 = this.v;
-                z4 = this.u;
-                if (this.u) {
-                    this.u = false;
-                    this.z.notifyAll();
+            this.i = nanoTime;
+            synchronized (this.v) {
+                z = this.o;
+                z2 = this.p;
+                z3 = this.r;
+                z4 = this.q;
+                if (this.q) {
+                    this.q = false;
+                    this.v.notifyAll();
                 }
-                if (this.t) {
-                    this.t = false;
-                    this.z.notifyAll();
+                if (this.p) {
+                    this.p = false;
+                    this.v.notifyAll();
                 }
-                if (this.v) {
-                    this.v = false;
-                    this.z.notifyAll();
+                if (this.r) {
+                    this.r = false;
+                    this.v.notifyAll();
                 }
             }
             if (z4) {
-                this.f27175h.getApplicationListener().resume();
+                this.f22426d.getApplicationListener().resume();
                 c.b.b.f.a.log("AndroidGraphics", "resumed");
             }
             if (z) {
-                synchronized (this.f27175h.getRunnables()) {
-                    this.f27175h.getExecutedRunnables().clear();
-                    this.f27175h.getExecutedRunnables().b(this.f27175h.getRunnables());
-                    this.f27175h.getRunnables().clear();
-                    for (int i2 = 0; i2 < this.f27175h.getExecutedRunnables().f27499f; i2++) {
-                        this.f27175h.getExecutedRunnables().get(i2).run();
+                synchronized (this.f22426d.getRunnables()) {
+                    this.f22426d.getExecutedRunnables().clear();
+                    this.f22426d.getExecutedRunnables().b(this.f22426d.getRunnables());
+                    this.f22426d.getRunnables().clear();
+                    for (int i = 0; i < this.f22426d.getExecutedRunnables().f22717b; i++) {
+                        this.f22426d.getExecutedRunnables().get(i).run();
                     }
                 }
-                this.f27175h.getInput().m();
-                this.p++;
-                this.f27175h.getApplicationListener().render();
+                this.f22426d.getInput().g0();
+                this.l++;
+                this.f22426d.getApplicationListener().render();
             }
             if (z2) {
-                this.f27175h.getApplicationListener().pause();
+                this.f22426d.getApplicationListener().pause();
                 c.b.b.f.a.log("AndroidGraphics", "paused");
             }
             if (z3) {
-                this.f27175h.getApplicationListener().dispose();
+                this.f22426d.getApplicationListener().dispose();
                 c.b.b.f.a.log("AndroidGraphics", "destroyed");
             }
-            if (nanoTime - this.o > C.NANOS_PER_SECOND) {
-                this.q = 0;
-                this.o = nanoTime;
+            if (nanoTime - this.k > C.NANOS_PER_SECOND) {
+                this.m = 0;
+                this.k = nanoTime;
             }
-            this.q++;
+            this.m++;
         }
     }
 
@@ -178,13 +179,13 @@ public final class l extends k {
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.z) {
-                this.s = true;
-                this.u = true;
-                while (this.u) {
+            synchronized (this.v) {
+                this.o = true;
+                this.q = true;
+                while (this.q) {
                     try {
                         c();
-                        this.z.wait();
+                        this.v.wait();
                     } catch (InterruptedException unused) {
                         c.b.b.f.a.log("AndroidGraphics", "waiting for resume synchronization failed!");
                     }
@@ -198,8 +199,8 @@ public final class l extends k {
         SurfaceHolder surfaceHolder;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((n) this.f27175h).f27180e.sync) {
-                surfaceHolder = ((n) this.f27175h).f27180e.getSurfaceHolder();
+            synchronized (((n) this.f22426d).a.sync) {
+                surfaceHolder = ((n) this.f22426d).a.getSurfaceHolder();
             }
             return surfaceHolder;
         }
@@ -209,13 +210,16 @@ public final class l extends k {
     public void z() {
         GLSurfaceView20 gLSurfaceView20;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.f27172e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (gLSurfaceView20 = this.a) == null) {
             return;
         }
         try {
             gLSurfaceView20.onDetachedFromWindow();
-            boolean z = AndroidLiveWallpaperService.DEBUG;
+            if (AndroidLiveWallpaperService.DEBUG) {
+                Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
+            }
         } catch (Throwable th) {
+            Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
             th.printStackTrace();
         }
     }

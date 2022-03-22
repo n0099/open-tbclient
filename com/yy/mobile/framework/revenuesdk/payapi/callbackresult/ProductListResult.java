@@ -11,9 +11,8 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ProductListResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,27 +23,27 @@ public class ProductListResult {
     public PaysSettingInfo paysSettingInfo;
     public List<ProductInfo> productInfoList;
 
-    public ProductListResult(int i2, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i3) {
+    public ProductListResult(int i, String str, PaysSettingInfo paysSettingInfo, List<ProductInfo> list, List<PayWayInfo> list2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, paysSettingInfo, list, list2, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), str, paysSettingInfo, list, list2, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.currencyType = i2;
+        this.currencyType = i;
         this.productInfoList = list;
         this.payWayInfoList = list2;
         this.currencyName = str;
         this.paysSettingInfo = paysSettingInfo;
-        this.defaultCid = i3;
+        this.defaultCid = i2;
     }
 
     public String getCurrencyName() {
@@ -81,7 +80,7 @@ public class ProductListResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ", defaultCid=" + this.defaultCid + ExtendedMessageFormat.END_FE;
+            return "ProductListResult{currencyType=" + this.currencyType + ", productInfoList=" + this.productInfoList + ", payWayInfoList=" + this.payWayInfoList + ", currencyName=" + this.currencyName + ", paysSettingInfo=" + this.paysSettingInfo + ", defaultCid=" + this.defaultCid + '}';
         }
         return (String) invokeV.objValue;
     }

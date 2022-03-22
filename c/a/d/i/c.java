@@ -28,18 +28,18 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f2942b;
+    public static boolean f2451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f2943c;
+    public static boolean f2452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static c f2944d;
+    public static c f2453d;
     public transient /* synthetic */ FieldHolder $fh;
     public volatile c.a.d.k.a a;
 
     /* loaded from: classes.dex */
-    public static class a implements c.a.c0.c.a.a {
+    public static class a implements c.a.b0.c.a.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,27 +48,27 @@ public class c {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // c.a.c0.c.a.a
-        public void onProgress(long j2, long j3) {
+        @Override // c.a.b0.c.a.a
+        public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
-        @Override // c.a.c0.c.a.a
-        public void onResult(int i2, String str) {
+        @Override // c.a.b0.c.a.a
+        public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("Plug-in predownload status{\"code\": " + i2 + ", \"msg\": " + str + "}");
+            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
+                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
             }
         }
     }
@@ -86,7 +86,7 @@ public class c {
                 return;
             }
         }
-        f2944d = new c();
+        f2453d = new c();
     }
 
     public c() {
@@ -94,9 +94,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -105,25 +105,25 @@ public class c {
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2943c && c.a.d.k.a.m()) {
-            f2943c = true;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !f2452c && c.a.d.k.a.m()) {
+            f2452c = true;
             NPSPackageManager.getInstance().downloadAllBundles();
         }
     }
 
     public static void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2942b) {
+        if (!(interceptable == null || interceptable.invokeV(65539, null) == null) || f2451b) {
             return;
         }
-        f2942b = true;
+        f2451b = true;
         NPSPackageManager.getInstance().fetchBundleInfo();
     }
 
     public static c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2944d : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f2453d : (c) invokeV.objValue;
     }
 
     public static void i() {

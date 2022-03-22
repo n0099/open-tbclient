@@ -28,9 +28,9 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -91,22 +91,22 @@ public class ApsMessage<T extends Jsonable> implements Jsonable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("status", this.status);
-                    jSONObject.put("msg", this.msg);
-                    jSONObject.put("type", this.type);
-                    T data = getData();
-                    if (data != null) {
-                        jSONObject.put("data", data.toJson());
-                    }
-                } catch (Exception e3) {
-                    e2 = e3;
-                    e2.printStackTrace();
-                    return jSONObject;
+            } catch (Exception e3) {
+                jSONObject = null;
+                e2 = e3;
+            }
+            try {
+                jSONObject.put("status", this.status);
+                jSONObject.put("msg", this.msg);
+                jSONObject.put("type", this.type);
+                T data = getData();
+                if (data != null) {
+                    jSONObject.put("data", data.toJson());
                 }
             } catch (Exception e4) {
-                jSONObject = null;
                 e2 = e4;
+                e2.printStackTrace();
+                return jSONObject;
             }
             return jSONObject;
         }

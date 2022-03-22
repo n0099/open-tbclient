@@ -31,9 +31,9 @@ public class MaskMessageModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,24 +42,24 @@ public class MaskMessageModel extends BdBaseModel {
         }
     }
 
-    private RequestGetMaskInfoMessage createMaskInfoMessage(int i2) {
+    private RequestGetMaskInfoMessage createMaskInfoMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
             RequestGetMaskInfoMessage requestGetMaskInfoMessage = new RequestGetMaskInfoMessage();
-            requestGetMaskInfoMessage.setMaskType(i2);
+            requestGetMaskInfoMessage.setMaskType(i);
             return requestGetMaskInfoMessage;
         }
         return (RequestGetMaskInfoMessage) invokeI.objValue;
     }
 
-    private RequestUpdateMaskInfoMessage createUpdateMaskMessage(int i2, boolean z) {
+    private RequestUpdateMaskInfoMessage createUpdateMaskMessage(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             requestUpdateMaskInfoMessage.setMask(z);
-            requestUpdateMaskInfoMessage.setMaskType(i2);
+            requestUpdateMaskInfoMessage.setMaskType(i);
             requestUpdateMaskInfoMessage.setList("");
             return requestUpdateMaskInfoMessage;
         }
@@ -112,17 +112,17 @@ public class MaskMessageModel extends BdBaseModel {
         }
     }
 
-    public void sendGetMaskInfoMessage(int i2) {
+    public void sendGetMaskInfoMessage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            super.sendMessage(createMaskInfoMessage(i2));
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.sendMessage(createMaskInfoMessage(i));
         }
     }
 
-    public void sendUpdateMaskMessage(int i2, boolean z) {
+    public void sendUpdateMaskMessage(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            super.sendMessage(createUpdateMaskMessage(i2, z));
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.sendMessage(createUpdateMaskMessage(i, z));
         }
     }
 

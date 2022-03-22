@@ -33,8 +33,8 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
-        public void setIcon(int i2) {
-            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i2));
+        public void setIcon(int i) {
+            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
         }
 
         @Override // com.kwad.sdk.api.core.ICompletedRemoteView
@@ -75,13 +75,13 @@ public class RemoteViewBuilder {
         public final Context mOriginContext;
         public final RemoteViews mRemoteViews;
 
-        public ProgressRemoteViewImpl(Context context, int i2, boolean z) {
+        public ProgressRemoteViewImpl(Context context, int i, boolean z) {
             this.btnControlId = -1;
             this.btnTextColorChecked = Color.parseColor("#FFFFFFFF");
             this.btnTextColorUnchecked = Color.parseColor("#FF222222");
             this.downloadTaskId = 0;
             this.mContext = context;
-            this.downloadTaskId = i2;
+            this.downloadTaskId = i;
             if (context instanceof ResContext) {
                 this.mOriginContext = ((ResContext) context).getDelegatedContext();
             } else {
@@ -95,7 +95,7 @@ public class RemoteViewBuilder {
 
         private void initViews() {
             Intent intent = new Intent(ACTION_CLICK_CONTROL_BTN);
-            intent.putExtra(KEY_TASKID, this.downloadTaskId);
+            intent.putExtra("taskId", this.downloadTaskId);
             this.mRemoteViews.setOnClickPendingIntent(this.btnControlId, PendingIntent.getBroadcast(this.mContext, this.downloadTaskId, intent, 0));
         }
 
@@ -124,8 +124,8 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setIcon(int i2) {
-            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i2));
+        public void setIcon(int i) {
+            setIcon(RemoteViewBuilder.getBitmap(this.mContext, i));
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -144,8 +144,8 @@ public class RemoteViewBuilder {
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
-        public void setProgress(int i2, int i3, boolean z) {
-            this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i2, i3, z);
+        public void setProgress(int i, int i2, boolean z) {
+            this.mRemoteViews.setProgressBar(ResUtil.getId(this.mOriginContext, "ksad_download_progress"), i, i2, z);
         }
 
         @Override // com.kwad.sdk.api.core.IProgressRemoteView
@@ -174,8 +174,8 @@ public class RemoteViewBuilder {
 
     @KsAdSdkDynamicApi
     @Keep
-    public static IProgressRemoteView createProgressView(Context context, int i2, boolean z) {
-        return new ProgressRemoteViewImpl(context, i2, z);
+    public static IProgressRemoteView createProgressView(Context context, int i, boolean z) {
+        return new ProgressRemoteViewImpl(context, i, z);
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
@@ -197,7 +197,7 @@ public class RemoteViewBuilder {
         return createBitmap;
     }
 
-    public static Bitmap getBitmap(Context context, int i2) {
-        return drawableToBitmap(context.getResources().getDrawable(i2));
+    public static Bitmap getBitmap(Context context, int i) {
+        return drawableToBitmap(context.getResources().getDrawable(i));
     }
 }

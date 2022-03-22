@@ -19,7 +19,7 @@ import javax.net.ssl.SSLProtocolException;
 import javax.net.ssl.SSLSocket;
 import okhttp3.ConnectionSpec;
 import okhttp3.internal.Internal;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ConnectionSpecSelector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public final class ConnectionSpecSelector {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,8 +51,8 @@ public final class ConnectionSpecSelector {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, sSLSocket)) == null) {
-            for (int i2 = this.nextModeIndex; i2 < this.connectionSpecs.size(); i2++) {
-                if (this.connectionSpecs.get(i2).isCompatible(sSLSocket)) {
+            for (int i = this.nextModeIndex; i < this.connectionSpecs.size(); i++) {
+                if (this.connectionSpecs.get(i).isCompatible(sSLSocket)) {
                     return true;
                 }
             }
@@ -66,19 +66,19 @@ public final class ConnectionSpecSelector {
         ConnectionSpec connectionSpec;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sSLSocket)) == null) {
-            int i2 = this.nextModeIndex;
+            int i = this.nextModeIndex;
             int size = this.connectionSpecs.size();
             while (true) {
-                if (i2 >= size) {
+                if (i >= size) {
                     connectionSpec = null;
                     break;
                 }
-                connectionSpec = this.connectionSpecs.get(i2);
+                connectionSpec = this.connectionSpecs.get(i);
                 if (connectionSpec.isCompatible(sSLSocket)) {
-                    this.nextModeIndex = i2 + 1;
+                    this.nextModeIndex = i + 1;
                     break;
                 }
-                i2++;
+                i++;
             }
             if (connectionSpec != null) {
                 this.isFallbackPossible = isFallbackPossible(sSLSocket);

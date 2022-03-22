@@ -18,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableIntervalRange extends Flowable<Long> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public final class FlowableIntervalRange extends Flowable<Long> {
     public final long start;
     public final TimeUnit unit;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class IntervalRangeSubscriber extends AtomicLong implements Subscription, Runnable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2809475196591179431L;
@@ -39,16 +39,16 @@ public final class FlowableIntervalRange extends Flowable<Long> {
         public final long end;
         public final AtomicReference<Disposable> resource;
 
-        public IntervalRangeSubscriber(Subscriber<? super Long> subscriber, long j2, long j3) {
+        public IntervalRangeSubscriber(Subscriber<? super Long> subscriber, long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {subscriber, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,8 +56,8 @@ public final class FlowableIntervalRange extends Flowable<Long> {
             }
             this.resource = new AtomicReference<>();
             this.actual = subscriber;
-            this.count = j2;
-            this.end = j3;
+            this.count = j;
+            this.end = j2;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -69,10 +69,10 @@ public final class FlowableIntervalRange extends Flowable<Long> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this, j);
             }
         }
 
@@ -82,19 +82,19 @@ public final class FlowableIntervalRange extends Flowable<Long> {
             if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.resource.get() == DisposableHelper.DISPOSED) {
                 return;
             }
-            long j2 = get();
-            if (j2 != 0) {
-                long j3 = this.count;
-                this.actual.onNext(Long.valueOf(j3));
-                if (j3 == this.end) {
+            long j = get();
+            if (j != 0) {
+                long j2 = this.count;
+                this.actual.onNext(Long.valueOf(j2));
+                if (j2 == this.end) {
                     if (this.resource.get() != DisposableHelper.DISPOSED) {
                         this.actual.onComplete();
                     }
                     DisposableHelper.dispose(this.resource);
                     return;
                 }
-                this.count = j3 + 1;
-                if (j2 != Long.MAX_VALUE) {
+                this.count = j2 + 1;
+                if (j != Long.MAX_VALUE) {
                     decrementAndGet();
                     return;
                 }
@@ -113,27 +113,27 @@ public final class FlowableIntervalRange extends Flowable<Long> {
         }
     }
 
-    public FlowableIntervalRange(long j2, long j3, long j4, long j5, TimeUnit timeUnit, Scheduler scheduler) {
+    public FlowableIntervalRange(long j, long j2, long j3, long j4, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.initialDelay = j4;
-        this.period = j5;
+        this.initialDelay = j3;
+        this.period = j4;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.start = j2;
-        this.end = j3;
+        this.start = j;
+        this.end = j2;
     }
 
     @Override // io.reactivex.Flowable

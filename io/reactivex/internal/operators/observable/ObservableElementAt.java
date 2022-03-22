@@ -32,23 +32,23 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(Observer<? super T> observer, long j2, T t, boolean z) {
+        public ElementAtObserver(Observer<? super T> observer, long j, T t, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), t, Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j), t, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.index = j2;
+            this.index = j;
             this.defaultValue = t;
             this.errorOnFewer = z;
         }
@@ -105,15 +105,15 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.dispose();
                 this.actual.onNext(t);
                 this.actual.onComplete();
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.Observer
@@ -127,24 +127,24 @@ public final class ObservableElementAt<T> extends AbstractObservableWithUpstream
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableElementAt(ObservableSource<T> observableSource, long j2, T t, boolean z) {
+    public ObservableElementAt(ObservableSource<T> observableSource, long j, T t, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), t, Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), t, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.index = j2;
+        this.index = j;
         this.defaultValue = t;
         this.errorOnFewer = z;
     }

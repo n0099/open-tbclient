@@ -35,7 +35,7 @@ public interface IPatchManager extends IInterface {
             }
 
             @Override // com.baidu.titan.sdk.pm.IPatchManager
-            public void install(Uri uri, int i2, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException {
+            public void install(Uri uri, int i, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
@@ -46,7 +46,7 @@ public interface IPatchManager extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    obtain.writeInt(i2);
+                    obtain.writeInt(i);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
@@ -98,15 +98,15 @@ public interface IPatchManager extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 install(parcel.readInt() != 0 ? (Uri) Uri.CREATOR.createFromParcel(parcel) : null, parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, IPatchInstallObserver.Stub.asInterface(parcel.readStrongBinder()));
                 parcel2.writeNoException();
                 return true;
-            } else if (i2 != 2) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 2) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -119,7 +119,7 @@ public interface IPatchManager extends IInterface {
         }
     }
 
-    void install(Uri uri, int i2, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException;
+    void install(Uri uri, int i, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException;
 
     void requestCleanPatches() throws RemoteException;
 }

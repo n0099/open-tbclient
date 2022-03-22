@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ShadowDrawableWrapper extends DrawableWrapper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double COS_45;
@@ -78,9 +78,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, drawable, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -90,9 +90,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = ContextCompat.getColor(context, R.color.design_fab_shadow_start_color);
-        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.design_fab_shadow_mid_color);
-        this.shadowEndColor = ContextCompat.getColor(context, R.color.design_fab_shadow_end_color);
+        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606ef);
+        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606ee);
+        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606ed);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);
@@ -160,9 +160,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     private void drawShadow(@NonNull Canvas canvas) {
-        int i2;
+        int i;
         float f2;
-        int i3;
+        int i2;
         float f3;
         float f4;
         float f5;
@@ -186,18 +186,18 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
             canvas.drawPath(this.cornerShadowPath, this.cornerShadowPaint);
             if (z) {
                 canvas.scale(1.0f / f10, 1.0f);
-                i2 = save2;
+                i = save2;
                 f2 = f12;
-                i3 = save;
+                i2 = save;
                 f3 = f11;
                 canvas.drawRect(0.0f, f7, this.contentBounds.width() - f8, -this.cornerRadius, this.edgeShadowPaint);
             } else {
-                i2 = save2;
+                i = save2;
                 f2 = f12;
-                i3 = save;
+                i2 = save;
                 f3 = f11;
             }
-            canvas.restoreToCount(i2);
+            canvas.restoreToCount(i);
             int save3 = canvas.save();
             RectF rectF2 = this.contentBounds;
             canvas.translate(rectF2.right - f6, rectF2.bottom - f6);
@@ -238,7 +238,7 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
                 canvas.drawRect(0.0f, f7, this.contentBounds.height() - f8, -this.cornerRadius, this.edgeShadowPaint);
             }
             canvas.restoreToCount(save5);
-            canvas.restoreToCount(i3);
+            canvas.restoreToCount(i2);
         }
     }
 
@@ -343,12 +343,12 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableWrapper, android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            super.setAlpha(i2);
-            this.cornerShadowPaint.setAlpha(i2);
-            this.edgeShadowPaint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            super.setAlpha(i);
+            this.cornerShadowPaint.setAlpha(i);
+            this.edgeShadowPaint.setAlpha(i);
         }
     }
 

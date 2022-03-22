@@ -23,17 +23,17 @@ public class UserMuteAddAndDelCustomMessage extends CustomMessage {
     public String userName;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserMuteAddAndDelCustomMessage(int i2) {
-        super(i2);
+    public UserMuteAddAndDelCustomMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,15 +43,15 @@ public class UserMuteAddAndDelCustomMessage extends CustomMessage {
         this.from = -1;
     }
 
-    public void setData(boolean z, String str, String str2, String str3, String str4, int i2, String str5, BdUniqueId bdUniqueId) {
+    public void setData(boolean z, String str, String str2, String str3, String str4, int i, String str5, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, Integer.valueOf(i2), str5, bdUniqueId}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2, str3, str4, Integer.valueOf(i), str5, bdUniqueId}) == null) {
             this.isMute = z;
             this.muteUserId = str;
             this.userName = str2;
             this.threadId = str3;
             this.postId = str4;
-            this.from = i2;
+            this.from = i;
             this.msg = str5;
             this.mId = bdUniqueId;
         }

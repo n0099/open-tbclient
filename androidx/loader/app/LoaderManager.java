@@ -23,7 +23,7 @@ public abstract class LoaderManager {
     public interface LoaderCallbacks<D> {
         @NonNull
         @MainThread
-        Loader<D> onCreateLoader(int i2, @Nullable Bundle bundle);
+        Loader<D> onCreateLoader(int i, @Nullable Bundle bundle);
 
         @MainThread
         void onLoadFinished(@NonNull Loader<D> loader, D d2);
@@ -37,9 +37,9 @@ public abstract class LoaderManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,13 +61,13 @@ public abstract class LoaderManager {
     }
 
     @MainThread
-    public abstract void destroyLoader(int i2);
+    public abstract void destroyLoader(int i);
 
     @Deprecated
     public abstract void dump(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
     @Nullable
-    public abstract <D> Loader<D> getLoader(int i2);
+    public abstract <D> Loader<D> getLoader(int i);
 
     public boolean hasRunningLoaders() {
         InterceptResult invokeV;
@@ -80,11 +80,11 @@ public abstract class LoaderManager {
 
     @NonNull
     @MainThread
-    public abstract <D> Loader<D> initLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
+    public abstract <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 
     public abstract void markForRedelivery();
 
     @NonNull
     @MainThread
-    public abstract <D> Loader<D> restartLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
+    public abstract <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderCallbacks<D> loaderCallbacks);
 }

@@ -38,9 +38,9 @@ public class OkHttpRequest implements HttpRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -124,17 +124,17 @@ public class OkHttpRequest implements HttpRequest {
     }
 
     public void onFailureCallback(Call call, IOException iOException) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048579, this, call, iOException) == null) || this.mCallback == null) {
             return;
         }
         if (iOException instanceof SocketTimeoutException) {
-            i2 = 1;
+            i = 1;
         } else {
-            i2 = iOException instanceof ConnectException ? 2 : 3;
+            i = iOException instanceof ConnectException ? 2 : 3;
         }
-        this.mCallback.onFail(i2, iOException);
+        this.mCallback.onFail(i, iOException);
     }
 
     public void onResponseCallback(Call call, Response response) {
@@ -173,9 +173,9 @@ public class OkHttpRequest implements HttpRequest {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

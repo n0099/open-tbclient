@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExoPlaybackException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_RENDERER = 1;
@@ -21,22 +21,22 @@ public final class ExoPlaybackException extends Exception {
     public final int type;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Type {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExoPlaybackException(int i2, String str, Throwable th, int i3) {
+    public ExoPlaybackException(int i, String str, Throwable th, int i2) {
         super(str, th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, th, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), str, th, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -44,14 +44,14 @@ public final class ExoPlaybackException extends Exception {
                 return;
             }
         }
-        this.type = i2;
-        this.rendererIndex = i3;
+        this.type = i;
+        this.rendererIndex = i2;
     }
 
-    public static ExoPlaybackException createForRenderer(Exception exc, int i2) {
+    public static ExoPlaybackException createForRenderer(Exception exc, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, exc, i2)) == null) ? new ExoPlaybackException(1, null, exc, i2) : (ExoPlaybackException) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, exc, i)) == null) ? new ExoPlaybackException(1, null, exc, i) : (ExoPlaybackException) invokeLI.objValue;
     }
 
     public static ExoPlaybackException createForSource(IOException iOException) {

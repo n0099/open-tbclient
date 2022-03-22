@@ -50,9 +50,9 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMQueryFansMemberRequest, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -65,22 +65,22 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i2;
+            int i;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
-                    i2 = jSONObject.getInt("error_code");
+                    i = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i2 == 0 && jSONObject.has("response_params")) {
+                    if (i == 0 && jSONObject.has("response_params")) {
                         JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
                         JSONArray jSONArray = jSONObject2.getJSONArray("members");
+                        int i2 = 0;
                         int i3 = 0;
-                        int i4 = 0;
-                        while (i4 < jSONArray.length()) {
-                            JSONObject jSONObject3 = jSONArray.getJSONObject(i4);
+                        while (i3 < jSONArray.length()) {
+                            JSONObject jSONObject3 = jSONArray.getJSONObject(i3);
                             long optLong = jSONObject3.optLong("bd_uid");
                             int optInt = jSONObject3.optInt("role");
                             long optLong2 = jSONObject3.optLong(DBTableDefine.GroupMemberColumns.COLUMN_JOIN_TIME);
@@ -88,14 +88,14 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
                             String optString = jSONObject3.optString("avatar");
                             String optString2 = jSONObject3.optString("display_name");
                             String optString3 = jSONObject3.optString("name");
-                            if (jSONObject3.optInt("status", i3) != 1) {
+                            if (jSONObject3.optInt("status", i2) != 1) {
                                 GroupMember groupMember = new GroupMember(String.valueOf(this.this$0.mGroupId), optLong3, optString2, optLong, optInt, optLong2);
                                 groupMember.setPortrait(optString);
                                 groupMember.setNickName(optString3);
                                 arrayList.add(groupMember);
                             }
-                            i4++;
-                            i3 = 0;
+                            i3++;
+                            i2 = 0;
                         }
                         if (this.this$0.mBuids != null && this.this$0.mBuids.size() != 0) {
                             if (GroupInfoDAOImpl.delGroupMember(this.this$0.mContext, this.this$0.mGroupId, this.this$0.mBuids) > 0) {
@@ -109,13 +109,13 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
                     }
                 } catch (JSONException e2) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                    i2 = 1010;
+                    i = 1010;
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
                 IMListener removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
                 if (removeListener instanceof BIMValueCallBack) {
-                    ((BIMValueCallBack) removeListener).onResult(i2, str, arrayList);
+                    ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
                 }
             }
         }
@@ -128,9 +128,9 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -175,10 +175,10 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
@@ -187,9 +187,9 @@ public class IMQueryFansMemberRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str = new String(bArr);
             LogUtils.d(TAG, "json is groupid " + this.mGroupId + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));

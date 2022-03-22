@@ -1,7 +1,9 @@
 package com.baidu.searchbox.ruka;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.block.impl.BlockMonitor;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IANRMonitor;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
@@ -53,9 +55,9 @@ public final class Ruka {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -80,18 +82,18 @@ public final class Ruka {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? LooperProvider.getLooperMonitor().isMonitorStarted() : invokeV.booleanValue;
     }
 
-    public static void setLineMappingMode(int i2) {
+    public static void setLineMappingMode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, null, i2) == null) || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(65541, null, i) == null) || i < 0) {
             return;
         }
-        sLineMappingMode = i2;
+        sLineMappingMode = i;
     }
 
-    public static void setProcessLaunchTime(long j2) {
+    public static void setProcessLaunchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65542, null, j2) == null) {
-            sProcessLaunchTime = j2;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            sProcessLaunchTime = j;
         }
     }
 
@@ -100,10 +102,12 @@ public final class Ruka {
         if (interceptable == null || interceptable.invokeL(65543, null, context) == null) {
             if (AppConfig.isDebug()) {
                 IANRMonitor aNRMonitor = ANRProvider.getANRMonitor();
-                String str = "IANRMonitor = " + aNRMonitor.getClass().getSimpleName();
+                Log.d(BlockMonitor.TAG, "IANRMonitor = " + aNRMonitor.getClass().getSimpleName());
             }
             if (ANRProvider.getANRMonitor() == ANRProvider.EMPTY) {
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(BlockMonitor.TAG, "IANRMonitor = ANRProvider.EMPTY");
+                }
             } else if (!sANRInited.get() && ANRProvider.getANRMonitor().enableMonitor()) {
                 sANRInited.set(true);
                 ANRProvider.getANRMonitor().startANRMonitor();
@@ -112,35 +116,39 @@ public final class Ruka {
         }
     }
 
-    public static void startBlockMonitor(Context context, int i2) {
+    public static void startBlockMonitor(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, null, context, i) == null) {
             if (AppConfig.isDebug()) {
                 IBlockMonitor blockMonitor = BlockProvider.getBlockMonitor();
-                String str = "iBlockMonitor = " + blockMonitor.getClass().getSimpleName();
+                Log.d(BlockMonitor.TAG, "iBlockMonitor = " + blockMonitor.getClass().getSimpleName());
             }
             if (BlockProvider.getBlockMonitor() == BlockProvider.EMPTY) {
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(BlockMonitor.TAG, "iBlockMonitor = BlockProvider.EMPTY");
+                }
             } else if (!sBlockInited.get() && BlockProvider.getBlockMonitor().enableMonitor()) {
                 sBlockInited.set(true);
-                BlockProvider.getBlockMonitor().startBlockMonitor(i2);
+                BlockProvider.getBlockMonitor().startBlockMonitor(i);
                 startTrack(context);
             }
         }
     }
 
-    public static void startLooperMonitor(Context context, int i2) {
+    public static void startLooperMonitor(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65547, null, context, i) == null) {
             if (AppConfig.isDebug()) {
                 ILooperMonitor looperMonitor = LooperProvider.getLooperMonitor();
-                String str = "iLooperMonitor = " + looperMonitor.getClass().getSimpleName();
+                Log.d(BlockMonitor.TAG, "iLooperMonitor = " + looperMonitor.getClass().getSimpleName());
             }
             if (LooperProvider.getLooperMonitor() == LooperProvider.EMPTY) {
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(BlockMonitor.TAG, "iLooperMonitor = LooperProvider.EMPTY");
+                }
             } else if (!sLooperInited.get() && LooperProvider.getLooperMonitor().enableMonitor()) {
                 sLooperInited.set(true);
-                LooperProvider.getLooperMonitor().startLooperMonitor(context, i2);
+                LooperProvider.getLooperMonitor().startLooperMonitor(context, i);
                 startTrack(context);
             }
         }

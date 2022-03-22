@@ -2,6 +2,7 @@ package com.sdk.base.framework.f.i;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,16 +15,16 @@ import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.i.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57825b;
+    public static boolean f42592b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f57826c;
+    public static String f42593c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +40,8 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f57825b = f.f57798b;
-        f57826c = "a6Hy5Hb8IfX46D1f";
+        f42592b = f.f42567b;
+        f42593c = "a6Hy5Hb8IfX46D1f";
     }
 
     public a() {
@@ -48,26 +49,26 @@ public class a extends com.sdk.base.framework.f.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             Random random = new Random();
             String str = "";
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 String str2 = random.nextInt(2) % 2 == 0 ? "char" : "num";
                 if ("char".equalsIgnoreCase(str2)) {
-                    int i4 = random.nextInt(2) % 2 == 0 ? 65 : 97;
-                    str = str + ((char) (random.nextInt(26) + i4));
+                    int i3 = random.nextInt(2) % 2 == 0 ? 65 : 97;
+                    str = str + ((char) (random.nextInt(26) + i3));
                 } else if ("num".equalsIgnoreCase(str2)) {
                     str = str + String.valueOf(random.nextInt(10));
                 }
@@ -95,7 +96,7 @@ public class a extends com.sdk.base.framework.f.a {
     public static String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f57826c) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? b(str, str2, f42593c) : (String) invokeLL.objValue;
     }
 
     public static String a(String str, String str2, String str3) {
@@ -106,26 +107,26 @@ public class a extends com.sdk.base.framework.f.a {
                 try {
                     if (str.length() != 0 && str.trim().length() != 0) {
                         if (str2 == null) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key is null", f57825b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key is null", f42592b);
                             return null;
                         } else if (str2.length() != 16) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key length error", f57825b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt key length error", f42592b);
                             return null;
                         } else if (str3.length() != 16) {
-                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "ivStr length error", f57825b);
+                            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "ivStr length error", f42592b);
                             return null;
                         } else {
                             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                            cipher.init(1, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
-                            return c.a(cipher.doFinal(str.getBytes("utf-8")));
+                            cipher.init(1, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
+                            return c.a(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)));
                         }
                     }
                 } catch (Exception e2) {
-                    com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", e2.getMessage(), f57825b);
+                    com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", e2.getMessage(), f42592b);
                     return null;
                 }
             }
-            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt content is null", f57825b);
+            com.sdk.base.framework.f.a.a(a, "EncryptCbcIv", "encrypt content is null", f42592b);
             return null;
         }
         return (String) invokeLLL.objValue;
@@ -143,8 +144,8 @@ public class a extends com.sdk.base.framework.f.a {
                                 if (str3.length() == 16) {
                                     byte[] a2 = c.a(str);
                                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                                    cipher.init(2, new SecretKeySpec(str2.getBytes("utf-8"), "AES"), new IvParameterSpec(str3.getBytes("utf-8")));
-                                    return new String(cipher.doFinal(a2), "utf-8");
+                                    cipher.init(2, new SecretKeySpec(str2.getBytes(IMAudioTransRequest.CHARSET), "AES"), new IvParameterSpec(str3.getBytes(IMAudioTransRequest.CHARSET)));
+                                    return new String(cipher.doFinal(a2), IMAudioTransRequest.CHARSET);
                                 }
                                 throw new Exception(" iv decrypt key length error");
                             }

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanTaskDeadEvent implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanTaskDeadEvent> CREATOR;
@@ -29,7 +29,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     public ArrayList<Integer> stackList;
     public int taskId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanTaskDeadEvent> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public class SwanTaskDeadEvent implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -60,10 +60,10 @@ public class SwanTaskDeadEvent implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanTaskDeadEvent[] newArray(int i2) {
+        public SwanTaskDeadEvent[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SwanTaskDeadEvent[i2] : (SwanTaskDeadEvent[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanTaskDeadEvent[i] : (SwanTaskDeadEvent[]) invokeI.objValue;
         }
     }
 
@@ -83,23 +83,23 @@ public class SwanTaskDeadEvent implements Parcelable {
         CREATOR = new a();
     }
 
-    public SwanTaskDeadEvent(String str, int i2, String str2, ArrayList<Integer> arrayList) {
+    public SwanTaskDeadEvent(String str, int i, String str2, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, arrayList};
+            Object[] objArr = {str, Integer.valueOf(i), str2, arrayList};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.appId = str;
-        this.taskId = i2;
+        this.taskId = i;
         this.pageScheme = str2;
         this.stackList = arrayList;
     }
@@ -135,9 +135,9 @@ public class SwanTaskDeadEvent implements Parcelable {
             ArrayList<Integer> arrayList = this.stackList;
             if (arrayList != null) {
                 int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    sb.append(this.stackList.get(i2));
-                    if (i2 < size - 1) {
+                for (int i = 0; i < size; i++) {
+                    sb.append(this.stackList.get(i));
+                    if (i < size - 1) {
                         sb.append('#');
                     }
                 }
@@ -173,8 +173,8 @@ public class SwanTaskDeadEvent implements Parcelable {
                 return null;
             }
             SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-            for (int i2 = 0; i2 < this.historyCache.size(); i2++) {
-                sparseArray.put(this.historyCache.keyAt(i2), restoreObject(this.historyCache.valueAt(i2)));
+            for (int i = 0; i < this.historyCache.size(); i++) {
+                sparseArray.put(this.historyCache.keyAt(i), restoreObject(this.historyCache.valueAt(i)));
             }
             return sparseArray;
         }
@@ -204,9 +204,9 @@ public class SwanTaskDeadEvent implements Parcelable {
         if (interceptable == null || interceptable.invokeL(1048582, this, sparseArray) == null) {
             SparseArray<String[]> sparseArray2 = new SparseArray<>();
             if (sparseArray != null) {
-                for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                    if (sparseArray.valueAt(i2) != null) {
-                        sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).transformToArray());
+                for (int i = 0; i < sparseArray.size(); i++) {
+                    if (sparseArray.valueAt(i) != null) {
+                        sparseArray2.put(sparseArray.keyAt(i), sparseArray.valueAt(i).transformToArray());
                     }
                 }
             }
@@ -215,9 +215,9 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
             parcel.writeString(this.appId);
             parcel.writeInt(this.taskId);
             parcel.writeString(this.pageScheme);
@@ -233,9 +233,9 @@ public class SwanTaskDeadEvent implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

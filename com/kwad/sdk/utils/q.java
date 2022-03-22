@@ -16,7 +16,7 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.nio.charset.Charset;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class q {
     public static int a(Reader reader, Writer writer) {
         long b2 = b(reader, writer);
@@ -27,14 +27,14 @@ public class q {
     }
 
     public static long a(Reader reader, Writer writer, char[] cArr) {
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = reader.read(cArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             writer.write(cArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 

@@ -11,7 +11,7 @@ import com.googlecode.mp4parser.AbstractContainerBox;
 import com.googlecode.mp4parser.DataSource;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MovieFragmentBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "moof";
@@ -24,9 +24,9 @@ public class MovieFragmentBox extends AbstractContainerBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,12 +46,12 @@ public class MovieFragmentBox extends AbstractContainerBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sampleDependencyTypeBox)) == null) {
             ArrayList arrayList = new ArrayList();
-            long j2 = 1;
+            long j = 1;
             for (SampleDependencyTypeBox.Entry entry : sampleDependencyTypeBox.getEntries()) {
                 if (entry.getSampleDependsOn() == 2) {
-                    arrayList.add(Long.valueOf(j2));
+                    arrayList.add(Long.valueOf(j));
                 }
-                j2++;
+                j++;
             }
             return arrayList;
         }
@@ -76,8 +76,8 @@ public class MovieFragmentBox extends AbstractContainerBox {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             List boxes = getBoxes(TrackFragmentBox.class, false);
             long[] jArr = new long[boxes.size()];
-            for (int i2 = 0; i2 < boxes.size(); i2++) {
-                jArr[i2] = ((TrackFragmentBox) boxes.get(i2)).getTrackFragmentHeaderBox().getTrackId();
+            for (int i = 0; i < boxes.size(); i++) {
+                jArr[i] = ((TrackFragmentBox) boxes.get(i)).getTrackFragmentHeaderBox().getTrackId();
             }
             return jArr;
         }

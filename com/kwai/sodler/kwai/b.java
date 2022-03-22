@@ -2,6 +2,7 @@ package com.kwai.sodler.kwai;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,7 +20,7 @@ import com.kwai.sodler.lib.kwai.g;
 import java.io.File;
 import java.io.InputStream;
 import java.io.OutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
@@ -57,9 +58,9 @@ public class b {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -72,12 +73,12 @@ public class b {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, fVar, file) == null) {
                             long currentTimeMillis = System.currentTimeMillis();
-                            String str = "==============start download:" + fVar;
-                            g.a i2 = j.a().i();
-                            if (i2 == null) {
+                            Log.d("Sodler.helper", "==============start download:" + fVar);
+                            g.a i = j.a().i();
+                            if (i == null) {
                                 return;
                             }
-                            i2.a(fVar, file);
+                            i.a(fVar, file);
                             try {
                                 if (!TextUtils.isEmpty(fVar.p()) && !TextUtils.equals(com.kwai.sodler.lib.b.b.f(file), fVar.p())) {
                                     throw new PluginError.UpdateError("file md5 not equal", -4);

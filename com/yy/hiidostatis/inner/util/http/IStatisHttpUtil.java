@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.inner.util.http;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IStatisHttpUtil {
     String getHost();
 
@@ -13,11 +13,11 @@ public interface IStatisHttpUtil {
 
     void setCacheIp(CacheIp cacheIp);
 
-    void setLastTryTimes(int i2);
+    void setLastTryTimes(int i);
 
-    void setRetryTimeHost(int i2);
+    void setRetryTimeHost(int i);
 
     void setTestServer(String str);
 
-    void setTryTimeIp(int i2);
+    void setTryTimeIp(int i);
 }

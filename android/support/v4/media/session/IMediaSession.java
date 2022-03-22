@@ -94,9 +94,9 @@ public interface IMediaSession extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -129,9 +129,9 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i2) throws RemoteException {
+            public void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i2) == null) {
+                if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
@@ -142,7 +142,7 @@ public interface IMediaSession extends IInterface {
                         } else {
                             obtain.writeInt(0);
                         }
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.mRemote.transact(42, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -153,15 +153,15 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void adjustVolume(int i2, int i3, String str) throws RemoteException {
+            public void adjustVolume(int i, int i2, String str) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, str) == null) {
+                if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInt(i);
                         obtain.writeInt(i2);
-                        obtain.writeInt(i3);
                         obtain.writeString(str);
                         this.mRemote.transact(11, obtain, obtain2, 0);
                         obtain2.readException();
@@ -855,14 +855,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void removeQueueItemAt(int i2) throws RemoteException {
+            public void removeQueueItemAt(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.mRemote.transact(44, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -890,14 +890,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void seekTo(long j2) throws RemoteException {
+            public void seekTo(long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         this.mRemote.transact(24, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1006,14 +1006,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setRepeatMode(int i2) throws RemoteException {
+            public void setRepeatMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.mRemote.transact(39, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1024,14 +1024,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setShuffleMode(int i2) throws RemoteException {
+            public void setShuffleMode(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.mRemote.transact(48, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1060,15 +1060,15 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void setVolumeTo(int i2, int i3, String str) throws RemoteException {
+            public void setVolumeTo(int i, int i2, String str) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIIL(1048623, this, i2, i3, str) == null) {
+                if (interceptable == null || interceptable.invokeIIL(1048623, this, i, i2, str) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
+                        obtain.writeInt(i);
                         obtain.writeInt(i2);
-                        obtain.writeInt(i3);
                         obtain.writeString(str);
                         this.mRemote.transact(12, obtain, obtain2, 0);
                         obtain2.readException();
@@ -1080,14 +1080,14 @@ public interface IMediaSession extends IInterface {
             }
 
             @Override // android.support.v4.media.session.IMediaSession
-            public void skipToQueueItem(long j2) throws RemoteException {
+            public void skipToQueueItem(long j) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
+                if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         this.mRemote.transact(17, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -1138,9 +1138,9 @@ public interface IMediaSession extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1173,17 +1173,17 @@ public interface IMediaSession extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 51) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 51) {
                     parcel.enforceInterface(DESCRIPTOR);
                     rateWithExtras(parcel.readInt() != 0 ? RatingCompat.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                     parcel2.writeNoException();
                     return true;
-                } else if (i2 != 1598968902) {
-                    switch (i2) {
+                } else if (i != 1598968902) {
+                    switch (i) {
                         case 1:
                             parcel.enforceInterface(DESCRIPTOR);
                             sendCommand(parcel.readString(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null, parcel.readInt() != 0 ? MediaSessionCompat.ResultReceiverWrapper.CREATOR.createFromParcel(parcel) : null);
@@ -1472,7 +1472,7 @@ public interface IMediaSession extends IInterface {
                             parcel2.writeNoException();
                             return true;
                         default:
-                            return super.onTransact(i2, parcel, parcel2, i3);
+                            return super.onTransact(i, parcel, parcel2, i2);
                     }
                 } else {
                     parcel2.writeString(DESCRIPTOR);
@@ -1485,9 +1485,9 @@ public interface IMediaSession extends IInterface {
 
     void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
 
-    void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i2) throws RemoteException;
+    void addQueueItemAt(MediaDescriptionCompat mediaDescriptionCompat, int i) throws RemoteException;
 
-    void adjustVolume(int i2, int i3, String str) throws RemoteException;
+    void adjustVolume(int i, int i2, String str) throws RemoteException;
 
     void fastForward() throws RemoteException;
 
@@ -1553,11 +1553,11 @@ public interface IMediaSession extends IInterface {
 
     void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) throws RemoteException;
 
-    void removeQueueItemAt(int i2) throws RemoteException;
+    void removeQueueItemAt(int i) throws RemoteException;
 
     void rewind() throws RemoteException;
 
-    void seekTo(long j2) throws RemoteException;
+    void seekTo(long j) throws RemoteException;
 
     void sendCommand(String str, Bundle bundle, MediaSessionCompat.ResultReceiverWrapper resultReceiverWrapper) throws RemoteException;
 
@@ -1567,15 +1567,15 @@ public interface IMediaSession extends IInterface {
 
     void setCaptioningEnabled(boolean z) throws RemoteException;
 
-    void setRepeatMode(int i2) throws RemoteException;
+    void setRepeatMode(int i) throws RemoteException;
 
-    void setShuffleMode(int i2) throws RemoteException;
+    void setShuffleMode(int i) throws RemoteException;
 
     void setShuffleModeEnabledRemoved(boolean z) throws RemoteException;
 
-    void setVolumeTo(int i2, int i3, String str) throws RemoteException;
+    void setVolumeTo(int i, int i2, String str) throws RemoteException;
 
-    void skipToQueueItem(long j2) throws RemoteException;
+    void skipToQueueItem(long j) throws RemoteException;
 
     void stop() throws RemoteException;
 

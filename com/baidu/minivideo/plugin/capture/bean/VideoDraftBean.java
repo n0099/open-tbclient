@@ -39,16 +39,16 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
     public String mVideoTempData;
     public int mVisibility;
 
-    public VideoDraftBean(String str, String str2, long j2, int i2) {
+    public VideoDraftBean(String str, String str2, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -58,8 +58,8 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         this.mSelected = false;
         this.mDraftName = str;
         this.mUserID = str2;
-        this.mTimeStamp = j2;
-        this.mResumeRoute = i2;
+        this.mTimeStamp = j;
+        this.mResumeRoute = i;
     }
 
     public boolean equals(Object obj) {
@@ -293,10 +293,10 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         return invokeL.booleanValue;
     }
 
-    public void setBackUpType(int i2) {
+    public void setBackUpType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mBackUpType = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mBackUpType = i;
         }
     }
 
@@ -391,17 +391,17 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setResumePage(int i2) {
+    public void setResumePage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.mResumePage = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.mResumePage = i;
         }
     }
 
-    public void setResumeRoute(int i2) {
+    public void setResumeRoute(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.mResumeRoute = i2;
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.mResumeRoute = i;
         }
     }
 
@@ -412,10 +412,10 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setTimeStamp(long j2) {
+    public void setTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
-            this.mTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            this.mTimeStamp = j;
         }
     }
 
@@ -447,10 +447,10 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         }
     }
 
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            this.mVisibility = i2;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.mVisibility = i;
         }
     }
 
@@ -490,7 +490,7 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public VideoDraftBean m40clone() {
+    public VideoDraftBean m38clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -513,12 +513,12 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
             if (videoDraftBean == null) {
                 return -1;
             }
-            long j2 = this.mTimeStamp;
-            long j3 = videoDraftBean.mTimeStamp;
-            if (j2 > j3) {
+            long j = this.mTimeStamp;
+            long j2 = videoDraftBean.mTimeStamp;
+            if (j > j2) {
                 return 1;
             }
-            return j2 < j3 ? -1 : 0;
+            return j < j2 ? -1 : 0;
         }
         return invokeL.intValue;
     }
@@ -528,9 +528,9 @@ public class VideoDraftBean implements Jsonable, Comparable<VideoDraftBean>, Ser
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

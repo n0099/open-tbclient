@@ -57,9 +57,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,9 +77,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -109,9 +109,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -143,9 +143,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -401,13 +401,13 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             if (dialog != null) {
                 bundle.putBundle(SAVED_DIALOG_STATE_TAG, dialog.onSaveInstanceState());
             }
-            int i2 = this.mStyle;
-            if (i2 != 0) {
-                bundle.putInt(SAVED_STYLE, i2);
+            int i = this.mStyle;
+            if (i != 0) {
+                bundle.putInt(SAVED_STYLE, i);
             }
-            int i3 = this.mTheme;
-            if (i3 != 0) {
-                bundle.putInt(SAVED_THEME, i3);
+            int i2 = this.mTheme;
+            if (i2 != 0) {
+                bundle.putInt(SAVED_THEME, i2);
             }
             boolean z = this.mCancelable;
             if (!z) {
@@ -417,9 +417,9 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
             if (!z2) {
                 bundle.putBoolean(SAVED_SHOWS_DIALOG, z2);
             }
-            int i4 = this.mBackStackId;
-            if (i4 != -1) {
-                bundle.putInt(SAVED_BACK_STACK_ID, i4);
+            int i3 = this.mBackStackId;
+            if (i3 != -1) {
+                bundle.putInt(SAVED_BACK_STACK_ID, i3);
             }
         }
     }
@@ -483,25 +483,25 @@ public class DialogFragment extends Fragment implements DialogInterface.OnCancel
         }
     }
 
-    public void setStyle(int i2, @StyleRes int i3) {
+    public void setStyle(int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i2, i3) == null) {
-            this.mStyle = i2;
-            if (i2 == 2 || i2 == 3) {
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            this.mStyle = i;
+            if (i == 2 || i == 3) {
                 this.mTheme = 16973913;
             }
-            if (i3 != 0) {
-                this.mTheme = i3;
+            if (i2 != 0) {
+                this.mTheme = i2;
             }
         }
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setupDialog(@NonNull Dialog dialog, int i2) {
+    public void setupDialog(@NonNull Dialog dialog, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, dialog, i2) == null) {
-            if (i2 != 1 && i2 != 2) {
-                if (i2 != 3) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, dialog, i) == null) {
+            if (i != 1 && i != 2) {
+                if (i != 3) {
                     return;
                 }
                 Window window = dialog.getWindow();

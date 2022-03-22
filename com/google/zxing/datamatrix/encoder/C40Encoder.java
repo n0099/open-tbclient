@@ -16,21 +16,21 @@ public class C40Encoder implements Encoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i2) {
+    private int backtrackOneCharacter(EncoderContext encoderContext, StringBuilder sb, StringBuilder sb2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, this, encoderContext, sb, sb2, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, this, encoderContext, sb, sb2, i)) == null) {
             int length = sb.length();
-            sb.delete(length - i2, length);
+            sb.delete(length - i, length);
             encoderContext.pos--;
             int encodeChar = encodeChar(encoderContext.getCurrentChar(), sb2);
             encoderContext.resetSymbolInfo();
@@ -39,11 +39,11 @@ public class C40Encoder implements Encoder {
         return invokeLLLI.intValue;
     }
 
-    public static String encodeToCodewords(CharSequence charSequence, int i2) {
+    public static String encodeToCodewords(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i2)) == null) {
-            int charAt = (charSequence.charAt(i2) * 1600) + (charSequence.charAt(i2 + 1) * '(') + charSequence.charAt(i2 + 2) + 1;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) {
+            int charAt = (charSequence.charAt(i) * 1600) + (charSequence.charAt(i + 1) * '(') + charSequence.charAt(i + 2) + 1;
             return new String(new char[]{(char) (charAt / 256), (char) (charAt % 256)});
         }
         return (String) invokeLI.objValue;

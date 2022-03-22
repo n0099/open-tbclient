@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.ErrorCode;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ab implements av.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class ab implements av.b.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {xMPushService};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,10 +31,10 @@ public final class ab implements av.b.a {
     }
 
     @Override // com.xiaomi.push.service.av.b.a
-    public void a(av.c cVar, av.c cVar2, int i2) {
+    public void a(av.c cVar, av.c cVar2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i2) == null) {
-            if (cVar2 == av.c.f59992c) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, cVar, cVar2, i) == null) {
+            if (cVar2 == av.c.f44557c) {
                 p.a(this.a);
                 p.b(this.a);
             } else if (cVar2 == av.c.a) {

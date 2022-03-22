@@ -30,9 +30,9 @@ public final class Result {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, bArr, resultPointArr, barcodeFormat};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (byte[]) objArr2[1], (ResultPoint[]) objArr2[2], (BarcodeFormat) objArr2[3], ((Long) objArr2[4]).longValue());
                 newInitContext.thisArg = this;
@@ -130,17 +130,17 @@ public final class Result {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Result(String str, byte[] bArr, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j2) {
-        this(str, bArr, bArr == null ? 0 : bArr.length * 8, resultPointArr, barcodeFormat, j2);
+    public Result(String str, byte[] bArr, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
+        this(str, bArr, bArr == null ? 0 : bArr.length * 8, resultPointArr, barcodeFormat, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bArr, resultPointArr, barcodeFormat, Long.valueOf(j2)};
+            Object[] objArr = {str, bArr, resultPointArr, barcodeFormat, Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (byte[]) objArr2[1], ((Integer) objArr2[2]).intValue(), (ResultPoint[]) objArr2[3], (BarcodeFormat) objArr2[4], ((Long) objArr2[5]).longValue());
                 newInitContext.thisArg = this;
@@ -150,16 +150,16 @@ public final class Result {
         }
     }
 
-    public Result(String str, byte[] bArr, int i2, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j2) {
+    public Result(String str, byte[] bArr, int i, ResultPoint[] resultPointArr, BarcodeFormat barcodeFormat, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, bArr, Integer.valueOf(i2), resultPointArr, barcodeFormat, Long.valueOf(j2)};
+            Object[] objArr = {str, bArr, Integer.valueOf(i), resultPointArr, barcodeFormat, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -167,10 +167,10 @@ public final class Result {
         }
         this.text = str;
         this.rawBytes = bArr;
-        this.numBits = i2;
+        this.numBits = i;
         this.resultPoints = resultPointArr;
         this.format = barcodeFormat;
         this.resultMetadata = null;
-        this.timestamp = j2;
+        this.timestamp = j;
     }
 }

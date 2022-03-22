@@ -20,16 +20,16 @@ public class ActivityResultDispatcher {
     public final Activity mHolder;
     public final int mRequestCode;
 
-    public ActivityResultDispatcher(Activity activity, int i2) {
+    public ActivityResultDispatcher(Activity activity, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i2)};
+            Object[] objArr = {activity, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +37,7 @@ public class ActivityResultDispatcher {
         }
         this.mConsumers = new HashSet();
         this.mHolder = activity;
-        this.mRequestCode = i2;
+        this.mRequestCode = i;
     }
 
     public synchronized void addConsumer(@Nullable ActivityResultConsumer activityResultConsumer) {
@@ -73,17 +73,17 @@ public class ActivityResultDispatcher {
         }
     }
 
-    public boolean notifyActivityResult(int i2, int i3, Intent intent) {
+    public boolean notifyActivityResult(int i, int i2, Intent intent) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, intent)) == null) {
-            if (this.mRequestCode != i2) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, intent)) == null) {
+            if (this.mRequestCode != i) {
                 return false;
             }
             HashSet hashSet = new HashSet();
             synchronized (this) {
                 for (ActivityResultConsumer activityResultConsumer : new HashSet(this.mConsumers)) {
-                    if (activityResultConsumer.consume(this, i3, intent)) {
+                    if (activityResultConsumer.consume(this, i2, intent)) {
                         hashSet.add(activityResultConsumer);
                     }
                 }

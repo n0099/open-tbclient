@@ -6,10 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.a.j;
-import c.a.q0.w0.a;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,24 +16,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DressupItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f34467b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f34468c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f34469d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f44446e;
+    public TextView f34470e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f44447f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f44448g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TbImageView f44449h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f44450i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f44451j;
+    public TextView f34471f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DressupItemView(Context context) {
@@ -48,50 +42,32 @@ public class DressupItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44446e = context;
+        this.a = context;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f44446e).inflate(R.layout.index_dressup_item, this);
-            this.f44447f = inflate;
-            this.f44448g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f44447f.findViewById(R.id.permission_icon);
-            this.f44449h = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f44449h.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f44450i = (TextView) this.f44447f.findViewById(R.id.txt_type);
-            this.f44451j = (TextView) this.f44447f.findViewById(R.id.txt_name);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03ea, this);
+            this.f34467b = inflate;
+            this.f34468c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
+            TbImageView tbImageView = (TbImageView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f09176d);
+            this.f34469d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f34469d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f34470e = (TextView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f092245);
+            this.f34471f = (TextView) this.f34467b.findViewById(R.id.obfuscated_res_0x7f09223e);
         }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a.a((TbPageContext) j.a(this.f44446e), this.f44447f);
-        }
-    }
-
-    public void renderView(c.a.r0.h2.c.k.j jVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jVar) == null) || jVar == null) {
-            return;
-        }
-        this.f44448g.startLoad(jVar.b(), 10, false);
-        this.f44449h.startLoad(jVar.e(), 10, false);
-        this.f44451j.setText(jVar.f());
-        this.f44450i.setText(jVar.g());
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -103,9 +79,9 @@ public class DressupItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -113,22 +89,22 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f44446e = context;
+        this.a = context;
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DressupItemView(Context context, AttributeSet attributeSet, int i2) {
+    public DressupItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -136,7 +112,7 @@ public class DressupItemView extends LinearLayout {
                 return;
             }
         }
-        this.f44446e = context;
+        this.a = context;
         a();
     }
 }

@@ -15,55 +15,65 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbGiftListView giftListView;
-    public TbImageView mPostImage;
-    public ImageView praiseBottomLine;
-    public View praiseToLine;
-    public FrsPraiseView praiseView;
-    public TbRichTextView richText;
+    public TbImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbRichTextView f35304b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f35305c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public PbGiftListView f35306d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public FrsPraiseView f35307e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public ImageView f35308f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbInterviewLiveNormalItemViewHolder(View view, boolean z, boolean z2, int i2, boolean z3) {
+    public PbInterviewLiveNormalItemViewHolder(View view, boolean z, boolean z2, int i, boolean z3) {
         super(view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Boolean.valueOf(z3)};
+            Object[] objArr = {view, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.interview_live_post_pic);
-        this.mPostImage = tbImageView;
+        TbImageView tbImageView = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f090f3e);
+        this.a = tbImageView;
         tbImageView.setSupportNoImage(true);
-        this.mPostImage.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.mPostImage.setOnClickListener(this);
-        this.mPostImage.setInterceptOnClick(true);
-        this.mPostImage.setDefaultResource(R.drawable.icon_click);
-        this.richText = (TbRichTextView) view.findViewById(R.id.richText);
-        this.praiseToLine = view.findViewById(R.id.pb_item_praise_topline);
-        this.praiseView = (FrsPraiseView) view.findViewById(R.id.pb_item_praise_view);
-        this.praiseBottomLine = (ImageView) view.findViewById(R.id.pb_item_praise_bottomline);
-        this.giftListView = (PbGiftListView) view.findViewById(R.id.gift_list_view);
-        this.richText.getLayoutStrategy().t();
-        this.richText.getLayoutStrategy().k(true);
-        int min = Math.min(((((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.richText.getPaddingLeft()) - this.richText.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.ds60)), i2);
-        this.richText.getLayoutStrategy().q(min);
-        this.richText.getLayoutStrategy().p((int) (min * 1.618f));
-        this.richText.setTextSize(TbConfig.getContentSize());
-        this.richText.setDisplayImage(z2, false);
-        this.richText.setVoiceViewRes(R.layout.voice_play_btn);
+        this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.a.setOnClickListener(this);
+        this.a.setInterceptOnClick(true);
+        this.a.setDefaultResource(R.drawable.icon_click);
+        this.f35304b = (TbRichTextView) view.findViewById(R.id.obfuscated_res_0x7f091a8a);
+        this.f35305c = view.findViewById(R.id.obfuscated_res_0x7f0916db);
+        this.f35307e = (FrsPraiseView) view.findViewById(R.id.obfuscated_res_0x7f0916dc);
+        this.f35308f = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f0916da);
+        this.f35306d = (PbGiftListView) view.findViewById(R.id.obfuscated_res_0x7f090ca6);
+        this.f35304b.getLayoutStrategy().t();
+        this.f35304b.getLayoutStrategy().k(true);
+        int min = Math.min(((((n.k(TbadkCoreApplication.getInst()) - view.getPaddingLeft()) - view.getPaddingRight()) - this.f35304b.getPaddingLeft()) - this.f35304b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);
+        this.f35304b.getLayoutStrategy().q(min);
+        this.f35304b.getLayoutStrategy().p((int) (min * 1.618f));
+        this.f35304b.setTextSize(TbConfig.getContentSize());
+        this.f35304b.setDisplayImage(z2, false);
+        this.f35304b.setVoiceViewRes(R.layout.obfuscated_res_0x7f0d08b1);
     }
 
     @Override // android.view.View.OnClickListener

@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SubripSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class SubripSubtitle implements Subtitle {
             newInitContext.initArgs = r2;
             Object[] objArr = {cueArr, jArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,11 +39,11 @@ public final class SubripSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j2) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
-            int binarySearchFloor = Util.binarySearchFloor(this.cueTimesUs, j2, true, false);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            int binarySearchFloor = Util.binarySearchFloor(this.cueTimesUs, j, true, false);
             if (binarySearchFloor != -1) {
                 Cue[] cueArr = this.cues;
                 if (cueArr[binarySearchFloor] != null) {
@@ -56,13 +56,13 @@ public final class SubripSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public long getEventTime(int i2) {
+    public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Assertions.checkArgument(i2 >= 0);
-            Assertions.checkArgument(i2 < this.cueTimesUs.length);
-            return this.cueTimesUs[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Assertions.checkArgument(i >= 0);
+            Assertions.checkArgument(i < this.cueTimesUs.length);
+            return this.cueTimesUs[i];
         }
         return invokeI.longValue;
     }
@@ -75,11 +75,11 @@ public final class SubripSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getNextEventTimeIndex(long j2) {
+    public int getNextEventTimeIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            int binarySearchCeil = Util.binarySearchCeil(this.cueTimesUs, j2, false, false);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            int binarySearchCeil = Util.binarySearchCeil(this.cueTimesUs, j, false, false);
             if (binarySearchCeil < this.cueTimesUs.length) {
                 return binarySearchCeil;
             }

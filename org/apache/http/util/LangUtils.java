@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class LangUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HASH_OFFSET = 37;
@@ -19,9 +19,9 @@ public final class LangUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +39,10 @@ public final class LangUtils {
         return invokeLL.booleanValue;
     }
 
-    public static int hashCode(int i2, int i3) {
+    public static int hashCode(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeII.intValue;
@@ -57,19 +57,19 @@ public final class LangUtils {
         return invokeLL.booleanValue;
     }
 
-    public static int hashCode(int i2, boolean z) {
+    public static int hashCode(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeCommon.intValue;
     }
 
-    public static int hashCode(int i2, Object obj) {
+    public static int hashCode(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeIL.intValue;

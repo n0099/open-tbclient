@@ -7,7 +7,7 @@ import com.bytedance.sdk.openadsdk.TTDownloadEventLogger;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ITTDownloadVisitor {
     public static final int TYPE_TT_DOWNLOAD_VISITOR = 1;
 
@@ -15,7 +15,7 @@ public interface ITTDownloadVisitor {
 
     void clearAllData(String str);
 
-    void execute(int i2, String str, Map<String, Object> map, ITTHttpCallback iTTHttpCallback);
+    void execute(int i, String str, Map<String, Object> map, ITTHttpCallback iTTHttpCallback);
 
     void executeLogUpload(TTDownloadEventModel tTDownloadEventModel, boolean z);
 

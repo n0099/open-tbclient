@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PriorityThreadFactory implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,17 +18,17 @@ public class PriorityThreadFactory implements ThreadFactory {
     public final int mThreadPriority;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PriorityThreadFactory(int i2) {
-        this(i2, "PriorityThreadFactory", true);
+    public PriorityThreadFactory(int i) {
+        this(i, "PriorityThreadFactory", true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -57,9 +57,9 @@ public class PriorityThreadFactory implements ThreadFactory {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, runnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -91,23 +91,23 @@ public class PriorityThreadFactory implements ThreadFactory {
         return (Thread) invokeL.objValue;
     }
 
-    public PriorityThreadFactory(int i2, String str, boolean z) {
+    public PriorityThreadFactory(int i, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mThreadNumber = new AtomicInteger(1);
-        this.mThreadPriority = i2;
+        this.mThreadPriority = i;
         this.mPrefix = str;
         this.mAddThreadNumber = z;
     }

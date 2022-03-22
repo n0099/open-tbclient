@@ -15,13 +15,13 @@ import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.internal.functions.ObjectHelper;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableConcatIterable extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Iterable<? extends CompletableSource> sources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
@@ -37,9 +37,9 @@ public final class CompletableConcatIterable extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver, it};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -111,9 +111,9 @@ public final class CompletableConcatIterable extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

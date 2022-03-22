@@ -19,26 +19,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BottomShadowLinearLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36814b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f36815c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f36816d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47626e;
+    public Paint f36817e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47627f;
+    public Paint f36818f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f47628g;
+    public RectF f36819g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f47629h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f47630i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f47631j;
-    public RectF k;
-    public RectF l;
+    public RectF f36820h;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BottomShadowLinearLayout(Context context) {
@@ -49,9 +51,9 @@ public class BottomShadowLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -65,59 +67,59 @@ public class BottomShadowLinearLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             Paint paint = new Paint();
-            this.f47630i = paint;
+            this.f36817e = paint;
             paint.reset();
-            this.f47630i.setAntiAlias(true);
-            this.f47630i.setStyle(Paint.Style.FILL);
-            this.f47630i.setDither(true);
+            this.f36817e.setAntiAlias(true);
+            this.f36817e.setStyle(Paint.Style.FILL);
+            this.f36817e.setDither(true);
             Paint paint2 = new Paint();
-            this.f47631j = paint2;
+            this.f36818f = paint2;
             paint2.reset();
-            this.f47631j.setAntiAlias(true);
-            this.f47631j.setStyle(Paint.Style.FILL);
-            this.f47631j.setDither(true);
-            this.f47628g = n.f(context, R.dimen.ds20);
-            this.f47629h = n.f(context, R.dimen.ds25);
-            setLayerType(1, this.f47630i);
-            onChangeSkinType();
+            this.f36818f.setAntiAlias(true);
+            this.f36818f.setStyle(Paint.Style.FILL);
+            this.f36818f.setDither(true);
+            this.f36815c = n.f(context, R.dimen.obfuscated_res_0x7f0701d5);
+            this.f36816d = n.f(context, R.dimen.obfuscated_res_0x7f07027e);
+            setLayerType(1, this.f36817e);
+            b();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f36817e.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f36818f.setColor(SkinManager.getColor(R.color.CAM_X0207));
+            this.f36817e.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f47626e <= 0 || this.f47627f <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.a <= 0 || this.f36814b <= 0) {
             return;
         }
-        if (this.k == null) {
-            this.k = new RectF(0.0f, 0.0f, this.f47626e, this.f47627f - this.f47629h);
+        if (this.f36819g == null) {
+            this.f36819g = new RectF(0.0f, 0.0f, this.a, this.f36814b - this.f36816d);
         }
-        RectF rectF = this.k;
-        float f2 = this.f47628g;
-        canvas.drawRoundRect(rectF, f2, f2, this.f47630i);
-        if (this.l == null) {
-            this.l = new RectF(0.0f, 0.0f, this.f47626e, this.f47627f / 2);
+        RectF rectF = this.f36819g;
+        float f2 = this.f36815c;
+        canvas.drawRoundRect(rectF, f2, f2, this.f36817e);
+        if (this.f36820h == null) {
+            this.f36820h = new RectF(0.0f, 0.0f, this.a, this.f36814b / 2);
         }
-        canvas.drawRect(this.l, this.f47631j);
+        canvas.drawRect(this.f36820h, this.f36818f);
         super.dispatchDraw(canvas);
     }
 
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47630i.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.f47631j.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.f47630i.setShadowLayer(25.0f, 0.0f, 0.0f, SkinManager.getColor(R.color.CAM_X0805));
-        }
-    }
-
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            this.f47626e = getMeasuredWidth();
-            this.f47627f = getMeasuredHeight();
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            this.a = getMeasuredWidth();
+            this.f36814b = getMeasuredHeight();
         }
     }
 
@@ -130,9 +132,9 @@ public class BottomShadowLinearLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -143,17 +145,17 @@ public class BottomShadowLinearLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BottomShadowLinearLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

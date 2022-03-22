@@ -3,10 +3,10 @@ package com.baidu.searchbox.task.sync.appcreate;
 import android.content.Context;
 import android.os.Build;
 import androidx.annotation.NonNull;
-import c.a.i0.b.a.a;
-import c.a.q0.r.e0.b;
-import c.a.q0.r.e0.c;
-import c.a.q0.r.e0.d;
+import c.a.g0.b.a.a;
+import c.a.o0.r.e0.b;
+import c.a.o0.r.e0.c;
+import c.a.o0.r.e0.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
@@ -42,9 +42,9 @@ public class InitLokiTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,9 +72,9 @@ public class InitLokiTask extends LaunchTask {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -120,9 +120,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -157,9 +157,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -206,9 +206,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, linkedList, supplier};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Context) objArr2[0], (List) objArr2[1], (Supplier) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -225,7 +225,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.q0.r.h0.a.q().h();
+                            c.a.o0.r.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }
@@ -254,9 +254,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -291,9 +291,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, r10};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Context) objArr2[0], (Supplier) objArr2[1]);
                             newInitContext.thisArg = this;
@@ -310,7 +310,7 @@ public class InitLokiTask extends LaunchTask {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context2, jSONObject) == null) {
                         super.onAttachExtra(context2, jSONObject);
                         if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-                            c.a.q0.r.h0.a.q().h();
+                            c.a.o0.r.h0.a.q().h();
                         }
                         b.a(jSONObject);
                     }
@@ -336,9 +336,9 @@ public class InitLokiTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -363,7 +363,7 @@ public class InitLokiTask extends LaunchTask {
             bdAsyncTask.setSelfExecute(true);
             bdAsyncTask.setPriority(4);
             bdAsyncTask.execute(new Void[0]);
-            Thread.setDefaultUncaughtExceptionHandler(new c.a.d.n.c(Thread.getDefaultUncaughtExceptionHandler()));
+            Thread.setDefaultUncaughtExceptionHandler(new c.a.d.n.d(Thread.getDefaultUncaughtExceptionHandler()));
         }
     }
 

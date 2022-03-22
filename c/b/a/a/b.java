@@ -15,10 +15,10 @@ public final class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static w<Class<? extends a>, b> f27021b;
+    public static w<Class<? extends a>, b> f22285b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f27022c;
+    public static int f22286c;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,8 +35,8 @@ public final class b {
                 return;
             }
         }
-        f27021b = new w<>();
-        f27022c = 0;
+        f22285b = new w<>();
+        f22286c = 0;
     }
 
     public b() {
@@ -44,17 +44,17 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int i4 = f27022c;
-        f27022c = i4 + 1;
-        this.a = i4;
+        int i3 = f22286c;
+        f22286c = i3 + 1;
+        this.a = i3;
     }
 
     public static c.b.b.q.d a(Class<? extends a>... clsArr) {
@@ -74,10 +74,10 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            b c2 = f27021b.c(cls);
+            b c2 = f22285b.c(cls);
             if (c2 == null) {
                 b bVar = new b();
-                f27021b.i(cls, bVar);
+                f22285b.i(cls, bVar);
                 return bVar;
             }
             return c2;

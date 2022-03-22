@@ -14,6 +14,7 @@ import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.ecommerce.callback.InvoiceBuildCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.dto.InvoiceBuildDTO;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,9 +36,9 @@ public class EcommerceRouter implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,7 +73,7 @@ public class EcommerceRouter implements NoProguard {
                 intent = new Intent(context, AddressListActivity.class);
             }
             if (!(context instanceof Activity)) {
-                intent.setFlags(268435456);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }
@@ -124,7 +125,7 @@ public class EcommerceRouter implements NoProguard {
             }
             Intent intent = new Intent(context, InvoiceBuildActivity.class);
             if (!(context instanceof Activity)) {
-                intent.setFlags(268435456);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }

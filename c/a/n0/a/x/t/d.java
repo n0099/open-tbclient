@@ -1,0 +1,11 @@
+package c.a.n0.a.x.t;
+
+import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public class d implements PullToRefreshBase.h<NgWebView> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+}

@@ -14,7 +14,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttCssStyle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FONT_SIZE_UNIT_EM = 2;
@@ -46,12 +46,12 @@ public final class WebvttCssStyle {
     public int underline;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FontSizeUnit {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface StyleFlags {
     }
 
@@ -60,9 +60,9 @@ public final class WebvttCssStyle {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,15 +71,15 @@ public final class WebvttCssStyle {
         reset();
     }
 
-    public static int updateScoreForMatch(int i2, String str, String str2, int i3) {
+    public static int updateScoreForMatch(int i, String str, String str2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), str, str2, Integer.valueOf(i3)})) == null) {
-            if (str.isEmpty() || i2 == -1) {
-                return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            if (str.isEmpty() || i == -1) {
+                return i;
             }
             if (str.equals(str2)) {
-                return i2 + i3;
+                return i + i2;
             }
             return -1;
         }
@@ -92,13 +92,13 @@ public final class WebvttCssStyle {
             if (webvttCssStyle.hasFontColor) {
                 setFontColor(webvttCssStyle.fontColor);
             }
-            int i2 = webvttCssStyle.bold;
-            if (i2 != -1) {
-                this.bold = i2;
+            int i = webvttCssStyle.bold;
+            if (i != -1) {
+                this.bold = i;
             }
-            int i3 = webvttCssStyle.italic;
-            if (i3 != -1) {
-                this.italic = i3;
+            int i2 = webvttCssStyle.italic;
+            if (i2 != -1) {
+                this.italic = i2;
             }
             String str = webvttCssStyle.fontFamily;
             if (str != null) {
@@ -242,11 +242,11 @@ public final class WebvttCssStyle {
         }
     }
 
-    public WebvttCssStyle setBackgroundColor(int i2) {
+    public WebvttCssStyle setBackgroundColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            this.backgroundColor = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            this.backgroundColor = i;
             this.hasBackgroundColor = true;
             return this;
         }
@@ -263,11 +263,11 @@ public final class WebvttCssStyle {
         return (WebvttCssStyle) invokeZ.objValue;
     }
 
-    public WebvttCssStyle setFontColor(int i2) {
+    public WebvttCssStyle setFontColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            this.fontColor = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            this.fontColor = i;
             this.hasFontColor = true;
             return this;
         }

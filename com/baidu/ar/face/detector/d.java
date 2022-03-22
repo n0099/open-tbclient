@@ -1,5 +1,6 @@
 package com.baidu.ar.face.detector;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,9 +40,9 @@ public class d extends com.baidu.ar.c.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {nVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -66,6 +67,7 @@ public class d extends com.baidu.ar.c.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Log.d(TAG, "detect_frame animate task before execute");
             c cVar = new c();
             cVar.a(this.oo.ob);
             cVar.g(this.oo.mf);
@@ -79,6 +81,7 @@ public class d extends com.baidu.ar.c.a {
             cVar.oj = this.oj;
             cVar.dJ();
             cVar.dH();
+            Log.d(TAG, "detect_frame animate task after execute");
             cVar.oc.dX().E(cVar.dL());
             if (cVar.ob != null) {
                 return cVar;

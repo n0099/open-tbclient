@@ -29,9 +29,9 @@ public class g0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,7 +45,7 @@ public class g0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                d1 d1Var = new d1(str, q0.f53776f);
+                d1 d1Var = new d1(str, q0.f38953f);
                 d1Var.e(l1.g(this.a));
                 d1Var.j(l1.l());
                 d1Var.c(l1.e(this.a));
@@ -153,7 +153,7 @@ public class g0 {
                 jSONObject.put("68", l0Var.c() ? 1 : 0);
                 jSONObject.put("69", l0Var.b());
                 jSONObject.put("101", l0Var.d() ? 1 : 0);
-                jSONObject.put(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY, l0Var.a() ? 1 : 0);
+                jSONObject.put("102", l0Var.a() ? 1 : 0);
                 jSONObject.put("99", new h0().a());
                 jSONObject.put(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY, new c0().a() ? 1 : 0);
                 JSONObject jSONObject2 = new JSONObject();

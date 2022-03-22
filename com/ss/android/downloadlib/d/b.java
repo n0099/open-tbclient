@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends SQLiteOpenHelper {
     public static final String[] a = {"_id", LegoListActivityConfig.AD_ID, "req_id", "time"};
 
@@ -19,7 +19,7 @@ public class b extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         sQLiteDatabase.execSQL("DROP TABLE IF EXISTS click_event");
         onCreate(sQLiteDatabase);
     }

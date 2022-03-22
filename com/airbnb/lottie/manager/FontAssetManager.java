@@ -53,8 +53,8 @@ public class FontAssetManager {
     private Typeface typefaceForStyle(Typeface typeface, String str) {
         boolean contains = str.contains("Italic");
         boolean contains2 = str.contains("Bold");
-        int i2 = (contains && contains2) ? 3 : contains ? 2 : contains2 ? 1 : 0;
-        return typeface.getStyle() == i2 ? typeface : Typeface.create(typeface, i2);
+        int i = (contains && contains2) ? 3 : contains ? 2 : contains2 ? 1 : 0;
+        return typeface.getStyle() == i ? typeface : Typeface.create(typeface, i);
     }
 
     public Typeface getTypeface(String str, String str2) {

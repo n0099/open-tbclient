@@ -1,7 +1,7 @@
 package io.reactivex.internal.disposables;
 
 import io.reactivex.disposables.Disposable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface DisposableContainer {
     boolean add(Disposable disposable);
 

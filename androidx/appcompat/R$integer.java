@@ -11,7 +11,7 @@ public final class R$integer {
     public static final int abc_config_activityShortDur = 2131361793;
     public static final int cancel_button_image_alpha = 2131361800;
     public static final int config_tooltipAnimTime = 2131361803;
-    public static final int status_bar_notification_info_maxnum = 2131361834;
+    public static final int status_bar_notification_info_maxnum = 2131361829;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$integer() {
@@ -19,9 +19,9 @@ public final class R$integer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

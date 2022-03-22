@@ -10,7 +10,7 @@ import com.kwad.v8.Releasable;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.debug.mirror.Frame;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ExecutionState implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAME = "frame";
@@ -26,9 +26,9 @@ public class ExecutionState implements Releasable {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,12 +48,12 @@ public class ExecutionState implements Releasable {
         this.v8Object = null;
     }
 
-    public Frame getFrame(int i2) {
+    public Frame getFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             V8Object v8Object = null;
             try {
                 v8Object = this.v8Object.executeObjectFunction(FRAME, v8Array);

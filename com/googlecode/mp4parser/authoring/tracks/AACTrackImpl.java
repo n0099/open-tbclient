@@ -38,7 +38,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class AACTrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
@@ -82,9 +81,9 @@ public class AACTrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aACTrackImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -198,9 +197,9 @@ public class AACTrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -222,14 +221,14 @@ public class AACTrackImpl extends AbstractTrack {
             double size = this.samples.size() / d2;
             LinkedList linkedList = new LinkedList();
             Iterator<Sample> it = this.samples.iterator();
-            long j2 = 0;
+            long j = 0;
             while (true) {
-                int i2 = 0;
+                int i = 0;
                 if (!it.hasNext()) {
                     break;
                 }
                 int size2 = (int) it.next().getSize();
-                j2 += size2;
+                j += size2;
                 linkedList.add(Integer.valueOf(size2));
                 while (linkedList.size() > d2) {
                     linkedList.pop();
@@ -237,23 +236,23 @@ public class AACTrackImpl extends AbstractTrack {
                 if (linkedList.size() == ((int) d2)) {
                     Iterator it2 = linkedList.iterator();
                     while (it2.hasNext()) {
-                        i2 += ((Integer) it2.next()).intValue();
+                        i += ((Integer) it2.next()).intValue();
                     }
-                    double size3 = ((i2 * 8.0d) / linkedList.size()) * d2;
+                    double size3 = ((i * 8.0d) / linkedList.size()) * d2;
                     if (size3 > this.maxBitRate) {
                         this.maxBitRate = (int) size3;
                     }
                 }
             }
-            this.avgBitRate = (int) ((j2 * 8) / size);
+            this.avgBitRate = (int) ((j * 8) / size);
             this.bufferSizeDB = 1536;
             this.sampleDescriptionBox = new SampleDescriptionBox();
             AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
-            int i3 = this.firstHeader.channelconfig;
-            if (i3 == 7) {
+            int i2 = this.firstHeader.channelconfig;
+            if (i2 == 7) {
                 audioSampleEntry.setChannelCount(8);
             } else {
-                audioSampleEntry.setChannelCount(i3);
+                audioSampleEntry.setChannelCount(i2);
             }
             audioSampleEntry.setSampleRate(this.firstHeader.sampleRate);
             audioSampleEntry.setDataReferenceIndex(1);
@@ -443,7 +442,7 @@ public class AACTrackImpl extends AbstractTrack {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + ExtendedMessageFormat.END_FE;
+            return "AACTrackImpl{sampleRate=" + this.firstHeader.sampleRate + ", channelconfig=" + this.firstHeader.channelconfig + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -455,9 +454,9 @@ public class AACTrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

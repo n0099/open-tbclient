@@ -12,8 +12,8 @@ import android.widget.TextView;
 import c.a.d.f.p.n;
 import c.a.l.p;
 import c.a.l.q;
-import c.a.q0.m.f;
-import c.a.r0.o1.k.h.c;
+import c.a.o0.m.f;
+import c.a.p0.q1.k.h.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
@@ -28,37 +28,37 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HotTopicRankLayout extends LinearLayout implements q, p<c>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HotTopicTabRankListLayout f33478b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f33479c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33480d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43134e;
+    public View f33481e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HotTopicTabRankListLayout f43135f;
+    public ImageView f33482f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f43136g;
+    public View f33483g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43137h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f43138i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f43139j;
-    public View k;
-    public View l;
-    public LinearLayout m;
-    public String n;
-    public f<c.a.r0.o1.g.a.e.c> o;
+    public View f33484h;
+    public LinearLayout i;
+    public String j;
+    public f<c.a.p0.q1.g.a.e.c> k;
 
     /* loaded from: classes5.dex */
-    public class a implements f<c.a.r0.o1.g.a.e.c> {
+    public class a implements f<c.a.p0.q1.g.a.e.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HotTopicRankLayout f43140e;
+        public final /* synthetic */ HotTopicRankLayout a;
 
         public a(HotTopicRankLayout hotTopicRankLayout) {
             Interceptable interceptable = $ic;
@@ -67,35 +67,35 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<c>, View.On
                 newInitContext.initArgs = r2;
                 Object[] objArr = {hotTopicRankLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43140e = hotTopicRankLayout;
+            this.a = hotTopicRankLayout;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: b */
-        public void c(View view, c.a.r0.o1.g.a.e.c cVar, int i2, long j2) {
+        public void c(View view, c.a.p0.q1.g.a.e.c cVar, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, cVar, Integer.valueOf(i2), Long.valueOf(j2)}) != null) || cVar == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, cVar, Integer.valueOf(i), Long.valueOf(j)}) != null) || cVar == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: d */
-        public void a(View view, c.a.r0.o1.g.a.e.c cVar, int i2, long j2) {
+        public void a(View view, c.a.p0.q1.g.a.e.c cVar, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, cVar, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || cVar == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, cVar, Integer.valueOf(i), Long.valueOf(j)}) == null) || cVar == null) {
                 return;
             }
-            c.a.r0.o1.k.c.a("c13753", cVar, i2 + 1, this.f43140e.n);
+            c.a.p0.q1.k.c.a("c13753", cVar, i + 1, this.a.j);
         }
     }
 
@@ -108,9 +108,9 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<c>, View.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -118,60 +118,80 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<c>, View.On
                 return;
             }
         }
-        this.f43134e = 3;
-        this.o = new a(this);
-        b();
+        this.a = 3;
+        this.k = new a(this);
+        c();
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.group_title_layout, (ViewGroup) this, true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.f43137h = (TextView) findViewById(R.id.tv_title);
-            this.f43139j = (ImageView) findViewById(R.id.iv_into);
-            this.f43138i = findViewById(R.id.layout_into);
-            this.k = findViewById(R.id.divider_line_top);
-            this.l = findViewById(R.id.divider_line_bottom);
-            this.m = (LinearLayout) findViewById(R.id.content);
-            this.f43136g = findViewById(R.id.title_layout);
+            this.f33480d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.f33482f = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fdb);
+            this.f33481e = findViewById(R.id.obfuscated_res_0x7f0911e2);
+            this.f33483g = findViewById(R.id.obfuscated_res_0x7f0907ff);
+            this.f33484h = findViewById(R.id.obfuscated_res_0x7f0907f9);
+            this.i = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d7);
+            this.f33479c = findViewById(R.id.obfuscated_res_0x7f092047);
             int f2 = n.f(getContext(), R.dimen.M_H_X004);
             int f3 = n.f(getContext(), R.dimen.M_H_X004);
             int f4 = n.f(getContext(), R.dimen.M_W_X005);
-            this.f43136g.setPadding(f4, f2, f4, f3);
-            ViewGroup.LayoutParams layoutParams = this.f43136g.getLayoutParams();
+            this.f33479c.setPadding(f4, f2, f4, f3);
+            ViewGroup.LayoutParams layoutParams = this.f33479c.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = -2;
-            this.f43136g.setLayoutParams(layoutParams);
-            this.f43137h.setMaxLines(1);
-            this.f43137h.setEllipsize(TextUtils.TruncateAt.END);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.card_container);
+            this.f33479c.setLayoutParams(layoutParams);
+            this.f33480d.setMaxLines(1);
+            this.f33480d.setEllipsize(TextUtils.TruncateAt.END);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0904f0);
             HotTopicTabRankListLayout hotTopicTabRankListLayout = new HotTopicTabRankListLayout(getContext());
-            this.f43135f = hotTopicTabRankListLayout;
-            hotTopicTabRankListLayout.setOnItemCoverListener(this.o);
-            linearLayout.addView(this.f43135f);
+            this.f33478b = hotTopicTabRankListLayout;
+            hotTopicTabRankListLayout.setOnItemCoverListener(this.k);
+            linearLayout.addView(this.f33478b);
             linearLayout.setPadding(0, 0, 0, f3);
-            this.f43139j.setClickable(false);
-            this.f43138i.setOnClickListener(this);
-            this.f43139j.setVisibility(8);
+            this.f33482f.setClickable(false);
+            this.f33481e.setOnClickListener(this);
+            this.f33482f.setVisibility(8);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // c.a.l.p
+    /* renamed from: d */
+    public void a(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            TextView textView = this.f33480d;
+            String str = cVar.f17520b;
+            if (str == null) {
+                str = "";
+            }
+            textView.setText(str);
+            this.f33478b.b(cVar);
+            this.f33483g.setVisibility(0);
+            this.f33484h.setVisibility(8);
+            HomeGroupUbsUIHelper.handleLine(this.f33483g);
+            c.a.p0.q1.k.c.c("c13753", this.j);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i2) == null) || this.f43134e == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) || this.a == i) {
             return;
         }
-        c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.f43137h);
+        c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this.f33480d);
         d2.v(R.color.CAM_X0105);
         d2.z(R.dimen.T_X07);
         d2.A(R.string.F_X02);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43139j, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        HomeGroupUbsUIHelper.handleLineColor(this.k);
-        this.f43134e = i2;
-        c.a.q0.r.v.c d3 = c.a.q0.r.v.c.d(this.m);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33482f, R.drawable.obfuscated_res_0x7f080915, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        HomeGroupUbsUIHelper.handleLineColor(this.f33483g);
+        this.a = i;
+        c.a.o0.r.v.c d3 = c.a.o0.r.v.c.d(this.i);
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
     }
@@ -186,26 +206,7 @@ public class HotTopicRankLayout extends LinearLayout implements q, p<c>, View.On
     public void setTabCode(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.l.p
-    public void onBindDataToView(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            TextView textView = this.f43137h;
-            String str = cVar.f20184f;
-            if (str == null) {
-                str = "";
-            }
-            textView.setText(str);
-            this.f43135f.bindData(cVar);
-            this.k.setVisibility(0);
-            this.l.setVisibility(8);
-            HomeGroupUbsUIHelper.handleLine(this.k);
-            c.a.r0.o1.k.c.c("c13753", this.n);
+            this.j = str;
         }
     }
 }

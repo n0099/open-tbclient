@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface cr {
     boolean a(String str);
 }

@@ -21,9 +21,9 @@ public class HeadersConverter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,10 +36,10 @@ public class HeadersConverter {
             if (str != null) {
                 if (!str.isEmpty()) {
                     int length = str.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        char charAt = str.charAt(i2);
+                    for (int i = 0; i < length; i++) {
+                        char charAt = str.charAt(i);
                         if (charAt <= ' ' || charAt >= 127) {
-                            throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i2), str));
+                            throw new IllegalArgumentException(Util.format("Unexpected char %#04x at %d in header name: %s", Integer.valueOf(charAt), Integer.valueOf(i), str));
                         }
                     }
                     return;
@@ -56,8 +56,8 @@ public class HeadersConverter {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             if (str != null) {
                 int length = str.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    char charAt = str.charAt(i2);
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
                     if ((charAt <= 31 && charAt != '\t') || charAt >= 127) {
                         return false;
                     }
@@ -102,16 +102,16 @@ public class HeadersConverter {
             ConverterUtils.requireNonNull(headers, "headers should not be null");
             Map<String, List<String>> multimap = headers.toMultimap();
             String[] strArr = new String[headers.size() * 2];
-            int i2 = 0;
+            int i = 0;
             for (Map.Entry<String, List<String>> entry : multimap.entrySet()) {
                 if (entry.getKey() != null && entry.getValue() != null) {
                     String trim = entry.getKey().trim();
                     checkName(trim);
                     for (String str : entry.getValue()) {
                         if (checkValue(str, trim)) {
-                            strArr[i2] = trim;
-                            strArr[i2 + 1] = str;
-                            i2 += 2;
+                            strArr[i] = trim;
+                            strArr[i + 1] = str;
+                            i += 2;
                         }
                     }
                 } else {

@@ -17,14 +17,14 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 import com.tachikoma.core.utility.TKConverter;
 import com.tencent.connect.common.Constants;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Env {
     public static /* synthetic */ Interceptable $ic;
     public static TKEnvListener mEnvListener;
     public static HashMap<String, Object> sContextInfo;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface TKEnvListener {
         void onUpdate(HashMap<String, Object> hashMap);
     }
@@ -52,9 +52,9 @@ public class Env {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -66,9 +66,9 @@ public class Env {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             ApplicationInfo applicationInfo = context.getApplicationInfo();
-            int i2 = applicationInfo.labelRes;
+            int i = applicationInfo.labelRes;
             try {
-                return i2 == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(i2);
+                return i == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(i);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return applicationInfo.name;
@@ -94,11 +94,11 @@ public class Env {
                 str = "unknown";
             }
             String str2 = Build.VERSION.RELEASE;
-            int i2 = Resources.getSystem().getDisplayMetrics().widthPixels;
-            int i3 = Resources.getSystem().getDisplayMetrics().heightPixels;
+            int i = Resources.getSystem().getDisplayMetrics().widthPixels;
+            int i2 = Resources.getSystem().getDisplayMetrics().heightPixels;
             float f2 = context.getResources().getDisplayMetrics().density;
-            int px2dp = (int) TKConverter.px2dp(context, i2);
-            int px2dp2 = (int) TKConverter.px2dp(context, i3);
+            int px2dp = (int) TKConverter.px2dp(context, i);
+            int px2dp2 = (int) TKConverter.px2dp(context, i2);
             sContextInfo.put(Constants.PARAM_PLATFORM, "Android");
             sContextInfo.put("appName", applicationName);
             sContextInfo.put("appVersion", str);

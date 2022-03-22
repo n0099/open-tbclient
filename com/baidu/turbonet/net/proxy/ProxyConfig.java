@@ -14,7 +14,7 @@ public class ProxyConfig {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final ProxyConfig f48911b;
+    public static final ProxyConfig f37801b;
     public transient /* synthetic */ FieldHolder $fh;
     public LibType a;
 
@@ -46,16 +46,16 @@ public class ProxyConfig {
             $VALUES = new LibType[]{NATIVE, libType};
         }
 
-        public LibType(String str, int i2) {
+        public LibType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -91,7 +91,7 @@ public class ProxyConfig {
                 return;
             }
         }
-        f48911b = new ProxyConfig();
+        f37801b = new ProxyConfig();
     }
 
     public ProxyConfig() {
@@ -99,9 +99,9 @@ public class ProxyConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

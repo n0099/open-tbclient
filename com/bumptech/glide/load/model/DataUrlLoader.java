@@ -17,7 +17,7 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BASE64_TAG = ";base64";
@@ -25,7 +25,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     public transient /* synthetic */ FieldHolder $fh;
     public final DataDecoder<Data> dataDecoder;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DataDecoder<Data> {
         void close(Data data) throws IOException;
 
@@ -34,7 +34,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         Class<Data> getDataClass();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DataUriFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, dataDecoder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -111,7 +111,7 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class StreamFactory<Model> implements ModelLoaderFactory<Model, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -122,9 +122,9 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,9 +142,9 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
                         newInitContext2.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -216,9 +216,9 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
             newInitContext.initArgs = r2;
             Object[] objArr = {dataDecoder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -228,10 +228,10 @@ public final class DataUrlLoader<Model, Data> implements ModelLoader<Model, Data
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Model model, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new DataUriFetcher(model.toString(), this.dataDecoder)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{model, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(model), new DataUriFetcher(model.toString(), this.dataDecoder)) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     @Override // com.bumptech.glide.load.model.ModelLoader

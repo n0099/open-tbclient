@@ -20,25 +20,25 @@ public class GroupsByUidMessage extends TbSocketMessage {
     public int width;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupsByUidMessage(int i2, int i3) {
+    public GroupsByUidMessage(int i, int i2) {
         super(103003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.friendUid = 0L;
         this.isFriend = 0;
     }
@@ -86,55 +86,55 @@ public class GroupsByUidMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.width : invokeV.intValue;
     }
 
-    public void setFriendUid(long j2) {
+    public void setFriendUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.friendUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.friendUid = j;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.height = i;
         }
     }
 
-    public void setIsGuest(int i2) {
+    public void setIsGuest(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.isFriend = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.isFriend = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.width = i;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupsByUidMessage(long j2, int i2, int i3) {
+    public GroupsByUidMessage(long j, int i, int i2) {
         super(103003);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
-        this.friendUid = j2;
+        this.width = i;
+        this.height = i2;
+        this.friendUid = j;
         this.isFriend = 1;
     }
 }

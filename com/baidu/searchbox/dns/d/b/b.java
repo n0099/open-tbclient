@@ -29,9 +29,9 @@ public abstract class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,13 +73,13 @@ public abstract class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, aVar)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (a aVar2 : this.ac) {
                 if (aVar2.n().equals(aVar.n())) {
-                    i2++;
+                    i++;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -152,9 +152,9 @@ public abstract class b {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, str, Boolean.valueOf(z)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

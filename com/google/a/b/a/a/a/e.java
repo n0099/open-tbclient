@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class e extends com.google.a.a.b implements d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public abstract class e extends com.google.a.a.b implements d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -31,18 +31,18 @@ public abstract class e extends com.google.a.a.b implements d {
     }
 
     @Override // com.google.a.a.b
-    public final boolean a(int i2, Parcel parcel) {
+    public final boolean a(int i, Parcel parcel) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, parcel)) == null) {
-            if (i2 == 1) {
-                a((Bundle) c.i.a.a.a.a(parcel, Bundle.CREATOR));
-            } else if (i2 == 2) {
-                b((Bundle) c.i.a.a.a.a(parcel, Bundle.CREATOR));
-            } else if (i2 != 3) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, parcel)) == null) {
+            if (i == 1) {
+                a((Bundle) c.f.a.a.a.a(parcel, Bundle.CREATOR));
+            } else if (i == 2) {
+                b((Bundle) c.f.a.a.a.a(parcel, Bundle.CREATOR));
+            } else if (i != 3) {
                 return false;
             } else {
-                c.i.a.a.a.a(parcel, Bundle.CREATOR);
+                c.f.a.a.a.a(parcel, Bundle.CREATOR);
                 a();
             }
             return true;

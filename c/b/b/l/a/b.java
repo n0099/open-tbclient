@@ -11,31 +11,27 @@ public class b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27150b;
+    public int f22405b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27151c;
+    public int f22406c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27152d;
+    public int f22407d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27153e;
+    public int f22408e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27154f;
+    public int f22409f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f27155g;
+    public int f22410g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f27156h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f27157i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f27158j;
+    public boolean f22411h;
+    public boolean i;
+    public boolean j;
     public boolean k;
     public int l;
     public int m;
@@ -55,24 +51,24 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 8;
-        this.f27150b = 8;
-        this.f27151c = 8;
-        this.f27152d = 0;
-        this.f27153e = 16;
-        this.f27154f = 0;
-        this.f27155g = 0;
-        this.f27156h = true;
-        this.f27157i = false;
-        this.f27158j = true;
+        this.f22405b = 8;
+        this.f22406c = 8;
+        this.f22407d = 0;
+        this.f22408e = 16;
+        this.f22409f = 0;
+        this.f22410g = 0;
+        this.f22411h = true;
+        this.i = false;
+        this.j = true;
         this.k = false;
         this.l = 1;
         this.m = 0;

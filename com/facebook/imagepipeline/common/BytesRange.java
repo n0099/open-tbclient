@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BytesRange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TO_END_OF_CONTENT = Integer.MAX_VALUE;
@@ -23,31 +23,31 @@ public class BytesRange {
     public final int from;
     public final int to;
 
-    public BytesRange(int i2, int i3) {
+    public BytesRange(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.from = i2;
-        this.to = i3;
+        this.from = i;
+        this.to = i2;
     }
 
-    public static BytesRange from(int i2) {
+    public static BytesRange from(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            Preconditions.checkArgument(i2 >= 0);
-            return new BytesRange(i2, Integer.MAX_VALUE);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Preconditions.checkArgument(i >= 0);
+            return new BytesRange(i, Integer.MAX_VALUE);
         }
         return (BytesRange) invokeI.objValue;
     }
@@ -83,20 +83,20 @@ public class BytesRange {
         return (BytesRange) invokeL.objValue;
     }
 
-    public static BytesRange toMax(int i2) {
+    public static BytesRange toMax(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            Preconditions.checkArgument(i2 > 0);
-            return new BytesRange(0, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            Preconditions.checkArgument(i > 0);
+            return new BytesRange(0, i);
         }
         return (BytesRange) invokeI.objValue;
     }
 
-    public static String valueOrEmpty(int i2) {
+    public static String valueOrEmpty(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 == Integer.MAX_VALUE ? "" : Integer.toString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == Integer.MAX_VALUE ? "" : Integer.toString(i) : (String) invokeI.objValue;
     }
 
     public boolean contains(@Nullable BytesRange bytesRange) {

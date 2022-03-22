@@ -8,9 +8,8 @@ import android.text.style.BackgroundColorSpan;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.asm.Opcodes;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -28,12 +27,13 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
+import com.kuaishou.weapon.un.w0;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.text.Typography;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Cea708Decoder extends CeaDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CC_VALID_FLAG = 4;
@@ -126,7 +126,7 @@ public final class Cea708Decoder extends CeaDecoder {
     public final int selectedServiceNumber;
     public final ParsableBitArray serviceBlockPacket;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BORDER_AND_EDGE_TYPE_NONE = 0;
@@ -207,11 +207,11 @@ public final class Cea708Decoder extends CeaDecoder {
             WINDOW_STYLE_PRINT_DIRECTION = new int[]{0, 0, 0, 0, 0, 0, 2};
             WINDOW_STYLE_SCROLL_DIRECTION = new int[]{3, 3, 3, 3, 3, 3, 1};
             WINDOW_STYLE_WORD_WRAP = new boolean[]{false, false, false, true, true, true, false};
-            int i2 = COLOR_SOLID_BLACK;
-            WINDOW_STYLE_FILL = new int[]{i2, argbColorFromCeaColor, i2, i2, argbColorFromCeaColor, i2, i2};
+            int i = COLOR_SOLID_BLACK;
+            WINDOW_STYLE_FILL = new int[]{i, argbColorFromCeaColor, i, i, argbColorFromCeaColor, i, i};
             PEN_STYLE_FONT_STYLE = new int[]{0, 1, 2, 3, 4, 3, 4};
             PEN_STYLE_EDGE_TYPE = new int[]{0, 0, 0, 0, 0, 3, 3};
-            PEN_STYLE_BACKGROUND = new int[]{i2, i2, i2, i2, i2, argbColorFromCeaColor, argbColorFromCeaColor};
+            PEN_STYLE_BACKGROUND = new int[]{i, i, i, i, i, argbColorFromCeaColor, argbColorFromCeaColor};
         }
 
         public CueBuilder() {
@@ -219,9 +219,9 @@ public final class Cea708Decoder extends CeaDecoder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -232,10 +232,10 @@ public final class Cea708Decoder extends CeaDecoder {
             reset();
         }
 
-        public static int getArgbColorFromCeaColor(int i2, int i3, int i4) {
+        public static int getArgbColorFromCeaColor(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) ? getArgbColorFromCeaColor(i2, i3, i4, 0) : invokeIII.intValue;
+            return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? getArgbColorFromCeaColor(i, i2, i3, 0) : invokeIII.intValue;
         }
 
         public void append(char c2) {
@@ -293,28 +293,28 @@ public final class Cea708Decoder extends CeaDecoder {
             Layout.Alignment alignment;
             float f2;
             float f3;
+            int i;
             int i2;
             int i3;
             int i4;
-            int i5;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 if (isEmpty()) {
                     return null;
                 }
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                for (int i6 = 0; i6 < this.rolledUpCaptions.size(); i6++) {
-                    spannableStringBuilder.append((CharSequence) this.rolledUpCaptions.get(i6));
+                for (int i5 = 0; i5 < this.rolledUpCaptions.size(); i5++) {
+                    spannableStringBuilder.append((CharSequence) this.rolledUpCaptions.get(i5));
                     spannableStringBuilder.append('\n');
                 }
                 spannableStringBuilder.append((CharSequence) buildSpannableString());
-                int i7 = this.justification;
-                if (i7 != 0) {
-                    if (i7 == 1) {
+                int i6 = this.justification;
+                if (i6 != 0) {
+                    if (i6 == 1) {
                         alignment = Layout.Alignment.ALIGN_OPPOSITE;
-                    } else if (i7 == 2) {
+                    } else if (i6 == 2) {
                         alignment = Layout.Alignment.ALIGN_CENTER;
-                    } else if (i7 != 3) {
+                    } else if (i6 != 3) {
                         throw new IllegalArgumentException("Unexpected justification value: " + this.justification);
                     }
                     Layout.Alignment alignment2 = alignment;
@@ -327,19 +327,19 @@ public final class Cea708Decoder extends CeaDecoder {
                     }
                     float f4 = (f2 * 0.9f) + 0.05f;
                     float f5 = (f3 * 0.9f) + 0.05f;
-                    i2 = this.anchorId;
-                    if (i2 % 3 != 0) {
-                        i3 = 0;
+                    i = this.anchorId;
+                    if (i % 3 != 0) {
+                        i2 = 0;
                     } else {
-                        i3 = i2 % 3 == 1 ? 1 : 2;
+                        i2 = i % 3 == 1 ? 1 : 2;
                     }
-                    i4 = this.anchorId;
-                    if (i4 / 3 != 0) {
-                        i5 = 0;
+                    i3 = this.anchorId;
+                    if (i3 / 3 != 0) {
+                        i4 = 0;
                     } else {
-                        i5 = i4 / 3 == 1 ? 1 : 2;
+                        i4 = i3 / 3 == 1 ? 1 : 2;
                     }
-                    return new Cea708Cue(spannableStringBuilder, alignment2, f5, 0, i3, f4, i5, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
+                    return new Cea708Cue(spannableStringBuilder, alignment2, f5, 0, i2, f4, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
                 }
                 alignment = Layout.Alignment.ALIGN_NORMAL;
                 Layout.Alignment alignment22 = alignment;
@@ -347,13 +347,13 @@ public final class Cea708Decoder extends CeaDecoder {
                 }
                 float f42 = (f2 * 0.9f) + 0.05f;
                 float f52 = (f3 * 0.9f) + 0.05f;
-                i2 = this.anchorId;
-                if (i2 % 3 != 0) {
+                i = this.anchorId;
+                if (i % 3 != 0) {
                 }
-                i4 = this.anchorId;
-                if (i4 / 3 != 0) {
+                i3 = this.anchorId;
+                if (i3 / 3 != 0) {
                 }
-                return new Cea708Cue(spannableStringBuilder, alignment22, f52, 0, i3, f42, i5, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
+                return new Cea708Cue(spannableStringBuilder, alignment22, f52, 0, i2, f42, i4, Float.MIN_VALUE, this.windowFillColor != COLOR_SOLID_BLACK, this.windowFillColor, this.priority);
             }
             return (Cea708Cue) invokeV.objValue;
         }
@@ -396,20 +396,20 @@ public final class Cea708Decoder extends CeaDecoder {
             }
         }
 
-        public void defineWindow(boolean z, boolean z2, boolean z3, int i2, boolean z4, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+        public void defineWindow(boolean z, boolean z2, boolean z3, int i, boolean z4, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2), Boolean.valueOf(z4), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Boolean.valueOf(z4), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
                 this.defined = true;
                 this.visible = z;
                 this.rowLock = z2;
-                this.priority = i2;
+                this.priority = i;
                 this.relativePositioning = z4;
-                this.verticalAnchor = i3;
-                this.horizontalAnchor = i4;
-                this.anchorId = i7;
-                int i10 = i5 + 1;
-                if (this.rowCount != i10) {
-                    this.rowCount = i10;
+                this.verticalAnchor = i2;
+                this.horizontalAnchor = i3;
+                this.anchorId = i6;
+                int i9 = i4 + 1;
+                if (this.rowCount != i9) {
+                    this.rowCount = i9;
                     while (true) {
                         if ((!z2 || this.rolledUpCaptions.size() < this.rowCount) && this.rolledUpCaptions.size() < 15) {
                             break;
@@ -417,18 +417,18 @@ public final class Cea708Decoder extends CeaDecoder {
                         this.rolledUpCaptions.remove(0);
                     }
                 }
-                if (i8 != 0 && this.windowStyleId != i8) {
-                    this.windowStyleId = i8;
-                    int i11 = i8 - 1;
-                    setWindowAttributes(WINDOW_STYLE_FILL[i11], COLOR_TRANSPARENT, WINDOW_STYLE_WORD_WRAP[i11], 0, WINDOW_STYLE_PRINT_DIRECTION[i11], WINDOW_STYLE_SCROLL_DIRECTION[i11], WINDOW_STYLE_JUSTIFICATION[i11]);
+                if (i7 != 0 && this.windowStyleId != i7) {
+                    this.windowStyleId = i7;
+                    int i10 = i7 - 1;
+                    setWindowAttributes(WINDOW_STYLE_FILL[i10], COLOR_TRANSPARENT, WINDOW_STYLE_WORD_WRAP[i10], 0, WINDOW_STYLE_PRINT_DIRECTION[i10], WINDOW_STYLE_SCROLL_DIRECTION[i10], WINDOW_STYLE_JUSTIFICATION[i10]);
                 }
-                if (i9 == 0 || this.penStyleId == i9) {
+                if (i8 == 0 || this.penStyleId == i8) {
                     return;
                 }
-                this.penStyleId = i9;
-                int i12 = i9 - 1;
-                setPenAttributes(0, 1, 1, false, false, PEN_STYLE_EDGE_TYPE[i12], PEN_STYLE_FONT_STYLE[i12]);
-                setPenColor(COLOR_SOLID_WHITE, PEN_STYLE_BACKGROUND[i12], COLOR_SOLID_BLACK);
+                this.penStyleId = i8;
+                int i11 = i8 - 1;
+                setPenAttributes(0, 1, 1, false, false, PEN_STYLE_EDGE_TYPE[i11], PEN_STYLE_FONT_STYLE[i11]);
+                setPenColor(COLOR_SOLID_WHITE, PEN_STYLE_BACKGROUND[i11], COLOR_SOLID_BLACK);
             }
         }
 
@@ -466,16 +466,16 @@ public final class Cea708Decoder extends CeaDecoder {
                 this.justification = 0;
                 this.windowStyleId = 0;
                 this.penStyleId = 0;
-                int i2 = COLOR_SOLID_BLACK;
-                this.windowFillColor = i2;
+                int i = COLOR_SOLID_BLACK;
+                this.windowFillColor = i;
                 this.foregroundColor = COLOR_SOLID_WHITE;
-                this.backgroundColor = i2;
+                this.backgroundColor = i;
             }
         }
 
-        public void setPenAttributes(int i2, int i3, int i4, boolean z, boolean z2, int i5, int i6) {
+        public void setPenAttributes(int i, int i2, int i3, boolean z, boolean z2, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
                 if (this.italicsStartPosition != -1) {
                     if (!z) {
                         this.captionStringBuilder.setSpan(new StyleSpan(2), this.italicsStartPosition, this.captionStringBuilder.length(), 33);
@@ -496,33 +496,33 @@ public final class Cea708Decoder extends CeaDecoder {
             }
         }
 
-        public void setPenColor(int i2, int i3, int i4) {
+        public void setPenColor(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048587, this, i2, i3, i4) == null) {
-                if (this.foregroundColorStartPosition != -1 && this.foregroundColor != i2) {
+            if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {
+                if (this.foregroundColorStartPosition != -1 && this.foregroundColor != i) {
                     this.captionStringBuilder.setSpan(new ForegroundColorSpan(this.foregroundColor), this.foregroundColorStartPosition, this.captionStringBuilder.length(), 33);
                 }
-                if (i2 != COLOR_SOLID_WHITE) {
+                if (i != COLOR_SOLID_WHITE) {
                     this.foregroundColorStartPosition = this.captionStringBuilder.length();
-                    this.foregroundColor = i2;
+                    this.foregroundColor = i;
                 }
-                if (this.backgroundColorStartPosition != -1 && this.backgroundColor != i3) {
+                if (this.backgroundColorStartPosition != -1 && this.backgroundColor != i2) {
                     this.captionStringBuilder.setSpan(new BackgroundColorSpan(this.backgroundColor), this.backgroundColorStartPosition, this.captionStringBuilder.length(), 33);
                 }
-                if (i3 != COLOR_SOLID_BLACK) {
+                if (i2 != COLOR_SOLID_BLACK) {
                     this.backgroundColorStartPosition = this.captionStringBuilder.length();
-                    this.backgroundColor = i3;
+                    this.backgroundColor = i2;
                 }
             }
         }
 
-        public void setPenLocation(int i2, int i3) {
+        public void setPenLocation(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-                if (this.row != i2) {
+            if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+                if (this.row != i) {
                     append('\n');
                 }
-                this.row = i2;
+                this.row = i;
             }
         }
 
@@ -533,11 +533,11 @@ public final class Cea708Decoder extends CeaDecoder {
             }
         }
 
-        public void setWindowAttributes(int i2, int i3, boolean z, int i4, int i5, int i6, int i7) {
+        public void setWindowAttributes(int i, int i2, boolean z, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-                this.windowFillColor = i2;
-                this.justification = i7;
+            if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+                this.windowFillColor = i;
+                this.justification = i6;
             }
         }
 
@@ -549,31 +549,31 @@ public final class Cea708Decoder extends CeaDecoder {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public static int getArgbColorFromCeaColor(int i2, int i3, int i4, int i5) {
+        public static int getArgbColorFromCeaColor(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
-            int i6;
+            int i5;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i2, i3, i4, i5)) == null) {
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65539, null, i, i2, i3, i4)) == null) {
+                Assertions.checkIndex(i, 0, 4);
                 Assertions.checkIndex(i2, 0, 4);
                 Assertions.checkIndex(i3, 0, 4);
                 Assertions.checkIndex(i4, 0, 4);
-                Assertions.checkIndex(i5, 0, 4);
-                if (i5 != 0 && i5 != 1) {
-                    if (i5 == 2) {
-                        i6 = 127;
-                    } else if (i5 == 3) {
-                        i6 = 0;
+                if (i4 != 0 && i4 != 1) {
+                    if (i4 == 2) {
+                        i5 = 127;
+                    } else if (i4 == 3) {
+                        i5 = 0;
                     }
-                    return Color.argb(i6, i2 <= 1 ? 255 : 0, i3 <= 1 ? 255 : 0, i4 > 1 ? 255 : 0);
+                    return Color.argb(i5, i <= 1 ? 255 : 0, i2 <= 1 ? 255 : 0, i3 > 1 ? 255 : 0);
                 }
-                i6 = 255;
-                return Color.argb(i6, i2 <= 1 ? 255 : 0, i3 <= 1 ? 255 : 0, i4 > 1 ? 255 : 0);
+                i5 = 255;
+                return Color.argb(i5, i <= 1 ? 255 : 0, i2 <= 1 ? 255 : 0, i3 > 1 ? 255 : 0);
             }
             return invokeIIII.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DtvCcPacket {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -582,38 +582,38 @@ public final class Cea708Decoder extends CeaDecoder {
         public final int packetSize;
         public final int sequenceNumber;
 
-        public DtvCcPacket(int i2, int i3) {
+        public DtvCcPacket(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.sequenceNumber = i2;
-            this.packetSize = i3;
-            this.packetData = new byte[(i3 * 2) - 1];
+            this.sequenceNumber = i;
+            this.packetSize = i2;
+            this.packetData = new byte[(i2 * 2) - 1];
             this.currentIndex = 0;
         }
     }
 
-    public Cea708Decoder(int i2) {
+    public Cea708Decoder(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -621,10 +621,10 @@ public final class Cea708Decoder extends CeaDecoder {
         }
         this.ccData = new ParsableByteArray();
         this.serviceBlockPacket = new ParsableBitArray();
-        this.selectedServiceNumber = i2 == -1 ? 1 : i2;
+        this.selectedServiceNumber = i == -1 ? 1 : i;
         this.cueBuilders = new CueBuilder[8];
-        for (int i5 = 0; i5 < 8; i5++) {
-            this.cueBuilders[i5] = new CueBuilder();
+        for (int i4 = 0; i4 < 8; i4++) {
+            this.cueBuilders[i4] = new CueBuilder();
         }
         this.currentCueBuilder = this.cueBuilders[0];
         resetCueBuilders();
@@ -644,9 +644,9 @@ public final class Cea708Decoder extends CeaDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < 8; i2++) {
-                if (!this.cueBuilders[i2].isEmpty() && this.cueBuilders[i2].isVisible()) {
-                    arrayList.add(this.cueBuilders[i2].build());
+            for (int i = 0; i < 8; i++) {
+                if (!this.cueBuilders[i].isEmpty() && this.cueBuilders[i].isVisible()) {
+                    arrayList.add(this.cueBuilders[i].build());
                 }
             }
             Collections.sort(arrayList);
@@ -655,15 +655,15 @@ public final class Cea708Decoder extends CeaDecoder {
         return (List) invokeV.objValue;
     }
 
-    private void handleC0Command(int i2) {
+    private void handleC0Command(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65539, this, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(65539, this, i) == null) || i == 0) {
             return;
         }
-        if (i2 == 3) {
+        if (i == 3) {
             this.cues = getDisplayCues();
-        } else if (i2 != 8) {
-            switch (i2) {
+        } else if (i != 8) {
+            switch (i) {
                 case 12:
                     resetCueBuilders();
                     return;
@@ -673,16 +673,16 @@ public final class Cea708Decoder extends CeaDecoder {
                 case 14:
                     return;
                 default:
-                    if (i2 >= 17 && i2 <= 23) {
-                        String str = "Currently unsupported COMMAND_EXT1 Command: " + i2;
+                    if (i >= 17 && i <= 23) {
+                        Log.w(TAG, "Currently unsupported COMMAND_EXT1 Command: " + i);
                         this.serviceBlockPacket.skipBits(8);
                         return;
-                    } else if (i2 >= 24 && i2 <= 31) {
-                        String str2 = "Currently unsupported COMMAND_P16 Command: " + i2;
+                    } else if (i >= 24 && i <= 31) {
+                        Log.w(TAG, "Currently unsupported COMMAND_P16 Command: " + i);
                         this.serviceBlockPacket.skipBits(16);
                         return;
                     } else {
-                        String str3 = "Invalid C0 command: " + i2;
+                        Log.w(TAG, "Invalid C0 command: " + i);
                         return;
                     }
             }
@@ -691,12 +691,12 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    private void handleC1Command(int i2) {
+    private void handleC1Command(int i) {
         CueBuilder cueBuilder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            int i3 = 1;
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            int i2 = 1;
+            switch (i) {
                 case 128:
                 case 129:
                 case 130:
@@ -705,49 +705,49 @@ public final class Cea708Decoder extends CeaDecoder {
                 case 133:
                 case 134:
                 case 135:
-                    int i4 = i2 + a.f29502g;
-                    if (this.currentWindow != i4) {
-                        this.currentWindow = i4;
-                        this.currentCueBuilder = this.cueBuilders[i4];
+                    int i3 = i - 128;
+                    if (this.currentWindow != i3) {
+                        this.currentWindow = i3;
+                        this.currentCueBuilder = this.cueBuilders[i3];
                         return;
                     }
                     return;
                 case 136:
-                    while (i3 <= 8) {
+                    while (i2 <= 8) {
                         if (this.serviceBlockPacket.readBit()) {
-                            this.cueBuilders[8 - i3].clear();
+                            this.cueBuilders[8 - i2].clear();
                         }
-                        i3++;
+                        i2++;
                     }
                     return;
-                case 137:
-                    for (int i5 = 1; i5 <= 8; i5++) {
+                case COMMAND_DSW /* 137 */:
+                    for (int i4 = 1; i4 <= 8; i4++) {
                         if (this.serviceBlockPacket.readBit()) {
-                            this.cueBuilders[8 - i5].setVisibility(true);
+                            this.cueBuilders[8 - i4].setVisibility(true);
                         }
                     }
                     return;
                 case 138:
-                    while (i3 <= 8) {
+                    while (i2 <= 8) {
                         if (this.serviceBlockPacket.readBit()) {
-                            this.cueBuilders[8 - i3].setVisibility(false);
+                            this.cueBuilders[8 - i2].setVisibility(false);
                         }
-                        i3++;
+                        i2++;
                     }
                     return;
                 case 139:
-                    for (int i6 = 1; i6 <= 8; i6++) {
+                    for (int i5 = 1; i5 <= 8; i5++) {
                         if (this.serviceBlockPacket.readBit()) {
-                            this.cueBuilders[8 - i6].setVisibility(!cueBuilder.isVisible());
+                            this.cueBuilders[8 - i5].setVisibility(!cueBuilder.isVisible());
                         }
                     }
                     return;
                 case 140:
-                    while (i3 <= 8) {
+                    while (i2 <= 8) {
                         if (this.serviceBlockPacket.readBit()) {
-                            this.cueBuilders[8 - i3].reset();
+                            this.cueBuilders[8 - i2].reset();
                         }
-                        i3++;
+                        i2++;
                     }
                     return;
                 case COMMAND_DLY /* 141 */:
@@ -783,13 +783,13 @@ public final class Cea708Decoder extends CeaDecoder {
                         return;
                     }
                 case 147:
-                case 148:
-                case Opcodes.FCMPL /* 149 */:
+                case w0.I /* 148 */:
+                case 149:
                 case 150:
                 default:
-                    String str = "Invalid C1 command: " + i2;
+                    Log.w(TAG, "Invalid C1 command: " + i);
                     return;
-                case 151:
+                case COMMAND_SWA /* 151 */:
                     if (!this.currentCueBuilder.isDefined()) {
                         this.serviceBlockPacket.skipBits(32);
                         return;
@@ -799,17 +799,17 @@ public final class Cea708Decoder extends CeaDecoder {
                     }
                 case COMMAND_DF0 /* 152 */:
                 case 153:
-                case 154:
+                case COMMAND_DF2 /* 154 */:
                 case 155:
                 case COMMAND_DS4 /* 156 */:
                 case 157:
                 case 158:
                 case 159:
-                    int i7 = i2 - 152;
-                    handleDefineWindow(i7);
-                    if (this.currentWindow != i7) {
-                        this.currentWindow = i7;
-                        this.currentCueBuilder = this.cueBuilders[i7];
+                    int i6 = i - 152;
+                    handleDefineWindow(i6);
+                    if (this.currentWindow != i6) {
+                        this.currentWindow = i6;
+                        this.currentCueBuilder = this.cueBuilders[i6];
                         return;
                     }
                     return;
@@ -817,38 +817,38 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    private void handleC2Command(int i2) {
+    private void handleC2Command(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65541, this, i2) == null) || i2 <= 7) {
+        if (!(interceptable == null || interceptable.invokeI(65541, this, i) == null) || i <= 7) {
             return;
         }
-        if (i2 <= 15) {
+        if (i <= 15) {
             this.serviceBlockPacket.skipBits(8);
-        } else if (i2 <= 23) {
+        } else if (i <= 23) {
             this.serviceBlockPacket.skipBits(16);
-        } else if (i2 <= 31) {
+        } else if (i <= 31) {
             this.serviceBlockPacket.skipBits(24);
         }
     }
 
-    private void handleC3Command(int i2) {
+    private void handleC3Command(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, this, i2) == null) {
-            if (i2 <= 135) {
+        if (interceptable == null || interceptable.invokeI(65542, this, i) == null) {
+            if (i <= 135) {
                 this.serviceBlockPacket.skipBits(32);
-            } else if (i2 <= 143) {
+            } else if (i <= 143) {
                 this.serviceBlockPacket.skipBits(40);
-            } else if (i2 <= 159) {
+            } else if (i <= 159) {
                 this.serviceBlockPacket.skipBits(2);
                 this.serviceBlockPacket.skipBits(this.serviceBlockPacket.readBits(6) * 8);
             }
         }
     }
 
-    private void handleDefineWindow(int i2) {
+    private void handleDefineWindow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
-            CueBuilder cueBuilder = this.cueBuilders[i2];
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
+            CueBuilder cueBuilder = this.cueBuilders[i];
             this.serviceBlockPacket.skipBits(2);
             boolean readBit = this.serviceBlockPacket.readBit();
             boolean readBit2 = this.serviceBlockPacket.readBit();
@@ -866,47 +866,47 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    private void handleG0Character(int i2) {
+    private void handleG0Character(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, this, i2) == null) {
-            if (i2 == 127) {
+        if (interceptable == null || interceptable.invokeI(65544, this, i) == null) {
+            if (i == 127) {
                 this.currentCueBuilder.append((char) 9835);
             } else {
-                this.currentCueBuilder.append((char) (i2 & 255));
+                this.currentCueBuilder.append((char) (i & 255));
             }
         }
     }
 
-    private void handleG1Character(int i2) {
+    private void handleG1Character(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, this, i2) == null) {
-            this.currentCueBuilder.append((char) (i2 & 255));
+        if (interceptable == null || interceptable.invokeI(65545, this, i) == null) {
+            this.currentCueBuilder.append((char) (i & 255));
         }
     }
 
-    private void handleG2Character(int i2) {
+    private void handleG2Character(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, this, i2) == null) {
-            if (i2 == 32) {
+        if (interceptable == null || interceptable.invokeI(65546, this, i) == null) {
+            if (i == 32) {
                 this.currentCueBuilder.append(WebvttCueParser.CHAR_SPACE);
-            } else if (i2 == 33) {
+            } else if (i == 33) {
                 this.currentCueBuilder.append(Typography.nbsp);
-            } else if (i2 == 37) {
+            } else if (i == 37) {
                 this.currentCueBuilder.append(Typography.ellipsis);
-            } else if (i2 == 42) {
+            } else if (i == 42) {
                 this.currentCueBuilder.append((char) 352);
-            } else if (i2 == 44) {
+            } else if (i == 44) {
                 this.currentCueBuilder.append((char) 338);
-            } else if (i2 == 63) {
+            } else if (i == 63) {
                 this.currentCueBuilder.append((char) 376);
-            } else if (i2 == 57) {
+            } else if (i == 57) {
                 this.currentCueBuilder.append(Typography.tm);
-            } else if (i2 == 58) {
+            } else if (i == 58) {
                 this.currentCueBuilder.append((char) 353);
-            } else if (i2 == 60) {
+            } else if (i == 60) {
                 this.currentCueBuilder.append((char) 339);
-            } else if (i2 != 61) {
-                switch (i2) {
+            } else if (i != 61) {
+                switch (i) {
                     case 48:
                         this.currentCueBuilder.append((char) 9608);
                         return;
@@ -926,7 +926,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         this.currentCueBuilder.append(Typography.bullet);
                         return;
                     default:
-                        switch (i2) {
+                        switch (i) {
                             case 118:
                                 this.currentCueBuilder.append((char) 8539);
                                 return;
@@ -958,7 +958,7 @@ public final class Cea708Decoder extends CeaDecoder {
                                 this.currentCueBuilder.append((char) 9484);
                                 return;
                             default:
-                                String str = "Invalid G2 character: " + i2;
+                                Log.w(TAG, "Invalid G2 character: " + i);
                                 return;
                         }
                 }
@@ -968,14 +968,14 @@ public final class Cea708Decoder extends CeaDecoder {
         }
     }
 
-    private void handleG3Character(int i2) {
+    private void handleG3Character(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
-            if (i2 == 160) {
+        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+            if (i == 160) {
                 this.currentCueBuilder.append((char) 13252);
                 return;
             }
-            String str = "Invalid G3 character: " + i2;
+            Log.w(TAG, "Invalid G3 character: " + i);
             this.currentCueBuilder.append('_');
         }
     }
@@ -1029,12 +1029,12 @@ public final class Cea708Decoder extends CeaDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             DtvCcPacket dtvCcPacket = this.currentDtvCcPacket;
-            int i2 = dtvCcPacket.currentIndex;
-            if (i2 != (dtvCcPacket.packetSize * 2) - 1) {
-                String str = "DtvCcPacket ended prematurely; size is " + ((this.currentDtvCcPacket.packetSize * 2) - 1) + ", but current index is " + this.currentDtvCcPacket.currentIndex + " (sequence number " + this.currentDtvCcPacket.sequenceNumber + "); ignoring packet";
+            int i = dtvCcPacket.currentIndex;
+            if (i != (dtvCcPacket.packetSize * 2) - 1) {
+                Log.w(TAG, "DtvCcPacket ended prematurely; size is " + ((this.currentDtvCcPacket.packetSize * 2) - 1) + ", but current index is " + this.currentDtvCcPacket.currentIndex + " (sequence number " + this.currentDtvCcPacket.sequenceNumber + "); ignoring packet");
                 return;
             }
-            this.serviceBlockPacket.reset(dtvCcPacket.packetData, i2);
+            this.serviceBlockPacket.reset(dtvCcPacket.packetData, i);
             int readBits = this.serviceBlockPacket.readBits(3);
             int readBits2 = this.serviceBlockPacket.readBits(5);
             if (readBits == 7) {
@@ -1043,7 +1043,7 @@ public final class Cea708Decoder extends CeaDecoder {
             }
             if (readBits2 == 0) {
                 if (readBits != 0) {
-                    String str2 = "serviceNumber is non-zero (" + readBits + ") when blockSize is 0";
+                    Log.w(TAG, "serviceNumber is non-zero (" + readBits + ") when blockSize is 0");
                 }
             } else if (readBits != this.selectedServiceNumber) {
             } else {
@@ -1062,7 +1062,7 @@ public final class Cea708Decoder extends CeaDecoder {
                             } else if (readBits4 <= 255) {
                                 handleG3Character(readBits4);
                             } else {
-                                String str3 = "Invalid extended command: " + readBits4;
+                                Log.w(TAG, "Invalid extended command: " + readBits4);
                             }
                             z = true;
                         }
@@ -1076,7 +1076,7 @@ public final class Cea708Decoder extends CeaDecoder {
                         } else if (readBits3 <= 255) {
                             handleG1Character(readBits3);
                         } else {
-                            String str4 = "Invalid base command: " + readBits3;
+                            Log.w(TAG, "Invalid base command: " + readBits3);
                         }
                         z = true;
                     }
@@ -1091,8 +1091,8 @@ public final class Cea708Decoder extends CeaDecoder {
     private void resetCueBuilders() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            for (int i2 = 0; i2 < 8; i2++) {
-                this.cueBuilders[i2].reset();
+            for (int i = 0; i < 8; i++) {
+                this.cueBuilders[i].reset();
             }
         }
     }
@@ -1116,36 +1116,38 @@ public final class Cea708Decoder extends CeaDecoder {
             this.ccData.reset(subtitleInputBuffer.data.array(), subtitleInputBuffer.data.limit());
             while (this.ccData.bytesLeft() >= 3) {
                 int readUnsignedByte = this.ccData.readUnsignedByte() & 7;
-                int i2 = readUnsignedByte & 3;
+                int i = readUnsignedByte & 3;
                 boolean z = (readUnsignedByte & 4) == 4;
                 byte readUnsignedByte2 = (byte) this.ccData.readUnsignedByte();
                 byte readUnsignedByte3 = (byte) this.ccData.readUnsignedByte();
-                if (i2 == 2 || i2 == 3) {
+                if (i == 2 || i == 3) {
                     if (z) {
-                        if (i2 == 3) {
+                        if (i == 3) {
                             finalizeCurrentPacket();
-                            int i3 = (readUnsignedByte2 & 192) >> 6;
-                            int i4 = readUnsignedByte2 & 63;
-                            if (i4 == 0) {
-                                i4 = 64;
+                            int i2 = (readUnsignedByte2 & 192) >> 6;
+                            int i3 = readUnsignedByte2 & 63;
+                            if (i3 == 0) {
+                                i3 = 64;
                             }
-                            DtvCcPacket dtvCcPacket = new DtvCcPacket(i3, i4);
+                            DtvCcPacket dtvCcPacket = new DtvCcPacket(i2, i3);
                             this.currentDtvCcPacket = dtvCcPacket;
                             byte[] bArr = dtvCcPacket.packetData;
-                            int i5 = dtvCcPacket.currentIndex;
-                            dtvCcPacket.currentIndex = i5 + 1;
-                            bArr[i5] = readUnsignedByte3;
+                            int i4 = dtvCcPacket.currentIndex;
+                            dtvCcPacket.currentIndex = i4 + 1;
+                            bArr[i4] = readUnsignedByte3;
                         } else {
-                            Assertions.checkArgument(i2 == 2);
+                            Assertions.checkArgument(i == 2);
                             DtvCcPacket dtvCcPacket2 = this.currentDtvCcPacket;
-                            if (dtvCcPacket2 != null) {
+                            if (dtvCcPacket2 == null) {
+                                Log.e(TAG, "Encountered DTVCC_PACKET_DATA before DTVCC_PACKET_START");
+                            } else {
                                 byte[] bArr2 = dtvCcPacket2.packetData;
-                                int i6 = dtvCcPacket2.currentIndex;
-                                int i7 = i6 + 1;
-                                dtvCcPacket2.currentIndex = i7;
-                                bArr2[i6] = readUnsignedByte2;
-                                dtvCcPacket2.currentIndex = i7 + 1;
-                                bArr2[i7] = readUnsignedByte3;
+                                int i5 = dtvCcPacket2.currentIndex;
+                                int i6 = i5 + 1;
+                                dtvCcPacket2.currentIndex = i6;
+                                bArr2[i5] = readUnsignedByte2;
+                                dtvCcPacket2.currentIndex = i6 + 1;
+                                bArr2[i6] = readUnsignedByte3;
                             }
                         }
                         DtvCcPacket dtvCcPacket3 = this.currentDtvCcPacket;
@@ -1207,7 +1209,7 @@ public final class Cea708Decoder extends CeaDecoder {
     }
 
     @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.text.SubtitleDecoder
-    public /* bridge */ /* synthetic */ void setPositionUs(long j2) {
-        super.setPositionUs(j2);
+    public /* bridge */ /* synthetic */ void setPositionUs(long j) {
+        super.setPositionUs(j);
     }
 }

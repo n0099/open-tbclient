@@ -33,16 +33,16 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public class C1833a extends HttpHandlerWrap {
+    public class C1786a extends HttpHandlerWrap {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ThirdLoginCallback a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f36725b;
+        public final /* synthetic */ a f28488b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C1833a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C1786a(a aVar, Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -50,36 +50,36 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, looper, thirdLoginCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36725b = aVar;
+            this.f28488b = aVar;
             this.a = thirdLoginCallback;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onFailure(Throwable th, int i2, String str) {
+        public void onFailure(Throwable th, int i, String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i2, str) == null) || this.a == null) {
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) || this.a == null) {
                 return;
             }
             WebAuthResult webAuthResult = new WebAuthResult();
-            webAuthResult.setResultCode(i2);
+            webAuthResult.setResultCode(i);
             webAuthResult.setResultMsg(str);
             this.a.onFailure(webAuthResult);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-        public void onSuccess(int i2, String str, HashMap<String, String> hashMap) {
+        public void onSuccess(int i, String str, HashMap<String, String> hashMap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, hashMap) == null) {
-                this.f36725b.b(str, this.a);
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, hashMap) == null) {
+                this.f28488b.b(str, this.a);
             }
         }
     }
@@ -89,9 +89,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -120,8 +120,8 @@ public class a {
                     if (SapiAccount.isValidAccount(sapiAccountResponseToAccount)) {
                         socialResponse.errorCode = 0;
                     }
-                    int i2 = socialResponse.errorCode;
-                    if (i2 == 0 || i2 == 110000) {
+                    int i = socialResponse.errorCode;
+                    if (i == 0 || i == 110000) {
                         SapiAccountManager.getInstance().validate(sapiAccountResponseToAccount);
                         if (thirdLoginCallback != null) {
                             WebAuthResult webAuthResult = new WebAuthResult();
@@ -167,7 +167,7 @@ public class a {
             }
             hashMap.put("json", "1");
             String addExtras = ParamsUtil.addExtras(str, hashMap);
-            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1833a(this, Looper.getMainLooper(), thirdLoginCallback));
+            new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C1786a(this, Looper.getMainLooper(), thirdLoginCallback));
         }
     }
 }

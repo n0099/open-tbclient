@@ -22,20 +22,20 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RippleDrawableCompatState drawableState;
 
     /* renamed from: com.google.android.material.ripple.RippleDrawableCompat$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RippleDrawableCompatState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {materialShapeDrawable};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -88,9 +88,9 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {rippleDrawableCompatState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -179,10 +179,10 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.drawableState.delegate.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.drawableState.delegate.setAlpha(i);
         }
     }
 
@@ -203,10 +203,10 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(@ColorInt int i2) {
+    public void setTint(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.drawableState.delegate.setTint(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.drawableState.delegate.setTint(i);
         }
     }
 
@@ -235,9 +235,9 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
             newInitContext.initArgs = r2;
             Object[] objArr = {shapeAppearanceModel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((RippleDrawableCompatState) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -266,9 +266,9 @@ public class RippleDrawableCompat extends Drawable implements Shapeable, TintAwa
             newInitContext.initArgs = r2;
             Object[] objArr = {rippleDrawableCompatState};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

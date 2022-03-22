@@ -12,23 +12,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60043b;
+    public Context f44606b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f60044c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f44607c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f60045d;
+    public CountDownLatch f44608d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f60046e;
+    public ServiceConnection f44609e;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -37,17 +37,17 @@ public final class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f60045d = new CountDownLatch(1);
-        this.f60046e = new f(this);
-        this.f60043b = context;
+        this.f44608d = new CountDownLatch(1);
+        this.f44609e = new f(this);
+        this.f44606b = context;
     }
 
     private void a(boolean z) {
@@ -57,7 +57,7 @@ public final class e {
                 try {
                     String a = this.a.a();
                     if (!TextUtils.isEmpty(a)) {
-                        this.f60044c.a(a);
+                        this.f44607c.a(a);
                         return;
                     }
                 } catch (Throwable th) {
@@ -65,7 +65,7 @@ public final class e {
                     return;
                 }
             }
-            this.f60044c.e();
+            this.f44607c.e();
         }
     }
 
@@ -73,7 +73,7 @@ public final class e {
         ServiceConnection serviceConnection;
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f60046e) == null || (context = this.f60043b) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (serviceConnection = this.f44609e) == null || (context = this.f44606b) == null) {
             return;
         }
         context.unbindService(serviceConnection);
@@ -83,16 +83,16 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             try {
-                this.f60044c = bVar;
+                this.f44607c = bVar;
                 Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                if (!this.f60043b.bindService(intent2, this.f60046e, 1)) {
+                if (!this.f44606b.bindService(intent2, this.f44609e, 1)) {
                     a(false);
                     return;
                 }
-                this.f60045d.await(10L, TimeUnit.SECONDS);
+                this.f44608d.await(10L, TimeUnit.SECONDS);
                 if (this.a != null) {
                     a(true);
                 } else {

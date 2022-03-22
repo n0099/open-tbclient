@@ -7,26 +7,26 @@ public class a {
     public volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f54116b;
+    public long f39263b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C2090a f54117c = new C2090a();
+    public C1951a f39264c = new C1951a();
 
     /* renamed from: com.kwad.sdk.contentalliance.detail.kwai.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2090a {
+    public static class C1951a {
         public long a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54118b = 0;
+        public int f39265b = 0;
 
         public int a() {
-            return this.f54118b;
+            return this.f39265b;
         }
 
-        public void a(long j2) {
-            this.a += j2;
-            this.f54118b++;
+        public void a(long j) {
+            this.a += j;
+            this.f39265b++;
         }
 
         public long b() {
@@ -39,12 +39,12 @@ public class a {
             return;
         }
         this.a = true;
-        this.f54116b = SystemClock.elapsedRealtime();
+        this.f39263b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
         if (this.a) {
-            this.f54117c.a(SystemClock.elapsedRealtime() - this.f54116b);
+            this.f39264c.a(SystemClock.elapsedRealtime() - this.f39263b);
             this.a = false;
         }
     }
@@ -54,15 +54,15 @@ public class a {
     }
 
     @NonNull
-    public C2090a d() {
+    public C1951a d() {
         if (this.a) {
-            this.f54117c.a(SystemClock.elapsedRealtime() - this.f54116b);
+            this.f39264c.a(SystemClock.elapsedRealtime() - this.f39263b);
             this.a = false;
         }
-        return this.f54117c;
+        return this.f39264c;
     }
 
     public long e() {
-        return this.f54116b;
+        return this.f39263b;
     }
 }

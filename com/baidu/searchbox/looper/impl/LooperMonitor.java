@@ -1,9 +1,9 @@
 package com.baidu.searchbox.looper.impl;
 
 import android.content.Context;
-import c.h.b.a.b;
-import c.h.b.a.c;
-import c.h.b.a.d;
+import c.e.b.a.b;
+import c.e.b.a.c;
+import c.e.b.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -47,9 +47,9 @@ public class LooperMonitor implements ILooperMonitor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,13 +99,13 @@ public class LooperMonitor implements ILooperMonitor {
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.ILooperMonitor
-    public void startLooperMonitor(Context context, int i2) {
+    public void startLooperMonitor(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, context, i) == null) {
             if (sLooperContextDispatcher == null) {
                 sLooperContextDispatcher = new LooperContextDispatcher();
             }
-            b.init(context, sLooperContextDispatcher, i2);
+            b.init(context, sLooperContextDispatcher, i);
             c.k(b.get());
             c e2 = c.e();
             this.mBlockCanaryCore = e2;

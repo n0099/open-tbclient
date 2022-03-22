@@ -13,13 +13,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchSuggestForumViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mRootView;
-    public TextView mSearchForumAttentionContent;
-    public TbImageView mSearchForumBarIcon;
-    public TextView mSearchForumIntroduce;
-    public TextView mSearchForumPbContent;
-    public TextView mSearchForumTitle;
-    public View mSearchSuggetLine;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f34356b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34357c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34358d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f34359e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f34360f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f34361g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchSuggestForumViewHolder(View view) {
@@ -30,21 +42,21 @@ public class SearchSuggestForumViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mRootView = view.findViewById(R.id.rootview);
-        this.mSearchForumBarIcon = (TbImageView) view.findViewById(R.id.search_forum_bar_icon);
-        this.mSearchForumTitle = (TextView) view.findViewById(R.id.search_forum_title);
-        this.mSearchForumIntroduce = (TextView) view.findViewById(R.id.search_forum_introduce);
-        this.mSearchForumAttentionContent = (TextView) view.findViewById(R.id.search_forum_attention_content);
-        this.mSearchForumPbContent = (TextView) view.findViewById(R.id.search_forum_pb_content);
-        this.mSearchSuggetLine = view.findViewById(R.id.search_sugget_line);
+        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.f34356b = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f091c27);
+        this.f34357c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c2a);
+        this.f34358d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c28);
+        this.f34359e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c26);
+        this.f34360f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c29);
+        this.f34361g = view.findViewById(R.id.obfuscated_res_0x7f091c49);
     }
 }

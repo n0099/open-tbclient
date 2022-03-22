@@ -10,7 +10,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.message.LineFormatter;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HttpRequestWriter extends AbstractMessageWriter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class HttpRequestWriter extends AbstractMessageWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionOutputBuffer, lineFormatter, httpParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((SessionOutputBuffer) objArr2[0], (LineFormatter) objArr2[1], (HttpParams) objArr2[2]);
                 newInitContext.thisArg = this;

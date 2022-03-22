@@ -1,9 +1,8 @@
 package com.baidu.swan.webcompat.impl;
 
 import androidx.webkit.WebViewAssetLoader;
-import c.a.p0.a.t1.d;
-import c.a.p0.z.a.b;
-import com.baidu.fsg.face.base.b.c;
+import c.a.n0.a.t1.d;
+import c.a.n0.z.a.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +14,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Landroidx/webkit/WebViewAssetLoader;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Function0<WebViewAssetLoader> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +29,9 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             newInitContext.initArgs = r2;
             Object[] objArr = {webCompatImpl};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -57,7 +56,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
         String q3;
         String q4;
         String q5;
-        FilePathInfo j2;
+        FilePathInfo j;
         String it;
         String q6;
         String q7;
@@ -68,7 +67,7 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = this.this$0.n();
             builder.setDomain(n).setHttpAllowed(true);
-            q = this.this$0.q(c.f32638g);
+            q = this.this$0.q("files");
             m = this.this$0.m();
             builder.addPathHandler(q, m);
             q2 = this.this$0.q("internal_files");
@@ -87,8 +86,8 @@ public final class WebCompatImpl$localAssetLoader$2 extends Lambda implements Fu
             if (k != null) {
                 q5 = this.this$0.q("external_files");
                 builder.addPathHandler(q5, k);
-                j2 = this.this$0.j();
-                if (j2 != null && (it = j2.a()) != null) {
+                j = this.this$0.j();
+                if (j != null && (it = j.a()) != null) {
                     WebCompatImpl webCompatImpl2 = this.this$0;
                     Intrinsics.checkNotNullExpressionValue(it, "it");
                     q6 = webCompatImpl2.q(it);

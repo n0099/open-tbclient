@@ -27,9 +27,9 @@ public class MarkerFrameInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -103,10 +103,10 @@ public class MarkerFrameInfo {
         }
     }
 
-    public void setFps(int i2) {
+    public void setFps(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.ti = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.ti = i;
         }
     }
 
@@ -117,17 +117,17 @@ public class MarkerFrameInfo {
         }
     }
 
-    public void setInputHeight(int i2) {
+    public void setInputHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.td = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.td = i;
         }
     }
 
-    public void setInputWidth(int i2) {
+    public void setInputWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.tc = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.tc = i;
         }
     }
 
@@ -159,10 +159,10 @@ public class MarkerFrameInfo {
         }
     }
 
-    public void setTrackingState(int i2) {
+    public void setTrackingState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.th = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.th = i;
         }
     }
 }

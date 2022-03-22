@@ -11,8 +11,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -20,50 +20,52 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbNextVideoLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f35207b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f35208c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f35209d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45486e;
+    public ImageView f35210e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f45487f;
+    public ProgressBar f35211f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45488g;
+    public boolean f35212g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45489h;
+    public boolean f35213h;
+    public a i;
 
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f45490i;
-    public boolean isManualFinish;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ProgressBar f45491j;
-    public boolean k;
-    public a l;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbNextVideoLayout a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PbNextVideoLayout pbNextVideoLayout, long j2, long j3) {
-            super(j2, j3);
+        public a(PbNextVideoLayout pbNextVideoLayout, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbNextVideoLayout, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {pbNextVideoLayout, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
@@ -72,7 +74,7 @@ public class PbNextVideoLayout extends RelativeLayout {
                 }
             }
             this.a = pbNextVideoLayout;
-            pbNextVideoLayout.isManualFinish = true;
+            pbNextVideoLayout.f35213h = true;
         }
 
         @Override // android.os.CountDownTimer
@@ -80,16 +82,16 @@ public class PbNextVideoLayout extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 PbNextVideoLayout pbNextVideoLayout = this.a;
-                pbNextVideoLayout.isManualFinish = false;
+                pbNextVideoLayout.f35213h = false;
                 pbNextVideoLayout.performClick();
             }
         }
 
         @Override // android.os.CountDownTimer
-        public void onTick(long j2) {
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                this.a.f45491j.setProgress(((int) (5000 - j2)) * 2);
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.a.f35211f.setProgress(((int) (5000 - j)) * 2);
             }
         }
     }
@@ -103,111 +105,111 @@ public class PbNextVideoLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45486e = 50;
-        this.k = true;
-        this.isManualFinish = true;
-        b(context);
+        this.a = 50;
+        this.f35212g = true;
+        this.f35213h = true;
+        c(context);
     }
 
-    public final void b(Context context) {
+    public void b(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            RelativeLayout.inflate(context, R.layout.pb_next_video_layout, this);
-            this.f45487f = (TbImageView) findViewById(R.id.pb_next_video_img);
-            this.f45488g = (TextView) findViewById(R.id.pb_next_video_txt);
-            this.f45489h = (TextView) findViewById(R.id.pb_next_video_title);
-            this.f45490i = (ImageView) findViewById(R.id.pb_next_video_close);
-            this.f45491j = (ProgressBar) findViewById(R.id.pb_next_video_progress_bar);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45490i, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0622, null);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = true;
-            this.f45488g.setText(R.string.pb_video_next_play);
-            a aVar = this.l;
-            if (aVar != null) {
-                aVar.cancel();
-            }
-            a aVar2 = new a(this, 5000 - this.f45491j.getProgress(), this.f45486e);
-            this.l = aVar2;
-            aVar2.start();
-        }
-    }
-
-    public void changeViewLayout(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             getLayoutParams().height = n.f(getContext(), (!z2 || z) ? R.dimen.tbds156 : R.dimen.tbds267);
-            this.f45487f.getLayoutParams().width = n.f(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
-            TextView textView = this.f45489h;
+            this.f35207b.getLayoutParams().width = n.f(getContext(), (!z2 || z) ? R.dimen.tbds276 : R.dimen.tbds470);
+            TextView textView = this.f35209d;
             Context context = getContext();
-            int i2 = R.dimen.tbds52;
-            int i3 = R.dimen.tbds42;
+            int i = R.dimen.tbds52;
+            int i2 = R.dimen.tbds42;
             textView.setTextSize(0, n.f(context, (!z2 || z) ? R.dimen.tbds42 : R.dimen.tbds52));
-            ((LinearLayout.LayoutParams) this.f45489h.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f45490i.getLayoutParams();
+            ((LinearLayout.LayoutParams) this.f35209d.getLayoutParams()).topMargin = n.f(getContext(), (!z2 || z) ? R.dimen.tbds8 : R.dimen.tbds22);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f35210e.getLayoutParams();
             Context context2 = getContext();
             if (!z2 || z) {
-                i3 = R.dimen.tbds20;
+                i2 = R.dimen.tbds20;
             }
-            layoutParams.topMargin = n.f(context2, i3);
-            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f45490i.getLayoutParams();
+            layoutParams.topMargin = n.f(context2, i2);
+            RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.f35210e.getLayoutParams();
             Context context3 = getContext();
             if (!z2 || z) {
-                i2 = R.dimen.tbds44;
+                i = R.dimen.tbds44;
             }
-            layoutParams2.rightMargin = n.f(context3, i2);
-            this.f45486e = (!z2 || z) ? 50 : 25;
+            layoutParams2.rightMargin = n.f(context3, i);
+            this.a = (!z2 || z) ? 50 : 25;
+        }
+    }
+
+    public final void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0694, this);
+            this.f35207b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091706);
+            this.f35208c = (TextView) findViewById(R.id.obfuscated_res_0x7f091709);
+            this.f35209d = (TextView) findViewById(R.id.obfuscated_res_0x7f091708);
+            this.f35210e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091705);
+            this.f35211f = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091707);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35210e, R.drawable.obfuscated_res_0x7f0808f2, R.color.CAM_X0622, null);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.k = false;
-            a aVar = this.l;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f35212g = true;
+            this.f35208c.setText(R.string.obfuscated_res_0x7f0f0dca);
+            a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
             }
-            this.f45488g.setText(R.string.pb_video_next_video);
-            this.f45491j.setProgress(0);
+            a aVar2 = new a(this, 5000 - this.f35211f.getProgress(), this.a);
+            this.i = aVar2;
+            aVar2.start();
         }
     }
 
-    public void setDate(e2 e2Var) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) || e2Var == null || e2Var.u1() == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f35212g = false;
+            a aVar = this.i;
+            if (aVar != null) {
+                aVar.cancel();
+            }
+            this.f35208c.setText(R.string.obfuscated_res_0x7f0f0dcb);
+            this.f35211f.setProgress(0);
+        }
+    }
+
+    public void setDate(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) || threadData == null || threadData.getThreadVideoInfo() == null) {
             return;
         }
-        this.f45487f.startLoad(e2Var.u1().thumbnail_url, 10, false);
-        this.f45488g.setText(R.string.pb_video_next_play);
-        this.f45489h.setText(e2Var.getTitle());
-        this.f45491j.setProgress(0);
+        this.f35207b.J(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+        this.f35208c.setText(R.string.obfuscated_res_0x7f0f0dca);
+        this.f35209d.setText(threadData.getTitle());
+        this.f35211f.setProgress(0);
     }
 
     public void setIsCountDownValid(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.k == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || this.f35212g == z) {
             return;
         }
-        this.k = z;
+        this.f35212g = z;
         if (getVisibility() == 0) {
             if (z) {
-                c();
-            } else {
                 d();
+            } else {
+                e();
             }
         }
     }
@@ -217,26 +219,26 @@ public class PbNextVideoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, onClickListener) == null) {
             super.setOnClickListener(onClickListener);
-            this.f45490i.setOnClickListener(onClickListener);
+            this.f35210e.setOnClickListener(onClickListener);
         }
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.setVisibility(i2);
-            if (i2 == 0) {
-                if (this.k) {
-                    c();
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setVisibility(i);
+            if (i == 0) {
+                if (this.f35212g) {
+                    d();
                     return;
                 } else {
-                    d();
+                    e();
                     return;
                 }
             }
-            this.f45491j.setProgress(0);
-            a aVar = this.l;
+            this.f35211f.setProgress(0);
+            a aVar = this.i;
             if (aVar != null) {
                 aVar.cancel();
             }
@@ -252,9 +254,9 @@ public class PbNextVideoLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -262,24 +264,24 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f45486e = 50;
-        this.k = true;
-        this.isManualFinish = true;
-        b(context);
+        this.a = 50;
+        this.f35212g = true;
+        this.f35213h = true;
+        c(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PbNextVideoLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -287,9 +289,9 @@ public class PbNextVideoLayout extends RelativeLayout {
                 return;
             }
         }
-        this.f45486e = 50;
-        this.k = true;
-        this.isManualFinish = true;
-        b(context);
+        this.a = 50;
+        this.f35212g = true;
+        this.f35213h = true;
+        c(context);
     }
 }

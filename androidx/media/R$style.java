@@ -7,18 +7,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$style {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int TextAppearance_Compat_Notification = 2131755521;
-    public static final int TextAppearance_Compat_Notification_Info = 2131755522;
-    public static final int TextAppearance_Compat_Notification_Info_Media = 2131755523;
-    public static final int TextAppearance_Compat_Notification_Line2 = 2131755524;
-    public static final int TextAppearance_Compat_Notification_Line2_Media = 2131755525;
-    public static final int TextAppearance_Compat_Notification_Media = 2131755526;
-    public static final int TextAppearance_Compat_Notification_Time = 2131755527;
-    public static final int TextAppearance_Compat_Notification_Time_Media = 2131755528;
-    public static final int TextAppearance_Compat_Notification_Title = 2131755529;
-    public static final int TextAppearance_Compat_Notification_Title_Media = 2131755530;
-    public static final int Widget_Compat_NotificationActionContainer = 2131755847;
-    public static final int Widget_Compat_NotificationActionText = 2131755848;
+    public static final int TextAppearance_Compat_Notification = 2131755491;
+    public static final int TextAppearance_Compat_Notification_Info = 2131755492;
+    public static final int TextAppearance_Compat_Notification_Info_Media = 2131755493;
+    public static final int TextAppearance_Compat_Notification_Line2 = 2131755494;
+    public static final int TextAppearance_Compat_Notification_Line2_Media = 2131755497;
+    public static final int TextAppearance_Compat_Notification_Media = 2131755498;
+    public static final int TextAppearance_Compat_Notification_Time = 2131755499;
+    public static final int TextAppearance_Compat_Notification_Time_Media = 2131755500;
+    public static final int TextAppearance_Compat_Notification_Title = 2131755501;
+    public static final int TextAppearance_Compat_Notification_Title_Media = 2131755502;
+    public static final int Widget_Compat_NotificationActionContainer = 2131755808;
+    public static final int Widget_Compat_NotificationActionText = 2131755809;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$style() {
@@ -26,9 +26,9 @@ public final class R$style {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

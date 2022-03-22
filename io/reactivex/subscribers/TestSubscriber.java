@@ -57,16 +57,16 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
             $VALUES = new EmptySubscriber[]{emptySubscriber};
         }
 
-        public EmptySubscriber(String str, int i2) {
+        public EmptySubscriber(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -124,9 +124,9 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((Subscriber) objArr[0], ((Long) objArr[1]).longValue());
                 newInitContext.thisArg = this;
@@ -142,14 +142,14 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new TestSubscriber<>() : (TestSubscriber) invokeV.objValue;
     }
 
-    public static String fusionModeToString(int i2) {
+    public static String fusionModeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return "Unknown(" + i2 + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return "Unknown(" + i + SmallTailInfo.EMOTION_SUFFIX;
                     }
                     return "ASYNC";
                 }
@@ -172,14 +172,14 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         return (TestSubscriber) invokeV.objValue;
     }
 
-    public final TestSubscriber<T> assertFusionMode(int i2) {
+    public final TestSubscriber<T> assertFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int i3 = this.establishedFusionMode;
-            if (i3 != i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.establishedFusionMode;
+            if (i2 != i) {
                 if (this.qs != null) {
-                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i2) + ", actual: " + fusionModeToString(i3));
+                    throw new AssertionError("Fusion mode different. Expected: " + fusionModeToString(i) + ", actual: " + fusionModeToString(i2));
                 }
                 throw fail("Upstream is not fuseable");
             }
@@ -349,11 +349,11 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
                     this.errors.add(new IllegalStateException("onSubscribe received multiple subscriptions: " + subscription));
                 }
             } else {
-                int i2 = this.initialFusionMode;
-                if (i2 != 0 && (subscription instanceof QueueSubscription)) {
+                int i = this.initialFusionMode;
+                if (i != 0 && (subscription instanceof QueueSubscription)) {
                     QueueSubscription<T> queueSubscription = (QueueSubscription) subscription;
                     this.qs = queueSubscription;
-                    int requestFusion = queueSubscription.requestFusion(i2);
+                    int requestFusion = queueSubscription.requestFusion(i);
                     this.establishedFusionMode = requestFusion;
                     if (requestFusion == 1) {
                         this.checkSubscriptionOnce = true;
@@ -385,45 +385,45 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
     }
 
     @Override // org.reactivestreams.Subscription
-    public final void request(long j2) {
+    public final void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            SubscriptionHelper.deferredRequest(this.subscription, this.missedRequested, j2);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            SubscriptionHelper.deferredRequest(this.subscription, this.missedRequested, j);
         }
     }
 
-    public final TestSubscriber<T> requestMore(long j2) {
+    public final TestSubscriber<T> requestMore(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j2)) == null) {
-            request(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048595, this, j)) == null) {
+            request(j);
             return this;
         }
         return (TestSubscriber) invokeJ.objValue;
     }
 
-    public final TestSubscriber<T> setInitialFusionMode(int i2) {
+    public final TestSubscriber<T> setInitialFusionMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            this.initialFusionMode = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.initialFusionMode = i;
             return this;
         }
         return (TestSubscriber) invokeI.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public TestSubscriber(long j2) {
-        this(EmptySubscriber.INSTANCE, j2);
+    public TestSubscriber(long j) {
+        this(EmptySubscriber.INSTANCE, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;
@@ -433,10 +433,10 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         }
     }
 
-    public static <T> TestSubscriber<T> create(long j2) {
+    public static <T> TestSubscriber<T> create(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? new TestSubscriber<>(j2) : (TestSubscriber) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? new TestSubscriber<>(j) : (TestSubscriber) invokeJ.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -479,9 +479,9 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;
@@ -497,25 +497,25 @@ public class TestSubscriber<T> extends BaseTestConsumer<T, TestSubscriber<T>> im
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, subscriber)) == null) ? new TestSubscriber<>(subscriber) : (TestSubscriber) invokeL.objValue;
     }
 
-    public TestSubscriber(Subscriber<? super T> subscriber, long j2) {
+    public TestSubscriber(Subscriber<? super T> subscriber, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {subscriber, Long.valueOf(j2)};
+            Object[] objArr = {subscriber, Long.valueOf(j)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        if (j2 >= 0) {
+        if (j >= 0) {
             this.actual = subscriber;
             this.subscription = new AtomicReference<>();
-            this.missedRequested = new AtomicLong(j2);
+            this.missedRequested = new AtomicLong(j);
             return;
         }
         throw new IllegalArgumentException("Negative initial request not allowed");

@@ -1,5 +1,6 @@
 package com.baidu.searchbox.devicescore;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.QuickPersistConfig;
@@ -46,9 +47,9 @@ public class DeviceScoreStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -86,11 +87,11 @@ public class DeviceScoreStrategy {
                 QuickPersistConfig.getInstance().putFloat(SP_KEY_LOW_THRESHOLD, deviceScoreConfig.lowThreshold);
                 QuickPersistConfig.getInstance().putFloat(SP_KEY_MID_THRESHOLD, deviceScoreConfig.midThreshold);
                 if (DEBUG) {
-                    String str = "updateStrategy success. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold;
+                    Log.d(TAG, "updateStrategy success. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold);
                 }
             } else if (!DEBUG || deviceScoreConfig == null) {
             } else {
-                String str2 = "updateStrategy exception. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold;
+                Log.d(TAG, "updateStrategy exception. low threshold:" + deviceScoreConfig.lowThreshold + " mid threshold:" + deviceScoreConfig.midThreshold);
             }
         }
     }

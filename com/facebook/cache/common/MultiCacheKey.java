@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiCacheKey implements CacheKey {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class MultiCacheKey implements CacheKey {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,8 +38,8 @@ public class MultiCacheKey implements CacheKey {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            for (int i2 = 0; i2 < this.mCacheKeys.size(); i2++) {
-                if (this.mCacheKeys.get(i2).containsUri(uri)) {
+            for (int i = 0; i < this.mCacheKeys.size(); i++) {
+                if (this.mCacheKeys.get(i).containsUri(uri)) {
                     return true;
                 }
             }

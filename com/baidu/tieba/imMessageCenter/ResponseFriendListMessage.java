@@ -1,7 +1,7 @@
 package com.baidu.tieba.imMessageCenter;
 
 import android.text.TextUtils;
-import c.a.q0.s.f.a;
+import c.a.o0.s.f.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.MetaData;
@@ -22,17 +22,17 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     public LinkedList<a> friendList;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseFriendListMessage(int i2) {
+    public ResponseFriendListMessage(int i) {
         super(CmdConfigHttp.CMD_GET_FRIEND_LIST);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,19 +43,19 @@ public class ResponseFriendListMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null) {
                 return;
             }
             try {
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
                 if (optJSONArray != null) {
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                         MetaData metaData = new MetaData();
-                        metaData.parserJson(optJSONArray.getJSONObject(i3));
+                        metaData.parserJson(optJSONArray.getJSONObject(i2));
                         if (!TextUtils.isEmpty(metaData.getName_show())) {
                             a aVar = new a();
                             aVar.o(metaData.getUserName());

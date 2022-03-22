@@ -41,9 +41,9 @@ public final class LiveFeedPayInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -91,9 +91,9 @@ public final class LiveFeedPayInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -162,10 +162,10 @@ public final class LiveFeedPayInfo {
 
     public final boolean isValid() {
         InterceptResult invokeV;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !TextUtils.isEmpty(this.resId) && (i2 = this.currentPrice) >= 0 && (i3 = this.originPrice) >= 0 && i2 <= i3 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? !TextUtils.isEmpty(this.resId) && (i = this.currentPrice) >= 0 && (i2 = this.originPrice) >= 0 && i <= i2 : invokeV.booleanValue;
     }
 
     public final void setBusiness(String str) {
@@ -182,17 +182,17 @@ public final class LiveFeedPayInfo {
         }
     }
 
-    public final void setCurrentPrice(int i2) {
+    public final void setCurrentPrice(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.currentPrice = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.currentPrice = i;
         }
     }
 
-    public final void setCutPrice(int i2) {
+    public final void setCutPrice(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.cutPrice = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.cutPrice = i;
         }
     }
 
@@ -217,10 +217,10 @@ public final class LiveFeedPayInfo {
         }
     }
 
-    public final void setOriginPrice(int i2) {
+    public final void setOriginPrice(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.originPrice = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.originPrice = i;
         }
     }
 

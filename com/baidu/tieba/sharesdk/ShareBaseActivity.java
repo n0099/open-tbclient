@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,22 +18,22 @@ public abstract class ShareBaseActivity extends BaseActivity<ShareBaseActivity> 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void finishWithResult(int i2, int i3, Bundle bundle, String str) {
+    public void finishWithResult(int i, int i2, Bundle bundle, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), bundle, str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bundle, str}) == null) {
             Intent intent = new Intent();
-            intent.putExtra("extra_show_channel", i2);
-            intent.putExtra("extra_share_status", i3);
-            intent.putExtra("share_to", String.valueOf(i2));
+            intent.putExtra("extra_show_channel", i);
+            intent.putExtra("extra_share_status", i2);
+            intent.putExtra("share_to", String.valueOf(i));
             if (bundle != null) {
                 intent.putExtra("tid", bundle.getString("tid"));
                 intent.putExtra("pid", bundle.getString("pid"));

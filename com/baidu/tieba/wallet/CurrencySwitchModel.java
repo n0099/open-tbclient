@@ -29,7 +29,7 @@ public class CurrencySwitchModel extends BdBaseModel {
 
     /* loaded from: classes6.dex */
     public interface OnPostDataCallBack {
-        void callback(boolean z, int i2, String str);
+        void callback(boolean z, int i, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,9 +41,9 @@ public class CurrencySwitchModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -64,9 +64,9 @@ public class CurrencySwitchModel extends BdBaseModel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -137,7 +137,7 @@ public class CurrencySwitchModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.isSending) {
-                n.M(TbadkCoreApplication.getInst().getContext(), R.string.wallet_t_dou_switching_toast);
+                n.M(TbadkCoreApplication.getInst().getContext(), R.string.obfuscated_res_0x7f0f1546);
                 return;
             }
             this.isSending = true;

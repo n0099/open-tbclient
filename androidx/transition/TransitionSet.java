@@ -25,7 +25,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class TransitionSet extends Transition {
     public static /* synthetic */ Interceptable $ic = null;
@@ -55,9 +54,9 @@ public class TransitionSet extends Transition {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {transitionSet};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,9 +70,9 @@ public class TransitionSet extends Transition {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, transition) == null) {
                 TransitionSet transitionSet = this.mTransitionSet;
-                int i2 = transitionSet.mCurrentListeners - 1;
-                transitionSet.mCurrentListeners = i2;
-                if (i2 == 0) {
+                int i = transitionSet.mCurrentListeners - 1;
+                transitionSet.mCurrentListeners = i;
+                if (i == 0) {
                     transitionSet.mStarted = false;
                     transitionSet.end();
                 }
@@ -100,9 +99,9 @@ public class TransitionSet extends Transition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -140,9 +139,9 @@ public class TransitionSet extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, transition)) == null) {
             addTransitionInternal(transition);
-            long j2 = this.mDuration;
-            if (j2 >= 0) {
-                transition.setDuration(j2);
+            long j = this.mDuration;
+            if (j >= 0) {
+                transition.setDuration(j);
             }
             if ((this.mChangeFlags & 1) != 0) {
                 transition.setInterpolator(getInterpolator());
@@ -168,8 +167,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.cancel();
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).cancel();
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).cancel();
             }
         }
     }
@@ -195,8 +194,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeL(1048589, this, transitionValues) == null) {
             super.capturePropagationValues(transitionValues);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).capturePropagationValues(transitionValues);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).capturePropagationValues(transitionValues);
             }
         }
     }
@@ -223,9 +222,9 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeLLLLL(1048593, this, viewGroup, transitionValuesMaps, transitionValuesMaps2, arrayList, arrayList2) == null) {
             long startDelay = getStartDelay();
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Transition transition = this.mTransitions.get(i2);
-                if (startDelay > 0 && (this.mPlayTogether || i2 == 0)) {
+            for (int i = 0; i < size; i++) {
+                Transition transition = this.mTransitions.get(i);
+                if (startDelay > 0 && (this.mPlayTogether || i == 0)) {
                     long startDelay2 = transition.getStartDelay();
                     if (startDelay2 > 0) {
                         transition.setStartDelay(startDelay2 + startDelay);
@@ -244,8 +243,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, view, z)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).excludeTarget(view, z);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).excludeTarget(view, z);
             }
             return super.excludeTarget(view, z);
         }
@@ -259,8 +258,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeL(1048598, this, viewGroup) == null) {
             super.forceToEnd(viewGroup);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).forceToEnd(viewGroup);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).forceToEnd(viewGroup);
             }
         }
     }
@@ -272,14 +271,14 @@ public class TransitionSet extends Transition {
     }
 
     @Nullable
-    public Transition getTransitionAt(int i2) {
+    public Transition getTransitionAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            if (i2 < 0 || i2 >= this.mTransitions.size()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            if (i < 0 || i >= this.mTransitions.size()) {
                 return null;
             }
-            return this.mTransitions.get(i2);
+            return this.mTransitions.get(i);
         }
         return (Transition) invokeI.objValue;
     }
@@ -297,8 +296,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeL(1048602, this, view) == null) {
             super.pause(view);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).pause(view);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).pause(view);
             }
         }
     }
@@ -322,8 +321,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeL(1048614, this, view) == null) {
             super.resume(view);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).resume(view);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).resume(view);
             }
         }
     }
@@ -340,8 +339,8 @@ public class TransitionSet extends Transition {
             }
             setupStartEndListeners();
             if (!this.mPlayTogether) {
-                for (int i2 = 1; i2 < this.mTransitions.size(); i2++) {
-                    this.mTransitions.get(i2 - 1).addListener(new TransitionListenerAdapter(this, this.mTransitions.get(i2)) { // from class: androidx.transition.TransitionSet.1
+                for (int i = 1; i < this.mTransitions.size(); i++) {
+                    this.mTransitions.get(i - 1).addListener(new TransitionListenerAdapter(this, this.mTransitions.get(i)) { // from class: androidx.transition.TransitionSet.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ TransitionSet this$0;
@@ -354,9 +353,9 @@ public class TransitionSet extends Transition {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, r7};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -396,8 +395,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || interceptable.invokeZ(1048616, this, z) == null) {
             super.setCanRemoveViews(z);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).setCanRemoveViews(z);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).setCanRemoveViews(z);
             }
         }
     }
@@ -409,23 +408,23 @@ public class TransitionSet extends Transition {
             super.setEpicenterCallback(epicenterCallback);
             this.mChangeFlags |= 8;
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).setEpicenterCallback(epicenterCallback);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).setEpicenterCallback(epicenterCallback);
             }
         }
     }
 
     @NonNull
-    public TransitionSet setOrdering(int i2) {
+    public TransitionSet setOrdering(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048622, this, i)) == null) {
+            if (i == 0) {
                 this.mPlayTogether = true;
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 this.mPlayTogether = false;
             } else {
-                throw new AndroidRuntimeException("Invalid parameter for TransitionSet ordering: " + i2);
+                throw new AndroidRuntimeException("Invalid parameter for TransitionSet ordering: " + i);
             }
             return this;
         }
@@ -439,8 +438,8 @@ public class TransitionSet extends Transition {
             super.setPathMotion(pathMotion);
             this.mChangeFlags |= 4;
             if (this.mTransitions != null) {
-                for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                    this.mTransitions.get(i2).setPathMotion(pathMotion);
+                for (int i = 0; i < this.mTransitions.size(); i++) {
+                    this.mTransitions.get(i).setPathMotion(pathMotion);
                 }
             }
         }
@@ -453,8 +452,8 @@ public class TransitionSet extends Transition {
             super.setPropagation(transitionPropagation);
             this.mChangeFlags |= 2;
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).setPropagation(transitionPropagation);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).setPropagation(transitionPropagation);
             }
         }
     }
@@ -465,11 +464,11 @@ public class TransitionSet extends Transition {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, str)) == null) {
             String transition = super.toString(str);
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
+            for (int i = 0; i < this.mTransitions.size(); i++) {
                 StringBuilder sb = new StringBuilder();
                 sb.append(transition);
-                sb.append(StringUtils.LF);
-                sb.append(this.mTransitions.get(i2).toString(str + GlideException.IndentedAppendable.INDENT));
+                sb.append("\n");
+                sb.append(this.mTransitions.get(i).toString(str + GlideException.IndentedAppendable.INDENT));
                 transition = sb.toString();
             }
             return transition;
@@ -495,8 +494,8 @@ public class TransitionSet extends Transition {
             TransitionSet transitionSet = (TransitionSet) super.m5clone();
             transitionSet.mTransitions = new ArrayList<>();
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                transitionSet.addTransitionInternal(this.mTransitions.get(i2).m5clone());
+            for (int i = 0; i < size; i++) {
+                transitionSet.addTransitionInternal(this.mTransitions.get(i).m5clone());
             }
             return transitionSet;
         }
@@ -515,16 +514,16 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet setDuration(long j2) {
+    public TransitionSet setDuration(long j) {
         InterceptResult invokeJ;
         ArrayList<Transition> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
-            super.setDuration(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
+            super.setDuration(j);
             if (this.mDuration >= 0 && (arrayList = this.mTransitions) != null) {
                 int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mTransitions.get(i2).setDuration(j2);
+                for (int i = 0; i < size; i++) {
+                    this.mTransitions.get(i).setDuration(j);
                 }
             }
             return this;
@@ -543,8 +542,8 @@ public class TransitionSet extends Transition {
             ArrayList<Transition> arrayList = this.mTransitions;
             if (arrayList != null) {
                 int size = arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mTransitions.get(i2).setInterpolator(timeInterpolator);
+                for (int i = 0; i < size; i++) {
+                    this.mTransitions.get(i).setInterpolator(timeInterpolator);
                 }
             }
             return (TransitionSet) super.setInterpolator(timeInterpolator);
@@ -560,8 +559,8 @@ public class TransitionSet extends Transition {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, viewGroup)) == null) {
             super.setSceneRoot(viewGroup);
             int size = this.mTransitions.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mTransitions.get(i2).setSceneRoot(viewGroup);
+            for (int i = 0; i < size; i++) {
+                this.mTransitions.get(i).setSceneRoot(viewGroup);
             }
             return this;
         }
@@ -571,10 +570,10 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet setStartDelay(long j2) {
+    public TransitionSet setStartDelay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) ? (TransitionSet) super.setStartDelay(j2) : (TransitionSet) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) ? (TransitionSet) super.setStartDelay(j) : (TransitionSet) invokeJ.objValue;
     }
 
     @Override // androidx.transition.Transition
@@ -595,8 +594,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048597, this, str, z)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).excludeTarget(str, z);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).excludeTarget(str, z);
             }
             return super.excludeTarget(str, z);
         }
@@ -610,8 +609,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).addTarget(view);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).addTarget(view);
             }
             return (TransitionSet) super.addTarget(view);
         }
@@ -621,14 +620,14 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet removeTarget(@IdRes int i2) {
+    public TransitionSet removeTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.mTransitions.size(); i3++) {
-                this.mTransitions.get(i3).removeTarget(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
+            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
+                this.mTransitions.get(i2).removeTarget(i);
             }
-            return (TransitionSet) super.removeTarget(i2);
+            return (TransitionSet) super.removeTarget(i);
         }
         return (TransitionSet) invokeI.objValue;
     }
@@ -643,9 +642,9 @@ public class TransitionSet extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -664,14 +663,14 @@ public class TransitionSet extends Transition {
 
     @Override // androidx.transition.Transition
     @NonNull
-    public Transition excludeTarget(int i2, boolean z) {
+    public Transition excludeTarget(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            for (int i3 = 0; i3 < this.mTransitions.size(); i3++) {
-                this.mTransitions.get(i3).excludeTarget(i2, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
+                this.mTransitions.get(i2).excludeTarget(i, z);
             }
-            return super.excludeTarget(i2, z);
+            return super.excludeTarget(i, z);
         }
         return (Transition) invokeCommon.objValue;
     }
@@ -679,14 +678,14 @@ public class TransitionSet extends Transition {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.transition.Transition
     @NonNull
-    public TransitionSet addTarget(@IdRes int i2) {
+    public TransitionSet addTarget(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.mTransitions.size(); i3++) {
-                this.mTransitions.get(i3).addTarget(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
+                this.mTransitions.get(i2).addTarget(i);
             }
-            return (TransitionSet) super.addTarget(i2);
+            return (TransitionSet) super.addTarget(i);
         }
         return (TransitionSet) invokeI.objValue;
     }
@@ -698,8 +697,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).removeTarget(view);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).removeTarget(view);
             }
             return (TransitionSet) super.removeTarget(view);
         }
@@ -712,8 +711,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048596, this, cls, z)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).excludeTarget(cls, z);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).excludeTarget(cls, z);
             }
             return super.excludeTarget(cls, z);
         }
@@ -727,8 +726,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).addTarget(str);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).addTarget(str);
             }
             return (TransitionSet) super.addTarget(str);
         }
@@ -741,8 +740,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, cls)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).removeTarget(cls);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).removeTarget(cls);
             }
             return (TransitionSet) super.removeTarget(cls);
         }
@@ -755,8 +754,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cls)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).addTarget(cls);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).addTarget(cls);
             }
             return (TransitionSet) super.addTarget(cls);
         }
@@ -770,8 +769,8 @@ public class TransitionSet extends Transition {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
-            for (int i2 = 0; i2 < this.mTransitions.size(); i2++) {
-                this.mTransitions.get(i2).removeTarget(str);
+            for (int i = 0; i < this.mTransitions.size(); i++) {
+                this.mTransitions.get(i).removeTarget(str);
             }
             return (TransitionSet) super.removeTarget(str);
         }

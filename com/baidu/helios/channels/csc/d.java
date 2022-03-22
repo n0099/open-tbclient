@@ -1,7 +1,7 @@
 package com.baidu.helios.channels.csc;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q.h.b.b;
+import c.a.p.h.b.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -48,9 +48,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -69,9 +69,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -123,27 +123,27 @@ public class d {
             for (Constructor<?> constructor2 : cls.getConstructors()) {
                 Class<?>[] parameterTypes = constructor2.getParameterTypes();
                 if (parameterTypes.length >= objArr.length) {
+                    int i = 0;
                     int i2 = 0;
-                    int i3 = 0;
-                    while (i2 < objArr.length) {
-                        Object obj = objArr[i2];
-                        while (obj != null && i3 < parameterTypes.length) {
-                            Class<?> cls2 = parameterTypes[i3];
+                    while (i < objArr.length) {
+                        Object obj = objArr[i];
+                        while (obj != null && i2 < parameterTypes.length) {
+                            Class<?> cls2 = parameterTypes[i2];
                             if (cls2.isPrimitive()) {
                                 cls2 = a(cls2);
                             }
                             if (cls2.isInstance(obj)) {
                                 break;
                             }
-                            i3++;
+                            i2++;
                         }
-                        if (i3 == parameterTypes.length) {
+                        if (i2 == parameterTypes.length) {
                             break;
                         }
-                        i3++;
                         i2++;
+                        i++;
                     }
-                    if (i2 != objArr.length) {
+                    if (i != objArr.length) {
                         continue;
                     } else if (constructor == null || parameterTypes.length < constructor.getParameterTypes().length) {
                         constructor = constructor2;

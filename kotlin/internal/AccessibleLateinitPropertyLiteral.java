@@ -14,6 +14,6 @@ import kotlin.annotation.AnnotationTarget;
 @kotlin.annotation.Target(allowedTargets = {AnnotationTarget.VALUE_PARAMETER})
 @Retention(RetentionPolicy.CLASS)
 @kotlin.annotation.Retention(AnnotationRetention.BINARY)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public @interface AccessibleLateinitPropertyLiteral {
 }

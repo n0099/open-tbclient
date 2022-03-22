@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.background;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.r0.d4.h.e;
+import c.a.p0.f4.h.e;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -24,25 +24,25 @@ import java.util.List;
 public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BackgroundGroupActivity a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public e f36310b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public List<c.a.p0.f4.e.b> f36311c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public c f36312d;
 
     /* renamed from: e  reason: collision with root package name */
-    public BackgroundGroupActivity f47006e;
+    public boolean f36313e;
 
     /* renamed from: f  reason: collision with root package name */
-    public e f47007f;
+    public c.a.d.c.g.a f36314f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<c.a.r0.d4.e.b> f47008g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c f47009h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f47010i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public c.a.d.c.g.a f47011j;
-    public c.a.d.c.g.a k;
+    public c.a.d.c.g.a f36315g;
 
     /* loaded from: classes6.dex */
     public class a extends c.a.d.c.g.a {
@@ -51,17 +51,17 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         public final /* synthetic */ BackgroundGroupModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(BackgroundGroupModel backgroundGroupModel, int i2, int i3) {
-            super(i2, i3);
+        public a(BackgroundGroupModel backgroundGroupModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {backgroundGroupModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {backgroundGroupModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -81,23 +81,23 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             boolean z = responsedMessage instanceof BackgroundGroupHttpResponseMessage;
             if (z || (responsedMessage instanceof BackgroundGroupSocketResponseMessage)) {
                 if (responsedMessage.getError() != 0) {
-                    if (this.a.f47009h != null) {
-                        this.a.f47009h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f47007f, this.a.f47008g);
+                    if (this.a.f36312d != null) {
+                        this.a.f36312d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f36310b, this.a.f36311c);
                         return;
                     }
                     return;
                 }
                 if (z) {
                     BackgroundGroupHttpResponseMessage backgroundGroupHttpResponseMessage = (BackgroundGroupHttpResponseMessage) responsedMessage;
-                    this.a.f47007f = backgroundGroupHttpResponseMessage.getRecommand();
-                    this.a.f47008g = backgroundGroupHttpResponseMessage.getGroupList();
+                    this.a.f36310b = backgroundGroupHttpResponseMessage.getRecommand();
+                    this.a.f36311c = backgroundGroupHttpResponseMessage.getGroupList();
                 } else if (responsedMessage instanceof BackgroundGroupSocketResponseMessage) {
                     BackgroundGroupSocketResponseMessage backgroundGroupSocketResponseMessage = (BackgroundGroupSocketResponseMessage) responsedMessage;
-                    this.a.f47007f = backgroundGroupSocketResponseMessage.getRecommand();
-                    this.a.f47008g = backgroundGroupSocketResponseMessage.getGroupList();
+                    this.a.f36310b = backgroundGroupSocketResponseMessage.getRecommand();
+                    this.a.f36311c = backgroundGroupSocketResponseMessage.getGroupList();
                 }
-                if (this.a.f47009h != null) {
-                    this.a.f47009h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f47007f, this.a.f47008g);
+                if (this.a.f36312d != null) {
+                    this.a.f36312d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f36310b, this.a.f36311c);
                 }
             }
         }
@@ -110,17 +110,17 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         public final /* synthetic */ BackgroundGroupModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(BackgroundGroupModel backgroundGroupModel, int i2, int i3) {
-            super(i2, i3);
+        public b(BackgroundGroupModel backgroundGroupModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {backgroundGroupModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {backgroundGroupModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -133,8 +133,8 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            DressItemData E;
-            DressItemData E2;
+            DressItemData G;
+            DressItemData G2;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
@@ -143,25 +143,25 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
                 BackgroundSetRequestMessage backgroundSetRequestMessage = (BackgroundSetRequestMessage) responsedMessage.getmOrginalMessage().getExtra();
                 int propId = backgroundSetRequestMessage.getPropId();
                 if (responsedMessage.getError() == 0) {
-                    if (propId == this.a.f47006e.getPropId() && (E = this.a.E(propId)) != null) {
-                        TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", E.getFreeUserLevel()));
+                    if (propId == this.a.a.getPropId() && (G = this.a.G(propId)) != null) {
+                        TiebaStatic.log(new StatisticItem("c10286").param("obj_id", propId).param("obj_type", G.getFreeUserLevel()));
                     }
-                    c.a.q0.r.j0.b k = c.a.q0.r.j0.b.k();
+                    c.a.o0.r.j0.b k = c.a.o0.r.j0.b.k();
                     k.w("current_used_personal_background_" + TbadkCoreApplication.getCurrentAccount(), propId);
-                    this.a.K(propId);
-                    this.a.f47009h.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f47007f, this.a.f47008g);
+                    this.a.M(propId);
+                    this.a.f36312d.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.f36310b, this.a.f36311c);
                 } else if (responsedMessage.getError() == 2270014) {
                 } else {
-                    int i2 = c.a.r0.d4.c.f16899b;
-                    if (responsedMessage.getError() == c.a.r0.d4.c.f16900c) {
-                        i2 = c.a.r0.d4.c.a;
+                    int i = c.a.p0.f4.c.f14994b;
+                    if (responsedMessage.getError() == c.a.p0.f4.c.f14995c) {
+                        i = c.a.p0.f4.c.a;
                     }
                     boolean fromDetail = backgroundSetRequestMessage.getFromDetail();
                     if (fromDetail) {
                         return;
                     }
-                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.f47006e.getPropId() && (E2 = this.a.E(propId)) != null) {
-                        this.a.J(i2, responsedMessage.getErrorString(), E2, fromDetail);
+                    if ((backgroundSetRequestMessage.getRequestUniqueId() == null || backgroundSetRequestMessage.getRequestUniqueId() == this.a.getUniqueId()) && propId == this.a.a.getPropId() && (G2 = this.a.G(propId)) != null) {
+                        this.a.L(i, responsedMessage.getErrorString(), G2, fromDetail);
                     }
                 }
             }
@@ -170,7 +170,7 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i2, String str, e eVar, List<c.a.r0.d4.e.b> list);
+        void a(int i, String str, e eVar, List<c.a.p0.f4.e.b> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -182,35 +182,35 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {backgroundGroupActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47011j = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
-        this.k = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
-        this.f47006e = backgroundGroupActivity;
-        this.f47010i = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        G();
-        registerListener(this.f47011j);
-        H();
-        registerListener(this.k);
+        this.f36314f = new a(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, 309020);
+        this.f36315g = new b(this, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, 309022);
+        this.a = backgroundGroupActivity;
+        this.f36313e = backgroundGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
+        I();
+        registerListener(this.f36314f);
+        J();
+        registerListener(this.f36315g);
     }
 
-    public final DressItemData E(int i2) {
+    public final DressItemData G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<c.a.r0.d4.e.b> list = this.f47008g;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<c.a.p0.f4.e.b> list = this.f36311c;
             if (list != null && list.size() > 0) {
-                for (c.a.r0.d4.e.b bVar : this.f47008g) {
+                for (c.a.p0.f4.e.b bVar : this.f36311c) {
                     if (bVar != null && bVar.a() != null) {
                         for (DressItemData dressItemData : bVar.a()) {
-                            if (dressItemData != null && dressItemData.getPropsId() == i2) {
+                            if (dressItemData != null && dressItemData.getPropsId() == i) {
                                 return dressItemData;
                             }
                         }
@@ -223,61 +223,61 @@ public class BackgroundGroupModel extends BdBaseModel<BackgroundGroupActivity> {
         return (DressItemData) invokeI.objValue;
     }
 
-    public boolean F() {
+    public boolean H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f47010i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36313e : invokeV.booleanValue;
     }
 
-    public final void G() {
+    public final void I() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.y3.g0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
+            c.a.p0.a4.g0.a.h(309020, BackgroundGroupSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309020, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GROUP, TbConfig.PERSONAL_BACKGROUND_GROUP_PAGE, BackgroundGroupHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public final void H() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.a.r0.y3.g0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-            c.a.r0.y3.g0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+            c.a.p0.a4.g0.a.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+            c.a.p0.a4.g0.a.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void I(c cVar) {
+    public void K(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f47009h = cVar;
+            this.f36312d = cVar;
         }
     }
 
-    public void J(int i2, String str, DressItemData dressItemData, boolean z) {
+    public void L(int i, String str, DressItemData dressItemData, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), str, dressItemData, Boolean.valueOf(z)}) == null) {
-            int i3 = (dressItemData == null || dressItemData.getFreeUserLevel() != 101) ? 0 : 9;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, dressItemData, Boolean.valueOf(z)}) == null) {
+            int i2 = (dressItemData == null || dressItemData.getFreeUserLevel() != 101) ? 0 : 9;
             if (StringUtils.isNull(str)) {
                 return;
             }
-            if (i2 == c.a.r0.d4.c.a) {
-                c.a.r0.d4.b.d(this.f47006e.getPageContext(), z ? 4 : 2, str, i3, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
-            } else if (i2 == c.a.r0.d4.c.f16899b) {
-                c.a.r0.d4.b.c(this.f47006e.getPageContext(), z ? 4 : 2, str, i3);
+            if (i == c.a.p0.f4.c.a) {
+                c.a.p0.f4.b.d(this.a.getPageContext(), z ? 4 : 2, str, i2, MemberPayStatistic.REFER_PAGE_PERSONALITY_BACKGROUND, MemberPayStatistic.CLICK_ZONE_OPENDE_BUTTON);
+            } else if (i == c.a.p0.f4.c.f14994b) {
+                c.a.p0.f4.b.c(this.a.getPageContext(), z ? 4 : 2, str, i2);
             }
         }
     }
 
-    public final void K(int i2) {
-        List<c.a.r0.d4.e.b> list;
+    public final void M(int i) {
+        List<c.a.p0.f4.e.b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (list = this.f47008g) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (list = this.f36311c) == null || list.size() <= 0) {
             return;
         }
-        for (c.a.r0.d4.e.b bVar : this.f47008g) {
+        for (c.a.p0.f4.e.b bVar : this.f36311c) {
             if (bVar != null && bVar.a() != null) {
                 for (DressItemData dressItemData : bVar.a()) {
                     if (dressItemData != null) {
-                        if (dressItemData.getPropsId() == i2) {
+                        if (dressItemData.getPropsId() == i) {
                             dressItemData.setInUse(true);
                         } else {
                             dressItemData.setInUse(false);

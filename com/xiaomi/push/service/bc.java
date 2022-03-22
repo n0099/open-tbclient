@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bc {
     public static /* synthetic */ Interceptable $ic;
     public static bc a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f928a;
+    public int f904a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f929a;
+    public Context f905a;
 
     public bc(Context context) {
         Interceptable interceptable = $ic;
@@ -31,16 +31,16 @@ public class bc {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f928a = 0;
-        this.f929a = context.getApplicationContext();
+        this.f904a = 0;
+        this.f905a = context.getApplicationContext();
     }
 
     public static bc a(Context context) {
@@ -60,36 +60,36 @@ public class bc {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.f928a;
-            if (i2 != 0) {
-                return i2;
+            int i = this.f904a;
+            if (i != 0) {
+                return i;
             }
             if (Build.VERSION.SDK_INT >= 17) {
                 try {
-                    this.f928a = Settings.Global.getInt(this.f929a.getContentResolver(), "device_provisioned", 0);
+                    this.f904a = Settings.Global.getInt(this.f905a.getContentResolver(), "device_provisioned", 0);
                 } catch (Exception unused) {
                 }
-                return this.f928a;
+                return this.f904a;
             }
-            int i3 = Settings.Secure.getInt(this.f929a.getContentResolver(), "device_provisioned", 0);
-            this.f928a = i3;
-            return i3;
+            int i2 = Settings.Secure.getInt(this.f905a.getContentResolver(), "device_provisioned", 0);
+            this.f904a = i2;
+            return i2;
         }
         return invokeV.intValue;
     }
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m671a() {
+    public Uri m650a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Build.VERSION.SDK_INT >= 17 ? Settings.Global.getUriFor("device_provisioned") : Settings.Secure.getUriFor("device_provisioned") : (Uri) invokeV.objValue;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m672a() {
+    public boolean m651a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ab.f108a.contains("xmsf") || com.xiaomi.push.ab.f108a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f108a.contains("miui") : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? com.xiaomi.push.ab.f84a.contains("xmsf") || com.xiaomi.push.ab.f84a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f84a.contains("miui") : invokeV.booleanValue;
     }
 }

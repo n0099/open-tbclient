@@ -1,7 +1,8 @@
 package com.baidu.searchbox.perfframe.impl;
 
 import android.content.Context;
-import c.a.i0.a.b.d;
+import android.util.Log;
+import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -45,9 +46,9 @@ public class PerfFrameContext {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -58,13 +59,15 @@ public class PerfFrameContext {
             public void onPerfFrameCallBack(Context context, PerfExpInfo perfExpInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, perfExpInfo) == null) {
-                    AppConfig.isDebug();
+                    if (AppConfig.isDebug()) {
+                        Log.d("PerfFrame", "onPerfFrameCallBack");
+                    }
                     d<IPerfFrameRegister> perfFrameRegister = PerfFrameRuntime.getInstance().getPerfFrameRegister();
                     if (perfFrameRegister == null || perfFrameRegister.getList() == null || perfExpInfo == null) {
                         return;
                     }
                     if (AppConfig.isDebug()) {
-                        String str = "perfExpInfo = " + perfExpInfo.toString();
+                        Log.i("PerfFrame", "perfExpInfo = " + perfExpInfo.toString());
                     }
                     perfExpInfo.setTrackUIs(Track.getInstance().getAllTrackUIs());
                     perfExpInfo.setLogId(CommonUtils.getLogId());
@@ -81,9 +84,9 @@ public class PerfFrameContext {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

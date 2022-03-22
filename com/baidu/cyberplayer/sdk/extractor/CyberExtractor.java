@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FileDescriptor;
 import java.util.Map;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CyberExtractor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_DURATION = "duration";
@@ -31,9 +31,9 @@ public class CyberExtractor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,9 +49,9 @@ public class CyberExtractor {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -119,12 +119,12 @@ public class CyberExtractor {
         extractorProvider.setDataSource(str);
     }
 
-    public void setOption(int i2, String str, long j2) {
+    public void setOption(int i, String str, long j) {
         ExtractorProvider extractorProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) || (extractorProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) || (extractorProvider = this.a) == null) {
             return;
         }
-        extractorProvider.setOption(i2, str, j2);
+        extractorProvider.setOption(i, str, j);
     }
 }

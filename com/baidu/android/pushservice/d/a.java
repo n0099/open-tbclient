@@ -27,7 +27,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final OkHttpClient f30517b;
+    public final OkHttpClient f24395b;
 
     /* renamed from: com.baidu.android.pushservice.d.a$1  reason: invalid class name */
     /* loaded from: classes3.dex */
@@ -38,21 +38,21 @@ public class a {
 
     /* renamed from: com.baidu.android.pushservice.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class C1711a implements Interceptor {
+    public class C1679a implements Interceptor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C1711a(a aVar) {
+        public C1679a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,7 +61,7 @@ public class a {
             this.a = aVar;
         }
 
-        public /* synthetic */ C1711a(a aVar, AnonymousClass1 anonymousClass1) {
+        public /* synthetic */ C1679a(a aVar, AnonymousClass1 anonymousClass1) {
             this(aVar);
         }
 
@@ -89,15 +89,15 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f30517b = new OkHttpClient.Builder().addInterceptor(new C1711a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
+        this.f24395b = new OkHttpClient.Builder().addInterceptor(new C1679a(this, null)).connectTimeout(15L, TimeUnit.SECONDS).readTimeout(15L, TimeUnit.SECONDS).build();
     }
 
     public static a a() {
@@ -161,7 +161,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                return BitmapFactory.decodeStream(this.f30517b.newCall(new Request.Builder().url(str).build()).execute().body().byteStream());
+                return BitmapFactory.decodeStream(this.f24395b.newCall(new Request.Builder().url(str).build()).execute().body().byteStream());
             } catch (Exception unused) {
                 return null;
             }
@@ -184,7 +184,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(hashMap));
                 }
-                Response execute = this.f30517b.newCall(headers.build()).execute();
+                Response execute = this.f24395b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {
@@ -209,7 +209,7 @@ public class a {
                     }
                     headers = new Request.Builder().url(str).headers(a(str3, str4));
                 }
-                Response execute = this.f30517b.newCall(headers.build()).execute();
+                Response execute = this.f24395b.newCall(headers.build()).execute();
                 bVar.a(execute.code());
                 bVar.a(execute.body().byteStream());
             } catch (IOException | Exception unused) {

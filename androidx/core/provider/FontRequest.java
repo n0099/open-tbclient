@@ -31,9 +31,9 @@ public final class FontRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,12 +95,12 @@ public final class FontRequest {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("FontRequest {mProviderAuthority: " + this.mProviderAuthority + ", mProviderPackage: " + this.mProviderPackage + ", mQuery: " + this.mQuery + ", mCertificates:");
-            for (int i2 = 0; i2 < this.mCertificates.size(); i2++) {
+            for (int i = 0; i < this.mCertificates.size(); i++) {
                 sb.append(" [");
-                List<byte[]> list = this.mCertificates.get(i2);
-                for (int i3 = 0; i3 < list.size(); i3++) {
+                List<byte[]> list = this.mCertificates.get(i);
+                for (int i2 = 0; i2 < list.size(); i2++) {
                     sb.append(" \"");
-                    sb.append(Base64.encodeToString(list.get(i3), 0));
+                    sb.append(Base64.encodeToString(list.get(i2), 0));
                     sb.append("\"");
                 }
                 sb.append(" ]");
@@ -112,16 +112,16 @@ public final class FontRequest {
         return (String) invokeV.objValue;
     }
 
-    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i2) {
+    public FontRequest(@NonNull String str, @NonNull String str2, @NonNull String str3, @ArrayRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -131,8 +131,8 @@ public final class FontRequest {
         this.mProviderPackage = (String) Preconditions.checkNotNull(str2);
         this.mQuery = (String) Preconditions.checkNotNull(str3);
         this.mCertificates = null;
-        Preconditions.checkArgument(i2 != 0);
-        this.mCertificatesArray = i2;
+        Preconditions.checkArgument(i != 0);
+        this.mCertificatesArray = i;
         this.mIdentifier = this.mProviderAuthority + "-" + this.mProviderPackage + "-" + this.mQuery;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.faceunity.gles;
 import android.opengl.GLES20;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -190,16 +190,16 @@ public class Texture2dProgram {
             $VALUES = new ProgramType[]{TEXTURE_2D, TEXTURE_EXT, TEXTURE_EXT_BW, TEXTURE_EXT_FILT, TEXTURE_2D_BLEND, TEXTURE_2D_HUMAN_SEGMENTATION, TEXTURE_2D_SLIDE, TEXTURE_2D_X_BLUR, TEXTURE_2D_FOLLOW, TEXTURE_2D_AR, TEXTURE_2D_FILTER, TEXTURE_2D_LINE, programType};
         }
 
-        public ProgramType(String str, int i2) {
+        public ProgramType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -229,9 +229,9 @@ public class Texture2dProgram {
             newInitContext.initArgs = r2;
             Object[] objArr = {programType};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -366,15 +366,15 @@ public class Texture2dProgram {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             GlUtil.checkGlError("glGenTextures");
-            int i2 = iArr[0];
-            GLES20.glBindTexture(this.mTextureTarget, i2);
-            GlUtil.checkGlError("glBindTexture " + i2);
+            int i = iArr[0];
+            GLES20.glBindTexture(this.mTextureTarget, i);
+            GlUtil.checkGlError("glBindTexture " + i);
             GLES20.glTexParameterf(3553, 10241, 9728.0f);
             GLES20.glTexParameterf(3553, 10240, 9729.0f);
             GLES20.glTexParameteri(3553, 10242, 33071);
             GLES20.glTexParameteri(3553, 10243, 33071);
             GlUtil.checkGlError("glTexParameter");
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -386,47 +386,47 @@ public class Texture2dProgram {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
             GlUtil.checkGlError("glGenTextures");
-            int i2 = iArr[0];
-            GLES20.glBindTexture(this.mTextureTarget, i2);
-            GlUtil.checkGlError("glBindTexture " + i2);
+            int i = iArr[0];
+            GLES20.glBindTexture(this.mTextureTarget, i);
+            GlUtil.checkGlError("glBindTexture " + i);
             GLES20.glTexParameterf(36197, 10241, 9728.0f);
             GLES20.glTexParameterf(36197, 10240, 9729.0f);
             GLES20.glTexParameteri(36197, 10242, 33071);
             GLES20.glTexParameteri(36197, 10243, 33071);
             GlUtil.checkGlError("glTexParameter");
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public void draw(float[] fArr, FloatBuffer floatBuffer, int i2, int i3, int i4, int i5, float[] fArr2, FloatBuffer floatBuffer2, int i6, int i7) {
+    public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fArr2, floatBuffer2, Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
             GlUtil.checkGlError("draw start");
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(this.mTextureTarget, i6);
+            GLES20.glBindTexture(this.mTextureTarget, i5);
             GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr2, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i7, (Buffer) floatBuffer2);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
             GlUtil.checkGlError("glVertexAttribPointer");
-            int i8 = this.muKernelLoc;
-            if (i8 >= 0) {
-                GLES20.glUniform1fv(i8, 9, this.mKernel, 0);
+            int i7 = this.muKernelLoc;
+            if (i7 >= 0) {
+                GLES20.glUniform1fv(i7, 9, this.mKernel, 0);
                 GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
                 GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
             }
             onDrawArraysPre();
-            GLES20.glDrawArrays(5, i2, i3);
+            GLES20.glDrawArrays(5, i, i2);
             GlUtil.checkGlError("glDrawArrays");
             GLES20.glDisableVertexAttribArray(this.maPositionLoc);
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);
@@ -454,11 +454,11 @@ public class Texture2dProgram {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                i2 = (i2 * 16) + hexCharToDecimal(str.charAt(i3));
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = (i * 16) + hexCharToDecimal(str.charAt(i2));
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -518,10 +518,10 @@ public class Texture2dProgram {
         }
     }
 
-    public void setHumanSegMaskParams(int i2, String str, float f2) {
+    public void setHumanSegMaskParams(int i, String str, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), str, Float.valueOf(f2)}) == null) {
-            this.mMaskMode = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), str, Float.valueOf(f2)}) == null) {
+            this.mMaskMode = i;
             if (TextUtils.isEmpty(str) || str.length() < 6) {
                 return;
             }
@@ -580,25 +580,25 @@ public class Texture2dProgram {
         }
     }
 
-    public void setTexSize(int i2, int i3) {
+    public void setTexSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            float f2 = 1.0f / i2;
-            float f3 = 1.0f / i3;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            float f2 = 1.0f / i;
+            float f3 = 1.0f / i2;
             float f4 = -f2;
             float f5 = -f3;
             this.mTexOffset = new float[]{f4, f5, 0.0f, f5, f2, f5, f4, 0.0f, 0.0f, 0.0f, f2, 0.0f, f4, f3, 0.0f, f3, f2, f3};
         }
     }
 
-    public void draw(float[] fArr, FloatBuffer floatBuffer, int i2, int i3, int i4, int i5, float[] fArr2, FloatBuffer floatBuffer2, int i6, int i7, int i8, float[] fArr3, FloatBuffer floatBuffer3) {
+    public void draw(float[] fArr, FloatBuffer floatBuffer, int i, int i2, int i3, int i4, float[] fArr2, FloatBuffer floatBuffer2, int i5, int i6, int i7, float[] fArr3, FloatBuffer floatBuffer3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), fArr2, floatBuffer2, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), fArr3, floatBuffer3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{fArr, floatBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fArr2, floatBuffer2, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr3, floatBuffer3}) == null) {
             GlUtil.checkGlError("draw start");
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(this.mTextureTarget, i6);
+            GLES20.glBindTexture(this.mTextureTarget, i5);
             GLES20.glUniform1i(this.mFilterInputTextureUniform, 0);
             GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, fArr, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
@@ -606,31 +606,31 @@ public class Texture2dProgram {
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glEnableVertexAttribArray(this.maPositionLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maPositionLoc, i4, 5126, false, i5, (Buffer) floatBuffer);
+            GLES20.glVertexAttribPointer(this.maPositionLoc, i3, 5126, false, i4, (Buffer) floatBuffer);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc);
             GlUtil.checkGlError("glEnableVertexAttribArray");
-            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i7, (Buffer) floatBuffer2);
+            GLES20.glVertexAttribPointer(this.maTextureCoordLoc, 2, 5126, false, i6, (Buffer) floatBuffer2);
             GlUtil.checkGlError("glVertexAttribPointer");
             GLES20.glActiveTexture(33985);
-            GLES20.glBindTexture(this.mTextureTarget, i8);
+            GLES20.glBindTexture(this.mTextureTarget, i7);
             GLES20.glUniform1i(this.mFilterInputTextureUniform2, 1);
             if (this.mProgramType != ProgramType.TEXTURE_2D_FILTER) {
                 GLES20.glUniformMatrix4fv(this.muTexMatrixLoc2, 1, false, fArr3, 0);
                 GlUtil.checkGlError("glUniformMatrix4fv");
                 GLES20.glEnableVertexAttribArray(this.maTextureCoordLoc2);
                 GlUtil.checkGlError("glEnableVertexAttribArray");
-                GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i7, (Buffer) floatBuffer3);
+                GLES20.glVertexAttribPointer(this.maTextureCoordLoc2, 2, 5126, false, i6, (Buffer) floatBuffer3);
                 GlUtil.checkGlError("glVertexAttribPointer");
             }
-            int i9 = this.muKernelLoc;
-            if (i9 >= 0) {
-                GLES20.glUniform1fv(i9, 9, this.mKernel, 0);
+            int i8 = this.muKernelLoc;
+            if (i8 >= 0) {
+                GLES20.glUniform1fv(i8, 9, this.mKernel, 0);
                 GLES20.glUniform2fv(this.muTexOffsetLoc, 9, this.mTexOffset, 0);
                 GLES20.glUniform1f(this.muColorAdjustLoc, this.mColorAdjust);
             }
             onDrawArraysPre();
-            GLES20.glDrawArrays(5, i2, i3);
+            GLES20.glDrawArrays(5, i, i2);
             GlUtil.checkGlError("glDrawArrays");
             GLES20.glDisableVertexAttribArray(this.maPositionLoc);
             GLES20.glDisableVertexAttribArray(this.maTextureCoordLoc);

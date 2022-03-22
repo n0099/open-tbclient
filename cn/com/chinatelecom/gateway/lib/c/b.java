@@ -18,13 +18,13 @@ public final class b {
         return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) ? context.getSharedPreferences(b(context), 0) : (SharedPreferences) invokeL.objValue;
     }
 
-    public static void a(Context context, String str, int i2) {
+    public static void a(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65537, null, context, str, i2) == null) || context == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeLLI(65537, null, context, str, i) == null) || context == null || TextUtils.isEmpty(str)) {
             return;
         }
         try {
-            a(context).edit().putInt(str, i2).commit();
+            a(context).edit().putInt(str, i).commit();
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -42,18 +42,18 @@ public final class b {
         }
     }
 
-    public static int b(Context context, String str, int i2) {
+    public static int b(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i)) == null) {
             if (context != null && !TextUtils.isEmpty(str)) {
                 try {
-                    return a(context).getInt(str, i2);
+                    return a(context).getInt(str, i);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLLI.intValue;
     }

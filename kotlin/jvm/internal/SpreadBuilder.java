@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SpreadBuilder {
     public final ArrayList<Object> list;
 
-    public SpreadBuilder(int i2) {
-        this.list = new ArrayList<>(i2);
+    public SpreadBuilder(int i) {
+        this.list = new ArrayList<>(i);
     }
 
     public void add(Object obj) {

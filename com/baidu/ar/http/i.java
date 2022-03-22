@@ -1,5 +1,6 @@
 package com.baidu.ar.http;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,9 +31,9 @@ public class i implements IHttpResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpURLConnection, charset};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,7 +77,7 @@ public class i implements IHttpResponse {
                 String stringWriter2 = stringWriter.toString();
                 inputStreamReader.close();
                 stringWriter.close();
-                if ("utf-8".equalsIgnoreCase(name)) {
+                if (IMAudioTransRequest.CHARSET.equalsIgnoreCase(name)) {
                     stringWriter2 = j.as(stringWriter2);
                 }
                 this.rl = stringWriter2;

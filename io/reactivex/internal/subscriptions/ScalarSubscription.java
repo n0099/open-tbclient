@@ -29,9 +29,9 @@ public final class ScalarSubscription<T> extends AtomicInteger implements QueueS
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber, t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,9 +97,9 @@ public final class ScalarSubscription<T> extends AtomicInteger implements QueueS
 
     /* JADX DEBUG: Type inference failed for r6v1. Raw type applied. Possible types: T, ? super T */
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2) && compareAndSet(0, 1)) {
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j) && compareAndSet(0, 1)) {
             Subscriber<? super T> subscriber = this.subscriber;
             subscriber.onNext((T) this.value);
             if (get() != 2) {
@@ -109,10 +109,10 @@ public final class ScalarSubscription<T> extends AtomicInteger implements QueueS
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public int requestFusion(int i2) {
+    public int requestFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? i2 & 1 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i & 1 : invokeI.intValue;
     }
 
     @Override // io.reactivex.internal.fuseable.SimpleQueue

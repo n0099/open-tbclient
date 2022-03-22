@@ -9,11 +9,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-/* loaded from: classes9.dex */
-public interface IYYPayResultView extends j.a.a.e.i.a {
+/* loaded from: classes8.dex */
+public interface IYYPayResultView extends h.a.a.e.i.a {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Result {
         public static final /* synthetic */ Result[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -42,16 +42,16 @@ public interface IYYPayResultView extends j.a.a.e.i.a {
             $VALUES = new Result[]{PAY_LOADING, PAY_SUUCESS, result};
         }
 
-        public Result(String str, int i2) {
+        public Result(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -74,29 +74,27 @@ public interface IYYPayResultView extends j.a.a.e.i.a {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a();
 
-        void b();
-
-        boolean c();
+        boolean b();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Result a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f61496b;
+        public CurrencyChargeMessage f45833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f61497c;
+        public int f45834c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f61498d;
+        public String f45835d;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
             Interceptable interceptable = $ic;
@@ -105,50 +103,50 @@ public interface IYYPayResultView extends j.a.a.e.i.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {result, currencyChargeMessage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = result;
-            this.f61496b = currencyChargeMessage;
+            this.f45833b = currencyChargeMessage;
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.f61497c = i2;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.f45834c = i;
             }
         }
 
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.f61498d = str;
+                this.f45835d = str;
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public AbsViewEventHandler f61499b;
+        public AbsViewEventHandler f45836b;
 
         public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }

@@ -57,9 +57,9 @@ public class a extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -75,7 +75,7 @@ public class a extends c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             String e2 = kVar.e();
             String h2 = kVar.h();
-            int i2 = kVar.i();
+            int i = kVar.i();
             byte[] k = kVar.k();
             String f2 = kVar.f();
             int b2 = kVar.b();
@@ -96,7 +96,7 @@ public class a extends c {
                     intent.putExtra("notify_id", b2);
                     intent.putExtra("widget_badge_info", kVar.c());
                     intent.putExtra("message_id", h2);
-                    intent.putExtra("baidu_message_type", i2);
+                    intent.putExtra("baidu_message_type", i);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", k);
                     m.b(this.a, intent, "com.baidu.android.pushservice.action.MESSAGE", a2);

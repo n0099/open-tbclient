@@ -46,9 +46,9 @@ public class LocalVideoActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -56,14 +56,14 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<c.a.r0.j0.b> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<c.a.p0.l0.b> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage.getData() instanceof c.a.r0.l4.b)) {
+                if (customMessage == null || !(customMessage.getData() instanceof c.a.p0.n4.b)) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2921466, new c.a.r0.l4.i.h.b((c.a.r0.l4.b) customMessage.getData()));
+                return new CustomResponsedMessage<>(2921466, new c.a.p0.n4.i.h.b((c.a.p0.n4.b) customMessage.getData()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -81,13 +81,13 @@ public class LocalVideoActivityStatic {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public String f47195b;
+            public String f36462b;
 
             /* renamed from: c  reason: collision with root package name */
-            public String f47196c;
+            public String f36463c;
 
             /* renamed from: d  reason: collision with root package name */
-            public final /* synthetic */ CustomResponsedMessage f47197d;
+            public final /* synthetic */ CustomResponsedMessage f36464d;
 
             public a(b bVar, CustomResponsedMessage customResponsedMessage) {
                 Interceptable interceptable = $ic;
@@ -96,15 +96,15 @@ public class LocalVideoActivityStatic {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar, customResponsedMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f47197d = customResponsedMessage;
+                this.f36464d = customResponsedMessage;
             }
 
             @Override // com.baidu.searchbox.pms.callback.DefaultDownloadCallback, com.baidu.searchbox.pms.callback.DownloadCallback
@@ -112,7 +112,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, packageInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    n.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dd);
                 }
             }
 
@@ -121,7 +121,7 @@ public class LocalVideoActivityStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.FALSE));
-                    n.M(TbadkCoreApplication.getInst(), R.string.libso_load_faild);
+                    n.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f09dd);
                 }
             }
 
@@ -135,30 +135,30 @@ public class LocalVideoActivityStatic {
                     this.a = BdBaseApplication.getInst().getResHashMap().get("libnama.so");
                 }
                 if ("face_beautification.mp3".equals(packageInfo.name)) {
-                    this.f47195b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
+                    this.f36462b = BdBaseApplication.getInst().getResHashMap().get("face_beautification.mp3");
                 }
                 if ("v3.mp3".equals(packageInfo.name)) {
-                    this.f47196c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
+                    this.f36463c = BdBaseApplication.getInst().getResHashMap().get("v3.mp3");
                 }
-                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f47195b) && !StringUtils.isNull(this.f47196c)) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f47197d.getData()));
+                if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.f36462b) && !StringUtils.isNull(this.f36463c)) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, (IntentConfig) this.f36464d.getData()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921614, Boolean.TRUE));
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -218,9 +218,9 @@ public class LocalVideoActivityStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

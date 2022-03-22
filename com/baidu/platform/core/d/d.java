@@ -1,7 +1,9 @@
 package com.baidu.platform.core.d;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
 import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +24,9 @@ public class d extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {drivingRoutePlanOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,7 +41,7 @@ public class d extends com.baidu.platform.base.e {
         if (interceptable == null || interceptable.invokeL(65537, this, drivingRoutePlanOption) == null) {
             this.a.a("qt", "cars");
             this.a.a("sy", drivingRoutePlanOption.mPolicy.getInt() + "");
-            this.a.a("ie", "utf-8");
+            this.a.a("ie", IMAudioTransRequest.CHARSET);
             this.a.a("lrn", UVEventType.PAY_WALLET_BANNER_SHOW);
             this.a.a("version", "6");
             this.a.a("extinfo", "32");
@@ -48,14 +50,14 @@ public class d extends com.baidu.platform.base.e {
             this.a.a("rp_filter", "mobile");
             this.a.a("route_traffic", drivingRoutePlanOption.mtrafficPolicy.getInt() + "");
             this.a.a("sn", a(drivingRoutePlanOption.mFrom));
-            this.a.a(com.baidu.fsg.base.statistics.h.a, a(drivingRoutePlanOption.mTo));
+            this.a.a("en", a(drivingRoutePlanOption.mTo));
             String str = drivingRoutePlanOption.mCityName;
             if (str != null) {
                 this.a.a("c", str);
             }
             PlanNode planNode2 = drivingRoutePlanOption.mFrom;
             if (planNode2 != null) {
-                this.a.a("sc", planNode2.getCity());
+                this.a.a(Config.STAT_SDK_CHANNEL, planNode2.getCity());
             }
             PlanNode planNode3 = drivingRoutePlanOption.mTo;
             if (planNode3 != null) {
@@ -65,11 +67,11 @@ public class d extends com.baidu.platform.base.e {
             String str2 = new String();
             String str3 = new String();
             if (list != null) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (list.get(i2) != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
                         str2 = str2 + a(planNode);
                         str3 = str3 + planNode.getCity();
-                        if (i2 != list.size() - 1) {
+                        if (i != list.size() - 1) {
                             str3 = str3 + "|";
                             str2 = str2 + "|";
                         }

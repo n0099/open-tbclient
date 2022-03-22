@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.text.SpannableString;
+import android.util.Log;
 import android.util.LruCache;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
@@ -44,7 +45,7 @@ public class EmotionLoader {
         public final /* synthetic */ EmotionLoader this$0;
 
         /* renamed from: tv  reason: collision with root package name */
-        public TextView f37221tv;
+        public TextView f28705tv;
 
         public SpannableBeanHolder(EmotionLoader emotionLoader) {
             Interceptable interceptable = $ic;
@@ -53,9 +54,9 @@ public class EmotionLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emotionLoader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,9 +87,9 @@ public class EmotionLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,9 +153,9 @@ public class EmotionLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Integer.valueOf(r8)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -239,9 +240,9 @@ public class EmotionLoader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((Looper) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -256,11 +257,11 @@ public class EmotionLoader {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                             SpannableBeanHolder spannableBeanHolder = (SpannableBeanHolder) message.obj;
-                            TextView textView2 = spannableBeanHolder.f37221tv;
+                            TextView textView2 = spannableBeanHolder.f28705tv;
                             SpannableString spannableString = spannableBeanHolder.ss;
                             String str2 = spannableBeanHolder.content;
                             if (EmotionLoader.DEBUG) {
-                                String str3 = "parseEmotionAsync UIHandler handleMessage, content: " + str2;
+                                Log.d(EmotionLoader.TAG, "parseEmotionAsync UIHandler handleMessage, content: " + str2);
                             }
                             if (textView2.getTag().toString().equals(str2)) {
                                 textView2.setText(spannableString);
@@ -285,9 +286,9 @@ public class EmotionLoader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, emotionType, context, textView};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,12 +306,12 @@ public class EmotionLoader {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (EmotionLoader.DEBUG) {
-                            String str2 = "parseEmotionAsync postOnElastic, content: " + this.val$content;
+                            Log.d(EmotionLoader.TAG, "parseEmotionAsync postOnElastic, content: " + this.val$content);
                         }
                         SpannableString parseEmotion = this.this$0.parseEmotion(this.val$type, this.val$context, this.val$content, this.val$textView);
                         SpannableBeanHolder spannableBeanHolder = new SpannableBeanHolder();
                         spannableBeanHolder.ss = parseEmotion;
-                        spannableBeanHolder.f37221tv = this.val$textView;
+                        spannableBeanHolder.f28705tv = this.val$textView;
                         spannableBeanHolder.content = this.val$content;
                         Message obtain = Message.obtain();
                         obtain.obj = spannableBeanHolder;

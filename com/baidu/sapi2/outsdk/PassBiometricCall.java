@@ -23,9 +23,9 @@ public class PassBiometricCall {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,7 +37,7 @@ public class PassBiometricCall {
         if (interceptable == null || interceptable.invokeL(1048576, this, sapiConfiguration) == null) {
             PassBiometric biometric = PassBiometricFactory.getDefaultFactory().getBiometric(4);
             if (biometric == null || ((PassFaceRecogManager) biometric).getConfiguration() == null) {
-                PassBiometricConfiguration build = new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).sofireSdkConfig(sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, sapiConfiguration.sofireHostID).setProductLicenseInfo(sapiConfiguration.faceLincenseID, sapiConfiguration.faceLincenseFile).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).setAgreeDangerousProtocol(sapiConfiguration.isAgreeDangerousProtocol()).build();
+                PassBiometricConfiguration build = new PassBiometricConfiguration.Builder((Application) sapiConfiguration.context.getApplicationContext()).setProductLineInfo(sapiConfiguration.tpl, sapiConfiguration.appId, sapiConfiguration.appSignKey).sofireSdkConfig(sapiConfiguration.sofireAppKey, sapiConfiguration.sofireSecKey, sapiConfiguration.sofireHostID).setProductLicenseInfo(sapiConfiguration.faceLincenseID, sapiConfiguration.faceLincenseFile).setRuntimeEnvironment(sapiConfiguration.environment == Domain.DOMAIN_QA ? PassBioEnv.PASSPORT_QA_DOMAIN : PassBioEnv.PASSPORT_DOMAIN).debug(sapiConfiguration.debug).setAgreeDangerousProtocol(sapiConfiguration.isAgreeDangerousProtocol()).setFaceResPaths(sapiConfiguration.faceResPaths).build();
                 if (biometric != null) {
                     biometric.config(build);
                 }

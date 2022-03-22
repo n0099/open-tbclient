@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class y extends AsyncTask<Void, Void, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a0 a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MsaIdInterface f51568b;
+    public MsaIdInterface f38002b;
 
     public y(MsaIdInterface msaIdInterface, a0 a0Var) {
         Interceptable interceptable = $ic;
@@ -25,15 +25,15 @@ public class y extends AsyncTask<Void, Void, Boolean> {
             newInitContext.initArgs = r2;
             Object[] objArr = {msaIdInterface, a0Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51568b = msaIdInterface;
+        this.f38002b = msaIdInterface;
         this.a = a0Var;
     }
 
@@ -46,26 +46,26 @@ public class y extends AsyncTask<Void, Void, Boolean> {
         a0 a0Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            if (this.f51568b == null) {
+            if (this.f38002b == null) {
                 return Boolean.FALSE;
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 try {
-                    isDataArrived = this.f51568b.isDataArrived();
+                    isDataArrived = this.f38002b.isDataArrived();
                 } catch (RemoteException | InterruptedException unused) {
                 }
                 if (isDataArrived) {
                     break;
                 }
                 Thread.sleep(10L);
-                i2++;
-                if (i2 >= 30) {
+                i++;
+                if (i >= 30) {
                     break;
                 }
             }
             if (isDataArrived && (a0Var = this.a) != null) {
-                a0Var.a(this.f51568b);
+                a0Var.a(this.f38002b);
             }
             return Boolean.valueOf(isDataArrived);
         }

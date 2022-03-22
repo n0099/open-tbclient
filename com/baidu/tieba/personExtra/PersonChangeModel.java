@@ -25,38 +25,36 @@ import tbclient.BirthdayInfo;
 import tbclient.BusinessAccountInfo;
 import tbclient.Profile.NicknameInfo;
 import tbclient.User;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonChangeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PersonChangeData a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public PersonChangeData f45745e;
+    /* renamed from: b  reason: collision with root package name */
+    public b f35424b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f45746f;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f35425c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f45747g;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonChangeModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PersonChangeModel personChangeModel, int i2, int i3) {
-            super(i2, i3);
+        public a(PersonChangeModel personChangeModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personChangeModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {personChangeModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -74,29 +72,29 @@ public class PersonChangeModel extends BdBaseModel {
                 boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
                 if (z || (responsedMessage instanceof ProfileHttpResponseMessage)) {
                     if (responsedMessage.getError() != 0) {
-                        if (this.a.f45746f != null) {
-                            this.a.f45746f.a(responsedMessage.getErrorString());
+                        if (this.a.f35424b != null) {
+                            this.a.f35424b.a(responsedMessage.getErrorString());
                             return;
                         }
                         return;
                     }
                     if (z) {
                         ProfileSocketResponseMessage profileSocketResponseMessage = (ProfileSocketResponseMessage) responsedMessage;
-                        this.a.z(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
+                        this.a.B(profileSocketResponseMessage.getNicknameInfo(), profileSocketResponseMessage.GetUser());
                     }
                     if (responsedMessage instanceof ProfileHttpResponseMessage) {
                         ProfileHttpResponseMessage profileHttpResponseMessage = (ProfileHttpResponseMessage) responsedMessage;
-                        this.a.z(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
+                        this.a.B(profileHttpResponseMessage.getNicknameInfo(), profileHttpResponseMessage.GetUser());
                     }
-                    if (this.a.f45746f != null) {
-                        this.a.f45746f.b();
+                    if (this.a.f35424b != null) {
+                        this.a.f35424b.b();
                     }
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a(String str);
 
@@ -112,36 +110,90 @@ public class PersonChangeModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, personChangeData};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45745e = null;
-        this.f45747g = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
-        this.f45745e = personChangeData;
+        this.a = null;
+        this.f35425c = new a(this, CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+        this.a = personChangeData;
         if (personChangeData == null) {
-            this.f45745e = new PersonChangeData();
+            this.a = new PersonChangeData();
         }
-        this.f45747g.getHttpMessageListener().setSelfListener(true);
-        this.f45747g.getSocketMessageListener().setSelfListener(true);
-        registerListener(this.f45747g);
+        this.f35425c.getHttpMessageListener().setSelfListener(true);
+        this.f35425c.getSocketMessageListener().setSelfListener(true);
+        registerListener(this.f35425c);
     }
 
-    public PersonChangeData A() {
+    public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f45745e : (PersonChangeData) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PersonChangeData personChangeData = this.a;
+            if (personChangeData == null) {
+                return false;
+            }
+            return ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.a.getTempNickName())) || TextUtils.isEmpty(this.a.getPortrait()) || ListUtils.isEmpty(this.a.getInterestedForums()) || this.a.getBirthdayTime() == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
-    public void B(b bVar) {
+    public final void B(NicknameInfo nicknameInfo, User user) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.f45746f = bVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nicknameInfo, user) == null) {
+            this.a = new PersonChangeData();
+            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+            if (currentAccountInfo != null) {
+                this.a.setPortrait(currentAccountInfo.getPortrait());
+                this.a.setName(currentAccountInfo.getDisplayName());
+                this.a.setSex(currentAccountInfo.getSex());
+                this.a.setNameShow(currentAccountInfo.getAccountNameShow());
+                this.a.setMem(currentAccountInfo.getMemberType());
+            }
+            if (nicknameInfo != null) {
+                this.a.setNickNameLeftDays(nicknameInfo.left_days.intValue());
+            }
+            if (user != null) {
+                this.a.setName(user.name_show);
+                this.a.setSex(user.sex.intValue());
+                this.a.setIntro(user.intro);
+                this.a.setForumAge(user.tb_age);
+                this.a.setTiebaId(user.tieba_uid);
+                AlaUserInfo alaUserInfo = user.ala_info;
+                if (alaUserInfo != null) {
+                    this.a.setAlaId(alaUserInfo.ala_id.longValue());
+                }
+                BirthdayInfo birthdayInfo = user.birthday_info;
+                if (birthdayInfo != null) {
+                    this.a.setUserAge(birthdayInfo.age.intValue());
+                    this.a.setBirthdayTime(user.birthday_info.birthday_time.longValue());
+                    this.a.setBirthdayShowStatus(user.birthday_info.birthday_show_status.intValue());
+                }
+                BusinessAccountInfo businessAccountInfo = user.business_account_info;
+                if (businessAccountInfo != null) {
+                    PersonChangeData personChangeData = this.a;
+                    Integer num = businessAccountInfo.is_business_account;
+                    personChangeData.setIsBusinessAccount(num != null ? num.toString() : "0");
+                }
+            }
+        }
+    }
+
+    public PersonChangeData C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (PersonChangeData) invokeV.objValue;
+    }
+
+    public void D(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.f35424b = bVar;
         }
     }
 
@@ -149,7 +201,7 @@ public class PersonChangeModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -159,9 +211,9 @@ public class PersonChangeModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (!l.A()) {
-                this.f45746f.a(TbadkCoreApplication.getInst().getString(R.string.neterror));
+                this.f35424b.a(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c15));
                 return false;
             } else if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return false;
@@ -183,59 +235,5 @@ public class PersonChangeModel extends BdBaseModel {
             }
         }
         return invokeV.booleanValue;
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            PersonChangeData personChangeData = this.f45745e;
-            if (personChangeData == null) {
-                return false;
-            }
-            return ((TextUtils.isEmpty(personChangeData.getNameShow()) && TextUtils.isEmpty(this.f45745e.getTempNickName())) || TextUtils.isEmpty(this.f45745e.getPortrait()) || ListUtils.isEmpty(this.f45745e.getInterestedForums()) || this.f45745e.getBirthdayTime() == 0) ? false : true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void z(NicknameInfo nicknameInfo, User user) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, nicknameInfo, user) == null) {
-            this.f45745e = new PersonChangeData();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                this.f45745e.setPortrait(currentAccountInfo.getPortrait());
-                this.f45745e.setName(currentAccountInfo.getDisplayName());
-                this.f45745e.setSex(currentAccountInfo.getSex());
-                this.f45745e.setNameShow(currentAccountInfo.getAccountNameShow());
-                this.f45745e.setMem(currentAccountInfo.getMemberType());
-            }
-            if (nicknameInfo != null) {
-                this.f45745e.setNickNameLeftDays(nicknameInfo.left_days.intValue());
-            }
-            if (user != null) {
-                this.f45745e.setName(user.name_show);
-                this.f45745e.setSex(user.sex.intValue());
-                this.f45745e.setIntro(user.intro);
-                this.f45745e.setForumAge(user.tb_age);
-                this.f45745e.setTiebaId(user.tieba_uid);
-                AlaUserInfo alaUserInfo = user.ala_info;
-                if (alaUserInfo != null) {
-                    this.f45745e.setAlaId(alaUserInfo.ala_id.longValue());
-                }
-                BirthdayInfo birthdayInfo = user.birthday_info;
-                if (birthdayInfo != null) {
-                    this.f45745e.setUserAge(birthdayInfo.age.intValue());
-                    this.f45745e.setBirthdayTime(user.birthday_info.birthday_time.longValue());
-                    this.f45745e.setBirthdayShowStatus(user.birthday_info.birthday_show_status.intValue());
-                }
-                BusinessAccountInfo businessAccountInfo = user.business_account_info;
-                if (businessAccountInfo != null) {
-                    PersonChangeData personChangeData = this.f45745e;
-                    Integer num = businessAccountInfo.is_business_account;
-                    personChangeData.setIsBusinessAccount(num != null ? num.toString() : "0");
-                }
-            }
-        }
     }
 }

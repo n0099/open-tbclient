@@ -5,11 +5,11 @@ import android.view.Surface;
 public interface MovieRecorderCallback {
     void onRecorderComplete(boolean z, String str);
 
-    void onRecorderError(int i2);
+    void onRecorderError(int i);
 
     void onRecorderInit(Surface surface);
 
-    void onRecorderProcess(int i2);
+    void onRecorderProcess(int i);
 
     void onRecorderStart(boolean z);
 }

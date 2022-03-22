@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ProtoEnum;
 import java.util.Arrays;
 import java.util.Comparator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class EnumAdapter<E extends ProtoEnum> {
     public static /* synthetic */ Interceptable $ic;
     public static final Comparator<ProtoEnum> COMPARATOR;
@@ -43,9 +43,9 @@ public final class EnumAdapter<E extends ProtoEnum> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -69,9 +69,9 @@ public final class EnumAdapter<E extends ProtoEnum> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -90,19 +90,19 @@ public final class EnumAdapter<E extends ProtoEnum> {
         }
         this.isDense = false;
         this.values = new int[length];
-        for (int i4 = 0; i4 < length; i4++) {
-            this.values[i4] = this.constants[i4].getValue();
+        for (int i3 = 0; i3 < length; i3++) {
+            this.values[i3] = this.constants[i3].getValue();
         }
     }
 
-    public E fromInt(int i2) {
+    public E fromInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             try {
-                return this.constants[this.isDense ? i2 - 1 : Arrays.binarySearch(this.values, i2)];
+                return this.constants[this.isDense ? i - 1 : Arrays.binarySearch(this.values, i)];
             } catch (IndexOutOfBoundsException unused) {
-                throw new IllegalArgumentException("Unknown enum tag " + i2 + " for " + this.type.getCanonicalName());
+                throw new IllegalArgumentException("Unknown enum tag " + i + " for " + this.type.getCanonicalName());
             }
         }
         return (E) invokeI.objValue;

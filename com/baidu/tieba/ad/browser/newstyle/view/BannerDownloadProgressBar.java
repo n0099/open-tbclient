@@ -23,33 +23,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BannerDownloadProgressBar extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f31121b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f31122c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f31123d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40364e;
+    public int f31124e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40365f;
+    public String f31125f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f40366g;
+    public int f31126g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f40367h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f40368i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f40369j;
-    public int k;
-    public int l;
-    public int m;
-    public final Paint n;
-    public final Paint o;
-    public final Paint p;
-    public final RectF q;
-    public final RectF r;
-    public Shader s;
+    public int f31127h;
+    public int i;
+    public final Paint j;
+    public final Paint k;
+    public final Paint l;
+    public final RectF m;
+    public final RectF n;
+    public Shader o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BannerDownloadProgressBar(Context context, AttributeSet attributeSet) {
@@ -60,9 +62,9 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -70,119 +72,119 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
                 return;
             }
         }
-        this.f40364e = 0;
-        this.f40365f = -1;
-        this.f40366g = 10.0f;
-        this.k = 100;
-        this.l = 0;
-        this.m = 0;
-        this.n = new Paint();
-        this.o = new Paint();
-        this.p = new Paint();
-        this.q = new RectF();
-        this.r = new RectF();
-        d(context, attributeSet);
+        this.a = 0;
+        this.f31121b = -1;
+        this.f31122c = 10.0f;
+        this.f31126g = 100;
+        this.f31127h = 0;
+        this.i = 0;
+        this.j = new Paint();
+        this.k = new Paint();
+        this.l = new Paint();
+        this.m = new RectF();
+        this.n = new RectF();
+        g(context, attributeSet);
     }
 
-    public final void a(Canvas canvas) {
+    public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
-            this.l = getMeasuredHeight() / 2;
-            RectF rectF = this.r;
+            this.f31127h = getMeasuredHeight() / 2;
+            RectF rectF = this.n;
             rectF.left = 0.0f;
             rectF.top = 0.0f;
             rectF.right = getMeasuredWidth();
-            this.r.bottom = getMeasuredHeight();
-            this.o.setStrokeWidth(this.m);
-            this.o.setColor(Color.parseColor("#E5E5E5"));
-            RectF rectF2 = this.r;
-            int i2 = this.l;
-            canvas.drawRoundRect(rectF2, i2, i2, this.o);
+            this.n.bottom = getMeasuredHeight();
+            this.k.setStrokeWidth(this.i);
+            this.k.setColor(Color.parseColor("#E5E5E5"));
+            RectF rectF2 = this.n;
+            int i = this.f31127h;
+            canvas.drawRoundRect(rectF2, i, i, this.k);
         }
     }
 
-    public final void b(Canvas canvas) {
+    public final void e(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            this.l = getMeasuredHeight() / 2;
-            float f2 = this.f40364e / (this.k + 0.0f);
-            RectF rectF = this.q;
-            int i2 = this.m;
-            rectF.left = i2;
-            rectF.top = i2;
-            rectF.bottom = getMeasuredHeight() - this.m;
-            this.q.right = getMeasuredWidth() * f2;
-            RectF rectF2 = this.q;
+            this.f31127h = getMeasuredHeight() / 2;
+            float f2 = this.a / (this.f31126g + 0.0f);
+            RectF rectF = this.m;
+            int i = this.i;
+            rectF.left = i;
+            rectF.top = i;
+            rectF.bottom = getMeasuredHeight() - this.i;
+            this.m.right = getMeasuredWidth() * f2;
+            RectF rectF2 = this.m;
             float f3 = rectF2.right;
-            int i3 = this.l;
-            if (f3 < i3 * 2) {
-                rectF2.right = i3 * 2;
+            int i2 = this.f31127h;
+            if (f3 < i2 * 2) {
+                rectF2.right = i2 * 2;
             }
-            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.q.right, 0.0f, new int[]{this.f40367h, this.f40368i}, (float[]) null, Shader.TileMode.CLAMP);
-            this.s = linearGradient;
-            this.n.setShader(linearGradient);
-            RectF rectF3 = this.q;
-            int i4 = this.l;
-            canvas.drawRoundRect(rectF3, i4, i4, this.n);
+            LinearGradient linearGradient = new LinearGradient(0.0f, 0.0f, this.m.right, 0.0f, new int[]{this.f31123d, this.f31124e}, (float[]) null, Shader.TileMode.CLAMP);
+            this.o = linearGradient;
+            this.j.setShader(linearGradient);
+            RectF rectF3 = this.m;
+            int i3 = this.f31127h;
+            canvas.drawRoundRect(rectF3, i3, i3, this.j);
         }
     }
 
-    public final void c(Canvas canvas) {
+    public final void f(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
-            Paint.FontMetrics fontMetrics = this.p.getFontMetrics();
+            Paint.FontMetrics fontMetrics = this.l.getFontMetrics();
             float f2 = fontMetrics.descent;
-            float measuredWidth = (getMeasuredWidth() - this.p.measureText(this.f40369j)) / 2.0f;
-            canvas.drawText(this.f40369j, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.p);
+            float measuredWidth = (getMeasuredWidth() - this.l.measureText(this.f31125f)) / 2.0f;
+            canvas.drawText(this.f31125f, measuredWidth, (float) (((getHeight() / 2) - f2) + ((f2 - fontMetrics.ascent) / 2.0f) + 0.5d), this.l);
         }
     }
 
-    public final void d(Context context, AttributeSet attributeSet) {
+    public final void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.ad_btn_foreground_end, R.attr.ad_btn_foreground_start, R.attr.ad_btn_max, R.attr.ad_btn_progress, R.attr.ad_btn_radius, R.attr.ad_btn_text, R.attr.ad_btn_textBold, R.attr.ad_btn_textColor, R.attr.ad_btn_textSize});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04006f, R.attr.obfuscated_res_0x7f040070, R.attr.obfuscated_res_0x7f040071, R.attr.obfuscated_res_0x7f040072, R.attr.obfuscated_res_0x7f040073, R.attr.obfuscated_res_0x7f040074, R.attr.obfuscated_res_0x7f040075, R.attr.obfuscated_res_0x7f040076, R.attr.obfuscated_res_0x7f040077});
             int parseColor = Color.parseColor("#666666");
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.progress_button_radian);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07059d);
             int parseColor2 = Color.parseColor("#2BBCFF");
             int parseColor3 = Color.parseColor("#2B87FF");
-            this.m = getResources().getDimensionPixelSize(R.dimen.progress_button_frame);
-            this.f40367h = obtainStyledAttributes.getColor(1, parseColor2);
-            this.f40368i = obtainStyledAttributes.getColor(0, parseColor3);
-            this.f40365f = obtainStyledAttributes.getColor(7, parseColor);
-            this.k = obtainStyledAttributes.getInteger(2, this.k);
-            this.f40364e = obtainStyledAttributes.getInteger(3, 0);
-            this.f40369j = obtainStyledAttributes.getString(5);
-            this.f40366g = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.progress_button_font_size));
-            this.l = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
+            this.i = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07059c);
+            this.f31123d = obtainStyledAttributes.getColor(1, parseColor2);
+            this.f31124e = obtainStyledAttributes.getColor(0, parseColor3);
+            this.f31121b = obtainStyledAttributes.getColor(7, parseColor);
+            this.f31126g = obtainStyledAttributes.getInteger(2, this.f31126g);
+            this.a = obtainStyledAttributes.getInteger(3, 0);
+            this.f31125f = obtainStyledAttributes.getString(5);
+            this.f31122c = obtainStyledAttributes.getDimension(8, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f07059b));
+            this.f31127h = obtainStyledAttributes.getDimensionPixelSize(4, dimensionPixelSize);
             obtainStyledAttributes.recycle();
-            e();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.p.setAntiAlias(true);
-            this.p.setTextSize(this.f40366g);
-            this.p.setColor(this.f40365f);
-            this.n.setAntiAlias(true);
-            this.n.setStyle(Paint.Style.FILL);
-            this.o.setAntiAlias(true);
-            this.o.setStyle(Paint.Style.STROKE);
-            setGravity(17);
+            h();
         }
     }
 
     public int getMaxProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f31126g : invokeV.intValue;
     }
 
     public int getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40364e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.l.setAntiAlias(true);
+            this.l.setTextSize(this.f31122c);
+            this.l.setColor(this.f31121b);
+            this.j.setAntiAlias(true);
+            this.j.setStyle(Paint.Style.FILL);
+            this.k.setAntiAlias(true);
+            this.k.setStyle(Paint.Style.STROKE);
+            setGravity(17);
+        }
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -190,95 +192,95 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
-            if (this.f40364e > 0) {
-                b(canvas);
+            if (this.a > 0) {
+                e(canvas);
             }
-            a(canvas);
-            if (TextUtils.isEmpty(this.f40369j)) {
+            d(canvas);
+            if (TextUtils.isEmpty(this.f31125f)) {
                 return;
             }
-            c(canvas);
+            f(canvas);
         }
     }
 
-    public void setForeground(int i2, int i3) {
+    public void setForeground(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            if (i2 == this.f40367h && i3 == this.f40368i) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            if (i == this.f31123d && i2 == this.f31124e) {
                 return;
             }
-            this.f40367h = i2;
-            this.f40368i = i3;
-            e();
+            this.f31123d = i;
+            this.f31124e = i2;
+            h();
             postInvalidate();
         }
     }
 
-    public void setMaxProgress(int i2) {
+    public void setMaxProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.k = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f31126g = i;
         }
     }
 
-    public void setProgress(int i2) {
+    public void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || i2 < 0 || i2 > this.k || i2 == this.f40364e) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || i < 0 || i > this.f31126g || i == this.a) {
             return;
         }
-        this.f40364e = i2;
-        this.f40369j = getResources().getString(R.string.ad_button_already_download) + this.f40364e + "%";
-        if (this.f40364e == this.k) {
-            this.f40369j = "";
+        this.a = i;
+        this.f31125f = getResources().getString(R.string.obfuscated_res_0x7f0f009a) + this.a + "%";
+        if (this.a == this.f31126g) {
+            this.f31125f = "";
         }
         postInvalidate();
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null || str.equals(this.f40369j)) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, str) == null) || str == null || str.equals(this.f31125f)) {
             return;
         }
-        this.f40369j = str;
-        this.f40364e = 0;
+        this.f31125f = str;
+        this.a = 0;
         postInvalidate();
     }
 
     @Override // android.widget.TextView
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 == this.f40365f) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.f31121b) {
             return;
         }
-        this.f40365f = i2;
-        e();
+        this.f31121b = i;
+        h();
         postInvalidate();
     }
 
-    public void setTextSize(int i2) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            float f2 = i2;
-            if (f2 == this.f40366g) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            float f2 = i;
+            if (f2 == this.f31122c) {
                 return;
             }
-            this.f40366g = f2;
+            this.f31122c = f2;
             postInvalidate();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerDownloadProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BannerDownloadProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -286,17 +288,17 @@ public class BannerDownloadProgressBar extends AppCompatTextView {
                 return;
             }
         }
-        this.f40364e = 0;
-        this.f40365f = -1;
-        this.f40366g = 10.0f;
-        this.k = 100;
-        this.l = 0;
-        this.m = 0;
-        this.n = new Paint();
-        this.o = new Paint();
-        this.p = new Paint();
-        this.q = new RectF();
-        this.r = new RectF();
-        d(context, attributeSet);
+        this.a = 0;
+        this.f31121b = -1;
+        this.f31122c = 10.0f;
+        this.f31126g = 100;
+        this.f31127h = 0;
+        this.i = 0;
+        this.j = new Paint();
+        this.k = new Paint();
+        this.l = new Paint();
+        this.m = new RectF();
+        this.n = new RectF();
+        g(context, attributeSet);
     }
 }

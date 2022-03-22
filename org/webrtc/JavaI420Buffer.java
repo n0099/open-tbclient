@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.JniCommon;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,52 +25,52 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     public final int strideY;
     public final int width;
 
-    public JavaI420Buffer(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, @Nullable Runnable runnable) {
+    public JavaI420Buffer(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, @Nullable Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), byteBuffer2, Integer.valueOf(i4), byteBuffer3, Integer.valueOf(i5), runnable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.dataY = byteBuffer;
         this.dataU = byteBuffer2;
         this.dataV = byteBuffer3;
-        this.strideY = i4;
-        this.strideU = i5;
-        this.strideV = i6;
+        this.strideY = i3;
+        this.strideU = i4;
+        this.strideV = i5;
         this.refCountDelegate = new RefCountDelegate(runnable);
     }
 
-    public static JavaI420Buffer allocate(int i2, int i3) {
+    public static JavaI420Buffer allocate(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) {
-            int i4 = (i3 + 1) / 2;
-            int i5 = (i2 + 1) / 2;
-            int i6 = i2 * i3;
-            int i7 = i6 + 0;
-            int i8 = i5 * i4;
-            int i9 = i7 + i8;
-            final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i6 + (i5 * 2 * i4));
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
+            int i3 = (i2 + 1) / 2;
+            int i4 = (i + 1) / 2;
+            int i5 = i * i2;
+            int i6 = i5 + 0;
+            int i7 = i4 * i3;
+            int i8 = i6 + i7;
+            final ByteBuffer nativeAllocateByteBuffer = JniCommon.nativeAllocateByteBuffer(i5 + (i4 * 2 * i3));
             nativeAllocateByteBuffer.position(0);
-            nativeAllocateByteBuffer.limit(i7);
+            nativeAllocateByteBuffer.limit(i6);
             ByteBuffer slice = nativeAllocateByteBuffer.slice();
-            nativeAllocateByteBuffer.position(i7);
-            nativeAllocateByteBuffer.limit(i9);
+            nativeAllocateByteBuffer.position(i6);
+            nativeAllocateByteBuffer.limit(i8);
             ByteBuffer slice2 = nativeAllocateByteBuffer.slice();
-            nativeAllocateByteBuffer.position(i9);
-            nativeAllocateByteBuffer.limit(i9 + i8);
-            return new JavaI420Buffer(i2, i3, slice, i2, slice2, i5, nativeAllocateByteBuffer.slice(), i5, new Runnable() { // from class: h.c.o
+            nativeAllocateByteBuffer.position(i8);
+            nativeAllocateByteBuffer.limit(i8 + i7);
+            return new JavaI420Buffer(i, i2, slice, i, slice2, i4, nativeAllocateByteBuffer.slice(), i4, new Runnable() { // from class: f.c.o
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -86,28 +86,28 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
         return (JavaI420Buffer) invokeII.objValue;
     }
 
-    public static void checkCapacity(ByteBuffer byteBuffer, int i2, int i3, int i4) {
-        int i5;
+    public static void checkCapacity(ByteBuffer byteBuffer, int i, int i2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIII(65539, null, byteBuffer, i2, i3, i4) == null) || byteBuffer.capacity() >= (i5 = (i4 * (i3 - 1)) + i2)) {
+        if (!(interceptable == null || interceptable.invokeLIII(65539, null, byteBuffer, i, i2, i3) == null) || byteBuffer.capacity() >= (i4 = (i3 * (i2 - 1)) + i)) {
             return;
         }
-        throw new IllegalArgumentException("Buffer must be at least " + i5 + " bytes, but was " + byteBuffer.capacity());
+        throw new IllegalArgumentException("Buffer must be at least " + i4 + " bytes, but was " + byteBuffer.capacity());
     }
 
-    public static VideoFrame.Buffer cropAndScaleI420(final VideoFrame.I420Buffer i420Buffer, int i2, int i3, int i4, int i5, int i6, int i7) {
+    public static VideoFrame.Buffer cropAndScaleI420(final VideoFrame.I420Buffer i420Buffer, int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{i420Buffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
-            if (i4 == i6 && i5 == i7) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{i420Buffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            if (i3 == i5 && i4 == i6) {
                 ByteBuffer dataY = i420Buffer.getDataY();
                 ByteBuffer dataU = i420Buffer.getDataU();
                 ByteBuffer dataV = i420Buffer.getDataV();
-                dataY.position(i2 + (i420Buffer.getStrideY() * i3));
+                dataY.position(i + (i420Buffer.getStrideY() * i2));
+                int i7 = i / 2;
                 int i8 = i2 / 2;
-                int i9 = i3 / 2;
-                dataU.position((i420Buffer.getStrideU() * i9) + i8);
-                dataV.position(i8 + (i9 * i420Buffer.getStrideV()));
+                dataU.position((i420Buffer.getStrideU() * i8) + i7);
+                dataV.position(i7 + (i8 * i420Buffer.getStrideV()));
                 i420Buffer.retain();
                 ByteBuffer slice = dataY.slice();
                 int strideY = i420Buffer.getStrideY();
@@ -116,7 +116,7 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
                 ByteBuffer slice3 = dataV.slice();
                 int strideV = i420Buffer.getStrideV();
                 i420Buffer.getClass();
-                return wrap(i6, i7, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: h.c.f0
+                return wrap(i5, i6, slice, strideY, slice2, strideU, slice3, strideV, new Runnable() { // from class: f.c.f0
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -129,30 +129,30 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
                     }
                 });
             }
-            JavaI420Buffer allocate = allocate(i6, i7);
-            nativeCropAndScaleI420(i420Buffer.getDataY(), i420Buffer.getStrideY(), i420Buffer.getDataU(), i420Buffer.getStrideU(), i420Buffer.getDataV(), i420Buffer.getStrideV(), i2, i3, i4, i5, allocate.getDataY(), allocate.getStrideY(), allocate.getDataU(), allocate.getStrideU(), allocate.getDataV(), allocate.getStrideV(), i6, i7);
+            JavaI420Buffer allocate = allocate(i5, i6);
+            nativeCropAndScaleI420(i420Buffer.getDataY(), i420Buffer.getStrideY(), i420Buffer.getDataU(), i420Buffer.getStrideU(), i420Buffer.getDataV(), i420Buffer.getStrideV(), i, i2, i3, i4, allocate.getDataY(), allocate.getStrideY(), allocate.getDataU(), allocate.getStrideU(), allocate.getDataV(), allocate.getStrideV(), i5, i6);
             return allocate;
         }
         return (VideoFrame.Buffer) invokeCommon.objValue;
     }
 
-    public static native void nativeCropAndScaleI420(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, ByteBuffer byteBuffer3, int i4, int i5, int i6, int i7, int i8, ByteBuffer byteBuffer4, int i9, ByteBuffer byteBuffer5, int i10, ByteBuffer byteBuffer6, int i11, int i12, int i13);
+    public static native void nativeCropAndScaleI420(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, ByteBuffer byteBuffer3, int i3, int i4, int i5, int i6, int i7, ByteBuffer byteBuffer4, int i8, ByteBuffer byteBuffer5, int i9, ByteBuffer byteBuffer6, int i10, int i11, int i12);
 
-    public static JavaI420Buffer wrap(int i2, int i3, ByteBuffer byteBuffer, int i4, ByteBuffer byteBuffer2, int i5, ByteBuffer byteBuffer3, int i6, @Nullable Runnable runnable) {
+    public static JavaI420Buffer wrap(int i, int i2, ByteBuffer byteBuffer, int i3, ByteBuffer byteBuffer2, int i4, ByteBuffer byteBuffer3, int i5, @Nullable Runnable runnable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4), byteBuffer2, Integer.valueOf(i5), byteBuffer3, Integer.valueOf(i6), runnable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), byteBuffer2, Integer.valueOf(i4), byteBuffer3, Integer.valueOf(i5), runnable})) == null) {
             if (byteBuffer != null && byteBuffer2 != null && byteBuffer3 != null) {
                 if (byteBuffer.isDirect() && byteBuffer2.isDirect() && byteBuffer3.isDirect()) {
                     ByteBuffer slice = byteBuffer.slice();
                     ByteBuffer slice2 = byteBuffer2.slice();
                     ByteBuffer slice3 = byteBuffer3.slice();
+                    int i6 = (i + 1) / 2;
                     int i7 = (i2 + 1) / 2;
-                    int i8 = (i3 + 1) / 2;
-                    checkCapacity(slice, i2, i3, i4);
-                    checkCapacity(slice2, i7, i8, i5);
-                    checkCapacity(slice3, i7, i8, i6);
-                    return new JavaI420Buffer(i2, i3, slice, i4, slice2, i5, slice3, i6, runnable);
+                    checkCapacity(slice, i, i2, i3);
+                    checkCapacity(slice2, i6, i7, i4);
+                    checkCapacity(slice3, i6, i7, i5);
+                    return new JavaI420Buffer(i, i2, slice, i3, slice2, i4, slice3, i5, runnable);
                 }
                 throw new IllegalArgumentException("Data buffers must be direct byte buffers.");
             }
@@ -162,10 +162,10 @@ public class JavaI420Buffer implements VideoFrame.I420Buffer {
     }
 
     @Override // org.webrtc.VideoFrame.Buffer
-    public VideoFrame.Buffer cropAndScale(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public VideoFrame.Buffer cropAndScale(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) ? cropAndScaleI420(this, i2, i3, i4, i5, i6, i7) : (VideoFrame.Buffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? cropAndScaleI420(this, i, i2, i3, i4, i5, i6) : (VideoFrame.Buffer) invokeCommon.objValue;
     }
 
     @Override // org.webrtc.VideoFrame.I420Buffer

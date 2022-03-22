@@ -1,6 +1,6 @@
 package com.baidu.tieba.model.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.AddPollPost.AddPollPostReqIdl;
 import tbclient.AddPollPost.DataReq;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AddPollPostRequestNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -76,10 +76,10 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.threadId : invokeV.longValue;
     }
 
-    public void setForumId(long j2) {
+    public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.forumId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.forumId = j;
         }
     }
 
@@ -90,10 +90,10 @@ public class AddPollPostRequestNetMessage extends NetMessage {
         }
     }
 
-    public void setThreadId(long j2) {
+    public void setThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.threadId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.threadId = j;
         }
     }
 }

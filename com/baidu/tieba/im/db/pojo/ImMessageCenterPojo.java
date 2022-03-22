@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
-import c.a.r0.s1.w.c;
+import c.a.p0.u1.w.c;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -62,9 +62,9 @@ public class ImMessageCenterPojo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -348,17 +348,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setCustomGroupType(int i2) {
+    public void setCustomGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.mCustomGroupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.mCustomGroupType = i;
         }
     }
 
-    public void setFollowStatus(int i2) {
+    public void setFollowStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.followStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.followStatus = i;
         }
     }
 
@@ -392,31 +392,31 @@ public class ImMessageCenterPojo implements Serializable {
     }
 
     @Deprecated
-    public void setGroup_type(int i2) {
+    public void setGroup_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.group_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.group_type = i;
         }
     }
 
-    public void setIsFriend(int i2) {
+    public void setIsFriend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.isFriend = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.isFriend = i;
         }
     }
 
-    public void setIs_delete(int i2) {
+    public void setIs_delete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.is_delete = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.is_delete = i;
         }
     }
 
-    public void setIs_hidden(int i2) {
+    public void setIs_hidden(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.is_hidden = i2;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.is_hidden = i;
         }
     }
 
@@ -448,17 +448,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setLast_content_time(long j2) {
+    public void setLast_content_time(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j2) == null) {
-            this.last_content_time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
+            this.last_content_time = j;
         }
     }
 
-    public void setLast_rid(long j2) {
+    public void setLast_rid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
-            this.last_rid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
+            this.last_rid = j;
         }
     }
 
@@ -476,17 +476,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setOrderCol(long j2) {
+    public void setOrderCol(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            this.orderCol = j2;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            this.orderCol = j;
         }
     }
 
-    public void setPulled_msgId(long j2) {
+    public void setPulled_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
-            this.pulled_msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
+            this.pulled_msgId = j;
         }
     }
 
@@ -497,10 +497,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setRead_msgId(long j2) {
+    public void setRead_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048630, this, j2) == null) {
-            this.read_msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048630, this, j) == null) {
+            this.read_msgId = j;
         }
     }
 
@@ -511,17 +511,17 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setSend_status(int i2) {
+    public void setSend_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048632, this, i2) == null) {
-            this.send_status = i2;
+        if (interceptable == null || interceptable.invokeI(1048632, this, i) == null) {
+            this.send_status = i;
         }
     }
 
-    public void setSent_msgId(long j2) {
+    public void setSent_msgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048633, this, j2) == null) {
-            this.sent_msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048633, this, j) == null) {
+            this.sent_msgId = j;
         }
     }
 
@@ -532,10 +532,10 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setSid(long j2) {
+    public void setSid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048635, this, j2) == null) {
-            this.sid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048635, this, j) == null) {
+            this.sid = j;
         }
     }
 
@@ -546,24 +546,24 @@ public class ImMessageCenterPojo implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
+            this.type = i;
         }
     }
 
-    public void setUnread_count(int i2) {
+    public void setUnread_count(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            this.unread_count = i2;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            this.unread_count = i;
         }
     }
 
-    public void setUserType(int i2) {
+    public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.userType = i2;
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.userType = i;
         }
     }
 }

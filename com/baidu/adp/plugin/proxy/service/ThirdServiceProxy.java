@@ -25,9 +25,9 @@ public class ThirdServiceProxy extends ServiceProxy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,14 +83,14 @@ public class ThirdServiceProxy extends ServiceProxy {
     }
 
     @Override // com.baidu.adp.plugin.proxy.ServiceProxy, android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             String stringExtra = intent.getStringExtra(Plugin.INTENT_EXTRA_SERVICE);
             if (d.a().b() == 0) {
                 d.a().d(stringExtra, new d.a(this, intent));
-                super.onStartCommand(intent, i2, i3);
+                super.onStartCommand(intent, i, i2);
                 return 3;
             } else if (d.a().c(stringExtra) == null) {
                 ThirdServiceProxy thirdServiceProxy = (ThirdServiceProxy) createServiceInstance(intent);
@@ -98,9 +98,9 @@ public class ThirdServiceProxy extends ServiceProxy {
                     BdLog.e("third_service_proxy_create_failed:" + stringExtra);
                     return 3;
                 }
-                return thirdServiceProxy.onStartCommand(intent, i2, i3);
+                return thirdServiceProxy.onStartCommand(intent, i, i2);
             } else {
-                super.onStartCommand(intent, i2, i3);
+                super.onStartCommand(intent, i, i2);
                 return 3;
             }
         }

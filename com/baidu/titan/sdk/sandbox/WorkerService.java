@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.pm.IPatchManager;
 import com.baidu.titan.sdk.pm.PatchManagerService;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes6.dex */
 public class WorkerService extends JobIntentService {
     public static final String ACTION_CLEAN_PATCH = "action_clean_patch";
@@ -26,13 +25,13 @@ public class WorkerService extends JobIntentService {
     public HashMap<Long, InstallParameter> mInstallParameters = new HashMap<>();
     public IPatchManager.Stub mPatchManager = new IPatchManager.Stub() { // from class: com.baidu.titan.sdk.sandbox.WorkerService.1
         @Override // com.baidu.titan.sdk.pm.IPatchManager
-        public void install(Uri uri, int i2, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException {
+        public void install(Uri uri, int i, Bundle bundle, IPatchInstallObserver iPatchInstallObserver) throws RemoteException {
             Intent intent = new Intent(WorkerService.this, WorkerService.class);
             intent.setAction("action_install_patch");
             Long valueOf = Long.valueOf(WorkerService.this.mTokenGen.incrementAndGet());
             InstallParameter installParameter = new InstallParameter();
             installParameter.uri = uri;
-            installParameter.flages = i2;
+            installParameter.flages = i;
             installParameter.observer = iPatchInstallObserver;
             installParameter.extra = bundle;
             WorkerService.this.mInstallParameters.put(valueOf, installParameter);
@@ -67,7 +66,7 @@ public class WorkerService extends JobIntentService {
         }
 
         public String toString() {
-            return "InstallParameter{uri=" + this.uri + ", flages=" + this.flages + ", observer=" + this.observer + ", extra=" + this.extra + ExtendedMessageFormat.END_FE;
+            return "InstallParameter{uri=" + this.uri + ", flages=" + this.flages + ", observer=" + this.observer + ", extra=" + this.extra + '}';
         }
     }
 

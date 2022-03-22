@@ -20,7 +20,7 @@ import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SegmentDownloader<M, K> implements Downloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE_BYTES = 131072;
@@ -36,29 +36,29 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
     public final PriorityTaskManager priorityTaskManager;
     public volatile int totalSegments;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Segment implements Comparable<Segment> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final DataSpec dataSpec;
         public final long startTimeUs;
 
-        public Segment(long j2, DataSpec dataSpec) {
+        public Segment(long j, DataSpec dataSpec) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), dataSpec};
+                Object[] objArr = {Long.valueOf(j), dataSpec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.startTimeUs = j2;
+            this.startTimeUs = j;
             this.dataSpec = dataSpec;
         }
 
@@ -68,11 +68,11 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, segment)) == null) {
-                int i2 = ((this.startTimeUs - segment.startTimeUs) > 0L ? 1 : ((this.startTimeUs - segment.startTimeUs) == 0L ? 0 : -1));
-                if (i2 == 0) {
+                int i = ((this.startTimeUs - segment.startTimeUs) > 0L ? 1 : ((this.startTimeUs - segment.startTimeUs) == 0L ? 0 : -1));
+                if (i == 0) {
                     return 0;
                 }
-                return i2 < 0 ? -1 : 1;
+                return i < 0 ? -1 : 1;
             }
             return invokeL.intValue;
         }
@@ -85,9 +85,9 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, downloaderConstructorHelper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -178,8 +178,8 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
                 Collections.sort(initStatus);
                 byte[] bArr = new byte[131072];
                 CacheUtil.CachingCounters cachingCounters = new CacheUtil.CachingCounters();
-                for (int i2 = 0; i2 < initStatus.size(); i2++) {
-                    CacheUtil.cache(initStatus.get(i2).dataSpec, this.cache, this.dataSource, bArr, this.priorityTaskManager, -1000, cachingCounters, true);
+                for (int i = 0; i < initStatus.size(); i++) {
+                    CacheUtil.cache(initStatus.get(i).dataSpec, this.cache, this.dataSource, bArr, this.priorityTaskManager, -1000, cachingCounters, true);
                     this.downloadedBytes += cachingCounters.newlyCachedBytes;
                     this.downloadedSegments++;
                     notifyListener(progressListener);
@@ -196,15 +196,15 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.totalSegments;
-            int i3 = this.downloadedSegments;
-            if (i2 == -1 || i3 == -1) {
+            int i = this.totalSegments;
+            int i2 = this.downloadedSegments;
+            if (i == -1 || i2 == -1) {
                 return Float.NaN;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return 100.0f;
             }
-            return (i3 * 100.0f) / i2;
+            return (i2 * 100.0f) / i;
         }
         return invokeV.floatValue;
     }
@@ -273,8 +273,8 @@ public abstract class SegmentDownloader<M, K> implements Downloader {
                     list = null;
                 }
                 if (list != null) {
-                    for (int i2 = 0; i2 < list.size(); i2++) {
-                        remove(list.get(i2).dataSpec.uri);
+                    for (int i = 0; i < list.size(); i++) {
+                        remove(list.get(i).dataSpec.uri);
                     }
                 }
                 this.manifest = null;

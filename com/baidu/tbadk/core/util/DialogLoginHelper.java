@@ -1,18 +1,18 @@
 package com.baidu.tbadk.core.util;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.t0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class DialogLoginHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DIALOG_TYPE_ONE_KEY = "yijiandenglu";
@@ -26,9 +26,9 @@ public class DialogLoginHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,13 +66,13 @@ public class DialogLoginHelper {
         TiebaStatic.log(statisticItem);
     }
 
-    public static boolean checkUpIsLogin(t0 t0Var) {
+    public static boolean checkUpIsLogin(LoginDialogData loginDialogData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, t0Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, loginDialogData)) == null) {
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (!isLogin) {
-                skipToLoginDialogActivity(t0Var);
+                skipToLoginDialogActivity(loginDialogData);
             }
             return isLogin;
         }
@@ -82,14 +82,14 @@ public class DialogLoginHelper {
     public static String getOneKeyLoginActivityLocate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? UbsABTestHelper.isFirstLoginTestA() ? "new_start_1" : UbsABTestHelper.isFirstLoginTestB() ? "new_start_2" : "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? UbsABTestHelper.isFirstLoginTestA() ? LoginDialogData.FIRST_START_1 : UbsABTestHelper.isFirstLoginTestB() ? LoginDialogData.FIRST_START_2 : "" : (String) invokeV.objValue;
     }
 
-    public static void skipToLoginDialogActivity(t0 t0Var) {
+    public static void skipToLoginDialogActivity(LoginDialogData loginDialogData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, t0Var) == null) || t0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, loginDialogData) == null) || loginDialogData == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, t0Var));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2921530, loginDialogData));
     }
 }

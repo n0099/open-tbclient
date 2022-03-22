@@ -18,7 +18,6 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(objectTypeIndication = 64, tags = {5})
 /* loaded from: classes7.dex */
 public class AudioSpecificConfig extends BaseDescriptor {
@@ -145,9 +144,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -173,9 +172,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         return invokeL.intValue;
     }
 
-    private void parseErHvxcConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseErHvxcConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             this.hvxcVarMode = bitReaderBuffer.readBits(1);
             this.hvxcRateMode = bitReaderBuffer.readBits(2);
             int readBits = bitReaderBuffer.readBits(1);
@@ -186,9 +185,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseGaSpecificConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseGaSpecificConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             this.frameLengthFlag = bitReaderBuffer.readBits(1);
             int readBits = bitReaderBuffer.readBits(1);
             this.dependsOnCoreCoder = readBits;
@@ -196,16 +195,16 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 this.coreCoderDelay = bitReaderBuffer.readBits(14);
             }
             this.extensionFlag = bitReaderBuffer.readBits(1);
-            if (i3 != 0) {
-                if (i4 == 6 || i4 == 20) {
+            if (i2 != 0) {
+                if (i3 == 6 || i3 == 20) {
                     this.layerNr = bitReaderBuffer.readBits(3);
                 }
                 if (this.extensionFlag == 1) {
-                    if (i4 == 22) {
+                    if (i3 == 22) {
                         this.numOfSubFrame = bitReaderBuffer.readBits(5);
                         this.layer_length = bitReaderBuffer.readBits(11);
                     }
-                    if (i4 == 17 || i4 == 19 || i4 == 20 || i4 == 23) {
+                    if (i3 == 17 || i3 == 19 || i3 == 20 || i3 == 23) {
                         this.aacSectionDataResilienceFlag = bitReaderBuffer.readBits(1);
                         this.aacScalefactorDataResilienceFlag = bitReaderBuffer.readBits(1);
                         this.aacSpectralDataResilienceFlag = bitReaderBuffer.readBits(1);
@@ -219,9 +218,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseHilnConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseHilnConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             this.hilnQuantMode = bitReaderBuffer.readBits(1);
             this.hilnMaxNumLine = bitReaderBuffer.readBits(8);
             this.hilnSampleRateCode = bitReaderBuffer.readBits(4);
@@ -230,9 +229,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseHilnEnexConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseHilnEnexConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             int readBits = bitReaderBuffer.readBits(1);
             this.hilnEnhaLayer = readBits;
             if (readBits == 1) {
@@ -241,31 +240,31 @@ public class AudioSpecificConfig extends BaseDescriptor {
         }
     }
 
-    private void parseParaConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseParaConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             int readBits = bitReaderBuffer.readBits(2);
             this.paraMode = readBits;
             if (readBits != 1) {
-                parseErHvxcConfig(i2, i3, i4, bitReaderBuffer);
+                parseErHvxcConfig(i, i2, i3, bitReaderBuffer);
             }
             if (this.paraMode != 0) {
-                parseHilnConfig(i2, i3, i4, bitReaderBuffer);
+                parseHilnConfig(i, i2, i3, bitReaderBuffer);
             }
             this.paraExtensionFlag = bitReaderBuffer.readBits(1);
             this.parametricSpecificConfig = true;
         }
     }
 
-    private void parseParametricSpecificConfig(int i2, int i3, int i4, BitReaderBuffer bitReaderBuffer) throws IOException {
+    private void parseParametricSpecificConfig(int i, int i2, int i3, BitReaderBuffer bitReaderBuffer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bitReaderBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitReaderBuffer}) == null) {
             int readBits = bitReaderBuffer.readBits(1);
             this.isBaseLayer = readBits;
             if (readBits == 1) {
-                parseParaConfig(i2, i3, i4, bitReaderBuffer);
+                parseParaConfig(i, i2, i3, bitReaderBuffer);
             } else {
-                parseHilnEnexConfig(i2, i3, i4, bitReaderBuffer);
+                parseHilnEnexConfig(i, i2, i3, bitReaderBuffer);
             }
         }
     }
@@ -314,8 +313,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.samplingFrequencyIndex;
-            return i2 == 15 ? this.samplingFrequency : samplingFrequencyIndexMap.get(Integer.valueOf(i2)).intValue();
+            int i = this.samplingFrequencyIndex;
+            return i == 15 ? this.samplingFrequency : samplingFrequencyIndexMap.get(Integer.valueOf(i)).intValue();
         }
         return invokeV.intValue;
     }
@@ -355,8 +354,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 this.samplingFrequency = bitReaderBuffer.readBits(24);
             }
             this.channelConfiguration = bitReaderBuffer.readBits(4);
-            int i2 = this.audioObjectType;
-            if (i2 != 5 && i2 != 29) {
+            int i = this.audioObjectType;
+            if (i != 5 && i != 29) {
                 this.extensionAudioObjectType = 0;
             } else {
                 this.extensionAudioObjectType = 5;
@@ -375,8 +374,8 @@ public class AudioSpecificConfig extends BaseDescriptor {
                     this.extensionChannelConfiguration = bitReaderBuffer.readBits(4);
                 }
             }
-            int i3 = this.audioObjectType;
-            switch (i3) {
+            int i2 = this.audioObjectType;
+            switch (i2) {
                 case 1:
                 case 2:
                 case 3:
@@ -389,7 +388,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 case 21:
                 case 22:
                 case 23:
-                    parseGaSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i3, bitReaderBuffer);
+                    parseGaSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i2, bitReaderBuffer);
                     break;
                 case 8:
                     throw new UnsupportedOperationException("can't parse CelpSpecificConfig yet");
@@ -408,7 +407,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                     throw new UnsupportedOperationException("can't parse ErrorResilientHvxcSpecificConfig yet");
                 case 26:
                 case 27:
-                    parseParametricSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i3, bitReaderBuffer);
+                    parseParametricSpecificConfig(this.samplingFrequencyIndex, this.channelConfiguration, i2, bitReaderBuffer);
                     break;
                 case 28:
                     throw new UnsupportedOperationException("can't parse SSCSpecificConfig yet");
@@ -433,9 +432,9 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 case 41:
                     throw new UnsupportedOperationException("can't parse SymbolicMusicSpecificConfig yet");
             }
-            int i4 = this.audioObjectType;
-            if (i4 != 17 && i4 != 39) {
-                switch (i4) {
+            int i3 = this.audioObjectType;
+            if (i3 != 17 && i3 != 39) {
+                switch (i3) {
                     case 19:
                     case 20:
                     case 21:
@@ -541,31 +540,31 @@ public class AudioSpecificConfig extends BaseDescriptor {
         return invokeV.intValue;
     }
 
-    public void setAudioObjectType(int i2) {
+    public void setAudioObjectType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.audioObjectType = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.audioObjectType = i;
         }
     }
 
-    public void setChannelConfiguration(int i2) {
+    public void setChannelConfiguration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.channelConfiguration = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.channelConfiguration = i;
         }
     }
 
-    public void setSamplingFrequency(int i2) {
+    public void setSamplingFrequency(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.samplingFrequency = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.samplingFrequency = i;
         }
     }
 
-    public void setSamplingFrequencyIndex(int i2) {
+    public void setSamplingFrequencyIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.samplingFrequencyIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.samplingFrequencyIndex = i;
         }
     }
 
@@ -668,7 +667,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
                 sb.append(", hilnEnhaQuantMode=");
                 sb.append(this.hilnEnhaQuantMode);
             }
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

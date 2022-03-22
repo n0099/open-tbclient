@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,10 +46,10 @@ public class ai {
                 public final /* synthetic */ View a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Activity f35012b;
+                public final /* synthetic */ Activity f27167b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ TextView f35013c;
+                public final /* synthetic */ TextView f27168c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -57,17 +58,17 @@ public class ai {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {viewGroup, activity, agVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.a = viewGroup;
-                    this.f35012b = activity;
-                    this.f35013c = agVar;
+                    this.f27167b = activity;
+                    this.f27168c = agVar;
                 }
 
                 @Override // java.lang.Runnable
@@ -76,11 +77,11 @@ public class ai {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int width = this.a.getWidth();
                         int height = this.a.getHeight();
-                        int c2 = ah.c(this.f35012b, 55.0f);
+                        int c2 = ah.c(this.f27167b, 55.0f);
                         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(c2, c2);
                         layoutParams.leftMargin = (width - c2) / 6;
                         layoutParams.topMargin = ((height - c2) * 5) / 6;
-                        this.f35013c.setLayoutParams(layoutParams);
+                        this.f27168c.setLayoutParams(layoutParams);
                     }
                 }
             });
@@ -156,9 +157,9 @@ public class ai {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -166,9 +167,9 @@ public class ai {
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i2) {
+                public void onClick(DialogInterface dialogInterface, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                         dialogInterface.dismiss();
                         am.a().c();
                         bc.c().a("autotrace: connect close, app close");
@@ -177,7 +178,7 @@ public class ai {
                     }
                 }
             });
-            builder.setNegativeButton("取消", new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.4
+            builder.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new DialogInterface.OnClickListener() { // from class: com.baidu.mobstat.ai.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -186,9 +187,9 @@ public class ai {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -196,9 +197,9 @@ public class ai {
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i2) {
+                public void onClick(DialogInterface dialogInterface, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                         dialogInterface.dismiss();
                     }
                 }
@@ -216,19 +217,19 @@ public class ai {
                 public int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f35014b;
+                public int f27169b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public int f35015c;
+                public int f27170c;
 
                 /* renamed from: d  reason: collision with root package name */
-                public int f35016d;
+                public int f27171d;
 
                 /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ View f35017e;
+                public final /* synthetic */ View f27172e;
 
                 /* renamed from: f  reason: collision with root package name */
-                public final /* synthetic */ Activity f35018f;
+                public final /* synthetic */ Activity f27173f;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -237,20 +238,20 @@ public class ai {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6, activity};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f35017e = r6;
-                    this.f35018f = activity;
+                    this.f27172e = r6;
+                    this.f27173f = activity;
                     this.a = 0;
-                    this.f35014b = 0;
-                    this.f35015c = 0;
-                    this.f35016d = 0;
+                    this.f27169b = 0;
+                    this.f27170c = 0;
+                    this.f27171d = 0;
                 }
 
                 @Override // android.view.View.OnTouchListener
@@ -263,24 +264,24 @@ public class ai {
                         int action = motionEvent.getAction();
                         if (action == 0) {
                             this.a = rawX;
-                            this.f35014b = rawY;
-                            this.f35015c = rawX - view.getLeft();
-                            this.f35016d = rawY - view.getTop();
+                            this.f27169b = rawY;
+                            this.f27170c = rawX - view.getLeft();
+                            this.f27171d = rawY - view.getTop();
                         } else if (action != 1) {
                             if (action == 2) {
-                                int i2 = rawX - this.f35015c;
-                                int i3 = rawY - this.f35016d;
+                                int i = rawX - this.f27170c;
+                                int i2 = rawY - this.f27171d;
                                 Rect rect = new Rect();
-                                this.f35017e.getLocalVisibleRect(rect);
-                                if (rect.contains(new Rect(i2, i3, view.getWidth() + i2, view.getHeight() + i3))) {
+                                this.f27172e.getLocalVisibleRect(rect);
+                                if (rect.contains(new Rect(i, i2, view.getWidth() + i, view.getHeight() + i2))) {
                                     ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-                                    marginLayoutParams.leftMargin = i2;
-                                    marginLayoutParams.topMargin = i3;
+                                    marginLayoutParams.leftMargin = i;
+                                    marginLayoutParams.topMargin = i2;
                                     view.setLayoutParams(marginLayoutParams);
                                 }
                             }
-                        } else if (ai.b(this.a, (int) motionEvent.getRawX(), this.f35014b, (int) motionEvent.getRawY())) {
-                            ai.b((Context) this.f35018f);
+                        } else if (ai.b(this.a, (int) motionEvent.getRawX(), this.f27169b, (int) motionEvent.getRawY())) {
+                            ai.b((Context) this.f27173f);
                         }
                         return true;
                     }
@@ -298,8 +299,8 @@ public class ai {
             if (viewGroup == null) {
                 return null;
             }
-            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                View childAt = viewGroup.getChildAt(i);
                 if (childAt != null && (tag = childAt.getTag(-5000)) != null && (tag instanceof String) && ((String) tag).equals("baidu_mtj_edit_txtview")) {
                     return childAt;
                 }

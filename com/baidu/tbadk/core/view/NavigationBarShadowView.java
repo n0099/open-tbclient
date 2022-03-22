@@ -18,15 +18,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NavigationBarShadowView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f39054e;
+    /* renamed from: b  reason: collision with root package name */
+    public AlphaAnimation f30037b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f39055f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f39056g;
+    /* renamed from: c  reason: collision with root package name */
+    public AlphaAnimation f30038c;
 
     /* loaded from: classes5.dex */
     public class a implements Animation.AnimationListener {
@@ -41,9 +39,9 @@ public class NavigationBarShadowView extends View {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {navigationBarShadowView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -84,9 +82,9 @@ public class NavigationBarShadowView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -96,44 +94,44 @@ public class NavigationBarShadowView extends View {
         }
     }
 
-    public void hide() {
+    public void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getVisibility() == 0) {
-            if (this.f39056g == null) {
+            if (this.f30038c == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-                this.f39056g = alphaAnimation;
+                this.f30038c = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f39056g.setDuration(300L);
-                this.f39056g.setAnimationListener(new a(this));
+                this.f30038c.setDuration(300L);
+                this.f30038c.setAnimationListener(new a(this));
             }
-            startAnimation(this.f39056g);
+            startAnimation(this.f30038c);
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f39054e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a == i) {
             return;
         }
         SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-        this.f39054e = i2;
+        this.a = i;
     }
 
-    public void show() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            b(TbadkCoreApplication.getInst().getSkinType());
             if (getVisibility() == 0) {
                 return;
             }
             setVisibility(0);
-            if (this.f39055f == null) {
+            if (this.f30037b == null) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-                this.f39055f = alphaAnimation;
+                this.f30037b = alphaAnimation;
                 alphaAnimation.setFillAfter(true);
-                this.f39055f.setDuration(300L);
+                this.f30037b.setDuration(300L);
             }
-            startAnimation(this.f39055f);
+            startAnimation(this.f30037b);
         }
     }
 
@@ -146,9 +144,9 @@ public class NavigationBarShadowView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -159,17 +157,17 @@ public class NavigationBarShadowView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -177,8 +175,8 @@ public class NavigationBarShadowView extends View {
                 return;
             }
         }
-        this.f39054e = 3;
+        this.a = 3;
         setVisibility(8);
-        onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        b(TbadkCoreApplication.getInst().getSkinType());
     }
 }

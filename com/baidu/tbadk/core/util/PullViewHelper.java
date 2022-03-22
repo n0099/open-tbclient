@@ -12,7 +12,7 @@ import android.text.TextUtils;
 import c.a.d.f.m.h;
 import c.a.d.f.p.o;
 import c.a.d.f.p.t;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -72,9 +72,9 @@ public class PullViewHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,9 +87,9 @@ public class PullViewHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,14 +112,14 @@ public class PullViewHelper {
                 return null;
             }
             int length = fileArr.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 < length) {
-                    file = fileArr[i2];
+                if (i < length) {
+                    file = fileArr[i];
                     if (file != null && file.isFile() && file.length() > 0 && file.getName().startsWith(str)) {
                         break;
                     }
-                    i2++;
+                    i++;
                 } else {
                     file = null;
                     break;
@@ -153,23 +153,23 @@ public class PullViewHelper {
                     File imageFileDir = getImageFileDir();
                     if (imageFileDir != null) {
                         File[] listFiles = imageFileDir.listFiles();
-                        for (int i2 = 1; i2 <= l; i2++) {
-                            this.drawables[i2 - 1] = buildDrawable(listFiles, i2 + ".");
+                        for (int i = 1; i <= l; i++) {
+                            this.drawables[i - 1] = buildDrawable(listFiles, i + ".");
                         }
                     }
                 }
                 Drawable[] drawableArr = this.drawables;
                 if (drawableArr != null) {
                     int length = drawableArr.length;
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             z = true;
                             break;
-                        } else if (drawableArr[i3] == null) {
+                        } else if (drawableArr[i2] == null) {
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
                 }
@@ -392,20 +392,20 @@ public class PullViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean isImagesExist(int i2) {
+    public boolean isImagesExist(int i) {
         InterceptResult invokeI;
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, this, i)) == null) {
             File imageFileDir = getImageFileDir();
-            if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null && listFiles.length >= i2) {
-                int i3 = 0;
-                for (int i4 = 1; i4 <= i2; i4++) {
-                    if (hasFileName(imageFileDir, i4 + ".")) {
-                        i3++;
+            if (imageFileDir != null && (listFiles = imageFileDir.listFiles()) != null && listFiles.length >= i) {
+                int i2 = 0;
+                for (int i3 = 1; i3 <= i; i3++) {
+                    if (hasFileName(imageFileDir, i3 + ".")) {
+                        i2++;
                     }
                 }
-                if (i3 == i2) {
+                if (i2 == i) {
                     return true;
                 }
             }
@@ -481,9 +481,9 @@ public class PullViewHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startDownload(String str, String str2, int i2) {
+    public void startDownload(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65563, this, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65563, this, str, str2, i) == null) {
             deletePullDir();
             b.k().D("pull_image_url");
             b.k().D("pull_image_num");
@@ -493,7 +493,7 @@ public class PullViewHelper {
             File zipFile = getZipFile();
             if (checkFileMd5(zipFile, str2)) {
                 b.k().y("pull_image_url", str);
-                b.k().w("pull_image_num", i2);
+                b.k().w("pull_image_num", i);
                 decompressZipFile(zipFile);
                 buildDrawables();
                 return;
@@ -502,10 +502,10 @@ public class PullViewHelper {
         }
     }
 
-    private void startDownloadAsync(String str, String str2, int i2) {
+    private void startDownloadAsync(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65564, this, str, str2, i2) == null) {
-            h.a().c(new Runnable(this, str, str2, i2) { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
+        if (interceptable == null || interceptable.invokeLLI(65564, this, str, str2, i) == null) {
+            h.a().c(new Runnable(this, str, str2, i) { // from class: com.baidu.tbadk.core.util.PullViewHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PullViewHelper this$0;
@@ -518,11 +518,11 @@ public class PullViewHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, Integer.valueOf(i2)};
+                        Object[] objArr = {this, str, str2, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -531,7 +531,7 @@ public class PullViewHelper {
                     this.this$0 = this;
                     this.val$downloadUrl = str;
                     this.val$md5 = str2;
-                    this.val$num = i2;
+                    this.val$num = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -560,9 +560,9 @@ public class PullViewHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -582,14 +582,14 @@ public class PullViewHelper {
         }
     }
 
-    public AnimationDrawable getAnimationDrawable(int i2) {
+    public AnimationDrawable getAnimationDrawable(int i) {
         InterceptResult invokeI;
         Drawable[] drawableArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this.drawables != null) {
                 boolean z = true;
-                if (i2 != 1 && i2 != 4) {
+                if (i != 1 && i != 4) {
                     z = false;
                 }
                 AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -606,28 +606,28 @@ public class PullViewHelper {
         return (AnimationDrawable) invokeI.objValue;
     }
 
-    public AnimationDrawable getDefaultAnimationDrawable(int i2) {
+    public AnimationDrawable getDefaultAnimationDrawable(int i) {
         InterceptResult invokeI;
         PullViewDrawable[] pullViewDrawableArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (this.defaultDrawables == null) {
                 this.defaultDrawables = new PullViewDrawable[this.defaultResources.length];
-                for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
-                    this.defaultDrawables[i3] = new PullViewDrawable();
+                for (int i2 = 0; i2 < this.defaultResources.length; i2++) {
+                    this.defaultDrawables[i2] = new PullViewDrawable();
                 }
             }
-            boolean z = i2 == 1 || i2 == 4;
+            boolean z = i == 1 || i == 4;
             if (z && !this.hasNightDefault) {
                 this.hasNightDefault = true;
-                for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
-                    this.defaultDrawables[i4].nightDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i4]));
+                for (int i3 = 0; i3 < this.defaultResources.length; i3++) {
+                    this.defaultDrawables[i3].nightDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i3]));
                 }
             }
             if (!z && !this.hasDayDefault) {
                 this.hasDayDefault = true;
-                for (int i5 = 0; i5 < this.defaultResources.length; i5++) {
-                    this.defaultDrawables[i5].dayDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i5]));
+                for (int i4 = 0; i4 < this.defaultResources.length; i4++) {
+                    this.defaultDrawables[i4].dayDrawable = new BitmapDrawable(SkinManager.getBitmap565Quality(this.defaultResources[i4]));
                 }
             }
             AnimationDrawable animationDrawable = new AnimationDrawable();
@@ -650,12 +650,12 @@ public class PullViewHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.defaultShouldShowLoadingView : invokeV.booleanValue;
     }
 
-    public int getPullViewBackgroundColor(int i2) {
+    public int getPullViewBackgroundColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             boolean z = true;
-            if (i2 != 1 && i2 != 4) {
+            if (i != 1 && i != 4) {
                 z = false;
             }
             if (z) {
@@ -676,24 +676,24 @@ public class PullViewHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLLL(1048582, this, str, str2, str3, str4, str5) == null) {
             boolean isEmpty = TextUtils.isEmpty(str4);
-            int i2 = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
-            int i3 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
+            int i = PULLVIEW_BGCOLOR_NIGHT_DEFAULT;
+            int i2 = PULLVIEW_BGCOLOR_DAY_DEFAULT;
             if (!isEmpty && !TextUtils.isEmpty(str5)) {
                 int l = b.k().l("pullview_background_color_day", PULLVIEW_BGCOLOR_DAY_DEFAULT);
                 int l2 = b.k().l("pullview_background_color_night", PULLVIEW_BGCOLOR_NIGHT_DEFAULT);
                 try {
-                    i3 = Color.parseColor(str4);
+                    i2 = Color.parseColor(str4);
                 } catch (Exception unused) {
                 }
                 try {
-                    i2 = Color.parseColor(str5);
+                    i = Color.parseColor(str5);
                 } catch (Exception unused2) {
                 }
-                if (l != i3 || i2 != l2) {
-                    b.k().w("pullview_background_color_day", i3);
-                    b.k().w("pullview_background_color_night", i2);
-                    this.pullview_backgroundColor_day = i3;
-                    this.pullview_backgroundColor_night = i2;
+                if (l != i2 || i != l2) {
+                    b.k().w("pullview_background_color_day", i2);
+                    b.k().w("pullview_background_color_night", i);
+                    this.pullview_backgroundColor_day = i2;
+                    this.pullview_backgroundColor_night = i;
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016204));
                 }
             } else {
@@ -715,9 +715,9 @@ public class PullViewHelper {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -765,9 +765,9 @@ public class PullViewHelper {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, str2, Integer.valueOf(e2), str};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;

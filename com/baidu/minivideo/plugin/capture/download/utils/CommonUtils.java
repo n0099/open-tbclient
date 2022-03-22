@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.text.DecimalFormat;
 /* loaded from: classes4.dex */
 public class CommonUtils {
@@ -34,7 +33,7 @@ public class CommonUtils {
             }
         }
         DF = new DecimalFormat("0.00");
-        PERMISSIONS_STORAGE = new String[]{s.f53810i, "android.permission.WRITE_EXTERNAL_STORAGE"};
+        PERMISSIONS_STORAGE = new String[]{"android.permission.READ_EXTERNAL_STORAGE", "android.permission.WRITE_EXTERNAL_STORAGE"};
     }
 
     public CommonUtils() {
@@ -42,20 +41,20 @@ public class CommonUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String getDownloadPerSize(long j2, long j3) {
+    public static String getDownloadPerSize(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            return DF.format(((float) j2) / 1048576.0f) + "M/" + DF.format(((float) j3) / 1048576.0f) + "M";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return DF.format(((float) j) / 1048576.0f) + "M/" + DF.format(((float) j2) / 1048576.0f) + "M";
         }
         return (String) invokeCommon.objValue;
     }

@@ -1,0 +1,264 @@
+package com.fun;
+
+import androidx.core.app.NotificationCompat;
+import c.d.j;
+import c.d.l;
+import c.d.n;
+import c.d.o;
+import c.d.s;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import java.util.HashMap;
+/* loaded from: classes6.dex */
+public abstract class o0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Reporter a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final String f38654b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final int f38655c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final String f38656d;
+
+    /* loaded from: classes6.dex */
+    public class a extends HashMap<String, Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object[] a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ String f38657b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ o0 f38658c;
+
+        public a(o0 o0Var, Object[] objArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr2 = {o0Var, objArr, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f38658c = o0Var;
+            this.a = objArr;
+            this.f38657b = str;
+            if (objArr != null && objArr.length > 0) {
+                if (objArr.length % 2 != 0) {
+                    throw new IllegalArgumentException("Length of argument 'appends' must be even.");
+                }
+                int i3 = 0;
+                while (true) {
+                    Object[] objArr3 = this.a;
+                    if (i3 >= objArr3.length) {
+                        break;
+                    }
+                    put(objArr3[i3].toString(), this.a[i3 + 1]);
+                    i3 += 2;
+                }
+            }
+            put("st", this.f38657b);
+            put("sid", this.f38658c.f38654b);
+            put("sidv", Integer.valueOf(this.f38658c.f38655c));
+            put("ldr_i", Integer.valueOf(o.b(this.f38658c.f38654b)));
+            put("type", this.f38658c.f38656d);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends o0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(String str, Ssp.Pid pid) {
+            super(str, j.a(str, pid), "n");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, pid};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c extends o0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(n nVar) {
+            super(nVar.a, nVar.f23216d, "p");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d extends o0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: e  reason: collision with root package name */
+        public long f38659e;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(l lVar) {
+            super(lVar.a, lVar.f23183c, "s");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.fun.o0
+        public void c(String str, Object... objArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, objArr) == null) {
+                Object[] objArr2 = new Object[objArr.length + 2];
+                objArr2[0] = "lid";
+                objArr2[1] = Long.valueOf(this.f38659e);
+                System.arraycopy(objArr, 0, objArr2, 2, objArr.length);
+                super.c(str, objArr2);
+            }
+        }
+
+        @Override // com.fun.o0
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                throw new UnsupportedOperationException();
+            }
+        }
+
+        public void f(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                c("ldr_ld_err", "layer", Integer.valueOf(i), NotificationCompat.CATEGORY_ERROR, Integer.valueOf(i2));
+            }
+        }
+
+        public void g(int i, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+                c("ldr_sld_st", "layer", Integer.valueOf(i), "stype", str, "sst", Integer.valueOf(i2));
+            }
+        }
+
+        public void h(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                this.f38659e = System.currentTimeMillis();
+                b();
+                c("ldr_ld_start", "irpt", Integer.valueOf(z ? 1 : 0));
+            }
+        }
+    }
+
+    public o0(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = s.a();
+        this.f38654b = str;
+        this.f38656d = str2;
+        this.f38655c = i;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            String str = this.f38654b;
+            Object obj = o.a;
+            int i = o.f23222b.getInt("key_sid_c_pre_" + str, 0);
+            String str2 = this.f38654b;
+            o.e("key_sid_c_pre_" + str2, i + 1);
+        }
+    }
+
+    public void c(String str, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, objArr) == null) {
+            this.a.logEvent("ad_ldr", new a(this, objArr, str));
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            c("ldr_ld_start", new Object[0]);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c("ldr_sh_start", new Object[0]);
+        }
+    }
+}

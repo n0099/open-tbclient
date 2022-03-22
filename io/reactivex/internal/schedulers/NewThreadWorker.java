@@ -33,9 +33,9 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
             newInitContext.initArgs = r2;
             Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,18 +70,18 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
     }
 
     @NonNull
-    public ScheduledRunnable scheduleActual(Runnable runnable, long j2, @NonNull TimeUnit timeUnit, @Nullable DisposableContainer disposableContainer) {
+    public ScheduledRunnable scheduleActual(Runnable runnable, long j, @NonNull TimeUnit timeUnit, @Nullable DisposableContainer disposableContainer) {
         InterceptResult invokeCommon;
         Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit, disposableContainer})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit, disposableContainer})) == null) {
             ScheduledRunnable scheduledRunnable = new ScheduledRunnable(RxJavaPlugins.onSchedule(runnable), disposableContainer);
             if (disposableContainer == null || disposableContainer.add(scheduledRunnable)) {
                 try {
-                    if (j2 <= 0) {
+                    if (j <= 0) {
                         schedule = this.executor.submit((Callable) scheduledRunnable);
                     } else {
-                        schedule = this.executor.schedule((Callable) scheduledRunnable, j2, timeUnit);
+                        schedule = this.executor.schedule((Callable) scheduledRunnable, j, timeUnit);
                     }
                     scheduledRunnable.setFuture(schedule);
                 } catch (RejectedExecutionException e2) {
@@ -97,17 +97,17 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
         return (ScheduledRunnable) invokeCommon.objValue;
     }
 
-    public Disposable scheduleDirect(Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(RxJavaPlugins.onSchedule(runnable));
             try {
-                if (j2 <= 0) {
+                if (j <= 0) {
                     schedule = this.executor.submit(scheduledDirectTask);
                 } else {
-                    schedule = this.executor.schedule(scheduledDirectTask, j2, timeUnit);
+                    schedule = this.executor.schedule(scheduledDirectTask, j, timeUnit);
                 }
                 scheduledDirectTask.setFuture(schedule);
                 return scheduledDirectTask;
@@ -119,19 +119,19 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
         return (Disposable) invokeCommon.objValue;
     }
 
-    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-            if (j3 <= 0) {
+            if (j2 <= 0) {
                 InstantPeriodicTask instantPeriodicTask = new InstantPeriodicTask(onSchedule, this.executor);
                 try {
-                    if (j2 <= 0) {
+                    if (j <= 0) {
                         schedule = this.executor.submit(instantPeriodicTask);
                     } else {
-                        schedule = this.executor.schedule(instantPeriodicTask, j2, timeUnit);
+                        schedule = this.executor.schedule(instantPeriodicTask, j, timeUnit);
                     }
                     instantPeriodicTask.setFirst(schedule);
                     return instantPeriodicTask;
@@ -142,7 +142,7 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
             }
             ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(onSchedule);
             try {
-                scheduledDirectPeriodicTask.setFuture(this.executor.scheduleAtFixedRate(scheduledDirectPeriodicTask, j2, j3, timeUnit));
+                scheduledDirectPeriodicTask.setFuture(this.executor.scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                 return scheduledDirectPeriodicTask;
             } catch (RejectedExecutionException e3) {
                 RxJavaPlugins.onError(e3);
@@ -163,14 +163,14 @@ public class NewThreadWorker extends Scheduler.Worker implements Disposable {
 
     @Override // io.reactivex.Scheduler.Worker
     @NonNull
-    public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+    public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             if (this.disposed) {
                 return EmptyDisposable.INSTANCE;
             }
-            return scheduleActual(runnable, j2, timeUnit, null);
+            return scheduleActual(runnable, j, timeUnit, null);
         }
         return (Disposable) invokeCommon.objValue;
     }

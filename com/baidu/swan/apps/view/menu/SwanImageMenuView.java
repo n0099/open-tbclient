@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
-import c.a.p0.a.s1.b.e.a;
-import c.a.p0.a.s1.b.e.b;
-import c.a.p0.a.s1.b.e.d;
+import c.a.n0.a.s1.b.e.a;
+import c.a.n0.a.s1.b.e.b;
+import c.a.n0.a.s1.b.e.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.view.SwanAppRoundCornerListView;
 import com.baidu.tieba.R;
@@ -27,37 +27,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanImageMenuView extends FrameLayout implements a.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c f29369b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f29370c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public SwanAppRoundCornerListView f29371d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f38153e;
+    public c.a.n0.a.q2.j.b f29372e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f38154f;
+    public View f29373f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Context f38155g;
+    public int f29374g;
 
-    /* renamed from: h  reason: collision with root package name */
-    public SwanAppRoundCornerListView f38156h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c.a.p0.a.q2.j.b f38157i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f38158j;
-    public int k;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanImageMenuView f38159e;
+        public final /* synthetic */ SwanImageMenuView a;
 
         public a(SwanImageMenuView swanImageMenuView) {
             Interceptable interceptable = $ic;
@@ -66,33 +64,31 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanImageMenuView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38159e = swanImageMenuView;
+            this.a = swanImageMenuView;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                this.f38159e.f38154f.b(i2);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                this.a.f29369b.b(i);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanImageMenuView f38160e;
+        public final /* synthetic */ SwanImageMenuView a;
 
         public b(SwanImageMenuView swanImageMenuView) {
             Interceptable interceptable = $ic;
@@ -101,91 +97,89 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanImageMenuView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38160e = swanImageMenuView;
+            this.a = swanImageMenuView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f38160e.f38157i == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f29372e == null) {
                 return;
             }
-            this.f38160e.f38157i.j();
+            this.a.f29372e.j();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public List<c.a.n0.a.s1.b.e.b> a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public List<c.a.p0.a.s1.b.e.b> f38161e;
+        /* renamed from: b  reason: collision with root package name */
+        public Context f29375b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public Context f38162f;
-
-        public c(Context context, List<c.a.p0.a.s1.b.e.b> list) {
+        public c(Context context, List<c.a.n0.a.s1.b.e.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38161e = list;
-            this.f38162f = context;
+            this.a = list;
+            this.f29375b = context;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public c.a.p0.a.s1.b.e.b getItem(int i2) {
+        public c.a.n0.a.s1.b.e.b getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f38161e.get(i2) : (c.a.p0.a.s1.b.e.b) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (c.a.n0.a.s1.b.e.b) invokeI.objValue;
         }
 
-        public void b(int i2) {
-            c.a.p0.a.s1.b.e.b bVar;
+        public void b(int i) {
+            c.a.n0.a.s1.b.e.b bVar;
             b.a d2;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (d2 = (bVar = this.f38161e.get(i2)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (d2 = (bVar = this.a.get(i)).d()) == null) {
                 return;
             }
             d2.a(bVar);
         }
 
-        public final void c(@NonNull View view, int i2) {
+        public final void c(@NonNull View view, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-                if (i2 == 0) {
-                    view.setBackground(this.f38162f.getResources().getDrawable(R.drawable.swan_image_menu_item_rounded_bg));
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+                if (i == 0) {
+                    view.setBackground(this.f29375b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112d));
                 } else {
-                    view.setBackground(this.f38162f.getResources().getDrawable(R.drawable.swan_image_menu_item_bg));
+                    view.setBackground(this.f29375b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08112c));
                 }
             }
         }
 
-        public void d(List<c.a.p0.a.s1.b.e.b> list) {
+        public void d(List<c.a.n0.a.s1.b.e.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-                this.f38161e = list;
+                this.a = list;
                 notifyDataSetChanged();
             }
         }
@@ -194,37 +188,37 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
         public int getCount() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38161e.size() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.size() : invokeV.intValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             View inflate;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
-                c.a.p0.a.s1.b.e.b item = getItem(i2);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) {
+                c.a.n0.a.s1.b.e.b item = getItem(i);
                 if (item instanceof d) {
-                    inflate = View.inflate(this.f38162f, R.layout.swan_app_img_menu_swan_item_layout, null);
-                    String j2 = ((d) item).j();
-                    if (!TextUtils.isEmpty(j2)) {
-                        ((SimpleDraweeView) inflate.findViewById(R.id.icon)).setImageURI(j2);
+                    inflate = View.inflate(this.f29375b, R.layout.obfuscated_res_0x7f0d07c1, null);
+                    String i2 = ((d) item).i();
+                    if (!TextUtils.isEmpty(i2)) {
+                        ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090e06)).setImageURI(i2);
                     }
-                    ((TextView) inflate.findViewById(R.id.name)).setText(item.e());
+                    ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0914e9)).setText(item.e());
                 } else {
-                    inflate = View.inflate(this.f38162f, R.layout.aiapps_scheme_utils_show_action_sheet_item, null);
-                    TextView textView = (TextView) inflate.findViewById(R.id.text);
-                    textView.setTextColor(this.f38162f.getResources().getColor(R.color.aiapps_action_sheet_item_color));
+                    inflate = View.inflate(this.f29375b, R.layout.obfuscated_res_0x7f0d00d2, null);
+                    TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091f1b);
+                    textView.setTextColor(this.f29375b.getResources().getColor(R.color.obfuscated_res_0x7f06037c));
                     textView.setText(item.e());
                 }
-                c(inflate, i2);
+                c(inflate, i);
                 return inflate;
             }
             return (View) invokeILL.objValue;
@@ -232,17 +226,17 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwanImageMenuView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwanImageMenuView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -250,81 +244,68 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f38153e = false;
-        this.k = -1;
-        this.f38155g = context;
+        this.a = false;
+        this.f29374g = -1;
+        this.f29370c = context;
         c();
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f38155g).inflate(R.layout.swan_app_img_menu, (ViewGroup) null);
-            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.list);
-            this.f38156h = swanAppRoundCornerListView;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.f29370c).inflate(R.layout.obfuscated_res_0x7f0d07c0, (ViewGroup) null);
+            SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091277);
+            this.f29371d = swanAppRoundCornerListView;
             swanAppRoundCornerListView.setOnItemClickListener(new a(this));
-            this.f38156h.setSelector(new ColorDrawable(0));
-            ((TextView) linearLayout.findViewById(R.id.negative_button)).setOnClickListener(new b(this));
+            this.f29371d.setSelector(new ColorDrawable(0));
+            ((TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091535)).setOnClickListener(new b(this));
             addView(linearLayout);
-            if (c.a.p0.a.s0.a.M().a()) {
-                View view = new View(this.f38155g);
-                this.f38158j = view;
-                view.setBackgroundResource(R.drawable.swan_image_menu_night_mask);
-                this.f38158j.setVisibility(8);
-                addView(this.f38158j);
+            if (c.a.n0.a.s0.a.M().a()) {
+                View view = new View(this.f29370c);
+                this.f29373f = view;
+                view.setBackgroundResource(R.drawable.obfuscated_res_0x7f08112e);
+                this.f29373f.setVisibility(8);
+                addView(this.f29373f);
             }
         }
     }
 
-    public void layoutMenu(List<c.a.p0.a.s1.b.e.b> list) {
+    public void d(List<c.a.n0.a.s1.b.e.b> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.f38153e) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.a) {
             return;
         }
-        c cVar = this.f38154f;
+        c cVar = this.f29369b;
         if (cVar == null) {
-            c cVar2 = new c(this.f38155g, list);
-            this.f38154f = cVar2;
-            this.f38156h.setAdapter((ListAdapter) cVar2);
+            c cVar2 = new c(this.f29370c, list);
+            this.f29369b = cVar2;
+            this.f29371d.setAdapter((ListAdapter) cVar2);
         } else {
             cVar.d(list);
         }
-        this.f38153e = true;
+        this.a = true;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             int measuredHeight = getMeasuredHeight();
-            View view = this.f38158j;
-            if (view == null || this.k == measuredHeight) {
+            View view = this.f29373f;
+            if (view == null || this.f29374g == measuredHeight) {
                 return;
             }
             view.setLayoutParams(new FrameLayout.LayoutParams(-1, measuredHeight));
-            this.f38158j.setVisibility(0);
-            this.k = measuredHeight;
+            this.f29373f.setVisibility(0);
+            this.f29374g = measuredHeight;
         }
     }
 
-    public void onMenuItemUpdated(c.a.p0.a.s1.b.e.b bVar) {
+    public void setMenu(c.a.n0.a.q2.j.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-        }
-    }
-
-    public void onMenuSetChanged() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f38153e = false;
-        }
-    }
-
-    public void setMenu(c.a.p0.a.q2.j.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.f38157i = bVar;
+            this.f29372e = bVar;
         }
     }
 
@@ -337,9 +318,9 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -347,9 +328,9 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
                 return;
             }
         }
-        this.f38153e = false;
-        this.k = -1;
-        this.f38155g = context;
+        this.a = false;
+        this.f29374g = -1;
+        this.f29370c = context;
         c();
     }
 
@@ -362,18 +343,18 @@ public class SwanImageMenuView extends FrameLayout implements a.g {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38153e = false;
-        this.k = -1;
-        this.f38155g = context;
+        this.a = false;
+        this.f29374g = -1;
+        this.f29370c = context;
         c();
     }
 }

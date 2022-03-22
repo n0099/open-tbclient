@@ -32,9 +32,9 @@ public class IMPaSearchListMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,20 +78,20 @@ public class IMPaSearchListMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         ArrayList arrayList;
         Exception e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             ArrayList arrayList2 = null;
-            if (i2 == 0) {
+            if (i == 0) {
                 try {
                     JSONArray optJSONArray = jSONObject.optJSONArray("pa_list");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         arrayList = new ArrayList();
-                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                             try {
-                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
                                 PaInfo paInfo = new PaInfo();
                                 paInfo.setPaId(jSONObject2.optLong("pa_uid"));
                                 paInfo.setNickName(jSONObject2.optString("pa_nickname"));
@@ -105,8 +105,8 @@ public class IMPaSearchListMsg extends Message {
                                 e2 = e3;
                                 LogUtils.e(LogUtils.TAG, "handleMessageResult:", e2);
                                 new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-                                super.handleMessageResult(context, jSONObject, i2, str);
-                                PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i2, str, arrayList);
+                                super.handleMessageResult(context, jSONObject, i, str);
+                                PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
                             }
                         }
                         arrayList2 = arrayList;
@@ -117,8 +117,8 @@ public class IMPaSearchListMsg extends Message {
                 }
             }
             arrayList = arrayList2;
-            super.handleMessageResult(context, jSONObject, i2, str);
-            PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i2, str, arrayList);
+            super.handleMessageResult(context, jSONObject, i, str);
+            PaManagerImpl.getInstance(context).onSearchPaListResult(getListenerKey(), i, str, arrayList);
         }
     }
 }

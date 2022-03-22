@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CompositeSequenceableLoader implements SequenceableLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
             newInitContext.initArgs = r2;
             Object[] objArr = {sequenceableLoaderArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,12 +31,12 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
     }
 
     @Override // com.google.android.exoplayer2.source.SequenceableLoader
-    public final boolean continueLoading(long j2) {
+    public final boolean continueLoading(long j) {
         InterceptResult invokeJ;
         SequenceableLoader[] sequenceableLoaderArr;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             boolean z2 = false;
             do {
                 long nextLoadPositionUs = getNextLoadPositionUs();
@@ -46,9 +46,9 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
                 z = false;
                 for (SequenceableLoader sequenceableLoader : this.loaders) {
                     long nextLoadPositionUs2 = sequenceableLoader.getNextLoadPositionUs();
-                    boolean z3 = nextLoadPositionUs2 != Long.MIN_VALUE && nextLoadPositionUs2 <= j2;
+                    boolean z3 = nextLoadPositionUs2 != Long.MIN_VALUE && nextLoadPositionUs2 <= j;
                     if (nextLoadPositionUs2 == nextLoadPositionUs || z3) {
-                        z |= sequenceableLoader.continueLoading(j2);
+                        z |= sequenceableLoader.continueLoading(j);
                     }
                 }
                 z2 |= z;
@@ -63,17 +63,17 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = Long.MAX_VALUE;
+            long j = Long.MAX_VALUE;
             for (SequenceableLoader sequenceableLoader : this.loaders) {
                 long bufferedPositionUs = sequenceableLoader.getBufferedPositionUs();
                 if (bufferedPositionUs != Long.MIN_VALUE) {
-                    j2 = Math.min(j2, bufferedPositionUs);
+                    j = Math.min(j, bufferedPositionUs);
                 }
             }
-            if (j2 == Long.MAX_VALUE) {
+            if (j == Long.MAX_VALUE) {
                 return Long.MIN_VALUE;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -83,17 +83,17 @@ public final class CompositeSequenceableLoader implements SequenceableLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = Long.MAX_VALUE;
+            long j = Long.MAX_VALUE;
             for (SequenceableLoader sequenceableLoader : this.loaders) {
                 long nextLoadPositionUs = sequenceableLoader.getNextLoadPositionUs();
                 if (nextLoadPositionUs != Long.MIN_VALUE) {
-                    j2 = Math.min(j2, nextLoadPositionUs);
+                    j = Math.min(j, nextLoadPositionUs);
                 }
             }
-            if (j2 == Long.MAX_VALUE) {
+            if (j == Long.MAX_VALUE) {
                 return Long.MIN_VALUE;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

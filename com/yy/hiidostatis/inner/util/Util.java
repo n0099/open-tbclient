@@ -36,8 +36,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadLocal<Map<String, SimpleDateFormat>> dateFormatThreadLocal;
@@ -75,9 +74,9 @@ public class Util {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -99,9 +98,9 @@ public class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -126,16 +125,16 @@ public class Util {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? millisToSec(cpuMillis()) : invokeV.longValue;
     }
 
-    public static int daysBetween(long j2, long j3) {
+    public static int daysBetween(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = j3 - j2;
-            long j5 = j4 / 86400000;
-            if (j4 % 86400000 != 0) {
-                j5++;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j2 - j;
+            long j4 = j3 / 86400000;
+            if (j3 % 86400000 != 0) {
+                j4++;
             }
-            return Integer.parseInt(String.valueOf(j5));
+            return Integer.parseInt(String.valueOf(j4));
         }
         return invokeCommon.intValue;
     }
@@ -146,10 +145,10 @@ public class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? str == null || str.length() == 0 : invokeL.booleanValue;
     }
 
-    public static String formatDate(String str, long j2) {
+    public static String formatDate(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j2)) == null) ? getSimpleDateFormat(str).format(Long.valueOf(j2)) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) ? getSimpleDateFormat(str).format(Long.valueOf(j)) : (String) invokeLJ.objValue;
     }
 
     public static String formatStr(String str, Object... objArr) {
@@ -207,7 +206,7 @@ public class Util {
                             break;
                         }
                         sb.append(readLine);
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                     }
                     inputStream.close();
                     Matcher matcher = Pattern.compile("[\\d]{1,3}\\.[\\d]{1,3}\\.[\\d]{1,3}\\.[\\d]{1,3}").matcher(sb.toString());
@@ -225,15 +224,15 @@ public class Util {
         return (String) invokeV.objValue;
     }
 
-    public static String getRandStringEx(int i2) {
+    public static String getRandStringEx(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
             byte[] bArr = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122};
-            byte[] bArr2 = new byte[i2];
+            byte[] bArr2 = new byte[i];
             Random random = new Random();
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr2[i3] = bArr[random.nextInt(61)];
+            for (int i2 = 0; i2 < i; i2++) {
+                bArr2[i2] = bArr[random.nextInt(61)];
             }
             return new String(bArr2);
         }
@@ -281,28 +280,28 @@ public class Util {
         return invokeL.booleanValue;
     }
 
-    public static int longToInt(long j2) {
+    public static int longToInt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
-            if (j2 >= 2147483647L) {
-                L.debug("Util", "Failed to convert long %d to int.", Long.valueOf(j2));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
+            if (j >= 2147483647L) {
+                L.debug("Util", "Failed to convert long %d to int.", Long.valueOf(j));
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeJ.intValue;
     }
 
-    public static long millisToSec(long j2) {
+    public static long millisToSec(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j2)) == null) ? j2 / 1000 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65558, null, j)) == null) ? j / 1000 : invokeJ.longValue;
     }
 
-    public static long millisToSec1(long j2) {
+    public static long millisToSec1(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j2)) == null) ? (j2 % 1000 == 0 || j2 <= 0) ? j2 / 1000 : (j2 / 1000) + 1 : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65559, null, j)) == null) ? (j % 1000 == 0 || j <= 0) ? j / 1000 : (j / 1000) + 1 : invokeJ.longValue;
     }
 
     public static Date parseDate(String str, String str2) throws ParseException {

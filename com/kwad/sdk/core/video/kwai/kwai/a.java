@@ -3,12 +3,12 @@ package com.kwad.sdk.core.video.kwai.kwai;
 import android.content.Context;
 import com.kwad.sdk.core.report.g;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.kwad.sdk.core.report.b<c, b> {
     public static a a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f54796b = false;
+    public static volatile boolean f39895b = false;
 
     public static void a(final String str, final String str2) {
         a.a(new g<c>() { // from class: com.kwad.sdk.core.video.kwai.kwai.a.1
@@ -27,11 +27,11 @@ public class a extends com.kwad.sdk.core.report.b<c, b> {
 
     @Override // com.kwad.sdk.core.report.b
     public void a(Context context) {
-        if (f54796b) {
+        if (f39895b) {
             return;
         }
         super.a(context);
-        f54796b = true;
+        f39895b = true;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

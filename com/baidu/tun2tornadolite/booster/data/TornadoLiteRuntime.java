@@ -2,6 +2,7 @@ package com.baidu.tun2tornadolite.booster.data;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.retrieve.log.bean.FetchLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.tun2tornadolite.booster.Engine;
 import com.baidu.tun2tornadolite.booster.LogTo;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0010\u000e\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u000e\n\u0002\u0010\b\n\u0002\b#\n\u0002\u0010\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0015\u0010Q\u001a\u00020R2\u0006\u0010S\u001a\u00020\u0004H\u0000¢\u0006\u0002\bTJ\u001d\u0010Q\u001a\u00020R2\u0006\u0010S\u001a\u00020\u00042\u0006\u0010U\u001a\u00020\u000fH\u0000¢\u0006\u0002\bTR\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R$\u0010\u0013\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R$\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u0015\"\u0004\b\u001a\u0010\u0017R$\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0015\"\u0004\b\u001d\u0010\u0017R\u001a\u0010\u001e\u001a\u00020\u001fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R$\u0010$\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010\u0015\"\u0004\b&\u0010\u0017R$\u0010'\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010\u0015\"\u0004\b)\u0010\u0017R$\u0010*\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b+\u0010\u0015\"\u0004\b,\u0010\u0017R\u000e\u0010-\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R$\u0010/\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u00101\"\u0004\b2\u00103R$\u00104\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u00101\"\u0004\b6\u00103R$\u00107\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u00101\"\u0004\b9\u00103R$\u0010:\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u00101\"\u0004\b<\u00103R$\u0010=\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b>\u00101\"\u0004\b?\u00103R$\u0010@\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010\u0015\"\u0004\bB\u0010\u0017R$\u0010C\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u0004@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bD\u0010E\"\u0004\bF\u0010GR\u001a\u0010H\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010\u0015\"\u0004\bJ\u0010\u0017R$\u0010K\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010\u0015\"\u0004\bM\u0010\u0017R$\u0010N\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010\u0015\"\u0004\bP\u0010\u0017¨\u0006V"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/TornadoLiteRuntime;", "", "()V", "EVENT_BOOSTER_PREPARE_FAIL", "", "EVENT_BOOSTER_PREPARE_OK", "EVENT_BOOSTER_SCLIENT_EOF", "EVENT_BOOSTER_START_FAIL", "EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID", "EVENT_BOOSTER_START_OK", "EVENT_BOOSTER_STOP", "EVENT_REMOTE_EVENT_CLOSED", "EVENT_SCLIENT_HAND_SHAKE_FAIL", "EVENT_SCLIENT_HAND_SHAKE_OK", "STATE_INIT", "", "STATE_RUNNING", "STATE_STARTING", "<set-?>", "channel", "getChannel", "()Ljava/lang/String;", "setChannel$tun2tornadolite_release", "(Ljava/lang/String;)V", "clientVersion", "getClientVersion", "setClientVersion$tun2tornadolite_release", "cuid", "getCuid", "setCuid$tun2tornadolite_release", "debug", "", "getDebug", "()Z", "setDebug", "(Z)V", "device", "getDevice", "setDevice$tun2tornadolite_release", "gameID", "getGameID", "setGameID$tun2tornadolite_release", "gamePackageName", "getGamePackageName", "setGamePackageName$tun2tornadolite_release", "lastEventMsg", "", "latencyFromMClientToSClient", "getLatencyFromMClientToSClient", "()I", "setLatencyFromMClientToSClient$tun2tornadolite_release", "(I)V", "latencyFromSClientToRemote", "getLatencyFromSClientToRemote", "setLatencyFromSClientToRemote$tun2tornadolite_release", "lossRateFromMClientToSClient", "getLossRateFromMClientToSClient", "setLossRateFromMClientToSClient$tun2tornadolite_release", "lossRateFromSClientToRemote", "getLossRateFromSClientToRemote", "setLossRateFromSClientToRemote$tun2tornadolite_release", "optimizationRate", "getOptimizationRate", "setOptimizationRate$tun2tornadolite_release", "region", "getRegion", "setRegion$tun2tornadolite_release", FetchLog.START_TIME, "getStartTime", "()J", "setStartTime$tun2tornadolite_release", "(J)V", "status", "getStatus", "setStatus", "sysVersion", "getSysVersion", "setSysVersion$tun2tornadolite_release", "token", "getToken", "setToken$tun2tornadolite_release", "onEvent", "", "event", "onEvent$tun2tornadolite_release", "eventMsg", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0010\u000e\n\u0002\b\u000f\n\u0002\u0010\u000b\n\u0002\b\u000e\n\u0002\u0010\b\n\u0002\b#\n\u0002\u0010\u0002\n\u0002\b\u0004\bÆ\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0015\u0010Q\u001a\u00020R2\u0006\u0010S\u001a\u00020\u0004H\u0000¢\u0006\u0002\bTJ\u001d\u0010Q\u001a\u00020R2\u0006\u0010S\u001a\u00020\u00042\u0006\u0010U\u001a\u00020\u000fH\u0000¢\u0006\u0002\bTR\u000e\u0010\u0003\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u0004X\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u000e\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u000fX\u0086T¢\u0006\u0002\n\u0000R$\u0010\u0013\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0014\u0010\u0015\"\u0004\b\u0016\u0010\u0017R$\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0019\u0010\u0015\"\u0004\b\u001a\u0010\u0017R$\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001c\u0010\u0015\"\u0004\b\u001d\u0010\u0017R\u001a\u0010\u001e\u001a\u00020\u001fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b \u0010!\"\u0004\b\"\u0010#R$\u0010$\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b%\u0010\u0015\"\u0004\b&\u0010\u0017R$\u0010'\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b(\u0010\u0015\"\u0004\b)\u0010\u0017R$\u0010*\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b+\u0010\u0015\"\u0004\b,\u0010\u0017R\u000e\u0010-\u001a\u00020\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R$\u0010/\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b0\u00101\"\u0004\b2\u00103R$\u00104\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b5\u00101\"\u0004\b6\u00103R$\u00107\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b8\u00101\"\u0004\b9\u00103R$\u0010:\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u00101\"\u0004\b<\u00103R$\u0010=\u001a\u00020.2\u0006\u0010\u0012\u001a\u00020.@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b>\u00101\"\u0004\b?\u00103R$\u0010@\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bA\u0010\u0015\"\u0004\bB\u0010\u0017R$\u0010C\u001a\u00020\u00042\u0006\u0010\u0012\u001a\u00020\u0004@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bD\u0010E\"\u0004\bF\u0010GR\u001a\u0010H\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bI\u0010\u0015\"\u0004\bJ\u0010\u0017R$\u0010K\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bL\u0010\u0015\"\u0004\bM\u0010\u0017R$\u0010N\u001a\u00020\u000f2\u0006\u0010\u0012\u001a\u00020\u000f@@X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\bO\u0010\u0015\"\u0004\bP\u0010\u0017¨\u0006V"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/data/TornadoLiteRuntime;", "", "()V", "EVENT_BOOSTER_PREPARE_FAIL", "", "EVENT_BOOSTER_PREPARE_OK", "EVENT_BOOSTER_SCLIENT_EOF", "EVENT_BOOSTER_START_FAIL", "EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID", "EVENT_BOOSTER_START_OK", "EVENT_BOOSTER_STOP", "EVENT_REMOTE_EVENT_CLOSED", "EVENT_SCLIENT_HAND_SHAKE_FAIL", "EVENT_SCLIENT_HAND_SHAKE_OK", "STATE_INIT", "", "STATE_RUNNING", "STATE_STARTING", "<set-?>", "channel", "getChannel", "()Ljava/lang/String;", "setChannel$tun2tornadolite_release", "(Ljava/lang/String;)V", "clientVersion", "getClientVersion", "setClientVersion$tun2tornadolite_release", "cuid", "getCuid", "setCuid$tun2tornadolite_release", "debug", "", "getDebug", "()Z", "setDebug", "(Z)V", Config.DEVICE_PART, "getDevice", "setDevice$tun2tornadolite_release", "gameID", "getGameID", "setGameID$tun2tornadolite_release", "gamePackageName", "getGamePackageName", "setGamePackageName$tun2tornadolite_release", "lastEventMsg", "", "latencyFromMClientToSClient", "getLatencyFromMClientToSClient", "()I", "setLatencyFromMClientToSClient$tun2tornadolite_release", "(I)V", "latencyFromSClientToRemote", "getLatencyFromSClientToRemote", "setLatencyFromSClientToRemote$tun2tornadolite_release", "lossRateFromMClientToSClient", "getLossRateFromMClientToSClient", "setLossRateFromMClientToSClient$tun2tornadolite_release", "lossRateFromSClientToRemote", "getLossRateFromSClientToRemote", "setLossRateFromSClientToRemote$tun2tornadolite_release", "optimizationRate", "getOptimizationRate", "setOptimizationRate$tun2tornadolite_release", "region", "getRegion", "setRegion$tun2tornadolite_release", FetchLog.START_TIME, "getStartTime", "()J", "setStartTime$tun2tornadolite_release", "(J)V", "status", "getStatus", "setStatus", "sysVersion", "getSysVersion", "setSysVersion$tun2tornadolite_release", "token", "getToken", "setToken$tun2tornadolite_release", "onEvent", "", "event", "onEvent$tun2tornadolite_release", "eventMsg", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class TornadoLiteRuntime {
     public static /* synthetic */ Interceptable $ic = null;
@@ -86,9 +87,9 @@ public final class TornadoLiteRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -197,10 +198,10 @@ public final class TornadoLiteRuntime {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? token : (String) invokeV.objValue;
     }
 
-    public final void onEvent$tun2tornadolite_release(long j2) {
+    public final void onEvent$tun2tornadolite_release(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            onEvent$tun2tornadolite_release(j2, "");
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            onEvent$tun2tornadolite_release(j, "");
         }
     }
 
@@ -259,38 +260,38 @@ public final class TornadoLiteRuntime {
         }
     }
 
-    public final void setLatencyFromMClientToSClient$tun2tornadolite_release(int i2) {
+    public final void setLatencyFromMClientToSClient$tun2tornadolite_release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            latencyFromMClientToSClient = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            latencyFromMClientToSClient = i;
         }
     }
 
-    public final void setLatencyFromSClientToRemote$tun2tornadolite_release(int i2) {
+    public final void setLatencyFromSClientToRemote$tun2tornadolite_release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            latencyFromSClientToRemote = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            latencyFromSClientToRemote = i;
         }
     }
 
-    public final void setLossRateFromMClientToSClient$tun2tornadolite_release(int i2) {
+    public final void setLossRateFromMClientToSClient$tun2tornadolite_release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            lossRateFromMClientToSClient = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            lossRateFromMClientToSClient = i;
         }
     }
 
-    public final void setLossRateFromSClientToRemote$tun2tornadolite_release(int i2) {
+    public final void setLossRateFromSClientToRemote$tun2tornadolite_release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            lossRateFromSClientToRemote = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            lossRateFromSClientToRemote = i;
         }
     }
 
-    public final void setOptimizationRate$tun2tornadolite_release(int i2) {
+    public final void setOptimizationRate$tun2tornadolite_release(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            optimizationRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            optimizationRate = i;
         }
     }
 
@@ -302,10 +303,10 @@ public final class TornadoLiteRuntime {
         }
     }
 
-    public final void setStartTime$tun2tornadolite_release(long j2) {
+    public final void setStartTime$tun2tornadolite_release(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048608, this, j2) == null) {
-            startTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048608, this, j) == null) {
+            startTime = j;
         }
     }
 
@@ -333,52 +334,52 @@ public final class TornadoLiteRuntime {
         }
     }
 
-    public final void onEvent$tun2tornadolite_release(long j2, String eventMsg) {
+    public final void onEvent$tun2tornadolite_release(long j, String eventMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048594, this, j2, eventMsg) == null) {
+        if (interceptable == null || interceptable.invokeJL(1048594, this, j, eventMsg) == null) {
             Intrinsics.checkNotNullParameter(eventMsg, "eventMsg");
-            if (j2 == 0) {
+            if (j == 0) {
                 LogTo.INSTANCE.d("*****", "[OnEvent] EVENT_BOOSTER_PREPARE_OK");
-            } else if (j2 == 1) {
+            } else if (j == 1) {
                 lastEventMsg = eventMsg;
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_PREPARE_FAIL ", lastEventMsg));
-            } else if (j2 == 21) {
+            } else if (j == 21) {
                 LogTo.INSTANCE.d("*****", "[OnEvent] EVENT_BOOSTER_START_OK");
                 AndroidOperationInterface ai = Engine.INSTANCE.getAi();
                 if (ai == null) {
                     return;
                 }
-                ai.onEvent(j2, "");
-            } else if (j2 == 22) {
+                ai.onEvent(j, "");
+            } else if (j == 22) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_START_FAIL ", lastEventMsg));
                 AndroidOperationInterface ai2 = Engine.INSTANCE.getAi();
                 if (ai2 == null) {
                     return;
                 }
-                ai2.onEvent(j2, lastEventMsg);
-            } else if (j2 == 23) {
+                ai2.onEvent(j, lastEventMsg);
+            } else if (j == 23) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_START_FAIL_WITH_TOKEN_INVALID ", lastEventMsg));
                 AndroidOperationInterface ai3 = Engine.INSTANCE.getAi();
                 if (ai3 == null) {
                     return;
                 }
-                ai3.onEvent(j2, lastEventMsg);
-            } else if (j2 == 31) {
+                ai3.onEvent(j, lastEventMsg);
+            } else if (j == 31) {
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_STOP ", lastEventMsg));
                 AndroidOperationInterface ai4 = Engine.INSTANCE.getAi();
                 if (ai4 == null) {
                     return;
                 }
-                ai4.onEvent(j2, lastEventMsg);
-            } else if (j2 == 41) {
+                ai4.onEvent(j, lastEventMsg);
+            } else if (j == 41) {
                 lastEventMsg = eventMsg;
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_BOOSTER_SCLIENT_EOF ", lastEventMsg));
-            } else if (j2 == 51) {
+            } else if (j == 51) {
                 LogTo.INSTANCE.d("*****", "[OnEvent] EVENT_SCLIENT_HAND_SHAKE_OK");
-            } else if (j2 == 52) {
+            } else if (j == 52) {
                 lastEventMsg = eventMsg;
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_SCLIENT_HAND_SHAKE_FAIL ", lastEventMsg));
-            } else if (j2 == 61) {
+            } else if (j == 61) {
                 lastEventMsg = eventMsg;
                 LogTo.INSTANCE.d("*****", Intrinsics.stringPlus("[OnEvent] EVENT_REMOTE_EVENT_CLOSED ", lastEventMsg));
             }

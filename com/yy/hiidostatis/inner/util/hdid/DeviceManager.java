@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.utility.LocalConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.io.File;
 import java.util.Random;
 import java.util.UUID;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class DeviceManager {
     public static final /* synthetic */ DeviceManager[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -51,16 +52,16 @@ public final class DeviceManager {
         LOCK = DeviceManager.class;
     }
 
-    public DeviceManager(String str, int i2) {
+    public DeviceManager(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -162,7 +163,7 @@ public final class DeviceManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
-                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(10000000));
+                return Coder.encryptMD5(UUID.randomUUID().toString() + System.currentTimeMillis() + System.nanoTime() + new Random().nextInt(LocalConstant.NEXTSUFFIX));
             } catch (Throwable unused) {
                 return UUID.randomUUID().toString().replace("-", "");
             }

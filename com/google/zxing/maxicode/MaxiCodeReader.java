@@ -52,9 +52,9 @@ public final class MaxiCodeReader implements Reader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,16 +69,16 @@ public final class MaxiCodeReader implements Reader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitMatrix)) == null) {
             int[] enclosingRectangle = bitMatrix.getEnclosingRectangle();
             if (enclosingRectangle != null) {
-                int i2 = enclosingRectangle[0];
-                int i3 = enclosingRectangle[1];
-                int i4 = enclosingRectangle[2];
-                int i5 = enclosingRectangle[3];
+                int i = enclosingRectangle[0];
+                int i2 = enclosingRectangle[1];
+                int i3 = enclosingRectangle[2];
+                int i4 = enclosingRectangle[3];
                 BitMatrix bitMatrix2 = new BitMatrix(30, 33);
-                for (int i6 = 0; i6 < 33; i6++) {
-                    int i7 = (((i6 * i5) + (i5 / 2)) / 33) + i3;
-                    for (int i8 = 0; i8 < 30; i8++) {
-                        if (bitMatrix.get(((((i8 * i4) + (i4 / 2)) + (((i6 & 1) * i4) / 2)) / 30) + i2, i7)) {
-                            bitMatrix2.set(i8, i6);
+                for (int i5 = 0; i5 < 33; i5++) {
+                    int i6 = (((i5 * i4) + (i4 / 2)) / 33) + i2;
+                    for (int i7 = 0; i7 < 30; i7++) {
+                        if (bitMatrix.get(((((i7 * i3) + (i3 / 2)) + (((i5 & 1) * i3) / 2)) / 30) + i, i6)) {
+                            bitMatrix2.set(i7, i5);
                         }
                     }
                 }

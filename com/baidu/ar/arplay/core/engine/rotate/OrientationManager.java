@@ -53,9 +53,9 @@ public class OrientationManager extends OrientationEventListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -66,31 +66,31 @@ public class OrientationManager extends OrientationEventListener {
         this.mListeners = new ArrayList();
     }
 
-    public static Orientation calcOrientation(int i2, Orientation orientation) {
+    public static Orientation calcOrientation(int i, Orientation orientation) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, orientation)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, orientation)) == null) {
             if (isScreenOrientationLandscape) {
-                i2 = (i2 + 90) % 360;
+                i = (i + 90) % 360;
             }
-            Orientation certainOrientation = certainOrientation(i2);
+            Orientation certainOrientation = certainOrientation(i);
             if (certainOrientation != null) {
                 return certainOrientation;
             }
-            Orientation[] probablyOrientation = probablyOrientation(i2);
-            return (orientation == probablyOrientation[0] || orientation == probablyOrientation[1]) ? orientation : nearOrientation(i2);
+            Orientation[] probablyOrientation = probablyOrientation(i);
+            return (orientation == probablyOrientation[0] || orientation == probablyOrientation[1]) ? orientation : nearOrientation(i);
         }
         return (Orientation) invokeIL.objValue;
     }
 
-    public static Orientation certainOrientation(int i2) {
+    public static Orientation certainOrientation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if ((i2 < 0 || i2 > 10) && (i2 < 350 || i2 > 359)) {
-                if (i2 < 80 || i2 > 100) {
-                    if (i2 < 170 || i2 > 190) {
-                        if (i2 < 260 || i2 > 280) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if ((i < 0 || i > 10) && (i < 350 || i > 359)) {
+                if (i < 80 || i > 100) {
+                    if (i < 170 || i > 190) {
+                        if (i < 260 || i > 280) {
                             return null;
                         }
                         return Orientation.LANDSCAPE_REVERSE;
@@ -110,16 +110,16 @@ public class OrientationManager extends OrientationEventListener {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? sGlobalOrientation : (Orientation) invokeV.objValue;
     }
 
-    public static Orientation nearOrientation(int i2) {
+    public static Orientation nearOrientation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? ((i2 < 0 || i2 > 45) && (i2 < 315 || i2 >= 360)) ? (i2 <= 45 || i2 >= 135) ? (i2 < 135 || i2 > 225) ? (i2 <= 225 || i2 >= 315) ? Orientation.PORTRAIT : Orientation.LANDSCAPE_REVERSE : Orientation.PORTRAIT_REVERSE : Orientation.LANDSCAPE : Orientation.PORTRAIT : (Orientation) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? ((i < 0 || i > 45) && (i < 315 || i >= 360)) ? (i <= 45 || i >= 135) ? (i < 135 || i > 225) ? (i <= 225 || i >= 315) ? Orientation.PORTRAIT : Orientation.LANDSCAPE_REVERSE : Orientation.PORTRAIT_REVERSE : Orientation.LANDSCAPE : Orientation.PORTRAIT : (Orientation) invokeI.objValue;
     }
 
-    public static Orientation[] probablyOrientation(int i2) {
+    public static Orientation[] probablyOrientation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? (i2 <= 0 || i2 >= 90) ? (i2 <= 90 || i2 >= 180) ? (i2 <= 180 || i2 >= 270) ? new Orientation[]{Orientation.LANDSCAPE_REVERSE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT_REVERSE, Orientation.LANDSCAPE_REVERSE} : new Orientation[]{Orientation.LANDSCAPE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT, Orientation.LANDSCAPE} : (Orientation[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? (i <= 0 || i >= 90) ? (i <= 90 || i >= 180) ? (i <= 180 || i >= 270) ? new Orientation[]{Orientation.LANDSCAPE_REVERSE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT_REVERSE, Orientation.LANDSCAPE_REVERSE} : new Orientation[]{Orientation.LANDSCAPE, Orientation.PORTRAIT} : new Orientation[]{Orientation.PORTRAIT, Orientation.LANDSCAPE} : (Orientation[]) invokeI.objValue;
     }
 
     public static void setGlobalOrientation(Orientation orientation) {
@@ -187,10 +187,10 @@ public class OrientationManager extends OrientationEventListener {
     }
 
     @Override // android.view.OrientationEventListener
-    public void onOrientationChanged(int i2) {
+    public void onOrientationChanged(int i) {
         Orientation calcOrientation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == -1 || (calcOrientation = calcOrientation(i2, this.mCurrentOrientation)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || i == -1 || (calcOrientation = calcOrientation(i, this.mCurrentOrientation)) == null) {
             return;
         }
         if (sGlobalOrientation == Orientation.UNKNOWN) {

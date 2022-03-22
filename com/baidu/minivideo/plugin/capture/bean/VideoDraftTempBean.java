@@ -27,9 +27,9 @@ public class VideoDraftTempBean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,9 +47,9 @@ public class VideoDraftTempBean {
             try {
                 JSONArray jSONArray = new JSONArray(str);
                 if (jSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
                         VideoDraftTempBean videoDraftTempBean = new VideoDraftTempBean();
-                        JSONObject jSONObject = new JSONObject((String) jSONArray.get(i2));
+                        JSONObject jSONObject = new JSONObject((String) jSONArray.get(i));
                         videoDraftTempBean.mPath = jSONObject.optString("path");
                         videoDraftTempBean.mSpeed = jSONObject.optInt("speed");
                         videoDraftTempBean.mStickerId = jSONObject.optString(FaceItem.DIR_STICKER);
@@ -64,10 +64,10 @@ public class VideoDraftTempBean {
         return (List) invokeL.objValue;
     }
 
-    public static JSONArray getStickersFilters(String str, int i2) {
+    public static JSONArray getStickersFilters(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -76,15 +76,15 @@ public class VideoDraftTempBean {
             try {
                 JSONArray jSONArray2 = new JSONArray(str);
                 if (jSONArray2.length() > 0) {
-                    for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        JSONObject jSONObject = new JSONObject((String) jSONArray2.get(i3));
-                        if (i2 == 1) {
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        JSONObject jSONObject = new JSONObject((String) jSONArray2.get(i2));
+                        if (i == 1) {
                             String optString = jSONObject.optString(FaceItem.DIR_STICKER);
                             if (!TextUtils.isEmpty(optString) && !hashSet.contains(optString)) {
                                 hashSet.add(optString);
                                 jSONArray.put(optString);
                             }
-                        } else if (i2 == 2) {
+                        } else if (i == 2) {
                             String optString2 = jSONObject.optString(CloudControlRequest.REQUEST_KEY_FILTER);
                             if (!TextUtils.isEmpty(optString2) && !hashSet.contains(optString2)) {
                                 hashSet.add(optString2);

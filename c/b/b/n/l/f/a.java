@@ -30,10 +30,10 @@ public class a extends g<g.a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.b.b.q.c f27343d;
+    public final c.b.b.q.c f22577d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Quaternion f27344e;
+    public final Quaternion f22578e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a(c.b.b.q.c cVar, e eVar) {
@@ -44,17 +44,17 @@ public class a extends g<g.a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27344e = new Quaternion();
-        this.f27343d = cVar;
+        this.f22578e = new Quaternion();
+        this.f22577d = cVar;
     }
 
     @Override // c.b.b.j.f.g
@@ -78,118 +78,118 @@ public class a extends g<g.a> {
             if (m == null) {
                 return;
             }
-            bVar2.f27380e.e(m.n);
-            JsonValue jsonValue2 = m.f29775j;
+            bVar2.f22612e.e(m.j);
+            JsonValue jsonValue2 = m.f23794f;
             while (jsonValue2 != null) {
                 JsonValue m2 = jsonValue2.m("bones");
                 if (m2 != null) {
                     c.b.b.n.l.g.g.a aVar = new c.b.b.n.l.g.g.a();
-                    bVar2.f27380e.a(aVar);
-                    aVar.f27376b.e(m2.n);
+                    bVar2.f22612e.a(aVar);
+                    aVar.f22608b.e(m2.j);
                     aVar.a = jsonValue2.r("id");
-                    for (JsonValue jsonValue3 = m2.f29775j; jsonValue3 != null; jsonValue3 = jsonValue3.l) {
+                    for (JsonValue jsonValue3 = m2.f23794f; jsonValue3 != null; jsonValue3 = jsonValue3.f23796h) {
                         f fVar = new f();
-                        aVar.f27376b.a(fVar);
+                        aVar.f22608b.a(fVar);
                         fVar.a = jsonValue3.r("boneId");
                         JsonValue m3 = jsonValue3.m("keyframes");
                         float f2 = 1000.0f;
                         float f3 = 0.0f;
-                        int i2 = 2;
-                        int i3 = 1;
-                        int i4 = 0;
-                        int i5 = 3;
+                        int i = 2;
+                        int i2 = 1;
+                        int i3 = 0;
+                        int i4 = 3;
                         if (m3 != null && m3.v()) {
-                            JsonValue jsonValue4 = m3.f29775j;
+                            JsonValue jsonValue4 = m3.f23794f;
                             while (jsonValue4 != null) {
                                 float p = jsonValue4.p("keytime", f3) / f2;
                                 JsonValue m4 = jsonValue4.m("translation");
-                                if (m4 != null && m4.n == i5) {
-                                    if (fVar.f27390b == null) {
-                                        fVar.f27390b = new c.b.b.q.a<>();
+                                if (m4 != null && m4.j == i4) {
+                                    if (fVar.f22622b == null) {
+                                        fVar.f22622b = new c.b.b.q.a<>();
                                     }
                                     c.b.b.n.l.g.g.g<Vector3> gVar = new c.b.b.n.l.g.g.g<>();
                                     gVar.a = p;
-                                    gVar.f27393b = new Vector3(m4.o(i4), m4.o(i3), m4.o(i2));
-                                    fVar.f27390b.a(gVar);
+                                    gVar.f22625b = new Vector3(m4.o(i3), m4.o(i2), m4.o(i));
+                                    fVar.f22622b.a(gVar);
                                 }
                                 JsonValue m5 = jsonValue4.m("rotation");
-                                if (m5 != null && m5.n == 4) {
-                                    if (fVar.f27391c == null) {
-                                        fVar.f27391c = new c.b.b.q.a<>();
+                                if (m5 != null && m5.j == 4) {
+                                    if (fVar.f22623c == null) {
+                                        fVar.f22623c = new c.b.b.q.a<>();
                                     }
                                     c.b.b.n.l.g.g.g<Quaternion> gVar2 = new c.b.b.n.l.g.g.g<>();
                                     gVar2.a = p;
-                                    gVar2.f27393b = new Quaternion(m5.o(0), m5.o(i3), m5.o(i2), m5.o(3));
-                                    fVar.f27391c.a(gVar2);
+                                    gVar2.f22625b = new Quaternion(m5.o(0), m5.o(i2), m5.o(i), m5.o(3));
+                                    fVar.f22623c.a(gVar2);
                                 }
                                 JsonValue m6 = jsonValue4.m(AnimationProperty.SCALE);
-                                if (m6 != null && m6.n == 3) {
-                                    if (fVar.f27392d == null) {
-                                        fVar.f27392d = new c.b.b.q.a<>();
+                                if (m6 != null && m6.j == 3) {
+                                    if (fVar.f22624d == null) {
+                                        fVar.f22624d = new c.b.b.q.a<>();
                                     }
                                     c.b.b.n.l.g.g.g<Vector3> gVar3 = new c.b.b.n.l.g.g.g<>();
                                     gVar3.a = p;
-                                    gVar3.f27393b = new Vector3(m6.o(0), m6.o(1), m6.o(2));
-                                    fVar.f27392d.a(gVar3);
+                                    gVar3.f22625b = new Vector3(m6.o(0), m6.o(1), m6.o(2));
+                                    fVar.f22624d.a(gVar3);
                                 }
-                                jsonValue4 = jsonValue4.l;
+                                jsonValue4 = jsonValue4.f23796h;
                                 f2 = 1000.0f;
                                 f3 = 0.0f;
-                                i2 = 2;
-                                i3 = 1;
-                                i4 = 0;
-                                i5 = 3;
+                                i = 2;
+                                i2 = 1;
+                                i3 = 0;
+                                i4 = 3;
                             }
                         } else {
                             JsonValue m7 = jsonValue3.m("translation");
                             if (m7 != null && m7.v()) {
                                 c.b.b.q.a<c.b.b.n.l.g.g.g<Vector3>> aVar2 = new c.b.b.q.a<>();
-                                fVar.f27390b = aVar2;
-                                aVar2.e(m7.n);
-                                for (JsonValue jsonValue5 = m7.f29775j; jsonValue5 != null; jsonValue5 = jsonValue5.l) {
+                                fVar.f22622b = aVar2;
+                                aVar2.e(m7.j);
+                                for (JsonValue jsonValue5 = m7.f23794f; jsonValue5 != null; jsonValue5 = jsonValue5.f23796h) {
                                     c.b.b.n.l.g.g.g<Vector3> gVar4 = new c.b.b.n.l.g.g.g<>();
-                                    fVar.f27390b.a(gVar4);
+                                    fVar.f22622b.a(gVar4);
                                     gVar4.a = jsonValue5.p("keytime", 0.0f) / 1000.0f;
                                     JsonValue m8 = jsonValue5.m("value");
-                                    if (m8 != null && m8.n >= 3) {
-                                        gVar4.f27393b = new Vector3(m8.o(0), m8.o(1), m8.o(2));
+                                    if (m8 != null && m8.j >= 3) {
+                                        gVar4.f22625b = new Vector3(m8.o(0), m8.o(1), m8.o(2));
                                     }
                                 }
                             }
                             JsonValue m9 = jsonValue3.m("rotation");
                             if (m9 != null && m9.v()) {
                                 c.b.b.q.a<c.b.b.n.l.g.g.g<Quaternion>> aVar3 = new c.b.b.q.a<>();
-                                fVar.f27391c = aVar3;
-                                aVar3.e(m9.n);
-                                for (JsonValue jsonValue6 = m9.f29775j; jsonValue6 != null; jsonValue6 = jsonValue6.l) {
+                                fVar.f22623c = aVar3;
+                                aVar3.e(m9.j);
+                                for (JsonValue jsonValue6 = m9.f23794f; jsonValue6 != null; jsonValue6 = jsonValue6.f23796h) {
                                     c.b.b.n.l.g.g.g<Quaternion> gVar5 = new c.b.b.n.l.g.g.g<>();
-                                    fVar.f27391c.a(gVar5);
+                                    fVar.f22623c.a(gVar5);
                                     gVar5.a = jsonValue6.p("keytime", 0.0f) / 1000.0f;
                                     JsonValue m10 = jsonValue6.m("value");
-                                    if (m10 != null && m10.n >= 4) {
-                                        gVar5.f27393b = new Quaternion(m10.o(0), m10.o(1), m10.o(2), m10.o(3));
+                                    if (m10 != null && m10.j >= 4) {
+                                        gVar5.f22625b = new Quaternion(m10.o(0), m10.o(1), m10.o(2), m10.o(3));
                                     }
                                 }
                             }
                             JsonValue m11 = jsonValue3.m("scaling");
                             if (m11 != null && m11.v()) {
                                 c.b.b.q.a<c.b.b.n.l.g.g.g<Vector3>> aVar4 = new c.b.b.q.a<>();
-                                fVar.f27392d = aVar4;
-                                aVar4.e(m11.n);
-                                for (JsonValue jsonValue7 = m11.f29775j; jsonValue7 != null; jsonValue7 = jsonValue7.l) {
+                                fVar.f22624d = aVar4;
+                                aVar4.e(m11.j);
+                                for (JsonValue jsonValue7 = m11.f23794f; jsonValue7 != null; jsonValue7 = jsonValue7.f23796h) {
                                     c.b.b.n.l.g.g.g<Vector3> gVar6 = new c.b.b.n.l.g.g.g<>();
-                                    fVar.f27392d.a(gVar6);
+                                    fVar.f22624d.a(gVar6);
                                     gVar6.a = jsonValue7.p("keytime", 0.0f) / 1000.0f;
                                     JsonValue m12 = jsonValue7.m("value");
-                                    if (m12 != null && m12.n >= 3) {
-                                        gVar6.f27393b = new Vector3(m12.o(0), m12.o(1), m12.o(2));
+                                    if (m12 != null && m12.j >= 3) {
+                                        gVar6.f22625b = new Vector3(m12.o(0), m12.o(1), m12.o(2));
                                     }
                                 }
                             }
                         }
                     }
                 }
-                jsonValue2 = jsonValue2.l;
+                jsonValue2 = jsonValue2.f23796h;
                 bVar2 = bVar;
             }
         }
@@ -200,9 +200,9 @@ public class a extends g<g.a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsonValue)) == null) {
             c.b.b.q.a aVar = new c.b.b.q.a();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (JsonValue jsonValue2 = jsonValue.f29775j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+            for (JsonValue jsonValue2 = jsonValue.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
                 String k = jsonValue2.k();
                 if (k.equals("POSITION")) {
                     aVar.a(i.f());
@@ -217,16 +217,16 @@ public class a extends g<g.a> {
                 } else if (k.equals("BINORMAL")) {
                     aVar.a(i.a());
                 } else if (k.startsWith("TEXCOORD")) {
-                    aVar.a(i.h(i2));
-                    i2++;
+                    aVar.a(i.h(i));
+                    i++;
                 } else if (k.startsWith("BLENDWEIGHT")) {
-                    aVar.a(i.b(i3));
-                    i3++;
+                    aVar.a(i.b(i2));
+                    i2++;
                 } else {
                     throw new GdxRuntimeException("Unknown vertex attribute '" + k + "', should be one of position, normal, uv, tangent or binormal");
                 }
             }
-            return (i[]) aVar.m(i.class);
+            return (i[]) aVar.n(i.class);
         }
         return (i[]) invokeL.objValue;
     }
@@ -235,7 +235,7 @@ public class a extends g<g.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jsonValue)) == null) {
-            if (jsonValue.n >= 3) {
+            if (jsonValue.j >= 3) {
                 return new c.b.b.n.a(jsonValue.o(0), jsonValue.o(1), jsonValue.o(2), 1.0f);
             }
             throw new GdxRuntimeException("Expected Color values <> than three.");
@@ -249,37 +249,37 @@ public class a extends g<g.a> {
         if (!(interceptable == null || interceptable.invokeLLL(1048580, this, bVar, jsonValue, str) == null) || (m = jsonValue.m("materials")) == null) {
             return;
         }
-        bVar.f27378c.e(m.n);
-        for (JsonValue jsonValue2 = m.f29775j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+        bVar.f22610c.e(m.j);
+        for (JsonValue jsonValue2 = m.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
             ModelMaterial modelMaterial = new ModelMaterial();
             String s = jsonValue2.s("id", null);
             if (s != null) {
                 modelMaterial.a = s;
                 JsonValue m2 = jsonValue2.m("diffuse");
                 if (m2 != null) {
-                    modelMaterial.f29749c = l(m2);
+                    modelMaterial.f23771c = l(m2);
                 }
                 JsonValue m3 = jsonValue2.m("ambient");
                 if (m3 != null) {
-                    modelMaterial.f29748b = l(m3);
+                    modelMaterial.f23770b = l(m3);
                 }
                 JsonValue m4 = jsonValue2.m("emissive");
                 if (m4 != null) {
-                    modelMaterial.f29751e = l(m4);
+                    modelMaterial.f23773e = l(m4);
                 }
                 JsonValue m5 = jsonValue2.m("specular");
                 if (m5 != null) {
-                    modelMaterial.f29750d = l(m5);
+                    modelMaterial.f23772d = l(m5);
                 }
                 JsonValue m6 = jsonValue2.m("reflection");
                 if (m6 != null) {
-                    modelMaterial.f29752f = l(m6);
+                    modelMaterial.f23774f = l(m6);
                 }
-                modelMaterial.f29753g = jsonValue2.p("shininess", 0.0f);
-                modelMaterial.f29754h = jsonValue2.p("opacity", 1.0f);
+                modelMaterial.f23775g = jsonValue2.p("shininess", 0.0f);
+                modelMaterial.f23776h = jsonValue2.p("opacity", 1.0f);
                 JsonValue m7 = jsonValue2.m("textures");
                 if (m7 != null) {
-                    for (JsonValue jsonValue3 = m7.f29775j; jsonValue3 != null; jsonValue3 = jsonValue3.l) {
+                    for (JsonValue jsonValue3 = m7.f23794f; jsonValue3 != null; jsonValue3 = jsonValue3.f23796h) {
                         c.b.b.n.l.g.g.i iVar = new c.b.b.n.l.g.g.i();
                         if (jsonValue3.s("id", null) != null) {
                             String s2 = jsonValue3.s(BreakpointSQLiteKey.FILENAME, null);
@@ -290,15 +290,15 @@ public class a extends g<g.a> {
                                 sb.append((str.length() == 0 || str.endsWith("/")) ? "" : "");
                                 sb.append(s2);
                                 iVar.a = sb.toString();
-                                iVar.f27396b = t(jsonValue3.m("uvTranslation"), 0.0f, 0.0f);
-                                iVar.f27397c = t(jsonValue3.m("uvScaling"), 1.0f, 1.0f);
+                                iVar.f22628b = t(jsonValue3.m("uvTranslation"), 0.0f, 0.0f);
+                                iVar.f22629c = t(jsonValue3.m("uvScaling"), 1.0f, 1.0f);
                                 String s3 = jsonValue3.s("type", null);
                                 if (s3 != null) {
-                                    iVar.f27398d = r(s3);
-                                    if (modelMaterial.f29755i == null) {
-                                        modelMaterial.f29755i = new c.b.b.q.a<>();
+                                    iVar.f22630d = r(s3);
+                                    if (modelMaterial.i == null) {
+                                        modelMaterial.i = new c.b.b.q.a<>();
                                     }
-                                    modelMaterial.f29755i.a(iVar);
+                                    modelMaterial.i.a(iVar);
                                 } else {
                                     throw new GdxRuntimeException("Texture needs type.");
                                 }
@@ -311,7 +311,7 @@ public class a extends g<g.a> {
                     }
                     continue;
                 }
-                bVar.f27378c.a(modelMaterial);
+                bVar.f22610c.a(modelMaterial);
             } else {
                 throw new GdxRuntimeException("Material needs an id.");
             }
@@ -324,15 +324,15 @@ public class a extends g<g.a> {
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, bVar, jsonValue) == null) || (m = jsonValue.m("meshes")) == null) {
             return;
         }
-        bVar.f27377b.e(m.n);
-        for (JsonValue jsonValue2 = m.f29775j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
+        bVar.f22609b.e(m.j);
+        for (JsonValue jsonValue2 = m.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
             c.b.b.n.l.g.g.c cVar = new c.b.b.n.l.g.g.c();
             jsonValue2.s("id", "");
             cVar.a = k(jsonValue2.L("attributes"));
-            cVar.f27381b = jsonValue2.L("vertices").f();
+            cVar.f22613b = jsonValue2.L("vertices").f();
             JsonValue L = jsonValue2.L("parts");
             c.b.b.q.a aVar = new c.b.b.q.a();
-            for (JsonValue jsonValue3 = L.f29775j; jsonValue3 != null; jsonValue3 = jsonValue3.l) {
+            for (JsonValue jsonValue3 = L.f23794f; jsonValue3 != null; jsonValue3 = jsonValue3.f23796h) {
                 d dVar = new d();
                 String s = jsonValue3.s("id", null);
                 if (s != null) {
@@ -345,8 +345,8 @@ public class a extends g<g.a> {
                     dVar.a = s;
                     String s2 = jsonValue3.s("type", null);
                     if (s2 != null) {
-                        dVar.f27384c = s(s2);
-                        dVar.f27383b = jsonValue3.L("indices").j();
+                        dVar.f22616c = s(s2);
+                        dVar.f22615b = jsonValue3.L("indices").j();
                         aVar.a(dVar);
                     } else {
                         throw new GdxRuntimeException("No primitive type given for mesh part '" + s + "'");
@@ -355,8 +355,8 @@ public class a extends g<g.a> {
                     throw new GdxRuntimeException("Not id given for mesh part");
                 }
             }
-            cVar.f27382c = (d[]) aVar.m(d.class);
-            bVar.f27377b.a(cVar);
+            cVar.f22614c = (d[]) aVar.n(d.class);
+            bVar.f22609b.a(cVar);
         }
     }
 
@@ -364,7 +364,7 @@ public class a extends g<g.a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, aVar)) == null) {
-            JsonValue a = this.f27343d.a(aVar);
+            JsonValue a = this.f22577d.a(aVar);
             c.b.b.n.l.g.g.b bVar = new c.b.b.n.l.g.g.b();
             JsonValue L = a.L("version");
             bVar.a[0] = L.q(0);
@@ -389,12 +389,12 @@ public class a extends g<g.a> {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, bVar, jsonValue)) == null) {
             JsonValue m = jsonValue.m("nodes");
             if (m != null) {
-                bVar.f27379d.e(m.n);
-                for (JsonValue jsonValue2 = m.f29775j; jsonValue2 != null; jsonValue2 = jsonValue2.l) {
-                    bVar.f27379d.a(q(jsonValue2));
+                bVar.f22611d.e(m.j);
+                for (JsonValue jsonValue2 = m.f23794f; jsonValue2 != null; jsonValue2 = jsonValue2.f23796h) {
+                    bVar.f22611d.a(q(jsonValue2));
                 }
             }
-            return bVar.f27379d;
+            return bVar.f22611d;
         }
         return (c.b.b.q.a) invokeLL.objValue;
     }
@@ -403,7 +403,7 @@ public class a extends g<g.a> {
         InterceptResult invokeL;
         String str;
         String str2;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsonValue)) == null) {
             a aVar = this;
@@ -414,59 +414,59 @@ public class a extends g<g.a> {
                 eVar.a = s;
                 String str4 = "translation";
                 JsonValue m = jsonValue.m("translation");
-                if (m == null || m.n == 3) {
+                if (m == null || m.j == 3) {
                     boolean z = true;
-                    eVar.f27385b = m == null ? null : new Vector3(m.o(0), m.o(1), m.o(2));
+                    eVar.f22617b = m == null ? null : new Vector3(m.o(0), m.o(1), m.o(2));
                     String str5 = "rotation";
                     JsonValue m2 = jsonValue.m("rotation");
-                    if (m2 == null || m2.n == 4) {
-                        eVar.f27386c = m2 == null ? null : new Quaternion(m2.o(0), m2.o(1), m2.o(2), m2.o(3));
+                    if (m2 == null || m2.j == 4) {
+                        eVar.f22618c = m2 == null ? null : new Quaternion(m2.o(0), m2.o(1), m2.o(2), m2.o(3));
                         JsonValue m3 = jsonValue.m(AnimationProperty.SCALE);
-                        if (m3 == null || m3.n == 3) {
-                            eVar.f27387d = m3 == null ? null : new Vector3(m3.o(0), m3.o(1), m3.o(2));
+                        if (m3 == null || m3.j == 3) {
+                            eVar.f22619d = m3 == null ? null : new Vector3(m3.o(0), m3.o(1), m3.o(2));
                             jsonValue.s("mesh", null);
                             JsonValue m4 = jsonValue.m("parts");
                             if (m4 != null) {
-                                eVar.f27388e = new h[m4.n];
-                                JsonValue jsonValue2 = m4.f29775j;
-                                int i3 = 0;
+                                eVar.f22620e = new h[m4.j];
+                                JsonValue jsonValue2 = m4.f23794f;
+                                int i2 = 0;
                                 while (jsonValue2 != null) {
                                     h hVar = new h();
                                     String s2 = jsonValue2.s("meshpartid", str3);
                                     String s3 = jsonValue2.s("materialid", str3);
                                     if (s2 != null && s3 != null) {
                                         hVar.a = s3;
-                                        hVar.f27394b = s2;
+                                        hVar.f22626b = s2;
                                         JsonValue m5 = jsonValue2.m("bones");
                                         if (m5 != null) {
-                                            hVar.f27395c = new c.b.b.q.b<>(z, m5.n, String.class, Matrix4.class);
-                                            JsonValue jsonValue3 = m5.f29775j;
+                                            hVar.f22627c = new c.b.b.q.b<>(z, m5.j, String.class, Matrix4.class);
+                                            JsonValue jsonValue3 = m5.f23794f;
                                             while (jsonValue3 != null) {
                                                 String s4 = jsonValue3.s(NodeJS.NODE, null);
                                                 if (s4 != null) {
                                                     Matrix4 matrix4 = new Matrix4();
                                                     JsonValue m6 = jsonValue3.m(str4);
-                                                    if (m6 == null || m6.n < 3) {
+                                                    if (m6 == null || m6.j < 3) {
                                                         str = str4;
                                                     } else {
                                                         str = str4;
                                                         matrix4.translate(m6.o(0), m6.o(1), m6.o(2));
                                                     }
                                                     JsonValue m7 = jsonValue3.m(str5);
-                                                    if (m7 == null || m7.n < 4) {
+                                                    if (m7 == null || m7.j < 4) {
                                                         str2 = str5;
-                                                        i2 = 3;
+                                                        i = 3;
                                                     } else {
                                                         str2 = str5;
-                                                        i2 = 3;
-                                                        matrix4.rotate(aVar.f27344e.set(m7.o(0), m7.o(1), m7.o(2), m7.o(3)));
+                                                        i = 3;
+                                                        matrix4.rotate(aVar.f22578e.set(m7.o(0), m7.o(1), m7.o(2), m7.o(3)));
                                                     }
                                                     JsonValue m8 = jsonValue3.m(AnimationProperty.SCALE);
-                                                    if (m8 != null && m8.n >= i2) {
+                                                    if (m8 != null && m8.j >= i) {
                                                         matrix4.scale(m8.o(0), m8.o(1), m8.o(2));
                                                     }
-                                                    hVar.f27395c.f(s4, matrix4);
-                                                    jsonValue3 = jsonValue3.l;
+                                                    hVar.f22627c.f(s4, matrix4);
+                                                    jsonValue3 = jsonValue3.f23796h;
                                                     aVar = this;
                                                     str4 = str;
                                                     str5 = str2;
@@ -476,9 +476,9 @@ public class a extends g<g.a> {
                                             }
                                             continue;
                                         }
-                                        eVar.f27388e[i3] = hVar;
-                                        jsonValue2 = jsonValue2.l;
-                                        i3++;
+                                        eVar.f22620e[i2] = hVar;
+                                        jsonValue2 = jsonValue2.f23796h;
+                                        i2++;
                                         str3 = null;
                                         aVar = this;
                                         str4 = str4;
@@ -491,13 +491,13 @@ public class a extends g<g.a> {
                             }
                             JsonValue m9 = jsonValue.m("children");
                             if (m9 != null) {
-                                eVar.f27389f = new c.b.b.n.l.g.g.e[m9.n];
-                                JsonValue jsonValue4 = m9.f29775j;
-                                int i4 = 0;
+                                eVar.f22621f = new c.b.b.n.l.g.g.e[m9.j];
+                                JsonValue jsonValue4 = m9.f23794f;
+                                int i3 = 0;
                                 while (jsonValue4 != null) {
-                                    eVar.f27389f[i4] = q(jsonValue4);
-                                    jsonValue4 = jsonValue4.l;
-                                    i4++;
+                                    eVar.f22621f[i3] = q(jsonValue4);
+                                    jsonValue4 = jsonValue4.f23796h;
+                                    i3++;
                                 }
                             }
                             return eVar;
@@ -580,7 +580,7 @@ public class a extends g<g.a> {
             if (jsonValue == null) {
                 return new Vector2(f2, f3);
             }
-            if (jsonValue.n == 2) {
+            if (jsonValue.j == 2) {
                 return new Vector2(jsonValue.o(0), jsonValue.o(1));
             }
             throw new GdxRuntimeException("Expected Vector2 values <> than two.");

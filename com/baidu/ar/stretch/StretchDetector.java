@@ -46,9 +46,9 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -75,15 +75,15 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int i(int i2, boolean z) {
+    public int i(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int i3 = 0;
-            if (i2 != -90) {
-                if (i2 != 0) {
-                    if (i2 != 90) {
-                        if (i2 != 180 || z) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int i2 = 0;
+            if (i != -90) {
+                if (i != 0) {
+                    if (i != 90) {
+                        if (i != 180 || z) {
                             return 1;
                         }
                     }
@@ -92,7 +92,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                 }
                 return 3;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
@@ -115,9 +115,9 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -136,7 +136,7 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                     if (strArr == null || strArr.length == 0) {
                         return -1;
                     }
-                    return aVar.f31475tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
+                    return aVar.f24836tv ? ARMdlInterfaceJNI.initBodyKeyPointFromAssetDir(strArr[0]) : ARMdlInterfaceJNI.initBodyKeyPoint(strArr[0]);
                 }
                 return invokeL2.intValue;
             }
@@ -177,9 +177,9 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -233,9 +233,9 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), framePixels};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -260,13 +260,13 @@ public class StretchDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeL2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, framePixels2)) == null) {
-                    int i2 = this.xQ.i(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
+                    int i = this.xQ.i(framePixels2.getOrientation().getDegree(), framePixels2.isFrontCamera());
                     a aVar = new a();
                     aVar.setTimestamp(framePixels2.getTimestamp());
                     aVar.W(this.xQ.getName());
                     float[] fArr = new float[54];
                     long elapsedRealtime = SystemClock.elapsedRealtime();
-                    ARMdlInterfaceJNI.predictBodyKeyPoint(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), i2, fArr);
+                    ARMdlInterfaceJNI.predictBodyKeyPoint(framePixels2.getPixelsAddress(), framePixels2.getWidth(), framePixels2.getHeight(), i, fArr);
                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("body_beauty", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                     aVar.o(fArr);
                     return aVar;

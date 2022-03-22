@@ -100,16 +100,16 @@ public final class ComponentUtils {
             $VALUES = new ComponentType[]{ALL, ACTIVITY, SERVICE, RECEIVER, componentType};
         }
 
-        public ComponentType(String str, int i2) {
+        public ComponentType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -137,9 +137,9 @@ public final class ComponentUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -164,11 +164,11 @@ public final class ComponentUtils {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, componentType, componentName)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$android$util$android$ComponentUtils$ComponentType[componentType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             ComponentInfo receiverInfo = getReceiverInfo(context, componentName);
                             if (receiverInfo == null) {
                                 receiverInfo = getActivityInfo(context, componentName);

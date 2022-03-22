@@ -43,9 +43,9 @@ public class LazyList<E> extends AbstractList<E> {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, it};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -66,16 +66,16 @@ public class LazyList<E> extends AbstractList<E> {
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public E get(int i2) {
+    public E get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (this.underlying.size() > i2) {
-                return this.underlying.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.underlying.size() > i) {
+                return this.underlying.get(i);
             }
             if (this.elementSource.hasNext()) {
                 this.underlying.add(this.elementSource.next());
-                return get(i2);
+                return get(i);
             }
             throw new NoSuchElementException();
         }
@@ -105,9 +105,9 @@ public class LazyList<E> extends AbstractList<E> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -131,9 +131,9 @@ public class LazyList<E> extends AbstractList<E> {
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     if (this.pos < this.this$0.underlying.size()) {
                         List<E> list = this.this$0.underlying;
-                        int i2 = this.pos;
-                        this.pos = i2 + 1;
-                        return list.get(i2);
+                        int i = this.pos;
+                        this.pos = i + 1;
+                        return list.get(i);
                     }
                     LazyList lazyList = this.this$0;
                     lazyList.underlying.add(lazyList.elementSource.next());

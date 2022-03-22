@@ -28,7 +28,7 @@ import com.bytedance.pangle.wrapper.PluginApplicationWrapper;
 import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public final class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,20 +63,20 @@ public final class c {
                     return true;
                 } else {
                     com.bytedance.pangle.log.c a = com.bytedance.pangle.log.c.a(ZeusLogger.TAG_LOAD, "PluginLoader", "loadPlugin:".concat(String.valueOf(str)));
-                    a(com.bytedance.pangle.b.b.f51588g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
+                    a(com.bytedance.pangle.b.b.f38022g, b.a.w, plugin2.mPkgName, plugin2.getVersion(), -1L, null);
                     StringBuilder sb = new StringBuilder();
                     boolean a2 = a(str, plugin2, sb);
                     a.b("loadPluginInternal:".concat(String.valueOf(a2)));
                     if (a2) {
                         plugin2.setLifeCycle(3);
-                        a(com.bytedance.pangle.b.b.f51589h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
+                        a(com.bytedance.pangle.b.b.f38023h, b.a.x, plugin2.mPkgName, plugin2.getVersion(), a.a(), sb.toString());
                     } else {
                         sb.append("plugin:");
                         sb.append(plugin2.mPkgName);
                         sb.append(" versionCode:");
                         sb.append(plugin2.getVersion());
                         sb.append("load failed;");
-                        a(com.bytedance.pangle.b.b.f51589h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
+                        a(com.bytedance.pangle.b.b.f38023h, b.a.y, plugin2.mPkgName, plugin2.getVersion(), -1L, sb.toString());
                     }
                     ZeusLogger.i(ZeusLogger.TAG_LOAD, "PluginLoader loadFinished, ".concat(String.valueOf(plugin2)));
                     if (plugin2.isLoaded()) {
@@ -192,9 +192,9 @@ public final class c {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {plugin2};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -314,17 +314,17 @@ public final class c {
         return invokeLLL.booleanValue;
     }
 
-    public static void a(String str, int i2, @NonNull String str2, int i3, long j2, String str3) {
+    public static void a(String str, int i, @NonNull String str2, int i2, long j, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Long.valueOf(j2), str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Long.valueOf(j), str3}) == null) {
             JSONObject jSONObject = new JSONObject();
             JSONObject jSONObject2 = new JSONObject();
             JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject.putOpt("status_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i2)));
+                jSONObject.putOpt("status_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i)));
                 jSONObject.putOpt("plugin_package_name", com.bytedance.pangle.log.d.a(str2));
-                jSONObject.putOpt("version_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i3)));
-                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j2)));
+                jSONObject.putOpt("version_code", com.bytedance.pangle.log.d.a(Integer.valueOf(i2)));
+                jSONObject3.putOpt("duration", com.bytedance.pangle.log.d.a(Long.valueOf(j)));
                 jSONObject2.putOpt("message", com.bytedance.pangle.log.d.a(str3));
                 jSONObject2.putOpt("timestamp", com.bytedance.pangle.log.d.a(Long.valueOf(System.currentTimeMillis())));
             } catch (JSONException e2) {

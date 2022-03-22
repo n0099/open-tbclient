@@ -14,12 +14,10 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 public class EmptyView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f38994e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f38995f;
+    /* renamed from: b  reason: collision with root package name */
+    public int f29987b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -30,58 +28,58 @@ public class EmptyView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38994e = 0;
-        this.f38995f = 0;
+        this.a = 0;
+        this.f29987b = 0;
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int i4 = this.f38995f;
-            if (i4 == 0) {
-                setMeasuredDimension(i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.f38994e);
-            } else if (this.f38994e == 0) {
-                setMeasuredDimension(i4, i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int i3 = this.f29987b;
+            if (i3 == 0) {
+                setMeasuredDimension(i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK, this.a);
+            } else if (this.a == 0) {
+                setMeasuredDimension(i3, i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK);
             }
         }
     }
 
-    public void setHeightDip(int i2) {
+    public void setHeightDip(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f38994e = n.d(getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = n.d(getContext(), i);
         }
     }
 
-    public void setHeightPx(int i2) {
+    public void setHeightPx(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f38994e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void setWidthDip(int i2) {
+    public void setWidthDip(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f38995f = n.d(getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f29987b = n.d(getContext(), i);
         }
     }
 
-    public void setWidthPx(int i2) {
+    public void setWidthPx(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f38995f = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f29987b = i;
         }
     }
 
@@ -94,9 +92,9 @@ public class EmptyView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -104,22 +102,22 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f38994e = 0;
-        this.f38995f = 0;
+        this.a = 0;
+        this.f29987b = 0;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmptyView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EmptyView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -127,7 +125,7 @@ public class EmptyView extends View {
                 return;
             }
         }
-        this.f38994e = 0;
-        this.f38995f = 0;
+        this.a = 0;
+        this.f29987b = 0;
     }
 }

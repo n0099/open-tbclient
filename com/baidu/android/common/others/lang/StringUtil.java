@@ -1,6 +1,7 @@
 package com.baidu.android.common.others.lang;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,9 +61,9 @@ public final class StringUtil implements IStringUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -122,11 +123,11 @@ public final class StringUtil implements IStringUtil {
                 return nullSafeToString(objArr[0]);
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < objArr.length; i++) {
+                if (i > 0) {
                     sb.append(str);
                 }
-                sb.append(objArr[i2]);
+                sb.append(objArr[i]);
             }
             return sb.toString();
         }
@@ -171,10 +172,10 @@ public final class StringUtil implements IStringUtil {
             int indexOf = replace.indexOf(":");
             String str2 = "";
             if (indexOf != -1) {
-                int i2 = indexOf + 1;
-                String substring = replace.substring(0, i2);
+                int i = indexOf + 1;
+                String substring = replace.substring(0, i);
                 if (!substring.contains("/")) {
-                    replace = replace.substring(i2);
+                    replace = replace.substring(i);
                     str2 = substring;
                 }
             }
@@ -184,20 +185,20 @@ public final class StringUtil implements IStringUtil {
             }
             String[] delimitedListToStringArray = delimitedListToStringArray(replace, "/");
             LinkedList linkedList = new LinkedList();
-            int i3 = 0;
+            int i2 = 0;
             for (int length = delimitedListToStringArray.length - 1; length >= 0; length--) {
                 String str3 = delimitedListToStringArray[length];
                 if (!".".equals(str3)) {
                     if (IStringUtil.TOP_PATH.equals(str3)) {
-                        i3++;
-                    } else if (i3 > 0) {
-                        i3--;
+                        i2++;
+                    } else if (i2 > 0) {
+                        i2--;
                     } else {
                         linkedList.add(0, str3);
                     }
                 }
             }
-            for (int i4 = 0; i4 < i3; i4++) {
+            for (int i3 = 0; i3 < i2; i3++) {
                 linkedList.add(0, IStringUtil.TOP_PATH);
             }
             return str2 + collectionToDelimitedString(linkedList, "/");
@@ -337,8 +338,8 @@ public final class StringUtil implements IStringUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, str, str2)) == null) {
             if (hasLength(str) && hasLength(str2)) {
                 StringBuilder sb = new StringBuilder();
-                for (int i2 = 0; i2 < str.length(); i2++) {
-                    char charAt = str.charAt(i2);
+                for (int i = 0; i < str.length(); i++) {
+                    char charAt = str.charAt(i);
                     if (str2.indexOf(charAt) == -1) {
                         sb.append(charAt);
                     }
@@ -367,7 +368,7 @@ public final class StringUtil implements IStringUtil {
     @Deprecated
     public static byte[] getByteFromInputStream(InputStream inputStream) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, inputStream)) == null) {
             if (inputStream == null) {
@@ -377,21 +378,21 @@ public final class StringUtil implements IStringUtil {
             byte[] bArr = new byte[1024];
             while (true) {
                 try {
-                    i2 = inputStream.read(bArr, 0, 1024);
+                    i = inputStream.read(bArr, 0, 1024);
                 } catch (IOException e2) {
-                    e2.toString();
-                    i2 = 0;
+                    Log.e(TAG, e2.toString());
+                    i = 0;
                 }
-                if (i2 == -1) {
+                if (i == -1) {
                     break;
                 }
-                byteArrayOutputStream.write(bArr, 0, i2);
+                byteArrayOutputStream.write(bArr, 0, i);
             }
             byte[] byteArray = byteArrayOutputStream.toByteArray();
             try {
                 byteArrayOutputStream.close();
             } catch (IOException e3) {
-                e3.toString();
+                Log.e(TAG, e3.toString());
             }
             return byteArray;
         }
@@ -433,45 +434,40 @@ public final class StringUtil implements IStringUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, inputStream)) == null) {
             try {
                 try {
-                    byte[] byteFromInputStream = getByteFromInputStream(inputStream);
-                    if (byteFromInputStream == null) {
+                    try {
+                        byte[] byteFromInputStream = getByteFromInputStream(inputStream);
+                        if (byteFromInputStream != null) {
+                            String str = new String(byteFromInputStream);
+                            if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                                str = str.substring(1);
+                            }
+                            return str;
+                        } else if (inputStream != null) {
+                            inputStream.close();
+                            return null;
+                        } else {
+                            return null;
+                        }
+                    } catch (Exception e2) {
+                        Log.e(TAG, " getStringFromInput exception: ", e2);
                         if (inputStream != null) {
                             inputStream.close();
                             return null;
                         }
                         return null;
                     }
-                    String str = new String(byteFromInputStream);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    if (inputStream != null) {
-                        try {
-                            inputStream.close();
-                        } catch (Exception e2) {
-                            e2.toString();
-                        }
-                    }
-                    return str;
                 } catch (Exception e3) {
-                    e3.toString();
+                    Log.e(TAG, e3.toString());
                     return null;
                 }
-            } catch (Exception unused) {
-                if (inputStream != null) {
-                    inputStream.close();
-                    return null;
-                }
-                return null;
-            } catch (Throwable th) {
+            } finally {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
                     } catch (Exception e4) {
-                        e4.toString();
+                        Log.e(TAG, e4.toString());
                     }
                 }
-                throw th;
             }
         }
         return (String) invokeL.objValue;
@@ -559,10 +555,10 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static boolean lenghtEnought(String str, int i2) {
+    public static boolean lenghtEnought(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, str, i2)) == null) ? i2 >= 0 && !isEmpty(str) && str.length() >= i2 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65582, null, str, i)) == null) ? i >= 0 && !isEmpty(str) && str.length() >= i : invokeLI.booleanValue;
     }
 
     @Deprecated
@@ -717,16 +713,16 @@ public final class StringUtil implements IStringUtil {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65600, null, str, str2, str3)) == null) {
             if (hasLength(str) && hasLength(str2) && str3 != null) {
                 StringBuilder sb = new StringBuilder();
-                int i2 = 0;
+                int i = 0;
                 int indexOf = str.indexOf(str2);
                 int length = str2.length();
                 while (indexOf >= 0) {
-                    sb.append(str.substring(i2, indexOf));
+                    sb.append(str.substring(i, indexOf));
                     sb.append(str3);
-                    i2 = indexOf + length;
-                    indexOf = str.indexOf(str2, i2);
+                    i = indexOf + length;
+                    indexOf = str.indexOf(str2, i);
                 }
-                sb.append(str.substring(i2));
+                sb.append(str.substring(i));
                 return sb.toString();
             }
             return str;
@@ -791,13 +787,13 @@ public final class StringUtil implements IStringUtil {
     }
 
     @Deprecated
-    public static boolean substringMatch(CharSequence charSequence, int i2, CharSequence charSequence2) {
+    public static boolean substringMatch(CharSequence charSequence, int i, CharSequence charSequence2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65607, null, charSequence, i2, charSequence2)) == null) {
-            for (int i3 = 0; i3 < charSequence2.length(); i3++) {
-                int i4 = i2 + i3;
-                if (i4 >= charSequence.length() || charSequence.charAt(i4) != charSequence2.charAt(i3)) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65607, null, charSequence, i, charSequence2)) == null) {
+            for (int i2 = 0; i2 < charSequence2.length(); i2++) {
+                int i3 = i + i2;
+                if (i3 >= charSequence.length() || charSequence.charAt(i3) != charSequence2.charAt(i2)) {
                     return false;
                 }
             }
@@ -853,8 +849,8 @@ public final class StringUtil implements IStringUtil {
             if (hasLength(str)) {
                 int length = str.length();
                 StringBuilder sb = new StringBuilder(length);
-                for (int i2 = 0; i2 < length; i2++) {
-                    char charAt = str.charAt(i2);
+                for (int i = 0; i < length; i++) {
+                    char charAt = str.charAt(i);
                     if (!Character.isWhitespace(charAt)) {
                         sb.append(charAt);
                     }
@@ -875,9 +871,9 @@ public final class StringUtil implements IStringUtil {
                 return new String[0];
             }
             String[] strArr2 = new String[strArr.length];
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                String str = strArr[i2];
-                strArr2[i2] = str != null ? str.trim() : null;
+            for (int i = 0; i < strArr.length; i++) {
+                String str = strArr[i];
+                strArr2[i] = str != null ? str.trim() : null;
             }
             return strArr2;
         }
@@ -983,15 +979,15 @@ public final class StringUtil implements IStringUtil {
     public static String unqualify(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, '.') : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65621, null, str)) == null) ? unqualify(str, IStringUtil.EXTENSION_SEPARATOR) : (String) invokeL.objValue;
     }
 
     @SuppressLint({"BDThrowableCheck"})
     public static void validateLocalePart(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65623, null, str) == null) {
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt != '_' && charAt != ' ' && !Character.isLetterOrDigit(charAt)) {
                     throw new IllegalArgumentException("Locale part \"" + str + "\" contains invalid characters");
                 }
@@ -1011,7 +1007,7 @@ public final class StringUtil implements IStringUtil {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65562, null, str, str2, str3)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (str == null) {
                 return new String[0];
             }
@@ -1020,22 +1016,22 @@ public final class StringUtil implements IStringUtil {
             }
             ArrayList arrayList = new ArrayList();
             if ("".equals(str2)) {
-                while (i2 < str.length()) {
-                    int i3 = i2 + 1;
-                    arrayList.add(deleteAny(str.substring(i2, i3), str3));
-                    i2 = i3;
+                while (i < str.length()) {
+                    int i2 = i + 1;
+                    arrayList.add(deleteAny(str.substring(i, i2), str3));
+                    i = i2;
                 }
             } else {
                 while (true) {
-                    int indexOf = str.indexOf(str2, i2);
+                    int indexOf = str.indexOf(str2, i);
                     if (indexOf == -1) {
                         break;
                     }
-                    arrayList.add(deleteAny(str.substring(i2, indexOf), str3));
-                    i2 = str2.length() + indexOf;
+                    arrayList.add(deleteAny(str.substring(i, indexOf), str3));
+                    i = str2.length() + indexOf;
                 }
-                if (str.length() > 0 && i2 <= str.length()) {
-                    arrayList.add(deleteAny(str.substring(i2), str3));
+                if (str.length() > 0 && i <= str.length()) {
+                    arrayList.add(deleteAny(str.substring(i), str3));
                 }
             }
             return toStringArray(arrayList);
@@ -1144,13 +1140,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(String.valueOf(objArr[i2]));
+                sb.append(String.valueOf(objArr[i]));
             }
             sb.append("}");
             return sb.toString();
@@ -1170,13 +1166,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(zArr[i2]);
+                sb.append(zArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1196,13 +1192,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append((int) bArr[i2]);
+                sb.append((int) bArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1222,14 +1218,14 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
                 sb.append("'");
-                sb.append(cArr[i2]);
+                sb.append(cArr[i]);
                 sb.append("'");
             }
             sb.append("}");
@@ -1250,13 +1246,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(dArr[i2]);
+                sb.append(dArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1276,13 +1272,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(fArr[i2]);
+                sb.append(fArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1302,13 +1298,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(iArr[i2]);
+                sb.append(iArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1328,13 +1324,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(jArr[i2]);
+                sb.append(jArr[i]);
             }
             sb.append("}");
             return sb.toString();
@@ -1354,13 +1350,13 @@ public final class StringUtil implements IStringUtil {
                 return EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (i2 == 0) {
+            for (int i = 0; i < length; i++) {
+                if (i == 0) {
                     sb.append("{");
                 } else {
                     sb.append(ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append((int) sArr[i2]);
+                sb.append((int) sArr[i]);
             }
             sb.append("}");
             return sb.toString();

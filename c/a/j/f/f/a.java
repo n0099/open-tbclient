@@ -17,11 +17,9 @@ public final class a {
 
     /* renamed from: c.a.j.f.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0162a<T> implements Comparator<SubTaskState> {
+    public static final class C0168a<T> implements Comparator<SubTaskState> {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final C0162a f3660e;
+        public static final C0168a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -37,17 +35,17 @@ public final class a {
                     return;
                 }
             }
-            f3660e = new C0162a();
+            a = new C0168a();
         }
 
-        public C0162a() {
+        public C0168a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -73,9 +71,7 @@ public final class a {
     /* loaded from: classes.dex */
     public static final class b<T> implements Comparator<SubTaskState> {
         public static /* synthetic */ Interceptable $ic;
-
-        /* renamed from: e  reason: collision with root package name */
-        public static final b f3661e;
+        public static final b a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -91,7 +87,7 @@ public final class a {
                     return;
                 }
             }
-            f3661e = new b();
+            a = new b();
         }
 
         public b() {
@@ -99,9 +95,9 @@ public final class a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -124,31 +120,31 @@ public final class a {
         }
     }
 
-    public static final PriorityQueue<SubTaskState> a(int i2) {
+    public static final PriorityQueue<SubTaskState> a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? c(i2) : (PriorityQueue) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? c(i) : (PriorityQueue) invokeI.objValue;
     }
 
-    public static final void b(PriorityQueue<SubTaskState> priorityQueue, SubTaskState subTaskState, int i2) {
+    public static final void b(PriorityQueue<SubTaskState> priorityQueue, SubTaskState subTaskState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, priorityQueue, subTaskState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65537, null, priorityQueue, subTaskState, i) == null) {
             priorityQueue.add(subTaskState);
-            while (priorityQueue.size() > i2) {
+            while (priorityQueue.size() > i) {
                 priorityQueue.poll();
             }
         }
     }
 
-    public static final PriorityQueue<SubTaskState> c(int i2) {
+    public static final PriorityQueue<SubTaskState> c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? new PriorityQueue<>(i2 + 1, b.f3661e) : (PriorityQueue) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? new PriorityQueue<>(i + 1, b.a) : (PriorityQueue) invokeI.objValue;
     }
 
-    public static final PriorityQueue<SubTaskState> d(int i2) {
+    public static final PriorityQueue<SubTaskState> d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? new PriorityQueue<>(i2 + 1, C0162a.f3660e) : (PriorityQueue) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? new PriorityQueue<>(i + 1, C0168a.a) : (PriorityQueue) invokeI.objValue;
     }
 }

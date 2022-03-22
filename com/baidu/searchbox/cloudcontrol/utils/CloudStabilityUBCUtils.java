@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
@@ -47,18 +48,18 @@ public class CloudStabilityUBCUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void doRequestStatistics(String str, String str2, long j2) {
+    public static void doRequestStatistics(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
             String networkInfo = ConnectManager.getNetworkInfo(AppRuntime.getAppContext());
             int networkQuality = NetworkQuality.getNetworkQuality();
             JSONObject jSONObject = new JSONObject();
@@ -69,8 +70,8 @@ public class CloudStabilityUBCUtils {
                 jSONObject2.put("traceid", str2);
                 jSONObject2.put("network", networkInfo);
                 jSONObject2.put(KEY_WEAK_QUALITY, String.valueOf(networkQuality));
-                if (j2 != -1) {
-                    jSONObject2.put("length", String.valueOf(j2));
+                if (j != -1) {
+                    jSONObject2.put("length", String.valueOf(j));
                 }
                 jSONObject.put("ext", jSONObject2);
                 UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
@@ -78,41 +79,41 @@ public class CloudStabilityUBCUtils {
                     uBCManager.onEvent(UBC_CLOUD_STABILITY_REQUEST_ID, jSONObject);
                 }
                 if (AppConfig.isDebug()) {
-                    String str3 = "doRequestStatistics 1929:" + jSONObject.toString();
+                    Log.d(TAG, "doRequestStatistics 1929:" + jSONObject.toString());
                 }
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    String str4 = "doRequestStatistics error" + e2.toString();
+                    Log.d(TAG, "doRequestStatistics error" + e2.toString());
                     e2.printStackTrace();
                 }
             }
         }
     }
 
-    public static void doResponseStatistics(String str, int i2, String str2, int i3, int i4, String str3, long j2, long j3, long j4) {
+    public static void doResponseStatistics(String str, int i, String str2, int i2, int i3, String str3, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Integer.valueOf(i4), str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             String networkInfo = ConnectManager.getNetworkInfo(AppRuntime.getAppContext());
             int networkQuality = NetworkQuality.getNetworkQuality();
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("type", VALUE_TYPE);
                 jSONObject.put("source", str);
-                jSONObject.put("value", i2);
+                jSONObject.put("value", i);
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("traceid", str2);
                 jSONObject2.put("network", networkInfo);
                 jSONObject2.put(KEY_WEAK_QUALITY, String.valueOf(networkQuality));
-                jSONObject2.put(KEY_RESPONSE_CODE, i3);
-                jSONObject2.put("duration", j2);
+                jSONObject2.put(KEY_RESPONSE_CODE, i2);
+                jSONObject2.put("duration", j);
+                if (j2 != 0) {
+                    jSONObject2.put("length", String.valueOf(j2));
+                }
                 if (j3 != 0) {
-                    jSONObject2.put("length", String.valueOf(j3));
+                    jSONObject2.put(KEY_POST_LENGTH, String.valueOf(j3));
                 }
-                if (j4 != 0) {
-                    jSONObject2.put(KEY_POST_LENGTH, String.valueOf(j4));
-                }
-                if (i4 != -100) {
-                    jSONObject2.put("errorCode", i4);
+                if (i3 != -100) {
+                    jSONObject2.put("errorCode", i3);
                 }
                 if (!TextUtils.isEmpty(str3)) {
                     jSONObject2.put("errorMsg", str3);
@@ -123,11 +124,11 @@ public class CloudStabilityUBCUtils {
                     uBCManager.onEvent(UBC_CLOUD_STABILITY_RESPONSE_ID, jSONObject);
                 }
                 if (AppConfig.isDebug()) {
-                    String str4 = "doResponseStatistics 1928:" + jSONObject.toString();
+                    Log.d(TAG, "doResponseStatistics 1928:" + jSONObject.toString());
                 }
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    String str5 = "doResponseStatistics error" + e2.toString();
+                    Log.d(TAG, "doResponseStatistics error" + e2.toString());
                     e2.printStackTrace();
                 }
             }

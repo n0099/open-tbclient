@@ -35,9 +35,9 @@ public class f implements IHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpRequestFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -459,11 +459,11 @@ public class f implements IHttpRequest {
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
-    public IHttpRequest setConnectionTimeout(int i2) {
+    public IHttpRequest setConnectionTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.qK.rc.rg = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.qK.rc.rg = i;
             return this;
         }
         return (IHttpRequest) invokeI.objValue;
@@ -491,11 +491,11 @@ public class f implements IHttpRequest {
     }
 
     @Override // com.baidu.ar.ihttp.IHttpRequest
-    public IHttpRequest setReadTimeout(int i2) {
+    public IHttpRequest setReadTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            this.qK.rc.rh = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.qK.rc.rh = i;
             return this;
         }
         return (IHttpRequest) invokeI.objValue;

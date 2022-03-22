@@ -29,25 +29,25 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     public long mPaid;
     public long mVersionId;
 
-    public IMPaClickQuickReply(Context context, long j2, String str, long j3, String str2) {
+    public IMPaClickQuickReply(Context context, long j, String str, long j2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, Long.valueOf(j3), str2};
+            Object[] objArr = {context, Long.valueOf(j), str, Long.valueOf(j2), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mPaid = j2;
+        this.mPaid = j;
         this.mButtonId = str;
-        this.mVersionId = j3;
+        this.mVersionId = j2;
         this.mKey = str2;
     }
 
@@ -116,36 +116,36 @@ public class IMPaClickQuickReply extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         IClickPaQuickReplyListener iClickPaQuickReplyListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048580, this, i2, bArr, th) == null) || (iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey)) == null) {
+        if (!(interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) || (iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey)) == null) {
             return;
         }
-        iClickPaQuickReplyListener.onClickQuickReply(i2);
+        iClickPaQuickReplyListener.onClickQuickReply(i);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
             String str = new String(bArr);
             IClickPaQuickReplyListener iClickPaQuickReplyListener = (IClickPaQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-            int i3 = 1010;
+            int i2 = 1010;
             if (TextUtils.isEmpty(str) && iClickPaQuickReplyListener != null) {
                 iClickPaQuickReplyListener.onClickQuickReply(1010);
                 return;
             }
             try {
-                i3 = new JSONObject(str).getInt("error_code");
+                i2 = new JSONObject(str).getInt("error_code");
             } catch (JSONException e2) {
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
             }
-            if (i3 == 54000 || i3 == 54001 || i3 == 54002 || i3 == 54003) {
+            if (i2 == 54000 || i2 == 54001 || i2 == 54002 || i2 == 54003) {
                 PaManagerImpl.getInstance(this.mContext).setPaQuickRelies(this.mPaid, "", System.currentTimeMillis());
             }
             if (iClickPaQuickReplyListener != null) {
-                iClickPaQuickReplyListener.onClickQuickReply(i3);
+                iClickPaQuickReplyListener.onClickQuickReply(i2);
             }
         }
     }

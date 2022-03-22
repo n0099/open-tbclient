@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.channels.WritableByteChannel;
 @DoNotParseDetail
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class IsoFile extends BasicContainer implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -54,9 +54,9 @@ public class IsoFile extends BasicContainer implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((DataSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -88,8 +88,8 @@ public class IsoFile extends BasicContainer implements Closeable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             byte[] bArr = new byte[4];
             if (str != null) {
-                for (int i2 = 0; i2 < Math.min(4, str.length()); i2++) {
-                    bArr[i2] = (byte) str.charAt(i2);
+                for (int i = 0; i < Math.min(4, str.length()); i++) {
+                    bArr[i] = (byte) str.charAt(i);
                 }
             }
             return bArr;
@@ -149,9 +149,9 @@ public class IsoFile extends BasicContainer implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -167,9 +167,9 @@ public class IsoFile extends BasicContainer implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, boxParser};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

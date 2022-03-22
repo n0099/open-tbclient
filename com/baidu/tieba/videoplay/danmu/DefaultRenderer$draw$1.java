@@ -5,9 +5,9 @@ import android.graphics.Paint;
 import android.text.SpannableStringBuilder;
 import android.text.StaticLayout;
 import android.text.TextPaint;
-import c.a.q0.r.v.a;
-import c.a.r0.l0.e.b;
-import c.a.r0.x0.b;
+import c.a.o0.r.v.a;
+import c.a.p0.n0.e.b;
+import c.a.p0.z0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -48,9 +48,9 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar, canvas, defaultRenderer, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -64,27 +64,27 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
     }
 
     /* renamed from: invokeSuspend$lambda-0  reason: not valid java name */
-    public static final void m66invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, b bVar, SpannableStringBuilder stringBuilder) {
+    public static final void m60invokeSuspend$lambda0(Canvas canvas, DefaultRenderer defaultRenderer, b bVar, SpannableStringBuilder stringBuilder) {
         TextPaint textPaint;
         TextPaint textPaint2;
         TextPaint textPaint3;
         TextPaint textPaint4;
         Paint paint;
-        int i2;
+        int i;
         Paint paint2;
-        int i3;
+        int i2;
         Paint paint3;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLLL(65537, null, canvas, defaultRenderer, bVar, stringBuilder) == null) || canvas.getWidth() <= 6) {
             return;
         }
         Intrinsics.checkNotNullExpressionValue(stringBuilder, "stringBuilder");
-        textPaint = defaultRenderer.f47459d;
+        textPaint = defaultRenderer.f36667d;
         StaticLayout h2 = defaultRenderer.h(stringBuilder, textPaint, canvas.getWidth() - 6);
-        textPaint2 = defaultRenderer.f47458c;
+        textPaint2 = defaultRenderer.f36666c;
         StaticLayout h3 = defaultRenderer.h(stringBuilder, textPaint2, canvas.getWidth() - 6);
-        textPaint3 = defaultRenderer.f47458c;
-        textPaint4 = defaultRenderer.f47458c;
+        textPaint3 = defaultRenderer.f36666c;
+        textPaint4 = defaultRenderer.f36666c;
         canvas.save();
         canvas.translate(0.0f, (((textPaint3.getFontMetrics().descent + 17.43f) - textPaint4.getFontMetrics().bottom) - UtilHelper.getDimenPixelSize(R.dimen.tbds3)) + bVar.e());
         h2.draw(canvas);
@@ -92,15 +92,15 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
         canvas.restore();
         if (bVar.g() == 8) {
             float[] y = a.y(R.string.J_X04);
-            paint = defaultRenderer.f47460e;
+            paint = defaultRenderer.f36668e;
             float strokeWidth = paint.getStrokeWidth() * 0.2f;
+            i = defaultRenderer.a;
+            paint2 = defaultRenderer.f36668e;
             i2 = defaultRenderer.a;
-            paint2 = defaultRenderer.f47460e;
-            i3 = defaultRenderer.a;
             float f2 = y[0];
             float f3 = y[1];
-            paint3 = defaultRenderer.f47460e;
-            canvas.drawRoundRect(strokeWidth, i2, canvas.getWidth() - (paint2.getStrokeWidth() * 0.2f), canvas.getHeight() - i3, f2, f3, paint3);
+            paint3 = defaultRenderer.f36668e;
+            canvas.drawRoundRect(strokeWidth, i, canvas.getWidth() - (paint2.getStrokeWidth() * 0.2f), canvas.getHeight() - i2, f2, f3, paint3);
         }
     }
 
@@ -132,15 +132,15 @@ public final class DefaultRenderer$draw$1 extends SuspendLambda implements Funct
                 final Canvas canvas = this.$canvas;
                 final DefaultRenderer defaultRenderer = this.this$0;
                 final b bVar = this.$danmakuItemData;
-                c.a.r0.x0.b.d(inst, d2, new b.g() { // from class: c.a.r0.n4.d.a
+                c.a.p0.z0.b.d(inst, d2, new b.g() { // from class: c.a.p0.p4.d.a
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // c.a.r0.x0.b.g
+                    @Override // c.a.p0.z0.b.g
                     public final void a(SpannableStringBuilder spannableStringBuilder) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
-                            DefaultRenderer$draw$1.m66invokeSuspend$lambda0(canvas, defaultRenderer, bVar, spannableStringBuilder);
+                            DefaultRenderer$draw$1.m60invokeSuspend$lambda0(canvas, defaultRenderer, bVar, spannableStringBuilder);
                         }
                     }
                 });

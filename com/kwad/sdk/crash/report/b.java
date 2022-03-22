@@ -18,13 +18,12 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f55112b = "";
+    public String f40189b = "";
 
     private String a(String str) {
         return (str == null || !str.contains("-")) ? str : str.substring(0, str.lastIndexOf(45));
@@ -147,7 +146,7 @@ public abstract class b {
                 h.b(file8.getPath());
             }
             h.b(file5.getPath());
-            f.b(com.kwad.sdk.crash.b.b.f55083b);
+            f.b(com.kwad.sdk.crash.b.b.f40162b);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }
@@ -177,48 +176,48 @@ public abstract class b {
                                     if (TextUtils.isEmpty(exceptionMessage.mLockInfo)) {
                                         sb2 = new StringBuilder();
                                         sb2.append(readLine);
-                                        sb2.append(StringUtils.LF);
+                                        sb2.append("\n");
                                     } else {
                                         sb2 = new StringBuilder();
                                         sb2.append(exceptionMessage.mLockInfo);
                                         sb2.append(readLine);
-                                        sb2.append(StringUtils.LF);
+                                        sb2.append("\n");
                                     }
                                     exceptionMessage.mLockInfo = sb2.toString();
                                 } else if (readLine.contains("Long monitor")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mMonitorInfo)) {
                                         sb3 = new StringBuilder();
                                         sb3.append(readLine);
-                                        sb3.append(StringUtils.LF);
+                                        sb3.append("\n");
                                     } else {
                                         sb3 = new StringBuilder();
                                         sb3.append(exceptionMessage.mMonitorInfo);
                                         sb3.append(readLine);
-                                        sb3.append(StringUtils.LF);
+                                        sb3.append("\n");
                                     }
                                     exceptionMessage.mMonitorInfo = sb3.toString();
                                 } else if (readLine.contains("Slow Looper")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mSlowLooper)) {
                                         sb4 = new StringBuilder();
                                         sb4.append(readLine);
-                                        sb4.append(StringUtils.LF);
+                                        sb4.append("\n");
                                     } else {
                                         sb4 = new StringBuilder();
                                         sb4.append(exceptionMessage.mSlowLooper);
                                         sb4.append(readLine);
-                                        sb4.append(StringUtils.LF);
+                                        sb4.append("\n");
                                     }
                                     exceptionMessage.mSlowLooper = sb4.toString();
                                 } else if (readLine.contains("Slow Operation")) {
                                     if (TextUtils.isEmpty(exceptionMessage.mSlowOperation)) {
                                         sb5 = new StringBuilder();
                                         sb5.append(readLine);
-                                        sb5.append(StringUtils.LF);
+                                        sb5.append("\n");
                                     } else {
                                         sb5 = new StringBuilder();
                                         sb5.append(exceptionMessage.mSlowOperation);
                                         sb5.append(readLine);
-                                        sb5.append(StringUtils.LF);
+                                        sb5.append("\n");
                                     }
                                     exceptionMessage.mSlowOperation = sb5.toString();
                                 }
@@ -226,12 +225,12 @@ public abstract class b {
                             if (TextUtils.isEmpty(exceptionMessage.mGCInfo)) {
                                 sb = new StringBuilder();
                                 sb.append(readLine);
-                                sb.append(StringUtils.LF);
+                                sb.append("\n");
                             } else {
                                 sb = new StringBuilder();
                                 sb.append(exceptionMessage.mGCInfo);
                                 sb.append(readLine);
-                                sb.append(StringUtils.LF);
+                                sb.append("\n");
                             }
                             exceptionMessage.mGCInfo = sb.toString();
                         } else {
@@ -241,15 +240,15 @@ public abstract class b {
                     } catch (FileNotFoundException e2) {
                         e = e2;
                         bufferedReader = bufferedReader2;
-                        str = this.f55112b + e + StringUtils.LF;
-                        this.f55112b = str;
+                        str = this.f40189b + e + "\n";
+                        this.f40189b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (IOException e3) {
                         e = e3;
                         bufferedReader = bufferedReader2;
-                        str = this.f55112b + e + StringUtils.LF;
-                        this.f55112b = str;
+                        str = this.f40189b + e + "\n";
+                        this.f40189b = str;
                         com.kwad.sdk.crash.utils.b.a((Reader) bufferedReader);
                         return;
                     } catch (Throwable th) {

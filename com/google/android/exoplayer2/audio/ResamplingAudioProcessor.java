@@ -1,7 +1,6 @@
 package com.google.android.exoplayer2.audio;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.audio.AudioProcessor;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ResamplingAudioProcessor implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +26,9 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,20 +43,20 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i2, int i3, int i4) throws AudioProcessor.UnhandledFormatException {
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            if (i4 != 3 && i4 != 2 && i4 != Integer.MIN_VALUE && i4 != 1073741824) {
-                throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            if (i3 != 3 && i3 != 2 && i3 != Integer.MIN_VALUE && i3 != 1073741824) {
+                throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
             }
-            if (this.sampleRateHz == i2 && this.channelCount == i3 && this.encoding == i4) {
+            if (this.sampleRateHz == i && this.channelCount == i2 && this.encoding == i3) {
                 return false;
             }
-            this.sampleRateHz = i2;
-            this.channelCount = i3;
-            this.encoding = i4;
-            if (i4 == 2) {
+            this.sampleRateHz = i;
+            this.channelCount = i2;
+            this.encoding = i3;
+            if (i3 == 2) {
                 this.buffer = AudioProcessor.EMPTY_BUFFER;
                 return true;
             }
@@ -116,8 +115,8 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = this.encoding;
-            return (i2 == 0 || i2 == 2) ? false : true;
+            int i = this.encoding;
+            return (i == 0 || i == 2) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -147,38 +146,38 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void queueInput(ByteBuffer byteBuffer) {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, byteBuffer) == null) {
             int position = byteBuffer.position();
             int limit = byteBuffer.limit();
-            int i4 = limit - position;
-            int i5 = this.encoding;
-            if (i5 == Integer.MIN_VALUE) {
-                i4 /= 3;
-            } else if (i5 != 3) {
-                if (i5 == 1073741824) {
-                    i2 = i4 / 2;
-                    if (this.buffer.capacity() >= i2) {
-                        this.buffer = ByteBuffer.allocateDirect(i2).order(ByteOrder.nativeOrder());
+            int i3 = limit - position;
+            int i4 = this.encoding;
+            if (i4 == Integer.MIN_VALUE) {
+                i3 /= 3;
+            } else if (i4 != 3) {
+                if (i4 == 1073741824) {
+                    i = i3 / 2;
+                    if (this.buffer.capacity() >= i) {
+                        this.buffer = ByteBuffer.allocateDirect(i).order(ByteOrder.nativeOrder());
                     } else {
                         this.buffer.clear();
                     }
-                    i3 = this.encoding;
-                    if (i3 != Integer.MIN_VALUE) {
+                    i2 = this.encoding;
+                    if (i2 != Integer.MIN_VALUE) {
                         while (position < limit) {
                             this.buffer.put(byteBuffer.get(position + 1));
                             this.buffer.put(byteBuffer.get(position + 2));
                             position += 3;
                         }
-                    } else if (i3 == 3) {
+                    } else if (i2 == 3) {
                         while (position < limit) {
                             this.buffer.put((byte) 0);
-                            this.buffer.put((byte) ((byteBuffer.get(position) & 255) + a.f29502g));
+                            this.buffer.put((byte) ((byteBuffer.get(position) & 255) - 128));
                             position++;
                         }
-                    } else if (i3 != 1073741824) {
+                    } else if (i2 != 1073741824) {
                         throw new IllegalStateException();
                     } else {
                         while (position < limit) {
@@ -193,11 +192,11 @@ public final class ResamplingAudioProcessor implements AudioProcessor {
                 }
                 throw new IllegalStateException();
             }
-            i2 = i4 * 2;
-            if (this.buffer.capacity() >= i2) {
+            i = i3 * 2;
+            if (this.buffer.capacity() >= i) {
             }
-            i3 = this.encoding;
-            if (i3 != Integer.MIN_VALUE) {
+            i2 = this.encoding;
+            if (i2 != Integer.MIN_VALUE) {
             }
             byteBuffer.position(byteBuffer.limit());
             this.buffer.flip();

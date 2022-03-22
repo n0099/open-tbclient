@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
 /* loaded from: classes.dex */
 public class DebugUtils {
@@ -18,9 +17,9 @@ public class DebugUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,7 +39,7 @@ public class DebugUtils {
                 simpleName = simpleName.substring(lastIndexOf + 1);
             }
             sb.append(simpleName);
-            sb.append(ExtendedMessageFormat.START_FE);
+            sb.append('{');
             sb.append(Integer.toHexString(System.identityHashCode(obj)));
         }
     }

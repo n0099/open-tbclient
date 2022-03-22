@@ -1,12 +1,13 @@
 package com.baidu.tieba.im.chat;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class CommonGroupMsglistView extends AbsMsglistView {
     public static /* synthetic */ Interceptable $ic;
@@ -21,9 +22,9 @@ public class CommonGroupMsglistView extends AbsMsglistView {
             newInitContext.initArgs = r2;
             Object[] objArr = {msglistActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((MsglistActivity) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -54,13 +55,13 @@ public class CommonGroupMsglistView extends AbsMsglistView {
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
-    public Map<String, String> selectList() {
+    public ArrayList<ReportPrivateMsgData> selectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (Map) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView

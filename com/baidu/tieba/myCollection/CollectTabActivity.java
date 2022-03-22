@@ -6,14 +6,13 @@ import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
-import c.a.q0.a.v;
-import c.a.q0.h0.c;
-import c.a.r0.m2.b;
+import c.a.o0.a.w;
+import c.a.o0.h0.c;
+import c.a.p0.o2.b;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.collectTab.CollectFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NotificationHelper;
@@ -28,33 +27,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CollectTabActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENTS_TAG = "android:support:fragments";
     public static final String SCHEME_MY_COLLECT = "tbmycollection://";
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.m2.a mController;
+    public c.a.p0.o2.a mController;
     public CustomMessageListener mEditorEnableListener;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CollectTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(CollectTabActivity collectTabActivity, int i2) {
-            super(i2);
+        public a(CollectTabActivity collectTabActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {collectTabActivity, Integer.valueOf(i2)};
+                Object[] objArr = {collectTabActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -70,9 +69,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Bundle)) {
                 Bundle bundle = (Bundle) customResponsedMessage.getData();
-                boolean z = bundle.getBoolean(CollectFragment.EDITOR_ENABLE_EXTRA, true);
-                int i2 = bundle.getInt(CollectFragment.FRAGMENT_TYPE, -1);
-                if (i2 == -1 || i2 != this.a.mController.f()) {
+                boolean z = bundle.getBoolean("is_enable_edit", true);
+                int i = bundle.getInt("fragment_type", -1);
+                if (i == -1 || i != this.a.mController.f()) {
                     return;
                 }
                 this.a.mController.k(z);
@@ -85,9 +84,9 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,12 +111,12 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Map<String, String> paramPair = UrlManager.getParamPair(decode);
         if (paramPair != null) {
             StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", paramPair.get("obj_locate")).param("obj_type", 1).param("obj_source", paramPair.get("obj_source")).param(TiebaStatic.Params.OBJ_PARAM2, paramPair.get(TiebaStatic.Params.OBJ_PARAM2)).param(TiebaStatic.Params.OBJ_TO, 4).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
-            v.b(param, paramPair);
+            w.b(param, paramPair);
             TiebaStatic.log(param);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -127,38 +126,38 @@ public class CollectTabActivity extends BaseFragmentActivity {
     public void initTabsOnActivityCreated() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.q0.q.a aVar = new c.a.q0.q.a(getPageContext().getPageActivity());
+            c.a.o0.q.a aVar = new c.a.o0.q.a(getPageContext().getPageActivity());
             ThreadDelegateStatic threadDelegateStatic = new ThreadDelegateStatic();
             aVar.a(threadDelegateStatic);
             if (aVar.getContext() != null) {
-                c fragmentTabStructure = threadDelegateStatic.getFragmentTabStructure();
-                if (fragmentTabStructure == null) {
+                c b2 = threadDelegateStatic.b();
+                if (b2 == null) {
                     return;
                 }
-                fragmentTabStructure.a.setArguments(new Bundle());
+                b2.a.setArguments(new Bundle());
             }
             this.mController.h(aVar.b());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             Fragment e2 = this.mController.e();
             if (e2 != null) {
-                e2.onActivityResult(i2, i3, intent);
+                e2.onActivityResult(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            super.changeSkinType(i2);
-            this.mController.j(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            super.changeSkinType(i);
+            this.mController.j(i);
         }
     }
 
@@ -168,7 +167,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         if ((interceptable == null || interceptable.invokeL(1048580, this, view) == null) && view == this.mController.d()) {
             boolean z = !this.mController.i();
             if (z) {
-                c.a.r0.m2.c.a("c14067");
+                c.a.p0.o2.c.a("c14067");
             }
             this.mController.b(z);
         }
@@ -179,8 +178,8 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.collect_tab_activity);
-            this.mController = new c.a.r0.m2.a(this);
+            setContentView(R.layout.obfuscated_res_0x7f0d01ef);
+            this.mController = new c.a.p0.o2.a(this);
             registerListener(this.mEditorEnableListener);
             initTabsOnActivityCreated();
             checkSchemeFromIntent(getIntent());
@@ -211,7 +210,7 @@ public class CollectTabActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
-            c.a.r0.m2.c.a("c14061");
+            c.a.p0.o2.c.a("c14061");
             b.b().f(true);
             b.b().e(false);
             NotificationHelper.cancelNotification(getPageContext().getPageActivity(), 28);

@@ -17,7 +17,7 @@ import com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(19)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {flexByteArrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,11 +41,11 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
         this.mFlexByteArrayPool = flexByteArrayPool;
     }
 
-    public static void putEOI(byte[] bArr, int i2) {
+    public static void putEOI(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, bArr, i2) == null) {
-            bArr[i2] = -1;
-            bArr[i2 + 1] = -39;
+        if (interceptable == null || interceptable.invokeLI(65537, null, bArr, i) == null) {
+            bArr[i] = -1;
+            bArr[i + 1] = -39;
         }
     }
 
@@ -69,23 +69,23 @@ public class KitKatPurgeableDecoder extends DalvikPurgeableDecoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.DalvikPurgeableDecoder
-    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options) {
+    public Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableReference, i2, options)) == null) {
-            byte[] bArr = DalvikPurgeableDecoder.endsWithEOI(closeableReference, i2) ? null : DalvikPurgeableDecoder.EOI;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, closeableReference, i, options)) == null) {
+            byte[] bArr = DalvikPurgeableDecoder.endsWithEOI(closeableReference, i) ? null : DalvikPurgeableDecoder.EOI;
             PooledByteBuffer pooledByteBuffer = closeableReference.get();
-            Preconditions.checkArgument(i2 <= pooledByteBuffer.size());
-            int i3 = i2 + 2;
-            CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(i3);
+            Preconditions.checkArgument(i <= pooledByteBuffer.size());
+            int i2 = i + 2;
+            CloseableReference<byte[]> closeableReference2 = this.mFlexByteArrayPool.get(i2);
             try {
                 byte[] bArr2 = closeableReference2.get();
-                pooledByteBuffer.read(0, bArr2, 0, i2);
+                pooledByteBuffer.read(0, bArr2, 0, i);
                 if (bArr != null) {
-                    putEOI(bArr2, i2);
-                    i2 = i3;
+                    putEOI(bArr2, i);
+                    i = i2;
                 }
-                return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i2, options), "BitmapFactory returned null");
+                return (Bitmap) Preconditions.checkNotNull(BitmapFactory.decodeByteArray(bArr2, 0, i, options), "BitmapFactory returned null");
             } finally {
                 CloseableReference.closeSafely((CloseableReference<?>) closeableReference2);
             }

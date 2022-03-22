@@ -17,16 +17,16 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43636b;
+        public String f33857b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -43,9 +43,9 @@ public class MemoryItemRemoveMessage extends CustomResponsedMessage<a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;

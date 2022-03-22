@@ -17,9 +17,9 @@ public class LoggingEventHandler implements EventHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,9 +37,9 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void data(byte[] bArr, int i2) {
+    public void data(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -53,9 +53,9 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void error(int i2, String str) {
+    public void error(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -93,9 +93,9 @@ public class LoggingEventHandler implements EventHandler {
     }
 
     @Override // android.net.http.EventHandler
-    public void status(int i2, int i3, int i4, String str) {
+    public void status(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

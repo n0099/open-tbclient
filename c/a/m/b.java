@@ -12,29 +12,29 @@ public class b {
     public ApplicationInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4129b;
+    public int f3717b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f4130c;
+    public boolean f3718c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f4131d;
+    public boolean f3719d;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f4129b = 0;
-        this.f4130c = false;
-        this.f4131d = false;
+        this.f3717b = 0;
+        this.f3718c = false;
+        this.f3719d = false;
     }
 }

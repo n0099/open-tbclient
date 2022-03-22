@@ -14,56 +14,54 @@ public class CloseAdData extends OrmObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ERROR_CODE_NOT_MEMBER = 1990043;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f39533e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f39534f;
+    /* renamed from: b  reason: collision with root package name */
+    public int f30449b;
 
     public CloseAdData() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39533e = 1;
+        this.a = 1;
+    }
+
+    public void A(VipCloseAd vipCloseAd) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, vipCloseAd) == null) || vipCloseAd == null) {
+            return;
+        }
+        this.a = vipCloseAd.is_open.intValue();
+        this.f30449b = vipCloseAd.vip_close.intValue();
     }
 
     public void parseJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        this.f39533e = jSONObject.optInt("is_open");
-        this.f39534f = jSONObject.optInt("vip_close");
+        this.a = jSONObject.optInt("is_open");
+        this.f30449b = jSONObject.optInt("vip_close");
     }
 
-    public int w() {
+    public int y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39533e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public int x() {
+    public int z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39534f : invokeV.intValue;
-    }
-
-    public void y(VipCloseAd vipCloseAd) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, vipCloseAd) == null) || vipCloseAd == null) {
-            return;
-        }
-        this.f39533e = vipCloseAd.is_open.intValue();
-        this.f39534f = vipCloseAd.vip_close.intValue();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30449b : invokeV.intValue;
     }
 }

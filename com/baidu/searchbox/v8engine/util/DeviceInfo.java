@@ -38,9 +38,9 @@ public class DeviceInfo {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -54,8 +54,8 @@ public class DeviceInfo {
                 if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, file)) == null) {
                     String name = file.getName();
                     if (name.startsWith("cpu")) {
-                        for (int i2 = 3; i2 < name.length(); i2++) {
-                            if (name.charAt(i2) < '0' || name.charAt(i2) > '9') {
+                        for (int i = 3; i < name.length(); i++) {
+                            if (name.charAt(i) < '0' || name.charAt(i) > '9') {
                                 return false;
                             }
                         }
@@ -73,9 +73,9 @@ public class DeviceInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

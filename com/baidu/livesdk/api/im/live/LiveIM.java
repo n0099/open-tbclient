@@ -3,7 +3,7 @@ package com.baidu.livesdk.api.im.live;
 import com.baidu.livesdk.api.im.IMCastSetListener;
 /* loaded from: classes4.dex */
 public interface LiveIM {
-    void enterRoom(String str, String str2, int i2, IMCastSetListener iMCastSetListener, boolean z);
+    void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z);
 
     void exitRoom();
 

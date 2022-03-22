@@ -2,6 +2,7 @@ package com.baidu.mapapi.utils;
 
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.mapframework.open.aidl.IComOpenClient;
 import com.baidu.mapframework.open.aidl.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,9 +22,9 @@ public class e extends b.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,22 +35,23 @@ public class e extends b.a {
 
     @Override // com.baidu.mapframework.open.aidl.b
     public void a(IBinder iBinder) throws RemoteException {
+        String str;
         IComOpenClient iComOpenClient;
         boolean z;
-        String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iBinder) == null) {
-            unused = b.f34341c;
-            iComOpenClient = b.f34343e;
+            str = b.f26556c;
+            Log.d(str, "onClientReady");
+            iComOpenClient = b.f26558e;
             if (iComOpenClient != null) {
-                IComOpenClient unused2 = b.f34343e = null;
+                IComOpenClient unused = b.f26558e = null;
             }
-            IComOpenClient unused3 = b.f34343e = IComOpenClient.a.a(iBinder);
+            IComOpenClient unused2 = b.f26558e = IComOpenClient.a.a(iBinder);
             z = b.t;
             if (!z) {
                 b.a(b.a);
             }
-            boolean unused4 = b.t = true;
+            boolean unused3 = b.t = true;
         }
     }
 }

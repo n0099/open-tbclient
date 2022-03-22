@@ -30,38 +30,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.NameValuePair;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ServiceClient {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ServiceClient f834a;
+    public static ServiceClient f810a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f835a;
+    public static String f811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59967b;
+    public static String f44533b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f836a;
+    public Context f812a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Messenger f837a;
+    public Messenger f813a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<Message> f838a;
+    public List<Message> f814a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f839a;
+    public boolean f815a;
 
     /* renamed from: b  reason: collision with other field name */
-    public Messenger f840b;
+    public Messenger f816b;
 
     /* renamed from: b  reason: collision with other field name */
-    public boolean f841b;
+    public boolean f817b;
 
     static {
         InterceptResult invokeClinit;
@@ -76,7 +76,7 @@ public class ServiceClient {
                 return;
             }
         }
-        f59967b = gn.a(5) + "-";
+        f44533b = gn.a(5) + "-";
         a = 0L;
     }
 
@@ -87,22 +87,22 @@ public class ServiceClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f837a = null;
-        this.f839a = false;
-        this.f838a = new ArrayList();
-        this.f841b = false;
-        this.f836a = context.getApplicationContext();
-        if (m608a()) {
+        this.f813a = null;
+        this.f815a = false;
+        this.f814a = new ArrayList();
+        this.f817b = false;
+        this.f812a = context.getApplicationContext();
+        if (m587a()) {
             com.xiaomi.channel.commonutils.logger.b.c("use miui push service");
-            this.f839a = true;
+            this.f815a = true;
         }
     }
 
@@ -111,16 +111,16 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (!isMiuiPushServiceEnabled()) {
-                Intent intent = new Intent(this.f836a, XMPushService.class);
-                intent.putExtra(az.A, this.f836a.getPackageName());
+                Intent intent = new Intent(this.f812a, XMPushService.class);
+                intent.putExtra(az.A, this.f812a.getPackageName());
                 b();
                 return intent;
             }
             Intent intent2 = new Intent();
             intent2.setPackage("com.xiaomi.xmsf");
-            intent2.setClassName("com.xiaomi.xmsf", m604a());
-            intent2.putExtra(az.A, this.f836a.getPackageName());
-            m606a();
+            intent2.setClassName("com.xiaomi.xmsf", m583a());
+            intent2.putExtra(az.A, this.f812a.getPackageName());
+            m585a();
             return intent2;
         }
         return (Intent) invokeV.objValue;
@@ -139,12 +139,12 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private String m604a() {
+    private String m583a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, this)) == null) {
             try {
-                return this.f836a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 106 ? "com.xiaomi.push.service.XMPushService" : "com.xiaomi.xmsf.push.service.XMPushService";
+                return this.f812a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4).versionCode >= 106 ? "com.xiaomi.push.service.XMPushService" : "com.xiaomi.xmsf.push.service.XMPushService";
             } catch (Exception unused) {
                 return "com.xiaomi.xmsf.push.service.XMPushService";
             }
@@ -157,15 +157,15 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, map)) == null) {
             StringBuilder sb = new StringBuilder();
-            int i2 = 1;
+            int i = 1;
             for (Map.Entry<String, String> entry : map.entrySet()) {
                 sb.append(entry.getKey());
                 sb.append(":");
                 sb.append(entry.getValue());
-                if (i2 < map.size()) {
+                if (i < map.size()) {
                     sb.append(",");
                 }
-                i2++;
+                i++;
             }
             return sb.toString();
         }
@@ -190,37 +190,37 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m606a() {
+    private void m585a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            this.f836a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f836a, XMPushService.class), 2, 1);
+            this.f812a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f812a, XMPushService.class), 2, 1);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private synchronized void m607a(Intent intent) {
+    private synchronized void m586a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, intent) == null) {
             synchronized (this) {
-                if (this.f841b) {
+                if (this.f817b) {
                     Message a2 = a(intent);
-                    if (this.f838a.size() >= 50) {
-                        this.f838a.remove(0);
+                    if (this.f814a.size() >= 50) {
+                        this.f814a.remove(0);
                     }
-                    this.f838a.add(a2);
+                    this.f814a.add(a2);
                     return;
                 }
-                if (this.f840b == null) {
-                    this.f836a.bindService(intent, new bh(this), 1);
-                    this.f841b = true;
-                    this.f838a.clear();
-                    this.f838a.add(a(intent));
+                if (this.f816b == null) {
+                    this.f812a.bindService(intent, new bh(this), 1);
+                    this.f817b = true;
+                    this.f814a.clear();
+                    this.f814a.add(a(intent));
                 } else {
                     try {
-                        this.f840b.send(a(intent));
+                        this.f816b.send(a(intent));
                     } catch (RemoteException unused) {
-                        this.f840b = null;
-                        this.f841b = false;
+                        this.f816b = null;
+                        this.f817b = false;
                     }
                 }
             }
@@ -236,8 +236,8 @@ public class ServiceClient {
             intent.putExtra(az.w, str5);
             intent.putExtra(az.v, str4);
             intent.putExtra(az.x, z);
-            intent.putExtra(az.D, f835a);
-            intent.putExtra(az.H, this.f837a);
+            intent.putExtra(az.D, f811a);
+            intent.putExtra(az.H, this.f813a);
             if (map != null && map.size() > 0) {
                 String a2 = a(map);
                 if (!TextUtils.isEmpty(a2)) {
@@ -256,15 +256,15 @@ public class ServiceClient {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m608a() {
+    private boolean m587a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
-            if (com.xiaomi.push.ab.f59468e) {
+            if (com.xiaomi.push.ab.f44087e) {
                 return false;
             }
             try {
-                PackageInfo packageInfo = this.f836a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
+                PackageInfo packageInfo = this.f812a.getPackageManager().getPackageInfo("com.xiaomi.xmsf", 4);
                 if (packageInfo == null) {
                     return false;
                 }
@@ -279,7 +279,7 @@ public class ServiceClient {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65551, this) == null) {
-            this.f836a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f836a, XMPushService.class), 1, 1);
+            this.f812a.getPackageManager().setComponentEnabledSetting(new ComponentName(this.f812a, XMPushService.class), 1, 1);
         }
     }
 
@@ -287,10 +287,10 @@ public class ServiceClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
-            if (f834a == null) {
-                f834a = new ServiceClient(context);
+            if (f810a == null) {
+                f810a = new ServiceClient(context);
             }
-            return f834a;
+            return f810a;
         }
         return (ServiceClient) invokeL.objValue;
     }
@@ -298,13 +298,13 @@ public class ServiceClient {
     public static String getSession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f835a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) ? f811a : (String) invokeV.objValue;
     }
 
     public static void setSession(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, null, str) == null) {
-            f835a = str;
+            f811a = str;
         }
     }
 
@@ -312,25 +312,25 @@ public class ServiceClient {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, gbVarArr, z)) == null) {
-            if (com.xiaomi.push.bg.b(this.f836a)) {
+            if (com.xiaomi.push.bg.b(this.f812a)) {
                 Intent a2 = a();
                 int length = gbVarArr.length;
                 Bundle[] bundleArr = new Bundle[length];
-                for (int i2 = 0; i2 < gbVarArr.length; i2++) {
+                for (int i = 0; i < gbVarArr.length; i++) {
                     String a3 = eq.a();
                     if (!TextUtils.isEmpty(a3)) {
                         fz fzVar = new fz("pf", null, null, null);
                         fz fzVar2 = new fz("sent", null, null, null);
-                        fzVar2.m398a(a3);
+                        fzVar2.m377a(a3);
                         fzVar.a(fzVar2);
-                        gbVarArr[i2].a(fzVar);
+                        gbVarArr[i].a(fzVar);
                     }
-                    com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gbVarArr[i2].a());
-                    bundleArr[i2] = gbVarArr[i2].a();
+                    com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gbVarArr[i].a());
+                    bundleArr[i] = gbVarArr[i].a();
                 }
                 if (length > 0) {
-                    a2.setAction(az.f59998g);
-                    a2.putExtra(az.D, f835a);
+                    a2.setAction(az.f44563g);
+                    a2.putExtra(az.D, f811a);
                     a2.putExtra("ext_packets", bundleArr);
                     a2.putExtra("ext_encrypt", z);
                     return startServiceSafely(a2);
@@ -356,7 +356,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f60000i);
+            a2.setAction(az.i);
             return startServiceSafely(a2);
         }
         return invokeV.booleanValue;
@@ -367,7 +367,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f60000i);
+            a2.setAction(az.i);
             a2.putExtra(az.s, str);
             return startServiceSafely(a2);
         }
@@ -379,7 +379,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
             Intent a2 = a();
-            a2.setAction(az.f60000i);
+            a2.setAction(az.i);
             a2.putExtra(az.s, str);
             a2.putExtra(az.p, str2);
             return startServiceSafely(a2);
@@ -399,7 +399,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, str4, str5, Boolean.valueOf(z), map, map2})) == null) {
             Intent a2 = a();
-            a2.setAction(az.f60001j);
+            a2.setAction(az.j);
             a(a2, str, str2, str3, str4, str5, z, map, map2);
             return startServiceSafely(a2);
         }
@@ -409,7 +409,7 @@ public class ServiceClient {
     public boolean isMiuiPushServiceEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f839a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f815a : invokeV.booleanValue;
     }
 
     public int openChannel(String str, String str2, String str3, String str4, String str5, Map<String, String> map, Map<String, String> map2, boolean z) {
@@ -417,7 +417,7 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, str4, str5, map, map2, Boolean.valueOf(z)})) == null) {
             Intent a2 = a();
-            a2.setAction(az.f59995d);
+            a2.setAction(az.f44560d);
             a(a2, str, str2, str3, str4, str5, z, map, map2);
             startServiceSafely(a2);
             return 0;
@@ -454,13 +454,13 @@ public class ServiceClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, gaVar)) == null) {
-            if (com.xiaomi.push.bg.b(this.f836a)) {
+            if (com.xiaomi.push.bg.b(this.f812a)) {
                 Intent a2 = a();
                 Bundle a3 = gaVar.a();
                 if (a3 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gaVar.a());
-                    a2.setAction(az.f59997f);
-                    a2.putExtra(az.D, f835a);
+                    a2.setAction(az.f44562f);
+                    a2.putExtra(az.D, f811a);
                     a2.putExtra("ext_packet", a3);
                     return startServiceSafely(a2);
                 }
@@ -475,21 +475,21 @@ public class ServiceClient {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048589, this, gbVar, z)) == null) {
-            if (com.xiaomi.push.bg.b(this.f836a)) {
+            if (com.xiaomi.push.bg.b(this.f812a)) {
                 Intent a2 = a();
                 String a3 = eq.a();
                 if (!TextUtils.isEmpty(a3)) {
                     fz fzVar = new fz("pf", null, null, null);
                     fz fzVar2 = new fz("sent", null, null, null);
-                    fzVar2.m398a(a3);
+                    fzVar2.m377a(a3);
                     fzVar.a(fzVar2);
                     gbVar.a(fzVar);
                 }
                 Bundle a4 = gbVar.a();
                 if (a4 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + gbVar.a());
-                    a2.setAction(az.f59996e);
-                    a2.putExtra(az.D, f835a);
+                    a2.setAction(az.f44561e);
+                    a2.putExtra(az.D, f811a);
                     a2.putExtra("ext_packet", a4);
                     a2.putExtra("ext_encrypt", z);
                     return startServiceSafely(a2);
@@ -506,14 +506,14 @@ public class ServiceClient {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, bArr, str, str2)) == null) {
-            if (!com.xiaomi.push.bg.b(this.f836a) || bArr == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
+            if (!com.xiaomi.push.bg.b(this.f812a) || bArr == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                com.xiaomi.channel.commonutils.logger.b.m112a("Failed to send message: message|userId|chid may be empty, or the network is unavailable.");
                 return false;
             }
             Intent a2 = a();
             if (bArr != null) {
-                a2.setAction(az.f59996e);
-                a2.putExtra(az.D, f835a);
+                a2.setAction(az.f44561e);
+                a2.putExtra(az.D, f811a);
                 a2.putExtra("ext_raw_packet", bArr);
                 int indexOf = str.indexOf("@");
                 String str4 = null;
@@ -529,10 +529,10 @@ public class ServiceClient {
                 a2.putExtra(az.q, str4);
                 a2.putExtra(az.r, str3);
                 StringBuilder sb = new StringBuilder();
-                sb.append(f59967b);
-                long j2 = a;
-                a = 1 + j2;
-                sb.append(j2);
+                sb.append(f44533b);
+                long j = a;
+                a = 1 + j;
+                sb.append(j);
                 String sb2 = sb.toString();
                 a2.putExtra("ext_pkt_id", sb2);
                 a2.putExtra("ext_chid", str2);
@@ -548,13 +548,13 @@ public class ServiceClient {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, geVar)) == null) {
-            if (com.xiaomi.push.bg.b(this.f836a)) {
+            if (com.xiaomi.push.bg.b(this.f812a)) {
                 Intent a2 = a();
                 Bundle a3 = geVar.a();
                 if (a3 != null) {
                     com.xiaomi.channel.commonutils.logger.b.c("SEND:" + geVar.a());
-                    a2.setAction(az.f59999h);
-                    a2.putExtra(az.D, f835a);
+                    a2.setAction(az.f44564h);
+                    a2.putExtra(az.D, f811a);
                     a2.putExtra("ext_packet", a3);
                     return startServiceSafely(a2);
                 }
@@ -568,7 +568,7 @@ public class ServiceClient {
     public void setMessenger(Messenger messenger) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, messenger) == null) {
-            this.f837a = messenger;
+            this.f813a = messenger;
         }
     }
 
@@ -577,11 +577,11 @@ public class ServiceClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, intent)) == null) {
             try {
-                if (com.xiaomi.push.l.m598a() || Build.VERSION.SDK_INT < 26) {
-                    this.f836a.startService(intent);
+                if (com.xiaomi.push.l.m577a() || Build.VERSION.SDK_INT < 26) {
+                    this.f812a.startService(intent);
                     return true;
                 }
-                m607a(intent);
+                m586a(intent);
                 return true;
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);

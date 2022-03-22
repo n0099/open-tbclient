@@ -16,7 +16,7 @@ public class BinderHolder implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BinderHolder> CREATOR;
     public transient /* synthetic */ FieldHolder $fh;
-    public IBinder a;
+    public IBinder data;
 
     static {
         InterceptResult invokeClinit;
@@ -40,25 +40,31 @@ public class BinderHolder implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public final /* synthetic */ BinderHolder createFromParcel(Parcel parcel) {
-                return new BinderHolder(parcel);
+            public final BinderHolder createFromParcel(Parcel parcel) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, parcel)) == null) ? new BinderHolder(parcel) : (BinderHolder) invokeL.objValue;
             }
 
-            /* JADX DEBUG: Return type fixed from 'java.lang.Object[]' to match base method */
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public final /* bridge */ /* synthetic */ BinderHolder[] newArray(int i2) {
-                return new BinderHolder[i2];
+            public final BinderHolder[] newArray(int i) {
+                InterceptResult invokeI;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BinderHolder[i] : (BinderHolder[]) invokeI.objValue;
             }
         };
     }
@@ -70,15 +76,15 @@ public class BinderHolder implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {iBinder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = iBinder;
+        this.data = iBinder;
     }
 
     @Override // android.os.Parcelable
@@ -92,10 +98,10 @@ public class BinderHolder implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeStrongBinder(this.a);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeStrongBinder(this.data);
         }
     }
 
@@ -106,14 +112,14 @@ public class BinderHolder implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.a = parcel.readStrongBinder();
+        this.data = parcel.readStrongBinder();
     }
 }

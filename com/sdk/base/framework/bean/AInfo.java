@@ -8,13 +8,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f57784c;
+    public int f42553c;
     public String md5;
     public String n;
     public String pk;
@@ -25,9 +25,9 @@ public class AInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,7 +37,7 @@ public class AInfo {
     public int getC() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57784c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42553c : invokeV.intValue;
     }
 
     public String getMd5() {
@@ -64,10 +64,10 @@ public class AInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.v : (String) invokeV.objValue;
     }
 
-    public void setC(int i2) {
+    public void setC(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f57784c = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f42553c = i;
         }
     }
 

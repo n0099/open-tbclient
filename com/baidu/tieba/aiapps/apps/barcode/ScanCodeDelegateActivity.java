@@ -17,9 +17,9 @@ public class ScanCodeDelegateActivity extends ProcessDelegateBaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -27,10 +27,10 @@ public class ScanCodeDelegateActivity extends ProcessDelegateBaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             if (intent != null && intent.getExtras() != null) {
                 this.mDelegation.mResult.putString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, intent.getExtras().getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""));
                 exit();

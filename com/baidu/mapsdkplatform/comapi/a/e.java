@@ -20,9 +20,9 @@ public class e implements Animator.AnimatorListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,9 +37,9 @@ public class e implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            animationListener = this.a.f34387d;
+            animationListener = this.a.f26600d;
             if (animationListener != null) {
-                animationListener2 = this.a.f34387d;
+                animationListener2 = this.a.f26600d;
                 animationListener2.onAnimationCancel();
             }
         }
@@ -51,9 +51,9 @@ public class e implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            animationListener = this.a.f34387d;
+            animationListener = this.a.f26600d;
             if (animationListener != null) {
-                animationListener2 = this.a.f34387d;
+                animationListener2 = this.a.f26600d;
                 animationListener2.onAnimationEnd();
             }
         }
@@ -65,9 +65,9 @@ public class e implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            animationListener = this.a.f34387d;
+            animationListener = this.a.f26600d;
             if (animationListener != null) {
-                animationListener2 = this.a.f34387d;
+                animationListener2 = this.a.f26600d;
                 animationListener2.onAnimationRepeat();
             }
         }
@@ -79,9 +79,9 @@ public class e implements Animator.AnimatorListener {
         Animation.AnimationListener animationListener2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            animationListener = this.a.f34387d;
+            animationListener = this.a.f26600d;
             if (animationListener != null) {
-                animationListener2 = this.a.f34387d;
+                animationListener2 = this.a.f26600d;
                 animationListener2.onAnimationStart();
             }
         }

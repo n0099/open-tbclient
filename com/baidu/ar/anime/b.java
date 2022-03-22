@@ -36,9 +36,9 @@ public class b {
     public AlgoHandleController cb;
 
     /* renamed from: cn  reason: collision with root package name */
-    public FramePixels f31450cn;
+    public FramePixels f24814cn;
     public byte[] co;
-    public InterfaceC1745b cp;
+    public InterfaceC1706b cp;
     public HandlerThread cq;
     public a cr;
     public boolean cs;
@@ -61,9 +61,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -73,13 +73,13 @@ public class b {
             this.cC = false;
         }
 
-        public void a(int i2, Runnable runnable) {
+        public void a(int i, Runnable runnable) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, runnable) == null) || this.cC) {
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, runnable) == null) || this.cC) {
                 return;
             }
             Message obtain = Message.obtain();
-            obtain.what = i2;
+            obtain.what = i;
             obtain.obj = runnable;
             sendMessage(obtain);
         }
@@ -102,33 +102,33 @@ public class b {
 
     /* renamed from: com.baidu.ar.anime.b$b  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public interface InterfaceC1745b {
-        void a(int i2, String str, long j2);
+    public interface InterfaceC1706b {
+        void a(int i, String str, long j);
     }
 
-    public b(InterfaceC1745b interfaceC1745b) {
+    public b(InterfaceC1706b interfaceC1706b) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {interfaceC1745b};
+            Object[] objArr = {interfaceC1706b};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f31450cn = null;
+        this.f24814cn = null;
         this.co = null;
         this.cp = null;
         this.cs = true;
         this.cb = null;
         this.cu = new ArrayList<>();
         this.cv = true;
-        this.cp = interfaceC1745b;
+        this.cp = interfaceC1706b;
         if (this.cq == null) {
             HandlerThread handlerThread = new HandlerThread("AnimeHandlerThread");
             this.cq = handlerThread;
@@ -143,7 +143,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, arrayList)) == null) {
-            if (this.f31450cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
+            if (this.f24814cn == null || arrayList == null || arrayList.size() <= 0 || this.cb == null) {
                 return 0L;
             }
             if (arrayList.size() < 2) {
@@ -151,24 +151,24 @@ public class b {
                 return 0L;
             }
             long createHandle = this.cb.createHandle();
-            this.cb.setHandleInput(createHandle, 21, this.f31450cn.getTimestamp(), 4, this.f31450cn.getWidth(), this.f31450cn.getHeight(), this.f31450cn.isFrontCamera(), this.f31450cn.getSegOrientation().getValue(), false, this.f31450cn.getPixelsAddress());
+            this.cb.setHandleInput(createHandle, 21, this.f24814cn.getTimestamp(), 4, this.f24814cn.getWidth(), this.f24814cn.getHeight(), this.f24814cn.isFrontCamera(), this.f24814cn.getSegOrientation().getValue(), false, this.f24814cn.getPixelsAddress());
             ReserveHandleData reserveHandleData = new ReserveHandleData();
             reserveHandleData.setByteDataSize(arrayList.size());
-            int width = this.f31450cn.getWidth();
-            int height = this.f31450cn.getHeight();
+            int width = this.f24814cn.getWidth();
+            int height = this.f24814cn.getHeight();
             if (this.cv) {
-                height = this.f31450cn.getHeight() / 2;
+                height = this.f24814cn.getHeight() / 2;
             }
             if (this.ct) {
-                width = this.f31450cn.getHeight();
-                height = this.f31450cn.getWidth() / 2;
+                width = this.f24814cn.getHeight();
+                height = this.f24814cn.getWidth() / 2;
             }
             reserveHandleData.setByteWidths(new int[]{width, width});
             reserveHandleData.setByteHeights(new int[]{height, height});
             reserveHandleData.setByteFormats(new int[]{2, 2});
             ArrayList arrayList2 = new ArrayList();
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                arrayList2.add(arrayList.get(i2));
+            for (int i = 0; i < arrayList.size(); i++) {
+                arrayList2.add(arrayList.get(i));
             }
             reserveHandleData.setByteArrayListData(arrayList2);
             AlgoHandleAdapter.setHandleReserveData(createHandle, reserveHandleData);
@@ -178,18 +178,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str, ArrayList<byte[]> arrayList) {
+    public void a(int i, String str, ArrayList<byte[]> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65541, this, i2, str, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeILL(65541, this, i, str, arrayList) == null) {
             if (this.cp == null) {
                 com.baidu.ar.h.b.aS("mRequestCallback is null!");
-            } else if (i2 != 201 && !this.cs) {
-                com.baidu.ar.h.b.aS("task cancel, not process errorCode:" + i2);
+            } else if (i != 201 && !this.cs) {
+                com.baidu.ar.h.b.aS("task cancel, not process errorCode:" + i);
                 this.cp.a(201, "cancel ability", 0L);
             } else {
                 long a2 = a(arrayList);
-                if (i2 != 200 || a2 > 0) {
-                    this.cp.a(i2, str, a2);
+                if (i != 200 || a2 > 0) {
+                    this.cp.a(i, str, a2);
                 } else {
                     this.cp.a(203, "result invalid", a2);
                 }
@@ -237,18 +237,18 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(com.baidu.ar.ihttp.a aVar, byte[] bArr, int i2, String str) {
+    public void a(com.baidu.ar.ihttp.a aVar, byte[] bArr, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65546, this, aVar, bArr, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65546, this, aVar, bArr, i, str) == null) {
             String gW = s.gW();
             try {
                 String encodeToString = Base64.encodeToString(bArr, 0);
                 JSONObject jSONObject = new JSONObject();
                 if (TextUtils.isEmpty(str)) {
                     this.cv = true;
-                    str = i2 == 0 ? "selfie2anime_quanmin" : "selfie2anime_quanmin_rand";
+                    str = i == 0 ? "selfie2anime_quanmin" : "selfie2anime_quanmin_rand";
                     if (this.ct) {
-                        str = i2 == 0 ? "selfie2anime" : "selfie2anime_rand";
+                        str = i == 0 ? "selfie2anime" : "selfie2anime_rand";
                     }
                 } else {
                     this.cv = false;
@@ -339,9 +339,9 @@ public class b {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, framePixels, valueOf, str};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -357,7 +357,7 @@ public class b {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    this.cy.f31450cn = this.cw;
+                    this.cy.f24814cn = this.cw;
                     FramePixels framePixels2 = this.cw;
                     if (framePixels2 == null || framePixels2.getPixelsAddress() == null) {
                         com.baidu.ar.h.b.aS("framePixels data error!");
@@ -386,9 +386,9 @@ public class b {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, Long.valueOf(r7)};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -478,9 +478,9 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -510,16 +510,16 @@ public class b {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (this.co == null || this.f31450cn == null) {
+            if (this.co == null || this.f24814cn == null) {
                 com.baidu.ar.h.b.aS("retryChangeStyle input data error!");
-                InterfaceC1745b interfaceC1745b = this.cp;
-                if (interfaceC1745b != null) {
-                    interfaceC1745b.a(203, "retryChangeStyle input data error", 0L);
+                InterfaceC1706b interfaceC1706b = this.cp;
+                if (interfaceC1706b != null) {
+                    interfaceC1706b.a(203, "retryChangeStyle input data error", 0L);
                     return;
                 }
                 return;
             }
-            String str2 = String.valueOf(this.f31450cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
+            String str2 = String.valueOf(this.f24814cn.getTimestamp()) + String.valueOf(System.currentTimeMillis());
             ArrayList<String> arrayList = this.cu;
             if (arrayList == null) {
                 return;
@@ -543,9 +543,9 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str2, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -573,9 +573,9 @@ public class b {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, Long.valueOf(r7)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;

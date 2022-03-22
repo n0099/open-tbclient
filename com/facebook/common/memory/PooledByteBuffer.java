@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Closeable;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface PooledByteBuffer extends Closeable {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ClosedException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public interface PooledByteBuffer extends Closeable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -44,9 +44,9 @@ public interface PooledByteBuffer extends Closeable {
 
     boolean isClosed();
 
-    byte read(int i2);
+    byte read(int i);
 
-    int read(int i2, byte[] bArr, int i3, int i4);
+    int read(int i, byte[] bArr, int i2, int i3);
 
     int size();
 }

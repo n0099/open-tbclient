@@ -16,18 +16,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final a f27219e;
+    public static final a f22468e;
     public transient /* synthetic */ FieldHolder $fh;
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f27220b;
+    public float f22469b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float f27221c;
+    public float f22470c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f27222d;
+    public float f22471d;
 
     static {
         InterceptResult invokeClinit;
@@ -42,12 +42,12 @@ public class a {
                 return;
             }
         }
-        f27219e = new a(1.0f, 1.0f, 1.0f, 1.0f);
+        f22468e = new a(1.0f, 1.0f, 1.0f, 1.0f);
         new a(-1077952513);
         new a(2139062271);
         new a(1061109759);
         new a(0.0f, 0.0f, 0.0f, 1.0f);
-        f27219e.f();
+        f22468e.f();
         new a(0.0f, 0.0f, 0.0f, 0.0f);
         new a(0.0f, 0.0f, 1.0f, 1.0f);
         new a(0.0f, 0.0f, 0.5f, 1.0f);
@@ -84,9 +84,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -99,13 +99,13 @@ public class a {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (((int) (f2 * 255.0f)) << 24) | (((int) (f3 * 255.0f)) << 16) | (((int) (f4 * 255.0f)) << 8) | ((int) (f5 * 255.0f)) : invokeCommon.intValue;
     }
 
-    public static void c(a aVar, int i2) {
+    public static void c(a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, null, aVar, i2) == null) {
-            aVar.a = (((-16777216) & i2) >>> 24) / 255.0f;
-            aVar.f27220b = ((16711680 & i2) >>> 16) / 255.0f;
-            aVar.f27221c = ((65280 & i2) >>> 8) / 255.0f;
-            aVar.f27222d = (i2 & 255) / 255.0f;
+        if (interceptable == null || interceptable.invokeLI(65542, null, aVar, i) == null) {
+            aVar.a = (((-16777216) & i) >>> 24) / 255.0f;
+            aVar.f22469b = ((16711680 & i) >>> 16) / 255.0f;
+            aVar.f22470c = ((65280 & i) >>> 8) / 255.0f;
+            aVar.f22471d = (i & 255) / 255.0f;
         }
     }
 
@@ -128,9 +128,9 @@ public class a {
                 str = str.substring(1);
             }
             aVar.a = Integer.parseInt(str.substring(0, 2), 16) / 255.0f;
-            aVar.f27220b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
-            aVar.f27221c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
-            aVar.f27222d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
+            aVar.f22469b = Integer.parseInt(str.substring(2, 4), 16) / 255.0f;
+            aVar.f22470c = Integer.parseInt(str.substring(4, 6), 16) / 255.0f;
+            aVar.f22471d = str.length() != 8 ? 1.0f : Integer.parseInt(str.substring(6, 8), 16) / 255.0f;
             return aVar;
         }
         return (a) invokeLL.objValue;
@@ -146,23 +146,23 @@ public class a {
             } else if (f2 > 1.0f) {
                 this.a = 1.0f;
             }
-            float f3 = this.f27220b;
+            float f3 = this.f22469b;
             if (f3 < 0.0f) {
-                this.f27220b = 0.0f;
+                this.f22469b = 0.0f;
             } else if (f3 > 1.0f) {
-                this.f27220b = 1.0f;
+                this.f22469b = 1.0f;
             }
-            float f4 = this.f27221c;
+            float f4 = this.f22470c;
             if (f4 < 0.0f) {
-                this.f27221c = 0.0f;
+                this.f22470c = 0.0f;
             } else if (f4 > 1.0f) {
-                this.f27221c = 1.0f;
+                this.f22470c = 1.0f;
             }
-            float f5 = this.f27222d;
+            float f5 = this.f22471d;
             if (f5 < 0.0f) {
-                this.f27222d = 0.0f;
+                this.f22471d = 0.0f;
             } else if (f5 > 1.0f) {
-                this.f27222d = 1.0f;
+                this.f22471d = 1.0f;
             }
             return this;
         }
@@ -174,9 +174,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
             this.a = f2;
-            this.f27220b = f3;
-            this.f27221c = f4;
-            this.f27222d = f5;
+            this.f22469b = f3;
+            this.f22470c = f4;
+            this.f22471d = f5;
             a();
             return this;
         }
@@ -188,9 +188,9 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             this.a = aVar.a;
-            this.f27220b = aVar.f27220b;
-            this.f27221c = aVar.f27221c;
-            this.f27222d = aVar.f27222d;
+            this.f22469b = aVar.f22469b;
+            this.f22470c = aVar.f22470c;
+            this.f22471d = aVar.f22471d;
             return this;
         }
         return (a) invokeL.objValue;
@@ -211,13 +211,13 @@ public class a {
     public float f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t.c((((int) (this.f27222d * 255.0f)) << 24) | (((int) (this.f27221c * 255.0f)) << 16) | (((int) (this.f27220b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? t.c((((int) (this.f22471d * 255.0f)) << 24) | (((int) (this.f22470c * 255.0f)) << 16) | (((int) (this.f22469b * 255.0f)) << 8) | ((int) (this.a * 255.0f))) : invokeV.floatValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.f27222d * 255.0f)) << 24) | (((int) (this.f27221c * 255.0f)) << 16) | (((int) (this.f27220b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (((int) (this.f22471d * 255.0f)) << 24) | (((int) (this.f22470c * 255.0f)) << 16) | (((int) (this.f22469b * 255.0f)) << 8) | ((int) (this.a * 255.0f)) : invokeV.intValue;
     }
 
     public int hashCode() {
@@ -226,11 +226,11 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             float f2 = this.a;
             int a = (f2 != 0.0f ? t.a(f2) : 0) * 31;
-            float f3 = this.f27220b;
+            float f3 = this.f22469b;
             int a2 = (a + (f3 != 0.0f ? t.a(f3) : 0)) * 31;
-            float f4 = this.f27221c;
+            float f4 = this.f22470c;
             int a3 = (a2 + (f4 != 0.0f ? t.a(f4) : 0)) * 31;
-            float f5 = this.f27222d;
+            float f5 = this.f22471d;
             return a3 + (f5 != 0.0f ? t.a(f5) : 0);
         }
         return invokeV.intValue;
@@ -240,7 +240,7 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String hexString = Integer.toHexString((((int) (this.a * 255.0f)) << 24) | (((int) (this.f27220b * 255.0f)) << 16) | (((int) (this.f27221c * 255.0f)) << 8) | ((int) (this.f27222d * 255.0f)));
+            String hexString = Integer.toHexString((((int) (this.a * 255.0f)) << 24) | (((int) (this.f22469b * 255.0f)) << 16) | (((int) (this.f22470c * 255.0f)) << 8) | ((int) (this.f22471d * 255.0f)));
             while (hexString.length() < 8) {
                 hexString = "0" + hexString;
             }
@@ -249,22 +249,22 @@ public class a {
         return (String) invokeV.objValue;
     }
 
-    public a(int i2) {
+    public a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        c(this, i2);
+        c(this, i);
     }
 
     public a(float f2, float f3, float f4, float f5) {
@@ -274,18 +274,18 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = f2;
-        this.f27220b = f3;
-        this.f27221c = f4;
-        this.f27222d = f5;
+        this.f22469b = f3;
+        this.f22470c = f4;
+        this.f22471d = f5;
         a();
     }
 
@@ -296,9 +296,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;

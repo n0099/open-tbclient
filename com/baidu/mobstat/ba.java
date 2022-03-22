@@ -39,9 +39,9 @@ public abstract class ba {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -141,10 +141,10 @@ public abstract class ba {
         }
     }
 
-    private void a(int i2, String str) {
+    private void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) && b() && i2 >= a) {
-            Log.println(i2, a(), str);
+        if ((interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) && b() && i >= a) {
+            Log.println(i, a(), str);
         }
     }
 }

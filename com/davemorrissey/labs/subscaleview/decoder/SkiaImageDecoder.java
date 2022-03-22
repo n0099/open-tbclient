@@ -11,8 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SkiaImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PREFIX = "file:///android_asset/";
@@ -25,9 +26,9 @@ public class SkiaImageDecoder implements ImageDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,16 +54,16 @@ public class SkiaImageDecoder implements ImageDecoder {
                 }
                 List<String> pathSegments = uri.getPathSegments();
                 int size = pathSegments.size();
-                int i2 = 0;
-                if (size == 2 && pathSegments.get(0).equals("drawable")) {
-                    i2 = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
                 } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
                     try {
-                        i2 = Integer.parseInt(pathSegments.get(0));
+                        i = Integer.parseInt(pathSegments.get(0));
                     } catch (NumberFormatException unused) {
                     }
                 }
-                decodeStream = BitmapFactory.decodeResource(context.getResources(), i2, options);
+                decodeStream = BitmapFactory.decodeResource(context.getResources(), i, options);
             } else if (uri2.startsWith("file:///android_asset/")) {
                 decodeStream = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
             } else if (uri2.startsWith("file://")) {

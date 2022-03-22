@@ -16,7 +16,7 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f2403b;
+    public static f f1972b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -40,9 +40,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -55,31 +55,31 @@ public class f {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2403b == null) {
+            if (f1972b == null) {
                 synchronized (f.class) {
-                    if (f2403b == null) {
-                        f2403b = new f();
+                    if (f1972b == null) {
+                        f1972b = new f();
                     }
                 }
             }
-            return f2403b;
+            return f1972b;
         }
         return (f) invokeV.objValue;
     }
 
     public synchronized int b() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
                 if (this.a == 0) {
                     this.a++;
                 }
-                i2 = this.a;
-                this.a = i2 + 1;
+                i = this.a;
+                this.a = i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

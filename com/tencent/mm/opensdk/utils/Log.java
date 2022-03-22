@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Log {
     public static /* synthetic */ Interceptable $ic;
     public static ILog logImpl;
@@ -16,9 +16,9 @@ public class Log {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -26,30 +26,39 @@ public class Log {
     }
 
     public static void d(String str, String str2) {
-        ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || (iLog = logImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            ILog iLog = logImpl;
+            if (iLog == null) {
+                android.util.Log.d(str, str2);
+            } else {
+                iLog.d(str, str2);
+            }
         }
-        iLog.d(str, str2);
     }
 
     public static void e(String str, String str2) {
-        ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || (iLog = logImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            ILog iLog = logImpl;
+            if (iLog == null) {
+                android.util.Log.e(str, str2);
+            } else {
+                iLog.e(str, str2);
+            }
         }
-        iLog.e(str, str2);
     }
 
     public static void i(String str, String str2) {
-        ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || (iLog = logImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            ILog iLog = logImpl;
+            if (iLog == null) {
+                android.util.Log.i(str, str2);
+            } else {
+                iLog.i(str, str2);
+            }
         }
-        iLog.i(str, str2);
     }
 
     public static void setLogImpl(ILog iLog) {
@@ -60,20 +69,26 @@ public class Log {
     }
 
     public static void v(String str, String str2) {
-        ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) || (iLog = logImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            ILog iLog = logImpl;
+            if (iLog == null) {
+                android.util.Log.v(str, str2);
+            } else {
+                iLog.v(str, str2);
+            }
         }
-        iLog.v(str, str2);
     }
 
     public static void w(String str, String str2) {
-        ILog iLog;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) || (iLog = logImpl) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+            ILog iLog = logImpl;
+            if (iLog == null) {
+                android.util.Log.w(str, str2);
+            } else {
+                iLog.w(str, str2);
+            }
         }
-        iLog.w(str, str2);
     }
 }

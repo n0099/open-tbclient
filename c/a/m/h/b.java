@@ -9,10 +9,10 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(byte[] bArr, byte[] bArr2, int i2) {
+    public static void a(byte[] bArr, byte[] bArr2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i2) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i) == null) {
+            if (i < 0) {
                 throw new IllegalArgumentException("start should be more than zero!");
             }
             if (bArr == null || bArr.length == 0) {
@@ -24,23 +24,23 @@ public class b {
             if (bArr.length < bArr2.length) {
                 throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
             }
-            if (bArr.length >= bArr2.length + i2) {
-                System.arraycopy(bArr2, 0, bArr, i2, bArr2.length);
+            if (bArr.length >= bArr2.length + i) {
+                System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
                 return;
             }
             throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
         }
     }
 
-    public static byte[] b(byte[] bArr, int i2) {
+    public static byte[] b(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
             if (bArr == null || bArr.length == 0) {
                 throw new IllegalArgumentException("original array should not be null or empty");
             }
-            if (i2 >= 0) {
-                return Arrays.copyOf(bArr, i2);
+            if (i >= 0) {
+                return Arrays.copyOf(bArr, i);
             }
             throw new IllegalArgumentException("length should be more than zero!");
         }

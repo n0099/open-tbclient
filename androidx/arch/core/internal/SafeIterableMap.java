@@ -38,9 +38,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {entry, entry2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Entry) objArr2[0], (Entry) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -79,9 +79,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {entry, entry2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Entry) objArr2[0], (Entry) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -124,9 +124,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {k, v};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -211,9 +211,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {safeIterableMap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -281,9 +281,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {entry, entry2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -360,9 +360,9 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -435,11 +435,11 @@ public class SafeIterableMap<K, V> implements Iterable<Map.Entry<K, V>> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Iterator<Map.Entry<K, V>> it = iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
-                i2 += it.next().hashCode();
+                i += it.next().hashCode();
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

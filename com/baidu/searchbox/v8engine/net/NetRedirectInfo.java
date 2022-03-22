@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @NotProguard
 /* loaded from: classes4.dex */
 public class NetRedirectInfo {
@@ -18,22 +17,22 @@ public class NetRedirectInfo {
     public String mNewUrl;
     public int mStatusCode;
 
-    public NetRedirectInfo(int i2, String str, String str2, String str3) {
+    public NetRedirectInfo(int i, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mStatusCode = i2;
+        this.mStatusCode = i;
         this.mNewUrl = str;
         this.mNewMethod = str2;
         this.mNewReferrer = str3;
@@ -67,7 +66,7 @@ public class NetRedirectInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "NetRedirectInfo{mStatusCode=" + this.mStatusCode + ", mNewUrl='" + this.mNewUrl + ExtendedMessageFormat.QUOTE + ", mNewMethod='" + this.mNewMethod + ExtendedMessageFormat.QUOTE + ", mNewReferrer='" + this.mNewReferrer + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "NetRedirectInfo{mStatusCode=" + this.mStatusCode + ", mNewUrl='" + this.mNewUrl + "', mNewMethod='" + this.mNewMethod + "', mNewReferrer='" + this.mNewReferrer + "'}";
         }
         return (String) invokeV.objValue;
     }

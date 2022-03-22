@@ -31,51 +31,51 @@ import java.security.NoSuchAlgorithmException;
 import java.util.concurrent.Executor;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f57641d;
+    public static final Pattern f42423d;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f57642b;
+    public f f42424b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Executor f57643c;
+    public Executor f42425c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f57644b;
+        public final int f42426b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ c f57645c;
+        public final /* synthetic */ c f42427c;
 
-        public a(c cVar, String str, int i2) {
+        public a(c cVar, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, str, Integer.valueOf(i2)};
+                Object[] objArr = {cVar, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f57645c = cVar;
+            this.f42427c = cVar;
             this.a = str;
-            this.f57644b = i2;
+            this.f42426b = i;
         }
 
         /* JADX DEBUG: Failed to insert an additional move for type inference into block B:15:0x003d */
@@ -176,10 +176,10 @@ public class c {
 
         private void a(String str) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.f57645c.f57642b == null) {
+            if (!(interceptable == null || interceptable.invokeL(65538, this, str) == null) || this.f42427c.f42424b == null) {
                 return;
             }
-            ((PM.b) this.f57645c.f57642b).a.a();
+            ((PM.b) this.f42427c.f42424b).a.a();
             com.qq.e.comm.managers.plugin.a.a(new Exception(str), str);
         }
 
@@ -208,29 +208,29 @@ public class c {
                     return;
                 }
                 try {
-                    File g2 = h.g(this.f57645c.a);
-                    File h2 = h.h(this.f57645c.a);
+                    File g2 = h.g(this.f42427c.a);
+                    File h2 = h.h(this.f42427c.a);
                     String a = a(response, g2);
                     boolean z2 = true;
                     if (com.qq.e.comm.util.a.a().a(this.a, a)) {
                         try {
-                            StringUtil.writeTo(this.f57644b + "#####" + this.a, h2);
+                            StringUtil.writeTo(this.f42426b + "#####" + this.a, h2);
                             z = true;
                         } catch (IOException unused) {
                             GDTLogger.d("IOException While Update Plugin");
                             z = false;
                         }
                         if (z) {
-                            if (FileUtil.renameTo(g2, h.c(this.f57645c.a)) && FileUtil.renameTo(h2, h.d(this.f57645c.a))) {
+                            if (FileUtil.renameTo(g2, h.c(this.f42427c.a)) && FileUtil.renameTo(h2, h.d(this.f42427c.a))) {
                                 GDTLogger.d("PluginUpdateSucc:" + z2);
-                                if (this.f57645c.f57642b != null) {
-                                    PM.d(((PM.b) this.f57645c.f57642b).a);
+                                if (this.f42427c.f42424b != null) {
+                                    PM.d(((PM.b) this.f42427c.f42424b).a);
                                 }
                             }
                         }
                         z2 = false;
                         GDTLogger.d("PluginUpdateSucc:" + z2);
-                        if (this.f57645c.f57642b != null) {
+                        if (this.f42427c.f42424b != null) {
                         }
                     } else {
                         g2.delete();
@@ -270,7 +270,7 @@ public class c {
                 return;
             }
         }
-        f57641d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
+        f42423d = Pattern.compile(".*plugin\\.dex-(\\d+)\\.jar.*");
     }
 
     public c(Context context, Executor executor) {
@@ -280,22 +280,22 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, executor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = context.getApplicationContext();
-        this.f57643c = executor;
+        this.f42425c = executor;
     }
 
     public void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f57642b = fVar;
+            this.f42424b = fVar;
         }
     }
 
@@ -304,7 +304,7 @@ public class c {
         if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) || StringUtil.isEmpty(str) || StringUtil.isEmpty(str2)) {
             return;
         }
-        Matcher matcher = f57641d.matcher(str2);
+        Matcher matcher = f42423d.matcher(str2);
         boolean z = true;
         int parseInteger = StringUtil.parseInteger(matcher.matches() ? matcher.group(1) : "0", 0);
         if (parseInteger < 1292) {
@@ -313,7 +313,7 @@ public class c {
         }
         if (z) {
             GDTLogger.d("TIMESTAP_BEFORE_OWN_PLUGIN:" + System.nanoTime());
-            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f57643c);
+            NetworkClientImpl.getInstance().submit(new PlainRequest(str2, Request.Method.GET, (byte[]) null), NetworkClient.Priority.High, new a(this, str, parseInteger), this.f42425c);
         }
     }
 }

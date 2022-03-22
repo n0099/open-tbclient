@@ -9,7 +9,7 @@ import io.reactivex.FlowableOperator;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscriber;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableLift<R, T> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public final class FlowableLift<R, T> extends AbstractFlowableWithUpstream<T, R>
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, flowableOperator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

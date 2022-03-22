@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class ForwardingSource implements Source {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public abstract class ForwardingSource implements Source {
             newInitContext.initArgs = r2;
             Object[] objArr = {source};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,10 +51,10 @@ public abstract class ForwardingSource implements Source {
     }
 
     @Override // okio.Source
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j2)) == null) ? this.delegate.read(buffer, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, buffer, j)) == null) ? this.delegate.read(buffer, j) : invokeLJ.longValue;
     }
 
     @Override // okio.Source

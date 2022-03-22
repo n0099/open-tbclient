@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final boolean f817a;
+        public final boolean f793a;
 
         public a(String str, boolean z) {
             Interceptable interceptable = $ic;
@@ -38,16 +38,16 @@ public final class j {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f817a = z;
+            this.f793a = z;
         }
 
         public String a() {
@@ -57,29 +57,29 @@ public final class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final LinkedBlockingQueue<IBinder> a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f818a;
+        public boolean f794a;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f818a = false;
+            this.f794a = false;
             this.a = new LinkedBlockingQueue<>(1);
         }
 
@@ -91,10 +91,10 @@ public final class j {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f818a) {
+                if (this.f794a) {
                     throw new IllegalStateException();
                 }
-                this.f818a = true;
+                this.f794a = true;
                 return this.a.poll(30000L, TimeUnit.MILLISECONDS);
             }
             return (IBinder) invokeV.objValue;
@@ -119,7 +119,7 @@ public final class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class c implements IInterface {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,9 +132,9 @@ public final class j {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iBinder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

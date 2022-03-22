@@ -25,9 +25,9 @@ public final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallbac
             newInitContext.initArgs = r2;
             Object[] objArr = {linearLayoutManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,33 +43,33 @@ public final class PageTransformerAdapter extends ViewPager2.OnPageChangeCallbac
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrollStateChanged(int i2) {
+    public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageScrolled(int i2, float f2, int i3) {
+    public void onPageScrolled(int i, float f2, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || this.mPageTransformer == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || this.mPageTransformer == null) {
             return;
         }
         float f3 = -f2;
-        for (int i4 = 0; i4 < this.mLayoutManager.getChildCount(); i4++) {
-            View childAt = this.mLayoutManager.getChildAt(i4);
+        for (int i3 = 0; i3 < this.mLayoutManager.getChildCount(); i3++) {
+            View childAt = this.mLayoutManager.getChildAt(i3);
             if (childAt != null) {
-                this.mPageTransformer.transformPage(childAt, (this.mLayoutManager.getPosition(childAt) - i2) + f3);
+                this.mPageTransformer.transformPage(childAt, (this.mLayoutManager.getPosition(childAt) - i) + f3);
             } else {
-                throw new IllegalStateException(String.format(Locale.US, "LayoutManager returned a null child at pos %d/%d while transforming pages", Integer.valueOf(i4), Integer.valueOf(this.mLayoutManager.getChildCount())));
+                throw new IllegalStateException(String.format(Locale.US, "LayoutManager returned a null child at pos %d/%d while transforming pages", Integer.valueOf(i3), Integer.valueOf(this.mLayoutManager.getChildCount())));
             }
         }
     }
 
     @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-    public void onPageSelected(int i2) {
+    public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
         }
     }
 

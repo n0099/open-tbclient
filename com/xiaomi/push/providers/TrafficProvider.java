@@ -16,17 +16,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gq;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TrafficProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public static final UriMatcher a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f829a;
+    public static final Uri f805a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SQLiteOpenHelper f830a;
+    public SQLiteOpenHelper f806a;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public class TrafficProvider extends ContentProvider {
                 return;
             }
         }
-        f829a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+        f805a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
         UriMatcher uriMatcher = new UriMatcher(-1);
         a = uriMatcher;
         uriMatcher.addURI("com.xiaomi.push.providers.TrafficProvider", "traffic", 1);
@@ -53,9 +53,9 @@ public class TrafficProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -110,7 +110,7 @@ public class TrafficProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            this.f830a = new a(getContext());
+            this.f806a = new a(getContext());
             return true;
         }
         return invokeV.booleanValue;
@@ -122,11 +122,11 @@ public class TrafficProvider extends ContentProvider {
         Cursor query;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048581, this, uri, strArr, str, strArr2, str2)) == null) {
-            synchronized (a.f831a) {
+            synchronized (a.f807a) {
                 if (a.match(uri) != 1) {
                     throw new IllegalArgumentException("Unknown URI " + uri);
                 }
-                query = this.f830a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+                query = this.f806a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
             }
             return query;
         }
@@ -139,7 +139,7 @@ public class TrafficProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, uri, contentValues, str, strArr)) == null) {
             if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-                gq.m423a(contentValues.getAsString(BaseStatisContent.IMSI));
+                gq.m402a(contentValues.getAsString(BaseStatisContent.IMSI));
                 return 0;
             }
             return 0;

@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.r.j0.b;
-import c.a.r0.o1.i.j.e;
+import c.a.o0.r.j0.b;
+import c.a.p0.q1.i.j.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,27 +29,29 @@ import java.util.List;
 public class ConcernUnreadTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f33395b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f33396c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33397d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f43041e;
+    public TextView f33398e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f43042f;
+    public ImageView f33399f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43043g;
+    public BdUniqueId f33400g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43044h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f43045i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public BdUniqueId f43046j;
-    public int k;
-    public int l;
-    public ImageView mClose;
+    public int f33401h;
+    public int i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernUnreadTipView(Context context) {
@@ -60,9 +62,9 @@ public class ConcernUnreadTipView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -75,36 +77,36 @@ public class ConcernUnreadTipView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.k = n.f(getContext(), R.dimen.tbds94);
-            this.l = 0 - n.f(getContext(), R.dimen.tbds18);
-            LayoutInflater.from(context).inflate(R.layout.concern_unread_tip_view_layout, (ViewGroup) this, true);
-            this.f43041e = (TextView) findViewById(R.id.concern_unread_tip_title);
-            this.mClose = (ImageView) findViewById(R.id.concern_unread_tip_close);
-            this.f43042f = (LinearLayout) findViewById(R.id.concern_unread_tip_header_box);
-            this.f43043g = (TextView) findViewById(R.id.concern_unread_tip_info);
-            this.f43044h = (TextView) findViewById(R.id.concern_unread_tip_show);
-            this.f43045i = (ImageView) findViewById(R.id.concern_unread_tip_show_arrow);
+            this.f33401h = n.f(getContext(), R.dimen.tbds94);
+            this.i = 0 - n.f(getContext(), R.dimen.tbds18);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0200, (ViewGroup) this, true);
+            this.f33395b = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b4);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906af);
+            this.f33396c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906b0);
+            this.f33397d = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b1);
+            this.f33398e = (TextView) findViewById(R.id.obfuscated_res_0x7f0906b2);
+            this.f33399f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0906b3);
             setPadding(0, 0, 0, n.f(context, R.dimen.tbds44));
-            onChangeSkinType();
+            b();
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f43041e, (int) R.color.CAM_X0105);
-            SkinManager.setImageResource(this.mClose, R.drawable.icon_home_card_delete);
-            SkinManager.setViewTextColor(this.f43043g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f43044h, (int) R.color.CAM_X0109);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43045i, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f33395b, (int) R.color.CAM_X0105);
+            SkinManager.setImageResource(this.a, R.drawable.icon_home_card_delete);
+            SkinManager.setViewTextColor(this.f33397d, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f33398e, (int) R.color.CAM_X0109);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f33399f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 
     public void setBdUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            this.f43046j = bdUniqueId;
+            this.f33400g = bdUniqueId;
         }
     }
 
@@ -112,7 +114,7 @@ public class ConcernUnreadTipView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
             setOnClickListener(onClickListener);
-            this.mClose.setOnClickListener(onClickListener);
+            this.a.setOnClickListener(onClickListener);
         }
     }
 
@@ -125,35 +127,35 @@ public class ConcernUnreadTipView extends RelativeLayout {
             setVisibility(8);
             return;
         }
-        if (eVar.f20086c > 0) {
-            b.k().x(b.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f20086c);
+        if (eVar.f17445c > 0) {
+            b.k().x(b.o("concern_unread_tip_next_show_time"), System.currentTimeMillis() + eVar.f17445c);
         }
-        if (this.f43043g != null && !StringUtils.isNull(eVar.f20087d)) {
-            this.f43043g.setText(eVar.f20087d);
+        if (this.f33397d != null && !StringUtils.isNull(eVar.f17446d)) {
+            this.f33397d.setText(eVar.f17446d);
         }
-        LinearLayout linearLayout = this.f43042f;
-        if (linearLayout == null || eVar.f20085b == null) {
+        LinearLayout linearLayout = this.f33396c;
+        if (linearLayout == null || eVar.f17444b == null) {
             return;
         }
         linearLayout.removeAllViews();
-        List<String> list = eVar.f20085b;
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            String str = list.get(i2);
+        List<String> list = eVar.f17444b;
+        for (int i = 0; i < list.size(); i++) {
+            String str = list.get(i);
             if (!StringUtils.isNull(str)) {
-                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.concern_unread_tip_head_group, null);
-                int i3 = this.k;
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i3, i3);
-                if (i2 > 0) {
-                    layoutParams.leftMargin = this.l;
+                FrameLayout frameLayout = (FrameLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d01ff, null);
+                int i2 = this.f33401h;
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i2);
+                if (i > 0) {
+                    layoutParams.leftMargin = this.i;
                 }
                 frameLayout.setLayoutParams(layoutParams);
-                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.inner_img);
+                HeadImageView headImageView = (HeadImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f090efa);
                 headImageView.setIsRound(true);
                 headImageView.setDrawBorder(false);
-                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.out_img), R.drawable.bg_unread_tip_head_border);
-                this.f43042f.addView(frameLayout);
-                headImageView.setPageId(this.f43046j);
-                headImageView.startLoad(str, 12, false);
+                SkinManager.setImageResource((ImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091629), R.drawable.bg_unread_tip_head_border);
+                this.f33396c.addView(frameLayout);
+                headImageView.setPageId(this.f33400g);
+                headImageView.J(str, 12, false);
             }
         }
     }
@@ -167,9 +169,9 @@ public class ConcernUnreadTipView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -181,17 +183,17 @@ public class ConcernUnreadTipView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConcernUnreadTipView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ConcernUnreadTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

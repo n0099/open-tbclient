@@ -33,9 +33,9 @@ public class Barrier extends ConstraintHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -66,8 +66,8 @@ public class Barrier extends ConstraintHelper {
             if (attributeSet != null) {
                 TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, R$styleable.ConstraintLayout_Layout);
                 int indexCount = obtainStyledAttributes.getIndexCount();
-                for (int i2 = 0; i2 < indexCount; i2++) {
-                    int index = obtainStyledAttributes.getIndex(i2);
+                for (int i = 0; i < indexCount; i++) {
+                    int index = obtainStyledAttributes.getIndex(i);
                     if (index == R$styleable.ConstraintLayout_Layout_barrierDirection) {
                         setType(obtainStyledAttributes.getInt(index, 0));
                     } else if (index == R$styleable.ConstraintLayout_Layout_barrierAllowsGoneWidgets) {
@@ -87,30 +87,30 @@ public class Barrier extends ConstraintHelper {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mIndicatedType = i2;
-            this.mResolvedType = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mIndicatedType = i;
+            this.mResolvedType = i;
             if (Build.VERSION.SDK_INT >= 17) {
                 if (1 == getResources().getConfiguration().getLayoutDirection()) {
-                    int i3 = this.mIndicatedType;
-                    if (i3 == 5) {
+                    int i2 = this.mIndicatedType;
+                    if (i2 == 5) {
                         this.mResolvedType = 1;
-                    } else if (i3 == 6) {
+                    } else if (i2 == 6) {
                         this.mResolvedType = 0;
                     }
                 } else {
-                    int i4 = this.mIndicatedType;
-                    if (i4 == 5) {
+                    int i3 = this.mIndicatedType;
+                    if (i3 == 5) {
                         this.mResolvedType = 0;
-                    } else if (i4 == 6) {
+                    } else if (i3 == 6) {
                         this.mResolvedType = 1;
                     }
                 }
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 this.mResolvedType = 0;
-            } else if (i2 == 6) {
+            } else if (i == 6) {
                 this.mResolvedType = 1;
             }
             this.mBarrier.setBarrierType(this.mResolvedType);
@@ -126,9 +126,9 @@ public class Barrier extends ConstraintHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -140,17 +140,17 @@ public class Barrier extends ConstraintHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Barrier(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public Barrier(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

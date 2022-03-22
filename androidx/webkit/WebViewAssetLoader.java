@@ -2,6 +2,7 @@ package androidx.webkit;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.webkit.WebResourceResponse;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -44,9 +45,9 @@ public final class WebViewAssetLoader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,9 +130,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, file};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -180,7 +181,7 @@ public final class WebViewAssetLoader {
                 if (AssetHelper.isCanonicalChildOf(this.mDirectory, file)) {
                     inputStream = AssetHelper.openFile(file);
                 } else {
-                    String str2 = "The requested file: " + str + " is outside the mounted directory: " + this.mDirectory;
+                    Log.e(WebViewAssetLoader.TAG, "The requested file: " + str + " is outside the mounted directory: " + this.mDirectory);
                     inputStream = null;
                 }
                 return new WebResourceResponse(AssetHelper.guessMimeType(str), null, inputStream);
@@ -218,9 +219,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, Boolean.valueOf(z), pathHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -272,9 +273,9 @@ public final class WebViewAssetLoader {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -314,9 +315,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -342,9 +343,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assetHelper};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -367,9 +368,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -395,9 +396,9 @@ public final class WebViewAssetLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assetHelper};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

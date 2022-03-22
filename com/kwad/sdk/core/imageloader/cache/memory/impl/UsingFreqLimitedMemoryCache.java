@@ -12,8 +12,8 @@ import java.util.Set;
 public class UsingFreqLimitedMemoryCache extends LimitedMemoryCache {
     public final Map<DecodedResult, Integer> usingCounts;
 
-    public UsingFreqLimitedMemoryCache(int i2) {
-        super(i2);
+    public UsingFreqLimitedMemoryCache(int i) {
+        super(i);
         this.usingCounts = Collections.synchronizedMap(new HashMap());
     }
 

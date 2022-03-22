@@ -32,7 +32,7 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
     public final FieldNamingStrategy fieldNamingPolicy;
     public final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Adapter<T> extends TypeAdapter<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {objectConstructor, map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -122,7 +122,7 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class BoundField {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -137,9 +137,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -164,9 +164,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {constructorConstructor, fieldNamingStrategy, excluder, jsonAdapterAnnotationTypeAdapterFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -210,9 +210,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, str, Boolean.valueOf(z), Boolean.valueOf(z2), field, Boolean.valueOf(z3), typeAdapter, gson, typeToken, Boolean.valueOf(isPrimitive)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                             newInitContext.thisArg = this;
@@ -276,9 +276,9 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                 Field[] declaredFields = cls2.getDeclaredFields();
                 int length = declaredFields.length;
                 boolean z = false;
-                int i2 = 0;
-                while (i2 < length) {
-                    Field field = declaredFields[i2];
+                int i = 0;
+                while (i < length) {
+                    Field field = declaredFields[i];
                     boolean excludeField = excludeField(field, true);
                     boolean excludeField2 = excludeField(field, z);
                     if (excludeField || excludeField2) {
@@ -287,27 +287,27 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
                         List<String> fieldNames = getFieldNames(field);
                         int size = fieldNames.size();
                         BoundField boundField2 = null;
-                        int i3 = 0;
-                        while (i3 < size) {
-                            String str = fieldNames.get(i3);
-                            boolean z2 = i3 != 0 ? false : excludeField;
-                            int i4 = i3;
+                        int i2 = 0;
+                        while (i2 < size) {
+                            String str = fieldNames.get(i2);
+                            boolean z2 = i2 != 0 ? false : excludeField;
+                            int i3 = i2;
                             BoundField boundField3 = boundField2;
-                            int i5 = size;
+                            int i4 = size;
                             List<String> list = fieldNames;
                             Field field2 = field;
                             boundField2 = boundField3 == null ? (BoundField) linkedHashMap.put(str, createBoundField(gson, field, str, TypeToken.get(resolve), z2, excludeField2)) : boundField3;
-                            i3 = i4 + 1;
+                            i2 = i3 + 1;
                             excludeField = z2;
                             fieldNames = list;
-                            size = i5;
+                            size = i4;
                             field = field2;
                         }
                         if (boundField2 != null) {
                             throw new IllegalArgumentException(type + " declares multiple JSON fields named " + boundField.name);
                         }
                     }
-                    i2++;
+                    i++;
                     z = false;
                 }
                 typeToken2 = TypeToken.get(C$Gson$Types.resolve(typeToken2.getType(), cls2, cls2.getGenericSuperclass()));

@@ -13,7 +13,7 @@ import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.AnchorInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AnchorInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1;
@@ -37,9 +37,9 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -179,10 +179,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         this.isVip = anchorInfo.is_vip.intValue();
     }
 
-    public void setAuthorId(long j2) {
+    public void setAuthorId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.authorId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.authorId = j;
         }
     }
 
@@ -193,10 +193,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setGroup_id(long j2) {
+    public void setGroup_id(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.group_id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.group_id = j;
         }
     }
 
@@ -207,10 +207,10 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setIsVip(int i2) {
+    public void setIsVip(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.isVip = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.isVip = i;
         }
     }
 
@@ -221,17 +221,17 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setLikers(int i2) {
+    public void setLikers(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.likers = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.likers = i;
         }
     }
 
-    public void setListeners(int i2) {
+    public void setListeners(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.listeners = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.listeners = i;
         }
     }
 
@@ -256,17 +256,17 @@ public class AnchorInfoData extends OrmObject implements Serializable {
         }
     }
 
-    public void setStartTime(int i2) {
+    public void setStartTime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.startTime = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.startTime = i;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.status = i;
         }
     }
 }

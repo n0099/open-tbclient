@@ -14,7 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Coder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CHARSET = "UTF-8";
@@ -28,9 +28,9 @@ public final class Coder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -118,13 +118,13 @@ public final class Coder {
             char[] charArray = str.toCharArray();
             int length = charArray.length / 2;
             byte[] bArr = new byte[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i2 * 2;
-                int digit = Character.digit(charArray[i3 + 1], 16) | (Character.digit(charArray[i3], 16) << 4);
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                int digit = Character.digit(charArray[i2 + 1], 16) | (Character.digit(charArray[i2], 16) << 4);
                 if (digit > 127) {
                     digit -= 256;
                 }
-                bArr[i2] = (byte) digit;
+                bArr[i] = (byte) digit;
             }
             return bArr;
         }

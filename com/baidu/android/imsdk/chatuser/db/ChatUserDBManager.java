@@ -31,7 +31,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -65,9 +64,9 @@ public class ChatUserDBManager extends DBBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -80,48 +79,48 @@ public class ChatUserDBManager extends DBBase {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, cursor)) == null) {
-            long j2 = cursor.getLong(cursor.getColumnIndex("uid"));
-            long j3 = cursor.getLong(cursor.getColumnIndex("buid"));
+            long j = cursor.getLong(cursor.getColumnIndex("uid"));
+            long j2 = cursor.getLong(cursor.getColumnIndex("buid"));
             String string = cursor.getString(cursor.getColumnIndex("username"));
             String string2 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HEAD_URL));
             String string3 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_TINY_URL));
             String string4 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_DETAIL));
-            long j4 = cursor.getLong(cursor.getColumnIndex("phone"));
-            int i2 = cursor.getInt(cursor.getColumnIndex("sex"));
-            int i3 = cursor.getInt(cursor.getColumnIndex("account_type"));
-            int i4 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
-            int i5 = cursor.getInt(cursor.getColumnIndex("disturb"));
-            int i6 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
+            long j3 = cursor.getLong(cursor.getColumnIndex("phone"));
+            int i = cursor.getInt(cursor.getColumnIndex("sex"));
+            int i2 = cursor.getInt(cursor.getColumnIndex("account_type"));
+            int i3 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_EXSIT));
+            int i4 = cursor.getInt(cursor.getColumnIndex("disturb"));
+            int i5 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_BLACKLIST));
             String string5 = cursor.getString(cursor.getColumnIndex("v_portrait"));
             String string6 = cursor.getString(cursor.getColumnIndex("vip_id"));
             String string7 = cursor.getString(cursor.getColumnIndex("identity"));
-            long j5 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
-            int i7 = cursor.getInt(cursor.getColumnIndex("shield"));
-            long j6 = cursor.getLong(cursor.getColumnIndex("shield_time"));
-            int i8 = cursor.getInt(cursor.getColumnIndex("marktop"));
-            long j7 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
-            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
-            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
-            int i11 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
+            long j4 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME));
+            int i6 = cursor.getInt(cursor.getColumnIndex("shield"));
+            long j5 = cursor.getLong(cursor.getColumnIndex("shield_time"));
+            int i7 = cursor.getInt(cursor.getColumnIndex("marktop"));
+            long j6 = cursor.getLong(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME));
+            int i8 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS));
+            int i9 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_PHONE_RELATION));
+            int i10 = cursor.getInt(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_HAS_SPECIAL_IDENTITY));
             String string8 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_SPECIAL_IDENTITY));
             String string9 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_USER_EXT));
-            ChatUser chatUser = new ChatUser(j2, j3, string, string2);
+            ChatUser chatUser = new ChatUser(j, j2, string, string2);
             chatUser.setVPortrait(string5);
             chatUser.setVipId(string6);
             chatUser.setIdentity(string7);
-            chatUser.setLastUpdate(j5);
-            chatUser.setShield(i7);
-            chatUser.setShieldTime(j6);
-            chatUser.setMarkTop(i8);
-            chatUser.setMarkTopTime(j7);
-            chatUser.setSubscribe(i9);
-            chatUser.setPhoneRelation(i10);
-            chatUser.setHasSpecialIdentity(i11);
+            chatUser.setLastUpdate(j4);
+            chatUser.setShield(i6);
+            chatUser.setShieldTime(j5);
+            chatUser.setMarkTop(i7);
+            chatUser.setMarkTopTime(j6);
+            chatUser.setSubscribe(i8);
+            chatUser.setPhoneRelation(i9);
+            chatUser.setHasSpecialIdentity(i10);
             chatUser.setSpecialIdentity(string8);
             chatUser.setUserExt(string9);
-            if (i4 == 0) {
+            if (i3 == 0) {
                 IpInfo ipInfo = new IpInfo();
-                ipInfo.setUid(j2);
+                ipInfo.setUid(j);
                 String string10 = cursor.getString(cursor.getColumnIndex("ip"));
                 String string11 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_ISP));
                 String string12 = cursor.getString(cursor.getColumnIndex(TableDefine.UserInfoColumns.COLUMN_IP_COUNTRY));
@@ -136,14 +135,14 @@ public class ChatUserDBManager extends DBBase {
                 ipInfo.setIsp(string11);
                 chatUser.setIpInfo(ipInfo);
             }
-            chatUser.setIsIpLocationExist(i4);
+            chatUser.setIsIpLocationExist(i3);
             chatUser.setTinyUrl(string3);
             chatUser.setUserDetail(string4);
-            chatUser.setSex(i2);
-            chatUser.setPhone(j4);
-            chatUser.setAccountType(i3);
-            chatUser.setDisturb(i5);
-            chatUser.setBlack(i6);
+            chatUser.setSex(i);
+            chatUser.setPhone(j3);
+            chatUser.setAccountType(i2);
+            chatUser.setDisturb(i4);
+            chatUser.setBlack(i5);
             return chatUser;
         }
         return (ChatUser) invokeL.objValue;
@@ -223,16 +222,16 @@ public class ChatUserDBManager extends DBBase {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65554, this, list, list2, iGetUserShieldListener) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                arrayList.add(Long.valueOf(list.get(i2).getContacter()));
+            for (int i = 0; i < list.size(); i++) {
+                arrayList.add(Long.valueOf(list.get(i).getContacter()));
             }
             String str = TAG;
             LogUtils.i(str, "getUserInfo uks " + arrayList.toString() + ", hasResult :" + list2.size());
             int size = arrayList.size();
             long[] jArr = new long[size];
-            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                if (arrayList.get(i3) != null) {
-                    jArr[i3] = ((Long) arrayList.get(i3)).longValue();
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                if (arrayList.get(i2) != null) {
+                    jArr[i2] = ((Long) arrayList.get(i2)).longValue();
                 }
             }
             if (size <= 0) {
@@ -253,9 +252,9 @@ public class ChatUserDBManager extends DBBase {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, iGetUserShieldListener, list2, list};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -268,10 +267,10 @@ public class ChatUserDBManager extends DBBase {
                     }
 
                     @Override // com.baidu.android.imsdk.account.IGetUidByUkListener
-                    public void onGetUidByUkResult(int i4, String str2, long[] jArr2, Map<Long, Long> map) {
+                    public void onGetUidByUkResult(int i3, String str2, long[] jArr2, Map<Long, Long> map) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str2, jArr2, map}) == null) {
-                            if (i4 != 0) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), str2, jArr2, map}) == null) {
+                            if (i3 != 0) {
                                 this.val$listener.onResult(-1, "getUser failed", this.val$resultUsers);
                                 return;
                             }
@@ -296,9 +295,9 @@ public class ChatUserDBManager extends DBBase {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i5 = newInitContext.flag;
-                                            if ((i5 & 1) != 0) {
-                                                int i6 = i5 & 2;
+                                            int i4 = newInitContext.flag;
+                                            if ((i4 & 1) != 0) {
+                                                int i5 = i4 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -308,10 +307,10 @@ public class ChatUserDBManager extends DBBase {
                                     }
 
                                     @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                                    public void onGetUserIdentityResult(int i5, List<ChatUser> list3) {
+                                    public void onGetUserIdentityResult(int i4, List<ChatUser> list3) {
                                         Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i5, list3) == null) {
-                                            if (i5 != 0) {
+                                        if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i4, list3) == null) {
+                                            if (i4 != 0) {
                                                 AnonymousClass3 anonymousClass3 = this.this$1;
                                                 anonymousClass3.val$listener.onResult(-1, "getUser failed", anonymousClass3.val$resultUsers);
                                             } else if (list3 == null) {
@@ -334,7 +333,7 @@ public class ChatUserDBManager extends DBBase {
                                                     }
                                                 }
                                                 AnonymousClass3 anonymousClass34 = this.this$1;
-                                                anonymousClass34.val$listener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, anonymousClass34.val$resultUsers);
+                                                anonymousClass34.val$listener.onResult(0, "ok", anonymousClass34.val$resultUsers);
                                                 AnonymousClass3 anonymousClass35 = this.this$1;
                                                 anonymousClass35.this$0.updateAllShield(anonymousClass35.val$resultUsers);
                                             }
@@ -370,9 +369,9 @@ public class ChatUserDBManager extends DBBase {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, list};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -430,30 +429,30 @@ public class ChatUserDBManager extends DBBase {
         return (ContentValues) invokeL.objValue;
     }
 
-    public int deleteChatUser(long j2) {
+    public int deleteChatUser(long j) {
         InterceptResult invokeJ;
         int delete;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
             synchronized (DBBase.mSyncLock) {
-                delete = delete(TableDefine.DB_TABLE_USERINFO, "uid = ?", new String[]{String.valueOf(j2)});
+                delete = delete(TableDefine.DB_TABLE_USERINFO, "uid = ?", new String[]{String.valueOf(j)});
             }
             return delete;
         }
         return invokeJ.intValue;
     }
 
-    public ChatUser getChatUser(long j2) {
+    public ChatUser getChatUser(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
                 if (openDatabase == null) {
                     return null;
                 }
                 try {
-                    return getChatUser(openDatabase, j2);
+                    return getChatUser(openDatabase, j);
                 } catch (Exception e2) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(TAG, "getChatUser:", e2);
@@ -490,8 +489,8 @@ public class ChatUserDBManager extends DBBase {
             return null;
         }
         StringBuilder sb = new StringBuilder(list.get(0) + "");
-        for (int i2 = 1; i2 < list.size(); i2++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2));
+        for (int i = 1; i < list.size(); i++) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i));
         }
         String str = "buid in (" + sb.toString() + ") ";
         LongSparseArray<ChatUser> longSparseArray = new LongSparseArray<>();
@@ -516,17 +515,17 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public ChatUser getChatUserByBuid(long j2) {
+    public ChatUser getChatUserByBuid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
             synchronized (DBBase.mSyncLock) {
                 SQLiteDatabase openDatabase = openDatabase();
                 if (openDatabase == null) {
                     return null;
                 }
                 try {
-                    return getChatUserByBuid(openDatabase, j2);
+                    return getChatUserByBuid(openDatabase, j);
                 } catch (Exception e2) {
                     new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                     LogUtils.e(TAG, "getChatUser:", e2);
@@ -552,10 +551,10 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public List<Long> getNotExpiredChatUserByBduids(List<Long> list, long j2) {
+    public List<Long> getNotExpiredChatUserByBduids(List<Long> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048582, this, list, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(1048582, this, list, j)) != null) {
             return (List) invokeLJ.objValue;
         }
         Cursor cursor = null;
@@ -563,10 +562,10 @@ public class ChatUserDBManager extends DBBase {
             return null;
         }
         StringBuilder sb = new StringBuilder(list.get(0) + "");
-        for (int i2 = 1; i2 < list.size(); i2++) {
-            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2));
+        for (int i = 1; i < list.size(); i++) {
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i));
         }
-        String str = "buid in (" + sb.toString() + ") AND " + TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME + " > " + j2;
+        String str = "buid in (" + sb.toString() + ") AND " + TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME + " > " + j;
         ArrayList arrayList = new ArrayList();
         synchronized (DBBase.mSyncLock) {
             SQLiteDatabase openDatabase = openDatabase();
@@ -632,8 +631,8 @@ public class ChatUserDBManager extends DBBase {
                     if (list.size() > 0) {
                         try {
                             String str2 = "" + list.get(0).getContacter();
-                            for (int i2 = 1; i2 < list.size(); i2++) {
-                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i2).getContacter();
+                            for (int i = 1; i < list.size(); i++) {
+                                str2 = str2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + list.get(i).getContacter();
                             }
                             str = "uid in (" + str2 + ") ";
                         } catch (Exception e2) {
@@ -656,17 +655,17 @@ public class ChatUserDBManager extends DBBase {
                             if (!cursor.moveToNext()) {
                                 break;
                             }
-                            long j2 = cursor.getLong(cursor.getColumnIndex("uid"));
+                            long j = cursor.getLong(cursor.getColumnIndex("uid"));
                             ChatSession chatSession = new ChatSession();
-                            int i3 = 0;
+                            int i2 = 0;
                             while (true) {
-                                if (i3 >= list.size()) {
+                                if (i2 >= list.size()) {
                                     break;
-                                } else if (list.get(i3).getContacter() == j2) {
-                                    chatSession = list.get(i3);
+                                } else if (list.get(i2).getContacter() == j) {
+                                    chatSession = list.get(i2);
                                     break;
                                 } else {
-                                    i3++;
+                                    i2++;
                                 }
                             }
                             list.remove(chatSession);
@@ -680,7 +679,7 @@ public class ChatUserDBManager extends DBBase {
                     LogUtils.d(TAG, "getShieldUserByUids whereClause :" + str3 + ", update :" + arrayList.size() + ", user :" + list.size());
                     updateAllShield(arrayList);
                     if (list.size() <= 0) {
-                        iGetUserShieldListener.onResult(0, NewBindCardEntry.BING_CARD_SUCCESS_MSG, arrayList);
+                        iGetUserShieldListener.onResult(0, "ok", arrayList);
                     } else {
                         getUserInfo(list, arrayList, iGetUserShieldListener);
                     }
@@ -776,11 +775,11 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Long getUkByBuid(long j2) {
+    public Long getUkByBuid(long j) {
         InterceptResult invokeJ;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048585, this, j2)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(1048585, this, j)) != null) {
             return (Long) invokeJ.objValue;
         }
         synchronized (DBBase.mSyncLock) {
@@ -791,7 +790,7 @@ public class ChatUserDBManager extends DBBase {
                     return null;
                 }
                 try {
-                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j2)}, null, null, null);
+                    cursor = openDatabase.query(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
                     if (cursor != null) {
                         try {
                             if (cursor.moveToFirst()) {
@@ -819,19 +818,19 @@ public class ChatUserDBManager extends DBBase {
                 }
             } catch (Throwable th2) {
                 th = th2;
-                cursor2 = j2;
+                cursor2 = j;
             }
         }
     }
 
-    public boolean isUserExist(SQLiteDatabase sQLiteDatabase, long j2) {
+    public boolean isUserExist(SQLiteDatabase sQLiteDatabase, long j) {
         InterceptResult invokeLJ;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, sQLiteDatabase, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, sQLiteDatabase, j)) == null) {
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                if (queryCount(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid=?", new String[]{String.valueOf(j2)}) <= 0) {
+                if (queryCount(TableDefine.DB_TABLE_USERINFO, new String[]{"uid"}, "uid=?", new String[]{String.valueOf(j)}) <= 0) {
                     z = false;
                 }
             }
@@ -840,23 +839,23 @@ public class ChatUserDBManager extends DBBase {
         return invokeLJ.booleanValue;
     }
 
-    public boolean updateMarkTop(long j2, int i2, long j3) {
+    public boolean updateMarkTop(long j, int i, long j2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)})) == null) {
             String str = TAG;
-            LogUtils.d(str, "updateMarkTop, uk =" + j2 + ", markToped=" + i2 + ", updateTime=" + j3);
+            LogUtils.d(str, "updateMarkTop, uk =" + j + ", markToped=" + i + ", updateTime=" + j2);
             ContentValues contentValues = new ContentValues();
-            contentValues.put("marktop", Integer.valueOf(i2));
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(j3));
+            contentValues.put("marktop", Integer.valueOf(i));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_MARKTOP_TIME, Long.valueOf(j2));
             ContentValues contentValues2 = new ContentValues();
-            contentValues2.put("marktop", Integer.valueOf(i2));
-            contentValues2.put("marktoptime", Long.valueOf(j3));
+            contentValues2.put("marktop", Integer.valueOf(i));
+            contentValues2.put("marktoptime", Long.valueOf(j2));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                boolean z2 = update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j2)}, contentValues) > 0;
-                boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j2)}, contentValues2) > 0;
+                boolean z2 = update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) > 0;
+                boolean z3 = update(TableDefine.DB_TABLE_CHAT_SESSION, "contacter =? ", new String[]{String.valueOf(j)}, contentValues2) > 0;
                 if (!z2 && !z3) {
                     z = false;
                 }
@@ -882,9 +881,9 @@ public class ChatUserDBManager extends DBBase {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, list};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -947,16 +946,16 @@ public class ChatUserDBManager extends DBBase {
         return invokeLZ.booleanValue;
     }
 
-    public boolean updateSubscribedUser(long j2, int i2) {
+    public boolean updateSubscribedUser(long j, int i) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i2));
+            contentValues.put(TableDefine.UserInfoColumns.COLUMN_SUBSCRIBE_STATUS, Integer.valueOf(i));
             synchronized (DBBase.mSyncLock) {
                 z = true;
-                if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j2)}, contentValues) <= 0) {
+                if (update(TableDefine.DB_TABLE_USERINFO, "uid =? ", new String[]{String.valueOf(j)}, contentValues) <= 0) {
                     z = false;
                 }
             }
@@ -983,9 +982,9 @@ public class ChatUserDBManager extends DBBase {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, map};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1021,12 +1020,12 @@ public class ChatUserDBManager extends DBBase {
                     return 0;
                 } else {
                     ArrayList arrayList2 = new ArrayList(arrayList.size());
-                    for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    for (int i = 0; i < arrayList.size(); i++) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("username", arrayList.get(i2).getUserName());
-                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i2).getIconUrl());
-                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i2).getTinyUrl());
-                        arrayList2.add(i2, new DBBase.UpdateArgs(this, "uid = ? ", new String[]{String.valueOf(arrayList.get(i2).getUk())}, contentValues));
+                        contentValues.put("username", arrayList.get(i).getUserName());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_HEAD_URL, arrayList.get(i).getIconUrl());
+                        contentValues.put(TableDefine.UserInfoColumns.COLUMN_TINY_URL, arrayList.get(i).getTinyUrl());
+                        arrayList2.add(i, new DBBase.UpdateArgs(this, "uid = ? ", new String[]{String.valueOf(arrayList.get(i).getUk())}, contentValues));
                     }
                     return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
                 }
@@ -1079,13 +1078,13 @@ public class ChatUserDBManager extends DBBase {
         }
     }
 
-    public int updateUserIp(long j2, int i2) {
+    public int updateUserIp(long j, int i) {
         InterceptResult invokeCommon;
         int update;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             synchronized (DBBase.mSyncLock) {
-                update = update(TableDefine.DB_TABLE_USERINFO, "uid= ?", new String[]{String.valueOf(j2)}, constructIpInfoContentValue(null, new ContentValues()));
+                update = update(TableDefine.DB_TABLE_USERINFO, "uid= ?", new String[]{String.valueOf(j)}, constructIpInfoContentValue(null, new ContentValues()));
             }
             return update;
         }
@@ -1104,8 +1103,8 @@ public class ChatUserDBManager extends DBBase {
                     return 0;
                 }
                 ArrayList arrayList2 = new ArrayList(arrayList.size());
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    arrayList2.add(i2, new DBBase.UpdateArgs(this, "uid= ?", new String[]{String.valueOf(arrayList.get(i2).getUid())}, constructIpInfoContentValue(arrayList.get(i2), new ContentValues())));
+                for (int i = 0; i < arrayList.size(); i++) {
+                    arrayList2.add(i, new DBBase.UpdateArgs(this, "uid= ?", new String[]{String.valueOf(arrayList.get(i).getUid())}, constructIpInfoContentValue(arrayList.get(i), new ContentValues())));
                 }
                 return updateBatch(TableDefine.DB_TABLE_USERINFO, arrayList2);
             }
@@ -1133,11 +1132,11 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private ChatUser getChatUser(SQLiteDatabase sQLiteDatabase, long j2) {
+    private ChatUser getChatUser(SQLiteDatabase sQLiteDatabase, long j) {
         InterceptResult invokeLJ;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65551, this, sQLiteDatabase, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65551, this, sQLiteDatabase, j)) != null) {
             return (ChatUser) invokeLJ.objValue;
         }
         ?? r0 = 0;
@@ -1146,7 +1145,7 @@ public class ChatUserDBManager extends DBBase {
                 return null;
             }
             try {
-                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "uid =? ", new String[]{String.valueOf(j2)}, null, null, null);
+                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "uid =? ", new String[]{String.valueOf(j)}, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {
@@ -1198,11 +1197,11 @@ public class ChatUserDBManager extends DBBase {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private ChatUser getChatUserByBuid(SQLiteDatabase sQLiteDatabase, long j2) {
+    private ChatUser getChatUserByBuid(SQLiteDatabase sQLiteDatabase, long j) {
         InterceptResult invokeLJ;
         Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65552, this, sQLiteDatabase, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(65552, this, sQLiteDatabase, j)) != null) {
             return (ChatUser) invokeLJ.objValue;
         }
         ?? r0 = 0;
@@ -1211,7 +1210,7 @@ public class ChatUserDBManager extends DBBase {
                 return null;
             }
             try {
-                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "buid =? ", new String[]{String.valueOf(j2)}, null, null, null);
+                cursor = sQLiteDatabase.query(TableDefine.DB_TABLE_USERINFO, null, "buid =? ", new String[]{String.valueOf(j)}, null, null, null);
                 if (cursor != null) {
                     try {
                         if (cursor.moveToFirst()) {

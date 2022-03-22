@@ -40,9 +40,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {imageProblemActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,7 +85,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdStatSwitchData) == null) {
                 super.onPostExecute(bdStatSwitchData);
-                this.a.mView.getCheckButton().setText(this.a.getResources().getText(R.string.diagnose));
+                this.a.mView.getCheckButton().setText(this.a.getResources().getText(R.string.obfuscated_res_0x7f0f04d0));
                 this.a.mView.complete();
                 this.a.mTask = null;
             }
@@ -100,7 +100,7 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
                 super.onProgressUpdate(numArr);
                 int intValue = numArr[0].intValue();
                 ImageProblemActivity imageProblemActivity = this.a;
-                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f43960d);
+                imageProblemActivity.mView.setValue(intValue, imageProblemActivity.mImageProblemAssistant.f34119d);
             }
         }
 
@@ -122,9 +122,9 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -132,10 +132,10 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mView.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mView.onChangeSkinType(i);
         }
     }
 
@@ -144,13 +144,13 @@ public class ImageProblemActivity extends BaseActivity<ImageProblemActivity> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && view == this.mView.getCheckButton()) {
             if (this.mTask == null) {
-                this.mView.getCheckButton().setText(getResources().getText(R.string.stop));
+                this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f11db));
                 CheckTask checkTask = new CheckTask(this, null);
                 this.mTask = checkTask;
                 checkTask.execute(new Object[0]);
                 return;
             }
-            this.mView.getCheckButton().setText(getResources().getText(R.string.diagnose));
+            this.mView.getCheckButton().setText(getResources().getText(R.string.obfuscated_res_0x7f0f04d0));
             CheckTask checkTask2 = this.mTask;
             if (checkTask2 != null) {
                 checkTask2.cancel();

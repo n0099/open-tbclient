@@ -52,9 +52,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -70,18 +70,18 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int c(int i2, boolean z) {
+    public int c(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) != null) {
             return invokeCommon.intValue;
         }
-        if (i2 == -90) {
+        if (i == -90) {
             return 0;
         }
-        if (i2 != 0) {
-            if (i2 != 90) {
-                return (i2 == 180 ? !z : z) ? -90 : 90;
+        if (i != 0) {
+            if (i != 90) {
+                return (i == 180 ? !z : z) ? -90 : 90;
             }
             return 180;
         } else if (z) {
@@ -91,18 +91,18 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
     public static void m(float[] fArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fArr) == null) {
-            for (int i2 = 0; i2 < 8; i2++) {
+            for (int i = 0; i < 8; i++) {
                 int[] iArr = tP;
-                float f2 = fArr[iArr[i2] * 3];
-                float f3 = fArr[(iArr[i2] * 3) + 1];
-                float f4 = fArr[(iArr[i2] * 3) + 2];
+                float f2 = fArr[iArr[i] * 3];
+                float f3 = fArr[(iArr[i] * 3) + 1];
+                float f4 = fArr[(iArr[i] * 3) + 2];
                 int[] iArr2 = tQ;
-                fArr[iArr[i2] * 3] = fArr[iArr2[i2] * 3];
-                fArr[(iArr[i2] * 3) + 1] = fArr[(iArr2[i2] * 3) + 1];
-                fArr[(iArr[i2] * 3) + 2] = fArr[(iArr2[i2] * 3) + 2];
-                fArr[iArr2[i2] * 3] = f2;
-                fArr[(iArr2[i2] * 3) + 1] = f3;
-                fArr[(iArr2[i2] * 3) + 2] = f4;
+                fArr[iArr[i] * 3] = fArr[iArr2[i] * 3];
+                fArr[(iArr[i] * 3) + 1] = fArr[(iArr2[i] * 3) + 1];
+                fArr[(iArr[i] * 3) + 2] = fArr[(iArr2[i] * 3) + 2];
+                fArr[iArr2[i] * 3] = f2;
+                fArr[(iArr2[i] * 3) + 1] = f3;
+                fArr[(iArr2[i] * 3) + 2] = f4;
             }
         }
     }
@@ -133,9 +133,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8), bundle};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -157,7 +157,7 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     }
                     float f2 = this.qr.getFloat(PoseAR.MDL_MAGIC_FILTER_CUTOFFSLOPE, 1.0f);
                     float[] floatArray = this.qr.getFloatArray(PoseAR.MDL_MAGIC_FILTER_MIN_CUTOFFFREQ);
-                    return aVar.f31475tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
+                    return aVar.f24836tv ? ARMdlInterfaceJNI.initPoseFromAsset(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray) : ARMdlInterfaceJNI.initPose(strArr[0], strArr[1], strArr[2], 1, f2, floatArray, floatArray);
                 }
                 return invokeL2.intValue;
             }
@@ -198,9 +198,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -254,9 +254,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), framePixels};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -289,9 +289,9 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
                     StatisticApi.getPerformanceApi().recordAlgoTimeCost("body_pose", "predict", SystemClock.elapsedRealtime() - elapsedRealtime, 0);
                     if (framePixels2.isFrontCamera()) {
                         PoseDetector.m(fArr);
-                        for (int i2 = 0; i2 < 18; i2++) {
-                            int i3 = (i2 * 3) + 1;
-                            fArr[i3] = 1.0f - fArr[i3];
+                        for (int i = 0; i < 18; i++) {
+                            int i2 = (i * 3) + 1;
+                            fArr[i2] = 1.0f - fArr[i2];
                         }
                     }
                     return new a(this.tR.getName(), fArr, timestamp);
@@ -308,14 +308,14 @@ public class PoseDetector extends com.baidu.ar.b.a.a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? TAG : (String) invokeV.objValue;
     }
 
-    public void i(int i2, int i3) {
+    public void i(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             c.cd().a(this);
             PixelReadParams pixelReadParams = new PixelReadParams(PixelType.BGR);
             this.nk = pixelReadParams;
-            pixelReadParams.setOutputWidth(i2);
-            this.nk.setOutputHeight(i3);
+            pixelReadParams.setOutputWidth(i);
+            this.nk.setOutputHeight(i2);
         }
     }
 

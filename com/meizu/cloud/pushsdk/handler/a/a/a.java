@@ -9,7 +9,7 @@ import com.meizu.cloud.pushsdk.handler.a.b.g;
 import com.meizu.cloud.pushsdk.notification.c;
 import com.meizu.cloud.pushsdk.util.d;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     public a(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -31,7 +31,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
     @Override // com.meizu.cloud.pushsdk.handler.a.a
     public void a(g gVar, c cVar) {
         String message;
-        c.k.a.a.a.c();
+        c.h.a.a.a.c();
         String str = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/pushSdktmp/" + gVar.d().b().a() + "_" + gVar.d().b().d() + ".zip";
         File file = null;
         try {
@@ -41,7 +41,7 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
             file = file2;
         } catch (Exception e2) {
             message = e2.getMessage();
-            c.k.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
+            c.h.a.a.a.b("AbstractMessageHandler", "zip error message " + message);
         }
         if (file != null && file.length() / 1024 > gVar.a()) {
             message = "the upload file exceeds the max size";
@@ -50,28 +50,28 @@ public class a extends com.meizu.cloud.pushsdk.handler.a.a<g> {
         }
         com.meizu.cloud.pushsdk.b.a.c<String> a = com.meizu.cloud.pushsdk.platform.a.b.a(c()).a(gVar.d().b().a(), gVar.d().b().d(), message, file);
         if (a == null || !a.b()) {
-            c.k.a.a.a.d("AbstractMessageHandler", "upload error code " + a.c() + a.a());
+            c.h.a.a.a.d("AbstractMessageHandler", "upload error code " + a.c() + a.a());
             return;
         }
         if (file != null) {
             file.delete();
         }
-        c.k.a.a.a.b("AbstractMessageHandler", "upload success " + a.a());
+        c.h.a.a.a.b("AbstractMessageHandler", "upload success " + a.a());
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        int i2;
-        c.k.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
+        int i;
+        c.h.a.a.a.d("AbstractMessageHandler", "start LogUploadMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
             if (a.a() != null) {
-                i2 = a.a().a();
-                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "2".equals(String.valueOf(i2));
+                i = a.a().a();
+                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "2".equals(String.valueOf(i));
             }
         }
-        i2 = 0;
+        i = 0;
         if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
             return false;
         }

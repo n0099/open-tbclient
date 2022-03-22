@@ -2,8 +2,8 @@ package com.baidu.tieba.newlist;
 
 import c.a.d.a.f;
 import c.a.d.f.p.l;
-import c.a.r0.q1.b.j;
-import c.a.r0.r2.b;
+import c.a.p0.s1.b.j;
+import c.a.p0.t2.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.ResponsedMessage;
@@ -20,35 +20,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class HotTopicListModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f44897e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f34799b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f44898f;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ HotTopicListModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(HotTopicListModel hotTopicListModel, int i2, int i3) {
-            super(i2, i3);
+        public a(HotTopicListModel hotTopicListModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicListModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {hotTopicListModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -69,8 +67,8 @@ public class HotTopicListModel extends BdBaseModel {
             j jVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                int i2 = 0;
-                this.a.f44898f = false;
+                int i = 0;
+                this.a.f34799b = false;
                 if (responsedMessage == null) {
                     return;
                 }
@@ -87,21 +85,21 @@ public class HotTopicListModel extends BdBaseModel {
                                 }
                             }
                             if (jVar != null) {
-                                if (!ListUtils.isEmpty(jVar.f21005g)) {
+                                if (!ListUtils.isEmpty(jVar.f18176g)) {
                                     LinkedList linkedList = new LinkedList();
-                                    int size = jVar.f21005g.size();
-                                    while (i2 < size) {
-                                        linkedList.add(new c.a.r0.r2.d.b(jVar.f21005g.get(i2), i2));
-                                        i2++;
+                                    int size = jVar.f18176g.size();
+                                    while (i < size) {
+                                        linkedList.add(new c.a.p0.t2.d.b(jVar.f18176g.get(i), i));
+                                        i++;
                                     }
-                                    this.a.f44897e.netCallback(responsedMessage.getError(), linkedList);
-                                    i2 = 1;
+                                    this.a.a.netCallback(responsedMessage.getError(), linkedList);
+                                    i = 1;
                                 }
-                                if (i2 != 0) {
+                                if (i != 0) {
                                     return;
                                 }
                             }
-                            this.a.f44897e.netCallback(-1, null);
+                            this.a.a.netCallback(-1, null);
                         }
                     }
                     jVar = null;
@@ -109,7 +107,7 @@ public class HotTopicListModel extends BdBaseModel {
                     }
                     if (jVar != null) {
                     }
-                    this.a.f44897e.netCallback(-1, null);
+                    this.a.a.netCallback(-1, null);
                 }
             }
         }
@@ -124,24 +122,31 @@ public class HotTopicListModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        y();
-        this.f44897e = bVar;
+        A();
+        this.a = bVar;
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            registerListener(new a(this, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289));
+        }
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             cancelMessage();
             return false;
         }
@@ -152,8 +157,8 @@ public class HotTopicListModel extends BdBaseModel {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!l.A() || this.f44898f) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!l.A() || this.f34799b) {
                 return false;
             }
             cancelLoadData();
@@ -164,16 +169,9 @@ public class HotTopicListModel extends BdBaseModel {
             requestHotRanklistMessage.setNeedTabList("0");
             requestHotRanklistMessage.setFid(0L);
             boolean sendMessage = MessageManager.getInstance().sendMessage(requestHotRanklistMessage);
-            this.f44898f = sendMessage;
+            this.f34799b = sendMessage;
             return sendMessage;
         }
         return invokeV.booleanValue;
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(new a(this, CmdConfigHttp.CMD_HOT_TOPIC_RANKLIST, 309289));
-        }
     }
 }

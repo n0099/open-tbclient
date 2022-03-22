@@ -38,16 +38,16 @@ public final class EmptySubscription implements QueueSubscription<Object> {
         $VALUES = new EmptySubscription[]{emptySubscription};
     }
 
-    public EmptySubscription(String str, int i2) {
+    public EmptySubscription(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -131,18 +131,18 @@ public final class EmptySubscription implements QueueSubscription<Object> {
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            SubscriptionHelper.validate(j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            SubscriptionHelper.validate(j);
         }
     }
 
     @Override // io.reactivex.internal.fuseable.QueueFuseable
-    public int requestFusion(int i2) {
+    public int requestFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 & 2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i & 2 : invokeI.intValue;
     }
 
     @Override // java.lang.Enum

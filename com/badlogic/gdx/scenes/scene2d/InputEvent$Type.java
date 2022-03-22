@@ -1,5 +1,6 @@
 package com.badlogic.gdx.scenes.scene2d;
 
+import com.baidu.tieba.account.AccountRestoreActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +43,7 @@ public final class InputEvent$Type {
         touchDragged = new InputEvent$Type("touchDragged", 2);
         mouseMoved = new InputEvent$Type("mouseMoved", 3);
         enter = new InputEvent$Type("enter", 4);
-        exit = new InputEvent$Type("exit", 5);
+        exit = new InputEvent$Type(AccountRestoreActivity.JS_PROMPT_ACCOUNT_METHOD_EXIT, 5);
         scrolled = new InputEvent$Type("scrolled", 6);
         keyDown = new InputEvent$Type("keyDown", 7);
         keyUp = new InputEvent$Type("keyUp", 8);
@@ -51,16 +52,16 @@ public final class InputEvent$Type {
         $VALUES = new InputEvent$Type[]{touchDown, touchUp, touchDragged, mouseMoved, enter, exit, scrolled, keyDown, keyUp, inputEvent$Type};
     }
 
-    public InputEvent$Type(String str, int i2) {
+    public InputEvent$Type(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

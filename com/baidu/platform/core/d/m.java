@@ -9,6 +9,7 @@ import com.baidu.mapapi.search.core.VehicleInfo;
 import com.baidu.mapapi.search.route.TransitRouteLine;
 import com.baidu.mapapi.search.route.TransitRouteResult;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,9 +31,9 @@ public class m extends k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,7 +51,7 @@ public class m extends k {
             RouteNode routeNode = new RouteNode();
             routeNode.setTitle(optJSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
             routeNode.setUid(optJSONObject.optString("uid"));
-            routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString("pt")));
+            routeNode.setLocation(CoordUtil.decodeLocation(optJSONObject.optString(Config.PLATFORM_TYPE)));
             return routeNode;
         }
         return (RouteNode) invokeLL.objValue;
@@ -72,22 +73,22 @@ public class m extends k {
                 return null;
             }
             int length = optJSONArray.length();
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 f2 = 0.0f;
-                if (i2 >= length) {
+                if (i >= length) {
                     f3 = 0.0f;
                     f4 = 0.0f;
                     break;
                 }
-                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                 if (jSONObject2 != null && jSONObject2.optString("desc").contains("白天")) {
                     f3 = (float) jSONObject2.optDouble("km_price");
                     f4 = (float) jSONObject2.optDouble("start_price");
                     f2 = (float) jSONObject2.optDouble("total_price");
                     break;
                 }
-                i2++;
+                i++;
             }
             taxiInfo.setDesc(jSONObject.optString("remark"));
             taxiInfo.setDistance(jSONObject.optInt("distance"));
@@ -110,13 +111,13 @@ public class m extends k {
             StringBuilder sb = new StringBuilder();
             char[] charArray = str.toCharArray();
             boolean z = false;
-            for (int i2 = 0; i2 < charArray.length; i2++) {
-                if (charArray[i2] == '<') {
+            for (int i = 0; i < charArray.length; i++) {
+                if (charArray[i] == '<') {
                     z = true;
-                } else if (charArray[i2] == '>') {
+                } else if (charArray[i] == '>') {
                     z = false;
                 } else if (!z) {
-                    sb.append(charArray[i2]);
+                    sb.append(charArray[i]);
                 }
             }
             return sb.toString();
@@ -133,7 +134,7 @@ public class m extends k {
         SearchResult.ERRORNO errorno;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, transitRouteResult)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (str == null || str.length() <= 0) {
                 return false;
             }
@@ -174,9 +175,9 @@ public class m extends k {
                     return false;
                 }
                 ArrayList arrayList = new ArrayList();
-                int i3 = 0;
-                while (i3 < optJSONArray.length()) {
-                    JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i3)).optJSONArray("legs").opt(i2);
+                int i2 = 0;
+                while (i2 < optJSONArray.length()) {
+                    JSONObject jSONObject2 = (JSONObject) ((JSONObject) optJSONArray.opt(i2)).optJSONArray("legs").opt(i);
                     if (jSONObject2 != null) {
                         TransitRouteLine transitRouteLine = new TransitRouteLine();
                         transitRouteLine.setDistance(jSONObject2.optInt("distance"));
@@ -186,14 +187,14 @@ public class m extends k {
                         JSONArray optJSONArray2 = jSONObject2.optJSONArray("steps");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             ArrayList arrayList2 = new ArrayList();
-                            int i4 = 0;
-                            while (i4 < optJSONArray2.length()) {
-                                JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i4).optJSONArray(ShaderParams.VALUE_TYPE_STEP);
+                            int i3 = 0;
+                            while (i3 < optJSONArray2.length()) {
+                                JSONArray optJSONArray3 = optJSONArray2.optJSONObject(i3).optJSONArray(ShaderParams.VALUE_TYPE_STEP);
                                 if (optJSONArray3 == null || optJSONArray3.length() <= 0) {
                                     jSONArray2 = optJSONArray;
                                     routeNode2 = a2;
                                 } else {
-                                    JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i2);
+                                    JSONObject optJSONObject5 = optJSONArray3.optJSONObject(i);
                                     TransitRouteLine.TransitStep transitStep = new TransitRouteLine.TransitStep();
                                     transitStep.setEntrace(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("start_location"))));
                                     transitStep.setExit(RouteNode.location(CoordUtil.decodeLocation(optJSONObject5.optString("end_location"))));
@@ -216,27 +217,27 @@ public class m extends k {
                                     }
                                     arrayList2.add(transitStep);
                                 }
-                                i4++;
+                                i3++;
                                 optJSONArray = jSONArray2;
                                 a2 = routeNode2;
-                                i2 = 0;
+                                i = 0;
                             }
                             jSONArray = optJSONArray;
                             routeNode = a2;
                             transitRouteLine.setSteps(arrayList2);
                             arrayList.add(transitRouteLine);
-                            i3++;
+                            i2++;
                             optJSONArray = jSONArray;
                             a2 = routeNode;
-                            i2 = 0;
+                            i = 0;
                         }
                     }
                     jSONArray = optJSONArray;
                     routeNode = a2;
-                    i3++;
+                    i2++;
                     optJSONArray = jSONArray;
                     a2 = routeNode;
-                    i2 = 0;
+                    i = 0;
                 }
                 transitRouteResult.setRoutelines(arrayList);
                 return true;

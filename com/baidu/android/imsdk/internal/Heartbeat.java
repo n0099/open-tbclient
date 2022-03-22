@@ -7,9 +7,10 @@ import android.content.Intent;
 import android.os.Handler;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 /* loaded from: classes3.dex */
 public class Heartbeat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,9 +44,9 @@ public class Heartbeat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {heartbeat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,9 +65,9 @@ public class Heartbeat {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -93,9 +93,9 @@ public class Heartbeat {
                                         newInitContext2.initArgs = r2;
                                         Object[] objArr2 = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext2);
-                                        int i4 = newInitContext2.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i3 = newInitContext2.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
                                             newInitContext2.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext2);
                                             return;
@@ -109,7 +109,7 @@ public class Heartbeat {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         Intent intent = new Intent(this.this$2.this$1.this$0.mContext, a.class);
-                                        intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
+                                        intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                                         intent.setPackage(this.this$2.this$1.this$0.mContext.getPackageName());
                                         a.g(this.this$2.this$1.this$0.mContext).f(this.this$2.this$1.this$0.mContext, intent);
                                         this.this$2.this$1.this$0.mHandler.postDelayed(this.this$2.this$1.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
@@ -165,9 +165,9 @@ public class Heartbeat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {heartbeat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -181,10 +181,10 @@ public class Heartbeat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Intent intent = new Intent();
-                intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
+                intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setClass(this.this$0.mContext, a.class);
                 intent.setAction(Constants.ACTION_SERVICE);
-                ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, 268435456));
+                ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(PendingIntent.getService(this.this$0.mContext, 0, intent, LaunchTaskConstants.OTHER_PROCESS));
             }
         }
 
@@ -194,10 +194,10 @@ public class Heartbeat {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 cancelHearbeat();
                 Intent intent = new Intent();
-                intent.putExtra(Constants.EXTRA_ALARM_ALERT, StatHelper.SENSOR_OK);
+                intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                 intent.setClass(this.this$0.mContext, a.class);
                 intent.setAction(Constants.ACTION_SERVICE);
-                PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, 268435456);
+                PendingIntent service = PendingIntent.getService(this.this$0.mContext.getApplicationContext(), 0, intent, LaunchTaskConstants.OTHER_PROCESS);
                 ((AlarmManager) this.this$0.mContext.getSystemService(NotificationCompat.CATEGORY_ALARM)).setRepeating(0, System.currentTimeMillis() + Heartbeat.ALARM_TIMEOUT, Heartbeat.ALARM_TIMEOUT, service);
             }
         }
@@ -225,9 +225,9 @@ public class Heartbeat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

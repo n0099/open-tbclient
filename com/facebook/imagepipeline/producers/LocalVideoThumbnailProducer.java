@@ -30,7 +30,7 @@ import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LocalVideoThumbnailProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -47,9 +47,9 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, contentResolver};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,19 +62,19 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap baiduAppCreateVideoThumbnail(ImageRequest imageRequest) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, imageRequest)) == null) {
             ResizeOptions resizeOptions = imageRequest.getResizeOptions();
-            int i3 = 0;
+            int i2 = 0;
             if (resizeOptions != null) {
-                i3 = resizeOptions.width;
-                i2 = resizeOptions.height;
+                i2 = resizeOptions.width;
+                i = resizeOptions.height;
             } else {
-                i2 = 0;
+                i = 0;
             }
-            if (i3 > 0 && i2 > 0) {
-                return createExtractVideoThumbnail(getLocalFilePath(imageRequest), i3, i2);
+            if (i2 > 0 && i > 0) {
+                return createExtractVideoThumbnail(getLocalFilePath(imageRequest), i2, i);
             }
             return ThumbnailUtils.createVideoThumbnail(getLocalFilePath(imageRequest), calculateKind(imageRequest));
         }
@@ -87,11 +87,11 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, imageRequest)) == null) ? (imageRequest.getPreferredWidth() > 96 || imageRequest.getPreferredHeight() > 96) ? 1 : 3 : invokeL.intValue;
     }
 
-    private Bitmap createExtractVideoThumbnail(String str, int i2, int i3) {
+    private Bitmap createExtractVideoThumbnail(String str, int i, int i2) {
         InterceptResult invokeLII;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i, i2)) == null) {
             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
             try {
                 try {
@@ -114,7 +114,7 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                 if (bitmap == null) {
                     return null;
                 }
-                return ThumbnailUtils.extractThumbnail(bitmap, i2, i3);
+                return ThumbnailUtils.extractThumbnail(bitmap, i, i2);
             } catch (Throwable th) {
                 try {
                     mediaMetadataRetriever.release();
@@ -196,9 +196,9 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, consumer, listener, r14, id, listener, id, r18};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -280,9 +280,9 @@ public class LocalVideoThumbnailProducer implements Producer<CloseableReference<
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, statefulProducerRunnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

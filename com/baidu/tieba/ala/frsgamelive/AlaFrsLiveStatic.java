@@ -1,7 +1,7 @@
 package com.baidu.tieba.ala.frsgamelive;
 
-import c.a.r0.d1.j0;
-import c.a.r0.d1.k0;
+import c.a.p0.f1.j0;
+import c.a.p0.f1.k0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -40,17 +40,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -69,13 +69,13 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
-                c.a.r0.a0.g.c.a aVar = new c.a.r0.a0.g.c.a(true);
-                aVar.getFragmentTabStructure().f12602e = 2;
-                aVar.b(k0Var.c());
-                aVar.c(k0Var.d());
-                aVar.a(k0Var.b());
-                aVar.d(1);
-                aVar.e(false);
+                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(true);
+                aVar.b().f10299e = 2;
+                aVar.h(k0Var.c());
+                aVar.i(k0Var.d());
+                aVar.g(k0Var.b());
+                aVar.j(1);
+                aVar.k(false);
                 k0Var.a(aVar);
             }
         }
@@ -87,17 +87,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -116,13 +116,13 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.r0.a0.g.c.a aVar = new c.a.r0.a0.g.c.a(true);
-                aVar.getFragmentTabStructure().f12602e = 9;
-                aVar.b(j0Var.c());
-                aVar.c(j0Var.d());
-                aVar.a(j0Var.b());
-                aVar.d(1);
-                aVar.e(true);
+                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(true);
+                aVar.b().f10299e = 9;
+                aVar.h(j0Var.c());
+                aVar.i(j0Var.d());
+                aVar.g(j0Var.b());
+                aVar.j(1);
+                aVar.k(true);
                 if (j0Var.h(9)) {
                     j0Var.a(aVar);
                 }
@@ -136,17 +136,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -165,13 +165,13 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
-                c.a.r0.a0.g.c.a aVar = new c.a.r0.a0.g.c.a(false);
-                aVar.getFragmentTabStructure().f12602e = 1;
-                aVar.b(k0Var.c());
-                aVar.c(k0Var.d());
-                aVar.a(k0Var.b());
-                aVar.d(2);
-                aVar.e(false);
+                c.a.p0.c0.g.c.a aVar = new c.a.p0.c0.g.c.a(false);
+                aVar.b().f10299e = 1;
+                aVar.h(k0Var.c());
+                aVar.i(k0Var.d());
+                aVar.g(k0Var.b());
+                aVar.j(2);
+                aVar.k(false);
                 k0Var.a(aVar);
             }
         }
@@ -183,17 +183,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2) {
-            super(i2);
+        public d(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -212,11 +212,11 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof k0) {
                 k0 k0Var = (k0) data;
-                c.a.r0.a0.i.a.a aVar = new c.a.r0.a0.i.a.a();
-                aVar.getFragmentTabStructure().f12602e = 3;
-                aVar.a(k0Var.c());
-                aVar.b(k0Var.d());
-                aVar.c(false);
+                c.a.p0.c0.i.a.a aVar = new c.a.p0.c0.i.a.a();
+                aVar.b().f10299e = 3;
+                aVar.g(k0Var.c());
+                aVar.h(k0Var.d());
+                aVar.i(false);
                 k0Var.a(aVar);
             }
         }
@@ -228,17 +228,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2) {
-            super(i2);
+        public e(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -257,12 +257,12 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.r0.a0.i.a.a aVar = new c.a.r0.a0.i.a.a();
-                aVar.getFragmentTabStructure().f12602e = 8;
-                aVar.getFragmentTabStructure().f12599b = R.string.ala_video;
-                aVar.a(j0Var.c());
-                aVar.b(j0Var.d());
-                aVar.c(true);
+                c.a.p0.c0.i.a.a aVar = new c.a.p0.c0.i.a.a();
+                aVar.b().f10299e = 8;
+                aVar.b().f10296b = R.string.obfuscated_res_0x7f0f0245;
+                aVar.g(j0Var.c());
+                aVar.h(j0Var.d());
+                aVar.i(true);
                 if (j0Var.h(8)) {
                     j0Var.a(aVar);
                 }
@@ -276,17 +276,17 @@ public class AlaFrsLiveStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(int i2) {
-            super(i2);
+        public f(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -305,11 +305,11 @@ public class AlaFrsLiveStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.r0.a0.h.a aVar = new c.a.r0.a0.h.a();
-                aVar.c(j0Var.c());
-                aVar.d(j0Var.d());
-                aVar.b(j0Var.b());
-                aVar.a(j0Var);
+                c.a.p0.c0.h.a aVar = new c.a.p0.c0.h.a();
+                aVar.i(j0Var.c());
+                aVar.j(j0Var.d());
+                aVar.h(j0Var.b());
+                aVar.g(j0Var);
             }
         }
     }
@@ -324,9 +324,9 @@ public class AlaFrsLiveStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -394,9 +394,9 @@ public class AlaFrsLiveStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

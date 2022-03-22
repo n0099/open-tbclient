@@ -72,9 +72,9 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {androidDaydream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,9 +113,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AndroidDaydream f29682e;
+        public final /* synthetic */ AndroidDaydream a;
 
         public b(AndroidDaydream androidDaydream) {
             Interceptable interceptable = $ic;
@@ -124,22 +122,22 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {androidDaydream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29682e = androidDaydream;
+            this.a = androidDaydream;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f29682e.finish();
+                this.a.finish();
             }
         }
     }
@@ -165,9 +163,9 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -190,7 +188,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             }
             k kVar = new k(this, bVar, cVar2);
             this.graphics = kVar;
-            this.input = createInput(this, this, kVar.f27172e, bVar);
+            this.input = createInput(this, this, kVar.a, bVar);
             this.audio = createAudio(this, bVar);
             this.files = createFiles();
             this.net = new q(this, bVar);
@@ -200,9 +198,9 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             addLifecycleListener(new a(this));
             f.a = this;
             getInput();
-            f.f27075c = getAudio();
-            f.f27076d = getFiles();
-            f.f27074b = getGraphics();
+            f.f22332c = getAudio();
+            f.f22333d = getFiles();
+            f.f22331b = getGraphics();
             getNet();
             if (!z) {
                 setFullscreen(true);
@@ -211,7 +209,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             createWakeLock(bVar.n);
             hideStatusBar(bVar);
             if (getResources().getConfiguration().keyboard != 1) {
-                this.input.c(true);
+                this.input.i(true);
             }
         }
     }
@@ -244,7 +242,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
     public m createInput(Application application, Context context, Object obj, c.b.b.l.a.b bVar) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.f27172e, bVar) : (m) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, application, context, obj, bVar)) == null) ? new z(this, this, this.graphics.a, bVar) : (m) invokeLLLL.objValue;
     }
 
     public FrameLayout.LayoutParams createLayoutParams() {
@@ -449,7 +447,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048615, this, configuration) == null) {
             super.onConfigurationChanged(configuration);
-            this.input.c(configuration.hardKeyboardHidden == 1);
+            this.input.i(configuration.hardKeyboardHidden == 1);
         }
     }
 
@@ -467,11 +465,11 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
             f.a = this;
             getInput();
-            f.f27075c = getAudio();
-            f.f27076d = getFiles();
-            f.f27074b = getGraphics();
+            f.f22332c = getAudio();
+            f.f22333d = getFiles();
+            f.f22331b = getGraphics();
             getNet();
-            this.input.h();
+            this.input.a0();
             k kVar = this.graphics;
             if (kVar != null) {
                 kVar.q();
@@ -492,7 +490,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
             boolean d2 = this.graphics.d();
             this.graphics.u(true);
             this.graphics.r();
-            this.input.g();
+            this.input.y();
             this.graphics.h();
             this.graphics.j();
             this.graphics.u(d2);
@@ -507,7 +505,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         if (interceptable == null || interceptable.invokeL(1048619, this, runnable) == null) {
             synchronized (this.runnables) {
                 this.runnables.a(runnable);
-                f.f27074b.c();
+                f.f22331b.c();
             }
         }
     }
@@ -516,7 +514,7 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048620, this, hVar) == null) {
             synchronized (this.lifecycleListeners) {
-                this.lifecycleListeners.i(hVar, true);
+                this.lifecycleListeners.j(hVar, true);
             }
         }
     }
@@ -539,10 +537,10 @@ public class AndroidDaydream extends DreamService implements c.b.b.l.a.a {
         }
     }
 
-    public void setLogLevel(int i2) {
+    public void setLogLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.logLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            this.logLevel = i;
         }
     }
 

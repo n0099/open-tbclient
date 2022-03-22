@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.log.SLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class b extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,20 +22,20 @@ public abstract class b extends Dialog {
     @SuppressLint({"NewApi"})
 
     /* renamed from: b  reason: collision with root package name */
-    public final WebChromeClient f59086b;
+    public final WebChromeClient f43731b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(Context context, int i2) {
-        super(context, i2);
+    public b(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -43,7 +43,7 @@ public abstract class b extends Dialog {
                 return;
             }
         }
-        this.f59086b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
+        this.f43731b = new WebChromeClient(this) { // from class: com.tencent.open.b.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -55,9 +55,9 @@ public abstract class b extends Dialog {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -85,10 +85,10 @@ public abstract class b extends Dialog {
             }
 
             @Override // android.webkit.WebChromeClient
-            public void onConsoleMessage(String str, int i5, String str2) {
+            public void onConsoleMessage(String str, int i4, String str2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i5, str2) == null) {
-                    SLog.i("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + str + " -- From 222 line " + i5 + " of " + str2);
+                if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, str, i4, str2) == null) {
+                    SLog.i("openSDK_LOG.JsDialog", "WebChromeClient onConsoleMessage" + str + " -- From 222 line " + i4 + " of " + str2);
                     if (Build.VERSION.SDK_INT == 7) {
                         this.a.a(str);
                     }

@@ -6,36 +6,36 @@ import android.text.TextUtils;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class z implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f55023c;
+    public static Handler f40108c;
     public com.kwad.sdk.core.webview.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.a.b f55024b;
+    public com.kwad.sdk.core.download.a.b f40109b;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f55025d;
+    public b f40110d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.core.response.kwai.a {
         public int a;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         @MainThread
-        void a(int i2);
+        void a(int i);
     }
 
     public z(com.kwad.sdk.core.webview.a aVar, com.kwad.sdk.core.download.a.b bVar, b bVar2) {
         this.a = aVar;
-        this.f55024b = bVar;
-        this.f55025d = bVar2;
-        if (f55023c == null) {
-            f55023c = new Handler(Looper.getMainLooper());
+        this.f40109b = bVar;
+        this.f40110d = bVar2;
+        if (f40108c == null) {
+            f40108c = new Handler(Looper.getMainLooper());
         }
     }
 
@@ -53,12 +53,12 @@ public class z implements com.kwad.sdk.core.webview.kwai.a {
             }
             a aVar = new a();
             aVar.parseJson(new JSONObject(str));
-            final int i2 = aVar.a;
-            f55023c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
+            final int i = aVar.a;
+            f40108c.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.z.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (z.this.f55025d != null) {
-                        z.this.f55025d.a(i2);
+                    if (z.this.f40110d != null) {
+                        z.this.f40110d.a(i);
                     }
                 }
             });

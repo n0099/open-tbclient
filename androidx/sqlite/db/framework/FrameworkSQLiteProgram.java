@@ -20,9 +20,9 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
             newInitContext.initArgs = r2;
             Object[] objArr = {sQLiteProgram};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,42 +32,42 @@ public class FrameworkSQLiteProgram implements SupportSQLiteProgram {
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindBlob(int i2, byte[] bArr) {
+    public void bindBlob(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
-            this.mDelegate.bindBlob(i2, bArr);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
+            this.mDelegate.bindBlob(i, bArr);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindDouble(int i2, double d2) {
+    public void bindDouble(int i, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Double.valueOf(d2)}) == null) {
-            this.mDelegate.bindDouble(i2, d2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Double.valueOf(d2)}) == null) {
+            this.mDelegate.bindDouble(i, d2);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindLong(int i2, long j2) {
+    public void bindLong(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.mDelegate.bindLong(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.mDelegate.bindLong(i, j);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindNull(int i2) {
+    public void bindNull(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mDelegate.bindNull(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mDelegate.bindNull(i);
         }
     }
 
     @Override // androidx.sqlite.db.SupportSQLiteProgram
-    public void bindString(int i2, String str) {
+    public void bindString(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
-            this.mDelegate.bindString(i2, str);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            this.mDelegate.bindString(i, str);
         }
     }
 

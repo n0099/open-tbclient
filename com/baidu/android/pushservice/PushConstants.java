@@ -45,23 +45,23 @@ public final class PushConstants {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 30699) {
-                    if (i2 != 110001) {
-                        switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 0) {
+                if (i != 30699) {
+                    if (i != 110001) {
+                        switch (i) {
                             case 10001:
                                 return "Network Problem";
                             case 10002:
@@ -69,7 +69,7 @@ public final class PushConstants {
                             case 10003:
                                 return "Service not available temporary";
                             default:
-                                switch (i2) {
+                                switch (i) {
                                     case 30600:
                                         return "Internal Server Error";
                                     case 30601:

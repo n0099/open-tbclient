@@ -1,7 +1,6 @@
 package com.baidu.tun2tornadolite.booster.sclient;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
@@ -56,7 +55,7 @@ import kotlinx.coroutines.CoroutineScopeKt;
 import kotlinx.coroutines.Deferred;
 import kotlinx.coroutines.Dispatchers;
 import kotlinx.coroutines.TimeoutKt;
-@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\bÀ\u0002\u0018\u00002\u00020\u0001:\u0001FB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J!\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J!\u0010-\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J\u000e\u0010.\u001a\u00020\u000e2\u0006\u0010\b\u001a\u00020\tJ\u0011\u0010/\u001a\u00020\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0013\u00101\u001a\u0004\u0018\u00010\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\b\u00102\u001a\u00020\u000eH\u0002J\u0019\u00103\u001a\u00020\u00152\u0006\u00104\u001a\u000205H\u0086@ø\u0001\u0000¢\u0006\u0002\u00106J\u0018\u00107\u001a\u00020\u000e2\u0006\u00108\u001a\u00020+2\u0006\u00109\u001a\u00020:H\u0002J!\u0010;\u001a\u00020(2\u0006\u00104\u001a\u0002052\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010<J\u0011\u0010=\u001a\u00020\u0015H\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0011\u0010>\u001a\u00020\u0015H\u0086@ø\u0001\u0000¢\u0006\u0002\u00100J\u0006\u0010?\u001a\u00020\u000eJ;\u0010@\u001a\u0002HA\"\u0004\b\u0000\u0010A2\u0006\u0010*\u001a\u00020+2\u001a\b\u0004\u0010B\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u0002HA0C\u0012\u0004\u0012\u00020\u000e0\u001aH\u0082Hø\u0001\u0000¢\u0006\u0002\u0010DJ\u000e\u0010E\u001a\u00020\u000e2\u0006\u00109\u001a\u00020:R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0010\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u0010\"\u0004\b \u0010\u0012R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006G"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient;", "", "()V", "PACKET_SIZE", "", "UDP_PROD_PORT", "address", "", "ai", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "bodyBuffer", "Ljava/nio/ByteBuffer;", "handleLoop", "Lkotlinx/coroutines/Deferred;", "", "getHandleLoop", "()Lkotlinx/coroutines/Deferred;", "setHandleLoop", "(Lkotlinx/coroutines/Deferred;)V", "headerBuffer", "inited", "", "json", "Lcom/google/gson/Gson;", "looping", "onHandShakeSuccess", "Lkotlin/Function1;", "output", "Ljava/io/OutputStream;", DpStatConstants.KEY_PREPARED, "probeLoop", "getProbeLoop", "setProbeLoop", "socket", "Ljava/net/Socket;", "udpSocket", "Ljava/net/DatagramSocket;", "writeLock", "Ljava/util/concurrent/locks/ReentrantLock;", "connectSClient", "Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "sClient", a.O, "", "(Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getConnectSClientTime", "init", "loop", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "loopProbe", "openWriteChannel", "prepare", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "processPacket", "i", "packet", "Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "selectSClient", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "sendHandShake", "start", IntentConfig.STOP, "suspendCoroutineWithTimeout", "T", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/coroutines/Continuation;", "(JLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", AlbumActivityConfig.FROM_WRITE, "ConnectResult", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000\u0088\u0001\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0006\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0004\bÀ\u0002\u0018\u00002\u00020\u0001:\u0001FB\u0007\b\u0002¢\u0006\u0002\u0010\u0002J!\u0010'\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J!\u0010-\u001a\u00020(2\u0006\u0010)\u001a\u00020\u00072\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010,J\u000e\u0010.\u001a\u00020\u000e2\u0006\u0010\b\u001a\u00020\tJ\u0011\u0010/\u001a\u00020\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0013\u00101\u001a\u0004\u0018\u00010\u000eH\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\b\u00102\u001a\u00020\u000eH\u0002J\u0019\u00103\u001a\u00020\u00152\u0006\u00104\u001a\u000205H\u0086@ø\u0001\u0000¢\u0006\u0002\u00106J\u0018\u00107\u001a\u00020\u000e2\u0006\u00108\u001a\u00020+2\u0006\u00109\u001a\u00020:H\u0002J!\u0010;\u001a\u00020(2\u0006\u00104\u001a\u0002052\u0006\u0010*\u001a\u00020+H\u0082@ø\u0001\u0000¢\u0006\u0002\u0010<J\u0011\u0010=\u001a\u00020\u0015H\u0082@ø\u0001\u0000¢\u0006\u0002\u00100J\u0011\u0010>\u001a\u00020\u0015H\u0086@ø\u0001\u0000¢\u0006\u0002\u00100J\u0006\u0010?\u001a\u00020\u000eJ;\u0010@\u001a\u0002HA\"\u0004\b\u0000\u0010A2\u0006\u0010*\u001a\u00020+2\u001a\b\u0004\u0010B\u001a\u0014\u0012\n\u0012\b\u0012\u0004\u0012\u0002HA0C\u0012\u0004\u0012\u00020\u000e0\u001aH\u0082Hø\u0001\u0000¢\u0006\u0002\u0010DJ\u000e\u0010E\u001a\u00020\u000e2\u0006\u00109\u001a\u00020:R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u000e\u0010\u0013\u001a\u00020\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0014\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0017X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R\u001c\u0010\u0019\u001a\u0010\u0012\u0004\u0012\u00020\u0015\u0012\u0004\u0012\u00020\u000e\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001d\u001a\u00020\u0015X\u0082\u000e¢\u0006\u0002\n\u0000R \u0010\u001e\u001a\b\u0012\u0004\u0012\u00020\u000e0\rX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010\u0010\"\u0004\b \u0010\u0012R\u0010\u0010!\u001a\u0004\u0018\u00010\"X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010#\u001a\u0004\u0018\u00010$X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010%\u001a\u00020&X\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006G"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/sclient/SClient;", "", "()V", "PACKET_SIZE", "", "UDP_PROD_PORT", "address", "", "ai", "Lcom/baidu/tun2tornadolite/AndroidOperationInterface;", "bodyBuffer", "Ljava/nio/ByteBuffer;", "handleLoop", "Lkotlinx/coroutines/Deferred;", "", "getHandleLoop", "()Lkotlinx/coroutines/Deferred;", "setHandleLoop", "(Lkotlinx/coroutines/Deferred;)V", "headerBuffer", "inited", "", "json", "Lcom/google/gson/Gson;", "looping", "onHandShakeSuccess", "Lkotlin/Function1;", "output", "Ljava/io/OutputStream;", DpStatConstants.KEY_PREPARED, "probeLoop", "getProbeLoop", "setProbeLoop", "socket", "Ljava/net/Socket;", "udpSocket", "Ljava/net/DatagramSocket;", "writeLock", "Ljava/util/concurrent/locks/ReentrantLock;", "connectSClient", "Lcom/baidu/tun2tornadolite/booster/sclient/SClient$ConnectResult;", "sClient", "timeout", "", "(Ljava/lang/String;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "getConnectSClientTime", "init", "loop", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "loopProbe", "openWriteChannel", "prepare", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "processPacket", "i", "packet", "Lcom/baidu/tun2tornadolite/booster/sclient/SClientPacket;", "selectSClient", "(Lcom/baidu/tun2tornadolite/booster/data/SClientConfig;JLkotlin/coroutines/Continuation;)Ljava/lang/Object;", "sendHandShake", "start", IntentConfig.STOP, "suspendCoroutineWithTimeout", "T", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/coroutines/Continuation;", "(JLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", AlbumActivityConfig.FROM_WRITE, "ConnectResult", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public final class SClient {
     public static /* synthetic */ Interceptable $ic = null;
@@ -90,16 +89,16 @@ public final class SClient {
         public final Socket socket;
         public final int status;
 
-        public ConnectResult(String address, Socket socket, int i2, long j2) {
+        public ConnectResult(String address, Socket socket, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {address, socket, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {address, socket, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,26 +107,26 @@ public final class SClient {
             Intrinsics.checkNotNullParameter(address, "address");
             this.address = address;
             this.socket = socket;
-            this.status = i2;
-            this.connectTime = j2;
+            this.status = i;
+            this.connectTime = j;
         }
 
-        public static /* synthetic */ ConnectResult copy$default(ConnectResult connectResult, String str, Socket socket, int i2, long j2, int i3, Object obj) {
-            if ((i3 & 1) != 0) {
+        public static /* synthetic */ ConnectResult copy$default(ConnectResult connectResult, String str, Socket socket, int i, long j, int i2, Object obj) {
+            if ((i2 & 1) != 0) {
                 str = connectResult.address;
             }
-            if ((i3 & 2) != 0) {
+            if ((i2 & 2) != 0) {
                 socket = connectResult.socket;
             }
             Socket socket2 = socket;
-            if ((i3 & 4) != 0) {
-                i2 = connectResult.status;
+            if ((i2 & 4) != 0) {
+                i = connectResult.status;
             }
-            int i4 = i2;
-            if ((i3 & 8) != 0) {
-                j2 = connectResult.connectTime;
+            int i3 = i;
+            if ((i2 & 8) != 0) {
+                j = connectResult.connectTime;
             }
-            return connectResult.copy(str, socket2, i4, j2);
+            return connectResult.copy(str, socket2, i3, j);
         }
 
         public final String component1() {
@@ -154,12 +153,12 @@ public final class SClient {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.connectTime : invokeV.longValue;
         }
 
-        public final ConnectResult copy(String address, Socket socket, int i2, long j2) {
+        public final ConnectResult copy(String address, Socket socket, int i, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{address, socket, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{address, socket, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                 Intrinsics.checkNotNullParameter(address, "address");
-                return new ConnectResult(address, socket, i2, j2);
+                return new ConnectResult(address, socket, i, j);
             }
             return (ConnectResult) invokeCommon.objValue;
         }
@@ -254,9 +253,9 @@ public final class SClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -269,28 +268,28 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object connectSClient(String str, long j2, Continuation<? super ConnectResult> continuation) {
+    public final Object connectSClient(String str, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         SClient$connectSClient$1 sClient$connectSClient$1;
-        int i2;
+        int i;
         String str2;
         long currentTimeMillis;
         Socket createSocket;
         SClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1 sClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1;
         String str3;
-        long j3;
+        long j2;
         Socket socket2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{str, Long.valueOf(j2), continuation})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65559, this, new Object[]{str, Long.valueOf(j), continuation})) == null) {
             if (continuation instanceof SClient$connectSClient$1) {
                 sClient$connectSClient$1 = (SClient$connectSClient$1) continuation;
-                int i3 = sClient$connectSClient$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    sClient$connectSClient$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = sClient$connectSClient$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    sClient$connectSClient$1.label = i2 - Integer.MIN_VALUE;
                     Object obj = sClient$connectSClient$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = sClient$connectSClient$1.label;
-                    if (i2 != 0) {
+                    i = sClient$connectSClient$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         try {
                             List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new char[]{':'}, false, 0, 6, (Object) null);
@@ -308,21 +307,21 @@ public final class SClient {
                             sClient$connectSClient$1.L$1 = createSocket;
                             sClient$connectSClient$1.J$0 = currentTimeMillis;
                             sClient$connectSClient$1.label = 1;
-                            if (TimeoutKt.withTimeout(j2, sClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1, sClient$connectSClient$1) == coroutine_suspended) {
+                            if (TimeoutKt.withTimeout(j, sClient$connectSClient$$inlined$suspendCoroutineWithTimeout$1, sClient$connectSClient$1) == coroutine_suspended) {
                                 return coroutine_suspended;
                             }
                             str3 = str2;
-                            j3 = currentTimeMillis;
+                            j2 = currentTimeMillis;
                             socket2 = createSocket;
                         } catch (Exception e3) {
                             e = e3;
                             e.printStackTrace();
                             return new ConnectResult(str2, null, 1, 0L);
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
-                        j3 = sClient$connectSClient$1.J$0;
+                        j2 = sClient$connectSClient$1.J$0;
                         Socket socket3 = (Socket) sClient$connectSClient$1.L$1;
                         str3 = (String) sClient$connectSClient$1.L$0;
                         try {
@@ -335,16 +334,16 @@ public final class SClient {
                             return new ConnectResult(str2, null, 1, 0L);
                         }
                     }
-                    return new ConnectResult(str3, socket2, 0, System.currentTimeMillis() - j3);
+                    return new ConnectResult(str3, socket2, 0, System.currentTimeMillis() - j2);
                 }
             }
             sClient$connectSClient$1 = new SClient$connectSClient$1(this, continuation);
             Object obj2 = sClient$connectSClient$1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = sClient$connectSClient$1.label;
-            if (i2 != 0) {
+            i = sClient$connectSClient$1.label;
+            if (i != 0) {
             }
-            return new ConnectResult(str3, socket2, 0, System.currentTimeMillis() - j3);
+            return new ConnectResult(str3, socket2, 0, System.currentTimeMillis() - j2);
         }
         return invokeCommon.objValue;
     }
@@ -356,29 +355,29 @@ public final class SClient {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Object getConnectSClientTime(String str, long j2, Continuation<? super ConnectResult> continuation) {
+    public final Object getConnectSClientTime(String str, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         SClient$getConnectSClientTime$1 sClient$getConnectSClientTime$1;
-        int i2;
+        int i;
         Socket socket2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, this, new Object[]{str, Long.valueOf(j2), continuation})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, this, new Object[]{str, Long.valueOf(j), continuation})) == null) {
             if (continuation instanceof SClient$getConnectSClientTime$1) {
                 sClient$getConnectSClientTime$1 = (SClient$getConnectSClientTime$1) continuation;
-                int i3 = sClient$getConnectSClientTime$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    sClient$getConnectSClientTime$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = sClient$getConnectSClientTime$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    sClient$getConnectSClientTime$1.label = i2 - Integer.MIN_VALUE;
                     Object obj = sClient$getConnectSClientTime$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = sClient$getConnectSClientTime$1.label;
-                    if (i2 != 0) {
+                    i = sClient$getConnectSClientTime$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         sClient$getConnectSClientTime$1.label = 1;
-                        obj = connectSClient(str, j2, sClient$getConnectSClientTime$1);
+                        obj = connectSClient(str, j, sClient$getConnectSClientTime$1);
                         if (obj == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         ResultKt.throwOnFailure(obj);
@@ -394,8 +393,8 @@ public final class SClient {
             sClient$getConnectSClientTime$1 = new SClient$getConnectSClientTime$1(this, continuation);
             Object obj2 = sClient$getConnectSClientTime$1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = sClient$getConnectSClientTime$1.label;
-            if (i2 != 0) {
+            i = sClient$getConnectSClientTime$1.label;
+            if (i != 0) {
             }
             ConnectResult connectResult2 = (ConnectResult) obj2;
             socket2 = connectResult2.getSocket();
@@ -435,23 +434,23 @@ public final class SClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void processPacket(long j2, SClientPacket sClientPacket) {
-        int i2;
+    public final void processPacket(long j, SClientPacket sClientPacket) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65564, this, j2, sClientPacket) == null) {
+        if (interceptable == null || interceptable.invokeJL(65564, this, j, sClientPacket) == null) {
             LogTo logTo = LogTo.INSTANCE;
-            logTo.d("*****", "[SClient " + j2 + "] read socket packet all:" + ((Object) UInt.m852toStringimpl(sClientPacket.m91getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m97cmd2StrWZ4Q5Ns(sClientPacket.m92getCommandpVg5ArA()));
-            int m92getCommandpVg5ArA = sClientPacket.m92getCommandpVg5ArA();
-            if (m92getCommandpVg5ArA == 0) {
+            logTo.d("*****", "[SClient " + j + "] read socket packet all:" + ((Object) UInt.m831toStringimpl(sClientPacket.m85getBodyLengthpVg5ArA())) + " command:" + SClientPacket.Companion.m91cmd2StrWZ4Q5Ns(sClientPacket.m86getCommandpVg5ArA()));
+            int m86getCommandpVg5ArA = sClientPacket.m86getCommandpVg5ArA();
+            if (m86getCommandpVg5ArA == 0) {
                 byte[] array = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array, "packet.getBody().array()");
-                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m91getBodyLengthpVg5ArA() - 1));
-                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m91getBodyLengthpVg5ArA());
+                byte[] sliceArray = ArraysKt___ArraysKt.sliceArray(array, new IntRange(0, sClientPacket.m85getBodyLengthpVg5ArA() - 1));
+                sClientPacket.getBody().get(sliceArray, 0, sClientPacket.m85getBodyLengthpVg5ArA());
                 Charset defaultCharset = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset, "defaultCharset()");
                 String str = new String(sliceArray, defaultCharset);
                 LogTo logTo2 = LogTo.INSTANCE;
-                logTo2.d("*****", "[CMD_HAND_SHAKE " + j2 + "] " + str);
+                logTo2.d("*****", "[CMD_HAND_SHAKE " + j + "] " + str);
                 Object fromJson = json.fromJson(str, (Class<Object>) HandShakePacketResponse.class);
                 Intrinsics.checkNotNullExpressionValue(fromJson, "json.fromJson(str, HandS…cketResponse::class.java)");
                 HandShakePacketResponse handShakePacketResponse = (HandShakePacketResponse) fromJson;
@@ -471,13 +470,13 @@ public final class SClient {
                     return;
                 }
                 function12.invoke(Boolean.FALSE);
-            } else if (m92getCommandpVg5ArA == 1) {
+            } else if (m86getCommandpVg5ArA == 1) {
                 LogTo logTo3 = LogTo.INSTANCE;
-                logTo3.d("*****", "[CMD_IP_PACKET " + j2 + "] len: " + sClientPacket.m91getBodyLengthpVg5ArA());
-                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m91getBodyLengthpVg5ArA());
-            } else if (m92getCommandpVg5ArA == 2) {
-                byte[] bArr = new byte[sClientPacket.m91getBodyLengthpVg5ArA()];
-                sClientPacket.getBody().get(bArr, 0, sClientPacket.m91getBodyLengthpVg5ArA());
+                logTo3.d("*****", "[CMD_IP_PACKET " + j + "] len: " + sClientPacket.m85getBodyLengthpVg5ArA());
+                Tun.INSTANCE.write(sClientPacket.getBody(), sClientPacket.m85getBodyLengthpVg5ArA());
+            } else if (m86getCommandpVg5ArA == 2) {
+                byte[] bArr = new byte[sClientPacket.m85getBodyLengthpVg5ArA()];
+                sClientPacket.getBody().get(bArr, 0, sClientPacket.m85getBodyLengthpVg5ArA());
                 Charset defaultCharset2 = Charset.defaultCharset();
                 Intrinsics.checkNotNullExpressionValue(defaultCharset2, "defaultCharset()");
                 String str2 = new String(bArr, defaultCharset2);
@@ -485,27 +484,27 @@ public final class SClient {
                 Intrinsics.checkNotNullExpressionValue(fromJson2, "json.fromJson(str, SClientEvent::class.java)");
                 SClientEvent sClientEvent = (SClientEvent) fromJson2;
                 LogTo logTo4 = LogTo.INSTANCE;
-                logTo4.d("*****", "[CMD_EVENT " + j2 + "] " + str2 + WebvttCueParser.CHAR_SPACE + sClientEvent);
+                logTo4.d("*****", "[CMD_EVENT " + j + "] " + str2 + WebvttCueParser.CHAR_SPACE + sClientEvent);
                 if (Intrinsics.areEqual(sClientEvent.getEvent(), SClientEvent.EVENT_CLOSE)) {
                     TornadoLiteRuntime.INSTANCE.onEvent$tun2tornadolite_release(61L, sClientEvent.getData().getMessage_cn());
                     looping = false;
                 }
-            } else if (m92getCommandpVg5ArA != 3) {
+            } else if (m86getCommandpVg5ArA != 3) {
             } else {
                 byte[] array2 = sClientPacket.getBody().array();
                 Intrinsics.checkNotNullExpressionValue(array2, "packet.getBody().array()");
-                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m91getBodyLengthpVg5ArA() - 1));
-                int m807constructorimpl = UInt.m807constructorimpl(UInt.m807constructorimpl(UInt.m807constructorimpl(UByte.m731constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m807constructorimpl(UByte.m731constructorimpl(sliceArray2[1]) & 255));
-                int m807constructorimpl2 = UInt.m807constructorimpl(UInt.m807constructorimpl(UInt.m807constructorimpl(UByte.m731constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m807constructorimpl(UByte.m731constructorimpl(sliceArray2[3]) & 255));
-                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m807constructorimpl);
-                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m807constructorimpl2);
+                byte[] sliceArray2 = ArraysKt___ArraysKt.sliceArray(array2, new IntRange(0, sClientPacket.m85getBodyLengthpVg5ArA() - 1));
+                int m786constructorimpl = UInt.m786constructorimpl(UInt.m786constructorimpl(UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[0]) & 255) << 8) | UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[1]) & 255));
+                int m786constructorimpl2 = UInt.m786constructorimpl(UInt.m786constructorimpl(UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[2]) & 255) << 8) | UInt.m786constructorimpl(UByte.m710constructorimpl(sliceArray2[3]) & 255));
+                TornadoLiteRuntime.INSTANCE.setLatencyFromSClientToRemote$tun2tornadolite_release(m786constructorimpl);
+                TornadoLiteRuntime.INSTANCE.setLossRateFromSClientToRemote$tun2tornadolite_release(m786constructorimpl2);
                 int latencyFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient();
                 int lossRateFromMClientToSClient = TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient();
                 if (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() >= 100) {
                     TornadoLiteRuntime.INSTANCE.setOptimizationRate$tun2tornadolite_release(0);
-                    i2 = latencyFromMClientToSClient;
+                    i = latencyFromMClientToSClient;
                 } else {
-                    i2 = latencyFromMClientToSClient;
+                    i = latencyFromMClientToSClient;
                     TornadoLiteRuntime.INSTANCE.setOptimizationRate$tun2tornadolite_release((100 - (TornadoLiteRuntime.INSTANCE.getLossRateFromSClientToRemote() + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient())) + ((int) (((-Math.random()) * 10) + 3)));
                     if (TornadoLiteRuntime.INSTANCE.getOptimizationRate() > 100) {
                         TornadoLiteRuntime.INSTANCE.setOptimizationRate$tun2tornadolite_release(100);
@@ -514,21 +513,21 @@ public final class SClient {
                 LogTo logTo5 = LogTo.INSTANCE;
                 StringBuilder sb = new StringBuilder();
                 sb.append("[CMD_HEART_BEAT ");
-                sb.append(j2);
+                sb.append(j);
                 sb.append("] remote_latency:");
-                sb.append((Object) UInt.m852toStringimpl(m807constructorimpl));
+                sb.append((Object) UInt.m831toStringimpl(m786constructorimpl));
                 sb.append(" remote_lossRate:");
-                sb.append((Object) UInt.m852toStringimpl(m807constructorimpl2));
+                sb.append((Object) UInt.m831toStringimpl(m786constructorimpl2));
                 sb.append(" local_latency:");
-                int i3 = i2;
-                sb.append(i3);
+                int i2 = i;
+                sb.append(i2);
                 sb.append(" local_lossRate:");
                 sb.append(lossRateFromMClientToSClient);
                 sb.append(" optimization_rate:");
                 sb.append(TornadoLiteRuntime.INSTANCE.getOptimizationRate());
                 logTo5.d("*****", sb.toString());
-                sliceArray2[0] = (byte) ((i3 & 65280) >> 8);
-                sliceArray2[1] = (byte) ((i3 & 255) << 0);
+                sliceArray2[0] = (byte) ((i2 & 65280) >> 8);
+                sliceArray2[1] = (byte) ((i2 & 255) << 0);
                 sliceArray2[2] = (byte) ((lossRateFromMClientToSClient & 65280) >> 8);
                 sliceArray2[3] = (byte) ((lossRateFromMClientToSClient & 255) << 0);
                 SClientPacket sClientPacket2 = new SClientPacket(1, 0, 3, 4, null);
@@ -542,10 +541,10 @@ public final class SClient {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final Object selectSClient(SClientConfig sClientConfig, long j2, Continuation<? super ConnectResult> continuation) {
+    public final Object selectSClient(SClientConfig sClientConfig, long j, Continuation<? super ConnectResult> continuation) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, this, new Object[]{sClientConfig, Long.valueOf(j2), continuation})) == null) ? BuildersKt.withContext(Dispatchers.getIO(), new SClient$selectSClient$2(sClientConfig, j2, null), continuation) : invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, this, new Object[]{sClientConfig, Long.valueOf(j), continuation})) == null) ? BuildersKt.withContext(Dispatchers.getIO(), new SClient$selectSClient$2(sClientConfig, j, null), continuation) : invokeCommon.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -560,7 +559,7 @@ public final class SClient {
         InterceptResult invokeL;
         SClient$sendHandShake$1 sClient$sendHandShake$1;
         Object obj;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65566, this, continuation)) != null) {
             return invokeL.objValue;
@@ -568,14 +567,14 @@ public final class SClient {
         try {
             if (continuation instanceof SClient$sendHandShake$1) {
                 sClient$sendHandShake$1 = (SClient$sendHandShake$1) continuation;
-                int i3 = sClient$sendHandShake$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    sClient$sendHandShake$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = sClient$sendHandShake$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    sClient$sendHandShake$1.label = i2 - Integer.MIN_VALUE;
                     obj = sClient$sendHandShake$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = sClient$sendHandShake$1.label;
+                    i = sClient$sendHandShake$1.label;
                     boolean z = true;
-                    if (i2 != 0) {
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         HandShakePacketRequest handShakePacketRequest = new HandShakePacketRequest();
                         handShakePacketRequest.setUserinfo(new HandShakePacketRequest.UserInfo());
@@ -613,7 +612,7 @@ public final class SClient {
                         byte[] bytes = str.getBytes(Charsets.UTF_8);
                         Intrinsics.checkNotNullExpressionValue(bytes, "(this as java.lang.String).getBytes(charset)");
                         bodyBuffer.put(bytes);
-                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m807constructorimpl(bytes.length), null);
+                        SClientPacket sClientPacket = new SClientPacket(1, 0, 0, UInt.m786constructorimpl(bytes.length), null);
                         sClientPacket.encodeHeader2Buffer(headerBuffer);
                         sClientPacket.writeBodyBuffer(bodyBuffer);
                         write(sClientPacket);
@@ -624,7 +623,7 @@ public final class SClient {
                         if (obj == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         SClient sClient = (SClient) sClient$sendHandShake$1.L$0;
@@ -636,7 +635,7 @@ public final class SClient {
                     return Boxing.boxBoolean(z);
                 }
             }
-            if (i2 != 0) {
+            if (i != 0) {
             }
             if (((Boolean) obj).booleanValue()) {
             }
@@ -649,17 +648,17 @@ public final class SClient {
         sClient$sendHandShake$1 = new SClient$sendHandShake$1(this, continuation);
         obj = sClient$sendHandShake$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i2 = sClient$sendHandShake$1.label;
+        i = sClient$sendHandShake$1.label;
         boolean z2 = true;
     }
 
-    private final <T> Object suspendCoroutineWithTimeout(long j2, Function1<? super Continuation<? super T>, Unit> function1, Continuation<? super T> continuation) {
+    private final <T> Object suspendCoroutineWithTimeout(long j, Function1<? super Continuation<? super T>, Unit> function1, Continuation<? super T> continuation) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65567, this, new Object[]{Long.valueOf(j2), function1, continuation})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65567, this, new Object[]{Long.valueOf(j), function1, continuation})) == null) {
             SClient$suspendCoroutineWithTimeout$2 sClient$suspendCoroutineWithTimeout$2 = new SClient$suspendCoroutineWithTimeout$2(function1, null);
             InlineMarker.mark(0);
-            Object withTimeout = TimeoutKt.withTimeout(j2, sClient$suspendCoroutineWithTimeout$2, continuation);
+            Object withTimeout = TimeoutKt.withTimeout(j, sClient$suspendCoroutineWithTimeout$2, continuation);
             InlineMarker.mark(1);
             return withTimeout;
         }
@@ -713,19 +712,19 @@ public final class SClient {
     public final Object prepare(SClientConfig sClientConfig, Continuation<? super Boolean> continuation) {
         InterceptResult invokeLL;
         SClient$prepare$1 sClient$prepare$1;
-        int i2;
+        int i;
         boolean booleanValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sClientConfig, continuation)) == null) {
             if (continuation instanceof SClient$prepare$1) {
                 sClient$prepare$1 = (SClient$prepare$1) continuation;
-                int i3 = sClient$prepare$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    sClient$prepare$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = sClient$prepare$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    sClient$prepare$1.label = i2 - Integer.MIN_VALUE;
                     Object obj = sClient$prepare$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = sClient$prepare$1.label;
-                    if (i2 != 0) {
+                    i = sClient$prepare$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         CoroutineDispatcher io2 = Dispatchers.getIO();
                         SClient$prepare$ok$1 sClient$prepare$ok$1 = new SClient$prepare$ok$1(sClientConfig, this, null);
@@ -735,7 +734,7 @@ public final class SClient {
                         if (obj == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         SClient sClient = (SClient) sClient$prepare$1.L$0;
@@ -754,8 +753,8 @@ public final class SClient {
             sClient$prepare$1 = new SClient$prepare$1(this, continuation);
             Object obj2 = sClient$prepare$1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = sClient$prepare$1.label;
-            if (i2 != 0) {
+            i = sClient$prepare$1.label;
+            if (i != 0) {
             }
             booleanValue = ((Boolean) obj2).booleanValue();
             if (!booleanValue) {
@@ -795,7 +794,7 @@ public final class SClient {
     public final Object start(Continuation<? super Boolean> continuation) {
         InterceptResult invokeL;
         SClient$start$1 sClient$start$1;
-        int i2;
+        int i;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, continuation)) != null) {
@@ -804,14 +803,14 @@ public final class SClient {
         try {
             if (continuation instanceof SClient$start$1) {
                 sClient$start$1 = (SClient$start$1) continuation;
-                int i3 = sClient$start$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    sClient$start$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = sClient$start$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    sClient$start$1.label = i2 - Integer.MIN_VALUE;
                     Object obj = sClient$start$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = sClient$start$1.label;
+                    i = sClient$start$1.label;
                     boolean z2 = true;
-                    if (i2 != 0) {
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         AndroidOperationInterface androidOperationInterface = ai;
                         if (androidOperationInterface != null) {
@@ -842,7 +841,7 @@ public final class SClient {
                             }
                             return Boxing.boxBoolean(z2);
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         ResultKt.throwOnFailure(obj);
@@ -857,7 +856,7 @@ public final class SClient {
                     return Boxing.boxBoolean(z2);
                 }
             }
-            if (i2 != 0) {
+            if (i != 0) {
             }
             z = ((Boolean) obj).booleanValue();
             if (z) {
@@ -875,7 +874,7 @@ public final class SClient {
         sClient$start$1 = new SClient$start$1(this, continuation);
         Object obj2 = sClient$start$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i2 = sClient$start$1.label;
+        i = sClient$start$1.label;
         boolean z22 = true;
     }
 
@@ -899,7 +898,7 @@ public final class SClient {
                     outputStream.write(packet.getHeader().array(), 0, 4);
                     OutputStream outputStream2 = output;
                     Intrinsics.checkNotNull(outputStream2);
-                    outputStream2.write(packet.getBody().array(), 0, packet.m91getBodyLengthpVg5ArA());
+                    outputStream2.write(packet.getBody().array(), 0, packet.m85getBodyLengthpVg5ArA());
                     Unit unit = Unit.INSTANCE;
                     reentrantLock.unlock();
                 }

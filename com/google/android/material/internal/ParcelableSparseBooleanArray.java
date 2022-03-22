@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ParcelableSparseBooleanArray extends SparseBooleanArray implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ParcelableSparseBooleanArray> CREATOR;
@@ -42,9 +42,9 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -65,8 +65,8 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
                     boolean[] zArr = new boolean[readInt];
                     parcel.readIntArray(iArr);
                     parcel.readBooleanArray(zArr);
-                    for (int i2 = 0; i2 < readInt; i2++) {
-                        parcelableSparseBooleanArray.put(iArr[i2], zArr[i2]);
+                    for (int i = 0; i < readInt; i++) {
+                        parcelableSparseBooleanArray.put(iArr[i], zArr[i]);
                     }
                     return parcelableSparseBooleanArray;
                 }
@@ -77,10 +77,10 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public ParcelableSparseBooleanArray[] newArray(int i2) {
+            public ParcelableSparseBooleanArray[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ParcelableSparseBooleanArray[i2] : (ParcelableSparseBooleanArray[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ParcelableSparseBooleanArray[i] : (ParcelableSparseBooleanArray[]) invokeI.objValue;
             }
         };
     }
@@ -90,9 +90,9 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -110,14 +110,14 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             int[] iArr = new int[size()];
             boolean[] zArr = new boolean[size()];
-            for (int i3 = 0; i3 < size(); i3++) {
-                iArr[i3] = keyAt(i3);
-                zArr[i3] = valueAt(i3);
+            for (int i2 = 0; i2 < size(); i2++) {
+                iArr[i2] = keyAt(i2);
+                zArr[i2] = valueAt(i2);
             }
             parcel.writeInt(size());
             parcel.writeIntArray(iArr);
@@ -126,17 +126,17 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ParcelableSparseBooleanArray(int i2) {
-        super(i2);
+    public ParcelableSparseBooleanArray(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -154,17 +154,17 @@ public class ParcelableSparseBooleanArray extends SparseBooleanArray implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {sparseBooleanArray};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        for (int i4 = 0; i4 < sparseBooleanArray.size(); i4++) {
-            put(sparseBooleanArray.keyAt(i4), sparseBooleanArray.valueAt(i4));
+        for (int i3 = 0; i3 < sparseBooleanArray.size(); i3++) {
+            put(sparseBooleanArray.keyAt(i3), sparseBooleanArray.valueAt(i3));
         }
     }
 }

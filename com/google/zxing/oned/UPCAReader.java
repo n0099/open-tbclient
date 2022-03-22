@@ -26,9 +26,9 @@ public final class UPCAReader extends UPCEANReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,10 +65,10 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
-    public Result decodeRow(int i2, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, int[] iArr, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), bitArray, iArr, map})) == null) ? maybeReturnResult(this.ean13Reader.decodeRow(i2, bitArray, iArr, map)) : (Result) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), bitArray, iArr, map})) == null) ? maybeReturnResult(this.ean13Reader.decodeRow(i, bitArray, iArr, map)) : (Result) invokeCommon.objValue;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
@@ -86,9 +86,9 @@ public final class UPCAReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader, com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, FormatException, ChecksumException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, bitArray, map)) == null) ? maybeReturnResult(this.ean13Reader.decodeRow(i2, bitArray, map)) : (Result) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, bitArray, map)) == null) ? maybeReturnResult(this.ean13Reader.decodeRow(i, bitArray, map)) : (Result) invokeILL.objValue;
     }
 }

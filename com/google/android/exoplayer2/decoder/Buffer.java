@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class Buffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,19 +17,19 @@ public abstract class Buffer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void addFlag(int i2) {
+    public final void addFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.flags = i2 | this.flags;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.flags = i | this.flags;
         }
     }
 
@@ -40,17 +40,17 @@ public abstract class Buffer {
         }
     }
 
-    public final void clearFlag(int i2) {
+    public final void clearFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.flags = (~i2) & this.flags;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.flags = (~i) & this.flags;
         }
     }
 
-    public final boolean getFlag(int i2) {
+    public final boolean getFlag(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (this.flags & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? (this.flags & i) == i : invokeI.booleanValue;
     }
 
     public final boolean isDecodeOnly() {
@@ -71,10 +71,10 @@ public abstract class Buffer {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getFlag(1) : invokeV.booleanValue;
     }
 
-    public final void setFlags(int i2) {
+    public final void setFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.flags = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.flags = i;
         }
     }
 }

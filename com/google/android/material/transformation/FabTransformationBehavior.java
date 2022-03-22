@@ -48,7 +48,7 @@ import com.google.android.material.math.MathUtils;
 import java.util.ArrayList;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class FabTransformationBehavior extends ExpandableTransformationBehavior {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,7 +59,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
     public final RectF tmpRectF1;
     public final RectF tmpRectF2;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FabTransformationSpec {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,9 +87,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,7 +106,7 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, view)) == null) {
-            View findViewById = view.findViewById(R.id.mtrl_child_content_container);
+            View findViewById = view.findViewById(R.id.obfuscated_res_0x7f09146a);
             if (findViewById != null) {
                 return toViewGroupOrNull(findViewById);
             }
@@ -148,13 +148,13 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         InterceptResult invokeCommon;
         MotionTiming timing;
         MotionTiming timing2;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z), fabTransformationSpec})) == null) {
             if (f2 == 0.0f || f3 == 0.0f) {
                 timing = fabTransformationSpec.timings.getTiming("translationXLinear");
                 timing2 = fabTransformationSpec.timings.getTiming("translationYLinear");
-            } else if ((z && f3 < 0.0f) || (!z && i2 > 0)) {
+            } else if ((z && f3 < 0.0f) || (!z && i > 0)) {
                 timing = fabTransformationSpec.timings.getTiming("translationXCurveUpwards");
                 timing2 = fabTransformationSpec.timings.getTiming("translationYCurveUpwards");
             } else {
@@ -205,14 +205,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             RectF rectF2 = this.tmpRectF2;
             calculateDependencyWindowBounds(view, rectF);
             calculateWindowBounds(view2, rectF2);
-            int i2 = positioning.gravity & 7;
-            if (i2 == 1) {
+            int i = positioning.gravity & 7;
+            if (i == 1) {
                 centerX = rectF2.centerX();
                 centerX2 = rectF.centerX();
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 centerX = rectF2.left;
                 centerX2 = rectF.left;
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 centerX = rectF2.right;
                 centerX2 = rectF.right;
             } else {
@@ -236,14 +236,14 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             RectF rectF2 = this.tmpRectF2;
             calculateDependencyWindowBounds(view, rectF);
             calculateWindowBounds(view2, rectF2);
-            int i2 = positioning.gravity & 112;
-            if (i2 == 16) {
+            int i = positioning.gravity & 112;
+            if (i == 16) {
                 centerY = rectF2.centerY();
                 centerY2 = rectF.centerY();
-            } else if (i2 == 48) {
+            } else if (i == 48) {
                 centerY = rectF2.top;
                 centerY2 = rectF.top;
-            } else if (i2 == 80) {
+            } else if (i == 80) {
                 centerY = rectF2.bottom;
                 centerY2 = rectF.bottom;
             } else {
@@ -306,12 +306,12 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         if ((interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{view, view2, Boolean.valueOf(z), Boolean.valueOf(z2), fabTransformationSpec, list, list2}) == null) && (view2 instanceof CircularRevealWidget)) {
             CircularRevealWidget circularRevealWidget = (CircularRevealWidget) view2;
             int backgroundTint = getBackgroundTint(view);
-            int i2 = 16777215 & backgroundTint;
+            int i = 16777215 & backgroundTint;
             if (z) {
                 if (!z2) {
                     circularRevealWidget.setCircularRevealScrimColor(backgroundTint);
                 }
-                ofInt = ObjectAnimator.ofInt(circularRevealWidget, CircularRevealWidget.CircularRevealScrimColorProperty.CIRCULAR_REVEAL_SCRIM_COLOR, i2);
+                ofInt = ObjectAnimator.ofInt(circularRevealWidget, CircularRevealWidget.CircularRevealScrimColorProperty.CIRCULAR_REVEAL_SCRIM_COLOR, i);
             } else {
                 ofInt = ObjectAnimator.ofInt(circularRevealWidget, CircularRevealWidget.CircularRevealScrimColorProperty.CIRCULAR_REVEAL_SCRIM_COLOR, backgroundTint);
             }
@@ -400,9 +400,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, circularRevealWidget};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -426,10 +426,10 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             } else {
                 float f4 = circularRevealWidget.getRevealInfo().radius;
                 Animator createCircularReveal = CircularRevealCompat.createCircularReveal(circularRevealWidget, calculateRevealCenterX, calculateRevealCenterY, width);
-                int i2 = (int) calculateRevealCenterX;
-                int i3 = (int) calculateRevealCenterY;
-                createPreFillRadialExpansion(view2, timing.getDelay(), i2, i3, f4, list);
-                createPostFillRadialExpansion(view2, timing.getDelay(), timing.getDuration(), fabTransformationSpec.timings.getTotalDuration(), i2, i3, width, list);
+                int i = (int) calculateRevealCenterX;
+                int i2 = (int) calculateRevealCenterY;
+                createPreFillRadialExpansion(view2, timing.getDelay(), i, i2, f4, list);
+                createPostFillRadialExpansion(view2, timing.getDelay(), timing.getDuration(), fabTransformationSpec.timings.getTotalDuration(), i, i2, width, list);
                 animator = createCircularReveal;
             }
             timing.apply(animator);
@@ -469,9 +469,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, view2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -505,9 +505,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, circularRevealWidget, drawable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -537,28 +537,28 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
         }
     }
 
-    private void createPostFillRadialExpansion(View view, long j2, long j3, long j4, int i2, int i3, float f2, @NonNull List<Animator> list) {
+    private void createPostFillRadialExpansion(View view, long j, long j2, long j3, int i, int i2, float f2, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{view, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        long j5 = j2 + j3;
-        if (j5 < j4) {
-            Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i2, i3, f2, f2);
-            createCircularReveal.setStartDelay(j5);
-            createCircularReveal.setDuration(j4 - j5);
+        long j4 = j + j2;
+        if (j4 < j3) {
+            Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i, i2, f2, f2);
+            createCircularReveal.setStartDelay(j4);
+            createCircularReveal.setDuration(j3 - j4);
             list.add(createCircularReveal);
         }
     }
 
-    private void createPreFillRadialExpansion(View view, long j2, int i2, int i3, float f2, @NonNull List<Animator> list) {
+    private void createPreFillRadialExpansion(View view, long j, int i, int i2, float f2, @NonNull List<Animator> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21 || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65555, this, new Object[]{view, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), list}) == null) || Build.VERSION.SDK_INT < 21 || j <= 0) {
             return;
         }
-        Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i2, i3, f2, f2);
+        Animator createCircularReveal = ViewAnimationUtils.createCircularReveal(view, i, i2, f2, f2);
         createCircularReveal.setStartDelay(0L);
-        createCircularReveal.setDuration(j2);
+        createCircularReveal.setDuration(j);
         list.add(createCircularReveal);
     }
 
@@ -686,9 +686,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), view2, view};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -722,8 +722,8 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
                 }
             });
             int size = arrayList2.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                animatorSet.addListener(arrayList2.get(i2));
+            for (int i = 0; i < size; i++) {
+                animatorSet.addListener(arrayList2.get(i));
             }
             return animatorSet;
         }
@@ -741,9 +741,9 @@ public abstract class FabTransformationBehavior extends ExpandableTransformation
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

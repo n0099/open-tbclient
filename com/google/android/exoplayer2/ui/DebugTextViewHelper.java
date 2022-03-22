@@ -15,8 +15,7 @@ import com.google.android.exoplayer2.Player;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import java.util.Locale;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DebugTextViewHelper extends Player.DefaultEventListener implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REFRESH_INTERVAL_MS = 1000;
@@ -32,9 +31,9 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
             newInitContext.initArgs = r2;
             Object[] objArr = {simpleExoPlayer, textView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,7 +51,7 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
             if (audioFormat == null) {
                 return "";
             }
-            return StringUtils.LF + audioFormat.sampleMimeType + "(id:" + audioFormat.id + " hz:" + audioFormat.sampleRate + " ch:" + audioFormat.channelCount + getDecoderCountersBufferCountString(this.player.getAudioDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
+            return "\n" + audioFormat.sampleMimeType + "(id:" + audioFormat.id + " hz:" + audioFormat.sampleRate + " ch:" + audioFormat.channelCount + getDecoderCountersBufferCountString(this.player.getAudioDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -120,7 +119,7 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
             if (videoFormat == null) {
                 return "";
             }
-            return StringUtils.LF + videoFormat.sampleMimeType + "(id:" + videoFormat.id + " r:" + videoFormat.width + "x" + videoFormat.height + getPixelAspectRatioString(videoFormat.pixelWidthHeightRatio) + getDecoderCountersBufferCountString(this.player.getVideoDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
+            return "\n" + videoFormat.sampleMimeType + "(id:" + videoFormat.id + " r:" + videoFormat.width + "x" + videoFormat.height + getPixelAspectRatioString(videoFormat.pixelWidthHeightRatio) + getDecoderCountersBufferCountString(this.player.getVideoDecoderCounters()) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -137,17 +136,17 @@ public final class DebugTextViewHelper extends Player.DefaultEventListener imple
     }
 
     @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-    public void onPlayerStateChanged(boolean z, int i2) {
+    public void onPlayerStateChanged(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             updateAndPost();
         }
     }
 
     @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-    public void onPositionDiscontinuity(int i2) {
+    public void onPositionDiscontinuity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             updateAndPost();
         }
     }

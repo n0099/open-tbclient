@@ -13,21 +13,21 @@ public class i {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35528b;
+    public String f27410b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f35529c;
+    public String f27411c;
 
-    public i(long j2, String str, String str2) {
+    public i(long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2};
+            Object[] objArr = {Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,9 +35,9 @@ public class i {
         }
         this.a = -1L;
         str2 = str2 == null ? "" : str2;
-        this.a = j2;
-        this.f35528b = str;
-        this.f35529c = str2;
+        this.a = j;
+        this.f27410b = str;
+        this.f27411c = str2;
     }
 
     public long a() {
@@ -49,6 +49,6 @@ public class i {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f35529c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27411c : (String) invokeV.objValue;
     }
 }

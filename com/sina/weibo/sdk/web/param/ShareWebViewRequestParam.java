@@ -32,7 +32,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SHARE_URL = "https://service.weibo.com/share/mobilesdk.php";
@@ -51,9 +51,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -176,9 +176,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, extraTaskCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -334,9 +334,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -354,9 +354,9 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
             newInitContext.initArgs = r2;
             Object[] objArr = {authInfo, webRequestType, str, str2, str3, context};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -367,17 +367,17 @@ public class ShareWebViewRequestParam extends BaseWebViewRequestParam {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3, Context context) {
-        super(authInfo, webRequestType, str, i2, str2, str3, context);
+    public ShareWebViewRequestParam(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3, Context context) {
+        super(authInfo, webRequestType, str, i, str2, str3, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i2), str2, str3, context};
+            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3, context};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (Context) objArr2[6]);
                 newInitContext.thisArg = this;

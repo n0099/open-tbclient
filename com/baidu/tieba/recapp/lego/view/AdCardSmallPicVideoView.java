@@ -4,7 +4,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import c.a.q0.r.r.e;
+import androidx.core.view.InputDeviceCompat;
+import c.a.o0.r.r.e;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -20,30 +21,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.VideoInfo;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public XfremodeRoundLayout u;
+    public TbImageView v;
+    public TextView w;
+    public DistributeVideoView x;
+    public ImageView y;
 
-    /* renamed from: i  reason: collision with root package name */
-    public XfremodeRoundLayout f46127i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TbImageView f46128j;
-    public TextView mVideoDuration;
-    public ImageView mVideoPlayIcon;
-    public DistributeVideoView mVideoView;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AdCard a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdCard f46129e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ AdCardSmallPicVideoView f46130f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ AdCardSmallPicVideoView f35719b;
 
         public a(AdCardSmallPicVideoView adCardSmallPicVideoView, AdCard adCard) {
             Interceptable interceptable = $ic;
@@ -52,30 +47,30 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adCardSmallPicVideoView, adCard};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46130f = adCardSmallPicVideoView;
-            this.f46129e = adCard;
+            this.f35719b = adCardSmallPicVideoView;
+            this.a = adCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f46130f;
-                if (adCardSmallPicVideoView.mVideoView == null) {
-                    adCardSmallPicVideoView.m(this.f46129e);
+                AdCardSmallPicVideoView adCardSmallPicVideoView = this.f35719b;
+                if (adCardSmallPicVideoView.x == null) {
+                    adCardSmallPicVideoView.Q(this.a);
                 }
-                DistributeVideoView distributeVideoView = this.f46130f.mVideoView;
+                DistributeVideoView distributeVideoView = this.f35719b.x;
                 int jump2DownloadDetailPage = distributeVideoView != null ? distributeVideoView.jump2DownloadDetailPage() : 0;
-                if (this.f46130f.afterClickSchemeListener != null) {
-                    this.f46130f.afterClickSchemeListener.a(jump2DownloadDetailPage, null);
+                if (this.f35719b.k != null) {
+                    this.f35719b.k.a(jump2DownloadDetailPage, null);
                 }
             }
         }
@@ -90,9 +85,9 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -104,33 +99,71 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     private String getPageTypeByBusiness() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             int businessType = getBusinessType();
-            return businessType != 1 ? (businessType == 2 || businessType == 3) ? "NEWINDEX" : businessType != 4 ? "unknown" : "PB_BANNER" : "FRS";
+            return businessType != 1 ? (businessType == 2 || businessType == 3) ? "HOME" : businessType != 4 ? "unknown" : "PB_BANNER" : "FRS";
         }
         return (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void fillCustomView(AdCard adCard) {
+    public void I(AdCard adCard) {
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
             if (adCard != null && (videoInfo = adCard.videoInfo) != null) {
                 String str = videoInfo.thumbnail_url;
                 if (!TextUtils.isEmpty(str)) {
-                    this.mCustomRoot.setVisibility(0);
-                    this.f46128j.startLoad(str, 17, false);
+                    this.o.setVisibility(0);
+                    this.v.J(str, 17, false);
                 }
                 AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-                if (advertAppInfo != null && advertAppInfo.W4()) {
-                    this.mRootView.setOnClickListener(new a(this, adCard));
+                if (advertAppInfo != null && advertAppInfo.i()) {
+                    this.m.setOnClickListener(new a(this, adCard));
                 }
-                this.mVideoPlayIcon.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-                this.mVideoDuration.setText(StringUtils.translateSecondsToString(adCard.videoInfo.video_duration.intValue()));
+                this.y.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
+                this.w.setText(StringUtils.translateSecondsToString(adCard.videoInfo.video_duration.intValue()));
                 return;
             }
-            this.mCustomRoot.setVisibility(8);
+            this.o.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
+    public void K(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+            float dimensionPixelSize = this.i.getResources().getDimensionPixelSize(R.dimen.tbds10);
+            this.u = (XfremodeRoundLayout) view.findViewById(R.id.obfuscated_res_0x7f091ac5);
+            this.v = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f0900a9);
+            this.w = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0900fa);
+            this.y = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092366);
+            this.v.setPlaceHolder(3);
+            this.u.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
+        }
+    }
+
+    public final void Q(AdCard adCard) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) && this.x == null) {
+            DistributeVideoView distributeVideoView = new DistributeVideoView(getContext());
+            this.x = distributeVideoView;
+            distributeVideoView.setPageContext(this.i);
+            this.x.setVideoTailFrameData(adCard.tailFrame);
+            this.x.setData(adCard.videoInfo);
+            this.x.setScheme(adCard.getScheme());
+            this.x.setAdInfo(adCard);
+            AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
+            if (advertAppInfo != null) {
+                int i = -1;
+                String pageTypeByBusiness = getPageTypeByBusiness();
+                e eVar = advertAppInfo.j;
+                if (eVar != null) {
+                    i = eVar.f10837b;
+                    pageTypeByBusiness = eVar.a;
+                }
+                this.x.setStatisticInfo(advertAppInfo, i, pageTypeByBusiness);
+            }
         }
     }
 
@@ -138,51 +171,13 @@ public class AdCardSmallPicVideoView extends AdSimpleCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.ad_card_small_pic_video_view : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0067 : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.card_small_pic_ad : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.recapp.lego.view.AdSimpleCardBaseView
-    public void initCustomView(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            float dimensionPixelSize = this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10);
-            this.f46127i = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-            this.f46128j = (TbImageView) view.findViewById(R.id.ad_img);
-            this.mVideoDuration = (TextView) view.findViewById(R.id.ad_video_duration);
-            this.mVideoPlayIcon = (ImageView) view.findViewById(R.id.video_play_icon);
-            this.f46128j.setPlaceHolder(3);
-            this.f46127i.setRoundLayoutRadius(new float[]{dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize, dimensionPixelSize});
-        }
-    }
-
-    public final void m(AdCard adCard) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, adCard) == null) && this.mVideoView == null) {
-            DistributeVideoView distributeVideoView = new DistributeVideoView(getContext());
-            this.mVideoView = distributeVideoView;
-            distributeVideoView.setPageContext(this.mContext);
-            this.mVideoView.setVideoTailFrameData(adCard.tailFrame);
-            this.mVideoView.setData(adCard.videoInfo);
-            this.mVideoView.setScheme(adCard.getScheme());
-            this.mVideoView.setAdInfo(adCard);
-            AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            if (advertAppInfo != null) {
-                int i2 = -1;
-                String pageTypeByBusiness = getPageTypeByBusiness();
-                e eVar = advertAppInfo.p4;
-                if (eVar != null) {
-                    i2 = eVar.f13236b;
-                    pageTypeByBusiness = eVar.a;
-                }
-                this.mVideoView.setStatisticInfo(advertAppInfo, i2, pageTypeByBusiness);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d01be : invokeV.intValue;
     }
 }

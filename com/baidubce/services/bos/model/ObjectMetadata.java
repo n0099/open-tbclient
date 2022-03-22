@@ -11,7 +11,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ObjectMetadata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class ObjectMetadata {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -173,10 +173,10 @@ public class ObjectMetadata {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.userMetadata : (Map) invokeV.objValue;
     }
 
-    public void setAppendOffset(long j2) {
+    public void setAppendOffset(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.appendOffset = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.appendOffset = j;
         }
     }
 
@@ -208,10 +208,10 @@ public class ObjectMetadata {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.contentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.contentLength = j;
         }
     }
 
@@ -257,10 +257,10 @@ public class ObjectMetadata {
         }
     }
 
-    public void setInstanceLength(long j2) {
+    public void setInstanceLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-            this.instanceLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+            this.instanceLength = j;
         }
     }
 
@@ -361,9 +361,9 @@ public class ObjectMetadata {
             newInitContext.initArgs = r2;
             Object[] objArr = {objectMetadata};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

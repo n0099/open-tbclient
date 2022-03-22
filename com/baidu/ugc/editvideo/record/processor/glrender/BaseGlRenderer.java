@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
-import c.a.y0.r.c;
-import c.a.y0.r.h;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +24,9 @@ public class BaseGlRenderer implements IGlRenderer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,11 +60,11 @@ public class BaseGlRenderer implements IGlRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.glrender.IGlRenderer
-    public void onSizeChange(int i2, int i3) {
+    public void onSizeChange(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.mOutWidth = i2;
-            this.mOutHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.mOutWidth = i;
+            this.mOutHeight = i2;
         }
     }
 

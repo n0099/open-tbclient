@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.m;
-import c.a.y0.r.u;
+import c.a.v0.r.m;
+import c.a.v0.r.u;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,9 +40,9 @@ public class InnerMediaProcessor extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -127,9 +127,9 @@ public class InnerMediaProcessor extends Thread {
         }
     }
 
-    public void onProgress(int i2) {
+    public void onProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
         }
     }
 
@@ -152,9 +152,9 @@ public class InnerMediaProcessor extends Thread {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -186,9 +186,9 @@ public class InnerMediaProcessor extends Thread {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -213,11 +213,11 @@ public class InnerMediaProcessor extends Thread {
         }
     }
 
-    public void setClipRange(long j2, long j3) {
+    public void setClipRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mClipPoint = j2;
-            this.mClipDuration = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mClipPoint = j;
+            this.mClipDuration = j2;
         }
     }
 
@@ -229,10 +229,10 @@ public class InnerMediaProcessor extends Thread {
         }
     }
 
-    public void setFrameRate(int i2) {
+    public void setFrameRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mFrameRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mFrameRate = i;
         }
     }
 
@@ -243,26 +243,26 @@ public class InnerMediaProcessor extends Thread {
         }
     }
 
-    public void setOutputVideoBitRate(int i2) {
+    public void setOutputVideoBitRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mOutBitRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mOutBitRate = i;
         }
     }
 
-    public void setOutputVideoSize(int i2, int i3) {
+    public void setOutputVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            this.mOutWidth = i2;
-            this.mOutHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            this.mOutWidth = i;
+            this.mOutHeight = i2;
         }
     }
 
-    public void setPreviewVideoSize(int i2, int i3) {
+    public void setPreviewVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 

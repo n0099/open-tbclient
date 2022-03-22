@@ -5,16 +5,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import com.ss.android.socialbase.appdownloader.c.k;
 import com.ss.android.socialbase.appdownloader.c.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.ss.android.socialbase.appdownloader.c.b {
     public AlertDialog.Builder a;
 
     /* renamed from: com.ss.android.socialbase.appdownloader.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C2190a implements k {
+    /* loaded from: classes7.dex */
+    public static class C2051a implements k {
         public AlertDialog a;
 
-        public C2190a(AlertDialog.Builder builder) {
+        public C2051a(AlertDialog.Builder builder) {
             if (builder != null) {
                 this.a = builder.show();
             }
@@ -43,19 +43,19 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
-    public l a(int i2) {
+    public l a(int i) {
         AlertDialog.Builder builder = this.a;
         if (builder != null) {
-            builder.setTitle(i2);
+            builder.setTitle(i);
         }
         return this;
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
-    public l b(int i2, DialogInterface.OnClickListener onClickListener) {
+    public l b(int i, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = this.a;
         if (builder != null) {
-            builder.setNegativeButton(i2, onClickListener);
+            builder.setNegativeButton(i, onClickListener);
         }
         return this;
     }
@@ -70,10 +70,10 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
     }
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
-    public l a(int i2, DialogInterface.OnClickListener onClickListener) {
+    public l a(int i, DialogInterface.OnClickListener onClickListener) {
         AlertDialog.Builder builder = this.a;
         if (builder != null) {
-            builder.setPositiveButton(i2, onClickListener);
+            builder.setPositiveButton(i, onClickListener);
         }
         return this;
     }
@@ -89,6 +89,6 @@ public class a extends com.ss.android.socialbase.appdownloader.c.b {
 
     @Override // com.ss.android.socialbase.appdownloader.c.l
     public k a() {
-        return new C2190a(this.a);
+        return new C2051a(this.a);
     }
 }

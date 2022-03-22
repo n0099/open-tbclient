@@ -16,11 +16,10 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import c.a.b0.h.k;
-import c.a.b0.h0.f;
-import c.a.b0.h0.p;
-import c.a.b0.l0.i;
-import c.a.b0.l0.j;
+import c.a.a0.h0.f;
+import c.a.a0.h0.p;
+import c.a.a0.l0.j;
+import c.a.a0.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.nadcore.widget.SlideHelper;
@@ -75,7 +74,7 @@ public class BaseActivity extends FragmentActivity {
     public final Object tagObject;
 
     /* loaded from: classes4.dex */
-    public class a implements i {
+    public class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseActivity a;
@@ -87,9 +86,9 @@ public class BaseActivity extends FragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,7 +97,7 @@ public class BaseActivity extends FragmentActivity {
             this.a = baseActivity;
         }
 
-        @Override // c.a.b0.l0.i
+        @Override // c.a.a0.l0.j
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -113,108 +112,17 @@ public class BaseActivity extends FragmentActivity {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f35559b;
+        public final /* synthetic */ int f27439b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f35560c;
+        public final /* synthetic */ BaseActivity f27440c;
 
-        public b(BaseActivity baseActivity, int i2) {
+        public b(BaseActivity baseActivity, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseActivity, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f35560c = baseActivity;
-            this.f35559b = i2;
-            this.a = true;
-        }
-
-        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
-        public void onPanelClosed(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (this.f35560c.mSuspensionBallSlideListener != null) {
-                    this.f35560c.mSuspensionBallSlideListener.onPanelClosed(view);
-                }
-                if (this.f35560c.mSlideListener != null) {
-                    this.f35560c.mSlideListener.onPanelClosed(view);
-                }
-                if (!this.f35560c.mSlideCancelActivityTransparent && !this.f35560c.mForceActivityTransparent && this.a) {
-                    this.a = false;
-                    j.c(this.f35560c, null);
-                }
-                this.f35560c.setPreDecorPosition(0.0f);
-            }
-        }
-
-        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
-        public void onPanelOpened(View view) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                if (this.f35560c.mSuspensionBallSlideListener != null) {
-                    this.f35560c.mSuspensionBallSlideListener.onPanelOpened(view);
-                }
-                if (this.f35560c.mSlideListener != null) {
-                    this.f35560c.mSlideListener.onPanelOpened(view);
-                }
-                this.f35560c.setPreDecorPosition(0.0f);
-                this.f35560c.mSlideHelper.setShadowDrawable(null);
-                this.f35560c.finish();
-                this.f35560c.overridePendingTransition(0, 0);
-            }
-        }
-
-        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
-        public void onPanelSlide(View view, float f2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                View maskView = this.f35560c.mSlideHelper.getMaskView();
-                if (maskView != null) {
-                    float f3 = 1.0f - f2;
-                    if (f3 < 0.0f) {
-                        f3 = 0.0f;
-                    }
-                    maskView.setAlpha(f3);
-                }
-                if (this.f35560c.mSuspensionBallSlideListener != null) {
-                    this.f35560c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
-                }
-                if (this.f35560c.mSlideListener != null) {
-                    this.f35560c.mSlideListener.onPanelSlide(view, f2);
-                }
-                if (!this.f35560c.mSlideCancelActivityTransparent && !this.f35560c.mForceActivityTransparent && !this.a) {
-                    this.a = true;
-                    j.d(this.f35560c, null);
-                }
-                float f4 = this.f35559b >> 2;
-                this.f35560c.setPreDecorPosition((f2 * f4) - f4);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BaseActivity f35561e;
-
-        public c(BaseActivity baseActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {baseActivity};
+                Object[] objArr = {baseActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -224,14 +132,103 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            this.f35561e = baseActivity;
+            this.f27440c = baseActivity;
+            this.f27439b = i;
+            this.a = true;
+        }
+
+        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
+        public void onPanelClosed(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+                if (this.f27440c.mSuspensionBallSlideListener != null) {
+                    this.f27440c.mSuspensionBallSlideListener.onPanelClosed(view);
+                }
+                if (this.f27440c.mSlideListener != null) {
+                    this.f27440c.mSlideListener.onPanelClosed(view);
+                }
+                if (!this.f27440c.mSlideCancelActivityTransparent && !this.f27440c.mForceActivityTransparent && this.a) {
+                    this.a = false;
+                    k.c(this.f27440c, null);
+                }
+                this.f27440c.setPreDecorPosition(0.0f);
+            }
+        }
+
+        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
+        public void onPanelOpened(View view) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
+                if (this.f27440c.mSuspensionBallSlideListener != null) {
+                    this.f27440c.mSuspensionBallSlideListener.onPanelOpened(view);
+                }
+                if (this.f27440c.mSlideListener != null) {
+                    this.f27440c.mSlideListener.onPanelOpened(view);
+                }
+                this.f27440c.setPreDecorPosition(0.0f);
+                this.f27440c.mSlideHelper.setShadowDrawable(null);
+                this.f27440c.finish();
+                this.f27440c.overridePendingTransition(0, 0);
+            }
+        }
+
+        @Override // com.baidu.nadcore.widget.SlidingPaneLayout.e
+        public void onPanelSlide(View view, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
+                View maskView = this.f27440c.mSlideHelper.getMaskView();
+                if (maskView != null) {
+                    float f3 = 1.0f - f2;
+                    if (f3 < 0.0f) {
+                        f3 = 0.0f;
+                    }
+                    maskView.setAlpha(f3);
+                }
+                if (this.f27440c.mSuspensionBallSlideListener != null) {
+                    this.f27440c.mSuspensionBallSlideListener.onPanelSlide(view, f2);
+                }
+                if (this.f27440c.mSlideListener != null) {
+                    this.f27440c.mSlideListener.onPanelSlide(view, f2);
+                }
+                if (!this.f27440c.mSlideCancelActivityTransparent && !this.f27440c.mForceActivityTransparent && !this.a) {
+                    this.a = true;
+                    k.d(this.f27440c, null);
+                }
+                float f4 = this.f27439b >> 2;
+                this.f27440c.setPreDecorPosition((f2 * f4) - f4);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BaseActivity a;
+
+        public c(BaseActivity baseActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {baseActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = baseActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BaseActivity baseActivity = this.f35561e;
+                BaseActivity baseActivity = this.a;
                 baseActivity.setDrawDuringWindowsAnimating(baseActivity.getWindow().getDecorView());
             }
         }
@@ -263,9 +260,9 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -296,7 +293,7 @@ public class BaseActivity extends FragmentActivity {
                     return;
                 }
             }
-            c.a.b0.x.a.b(onNewIntentCallbacks, dVar);
+            c.a.a0.x.a.b(onNewIntentCallbacks, dVar);
         }
     }
 
@@ -350,7 +347,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             String stringExtra = (getIntent() == null || !getIntent().hasExtra(KEY_WINDOWS_ANIMATING_NEED_DRAW)) ? "0" : getIntent().getStringExtra(KEY_WINDOWS_ANIMATING_NEED_DRAW);
             if ((this.mEnableDrawDuringWindowsAnimating || TextUtils.equals("1", stringExtra)) && findViewById(16908290) != null) {
-                k.b(new c(this));
+                c.a.a0.h.k.b(new c(this));
             }
         }
     }
@@ -378,13 +375,13 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    public static void setNextPendingTransition(int i2, int i3, int i4, int i5) {
+    public static void setNextPendingTransition(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65552, null, i2, i3, i4, i5) == null) {
-            sNextEnterAnimWhenStarting = i2;
-            sNextExitAnimWhenStarting = i3;
-            sNextEnterAnimWhenFinishing = i4;
-            sNextExitAnimWhenFinishing = i5;
+        if (interceptable == null || interceptable.invokeIIII(65552, null, i, i2, i3, i4) == null) {
+            sNextEnterAnimWhenStarting = i;
+            sNextExitAnimWhenStarting = i2;
+            sNextEnterAnimWhenFinishing = i3;
+            sNextExitAnimWhenFinishing = i4;
         }
     }
 
@@ -403,10 +400,10 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeF(65554, this, f2) == null) {
             try {
                 if (this.preActivity == null || this.preActivity.get() == null) {
-                    this.preActivity = new WeakReference<>(c.a.b0.q.a.d());
+                    this.preActivity = new WeakReference<>(c.a.a0.q.a.d());
                 }
                 if (this.preActivity.get() != null) {
-                    Activity e2 = c.a.b0.q.a.e();
+                    Activity e2 = c.a.a0.q.a.e();
                     Activity activity = this.preActivity.get();
                     if (e2 != null && activity != null && e2.getLocalClassName().equals(activity.getLocalClassName())) {
                         setPreActivityPosition(activity, 0.0f);
@@ -530,10 +527,10 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048588, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 
@@ -582,7 +579,7 @@ public class BaseActivity extends FragmentActivity {
             int d2 = p.d(this);
             super.onCreate(bundle);
             p.a(this, d2);
-            if (c.a.b0.b.a.a.a(this)) {
+            if (c.a.a0.b.a.a.a(this)) {
                 LogUtil.logActivity(this, "onCreate");
                 return;
             }
@@ -608,14 +605,14 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i2, keyEvent)) == null) {
-            if (i2 == 82 && keyEvent.isLongPress()) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, keyEvent)) == null) {
+            if (i == 82 && keyEvent.isLongPress()) {
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -626,7 +623,7 @@ public class BaseActivity extends FragmentActivity {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             super.onMultiWindowModeChanged(z);
             if (z && !sHasMultiWindowShow) {
-                c.a.b0.e0.b.a().c(getApplicationContext(), R.string.nad_androidn_multiwindow_user_toast, 1);
+                c.a.a0.e0.b.a().c(getApplicationContext(), R.string.obfuscated_res_0x7f0f0b40, 1);
                 setHasMultiWindowShow(true);
             } else if (z || f.a()) {
             } else {
@@ -730,10 +727,10 @@ public class BaseActivity extends FragmentActivity {
     }
 
     @SuppressLint({"NewApi"})
-    public void requestPermission(String[] strArr, int i2) {
+    public void requestPermission(String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048608, this, strArr, i2) == null) && f.b.d()) {
-            super.requestPermissions(strArr, i2);
+        if ((interceptable == null || interceptable.invokeLI(1048608, this, strArr, i) == null) && f.b.d()) {
+            super.requestPermissions(strArr, i);
         }
     }
 
@@ -775,7 +772,7 @@ public class BaseActivity extends FragmentActivity {
     public void setCurrentActivityNoTransparent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048612, this) == null) {
-            j.c(this, new a(this));
+            k.c(this, new a(this));
         }
     }
 
@@ -793,13 +790,13 @@ public class BaseActivity extends FragmentActivity {
         }
     }
 
-    public void setPendingTransition(int i2, int i3, int i4, int i5) {
+    public void setPendingTransition(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048616, this, i2, i3, i4, i5) == null) {
-            this.mEnterAnimWhenStarting = i2;
-            this.mExitAnimWhenStarting = i3;
-            this.mEnterAnimWhenFinishing = i4;
-            this.mExitAnimWhenFinishing = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048616, this, i, i2, i3, i4) == null) {
+            this.mEnterAnimWhenStarting = i;
+            this.mExitAnimWhenStarting = i2;
+            this.mEnterAnimWhenFinishing = i3;
+            this.mExitAnimWhenFinishing = i4;
         }
     }
 

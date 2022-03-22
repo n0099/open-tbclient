@@ -19,7 +19,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MMSharedPreferences implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.SharedPreferences";
@@ -29,7 +29,7 @@ public class MMSharedPreferences implements SharedPreferences {
     public REditor editor;
     public final HashMap<String, Object> values;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class REditor implements SharedPreferences.Editor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class MMSharedPreferences implements SharedPreferences {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {contentResolver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -88,7 +88,7 @@ public class MMSharedPreferences implements SharedPreferences {
         public boolean commit() {
             InterceptResult invokeV;
             String str;
-            int i2;
+            int i;
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -107,24 +107,24 @@ public class MMSharedPreferences implements SharedPreferences {
                         str = "unresolve failed, null value";
                     } else {
                         if (value instanceof Integer) {
-                            i2 = 1;
+                            i = 1;
                         } else if (value instanceof Long) {
-                            i2 = 2;
+                            i = 2;
                         } else if (value instanceof String) {
-                            i2 = 3;
+                            i = 3;
                         } else if (value instanceof Boolean) {
-                            i2 = 4;
+                            i = 4;
                         } else if (value instanceof Float) {
-                            i2 = 5;
+                            i = 5;
                         } else if (value instanceof Double) {
-                            i2 = 6;
+                            i = 6;
                         } else {
                             str = "unresolve failed, unknown type=" + value.getClass().toString();
                         }
-                        if (i2 != 0) {
+                        if (i != 0) {
                             z = false;
                         } else {
-                            contentValues.put("type", Integer.valueOf(i2));
+                            contentValues.put("type", Integer.valueOf(i));
                             contentValues.put("value", value.toString());
                             z = true;
                         }
@@ -133,8 +133,8 @@ public class MMSharedPreferences implements SharedPreferences {
                         }
                     }
                     Log.e("MicroMsg.SDK.PluginProvider.Resolver", str);
-                    i2 = 0;
-                    if (i2 != 0) {
+                    i = 0;
+                    if (i != 0) {
                     }
                     if (!z) {
                     }
@@ -169,11 +169,11 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putInt(String str, int i2) {
+        public SharedPreferences.Editor putInt(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
-                this.values.put(str, Integer.valueOf(i2));
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+                this.values.put(str, Integer.valueOf(i));
                 this.remove.remove(str);
                 return this;
             }
@@ -181,11 +181,11 @@ public class MMSharedPreferences implements SharedPreferences {
         }
 
         @Override // android.content.SharedPreferences.Editor
-        public SharedPreferences.Editor putLong(String str, long j2) {
+        public SharedPreferences.Editor putLong(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
-                this.values.put(str, Long.valueOf(j2));
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
+                this.values.put(str, Long.valueOf(j));
                 this.remove.remove(str);
                 return this;
             }
@@ -233,9 +233,9 @@ public class MMSharedPreferences implements SharedPreferences {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -336,23 +336,23 @@ public class MMSharedPreferences implements SharedPreferences {
     }
 
     @Override // android.content.SharedPreferences
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
             Object value = getValue(str);
-            return (value == null || !(value instanceof Integer)) ? i2 : ((Integer) value).intValue();
+            return (value == null || !(value instanceof Integer)) ? i : ((Integer) value).intValue();
         }
         return invokeLI.intValue;
     }
 
     @Override // android.content.SharedPreferences
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
             Object value = getValue(str);
-            return (value == null || !(value instanceof Long)) ? j2 : ((Long) value).longValue();
+            return (value == null || !(value instanceof Long)) ? j : ((Long) value).longValue();
         }
         return invokeLJ.longValue;
     }

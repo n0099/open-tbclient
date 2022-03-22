@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KProperty2;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class PropertyReference2 extends PropertyReference implements KProperty2 {
     public PropertyReference2() {
     }
@@ -25,8 +25,8 @@ public abstract class PropertyReference2 extends PropertyReference implements KP
     }
 
     @SinceKotlin(version = "1.4")
-    public PropertyReference2(Class cls, String str, String str2, int i2) {
-        super(CallableReference.NO_RECEIVER, cls, str, str2, i2);
+    public PropertyReference2(Class cls, String str, String str2, int i) {
+        super(CallableReference.NO_RECEIVER, cls, str, str2, i);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

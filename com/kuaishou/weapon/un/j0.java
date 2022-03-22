@@ -13,16 +13,15 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public class j0 {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53652b = "su";
+    public static final String f38847b = "su";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String[] f53653c;
+    public static final String[] f38848c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -39,7 +38,7 @@ public class j0 {
                 return;
             }
         }
-        f53653c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
+        f38848c = new String[]{u1.a("jMfC18KMz8zAws+M"), u1.a("jMfC18KMz8zAws+MwcrNjA=="), u1.a("jMfC18KMz8zAws+M28HKzYw="), u1.a("jNDBys2M"), u1.a("jNDWjMHKzYw="), u1.a("jNDa0NfGzozBys2M"), u1.a("jNDa0NfGzozBys2MxcLKz9DCxcaM"), u1.a("jNDa0NfGzozbwcrNjA==")};
     }
 
     public j0(Context context) {
@@ -49,9 +48,9 @@ public class j0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,8 +72,8 @@ public class j0 {
             if (str != null && !"".equals(str)) {
                 String[] split = str.split(":");
                 int length = split.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    String str2 = split[i2];
+                for (int i = 0; i < length; i++) {
+                    String str2 = split[i];
                     if (!str2.endsWith("/")) {
                         str2 = str2 + WebvttCueParser.CHAR_SLASH;
                     }
@@ -94,8 +93,8 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                for (String str : a(f53653c)) {
-                    if (new File(str, f53652b).exists()) {
+                for (String str : a(f38848c)) {
+                    if (new File(str, f38847b).exists()) {
                         return 1;
                     }
                 }
@@ -112,7 +111,7 @@ public class j0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return x0.a("su -v").replace(StringUtils.LF, "");
+                return x0.a("su -v").replace("\n", "");
             } catch (Exception unused) {
                 return "";
             }

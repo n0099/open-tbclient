@@ -107,16 +107,16 @@ public class ARPContent {
             em = new b[]{ei, ej, ek, bVar};
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -171,16 +171,16 @@ public class ARPContent {
             er = new c[]{en, eo, ep, cVar};
         }
 
-        public c(String str, int i2) {
+        public c(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -208,9 +208,9 @@ public class ARPContent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -246,9 +246,9 @@ public class ARPContent {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
-            int i2 = AnonymousClass1.eh[bVar.ordinal()];
-            if (i2 != 2) {
-                if (i2 == 3 && (!this.mIsEngineCreated || this.mCaseState != c.eo)) {
+            int i = AnonymousClass1.eh[bVar.ordinal()];
+            if (i != 2) {
+                if (i == 3 && (!this.mIsEngineCreated || this.mCaseState != c.eo)) {
                     return false;
                 }
             } else if (!this.mIsEngineCreated || (cVar = this.mCaseState) == c.eq || cVar == c.en) {
@@ -299,11 +299,11 @@ public class ARPContent {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mIsEngineCreated && this.mCaseState == c.ep : invokeV.booleanValue;
     }
 
-    public int loadCaseWithResPath(String str, int i2, int i3) {
+    public int loadCaseWithResPath(String str, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, str, i, i2)) == null) {
             if (this.mIsEngineCreated) {
                 c cVar = this.mCaseState;
                 c cVar2 = c.eo;
@@ -314,19 +314,19 @@ public class ARPContent {
                 notifyCaseLoadListener();
                 ARPScriptEnvironment.getInstance().setDataPipKV(ARPScriptEnvironment.KEY_DATA_CAMERA_POSITION, Integer.valueOf(this.mIsFrontCamera ? 1 : 0));
                 this.mStartTime = System.currentTimeMillis();
-                int i5 = this.mPreviewWidth;
+                int i4 = this.mPreviewWidth;
+                if (i4 > 0) {
+                    i = i4;
+                }
+                this.mPreviewWidth = i;
+                int i5 = this.mPreviewHeight;
                 if (i5 > 0) {
                     i2 = i5;
                 }
-                this.mPreviewWidth = i2;
-                int i6 = this.mPreviewHeight;
-                if (i6 > 0) {
-                    i3 = i6;
-                }
-                this.mPreviewHeight = i3;
-                int i7 = this.mWindowWidth;
-                if (i7 > 0 && (i4 = this.mWindowHeight) > 0) {
-                    nativeSetWindowSize(i7, i4);
+                this.mPreviewHeight = i2;
+                int i6 = this.mWindowWidth;
+                if (i6 > 0 && (i3 = this.mWindowHeight) > 0) {
+                    nativeSetWindowSize(i6, i3);
                 }
                 nativeLoadCase(str, this.mPreviewWidth, this.mPreviewHeight);
                 return 0;
@@ -336,9 +336,9 @@ public class ARPContent {
         return invokeLII.intValue;
     }
 
-    public void loadTempleteWithResPath(String str, int i2, int i3) {
+    public void loadTempleteWithResPath(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048583, this, str, i2, i3) == null) || this.mIsTempleteCreating) {
+        if (!(interceptable == null || interceptable.invokeLII(1048583, this, str, i, i2) == null) || this.mIsTempleteCreating) {
             return;
         }
         if (!this.mIsTempleteDestoring) {
@@ -350,16 +350,16 @@ public class ARPContent {
         this.mIsTempleteCreated = false;
         ARPScriptEnvironment.getInstance().setDataPipKV(ARPScriptEnvironment.KEY_DATA_CAMERA_POSITION, Integer.valueOf(this.mIsFrontCamera ? 1 : 0));
         this.mStartTime = System.currentTimeMillis();
-        nativeLoadTemplete(str, i2, i3);
+        nativeLoadTemplete(str, i, i2);
     }
 
-    public native void nativeLoadCase(String str, int i2, int i3);
+    public native void nativeLoadCase(String str, int i, int i2);
 
-    public native void nativeLoadTemplete(String str, int i2, int i3);
+    public native void nativeLoadTemplete(String str, int i, int i2);
 
-    public native void nativeSetPreviewSize(int i2, int i3);
+    public native void nativeSetPreviewSize(int i, int i2);
 
-    public native void nativeSetWindowSize(int i2, int i3);
+    public native void nativeSetWindowSize(int i, int i2);
 
     public native void nativeUnloadCase();
 
@@ -368,8 +368,8 @@ public class ARPContent {
     public void notifyCaseLoadListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            for (int i2 = 0; i2 < this.mCaseLoadListenerList.size(); i2++) {
-                this.mCaseLoadListenerList.get(i2).onCaseLoaded(isCaseCreated());
+            for (int i = 0; i < this.mCaseLoadListenerList.size(); i++) {
+                this.mCaseLoadListenerList.get(i).onCaseLoaded(isCaseCreated());
             }
         }
     }
@@ -425,24 +425,24 @@ public class ARPContent {
         }
     }
 
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
             if (isEngineCanAccess()) {
-                nativeSetPreviewSize(i2, i3);
+                nativeSetPreviewSize(i, i2);
             }
         }
     }
 
-    public void setWindowSize(int i2, int i3) {
+    public void setWindowSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
-            this.mWindowWidth = i2;
-            this.mWindowHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            this.mWindowWidth = i;
+            this.mWindowHeight = i2;
             if (isEngineCanAccess()) {
-                nativeSetWindowSize(i2, i3);
+                nativeSetWindowSize(i, i2);
             }
         }
     }

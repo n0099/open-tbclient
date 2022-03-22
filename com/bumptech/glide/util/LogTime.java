@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class LogTime {
     public static /* synthetic */ Interceptable $ic;
     public static final double MILLIS_MULTIPLIER;
@@ -37,19 +37,19 @@ public final class LogTime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static double getElapsedMillis(long j2) {
+    public static double getElapsedMillis(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? (getLogTime() - j2) * MILLIS_MULTIPLIER : invokeJ.doubleValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (getLogTime() - j) * MILLIS_MULTIPLIER : invokeJ.doubleValue;
     }
 
     @TargetApi(17)

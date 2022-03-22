@@ -3,21 +3,21 @@ package com.kwad.sdk.crash.report;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class a implements c {
-    public ArrayList<C2117a> a = new ArrayList<>();
+    public ArrayList<C1978a> a = new ArrayList<>();
 
     /* renamed from: com.kwad.sdk.crash.report.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C2117a {
+    /* loaded from: classes7.dex */
+    public static class C1978a {
         public ExceptionMessage a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55111b;
+        public int f40188b;
 
-        public C2117a(ExceptionMessage exceptionMessage, int i2) {
+        public C1978a(ExceptionMessage exceptionMessage, int i) {
             this.a = exceptionMessage;
-            this.f55111b = i2;
+            this.f40188b = i;
         }
     }
 
@@ -26,10 +26,10 @@ public abstract class a implements c {
             return;
         }
         try {
-            Iterator<C2117a> it = this.a.iterator();
+            Iterator<C1978a> it = this.a.iterator();
             while (it.hasNext()) {
-                C2117a next = it.next();
-                b(next.a, next.f55111b);
+                C1978a next = it.next();
+                b(next.a, next.f40188b);
                 it.remove();
             }
         } catch (Throwable th) {
@@ -37,20 +37,20 @@ public abstract class a implements c {
         }
     }
 
-    private void b(ExceptionMessage exceptionMessage, int i2) {
+    private void b(ExceptionMessage exceptionMessage, int i) {
         com.kwad.sdk.core.d.a.a("ExceptionCollector", "upload msg=" + exceptionMessage);
         ArrayList arrayList = new ArrayList(1);
         arrayList.add(com.kwad.sdk.crash.report.request.c.a(exceptionMessage));
         new com.kwad.sdk.crash.report.request.b().a(arrayList);
     }
 
-    public void a(ExceptionMessage exceptionMessage, int i2) {
+    public void a(ExceptionMessage exceptionMessage, int i) {
         try {
             a();
-            b(exceptionMessage, i2);
+            b(exceptionMessage, i);
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
-            this.a.add(new C2117a(exceptionMessage, i2));
+            this.a.add(new C1978a(exceptionMessage, i));
         }
     }
 

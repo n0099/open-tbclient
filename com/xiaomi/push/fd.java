@@ -14,32 +14,32 @@ import java.nio.ByteBuffer;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.Adler32;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fh f376a;
+    public fh f352a;
 
     /* renamed from: a  reason: collision with other field name */
-    public OutputStream f377a;
+    public OutputStream f353a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ByteBuffer f378a;
+    public ByteBuffer f354a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Adler32 f379a;
+    public Adler32 f355a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f380a;
+    public byte[] f356a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f59637b;
+    public int f44243b;
 
     /* renamed from: b  reason: collision with other field name */
-    public ByteBuffer f381b;
+    public ByteBuffer f357b;
 
     public fd(OutputStream outputStream, fh fhVar) {
         Interceptable interceptable = $ic;
@@ -48,22 +48,22 @@ public class fd {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream, fhVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f378a = ByteBuffer.allocate(2048);
-        this.f381b = ByteBuffer.allocate(4);
-        this.f379a = new Adler32();
-        this.f377a = new BufferedOutputStream(outputStream);
-        this.f376a = fhVar;
+        this.f354a = ByteBuffer.allocate(2048);
+        this.f357b = ByteBuffer.allocate(4);
+        this.f355a = new Adler32();
+        this.f353a = new BufferedOutputStream(outputStream);
+        this.f352a = fhVar;
         TimeZone timeZone = TimeZone.getDefault();
         this.a = timeZone.getRawOffset() / 3600000;
-        this.f59637b = timeZone.useDaylightTime() ? 1 : 0;
+        this.f44243b = timeZone.useDaylightTime() ? 1 : 0;
     }
 
     public int a(fa faVar) {
@@ -72,33 +72,33 @@ public class fd {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
             int c2 = faVar.c();
             if (c2 > 32768) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
+                com.xiaomi.channel.commonutils.logger.b.m112a("Blob size=" + c2 + " should be less than 32768 Drop blob chid=" + faVar.a() + " id=" + faVar.e());
                 return 0;
             }
-            this.f378a.clear();
-            int i2 = c2 + 8 + 4;
-            if (i2 > this.f378a.capacity() || this.f378a.capacity() > 4096) {
-                this.f378a = ByteBuffer.allocate(i2);
+            this.f354a.clear();
+            int i = c2 + 8 + 4;
+            if (i > this.f354a.capacity() || this.f354a.capacity() > 4096) {
+                this.f354a = ByteBuffer.allocate(i);
             }
-            this.f378a.putShort((short) -15618);
-            this.f378a.putShort((short) 5);
-            this.f378a.putInt(c2);
-            int position = this.f378a.position();
-            this.f378a = faVar.mo366a(this.f378a);
-            if (!"CONN".equals(faVar.m365a())) {
-                if (this.f380a == null) {
-                    this.f380a = this.f376a.a();
+            this.f354a.putShort((short) -15618);
+            this.f354a.putShort((short) 5);
+            this.f354a.putInt(c2);
+            int position = this.f354a.position();
+            this.f354a = faVar.mo345a(this.f354a);
+            if (!"CONN".equals(faVar.m344a())) {
+                if (this.f356a == null) {
+                    this.f356a = this.f352a.a();
                 }
-                com.xiaomi.push.service.be.a(this.f380a, this.f378a.array(), true, position, c2);
+                com.xiaomi.push.service.be.a(this.f356a, this.f354a.array(), true, position, c2);
             }
-            this.f379a.reset();
-            this.f379a.update(this.f378a.array(), 0, this.f378a.position());
-            this.f381b.putInt(0, (int) this.f379a.getValue());
-            this.f377a.write(this.f378a.array(), 0, this.f378a.position());
-            this.f377a.write(this.f381b.array(), 0, 4);
-            this.f377a.flush();
-            int position2 = this.f378a.position() + 4;
-            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m365a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
+            this.f355a.reset();
+            this.f355a.update(this.f354a.array(), 0, this.f354a.position());
+            this.f357b.putInt(0, (int) this.f355a.getValue());
+            this.f353a.write(this.f354a.array(), 0, this.f354a.position());
+            this.f353a.write(this.f357b.array(), 0, 4);
+            this.f353a.flush();
+            int position2 = this.f354a.position() + 4;
+            com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + faVar.m344a() + ";chid=" + faVar.a() + ";len=" + position2 + "}");
             return position2;
         }
         return invokeL.intValue;
@@ -110,24 +110,24 @@ public class fd {
             du.e eVar = new du.e();
             eVar.a(106);
             eVar.a(Build.MODEL);
-            eVar.b(t.m700a());
-            eVar.c(com.xiaomi.push.service.bi.m675a());
+            eVar.b(t.m679a());
+            eVar.c(com.xiaomi.push.service.bi.m654a());
             eVar.b(43);
-            eVar.d(this.f376a.m387b());
-            eVar.e(this.f376a.a());
+            eVar.d(this.f352a.m366b());
+            eVar.e(this.f352a.a());
             eVar.f(Locale.getDefault().toString());
             eVar.c(Build.VERSION.SDK_INT);
-            byte[] m393a = this.f376a.m383a().m393a();
-            if (m393a != null) {
-                eVar.a(du.b.a(m393a));
+            byte[] m372a = this.f352a.m362a().m372a();
+            if (m372a != null) {
+                eVar.a(du.b.a(m372a));
             }
             fa faVar = new fa();
             faVar.a(0);
             faVar.a("CONN", (String) null);
             faVar.a(0L, "xiaomi.com", null);
-            faVar.a(eVar.m344a(), (String) null);
+            faVar.a(eVar.m323a(), (String) null);
             a(faVar);
-            com.xiaomi.channel.commonutils.logger.b.m133a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m675a() + " tz=" + this.a + ":" + this.f59637b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+            com.xiaomi.channel.commonutils.logger.b.m112a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=43 hash=" + com.xiaomi.push.service.bi.m654a() + " tz=" + this.a + ":" + this.f44243b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
         }
     }
 
@@ -137,7 +137,7 @@ public class fd {
             fa faVar = new fa();
             faVar.a("CLOSE", (String) null);
             a(faVar);
-            this.f377a.close();
+            this.f353a.close();
         }
     }
 }

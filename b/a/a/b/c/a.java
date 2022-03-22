@@ -11,7 +11,7 @@ public class a {
     public c.a.a.c.c.c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.a.c.c.b f1013b;
+    public c.a.a.c.c.b f989b;
 
     public a(c.a.a.c.c.c cVar, c.a.a.c.c.a aVar) {
         Interceptable interceptable = $ic;
@@ -20,9 +20,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -30,7 +30,7 @@ public class a {
         }
         this.a = cVar;
         c.a.a.c.c.b bVar = new c.a.a.c.c.b();
-        this.f1013b = bVar;
+        this.f989b = bVar;
         bVar.k(aVar);
     }
 }

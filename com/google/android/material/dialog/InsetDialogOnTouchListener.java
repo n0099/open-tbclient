@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InsetDialogOnTouchListener implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class InsetDialogOnTouchListener implements View.OnTouchListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {dialog, rect};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,8 +64,8 @@ public class InsetDialogOnTouchListener implements View.OnTouchListener {
             }
             if (Build.VERSION.SDK_INT < 28) {
                 obtain.setAction(0);
-                int i2 = this.prePieSlop;
-                obtain.setLocation((-i2) - 1, (-i2) - 1);
+                int i = this.prePieSlop;
+                obtain.setLocation((-i) - 1, (-i) - 1);
             }
             view.performClick();
             return this.dialog.onTouchEvent(obtain);

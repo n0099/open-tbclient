@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Build;
 import android.webkit.JsPromptResult;
 import c.a.d.f.p.t;
-import c.a.r0.y3.o0.b;
-import c.a.r0.y3.o0.d.c;
+import c.a.p0.a4.o0.b;
+import c.a.p0.a4.o0.d.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
@@ -38,9 +38,9 @@ public class CommonTbJsBridge implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements b {
         return (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.y3.o0.b
+    @Override // c.a.p0.a4.o0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

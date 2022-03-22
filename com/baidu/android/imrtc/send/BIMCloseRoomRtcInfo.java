@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
@@ -25,9 +24,9 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {bIMRtcInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -45,20 +44,20 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRoomDuration : invokeV.longValue;
     }
 
-    public void setRoomDuration(long j2) {
+    public void setRoomDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.mRoomDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.mRoomDuration = j;
         }
     }
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, str2)) == null) {
-            BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo(super.toRtcInfo(i2, str, str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2)) == null) {
+            BIMCloseRoomRtcInfo bIMCloseRoomRtcInfo = new BIMCloseRoomRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 bIMCloseRoomRtcInfo.setRoomDuration(new JSONObject(str2).optLong("room_duration"));
             } catch (Exception e2) {
@@ -92,7 +91,7 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BIMCloseRoomRtcInfo{" + super.toString() + "mRoomDuration=" + this.mRoomDuration + ExtendedMessageFormat.END_FE;
+            return "BIMCloseRoomRtcInfo{" + super.toString() + "mRoomDuration=" + this.mRoomDuration + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -102,9 +101,9 @@ public class BIMCloseRoomRtcInfo extends BIMRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

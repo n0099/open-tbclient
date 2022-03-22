@@ -14,12 +14,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BlankView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Scroller a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Scroller f42098e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public a f42099f;
+    /* renamed from: b  reason: collision with root package name */
+    public a f32607b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -35,9 +33,9 @@ public class BlankView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,17 +44,33 @@ public class BlankView extends View {
         }
     }
 
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == null) {
+                this.a = new Scroller(getContext());
+            }
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+            if (layoutParams != null) {
+                Scroller scroller = this.a;
+                int i = layoutParams.height;
+                scroller.startScroll(0, i, 0, 0 - i);
+                invalidate();
+            }
+        }
+    }
+
     @Override // android.view.View
     public void computeScroll() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.computeScroll();
-            Scroller scroller = this.f42098e;
+            Scroller scroller = this.a;
             if (scroller == null) {
                 return;
             }
             if (scroller.computeScrollOffset()) {
-                int currY = this.f42098e.getCurrY();
+                int currY = this.a.getCurrY();
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams.height = currY;
@@ -65,7 +79,7 @@ public class BlankView extends View {
                 }
                 return;
             }
-            a aVar = this.f42099f;
+            a aVar = this.f32607b;
             if (aVar != null) {
                 aVar.a();
             }
@@ -74,24 +88,8 @@ public class BlankView extends View {
 
     public void setScrollCallBack(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f42099f = aVar;
-        }
-    }
-
-    public void startScrollDissmiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f42098e == null) {
-                this.f42098e = new Scroller(getContext());
-            }
-            ViewGroup.LayoutParams layoutParams = getLayoutParams();
-            if (layoutParams != null) {
-                Scroller scroller = this.f42098e;
-                int i2 = layoutParams.height;
-                scroller.startScroll(0, i2, 0, 0 - i2);
-                invalidate();
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.f32607b = aVar;
         }
     }
 
@@ -104,9 +102,9 @@ public class BlankView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -117,17 +115,17 @@ public class BlankView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BlankView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BlankView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

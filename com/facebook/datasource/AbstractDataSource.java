@@ -2,7 +2,6 @@ package com.facebook.datasource;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.security.mobile.module.http.model.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +16,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractDataSource<T> implements DataSource<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +34,7 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
     public final ConcurrentLinkedQueue<Pair<DataSubscriber<T>, Executor>> mSubscribers;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DataSourceStatus {
         public static final /* synthetic */ DataSourceStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -58,22 +57,22 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                 }
             }
             IN_PROGRESS = new DataSourceStatus("IN_PROGRESS", 0);
-            SUCCESS = new DataSourceStatus(c.p, 1);
+            SUCCESS = new DataSourceStatus("SUCCESS", 1);
             DataSourceStatus dataSourceStatus = new DataSourceStatus("FAILURE", 2);
             FAILURE = dataSourceStatus;
             $VALUES = new DataSourceStatus[]{IN_PROGRESS, SUCCESS, dataSourceStatus};
         }
 
-        public DataSourceStatus(String str, int i2) {
+        public DataSourceStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -101,9 +100,9 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -135,9 +134,9 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), dataSubscriber, Boolean.valueOf(z2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -442,9 +441,9 @@ public abstract class AbstractDataSource<T> implements DataSource<T> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r7};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

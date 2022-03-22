@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Charsets {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset ISO_8859_1;
@@ -35,8 +35,8 @@ public class Charsets {
         ISO_8859_1 = Charset.forName("ISO-8859-1");
         US_ASCII = Charset.forName("US-ASCII");
         UTF_16 = Charset.forName("UTF-16");
-        UTF_16BE = Charset.forName("UTF-16BE");
-        UTF_16LE = Charset.forName("UTF-16LE");
+        UTF_16BE = Charset.forName(CharEncoding.UTF_16BE);
+        UTF_16LE = Charset.forName(CharEncoding.UTF_16LE);
         UTF_8 = Charset.forName("UTF-8");
     }
 
@@ -45,9 +45,9 @@ public class Charsets {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

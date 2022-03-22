@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -72,9 +73,9 @@ public class SmartMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -93,10 +94,10 @@ public class SmartMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Commodity[] newArray(int i2) {
+                public Commodity[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Commodity[i2] : (Commodity[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Commodity[i] : (Commodity[]) invokeI.objValue;
                 }
             };
         }
@@ -106,9 +107,9 @@ public class SmartMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -165,9 +166,9 @@ public class SmartMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
                 parcel.writeString(this.mName);
                 parcel.writeString(this.mValue);
                 parcel.writeString(this.mColor);
@@ -181,9 +182,9 @@ public class SmartMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -217,9 +218,9 @@ public class SmartMsg extends NormalMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -238,10 +239,10 @@ public class SmartMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SmartMsg[] newArray(int i2) {
+            public SmartMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SmartMsg[i2] : (SmartMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SmartMsg[i] : (SmartMsg[]) invokeI.objValue;
             }
         };
     }
@@ -251,9 +252,9 @@ public class SmartMsg extends NormalMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -391,7 +392,7 @@ public class SmartMsg extends NormalMsg {
                 this.mIcon = jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
                 this.mDetailurl = jSONObject.optString("detail_url");
                 this.mShema = jSONObject.optString("schema");
-                JSONObject optJSONObject = jSONObject.optJSONObject("first");
+                JSONObject optJSONObject = jSONObject.optJSONObject(Config.TRACE_VISIT_FIRST);
                 if (optJSONObject != null) {
                     this.mFirstName = optJSONObject.optString("value");
                     this.mFirstColor = optJSONObject.optString("color");
@@ -409,13 +410,13 @@ public class SmartMsg extends NormalMsg {
                         this.mCommodity = new Commodity[length];
                     }
                     LogUtils.d("TempletMsg", "size is " + length);
-                    for (int i2 = 0; i2 < length; i2++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         Commodity commodity = new Commodity();
                         commodity.setName(jSONObject2.getString("name"));
                         commodity.setValue(jSONObject2.optString("value", ""));
                         commodity.setColor(jSONObject2.optString("color", "#000000"));
-                        this.mCommodity[i2] = commodity;
+                        this.mCommodity[i] = commodity;
                     }
                 }
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("image");
@@ -456,7 +457,7 @@ public class SmartMsg extends NormalMsg {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("value", str2);
                 jSONObject2.put("color", str3);
-                jSONObject.put("first", jSONObject2);
+                jSONObject.put(Config.TRACE_VISIT_FIRST, jSONObject2);
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put("value", str4);
                 jSONObject3.put("color", str5);
@@ -481,10 +482,10 @@ public class SmartMsg extends NormalMsg {
         return invokeCommon.booleanValue;
     }
 
-    public void setTopicId(long j2) {
+    public void setTopicId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.mTopicId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.mTopicId = j;
         }
     }
 
@@ -496,10 +497,10 @@ public class SmartMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048599, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048599, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.mTitle);
             parcel.writeString(this.mName);
             parcel.writeString(this.mIcon);
@@ -513,7 +514,7 @@ public class SmartMsg extends NormalMsg {
             int length = commodityArr != null ? commodityArr.length : 0;
             parcel.writeInt(length);
             if (length > 0) {
-                parcel.writeTypedArray(this.mCommodity, i2);
+                parcel.writeTypedArray(this.mCommodity, i);
             }
             parcel.writeString(this.mValuationUrl);
             parcel.writeString(this.mValuationTxt);
@@ -531,9 +532,9 @@ public class SmartMsg extends NormalMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

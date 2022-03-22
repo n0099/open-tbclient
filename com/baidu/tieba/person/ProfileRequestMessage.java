@@ -2,9 +2,9 @@ package com.baidu.tieba.person;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
-import c.a.q0.r.l;
-import c.a.r0.w2.b;
+import c.a.o0.c1.b0;
+import c.a.o0.r.l;
+import c.a.p0.y2.b;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Profile.DataReq;
 import tbclient.Profile.ProfileReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ProfileRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class ProfileRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -75,10 +75,10 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.is_from_usercenter = is_from_usercenter();
                 builder.page = getPage();
                 int k = n.k(TbadkCoreApplication.getInst().getApp());
-                int i2 = n.i(TbadkCoreApplication.getInst().getApp());
+                int i = n.i(TbadkCoreApplication.getInst().getApp());
                 int e2 = l.c().e();
                 builder.scr_w = Integer.valueOf(k);
-                builder.scr_h = Integer.valueOf(i2);
+                builder.scr_h = Integer.valueOf(i);
                 builder.scr_dip = Double.valueOf(n.h(TbadkCoreApplication.getInst().getApp()));
                 builder.q_type = Integer.valueOf(e2);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {

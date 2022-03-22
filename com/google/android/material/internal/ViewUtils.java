@@ -25,12 +25,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnApplyWindowInsetsListener {
         WindowInsetsCompat onApplyWindowInsets(View view, WindowInsetsCompat windowInsetsCompat, RelativePadding relativePadding);
     }
@@ -40,26 +40,26 @@ public class ViewUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void doOnApplyWindowInsets(@NonNull View view, @Nullable AttributeSet attributeSet, int i2, int i3) {
+    public static void doOnApplyWindowInsets(@NonNull View view, @Nullable AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65537, null, view, attributeSet, i2, i3) == null) {
-            doOnApplyWindowInsets(view, attributeSet, i2, i3, null);
+        if (interceptable == null || interceptable.invokeLLII(65537, null, view, attributeSet, i, i2) == null) {
+            doOnApplyWindowInsets(view, attributeSet, i, i2, null);
         }
     }
 
-    public static float dpToPx(@NonNull Context context, @Dimension(unit = 0) int i2) {
+    public static float dpToPx(@NonNull Context context, @Dimension(unit = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) ? TypedValue.applyDimension(1, i2, context.getResources().getDisplayMetrics()) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) ? TypedValue.applyDimension(1, i, context.getResources().getDisplayMetrics()) : invokeLI.floatValue;
     }
 
     @Nullable
@@ -125,14 +125,14 @@ public class ViewUtils {
         return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view)) == null) ? ViewCompat.getLayoutDirection(view) == 1 : invokeL.booleanValue;
     }
 
-    public static PorterDuff.Mode parseTintMode(int i2, PorterDuff.Mode mode) {
+    public static PorterDuff.Mode parseTintMode(int i, PorterDuff.Mode mode) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, mode)) == null) {
-            if (i2 != 3) {
-                if (i2 != 5) {
-                    if (i2 != 9) {
-                        switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i, mode)) == null) {
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 9) {
+                        switch (i) {
                             case 14:
                                 return PorterDuff.Mode.MULTIPLY;
                             case 15:
@@ -167,9 +167,9 @@ public class ViewUtils {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -212,9 +212,9 @@ public class ViewUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {view};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -234,10 +234,10 @@ public class ViewUtils {
         }
     }
 
-    public static void doOnApplyWindowInsets(@NonNull View view, @Nullable AttributeSet attributeSet, int i2, int i3, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
+    public static void doOnApplyWindowInsets(@NonNull View view, @Nullable AttributeSet attributeSet, int i, int i2, @Nullable OnApplyWindowInsetsListener onApplyWindowInsetsListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3), onApplyWindowInsetsListener}) == null) {
-            TypedArray obtainStyledAttributes = view.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.paddingBottomSystemWindowInsets, R.attr.paddingLeftSystemWindowInsets, R.attr.paddingRightSystemWindowInsets}, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{view, attributeSet, Integer.valueOf(i), Integer.valueOf(i2), onApplyWindowInsetsListener}) == null) {
+            TypedArray obtainStyledAttributes = view.getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04045f, R.attr.obfuscated_res_0x7f040462, R.attr.obfuscated_res_0x7f040464}, i, i2);
             boolean z = obtainStyledAttributes.getBoolean(0, false);
             boolean z2 = obtainStyledAttributes.getBoolean(1, false);
             boolean z3 = obtainStyledAttributes.getBoolean(2, false);
@@ -257,9 +257,9 @@ public class ViewUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), onApplyWindowInsetsListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,7 +305,7 @@ public class ViewUtils {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class RelativePadding {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -314,25 +314,25 @@ public class ViewUtils {
         public int start;
         public int top;
 
-        public RelativePadding(int i2, int i3, int i4, int i5) {
+        public RelativePadding(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.start = i2;
-            this.top = i3;
-            this.end = i4;
-            this.bottom = i5;
+            this.start = i;
+            this.top = i2;
+            this.end = i3;
+            this.bottom = i4;
         }
 
         public void applyToView(View view) {
@@ -349,9 +349,9 @@ public class ViewUtils {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {relativePadding};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -380,9 +380,9 @@ public class ViewUtils {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {onApplyWindowInsetsListener, r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

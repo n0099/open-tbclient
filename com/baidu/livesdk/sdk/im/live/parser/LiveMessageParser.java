@@ -13,7 +13,6 @@ import com.baidu.livesdk.api.im.live.LiveMessageBean;
 import com.baidu.livesdk.api.im.live.LiveSendMessage;
 import com.baidu.livesdk.sdk.LiveSDK;
 import com.baidu.livesdk.sdk.im.live.MessageUtils;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,9 +36,9 @@ public class LiveMessageParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,14 +52,14 @@ public class LiveMessageParser {
             if (liveMessageBean == null) {
                 return false;
             }
-            int i2 = -1;
+            int i = -1;
             try {
-                i2 = Integer.parseInt(liveMessageBean.type);
+                i = Integer.parseInt(liveMessageBean.type);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            if (i2 != 0) {
-                switch (i2) {
+            if (i != 0) {
+                switch (i) {
                     case 100:
                     case 101:
                     case 102:
@@ -92,8 +91,8 @@ public class LiveMessageParser {
             if (jSONArray != null) {
                 ArrayList arrayList = new ArrayList();
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null && (parseJson = parseJson(optJSONObject)) != null) {
                         arrayList.add(parseJson);
                     }
@@ -137,7 +136,7 @@ public class LiveMessageParser {
         return (LiveMessageBean) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0037 A[Catch: Exception -> 0x0031, TryCatch #2 {Exception -> 0x0031, blocks: (B:6:0x001a, B:8:0x0026, B:16:0x0037, B:17:0x0053, B:26:0x0076, B:28:0x0086, B:29:0x008c, B:31:0x009e, B:32:0x00a4, B:34:0x00aa, B:35:0x00b0, B:37:0x00d8, B:38:0x00de, B:40:0x00e8, B:41:0x00ee, B:43:0x00f8, B:44:0x00fe, B:46:0x012e, B:47:0x0134, B:49:0x013c, B:19:0x0059, B:21:0x0065, B:24:0x0072, B:11:0x002d), top: B:61:0x001a, inners: #0, #1 }] */
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0039 A[Catch: Exception -> 0x0033, TryCatch #2 {Exception -> 0x0033, blocks: (B:6:0x001b, B:8:0x0028, B:16:0x0039, B:17:0x0057, B:26:0x007b, B:28:0x008b, B:29:0x0091, B:31:0x00a3, B:32:0x00a9, B:34:0x00af, B:35:0x00b5, B:37:0x00dd, B:38:0x00e3, B:40:0x00ed, B:41:0x00f3, B:43:0x00fd, B:44:0x0103, B:46:0x0133, B:47:0x0139, B:49:0x0141, B:19:0x005e, B:21:0x006a, B:24:0x0077, B:11:0x002f), top: B:61:0x001b, inners: #0, #1 }] */
     /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -236,12 +235,12 @@ public class LiveMessageParser {
         }
     }
 
-    public static LiveMessageBean.Data parseDataFromJson(int i2, JSONObject jSONObject) {
+    public static LiveMessageBean.Data parseDataFromJson(int i, JSONObject jSONObject) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, jSONObject)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, jSONObject)) == null) {
             LiveMessageBean.Data data = new LiveMessageBean.Data();
-            switch (i2) {
+            switch (i) {
                 case 101:
                     data.feedback = jSONObject.optInt("feedbacks");
                     data.totaluser = jSONObject.optInt("totaluser");
@@ -262,7 +261,7 @@ public class LiveMessageParser {
                     break;
                 case 105:
                     data.mcaseId = jSONObject.optInt("mcast_id");
-                    data.opreation = jSONObject.optInt(AppDownloadNetworkStateReceiver.KEY_OPERATION);
+                    data.opreation = jSONObject.optInt("operation");
                     String optString = jSONObject.optString("stick_msgs");
                     if (!TextUtils.isEmpty(optString)) {
                         JSONArray jSONArray = null;
@@ -290,8 +289,8 @@ public class LiveMessageParser {
                     JSONArray optJSONArray = jSONObject.optJSONArray("msgids");
                     if (optJSONArray != null && optJSONArray.length() != 0) {
                         data.delMsgIds = new long[optJSONArray.length()];
-                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                            data.delMsgIds[i3] = optJSONArray.optLong(i3);
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            data.delMsgIds[i2] = optJSONArray.optLong(i2);
                         }
                         break;
                     }

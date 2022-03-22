@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialTextView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class MaterialTextView extends AppCompatTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -44,10 +44,10 @@ public class MaterialTextView extends AppCompatTextView {
         }
     }
 
-    private void applyLineHeightFromViewAppearance(@NonNull Resources.Theme theme, int i2) {
+    private void applyLineHeightFromViewAppearance(@NonNull Resources.Theme theme, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, theme, i2) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i2, new int[]{16844159, R.attr.lineHeight});
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, theme, i) == null) {
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(i, new int[]{16844159, R.attr.obfuscated_res_0x7f0403a4});
             int readFirstAvailableDimension = readFirstAvailableDimension(getContext(), obtainStyledAttributes, 0, 1);
             obtainStyledAttributes.recycle();
             if (readFirstAvailableDimension >= 0) {
@@ -59,14 +59,14 @@ public class MaterialTextView extends AppCompatTextView {
     public static boolean canApplyTextAppearanceLineHeight(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, R.attr.textAppearanceLineHeightEnabled, true) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? MaterialAttributes.resolveBoolean(context, R.attr.obfuscated_res_0x7f040606, true) : invokeL.booleanValue;
     }
 
-    public static int findViewAppearanceResourceId(@NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i2, int i3) {
+    public static int findViewAppearanceResourceId(@NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, theme, attributeSet, i2, i3)) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.lineHeight}, i2, i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, theme, attributeSet, i, i2)) == null) {
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f0403a4}, i, i2);
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             obtainStyledAttributes.recycle();
             return resourceId;
@@ -78,20 +78,20 @@ public class MaterialTextView extends AppCompatTextView {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, typedArray, iArr)) == null) {
-            int i2 = -1;
-            for (int i3 = 0; i3 < iArr.length && i2 < 0; i3++) {
-                i2 = MaterialResources.getDimensionPixelSize(context, typedArray, iArr[i3], -1);
+            int i = -1;
+            for (int i2 = 0; i2 < iArr.length && i < 0; i2++) {
+                i = MaterialResources.getDimensionPixelSize(context, typedArray, iArr[i2], -1);
             }
-            return i2;
+            return i;
         }
         return invokeLLL.intValue;
     }
 
-    public static boolean viewAttrsHasLineHeight(@NonNull Context context, @NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i2, int i3) {
+    public static boolean viewAttrsHasLineHeight(@NonNull Context context, @NonNull Resources.Theme theme, @Nullable AttributeSet attributeSet, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, theme, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.lineHeight}, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, theme, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            TypedArray obtainStyledAttributes = theme.obtainStyledAttributes(attributeSet, new int[]{16842804, 16844159, R.attr.obfuscated_res_0x7f0403a4}, i, i2);
             int readFirstAvailableDimension = readFirstAvailableDimension(context, obtainStyledAttributes, 1, 2);
             obtainStyledAttributes.recycle();
             return readFirstAvailableDimension != -1;
@@ -100,12 +100,12 @@ public class MaterialTextView extends AppCompatTextView {
     }
 
     @Override // androidx.appcompat.widget.AppCompatTextView, android.widget.TextView
-    public void setTextAppearance(@NonNull Context context, int i2) {
+    public void setTextAppearance(@NonNull Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i2) == null) {
-            super.setTextAppearance(context, i2);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            super.setTextAppearance(context, i);
             if (canApplyTextAppearanceLineHeight(context)) {
-                applyLineHeightFromViewAppearance(context.getTheme(), i2);
+                applyLineHeightFromViewAppearance(context.getTheme(), i);
             }
         }
     }
@@ -119,9 +119,9 @@ public class MaterialTextView extends AppCompatTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -132,17 +132,17 @@ public class MaterialTextView extends AppCompatTextView {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        this(context, attributeSet, i2, 0);
+    public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        this(context, attributeSet, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -153,18 +153,18 @@ public class MaterialTextView extends AppCompatTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, i3), attributeSet, i2);
+    public MaterialTextView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, i2), attributeSet, i);
         int findViewAppearanceResourceId;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -175,7 +175,7 @@ public class MaterialTextView extends AppCompatTextView {
         Context context2 = getContext();
         if (canApplyTextAppearanceLineHeight(context2)) {
             Resources.Theme theme = context2.getTheme();
-            if (viewAttrsHasLineHeight(context2, theme, attributeSet, i2, i3) || (findViewAppearanceResourceId = findViewAppearanceResourceId(theme, attributeSet, i2, i3)) == -1) {
+            if (viewAttrsHasLineHeight(context2, theme, attributeSet, i, i2) || (findViewAppearanceResourceId = findViewAppearanceResourceId(theme, attributeSet, i, i2)) == -1) {
                 return;
             }
             applyLineHeightFromViewAppearance(theme, findViewAppearanceResourceId);

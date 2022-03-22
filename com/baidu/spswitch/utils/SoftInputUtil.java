@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Rect;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -56,9 +57,9 @@ public class SoftInputUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activity, viewGroup, iPanelHeightTarget, onSoftInputShowingListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,34 +72,36 @@ public class SoftInputUtil {
             this.mPanelHeightTarget = iPanelHeightTarget;
         }
 
-        private void calculateSoftInputHeight(int i2) {
+        private void calculateSoftInputHeight(int i) {
             int abs;
             View view;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-                boolean unused = SoftInputUtil.DEBUG;
+            if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
                 if (SoftInputUtil.DEBUG) {
-                    String str = "displayHeight: " + i2 + ", previousDisplayHeight: " + this.mPreviousDisplayHeight;
+                    Log.d(SoftInputUtil.TAG, "****** calculateSoftInputHeight ******");
+                }
+                if (SoftInputUtil.DEBUG) {
+                    Log.d(SoftInputUtil.TAG, "displayHeight: " + i + ", previousDisplayHeight: " + this.mPreviousDisplayHeight);
                 }
                 if (this.mPreviousDisplayHeight == 0) {
-                    this.mPreviousDisplayHeight = i2;
+                    this.mPreviousDisplayHeight = i;
                     int validPanelHeight = SoftInputUtil.getValidPanelHeight(getContext());
                     if (SoftInputUtil.DEBUG) {
-                        String str2 = "previous display height = 0, refresh Height : " + validPanelHeight;
+                        Log.d(SoftInputUtil.TAG, "previous display height = 0, refresh Height : " + validPanelHeight);
                     }
                     this.mPanelHeightTarget.refreshHeight(validPanelHeight);
                 }
                 if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
-                    abs = ((View) this.mContentView.getParent()).getHeight() - i2;
+                    abs = ((View) this.mContentView.getParent()).getHeight() - i;
                     if (SoftInputUtil.DEBUG) {
-                        String str3 = "handle by placeholder, action bar overlay layout height " + view.getHeight() + ", display height: " + i2 + ", softInputHeight: " + abs;
+                        Log.d(SoftInputUtil.TAG, "handle by placeholder, action bar overlay layout height " + view.getHeight() + ", display height: " + i + ", softInputHeight: " + abs);
                     }
                 } else {
-                    abs = Math.abs(i2 - this.mPreviousDisplayHeight);
+                    abs = Math.abs(i - this.mPreviousDisplayHeight);
                 }
                 if (abs <= SoftInputUtil.getMinSoftInputHeight(getContext())) {
                     if (SoftInputUtil.DEBUG) {
-                        String str4 = "softInputHeight is invalid, too small. softInputHeight: " + abs;
+                        Log.d(SoftInputUtil.TAG, "softInputHeight is invalid, too small. softInputHeight: " + abs);
                     }
                     if (Math.abs(abs) == UIUtils.getStatusBarHeight(this.mContentView.getContext())) {
                         this.mPreviousDisplayHeight -= abs;
@@ -106,45 +109,47 @@ public class SoftInputUtil {
                     }
                     return;
                 }
-                String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i2), Integer.valueOf(abs));
+                Log.d(SoftInputUtil.TAG, String.format("pre display height: %d, display height: %d, softinput: %d ", Integer.valueOf(this.mPreviousDisplayHeight), Integer.valueOf(i), Integer.valueOf(abs)));
                 if (SoftInputUtil.saveSoftInputHeight(getContext(), abs)) {
                     int validPanelHeight2 = SoftInputUtil.getValidPanelHeight(getContext());
                     if (this.mPanelHeightTarget.getHeight() != validPanelHeight2) {
                         if (SoftInputUtil.DEBUG) {
-                            String str5 = "panel height changed, new height: " + validPanelHeight2;
+                            Log.d(SoftInputUtil.TAG, "panel height changed, new height: " + validPanelHeight2);
                         }
                         this.mPanelHeightTarget.refreshHeight(validPanelHeight2);
                     } else if (SoftInputUtil.DEBUG) {
-                        String str6 = "panel no need to refresh, panelHeight: " + this.mPanelHeightTarget.getHeight() + ", validPanelHeight: " + validPanelHeight2;
+                        Log.d(SoftInputUtil.TAG, "panel no need to refresh, panelHeight: " + this.mPanelHeightTarget.getHeight() + ", validPanelHeight: " + validPanelHeight2);
                     }
                 }
             }
         }
 
-        private void calculateSoftInputShowing(int i2) {
+        private void calculateSoftInputShowing(int i) {
             boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-                boolean unused = SoftInputUtil.DEBUG;
+            if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
+                if (SoftInputUtil.DEBUG) {
+                    Log.d(SoftInputUtil.TAG, "###### calculateSoftInputShowing ######");
+                }
                 View view = (View) this.mContentView.getParent();
                 int height = view.getHeight() - view.getPaddingTop();
                 if (SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext())) {
-                    z = height > i2;
+                    z = height > i;
                 } else {
-                    int i3 = this.maxOverlayLayoutHeight;
-                    if (i3 == 0) {
+                    int i2 = this.maxOverlayLayoutHeight;
+                    if (i2 == 0) {
                         z = this.mLastSoftInputShowing;
                     } else {
-                        z = i2 < i3 - SoftInputUtil.getMinSoftInputHeight(getContext());
+                        z = i < i2 - SoftInputUtil.getMinSoftInputHeight(getContext());
                     }
                     this.maxOverlayLayoutHeight = Math.max(this.maxOverlayLayoutHeight, height);
                 }
                 if (SoftInputUtil.DEBUG) {
-                    String str = "maxOverlayLayoutHeight: " + this.maxOverlayLayoutHeight + ", isSoftInputShowing : " + z + ", mLastSoftInputShowing : " + this.mLastSoftInputShowing;
+                    Log.d(SoftInputUtil.TAG, "maxOverlayLayoutHeight: " + this.maxOverlayLayoutHeight + ", isSoftInputShowing : " + z + ", mLastSoftInputShowing : " + this.mLastSoftInputShowing);
                 }
                 if (this.mLastSoftInputShowing != z) {
                     if (SoftInputUtil.DEBUG) {
-                        String.format("displayHeight %d, actionBarOverlayLayoutHeight %d, softinput showing: %B", Integer.valueOf(i2), Integer.valueOf(height), Boolean.valueOf(z));
+                        Log.d(SoftInputUtil.TAG, String.format("displayHeight %d, actionBarOverlayLayoutHeight %d, softinput showing: %B", Integer.valueOf(i), Integer.valueOf(height), Boolean.valueOf(z)));
                     }
                     this.mPanelHeightTarget.onSoftInputShowing(z);
                     OnSoftInputShowingListener onSoftInputShowingListener = this.mSoftInputShowingListener;
@@ -164,30 +169,36 @@ public class SoftInputUtil {
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 View childAt = this.mContentView.getChildAt(0);
                 Rect rect = new Rect();
                 if (childAt == null) {
-                    boolean unused = SoftInputUtil.DEBUG;
-                    i2 = -1;
+                    if (SoftInputUtil.DEBUG) {
+                        Log.d(SoftInputUtil.TAG, "SoftInputUtil, user root view not ready so ignore layout changed");
+                    }
+                    i = -1;
                 } else if (!SPSwitchConflictUtil.isHandleByPlaceholder(this.mContentView.getContext()) && (!ViewUtil.isSystemUILayoutFullScreen(this.mActivity) || !ViewUtil.isFitsSystemWindows(this.mActivity))) {
-                    i2 = childAt.getHeight();
-                    boolean unused2 = SoftInputUtil.DEBUG;
+                    i = childAt.getHeight();
+                    if (SoftInputUtil.DEBUG) {
+                        Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by userRootView.getHeight()");
+                    }
                 } else {
                     childAt.getWindowVisibleDisplayFrame(rect);
-                    i2 = rect.bottom - rect.top;
-                    boolean unused3 = SoftInputUtil.DEBUG;
+                    i = rect.bottom - rect.top;
+                    if (SoftInputUtil.DEBUG) {
+                        Log.d(SoftInputUtil.TAG, "#onGlobalLayout#, displayHeight calc by getWindowVisibleDisplayFrame");
+                    }
                 }
-                if (i2 == -1) {
+                if (i == -1) {
                     return;
                 }
                 if (SoftInputUtil.DEBUG) {
-                    String str = "displayHeight: " + i2;
+                    Log.d(SoftInputUtil.TAG, "displayHeight: " + i);
                 }
-                calculateSoftInputHeight(i2);
-                calculateSoftInputShowing(i2);
+                calculateSoftInputHeight(i);
+                calculateSoftInputShowing(i);
             }
         }
     }
@@ -218,9 +229,9 @@ public class SoftInputUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -267,7 +278,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, resources)) == null) {
             if (sMaxPanelHeight == 0) {
-                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.max_panel_height);
+                sMaxPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d2);
             }
             return sMaxPanelHeight;
         }
@@ -279,7 +290,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
             if (sMaxSoftInputHeight == 0) {
-                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.max_softinput_height);
+                sMaxSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d3);
             }
             return sMaxSoftInputHeight;
         }
@@ -291,7 +302,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, resources)) == null) {
             if (sMinPanelHeight == 0) {
-                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.min_panel_height);
+                sMinPanelHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d4);
             }
             return sMinPanelHeight;
         }
@@ -303,7 +314,7 @@ public class SoftInputUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
             if (sMinSoftInputHeight == 0) {
-                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.min_softinput_height);
+                sMinSoftInputHeight = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703d5);
             }
             return sMinSoftInputHeight;
         }
@@ -335,16 +346,16 @@ public class SoftInputUtil {
         }
     }
 
-    public static boolean saveSoftInputHeight(Context context, int i2) {
+    public static boolean saveSoftInputHeight(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i2)) == null) {
-            if (sLastSaveSoftInputHeight != i2 && i2 >= 0) {
-                sLastSaveSoftInputHeight = i2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, context, i)) == null) {
+            if (sLastSaveSoftInputHeight != i && i >= 0) {
+                sLastSaveSoftInputHeight = i;
                 if (DEBUG) {
-                    String str = "save softInput height: " + i2;
+                    Log.d(TAG, "save softInput height: " + i);
                 }
-                return SoftInputSharedPreferences.save(context, i2);
+                return SoftInputSharedPreferences.save(context, i);
             }
             return false;
         }
@@ -366,9 +377,9 @@ public class SoftInputUtil {
         }
     }
 
-    public static void showSoftInputDelay(View view, long j2) {
+    public static void showSoftInputDelay(View view, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65553, null, view, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65553, null, view, j) == null) {
             view.postDelayed(new Runnable(view) { // from class: com.baidu.spswitch.utils.SoftInputUtil.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -381,9 +392,9 @@ public class SoftInputUtil {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {view};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -399,7 +410,7 @@ public class SoftInputUtil {
                         SoftInputUtil.showSoftInput(this.val$focusView);
                     }
                 }
-            }, j2);
+            }, j);
         }
     }
 }

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
 import com.google.android.exoplayer2.upstream.cache.CacheUtil;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ProgressiveDownloader implements Downloader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE_BYTES = 131072;
@@ -33,9 +33,9 @@ public final class ProgressiveDownloader implements Downloader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, downloaderConstructorHelper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,11 +69,11 @@ public final class ProgressiveDownloader implements Downloader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.cachingCounters.contentLength;
-            if (j2 == -1) {
+            long j = this.cachingCounters.contentLength;
+            if (j == -1) {
                 return Float.NaN;
             }
-            return (((float) this.cachingCounters.totalCachedBytes()) * 100.0f) / ((float) j2);
+            return (((float) this.cachingCounters.totalCachedBytes()) * 100.0f) / ((float) j);
         }
         return invokeV.floatValue;
     }

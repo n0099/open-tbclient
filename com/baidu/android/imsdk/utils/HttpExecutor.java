@@ -59,9 +59,9 @@ public class HttpExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpExecutor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,9 +108,9 @@ public class HttpExecutor {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -154,9 +154,9 @@ public class HttpExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpExecutor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -185,9 +185,9 @@ public class HttpExecutor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -250,12 +250,12 @@ public class HttpExecutor {
         return (HttpExecutor) invokeV.objValue;
     }
 
-    public void execute(int i2, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
+    public void execute(int i, String str, byte[] bArr, Map<String, String> map, String str2, HttpHelper.ResponseHandler responseHandler) {
         Request build;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, bArr, map, str2, responseHandler}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, bArr, map, str2, responseHandler}) == null) {
             try {
-                if (i2 == 16) {
+                if (i == 16) {
                     if (TextUtils.isEmpty(str2)) {
                         str2 = "application/x-www-form-urlencoded";
                     }
@@ -273,7 +273,7 @@ public class HttpExecutor {
                 try {
                     Response execute = this.okHttpClient.newCall(build).execute();
                     byte[] bytes = execute.body().bytes();
-                    LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i2 + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
+                    LogUtils.i("HttpExecutor", "requestUrl:" + str + "\nrequest method: " + i + "\nrequest contentType: " + str2 + "\nrequest param: " + new String(bArr) + "\n response : " + new String(bytes));
                     responseHandler.onSuccess(execute.code(), bytes);
                 } catch (IOException e2) {
                     LogUtils.e("HttpExecutor", "exception :", e2);

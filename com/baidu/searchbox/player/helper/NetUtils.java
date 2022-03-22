@@ -72,16 +72,16 @@ public class NetUtils {
             $VALUES = new NetStatus[]{NET_DOWN, NET_WIFI, netStatus};
         }
 
-        public NetStatus(String str, int i2) {
+        public NetStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -127,9 +127,9 @@ public class NetUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -137,10 +137,10 @@ public class NetUtils {
     }
 
     @PublicMethod
-    public static String appendCDNStatParams(String str, int i2, String str2) {
+    public static String appendCDNStatParams(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, str, i2, str2)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, str, i, str2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return str;
             }
@@ -149,23 +149,23 @@ public class NetUtils {
                 if (str.contains("pdx=")) {
                     int indexOf = sb.indexOf("pdx=");
                     if (indexOf >= 0) {
-                        int i3 = indexOf + 4;
-                        sb.replace(i3, getNumEndIndex(sb.toString(), i3), "0");
+                        int i2 = indexOf + 4;
+                        sb.replace(i2, getNumEndIndex(sb.toString(), i2), "0");
                     }
                     int indexOf2 = sb.indexOf("nt=");
                     if (indexOf2 >= 0) {
-                        int i4 = indexOf2 + 3;
-                        sb.replace(i4, getNumEndIndex(sb.toString(), i4), String.valueOf(getNetTypeParams()));
+                        int i3 = indexOf2 + 3;
+                        sb.replace(i3, getNumEndIndex(sb.toString(), i3), String.valueOf(getNetTypeParams()));
                     }
                     int indexOf3 = sb.indexOf("dt=");
                     if (indexOf3 >= 0) {
-                        int i5 = indexOf3 + 3;
-                        sb.replace(i5, getNumEndIndex(sb.toString(), i5), String.valueOf(i2));
+                        int i4 = indexOf3 + 3;
+                        sb.replace(i4, getNumEndIndex(sb.toString(), i4), String.valueOf(i));
                     }
                     int indexOf4 = sb.indexOf("ds_stc=");
                     if (indexOf4 >= 0) {
-                        int i6 = indexOf4 + 7;
-                        sb.replace(i6, findParamEndIndex(sb.toString(), i6), String.valueOf(str2));
+                        int i5 = indexOf4 + 7;
+                        sb.replace(i5, findParamEndIndex(sb.toString(), i5), String.valueOf(str2));
                     }
                 } else {
                     if (!str.contains("?")) {
@@ -180,7 +180,7 @@ public class NetUtils {
                     sb.append(getNetTypeParams());
                     sb.append("&");
                     sb.append("dt=");
-                    sb.append(i2);
+                    sb.append(i);
                     sb.append("&");
                     sb.append("ds_stc=");
                     sb.append(str2);
@@ -192,26 +192,26 @@ public class NetUtils {
         return (String) invokeLIL.objValue;
     }
 
-    public static int findParamEndIndex(@NonNull String str, @IntRange(from = 0) int i2) {
+    public static int findParamEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i2)) == null) {
-            int i3 = i2;
-            while (i2 < str.length() && !"&".equals(String.valueOf(str.charAt(i2)))) {
-                i3++;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            int i2 = i;
+            while (i < str.length() && !"&".equals(String.valueOf(str.charAt(i)))) {
                 i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLI.intValue;
     }
 
     @PublicMethod
-    public static String getMobileNetworkType(int i2, String str) {
+    public static String getMobileNetworkType(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, str)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 4:
@@ -342,16 +342,16 @@ public class NetUtils {
         return (NetworkInfo) invokeV.objValue;
     }
 
-    public static int getNumEndIndex(@NonNull String str, @IntRange(from = 0) int i2) {
+    public static int getNumEndIndex(@NonNull String str, @IntRange(from = 0) int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) {
-            int i3 = i2;
-            while (i2 < str.length() && str.charAt(i2) >= '0' && str.charAt(i2) <= '9') {
-                i3++;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
+            int i2 = i;
+            while (i < str.length() && str.charAt(i) >= '0' && str.charAt(i) <= '9') {
                 i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLI.intValue;
     }

@@ -4,8 +4,7 @@ import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.io.Serializable;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MzPushMessage implements Serializable {
     public static final String TAG = "MzPushMessage";
     public String content;
@@ -37,7 +36,7 @@ public class MzPushMessage implements Serializable {
                 str = null;
             }
         }
-        c.k.a.a.a.b(TAG, "self json " + str);
+        c.h.a.a.a.b(TAG, "self json " + str);
         return str;
     }
 
@@ -69,12 +68,12 @@ public class MzPushMessage implements Serializable {
         this.content = str;
     }
 
-    public void setNotifyId(int i2) {
-        this.notifyId = i2;
+    public void setNotifyId(int i) {
+        this.notifyId = i;
     }
 
-    public void setPushType(int i2) {
-        this.pushType = i2;
+    public void setPushType(int i) {
+        this.pushType = i;
     }
 
     public void setSelfDefineContentString(String str) {
@@ -90,6 +89,6 @@ public class MzPushMessage implements Serializable {
     }
 
     public String toString() {
-        return "MzPushMessage{title='" + this.title + ExtendedMessageFormat.QUOTE + ", content='" + this.content + ExtendedMessageFormat.QUOTE + ", pushType=" + this.pushType + ", taskId='" + this.taskId + ExtendedMessageFormat.QUOTE + ", selfDefineContentString='" + this.selfDefineContentString + ExtendedMessageFormat.QUOTE + ", notifyId=" + this.notifyId + ExtendedMessageFormat.END_FE;
+        return "MzPushMessage{title='" + this.title + "', content='" + this.content + "', pushType=" + this.pushType + ", taskId='" + this.taskId + "', selfDefineContentString='" + this.selfDefineContentString + "', notifyId=" + this.notifyId + '}';
     }
 }

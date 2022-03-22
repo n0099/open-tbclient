@@ -14,7 +14,7 @@ import com.bumptech.glide.load.ResourceDecoder;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.bitmap.BitmapResource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class GifFrameResourceDecoder implements ResourceDecoder<GifDecoder, Bitmap> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public final class GifFrameResourceDecoder implements ResourceDecoder<GifDecoder
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,9 +51,9 @@ public final class GifFrameResourceDecoder implements ResourceDecoder<GifDecoder
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.ResourceDecoder
-    public Resource<Bitmap> decode(@NonNull GifDecoder gifDecoder, int i2, int i3, @NonNull Options options) {
+    public Resource<Bitmap> decode(@NonNull GifDecoder gifDecoder, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{gifDecoder, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? BitmapResource.obtain(gifDecoder.getNextFrame(), this.bitmapPool) : (Resource) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{gifDecoder, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? BitmapResource.obtain(gifDecoder.getNextFrame(), this.bitmapPool) : (Resource) invokeCommon.objValue;
     }
 }

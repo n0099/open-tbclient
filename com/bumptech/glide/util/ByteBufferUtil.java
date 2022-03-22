@@ -21,14 +21,14 @@ import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ByteBufferUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final AtomicReference<byte[]> BUFFER_REF;
     public static final int BUFFER_SIZE = 16384;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SafeArray {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,24 +36,24 @@ public final class ByteBufferUtil {
         public final int limit;
         public final int offset;
 
-        public SafeArray(@NonNull byte[] bArr, int i2, int i3) {
+        public SafeArray(@NonNull byte[] bArr, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bArr, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.data = bArr;
-            this.offset = i2;
-            this.limit = i3;
+            this.offset = i;
+            this.limit = i2;
         }
     }
 
@@ -78,9 +78,9 @@ public final class ByteBufferUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -250,8 +250,8 @@ public final class ByteBufferUtil {
             SafeArray safeArray = getSafeArray(byteBuffer);
             if (safeArray != null) {
                 byte[] bArr = safeArray.data;
-                int i2 = safeArray.offset;
-                outputStream.write(bArr, i2, safeArray.limit + i2);
+                int i = safeArray.offset;
+                outputStream.write(bArr, i, safeArray.limit + i);
                 return;
             }
             byte[] andSet = BUFFER_REF.getAndSet(null);
@@ -267,7 +267,7 @@ public final class ByteBufferUtil {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ByteBufferStream extends InputStream {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int UNSET = -1;
@@ -283,9 +283,9 @@ public final class ByteBufferUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {byteBuffer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -303,9 +303,9 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public synchronized void mark(int i2) {
+        public synchronized void mark(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 synchronized (this) {
                     this.markPos = this.byteBuffer.position();
                 }
@@ -350,12 +350,12 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public long skip(long j2) throws IOException {
+        public long skip(long j) throws IOException {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
                 if (this.byteBuffer.hasRemaining()) {
-                    long min = Math.min(j2, available());
+                    long min = Math.min(j, available());
                     ByteBuffer byteBuffer = this.byteBuffer;
                     byteBuffer.position((int) (byteBuffer.position() + min));
                     return min;
@@ -366,13 +366,13 @@ public final class ByteBufferUtil {
         }
 
         @Override // java.io.InputStream
-        public int read(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+        public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
                 if (this.byteBuffer.hasRemaining()) {
-                    int min = Math.min(i3, available());
-                    this.byteBuffer.get(bArr, i2, min);
+                    int min = Math.min(i2, available());
+                    this.byteBuffer.get(bArr, i, min);
                     return min;
                 }
                 return -1;

@@ -8,42 +8,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.f;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57851b;
+    public long f42618b;
 
     /* renamed from: c  reason: collision with root package name */
-    public /* synthetic */ a f57852c;
+    public /* synthetic */ a f42619c;
 
-    public e(a aVar, long j2) {
+    public e(a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Long.valueOf(j2)};
+            Object[] objArr = {aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f57852c = aVar;
+        this.f42619c = aVar;
         this.a = new Handler(Looper.getMainLooper());
-        this.f57851b = j2;
+        this.f42618b = j;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.postDelayed(this, this.f57851b);
+            this.a.postDelayed(this, this.f42618b);
         }
     }
 
@@ -62,15 +62,15 @@ public final class e implements Runnable {
         f fVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            fVar = this.f57852c.f57838f;
+            fVar = this.f42619c.f42605f;
             if (fVar != null) {
                 str = a.a;
-                bool = a.f57834b;
+                bool = a.f42601b;
                 com.sdk.base.framework.a.a.c.c(str, "超时，已取消请求", bool);
-                fVar2 = this.f57852c.f57838f;
+                fVar2 = this.f42619c.f42605f;
                 fVar2.a();
             }
-            this.f57852c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
+            this.f42619c.a(1, "超时", 101005, null, com.sdk.base.framework.f.f.a.b().a());
         }
     }
 }

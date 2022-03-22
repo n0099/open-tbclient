@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryTrimmableRegistry, poolParams, poolStatsTracker};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((MemoryTrimmableRegistry) objArr2[0], (PoolParams) objArr2[1], (PoolStatsTracker) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -43,26 +43,26 @@ public class BucketsBitmapPool extends BasePool<Bitmap> implements BitmapPool {
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getBucketedSize(int i2) {
+    public int getBucketedSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public int getSizeInBytes(int i2) {
+    public int getSizeInBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    public Bitmap alloc(int i2) {
+    public Bitmap alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Bitmap.createBitmap(1, (int) Math.ceil(i2 / 2.0d), Bitmap.Config.RGB_565) : (Bitmap) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Bitmap.createBitmap(1, (int) Math.ceil(i / 2.0d), Bitmap.Config.RGB_565) : (Bitmap) invokeI.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

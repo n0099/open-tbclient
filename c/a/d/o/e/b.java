@@ -11,24 +11,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public View f3082e;
+    public View a;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3082e = null;
+        this.a = null;
     }
 
     public abstract View a();
@@ -37,10 +35,10 @@ public abstract class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f3082e == null) {
-                this.f3082e = a();
+            if (this.a == null) {
+                this.a = a();
             }
-            return this.f3082e;
+            return this.a;
         }
         return (View) invokeV.objValue;
     }

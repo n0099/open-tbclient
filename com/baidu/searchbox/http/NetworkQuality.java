@@ -49,9 +49,9 @@ public class NetworkQuality {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {executor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,7 +71,7 @@ public class NetworkQuality {
             return (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) ? this.mExecutor : (Executor) invokeV.objValue;
         }
 
-        public abstract void onNetworkQualityChanged(int i2);
+        public abstract void onNetworkQualityChanged(int i);
     }
 
     static {
@@ -97,9 +97,9 @@ public class NetworkQuality {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -131,10 +131,10 @@ public class NetworkQuality {
         return (JSONObject) invokeV.objValue;
     }
 
-    public static String getNameOfQuality(int i2) {
+    public static String getNameOfQuality(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? i2 != -1 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? String.valueOf(i2) : "Offline" : "Bad" : "Good" : "Unknown" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i != -1 ? i != 1 ? i != 2 ? i != 3 ? String.valueOf(i) : "Offline" : "Bad" : "Good" : "Unknown" : (String) invokeI.objValue;
     }
 
     public static int getNetworkQuality() {
@@ -165,8 +165,8 @@ public class NetworkQuality {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            int i2 = sNetworkQuality;
-            return i2 == 2 || i2 == 3;
+            int i = sNetworkQuality;
+            return i == 2 || i == 3;
         }
         return invokeV.booleanValue;
     }
@@ -199,14 +199,14 @@ public class NetworkQuality {
         }
     }
 
-    public static void updateNetworkQuality(int i2, int i3) {
+    public static void updateNetworkQuality(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65550, null, i2, i3) == null) || i2 == sLastNetworkQualityQuality) {
+        if (!(interceptable == null || interceptable.invokeII(65550, null, i, i2) == null) || i == sLastNetworkQualityQuality) {
             return;
         }
         synchronized (sNetworkQualityListeners) {
-            sNetworkQuality = i2;
-            sNetworkQualityUpdateFrom = i3;
+            sNetworkQuality = i;
+            sNetworkQualityUpdateFrom = i2;
             for (NetworkQualityListener networkQualityListener : sNetworkQualityListeners) {
                 try {
                     networkQualityListener.getExecutor().execute(new Runnable(networkQualityListener) { // from class: com.baidu.searchbox.http.NetworkQuality.1
@@ -221,9 +221,9 @@ public class NetworkQuality {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {networkQualityListener};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -245,7 +245,7 @@ public class NetworkQuality {
                 } catch (Exception unused) {
                 }
             }
-            sLastNetworkQualityQuality = i2;
+            sLastNetworkQualityQuality = i;
         }
     }
 
@@ -267,9 +267,9 @@ public class NetworkQuality {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -281,16 +281,16 @@ public class NetworkQuality {
             this.sdtProbeDomains = new ArrayList();
         }
 
-        public WeakNetCheckConfig(long j2, long j3, long j4, List<String> list, boolean z, boolean z2) {
+        public WeakNetCheckConfig(long j, long j2, long j3, List<String> list, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -300,14 +300,14 @@ public class NetworkQuality {
             this.weakTtfbThresholdMillis = 1000L;
             this.nqeWeakTtfbThresholdMillis = 1000L;
             this.sdtProbeDomains = new ArrayList();
+            if (j > 0) {
+                this.goodTtfbThresholdMillis = j;
+            }
             if (j2 > 0) {
-                this.goodTtfbThresholdMillis = j2;
+                this.weakTtfbThresholdMillis = j2;
             }
             if (j3 > 0) {
-                this.weakTtfbThresholdMillis = j3;
-            }
-            if (j4 > 0) {
-                this.nqeWeakTtfbThresholdMillis = j4;
+                this.nqeWeakTtfbThresholdMillis = j3;
             }
             if (list != null && !list.isEmpty()) {
                 ArrayList arrayList = new ArrayList();

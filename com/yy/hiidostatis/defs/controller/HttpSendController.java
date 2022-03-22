@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpSendController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,16 +23,16 @@ public class HttpSendController {
     public TreeMap<Long, SendCell> waitForSend;
     public int waitQueueCapacity;
 
-    public HttpSendController(IStatisHttpUtil iStatisHttpUtil, File file, int i2, int i3) {
+    public HttpSendController(IStatisHttpUtil iStatisHttpUtil, File file, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iStatisHttpUtil, file, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {iStatisHttpUtil, file, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,8 +43,8 @@ public class HttpSendController {
         this.delayStep = 2;
         this.httpUtil = iStatisHttpUtil;
         this.cacheDir = file;
-        this.waitQueueCapacity = i2;
-        this.delayStep = i3;
+        this.waitQueueCapacity = i;
+        this.delayStep = i2;
         loadSendCellFromFile();
     }
 
@@ -64,9 +64,9 @@ public class HttpSendController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -156,9 +156,9 @@ public class HttpSendController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sendCell};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -180,9 +180,9 @@ public class HttpSendController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendHttp(long j2) {
+    public void sendHttp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65551, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65551, this, j) == null) {
             ThreadPool.getPool().execute(new Runnable(this) { // from class: com.yy.hiidostatis.defs.controller.HttpSendController.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -195,9 +195,9 @@ public class HttpSendController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -241,14 +241,14 @@ public class HttpSendController {
                         }
                     }
                 }
-            }, j2 * 1000);
+            }, j * 1000);
         }
     }
 
-    public void send(String str, long j2) {
+    public void send(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-            putTask(new SendCell(str, j2));
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            putTask(new SendCell(str, j));
             sendHttp(0L);
         }
     }

@@ -50,9 +50,9 @@ public class b {
             newInitContext.initArgs = r3;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,16 +85,16 @@ public class b {
                     if (optJSONObject5 != null) {
                         JSONArray optJSONArray = optJSONObject5.optJSONArray(str7);
                         ArrayList arrayList3 = new ArrayList(optJSONArray.length());
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            arrayList3.add(optJSONArray.getString(i4));
+                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                            arrayList3.add(optJSONArray.getString(i3));
                         }
                         JSONArray optJSONArray2 = optJSONObject5.optJSONArray(str6);
                         if (optJSONArray2 == null || optJSONArray2.length() <= 0) {
                             arrayList2 = null;
                         } else {
                             ArrayList arrayList4 = new ArrayList(optJSONArray2.length());
-                            for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
-                                arrayList4.add(optJSONArray2.getString(i5));
+                            for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                                arrayList4.add(optJSONArray2.getString(i4));
                             }
                             arrayList2 = arrayList4;
                         }
@@ -152,8 +152,8 @@ public class b {
                     if (optJSONObject6 != null) {
                         JSONArray optJSONArray3 = optJSONObject6.optJSONArray(str11);
                         ArrayList arrayList5 = new ArrayList(optJSONArray3.length());
-                        for (int i6 = 0; i6 < optJSONArray3.length(); i6++) {
-                            arrayList5.add(optJSONArray3.getString(i6));
+                        for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
+                            arrayList5.add(optJSONArray3.getString(i5));
                         }
                         if (!arrayList5.isEmpty()) {
                             this.U.put(next2, new a(optString, optInt, str10, optLong, arrayList5, null));
@@ -178,16 +178,16 @@ public class b {
                         JSONArray optJSONArray4 = optJSONObject7.optJSONArray(str2);
                         if (optJSONArray4 != null && optJSONArray4.length() > 0) {
                             ArrayList arrayList6 = new ArrayList(optJSONArray4.length());
-                            for (int i7 = 0; i7 < optJSONArray4.length(); i7++) {
-                                arrayList6.add(optJSONArray4.getString(i7));
+                            for (int i6 = 0; i6 < optJSONArray4.length(); i6++) {
+                                arrayList6.add(optJSONArray4.getString(i6));
                             }
                             JSONArray optJSONArray5 = optJSONObject7.optJSONArray(str11);
                             if (optJSONArray5 == null || optJSONArray5.length() <= 0) {
                                 arrayList = null;
                             } else {
                                 arrayList = new ArrayList(optJSONArray5.length());
-                                for (int i8 = 0; i8 < optJSONArray5.length(); i8++) {
-                                    arrayList.add(optJSONArray5.getString(i8));
+                                for (int i7 = 0; i7 < optJSONArray5.length(); i7++) {
+                                    arrayList.add(optJSONArray5.getString(i7));
                                 }
                             }
                             if (this.T == null) {

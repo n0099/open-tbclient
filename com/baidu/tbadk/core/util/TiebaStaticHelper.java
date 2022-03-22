@@ -43,9 +43,9 @@ public class TiebaStaticHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -95,7 +95,7 @@ public class TiebaStaticHelper {
     }
 
     public static void setCurrentActivity(String str) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
             mCurrentActivityAllName = str;
@@ -104,8 +104,8 @@ public class TiebaStaticHelper {
                 return;
             }
             int lastIndexOf = str.lastIndexOf(".");
-            if (lastIndexOf != -1 && (i2 = lastIndexOf + 1) < str.length()) {
-                str = str.substring(i2, str.length());
+            if (lastIndexOf != -1 && (i = lastIndexOf + 1) < str.length()) {
+                str = str.substring(i, str.length());
             }
             HashMap<String, String> hashMap = mActivityNames;
             String str2 = hashMap != null ? hashMap.get(str) : "";

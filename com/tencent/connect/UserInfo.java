@@ -12,7 +12,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UserInfo extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GRAPH_OPEN_ID = "oauth2.0/m_me";
@@ -27,9 +27,9 @@ public class UserInfo extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, qQToken};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,14 +41,14 @@ public class UserInfo extends BaseApi {
     public void getOpenId(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f58993c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f43645c, f.a(), GRAPH_OPEN_ID, a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 
     public void getUserInfo(IUiListener iUiListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iUiListener) == null) {
-            HttpUtils.requestAsync(this.f58993c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f43645c, f.a(), "user/get_simple_userinfo", a(), "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 
@@ -61,9 +61,9 @@ public class UserInfo extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar, qQToken};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c) objArr2[0], (QQToken) objArr2[1]);
                 newInitContext.thisArg = this;

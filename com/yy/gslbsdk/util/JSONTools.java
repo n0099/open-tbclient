@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JSONTools {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,20 +18,20 @@ public class JSONTools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void doFill(StringBuilder sb, int i2, String str) {
+    public static void doFill(StringBuilder sb, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, sb, i2, str) == null) {
-            sb.append(StringUtils.LF);
-            for (int i3 = 0; i3 < i2; i3++) {
+        if (interceptable == null || interceptable.invokeLIL(65537, null, sb, i, str) == null) {
+            sb.append("\n");
+            for (int i2 = 0; i2 < i; i2++) {
                 sb.append(str);
             }
         }
@@ -40,7 +39,7 @@ public class JSONTools {
 
     public static String formatJson(String str, String str2) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             if (str == null || str.trim().length() == 0) {
@@ -52,57 +51,57 @@ public class JSONTools {
                 str = str.substring(token.length());
                 arrayList.add(token.trim());
             }
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < arrayList.size(); i5++) {
-                int length = ((String) arrayList.get(i5)).getBytes().length;
-                if (length > i4 && i5 < arrayList.size() - 1 && ((String) arrayList.get(i5 + 1)).equals(":")) {
-                    i4 = length;
+            for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                int length = ((String) arrayList.get(i4)).getBytes().length;
+                if (length > i3 && i4 < arrayList.size() - 1 && ((String) arrayList.get(i4 + 1)).equals(":")) {
+                    i3 = length;
                 }
             }
             StringBuilder sb = new StringBuilder();
-            int i6 = 0;
-            while (i3 < arrayList.size()) {
-                String str3 = (String) arrayList.get(i3);
+            int i5 = 0;
+            while (i2 < arrayList.size()) {
+                String str3 = (String) arrayList.get(i2);
                 if (str3.equals(",")) {
                     sb.append(str3);
-                    doFill(sb, i6, str2);
+                    doFill(sb, i5, str2);
                 } else if (str3.equals(":")) {
                     sb.append("");
                     sb.append(str3);
                     sb.append(" ");
                 } else if (str3.equals("{")) {
-                    i2 = i3 + 1;
-                    if (((String) arrayList.get(i2)).equals("}")) {
+                    i = i2 + 1;
+                    if (((String) arrayList.get(i)).equals("}")) {
                         sb.append("{ }");
-                        i3 = i2;
+                        i2 = i;
                     } else {
-                        i6++;
+                        i5++;
                         sb.append(str3);
-                        doFill(sb, i6, str2);
+                        doFill(sb, i5, str2);
                     }
                 } else if (str3.equals("}")) {
-                    i6--;
-                    doFill(sb, i6, str2);
+                    i5--;
+                    doFill(sb, i5, str2);
                     sb.append(str3);
                 } else if (str3.equals(PreferencesUtil.LEFT_MOUNT)) {
-                    i2 = i3 + 1;
-                    if (((String) arrayList.get(i2)).equals(PreferencesUtil.RIGHT_MOUNT)) {
+                    i = i2 + 1;
+                    if (((String) arrayList.get(i)).equals(PreferencesUtil.RIGHT_MOUNT)) {
                         sb.append("[ ]");
-                        i3 = i2;
+                        i2 = i;
                     } else {
-                        i6++;
+                        i5++;
                         sb.append(str3);
-                        doFill(sb, i6, str2);
+                        doFill(sb, i5, str2);
                     }
                 } else if (str3.equals(PreferencesUtil.RIGHT_MOUNT)) {
-                    i6--;
-                    doFill(sb, i6, str2);
+                    i5--;
+                    doFill(sb, i5, str2);
                     sb.append(str3);
                 } else {
                     sb.append(str3);
                 }
-                i3++;
+                i2++;
             }
             return sb.toString();
         }

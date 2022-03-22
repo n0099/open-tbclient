@@ -7,9 +7,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.r0.y3.t0.b;
-import c.a.r0.y3.t0.c;
-import c.a.r0.y3.t0.d;
+import c.a.p0.a4.t0.b;
+import c.a.p0.a4.t0.c;
+import c.a.p0.a4.t0.d;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kuaishou.weapon.un.w0;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WriteActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ADDITION_DATA = "addition_data";
@@ -96,9 +96,9 @@ public class WriteActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -124,7 +124,7 @@ public class WriteActivityConfig extends IntentConfig {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d.f25215g = new Intent(getIntent());
+            d.f12397g = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -141,11 +141,11 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeL.objValue;
     }
 
-    public WriteActivityConfig setAlbumThread(int i2) {
+    public WriteActivityConfig setAlbumThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
@@ -185,11 +185,11 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeZ.objValue;
     }
 
-    public WriteActivityConfig setCategoryId(int i2) {
+    public WriteActivityConfig setCategoryId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            getIntent().putExtra("category_id", i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            getIntent().putExtra("category_id", i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
@@ -225,11 +225,11 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeL.objValue;
     }
 
-    public WriteActivityConfig setFloorNum(int i2) {
+    public WriteActivityConfig setFloorNum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            getIntent().putExtra("floor_num", i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            getIntent().putExtra("floor_num", i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
@@ -478,21 +478,21 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeL.objValue;
     }
 
-    public WriteActivityConfig setPrivateThread(int i2) {
+    public WriteActivityConfig setPrivateThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-            getIntent().putExtra("private_thread", i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+            getIntent().putExtra("private_thread", i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
     }
 
-    public WriteActivityConfig setProfessionZone(int i2) {
+    public WriteActivityConfig setProfessionZone(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
-            getIntent().putExtra(KEY_PROFESSION_ZONE, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+            getIntent().putExtra(KEY_PROFESSION_ZONE, i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
@@ -538,21 +538,21 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeL.objValue;
     }
 
-    public WriteActivityConfig setStarCount(int i2) {
+    public WriteActivityConfig setStarCount(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
-            getIntent().putExtra(STAR_COUNT, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
+            getIntent().putExtra(STAR_COUNT, i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
     }
 
-    public WriteActivityConfig setStatisticFrom(int i2) {
+    public WriteActivityConfig setStatisticFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
-            getIntent().putExtra(KEY_STATISTIS_FROM, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
+            getIntent().putExtra(KEY_STATISTIS_FROM, i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
@@ -598,11 +598,11 @@ public class WriteActivityConfig extends IntentConfig {
         return (WriteActivityConfig) invokeL.objValue;
     }
 
-    public WriteActivityConfig setType(int i2) {
+    public WriteActivityConfig setType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
-            getIntent().putExtra("type", i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i)) == null) {
+            getIntent().putExtra("type", i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;

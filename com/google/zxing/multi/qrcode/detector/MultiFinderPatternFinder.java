@@ -48,9 +48,9 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -102,9 +102,9 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BitMatrix) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -119,7 +119,7 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             List<FinderPattern> possibleCenters = getPossibleCenters();
             int size = possibleCenters.size();
-            int i2 = 3;
+            int i = 3;
             if (size >= 3) {
                 char c2 = 0;
                 if (size == 3) {
@@ -127,25 +127,25 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                 }
                 Collections.sort(possibleCenters, new ModuleSizeComparator(null));
                 ArrayList arrayList = new ArrayList();
-                int i3 = 0;
-                while (i3 < size - 2) {
-                    FinderPattern finderPattern = possibleCenters.get(i3);
+                int i2 = 0;
+                while (i2 < size - 2) {
+                    FinderPattern finderPattern = possibleCenters.get(i2);
                     if (finderPattern != null) {
-                        int i4 = i3 + 1;
-                        while (i4 < size - 1) {
-                            FinderPattern finderPattern2 = possibleCenters.get(i4);
+                        int i3 = i2 + 1;
+                        while (i3 < size - 1) {
+                            FinderPattern finderPattern2 = possibleCenters.get(i3);
                             if (finderPattern2 != null) {
                                 float estimatedModuleSize = (finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) / Math.min(finderPattern.getEstimatedModuleSize(), finderPattern2.getEstimatedModuleSize());
                                 float f2 = 0.05f;
                                 float f3 = 0.5f;
                                 if (Math.abs(finderPattern.getEstimatedModuleSize() - finderPattern2.getEstimatedModuleSize()) <= 0.5f || estimatedModuleSize < 0.05f) {
-                                    int i5 = i4 + 1;
-                                    while (i5 < size) {
-                                        FinderPattern finderPattern3 = possibleCenters.get(i5);
+                                    int i4 = i3 + 1;
+                                    while (i4 < size) {
+                                        FinderPattern finderPattern3 = possibleCenters.get(i4);
                                         if (finderPattern3 != null) {
                                             float estimatedModuleSize2 = (finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) / Math.min(finderPattern2.getEstimatedModuleSize(), finderPattern3.getEstimatedModuleSize());
                                             if (Math.abs(finderPattern2.getEstimatedModuleSize() - finderPattern3.getEstimatedModuleSize()) <= f3 || estimatedModuleSize2 < f2) {
-                                                FinderPattern[] finderPatternArr = new FinderPattern[i2];
+                                                FinderPattern[] finderPatternArr = new FinderPattern[i];
                                                 finderPatternArr[c2] = finderPattern;
                                                 finderPatternArr[1] = finderPattern2;
                                                 finderPatternArr[2] = finderPattern3;
@@ -163,21 +163,21 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
                                                 }
                                             }
                                         }
-                                        i5++;
-                                        i2 = 3;
+                                        i4++;
+                                        i = 3;
                                         c2 = 0;
                                         f2 = 0.05f;
                                         f3 = 0.5f;
                                     }
                                 }
                             }
-                            i4++;
-                            i2 = 3;
+                            i3++;
+                            i = 3;
                             c2 = 0;
                         }
                     }
-                    i3++;
-                    i2 = 3;
+                    i2++;
+                    i = 3;
                     c2 = 0;
                 }
                 if (!arrayList.isEmpty()) {
@@ -199,46 +199,46 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
             BitMatrix image = getImage();
             int height = image.getHeight();
             int width = image.getWidth();
-            int i2 = (((int) ((((float) height) / 228.0f) * 3.0f)) < 3 || z) ? 3 : 3;
+            int i = (((int) ((((float) height) / 228.0f) * 3.0f)) < 3 || z) ? 3 : 3;
             int[] iArr = new int[5];
-            for (int i3 = i2 - 1; i3 < height; i3 += i2) {
+            for (int i2 = i - 1; i2 < height; i2 += i) {
                 iArr[0] = 0;
                 iArr[1] = 0;
                 iArr[2] = 0;
                 iArr[3] = 0;
                 iArr[4] = 0;
-                int i4 = 0;
-                for (int i5 = 0; i5 < width; i5++) {
-                    if (image.get(i5, i3)) {
-                        if ((i4 & 1) == 1) {
-                            i4++;
+                int i3 = 0;
+                for (int i4 = 0; i4 < width; i4++) {
+                    if (image.get(i4, i2)) {
+                        if ((i3 & 1) == 1) {
+                            i3++;
                         }
-                        iArr[i4] = iArr[i4] + 1;
-                    } else if ((i4 & 1) != 0) {
-                        iArr[i4] = iArr[i4] + 1;
-                    } else if (i4 == 4) {
-                        if (FinderPatternFinder.foundPatternCross(iArr) && handlePossibleCenter(iArr, i3, i5, z2)) {
+                        iArr[i3] = iArr[i3] + 1;
+                    } else if ((i3 & 1) != 0) {
+                        iArr[i3] = iArr[i3] + 1;
+                    } else if (i3 == 4) {
+                        if (FinderPatternFinder.foundPatternCross(iArr) && handlePossibleCenter(iArr, i2, i4, z2)) {
                             iArr[0] = 0;
                             iArr[1] = 0;
                             iArr[2] = 0;
                             iArr[3] = 0;
                             iArr[4] = 0;
-                            i4 = 0;
+                            i3 = 0;
                         } else {
                             iArr[0] = iArr[2];
                             iArr[1] = iArr[3];
                             iArr[2] = iArr[4];
                             iArr[3] = 1;
                             iArr[4] = 0;
-                            i4 = 3;
+                            i3 = 3;
                         }
                     } else {
-                        i4++;
-                        iArr[i4] = iArr[i4] + 1;
+                        i3++;
+                        iArr[i3] = iArr[i3] + 1;
                     }
                 }
                 if (FinderPatternFinder.foundPatternCross(iArr)) {
-                    handlePossibleCenter(iArr, i3, width, z2);
+                    handlePossibleCenter(iArr, i2, width, z2);
                 }
             }
             FinderPattern[][] selectMutipleBestPatterns = selectMutipleBestPatterns();
@@ -264,9 +264,9 @@ public final class MultiFinderPatternFinder extends FinderPatternFinder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitMatrix, resultPointCallback};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BitMatrix) objArr2[0], (ResultPointCallback) objArr2[1]);
                 newInitContext.thisArg = this;

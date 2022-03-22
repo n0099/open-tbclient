@@ -3,6 +3,7 @@ package androidx.fragment.app;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -29,9 +30,9 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,7 +82,7 @@ public class FragmentLayoutInflaterFactory implements LayoutInflater.Factory2 {
                     findFragmentById = this.mFragmentManager.findFragmentById(id);
                 }
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    String str2 = "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById;
+                    Log.v("FragmentManager", "onCreateView: id=0x" + Integer.toHexString(resourceId) + " fname=" + attributeValue + " existing=" + findFragmentById);
                 }
                 if (findFragmentById == null) {
                     findFragmentById = this.mFragmentManager.getFragmentFactory().instantiate(context.getClassLoader(), attributeValue);

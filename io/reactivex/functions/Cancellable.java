@@ -1,5 +1,5 @@
 package io.reactivex.functions;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface Cancellable {
     void cancel() throws Exception;
 }

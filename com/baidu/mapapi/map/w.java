@@ -1,5 +1,6 @@
 package com.baidu.mapapi.map;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,55 +13,63 @@ public class w implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f34111b;
+    public final /* synthetic */ int f26347b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f34112c;
+    public final /* synthetic */ int f26348c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f34113d;
+    public final /* synthetic */ String f26349d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ TileOverlay f34114e;
+    public final /* synthetic */ TileOverlay f26350e;
 
-    public w(TileOverlay tileOverlay, int i2, int i3, int i4, String str) {
+    public w(TileOverlay tileOverlay, int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tileOverlay, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str};
+            Object[] objArr = {tileOverlay, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34114e = tileOverlay;
-        this.a = i2;
-        this.f34111b = i3;
-        this.f34112c = i4;
-        this.f34113d = str;
+        this.f26350e = tileOverlay;
+        this.a = i;
+        this.f26347b = i2;
+        this.f26348c = i3;
+        this.f26349d = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         TileProvider tileProvider;
+        String str;
+        String str2;
         HashSet hashSet;
-        String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            tileProvider = this.f34114e.f34073g;
-            Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.f34111b, this.f34112c);
-            if (tile != null && tile.width == 256 && tile.height == 256) {
-                this.f34114e.a(this.a + "_" + this.f34111b + "_" + this.f34112c, tile);
+            tileProvider = this.f26350e.f26313g;
+            Tile tile = ((FileTileProvider) tileProvider).getTile(this.a, this.f26347b, this.f26348c);
+            if (tile == null) {
+                str = TileOverlay.f26308b;
+                str2 = "FileTile pic is null";
+            } else if (tile.width == 256 && tile.height == 256) {
+                this.f26350e.a(this.a + "_" + this.f26347b + "_" + this.f26348c, tile);
+                hashSet = this.f26350e.f26312e;
+                hashSet.remove(this.f26349d);
             } else {
-                unused = TileOverlay.f34068b;
+                str = TileOverlay.f26308b;
+                str2 = "FileTile pic must be 256 * 256";
             }
-            hashSet = this.f34114e.f34072e;
-            hashSet.remove(this.f34113d);
+            Log.e(str, str2);
+            hashSet = this.f26350e.f26312e;
+            hashSet.remove(this.f26349d);
         }
     }
 }

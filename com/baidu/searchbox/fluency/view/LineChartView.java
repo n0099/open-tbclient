@@ -67,9 +67,9 @@ public final class LineChartView extends View {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -91,36 +91,36 @@ public final class LineChartView extends View {
         public final float[] linePoint;
         public final /* synthetic */ LineChartView this$0;
 
-        public LineInfo(LineChartView lineChartView, int i2, int i3) {
+        public LineInfo(LineChartView lineChartView, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lineChartView, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {lineChartView, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = lineChartView;
-            this.fps = i2;
-            this.color = i3;
+            this.fps = i;
+            this.color = i2;
             this.linePoint = r7;
             float[] fArr = {0.0f, 0.0f, lineChartView.lineWidth - (((60 - this.fps) * lineChartView.lineWidth) / 60)};
         }
 
-        public final void draw(Canvas canvas, int i2) {
+        public final void draw(Canvas canvas, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, canvas, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, canvas, i) == null) {
                 Intrinsics.checkNotNullParameter(canvas, "canvas");
                 if (this.this$0.paint.getColor() != this.color) {
                     this.this$0.paint.setColor(this.color);
                 }
-                this.linePoint[1] = (i2 + 1) * this.this$0.lineMargin;
+                this.linePoint[1] = (i + 1) * this.this$0.lineMargin;
                 float[] fArr = this.linePoint;
                 fArr[3] = fArr[1];
                 canvas.drawLine(fArr[0], fArr[1], fArr[2], fArr[3], this.this$0.paint);
@@ -165,9 +165,9 @@ public final class LineChartView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -178,20 +178,20 @@ public final class LineChartView extends View {
         Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    private final int getColor(int i2) {
+    private final int getColor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) {
-            if (i2 > 57) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) {
+            if (i > 57) {
                 return this.bestColor;
             }
-            if (i2 > 50) {
+            if (i > 50) {
                 return this.normalColor;
             }
-            if (i2 > 35) {
+            if (i > 35) {
                 return this.middleColor;
             }
-            if (i2 > 20) {
+            if (i > 20) {
                 return this.highColor;
             }
             return this.frozenColor;
@@ -208,17 +208,17 @@ public final class LineChartView extends View {
         hashMap.clear();
     }
 
-    public View _$_findCachedViewById(int i2) {
+    public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this._$_findViewCache == null) {
                 this._$_findViewCache = new HashMap();
             }
-            View view = (View) this._$_findViewCache.get(Integer.valueOf(i2));
+            View view = (View) this._$_findViewCache.get(Integer.valueOf(i));
             if (view == null) {
-                View findViewById = findViewById(i2);
-                this._$_findViewCache.put(Integer.valueOf(i2), findViewById);
+                View findViewById = findViewById(i);
+                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
                 return findViewById;
             }
             return view;
@@ -226,10 +226,10 @@ public final class LineChartView extends View {
         return (View) invokeI.objValue;
     }
 
-    public final void addFps(int i2) {
+    public final void addFps(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            LineInfo lineInfo = new LineInfo(this, i2, getColor(i2));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            LineInfo lineInfo = new LineInfo(this, i, getColor(i));
             if (this.lines.size() >= 50) {
                 this.lines.removeLast();
             }
@@ -248,27 +248,27 @@ public final class LineChartView extends View {
             }
             float dp2px = CommonUtilsKt.dp2px(8);
             Iterator<LineInfo> it = this.lines.iterator();
-            int i2 = 0;
-            int i3 = 1;
+            int i = 0;
+            int i2 = 1;
             while (it.hasNext()) {
                 LineInfo next = it.next();
-                i2 += next.getFps();
-                next.draw(canvas, i3);
-                if (i3 % 25 == 0) {
+                i += next.getFps();
+                next.draw(canvas, i2);
+                if (i2 % 25 == 0) {
                     Path path = new Path();
                     float f2 = next.getLinePoint()[1];
                     path.moveTo(0.0f, f2);
                     path.lineTo(this.width, f2);
                     canvas.drawPath(path, this.tipLinePaint);
                     this.tipPaint.setColor(this.tipColor);
-                    canvas.drawText(String.valueOf(i3 / 5) + "s", this.lineWidth, f2 + dp2px, this.tipPaint);
-                    if (i3 > 0) {
-                        int i4 = i2 / i3;
-                        this.tipPaint.setColor(getColor(i4));
-                        canvas.drawText(String.valueOf(i4) + "FPS", this.lineWidth, f2 - (dp2px / 2), this.tipPaint);
+                    canvas.drawText(String.valueOf(i2 / 5) + "s", this.lineWidth, f2 + dp2px, this.tipPaint);
+                    if (i2 > 0) {
+                        int i3 = i / i2;
+                        this.tipPaint.setColor(getColor(i3));
+                        canvas.drawText(String.valueOf(i3) + "FPS", this.lineWidth, f2 - (dp2px / 2), this.tipPaint);
                     }
                 }
-                i3++;
+                i2++;
             }
             this.tipPaint.setColor(this.tipColor);
             this.levelLinePaint.setColor(this.frozenColor);
@@ -291,15 +291,15 @@ public final class LineChartView extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048580, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            float f2 = i2;
+        if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            float f2 = i;
             this.width = f2;
             float f3 = f2 - (3 * this.lineRightPadding);
             this.lineWidth = f3;
-            this.height = i3;
+            this.height = i2;
             float f4 = f3 / 60;
             float f5 = 50;
             float dp2px = (this.lineMargin * f5) + CommonUtilsKt.dp2px(8);
@@ -330,9 +330,9 @@ public final class LineChartView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -344,17 +344,17 @@ public final class LineChartView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LineChartView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LineChartView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -380,22 +380,22 @@ public final class LineChartView extends View {
         this.lines = new LinkedList<>();
         Context context2 = getContext();
         Intrinsics.checkNotNullExpressionValue(context2, "context");
-        this.bestColor = context2.getResources().getColor(R.color.level_best_color);
+        this.bestColor = context2.getResources().getColor(R.color.obfuscated_res_0x7f06076f);
         Context context3 = getContext();
         Intrinsics.checkNotNullExpressionValue(context3, "context");
-        this.normalColor = context3.getResources().getColor(R.color.level_normal_color);
+        this.normalColor = context3.getResources().getColor(R.color.obfuscated_res_0x7f060773);
         Context context4 = getContext();
         Intrinsics.checkNotNullExpressionValue(context4, "context");
-        this.middleColor = context4.getResources().getColor(R.color.level_middle_color);
+        this.middleColor = context4.getResources().getColor(R.color.obfuscated_res_0x7f060772);
         Context context5 = getContext();
         Intrinsics.checkNotNullExpressionValue(context5, "context");
-        this.highColor = context5.getResources().getColor(R.color.level_high_color);
+        this.highColor = context5.getResources().getColor(R.color.obfuscated_res_0x7f060771);
         Context context6 = getContext();
         Intrinsics.checkNotNullExpressionValue(context6, "context");
-        this.frozenColor = context6.getResources().getColor(R.color.level_frozen_color);
+        this.frozenColor = context6.getResources().getColor(R.color.obfuscated_res_0x7f060770);
         Context context7 = getContext();
         Intrinsics.checkNotNullExpressionValue(context7, "context");
-        this.tipColor = context7.getResources().getColor(R.color.dark_text);
+        this.tipColor = context7.getResources().getColor(R.color.obfuscated_res_0x7f0606ca);
         this.paint.setStrokeWidth(this.lineStrokeWidth);
         this.tipPaint.setTextSize(CommonUtilsKt.dp2px(8));
         this.tipPaint.setStrokeWidth(CommonUtilsKt.dp2px(1));

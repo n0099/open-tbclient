@@ -1,12 +1,13 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class m implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +17,9 @@ public class m implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,8 +31,10 @@ public class m implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             q.a(context).getClass();
-            if (!q.f52910b) {
-                FunOpenIDSdk.isLogEnabled();
+            if (!q.f38671b) {
+                if (FunOpenIDSdk.isLogEnabled()) {
+                    Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
+                }
                 aVar.a(false, null);
                 return;
             }

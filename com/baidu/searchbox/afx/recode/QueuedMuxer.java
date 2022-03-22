@@ -67,35 +67,35 @@ public class QueuedMuxer {
         public final SampleType mSampleType;
         public final int mSize;
 
-        public /* synthetic */ SampleInfo(SampleType sampleType, int i2, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
-            this(sampleType, i2, bufferInfo);
+        public /* synthetic */ SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo, AnonymousClass1 anonymousClass1) {
+            this(sampleType, i, bufferInfo);
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i2) {
+        public void writeToBufferInfo(MediaCodec.BufferInfo bufferInfo, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65541, this, bufferInfo, i2) == null) {
-                bufferInfo.set(i2, this.mSize, this.mPresentationTimeUs, this.mFlags);
+            if (interceptable == null || interceptable.invokeLI(65541, this, bufferInfo, i) == null) {
+                bufferInfo.set(i, this.mSize, this.mPresentationTimeUs, this.mFlags);
             }
         }
 
-        public SampleInfo(SampleType sampleType, int i2, MediaCodec.BufferInfo bufferInfo) {
+        public SampleInfo(SampleType sampleType, int i, MediaCodec.BufferInfo bufferInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sampleType, Integer.valueOf(i2), bufferInfo};
+                Object[] objArr = {sampleType, Integer.valueOf(i), bufferInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mSampleType = sampleType;
-            this.mSize = i2;
+            this.mSize = i;
             this.mPresentationTimeUs = bufferInfo.presentationTimeUs;
             this.mFlags = bufferInfo.flags;
         }
@@ -127,16 +127,16 @@ public class QueuedMuxer {
             $VALUES = new SampleType[]{sampleType};
         }
 
-        public SampleType(String str, int i2) {
+        public SampleType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -166,9 +166,9 @@ public class QueuedMuxer {
             newInitContext.initArgs = r2;
             Object[] objArr = {mediaMuxer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -199,16 +199,16 @@ public class QueuedMuxer {
         this.mVideoTrackIndex = this.mMuxer.addTrack(mediaFormat);
         this.mMuxer.start();
         this.mStarted = true;
-        int i2 = 0;
+        int i = 0;
         if (this.mByteBuffer == null) {
             this.mByteBuffer = ByteBuffer.allocate(0);
         }
         this.mByteBuffer.flip();
         MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
         for (SampleInfo sampleInfo : this.mSampleInfoList) {
-            sampleInfo.writeToBufferInfo(bufferInfo, i2);
+            sampleInfo.writeToBufferInfo(bufferInfo, i);
             this.mMuxer.writeSampleData(getTrackIndexForSampleType(sampleInfo.mSampleType), this.mByteBuffer, bufferInfo);
-            i2 += sampleInfo.mSize;
+            i += sampleInfo.mSize;
         }
         this.mSampleInfoList.clear();
         this.mByteBuffer = null;

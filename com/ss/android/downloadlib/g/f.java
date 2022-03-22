@@ -7,7 +7,7 @@ import com.ss.android.socialbase.appdownloader.g;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public static void a(DownloadInfo downloadInfo, JSONObject jSONObject) {
         try {
@@ -84,13 +84,13 @@ public class f {
                 return;
             }
         }
-        int i2 = 1;
+        int i = 1;
         jSONObject.putOpt("permission_notification", Integer.valueOf(com.ss.android.socialbase.appdownloader.e.d.a() ? 1 : 2));
         jSONObject.putOpt("network_available", Integer.valueOf(com.ss.android.socialbase.downloader.i.f.c(com.ss.android.downloadlib.addownload.j.getContext()) ? 1 : 2));
         if (!com.ss.android.socialbase.downloader.i.f.b(com.ss.android.downloadlib.addownload.j.getContext())) {
-            i2 = 2;
+            i = 2;
         }
-        jSONObject.putOpt("network_is_wifi", Integer.valueOf(i2));
+        jSONObject.putOpt("network_is_wifi", Integer.valueOf(i));
     }
 
     public static void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject) {
@@ -105,15 +105,15 @@ public class f {
         }
     }
 
-    public static void a(JSONObject jSONObject, int i2) {
+    public static void a(JSONObject jSONObject, int i) {
         if (jSONObject == null) {
             return;
         }
-        JSONArray e2 = com.ss.android.socialbase.downloader.g.a.a(i2).e("ah_report_config");
+        JSONArray e2 = com.ss.android.socialbase.downloader.g.a.a(i).e("ah_report_config");
         if (e2 != null) {
-            for (int i3 = 0; i3 < e2.length(); i3++) {
+            for (int i2 = 0; i2 < e2.length(); i2++) {
                 try {
-                    String string = e2.getString(i3);
+                    String string = e2.getString(i2);
                     g.a a = com.ss.android.socialbase.appdownloader.f.a.a(string);
                     if (a != null) {
                         String replaceAll = string.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "_");

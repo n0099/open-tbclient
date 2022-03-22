@@ -58,9 +58,9 @@ public final class NetWorkUtils implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -120,7 +120,7 @@ public final class NetWorkUtils implements INoProGuard {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void onNetWorkChanged(Context context, NetworkInfo networkInfo) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(65543, null, context, networkInfo) != null) {
             return;
@@ -157,7 +157,7 @@ public final class NetWorkUtils implements INoProGuard {
                             sConnectionType = 3;
                             break;
                         case 13:
-                            i2 = 4;
+                            i = 4;
                             break;
                         default:
                             sConnectionType = 1;
@@ -198,11 +198,11 @@ public final class NetWorkUtils implements INoProGuard {
                     Log.d("linhua01", "network changed: " + sConnectionType + "_" + sOperatorType);
                     return;
                 }
-                i2 = 5;
+                i = 5;
             } else {
-                i2 = networkInfo.getType() == 1 ? 100 : networkInfo.getType() == 9 ? 101 : 999;
+                i = networkInfo.getType() == 1 ? 100 : networkInfo.getType() == 9 ? 101 : 999;
             }
-            sConnectionType = i2;
+            sConnectionType = i;
             boolean z22 = z;
             if (context == null) {
             }

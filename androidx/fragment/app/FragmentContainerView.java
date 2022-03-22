@@ -40,9 +40,9 @@ public final class FragmentContainerView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -66,11 +66,11 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(@NonNull View view, int i2, @Nullable ViewGroup.LayoutParams layoutParams) {
+    public void addView(@NonNull View view, int i, @Nullable ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
             if (FragmentManager.getViewFragment(view) != null) {
-                super.addView(view, i2, layoutParams);
+                super.addView(view, i, layoutParams);
                 return;
             }
             throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view + " is not associated with a Fragment.");
@@ -78,12 +78,12 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean addViewInLayout(@NonNull View view, int i2, @Nullable ViewGroup.LayoutParams layoutParams, boolean z) {
+    public boolean addViewInLayout(@NonNull View view, int i, @Nullable ViewGroup.LayoutParams layoutParams, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Integer.valueOf(i2), layoutParams, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, Integer.valueOf(i), layoutParams, Boolean.valueOf(z)})) == null) {
             if (FragmentManager.getViewFragment(view) != null) {
-                return super.addViewInLayout(view, i2, layoutParams, z);
+                return super.addViewInLayout(view, i, layoutParams, z);
             }
             throw new IllegalStateException("Views added to a FragmentContainerView must be associated with a Fragment. View " + view + " is not associated with a Fragment.");
         }
@@ -95,8 +95,8 @@ public final class FragmentContainerView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             if (this.mDrawDisappearingViewsFirst && this.mDisappearingFragmentChildren != null) {
-                for (int i2 = 0; i2 < this.mDisappearingFragmentChildren.size(); i2++) {
-                    super.drawChild(canvas, this.mDisappearingFragmentChildren.get(i2), getDrawingTime());
+                for (int i = 0; i < this.mDisappearingFragmentChildren.size(); i++) {
+                    super.drawChild(canvas, this.mDisappearingFragmentChildren.get(i), getDrawingTime());
                 }
             }
             super.dispatchDraw(canvas);
@@ -104,13 +104,13 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j2) {
+    public boolean drawChild(@NonNull Canvas canvas, @NonNull View view, long j) {
         InterceptResult invokeCommon;
         ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             if (!this.mDrawDisappearingViewsFirst || (arrayList = this.mDisappearingFragmentChildren) == null || arrayList.size() <= 0 || !this.mDisappearingFragmentChildren.contains(view)) {
-                return super.drawChild(canvas, view, j2);
+                return super.drawChild(canvas, view, j);
             }
             return false;
         }
@@ -140,8 +140,8 @@ public final class FragmentContainerView extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, windowInsets)) == null) {
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                getChildAt(i2).dispatchApplyWindowInsets(new WindowInsets(windowInsets));
+            for (int i = 0; i < getChildCount(); i++) {
+                getChildAt(i).dispatchApplyWindowInsets(new WindowInsets(windowInsets));
             }
             return windowInsets;
         }
@@ -180,11 +180,11 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i2) {
+    public void removeViewAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            addDisappearingFragmentView(getChildAt(i2));
-            super.removeViewAt(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            addDisappearingFragmentView(getChildAt(i));
+            super.removeViewAt(i);
         }
     }
 
@@ -198,24 +198,24 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViews(int i2, int i3) {
+    public void removeViews(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            for (int i4 = i2; i4 < i2 + i3; i4++) {
-                addDisappearingFragmentView(getChildAt(i4));
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                addDisappearingFragmentView(getChildAt(i3));
             }
-            super.removeViews(i2, i3);
+            super.removeViews(i, i2);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewsInLayout(int i2, int i3) {
+    public void removeViewsInLayout(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            for (int i4 = i2; i4 < i2 + i3; i4++) {
-                addDisappearingFragmentView(getChildAt(i4));
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            for (int i3 = i; i3 < i + i2; i3++) {
+                addDisappearingFragmentView(getChildAt(i3));
             }
-            super.removeViewsInLayout(i2, i3);
+            super.removeViewsInLayout(i, i2);
         }
     }
 
@@ -261,9 +261,9 @@ public final class FragmentContainerView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -274,17 +274,17 @@ public final class FragmentContainerView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FragmentContainerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FragmentContainerView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -308,9 +308,9 @@ public final class FragmentContainerView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, fragmentManager};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

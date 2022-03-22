@@ -1,5 +1,5 @@
 package com.tencent.tauth;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IUiListener {
     void onCancel();
 
@@ -7,5 +7,5 @@ public interface IUiListener {
 
     void onError(UiError uiError);
 
-    void onWarning(int i2);
+    void onWarning(int i);
 }

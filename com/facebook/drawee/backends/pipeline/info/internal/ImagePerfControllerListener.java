@@ -13,7 +13,7 @@ import com.facebook.drawee.backends.pipeline.info.ImagePerfState;
 import com.facebook.drawee.controller.BaseControllerListener;
 import com.facebook.imagepipeline.image.ImageInfo;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImagePerfControllerListener extends BaseControllerListener<ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
             newInitContext.initArgs = r2;
             Object[] objArr = {monotonicClock, imagePerfState, imagePerfMonitor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,11 +42,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    private void reportViewInvisible(long j2) {
+    private void reportViewInvisible(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65537, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65537, this, j) == null) {
             this.mImagePerfState.setVisible(false);
-            this.mImagePerfState.setInvisibilityEventTimeMs(j2);
+            this.mImagePerfState.setInvisibilityEventTimeMs(j);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 2);
         }
     }
@@ -93,11 +93,11 @@ public class ImagePerfControllerListener extends BaseControllerListener<ImageInf
     }
 
     @VisibleForTesting
-    public void reportViewVisible(long j2) {
+    public void reportViewVisible(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
             this.mImagePerfState.setVisible(true);
-            this.mImagePerfState.setVisibilityEventTimeMs(j2);
+            this.mImagePerfState.setVisibilityEventTimeMs(j);
             this.mImagePerfMonitor.notifyListenersOfVisibilityStateUpdate(this.mImagePerfState, 1);
         }
     }

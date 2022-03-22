@@ -23,9 +23,9 @@ public class AlarmReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,8 +40,8 @@ public class AlarmReceiver extends BroadcastReceiver {
             return;
         }
         String stringExtra2 = intent.getStringExtra("task_id");
-        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.interview_push_ticker_message, intent.getStringExtra("title"));
-        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.lego_interview_live);
+        String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0930, intent.getStringExtra("title"));
+        String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f09cf);
         Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), NotificationReceiver.class);
         int parseInt = Integer.parseInt(stringExtra2);
         intent2.putExtra("thread_id", intent.getStringExtra("tid"));

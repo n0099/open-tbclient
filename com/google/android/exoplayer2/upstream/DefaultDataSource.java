@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.upstream;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_ASSET = "asset";
@@ -40,9 +41,9 @@ public final class DefaultDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, transferListener, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (TransferListener) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
@@ -107,7 +108,16 @@ public final class DefaultDataSource implements DataSource {
             if (this.rtmpDataSource == null) {
                 try {
                     this.rtmpDataSource = (DataSource) Class.forName("com.google.android.exoplayer2.ext.rtmp.RtmpDataSource").getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
-                } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | NoSuchMethodException | InvocationTargetException unused) {
+                } catch (ClassNotFoundException unused) {
+                    Log.w(TAG, "Attempting to play RTMP stream without depending on the RTMP extension");
+                } catch (IllegalAccessException e2) {
+                    Log.e(TAG, "Error instantiating RtmpDataSource", e2);
+                } catch (InstantiationException e3) {
+                    Log.e(TAG, "Error instantiating RtmpDataSource", e3);
+                } catch (NoSuchMethodException e4) {
+                    Log.e(TAG, "Error instantiating RtmpDataSource", e4);
+                } catch (InvocationTargetException e5) {
+                    Log.e(TAG, "Error instantiating RtmpDataSource", e5);
                 }
                 if (this.rtmpDataSource == null) {
                     this.rtmpDataSource = this.baseDataSource;
@@ -176,24 +186,24 @@ public final class DefaultDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) ? this.dataSource.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) ? this.dataSource.read(bArr, i, i2) : invokeLII.intValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDataSource(Context context, TransferListener<? super DataSource> transferListener, String str, int i2, int i3, boolean z) {
-        this(context, transferListener, new DefaultHttpDataSource(str, null, transferListener, i2, i3, z, null));
+    public DefaultDataSource(Context context, TransferListener<? super DataSource> transferListener, String str, int i, int i2, boolean z) {
+        this(context, transferListener, new DefaultHttpDataSource(str, null, transferListener, i, i2, z, null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, transferListener, str, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {context, transferListener, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (TransferListener) objArr2[1], (DataSource) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -210,9 +220,9 @@ public final class DefaultDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, transferListener, dataSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

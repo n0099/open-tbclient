@@ -72,16 +72,16 @@ public class PoiInfo implements Parcelable {
             $VALUES = new POITYPE[]{POINT, BUS_STATION, BUS_LINE, SUBWAY_STATION, poitype};
         }
 
-        public POITYPE(String str, int i2, int i3) {
+        public POITYPE(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -90,18 +90,18 @@ public class PoiInfo implements Parcelable {
                     return;
                 }
             }
-            this.a = i3;
+            this.a = i2;
         }
 
-        public static POITYPE fromInt(int i2) {
+        public static POITYPE fromInt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 != 4) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
+                                if (i != 4) {
                                     return null;
                                 }
                                 return SUBWAY_LINE;
@@ -170,9 +170,9 @@ public class PoiInfo implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -186,9 +186,9 @@ public class PoiInfo implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -269,10 +269,10 @@ public class PoiInfo implements Parcelable {
             }
         }
 
-        public void setParentPoiDistance(int i2) {
+        public void setParentPoiDistance(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.parentPoiDistance = i2;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.parentPoiDistance = i;
             }
         }
 
@@ -305,13 +305,13 @@ public class PoiInfo implements Parcelable {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048591, this, parcel, i) == null) {
                 parcel.writeString(this.parentPoiName);
                 parcel.writeString(this.parentPoiTag);
                 parcel.writeString(this.parentPoiAddress);
-                parcel.writeParcelable(this.parentPoiLocation, i2);
+                parcel.writeParcelable(this.parentPoiLocation, i);
                 parcel.writeString(this.parentPoiDirection);
                 parcel.writeInt(this.parentPoiDistance);
                 parcel.writeString(this.parentPoiUid);
@@ -340,9 +340,9 @@ public class PoiInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -356,9 +356,9 @@ public class PoiInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -523,10 +523,10 @@ public class PoiInfo implements Parcelable {
         }
     }
 
-    public void setDetail(int i2) {
+    public void setDetail(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.detail = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.detail = i;
         }
     }
 
@@ -537,10 +537,10 @@ public class PoiInfo implements Parcelable {
         }
     }
 
-    public void setDistance(int i2) {
+    public void setDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.distance = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.distance = i;
         }
     }
 
@@ -697,9 +697,9 @@ public class PoiInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i) == null) {
             parcel.writeString(this.name);
             parcel.writeString(this.uid);
             parcel.writeString(this.address);

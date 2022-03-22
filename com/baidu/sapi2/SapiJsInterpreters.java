@@ -13,7 +13,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.face.liveness.callback.PassFaceRecogCallback;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
-import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.sapi2.SapiJsCallBacks;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.callback.IdcardOcrImageCallback;
@@ -38,6 +37,7 @@ import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.shell.response.SapiAccountResponse;
 import com.baidu.sapi2.shell.response.SocialResponse;
 import com.baidu.sapi2.stat.ShareLoginStat;
+import com.baidu.sapi2.stat.TouchidLoginStat;
 import com.baidu.sapi2.touchid.FingerprintUtil;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.PtokenStat;
@@ -52,6 +52,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.FastLoginFeature;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbEnum;
@@ -60,8 +61,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.api.IWalletLoginListener;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.tachikoma.core.component.anim.AnimationProperty;
 import com.tachikoma.core.component.input.InputType;
 import java.text.SimpleDateFormat;
@@ -100,9 +99,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,9 +128,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -172,9 +171,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -220,9 +219,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -258,9 +257,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -308,9 +307,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -351,9 +350,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -400,9 +399,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -446,9 +445,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -492,9 +491,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -560,9 +559,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -605,9 +604,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -660,9 +659,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -698,9 +697,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -741,9 +740,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -783,9 +782,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -822,9 +821,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -857,9 +856,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -896,9 +895,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -935,9 +934,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -981,9 +980,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1027,9 +1026,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1073,9 +1072,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1086,7 +1085,7 @@ public class SapiJsInterpreters {
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        /* JADX WARN: Code restructure failed: missing block: B:34:0x007a, code lost:
+        /* JADX WARN: Code restructure failed: missing block: B:34:0x007f, code lost:
             if (r5.equals(com.baidu.sapi2.utils.enums.FastLoginFeature.SSOLoginType.WEIXIN) != false) goto L10;
          */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
@@ -1230,9 +1229,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1276,9 +1275,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1324,9 +1323,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1370,9 +1369,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1418,9 +1417,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1454,9 +1453,9 @@ public class SapiJsInterpreters {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1497,9 +1496,9 @@ public class SapiJsInterpreters {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1519,8 +1518,8 @@ public class SapiJsInterpreters {
                             });
                         }
                     } else {
-                        int i2 = parseAuthorizedResult.errorCode;
-                        if (i2 == 0 || i2 == 110000) {
+                        int i = parseAuthorizedResult.errorCode;
+                        if (i == 0 || i == 110000) {
                             this.this$0.sapiWebView.handleAuthorizeResponse(parseAuthorizedResult);
                             if (SapiWebView.SWITCH_ACCOUNT_PAGE.equals(str2)) {
                                 JSONObject jSONObject = new JSONObject();
@@ -1545,9 +1544,9 @@ public class SapiJsInterpreters {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, parseAuthorizedResult};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1592,9 +1591,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1631,9 +1630,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1659,9 +1658,9 @@ public class SapiJsInterpreters {
                 if (SapiContext.getInstance().isHostsHijacked()) {
                     return sb.toString();
                 }
-                for (int i2 = 0; i2 < fastLoginFeatureList.size(); i2++) {
-                    FastLoginFeature fastLoginFeature = fastLoginFeatureList.get(i2);
-                    if (i2 == 0) {
+                for (int i = 0; i < fastLoginFeatureList.size(); i++) {
+                    FastLoginFeature fastLoginFeature = fastLoginFeatureList.get(i);
+                    if (i == 0) {
                         sb.append(fastLoginFeature.getStrValue());
                     } else {
                         sb.append(",");
@@ -1689,9 +1688,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1724,9 +1723,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1766,9 +1765,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1813,9 +1812,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1865,9 +1864,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1912,9 +1911,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2031,9 +2030,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, jSONObject};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -2090,9 +2089,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2141,9 +2140,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2186,9 +2185,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2234,9 +2233,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2280,9 +2279,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2357,9 +2356,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2404,9 +2403,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2446,9 +2445,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2475,9 +2474,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2516,9 +2515,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2558,9 +2557,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2592,9 +2591,9 @@ public class SapiJsInterpreters {
                 if (SapiContext.getInstance().isHostsHijacked()) {
                     return sb.toString();
                 }
-                for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    FastLoginFeature fastLoginFeature = (FastLoginFeature) arrayList.get(i2);
-                    if (i2 == 0) {
+                for (int i = 0; i < arrayList.size(); i++) {
+                    FastLoginFeature fastLoginFeature = (FastLoginFeature) arrayList.get(i);
+                    if (i == 0) {
                         sb.append(fastLoginFeature.getStrValue());
                     } else {
                         sb.append(",");
@@ -2622,9 +2621,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2664,9 +2663,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2706,9 +2705,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2738,9 +2737,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -2817,9 +2816,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2863,9 +2862,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2935,9 +2934,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -2964,9 +2963,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -3013,9 +3012,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3044,9 +3043,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -3087,9 +3086,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3108,7 +3107,7 @@ public class SapiJsInterpreters {
                     String str = command.getActionParams().get(0);
                     if (InputType.PASSWORD.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.PWD;
-                    } else if ("sms".equals(str)) {
+                    } else if (LoginConstants.SMS_LOGIN.equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.SMS;
                     } else if ("face".equals(str)) {
                         SapiContext.getInstance().mLastLoginType = Enums.LastLoginType.FACE;
@@ -3135,9 +3134,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3190,9 +3189,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3236,9 +3235,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3272,9 +3271,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3325,9 +3324,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3372,9 +3371,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3415,9 +3414,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3460,9 +3459,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3518,9 +3517,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3563,9 +3562,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3612,9 +3611,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3654,9 +3653,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3679,15 +3678,16 @@ public class SapiJsInterpreters {
                     JSONObject jSONObject = new JSONObject(command.getActionParams().get(0));
                     JSONArray optJSONArray = jSONObject.optJSONArray("pattern");
                     int optInt = jSONObject.optInt("repeat", -1);
+                    String optString = jSONObject.optString("broadcastText");
                     if (optJSONArray == null || optJSONArray.length() == 0) {
-                        this.this$0.jsCallBacks.makeVibrateCallBack.presetVibrate();
+                        this.this$0.jsCallBacks.makeVibrateCallBack.presetVibrate(optString);
                         return null;
                     }
                     long[] jArr = new long[optJSONArray.length()];
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        jArr[i2] = optJSONArray.getLong(i2);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        jArr[i] = optJSONArray.getLong(i);
                     }
-                    this.this$0.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt);
+                    this.this$0.jsCallBacks.makeVibrateCallBack.vibrate(jArr, optInt, optString);
                     return null;
                 } catch (JSONException e2) {
                     Log.e(SapiJsInterpreters.TAG, e2.getMessage());
@@ -3717,9 +3717,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3741,9 +3741,9 @@ public class SapiJsInterpreters {
                     }
                     ArrayList arrayList = new ArrayList();
                     int length = optJSONArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (!TextUtils.isEmpty(optJSONArray.optString(i2))) {
-                            arrayList.add(optJSONArray.optString(i2));
+                    for (int i = 0; i < length; i++) {
+                        if (!TextUtils.isEmpty(optJSONArray.optString(i))) {
+                            arrayList.add(optJSONArray.optString(i));
                         }
                     }
                     return SapiDeviceInfo.getDiCookieInfo(arrayList, false);
@@ -3771,9 +3771,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3817,9 +3817,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3843,13 +3843,13 @@ public class SapiJsInterpreters {
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
-                int i2 = calendar.get(1);
-                int i3 = calendar.get(2);
-                int i4 = calendar.get(5);
+                int i = calendar.get(1);
+                int i2 = calendar.get(2);
+                int i3 = calendar.get(5);
                 calendar.setTime(time);
-                int i5 = calendar.get(1);
-                int i6 = calendar.get(2);
-                int i7 = calendar.get(5);
+                int i4 = calendar.get(1);
+                int i5 = calendar.get(2);
+                int i6 = calendar.get(5);
                 DatePickerDialog datePickerDialog = new DatePickerDialog(this.this$0.context, 3, new DatePickerDialog.OnDateSetListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -3862,9 +3862,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i8 = newInitContext.flag;
-                            if ((i8 & 1) != 0) {
-                                int i9 = i8 & 2;
+                            int i7 = newInitContext.flag;
+                            if ((i7 & 1) != 0) {
+                                int i8 = i7 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -3874,13 +3874,13 @@ public class SapiJsInterpreters {
                     }
 
                     @Override // android.app.DatePickerDialog.OnDateSetListener
-                    public void onDateSet(DatePicker datePicker, int i8, int i9, int i10) {
+                    public void onDateSet(DatePicker datePicker, int i7, int i8, int i9) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, datePicker, i8, i9, i10) == null) {
-                            this.this$1.this$0.jsCallBacks.promptResult.confirm(i8 + String.format("%02d", Integer.valueOf(i9 + 1)) + String.format("%02d", Integer.valueOf(i10)) + "");
+                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, datePicker, i7, i8, i9) == null) {
+                            this.this$1.this$0.jsCallBacks.promptResult.confirm(i7 + String.format("%02d", Integer.valueOf(i8 + 1)) + String.format("%02d", Integer.valueOf(i9)) + "");
                         }
                     }
-                }, i2, i3, i4);
+                }, i, i2, i3);
                 datePickerDialog.setOnCancelListener(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickDate.2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -3893,9 +3893,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i8 = newInitContext.flag;
-                            if ((i8 & 1) != 0) {
-                                int i9 = i8 & 2;
+                            int i7 = newInitContext.flag;
+                            if ((i7 & 1) != 0) {
+                                int i8 = i7 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -3913,9 +3913,9 @@ public class SapiJsInterpreters {
                     }
                 });
                 datePickerDialog.setTitle("");
-                calendar.set(i5, i6, i7, 23, 59, 59);
+                calendar.set(i4, i5, i6, 23, 59, 59);
                 datePickerDialog.getDatePicker().setMaxDate(calendar.getTimeInMillis());
-                calendar.set(i5 - 100, i6, i7, 0, 0, 0);
+                calendar.set(i4 - 100, i5, i6, 0, 0, 0);
                 datePickerDialog.getDatePicker().setMinDate(calendar.getTimeInMillis());
                 datePickerDialog.show();
                 datePickerDialog.setCustomTitle(null);
@@ -3940,9 +3940,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -3957,24 +3957,24 @@ public class SapiJsInterpreters {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
-                int i2 = 0;
+                int i = 0;
                 try {
-                    i2 = Integer.parseInt(command.getActionParams().get(0));
+                    i = Integer.parseInt(command.getActionParams().get(0));
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
-                int i3 = 512;
-                int i4 = 1;
+                int i2 = 512;
+                int i3 = 1;
                 if (command.getActionParams().size() > 1) {
                     try {
                         JSONObject jSONObject = new JSONObject(command.getActionParams().get(1));
-                        i4 = jSONObject.optInt("sence", 1);
-                        i3 = jSONObject.optInt("size", 512);
+                        i3 = jSONObject.optInt("sence", 1);
+                        i2 = jSONObject.optInt("size", 512);
                     } catch (JSONException e3) {
                         Log.e(e3);
                     }
                 }
-                this.this$0.jsCallBacks.pickPhotoCallback.onPickImage(i2, i4, i3, new SapiWebView.PickPhotoResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
+                this.this$0.jsCallBacks.pickPhotoCallback.onPickImage(i, i3, i2, new SapiWebView.PickPhotoResult(this) { // from class: com.baidu.sapi2.SapiJsInterpreters.SapiActionPickImage.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SapiActionPickImage this$1;
@@ -3986,9 +3986,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -4027,9 +4027,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4090,9 +4090,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4146,9 +4146,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4194,9 +4194,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4235,9 +4235,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -4279,9 +4279,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4344,9 +4344,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4400,9 +4400,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4452,9 +4452,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4495,9 +4495,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4541,9 +4541,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4570,9 +4570,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -4633,9 +4633,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4667,9 +4667,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -4742,9 +4742,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4771,9 +4771,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -4840,9 +4840,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4869,9 +4869,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -4933,9 +4933,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -4965,9 +4965,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -5026,9 +5026,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5065,9 +5065,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -5122,9 +5122,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5165,9 +5165,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5200,9 +5200,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -5274,9 +5274,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5303,9 +5303,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -5344,9 +5344,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5403,7 +5403,7 @@ public class SapiJsInterpreters {
                 }
                 if (jSONObject != null) {
                     try {
-                        if (TextUtils.equals(jSONObject.optString(IWalletLoginListener.KEY_LOGIN_TYPE), "history")) {
+                        if (TextUtils.equals(jSONObject.optString("loginType"), "history")) {
                             LoginHistoryLoginModel.delBdussLoginHistoryInfo(jSONObject.optString("bduss"));
                         }
                     } catch (Exception e4) {
@@ -5431,9 +5431,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5462,7 +5462,7 @@ public class SapiJsInterpreters {
                         }
                         String optString4 = jSONObject.optString("trace_id");
                         String optString5 = jSONObject.optString("session_id");
-                        this.this$0.jsCallBacks.promptResult.confirm(ConstantHelper.LOG_FINISH);
+                        this.this$0.jsCallBacks.promptResult.confirm("finish");
                         ShareLoginStat.MakeShareLoginStat.sValueSence = "in";
                         this.this$0.jsCallBacks.shareAccountClickCallback.onClick(optString2, optString, optString4, optString5, optString3);
                     } catch (Exception e2) {
@@ -5490,9 +5490,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5519,9 +5519,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -5531,14 +5531,14 @@ public class SapiJsInterpreters {
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.SpeechRecognitionResult
-                    public void setSpeechData(int i2, String str) {
+                    public void setSpeechData(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) || this.this$1.this$0.jsCallBacks.promptResult == null) {
                             return;
                         }
                         try {
                             JSONObject jSONObject = new JSONObject();
-                            jSONObject.put("errno", i2);
+                            jSONObject.put("errno", i);
                             jSONObject.put("text", str);
                             this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                         } catch (JSONException e2) {
@@ -5567,9 +5567,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5625,9 +5625,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5671,9 +5671,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5726,9 +5726,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5773,9 +5773,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5785,8 +5785,8 @@ public class SapiJsInterpreters {
             this.this$0 = sapiJsInterpreters;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:18:0x0055  */
-        /* JADX WARN: Removed duplicated region for block: B:22:0x0072  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x0056  */
+        /* JADX WARN: Removed duplicated region for block: B:22:0x0073  */
         @Override // com.baidu.sapi2.SapiJsInterpreters.AbstractInterpreter
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -5844,9 +5844,9 @@ public class SapiJsInterpreters {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, jSONObject, currentAccount2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -5858,12 +5858,12 @@ public class SapiJsInterpreters {
                         }
 
                         @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                        public void setResult(int i2) {
+                        public void setResult(int i) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                                 try {
-                                    this.val$json.put("status", i2);
-                                    if (i2 == 0) {
+                                    this.val$json.put("status", i);
+                                    if (i == 0) {
                                         SapiContext.getInstance().addTouchidAccounts(this.val$currentAccount);
                                     }
                                     this.this$1.this$0.jsCallBacks.promptResult.confirm(this.val$json.toString());
@@ -5902,9 +5902,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -5936,17 +5936,17 @@ public class SapiJsInterpreters {
                         }
                     }
                     z = false;
-                    int i2 = (fingerPrintState != 0 || TextUtils.isEmpty(optString) || contains) ? 0 : 1;
+                    int i = (fingerPrintState != 0 || TextUtils.isEmpty(optString) || contains) ? 0 : 1;
                     if (!this.this$0.sapiWebView.supportTouchGuide) {
-                        i2 = 0;
+                        i = 0;
                     }
                     if (z) {
-                        i2 = 0;
+                        i = 0;
                     }
                     jSONObject.put("errno", 0);
-                    jSONObject.put("guide", i2);
+                    jSONObject.put("guide", i);
                     if (TextUtils.isEmpty(optString)) {
-                        str = HomeCfgResponse.ConfigData.GROUP_LAYOUR_GAP;
+                        str = "100";
                     } else if (fingerPrintState == 101 || fingerPrintState == 102) {
                         str = fingerPrintState + "";
                     } else if (contains) {
@@ -5959,9 +5959,11 @@ public class SapiJsInterpreters {
                         str = fingerPrintState + "";
                     }
                     LinkedHashMap linkedHashMap = new LinkedHashMap(1);
-                    linkedHashMap.put("native_guide_finger", str);
+                    linkedHashMap.put(TouchidLoginStat.VALUE_PAGE, str);
                     StatService.onEventAutoStatistic(linkedHashMap);
-                    if (i2 == 1) {
+                    TouchidLoginStat.sValue = str;
+                    TouchidLoginStat.upload();
+                    if (i == 1) {
                         SapiContext.getInstance().addTouchidLoginRecord(optString);
                     }
                 } catch (Exception e2) {
@@ -5988,9 +5990,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -6008,7 +6010,7 @@ public class SapiJsInterpreters {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, command)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    int i2 = 1;
+                    int i = 1;
                     if (FingerprintUtil.getFingerPrintState(this.this$0.configuration) == 0) {
                         List<SapiAccount> touchidAccounts = SapiContext.getInstance().getTouchidAccounts();
                         SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
@@ -6025,13 +6027,13 @@ public class SapiJsInterpreters {
                             }
                         }
                         if (!z) {
-                            i2 = 2;
+                            i = 2;
                         }
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
                     jSONObject.put("errno", 0);
-                    jSONObject.put("status", i2);
+                    jSONObject.put("status", i);
                 } catch (Exception e2) {
                     Log.e(e2);
                 }
@@ -6056,9 +6058,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -6085,9 +6087,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -6097,13 +6099,13 @@ public class SapiJsInterpreters {
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                    public void setResult(int i2) {
+                    public void setResult(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("errno", 0);
-                                jSONObject.put("status", i2);
+                                jSONObject.put("status", i);
                                 this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
                             } catch (Exception e2) {
                                 Log.e(e2);
@@ -6138,9 +6140,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -6168,9 +6170,9 @@ public class SapiJsInterpreters {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, command};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -6181,15 +6183,15 @@ public class SapiJsInterpreters {
                     }
 
                     @Override // com.baidu.sapi2.SapiJsCallBacks.FingerprintResult
-                    public void setResult(int i2) {
+                    public void setResult(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             JSONObject jSONObject = new JSONObject();
                             try {
                                 jSONObject.put("errno", 0);
-                                jSONObject.put("status", i2);
+                                jSONObject.put("status", i);
                                 this.this$1.this$0.jsCallBacks.promptResult.confirm(jSONObject.toString());
-                                if (i2 == 0) {
+                                if (i == 0) {
                                     try {
                                         JSONObject jSONObject2 = new JSONObject(this.val$command.getActionParams().get(0));
                                         String optString = jSONObject2.optString("portrait");
@@ -6240,9 +6242,9 @@ public class SapiJsInterpreters {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sapiJsInterpreters};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((SapiJsInterpreters) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -6289,9 +6291,9 @@ public class SapiJsInterpreters {
             newInitContext.initArgs = r2;
             Object[] objArr = {sapiWebView, callBacks};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

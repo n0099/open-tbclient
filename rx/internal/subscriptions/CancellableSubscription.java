@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.k;
-import i.m.a;
-import i.n.d;
-import i.r.c;
+import g.k;
+import g.m.a;
+import g.n.d;
+import g.r.c;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CancellableSubscription extends AtomicReference<d> implements k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5718521705281392066L;
@@ -26,9 +26,9 @@ public final class CancellableSubscription extends AtomicReference<d> implements
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,14 +37,14 @@ public final class CancellableSubscription extends AtomicReference<d> implements
         }
     }
 
-    @Override // i.k
+    @Override // g.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() == null : invokeV.booleanValue;
     }
 
-    @Override // i.k
+    @Override // g.k
     public void unsubscribe() {
         d andSet;
         Interceptable interceptable = $ic;

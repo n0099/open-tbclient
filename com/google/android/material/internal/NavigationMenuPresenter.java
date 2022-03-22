@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NavigationMenuPresenter implements MenuPresenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String STATE_ADAPTER = "android:menu:adapter";
@@ -68,7 +68,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     public boolean textAppearanceSet;
     public ColorStateList textColor;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HeaderViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -82,9 +82,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -94,7 +94,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class NavigationMenuAdapter extends RecyclerView.Adapter<ViewHolder> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String STATE_ACTION_VIEWS = "android:menu:action_views";
@@ -116,9 +116,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {navigationMenuPresenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,12 +129,12 @@ public class NavigationMenuPresenter implements MenuPresenter {
             prepareMenuItems();
         }
 
-        private void appendTransparentIconIfMissing(int i2, int i3) {
+        private void appendTransparentIconIfMissing(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(65537, this, i2, i3) == null) {
-                while (i2 < i3) {
-                    ((NavigationMenuTextItem) this.items.get(i2)).needsEmptyIcon = true;
-                    i2++;
+            if (interceptable == null || interceptable.invokeII(65537, this, i, i2) == null) {
+                while (i < i2) {
+                    ((NavigationMenuTextItem) this.items.get(i)).needsEmptyIcon = true;
+                    i++;
                 }
             }
         }
@@ -147,12 +147,12 @@ public class NavigationMenuPresenter implements MenuPresenter {
             this.updateSuspended = true;
             this.items.clear();
             this.items.add(new NavigationMenuHeaderItem());
-            int i2 = -1;
+            int i = -1;
             int size = this.this$0.menu.getVisibleItems().size();
             boolean z = false;
-            int i3 = 0;
-            for (int i4 = 0; i4 < size; i4++) {
-                MenuItemImpl menuItemImpl = this.this$0.menu.getVisibleItems().get(i4);
+            int i2 = 0;
+            for (int i3 = 0; i3 < size; i3++) {
+                MenuItemImpl menuItemImpl = this.this$0.menu.getVisibleItems().get(i3);
                 if (menuItemImpl.isChecked()) {
                     setCheckedItem(menuItemImpl);
                 }
@@ -162,15 +162,15 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 if (menuItemImpl.hasSubMenu()) {
                     SubMenu subMenu = menuItemImpl.getSubMenu();
                     if (subMenu.hasVisibleItems()) {
-                        if (i4 != 0) {
+                        if (i3 != 0) {
                             this.items.add(new NavigationMenuSeparatorItem(this.this$0.paddingSeparator, 0));
                         }
                         this.items.add(new NavigationMenuTextItem(menuItemImpl));
                         int size2 = this.items.size();
                         int size3 = subMenu.size();
                         boolean z2 = false;
-                        for (int i5 = 0; i5 < size3; i5++) {
-                            MenuItemImpl menuItemImpl2 = (MenuItemImpl) subMenu.getItem(i5);
+                        for (int i4 = 0; i4 < size3; i4++) {
+                            MenuItemImpl menuItemImpl2 = (MenuItemImpl) subMenu.getItem(i4);
                             if (menuItemImpl2.isVisible()) {
                                 if (!z2 && menuItemImpl2.getIcon() != null) {
                                     z2 = true;
@@ -190,23 +190,23 @@ public class NavigationMenuPresenter implements MenuPresenter {
                     }
                 } else {
                     int groupId = menuItemImpl.getGroupId();
-                    if (groupId != i2) {
-                        i3 = this.items.size();
+                    if (groupId != i) {
+                        i2 = this.items.size();
                         z = menuItemImpl.getIcon() != null;
-                        if (i4 != 0) {
-                            i3++;
+                        if (i3 != 0) {
+                            i2++;
                             ArrayList<NavigationMenuItem> arrayList = this.items;
-                            int i6 = this.this$0.paddingSeparator;
-                            arrayList.add(new NavigationMenuSeparatorItem(i6, i6));
+                            int i5 = this.this$0.paddingSeparator;
+                            arrayList.add(new NavigationMenuSeparatorItem(i5, i5));
                         }
                     } else if (!z && menuItemImpl.getIcon() != null) {
-                        appendTransparentIconIfMissing(i3, this.items.size());
+                        appendTransparentIconIfMissing(i2, this.items.size());
                         z = true;
                     }
                     NavigationMenuTextItem navigationMenuTextItem = new NavigationMenuTextItem(menuItemImpl);
                     navigationMenuTextItem.needsEmptyIcon = z;
                     this.items.add(navigationMenuTextItem);
-                    i2 = groupId;
+                    i = groupId;
                 }
             }
             this.updateSuspended = false;
@@ -224,8 +224,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 }
                 SparseArray<? extends Parcelable> sparseArray = new SparseArray<>();
                 int size = this.items.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    NavigationMenuItem navigationMenuItem = this.items.get(i2);
+                for (int i = 0; i < size; i++) {
+                    NavigationMenuItem navigationMenuItem = this.items.get(i);
                     if (navigationMenuItem instanceof NavigationMenuTextItem) {
                         MenuItemImpl menuItem = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem();
                         View actionView = menuItem != null ? menuItem.getActionView() : null;
@@ -256,18 +256,18 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public int getItemViewType(int i2) {
+        public int getItemViewType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                NavigationMenuItem navigationMenuItem = this.items.get(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                NavigationMenuItem navigationMenuItem = this.items.get(i);
                 if (navigationMenuItem instanceof NavigationMenuSeparatorItem) {
                     return 2;
                 }
@@ -286,13 +286,13 @@ public class NavigationMenuPresenter implements MenuPresenter {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i2 = this.this$0.headerLayout.getChildCount() == 0 ? 0 : 1;
-                for (int i3 = 0; i3 < this.this$0.adapter.getItemCount(); i3++) {
-                    if (this.this$0.adapter.getItemViewType(i3) == 0) {
-                        i2++;
+                int i = this.this$0.headerLayout.getChildCount() == 0 ? 0 : 1;
+                for (int i2 = 0; i2 < this.this$0.adapter.getItemCount(); i2++) {
+                    if (this.this$0.adapter.getItemViewType(i2) == 0) {
+                        i++;
                     }
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -304,21 +304,21 @@ public class NavigationMenuPresenter implements MenuPresenter {
             MenuItemImpl menuItem2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048588, this, bundle) == null) {
-                int i2 = bundle.getInt(STATE_CHECKED_ITEM, 0);
-                if (i2 != 0) {
+                int i = bundle.getInt(STATE_CHECKED_ITEM, 0);
+                if (i != 0) {
                     this.updateSuspended = true;
                     int size = this.items.size();
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= size) {
+                        if (i2 >= size) {
                             break;
                         }
-                        NavigationMenuItem navigationMenuItem = this.items.get(i3);
-                        if ((navigationMenuItem instanceof NavigationMenuTextItem) && (menuItem2 = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem()) != null && menuItem2.getItemId() == i2) {
+                        NavigationMenuItem navigationMenuItem = this.items.get(i2);
+                        if ((navigationMenuItem instanceof NavigationMenuTextItem) && (menuItem2 = ((NavigationMenuTextItem) navigationMenuItem).getMenuItem()) != null && menuItem2.getItemId() == i) {
                             setCheckedItem(menuItem2);
                             break;
                         }
-                        i3++;
+                        i2++;
                     }
                     this.updateSuspended = false;
                     prepareMenuItems();
@@ -326,8 +326,8 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 SparseArray sparseParcelableArray = bundle.getSparseParcelableArray(STATE_ACTION_VIEWS);
                 if (sparseParcelableArray != null) {
                     int size2 = this.items.size();
-                    for (int i4 = 0; i4 < size2; i4++) {
-                        NavigationMenuItem navigationMenuItem2 = this.items.get(i4);
+                    for (int i3 = 0; i3 < size2; i3++) {
+                        NavigationMenuItem navigationMenuItem2 = this.items.get(i3);
                         if ((navigationMenuItem2 instanceof NavigationMenuTextItem) && (menuItem = ((NavigationMenuTextItem) navigationMenuItem2).getMenuItem()) != null && (actionView = menuItem.getActionView()) != null && (parcelableSparseArray = (ParcelableSparseArray) sparseParcelableArray.get(menuItem.getItemId())) != null) {
                             actionView.restoreHierarchyState(parcelableSparseArray);
                         }
@@ -365,18 +365,18 @@ public class NavigationMenuPresenter implements MenuPresenter {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-        public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i2) {
+        public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i2) == null) {
-                int itemViewType = getItemViewType(i2);
+            if (interceptable == null || interceptable.invokeLI(1048583, this, viewHolder, i) == null) {
+                int itemViewType = getItemViewType(i);
                 if (itemViewType != 0) {
                     if (itemViewType == 1) {
-                        ((TextView) viewHolder.itemView).setText(((NavigationMenuTextItem) this.items.get(i2)).getMenuItem().getTitle());
+                        ((TextView) viewHolder.itemView).setText(((NavigationMenuTextItem) this.items.get(i)).getMenuItem().getTitle());
                         return;
                     } else if (itemViewType != 2) {
                         return;
                     } else {
-                        NavigationMenuSeparatorItem navigationMenuSeparatorItem = (NavigationMenuSeparatorItem) this.items.get(i2);
+                        NavigationMenuSeparatorItem navigationMenuSeparatorItem = (NavigationMenuSeparatorItem) this.items.get(i);
                         viewHolder.itemView.setPadding(0, navigationMenuSeparatorItem.getPaddingTop(), 0, navigationMenuSeparatorItem.getPaddingBottom());
                         return;
                     }
@@ -393,7 +393,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 }
                 Drawable drawable = this.this$0.itemBackground;
                 ViewCompat.setBackground(navigationMenuItemView, drawable != null ? drawable.getConstantState().newDrawable() : null);
-                NavigationMenuTextItem navigationMenuTextItem = (NavigationMenuTextItem) this.items.get(i2);
+                NavigationMenuTextItem navigationMenuTextItem = (NavigationMenuTextItem) this.items.get(i);
                 navigationMenuItemView.setNeedsEmptyIcon(navigationMenuTextItem.needsEmptyIcon);
                 navigationMenuItemView.setHorizontalPadding(this.this$0.itemHorizontalPadding);
                 navigationMenuItemView.setIconPadding(this.this$0.itemIconPadding);
@@ -409,16 +409,16 @@ public class NavigationMenuPresenter implements MenuPresenter {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         @Nullable
-        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+        public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i2)) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, viewGroup, i)) == null) {
+                if (i == 0) {
                     NavigationMenuPresenter navigationMenuPresenter = this.this$0;
                     return new NormalViewHolder(navigationMenuPresenter.layoutInflater, viewGroup, navigationMenuPresenter.onClickListener);
-                } else if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
+                } else if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
                             return null;
                         }
                         return new HeaderViewHolder(this.this$0.headerLayout);
@@ -441,7 +441,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NavigationMenuHeaderItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -451,9 +451,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -461,34 +461,34 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface NavigationMenuItem {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NavigationMenuSeparatorItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int paddingBottom;
         public final int paddingTop;
 
-        public NavigationMenuSeparatorItem(int i2, int i3) {
+        public NavigationMenuSeparatorItem(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.paddingTop = i2;
-            this.paddingBottom = i3;
+            this.paddingTop = i;
+            this.paddingBottom = i2;
         }
 
         public int getPaddingBottom() {
@@ -504,7 +504,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NavigationMenuTextItem implements NavigationMenuItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -518,9 +518,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {menuItemImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -536,7 +536,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class NavigationMenuViewAccessibilityDelegate extends RecyclerViewAccessibilityDelegate {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -551,9 +551,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {navigationMenuPresenter, recyclerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((RecyclerView) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -573,23 +573,23 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NormalViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
-            super(layoutInflater.inflate(R.layout.design_navigation_item, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0224, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutInflater, viewGroup, onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -600,23 +600,23 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SeparatorViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.design_navigation_item_separator, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0226, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutInflater, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -626,23 +626,23 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SubheaderViewHolder extends ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.design_navigation_item_subheader, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0227, viewGroup, false));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutInflater, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -652,7 +652,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -666,9 +666,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -683,9 +683,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -705,9 +705,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -742,9 +742,9 @@ public class NavigationMenuPresenter implements MenuPresenter {
     private void updateTopPadding() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            int i2 = (this.headerLayout.getChildCount() == 0 && this.isBehindStatusBar) ? this.paddingTopDefault : 0;
+            int i = (this.headerLayout.getChildCount() == 0 && this.isBehindStatusBar) ? this.paddingTopDefault : 0;
             NavigationMenuView navigationMenuView = this.menuView;
-            navigationMenuView.setPadding(0, i2, 0, navigationMenuView.getPaddingBottom());
+            navigationMenuView.setPadding(0, i, 0, navigationMenuView.getPaddingBottom());
         }
     }
 
@@ -814,10 +814,10 @@ public class NavigationMenuPresenter implements MenuPresenter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.headerLayout.getChildCount() : invokeV.intValue;
     }
 
-    public View getHeaderView(int i2) {
+    public View getHeaderView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.headerLayout.getChildAt(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.headerLayout.getChildAt(i) : (View) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.view.menu.MenuPresenter
@@ -872,17 +872,17 @@ public class NavigationMenuPresenter implements MenuPresenter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, viewGroup)) == null) {
             if (this.menuView == null) {
-                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.design_navigation_menu, viewGroup, false);
+                NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0228, viewGroup, false);
                 this.menuView = navigationMenuView;
                 navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this, this.menuView));
                 if (this.adapter == null) {
                     this.adapter = new NavigationMenuAdapter(this);
                 }
-                int i2 = this.overScrollMode;
-                if (i2 != -1) {
-                    this.menuView.setOverScrollMode(i2);
+                int i = this.overScrollMode;
+                if (i != -1) {
+                    this.menuView.setOverScrollMode(i);
                 }
-                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.design_navigation_item_header, (ViewGroup) this.menuView, false);
+                this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0225, (ViewGroup) this.menuView, false);
                 this.menuView.setAdapter(this.adapter);
             }
             return this.menuView;
@@ -890,11 +890,11 @@ public class NavigationMenuPresenter implements MenuPresenter {
         return (MenuView) invokeL.objValue;
     }
 
-    public View inflateHeaderView(@LayoutRes int i2) {
+    public View inflateHeaderView(@LayoutRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            View inflate = this.layoutInflater.inflate(i2, (ViewGroup) this.headerLayout, false);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            View inflate = this.layoutInflater.inflate(i, (ViewGroup) this.headerLayout, false);
             addHeaderView(inflate);
             return inflate;
         }
@@ -907,7 +907,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
         if (interceptable == null || interceptable.invokeLL(1048593, this, context, menuBuilder) == null) {
             this.layoutInflater = LayoutInflater.from(context);
             this.menu = menuBuilder;
-            this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.design_navigation_separator_vertical_padding);
+            this.paddingSeparator = context.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070211);
         }
     }
 
@@ -1018,10 +1018,10 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -1033,28 +1033,28 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    public void setItemHorizontalPadding(int i2) {
+    public void setItemHorizontalPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.itemHorizontalPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.itemHorizontalPadding = i;
             updateMenuView(false);
         }
     }
 
-    public void setItemIconPadding(int i2) {
+    public void setItemIconPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.itemIconPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.itemIconPadding = i;
             updateMenuView(false);
         }
     }
 
-    public void setItemIconSize(@Dimension int i2) {
+    public void setItemIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || this.itemIconSize == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || this.itemIconSize == i) {
             return;
         }
-        this.itemIconSize = i2;
+        this.itemIconSize = i;
         this.hasCustomItemIconSize = true;
         updateMenuView(false);
     }
@@ -1067,18 +1067,18 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    public void setItemMaxLines(int i2) {
+    public void setItemMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.itemMaxLines = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.itemMaxLines = i;
             updateMenuView(false);
         }
     }
 
-    public void setItemTextAppearance(@StyleRes int i2) {
+    public void setItemTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.textAppearance = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.textAppearance = i;
             this.textAppearanceSet = true;
             updateMenuView(false);
         }
@@ -1092,13 +1092,13 @@ public class NavigationMenuPresenter implements MenuPresenter {
         }
     }
 
-    public void setOverScrollMode(int i2) {
+    public void setOverScrollMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.overScrollMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.overScrollMode = i;
             NavigationMenuView navigationMenuView = this.menuView;
             if (navigationMenuView != null) {
-                navigationMenuView.setOverScrollMode(i2);
+                navigationMenuView.setOverScrollMode(i);
             }
         }
     }

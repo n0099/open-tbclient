@@ -17,15 +17,15 @@ public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Rect a(c.a.d.o.e.s sVar, View view, int i2) {
+    public static Rect a(c.a.d.o.e.s sVar, View view, int i) {
         InterceptResult invokeLLI;
         BdTypeRecyclerView bdTypeRecyclerView;
         RecyclerView.LayoutManager layoutManager;
         View findViewByPosition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, sVar, view, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, sVar, view, i)) == null) {
             if (view.getTag() instanceof AutoVideoCardViewHolder) {
-                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).getVideoSegment().getVideoContainer());
+                return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) view.getTag()).v().getVideoContainer());
             }
             if (!(sVar instanceof BdTypeRecyclerView) || (layoutManager = (bdTypeRecyclerView = (BdTypeRecyclerView) sVar).getLayoutManager()) == null) {
                 return null;
@@ -33,14 +33,14 @@ public class e {
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
             List<c.a.d.o.e.n> data = sVar.getData();
-            Object item = ListUtils.getItem(data, i2);
+            Object item = ListUtils.getItem(data, i);
             if (item instanceof BaseCardInfo) {
                 BaseCardInfo baseCardInfo = (BaseCardInfo) item;
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                for (int i3 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i3 <= lastVisiblePosition; i3++) {
-                    Object item2 = ListUtils.getItem(data, i3 - headerViewsCount);
-                    if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
-                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).getVideoSegment().getVideoContainer());
+                for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
+                    Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
+                    if ((item2 instanceof BaseCardInfo) && baseCardInfo.position == ((BaseCardInfo) item2).position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null && (findViewByPosition.getTag() instanceof AutoVideoCardViewHolder)) {
+                        return ThreadCardUtils.computeViewArea(((AutoVideoCardViewHolder) findViewByPosition.getTag()).v().getVideoContainer());
                     }
                 }
                 return null;

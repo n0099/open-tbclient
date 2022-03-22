@@ -42,9 +42,9 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,16 +83,16 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     public void addStatsMap(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && this.mIsMainProcess) {
-            int i2 = this.mStageStatus;
-            if (i2 == 1) {
+            int i = this.mStageStatus;
+            if (i == 1) {
                 this.mAppBeforeCreateSpeedStats.addStatsMap(str, map);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 this.mAppCreateSpeedStats.addStatsMap(str, map);
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 this.mActivityCreateSpeedStats.addStatsMap(str, map);
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 this.mAttachWindowSpeedStats.addStatsMap(str, map);
-            } else if (i2 != 5) {
+            } else if (i != 5) {
             } else {
                 this.mFirstFrameSpeedStats.addStatsMap(str, map);
             }
@@ -100,10 +100,10 @@ public class SpeedStatsManager extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2) {
+    public void addStatsTimeStamp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            addStatsTimeStamp(i2, System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            addStatsTimeStamp(i, System.currentTimeMillis());
         }
     }
 
@@ -173,10 +173,10 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mFirstFrameSpeedStats.getDrawCount() : invokeV.intValue;
     }
 
-    public long getDurationWithoutAD(long j2, long j3) {
+    public long getDurationWithoutAD(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? this.mAdSpeedStats.getDurationWithoutAD(j2, j3) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? this.mAdSpeedStats.getDurationWithoutAD(j, j2) : invokeCommon.longValue;
     }
 
     public long getMainActivityCreateStartTimeStamp() {
@@ -250,85 +250,110 @@ public class SpeedStatsManager extends AbstractSpeedStats {
         }
     }
 
-    public void setMainProcessFlag(boolean z) {
+    public void setIsNeedBear(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.mAdSpeedStats.setIsNeedBear(z);
+        }
+    }
+
+    public void setIsNeedPlg(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+            this.mAdSpeedStats.setIsNeedPlg(z);
+        }
+    }
+
+    public void setIsTimeout(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.mAdSpeedStats.setIsTimeout(z);
+        }
+    }
+
+    public void setMainProcessFlag(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
             this.mIsMainProcess = z;
         }
     }
 
-    public void setStageStatus(int i2) {
+    public void setStageStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mStageStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mStageStatus = i;
         }
     }
 
     public void setStatsFlag(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
             this.mIsInStatsPeriod = z;
         }
     }
 
-    public void setTaskRunTime(String str, long j2) {
+    public void setTaskRunTime(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048602, this, str, j2) == null) && this.mIsMainProcess) {
+        if ((interceptable == null || interceptable.invokeLJ(1048605, this, str, j) == null) && this.mIsMainProcess) {
             if (str != null && str.startsWith(SpeedStatsMainTable.APP_CREATE_FLAG)) {
-                this.mAppCreateSpeedStats.addStatsDuration(str, j2);
+                this.mAppCreateSpeedStats.addStatsDuration(str, j);
+            } else if (str != null && str.startsWith(SpeedStatsMainTable.AD_FLAG)) {
+                this.mAdSpeedStats.addStatsDuration(str, j);
             } else {
-                this.mAsyncTaskSpeedStats.addStatsDuration(str, j2);
+                this.mAsyncTaskSpeedStats.addStatsDuration(str, j);
             }
         }
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) && this.mIsMainProcess) {
-            if (i2 == 1000) {
-                this.mAppCreateStartTimeStamp = j2;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) && this.mIsMainProcess) {
+            if (i == 1000) {
+                this.mAppCreateStartTimeStamp = j;
                 setStageStatus(1);
                 LaunchStatsUtils.setAppCreateTime(this.mAppCreateStartTimeStamp);
                 this.mZygoteSpeedStats.addStatsTimeStamp(1000);
-            } else if (i2 == 2000) {
+            } else if (i == 2000) {
                 setStageStatus(2);
-                this.mAppOnCreateDuration = j2 - this.mAppCreateStartTimeStamp;
+                this.mAppOnCreateDuration = j - this.mAppCreateStartTimeStamp;
                 this.mAppBeforeCreateSpeedStats.addStatsTimeStamp(2000);
                 this.mZygoteSpeedStats.addStatsTimeStamp(2000);
-            } else if (i2 == 3000) {
+            } else if (i == 3000) {
                 setStageStatus(3);
-            } else if (i2 == 3012) {
+            } else if (i == 3012) {
                 setStageStatus(3);
-            } else if (i2 == 4000) {
+            } else if (i == 4000) {
                 setStageStatus(4);
-            } else if (i2 == 5000) {
+            } else if (i == 5000) {
                 setStageStatus(5);
-            } else if (i2 == 6000) {
-                this.mMainPageEndTimeStamp = j2;
-                this.mCodeStartTime = j2 - this.mAppCreateStartTimeStamp;
+            } else if (i == 5054) {
+                this.mZygoteSpeedStats.addStatsTimeStamp(SpeedStatsStampTable.SECOND_DRAW_DISPATCH_STAMP_KEY, j);
+            } else if (i == 6000) {
+                this.mMainPageEndTimeStamp = j;
+                this.mCodeStartTime = j - this.mAppCreateStartTimeStamp;
                 this.mZygoteSpeedStats.addStatsTimeStamp(6000);
                 setStageStatus(-1);
             }
-            int i3 = this.mStageStatus;
-            if (i3 == 1) {
-                this.mAppBeforeCreateSpeedStats.addStatsTimeStamp(i2, j2);
-            } else if (i3 == 2) {
-                this.mAppCreateSpeedStats.addStatsTimeStamp(i2, j2);
-            } else if (i3 == 3) {
-                if (i2 < 3000) {
-                    this.mAppCreateSpeedStats.addStatsTimeStamp(i2, j2);
+            int i2 = this.mStageStatus;
+            if (i2 == 1) {
+                this.mAppBeforeCreateSpeedStats.addStatsTimeStamp(i, j);
+            } else if (i2 == 2) {
+                this.mAppCreateSpeedStats.addStatsTimeStamp(i, j);
+            } else if (i2 == 3) {
+                if (i < 3000) {
+                    this.mAppCreateSpeedStats.addStatsTimeStamp(i, j);
                 }
-                this.mActivityCreateSpeedStats.addStatsTimeStamp(i2, j2);
-                this.mAdSpeedStats.addStatsTimeStamp(i2, j2);
-            } else if (i3 != 4) {
-                if (i3 == 5 && this.mIsInStatsPeriod) {
-                    this.mFirstFrameSpeedStats.addStatsTimeStamp(i2, j2);
-                    this.mAdSpeedStats.addStatsTimeStamp(i2, j2);
+                this.mActivityCreateSpeedStats.addStatsTimeStamp(i, j);
+                this.mAdSpeedStats.addStatsTimeStamp(i, j);
+            } else if (i2 != 4) {
+                if (i2 == 5 && this.mIsInStatsPeriod) {
+                    this.mFirstFrameSpeedStats.addStatsTimeStamp(i, j);
+                    this.mAdSpeedStats.addStatsTimeStamp(i, j);
                 }
             } else if (this.mIsInStatsPeriod) {
-                this.mAttachWindowSpeedStats.addStatsTimeStamp(i2, j2);
-                this.mAdSpeedStats.addStatsTimeStamp(i2, j2);
+                this.mAttachWindowSpeedStats.addStatsTimeStamp(i, j);
+                this.mAdSpeedStats.addStatsTimeStamp(i, j);
             }
         }
     }

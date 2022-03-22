@@ -70,16 +70,16 @@ public abstract class PlayerProxy implements IPlayer {
             $VALUES = new PlayerState[]{NOT_PREPARED, PREPARING, PREPARED, PLAYING, PAUSED, STOPPED, playerState};
         }
 
-        public PlayerState(String str, int i2) {
+        public PlayerState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -107,9 +107,9 @@ public abstract class PlayerProxy implements IPlayer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -210,30 +210,30 @@ public abstract class PlayerProxy implements IPlayer {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i2) {
+    public void setLoopSection(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(int i2, int i3) {
+    public void setLoopSection(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j2) {
+    public void setLoopSection(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
         }
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
-    public void setLoopSection(long j2, long j3) {
+    public void setLoopSection(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -322,14 +322,13 @@ public abstract class PlayerProxy implements IPlayer {
         }
     }
 
-    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x0085: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:29:0x0085 */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -337,16 +336,15 @@ public abstract class PlayerProxy implements IPlayer {
     public void setSourceFile(File file) {
         FileInputStream fileInputStream;
         IOException e2;
-        FileInputStream fileInputStream2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048601, this, file) == null) {
             if (file != null) {
                 this.mSourcePath = file.getPath();
-                FileInputStream fileInputStream3 = null;
+                FileInputStream fileInputStream2 = null;
                 try {
                     try {
+                        fileInputStream = new FileInputStream(file);
                         try {
-                            fileInputStream = new FileInputStream(file);
                             try {
                                 setSourceFD(fileInputStream.getFD());
                                 fileInputStream.close();
@@ -369,10 +367,10 @@ public abstract class PlayerProxy implements IPlayer {
                             }
                         } catch (Throwable th) {
                             th = th;
-                            fileInputStream3 = fileInputStream2;
-                            if (fileInputStream3 != null) {
+                            fileInputStream2 = fileInputStream;
+                            if (fileInputStream2 != null) {
                                 try {
-                                    fileInputStream3.close();
+                                    fileInputStream2.close();
                                 } catch (IOException e4) {
                                     e4.printStackTrace();
                                 }
@@ -380,19 +378,19 @@ public abstract class PlayerProxy implements IPlayer {
                             throw th;
                         }
                     } catch (IOException e5) {
-                        fileInputStream = null;
-                        e2 = e5;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        if (fileInputStream3 != null) {
-                        }
-                        throw th;
+                        e5.printStackTrace();
+                        return;
                     }
-                    return;
                 } catch (IOException e6) {
-                    e6.printStackTrace();
-                    return;
+                    fileInputStream = null;
+                    e2 = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (fileInputStream2 != null) {
+                    }
+                    throw th;
                 }
+                return;
             }
             String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
             OnReportListener onReportListener = this.mOnReportListener;

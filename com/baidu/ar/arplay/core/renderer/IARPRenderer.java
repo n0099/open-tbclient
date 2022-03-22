@@ -13,17 +13,17 @@ import java.lang.ref.SoftReference;
 import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
 public interface IARPRenderer {
-    String addOutputSurface(Surface surface, int i2, int i3);
+    String addOutputSurface(Surface surface, int i, int i2);
 
-    String addOutputSurface(Surface surface, int i2, int i3, PixelRotation pixelRotation);
+    String addOutputSurface(Surface surface, int i, int i2, PixelRotation pixelRotation);
 
-    String addOutputSurface(Surface surface, int i2, int i3, PixelRotation pixelRotation, OutputFillMode outputFillMode);
+    String addOutputSurface(Surface surface, int i, int i2, PixelRotation pixelRotation, OutputFillMode outputFillMode);
 
-    String addOutputTarget(int i2, int i3, int i4, int i5);
+    String addOutputTarget(int i, int i2, int i3, int i4);
 
-    String addOutputTarget(int i2, int i3, int i4, int i5, PixelRotation pixelRotation);
+    String addOutputTarget(int i, int i2, int i3, int i4, PixelRotation pixelRotation);
 
-    String addOutputTarget(int i2, int i3, int i4, int i5, PixelRotation pixelRotation, OutputFillMode outputFillMode);
+    String addOutputTarget(int i, int i2, int i3, int i4, PixelRotation pixelRotation, OutputFillMode outputFillMode);
 
     void bindTargetSurface(Surface surface);
 
@@ -41,33 +41,33 @@ public interface IARPRenderer {
 
     void createSyncInputSource(PixelRotation pixelRotation, e eVar);
 
-    long createTexture(int i2, int i3, int i4);
+    long createTexture(int i, int i2, int i3);
 
     void destroyAllPixelReader();
 
     void destroyPixelReaderByPreFilterID(PixelReadParams pixelReadParams, PixelReadListener pixelReadListener);
 
-    void destroyTexture(long j2);
+    void destroyTexture(long j);
 
     String getDefaultLuaPath();
 
-    void getSnapShot(TakePictureCallback takePictureCallback, int i2, int i3, int i4);
+    void getSnapShot(TakePictureCallback takePictureCallback, int i, int i2, int i3);
 
-    void getSnapShot(TakePictureCallback takePictureCallback, int i2, int i3, int i4, Rect rect);
+    void getSnapShot(TakePictureCallback takePictureCallback, int i, int i2, int i3, Rect rect);
 
-    int getTextureId(long j2);
+    int getTextureId(long j);
 
     boolean isFrontCamera();
 
     void loadDefaultFilterLuaPath(String str);
 
-    void onFrameRenderFinished(long j2);
+    void onFrameRenderFinished(long j);
 
-    void onFrameRenderStarted(long j2);
+    void onFrameRenderStarted(long j);
 
-    void onSnapShotFinished(Bitmap bitmap, long j2);
+    void onSnapShotFinished(Bitmap bitmap, long j);
 
-    boolean pixelReadCallback(ByteBuffer byteBuffer, long j2, int i2, int i3, int i4, int i5, int i6, String str, int i7, int i8);
+    boolean pixelReadCallback(ByteBuffer byteBuffer, long j, int i, int i2, int i3, int i4, int i5, String str, int i6, int i7);
 
     void purgeMemory();
 
@@ -75,7 +75,7 @@ public interface IARPRenderer {
 
     void removeOutputTargetByAddr(String str);
 
-    void render(long j2);
+    void render(long j);
 
     void runAsyncOnRenderContext(Runnable runnable);
 
@@ -85,17 +85,17 @@ public interface IARPRenderer {
 
     void runSyncOnRenderContext(Runnable runnable);
 
-    void setAlgoPts(long j2);
+    void setAlgoPts(long j);
 
     void setCameraFace(boolean z);
 
-    void setCaptureData(int i2);
+    void setCaptureData(int i);
 
     void setContext(SoftReference<Context> softReference);
 
     void setInputMatrix(float[] fArr);
 
-    void setInputTexture(int i2, int i3, int i4, int i5);
+    void setInputTexture(int i, int i2, int i3, int i4);
 
     void setIsDumpAlgoPixel(boolean z);
 
@@ -119,5 +119,5 @@ public interface IARPRenderer {
 
     void updateOutputSurfaceRotation(String str, PixelRotation pixelRotation);
 
-    void uploadPixelToTextureFromPath(long j2, String str);
+    void uploadPixelToTextureFromPath(long j, String str);
 }

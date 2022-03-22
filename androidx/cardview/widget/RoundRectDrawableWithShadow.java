@@ -76,9 +76,9 @@ public class RoundRectDrawableWithShadow extends Drawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, colorStateList, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -137,13 +137,13 @@ public class RoundRectDrawableWithShadow extends Drawable {
             float f5 = f4 / (this.mShadowSize + f4);
             Paint paint = this.mCornerShadowPaint;
             float f6 = this.mCornerRadius + this.mShadowSize;
-            int i2 = this.mShadowStartColor;
-            paint.setShader(new RadialGradient(0.0f, 0.0f, f6, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, f5, 1.0f}, Shader.TileMode.CLAMP));
+            int i = this.mShadowStartColor;
+            paint.setShader(new RadialGradient(0.0f, 0.0f, f6, new int[]{i, i, this.mShadowEndColor}, new float[]{0.0f, f5, 1.0f}, Shader.TileMode.CLAMP));
             Paint paint2 = this.mEdgeShadowPaint;
             float f7 = this.mCornerRadius;
             float f8 = this.mShadowSize;
-            int i3 = this.mShadowStartColor;
-            paint2.setShader(new LinearGradient(0.0f, (-f7) + f8, 0.0f, (-f7) - f8, new int[]{i3, i3, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
+            int i2 = this.mShadowStartColor;
+            paint2.setShader(new LinearGradient(0.0f, (-f7) + f8, 0.0f, (-f7) - f8, new int[]{i2, i2, this.mShadowEndColor}, new float[]{0.0f, 0.5f, 1.0f}, Shader.TileMode.CLAMP));
             this.mEdgeShadowPaint.setAntiAlias(false);
         }
     }
@@ -250,8 +250,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) {
-            int i2 = (int) (f2 + 0.5f);
-            return i2 % 2 == 1 ? i2 - 1 : i2;
+            int i = (int) (f2 + 0.5f);
+            return i % 2 == 1 ? i - 1 : i;
         }
         return invokeF.intValue;
     }
@@ -392,12 +392,12 @@ public class RoundRectDrawableWithShadow extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mPaint.setAlpha(i2);
-            this.mCornerShadowPaint.setAlpha(i2);
-            this.mEdgeShadowPaint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mPaint.setAlpha(i);
+            this.mCornerShadowPaint.setAlpha(i);
+            this.mEdgeShadowPaint.setAlpha(i);
         }
     }
 

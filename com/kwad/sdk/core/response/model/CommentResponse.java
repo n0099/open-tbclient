@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CommentResponse extends BaseResultData implements com.kwad.sdk.core.b, Serializable {
     public static final long serialVersionUID = 7438022026198734874L;
     public long commentCount;
@@ -32,8 +32,8 @@ public class CommentResponse extends BaseResultData implements com.kwad.sdk.core
             this.commentCount = jSONObject2.optLong("commentCount");
             JSONArray jSONArray = jSONObject2.getJSONArray("rootComments");
             if (jSONArray.length() > 0) {
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     if (optJSONObject != null) {
                         PhotoComment photoComment = new PhotoComment();
                         photoComment.parseJson(optJSONObject);

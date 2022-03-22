@@ -18,7 +18,6 @@ import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebKitVersionBlink;
 import com.baidu.webkit.sdk.CookieManager;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.kuaishou.weapon.un.s;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -56,9 +55,9 @@ public final class CommonUtils implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -102,7 +101,7 @@ public final class CommonUtils implements INoProGuard {
             return false;
         }
         try {
-            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, s.f53804c) && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
+            if (!checkPermissionGranted(context, "android.permission.CALL_PHONE") && !checkPermissionGranted(context, "android.permission.MODIFY_PHONE_STATE") && !checkPermissionGranted(context, "android.permission.READ_PHONE_STATE") && !checkPermissionGranted(context, "android.permission.PROCESS_OUTGOING_CALLS")) {
                 z = false;
                 if (Build.VERSION.SDK_INT < 16) {
                     if (!z) {
@@ -134,8 +133,8 @@ public final class CommonUtils implements INoProGuard {
             }
             String[] split = cookie.split(";");
             int length = split.length;
-            for (int i2 = 0; i2 != length; i2++) {
-                String[] split2 = split[i2].trim().split("=");
+            for (int i = 0; i != length; i++) {
+                String[] split2 = split[i].trim().split("=");
                 if (split2.length == 2 && TextUtils.equals(str2, split2[0])) {
                     return split2[1];
                 }
@@ -155,13 +154,13 @@ public final class CommonUtils implements INoProGuard {
         int indexOf = str.indexOf("?") + 1;
         while (true) {
             int indexOf2 = str.indexOf(38, indexOf);
-            int i2 = indexOf2 != -1 ? indexOf2 : length;
+            int i = indexOf2 != -1 ? indexOf2 : length;
             int indexOf3 = str.indexOf(61, indexOf);
-            if (indexOf3 > i2 || indexOf3 == -1) {
-                indexOf3 = i2;
+            if (indexOf3 > i || indexOf3 == -1) {
+                indexOf3 = i;
             }
             if (indexOf3 - indexOf == str2.length() && str.regionMatches(indexOf, str2, 0, str2.length())) {
-                return indexOf3 == i2 ? "" : str.substring(indexOf3 + 1, i2);
+                return indexOf3 == i ? "" : str.substring(indexOf3 + 1, i);
             } else if (indexOf2 == -1) {
                 return null;
             } else {
@@ -183,8 +182,8 @@ public final class CommonUtils implements INoProGuard {
                     jArr[0] = 30;
                     jArr[1] = -30;
                     method.invoke(null, HardwareInfoUtils.MEM_INFO_FILE, sFiledsSysMemInfo, jArr);
-                    for (int i2 = 0; i2 < length; i2++) {
-                        hashMap.put(sFiledsSysMemInfo[i2], Long.valueOf(jArr[i2]));
+                    for (int i = 0; i < length; i++) {
+                        hashMap.put(sFiledsSysMemInfo[i], Long.valueOf(jArr[i]));
                     }
                 }
                 return hashMap;

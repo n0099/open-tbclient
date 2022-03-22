@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.http.HttpUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.IOException;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -146,7 +146,7 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, str2)) == null) ? postByUrlConn(str, str2) : invokeLL.booleanValue;
     }
 
-    public abstract boolean sendContent(String str, String str2, int i2);
+    public abstract boolean sendContent(String str, String str2, int i);
 
     @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
     public boolean sendSync(String str) {
@@ -183,10 +183,10 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
                 L.brief("fallback IPs : %s", TextUtils.join(" ", fallbackIps));
             }
             if (fallbackIps != null && fallbackIps.length != 0) {
-                int i2 = this.mTryTimeIp;
+                int i = this.mTryTimeIp;
                 while (true) {
-                    int i3 = i2 - 1;
-                    if (i2 <= 0) {
+                    int i2 = i - 1;
+                    if (i <= 0) {
                         break;
                     }
                     int nextInt = new Random().nextInt(fallbackIps.length);
@@ -198,7 +198,7 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
                         }
                         return true;
                     }
-                    i2 = i3;
+                    i = i2;
                 }
             }
             return false;
@@ -215,18 +215,18 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setLastTryTimes(int i2) {
+    public void setLastTryTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.lastTryTimes = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.lastTryTimes = i;
         }
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setRetryTimeHost(int i2) {
+    public void setRetryTimeHost(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mRetryTimeHost = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mRetryTimeHost = i;
         }
     }
 
@@ -239,10 +239,10 @@ public abstract class AbstractStatisHttpUtil implements IStatisHttpUtil {
     }
 
     @Override // com.yy.hiidostatis.inner.util.http.IStatisHttpUtil
-    public void setTryTimeIp(int i2) {
+    public void setTryTimeIp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mTryTimeIp = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mTryTimeIp = i;
         }
     }
 }

@@ -73,9 +73,9 @@ public final class Tun {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -105,22 +105,22 @@ public final class Tun {
         }
     }
 
-    private final void processOther(ByteBuffer byteBuffer, int i2) {
+    private final void processOther(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, this, byteBuffer, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65547, this, byteBuffer, i) == null) {
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void processPacket(long j2, ByteBuffer byteBuffer, int i2) {
+    public final void processPacket(long j, ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j2), byteBuffer, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65548, this, new Object[]{Long.valueOf(j), byteBuffer, Integer.valueOf(i)}) == null) {
             try {
-                int m731constructorimpl = (UByte.m731constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
-                if (m731constructorimpl != 4) {
+                int m710constructorimpl = (UByte.m710constructorimpl(byteBuffer.get(0)) & 255) >>> 4;
+                if (m710constructorimpl != 4) {
                     return;
                 }
-                DirectIPv4Header.Companion.getHeader().setPacketLength(i2);
+                DirectIPv4Header.Companion.getHeader().setPacketLength(i);
                 DirectIPv4Header header = DirectIPv4Header.Companion.getHeader();
                 int protocol = header.getProtocol();
                 if (protocol == 1) {
@@ -130,12 +130,12 @@ public final class Tun {
                 } else if (protocol == 17) {
                     processUdp(byteBuffer, header);
                 } else if (protocol != 58) {
-                    processOther(byteBuffer, i2);
+                    processOther(byteBuffer, i);
                 } else {
                     processICMPv6(byteBuffer, header);
                 }
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[TUN " + j2 + "] read data len:" + i2 + " ipVersion: " + m731constructorimpl + " protocol: " + protocol);
+                logTo.d("*****", "[TUN " + j + "] read data len:" + i + " ipVersion: " + m710constructorimpl + " protocol: " + protocol);
             } catch (ErrnoException e2) {
                 looping = false;
                 e2.printStackTrace();
@@ -156,7 +156,7 @@ public final class Tun {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65549, this, byteBuffer, directIPHeader) == null) {
             if (directIPHeader instanceof DirectIPv4Header) {
-                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m807constructorimpl(directIPHeader.getPacketLength()), null);
+                SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m786constructorimpl(directIPHeader.getPacketLength()), null);
                 sClientPacket.encodeHeader2Buffer(headerBuf);
                 sClientPacket.writeBodyBuffer(byteBuffer);
                 SClient.INSTANCE.write(sClientPacket);
@@ -169,7 +169,7 @@ public final class Tun {
     private final void processUdp(ByteBuffer byteBuffer, DirectIPHeader directIPHeader) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65550, this, byteBuffer, directIPHeader) == null) {
-            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m807constructorimpl(directIPHeader.getPacketLength()), null);
+            SClientPacket sClientPacket = new SClientPacket(1, 0, 1, UInt.m786constructorimpl(directIPHeader.getPacketLength()), null);
             sClientPacket.encodeHeader2Buffer(headerBuf);
             sClientPacket.writeBodyBuffer(byteBuffer);
             SClient.INSTANCE.write(sClientPacket);
@@ -190,13 +190,13 @@ public final class Tun {
         return (Deferred) invokeV.objValue;
     }
 
-    public final void init(int i2) {
+    public final void init(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || inited) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || inited) {
             return;
         }
-        tunfd = i2;
-        ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(i2);
+        tunfd = i;
+        ParcelFileDescriptor fromFd = ParcelFileDescriptor.fromFd(i);
         Intrinsics.checkNotNullExpressionValue(fromFd, "fromFd(tunfd)");
         descriptor = fromFd;
         ParcelFileDescriptor parcelFileDescriptor = descriptor;
@@ -245,9 +245,9 @@ public final class Tun {
         }
     }
 
-    public final void write(ByteBuffer buffer, int i2) {
+    public final void write(ByteBuffer buffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, buffer, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, buffer, i) == null) {
             Intrinsics.checkNotNullParameter(buffer, "buffer");
             if (inited) {
                 FileOutputStream fileOutputStream = output;
@@ -255,7 +255,7 @@ public final class Tun {
                     Intrinsics.throwUninitializedPropertyAccessException("output");
                     fileOutputStream = null;
                 }
-                fileOutputStream.write(buffer.array(), 0, i2);
+                fileOutputStream.write(buffer.array(), 0, i);
             }
         }
     }

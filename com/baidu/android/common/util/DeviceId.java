@@ -23,34 +23,30 @@ public final class DeviceId {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f30166f = "DeviceId";
+    public static final String f24121f = "DeviceId";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final boolean f30167g = false;
+    public static final boolean f24122g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public static g.a f30168h = null;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile DeviceId f30169i = null;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static CuidChangeCallback f30170j = null;
+    public static g.a f24123h = null;
+    public static volatile DeviceId i = null;
+    public static CuidChangeCallback j = null;
     public static boolean sDataCuidInfoShable = true;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public g f30171b;
+    public g f24124b;
 
     /* renamed from: c  reason: collision with root package name */
-    public f f30172c;
+    public f f24125c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a.m.c f30173d;
+    public c.a.m.c f24126d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Executor f30174e;
+    public Executor f24127e;
 
     /* loaded from: classes3.dex */
     public interface CuidChangeCallback {
@@ -69,25 +65,25 @@ public final class DeviceId {
         public final /* synthetic */ g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DeviceId f30175b;
+        public final /* synthetic */ DeviceId f24128b;
 
         /* renamed from: com.baidu.android.common.util.DeviceId$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1699a implements CuidChangeReceivedCallback {
+        public class C1667a implements CuidChangeReceivedCallback {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1699a(a aVar) {
+            public C1667a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -101,7 +97,7 @@ public final class DeviceId {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     a aVar = this.a;
-                    aVar.f30175b.d(aVar.a);
+                    aVar.f24128b.d(aVar.a);
                 }
             }
         }
@@ -113,29 +109,29 @@ public final class DeviceId {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {deviceId, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30175b = deviceId;
+            this.f24128b = deviceId;
             this.a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || DeviceId.f30170j == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || DeviceId.j == null) {
                 return;
             }
             g.a aVar = this.a;
             if (aVar == null || aVar.w() || TextUtils.isEmpty(this.a.t())) {
-                CuidChangeCallback unused = DeviceId.f30170j = null;
+                CuidChangeCallback unused = DeviceId.j = null;
             } else {
-                DeviceId.f30170j.onCuidChanged(this.a.r(), this.a.t(), new C1699a(this));
+                DeviceId.j.onCuidChanged(this.a.r(), this.a.t(), new C1667a(this));
             }
         }
     }
@@ -147,7 +143,7 @@ public final class DeviceId {
         public final /* synthetic */ g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DeviceId f30176b;
+        public final /* synthetic */ DeviceId f24129b;
 
         public b(DeviceId deviceId, g.a aVar) {
             Interceptable interceptable = $ic;
@@ -156,15 +152,15 @@ public final class DeviceId {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {deviceId, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30176b = deviceId;
+            this.f24129b = deviceId;
             this.a = aVar;
         }
 
@@ -173,14 +169,14 @@ public final class DeviceId {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 synchronized (e.class) {
-                    if (DeviceId.f30170j == null) {
+                    if (DeviceId.j == null) {
                         return;
                     }
-                    this.f30176b.f30171b.i();
+                    this.f24129b.f24124b.i();
                     this.a.g(true);
-                    this.f30176b.f30171b.j(this.a, true, true);
-                    CuidChangeCallback unused = DeviceId.f30170j = null;
-                    this.f30176b.f30171b.p();
+                    this.f24129b.f24124b.j(this.a, true, true);
+                    CuidChangeCallback unused = DeviceId.j = null;
+                    this.f24129b.f24124b.p();
                 }
             }
         }
@@ -193,7 +189,7 @@ public final class DeviceId {
         public final /* synthetic */ g.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ DeviceId f30177b;
+        public final /* synthetic */ DeviceId f24130b;
 
         public c(DeviceId deviceId, g.a aVar) {
             Interceptable interceptable = $ic;
@@ -202,15 +198,15 @@ public final class DeviceId {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {deviceId, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f30177b = deviceId;
+            this.f24130b = deviceId;
             this.a = aVar;
         }
 
@@ -219,9 +215,9 @@ public final class DeviceId {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f30177b.c(this.a);
+                    this.f24130b.c(this.a);
                 } finally {
-                    this.f30177b.f30171b.p();
+                    this.f24130b.f24124b.p();
                 }
             }
         }
@@ -257,28 +253,28 @@ public final class DeviceId {
                 return;
             }
         }
-        this.f30174e = new ThreadPoolExecutor(0, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        this.f24127e = new ThreadPoolExecutor(0, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         this.a = context.getApplicationContext();
-        this.f30173d = new c.a.m.c();
-        this.f30171b = new g(this.a, new c.a.m.l.a(this.a), this.f30173d);
-        this.f30172c = new f(this.a, this.f30173d);
+        this.f24126d = new c.a.m.c();
+        this.f24124b = new g(this.a, new c.a.m.l.a(this.a), this.f24126d);
+        this.f24125c = new f(this.a, this.f24126d);
     }
 
     private g.a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f30171b.m(str) : (g.a) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) ? this.f24124b.m(str) : (g.a) invokeL.objValue;
     }
 
     private g.a a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, str2)) == null) {
-            e g2 = this.f30172c.g(str);
+            e g2 = this.f24125c.g(str);
             if (g2 == null || TextUtils.equals(str2, g2.a)) {
                 return null;
             }
-            return this.f30171b.a(g2);
+            return this.f24124b.a(g2);
         }
         return (g.a) invokeLL.objValue;
     }
@@ -289,10 +285,10 @@ public final class DeviceId {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
             synchronized (e.class) {
-                if (f30169i == null) {
-                    f30169i = new DeviceId(context);
+                if (i == null) {
+                    i = new DeviceId(context);
                 }
-                deviceId = f30169i;
+                deviceId = i;
             }
             return deviceId;
         }
@@ -309,7 +305,7 @@ public final class DeviceId {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            this.f30171b.i();
+            this.f24124b.i();
             try {
                 g.a e2 = e();
                 if (!b(e2)) {
@@ -331,7 +327,7 @@ public final class DeviceId {
                 e(b2);
                 return b2;
             } catch (Throwable th) {
-                this.f30171b.p();
+                this.f24124b.p();
                 throw th;
             }
         }
@@ -342,17 +338,17 @@ public final class DeviceId {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (f30168h == null) {
+            if (f24123h == null) {
                 synchronized (e.class) {
-                    if (f30168h == null) {
+                    if (f24123h == null) {
                         SystemClock.uptimeMillis();
-                        f30168h = a(context).b();
+                        f24123h = a(context).b();
                         SystemClock.uptimeMillis();
                     }
                 }
             }
             a(context).d();
-            return f30168h;
+            return f24123h;
         }
         return (g.a) invokeL.objValue;
     }
@@ -361,7 +357,7 @@ public final class DeviceId {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, this, str, str2)) == null) {
-            g.a o = this.f30171b.o(str2);
+            g.a o = this.f24124b.o(str2);
             return o == null ? a(str, str2) : o;
         }
         return (g.a) invokeLL.objValue;
@@ -384,23 +380,23 @@ public final class DeviceId {
             if (!aVar.m() || TextUtils.isEmpty(aVar.u())) {
                 aVar.e();
             }
-            this.f30171b.j(aVar, true, false);
-            this.f30172c.c(y);
-            this.f30171b.g(aVar);
+            this.f24124b.j(aVar, true, false);
+            this.f24125c.c(y);
+            this.f24124b.g(aVar);
         }
     }
 
     private void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            g.a aVar = f30168h;
-            if (f30170j == null) {
+            g.a aVar = f24123h;
+            if (j == null) {
                 return;
             }
             if (aVar == null || aVar.w() || TextUtils.isEmpty(aVar.t())) {
-                f30170j = null;
+                j = null;
             } else {
-                this.f30174e.execute(new a(this, aVar));
+                this.f24127e.execute(new a(this, aVar));
             }
         }
     }
@@ -409,7 +405,7 @@ public final class DeviceId {
     public void d(g.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65553, this, aVar) == null) {
-            this.f30174e.execute(new b(this, aVar));
+            this.f24127e.execute(new b(this, aVar));
         }
     }
 
@@ -427,7 +423,7 @@ public final class DeviceId {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65555, this, aVar) == null) {
             synchronized (this) {
-                this.f30174e.execute(a(aVar));
+                this.f24127e.execute(a(aVar));
             }
         }
     }
@@ -441,7 +437,7 @@ public final class DeviceId {
             if (!file.exists() || (a2 = e.a(c.a.m.m.c.a(file))) == null) {
                 return null;
             }
-            return this.f30171b.a(a2);
+            return this.f24124b.a(a2);
         }
         return (g.a) invokeV.objValue;
     }
@@ -449,7 +445,7 @@ public final class DeviceId {
     private g.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? this.f30171b.k() : (g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) ? this.f24124b.k() : (g.a) invokeV.objValue;
     }
 
     public static String getCUID(Context context) {
@@ -473,13 +469,13 @@ public final class DeviceId {
     public static boolean isMySelfTrusted(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) ? a(context).f30173d.d(context.getApplicationContext()) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65561, null, context)) == null) ? a(context).f24126d.d(context.getApplicationContext()) : invokeL.booleanValue;
     }
 
     public static void registerCuidChangeEvent(Context context, CuidChangeCallback cuidChangeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65562, null, context, cuidChangeCallback) == null) {
-            f30170j = cuidChangeCallback;
+            j = cuidChangeCallback;
             b(context);
         }
     }
@@ -494,6 +490,6 @@ public final class DeviceId {
     public g c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30171b : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24124b : (g) invokeV.objValue;
     }
 }

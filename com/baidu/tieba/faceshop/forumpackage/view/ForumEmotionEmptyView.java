@@ -21,24 +21,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumEmotionEmptyView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public NoDataView f32154b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public LinearLayout f32155c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32156d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f41633e;
+    public ViewGroup f32157e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoDataView f41634f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f41635g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f41636h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ViewGroup f41637i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f41638j;
+    public TextView f32158f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumEmotionEmptyView(TbPageContext tbPageContext) {
@@ -49,59 +47,59 @@ public class ForumEmotionEmptyView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41633e = tbPageContext;
+        this.a = tbPageContext;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.forum_emotion_empty_layout, this);
-            this.f41636h = (TextView) findViewById(R.id.forum_emotion_filter);
-            this.f41637i = (ViewGroup) findViewById(R.id.forum_emotion_filter_dropdown);
-            this.f41638j = (TextView) findViewById(R.id.forum_emotion_board_title);
-            this.f41635g = (LinearLayout) findViewById(R.id.forum_emotion_no_data_container);
-            NoDataView b2 = NoDataViewFactory.b(this.f41633e.getPageActivity(), this.f41635g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.invite_friend_no_data_now), null, true);
-            this.f41634f = b2;
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02b3, this);
+            this.f32156d = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2f);
+            this.f32157e = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090a30);
+            this.f32158f = (TextView) findViewById(R.id.obfuscated_res_0x7f090a2b);
+            this.f32155c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a34);
+            NoDataView b2 = NoDataViewFactory.b(this.a.getPageActivity(), this.f32155c, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, 0), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0938), null, true);
+            this.f32154b = b2;
             b2.setVisibility(0);
+        }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            NoDataView noDataView = this.f32154b;
+            if (noDataView != null) {
+                noDataView.f(this.a, i);
+            }
+            SkinManager.setViewTextColor(this.f32157e.getChildAt(0), (int) R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f32157e.getChildAt(0), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f32157e.getChildAt(1), (int) R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this.f32157e.getChildAt(1), R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.f32158f, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f32156d, (int) R.color.CAM_X0107);
+            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
         }
     }
 
     public ViewGroup getFilterDropDownView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f41637i : (ViewGroup) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f32157e : (ViewGroup) invokeV.objValue;
     }
 
     public TextView getFilterView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f41636h : (TextView) invokeV.objValue;
-    }
-
-    public void onChangeSkin(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            NoDataView noDataView = this.f41634f;
-            if (noDataView != null) {
-                noDataView.onChangeSkinType(this.f41633e, i2);
-            }
-            SkinManager.setViewTextColor(this.f41637i.getChildAt(0), (int) R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f41637i.getChildAt(0), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f41637i.getChildAt(1), (int) R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this.f41637i.getChildAt(1), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(this.f41638j, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f41636h, (int) R.color.CAM_X0107);
-            SkinManager.setBackgroundColor(this, R.color.CAM_X0201);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f32156d : (TextView) invokeV.objValue;
     }
 }

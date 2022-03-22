@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskDataSqLiteCacheManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_CACHE_DAY;
@@ -67,9 +67,9 @@ public class TaskDataSqLiteCacheManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -84,16 +84,16 @@ public class TaskDataSqLiteCacheManager {
         this.mCacheFileName = str;
     }
 
-    private int addRemain(String str, int i2) {
+    private int addRemain(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i)) == null) {
             AtomicInteger atomicInteger = this.actRemain.get(str);
             if (atomicInteger == null) {
                 atomicInteger = new AtomicInteger();
                 this.actRemain.put(str, atomicInteger);
             }
-            return atomicInteger.addAndGet(i2);
+            return atomicInteger.addAndGet(i);
         }
         return invokeLI.intValue;
     }
@@ -141,13 +141,13 @@ public class TaskDataSqLiteCacheManager {
         return invokeL.booleanValue;
     }
 
-    private int reduceRemain(String str, int i2) {
+    private int reduceRemain(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, str, i)) == null) {
             AtomicInteger atomicInteger = this.actRemain.get(str);
             if (atomicInteger != null) {
-                return atomicInteger.addAndGet(i2 * (-1));
+                return atomicInteger.addAndGet(i * (-1));
             }
             return 0;
         }
@@ -160,29 +160,29 @@ public class TaskDataSqLiteCacheManager {
             return;
         }
         this.mLastFileSize = getDbManager().size();
-        int i2 = this.isFirstSyncFromFile ? 50 : 100;
+        int i = this.isFirstSyncFromFile ? 50 : 100;
         this.isFirstSyncFromFile = false;
-        TaskDataSet firstList = getDbManager().getFirstList(i2, this.sendingData);
+        TaskDataSet firstList = getDbManager().getFirstList(i, this.sendingData);
         if (firstList != null) {
             TaskDataSet taskDataSet = new TaskDataSet();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
             while (true) {
                 TaskData removeFirst = firstList.removeFirst();
                 if (removeFirst != null) {
                     if (removeFirst.verifyMd5()) {
                         this.memoryCacheDataSet.save(removeFirst);
-                        i3++;
+                        i2++;
                     } else {
                         taskDataSet.save(removeFirst);
-                        i4++;
+                        i3++;
                         L.debug(this, "data verify failure ,give up .data=[%s]", removeFirst.getContent());
                         ActLog.writeSendFailLog(context, "-", null, removeFirst.getContent(), "drop one data.verifyMd5 Failure", "-1", null);
                         ActLog.writeActLog(null, ActLog.TYPE_DISCARD, removeFirst.getContent(), null, null, null);
                     }
                 } else {
                     getDbManager().removeAll(taskDataSet);
-                    L.debug(this, "syncFromFile. succ dataset size = [%d],fail dataset size = [%d], file dataset size = [%d]", Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(this.mLastFileSize));
+                    L.debug(this, "syncFromFile. succ dataset size = [%d],fail dataset size = [%d], file dataset size = [%d]", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(this.mLastFileSize));
                     return;
                 }
             }
@@ -226,10 +226,10 @@ public class TaskDataSqLiteCacheManager {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IGET, INVOKE, MOVE_EXCEPTION, CONST_STR, NEW_ARRAY, APUT, INVOKE, IGET, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<TaskData> getAndMoveToSendingList(Context context, int i2) {
+    public List<TaskData> getAndMoveToSendingList(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
             this.lock.lock();
             ArrayList arrayList = new ArrayList();
             try {
@@ -240,9 +240,9 @@ public class TaskDataSqLiteCacheManager {
                 if (!this.memoryCacheDataSet.isEmpty()) {
                     int size = this.memoryCacheDataSet.size();
                     HashMap hashMap = new HashMap();
+                    int i2 = 0;
                     int i3 = 0;
-                    int i4 = 0;
-                    while (i3 < size) {
+                    while (i2 < size) {
                         TaskData removeFirst = this.memoryCacheDataSet.removeFirst();
                         if (removeFirst == null) {
                             syncFromFile(context);
@@ -251,7 +251,7 @@ public class TaskDataSqLiteCacheManager {
                             }
                         }
                         if (!isOverdue(removeFirst) && !isOverMaxTryTimes(removeFirst)) {
-                            i4 += removeFirst.getContent().length();
+                            i3 += removeFirst.getContent().length();
                             removeFirst.setRemain(reduceRemain(removeFirst.getAct(), 1));
                             Integer num = (Integer) hashMap.get(removeFirst.getAct());
                             if (num == null) {
@@ -261,15 +261,15 @@ public class TaskDataSqLiteCacheManager {
                             removeFirst.setPackId(num.intValue());
                             arrayList.add(removeFirst);
                             this.sendingData.add(removeFirst.getDataId());
-                            if (i4 > i2) {
+                            if (i3 > i) {
                                 break;
                             }
-                            i3++;
+                            i2++;
                         }
                         getDbManager().remove(removeFirst);
                         TraceLog.dropMessageLog(removeFirst.getAct(), removeFirst.getDataId());
-                        i3--;
-                        i3++;
+                        i2--;
+                        i2++;
                     }
                 }
                 L.verbose(this, "getFirst from  memory cache. memory cache dataset size = %d. mLastFileSize = %d", Integer.valueOf(this.memoryCacheDataSet.size()), Integer.valueOf(this.mLastFileSize));
@@ -507,9 +507,9 @@ public class TaskDataSqLiteCacheManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, messageMonitor};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

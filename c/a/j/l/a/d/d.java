@@ -24,91 +24,87 @@ public final class d extends c.a.j.l.a.d.c {
     public static WeakReference<e> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Toast f3810b;
+    public static Toast f3272b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Handler f3811c;
+    public static Handler f3273c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3812e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ViewGroup f3274b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f3813f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3814g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ int f3275c;
 
         /* renamed from: c.a.j.l.a.d.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0180a implements Runnable {
+        public class RunnableC0186a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f3815e;
-
-            public RunnableC0180a(a aVar) {
+            public RunnableC0186a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3815e = aVar;
+                this.a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j.m.c.q()) {
-                    Toast unused = d.f3810b = new Toast(this.f3815e.f3812e);
-                    d.f3810b.setView(this.f3815e.f3813f);
-                    d.f3810b.setGravity(81, 0, this.f3815e.f3814g);
-                    c.a.j.m.c.m(d.f3810b, R.style.toast_animation);
-                    d.f3810b.show();
+                    Toast unused = d.f3272b = new Toast(this.a.a);
+                    d.f3272b.setView(this.a.f3274b);
+                    d.f3272b.setGravity(81, 0, this.a.f3275c);
+                    c.a.j.m.c.m(d.f3272b, R.style.obfuscated_res_0x7f10040f);
+                    d.f3272b.show();
                 }
             }
         }
 
-        public a(Context context, ViewGroup viewGroup, int i2) {
+        public a(Context context, ViewGroup viewGroup, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, viewGroup, Integer.valueOf(i2)};
+                Object[] objArr = {context, viewGroup, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3812e = context;
-            this.f3813f = viewGroup;
-            this.f3814g = i2;
+            this.a = context;
+            this.f3274b = viewGroup;
+            this.f3275c = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.f3811c.post(new RunnableC0180a(this));
+                d.f3273c.post(new RunnableC0186a(this));
             }
         }
     }
@@ -117,59 +113,53 @@ public final class d extends c.a.j.l.a.d.c {
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f3816e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ViewGroup f3276b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f3817f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ int f3277c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f3818g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ b.a f3819h;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ b.a f3278d;
 
         /* loaded from: classes.dex */
         public class a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ b f3820e;
+            public final /* synthetic */ b a;
 
             /* renamed from: c.a.j.l.a.d.d$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes.dex */
-            public class View$OnClickListenerC0181a implements View.OnClickListener {
+            public class View$OnClickListenerC0187a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ a a;
 
-                /* renamed from: e  reason: collision with root package name */
-                public final /* synthetic */ a f3821e;
-
-                public View$OnClickListenerC0181a(a aVar) {
+                public View$OnClickListenerC0187a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
                         Object[] objArr = {aVar};
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f3821e = aVar;
+                    this.a = aVar;
                 }
 
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     b.a aVar;
                     Interceptable interceptable = $ic;
-                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.f3821e.f3820e.f3819h) == null) {
+                    if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (aVar = this.a.a.f3278d) == null) {
                         return;
                     }
                     aVar.a();
@@ -183,57 +173,57 @@ public final class d extends c.a.j.l.a.d.c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3820e = bVar;
+                this.a = bVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && c.a.j.m.c.q()) {
-                    Toast unused = d.f3810b = new Toast(this.f3820e.f3816e);
-                    d.f3810b.setView(this.f3820e.f3817f);
-                    d.f3810b.setGravity(81, 0, this.f3820e.f3818g);
-                    c.a.j.m.c.m(d.f3810b, R.style.toast_animation);
-                    this.f3820e.f3817f.setOnClickListener(new View$OnClickListenerC0181a(this));
-                    d.f3810b.show();
+                    Toast unused = d.f3272b = new Toast(this.a.a);
+                    d.f3272b.setView(this.a.f3276b);
+                    d.f3272b.setGravity(81, 0, this.a.f3277c);
+                    c.a.j.m.c.m(d.f3272b, R.style.obfuscated_res_0x7f10040f);
+                    this.a.f3276b.setOnClickListener(new View$OnClickListenerC0187a(this));
+                    d.f3272b.show();
                 }
             }
         }
 
-        public b(Context context, ViewGroup viewGroup, int i2, b.a aVar) {
+        public b(Context context, ViewGroup viewGroup, int i, b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, viewGroup, Integer.valueOf(i2), aVar};
+                Object[] objArr = {context, viewGroup, Integer.valueOf(i), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3816e = context;
-            this.f3817f = viewGroup;
-            this.f3818g = i2;
-            this.f3819h = aVar;
+            this.a = context;
+            this.f3276b = viewGroup;
+            this.f3277c = i;
+            this.f3278d = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                d.f3811c.post(new a(this));
+                d.f3273c.post(new a(this));
             }
         }
     }
@@ -245,29 +235,29 @@ public final class d extends c.a.j.l.a.d.c {
         public final /* synthetic */ Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f3822b;
+        public final /* synthetic */ int f3279b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ int f3823c;
+        public final /* synthetic */ int f3280c;
 
-        public c(Context context, int i2, int i3) {
+        public c(Context context, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = context;
-            this.f3822b = i2;
-            this.f3823c = i3;
+            this.f3279b = i;
+            this.f3280c = i2;
         }
 
         @Override // c.a.j.l.a.d.c.e
@@ -280,9 +270,9 @@ public final class d extends c.a.j.l.a.d.c {
                     eVar.n(2003);
                 }
                 eVar.f(viewGroup);
-                eVar.e(81, 0, this.f3822b);
-                eVar.d(this.f3823c);
-                eVar.j(R.style.toast_animation);
+                eVar.e(81, 0, this.f3279b);
+                eVar.d(this.f3280c);
+                eVar.j(R.style.obfuscated_res_0x7f10040f);
                 eVar.c();
             }
         }
@@ -290,21 +280,21 @@ public final class d extends c.a.j.l.a.d.c {
 
     /* renamed from: c.a.j.l.a.d.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0182d implements b.a {
+    public static class C0188d implements b.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b.a a;
 
-        public C0182d(b.a aVar) {
+        public C0188d(b.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -339,7 +329,7 @@ public final class d extends c.a.j.l.a.d.c {
                 return;
             }
         }
-        f3811c = new Handler(Looper.getMainLooper());
+        f3273c = new Handler(Looper.getMainLooper());
     }
 
     public static void e() {
@@ -350,18 +340,18 @@ public final class d extends c.a.j.l.a.d.c {
             if (weakReference != null && (eVar = weakReference.get()) != null) {
                 eVar.i();
             }
-            Toast toast = f3810b;
+            Toast toast = f3272b;
             if (toast != null) {
                 toast.cancel();
             }
         }
     }
 
-    public static void f(Context context, CharSequence charSequence, int i2, String str, CharSequence charSequence2, int i3, int i4, String str2, String str3, String str4, String str5, String str6, b.a aVar, c.a.j.h.c.d.c cVar) {
+    public static void f(Context context, CharSequence charSequence, int i, String str, CharSequence charSequence2, int i2, int i3, String str2, String str3, String str4, String str5, String str6, b.a aVar, c.a.j.h.c.d.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i2), str, charSequence2, Integer.valueOf(i3), Integer.valueOf(i4), str2, str3, str4, str5, str6, aVar, cVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, charSequence, Integer.valueOf(i), str, charSequence2, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, str4, str5, str6, aVar, cVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
+            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705e8);
             if (cVar != null) {
                 dimension = cVar.a();
             }
@@ -370,15 +360,15 @@ public final class d extends c.a.j.l.a.d.c {
                 c.a.j.l.a.d.c.c(str, a2, new b(applicationContext, a2, dimension, aVar));
                 return;
             }
-            c.a.j.l.a.d.c.b(context, charSequence, i2, charSequence2, i3, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i4), new C0182d(aVar));
+            c.a.j.l.a.d.c.b(context, charSequence, i, charSequence2, i2, str2, str, str3, str4, str5, str6, new c(applicationContext, dimension, i3), new C0188d(aVar));
         }
     }
 
-    public static void g(Context context, CharSequence charSequence, int i2, String str, String str2, String str3, c.a.j.h.c.d.c cVar) {
+    public static void g(Context context, CharSequence charSequence, int i, String str, String str2, String str3, c.a.j.h.c.d.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i2), str, str2, str3, cVar}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, charSequence, Integer.valueOf(i), str, str2, str3, cVar}) == null) {
             Context applicationContext = context.getApplicationContext();
-            int dimension = (int) context.getResources().getDimension(R.dimen.sdk_toast_view_margin_bottom);
+            int dimension = (int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f0705e8);
             if (cVar != null) {
                 dimension = cVar.a();
             }

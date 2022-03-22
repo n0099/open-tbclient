@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.opengl.GLES20;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EglSurfaceBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "Grafika";
@@ -34,9 +35,9 @@ public class EglSurfaceBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {eglCore};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,13 +49,13 @@ public class EglSurfaceBase {
         this.mEglCore = eglCore;
     }
 
-    public void createOffscreenSurface(int i2, int i3) {
+    public void createOffscreenSurface(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
             if (this.mEGLSurface == EGL14.EGL_NO_SURFACE) {
-                this.mEGLSurface = this.mEglCore.createOffscreenSurface(i2, i3);
-                this.mWidth = i2;
-                this.mHeight = i3;
+                this.mEGLSurface = this.mEglCore.createOffscreenSurface(i, i2);
+                this.mWidth = i;
+                this.mHeight = i2;
                 return;
             }
             throw new IllegalStateException("surface already created");
@@ -76,8 +77,8 @@ public class EglSurfaceBase {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.mHeight;
-            return i2 < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12374) : i2;
+            int i = this.mHeight;
+            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12374) : i;
         }
         return invokeV.intValue;
     }
@@ -86,8 +87,8 @@ public class EglSurfaceBase {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.mWidth;
-            return i2 < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12375) : i2;
+            int i = this.mWidth;
+            return i < 0 ? this.mEglCore.querySurface(this.mEGLSurface, 12375) : i;
         }
         return invokeV.intValue;
     }
@@ -139,7 +140,7 @@ public class EglSurfaceBase {
                     createBitmap.compress(Bitmap.CompressFormat.PNG, 90, bufferedOutputStream2);
                     createBitmap.recycle();
                     bufferedOutputStream2.close();
-                    String str = "Saved " + width + "x" + height + " frame as '" + file2 + "'";
+                    Log.d("Grafika", "Saved " + width + "x" + height + " frame as '" + file2 + "'");
                 } catch (Throwable th) {
                     th = th;
                     bufferedOutputStream = bufferedOutputStream2;
@@ -156,16 +157,23 @@ public class EglSurfaceBase {
         }
     }
 
-    public void setPresentationTime(long j2) {
+    public void setPresentationTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mEglCore.setPresentationTime(this.mEGLSurface, j2);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mEglCore.setPresentationTime(this.mEGLSurface, j);
         }
     }
 
     public boolean swapBuffers() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mEglCore.swapBuffers(this.mEGLSurface) : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            boolean swapBuffers = this.mEglCore.swapBuffers(this.mEGLSurface);
+            if (!swapBuffers) {
+                Log.d("Grafika", "WARNING: swapBuffers() failed");
+            }
+            return swapBuffers;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -70,16 +70,16 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         ITEM_LAYOUT = R$layout.abc_popup_menu_item_layout;
     }
 
-    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view, int i2, int i3, boolean z) {
+    public StandardMenuPopup(Context context, MenuBuilder menuBuilder, View view, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {context, menuBuilder, view, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -97,9 +97,9 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -133,9 +133,9 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -172,8 +172,8 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
         this.mMenu = menuBuilder;
         this.mOverflowOnly = z;
         this.mAdapter = new MenuAdapter(menuBuilder, LayoutInflater.from(context), this.mOverflowOnly, ITEM_LAYOUT);
-        this.mPopupStyleAttr = i2;
-        this.mPopupStyleRes = i3;
+        this.mPopupStyleAttr = i;
+        this.mPopupStyleRes = i2;
         Resources resources = context.getResources();
         this.mPopupMaxWidth = Math.max(resources.getDisplayMetrics().widthPixels / 2, resources.getDimensionPixelSize(R$dimen.abc_config_prefDialogWidth));
         this.mAnchorView = view;
@@ -306,11 +306,11 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i2, keyEvent)) == null) {
-            if (keyEvent.getAction() == 1 && i2 == 82) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i, keyEvent)) == null) {
+            if (keyEvent.getAction() == 1 && i == 82) {
                 dismiss();
                 return true;
             }
@@ -392,18 +392,18 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setGravity(int i2) {
+    public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mDropDownGravity = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mDropDownGravity = i;
         }
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setHorizontalOffset(int i2) {
+    public void setHorizontalOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mPopup.setHorizontalOffset(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mPopup.setHorizontalOffset(i);
         }
     }
 
@@ -424,10 +424,10 @@ public final class StandardMenuPopup extends MenuPopup implements PopupWindow.On
     }
 
     @Override // androidx.appcompat.view.menu.MenuPopup
-    public void setVerticalOffset(int i2) {
+    public void setVerticalOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mPopup.setVerticalOffset(i2);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mPopup.setVerticalOffset(i);
         }
     }
 

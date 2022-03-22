@@ -28,13 +28,13 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
         public final int margin;
         public final Paint paint;
 
-        public RoundedDrawable(Bitmap bitmap, int i2, int i3) {
-            this.cornerRadius = i2;
-            this.margin = i3;
+        public RoundedDrawable(Bitmap bitmap, int i, int i2) {
+            this.cornerRadius = i;
+            this.margin = i2;
             Shader.TileMode tileMode = Shader.TileMode.CLAMP;
             this.bitmapShader = new BitmapShader(bitmap, tileMode, tileMode);
-            float f2 = i3;
-            this.mBitmapRect = new RectF(f2, f2, bitmap.getWidth() - i3, bitmap.getHeight() - i3);
+            float f2 = i2;
+            this.mBitmapRect = new RectF(f2, f2, bitmap.getWidth() - i2, bitmap.getHeight() - i2);
             Paint paint = new Paint();
             this.paint = paint;
             paint.setAntiAlias(true);
@@ -59,16 +59,16 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
         public void onBoundsChange(Rect rect) {
             super.onBoundsChange(rect);
             RectF rectF = this.mRect;
-            int i2 = this.margin;
-            rectF.set(i2, i2, rect.width() - this.margin, rect.height() - this.margin);
+            int i = this.margin;
+            rectF.set(i, i, rect.width() - this.margin, rect.height() - this.margin);
             Matrix matrix = new Matrix();
             matrix.setRectToRect(this.mBitmapRect, this.mRect, Matrix.ScaleToFit.FILL);
             this.bitmapShader.setLocalMatrix(matrix);
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i2) {
-            this.paint.setAlpha(i2);
+        public void setAlpha(int i) {
+            this.paint.setAlpha(i);
         }
 
         @Override // android.graphics.drawable.Drawable
@@ -77,13 +77,13 @@ public class RoundedBitmapDisplayer implements BitmapDisplayer {
         }
     }
 
-    public RoundedBitmapDisplayer(int i2) {
-        this(i2, 0);
+    public RoundedBitmapDisplayer(int i) {
+        this(i, 0);
     }
 
-    public RoundedBitmapDisplayer(int i2, int i3) {
-        this.cornerRadius = i2;
-        this.margin = i3;
+    public RoundedBitmapDisplayer(int i, int i2) {
+        this.cornerRadius = i;
+        this.margin = i2;
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer

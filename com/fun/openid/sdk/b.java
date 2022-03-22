@@ -4,17 +4,18 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f52899b;
+    public static boolean f38660b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static f a() {
@@ -23,7 +24,7 @@ public class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
             String str = Build.BRAND;
             if (FunOpenIDSdk.isLogEnabled()) {
-                String str2 = "==========brand = " + str;
+                Log.e(FunOpenIDSdk.TAG, "==========brand = " + str);
             }
             if (TextUtils.isEmpty(str)) {
                 return null;
@@ -43,7 +44,7 @@ public class b {
             if (str.equalsIgnoreCase("lenovo") || str.equalsIgnoreCase("zuk")) {
                 return new g();
             }
-            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.f53624j)) {
+            if (Build.MANUFACTURER.equalsIgnoreCase(com.kuaishou.weapon.un.g.j)) {
                 return new l();
             }
             return null;
@@ -57,18 +58,18 @@ public class b {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             q a2 = q.a(context);
             a2.getClass();
-            if (q.f52910b) {
-                String str = q.f52916h;
+            if (q.f38671b) {
+                String str = q.f38677h;
                 if (str != null) {
                     return str;
                 }
                 a2.a(0, null);
-                if (q.f52911c == null) {
+                if (q.f38672c == null) {
                     Context context2 = q.a;
-                    q.f52911c = new s(q.f52917i, 0, null);
-                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f52911c);
+                    q.f38672c = new s(q.i, 0, null);
+                    context2.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, q.f38672c);
                 }
-                return q.f52916h;
+                return q.f38677h;
             }
             return null;
         }

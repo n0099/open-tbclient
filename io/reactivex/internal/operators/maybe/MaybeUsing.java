@@ -37,7 +37,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60716d;
+        public Disposable f45326d;
         public final Consumer<? super D> disposer;
         public final boolean eager;
 
@@ -50,9 +50,9 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, d2, consumer, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -68,8 +68,8 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60716d.dispose();
-                this.f60716d = DisposableHelper.DISPOSED;
+                this.f45326d.dispose();
+                this.f45326d = DisposableHelper.DISPOSED;
                 disposeResourceAfter();
             }
         }
@@ -92,14 +92,14 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60716d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45326d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f60716d = DisposableHelper.DISPOSED;
+                this.f45326d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -125,7 +125,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.f60716d = DisposableHelper.DISPOSED;
+                this.f45326d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -149,8 +149,8 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f60716d, disposable)) {
-                this.f60716d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45326d, disposable)) {
+                this.f45326d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -159,7 +159,7 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-                this.f60716d = DisposableHelper.DISPOSED;
+                this.f45326d = DisposableHelper.DISPOSED;
                 if (this.eager) {
                     Object andSet = getAndSet(this);
                     if (andSet == this) {
@@ -189,9 +189,9 @@ public final class MaybeUsing<T, D> extends Maybe<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {callable, function, consumer, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

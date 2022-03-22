@@ -1,7 +1,7 @@
 package com.qq.e.ads.hybrid;
 
 import com.qq.e.comm.util.AdError;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface HybridADListener {
     void onClose();
 

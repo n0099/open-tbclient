@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.more;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.r0.n3.c.c;
+import c.a.p0.p3.c.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class BrowseSettingActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,11 +34,11 @@ public class BrowseSettingActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mView.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mView.onChangeSkinType(i);
         }
     }
 
@@ -46,18 +46,18 @@ public class BrowseSettingActivity extends BaseActivity {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            if (view == this.mView.j()) {
-                this.mView.t();
+            if (view == this.mView.l()) {
+                this.mView.w();
                 TiebaStatic.log("c10649");
             }
-            if (view == this.mView.m()) {
-                this.mView.v();
+            if (view == this.mView.o()) {
+                this.mView.y();
                 TiebaStatic.log("c10653");
-            } else if (view == this.mView.l()) {
-                this.mView.u();
             } else if (view == this.mView.n()) {
-                this.mView.w();
-            } else if (view == this.mView.k()) {
+                this.mView.x();
+            } else if (view == this.mView.p()) {
+                this.mView.z();
+            } else if (view == this.mView.m()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
             }
         }

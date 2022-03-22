@@ -10,30 +10,30 @@ import com.google.android.exoplayer2.FormatHolder;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.source.SampleStream;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsSampleStream implements SampleStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int group;
     public final HlsSampleStreamWrapper sampleStreamWrapper;
 
-    public HlsSampleStream(HlsSampleStreamWrapper hlsSampleStreamWrapper, int i2) {
+    public HlsSampleStream(HlsSampleStreamWrapper hlsSampleStreamWrapper, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hlsSampleStreamWrapper, Integer.valueOf(i2)};
+            Object[] objArr = {hlsSampleStreamWrapper, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.sampleStreamWrapper = hlsSampleStreamWrapper;
-        this.group = i2;
+        this.group = i;
     }
 
     @Override // com.google.android.exoplayer2.source.SampleStream
@@ -59,9 +59,9 @@ public final class HlsSampleStream implements SampleStream {
     }
 
     @Override // com.google.android.exoplayer2.source.SampleStream
-    public int skipData(long j2) {
+    public int skipData(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.sampleStreamWrapper.skipData(this.group, j2) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.sampleStreamWrapper.skipData(this.group, j) : invokeJ.intValue;
     }
 }

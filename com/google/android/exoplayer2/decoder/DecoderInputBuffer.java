@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DecoderInputBuffer extends Buffer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_REPLACEMENT_MODE_DIRECT = 2;
@@ -23,43 +23,43 @@ public class DecoderInputBuffer extends Buffer {
     public long timeUs;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface BufferReplacementMode {
     }
 
-    public DecoderInputBuffer(int i2) {
+    public DecoderInputBuffer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.cryptoInfo = new CryptoInfo();
-        this.bufferReplacementMode = i2;
+        this.bufferReplacementMode = i;
     }
 
-    private ByteBuffer createReplacementByteBuffer(int i2) {
+    private ByteBuffer createReplacementByteBuffer(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int i3 = this.bufferReplacementMode;
-            if (i3 == 1) {
-                return ByteBuffer.allocate(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int i2 = this.bufferReplacementMode;
+            if (i2 == 1) {
+                return ByteBuffer.allocate(i);
             }
-            if (i3 == 2) {
-                return ByteBuffer.allocateDirect(i2);
+            if (i2 == 2) {
+                return ByteBuffer.allocateDirect(i);
             }
             ByteBuffer byteBuffer = this.data;
             int capacity = byteBuffer == null ? 0 : byteBuffer.capacity();
-            throw new IllegalStateException("Buffer too small (" + capacity + " < " + i2 + SmallTailInfo.EMOTION_SUFFIX);
+            throw new IllegalStateException("Buffer too small (" + capacity + " < " + i + SmallTailInfo.EMOTION_SUFFIX);
         }
         return (ByteBuffer) invokeI.objValue;
     }
@@ -82,21 +82,21 @@ public class DecoderInputBuffer extends Buffer {
         }
     }
 
-    public void ensureSpaceForWrite(int i2) throws IllegalStateException {
+    public void ensureSpaceForWrite(int i) throws IllegalStateException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             ByteBuffer byteBuffer = this.data;
             if (byteBuffer == null) {
-                this.data = createReplacementByteBuffer(i2);
+                this.data = createReplacementByteBuffer(i);
                 return;
             }
             int capacity = byteBuffer.capacity();
             int position = this.data.position();
-            int i3 = i2 + position;
-            if (capacity >= i3) {
+            int i2 = i + position;
+            if (capacity >= i2) {
                 return;
             }
-            ByteBuffer createReplacementByteBuffer = createReplacementByteBuffer(i3);
+            ByteBuffer createReplacementByteBuffer = createReplacementByteBuffer(i2);
             if (position > 0) {
                 this.data.position(0);
                 this.data.limit(position);

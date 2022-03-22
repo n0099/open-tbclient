@@ -1,5 +1,6 @@
 package com.baidu.ar.arplay.representation;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -50,9 +51,9 @@ public class Matrixf4x4 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,22 +124,22 @@ public class Matrixf4x4 {
         }
     }
 
-    public void multiplyMatrix(float[] fArr, int i2, float[] fArr2, int i3) {
+    public void multiplyMatrix(float[] fArr, int i, float[] fArr2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{fArr, Integer.valueOf(i2), fArr2, Integer.valueOf(i3)}) == null) {
-            for (int i4 = 0; i4 < 4; i4++) {
-                for (int i5 = 0; i5 < 4; i5++) {
-                    int i6 = i3 + 0 + i5;
-                    float f2 = fArr2[i6];
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{fArr, Integer.valueOf(i), fArr2, Integer.valueOf(i2)}) == null) {
+            for (int i3 = 0; i3 < 4; i3++) {
+                for (int i4 = 0; i4 < 4; i4++) {
+                    int i5 = i2 + 0 + i4;
+                    float f2 = fArr2[i5];
                     float[] fArr3 = this.matrix;
-                    int i7 = (i4 * 4) + i5;
-                    fArr2[i6] = f2 + (fArr3[i7] * fArr[i2 + 0 + i4]);
-                    int i8 = i3 + 4 + i5;
-                    fArr2[i8] = fArr2[i8] + (fArr3[i7] * fArr[i2 + 4 + i4]);
-                    int i9 = i3 + 8 + i5;
-                    fArr2[i9] = fArr2[i9] + (fArr3[i7] * fArr[i2 + 8 + i4]);
-                    int i10 = i3 + 12 + i5;
-                    fArr2[i10] = fArr2[i10] + (fArr3[i7] * fArr[i2 + 12 + i4]);
+                    int i6 = (i3 * 4) + i4;
+                    fArr2[i5] = f2 + (fArr3[i6] * fArr[i + 0 + i3]);
+                    int i7 = i2 + 4 + i4;
+                    fArr2[i7] = fArr2[i7] + (fArr3[i6] * fArr[i + 4 + i3]);
+                    int i8 = i2 + 8 + i4;
+                    fArr2[i8] = fArr2[i8] + (fArr3[i6] * fArr[i + 8 + i3]);
+                    int i9 = i2 + 12 + i4;
+                    fArr2[i9] = fArr2[i9] + (fArr3[i6] * fArr[i + 12 + i3]);
                 }
             }
         }
@@ -153,7 +154,8 @@ public class Matrixf4x4 {
                 matrixf4x4.setMatrix(fArr);
                 return;
             }
-            String str = "matrixMatrix is invalid, internal is " + this.matrix.length + " long , input matrix is " + matrixf4x4.getMatrix().length + " long";
+            String str = TAG;
+            Log.e(str, "matrixMatrix is invalid, internal is " + this.matrix.length + " long , input matrix is " + matrixf4x4.getMatrix().length + " long");
         }
     }
 
@@ -164,7 +166,8 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, vector3f) == null) {
             if (!this.matrixValid || this.matrix.length != 9) {
-                String str = "matrixMatrix is invalid, is " + this.matrix.length + " long, this function expects the internal matrix to be of size 9";
+                String str = TAG;
+                Log.e(str, "matrixMatrix is invalid, is " + this.matrix.length + " long, this function expects the internal matrix to be of size 9");
                 return;
             }
             float[] array = vector3f.toArray();
@@ -172,21 +175,21 @@ public class Matrixf4x4 {
             if (this.colMaj) {
                 f2 = 0.0f;
                 f3 = 0.0f;
-                for (int i2 = 0; i2 < 3; i2++) {
+                for (int i = 0; i < 3; i++) {
                     float[] fArr = this.matrix;
-                    f4 += fArr[i2 + 0] * array[i2];
-                    f2 += fArr[i2 + 3] * array[i2];
-                    f3 += fArr[i2 + 6] * array[i2];
+                    f4 += fArr[i + 0] * array[i];
+                    f2 += fArr[i + 3] * array[i];
+                    f3 += fArr[i + 6] * array[i];
                 }
             } else {
                 f2 = 0.0f;
                 f3 = 0.0f;
-                for (int i3 = 0; i3 < 3; i3++) {
-                    int i4 = i3 * 3;
+                for (int i2 = 0; i2 < 3; i2++) {
+                    int i3 = i2 * 3;
                     float[] fArr2 = this.matrix;
-                    f4 += fArr2[i4 + 0] * array[i3];
-                    f2 += fArr2[i4 + 1] * array[i3];
-                    f3 += fArr2[i4 + 2] * array[i3];
+                    f4 += fArr2[i3 + 0] * array[i2];
+                    f2 += fArr2[i3 + 1] * array[i2];
+                    f3 += fArr2[i3 + 2] * array[i2];
                 }
             }
             vector3f.setX(f4);
@@ -202,36 +205,37 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, vector4f) == null) {
             if (!this.matrixValid || this.matrix.length != 16) {
-                String str = "matrixMatrix is invalid, is " + this.matrix.length + " long, this equation expects a 16 value matrix";
+                String str = TAG;
+                Log.e(str, "matrixMatrix is invalid, is " + this.matrix.length + " long, this equation expects a 16 value matrix");
                 return;
             }
             float[] array = vector4f.toArray();
-            int i2 = 0;
+            int i = 0;
             float f5 = 0.0f;
             if (this.colMaj) {
                 f2 = 0.0f;
                 f3 = 0.0f;
                 f4 = 0.0f;
-                while (i2 < 4) {
-                    int i3 = i2 * 4;
+                while (i < 4) {
+                    int i2 = i * 4;
                     float[] fArr = this.matrix;
-                    f5 += fArr[i3 + 0] * array[i2];
-                    f2 += fArr[i3 + 1] * array[i2];
-                    f3 += fArr[i3 + 2] * array[i2];
-                    f4 += fArr[i3 + 3] * array[i2];
-                    i2++;
+                    f5 += fArr[i2 + 0] * array[i];
+                    f2 += fArr[i2 + 1] * array[i];
+                    f3 += fArr[i2 + 2] * array[i];
+                    f4 += fArr[i2 + 3] * array[i];
+                    i++;
                 }
             } else {
                 f2 = 0.0f;
                 f3 = 0.0f;
                 f4 = 0.0f;
-                while (i2 < 4) {
+                while (i < 4) {
                     float[] fArr2 = this.matrix;
-                    f5 += fArr2[i2 + 0] * array[i2];
-                    f2 += fArr2[i2 + 4] * array[i2];
-                    f3 += fArr2[i2 + 8] * array[i2];
-                    f4 += fArr2[i2 + 12] * array[i2];
-                    i2++;
+                    f5 += fArr2[i + 0] * array[i];
+                    f2 += fArr2[i + 4] * array[i];
+                    f3 += fArr2[i + 8] * array[i];
+                    f4 += fArr2[i + 12] * array[i];
+                    i++;
                 }
             }
             vector4f.setX(f5);
@@ -257,7 +261,8 @@ public class Matrixf4x4 {
                 return;
             }
             this.matrixValid = false;
-            String str = "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16";
+            String str = TAG;
+            Log.e(str, "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16");
         }
     }
 
@@ -265,10 +270,11 @@ public class Matrixf4x4 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fArr) == null) {
             if (this.matrix.length != fArr.length) {
-                String str = "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16";
+                String str = TAG;
+                Log.e(str, "matrixMatrix set is invalid, size is " + fArr.length + " expected 9 or 16");
             }
-            for (int i2 = 0; i2 < fArr.length; i2++) {
-                this.matrix[i2] = fArr[i2];
+            for (int i = 0; i < fArr.length; i++) {
+                this.matrix[i] = fArr[i];
             }
         }
     }
@@ -542,29 +548,29 @@ public class Matrixf4x4 {
     public void transpose() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048604, this) == null) && this.matrixValid) {
-            int i2 = 0;
+            int i = 0;
             if (this.matrix.length != 16) {
                 float[] fArr = new float[9];
-                while (i2 < 3) {
-                    int i3 = i2 * 3;
+                while (i < 3) {
+                    int i2 = i * 3;
                     float[] fArr2 = this.matrix;
-                    fArr[i3] = fArr2[i2];
-                    fArr[i3 + 1] = fArr2[i2 + 3];
-                    fArr[i3 + 2] = fArr2[i2 + 6];
-                    i2++;
+                    fArr[i2] = fArr2[i];
+                    fArr[i2 + 1] = fArr2[i + 3];
+                    fArr[i2 + 2] = fArr2[i + 6];
+                    i++;
                 }
                 this.matrix = fArr;
                 return;
             }
             float[] fArr3 = new float[16];
-            while (i2 < 4) {
-                int i4 = i2 * 4;
+            while (i < 4) {
+                int i3 = i * 4;
                 float[] fArr4 = this.matrix;
-                fArr3[i4] = fArr4[i2];
-                fArr3[i4 + 1] = fArr4[i2 + 4];
-                fArr3[i4 + 2] = fArr4[i2 + 8];
-                fArr3[i4 + 3] = fArr4[i2 + 12];
-                i2++;
+                fArr3[i3] = fArr4[i];
+                fArr3[i3 + 1] = fArr4[i + 4];
+                fArr3[i3 + 2] = fArr4[i + 8];
+                fArr3[i3 + 3] = fArr4[i + 12];
+                i++;
             }
             this.matrix = fArr3;
         }

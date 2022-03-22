@@ -3,6 +3,7 @@ package com.baidu.titan.sdk.verifier;
 import android.content.Context;
 import android.content.pm.Signature;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.internal.util.EncodeUtils;
 import com.baidu.titan.sdk.internal.util.Files;
@@ -71,6 +72,7 @@ public class SignatureVerifier {
     private void initSignatures() {
         String assetFileContent = Files.getAssetFileContent(this.mContext, TitanConstant.VERIFY_CONFIG_ASSETS_PATH);
         if (TextUtils.isEmpty(assetFileContent)) {
+            Log.e("SigVerifier", "cannot find sig-config");
             return;
         }
         try {
@@ -83,8 +85,8 @@ public class SignatureVerifier {
             if (this.mSignaturePolicy != SignaturePolicy.NO_SIGNATURE) {
                 JSONArray jSONArray = jSONObject.getJSONArray("sigs");
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.mAllowedSigs.add(jSONArray.getString(i2));
+                for (int i = 0; i < length; i++) {
+                    this.mAllowedSigs.add(jSONArray.getString(i));
                 }
             }
         } catch (Exception unused2) {
@@ -127,9 +129,9 @@ public class SignatureVerifier {
     }
 
     public int verifySignature() {
-        int i2 = AnonymousClass1.$SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy[this.mSignaturePolicy.ordinal()];
-        if (i2 != 1) {
-            return i2 != 2 ? i2 != 3 ? i2 != 4 ? -5 : 0 : !verifySignatureSchemeV1() ? -5 : 0 : !verifySignatureSchemeV2() ? -5 : 0;
+        int i = AnonymousClass1.$SwitchMap$com$baidu$titan$sdk$verifier$SignaturePolicy[this.mSignaturePolicy.ordinal()];
+        if (i != 1) {
+            return i != 2 ? i != 3 ? i != 4 ? -5 : 0 : !verifySignatureSchemeV1() ? -5 : 0 : !verifySignatureSchemeV2() ? -5 : 0;
         }
         try {
             if (hasSignatureSchemeV2()) {

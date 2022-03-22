@@ -47,9 +47,9 @@ public abstract class RoundedBitmapDrawable extends Drawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -178,9 +178,9 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mPaint : (Paint) invokeV.objValue;
     }
 
-    public void gravityCompatApply(int i2, int i3, int i4, Rect rect, Rect rect2) {
+    public void gravityCompatApply(int i, int i2, int i3, Rect rect, Rect rect2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect, rect2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2}) == null) {
             throw new UnsupportedOperationException();
         }
     }
@@ -219,12 +219,12 @@ public abstract class RoundedBitmapDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || i2 == this.mPaint.getAlpha()) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || i == this.mPaint.getAlpha()) {
             return;
         }
-        this.mPaint.setAlpha(i2);
+        this.mPaint.setAlpha(i);
         invalidateSelf();
     }
 
@@ -293,12 +293,12 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public void setGravity(int i2) {
+    public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048598, this, i2) == null) || this.mGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048598, this, i) == null) || this.mGravity == i) {
             return;
         }
-        this.mGravity = i2;
+        this.mGravity = i;
         this.mApplyGravity = true;
         invalidateSelf();
     }
@@ -349,15 +349,15 @@ public abstract class RoundedBitmapDrawable extends Drawable {
         }
     }
 
-    public void setTargetDensity(int i2) {
+    public void setTargetDensity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || this.mTargetDensity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.mTargetDensity == i) {
             return;
         }
-        if (i2 == 0) {
-            i2 = 160;
+        if (i == 0) {
+            i = 160;
         }
-        this.mTargetDensity = i2;
+        this.mTargetDensity = i;
         if (this.mBitmap != null) {
             computeBitmapSize();
         }

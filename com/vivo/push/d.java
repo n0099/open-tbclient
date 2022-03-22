@@ -12,7 +12,7 @@ import com.vivo.push.b.t;
 import com.vivo.push.b.u;
 import com.vivo.push.c.ag;
 import com.vivo.push.c.z;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d implements IPushClientFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class d implements IPushClientFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

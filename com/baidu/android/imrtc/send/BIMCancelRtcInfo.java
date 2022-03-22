@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -36,9 +35,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,9 +50,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -78,12 +77,12 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
 
     @Override // com.baidu.android.imrtc.BIMRtcInfo
     @NonNull
-    public BIMRtcInfo toRtcInfo(int i2, String str, String str2) {
+    public BIMRtcInfo toRtcInfo(int i, String str, String str2) {
         InterceptResult invokeILL;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, str, str2)) == null) {
-            BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i2, str, str2));
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2)) == null) {
+            BIMCancelRtcInfo bIMCancelRtcInfo = new BIMCancelRtcInfo(super.toRtcInfo(i, str, str2));
             try {
                 optJSONArray = new JSONObject(str2).optJSONArray("user_list");
             } catch (Exception e2) {
@@ -91,9 +90,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
             }
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
                     BIMCancelUser bIMCancelUser = new BIMCancelUser();
-                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i3);
+                    JSONObject jSONObject = (JSONObject) optJSONArray.opt(i2);
                     bIMCancelUser.appId = jSONObject.optLong("appid");
                     bIMCancelUser.uk = jSONObject.optLong("uk");
                     bIMCancelUser.cuid = jSONObject.optString("cuid");
@@ -141,7 +140,7 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + ExtendedMessageFormat.END_FE;
+            return "BBIMCancelRtcInfo{" + super.toString() + ", mCancelUsers=" + this.mCancelUsers.size() + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -153,9 +152,9 @@ public class BIMCancelRtcInfo extends BIMRtcInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {bIMRtcInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

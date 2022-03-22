@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DefaultDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DECODE_BUFFER_SIZE = 16384;
@@ -62,16 +62,16 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         EOI_TAIL = new byte[]{-1, -39};
     }
 
-    public DefaultDecoder(BitmapPool bitmapPool, int i2, Pools.SynchronizedPool synchronizedPool) {
+    public DefaultDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapPool, Integer.valueOf(i2), synchronizedPool};
+            Object[] objArr = {bitmapPool, Integer.valueOf(i), synchronizedPool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -80,7 +80,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         this.mPreverificationHelper = Build.VERSION.SDK_INT >= 26 ? new PreverificationHelper() : null;
         this.mBitmapPool = bitmapPool;
         this.mDecodeBuffers = synchronizedPool;
-        for (int i5 = 0; i5 < i2; i5++) {
+        for (int i4 = 0; i4 < i; i4++) {
             this.mDecodeBuffers.release(ByteBuffer.allocate(16384));
         }
     }
@@ -104,12 +104,12 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{inputStream, options, rect, Boolean.valueOf(z)})) == null) {
             Preconditions.checkNotNull(inputStream);
-            int i2 = options.outWidth;
-            int i3 = options.outHeight;
-            ?? r0 = i2;
+            int i = options.outWidth;
+            int i2 = options.outHeight;
+            ?? r0 = i;
             if (rect != null) {
                 int width = rect.width() / options.inSampleSize;
-                i3 = rect.height() / options.inSampleSize;
+                i2 = rect.height() / options.inSampleSize;
                 r0 = width;
             }
             boolean z2 = Build.VERSION.SDK_INT >= 26 && (preverificationHelper = this.mPreverificationHelper) != null && preverificationHelper.shouldUseHardwareBitmapConfig(options.inPreferredConfig);
@@ -121,7 +121,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                 if (rect != null && z2) {
                     options.inPreferredConfig = Bitmap.Config.ARGB_8888;
                 }
-                bitmap = this.mBitmapPool.get(getBitmapSize(r0, i3, options));
+                bitmap = this.mBitmapPool.get(getBitmapSize(r0, i2, options));
                 if (bitmap == null) {
                     throw new NullPointerException("BitmapPool.get returned null");
                 }
@@ -142,7 +142,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                             try {
                                 if (bitmap != null) {
                                     try {
-                                        bitmap.reconfigure(r0, i3, options.inPreferredConfig);
+                                        bitmap.reconfigure(r0, i2, options.inPreferredConfig);
                                         bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, true);
                                         try {
                                             decodeRegion = bitmapRegionDecoder.decodeRegion(rect, options);
@@ -272,23 +272,23 @@ public abstract class DefaultDecoder implements PlatformDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, i2)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, false) : (CloseableReference) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, encodedImage, config, rect, i)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, false) : (CloseableReference) invokeLLLI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, boolean z) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            boolean isCompleteAt = encodedImage.isCompleteAt(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            boolean isCompleteAt = encodedImage.isCompleteAt(i);
             BitmapFactory.Options decodeOptionsForStream = getDecodeOptionsForStream(encodedImage, config);
             TailAppendingInputStream inputStream = encodedImage.getInputStream();
             Preconditions.checkNotNull(inputStream);
-            if (encodedImage.getSize() > i2) {
-                inputStream = new LimitedInputStream(inputStream, i2);
+            if (encodedImage.getSize() > i) {
+                inputStream = new LimitedInputStream(inputStream, i);
             }
             if (!isCompleteAt) {
                 inputStream = new TailAppendingInputStream(inputStream, EOI_TAIL);
@@ -298,7 +298,7 @@ public abstract class DefaultDecoder implements PlatformDecoder {
                 return decodeFromStream(inputStream, decodeOptionsForStream, rect, z);
             } catch (RuntimeException e2) {
                 if (z2) {
-                    return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i2, z);
+                    return decodeJPEGFromEncodedImageWithColorSpace(encodedImage, Bitmap.Config.ARGB_8888, rect, i, z);
                 }
                 throw e2;
             }
@@ -312,5 +312,5 @@ public abstract class DefaultDecoder implements PlatformDecoder {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inputStream, options, rect)) == null) ? decodeFromStream(inputStream, options, rect, false) : (CloseableReference) invokeLLL.objValue;
     }
 
-    public abstract int getBitmapSize(int i2, int i3, BitmapFactory.Options options);
+    public abstract int getBitmapSize(int i, int i2, BitmapFactory.Options options);
 }

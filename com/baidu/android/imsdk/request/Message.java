@@ -44,9 +44,9 @@ public abstract class Message {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,10 +91,10 @@ public abstract class Message {
         return (Message) invokeLLLL.objValue;
     }
 
-    public static void saveCmdMessage(Context context, Message message, String str, int i2) {
+    public static void saveCmdMessage(Context context, Message message, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65539, null, context, message, str, i2) == null) {
-            DBManager.getInstance(context).saveCmdMsg(message.getUUID(), message.getType(), message.getBody(), str, i2, 0);
+        if (interceptable == null || interceptable.invokeLLLI(65539, null, context, message, str, i) == null) {
+            DBManager.getInstance(context).saveCmdMsg(message.getUUID(), message.getType(), message.getBody(), str, i, 0);
         }
     }
 
@@ -216,11 +216,11 @@ public abstract class Message {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.mUk : invokeV.longValue;
     }
 
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048586, this, context, jSONObject, i2, str) == null) {
-            if (i2 == 4001 || i2 == 4003 || i2 == 4004 || i2 == 4005) {
-                LoginManager.getInstance(context).triggleLogoutListener(i2, str);
+        if (interceptable == null || interceptable.invokeLLIL(1048586, this, context, jSONObject, i, str) == null) {
+            if (i == 4001 || i == 4003 || i == 4004 || i == 4005) {
+                LoginManager.getInstance(context).triggleLogoutListener(i, str);
             }
         }
     }
@@ -265,10 +265,10 @@ public abstract class Message {
         }
     }
 
-    public void setAppid(long j2) {
+    public void setAppid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.mAppid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.mAppid = j;
         }
     }
 
@@ -286,10 +286,10 @@ public abstract class Message {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.msgId = j;
         }
     }
 
@@ -314,10 +314,10 @@ public abstract class Message {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mType = i;
         }
     }
 
@@ -328,10 +328,10 @@ public abstract class Message {
         }
     }
 
-    public void setUk(long j2) {
+    public void setUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048602, this, j2) == null) {
-            this.mUk = j2;
+        if (interceptable == null || interceptable.invokeJ(1048602, this, j) == null) {
+            this.mUk = j;
         }
     }
 

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EditVideoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM_TYPE = "from_type";
@@ -53,9 +53,9 @@ public class EditVideoActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3, str4, videoInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -76,19 +76,19 @@ public class EditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void addMusicInfo(String str, String str2, int i2) {
+    public void addMusicInfo(String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i) == null) {
             getIntent().putExtra(LOCAL_PATH_KEY, str);
             getIntent().putExtra(MUSIC_ID_KEY, str2);
-            getIntent().putExtra(POSITION_KEY, i2);
+            getIntent().putExtra(POSITION_KEY, i);
         }
     }
 
-    public void addRequestForResult(int i2) {
+    public void addRequestForResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            setRequestCode(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            setRequestCode(i);
             setIntentAction(IntentAction.ActivityForResult);
         }
     }
@@ -104,10 +104,10 @@ public class EditVideoActivityConfig extends IntentConfig {
         getIntent().putExtra("anti_data", antiData);
     }
 
-    public void setForumLevel(int i2) {
+    public void setForumLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            getIntent().putExtra("key_write_level", i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            getIntent().putExtra("key_write_level", i);
         }
     }
 
@@ -125,17 +125,17 @@ public class EditVideoActivityConfig extends IntentConfig {
         }
     }
 
-    public void setProZone(int i2) {
+    public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            getIntent().putExtra(KEY_PRO_ZONE, i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            getIntent().putExtra(KEY_PRO_ZONE, i);
         }
     }
 
-    public void setStatisticFrom(int i2) {
+    public void setStatisticFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            getIntent().putExtra(WriteActivityConfig.KEY_STATISTIS_FROM, i);
         }
     }
 }

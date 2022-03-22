@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FTOSPushHelper {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f50a;
+    public static volatile boolean f26a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,9 +41,9 @@ public class FTOSPushHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,10 +53,10 @@ public class FTOSPushHelper {
     public static void a(Context context) {
         AbstractPushManager a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f59462d)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65538, null, context) == null) || (a2 = f.a(context).a(e.f44081d)) == null) {
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+        com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH :  register fun touch os when network change!");
         a2.register();
     }
 
@@ -65,8 +65,8 @@ public class FTOSPushHelper {
         if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (getNeedRegister()) {
-                long j2 = a;
-                if (j2 <= 0 || j2 + 300000 <= elapsedRealtime) {
+                long j = a;
+                if (j <= 0 || j + 300000 <= elapsedRealtime) {
                     a = elapsedRealtime;
                     a(context);
                 }
@@ -77,13 +77,13 @@ public class FTOSPushHelper {
     public static boolean getNeedRegister() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f50a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? f26a : invokeV.booleanValue;
     }
 
     public static boolean hasNetwork(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m195a(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? i.m174a(context) : invokeL.booleanValue;
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
@@ -105,14 +105,14 @@ public class FTOSPushHelper {
     public static void setNeedRegister(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
-            f50a = z;
+            f26a = z;
         }
     }
 
     public static void uploadToken(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, context, str) == null) {
-            i.a(context, e.f59462d, str);
+            i.a(context, e.f44081d, str);
         }
     }
 }

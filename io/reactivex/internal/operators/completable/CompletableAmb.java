@@ -14,14 +14,14 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.EmptyDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableAmb extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource[] sources;
     public final Iterable<? extends CompletableSource> sourcesIterable;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Amb implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public final class CompletableAmb extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {atomicBoolean, compositeDisposable, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,9 +87,9 @@ public final class CompletableAmb extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSourceArr, iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,9 +119,9 @@ public final class CompletableAmb extends Completable {
                             System.arraycopy(completableSourceArr, 0, completableSourceArr2, 0, length);
                             completableSourceArr = completableSourceArr2;
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         completableSourceArr[length] = completableSource;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -135,8 +135,8 @@ public final class CompletableAmb extends Completable {
             completableObserver.onSubscribe(compositeDisposable);
             AtomicBoolean atomicBoolean = new AtomicBoolean();
             Amb amb = new Amb(atomicBoolean, compositeDisposable, completableObserver);
-            for (int i3 = 0; i3 < length; i3++) {
-                CompletableSource completableSource2 = completableSourceArr[i3];
+            for (int i2 = 0; i2 < length; i2++) {
+                CompletableSource completableSource2 = completableSourceArr[i2];
                 if (compositeDisposable.isDisposed()) {
                     return;
                 }

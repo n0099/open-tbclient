@@ -5,22 +5,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface o extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements o {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.o$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2206a implements o {
+        /* loaded from: classes7.dex */
+        public static class C2067a implements o {
             public static o a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58499b;
+            public IBinder f43227b;
 
-            public C2206a(IBinder iBinder) {
-                this.f58499b = iBinder;
+            public C2067a(IBinder iBinder) {
+                this.f43227b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.o
@@ -29,7 +29,7 @@ public interface o extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
-                    if (!this.f58499b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43227b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         a.b().a();
                     } else {
                         obtain2.readException();
@@ -42,7 +42,7 @@ public interface o extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58499b;
+                return this.f43227b;
             }
         }
 
@@ -58,11 +58,11 @@ public interface o extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof o)) {
                 return (o) queryLocalInterface;
             }
-            return new C2206a(iBinder);
+            return new C2067a(iBinder);
         }
 
         public static o b() {
-            return C2206a.a;
+            return C2067a.a;
         }
 
         @Override // android.os.IInterface
@@ -71,10 +71,10 @@ public interface o extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadDiskSpaceAidlCallback");
                 return true;

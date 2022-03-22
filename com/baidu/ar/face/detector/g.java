@@ -23,9 +23,9 @@ public class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,17 +37,17 @@ public class g {
         this.ox = false;
     }
 
-    public void E(int i2) {
+    public void E(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.ov = i2;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.ov = i;
         }
     }
 
-    public void F(int i2) {
+    public void F(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.ou = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.ou = i;
         }
     }
 
@@ -76,23 +76,23 @@ public class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.ow;
-            if (i2 == 0) {
-                this.ow = i2 + 1;
+            int i = this.ow;
+            if (i == 0) {
+                this.ow = i + 1;
                 return true;
             } else if (this.ox) {
                 return false;
             } else {
-                int i3 = i2 + 1;
-                this.ow = i3;
-                int i4 = i3 - 1;
+                int i2 = i + 1;
+                this.ow = i2;
+                int i3 = i2 - 1;
                 int[] iArr = this.ot;
-                int i5 = this.ov;
-                int i6 = this.ou;
-                if (i5 > i6) {
-                    i5 = i6;
+                int i4 = this.ov;
+                int i5 = this.ou;
+                if (i4 > i5) {
+                    i4 = i5;
                 }
-                if (i4 > iArr[i5]) {
+                if (i3 > iArr[i4]) {
                     this.ow = 0;
                     return true;
                 }

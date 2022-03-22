@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.upstream.DataSink;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AesCipherDataSink implements DataSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class AesCipherDataSink implements DataSink {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr, dataSink};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((byte[]) objArr2[0], (DataSink) objArr2[1], (byte[]) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -57,20 +57,20 @@ public final class AesCipherDataSink implements DataSink {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSink
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
             if (this.scratch == null) {
-                this.cipher.updateInPlace(bArr, i2, i3);
-                this.wrappedDataSink.write(bArr, i2, i3);
+                this.cipher.updateInPlace(bArr, i, i2);
+                this.wrappedDataSink.write(bArr, i, i2);
                 return;
             }
-            int i4 = 0;
-            while (i4 < i3) {
-                int min = Math.min(i3 - i4, this.scratch.length);
-                this.cipher.update(bArr, i2 + i4, min, this.scratch, 0);
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i2 - i3, this.scratch.length);
+                this.cipher.update(bArr, i + i3, min, this.scratch, 0);
                 this.wrappedDataSink.write(this.scratch, 0, min);
-                i4 += min;
+                i3 += min;
             }
         }
     }
@@ -82,9 +82,9 @@ public final class AesCipherDataSink implements DataSink {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr, dataSink, bArr2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -20,7 +20,7 @@ public final class c implements a {
     public final UBCManager a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.j.i.d.a f3774b;
+    public final c.a.j.j.i.d.a f3247b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,16 +42,16 @@ public final class c implements a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-        this.f3774b = (c.a.j.j.i.d.a) ServiceManager.getService(c.a.j.j.i.d.a.a.a());
+        this.f3247b = (c.a.j.j.i.d.a) ServiceManager.getService(c.a.j.j.i.d.a.a.a());
     }
 
     @Override // c.a.j.j.i.a
@@ -83,7 +83,7 @@ public final class c implements a {
             hashMap.put("type", "abnormal");
             Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
             hashMap.put("ext", extra);
-            c.a.j.j.i.d.a aVar = this.f3774b;
+            c.a.j.j.i.d.a aVar = this.f3247b;
             if (aVar != null) {
                 aVar.a("3677", str, extra);
             }

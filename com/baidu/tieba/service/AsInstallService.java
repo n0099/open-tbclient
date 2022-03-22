@@ -7,7 +7,7 @@ import android.content.IntentFilter;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
-import c.a.r0.s;
+import c.a.p0.u;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AsInstallService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -33,13 +33,11 @@ public class AsInstallService extends BdBaseService {
     public Runnable mStopReceivingRunnable;
     public VersionData mVersionData;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AsInstallService f46343e;
+        public final /* synthetic */ AsInstallService a;
 
         public a(AsInstallService asInstallService) {
             Interceptable interceptable = $ic;
@@ -48,27 +46,27 @@ public class AsInstallService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {asInstallService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46343e = asInstallService;
+            this.a = asInstallService;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f46343e.stopSelf();
+                this.a.stopSelf();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +79,9 @@ public class AsInstallService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {asInstallService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,7 +98,7 @@ public class AsInstallService extends BdBaseService {
                 if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || this.this$0.mVersionData == null) {
                     return;
                 }
-                s.b(context, this.this$0.mVersionData);
+                u.b(context, this.this$0.mVersionData);
                 TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
         }
@@ -115,9 +113,9 @@ public class AsInstallService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -160,10 +158,10 @@ public class AsInstallService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i) == null) {
+            super.onStart(intent, i);
             if (sIsReceiving) {
                 return;
             }

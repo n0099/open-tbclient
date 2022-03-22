@@ -33,18 +33,18 @@ public class ModernLinker extends Linker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static native boolean nativeCreateSharedRelro(String str, long j2, String str2, Linker.LibInfo libInfo);
+    public static native boolean nativeCreateSharedRelro(String str, long j, String str2, Linker.LibInfo libInfo);
 
     public static native String nativeGetCpuAbi();
 
-    public static native boolean nativeLoadLibrary(String str, long j2, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
 }

@@ -13,22 +13,22 @@ public class e {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3207b;
+    public String f2674b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ICardInfo f3208c;
+    public ICardInfo f2675c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ParseError f3209d;
+    public ParseError f2676d;
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

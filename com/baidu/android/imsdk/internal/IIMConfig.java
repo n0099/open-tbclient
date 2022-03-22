@@ -15,7 +15,7 @@ public interface IIMConfig {
 
     Map<String, Object> getOtherParameters(Context context, ChatMsg chatMsg);
 
-    String getPaidCondition(String str, String str2, long j2);
+    String getPaidCondition(String str, String str2, long j);
 
     String getProductLineName();
 
@@ -29,7 +29,7 @@ public interface IIMConfig {
 
     boolean isCategorySupported();
 
-    boolean isMsgTypeSupported(int i2);
+    boolean isMsgTypeSupported(int i);
 
     boolean isNeedPaid();
 

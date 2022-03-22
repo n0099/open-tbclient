@@ -21,9 +21,9 @@ public class CheckShowNameDialogSwitch extends a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,10 +31,10 @@ public class CheckShowNameDialogSwitch extends a {
     }
 
     @Override // c.a.d.f.f.a
-    public void changeSettingByType(int i2) {
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i2 == 1);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            TbadkCoreApplication.getInst().setNeedCheckUserNameDialog(i == 1);
         }
     }
 

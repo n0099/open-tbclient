@@ -11,14 +11,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import j.a.a.e.h.c;
-/* loaded from: classes9.dex */
+import h.a.a.e.h.c;
+/* loaded from: classes8.dex */
 public class NoScrollGridView extends GridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f61608e;
+    public int a;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NoScrollGridView(Context context) {
@@ -29,9 +27,9 @@ public class NoScrollGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -44,21 +42,21 @@ public class NoScrollGridView extends GridView {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.pay_ui_gv_max_height_dp});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048b});
             int integer = obtainStyledAttributes.getInteger(0, 536870911);
-            this.f61608e = integer;
+            this.a = integer;
             if (integer != 536870911) {
-                this.f61608e = c.a(integer);
+                this.a = c.a(integer);
             }
             obtainStyledAttributes.recycle();
         }
     }
 
     @Override // android.widget.GridView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(this.f61608e, Integer.MIN_VALUE));
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(this.a, Integer.MIN_VALUE));
         }
     }
 
@@ -71,9 +69,9 @@ public class NoScrollGridView extends GridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -84,17 +82,17 @@ public class NoScrollGridView extends GridView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoScrollGridView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NoScrollGridView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -102,7 +100,7 @@ public class NoScrollGridView extends GridView {
                 return;
             }
         }
-        this.f61608e = 536870911;
+        this.a = 536870911;
         a(context, attributeSet);
     }
 }

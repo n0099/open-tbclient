@@ -8,36 +8,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.model.InsideNotificationItem;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class p extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59208b;
+    public String f43843b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f59209c;
+    public byte[] f43844c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f59210d;
+    public long f43845d;
 
     /* renamed from: e  reason: collision with root package name */
-    public InsideNotificationItem f59211e;
+    public InsideNotificationItem f43846e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p(String str, long j2, InsideNotificationItem insideNotificationItem) {
+    public p(String str, long j, InsideNotificationItem insideNotificationItem) {
         super(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), insideNotificationItem};
+            Object[] objArr = {str, Long.valueOf(j), insideNotificationItem};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -45,8 +45,8 @@ public final class p extends com.vivo.push.o {
             }
         }
         this.a = str;
-        this.f59210d = j2;
-        this.f59211e = insideNotificationItem;
+        this.f43845d = j;
+        this.f43846e = insideNotificationItem;
     }
 
     @Override // com.vivo.push.o
@@ -54,10 +54,10 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             aVar.a("package_name", this.a);
-            aVar.a("notify_id", this.f59210d);
-            aVar.a("notification_v1", com.vivo.push.util.q.b(this.f59211e));
-            aVar.a("open_pkg_name", this.f59208b);
-            aVar.a("open_pkg_name_encode", this.f59209c);
+            aVar.a("notify_id", this.f43845d);
+            aVar.a("notification_v1", com.vivo.push.util.q.b(this.f43846e));
+            aVar.a("open_pkg_name", this.f43843b);
+            aVar.a("open_pkg_name_encode", this.f43844c);
         }
     }
 
@@ -70,13 +70,13 @@ public final class p extends com.vivo.push.o {
     public final long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f59210d : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f43845d : invokeV.longValue;
     }
 
     public final InsideNotificationItem f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f59211e : (InsideNotificationItem) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f43846e : (InsideNotificationItem) invokeV.objValue;
     }
 
     @Override // com.vivo.push.o
@@ -91,16 +91,16 @@ public final class p extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
             this.a = aVar.a("package_name");
-            this.f59210d = aVar.b("notify_id", -1L);
-            this.f59208b = aVar.a("open_pkg_name");
-            this.f59209c = aVar.b("open_pkg_name_encode");
+            this.f43845d = aVar.b("notify_id", -1L);
+            this.f43843b = aVar.a("open_pkg_name");
+            this.f43844c = aVar.b("open_pkg_name_encode");
             String a = aVar.a("notification_v1");
             if (!TextUtils.isEmpty(a)) {
-                this.f59211e = com.vivo.push.util.q.a(a);
+                this.f43846e = com.vivo.push.util.q.a(a);
             }
-            InsideNotificationItem insideNotificationItem = this.f59211e;
+            InsideNotificationItem insideNotificationItem = this.f43846e;
             if (insideNotificationItem != null) {
-                insideNotificationItem.setMsgId(this.f59210d);
+                insideNotificationItem.setMsgId(this.f43845d);
             }
         }
     }
@@ -112,9 +112,9 @@ public final class p extends com.vivo.push.o {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

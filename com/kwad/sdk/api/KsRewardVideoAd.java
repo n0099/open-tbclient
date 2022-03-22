@@ -23,7 +23,7 @@ public interface KsRewardVideoAd {
 
         @KsAdSdkApi
         @Keep
-        void onRewardStepVerify(int i2, int i3);
+        void onRewardStepVerify(int i, int i2);
 
         @KsAdSdkApi
         @Keep
@@ -35,7 +35,7 @@ public interface KsRewardVideoAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoPlayError(int i2, int i3);
+        void onVideoPlayError(int i, int i2);
 
         @KsAdSdkApi
         @Keep
@@ -43,7 +43,7 @@ public interface KsRewardVideoAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoSkipToEnd(long j2);
+        void onVideoSkipToEnd(long j);
     }
 
     @KsAdSdkApi
@@ -64,11 +64,11 @@ public interface KsRewardVideoAd {
 
     @KsAdSdkApi
     @Keep
-    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
+    void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i2);
+    void setBidEcpm(int i);
 
     @KsAdSdkApi
     @Keep

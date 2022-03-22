@@ -14,7 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DpRTCSession {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class DpRTCSession {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,14 +48,14 @@ public class DpRTCSession {
         return (JSONObject) invokeL.objValue;
     }
 
-    public static synchronized void uploadSession(int i2, HashMap<String, String> hashMap) {
+    public static synchronized void uploadSession(int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i2, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeIL(65538, null, i, hashMap) == null) {
             synchronized (DpRTCSession.class) {
                 if (hashMap != null) {
                     if (hashMap.size() > 0) {
                         DpRTCSession dpRTCSession = new DpRTCSession();
-                        dpRTCSession.add(i2, hashMap);
+                        dpRTCSession.add(i, hashMap);
                         dpRTCSession.upload();
                     }
                 }
@@ -63,25 +63,25 @@ public class DpRTCSession {
         }
     }
 
-    public synchronized void add(int i2, String str, String str2) {
+    public synchronized void add(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
             synchronized (this) {
-                if (20488 == i2) {
+                if (20488 == i) {
                     this.a.a(new e((int) DpStatConstants.SESSION_TYPE_RTC_COMMON, str, str2));
                 }
             }
         }
     }
 
-    public synchronized void add(int i2, HashMap<String, String> hashMap) {
+    public synchronized void add(int i, HashMap<String, String> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, hashMap) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hashMap) == null) {
             synchronized (this) {
                 if (hashMap != null) {
                     if (hashMap.size() > 0) {
                         for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                            add(i2, entry.getKey(), entry.getValue());
+                            add(i, entry.getKey(), entry.getValue());
                         }
                     }
                 }

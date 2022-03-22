@@ -53,9 +53,9 @@ public abstract class Message {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,17 +91,17 @@ public abstract class Message {
         }
     }
 
-    public void setMessageID(int i2) {
+    public void setMessageID(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mMessageID = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mMessageID = i;
         }
     }
 
-    public void setTaskID(int i2) {
+    public void setTaskID(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mTaskID = String.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mTaskID = String.valueOf(i);
         }
     }
 

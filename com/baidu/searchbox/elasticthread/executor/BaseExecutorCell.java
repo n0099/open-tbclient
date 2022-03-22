@@ -103,16 +103,16 @@ public abstract class BaseExecutorCell implements Recordable {
             $VALUES = new ExecutorType[]{ARTERY, DREDGE_NORMAL, DREDGE_DISASTER, executorType};
         }
 
-        public ExecutorType(String str, int i2) {
+        public ExecutorType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -135,16 +135,16 @@ public abstract class BaseExecutorCell implements Recordable {
         }
     }
 
-    public BaseExecutorCell(int i2) {
+    public BaseExecutorCell(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -154,27 +154,27 @@ public abstract class BaseExecutorCell implements Recordable {
         this.recordBeginTime = 0L;
         this.recordEndTime = Long.MAX_VALUE;
         this.mRecordStatus = Recordable.RecordStatus.UNINITIATED;
-        this.maxThreadNum = i2;
+        this.maxThreadNum = i;
     }
 
-    public static BaseExecutorCell build(int i2, ExecutorType executorType) {
+    public static BaseExecutorCell build(int i, ExecutorType executorType) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, executorType)) == null) {
-            int i3 = AnonymousClass2.$SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType[executorType.ordinal()];
-            if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 != 3) {
-                        if (i3 != 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, executorType)) == null) {
+            int i2 = AnonymousClass2.$SwitchMap$com$baidu$searchbox$elasticthread$executor$BaseExecutorCell$ExecutorType[executorType.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
                             return null;
                         }
-                        return new SerialExecutorCell(i2);
+                        return new SerialExecutorCell(i);
                     }
-                    return new DredgeDisasterExecutorCell(i2);
+                    return new DredgeDisasterExecutorCell(i);
                 }
-                return new DredgeNormalExecutorCell(i2);
+                return new DredgeNormalExecutorCell(i);
             }
-            return new ArteryExecutorCell(i2);
+            return new ArteryExecutorCell(i);
         }
         return (BaseExecutorCell) invokeIL.objValue;
     }
@@ -220,9 +220,9 @@ public abstract class BaseExecutorCell implements Recordable {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, elasticTask};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -260,13 +260,13 @@ public abstract class BaseExecutorCell implements Recordable {
 
     public synchronized int getCompletedTaskCountInRecordLifeCycle() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                i2 = this.completedTaskCountInRecordLifeCycle;
+                i = this.completedTaskCountInRecordLifeCycle;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -281,13 +281,13 @@ public abstract class BaseExecutorCell implements Recordable {
 
     public synchronized long getWorkTimeInRecordLifeCycle() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j2 = this.workTimeInRecordLifeCycle;
+                j = this.workTimeInRecordLifeCycle;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

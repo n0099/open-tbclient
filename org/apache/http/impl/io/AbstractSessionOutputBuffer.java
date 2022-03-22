@@ -14,7 +14,7 @@ import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,17 +60,17 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
         return (HttpTransportMetrics) invokeV.objValue;
     }
 
-    public void init(OutputStream outputStream, int i2, HttpParams httpParams) {
+    public void init(OutputStream outputStream, int i, HttpParams httpParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, outputStream, i2, httpParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, outputStream, i, httpParams) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(byte[] bArr, int i2, int i3) throws IOException {
+    public void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -100,9 +100,9 @@ public abstract class AbstractSessionOutputBuffer implements SessionOutputBuffer
     }
 
     @Override // org.apache.http.io.SessionOutputBuffer
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -25,7 +25,7 @@ import com.tachikoma.core.utility.TKColorUtil;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKButton extends TKBase<Button> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class TKButton extends TKBase<Button> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -144,31 +144,31 @@ public class TKButton extends TKBase<Button> {
         }
     }
 
-    public void setFontSize(int i2) {
+    public void setFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            getView().setTextSize(1, i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            getView().setTextSize(1, i);
         }
     }
 
     public void setFontWeight(String str) {
         Button view;
         Typeface typeface;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.equals(str, "bold")) {
                 view = getView();
                 typeface = getView().getTypeface();
-                i2 = 1;
+                i = 1;
             } else if (!TextUtils.equals(str, "normal")) {
                 return;
             } else {
                 view = getView();
                 typeface = getView().getTypeface();
-                i2 = 0;
+                i = 0;
             }
-            view.setTypeface(typeface, i2);
+            view.setTypeface(typeface, i);
         }
     }
 
@@ -200,7 +200,7 @@ public class TKButton extends TKBase<Button> {
     public void setTextAlign(String str) {
         char c2;
         Button view;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             int hashCode = str.hashCode();
@@ -222,24 +222,24 @@ public class TKButton extends TKBase<Button> {
             }
             if (c2 == 0) {
                 view = getView();
-                i2 = 17;
+                i = 17;
             } else if (c2 == 1) {
                 view = getView();
-                i2 = 3;
+                i = 3;
             } else if (c2 != 2) {
                 return;
             } else {
                 view = getView();
-                i2 = 5;
+                i = 5;
             }
-            view.setGravity(i2);
+            view.setGravity(i);
         }
     }
 
-    public void setTextLineClamp(int i2) {
+    public void setTextLineClamp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            getView().setMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            getView().setMaxLines(i);
         }
     }
 

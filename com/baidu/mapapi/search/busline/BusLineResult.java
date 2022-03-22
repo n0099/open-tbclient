@@ -24,31 +24,27 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34126b;
+    public String f26362b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34127c;
+    public boolean f26363c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Date f34128d;
+    public Date f26364d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Date f34129e;
+    public Date f26365e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34130f;
+    public String f26366f;
 
     /* renamed from: g  reason: collision with root package name */
-    public List<BusStation> f34131g;
+    public List<BusStation> f26367g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<BusStep> f34132h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f34133i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f34134j;
+    public List<BusStep> f26368h;
+    public float i;
+    public float j;
     public String k;
 
     /* loaded from: classes4.dex */
@@ -61,9 +57,9 @@ public class BusLineResult extends SearchResult implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -81,9 +77,9 @@ public class BusLineResult extends SearchResult implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -112,18 +108,18 @@ public class BusLineResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f34126b = null;
-        this.f34131g = null;
-        this.f34132h = null;
+        this.f26362b = null;
+        this.f26367g = null;
+        this.f26368h = null;
         this.k = null;
     }
 
@@ -134,27 +130,27 @@ public class BusLineResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f34126b = null;
-        this.f34131g = null;
-        this.f34132h = null;
+        this.f26362b = null;
+        this.f26367g = null;
+        this.f26368h = null;
         this.k = null;
         this.a = parcel.readString();
-        this.f34126b = parcel.readString();
-        this.f34127c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
-        this.f34128d = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f34129e = (Date) parcel.readValue(Date.class.getClassLoader());
-        this.f34130f = parcel.readString();
-        this.f34131g = parcel.readArrayList(BusStation.class.getClassLoader());
-        this.f34132h = parcel.readArrayList(RouteStep.class.getClassLoader());
+        this.f26362b = parcel.readString();
+        this.f26363c = ((Boolean) parcel.readValue(Boolean.class.getClassLoader())).booleanValue();
+        this.f26364d = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f26365e = (Date) parcel.readValue(Date.class.getClassLoader());
+        this.f26366f = parcel.readString();
+        this.f26367g = parcel.readArrayList(BusStation.class.getClassLoader());
+        this.f26368h = parcel.readArrayList(RouteStep.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -170,7 +166,7 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public float getBasePrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34133i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : invokeV.floatValue;
     }
 
     public String getBusCompany() {
@@ -182,13 +178,13 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public String getBusLineName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34126b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26362b : (String) invokeV.objValue;
     }
 
     public Date getEndTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34129e : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26365e : (Date) invokeV.objValue;
     }
 
     public String getLineDirection() {
@@ -200,57 +196,57 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public float getMaxPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34134j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.floatValue;
     }
 
     public Date getStartTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34128d : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26364d : (Date) invokeV.objValue;
     }
 
     public List<BusStation> getStations() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34131g : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26367g : (List) invokeV.objValue;
     }
 
     public List<BusStep> getSteps() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f34132h : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f26368h : (List) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34130f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26366f : (String) invokeV.objValue;
     }
 
     public boolean isMonthTicket() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f34127c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f26363c : invokeV.booleanValue;
     }
 
     public void setBasePrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048588, this, f2) == null) {
-            this.f34133i = f2;
+            this.i = f2;
         }
     }
 
     public void setBusLineName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.f34126b = str;
+            this.f26362b = str;
         }
     }
 
     public void setEndTime(Date date) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, date) == null) {
-            this.f34129e = date;
+            this.f26365e = date;
         }
     }
 
@@ -264,57 +260,57 @@ public class BusLineResult extends SearchResult implements Parcelable {
     public void setMaxPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
-            this.f34134j = f2;
+            this.j = f2;
         }
     }
 
     public void setMonthTicket(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f34127c = z;
+            this.f26363c = z;
         }
     }
 
     public void setStartTime(Date date) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, date) == null) {
-            this.f34128d = date;
+            this.f26364d = date;
         }
     }
 
     public void setStations(List<BusStation> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.f34131g = list;
+            this.f26367g = list;
         }
     }
 
     public void setSteps(List<BusStep> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
-            this.f34132h = list;
+            this.f26368h = list;
         }
     }
 
     public void setUid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.f34130f = str;
+            this.f26366f = str;
         }
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048598, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeString(this.f34126b);
-            parcel.writeValue(Boolean.valueOf(this.f34127c));
-            parcel.writeValue(this.f34128d);
-            parcel.writeValue(this.f34129e);
-            parcel.writeString(this.f34130f);
-            parcel.writeList(this.f34131g);
-            parcel.writeList(this.f34132h);
+            parcel.writeString(this.f26362b);
+            parcel.writeValue(Boolean.valueOf(this.f26363c));
+            parcel.writeValue(this.f26364d);
+            parcel.writeValue(this.f26365e);
+            parcel.writeString(this.f26366f);
+            parcel.writeList(this.f26367g);
+            parcel.writeList(this.f26368h);
         }
     }
 }

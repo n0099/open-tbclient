@@ -54,9 +54,9 @@ public class MenuPopupHelper implements MenuHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, menuBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MenuBuilder) objArr2[1], (View) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -95,19 +95,19 @@ public class MenuPopupHelper implements MenuHelper {
         return (MenuPopup) invokeV.objValue;
     }
 
-    private void showPopup(int i2, int i3, boolean z, boolean z2) {
+    private void showPopup(int i, int i2, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             MenuPopup popup = getPopup();
             popup.setShowTitle(z2);
             if (z) {
                 if ((GravityCompat.getAbsoluteGravity(this.mDropDownGravity, ViewCompat.getLayoutDirection(this.mAnchorView)) & 7) == 5) {
-                    i2 -= this.mAnchorView.getWidth();
+                    i -= this.mAnchorView.getWidth();
                 }
-                popup.setHorizontalOffset(i2);
-                popup.setVerticalOffset(i3);
-                int i4 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
-                popup.setEpicenterBounds(new Rect(i2 - i4, i3 - i4, i2 + i4, i3 + i4));
+                popup.setHorizontalOffset(i);
+                popup.setVerticalOffset(i2);
+                int i3 = (int) ((this.mContext.getResources().getDisplayMetrics().density * 48.0f) / 2.0f);
+                popup.setEpicenterBounds(new Rect(i - i3, i2 - i3, i + i3, i2 + i3));
             }
             popup.show();
         }
@@ -185,10 +185,10 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void setGravity(int i2) {
+    public void setGravity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mDropDownGravity = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mDropDownGravity = i;
         }
     }
 
@@ -243,9 +243,9 @@ public class MenuPopupHelper implements MenuHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, menuBuilder, view};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MenuBuilder) objArr2[1], (View) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -256,17 +256,17 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i2) {
-        this(context, menuBuilder, view, z, i2, 0);
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i) {
+        this(context, menuBuilder, view, z, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (MenuBuilder) objArr2[1], (View) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -276,23 +276,23 @@ public class MenuPopupHelper implements MenuHelper {
         }
     }
 
-    public void show(int i2, int i3) {
+    public void show(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) && !tryShow(i2, i3)) {
+        if ((interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) && !tryShow(i, i2)) {
             throw new IllegalStateException("MenuPopupHelper cannot be used without an anchor");
         }
     }
 
-    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i2, @StyleRes int i3) {
+    public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view, boolean z, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, menuBuilder, view, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -311,9 +311,9 @@ public class MenuPopupHelper implements MenuHelper {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -334,21 +334,21 @@ public class MenuPopupHelper implements MenuHelper {
         this.mMenu = menuBuilder;
         this.mAnchorView = view;
         this.mOverflowOnly = z;
-        this.mPopupStyleAttr = i2;
-        this.mPopupStyleRes = i3;
+        this.mPopupStyleAttr = i;
+        this.mPopupStyleRes = i2;
     }
 
-    public boolean tryShow(int i2, int i3) {
+    public boolean tryShow(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {
             if (isShowing()) {
                 return true;
             }
             if (this.mAnchorView == null) {
                 return false;
             }
-            showPopup(i2, i3, true, true);
+            showPopup(i, i2, true, true);
             return true;
         }
         return invokeII.booleanValue;

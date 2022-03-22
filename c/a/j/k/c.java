@@ -20,9 +20,9 @@ public final class c implements b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,10 +44,10 @@ public final class c implements b {
     }
 
     @Override // c.a.j.k.b
-    public boolean b(TaskInfo taskInfo, int i2) {
+    public boolean b(TaskInfo taskInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i2)) == null) ? b.a.b(this, taskInfo, i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) ? b.a.b(this, taskInfo, i) : invokeLI.booleanValue;
     }
 
     public void c(SubTaskState subTaskState) {

@@ -18,9 +18,9 @@ public class PrefOperate {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,20 +33,20 @@ public class PrefOperate {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) ? CooperService.instance().getAppKey(context) : (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x0084 -> B:45:0x0084). Please submit an issue!!! */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:42:0x0085 -> B:45:0x0085). Please submit an issue!!! */
     public static void loadMetaDataConfig(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             SendStrategyEnum sendStrategyEnum = SendStrategyEnum.APP_START;
             try {
-                String a = bw.a(context, "BaiduMobAd_EXCEPTION_LOG");
+                String a = bw.a(context, Config.EXCEPTION_LOG_META_NAME);
                 if (!TextUtils.isEmpty(a) && "true".equals(a)) {
                     ExceptionAnalysis.getInstance().openExceptionAnalysis(context, false);
                 }
             } catch (Exception unused) {
             }
             try {
-                String a2 = bw.a(context, "BaiduMobAd_SEND_STRATEGY");
+                String a2 = bw.a(context, Config.SEND_STRATEGY_META_NAME);
                 if (!TextUtils.isEmpty(a2)) {
                     if (a2.equals(SendStrategyEnum.APP_START.name())) {
                         sendStrategyEnum = SendStrategyEnum.APP_START;
@@ -63,7 +63,7 @@ public class PrefOperate {
             } catch (Exception unused2) {
             }
             try {
-                String a3 = bw.a(context, "BaiduMobAd_TIME_INTERVAL");
+                String a3 = bw.a(context, Config.TIME_INTERVAL_META_NAME);
                 if (!TextUtils.isEmpty(a3)) {
                     int parseInt = Integer.parseInt(a3);
                     if (sendStrategyEnum.ordinal() == SendStrategyEnum.SET_TIME_INTERVAL.ordinal() && parseInt > 0 && parseInt <= 24) {
@@ -73,7 +73,7 @@ public class PrefOperate {
             } catch (Exception unused3) {
             }
             try {
-                String a4 = bw.a(context, "BaiduMobAd_ONLY_WIFI");
+                String a4 = bw.a(context, Config.ONLY_WIFI_META_NAME);
                 if (TextUtils.isEmpty(a4)) {
                     return;
                 }
@@ -100,7 +100,7 @@ public class PrefOperate {
     public static void setAppKey(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            CooperService.instance().getHeadObject().f34948e = str;
+            CooperService.instance().getHeadObject().f27107e = str;
         }
     }
 

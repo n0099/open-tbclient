@@ -16,7 +16,7 @@ import com.yy.hiidostatis.message.MessageStore;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageStoreProxy implements MessageStore {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,7 +24,7 @@ public class MessageStoreProxy implements MessageStore {
     public Context context;
 
     /* renamed from: com.yy.hiidostatis.message.storage.MessageStoreProxy$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority;
         public static /* synthetic */ Interceptable $ic;
@@ -67,9 +67,9 @@ public class MessageStoreProxy implements MessageStore {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, taskDataSqLiteCacheManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,12 +113,12 @@ public class MessageStoreProxy implements MessageStore {
                 taskData.setVerifyMd5(taskData.createVerifyMd5());
                 taskData.setAid(statisContent.getAutoId());
                 taskData.setCrepid(statisContent.getCrepid());
-                int i2 = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority[statisContent.getPriority().ordinal()];
-                if (i2 == 1) {
+                int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$api$StatisContent$Priority[statisContent.getPriority().ordinal()];
+                if (i == 1) {
                     taskData.setOrder(System.currentTimeMillis() - 3600000);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     taskData.setOrder(System.currentTimeMillis());
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     taskData.setOrder(System.currentTimeMillis() + 86400000);
                 }
                 Integer num = (Integer) hashMap.get(statisContent.getAct());

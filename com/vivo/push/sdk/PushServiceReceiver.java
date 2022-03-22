@@ -20,35 +20,35 @@ import com.vivo.push.e;
 import com.vivo.push.util.ContextDelegate;
 import com.vivo.push.util.p;
 import com.vivo.push.util.r;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PushServiceReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static HandlerThread a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f59289b;
+    public static Handler f43922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f59290c;
+    public static a f43923c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59291b;
+        public String f43924b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -57,7 +57,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
 
         public static /* synthetic */ void a(a aVar, Context context, String str) {
             aVar.a = ContextDelegate.getContext(context);
-            aVar.f59291b = str;
+            aVar.f43924b = str;
         }
 
         @Override // java.lang.Runnable
@@ -66,14 +66,14 @@ public class PushServiceReceiver extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 NetworkInfo a = r.a(this.a);
                 if (!(a != null ? a.isConnectedOrConnecting() : false)) {
-                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f59291b);
+                    p.d("PushServiceReceiver", this.a.getPackageName() + ": 无网络  by " + this.f43924b);
                     Context context = this.a;
-                    p.a(context, "触发静态广播:无网络(" + this.f59291b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                    p.a(context, "触发静态广播:无网络(" + this.f43924b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                     return;
                 }
-                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f59291b);
+                p.d("PushServiceReceiver", this.a.getPackageName() + ": 执行开始出发动作: " + this.f43924b);
                 Context context2 = this.a;
-                p.a(context2, "触发静态广播(" + this.f59291b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
+                p.a(context2, "触发静态广播(" + this.f43924b + "," + this.a.getPackageName() + SmallTailInfo.EMOTION_SUFFIX);
                 e.a().a(this.a);
                 if (ClientConfigManagerImpl.getInstance(this.a).isCancleBroadcastReceiver()) {
                     return;
@@ -96,7 +96,7 @@ public class PushServiceReceiver extends BroadcastReceiver {
                 return;
             }
         }
-        f59290c = new a();
+        f43923c = new a();
     }
 
     public PushServiceReceiver() {
@@ -104,9 +104,9 @@ public class PushServiceReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -124,12 +124,12 @@ public class PushServiceReceiver extends BroadcastReceiver {
                     HandlerThread handlerThread = new HandlerThread("PushServiceReceiver");
                     a = handlerThread;
                     handlerThread.start();
-                    f59289b = new Handler(a.getLooper());
+                    f43922b = new Handler(a.getLooper());
                 }
-                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f59289b);
-                a.a(f59290c, context2, action);
-                f59289b.removeCallbacks(f59290c);
-                f59289b.postDelayed(f59290c, 2000L);
+                p.d("PushServiceReceiver", context2.getPackageName() + ": start PushSerevice for by " + action + "  ; handler : " + f43922b);
+                a.a(f43923c, context2, action);
+                f43922b.removeCallbacks(f43923c);
+                f43922b.postDelayed(f43923c, 2000L);
             }
         }
     }

@@ -20,28 +20,24 @@ import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public AdListenerAdapter f57566g;
+    public AdListenerAdapter f42361g;
 
     /* renamed from: h  reason: collision with root package name */
-    public NativeADUnifiedListener f57567h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public List<Integer> f57568i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public List<String> f57569j;
+    public NativeADUnifiedListener f42362h;
+    public List<Integer> i;
+    public List<String> j;
     public volatile int k;
     public volatile int l;
     public String m;
     public LoadAdParams n;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class AdListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,9 +50,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {nativeADUnifiedListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -104,17 +100,17 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, nativeADUnifiedListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f57568i = new ArrayList();
-        this.f57567h = nativeADUnifiedListener;
-        this.f57566g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.i = new ArrayList();
+        this.f42362h = nativeADUnifiedListener;
+        this.f42361g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str);
     }
 
@@ -125,17 +121,17 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, nativeADUnifiedListener, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f57568i = new ArrayList();
-        this.f57567h = nativeADUnifiedListener;
-        this.f57566g = new AdListenerAdapter(nativeADUnifiedListener);
+        this.i = new ArrayList();
+        this.f42362h = nativeADUnifiedListener;
+        this.f42361g = new AdListenerAdapter(nativeADUnifiedListener);
         a(context, str, str2);
     }
 
@@ -149,9 +145,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, nativeADUnifiedListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (NativeADUnifiedListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -162,12 +158,12 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         c();
     }
 
-    private void a(int i2, boolean z) {
+    private void a(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && a()) {
+        if ((interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && a()) {
             if (!b()) {
                 if (z) {
-                    this.f57568i.add(Integer.valueOf(i2));
+                    this.i.add(Integer.valueOf(i));
                     return;
                 }
                 return;
@@ -177,9 +173,9 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
                 LoadAdParams loadAdParams = this.n;
                 NUADI nuadi = (NUADI) t;
                 if (loadAdParams != null) {
-                    nuadi.loadData(i2, loadAdParams);
+                    nuadi.loadData(i, loadAdParams);
                 } else {
-                    nuadi.loadData(i2);
+                    nuadi.loadData(i);
                 }
             }
         }
@@ -189,7 +185,7 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     public Object a(Context context, POFactory pOFactory, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f57566g) : invokeLLLLL.objValue;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, pOFactory, str, str2, str3)) == null) ? pOFactory.getNativeAdManagerDelegate(context, str, str2, str3, this.f42361g) : invokeLLLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -201,24 +197,24 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
             nuadi.setMinVideoDuration(this.k);
             nuadi.setMaxVideoDuration(this.l);
             nuadi.setVastClassName(this.m);
-            List<String> list = this.f57569j;
+            List<String> list = this.j;
             if (list != null) {
                 setCategories(list);
             }
-            for (Integer num : this.f57568i) {
+            for (Integer num : this.i) {
                 a(num.intValue(), false);
             }
         }
     }
 
     @Override // com.qq.e.ads.AbstractAD
-    public void b(int i2) {
+    public void b(int i) {
         NativeADUnifiedListener nativeADUnifiedListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (nativeADUnifiedListener = this.f57567h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (nativeADUnifiedListener = this.f42362h) == null) {
             return;
         }
-        nativeADUnifiedListener.onNoAD(AdErrorConvertor.formatErrorCode(i2));
+        nativeADUnifiedListener.onNoAD(AdErrorConvertor.formatErrorCode(i));
     }
 
     public String getAdNetWorkName() {
@@ -235,25 +231,25 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         return (String) invokeV.objValue;
     }
 
-    public void loadData(int i2) {
+    public void loadData(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            a(i2, true);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            a(i, true);
         }
     }
 
-    public void loadData(int i2, LoadAdParams loadAdParams) {
+    public void loadData(int i, LoadAdParams loadAdParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, loadAdParams) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, loadAdParams) == null) {
             this.n = loadAdParams;
-            loadData(i2);
+            loadData(i);
         }
     }
 
     public void setCategories(List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
-            this.f57569j = list;
+            this.j = list;
             T t = this.a;
             if (t == 0 || list == null) {
                 return;
@@ -262,10 +258,10 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         }
     }
 
-    public void setMaxVideoDuration(int i2) {
+    public void setMaxVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.l = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.l = i;
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
             }
@@ -276,10 +272,10 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
         }
     }
 
-    public void setMinVideoDuration(int i2) {
+    public void setMinVideoDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.k = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.k = i;
             if (this.l > 0 && this.k > this.l) {
                 GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
             }
@@ -306,16 +302,16 @@ public class NativeUnifiedAD extends NativeAbstractAD<NUADI> {
     }
 
     @Deprecated
-    public void setVideoADContainerRender(int i2) {
+    public void setVideoADContainerRender(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
         }
     }
 
     @Deprecated
-    public void setVideoPlayPolicy(int i2) {
+    public void setVideoPlayPolicy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
         }
     }
 }

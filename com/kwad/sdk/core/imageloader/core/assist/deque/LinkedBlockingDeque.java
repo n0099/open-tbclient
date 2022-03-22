@@ -158,15 +158,15 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         this(Integer.MAX_VALUE);
     }
 
-    public LinkedBlockingDeque(int i2) {
+    public LinkedBlockingDeque(int i) {
         ReentrantLock reentrantLock = new ReentrantLock();
         this.lock = reentrantLock;
         this.notEmpty = reentrantLock.newCondition();
         this.notFull = this.lock.newCondition();
-        if (i2 <= 0) {
+        if (i <= 0) {
             throw new IllegalArgumentException();
         }
-        this.capacity = i2;
+        this.capacity = i;
     }
 
     public LinkedBlockingDeque(Collection<? extends E> collection) {
@@ -364,14 +364,14 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
 
     /* JADX DEBUG: Type inference failed for r2v1. Raw type applied. Possible types: E, ? super E */
     @Override // java.util.concurrent.BlockingQueue
-    public int drainTo(Collection<? super E> collection, int i2) {
+    public int drainTo(Collection<? super E> collection, int i) {
         if (collection != null) {
             if (collection != this) {
                 ReentrantLock reentrantLock = this.lock;
                 reentrantLock.lock();
                 try {
-                    int min = Math.min(i2, this.count);
-                    for (int i3 = 0; i3 < min; i3++) {
+                    int min = Math.min(i, this.count);
+                    for (int i2 = 0; i2 < min; i2++) {
                         collection.add((E) this.first.item);
                         unlinkFirst();
                     }
@@ -418,8 +418,8 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public boolean offer(E e2, long j2, TimeUnit timeUnit) {
-        return offerLast(e2, j2, timeUnit);
+    public boolean offer(E e2, long j, TimeUnit timeUnit) {
+        return offerLast(e2, j, timeUnit);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, com.kwad.sdk.core.imageloader.core.assist.deque.Deque
@@ -438,11 +438,11 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerFirst(E e2, long j2, TimeUnit timeUnit) {
+    public boolean offerFirst(E e2, long j, TimeUnit timeUnit) {
         boolean z;
         if (e2 != null) {
             Node<E> node = new Node<>(e2);
-            long nanos = timeUnit.toNanos(j2);
+            long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
             while (true) {
@@ -481,11 +481,11 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public boolean offerLast(E e2, long j2, TimeUnit timeUnit) {
+    public boolean offerLast(E e2, long j, TimeUnit timeUnit) {
         boolean z;
         if (e2 != null) {
             Node<E> node = new Node<>(e2);
-            long nanos = timeUnit.toNanos(j2);
+            long nanos = timeUnit.toNanos(j);
             ReentrantLock reentrantLock = this.lock;
             reentrantLock.lockInterruptibly();
             while (true) {
@@ -541,8 +541,8 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque, java.util.concurrent.BlockingQueue
-    public E poll(long j2, TimeUnit timeUnit) {
-        return pollFirst(j2, timeUnit);
+    public E poll(long j, TimeUnit timeUnit) {
+        return pollFirst(j, timeUnit);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.Deque
@@ -557,8 +557,8 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public E pollFirst(long j2, TimeUnit timeUnit) {
-        long nanos = timeUnit.toNanos(j2);
+    public E pollFirst(long j, TimeUnit timeUnit) {
+        long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
@@ -589,8 +589,8 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.assist.deque.BlockingDeque
-    public E pollLast(long j2, TimeUnit timeUnit) {
-        long nanos = timeUnit.toNanos(j2);
+    public E pollLast(long j, TimeUnit timeUnit) {
+        long nanos = timeUnit.toNanos(j);
         ReentrantLock reentrantLock = this.lock;
         reentrantLock.lockInterruptibly();
         while (true) {
@@ -793,13 +793,13 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
         reentrantLock.lock();
         try {
             Object[] objArr = new Object[this.count];
-            int i2 = 0;
+            int i = 0;
             Node<E> node = this.first;
             while (node != null) {
-                int i3 = i2 + 1;
-                objArr[i2] = node.item;
+                int i2 = i + 1;
+                objArr[i] = node.item;
                 node = node.next;
-                i2 = i3;
+                i = i2;
             }
             return objArr;
         } finally {
@@ -817,15 +817,15 @@ public class LinkedBlockingDeque<E> extends AbstractQueue<E> implements Blocking
             if (tArr.length < this.count) {
                 tArr = (T[]) ((Object[]) Array.newInstance(tArr.getClass().getComponentType(), this.count));
             }
-            int i2 = 0;
+            int i = 0;
             Node<E> node = this.first;
             while (node != null) {
-                tArr[i2] = node.item;
+                tArr[i] = node.item;
                 node = node.next;
-                i2++;
+                i++;
             }
-            if (tArr.length > i2) {
-                tArr[i2] = null;
+            if (tArr.length > i) {
+                tArr[i] = null;
             }
             return tArr;
         } finally {

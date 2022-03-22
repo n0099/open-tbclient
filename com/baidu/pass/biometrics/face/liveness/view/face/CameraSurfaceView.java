@@ -22,30 +22,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class CameraSurfaceView extends SurfaceView {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36265e = "CameraPreview";
+    public static final String f28019e = "CameraPreview";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f36266f = 480;
+    public static final int f28020f = 480;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f36267g = 640;
+    public static final int f28021g = 640;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f36268b;
+    public a f28022b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Point f36269c;
+    public Point f28023c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Path f36270d;
+    public Path f28024d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CameraSurfaceView(Context context) {
@@ -56,9 +55,9 @@ public class CameraSurfaceView extends SurfaceView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -71,8 +70,8 @@ public class CameraSurfaceView extends SurfaceView {
     private void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            this.f36270d = new Path();
-            this.f36269c = new Point();
+            this.f28024d = new Path();
+            this.f28023c = new Point();
         }
     }
 
@@ -86,15 +85,15 @@ public class CameraSurfaceView extends SurfaceView {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < supportedPreviewSizes.size(); i2++) {
-                Camera.Size size = supportedPreviewSizes.get(i2);
+            for (int i = 0; i < supportedPreviewSizes.size(); i++) {
+                Camera.Size size = supportedPreviewSizes.get(i);
                 if (size.height <= 1000 && size.width <= 1000) {
                     arrayList.add(new a(size));
                 }
             }
             if (arrayList.isEmpty()) {
-                for (int i3 = 0; i3 < supportedPreviewSizes.size(); i3++) {
-                    arrayList.add(new a(supportedPreviewSizes.get(i3)));
+                for (int i2 = 0; i2 < supportedPreviewSizes.size(); i2++) {
+                    arrayList.add(new a(supportedPreviewSizes.get(i2)));
                 }
             }
             return arrayList;
@@ -107,9 +106,9 @@ public class CameraSurfaceView extends SurfaceView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             if (Build.VERSION.SDK_INT >= 26) {
-                canvas.clipPath(this.f36270d);
+                canvas.clipPath(this.f28024d);
             } else {
-                canvas.clipPath(this.f36270d, Region.Op.REPLACE);
+                canvas.clipPath(this.f28024d, Region.Op.REPLACE);
             }
             super.draw(canvas);
         }
@@ -122,40 +121,40 @@ public class CameraSurfaceView extends SurfaceView {
             Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
             Camera.getCameraInfo(this.a, cameraInfo);
             int rotation = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay().getRotation();
-            int i2 = 0;
+            int i = 0;
             if (rotation != 0) {
                 if (rotation == 1) {
-                    i2 = 90;
+                    i = 90;
                 } else if (rotation == 2) {
-                    i2 = 180;
+                    i = 180;
                 } else if (rotation == 3) {
-                    i2 = 270;
+                    i = 270;
                 }
             }
             if (cameraInfo.facing == 1) {
-                return (360 - ((cameraInfo.orientation + i2) % 360)) % 360;
+                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
             }
-            return ((cameraInfo.orientation - i2) + 360) % 360;
+            return ((cameraInfo.orientation - i) + 360) % 360;
         }
         return invokeV.intValue;
     }
 
     @Override // android.view.SurfaceView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int size = View.MeasureSpec.getSize(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
-            Point point = this.f36269c;
-            int i4 = size >> 1;
-            point.x = i4;
-            int i5 = size2 >> 1;
-            point.y = i5;
-            int min = Math.min(i4, i5);
-            this.f36270d.reset();
-            Path path = this.f36270d;
-            Point point2 = this.f36269c;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int size = View.MeasureSpec.getSize(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            Point point = this.f28023c;
+            int i3 = size >> 1;
+            point.x = i3;
+            int i4 = size2 >> 1;
+            point.y = i4;
+            int min = Math.min(i3, i4);
+            this.f28024d.reset();
+            Path path = this.f28024d;
+            Point point2 = this.f28023c;
             path.addCircle(point2.x, point2.y, min, Path.Direction.CCW);
             setMeasuredDimension(size, size2);
         }
@@ -168,32 +167,32 @@ public class CameraSurfaceView extends SurfaceView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f36271b;
+        public int f28025b;
 
-        public a(int i2, int i3) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i2;
-            this.f36271b = i3;
+            this.a = i;
+            this.f28025b = i2;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "CameraSize{width=" + this.a + ", height=" + this.f36271b + ExtendedMessageFormat.END_FE;
+                return "CameraSize{width=" + this.a + ", height=" + this.f28025b + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -205,16 +204,16 @@ public class CameraSurfaceView extends SurfaceView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {size};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.a = size.width;
-            this.f36271b = size.height;
+            this.f28025b = size.height;
         }
     }
 
@@ -227,9 +226,9 @@ public class CameraSurfaceView extends SurfaceView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -244,48 +243,48 @@ public class CameraSurfaceView extends SurfaceView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parameters)) == null) {
-            a aVar = this.f36268b;
+            a aVar = this.f28022b;
             if (aVar != null) {
                 return aVar;
             }
             List<a> b2 = b(parameters);
-            this.f36268b = new a(640, 480);
+            this.f28022b = new a(640, 480);
             if (b2 != null && b2.size() != 0) {
                 float f2 = 2.0f;
                 float f3 = 1.0f;
                 for (a aVar2 : b2) {
                     ViewGroup.LayoutParams layoutParams = getLayoutParams();
-                    float f4 = aVar2.f36271b;
+                    float f4 = aVar2.f28025b;
                     float f5 = f4 / layoutParams.width;
                     float f6 = aVar2.a / f4;
                     if (f6 >= 1.0f && f6 <= f2 && f5 >= f3) {
-                        this.f36268b = aVar2;
+                        this.f28022b = aVar2;
                         f3 = f5;
                         f2 = f6;
                     }
                 }
-                if (this.f36268b == null) {
-                    this.f36268b = new a(640, 480);
+                if (this.f28022b == null) {
+                    this.f28022b = new a(640, 480);
                 }
-                return this.f36268b;
+                return this.f28022b;
             }
-            return this.f36268b;
+            return this.f28022b;
         }
         return (a) invokeL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CameraSurfaceView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CameraSurfaceView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

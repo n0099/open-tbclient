@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.extractor.ts;
 
+import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,7 +23,7 @@ import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.Arrays;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AdtsReader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CRC_SIZE = 2;
@@ -84,9 +85,9 @@ public final class AdtsReader implements ElementaryStreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Boolean) objArr2[0]).booleanValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -96,15 +97,15 @@ public final class AdtsReader implements ElementaryStreamReader {
         }
     }
 
-    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i2) {
+    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, parsableByteArray, bArr, i2)) == null) {
-            int min = Math.min(parsableByteArray.bytesLeft(), i2 - this.bytesRead);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, this, parsableByteArray, bArr, i)) == null) {
+            int min = Math.min(parsableByteArray.bytesLeft(), i - this.bytesRead);
             parsableByteArray.readBytes(bArr, this.bytesRead, min);
-            int i3 = this.bytesRead + min;
-            this.bytesRead = i3;
-            return i3 == i2;
+            int i2 = this.bytesRead + min;
+            this.bytesRead = i2;
+            return i2 == i;
         }
         return invokeLLI.booleanValue;
     }
@@ -116,31 +117,31 @@ public final class AdtsReader implements ElementaryStreamReader {
             int position = parsableByteArray.getPosition();
             int limit = parsableByteArray.limit();
             while (position < limit) {
-                int i2 = position + 1;
-                int i3 = bArr[position] & 255;
-                if (this.matchState == 512 && i3 >= 240 && i3 != 255) {
-                    this.hasCrc = (i3 & 1) == 0;
+                int i = position + 1;
+                int i2 = bArr[position] & 255;
+                if (this.matchState == 512 && i2 >= 240 && i2 != 255) {
+                    this.hasCrc = (i2 & 1) == 0;
                     setReadingAdtsHeaderState();
-                    parsableByteArray.setPosition(i2);
+                    parsableByteArray.setPosition(i);
                     return;
                 }
-                int i4 = this.matchState;
-                int i5 = i3 | i4;
-                if (i5 == 329) {
+                int i3 = this.matchState;
+                int i4 = i2 | i3;
+                if (i4 == 329) {
                     this.matchState = 768;
-                } else if (i5 == 511) {
+                } else if (i4 == 511) {
                     this.matchState = 512;
-                } else if (i5 == 836) {
+                } else if (i4 == 836) {
                     this.matchState = 1024;
-                } else if (i5 == 1075) {
+                } else if (i4 == 1075) {
                     setReadingId3HeaderState();
-                    parsableByteArray.setPosition(i2);
+                    parsableByteArray.setPosition(i);
                     return;
-                } else if (i4 != 256) {
+                } else if (i3 != 256) {
                     this.matchState = 256;
-                    i2--;
+                    i--;
                 }
-                position = i2;
+                position = i;
             }
             parsableByteArray.setPosition(position);
         }
@@ -153,7 +154,7 @@ public final class AdtsReader implements ElementaryStreamReader {
             if (!this.hasOutputFormat) {
                 int readBits = this.adtsScratch.readBits(2) + 1;
                 if (readBits != 2) {
-                    String str = "Detected audio object type: " + readBits + ", but assuming AAC LC.";
+                    Log.w(TAG, "Detected audio object type: " + readBits + ", but assuming AAC LC.");
                     readBits = 2;
                 }
                 int readBits2 = this.adtsScratch.readBits(4);
@@ -190,11 +191,11 @@ public final class AdtsReader implements ElementaryStreamReader {
         if (interceptable == null || interceptable.invokeL(65543, this, parsableByteArray) == null) {
             int min = Math.min(parsableByteArray.bytesLeft(), this.sampleSize - this.bytesRead);
             this.currentOutput.sampleData(parsableByteArray, min);
-            int i2 = this.bytesRead + min;
-            this.bytesRead = i2;
-            int i3 = this.sampleSize;
-            if (i2 == i3) {
-                this.currentOutput.sampleMetadata(this.timeUs, 1, i3, 0, null);
+            int i = this.bytesRead + min;
+            this.bytesRead = i;
+            int i2 = this.sampleSize;
+            if (i == i2) {
+                this.currentOutput.sampleMetadata(this.timeUs, 1, i2, 0, null);
                 this.timeUs += this.currentSampleDuration;
                 setFindingSampleState();
             }
@@ -228,14 +229,14 @@ public final class AdtsReader implements ElementaryStreamReader {
         }
     }
 
-    private void setReadingSampleState(TrackOutput trackOutput, long j2, int i2, int i3) {
+    private void setReadingSampleState(TrackOutput trackOutput, long j, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{trackOutput, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65547, this, new Object[]{trackOutput, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             this.state = 3;
-            this.bytesRead = i2;
+            this.bytesRead = i;
             this.currentOutput = trackOutput;
-            this.currentSampleDuration = j2;
-            this.sampleSize = i3;
+            this.currentSampleDuration = j;
+            this.sampleSize = i2;
         }
     }
 
@@ -244,15 +245,15 @@ public final class AdtsReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.state;
-                if (i2 == 0) {
+                int i = this.state;
+                if (i == 0) {
                     findNextSample(parsableByteArray);
-                } else if (i2 != 1) {
-                    if (i2 == 2) {
+                } else if (i != 1) {
+                    if (i == 2) {
                         if (continueRead(parsableByteArray, this.adtsScratch.data, this.hasCrc ? 7 : 5)) {
                             parseAdtsHeader();
                         }
-                    } else if (i2 == 3) {
+                    } else if (i == 3) {
                         readSample(parsableByteArray);
                     }
                 } else if (continueRead(parsableByteArray, this.id3HeaderBuffer.data, 10)) {
@@ -288,10 +289,10 @@ public final class AdtsReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.timeUs = j;
         }
     }
 
@@ -310,9 +311,9 @@ public final class AdtsReader implements ElementaryStreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

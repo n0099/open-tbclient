@@ -1,8 +1,8 @@
 package com.baidu.ala.downloader;
 
 import c.a.d.f.p.l;
-import c.a.q0.v.e;
-import c.a.q0.v.f;
+import c.a.o0.v.e;
+import c.a.o0.v.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -47,9 +47,9 @@ public class ResourceDownloader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -109,9 +109,9 @@ public class ResourceDownloader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str, str2, str3, str4, str5, str6, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -187,9 +187,9 @@ public class ResourceDownloader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {Boolean.valueOf(z), str4, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -200,17 +200,17 @@ public class ResourceDownloader {
                         this.val$fileMd5ListKey = r8;
                     }
 
-                    @Override // c.a.q0.v.e
-                    public void onFileDownloadFailed(DownloadData downloadData2, int i2, String str7) {
+                    @Override // c.a.o0.v.e
+                    public void onFileDownloadFailed(DownloadData downloadData2, int i, String str7) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, downloadData2, i2, str7) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, downloadData2, i, str7) == null) {
                             ResourceDownloader.removeDownloadingResId(downloadData2.getId());
                             ResourceDownloader.sendDownloadStatusMessage(5, downloadData2);
                             BdLog.e("failed to donwload dynamic zip" + str7);
                         }
                     }
 
-                    @Override // c.a.q0.v.e
+                    @Override // c.a.o0.v.e
                     public void onFileDownloadSucceed(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData2) == null) {
@@ -227,9 +227,9 @@ public class ResourceDownloader {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, downloadData2};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -291,7 +291,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // c.a.q0.v.e
+                    @Override // c.a.o0.v.e
                     public boolean onFileDownloaded(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -302,7 +302,7 @@ public class ResourceDownloader {
                         return invokeL.booleanValue;
                     }
 
-                    @Override // c.a.q0.v.e
+                    @Override // c.a.o0.v.e
                     public void onFileUpdateProgress(DownloadData downloadData2) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048579, this, downloadData2) == null) {
@@ -310,7 +310,7 @@ public class ResourceDownloader {
                         }
                     }
 
-                    @Override // c.a.q0.v.e
+                    @Override // c.a.o0.v.e
                     public boolean onPreDownload(DownloadData downloadData2) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
@@ -339,9 +339,9 @@ public class ResourceDownloader {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str, str4, downloadData, r9};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -396,11 +396,11 @@ public class ResourceDownloader {
         }
     }
 
-    public static void sendDownloadStatusMessage(int i2, DownloadData downloadData) {
+    public static void sendDownloadStatusMessage(int i, DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65549, null, i2, downloadData) == null) {
+        if (interceptable == null || interceptable.invokeIL(65549, null, i, downloadData) == null) {
             WrapDownloadData wrapDownloadData = new WrapDownloadData();
-            wrapDownloadData.status = i2;
+            wrapDownloadData.status = i;
             wrapDownloadData.data = downloadData;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS, wrapDownloadData));
         }

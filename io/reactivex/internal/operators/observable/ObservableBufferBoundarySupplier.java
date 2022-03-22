@@ -45,9 +45,9 @@ public final class ObservableBufferBoundarySupplier<T, U extends Collection<? su
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bufferBoundarySupplierObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -110,9 +110,9 @@ public final class ObservableBufferBoundarySupplier<T, U extends Collection<? su
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, callable, callable2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -284,9 +284,9 @@ public final class ObservableBufferBoundarySupplier<T, U extends Collection<? su
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, callable, callable2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

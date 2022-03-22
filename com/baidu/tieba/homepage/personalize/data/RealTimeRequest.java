@@ -1,7 +1,7 @@
 package com.baidu.tieba.homepage.personalize.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -36,9 +36,9 @@ public class RealTimeRequest extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -124,10 +124,10 @@ public class RealTimeRequest extends NetMessage {
         }
     }
 
-    public void setLocation(int i2) {
+    public void setLocation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.location = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.location = i;
         }
     }
 
@@ -173,17 +173,17 @@ public class RealTimeRequest extends NetMessage {
         }
     }
 
-    public void setTid(long j2) {
+    public void setTid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.tid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.tid = j;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.type = i;
         }
     }
 

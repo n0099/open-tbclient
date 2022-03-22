@@ -1,18 +1,18 @@
 package com.google.android.exoplayer2.extractor.wav;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.audio.b;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WavHeaderReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WavHeaderReader";
@@ -20,7 +20,7 @@ public final class WavHeaderReader {
     public static final int TYPE_WAVE_FORMAT_EXTENSIBLE = 65534;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ChunkHeader {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SIZE_IN_BYTES = 8;
@@ -28,23 +28,23 @@ public final class WavHeaderReader {
         public final int id;
         public final long size;
 
-        public ChunkHeader(int i2, long j2) {
+        public ChunkHeader(int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.id = i2;
-            this.size = j2;
+            this.id = i;
+            this.size = j;
         }
 
         public static ChunkHeader peek(ExtractorInput extractorInput, ParsableByteArray parsableByteArray) throws IOException, InterruptedException {
@@ -64,9 +64,9 @@ public final class WavHeaderReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,18 +79,18 @@ public final class WavHeaderReader {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, extractorInput)) == null) {
             Assertions.checkNotNull(extractorInput);
             ParsableByteArray parsableByteArray = new ParsableByteArray(16);
-            if (ChunkHeader.peek(extractorInput, parsableByteArray).id != Util.getIntegerCodeForString(b.f49100e)) {
+            if (ChunkHeader.peek(extractorInput, parsableByteArray).id != Util.getIntegerCodeForString("RIFF")) {
                 return null;
             }
             extractorInput.peekFully(parsableByteArray.data, 0, 4);
             parsableByteArray.setPosition(0);
             int readInt = parsableByteArray.readInt();
-            if (readInt != Util.getIntegerCodeForString(b.f49101f)) {
-                String str = "Unsupported RIFF format: " + readInt;
+            if (readInt != Util.getIntegerCodeForString("WAVE")) {
+                Log.e(TAG, "Unsupported RIFF format: " + readInt);
                 return null;
             }
             ChunkHeader peek = ChunkHeader.peek(extractorInput, parsableByteArray);
-            while (peek.id != Util.getIntegerCodeForString(b.f49102g)) {
+            while (peek.id != Util.getIntegerCodeForString("fmt ")) {
                 extractorInput.advancePeekPosition((int) peek.size);
                 peek = ChunkHeader.peek(extractorInput, parsableByteArray);
             }
@@ -103,21 +103,21 @@ public final class WavHeaderReader {
             int readLittleEndianUnsignedIntToInt2 = parsableByteArray.readLittleEndianUnsignedIntToInt();
             int readLittleEndianUnsignedShort3 = parsableByteArray.readLittleEndianUnsignedShort();
             int readLittleEndianUnsignedShort4 = parsableByteArray.readLittleEndianUnsignedShort();
-            int i2 = (readLittleEndianUnsignedShort2 * readLittleEndianUnsignedShort4) / 8;
-            if (readLittleEndianUnsignedShort3 == i2) {
+            int i = (readLittleEndianUnsignedShort2 * readLittleEndianUnsignedShort4) / 8;
+            if (readLittleEndianUnsignedShort3 == i) {
                 int pcmEncoding = Util.getPcmEncoding(readLittleEndianUnsignedShort4);
                 if (pcmEncoding == 0) {
-                    r0 = "Unsupported WAV bit depth: " + readLittleEndianUnsignedShort4;
+                    Log.e(TAG, "Unsupported WAV bit depth: " + readLittleEndianUnsignedShort4);
                     return null;
                 } else if (readLittleEndianUnsignedShort != 1 && readLittleEndianUnsignedShort != 65534) {
-                    String str2 = "Unsupported WAV format type: " + readLittleEndianUnsignedShort;
+                    Log.e(TAG, "Unsupported WAV format type: " + readLittleEndianUnsignedShort);
                     return null;
                 } else {
                     extractorInput.advancePeekPosition(((int) peek.size) - 16);
                     return new WavHeader(readLittleEndianUnsignedShort2, readLittleEndianUnsignedIntToInt, readLittleEndianUnsignedIntToInt2, readLittleEndianUnsignedShort3, readLittleEndianUnsignedShort4, pcmEncoding);
                 }
             }
-            throw new ParserException("Expected block alignment: " + i2 + "; got: " + readLittleEndianUnsignedShort3);
+            throw new ParserException("Expected block alignment: " + i + "; got: " + readLittleEndianUnsignedShort3);
         }
         return (WavHeader) invokeL.objValue;
     }
@@ -131,13 +131,13 @@ public final class WavHeaderReader {
             ParsableByteArray parsableByteArray = new ParsableByteArray(8);
             ChunkHeader peek = ChunkHeader.peek(extractorInput, parsableByteArray);
             while (peek.id != Util.getIntegerCodeForString("data")) {
-                String str = "Ignoring unknown WAV chunk: " + peek.id;
-                long j2 = peek.size + 8;
-                if (peek.id == Util.getIntegerCodeForString(b.f49100e)) {
-                    j2 = 12;
+                Log.w(TAG, "Ignoring unknown WAV chunk: " + peek.id);
+                long j = peek.size + 8;
+                if (peek.id == Util.getIntegerCodeForString("RIFF")) {
+                    j = 12;
                 }
-                if (j2 <= 2147483647L) {
-                    extractorInput.skipFully((int) j2);
+                if (j <= 2147483647L) {
+                    extractorInput.skipFully((int) j);
                     peek = ChunkHeader.peek(extractorInput, parsableByteArray);
                 } else {
                     throw new ParserException("Chunk is too large (~2GB+) to skip; id: " + peek.id);

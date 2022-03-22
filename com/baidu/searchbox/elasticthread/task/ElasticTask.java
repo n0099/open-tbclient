@@ -63,16 +63,16 @@ public class ElasticTask implements Runnable {
             $VALUES = new Status[]{WAITING, RUNNING, status};
         }
 
-        public Status(String str, int i2) {
+        public Status(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -95,16 +95,16 @@ public class ElasticTask implements Runnable {
         }
     }
 
-    public ElasticTask(Runnable runnable, String str, long j2, int i2) {
+    public ElasticTask(Runnable runnable, String str, long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {runnable, str, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {runnable, str, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,9 +112,9 @@ public class ElasticTask implements Runnable {
         }
         this.status = Status.WAITING;
         this.mTaskEntity = runnable;
-        this.id = j2;
+        this.id = j;
         this.name = str;
-        this.priority = i2;
+        this.priority = i;
     }
 
     public String getName() {
@@ -157,15 +157,15 @@ public class ElasticTask implements Runnable {
         return invokeV.longValue;
     }
 
-    public synchronized long getWorkTimeInRecordLifeCycle(long j2, long j3) {
+    public synchronized long getWorkTimeInRecordLifeCycle(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 if (this.status == Status.WAITING) {
                     return 0L;
                 }
-                return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j3) - Math.max(this.timeOnExecute, j2));
+                return Math.max(0L, Math.min(this.status == Status.RUNNING ? SystemClock.elapsedRealtime() : this.timeOnComplete, j2) - Math.max(this.timeOnExecute, j));
             }
         }
         return invokeCommon.longValue;

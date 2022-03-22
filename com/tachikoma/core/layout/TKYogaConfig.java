@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
 import com.kwad.v8.debug.mirror.Frame;
 import com.kwad.yoga.YogaAlign;
 import com.kwad.yoga.YogaDirection;
@@ -38,7 +39,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKYogaConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> NON_DP_CONVERT_KEYS;
@@ -55,7 +56,7 @@ public class TKYogaConfig {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap yogaConfig;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKYogaConfigHolder {
         public static /* synthetic */ Interceptable $ic;
         public static TKYogaConfig instance;
@@ -82,9 +83,9 @@ public class TKYogaConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -115,9 +116,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -138,9 +139,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -160,9 +161,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -182,9 +183,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -204,9 +205,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -228,9 +229,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -250,9 +251,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -277,9 +278,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -298,9 +299,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -360,12 +361,12 @@ public class TKYogaConfig {
                 put("positionRight", 50);
                 put("positionStart", 51);
                 put("positionTop", 52);
-                put("bottom", 46);
+                put(TipsConfigItem.TipConfigData.BOTTOM, 46);
                 put("end", 47);
                 put("left", 49);
                 put("right", 50);
                 put("start", 51);
-                put("top", 52);
+                put(AnimationProperty.TOP, 52);
                 put("positionType", 53);
                 put("position", 53);
                 put("positionVertical", 54);
@@ -382,9 +383,9 @@ public class TKYogaConfig {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -403,9 +404,9 @@ public class TKYogaConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -709,10 +710,10 @@ public class TKYogaConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? TKYogaConfigHolder.instance : (TKYogaConfig) invokeV.objValue;
     }
 
-    public static float formatNumber(int i2, Object obj) {
+    public static float formatNumber(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, obj)) == null) {
             if (obj instanceof Number) {
                 return TKConverter.dp2px(Tachikoma.sApplication, ((Number) obj).floatValue());
             }
@@ -726,7 +727,7 @@ public class TKYogaConfig {
                     }
                     return 0.0f;
                 }
-                return defaultConfig().ygStyleValueIsString(i2, obj);
+                return defaultConfig().ygStyleValueIsString(i, obj);
             }
             return 0.0f;
         }
@@ -822,69 +823,69 @@ public class TKYogaConfig {
             int length = split.length;
             int[] iArr = new int[length];
             iArr[0] = Integer.parseInt(split[0]) % 360;
-            for (int i2 = 1; i2 < length; i2++) {
-                iArr[i2] = rgba2argb(Color.parseColor(split[i2]));
+            for (int i = 1; i < length; i++) {
+                iArr[i] = rgba2argb(Color.parseColor(split[i]));
             }
             return iArr;
         }
         return (int[]) invokeL.objValue;
     }
 
-    public static int rgba2argb(int i2) {
+    public static int rgba2argb(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i2)) == null) ? ((i2 >> 8) & 16777215) | (i2 << 24) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) ? ((i >> 8) & 16777215) | (i << 24) : invokeI.intValue;
     }
 
-    private int ygStyleValueIsString(int i2, Object obj) {
+    private int ygStyleValueIsString(int i, Object obj) {
         InterceptResult invokeIL;
         Map map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, this, i2, obj)) == null) {
-            if (i2 == 0 || i2 == 1 || i2 == 2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65555, this, i, obj)) == null) {
+            if (i == 0 || i == 1 || i == 2) {
                 if (alignMap.containsKey(obj)) {
                     map = alignMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 13) {
+            } else if (i == 13) {
                 if (directionMap.containsKey(obj)) {
                     map = directionMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 14) {
+            } else if (i == 14) {
                 if (displayMap.containsKey(obj)) {
                     map = displayMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 17) {
+            } else if (i == 17) {
                 if (flexDirectMap.containsKey(obj)) {
                     map = flexDirectMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 21) {
+            } else if (i == 21) {
                 if (justifyMap.containsKey(obj)) {
                     map = justifyMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 35) {
+            } else if (i == 35) {
                 if (overflowMap.containsKey(obj)) {
                     map = overflowMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
-            } else if (i2 == 53) {
+            } else if (i == 53) {
                 if (positionTypeMap.containsKey(obj)) {
                     map = positionTypeMap;
                     return ((Integer) map.get(obj)).intValue();
                 }
                 return Integer.MAX_VALUE;
             } else {
-                if (i2 == 56 && wrapMap.containsKey(obj)) {
+                if (i == 56 && wrapMap.containsKey(obj)) {
                     map = wrapMap;
                     return ((Integer) map.get(obj)).intValue();
                 }

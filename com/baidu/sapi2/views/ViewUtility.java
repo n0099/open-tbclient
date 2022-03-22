@@ -12,9 +12,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.utils.Log;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,9 +44,9 @@ public class ViewUtility implements NoProguard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,9 +83,9 @@ public class ViewUtility implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -100,9 +102,9 @@ public class ViewUtility implements NoProguard {
                 Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
                 declaredField.setAccessible(true);
                 declaredField2.setAccessible(true);
-                int i2 = declaredField.getInt(null);
-                int i3 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i3 | i2 : (~i2) & i3);
+                int i = declaredField.getInt(null);
+                int i2 = declaredField2.getInt(attributes);
+                declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
                 activity.getWindow().setAttributes(attributes);
                 return true;
             } catch (Throwable unused) {
@@ -123,12 +125,12 @@ public class ViewUtility implements NoProguard {
             Class<?> cls = activity.getWindow().getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
                 Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
                 Window window2 = activity.getWindow();
                 Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i2 : 0);
-                objArr[1] = Integer.valueOf(i2);
+                objArr[0] = Integer.valueOf(z ? i : 0);
+                objArr[1] = Integer.valueOf(i);
                 method.invoke(window2, objArr);
                 return true;
             } catch (Throwable unused) {
@@ -165,10 +167,10 @@ public class ViewUtility implements NoProguard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void enableStatusBarTint(Activity activity, int i2) {
+    public static void enableStatusBarTint(Activity activity, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         try {
@@ -176,11 +178,11 @@ public class ViewUtility implements NoProguard {
             boolean z3 = SapiAccountManager.getInstance().getConfignation().isDarkMode;
             if (!z2 && !z3) {
                 z = false;
-                if (z && -1 == i2) {
+                if (z && -1 == i) {
                     if (Build.VERSION.SDK_INT >= 23) {
-                        i2 = activity.getResources().getColor(R.color.sapi_sdk_dark_mode_title_color);
+                        i = activity.getResources().getColor(R.color.obfuscated_res_0x7f0609a8);
                     } else {
-                        i2 = activity.getColor(R.color.sapi_sdk_dark_mode_title_color);
+                        i = activity.getColor(R.color.obfuscated_res_0x7f0609a8);
                     }
                 }
                 if (!b(activity, true)) {
@@ -189,7 +191,7 @@ public class ViewUtility implements NoProguard {
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
                 window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                window.setStatusBarColor(i2);
+                window.setStatusBarColor(i);
                 if (Build.VERSION.SDK_INT < 23) {
                     if (!z) {
                         window.getDecorView().setSystemUiVisibility(9216);
@@ -210,7 +212,7 @@ public class ViewUtility implements NoProguard {
             Window window2 = activity.getWindow();
             window2.addFlags(Integer.MIN_VALUE);
             window2.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window2.setStatusBarColor(i2);
+            window2.setStatusBarColor(i);
             if (Build.VERSION.SDK_INT < 23) {
             }
         } catch (Exception e2) {
@@ -218,34 +220,34 @@ public class ViewUtility implements NoProguard {
         }
     }
 
-    public static void enlargedOtherView(View view, int i2) {
+    public static void enlargedOtherView(View view, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, view, i) == null) || view == null) {
             return;
         }
         ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
-        layoutParams.width = (int) ((layoutParams.width * i2) / 100.0f);
-        layoutParams.height = (int) ((layoutParams.height * i2) / 100.0f);
+        layoutParams.width = (int) ((layoutParams.width * i) / 100.0f);
+        layoutParams.height = (int) ((layoutParams.height * i) / 100.0f);
         view.setLayoutParams(layoutParams);
     }
 
-    public static void enlargedTextView(TextView textView, int i2) {
+    public static void enlargedTextView(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65542, null, textView, i2) == null) || textView == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, textView, i) == null) || textView == null) {
             return;
         }
-        textView.setTextSize(0, (textView.getTextSize() * i2) / 100.0f);
+        textView.setTextSize(0, (textView.getTextSize() * i) / 100.0f);
     }
 
-    public static void enlargedViews(View view, int i2) {
+    public static void enlargedViews(View view, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65543, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65543, null, view, i) == null) || view == null) {
             return;
         }
         if (view instanceof TextView) {
-            enlargedTextView((TextView) view, i2);
+            enlargedTextView((TextView) view, i);
         } else {
-            enlargedOtherView(view, i2);
+            enlargedOtherView(view, i);
         }
     }
 
@@ -253,7 +255,7 @@ public class ViewUtility implements NoProguard {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            int identifier = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 return context.getResources().getDimensionPixelSize(identifier);
             }
@@ -309,12 +311,12 @@ public class ViewUtility implements NoProguard {
     }
 
     public static void setTranslucentStatus(Activity activity) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65549, null, activity) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 < 21) {
-                if (i3 >= 19) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 < 21) {
+                if (i2 >= 19) {
                     Window window = activity.getWindow();
                     WindowManager.LayoutParams attributes = window.getAttributes();
                     attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
@@ -327,14 +329,14 @@ public class ViewUtility implements NoProguard {
             View decorView = window2.getDecorView();
             if (Build.VERSION.SDK_INT >= 23) {
                 if (!(SapiAccountManager.getInstance().getConfignation().isNightMode || SapiAccountManager.getInstance().getConfignation().isDarkMode)) {
-                    i2 = 9472;
-                    decorView.setSystemUiVisibility(i2);
+                    i = 9472;
+                    decorView.setSystemUiVisibility(i);
                     window2.addFlags(Integer.MIN_VALUE);
                     window2.setStatusBarColor(0);
                 }
             }
-            i2 = 1280;
-            decorView.setSystemUiVisibility(i2);
+            i = 1280;
+            decorView.setSystemUiVisibility(i);
             window2.addFlags(Integer.MIN_VALUE);
             window2.setStatusBarColor(0);
         }

@@ -36,9 +36,9 @@ public class DownloadCallbackWrap implements InnerCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, downloadCallback, downloadOptions};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,8 +57,8 @@ public class DownloadCallbackWrap implements InnerCallback {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             for (PackageInfo packageInfo : this.mList) {
-                int i2 = packageInfo.type;
-                if (i2 != 5 && i2 != 6 && i2 != 10) {
+                int i = packageInfo.type;
+                if (i != 5 && i != 6 && i != 10) {
                     return false;
                 }
             }
@@ -74,12 +74,12 @@ public class DownloadCallbackWrap implements InnerCallback {
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             for (PackageInfo packageInfo : this.mList) {
-                int i2 = packageInfo.type;
-                if (i2 == 5) {
+                int i = packageInfo.type;
+                if (i == 5) {
                     arrayList3.add(packageInfo);
-                } else if (i2 == 6) {
+                } else if (i == 6) {
                     arrayList2.add(packageInfo);
-                } else if (i2 == 10) {
+                } else if (i == 10) {
                     arrayList.add(packageInfo);
                 }
             }
@@ -122,10 +122,10 @@ public class DownloadCallbackWrap implements InnerCallback {
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onError(PackageInfo packageInfo, int i2, String str) {
+    public void onError(PackageInfo packageInfo, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, packageInfo, i2, str) == null) {
-            notifyError(packageInfo, new ErrorInfo(i2, str));
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, packageInfo, i, str) == null) {
+            notifyError(packageInfo, new ErrorInfo(i, str));
         }
     }
 
@@ -139,14 +139,14 @@ public class DownloadCallbackWrap implements InnerCallback {
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
-    public void onProgress(PackageInfo packageInfo, long j2, long j3) {
+    public void onProgress(PackageInfo packageInfo, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j2), Long.valueOf(j3)}) == null) || packageInfo == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{packageInfo, Long.valueOf(j), Long.valueOf(j2)}) == null) || packageInfo == null) {
             return;
         }
-        packageInfo.currentSize = j2;
-        packageInfo.totalSize = j3;
-        this.mCallback.onDownloadProgress(packageInfo, j2, j3);
+        packageInfo.currentSize = j;
+        packageInfo.totalSize = j2;
+        this.mCallback.onDownloadProgress(packageInfo, j, j2);
     }
 
     @Override // com.baidu.searchbox.pms.download.InnerCallback
@@ -194,9 +194,9 @@ public class DownloadCallbackWrap implements InnerCallback {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, packageInfo};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

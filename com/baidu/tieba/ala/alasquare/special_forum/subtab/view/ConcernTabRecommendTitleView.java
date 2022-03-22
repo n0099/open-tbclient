@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.special_forum.subtab.view;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.r0.a0.f.g.c.g;
-import c.a.r0.f0.b;
+import c.a.p0.c0.f.g.c.g;
+import c.a.p0.h0.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -20,15 +20,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ConcernTabRecommendTitleView extends b<g> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewHolder m;
+    public ViewHolder i;
 
     /* loaded from: classes5.dex */
     public static class ViewHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public View devider;
-        public View root;
-        public TextView textView;
+        public View a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public TextView f31390b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public View f31391c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ViewHolder(View view) {
@@ -39,18 +43,18 @@ public class ConcernTabRecommendTitleView extends b<g> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.root = view;
-            this.textView = (TextView) view.findViewById(R.id.title);
-            this.devider = this.root.findViewById(R.id.divider);
+            this.a = view;
+            this.f31390b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09202b);
+            this.f31391c = this.a.findViewById(R.id.obfuscated_res_0x7f0907e1);
         }
     }
 
@@ -63,9 +67,9 @@ public class ConcernTabRecommendTitleView extends b<g> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -73,22 +77,22 @@ public class ConcernTabRecommendTitleView extends b<g> {
                 return;
             }
         }
-        this.m = new ViewHolder(j());
-        l(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+        this.i = new ViewHolder(k());
+        m(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // c.a.r0.f0.b
-    public int f() {
+    @Override // c.a.p0.h0.b
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.special_bar_concern_recommend_title : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d078a : invokeV.intValue;
     }
 
-    @Override // c.a.r0.f0.b
-    public void l(TbPageContext<?> tbPageContext, int i2) {
+    @Override // c.a.p0.h0.b
+    public void m(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            SkinManager.setViewTextColor(this.m.textView, (int) R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setViewTextColor(this.i.f31390b, (int) R.color.CAM_X0109);
         }
     }
 
@@ -100,18 +104,18 @@ public class ConcernTabRecommendTitleView extends b<g> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.f0.b
-    /* renamed from: p */
-    public void k(g gVar) {
+    @Override // c.a.p0.h0.b
+    /* renamed from: q */
+    public void l(g gVar) {
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, gVar) == null) || (viewHolder = this.i) == null) {
             return;
         }
-        if (gVar.f14447e) {
-            viewHolder.devider.setVisibility(0);
+        if (gVar.a) {
+            viewHolder.f31391c.setVisibility(0);
         } else {
-            viewHolder.devider.setVisibility(8);
+            viewHolder.f31391c.setVisibility(8);
         }
     }
 }

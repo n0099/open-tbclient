@@ -15,21 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class c extends SQLiteOpenHelper implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0099a callback;
+    public a.InterfaceC0088a callback;
     public final String databaseName;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(Context context, String str, int i2) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+    public c(Context context, String str, int i) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -41,12 +41,12 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0099a interfaceC0099a;
+        a.InterfaceC0088a interfaceC0088a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0099a = this.callback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0088a = this.callback) == null) {
             return;
         }
-        interfaceC0099a.onDatabaseCreated(sQLiteDatabase);
+        interfaceC0088a.onDatabaseCreated(sQLiteDatabase);
     }
 
     public abstract void clearAllTables(SQLiteDatabase sQLiteDatabase);
@@ -85,19 +85,19 @@ public abstract class c extends SQLiteOpenHelper implements a {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, sQLiteDatabase, i, i2) == null) {
             clearAllTables(sQLiteDatabase);
             createAllTables(sQLiteDatabase);
         }
     }
 
     @Override // c.a.d.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0099a interfaceC0099a) {
+    public void setOnCreateCallback(a.InterfaceC0088a interfaceC0088a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0099a) == null) {
-            this.callback = interfaceC0099a;
+        if (interceptable == null || interceptable.invokeL(1048582, this, interfaceC0088a) == null) {
+            this.callback = interfaceC0088a;
         }
     }
 }

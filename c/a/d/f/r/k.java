@@ -11,28 +11,28 @@ public class k extends r {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2910b;
+    public long f2423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2911c;
+    public long f2424c;
 
-    public k(byte[] bArr, long j2, long j3) {
+    public k(byte[] bArr, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {bArr, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = bArr;
-        this.f2910b = j2;
-        this.f2911c = j3;
+        this.f2423b = j;
+        this.f2424c = j2;
     }
 }

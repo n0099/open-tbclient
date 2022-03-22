@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class hc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,14 +59,14 @@ public class hc {
                 a(context, heVar, a);
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m133a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+            com.xiaomi.channel.commonutils.logger.b.m112a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
         }
     }
 
     public static void a(Context context, hj hjVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, context, hjVar) == null) {
-            if (hjVar.f489a) {
+            if (hjVar.f465a) {
                 hjVar.a("push_sdk_channel");
             }
             if (TextUtils.isEmpty(hjVar.d())) {

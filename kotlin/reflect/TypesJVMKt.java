@@ -19,11 +19,11 @@ import kotlin.sequences.SequencesKt__SequencesKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
 import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(d1 = {"\u00000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\u001a\"\u0010\n\u001a\u00020\u00012\n\u0010\u000b\u001a\u0006\u0012\u0002\b\u00030\f2\f\u0010\r\u001a\b\u0012\u0004\u0012\u00020\u00070\u000eH\u0003\u001a\u0010\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0001H\u0002\u001a\u0016\u0010\u0012\u001a\u00020\u0001*\u00020\u00022\b\b\u0002\u0010\u0013\u001a\u00020\u0014H\u0003\"\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\u00028FX\u0087\u0004¢\u0006\f\u0012\u0004\b\u0003\u0010\u0004\u001a\u0004\b\u0005\u0010\u0006\"\u001e\u0010\u0000\u001a\u00020\u0001*\u00020\u00078BX\u0083\u0004¢\u0006\f\u0012\u0004\b\u0003\u0010\b\u001a\u0004\b\u0005\u0010\t¨\u0006\u0015"}, d2 = {"javaType", "Ljava/lang/reflect/Type;", "Lkotlin/reflect/KType;", "getJavaType$annotations", "(Lkotlin/reflect/KType;)V", "getJavaType", "(Lkotlin/reflect/KType;)Ljava/lang/reflect/Type;", "Lkotlin/reflect/KTypeProjection;", "(Lkotlin/reflect/KTypeProjection;)V", "(Lkotlin/reflect/KTypeProjection;)Ljava/lang/reflect/Type;", "createPossiblyInnerType", "jClass", "Ljava/lang/Class;", "arguments", "", "typeToString", "", "type", "computeJavaType", "forceWrapper", "", "kotlin-stdlib"}, k = 2, mv = {1, 5, 1})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class TypesJVMKt {
 
     @Metadata(k = 3, mv = {1, 5, 1})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;
@@ -44,7 +44,7 @@ public final class TypesJVMKt {
 
     @ExperimentalStdlibApi
     public static final Type computeJavaType(KType kType, boolean z) {
-        int i2;
+        int i;
         KClassifier classifier = kType.getClassifier();
         if (classifier instanceof KTypeParameter) {
             return new TypeVariableImpl((KTypeParameter) classifier);
@@ -66,10 +66,10 @@ public final class TypesJVMKt {
                 if (kTypeProjection != null) {
                     KVariance component1 = kTypeProjection.component1();
                     KType component2 = kTypeProjection.component2();
-                    if (component1 == null || (i2 = WhenMappings.$EnumSwitchMapping$0[component1.ordinal()]) == 1) {
+                    if (component1 == null || (i = WhenMappings.$EnumSwitchMapping$0[component1.ordinal()]) == 1) {
                         return javaObjectType;
                     }
-                    if (i2 != 2 && i2 != 3) {
+                    if (i != 2 && i != 3) {
                         throw new NoWhenBranchMatchedException();
                     }
                     Intrinsics.checkNotNull(component2);
@@ -83,8 +83,8 @@ public final class TypesJVMKt {
         throw new UnsupportedOperationException("Unsupported type classifier: " + kType);
     }
 
-    public static /* synthetic */ Type computeJavaType$default(KType kType, boolean z, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Type computeJavaType$default(KType kType, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         return computeJavaType(kType, z);
@@ -154,10 +154,10 @@ public final class TypesJVMKt {
         if (variance != null) {
             KType type = kTypeProjection.getType();
             Intrinsics.checkNotNull(type);
-            int i2 = WhenMappings.$EnumSwitchMapping$1[variance.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
+            int i = WhenMappings.$EnumSwitchMapping$1[variance.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
                         return new WildcardTypeImpl(computeJavaType(type, true), null);
                     }
                     throw new NoWhenBranchMatchedException();

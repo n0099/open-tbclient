@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import org.apache.commons.logging.Log;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Wire {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class Wire {
             newInitContext.initArgs = r2;
             Object[] objArr = {log};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,16 +57,16 @@ public class Wire {
         }
     }
 
-    public void input(byte[] bArr, int i2, int i3) throws IOException {
+    public void input(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void output(byte[] bArr, int i2, int i3) throws IOException {
+    public void output(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, bArr, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -85,16 +85,16 @@ public class Wire {
         }
     }
 
-    public void input(int i2) throws IOException {
+    public void input(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public void output(int i2) throws IOException {
+    public void output(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
 import org.webrtc.ThreadUtils;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioTrack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long AUDIO_TRACK_THREAD_JOIN_TIMEOUT_MS = 2000;
@@ -49,7 +49,7 @@ public class WebRtcAudioTrack {
     public final ThreadUtils.ThreadChecker threadChecker;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AudioTrackStartErrorCode {
         public static final /* synthetic */ AudioTrackStartErrorCode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -76,16 +76,16 @@ public class WebRtcAudioTrack {
             $VALUES = new AudioTrackStartErrorCode[]{AUDIO_TRACK_START_EXCEPTION, audioTrackStartErrorCode};
         }
 
-        public AudioTrackStartErrorCode(String str, int i2) {
+        public AudioTrackStartErrorCode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -108,7 +108,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AudioTrackThread extends Thread {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,9 +124,9 @@ public class WebRtcAudioTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {webRtcAudioTrack, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -137,14 +137,14 @@ public class WebRtcAudioTrack {
             this.keepAlive = true;
         }
 
-        private int writeBytes(AudioTrack audioTrack, ByteBuffer byteBuffer, int i2) {
+        private int writeBytes(AudioTrack audioTrack, ByteBuffer byteBuffer, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, audioTrack, byteBuffer, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, audioTrack, byteBuffer, i)) == null) {
                 if (Build.VERSION.SDK_INT >= 21) {
-                    return audioTrack.write(byteBuffer, i2, 0);
+                    return audioTrack.write(byteBuffer, i, 0);
                 }
-                return audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i2);
+                return audioTrack.write(byteBuffer.array(), byteBuffer.arrayOffset(), i);
             }
             return invokeLLI.intValue;
         }
@@ -198,7 +198,7 @@ public class WebRtcAudioTrack {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface ErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -208,7 +208,7 @@ public class WebRtcAudioTrack {
     }
 
     @Deprecated
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface WebRtcAudioTrackErrorCallback {
         void onWebRtcAudioTrackError(String str);
 
@@ -235,16 +235,16 @@ public class WebRtcAudioTrack {
         usageAttribute = defaultUsageAttribute;
     }
 
-    public WebRtcAudioTrack(long j2) {
+    public WebRtcAudioTrack(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -254,7 +254,7 @@ public class WebRtcAudioTrack {
         this.threadChecker = threadChecker;
         threadChecker.checkIsOnValidThread();
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-        this.nativeAudioTrack = j2;
+        this.nativeAudioTrack = j;
         this.audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
     }
 
@@ -265,35 +265,35 @@ public class WebRtcAudioTrack {
         }
     }
 
-    private int channelCountToConfiguration(int i2) {
+    private int channelCountToConfiguration(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) ? i2 == 1 ? 4 : 12 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) ? i == 1 ? 4 : 12 : invokeI.intValue;
     }
 
     @TargetApi(21)
-    public static AudioTrack createAudioTrackOnLollipopOrHigher(int i2, int i3, int i4) {
+    public static AudioTrack createAudioTrackOnLollipopOrHigher(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65548, null, i, i2, i3)) == null) {
             Logging.d(TAG, "createAudioTrackOnLollipopOrHigher");
             int nativeOutputSampleRate = AudioTrack.getNativeOutputSampleRate(0);
             Logging.d(TAG, "nativeOutputSampleRate: " + nativeOutputSampleRate);
-            if (i2 != nativeOutputSampleRate) {
+            if (i != nativeOutputSampleRate) {
                 Logging.w(TAG, "Unable to use fast mode since requested sample rate is not native");
             }
             if (usageAttribute != DEFAULT_USAGE) {
                 Logging.w(TAG, "A non default usage attribute is used: " + usageAttribute);
             }
-            return new AudioTrack(new AudioAttributes.Builder().setUsage(usageAttribute).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i2).setChannelMask(i3).build(), i4, 1, 0);
+            return new AudioTrack(new AudioAttributes.Builder().setUsage(usageAttribute).setContentType(1).build(), new AudioFormat.Builder().setEncoding(2).setSampleRate(i).setChannelMask(i2).build(), i3, 1, 0);
         }
         return (AudioTrack) invokeIII.objValue;
     }
 
-    public static AudioTrack createAudioTrackOnLowerThanLollipop(int i2, int i3, int i4) {
+    public static AudioTrack createAudioTrackOnLowerThanLollipop(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i2, i3, i4)) == null) ? new AudioTrack(0, i2, i3, 2, i4, 1) : (AudioTrack) invokeIII.objValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65549, null, i, i2, i3)) == null) ? new AudioTrack(0, i, i2, 2, i3, 1) : (AudioTrack) invokeIII.objValue;
     }
 
     public static int getDefaultUsageAttribute() {
@@ -326,21 +326,21 @@ public class WebRtcAudioTrack {
         return invokeV.intValue;
     }
 
-    private boolean initPlayout(int i2, int i3) {
+    private boolean initPlayout(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65553, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65553, this, i, i2)) == null) {
             this.threadChecker.checkIsOnValidThread();
-            Logging.d(TAG, "initPlayout(sampleRate=" + i2 + ", channels=" + i3 + SmallTailInfo.EMOTION_SUFFIX);
-            this.byteBuffer = ByteBuffer.allocateDirect(i3 * 2 * (i2 / 100));
+            Logging.d(TAG, "initPlayout(sampleRate=" + i + ", channels=" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+            this.byteBuffer = ByteBuffer.allocateDirect(i2 * 2 * (i / 100));
             StringBuilder sb = new StringBuilder();
             sb.append("byteBuffer.capacity: ");
             sb.append(this.byteBuffer.capacity());
             Logging.d(TAG, sb.toString());
             this.emptyBytes = new byte[this.byteBuffer.capacity()];
             nativeCacheDirectBufferAddress(this.byteBuffer, this.nativeAudioTrack);
-            int channelCountToConfiguration = channelCountToConfiguration(i3);
-            int minBufferSize = AudioTrack.getMinBufferSize(i2, channelCountToConfiguration, 2);
+            int channelCountToConfiguration = channelCountToConfiguration(i2);
+            int minBufferSize = AudioTrack.getMinBufferSize(i, channelCountToConfiguration, 2);
             Logging.d(TAG, "AudioTrack.getMinBufferSize: " + minBufferSize);
             if (minBufferSize < this.byteBuffer.capacity()) {
                 reportWebRtcAudioTrackInitError("AudioTrack.getMinBufferSize returns an invalid value.");
@@ -351,9 +351,9 @@ public class WebRtcAudioTrack {
             } else {
                 try {
                     if (Build.VERSION.SDK_INT >= 21) {
-                        this.audioTrack = createAudioTrackOnLollipopOrHigher(i2, channelCountToConfiguration, minBufferSize);
+                        this.audioTrack = createAudioTrackOnLollipopOrHigher(i, channelCountToConfiguration, minBufferSize);
                     } else {
-                        this.audioTrack = createAudioTrackOnLowerThanLollipop(i2, channelCountToConfiguration, minBufferSize);
+                        this.audioTrack = createAudioTrackOnLowerThanLollipop(i, channelCountToConfiguration, minBufferSize);
                     }
                     AudioTrack audioTrack = this.audioTrack;
                     if (audioTrack != null && audioTrack.getState() == 1) {
@@ -425,10 +425,10 @@ public class WebRtcAudioTrack {
         Logging.d(TAG, "underrun count: " + this.audioTrack.getUnderrunCount());
     }
 
-    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j2);
+    private native void nativeCacheDirectBufferAddress(ByteBuffer byteBuffer, long j);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeGetPlayoutData(int i2, long j2);
+    public native void nativeGetPlayoutData(int i, long j);
 
     private void releaseAudioResources() {
         Interceptable interceptable = $ic;
@@ -491,12 +491,12 @@ public class WebRtcAudioTrack {
         }
     }
 
-    public static synchronized void setAudioTrackUsageAttribute(int i2) {
+    public static synchronized void setAudioTrackUsageAttribute(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65566, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65566, null, i) == null) {
             synchronized (WebRtcAudioTrack.class) {
-                Logging.w(TAG, "Default usage attribute is changed from: " + DEFAULT_USAGE + " to " + i2);
-                usageAttribute = i2;
+                Logging.w(TAG, "Default usage attribute is changed from: " + DEFAULT_USAGE + " to " + i);
+                usageAttribute = i;
             }
         }
     }
@@ -518,18 +518,18 @@ public class WebRtcAudioTrack {
         }
     }
 
-    private boolean setStreamVolume(int i2) {
+    private boolean setStreamVolume(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65570, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65570, this, i)) == null) {
             this.threadChecker.checkIsOnValidThread();
-            Logging.d(TAG, "setStreamVolume(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+            Logging.d(TAG, "setStreamVolume(" + i + SmallTailInfo.EMOTION_SUFFIX);
             assertTrue(this.audioManager != null);
             if (isVolumeFixed()) {
                 Logging.e(TAG, "The device implements a fixed volume policy.");
                 return false;
             }
-            this.audioManager.setStreamVolume(0, i2, 0);
+            this.audioManager.setStreamVolume(0, i, 0);
             return true;
         }
         return invokeI.booleanValue;

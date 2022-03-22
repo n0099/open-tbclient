@@ -120,9 +120,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowDecorActionBar, context, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -324,18 +324,18 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.view.ActionMode
-        public void setSubtitle(int i2) {
+        public void setSubtitle(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-                setSubtitle(this.this$0.mContext.getResources().getString(i2));
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+                setSubtitle(this.this$0.mContext.getResources().getString(i));
             }
         }
 
         @Override // androidx.appcompat.view.ActionMode
-        public void setTitle(int i2) {
+        public void setTitle(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-                setTitle(this.this$0.mContext.getResources().getString(i2));
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+                setTitle(this.this$0.mContext.getResources().getString(i));
             }
         }
     }
@@ -361,9 +361,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowDecorActionBar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -430,10 +430,10 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
-        public ActionBar.Tab setContentDescription(int i2) {
+        public ActionBar.Tab setContentDescription(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? setContentDescription(this.this$0.mContext.getResources().getText(i2)) : (ActionBar.Tab) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? setContentDescription(this.this$0.mContext.getResources().getText(i)) : (ActionBar.Tab) invokeI.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
@@ -442,9 +442,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) {
                 this.mCustomView = view;
-                int i2 = this.mPosition;
-                if (i2 >= 0) {
-                    this.this$0.mTabScrollView.updateTab(i2);
+                int i = this.mPosition;
+                if (i >= 0) {
+                    this.this$0.mTabScrollView.updateTab(i);
                 }
                 return this;
             }
@@ -457,19 +457,19 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, drawable)) == null) {
                 this.mIcon = drawable;
-                int i2 = this.mPosition;
-                if (i2 >= 0) {
-                    this.this$0.mTabScrollView.updateTab(i2);
+                int i = this.mPosition;
+                if (i >= 0) {
+                    this.this$0.mTabScrollView.updateTab(i);
                 }
                 return this;
             }
             return (ActionBar.Tab) invokeL.objValue;
         }
 
-        public void setPosition(int i2) {
+        public void setPosition(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-                this.mPosition = i2;
+            if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                this.mPosition = i;
             }
         }
 
@@ -501,9 +501,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, charSequence)) == null) {
                 this.mText = charSequence;
-                int i2 = this.mPosition;
-                if (i2 >= 0) {
-                    this.this$0.mTabScrollView.updateTab(i2);
+                int i = this.mPosition;
+                if (i >= 0) {
+                    this.this$0.mTabScrollView.updateTab(i);
                 }
                 return this;
             }
@@ -516,9 +516,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
                 this.mContentDesc = charSequence;
-                int i2 = this.mPosition;
-                if (i2 >= 0) {
-                    this.this$0.mTabScrollView.updateTab(i2);
+                int i = this.mPosition;
+                if (i >= 0) {
+                    this.this$0.mTabScrollView.updateTab(i);
                 }
                 return this;
             }
@@ -526,24 +526,24 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
-        public ActionBar.Tab setCustomView(int i2) {
+        public ActionBar.Tab setCustomView(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? setCustomView(LayoutInflater.from(this.this$0.getThemedContext()).inflate(i2, (ViewGroup) null)) : (ActionBar.Tab) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? setCustomView(LayoutInflater.from(this.this$0.getThemedContext()).inflate(i, (ViewGroup) null)) : (ActionBar.Tab) invokeI.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
-        public ActionBar.Tab setIcon(int i2) {
+        public ActionBar.Tab setIcon(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? setIcon(AppCompatResources.getDrawable(this.this$0.mContext, i2)) : (ActionBar.Tab) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? setIcon(AppCompatResources.getDrawable(this.this$0.mContext, i)) : (ActionBar.Tab) invokeI.objValue;
         }
 
         @Override // androidx.appcompat.app.ActionBar.Tab
-        public ActionBar.Tab setText(int i2) {
+        public ActionBar.Tab setText(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? setText(this.this$0.mContext.getResources().getText(i2)) : (ActionBar.Tab) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? setText(this.this$0.mContext.getResources().getText(i)) : (ActionBar.Tab) invokeI.objValue;
         }
     }
 
@@ -571,9 +571,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -597,9 +597,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -642,9 +642,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -675,9 +675,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -730,22 +730,22 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
     }
 
-    private void configureTab(ActionBar.Tab tab, int i2) {
+    private void configureTab(ActionBar.Tab tab, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLI(65542, this, tab, i2) != null) {
+        if (interceptable != null && interceptable.invokeLI(65542, this, tab, i) != null) {
             return;
         }
         TabImpl tabImpl = (TabImpl) tab;
         if (tabImpl.getCallback() != null) {
-            tabImpl.setPosition(i2);
-            this.mTabs.add(i2, tabImpl);
+            tabImpl.setPosition(i);
+            this.mTabs.add(i, tabImpl);
             int size = this.mTabs.size();
             while (true) {
-                i2++;
-                if (i2 >= size) {
+                i++;
+                if (i >= size) {
                     return;
                 }
-                this.mTabs.get(i2).setPosition(i2);
+                this.mTabs.get(i).setPosition(i);
             }
         } else {
             throw new IllegalStateException("Action Bar Tab must have a Callback");
@@ -990,8 +990,8 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
         }
         this.mLastMenuVisibility = z;
         int size = this.mMenuVisibilityListeners.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            this.mMenuVisibilityListeners.get(i2).onMenuVisibilityChanged(z);
+        for (int i = 0; i < size; i++) {
+            this.mMenuVisibilityListeners.get(i).onMenuVisibilityChanged(z);
         }
     }
 
@@ -1177,10 +1177,10 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public ActionBar.Tab getTabAt(int i2) {
+    public ActionBar.Tab getTabAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.mTabs.get(i2) : (ActionBar.Tab) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.mTabs.get(i) : (ActionBar.Tab) invokeI.objValue;
     }
 
     @Override // androidx.appcompat.app.ActionBar
@@ -1198,9 +1198,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             if (this.mThemedContext == null) {
                 TypedValue typedValue = new TypedValue();
                 this.mContext.getTheme().resolveAttribute(R$attr.actionBarWidgetTheme, typedValue, true);
-                int i2 = typedValue.resourceId;
-                if (i2 != 0) {
-                    this.mThemedContext = new ContextThemeWrapper(this.mContext, i2);
+                int i = typedValue.resourceId;
+                if (i != 0) {
+                    this.mThemedContext = new ContextThemeWrapper(this.mContext, i);
                 } else {
                     this.mThemedContext = this.mContext;
                 }
@@ -1312,26 +1312,26 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public boolean onKeyShortcut(int i2, KeyEvent keyEvent) {
+    public boolean onKeyShortcut(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Menu menu;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048613, this, i, keyEvent)) == null) {
             ActionModeImpl actionModeImpl = this.mActionMode;
             if (actionModeImpl == null || (menu = actionModeImpl.getMenu()) == null) {
                 return false;
             }
             menu.setQwertyMode(KeyCharacterMap.load(keyEvent != null ? keyEvent.getDeviceId() : -1).getKeyboardType() != 1);
-            return menu.performShortcut(i2, keyEvent, 0);
+            return menu.performShortcut(i, keyEvent, 0);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // androidx.appcompat.widget.ActionBarOverlayLayout.ActionBarVisibilityCallback
-    public void onWindowVisibilityChanged(int i2) {
+    public void onWindowVisibilityChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mCurWindowVisibility = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mCurWindowVisibility = i;
         }
     }
 
@@ -1360,24 +1360,24 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void removeTabAt(int i2) {
+    public void removeTabAt(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048618, this, i2) == null) || this.mTabScrollView == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048618, this, i) == null) || this.mTabScrollView == null) {
             return;
         }
         TabImpl tabImpl = this.mSelectedTab;
         int position = tabImpl != null ? tabImpl.getPosition() : this.mSavedTabPosition;
-        this.mTabScrollView.removeTabAt(i2);
-        TabImpl remove = this.mTabs.remove(i2);
+        this.mTabScrollView.removeTabAt(i);
+        TabImpl remove = this.mTabs.remove(i);
         if (remove != null) {
             remove.setPosition(-1);
         }
         int size = this.mTabs.size();
-        for (int i3 = i2; i3 < size; i3++) {
-            this.mTabs.get(i3).setPosition(i3);
+        for (int i2 = i; i2 < size; i2++) {
+            this.mTabs.get(i2).setPosition(i2);
         }
-        if (position == i2) {
-            selectTab(this.mTabs.isEmpty() ? null : this.mTabs.get(Math.max(0, i2 - 1)));
+        if (position == i) {
+            selectTab(this.mTabs.isEmpty() ? null : this.mTabs.get(Math.max(0, i - 1)));
         }
     }
 
@@ -1437,10 +1437,10 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setCustomView(int i2) {
+    public void setCustomView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            setCustomView(LayoutInflater.from(getThemedContext()).inflate(i2, this.mDecorToolbar.getViewGroup(), false));
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            setCustomView(LayoutInflater.from(getThemedContext()).inflate(i, this.mDecorToolbar.getViewGroup(), false));
         }
     }
 
@@ -1462,13 +1462,13 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setDisplayOptions(int i2) {
+    public void setDisplayOptions(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048627, this, i2) == null) {
-            if ((i2 & 4) != 0) {
+        if (interceptable == null || interceptable.invokeI(1048627, this, i) == null) {
+            if ((i & 4) != 0) {
                 this.mDisplayHomeAsUpSet = true;
             }
-            this.mDecorToolbar.setDisplayOptions(i2);
+            this.mDecorToolbar.setDisplayOptions(i);
         }
     }
 
@@ -1513,13 +1513,13 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setHideOffset(int i2) {
+    public void setHideOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            if (i2 != 0 && !this.mOverlayLayout.isInOverlayMode()) {
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+            if (i != 0 && !this.mOverlayLayout.isInOverlayMode()) {
                 throw new IllegalStateException("Action bar must be in overlay mode (Window.FEATURE_OVERLAY_ACTION_BAR) to set a non-zero hide offset");
             }
-            this.mOverlayLayout.setActionBarHideOffset(i2);
+            this.mOverlayLayout.setActionBarHideOffset(i);
         }
     }
 
@@ -1560,10 +1560,10 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setIcon(int i2) {
+    public void setIcon(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            this.mDecorToolbar.setIcon(i2);
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+            this.mDecorToolbar.setIcon(i);
         }
     }
 
@@ -1576,41 +1576,41 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setLogo(int i2) {
+    public void setLogo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
-            this.mDecorToolbar.setLogo(i2);
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+            this.mDecorToolbar.setLogo(i);
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setNavigationMode(int i2) {
+    public void setNavigationMode(int i) {
         ActionBarOverlayLayout actionBarOverlayLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048646, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
             int navigationMode = this.mDecorToolbar.getNavigationMode();
             if (navigationMode == 2) {
                 this.mSavedTabPosition = getSelectedNavigationIndex();
                 selectTab(null);
                 this.mTabScrollView.setVisibility(8);
             }
-            if (navigationMode != i2 && !this.mHasEmbeddedTabs && (actionBarOverlayLayout = this.mOverlayLayout) != null) {
+            if (navigationMode != i && !this.mHasEmbeddedTabs && (actionBarOverlayLayout = this.mOverlayLayout) != null) {
                 ViewCompat.requestApplyInsets(actionBarOverlayLayout);
             }
-            this.mDecorToolbar.setNavigationMode(i2);
+            this.mDecorToolbar.setNavigationMode(i);
             boolean z = false;
-            if (i2 == 2) {
+            if (i == 2) {
                 ensureTabsExist();
                 this.mTabScrollView.setVisibility(0);
-                int i3 = this.mSavedTabPosition;
-                if (i3 != -1) {
-                    setSelectedNavigationItem(i3);
+                int i2 = this.mSavedTabPosition;
+                if (i2 != -1) {
+                    setSelectedNavigationItem(i2);
                     this.mSavedTabPosition = -1;
                 }
             }
-            this.mDecorToolbar.setCollapsible(i2 == 2 && !this.mHasEmbeddedTabs);
+            this.mDecorToolbar.setCollapsible(i == 2 && !this.mHasEmbeddedTabs);
             ActionBarOverlayLayout actionBarOverlayLayout2 = this.mOverlayLayout;
-            if (i2 == 2 && !this.mHasEmbeddedTabs) {
+            if (i == 2 && !this.mHasEmbeddedTabs) {
                 z = true;
             }
             actionBarOverlayLayout2.setHasNonEmbeddedTabs(z);
@@ -1618,14 +1618,14 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setSelectedNavigationItem(int i2) {
+    public void setSelectedNavigationItem(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
             int navigationMode = this.mDecorToolbar.getNavigationMode();
             if (navigationMode == 1) {
-                this.mDecorToolbar.setDropdownSelectedPosition(i2);
+                this.mDecorToolbar.setDropdownSelectedPosition(i);
             } else if (navigationMode == 2) {
-                selectTab(this.mTabs.get(i2));
+                selectTab(this.mTabs.get(i));
             } else {
                 throw new IllegalStateException("setSelectedNavigationIndex not valid for current navigation mode");
             }
@@ -1661,18 +1661,18 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setSubtitle(int i2) {
+    public void setSubtitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048651, this, i2) == null) {
-            setSubtitle(this.mContext.getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048651, this, i) == null) {
+            setSubtitle(this.mContext.getString(i));
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
-            setTitle(this.mContext.getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048653, this, i) == null) {
+            setTitle(this.mContext.getString(i));
         }
     }
 
@@ -1728,26 +1728,26 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void addTab(ActionBar.Tab tab, int i2) {
+    public void addTab(ActionBar.Tab tab, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tab, i2) == null) {
-            addTab(tab, i2, this.mTabs.isEmpty());
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tab, i) == null) {
+            addTab(tab, i, this.mTabs.isEmpty());
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setHomeActionContentDescription(int i2) {
+    public void setHomeActionContentDescription(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048636, this, i2) == null) {
-            this.mDecorToolbar.setNavigationContentDescription(i2);
+        if (interceptable == null || interceptable.invokeI(1048636, this, i) == null) {
+            this.mDecorToolbar.setNavigationContentDescription(i);
         }
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setHomeAsUpIndicator(int i2) {
+    public void setHomeAsUpIndicator(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            this.mDecorToolbar.setNavigationIcon(i2);
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            this.mDecorToolbar.setNavigationIcon(i);
         }
     }
 
@@ -1797,14 +1797,14 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void setDisplayOptions(int i2, int i3) {
+    public void setDisplayOptions(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048628, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048628, this, i, i2) == null) {
             int displayOptions = this.mDecorToolbar.getDisplayOptions();
-            if ((i3 & 4) != 0) {
+            if ((i2 & 4) != 0) {
                 this.mDisplayHomeAsUpSet = true;
             }
-            this.mDecorToolbar.setDisplayOptions((i2 & i3) | ((~i3) & displayOptions));
+            this.mDecorToolbar.setDisplayOptions((i & i2) | ((~i2) & displayOptions));
         }
     }
 
@@ -1826,12 +1826,12 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     }
 
     @Override // androidx.appcompat.app.ActionBar
-    public void addTab(ActionBar.Tab tab, int i2, boolean z) {
+    public void addTab(ActionBar.Tab tab, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tab, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{tab, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             ensureTabsExist();
-            this.mTabScrollView.addTab(tab, i2, z);
-            configureTab(tab, i2);
+            this.mTabScrollView.addTab(tab, i, z);
+            configureTab(tab, i);
             if (z) {
                 selectTab(tab);
             }
@@ -1845,9 +1845,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             newInitContext.initArgs = r2;
             Object[] objArr = {dialog};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1871,9 +1871,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1916,9 +1916,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1949,9 +1949,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1979,9 +1979,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -2005,9 +2005,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2050,9 +2050,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2083,9 +2083,9 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

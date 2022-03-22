@@ -2,6 +2,7 @@ package com.baidu.searchbox.aideviceperformance.stickiness;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.data.DBItemModel;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
@@ -49,9 +50,9 @@ public class StickinessScoreManager implements IStickinessScoreManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {iStickinessScoreDataProvider};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -60,18 +61,18 @@ public class StickinessScoreManager implements IStickinessScoreManager {
         this.mStickinessScoreDataProvider = iStickinessScoreDataProvider;
     }
 
-    private float getSingleUserStickinessScore(int i2, long j2) {
+    private float getSingleUserStickinessScore(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            if (i2 <= 0 || j2 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (i <= 0 || j <= 0) {
                 return 0.0f;
             }
-            float f2 = i2 * 0.2f;
+            float f2 = i * 0.2f;
             if (f2 > 1.0f) {
                 f2 = 1.0f;
             }
-            float f3 = 1.5f - (((float) j2) / 60000.0f);
+            float f3 = 1.5f - (((float) j) / 60000.0f);
             float f4 = f3 <= 1.0f ? f3 : 1.0f;
             return Math.max(f4 >= 0.0f ? f4 : 0.0f, f2);
         }
@@ -111,11 +112,13 @@ public class StickinessScoreManager implements IStickinessScoreManager {
             }
             List<DBItemModel.UserStickinessItemModel> queryLast = iStickinessScoreDataProvider.getUserStickinessSQLiteOpenHelper(context).queryLast(51);
             if (queryLast == null) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "userStickinessItems null");
+                }
                 return false;
             } else if (queryLast.size() <= 10) {
                 if (DEBUG) {
-                    String str = "userStickinessItems not enough : " + queryLast.size();
+                    Log.d(TAG, "userStickinessItems not enough : " + queryLast.size());
                 }
                 return false;
             } else {
@@ -123,7 +126,7 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                 HashMap hashMap = new HashMap();
                 for (DBItemModel.UserStickinessItemModel userStickinessItemModel : queryLast) {
                     if (DEBUG) {
-                        String str2 = "userStickinessItem detail : " + userStickinessItemModel.toString();
+                        Log.d(TAG, "userStickinessItem detail : " + userStickinessItemModel.toString());
                     }
                     for (Map.Entry<String, DBItemModel.UserStickinessItemModel.ItemDetailModel> entry : userStickinessItemModel.getIdToItemDetailMap().entrySet()) {
                         String key = entry.getKey();
@@ -137,7 +140,9 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                                 hashMap.put(key, Float.valueOf(singleUserStickinessScore + f2.floatValue()));
                             }
                         } else {
-                            boolean z2 = DEBUG;
+                            if (DEBUG) {
+                                Log.w(TAG, "userStickinessItem id or model null");
+                            }
                             return false;
                         }
                     }
@@ -147,7 +152,7 @@ public class StickinessScoreManager implements IStickinessScoreManager {
                     float floatValue = ((Float) entry2.getValue()).floatValue() / size;
                     DeviceInfoSharedPreferenceWrapper.getInstance().putFloat(getSpKeyStickinessScore((String) entry2.getKey()), floatValue);
                     if (DEBUG) {
-                        String str3 = "stickiness score updated. businessId:" + ((String) entry2.getKey()) + " score:" + floatValue + " userStickinessItems count:" + size;
+                        Log.d(TAG, "stickiness score updated. businessId:" + ((String) entry2.getKey()) + " score:" + floatValue + " userStickinessItems count:" + size);
                     }
                 }
                 return true;

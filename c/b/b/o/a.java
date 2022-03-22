@@ -20,29 +20,27 @@ public class a {
 
     /* renamed from: c.b.b.o.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class ThreadFactoryC1640a implements ThreadFactory {
+    public class ThreadFactoryC1650a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public AtomicInteger a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public AtomicInteger f27480e;
-
-        public ThreadFactoryC1640a(a aVar) {
+        public ThreadFactoryC1650a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27480e = new AtomicInteger();
+            this.a = new AtomicInteger();
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -50,7 +48,7 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, "NetThread" + this.f27480e.getAndIncrement());
+                Thread thread = new Thread(runnable, "NetThread" + this.a.getAndIncrement());
                 thread.setDaemon(true);
                 return thread;
             }
@@ -58,23 +56,23 @@ public class a {
         }
     }
 
-    public a(int i2) {
+    public a(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = i2 == Integer.MAX_VALUE;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(z ? 0 : i2, i2, 60L, TimeUnit.SECONDS, z ? new SynchronousQueue() : new LinkedBlockingQueue(), new ThreadFactoryC1640a(this));
+        boolean z = i == Integer.MAX_VALUE;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(z ? 0 : i, i, 60L, TimeUnit.SECONDS, z ? new SynchronousQueue() : new LinkedBlockingQueue(), new ThreadFactoryC1650a(this));
         this.a = threadPoolExecutor;
         threadPoolExecutor.allowCoreThreadTimeOut(!z);
         new w();

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import com.android.creator.IdsSupplier;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,9 +31,9 @@ public class FreemeIds implements FreemeIdsSupplier {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,9 +51,9 @@ public class FreemeIds implements FreemeIdsSupplier {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -66,6 +67,7 @@ public class FreemeIds implements FreemeIdsSupplier {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
                     this.this$0.idsSupplier = IdsSupplier.Stub.asInterface(iBinder);
+                    Log.d("MsaIds", "onServiceConnected");
                     this.this$0.iConnect.connectSuccess(true);
                 }
             }
@@ -75,6 +77,7 @@ public class FreemeIds implements FreemeIdsSupplier {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
                     this.this$0.idsSupplier = null;
+                    Log.d("MsaIds", "onServiceDisconnected");
                 }
             }
         };
@@ -85,6 +88,7 @@ public class FreemeIds implements FreemeIdsSupplier {
     public void connect(IConnect iConnect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, iConnect) == null) {
+            Log.d("MsaIds", "connect");
             this.iConnect = iConnect;
             if (!AppUtil.isInstalled(this.context, "com.android.creator")) {
                 iConnect.connectSuccess(false);
@@ -107,8 +111,8 @@ public class FreemeIds implements FreemeIdsSupplier {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (this.idsSupplier != null) {
                 try {
-                    String str2 = "getAAID idsSupplier:" + this.idsSupplier;
-                    String str3 = "getAAID pkgname:" + str;
+                    Log.d("MsaIds", "getAAID idsSupplier:" + this.idsSupplier);
+                    Log.d("MsaIds", "getAAID pkgname:" + str);
                     return this.idsSupplier.getAAID(str);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
@@ -184,16 +188,16 @@ public class FreemeIds implements FreemeIdsSupplier {
                 try {
                     isSupported = idsSupplier.isSupported();
                 } catch (RemoteException e2) {
-                    String str = "isSupported exception:" + e2.getMessage();
+                    Log.d("MsaIds", "isSupported exception:" + e2.getMessage());
                     e2.printStackTrace();
                 }
-                String str2 = "isSupported:" + this.idsSupplier;
-                String str3 = "isSupported ret:" + isSupported;
+                Log.d("MsaIds", "isSupported:" + this.idsSupplier);
+                Log.d("MsaIds", "isSupported ret:" + isSupported);
                 return isSupported;
             }
             isSupported = false;
-            String str22 = "isSupported:" + this.idsSupplier;
-            String str32 = "isSupported ret:" + isSupported;
+            Log.d("MsaIds", "isSupported:" + this.idsSupplier);
+            Log.d("MsaIds", "isSupported ret:" + isSupported);
             return isSupported;
         }
         return invokeV.booleanValue;

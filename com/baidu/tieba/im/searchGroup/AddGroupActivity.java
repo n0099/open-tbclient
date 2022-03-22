@@ -28,7 +28,7 @@ import java.util.List;
 public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.s1.r.a addGroupView;
+    public c.a.p0.u1.r.a addGroupView;
     public c searchGroupCallback;
     public SearchGroupModel searchGroupModel;
 
@@ -39,17 +39,17 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public final /* synthetic */ AddGroupActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AddGroupActivity addGroupActivity, int i2) {
-            super(i2);
+        public a(AddGroupActivity addGroupActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {addGroupActivity, Integer.valueOf(i2)};
+                Object[] objArr = {addGroupActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -64,7 +64,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage) == null) {
-                this.a.addGroupView.l(false);
+                this.a.addGroupView.o(false);
                 if (socketResponsedMessage == null || socketResponsedMessage.getCmd() != 103007) {
                     this.a.groupNotSearched();
                 } else if (!(socketResponsedMessage instanceof ResponseSearchGroupMessage)) {
@@ -91,9 +91,9 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,7 +108,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     public void groupNotSearched() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            showToast(R.string.add_group_toast_noresult);
+            showToast(R.string.obfuscated_res_0x7f0f00c7);
         }
     }
 
@@ -122,15 +122,15 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showError(String str, int i2) {
+    public void showError(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, this, str, i2) == null) {
-            if (i2 < 0) {
-                showToast(R.string.neterror);
+        if (interceptable == null || interceptable.invokeLI(65543, this, str, i) == null) {
+            if (i < 0) {
+                showToast(R.string.obfuscated_res_0x7f0f0c15);
             } else if (!TextUtils.isEmpty(str)) {
                 showToast(str);
             } else {
-                showToast(getResources().getString(R.string.neterror));
+                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
             }
         }
     }
@@ -140,26 +140,26 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (!TextUtils.isEmpty(str) && TextUtils.isDigitsOnly(str)) {
                 try {
-                    this.addGroupView.l(true);
+                    this.addGroupView.o(true);
                     this.searchGroupModel.sendMessage(b.g(str, 0L));
                     return;
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
-                    this.addGroupView.l(false);
-                    showToast(R.string.groupid_error);
+                    this.addGroupView.o(false);
+                    showToast(R.string.obfuscated_res_0x7f0f07e2);
                     return;
                 }
             }
-            showToast(R.string.please_input_groupid);
+            showToast(R.string.obfuscated_res_0x7f0f0e55);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.addGroupView.f(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.addGroupView.h(i);
         }
     }
 
@@ -168,16 +168,16 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
             super.onClick(view);
-            if (view == this.addGroupView.h()) {
+            if (view == this.addGroupView.j()) {
                 finish();
-            } else if (view == this.addGroupView.j()) {
+            } else if (view == this.addGroupView.l()) {
                 TiebaStatic.log("add_group_searchbtn_click");
                 if (view.getTag() instanceof String) {
                     doSearch((String) view.getTag());
                 }
-            } else if (view == this.addGroupView.i()) {
-                this.addGroupView.g();
             } else if (view == this.addGroupView.k()) {
+                this.addGroupView.i();
+            } else if (view == this.addGroupView.m()) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2902030, new IntentConfig(getPageContext().getPageActivity())));
             }
         }
@@ -188,7 +188,7 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.addGroupView = new c.a.r0.s1.r.a(this);
+            this.addGroupView = new c.a.p0.u1.r.a(this);
             this.searchGroupModel = new SearchGroupModel(this);
             registerListener(this.searchGroupCallback);
         }
@@ -208,14 +208,14 @@ public class AddGroupActivity extends BaseActivity<AddGroupActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
-            if (i2 == 4 && keyEvent.getRepeatCount() == 0) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
+            if (i == 4 && keyEvent.getRepeatCount() == 0) {
                 finish();
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

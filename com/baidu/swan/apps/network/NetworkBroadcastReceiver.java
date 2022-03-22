@@ -4,7 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-import c.a.p0.a.a;
+import android.util.Log;
+import c.a.n0.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NetworkBroadcastReceiver extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean DEBUG;
@@ -46,9 +47,9 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
             newInitContext.initArgs = r2;
             Object[] objArr = {callbackHandler, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,7 +65,9 @@ public class NetworkBroadcastReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) || context == null || intent == null || "android.net.conn.CONNECTIVITY_CHANGE" != intent.getAction() || TextUtils.isEmpty(this.mCallback) || isInitialStickyBroadcast()) {
             return;
         }
-        boolean z = DEBUG;
+        if (DEBUG) {
+            Log.d("NetworkBroadcast", "——> onReceive: ");
+        }
         SwanAppNetworkUtils.k(context, this.mCallbackHandlerWeakRef.get(), this.mCallback);
     }
 

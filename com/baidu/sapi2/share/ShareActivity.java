@@ -53,9 +53,9 @@ public class ShareActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,9 +77,9 @@ public class ShareActivity extends Activity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -94,7 +94,7 @@ public class ShareActivity extends Activity {
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         Intent intent = new Intent();
                         Bundle bundle = new Bundle();
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.8.2");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.5.5");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                         intent.putExtras(bundle);
@@ -112,7 +112,7 @@ public class ShareActivity extends Activity {
                         if (sapiAccount != null) {
                             bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                         }
-                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.4.7.8.2");
+                        bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.5.5");
                         bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, this.this$0.getPackageName());
                         if (SapiContext.getInstance().shareLivingunameEnable()) {
                             intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());

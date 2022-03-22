@@ -64,9 +64,9 @@ public class YYLiveUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -101,18 +101,18 @@ public class YYLiveUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, alaInfoData)) == null) {
-            int i2 = 5;
+            int i = 5;
             if (alaInfoData == null) {
                 return 5;
             }
             YyExtData yyExtData = alaInfoData.mYyExtData;
             if (yyExtData != null) {
-                i2 = yyExtData.isYyGame ? 3 : 2;
+                i = yyExtData.isYyGame ? 3 : 2;
             } else if (alaInfoData.live_type == 1) {
-                i2 = 1;
+                i = 1;
             }
             copyLiveIdToYYExtData(alaInfoData);
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -133,7 +133,7 @@ public class YYLiveUtil {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            return TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.ala_follow_live_enter_live_square_txt_yy).equals(str);
+            return TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0212).equals(str) || TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0213).equals(str);
         }
         return invokeL.booleanValue;
     }

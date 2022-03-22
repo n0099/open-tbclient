@@ -28,22 +28,22 @@ public final class b {
         new Vector2();
     }
 
-    public static boolean a(float[] fArr, int i2, int i3) {
+    public static boolean a(float[] fArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fArr, i2, i3)) == null) {
-            if (i3 <= 2) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fArr, i, i2)) == null) {
+            if (i2 <= 2) {
                 return false;
             }
-            int i4 = (i3 + i2) - 2;
-            float f2 = fArr[i4];
-            float f3 = fArr[i4 + 1];
+            int i3 = (i2 + i) - 2;
+            float f2 = fArr[i3];
+            float f3 = fArr[i3 + 1];
             float f4 = 0.0f;
-            while (i2 <= i4) {
-                float f5 = fArr[i2];
-                float f6 = fArr[i2 + 1];
+            while (i <= i3) {
+                float f5 = fArr[i];
+                float f6 = fArr[i + 1];
                 f4 += (f2 * f6) - (f3 * f5);
-                i2 += 2;
+                i += 2;
                 f2 = f5;
                 f3 = f6;
             }

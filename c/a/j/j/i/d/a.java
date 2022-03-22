@@ -10,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public interface a {
-    public static final C0173a a = C0173a.f3775b;
+    public static final C0179a a = C0179a.f3248b;
 
     /* renamed from: c.a.j.j.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0173a {
+    public static final class C0179a {
         public static /* synthetic */ Interceptable $ic;
         public static ServiceReference a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ C0173a f3775b;
+        public static final /* synthetic */ C0179a f3248b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -35,18 +35,18 @@ public interface a {
                     return;
                 }
             }
-            f3775b = new C0173a();
+            f3248b = new C0179a();
             a = new ServiceReference("bdptask", "yalog");
         }
 
-        public C0173a() {
+        public C0179a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }

@@ -1,0 +1,159 @@
+package c.a.n0.a.p1;
+
+import android.os.Bundle;
+import c.a.n0.a.x.g.f;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.publisher.ReplyEditorParams;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+/* loaded from: classes.dex */
+public class e {
+    public static /* synthetic */ Interceptable $ic;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static e f5736c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public WeakReference<d> f5737b;
+
+    /* loaded from: classes.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<c.a.n0.a.t1.e> a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public WeakReference<f> f5738b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f5739c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public MediaModel f5740d;
+
+        public b(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(e eVar, a aVar) {
+            this(eVar);
+        }
+    }
+
+    public e() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static e c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f5736c == null) {
+                synchronized (e.class) {
+                    if (f5736c == null) {
+                        f5736c = new e();
+                    }
+                }
+            }
+            return f5736c;
+        }
+        return (e) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            d dVar = this.f5737b.get();
+            if (dVar != null) {
+                dVar.A1();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(String str, MediaModel mediaModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, mediaModel) == null) {
+            c.a.n0.a.t1.e L = c.a.n0.a.t1.e.L();
+            f H = c.a.n0.a.w0.f.U().H();
+            if (L != null && H != null) {
+                b bVar = new b(this, null);
+                this.a = bVar;
+                bVar.a = new WeakReference<>(L);
+                this.a.f5738b = new WeakReference<>(H);
+                b bVar2 = this.a;
+                bVar2.f5739c = str;
+                bVar2.f5740d = mediaModel;
+                return;
+            }
+            this.a = null;
+        }
+    }
+
+    public void e(c.a.n0.a.t1.e eVar, ReplyEditorParams replyEditorParams, c.a.n0.a.p1.a aVar) {
+        f H;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, eVar, replyEditorParams, aVar) == null) || (H = c.a.n0.a.w0.f.U().H()) == null || eVar == null) {
+            return;
+        }
+        Bundle bundle = new Bundle();
+        bundle.putParcelable("params", replyEditorParams);
+        b bVar = this.a;
+        if (bVar != null && eVar == bVar.a.get() && H == this.a.f5738b.get()) {
+            bundle.putBoolean(MediaTrackConfig.AE_IMPORT_DRAFT, true);
+            bundle.putString("content", this.a.f5739c);
+            bundle.putParcelable("image", this.a.f5740d);
+        }
+        d dVar = new d();
+        dVar.h1(bundle);
+        dVar.N1(aVar);
+        dVar.r1(H.u(), "ReplyEditor");
+        this.f5737b = new WeakReference<>(dVar);
+    }
+}

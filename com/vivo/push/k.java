@@ -5,14 +5,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.e;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class k implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f59272b;
+    public final /* synthetic */ e f43905b;
 
     public k(e eVar, String str) {
         Interceptable interceptable = $ic;
@@ -21,20 +21,20 @@ public final class k implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59272b = eVar;
+        this.f43905b = eVar;
         this.a = str;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:4:0x0004, code lost:
-        r0 = r4.f59272b.d(r4.a);
+        r0 = r4.f43905b.d(r4.a);
      */
     @Override // java.lang.Runnable
     /*

@@ -48,20 +48,20 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private final void handleElementVisible(int i2) {
+    private final void handleElementVisible(int i) {
         View it;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            this.isShowing = i2 == 0;
+        if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
+            this.isShowing = i == 0;
             AbstractCollection<AbsElement> mElements = this.mElements;
             Intrinsics.checkNotNullExpressionValue(mElements, "mElements");
             for (AbsElement absElement : mElements) {
@@ -71,17 +71,17 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
                         it = null;
                     }
                     if (it != null) {
-                        absElement.onParentVisibleChanged(i2);
+                        absElement.onParentVisibleChanged(i);
                     }
                 }
             }
         }
     }
 
-    private final void hidePanelDelay(long j2) {
+    private final void hidePanelDelay(long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
             Handler handler2 = this.mHandler;
             if (handler2 != null) {
                 handler2.removeMessages(100);
@@ -91,24 +91,24 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             if (obtainMessage == null || (handler = this.mHandler) == null) {
                 return;
             }
-            handler.sendMessageDelayed(obtainMessage, j2);
+            handler.sendMessageDelayed(obtainMessage, j);
         }
     }
 
-    public static /* synthetic */ void hidePanelDelay$default(SimpleControlLayer simpleControlLayer, long j2, int i2, Object obj) {
+    public static /* synthetic */ void hidePanelDelay$default(SimpleControlLayer simpleControlLayer, long j, int i, Object obj) {
         if (obj == null) {
-            if ((i2 & 1) != 0) {
-                j2 = 5000;
+            if ((i & 1) != 0) {
+                j = 5000;
             }
-            simpleControlLayer.hidePanelDelay(j2);
+            simpleControlLayer.hidePanelDelay(j);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: hidePanelDelay");
     }
 
-    public static /* synthetic */ void layoutSeekBarElement$default(SimpleControlLayer simpleControlLayer, boolean z, int i2, Object obj) {
+    public static /* synthetic */ void layoutSeekBarElement$default(SimpleControlLayer simpleControlLayer, boolean z, int i, Object obj) {
         if (obj == null) {
-            if ((i2 & 1) != 0) {
+            if ((i & 1) != 0) {
                 z = true;
             }
             simpleControlLayer.layoutSeekBarElement(z);
@@ -117,12 +117,12 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: layoutSeekBarElement");
     }
 
-    public static /* synthetic */ void togglePanelVisible$default(SimpleControlLayer simpleControlLayer, boolean z, boolean z2, int i2, Object obj) {
+    public static /* synthetic */ void togglePanelVisible$default(SimpleControlLayer simpleControlLayer, boolean z, boolean z2, int i, Object obj) {
         if (obj == null) {
-            if ((i2 & 1) != 0) {
+            if ((i & 1) != 0) {
                 z = false;
             }
-            if ((i2 & 2) != 0) {
+            if ((i & 2) != 0) {
                 z2 = false;
             }
             simpleControlLayer.togglePanelVisible(z, z2);
@@ -192,8 +192,8 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.addRule(11);
-                layoutParams2.addRule(6, R.id.bdvideoplayer_seekbar);
-                layoutParams2.addRule(8, R.id.bdvideoplayer_seekbar);
+                layoutParams2.addRule(6, R.id.obfuscated_res_0x7f090346);
+                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090346);
                 layoutParams2.rightMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
             }
         }
@@ -208,8 +208,8 @@ public class SimpleControlLayer extends ElementLayer<RelativeLayout, AbsElement>
             RelativeLayout.LayoutParams layoutParams2 = layoutParams instanceof RelativeLayout.LayoutParams ? layoutParams : null;
             if (layoutParams2 != null) {
                 layoutParams2.addRule(9);
-                layoutParams2.addRule(6, R.id.bdvideoplayer_seekbar);
-                layoutParams2.addRule(8, R.id.bdvideoplayer_seekbar);
+                layoutParams2.addRule(6, R.id.obfuscated_res_0x7f090346);
+                layoutParams2.addRule(8, R.id.obfuscated_res_0x7f090346);
                 layoutParams2.leftMargin = BdPlayerUtils.dp2px(this.mContainer, 15.0f);
             }
         }

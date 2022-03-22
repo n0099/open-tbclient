@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler a;
@@ -53,10 +53,10 @@ public class g {
         return (interceptable == null || (invokeLF = interceptable.invokeLF(65538, null, context, f2)) == null) ? (int) ((f2 * context.getResources().getDisplayMetrics().density) + 0.5f) : invokeLF.intValue;
     }
 
-    public static <T extends View> T a(Context context, int i2) {
+    public static <T extends View> T a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) ? (T) LayoutInflater.from(context).inflate(i2, (ViewGroup) null) : (T) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? (T) LayoutInflater.from(context).inflate(i, (ViewGroup) null) : (T) invokeLI.objValue;
     }
 
     public static void a(Runnable runnable) {
@@ -66,10 +66,10 @@ public class g {
         }
     }
 
-    public static void a(Runnable runnable, long j2) {
+    public static void a(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, runnable, j2) == null) {
-            a.postDelayed(runnable, j2);
+        if (interceptable == null || interceptable.invokeLJ(65541, null, runnable, j) == null) {
+            a.postDelayed(runnable, j);
         }
     }
 }

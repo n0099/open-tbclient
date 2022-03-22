@@ -3,90 +3,90 @@ package com.kwad.sdk.core.video;
 import android.content.Context;
 import android.view.TextureView;
 import android.view.View;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends TextureView {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54773b;
+    public int f39874b;
 
     public a(Context context) {
         super(context);
     }
 
-    public void a(int i2, int i3) {
-        if (this.f54773b == i2 || this.a == i3) {
+    public void a(int i, int i2) {
+        if (this.f39874b == i || this.a == i2) {
             return;
         }
-        this.f54773b = i2;
-        this.a = i3;
+        this.f39874b = i;
+        this.a = i2;
         requestLayout();
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
-        int i4;
+    public void onMeasure(int i, int i2) {
+        int i3;
         float rotation = getRotation();
         if (rotation == 90.0f || rotation == 270.0f) {
-            i3 = i2;
-            i2 = i3;
+            i2 = i;
+            i = i2;
         }
-        int defaultSize = TextureView.getDefaultSize(this.f54773b, i2);
-        int defaultSize2 = TextureView.getDefaultSize(this.a, i3);
-        if (this.f54773b > 0 && this.a > 0) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size2 = View.MeasureSpec.getSize(i3);
+        int defaultSize = TextureView.getDefaultSize(this.f39874b, i);
+        int defaultSize2 = TextureView.getDefaultSize(this.a, i2);
+        if (this.f39874b > 0 && this.a > 0) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
             if (mode == 1073741824 && mode2 == 1073741824) {
-                int i5 = this.f54773b;
-                int i6 = i5 * size2;
-                int i7 = this.a;
-                if (i6 < size * i7) {
-                    defaultSize = (i5 * size2) / i7;
-                } else if (i5 * size2 > size * i7) {
-                    defaultSize2 = (i7 * size) / i5;
+                int i4 = this.f39874b;
+                int i5 = i4 * size2;
+                int i6 = this.a;
+                if (i5 < size * i6) {
+                    defaultSize = (i4 * size2) / i6;
+                } else if (i4 * size2 > size * i6) {
+                    defaultSize2 = (i6 * size) / i4;
                     defaultSize = size;
                 } else {
                     defaultSize = size;
                 }
                 defaultSize2 = size2;
             } else if (mode == 1073741824) {
-                int i8 = this.a;
-                int i9 = this.f54773b;
-                int i10 = (size * i8) / i9;
-                if (mode2 != Integer.MIN_VALUE || i10 <= size2) {
+                int i7 = this.a;
+                int i8 = this.f39874b;
+                int i9 = (size * i7) / i8;
+                if (mode2 != Integer.MIN_VALUE || i9 <= size2) {
                     defaultSize = size;
-                    defaultSize2 = i10;
+                    defaultSize2 = i9;
                 } else {
-                    defaultSize = (i9 * size2) / i8;
+                    defaultSize = (i8 * size2) / i7;
                     defaultSize2 = size2;
                 }
             } else if (mode2 == 1073741824) {
-                int i11 = this.f54773b;
-                int i12 = this.a;
-                i4 = (size2 * i11) / i12;
-                if (mode != Integer.MIN_VALUE || i4 <= size) {
+                int i10 = this.f39874b;
+                int i11 = this.a;
+                i3 = (size2 * i10) / i11;
+                if (mode != Integer.MIN_VALUE || i3 <= size) {
                     defaultSize2 = size2;
-                    defaultSize = i4;
+                    defaultSize = i3;
                 } else {
-                    defaultSize2 = (i12 * size) / i11;
+                    defaultSize2 = (i11 * size) / i10;
                     defaultSize = size;
                 }
             } else {
-                i4 = this.f54773b;
-                int i13 = this.a;
-                if (mode2 != Integer.MIN_VALUE || i13 <= size2) {
-                    defaultSize2 = i13;
+                i3 = this.f39874b;
+                int i12 = this.a;
+                if (mode2 != Integer.MIN_VALUE || i12 <= size2) {
+                    defaultSize2 = i12;
                 } else {
-                    i4 = (i4 * size2) / i13;
+                    i3 = (i3 * size2) / i12;
                     defaultSize2 = size2;
                 }
-                if (mode == Integer.MIN_VALUE && i4 > size) {
-                    defaultSize2 = (this.a * size) / this.f54773b;
+                if (mode == Integer.MIN_VALUE && i3 > size) {
+                    defaultSize2 = (this.a * size) / this.f39874b;
                     defaultSize = size;
                 }
-                defaultSize = i4;
+                defaultSize = i3;
             }
         }
         setMeasuredDimension(defaultSize, defaultSize2);

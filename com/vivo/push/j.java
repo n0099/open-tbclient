@@ -4,17 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ com.vivo.push.b.b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f59270b;
+    public final /* synthetic */ String f43903b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f59271c;
+    public final /* synthetic */ e f43904c;
 
     public j(e eVar, com.vivo.push.b.b bVar, String str) {
         Interceptable interceptable = $ic;
@@ -23,25 +23,25 @@ public final class j implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar, bVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59271c = eVar;
+        this.f43904c = eVar;
         this.a = bVar;
-        this.f59270b = str;
+        this.f43903b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f59271c.a(this.a);
-            this.f59271c.e(this.f59270b);
+            this.f43904c.a(this.a);
+            this.f43904c.e(this.f43903b);
         }
     }
 }

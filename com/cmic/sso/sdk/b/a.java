@@ -1,123 +1,333 @@
 package com.cmic.sso.sdk.b;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Build;
+import android.telephony.SubscriptionManager;
+import android.telephony.TelephonyManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.b.b.d;
-import com.cmic.sso.sdk.b.b.g;
-import com.cmic.sso.sdk.b.c.c;
-import com.cmic.sso.sdk.b.d.b;
-import com.cmic.sso.sdk.d.q;
-import com.cmic.sso.sdk.d.s;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes7.dex */
+import com.cmic.sso.sdk.e.c;
+import com.cmic.sso.sdk.e.g;
+import com.cmic.sso.sdk.e.m;
+import java.lang.reflect.Method;
+/* loaded from: classes6.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public static a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f52013b;
+    public static long f38416b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: c  reason: collision with root package name */
+    public C1927a f38417c;
+
+    /* renamed from: com.cmic.sso.sdk.b.a$a  reason: collision with other inner class name */
+    /* loaded from: classes6.dex */
+    public static class C1927a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public int f38418b;
+
+        public C1927a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = -1;
+            this.f38418b = -1;
+        }
+
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38418b : invokeV.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-1436879667, "Lcom/cmic/sso/sdk/b/a;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-1436879667, "Lcom/cmic/sso/sdk/b/a;");
+        }
+    }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.f38417c = null;
     }
 
-    public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
-        InterceptResult invokeLLL;
-        List<String> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, cVar, bVar, aVar)) == null) {
-            Map<String, List<String>> b2 = bVar.b();
-            if (TextUtils.isEmpty(this.a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-                this.a = list.get(0);
-            }
-            s.b(aVar, String.valueOf(bVar.a()));
-            List<String> list2 = b2.get("Location");
-            if (list2 == null || list2.isEmpty()) {
-                list2 = b2.get("Location".toLowerCase());
-            }
-            if (list2 != null && list2.size() > 0) {
-                String str = list2.get(0);
-                this.f52013b = str;
-                if (!TextUtils.isEmpty(str)) {
-                    String b3 = aVar.b("operatortype", "0");
-                    if ("2".equals(b3)) {
-                        s.a(aVar, "getUnicomMobile");
-                    } else if ("3".equals(b3)) {
-                        s.a(aVar, "getTelecomMobile");
-                    } else {
-                        s.a(aVar, "NONE");
-                    }
-                }
-            }
-            c a = a(this.f52013b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
-            a.a(cVar.h());
-            return a;
-        }
-        return (c) invokeLLL.objValue;
-    }
-
-    public c b(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cVar, bVar, aVar)) == null) {
-            String b2 = aVar.b("operatortype", "0");
-            if ("2".equals(b2)) {
-                s.a(aVar, "getNewUnicomPhoneNumberNotify");
-            } else if ("3".equals(b2)) {
-                s.a(aVar, "getNewTelecomPhoneNumberNotify");
-            } else {
-                s.a(aVar, "NONE");
-            }
-            s.b(aVar, String.valueOf(bVar.a()));
-            d dVar = new d(cVar.k().a(), "1.0", bVar.c());
-            String e2 = q.e();
-            dVar.c(aVar.b("userCapaid"));
-            if (aVar.c("logintype") != 3) {
-                dVar.b("authz");
-            } else {
-                dVar.b("pre");
-            }
-            c a = a(e2 + this.a, cVar.f(), "POST", dVar);
-            a.a(cVar.h());
-            this.a = null;
-            return a;
-        }
-        return (c) invokeLLL.objValue;
-    }
-
-    private c a(String str, String str2, String str3, g gVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, this, str, str2, str3, gVar)) == null) {
-            c cVar = new c(str, gVar, str3, str2);
-            if (str3.equals("GET")) {
-                cVar.a("Content-Type", "application/x-www-form-urlencoded");
-            }
-            return cVar;
-        }
-        return (c) invokeLLLL.objValue;
-    }
-
-    public String a() {
+    public static a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = new a();
+            }
+            return a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    @SuppressLint({"MissingPermission"})
+    private int c(Context context) {
+        InterceptResult invokeL;
+        TelephonyManager telephonyManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
+            if (!g.a(context, "android.permission.READ_PHONE_STATE") || (telephonyManager = (TelephonyManager) context.getApplicationContext().getSystemService("phone")) == null) {
+                return -1;
+            }
+            if (m.d()) {
+                try {
+                    Method method = telephonyManager.getClass().getMethod("getDataNetworkType", Integer.TYPE);
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("data dataNetworkType defaultDataSubId = ");
+                    sb.append(this.f38417c.f38418b);
+                    c.b("UMCTelephonyManagement", sb.toString());
+                    int intValue = ((Integer) method.invoke(telephonyManager, Integer.valueOf(this.f38417c.f38418b))).intValue();
+                    StringBuilder sb2 = new StringBuilder();
+                    sb2.append("data dataNetworkType ---------");
+                    sb2.append(intValue);
+                    c.b("UMCTelephonyManagement", sb2.toString());
+                    if (intValue != 0 || Build.VERSION.SDK_INT < 24) {
+                        return intValue;
+                    }
+                    StringBuilder sb3 = new StringBuilder();
+                    sb3.append("data dataNetworkType ---->=N ");
+                    sb3.append(intValue);
+                    c.b("UMCTelephonyManagement", sb3.toString());
+                    return telephonyManager.getDataNetworkType();
+                } catch (Exception e2) {
+                    c.a("UMCTelephonyManagement", "data dataNetworkType ----反射出错-----");
+                    e2.printStackTrace();
+                    return -1;
+                }
+            }
+            return telephonyManager.getDataNetworkType();
+        }
+        return invokeL.intValue;
+    }
+
+    public C1927a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            C1927a c1927a = this.f38417c;
+            return c1927a == null ? new C1927a() : c1927a;
+        }
+        return (C1927a) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x0083, code lost:
+        if (r11 != null) goto L33;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x008d, code lost:
+        if (r11 == null) goto L30;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x008f, code lost:
+        r11.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x0092, code lost:
+        com.cmic.sso.sdk.e.c.b("UMCTelephonyManagement", "readSimInfoDbEnd");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0097, code lost:
+        return;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    private void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context) != null) {
+            return;
+        }
+        c.b("UMCTelephonyManagement", "readSimInfoDbStart");
+        Uri parse = Uri.parse("content://telephony/siminfo");
+        ContentResolver contentResolver = context.getContentResolver();
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = contentResolver.query(parse, new String[]{"_id", "sim_id"}, "sim_id>=?", new String[]{"0"}, null);
+                if (cursor != null) {
+                    while (cursor.moveToNext()) {
+                        int i = cursor.getInt(cursor.getColumnIndex("sim_id"));
+                        int i2 = cursor.getInt(cursor.getColumnIndex("_id"));
+                        if (this.f38417c.a == -1 && this.f38417c.f38418b != -1 && this.f38417c.f38418b == i2) {
+                            this.f38417c.a = i;
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("通过读取sim db获取数据流量卡的卡槽值：");
+                            sb.append(i);
+                            c.b("UMCTelephonyManagement", sb.toString());
+                        }
+                        if (this.f38417c.a == i) {
+                            this.f38417c.f38418b = i2;
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+                c.a("UMCTelephonyManagement", "readSimInfoDb error");
+            }
+        } catch (Throwable th) {
+            if (cursor != null) {
+                cursor.close();
+            }
+            throw th;
+        }
+    }
+
+    public void a(Context context, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - f38416b;
+            if (currentTimeMillis >= 5000 || currentTimeMillis <= 0) {
+                this.f38417c = new C1927a();
+                if (z2) {
+                    a(context, z);
+                    if (m.e() && m.d()) {
+                        c.b("UMCTelephonyManagement", "华为手机兼容性处理");
+                        if (this.f38417c.f38418b == 0 || this.f38417c.f38418b == 1) {
+                            if (this.f38417c.a == -1) {
+                                C1927a c1927a = this.f38417c;
+                                c1927a.a = c1927a.f38418b;
+                            }
+                            this.f38417c.f38418b = -1;
+                        }
+                        if ((this.f38417c.a != -1 || this.f38417c.f38418b != -1) && Build.VERSION.SDK_INT >= 21) {
+                            b(context);
+                        }
+                    }
+                    f38416b = System.currentTimeMillis();
+                }
+            }
+        }
+    }
+
+    private void a(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, this, context, z) == null) {
+            if (Build.VERSION.SDK_INT < 22) {
+                this.f38417c.a = -1;
+                return;
+            }
+            SubscriptionManager from = SubscriptionManager.from(context.getApplicationContext());
+            if (from != null) {
+                try {
+                    if (this.f38417c.a == -1 && Build.VERSION.SDK_INT >= 24) {
+                        this.f38417c.f38418b = SubscriptionManager.getDefaultDataSubscriptionId();
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("android 7.0及以上手机getDefaultDataSubscriptionId适配成功: dataSubId = ");
+                        sb.append(this.f38417c.f38418b);
+                        c.b("UMCTelephonyManagement", sb.toString());
+                        return;
+                    }
+                } catch (Exception unused) {
+                    c.a("UMCTelephonyManagement", "android 7.0及以上手机getDefaultDataSubscriptionId适配失败");
+                }
+                try {
+                    Object invoke = from.getClass().getMethod("getDefaultDataSubId", new Class[0]).invoke(from, new Object[0]);
+                    if ((invoke instanceof Integer) || (invoke instanceof Long)) {
+                        this.f38417c.f38418b = ((Integer) invoke).intValue();
+                        StringBuilder sb2 = new StringBuilder();
+                        sb2.append("android 7.0以下手机getDefaultDataSubId适配成功: dataSubId = ");
+                        sb2.append(this.f38417c.f38418b);
+                        c.b("UMCTelephonyManagement", sb2.toString());
+                        return;
+                    }
+                } catch (Exception unused2) {
+                    c.a("UMCTelephonyManagement", "readDefaultDataSubId-->getDefaultDataSubId 反射出错");
+                }
+                try {
+                    Object invoke2 = from.getClass().getMethod("getDefaultDataSubscriptionId", new Class[0]).invoke(from, new Object[0]);
+                    if ((invoke2 instanceof Integer) || (invoke2 instanceof Long)) {
+                        this.f38417c.f38418b = ((Integer) invoke2).intValue();
+                        StringBuilder sb3 = new StringBuilder();
+                        sb3.append("反射getDefaultDataSubscriptionId适配成功: dataSubId = ");
+                        sb3.append(this.f38417c.f38418b);
+                        c.b("UMCTelephonyManagement", sb3.toString());
+                    }
+                } catch (Exception unused3) {
+                    c.a("UMCTelephonyManagement", "getDefaultDataSubscriptionId-->getDefaultDataSubscriptionId 反射出错");
+                }
+            }
+        }
+    }
+
+    public String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            switch (c(context)) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    return "3";
+                case 20:
+                    return "4";
+                default:
+                    return "0";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

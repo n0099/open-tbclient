@@ -23,13 +23,13 @@ import org.apache.http.conn.scheme.LayeredSocketFactory;
 import org.apache.http.conn.ssl.StrictHostnameVerifier;
 import org.apache.http.params.HttpParams;
 @TargetApi(17)
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k implements LayeredSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final HostnameVerifier a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SSLCertificateSocketFactory f59168b;
+    public static final SSLCertificateSocketFactory f43805b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +46,7 @@ public class k implements LayeredSocketFactory {
             }
         }
         a = new StrictHostnameVerifier();
-        f59168b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
+        f43805b = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0, null);
     }
 
     public k() {
@@ -54,9 +54,9 @@ public class k implements LayeredSocketFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -64,11 +64,11 @@ public class k implements LayeredSocketFactory {
     }
 
     @Override // org.apache.http.conn.scheme.SocketFactory
-    public Socket connectSocket(Socket socket, String str, int i2, InetAddress inetAddress, int i3, HttpParams httpParams) throws IOException {
+    public Socket connectSocket(Socket socket, String str, int i, InetAddress inetAddress, int i2, HttpParams httpParams) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{socket, str, Integer.valueOf(i2), inetAddress, Integer.valueOf(i3), httpParams})) == null) {
-            socket.connect(new InetSocketAddress(str, i2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{socket, str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2), httpParams})) == null) {
+            socket.connect(new InetSocketAddress(str, i));
             return socket;
         }
         return (Socket) invokeCommon.objValue;
@@ -95,20 +95,20 @@ public class k implements LayeredSocketFactory {
     }
 
     @Override // org.apache.http.conn.scheme.LayeredSocketFactory
-    public Socket createSocket(Socket socket, String str, int i2, boolean z) throws IOException {
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{socket, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            SLog.v("openSDK_LOG.SNISocketFactory", "createSocket " + socket.toString() + " host:" + str + " port:" + i2 + " autoClose:" + z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            SLog.v("openSDK_LOG.SNISocketFactory", "createSocket " + socket.toString() + " host:" + str + " port:" + i + " autoClose:" + z);
             InetAddress inetAddress = socket.getInetAddress();
             if (z) {
                 socket.close();
             }
-            SSLSocket sSLSocket = (SSLSocket) f59168b.createSocket(inetAddress, i2);
+            SSLSocket sSLSocket = (SSLSocket) f43805b.createSocket(inetAddress, i);
             sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
             if (Build.VERSION.SDK_INT >= 17) {
                 SLog.v("openSDK_LOG.SNISocketFactory", "Setting SNI hostname");
-                f59168b.setHostname(sSLSocket, str);
+                f43805b.setHostname(sSLSocket, str);
             } else {
                 SLog.v("openSDK_LOG.SNISocketFactory", "No documented SNI support on Android <4.2, trying with reflection");
                 try {

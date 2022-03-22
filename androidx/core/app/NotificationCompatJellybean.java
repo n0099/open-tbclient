@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.util.Log;
 import android.util.SparseArray;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
@@ -76,9 +77,9 @@ public class NotificationCompatJellybean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -91,13 +92,13 @@ public class NotificationCompatJellybean {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             int size = list.size();
             SparseArray<Bundle> sparseArray = null;
-            for (int i2 = 0; i2 < size; i2++) {
-                Bundle bundle = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                Bundle bundle = list.get(i);
                 if (bundle != null) {
                     if (sparseArray == null) {
                         sparseArray = new SparseArray<>();
                     }
-                    sparseArray.put(i2, bundle);
+                    sparseArray.put(i, bundle);
                 }
             }
             return sparseArray;
@@ -122,12 +123,14 @@ public class NotificationCompatJellybean {
                     sActionsField = declaredField;
                     declaredField.setAccessible(true);
                 }
-            } catch (ClassNotFoundException unused) {
+            } catch (ClassNotFoundException e2) {
+                Log.e(TAG, "Unable to access notification actions", e2);
                 sActionsAccessFailed = true;
-            } catch (NoSuchFieldException unused2) {
+            } catch (NoSuchFieldException e3) {
+                Log.e(TAG, "Unable to access notification actions", e3);
                 sActionsAccessFailed = true;
             }
-            return true ^ sActionsAccessFailed;
+            return !sActionsAccessFailed;
         }
         return invokeV.booleanValue;
     }
@@ -157,29 +160,30 @@ public class NotificationCompatJellybean {
                 return null;
             }
             RemoteInput[] remoteInputArr = new RemoteInput[bundleArr.length];
-            for (int i2 = 0; i2 < bundleArr.length; i2++) {
-                remoteInputArr[i2] = fromBundle(bundleArr[i2]);
+            for (int i = 0; i < bundleArr.length; i++) {
+                remoteInputArr[i] = fromBundle(bundleArr[i]);
             }
             return remoteInputArr;
         }
         return (RemoteInput[]) invokeL.objValue;
     }
 
-    public static NotificationCompat.Action getAction(Notification notification, int i2) {
+    public static NotificationCompat.Action getAction(Notification notification, int i) {
         InterceptResult invokeLI;
         SparseArray sparseParcelableArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, notification, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, notification, i)) == null) {
             synchronized (sActionsLock) {
                 try {
                     try {
                         Object[] actionObjectsLocked = getActionObjectsLocked(notification);
                         if (actionObjectsLocked != null) {
-                            Object obj = actionObjectsLocked[i2];
+                            Object obj = actionObjectsLocked[i];
                             Bundle extras = getExtras(notification);
-                            return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i2));
+                            return readAction(sActionIconField.getInt(obj), (CharSequence) sActionTitleField.get(obj), (PendingIntent) sActionIntentField.get(obj), (extras == null || (sparseParcelableArray = extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS)) == null) ? null : (Bundle) sparseParcelableArray.get(i));
                         }
-                    } catch (IllegalAccessException unused) {
+                    } catch (IllegalAccessException e2) {
+                        Log.e(TAG, "Unable to access notification actions", e2);
                         sActionsAccessFailed = true;
                     }
                     return null;
@@ -223,7 +227,8 @@ public class NotificationCompatJellybean {
                 if (ensureActionReflectionReadyLocked()) {
                     try {
                         return (Object[]) sActionsField.get(notification);
-                    } catch (IllegalAccessException unused) {
+                    } catch (IllegalAccessException e2) {
+                        Log.e(TAG, "Unable to access notification actions", e2);
                         sActionsAccessFailed = true;
                         return null;
                     }
@@ -286,6 +291,7 @@ public class NotificationCompatJellybean {
                     if (sExtrasField == null) {
                         Field declaredField = Notification.class.getDeclaredField("extras");
                         if (!Bundle.class.isAssignableFrom(declaredField.getType())) {
+                            Log.e(TAG, "Notification.extras field is not of type Bundle");
                             sExtrasFieldAccessFailed = true;
                             return null;
                         }
@@ -298,7 +304,12 @@ public class NotificationCompatJellybean {
                         sExtrasField.set(notification, bundle);
                     }
                     return bundle;
-                } catch (IllegalAccessException | NoSuchFieldException unused) {
+                } catch (IllegalAccessException e2) {
+                    Log.e(TAG, "Unable to access notification extras", e2);
+                    sExtrasFieldAccessFailed = true;
+                    return null;
+                } catch (NoSuchFieldException e3) {
+                    Log.e(TAG, "Unable to access notification extras", e3);
                     sExtrasFieldAccessFailed = true;
                     return null;
                 }
@@ -307,13 +318,13 @@ public class NotificationCompatJellybean {
         return (Bundle) invokeL.objValue;
     }
 
-    public static NotificationCompat.Action readAction(int i2, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
+    public static NotificationCompat.Action readAction(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle) {
         InterceptResult invokeCommon;
         RemoteInput[] remoteInputArr;
         RemoteInput[] remoteInputArr2;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i2), charSequence, pendingIntent, bundle})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Integer.valueOf(i), charSequence, pendingIntent, bundle})) == null) {
             if (bundle != null) {
                 remoteInputArr = fromBundleArray(getBundleArrayFromBundle(bundle, NotificationCompatExtras.EXTRA_REMOTE_INPUTS));
                 remoteInputArr2 = fromBundleArray(getBundleArrayFromBundle(bundle, EXTRA_DATA_ONLY_REMOTE_INPUTS));
@@ -323,7 +334,7 @@ public class NotificationCompatJellybean {
                 remoteInputArr2 = null;
                 z = false;
             }
-            return new NotificationCompat.Action(i2, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true, false);
+            return new NotificationCompat.Action(i, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, 0, true, false);
         }
         return (NotificationCompat.Action) invokeCommon.objValue;
     }
@@ -359,8 +370,8 @@ public class NotificationCompatJellybean {
                 return null;
             }
             Bundle[] bundleArr = new Bundle[remoteInputArr.length];
-            for (int i2 = 0; i2 < remoteInputArr.length; i2++) {
-                bundleArr[i2] = toBundle(remoteInputArr[i2]);
+            for (int i = 0; i < remoteInputArr.length; i++) {
+                bundleArr[i] = toBundle(remoteInputArr[i]);
             }
             return bundleArr;
         }

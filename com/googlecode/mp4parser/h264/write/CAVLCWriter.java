@@ -23,9 +23,9 @@ public class CAVLCWriter extends BitstreamWriter {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((OutputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,23 +43,23 @@ public class CAVLCWriter extends BitstreamWriter {
         }
     }
 
-    public void writeNBit(long j2, int i2, String str) throws IOException {
+    public void writeNBit(long j, int i, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
             Debug.print(String.valueOf(str) + "\t");
-            for (int i3 = 0; i3 < i2; i3++) {
-                write1Bit(((int) (j2 >> ((i2 - i3) - 1))) & 1);
+            for (int i2 = 0; i2 < i; i2++) {
+                write1Bit(((int) (j >> ((i - i2) - 1))) & 1);
             }
-            Debug.println("\t" + j2);
+            Debug.println("\t" + j);
         }
     }
 
-    public void writeSE(int i2, String str) throws IOException {
+    public void writeSE(int i, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
             Debug.print(String.valueOf(str) + "\t");
-            writeUE(((i2 << 1) * (i2 < 0 ? -1 : 1)) + (i2 <= 0 ? 0 : 1));
-            Debug.println("\t" + i2);
+            writeUE(((i << 1) * (i < 0 ? -1 : 1)) + (i <= 0 ? 0 : 1));
+            Debug.println("\t" + i);
         }
     }
 
@@ -79,53 +79,53 @@ public class CAVLCWriter extends BitstreamWriter {
         }
     }
 
-    public void writeU(int i2, int i3, String str) throws IOException {
+    public void writeU(int i, int i2, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, str) == null) {
             Debug.print(String.valueOf(str) + "\t");
-            writeNBit((long) i2, i3);
-            Debug.println("\t" + i2);
+            writeNBit((long) i, i2);
+            Debug.println("\t" + i);
         }
     }
 
-    public void writeUE(int i2) throws IOException {
+    public void writeUE(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            int i2 = 0;
             int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
             while (true) {
-                if (i4 >= 15) {
+                if (i3 >= 15) {
                     break;
                 }
-                int i6 = (1 << i4) + i5;
-                if (i2 < i6) {
-                    i3 = i4;
+                int i5 = (1 << i3) + i4;
+                if (i < i5) {
+                    i2 = i3;
                     break;
                 } else {
-                    i4++;
-                    i5 = i6;
+                    i3++;
+                    i4 = i5;
                 }
             }
-            writeNBit(0L, i3);
+            writeNBit(0L, i2);
             write1Bit(1);
-            writeNBit(i2 - i5, i3);
+            writeNBit(i - i4, i2);
         }
     }
 
-    public void writeU(int i2, int i3) throws IOException {
+    public void writeU(int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            writeNBit(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            writeNBit(i, i2);
         }
     }
 
-    public void writeUE(int i2, String str) throws IOException {
+    public void writeUE(int i, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
             Debug.print(String.valueOf(str) + "\t");
-            writeUE(i2);
-            Debug.println("\t" + i2);
+            writeUE(i);
+            Debug.println("\t" + i);
         }
     }
 }

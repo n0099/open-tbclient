@@ -1,6 +1,7 @@
 package com.baidu.searchbox.perfframe;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -46,9 +47,9 @@ public class PerfFrame implements IPerfFrame {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -122,18 +123,19 @@ public class PerfFrame implements IPerfFrame {
     }
 
     @Override // com.baidu.searchbox.perfframe.ioc.IPerfFrame
-    public void submitPerformanceData(@NonNull String str, @NonNull String str2, long j2, long j3, String str3, String str4, String str5) {
+    public void submitPerformanceData(@NonNull String str, @NonNull String str2, long j, long j2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2), Long.valueOf(j3), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), str3, str4, str5}) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
             return;
         }
-        PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j2, j3, str3, str4, str5);
+        PerfExpInfo perfExpInfo = new PerfExpInfo(str, str2, j, j2, str3, str4, str5);
         perfExpInfo.setNeedDynamicperf(this.mIsNeedDynamicperf);
         perfExpInfo.setNeedStaticperf(this.mIsNeedStaticperf);
         perfExpInfo.setNeedPageTrace(this.mIsNeedPageTrace);
         perfExpInfo.setNeedMainStackTrace(this.mIsNeedMainStackTrace);
         if (AppConfig.isDebug()) {
-            String str6 = "perfExpInfo：" + perfExpInfo.toString();
+            String str6 = TAG;
+            Log.d(str6, "perfExpInfo：" + perfExpInfo.toString());
         }
         PerfFrameContext.getPerfFrameContext().onPerfFrameCallBack(AppRuntime.getAppContext(), perfExpInfo);
     }
@@ -143,9 +145,9 @@ public class PerfFrame implements IPerfFrame {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -159,9 +161,9 @@ public class PerfFrame implements IPerfFrame {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

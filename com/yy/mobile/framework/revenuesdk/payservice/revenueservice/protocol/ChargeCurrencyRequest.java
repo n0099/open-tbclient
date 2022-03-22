@@ -12,7 +12,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IReq
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.uievent.PayUiEventContent;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ChargeCurrencyRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,7 +31,7 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ExpandBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,22 +41,22 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         public final String srcCurrencySymbol;
         public final Double unitPrice;
 
-        public ExpandBuilder(int i2, Double d2, String str, String str2, String str3) {
+        public ExpandBuilder(int i, Double d2, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), d2, str, str2, str3};
+                Object[] objArr = {Integer.valueOf(i), d2, str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.quantity = i2;
+            this.quantity = i;
             this.unitPrice = d2;
             this.product_id = str;
             this.hdid = str2;
@@ -84,17 +84,17 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ChargeCurrencyRequest(int i2, int i3, String str, String str2, String str3, double d2) {
-        this(0, i2, i3, str, str2, str3, d2);
+    public ChargeCurrencyRequest(int i, int i2, String str, String str2, String str3, double d2) {
+        this(0, i, i2, str, str2, str3, d2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Double.valueOf(d2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, Double.valueOf(d2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], ((Double) objArr2[6]).doubleValue());
                 newInitContext.thisArg = this;
@@ -138,17 +138,17 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ChargeCurrencyRequest(int i2, int i3, int i4, String str, String str2, String str3, double d2) {
-        this(i2, 0, i3, 10002, i4, str, str2, str3, d2, 0, true, "", "", "1.0.0", "");
+    public ChargeCurrencyRequest(int i, int i2, int i3, String str, String str2, String str3, double d2) {
+        this(i, 0, i2, 10002, i3, str, str2, str3, d2, 0, true, "", "", "1.0.0", "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, str3, Double.valueOf(d2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, Double.valueOf(d2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (String) objArr2[5], (String) objArr2[6], (String) objArr2[7], ((Double) objArr2[8]).doubleValue(), ((Integer) objArr2[9]).intValue(), ((Boolean) objArr2[10]).booleanValue(), (String) objArr2[11], (String) objArr2[12], (String) objArr2[13], (String) objArr2[14]);
                 newInitContext.thisArg = this;
@@ -158,16 +158,16 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         }
     }
 
-    public ChargeCurrencyRequest(long j2, int i2, int i3, int i4, int i5, String str, String str2, String str3, double d2, int i6, boolean z, String str4, String str5, String str6, String str7) {
+    public ChargeCurrencyRequest(long j, int i, int i2, int i3, int i4, String str, String str2, String str3, double d2, int i5, boolean z, String str4, String str5, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str, str2, str3, Double.valueOf(d2), Integer.valueOf(i6), Boolean.valueOf(z), str4, str5, str6, str7};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, str3, Double.valueOf(d2), Integer.valueOf(i5), Boolean.valueOf(z), str4, str5, str6, str7};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -180,16 +180,16 @@ public class ChargeCurrencyRequest implements IRequestProtocol {
         this.returnUrl = "";
         this.expand = "";
         this.clientVersion = "";
-        this.uid = j2;
-        this.sid = i2;
-        this.appId = i3;
-        this.usedChannel = i4;
-        this.currencyType = i5;
+        this.uid = j;
+        this.sid = i;
+        this.appId = i2;
+        this.usedChannel = i3;
+        this.currencyType = i4;
         this.seq = str;
         this.payChannel = str2;
         this.payMethod = str3;
         this.amount = d2;
-        this.chargeCurrencyConfigId = i6;
+        this.chargeCurrencyConfigId = i5;
         this.needUnicast = z;
         this.returnUrl = str4;
         this.expand = str5;

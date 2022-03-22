@@ -5,24 +5,24 @@ import com.kwad.sdk.utils.t;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.kwad.sdk.reward.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public b f55778b = new b();
+    public b f40754b = new b();
 
     /* renamed from: c  reason: collision with root package name */
-    public final C2129a f55779c = new C2129a(com.kwad.sdk.core.config.b.aA());
+    public final C1990a f40755c = new C1990a(com.kwad.sdk.core.config.b.aA());
 
     /* renamed from: com.kwad.sdk.reward.b.kwai.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C2129a extends com.kwad.sdk.reward.b.a {
-        public C2129a(int i2) {
-            this.a = String.format("浏览详情页%s秒", i2 + "");
+    /* loaded from: classes7.dex */
+    public static class C1990a extends com.kwad.sdk.reward.b.a {
+        public C1990a(int i) {
+            this.a = String.format("浏览详情页%s秒", i + "");
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends com.kwad.sdk.reward.b.a {
         public b() {
             this.a = "观看视频";
@@ -30,7 +30,7 @@ public class a extends com.kwad.sdk.reward.b.a {
     }
 
     private void k() {
-        if (this.f55778b.d() && this.f55779c.d()) {
+        if (this.f40754b.d() && this.f40755c.d()) {
             a();
         } else {
             b();
@@ -39,43 +39,43 @@ public class a extends com.kwad.sdk.reward.b.a {
 
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.reward.b.b
     public boolean d() {
-        return this.f55778b.d() && this.f55779c.d();
+        return this.f40754b.d() && this.f40755c.d();
     }
 
     public void g() {
         com.kwad.sdk.core.d.a.a("LandPageOpenTask", "markWatchVideoCompleted");
-        this.f55778b.a();
+        this.f40754b.a();
         k();
     }
 
     public void h() {
         com.kwad.sdk.core.d.a.a("LandPageOpenTask", "markOpenNsCompleted");
-        this.f55779c.a();
+        this.f40755c.a();
         k();
     }
 
     public int i() {
-        int i2 = 0;
+        int i = 0;
         for (com.kwad.sdk.reward.b.b bVar : j()) {
             if (!bVar.d()) {
-                i2++;
+                i++;
             }
         }
-        return i2;
+        return i;
     }
 
     public List<com.kwad.sdk.reward.b.b> j() {
         ArrayList arrayList = new ArrayList();
-        arrayList.add(this.f55778b);
-        arrayList.add(this.f55779c);
+        arrayList.add(this.f40754b);
+        arrayList.add(this.f40755c);
         return arrayList;
     }
 
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.core.b
     public void parseJson(@Nullable JSONObject jSONObject) {
         try {
-            this.f55778b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
-            this.f55779c.parseJson(jSONObject.optJSONObject("mOpenNsTask"));
+            this.f40754b.parseJson(jSONObject.optJSONObject("mWatchVideoTask"));
+            this.f40755c.parseJson(jSONObject.optJSONObject("mOpenNsTask"));
         } catch (Throwable unused) {
         }
     }
@@ -83,8 +83,8 @@ public class a extends com.kwad.sdk.reward.b.a {
     @Override // com.kwad.sdk.reward.b.a, com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "mWatchVideoTask", this.f55778b);
-        t.a(jSONObject, "mOpenNsTask", this.f55779c);
+        t.a(jSONObject, "mWatchVideoTask", this.f40754b);
+        t.a(jSONObject, "mOpenNsTask", this.f40755c);
         return jSONObject;
     }
 }

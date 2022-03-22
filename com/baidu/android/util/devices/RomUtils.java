@@ -2,6 +2,7 @@ package com.baidu.android.util.devices;
 
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,9 +56,9 @@ public class RomUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -122,7 +123,7 @@ public class RomUtils {
                     c2 = 65535;
                     break;
                 case 105170387:
-                    if (lowerCase.equals("nubia")) {
+                    if (lowerCase.equals(MANUFACTURER_NUBIA)) {
                         c2 = 6;
                         break;
                     }
@@ -259,18 +260,20 @@ public class RomUtils {
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x005e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static String getProp(String str) {
         InterceptResult invokeL;
         BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65546, null, str)) != null) {
             return (String) invokeL.objValue;
         }
-        BufferedReader bufferedReader2 = null;
+        BufferedReader bufferedReader3 = null;
         try {
             try {
                 bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
@@ -283,34 +286,36 @@ public class RomUtils {
                         e2.printStackTrace();
                     }
                     return readLine;
-                } catch (IOException unused) {
-                    String str2 = "Unable to read prop " + str;
+                } catch (IOException e3) {
+                    e = e3;
+                    Log.e("Rom", "Unable to read prop " + str, e);
                     if (bufferedReader != null) {
                         try {
                             bufferedReader.close();
-                        } catch (IOException e3) {
-                            e3.printStackTrace();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
                         }
                     }
                     return null;
                 }
             } catch (Throwable th) {
                 th = th;
-                bufferedReader2 = 65546;
-                if (bufferedReader2 != null) {
+                bufferedReader3 = bufferedReader2;
+                if (bufferedReader3 != null) {
                     try {
-                        bufferedReader2.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
+                        bufferedReader3.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
                     }
                 }
                 throw th;
             }
-        } catch (IOException unused2) {
+        } catch (IOException e6) {
+            e = e6;
             bufferedReader = null;
         } catch (Throwable th2) {
             th = th2;
-            if (bufferedReader2 != null) {
+            if (bufferedReader3 != null) {
             }
             throw th;
         }
@@ -331,7 +336,7 @@ public class RomUtils {
     public static boolean is360() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.f53622h) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? check("QIKU") || check(g.f38823h) : invokeV.booleanValue;
     }
 
     public static boolean isEmui() {

@@ -6,7 +6,7 @@ import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
 public interface NetworkStatResponseCallback<T> {
     void onFail(Exception exc);
 
-    void onSuccess(T t, int i2);
+    void onSuccess(T t, int i);
 
-    T parseResponse(Response response, int i2, NetworkStatRecord networkStatRecord) throws Exception;
+    T parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception;
 }

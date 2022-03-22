@@ -46,9 +46,9 @@ public class DBOperationFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -103,12 +103,12 @@ public class DBOperationFactory {
             }
             long uk = AccountManagerImpl.getInstance(context).getUK();
             long appid = AccountManagerImpl.getInstance(context).getAppid();
-            int i2 = (0L > uk ? 1 : (0L == uk ? 0 : -1));
-            if (i2 != 0 && -1 != appid) {
-                long j2 = sAppid;
-                if (j2 == -1 || j2 == appid) {
-                    long j3 = sUk;
-                    if (j3 != 0) {
+            int i = (0L > uk ? 1 : (0L == uk ? 0 : -1));
+            if (i != 0 && -1 != appid) {
+                long j = sAppid;
+                if (j == -1 || j == appid) {
+                    long j2 = sUk;
+                    if (j2 != 0) {
                     }
                     sUk = uk;
                     sAppid = appid;
@@ -120,7 +120,7 @@ public class DBOperationFactory {
                 return getDbOperation(context, context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath());
             }
             LogUtils.d(TAG, "UK OR appid Not initialize!");
-            if (i2 == 0) {
+            if (i == 0) {
                 LogUtils.d(TAG, "mUid Not initialize!");
             }
             if (-1 == appid) {
@@ -151,10 +151,10 @@ public class DBOperationFactory {
             long appid = AccountManagerImpl.getInstance(context).getAppid();
             if (!TextUtils.isEmpty(uid) && -1 != appid) {
                 int env = Constants.getEnv(context);
-                long j2 = sAppid;
-                if ((j2 == -1 || j2 == appid) && ((str = sUid) == null || str.equals(uid))) {
-                    long j3 = sEnv;
-                    if (j3 != -1) {
+                long j = sAppid;
+                if ((j == -1 || j == appid) && ((str = sUid) == null || str.equals(uid))) {
+                    long j2 = sEnv;
+                    if (j2 != -1) {
                     }
                     sUid = uid;
                     sAppid = appid;

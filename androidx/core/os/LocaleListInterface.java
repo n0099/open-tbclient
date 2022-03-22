@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public interface LocaleListInterface {
-    Locale get(int i2);
+    Locale get(int i);
 
     @Nullable
     Locale getFirstMatch(@NonNull String[] strArr);

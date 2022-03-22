@@ -88,8 +88,8 @@ public class j {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, int i2, String str) {
-                super.a((AnonymousClass2) bVar, i2, str);
+            public void a(@NonNull com.kwad.sdk.collector.a.b bVar, int i, String str) {
+                super.a((AnonymousClass2) bVar, i, str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */

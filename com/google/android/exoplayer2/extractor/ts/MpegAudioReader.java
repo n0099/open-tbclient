@@ -12,7 +12,7 @@ import com.google.android.exoplayer2.extractor.MpegAudioHeader;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MpegAudioReader implements ElementaryStreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 4;
@@ -40,9 +40,9 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -78,13 +78,13 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         if (interceptable == null || interceptable.invokeL(65539, this, parsableByteArray) == null) {
             int min = Math.min(parsableByteArray.bytesLeft(), this.frameSize - this.frameBytesRead);
             this.output.sampleData(parsableByteArray, min);
-            int i2 = this.frameBytesRead + min;
-            this.frameBytesRead = i2;
-            int i3 = this.frameSize;
-            if (i2 < i3) {
+            int i = this.frameBytesRead + min;
+            this.frameBytesRead = i;
+            int i2 = this.frameSize;
+            if (i < i2) {
                 return;
             }
-            this.output.sampleMetadata(this.timeUs, 1, i3, 0, null);
+            this.output.sampleMetadata(this.timeUs, 1, i2, 0, null);
             this.timeUs += this.frameDurationUs;
             this.frameBytesRead = 0;
             this.state = 0;
@@ -96,9 +96,9 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, parsableByteArray) == null) {
             int min = Math.min(parsableByteArray.bytesLeft(), 4 - this.frameBytesRead);
             parsableByteArray.readBytes(this.headerScratch.data, this.frameBytesRead, min);
-            int i2 = this.frameBytesRead + min;
-            this.frameBytesRead = i2;
-            if (i2 < 4) {
+            int i = this.frameBytesRead + min;
+            this.frameBytesRead = i;
+            if (i < 4) {
                 return;
             }
             this.headerScratch.setPosition(0);
@@ -110,9 +110,9 @@ public final class MpegAudioReader implements ElementaryStreamReader {
             MpegAudioHeader mpegAudioHeader = this.header;
             this.frameSize = mpegAudioHeader.frameSize;
             if (!this.hasOutputFormat) {
-                int i3 = mpegAudioHeader.sampleRate;
-                this.frameDurationUs = (mpegAudioHeader.samplesPerFrame * 1000000) / i3;
-                this.output.format(Format.createAudioSampleFormat(this.formatId, mpegAudioHeader.mimeType, null, -1, 4096, mpegAudioHeader.channels, i3, null, null, 0, this.language));
+                int i2 = mpegAudioHeader.sampleRate;
+                this.frameDurationUs = (mpegAudioHeader.samplesPerFrame * 1000000) / i2;
+                this.output.format(Format.createAudioSampleFormat(this.formatId, mpegAudioHeader.mimeType, null, -1, 4096, mpegAudioHeader.channels, i2, null, null, 0, this.language));
                 this.hasOutputFormat = true;
             }
             this.headerScratch.setPosition(0);
@@ -126,12 +126,12 @@ public final class MpegAudioReader implements ElementaryStreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, parsableByteArray) == null) {
             while (parsableByteArray.bytesLeft() > 0) {
-                int i2 = this.state;
-                if (i2 == 0) {
+                int i = this.state;
+                if (i == 0) {
                     findHeader(parsableByteArray);
-                } else if (i2 == 1) {
+                } else if (i == 1) {
                     readHeaderRemainder(parsableByteArray);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     readFrameRemainder(parsableByteArray);
                 }
             }
@@ -156,10 +156,10 @@ public final class MpegAudioReader implements ElementaryStreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.ElementaryStreamReader
-    public void packetStarted(long j2, boolean z) {
+    public void packetStarted(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.timeUs = j;
         }
     }
 
@@ -180,9 +180,9 @@ public final class MpegAudioReader implements ElementaryStreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

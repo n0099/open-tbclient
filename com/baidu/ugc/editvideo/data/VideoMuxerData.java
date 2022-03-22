@@ -85,9 +85,9 @@ public class VideoMuxerData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -207,8 +207,8 @@ public class VideoMuxerData implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i2 = this.mVideoUploadType;
-            return i2 == 1 ? StatConstants.VALUE_TYPE_UPLOAD : i2 == 2 ? "shoot" : "unknown";
+            int i = this.mVideoUploadType;
+            return i == 1 ? StatConstants.VALUE_TYPE_UPLOAD : i == 2 ? "shoot" : "unknown";
         }
         return (String) invokeV.objValue;
     }
@@ -564,10 +564,10 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setFrameRate(int i2) {
+    public void setFrameRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
-            this.mFrameRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048649, this, i) == null) {
+            this.mFrameRate = i;
         }
     }
 
@@ -642,24 +642,24 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setOutBitRate(int i2) {
+    public void setOutBitRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048660, this, i2) == null) {
-            this.mOutBitRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048660, this, i) == null) {
+            this.mOutBitRate = i;
         }
     }
 
-    public void setOutHeight(int i2) {
+    public void setOutHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            this.mOutHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
+            this.mOutHeight = i;
         }
     }
 
-    public void setOutWidth(int i2) {
+    public void setOutWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
-            this.mOutWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048662, this, i) == null) {
+            this.mOutWidth = i;
         }
     }
 
@@ -705,17 +705,17 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setPreviewHeight(int i2) {
+    public void setPreviewHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048669, this, i2) == null) {
-            this.mPreviewHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
+            this.mPreviewHeight = i;
         }
     }
 
-    public void setPreviewWidth(int i2) {
+    public void setPreviewWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048670, this, i2) == null) {
-            this.mPreviewWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048670, this, i) == null) {
+            this.mPreviewWidth = i;
         }
     }
 
@@ -782,10 +782,10 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setVideoPattern(int i2) {
+    public void setVideoPattern(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048680, this, i2) == null) {
-            this.mVideoPattern = i2;
+        if (interceptable == null || interceptable.invokeI(1048680, this, i) == null) {
+            this.mVideoPattern = i;
         }
     }
 
@@ -796,10 +796,10 @@ public class VideoMuxerData implements Serializable {
         }
     }
 
-    public void setVideoUploadType(int i2) {
+    public void setVideoUploadType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048682, this, i2) == null) {
-            this.mVideoUploadType = i2;
+        if (interceptable == null || interceptable.invokeI(1048682, this, i) == null) {
+            this.mVideoUploadType = i;
         }
     }
 }

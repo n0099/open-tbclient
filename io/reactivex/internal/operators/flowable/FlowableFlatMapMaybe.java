@@ -27,7 +27,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
     public final Function<? super T, ? extends MaybeSource<? extends R>> mapper;
     public final int maxConcurrency;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class FlatMapMaybeSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8600231336733376951L;
@@ -52,7 +52,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
         public Subscription s;
         public final CompositeDisposable set;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public final class InnerObserver extends AtomicReference<Disposable> implements MaybeObserver<R>, Disposable {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -502562646270949838L;
@@ -66,9 +66,9 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                     newInitContext.initArgs = r2;
                     Object[] objArr = {flatMapMaybeSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -125,16 +125,16 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             }
         }
 
-        public FlatMapMaybeSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i2) {
+        public FlatMapMaybeSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, function, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -143,7 +143,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             this.actual = subscriber;
             this.mapper = function;
             this.delayErrors = z;
-            this.maxConcurrency = i2;
+            this.maxConcurrency = i;
             this.requested = new AtomicLong();
             this.set = new CompositeDisposable();
             this.errors = new AtomicThrowable();
@@ -272,14 +272,14 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                 Subscriber<? super R> subscriber = this.actual;
                 AtomicInteger atomicInteger = this.active;
                 AtomicReference<SpscLinkedArrayQueue<R>> atomicReference = this.queue;
-                int i2 = 1;
+                int i = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
                         boolean z = false;
-                        int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i3 == 0) {
+                        int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
                             clear();
@@ -307,11 +307,11 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
                                 break;
                             } else {
                                 subscriber.onNext(poll);
-                                j3++;
+                                j2++;
                             }
                         }
                     }
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -486,37 +486,37 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
             if ((interceptable == null || interceptable.invokeL(1048587, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
-                int i2 = this.maxConcurrency;
-                if (i2 == Integer.MAX_VALUE) {
+                int i = this.maxConcurrency;
+                if (i == Integer.MAX_VALUE) {
                     subscription.request(Long.MAX_VALUE);
                 } else {
-                    subscription.request(i2);
+                    subscription.request(i);
                 }
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048588, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableFlatMapMaybe(Flowable<T> flowable, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i2) {
+    public FlowableFlatMapMaybe(Flowable<T> flowable, Function<? super T, ? extends MaybeSource<? extends R>> function, boolean z, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, function, Boolean.valueOf(z), Integer.valueOf(i2)};
+            Object[] objArr = {flowable, function, Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -525,7 +525,7 @@ public final class FlowableFlatMapMaybe<T, R> extends AbstractFlowableWithUpstre
         }
         this.mapper = function;
         this.delayErrors = z;
-        this.maxConcurrency = i2;
+        this.maxConcurrency = i;
     }
 
     @Override // io.reactivex.Flowable

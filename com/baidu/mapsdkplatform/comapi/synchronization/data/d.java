@@ -21,32 +21,28 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f34638b = 0;
+    public static int f26826b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g f34639c = null;
+    public static g f26827c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Thread f34640d = null;
+    public static Thread f26828d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile boolean f34641e = true;
+    public static volatile boolean f26829e = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile long f34642g = 5000;
+    public static volatile long f26830g = 5000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static long f34643h = 5000;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f34644i = false;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static int f34645j = 1000;
+    public static long f26831h = 5000;
+    public static volatile boolean i = false;
+    public static int j = 1000;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public c f34646f;
+    public c f26832f;
     public boolean k;
 
     /* loaded from: classes4.dex */
@@ -85,9 +81,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,22 +96,22 @@ public class d {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                while (!d.f34641e) {
-                    if (d.f34639c != null) {
-                        d.f34639c.a(d.f34638b, d.f34644i);
-                        boolean unused = d.f34644i = false;
+                while (!d.f26829e) {
+                    if (d.f26827c != null) {
+                        d.f26827c.a(d.f26826b, d.i);
+                        boolean unused = d.i = false;
                     }
                     try {
-                        Thread.sleep(d.f34642g);
+                        Thread.sleep(d.f26830g);
                     } catch (InterruptedException unused2) {
                         Thread.currentThread().interrupt();
                     }
-                    int d2 = d.f34639c != null ? d.f34639c.d() : 0;
+                    int d2 = d.f26827c != null ? d.f26827c.d() : 0;
                     if (d2 >= 3) {
-                        long j2 = (d2 / 3) + 1;
-                        long unused3 = d.f34642g = d.f34643h * j2 < 60000 ? d.f34643h * j2 : 60000L;
+                        long j = (d2 / 3) + 1;
+                        long unused3 = d.f26830g = d.f26831h * j < 60000 ? d.f26831h * j : 60000L;
                     } else {
-                        long unused4 = d.f34642g = d.f34643h;
+                        long unused4 = d.f26830g = d.f26831h;
                     }
                 }
             }
@@ -132,24 +128,24 @@ public class d {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        private void a(int i2) {
+        private void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-                if (d.f34645j == i2) {
-                    boolean unused = d.f34644i = false;
+            if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
+                if (d.j == i) {
+                    boolean unused = d.i = false;
                     return;
                 }
-                boolean unused2 = d.f34644i = true;
-                int unused3 = d.f34645j = i2;
+                boolean unused2 = d.i = true;
+                int unused3 = d.j = i;
             }
         }
 
@@ -160,12 +156,12 @@ public class d {
                 String str = d.a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.a(str, "The order state is: " + message.what);
                 a(message.what);
-                int i2 = message.what;
-                if (i2 != 0) {
-                    if (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i == 1 || i == 2 || i == 3 || i == 4) {
                         d.q();
                         return;
-                    } else if (i2 != 5) {
+                    } else if (i != 5) {
                         com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(d.a, "The order state is undefined");
                         return;
                     }
@@ -219,11 +215,11 @@ public class d {
     private void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
-            f34641e = true;
-            Thread thread = f34640d;
+            f26829e = true;
+            Thread thread = f26828d;
             if (thread != null) {
                 thread.interrupt();
-                f34640d = null;
+                f26828d = null;
             }
         }
     }
@@ -232,7 +228,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, null) == null) {
             synchronized (d.class) {
-                f34641e = true;
+                f26829e = true;
             }
         }
     }
@@ -241,17 +237,17 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             synchronized (d.class) {
-                if (f34640d == null) {
+                if (f26828d == null) {
                     return;
                 }
-                f34641e = false;
-                if (Thread.State.NEW == f34640d.getState()) {
-                    f34640d.start();
+                f26829e = false;
+                if (Thread.State.NEW == f26828d.getState()) {
+                    f26828d.start();
                 }
-                if (Thread.State.TERMINATED == f34640d.getState()) {
-                    f34640d = null;
+                if (Thread.State.TERMINATED == f26828d.getState()) {
+                    f26828d = null;
                     Thread thread = new Thread(new b(Thread.currentThread().getName()));
-                    f34640d = thread;
+                    f26828d = thread;
                     thread.start();
                 }
             }
@@ -264,14 +260,14 @@ public class d {
             synchronized (this) {
                 String str = a;
                 com.baidu.mapsdkplatform.comapi.synchronization.d.a.c(str, "The order state = " + i2);
-                f34638b = i2;
-                if (this.f34646f == null) {
+                f26826b = i2;
+                if (this.f26832f == null) {
                     com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(a, "SyncDataRequestHandler is null");
                     return;
                 }
-                Message obtainMessage = this.f34646f.obtainMessage();
+                Message obtainMessage = this.f26832f.obtainMessage();
                 obtainMessage.what = i2;
-                this.f34646f.sendMessage(obtainMessage);
+                this.f26832f.sendMessage(obtainMessage);
             }
         }
     }
@@ -279,7 +275,7 @@ public class d {
     public void a(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.a(view);
@@ -288,7 +284,7 @@ public class d {
     public void a(DisplayOptions displayOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, displayOptions) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.a(displayOptions);
@@ -297,7 +293,7 @@ public class d {
     public void a(RoleOptions roleOptions) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, roleOptions) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.a(roleOptions);
@@ -307,21 +303,21 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, roleOptions, displayOptions) == null) {
             g a2 = g.a();
-            f34639c = a2;
+            f26827c = a2;
             if (a2 != null) {
                 a2.b();
-                f34639c.a(roleOptions);
-                f34639c.a(displayOptions);
+                f26827c.a(roleOptions);
+                f26827c.a(displayOptions);
             }
-            f34640d = new Thread(new b(Thread.currentThread().getName()));
-            this.f34646f = new c();
+            f26828d = new Thread(new b(Thread.currentThread().getName()));
+            this.f26832f = new c();
         }
     }
 
     public void a(k kVar) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, kVar) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.a(kVar);
@@ -342,15 +338,15 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
             long j2 = i2 * 1000;
-            f34643h = j2;
-            f34642g = j2;
+            f26831h = j2;
+            f26830g = j2;
         }
     }
 
     public void b(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.b(view);
@@ -366,7 +362,7 @@ public class d {
     public void c(View view) {
         g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (gVar = f34639c) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048586, this, view) == null) || (gVar = f26827c) == null) {
             return;
         }
         gVar.c(view);
@@ -376,13 +372,13 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             o();
-            this.f34646f.removeCallbacksAndMessages(null);
-            f34638b = 0;
-            f34643h = 5000L;
-            f34644i = false;
-            f34645j = 1000;
+            this.f26832f.removeCallbacksAndMessages(null);
+            f26826b = 0;
+            f26831h = 5000L;
+            i = false;
+            j = 1000;
             this.k = true;
-            g gVar = f34639c;
+            g gVar = f26827c;
             if (gVar != null) {
                 gVar.h();
             }

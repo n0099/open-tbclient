@@ -26,9 +26,9 @@ public final class LocaleListPlatformWrapper implements LocaleListInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {localeList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,10 +44,10 @@ public final class LocaleListPlatformWrapper implements LocaleListInterface {
     }
 
     @Override // androidx.core.os.LocaleListInterface
-    public Locale get(int i2) {
+    public Locale get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mLocaleList.get(i2) : (Locale) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mLocaleList.get(i) : (Locale) invokeI.objValue;
     }
 
     @Override // androidx.core.os.LocaleListInterface

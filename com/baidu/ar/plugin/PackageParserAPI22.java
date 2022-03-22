@@ -71,9 +71,9 @@ public class PackageParserAPI22 extends PackageParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -121,55 +121,55 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public void collectCertificates(int i2) {
+    public void collectCertificates(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (Build.VERSION.SDK_INT > 27) {
                 MethodUtils.getAccessibleMethod(this.sPackageParserClass, "collectCertificates", this.mPackage.getClass(), Boolean.TYPE).invoke(this.mPackageParser, this.mPackage, Boolean.TRUE);
             } else {
-                MethodUtils.getAccessibleMethod(this.sPackageParserClass, "collectCertificates", this.mPackage.getClass(), Integer.TYPE).invoke(this.mPackageParser, this.mPackage, Integer.valueOf(i2));
+                MethodUtils.getAccessibleMethod(this.sPackageParserClass, "collectCertificates", this.mPackage.getClass(), Integer.TYPE).invoke(this.mPackageParser, this.mPackage, Integer.valueOf(i));
             }
         }
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ActivityInfo generateActivityInfo(Object obj, int i2) {
+    public ActivityInfo generateActivityInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i)) == null) {
             Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
-            return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+            return (ActivityInfo) MethodUtils.getAccessibleMethod(cls, "generateActivityInfo", this.sActivityClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
         return (ActivityInfo) invokeLI.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ApplicationInfo generateApplicationInfo(int i2) {
+    public ApplicationInfo generateApplicationInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
-            return (ApplicationInfo) MethodUtils.getAccessibleMethod(cls, "generateApplicationInfo", this.mPackage.getClass(), cls2, this.sPackageUserStateClass, cls2).invoke(null, this.mPackage, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+            return (ApplicationInfo) MethodUtils.getAccessibleMethod(cls, "generateApplicationInfo", this.mPackage.getClass(), cls2, this.sPackageUserStateClass, cls2).invoke(null, this.mPackage, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
         return (ApplicationInfo) invokeI.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public InstrumentationInfo generateInstrumentationInfo(Object obj, int i2) {
+    public InstrumentationInfo generateInstrumentationInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, obj, i2)) == null) ? (InstrumentationInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generateInstrumentationInfo", this.sInstrumentationClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2)) : (InstrumentationInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, obj, i)) == null) ? (InstrumentationInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generateInstrumentationInfo", this.sInstrumentationClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (InstrumentationInfo) invokeLI.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:9:0x0054 */
     @Override // com.baidu.ar.plugin.PackageParser
-    public PackageInfo generatePackageInfo(int[] iArr, int i2, long j2, long j3, HashSet<String> hashSet) {
+    public PackageInfo generatePackageInfo(int[] iArr, int i, long j, long j2, HashSet<String> hashSet) {
         InterceptResult invokeCommon;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), hashSet})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{iArr, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), hashSet})) == null) {
             Class<?> cls = Class.forName("java.util.Set");
             Class<?> cls2 = this.sPackageParserClass;
             Class cls3 = Long.TYPE;
@@ -183,50 +183,50 @@ public class PackageParserAPI22 extends PackageParser {
             if (obj == null) {
                 obj = hashSet;
             }
-            return (PackageInfo) accessibleMethod.invoke(null, this.mPackage, iArr, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), obj, this.mDefaultPackageUserState);
+            return (PackageInfo) accessibleMethod.invoke(null, this.mPackage, iArr, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), obj, this.mDefaultPackageUserState);
         }
         return (PackageInfo) invokeCommon.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i2) {
+    public PermissionGroupInfo generatePermissionGroupInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i2)) == null) ? (PermissionGroupInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionGroupInfo", this.sPermissionGroupClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2)) : (PermissionGroupInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i)) == null) ? (PermissionGroupInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionGroupInfo", this.sPermissionGroupClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (PermissionGroupInfo) invokeLI.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public PermissionInfo generatePermissionInfo(Object obj, int i2) {
+    public PermissionInfo generatePermissionInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, obj, i2)) == null) ? (PermissionInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionInfo", this.sPermissionClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i2)) : (PermissionInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, obj, i)) == null) ? (PermissionInfo) MethodUtils.getAccessibleMethod(this.sPackageParserClass, "generatePermissionInfo", this.sPermissionClass, Integer.TYPE).invoke(null, obj, Integer.valueOf(i)) : (PermissionInfo) invokeLI.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ProviderInfo generateProviderInfo(Object obj, int i2) {
+    public ProviderInfo generateProviderInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, obj, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, obj, i)) == null) {
             Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
-            return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+            return (ProviderInfo) MethodUtils.getAccessibleMethod(cls, "generateProviderInfo", this.sProviderClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
         return (ProviderInfo) invokeLI.objValue;
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public /* bridge */ /* synthetic */ ActivityInfo generateReceiverInfo(Object obj, int i2) {
-        return super.generateReceiverInfo(obj, i2);
+    public /* bridge */ /* synthetic */ ActivityInfo generateReceiverInfo(Object obj, int i) {
+        return super.generateReceiverInfo(obj, i);
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public ServiceInfo generateServiceInfo(Object obj, int i2) {
+    public ServiceInfo generateServiceInfo(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, obj, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, obj, i)) == null) {
             Class<?> cls = this.sPackageParserClass;
             Class cls2 = Integer.TYPE;
-            return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i2), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
+            return (ServiceInfo) MethodUtils.getAccessibleMethod(cls, "generateServiceInfo", this.sServiceClass, cls2, this.sPackageUserStateClass, cls2).invoke(null, obj, Integer.valueOf(i), this.mDefaultPackageUserState, Integer.valueOf(this.mUserId));
         }
         return (ServiceInfo) invokeLI.objValue;
     }
@@ -295,12 +295,12 @@ public class PackageParserAPI22 extends PackageParser {
     }
 
     @Override // com.baidu.ar.plugin.PackageParser
-    public void parsePackage(File file, int i2) {
+    public void parsePackage(File file, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, file, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048595, this, file, i) == null) {
             Object newInstance = this.sPackageParserClass.newInstance();
             this.mPackageParser = newInstance;
-            this.mPackage = MethodUtils.invokeMethod(newInstance, "parsePackage", file, Integer.valueOf(i2));
+            this.mPackage = MethodUtils.invokeMethod(newInstance, "parsePackage", file, Integer.valueOf(i));
         }
     }
 

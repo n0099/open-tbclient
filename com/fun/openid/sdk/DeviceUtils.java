@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DeviceUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class DeviceUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -113,7 +113,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.un.s.f53804c)) {
+                    if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                         return null;
                     }
                     return telephonyManager.getDeviceId();
@@ -135,7 +135,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.un.s.f53804c)) {
+                    if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE")) {
                         return null;
                     }
                     if (Build.VERSION.SDK_INT >= 26) {
@@ -189,7 +189,7 @@ public class DeviceUtils {
             if (context != null) {
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    return (!checkPermission(context, com.kuaishou.weapon.un.s.f53804c) || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
+                    return (!checkPermission(context, "android.permission.READ_PHONE_STATE") || telephonyManager == null) ? "" : telephonyManager.getNetworkOperator();
                 } catch (Throwable th) {
                     th.printStackTrace();
                     return "";
@@ -205,7 +205,7 @@ public class DeviceUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-            if (telephonyManager == null || !checkPermission(context, com.kuaishou.weapon.un.s.f53804c) || Build.VERSION.SDK_INT >= 30) {
+            if (telephonyManager == null || !checkPermission(context, "android.permission.READ_PHONE_STATE") || Build.VERSION.SDK_INT >= 30) {
                 return 0;
             }
             return telephonyManager.getNetworkType();

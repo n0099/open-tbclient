@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class jb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public abstract class jb {
             newInitContext.initArgs = r2;
             Object[] objArr = {jlVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,46 +32,46 @@ public abstract class jb {
     public abstract byte a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract double m580a();
+    public abstract double m559a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract int m581a();
+    public abstract int m560a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract long m582a();
+    public abstract long m561a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iy m583a();
+    public abstract iy m562a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract iz m584a();
+    public abstract iz m563a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ja m585a();
+    public abstract ja m564a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jf m586a();
+    public abstract jf m565a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract jg m587a();
+    public abstract jg m566a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract String m588a();
+    public abstract String m567a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract ByteBuffer m589a();
+    public abstract ByteBuffer m568a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract short m590a();
+    public abstract short m569a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m591a();
+    public abstract void m570a();
 
     public abstract void a(byte b2);
 
-    public abstract void a(int i2);
+    public abstract void a(int i);
 
-    public abstract void a(long j2);
+    public abstract void a(long j);
 
     public abstract void a(iy iyVar);
 
@@ -90,7 +90,7 @@ public abstract class jb {
     public abstract void a(boolean z);
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract boolean m592a();
+    public abstract boolean m571a();
 
     public abstract void b();
 

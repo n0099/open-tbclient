@@ -47,9 +47,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -82,9 +82,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -94,10 +94,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str) {
+                public void onFailure(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.this$0.doFailure(1004, i2, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                        this.this$0.doFailure(1004, i, str);
                     }
                 }
 
@@ -144,9 +144,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -156,10 +156,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.this$0.doFailure(3001, i2, str2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
+                        this.this$0.doFailure(3001, i, str2);
                     }
                 }
 
@@ -183,13 +183,13 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void executeRecogniseTextRequest(String str, int i2) {
+    public void executeRecogniseTextRequest(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65567, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65567, this, str, i) == null) {
             MapObject mapObject = new MapObject();
             mapObject.putValue("bdstoken", this.bdSTokenFromAddrList);
             mapObject.putValue("text", str);
-            AddressRequestFactory.newRecogniseText2Address(mapObject).submit(new NetCallback(this, i2) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.13
+            AddressRequestFactory.newRecogniseText2Address(mapObject).submit(new NetCallback(this, i) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressEditPresenter this$0;
@@ -200,25 +200,25 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$fromActionCode = i2;
+                    this.val$fromActionCode = i;
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i3, String str2) {
+                public void onFailure(int i2, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str2) == null) {
-                        this.this$0.doFailure(this.val$fromActionCode, i3, str2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
+                        this.this$0.doFailure(this.val$fromActionCode, i2, str2);
                     }
                 }
 
@@ -268,9 +268,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -280,10 +280,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str) {
+                public void onFailure(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                        this.this$0.doFailure(2002, i2, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                        this.this$0.doFailure(2002, i, str);
                     }
                 }
 
@@ -329,9 +329,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -341,10 +341,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.this$0.doFailure(1001, i2, str2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
+                        this.this$0.doFailure(1001, i, str2);
                     }
                 }
 
@@ -385,9 +385,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, mapObject, addressSelectedBean};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -399,9 +399,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeCreateAddrRequest(this.val$mapObject, this.val$selectedRegion);
                         }
                     }
@@ -429,9 +429,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -442,9 +442,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeDelAddrRequest(this.val$addressId);
                         }
                     }
@@ -474,9 +474,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -487,10 +487,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.this$0.doFailure(1002, i2, str2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
+                        this.this$0.doFailure(1002, i, str2);
                     }
                 }
 
@@ -528,9 +528,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -541,10 +541,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i2, String str2) {
+                public void onFailure(int i, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
-                        this.this$0.doFailure(2001, i2, str2);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
+                        this.this$0.doFailure(2001, i, str2);
                     }
                 }
 
@@ -556,12 +556,12 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         JSONArray optJSONArray = jSONObject.optJSONArray(SuggestAddrField.KEY_SUGGEST_LIST);
                         if (optJSONArray != null) {
                             int length = optJSONArray.length();
-                            for (int i2 = 0; i2 < length; i2++) {
-                                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                            for (int i = 0; i < length; i++) {
+                                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                                 if (optJSONObject != null) {
                                     arrayList.add(optJSONObject);
                                 } else {
-                                    Log.d(AddressEditPresenter.TAG, "item of suggest address list is error, index=" + i2);
+                                    Log.d(AddressEditPresenter.TAG, "item of suggest address list is error, index=" + i);
                                 }
                             }
                         }
@@ -578,10 +578,10 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bdSTokenFromAddrList : (String) invokeV.objValue;
     }
 
-    public void getBdStokenFromServer(int i2, SyncActionCallBack syncActionCallBack) {
+    public void getBdStokenFromServer(int i, SyncActionCallBack syncActionCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, syncActionCallBack) == null) {
-            AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback(this, i2, syncActionCallBack) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.1
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, syncActionCallBack) == null) {
+            AddressRequestFactory.newGetAddressListRequest().submit(new NetCallback(this, i, syncActionCallBack) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AddressEditPresenter this$0;
@@ -593,26 +593,26 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), syncActionCallBack};
+                        Object[] objArr = {this, Integer.valueOf(i), syncActionCallBack};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$fromActionCode = i2;
+                    this.val$fromActionCode = i;
                     this.val$syncActionCallBack = syncActionCallBack;
                 }
 
                 @Override // com.baidu.pass.ecommerce.common.request.NetCallback
-                public void onFailure(int i3, String str) {
+                public void onFailure(int i2, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
-                        this.this$0.doFailure(this.val$fromActionCode, i3, str);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        this.this$0.doFailure(this.val$fromActionCode, i2, str);
                     }
                 }
 
@@ -657,9 +657,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -670,9 +670,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeImgOcrRequest(this.val$imgBase64Str);
                         }
                     }
@@ -701,9 +701,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, jSONObject, addressSelectedBean};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -715,9 +715,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeSuggestAddrDetailRequest(this.val$suggestItemObj, this.val$selectedRegion);
                         }
                     }
@@ -746,9 +746,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, addressSelectedBean};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -760,9 +760,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeSuggestAddrListRequest(this.val$query, this.val$selectedRegion);
                         }
                     }
@@ -814,11 +814,11 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
         return (String) invokeL.objValue;
     }
 
-    public void recogniseTextOcrAddressResult(String str, int i2) {
+    public void recogniseTextOcrAddressResult(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
             if (TextUtils.isEmpty(this.bdSTokenFromAddrList)) {
-                getBdStokenFromServer(i2, new SyncActionCallBack(this, str, i2) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.12
+                getBdStokenFromServer(i, new SyncActionCallBack(this, str, i) { // from class: com.baidu.pass.ecommerce.presenter.AddressEditPresenter.12
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AddressEditPresenter this$0;
@@ -830,11 +830,11 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, Integer.valueOf(i2)};
+                            Object[] objArr = {this, str, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -842,19 +842,19 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                         }
                         this.this$0 = this;
                         this.val$text = str;
-                        this.val$fromActionCode = i2;
+                        this.val$fromActionCode = i;
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i3) {
+                    public void doNext(int i2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i3) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
                             this.this$0.executeRecogniseTextRequest(this.val$text, this.val$fromActionCode);
                         }
                     }
                 });
             } else {
-                executeRecogniseTextRequest(str, i2);
+                executeRecogniseTextRequest(str, i);
             }
         }
     }
@@ -885,9 +885,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, mapObject, addressSelectedBean};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -900,9 +900,9 @@ public class AddressEditPresenter extends BasePresenter<IBaseView> {
                     }
 
                     @Override // com.baidu.pass.ecommerce.common.mvp.SyncActionCallBack
-                    public void doNext(int i2) {
+                    public void doNext(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                             this.this$0.executeUpdateAddrRequest(this.val$mobile, this.val$mapObj, this.val$selectedRegion);
                         }
                     }

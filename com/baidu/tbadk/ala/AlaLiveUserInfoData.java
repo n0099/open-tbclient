@@ -1,6 +1,6 @@
 package com.baidu.tbadk.ala;
 
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 import tbclient.AlaUserInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaLiveUserInfoData extends p implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3860430259513905402L;
@@ -42,9 +42,9 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,7 +79,7 @@ public class AlaLiveUserInfoData extends p implements Serializable {
         this.greatAnchorDescRole = alaUserInfoData.great_anchor_desc_role;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {

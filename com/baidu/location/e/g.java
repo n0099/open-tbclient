@@ -1,6 +1,8 @@
 package com.baidu.location.e;
 
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,10 +22,10 @@ public class g implements Runnable {
     public final /* synthetic */ String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f33797b;
+    public final /* synthetic */ boolean f26073b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ e f33798c;
+    public final /* synthetic */ e f26074c;
 
     public g(e eVar, String str, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,25 +34,25 @@ public class g implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar, str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33798c = eVar;
+        this.f26074c = eVar;
         this.a = str;
-        this.f33797b = z;
+        this.f26073b = z;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:111:0x01be A[LOOP:0: B:5:0x001e->B:111:0x01be, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:115:0x01c6  */
-    /* JADX WARN: Removed duplicated region for block: B:142:0x01db A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:148:0x01cb A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:154:0x01d3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:173:0x01e2 A[EDGE_INSN: B:173:0x01e2->B:129:0x01e2 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:113:0x01e6 A[LOOP:0: B:5:0x0026->B:113:0x01e6, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x01ee  */
+    /* JADX WARN: Removed duplicated region for block: B:140:0x01f3 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:152:0x0209 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:162:0x01fe A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:175:0x0213 A[EDGE_INSN: B:175:0x0213->B:131:0x0213 ?: BREAK  , SYNTHETIC] */
     @Override // java.lang.Runnable
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -63,17 +65,17 @@ public class g implements Runnable {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f33798c.f33794h = k.e();
-            this.f33798c.b();
-            this.f33798c.a();
-            int i2 = this.f33798c.f33795i;
+            this.f26074c.f26072h = k.e();
+            this.f26074c.b();
+            this.f26074c.a();
+            int i = this.f26074c.i;
             OutputStream outputStream3 = null;
             HttpURLConnection httpURLConnection = null;
-            while (i2 > 0) {
+            while (i > 0) {
                 try {
-                    URL url = new URL(this.f33798c.f33794h);
+                    URL url = new URL(this.f26074c.f26072h);
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (Map.Entry<String, Object> entry : this.f33798c.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f26074c.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -88,8 +90,8 @@ public class g implements Runnable {
                         httpURLConnection2.setDoInput(true);
                         httpURLConnection2.setDoOutput(true);
                         httpURLConnection2.setUseCaches(false);
-                        httpURLConnection2.setConnectTimeout(a.f33759b);
-                        httpURLConnection2.setReadTimeout(a.f33759b);
+                        httpURLConnection2.setConnectTimeout(a.f26042b);
+                        httpURLConnection2.setReadTimeout(a.f26042b);
                         httpURLConnection2.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                         httpURLConnection2.setRequestProperty("Accept-Charset", "UTF-8");
                         httpURLConnection2.setRequestProperty("Accept-Encoding", "gzip");
@@ -111,130 +113,130 @@ public class g implements Runnable {
                                         inputStream = new GZIPInputStream(new BufferedInputStream(inputStream));
                                     }
                                     byteArrayOutputStream = new ByteArrayOutputStream();
-                                } catch (Error unused) {
-                                    byteArrayOutputStream = null;
-                                } catch (Exception unused2) {
-                                    byteArrayOutputStream = null;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    byteArrayOutputStream = null;
-                                }
-                                try {
-                                    byte[] bArr = new byte[1024];
-                                    while (true) {
-                                        int read = inputStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        byteArrayOutputStream.write(bArr, 0, read);
-                                    }
-                                    this.f33798c.f33796j = new String(byteArrayOutputStream.toByteArray(), "utf-8");
-                                    if (this.f33797b) {
-                                        this.f33798c.m = byteArrayOutputStream.toByteArray();
-                                    }
-                                    this.f33798c.a(true);
-                                    z = true;
-                                } catch (Error unused3) {
-                                    outputStream2 = outputStream4;
-                                    httpURLConnection = httpURLConnection2;
                                     try {
-                                        String str = a.a;
+                                        byte[] bArr = new byte[1024];
+                                        while (true) {
+                                            int read = inputStream.read(bArr);
+                                            if (read == -1) {
+                                                break;
+                                            }
+                                            byteArrayOutputStream.write(bArr, 0, read);
+                                        }
+                                        this.f26074c.j = new String(byteArrayOutputStream.toByteArray(), IMAudioTransRequest.CHARSET);
+                                        if (this.f26073b) {
+                                            this.f26074c.m = byteArrayOutputStream.toByteArray();
+                                        }
+                                        this.f26074c.a(true);
+                                        z = true;
+                                    } catch (Error unused) {
+                                        outputStream2 = outputStream4;
+                                        httpURLConnection = httpURLConnection2;
+                                        try {
+                                            Log.d(a.a, "NetworkCommunicationError!");
+                                            if (httpURLConnection != null) {
+                                                httpURLConnection.disconnect();
+                                            }
+                                            if (outputStream2 != null) {
+                                                try {
+                                                    outputStream2.close();
+                                                } catch (Exception unused2) {
+                                                    Log.d(a.a, "close os IOException!");
+                                                }
+                                            }
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (Exception unused3) {
+                                                    Log.d(a.a, "close is IOException!");
+                                                }
+                                            }
+                                            if (byteArrayOutputStream != null) {
+                                                try {
+                                                    byteArrayOutputStream.close();
+                                                } catch (Exception unused4) {
+                                                    Log.d(a.a, "close baos IOException!");
+                                                }
+                                            }
+                                            z = false;
+                                            if (z) {
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            outputStream3 = outputStream2;
+                                            if (httpURLConnection != null) {
+                                                httpURLConnection.disconnect();
+                                            }
+                                            if (outputStream3 != null) {
+                                                try {
+                                                    outputStream3.close();
+                                                } catch (Exception unused5) {
+                                                    Log.d(a.a, "close os IOException!");
+                                                }
+                                            }
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (Exception unused6) {
+                                                    Log.d(a.a, "close is IOException!");
+                                                }
+                                            }
+                                            if (byteArrayOutputStream != null) {
+                                                try {
+                                                    byteArrayOutputStream.close();
+                                                } catch (Exception unused7) {
+                                                    Log.d(a.a, "close baos IOException!");
+                                                }
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception unused8) {
+                                        outputStream = outputStream4;
+                                        httpURLConnection = httpURLConnection2;
+                                        Log.d(a.a, "NetworkCommunicationException!");
                                         if (httpURLConnection != null) {
                                             httpURLConnection.disconnect();
                                         }
-                                        if (outputStream2 != null) {
+                                        if (outputStream != null) {
                                             try {
-                                                outputStream2.close();
-                                            } catch (Exception unused4) {
-                                                String str2 = a.a;
+                                                outputStream.close();
+                                            } catch (Exception unused9) {
+                                                Log.d(a.a, "close os IOException!");
                                             }
                                         }
                                         if (inputStream != null) {
                                             try {
                                                 inputStream.close();
-                                            } catch (Exception unused5) {
-                                                String str3 = a.a;
+                                            } catch (Exception unused10) {
+                                                Log.d(a.a, "close is IOException!");
                                             }
                                         }
                                         if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception unused6) {
-                                                String str4 = a.a;
-                                            }
+                                            byteArrayOutputStream.close();
                                         }
                                         z = false;
                                         if (z) {
                                         }
                                     } catch (Throwable th2) {
                                         th = th2;
-                                        outputStream3 = outputStream2;
+                                        outputStream3 = outputStream4;
+                                        httpURLConnection = httpURLConnection2;
                                         if (httpURLConnection != null) {
-                                            httpURLConnection.disconnect();
                                         }
                                         if (outputStream3 != null) {
-                                            try {
-                                                outputStream3.close();
-                                            } catch (Exception unused7) {
-                                                String str5 = a.a;
-                                            }
                                         }
                                         if (inputStream != null) {
-                                            try {
-                                                inputStream.close();
-                                            } catch (Exception unused8) {
-                                                String str6 = a.a;
-                                            }
                                         }
                                         if (byteArrayOutputStream != null) {
-                                            try {
-                                                byteArrayOutputStream.close();
-                                            } catch (Exception unused9) {
-                                                String str7 = a.a;
-                                            }
                                         }
                                         throw th;
                                     }
-                                } catch (Exception unused10) {
-                                    outputStream = outputStream4;
-                                    httpURLConnection = httpURLConnection2;
-                                    String str8 = a.a;
-                                    if (httpURLConnection != null) {
-                                        httpURLConnection.disconnect();
-                                    }
-                                    if (outputStream != null) {
-                                        try {
-                                            outputStream.close();
-                                        } catch (Exception unused11) {
-                                            String str9 = a.a;
-                                        }
-                                    }
-                                    if (inputStream != null) {
-                                        try {
-                                            inputStream.close();
-                                        } catch (Exception unused12) {
-                                            String str10 = a.a;
-                                        }
-                                    }
-                                    if (byteArrayOutputStream != null) {
-                                        byteArrayOutputStream.close();
-                                    }
-                                    z = false;
-                                    if (z) {
-                                    }
+                                } catch (Error unused11) {
+                                    byteArrayOutputStream = null;
+                                } catch (Exception unused12) {
+                                    byteArrayOutputStream = null;
                                 } catch (Throwable th3) {
                                     th = th3;
-                                    outputStream3 = outputStream4;
-                                    httpURLConnection = httpURLConnection2;
-                                    if (httpURLConnection != null) {
-                                    }
-                                    if (outputStream3 != null) {
-                                    }
-                                    if (inputStream != null) {
-                                    }
-                                    if (byteArrayOutputStream != null) {
-                                    }
-                                    throw th;
+                                    byteArrayOutputStream = null;
                                 }
                             } else {
                                 inputStream = null;
@@ -248,21 +250,21 @@ public class g implements Runnable {
                                 try {
                                     outputStream4.close();
                                 } catch (Exception unused13) {
-                                    String str11 = a.a;
+                                    Log.d(a.a, "close os IOException!");
                                 }
                             }
                             if (inputStream != null) {
                                 try {
                                     inputStream.close();
                                 } catch (Exception unused14) {
-                                    String str12 = a.a;
+                                    Log.d(a.a, "close is IOException!");
                                 }
                             }
                             if (byteArrayOutputStream != null) {
                                 try {
                                     byteArrayOutputStream.close();
                                 } catch (Exception unused15) {
-                                    String str13 = a.a;
+                                    Log.d(a.a, "close baos IOException!");
                                 }
                             }
                             httpURLConnection = httpURLConnection2;
@@ -278,15 +280,13 @@ public class g implements Runnable {
                             byteArrayOutputStream = null;
                         }
                     } catch (Error unused18) {
-                        inputStream = null;
-                        byteArrayOutputStream = null;
-                        httpURLConnection = httpURLConnection2;
                         outputStream2 = null;
-                    } catch (Exception unused19) {
                         inputStream = null;
                         byteArrayOutputStream = null;
-                        httpURLConnection = httpURLConnection2;
+                    } catch (Exception unused19) {
                         outputStream = null;
+                        inputStream = null;
+                        byteArrayOutputStream = null;
                     } catch (Throwable th5) {
                         th = th5;
                         inputStream = null;
@@ -308,15 +308,15 @@ public class g implements Runnable {
                 if (z) {
                     break;
                 }
-                i2--;
+                i--;
             }
-            if (i2 > 0) {
+            if (i > 0) {
                 e.p = 0;
                 return;
             }
             e.p++;
-            e eVar = this.f33798c;
-            eVar.f33796j = null;
+            e eVar = this.f26074c;
+            eVar.j = null;
             eVar.a(false);
         }
     }

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FILE_SIZE_LIMIT = 104857600;
@@ -26,9 +26,9 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,9 +46,9 @@ public class WXGameVideoFileObject implements WXMediaMessage.IMediaObject {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

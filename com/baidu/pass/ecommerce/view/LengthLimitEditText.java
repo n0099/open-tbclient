@@ -35,9 +35,9 @@ public class LengthLimitEditText extends EditText implements NoProguard {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -62,9 +62,9 @@ public class LengthLimitEditText extends EditText implements NoProguard {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -74,21 +74,21 @@ public class LengthLimitEditText extends EditText implements NoProguard {
                 }
 
                 @Override // android.text.InputFilter
-                public CharSequence filter(CharSequence charSequence, int i2, int i3, Spanned spanned, int i4, int i5) {
+                public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), spanned, Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-                        int length = this.this$0.mLengthLimit - (spanned.length() - (i5 - i4));
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                        int length = this.this$0.mLengthLimit - (spanned.length() - (i4 - i3));
                         if (length <= 0) {
                             if (this.this$0.onTextBeyondLengthLimitListener != null) {
                                 this.this$0.onTextBeyondLengthLimitListener.onBeyondLengthLimit();
                             }
                             return "";
-                        } else if (length >= i3 - i2) {
+                        } else if (length >= i2 - i) {
                             return null;
                         } else {
-                            int i6 = length + i2;
-                            return (Character.isHighSurrogate(charSequence.charAt(i6 + (-1))) && (i6 = i6 + (-1)) == i2) ? "" : charSequence.subSequence(i2, i6);
+                            int i5 = length + i;
+                            return (Character.isHighSurrogate(charSequence.charAt(i5 + (-1))) && (i5 = i5 + (-1)) == i) ? "" : charSequence.subSequence(i, i5);
                         }
                     }
                     return (CharSequence) invokeCommon.objValue;
@@ -97,10 +97,10 @@ public class LengthLimitEditText extends EditText implements NoProguard {
         }
     }
 
-    public void setLengthLimit(int i2) {
+    public void setLengthLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mLengthLimit = i2;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mLengthLimit = i;
             setLengthInputFilter();
         }
     }
@@ -113,17 +113,17 @@ public class LengthLimitEditText extends EditText implements NoProguard {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LengthLimitEditText(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -29,9 +29,9 @@ public class VirtualBarAssist {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,9 +49,9 @@ public class VirtualBarAssist {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -114,18 +114,18 @@ public class VirtualBarAssist {
         }
         Rect rect = new Rect();
         this.childOfContent.getWindowVisibleDisplayFrame(rect);
-        int i2 = rect.bottom - rect.top;
-        if (i2 != this.usableHeightPrevious) {
+        int i = rect.bottom - rect.top;
+        if (i != this.usableHeightPrevious) {
             int height = this.childOfContent.getRootView().getHeight();
-            int i3 = height - rect.bottom;
-            int i4 = (height - i2) - i3;
-            if (i4 > height / 4) {
-                this.childOfContent.getLayoutParams().height = height - i4;
-            } else {
+            int i2 = height - rect.bottom;
+            int i3 = (height - i) - i2;
+            if (i3 > height / 4) {
                 this.childOfContent.getLayoutParams().height = height - i3;
+            } else {
+                this.childOfContent.getLayoutParams().height = height - i2;
             }
             this.childOfContent.requestLayout();
-            this.usableHeightPrevious = i2;
+            this.usableHeightPrevious = i;
         }
     }
 

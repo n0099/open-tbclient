@@ -3,7 +3,7 @@ package com.bytedance.pangle.helper;
 import android.os.Build;
 import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.IDevices;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f51715b;
+    public static String f38136b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Map<String, Integer> f51716c;
+    public static Map<String, Integer> f38137c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,19 +57,19 @@ public final class b {
                 return;
             }
         }
-        f51716c = new HashMap();
+        f38137c = new HashMap();
         if (g.a()) {
-            f51715b = Build.SUPPORTED_ABIS[0];
+            f38136b = Build.SUPPORTED_ABIS[0];
         } else {
-            f51715b = Build.CPU_ABI;
+            f38136b = Build.CPU_ABI;
         }
-        f51716c.put("arm64-v8a", 64);
-        f51716c.put("armeabi-v7a", 32);
-        f51716c.put("armeabi", 32);
-        f51716c.put("x86_64", 64);
-        f51716c.put("x86", 32);
-        f51716c.put("mips64", 64);
-        f51716c.put(IDevices.ABI_MIPS, 32);
+        f38137c.put("arm64-v8a", 64);
+        f38137c.put(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, 32);
+        f38137c.put("armeabi", 32);
+        f38137c.put("x86_64", 64);
+        f38137c.put("x86", 32);
+        f38137c.put("mips64", 64);
+        f38137c.put("mips", 32);
         a = c();
     }
 
@@ -92,7 +92,7 @@ public final class b {
                     if (!a2.isEmpty()) {
                         linkedList = new LinkedList();
                         HashSet hashSet = new HashSet();
-                        String str2 = a != null ? a : f51715b;
+                        String str2 = a != null ? a : f38136b;
                         char c2 = 65535;
                         switch (str2.hashCode()) {
                             case -1073971299:
@@ -120,13 +120,13 @@ public final class b {
                                 }
                                 break;
                             case 3351711:
-                                if (str2.equals(IDevices.ABI_MIPS)) {
+                                if (str2.equals("mips")) {
                                     c2 = 6;
                                     break;
                                 }
                                 break;
                             case 145444210:
-                                if (str2.equals("armeabi-v7a")) {
+                                if (str2.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
                                     c2 = 1;
                                     break;
                                 }
@@ -143,7 +143,7 @@ public final class b {
                                 a(a2, "arm64-v8a", linkedList, hashSet);
                                 break;
                             case 1:
-                                a(a2, "armeabi-v7a", linkedList, hashSet);
+                                a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
                                 a(a2, "armeabi", linkedList, hashSet);
                                 break;
                             case 2:
@@ -159,7 +159,7 @@ public final class b {
                             case 4:
                                 a(a2, "x86", linkedList, hashSet);
                                 if (linkedList.size() == 0) {
-                                    a(a2, "armeabi-v7a", linkedList, hashSet);
+                                    a(a2, PassBiometricUtil.CPU_TYPE_ARMEABI_V7A, linkedList, hashSet);
                                     a(a2, "armeabi", linkedList, hashSet);
                                     break;
                                 }
@@ -168,7 +168,7 @@ public final class b {
                                 a(a2, "mips64", linkedList, hashSet);
                                 break;
                             case 6:
-                                a(a2, IDevices.ABI_MIPS, linkedList, hashSet);
+                                a(a2, "mips", linkedList, hashSet);
                                 break;
                         }
                     }
@@ -199,7 +199,7 @@ public final class b {
     public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f51716c.get(a()).intValue() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f38137c.get(a()).intValue() : invokeV.intValue;
     }
 
     public static String c() {
@@ -352,7 +352,7 @@ public final class b {
                 ZipEntry nextElement = entries.nextElement();
                 if (!nextElement.isDirectory() && compile.matcher(nextElement.getName()).matches() && (split = nextElement.getName().split(File.separator)) != null && split.length >= 2) {
                     String str = split[split.length - 2];
-                    if (f51716c.containsKey(str)) {
+                    if (f38137c.containsKey(str)) {
                         if (hashMap.get(str) == null) {
                             hashMap.put(str, new LinkedList());
                         }
@@ -385,7 +385,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, zipFile, zipEntry, file) == null) {
             File file2 = new File(file, zipEntry.getName().substring(zipEntry.getName().lastIndexOf(File.separator) + 1));
-            int i2 = 0;
+            int i = 0;
             boolean z = false;
             do {
                 if (file2.exists()) {
@@ -397,10 +397,10 @@ public final class b {
                     z = true;
                     continue;
                 } catch (IOException e2) {
-                    if (i2 >= 3) {
+                    if (i >= 3) {
                         throw e2;
                     }
-                    i2++;
+                    i++;
                     continue;
                 }
             } while (!z);
@@ -453,20 +453,20 @@ public final class b {
                     ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, primaryCpuAbi=".concat(String.valueOf(str)));
                     a(jSONObject, "primaryCpuAbi", str);
                     if (str != null) {
-                        int i2 = 0;
+                        int i = 0;
                         if (Build.VERSION.SDK_INT >= 23) {
                             try {
-                                i2 = Process.is64Bit() ? 64 : 32;
-                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode=".concat(String.valueOf(i2)));
+                                i = Process.is64Bit() ? 64 : 32;
+                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode=".concat(String.valueOf(i)));
                             } catch (Exception unused) {
-                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode exception default=".concat(String.valueOf(i2)));
+                                ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode exception default=".concat(String.valueOf(i)));
                             }
                         } else {
                             ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto, processMode default=0");
                         }
-                        a(jSONObject, "processMode", String.valueOf(i2));
-                        if (i2 != 0) {
-                            if (f51716c.get(str).intValue() == i2) {
+                        a(jSONObject, "processMode", String.valueOf(i));
+                        if (i != 0) {
+                            if (f38137c.get(str).intValue() == i) {
                                 ZeusLogger.w(ZeusLogger.TAG_SO, "NativeLibHelper inferHostAbiAuto2, sHostAbi=".concat(String.valueOf(str)));
                                 return str;
                             }

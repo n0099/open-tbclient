@@ -13,10 +13,9 @@ import com.meizu.cloud.pushsdk.notification.model.TimeDisplaySetting;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageV3 implements Parcelable {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV3.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -29,8 +28,8 @@ public class MessageV3 implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public MessageV3[] newArray(int i2) {
-            return new MessageV3[i2];
+        public MessageV3[] newArray(int i) {
+            return new MessageV3[i];
         }
     };
     public static final String TAG = "Message_V3";
@@ -98,7 +97,7 @@ public class MessageV3 implements Parcelable {
     }
 
     public static MessageV3 parse(String str, String str2, String str3, MPushMessage mPushMessage) {
-        c.k.a.a.a.b(TAG, "V2 message " + mPushMessage);
+        c.h.a.a.a.b(TAG, "V2 message " + mPushMessage);
         MessageV3 messageV3 = new MessageV3();
         messageV3.setPackageName(str);
         messageV3.setUploadDataPackageName(str);
@@ -135,11 +134,11 @@ public class MessageV3 implements Parcelable {
         }
         messageV3.setParamsMap(mPushMessage.getParams());
         String jSONObject = e.a((Map) mPushMessage.getExtra()).toString();
-        c.k.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
+        c.h.a.a.a.b(TAG, "MessageV2 extra json is " + jSONObject);
         if (!TextUtils.isEmpty(jSONObject)) {
             messageV3.setNotificationMessage(jSONObject);
         }
-        c.k.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
+        c.h.a.a.a.d(TAG, "parase V2 message to V3 message " + messageV3);
         return messageV3;
     }
 
@@ -184,7 +183,7 @@ public class MessageV3 implements Parcelable {
                     messageV3.setWebUrl(jSONObject2.getString("url"));
                 }
                 if (!jSONObject2.isNull("task_id") && TextUtils.isEmpty(str3)) {
-                    c.k.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
+                    c.h.a.a.a.b(TAG, "Flyme 4 notification message by through message or taskId is null");
                     messageV3.setTaskId(jSONObject2.getString("task_id"));
                 }
                 if (!jSONObject2.isNull(PushConstants.URI_PACKAGE_NAME)) {
@@ -195,7 +194,7 @@ public class MessageV3 implements Parcelable {
                 }
             }
         } catch (JSONException e2) {
-            c.k.a.a.a.b(TAG, "parse message error " + e2.getMessage());
+            c.h.a.a.a.b(TAG, "parse message error " + e2.getMessage());
         }
         return messageV3;
     }
@@ -302,8 +301,8 @@ public class MessageV3 implements Parcelable {
         this.activity = str;
     }
 
-    public void setClickType(int i2) {
-        this.clickType = i2;
+    public void setClickType(int i) {
+        this.clickType = i;
     }
 
     public void setContent(String str) {
@@ -379,11 +378,11 @@ public class MessageV3 implements Parcelable {
     }
 
     public String toString() {
-        return "MessageV3{taskId='" + this.taskId + ExtendedMessageFormat.QUOTE + ", seqId='" + this.seqId + ExtendedMessageFormat.QUOTE + ", deviceId='" + this.deviceId + ExtendedMessageFormat.QUOTE + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", content='" + this.content + ExtendedMessageFormat.QUOTE + ", packageName='" + this.packageName + ExtendedMessageFormat.QUOTE + ", clickType=" + this.clickType + ", isDiscard=" + this.isDiscard + ", activity='" + this.activity + ExtendedMessageFormat.QUOTE + ", webUrl='" + this.webUrl + ExtendedMessageFormat.QUOTE + ", uriPackageName='" + this.uriPackageName + ExtendedMessageFormat.QUOTE + ", pushTimestamp='" + this.pushTimestamp + ExtendedMessageFormat.QUOTE + ", uploadDataPackageName='" + this.uploadDataPackageName + ExtendedMessageFormat.QUOTE + ", paramsMap=" + this.paramsMap + ", throughMessage='" + this.throughMessage + ExtendedMessageFormat.QUOTE + ", notificationMessage='" + this.notificationMessage + ExtendedMessageFormat.QUOTE + ", mAdvanceSetting=" + this.mAdvanceSetting + ", mAppIconSetting=" + this.mAppIconSetting + ", mNotificationStyle=" + this.mNotificationStyle + ", mTimeDisplaySetting=" + this.mTimeDisplaySetting + ExtendedMessageFormat.END_FE;
+        return "MessageV3{taskId='" + this.taskId + "', seqId='" + this.seqId + "', deviceId='" + this.deviceId + "', title='" + this.title + "', content='" + this.content + "', packageName='" + this.packageName + "', clickType=" + this.clickType + ", isDiscard=" + this.isDiscard + ", activity='" + this.activity + "', webUrl='" + this.webUrl + "', uriPackageName='" + this.uriPackageName + "', pushTimestamp='" + this.pushTimestamp + "', uploadDataPackageName='" + this.uploadDataPackageName + "', paramsMap=" + this.paramsMap + ", throughMessage='" + this.throughMessage + "', notificationMessage='" + this.notificationMessage + "', mAdvanceSetting=" + this.mAdvanceSetting + ", mAppIconSetting=" + this.mAppIconSetting + ", mNotificationStyle=" + this.mNotificationStyle + ", mTimeDisplaySetting=" + this.mTimeDisplaySetting + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.taskId);
         parcel.writeString(this.seqId);
         parcel.writeString(this.deviceId);
@@ -400,9 +399,9 @@ public class MessageV3 implements Parcelable {
         parcel.writeMap(this.paramsMap);
         parcel.writeString(this.throughMessage);
         parcel.writeString(this.notificationMessage);
-        parcel.writeParcelable(this.mAdvanceSetting, i2);
-        parcel.writeParcelable(this.mAppIconSetting, i2);
-        parcel.writeParcelable(this.mNotificationStyle, i2);
-        parcel.writeParcelable(this.mTimeDisplaySetting, i2);
+        parcel.writeParcelable(this.mAdvanceSetting, i);
+        parcel.writeParcelable(this.mAppIconSetting, i);
+        parcel.writeParcelable(this.mNotificationStyle, i);
+        parcel.writeParcelable(this.mTimeDisplaySetting, i);
     }
 }

@@ -13,13 +13,13 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public File f1018b;
+    public File f993b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1019c;
+    public long f994c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1020d;
+    public long f995d;
 
     public c(String str, String str2, File file) {
         Interceptable interceptable = $ic;
@@ -28,22 +28,22 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f1018b = file;
+        this.f993b = file;
     }
 
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.f1020d = j2;
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.f995d = j;
         }
     }
 

@@ -17,19 +17,19 @@ public class RouteParaOption {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f34354b;
+    public LatLng f26567b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34355c;
+    public String f26568c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f34356d;
+    public String f26569d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34357e;
+    public String f26570e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EBusStrategyType f34358f;
+    public EBusStrategyType f26571f;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -65,16 +65,16 @@ public class RouteParaOption {
             a = new EBusStrategyType[]{bus_time_first, bus_transfer_little, bus_walk_little, bus_no_subway, eBusStrategyType};
         }
 
-        public EBusStrategyType(String str, int i2) {
+        public EBusStrategyType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -102,22 +102,22 @@ public class RouteParaOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34358f = EBusStrategyType.bus_recommend_way;
+        this.f26571f = EBusStrategyType.bus_recommend_way;
     }
 
     public RouteParaOption busStrategyType(EBusStrategyType eBusStrategyType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eBusStrategyType)) == null) {
-            this.f34358f = eBusStrategyType;
+            this.f26571f = eBusStrategyType;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -127,7 +127,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.f34357e = str;
+            this.f26570e = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -137,7 +137,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.f34356d = str;
+            this.f26569d = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -147,7 +147,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, latLng)) == null) {
-            this.f34354b = latLng;
+            this.f26567b = latLng;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;
@@ -156,31 +156,31 @@ public class RouteParaOption {
     public EBusStrategyType getBusStrategyType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34358f : (EBusStrategyType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26571f : (EBusStrategyType) invokeV.objValue;
     }
 
     public String getCityName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34357e : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26570e : (String) invokeV.objValue;
     }
 
     public String getEndName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f34356d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f26569d : (String) invokeV.objValue;
     }
 
     public LatLng getEndPoint() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f34354b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f26567b : (LatLng) invokeV.objValue;
     }
 
     public String getStartName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f34355c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f26568c : (String) invokeV.objValue;
     }
 
     public LatLng getStartPoint() {
@@ -193,7 +193,7 @@ public class RouteParaOption {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            this.f34355c = str;
+            this.f26568c = str;
             return this;
         }
         return (RouteParaOption) invokeL.objValue;

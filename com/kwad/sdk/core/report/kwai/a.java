@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
     @Override // com.kwad.sdk.core.report.kwai.b
     public void a(JSONObject jSONObject, Map<String, Object> map) {

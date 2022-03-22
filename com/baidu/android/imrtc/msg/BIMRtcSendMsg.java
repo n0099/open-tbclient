@@ -41,16 +41,16 @@ public class BIMRtcSendMsg extends Message {
     public String mRtcInfo;
     public int mSdkVersion;
 
-    public BIMRtcSendMsg(Context context, int i2, String str, String str2) {
+    public BIMRtcSendMsg(Context context, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,7 +58,7 @@ public class BIMRtcSendMsg extends Message {
         }
         this.mContext = context;
         this.mRtcInfo = str2;
-        this.mAction = i2;
+        this.mAction = i;
         this.mRoomId = str;
     }
 
@@ -128,12 +128,12 @@ public class BIMRtcSendMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i, str) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("error :");
-            sb.append(i2);
+            sb.append(i);
             sb.append(", msg :");
             sb.append(str);
             sb.append(", objStr :");
@@ -141,10 +141,10 @@ public class BIMRtcSendMsg extends Message {
             LogUtils.w(TAG, sb.toString());
             if (this.mAction != 100) {
                 BIMRtcTrack.RequestBuilder method = new BIMRtcTrack.RequestBuilder(this.mContext).method("230");
-                method.requestId("" + this.mAction).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).errorCode(i2).aliasId(501210L).ext(trackRequestExt()).build();
+                method.requestId("" + this.mAction).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).errorCode(i).aliasId(501210L).ext(trackRequestExt()).build();
             }
             String str2 = null;
-            if (i2 == 0 && jSONObject != null) {
+            if (i == 0 && jSONObject != null) {
                 str2 = jSONObject.optString(PmsConstant.Statistic.STATISTIC_ERRMSG);
                 if (jSONObject.has(RtcConstants.EXTRA_RTC_INFO)) {
                     try {
@@ -173,47 +173,47 @@ public class BIMRtcSendMsg extends Message {
                     }
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            onResult(i2, str2);
+            super.handleMessageResult(context, jSONObject, i, str);
+            onResult(i, str2);
         }
     }
 
-    public void onResult(int i2, String str) {
+    public void onResult(int i, String str) {
         BIMRtcInfo bIMInviteRtcInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
-            int i3 = this.mAction;
-            if (i3 == 80) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            int i2 = this.mAction;
+            if (i2 == 80) {
                 bIMInviteRtcInfo = new BIMInviteRtcInfo(this.mContext);
-            } else if (i3 == 84) {
+            } else if (i2 == 84) {
                 bIMInviteRtcInfo = new BIMAnswerRtcInfo();
-            } else if (i3 == 88) {
+            } else if (i2 == 88) {
                 bIMInviteRtcInfo = new BIMCloseRoomRtcInfo();
-            } else if (i3 == 90) {
+            } else if (i2 == 90) {
                 bIMInviteRtcInfo = new BIMFetchStateRtcInfo(str);
-            } else if (i3 != 91) {
+            } else if (i2 != 91) {
                 bIMInviteRtcInfo = new BIMRtcInfo();
             } else {
                 bIMInviteRtcInfo = new BIMFetchSignalRtcInfo();
             }
             BIMRtcManager bIMRtcManager = BIMRtcManager.getInstance(this.mContext);
-            int i4 = this.mAction;
-            bIMRtcManager.onRtcRequestResult(i4, bIMInviteRtcInfo.toRtcInfo(i4, this.mRoomId, this.mRtcInfo), i2, str, this.mListenerKey);
+            int i3 = this.mAction;
+            bIMRtcManager.onRtcRequestResult(i3, bIMInviteRtcInfo.toRtcInfo(i3, this.mRoomId, this.mRtcInfo), i, str, this.mListenerKey);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BIMRtcSendMsg(Context context, int i2, String str, String str2, String str3) {
-        this(context, i2, str, str2);
+    public BIMRtcSendMsg(Context context, int i, String str, String str2, String str3) {
+        this(context, i, str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, str2, str3};
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;

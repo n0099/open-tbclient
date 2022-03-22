@@ -21,27 +21,29 @@ import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 public class MaskView extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final RectF a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final RectF f23826b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final RectF f23827c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final Paint f23828d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final RectF f29815e;
+    public final Path f23829e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final RectF f29816f;
+    public boolean f23830f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final RectF f29817g;
+    public boolean f23831g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Paint f29818h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final Path f29819i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f29820j;
-    public boolean k;
-    public final Paint l;
-    public final Paint m;
+    public final Paint f23832h;
+    public final Paint i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaskView(Context context) {
@@ -52,9 +54,9 @@ public class MaskView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -73,20 +75,20 @@ public class MaskView extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new LayoutParams(-2, -2) : (LayoutParams) invokeV.objValue;
     }
 
-    public final void b(View view, RectF rectF, int i2) {
+    public final void b(View view, RectF rectF, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, rectF, i2) == null) {
-            if (i2 == 16) {
-                float f2 = this.f29815e.left;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, rectF, i) == null) {
+            if (i == 16) {
+                float f2 = this.a.left;
                 rectF.left = f2;
                 rectF.right = f2 + view.getMeasuredWidth();
-            } else if (i2 == 32) {
-                rectF.left = (this.f29815e.width() - view.getMeasuredWidth()) / 2.0f;
-                rectF.right = (this.f29815e.width() + view.getMeasuredWidth()) / 2.0f;
-                rectF.offset(this.f29815e.left, 0.0f);
-            } else if (i2 != 48) {
+            } else if (i == 32) {
+                rectF.left = (this.a.width() - view.getMeasuredWidth()) / 2.0f;
+                rectF.right = (this.a.width() + view.getMeasuredWidth()) / 2.0f;
+                rectF.offset(this.a.left, 0.0f);
+            } else if (i != 48) {
             } else {
-                float f3 = this.f29815e.right;
+                float f3 = this.a.right;
                 rectF.right = f3;
                 rectF.left = f3 - view.getMeasuredWidth();
             }
@@ -96,16 +98,16 @@ public class MaskView extends ViewGroup {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f29819i.reset();
-            this.f29819i.addRect(this.f29815e, Path.Direction.CW);
-            this.f29819i.addRect(this.f29816f, Path.Direction.CW);
+            this.f23829e.reset();
+            this.f23829e.addRect(this.a, Path.Direction.CW);
+            this.f23829e.addRect(this.f23826b, Path.Direction.CW);
         }
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f29818h.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f23828d.setAlpha(i);
             invalidate();
         }
     }
@@ -116,11 +118,11 @@ public class MaskView extends ViewGroup {
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
             long drawingTime = getDrawingTime();
             canvas.save();
-            canvas.drawRect(this.f29816f, this.f29818h);
+            canvas.drawRect(this.f23826b, this.f23828d);
             canvas.restore();
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
+            for (int i = 0; i < getChildCount(); i++) {
                 try {
-                    drawChild(canvas, getChildAt(i2), drawingTime);
+                    drawChild(canvas, getChildAt(i), drawingTime);
                 } catch (NullPointerException unused) {
                     return;
                 }
@@ -128,10 +130,10 @@ public class MaskView extends ViewGroup {
         }
     }
 
-    public void e(int i2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f29818h.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f23828d.setColor(i);
             invalidate();
         }
     }
@@ -139,9 +141,9 @@ public class MaskView extends ViewGroup {
     public void f(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, rect) == null) {
-            this.f29816f.set(rect);
+            this.f23826b.set(rect);
             c();
-            this.f29820j = true;
+            this.f23830f = true;
             invalidate();
         }
     }
@@ -155,7 +157,7 @@ public class MaskView extends ViewGroup {
     public void h(Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, rect) == null) {
-            this.f29815e.set(rect);
+            this.a.set(rect);
             c();
             invalidate();
         }
@@ -164,24 +166,24 @@ public class MaskView extends ViewGroup {
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.k = z;
+            this.f23831g = z;
         }
     }
 
-    public final void j(View view, RectF rectF, int i2) {
+    public final void j(View view, RectF rectF, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048587, this, view, rectF, i2) == null) {
-            if (i2 == 16) {
-                float f2 = this.f29815e.top;
+        if (interceptable == null || interceptable.invokeLLI(1048587, this, view, rectF, i) == null) {
+            if (i == 16) {
+                float f2 = this.a.top;
                 rectF.top = f2;
                 rectF.bottom = f2 + view.getMeasuredHeight();
-            } else if (i2 == 32) {
-                rectF.top = (this.f29815e.width() - view.getMeasuredHeight()) / 2.0f;
-                rectF.bottom = (this.f29815e.width() + view.getMeasuredHeight()) / 2.0f;
-                rectF.offset(0.0f, this.f29815e.top);
-            } else if (i2 != 48) {
+            } else if (i == 32) {
+                rectF.top = (this.a.width() - view.getMeasuredHeight()) / 2.0f;
+                rectF.bottom = (this.a.width() + view.getMeasuredHeight()) / 2.0f;
+                rectF.offset(0.0f, this.a.top);
+            } else if (i != 48) {
             } else {
-                RectF rectF2 = this.f29815e;
+                RectF rectF2 = this.a;
                 rectF.bottom = rectF2.bottom;
                 rectF.top = rectF2.bottom - view.getMeasuredHeight();
             }
@@ -202,55 +204,55 @@ public class MaskView extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int childCount = getChildCount();
             float f2 = getResources().getDisplayMetrics().density;
-            for (int i6 = 0; i6 < childCount; i6++) {
-                View childAt = getChildAt(i6);
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = getChildAt(i5);
                 if (childAt != null && (layoutParams = (LayoutParams) childAt.getLayoutParams()) != null) {
-                    int i7 = layoutParams.a;
-                    if (i7 == 1) {
-                        RectF rectF = this.f29817g;
-                        float f3 = this.f29815e.left;
+                    int i6 = layoutParams.a;
+                    if (i6 == 1) {
+                        RectF rectF = this.f23827c;
+                        float f3 = this.a.left;
                         rectF.right = f3;
                         rectF.left = f3 - childAt.getMeasuredWidth();
-                        j(childAt, this.f29817g, layoutParams.f29821b);
-                    } else if (i7 == 2) {
-                        RectF rectF2 = this.f29817g;
-                        float f4 = this.f29815e.top;
+                        j(childAt, this.f23827c, layoutParams.f23833b);
+                    } else if (i6 == 2) {
+                        RectF rectF2 = this.f23827c;
+                        float f4 = this.a.top;
                         rectF2.bottom = f4;
                         rectF2.top = f4 - childAt.getMeasuredHeight();
-                        b(childAt, this.f29817g, layoutParams.f29821b);
-                    } else if (i7 == 3) {
-                        RectF rectF3 = this.f29817g;
-                        float f5 = this.f29815e.right;
+                        b(childAt, this.f23827c, layoutParams.f23833b);
+                    } else if (i6 == 3) {
+                        RectF rectF3 = this.f23827c;
+                        float f5 = this.a.right;
                         rectF3.left = f5;
                         rectF3.right = f5 + childAt.getMeasuredWidth();
-                        j(childAt, this.f29817g, layoutParams.f29821b);
-                    } else if (i7 == 4) {
-                        RectF rectF4 = this.f29817g;
-                        float f6 = this.f29815e.bottom;
+                        j(childAt, this.f23827c, layoutParams.f23833b);
+                    } else if (i6 == 4) {
+                        RectF rectF4 = this.f23827c;
+                        float f6 = this.a.bottom;
                         rectF4.top = f6;
                         rectF4.bottom = f6 + childAt.getMeasuredHeight();
-                        b(childAt, this.f29817g, layoutParams.f29821b);
-                    } else if (i7 == 5) {
-                        this.f29817g.left = (((int) this.f29815e.width()) - childAt.getMeasuredWidth()) >> 1;
-                        this.f29817g.top = (((int) this.f29815e.height()) - childAt.getMeasuredHeight()) >> 1;
-                        this.f29817g.right = (((int) this.f29815e.width()) + childAt.getMeasuredWidth()) >> 1;
-                        this.f29817g.bottom = (((int) this.f29815e.height()) + childAt.getMeasuredHeight()) >> 1;
-                        RectF rectF5 = this.f29817g;
-                        RectF rectF6 = this.f29815e;
+                        b(childAt, this.f23827c, layoutParams.f23833b);
+                    } else if (i6 == 5) {
+                        this.f23827c.left = (((int) this.a.width()) - childAt.getMeasuredWidth()) >> 1;
+                        this.f23827c.top = (((int) this.a.height()) - childAt.getMeasuredHeight()) >> 1;
+                        this.f23827c.right = (((int) this.a.width()) + childAt.getMeasuredWidth()) >> 1;
+                        this.f23827c.bottom = (((int) this.a.height()) + childAt.getMeasuredHeight()) >> 1;
+                        RectF rectF5 = this.f23827c;
+                        RectF rectF6 = this.a;
                         rectF5.offset(rectF6.left, rectF6.top);
                     }
-                    if (this.k) {
-                        this.f29817g.offset(layoutParams.f29822c, layoutParams.f29823d);
+                    if (this.f23831g) {
+                        this.f23827c.offset(layoutParams.f23834c, layoutParams.f23835d);
                     } else {
-                        this.f29817g.offset((int) ((layoutParams.f29822c * f2) + 0.5f), (int) ((layoutParams.f29823d * f2) + 0.5f));
+                        this.f23827c.offset((int) ((layoutParams.f23834c * f2) + 0.5f), (int) ((layoutParams.f23835d * f2) + 0.5f));
                     }
-                    RectF rectF7 = this.f29817g;
+                    RectF rectF7 = this.f23827c;
                     childAt.layout((int) rectF7.left, (int) rectF7.top, (int) rectF7.right, (int) rectF7.bottom);
                 }
             }
@@ -258,25 +260,25 @@ public class MaskView extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            int i3 = i & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
             int i4 = i2 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
-            int i5 = i3 & LockFreeTaskQueueCore.MAX_CAPACITY_MASK;
-            setMeasuredDimension(i4, i5);
-            if (!this.f29820j) {
-                this.f29816f.set(0.0f, 0.0f, i4, i5);
+            setMeasuredDimension(i3, i4);
+            if (!this.f23830f) {
+                this.f23826b.set(0.0f, 0.0f, i3, i4);
                 c();
             }
             int childCount = getChildCount();
-            for (int i6 = 0; i6 < childCount; i6++) {
-                View childAt = getChildAt(i6);
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = getChildAt(i5);
                 if (childAt != null) {
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                     if (layoutParams == null) {
                         childAt.setLayoutParams(layoutParams);
                     }
-                    measureChild(childAt, i4 - 2147483648, Integer.MIN_VALUE + i5);
+                    measureChild(childAt, i3 - 2147483648, Integer.MIN_VALUE + i4);
                 }
             }
         }
@@ -291,9 +293,9 @@ public class MaskView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -304,17 +306,17 @@ public class MaskView extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MaskView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -322,23 +324,23 @@ public class MaskView extends ViewGroup {
                 return;
             }
         }
-        this.f29815e = new RectF();
-        this.f29816f = new RectF();
-        this.f29817g = new RectF();
-        this.f29818h = new Paint();
-        this.f29819i = new Path();
-        this.k = false;
-        this.l = new Paint();
+        this.a = new RectF();
+        this.f23826b = new RectF();
+        this.f23827c = new RectF();
+        this.f23828d = new Paint();
+        this.f23829e = new Path();
+        this.f23831g = false;
+        this.f23832h = new Paint();
         Paint paint = new Paint();
-        this.m = paint;
+        this.i = paint;
         paint.setAntiAlias(true);
-        this.l.setColor(SupportMenu.CATEGORY_MASK);
-        this.l.setStrokeWidth(10.0f);
+        this.f23832h.setColor(SupportMenu.CATEGORY_MASK);
+        this.f23832h.setStrokeWidth(10.0f);
         setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         setFocusable(true);
         setFocusableInTouchMode(true);
         requestFocus();
-        this.f29819i.setFillType(Path.FillType.EVEN_ODD);
+        this.f23829e.setFillType(Path.FillType.EVEN_ODD);
         c();
     }
 
@@ -349,13 +351,13 @@ public class MaskView extends ViewGroup {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f29821b;
+        public int f23833b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f29822c;
+        public int f23834c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f29823d;
+        public int f23835d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public LayoutParams(Context context, AttributeSet attributeSet) {
@@ -366,9 +368,9 @@ public class MaskView extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -377,23 +379,23 @@ public class MaskView extends ViewGroup {
                 }
             }
             this.a = 4;
-            this.f29821b = 32;
-            this.f29822c = 0;
-            this.f29823d = 0;
+            this.f23833b = 32;
+            this.f23834c = 0;
+            this.f23835d = 0;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -402,9 +404,9 @@ public class MaskView extends ViewGroup {
                 }
             }
             this.a = 4;
-            this.f29821b = 32;
-            this.f29822c = 0;
-            this.f29823d = 0;
+            this.f23833b = 32;
+            this.f23834c = 0;
+            this.f23835d = 0;
         }
     }
 }

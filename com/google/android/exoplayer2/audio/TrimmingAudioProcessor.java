@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.audio.AudioProcessor;
 import com.google.android.exoplayer2.util.Util;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrimmingAudioProcessor implements AudioProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,24 +47,24 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
     }
 
     @Override // com.google.android.exoplayer2.audio.AudioProcessor
-    public boolean configure(int i2, int i3, int i4) throws AudioProcessor.UnhandledFormatException {
+    public boolean configure(int i, int i2, int i3) throws AudioProcessor.UnhandledFormatException {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            if (i4 == 2) {
-                this.channelCount = i3;
-                this.sampleRateHz = i2;
-                int i5 = this.trimEndSamples;
-                this.endBuffer = new byte[i5 * i3 * 2];
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            if (i3 == 2) {
+                this.channelCount = i2;
+                this.sampleRateHz = i;
+                int i4 = this.trimEndSamples;
+                this.endBuffer = new byte[i4 * i2 * 2];
                 this.endBufferSize = 0;
-                int i6 = this.trimStartSamples;
-                this.pendingTrimStartBytes = i3 * i6 * 2;
+                int i5 = this.trimStartSamples;
+                this.pendingTrimStartBytes = i2 * i5 * 2;
                 boolean z = this.isActive;
-                boolean z2 = (i6 == 0 && i5 == 0) ? false : true;
+                boolean z2 = (i5 == 0 && i4 == 0) ? false : true;
                 this.isActive = z2;
                 return z != z2;
             }
-            throw new AudioProcessor.UnhandledFormatException(i2, i3, i4);
+            throw new AudioProcessor.UnhandledFormatException(i, i2, i3);
         }
         return invokeIII.booleanValue;
     }
@@ -144,15 +144,15 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
         if (interceptable == null || interceptable.invokeL(1048585, this, byteBuffer) == null) {
             int position = byteBuffer.position();
             int limit = byteBuffer.limit();
-            int i2 = limit - position;
-            int min = Math.min(i2, this.pendingTrimStartBytes);
+            int i = limit - position;
+            int min = Math.min(i, this.pendingTrimStartBytes);
             this.pendingTrimStartBytes -= min;
             byteBuffer.position(position + min);
             if (this.pendingTrimStartBytes > 0) {
                 return;
             }
-            int i3 = i2 - min;
-            int length = (this.endBufferSize + i3) - this.endBuffer.length;
+            int i2 = i - min;
+            int length = (this.endBufferSize + i2) - this.endBuffer.length;
             if (this.buffer.capacity() < length) {
                 this.buffer = ByteBuffer.allocateDirect(length).order(ByteOrder.nativeOrder());
             } else {
@@ -160,17 +160,17 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
             }
             int constrainValue = Util.constrainValue(length, 0, this.endBufferSize);
             this.buffer.put(this.endBuffer, 0, constrainValue);
-            int constrainValue2 = Util.constrainValue(length - constrainValue, 0, i3);
+            int constrainValue2 = Util.constrainValue(length - constrainValue, 0, i2);
             byteBuffer.limit(byteBuffer.position() + constrainValue2);
             this.buffer.put(byteBuffer);
             byteBuffer.limit(limit);
-            int i4 = i3 - constrainValue2;
-            int i5 = this.endBufferSize - constrainValue;
-            this.endBufferSize = i5;
+            int i3 = i2 - constrainValue2;
+            int i4 = this.endBufferSize - constrainValue;
+            this.endBufferSize = i4;
             byte[] bArr = this.endBuffer;
-            System.arraycopy(bArr, constrainValue, bArr, 0, i5);
-            byteBuffer.get(this.endBuffer, this.endBufferSize, i4);
-            this.endBufferSize += i4;
+            System.arraycopy(bArr, constrainValue, bArr, 0, i4);
+            byteBuffer.get(this.endBuffer, this.endBufferSize, i3);
+            this.endBufferSize += i3;
             this.buffer.flip();
             this.outputBuffer = this.buffer;
         }
@@ -188,11 +188,11 @@ public final class TrimmingAudioProcessor implements AudioProcessor {
         }
     }
 
-    public void setTrimSampleCount(int i2, int i3) {
+    public void setTrimSampleCount(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            this.trimStartSamples = i2;
-            this.trimEndSamples = i3;
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            this.trimStartSamples = i;
+            this.trimEndSamples = i2;
         }
     }
 }

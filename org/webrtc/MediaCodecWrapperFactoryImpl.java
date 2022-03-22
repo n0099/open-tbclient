@@ -15,12 +15,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class MediaCodecWrapperImpl implements MediaCodecWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaCodec};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -45,10 +45,10 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i2) {
+        public void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(1048576, this, mediaFormat, surface, mediaCrypto, i2) == null) {
-                this.mediaCodec.configure(mediaFormat, surface, mediaCrypto, i2);
+            if (interceptable == null || interceptable.invokeLLLI(1048576, this, mediaFormat, surface, mediaCrypto, i) == null) {
+                this.mediaCodec.configure(mediaFormat, surface, mediaCrypto, i);
             }
         }
 
@@ -61,17 +61,17 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public int dequeueInputBuffer(long j2) {
+        public int dequeueInputBuffer(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.mediaCodec.dequeueInputBuffer(j2) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.mediaCodec.dequeueInputBuffer(j) : invokeJ.intValue;
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j2) {
+        public int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, bufferInfo, j2)) == null) ? this.mediaCodec.dequeueOutputBuffer(bufferInfo, j2) : invokeLJ.intValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, bufferInfo, j)) == null) ? this.mediaCodec.dequeueOutputBuffer(bufferInfo, j) : invokeLJ.intValue;
         }
 
         @Override // org.webrtc.MediaCodecWrapper
@@ -111,10 +111,10 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void queueInputBuffer(int i2, int i3, int i4, long j2, int i5) {
+        public void queueInputBuffer(int i, int i2, int i3, long j, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), Integer.valueOf(i5)}) == null) {
-                this.mediaCodec.queueInputBuffer(i2, i3, i4, j2, i5);
+            if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Integer.valueOf(i4)}) == null) {
+                this.mediaCodec.queueInputBuffer(i, i2, i3, j, i4);
             }
         }
 
@@ -127,10 +127,10 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         }
 
         @Override // org.webrtc.MediaCodecWrapper
-        public void releaseOutputBuffer(int i2, boolean z) {
+        public void releaseOutputBuffer(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                this.mediaCodec.releaseOutputBuffer(i2, z);
+            if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                this.mediaCodec.releaseOutputBuffer(i, z);
             }
         }
 
@@ -165,9 +165,9 @@ public class MediaCodecWrapperFactoryImpl implements MediaCodecWrapperFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

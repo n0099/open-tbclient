@@ -5,12 +5,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import c.a.q0.r.r.e2;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.InterviewLiveLayout;
 import com.baidu.card.view.RoundCornerFrameLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tieba.R;
@@ -24,11 +24,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class r extends t0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int F;
+    public static final int B;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterviewLiveLayout C;
-    public int D;
-    public TextView E;
+    public TextView A;
+    public InterviewLiveLayout y;
+    public int z;
 
     static {
         InterceptResult invokeClinit;
@@ -43,7 +43,7 @@ public class r extends t0 {
                 return;
             }
         }
-        F = c.a.d.f.p.n.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        B = c.a.d.f.p.n.k(TbadkCoreApplication.getInst()) - ((c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + c.a.d.f.p.n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -55,103 +55,103 @@ public class r extends t0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.D = 3;
+        this.z = 3;
         z();
     }
 
     public void A(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.C.setFromCDN(z);
+            this.y.setFromCDN(z);
         }
     }
 
     @Override // c.a.l.t0, c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f4077j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3482f : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.C.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, b0Var) == null) {
+            this.y.setSubClickListener(b0Var);
         }
     }
 
     @Override // c.a.l.t0, c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i2) == null) {
-            if (this.D != i2) {
-                SkinManager.setBackgroundResource(this.C, R.drawable.addresslist_item_bg);
-                this.C.onChangeSkinType(this.D);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            if (this.z != i) {
+                SkinManager.setBackgroundResource(this.y, R.drawable.addresslist_item_bg);
+                this.y.l(this.z);
             }
-            this.D = i2;
+            this.z = i;
         }
     }
 
     @Override // c.a.l.t0
-    public c.a.r0.a3.v.a p() {
+    public c.a.p0.c3.w.a p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.r0.a3.v.b bVar = new c.a.r0.a3.v.b(this.f4007f, this.m);
+            c.a.p0.c3.w.b bVar = new c.a.p0.c3.w.b(this.f3392b, this.i);
             bVar.setStageType("2003");
             return bVar;
         }
-        return (c.a.r0.a3.v.a) invokeV.objValue;
+        return (c.a.p0.c3.w.a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.t0, c.a.l.p
     /* renamed from: q */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
-            this.l = aVar;
+            this.f3484h = aVar;
             if (aVar == null || aVar.getThreadData() == null) {
                 return;
             }
-            e2 threadData = aVar.getThreadData();
-            if (threadData.u1() != null) {
-                this.C.setVisibility(8);
-                this.m.setVisibility(0);
-                this.E.setVisibility(8);
-                super.onBindDataToView(aVar);
+            ThreadData threadData = aVar.getThreadData();
+            if (threadData.getThreadVideoInfo() != null) {
+                this.y.setVisibility(8);
+                this.i.setVisibility(0);
+                this.A.setVisibility(8);
+                super.a(aVar);
                 return;
             }
-            this.m.setVisibility(8);
-            this.C.setVisibility(0);
-            this.E.setVisibility(0);
-            this.C.onBindDataToView(aVar);
-            ThreadCardUtils.setTitle(this.k, threadData);
-            ThreadCardUtils.setAbstract(this.E, this.k, threadData, F);
+            this.i.setVisibility(8);
+            this.y.setVisibility(0);
+            this.A.setVisibility(0);
+            this.y.a(aVar);
+            ThreadCardUtils.setTitle(this.f3483g, threadData);
+            ThreadCardUtils.setAbstract(this.A, this.f3483g, threadData, B);
         }
     }
 
     public final void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            View inflate = LayoutInflater.from(this.f4007f).inflate(R.layout.card_interview_layout, (ViewGroup) null, true);
-            this.f4077j = inflate;
-            this.k = (TextView) inflate.findViewById(R.id.video_seg_title);
-            this.E = (TextView) this.f4077j.findViewById(R.id.video_seg_abstract);
-            this.m = (RoundCornerFrameLayout) this.f4077j.findViewById(R.id.frame_video);
-            this.C = (InterviewLiveLayout) this.f4077j.findViewById(R.id.frame_interview_no_video);
-            c.a.r0.a3.v.a p = p();
-            this.n = p;
+            View inflate = LayoutInflater.from(this.f3392b).inflate(R.layout.obfuscated_res_0x7f0d01a4, (ViewGroup) null, true);
+            this.f3482f = inflate;
+            this.f3483g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092375);
+            this.A = (TextView) this.f3482f.findViewById(R.id.obfuscated_res_0x7f092374);
+            this.i = (RoundCornerFrameLayout) this.f3482f.findViewById(R.id.obfuscated_res_0x7f090aaf);
+            this.y = (InterviewLiveLayout) this.f3482f.findViewById(R.id.obfuscated_res_0x7f090aab);
+            c.a.p0.c3.w.a p = p();
+            this.j = p;
             p.getMainView().setBackgroundResource(R.color.transparent);
         }
     }

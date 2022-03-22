@@ -21,18 +21,18 @@ public class PassBioDisplayUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void enableNavigationBarTint(Activity activity, int i2) {
+    public static void enableNavigationBarTint(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65537, null, activity, i) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
                 Window window = activity.getWindow();
                 WindowManager.LayoutParams attributes = window.getAttributes();
@@ -41,7 +41,7 @@ public class PassBioDisplayUtil {
             }
             SapiSystemBarTintManager sapiSystemBarTintManager = new SapiSystemBarTintManager(activity);
             sapiSystemBarTintManager.setNavigationBarTintEnabled(true);
-            sapiSystemBarTintManager.setNavigationBarTintColor(i2);
+            sapiSystemBarTintManager.setNavigationBarTintColor(i);
         }
     }
 
@@ -65,11 +65,11 @@ public class PassBioDisplayUtil {
                 Display defaultDisplay = windowManager.getDefaultDisplay();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 defaultDisplay.getRealMetrics(displayMetrics);
-                int i2 = displayMetrics.heightPixels;
-                int i3 = displayMetrics.widthPixels;
+                int i = displayMetrics.heightPixels;
+                int i2 = displayMetrics.widthPixels;
                 DisplayMetrics displayMetrics2 = new DisplayMetrics();
                 defaultDisplay.getMetrics(displayMetrics2);
-                return i3 - displayMetrics2.widthPixels > 0 || i2 - displayMetrics2.heightPixels > 0;
+                return i2 - displayMetrics2.widthPixels > 0 || i - displayMetrics2.heightPixels > 0;
             }
             return false;
         }

@@ -61,7 +61,7 @@ import com.google.android.material.ripple.RippleUtils;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.ref.WeakReference;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDrawable, Drawable.Callback, TextDrawableHelper.TextDrawableDelegate {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -163,7 +163,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     public TextUtils.TruncateAt truncateAt;
     public boolean useCompatRipple;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Delegate {
         void onChipDrawableSizeChange();
     }
@@ -186,17 +186,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChipDrawable(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
-        super(context, attributeSet, i2, i3);
+    public ChipDrawable(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -331,9 +331,9 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
                     rectF.right = f3;
                     rectF.left = f3 - f2;
                 } else {
-                    int i2 = rect.left;
-                    rectF.left = i2;
-                    rectF.right = i2 + f2;
+                    int i = rect.left;
+                    rectF.left = i;
+                    rectF.right = i + f2;
                 }
                 rectF.top = rect.top;
                 rectF.bottom = rect.bottom;
@@ -379,28 +379,28 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @NonNull
-    public static ChipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+    public static ChipDrawable createFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65546, null, context, attributeSet, i2, i3)) == null) {
-            ChipDrawable chipDrawable = new ChipDrawable(context, attributeSet, i2, i3);
-            chipDrawable.loadFromAttributes(attributeSet, i2, i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65546, null, context, attributeSet, i, i2)) == null) {
+            ChipDrawable chipDrawable = new ChipDrawable(context, attributeSet, i, i2);
+            chipDrawable.loadFromAttributes(attributeSet, i, i2);
             return chipDrawable;
         }
         return (ChipDrawable) invokeLLII.objValue;
     }
 
     @NonNull
-    public static ChipDrawable createFromResource(@NonNull Context context, @XmlRes int i2) {
+    public static ChipDrawable createFromResource(@NonNull Context context, @XmlRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i2)) == null) {
-            AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i2, "chip");
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
+            AttributeSet parseDrawableXml = DrawableUtils.parseDrawableXml(context, i, "chip");
             int styleAttribute = parseDrawableXml.getStyleAttribute();
             if (styleAttribute == 0) {
-                styleAttribute = 2131755896;
+                styleAttribute = R.style.obfuscated_res_0x7f100356;
             }
-            return createFromAttributes(context, parseDrawableXml, R.attr.chipStandaloneStyle, styleAttribute);
+            return createFromAttributes(context, parseDrawableXml, R.attr.obfuscated_res_0x7f040138, styleAttribute);
         }
         return (ChipDrawable) invokeLI.objValue;
     }
@@ -547,10 +547,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             this.textDrawableHelper.updateTextPaintDrawState(this.context);
         }
         this.textDrawableHelper.getTextPaint().setTextAlign(calculateTextOriginAndAlignment);
-        int i2 = 0;
+        int i = 0;
         boolean z = Math.round(this.textDrawableHelper.getTextWidth(getText().toString())) > Math.round(this.rectF.width());
         if (z) {
-            i2 = canvas.save();
+            i = canvas.save();
             canvas.clipRect(this.rectF);
         }
         CharSequence charSequence = this.text;
@@ -562,7 +562,7 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         PointF pointF = this.pointF;
         canvas.drawText(charSequence2, 0, length, pointF.x, pointF.y, this.textDrawableHelper.getTextPaint());
         if (z) {
-            canvas.restoreToCount(i2);
+            canvas.restoreToCount(i);
         }
     }
 
@@ -577,15 +577,15 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         return (ColorFilter) invokeV.objValue;
     }
 
-    public static boolean hasState(@Nullable int[] iArr, @AttrRes int i2) {
+    public static boolean hasState(@Nullable int[] iArr, @AttrRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, iArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, iArr, i)) == null) {
             if (iArr == null) {
                 return false;
             }
-            for (int i3 : iArr) {
-                if (i3 == i2) {
+            for (int i2 : iArr) {
+                if (i2 == i) {
                     return true;
                 }
             }
@@ -594,10 +594,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         return invokeLI.booleanValue;
     }
 
-    private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+    private void loadFromAttributes(@Nullable AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65562, this, attributeSet, i2, i3) == null) {
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.checkedIcon, R.attr.checkedIconEnabled, R.attr.checkedIconTint, R.attr.checkedIconVisible, R.attr.chipBackgroundColor, R.attr.chipCornerRadius, R.attr.chipEndPadding, R.attr.chipIcon, R.attr.chipIconEnabled, R.attr.chipIconSize, R.attr.chipIconTint, R.attr.chipIconVisible, R.attr.chipMinHeight, R.attr.chipMinTouchTargetSize, R.attr.chipStartPadding, R.attr.chipStrokeColor, R.attr.chipStrokeWidth, R.attr.chipSurfaceColor, R.attr.closeIcon, R.attr.closeIconEnabled, R.attr.closeIconEndPadding, R.attr.closeIconSize, R.attr.closeIconStartPadding, R.attr.closeIconTint, R.attr.closeIconVisible, R.attr.ensureMinTouchTargetSize, R.attr.hideMotionSpec, R.attr.iconEndPadding, R.attr.iconStartPadding, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.showMotionSpec, R.attr.textEndPadding, R.attr.textStartPadding}, i2, i3, new int[0]);
+        if (interceptable == null || interceptable.invokeLII(65562, this, attributeSet, i, i2) == null) {
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(this.context, attributeSet, new int[]{16842804, 16842904, 16842923, 16843039, 16843087, 16843237, R.attr.obfuscated_res_0x7f040122, R.attr.obfuscated_res_0x7f040126, R.attr.obfuscated_res_0x7f040127, R.attr.obfuscated_res_0x7f040128, R.attr.obfuscated_res_0x7f04012a, R.attr.obfuscated_res_0x7f04012b, R.attr.obfuscated_res_0x7f04012c, R.attr.obfuscated_res_0x7f04012e, R.attr.obfuscated_res_0x7f04012f, R.attr.obfuscated_res_0x7f040130, R.attr.obfuscated_res_0x7f040131, R.attr.obfuscated_res_0x7f040132, R.attr.obfuscated_res_0x7f040133, R.attr.obfuscated_res_0x7f040134, R.attr.obfuscated_res_0x7f040139, R.attr.obfuscated_res_0x7f04013a, R.attr.obfuscated_res_0x7f04013b, R.attr.obfuscated_res_0x7f04013d, R.attr.obfuscated_res_0x7f040147, R.attr.obfuscated_res_0x7f040148, R.attr.obfuscated_res_0x7f040149, R.attr.obfuscated_res_0x7f04014a, R.attr.obfuscated_res_0x7f04014b, R.attr.obfuscated_res_0x7f04014c, R.attr.obfuscated_res_0x7f04014d, R.attr.obfuscated_res_0x7f0401e3, R.attr.obfuscated_res_0x7f040286, R.attr.obfuscated_res_0x7f0402ac, R.attr.obfuscated_res_0x7f0402b0, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040556, R.attr.obfuscated_res_0x7f040617, R.attr.obfuscated_res_0x7f04061f}, i, i2, new int[0]);
             this.isShapeThemingEnabled = obtainStyledAttributes.hasValue(36);
             setChipSurfaceColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 23));
             setChipBackgroundColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 10));
@@ -610,12 +610,12 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             setRippleColor(MaterialResources.getColorStateList(this.context, obtainStyledAttributes, 35));
             setText(obtainStyledAttributes.getText(4));
             setTextAppearance(MaterialResources.getTextAppearance(this.context, obtainStyledAttributes, 0));
-            int i4 = obtainStyledAttributes.getInt(2, 0);
-            if (i4 == 1) {
+            int i3 = obtainStyledAttributes.getInt(2, 0);
+            if (i3 == 1) {
                 setEllipsize(TextUtils.TruncateAt.START);
-            } else if (i4 == 2) {
+            } else if (i3 == 2) {
                 setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            } else if (i4 == 3) {
+            } else if (i3 == 3) {
                 setEllipsize(TextUtils.TruncateAt.END);
             }
             setChipIconVisible(obtainStyledAttributes.getBoolean(17, false));
@@ -763,8 +763,8 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
             if (bounds.isEmpty() || getAlpha() == 0) {
                 return;
             }
-            int i2 = this.alpha;
-            int saveLayerAlpha = i2 < 255 ? CanvasCompat.saveLayerAlpha(canvas, bounds.left, bounds.top, bounds.right, bounds.bottom, i2) : 0;
+            int i = this.alpha;
+            int saveLayerAlpha = i < 255 ? CanvasCompat.saveLayerAlpha(canvas, bounds.left, bounds.top, bounds.right, bounds.bottom, i) : 0;
             drawChipSurface(canvas, bounds);
             drawChipBackground(canvas, bounds);
             if (this.isShapeThemingEnabled) {
@@ -1148,19 +1148,19 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLayoutDirectionChanged(int i2) {
+    public boolean onLayoutDirectionChanged(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) {
-            boolean onLayoutDirectionChanged = super.onLayoutDirectionChanged(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
+            boolean onLayoutDirectionChanged = super.onLayoutDirectionChanged(i);
             if (showsChipIcon()) {
-                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.chipIcon, i2);
+                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.chipIcon, i);
             }
             if (showsCheckedIcon()) {
-                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.checkedIcon, i2);
+                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.checkedIcon, i);
             }
             if (showsCloseIcon()) {
-                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.closeIcon, i2);
+                onLayoutDirectionChanged |= DrawableCompat.setLayoutDirection(this.closeIcon, i);
             }
             if (onLayoutDirectionChanged) {
                 invalidateSelf();
@@ -1172,19 +1172,19 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i2)) == null) {
-            boolean onLevelChange = super.onLevelChange(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048631, this, i)) == null) {
+            boolean onLevelChange = super.onLevelChange(i);
             if (showsChipIcon()) {
-                onLevelChange |= this.chipIcon.setLevel(i2);
+                onLevelChange |= this.chipIcon.setLevel(i);
             }
             if (showsCheckedIcon()) {
-                onLevelChange |= this.checkedIcon.setLevel(i2);
+                onLevelChange |= this.checkedIcon.setLevel(i);
             }
             if (showsCloseIcon()) {
-                onLevelChange |= this.closeIcon.setLevel(i2);
+                onLevelChange |= this.closeIcon.setLevel(i);
             }
             if (onLevelChange) {
                 invalidateSelf();
@@ -1226,22 +1226,22 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Drawable.Callback callback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) || (callback = getCallback()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) || (callback = getCallback()) == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j2);
+        callback.scheduleDrawable(this, runnable, j);
     }
 
     @Override // com.google.android.material.shape.MaterialShapeDrawable, android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048636, this, i2) == null) || this.alpha == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048636, this, i) == null) || this.alpha == i) {
             return;
         }
-        this.alpha = i2;
+        this.alpha = i;
         invalidateSelf();
     }
 
@@ -1262,10 +1262,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setCheckableResource(@BoolRes int i2) {
+    public void setCheckableResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            setCheckable(this.context.getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            setCheckable(this.context.getResources().getBoolean(i));
         }
     }
 
@@ -1294,17 +1294,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Deprecated
-    public void setCheckedIconEnabledResource(@BoolRes int i2) {
+    public void setCheckedIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            setCheckedIconVisible(this.context.getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+            setCheckedIconVisible(this.context.getResources().getBoolean(i));
         }
     }
 
-    public void setCheckedIconResource(@DrawableRes int i2) {
+    public void setCheckedIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
-            setCheckedIcon(AppCompatResources.getDrawable(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
+            setCheckedIcon(AppCompatResources.getDrawable(this.context, i));
         }
     }
 
@@ -1320,17 +1320,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onStateChange(getState());
     }
 
-    public void setCheckedIconTintResource(@ColorRes int i2) {
+    public void setCheckedIconTintResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
-            setCheckedIconTint(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+            setCheckedIconTint(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
-    public void setCheckedIconVisible(@BoolRes int i2) {
+    public void setCheckedIconVisible(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048645, this, i2) == null) {
-            setCheckedIconVisible(this.context.getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048645, this, i) == null) {
+            setCheckedIconVisible(this.context.getResources().getBoolean(i));
         }
     }
 
@@ -1343,10 +1343,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onStateChange(getState());
     }
 
-    public void setChipBackgroundColorResource(@ColorRes int i2) {
+    public void setChipBackgroundColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            setChipBackgroundColor(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+            setChipBackgroundColor(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
@@ -1361,10 +1361,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Deprecated
-    public void setChipCornerRadiusResource(@DimenRes int i2) {
+    public void setChipCornerRadiusResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
-            setChipCornerRadius(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
+            setChipCornerRadius(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1378,10 +1378,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onSizeChange();
     }
 
-    public void setChipEndPaddingResource(@DimenRes int i2) {
+    public void setChipEndPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
-            setChipEndPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048652, this, i) == null) {
+            setChipEndPadding(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1413,17 +1413,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Deprecated
-    public void setChipIconEnabledResource(@BoolRes int i2) {
+    public void setChipIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048655, this, i2) == null) {
-            setChipIconVisible(i2);
+        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
+            setChipIconVisible(i);
         }
     }
 
-    public void setChipIconResource(@DrawableRes int i2) {
+    public void setChipIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
-            setChipIcon(AppCompatResources.getDrawable(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
+            setChipIcon(AppCompatResources.getDrawable(this.context, i));
         }
     }
 
@@ -1441,10 +1441,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setChipIconSizeResource(@DimenRes int i2) {
+    public void setChipIconSizeResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
-            setChipIconSize(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048658, this, i) == null) {
+            setChipIconSize(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1462,17 +1462,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setChipIconTintResource(@ColorRes int i2) {
+    public void setChipIconTintResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048660, this, i2) == null) {
-            setChipIconTint(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048660, this, i) == null) {
+            setChipIconTint(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
-    public void setChipIconVisible(@BoolRes int i2) {
+    public void setChipIconVisible(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            setChipIconVisible(this.context.getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
+            setChipIconVisible(this.context.getResources().getBoolean(i));
         }
     }
 
@@ -1486,10 +1486,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onSizeChange();
     }
 
-    public void setChipMinHeightResource(@DimenRes int i2) {
+    public void setChipMinHeightResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048664, this, i2) == null) {
-            setChipMinHeight(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048664, this, i) == null) {
+            setChipMinHeight(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1503,10 +1503,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onSizeChange();
     }
 
-    public void setChipStartPaddingResource(@DimenRes int i2) {
+    public void setChipStartPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048666, this, i2) == null) {
-            setChipStartPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048666, this, i) == null) {
+            setChipStartPadding(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1522,10 +1522,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onStateChange(getState());
     }
 
-    public void setChipStrokeColorResource(@ColorRes int i2) {
+    public void setChipStrokeColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048668, this, i2) == null) {
-            setChipStrokeColor(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048668, this, i) == null) {
+            setChipStrokeColor(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
@@ -1542,10 +1542,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         invalidateSelf();
     }
 
-    public void setChipStrokeWidthResource(@DimenRes int i2) {
+    public void setChipStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048670, this, i2) == null) {
-            setChipStrokeWidth(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048670, this, i) == null) {
+            setChipStrokeWidth(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1589,10 +1589,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
     }
 
     @Deprecated
-    public void setCloseIconEnabledResource(@BoolRes int i2) {
+    public void setCloseIconEnabledResource(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048674, this, i2) == null) {
-            setCloseIconVisible(i2);
+        if (interceptable == null || interceptable.invokeI(1048674, this, i) == null) {
+            setCloseIconVisible(i);
         }
     }
 
@@ -1608,17 +1608,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setCloseIconEndPaddingResource(@DimenRes int i2) {
+    public void setCloseIconEndPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048676, this, i2) == null) {
-            setCloseIconEndPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048676, this, i) == null) {
+            setCloseIconEndPadding(this.context.getResources().getDimension(i));
         }
     }
 
-    public void setCloseIconResource(@DrawableRes int i2) {
+    public void setCloseIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048677, this, i2) == null) {
-            setCloseIcon(AppCompatResources.getDrawable(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048677, this, i) == null) {
+            setCloseIcon(AppCompatResources.getDrawable(this.context, i));
         }
     }
 
@@ -1634,10 +1634,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setCloseIconSizeResource(@DimenRes int i2) {
+    public void setCloseIconSizeResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048679, this, i2) == null) {
-            setCloseIconSize(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048679, this, i) == null) {
+            setCloseIconSize(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1653,10 +1653,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setCloseIconStartPaddingResource(@DimenRes int i2) {
+    public void setCloseIconStartPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048681, this, i2) == null) {
-            setCloseIconStartPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048681, this, i) == null) {
+            setCloseIconStartPadding(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1688,17 +1688,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onStateChange(getState());
     }
 
-    public void setCloseIconTintResource(@ColorRes int i2) {
+    public void setCloseIconTintResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048684, this, i2) == null) {
-            setCloseIconTint(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048684, this, i) == null) {
+            setCloseIconTint(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
-    public void setCloseIconVisible(@BoolRes int i2) {
+    public void setCloseIconVisible(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048685, this, i2) == null) {
-            setCloseIconVisible(this.context.getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048685, this, i) == null) {
+            setCloseIconVisible(this.context.getResources().getBoolean(i));
         }
     }
 
@@ -1733,10 +1733,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setHideMotionSpecResource(@AnimatorRes int i2) {
+    public void setHideMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048691, this, i2) == null) {
-            setHideMotionSpec(MotionSpec.createFromResource(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048691, this, i) == null) {
+            setHideMotionSpec(MotionSpec.createFromResource(this.context, i));
         }
     }
 
@@ -1754,10 +1754,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setIconEndPaddingResource(@DimenRes int i2) {
+    public void setIconEndPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048693, this, i2) == null) {
-            setIconEndPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
+            setIconEndPadding(this.context.getResources().getDimension(i));
         }
     }
 
@@ -1775,17 +1775,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setIconStartPaddingResource(@DimenRes int i2) {
+    public void setIconStartPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i2) == null) {
-            setIconStartPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
+            setIconStartPadding(this.context.getResources().getDimension(i));
         }
     }
 
-    public void setMaxWidth(@Px int i2) {
+    public void setMaxWidth(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048696, this, i2) == null) {
-            this.maxWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048696, this, i) == null) {
+            this.maxWidth = i;
         }
     }
 
@@ -1799,10 +1799,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onStateChange(getState());
     }
 
-    public void setRippleColorResource(@ColorRes int i2) {
+    public void setRippleColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048698, this, i2) == null) {
-            setRippleColor(AppCompatResources.getColorStateList(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048698, this, i) == null) {
+            setRippleColor(AppCompatResources.getColorStateList(this.context, i));
         }
     }
 
@@ -1820,10 +1820,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setShowMotionSpecResource(@AnimatorRes int i2) {
+    public void setShowMotionSpecResource(@AnimatorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048701, this, i2) == null) {
-            setShowMotionSpec(MotionSpec.createFromResource(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048701, this, i) == null) {
+            setShowMotionSpec(MotionSpec.createFromResource(this.context, i));
         }
     }
 
@@ -1850,10 +1850,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         }
     }
 
-    public void setTextAppearanceResource(@StyleRes int i2) {
+    public void setTextAppearanceResource(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048704, this, i2) == null) {
-            setTextAppearance(new TextAppearance(this.context, i2));
+        if (interceptable == null || interceptable.invokeI(1048704, this, i) == null) {
+            setTextAppearance(new TextAppearance(this.context, i));
         }
     }
 
@@ -1867,17 +1867,17 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onSizeChange();
     }
 
-    public void setTextEndPaddingResource(@DimenRes int i2) {
+    public void setTextEndPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048706, this, i2) == null) {
-            setTextEndPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048706, this, i) == null) {
+            setTextEndPadding(this.context.getResources().getDimension(i));
         }
     }
 
-    public void setTextResource(@StringRes int i2) {
+    public void setTextResource(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048707, this, i2) == null) {
-            setText(this.context.getResources().getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
+            setText(this.context.getResources().getString(i));
         }
     }
 
@@ -1891,10 +1891,10 @@ public class ChipDrawable extends MaterialShapeDrawable implements TintAwareDraw
         onSizeChange();
     }
 
-    public void setTextStartPaddingResource(@DimenRes int i2) {
+    public void setTextStartPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048709, this, i2) == null) {
-            setTextStartPadding(this.context.getResources().getDimension(i2));
+        if (interceptable == null || interceptable.invokeI(1048709, this, i) == null) {
+            setTextStartPadding(this.context.getResources().getDimension(i));
         }
     }
 

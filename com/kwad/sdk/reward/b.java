@@ -2,18 +2,18 @@ package com.kwad.sdk.reward;
 
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public Set<InterfaceC2128b> a;
+    public Set<InterfaceC1989b> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static b a = new b();
     }
 
     /* renamed from: com.kwad.sdk.reward.b$b  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public interface InterfaceC2128b {
+    /* loaded from: classes7.dex */
+    public interface InterfaceC1989b {
         void onPageClose();
     }
 
@@ -25,9 +25,9 @@ public class b {
         return a.a;
     }
 
-    public void a(InterfaceC2128b interfaceC2128b) {
-        if (interfaceC2128b != null) {
-            this.a.add(interfaceC2128b);
+    public void a(InterfaceC1989b interfaceC1989b) {
+        if (interfaceC1989b != null) {
+            this.a.add(interfaceC1989b);
         }
     }
 
@@ -35,12 +35,12 @@ public class b {
         if (this.a.size() == 0) {
             return;
         }
-        for (InterfaceC2128b interfaceC2128b : this.a) {
-            interfaceC2128b.onPageClose();
+        for (InterfaceC1989b interfaceC1989b : this.a) {
+            interfaceC1989b.onPageClose();
         }
     }
 
-    public void b(InterfaceC2128b interfaceC2128b) {
-        this.a.remove(interfaceC2128b);
+    public void b(InterfaceC1989b interfaceC1989b) {
+        this.a.remove(interfaceC1989b);
     }
 }

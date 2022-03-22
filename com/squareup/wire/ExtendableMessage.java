@@ -11,13 +11,13 @@ import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public transient ExtensionMap<T> extensionMap;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class ExtendableBuilder<T extends ExtendableMessage<?>> extends Message.Builder<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -73,9 +73,9 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extendableMessage};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Message) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -98,9 +98,9 @@ public abstract class ExtendableMessage<T extends ExtendableMessage<?>> extends 
             newInitContext.initArgs = r2;
             Object[] objArr = {extendableBuilder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Message.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

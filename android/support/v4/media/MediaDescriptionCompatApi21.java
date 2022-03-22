@@ -28,9 +28,9 @@ public class MediaDescriptionCompatApi21 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -104,9 +104,9 @@ public class MediaDescriptionCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -161,10 +161,10 @@ public class MediaDescriptionCompatApi21 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) ? ((MediaDescription) obj).getTitle() : (CharSequence) invokeL.objValue;
     }
 
-    public static void writeToParcel(Object obj, Parcel parcel, int i2) {
+    public static void writeToParcel(Object obj, Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, obj, parcel, i2) == null) {
-            ((MediaDescription) obj).writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLLI(65545, null, obj, parcel, i) == null) {
+            ((MediaDescription) obj).writeToParcel(parcel, i);
         }
     }
 }

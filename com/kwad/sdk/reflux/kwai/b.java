@@ -18,37 +18,35 @@ import com.kwad.sdk.core.imageloader.utils.BlurUtils;
 import com.kwad.sdk.widget.DownloadProgressView;
 import com.kwad.sdk.widget.KsLogoView;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends a {
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f55763i;
+    public ImageView i;
 
     public b(@NonNull Context context) {
         super(context);
     }
 
     @Override // com.kwad.sdk.reflux.kwai.a
-    public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        FrameLayout.inflate(context, R.layout.ksad_reflux_card_left, this);
-        ((a) this).a = (TextView) findViewById(R.id.ksad_reflux_card_title);
-        ((a) this).f55756e = (ImageView) findViewById(R.id.ksad_reflux_card_img);
-        ((a) this).f55757f = (KsLogoView) findViewById(R.id.ksad_reflux_card_logo);
-        ((a) this).f55755d = (ImageView) findViewById(R.id.ksad_reflux_app_icon);
-        ((a) this).f55753b = (TextView) findViewById(R.id.ksad_reflux_app_name);
-        ((a) this).f55754c = (TextView) findViewById(R.id.ksad_reflux_app_desc);
-        ((a) this).f55758g = (ComplianceTextView) findViewById(R.id.ksad_reflux_card_title_compliance);
-        this.f55759h = (DownloadProgressView) findViewById(R.id.ksad_reflux_app_download_btn);
-        this.f55763i = (ImageView) findViewById(R.id.ksad_reflux_card_blur);
+    public void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d045b, this);
+        ((a) this).a = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d7);
+        ((a) this).f40737e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d5);
+        ((a) this).f40738f = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0910d6);
+        ((a) this).f40736d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d0);
+        ((a) this).f40734b = (TextView) findViewById(R.id.obfuscated_res_0x7f0910d1);
+        ((a) this).f40735c = (TextView) findViewById(R.id.obfuscated_res_0x7f0910cb);
+        ((a) this).f40739g = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0910d8);
+        this.f40740h = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0910cc);
+        this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d3);
     }
 
     @Override // com.kwad.sdk.reflux.kwai.a
     public void a(com.kwad.sdk.reflux.b bVar) {
         super.a(bVar);
-        if (bVar == null || bVar.c() == null || this.f55763i == null) {
+        if (bVar == null || bVar.c() == null || this.i == null) {
             return;
         }
-        ImageLoaderProxy.INSTANCE.load(getContext(), bVar.h(), this.f55763i, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reflux.kwai.b.1
+        ImageLoaderProxy.INSTANCE.load(getContext(), bVar.h(), this.i, new DisplayImageOptionsCompat.Builder().setBlurRadius(50).build(), new SimpleImageLoadingListener() { // from class: com.kwad.sdk.reflux.kwai.b.1
             @Override // com.kwad.sdk.core.imageloader.core.listener.SimpleImageLoadingListener, com.kwad.sdk.core.imageloader.core.listener.ImageLoadingListener
             public boolean onDecode(String str, InputStream inputStream, DecodedResult decodedResult) {
                 decodedResult.mBitmap = BlurUtils.stackBlur(BitmapFactory.decodeStream(inputStream), 50, false);

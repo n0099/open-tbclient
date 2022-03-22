@@ -9,26 +9,24 @@ import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ScrollingView;
-import c.a.p0.m.j.d;
+import c.a.n0.m.j.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FlipperFrameLayout extends FrameLayout implements d.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f38537e;
+    /* renamed from: b  reason: collision with root package name */
+    public d f29626b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public d f38538f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f38539g;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f29627c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlipperFrameLayout(@NonNull Context context) {
@@ -39,9 +37,9 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -50,10 +48,26 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         }
     }
 
-    public final boolean a() {
+    @Override // c.a.n0.m.j.d.b
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f29627c = false;
+        }
+    }
+
+    @Override // c.a.n0.m.j.d.b
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f29627c = true;
+        }
+    }
+
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (getChildCount() <= 0) {
                 return true;
             }
@@ -66,26 +80,10 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         return invokeV.booleanValue;
     }
 
-    public final boolean b(float f2) {
+    public final boolean d(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? Math.abs(f2) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
-    }
-
-    @Override // c.a.p0.m.j.d.b
-    public void onFlipOver(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f38539g = false;
-        }
-    }
-
-    @Override // c.a.p0.m.j.d.b
-    public void onFlipStart(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f38539g = true;
-        }
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048579, this, f2)) == null) ? Math.abs(f2) >= ((float) ViewConfiguration.getTouchSlop()) : invokeF.booleanValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:16:0x001a, code lost:
@@ -99,29 +97,29 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            if (!this.f38539g && this.f38538f != null) {
+            if (!this.f29627c && this.f29626b != null) {
                 int action = motionEvent.getAction();
                 if (action != 0) {
                     if (action != 1) {
                         if (action == 2) {
-                            float rawY = motionEvent.getRawY() - this.f38537e;
+                            float rawY = motionEvent.getRawY() - this.a;
                             boolean z = rawY <= 0.0f;
-                            if (z && !this.f38538f.d() && b(rawY)) {
-                                this.f38538f.e(true);
+                            if (z && !this.f29626b.d() && d(rawY)) {
+                                this.f29626b.e(true);
                                 return true;
-                            } else if (!z && a() && this.f38538f.d() && b(rawY)) {
-                                this.f38538f.e(false);
+                            } else if (!z && c() && this.f29626b.d() && d(rawY)) {
+                                this.f29626b.e(false);
                                 return true;
                             }
                         }
                     }
-                    this.f38537e = motionEvent.getRawY();
+                    this.a = motionEvent.getRawY();
                 } else {
-                    this.f38537e = motionEvent.getRawY();
+                    this.a = motionEvent.getRawY();
                 }
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            this.f38537e = motionEvent.getRawY();
+            this.a = motionEvent.getRawY();
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
@@ -130,7 +128,7 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
     public void setViewFlipper(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            this.f38538f = dVar;
+            this.f29626b = dVar;
         }
     }
 
@@ -143,9 +141,9 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -156,17 +154,17 @@ public class FlipperFrameLayout extends FrameLayout implements d.b {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FlipperFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

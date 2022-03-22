@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttExtractor implements Extractor {
     public static /* synthetic */ Interceptable $ic;
     public static final Pattern LOCAL_TIMESTAMP;
@@ -65,9 +65,9 @@ public final class WebvttExtractor implements Extractor {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, timestampAdjuster};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -79,12 +79,12 @@ public final class WebvttExtractor implements Extractor {
         this.sampleData = new byte[1024];
     }
 
-    private TrackOutput buildTrackOutput(long j2) {
+    private TrackOutput buildTrackOutput(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             TrackOutput track = this.output.track(0, 3);
-            track.format(Format.createTextSampleFormat((String) null, MimeTypes.TEXT_VTT, (String) null, -1, 0, this.language, (DrmInitData) null, j2));
+            track.format(Format.createTextSampleFormat((String) null, MimeTypes.TEXT_VTT, (String) null, -1, 0, this.language, (DrmInitData) null, j));
             this.output.endTracks();
             return track;
         }
@@ -99,8 +99,8 @@ public final class WebvttExtractor implements Extractor {
         ParsableByteArray parsableByteArray = new ParsableByteArray(this.sampleData);
         try {
             WebvttParserUtil.validateWebvttHeaderLine(parsableByteArray);
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
             while (true) {
                 String readLine = parsableByteArray.readLine();
                 if (!TextUtils.isEmpty(readLine)) {
@@ -109,8 +109,8 @@ public final class WebvttExtractor implements Extractor {
                         if (matcher.find()) {
                             Matcher matcher2 = MEDIA_TIMESTAMP.matcher(readLine);
                             if (matcher2.find()) {
-                                j3 = WebvttParserUtil.parseTimestampUs(matcher.group(1));
-                                j2 = TimestampAdjuster.ptsToUs(Long.parseLong(matcher2.group(1)));
+                                j2 = WebvttParserUtil.parseTimestampUs(matcher.group(1));
+                                j = TimestampAdjuster.ptsToUs(Long.parseLong(matcher2.group(1)));
                             } else {
                                 throw new ParserException("X-TIMESTAMP-MAP doesn't contain media timestamp: " + readLine);
                             }
@@ -125,7 +125,7 @@ public final class WebvttExtractor implements Extractor {
                         return;
                     }
                     long parseTimestampUs = WebvttParserUtil.parseTimestampUs(findNextCueHeader.group(1));
-                    long adjustTsTimestamp = this.timestampAdjuster.adjustTsTimestamp(TimestampAdjuster.usToPts((j2 + parseTimestampUs) - j3));
+                    long adjustTsTimestamp = this.timestampAdjuster.adjustTsTimestamp(TimestampAdjuster.usToPts((j + parseTimestampUs) - j2));
                     TrackOutput buildTrackOutput = buildTrackOutput(adjustTsTimestamp - parseTimestampUs);
                     this.sampleDataWrapper.reset(this.sampleData, this.sampleSize);
                     buildTrackOutput.sampleData(this.sampleDataWrapper, this.sampleSize);
@@ -153,18 +153,18 @@ public final class WebvttExtractor implements Extractor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorInput, positionHolder)) == null) {
             int length = (int) extractorInput.getLength();
-            int i2 = this.sampleSize;
+            int i = this.sampleSize;
             byte[] bArr = this.sampleData;
-            if (i2 == bArr.length) {
+            if (i == bArr.length) {
                 this.sampleData = Arrays.copyOf(bArr, ((length != -1 ? length : bArr.length) * 3) / 2);
             }
             byte[] bArr2 = this.sampleData;
-            int i3 = this.sampleSize;
-            int read = extractorInput.read(bArr2, i3, bArr2.length - i3);
+            int i2 = this.sampleSize;
+            int read = extractorInput.read(bArr2, i2, bArr2.length - i2);
             if (read != -1) {
-                int i4 = this.sampleSize + read;
-                this.sampleSize = i4;
-                if (length == -1 || i4 != length) {
+                int i3 = this.sampleSize + read;
+                this.sampleSize = i3;
+                if (length == -1 || i3 != length) {
                     return 0;
                 }
             }
@@ -182,9 +182,9 @@ public final class WebvttExtractor implements Extractor {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             throw new IllegalStateException();
         }
     }

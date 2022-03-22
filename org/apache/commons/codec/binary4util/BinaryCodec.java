@@ -15,7 +15,7 @@ import org.apache.commons.base.BinaryEncoder;
 import org.apache.commons.base.DecoderException;
 import org.apache.commons.base.EncoderException;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BITS;
@@ -54,9 +54,9 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,19 +71,19 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
                 int length = cArr.length >> 3;
                 byte[] bArr = new byte[length];
                 int length2 = cArr.length - 1;
-                int i2 = 0;
-                while (i2 < length) {
-                    int i3 = 0;
+                int i = 0;
+                while (i < length) {
+                    int i2 = 0;
                     while (true) {
                         int[] iArr = BITS;
-                        if (i3 < iArr.length) {
-                            if (cArr[length2 - i3] == '1') {
-                                bArr[i2] = (byte) (iArr[i3] | bArr[i2]);
+                        if (i2 < iArr.length) {
+                            if (cArr[length2 - i2] == '1') {
+                                bArr[i] = (byte) (iArr[i2] | bArr[i]);
                             }
-                            i3++;
+                            i2++;
                         }
                     }
-                    i2++;
+                    i++;
                     length2 -= 8;
                 }
                 return bArr;
@@ -108,23 +108,23 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
             }
             int length = bArr.length << 3;
             byte[] bArr2 = new byte[length];
-            int i2 = length - 1;
-            int i3 = 0;
-            while (i3 < bArr.length) {
-                int i4 = 0;
+            int i = length - 1;
+            int i2 = 0;
+            while (i2 < bArr.length) {
+                int i3 = 0;
                 while (true) {
                     int[] iArr = BITS;
-                    if (i4 < iArr.length) {
-                        if ((iArr[i4] & bArr[i3]) == 0) {
-                            bArr2[i2 - i4] = 48;
+                    if (i3 < iArr.length) {
+                        if ((iArr[i3] & bArr[i2]) == 0) {
+                            bArr2[i - i3] = 48;
                         } else {
-                            bArr2[i2 - i4] = 49;
+                            bArr2[i - i3] = 49;
                         }
-                        i4++;
+                        i3++;
                     }
                 }
-                i3++;
-                i2 -= 8;
+                i2++;
+                i -= 8;
             }
             return bArr2;
         }
@@ -140,23 +140,23 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
             }
             int length = bArr.length << 3;
             char[] cArr = new char[length];
-            int i2 = length - 1;
-            int i3 = 0;
-            while (i3 < bArr.length) {
-                int i4 = 0;
+            int i = length - 1;
+            int i2 = 0;
+            while (i2 < bArr.length) {
+                int i3 = 0;
                 while (true) {
                     int[] iArr = BITS;
-                    if (i4 < iArr.length) {
-                        if ((iArr[i4] & bArr[i3]) == 0) {
-                            cArr[i2 - i4] = '0';
+                    if (i3 < iArr.length) {
+                        if ((iArr[i3] & bArr[i2]) == 0) {
+                            cArr[i - i3] = '0';
                         } else {
-                            cArr[i2 - i4] = '1';
+                            cArr[i - i3] = '1';
                         }
-                        i4++;
+                        i3++;
                     }
                 }
-                i3++;
-                i2 -= 8;
+                i2++;
+                i -= 8;
             }
             return cArr;
         }
@@ -233,19 +233,19 @@ public class BinaryCodec implements BinaryDecoder, BinaryEncoder {
             int length = bArr.length >> 3;
             byte[] bArr2 = new byte[length];
             int length2 = bArr.length - 1;
-            int i2 = 0;
-            while (i2 < length) {
-                int i3 = 0;
+            int i = 0;
+            while (i < length) {
+                int i2 = 0;
                 while (true) {
                     int[] iArr = BITS;
-                    if (i3 < iArr.length) {
-                        if (bArr[length2 - i3] == 49) {
-                            bArr2[i2] = (byte) (iArr[i3] | bArr2[i2]);
+                    if (i2 < iArr.length) {
+                        if (bArr[length2 - i2] == 49) {
+                            bArr2[i] = (byte) (iArr[i2] | bArr2[i]);
                         }
-                        i3++;
+                        i2++;
                     }
                 }
-                i2++;
+                i++;
                 length2 -= 8;
             }
             return bArr2;

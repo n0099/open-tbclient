@@ -15,24 +15,24 @@ public class CppSystemErrorException extends CppException {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Keep
-    public CppSystemErrorException(String str, int i2) {
+    public CppSystemErrorException(String str, int i) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.errorCode = i2;
+        this.errorCode = i;
     }
 
     public int getErrorCode() {

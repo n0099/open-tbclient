@@ -13,6 +13,7 @@ import com.airbnb.lottie.model.layer.Layer;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.utils.Utils;
 import com.airbnb.lottie.value.Keyframe;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.fun.ad.sdk.FunAdSdk;
 import com.yy.hiidostatis.inner.BaseStatisContent;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes3.dex */
 public class LayerParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", "ty", "parent", TbConfig.SW_APID, "sh", "sc", FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", "op", "tm", "cl", "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "ind", "refId", Config.EXCEPTION_CRASH_CHANNEL, "parent", TbConfig.SW_APID, "sh", Config.STAT_SDK_CHANNEL, FunAdSdk.PLATFORM_KS, "tt", "masksProperties", "shapes", "t", "ef", BaseStatisContent.SR, "st", "w", "h", "ip", Config.OPERATOR, "tm", "cl", "hd");
     public static final JsonReader.Options TEXT_NAMES = JsonReader.Options.of("d", "a");
     public static final JsonReader.Options EFFECTS_NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE);
 
@@ -65,18 +66,18 @@ public class LayerParser {
         AnimatableTextFrame animatableTextFrame = null;
         AnimatableTextProperties animatableTextProperties = null;
         AnimatableFloatValue animatableFloatValue = null;
-        long j2 = -1;
+        long j = -1;
         float f2 = 0.0f;
         float f3 = 0.0f;
+        int i = 0;
         int i2 = 0;
         int i3 = 0;
-        int i4 = 0;
         float f4 = 1.0f;
         float f5 = 0.0f;
+        int i4 = 0;
         int i5 = 0;
-        int i6 = 0;
         boolean z = false;
-        long j3 = 0;
+        long j2 = 0;
         String str2 = null;
         String str3 = "UNSET";
         while (jsonReader.hasNext()) {
@@ -85,7 +86,7 @@ public class LayerParser {
                     str3 = jsonReader.nextString();
                     break;
                 case 1:
-                    j3 = jsonReader.nextInt();
+                    j2 = jsonReader.nextInt();
                     break;
                 case 2:
                     str = jsonReader.nextString();
@@ -100,16 +101,16 @@ public class LayerParser {
                         break;
                     }
                 case 4:
-                    j2 = jsonReader.nextInt();
+                    j = jsonReader.nextInt();
                     break;
                 case 5:
-                    i2 = (int) (jsonReader.nextInt() * Utils.dpScale());
+                    i = (int) (jsonReader.nextInt() * Utils.dpScale());
                     break;
                 case 6:
-                    i3 = (int) (jsonReader.nextInt() * Utils.dpScale());
+                    i2 = (int) (jsonReader.nextInt() * Utils.dpScale());
                     break;
                 case 7:
-                    i4 = Color.parseColor(jsonReader.nextString());
+                    i3 = Color.parseColor(jsonReader.nextString());
                     break;
                 case 8:
                     animatableTransform = AnimatableTransformParser.parse(jsonReader, lottieComposition);
@@ -121,10 +122,10 @@ public class LayerParser {
                         break;
                     } else {
                         matteType2 = Layer.MatteType.values()[nextInt2];
-                        int i7 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[matteType2.ordinal()];
-                        if (i7 == 1) {
+                        int i6 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$model$layer$Layer$MatteType[matteType2.ordinal()];
+                        if (i6 == 1) {
                             lottieComposition.addWarning("Unsupported matte type: Luma");
-                        } else if (i7 == 2) {
+                        } else if (i6 == 2) {
                             lottieComposition.addWarning("Unsupported matte type: Luma Inverted");
                         }
                         lottieComposition.incrementMatteOrMaskCount(1);
@@ -195,10 +196,10 @@ public class LayerParser {
                     f5 = (float) jsonReader.nextDouble();
                     break;
                 case 16:
-                    i5 = (int) (jsonReader.nextInt() * Utils.dpScale());
+                    i4 = (int) (jsonReader.nextInt() * Utils.dpScale());
                     break;
                 case 17:
-                    i6 = (int) (jsonReader.nextInt() * Utils.dpScale());
+                    i5 = (int) (jsonReader.nextInt() * Utils.dpScale());
                     break;
                 case 18:
                     f2 = (float) jsonReader.nextDouble();
@@ -241,6 +242,6 @@ public class LayerParser {
         if (str3.endsWith(".ai") || "ai".equals(str2)) {
             lottieComposition.addWarning("Convert your Illustrator layers to shape layers.");
         }
-        return new Layer(arrayList4, lottieComposition, str3, j3, layerType, j2, str, arrayList, animatableTransform, i2, i3, i4, f4, f5, i5, i6, animatableTextFrame, animatableTextProperties, arrayList2, matteType2, animatableFloatValue, z);
+        return new Layer(arrayList4, lottieComposition, str3, j2, layerType, j, str, arrayList, animatableTransform, i, i2, i3, f4, f5, i4, i5, animatableTextFrame, animatableTextProperties, arrayList2, matteType2, animatableFloatValue, z);
     }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,20 +34,20 @@ public final class b {
 
     public static <T> boolean a(@Nullable T[] tArr, T t) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tArr, t)) == null) {
             if (tArr != null) {
-                i2 = 0;
-                while (i2 < tArr.length) {
-                    if (tArr[i2] == t || (tArr[i2] != null && tArr[i2].equals(t))) {
+                i = 0;
+                while (i < tArr.length) {
+                    if (tArr[i] == t || (tArr[i] != null && tArr[i].equals(t))) {
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             }
-            i2 = -1;
-            return i2 != -1;
+            i = -1;
+            return i != -1;
         }
         return invokeLL.booleanValue;
     }

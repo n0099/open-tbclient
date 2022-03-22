@@ -69,8 +69,8 @@ public class TipsConfigItem extends b<TipConfigData> {
             }
         }
 
-        public void setTipShowSwitch(int i2) {
-            this.tipShowSwitch = i2;
+        public void setTipShowSwitch(int i) {
+            this.tipShowSwitch = i;
         }
 
         @Override // com.kwad.sdk.core.b

@@ -1,8 +1,8 @@
 package com.baidu.tieba.newinterest.activity;
 
 import android.os.Bundle;
-import c.a.q0.r.j0.b;
-import c.a.r0.q2.h.a;
+import c.a.o0.r.j0.b;
+import c.a.p0.s2.h.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,9 +47,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             return;
         }
         this.mScene = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
-        this.mOnlyShowInterestedForum = getIntent().getBooleanExtra("key_only_show_interested_forum", false);
+        this.mOnlyShowInterestedForum = getIntent().getBooleanExtra(InterestGuideActivityConfig.KEY_ONLY_SHOW_INTERESTED_FORUM, false);
         this.mClassIds = getIntent().getIntegerArrayListExtra(InterestGuideActivityConfig.KEY_CLASS_ID_WHEN_ONLY_SHOW_INTERESTED_FORUM);
-        this.mCustomTitle = getIntent().getStringArrayExtra("key_custom_title");
+        this.mCustomTitle = getIntent().getStringArrayExtra(InterestGuideActivityConfig.KEY_CUSTOM_TITLE);
     }
 
     private void setInterestGuideConf() {
@@ -77,9 +77,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             if (UbsABTestHelper.isInterestGuideStyleB()) {
                 UtilHelper.setNavigationBarBg(getActivity(), SkinManager.getColor(R.color.CAM_X0206));
             } else {

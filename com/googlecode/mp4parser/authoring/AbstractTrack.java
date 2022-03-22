@@ -20,9 +20,9 @@ public abstract class AbstractTrack implements Track {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,11 +44,11 @@ public abstract class AbstractTrack implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = 0;
-            for (long j3 : getSampleDurations()) {
-                j2 += j3;
+            long j = 0;
+            for (long j2 : getSampleDurations()) {
+                j += j2;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

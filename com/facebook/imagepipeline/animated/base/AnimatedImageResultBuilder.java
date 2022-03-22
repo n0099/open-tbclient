@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedImageResultBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class AnimatedImageResultBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedImage};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,11 +87,11 @@ public class AnimatedImageResultBuilder {
         return (AnimatedImageResultBuilder) invokeL.objValue;
     }
 
-    public AnimatedImageResultBuilder setFrameForPreview(int i2) {
+    public AnimatedImageResultBuilder setFrameForPreview(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.mFrameForPreview = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.mFrameForPreview = i;
             return this;
         }
         return (AnimatedImageResultBuilder) invokeI.objValue;

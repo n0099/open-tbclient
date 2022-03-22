@@ -27,9 +27,9 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -63,14 +63,14 @@ public class ActionMessageFormat0SampleEntryBox extends AbstractSampleEntry {
     }
 
     @Override // com.coremedia.iso.boxes.sampleentry.AbstractSampleEntry, com.googlecode.mp4parser.AbstractContainerBox, com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             ByteBuffer allocate = ByteBuffer.allocate(8);
             dataSource.read(allocate);
             allocate.position(6);
             this.dataReferenceIndex = IsoTypeReader.readUInt16(allocate);
-            parseContainer(dataSource, j2 - 8, boxParser);
+            parseContainer(dataSource, j - 8, boxParser);
         }
     }
 }

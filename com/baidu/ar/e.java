@@ -65,13 +65,13 @@ public class e {
     public ConcurrentHashMap<PixelReadParams, PixelReadListener> at;
 
     /* renamed from: d  reason: collision with root package name */
-    public DefaultParams f31469d;
+    public DefaultParams f24830d;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.baidu.ar.lua.b f31470f;
+    public com.baidu.ar.lua.b f24831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public com.baidu.ar.arrender.c f31471g;
+    public com.baidu.ar.arrender.c f24832g;
     public Context mContext;
 
     /* renamed from: com.baidu.ar.e$8  reason: invalid class name */
@@ -134,9 +134,9 @@ public class e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -198,9 +198,9 @@ public class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, defaultParams, handlerThread};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -217,7 +217,7 @@ public class e {
         this.aq = false;
         this.ar = true;
         this.mContext = context;
-        this.f31469d = defaultParams;
+        this.f24830d = defaultParams;
         this.as = new a(this, handlerThread.getLooper());
         this.at = new ConcurrentHashMap<>();
     }
@@ -238,9 +238,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -250,16 +250,16 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.lua.c
-                public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+                public void a(int i, int i2, HashMap<String, Object> hashMap) {
                     a aVar;
                     a aVar2;
-                    int i4;
+                    int i3;
                     Message message;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
-                        com.baidu.ar.h.b.c("ControllerHelper", "onEngineMessage msgType = " + i2 + " && msgId = " + i3);
-                        if (i2 != 12) {
-                            if (i2 == 50) {
+                    if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
+                        com.baidu.ar.h.b.c("ControllerHelper", "onEngineMessage msgType = " + i + " && msgId = " + i2);
+                        if (i != 12) {
+                            if (i == 50) {
                                 if (this.au.as != null) {
                                     aVar = this.au.as;
                                     message = this.au.as.obtainMessage(4004, hashMap);
@@ -267,12 +267,12 @@ public class e {
                                 }
                                 return;
                             }
-                            switch (i2) {
+                            switch (i) {
                                 case 6:
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
-                                        i4 = 4005;
+                                        i3 = 4005;
                                         break;
                                     } else {
                                         return;
@@ -281,17 +281,17 @@ public class e {
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
-                                        i4 = 4006;
+                                        i3 = 4006;
                                         break;
                                     } else {
                                         return;
                                     }
                                 case 8:
-                                    this.au.f31471g.bw();
+                                    this.au.f24832g.bw();
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
-                                        i4 = 4007;
+                                        i3 = 4007;
                                         break;
                                     } else {
                                         return;
@@ -300,7 +300,7 @@ public class e {
                                     if (this.au.as != null) {
                                         aVar = this.au.as;
                                         aVar2 = this.au.as;
-                                        i4 = 4008;
+                                        i3 = 4008;
                                         break;
                                     } else {
                                         return;
@@ -313,9 +313,9 @@ public class e {
                         } else {
                             aVar = this.au.as;
                             aVar2 = this.au.as;
-                            i4 = 4003;
+                            i3 = 4003;
                         }
-                        message = aVar2.obtainMessage(i4);
+                        message = aVar2.obtainMessage(i3);
                         aVar.sendMessage(message);
                     }
                 }
@@ -328,7 +328,7 @@ public class e {
                 }
             };
             this.ac = cVar;
-            com.baidu.ar.lua.b bVar = this.f31470f;
+            com.baidu.ar.lua.b bVar = this.f24831f;
             if (bVar != null) {
                 bVar.c(cVar);
             }
@@ -350,9 +350,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -382,11 +382,11 @@ public class e {
     public void G() {
         Bitmap createTipBitmap;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f31471g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) || this.f24832g == null || this.W == null || (createTipBitmap = ARAuth.createTipBitmap(this.mContext)) == null) {
             return;
         }
         float outputWidth = ((this.W.getOutputWidth() * createTipBitmap.getHeight()) * 0.78125f) / (this.W.getOutputHeight() * createTipBitmap.getWidth());
-        this.f31471g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
+        this.f24832g.a(createTipBitmap, 0.109375f, (0.25f - outputWidth) / 2.0f, 0.78125f, outputWidth);
     }
 
     private void H() {
@@ -416,7 +416,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
             H();
-            com.baidu.ar.arrender.c cVar = this.f31471g;
+            com.baidu.ar.arrender.c cVar = this.f24832g;
             if (cVar != null) {
                 cVar.bB();
             }
@@ -449,7 +449,7 @@ public class e {
             if (bVar != null) {
                 bVar.e();
             }
-            com.baidu.ar.arrender.c cVar = this.f31471g;
+            com.baidu.ar.arrender.c cVar = this.f24832g;
             if (cVar != null) {
                 cVar.o(true);
             }
@@ -564,13 +564,13 @@ public class e {
         }
     }
 
-    private void a(int i2) {
+    private void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("continuous_mapping", m("interaction_space_move"));
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("limit_radius_invariant", Integer.valueOf(i2));
+            hashMap2.put("limit_radius_invariant", Integer.valueOf(i));
             hashMap.put("space_move_config", hashMap2);
             ARPScriptEnvironment.getInstance().setSharedEnvironmentKV("interactioninfo", hashMap);
         }
@@ -584,7 +584,7 @@ public class e {
             HashMap hashMap2 = new HashMap();
             hashMap2.put(str2, str3);
             hashMap.put("event_data", hashMap2);
-            com.baidu.ar.lua.b bVar = this.f31470f;
+            com.baidu.ar.lua.b bVar = this.f24831f;
             if (bVar != null) {
                 bVar.b(1902, hashMap);
             }
@@ -594,12 +594,12 @@ public class e {
     private void b(ARType aRType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, this, aRType) == null) {
-            int i2 = AnonymousClass8.ax[aRType.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass8.ax[aRType.ordinal()];
+            if (i == 1) {
                 a(1);
-            } else if (i2 == 2 || i2 == 3 || i2 == 4) {
+            } else if (i == 2 || i == 3 || i == 4) {
                 a(0);
-            } else if (i2 != 5) {
+            } else if (i != 5) {
             } else {
                 Q();
             }
@@ -664,7 +664,7 @@ public class e {
                 StatisticApi.onEvent(StatisticConstants.EVENT_CASE_FIRST);
             }
             StatisticApi.onEventStart(StatisticConstants.EVENT_CASE_START);
-            if (this.f31471g != null && !TextUtils.isEmpty(str)) {
+            if (this.f24832g != null && !TextUtils.isEmpty(str)) {
                 String substring = str.substring(0, str.lastIndexOf(File.separator + "ar"));
                 this.ai = substring;
                 this.aj = str2;
@@ -672,12 +672,12 @@ public class e {
                 if (aVar != null) {
                     aVar.am(substring);
                 }
-                if (this.f31469d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
-                    this.f31471g.p(false);
+                if (this.f24830d.isUseInputSizeInEngine() || aRType == ARType.FACE || aRType == ARType.VPAS) {
+                    this.f24832g.p(false);
                 } else {
-                    this.f31471g.p(true);
+                    this.f24832g.p(true);
                 }
-                this.f31471g.L(str);
+                this.f24832g.L(str);
             }
             if (aRType == null || (bVar = this.ad) == null) {
                 return;
@@ -752,9 +752,9 @@ public class e {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -765,11 +765,11 @@ public class e {
                 }
 
                 @Override // com.baidu.ar.auth.IAuthCallback
-                public void onError(String str, int i2) {
+                public void onError(String str, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i2) == null) {
-                        com.baidu.ar.h.b.b("ControllerHelper", String.format("auth fail feature: %d msg: %s", Integer.valueOf(i2), str));
-                        if (i2 == 0) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, str, i) == null) {
+                        com.baidu.ar.h.b.b("ControllerHelper", String.format("auth fail feature: %d msg: %s", Integer.valueOf(i), str));
+                        if (i == 0) {
                             this.au.ak = true;
                             if (this.au.as != null) {
                                 this.au.as.sendMessage(this.au.as.obtainMessage(4002));
@@ -801,7 +801,7 @@ public class e {
             return;
         }
         for (Map.Entry<PixelReadParams, PixelReadListener> entry : this.at.entrySet()) {
-            this.f31471g.createPixelReader(entry.getKey(), entry.getValue());
+            this.f24832g.createPixelReader(entry.getKey(), entry.getValue());
         }
         this.at.clear();
     }
@@ -833,9 +833,9 @@ public class e {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -877,9 +877,9 @@ public class e {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -913,9 +913,9 @@ public class e {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, bVar};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -930,13 +930,13 @@ public class e {
             /* renamed from: b */
             public void run(JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f31471g == null) {
+                if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) || this.au.f24832g == null) {
                     return;
                 }
                 if (jSONObject != null) {
-                    this.au.f31471g.a(jSONObject);
+                    this.au.f24832g.a(jSONObject);
                 } else if (this.av != null) {
-                    this.au.f31471g.setLocalDeviceGrade(this.av.ag());
+                    this.au.f24832g.setLocalDeviceGrade(this.av.ag());
                 }
             }
         });
@@ -954,10 +954,10 @@ public class e {
     public void a(com.baidu.ar.arrender.c cVar, b bVar, com.baidu.ar.filter.a aVar, com.baidu.ar.lua.b bVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048582, this, cVar, bVar, aVar, bVar2) == null) {
-            this.f31471g = cVar;
+            this.f24832g = cVar;
             this.ad = bVar;
             this.B = aVar;
-            this.f31470f = bVar2;
+            this.f24831f = bVar2;
         }
     }
 
@@ -1016,9 +1016,9 @@ public class e {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1053,16 +1053,16 @@ public class e {
                 concurrentHashMap.clear();
                 this.at = null;
             }
-            this.f31471g = null;
+            this.f24832g = null;
             this.ad = null;
             this.B = null;
             this.V = null;
             this.W = null;
             this.mContext = null;
-            this.f31469d = null;
+            this.f24830d = null;
             this.ab = null;
             this.ac = null;
-            this.f31470f = null;
+            this.f24831f = null;
             this.as = null;
         }
     }

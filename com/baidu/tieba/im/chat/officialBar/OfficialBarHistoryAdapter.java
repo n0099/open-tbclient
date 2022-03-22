@@ -4,8 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import c.a.r0.s1.f.h;
-import c.a.r0.s1.w.c;
+import c.a.p0.u1.f.h;
+import c.a.p0.u1.w.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,26 +24,22 @@ import java.util.List;
 public class OfficialBarHistoryAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Context f43458e;
+    /* renamed from: b  reason: collision with root package name */
+    public BaseActivity f33728b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public BaseActivity f43459f;
+    /* renamed from: c  reason: collision with root package name */
+    public View.OnClickListener f33729c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public View.OnClickListener f43460g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<ResponseHistoryMessage.a> f43461h;
+    /* renamed from: d  reason: collision with root package name */
+    public List<ResponseHistoryMessage.a> f33730d;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ OfficialBarHistoryAdapter f43462e;
+        public final /* synthetic */ OfficialBarHistoryAdapter a;
 
         public a(OfficialBarHistoryAdapter officialBarHistoryAdapter) {
             Interceptable interceptable = $ic;
@@ -52,30 +48,30 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {officialBarHistoryAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43462e = officialBarHistoryAdapter;
+            this.a = officialBarHistoryAdapter;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             int intValue;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (intValue = ((Integer) view.getTag()).intValue()) < 0 || intValue >= this.f43462e.f43461h.size()) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || (intValue = ((Integer) view.getTag()).intValue()) < 0 || intValue >= this.a.f33730d.size()) {
                 return;
             }
-            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.f43462e.f43461h.get(intValue);
-            String f2 = c.f(PreferencesUtil.LEFT_MOUNT + aVar.f43493c + PreferencesUtil.RIGHT_MOUNT, true);
+            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) this.a.f33730d.get(intValue);
+            String f2 = c.f(PreferencesUtil.LEFT_MOUNT + aVar.f33756c + PreferencesUtil.RIGHT_MOUNT, true);
             if (f2 == null) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.f43462e.f43458e, f2, String.valueOf(aVar.f43494d))));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialHistoryImageActivityConfig(this.a.a, f2, String.valueOf(aVar.f33757d))));
         }
     }
 
@@ -86,29 +82,29 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {baseActivity, context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43460g = new a(this);
-        this.f43458e = context;
-        this.f43459f = baseActivity;
+        this.f33729c = new a(this);
+        this.a = context;
+        this.f33728b = baseActivity;
     }
 
-    public final View b(int i2, View view, ViewGroup viewGroup) {
+    public final View b(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
-            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i2);
-            if (aVar != null && aVar.f43493c != null) {
-                int itemViewType = getItemViewType(i2);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view, viewGroup)) == null) {
+            ResponseHistoryMessage.a aVar = (ResponseHistoryMessage.a) getItem(i);
+            if (aVar != null && aVar.f33756c != null) {
+                int itemViewType = getItemViewType(i);
                 if (itemViewType == 0) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f43458e);
+                        view = new HistoryItemView(this.a);
                     }
                     HistoryItemView historyItemView = (HistoryItemView) view;
                     historyItemView.setClickable(false);
@@ -127,9 +123,9 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, Integer.valueOf(r8)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     super(((Integer) newInitContext.callArgs[0]).intValue());
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
@@ -149,12 +145,12 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                             return invokeV.objValue;
                         }
                     };
-                    chatMessage.setContent(aVar.f43493c);
-                    chatMessage.setMsgType(aVar.f43492b);
+                    chatMessage.setContent(aVar.f33756c);
+                    chatMessage.setMsgType(aVar.f33755b);
                     h.e(historyItemView.getRichTextView(), chatMessage, "official_history_adapter", 0);
                 } else if (itemViewType == 1) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f43458e);
+                        view = new HistoryItemView(this.a);
                     }
                     HistoryItemView historyItemView2 = (HistoryItemView) view;
                     historyItemView2.setClickable(false);
@@ -173,9 +169,9 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, Integer.valueOf(r8)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     super(((Integer) newInitContext.callArgs[0]).intValue());
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
@@ -195,20 +191,20 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
                             return invokeV.objValue;
                         }
                     };
-                    chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.f43493c + PreferencesUtil.RIGHT_MOUNT);
-                    chatMessage2.setMsgType(aVar.f43492b);
-                    h.d(this.f43458e, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
-                    historyItemView2.getImageView().setTag(Integer.valueOf(i2));
-                    historyItemView2.getImageView().setOnClickListener(this.f43460g);
+                    chatMessage2.setContent(PreferencesUtil.LEFT_MOUNT + aVar.f33756c + PreferencesUtil.RIGHT_MOUNT);
+                    chatMessage2.setMsgType(aVar.f33755b);
+                    h.d(this.a, view, historyItemView2.getImageView(), chatMessage2, 0L, "official_history_adapter");
+                    historyItemView2.getImageView().setTag(Integer.valueOf(i));
+                    historyItemView2.getImageView().setOnClickListener(this.f33729c);
                 } else if (itemViewType == 2) {
                     if (view == null) {
-                        view = new HistoryItemView(this.f43458e);
+                        view = new HistoryItemView(this.a);
                     }
-                    MultiContentView multiContentView = new MultiContentView(this.f43458e);
+                    MultiContentView multiContentView = new MultiContentView(this.a);
                     multiContentView.setNeedNightMode(true);
                     multiContentView.setTime(aVar.a);
-                    multiContentView.setData(this.f43459f.getPageContext(), c.a.r0.s1.l.c.a.a(aVar.f43493c, "", 0L, 0L), viewGroup);
-                    ((HistoryItemView) view).addMultiView(multiContentView);
+                    multiContentView.setData(this.f33728b.getPageContext(), c.a.p0.u1.l.c.a.a(aVar.f33756c, "", 0L, 0L), viewGroup);
+                    ((HistoryItemView) view).a(multiContentView);
                 }
             }
             return view;
@@ -219,7 +215,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     public void c(List<ResponseHistoryMessage.a> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f43461h = list;
+            this.f33730d = list;
             notifyDataSetChanged();
         }
     }
@@ -229,7 +225,7 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f43461h;
+            List<ResponseHistoryMessage.a> list = this.f33730d;
             if (list == null) {
                 return 0;
             }
@@ -239,44 +235,44 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public Object getItem(int i2) {
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (this.f43461h == null || i2 >= getCount()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.f33730d == null || i >= getCount()) {
                 return null;
             }
-            return this.f43461h.get(i2);
+            return this.f33730d.get(i);
         }
         return invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f43461h;
-            if (list == null || i2 >= list.size()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<ResponseHistoryMessage.a> list = this.f33730d;
+            if (list == null || i >= list.size()) {
                 return 0L;
             }
-            return i2;
+            return i;
         }
         return invokeI.longValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            List<ResponseHistoryMessage.a> list = this.f43461h;
-            if (list == null || i2 >= list.size()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            List<ResponseHistoryMessage.a> list = this.f33730d;
+            if (list == null || i >= list.size()) {
                 return 0;
             }
-            int i3 = this.f43461h.get(i2).f43492b;
-            if (i3 != 2) {
-                return i3 != 7 ? 0 : 2;
+            int i2 = this.f33730d.get(i).f33755b;
+            if (i2 != 2) {
+                return i2 != 7 ? 0 : 2;
             }
             return 1;
         }
@@ -284,10 +280,10 @@ public class OfficialBarHistoryAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, view, viewGroup)) == null) ? b(i2, view, viewGroup) : (View) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view, viewGroup)) == null) ? b(i, view, viewGroup) : (View) invokeILL.objValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter

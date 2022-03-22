@@ -15,9 +15,9 @@ public final class Pow2 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -26,15 +26,15 @@ public final class Pow2 {
         throw new IllegalStateException("No instances!");
     }
 
-    public static boolean isPowerOfTwo(int i2) {
+    public static boolean isPowerOfTwo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? (i2 & (i2 + (-1))) == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (i & (i + (-1))) == 0 : invokeI.booleanValue;
     }
 
-    public static int roundToPowerOfTwo(int i2) {
+    public static int roundToPowerOfTwo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i2 - 1)) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 1 << (32 - Integer.numberOfLeadingZeros(i - 1)) : invokeI.intValue;
     }
 }

@@ -42,9 +42,9 @@ public class ARPFilter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -61,7 +61,7 @@ public class ARPFilter {
 
     private native void nativeAdjustFilterWithFloatParam(String str, String str2, float f2);
 
-    private native void nativeAdjustFilterWithIntParam(String str, String str2, int i2);
+    private native void nativeAdjustFilterWithIntParam(String str, String str2, int i);
 
     private native String nativeAdjustFilterWithJsonPathParam(String str);
 
@@ -69,7 +69,7 @@ public class ARPFilter {
 
     private native void nativeDisableCaseLutTexture();
 
-    private native void nativeDisableFilterByAuthCode(int i2);
+    private native void nativeDisableFilterByAuthCode(int i);
 
     private native void nativeSetAuthPic(Bitmap bitmap, float[] fArr);
 
@@ -81,24 +81,24 @@ public class ARPFilter {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? nativeAdjustFilterWithCasePathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j2) {
+    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, fArr, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, fArr, Long.valueOf(j)}) == null) {
             nativeAdjustFilterWithFloatArrayParam(str, str2, fArr);
         }
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j2) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) {
             nativeAdjustFilterWithFloatParam(str, str2, f2);
         }
     }
 
-    public void adjustFilterWithIntParam(String str, String str2, int i2, long j2) {
+    public void adjustFilterWithIntParam(String str, String str2, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            nativeAdjustFilterWithIntParam(str, str2, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            nativeAdjustFilterWithIntParam(str, str2, i);
         }
     }
 
@@ -108,10 +108,10 @@ public class ARPFilter {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? nativeAdjustFilterWithJsonPathParam(str) : (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithStringParam(String str, String str2, String str3, long j2) {
+    public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
         SoftReference<Context> softReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) {
             if (!str3.contains(AssetUriLoader.ASSET_PATH_SEGMENT) || (softReference = this.softContext) == null || softReference.get() == null || this.softContext.get().getAssets() == null) {
                 nativeAdjustFilterWithStringParam(str, str2, str3);
                 return;
@@ -157,10 +157,10 @@ public class ARPFilter {
         }
     }
 
-    public void disableFilterByAuthCode(int i2) {
+    public void disableFilterByAuthCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            nativeDisableFilterByAuthCode(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            nativeDisableFilterByAuthCode(i);
         }
     }
 

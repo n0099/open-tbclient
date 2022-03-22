@@ -17,24 +17,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RoundProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36506b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36507c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f36508d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47246e;
+    public float f36509e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47247f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f47248g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f47249h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f47250i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f47251j;
+    public Paint f36510f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundProgressBar(Context context) {
@@ -45,9 +43,9 @@ public class RoundProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -57,11 +55,19 @@ public class RoundProgressBar extends View {
         }
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47249h = 4;
-            this.f47246e = Color.rgb(255, 255, 255);
+            this.f36508d = 4;
+            this.a = Color.rgb(255, 255, 255);
+        }
+    }
+
+    public void b(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
+            this.f36509e = f2;
+            invalidate();
         }
     }
 
@@ -69,27 +75,19 @@ public class RoundProgressBar extends View {
     @SuppressLint({"DrawAllocation"})
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f47247f = getWidth();
+            this.f36506b = getWidth();
             int height = getHeight();
-            this.f47248g = height;
-            if (this.f47247f > height) {
-                this.f47247f = height;
+            this.f36507c = height;
+            if (this.f36506b > height) {
+                this.f36506b = height;
             }
-            this.f47251j.setAntiAlias(true);
-            this.f47251j.setStyle(Paint.Style.STROKE);
-            this.f47251j.setStrokeWidth(this.f47249h);
-            this.f47251j.setColor(this.f47246e);
-            canvas.drawArc(new RectF(5.0f, 5.0f, this.f47247f - 5, this.f47248g - 5), 270.0f, (this.f47250i * 360.0f) / 100.0f, false, this.f47251j);
-        }
-    }
-
-    public void updateProgress(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) {
-            this.f47250i = f2;
-            invalidate();
+            this.f36510f.setAntiAlias(true);
+            this.f36510f.setStyle(Paint.Style.STROKE);
+            this.f36510f.setStrokeWidth(this.f36508d);
+            this.f36510f.setColor(this.a);
+            canvas.drawArc(new RectF(5.0f, 5.0f, this.f36506b - 5, this.f36507c - 5), 270.0f, (this.f36509e * 360.0f) / 100.0f, false, this.f36510f);
         }
     }
 
@@ -102,9 +100,9 @@ public class RoundProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -115,17 +113,17 @@ public class RoundProgressBar extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -133,7 +131,7 @@ public class RoundProgressBar extends View {
                 return;
             }
         }
-        this.f47251j = new Paint();
-        init();
+        this.f36510f = new Paint();
+        a();
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.mutiprocess;
 
 import android.os.Process;
-import c.a.q0.j0.a;
+import c.a.o0.j0.a;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,9 +24,9 @@ public abstract class SerializableEvent implements Serializable, a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,28 +37,28 @@ public abstract class SerializableEvent implements Serializable, a {
         this.mPid = Process.myPid();
     }
 
-    @Override // c.a.q0.j0.a
+    @Override // c.a.o0.j0.a
     public int getPid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mPid : invokeV.intValue;
     }
 
-    @Override // c.a.q0.j0.a
+    @Override // c.a.o0.j0.a
     public int getTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mTag : invokeV.intValue;
     }
 
-    @Override // c.a.q0.j0.a
+    @Override // c.a.o0.j0.a
     public int getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mType : invokeV.intValue;
     }
 
-    @Override // c.a.q0.j0.a
+    @Override // c.a.o0.j0.a
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) || bdUniqueId == null) {
@@ -67,23 +67,23 @@ public abstract class SerializableEvent implements Serializable, a {
         this.mTag = bdUniqueId.getId();
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mType = i;
         }
     }
 
-    public SerializableEvent(int i2) {
+    public SerializableEvent(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -92,6 +92,6 @@ public abstract class SerializableEvent implements Serializable, a {
         this.mTag = 0;
         this.mType = 0;
         this.mPid = Process.myPid();
-        this.mType = i2;
+        this.mType = i;
     }
 }

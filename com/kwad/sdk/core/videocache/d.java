@@ -6,33 +6,32 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Pattern f54828d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
+    public static final Pattern f39923d = Pattern.compile("[R,r]ange:[ ]?bytes=(\\d*)-");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f54829e = Pattern.compile("GET /(.*) HTTP");
+    public static final Pattern f39924e = Pattern.compile("GET /(.*) HTTP");
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f54830b;
+    public final long f39925b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f54831c;
+    public final boolean f39926c;
 
     public d(String str) {
         j.a(str);
         long a = a(str);
-        this.f54830b = Math.max(0L, a);
-        this.f54831c = a >= 0;
+        this.f39925b = Math.max(0L, a);
+        this.f39926c = a >= 0;
         this.a = b(str);
     }
 
     private long a(String str) {
-        Matcher matcher = f54828d.matcher(str);
+        Matcher matcher = f39923d.matcher(str);
         if (matcher.find()) {
             return Long.parseLong(matcher.group(1));
         }
@@ -53,7 +52,7 @@ public class d {
     }
 
     private String b(String str) {
-        Matcher matcher = f54829e.matcher(str);
+        Matcher matcher = f39924e.matcher(str);
         if (matcher.find()) {
             return matcher.group(1);
         }
@@ -61,6 +60,6 @@ public class d {
     }
 
     public String toString() {
-        return "GetRequest{rangeOffset=" + this.f54830b + ", partial=" + this.f54831c + ", uri='" + this.a + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "GetRequest{rangeOffset=" + this.f39925b + ", partial=" + this.f39926c + ", uri='" + this.a + "'}";
     }
 }

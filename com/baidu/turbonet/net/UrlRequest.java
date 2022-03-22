@@ -29,31 +29,27 @@ public interface UrlRequest {
         public final TurbonetEngine a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f48885b;
+        public final String f37779b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final Callback f48886c;
+        public final Callback f37780c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final Executor f48887d;
+        public final Executor f37781d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f48888e;
+        public String f37782e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final ArrayList<Pair<String, String>> f48889f;
+        public final ArrayList<Pair<String, String>> f37783f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f48890g;
+        public boolean f37784g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f48891h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f48892i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public Collection<Object> f48893j;
+        public boolean f37785h;
+        public int i;
+        public Collection<Object> j;
         public UploadDataProvider k;
         public Executor l;
         public boolean m;
@@ -79,17 +75,17 @@ public interface UrlRequest {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, callback, executor, turbonetEngine};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48889f = new ArrayList<>();
-            this.f48892i = 3;
-            this.f48893j = Collections.emptyList();
+            this.f37783f = new ArrayList<>();
+            this.i = 3;
+            this.j = Collections.emptyList();
             if (str == null) {
                 throw new NullPointerException("URL is required.");
             }
@@ -100,9 +96,9 @@ public interface UrlRequest {
                 throw new NullPointerException("Executor is required.");
             }
             if (turbonetEngine != null) {
-                this.f48885b = str;
-                this.f48886c = callback;
-                this.f48887d = executor;
+                this.f37779b = str;
+                this.f37780c = callback;
+                this.f37781d = executor;
                 this.a = turbonetEngine;
                 this.m = false;
                 this.o = false;
@@ -127,7 +123,7 @@ public interface UrlRequest {
                         if ("Accept-Encoding".equalsIgnoreCase(str)) {
                             return this;
                         }
-                        this.f48889f.add(Pair.create(str, str2));
+                        this.f37783f.add(Pair.create(str, str2));
                         return this;
                     }
                     throw new NullPointerException("Invalid header value.");
@@ -141,12 +137,12 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                UrlRequest b2 = this.a.b(this.f48885b, this.f48886c, this.f48887d, this.f48892i, this.f48893j, this.f48890g, this.f48891h, this.n);
-                String str = this.f48888e;
+                UrlRequest b2 = this.a.b(this.f37779b, this.f37780c, this.f37781d, this.i, this.j, this.f37784g, this.f37785h, this.n);
+                String str = this.f37782e;
                 if (str != null) {
                     b2.e(str);
                 }
-                Iterator<Pair<String, String>> it = this.f48889f.iterator();
+                Iterator<Pair<String, String>> it = this.f37783f.iterator();
                 while (it.hasNext()) {
                     Pair<String, String> next = it.next();
                     b2.addHeader((String) next.first, (String) next.second);
@@ -161,21 +157,21 @@ public interface UrlRequest {
                 if (this.o) {
                     b2.g();
                 }
-                int i2 = this.p;
+                int i = this.p;
+                if (i > 0) {
+                    b2.b(i);
+                }
+                int i2 = this.q;
                 if (i2 > 0) {
-                    b2.b(i2);
+                    b2.l(i2);
                 }
-                int i3 = this.q;
+                int i3 = this.r;
                 if (i3 > 0) {
-                    b2.l(i3);
+                    b2.c(i3);
                 }
-                int i4 = this.r;
+                int i4 = this.s;
                 if (i4 > 0) {
-                    b2.c(i4);
-                }
-                int i5 = this.s;
-                if (i5 > 0) {
-                    b2.a(i5);
+                    b2.a(i4);
                 }
                 Object obj = this.t;
                 if (obj != null) {
@@ -196,7 +192,7 @@ public interface UrlRequest {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                this.f48890g = true;
+                this.f37784g = true;
                 return this;
             }
             return (Builder) invokeV.objValue;
@@ -227,7 +223,7 @@ public interface UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
                 if (str != null) {
-                    this.f48888e = str;
+                    this.f37782e = str;
                     return this;
                 }
                 throw new NullPointerException("Method is required.");
@@ -245,31 +241,31 @@ public interface UrlRequest {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder h(int i2) {
+        public Builder h(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                this.r = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                this.r = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder i(int i2) {
+        public Builder i(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                this.q = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                this.q = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder j(int i2) {
+        public Builder j(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-                this.p = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+                this.p = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -281,8 +277,8 @@ public interface UrlRequest {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, uploadDataProvider, executor)) == null) {
                 if (uploadDataProvider != null) {
                     if (executor != null) {
-                        if (this.f48888e == null) {
-                            this.f48888e = "POST";
+                        if (this.f37782e == null) {
+                            this.f37782e = "POST";
                         }
                         this.k = uploadDataProvider;
                         this.l = executor;
@@ -316,9 +312,9 @@ public interface UrlRequest {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -372,20 +368,20 @@ public interface UrlRequest {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public static int a(int i2) {
+        public static int a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                switch (i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                switch (i) {
                     case 0:
                         return 0;
                     case 1:
@@ -435,25 +431,25 @@ public interface UrlRequest {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract void a(int i2);
+        public abstract void a(int i);
     }
 
-    void a(int i2);
+    void a(int i);
 
     void addHeader(String str, String str2);
 
-    void b(int i2);
+    void b(int i);
 
-    void c(int i2);
+    void c(int i);
 
     void cancel();
 
@@ -475,7 +471,7 @@ public interface UrlRequest {
 
     void k(String str);
 
-    void l(int i2);
+    void l(int i);
 
     void read(ByteBuffer byteBuffer);
 

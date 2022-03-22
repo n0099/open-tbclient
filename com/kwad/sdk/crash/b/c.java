@@ -7,10 +7,10 @@ import com.kwad.sdk.crash.e;
 import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import java.io.File;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c extends b {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static final c a = new c();
     }
@@ -50,19 +50,19 @@ public final class c extends b {
             java.lang.String r5 = "java_crash_dump_error"
             java.lang.String r6 = "------  Java Crash Happened Begin ------\n"
             java.lang.String r7 = "ExceptionCollector"
-            java.util.concurrent.atomic.AtomicInteger r0 = r1.f55085d
+            java.util.concurrent.atomic.AtomicInteger r0 = r1.f40164d
             int r0 = r0.getAndIncrement()
-            java.io.File r8 = r1.f55087f
-            java.io.File r9 = r1.f55088g
-            java.io.File r10 = r1.f55089h
-            java.io.File r11 = r1.f55090i
+            java.io.File r8 = r1.f40166f
+            java.io.File r9 = r1.f40167g
+            java.io.File r10 = r1.f40168h
+            java.io.File r11 = r1.i
             com.kwad.sdk.crash.report.c r12 = r21.a()
             java.lang.String r13 = r22.toString()     // Catch: java.lang.Throwable -> L1b7
             r2.mCrashDetail = r13     // Catch: java.lang.Throwable -> L1b7
-            java.io.File r13 = r1.f55086e     // Catch: java.lang.Throwable -> L1b7
+            java.io.File r13 = r1.f40165e     // Catch: java.lang.Throwable -> L1b7
             boolean r13 = r13.exists()     // Catch: java.lang.Throwable -> L1b7
             if (r13 != 0) goto L62
-            java.io.File r13 = r1.f55086e     // Catch: java.lang.Throwable -> L5f
+            java.io.File r13 = r1.f40165e     // Catch: java.lang.Throwable -> L5f
             boolean r13 = r13.mkdirs()     // Catch: java.lang.Throwable -> L5f
             if (r13 != 0) goto L62
             java.lang.StringBuilder r13 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L5f
@@ -72,7 +72,7 @@ public final class c extends b {
             java.lang.String r14 = "create "
             r13.append(r14)     // Catch: java.lang.Throwable -> L5f
             com.kwad.sdk.crash.b.c r14 = d()     // Catch: java.lang.Throwable -> L5f
-            java.io.File r14 = r14.f55086e     // Catch: java.lang.Throwable -> L5f
+            java.io.File r14 = r14.f40165e     // Catch: java.lang.Throwable -> L5f
             java.lang.String r14 = r14.getPath()     // Catch: java.lang.Throwable -> L5f
             r13.append(r14)     // Catch: java.lang.Throwable -> L5f
             java.lang.String r14 = " failed!\n"
@@ -98,7 +98,7 @@ public final class c extends b {
         L6f:
             java.io.File r15 = new java.io.File     // Catch: java.lang.Throwable -> L1af
             r16 = r8
-            java.io.File r8 = r1.f55086e     // Catch: java.lang.Throwable -> L1a7
+            java.io.File r8 = r1.f40165e     // Catch: java.lang.Throwable -> L1a7
             r17 = r5
             java.lang.StringBuilder r5 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L19f
             r5.<init>()     // Catch: java.lang.Throwable -> L19f
@@ -117,7 +117,7 @@ public final class c extends b {
             if (r0 == 0) goto Lbd
         L9a:
             java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> L18b
-            java.io.File r5 = r1.f55086e     // Catch: java.lang.Throwable -> L18b
+            java.io.File r5 = r1.f40165e     // Catch: java.lang.Throwable -> L18b
             java.lang.StringBuilder r15 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L18b
             r15.<init>()     // Catch: java.lang.Throwable -> L18b
             r19 = r9
@@ -135,7 +135,7 @@ public final class c extends b {
             if (r0 == 0) goto Le4
         Lc1:
             java.io.File r3 = new java.io.File     // Catch: java.lang.Throwable -> L17f
-            java.io.File r5 = r1.f55086e     // Catch: java.lang.Throwable -> L17f
+            java.io.File r5 = r1.f40165e     // Catch: java.lang.Throwable -> L17f
             java.lang.StringBuilder r15 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L17f
             r15.<init>()     // Catch: java.lang.Throwable -> L17f
             r20 = r10
@@ -152,9 +152,9 @@ public final class c extends b {
             com.kwad.sdk.crash.utils.f.a(r22, r23, r24)     // Catch: java.lang.Throwable -> L175
             int r0 = r21.c()     // Catch: java.lang.Throwable -> L175
             com.kwad.sdk.crash.utils.f.a(r2, r0)     // Catch: java.lang.Throwable -> L175
-            com.kwad.sdk.crash.e r0 = r1.f55084c     // Catch: java.lang.Throwable -> L175
+            com.kwad.sdk.crash.e r0 = r1.f40163c     // Catch: java.lang.Throwable -> L175
             if (r0 == 0) goto Lfb
-            com.kwad.sdk.crash.e r0 = r1.f55084c     // Catch: java.lang.Throwable -> L175
+            com.kwad.sdk.crash.e r0 = r1.f40163c     // Catch: java.lang.Throwable -> L175
             int r3 = r21.c()     // Catch: java.lang.Throwable -> L175
             r0.a(r3, r2)     // Catch: java.lang.Throwable -> L175
         Lfb:
@@ -167,7 +167,7 @@ public final class c extends b {
             com.kwad.sdk.crash.d r0 = com.kwad.sdk.crash.d.a()     // Catch: java.lang.Throwable -> L167
             boolean r0 = r0.i()     // Catch: java.lang.Throwable -> L167
             if (r0 == 0) goto L11d
-            java.io.File r0 = r1.f55086e     // Catch: java.lang.Throwable -> L167
+            java.io.File r0 = r1.f40165e     // Catch: java.lang.Throwable -> L167
             r1.b(r0)     // Catch: java.lang.Throwable -> L167
         L11d:
             if (r12 == 0) goto L141
@@ -289,7 +289,7 @@ public final class c extends b {
             com.kwad.sdk.crash.d r0 = com.kwad.sdk.crash.d.a()     // Catch: java.lang.Throwable -> L23a
             boolean r0 = r0.i()     // Catch: java.lang.Throwable -> L23a
             if (r0 == 0) goto L1f4
-            java.io.File r0 = r1.f55086e     // Catch: java.lang.Throwable -> L23a
+            java.io.File r0 = r1.f40165e     // Catch: java.lang.Throwable -> L23a
             r1.b(r0)     // Catch: java.lang.Throwable -> L23a
         L1f4:
             if (r12 == 0) goto L218
@@ -343,7 +343,7 @@ public final class c extends b {
             com.kwad.sdk.crash.d r0 = com.kwad.sdk.crash.d.a()     // Catch: java.lang.Throwable -> L2ae
             boolean r0 = r0.i()     // Catch: java.lang.Throwable -> L2ae
             if (r0 == 0) goto L268
-            java.io.File r0 = r1.f55086e     // Catch: java.lang.Throwable -> L2ae
+            java.io.File r0 = r1.f40165e     // Catch: java.lang.Throwable -> L2ae
             r1.b(r0)     // Catch: java.lang.Throwable -> L2ae
         L268:
             if (r12 == 0) goto L28c

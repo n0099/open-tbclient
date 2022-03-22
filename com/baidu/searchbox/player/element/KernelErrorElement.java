@@ -27,9 +27,9 @@ public class KernelErrorElement extends AbsElement {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,8 +40,8 @@ public class KernelErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_14dp));
-            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_47dp), getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_47dp));
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070194));
+            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a3), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a3));
             this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
         }
     }
@@ -50,8 +50,8 @@ public class KernelErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             Drawable[] compoundDrawables = this.mTextNetError.getCompoundDrawables();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_12dp));
-            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_42dp), getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_42dp));
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
+            compoundDrawables[1].setBounds(0, 0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a2), getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a2));
             this.mTextNetError.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
         }
     }
@@ -78,9 +78,9 @@ public class KernelErrorElement extends AbsElement {
     public void initElement() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.bdvideoplayer_layout_kernel_error, null);
+            LinearLayout linearLayout = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0154, null);
             this.mRootView = linearLayout;
-            TextView textView = (TextView) linearLayout.findViewById(R.id.play_error_layout_retry);
+            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09185b);
             this.mTextNetError = textView;
             textView.setOnClickListener(this.mParent);
         }

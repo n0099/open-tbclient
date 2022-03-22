@@ -15,10 +15,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
 import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.ss.android.socialbase.appdownloader.c.j;
 import com.ss.android.socialbase.downloader.constants.DownloadStatus;
 import com.ss.android.socialbase.downloader.depend.IDownloadFileUriProvider;
@@ -30,31 +32,30 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.FormattableUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f58286b;
+    public static NotificationChannel f43025b;
 
-    public static int d(Context context, int i2, boolean z) {
-        if (com.ss.android.socialbase.downloader.g.a.a(i2).b("notification_opt_2") == 1) {
-            com.ss.android.socialbase.downloader.notification.b.a().f(i2);
+    public static int d(Context context, int i, boolean z) {
+        if (com.ss.android.socialbase.downloader.g.a.a(i).b("notification_opt_2") == 1) {
+            com.ss.android.socialbase.downloader.notification.b.a().f(i);
         }
         a((Activity) h.a().b());
-        if (com.ss.android.socialbase.downloader.g.a.a(i2).a("install_queue_enable", 0) == 1) {
-            return h.a().a(context, i2, z);
+        if (com.ss.android.socialbase.downloader.g.a.a(i).a("install_queue_enable", 0) == 1) {
+            return h.a().a(context, i, z);
         }
-        return b(context, i2, z);
+        return b(context, i, z);
     }
 
-    public static String a(long j2, long j3, String str, boolean z) {
-        double d2 = j2;
-        if (j3 > 1) {
-            d2 /= j3;
+    public static String a(long j, long j2, String str, boolean z) {
+        double d2 = j;
+        if (j2 > 1) {
+            d2 /= j2;
         }
         if (!z && !"GB".equals(str) && !"TB".equals(str)) {
             return new DecimalFormat("#").format(d2) + " " + str;
@@ -62,16 +63,16 @@ public class c {
         return new DecimalFormat("#.##").format(d2) + " " + str;
     }
 
-    public static String b(long j2) {
+    public static String b(long j) {
         long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
-        if (j2 < 1) {
+        if (j < 1) {
             return "0 " + strArr[4];
         }
-        for (int i2 = 0; i2 < 5; i2++) {
-            long j3 = jArr[i2];
-            if (j2 >= j3) {
-                return a(j2, j3, strArr[i2]);
+        for (int i = 0; i < 5; i++) {
+            long j2 = jArr[i];
+            if (j >= j2) {
+                return a(j, j2, strArr[i]);
             }
         }
         return null;
@@ -84,24 +85,24 @@ public class c {
         return b(context, downloadInfo, a(context, downloadInfo, downloadInfo.getSavePath(), downloadInfo.getName()));
     }
 
-    public static String a(long j2) {
-        return a(j2, true);
+    public static String a(long j) {
+        return a(j, true);
     }
 
     public static boolean c(String str) {
         return !TextUtils.isEmpty(str) && str.equals("application/vnd.android.package-archive");
     }
 
-    public static String a(long j2, boolean z) {
+    public static String a(long j, boolean z) {
         long[] jArr = {1099511627776L, 1073741824, 1048576, 1024, 1};
         String[] strArr = {"TB", "GB", "MB", "KB", "B"};
-        if (j2 < 1) {
+        if (j < 1) {
             return "0 " + strArr[4];
         }
-        for (int i2 = 0; i2 < 5; i2++) {
-            long j3 = jArr[i2];
-            if (j2 >= j3) {
-                return a(j2, j3, strArr[i2], z);
+        for (int i = 0; i < 5; i++) {
+            long j2 = jArr[i];
+            if (j >= j2) {
+                return a(j, j2, strArr[i], z);
             }
         }
         return null;
@@ -114,15 +115,15 @@ public class c {
         return arrayList;
     }
 
-    public static int b(final Context context, final int i2, final boolean z) {
-        final DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
+    public static int b(final Context context, final int i, final boolean z) {
+        final DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i);
         if (downloadInfo != null && "application/vnd.android.package-archive".equals(downloadInfo.getMimeType()) && !TextUtils.isEmpty(downloadInfo.getSavePath()) && !TextUtils.isEmpty(downloadInfo.getName())) {
             final File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
             if (file.exists()) {
                 com.ss.android.socialbase.downloader.downloader.c.a(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        int a2 = c.a(context, i2, z, downloadInfo, file);
+                        int a2 = c.a(context, i, z, downloadInfo, file);
                         if (a2 == 1 && d.j().o() != null) {
                             d.j().o().a(downloadInfo, null);
                         }
@@ -147,10 +148,10 @@ public class c {
         }
     }
 
-    public static String a(long j2, long j3, String str) {
-        double d2 = j2;
-        if (j3 > 1) {
-            d2 /= j3;
+    public static String a(long j, long j2, String str) {
+        double d2 = j;
+        if (j2 > 1) {
+            d2 /= j2;
         }
         if ("MB".equals(str)) {
             return new DecimalFormat("#").format(d2) + str;
@@ -158,14 +159,14 @@ public class c {
         return new DecimalFormat("#.##").format(d2) + str;
     }
 
-    public static void b(DownloadInfo downloadInfo, boolean z, int i2) {
+    public static void b(DownloadInfo downloadInfo, boolean z, int i) {
         if (downloadInfo == null) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("by_user", z ? 1 : 2);
-            jSONObject.put("view_result", i2);
+            jSONObject.put("view_result", i);
             jSONObject.put("real_package_name", downloadInfo.getFilePackageName());
         } catch (Exception e2) {
             e2.printStackTrace();
@@ -173,17 +174,17 @@ public class c {
         com.ss.android.socialbase.downloader.downloader.c.P().a(downloadInfo.getId(), "install_view_result", jSONObject);
     }
 
-    public static int a(final Context context, final int i2, final boolean z) {
+    public static int a(final Context context, final int i, final boolean z) {
         j g2 = d.j().g();
         if (g2 == null) {
-            return d(context, i2, z);
+            return d(context, i, z);
         }
-        DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
+        DownloadInfo downloadInfo = Downloader.getInstance(context).getDownloadInfo(i);
         a = 1;
         g2.a(downloadInfo, new com.ss.android.socialbase.appdownloader.c.i() { // from class: com.ss.android.socialbase.appdownloader.c.1
             @Override // com.ss.android.socialbase.appdownloader.c.i
             public void a() {
-                int unused = c.a = c.d(context, i2, z);
+                int unused = c.a = c.d(context, i, z);
             }
         });
         return a;
@@ -200,7 +201,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int a(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
+    public static int a(Context context, int i, boolean z, DownloadInfo downloadInfo, File file) {
         PackageInfo packageInfo;
         Intent a2;
         Process process;
@@ -256,7 +257,7 @@ public class c {
         int[] iArr = new int[1];
         if (b(context, downloadInfo, packageInfo)) {
             a2 = context.getPackageManager().getLaunchIntentForPackage(packageInfo.packageName);
-        } else if (!z && a(context, i2, file)) {
+        } else if (!z && a(context, i, file)) {
             downloadInfo.getTempCacheData().put("extra_silent_install_succeed", Boolean.TRUE);
             return 1;
         } else {
@@ -265,7 +266,7 @@ public class c {
         if (a2 == null) {
             return iArr[0] == 1 ? 2 : 0;
         }
-        a2.addFlags(268435456);
+        a2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         if (downloadInfo.getLinkMode() > 0 && com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("app_install_return_result", 0) == 1) {
             a2.putExtra("android.intent.extra.RETURN_RESULT", true);
         }
@@ -284,9 +285,9 @@ public class c {
             try {
                 PackageInfo a2 = a(context, downloadInfo, downloadInfo.getSavePath(), downloadInfo.getName());
                 if (a2 != null) {
-                    int i2 = a2.versionCode;
-                    downloadInfo.setAppVersionCode(i2);
-                    return i2;
+                    int i = a2.versionCode;
+                    downloadInfo.setAppVersionCode(i);
+                    return i;
                 }
             } catch (Throwable unused) {
             }
@@ -319,12 +320,12 @@ public class c {
     @TargetApi(26)
     public static String b(@NonNull Context context) {
         try {
-            if (f58286b == null) {
+            if (f43025b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f58286b = notificationChannel;
+                f43025b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f58286b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f58286b);
+                f43025b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f43025b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -369,8 +370,8 @@ public class c {
         return false;
     }
 
-    public static boolean a(Context context, int i2, File file) {
-        if (com.ss.android.socialbase.downloader.g.a.a(i2).a("back_miui_silent_install", 1) == 1) {
+    public static boolean a(Context context, int i, File file) {
+        if (com.ss.android.socialbase.downloader.g.a.a(i).a("back_miui_silent_install", 1) == 1) {
             return false;
         }
         if ((com.ss.android.socialbase.appdownloader.f.d.l() || com.ss.android.socialbase.appdownloader.f.d.m()) && com.ss.android.socialbase.downloader.i.j.a(context, "com.miui.securitycore", "com.miui.enterprise.service.EntInstallService")) {
@@ -400,14 +401,14 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Uri a(int i2, IDownloadFileUriProvider iDownloadFileUriProvider, Context context, String str, File file) {
+    public static Uri a(int i, IDownloadFileUriProvider iDownloadFileUriProvider, Context context, String str, File file) {
         Uri uri;
         if (iDownloadFileUriProvider != null) {
             uri = iDownloadFileUriProvider.getUriForFile(str, file.getAbsolutePath());
         } else {
             com.ss.android.socialbase.appdownloader.c.f e2 = d.j().e();
             if (e2 != null) {
-                uri = e2.a(i2, str, file.getAbsolutePath());
+                uri = e2.a(i, str, file.getAbsolutePath());
             }
             uri = null;
             if (uri == null) {
@@ -441,12 +442,12 @@ public class c {
         com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
         boolean a3 = b2 != null ? b2.a(downloadInfo.getId(), z) : 0;
         z downloadNotificationEventListener = Downloader.getInstance(context).getDownloadNotificationEventListener(downloadInfo.getId());
-        int i2 = a3;
+        int i = a3;
         if (downloadNotificationEventListener != null) {
-            i2 = downloadNotificationEventListener.a(z);
+            i = downloadNotificationEventListener.a(z);
         }
-        iArr[0] = i2;
-        if (i2 != 0) {
+        iArr[0] = i;
+        if (i != 0) {
             return null;
         }
         return intent;
@@ -470,17 +471,17 @@ public class c {
             File file = new File(downloadInfo.getSavePath(), downloadInfo.getName());
             PackageInfo packageInfo = null;
             if (file.exists()) {
-                String str2 = "isPackageNameEqualsWithApk fileName:" + downloadInfo.getName() + " apkFileSize：" + file.length() + " fileUrl：" + downloadInfo.getUrl();
+                Log.e("AppDownloadUtils", "isPackageNameEqualsWithApk fileName:" + downloadInfo.getName() + " apkFileSize：" + file.length() + " fileUrl：" + downloadInfo.getUrl());
                 PackageInfo a2 = a(downloadInfo, file);
                 if (a2 == null || !a2.packageName.equals(str)) {
                     return false;
                 }
-                int i2 = a2.versionCode;
+                int i = a2.versionCode;
                 try {
                     packageInfo = context.getPackageManager().getPackageInfo(str, a());
                 } catch (PackageManager.NameNotFoundException unused) {
                 }
-                if (packageInfo == null || i2 != packageInfo.versionCode) {
+                if (packageInfo == null || i != packageInfo.versionCode) {
                     return false;
                 }
             } else if (!com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_callback_error")) {
@@ -512,9 +513,9 @@ public class c {
             return false;
         }
         String str = packageInfo.packageName;
-        int i2 = packageInfo.versionCode;
+        int i = packageInfo.versionCode;
         if (downloadInfo != null) {
-            downloadInfo.setAppVersionCode(i2);
+            downloadInfo.setAppVersionCode(i);
         }
         try {
             packageInfo2 = context.getPackageManager().getPackageInfo(str, a());
@@ -524,8 +525,8 @@ public class c {
         if (packageInfo2 == null) {
             return false;
         }
-        int i3 = packageInfo2.versionCode;
-        return z ? i2 < i3 : (downloadInfo == null || com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_with_same_version_code", 0) != 1) ? i2 <= i3 : i2 < i3;
+        int i2 = packageInfo2.versionCode;
+        return z ? i < i2 : (downloadInfo == null || com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_with_same_version_code", 0) != 1) ? i <= i2 : i < i2;
     }
 
     public static boolean a(Context context, DownloadInfo downloadInfo) {
@@ -558,7 +559,7 @@ public class c {
         }
         File file = new File(str, str2);
         if (file.exists()) {
-            String str3 = "isApkInstalled apkFileSize：fileName:" + file.getPath() + " apkFileSize" + file.length();
+            Log.e("AppDownloadUtils", "isApkInstalled apkFileSize：fileName:" + file.getPath() + " apkFileSize" + file.length());
             return a(downloadInfo, file);
         }
         return null;
@@ -606,7 +607,7 @@ public class c {
         if (TextUtils.isEmpty(optString)) {
             return optString;
         }
-        if (!optString.contains(FormattableUtils.SIMPLEST_FORMAT)) {
+        if (!optString.contains("%s")) {
             format = optString + str;
         } else {
             try {
@@ -629,20 +630,20 @@ public class c {
         return new JSONObject(str).optBoolean("bind_app", false);
     }
 
-    public static int a(int i2) {
-        if (i2 == 0) {
+    public static int a(int i) {
+        if (i == 0) {
             return 0;
         }
-        if (i2 == -2) {
+        if (i == -2) {
             return 2;
         }
-        if (i2 == 1) {
+        if (i == 1) {
             return 4;
         }
-        if (DownloadStatus.isDownloading(i2) || i2 == 11) {
+        if (DownloadStatus.isDownloading(i) || i == 11) {
             return 1;
         }
-        return DownloadStatus.isDownloadOver(i2) ? 3 : 0;
+        return DownloadStatus.isDownloadOver(i) ? 3 : 0;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:12:0x003b, code lost:

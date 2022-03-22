@@ -1,6 +1,6 @@
 package com.baidu.tieba.personPolymeric.tab.data;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetShoubaiThreadList.DataReq;
 import tbclient.GetShoubaiThreadList.GetShoubaiThreadListReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,17 +20,17 @@ public class PersonCenterDynamicTabRequestMessage extends NetMessage {
     public long uid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonCenterDynamicTabRequestMessage(long j2, long j3, int i2) {
+    public PersonCenterDynamicTabRequestMessage(long j, long j2, int i) {
         super(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -38,9 +38,9 @@ public class PersonCenterDynamicTabRequestMessage extends NetMessage {
                 return;
             }
         }
-        this.uid = j2;
-        this.cursor = j3;
-        this.pageSize = i2;
+        this.uid = j;
+        this.cursor = j2;
+        this.pageSize = i;
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

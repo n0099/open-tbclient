@@ -14,16 +14,16 @@ public class c extends d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34493c = 4;
-        this.f34492b = "poiindoormarklayer";
-        this.f34494d = 100;
+        this.f26697c = 4;
+        this.f26696b = "poiindoormarklayer";
+        this.f26698d = 100;
     }
 }

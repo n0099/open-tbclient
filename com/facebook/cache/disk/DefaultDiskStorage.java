@@ -4,7 +4,6 @@ import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,7 +35,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultDiskStorage implements DiskStorage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONTENT_FILE_EXTENSION = ".cnt";
@@ -53,14 +52,14 @@ public class DefaultDiskStorage implements DiskStorage {
     public final File mVersionDirectory;
 
     /* renamed from: com.facebook.cache.disk.DefaultDiskStorage$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EntryImpl implements DiskStorage.Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,9 +112,9 @@ public class DefaultDiskStorage implements DiskStorage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -137,7 +136,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FileInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -207,9 +206,9 @@ public class DefaultDiskStorage implements DiskStorage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -220,13 +219,13 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface FileType {
         public static final String CONTENT = ".cnt";
         public static final String TEMP = ".tmp";
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class IncompleteFileException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,30 +233,30 @@ public class DefaultDiskStorage implements DiskStorage {
         public final long expected;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public IncompleteFileException(long j2, long j3) {
-            super("File was not written completely. Expected: " + j2 + ", found: " + j3);
+        public IncompleteFileException(long j, long j2) {
+            super("File was not written completely. Expected: " + j + ", found: " + j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.expected = j2;
-            this.actual = j3;
+            this.expected = j;
+            this.actual = j2;
         }
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class InserterImpl implements DiskStorage.Inserter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,9 +272,9 @@ public class DefaultDiskStorage implements DiskStorage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDiskStorage, str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -355,7 +354,7 @@ public class DefaultDiskStorage implements DiskStorage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PurgingVisitor implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -369,9 +368,9 @@ public class DefaultDiskStorage implements DiskStorage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDiskStorage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -458,16 +457,16 @@ public class DefaultDiskStorage implements DiskStorage {
         TEMP_FILE_LIFETIME_MS = TimeUnit.MINUTES.toMillis(30L);
     }
 
-    public DefaultDiskStorage(File file, int i2, CacheErrorLogger cacheErrorLogger) {
+    public DefaultDiskStorage(File file, int i, CacheErrorLogger cacheErrorLogger) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Integer.valueOf(i2), cacheErrorLogger};
+            Object[] objArr = {file, Integer.valueOf(i), cacheErrorLogger};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -476,7 +475,7 @@ public class DefaultDiskStorage implements DiskStorage {
         Preconditions.checkNotNull(file);
         this.mRootDirectory = file;
         this.mIsExternal = isExternal(file, cacheErrorLogger);
-        this.mVersionDirectory = new File(this.mRootDirectory, getVersionSubdirectoryName(i2));
+        this.mVersionDirectory = new File(this.mRootDirectory, getVersionSubdirectoryName(i));
         this.mCacheErrorLogger = cacheErrorLogger;
         recreateDirectoryIfVersionChanges();
         this.mClock = SystemClock.get();
@@ -569,10 +568,10 @@ public class DefaultDiskStorage implements DiskStorage {
     }
 
     @VisibleForTesting
-    public static String getVersionSubdirectoryName(int i2) {
+    public static String getVersionSubdirectoryName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) ? String.format(null, "%s.ols%d.%d", "v2", 100, Integer.valueOf(i2)) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) ? String.format(null, "%s.ols%d.%d", DEFAULT_DISK_STORAGE_VERSION_PREFIX, 100, Integer.valueOf(i)) : (String) invokeI.objValue;
     }
 
     public static boolean isExternal(File file, CacheErrorLogger cacheErrorLogger) {
@@ -658,7 +657,7 @@ public class DefaultDiskStorage implements DiskStorage {
     private String typeOfBytes(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? OvalActionButton.WEBP : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65557, this, bArr)) == null) ? bArr.length >= 2 ? (bArr[0] == -1 && bArr[1] == -40) ? "jpg" : (bArr[0] == -119 && bArr[1] == 80) ? "png" : (bArr[0] == 82 && bArr[1] == 73) ? "webp" : (bArr[0] == 71 && bArr[1] == 73) ? "gif" : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : SessionMonitorEngine.PUBLIC_DATA_UNDIFNED : (String) invokeL.objValue;
     }
 
     @Override // com.facebook.cache.disk.DiskStorage
@@ -784,7 +783,7 @@ public class DefaultDiskStorage implements DiskStorage {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, str, obj)) == null) ? query(str, true) : invokeLL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class EntriesCollector implements FileTreeVisitor {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -798,9 +797,9 @@ public class DefaultDiskStorage implements DiskStorage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {defaultDiskStorage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

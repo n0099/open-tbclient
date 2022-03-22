@@ -20,23 +20,23 @@ public final class MaybeFromFuture<T> extends Maybe<T> {
     public final long timeout;
     public final TimeUnit unit;
 
-    public MaybeFromFuture(Future<? extends T> future, long j2, TimeUnit timeUnit) {
+    public MaybeFromFuture(Future<? extends T> future, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {future, Long.valueOf(j2), timeUnit};
+            Object[] objArr = {future, Long.valueOf(j), timeUnit};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.future = future;
-        this.timeout = j2;
+        this.timeout = j;
         this.unit = timeUnit;
     }
 

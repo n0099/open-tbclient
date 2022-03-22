@@ -23,9 +23,9 @@ public abstract class Logger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -57,9 +57,9 @@ public abstract class Logger {
         }
     }
 
-    public abstract void log(String str, int i2, String str2, String str3);
+    public abstract void log(String str, int i, String str2, String str3);
 
-    public abstract void logSync(String str, int i2, String str2, String str3);
+    public abstract void logSync(String str, int i, String str2, String str3);
 
     public void v(String str, String str2, String str3) {
         Interceptable interceptable = $ic;

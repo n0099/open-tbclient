@@ -24,6 +24,7 @@ import android.text.TextUtils;
 import android.view.inputmethod.InputMethodInfo;
 import android.view.inputmethod.InputMethodManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,9 +57,9 @@ public class x0 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -75,7 +76,7 @@ public class x0 {
                 if (subscriptionManager == null) {
                     return -1;
                 }
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return -3;
                 }
                 return subscriptionManager.getActiveSubscriptionInfoCount();
@@ -103,23 +104,23 @@ public class x0 {
     }
 
     @SuppressLint({"LocalSuppress", "NewApi"})
-    public static String a(Context context, int i2) {
+    public static String a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
-                String deviceId = telephonyManager.getDeviceId(i2);
-                return TextUtils.isEmpty(deviceId) ? y0.f53872c : deviceId;
+                String deviceId = telephonyManager.getDeviceId(i);
+                return TextUtils.isEmpty(deviceId) ? y0.f39033c : deviceId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -351,45 +352,45 @@ public class x0 {
                     sb.append(";");
                 }
                 if (TextUtils.isEmpty(sb)) {
-                    return y0.f53872c;
+                    return y0.f39033c;
                 }
                 String sb2 = sb.toString();
                 return sb2.endsWith(";") ? sb2.substring(0, sb2.length() - 1) : sb2;
             } catch (Exception unused) {
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String b(Context context, int i2) {
+    public static String b(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
             try {
                 if (Build.VERSION.SDK_INT > 22) {
                     SubscriptionManager subscriptionManager = (SubscriptionManager) context.getSystemService("telephony_subscription_service");
                     if (subscriptionManager == null) {
-                        return y0.f53871b;
+                        return y0.f39032b;
                     }
-                    if (s.a(context, s.f53804c) == -1) {
+                    if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                         return y0.a;
                     }
                     List<SubscriptionInfo> activeSubscriptionInfoList = subscriptionManager.getActiveSubscriptionInfoList();
                     if (activeSubscriptionInfoList == null) {
-                        return y0.f53871b;
+                        return y0.f39032b;
                     }
                     for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                        if (subscriptionInfo != null && subscriptionInfo.getSubscriptionId() == i2) {
+                        if (subscriptionInfo != null && subscriptionInfo.getSubscriptionId() == i) {
                             String iccId = subscriptionInfo.getIccId();
-                            return TextUtils.isEmpty(iccId) ? y0.f53872c : iccId;
+                            return TextUtils.isEmpty(iccId) ? y0.f39033c : iccId;
                         }
                     }
                 }
-                return y0.f53872c;
+                return y0.f39033c;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -401,7 +402,7 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class).invoke(cls, str);
+                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
             } catch (Throwable th) {
                 a(th);
                 return null;
@@ -439,29 +440,29 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-                return TextUtils.isEmpty(string) ? y0.f53872c : string;
+                return TextUtils.isEmpty(string) ? y0.f39033c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(Context context, int i2) {
+    public static String c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, context, i)) == null) {
             try {
-                String i3 = i(context, i2);
-                if (TextUtils.isEmpty(i3) || i3.contains("RISK_")) {
-                    String d2 = d(context, i2 - 1);
-                    return (TextUtils.isEmpty(d2) || d2.contains("RISK_")) ? b(context, i2) : d2;
+                String i2 = i(context, i);
+                if (TextUtils.isEmpty(i2) || i2.contains("RISK_")) {
+                    String d2 = d(context, i - 1);
+                    return (TextUtils.isEmpty(d2) || d2.contains("RISK_")) ? b(context, i) : d2;
                 }
-                return i3;
+                return i2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -552,42 +553,42 @@ public class x0 {
                 declaredField.setAccessible(true);
                 Object obj = declaredField.get(defaultAdapter);
                 if (obj == null || (method = obj.getClass().getMethod("getAddress", new Class[0])) == null || (invoke = method.invoke(obj, new Object[0])) == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String obj2 = invoke.toString();
-                return TextUtils.isEmpty(obj2) ? y0.f53872c : obj2;
+                return TextUtils.isEmpty(obj2) ? y0.f39033c : obj2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53872c;
+                return y0.f39033c;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String d(Context context, int i2) {
+    public static String d(Context context, int i) {
         InterceptResult invokeLI;
         ContentResolver contentResolver;
         Cursor query;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, context, i)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 Uri parse = Uri.parse("content://telephony/siminfo");
                 if (parse == null || (contentResolver = context.getContentResolver()) == null || (query = contentResolver.query(parse, new String[]{"_id", "sim_id", "icc_id", "display_name"}, "0=0", new String[0], null)) == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 while (query.moveToNext()) {
-                    if (query.getInt(query.getColumnIndex("sim_id")) == i2) {
+                    if (query.getInt(query.getColumnIndex("sim_id")) == i) {
                         String string = query.getString(query.getColumnIndex("icc_id"));
-                        return TextUtils.isEmpty(string) ? y0.f53872c : string;
+                        return TextUtils.isEmpty(string) ? y0.f39033c : string;
                     }
                 }
-                return y0.f53873d;
+                return y0.f39034d;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -603,11 +604,11 @@ public class x0 {
                 if (a2 != null) {
                     byte[] hardwareAddress = NetworkInterface.getByInetAddress(a2).getHardwareAddress();
                     StringBuffer stringBuffer = new StringBuffer();
-                    for (int i2 = 0; i2 < hardwareAddress.length; i2++) {
-                        if (i2 != 0) {
+                    for (int i = 0; i < hardwareAddress.length; i++) {
+                        if (i != 0) {
                             stringBuffer.append(':');
                         }
-                        String hexString = Integer.toHexString(hardwareAddress[i2] & 255);
+                        String hexString = Integer.toHexString(hardwareAddress[i] & 255);
                         if (hexString.length() == 1) {
                             hexString = 0 + hexString;
                         }
@@ -630,39 +631,39 @@ public class x0 {
             try {
                 BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
                 if (defaultAdapter == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String address = defaultAdapter.getAddress();
-                return TextUtils.isEmpty(address) ? y0.f53872c : address;
+                return TextUtils.isEmpty(address) ? y0.f39033c : address;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String e(Context context, int i2) {
+    public static String e(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 Method method = telephonyManager.getClass().getMethod("getImei", Integer.TYPE);
                 if (method == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
-                String str = (String) method.invoke(telephonyManager, Integer.valueOf(i2));
-                return TextUtils.isEmpty(str) ? y0.f53872c : str;
+                String str = (String) method.invoke(telephonyManager, Integer.valueOf(i));
+                return TextUtils.isEmpty(str) ? y0.f39033c : str;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -711,30 +712,30 @@ public class x0 {
                 return !TextUtils.isEmpty(string) ? string : z ? d(context) : y0.a;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
     @SuppressLint({"LocalSuppress", "NewApi"})
-    public static String f(Context context, int i2) {
+    public static String f(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65561, null, context, i)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
-                String imei = telephonyManager.getImei(i2);
-                return TextUtils.isEmpty(imei) ? y0.f53872c : imei;
+                String imei = telephonyManager.getImei(i);
+                return TextUtils.isEmpty(imei) ? y0.f39033c : imei;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -807,29 +808,29 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, context)) == null) {
             try {
-                return s.a(context, s.f53804c) == -1 ? y0.a : Build.getSerial();
+                return s.a(context, "android.permission.READ_PHONE_STATE") == -1 ? y0.a : Build.getSerial();
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String g(Context context, int i2) {
+    public static String g(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, null, context, i)) == null) {
             try {
-                String a2 = a(context, i2);
+                String a2 = a(context, i);
                 if (TextUtils.isEmpty(a2) || a2.contains("RISK_")) {
-                    String e2 = e(context, i2);
-                    return (TextUtils.isEmpty(e2) || e2.contains("RISK_")) ? f(context, i2) : e2;
+                    String e2 = e(context, i);
+                    return (TextUtils.isEmpty(e2) || e2.contains("RISK_")) ? f(context, i) : e2;
                 }
                 return a2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -842,10 +843,10 @@ public class x0 {
             try {
                 String b2 = b("ro.serialno");
                 String str = Build.SERIAL;
-                return !TextUtils.isEmpty(b2) ? b2 : !TextUtils.isEmpty(str) ? str : y0.f53872c;
+                return !TextUtils.isEmpty(b2) ? b2 : !TextUtils.isEmpty(str) ? str : y0.f39033c;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -853,19 +854,19 @@ public class x0 {
 
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r8v9 */
-    public static String h(Context context, int i2) {
+    public static String h(Context context, int i) {
         InterceptResult invokeLI;
         Object invoke;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(65566, null, context, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(65566, null, context, i)) != null) {
             return (String) invokeLI.objValue;
         }
-        if (Build.VERSION.SDK_INT >= 23 && s.a(context, s.f53804c) == -1) {
+        if (Build.VERSION.SDK_INT >= 23 && s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
             return y0.a;
         }
         TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
         if (telephonyManager == null) {
-            return y0.f53871b;
+            return y0.f39032b;
         }
         String str = null;
         try {
@@ -874,24 +875,24 @@ public class x0 {
                 if (Build.VERSION.SDK_INT == 21) {
                     Method method = cls.getMethod("getSubscriberId", Long.TYPE);
                     if (method == null) {
-                        return y0.f53871b;
+                        return y0.f39032b;
                     }
-                    invoke = method.invoke(telephonyManager, Long.valueOf(i2));
+                    invoke = method.invoke(telephonyManager, Long.valueOf(i));
                 }
-                return (TextUtils.isEmpty(str) || str == null) ? y0.f53872c : str;
+                return (TextUtils.isEmpty(str) || str == null) ? y0.f39033c : str;
             }
             Method method2 = cls.getMethod("getSubscriberId", Integer.TYPE);
             if (method2 == null) {
-                return y0.f53871b;
+                return y0.f39032b;
             }
-            invoke = method2.invoke(telephonyManager, Integer.valueOf(i2));
+            invoke = method2.invoke(telephonyManager, Integer.valueOf(i));
             str = invoke;
             if (TextUtils.isEmpty(str)) {
-                return y0.f53872c;
+                return y0.f39033c;
             }
         } catch (Throwable th) {
             l1.a(th);
-            return y0.f53873d;
+            return y0.f39034d;
         }
     }
 
@@ -901,40 +902,40 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65567, null, context)) == null) {
             try {
                 if (Settings.Secure.getInt(context.getContentResolver(), "accessibility_enabled", 0) != 1) {
-                    return y0.f53874e;
+                    return y0.f39035e;
                 }
                 String string = Settings.Secure.getString(context.getContentResolver(), "enabled_accessibility_services");
-                return TextUtils.isEmpty(string) ? y0.f53872c : string;
+                return TextUtils.isEmpty(string) ? y0.f39033c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
     }
 
-    public static String i(Context context, int i2) {
+    public static String i(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65568, null, context, i)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 Method method = telephonyManager.getClass().getMethod("getSimSerialNumber", Integer.TYPE);
                 if (method == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 method.setAccessible(true);
-                Object invoke = method.invoke(telephonyManager, Integer.valueOf(i2));
-                return invoke == null ? y0.f53872c : invoke.toString();
+                Object invoke = method.invoke(telephonyManager, Integer.valueOf(i));
+                return invoke == null ? y0.f39033c : invoke.toString();
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeLI.objValue;
@@ -946,10 +947,10 @@ public class x0 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, context)) == null) {
             try {
                 String string = Settings.Secure.getString(context.getContentResolver(), "default_input_method");
-                return TextUtils.isEmpty(string) ? y0.f53872c : string;
+                return TextUtils.isEmpty(string) ? y0.f39033c : string;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -960,18 +961,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65570, null, context)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String deviceId = telephonyManager.getDeviceId();
-                return TextUtils.isEmpty(deviceId) ? y0.f53872c : deviceId;
+                return TextUtils.isEmpty(deviceId) ? y0.f39033c : deviceId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -983,18 +984,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65571, null, context)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String imei = telephonyManager.getImei();
-                return TextUtils.isEmpty(imei) ? y0.f53872c : imei;
+                return TextUtils.isEmpty(imei) ? y0.f39033c : imei;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1005,18 +1006,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, context)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String simSerialNumber = telephonyManager.getSimSerialNumber();
-                return TextUtils.isEmpty(simSerialNumber) ? y0.f53872c : simSerialNumber;
+                return TextUtils.isEmpty(simSerialNumber) ? y0.f39033c : simSerialNumber;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1045,7 +1046,7 @@ public class x0 {
                 return l;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1057,18 +1058,18 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65574, null, context)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null || (method = telephonyManager.getClass().getMethod("getImei", new Class[0])) == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 String str = (String) method.invoke(telephonyManager, new Object[0]);
-                return TextUtils.isEmpty(str) ? y0.f53872c : str;
+                return TextUtils.isEmpty(str) ? y0.f39033c : str;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1079,22 +1080,22 @@ public class x0 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, context)) == null) {
             try {
-                if (s.a(context, s.f53804c) == -1) {
+                if (s.a(context, "android.permission.READ_PHONE_STATE") == -1) {
                     return y0.a;
                 }
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
-                    return y0.f53872c;
+                    return y0.f39033c;
                 }
                 String subscriberId = telephonyManager.getSubscriberId();
                 if (TextUtils.isEmpty(subscriberId)) {
-                    return y0.f53872c;
+                    return y0.f39033c;
                 }
                 new d(context).b(d.N0, subscriberId, true);
                 return subscriberId;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1146,7 +1147,7 @@ public class x0 {
             try {
                 ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
                 if (activityManager == null || (runningAppProcesses = activityManager.getRunningAppProcesses()) == null) {
-                    return y0.f53871b;
+                    return y0.f39032b;
                 }
                 JSONArray jSONArray = new JSONArray();
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -1155,10 +1156,10 @@ public class x0 {
                     }
                 }
                 String jSONArray2 = jSONArray.toString();
-                return TextUtils.isEmpty(jSONArray2) ? y0.f53872c : jSONArray2;
+                return TextUtils.isEmpty(jSONArray2) ? y0.f39033c : jSONArray2;
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;
@@ -1173,7 +1174,7 @@ public class x0 {
                 return Build.VERSION.SDK_INT >= 26 ? g(context) : h(context);
             } catch (Throwable th) {
                 a(th);
-                return y0.f53873d;
+                return y0.f39034d;
             }
         }
         return (String) invokeL.objValue;

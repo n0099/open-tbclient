@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -24,7 +25,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -48,7 +48,7 @@ public class a {
 
     public static String a(String str, Object obj, List list) {
         InterceptResult invokeLLL;
-        int i2;
+        int i;
         Map map;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, obj, list)) == null) {
@@ -57,23 +57,23 @@ public class a {
                 stringBuffer.append(str + "[] = null\n");
                 return stringBuffer.toString();
             }
-            int i3 = 0;
+            int i2 = 0;
             if (obj.getClass().isArray()) {
                 if (Array.getLength(obj) <= 0) {
                     stringBuffer.append(str + "[] = empty\n");
                 } else if (!f(Array.get(obj, 0))) {
                     stringBuffer.append(str + " = [");
-                    while (i3 < Array.getLength(obj) - 1) {
-                        Object c2 = c(Array.get(obj, i3));
+                    while (i2 < Array.getLength(obj) - 1) {
+                        Object c2 = c(Array.get(obj, i2));
                         stringBuffer.append(c2 + ",");
-                        i3++;
+                        i2++;
                     }
                     stringBuffer.append(Array.get(obj, Array.getLength(obj) - 1) + "]\n");
                 } else {
-                    while (i3 < Array.getLength(obj)) {
-                        Object obj2 = Array.get(obj, i3);
-                        stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i3 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
-                        i3++;
+                    while (i2 < Array.getLength(obj)) {
+                        Object obj2 = Array.get(obj, i2);
+                        stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT, obj2, list));
+                        i2++;
                     }
                 }
             } else {
@@ -85,7 +85,7 @@ public class a {
                     Set keySet = map2.keySet();
                     int size = keySet.size();
                     if (size > 0) {
-                        int i4 = 0;
+                        int i3 = 0;
                         for (Object obj3 : keySet) {
                             Object obj4 = map2.get(obj3);
                             Object c3 = c(obj3);
@@ -93,18 +93,18 @@ public class a {
                             if (f(c4) || f(c3)) {
                                 map = map2;
                                 stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c3 + PreferencesUtil.RIGHT_MOUNT, c4, list));
-                            } else if (i4 == 0) {
+                            } else if (i3 == 0) {
                                 stringBuffer.append(str + " = [");
                                 map = map2;
                             } else {
                                 map = map2;
-                                if (i4 == size - 1) {
+                                if (i3 == size - 1) {
                                     stringBuffer.append(c3 + " = " + c4 + "]\n");
                                 } else {
                                     stringBuffer.append(c3 + " = " + c4 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
                                 }
                             }
-                            i4++;
+                            i3++;
                             map2 = map;
                         }
                     } else {
@@ -115,28 +115,28 @@ public class a {
                     if (z) {
                         Collection collection = (Collection) obj;
                         it = collection.iterator();
-                        i2 = collection.size();
+                        i = collection.size();
                     } else if (z2) {
                         HashSet hashSet = (HashSet) obj;
                         it = hashSet.iterator();
-                        i2 = hashSet.size();
+                        i = hashSet.size();
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
-                    if (i2 > 0) {
-                        int i5 = 0;
+                    if (i > 0) {
+                        int i4 = 0;
                         while (it.hasNext()) {
                             Object c5 = c(it.next());
                             if (f(c5)) {
-                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i5 + PreferencesUtil.RIGHT_MOUNT, c5, list));
-                            } else if (i5 == 0) {
+                                stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + i4 + PreferencesUtil.RIGHT_MOUNT, c5, list));
+                            } else if (i4 == 0) {
                                 stringBuffer.append(str + " = [");
-                            } else if (i5 == i2 - 1) {
+                            } else if (i4 == i - 1) {
                                 stringBuffer.append(c5 + "]\n");
                             } else {
                                 stringBuffer.append(c5 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
                             }
-                            i5++;
+                            i4++;
                         }
                     } else {
                         stringBuffer.append(str + "[] = empty\n");
@@ -145,16 +145,16 @@ public class a {
                     SparseArray sparseArray = (SparseArray) obj;
                     int size2 = sparseArray.size();
                     if (size2 > 0) {
-                        for (int i6 = 0; i6 < size2; i6++) {
-                            Integer valueOf = Integer.valueOf(sparseArray.keyAt(i6));
-                            Object valueAt = sparseArray.valueAt(i6);
+                        for (int i5 = 0; i5 < size2; i5++) {
+                            Integer valueOf = Integer.valueOf(sparseArray.keyAt(i5));
+                            Object valueAt = sparseArray.valueAt(i5);
                             Object c6 = c(valueOf);
                             Object c7 = c(valueAt);
                             if (f(c7) || f(c6)) {
                                 stringBuffer.append(k(str + PreferencesUtil.LEFT_MOUNT + c6 + PreferencesUtil.RIGHT_MOUNT, c7, list));
-                            } else if (i6 == 0) {
+                            } else if (i5 == 0) {
                                 stringBuffer.append(str + " = [");
-                            } else if (i6 == size2 - 1) {
+                            } else if (i5 == size2 - 1) {
                                 stringBuffer.append(c6 + " = " + c7 + "]\n");
                             } else {
                                 stringBuffer.append(c6 + " = " + c7 + StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -228,7 +228,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
-            for (int i2 = 0; i2 < a; i2++) {
+            for (int i = 0; i < a; i++) {
                 stringBuffer.append("    ");
             }
             return stringBuffer.toString();
@@ -254,9 +254,9 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, cls)) == null) {
-            String[] strArr = {"activity", "content", "listener", "view", "drawable"};
-            for (int i2 = 0; i2 < 5; i2++) {
-                if (cls.getSimpleName().toLowerCase().endsWith(strArr[i2])) {
+            String[] strArr = {"activity", "content", "listener", "view", ResourceManager.DRAWABLE};
+            for (int i = 0; i < 5; i++) {
+                if (cls.getSimpleName().toLowerCase().endsWith(strArr[i])) {
                     return false;
                 }
             }
@@ -270,10 +270,10 @@ public class a {
         if (interceptable == null || interceptable.invokeLL(65544, null, str, obj) == null) {
             StringBuffer stringBuffer = new StringBuffer("");
             if (c.a) {
-                stringBuffer.append("Message_Type: " + str + StringUtils.LF);
+                stringBuffer.append("Message_Type: " + str + "\n");
                 stringBuffer.append(j("", obj));
                 stringBuffer.append("----------------------------------------------------------\n");
-                String[] split = stringBuffer.toString().split(StringUtils.LF);
+                String[] split = stringBuffer.toString().split("\n");
                 for (String str2 : split) {
                     BdLog.i(str2);
                 }
@@ -284,10 +284,10 @@ public class a {
     public static void i(Field[] fieldArr, Object obj, StringBuffer stringBuffer, List list) throws IllegalAccessException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65545, null, fieldArr, obj, stringBuffer, list) == null) {
-            for (int i2 = 0; i2 < fieldArr.length; i2++) {
-                fieldArr[i2].setAccessible(true);
-                if (!Modifier.isStatic(fieldArr[i2].getModifiers())) {
-                    stringBuffer.append(k(d() + fieldArr[i2].getName(), fieldArr[i2].get(obj), list));
+            for (int i = 0; i < fieldArr.length; i++) {
+                fieldArr[i].setAccessible(true);
+                if (!Modifier.isStatic(fieldArr[i].getModifiers())) {
+                    stringBuffer.append(k(d() + fieldArr[i].getName(), fieldArr[i].get(obj), list));
                 }
             }
         }
@@ -327,7 +327,7 @@ public class a {
                     }
                     return str + " = <already visited>\n";
                 }
-                return str + " = " + c(obj) + StringUtils.LF;
+                return str + " = " + c(obj) + "\n";
             }
         }
         return (String) invokeLLL.objValue;

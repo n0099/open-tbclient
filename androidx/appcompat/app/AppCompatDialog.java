@@ -38,9 +38,9 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -50,16 +50,16 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         }
     }
 
-    public static int getThemeResId(Context context, int i2) {
+    public static int getThemeResId(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (i == 0) {
                 TypedValue typedValue = new TypedValue();
                 context.getTheme().resolveAttribute(R$attr.dialogTheme, typedValue, true);
                 return typedValue.resourceId;
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -90,10 +90,10 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
 
     @Override // android.app.Dialog
     @Nullable
-    public <T extends View> T findViewById(@IdRes int i2) {
+    public <T extends View> T findViewById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? (T) getDelegate().findViewById(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? (T) getDelegate().findViewById(i) : (T) invokeI.objValue;
     }
 
     public AppCompatDelegate getDelegate() {
@@ -168,10 +168,10 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setContentView(@LayoutRes int i2) {
+    public void setContentView(@LayoutRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            getDelegate().setContentView(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            getDelegate().setContentView(i);
         }
     }
 
@@ -190,24 +190,24 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, keyEvent)) == null) ? super.dispatchKeyEvent(keyEvent) : invokeL.booleanValue;
     }
 
-    public boolean supportRequestWindowFeature(int i2) {
+    public boolean supportRequestWindowFeature(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) ? getDelegate().requestWindowFeature(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? getDelegate().requestWindowFeature(i) : invokeI.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppCompatDialog(Context context, int i2) {
-        super(context, getThemeResId(context, i2));
+    public AppCompatDialog(Context context, int i) {
+        super(context, getThemeResId(context, i));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -227,9 +227,9 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -246,7 +246,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
             }
         };
         AppCompatDelegate delegate = getDelegate();
-        delegate.setTheme(getThemeResId(context, i2));
+        delegate.setTheme(getThemeResId(context, i));
         delegate.onCreate(null);
     }
 
@@ -267,11 +267,11 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     }
 
     @Override // android.app.Dialog
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            super.setTitle(i2);
-            getDelegate().setTitle(getContext().getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            super.setTitle(i);
+            getDelegate().setTitle(getContext().getString(i));
         }
     }
 
@@ -284,9 +284,9 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), onCancelListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -306,9 +306,9 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
                     newInitContext2.initArgs = objArr3;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdDownloadModel implements DownloadModel {
     public String mAppIcon;
     public String mAppName;
@@ -59,7 +59,7 @@ public class AdDownloadModel implements DownloadModel {
     public boolean mEnablePause = true;
     public int mFunnelType = 1;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public AdDownloadModel model = new AdDownloadModel();
 
@@ -68,8 +68,8 @@ public class AdDownloadModel implements DownloadModel {
         }
 
         @Deprecated
-        public Builder setAdId(long j2) {
-            return setId(j2);
+        public Builder setAdId(long j) {
+            return setId(j);
         }
 
         public Builder setAppIcon(String str) {
@@ -127,13 +127,13 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setExecutorGroup(int i2) {
-            this.model.mExecutorGroup = i2;
+        public Builder setExecutorGroup(int i) {
+            this.model.mExecutorGroup = i;
             return this;
         }
 
-        public Builder setExpectFileLength(long j2) {
-            this.model.mExpectFileLength = j2;
+        public Builder setExpectFileLength(long j) {
+            this.model.mExpectFileLength = j;
             return this;
         }
 
@@ -142,8 +142,8 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setExtraValue(long j2) {
-            this.model.mExtraValue = j2;
+        public Builder setExtraValue(long j) {
+            this.model.mExtraValue = j;
             return this;
         }
 
@@ -167,8 +167,8 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setId(long j2) {
-            this.model.mId = j2;
+        public Builder setId(long j) {
+            this.model.mId = j;
             return this;
         }
 
@@ -208,8 +208,8 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setModelType(int i2) {
-            this.model.mModelType = i2;
+        public Builder setModelType(int i) {
+            this.model.mModelType = i;
             return this;
         }
 
@@ -248,8 +248,8 @@ public class AdDownloadModel implements DownloadModel {
             return this;
         }
 
-        public Builder setVersionCode(int i2) {
-            this.model.mVersionCode = i2;
+        public Builder setVersionCode(int i) {
+            this.model.mVersionCode = i;
             return this;
         }
 
@@ -265,8 +265,8 @@ public class AdDownloadModel implements DownloadModel {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            arrayList.add(optJSONArray.optString(i2));
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            arrayList.add(optJSONArray.optString(i));
         }
         builder.setBackupUrls(arrayList);
     }
@@ -282,8 +282,8 @@ public class AdDownloadModel implements DownloadModel {
             return;
         }
         HashMap hashMap = new HashMap();
-        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-            hashMap.put(optJSONArray.optString(i2), optJSONArray2.optString(i2));
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            hashMap.put(optJSONArray.optString(i), optJSONArray2.optString(i));
         }
         builder.setHeaders(hashMap);
     }
@@ -300,8 +300,8 @@ public class AdDownloadModel implements DownloadModel {
         JSONArray optJSONArray = jSONObject.optJSONArray("click_track_urls");
         if (optJSONArray != null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                arrayList.add(optJSONArray.optString(i2));
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                arrayList.add(optJSONArray.optString(i));
             }
             builder.setClickTrackUrl(arrayList);
         }
@@ -541,8 +541,8 @@ public class AdDownloadModel implements DownloadModel {
     }
 
     @Deprecated
-    public AdDownloadModel setAdId(long j2) {
-        return setId(j2);
+    public AdDownloadModel setAdId(long j) {
+        return setId(j);
     }
 
     public AdDownloadModel setAppIcon(String str) {
@@ -579,16 +579,16 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public void setExpectFileLength(long j2) {
-        this.mExpectFileLength = j2;
+    public void setExpectFileLength(long j) {
+        this.mExpectFileLength = j;
     }
 
     public void setExtra(JSONObject jSONObject) {
         this.mExtra = jSONObject;
     }
 
-    public void setExtraValue(long j2) {
-        this.mExtraValue = j2;
+    public void setExtraValue(long j) {
+        this.mExtraValue = j;
     }
 
     public AdDownloadModel setFileName(String str) {
@@ -601,8 +601,8 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public AdDownloadModel setFunnelType(int i2) {
-        this.mFunnelType = i2;
+    public AdDownloadModel setFunnelType(int i) {
+        this.mFunnelType = i;
         return this;
     }
 
@@ -611,8 +611,8 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public AdDownloadModel setId(long j2) {
-        this.mId = j2;
+    public AdDownloadModel setId(long j) {
+        this.mId = j;
         return this;
     }
 
@@ -644,8 +644,8 @@ public class AdDownloadModel implements DownloadModel {
         return this;
     }
 
-    public AdDownloadModel setModelType(int i2) {
-        this.mModelType = i2;
+    public AdDownloadModel setModelType(int i) {
+        this.mModelType = i;
         return this;
     }
 
@@ -681,8 +681,8 @@ public class AdDownloadModel implements DownloadModel {
         this.mStartToast = str;
     }
 
-    public AdDownloadModel setVersionCode(int i2) {
-        this.mVersionCode = i2;
+    public AdDownloadModel setVersionCode(int i) {
+        this.mVersionCode = i;
         return this;
     }
 
@@ -700,7 +700,7 @@ public class AdDownloadModel implements DownloadModel {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("id", this.mId);
-            int i2 = 1;
+            int i = 1;
             jSONObject.put("is_ad", this.mIsAd ? 1 : 0);
             jSONObject.putOpt(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, Integer.valueOf(this.mModelType));
             jSONObject.putOpt("mime_type", this.mMimeType);
@@ -728,9 +728,9 @@ public class AdDownloadModel implements DownloadModel {
             jSONObject.putOpt("auto_install", Integer.valueOf(this.mAutoInstall ? 1 : 0));
             jSONObject.putOpt("distinct_dir", Integer.valueOf(this.mDistinctDir ? 1 : 0));
             if (!this.mEnablePause) {
-                i2 = 0;
+                i = 0;
             }
-            jSONObject.putOpt("enable_pause", Integer.valueOf(i2));
+            jSONObject.putOpt("enable_pause", Integer.valueOf(i));
             if (this.mDownloadSettings != null) {
                 jSONObject.put("download_settings", this.mDownloadSettings);
             }

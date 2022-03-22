@@ -13,7 +13,7 @@ import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.data.DataFetcher;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AssetPathFetcher";
@@ -29,9 +29,9 @@ public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {assetManager, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,7 +80,9 @@ public abstract class AssetPathFetcher<T> implements DataFetcher<T> {
                 this.data = loadResource;
                 dataCallback.onDataReady(loadResource);
             } catch (IOException e2) {
-                Log.isLoggable(TAG, 3);
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to load data from asset manager", e2);
+                }
                 dataCallback.onLoadFailed(e2);
             }
         }

@@ -63,6 +63,7 @@ import com.baidu.sapi2.social.SocialLoginBase;
 import com.baidu.sapi2.social.WXInvokeCallback;
 import com.baidu.sapi2.touchid.FingerprintCallback;
 import com.baidu.sapi2.touchid.FingerprintHelper;
+import com.baidu.sapi2.utils.AccessibleUtils;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.VibrateUtils;
@@ -73,6 +74,7 @@ import com.baidu.sapi2.utils.enums.SocialType;
 import com.baidu.sapi2.views.ClipBoxView;
 import com.baidu.sapi2.views.FingerprintDialog;
 import com.baidu.sapi2.views.ViewUtility;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -81,9 +83,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
-import com.baidu.webkit.sdk.PermissionRequest;
-import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -125,31 +124,27 @@ public class BaseActivity extends TitleActivity {
     public ValueCallback<Uri> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ValueCallback<Uri[]> f36640b;
+    public ValueCallback<Uri[]> f28401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SapiWebView.PickPhotoResult f36641c;
+    public SapiWebView.PickPhotoResult f28402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SapiWebView.BiometricsIdentifyResult f36642d;
+    public SapiWebView.BiometricsIdentifyResult f28403d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SapiScheme f36643e;
+    public SapiScheme f28404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f36644f;
+    public int f28405f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36645g;
+    public int f28406g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageCropCallback.ImageCropResult f36646h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ScreenShotManager f36647i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public IdcardOcrImageCallback f36648j;
+    public ImageCropCallback.ImageCropResult f28407h;
+    public ScreenShotManager i;
+    public IdcardOcrImageCallback j;
     public boolean loginStatusChange;
     public SapiWebView sapiWebView;
 
@@ -174,9 +169,9 @@ public class BaseActivity extends TitleActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -187,7 +182,7 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ScreenShotManager screenShotManager = new ScreenShotManager();
-            this.f36647i = screenShotManager;
+            this.i = screenShotManager;
             screenShotManager.init(getContentResolver(), new IScreenShotListener(this) { // from class: com.baidu.sapi2.activity.BaseActivity.24
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -200,9 +195,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -227,9 +222,9 @@ public class BaseActivity extends TitleActivity {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -251,7 +246,7 @@ public class BaseActivity extends TitleActivity {
                     }
                 }
             });
-            this.f36647i.register();
+            this.i.register();
         }
     }
 
@@ -284,9 +279,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -301,8 +296,8 @@ public class BaseActivity extends TitleActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
                         JSONObject a = this.a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
-                        if (this.a.f36642d != null) {
-                            this.a.f36642d.setIdentifyToken(a.toString());
+                        if (this.a.f28403d != null) {
+                            this.a.f28403d.setIdentifyToken(a.toString());
                         }
                     }
                 }
@@ -313,8 +308,8 @@ public class BaseActivity extends TitleActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, passFaceRecogResult) == null) {
                         JSONObject a = this.a.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid);
-                        if (this.a.f36642d != null) {
-                            this.a.f36642d.setIdentifyToken(a.toString());
+                        if (this.a.f28403d != null) {
+                            this.a.f28403d.setIdentifyToken(a.toString());
                         }
                     }
                 }
@@ -323,10 +318,10 @@ public class BaseActivity extends TitleActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             ImageCropCallback imageCropCallback = CoreViewRouter.getInstance().getImageCropCallback();
             ActivityResultCallback activityResultCallback = CoreViewRouter.getInstance().getActivityResultCallback();
             if (imageCropCallback == null || activityResultCallback == null) {
@@ -335,14 +330,14 @@ public class BaseActivity extends TitleActivity {
             }
             ImageCropCallback imageCropCallback2 = imageCropCallback;
             if (activityResultCallback != null) {
-                activityResultCallback.onActivityResult(i2, i3, intent);
+                activityResultCallback.onActivityResult(i, i2, intent);
             }
-            if (i2 == 1001) {
-                if (this.f36641c == null) {
+            if (i == 1001) {
+                if (this.f28402c == null) {
                     return;
                 }
-                if (i3 == -1 && imageCropCallback2 != null) {
-                    imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(getExternalCacheDir(), "camera_temp_image.jpg")), this.f36644f, this.f36645g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.20
+                if (i2 == -1 && imageCropCallback2 != null) {
+                    imageCropCallback2.onImageCrop(this, Uri.fromFile(new File(getExternalCacheDir(), "camera_temp_image.jpg")), this.f28405f, this.f28406g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.20
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaseActivity a;
@@ -354,9 +349,9 @@ public class BaseActivity extends TitleActivity {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -370,22 +365,22 @@ public class BaseActivity extends TitleActivity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                                 if (str != null) {
-                                    this.a.f36641c.setImageData(str);
+                                    this.a.f28402c.setImageData(str);
                                 } else {
-                                    this.a.f36641c.setImageData("");
+                                    this.a.f28402c.setImageData("");
                                 }
                             }
                         }
                     });
                 } else {
-                    this.f36641c.setImageData("");
+                    this.f28402c.setImageData("");
                 }
-            } else if (i2 == 1002) {
-                if (this.f36641c == null) {
+            } else if (i == 1002) {
+                if (this.f28402c == null) {
                     return;
                 }
-                if (i3 == -1 && intent.getData() != null && imageCropCallback2 != null) {
-                    imageCropCallback2.onImageCrop(this, intent.getData(), this.f36644f, this.f36645g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.21
+                if (i2 == -1 && intent.getData() != null && imageCropCallback2 != null) {
+                    imageCropCallback2.onImageCrop(this, intent.getData(), this.f28405f, this.f28406g, new ImageCropCallback.ImageCropResult(this) { // from class: com.baidu.sapi2.activity.BaseActivity.21
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BaseActivity a;
@@ -397,9 +392,9 @@ public class BaseActivity extends TitleActivity {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -413,48 +408,48 @@ public class BaseActivity extends TitleActivity {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                                 if (str != null) {
-                                    this.a.f36641c.setImageData(str);
+                                    this.a.f28402c.setImageData(str);
                                 } else {
-                                    this.a.f36641c.setImageData("");
+                                    this.a.f28402c.setImageData("");
                                 }
                             }
                         }
                     });
                 } else {
-                    this.f36641c.setImageData("");
+                    this.f28402c.setImageData("");
                 }
-            } else if (i2 == 2001 && i3 == 3001) {
+            } else if (i == 2001 && i2 == 3001) {
                 a(intent);
-            } else if (i2 == 1005) {
+            } else if (i == 1005) {
                 if (intent == null) {
-                    if (this.f36648j != null) {
+                    if (this.j != null) {
                         IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                         idcardOcrImageRusult.setResultCode(-404);
                         idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
-                        this.f36648j.onFailure(idcardOcrImageRusult);
+                        this.j.onFailure(idcardOcrImageRusult);
                         return;
                     }
                     return;
                 }
                 a(intent.getData());
-            } else if (i2 != 1006) {
-                if (i2 == 1010) {
+            } else if (i != 1006) {
+                if (i == 1010) {
                     if (this.a == null) {
                         return;
                     }
-                    this.a.onReceiveValue((intent == null || i3 != -1) ? null : intent.getData());
+                    this.a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
                     this.a = null;
-                } else if (i2 != 1011 || this.f36640b == null) {
+                } else if (i != 1011 || this.f28401b == null) {
                 } else {
-                    Uri data = (intent == null || i3 != -1) ? null : intent.getData();
+                    Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                     if (data != null) {
-                        this.f36640b.onReceiveValue(new Uri[]{data});
+                        this.f28401b.onReceiveValue(new Uri[]{data});
                     } else {
-                        this.f36640b.onReceiveValue(new Uri[0]);
+                        this.f28401b.onReceiveValue(new Uri[0]);
                     }
-                    this.f36640b = null;
+                    this.f28401b = null;
                 }
-            } else if (this.f36648j == null) {
+            } else if (this.j == null) {
             } else {
                 if (intent != null && intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE) != null) {
                     byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
@@ -466,13 +461,13 @@ public class BaseActivity extends TitleActivity {
                     IdcardOcrImageRusult idcardOcrImageRusult2 = new IdcardOcrImageRusult();
                     idcardOcrImageRusult2.setResultCode(0);
                     idcardOcrImageRusult2.image = Base64Utils.encodeToString(a);
-                    this.f36648j.onSuccess(idcardOcrImageRusult2);
+                    this.j.onSuccess(idcardOcrImageRusult2);
                     return;
                 }
                 IdcardOcrImageRusult idcardOcrImageRusult3 = new IdcardOcrImageRusult();
                 idcardOcrImageRusult3.setResultCode(-404);
                 idcardOcrImageRusult3.setResultMsg(IdCardOcrResult.MESSAGE_ALBUM_ERROR);
-                this.f36648j.onFailure(idcardOcrImageRusult3);
+                this.j.onFailure(idcardOcrImageRusult3);
             }
         }
     }
@@ -482,7 +477,7 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            if (SapiUtils.checkRequestPermission(s.f53810i, this)) {
+            if (SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this)) {
                 initScreenShotManager();
             }
         }
@@ -498,7 +493,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.root_view)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aee)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -509,14 +504,14 @@ public class BaseActivity extends TitleActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
-            if (this.sapiWebView.onKeyUp(i2)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
+            if (this.sapiWebView.onKeyUp(i)) {
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -549,11 +544,11 @@ public class BaseActivity extends TitleActivity {
     }
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i2, strArr, iArr);
-            if (i2 == 2001) {
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
+            if (i == 2001) {
                 if (iArr.length > 0 && iArr[0] == 0) {
                     c();
                 } else {
@@ -596,9 +591,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -608,12 +603,12 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onFailure(int i2) {
+                public void onFailure(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         Toast.makeText(this.a, BaseOptionActivity.NO_STORAGE_PERM_MSG, 1).show();
-                        if (this.a.f36641c != null) {
-                            this.a.f36641c.setImageData("");
+                        if (this.a.f28402c != null) {
+                            this.a.f28402c.setImageData("");
                         }
                     }
                 }
@@ -645,7 +640,7 @@ public class BaseActivity extends TitleActivity {
     public void releaseScreenShotManager() {
         ScreenShotManager screenShotManager;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (screenShotManager = this.f36647i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (screenShotManager = this.i) == null) {
             return;
         }
         screenShotManager.unRegister();
@@ -655,23 +650,23 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.configuration.isNewLogin) {
             try {
-                ((RelativeLayout.LayoutParams) findViewById(R.id.sapi_webview).getLayoutParams()).addRule(3, 0);
+                ((RelativeLayout.LayoutParams) findViewById(R.id.obfuscated_res_0x7f091be8).getLayoutParams()).addRule(3, 0);
             } catch (Exception unused) {
                 Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.root_view);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091aee);
             if (this.mTitleLayout == null) {
-                this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
+                this.mTitleLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091be7);
             }
             ImageView imageView = null;
             RelativeLayout relativeLayout2 = this.mTitleLayout;
             if (relativeLayout2 != null && relativeLayout2.getChildCount() != 0) {
                 relativeLayout.removeView(this.mTitleLayout);
                 this.mTitleLayout.setBackgroundColor(0);
-                for (int i2 = 0; i2 < this.mTitleLayout.getChildCount(); i2++) {
-                    View childAt = this.mTitleLayout.getChildAt(i2);
-                    if (childAt.getId() == R.id.title_right_close && this.configuration.showBottomBack) {
+                for (int i = 0; i < this.mTitleLayout.getChildCount(); i++) {
+                    View childAt = this.mTitleLayout.getChildAt(i);
+                    if (childAt.getId() == R.id.obfuscated_res_0x7f092055 && this.configuration.showBottomBack) {
                         childAt.setVisibility(0);
                         imageView = (ImageView) childAt;
                     } else {
@@ -692,7 +687,7 @@ public class BaseActivity extends TitleActivity {
                 public final /* synthetic */ ImageView a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f36652b;
+                public final /* synthetic */ BaseActivity f28411b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -701,15 +696,15 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, imageView};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36652b = this;
+                    this.f28411b = this;
                     this.a = imageView;
                 }
 
@@ -724,7 +719,7 @@ public class BaseActivity extends TitleActivity {
                             if (imageView2 != null) {
                                 imageView2.setColorFilter(-1);
                             }
-                            if (Build.VERSION.SDK_INT < 23 || (window2 = this.f36652b.getWindow()) == null) {
+                            if (Build.VERSION.SDK_INT < 23 || (window2 = this.f28411b.getWindow()) == null) {
                                 return;
                             }
                             window2.getDecorView().setSystemUiVisibility(1280);
@@ -734,7 +729,7 @@ public class BaseActivity extends TitleActivity {
                         if (imageView3 != null) {
                             imageView3.setColorFilter(-16777216);
                         }
-                        if (Build.VERSION.SDK_INT < 23 || (window = this.f36652b.getWindow()) == null) {
+                        if (Build.VERSION.SDK_INT < 23 || (window = this.f28411b.getWindow()) == null) {
                             return;
                         }
                         window.getDecorView().setSystemUiVisibility(9216);
@@ -749,14 +744,14 @@ public class BaseActivity extends TitleActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.setupViews();
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091be8);
             this.sapiWebView = sapiWebView;
             if (sapiWebView == null) {
                 return;
             }
             SapiConfiguration sapiConfiguration = this.configuration;
             if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
-                sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_dark_mode_color));
+                sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609a4));
             }
             if (getWebDTO() != null && getWebDTO().loadingView != null) {
                 b.a(this, this.sapiWebView, getWebDTO().loadingView);
@@ -775,9 +770,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -790,8 +785,8 @@ public class BaseActivity extends TitleActivity {
                 public void onTitleChange(String str) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
-                        String string = this.a.getString(R.string.sapi_sdk_account_center_webview_title_online_service);
-                        String string2 = this.a.getString(R.string.sapi_sdk_account_center_webview_title_common_problem);
+                        String string = this.a.getString(R.string.obfuscated_res_0x7f0f1002);
+                        String string2 = this.a.getString(R.string.obfuscated_res_0x7f0f1001);
                         if (string.equals(str)) {
                             str = string2;
                         }
@@ -811,9 +806,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -849,9 +844,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -888,9 +883,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -900,13 +895,13 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.PickPhotoCallback
-                public void onPickImage(int i2, int i3, int i4, SapiWebView.PickPhotoResult pickPhotoResult) {
+                public void onPickImage(int i, int i2, int i3, SapiWebView.PickPhotoResult pickPhotoResult) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), pickPhotoResult}) == null) {
-                        this.a.f36641c = pickPhotoResult;
-                        this.a.f36644f = i3;
-                        this.a.f36645g = i4;
-                        if (1 == i2) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), pickPhotoResult}) == null) {
+                        this.a.f28402c = pickPhotoResult;
+                        this.a.f28405f = i2;
+                        this.a.f28406g = i3;
+                        if (1 == i) {
                             this.a.takePhoto();
                         } else {
                             this.a.pickPhoto();
@@ -926,9 +921,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -941,7 +936,7 @@ public class BaseActivity extends TitleActivity {
                 public void onBiometricsIdentify(SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, biometricsIdentifyResult) == null) {
-                        this.a.f36642d = biometricsIdentifyResult;
+                        this.a.f28403d = biometricsIdentifyResult;
                         if ("bduss".equals(biometricsIdentifyResult.livenessRecogType)) {
                             this.a.a(biometricsIdentifyResult);
                         } else if ("certinfo".equals(biometricsIdentifyResult.livenessRecogType) || "authtoken".equals(biometricsIdentifyResult.livenessRecogType)) {
@@ -962,9 +957,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -974,10 +969,10 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.PageStateCallback
-                public void pageState(int i2) {
+                public void pageState(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        this.a.updateBottomBack(i2);
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        this.a.updateBottomBack(i);
                     }
                 }
             });
@@ -993,9 +988,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1025,9 +1020,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1040,8 +1035,8 @@ public class BaseActivity extends TitleActivity {
                 public void onInvokeScApp(String str, String str2, List<PassNameValuePair> list, SapiWebView.InvokeScAppCallback.InvokeScAppResult invokeScAppResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLLL(1048576, this, str, str2, list, invokeScAppResult) == null) {
-                        this.a.f36643e = new SapiScheme();
-                        this.a.f36643e.invokeScApp(this.a, str, str2, list, invokeScAppResult);
+                        this.a.f28404e = new SapiScheme();
+                        this.a.f28404e.invokeScApp(this.a, str, str2, list, invokeScAppResult);
                     }
                 }
             });
@@ -1057,9 +1052,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1088,9 +1083,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1110,7 +1105,7 @@ public class BaseActivity extends TitleActivity {
                             public final /* synthetic */ SapiJsCallBacks.FingerprintResult a;
 
                             /* renamed from: b  reason: collision with root package name */
-                            public final /* synthetic */ AnonymousClass10 f36649b;
+                            public final /* synthetic */ AnonymousClass10 f28408b;
 
                             {
                                 Interceptable interceptable3 = $ic;
@@ -1119,23 +1114,23 @@ public class BaseActivity extends TitleActivity {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, fingerprintResult};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
                                     }
                                 }
-                                this.f36649b = this;
+                                this.f28408b = this;
                                 this.a = fingerprintResult;
                             }
 
                             @Override // com.baidu.sapi2.touchid.FingerprintCallback
-                            public void onCall(int i2) {
+                            public void onCall(int i) {
                                 Interceptable interceptable3 = $ic;
-                                if (interceptable3 == null || interceptable3.invokeI(1048576, this, i2) == null) {
-                                    this.a.setResult(i2);
+                                if (interceptable3 == null || interceptable3.invokeI(1048576, this, i) == null) {
+                                    this.a.setResult(i);
                                 }
                             }
                         });
@@ -1154,9 +1149,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1185,9 +1180,9 @@ public class BaseActivity extends TitleActivity {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -1197,9 +1192,9 @@ public class BaseActivity extends TitleActivity {
                                 }
 
                                 @Override // com.baidu.sapi2.social.WXInvokeCallback
-                                public void onResult(int i2, Intent intent) {
+                                public void onResult(int i, Intent intent) {
                                     Interceptable interceptable3 = $ic;
-                                    if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, intent) == null) && i2 == 3001) {
+                                    if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i, intent) == null) && i == 3001) {
                                         this.a.a.a(intent);
                                     }
                                 }
@@ -1220,9 +1215,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1232,10 +1227,10 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.BiometricsIdentificationLiveCallBack
-                public void getLiveImage(int i2, PassFaceRecogCallback passFaceRecogCallback) {
+                public void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, passFaceRecogCallback) == null) {
-                        BiometricsManager.getInstance().recogWithFaceLive(this.a, i2, passFaceRecogCallback);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, passFaceRecogCallback) == null) {
+                        BiometricsManager.getInstance().recogWithFaceLive(this.a, i, passFaceRecogCallback);
                     }
                 }
             });
@@ -1251,9 +1246,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1266,7 +1261,7 @@ public class BaseActivity extends TitleActivity {
                 public void getIdcardImage(String str, String str2, IdcardOcrImageCallback idcardOcrImageCallback) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, idcardOcrImageCallback) == null) {
-                        this.a.f36648j = idcardOcrImageCallback;
+                        this.a.j = idcardOcrImageCallback;
                         if ("album".equals(str)) {
                             this.a.d();
                         } else if ("camera".equals(str)) {
@@ -1287,9 +1282,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1299,18 +1294,20 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.MakeVibrateCallBack
-                public void presetVibrate() {
+                public void presetVibrate(String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, str) == null) {
                         VibrateUtils.presetVibrate(this.a);
+                        AccessibleUtils.accessible(this.a, str);
                     }
                 }
 
                 @Override // com.baidu.sapi2.SapiJsCallBacks.MakeVibrateCallBack
-                public void vibrate(long[] jArr, int i2) {
+                public void vibrate(long[] jArr, int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jArr, i2) == null) {
-                        VibrateUtils.vibrate(this.a, jArr, i2);
+                    if (interceptable2 == null || interceptable2.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jArr, i, str) == null) {
+                        VibrateUtils.vibrate(this.a, jArr, i);
+                        AccessibleUtils.accessible(this.a, str);
                     }
                 }
             });
@@ -1322,7 +1319,7 @@ public class BaseActivity extends TitleActivity {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             PermissionsDTO permissionsDTO = new PermissionsDTO();
             permissionsDTO.context = this.configuration.context;
-            permissionsDTO.permissions = new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE};
+            permissionsDTO.permissions = new String[]{"android.permission.CAMERA"};
             permissionsDTO.dialogTitle = "权限申请";
             permissionsDTO.dialogMsg = "为了正常使用拍照服务、图片上传、图片识别服务，请允许使用摄像头权限。你可以通过系统\"设置\"进行权限的管理";
             PassPermissions.getInstance().requestPermissions(permissionsDTO, new PermissionsCallback(this) { // from class: com.baidu.sapi2.activity.BaseActivity.15
@@ -1337,9 +1334,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1349,12 +1346,12 @@ public class BaseActivity extends TitleActivity {
                 }
 
                 @Override // com.baidu.pass.permissions.PermissionsCallback
-                public void onFailure(int i2) {
+                public void onFailure(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                         Toast.makeText(this.a, BaseOptionActivity.NO_CAMERA_PERM_MSG, 1).show();
-                        if (this.a.f36641c != null) {
-                            this.a.f36641c.setImageData("");
+                        if (this.a.f28402c != null) {
+                            this.a.f28402c.setImageData("");
                         }
                     }
                 }
@@ -1365,7 +1362,7 @@ public class BaseActivity extends TitleActivity {
                     if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                         try {
                             if (!"mounted".equals(Environment.getExternalStorageState())) {
-                                Toast.makeText(this.a, (int) R.string.sapi_sdk_user_profile_sdcard_unavailable, 0).show();
+                                Toast.makeText(this.a, (int) R.string.obfuscated_res_0x7f0f105c, 0).show();
                                 return;
                             }
                             File file = new File(this.a.getExternalCacheDir(), "camera_temp_image.jpg");
@@ -1430,9 +1427,9 @@ public class BaseActivity extends TitleActivity {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1460,9 +1457,9 @@ public class BaseActivity extends TitleActivity {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1474,13 +1471,13 @@ public class BaseActivity extends TitleActivity {
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             Interceptable interceptable2 = $ic;
-                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.f36648j == null) {
+                            if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.j == null) {
                                 return;
                             }
                             IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                             idcardOcrImageRusult.setResultCode(-402);
                             idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                            this.a.f36648j.onFailure(idcardOcrImageRusult);
+                            this.a.j.onFailure(idcardOcrImageRusult);
                         }
                     }).build().show();
                     return;
@@ -1508,9 +1505,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1524,20 +1521,20 @@ public class BaseActivity extends TitleActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
                         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
-                        intent.addFlags(268435456);
+                        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         intent.setData(Uri.fromParts("package", this.a.getPackageName(), null));
                         if (intent.resolveActivity(this.a.getPackageManager()) != null) {
                             this.a.startActivity(intent);
                         }
-                        if (this.a.f36648j != null) {
+                        if (this.a.j != null) {
                             IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                             idcardOcrImageRusult.setResultCode(-402);
                             idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                            this.a.f36648j.onFailure(idcardOcrImageRusult);
+                            this.a.j.onFailure(idcardOcrImageRusult);
                         }
                     }
                 }
-            }).setNegativeButton("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.BaseActivity.29
+            }).setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.activity.BaseActivity.29
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ BaseActivity a;
@@ -1549,9 +1546,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1563,13 +1560,13 @@ public class BaseActivity extends TitleActivity {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.f36648j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) || this.a.j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
                     idcardOcrImageRusult.setResultCode(-402);
                     idcardOcrImageRusult.setResultMsg(IdCardOcrResult.MESSAGE_NO_ALBUM_PERMISSION);
-                    this.a.f36648j.onFailure(idcardOcrImageRusult);
+                    this.a.j.onFailure(idcardOcrImageRusult);
                 }
             }).build();
             build.setCancelable(false);
@@ -1584,7 +1581,7 @@ public class BaseActivity extends TitleActivity {
     public void b(ValueCallback<Uri[]> valueCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65560, this, valueCallback) == null) {
-            this.f36640b = valueCallback;
+            this.f28401b = valueCallback;
             Intent intent = new Intent("android.intent.action.GET_CONTENT");
             intent.addCategory("android.intent.category.OPENABLE");
             intent.setType(BdUploadHandler.IMAGE_MIME_TYPE);
@@ -1622,9 +1619,9 @@ public class BaseActivity extends TitleActivity {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1634,17 +1631,17 @@ public class BaseActivity extends TitleActivity {
             }
 
             @Override // com.baidu.sapi2.callback.ImageCropCallback
-            public void onImageCrop(Context context, Uri uri, int i2, int i3, ImageCropCallback.ImageCropResult imageCropResult) {
+            public void onImageCrop(Context context, Uri uri, int i, int i2, ImageCropCallback.ImageCropResult imageCropResult) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i2), Integer.valueOf(i3), imageCropResult}) == null) {
-                    this.a.f36646h = imageCropResult;
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{context, uri, Integer.valueOf(i), Integer.valueOf(i2), imageCropResult}) == null) {
+                    this.a.f28407h = imageCropResult;
                     Intent intent = new Intent(context, ImageClipActivity.class);
-                    if (i2 == ClipBoxView.H) {
+                    if (i == ClipBoxView.H) {
                         intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 0);
                     } else {
                         intent.putExtra(ImageClipActivity.EXTRA_PARAM_FROM_BUSINESS, 1);
                     }
-                    intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i3);
+                    intent.putExtra(ImageClipActivity.EXTRA_PARAM_UPLOAD_IMAGE_MAX_SIZE, i2);
                     intent.setData(uri);
                     this.a.startActivityForResult(intent, 1003);
                 }
@@ -1669,7 +1666,7 @@ public class BaseActivity extends TitleActivity {
                 public final /* synthetic */ SapiWebView.BiometricsIdentifyResult a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f36650b;
+                public final /* synthetic */ BaseActivity f28409b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1678,15 +1675,15 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, biometricsIdentifyResult};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36650b = this;
+                    this.f28409b = this;
                     this.a = biometricsIdentifyResult;
                 }
 
@@ -1716,8 +1713,8 @@ public class BaseActivity extends TitleActivity {
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (this.f36650b.f36642d != null) {
-                            this.f36650b.f36642d.setIdentifyToken(jSONObject.toString());
+                        if (this.f28409b.f28403d != null) {
+                            this.f28409b.f28403d.setIdentifyToken(jSONObject.toString());
                         }
                     }
                 }
@@ -1731,7 +1728,7 @@ public class BaseActivity extends TitleActivity {
                         if (!TextUtils.isEmpty(str)) {
                             SapiWebView.BiometricsIdentifyResult biometricsIdentifyResult2 = this.a;
                             if (biometricsIdentifyResult2.biometricType == 1) {
-                                this.f36650b.livenessRecognize(str, biometricsIdentifyResult2);
+                                this.f28409b.livenessRecognize(str, biometricsIdentifyResult2);
                                 return;
                             }
                             return;
@@ -1743,8 +1740,8 @@ public class BaseActivity extends TitleActivity {
                         } catch (JSONException e2) {
                             Log.e(e2);
                         }
-                        if (this.f36650b.f36642d != null) {
-                            this.f36650b.f36642d.setIdentifyToken(jSONObject.toString());
+                        if (this.f28409b.f28403d != null) {
+                            this.f28409b.f28403d.setIdentifyToken(jSONObject.toString());
                         }
                     }
                 }
@@ -1763,7 +1760,7 @@ public class BaseActivity extends TitleActivity {
                 public final /* synthetic */ SapiWebView.BioScanFaceCallback.BioScanFaceResult a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ BaseActivity f36651b;
+                public final /* synthetic */ BaseActivity f28410b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -1772,15 +1769,15 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, bioScanFaceResult};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36651b = this;
+                    this.f28410b = this;
                     this.a = bioScanFaceResult;
                 }
 
@@ -1789,7 +1786,7 @@ public class BaseActivity extends TitleActivity {
                 public void onFailure(PassFaceRecogResult passFaceRecogResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, passFaceRecogResult) == null) {
-                        JSONObject a = this.f36651b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
+                        JSONObject a = this.f28410b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), null, null);
                         SapiWebView.BioScanFaceCallback.BioScanFaceResult bioScanFaceResult2 = this.a;
                         if (bioScanFaceResult2 != null) {
                             bioScanFaceResult2.setScanFaceIdentifyResult(a.toString());
@@ -1826,7 +1823,7 @@ public class BaseActivity extends TitleActivity {
                         this.a.setScanFaceIdentifyResult(str);
                         return;
                     }
-                    this.a.setScanFaceIdentifyResult(this.f36651b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid).toString());
+                    this.a.setScanFaceIdentifyResult(this.f28410b.a(passFaceRecogResult.getResultCode(), passFaceRecogResult.getResultMsg(), passFaceRecogResult.callbackkey, passFaceRecogResult.authSid).toString());
                 }
             };
             if (bioScanFaceResult.type == 1) {
@@ -1838,15 +1835,15 @@ public class BaseActivity extends TitleActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject a(int i2, String str, String str2, String str3) {
+    public JSONObject a(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("errno", i2);
+                jSONObject.put("errno", i);
                 jSONObject.put("errmsg", str);
-                if (i2 == 0) {
+                if (i == 0) {
                     if (!TextUtils.isEmpty(str2)) {
                         jSONObject.put("credentialKey", str2);
                         jSONObject.put("callbackkey", str2);
@@ -1878,9 +1875,9 @@ public class BaseActivity extends TitleActivity {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1890,17 +1887,17 @@ public class BaseActivity extends TitleActivity {
             }
 
             @Override // com.baidu.sapi2.callback.ActivityResultCallback
-            public void onActivityResult(int i2, int i3, Intent intent) {
+            public void onActivityResult(int i, int i2, Intent intent) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, intent) == null) && i2 == 1003) {
-                    if (i3 == -1) {
+                if ((interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, intent) == null) && i == 1003) {
+                    if (i2 == -1) {
                         byte[] byteArrayExtra = intent.getByteArrayExtra(ImageClipActivity.EXTRA_IMAGE);
-                        if (byteArrayExtra == null || this.a.f36646h == null) {
+                        if (byteArrayExtra == null || this.a.f28407h == null) {
                             return;
                         }
-                        this.a.f36646h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
-                    } else if (this.a.f36646h != null) {
-                        this.a.f36646h.onImageResult(null);
+                        this.a.f28407h.onImageResult(SecurityUtil.base64Encode(byteArrayExtra));
+                    } else if (this.a.f28407h != null) {
+                        this.a.f28407h.onImageResult(null);
                     }
                 }
             }
@@ -1936,7 +1933,7 @@ public class BaseActivity extends TitleActivity {
             Toast.makeText(this, jSONObject.toString(), 0).show();
         } catch (JSONException unused) {
             promptResult.cancel();
-            Toast.makeText(this, QueryResponse.Options.CANCEL, 0).show();
+            Toast.makeText(this, "cancel", 0).show();
         }
     }
 
@@ -1959,9 +1956,9 @@ public class BaseActivity extends TitleActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1973,7 +1970,7 @@ public class BaseActivity extends TitleActivity {
                 @Override // com.baidu.sapi2.callback.IdCardOcrCallback
                 public void onFailure(IdCardOcrResult idCardOcrResult) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, idCardOcrResult) == null) || this.a.f36648j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, idCardOcrResult) == null) || this.a.j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
@@ -1981,13 +1978,13 @@ public class BaseActivity extends TitleActivity {
                     idcardOcrImageRusult.image = idCardOcrResult.image;
                     idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
                     idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
-                    this.a.f36648j.onFailure(idcardOcrImageRusult);
+                    this.a.j.onFailure(idcardOcrImageRusult);
                 }
 
                 @Override // com.baidu.sapi2.callback.IdCardOcrCallback
                 public void onSuccess(IdCardOcrResult idCardOcrResult) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, idCardOcrResult) == null) || this.a.f36648j == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, idCardOcrResult) == null) || this.a.j == null) {
                         return;
                     }
                     IdcardOcrImageRusult idcardOcrImageRusult = new IdcardOcrImageRusult();
@@ -1995,7 +1992,7 @@ public class BaseActivity extends TitleActivity {
                     idcardOcrImageRusult.image = idCardOcrResult.image;
                     idcardOcrImageRusult.setResultCode(idCardOcrResult.getResultCode());
                     idcardOcrImageRusult.setResultMsg(idCardOcrResult.getResultMsg());
-                    this.a.f36648j.onSuccess(idcardOcrImageRusult);
+                    this.a.j.onSuccess(idcardOcrImageRusult);
                 }
             });
         }

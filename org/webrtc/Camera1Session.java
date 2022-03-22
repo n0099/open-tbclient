@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.tun2tornadolite.booster.data.TornadoLiteRuntime;
-import h.c.g0;
+import f.c.g0;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -22,7 +22,7 @@ import org.webrtc.Camera1Session;
 import org.webrtc.CameraEnumerationAndroid;
 import org.webrtc.CameraSession;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Camera1Session implements CameraSession {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_CAPTURE_BUFFERS = 3;
@@ -45,7 +45,7 @@ public class Camera1Session implements CameraSession {
     public final SurfaceTextureHelper surfaceTextureHelper;
 
     /* renamed from: org.webrtc.Camera1Session$2  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class AnonymousClass2 implements Camera.PreviewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public class Camera1Session implements CameraSession {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {camera1Session};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,7 +76,7 @@ public class Camera1Session implements CameraSession {
         }
 
         public /* synthetic */ void b(final byte[] bArr) {
-            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: h.c.c
+            this.this$0.cameraThreadHandler.post(new Runnable() { // from class: f.c.c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -105,7 +105,7 @@ public class Camera1Session implements CameraSession {
                         Camera1Session.camera1StartTimeMsHistogram.addSample((int) TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - this.this$0.constructionTimeNs));
                         this.this$0.firstFrameReported = true;
                     }
-                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: h.c.d
+                    VideoFrame videoFrame = new VideoFrame(new NV21Buffer(bArr, this.this$0.captureFormat.width, this.this$0.captureFormat.height, new Runnable() { // from class: f.c.d
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -127,7 +127,7 @@ public class Camera1Session implements CameraSession {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class SessionState {
         public static final /* synthetic */ SessionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -154,16 +154,16 @@ public class Camera1Session implements CameraSession {
             $VALUES = new SessionState[]{RUNNING, sessionState};
         }
 
-        public SessionState(String str, int i2) {
+        public SessionState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -204,32 +204,32 @@ public class Camera1Session implements CameraSession {
         camera1ResolutionHistogram = Histogram.createEnumeration("WebRTC.Android.Camera1.Resolution", CameraEnumerationAndroid.COMMON_RESOLUTIONS.size());
     }
 
-    public Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i2, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j2) {
+    public Camera1Session(CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i, Camera camera, Camera.CameraInfo cameraInfo, CameraEnumerationAndroid.CaptureFormat captureFormat, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i2), camera, cameraInfo, captureFormat, Long.valueOf(j2)};
+            Object[] objArr = {events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i), camera, cameraInfo, captureFormat, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Logging.d(TAG, "Create new camera1 session on camera " + i2);
+        Logging.d(TAG, "Create new camera1 session on camera " + i);
         this.cameraThreadHandler = new Handler();
         this.events = events;
         this.captureToTexture = z;
         this.applicationContext = context;
         this.surfaceTextureHelper = surfaceTextureHelper;
-        this.cameraId = i2;
+        this.cameraId = i;
         this.camera = camera;
         this.info = cameraInfo;
         this.captureFormat = captureFormat;
-        this.constructionTimeNs = j2;
+        this.constructionTimeNs = j;
         surfaceTextureHelper.setTextureSize(captureFormat.width, captureFormat.height);
         startCapturing();
     }
@@ -242,35 +242,35 @@ public class Camera1Session implements CameraSession {
         }
     }
 
-    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i2, int i3, int i4, int i5) {
+    public static void create(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, boolean z, Context context, SurfaceTextureHelper surfaceTextureHelper, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{createSessionCallback, events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{createSessionCallback, events, Boolean.valueOf(z), context, surfaceTextureHelper, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             long nanoTime = System.nanoTime();
-            Logging.d(TAG, "Open camera " + i2);
+            Logging.d(TAG, "Open camera " + i);
             events.onCameraOpening();
             try {
-                Camera open = Camera.open(i2);
+                Camera open = Camera.open(i);
                 if (open == null) {
                     CameraSession.FailureType failureType = CameraSession.FailureType.ERROR;
-                    createSessionCallback.onFailure(failureType, "android.hardware.Camera.open returned null for camera id = " + i2);
+                    createSessionCallback.onFailure(failureType, "android.hardware.Camera.open returned null for camera id = " + i);
                     return;
                 }
                 try {
                     open.setPreviewTexture(surfaceTextureHelper.getSurfaceTexture());
                     Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                    Camera.getCameraInfo(i2, cameraInfo);
+                    Camera.getCameraInfo(i, cameraInfo);
                     try {
                         Camera.Parameters parameters = open.getParameters();
-                        CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat = findClosestCaptureFormat(parameters, i3, i4, i5);
-                        updateCameraParameters(open, parameters, findClosestCaptureFormat, findClosestPictureSize(parameters, i3, i4), z);
+                        CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat = findClosestCaptureFormat(parameters, i2, i3, i4);
+                        updateCameraParameters(open, parameters, findClosestCaptureFormat, findClosestPictureSize(parameters, i2, i3), z);
                         if (!z) {
                             int frameSize = findClosestCaptureFormat.frameSize();
-                            for (int i6 = 0; i6 < 3; i6++) {
+                            for (int i5 = 0; i5 < 3; i5++) {
                                 open.addCallbackBuffer(ByteBuffer.allocateDirect(frameSize).array());
                             }
                         }
                         open.setDisplayOrientation(0);
-                        createSessionCallback.onDone(new Camera1Session(events, z, context, surfaceTextureHelper, i2, open, cameraInfo, findClosestCaptureFormat, nanoTime));
+                        createSessionCallback.onDone(new Camera1Session(events, z, context, surfaceTextureHelper, i, open, cameraInfo, findClosestCaptureFormat, nanoTime));
                     } catch (RuntimeException e2) {
                         open.release();
                         createSessionCallback.onFailure(CameraSession.FailureType.ERROR, e2.getMessage());
@@ -285,24 +285,24 @@ public class Camera1Session implements CameraSession {
         }
     }
 
-    public static CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat(Camera.Parameters parameters, int i2, int i3, int i4) {
+    public static CameraEnumerationAndroid.CaptureFormat findClosestCaptureFormat(Camera.Parameters parameters, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65552, null, parameters, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65552, null, parameters, i, i2, i3)) == null) {
             List<CameraEnumerationAndroid.CaptureFormat.FramerateRange> convertFramerates = Camera1Enumerator.convertFramerates(parameters.getSupportedPreviewFpsRange());
             Logging.d(TAG, "Available fps ranges: " + convertFramerates);
-            CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, i4);
-            Size closestSupportedSize = CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPreviewSizes()), i2, i3);
+            CameraEnumerationAndroid.CaptureFormat.FramerateRange closestSupportedFramerateRange = CameraEnumerationAndroid.getClosestSupportedFramerateRange(convertFramerates, i3);
+            Size closestSupportedSize = CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPreviewSizes()), i, i2);
             CameraEnumerationAndroid.reportCameraResolution(camera1ResolutionHistogram, closestSupportedSize);
             return new CameraEnumerationAndroid.CaptureFormat(closestSupportedSize.width, closestSupportedSize.height, closestSupportedFramerateRange);
         }
         return (CameraEnumerationAndroid.CaptureFormat) invokeLIII.objValue;
     }
 
-    public static Size findClosestPictureSize(Camera.Parameters parameters, int i2, int i3) {
+    public static Size findClosestPictureSize(Camera.Parameters parameters, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, parameters, i2, i3)) == null) ? CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPictureSizes()), i2, i3) : (Size) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, parameters, i, i2)) == null) ? CameraEnumerationAndroid.getClosestSupportedSize(Camera1Enumerator.convertSizes(parameters.getSupportedPictureSizes()), i, i2) : (Size) invokeLII.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -329,7 +329,7 @@ public class Camera1Session implements CameraSession {
     private void listenForTextureFrames() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: h.c.e
+            this.surfaceTextureHelper.startListening(new VideoSink() { // from class: f.c.e
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -362,9 +362,9 @@ public class Camera1Session implements CameraSession {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -374,18 +374,18 @@ public class Camera1Session implements CameraSession {
                 }
 
                 @Override // android.hardware.Camera.ErrorCallback
-                public void onError(int i2, Camera camera) {
+                public void onError(int i, Camera camera) {
                     String str;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, camera) == null) {
-                        if (i2 == 100) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, camera) == null) {
+                        if (i == 100) {
                             str = "Camera server died!";
                         } else {
-                            str = "Camera error: " + i2;
+                            str = "Camera error: " + i;
                         }
                         Logging.e(Camera1Session.TAG, str);
                         this.this$0.stopInternal();
-                        if (i2 == 2) {
+                        if (i == 2) {
                             this.this$0.events.onCameraDisconnected(this.this$0);
                         } else {
                             this.this$0.events.onCameraError(this.this$0, str);

@@ -15,23 +15,23 @@ import java.nio.channels.FileLock;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class u {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f991a;
+    public Context f967a;
 
     /* renamed from: a  reason: collision with other field name */
-    public RandomAccessFile f992a;
+    public RandomAccessFile f968a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f993a;
+    public String f969a;
 
     /* renamed from: a  reason: collision with other field name */
-    public FileLock f994a;
+    public FileLock f970a;
 
     static {
         InterceptResult invokeClinit;
@@ -56,15 +56,15 @@ public final class u {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f991a = context;
+        this.f967a = context;
     }
 
     public static u a(Context context, File file) {
@@ -80,20 +80,20 @@ public final class u {
             }
             if (a.add(str)) {
                 u uVar = new u(context);
-                uVar.f993a = str;
+                uVar.f969a = str;
                 try {
                     RandomAccessFile randomAccessFile = new RandomAccessFile(file2, "rw");
-                    uVar.f992a = randomAccessFile;
-                    uVar.f994a = randomAccessFile.getChannel().lock();
-                    com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f994a);
+                    uVar.f968a = randomAccessFile;
+                    uVar.f970a = randomAccessFile.getChannel().lock();
+                    com.xiaomi.channel.commonutils.logger.b.c("Locked: " + str + " :" + uVar.f970a);
                     return uVar;
                 } finally {
-                    if (uVar.f994a == null) {
-                        RandomAccessFile randomAccessFile2 = uVar.f992a;
+                    if (uVar.f970a == null) {
+                        RandomAccessFile randomAccessFile2 = uVar.f968a;
                         if (randomAccessFile2 != null) {
                             y.a(randomAccessFile2);
                         }
-                        a.remove(uVar.f993a);
+                        a.remove(uVar.f969a);
                     }
                 }
             }
@@ -105,20 +105,20 @@ public final class u {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f994a);
-            FileLock fileLock = this.f994a;
+            com.xiaomi.channel.commonutils.logger.b.c("unLock: " + this.f970a);
+            FileLock fileLock = this.f970a;
             if (fileLock != null && fileLock.isValid()) {
                 try {
-                    this.f994a.release();
+                    this.f970a.release();
                 } catch (IOException unused) {
                 }
-                this.f994a = null;
+                this.f970a = null;
             }
-            RandomAccessFile randomAccessFile = this.f992a;
+            RandomAccessFile randomAccessFile = this.f968a;
             if (randomAccessFile != null) {
                 y.a(randomAccessFile);
             }
-            a.remove(this.f993a);
+            a.remove(this.f969a);
         }
     }
 }

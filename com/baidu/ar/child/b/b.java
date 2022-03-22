@@ -2,6 +2,7 @@ package com.baidu.ar.child.b;
 
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.h.s;
@@ -32,9 +33,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,19 +66,19 @@ public class b {
         }
     }
 
-    private String x(int i2) {
+    private String x(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? i2 != -90 ? i2 != 0 ? i2 != 90 ? i2 != 180 ? "V" : "FV" : "HL" : "V" : "HR" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? i != -90 ? i != 0 ? i != 90 ? i != 180 ? "V" : "FV" : "HL" : "V" : "HR" : (String) invokeI.objValue;
     }
 
-    public void a(byte[] bArr, int i2, a aVar) {
+    public void a(byte[] bArr, int i, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, bArr, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, bArr, i, aVar) == null) {
             String gV = s.gV();
             HashMap hashMap = new HashMap();
             String encodeToString = Base64.encodeToString(bArr, 0);
-            String x = x(i2);
+            String x = x(i);
             hashMap.put("image", encodeToString);
             hashMap.put("svc_name", "child-face");
             hashMap.put(TiebaStatic.Params.VID, x);
@@ -94,9 +95,9 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -110,7 +111,7 @@ public class b {
                 public void a(HttpException httpException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, httpException) == null) {
-                        httpException.getMessage();
+                        Log.e("ChildRequestController", httpException.getMessage());
                     }
                 }
 

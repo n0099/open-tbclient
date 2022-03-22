@@ -34,22 +34,22 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
 
     /* loaded from: classes.dex */
     public interface ViewBinder {
-        boolean setViewValue(View view, Cursor cursor, int i2);
+        boolean setViewValue(View view, Cursor cursor, int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SimpleCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr) {
-        super(context, i2, cursor);
+    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr) {
+        super(context, i, cursor);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), cursor, strArr, iArr};
+            Object[] objArr = {context, Integer.valueOf(i), cursor, strArr, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Cursor) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -72,8 +72,8 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
                 if (iArr == null || iArr.length != length) {
                     this.mFrom = new int[length];
                 }
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.mFrom[i2] = cursor.getColumnIndexOrThrow(strArr[i2]);
+                for (int i = 0; i < length; i++) {
+                    this.mFrom[i] = cursor.getColumnIndexOrThrow(strArr[i]);
                 }
                 return;
             }
@@ -89,13 +89,13 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
             int[] iArr = this.mTo;
             int length = iArr.length;
             int[] iArr2 = this.mFrom;
-            for (int i2 = 0; i2 < length; i2++) {
-                View findViewById = view.findViewById(iArr[i2]);
+            for (int i = 0; i < length; i++) {
+                View findViewById = view.findViewById(iArr[i]);
                 if (findViewById != null) {
-                    if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i2]) : false) {
+                    if (viewBinder != null ? viewBinder.setViewValue(findViewById, cursor, iArr2[i]) : false) {
                         continue;
                     } else {
-                        String string = cursor.getString(iArr2[i2]);
+                        String string = cursor.getString(iArr2[i]);
                         if (string == null) {
                             string = "";
                         }
@@ -131,9 +131,9 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
             if (cursorToStringConverter != null) {
                 return cursorToStringConverter.convertToString(cursor);
             }
-            int i2 = this.mStringConversionColumn;
-            if (i2 > -1) {
-                return cursor.getString(i2);
+            int i = this.mStringConversionColumn;
+            if (i > -1) {
+                return cursor.getString(i);
             }
             return super.convertToString(cursor);
         }
@@ -165,10 +165,10 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
         }
     }
 
-    public void setStringConversionColumn(int i2) {
+    public void setStringConversionColumn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mStringConversionColumn = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mStringConversionColumn = i;
         }
     }
 
@@ -209,17 +209,17 @@ public class SimpleCursorAdapter extends ResourceCursorAdapter {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SimpleCursorAdapter(Context context, int i2, Cursor cursor, String[] strArr, int[] iArr, int i3) {
-        super(context, i2, cursor, i3);
+    public SimpleCursorAdapter(Context context, int i, Cursor cursor, String[] strArr, int[] iArr, int i2) {
+        super(context, i, cursor, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), cursor, strArr, iArr, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), cursor, strArr, iArr, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (Cursor) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;

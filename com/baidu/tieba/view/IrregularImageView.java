@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class IrregularImageView extends AppCompatImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f47729e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f36902b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f47730f;
-    public final c<c.a.d.o.d.a> mCallback;
+    /* renamed from: c  reason: collision with root package name */
+    public final c<c.a.d.o.d.a> f36903c;
 
     /* loaded from: classes6.dex */
     public class a extends c<c.a.d.o.d.a> {
@@ -44,9 +44,9 @@ public class IrregularImageView extends AppCompatImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {irregularImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -57,27 +57,27 @@ public class IrregularImageView extends AppCompatImageView {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) {
                 if (aVar == null) {
-                    if (this.a.f47730f != 0) {
+                    if (this.a.f36902b != 0) {
                         Bitmap bitmap = null;
                         try {
-                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f47730f);
+                            bitmap = BitmapFactory.decodeResource(this.a.getResources(), this.a.f36902b);
                         } catch (Throwable th) {
                             th.printStackTrace();
                         }
                         if (bitmap != null) {
                             IrregularImageView irregularImageView = this.a;
-                            irregularImageView.setImage(bitmap, irregularImageView.f47729e);
+                            irregularImageView.setImage(bitmap, irregularImageView.a);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                this.a.setImage(aVar.p(), this.a.f47729e);
+                this.a.setImage(aVar.p(), this.a.a);
             }
         }
     }
@@ -91,71 +91,71 @@ public class IrregularImageView extends AppCompatImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mCallback = new a(this);
+        this.f36903c = new a(this);
     }
 
-    public final Bitmap f(Bitmap bitmap, int i2, int i3) {
+    public final Bitmap k(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         float f2;
+        int i4;
         int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i2, i3)) == null) {
-            if (bitmap == null || bitmap.getWidth() == 0 || bitmap.getHeight() == 0 || i2 == 0 || i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bitmap, i, i2)) == null) {
+            if (bitmap == null || bitmap.getWidth() == 0 || bitmap.getHeight() == 0 || i == 0 || i2 == 0) {
                 return null;
             }
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            float f3 = i2 * 1.0f;
-            float f4 = i3;
+            float f3 = i * 1.0f;
+            float f4 = i2;
             float f5 = width;
             float f6 = height;
             if (f3 / f4 > (f5 * 1.0f) / f6) {
                 f2 = f3 / f5;
-                int i8 = (int) ((f4 * 1.0f) / f2);
-                i5 = i8;
-                i4 = width;
-                i6 = (height - i8) / 2;
-                i7 = 0;
+                int i7 = (int) ((f4 * 1.0f) / f2);
+                i4 = i7;
+                i3 = width;
+                i5 = (height - i7) / 2;
+                i6 = 0;
             } else {
                 float f7 = (f4 * 1.0f) / f6;
-                int i9 = (int) (f3 / f7);
-                i4 = i9;
+                int i8 = (int) (f3 / f7);
+                i3 = i8;
                 f2 = f7;
-                i5 = height;
-                i6 = 0;
-                i7 = (width - i9) / 2;
+                i4 = height;
+                i5 = 0;
+                i6 = (width - i8) / 2;
             }
             Matrix matrix = new Matrix();
             matrix.postScale(f2, f2);
-            return Bitmap.createBitmap(bitmap, i7, i6, i4, i5, matrix, false);
+            return Bitmap.createBitmap(bitmap, i6, i5, i3, i4, matrix, false);
         }
         return (Bitmap) invokeLII.objValue;
     }
 
-    public void setErrorRes(int i2) {
+    public void setErrorRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f47730f = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f36902b = i;
         }
     }
 
-    public void setImage(String str, BdUniqueId bdUniqueId, int i2) {
+    public void setImage(String str, BdUniqueId bdUniqueId, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i2) == null) {
-            this.f47729e = i2;
-            d.h().k(str, 10, this.mCallback, 0, 0, bdUniqueId, new Object[0]);
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, str, bdUniqueId, i) == null) {
+            this.a = i;
+            d.h().k(str, 10, this.f36903c, 0, 0, bdUniqueId, new Object[0]);
         }
     }
 
@@ -168,9 +168,9 @@ public class IrregularImageView extends AppCompatImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -178,23 +178,23 @@ public class IrregularImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.mCallback = new a(this);
+        this.f36903c = new a(this);
     }
 
-    public void setImage(Bitmap bitmap, int i2) {
+    public void setImage(Bitmap bitmap, int i) {
         Bitmap bitmap2;
         Bitmap bitmap3;
         Bitmap bitmap4;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bitmap, i2) == null) || bitmap == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bitmap, i) == null) || bitmap == null) {
             return;
         }
         try {
-            bitmap2 = BitmapFactory.decodeResource(getResources(), i2);
+            bitmap2 = BitmapFactory.decodeResource(getResources(), i);
             try {
                 bitmap3 = Bitmap.createBitmap(bitmap2.getWidth(), bitmap2.getHeight(), Bitmap.Config.ARGB_8888);
                 try {
-                    bitmap4 = f(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
+                    bitmap4 = k(bitmap, bitmap2.getWidth(), bitmap2.getHeight());
                 } catch (Throwable th) {
                     th = th;
                     th.printStackTrace();
@@ -226,17 +226,17 @@ public class IrregularImageView extends AppCompatImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public IrregularImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public IrregularImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -244,6 +244,6 @@ public class IrregularImageView extends AppCompatImageView {
                 return;
             }
         }
-        this.mCallback = new a(this);
+        this.f36903c = new a(this);
     }
 }

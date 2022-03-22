@@ -1,9 +1,7 @@
 package com.baidu.searchbox.task.async.homeready;
 
 import android.webkit.WebSettings;
-import c.a.q0.l.a;
-import c.a.q0.r.j0.b;
-import c.a.z0.c;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,9 +24,9 @@ public class MainTabLoadFinishTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,14 +36,6 @@ public class MainTabLoadFinishTask extends LaunchTask {
     private void initMainTab() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            c.c(TbadkCoreApplication.getInst()).e(null);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921545, null));
-            a.f(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().registerStickyMode(2007015);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2007015));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921616));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921617));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921618));
             if (AdToMainTabActivitySwitch.getIsOn()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
             }
@@ -56,7 +46,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 e2.printStackTrace();
             }
             try {
-                b.k().y("key_last_cached_oid", c.a.q.b.f(TbadkCoreApplication.getInst().getContext()).g());
+                b.k().y("key_last_cached_oid", c.a.p.b.e(TbadkCoreApplication.getInst().getContext()).f());
             } catch (Exception e3) {
                 e3.printStackTrace();
             }

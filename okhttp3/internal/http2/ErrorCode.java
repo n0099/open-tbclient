@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ErrorCode {
     public static final /* synthetic */ ErrorCode[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -55,16 +55,16 @@ public final class ErrorCode {
         $VALUES = new ErrorCode[]{NO_ERROR, PROTOCOL_ERROR, INTERNAL_ERROR, FLOW_CONTROL_ERROR, REFUSED_STREAM, CANCEL, COMPRESSION_ERROR, CONNECT_ERROR, ENHANCE_YOUR_CALM, INADEQUATE_SECURITY, errorCode};
     }
 
-    public ErrorCode(String str, int i2, int i3) {
+    public ErrorCode(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -73,16 +73,16 @@ public final class ErrorCode {
                 return;
             }
         }
-        this.httpCode = i3;
+        this.httpCode = i2;
     }
 
-    public static ErrorCode fromHttp2(int i2) {
+    public static ErrorCode fromHttp2(int i) {
         InterceptResult invokeI;
         ErrorCode[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             for (ErrorCode errorCode : values()) {
-                if (errorCode.httpCode == i2) {
+                if (errorCode.httpCode == i) {
                     return errorCode;
                 }
             }

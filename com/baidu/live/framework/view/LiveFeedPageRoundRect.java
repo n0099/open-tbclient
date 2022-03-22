@@ -26,24 +26,22 @@ import java.util.Arrays;
 public class LiveFeedPageRoundRect extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Path f25848b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RectF f25849c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float[] f25850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Paint f33533e;
+    public boolean f25851e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Path f33534f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RectF f33535g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float[] f33536h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f33537i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f33538j;
+    public boolean f25852f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LiveFeedPageRoundRect(@NonNull Context context) {
@@ -54,9 +52,9 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -79,9 +77,9 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.saveLayer(this.f33535g, null, 31);
+            canvas.saveLayer(this.f25849c, null, 31);
             super.dispatchDraw(canvas);
-            canvas.drawPath(e(), this.f33533e);
+            canvas.drawPath(e(), this.a);
             canvas.restore();
         }
     }
@@ -99,9 +97,9 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            canvas.saveLayer(this.f33535g, null, 31);
+            canvas.saveLayer(this.f25849c, null, 31);
             super.draw(canvas);
-            canvas.drawPath(e(), this.f33533e);
+            canvas.drawPath(e(), this.a);
             canvas.restore();
         }
     }
@@ -110,7 +108,7 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            if (this.f33538j) {
+            if (this.f25852f) {
                 a(canvas);
             } else {
                 b(canvas);
@@ -122,8 +120,8 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            if (this.f33537i) {
-                if (this.f33538j) {
+            if (this.f25851e) {
+                if (this.f25852f) {
                     c(canvas);
                     return;
                 } else {
@@ -139,9 +137,9 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            this.f33534f.reset();
-            this.f33534f.addRoundRect(this.f33535g, this.f33536h, Path.Direction.CW);
-            return this.f33534f;
+            this.f25848b.reset();
+            this.f25848b.addRoundRect(this.f25849c, this.f25850d, Path.Direction.CW);
+            return this.f25848b;
         }
         return (Path) invokeV.objValue;
     }
@@ -159,15 +157,15 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.live_feed_page_clip_background, R.attr.live_feed_page_corner_radius, R.attr.live_feed_page_corner_radius_bottom_left, R.attr.live_feed_page_corner_radius_bottom_right, R.attr.live_feed_page_corner_radius_top_left, R.attr.live_feed_page_corner_radius_top_right});
-        this.f33537i = obtainStyledAttributes.getBoolean(0, true);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403ba, R.attr.obfuscated_res_0x7f0403bb, R.attr.obfuscated_res_0x7f0403bc, R.attr.obfuscated_res_0x7f0403bd, R.attr.obfuscated_res_0x7f0403be, R.attr.obfuscated_res_0x7f0403bf});
+        this.f25851e = obtainStyledAttributes.getBoolean(0, true);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         int dimensionPixelOffset2 = obtainStyledAttributes.getDimensionPixelOffset(4, dimensionPixelOffset);
         int dimensionPixelOffset3 = obtainStyledAttributes.getDimensionPixelOffset(5, dimensionPixelOffset);
         int dimensionPixelOffset4 = obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset);
         int dimensionPixelOffset5 = obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset);
         obtainStyledAttributes.recycle();
-        float[] fArr = this.f33536h;
+        float[] fArr = this.f25850d;
         float f2 = dimensionPixelOffset2;
         fArr[0] = f2;
         fArr[1] = f2;
@@ -186,31 +184,31 @@ public class LiveFeedPageRoundRect extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             Paint paint = new Paint(1);
-            this.f33533e = paint;
+            this.a = paint;
             paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_IN));
-            this.f33534f = new Path();
-            this.f33535g = new RectF();
-            this.f33536h = new float[8];
-            this.f33538j = Build.VERSION.SDK_INT >= 28;
+            this.f25848b = new Path();
+            this.f25849c = new RectF();
+            this.f25850d = new float[8];
+            this.f25852f = Build.VERSION.SDK_INT >= 28;
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048586, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            this.f33535g.set(0.0f, 0.0f, i2, i3);
+        if (interceptable == null || interceptable.invokeIIII(1048586, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            this.f25849c.set(0.0f, 0.0f, i, i2);
         }
     }
 
     public void setCornerRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            if (this.f33536h == null) {
-                this.f33536h = new float[8];
+            if (this.f25850d == null) {
+                this.f25850d = new float[8];
             }
-            Arrays.fill(this.f33536h, f2);
+            Arrays.fill(this.f25850d, f2);
             postInvalidate();
         }
     }
@@ -224,9 +222,9 @@ public class LiveFeedPageRoundRect extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -240,10 +238,10 @@ public class LiveFeedPageRoundRect extends FrameLayout {
     public void setCornerRadius(float f2, float f3, float f4, float f5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            if (this.f33536h == null) {
-                this.f33536h = new float[8];
+            if (this.f25850d == null) {
+                this.f25850d = new float[8];
             }
-            float[] fArr = this.f33536h;
+            float[] fArr = this.f25850d;
             fArr[0] = f2;
             fArr[1] = f2;
             fArr[2] = f3;

@@ -18,7 +18,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FreeBox implements Box {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,9 +49,9 @@ public class FreeBox implements Box {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -137,11 +137,11 @@ public class FreeBox implements Box {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j2 = 8;
+            long j = 8;
             for (Box box : this.replacers) {
-                j2 += box.getSize();
+                j += box.getSize();
             }
-            return j2 + this.data.limit();
+            return j + this.data.limit();
         }
         return invokeV.longValue;
     }
@@ -167,16 +167,16 @@ public class FreeBox implements Box {
     }
 
     @Override // com.coremedia.iso.boxes.Box
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
-            if (j2 > 1048576) {
-                this.data = dataSource.map(dataSource.position(), j2);
-                dataSource.position(dataSource.position() + j2);
+            if (j > 1048576) {
+                this.data = dataSource.map(dataSource.position(), j);
+                dataSource.position(dataSource.position() + j);
                 return;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j2));
+            ByteBuffer allocate = ByteBuffer.allocate(CastUtils.l2i(j));
             this.data = allocate;
             dataSource.read(allocate);
         }
@@ -197,22 +197,22 @@ public class FreeBox implements Box {
         }
     }
 
-    public FreeBox(int i2) {
+    public FreeBox(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.replacers = new LinkedList();
-        this.data = ByteBuffer.allocate(i2);
+        this.data = ByteBuffer.allocate(i);
     }
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.android.pushservice.e;
 import com.baidu.mytransformapp.util.LogUtil;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,25 +25,25 @@ public class MzNotifyActivity extends Activity {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30963b;
+    public String f24797b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30964c;
+    public String f24798c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30965d;
+    public String f24799d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30966e;
+    public String f24800e;
 
     public MzNotifyActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,40 +81,40 @@ public class MzNotifyActivity extends Activity {
                 if (!TextUtils.isEmpty(stringExtra)) {
                     JSONObject jSONObject = new JSONObject("{\"extras\":" + stringExtra + "}");
                     if (!jSONObject.isNull("extras") && (jSONArray = jSONObject.getJSONArray("extras")) != null) {
-                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                             if (!jSONObject2.isNull("Msgid")) {
                                 this.a = jSONObject2.getString("Msgid");
                             }
                             if (!jSONObject2.isNull("msgBody")) {
-                                this.f30964c = jSONObject2.getString("msgBody");
+                                this.f24798c = jSONObject2.getString("msgBody");
                             }
                         }
-                        if (!TextUtils.isEmpty(this.f30964c)) {
-                            JSONObject jSONObject3 = new JSONObject(this.f30964c);
+                        if (!TextUtils.isEmpty(this.f24798c)) {
+                            JSONObject jSONObject3 = new JSONObject(this.f24798c);
                             if (!jSONObject3.isNull("custom_content")) {
-                                this.f30965d = jSONObject3.getString("custom_content");
+                                this.f24799d = jSONObject3.getString("custom_content");
                             }
                             if (!jSONObject3.isNull("pkg_content")) {
-                                this.f30966e = jSONObject3.getString("pkg_content");
+                                this.f24800e = jSONObject3.getString("pkg_content");
                             }
                             if (!jSONObject3.isNull("mzpri_signinfo")) {
-                                this.f30963b = jSONObject3.getString("mzpri_signinfo");
+                                this.f24797b = jSONObject3.getString("mzpri_signinfo");
                             }
                         }
                     }
-                    if (e.a(this, this.f30963b, (this.a + this.f30965d).replaceAll("\\\\", ""))) {
-                        if (TextUtils.isEmpty(this.f30966e)) {
+                    if (e.a(this, this.f24797b, (this.a + this.f24799d).replaceAll("\\\\", ""))) {
+                        if (TextUtils.isEmpty(this.f24800e)) {
                             parseUri = new Intent();
                             parseUri.setClassName(getPackageName(), a(this, getPackageName()));
-                            parseUri.setFlags(268435456);
+                            parseUri.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                         } else {
-                            parseUri = Intent.parseUri(this.f30966e, 0);
+                            parseUri = Intent.parseUri(this.f24800e, 0);
                             parseUri.setPackage(getPackageName());
-                            parseUri.addFlags(268435456);
+                            parseUri.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         }
-                        if (!TextUtils.isEmpty(this.f30965d)) {
-                            JSONObject jSONObject4 = new JSONObject(this.f30965d);
+                        if (!TextUtils.isEmpty(this.f24799d)) {
+                            JSONObject jSONObject4 = new JSONObject(this.f24799d);
                             Iterator<String> keys = jSONObject4.keys();
                             while (keys.hasNext()) {
                                 String next = keys.next();

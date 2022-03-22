@@ -22,50 +22,50 @@ public final class GravityCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void apply(int i2, int i3, int i4, Rect rect, Rect rect2, int i5) {
+    public static void apply(int i, int i2, int i3, Rect rect, Rect rect2, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect, rect2, Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, rect2, Integer.valueOf(i4)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                Gravity.apply(i2, i3, i4, rect, rect2, i5);
+                Gravity.apply(i, i2, i3, rect, rect2, i4);
             } else {
-                Gravity.apply(i2, i3, i4, rect, rect2);
+                Gravity.apply(i, i2, i3, rect, rect2);
             }
         }
     }
 
-    public static void applyDisplay(int i2, Rect rect, Rect rect2, int i3) {
+    public static void applyDisplay(int i, Rect rect, Rect rect2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), rect, rect2, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), rect, rect2, Integer.valueOf(i2)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                Gravity.applyDisplay(i2, rect, rect2, i3);
+                Gravity.applyDisplay(i, rect, rect2, i2);
             } else {
-                Gravity.applyDisplay(i2, rect, rect2);
+                Gravity.applyDisplay(i, rect, rect2);
             }
         }
     }
 
-    public static int getAbsoluteGravity(int i2, int i3) {
+    public static int getAbsoluteGravity(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i2, i3) : i2 & (-8388609) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? Build.VERSION.SDK_INT >= 17 ? Gravity.getAbsoluteGravity(i, i2) : i & (-8388609) : invokeII.intValue;
     }
 
-    public static void apply(int i2, int i3, int i4, Rect rect, int i5, int i6, Rect rect2, int i7) {
+    public static void apply(int i, int i2, int i3, Rect rect, int i4, int i5, Rect rect2, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), rect, Integer.valueOf(i5), Integer.valueOf(i6), rect2, Integer.valueOf(i7)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), rect, Integer.valueOf(i4), Integer.valueOf(i5), rect2, Integer.valueOf(i6)}) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                Gravity.apply(i2, i3, i4, rect, i5, i6, rect2, i7);
+                Gravity.apply(i, i2, i3, rect, i4, i5, rect2, i6);
             } else {
-                Gravity.apply(i2, i3, i4, rect, i5, i6, rect2);
+                Gravity.apply(i, i2, i3, rect, i4, i5, rect2);
             }
         }
     }

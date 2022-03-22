@@ -26,9 +26,9 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<b
             newInitContext.initArgs = r2;
             Object[] objArr = {renderSystem};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,6 +44,6 @@ public final class RenderSystem$entities$2 extends Lambda implements Function0<b
     public final b<d> invoke() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(c.a.r0.l0.k.d.a.c()) : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.this$0.f().j(c.a.p0.n0.k.d.a.c()) : (b) invokeV.objValue;
     }
 }

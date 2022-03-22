@@ -13,7 +13,7 @@ public interface IVLogPlayControlProtocol {
     public interface OnPlayStateListener {
         void onPause();
 
-        void onSeek(long j2);
+        void onSeek(long j);
 
         void onSetIsLoop(boolean z);
 
@@ -32,9 +32,9 @@ public interface IVLogPlayControlProtocol {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -49,9 +49,9 @@ public interface IVLogPlayControlProtocol {
         }
 
         @Override // com.baidu.ugc.editvideo.record.source.multimedia.IVLogPlayControlProtocol.OnPlayStateListener
-        public void onSeek(long j2) {
+        public void onSeek(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             }
         }
 
@@ -81,7 +81,7 @@ public interface IVLogPlayControlProtocol {
 
     long getDuration();
 
-    float getVolume(int i2);
+    float getVolume(int i);
 
     boolean isMute();
 
@@ -93,13 +93,13 @@ public interface IVLogPlayControlProtocol {
 
     void release();
 
-    void repeatIndex(int i2);
+    void repeatIndex(int i);
 
     void reset();
 
-    void seek(long j2);
+    void seek(long j);
 
-    void seek(long j2, int i2);
+    void seek(long j, int i);
 
     void setLooping(boolean z);
 
@@ -111,7 +111,7 @@ public interface IVLogPlayControlProtocol {
 
     void setVolume(float f2);
 
-    void setVolume(int i2, float f2);
+    void setVolume(int i, float f2);
 
     void start();
 }

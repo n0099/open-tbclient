@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.sdk.PushMessageCallback;
 import java.security.PublicKey;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class z extends com.vivo.push.l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f59246b;
+    public PushMessageCallback f43881b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z(com.vivo.push.o oVar) {
@@ -27,9 +27,9 @@ public abstract class z extends com.vivo.push.l {
             newInitContext.initArgs = r2;
             Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,7 +41,7 @@ public abstract class z extends com.vivo.push.l {
     public final void a(PushMessageCallback pushMessageCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, pushMessageCallback) == null) {
-            this.f59246b = pushMessageCallback;
+            this.f43881b = pushMessageCallback;
         }
     }
 

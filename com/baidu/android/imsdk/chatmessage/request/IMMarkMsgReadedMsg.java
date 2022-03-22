@@ -49,16 +49,16 @@ public class IMMarkMsgReadedMsg extends Message {
         }
     }
 
-    public IMMarkMsgReadedMsg(Context context, long j2, long j3, long j4, long j5, boolean z) {
+    public IMMarkMsgReadedMsg(Context context, long j, long j2, long j3, long j4, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,11 +69,11 @@ public class IMMarkMsgReadedMsg extends Message {
         initCommonParameter(context);
         setNeedReplay(true);
         setType(67);
-        this.mCategory = j2;
-        this.mTo = j3;
-        this.mMsgId = j4;
+        this.mCategory = j;
+        this.mTo = j2;
+        this.mMsgId = j3;
         this.mContext = context;
-        this.mClientMaxMsgid = j5;
+        this.mClientMaxMsgid = j4;
         this.mPriority = 14;
         this.mIsZHida = z;
     }
@@ -154,29 +154,29 @@ public class IMMarkMsgReadedMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            if (i == 0) {
                 DBManager.getInstance(context).deleteCmdMsg(getUUID());
                 setNeedReSend(false);
             } else {
-                if (i2 != 1004 && i2 != 1001 && i2 != 4001) {
-                    int i3 = this.mReSendCount;
-                    if (i3 >= 3) {
+                if (i != 1004 && i != 1001 && i != 4001) {
+                    int i2 = this.mReSendCount;
+                    if (i2 >= 3) {
                         setNeedReSend(false);
                         DBManager.getInstance(context).deleteCmdMsg(getUUID());
                     } else {
-                        this.mReSendCount = i3 + 1;
+                        this.mReSendCount = i2 + 1;
                         setNeedReSend(true);
                     }
                 } else {
                     setNeedReSend(false);
-                    LoginManager.getInstance(context).triggleLogoutListener(i2, str);
+                    LoginManager.getInstance(context).triggleLogoutListener(i, str);
                 }
                 DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
+            super.handleMessageResult(context, jSONObject, i, str);
         }
     }
 
@@ -188,10 +188,10 @@ public class IMMarkMsgReadedMsg extends Message {
         }
     }
 
-    public void setPaid(long j2) {
+    public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mPaid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mPaid = j;
         }
     }
 }

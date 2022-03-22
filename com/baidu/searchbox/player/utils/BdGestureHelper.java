@@ -113,8 +113,8 @@ public final class BdGestureHelper {
         return (PointF) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ PointF getScaleMovePointF$default(View view, float f2, float f3, boolean z, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
+    public static /* synthetic */ PointF getScaleMovePointF$default(View view, float f2, float f3, boolean z, int i, Object obj) {
+        if ((i & 4) != 0) {
             z = true;
         }
         return getScaleMovePointF(view, f2, f3, z);

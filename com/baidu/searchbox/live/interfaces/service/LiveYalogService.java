@@ -49,9 +49,9 @@ public interface LiveYalogService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -75,7 +75,7 @@ public interface LiveYalogService {
 
     LiveYalogApi buildYalogApi(String str);
 
-    List<String> queryLogFiles(long j2, long j3, String str, String str2);
+    List<String> queryLogFiles(long j, long j2, String str, String str2);
 
-    void uploadLiveLog(String str, String str2, List<String> list, long j2, long j3, long j4, LiveLogUploadCallback liveLogUploadCallback);
+    void uploadLiveLog(String str, String str2, List<String> list, long j, long j2, long j3, LiveLogUploadCallback liveLogUploadCallback);
 }

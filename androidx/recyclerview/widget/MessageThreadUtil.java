@@ -3,6 +3,7 @@ package androidx.recyclerview.widget;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.ThreadUtil;
 import androidx.recyclerview.widget.TileList;
@@ -42,9 +43,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {messageThreadUtil, mainThreadCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,9 +67,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -83,13 +84,13 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         SyncQueueItem next = this.this$1.mQueue.next();
                         while (next != null) {
-                            int i4 = next.what;
-                            if (i4 == 1) {
+                            int i3 = next.what;
+                            if (i3 == 1) {
                                 this.this$1.val$callback.updateItemCount(next.arg1, next.arg2);
-                            } else if (i4 == 2) {
+                            } else if (i3 == 2) {
                                 this.this$1.val$callback.addTile(next.arg1, (TileList.Tile) next.data);
-                            } else if (i4 != 3) {
-                                String str = "Unsupported message, what=" + next.what;
+                            } else if (i3 != 3) {
+                                Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
                             } else {
                                 this.this$1.val$callback.removeTile(next.arg1, next.arg2);
                             }
@@ -109,26 +110,26 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.MainThreadCallback
-        public void addTile(int i2, TileList.Tile<T> tile) {
+        public void addTile(int i, TileList.Tile<T> tile) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, tile) == null) {
-                sendMessage(SyncQueueItem.obtainMessage(2, i2, tile));
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, tile) == null) {
+                sendMessage(SyncQueueItem.obtainMessage(2, i, tile));
             }
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.MainThreadCallback
-        public void removeTile(int i2, int i3) {
+        public void removeTile(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                sendMessage(SyncQueueItem.obtainMessage(3, i2, i3));
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                sendMessage(SyncQueueItem.obtainMessage(3, i, i2));
             }
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.MainThreadCallback
-        public void updateItemCount(int i2, int i3) {
+        public void updateItemCount(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                sendMessage(SyncQueueItem.obtainMessage(1, i2, i3));
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                sendMessage(SyncQueueItem.obtainMessage(1, i, i2));
             }
         }
     }
@@ -156,9 +157,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {messageThreadUtil, backgroundCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -181,9 +182,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -204,18 +205,18 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                             this.this$1.mBackgroundRunning.set(false);
                             return;
                         }
-                        int i4 = next.what;
-                        if (i4 == 1) {
+                        int i3 = next.what;
+                        if (i3 == 1) {
                             this.this$1.mQueue.removeMessages(1);
                             this.this$1.val$callback.refresh(next.arg1);
-                        } else if (i4 == 2) {
+                        } else if (i3 == 2) {
                             this.this$1.mQueue.removeMessages(2);
                             this.this$1.mQueue.removeMessages(3);
                             this.this$1.val$callback.updateRange(next.arg1, next.arg2, next.arg3, next.arg4, next.arg5);
-                        } else if (i4 == 3) {
+                        } else if (i3 == 3) {
                             this.this$1.val$callback.loadTile(next.arg1, next.arg2);
-                        } else if (i4 != 4) {
-                            String str = "Unsupported message, what=" + next.what;
+                        } else if (i3 != 4) {
+                            Log.e("ThreadUtil", "Unsupported message, what=" + next.what);
                         } else {
                             this.this$1.val$callback.recycleTile((TileList.Tile) next.data);
                         }
@@ -248,10 +249,10 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
-        public void loadTile(int i2, int i3) {
+        public void loadTile(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                sendMessage(SyncQueueItem.obtainMessage(3, i2, i3));
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                sendMessage(SyncQueueItem.obtainMessage(3, i, i2));
             }
         }
 
@@ -264,18 +265,18 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
-        public void refresh(int i2) {
+        public void refresh(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                sendMessageAtFrontOfQueue(SyncQueueItem.obtainMessage(1, i2, (Object) null));
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                sendMessageAtFrontOfQueue(SyncQueueItem.obtainMessage(1, i, (Object) null));
             }
         }
 
         @Override // androidx.recyclerview.widget.ThreadUtil.BackgroundCallback
-        public void updateRange(int i2, int i3, int i4, int i5, int i6) {
+        public void updateRange(int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-                sendMessageAtFrontOfQueue(SyncQueueItem.obtainMessage(2, i2, i3, i4, i5, i6, null));
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+                sendMessageAtFrontOfQueue(SyncQueueItem.obtainMessage(2, i, i2, i3, i4, i5, null));
             }
         }
     }
@@ -291,9 +292,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -316,11 +317,11 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
             return (SyncQueueItem) invokeV.objValue;
         }
 
-        public synchronized void removeMessages(int i2) {
+        public synchronized void removeMessages(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 synchronized (this) {
-                    while (this.mRoot != null && this.mRoot.what == i2) {
+                    while (this.mRoot != null && this.mRoot.what == i) {
                         SyncQueueItem syncQueueItem = this.mRoot;
                         this.mRoot = this.mRoot.next;
                         syncQueueItem.recycle();
@@ -330,7 +331,7 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                         SyncQueueItem syncQueueItem3 = syncQueueItem2.next;
                         while (syncQueueItem3 != null) {
                             SyncQueueItem syncQueueItem4 = syncQueueItem3.next;
-                            if (syncQueueItem3.what == i2) {
+                            if (syncQueueItem3.what == i) {
                                 syncQueueItem2.next = syncQueueItem4;
                                 syncQueueItem3.recycle();
                             } else {
@@ -376,9 +377,9 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -435,20 +436,20 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public static SyncQueueItem obtainMessage(int i2, int i3, int i4, int i5, int i6, int i7, Object obj) {
+        public static SyncQueueItem obtainMessage(int i, int i2, int i3, int i4, int i5, int i6, Object obj) {
             InterceptResult invokeCommon;
             SyncQueueItem syncQueueItem;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), obj})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), obj})) == null) {
                 synchronized (sPoolLock) {
                     if (sPool == null) {
                         syncQueueItem = new SyncQueueItem();
@@ -457,12 +458,12 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
                         sPool = sPool.next;
                         syncQueueItem.next = null;
                     }
-                    syncQueueItem.what = i2;
-                    syncQueueItem.arg1 = i3;
-                    syncQueueItem.arg2 = i4;
-                    syncQueueItem.arg3 = i5;
-                    syncQueueItem.arg4 = i6;
-                    syncQueueItem.arg5 = i7;
+                    syncQueueItem.what = i;
+                    syncQueueItem.arg1 = i2;
+                    syncQueueItem.arg2 = i3;
+                    syncQueueItem.arg3 = i4;
+                    syncQueueItem.arg4 = i5;
+                    syncQueueItem.arg5 = i6;
                     syncQueueItem.data = obj;
                 }
                 return syncQueueItem;
@@ -490,16 +491,16 @@ public class MessageThreadUtil<T> implements ThreadUtil<T> {
             }
         }
 
-        public static SyncQueueItem obtainMessage(int i2, int i3, int i4) {
+        public static SyncQueueItem obtainMessage(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) ? obtainMessage(i2, i3, i4, 0, 0, 0, null) : (SyncQueueItem) invokeIII.objValue;
+            return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? obtainMessage(i, i2, i3, 0, 0, 0, null) : (SyncQueueItem) invokeIII.objValue;
         }
 
-        public static SyncQueueItem obtainMessage(int i2, int i3, Object obj) {
+        public static SyncQueueItem obtainMessage(int i, int i2, Object obj) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, obj)) == null) ? obtainMessage(i2, i3, 0, 0, 0, 0, obj) : (SyncQueueItem) invokeIIL.objValue;
+            return (interceptable == null || (invokeIIL = interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, obj)) == null) ? obtainMessage(i, i2, 0, 0, 0, 0, obj) : (SyncQueueItem) invokeIIL.objValue;
         }
     }
 }

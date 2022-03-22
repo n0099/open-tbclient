@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CaptureManagerProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public abstract class CaptureManagerProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,7 +31,7 @@ public abstract class CaptureManagerProvider {
 
     public abstract void doAutoFocus();
 
-    public abstract void doFocus(int i2, int i3, int i4, int i5);
+    public abstract void doFocus(int i, int i2, int i3, int i4);
 
     public abstract void enableZoom(boolean z);
 
@@ -65,9 +65,9 @@ public abstract class CaptureManagerProvider {
 
     public abstract void setSurface(Surface surface);
 
-    public abstract void setSurfaceSize(int i2, int i3);
+    public abstract void setSurfaceSize(int i, int i2);
 
     public abstract void switchCamera();
 
-    public abstract void zoom(int i2);
+    public abstract void zoom(int i);
 }

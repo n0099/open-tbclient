@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
-import c.a.b0.j.i.a;
+import c.a.a0.j.i.a;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,9 +33,9 @@ public class NotificationReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,7 +80,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 str6 = ClogBuilder.LogType.OPEN_APP.type;
             }
             collapseStatusBar(context);
-            c.a.b0.j.e.a.f().g(str6, str5, str4, str);
+            c.a.a0.j.e.a.f().g(str6, str5, str4, str);
         }
     }
 
@@ -140,11 +140,11 @@ public class NotificationReceiver extends BroadcastReceiver {
                 if (c2 != 3) {
                     return;
                 }
-                c.a.b0.j.e.a.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                c.a.a0.j.e.a.f().g(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
             } else {
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    c.a.b0.j.e.a.f().a(intExtra);
+                    c.a.a0.j.e.a.f().a(intExtra);
                 }
             }
         }

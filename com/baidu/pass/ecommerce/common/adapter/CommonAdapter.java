@@ -26,9 +26,9 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,24 +64,24 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public T getItem(int i2) {
+    public T getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             List<T> list = this.items;
             if (list == null) {
                 return null;
             }
-            return list.get(i2);
+            return list.get(i);
         }
         return (T) invokeI.objValue;
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
     }
 
     public abstract int getItemLayoutId();
@@ -93,11 +93,11 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public View getView(int i2, View view, ViewGroup viewGroup) {
+    public View getView(int i, View view, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         ViewHolder viewHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) == null) {
             if (view == null) {
                 view = LinearLayout.inflate(viewGroup.getContext(), getItemLayoutId(), null);
                 viewHolder = createViewHolder(view);
@@ -105,7 +105,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
             } else {
                 viewHolder = (ViewHolder) view.getTag();
             }
-            viewHolder.bindView(getItem(i2));
+            viewHolder.bindView(getItem(i));
             return view;
         }
         return (View) invokeILL.objValue;

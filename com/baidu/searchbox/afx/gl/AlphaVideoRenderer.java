@@ -3,6 +3,7 @@ package com.baidu.searchbox.afx.gl;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.nio.Buffer;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -54,9 +54,9 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,7 +81,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        String str2 = str + ": glError " + glGetError;
+        Log.e(TAG, str + ": glError " + glGetError);
         throw new RuntimeException(str + ": glError " + glGetError);
     }
 
@@ -104,7 +104,8 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
                 int[] iArr = new int[1];
                 GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
                 if (iArr[0] != 1) {
-                    GLES20.glGetProgramInfoLog(glCreateProgram);
+                    Log.e(TAG, "Could not link program: ");
+                    Log.e(TAG, GLES20.glGetProgramInfoLog(glCreateProgram));
                     GLES20.glDeleteProgram(glCreateProgram);
                     return 0;
                 }
@@ -114,19 +115,19 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         return invokeLL.intValue;
     }
 
-    private int loadShader(int i2, String str) {
+    private int loadShader(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i);
             if (glCreateShader != 0) {
                 GLES20.glShaderSource(glCreateShader, str);
                 GLES20.glCompileShader(glCreateShader);
                 int[] iArr = new int[1];
                 GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
                 if (iArr[0] == 0) {
-                    String str2 = "Could not compile shader " + i2 + ":";
-                    GLES20.glGetShaderInfoLog(glCreateShader);
+                    Log.e(TAG, "Could not compile shader " + i + ":");
+                    Log.e(TAG, GLES20.glGetShaderInfoLog(glCreateShader));
                     GLES20.glDeleteShader(glCreateShader);
                     return 0;
                 }
@@ -142,13 +143,13 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
-            int i2 = iArr[0];
+            int i = iArr[0];
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i2);
+            GLES20.glBindTexture(36197, i);
             checkGlError("glBindTexture textureID");
             GLES20.glTexParameterf(36197, 10241, 9728.0f);
             GLES20.glTexParameterf(36197, 10240, 9729.0f);
-            SurfaceTexture surfaceTexture = new SurfaceTexture(i2);
+            SurfaceTexture surfaceTexture = new SurfaceTexture(i);
             this.mSurfaceTexture = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(this);
             Surface surface = new Surface(this.mSurfaceTexture);
@@ -185,7 +186,7 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
             }
             GLES20.glClear(16640);
             GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-            GLES20.glBlendFunc(BankSignFactory.BEAN_ID_QUERY, BankSignFactory.BEAN_ID_BIND_CARD);
+            GLES20.glBlendFunc(770, 771);
             GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             GLES20.glUseProgram(this.mProgram);
             checkGlError("glUseProgram");
@@ -243,10 +244,10 @@ public class AlphaVideoRenderer implements GLTextureView.Renderer, SurfaceTextur
     }
 
     @Override // com.baidu.searchbox.afx.gl.GLTextureView.Renderer
-    public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+    public void onSurfaceChanged(GL10 gl10, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, gl10, i2, i3) == null) {
-            GLES20.glViewport(0, 0, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048580, this, gl10, i, i2) == null) {
+            GLES20.glViewport(0, 0, i, i2);
         }
     }
 

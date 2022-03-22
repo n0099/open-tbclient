@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.URLDecoder;
-import org.apache.commons.lang3.text.FormattableUtils;
 /* loaded from: classes3.dex */
 public class NASLib extends Activity {
     public static /* synthetic */ Interceptable $ic;
@@ -31,9 +31,9 @@ public class NASLib extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -73,7 +73,7 @@ public class NASLib extends Activity {
         String str3 = null;
         try {
             if (str.contains(Info.kUrlSecStart)) {
-                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), "utf-8")).trim();
+                String trim = Encryption.desEncrypt(URLDecoder.decode(str.substring(str.indexOf(Info.kUrlSecStart) + 7), IMAudioTransRequest.CHARSET)).trim();
                 if (trim.contains(Info.kUrlLogStart)) {
                     String[] split = trim.split(Info.kUrlLogStart);
                     trim = split[0];
@@ -83,7 +83,7 @@ public class NASLib extends Activity {
                 }
                 Logger.onCallUp();
                 if (str2 != null) {
-                    Logger.recordServerAction(context, FormattableUtils.SIMPLEST_FORMAT, str2);
+                    Logger.recordServerAction(context, "%s", str2);
                 }
                 if (trim != null) {
                     try {

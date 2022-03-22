@@ -36,9 +36,9 @@ public class MergeCallback {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mergeCallback, packageInfo, innerCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,9 +55,9 @@ public class MergeCallback {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,13 +112,13 @@ public class MergeCallback {
         }
     }
 
-    public void onError(int i2, String str) {
+    public void onError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
             synchronized (this.list) {
                 for (MergeBean mergeBean : this.list) {
                     mergeBean.info.type = 6;
-                    mergeBean.callback.onError(mergeBean.info, i2, str);
+                    mergeBean.callback.onError(mergeBean.info, i, str);
                 }
                 this.list.clear();
             }
@@ -137,13 +137,13 @@ public class MergeCallback {
         }
     }
 
-    public void onProgress(long j2, long j3) {
+    public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             synchronized (this.list) {
                 for (MergeBean mergeBean : this.list) {
-                    mergeBean.info.currentSize = j2;
-                    mergeBean.info.totalSize = j3;
+                    mergeBean.info.currentSize = j;
+                    mergeBean.info.totalSize = j2;
                     mergeBean.callback.onProgress(mergeBean.info, mergeBean.info.currentSize, mergeBean.info.totalSize);
                 }
             }
@@ -201,9 +201,9 @@ public class MergeCallback {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

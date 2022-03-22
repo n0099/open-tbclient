@@ -35,7 +35,7 @@ import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBuilder<PipelineDraweeControllerBuilder, ImageRequest, CloseableReference<CloseableImage>, ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,7 +49,7 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
     public final PipelineDraweeControllerFactory mPipelineDraweeControllerFactory;
 
     /* renamed from: com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel;
         public static /* synthetic */ Interceptable $ic;
@@ -94,9 +94,9 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
             newInitContext.initArgs = r2;
             Object[] objArr = {context, pipelineDraweeControllerFactory, imagePipeline, set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (Set) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -112,10 +112,10 @@ public class PipelineDraweeControllerBuilder extends AbstractDraweeControllerBui
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cacheLevel)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel[cacheLevel.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$com$facebook$drawee$controller$AbstractDraweeControllerBuilder$CacheLevel[cacheLevel.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3) {
                         return ImageRequest.RequestLevel.BITMAP_MEMORY_CACHE;
                     }
                     throw new RuntimeException("Cache level" + cacheLevel + "is not supported. ");

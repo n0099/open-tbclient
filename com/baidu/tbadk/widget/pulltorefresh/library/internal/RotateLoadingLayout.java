@@ -35,9 +35,9 @@ public class RotateLoadingLayout extends LoadingLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, mode, orientation, typedArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (PullToRefreshBase.Mode) objArr2[1], (PullToRefreshBase.Orientation) objArr2[2], (TypedArray) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -45,11 +45,11 @@ public class RotateLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        this.q = typedArray.getBoolean(34, true);
-        this.mHeaderImage.setScaleType(ImageView.ScaleType.MATRIX);
+        this.q = typedArray.getBoolean(15, true);
+        this.f30904b.setScaleType(ImageView.ScaleType.MATRIX);
         Matrix matrix = new Matrix();
         this.n = matrix;
-        this.mHeaderImage.setImageMatrix(matrix);
+        this.f30904b.setImageMatrix(matrix);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, 720.0f, 1, 0.5f, 1, 0.5f);
         this.m = rotateAnimation;
         rotateAnimation.setInterpolator(LoadingLayout.l);
@@ -58,27 +58,10 @@ public class RotateLoadingLayout extends LoadingLayout {
         this.m.setRepeatMode(1);
     }
 
-    public final void a() {
-        Matrix matrix;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (matrix = this.n) == null) {
-            return;
-        }
-        matrix.reset();
-        this.mHeaderImage.setImageMatrix(this.n);
-    }
-
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public int getDefaultDrawableResId() {
-        InterceptResult invokeV;
+    public void a(Drawable drawable) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.drawable.default_ptr_rotate : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void onLoadingDrawableSet(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, drawable) == null) || drawable == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) || drawable == null) {
             return;
         }
         this.o = Math.round(drawable.getIntrinsicWidth() / 2.0f);
@@ -86,42 +69,59 @@ public class RotateLoadingLayout extends LoadingLayout {
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void onPullImpl(float f2) {
+    public void c(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) {
             this.n.setRotate(this.q ? f2 * 90.0f : Math.max(0.0f, Math.min(180.0f, (f2 * 360.0f) - 180.0f)), this.o, this.p);
-            this.mHeaderImage.setImageMatrix(this.n);
+            this.f30904b.setImageMatrix(this.n);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void pullToRefreshImpl() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void refreshingImpl() {
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f30904b.startAnimation(this.m);
+        }
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    public int getDefaultDrawableResId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.drawable.default_ptr_rotate : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
+    public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.mHeaderImage.startAnimation(this.m);
         }
     }
 
     @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void releaseToRefreshImpl() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f30904b.clearAnimation();
+            l();
         }
     }
 
-    @Override // com.baidu.tbadk.widget.pulltorefresh.library.internal.LoadingLayout
-    public void resetImpl() {
+    public final void l() {
+        Matrix matrix;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mHeaderImage.clearAnimation();
-            a();
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (matrix = this.n) == null) {
+            return;
         }
+        matrix.reset();
+        this.f30904b.setImageMatrix(this.n);
     }
 }

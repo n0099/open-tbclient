@@ -57,17 +57,17 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CacheState(Observable<? extends T> observable, int i2) {
-            super(i2);
+        public CacheState(Observable<? extends T> observable, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Integer.valueOf(i2)};
+                Object[] objArr = {observable, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -169,27 +169,27 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (replayDisposableArr[i3].equals(replayDisposable)) {
-                            i2 = i3;
+                        } else if (replayDisposableArr[i2].equals(replayDisposable)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         replayDisposableArr2 = EMPTY;
                     } else {
                         ReplayDisposable[] replayDisposableArr3 = new ReplayDisposable[length - 1];
-                        System.arraycopy(replayDisposableArr, 0, replayDisposableArr3, 0, i2);
-                        System.arraycopy(replayDisposableArr, i2 + 1, replayDisposableArr3, i2, (length - i2) - 1);
+                        System.arraycopy(replayDisposableArr, 0, replayDisposableArr3, 0, i);
+                        System.arraycopy(replayDisposableArr, i + 1, replayDisposableArr3, i, (length - i) - 1);
                         replayDisposableArr2 = replayDisposableArr3;
                     }
                 } while (!this.observers.compareAndSet(replayDisposableArr, replayDisposableArr2));
@@ -216,9 +216,9 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, cacheState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -249,7 +249,7 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
                 Observer<? super T> observer = this.child;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     int size = this.state.size();
                     if (size != 0) {
@@ -259,31 +259,31 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
                             this.currentBuffer = objArr;
                         }
                         int length = objArr.length - 1;
-                        int i3 = this.index;
-                        int i4 = this.currentIndexInBuffer;
-                        while (i3 < size) {
+                        int i2 = this.index;
+                        int i3 = this.currentIndexInBuffer;
+                        while (i2 < size) {
                             if (this.cancelled) {
                                 return;
                             }
-                            if (i4 == length) {
+                            if (i3 == length) {
                                 objArr = (Object[]) objArr[length];
-                                i4 = 0;
+                                i3 = 0;
                             }
-                            if (NotificationLite.accept(objArr[i4], observer)) {
+                            if (NotificationLite.accept(objArr[i3], observer)) {
                                 return;
                             }
-                            i4++;
                             i3++;
+                            i2++;
                         }
                         if (this.cancelled) {
                             return;
                         }
-                        this.index = i3;
-                        this.currentIndexInBuffer = i4;
+                        this.index = i2;
+                        this.currentIndexInBuffer = i3;
                         this.currentBuffer = objArr;
                     }
-                    i2 = addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -300,9 +300,9 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
             newInitContext.initArgs = r2;
             Object[] objArr = {observable, cacheState};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -351,12 +351,12 @@ public final class ObservableCache<T> extends AbstractObservableWithUpstream<T, 
         }
     }
 
-    public static <T> Observable<T> from(Observable<T> observable, int i2) {
+    public static <T> Observable<T> from(Observable<T> observable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observable, i2)) == null) {
-            ObjectHelper.verifyPositive(i2, "capacityHint");
-            return RxJavaPlugins.onAssembly(new ObservableCache(observable, new CacheState(observable, i2)));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observable, i)) == null) {
+            ObjectHelper.verifyPositive(i, "capacityHint");
+            return RxJavaPlugins.onAssembly(new ObservableCache(observable, new CacheState(observable, i)));
         }
         return (Observable) invokeLI.objValue;
     }

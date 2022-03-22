@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class FileUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,7 +70,7 @@ public class FileUtil {
                         fileInputStream.close();
                         byteArrayOutputStream.close();
                     } catch (IOException e2) {
-                        L.debug("FileUtil", e2.getMessage(), new Object[0]);
+                        L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e2.getMessage(), new Object[0]);
                     }
                     return trim;
                 } catch (Throwable th2) {
@@ -81,7 +81,7 @@ public class FileUtil {
                             try {
                                 fileInputStream.close();
                             } catch (IOException e3) {
-                                L.debug("FileUtil", e3.getMessage(), new Object[0]);
+                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e3.getMessage(), new Object[0]);
                                 return null;
                             }
                         }
@@ -94,7 +94,7 @@ public class FileUtil {
                             try {
                                 fileInputStream.close();
                             } catch (IOException e4) {
-                                L.debug("FileUtil", e4.getMessage(), new Object[0]);
+                                L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, e4.getMessage(), new Object[0]);
                                 throw th3;
                             }
                         }
@@ -133,7 +133,7 @@ public class FileUtil {
                 try {
                     fileOutputStream.close();
                 } catch (Throwable th2) {
-                    L.debug("FileUtil", th2.getMessage(), new Object[0]);
+                    L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, th2.getMessage(), new Object[0]);
                 }
             } catch (Throwable th3) {
                 fileOutputStream2 = fileOutputStream;
@@ -144,7 +144,7 @@ public class FileUtil {
                         try {
                             fileOutputStream2.close();
                         } catch (Throwable th4) {
-                            L.debug("FileUtil", th4.getMessage(), new Object[0]);
+                            L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, th4.getMessage(), new Object[0]);
                         }
                     }
                 } catch (Throwable th5) {
@@ -152,7 +152,7 @@ public class FileUtil {
                         try {
                             fileOutputStream2.close();
                         } catch (Throwable th6) {
-                            L.debug("FileUtil", th6.getMessage(), new Object[0]);
+                            L.debug(com.baidu.searchbox.aperf.bosuploader.FileUtil.TAG, th6.getMessage(), new Object[0]);
                         }
                     }
                     throw th5;

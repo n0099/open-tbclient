@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.j0.a;
+import c.a.o0.r.j0.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.ref.SoftReference;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MainSharedPrefProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -97,8 +97,8 @@ public class MainSharedPrefProvider extends ContentProvider {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             if (str != null && str.length() != 0) {
                 int length = a.k.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (str.equals(a.k[i2])) {
+                for (int i = 0; i < length; i++) {
+                    if (str.equals(a.k[i])) {
                         return true;
                     }
                 }

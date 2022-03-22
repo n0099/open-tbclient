@@ -31,7 +31,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Stack;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Mp4Extractor implements Extractor, SeekMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BRAND_QUICKTIME;
@@ -60,11 +60,11 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     public Mp4Track[] tracks;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Flags {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Mp4Track {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {track, trackSampleTable, trackOutput};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -116,9 +116,9 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -142,9 +142,9 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -167,32 +167,32 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         if (interceptable != null && (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) != null) {
             return invokeV.intValue;
         }
-        int i2 = -1;
-        long j2 = Long.MAX_VALUE;
-        int i3 = 0;
+        int i = -1;
+        long j = Long.MAX_VALUE;
+        int i2 = 0;
         while (true) {
             Mp4Track[] mp4TrackArr = this.tracks;
-            if (i3 >= mp4TrackArr.length) {
-                return i2;
+            if (i2 >= mp4TrackArr.length) {
+                return i;
             }
-            Mp4Track mp4Track = mp4TrackArr[i3];
-            int i4 = mp4Track.sampleIndex;
+            Mp4Track mp4Track = mp4TrackArr[i2];
+            int i3 = mp4Track.sampleIndex;
             TrackSampleTable trackSampleTable = mp4Track.sampleTable;
-            if (i4 != trackSampleTable.sampleCount) {
-                long j3 = trackSampleTable.offsets[i4];
-                if (j3 < j2) {
-                    i2 = i3;
-                    j2 = j3;
+            if (i3 != trackSampleTable.sampleCount) {
+                long j2 = trackSampleTable.offsets[i3];
+                if (j2 < j) {
+                    i = i2;
+                    j = j2;
                 }
             }
-            i3++;
+            i2++;
         }
     }
 
-    private void processAtomEnded(long j2) throws ParserException {
+    private void processAtomEnded(long j) throws ParserException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65541, this, j2) == null) {
-            while (!this.containerAtoms.isEmpty() && this.containerAtoms.peek().endPosition == j2) {
+        if (interceptable == null || interceptable.invokeJ(65541, this, j) == null) {
+            while (!this.containerAtoms.isEmpty() && this.containerAtoms.peek().endPosition == j) {
                 Atom.ContainerAtom pop = this.containerAtoms.pop();
                 if (pop.type == Atom.TYPE_moov) {
                     processMoovAtom(pop);
@@ -242,16 +242,16 @@ public final class Mp4Extractor implements Extractor, SeekMap {
             } else {
                 metadata = null;
             }
-            long j2 = C.TIME_UNSET;
-            long j3 = Long.MAX_VALUE;
-            for (int i2 = 0; i2 < containerAtom.containerChildren.size(); i2++) {
-                Atom.ContainerAtom containerAtom2 = containerAtom.containerChildren.get(i2);
+            long j = C.TIME_UNSET;
+            long j2 = Long.MAX_VALUE;
+            for (int i = 0; i < containerAtom.containerChildren.size(); i++) {
+                Atom.ContainerAtom containerAtom2 = containerAtom.containerChildren.get(i);
                 if (containerAtom2.type == Atom.TYPE_trak) {
                     Track parseTrak = AtomParsers.parseTrak(containerAtom2, containerAtom.getLeafAtomOfType(Atom.TYPE_mvhd), C.TIME_UNSET, null, (this.flags & 1) != 0, this.isQuickTime);
                     if (parseTrak != null) {
                         TrackSampleTable parseStbl = AtomParsers.parseStbl(parseTrak, containerAtom2.getContainerAtomOfType(Atom.TYPE_mdia).getContainerAtomOfType(Atom.TYPE_minf).getContainerAtomOfType(Atom.TYPE_stbl), gaplessInfoHolder);
                         if (parseStbl.sampleCount != 0) {
-                            Mp4Track mp4Track = new Mp4Track(parseTrak, parseStbl, this.extractorOutput.track(i2, parseTrak.type));
+                            Mp4Track mp4Track = new Mp4Track(parseTrak, parseStbl, this.extractorOutput.track(i, parseTrak.type));
                             Format copyWithMaxInputSize = parseTrak.format.copyWithMaxInputSize(parseStbl.maximumSize + 30);
                             if (parseTrak.type == 1) {
                                 if (gaplessInfoHolder.hasGaplessInfo()) {
@@ -262,20 +262,20 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                                 }
                             }
                             mp4Track.trackOutput.format(copyWithMaxInputSize);
-                            long max = Math.max(j2, parseTrak.durationUs);
+                            long max = Math.max(j, parseTrak.durationUs);
                             arrayList.add(mp4Track);
-                            long j4 = parseStbl.offsets[0];
-                            if (j4 < j3) {
-                                j2 = max;
-                                j3 = j4;
+                            long j3 = parseStbl.offsets[0];
+                            if (j3 < j2) {
+                                j = max;
+                                j2 = j3;
                             } else {
-                                j2 = max;
+                                j = max;
                             }
                         }
                     }
                 }
             }
-            this.durationUs = j2;
+            this.durationUs = j;
             this.tracks = (Mp4Track[]) arrayList.toArray(new Mp4Track[arrayList.size()]);
             this.extractorOutput.endTracks();
             this.extractorOutput.seekMap(this);
@@ -295,12 +295,12 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                 this.atomSize = this.atomHeader.readUnsignedInt();
                 this.atomType = this.atomHeader.readInt();
             }
-            long j2 = this.atomSize;
-            if (j2 == 1) {
+            long j = this.atomSize;
+            if (j == 1) {
                 extractorInput.readFully(this.atomHeader.data, 8, 8);
                 this.atomHeaderBytesRead += 8;
                 this.atomSize = this.atomHeader.readUnsignedLongToLong();
-            } else if (j2 == 0) {
+            } else if (j == 0) {
                 long length = extractorInput.getLength();
                 if (length == -1 && !this.containerAtoms.isEmpty()) {
                     length = this.containerAtoms.peek().endPosition;
@@ -343,20 +343,20 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65545, this, extractorInput, positionHolder)) != null) {
             return invokeLL.booleanValue;
         }
-        long j2 = this.atomSize - this.atomHeaderBytesRead;
-        long position = extractorInput.getPosition() + j2;
+        long j = this.atomSize - this.atomHeaderBytesRead;
+        long position = extractorInput.getPosition() + j;
         ParsableByteArray parsableByteArray = this.atomData;
         if (parsableByteArray != null) {
-            extractorInput.readFully(parsableByteArray.data, this.atomHeaderBytesRead, (int) j2);
+            extractorInput.readFully(parsableByteArray.data, this.atomHeaderBytesRead, (int) j);
             if (this.atomType == Atom.TYPE_ftyp) {
                 this.isQuickTime = processFtypAtom(this.atomData);
             } else if (!this.containerAtoms.isEmpty()) {
                 this.containerAtoms.peek().add(new Atom.LeafAtom(this.atomType, this.atomData));
             }
-        } else if (j2 < 262144) {
-            extractorInput.skipFully((int) j2);
+        } else if (j < 262144) {
+            extractorInput.skipFully((int) j);
         } else {
-            positionHolder.position = extractorInput.getPosition() + j2;
+            positionHolder.position = extractorInput.getPosition() + j;
             z = true;
             processAtomEnded(position);
             return (z || this.parserState == 2) ? false : true;
@@ -377,25 +377,25 @@ public final class Mp4Extractor implements Extractor, SeekMap {
             }
             Mp4Track mp4Track = this.tracks[trackIndexOfEarliestCurrentSample];
             TrackOutput trackOutput = mp4Track.trackOutput;
-            int i2 = mp4Track.sampleIndex;
+            int i = mp4Track.sampleIndex;
             TrackSampleTable trackSampleTable = mp4Track.sampleTable;
-            long j2 = trackSampleTable.offsets[i2];
-            int i3 = trackSampleTable.sizes[i2];
+            long j = trackSampleTable.offsets[i];
+            int i2 = trackSampleTable.sizes[i];
             if (mp4Track.track.sampleTransformation == 1) {
-                j2 += 8;
-                i3 -= 8;
+                j += 8;
+                i2 -= 8;
             }
-            long position = (j2 - extractorInput.getPosition()) + this.sampleBytesWritten;
+            long position = (j - extractorInput.getPosition()) + this.sampleBytesWritten;
             if (position >= 0 && position < 262144) {
                 extractorInput.skipFully((int) position);
-                int i4 = mp4Track.track.nalUnitLengthFieldLength;
-                if (i4 == 0) {
+                int i3 = mp4Track.track.nalUnitLengthFieldLength;
+                if (i3 == 0) {
                     while (true) {
-                        int i5 = this.sampleBytesWritten;
-                        if (i5 >= i3) {
+                        int i4 = this.sampleBytesWritten;
+                        if (i4 >= i2) {
                             break;
                         }
-                        int sampleData = trackOutput.sampleData(extractorInput, i3 - i5, false);
+                        int sampleData = trackOutput.sampleData(extractorInput, i2 - i4, false);
                         this.sampleBytesWritten += sampleData;
                         this.sampleCurrentNalBytesRemaining -= sampleData;
                     }
@@ -404,58 +404,58 @@ public final class Mp4Extractor implements Extractor, SeekMap {
                     bArr[0] = 0;
                     bArr[1] = 0;
                     bArr[2] = 0;
-                    int i6 = 4 - i4;
-                    while (this.sampleBytesWritten < i3) {
-                        int i7 = this.sampleCurrentNalBytesRemaining;
-                        if (i7 == 0) {
-                            extractorInput.readFully(this.nalLength.data, i6, i4);
+                    int i5 = 4 - i3;
+                    while (this.sampleBytesWritten < i2) {
+                        int i6 = this.sampleCurrentNalBytesRemaining;
+                        if (i6 == 0) {
+                            extractorInput.readFully(this.nalLength.data, i5, i3);
                             this.nalLength.setPosition(0);
                             this.sampleCurrentNalBytesRemaining = this.nalLength.readUnsignedIntToInt();
                             this.nalStartCode.setPosition(0);
                             trackOutput.sampleData(this.nalStartCode, 4);
                             this.sampleBytesWritten += 4;
-                            i3 += i6;
+                            i2 += i5;
                         } else {
-                            int sampleData2 = trackOutput.sampleData(extractorInput, i7, false);
+                            int sampleData2 = trackOutput.sampleData(extractorInput, i6, false);
                             this.sampleBytesWritten += sampleData2;
                             this.sampleCurrentNalBytesRemaining -= sampleData2;
                         }
                     }
                 }
                 TrackSampleTable trackSampleTable2 = mp4Track.sampleTable;
-                trackOutput.sampleMetadata(trackSampleTable2.timestampsUs[i2], trackSampleTable2.flags[i2], i3, 0, null);
+                trackOutput.sampleMetadata(trackSampleTable2.timestampsUs[i], trackSampleTable2.flags[i], i2, 0, null);
                 mp4Track.sampleIndex++;
                 this.sampleBytesWritten = 0;
                 this.sampleCurrentNalBytesRemaining = 0;
                 return 0;
             }
-            positionHolder.position = j2;
+            positionHolder.position = j;
             return 1;
         }
         return invokeLL.intValue;
     }
 
-    public static boolean shouldParseContainerAtom(int i2) {
+    public static boolean shouldParseContainerAtom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) ? i2 == Atom.TYPE_moov || i2 == Atom.TYPE_trak || i2 == Atom.TYPE_mdia || i2 == Atom.TYPE_minf || i2 == Atom.TYPE_stbl || i2 == Atom.TYPE_edts : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) ? i == Atom.TYPE_moov || i == Atom.TYPE_trak || i == Atom.TYPE_mdia || i == Atom.TYPE_minf || i == Atom.TYPE_stbl || i == Atom.TYPE_edts : invokeI.booleanValue;
     }
 
-    public static boolean shouldParseLeafAtom(int i2) {
+    public static boolean shouldParseLeafAtom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? i2 == Atom.TYPE_mdhd || i2 == Atom.TYPE_mvhd || i2 == Atom.TYPE_hdlr || i2 == Atom.TYPE_stsd || i2 == Atom.TYPE_stts || i2 == Atom.TYPE_stss || i2 == Atom.TYPE_ctts || i2 == Atom.TYPE_elst || i2 == Atom.TYPE_stsc || i2 == Atom.TYPE_stsz || i2 == Atom.TYPE_stz2 || i2 == Atom.TYPE_stco || i2 == Atom.TYPE_co64 || i2 == Atom.TYPE_tkhd || i2 == Atom.TYPE_ftyp || i2 == Atom.TYPE_udta : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? i == Atom.TYPE_mdhd || i == Atom.TYPE_mvhd || i == Atom.TYPE_hdlr || i == Atom.TYPE_stsd || i == Atom.TYPE_stts || i == Atom.TYPE_stss || i == Atom.TYPE_ctts || i == Atom.TYPE_elst || i == Atom.TYPE_stsc || i == Atom.TYPE_stsz || i == Atom.TYPE_stz2 || i == Atom.TYPE_stco || i == Atom.TYPE_co64 || i == Atom.TYPE_tkhd || i == Atom.TYPE_ftyp || i == Atom.TYPE_udta : invokeI.booleanValue;
     }
 
-    private void updateSampleIndices(long j2) {
+    private void updateSampleIndices(long j) {
         Mp4Track[] mp4TrackArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65549, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65549, this, j) == null) {
             for (Mp4Track mp4Track : this.tracks) {
                 TrackSampleTable trackSampleTable = mp4Track.sampleTable;
-                int indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfEarlierOrEqualSynchronizationSample(j2);
+                int indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfEarlierOrEqualSynchronizationSample(j);
                 if (indexOfEarlierOrEqualSynchronizationSample == -1) {
-                    indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfLaterOrEqualSynchronizationSample(j2);
+                    indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfLaterOrEqualSynchronizationSample(j);
                 }
                 mp4Track.sampleIndex = indexOfEarlierOrEqualSynchronizationSample;
             }
@@ -470,23 +470,23 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j2) {
+    public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            long j3 = Long.MAX_VALUE;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = Long.MAX_VALUE;
             for (Mp4Track mp4Track : this.tracks) {
                 TrackSampleTable trackSampleTable = mp4Track.sampleTable;
-                int indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfEarlierOrEqualSynchronizationSample(j2);
+                int indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfEarlierOrEqualSynchronizationSample(j);
                 if (indexOfEarlierOrEqualSynchronizationSample == -1) {
-                    indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfLaterOrEqualSynchronizationSample(j2);
+                    indexOfEarlierOrEqualSynchronizationSample = trackSampleTable.getIndexOfLaterOrEqualSynchronizationSample(j);
                 }
-                long j4 = trackSampleTable.offsets[indexOfEarlierOrEqualSynchronizationSample];
-                if (j4 < j3) {
-                    j3 = j4;
+                long j3 = trackSampleTable.offsets[indexOfEarlierOrEqualSynchronizationSample];
+                if (j3 < j2) {
+                    j2 = j3;
                 }
             }
-            return j3;
+            return j2;
         }
         return invokeJ.longValue;
     }
@@ -517,10 +517,10 @@ public final class Mp4Extractor implements Extractor, SeekMap {
             return invokeLL.intValue;
         }
         while (true) {
-            int i2 = this.parserState;
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 == 2) {
+            int i = this.parserState;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i == 2) {
                         return readSample(extractorInput, positionHolder);
                     }
                     throw new IllegalStateException();
@@ -541,17 +541,17 @@ public final class Mp4Extractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.containerAtoms.clear();
             this.atomHeaderBytesRead = 0;
             this.sampleBytesWritten = 0;
             this.sampleCurrentNalBytesRemaining = 0;
-            if (j2 == 0) {
+            if (j == 0) {
                 enterReadingAtomHeaderState();
             } else if (this.tracks != null) {
-                updateSampleIndices(j3);
+                updateSampleIndices(j2);
             }
         }
     }
@@ -563,22 +563,22 @@ public final class Mp4Extractor implements Extractor, SeekMap {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, extractorInput)) == null) ? Sniffer.sniffUnfragmented(extractorInput) : invokeL.booleanValue;
     }
 
-    public Mp4Extractor(int i2) {
+    public Mp4Extractor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.flags = i2;
+        this.flags = i;
         this.atomHeader = new ParsableByteArray(16);
         this.containerAtoms = new Stack<>();
         this.nalStartCode = new ParsableByteArray(NalUnitUtil.NAL_START_CODE);

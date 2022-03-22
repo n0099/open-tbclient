@@ -26,7 +26,7 @@ import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.load.resource.gif.GifFrameLoader;
 import com.bumptech.glide.util.Preconditions;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallback, Animatable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int GRAVITY = 119;
@@ -44,7 +44,7 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     public Paint paint;
     public final GifState state;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class GifState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,9 +58,9 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gifFrameLoader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,17 +98,17 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation<Bitmap> transformation, int i2, int i3, Bitmap bitmap) {
-        this(context, gifDecoder, transformation, i2, i3, bitmap);
+    public GifDrawable(Context context, GifDecoder gifDecoder, BitmapPool bitmapPool, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
+        this(context, gifDecoder, transformation, i, i2, bitmap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, gifDecoder, bitmapPool, transformation, Integer.valueOf(i2), Integer.valueOf(i3), bitmap};
+            Object[] objArr = {context, gifDecoder, bitmapPool, transformation, Integer.valueOf(i), Integer.valueOf(i2), bitmap};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (GifDecoder) objArr2[1], (Transformation) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), (Bitmap) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -300,8 +300,8 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
             if (getFrameIndex() == getFrameCount() - 1) {
                 this.loopCount++;
             }
-            int i2 = this.maxLoopCount;
-            if (i2 == -1 || this.loopCount < i2) {
+            int i = this.maxLoopCount;
+            if (i == -1 || this.loopCount < i) {
                 return;
             }
             stop();
@@ -317,10 +317,10 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            getPaint().setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            getPaint().setAlpha(i);
         }
     }
 
@@ -346,18 +346,18 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
         }
     }
 
-    public void setLoopCount(int i2) {
+    public void setLoopCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            if (i2 <= 0 && i2 != -1 && i2 != 0) {
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            if (i <= 0 && i != -1 && i != 0) {
                 throw new IllegalArgumentException("Loop count must be greater than 0, or equal to GlideDrawable.LOOP_FOREVER, or equal to GlideDrawable.LOOP_INTRINSIC");
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 int loopCount = this.state.frameLoader.getLoopCount();
                 this.maxLoopCount = loopCount != 0 ? loopCount : -1;
                 return;
             }
-            this.maxLoopCount = i2;
+            this.maxLoopCount = i;
         }
     }
 
@@ -409,17 +409,17 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation<Bitmap> transformation, int i2, int i3, Bitmap bitmap) {
-        this(new GifState(new GifFrameLoader(Glide.get(context), gifDecoder, i2, i3, transformation, bitmap)));
+    public GifDrawable(Context context, GifDecoder gifDecoder, Transformation<Bitmap> transformation, int i, int i2, Bitmap bitmap) {
+        this(new GifState(new GifFrameLoader(Glide.get(context), gifDecoder, i, i2, transformation, bitmap)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, gifDecoder, transformation, Integer.valueOf(i2), Integer.valueOf(i3), bitmap};
+            Object[] objArr = {context, gifDecoder, transformation, Integer.valueOf(i), Integer.valueOf(i2), bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 this((GifState) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -435,9 +435,9 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
             newInitContext.initArgs = r2;
             Object[] objArr = {gifState};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -458,9 +458,9 @@ public class GifDrawable extends Drawable implements GifFrameLoader.FrameCallbac
             newInitContext.initArgs = r2;
             Object[] objArr = {gifFrameLoader, paint};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((GifState) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);

@@ -19,7 +19,7 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UtcDates {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String UTC = "UTC";
@@ -47,41 +47,41 @@ public class UtcDates {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static long canonicalYearMonthDay(long j2) {
+    public static long canonicalYearMonthDay(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
             Calendar utcCalendar = getUtcCalendar();
-            utcCalendar.setTimeInMillis(j2);
+            utcCalendar.setTimeInMillis(j);
             return getDayCopy(utcCalendar).getTimeInMillis();
         }
         return invokeJ.longValue;
     }
 
-    public static int findCharactersInDateFormatPattern(@NonNull String str, @NonNull String str2, int i2, int i3) {
+    public static int findCharactersInDateFormatPattern(@NonNull String str, @NonNull String str2, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, str, str2, i2, i3)) == null) {
-            while (i3 >= 0 && i3 < str.length() && str2.indexOf(str.charAt(i3)) == -1) {
-                if (str.charAt(i3) == '\'') {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, str, str2, i, i2)) == null) {
+            while (i2 >= 0 && i2 < str.length() && str2.indexOf(str.charAt(i2)) == -1) {
+                if (str.charAt(i2) == '\'') {
                     do {
-                        i3 += i2;
-                        if (i3 >= 0 && i3 < str.length()) {
+                        i2 += i;
+                        if (i2 >= 0 && i2 < str.length()) {
                         }
-                    } while (str.charAt(i3) != '\'');
+                    } while (str.charAt(i2) != '\'');
                 }
-                i3 += i2;
+                i2 += i;
             }
-            return i3;
+            return i2;
         }
         return invokeLLII.intValue;
     }
@@ -124,11 +124,11 @@ public class UtcDates {
         return (Calendar) invokeL.objValue;
     }
 
-    public static java.text.DateFormat getFormat(int i2, Locale locale) {
+    public static java.text.DateFormat getFormat(int i, Locale locale) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i2, locale)) == null) {
-            java.text.DateFormat dateInstance = java.text.DateFormat.getDateInstance(i2, locale);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, locale)) == null) {
+            java.text.DateFormat dateInstance = java.text.DateFormat.getDateInstance(i, locale);
             dateInstance.setTimeZone(getTimeZone());
             return dateInstance;
         }
@@ -175,7 +175,7 @@ public class UtcDates {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, resources, simpleDateFormat)) == null) {
-            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.mtrl_picker_text_input_day_abbr)).replaceAll("M", resources.getString(R.string.mtrl_picker_text_input_month_abbr)).replaceAll("y", resources.getString(R.string.mtrl_picker_text_input_year_abbr));
+            return simpleDateFormat.toLocalizedPattern().replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0aff)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0b00)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0b01));
         }
         return (String) invokeLL.objValue;
     }

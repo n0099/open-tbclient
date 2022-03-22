@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "BitmapPoolBackend";
@@ -21,9 +21,9 @@ public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,11 +53,11 @@ public class BitmapPoolBackend extends LruBucketsPoolBackend<Bitmap> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.memory.LruBucketsPoolBackend, com.facebook.imagepipeline.memory.PoolBackend
     @Nullable
-    public Bitmap get(int i2) {
+    public Bitmap get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            Bitmap bitmap = (Bitmap) super.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Bitmap bitmap = (Bitmap) super.get(i);
             if (bitmap == null || !isReusable(bitmap)) {
                 return null;
             }

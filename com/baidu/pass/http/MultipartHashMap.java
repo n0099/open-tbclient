@@ -19,13 +19,13 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36305b;
+        public String f28126b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36306c;
+        public String f28127c;
 
         /* renamed from: d  reason: collision with root package name */
-        public InputStream f36307d;
+        public InputStream f28128d;
 
         public a(String str, InputStream inputStream, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -34,25 +34,25 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, inputStream, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f36307d = inputStream;
-            this.f36305b = str2;
-            this.f36306c = str3;
+            this.f28128d = inputStream;
+            this.f28126b = str2;
+            this.f28127c = str3;
         }
 
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String str = this.f36305b;
+                String str = this.f28126b;
                 return str != null ? str : "nofilename";
             }
             return (String) invokeV.objValue;
@@ -64,9 +64,9 @@ public class MultipartHashMap extends HttpHashMap implements com.baidu.pass.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

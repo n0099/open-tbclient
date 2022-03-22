@@ -41,8 +41,8 @@ public class DefaultConfigurationFactory {
         public final AtomicInteger threadNumber = new AtomicInteger(1);
         public final ThreadGroup group = Thread.currentThread().getThreadGroup();
 
-        public DefaultThreadFactory(int i2, String str) {
-            this.threadPriority = i2;
+        public DefaultThreadFactory(int i, String str) {
+            this.threadPriority = i;
             this.namePrefix = str + poolNumber.getAndIncrement() + "-thread-";
         }
 
@@ -62,11 +62,11 @@ public class DefaultConfigurationFactory {
         return new SimpleBitmapDisplayer();
     }
 
-    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j2, int i2, String str) {
+    public static DiskCache createDiskCache(Context context, FileNameGenerator fileNameGenerator, long j, int i, String str) {
         File createReserveDiskCacheDir = createReserveDiskCacheDir(context, str);
-        if (j2 > 0 || i2 > 0) {
+        if (j > 0 || i > 0) {
             try {
-                return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j2, i2);
+                return new LruDiskCache(StorageUtils.getIndividualCacheDirectory(context, str), createReserveDiskCacheDir, fileNameGenerator, j, i);
             } catch (IOException e2) {
                 L.e(e2);
             }
@@ -74,8 +74,8 @@ public class DefaultConfigurationFactory {
         return new UnlimitedDiskCache(new File(str), createReserveDiskCacheDir, fileNameGenerator);
     }
 
-    public static Executor createExecutor(int i2, int i3, QueueProcessingType queueProcessingType) {
-        return new ThreadPoolExecutor(i2, i2, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i3, "uil-pool-"));
+    public static Executor createExecutor(int i, int i2, QueueProcessingType queueProcessingType) {
+        return new ThreadPoolExecutor(i, i, 0L, TimeUnit.MILLISECONDS, queueProcessingType == QueueProcessingType.LIFO ? new LIFOLinkedBlockingDeque() : new LinkedBlockingQueue(), createThreadFactory(i2, "uil-pool-"));
     }
 
     public static FileNameGenerator createFileNameGenerator() {
@@ -90,16 +90,16 @@ public class DefaultConfigurationFactory {
         return new BaseImageDownloader(context);
     }
 
-    public static MemoryCache createMemoryCache(Context context, int i2) {
-        if (i2 == 0) {
+    public static MemoryCache createMemoryCache(Context context, int i) {
+        if (i == 0) {
             ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
             int memoryClass = activityManager.getMemoryClass();
             if (hasHoneycomb() && isLargeHeap(context)) {
                 memoryClass = getLargeMemoryClass(activityManager);
             }
-            i2 = (memoryClass * 1048576) / 8;
+            i = (memoryClass * 1048576) / 8;
         }
-        return new LruMemoryCache(i2);
+        return new LruMemoryCache(i);
     }
 
     public static File createReserveDiskCacheDir(Context context, String str) {
@@ -112,8 +112,8 @@ public class DefaultConfigurationFactory {
         return Executors.newCachedThreadPool(createThreadFactory(5, "uil-pool-d-"));
     }
 
-    public static ThreadFactory createThreadFactory(int i2, String str) {
-        return new DefaultThreadFactory(i2, str);
+    public static ThreadFactory createThreadFactory(int i, String str) {
+        return new DefaultThreadFactory(i, str);
     }
 
     @TargetApi(11)

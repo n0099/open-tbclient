@@ -4,6 +4,7 @@ import android.content.ComponentName;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapframework.open.aidl.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,9 +21,9 @@ public final class d implements ServiceConnection {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,12 +33,12 @@ public final class d implements ServiceConnection {
     @Override // android.content.ServiceConnection
     public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Thread thread;
+        String str;
+        String str2;
         com.baidu.mapframework.open.aidl.a aVar;
         com.baidu.mapframework.open.aidl.a aVar2;
         com.baidu.mapframework.open.aidl.a aVar3;
         Thread thread2;
-        String unused;
-        String unused2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             thread = b.v;
@@ -45,21 +46,22 @@ public final class d implements ServiceConnection {
                 thread2 = b.v;
                 thread2.interrupt();
             }
-            unused = b.f34341c;
-            String str = "onServiceConnected " + componentName;
+            str = b.f26556c;
+            Log.d(str, "onServiceConnected " + componentName);
             try {
-                aVar2 = b.f34342d;
+                aVar2 = b.f26557d;
                 if (aVar2 != null) {
-                    com.baidu.mapframework.open.aidl.a unused3 = b.f34342d = null;
+                    com.baidu.mapframework.open.aidl.a unused = b.f26557d = null;
                 }
-                com.baidu.mapframework.open.aidl.a unused4 = b.f34342d = a.AbstractBinderC1809a.a(iBinder);
-                aVar3 = b.f34342d;
+                com.baidu.mapframework.open.aidl.a unused2 = b.f26557d = a.AbstractBinderC1763a.a(iBinder);
+                aVar3 = b.f26557d;
                 aVar3.a(new e(this));
-            } catch (RemoteException unused5) {
-                unused2 = b.f34341c;
-                aVar = b.f34342d;
+            } catch (RemoteException e2) {
+                str2 = b.f26556c;
+                Log.d(str2, "getComOpenClient ", e2);
+                aVar = b.f26557d;
                 if (aVar != null) {
-                    com.baidu.mapframework.open.aidl.a unused6 = b.f34342d = null;
+                    com.baidu.mapframework.open.aidl.a unused3 = b.f26557d = null;
                 }
             }
         }
@@ -67,16 +69,16 @@ public final class d implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public void onServiceDisconnected(ComponentName componentName) {
+        String str;
         com.baidu.mapframework.open.aidl.a aVar;
-        String unused;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            unused = b.f34341c;
-            String str = "onServiceDisconnected " + componentName;
-            aVar = b.f34342d;
+            str = b.f26556c;
+            Log.d(str, "onServiceDisconnected " + componentName);
+            aVar = b.f26557d;
             if (aVar != null) {
-                com.baidu.mapframework.open.aidl.a unused2 = b.f34342d = null;
-                boolean unused3 = b.u = false;
+                com.baidu.mapframework.open.aidl.a unused = b.f26557d = null;
+                boolean unused2 = b.u = false;
             }
         }
     }

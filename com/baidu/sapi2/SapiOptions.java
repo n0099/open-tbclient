@@ -8,6 +8,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
+import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,9 +108,9 @@ public final class SapiOptions implements NoProguard {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -123,7 +124,7 @@ public final class SapiOptions implements NoProguard {
                     Module module = new Module();
                     module.id = jSONObject.optString("id");
                     module.downloadUrl = jSONObject.optString("download_url");
-                    module.hash = jSONObject.optString("hash");
+                    module.hash = jSONObject.optString(SapiOptions.KEY_CACHE_MODULE_HASH);
                     return module;
                 }
                 return (Module) invokeL.objValue;
@@ -179,7 +180,7 @@ public final class SapiOptions implements NoProguard {
                     try {
                         jSONObject.put("id", this.id);
                         jSONObject.put("download_url", this.downloadUrl);
-                        jSONObject.put("hash", this.hash);
+                        jSONObject.put(SapiOptions.KEY_CACHE_MODULE_HASH, this.hash);
                         return jSONObject;
                     } catch (Throwable unused) {
                         return null;
@@ -194,9 +195,9 @@ public final class SapiOptions implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -216,8 +217,8 @@ public final class SapiOptions implements NoProguard {
                         cache.enabled = jSONObject.optBoolean(SapiOptions.KEY_CACHE_ENABLED, true);
                         cache.version = jSONObject.optLong("version") + "";
                         JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            cache.getModules().add(Module.fromJSON(optJSONArray.getJSONObject(i2)));
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            cache.getModules().add(Module.fromJSON(optJSONArray.getJSONObject(i)));
                         }
                     } catch (Throwable unused) {
                     }
@@ -279,9 +280,9 @@ public final class SapiOptions implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -299,8 +300,8 @@ public final class SapiOptions implements NoProguard {
                     try {
                         cacheGray.percent = jSONObject.optString("percent");
                         JSONArray optJSONArray = jSONObject.optJSONArray(SapiOptions.KEY_CACHE_MODULES);
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i2)));
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            cacheGray.getModules().add(Cache.Module.fromJSON(optJSONArray.getJSONObject(i)));
                         }
                     } catch (Throwable unused) {
                     }
@@ -332,6 +333,7 @@ public final class SapiOptions implements NoProguard {
         public static final String FUN_NAME_CHINA_UNICOM_OAUTH = "cu_oauth";
         public static final String FUN_NAME_CLIPBOARD_ADDR = "clipboard_addr";
         public static final String FUN_NAME_GINGER = "finger";
+        public static final String FUN_NAME_MAPPING = "mapping";
         public static final String FUN_NAME_NUOMI_ADDR = "nuomi_addr";
         public static final String FUN_NAME_SHARE_V3 = "share_v3";
         public static final String FUN_NAME_SHARE_V4 = "share_v4";
@@ -363,9 +365,9 @@ public final class SapiOptions implements NoProguard {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -385,14 +387,14 @@ public final class SapiOptions implements NoProguard {
                     grayModule.minVersion = optJSONObject.has(Gray.KEY_GRAY_MIN_VERSION) ? optJSONObject.optString(Gray.KEY_GRAY_MIN_VERSION) : jSONObject.optString(Gray.KEY_GRAY_MIN_VERSION);
                     grayModule.percent = optJSONObject.has(Gray.KEY_GRAY_PERCENT) ? optJSONObject.optLong(Gray.KEY_GRAY_PERCENT) : jSONObject.optLong(Gray.KEY_GRAY_PERCENT);
                     grayModule.extraParams = optJSONObject.has(Gray.KEY_GRAY_EX) ? optJSONObject.optString(Gray.KEY_GRAY_EX) : jSONObject.optString(Gray.KEY_GRAY_EX);
-                    long j2 = SapiContext.getInstance().getLong(str, -1L);
-                    if (j2 == -1) {
+                    long j = SapiContext.getInstance().getLong(str, -1L);
+                    if (j == -1) {
                         Random random = new Random();
                         random.setSeed(System.currentTimeMillis());
-                        j2 = random.nextInt(1000000);
-                        SapiContext.getInstance().put(str, j2);
+                        j = random.nextInt(1000000);
+                        SapiContext.getInstance().put(str, j);
                     }
-                    grayModule.meetGray = grayModule.percent >= j2;
+                    grayModule.meetGray = grayModule.percent >= j;
                     if (!TextUtils.isEmpty(grayModule.minVersion) && SapiUtils.versionCompareTo(ServiceManager.getInstance().getIsAccountManager().getVersionName(), grayModule.minVersion) < 0) {
                         grayModule.meetGray = false;
                     }
@@ -401,16 +403,34 @@ public final class SapiOptions implements NoProguard {
                 return (GrayModule) invokeLL.objValue;
             }
 
+            public String getExtraParams() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.extraParams : (String) invokeV.objValue;
+            }
+
+            public String getMinVersion() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.minVersion : (String) invokeV.objValue;
+            }
+
+            public long getPercent() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.percent : invokeV.longValue;
+            }
+
             public boolean isMeetGray() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.meetGray : invokeV.booleanValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.meetGray : invokeV.booleanValue;
             }
 
             public JSONObject toJSON() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     JSONObject jSONObject = new JSONObject();
                     try {
                         jSONObject.put(Gray.KEY_GRAY_MIN_VERSION, this.minVersion);
@@ -446,9 +466,9 @@ public final class SapiOptions implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -469,7 +489,7 @@ public final class SapiOptions implements NoProguard {
                 Iterator<String> keys = optJSONObject.keys();
                 while (keys.hasNext()) {
                     String obj = keys.next().toString();
-                    if (obj != null && !"".equals(obj)) {
+                    if (!TextUtils.isEmpty(obj)) {
                         gray.grayModuleMap.put(obj, GrayModule.fromJSON(obj, optJSONObject.optJSONObject(obj)));
                     }
                 }
@@ -525,9 +545,9 @@ public final class SapiOptions implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -575,7 +595,6 @@ public final class SapiOptions implements NoProguard {
                 hashMap.put("com.baidu.iknow", "13a0a8019be4015ed20e075d824f1696");
                 hashMap.put("com.baidu.yuedu", "13a0a8019be4015ed20e075d824f1696");
                 hashMap.put("com.baidu.homework", "13a0a8019be4015ed20e075d824f1696");
-                hashMap.put("com.baidu.wenku", "13a0a8019be4015ed20e075d824f1696");
                 hashMap.put("com.baidu.mbaby", "13a0a8019be4015ed20e075d824f1696");
                 hashMap.put("com.baidu.travel", "0586742e88a2e6a19e996598ec336b61");
                 hashMap.put("com.ting.mp3.android", "0586742e88a2e6a19e996598ec336b61");
@@ -662,7 +681,8 @@ public final class SapiOptions implements NoProguard {
                 hashMap.put("com.baidu.duershow.swan", "ff3cc4b3dfcb2419ea8cf8abfcba6684");
                 hashMap.put("com.baidu.launcher", "2171946eb93787d73348c42064b5c8b7");
                 hashMap.put("com.baidu.rap", "44488ccee79ea8da05b4654a4d689016");
-                hashMap.put("com.baidu.input", "c2b0b497d0389e6de1505e7fd8f4d539");
+                hashMap.put(CommonMethods.PKGNAME_SKIP_CHECK_INPUT, "c2b0b497d0389e6de1505e7fd8f4d539");
+                hashMap.put("com.baidu.xiuxiu", "efa43c8bebf232432fd7c3559b34fe04");
                 return hashMap;
             }
             return (Map) invokeV.objValue;
@@ -737,9 +757,9 @@ public final class SapiOptions implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -766,10 +786,10 @@ public final class SapiOptions implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, jSONObject, sapiOptions) == null) {
             SapiContext sapiContext = SapiContext.getInstance();
-            int i2 = sapiContext.getInt(KEY_CACHE_GRAY, -1);
-            if (i2 == -1) {
-                i2 = new Random().nextInt(100);
-                sapiContext.put(KEY_CACHE_GRAY, i2);
+            int i = sapiContext.getInt(KEY_CACHE_GRAY, -1);
+            if (i == -1) {
+                i = new Random().nextInt(100);
+                sapiContext.put(KEY_CACHE_GRAY, i);
             }
             CacheGray fromJSON = CacheGray.fromJSON(jSONObject.optJSONObject(KEY_CACHE_GRAY));
             String percent = fromJSON.getPercent();
@@ -778,12 +798,12 @@ public final class SapiOptions implements NoProguard {
             }
             String[] split = percent.split("_");
             int length = split.length;
-            int i3 = 0;
-            for (int i4 = 0; i4 < length; i4++) {
-                i3 += Integer.valueOf(split[i4]).intValue();
-                if (i2 <= i3) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < length; i3++) {
+                i2 += Integer.valueOf(split[i3]).intValue();
+                if (i <= i2) {
                     sapiOptions.cache.modules.clear();
-                    sapiOptions.cache.modules.add(fromJSON.modules.get(i4));
+                    sapiOptions.cache.modules.add(fromJSON.modules.get(i3));
                     return;
                 }
             }
@@ -825,8 +845,8 @@ public final class SapiOptions implements NoProguard {
             JSONArray optJSONArray = jSONObject.optJSONArray(KEY_DI_EXCEPT_INDEX);
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i2)));
+                for (int i = 0; i < length; i++) {
+                    sapiOptions.diExceptIndex.add(Integer.valueOf(optJSONArray.optInt(i)));
                 }
             }
             sapiOptions.loginStatExtraLimitLen = jSONObject.optInt(KEY_LOGIN_STAT_EXTRA_LIMIT_LENGTH, 100);
@@ -897,9 +917,9 @@ public final class SapiOptions implements NoProguard {
             return;
         }
         int length = jSONArray.length();
-        for (int i2 = 0; i2 < length; i2++) {
-            if (!TextUtils.isEmpty(jSONArray.optString(i2))) {
-                list.add(jSONArray.optString(i2));
+        for (int i = 0; i < length; i++) {
+            if (!TextUtils.isEmpty(jSONArray.optString(i))) {
+                list.add(jSONArray.optString(i));
             }
         }
     }

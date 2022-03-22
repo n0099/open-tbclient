@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.personcenter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.a0.l.c.a;
+import c.a.p0.c0.l.c.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
@@ -23,9 +23,9 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,20 +33,20 @@ public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i2) {
+    public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.changeSkinType(i2);
-            this.mPersonCenterController.m(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.changeSkinType(i);
+            this.mPersonCenterController.m(i);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mPersonCenterController.m(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mPersonCenterController.m(i);
         }
     }
 

@@ -2,8 +2,7 @@ package com.ss.android.socialbase.downloader.exception;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseException extends Exception implements Parcelable {
     public static final Parcelable.Creator<BaseException> CREATOR = new Parcelable.Creator<BaseException>() { // from class: com.ss.android.socialbase.downloader.exception.BaseException.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -16,8 +15,8 @@ public class BaseException extends Exception implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public BaseException[] newArray(int i2) {
-            return new BaseException[i2];
+        public BaseException[] newArray(int i) {
+            return new BaseException[i];
         }
     };
     public static final String TAG = "[d-ex]:";
@@ -62,32 +61,32 @@ public class BaseException extends Exception implements Parcelable {
 
     @Override // java.lang.Throwable
     public String toString() {
-        return "BaseException{errorCode=" + this.errorCode + ", errorMsg='" + this.errorMsg + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "BaseException{errorCode=" + this.errorCode + ", errorMsg='" + this.errorMsg + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.errorCode);
         parcel.writeString(this.errorMsg);
         parcel.writeString(this.extraInfo);
     }
 
-    public BaseException(int i2, String str) {
+    public BaseException(int i, String str) {
         super(TAG + str);
         this.extraInfo = "";
         this.errorMsg = TAG + str;
-        this.errorCode = i2;
+        this.errorCode = i;
     }
 
-    public BaseException(int i2, Throwable th) {
-        this(i2, com.ss.android.socialbase.downloader.i.f.j(th));
+    public BaseException(int i, Throwable th) {
+        this(i, com.ss.android.socialbase.downloader.i.f.j(th));
     }
 
-    public BaseException(int i2, String str, Throwable th) {
+    public BaseException(int i, String str, Throwable th) {
         super(TAG + str, th);
         this.extraInfo = "";
         this.errorMsg = TAG + str;
-        this.errorCode = i2;
+        this.errorCode = i;
     }
 
     public BaseException(Parcel parcel) {

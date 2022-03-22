@@ -36,6 +36,24 @@ public class FaceGaze {
         }
     }
 
+    public FaceGaze() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        BDFaceInstance bDFaceInstance = new BDFaceInstance();
+        this.bdFaceInstance = bDFaceInstance;
+        bDFaceInstance.getDefautlInstance();
+    }
+
     public FaceGaze(BDFaceInstance bDFaceInstance) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -43,9 +61,9 @@ public class FaceGaze {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDFaceInstance};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -57,12 +75,12 @@ public class FaceGaze {
         this.bdFaceInstance = bDFaceInstance;
     }
 
-    private native BDFaceGazeInfo nativeGaze(long j2, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
+    private native BDFaceGazeInfo nativeGaze(long j, BDFaceImageInstance bDFaceImageInstance, float[] fArr);
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native int nativeGazeModelInit(long j2, byte[] bArr);
+    public native int nativeGazeModelInit(long j, byte[] bArr);
 
-    private native int nativeUninitGazeModel(long j2);
+    private native int nativeUninitGazeModel(long j);
 
     public BDFaceGazeInfo gaze(BDFaceImageInstance bDFaceImageInstance, float[] fArr) {
         InterceptResult invokeLL;
@@ -98,9 +116,9 @@ public class FaceGaze {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, callback, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -116,25 +134,23 @@ public class FaceGaze {
                 public void run() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        if (this.val$context != null) {
-                            long index = this.this$0.bdFaceInstance.getIndex();
-                            if (index == 0) {
-                                return;
-                            }
-                            int i2 = -1;
-                            byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$gazeModel);
-                            if (modelContent.length != 0 && (i2 = this.this$0.nativeGazeModelInit(index, modelContent)) != 0) {
-                                this.val$callback.onResponse(i2, "注意力检测模型加载失败");
-                                return;
-                            } else if (i2 == 0) {
-                                this.val$callback.onResponse(0, "注意力检测模型加载成功");
-                                return;
-                            } else {
-                                this.val$callback.onResponse(1, "注意力检测模型加载失败");
-                                return;
-                            }
+                        if (this.val$context == null) {
+                            this.val$callback.onResponse(1, "没有初始化上下文");
+                            return;
                         }
-                        this.val$callback.onResponse(1, "没有初始化上下文");
+                        long index = this.this$0.bdFaceInstance.getIndex();
+                        if (index == 0) {
+                            return;
+                        }
+                        int i = -1;
+                        byte[] modelContent = FileUitls.getModelContent(this.val$context, this.val$gazeModel);
+                        if (modelContent.length != 0 && (i = this.this$0.nativeGazeModelInit(index, modelContent)) != 0) {
+                            this.val$callback.onResponse(i, "注意力检测模型加载失败");
+                        } else if (i == 0) {
+                            this.val$callback.onResponse(0, "注意力检测模型加载成功");
+                        } else {
+                            this.val$callback.onResponse(1, "注意力检测模型加载失败");
+                        }
                     }
                 }
             });
@@ -152,23 +168,5 @@ public class FaceGaze {
             return nativeUninitGazeModel(index);
         }
         return invokeV.intValue;
-    }
-
-    public FaceGaze() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        BDFaceInstance bDFaceInstance = new BDFaceInstance();
-        this.bdFaceInstance = bDFaceInstance;
-        bDFaceInstance.getDefautlInstance();
     }
 }

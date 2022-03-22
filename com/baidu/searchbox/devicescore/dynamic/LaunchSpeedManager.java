@@ -1,6 +1,7 @@
 package com.baidu.searchbox.devicescore.dynamic;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformanceboxproxy.dynamic.LaunchSpeedScoreManagerSingleton;
 import com.baidu.searchbox.config.AppConfig;
@@ -44,9 +45,9 @@ public class LaunchSpeedManager implements IDynamicScoreManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,7 +69,7 @@ public class LaunchSpeedManager implements IDynamicScoreManager {
             this.mScore = launchSpeedScore;
             if (Float.compare(launchSpeedScore, 0.0f) >= 0) {
                 if (DEBUG) {
-                    String str = "getScore: " + this.mScore;
+                    Log.d(TAG, "getScore: " + this.mScore);
                 }
                 return this.mScore;
             }

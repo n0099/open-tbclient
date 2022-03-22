@@ -10,8 +10,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
             return;
         }
         cVar.a = jSONObject.optInt("cellId");
-        cVar.f54710b = jSONObject.optInt("lac");
-        cVar.f54711c = jSONObject.optInt("bsss");
+        cVar.f39817b = jSONObject.optInt("lac");
+        cVar.f39818c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class ag implements com.kwad.sdk.core.d<com.kwad.sdk.core.request.model.c
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "cellId", cVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.f54710b);
-        com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.f54711c);
+        com.kwad.sdk.utils.t.a(jSONObject, "lac", cVar.f39817b);
+        com.kwad.sdk.utils.t.a(jSONObject, "bsss", cVar.f39818c);
         return jSONObject;
     }
 }

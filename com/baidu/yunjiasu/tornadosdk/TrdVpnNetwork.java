@@ -7,6 +7,7 @@ import android.net.Network;
 import android.net.NetworkRequest;
 import android.net.RouteInfo;
 import android.os.Build;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -67,9 +68,9 @@ public final class TrdVpnNetwork {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -79,7 +80,7 @@ public final class TrdVpnNetwork {
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onAvailable(Network network) {
                 ConnectivityManager connectivityManager2;
-                int i2;
+                int i;
                 Network networkFromAll;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
@@ -93,8 +94,8 @@ public final class TrdVpnNetwork {
                             Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
                             connectivityManager2 = null;
                         }
-                        i2 = TrdVpnNetwork.ipVersion;
-                        networkFromAll = tornadoNetwork.getNetworkFromAll(connectivityManager2, 1, i2, true);
+                        i = TrdVpnNetwork.ipVersion;
+                        networkFromAll = tornadoNetwork.getNetworkFromAll(connectivityManager2, 1, i, true);
                         if (networkFromAll == null) {
                             LogTo.INSTANCE.e(TrdVpnNetwork.TAG, "onAvailable: WIFI: Try again --");
                             TimeUnit.MILLISECONDS.sleep(50L);
@@ -130,9 +131,9 @@ public final class TrdVpnNetwork {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -142,7 +143,7 @@ public final class TrdVpnNetwork {
             @Override // android.net.ConnectivityManager.NetworkCallback
             public void onAvailable(Network network) {
                 ConnectivityManager connectivityManager2;
-                int i2;
+                int i;
                 Network networkFromAll;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, network) == null) {
@@ -156,8 +157,8 @@ public final class TrdVpnNetwork {
                             Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
                             connectivityManager2 = null;
                         }
-                        i2 = TrdVpnNetwork.ipVersion;
-                        networkFromAll = tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, i2, true);
+                        i = TrdVpnNetwork.ipVersion;
+                        networkFromAll = tornadoNetwork.getNetworkFromAll(connectivityManager2, 0, i, true);
                         if (networkFromAll == null) {
                             LogTo.INSTANCE.e(TrdVpnNetwork.TAG, "onAvailable: CELL: Try again --");
                             TimeUnit.MILLISECONDS.sleep(50L);
@@ -191,9 +192,9 @@ public final class TrdVpnNetwork {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -241,7 +242,7 @@ public final class TrdVpnNetwork {
         return (InetAddress) invokeV.objValue;
     }
 
-    private final TornadoNetData getTornadoNetData(Network network, int i2) {
+    private final TornadoNetData getTornadoNetData(Network network, int i) {
         InterceptResult invokeLI;
         String interfaceName;
         InetAddress address;
@@ -249,7 +250,7 @@ public final class TrdVpnNetwork {
         InetAddress gateway;
         String hostAddress2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, network, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, network, i)) == null) {
             String str = "";
             TornadoNetData tornadoNetData = new TornadoNetData("", "", 32, "");
             if (network == null) {
@@ -268,7 +269,7 @@ public final class TrdVpnNetwork {
                 Intrinsics.throwUninitializedPropertyAccessException("connectivityManager");
                 connectivityManager4 = null;
             }
-            LinkAddress linkAddressByProperties = common2.getLinkAddressByProperties(connectivityManager4, network, i2);
+            LinkAddress linkAddressByProperties = common2.getLinkAddressByProperties(connectivityManager4, network, i);
             TornadoNetwork.COMMON common3 = TornadoNetwork.COMMON.INSTANCE;
             ConnectivityManager connectivityManager5 = connectivityManager;
             if (connectivityManager5 == null) {
@@ -276,7 +277,7 @@ public final class TrdVpnNetwork {
             } else {
                 connectivityManager3 = connectivityManager5;
             }
-            RouteInfo defaultRouteOfNetwork = common3.getDefaultRouteOfNetwork(connectivityManager3, network, i2);
+            RouteInfo defaultRouteOfNetwork = common3.getDefaultRouteOfNetwork(connectivityManager3, network, i);
             if (linkProperties == null || (interfaceName = linkProperties.getInterfaceName()) == null) {
                 interfaceName = "";
             }
@@ -295,11 +296,11 @@ public final class TrdVpnNetwork {
         return (TornadoNetData) invokeLI.objValue;
     }
 
-    private final void registerNetCallback(ConnectivityManager.NetworkCallback networkCallback, int i2) {
+    private final void registerNetCallback(ConnectivityManager.NetworkCallback networkCallback, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, this, networkCallback, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, this, networkCallback, i) == null) {
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
-            builder.addTransportType(i2);
+            builder.addTransportType(i);
             NetworkRequest build = builder.build();
             try {
                 ConnectivityManager connectivityManager2 = connectivityManager;
@@ -339,10 +340,10 @@ public final class TrdVpnNetwork {
         }
     }
 
-    public final long bindSocket(int i2) {
+    public final long bindSocket(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (networkCell == null) {
                 LogTo.INSTANCE.e(TAG, "--- Not found cellular");
                 return -1L;
@@ -352,7 +353,7 @@ public final class TrdVpnNetwork {
                     Field declaredField = FileDescriptor.class.getDeclaredField("descriptor");
                     Intrinsics.checkNotNullExpressionValue(declaredField, "FileDescriptor::class.ja…claredField(\"descriptor\")");
                     declaredField.setAccessible(true);
-                    declaredField.setInt(fileDescriptor, i2);
+                    declaredField.setInt(fileDescriptor, i);
                     Network network = networkCell;
                     if (network == null) {
                         return 0L;
@@ -360,7 +361,7 @@ public final class TrdVpnNetwork {
                     network.bindSocket(fileDescriptor);
                     return 0L;
                 } catch (Exception e2) {
-                    Intrinsics.stringPlus("bindSocket(): Exception: ", e2.getMessage());
+                    Log.e(TAG, Intrinsics.stringPlus("bindSocket(): Exception: ", e2.getMessage()));
                     return -1L;
                 }
             } else {
@@ -370,18 +371,18 @@ public final class TrdVpnNetwork {
         return invokeI.longValue;
     }
 
-    public final String getNetworkForT2T(long j2) {
+    public final String getNetworkForT2T(long j) {
         InterceptResult invokeJ;
         TornadoNetData tornadoNetData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            if (j2 == 1) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (j == 1) {
                 tornadoNetData = getTornadoNetData(networkWifi, ipVersion);
-            } else if (j2 == 2) {
+            } else if (j == 2) {
                 tornadoNetData = getTornadoNetData(networkCell, ipVersion);
-            } else if (j2 == 3) {
+            } else if (j == 3) {
                 tornadoNetData = getTornadoNetData(networkFirst, ipVersion);
-            } else if (j2 == 4) {
+            } else if (j == 4) {
                 TornadoNetwork tornadoNetwork = TornadoNetwork.INSTANCE;
                 ConnectivityManager connectivityManager2 = connectivityManager;
                 if (connectivityManager2 == null) {

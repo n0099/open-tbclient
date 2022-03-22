@@ -2,6 +2,7 @@ package com.baidu.ar.arplay.d;
 
 import android.graphics.Canvas;
 import android.graphics.SurfaceTexture;
+import android.util.Log;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -44,9 +45,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -57,13 +58,13 @@ public class c {
         this.gz = true;
     }
 
-    public Surface a(int i2, int i3, int i4) {
+    public Surface a(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
-            this.mTextureId = i2;
-            this.dL = new SurfaceTexture(i2);
-            f(i3, i4);
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
+            this.mTextureId = i;
+            this.dL = new SurfaceTexture(i);
+            f(i2, i3);
             Surface surface = new Surface(this.dL);
             this.gx = surface;
             return surface;
@@ -82,12 +83,12 @@ public class c {
         }
     }
 
-    public void f(int i2, int i3) {
+    public void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.gv = i2;
-            this.gw = i3;
-            this.dL.setDefaultBufferSize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.gv = i;
+            this.gw = i2;
+            this.dL.setDefaultBufferSize(i, i2);
         }
     }
 
@@ -101,7 +102,8 @@ public class c {
                 try {
                     this.gy = surface.lockCanvas(null);
                 } catch (Exception e2) {
-                    String str = "error while rendering view to gl: " + e2;
+                    String str = TAG;
+                    Log.e(str, "error while rendering view to gl: " + e2);
                 }
             }
             return this.gy;
@@ -131,7 +133,8 @@ public class c {
             try {
                 this.dL.updateTexImage();
             } catch (Exception e2) {
-                String str = "error while update view to gl: " + e2;
+                String str = TAG;
+                Log.e(str, "error while update view to gl: " + e2);
             }
         }
     }

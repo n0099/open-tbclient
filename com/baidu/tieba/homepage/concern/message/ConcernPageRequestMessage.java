@@ -1,10 +1,10 @@
 package com.baidu.tieba.homepage.concern.message;
 
 import android.text.TextUtils;
-import c.a.q0.c1.b0;
-import c.a.q0.c1.g;
-import c.a.r0.j3.m0.b;
-import c.a.r0.o1.d.d;
+import c.a.o0.c1.b0;
+import c.a.o0.c1.g;
+import c.a.p0.l3.m0.b;
+import c.a.p0.q1.d.d;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
@@ -33,9 +33,9 @@ public class ConcernPageRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -56,7 +56,7 @@ public class ConcernPageRequestMessage extends NetMessage {
             String d2 = isEmpty ? "" : b.f().d("CONCERN");
             g gVar = this.adInfo;
             if (gVar != null && !isEmpty) {
-                str = gVar.f12177b;
+                str = gVar.f9941b;
             }
             AdExtParam.a b2 = AdExtParam.a.b();
             b2.g(e2);
@@ -83,16 +83,16 @@ public class ConcernPageRequestMessage extends NetMessage {
                         builder.page_tag = d.u();
                     }
                 }
-                builder.last_req_unix = Long.valueOf(c.a.q0.r.j0.b.k().m(c.a.q0.r.j0.b.o("concern_data_res_request_time"), 0L));
-                int i2 = 1;
-                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? c.a.q0.r.j0.b.k().l("key_home_concern_all_status", 0) : 1);
+                builder.last_req_unix = Long.valueOf(c.a.o0.r.j0.b.k().m(c.a.o0.r.j0.b.o("concern_data_res_request_time"), 0L));
+                int i = 1;
+                builder.follow_type = Integer.valueOf(UbsABTestHelper.isConcernForumCardShow() ? c.a.o0.r.j0.b.k().l("key_home_concern_all_status", 0) : 1);
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
                     b0.a(builder, true);
                 }
                 if (!TextUtils.isEmpty(this.pageTag)) {
-                    i2 = 2;
+                    i = 2;
                 }
-                builder.load_type = Integer.valueOf(i2);
+                builder.load_type = Integer.valueOf(i);
                 builder.ad_ext_params = buildAdParam();
                 UserlikeReqIdl.Builder builder2 = new UserlikeReqIdl.Builder();
                 builder2.data = builder.build(false);

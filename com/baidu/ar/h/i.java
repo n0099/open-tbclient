@@ -37,11 +37,11 @@ public final class i {
         }
     }
 
-    public static File a(Bitmap bitmap, File file, int i2) {
+    public static File a(Bitmap bitmap, File file, int i) {
         InterceptResult invokeLLI;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bitmap, file, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bitmap, file, i)) == null) {
             FileOutputStream fileOutputStream2 = null;
             try {
                 try {
@@ -57,7 +57,7 @@ public final class i {
                 e3.printStackTrace();
             }
             try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
+                bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
                 fileOutputStream.flush();
                 fileOutputStream.close();
             } catch (Exception e4) {
@@ -87,10 +87,10 @@ public final class i {
         return (File) invokeLLI.objValue;
     }
 
-    public static String a(String str, Bitmap bitmap, int i2) {
+    public static String a(String str, Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, str, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, str, bitmap, i)) == null) {
             if (TextUtils.isEmpty(str) || bitmap == null) {
                 return str;
             }
@@ -104,7 +104,7 @@ public final class i {
             }
             try {
                 file.createNewFile();
-                a(bitmap, file, i2);
+                a(bitmap, file, i);
                 return file.getPath();
             } catch (IOException e2) {
                 e2.printStackTrace();
@@ -131,9 +131,9 @@ public final class i {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {file, file2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

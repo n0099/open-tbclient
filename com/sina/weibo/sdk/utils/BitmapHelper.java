@@ -14,7 +14,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class BitmapHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,23 +24,23 @@ public final class BitmapHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getSampleSizeAutoFitToScreen(int i2, int i3, int i4, int i5) {
+    public static int getSampleSizeAutoFitToScreen(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65537, null, i2, i3, i4, i5)) == null) {
-            if (i3 == 0 || i2 == 0) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65537, null, i, i2, i3, i4)) == null) {
+            if (i2 == 0 || i == 0) {
                 return 1;
             }
-            return Math.min(Math.max(i4 / i2, i5 / i3), Math.max(i5 / i2, i4 / i3));
+            return Math.min(Math.max(i3 / i, i4 / i2), Math.max(i4 / i, i3 / i2));
         }
         return invokeIIII.intValue;
     }

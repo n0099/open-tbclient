@@ -21,16 +21,16 @@ public class SslError {
     public transient /* synthetic */ FieldHolder $fh;
 
     @Deprecated
-    public SslError(int i2, SslCertificate sslCertificate) {
+    public SslError(int i, SslCertificate sslCertificate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), sslCertificate};
+            Object[] objArr = {Integer.valueOf(i), sslCertificate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +39,10 @@ public class SslError {
         throw new RuntimeException("Stub!");
     }
 
-    public boolean addError(int i2) {
+    public boolean addError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;
@@ -75,10 +75,10 @@ public class SslError {
         return (String) invokeV.objValue;
     }
 
-    public boolean hasError(int i2) {
+    public boolean hasError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;
@@ -94,16 +94,16 @@ public class SslError {
     }
 
     @Deprecated
-    public SslError(int i2, X509Certificate x509Certificate) {
+    public SslError(int i, X509Certificate x509Certificate) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), x509Certificate};
+            Object[] objArr = {Integer.valueOf(i), x509Certificate};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -112,16 +112,16 @@ public class SslError {
         throw new RuntimeException("Stub!");
     }
 
-    public SslError(int i2, SslCertificate sslCertificate, String str) {
+    public SslError(int i, SslCertificate sslCertificate, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), sslCertificate, str};
+            Object[] objArr = {Integer.valueOf(i), sslCertificate, str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -130,16 +130,16 @@ public class SslError {
         throw new RuntimeException("Stub!");
     }
 
-    public SslError(int i2, X509Certificate x509Certificate, String str) {
+    public SslError(int i, X509Certificate x509Certificate, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), x509Certificate, str};
+            Object[] objArr = {Integer.valueOf(i), x509Certificate, str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

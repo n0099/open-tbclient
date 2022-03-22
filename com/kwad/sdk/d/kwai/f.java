@@ -6,94 +6,94 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.video.videoview.a;
 import com.kwad.sdk.utils.ax;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f extends b implements a.b {
     public static long a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f55207b;
+    public c f40274b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f55208c;
+    public AdTemplate f40275c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public a f55209d;
+    public a f40276d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f55210e;
+    public int f40277e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f55211b;
+        public int f40278b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f55212c;
+        public boolean f40279c;
 
         /* renamed from: d  reason: collision with root package name */
-        public boolean f55213d;
+        public boolean f40280d;
 
         public a() {
-            this.f55211b = Integer.MIN_VALUE;
-            this.f55212c = false;
-            this.f55213d = false;
+            this.f40278b = Integer.MIN_VALUE;
+            this.f40279c = false;
+            this.f40280d = false;
         }
 
         public void a(boolean z) {
-            this.f55213d = z;
+            this.f40280d = z;
         }
 
         public void b(boolean z) {
-            this.f55212c = z;
+            this.f40279c = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            if (this.f55213d) {
+            if (this.f40280d) {
                 return;
             }
-            if (!this.f55212c) {
-                if (this.f55211b == Integer.MIN_VALUE) {
-                    this.f55211b = f.this.f55210e;
+            if (!this.f40279c) {
+                if (this.f40278b == Integer.MIN_VALUE) {
+                    this.f40278b = f.this.f40277e;
                 }
-                if (this.f55211b < 0) {
+                if (this.f40278b < 0) {
                     return;
                 }
-                com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", f.this.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.f55211b);
-                f.this.b(this.f55211b);
-                this.f55211b = this.f55211b + (-1);
+                com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", f.this.toString() + ", this: " + toString() + " PlayableTimerRunnable run : " + this.f40278b);
+                f.this.b(this.f40278b);
+                this.f40278b = this.f40278b + (-1);
             }
             ax.a(this, null, f.a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i2) {
-        c cVar = this.f55207b;
-        com.kwad.sdk.d.a.b bVar = cVar.f55179e;
+    public void b(int i) {
+        c cVar = this.f40274b;
+        com.kwad.sdk.d.a.b bVar = cVar.f40250e;
         if (bVar == null) {
             return;
         }
-        if (i2 != 0) {
-            bVar.a(true, i2);
+        if (i != 0) {
+            bVar.a(true, i);
         } else if (cVar.d()) {
         } else {
-            this.f55207b.a(q(), this.f55208c);
+            this.f40274b.a(q(), this.f40275c);
             r();
-            c cVar2 = this.f55207b;
-            cVar2.a(true, cVar2.f55183i);
+            c cVar2 = this.f40274b;
+            cVar2.a(true, cVar2.i);
         }
     }
 
     private void r() {
-        com.kwad.sdk.core.video.videoview.b bVar = this.f55207b.f55183i;
+        com.kwad.sdk.core.video.videoview.b bVar = this.f40274b.i;
         if (bVar != null) {
             bVar.k();
         }
-        this.f55207b.f55177c.dismiss();
-        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f55207b.f55176b;
+        this.f40274b.f40248c.dismiss();
+        KsInterstitialAd.AdInteractionListener adInteractionListener = this.f40274b.f40247b;
         if (adInteractionListener != null) {
             adInteractionListener.onAdClosed();
         }
@@ -104,34 +104,34 @@ public class f extends b implements a.b {
         super.a();
         com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this + " onBind");
         c cVar = (c) p();
-        this.f55207b = cVar;
+        this.f40274b = cVar;
         AdTemplate adTemplate = cVar.a;
-        this.f55208c = adTemplate;
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        long j3 = j2.adInsertScreenInfo.autoCloseTime;
-        if (j3 > 0) {
-            this.f55210e = (int) Math.min(com.kwad.sdk.core.config.b.a(j2), j3);
+        this.f40275c = adTemplate;
+        AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        long j2 = j.adInsertScreenInfo.autoCloseTime;
+        if (j2 > 0) {
+            this.f40277e = (int) Math.min(com.kwad.sdk.core.config.b.a(j), j2);
         } else {
-            this.f55210e = com.kwad.sdk.core.config.b.a(j2);
+            this.f40277e = com.kwad.sdk.core.config.b.a(j);
         }
-        com.kwad.sdk.d.a.b bVar = this.f55207b.f55179e;
+        com.kwad.sdk.d.a.b bVar = this.f40274b.f40250e;
         if (bVar != null) {
             bVar.a(true, -1);
         }
-        if (!com.kwad.sdk.core.response.a.a.P(j2)) {
+        if (!com.kwad.sdk.core.response.a.a.P(j)) {
             a aVar = new a();
-            this.f55209d = aVar;
+            this.f40276d = aVar;
             ax.a(aVar, null, 1000L);
             return;
         }
-        this.f55210e = (int) Math.min(this.f55210e, com.kwad.sdk.core.response.a.a.b(j2));
-        this.f55209d = null;
-        this.f55207b.a(this);
+        this.f40277e = (int) Math.min(this.f40277e, com.kwad.sdk.core.response.a.a.b(j));
+        this.f40276d = null;
+        this.f40274b.a(this);
     }
 
     @Override // com.kwad.sdk.core.video.videoview.a.b
-    public void a(long j2) {
-        b(this.f55210e - ((int) (j2 / 1000)));
+    public void a(long j) {
+        b(this.f40277e - ((int) (j / 1000)));
     }
 
     @Override // com.kwad.sdk.core.video.videoview.a.b
@@ -142,12 +142,12 @@ public class f extends b implements a.b {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("InterstitialPlayablePresenter", this + " onUnbind");
-        this.f55207b.b(this);
-        a aVar = this.f55209d;
+        this.f40274b.b(this);
+        a aVar = this.f40276d;
         if (aVar != null) {
             aVar.a(true);
-            ax.b(this.f55209d);
-            this.f55209d = null;
+            ax.b(this.f40276d);
+            this.f40276d = null;
         }
     }
 
@@ -162,14 +162,14 @@ public class f extends b implements a.b {
 
     @Override // com.kwad.sdk.core.video.videoview.a.b
     public void f() {
-        this.f55207b.a(q(), this.f55208c);
+        this.f40274b.a(q(), this.f40275c);
         r();
     }
 
     @Override // com.kwad.sdk.d.kwai.b
     public void g() {
         super.g();
-        a aVar = this.f55209d;
+        a aVar = this.f40276d;
         if (aVar != null) {
             aVar.b(false);
         }
@@ -178,7 +178,7 @@ public class f extends b implements a.b {
     @Override // com.kwad.sdk.d.kwai.b
     public void h() {
         super.h();
-        a aVar = this.f55209d;
+        a aVar = this.f40276d;
         if (aVar != null) {
             aVar.b(true);
         }

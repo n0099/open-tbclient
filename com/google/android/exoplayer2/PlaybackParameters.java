@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PlaybackParameters {
     public static /* synthetic */ Interceptable $ic;
     public static final PlaybackParameters DEFAULT;
@@ -41,9 +40,9 @@ public final class PlaybackParameters {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -70,15 +69,15 @@ public final class PlaybackParameters {
         return invokeL.booleanValue;
     }
 
-    public long getSpeedAdjustedDurationUs(long j2) {
+    public long getSpeedAdjustedDurationUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? j2 * this.scaledUsPerMs : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? j * this.scaledUsPerMs : invokeJ.longValue;
     }
 
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + Float.floatToRawIntBits(this.speed)) * 31) + Float.floatToRawIntBits(this.pitch) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ((527 + Float.floatToRawIntBits(this.speed)) * 31) + Float.floatToRawIntBits(this.pitch) : invokeV.intValue;
     }
 }

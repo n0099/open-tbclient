@@ -20,9 +20,9 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -31,9 +31,9 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
         }
     }
 
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
         }
     }
 
@@ -44,9 +44,9 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, strArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,9 +62,9 @@ public class BinaryHttpHandlerWrap extends HttpHandlerWrap {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), strArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

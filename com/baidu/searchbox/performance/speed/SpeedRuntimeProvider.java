@@ -2,7 +2,7 @@ package com.baidu.searchbox.performance.speed;
 
 import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.b.b.a;
+import c.a.g0.b.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -27,9 +27,9 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,7 +38,7 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // c.a.i0.b.b.a
+    @Override // c.a.g0.b.b.a
     public ISpeedContext createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -54,9 +54,9 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -156,9 +156,9 @@ public class SpeedRuntimeProvider extends a<ISpeedContext> {
             }
 
             @Override // com.baidu.searchbox.performance.speed.ISpeedContext
-            public void launchTime(boolean z, long j2) {
+            public void launchTime(boolean z, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
                 }
             }
         } : (ISpeedContext) invokeV.objValue;

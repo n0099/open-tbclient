@@ -27,9 +27,9 @@ public class FirstScreenImageInfomation {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -96,10 +96,10 @@ public class FirstScreenImageInfomation {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
-    public void setErrorOccurredCount(int i2) {
+    public void setErrorOccurredCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.nErrorOccurredCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.nErrorOccurredCount = i;
         }
     }
 
@@ -110,52 +110,52 @@ public class FirstScreenImageInfomation {
         }
     }
 
-    public void setImageCount(int i2) {
+    public void setImageCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.nImageCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.nImageCount = i;
         }
     }
 
-    public void setMaxTimeStamp(long j2) {
+    public void setMaxTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.nMaxTimeStamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.nMaxTimeStamp = j;
         }
     }
 
-    public void setPaintHeightForMaxImage(int i2) {
+    public void setPaintHeightForMaxImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.nPaintHeightForMaxImage = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.nPaintHeightForMaxImage = i;
         }
     }
 
-    public void setPaintWidthForMaxImage(int i2) {
+    public void setPaintWidthForMaxImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.nPaintWidthForMaxImage = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.nPaintWidthForMaxImage = i;
         }
     }
 
-    public void setPosXForMaxImage(int i2) {
+    public void setPosXForMaxImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.nPosXForMaxImage = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.nPosXForMaxImage = i;
         }
     }
 
-    public void setPosYForMaxImage(int i2) {
+    public void setPosYForMaxImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.nPosYForMaxImage = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.nPosYForMaxImage = i;
         }
     }
 
-    public void setTimeStampForMaxImage(long j2) {
+    public void setTimeStampForMaxImage(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.nTimeStampForMaxImage = j2;
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.nTimeStampForMaxImage = j;
         }
     }
 

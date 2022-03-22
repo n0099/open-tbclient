@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.mobstat.bm;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -33,11 +34,11 @@ public class s {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static s f35537b;
+    public static s f27419b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f35538c;
+    public Handler f27420c;
 
     static {
         InterceptResult invokeClinit;
@@ -60,17 +61,17 @@ public class s {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread(com.baidu.fsg.base.statistics.n.a);
+        HandlerThread handlerThread = new HandlerThread("LogSender");
         handlerThread.start();
-        this.f35538c = new Handler(handlerThread.getLooper());
+        this.f27420c = new Handler(handlerThread.getLooper());
     }
 
     private boolean b(Context context, String str) {
@@ -97,14 +98,14 @@ public class s {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f35537b == null) {
+            if (f27419b == null) {
                 synchronized (s.class) {
-                    if (f35537b == null) {
-                        f35537b = new s();
+                    if (f27419b == null) {
+                        f27419b = new s();
                     }
                 }
             }
-            return f35537b;
+            return f27419b;
         }
         return (s) invokeV.objValue;
     }
@@ -117,16 +118,16 @@ public class s {
             if (str == null || "".equals(str)) {
                 return;
             }
-            this.f35538c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
+            this.f27420c.post(new Runnable(this, str, context) { // from class: com.baidu.mobstat.s.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ String a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ Context f35539b;
+                public final /* synthetic */ Context f27421b;
 
                 /* renamed from: c  reason: collision with root package name */
-                public final /* synthetic */ s f35540c;
+                public final /* synthetic */ s f27422c;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -135,17 +136,17 @@ public class s {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f35540c = this;
+                    this.f27422c = this;
                     this.a = str;
-                    this.f35539b = context;
+                    this.f27421b = context;
                 }
 
                 @Override // java.lang.Runnable
@@ -153,11 +154,11 @@ public class s {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         try {
-                            this.f35540c.a(this.a);
-                            if (this.f35539b == null) {
+                            this.f27422c.a(this.a);
+                            if (this.f27421b == null) {
                                 return;
                             }
-                            this.f35540c.a(this.f35539b.getApplicationContext());
+                            this.f27422c.a(this.f27421b.getApplicationContext());
                         } catch (Throwable th) {
                             bb.c().b(th);
                         }
@@ -197,9 +198,9 @@ public class s {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -220,7 +221,7 @@ public class s {
             } catch (Exception e2) {
                 bb.c().b(e2);
             }
-            int i2 = 0;
+            int i = 0;
             for (File file2 : listFiles) {
                 if (file2.isFile()) {
                     String name = file2.getName();
@@ -229,11 +230,11 @@ public class s {
                         String b2 = bo.b(str);
                         if (b(context, b2)) {
                             bo.c(str);
-                            i2 = 0;
+                            i = 0;
                         } else {
                             a(b2, str);
-                            i2++;
-                            if (i2 >= 5) {
+                            i++;
+                            if (i >= 5) {
                                 return;
                             }
                         }
@@ -274,13 +275,13 @@ public class s {
         d2.setUseCaches(false);
         d2.setRequestProperty("Content-Encoding", "gzip");
         try {
-            JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject("he");
+            JSONObject jSONObject = new JSONObject(str2).getJSONArray("payload").getJSONObject(0).getJSONObject(Config.HEADER_PART);
             d2.setRequestProperty("Content-Type", "gzip");
             d2.setRequestProperty("mtj_appversion", jSONObject.getString("n"));
             d2.setRequestProperty("mtj_os", "Android");
-            d2.setRequestProperty("mtj_pn", jSONObject.getString("pn"));
+            d2.setRequestProperty("mtj_pn", jSONObject.getString(Config.PACKAGE_NAME));
             d2.setRequestProperty("mtj_tg", "1");
-            d2.setRequestProperty("mtj_ii", jSONObject.getString("ii"));
+            d2.setRequestProperty("mtj_ii", jSONObject.getString(Config.CUID_SEC));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -305,10 +306,10 @@ public class s {
                     byte[] a3 = bv.a(false, br.a(), a2);
                     gZIPOutputStream.write(a(a3.length, 4));
                     gZIPOutputStream.write(a3);
-                    bytes = bm.a.a(a2, new byte[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, str2.getBytes("utf-8"));
+                    bytes = bm.a.a(a2, new byte[]{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1}, str2.getBytes(IMAudioTransRequest.CHARSET));
                     gZIPOutputStream.write(a(bytes.length, 2));
                 } else {
-                    bytes = str2.getBytes("utf-8");
+                    bytes = str2.getBytes(IMAudioTransRequest.CHARSET);
                 }
                 gZIPOutputStream.write(bytes);
                 gZIPOutputStream.close();
@@ -339,14 +340,14 @@ public class s {
         }
     }
 
-    public static byte[] a(long j2, int i2) {
+    public static byte[] a(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            byte[] bArr = new byte[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr[(i2 - i3) - 1] = (byte) (255 & j2);
-                j2 >>= 8;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            byte[] bArr = new byte[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                bArr[(i - i2) - 1] = (byte) (255 & j);
+                j >>= 8;
             }
             return bArr;
         }

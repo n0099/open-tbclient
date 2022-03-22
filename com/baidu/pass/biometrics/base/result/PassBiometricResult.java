@@ -15,22 +15,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class PassBiometricResult {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int ERROR_CODE_CONFIG_ERROR = -210;
     public static final int ERROR_CODE_DANGEROUS_PROTOCOL_ERROR = -208;
+    public static final int ERROR_CODE_LACK_SO_ERROR = -211;
     public static final int ERROR_CODE_NETWORK_UNAVAILABLE = -201;
     public static final int ERROR_CODE_NO_LOGIN = 101;
     public static final int ERROR_CODE_PARAM = -205;
     public static final int ERROR_CODE_SERVER_ERROR = -206;
     public static final int ERROR_CODE_SO_ERROR = -207;
     public static final int ERROR_CODE_SSL_PEER_UNVERIFIED = -203;
+    public static final int ERROR_CODE_SYSTEM_VERSION_LOW_ERROR = -209;
     public static final int ERROR_CODE_UNKNOWN = -202;
     public static final int ERROR_CODE_USER_CANCEL = -204;
+    public static final String ERROR_MSG_CONFIG_ERROR;
     public static final String ERROR_MSG_DANGEROUS_PROTOCOL_ERROR;
+    public static final String ERROR_MSG_LACK_SO_ERROR;
     public static final String ERROR_MSG_NETWORK_UNAVAILABLE;
     public static final String ERROR_MSG_NO_LOGIN;
     public static final String ERROR_MSG_PARAM;
     public static final String ERROR_MSG_SERVER_ERROR;
     public static final String ERROR_MSG_SO_ERROR;
     public static final String ERROR_MSG_SSL_PEER_UNVERIFIED;
+    public static final String ERROR_MSG_SYSTEM_VERSION_LOW_ERROR;
     public static final String ERROR_MSG_UNKNOWN;
     public static final String ERROR_MSG_USER_CANCEL;
     public static final int RESULT_CODE_SUCCESS = 0;
@@ -53,16 +59,19 @@ public class PassBiometricResult {
                 return;
             }
         }
-        RESULT_MSG_SUCCESS = ResUtils.getString(R.string.pass_bio_result_msg_success);
-        ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.pass_bio_error_msg_network_unavailable);
-        ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.pass_bio_error_msg_unknown);
-        ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.pass_bio_error_msg_ssl_peer_unverified);
-        ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.pass_bio_error_msg_user_cancel);
-        ERROR_MSG_PARAM = ResUtils.getString(R.string.pass_bio_error_msg_param);
-        ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_server_error);
-        ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_so_error);
-        ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.pass_bio_error_msg_dangerous_protocol_error);
-        ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.pass_bio_error_msg_no_login);
+        RESULT_MSG_SUCCESS = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d28);
+        ERROR_MSG_NETWORK_UNAVAILABLE = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d17);
+        ERROR_MSG_UNKNOWN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1f);
+        ERROR_MSG_SSL_PEER_UNVERIFIED = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1d);
+        ERROR_MSG_USER_CANCEL = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d20);
+        ERROR_MSG_PARAM = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1a);
+        ERROR_MSG_SERVER_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1b);
+        ERROR_MSG_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1c);
+        ERROR_MSG_DANGEROUS_PROTOCOL_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d11);
+        ERROR_MSG_SYSTEM_VERSION_LOW_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d1e);
+        ERROR_MSG_CONFIG_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d0f);
+        ERROR_MSG_LACK_SO_ERROR = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d14);
+        ERROR_MSG_NO_LOGIN = ResUtils.getString(R.string.obfuscated_res_0x7f0f0d18);
     }
 
     public PassBiometricResult() {
@@ -70,9 +79,9 @@ public class PassBiometricResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,7 +108,7 @@ public class PassBiometricResult {
     public String getResultMsg() {
         InterceptResult invokeV;
         SparseArray<String> sparseArray;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TextUtils.isEmpty(this.resultMsg)) {
@@ -107,20 +116,20 @@ public class PassBiometricResult {
             }
             if (this.msgMap.get(this.resultCode) != null) {
                 sparseArray = this.msgMap;
-                i2 = this.resultCode;
+                i = this.resultCode;
             } else {
                 sparseArray = this.msgMap;
-                i2 = -202;
+                i = -202;
             }
-            return sparseArray.get(i2);
+            return sparseArray.get(i);
         }
         return (String) invokeV.objValue;
     }
 
-    public void setResultCode(int i2) {
+    public void setResultCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.resultCode = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.resultCode = i;
         }
     }
 

@@ -22,7 +22,7 @@ import java.util.Random;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdElementInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTION_TYPE_DOWNLOAD = 2;
@@ -79,7 +79,7 @@ public class AdElementInfo implements Parcelable {
     public String mVideoUrl;
     public int mVideoWidth;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AdElementInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,9 +89,9 @@ public class AdElementInfo implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,10 +110,10 @@ public class AdElementInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AdElementInfo[] newArray(int i2) {
+        public AdElementInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new AdElementInfo[i2] : (AdElementInfo[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AdElementInfo[i] : (AdElementInfo[]) invokeI.objValue;
         }
     }
 
@@ -456,9 +456,9 @@ public class AdElementInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048617, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048617, this, parcel, i) == null) {
             parcel.writeString(this.mQueryKey);
             parcel.writeString(this.mAdId);
             parcel.writeString(this.mTitle);
@@ -496,9 +496,9 @@ public class AdElementInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -553,33 +553,33 @@ public class AdElementInfo implements Parcelable {
                     String next = keys.next();
                     if (next.equals("s")) {
                         JSONArray optJSONArray = optJSONObject.optJSONArray(next);
-                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                            addThirdImpMonitorTrackers(optJSONArray.optString(i4));
+                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                            addThirdImpMonitorTrackers(optJSONArray.optString(i3));
                         }
                     } else if (next.equals("vskip")) {
                         JSONArray optJSONArray2 = optJSONObject.optJSONArray(next);
-                        for (int i5 = 0; i5 < optJSONArray2.length(); i5++) {
-                            addSkipMonitorTrackers(optJSONArray2.optString(i5));
+                        for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
+                            addSkipMonitorTrackers(optJSONArray2.optString(i4));
                         }
                     } else if (next.equals("vstart")) {
                         JSONArray optJSONArray3 = optJSONObject.optJSONArray(next);
-                        for (int i6 = 0; i6 < optJSONArray3.length(); i6++) {
-                            addStartMonitorTrackers(optJSONArray3.optString(i6));
+                        for (int i5 = 0; i5 < optJSONArray3.length(); i5++) {
+                            addStartMonitorTrackers(optJSONArray3.optString(i5));
                         }
                     } else if (next.equals("vclose")) {
                         JSONArray optJSONArray4 = optJSONObject.optJSONArray(next);
-                        for (int i7 = 0; i7 < optJSONArray4.length(); i7++) {
-                            addCloseMonitorTrackers(optJSONArray4.optString(i7));
+                        for (int i6 = 0; i6 < optJSONArray4.length(); i6++) {
+                            addCloseMonitorTrackers(optJSONArray4.optString(i6));
                         }
                     } else if (next.equals("click")) {
                         JSONArray optJSONArray5 = optJSONObject.optJSONArray(next);
-                        for (int i8 = 0; i8 < optJSONArray5.length(); i8++) {
-                            addMonitorClickTrackers(optJSONArray5.optString(i8));
+                        for (int i7 = 0; i7 < optJSONArray5.length(); i7++) {
+                            addMonitorClickTrackers(optJSONArray5.optString(i7));
                         }
                     } else if (next.equals("c")) {
                         JSONArray optJSONArray6 = optJSONObject.optJSONArray(next);
-                        for (int i9 = 0; i9 < optJSONArray6.length(); i9++) {
-                            addThirdClickMonitorTrackers(optJSONArray6.optString(i9));
+                        for (int i8 = 0; i8 < optJSONArray6.length(); i8++) {
+                            addThirdClickMonitorTrackers(optJSONArray6.optString(i8));
                         }
                     }
                 }
@@ -624,9 +624,9 @@ public class AdElementInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -668,28 +668,28 @@ public class AdElementInfo implements Parcelable {
             }
             if (jSONObject.has("imp_urls")) {
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("imp_urls");
-                for (int i4 = 0; optJSONArray2 != null && i4 < optJSONArray2.length(); i4++) {
-                    if (!TextUtils.isEmpty(optJSONArray2.optString(i4))) {
-                        this.mImpressionUrls.add(optJSONArray2.optString(i4));
+                for (int i3 = 0; optJSONArray2 != null && i3 < optJSONArray2.length(); i3++) {
+                    if (!TextUtils.isEmpty(optJSONArray2.optString(i3))) {
+                        this.mImpressionUrls.add(optJSONArray2.optString(i3));
                     }
                 }
             }
             if (jSONObject.has("click_urls")) {
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("click_urls");
-                for (int i5 = 0; optJSONArray3 != null && i5 < optJSONArray3.length(); i5++) {
-                    addThirdClickMonitorTrackers(optJSONArray3.optString(i5));
+                for (int i4 = 0; optJSONArray3 != null && i4 < optJSONArray3.length(); i4++) {
+                    addThirdClickMonitorTrackers(optJSONArray3.optString(i4));
                 }
             }
             if (jSONObject.has("video_play_urls")) {
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("video_play_urls");
-                for (int i6 = 0; optJSONArray4 != null && i6 < optJSONArray4.length(); i6++) {
-                    addCloseMonitorTrackers(optJSONArray4.optString(i6));
+                for (int i5 = 0; optJSONArray4 != null && i5 < optJSONArray4.length(); i5++) {
+                    addCloseMonitorTrackers(optJSONArray4.optString(i5));
                 }
             }
             if (jSONObject.has("conversion_urls")) {
                 JSONArray optJSONArray5 = jSONObject.optJSONArray("conversion_urls");
-                for (int i7 = 0; optJSONArray5 != null && i7 < optJSONArray5.length(); i7++) {
-                    addConversionUrls(optJSONArray5.optString(i7));
+                for (int i6 = 0; optJSONArray5 != null && i6 < optJSONArray5.length(); i6++) {
+                    addConversionUrls(optJSONArray5.optString(i6));
                 }
             }
             this.mExpire = jSONObject.optInt("expiration", 0);
@@ -705,9 +705,9 @@ public class AdElementInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

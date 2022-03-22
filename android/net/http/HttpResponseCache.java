@@ -26,9 +26,9 @@ public final class HttpResponseCache extends ResponseCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,10 +46,10 @@ public final class HttpResponseCache extends ResponseCache {
         return (HttpResponseCache) invokeV.objValue;
     }
 
-    public static synchronized HttpResponseCache install(File file, long j2) throws IOException {
+    public static synchronized HttpResponseCache install(File file, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, file, j)) == null) {
             synchronized (HttpResponseCache.class) {
                 throw new RuntimeException("Stub!");
             }

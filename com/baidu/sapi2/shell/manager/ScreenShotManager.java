@@ -49,9 +49,9 @@ public class ScreenShotManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {screenShotManager, uri, handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Handler) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -94,9 +94,9 @@ public class ScreenShotManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -149,13 +149,13 @@ public class ScreenShotManager {
         }
     }
 
-    private void handleMediaRowData(String str, long j2) {
+    private void handleMediaRowData(String str, long j) {
         IScreenShotListener iScreenShotListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j2) == null) {
-            long j3 = 0;
-            while (!isScreenShot(str) && j3 <= 500) {
-                j3 += 100;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j) == null) {
+            long j2 = 0;
+            while (!isScreenShot(str) && j2 <= 500) {
+                j2 += 100;
                 try {
                     Thread.sleep(100L);
                 } catch (InterruptedException e2) {

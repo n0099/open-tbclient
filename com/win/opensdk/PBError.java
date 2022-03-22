@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PBError {
     public static /* synthetic */ Interceptable $ic;
     public static final PBError LOAD_TIME_OUT;
@@ -28,7 +27,7 @@ public class PBError {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59363b;
+    public String f43991b;
 
     static {
         InterceptResult invokeClinit;
@@ -57,23 +56,23 @@ public class PBError {
         LOAD_TYPE_ERROR = new PBError(2031, "Load Type error");
     }
 
-    public PBError(int i2, String str) {
+    public PBError(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f59363b = str;
+        this.a = i;
+        this.f43991b = str;
     }
 
     public int getCode() {
@@ -85,20 +84,20 @@ public class PBError {
     public String getMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f59363b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43991b : (String) invokeV.objValue;
     }
 
-    public void setCode(int i2) {
+    public void setCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
     public void setMsg(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f59363b = str;
+            this.f43991b = str;
         }
     }
 
@@ -106,7 +105,7 @@ public class PBError {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "PBError{code=" + this.a + ", msg='" + this.f59363b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PBError{code=" + this.a + ", msg='" + this.f43991b + "'}";
         }
         return (String) invokeV.objValue;
     }

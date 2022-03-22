@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.InstallActivity;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WbSdkProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class WbSdkProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -63,12 +63,12 @@ public class WbSdkProgressBar extends View {
         }
     }
 
-    private void calculateProgress(long j2) {
+    private void calculateProgress(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            long j3 = this.stopGrowTime;
-            if (j3 >= this.stopGrowTimeMax) {
-                double d2 = this.growTime + j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            long j2 = this.stopGrowTime;
+            if (j2 >= this.stopGrowTimeMax) {
+                double d2 = this.growTime + j;
                 this.growTime = d2;
                 double d3 = this.growTimeMax;
                 if (d2 >= d3) {
@@ -86,14 +86,14 @@ public class WbSdkProgressBar extends View {
                 this.length = f2;
                 return;
             }
-            this.stopGrowTime = j3 + j2;
+            this.stopGrowTime = j2 + j;
         }
     }
 
-    private int dip2px(Context context, int i2) {
+    private int dip2px(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i2)) == null) ? (int) (context.getResources().getDisplayMetrics().density * i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, context, i)) == null) ? (int) (context.getResources().getDisplayMetrics().density * i) : invokeLI.intValue;
     }
 
     @Override // android.view.View
@@ -122,23 +122,23 @@ public class WbSdkProgressBar extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            int i4 = this.miniSize;
-            setMeasuredDimension(i4, i4);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            int i3 = this.miniSize;
+            setMeasuredDimension(i3, i3);
         }
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i2) {
+    public void onVisibilityChanged(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-            super.onVisibilityChanged(view, i2);
-            if (i2 == 8) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            super.onVisibilityChanged(view, i);
+            if (i == 8) {
                 this.handler.sendEmptyMessageDelayed(0, 1000L);
-            } else if (i2 == 0 && getVisibility() == 0) {
+            } else if (i == 0 && getVisibility() == 0) {
                 this.handler.removeMessages(0);
                 this.showView = true;
                 invalidate();
@@ -146,10 +146,10 @@ public class WbSdkProgressBar extends View {
         }
     }
 
-    public void setProgressColor(int i2) {
+    public void setProgressColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.paint.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.paint.setColor(i);
         }
     }
 
@@ -162,9 +162,9 @@ public class WbSdkProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -175,17 +175,17 @@ public class WbSdkProgressBar extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WbSdkProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public WbSdkProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -215,9 +215,9 @@ public class WbSdkProgressBar extends View {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -247,8 +247,8 @@ public class WbSdkProgressBar extends View {
         this.paint.setColor(-48861);
         this.paint.setStyle(Paint.Style.STROKE);
         this.paint.setStrokeWidth(this.paintWidth);
-        int i5 = this.padding;
-        int i6 = this.miniSize;
-        this.rect = new RectF(i5, i5, i6 - i5, i6 - i5);
+        int i4 = this.padding;
+        int i5 = this.miniSize;
+        this.rect = new RectF(i4, i4, i5 - i4, i5 - i4);
     }
 }

@@ -27,9 +27,9 @@ public abstract class BaseMenuWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,29 +96,29 @@ public abstract class BaseMenuWrapper {
         }
     }
 
-    public final void internalRemoveGroup(int i2) {
+    public final void internalRemoveGroup(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.mMenuItems == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.mMenuItems == null) {
             return;
         }
-        int i3 = 0;
-        while (i3 < this.mMenuItems.size()) {
-            if (this.mMenuItems.keyAt(i3).getGroupId() == i2) {
-                this.mMenuItems.removeAt(i3);
-                i3--;
+        int i2 = 0;
+        while (i2 < this.mMenuItems.size()) {
+            if (this.mMenuItems.keyAt(i2).getGroupId() == i) {
+                this.mMenuItems.removeAt(i2);
+                i2--;
             }
-            i3++;
+            i2++;
         }
     }
 
-    public final void internalRemoveItem(int i2) {
+    public final void internalRemoveItem(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || this.mMenuItems == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || this.mMenuItems == null) {
             return;
         }
-        for (int i3 = 0; i3 < this.mMenuItems.size(); i3++) {
-            if (this.mMenuItems.keyAt(i3).getItemId() == i2) {
-                this.mMenuItems.removeAt(i3);
+        for (int i2 = 0; i2 < this.mMenuItems.size(); i2++) {
+            if (this.mMenuItems.keyAt(i2).getItemId() == i) {
+                this.mMenuItems.removeAt(i2);
                 return;
             }
         }

@@ -14,10 +14,10 @@ public final class b<VD extends ToastViewData, VM extends c.a.j.h.c.d.a<VD>, Vie
     public final View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final VM f3624b;
+    public final VM f3114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final VD f3625c;
+    public final VD f3115c;
 
     public b(View view, VM vm, VD vd) {
         Interceptable interceptable = $ic;
@@ -26,24 +26,24 @@ public final class b<VD extends ToastViewData, VM extends c.a.j.h.c.d.a<VD>, Vie
             newInitContext.initArgs = r2;
             Object[] objArr = {view, vm, vd};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = view;
-        this.f3624b = vm;
-        this.f3625c = vd;
+        this.f3114b = vm;
+        this.f3115c = vd;
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a(this.f3624b);
-            this.f3624b.b(this.f3625c);
+            this.a.a(this.f3114b);
+            this.f3114b.b(this.f3115c);
         }
     }
 }

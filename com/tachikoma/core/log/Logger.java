@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.Tachikoma;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Logger {
     public static /* synthetic */ Interceptable $ic = null;
     public static String TAG = "tachikoma";
@@ -37,9 +37,9 @@ public class Logger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -48,10 +48,14 @@ public class Logger {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || enableLog || Tachikoma.getInstance().logger() == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) || enableLog) {
             return;
         }
-        Tachikoma.getInstance().logger().d(str, str2);
+        if (Tachikoma.getInstance().logger() != null) {
+            Tachikoma.getInstance().logger().d(str, str2);
+        } else {
+            Log.d(str, str2);
+        }
     }
 
     public static String getStackTraceString(Throwable th) {
@@ -62,8 +66,12 @@ public class Logger {
 
     public static void logE(String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th) == null) && enableLog && Tachikoma.getInstance().logger() != null) {
-            Tachikoma.getInstance().logger().e(TAG, str, th);
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, th) == null) && enableLog) {
+            if (Tachikoma.getInstance().logger() != null) {
+                Tachikoma.getInstance().logger().e(TAG, str, th);
+            } else {
+                Log.e(TAG, str, th);
+            }
         }
     }
 

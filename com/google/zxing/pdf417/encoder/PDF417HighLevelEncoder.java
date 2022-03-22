@@ -1,7 +1,6 @@
 package com.google.zxing.pdf417.encoder;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alibaba.fastjson.parser.JSONLexer;
 import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,6 +18,7 @@ import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.nio.charset.CharsetEncoder;
 import java.util.Arrays;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes7.dex */
 public final class PDF417HighLevelEncoder {
     public static /* synthetic */ Interceptable $ic = null;
@@ -57,36 +57,36 @@ public final class PDF417HighLevelEncoder {
                 return;
             }
         }
-        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 13, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 42, 61, 94, 0, 32, 0, 0, 0};
+        TEXT_MIXED_RAW = new byte[]{48, 49, 50, 51, 52, 53, 54, 55, 56, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 13, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, Base64.INTERNAL_PADDING, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, 43, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, 42, BaseNCodec.PAD_DEFAULT, 94, 0, 32, 0, 0, 0};
         TEXT_PUNCTUATION_RAW = new byte[]{59, 60, 62, 64, 91, 92, 93, 95, 96, 126, 33, 13, 9, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 58, 10, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_END_OF_CAPTION, 34, 124, 42, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 63, ContentUtil.GZIP_HEAD_2, 125, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 0};
         MIXED = new byte[128];
         PUNCTUATION = new byte[128];
         DEFAULT_ENCODING = Charset.forName("ISO-8859-1");
         Arrays.fill(MIXED, (byte) -1);
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         while (true) {
             byte[] bArr = TEXT_MIXED_RAW;
-            if (i3 >= bArr.length) {
+            if (i2 >= bArr.length) {
                 break;
             }
-            byte b2 = bArr[i3];
+            byte b2 = bArr[i2];
             if (b2 > 0) {
-                MIXED[b2] = (byte) i3;
+                MIXED[b2] = (byte) i2;
             }
-            i3++;
+            i2++;
         }
         Arrays.fill(PUNCTUATION, (byte) -1);
         while (true) {
             byte[] bArr2 = TEXT_PUNCTUATION_RAW;
-            if (i2 >= bArr2.length) {
+            if (i >= bArr2.length) {
                 return;
             }
-            byte b3 = bArr2[i2];
+            byte b3 = bArr2[i];
             if (b3 > 0) {
-                PUNCTUATION[b3] = (byte) i2;
+                PUNCTUATION[b3] = (byte) i;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -95,9 +95,9 @@ public final class PDF417HighLevelEncoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -110,48 +110,48 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int determineConsecutiveBinaryCount(String str, int i2, Charset charset) throws WriterException {
+    public static int determineConsecutiveBinaryCount(String str, int i, Charset charset) throws WriterException {
         InterceptResult invokeLIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, str, i2, charset)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, str, i, charset)) == null) {
             CharsetEncoder newEncoder = charset.newEncoder();
             int length = str.length();
-            int i4 = i2;
-            while (i4 < length) {
-                char charAt = str.charAt(i4);
-                int i5 = 0;
-                while (i5 < 13 && isDigit(charAt) && (i3 = i4 + (i5 = i5 + 1)) < length) {
-                    charAt = str.charAt(i3);
+            int i3 = i;
+            while (i3 < length) {
+                char charAt = str.charAt(i3);
+                int i4 = 0;
+                while (i4 < 13 && isDigit(charAt) && (i2 = i3 + (i4 = i4 + 1)) < length) {
+                    charAt = str.charAt(i2);
                 }
-                char charAt2 = str.charAt(i4);
+                char charAt2 = str.charAt(i3);
                 if (!newEncoder.canEncode(charAt2)) {
                     throw new WriterException("Non-encodable character detected: " + charAt2 + " (Unicode: " + ((int) charAt2) + ')');
                 }
-                i4++;
+                i3++;
             }
-            return i4 - i2;
+            return i3 - i;
         }
         return invokeLIL.intValue;
     }
 
-    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i2) {
+    public static int determineConsecutiveDigitCount(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
             int length = charSequence.length();
-            int i3 = 0;
-            if (i2 < length) {
-                char charAt = charSequence.charAt(i2);
-                while (isDigit(charAt) && i2 < length) {
-                    i3++;
+            int i2 = 0;
+            if (i < length) {
+                char charAt = charSequence.charAt(i);
+                while (isDigit(charAt) && i < length) {
                     i2++;
-                    if (i2 < length) {
-                        charAt = charSequence.charAt(i2);
+                    i++;
+                    if (i < length) {
+                        charAt = charSequence.charAt(i);
                     }
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeLI.intValue;
     }
@@ -162,68 +162,68 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int determineConsecutiveTextCount(CharSequence charSequence, int i2) {
+    public static int determineConsecutiveTextCount(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence, i)) == null) {
             int length = charSequence.length();
-            int i3 = i2;
-            while (i3 < length) {
-                char charAt = charSequence.charAt(i3);
-                int i4 = 0;
-                while (i4 < 13 && isDigit(charAt) && i3 < length) {
-                    i4++;
+            int i2 = i;
+            while (i2 < length) {
+                char charAt = charSequence.charAt(i2);
+                int i3 = 0;
+                while (i3 < 13 && isDigit(charAt) && i2 < length) {
                     i3++;
-                    if (i3 < length) {
-                        charAt = charSequence.charAt(i3);
+                    i2++;
+                    if (i2 < length) {
+                        charAt = charSequence.charAt(i2);
                     }
                 }
-                if (i4 <= 0) {
-                    if (!isText(charSequence.charAt(i3))) {
+                if (i3 <= 0) {
+                    if (!isText(charSequence.charAt(i2))) {
                         break;
                     }
-                    i3++;
+                    i2++;
                 }
             }
-            return i3 - i2;
+            return i2 - i;
         }
         return invokeLI.intValue;
     }
 
-    public static void encodeBinary(byte[] bArr, int i2, int i3, int i4, StringBuilder sb) {
-        int i5;
+    public static void encodeBinary(byte[] bArr, int i, int i2, int i3, StringBuilder sb) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), sb}) == null) {
-            if (i3 == 1 && i4 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), sb}) == null) {
+            if (i2 == 1 && i3 == 0) {
                 sb.append((char) 913);
-            } else if (i3 % 6 == 0) {
+            } else if (i2 % 6 == 0) {
                 sb.append((char) 924);
             } else {
                 sb.append((char) 901);
             }
-            if (i3 >= 6) {
+            if (i2 >= 6) {
                 char[] cArr = new char[5];
-                i5 = i2;
-                while ((i2 + i3) - i5 >= 6) {
-                    long j2 = 0;
-                    for (int i6 = 0; i6 < 6; i6++) {
-                        j2 = (j2 << 8) + (bArr[i5 + i6] & 255);
+                i4 = i;
+                while ((i + i2) - i4 >= 6) {
+                    long j = 0;
+                    for (int i5 = 0; i5 < 6; i5++) {
+                        j = (j << 8) + (bArr[i4 + i5] & 255);
                     }
-                    for (int i7 = 0; i7 < 5; i7++) {
-                        cArr[i7] = (char) (j2 % 900);
-                        j2 /= 900;
+                    for (int i6 = 0; i6 < 5; i6++) {
+                        cArr[i6] = (char) (j % 900);
+                        j /= 900;
                     }
-                    for (int i8 = 4; i8 >= 0; i8--) {
-                        sb.append(cArr[i8]);
+                    for (int i7 = 4; i7 >= 0; i7--) {
+                        sb.append(cArr[i7]);
                     }
-                    i5 += 6;
+                    i4 += 6;
                 }
             } else {
-                i5 = i2;
+                i4 = i;
             }
-            while (i5 < i2 + i3) {
-                sb.append((char) (bArr[i5] & 255));
-                i5++;
+            while (i4 < i + i2) {
+                sb.append((char) (bArr[i4] & 255));
+                i4++;
             }
         }
     }
@@ -249,42 +249,42 @@ public final class PDF417HighLevelEncoder {
                 sb.append((char) 902);
                 encodeNumeric(str, 0, length, sb);
             } else {
+                int i = 0;
                 int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                while (i2 < length) {
-                    int determineConsecutiveDigitCount = determineConsecutiveDigitCount(str, i2);
+                while (i < length) {
+                    int determineConsecutiveDigitCount = determineConsecutiveDigitCount(str, i);
                     if (determineConsecutiveDigitCount >= 13) {
                         sb.append((char) 902);
-                        i4 = 2;
-                        encodeNumeric(str, i2, determineConsecutiveDigitCount, sb);
-                        i2 += determineConsecutiveDigitCount;
-                        i3 = 0;
+                        i3 = 2;
+                        encodeNumeric(str, i, determineConsecutiveDigitCount, sb);
+                        i += determineConsecutiveDigitCount;
+                        i2 = 0;
                     } else {
-                        int determineConsecutiveTextCount = determineConsecutiveTextCount(str, i2);
+                        int determineConsecutiveTextCount = determineConsecutiveTextCount(str, i);
                         if (determineConsecutiveTextCount < 5 && determineConsecutiveDigitCount != length) {
-                            int determineConsecutiveBinaryCount = determineConsecutiveBinaryCount(str, i2, charset);
+                            int determineConsecutiveBinaryCount = determineConsecutiveBinaryCount(str, i, charset);
                             if (determineConsecutiveBinaryCount == 0) {
                                 determineConsecutiveBinaryCount = 1;
                             }
-                            int i5 = determineConsecutiveBinaryCount + i2;
-                            byte[] bytes2 = str.substring(i2, i5).getBytes(charset);
-                            if (bytes2.length == 1 && i4 == 0) {
+                            int i4 = determineConsecutiveBinaryCount + i;
+                            byte[] bytes2 = str.substring(i, i4).getBytes(charset);
+                            if (bytes2.length == 1 && i3 == 0) {
                                 encodeBinary(bytes2, 0, 1, 0, sb);
                             } else {
-                                encodeBinary(bytes2, 0, bytes2.length, i4, sb);
-                                i3 = 0;
-                                i4 = 1;
+                                encodeBinary(bytes2, 0, bytes2.length, i3, sb);
+                                i2 = 0;
+                                i3 = 1;
                             }
-                            i2 = i5;
+                            i = i4;
                         } else {
-                            if (i4 != 0) {
+                            if (i3 != 0) {
                                 sb.append((char) 900);
+                                i2 = 0;
                                 i3 = 0;
-                                i4 = 0;
                             }
-                            i3 = encodeText(str, i2, determineConsecutiveTextCount, sb, i3);
-                            i2 += determineConsecutiveTextCount;
+                            i2 = encodeText(str, i, determineConsecutiveTextCount, sb, i2);
+                            i += determineConsecutiveTextCount;
                         }
                     }
                 }
@@ -294,19 +294,19 @@ public final class PDF417HighLevelEncoder {
         return (String) invokeLLL.objValue;
     }
 
-    public static void encodeNumeric(String str, int i2, int i3, StringBuilder sb) {
+    public static void encodeNumeric(String str, int i, int i2, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), sb}) == null) {
-            StringBuilder sb2 = new StringBuilder((i3 / 3) + 1);
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), sb}) == null) {
+            StringBuilder sb2 = new StringBuilder((i2 / 3) + 1);
             BigInteger valueOf = BigInteger.valueOf(900L);
             BigInteger valueOf2 = BigInteger.valueOf(0L);
-            int i4 = 0;
-            while (i4 < i3) {
+            int i3 = 0;
+            while (i3 < i2) {
                 sb2.setLength(0);
-                int min = Math.min(44, i3 - i4);
+                int min = Math.min(44, i2 - i3);
                 StringBuilder sb3 = new StringBuilder("1");
-                int i5 = i2 + i4;
-                sb3.append(str.substring(i5, i5 + min));
+                int i4 = i + i3;
+                sb3.append(str.substring(i4, i4 + min));
                 BigInteger bigInteger = new BigInteger(sb3.toString());
                 do {
                     sb2.append((char) bigInteger.mod(valueOf).intValue());
@@ -315,7 +315,7 @@ public final class PDF417HighLevelEncoder {
                 for (int length = sb2.length() - 1; length >= 0; length--) {
                     sb.append(sb2.charAt(length));
                 }
-                i4 += min;
+                i3 += min;
             }
         }
     }
@@ -325,37 +325,37 @@ public final class PDF417HighLevelEncoder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int encodeText(CharSequence charSequence, int i2, int i3, StringBuilder sb, int i4) {
+    public static int encodeText(CharSequence charSequence, int i, int i2, StringBuilder sb, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{charSequence, Integer.valueOf(i2), Integer.valueOf(i3), sb, Integer.valueOf(i4)})) == null) {
-            StringBuilder sb2 = new StringBuilder(i3);
-            int i5 = i4;
-            int i6 = 0;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), sb, Integer.valueOf(i3)})) == null) {
+            StringBuilder sb2 = new StringBuilder(i2);
+            int i4 = i3;
+            int i5 = 0;
             while (true) {
-                int i7 = i2 + i6;
-                char charAt = charSequence.charAt(i7);
-                if (i5 != 0) {
-                    if (i5 != 1) {
-                        if (i5 != 2) {
+                int i6 = i + i5;
+                char charAt = charSequence.charAt(i6);
+                if (i4 != 0) {
+                    if (i4 != 1) {
+                        if (i4 != 2) {
                             if (isPunctuation(charAt)) {
                                 sb2.append((char) PUNCTUATION[charAt]);
                             } else {
                                 sb2.append(DecodedBitStreamParser.GS);
-                                i5 = 0;
+                                i4 = 0;
                             }
                         } else if (isMixed(charAt)) {
                             sb2.append((char) MIXED[charAt]);
                         } else if (isAlphaUpper(charAt)) {
                             sb2.append(DecodedBitStreamParser.FS);
-                            i5 = 0;
+                            i4 = 0;
                         } else if (isAlphaLower(charAt)) {
                             sb2.append((char) 27);
-                            i5 = 1;
+                            i4 = 1;
                         } else {
-                            int i8 = i7 + 1;
-                            if (i8 < i3 && isPunctuation(charSequence.charAt(i8))) {
-                                i5 = 3;
+                            int i7 = i6 + 1;
+                            if (i7 < i2 && isPunctuation(charSequence.charAt(i7))) {
+                                i4 = 3;
                                 sb2.append((char) 25);
                             } else {
                                 sb2.append(DecodedBitStreamParser.GS);
@@ -364,7 +364,7 @@ public final class PDF417HighLevelEncoder {
                         }
                     } else if (isAlphaLower(charAt)) {
                         if (charAt == ' ') {
-                            sb2.append(JSONLexer.EOI);
+                            sb2.append((char) 26);
                         } else {
                             sb2.append((char) (charAt - 'a'));
                         }
@@ -373,70 +373,70 @@ public final class PDF417HighLevelEncoder {
                         sb2.append((char) (charAt - 'A'));
                     } else if (isMixed(charAt)) {
                         sb2.append(DecodedBitStreamParser.FS);
-                        i5 = 2;
+                        i4 = 2;
                     } else {
                         sb2.append(DecodedBitStreamParser.GS);
                         sb2.append((char) PUNCTUATION[charAt]);
                     }
-                    i6++;
-                    if (i6 < i3) {
+                    i5++;
+                    if (i5 < i2) {
                         break;
                     }
                 } else {
                     if (isAlphaUpper(charAt)) {
                         if (charAt == ' ') {
-                            sb2.append(JSONLexer.EOI);
+                            sb2.append((char) 26);
                         } else {
                             sb2.append((char) (charAt - 'A'));
                         }
                     } else if (isAlphaLower(charAt)) {
                         sb2.append((char) 27);
-                        i5 = 1;
+                        i4 = 1;
                     } else if (isMixed(charAt)) {
                         sb2.append(DecodedBitStreamParser.FS);
-                        i5 = 2;
+                        i4 = 2;
                     } else {
                         sb2.append(DecodedBitStreamParser.GS);
                         sb2.append((char) PUNCTUATION[charAt]);
                     }
-                    i6++;
-                    if (i6 < i3) {
+                    i5++;
+                    if (i5 < i2) {
                     }
                 }
             }
             int length = sb2.length();
             char c2 = 0;
-            for (int i9 = 0; i9 < length; i9++) {
-                if (i9 % 2 != 0) {
-                    c2 = (char) ((c2 * DecodedBitStreamParser.RS) + sb2.charAt(i9));
+            for (int i8 = 0; i8 < length; i8++) {
+                if (i8 % 2 != 0) {
+                    c2 = (char) ((c2 * DecodedBitStreamParser.RS) + sb2.charAt(i8));
                     sb.append(c2);
                 } else {
-                    c2 = sb2.charAt(i9);
+                    c2 = sb2.charAt(i8);
                 }
             }
             if (length % 2 != 0) {
                 sb.append((char) ((c2 * DecodedBitStreamParser.RS) + 29));
             }
-            return i5;
+            return i4;
         }
         return invokeCommon.intValue;
     }
 
-    public static void encodingECI(int i2, StringBuilder sb) throws WriterException {
+    public static void encodingECI(int i, StringBuilder sb) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, null, i2, sb) == null) {
-            if (i2 >= 0 && i2 < 900) {
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, sb) == null) {
+            if (i >= 0 && i < 900) {
                 sb.append((char) 927);
-                sb.append((char) i2);
-            } else if (i2 < 810900) {
+                sb.append((char) i);
+            } else if (i < 810900) {
                 sb.append((char) 926);
-                sb.append((char) ((i2 / 900) - 1));
-                sb.append((char) (i2 % 900));
-            } else if (i2 < 811800) {
+                sb.append((char) ((i / 900) - 1));
+                sb.append((char) (i % 900));
+            } else if (i < 811800) {
                 sb.append((char) 925);
-                sb.append((char) (810900 - i2));
+                sb.append((char) (810900 - i));
             } else {
-                throw new WriterException("ECI number not in valid range from 0..811799, but was " + i2);
+                throw new WriterException("ECI number not in valid range from 0..811799, but was " + i);
             }
         }
     }

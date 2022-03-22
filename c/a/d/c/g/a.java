@@ -21,23 +21,23 @@ public abstract class a {
 
     /* renamed from: c.a.d.c.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0100a extends HttpMessageListener {
+    public class C0089a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0100a(a aVar, int i2) {
-            super(i2);
+        public C0089a(a aVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                Object[] objArr = {aVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -64,17 +64,17 @@ public abstract class a {
         public final /* synthetic */ a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(a aVar, int i2) {
-            super(i2);
+        public b(a aVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Integer.valueOf(i2)};
+                Object[] objArr = {aVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -94,16 +94,16 @@ public abstract class a {
         }
     }
 
-    public a(int i2, int i3, int i4) {
+    public a(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -111,14 +111,14 @@ public abstract class a {
         }
         this.mHttpMessageListener = null;
         this.mSocketMessageListener = null;
-        init(i2, i3, i4);
+        init(i, i2, i3);
     }
 
-    private void init(int i2, int i3, int i4) {
+    private void init(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65538, this, i2, i3, i4) == null) {
-            this.mHttpMessageListener = new C0100a(this, i2);
-            this.mSocketMessageListener = new b(this, i3);
+        if (interceptable == null || interceptable.invokeIII(65538, this, i, i2, i3) == null) {
+            this.mHttpMessageListener = new C0089a(this, i);
+            this.mSocketMessageListener = new b(this, i2);
         }
     }
 
@@ -156,16 +156,16 @@ public abstract class a {
         }
     }
 
-    public a(int i2, int i3) {
+    public a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -173,6 +173,6 @@ public abstract class a {
         }
         this.mHttpMessageListener = null;
         this.mSocketMessageListener = null;
-        init(i2, i3, 0);
+        init(i, i2, 0);
     }
 }

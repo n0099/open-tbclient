@@ -19,6 +19,7 @@ import android.graphics.drawable.AnimatedVectorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
@@ -73,9 +74,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, animatedVectorDrawableCompatState, callback, resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,8 +103,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     int size = arrayList.size();
                     this.mAnimators = new ArrayList<>(size);
                     this.mTargetNameMap = new ArrayMap<>(size);
-                    for (int i4 = 0; i4 < size; i4++) {
-                        Animator animator = animatedVectorDrawableCompatState.mAnimators.get(i4);
+                    for (int i3 = 0; i3 < size; i3++) {
+                        Animator animator = animatedVectorDrawableCompatState.mAnimators.get(i3);
                         Animator clone = animator.clone();
                         String str = animatedVectorDrawableCompatState.mTargetNameMap.get(animator);
                         clone.setTarget(this.mVectorDrawable.getTargetByName(str));
@@ -160,9 +161,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((Context) objArr[0], (AnimatedVectorDrawableCompatState) objArr[1], (Resources) objArr[2]);
                 newInitContext.thisArg = this;
@@ -173,21 +174,21 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Nullable
-    public static AnimatedVectorDrawableCompat create(@NonNull Context context, @DrawableRes int i2) {
+    public static AnimatedVectorDrawableCompat create(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
                 AnimatedVectorDrawableCompat animatedVectorDrawableCompat = new AnimatedVectorDrawableCompat(context);
-                Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), i2, context.getTheme());
+                Drawable drawable = ResourcesCompat.getDrawable(context.getResources(), i, context.getTheme());
                 animatedVectorDrawableCompat.mDelegateDrawable = drawable;
                 drawable.setCallback(animatedVectorDrawableCompat.mCallback);
                 animatedVectorDrawableCompat.mCachedConstantStateDelegate = new AnimatedVectorDrawableDelegateState(animatedVectorDrawableCompat.mDelegateDrawable.getConstantState());
                 return animatedVectorDrawableCompat;
             }
             try {
-                XmlResourceParser xml = context.getResources().getXml(i2);
+                XmlResourceParser xml = context.getResources().getXml(i);
                 AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
                 while (true) {
                     next = xml.next();
@@ -199,7 +200,11 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     return createFromXmlInner(context, context.getResources(), xml, asAttributeSet, context.getTheme());
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException | XmlPullParserException unused) {
+            } catch (IOException e2) {
+                Log.e(LOGTAG, "parser error", e2);
+                return null;
+            } catch (XmlPullParserException e3) {
+                Log.e(LOGTAG, "parser error", e3);
                 return null;
             }
         }
@@ -257,8 +262,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, animator) == null) {
             if ((animator instanceof AnimatorSet) && (childAnimations = ((AnimatorSet) animator).getChildAnimations()) != null) {
-                for (int i2 = 0; i2 < childAnimations.size(); i2++) {
-                    setupColorAnimator(childAnimations.get(i2));
+                for (int i = 0; i < childAnimations.size(); i++) {
+                    setupColorAnimator(childAnimations.get(i));
                 }
             }
             if (animator instanceof ObjectAnimator) {
@@ -598,15 +603,15 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                return drawable.setLevel(i2);
+                return drawable.setLevel(i);
             }
-            return this.mAnimatedVectorState.mVectorDrawable.setLevel(i2);
+            return this.mAnimatedVectorState.mVectorDrawable.setLevel(i);
         }
         return invokeI.booleanValue;
     }
@@ -654,9 +659,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -671,8 +676,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, animator) == null) {
                                 ArrayList arrayList = new ArrayList(this.this$0.mAnimationCallbacks);
                                 int size = arrayList.size();
-                                for (int i2 = 0; i2 < size; i2++) {
-                                    ((Animatable2Compat.AnimationCallback) arrayList.get(i2)).onAnimationEnd(this.this$0);
+                                for (int i = 0; i < size; i++) {
+                                    ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationEnd(this.this$0);
                                 }
                             }
                         }
@@ -683,8 +688,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
                                 ArrayList arrayList = new ArrayList(this.this$0.mAnimationCallbacks);
                                 int size = arrayList.size();
-                                for (int i2 = 0; i2 < size; i2++) {
-                                    ((Animatable2Compat.AnimationCallback) arrayList.get(i2)).onAnimationStart(this.this$0);
+                                for (int i = 0; i < size; i++) {
+                                    ((Animatable2Compat.AnimationCallback) arrayList.get(i)).onAnimationStart(this.this$0);
                                 }
                             }
                         }
@@ -696,14 +701,14 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                drawable.setAlpha(i2);
+                drawable.setAlpha(i);
             } else {
-                this.mAnimatedVectorState.mVectorDrawable.setAlpha(i2);
+                this.mAnimatedVectorState.mVectorDrawable.setAlpha(i);
             }
         }
     }
@@ -722,13 +727,13 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i2) {
-        super.setChangingConfigurations(i2);
+    public /* bridge */ /* synthetic */ void setChangingConfigurations(int i) {
+        super.setChangingConfigurations(i);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setColorFilter(int i2, PorterDuff.Mode mode) {
-        super.setColorFilter(i2, mode);
+    public /* bridge */ /* synthetic */ void setColorFilter(int i, PorterDuff.Mode mode) {
+        super.setColorFilter(i, mode);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -742,8 +747,8 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspotBounds(int i2, int i3, int i4, int i5) {
-        super.setHotspotBounds(i2, i3, i4, i5);
+    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
+        super.setHotspotBounds(i, i2, i3, i4);
     }
 
     @Override // androidx.vectordrawable.graphics.drawable.VectorDrawableCommon, android.graphics.drawable.Drawable
@@ -752,14 +757,14 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
     }
 
     @Override // android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i2) {
+    public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
             Drawable drawable = this.mDelegateDrawable;
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, i2);
+                DrawableCompat.setTint(drawable, i);
             } else {
-                this.mAnimatedVectorState.mVectorDrawable.setTint(i2);
+                this.mAnimatedVectorState.mVectorDrawable.setTint(i);
             }
         }
     }
@@ -864,9 +869,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AnimatedVectorDrawableCompatState) objArr2[1], (Resources) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -903,9 +908,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constantState};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -978,9 +983,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             newInitContext.initArgs = r2;
             Object[] objArr = {context, animatedVectorDrawableCompatState, resources};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -1001,9 +1006,9 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1021,10 +1026,10 @@ public class AnimatedVectorDrawableCompat extends VectorDrawableCommon implement
             }
 
             @Override // android.graphics.drawable.Drawable.Callback
-            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
+            public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-                    this.this$0.scheduleSelf(runnable, j2);
+                if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+                    this.this$0.scheduleSelf(runnable, j);
                 }
             }
 

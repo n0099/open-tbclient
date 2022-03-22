@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
 import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GetObjectRequest extends GenericObjectRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class GetObjectRequest extends GenericObjectRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,12 +59,12 @@ public class GetObjectRequest extends GenericObjectRequest {
         }
     }
 
-    public void setRange(long j2, long j3) {
+    public void setRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            CheckUtils.checkArgument(j2 >= 0, "start should be non-negative.");
-            CheckUtils.checkArgument(j2 <= j3, "start should not be greater than end");
-            this.range = new long[]{j2, j3};
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            CheckUtils.checkArgument(j >= 0, "start should be non-negative.");
+            CheckUtils.checkArgument(j <= j2, "start should not be greater than end");
+            this.range = new long[]{j, j2};
         }
     }
 
@@ -78,11 +78,11 @@ public class GetObjectRequest extends GenericObjectRequest {
         return (GetObjectRequest) invokeL.objValue;
     }
 
-    public GetObjectRequest withRange(long j2, long j3) {
+    public GetObjectRequest withRange(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            setRange(j2, j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            setRange(j, j2);
             return this;
         }
         return (GetObjectRequest) invokeCommon.objValue;
@@ -133,9 +133,9 @@ public class GetObjectRequest extends GenericObjectRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;

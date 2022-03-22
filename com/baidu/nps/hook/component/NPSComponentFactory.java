@@ -8,7 +8,8 @@ import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.os.Process;
-import c.a.c0.h.b;
+import android.util.Log;
+import c.a.b0.h.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.manager.NPSManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +28,9 @@ public class NPSComponentFactory extends AppComponentFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,8 +43,11 @@ public class NPSComponentFactory extends AppComponentFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, classLoader, str, intent)) == null) {
             if (b.a()) {
-                String str2 = "instantiateActivity,classLoader=" + classLoader + " className=" + str;
-                String str3 = "NPSComponentFactory.instantiateActivity|process=" + Process.myPid();
+                Log.e("NPS", "instantiateActivity,classLoader=" + classLoader + " className=" + str);
+                StringBuilder sb = new StringBuilder();
+                sb.append("NPSComponentFactory.instantiateActivity|process=");
+                sb.append(Process.myPid());
+                Log.e("NPS", sb.toString());
             }
             try {
                 return super.instantiateActivity(classLoader, str, intent);
@@ -60,7 +64,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader, str)) == null) {
             if (b.a()) {
-                String str2 = "instantiateApplication,classLoader=" + classLoader + " className=" + str;
+                Log.e("NPS", "instantiateApplication,classLoader=" + classLoader + " className=" + str);
             }
             return super.instantiateApplication(classLoader, str);
         }
@@ -73,7 +77,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, classLoader, str, intent)) == null) {
             if (b.a()) {
-                String str2 = "instantiateReceiver,classLoader=" + classLoader + " className=" + str;
+                Log.e("NPS", "instantiateReceiver,classLoader=" + classLoader + " className=" + str);
             }
             try {
                 return super.instantiateReceiver(classLoader, str, intent);
@@ -90,7 +94,7 @@ public class NPSComponentFactory extends AppComponentFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, classLoader, str, intent)) == null) {
             if (b.a()) {
-                String str2 = "instantiateService,classLoader=" + classLoader + " className=" + str;
+                Log.e("NPS", "instantiateService,classLoader=" + classLoader + " className=" + str);
             }
             try {
                 return super.instantiateService(classLoader, str, intent);

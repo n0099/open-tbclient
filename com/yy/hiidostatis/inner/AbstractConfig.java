@@ -13,7 +13,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class AbstractConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int MAX_DATA_CACHE_DAY = 62;
@@ -49,9 +49,9 @@ public abstract class AbstractConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -154,10 +154,10 @@ public abstract class AbstractConfig {
         }
     }
 
-    public void setBusinessType(int i2) {
+    public void setBusinessType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.businessType = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.businessType = i;
         }
     }
 

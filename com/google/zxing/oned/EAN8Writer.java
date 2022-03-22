@@ -22,9 +22,9 @@ public final class EAN8Writer extends UPCEANWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,12 +32,12 @@ public final class EAN8Writer extends UPCEANWriter {
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (barcodeFormat == BarcodeFormat.EAN_8) {
-                return super.encode(str, barcodeFormat, i2, i3, map);
+                return super.encode(str, barcodeFormat, i, i2, map);
             }
             throw new IllegalArgumentException("Can only encode EAN_8, but got " + barcodeFormat);
         }
@@ -52,18 +52,18 @@ public final class EAN8Writer extends UPCEANWriter {
             if (str.length() == 8) {
                 boolean[] zArr = new boolean[67];
                 int appendPattern = OneDimensionalCodeWriter.appendPattern(zArr, 0, UPCEANReader.START_END_PATTERN, true) + 0;
-                int i2 = 0;
-                while (i2 <= 3) {
-                    int i3 = i2 + 1;
-                    appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, UPCEANReader.L_PATTERNS[Integer.parseInt(str.substring(i2, i3))], false);
-                    i2 = i3;
+                int i = 0;
+                while (i <= 3) {
+                    int i2 = i + 1;
+                    appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, UPCEANReader.L_PATTERNS[Integer.parseInt(str.substring(i, i2))], false);
+                    i = i2;
                 }
                 int appendPattern2 = appendPattern + OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, UPCEANReader.MIDDLE_PATTERN, false);
-                int i4 = 4;
-                while (i4 <= 7) {
-                    int i5 = i4 + 1;
-                    appendPattern2 += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern2, UPCEANReader.L_PATTERNS[Integer.parseInt(str.substring(i4, i5))], true);
-                    i4 = i5;
+                int i3 = 4;
+                while (i3 <= 7) {
+                    int i4 = i3 + 1;
+                    appendPattern2 += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern2, UPCEANReader.L_PATTERNS[Integer.parseInt(str.substring(i3, i4))], true);
+                    i3 = i4;
                 }
                 OneDimensionalCodeWriter.appendPattern(zArr, appendPattern2, UPCEANReader.START_END_PATTERN, true);
                 return zArr;

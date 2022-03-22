@@ -54,16 +54,16 @@ public class c extends OrientationEventListener {
             dz = new a[]{du, dv, dw, dx, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -95,9 +95,9 @@ public class c extends OrientationEventListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -131,31 +131,31 @@ public class c extends OrientationEventListener {
         }
     }
 
-    public void h(int i2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.dt = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.dt = i;
         }
     }
 
     @Override // android.view.OrientationEventListener
-    public void onOrientationChanged(int i2) {
+    public void onOrientationChanged(int i) {
         a aVar;
         a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i < 0) {
                 aVar = a.dy;
             } else {
-                int i3 = this.dt;
-                if (i3 == 1) {
-                    int i4 = ((i2 + 360) + this.ds) % 360;
-                    if (i4 <= 45 || i4 > 315) {
+                int i2 = this.dt;
+                if (i2 == 1) {
+                    int i3 = ((i + 360) + this.ds) % 360;
+                    if (i3 <= 45 || i3 > 315) {
                         aVar2 = a.du;
-                    } else if (i4 > 45 && i4 <= 135) {
+                    } else if (i3 > 45 && i3 <= 135) {
                         aVar2 = a.dx;
-                    } else if (i4 <= 135 || i4 > 225) {
-                        if (i4 > 225 && i4 <= 315) {
+                    } else if (i3 <= 135 || i3 > 225) {
+                        if (i3 > 225 && i3 <= 315) {
                             aVar2 = a.dv;
                         }
                         if (this.dr && this.dt == 1) {
@@ -173,16 +173,16 @@ public class c extends OrientationEventListener {
                         return;
                     }
                     return;
-                } else if (i3 != 0) {
+                } else if (i2 != 0) {
                     return;
                 } else {
-                    if (i2 <= 45 || i2 > 315) {
+                    if (i <= 45 || i > 315) {
                         aVar = a.du;
-                    } else if (i2 > 45 && i2 <= 135) {
+                    } else if (i > 45 && i <= 135) {
                         aVar = a.dx;
-                    } else if (i2 > 135 && i2 <= 225) {
+                    } else if (i > 135 && i <= 225) {
                         aVar = a.dw;
-                    } else if (i2 <= 225 || i2 > 315) {
+                    } else if (i <= 225 || i > 315) {
                         return;
                     } else {
                         aVar = a.dv;

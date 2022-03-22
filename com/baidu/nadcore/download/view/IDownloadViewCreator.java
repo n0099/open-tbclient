@@ -2,7 +2,7 @@ package com.baidu.nadcore.download.view;
 
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import c.a.b0.j.f.i;
+import c.a.a0.j.f.i;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +17,7 @@ public interface IDownloadViewCreator {
     public static final ServiceReference a = new ServiceReference("nad.core", "downloadview");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final IDownloadViewCreator f35656b = new a();
+    public static final IDownloadViewCreator f27538b = new a();
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -51,16 +51,16 @@ public interface IDownloadViewCreator {
             $VALUES = new ViewType[]{LP_DOWNLOAD_VIEW, FEED_DOWNLOAD_VIEW, REWARD_DOWNLOAD_VIEW, viewType};
         }
 
-        public ViewType(String str, int i2) {
+        public ViewType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -93,9 +93,9 @@ public interface IDownloadViewCreator {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -107,14 +107,14 @@ public interface IDownloadViewCreator {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, viewGroup, viewType)) == null) {
-                int i2 = b.a[viewType.ordinal()];
-                if (i2 == 1) {
+                int i = b.a[viewType.ordinal()];
+                if (i == 1) {
                     DefaultDownloadViewLP defaultDownloadViewLP = new DefaultDownloadViewLP(viewGroup.getContext());
-                    defaultDownloadViewLP.bind(viewGroup);
+                    defaultDownloadViewLP.c(viewGroup);
                     return defaultDownloadViewLP;
-                } else if (i2 == 2 || i2 == 3) {
+                } else if (i == 2 || i == 3) {
                     AdProgressButton adProgressButton = new AdProgressButton(viewGroup.getContext());
-                    adProgressButton.bind(viewGroup);
+                    adProgressButton.c(viewGroup);
                     return adProgressButton;
                 } else {
                     return null;

@@ -1,6 +1,7 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,13 +15,13 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
 import kotlin.UShort;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Marshallable extends PacketBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ELenType {
         public static final /* synthetic */ ELenType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -51,16 +52,16 @@ public class Marshallable extends PacketBase {
             $VALUES = new ELenType[]{E_INT16, E_INT32, E_INT64, eLenType};
         }
 
-        public ELenType(String str, int i2) {
+        public ELenType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -88,9 +89,9 @@ public class Marshallable extends PacketBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -216,7 +217,7 @@ public class Marshallable extends PacketBase {
             int popInt32 = popInt32();
             Collection<T> collection = (Collection<T>) cls.newInstance();
             if (collection != 0) {
-                for (int i2 = 0; i2 < popInt32; i2++) {
+                for (int i = 0; i < popInt32; i++) {
                     collection.add(popValue(cls2, eLenType));
                 }
             }
@@ -273,7 +274,7 @@ public class Marshallable extends PacketBase {
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, cls, eLenType, cls2, eLenType2)) == null) {
             int popInt32 = popInt32();
             TreeMap treeMap = new TreeMap();
-            for (int i2 = 0; i2 < popInt32; i2++) {
+            for (int i = 0; i < popInt32; i++) {
                 treeMap.put(popKey(cls, eLenType), popValue(cls2, eLenType2));
             }
             return treeMap;
@@ -366,17 +367,17 @@ public class Marshallable extends PacketBase {
         }
     }
 
-    public final void pushInt32(int i2) {
+    public final void pushInt32(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.buffer.putInt(i2);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.buffer.putInt(i);
         }
     }
 
-    public final void pushInt64(long j2) {
+    public final void pushInt64(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048594, this, j2) == null) {
-            this.buffer.putLong(j2);
+        if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
+            this.buffer.putLong(j);
         }
     }
 
@@ -409,7 +410,7 @@ public class Marshallable extends PacketBase {
             return;
         }
         try {
-            bArr = str.getBytes("utf-8");
+            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
             bArr = new byte[0];
@@ -425,7 +426,7 @@ public class Marshallable extends PacketBase {
             return;
         }
         try {
-            bArr = str.getBytes("utf-8");
+            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
             bArr = new byte[0];
@@ -441,7 +442,7 @@ public class Marshallable extends PacketBase {
             return;
         }
         try {
-            bArr = str.getBytes("utf-8");
+            bArr = str.getBytes(IMAudioTransRequest.CHARSET);
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
             bArr = new byte[0];

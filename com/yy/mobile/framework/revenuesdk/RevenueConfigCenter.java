@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RevenueConfigCenter {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RevenueConfigCenter";
@@ -39,48 +39,48 @@ public class RevenueConfigCenter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void addConfig(int i2, int i3, RevenueConfig revenueConfig) {
+    public static void addConfig(int i, int i2, RevenueConfig revenueConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i2, i3, revenueConfig) == null) {
-            String revenueConfigMapKey = getRevenueConfigMapKey(i2, i3);
+        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, revenueConfig) == null) {
+            String revenueConfigMapKey = getRevenueConfigMapKey(i, i2);
             RLog.info(TAG, "addConfig mapKey:" + revenueConfigMapKey);
             configMap.put(revenueConfigMapKey, revenueConfig);
         }
     }
 
-    public static RevenueConfig getConfig(int i2, int i3) {
+    public static RevenueConfig getConfig(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            String revenueConfigMapKey = getRevenueConfigMapKey(i2, i3);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            String revenueConfigMapKey = getRevenueConfigMapKey(i, i2);
             RLog.debug(TAG, "getConfig mapKey:" + revenueConfigMapKey);
             return configMap.get(revenueConfigMapKey);
         }
         return (RevenueConfig) invokeII.objValue;
     }
 
-    public static String getRevenueConfigMapKey(int i2, int i3) {
+    public static String getRevenueConfigMapKey(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
-            return i2 + "-" + i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return i + "-" + i2;
         }
         return (String) invokeII.objValue;
     }
 
-    public static void removeConfig(int i2, int i3) {
+    public static void removeConfig(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65541, null, i2, i3) == null) {
-            String revenueConfigMapKey = getRevenueConfigMapKey(i2, i3);
+        if (interceptable == null || interceptable.invokeII(65541, null, i, i2) == null) {
+            String revenueConfigMapKey = getRevenueConfigMapKey(i, i2);
             RLog.info(TAG, "removeConfig mapKey:" + revenueConfigMapKey);
             configMap.remove(revenueConfigMapKey);
         }

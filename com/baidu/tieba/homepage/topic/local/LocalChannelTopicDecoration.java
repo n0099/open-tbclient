@@ -24,27 +24,27 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f43175b;
+    public final int f33515b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ColorDrawable f43176c;
+    public ColorDrawable f33516c;
 
     public LocalChannelTopicDecoration() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.tbds3);
-        this.f43175b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
-        this.f43176c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
+        this.f33515b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.f33516c = new ColorDrawable(SkinManager.getColor(R.color.CAM_X0203));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -69,12 +69,12 @@ public class LocalChannelTopicDecoration extends RecyclerView.ItemDecoration {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, recyclerView, state) == null) {
             super.onDraw(canvas, recyclerView, state);
-            for (int i2 = 0; i2 < recyclerView.getChildCount() - 1; i2++) {
-                View childAt = recyclerView.getChildAt(i2);
+            for (int i = 0; i < recyclerView.getChildCount() - 1; i++) {
+                View childAt = recyclerView.getChildAt(i);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
-                    this.f43176c.setBounds(this.f43175b, bottom, recyclerView.getWidth() - this.f43175b, this.a + bottom);
-                    this.f43176c.draw(canvas);
+                    this.f33516c.setBounds(this.f33515b, bottom, recyclerView.getWidth() - this.f33515b, this.a + bottom);
+                    this.f33516c.draw(canvas);
                 }
             }
         }

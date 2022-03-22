@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.IBinder;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.crashpad.ZeusLogUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DumperService extends Service implements ZeusLogUploader.OnFinishedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALLBACK = "CRASH_CALLBACK";
@@ -39,9 +40,9 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,29 +86,30 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:24:0x0040  */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0048  */
     @Override // com.baidu.crashpad.ZeusLogUploader.OnFinishedListener
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onFinished(String str, int i2, String str2) {
+    public void onFinished(String str, int i, String str2) {
         Object obj;
         ZeusLogUploader zeusLogUploader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
             Context applicationContext = getApplicationContext();
             String str3 = this.mCallback;
             if (str3 != null && !str3.isEmpty() && !this.mCallback.equals("0")) {
                 try {
                     obj = Class.forName(this.mCallback).newInstance();
-                } catch (Throwable unused) {
+                } catch (Throwable th) {
+                    Log.e(TAG, "", th);
                 }
-                if (this.mCrashLogFailedEncrypt && i2 == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
+                if (this.mCrashLogFailedEncrypt && i == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
                     str2 = "Failed to encrypt file.";
                 }
                 String str4 = str2;
                 if (obj != null) {
-                    ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i2, str4);
+                    ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str4);
                 }
                 stopSelf();
             }
@@ -123,10 +125,10 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i, i2)) == null) {
             if (intent == null) {
                 stopSelf();
             }

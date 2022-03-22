@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UnitTransformation<T> implements Transformation<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final Transformation<?> TRANSFORMATION;
@@ -40,9 +40,9 @@ public final class UnitTransformation<T> implements Transformation<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,10 +58,10 @@ public final class UnitTransformation<T> implements Transformation<T> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i2, int i3) {
+    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, context, resource, i2, i3)) == null) ? resource : (Resource) invokeLLII.objValue;
+        return (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, context, resource, i, i2)) == null) ? resource : (Resource) invokeLLII.objValue;
     }
 
     @Override // com.bumptech.glide.load.Key

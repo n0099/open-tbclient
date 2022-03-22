@@ -30,9 +30,9 @@ public class GodUserData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,8 +93,8 @@ public class GodUserData extends OrmObject implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = this.type;
-            return i2 == 2 || i2 == 1;
+            int i = this.type;
+            return i == 2 || i == 1;
         }
         return invokeV.booleanValue;
     }
@@ -133,10 +133,10 @@ public class GodUserData extends OrmObject implements Serializable {
         this.mRecommendReason = godInfo.recommend_reason;
     }
 
-    public void setFid(long j2) {
+    public void setFid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.fid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.fid = j;
         }
     }
 
@@ -168,10 +168,10 @@ public class GodUserData extends OrmObject implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.type = i;
         }
     }
 }

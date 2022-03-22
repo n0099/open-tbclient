@@ -116,16 +116,16 @@ public final class BeautyType {
         $VALUES = new BeautyType[]{lutFile, lutIntensity, whitenFile, blackEyeCircle, laughLine, lipsMask, lips, cheeks, highlight, eyeliner, eyeshadow, eyeball, eyelash, eyebrow, makeupClose, whiten, smooth, eye, thinFace, threeCounts, chinHeight, noseWidth, noseLength, eyeDistance, mouthWidth, eyebrowDistance, upCount, middleCount, downCount, faceWidth, jawAngleWidth, eyeAngle, cheekboneWidth, beautyDebugDraw, beautyJsonPath, beautyJsonStr, globalScaleValue, hazeAtom, beautyType};
     }
 
-    public BeautyType(String str, int i2, float f2, FilterParam filterParam) {
+    public BeautyType(String str, int i, float f2, FilterParam filterParam) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Float.valueOf(f2), filterParam};
+            Object[] objArr = {str, Integer.valueOf(i), Float.valueOf(f2), filterParam};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -156,16 +156,16 @@ public final class BeautyType {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type.getParamName() : (String) invokeV.objValue;
     }
 
-    public BeautyType(String str, int i2, String str2, FilterParam filterParam) {
+    public BeautyType(String str, int i, String str2, FilterParam filterParam) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, filterParam};
+            Object[] objArr = {str, Integer.valueOf(i), str2, filterParam};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -178,16 +178,16 @@ public final class BeautyType {
         this.type = filterParam;
     }
 
-    public BeautyType(String str, int i2, FilterParam filterParam) {
+    public BeautyType(String str, int i, FilterParam filterParam) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), filterParam};
+            Object[] objArr = {str, Integer.valueOf(i), filterParam};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

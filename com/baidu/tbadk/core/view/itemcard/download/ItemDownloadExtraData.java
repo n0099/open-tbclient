@@ -19,22 +19,22 @@ public class ItemDownloadExtraData implements Serializable {
     public int shouzhuScene;
     public String shouzhuSource;
 
-    public ItemDownloadExtraData(int i2) {
+    public ItemDownloadExtraData(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.apkSourceType = i2;
+        this.apkSourceType = i;
     }
 
     public boolean isShouzhuData() {
@@ -43,10 +43,10 @@ public class ItemDownloadExtraData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.apkSourceType == 1 : invokeV.booleanValue;
     }
 
-    public void updateSceneCategory(int i2) {
+    public void updateSceneCategory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            switch (i) {
                 case -1:
                     this.shouzhuScene = 4001;
                     this.shouzhuCategory = 4001001;

@@ -73,8 +73,8 @@ public class TransformKeyframeAnimation {
     }
 
     private void clearSkewValues() {
-        for (int i2 = 0; i2 < 9; i2++) {
-            this.skewValues[i2] = 0.0f;
+        for (int i = 0; i < 9; i++) {
+            this.skewValues[i] = 0.0f;
         }
     }
 

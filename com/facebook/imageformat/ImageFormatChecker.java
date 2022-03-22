@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageFormatChecker {
     public static /* synthetic */ Interceptable $ic;
     public static ImageFormatChecker sInstance;
@@ -32,9 +32,9 @@ public class ImageFormatChecker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,22 +79,22 @@ public class ImageFormatChecker {
         return (ImageFormatChecker) invokeV.objValue;
     }
 
-    public static int readHeaderFromStream(int i2, InputStream inputStream, byte[] bArr) throws IOException {
+    public static int readHeaderFromStream(int i, InputStream inputStream, byte[] bArr) throws IOException {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i2, inputStream, bArr)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65541, null, i, inputStream, bArr)) == null) {
             Preconditions.checkNotNull(inputStream);
             Preconditions.checkNotNull(bArr);
-            Preconditions.checkArgument(bArr.length >= i2);
+            Preconditions.checkArgument(bArr.length >= i);
             if (inputStream.markSupported()) {
                 try {
-                    inputStream.mark(i2);
-                    return ByteStreams.read(inputStream, bArr, 0, i2);
+                    inputStream.mark(i);
+                    return ByteStreams.read(inputStream, bArr, 0, i);
                 } finally {
                     inputStream.reset();
                 }
             }
-            return ByteStreams.read(inputStream, bArr, 0, i2);
+            return ByteStreams.read(inputStream, bArr, 0, i);
         }
         return invokeILL.intValue;
     }
@@ -117,9 +117,9 @@ public class ImageFormatChecker {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) {
             Preconditions.checkNotNull(inputStream);
-            int i2 = this.mMaxHeaderLength;
-            byte[] bArr = new byte[i2];
-            int readHeaderFromStream = readHeaderFromStream(i2, inputStream, bArr);
+            int i = this.mMaxHeaderLength;
+            byte[] bArr = new byte[i];
+            int readHeaderFromStream = readHeaderFromStream(i, inputStream, bArr);
             ImageFormat determineFormat = this.mDefaultFormatChecker.determineFormat(bArr, readHeaderFromStream);
             if (determineFormat == null || determineFormat == ImageFormat.UNKNOWN) {
                 List<ImageFormat.FormatChecker> list = this.mCustomImageFormatCheckers;

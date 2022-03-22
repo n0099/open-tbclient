@@ -43,9 +43,9 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, u};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -107,23 +107,23 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
         }
     }
 
-    public ObservableToListSingle(ObservableSource<T> observableSource, int i2) {
+    public ObservableToListSingle(ObservableSource<T> observableSource, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = observableSource;
-        this.collectionSupplier = Functions.createArrayList(i2);
+        this.collectionSupplier = Functions.createArrayList(i);
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable
@@ -153,9 +153,9 @@ public final class ObservableToListSingle<T, U extends Collection<? super T>> ex
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, callable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

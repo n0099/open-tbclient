@@ -75,9 +75,9 @@ public class MP3TrackImpl extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mP3TrackImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -117,9 +117,9 @@ public class MP3TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -143,11 +143,11 @@ public class MP3TrackImpl extends AbstractTrack {
         double size = this.samples.size() / d2;
         LinkedList linkedList = new LinkedList();
         Iterator<Sample> it = this.samples.iterator();
-        long j2 = 0;
+        long j = 0;
         while (true) {
-            int i2 = 0;
+            int i = 0;
             if (!it.hasNext()) {
-                this.avgBitRate = (int) ((j2 * 8) / size);
+                this.avgBitRate = (int) ((j * 8) / size);
                 this.sampleDescriptionBox = new SampleDescriptionBox();
                 AudioSampleEntry audioSampleEntry = new AudioSampleEntry(AudioSampleEntry.TYPE3);
                 audioSampleEntry.setChannelCount(this.firstHeader.channelCount);
@@ -180,7 +180,7 @@ public class MP3TrackImpl extends AbstractTrack {
                 return;
             }
             int size2 = (int) it.next().getSize();
-            j2 += size2;
+            j += size2;
             linkedList.add(Integer.valueOf(size2));
             while (linkedList.size() > d2) {
                 linkedList.pop();
@@ -188,9 +188,9 @@ public class MP3TrackImpl extends AbstractTrack {
             if (linkedList.size() == ((int) d2)) {
                 Iterator it2 = linkedList.iterator();
                 while (it2.hasNext()) {
-                    i2 += ((Integer) it2.next()).intValue();
+                    i += ((Integer) it2.next()).intValue();
                 }
-                double size3 = ((i2 * 8.0d) / linkedList.size()) * d2;
+                double size3 = ((i * 8.0d) / linkedList.size()) * d2;
                 if (size3 > this.maxBitRate) {
                     this.maxBitRate = (int) size3;
                 }
@@ -220,14 +220,14 @@ public class MP3TrackImpl extends AbstractTrack {
                         mP3Header.protectionAbsent = bitReaderBuffer.readBits(1);
                         int readBits3 = bitReaderBuffer.readBits(4);
                         mP3Header.bitRateIndex = readBits3;
-                        int i2 = BIT_RATE[readBits3];
-                        mP3Header.bitRate = i2;
-                        if (i2 != 0) {
+                        int i = BIT_RATE[readBits3];
+                        mP3Header.bitRate = i;
+                        if (i != 0) {
                             int readBits4 = bitReaderBuffer.readBits(2);
                             mP3Header.sampleFrequencyIndex = readBits4;
-                            int i3 = SAMPLE_RATE[readBits4];
-                            mP3Header.sampleRate = i3;
-                            if (i3 != 0) {
+                            int i2 = SAMPLE_RATE[readBits4];
+                            mP3Header.sampleRate = i2;
+                            if (i2 != 0) {
                                 mP3Header.padding = bitReaderBuffer.readBits(1);
                                 bitReaderBuffer.readBits(1);
                                 int readBits5 = bitReaderBuffer.readBits(2);
@@ -327,9 +327,9 @@ public class MP3TrackImpl extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {dataSource};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -1,7 +1,7 @@
 package com.baidu.swan.apps.optimization.quotasaver;
 
-import c.a.p0.a.s0.a;
-import c.a.p0.a.v0.e.f.c;
+import c.a.n0.a.s0.a;
+import c.a.n0.a.v0.e.f.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0018\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "Lcom/baidu/swan/apps/launch/model/property/Properties$Impl;", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class QuotaSaver$config$2 extends Lambda implements Function0<c.a> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$config$2 INSTANCE;
@@ -42,9 +42,9 @@ public final class QuotaSaver$config$2 extends Lambda implements Function0<c.a> 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

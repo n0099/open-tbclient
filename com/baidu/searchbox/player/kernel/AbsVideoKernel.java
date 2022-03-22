@@ -50,9 +50,9 @@ public abstract class AbsVideoKernel implements IPoolItem {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -229,18 +229,18 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void onInfo(int i2, int i3, Object obj) {
+    public void onInfo(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048602, this, i2, i3, obj) == null) {
-            if (701 == i2) {
+        if (interceptable == null || interceptable.invokeIIL(1048602, this, i, i2, obj) == null) {
+            if (701 == i) {
                 this.mPercent = 0;
-            } else if (702 == i2) {
+            } else if (702 == i) {
                 this.mPercent = 100;
-            } else if (946 == i2) {
-                this.mBufferingPosition = i3;
-            } else if (924 == i2) {
-                this.mSpeed = i3;
-            } else if (5000 == i2 && (obj instanceof String)) {
+            } else if (946 == i) {
+                this.mBufferingPosition = i2;
+            } else if (924 == i) {
+                this.mSpeed = i2;
+            } else if (5000 == i && (obj instanceof String)) {
                 this.mRemoteServer = (String) obj;
             }
         }
@@ -319,14 +319,14 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void seekToMs(int i2) {
+    public void seekToMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            seekToMs(i2, 3);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            seekToMs(i, 3);
         }
     }
 
-    public abstract void seekToMs(int i2, int i3);
+    public abstract void seekToMs(int i, int i2);
 
     public void setClarityInfo(@Nullable String str) {
         Interceptable interceptable = $ic;
@@ -336,7 +336,7 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setDataSourceAndPrepare();
 
-    public abstract void setDecodeMode(int i2);
+    public abstract void setDecodeMode(int i);
 
     public abstract void setExternalInfo(String str, Object obj);
 
@@ -419,9 +419,9 @@ public abstract class AbsVideoKernel implements IPoolItem {
 
     public abstract void setVideoFormatOptions(String str, @NonNull HashMap<String, String> hashMap);
 
-    public abstract void setVideoRotation(int i2);
+    public abstract void setVideoRotation(int i);
 
-    public abstract void setVideoScalingMode(int i2);
+    public abstract void setVideoScalingMode(int i);
 
     public <T extends VideoUrlModel> void setVideoUrl(@NonNull T t) {
         Interceptable interceptable = $ic;
@@ -475,9 +475,9 @@ public abstract class AbsVideoKernel implements IPoolItem {
         }
     }
 
-    public void switchMediaSource(int i2) {
+    public void switchMediaSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
         }
     }
 

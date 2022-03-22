@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.q0.b;
+import c.a.p0.s0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.PbCommentFloatActivityConfig;
 import com.baidu.tieba.R;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,10 +33,42 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int getFromVideoPageType() {
+    public void D3() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.D3();
+            b bVar = this.M0;
+            if (bVar != null) {
+                bVar.i(null);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public boolean F3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public boolean H3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
+    public int V2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (getActivity() == null || getActivity().getIntent() == null) {
                 return 0;
             }
@@ -46,42 +78,10 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public int getInflateLayoutId() {
+    public int X2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.video_pb_fragment : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public void initUI() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.initUI();
-            b bVar = this.mDragActionManager;
-            if (bVar != null) {
-                bVar.i(null);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean isCommentFloatPage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public boolean isShowBottomCommentIcon() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d088b : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment, com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -90,21 +90,21 @@ public class VideoPbCommentFloatFragment extends AbsVideoPbFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
             View onCreateView = super.onCreateView(layoutInflater, viewGroup, bundle);
-            this.mNavigationBar.setVisibility(8);
-            this.mAppBarLayout.setVisibility(8);
-            this.mStatusBar.setVisibility(8);
-            this.mStatusBarBackground.setVisibility(8);
-            this.operableVideoContainer = null;
+            this.m.setVisibility(8);
+            this.i.setVisibility(8);
+            this.n.setVisibility(8);
+            this.o.setVisibility(8);
+            this.k = null;
             return onCreateView;
         }
         return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tieba.pb.videopb.AbsVideoPbFragment
-    public void setNavigationBarVisibility(boolean z) {
+    public void v4(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.mNavigationBar.setVisibility(8);
+            this.m.setVisibility(8);
         }
     }
 }

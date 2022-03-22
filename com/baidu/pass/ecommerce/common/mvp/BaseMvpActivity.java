@@ -19,9 +19,9 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,10 +31,10 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
     public abstract P createPresenter();
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i2, String str) {
+    public final void doFailure(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            doFailure(Integer.MIN_VALUE, i2, str);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            doFailure(Integer.MIN_VALUE, i, str);
         }
     }
 
@@ -46,7 +46,7 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
         }
     }
 
-    @Override // com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
@@ -70,25 +70,25 @@ public abstract class BaseMvpActivity<P extends IPresenter> extends BaseOptionAc
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public void showLoading(int i2) {
+    public void showLoading(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doFailure(int i2, int i3, String str) {
+    public final void doFailure(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, str) == null) {
-            doFailure(i2, i3, str, null);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
+            doFailure(i, i2, str, null);
         }
     }
 
     @Override // com.baidu.pass.ecommerce.common.mvp.IBaseView
-    public final void doResult(int i2, Object obj) {
+    public final void doResult(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, obj) == null) {
-            doResult(i2, obj, null);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, obj) == null) {
+            doResult(i, obj, null);
         }
     }
 }

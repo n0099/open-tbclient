@@ -16,26 +16,26 @@ public class GameCodeGetMsg extends HttpMessage {
     public final int position;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GameCodeGetMsg(int i2, int i3, int i4) {
+    public GameCodeGetMsg(int i, int i2, int i3) {
         super(CmdConfigHttp.CMD_GET_GAME_CODE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.position = i2;
-        addParam("item_id", i3);
-        addParam(PARAM_LIST_ID, i4);
+        this.position = i;
+        addParam("item_id", i2);
+        addParam(PARAM_LIST_ID, i3);
     }
 
     public int getPosition() {

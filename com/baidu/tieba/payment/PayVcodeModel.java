@@ -14,13 +14,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public f<?> f44936e;
+    public f<?> a;
 
     public PayVcodeModel(f<?> fVar) {
         Interceptable interceptable = $ic;
@@ -29,15 +27,15 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44936e = fVar;
+        this.a = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -60,7 +58,7 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         return invokeV.booleanValue;
     }
 
-    public void w() {
+    public void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
@@ -70,10 +68,10 @@ public class PayVcodeModel extends BdBaseModel<PayVcodeModel> {
         }
     }
 
-    public void x() {
+    public void z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f44936e.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
+            this.a.sendMessage(new HttpMessage(CmdConfigHttp.CMD_PAY_NEW_VCODE));
         }
     }
 }

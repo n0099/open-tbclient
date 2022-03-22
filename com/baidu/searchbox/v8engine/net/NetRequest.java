@@ -39,9 +39,9 @@ public class NetRequest extends Observable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,19 +49,19 @@ public class NetRequest extends Observable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public native void nativeExecute(long j2, NetRequestParam netRequestParam);
+    public native void nativeExecute(long j, NetRequestParam netRequestParam);
 
-    private synchronized void receiveRequestCallback(NetRequestParam netRequestParam, int i2, String str, int i3, String[] strArr, int i4, String str2) {
+    private synchronized void receiveRequestCallback(NetRequestParam netRequestParam, int i, String str, int i2, String[] strArr, int i3, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{netRequestParam, Integer.valueOf(i2), str, Integer.valueOf(i3), strArr, Integer.valueOf(i4), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{netRequestParam, Integer.valueOf(i), str, Integer.valueOf(i2), strArr, Integer.valueOf(i3), str2}) == null) {
             synchronized (this) {
-                if (netRequestParam != null && i2 != -1) {
+                if (netRequestParam != null && i != -1) {
                     NetRequestCallback netRequestCallback = netRequestParam.getNetRequestCallback();
                     if (netRequestCallback != null) {
-                        if (i2 == 0) {
-                            netRequestCallback.onSucceeded(str, i3, NetRequestParam.stringPairToMap(strArr));
-                        } else if (i2 == 1) {
-                            netRequestCallback.onFailed(i4, str2);
+                        if (i == 0) {
+                            netRequestCallback.onSucceeded(str, i2, NetRequestParam.stringPairToMap(strArr));
+                        } else if (i == 1) {
+                            netRequestCallback.onFailed(i3, str2);
                         }
                     }
                 }
@@ -144,9 +144,9 @@ public class NetRequest extends Observable {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Long.valueOf(r7), netRequestParam};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

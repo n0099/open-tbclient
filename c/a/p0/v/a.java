@@ -1,75 +1,79 @@
 package c.a.p0.v;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import c.a.d.f.p.m;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, b> a;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeL.objValue;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public ArrayList<Integer> f19016b;
 
-    public static String b(int i2, String str) {
-        InterceptResult invokeIL;
+    /* renamed from: c  reason: collision with root package name */
+    public c f19017c;
+
+    public a(c cVar, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-            switch (i2) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "2g";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "3g";
-                case 13:
-                case 18:
-                case 19:
-                    return "4g";
-                case 20:
-                    return "5g";
-                default:
-                    return (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) ? "unknown" : "4g";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeIL.objValue;
+        this.f19016b = arrayList;
+        this.f19017c = cVar;
+        this.a = new HashMap<>();
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
+        ArrayList<Integer> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            return (a == null || !a.isConnected()) ? "no" : a.getType() == 1 ? "wifi" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (this.a == null || m.isEmpty(str) || (arrayList = this.f19016b) == null || !arrayList.contains(Integer.valueOf(i))) {
+                return 0;
+            }
+            if (!this.a.containsKey(str)) {
+                b(str);
+            }
+            b bVar = this.a.get(str);
+            if (bVar == null) {
+                return 0;
+            }
+            return bVar.a(i);
         }
-        return (String) invokeV.objValue;
+        return invokeLI.intValue;
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.a == null || m.isEmpty(str) || this.f19017c == null) {
+            return;
+        }
+        if (this.a.containsKey(str)) {
+            b bVar = this.a.get(str);
+            this.f19017c.b(this.f19016b, bVar);
+            this.a.put(str, bVar);
+            return;
+        }
+        b bVar2 = new b();
+        this.f19017c.b(this.f19016b, bVar2);
+        this.a.put(str, bVar2);
     }
 }

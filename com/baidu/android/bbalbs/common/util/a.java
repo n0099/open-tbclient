@@ -15,23 +15,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes3.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f30153e;
+    public static final String f24108e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30154b;
+    public String f24109b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30155c;
+    public int f24110c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f30156d;
+    public int f24111d;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +47,9 @@ public final class a {
                 return;
             }
         }
-        String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, 61}));
-        String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, 61}));
-        f30153e = str + str2;
+        String str = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{77, 122, 65, 121, 77, 84, 73, 120, 77, 68, 73, BaseNCodec.PAD_DEFAULT}));
+        String str2 = new String(com.baidu.android.bbalbs.common.a.b.a(new byte[]{90, 71, 108, 106, 100, 87, 82, 112, 89, 87, 73, BaseNCodec.PAD_DEFAULT}));
+        f24108e = str + str2;
     }
 
     public a() {
@@ -56,16 +57,16 @@ public final class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f30155c = 0;
-        this.f30156d = 2;
+        this.f24110c = 0;
+        this.f24111d = 2;
     }
 
     public static boolean a(Context context) {
@@ -87,10 +88,10 @@ public final class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? d(d.a(c(context))) : (a) invokeL.objValue;
     }
 
-    public static boolean b(int i2) {
+    public static boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
     }
 
     public static a c(String str) {
@@ -112,21 +113,21 @@ public final class a {
                 String g3 = g("dmVy");
                 String str2 = "0";
                 String str3 = "";
-                int i2 = 2;
+                int i = 2;
                 while (jsonReader.hasNext()) {
                     String nextName = jsonReader.nextName();
                     if (g2.equals(nextName)) {
                         str3 = jsonReader.nextString();
                     } else if (g3.equals(nextName)) {
-                        i2 = jsonReader.nextInt();
+                        i = jsonReader.nextInt();
                     } else {
                         str2 = jsonReader.nextString();
                     }
                 }
                 jsonReader.endObject();
-                int i3 = 0;
-                if (i2 == 2 && !TextUtils.isEmpty(str2)) {
-                    i3 = str2.length();
+                int i2 = 0;
+                if (i == 2 && !TextUtils.isEmpty(str2)) {
+                    i2 = str2.length();
                 }
                 try {
                     jsonReader.close();
@@ -138,7 +139,7 @@ public final class a {
                 }
                 a aVar = new a();
                 aVar.a(str3);
-                aVar.a(i3);
+                aVar.a(i2);
                 if (!aVar.d()) {
                     aVar.b(str2);
                 }
@@ -197,7 +198,7 @@ public final class a {
                 return null;
             }
             try {
-                return new String(com.baidu.android.bbalbs.common.a.a.b(f30153e, f30153e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
+                return new String(com.baidu.android.bbalbs.common.a.a.b(f24108e, f24108e, com.baidu.android.bbalbs.common.a.b.a(str.getBytes())));
             } catch (Exception e2) {
                 d.a(e2);
                 return "";
@@ -218,10 +219,10 @@ public final class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f30155c = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f24110c = i;
         }
     }
 
@@ -235,13 +236,13 @@ public final class a {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30154b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f24109b : (String) invokeV.objValue;
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f30154b = str;
+            this.f24109b = str;
         }
     }
 
@@ -257,7 +258,7 @@ public final class a {
             } else {
                 str = "0";
             }
-            this.f30154b = str;
+            this.f24109b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -266,12 +267,12 @@ public final class a {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f30155c) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? b(this.f24110c) : invokeV.booleanValue;
     }
 
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f30154b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? e(this.f24109b) : invokeV.booleanValue;
     }
 }

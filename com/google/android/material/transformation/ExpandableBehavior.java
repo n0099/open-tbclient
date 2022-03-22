@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_COLLAPSED = 2;
@@ -34,9 +34,9 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,8 +52,8 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
             if (!z) {
                 return this.currentState == 1;
             }
-            int i2 = this.currentState;
-            return i2 == 0 || i2 == 2;
+            int i = this.currentState;
+            return i == 0 || i == 2;
         }
         return invokeZ.booleanValue;
     }
@@ -83,8 +83,8 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, coordinatorLayout, view)) == null) {
             List<View> dependencies = coordinatorLayout.getDependencies(view);
             int size = dependencies.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                View view2 = dependencies.get(i2);
+            for (int i = 0; i < size; i++) {
+                View view2 = dependencies.get(i);
                 if (layoutDependsOn(coordinatorLayout, view, view2)) {
                     return (ExpandableWidget) view2;
                 }
@@ -117,17 +117,17 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
     @CallSuper
-    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i2) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull View view, int i) {
         InterceptResult invokeLLI;
         ExpandableWidget findExpandableWidget;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, view, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, coordinatorLayout, view, i)) == null) {
             if (ViewCompat.isLaidOut(view) || (findExpandableWidget = findExpandableWidget(coordinatorLayout, view)) == null || !didStateChange(findExpandableWidget.isExpanded())) {
                 return false;
             }
-            int i3 = findExpandableWidget.isExpanded() ? 1 : 2;
-            this.currentState = i3;
-            view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this, view, i3, findExpandableWidget) { // from class: com.google.android.material.transformation.ExpandableBehavior.1
+            int i2 = findExpandableWidget.isExpanded() ? 1 : 2;
+            this.currentState = i2;
+            view.getViewTreeObserver().addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener(this, view, i2, findExpandableWidget) { // from class: com.google.android.material.transformation.ExpandableBehavior.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ExpandableBehavior this$0;
@@ -140,11 +140,11 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, view, Integer.valueOf(i3), findExpandableWidget};
+                        Object[] objArr = {this, view, Integer.valueOf(i2), findExpandableWidget};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -152,7 +152,7 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
                     }
                     this.this$0 = this;
                     this.val$child = view;
-                    this.val$expectedState = i3;
+                    this.val$expectedState = i2;
                     this.val$dep = findExpandableWidget;
                 }
 
@@ -186,9 +186,9 @@ public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

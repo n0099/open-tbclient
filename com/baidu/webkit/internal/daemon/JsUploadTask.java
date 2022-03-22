@@ -114,16 +114,16 @@ public class JsUploadTask implements INoProGuard {
             $VALUES = new JumpType[]{DefaultJump, JsJump, RedirectJump, TCRedirectJump, jumpType};
         }
 
-        public JumpType(String str, int i2) {
+        public JumpType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -169,9 +169,9 @@ public class JsUploadTask implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -185,9 +185,9 @@ public class JsUploadTask implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3, str4};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -216,15 +216,15 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void addRawLogItem(StringBuilder sb, String str, long j2) {
+    public static void addRawLogItem(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j2);
+            sb.append(j);
         }
     }
 
@@ -360,9 +360,9 @@ public class JsUploadTask implements INoProGuard {
                             CloudSettings.a aVar = CloudSettings.NetRecordList.get(0);
                             CloudSettings.NetRecordList.remove(0);
                             Log.w(TAG, "NetRecordList size1 " + CloudSettings.NetRecordList.size());
-                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f51403c);
+                            jSONObject.put(ETAG.KEY_CRONET_ENABLE, aVar.f37860c);
                             jSONObject.put(ETAG.KEY_CRONET_NET_TIME, aVar.a);
-                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f51402b);
+                            jSONObject.put(ETAG.KEY_CRONET_NET_RES, aVar.f37859b);
                         }
                         if (WebSettingsGlobalBlink.isFeedProxyAdUrl(mCurrentUrl)) {
                             jSONObject.put(ETAG.KEY_FEED_PROXY_AD, 1);
@@ -500,10 +500,10 @@ public class JsUploadTask implements INoProGuard {
         mAppid = str;
     }
 
-    public static void setBlockedAdCount(int i2) {
+    public static void setBlockedAdCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65553, null, i2) == null) {
-            mBlockedAdCount = i2;
+        if (interceptable == null || interceptable.invokeI(65553, null, i) == null) {
+            mBlockedAdCount = i;
         }
     }
 
@@ -537,17 +537,17 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setDocumentLoadState(int i2) {
+    public static void setDocumentLoadState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, null, i2) == null) {
-            mDocumentLoadState = i2;
+        if (interceptable == null || interceptable.invokeI(65558, null, i) == null) {
+            mDocumentLoadState = i;
         }
     }
 
-    public static void setErrorCode(int i2) {
+    public static void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65559, null, i2) == null) {
-            mErrorCode = i2;
+        if (interceptable == null || interceptable.invokeI(65559, null, i) == null) {
+            mErrorCode = i;
         }
     }
 
@@ -612,10 +612,10 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setNetError(int i2) {
+    public static void setNetError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65568, null, i2) == null) {
-            mNetError = i2;
+        if (interceptable == null || interceptable.invokeI(65568, null, i) == null) {
+            mNetError = i;
         }
     }
 
@@ -637,17 +637,17 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setPageFinishedTime(long j2) {
+    public static void setPageFinishedTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65571, null, j2) == null) {
-            mPageFinishedTime = j2;
+        if (interceptable == null || interceptable.invokeJ(65571, null, j) == null) {
+            mPageFinishedTime = j;
         }
     }
 
-    public static void setParsedTokens(int i2) {
+    public static void setParsedTokens(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65572, null, i2) == null) {
-            mParsedTokens = i2;
+        if (interceptable == null || interceptable.invokeI(65572, null, i) == null) {
+            mParsedTokens = i;
         }
     }
 
@@ -658,10 +658,10 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public static void setReceivedDataSize(int i2) {
+    public static void setReceivedDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65574, null, i2) == null) {
-            mReceivedDataSize = i2;
+        if (interceptable == null || interceptable.invokeI(65574, null, i) == null) {
+            mReceivedDataSize = i;
         }
     }
 
@@ -762,41 +762,41 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public void setEngine(int i2) {
+    public void setEngine(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || mCurEngine == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || mCurEngine == i) {
             return;
         }
-        mCurEngine = i2;
+        mCurEngine = i;
     }
 
-    public void setFirstScreenTime(long j2) {
+    public void setFirstScreenTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            mFirstScreenTime = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            mFirstScreenTime = j;
         }
     }
 
-    public void setHttpcode(int i2) {
+    public void setHttpcode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || mHttpcode == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || mHttpcode == i) {
             return;
         }
-        mHttpcode = i2;
+        mHttpcode = i;
     }
 
-    public void setNetcode(int i2) {
+    public void setNetcode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || mNetcode == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || mNetcode == i) {
             return;
         }
-        mNetcode = i2;
+        mNetcode = i;
     }
 
-    public void setPageStartTime(long j2) {
+    public void setPageStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            mPageStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            mPageStartTime = j;
         }
     }
 
@@ -807,11 +807,11 @@ public class JsUploadTask implements INoProGuard {
         }
     }
 
-    public void setWiseLandingPageType(int i2) {
+    public void setWiseLandingPageType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || mWiseLandingPageType == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || mWiseLandingPageType == i) {
             return;
         }
-        mWiseLandingPageType = i2;
+        mWiseLandingPageType = i;
     }
 }

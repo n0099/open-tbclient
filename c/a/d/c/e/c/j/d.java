@@ -17,12 +17,12 @@ public class d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static d f2434c;
+    public static d f1997c;
     public transient /* synthetic */ FieldHolder $fh;
     public SecretKey a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f2435b;
+    public byte[] f1998b;
 
     static {
         InterceptResult invokeClinit;
@@ -44,30 +44,30 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2435b = null;
+        this.f1998b = null;
     }
 
     public static d a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2434c == null) {
+            if (f1997c == null) {
                 synchronized (d.class) {
-                    if (f2434c == null) {
-                        f2434c = new d();
+                    if (f1997c == null) {
+                        f1997c = new d();
                     }
                 }
             }
-            return f2434c;
+            return f1997c;
         }
         return (d) invokeV.objValue;
     }
@@ -81,7 +81,7 @@ public class d {
     public byte[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2435b : (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f1998b : (byte[]) invokeV.objValue;
     }
 
     public void d(byte[] bArr) {
@@ -91,15 +91,15 @@ public class d {
                 PublicKey e2 = v.e(bArr);
                 String g2 = v.g(32);
                 byte[] bArr2 = new byte[g2.length()];
-                for (int i2 = 0; i2 < g2.length(); i2++) {
-                    bArr2[i2] = (byte) g2.charAt(i2);
+                for (int i = 0; i < g2.length(); i++) {
+                    bArr2[i] = (byte) g2.charAt(i);
                 }
                 this.a = v.f(g2);
-                this.f2435b = v.d(e2, bArr2);
+                this.f1998b = v.d(e2, bArr2);
             } catch (Throwable th) {
                 BdLog.e(th.getMessage());
                 this.a = null;
-                this.f2435b = new byte[0];
+                this.f1998b = new byte[0];
             }
         }
     }

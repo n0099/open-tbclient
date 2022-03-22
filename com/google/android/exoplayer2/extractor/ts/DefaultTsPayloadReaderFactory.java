@@ -18,7 +18,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Factory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DESCRIPTOR_TAG_CAPTION_SERVICE = 134;
@@ -33,7 +33,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     public final int flags;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Flags {
     }
 
@@ -44,9 +44,9 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -58,7 +58,7 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     private SeiReader buildSeiReader(TsPayloadReader.EsInfo esInfo) {
         InterceptResult invokeL;
         String str;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, esInfo)) == null) {
             if (isSet(32)) {
@@ -72,17 +72,17 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
                 if (readUnsignedByte == 134) {
                     list = new ArrayList<>();
                     int readUnsignedByte2 = parsableByteArray.readUnsignedByte() & 31;
-                    for (int i3 = 0; i3 < readUnsignedByte2; i3++) {
+                    for (int i2 = 0; i2 < readUnsignedByte2; i2++) {
                         String readString = parsableByteArray.readString(3);
                         int readUnsignedByte3 = parsableByteArray.readUnsignedByte();
                         if ((readUnsignedByte3 & 128) != 0) {
-                            i2 = readUnsignedByte3 & 63;
+                            i = readUnsignedByte3 & 63;
                             str = MimeTypes.APPLICATION_CEA708;
                         } else {
                             str = MimeTypes.APPLICATION_CEA608;
-                            i2 = 1;
+                            i = 1;
                         }
-                        list.add(Format.createTextSampleFormat((String) null, str, (String) null, -1, 0, readString, i2, (DrmInitData) null));
+                        list.add(Format.createTextSampleFormat((String) null, str, (String) null, -1, 0, readString, i, (DrmInitData) null));
                         parsableByteArray.skipBytes(2);
                     }
                 }
@@ -93,10 +93,10 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
         return (SeiReader) invokeL.objValue;
     }
 
-    private boolean isSet(int i2) {
+    private boolean isSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? (i2 & this.flags) != 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? (i & this.flags) != 0 : invokeI.booleanValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Factory
@@ -107,41 +107,41 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     }
 
     @Override // com.google.android.exoplayer2.extractor.ts.TsPayloadReader.Factory
-    public TsPayloadReader createPayloadReader(int i2, TsPayloadReader.EsInfo esInfo) {
+    public TsPayloadReader createPayloadReader(int i, TsPayloadReader.EsInfo esInfo) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, esInfo)) == null) {
-            if (i2 != 2) {
-                if (i2 == 3 || i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, esInfo)) == null) {
+            if (i != 2) {
+                if (i == 3 || i == 4) {
                     return new PesReader(new MpegAudioReader(esInfo.language));
                 }
-                if (i2 == 15) {
+                if (i == 15) {
                     if (isSet(2)) {
                         return null;
                     }
                     return new PesReader(new AdtsReader(false, esInfo.language));
-                } else if (i2 == 17) {
+                } else if (i == 17) {
                     if (isSet(2)) {
                         return null;
                     }
                     return new PesReader(new LatmReader(esInfo.language));
-                } else if (i2 != 21) {
-                    if (i2 == 27) {
+                } else if (i != 21) {
+                    if (i == 27) {
                         if (isSet(4)) {
                             return null;
                         }
                         return new PesReader(new H264Reader(buildSeiReader(esInfo), isSet(1), isSet(8)));
-                    } else if (i2 != 36) {
-                        if (i2 != 89) {
-                            if (i2 != 138) {
-                                if (i2 != 129) {
-                                    if (i2 != 130) {
-                                        if (i2 == 134) {
+                    } else if (i != 36) {
+                        if (i != 89) {
+                            if (i != 138) {
+                                if (i != 129) {
+                                    if (i != 130) {
+                                        if (i == 134) {
                                             if (isSet(16)) {
                                                 return null;
                                             }
                                             return new SectionReader(new SpliceInfoSectionReader());
-                                        } else if (i2 != 135) {
+                                        } else if (i != 135) {
                                             return null;
                                         }
                                     }
@@ -164,17 +164,17 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultTsPayloadReaderFactory(int i2) {
-        this(i2, Collections.emptyList());
+    public DefaultTsPayloadReaderFactory(int i) {
+        this(i, Collections.emptyList());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -184,22 +184,22 @@ public final class DefaultTsPayloadReaderFactory implements TsPayloadReader.Fact
         }
     }
 
-    public DefaultTsPayloadReaderFactory(int i2, List<Format> list) {
+    public DefaultTsPayloadReaderFactory(int i, List<Format> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), list};
+            Object[] objArr = {Integer.valueOf(i), list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.flags = i2;
+        this.flags = i;
         if (!isSet(32) && list.isEmpty()) {
             list = Collections.singletonList(Format.createTextSampleFormat(null, MimeTypes.APPLICATION_CEA608, 0, null));
         }

@@ -1,10 +1,10 @@
 package com.baidu.searchbox;
 
 import android.text.TextUtils;
-import c.a.i0.a.a;
-import c.a.i0.a.b.d;
-import c.a.p.b.b;
-import c.a.r0.q3.n;
+import c.a.g0.a.a;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
+import c.a.p0.s3.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ubc.ANRPerfSampleCallback;
@@ -41,22 +41,21 @@ public class PerfSampleManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // c.a.i0.a.a
+        @Override // c.a.g0.a.a
         public Object get() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(new b());
                 arrayList.add(new ANRPerfSampleCallback());
                 arrayList.add(new BlockPerfSampleCallback());
                 arrayList.add(new FpsPerfSampleCallback());
@@ -74,9 +73,9 @@ public class PerfSampleManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,8 +92,8 @@ public class PerfSampleManager {
             d<IPerfSampleCallback> dVar = this.mCallbackList;
             String str = 0;
             if (dVar != null && (list = dVar.getList()) != null && list.size() != 0) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    String sampleFlag = list.get(i2).getSampleFlag();
+                for (int i = 0; i < list.size(); i++) {
+                    String sampleFlag = list.get(i).getSampleFlag();
                     if (!TextUtils.isEmpty(sampleFlag)) {
                         if (TextUtils.isEmpty(str)) {
                             str = sampleFlag;
@@ -112,7 +111,7 @@ public class PerfSampleManager {
     public void initmCallbackList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.i0.a.b.b b2 = c.a.i0.a.b.b.b();
+            b b2 = b.b();
             this.mCallbackList = b2;
             b2.a(new IPerfSampleCallback_PerfSampleManager_ListProvider());
         }

@@ -8,13 +8,14 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Looper;
 import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.c;
 import com.fun.openid.sdk.f;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class k implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +25,9 @@ public class k implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,11 +37,11 @@ public class k implements f {
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0030, code lost:
         if (r1.versionCode >= 1) goto L13;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x009a, code lost:
-        if (r0.a == null) goto L41;
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a3, code lost:
+        if (r0.a == null) goto L44;
      */
     /* JADX WARN: Removed duplicated region for block: B:22:0x0041  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x004a  */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0053  */
     @Override // com.fun.openid.sdk.f
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -64,10 +65,12 @@ public class k implements f {
         if (Build.VERSION.SDK_INT >= 28) {
             if (packageInfo != null && packageInfo.getLongVersionCode() >= 1) {
                 z = true;
-                b.f52899b = z;
+                b.f38660b = z;
                 b.a = true;
-                if (!b.f52899b) {
-                    FunOpenIDSdk.isLogEnabled();
+                if (!b.f38660b) {
+                    if (FunOpenIDSdk.isLogEnabled()) {
+                        Log.e(FunOpenIDSdk.TAG, "===========当前设备不支持获取OAID");
+                    }
                     aVar.a(false, null);
                     return;
                 } else if (b.a) {
@@ -79,10 +82,10 @@ public class k implements f {
                                 Intent intent = new Intent();
                                 intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
                                 intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-                                if (applicationContext2.bindService(intent, cVar2.f52903e, 1)) {
-                                    synchronized (cVar2.f52902d) {
+                                if (applicationContext2.bindService(intent, cVar2.f38664e, 1)) {
+                                    synchronized (cVar2.f38663d) {
                                         try {
-                                            cVar2.f52902d.wait(3000L);
+                                            cVar2.f38663d.wait(3000L);
                                         } catch (InterruptedException e3) {
                                             e3.printStackTrace();
                                         }
@@ -108,17 +111,17 @@ public class k implements f {
                 }
             }
             z = false;
-            b.f52899b = z;
+            b.f38660b = z;
             b.a = true;
-            if (!b.f52899b) {
+            if (!b.f38660b) {
             }
         } else {
             if (packageInfo != null) {
             }
             z = false;
-            b.f52899b = z;
+            b.f38660b = z;
             b.a = true;
-            if (!b.f52899b) {
+            if (!b.f38660b) {
             }
         }
     }

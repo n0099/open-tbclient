@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.f0.d0.n;
-import c.a.r0.f0.d0.o;
+import c.a.p0.h0.e0.n;
+import c.a.p0.h0.e0.o;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -24,16 +24,16 @@ import java.util.List;
 import org.json.JSONObject;
 import tbclient.RecomTopicInfo;
 import tbclient.RecomTopicList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RecommendTopicData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<RecommendTopicListData> f38802b;
+    public List<RecommendTopicListData> f29832b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class RecommendTopicListData implements Serializable, Parcelable {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<RecommendTopicListData> CREATOR;
@@ -46,7 +46,7 @@ public class RecommendTopicData {
         public String topicPic;
         public int type;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class a implements Parcelable.Creator<RecommendTopicListData> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +56,9 @@ public class RecommendTopicData {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -77,10 +77,10 @@ public class RecommendTopicData {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: b */
-            public RecommendTopicListData[] newArray(int i2) {
+            public RecommendTopicListData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new RecommendTopicListData[i2] : (RecommendTopicListData[]) invokeI.objValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new RecommendTopicListData[i] : (RecommendTopicListData[]) invokeI.objValue;
             }
         }
 
@@ -105,9 +105,9 @@ public class RecommendTopicData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -129,9 +129,9 @@ public class RecommendTopicData {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 n nVar = new n();
-                nVar.f17296c = this.tag;
+                nVar.f15338c = this.tag;
                 nVar.a = this.topicId;
-                nVar.f17295b = this.topicName;
+                nVar.f15337b = this.topicName;
                 return nVar;
             }
             return (n) invokeV.objValue;
@@ -208,9 +208,9 @@ public class RecommendTopicData {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
                 parcel.writeLong(this.topicId);
                 parcel.writeString(this.topicName);
                 parcel.writeInt(this.type);
@@ -228,9 +228,9 @@ public class RecommendTopicData {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -251,15 +251,15 @@ public class RecommendTopicData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38802b = new ArrayList();
+        this.f29832b = new ArrayList();
     }
 
     public o a() {
@@ -268,10 +268,10 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             o oVar = new o();
-            oVar.f17299g = b();
-            if (this.f38802b != null) {
+            oVar.f15341c = b();
+            if (this.f29832b != null) {
                 arrayList = new ArrayList();
-                for (RecommendTopicListData recommendTopicListData : this.f38802b) {
+                for (RecommendTopicListData recommendTopicListData : this.f29832b) {
                     if (recommendTopicListData != null) {
                         arrayList.add(recommendTopicListData.getConvertedCardData());
                     }
@@ -279,7 +279,7 @@ public class RecommendTopicData {
             } else {
                 arrayList = null;
             }
-            oVar.f17300h = arrayList;
+            oVar.f15342d = arrayList;
             return oVar;
         }
         return (o) invokeV.objValue;
@@ -290,7 +290,7 @@ public class RecommendTopicData {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (StringUtils.isNull(this.a)) {
-                return TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title);
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0863);
             }
             return this.a;
         }
@@ -315,7 +315,7 @@ public class RecommendTopicData {
                     RecommendTopicListData recommendTopicListData = new RecommendTopicListData();
                     recommendTopicListData.parserProtoBuf(recomTopicList);
                     if (!c(recommendTopicListData)) {
-                        this.f38802b.add(recommendTopicListData);
+                        this.f29832b.add(recommendTopicListData);
                     }
                 }
             }

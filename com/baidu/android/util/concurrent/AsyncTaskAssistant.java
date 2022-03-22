@@ -48,9 +48,9 @@ public final class AsyncTaskAssistant {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -68,9 +68,9 @@ public final class AsyncTaskAssistant {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -127,9 +127,9 @@ public final class AsyncTaskAssistant {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -144,8 +144,8 @@ public final class AsyncTaskAssistant {
             }
         };
         sPoolWorkQueue = new LinkedBlockingQueue();
-        int i2 = MAXIMUM_POOL_SIZE;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i2, 30L, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);
+        int i = MAXIMUM_POOL_SIZE;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 30L, TimeUnit.SECONDS, sPoolWorkQueue, sThreadFactory);
         threadPoolExecutor.allowCoreThreadTimeOut(true);
         THREAD_POOL_EXECUTOR = threadPoolExecutor;
     }
@@ -155,9 +155,9 @@ public final class AsyncTaskAssistant {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -185,9 +185,9 @@ public final class AsyncTaskAssistant {
         }
     }
 
-    public static void execute(Runnable runnable, String str, long j2) {
+    public static void execute(Runnable runnable, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
             sHandler.postDelayed(new Runnable(runnable, str) { // from class: com.baidu.android.util.concurrent.AsyncTaskAssistant.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -201,9 +201,9 @@ public final class AsyncTaskAssistant {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {runnable, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -220,13 +220,13 @@ public final class AsyncTaskAssistant {
                         AsyncTaskAssistant.execute(this.val$runnable, this.val$name);
                     }
                 }
-            }, j2);
+            }, j);
         }
     }
 
-    public static void executeOnThreadPool(Runnable runnable, String str, long j2) {
+    public static void executeOnThreadPool(Runnable runnable, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
             sHandler.postDelayed(new Runnable(runnable, str) { // from class: com.baidu.android.util.concurrent.AsyncTaskAssistant.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -240,9 +240,9 @@ public final class AsyncTaskAssistant {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {runnable, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -259,7 +259,7 @@ public final class AsyncTaskAssistant {
                         AsyncTaskAssistant.executeOnThreadPool(this.val$runnable, this.val$name);
                     }
                 }
-            }, j2);
+            }, j);
         }
     }
 }

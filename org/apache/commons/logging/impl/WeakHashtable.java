@@ -13,7 +13,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.Set;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class WeakHashtable extends Hashtable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class WeakHashtable extends Hashtable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

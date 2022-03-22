@@ -41,14 +41,14 @@ public final class b {
         return (a) invokeL.objValue;
     }
 
-    public static synchronized a b(String str, int i2) {
+    public static synchronized a b(String str, int i) {
         InterceptResult invokeLI;
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             synchronized (b.class) {
                 if (!a.containsKey(str) || (aVar = a.get(str)) == null) {
-                    a aVar2 = new a(str, i2);
+                    a aVar2 = new a(str, i);
                     try {
                         aVar2.start();
                     } catch (Exception unused) {

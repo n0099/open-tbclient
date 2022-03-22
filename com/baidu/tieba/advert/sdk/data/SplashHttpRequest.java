@@ -1,11 +1,13 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.content.Context;
-import c.a.r0.y.a.d.d;
-import c.a.r0.y.a.h.c;
+import c.a.p0.a0.a.d.d;
+import c.a.p0.a0.a.h.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -55,9 +57,9 @@ public class SplashHttpRequest extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, adInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -75,14 +77,14 @@ public class SplashHttpRequest extends HttpMessage {
         addParam(SearchJsBridge.COOKIE_OV, d.d());
         addParam(CommandMessage.SDK_VERSION, "1.1.4");
         addParam("nt", d.b(context).intValue());
-        addParam("ct", 2);
+        addParam(Config.EXCEPTION_CRASH_TYPE, 2);
         addParam(TbConfig.SW_APID, d.f(context).intValue());
         addParam("sh", d.e(context).intValue());
         addParam("imei", d.a(context));
         addParam("fmt", "json");
         addParam("adw", adInfo.adWidth);
         addParam("adh", adInfo.adHeight);
-        addParam("ac", 1);
+        addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, 1);
         addParam("ad_ext_params", AdExtParam.a.b().a());
     }
 

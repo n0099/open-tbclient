@@ -18,9 +18,9 @@ public final class Statistics implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -97,21 +97,21 @@ public final class Statistics implements INoProGuard {
 
     public static native boolean nativeInit(String str, String str2, String str3);
 
-    public static native void nativeRecord(int i2, String str);
+    public static native void nativeRecord(int i, String str);
 
     public static native void nativeUpdatePhoenixConfig(String str);
 
     public static native void nativeUploadSuccessfully();
 
-    public static void record(int i2, String str) {
+    public static void record(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65548, null, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65548, null, i, str) == null) {
             if (str == null) {
                 str = "";
             }
             try {
                 if (mIsInited) {
-                    nativeRecord(i2, str);
+                    nativeRecord(i, str);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();

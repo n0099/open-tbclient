@@ -57,9 +57,8 @@ import okio.BufferedSink;
 import okio.BufferedSource;
 import okio.Okio;
 import okio.Source;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RealConnection extends Http2Connection.Listener implements Connection {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_TUNNEL_ATTEMPTS = 21;
@@ -87,9 +86,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             newInitContext.initArgs = r2;
             Object[] objArr = {connectionPool, route};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,10 +101,10 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         this.route = route;
     }
 
-    private void connectSocket(int i2, int i3, Call call, EventListener eventListener) throws IOException {
+    private void connectSocket(int i, int i2, Call call, EventListener eventListener) throws IOException {
         Socket createSocket;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), call, eventListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), call, eventListener}) == null) {
             Proxy proxy = this.route.proxy();
             Address address = this.route.address();
             if (proxy.type() != Proxy.Type.DIRECT && proxy.type() != Proxy.Type.HTTP) {
@@ -115,9 +114,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             }
             this.rawSocket = createSocket;
             eventListener.connectStart(call, this.route.socketAddress(), proxy);
-            this.rawSocket.setSoTimeout(i3);
+            this.rawSocket.setSoTimeout(i2);
             try {
-                Platform.get().connectSocket(this.rawSocket, this.route.socketAddress(), i2);
+                Platform.get().connectSocket(this.rawSocket, this.route.socketAddress(), i);
                 try {
                     this.source = Okio.buffer(Okio.source(this.rawSocket));
                     this.sink = Okio.buffer(Okio.sink(this.rawSocket));
@@ -197,14 +196,14 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    private void connectTunnel(int i2, int i3, int i4, Call call, EventListener eventListener) throws IOException {
+    private void connectTunnel(int i, int i2, int i3, Call call, EventListener eventListener) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), call, eventListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), call, eventListener}) == null) {
             Request createTunnelRequest = createTunnelRequest();
             HttpUrl url = createTunnelRequest.url();
-            for (int i5 = 0; i5 < 21; i5++) {
-                connectSocket(i2, i3, call, eventListener);
-                createTunnelRequest = createTunnel(i3, i4, createTunnelRequest, url);
+            for (int i4 = 0; i4 < 21; i4++) {
+                connectSocket(i, i2, call, eventListener);
+                createTunnelRequest = createTunnel(i2, i3, createTunnelRequest, url);
                 if (createTunnelRequest == null) {
                     return;
                 }
@@ -217,17 +216,17 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         }
     }
 
-    private Request createTunnel(int i2, int i3, Request request, HttpUrl httpUrl) throws IOException {
+    private Request createTunnel(int i, int i2, Request request, HttpUrl httpUrl) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), request, httpUrl})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), request, httpUrl})) != null) {
             return (Request) invokeCommon.objValue;
         }
         String str = "CONNECT " + Util.hostHeader(httpUrl, true) + " HTTP/1.1";
         while (true) {
             Http1Codec http1Codec = new Http1Codec(null, null, this.source, this.sink);
-            this.source.timeout().timeout(i2, TimeUnit.MILLISECONDS);
-            this.sink.timeout().timeout(i3, TimeUnit.MILLISECONDS);
+            this.source.timeout().timeout(i, TimeUnit.MILLISECONDS);
+            this.sink.timeout().timeout(i2, TimeUnit.MILLISECONDS);
             http1Codec.writeRequest(request.headers(), str);
             http1Codec.finishRequest();
             Response build = http1Codec.readResponseHeaders(false).request(request).build();
@@ -266,14 +265,14 @@ public final class RealConnection extends Http2Connection.Listener implements Co
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? new Request.Builder().url(this.route.address().url()).header("Host", Util.hostHeader(this.route.address().url(), true)).header("Proxy-Connection", HTTP.CONN_KEEP_ALIVE).header("User-Agent", Version.userAgent()).build() : (Request) invokeV.objValue;
     }
 
-    private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i2, Call call, EventListener eventListener) throws IOException {
+    private void establishProtocol(ConnectionSpecSelector connectionSpecSelector, int i, Call call, EventListener eventListener) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65542, this, connectionSpecSelector, i2, call, eventListener) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65542, this, connectionSpecSelector, i, call, eventListener) == null) {
             if (this.route.address().sslSocketFactory() == null) {
                 if (this.route.address().protocols().contains(Protocol.H2_PRIOR_KNOWLEDGE)) {
                     this.socket = this.rawSocket;
                     this.protocol = Protocol.H2_PRIOR_KNOWLEDGE;
-                    startHttp2(i2);
+                    startHttp2(i);
                     return;
                 }
                 this.socket = this.rawSocket;
@@ -284,28 +283,28 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             connectTls(connectionSpecSelector);
             eventListener.secureConnectEnd(call, this.handshake);
             if (this.protocol == Protocol.HTTP_2) {
-                startHttp2(i2);
+                startHttp2(i);
             }
         }
     }
 
-    private void startHttp2(int i2) throws IOException {
+    private void startHttp2(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
             this.socket.setSoTimeout(0);
-            Http2Connection build = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i2).build();
+            Http2Connection build = new Http2Connection.Builder(true).socket(this.socket, this.route.address().url().host(), this.source, this.sink).listener(this).pingIntervalMillis(i).build();
             this.http2Connection = build;
             build.start();
         }
     }
 
-    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j2) {
+    public static RealConnection testConnection(ConnectionPool connectionPool, Route route, Socket socket, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{connectionPool, route, socket, Long.valueOf(j)})) == null) {
             RealConnection realConnection = new RealConnection(connectionPool, route);
             realConnection.socket = socket;
-            realConnection.idleAtNanos = j2;
+            realConnection.idleAtNanos = j;
             return realConnection;
         }
         return (RealConnection) invokeCommon.objValue;
@@ -329,9 +328,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void connect(int i2, int i3, int i4, int i5, boolean z, Call call, EventListener eventListener) {
+    public void connect(int i, int i2, int i3, int i4, boolean z, Call call, EventListener eventListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), call, eventListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), call, eventListener}) == null) {
             if (this.protocol == null) {
                 List<ConnectionSpec> connectionSpecs = this.route.address().connectionSpecs();
                 ConnectionSpecSelector connectionSpecSelector = new ConnectionSpecSelector(connectionSpecs);
@@ -352,7 +351,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                     try {
                         try {
                             if (this.route.requiresTunnel()) {
-                                connectTunnel(i2, i3, i4, call, eventListener);
+                                connectTunnel(i, i2, i3, call, eventListener);
                                 if (this.rawSocket == null) {
                                     if (!this.route.requiresTunnel() && this.rawSocket == null) {
                                         throw new RouteException(new ProtocolException("Too many tunnel connections attempted: 21"));
@@ -367,7 +366,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                                 }
                             } else {
                                 try {
-                                    connectSocket(i2, i3, call, eventListener);
+                                    connectSocket(i, i2, call, eventListener);
                                 } catch (IOException e2) {
                                     e = e2;
                                     Util.closeQuietly(this.socket);
@@ -387,7 +386,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                                     do {
                                         if (this.route.requiresTunnel()) {
                                         }
-                                        establishProtocol(connectionSpecSelector, i5, call, eventListener);
+                                        establishProtocol(connectionSpecSelector, i4, call, eventListener);
                                         eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                                         if (!this.route.requiresTunnel()) {
                                         }
@@ -397,7 +396,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                                     throw routeException;
                                 }
                             }
-                            establishProtocol(connectionSpecSelector, i5, call, eventListener);
+                            establishProtocol(connectionSpecSelector, i4, call, eventListener);
                             eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                             if (!this.route.requiresTunnel()) {
                             }
@@ -426,7 +425,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                             do {
                                 if (this.route.requiresTunnel()) {
                                 }
-                                establishProtocol(connectionSpecSelector, i5, call, eventListener);
+                                establishProtocol(connectionSpecSelector, i4, call, eventListener);
                                 eventListener.connectEnd(call, this.route.socketAddress(), this.route.proxy(), this.protocol);
                                 if (!this.route.requiresTunnel()) {
                                 }
@@ -544,9 +543,9 @@ public final class RealConnection extends Http2Connection.Listener implements Co
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Boolean.valueOf(r10), r11, r12, streamAllocation};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Boolean) objArr2[0]).booleanValue(), (BufferedSource) objArr2[1], (BufferedSink) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -641,7 +640,7 @@ public final class RealConnection extends Http2Connection.Listener implements Co
             sb.append(handshake != null ? handshake.cipherSuite() : "none");
             sb.append(" protocol=");
             sb.append(this.protocol);
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

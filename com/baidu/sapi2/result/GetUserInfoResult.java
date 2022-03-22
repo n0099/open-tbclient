@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class GetUserInfoResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
@@ -32,9 +31,9 @@ public class GetUserInfoResult extends SapiResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,7 +49,7 @@ public class GetUserInfoResult extends SapiResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetUserInfoResult{username='" + this.username + ExtendedMessageFormat.QUOTE + ", displayname='" + this.displayname + ExtendedMessageFormat.QUOTE + ", uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", secureMobile='" + this.secureMobile + ExtendedMessageFormat.QUOTE + ", secureEmail='" + this.secureEmail + ExtendedMessageFormat.QUOTE + ", incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + ExtendedMessageFormat.QUOTE + ", portraitSign='" + this.portraitSign + ExtendedMessageFormat.QUOTE + ", isInitialPortrait=" + this.isInitialPortrait + ", havePwd=" + this.havePwd + ExtendedMessageFormat.END_FE;
+            return "GetUserInfoResult{username='" + this.username + "', displayname='" + this.displayname + "', uid='" + this.uid + "', secureMobile='" + this.secureMobile + "', secureEmail='" + this.secureEmail + "', incompleteUser=" + this.incompleteUser + ", portrait='" + this.portrait + "', portraitSign='" + this.portraitSign + "', isInitialPortrait=" + this.isInitialPortrait + ", havePwd=" + this.havePwd + '}';
         }
         return (String) invokeV.objValue;
     }

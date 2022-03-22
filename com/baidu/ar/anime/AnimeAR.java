@@ -55,9 +55,9 @@ public class AnimeAR extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,7 +110,7 @@ public class AnimeAR extends c {
             if (TextUtils.isEmpty(str2) && p.A(getContext())) {
                 aVar.an();
             }
-            aVar.a(new a.InterfaceC1743a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
+            aVar.a(new a.InterfaceC1704a(this, z, str2, aVar) { // from class: com.baidu.ar.anime.AnimeAR.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ AnimeAR ce;
@@ -125,9 +125,9 @@ public class AnimeAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), str2, aVar};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -139,7 +139,7 @@ public class AnimeAR extends c {
                     this.ch = aVar;
                 }
 
-                @Override // com.baidu.ar.anime.a.InterfaceC1743a
+                @Override // com.baidu.ar.anime.a.InterfaceC1704a
                 public void b(FramePixels framePixels) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, framePixels) == null) {
@@ -160,9 +160,9 @@ public class AnimeAR extends c {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -196,9 +196,9 @@ public class AnimeAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -247,9 +247,9 @@ public class AnimeAR extends c {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -309,17 +309,17 @@ public class AnimeAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != 21) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != 21) {
                 return;
             }
             String str = TAG;
-            com.baidu.ar.h.b.b(str, "destroyHandle:" + j2);
-            this.cb.destroyHandle(j2);
+            com.baidu.ar.h.b.b(str, "destroyHandle:" + j);
+            this.cb.destroyHandle(j);
         }
     }
 
@@ -367,7 +367,7 @@ public class AnimeAR extends c {
                 com.baidu.ar.h.b.b(str2, "mAbilityName error: " + this.bD);
             }
             if (this.cd == null) {
-                b bVar = new b(new b.InterfaceC1745b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
+                b bVar = new b(new b.InterfaceC1706b(this) { // from class: com.baidu.ar.anime.AnimeAR.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ AnimeAR ce;
@@ -379,9 +379,9 @@ public class AnimeAR extends c {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -390,26 +390,26 @@ public class AnimeAR extends c {
                         this.ce = this;
                     }
 
-                    @Override // com.baidu.ar.anime.b.InterfaceC1745b
-                    public void a(int i2, String str3, long j2) {
+                    @Override // com.baidu.ar.anime.b.InterfaceC1706b
+                    public void a(int i, String str3, long j) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str3, Long.valueOf(j2)}) == null) {
-                            if (i2 == 200) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str3, Long.valueOf(j)}) == null) {
+                            if (i == 200) {
                                 l r = this.ce.r();
-                                if (r == null || j2 <= 0) {
+                                if (r == null || j <= 0) {
                                     return;
                                 }
                                 String str4 = AnimeAR.TAG;
-                                com.baidu.ar.h.b.b(str4, "result setAlgoHandleData:" + j2);
-                                r.a(j2, this.ce.bD);
-                                this.ce.a(j2);
+                                com.baidu.ar.h.b.b(str4, "result setAlgoHandleData:" + j);
+                                r.a(j, this.ce.bD);
+                                this.ce.a(j);
                                 return;
                             }
                             String str5 = AnimeAR.TAG;
-                            com.baidu.ar.h.b.b(str5, "request error! code:" + i2 + " msg:" + str3);
+                            com.baidu.ar.h.b.b(str5, "request error! code:" + i + " msg:" + str3);
                             HashMap hashMap2 = new HashMap();
                             hashMap2.put("event_name", "anime_network_status");
-                            hashMap2.put("error_code", Integer.valueOf(i2));
+                            hashMap2.put("error_code", Integer.valueOf(i));
                             hashMap2.put(GameCodeGetResponseMsg.PARAM_ERROR_MSG, str3);
                             this.ce.d(hashMap2);
                         }

@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetChargeOrderStatusRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,16 +23,16 @@ public class GetChargeOrderStatusRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    public GetChargeOrderStatusRequest(String str, long j2, long j3, int i2, int i3, String str2, String str3) {
+    public GetChargeOrderStatusRequest(String str, long j, long j2, int i, int i2, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3};
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,10 +41,10 @@ public class GetChargeOrderStatusRequest implements IRequestProtocol {
         this.sid = 0L;
         this.usedChannel = 10002;
         this.orderId = str;
-        this.uid = j2;
-        this.sid = j3;
-        this.appId = i2;
-        this.usedChannel = i3;
+        this.uid = j;
+        this.sid = j2;
+        this.appId = i;
+        this.usedChannel = i2;
         this.seq = str2;
         this.expand = str3;
     }

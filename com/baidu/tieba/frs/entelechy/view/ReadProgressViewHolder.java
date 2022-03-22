@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.TextView;
-import c.a.r0.d1.u;
+import c.a.p0.f1.u;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -21,14 +21,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f32481d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static final int f32482e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public View a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f41967b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context mContext;
-    public View mRoot;
-    public TextView mTipView;
+    public TextView f32483b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Context f32484c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,8 +50,8 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         UtilHelper.getDimenPixelSize(R.dimen.M_H_X002);
-        a = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
-        f41967b = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
+        f32481d = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
+        f32482e = UtilHelper.getDimenPixelSize(R.dimen.M_H_X005);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -57,39 +63,39 @@ public class ReadProgressViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mRoot = view;
-        TextView textView = (TextView) view.findViewById(R.id.view_frs_read_progress);
-        this.mTipView = textView;
-        int i4 = f41967b;
-        textView.setPadding(0, i4, 0, i4 - a);
-        this.mContext = context;
+        this.a = view;
+        TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0923c3);
+        this.f32483b = textView;
+        int i3 = f32482e;
+        textView.setPadding(0, i3, 0, i3 - f32481d);
+        this.f32484c = context;
     }
 
-    public void changeSkinType() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setViewTextColor(this.mTipView, (int) R.color.CAM_X0304);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_card_refresh16, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.f32483b, (int) R.color.CAM_X0304);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808eb, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds42), UtilHelper.getDimenPixelSize(R.dimen.tbds42));
-            this.mTipView.setCompoundDrawables(pureDrawable, null, null, null);
+            this.f32483b.setCompoundDrawables(pureDrawable, null, null, null);
         }
     }
 
-    public void onFillData(u uVar) {
+    public void d(u uVar) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uVar) == null) || uVar == null) {
             return;
         }
-        this.mTipView.setText(R.string.read_here);
-        changeSkinType();
+        this.f32483b.setText(R.string.obfuscated_res_0x7f0f0f2a);
+        c();
     }
 }

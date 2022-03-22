@@ -2,7 +2,7 @@ package com.kwad.sdk.core.response.model;
 
 import androidx.annotation.Nullable;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HotspotInfo extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = 8690126962689904212L;
     public String coverUrl;

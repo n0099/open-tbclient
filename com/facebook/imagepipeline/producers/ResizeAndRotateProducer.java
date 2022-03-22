@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INPUT_IMAGE_FORMAT = "Image format";
@@ -47,7 +47,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
     public final boolean mIsResizingEnabled;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class TransformingConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,9 +67,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resizeAndRotateProducer, consumer, producerContext, Boolean.valueOf(z), imageTranscoderFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -95,9 +95,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, resizeAndRotateProducer};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -108,11 +108,11 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                 }
 
                 @Override // com.facebook.imagepipeline.producers.JobScheduler.JobRunnable
-                public void run(EncodedImage encodedImage, int i4) {
+                public void run(EncodedImage encodedImage, int i3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, encodedImage, i4) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, encodedImage, i3) == null) {
                         TransformingConsumer transformingConsumer = this.this$1;
-                        transformingConsumer.doTransform(encodedImage, i4, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), this.this$1.mIsResizingEnabled)));
+                        transformingConsumer.doTransform(encodedImage, i3, (ImageTranscoder) Preconditions.checkNotNull(transformingConsumer.mImageTranscoderFactory.createImageTranscoder(encodedImage.getImageFormat(), this.this$1.mIsResizingEnabled)));
                     }
                 }
             }, 100);
@@ -130,9 +130,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, resizeAndRotateProducer, consumer};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -164,9 +164,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void doTransform(EncodedImage encodedImage, int i2, ImageTranscoder imageTranscoder) {
+        public void doTransform(EncodedImage encodedImage, int i, ImageTranscoder imageTranscoder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(65543, this, encodedImage, i2, imageTranscoder) == null) {
+            if (interceptable == null || interceptable.invokeLIL(65543, this, encodedImage, i, imageTranscoder) == null) {
                 this.mProducerContext.getListener().onProducerStart(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME);
                 ImageRequest imageRequest = this.mProducerContext.getImageRequest();
                 PooledByteBufferOutputStream newOutputStream = this.this$0.mPooledByteBufferFactory.newOutputStream();
@@ -181,9 +181,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                             encodedImage2.parseMetaData();
                             this.mProducerContext.getListener().onProducerFinishWithSuccess(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, extraMap);
                             if (transcode.getTranscodeStatus() != 1) {
-                                i2 |= 16;
+                                i |= 16;
                             }
-                            getConsumer().onNewResult(encodedImage2, i2);
+                            getConsumer().onNewResult(encodedImage2, i);
                             EncodedImage.closeSafely(encodedImage2);
                             return;
                         } finally {
@@ -193,7 +193,7 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
                     throw new RuntimeException("Error while transcoding the image");
                 } catch (Exception e2) {
                     this.mProducerContext.getListener().onProducerFinishWithFailure(this.mProducerContext.getId(), ResizeAndRotateProducer.PRODUCER_NAME, e2, null);
-                    if (BaseConsumer.isLast(i2)) {
+                    if (BaseConsumer.isLast(i)) {
                         getConsumer().onFailure(e2);
                     }
                 } finally {
@@ -202,28 +202,28 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             }
         }
 
-        private void forwardNewResult(EncodedImage encodedImage, int i2, ImageFormat imageFormat) {
+        private void forwardNewResult(EncodedImage encodedImage, int i, ImageFormat imageFormat) {
             EncodedImage newResultsForJpegOrHeif;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(65544, this, encodedImage, i2, imageFormat) == null) {
+            if (interceptable == null || interceptable.invokeLIL(65544, this, encodedImage, i, imageFormat) == null) {
                 if (imageFormat != DefaultImageFormats.JPEG && imageFormat != DefaultImageFormats.HEIF) {
                     newResultsForJpegOrHeif = getNewResultForImagesWithoutExifData(encodedImage);
                 } else {
                     newResultsForJpegOrHeif = getNewResultsForJpegOrHeif(encodedImage);
                 }
-                getConsumer().onNewResult(newResultsForJpegOrHeif, i2);
+                getConsumer().onNewResult(newResultsForJpegOrHeif, i);
             }
         }
 
         @Nullable
-        private EncodedImage getCloneWithRotationApplied(EncodedImage encodedImage, int i2) {
+        private EncodedImage getCloneWithRotationApplied(EncodedImage encodedImage, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, this, encodedImage, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, this, encodedImage, i)) == null) {
                 EncodedImage cloneOrNull = EncodedImage.cloneOrNull(encodedImage);
                 encodedImage.close();
                 if (cloneOrNull != null) {
-                    cloneOrNull.setRotationAngle(i2);
+                    cloneOrNull.setRotationAngle(i);
                 }
                 return cloneOrNull;
             }
@@ -277,12 +277,12 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i2) {
+        public void onNewResultImpl(@Nullable EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) || this.mIsCancelled) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) || this.mIsCancelled) {
                 return;
             }
-            boolean isLast = BaseConsumer.isLast(i2);
+            boolean isLast = BaseConsumer.isLast(i);
             if (encodedImage == null) {
                 if (isLast) {
                     getConsumer().onNewResult(null, 1);
@@ -294,8 +294,8 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             TriState shouldTransform = ResizeAndRotateProducer.shouldTransform(this.mProducerContext.getImageRequest(), encodedImage, (ImageTranscoder) Preconditions.checkNotNull(this.mImageTranscoderFactory.createImageTranscoder(imageFormat, this.mIsResizingEnabled)));
             if (isLast || shouldTransform != TriState.UNSET) {
                 if (shouldTransform != TriState.YES) {
-                    forwardNewResult(encodedImage, i2, imageFormat);
-                } else if (this.mJobScheduler.updateJob(encodedImage, i2)) {
+                    forwardNewResult(encodedImage, i, imageFormat);
+                } else if (this.mJobScheduler.updateJob(encodedImage, i)) {
                     if (isLast || this.mProducerContext.isIntermediateResultExpected()) {
                         this.mJobScheduler.scheduleJob();
                     }
@@ -311,9 +311,9 @@ public class ResizeAndRotateProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, pooledByteBufferFactory, producer, Boolean.valueOf(z), imageTranscoderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

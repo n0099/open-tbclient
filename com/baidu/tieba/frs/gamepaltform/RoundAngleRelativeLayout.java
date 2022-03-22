@@ -19,24 +19,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RoundAngleRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f32568b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f32569c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f32570d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f42056e;
+    public Paint f32571e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f42057f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public float f42058g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f42059h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f42060i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Paint f42061j;
+    public Paint f32572f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public RoundAngleRelativeLayout(Context context) {
@@ -47,9 +45,9 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -61,24 +59,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
 
     public final void a(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f42058g <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) || this.f32569c <= 0.0f) {
             return;
         }
         int height = getHeight();
         Path path = new Path();
         float f2 = height;
-        path.moveTo(0.0f, f2 - this.f42058g);
+        path.moveTo(0.0f, f2 - this.f32569c);
         path.lineTo(0.0f, f2);
-        path.lineTo(this.f42058g, f2);
-        float f3 = this.f42058g;
+        path.lineTo(this.f32569c, f2);
+        float f3 = this.f32569c;
         path.arcTo(new RectF(0.0f, f2 - (f3 * 2.0f), f3 * 2.0f, f2), 90.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f42060i);
+        canvas.drawPath(path, this.f32571e);
     }
 
     public final void b(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f42059h <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) || this.f32570d <= 0.0f) {
             return;
         }
         int height = getHeight();
@@ -86,52 +84,52 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
         Path path = new Path();
         float f2 = width;
         float f3 = height;
-        path.moveTo(f2 - this.f42059h, f3);
+        path.moveTo(f2 - this.f32570d, f3);
         path.lineTo(f2, f3);
-        path.lineTo(f2, f3 - this.f42059h);
-        float f4 = this.f42059h;
+        path.lineTo(f2, f3 - this.f32570d);
+        float f4 = this.f32570d;
         path.arcTo(new RectF(f2 - (f4 * 2.0f), f3 - (f4 * 2.0f), f2, f3), 0.0f, 90.0f);
         path.close();
-        canvas.drawPath(path, this.f42060i);
+        canvas.drawPath(path, this.f32571e);
     }
 
     public final void c(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.f42056e <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) || this.a <= 0.0f) {
             return;
         }
         Path path = new Path();
-        path.moveTo(0.0f, this.f42056e);
+        path.moveTo(0.0f, this.a);
         path.lineTo(0.0f, 0.0f);
-        path.lineTo(this.f42056e, 0.0f);
-        float f2 = this.f42056e;
+        path.lineTo(this.a, 0.0f);
+        float f2 = this.a;
         path.arcTo(new RectF(0.0f, 0.0f, f2 * 2.0f, f2 * 2.0f), -90.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f42060i);
+        canvas.drawPath(path, this.f32571e);
     }
 
     public final void d(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f42057f <= 0.0f) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) || this.f32568b <= 0.0f) {
             return;
         }
         int width = getWidth();
         Path path = new Path();
         float f2 = width;
-        path.moveTo(f2 - this.f42057f, 0.0f);
+        path.moveTo(f2 - this.f32568b, 0.0f);
         path.lineTo(f2, 0.0f);
-        path.lineTo(f2, this.f42057f);
-        float f3 = this.f42057f;
+        path.lineTo(f2, this.f32568b);
+        float f3 = this.f32568b;
         path.arcTo(new RectF(f2 - (f3 * 2.0f), 0.0f, f2, f3 * 2.0f), 0.0f, -90.0f);
         path.close();
-        canvas.drawPath(path, this.f42060i);
+        canvas.drawPath(path, this.f32571e);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
-            canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.f42061j, 31);
+            canvas.saveLayer(new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight()), this.f32572f, 31);
             super.dispatchDraw(canvas);
             c(canvas);
             d(canvas);
@@ -144,24 +142,24 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setBottomLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048581, this, f2) == null) {
-            this.f42058g = f2;
+            this.f32569c = f2;
         }
     }
 
     public void setBottomRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
-            this.f42059h = f2;
+            this.f32570d = f2;
         }
     }
 
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048583, this, f2) == null) {
-            this.f42056e = f2;
-            this.f42058g = f2;
-            this.f42057f = f2;
-            this.f42059h = f2;
+            this.a = f2;
+            this.f32569c = f2;
+            this.f32568b = f2;
+            this.f32570d = f2;
             invalidate();
         }
     }
@@ -169,14 +167,14 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     public void setTopLeftRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.f42056e = f2;
+            this.a = f2;
         }
     }
 
     public void setTopRightRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.f42057f = f2;
+            this.f32568b = f2;
         }
     }
 
@@ -189,9 +187,9 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -202,17 +200,17 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RoundAngleRelativeLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -221,13 +219,13 @@ public class RoundAngleRelativeLayout extends RelativeLayout {
             }
         }
         Paint paint = new Paint();
-        this.f42060i = paint;
+        this.f32571e = paint;
         paint.setColor(-1);
-        this.f42060i.setAntiAlias(true);
-        this.f42060i.setStyle(Paint.Style.FILL);
-        this.f42060i.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
+        this.f32571e.setAntiAlias(true);
+        this.f32571e.setStyle(Paint.Style.FILL);
+        this.f32571e.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
         Paint paint2 = new Paint();
-        this.f42061j = paint2;
+        this.f32572f = paint2;
         paint2.setXfermode(null);
     }
 }

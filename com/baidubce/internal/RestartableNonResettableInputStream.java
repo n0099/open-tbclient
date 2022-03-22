@@ -10,7 +10,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RestartableNonResettableInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,16 +20,16 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
     public int length;
     public int offset;
 
-    public RestartableNonResettableInputStream(InputStream inputStream, int i2) {
+    public RestartableNonResettableInputStream(InputStream inputStream, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i2)};
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,16 +39,16 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
         this.length = 0;
         this.eof = false;
         CheckUtils.isNotNull(inputStream, "input should not be null.");
-        CheckUtils.checkArgument(i2 >= 0, "bufferSize should not be negative: " + i2);
-        this.buffer = new byte[i2];
+        CheckUtils.checkArgument(i >= 0, "bufferSize should not be negative: " + i);
+        this.buffer = new byte[i];
         this.input = inputStream;
         while (true) {
-            int i5 = this.length;
-            if (i5 >= i2) {
+            int i4 = this.length;
+            if (i4 >= i) {
                 return;
             }
             try {
-                int read = this.input.read(this.buffer, i5, i2 - i5);
+                int read = this.input.read(this.buffer, i4, i - i4);
                 if (read < 0) {
                     this.eof = true;
                     return;
@@ -69,31 +69,31 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
             CheckUtils.isNotNull(bArr, "b should not be null.");
-            if (i2 < 0 || i3 < 0 || i3 > bArr.length - i2) {
+            if (i < 0 || i2 < 0 || i2 > bArr.length - i) {
                 throw new IndexOutOfBoundsException();
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return 0;
             }
-            int i4 = this.offset;
-            int i5 = this.length;
-            if (i4 < i5) {
-                int i6 = i5 - i4;
-                if (i6 <= i3) {
-                    i3 = i6;
+            int i3 = this.offset;
+            int i4 = this.length;
+            if (i3 < i4) {
+                int i5 = i4 - i3;
+                if (i5 <= i2) {
+                    i2 = i5;
                 }
-                System.arraycopy(this.buffer, this.offset, bArr, i2, i3);
-                this.offset += i3;
-                return i3;
+                System.arraycopy(this.buffer, this.offset, bArr, i, i2);
+                this.offset += i2;
+                return i2;
             } else if (this.eof) {
                 return -1;
             } else {
-                int read = this.input.read(bArr, i2, i3);
+                int read = this.input.read(bArr, i, i2);
                 if (read < 0) {
                     this.eof = true;
                     return -1;
@@ -122,11 +122,11 @@ public class RestartableNonResettableInputStream extends RestartableInputStream 
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.offset;
-            if (i2 < this.length) {
+            int i = this.offset;
+            if (i < this.length) {
                 byte[] bArr = this.buffer;
-                this.offset = i2 + 1;
-                return bArr[i2] & 255;
+                this.offset = i + 1;
+                return bArr[i] & 255;
             } else if (this.eof) {
                 return -1;
             } else {

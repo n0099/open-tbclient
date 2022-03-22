@@ -17,7 +17,7 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KeywordsBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "kywd";
@@ -53,9 +53,9 @@ public class KeywordsBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -81,9 +81,9 @@ public class KeywordsBox extends AbstractFullBox {
             this.language = IsoTypeReader.readIso639(byteBuffer);
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
             this.keywords = new String[readUInt8];
-            for (int i2 = 0; i2 < readUInt8; i2++) {
+            for (int i = 0; i < readUInt8; i++) {
                 IsoTypeReader.readUInt8(byteBuffer);
-                this.keywords[i2] = IsoTypeReader.readString(byteBuffer);
+                this.keywords[i] = IsoTypeReader.readString(byteBuffer);
             }
         }
     }
@@ -108,11 +108,11 @@ public class KeywordsBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            long j2 = 7;
+            long j = 7;
             for (String str : this.keywords) {
-                j2 += Utf8.utf8StringLengthInBytes(str) + 1 + 1;
+                j += Utf8.utf8StringLengthInBytes(str) + 1 + 1;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -161,11 +161,11 @@ public class KeywordsBox extends AbstractFullBox {
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("KeywordsBox[language=");
             stringBuffer.append(getLanguage());
-            for (int i2 = 0; i2 < this.keywords.length; i2++) {
+            for (int i = 0; i < this.keywords.length; i++) {
                 stringBuffer.append(";keyword");
-                stringBuffer.append(i2);
+                stringBuffer.append(i);
                 stringBuffer.append("=");
-                stringBuffer.append(this.keywords[i2]);
+                stringBuffer.append(this.keywords[i]);
             }
             stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
             return stringBuffer.toString();

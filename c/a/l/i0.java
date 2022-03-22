@@ -14,7 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class i0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SmartAppBottomLayout l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public SmartAppBottomLayout f3429h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public i0(Context context) {
@@ -25,44 +27,44 @@ public class i0 extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = new SmartAppBottomLayout(context);
+        this.f3429h = new SmartAppBottomLayout(context);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3429h : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) || (smartAppBottomLayout = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || (smartAppBottomLayout = this.f3429h) == null) {
             return;
         }
-        smartAppBottomLayout.onChangeSkinType();
+        smartAppBottomLayout.d();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: r */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: s */
+    public void a(c.a.o0.r.r.a aVar) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (smartAppBottomLayout = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) || (smartAppBottomLayout = this.f3429h) == null) {
             return;
         }
-        smartAppBottomLayout.onBindDataToView(aVar);
+        smartAppBottomLayout.a(aVar);
     }
 }

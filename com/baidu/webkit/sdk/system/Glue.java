@@ -174,9 +174,9 @@ public final class Glue {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jsResult};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -243,9 +243,9 @@ public final class Glue {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -287,11 +287,11 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, layoutAlgorithm)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
                         return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
@@ -309,10 +309,10 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pluginState)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$PluginState[pluginState.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
                     return WebSettings.PluginState.OFF;
@@ -328,8 +328,8 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, renderPriority)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
-            if (i2 == 1 || i2 == 2 || i2 == 3) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$RenderPriority[renderPriority.ordinal()];
+            if (i == 1 || i == 2 || i == 3) {
                 return WebSettings.RenderPriority.NORMAL;
             }
             return null;
@@ -341,10 +341,10 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, zoomDensity)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[zoomDensity.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$webkit$sdk$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
                     return WebSettings.ZoomDensity.CLOSE;
@@ -415,11 +415,11 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, layoutAlgorithm)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$LayoutAlgorithm[layoutAlgorithm.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
                         return WebSettings.LayoutAlgorithm.TEXT_AUTOSIZING;
@@ -437,10 +437,10 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, pluginState)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$PluginState[pluginState.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
                     return WebSettings.PluginState.OFF;
@@ -456,10 +456,10 @@ public final class Glue {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, zoomDensity)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$android$webkit$WebSettings$ZoomDensity[zoomDensity.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return null;
                     }
                     return WebSettings.ZoomDensity.CLOSE;

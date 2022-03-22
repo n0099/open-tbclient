@@ -20,9 +20,9 @@ public class a implements v {
             newInitContext.initArgs = r2;
             Object[] objArr = {mKOfflineMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,19 +32,19 @@ public class a implements v {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.v
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
         MKOfflineMapListener mKOfflineMapListener;
         MKOfflineMapListener mKOfflineMapListener2;
         MKOfflineMapListener mKOfflineMapListener3;
         r rVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            if (i == 4) {
                 ArrayList<MKOLUpdateElement> allUpdateInfo = this.a.getAllUpdateInfo();
                 if (allUpdateInfo != null) {
                     for (MKOLUpdateElement mKOLUpdateElement : allUpdateInfo) {
                         if (mKOLUpdateElement.update) {
-                            mKOfflineMapListener = this.a.f34107c;
+                            mKOfflineMapListener = this.a.f26343c;
                             mKOfflineMapListener.onGetOfflineMapState(4, mKOLUpdateElement.cityID);
                         }
                     }
@@ -52,26 +52,26 @@ public class a implements v {
                 }
                 return;
             }
-            int i4 = 6;
-            if (i2 == 6) {
-                mKOfflineMapListener2 = this.a.f34107c;
-            } else if (i2 == 8) {
-                int i5 = i3 >> 8;
-                mKOfflineMapListener3 = this.a.f34107c;
-                mKOfflineMapListener3.onGetOfflineMapState(0, i5);
+            int i3 = 6;
+            if (i == 6) {
+                mKOfflineMapListener2 = this.a.f26343c;
+            } else if (i == 8) {
+                int i4 = i2 >> 8;
+                mKOfflineMapListener3 = this.a.f26343c;
+                mKOfflineMapListener3.onGetOfflineMapState(0, i4);
                 return;
-            } else if (i2 != 10) {
-                if (i2 != 12) {
+            } else if (i != 10) {
+                if (i != 12) {
                     return;
                 }
-                rVar = this.a.f34106b;
+                rVar = this.a.f26342b;
                 rVar.a(true, false);
                 return;
             } else {
-                mKOfflineMapListener2 = this.a.f34107c;
-                i4 = 2;
+                mKOfflineMapListener2 = this.a.f26343c;
+                i3 = 2;
             }
-            mKOfflineMapListener2.onGetOfflineMapState(i4, i3);
+            mKOfflineMapListener2.onGetOfflineMapState(i3, i2);
         }
     }
 }

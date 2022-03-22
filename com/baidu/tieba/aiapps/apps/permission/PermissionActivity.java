@@ -2,7 +2,7 @@ package com.baidu.tieba.aiapps.apps.permission;
 
 import android.app.Activity;
 import android.os.Bundle;
-import c.a.r0.z.b.h.a;
+import c.a.p0.b0.b.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.tieba.R;
@@ -21,9 +21,9 @@ public class PermissionActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,7 +33,7 @@ public class PermissionActivity extends Activity {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            setContentView(R.layout.activity_permission);
+            setContentView(R.layout.obfuscated_res_0x7f0d0049);
             a.d(this);
         }
     }
@@ -57,12 +57,12 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, strArr, iArr) == null) || a.b(this, i2, strArr, iArr)) {
+        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, strArr, iArr) == null) || a.b(this, i, strArr, iArr)) {
             return;
         }
-        super.onRequestPermissionsResult(i2, strArr, iArr);
+        super.onRequestPermissionsResult(i, strArr, iArr);
     }
 
     @Override // android.app.Activity

@@ -23,6 +23,7 @@ import android.print.PrintDocumentAdapter;
 import android.print.PrintDocumentInfo;
 import android.print.PrintManager;
 import android.print.pdf.PrintedPdfDocument;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -79,16 +80,16 @@ public final class PrintHelper {
         public final String mJobName;
         public final /* synthetic */ PrintHelper this$0;
 
-        public PrintBitmapAdapter(PrintHelper printHelper, String str, int i2, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
+        public PrintBitmapAdapter(PrintHelper printHelper, String str, int i, Bitmap bitmap, OnPrintFinishCallback onPrintFinishCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {printHelper, str, Integer.valueOf(i2), bitmap, onPrintFinishCallback};
+                Object[] objArr = {printHelper, str, Integer.valueOf(i), bitmap, onPrintFinishCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,7 +97,7 @@ public final class PrintHelper {
             }
             this.this$0 = printHelper;
             this.mJobName = str;
-            this.mFittingMode = i2;
+            this.mFittingMode = i;
             this.mBitmap = bitmap;
             this.mCallback = onPrintFinishCallback;
         }
@@ -143,16 +144,16 @@ public final class PrintHelper {
         public AsyncTask<Uri, Boolean, Bitmap> mLoadBitmap;
         public final /* synthetic */ PrintHelper this$0;
 
-        public PrintUriAdapter(PrintHelper printHelper, String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback, int i2) {
+        public PrintUriAdapter(PrintHelper printHelper, String str, Uri uri, OnPrintFinishCallback onPrintFinishCallback, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {printHelper, str, uri, onPrintFinishCallback, Integer.valueOf(i2)};
+                Object[] objArr = {printHelper, str, uri, onPrintFinishCallback, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -162,7 +163,7 @@ public final class PrintHelper {
             this.mJobName = str;
             this.mImageFile = uri;
             this.mCallback = onPrintFinishCallback;
-            this.mFittingMode = i2;
+            this.mFittingMode = i;
             this.mBitmap = null;
         }
 
@@ -230,9 +231,9 @@ public final class PrintHelper {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, cancellationSignal, printAttributes2, printAttributes, layoutResultCallback};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -261,9 +262,9 @@ public final class PrintHelper {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -362,8 +363,8 @@ public final class PrintHelper {
                 return;
             }
         }
-        int i2 = Build.VERSION.SDK_INT;
-        PRINT_ACTIVITY_RESPECTS_ORIENTATION = i2 < 20 || i2 > 23;
+        int i = Build.VERSION.SDK_INT;
+        PRINT_ACTIVITY_RESPECTS_ORIENTATION = i < 20 || i > 23;
         IS_MIN_MARGINS_HANDLING_CORRECT = Build.VERSION.SDK_INT != 23;
     }
 
@@ -374,9 +375,9 @@ public final class PrintHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -390,11 +391,11 @@ public final class PrintHelper {
         this.mContext = context;
     }
 
-    public static Bitmap convertBitmapForColorMode(Bitmap bitmap, int i2) {
+    public static Bitmap convertBitmapForColorMode(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bitmap, i2)) == null) {
-            if (i2 != 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bitmap, i)) == null) {
+            if (i != 1) {
                 return bitmap;
             }
             Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
@@ -427,21 +428,21 @@ public final class PrintHelper {
         return (PrintAttributes.Builder) invokeL.objValue;
     }
 
-    public static Matrix getMatrix(int i2, int i3, RectF rectF, int i4) {
+    public static Matrix getMatrix(int i, int i2, RectF rectF, int i3) {
         InterceptResult invokeCommon;
         float min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), rectF, Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), rectF, Integer.valueOf(i3)})) == null) {
             Matrix matrix = new Matrix();
-            float f2 = i2;
+            float f2 = i;
             float width = rectF.width() / f2;
-            if (i4 == 2) {
-                min = Math.max(width, rectF.height() / i3);
+            if (i3 == 2) {
+                min = Math.max(width, rectF.height() / i2);
             } else {
-                min = Math.min(width, rectF.height() / i3);
+                min = Math.min(width, rectF.height() / i2);
             }
             matrix.postScale(min, min);
-            matrix.postTranslate((rectF.width() - (f2 * min)) / 2.0f, (rectF.height() - (i3 * min)) / 2.0f);
+            matrix.postTranslate((rectF.width() - (f2 * min)) / 2.0f, (rectF.height() - (i2 * min)) / 2.0f);
             return matrix;
         }
         return (Matrix) invokeCommon.objValue;
@@ -456,40 +457,42 @@ public final class PrintHelper {
     private Bitmap loadBitmap(Uri uri, BitmapFactory.Options options) throws FileNotFoundException {
         InterceptResult invokeLL;
         Context context;
-        InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, uri, options)) == null) {
-            if (uri != null && (context = this.mContext) != null) {
-                InputStream inputStream = null;
-                try {
-                    openInputStream = context.getContentResolver().openInputStream(uri);
-                } catch (Throwable th) {
-                    th = th;
-                }
+        if (interceptable != null && (invokeLL = interceptable.invokeLL(65542, this, uri, options)) != null) {
+            return (Bitmap) invokeLL.objValue;
+        }
+        if (uri != null && (context = this.mContext) != null) {
+            InputStream inputStream = null;
+            try {
+                InputStream openInputStream = context.getContentResolver().openInputStream(uri);
                 try {
                     Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
                     if (openInputStream != null) {
                         try {
                             openInputStream.close();
-                        } catch (IOException unused) {
+                        } catch (IOException e2) {
+                            Log.w(LOG_TAG, "close fail ", e2);
                         }
                     }
                     return decodeStream;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Throwable th) {
+                    th = th;
                     inputStream = openInputStream;
                     if (inputStream != null) {
                         try {
                             inputStream.close();
-                        } catch (IOException unused2) {
+                        } catch (IOException e3) {
+                            Log.w(LOG_TAG, "close fail ", e3);
                         }
                     }
                     throw th;
                 }
+            } catch (Throwable th2) {
+                th = th2;
             }
+        } else {
             throw new IllegalArgumentException("bad argument to loadBitmap");
         }
-        return (Bitmap) invokeLL.objValue;
     }
 
     public static boolean systemSupportsPrint() {
@@ -532,21 +535,21 @@ public final class PrintHelper {
                 BitmapFactory.Options options2 = new BitmapFactory.Options();
                 options2.inJustDecodeBounds = true;
                 loadBitmap(uri, options2);
-                int i2 = options2.outWidth;
-                int i3 = options2.outHeight;
-                if (i2 > 0 && i3 > 0) {
-                    int max = Math.max(i2, i3);
-                    int i4 = 1;
+                int i = options2.outWidth;
+                int i2 = options2.outHeight;
+                if (i > 0 && i2 > 0) {
+                    int max = Math.max(i, i2);
+                    int i3 = 1;
                     while (max > 3500) {
                         max >>>= 1;
-                        i4 <<= 1;
+                        i3 <<= 1;
                     }
-                    if (i4 > 0 && Math.min(i2, i3) / i4 > 0) {
+                    if (i3 > 0 && Math.min(i, i2) / i3 > 0) {
                         synchronized (this.mLock) {
                             options = new BitmapFactory.Options();
                             this.mDecodeOptions = options;
                             options.inMutable = true;
-                            options.inSampleSize = i4;
+                            options.inSampleSize = i3;
                         }
                         try {
                             Bitmap loadBitmap = loadBitmap(uri, options);
@@ -576,32 +579,32 @@ public final class PrintHelper {
         }
     }
 
-    public void setColorMode(int i2) {
+    public void setColorMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mColorMode = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mColorMode = i;
         }
     }
 
-    public void setOrientation(int i2) {
+    public void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mOrientation = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mOrientation = i;
         }
     }
 
-    public void setScaleMode(int i2) {
+    public void setScaleMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mScaleMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mScaleMode = i;
         }
     }
 
     @RequiresApi(19)
-    public void writeBitmap(PrintAttributes printAttributes, int i2, Bitmap bitmap, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
+    public void writeBitmap(PrintAttributes printAttributes, int i, Bitmap bitmap, ParcelFileDescriptor parcelFileDescriptor, CancellationSignal cancellationSignal, PrintDocumentAdapter.WriteResultCallback writeResultCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{printAttributes, Integer.valueOf(i2), bitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback}) == null) {
-            new AsyncTask<Void, Void, Throwable>(this, cancellationSignal, IS_MIN_MARGINS_HANDLING_CORRECT ? printAttributes : copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build(), bitmap, printAttributes, i2, parcelFileDescriptor, writeResultCallback) { // from class: androidx.print.PrintHelper.1
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{printAttributes, Integer.valueOf(i), bitmap, parcelFileDescriptor, cancellationSignal, writeResultCallback}) == null) {
+            new AsyncTask<Void, Void, Throwable>(this, cancellationSignal, IS_MIN_MARGINS_HANDLING_CORRECT ? printAttributes : copyAttributes(printAttributes).setMinMargins(new PrintAttributes.Margins(0, 0, 0, 0)).build(), bitmap, printAttributes, i, parcelFileDescriptor, writeResultCallback) { // from class: androidx.print.PrintHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ PrintHelper this$0;
@@ -618,11 +621,11 @@ public final class PrintHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, cancellationSignal, r8, bitmap, printAttributes, Integer.valueOf(i2), parcelFileDescriptor, writeResultCallback};
+                        Object[] objArr = {this, cancellationSignal, r8, bitmap, printAttributes, Integer.valueOf(i), parcelFileDescriptor, writeResultCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -633,7 +636,7 @@ public final class PrintHelper {
                     this.val$pdfAttributes = r8;
                     this.val$bitmap = bitmap;
                     this.val$attributes = printAttributes;
-                    this.val$fittingMode = i2;
+                    this.val$fittingMode = i;
                     this.val$fileDescriptor = parcelFileDescriptor;
                     this.val$writeResultCallback = writeResultCallback;
                 }
@@ -714,6 +717,7 @@ public final class PrintHelper {
                         } else if (th == null) {
                             this.val$writeResultCallback.onWriteFinished(new PageRange[]{PageRange.ALL_PAGES});
                         } else {
+                            Log.e(PrintHelper.LOG_TAG, "Error writing printed content", th);
                             this.val$writeResultCallback.onWriteFailed(null);
                         }
                     }
@@ -753,10 +757,10 @@ public final class PrintHelper {
         PrintManager printManager = (PrintManager) this.mContext.getSystemService("print");
         PrintAttributes.Builder builder = new PrintAttributes.Builder();
         builder.setColorMode(this.mColorMode);
-        int i2 = this.mOrientation;
-        if (i2 == 1 || i2 == 0) {
+        int i = this.mOrientation;
+        if (i == 1 || i == 0) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_LANDSCAPE);
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             builder.setMediaSize(PrintAttributes.MediaSize.UNKNOWN_PORTRAIT);
         }
         printManager.print(str, printUriAdapter, builder.build());

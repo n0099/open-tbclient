@@ -6,9 +6,9 @@ public class ContentLengthInputStream extends InputStream {
     public final int length;
     public final InputStream stream;
 
-    public ContentLengthInputStream(InputStream inputStream, int i2) {
+    public ContentLengthInputStream(InputStream inputStream, int i) {
         this.stream = inputStream;
-        this.length = i2;
+        this.length = i;
     }
 
     @Override // java.io.InputStream
@@ -22,8 +22,8 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public void mark(int i2) {
-        this.stream.mark(i2);
+    public void mark(int i) {
+        this.stream.mark(i);
     }
 
     @Override // java.io.InputStream
@@ -42,8 +42,8 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) {
-        return this.stream.read(bArr, i2, i3);
+    public int read(byte[] bArr, int i, int i2) {
+        return this.stream.read(bArr, i, i2);
     }
 
     @Override // java.io.InputStream
@@ -52,7 +52,7 @@ public class ContentLengthInputStream extends InputStream {
     }
 
     @Override // java.io.InputStream
-    public long skip(long j2) {
-        return this.stream.skip(j2);
+    public long skip(long j) {
+        return this.stream.skip(j);
     }
 }

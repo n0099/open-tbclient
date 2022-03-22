@@ -45,9 +45,9 @@ public final class FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$c
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$collect$1, continuation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Continuation) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -77,9 +77,9 @@ public final class FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$c
             newInitContext.initArgs = r2;
             Object[] objArr = {liveDataScope};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,18 +97,18 @@ public final class FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$c
     public Object emit(Object obj, Continuation continuation) {
         InterceptResult invokeLL;
         AnonymousClass1 anonymousClass1;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, continuation)) == null) {
             if (continuation instanceof AnonymousClass1) {
                 anonymousClass1 = (AnonymousClass1) continuation;
-                int i3 = anonymousClass1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    anonymousClass1.label = i3 - Integer.MIN_VALUE;
+                int i2 = anonymousClass1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    anonymousClass1.label = i2 - Integer.MIN_VALUE;
                     Object obj2 = anonymousClass1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = anonymousClass1.label;
-                    if (i2 != 0) {
+                    i = anonymousClass1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj2);
                         LiveDataScope liveDataScope = this.$this_liveData$inlined;
                         anonymousClass1.L$0 = this;
@@ -119,7 +119,7 @@ public final class FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$c
                         if (liveDataScope.emit(obj, anonymousClass1) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         Object obj3 = anonymousClass1.L$3;
@@ -134,8 +134,8 @@ public final class FlowLiveDataConversions$asLiveData$1$invokeSuspend$$inlined$c
             anonymousClass1 = new AnonymousClass1(this, continuation);
             Object obj22 = anonymousClass1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = anonymousClass1.label;
-            if (i2 != 0) {
+            i = anonymousClass1.label;
+            if (i != 0) {
             }
             return Unit.INSTANCE;
         }

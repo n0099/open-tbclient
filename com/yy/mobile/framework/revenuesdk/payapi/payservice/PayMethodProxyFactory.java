@@ -19,14 +19,14 @@ import com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
 import com.yy.mobile.framework.revenuesdk.payapi.payproxy.WechatPayProxy;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayMethodProxyFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String TAG;
     public Map<String, IPaySdkServiceProxy> payMethodProxyMap;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Holder {
         public static /* synthetic */ Interceptable $ic;
         public static final PayMethodProxyFactory instance;
@@ -53,9 +53,9 @@ public class PayMethodProxyFactory {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -68,9 +68,9 @@ public class PayMethodProxyFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -151,11 +151,11 @@ public class PayMethodProxyFactory {
         return (IPaySdkServiceProxy) invokeL.objValue;
     }
 
-    public String getProxyMapKey(int i2, int i3, String str) {
+    public String getProxyMapKey(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i2, i3, str)) == null) {
-            return i2 + "-" + i3 + "-" + str;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, str)) == null) {
+            return i + "-" + i2 + "-" + str;
         }
         return (String) invokeIIL.objValue;
     }

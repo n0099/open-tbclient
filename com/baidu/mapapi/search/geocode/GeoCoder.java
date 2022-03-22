@@ -15,16 +15,16 @@ public class GeoCoder extends l {
     public com.baidu.platform.core.b.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34177b;
+    public boolean f26411b;
 
     public GeoCoder() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public class GeoCoder extends l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34177b) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f26411b) {
             return;
         }
-        this.f34177b = true;
+        this.f26411b = true;
         this.a.a();
         BMapManager.destroy();
     }

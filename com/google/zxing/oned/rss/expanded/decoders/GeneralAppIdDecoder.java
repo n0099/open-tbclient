@@ -1,7 +1,7 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.baidu.tieba.write.write.WriteActivity;
@@ -10,13 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.FormatException;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.kuaishou.weapon.un.w0;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import kotlin.text.Typography;
 import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes7.dex */
 public final class GeneralAppIdDecoder {
@@ -33,9 +32,9 @@ public final class GeneralAppIdDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitArray};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,21 +45,21 @@ public final class GeneralAppIdDecoder {
         this.information = bitArray;
     }
 
-    private DecodedChar decodeAlphanumeric(int i2) {
+    private DecodedChar decodeAlphanumeric(int i) {
         InterceptResult invokeI;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 5);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
             if (extractNumericValueFromBitArray == 15) {
-                return new DecodedChar(i2 + 5, '$');
+                return new DecodedChar(i + 5, '$');
             }
             if (extractNumericValueFromBitArray >= 5 && extractNumericValueFromBitArray < 15) {
-                return new DecodedChar(i2 + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
+                return new DecodedChar(i + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
             }
-            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 6);
+            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 6);
             if (extractNumericValueFromBitArray2 >= 32 && extractNumericValueFromBitArray2 < 58) {
-                return new DecodedChar(i2 + 6, (char) (extractNumericValueFromBitArray2 + 33));
+                return new DecodedChar(i + 6, (char) (extractNumericValueFromBitArray2 + 33));
             }
             switch (extractNumericValueFromBitArray2) {
                 case 58:
@@ -73,7 +72,7 @@ public final class GeneralAppIdDecoder {
                     c2 = SignatureImpl.SEP;
                     break;
                 case 61:
-                    c2 = '.';
+                    c2 = IStringUtil.EXTENSION_SEPARATOR;
                     break;
                 case 62:
                     c2 = WebvttCueParser.CHAR_SLASH;
@@ -81,34 +80,34 @@ public final class GeneralAppIdDecoder {
                 default:
                     throw new IllegalStateException("Decoding invalid alphanumeric value: " + extractNumericValueFromBitArray2);
             }
-            return new DecodedChar(i2 + 6, c2);
+            return new DecodedChar(i + 6, c2);
         }
         return (DecodedChar) invokeI.objValue;
     }
 
-    private DecodedChar decodeIsoIec646(int i2) throws FormatException {
+    private DecodedChar decodeIsoIec646(int i) throws FormatException {
         InterceptResult invokeI;
         char c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 5);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 5);
             if (extractNumericValueFromBitArray == 15) {
-                return new DecodedChar(i2 + 5, '$');
+                return new DecodedChar(i + 5, '$');
             }
             if (extractNumericValueFromBitArray >= 5 && extractNumericValueFromBitArray < 15) {
-                return new DecodedChar(i2 + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
+                return new DecodedChar(i + 5, (char) ((extractNumericValueFromBitArray + 48) - 5));
             }
-            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 7);
+            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 7);
             if (extractNumericValueFromBitArray2 < 64 || extractNumericValueFromBitArray2 >= 90) {
                 if (extractNumericValueFromBitArray2 >= 90 && extractNumericValueFromBitArray2 < 116) {
-                    return new DecodedChar(i2 + 7, (char) (extractNumericValueFromBitArray2 + 7));
+                    return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 7));
                 }
-                switch (extractNumericValueFromBitArray(i2, 8)) {
+                switch (extractNumericValueFromBitArray(i, 8)) {
                     case w0.c1 /* 232 */:
                         c2 = '!';
                         break;
                     case WriteActivity.CONTENT_MAX_COUNT /* 233 */:
-                        c2 = '\"';
+                        c2 = Typography.quote;
                         break;
                     case 234:
                         c2 = '%';
@@ -117,7 +116,7 @@ public final class GeneralAppIdDecoder {
                         c2 = '&';
                         break;
                     case 236:
-                        c2 = ExtendedMessageFormat.QUOTE;
+                        c2 = '\'';
                         break;
                     case 237:
                         c2 = '(';
@@ -134,13 +133,13 @@ public final class GeneralAppIdDecoder {
                     case 241:
                         c2 = ',';
                         break;
-                    case 242:
+                    case w0.i0 /* 242 */:
                         c2 = SignatureImpl.SEP;
                         break;
-                    case LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK /* 243 */:
-                        c2 = '.';
+                    case 243:
+                        c2 = IStringUtil.EXTENSION_SEPARATOR;
                         break;
-                    case 244:
+                    case GDiffPatcher.COPY_UBYTE_UBYTE /* 244 */:
                         c2 = WebvttCueParser.CHAR_SLASH;
                         break;
                     case 245:
@@ -153,7 +152,7 @@ public final class GeneralAppIdDecoder {
                         c2 = '<';
                         break;
                     case 248:
-                        c2 = a.f29503h;
+                        c2 = '=';
                         break;
                     case 249:
                         c2 = '>';
@@ -170,123 +169,123 @@ public final class GeneralAppIdDecoder {
                     default:
                         throw FormatException.getFormatInstance();
                 }
-                return new DecodedChar(i2 + 8, c2);
+                return new DecodedChar(i + 8, c2);
             }
-            return new DecodedChar(i2 + 7, (char) (extractNumericValueFromBitArray2 + 1));
+            return new DecodedChar(i + 7, (char) (extractNumericValueFromBitArray2 + 1));
         }
         return (DecodedChar) invokeI.objValue;
     }
 
-    private DecodedNumeric decodeNumeric(int i2) throws FormatException {
+    private DecodedNumeric decodeNumeric(int i) throws FormatException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
-            int i3 = i2 + 7;
-            if (i3 > this.information.getSize()) {
-                int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 4);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
+            int i2 = i + 7;
+            if (i2 > this.information.getSize()) {
+                int extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 4);
                 if (extractNumericValueFromBitArray == 0) {
                     return new DecodedNumeric(this.information.getSize(), 10, 10);
                 }
                 return new DecodedNumeric(this.information.getSize(), extractNumericValueFromBitArray - 1, 10);
             }
-            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 7) - 8;
-            return new DecodedNumeric(i3, extractNumericValueFromBitArray2 / 11, extractNumericValueFromBitArray2 % 11);
+            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 7) - 8;
+            return new DecodedNumeric(i2, extractNumericValueFromBitArray2 / 11, extractNumericValueFromBitArray2 % 11);
         }
         return (DecodedNumeric) invokeI.objValue;
     }
 
-    private boolean isAlphaOr646ToNumericLatch(int i2) {
+    private boolean isAlphaOr646ToNumericLatch(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            int i3 = i2 + 3;
-            if (i3 > this.information.getSize()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            int i2 = i + 3;
+            if (i2 > this.information.getSize()) {
                 return false;
             }
-            while (i2 < i3) {
+            while (i < i2) {
+                if (this.information.get(i)) {
+                    return false;
+                }
+                i++;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    private boolean isAlphaTo646ToAlphaLatch(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            if (i + 1 > this.information.getSize()) {
+                return false;
+            }
+            for (int i3 = 0; i3 < 5 && (i2 = i3 + i) < this.information.getSize(); i3++) {
+                if (i3 == 2) {
+                    if (!this.information.get(i + 2)) {
+                        return false;
+                    }
+                } else if (this.information.get(i2)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    private boolean isNumericToAlphaNumericLatch(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+            if (i + 1 > this.information.getSize()) {
+                return false;
+            }
+            for (int i3 = 0; i3 < 4 && (i2 = i3 + i) < this.information.getSize(); i3++) {
                 if (this.information.get(i2)) {
                     return false;
                 }
-                i2++;
             }
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    private boolean isAlphaTo646ToAlphaLatch(int i2) {
-        InterceptResult invokeI;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-            if (i2 + 1 > this.information.getSize()) {
-                return false;
-            }
-            for (int i4 = 0; i4 < 5 && (i3 = i4 + i2) < this.information.getSize(); i4++) {
-                if (i4 == 2) {
-                    if (!this.information.get(i2 + 2)) {
-                        return false;
-                    }
-                } else if (this.information.get(i3)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    private boolean isNumericToAlphaNumericLatch(int i2) {
-        InterceptResult invokeI;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
-            if (i2 + 1 > this.information.getSize()) {
-                return false;
-            }
-            for (int i4 = 0; i4 < 4 && (i3 = i4 + i2) < this.information.getSize(); i4++) {
-                if (this.information.get(i3)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    private boolean isStillAlpha(int i2) {
+    private boolean isStillAlpha(int i) {
         InterceptResult invokeI;
         int extractNumericValueFromBitArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-            if (i2 + 5 > this.information.getSize()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            if (i + 5 > this.information.getSize()) {
                 return false;
             }
-            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 5);
+            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 5);
             if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
-                return i2 + 6 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 6)) >= 16 && extractNumericValueFromBitArray < 63;
+                return i + 6 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 6)) >= 16 && extractNumericValueFromBitArray < 63;
             }
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    private boolean isStillIsoIec646(int i2) {
+    private boolean isStillIsoIec646(int i) {
         InterceptResult invokeI;
         int extractNumericValueFromBitArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) {
-            if (i2 + 5 > this.information.getSize()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) {
+            if (i + 5 > this.information.getSize()) {
                 return false;
             }
-            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i2, 5);
+            int extractNumericValueFromBitArray2 = extractNumericValueFromBitArray(i, 5);
             if (extractNumericValueFromBitArray2 < 5 || extractNumericValueFromBitArray2 >= 16) {
-                if (i2 + 7 > this.information.getSize()) {
+                if (i + 7 > this.information.getSize()) {
                     return false;
                 }
-                int extractNumericValueFromBitArray3 = extractNumericValueFromBitArray(i2, 7);
+                int extractNumericValueFromBitArray3 = extractNumericValueFromBitArray(i, 7);
                 if (extractNumericValueFromBitArray3 < 64 || extractNumericValueFromBitArray3 >= 116) {
-                    return i2 + 8 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i2, 8)) >= 232 && extractNumericValueFromBitArray < 253;
+                    return i + 8 <= this.information.getSize() && (extractNumericValueFromBitArray = extractNumericValueFromBitArray(i, 8)) >= 232 && extractNumericValueFromBitArray < 253;
                 }
                 return true;
             }
@@ -295,25 +294,25 @@ public final class GeneralAppIdDecoder {
         return invokeI.booleanValue;
     }
 
-    private boolean isStillNumeric(int i2) {
+    private boolean isStillNumeric(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65546, this, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65546, this, i)) != null) {
             return invokeI.booleanValue;
         }
-        if (i2 + 7 > this.information.getSize()) {
-            return i2 + 4 <= this.information.getSize();
+        if (i + 7 > this.information.getSize()) {
+            return i + 4 <= this.information.getSize();
         }
-        int i3 = i2;
+        int i2 = i;
         while (true) {
-            int i4 = i2 + 3;
-            if (i3 < i4) {
-                if (this.information.get(i3)) {
+            int i3 = i + 3;
+            if (i2 < i3) {
+                if (this.information.get(i2)) {
                     return true;
                 }
-                i3++;
+                i2++;
             } else {
-                return this.information.get(i4);
+                return this.information.get(i3);
             }
         }
     }
@@ -432,22 +431,22 @@ public final class GeneralAppIdDecoder {
         return (BlockParsedResult) invokeV.objValue;
     }
 
-    public String decodeAllCodes(StringBuilder sb, int i2) throws NotFoundException, FormatException {
+    public String decodeAllCodes(StringBuilder sb, int i) throws NotFoundException, FormatException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLI = interceptable.invokeLI(1048576, this, sb, i2)) != null) {
+        if (interceptable != null && (invokeLI = interceptable.invokeLI(1048576, this, sb, i)) != null) {
             return (String) invokeLI.objValue;
         }
         String str = null;
         while (true) {
-            DecodedInformation decodeGeneralPurposeField = decodeGeneralPurposeField(i2, str);
+            DecodedInformation decodeGeneralPurposeField = decodeGeneralPurposeField(i, str);
             String parseFieldsInGeneralPurpose = FieldParser.parseFieldsInGeneralPurpose(decodeGeneralPurposeField.getNewString());
             if (parseFieldsInGeneralPurpose != null) {
                 sb.append(parseFieldsInGeneralPurpose);
             }
             String valueOf = decodeGeneralPurposeField.isRemaining() ? String.valueOf(decodeGeneralPurposeField.getRemainingValue()) : null;
-            if (i2 != decodeGeneralPurposeField.getNewPosition()) {
-                i2 = decodeGeneralPurposeField.getNewPosition();
+            if (i != decodeGeneralPurposeField.getNewPosition()) {
+                i = decodeGeneralPurposeField.getNewPosition();
                 str = valueOf;
             } else {
                 return sb.toString();
@@ -455,15 +454,15 @@ public final class GeneralAppIdDecoder {
         }
     }
 
-    public DecodedInformation decodeGeneralPurposeField(int i2, String str) throws FormatException {
+    public DecodedInformation decodeGeneralPurposeField(int i, String str) throws FormatException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             this.buffer.setLength(0);
             if (str != null) {
                 this.buffer.append(str);
             }
-            this.current.setPosition(i2);
+            this.current.setPosition(i);
             DecodedInformation parseBlocks = parseBlocks();
             if (parseBlocks != null && parseBlocks.isRemaining()) {
                 return new DecodedInformation(this.current.getPosition(), this.buffer.toString(), parseBlocks.getRemainingValue());
@@ -473,23 +472,23 @@ public final class GeneralAppIdDecoder {
         return (DecodedInformation) invokeIL.objValue;
     }
 
-    public int extractNumericValueFromBitArray(int i2, int i3) {
+    public int extractNumericValueFromBitArray(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? extractNumericValueFromBitArray(this.information, i2, i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? extractNumericValueFromBitArray(this.information, i, i2) : invokeII.intValue;
     }
 
-    public static int extractNumericValueFromBitArray(BitArray bitArray, int i2, int i3) {
+    public static int extractNumericValueFromBitArray(BitArray bitArray, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i2, i3)) == null) {
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                if (bitArray.get(i2 + i5)) {
-                    i4 |= 1 << ((i3 - i5) - 1);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitArray, i, i2)) == null) {
+            int i3 = 0;
+            for (int i4 = 0; i4 < i2; i4++) {
+                if (bitArray.get(i + i4)) {
+                    i3 |= 1 << ((i2 - i4) - 1);
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }

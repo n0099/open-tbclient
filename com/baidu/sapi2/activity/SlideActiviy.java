@@ -60,9 +60,9 @@ public class SlideActiviy extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {slideActiviy};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -84,9 +84,9 @@ public class SlideActiviy extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -206,9 +206,9 @@ public class SlideActiviy extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -265,9 +265,9 @@ public class SlideActiviy extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -296,9 +296,9 @@ public class SlideActiviy extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -347,48 +347,48 @@ public class SlideActiviy extends BaseActivity {
                 Log.e(A, "Sliding failed, have you forgot the Activity Theme: @android:style/Theme.Translucent.NoTitleBar");
             }
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-            int i2 = displayMetrics != null ? displayMetrics.widthPixels : 0;
+            int i = displayMetrics != null ? displayMetrics.widthPixels : 0;
             SlideHelper slideHelper = new SlideHelper();
             this.mSlideHelper = slideHelper;
             slideHelper.attachSlideActivity(this);
             this.mSlideHelper.setCanSlide(z);
             this.mSlideHelper.forceActivityTransparent(this.v);
             this.mSlideHelper.setSlideInterceptor(this.w);
-            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener(this, i2) { // from class: com.baidu.sapi2.activity.SlideActiviy.4
+            this.mSlideHelper.setSlideListener(new SlidingPaneLayout.PanelSlideListener(this, i) { // from class: com.baidu.sapi2.activity.SlideActiviy.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ SlideActiviy f36704b;
+                public final /* synthetic */ SlideActiviy f28469b;
 
                 {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36704b = this;
-                    this.a = i2;
+                    this.f28469b = this;
+                    this.a = i;
                 }
 
                 @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
                 public void onPanelClosed(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        if (this.f36704b.x != null) {
-                            this.f36704b.x.onPanelClosed(view);
+                        if (this.f28469b.x != null) {
+                            this.f28469b.x.onPanelClosed(view);
                         }
-                        this.f36704b.a(0.0f);
+                        this.f28469b.a(0.0f);
                     }
                 }
 
@@ -396,13 +396,13 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelOpened(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-                        if (this.f36704b.x != null) {
-                            this.f36704b.x.onPanelOpened(view);
+                        if (this.f28469b.x != null) {
+                            this.f28469b.x.onPanelOpened(view);
                         }
-                        this.f36704b.a(0.0f);
-                        this.f36704b.mSlideHelper.setShadowDrawable(null);
-                        this.f36704b.finishActivityAfterSlideOver();
-                        this.f36704b.overridePendingTransition(0, 0);
+                        this.f28469b.a(0.0f);
+                        this.f28469b.mSlideHelper.setShadowDrawable(null);
+                        this.f28469b.finishActivityAfterSlideOver();
+                        this.f28469b.overridePendingTransition(0, 0);
                     }
                 }
 
@@ -410,7 +410,7 @@ public class SlideActiviy extends BaseActivity {
                 public void onPanelSlide(View view, float f2) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view, f2) == null) {
-                        View maskView = this.f36704b.mSlideHelper.getMaskView();
+                        View maskView = this.f28469b.mSlideHelper.getMaskView();
                         if (maskView != null) {
                             float f3 = 1.0f - f2;
                             if (f3 < 0.0f) {
@@ -418,11 +418,11 @@ public class SlideActiviy extends BaseActivity {
                             }
                             maskView.setAlpha(f3);
                         }
-                        if (this.f36704b.x != null) {
-                            this.f36704b.x.onPanelSlide(view, f2);
+                        if (this.f28469b.x != null) {
+                            this.f28469b.x.onPanelSlide(view, f2);
                         }
                         float f4 = this.a >> 2;
-                        this.f36704b.a((f2 * f4) - f4);
+                        this.f28469b.a((f2 * f4) - f4);
                     }
                 }
             });

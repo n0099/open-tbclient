@@ -15,7 +15,7 @@ public final class NativeCrashHandler {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f34972b;
+    public static Context f27129b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public final class NativeCrashHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,7 +67,7 @@ public final class NativeCrashHandler {
         if (!(interceptable == null || interceptable.invokeL(65539, null, context) == null) || context == null) {
             return;
         }
-        f34972b = context;
+        f27129b = context;
         if (a) {
             File cacheDir = context.getCacheDir();
             if (cacheDir.exists() && cacheDir.isDirectory()) {
@@ -90,7 +90,7 @@ public final class NativeCrashHandler {
     public static void onCrashCallbackFromNative(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            ExceptionAnalysis.getInstance().saveCrashInfo(f34972b, System.currentTimeMillis(), str, "NativeException", 1, 0);
+            ExceptionAnalysis.getInstance().saveCrashInfo(f27129b, System.currentTimeMillis(), str, "NativeException", 1, 0);
         }
     }
 

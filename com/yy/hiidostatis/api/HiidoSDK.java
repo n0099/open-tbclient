@@ -43,7 +43,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HiidoSDK {
     public static /* synthetic */ Interceptable $ic = null;
     public static volatile String HIIDO_HOST = "mlog.bigda.com";
@@ -62,12 +62,12 @@ public class HiidoSDK {
     public Options mOptions;
     public volatile boolean userAgreed;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface HdidReceiver {
         void onHdidReceived(String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Options {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BEHAVIOR_SEND_THRESHOLD_DEFAULT = 10;
@@ -119,9 +119,9 @@ public class HiidoSDK {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -308,11 +308,11 @@ public class HiidoSDK {
             return (Options) invokeZ.objValue;
         }
 
-        public Options setBackgroundDurationMillisAsQuit(long j2) {
+        public Options setBackgroundDurationMillisAsQuit(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
-                this.backgroundDurationMillisAsQuit = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
+                this.backgroundDurationMillisAsQuit = j;
                 return this;
             }
             return (Options) invokeJ.objValue;
@@ -325,31 +325,31 @@ public class HiidoSDK {
             }
         }
 
-        public Options setBehaviorSendThreshold(int i2) {
+        public Options setBehaviorSendThreshold(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-                this.behaviorSendThreshold = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+                this.behaviorSendThreshold = i;
                 return this;
             }
             return (Options) invokeI.objValue;
         }
 
-        public Options setDefaultMetricsExpire(int i2) {
+        public Options setDefaultMetricsExpire(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
-                this.defaultMetricsExpire = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
+                this.defaultMetricsExpire = i;
                 return this;
             }
             return (Options) invokeI.objValue;
         }
 
-        public Options setDefaultMetricsInterval(int i2) {
+        public Options setDefaultMetricsInterval(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) {
-                this.defaultMetricsInterval = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
+                this.defaultMetricsInterval = i;
                 return this;
             }
             return (Options) invokeI.objValue;
@@ -395,10 +395,10 @@ public class HiidoSDK {
             return (Options) invokeL.objValue;
         }
 
-        public void setInterval(int i2) {
+        public void setInterval(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-                this.interval = i2;
+            if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+                this.interval = i;
             }
         }
 
@@ -412,27 +412,27 @@ public class HiidoSDK {
             return (Options) invokeZ.objValue;
         }
 
-        public Options setMaxDataCacheDay(int i2) {
+        public Options setMaxDataCacheDay(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
-                if (i2 <= 5) {
-                    i2 = 5;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+                if (i <= 5) {
+                    i = 5;
                 }
-                AbstractConfig.MAX_DATA_CACHE_DAY = i2;
+                AbstractConfig.MAX_DATA_CACHE_DAY = i;
                 return this;
             }
             return (Options) invokeI.objValue;
         }
 
-        public Options setMaxDataRetryTimes(int i2) {
+        public Options setMaxDataRetryTimes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
-                if (i2 <= 10000) {
-                    i2 = 10000;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
+                if (i <= 10000) {
+                    i = 10000;
                 }
-                AbstractConfig.MAX_DATA_RETRY_TIME = i2;
+                AbstractConfig.MAX_DATA_RETRY_TIME = i;
                 return this;
             }
             return (Options) invokeI.objValue;
@@ -553,7 +553,7 @@ public class HiidoSDK {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class PageActionReportOption {
         public static final /* synthetic */ PageActionReportOption[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -580,16 +580,16 @@ public class HiidoSDK {
             $VALUES = new PageActionReportOption[]{REPORT_ON_FUTURE_RESUME, pageActionReportOption};
         }
 
-        public PageActionReportOption(String str, int i2) {
+        public PageActionReportOption(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -634,9 +634,9 @@ public class HiidoSDK {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -676,8 +676,8 @@ public class HiidoSDK {
                 return;
             }
             String[] strArr = new String[list.size()];
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                strArr[i2] = list.get(i2);
+            for (int i = 0; i < list.size(); i++) {
+                strArr[i] = list.get(i);
             }
             HIIDO_IPS = strArr;
         }
@@ -690,10 +690,10 @@ public class HiidoSDK {
         }
     }
 
-    public MetricsWorker addMetricsWorker(String str, long j2) {
+    public MetricsWorker addMetricsWorker(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2)) == null) ? this.api.addMetricsWorker(str, j2) : (MetricsWorker) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) ? this.api.addMetricsWorker(str, j) : (MetricsWorker) invokeLJ.objValue;
     }
 
     public void appRun() {
@@ -714,10 +714,10 @@ public class HiidoSDK {
         }
     }
 
-    public void beginSession(String str, String str2, long j2, Map<String, Long> map) {
+    public void beginSession(String str, String str2, long j, Map<String, Long> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j2), map}) == null) {
-            this.api.beginSession(str, str2, j2, map);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
+            this.api.beginSession(str, str2, j, map);
         }
     }
 
@@ -851,10 +851,10 @@ public class HiidoSDK {
         }
     }
 
-    public void onResume(long j2, String str) {
+    public void onResume(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048604, this, j2, str) == null) {
-            this.api.onResume(j2, str);
+        if (interceptable == null || interceptable.invokeJL(1048604, this, j, str) == null) {
+            this.api.onResume(j, str);
         }
     }
 
@@ -905,45 +905,45 @@ public class HiidoSDK {
         }
     }
 
-    public void reportCount(int i2, String str, String str2, long j2) {
+    public void reportCount(int i, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2)}) == null) {
-            this.api.reportCount(i2, str, str2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)}) == null) {
+            this.api.reportCount(i, str, str2, j);
         }
     }
 
-    public void reportCountEvent(long j2, String str, double d2) {
+    public void reportCountEvent(long j, String str, double d2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2)}) == null) {
-            this.api.reportCountEvent(j2, str, d2);
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2)}) == null) {
+            this.api.reportCountEvent(j, str, d2);
         }
     }
 
-    public void reportCrash(long j2, String str) {
+    public void reportCrash(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048620, this, j2, str) == null) {
-            this.api.reportCrash(j2, str);
+        if (interceptable == null || interceptable.invokeJL(1048620, this, j, str) == null) {
+            this.api.reportCrash(j, str);
         }
     }
 
-    public void reportCustomContent(long j2, String str, String str2) {
+    public void reportCustomContent(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            this.api.reportCustomContent(j2, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            this.api.reportCustomContent(j, str, str2);
         }
     }
 
-    public void reportErrorEvent(long j2, String str, String str2, String str3) {
+    public void reportErrorEvent(long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j2), str, str2, str3}) == null) {
-            this.api.reportErrorEvent(j2, str, str2, str3);
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
+            this.api.reportErrorEvent(j, str, str2, str3);
         }
     }
 
-    public void reportFailure(long j2, String str, String str2, String str3, String str4, String str5) {
+    public void reportFailure(long j, String str, String str2, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j2), str, str2, str3, str4, str5}) == null) {
-            this.api.reportFailure(j2, str, str2, str3, str4, str5);
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), str, str2, str3, str4, str5}) == null) {
+            this.api.reportFailure(j, str, str2, str3, str4, str5);
         }
     }
 
@@ -953,10 +953,10 @@ public class HiidoSDK {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048625, this, str, str2, str3)) == null) ? this.api.reportFeedBack(str, str2, str3) : invokeLLL.booleanValue;
     }
 
-    public void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i2, String str5) {
+    public void reportIM(String str, String str2, String str3, Date date, Date date2, String str4, int i, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i2), str5}) == null) {
-            this.api.reportIM(str, str2, str3, date, date2, str4, i2, str5);
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{str, str2, str3, date, date2, str4, Integer.valueOf(i), str5}) == null) {
+            this.api.reportIM(str, str2, str3, date, date2, str4, i, str5);
         }
     }
 
@@ -967,10 +967,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportLogin(long j2) {
+    public void reportLogin(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048628, this, j2) == null) {
-            this.api.reportLogin(j2);
+        if (interceptable == null || interceptable.invokeJ(1048628, this, j) == null) {
+            this.api.reportLogin(j);
         }
     }
 
@@ -988,24 +988,24 @@ public class HiidoSDK {
         }
     }
 
-    public void reportReturnCode(int i2, String str, long j2, String str2) {
+    public void reportReturnCode(int i, String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2}) == null) {
-            this.api.reportReturnCode(i2, str, j2, str2, null);
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
+            this.api.reportReturnCode(i, str, j, str2, null);
         }
     }
 
-    public void reportShare(String str, int i2, String str2, ShareType shareType, String str3, String str4, String str5) {
+    public void reportShare(String str, int i, String str2, ShareType shareType, String str3, String str4, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Integer.valueOf(i2), str2, shareType, str3, str4, str5}) == null) {
-            this.api.reportShare(str, i2, str2, shareType, str3, str4, str5);
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Integer.valueOf(i), str2, shareType, str3, str4, str5}) == null) {
+            this.api.reportShare(str, i, str2, shareType, str3, str4, str5);
         }
     }
 
-    public void reportSrcData(int i2, String str, String str2, long j2, Map<String, String> map) {
+    public void reportSrcData(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2), map}) == null) {
-            this.api.reportSrcData(i2, str, str2, j2, map);
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), map}) == null) {
+            this.api.reportSrcData(i, str, str2, j, map);
         }
     }
 
@@ -1030,17 +1030,17 @@ public class HiidoSDK {
         }
     }
 
-    public void reportSuccess(long j2, String str, String str2, long j3, String str3) {
+    public void reportSuccess(long j, String str, String str2, long j2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Long.valueOf(j2), str, str2, Long.valueOf(j3), str3}) == null) {
-            this.api.reportSuccess(j2, str, str2, j3, str3);
+        if (interceptable == null || interceptable.invokeCommon(1048643, this, new Object[]{Long.valueOf(j), str, str2, Long.valueOf(j2), str3}) == null) {
+            this.api.reportSuccess(j, str, str2, j2, str3);
         }
     }
 
-    public void reportTimesEvent(long j2, String str) {
+    public void reportTimesEvent(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048644, this, j2, str) == null) {
-            this.api.reportTimesEvent(j2, str);
+        if (interceptable == null || interceptable.invokeJL(1048644, this, j, str) == null) {
+            this.api.reportTimesEvent(j, str);
         }
     }
 
@@ -1140,9 +1140,9 @@ public class HiidoSDK {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7, hdidReceiver};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1171,10 +1171,10 @@ public class HiidoSDK {
         }
     }
 
-    public void onResume(long j2, Activity activity) {
+    public void onResume(long j, Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048603, this, j2, activity) == null) {
-            this.api.onResume(j2, activity);
+        if (interceptable == null || interceptable.invokeJL(1048603, this, j, activity) == null) {
+            this.api.onResume(j, activity);
         }
     }
 
@@ -1184,38 +1184,38 @@ public class HiidoSDK {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{str, str2, calAction, str3, number, map, map2})) == null) ? this.api.pushToSession(str, str2, calAction, str3, number, map, map2) : invokeCommon.booleanValue;
     }
 
-    public void reportCount(int i2, String str, String str2, long j2, int i3) {
+    public void reportCount(int i, String str, String str2, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            this.api.reportCount(i2, str, str2, j2, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            this.api.reportCount(i, str, str2, j, i2);
         }
     }
 
-    public void reportCountEvent(long j2, String str, double d2, String str2) {
+    public void reportCountEvent(long j, String str, double d2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2), str2}) == null) {
-            this.api.reportCountEvent(j2, str, d2, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2}) == null) {
+            this.api.reportCountEvent(j, str, d2, str2);
         }
     }
 
-    public void reportCrash(long j2, Throwable th) {
+    public void reportCrash(long j, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048621, this, j2, th) == null) {
-            this.api.reportCrash(j2, th);
+        if (interceptable == null || interceptable.invokeJL(1048621, this, j, th) == null) {
+            this.api.reportCrash(j, th);
         }
     }
 
-    public void reportReturnCode(int i2, String str, long j2, String str2, Map<String, String> map) {
+    public void reportReturnCode(int i, String str, long j, String str2, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2, map}) == null) {
-            this.api.reportReturnCode(i2, str, j2, str2, map);
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2, map}) == null) {
+            this.api.reportReturnCode(i, str, j, str2, map);
         }
     }
 
-    public void reportSrcData(String str, int i2, String str2, String str3, long j2, Map<String, String> map) {
+    public void reportSrcData(String str, int i, String str2, String str3, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), map}) == null) {
-            this.api.reportSrcData(str, i2, str2, str3, j2, map);
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), map}) == null) {
+            this.api.reportSrcData(str, i, str2, str3, j, map);
         }
     }
 
@@ -1233,10 +1233,10 @@ public class HiidoSDK {
         }
     }
 
-    public void reportTimesEvent(long j2, String str, String str2) {
+    public void reportTimesEvent(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j2), str, str2}) == null) {
-            this.api.reportTimesEvent(j2, str, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048645, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+            this.api.reportTimesEvent(j, str, str2);
         }
     }
 
@@ -1247,45 +1247,45 @@ public class HiidoSDK {
         }
     }
 
-    public void reportCount(String str, int i2, String str2, String str3, long j2) {
+    public void reportCount(String str, int i, String str2, String str3, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2)}) == null) {
-            this.api.reportCount(str, i2, str2, str3, j2, 1);
+        if (interceptable == null || interceptable.invokeCommon(1048615, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j)}) == null) {
+            this.api.reportCount(str, i, str2, str3, j, 1);
         }
     }
 
-    public void reportCountEvent(long j2, String str, double d2, String str2, Property property) {
+    public void reportCountEvent(long j, String str, double d2, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j2), str, Double.valueOf(d2), str2, property}) == null) {
-            this.api.reportCountEvent(j2, str, d2, str2, property);
+        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Long.valueOf(j), str, Double.valueOf(d2), str2, property}) == null) {
+            this.api.reportCountEvent(j, str, d2, str2, property);
         }
     }
 
-    public void reportReturnCode(String str, int i2, String str2, long j2, String str3) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2), str3}) == null) {
-            this.api.reportReturnCode(str, i2, str2, j2, str3, null);
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3}) == null) {
+            this.api.reportReturnCode(str, i, str2, j, str3, null);
         }
     }
 
-    public void reportTimesEvent(long j2, String str, String str2, Property property) {
+    public void reportTimesEvent(long j, String str, String str2, Property property) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j2), str, str2, property}) == null) {
-            this.api.reportTimesEvent(j2, str, str2, property);
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Long.valueOf(j), str, str2, property}) == null) {
+            this.api.reportTimesEvent(j, str, str2, property);
         }
     }
 
-    public void reportCount(String str, int i2, String str2, String str3, long j2, int i3) {
+    public void reportCount(String str, int i, String str2, String str3, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            this.api.reportCount(str, i2, str2, str3, j2, i3);
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{str, Integer.valueOf(i), str2, str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            this.api.reportCount(str, i, str2, str3, j, i2);
         }
     }
 
-    public void reportReturnCode(String str, int i2, String str2, long j2, String str3, Map<String, String> map) {
+    public void reportReturnCode(String str, int i, String str2, long j, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i2), str2, Long.valueOf(j2), str3, map}) == null) {
-            this.api.reportReturnCode(str, i2, str2, j2, str3, map);
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i), str2, Long.valueOf(j), str3, map}) == null) {
+            this.api.reportReturnCode(str, i, str2, j, str3, map);
         }
     }
 

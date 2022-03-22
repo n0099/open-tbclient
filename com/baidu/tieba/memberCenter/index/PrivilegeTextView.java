@@ -15,27 +15,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PrivilegeTextView extends TextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public a f44468e;
+    public a a;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(CharSequence charSequence, int i2, int i3, int i4);
+        void a(CharSequence charSequence, int i, int i2, int i3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PrivilegeTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PrivilegeTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -56,28 +54,22 @@ public class PrivilegeTextView extends TextView {
         return invokeV.intValue;
     }
 
-    public boolean isOverFlowed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? getPaint().measureText(getText().toString()) > ((float) getAvailableWidth()) : invokeV.booleanValue;
-    }
-
     @Override // android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i2, i3, i4) == null) {
-            super.onTextChanged(charSequence, i2, i3, i4);
-            a aVar = this.f44468e;
+        if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            super.onTextChanged(charSequence, i, i2, i3);
+            a aVar = this.a;
             if (aVar != null) {
-                aVar.a(charSequence, i2, i3, i4);
+                aVar.a(charSequence, i, i2, i3);
             }
         }
     }
 
     public void setTextChangeListener(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f44468e = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.a = aVar;
         }
     }
 
@@ -90,9 +82,9 @@ public class PrivilegeTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -111,9 +103,9 @@ public class PrivilegeTextView extends TextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.ExtendableMessage;
 import com.squareup.wire.Message;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Extension<T extends ExtendableMessage<?>, E> implements Comparable<Extension<?, ?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,16 +22,16 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
     public final String name;
     public final int tag;
 
-    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i2, Message.Label label, Message.Datatype datatype) {
+    public Extension(Class<T> cls, Class<? extends Message> cls2, Class<? extends ProtoEnum> cls3, String str, int i, Message.Label label, Message.Datatype datatype) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2, cls3, str, Integer.valueOf(i2), label, datatype};
+            Object[] objArr = {cls, cls2, cls3, str, Integer.valueOf(i), label, datatype};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,7 +39,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         }
         this.extendedType = cls;
         this.name = str;
-        this.tag = i2;
+        this.tag = i;
         this.datatype = datatype;
         this.label = label;
         this.messageType = cls2;
@@ -226,10 +226,10 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
             if (extension == this) {
                 return 0;
             }
-            int i2 = this.tag;
-            int i3 = extension.tag;
-            if (i2 != i3) {
-                return i2 - i3;
+            int i = this.tag;
+            int i2 = extension.tag;
+            if (i != i2) {
+                return i - i2;
             }
             Message.Datatype datatype = this.datatype;
             if (datatype != extension.datatype) {
@@ -261,7 +261,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         return invokeL.intValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder<T extends ExtendableMessage<?>, E> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -280,9 +280,9 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cls, datatype};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -388,11 +388,11 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
             return (Builder) invokeL.objValue;
         }
 
-        public Builder<T, E> setTag(int i2) {
+        public Builder<T, E> setTag(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.tag = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.tag = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -409,9 +409,9 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cls, cls2, cls3, datatype};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -431,7 +431,7 @@ public final class Extension<T extends ExtendableMessage<?>, E> implements Compa
         }
     }
 
-    public /* synthetic */ Extension(Class cls, Class cls2, Class cls3, String str, int i2, Message.Label label, Message.Datatype datatype, Extension extension) {
-        this(cls, cls2, cls3, str, i2, label, datatype);
+    public /* synthetic */ Extension(Class cls, Class cls2, Class cls3, String str, int i, Message.Label label, Message.Datatype datatype, Extension extension) {
+        this(cls, cls2, cls3, str, i, label, datatype);
     }
 }

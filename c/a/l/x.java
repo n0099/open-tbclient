@@ -11,13 +11,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class x extends a<c.a.q0.r.r.a> {
+public class x extends a<c.a.o0.r.r.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: j  reason: collision with root package name */
-    public MutiImgSingleHorizontalLayout f4092j;
-    public int k;
+    /* renamed from: f  reason: collision with root package name */
+    public MutiImgSingleHorizontalLayout f3500f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f3501g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public x(Context context) {
@@ -28,69 +30,69 @@ public class x extends a<c.a.q0.r.r.a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 3;
-        this.f4092j = new MutiImgSingleHorizontalLayout(context);
+        this.f3501g = 3;
+        this.f3500f = new MutiImgSingleHorizontalLayout(context);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4092j : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3500f : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.a
-    public void g() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
     @Override // c.a.l.a
-    public void k(c.a.r0.f0.b0<c.a.q0.r.r.a> b0Var) {
+    public void l(c.a.p0.h0.b0<c.a.o0.r.r.a> b0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b0Var) == null) {
-            this.f4092j.setSubClickListener(b0Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, b0Var) == null) {
+            this.f3500f.setSubClickListener(b0Var);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: n */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: o */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f4092j.onBindDataToView(aVar);
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.f3500f.a(aVar);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            this.k = i2;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
+            this.f3501g = i;
         }
     }
 
-    public void p(boolean z) {
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
+
+    public void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f4092j.setFromCDN(z);
+            this.f3500f.setFromCDN(z);
         }
     }
 }

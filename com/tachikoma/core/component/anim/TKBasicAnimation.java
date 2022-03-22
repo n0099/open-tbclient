@@ -49,9 +49,8 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.CharUtils;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBasicAnimation {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AXIS_X = 1;
@@ -87,7 +86,7 @@ public class TKBasicAnimation {
     public String timeFunction;
     public String timingFunction;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface AnimationJsCallback {
         void onJsExecuteComplete(double d2);
     }
@@ -99,9 +98,9 @@ public class TKBasicAnimation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -126,9 +125,9 @@ public class TKBasicAnimation {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -166,9 +165,9 @@ public class TKBasicAnimation {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -265,9 +264,9 @@ public class TKBasicAnimation {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, tKBase};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -639,7 +638,7 @@ public class TKBasicAnimation {
                             break;
                         case -289173127:
                             if (next.equals(AnimationProperty.MARGIN_BOTTOM)) {
-                                c2 = CharUtils.CR;
+                                c2 = '\r';
                                 break;
                             }
                             c2 = 65535;
@@ -755,7 +754,7 @@ public class TKBasicAnimation {
             animatorSet.setInterpolator(getInterpolator());
             animatorSet.addListener(this.animatorListener);
             animatorSet.start();
-            view.setTag(R.id.tk_animation, animatorSet);
+            view.setTag(R.id.obfuscated_res_0x7f09207c, animatorSet);
         }
     }
 
@@ -796,8 +795,8 @@ public class TKBasicAnimation {
     }
 
     private void startKeyframeAnimation(View view) {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65554, this, view) == null) {
             if ("position".equalsIgnoreCase(this.animType)) {
@@ -806,14 +805,14 @@ public class TKBasicAnimation {
                 animAlpha(view);
             } else {
                 if (AnimationProperty.SCALE.equalsIgnoreCase(this.animType)) {
-                    i3 = 13;
+                    i2 = 13;
                 } else if (AnimationProperty.SCALE_X.equalsIgnoreCase(this.animType)) {
-                    i3 = 11;
+                    i2 = 11;
                 } else if (!AnimationProperty.SCALE_Y.equalsIgnoreCase(this.animType)) {
                     if (AnimationProperty.ROTATE_X.equalsIgnoreCase(this.animType)) {
-                        i2 = 1;
+                        i = 1;
                     } else if (AnimationProperty.ROTATE_Y.equalsIgnoreCase(this.animType)) {
-                        i2 = 2;
+                        i = 2;
                     } else if (!"rotationZ".equalsIgnoreCase(this.animType)) {
                         if ("bgColor".equalsIgnoreCase(this.animType)) {
                             animBackgroundColor(view);
@@ -821,14 +820,14 @@ public class TKBasicAnimation {
                         }
                         return;
                     } else {
-                        i2 = 3;
+                        i = 3;
                     }
-                    animRotation(view, i2);
+                    animRotation(view, i);
                     return;
                 } else {
-                    i3 = 12;
+                    i2 = 12;
                 }
-                animScale(view, i3);
+                animScale(view, i2);
             }
         }
     }
@@ -852,9 +851,9 @@ public class TKBasicAnimation {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, str, tKBase};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -920,10 +919,10 @@ public class TKBasicAnimation {
         duration.start();
     }
 
-    public void animRotation(View view, int i2) {
+    public void animRotation(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-            ObjectAnimator duration = ObjectAnimator.ofFloat(view, i2 != 1 ? i2 != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X, 0.0f, parseFloatValue(trans2String(this.animValue))).setDuration(getAnimDuration());
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            ObjectAnimator duration = ObjectAnimator.ofFloat(view, i != 1 ? i != 2 ? "rotation" : AnimationProperty.ROTATE_Y : AnimationProperty.ROTATE_X, 0.0f, parseFloatValue(trans2String(this.animValue))).setDuration(getAnimDuration());
             this.animator = duration;
             duration.setRepeatCount(this.repeatCount);
             duration.setRepeatMode(this.autoReverse ? 2 : 1);
@@ -938,15 +937,15 @@ public class TKBasicAnimation {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void animScale(View view, int i2) {
+    public void animScale(View view, int i) {
         ObjectAnimator ofFloat;
         ObjectAnimator duration;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, view, i) == null) {
             float parseFloatValue = parseFloatValue(trans2String(this.animValue));
-            if (i2 == 11) {
+            if (i == 11) {
                 ofFloat = ObjectAnimator.ofFloat(view, AnimationProperty.SCALE_X, 0.0f, parseFloatValue);
-            } else if (i2 != 12) {
+            } else if (i != 12) {
                 duration = ObjectAnimator.ofPropertyValuesHolder(view, PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_X, parseFloatValue), PropertyValuesHolder.ofFloat(AnimationProperty.SCALE_Y, parseFloatValue));
                 this.animator = duration;
                 duration.setRepeatCount(this.repeatCount);
@@ -1193,7 +1192,7 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.tk_animation);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
         if (tag instanceof AnimatorSet) {
             pauseAnimation((AnimatorSet) tag);
         }
@@ -1232,7 +1231,7 @@ public class TKBasicAnimation {
         if (!(interceptable == null || interceptable.invokeL(1048597, this, tKBase) == null) || tKBase == null || tKBase.getView() == null) {
             return;
         }
-        Object tag = tKBase.getView().getTag(R.id.tk_animation);
+        Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
         if (tag instanceof AnimatorSet) {
             resumeAnimation((AnimatorSet) tag);
         }
@@ -1287,19 +1286,19 @@ public class TKBasicAnimation {
         }
     }
 
-    public void setRepeatCount(int i2) {
-        int i3;
+    public void setRepeatCount(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            if (i2 >= Integer.MAX_VALUE) {
-                i3 = -1;
-            } else if (i2 <= 0) {
-                this.repeatCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            if (i >= Integer.MAX_VALUE) {
+                i2 = -1;
+            } else if (i <= 0) {
+                this.repeatCount = i;
                 return;
             } else {
-                i3 = i2 - 1;
+                i2 = i - 1;
             }
-            this.repeatCount = i3;
+            this.repeatCount = i2;
         }
     }
 
@@ -1345,7 +1344,7 @@ public class TKBasicAnimation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048610, this, tKBase) == null) {
             if (newVersionEnable() && tKBase != null && tKBase.getView() != null) {
-                Object tag = tKBase.getView().getTag(R.id.tk_animation);
+                Object tag = tKBase.getView().getTag(R.id.obfuscated_res_0x7f09207c);
                 if (tag instanceof AnimatorSet) {
                     AnimatorSet animatorSet = (AnimatorSet) tag;
                     animatorSet.removeAllListeners();

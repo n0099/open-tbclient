@@ -55,9 +55,9 @@ public class FaceResultData implements Parcelable, IFaceResultData {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -67,10 +67,10 @@ public class FaceResultData implements Parcelable, IFaceResultData {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: C */
-            public FaceResultData[] newArray(int i2) {
+            public FaceResultData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? new FaceResultData[i2] : (FaceResultData[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? new FaceResultData[i] : (FaceResultData[]) invokeI.objValue;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -89,9 +89,9 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -116,9 +116,9 @@ public class FaceResultData implements Parcelable, IFaceResultData {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -148,7 +148,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
             this.nS = null;
         } else {
             this.nS = new ArrayList();
-            for (int i4 = 0; i4 < readInt; i4++) {
+            for (int i3 = 0; i3 < readInt; i3++) {
                 this.nS.add(parcel.createFloatArray());
             }
         }
@@ -158,7 +158,7 @@ public class FaceResultData implements Parcelable, IFaceResultData {
             return;
         }
         this.nr = new ArrayList();
-        for (int i5 = 0; i5 < readInt2; i5++) {
+        for (int i4 = 0; i4 < readInt2; i4++) {
             this.nr.add(parcel.createStringArray());
         }
     }
@@ -240,20 +240,20 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     public float[] getNormalizedFaceBoxes() {
         InterceptResult invokeV;
         float[] fArr;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.nV == null && (fArr = this.nQ) != null && (i2 = this.nP) > 0 && (i3 = this.nO) > 0) {
+            if (this.nV == null && (fArr = this.nQ) != null && (i = this.nP) > 0 && (i2 = this.nO) > 0) {
                 this.nV = new float[fArr.length];
-                float f2 = i3;
-                float f3 = i2;
+                float f2 = i2;
+                float f3 = i;
                 int length = fArr.length;
-                for (int i4 = 0; i4 < length; i4++) {
-                    if (i4 % 2 == 0) {
-                        this.nV[i4] = this.nQ[i4] / f2;
+                for (int i3 = 0; i3 < length; i3++) {
+                    if (i3 % 2 == 0) {
+                        this.nV[i3] = this.nQ[i3] / f2;
                     } else {
-                        this.nV[i4] = this.nQ[i4] / f3;
+                        this.nV[i3] = this.nQ[i3] / f3;
                     }
                 }
             }
@@ -272,8 +272,8 @@ public class FaceResultData implements Parcelable, IFaceResultData {
                 float f2 = this.nO;
                 float f3 = this.nP;
                 int size = this.nR.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    PointF pointF = this.nR.get(i2);
+                for (int i = 0; i < size; i++) {
+                    PointF pointF = this.nR.get(i);
                     this.nW.add(new PointF(pointF.x / f2, pointF.y / f3));
                 }
             }
@@ -283,35 +283,35 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List<PointF> getSingleFacePoints(int i2) {
+    public List<PointF> getSingleFacePoints(int i) {
         InterceptResult invokeI;
         List<PointF> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
             int faceCount = getFaceCount();
-            if (i2 < 0 || i2 >= faceCount || (list = this.nR) == null) {
+            if (i < 0 || i >= faceCount || (list = this.nR) == null) {
                 return null;
             }
             int size = list.size() / faceCount;
-            int i3 = i2 * size;
-            return this.nR.subList(i3, size + i3);
+            int i2 = i * size;
+            return this.nR.subList(i2, size + i2);
         }
         return (List) invokeI.objValue;
     }
 
     @Override // com.baidu.ar.face.IFaceResultData
-    public List<PointF> getSingleNormalizedFacePoints(int i2) {
+    public List<PointF> getSingleNormalizedFacePoints(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             int faceCount = getFaceCount();
             List<PointF> normalizedFacePoints = getNormalizedFacePoints();
-            if (i2 < 0 || i2 >= faceCount || normalizedFacePoints == null) {
+            if (i < 0 || i >= faceCount || normalizedFacePoints == null) {
                 return null;
             }
             int size = normalizedFacePoints.size() / faceCount;
-            int i3 = i2 * size;
-            return normalizedFacePoints.subList(i3, size + i3);
+            int i2 = i * size;
+            return normalizedFacePoints.subList(i2, size + i2);
         }
         return (List) invokeI.objValue;
     }
@@ -344,19 +344,19 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.nN : invokeV.booleanValue;
     }
 
-    public void setAlgoImageHeight(int i2) {
+    public void setAlgoImageHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.nP = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.nP = i;
             this.nV = null;
             this.nW = null;
         }
     }
 
-    public void setAlgoImageWidth(int i2) {
+    public void setAlgoImageWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.nO = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.nO = i;
             this.nV = null;
             this.nW = null;
         }
@@ -406,10 +406,10 @@ public class FaceResultData implements Parcelable, IFaceResultData {
         }
     }
 
-    public void setTimestamp(long j2) {
+    public void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.mTimestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.mTimestamp = j;
         }
     }
 
@@ -428,10 +428,10 @@ public class FaceResultData implements Parcelable, IFaceResultData {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         List<String[]> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i) == null) {
             parcel.writeByte(this.nN ? (byte) 1 : (byte) 0);
             parcel.writeInt(this.nO);
             parcel.writeInt(this.nP);

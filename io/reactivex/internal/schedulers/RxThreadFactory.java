@@ -33,9 +33,9 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {runnable, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Runnable) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -55,9 +55,9 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -92,17 +92,17 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RxThreadFactory(String str, int i2) {
-        this(str, i2, false);
+    public RxThreadFactory(String str, int i) {
+        this(str, i, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -112,23 +112,23 @@ public final class RxThreadFactory extends AtomicLong implements ThreadFactory {
         }
     }
 
-    public RxThreadFactory(String str, int i2, boolean z) {
+    public RxThreadFactory(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.prefix = str;
-        this.priority = i2;
+        this.priority = i;
         this.nonBlocking = z;
     }
 }

@@ -3,6 +3,7 @@ package com.google.android.exoplayer2.mediacodec;
 import android.annotation.TargetApi;
 import android.graphics.Point;
 import android.media.MediaCodecInfo;
+import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
@@ -17,7 +18,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.Util;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaCodecInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MediaCodecInfo";
@@ -36,9 +37,9 @@ public final class MediaCodecInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, codecCapabilities, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,34 +57,34 @@ public final class MediaCodecInfo {
         this.secure = z3;
     }
 
-    public static int adjustMaxInputChannelCount(String str, String str2, int i2) {
+    public static int adjustMaxInputChannelCount(String str, String str2, int i) {
         InterceptResult invokeLLI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i2)) == null) {
-            if (i2 > 1 || ((Util.SDK_INT >= 26 && i2 > 0) || MimeTypes.AUDIO_MPEG.equals(str2) || MimeTypes.AUDIO_AMR_NB.equals(str2) || MimeTypes.AUDIO_AMR_WB.equals(str2) || "audio/mp4a-latm".equals(str2) || MimeTypes.AUDIO_VORBIS.equals(str2) || MimeTypes.AUDIO_OPUS.equals(str2) || MimeTypes.AUDIO_RAW.equals(str2) || MimeTypes.AUDIO_FLAC.equals(str2) || MimeTypes.AUDIO_ALAW.equals(str2) || MimeTypes.AUDIO_MLAW.equals(str2) || MimeTypes.AUDIO_MSGSM.equals(str2))) {
-                return i2;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            if (i > 1 || ((Util.SDK_INT >= 26 && i > 0) || MimeTypes.AUDIO_MPEG.equals(str2) || MimeTypes.AUDIO_AMR_NB.equals(str2) || MimeTypes.AUDIO_AMR_WB.equals(str2) || "audio/mp4a-latm".equals(str2) || MimeTypes.AUDIO_VORBIS.equals(str2) || MimeTypes.AUDIO_OPUS.equals(str2) || MimeTypes.AUDIO_RAW.equals(str2) || MimeTypes.AUDIO_FLAC.equals(str2) || MimeTypes.AUDIO_ALAW.equals(str2) || MimeTypes.AUDIO_MLAW.equals(str2) || MimeTypes.AUDIO_MSGSM.equals(str2))) {
+                return i;
             }
             if (MimeTypes.AUDIO_AC3.equals(str2)) {
-                i3 = 6;
+                i2 = 6;
             } else {
-                i3 = MimeTypes.AUDIO_E_AC3.equals(str2) ? 16 : 30;
+                i2 = MimeTypes.AUDIO_E_AC3.equals(str2) ? 16 : 30;
             }
-            String str3 = "AssumedMaxChannelAdjustment: " + str + ", [" + i2 + " to " + i3 + PreferencesUtil.RIGHT_MOUNT;
-            return i3;
+            Log.w(TAG, "AssumedMaxChannelAdjustment: " + str + ", [" + i + " to " + i2 + PreferencesUtil.RIGHT_MOUNT);
+            return i2;
         }
         return invokeLLI.intValue;
     }
 
     @TargetApi(21)
-    public static boolean areSizeAndRateSupportedV21(MediaCodecInfo.VideoCapabilities videoCapabilities, int i2, int i3, double d2) {
+    public static boolean areSizeAndRateSupportedV21(MediaCodecInfo.VideoCapabilities videoCapabilities, int i, int i2, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{videoCapabilities, Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{videoCapabilities, Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
             if (d2 != -1.0d && d2 > 0.0d) {
-                return videoCapabilities.areSizeAndRateSupported(i2, i3, d2);
+                return videoCapabilities.areSizeAndRateSupported(i, i2, d2);
             }
-            return videoCapabilities.isSizeSupported(i2, i3);
+            return videoCapabilities.isSizeSupported(i, i2);
         }
         return invokeCommon.booleanValue;
     }
@@ -130,14 +131,14 @@ public final class MediaCodecInfo {
     private void logAssumedSupport(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, str) == null) {
-            String str2 = "AssumedSupport [" + str + "] [" + this.name + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.mimeType + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT;
+            Log.d(TAG, "AssumedSupport [" + str + "] [" + this.name + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.mimeType + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
     private void logNoSupport(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, str) == null) {
-            String str2 = "NoSupport [" + str + "] [" + this.name + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.mimeType + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT;
+            Log.d(TAG, "NoSupport [" + str + "] [" + this.name + StringUtil.ARRAY_ELEMENT_SEPARATOR + this.mimeType + "] [" + Util.DEVICE_DEBUG_INFO + PreferencesUtil.RIGHT_MOUNT);
         }
     }
 
@@ -154,10 +155,10 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public Point alignVideoSizeV21(int i2, int i3) {
+    public Point alignVideoSizeV21(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             MediaCodecInfo.CodecCapabilities codecCapabilities = this.capabilities;
             if (codecCapabilities == null) {
                 logNoSupport("align.caps");
@@ -170,7 +171,7 @@ public final class MediaCodecInfo {
             }
             int widthAlignment = videoCapabilities.getWidthAlignment();
             int heightAlignment = videoCapabilities.getHeightAlignment();
-            return new Point(Util.ceilDivide(i2, widthAlignment) * widthAlignment, Util.ceilDivide(i3, heightAlignment) * heightAlignment);
+            return new Point(Util.ceilDivide(i, widthAlignment) * widthAlignment, Util.ceilDivide(i2, heightAlignment) * heightAlignment);
         }
         return (Point) invokeII.objValue;
     }
@@ -187,10 +188,10 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public boolean isAudioChannelCountSupportedV21(int i2) {
+    public boolean isAudioChannelCountSupportedV21(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             MediaCodecInfo.CodecCapabilities codecCapabilities = this.capabilities;
             if (codecCapabilities == null) {
                 logNoSupport("channelCount.caps");
@@ -200,8 +201,8 @@ public final class MediaCodecInfo {
             if (audioCapabilities == null) {
                 logNoSupport("channelCount.aCaps");
                 return false;
-            } else if (adjustMaxInputChannelCount(this.name, this.mimeType, audioCapabilities.getMaxInputChannelCount()) < i2) {
-                logNoSupport("channelCount.support, " + i2);
+            } else if (adjustMaxInputChannelCount(this.name, this.mimeType, audioCapabilities.getMaxInputChannelCount()) < i) {
+                logNoSupport("channelCount.support, " + i);
                 return false;
             } else {
                 return true;
@@ -211,10 +212,10 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public boolean isAudioSampleRateSupportedV21(int i2) {
+    public boolean isAudioSampleRateSupportedV21(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             MediaCodecInfo.CodecCapabilities codecCapabilities = this.capabilities;
             if (codecCapabilities == null) {
                 logNoSupport("sampleRate.caps");
@@ -224,10 +225,10 @@ public final class MediaCodecInfo {
             if (audioCapabilities == null) {
                 logNoSupport("sampleRate.aCaps");
                 return false;
-            } else if (audioCapabilities.isSampleRateSupported(i2)) {
+            } else if (audioCapabilities.isSampleRateSupported(i)) {
                 return true;
             } else {
-                logNoSupport("sampleRate.support, " + i2);
+                logNoSupport("sampleRate.support, " + i);
                 return false;
             }
         }
@@ -263,10 +264,10 @@ public final class MediaCodecInfo {
     }
 
     @TargetApi(21)
-    public boolean isVideoSizeAndRateSupportedV21(int i2, int i3, double d2) {
+    public boolean isVideoSizeAndRateSupportedV21(int i, int i2, double d2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2)})) == null) {
             MediaCodecInfo.CodecCapabilities codecCapabilities = this.capabilities;
             if (codecCapabilities == null) {
                 logNoSupport("sizeAndRate.caps");
@@ -276,14 +277,14 @@ public final class MediaCodecInfo {
             if (videoCapabilities == null) {
                 logNoSupport("sizeAndRate.vCaps");
                 return false;
-            } else if (areSizeAndRateSupportedV21(videoCapabilities, i2, i3, d2)) {
+            } else if (areSizeAndRateSupportedV21(videoCapabilities, i, i2, d2)) {
                 return true;
             } else {
-                if (i2 < i3 && areSizeAndRateSupportedV21(videoCapabilities, i3, i2, d2)) {
-                    logAssumedSupport("sizeAndRate.rotated, " + i2 + "x" + i3 + "x" + d2);
+                if (i < i2 && areSizeAndRateSupportedV21(videoCapabilities, i2, i, d2)) {
+                    logAssumedSupport("sizeAndRate.rotated, " + i + "x" + i2 + "x" + d2);
                     return true;
                 }
-                logNoSupport("sizeAndRate.support, " + i2 + "x" + i3 + "x" + d2);
+                logNoSupport("sizeAndRate.support, " + i + "x" + i2 + "x" + d2);
                 return false;
             }
         }

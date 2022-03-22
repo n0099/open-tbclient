@@ -14,6 +14,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.plugin.packageManager.status.PluginStatus;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
@@ -43,9 +44,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginErrorTipActivity f39738e;
+        public final /* synthetic */ PluginErrorTipActivity a;
 
         public a(PluginErrorTipActivity pluginErrorTipActivity) {
             Interceptable interceptable = $ic;
@@ -54,15 +53,15 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginErrorTipActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39738e = pluginErrorTipActivity;
+            this.a = pluginErrorTipActivity;
         }
 
         @Override // java.lang.Runnable
@@ -75,7 +74,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) BdBaseApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses();
                 if (runningAppProcesses != null) {
                     for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.f39738e.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
+                        if (runningAppProcessInfo != null && (str = runningAppProcessInfo.processName) != null && str.startsWith(this.a.getApplication().getPackageName()) && runningAppProcessInfo.pid != Process.myPid() && hashSet.contains(runningAppProcessInfo.processName)) {
                             hashSet2.add(Integer.valueOf(runningAppProcessInfo.pid));
                         }
                     }
@@ -94,9 +93,9 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -115,7 +114,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
         }
         intent.putExtra(PluginStatus.class.getName(), jsonStrWithObject);
         if (!(context instanceof Activity)) {
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         context.startActivity(intent);
     }
@@ -123,35 +122,35 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
     public void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
             this.mBack = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
-            this.mNavigationBar.setTitleText(R.string.pluginstatus_tip_title);
-            this.errorImage = (ImageView) findViewById(R.id.plugin_error_tip_image);
-            this.errorInstallFail = (TextView) findViewById(R.id.plugin_error_install_fail);
-            this.resolveMsgView = (TextView) findViewById(R.id.plugin_error_tip_resolve);
-            this.parent = findViewById(R.id.plugin_error_parent);
-            this.shadowLayout = (ShadowLayout) findViewById(R.id.plugin_error_shadow_layout);
-            TextView textView = (TextView) findViewById(R.id.plugin_error_btn);
+            this.mNavigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0e88);
+            this.errorImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f09186d);
+            this.errorInstallFail = (TextView) findViewById(R.id.obfuscated_res_0x7f09186a);
+            this.resolveMsgView = (TextView) findViewById(R.id.obfuscated_res_0x7f09186e);
+            this.parent = findViewById(R.id.obfuscated_res_0x7f09186b);
+            this.shadowLayout = (ShadowLayout) findViewById(R.id.obfuscated_res_0x7f09186c);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091866);
             this.btn = textView;
             textView.setOnClickListener(this);
-            this.resolveMsgView.setText(getString(R.string.plugin_error_tips, new Object[]{this.status.getErrorMsg(), this.status.w()}));
+            this.resolveMsgView.setText(getString(R.string.obfuscated_res_0x7f0f0e5e, new Object[]{this.status.getErrorMsg(), this.status.y()}));
             if (this.status.getErrorCode() != 5 && this.status.getErrorCode() != 1 && this.status.getErrorCode() != 100) {
                 this.btn.setVisibility(8);
                 return;
             }
-            this.btn.setText(R.string.pluginstatus_btn_restartapp);
+            this.btn.setText(R.string.obfuscated_res_0x7f0f0e80);
             this.btn.setVisibility(0);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             SkinManager.setImageResource(this.errorImage, R.drawable.new_pic_emotion_05);
             SkinManager.setViewTextColor(this.errorInstallFail, (int) R.color.CAM_X0108);
             SkinManager.setBackgroundColor(this.parent, R.color.CAM_X0201);
@@ -173,7 +172,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 if (pluginStatus != null && pluginStatus.getErrorCode() == 100) {
                     c.a.d.j.h.a.b().s(true);
                 }
-                showLoadingDialog(getResources().getString(R.string.waiting));
+                showLoadingDialog(getResources().getString(R.string.obfuscated_res_0x7f0f1543));
                 e.a().postDelayed(new a(this), 2000L);
             }
         }
@@ -193,7 +192,7 @@ public class PluginErrorTipActivity extends BaseActivity<PluginErrorTipActivity>
                 finish();
                 return;
             }
-            setContentView(R.layout.plugin_error_tip_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f1);
             initUI();
         }
     }

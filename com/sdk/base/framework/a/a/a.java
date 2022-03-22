@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.f;
 import com.sdk.base.module.manager.SDKManager;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f57707b;
+    public static Boolean f42481b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -36,7 +36,7 @@ public class a {
                 return;
             }
         }
-        f57707b = Boolean.valueOf(f.f57798b);
+        f42481b = Boolean.valueOf(f.f42567b);
     }
 
     public a() {
@@ -44,43 +44,43 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String a(int i2, String str) {
+    public static String a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
             String a2 = com.sdk.base.framework.f.d.a.a();
             if (c.b(a2).booleanValue()) {
-                return YYInnerSSOLoginActivity.o + i2 + str + a2;
+                return YYInnerSSOLoginActivity.o + i + str + a2;
             }
             return null;
         }
         return (String) invokeIL.objValue;
     }
 
-    public static String a(Context context, int i2, String str) {
+    public static String a(Context context, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i, str)) == null) {
             if (SDKManager.useCache()) {
-                String a2 = a(i2, str);
+                String a2 = a(i, str);
                 if (c.b(a2).booleanValue()) {
                     String b2 = com.sdk.base.framework.f.b.a.b(context, a2);
                     if (c.b(b2).booleanValue()) {
                         String b3 = b(b2);
                         String a3 = com.sdk.base.framework.f.k.a.a(context, a(b2));
                         if (!com.sdk.base.framework.f.k.a.a(a3)) {
-                            c.a(a, "can use cache", f57707b);
+                            c.a(a, "can use cache", f42481b);
                             JSONObject jSONObject = new JSONObject(a3);
-                            if (i2 == 1) {
+                            if (i == 1) {
                                 jSONObject.remove(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
                             }
                             StringBuilder sb = new StringBuilder();
@@ -89,7 +89,7 @@ public class a {
                             sb.append(b3);
                             return sb.toString();
                         }
-                        c.a(a, "OutDate cache invalid", f57707b);
+                        c.a(a, "OutDate cache invalid", f42481b);
                     }
                 }
                 return null;
@@ -117,15 +117,15 @@ public class a {
     public static void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            c.a(a, "cache clear", f57707b);
+            c.a(a, "cache clear", f42481b);
             com.sdk.base.framework.f.b.a.d(context, YYInnerSSOLoginActivity.o);
         }
     }
 
-    public static void a(Context context, int i2, String str, String str2) {
+    public static void a(Context context, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(65543, null, context, i2, str, str2) == null) && SDKManager.useCache() && c.b(str).booleanValue()) {
-            String a2 = a(i2, str2);
+        if ((interceptable == null || interceptable.invokeLILL(65543, null, context, i, str, str2) == null) && SDKManager.useCache() && c.b(str).booleanValue()) {
+            String a2 = a(i, str2);
             if (c.b(a2).booleanValue()) {
                 com.sdk.base.framework.f.b.a.b(context, a2, str);
             }
@@ -141,7 +141,7 @@ public class a {
     public static void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            c.a(a, "oauth cache clear", f57707b);
+            c.a(a, "oauth cache clear", f42481b);
             com.sdk.base.framework.f.b.a.d(context, "accessCode1");
         }
     }

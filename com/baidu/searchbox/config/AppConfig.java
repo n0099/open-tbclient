@@ -6,6 +6,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.manage.DownloadConstants;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.core.Domains;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -72,9 +72,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -86,7 +86,9 @@ public class AppConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
                 String str = "AppInfo: " + getPackageName() + "|" + getVersionName() + "|" + getVersionCode() + "|isDaily=" + isDaily() + "|isWeekly=" + isWeekly() + "|isPreview=" + isPreview() + "|isDebug=" + AppConfig.isDebug();
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, str);
+                }
                 return str;
             }
             return (String) invokeV.objValue;
@@ -203,9 +205,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -217,8 +219,8 @@ public class AppConfig {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
                 int length = WHITE_LIST.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (TextUtils.equals(WHITE_LIST[i2], str)) {
+                for (int i = 0; i < length; i++) {
+                    if (TextUtils.equals(WHITE_LIST[i], str)) {
                         return true;
                     }
                 }
@@ -238,9 +240,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -264,9 +266,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -297,9 +299,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -339,9 +341,9 @@ public class AppConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -381,9 +383,9 @@ public class AppConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -394,7 +396,7 @@ public class AppConfig {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0035 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x004b */
     /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x004e */
-    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0078 */
+    /* JADX DEBUG: Null dom frontier in handler: Exception -> 0x0079 */
     /* JADX WARN: Code restructure failed: missing block: B:29:0x004b, code lost:
         if (r2 != 0) goto L19;
      */
@@ -515,7 +517,7 @@ public class AppConfig {
     public static String getCookieHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getStringConfig("COOKIE_URL", Domains.BAIDU) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? getStringConfig("COOKIE_URL", ".baidu.com") : (String) invokeV.objValue;
     }
 
     public static String getDailyUpdateUrl() {
@@ -560,13 +562,13 @@ public class AppConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) ? getStringConfig("IMAGE_SEARCH_URL", null) != null : invokeV.booleanValue;
     }
 
-    public static final int getIntConfig(String str, int i2) {
+    public static final int getIntConfig(String str, int i) {
         InterceptResult invokeLI;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65553, null, str, i)) == null) {
             HashMap<String, String> hashMap = sConfigMap;
-            return (hashMap == null || (str2 = hashMap.get(str)) == null) ? i2 : Integer.parseInt(str2);
+            return (hashMap == null || (str2 = hashMap.get(str)) == null) ? i : Integer.parseInt(str2);
         }
         return invokeLI.intValue;
     }

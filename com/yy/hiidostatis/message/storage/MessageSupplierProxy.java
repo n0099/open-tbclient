@@ -25,7 +25,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageSupplierProxy implements MessageSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BLACK_LIST_CAPACITY = 200;
@@ -44,9 +44,9 @@ public class MessageSupplierProxy implements MessageSupplier {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, messageConfig, taskDataSqLiteCacheManager, messageMonitor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,11 +112,11 @@ public class MessageSupplierProxy implements MessageSupplier {
     }
 
     @Override // com.yy.hiidostatis.message.MessageSupplier
-    public Message fetchMessage(int i2) {
+    public Message fetchMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<TaskData> andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<TaskData> andMoveToSendingList = this.cacheManager.getAndMoveToSendingList(this.context, i);
             if (andMoveToSendingList != null && !andMoveToSendingList.isEmpty()) {
                 if (andMoveToSendingList.size() == 1) {
                     return trans(andMoveToSendingList.get(0));

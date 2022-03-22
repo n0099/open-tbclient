@@ -11,19 +11,19 @@ import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFromObservable<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Observable<T> upstream;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SubscriberObserver<T> implements Observer<T>, Subscription {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60687d;
+        public Disposable f45297d;
         public final Subscriber<? super T> s;
 
         public SubscriberObserver(Subscriber<? super T> subscriber) {
@@ -33,9 +33,9 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -48,7 +48,7 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
         public void cancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60687d.dispose();
+                this.f45297d.dispose();
             }
         }
 
@@ -80,15 +80,15 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) {
-                this.f60687d = disposable;
+                this.f45297d = disposable;
                 this.s.onSubscribe(this);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             }
         }
     }
@@ -100,9 +100,9 @@ public final class FlowableFromObservable<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

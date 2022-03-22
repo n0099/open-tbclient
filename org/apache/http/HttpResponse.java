@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.util.Locale;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HttpResponse extends HttpMessage {
     HttpEntity getEntity();
 
@@ -16,11 +16,11 @@ public interface HttpResponse extends HttpMessage {
 
     void setReasonPhrase(String str) throws IllegalStateException;
 
-    void setStatusCode(int i2) throws IllegalStateException;
+    void setStatusCode(int i) throws IllegalStateException;
 
-    void setStatusLine(ProtocolVersion protocolVersion, int i2);
+    void setStatusLine(ProtocolVersion protocolVersion, int i);
 
-    void setStatusLine(ProtocolVersion protocolVersion, int i2, String str);
+    void setStatusLine(ProtocolVersion protocolVersion, int i, String str);
 
     void setStatusLine(StatusLine statusLine);
 }

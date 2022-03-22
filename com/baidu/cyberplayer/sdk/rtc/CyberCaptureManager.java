@@ -12,34 +12,34 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CyberCaptureManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CaptureManagerProvider a;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnCaptureReadyCallback {
         void onVideoCaptureReady(boolean z);
     }
 
-    public CyberCaptureManager(Context context, int i2, int i3, int i4, int i5, int i6, boolean z) {
+    public CyberCaptureManager(Context context, int i, int i2, int i3, int i4, int i5, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = a.a().a(context, i2, i3, i4, i5, i6, z);
+        this.a = a.a().a(context, i, i2, i3, i4, i5, z);
     }
 
     public static void enableDebug(boolean z) {
@@ -67,13 +67,13 @@ public class CyberCaptureManager {
         captureManagerProvider.doAutoFocus();
     }
 
-    public void doFocus(int i2, int i3, int i4, int i5) {
+    public void doFocus(int i, int i2, int i3, int i4) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.doFocus(i2, i3, i4, i5);
+        captureManagerProvider.doFocus(i, i2, i3, i4);
     }
 
     public void enableZoom(boolean z) {
@@ -224,13 +224,13 @@ public class CyberCaptureManager {
         captureManagerProvider.setSurface(surface);
     }
 
-    public void setSurfaceSize(int i2, int i3) {
+    public void setSurfaceSize(int i, int i2) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.setSurfaceSize(i2, i3);
+        captureManagerProvider.setSurfaceSize(i, i2);
     }
 
     public void switchCamera() {
@@ -242,12 +242,12 @@ public class CyberCaptureManager {
         captureManagerProvider.switchCamera();
     }
 
-    public void zoom(int i2) {
+    public void zoom(int i) {
         CaptureManagerProvider captureManagerProvider;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || (captureManagerProvider = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || (captureManagerProvider = this.a) == null) {
             return;
         }
-        captureManagerProvider.zoom(i2);
+        captureManagerProvider.zoom(i);
     }
 }

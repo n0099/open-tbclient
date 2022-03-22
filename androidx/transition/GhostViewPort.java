@@ -39,9 +39,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,9 +60,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -106,9 +106,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
             if (view.getParent() instanceof ViewGroup) {
                 GhostViewHolder holder = GhostViewHolder.getHolder(viewGroup);
                 GhostViewPort ghostView = getGhostView(view);
-                int i2 = 0;
+                int i = 0;
                 if (ghostView != null && (ghostViewHolder = (GhostViewHolder) ghostView.getParent()) != holder) {
-                    i2 = ghostView.mReferences;
+                    i = ghostView.mReferences;
                     ghostViewHolder.removeView(ghostView);
                     ghostView = null;
                 }
@@ -127,7 +127,7 @@ public class GhostViewPort extends ViewGroup implements GhostView {
                     copySize(viewGroup, holder);
                     copySize(viewGroup, ghostView);
                     holder.addGhostView(ghostView);
-                    ghostView.mReferences = i2;
+                    ghostView.mReferences = i;
                 } else if (matrix != null) {
                     ghostView.setMatrix(matrix);
                 }
@@ -169,9 +169,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
         if (!(interceptable == null || interceptable.invokeL(65541, null, view) == null) || (ghostView = getGhostView(view)) == null) {
             return;
         }
-        int i2 = ghostView.mReferences - 1;
-        ghostView.mReferences = i2;
-        if (i2 <= 0) {
+        int i = ghostView.mReferences - 1;
+        ghostView.mReferences = i;
+        if (i <= 0) {
             ((GhostViewHolder) ghostView.getParent()).removeView(ghostView);
         }
     }
@@ -226,9 +226,9 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
@@ -249,12 +249,12 @@ public class GhostViewPort extends ViewGroup implements GhostView {
     }
 
     @Override // android.view.View, androidx.transition.GhostView
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            super.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.setVisibility(i);
             if (getGhostView(this.mView) == this) {
-                ViewUtils.setTransitionVisibility(this.mView, i2 == 0 ? 4 : 0);
+                ViewUtils.setTransitionVisibility(this.mView, i == 0 ? 4 : 0);
             }
         }
     }

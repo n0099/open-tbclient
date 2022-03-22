@@ -23,37 +23,35 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f44089b;
+        public int f34220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f44090c;
+        public int f34221c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f44091d;
+        public String f34222d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f44092e;
+        public int f34223e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f44093f;
+        public int f34224f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f44094g;
+        public int f34225g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f44095h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public boolean f44096i;
+        public boolean f34226h;
+        public boolean i;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -70,9 +68,9 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((JSONObject) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -97,14 +95,14 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
                 a aVar = new a();
                 this.videoInfo = aVar;
                 aVar.a = optString;
-                aVar.f44089b = optInt2;
-                aVar.f44090c = optInt3;
-                aVar.f44091d = optString2;
-                aVar.f44092e = optInt4;
-                aVar.f44093f = optInt5;
-                aVar.f44094g = optInt6;
-                aVar.f44095h = z;
-                aVar.f44096i = z2;
+                aVar.f34220b = optInt2;
+                aVar.f34221c = optInt3;
+                aVar.f34222d = optString2;
+                aVar.f34223e = optInt4;
+                aVar.f34224f = optInt5;
+                aVar.f34225g = optInt6;
+                aVar.f34226h = z;
+                aVar.i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -116,12 +114,12 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     @Override // com.baidu.tieba.lego.card.model.BaseLegoCardInfo, com.baidu.tieba.lego.card.model.ICardInfo
     public double getRatio() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a aVar = this.videoInfo;
-            if (aVar != null && (i2 = aVar.f44089b) > 0) {
-                return aVar.f44090c / i2;
+            if (aVar != null && (i = aVar.f34220b) > 0) {
+                return aVar.f34221c / i;
             }
             return super.getRatio();
         }

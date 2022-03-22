@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache.util;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.config.DefaultSharedPrefsWrapper;
@@ -29,9 +30,9 @@ public class ClearCacheUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,12 +48,12 @@ public class ClearCacheUtils {
         }
     }
 
-    public static String formatSize(long j2) {
+    public static String formatSize(long j) {
         InterceptResult invokeJ;
         double d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) {
-            double d3 = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            double d3 = j;
             String str = "KB";
             if (d3 >= 1024.0d) {
                 d2 = d3 / 1024.0d;
@@ -74,19 +75,19 @@ public class ClearCacheUtils {
                     return String.format(Locale.CHINESE, "%d%s", Long.valueOf(Math.round(d2)), str);
                 } catch (Throwable th) {
                     if (AppConfig.isDebug()) {
-                        String str3 = "formatSize: " + th.getMessage();
+                        Log.w(TAG, "formatSize: " + th.getMessage());
                         th.printStackTrace();
                     }
                     return Math.round(d2) + str;
                 }
             }
-            String str4 = "0" + str;
+            String str3 = "0" + str;
             try {
                 String format = String.format(Locale.CHINESE, "%.1f%s", Double.valueOf(d2), str);
                 return format.substring(format.length() + (-3), format.length() - 2).equals("0") ? String.format(Locale.CHINESE, "%.0f%s", Double.valueOf(d2), str) : format;
             } catch (Throwable th2) {
                 if (AppConfig.isDebug()) {
-                    String str5 = "formatSize: " + th2.getMessage();
+                    Log.w(TAG, "formatSize: " + th2.getMessage());
                     th2.printStackTrace();
                 }
                 return Math.round(d2) + str;

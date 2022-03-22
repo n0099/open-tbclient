@@ -1,12 +1,12 @@
 package com.ss.android.socialbase.appdownloader.f.a;
 
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f {
     public int[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f58352b;
+    public int[] f43085b;
 
     public static f a(d dVar) throws IOException {
         b.a(dVar, 1835009);
@@ -21,40 +21,40 @@ public class f {
         if (b4 != 0) {
             dVar.b(b4);
         }
-        int i2 = (b6 == 0 ? b2 : b6) - b5;
-        if (i2 % 4 == 0) {
-            fVar.f58352b = dVar.b(i2 / 4);
+        int i = (b6 == 0 ? b2 : b6) - b5;
+        if (i % 4 == 0) {
+            fVar.f43085b = dVar.b(i / 4);
             if (b6 != 0) {
-                int i3 = b2 - b6;
-                if (i3 % 4 == 0) {
-                    dVar.b(i3 / 4);
+                int i2 = b2 - b6;
+                if (i2 % 4 == 0) {
+                    dVar.b(i2 / 4);
                 } else {
-                    throw new IOException("Style data size is not multiple of 4 (" + i3 + ").");
+                    throw new IOException("Style data size is not multiple of 4 (" + i2 + ").");
                 }
             }
             return fVar;
         }
-        throw new IOException("String data size is not multiple of 4 (" + i2 + ").");
+        throw new IOException("String data size is not multiple of 4 (" + i + ").");
     }
 
-    public String a(int i2) {
+    public String a(int i) {
         int[] iArr;
-        if (i2 < 0 || (iArr = this.a) == null || i2 >= iArr.length) {
+        if (i < 0 || (iArr = this.a) == null || i >= iArr.length) {
             return null;
         }
-        int i3 = iArr[i2];
-        int a = a(this.f58352b, i3);
+        int i2 = iArr[i];
+        int a = a(this.f43085b, i2);
         StringBuilder sb = new StringBuilder(a);
         while (a != 0) {
-            i3 += 2;
-            sb.append((char) a(this.f58352b, i3));
+            i2 += 2;
+            sb.append((char) a(this.f43085b, i2));
             a--;
         }
         return sb.toString();
     }
 
-    public static final int a(int[] iArr, int i2) {
-        int i3 = iArr[i2 / 4];
-        return (i2 % 4) / 2 == 0 ? i3 & 65535 : i3 >>> 16;
+    public static final int a(int[] iArr, int i) {
+        int i2 = iArr[i / 4];
+        return (i % 4) / 2 == 0 ? i2 & 65535 : i2 >>> 16;
     }
 }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BaseAnimationListener implements AnimationListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,9 +15,9 @@ public class BaseAnimationListener implements AnimationListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -25,9 +25,9 @@ public class BaseAnimationListener implements AnimationListener {
     }
 
     @Override // com.facebook.fresco.animation.drawable.AnimationListener
-    public void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i2) {
+    public void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, animatedDrawable2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, animatedDrawable2, i) == null) {
         }
     }
 

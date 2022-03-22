@@ -2,6 +2,7 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +25,9 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -59,35 +60,35 @@ public class NewGetUserOrderRequestMessage extends HttpMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.showMember : invokeV.intValue;
     }
 
-    public void setOrderType(int i2) {
+    public void setOrderType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.orderType = i2;
-            addParam("order_type", i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.orderType = i;
+            addParam("order_type", i);
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.pn = i2;
-            addParam("pn", i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.pn = i;
+            addParam(Config.PACKAGE_NAME, i);
         }
     }
 
-    public void setRn(int i2) {
+    public void setRn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.rn = i2;
-            addParam("rn", i2);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.rn = i;
+            addParam("rn", i);
         }
     }
 
-    public void setShowMember(int i2) {
+    public void setShowMember(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.showMember = i2;
-            addParam("show_member", i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.showMember = i;
+            addParam("show_member", i);
         }
     }
 }

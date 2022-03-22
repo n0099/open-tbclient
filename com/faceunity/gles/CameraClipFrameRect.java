@@ -1,6 +1,7 @@
 package com.faceunity.gles;
 
 import android.opengl.GLES20;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CameraClipFrameRect {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FRAGMENT_SHADER_EXT = "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n";
@@ -63,15 +64,15 @@ public class CameraClipFrameRect {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        String str = "X : " + f2 + " Y : " + f3;
+        Log.d(TAG, "X : " + f2 + " Y : " + f3);
         int loadShader = GlUtil.loadShader(35633, "uniform mat4 uMVPMatrix;\nuniform mat4 uTexMatrix;\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n");
         int loadShader2 = GlUtil.loadShader(35632, "#extension GL_OES_EGL_image_external : require\nprecision mediump float;\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES sTexture;\nvoid main() {\n    gl_FragColor = vec4(texture2D(sTexture, vTextureCoord).rgb, 1.0);\n}\n");
         int glCreateProgram = GLES20.glCreateProgram();
@@ -108,14 +109,14 @@ public class CameraClipFrameRect {
         this.mVertexCount = FULL_RECTANGLE_COORDS.length / 2;
     }
 
-    public void drawFrame(int i2, float[] fArr) {
+    public void drawFrame(int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, fArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, fArr) == null) {
             GlUtil.checkGlError("draw start");
             GLES20.glUseProgram(this.mProgramHandle);
             GlUtil.checkGlError("glUseProgram");
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i2);
+            GLES20.glBindTexture(36197, i);
             GLES20.glUniformMatrix4fv(this.muMVPMatrixLoc, 1, false, GlUtil.IDENTITY_MATRIX, 0);
             GlUtil.checkGlError("glUniformMatrix4fv");
             GLES20.glUniformMatrix4fv(this.muTexMatrixLoc, 1, false, fArr, 0);

@@ -35,12 +35,12 @@ public class f {
                                     JSONArray optJSONArray2 = optJSONObject.optJSONArray("extra");
                                     if (optJSONArray2 != null && optJSONArray2.length() != 0) {
                                         int length = optJSONArray2.length();
-                                        int i2 = 0;
+                                        int i = 0;
                                         while (true) {
-                                            if (i2 >= length) {
+                                            if (i >= length) {
                                                 break;
                                             }
-                                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i2);
+                                            JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i);
                                             if (optJSONObject2 != null) {
                                                 String optString2 = optJSONObject2.optString("k");
                                                 String optString3 = optJSONObject2.optString("v");
@@ -49,7 +49,7 @@ public class f {
                                                     break;
                                                 }
                                             }
-                                            i2++;
+                                            i++;
                                         }
                                     } else {
                                         throw new ParseError(1, "adInfo has no extraParams");
@@ -70,8 +70,8 @@ public class f {
                                                     if (optJSONObject4 != null) {
                                                         e eVar = new e();
                                                         eVar.a = z;
-                                                        eVar.f3208c = c.a.r0.z1.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
-                                                        eVar.f3207b = str2;
+                                                        eVar.f2675c = c.a.p0.b2.o.b.i(optJSONObject4.optJSONObject("lego_card").toString());
+                                                        eVar.f2674b = str2;
                                                         return eVar;
                                                     }
                                                     throw new ParseError(1, "info array has no first element");

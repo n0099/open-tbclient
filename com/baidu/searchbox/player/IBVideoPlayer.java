@@ -16,15 +16,15 @@ public interface IBVideoPlayer {
 
     void resume();
 
-    void seekTo(int i2);
+    void seekTo(int i);
 
     void setUserAgent(String str);
 
     void setVideoBackground(@Nullable Drawable drawable);
 
-    void setVideoRotation(int i2);
+    void setVideoRotation(int i);
 
-    void setVideoScalingMode(int i2);
+    void setVideoScalingMode(int i);
 
     void setVideoUrl(String str);
 

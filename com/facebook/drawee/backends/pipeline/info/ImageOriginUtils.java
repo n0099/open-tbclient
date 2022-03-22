@@ -1,6 +1,5 @@
 package com.facebook.drawee.backends.pipeline.info;
 
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +15,7 @@ import com.facebook.imagepipeline.producers.LocalContentUriThumbnailFetchProduce
 import com.facebook.imagepipeline.producers.LocalFileFetchProducer;
 import com.facebook.imagepipeline.producers.LocalResourceFetchProducer;
 import com.facebook.imagepipeline.producers.NetworkFetchProducer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ImageOriginUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +25,9 @@ public class ImageOriginUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -147,9 +146,9 @@ public class ImageOriginUtils {
         return invokeL.intValue;
     }
 
-    public static String toString(int i2) {
+    public static String toString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? i2 != 6 ? "unknown" : MainTabActivity.TAB_CODE_LOCAL : "memory_bitmap" : "memory_encoded" : "disk" : "network" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "unknown" : "local" : "memory_bitmap" : "memory_encoded" : "disk" : "network" : (String) invokeI.objValue;
     }
 }

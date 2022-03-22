@@ -15,9 +15,8 @@ import com.bytedance.pangle.log.IZeusLogger;
 import com.bytedance.pangle.log.IZeusReporter;
 import com.bytedance.pangle.plugin.PluginProvider;
 import com.bytedance.pangle.util.Lazy;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ZeusParam {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,14 +43,14 @@ public class ZeusParam {
     public ApkVerifier mVerifier;
 
     /* renamed from: com.bytedance.pangle.ZeusParam$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @Keep
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +78,9 @@ public class ZeusParam {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,11 +94,11 @@ public class ZeusParam {
             this.mInstallThreads = 4;
         }
 
-        public Builder appId(int i2) {
+        public Builder appId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                this.mAppId = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.mAppId = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -300,11 +299,11 @@ public class ZeusParam {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder withInstallThreads(int i2) {
+        public Builder withInstallThreads(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-                this.mInstallThreads = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+                this.mInstallThreads = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -484,7 +483,7 @@ public class ZeusParam {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return "ZeusParam{mEnable=" + this.mEnable + ", mDebug=" + this.mDebug + ", mFastDex2Oat=" + this.mFastDex2Oat + ", mInstallThreads=" + this.mInstallThreads + ", mCheckMatchHostAbi=" + this.mCheckMatchHostAbi + ExtendedMessageFormat.END_FE;
+            return "ZeusParam{mEnable=" + this.mEnable + ", mDebug=" + this.mDebug + ", mFastDex2Oat=" + this.mFastDex2Oat + ", mInstallThreads=" + this.mInstallThreads + ", mCheckMatchHostAbi=" + this.mCheckMatchHostAbi + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -494,9 +493,9 @@ public class ZeusParam {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

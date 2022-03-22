@@ -18,7 +18,6 @@ import com.googlecode.mp4parser.util.UUIDConverter;
 import com.kwad.yoga.YogaNodeJNIBase;
 import java.nio.ByteBuffer;
 import java.util.UUID;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes7.dex */
@@ -60,9 +59,9 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super((String) objArr[0], (byte[]) objArr[1]);
                 newInitContext.thisArg = this;
@@ -185,7 +184,7 @@ public class UuidBasedProtectionSystemSpecificHeaderBox extends AbstractFullBox 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_6, this, this));
-            return "UuidBasedProtectionSystemSpecificHeaderBox{systemId=" + this.systemId.toString() + ", dataSize=" + this.protectionSpecificHeader.getData().limit() + ExtendedMessageFormat.END_FE;
+            return "UuidBasedProtectionSystemSpecificHeaderBox{systemId=" + this.systemId.toString() + ", dataSize=" + this.protectionSpecificHeader.getData().limit() + '}';
         }
         return (String) invokeV.objValue;
     }

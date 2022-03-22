@@ -19,25 +19,25 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
     public long toUid;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestPersonalMsgReadMessage(long j2, long j3) {
+    public RequestPersonalMsgReadMessage(long j, long j2) {
         super(205006);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.hasSentMsgId = j2;
-        this.toUid = j3;
+        this.hasSentMsgId = j;
+        this.toUid = j2;
     }
 
     @Override // com.baidu.tbadk.message.websockt.TbSocketMessage
@@ -47,7 +47,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements a 
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = c.a.r0.s1.s.a.f21975i;
+                builder.groupId = c.a.p0.u1.s.a.i;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);

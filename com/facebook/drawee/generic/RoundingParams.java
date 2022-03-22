@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundingParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class RoundingParams {
     public boolean mScaleDownInsideBorders;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class RoundingMethod {
         public static final /* synthetic */ RoundingMethod[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -55,16 +55,16 @@ public class RoundingParams {
             $VALUES = new RoundingMethod[]{OVERLAY_COLOR, roundingMethod};
         }
 
-        public RoundingMethod(String str, int i2) {
+        public RoundingMethod(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -92,9 +92,9 @@ public class RoundingParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -230,23 +230,23 @@ public class RoundingParams {
         return invokeV.intValue;
     }
 
-    public RoundingParams setBorder(@ColorInt int i2, float f2) {
+    public RoundingParams setBorder(@ColorInt int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
             Preconditions.checkArgument(f2 >= 0.0f, "the border width cannot be < 0");
             this.mBorderWidth = f2;
-            this.mBorderColor = i2;
+            this.mBorderColor = i;
             return this;
         }
         return (RoundingParams) invokeCommon.objValue;
     }
 
-    public RoundingParams setBorderColor(@ColorInt int i2) {
+    public RoundingParams setBorderColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.mBorderColor = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.mBorderColor = i;
             return this;
         }
         return (RoundingParams) invokeI.objValue;
@@ -291,11 +291,11 @@ public class RoundingParams {
         return (RoundingParams) invokeF.objValue;
     }
 
-    public RoundingParams setOverlayColor(@ColorInt int i2) {
+    public RoundingParams setOverlayColor(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            this.mOverlayColor = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            this.mOverlayColor = i;
             this.mRoundingMethod = RoundingMethod.OVERLAY_COLOR;
             return this;
         }

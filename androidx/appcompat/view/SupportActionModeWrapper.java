@@ -46,9 +46,9 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -80,8 +80,8 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, actionMode)) == null) {
                 int size = this.mActionModes.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    SupportActionModeWrapper supportActionModeWrapper = this.mActionModes.get(i2);
+                for (int i = 0; i < size; i++) {
+                    SupportActionModeWrapper supportActionModeWrapper = this.mActionModes.get(i);
                     if (supportActionModeWrapper != null && supportActionModeWrapper.mWrappedObject == actionMode) {
                         return supportActionModeWrapper;
                     }
@@ -130,9 +130,9 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, actionMode};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -255,18 +255,18 @@ public class SupportActionModeWrapper extends android.view.ActionMode {
     }
 
     @Override // android.view.ActionMode
-    public void setSubtitle(int i2) {
+    public void setSubtitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mWrappedObject.setSubtitle(i2);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mWrappedObject.setSubtitle(i);
         }
     }
 
     @Override // android.view.ActionMode
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mWrappedObject.setTitle(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mWrappedObject.setTitle(i);
         }
     }
 }

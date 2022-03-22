@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol.utils;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlUBCData;
 import com.baidu.searchbox.config.AppConfig;
@@ -32,9 +33,9 @@ public class CloudControlUBCUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,11 +69,11 @@ public class CloudControlUBCUtils {
                 uBCManager.onEvent(UBC_CLOUD_CTROL_ID, jSONObject);
             }
             if (AppConfig.isDebug()) {
-                String str = "cloud control ubc is 944:" + jSONObject.toString();
+                Log.d(TAG, "cloud control ubc is 944:" + jSONObject.toString());
             }
         } catch (JSONException e2) {
             if (AppConfig.isDebug()) {
-                String str2 = "cloud control doStatistics error" + e2.toString();
+                Log.d(TAG, "cloud control doStatistics error" + e2.toString());
                 e2.printStackTrace();
             }
         }

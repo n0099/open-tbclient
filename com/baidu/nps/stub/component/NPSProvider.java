@@ -41,9 +41,9 @@ public abstract class NPSProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -254,13 +254,13 @@ public abstract class NPSProvider extends ContentProvider {
     }
 
     @Override // android.content.ContentProvider, android.content.ComponentCallbacks2
-    public void onTrimMemory(int i2) {
+    public void onTrimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            super.onTrimMemory(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            super.onTrimMemory(i);
             ContentProvider contentProvider = this.mProviderImpl;
             if (contentProvider != null) {
-                contentProvider.onTrimMemory(i2);
+                contentProvider.onTrimMemory(i);
             }
         }
     }

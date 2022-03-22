@@ -31,7 +31,7 @@ public interface KsFullScreenVideoAd {
 
         @KsAdSdkApi
         @Keep
-        void onVideoPlayError(int i2, int i3);
+        void onVideoPlayError(int i, int i2);
 
         @KsAdSdkApi
         @Keep
@@ -56,11 +56,11 @@ public interface KsFullScreenVideoAd {
 
     @KsAdSdkApi
     @Keep
-    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
+    void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i2);
+    void setBidEcpm(int i);
 
     @KsAdSdkApi
     @Keep

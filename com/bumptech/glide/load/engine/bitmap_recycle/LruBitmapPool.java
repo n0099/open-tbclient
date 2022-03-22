@@ -21,7 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LruBitmapPool implements BitmapPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Bitmap.Config DEFAULT_CONFIG;
@@ -38,14 +38,14 @@ public class LruBitmapPool implements BitmapPool {
     public final LruPoolStrategy strategy;
     public final BitmapTracker tracker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface BitmapTracker {
         void add(Bitmap bitmap);
 
         void remove(Bitmap bitmap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NullBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class LruBitmapPool implements BitmapPool {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -79,7 +79,7 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ThrowingBitmapTracker implements BitmapTracker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,9 +90,9 @@ public class LruBitmapPool implements BitmapPool {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -142,23 +142,23 @@ public class LruBitmapPool implements BitmapPool {
         DEFAULT_CONFIG = Bitmap.Config.ARGB_8888;
     }
 
-    public LruBitmapPool(long j2, LruPoolStrategy lruPoolStrategy, Set<Bitmap.Config> set) {
+    public LruBitmapPool(long j, LruPoolStrategy lruPoolStrategy, Set<Bitmap.Config> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), lruPoolStrategy, set};
+            Object[] objArr = {Long.valueOf(j), lruPoolStrategy, set};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.initialMaxSize = j2;
-        this.maxSize = j2;
+        this.initialMaxSize = j;
+        this.maxSize = j;
         this.strategy = lruPoolStrategy;
         this.allowedConfigs = set;
         this.tracker = new NullBitmapTracker();
@@ -173,14 +173,14 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @NonNull
-    public static Bitmap createBitmap(int i2, int i3, @Nullable Bitmap.Config config) {
+    public static Bitmap createBitmap(int i, int i2, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i2, i3, config)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i, i2, config)) == null) {
             if (config == null) {
                 config = DEFAULT_CONFIG;
             }
-            return Bitmap.createBitmap(i2, i3, config);
+            return Bitmap.createBitmap(i, i2, config);
         }
         return (Bitmap) invokeIIL.objValue;
     }
@@ -195,7 +195,7 @@ public class LruBitmapPool implements BitmapPool {
     private void dumpUnchecked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            String str = "Hits=" + this.hits + ", misses=" + this.misses + ", puts=" + this.puts + ", evictions=" + this.evictions + ", currentSize=" + this.currentSize + ", maxSize=" + this.maxSize + "\nStrategy=" + this.strategy;
+            Log.v(TAG, "Hits=" + this.hits + ", misses=" + this.misses + ", puts=" + this.puts + ", evictions=" + this.evictions + ", currentSize=" + this.currentSize + ", maxSize=" + this.maxSize + "\nStrategy=" + this.strategy);
         }
     }
 
@@ -236,17 +236,17 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     @Nullable
-    private synchronized Bitmap getDirtyOrNull(int i2, int i3, @Nullable Bitmap.Config config) {
+    private synchronized Bitmap getDirtyOrNull(int i, int i2, @Nullable Bitmap.Config config) {
         InterceptResult invokeIIL;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65547, this, i2, i3, config)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65547, this, i, i2, config)) == null) {
             synchronized (this) {
                 assertNotHardwareConfig(config);
-                bitmap = this.strategy.get(i2, i3, config != null ? config : DEFAULT_CONFIG);
+                bitmap = this.strategy.get(i, i2, config != null ? config : DEFAULT_CONFIG);
                 if (bitmap == null) {
                     if (Log.isLoggable(TAG, 3)) {
-                        String str = "Missing bitmap=" + this.strategy.logBitmap(i2, i3, config);
+                        Log.d(TAG, "Missing bitmap=" + this.strategy.logBitmap(i, i2, config));
                     }
                     this.misses++;
                 } else {
@@ -256,7 +256,7 @@ public class LruBitmapPool implements BitmapPool {
                     normalize(bitmap);
                 }
                 if (Log.isLoggable(TAG, 2)) {
-                    String str2 = "Get bitmap=" + this.strategy.logBitmap(i2, i3, config);
+                    Log.v(TAG, "Get bitmap=" + this.strategy.logBitmap(i, i2, config));
                 }
                 dump();
             }
@@ -282,14 +282,15 @@ public class LruBitmapPool implements BitmapPool {
         }
     }
 
-    private synchronized void trimToSize(long j2) {
+    private synchronized void trimToSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65550, this, j) == null) {
             synchronized (this) {
-                while (this.currentSize > j2) {
+                while (this.currentSize > j) {
                     Bitmap removeLast = this.strategy.removeLast();
                     if (removeLast == null) {
                         if (Log.isLoggable(TAG, 5)) {
+                            Log.w(TAG, "Size mismatch, resetting");
                             dumpUnchecked();
                         }
                         this.currentSize = 0L;
@@ -299,7 +300,7 @@ public class LruBitmapPool implements BitmapPool {
                     this.currentSize -= this.strategy.getSize(removeLast);
                     this.evictions++;
                     if (Log.isLoggable(TAG, 3)) {
-                        String str = "Evicting bitmap=" + this.strategy.logBitmap(removeLast);
+                        Log.d(TAG, "Evicting bitmap=" + this.strategy.logBitmap(removeLast));
                     }
                     dump();
                     removeLast.recycle();
@@ -312,35 +313,37 @@ public class LruBitmapPool implements BitmapPool {
     public void clearMemory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Log.isLoggable(TAG, 3);
+            if (Log.isLoggable(TAG, 3)) {
+                Log.d(TAG, "clearMemory");
+            }
             trimToSize(0L);
         }
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+    public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, config)) == null) {
-            Bitmap dirtyOrNull = getDirtyOrNull(i2, i3, config);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, config)) == null) {
+            Bitmap dirtyOrNull = getDirtyOrNull(i, i2, config);
             if (dirtyOrNull != null) {
                 dirtyOrNull.eraseColor(0);
                 return dirtyOrNull;
             }
-            return createBitmap(i2, i3, config);
+            return createBitmap(i, i2, config);
         }
         return (Bitmap) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @NonNull
-    public Bitmap getDirty(int i2, int i3, Bitmap.Config config) {
+    public Bitmap getDirty(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config)) == null) {
-            Bitmap dirtyOrNull = getDirtyOrNull(i2, i3, config);
-            return dirtyOrNull == null ? createBitmap(i2, i3, config) : dirtyOrNull;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) {
+            Bitmap dirtyOrNull = getDirtyOrNull(i, i2, config);
+            return dirtyOrNull == null ? createBitmap(i, i2, config) : dirtyOrNull;
         }
         return (Bitmap) invokeIIL.objValue;
     }
@@ -367,14 +370,14 @@ public class LruBitmapPool implements BitmapPool {
                                 this.puts++;
                                 this.currentSize += size;
                                 if (Log.isLoggable(TAG, 2)) {
-                                    String str = "Put bitmap in pool=" + this.strategy.logBitmap(bitmap);
+                                    Log.v(TAG, "Put bitmap in pool=" + this.strategy.logBitmap(bitmap));
                                 }
                                 dump();
                                 evict();
                                 return;
                             }
                             if (Log.isLoggable(TAG, 2)) {
-                                String str2 = "Reject bitmap from pool, bitmap: " + this.strategy.logBitmap(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.allowedConfigs.contains(bitmap.getConfig());
+                                Log.v(TAG, "Reject bitmap from pool, bitmap: " + this.strategy.logBitmap(bitmap) + ", is mutable: " + bitmap.isMutable() + ", is allowed config: " + this.allowedConfigs.contains(bitmap.getConfig()));
                             }
                             bitmap.recycle();
                             return;
@@ -402,32 +405,32 @@ public class LruBitmapPool implements BitmapPool {
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
     @SuppressLint({"InlinedApi"})
-    public void trimMemory(int i2) {
+    public void trimMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             if (Log.isLoggable(TAG, 3)) {
-                String str = "trimMemory, level=" + i2;
+                Log.d(TAG, "trimMemory, level=" + i);
             }
-            if (i2 >= 40) {
+            if (i >= 40) {
                 clearMemory();
-            } else if (i2 >= 20 || i2 == 15) {
+            } else if (i >= 20 || i == 15) {
                 trimToSize(getMaxSize() / 2);
             }
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruBitmapPool(long j2) {
-        this(j2, getDefaultStrategy(), getDefaultAllowedConfigs());
+    public LruBitmapPool(long j) {
+        this(j, getDefaultStrategy(), getDefaultAllowedConfigs());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), (LruPoolStrategy) objArr2[1], (Set) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -438,17 +441,17 @@ public class LruBitmapPool implements BitmapPool {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public LruBitmapPool(long j2, Set<Bitmap.Config> set) {
-        this(j2, getDefaultStrategy(), set);
+    public LruBitmapPool(long j, Set<Bitmap.Config> set) {
+        this(j, getDefaultStrategy(), set);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), set};
+            Object[] objArr = {Long.valueOf(j), set};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), (LruPoolStrategy) objArr2[1], (Set) objArr2[2]);
                 newInitContext.thisArg = this;

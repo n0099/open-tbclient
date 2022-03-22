@@ -48,16 +48,16 @@ public interface Graphics {
             $VALUES = new GraphicsType[]{AndroidGL, LWJGL, WebGL, iOSGL, JGLFW, Mock, graphicsType};
         }
 
-        public GraphicsType(String str, int i2) {
+        public GraphicsType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -87,40 +87,40 @@ public interface Graphics {
         public final int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f29678b;
+        public final int f23709b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f29679c;
+        public final int f23710c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final int f29680d;
+        public final int f23711d;
 
-        public a(int i2, int i3, int i4, int i5) {
+        public a(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i2;
-            this.f29678b = i3;
-            this.f29679c = i4;
-            this.f29680d = i5;
+            this.a = i;
+            this.f23709b = i2;
+            this.f23710c = i3;
+            this.f23711d = i4;
         }
 
         public String toString() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + "x" + this.f29678b + ", bpp: " + this.f29680d + ", hz: " + this.f29679c;
+                return this.a + "x" + this.f23709b + ", bpp: " + this.f23711d + ", hz: " + this.f23710c;
             }
             return (String) invokeV.objValue;
         }

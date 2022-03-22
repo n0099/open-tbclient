@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.u0.d.c;
+import c.a.p0.w0.e.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,25 +26,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ForumHeaderView extends LinearLayout implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int FROM_ENTER_FORUM = 0;
-    public static final int FROM_FORUM_SQUARE = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f31991b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f31992c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public e f31993d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f41355e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f41356f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f41357g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public c f41358h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f41359i;
+    public int f31994e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumHeaderView(Context context) {
@@ -55,51 +51,51 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41359i = 0;
-        init();
+        this.f31994e = 0;
+        a();
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setOrientation(1);
-            LayoutInflater.from(getContext()).inflate(R.layout.layout_enterforum_search, (ViewGroup) this, true);
-            this.f41355e = (LinearLayout) findViewById(R.id.search_container);
-            this.f41356f = (TextView) findViewById(R.id.search_text);
-            this.f41357g = (ImageView) findViewById(R.id.search_icon);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0496, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c23);
+            this.f31991b = (TextView) findViewById(R.id.obfuscated_res_0x7f091c4b);
+            this.f31992c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c35);
             setDescendantFocusability(262144);
-            this.f41355e.setOnClickListener(this);
+            this.a.setOnClickListener(this);
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c cVar = this.f41358h;
-            if (cVar != null && cVar.a) {
-                if (cVar.f22538c > 0) {
-                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f41357g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                    SkinManager.setViewTextColor(this.f41356f, (int) R.color.white_alpha50);
-                    SkinManager.setBackgroundResource(this.f41355e, R.drawable.enter_forum_search_ad_bg);
+            e eVar = this.f31993d;
+            if (eVar != null && eVar.a) {
+                if (eVar.f19354c > 0) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                    SkinManager.setViewTextColor(this.f31991b, (int) R.color.white_alpha50);
+                    SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_ad_bg);
                     return;
                 }
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f41357g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-                SkinManager.setViewTextColor(this.f41356f, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f41355e, R.drawable.enter_forum_search_bg);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+                SkinManager.setViewTextColor(this.f31991b, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
                 return;
             }
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f41357g, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-            SkinManager.setViewTextColor(this.f41356f, (int) R.color.CAM_X0109);
-            SkinManager.setBackgroundResource(this.f41355e, R.drawable.enter_forum_search_bg);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f31992c, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
+            SkinManager.setViewTextColor(this.f31991b, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(this.a, R.drawable.enter_forum_search_bg);
         }
     }
 
@@ -110,7 +106,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
             if (!TbadkCoreApplication.isLogin()) {
                 TiebaStatic.eventStat(getContext(), "notlogin_8", "click", 1, new Object[0]);
             }
-            if (this.f41359i != 1) {
+            if (this.f31994e != 1) {
                 TiebaStatic.log(new StatisticItem("c13367").param("obj_location", "1"));
             } else {
                 TiebaStatic.log(new StatisticItem("c13648").param("uid", TbadkCoreApplication.getCurrentAccountId()));
@@ -120,41 +116,32 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             super.onMeasure(View.MeasureSpec.makeMeasureSpec(n.k(getContext()), 1073741824), View.MeasureSpec.makeMeasureSpec(n.f(getContext(), R.dimen.tbds114), 1073741824));
         }
     }
 
-    public void setAdState(c cVar) {
+    public void setAdState(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
-            this.f41358h = cVar;
-            onChangeSkinType();
+        if (interceptable == null || interceptable.invokeL(1048580, this, eVar) == null) {
+            this.f31993d = eVar;
+            b();
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f41359i = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f31994e = i;
         }
     }
 
     public void setSearchHint(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.f41356f.setText(str);
-        }
-    }
-
-    public void updateMarginTop(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f41355e.getLayoutParams();
-            layoutParams.topMargin = i2;
-            setLayoutParams(layoutParams);
+            this.f31991b.setText(str);
         }
     }
 
@@ -167,9 +154,9 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -177,22 +164,22 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f41359i = 0;
-        init();
+        this.f31994e = 0;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ForumHeaderView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ForumHeaderView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -200,7 +187,7 @@ public class ForumHeaderView extends LinearLayout implements View.OnClickListene
                 return;
             }
         }
-        this.f41359i = 0;
-        init();
+        this.f31994e = 0;
+        a();
     }
 }

@@ -12,11 +12,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.tieba.R;
 import com.kwad.sdk.api.loader.Wrapper;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends Dialog {
     public a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(DialogInterface dialogInterface);
 
@@ -34,25 +34,25 @@ public class b extends Dialog {
     }
 
     private View a() {
-        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.ksad_web_exit_intercept_content_layout, (ViewGroup) null, false);
-        inflate.findViewById(R.id.ksad_exit_intercept_dialog_layout).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
+        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d0488, (ViewGroup) null, false);
+        inflate.findViewById(R.id.obfuscated_res_0x7f091083).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.a.c(b.this);
             }
         });
-        inflate.findViewById(R.id.ksad_exit_intercept_content_layout).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f091082).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
             }
         });
-        inflate.findViewById(R.id.ksad_web_exit_intercept_positive_btn).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f091190).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.a.a(b.this);
             }
         });
-        inflate.findViewById(R.id.ksad_web_exit_intercept_negative_btn).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f09118f).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.page.widget.b.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 b.this.a.b(b.this);

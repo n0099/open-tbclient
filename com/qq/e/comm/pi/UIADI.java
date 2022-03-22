@@ -9,7 +9,7 @@ import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface UIADI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
@@ -33,11 +33,11 @@ public interface UIADI extends LADI {
 
     void setLoadAdParams(LoadAdParams loadAdParams);
 
-    void setMaxVideoDuration(int i2);
+    void setMaxVideoDuration(int i);
 
     void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
-    void setMinVideoDuration(int i2);
+    void setMinVideoDuration(int i);
 
     void setRewardListener(ADRewardListener aDRewardListener);
 
@@ -45,7 +45,7 @@ public interface UIADI extends LADI {
 
     void setVideoOption(VideoOption videoOption);
 
-    void setVideoPlayPolicy(int i2);
+    void setVideoPlayPolicy(int i);
 
     void show();
 

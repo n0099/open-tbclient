@@ -16,6 +16,7 @@ import com.baidu.adp.plugin.Plugin;
 import com.baidu.adp.plugin.PluginCenter;
 import com.baidu.adp.plugin.pluginBase.PluginBaseService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +35,9 @@ public class ServiceProxy extends Service implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,15 +47,15 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean bindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, intent, serviceConnection, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, intent, serviceConnection, i)) == null) {
             if (intent != null) {
                 loadTargetService(intent);
                 PluginBaseService pluginBaseService = this.mEntity;
                 if (pluginBaseService != null) {
-                    return pluginBaseService.bindService(intent, serviceConnection, i2);
+                    return pluginBaseService.bindService(intent, serviceConnection, i);
                 }
             }
             return false;
@@ -189,37 +190,37 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048586, this, intent, i) == null) {
             if (intent == null) {
                 stopSelf();
                 return;
             }
             PluginBaseService pluginBaseService = this.mEntity;
             if (pluginBaseService != null) {
-                pluginBaseService.onStart(intent, i2);
+                pluginBaseService.onStart(intent, i);
             } else {
-                super.onStart(intent, i2);
+                super.onStart(intent, i);
             }
         }
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048587, this, intent, i, i2)) == null) {
             if (intent == null) {
                 stopSelf();
-                return super.onStartCommand(intent, i2, i3);
+                return super.onStartCommand(intent, i, i2);
             }
             loadTargetService(intent);
             PluginBaseService pluginBaseService = this.mEntity;
             if (pluginBaseService != null) {
-                return pluginBaseService.onStartCommand(intent, i2, i3);
+                return pluginBaseService.onStartCommand(intent, i, i2);
             }
-            return super.onStartCommand(intent, i2, i3);
+            return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }
@@ -239,13 +240,13 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // c.a.d.j.f.c
-    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2) {
+    public boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, intent, serviceConnection, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048589, this, intent, serviceConnection, i)) == null) {
             Plugin plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName());
             if (plugin2 != null && plugin2.remapStartServiceIntent(intent)) {
-                return super.bindService(intent, serviceConnection, i2);
+                return super.bindService(intent, serviceConnection, i);
             }
             return false;
         }
@@ -276,10 +277,10 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // c.a.d.j.f.c
-    public SharedPreferences proxyGetSharedPreferences(String str, int i2) {
+    public SharedPreferences proxyGetSharedPreferences(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i2)) == null) ? super.getSharedPreferences(str, i2) : (SharedPreferences) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, str, i)) == null) ? super.getSharedPreferences(str, i) : (SharedPreferences) invokeLI.objValue;
     }
 
     @Override // c.a.d.j.f.c
@@ -315,18 +316,18 @@ public class ServiceProxy extends Service implements c {
     }
 
     @Override // c.a.d.j.f.c
-    public void proxyOnStart(Intent intent, int i2) {
+    public void proxyOnStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048598, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048598, this, intent, i) == null) {
+            super.onStart(intent, i);
         }
     }
 
     @Override // c.a.d.j.f.c
-    public int proxyOnStartCommand(Intent intent, int i2, int i3) {
+    public int proxyOnStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048599, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048599, this, intent, i, i2)) == null) ? super.onStartCommand(intent, i, i2) : invokeLII.intValue;
     }
 
     @Override // c.a.d.j.f.c
@@ -342,7 +343,7 @@ public class ServiceProxy extends Service implements c {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048601, this, intent) == null) && (plugin2 = PluginCenter.getInstance().getPlugin(this.mEntity.getPackageName())) != null && plugin2.remapStartActivityIntent(intent)) {
             if (intent != null) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             super.startActivity(intent);
         }
@@ -381,7 +382,7 @@ public class ServiceProxy extends Service implements c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048604, this, intent) == null) {
             if (intent != null) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             PluginBaseService pluginBaseService = this.mEntity;
             if (pluginBaseService != null) {

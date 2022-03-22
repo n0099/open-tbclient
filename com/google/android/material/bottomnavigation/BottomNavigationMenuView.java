@@ -44,7 +44,7 @@ import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.TextScale;
 import java.util.HashSet;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long ACTIVE_ANIMATION_DURATION_MS = 115;
@@ -112,9 +112,9 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -134,15 +134,15 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return (BottomNavigationItemView) invokeV.objValue;
     }
 
-    private boolean isShifting(int i2, int i3) {
+    private boolean isShifting(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65542, this, i2, i3)) == null) {
-            if (i2 == -1) {
-                if (i3 > 3) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, this, i, i2)) == null) {
+            if (i == -1) {
+                if (i2 > 3) {
                     return true;
                 }
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 return true;
             }
             return false;
@@ -150,21 +150,21 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return invokeII.booleanValue;
     }
 
-    private boolean isValidId(int i2) {
+    private boolean isValidId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) ? i2 != -1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) ? i != -1 : invokeI.booleanValue;
     }
 
     private void removeUnusedBadges() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             HashSet hashSet = new HashSet();
-            for (int i2 = 0; i2 < this.menu.size(); i2++) {
-                hashSet.add(Integer.valueOf(this.menu.getItem(i2).getItemId()));
+            for (int i = 0; i < this.menu.size(); i++) {
+                hashSet.add(Integer.valueOf(this.menu.getItem(i).getItemId()));
             }
-            for (int i3 = 0; i3 < this.badgeDrawables.size(); i3++) {
-                int keyAt = this.badgeDrawables.keyAt(i3);
+            for (int i2 = 0; i2 < this.badgeDrawables.size(); i2++) {
+                int keyAt = this.badgeDrawables.keyAt(i2);
                 if (!hashSet.contains(Integer.valueOf(keyAt))) {
                     this.badgeDrawables.delete(keyAt);
                 }
@@ -183,12 +183,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    private void validateMenuItemId(int i2) {
+    private void validateMenuItemId(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65546, this, i2) == null) || isValidId(i2)) {
+        if (!(interceptable == null || interceptable.invokeI(65546, this, i) == null) || isValidId(i)) {
             return;
         }
-        throw new IllegalArgumentException(i2 + " is not a valid view id");
+        throw new IllegalArgumentException(i + " is not a valid view id");
     }
 
     public void buildMenuView() {
@@ -213,12 +213,12 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             removeUnusedBadges();
             this.buttons = new BottomNavigationItemView[this.menu.size()];
             boolean isShifting = isShifting(this.labelVisibilityMode, this.menu.getVisibleItems().size());
-            for (int i2 = 0; i2 < this.menu.size(); i2++) {
+            for (int i = 0; i < this.menu.size(); i++) {
                 this.presenter.setUpdateSuspended(true);
-                this.menu.getItem(i2).setCheckable(true);
+                this.menu.getItem(i).setCheckable(true);
                 this.presenter.setUpdateSuspended(false);
                 BottomNavigationItemView newItem = getNewItem();
-                this.buttons[i2] = newItem;
+                this.buttons[i] = newItem;
                 newItem.setIconTintList(this.itemIconTint);
                 newItem.setIconSize(this.itemIconSize);
                 newItem.setTextColor(this.itemTextColorDefault);
@@ -233,11 +233,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
                 }
                 newItem.setShifting(isShifting);
                 newItem.setLabelVisibilityMode(this.labelVisibilityMode);
-                newItem.initialize((MenuItemImpl) this.menu.getItem(i2), 0);
-                newItem.setItemPosition(i2);
+                newItem.initialize((MenuItemImpl) this.menu.getItem(i), 0);
+                newItem.setItemPosition(i);
                 newItem.setOnClickListener(this.onClickListener);
-                if (this.selectedItemId != 0 && this.menu.getItem(i2).getItemId() == this.selectedItemId) {
-                    this.selectedItemPosition = i2;
+                if (this.selectedItemId != 0 && this.menu.getItem(i).getItemId() == this.selectedItemId) {
+                    this.selectedItemPosition = i;
                 }
                 setBadgeIfNeeded(newItem);
                 addView(newItem);
@@ -249,17 +249,17 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     @Nullable
-    public ColorStateList createDefaultColorStateList(int i2) {
+    public ColorStateList createDefaultColorStateList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             TypedValue typedValue = new TypedValue();
-            if (getContext().getTheme().resolveAttribute(i2, typedValue, true)) {
+            if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
-                    int i3 = typedValue.data;
+                if (getContext().getTheme().resolveAttribute(R$attr.obfuscated, typedValue, true)) {
+                    int i2 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
-                    return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i3, defaultColor});
+                    return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, ViewGroup.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});
                 }
                 return null;
             }
@@ -270,15 +270,15 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
 
     @Nullable
     @VisibleForTesting
-    public BottomNavigationItemView findItemView(int i2) {
+    public BottomNavigationItemView findItemView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            validateMenuItemId(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            validateMenuItemId(i);
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    if (bottomNavigationItemView.getId() == i2) {
+                    if (bottomNavigationItemView.getId() == i) {
                         return bottomNavigationItemView;
                     }
                 }
@@ -290,10 +290,10 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     @Nullable
-    public BadgeDrawable getBadge(int i2) {
+    public BadgeDrawable getBadge(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.badgeDrawables.get(i2) : (BadgeDrawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.badgeDrawables.get(i) : (BadgeDrawable) invokeI.objValue;
     }
 
     public SparseArray<BadgeDrawable> getBadgeDrawables() {
@@ -363,17 +363,17 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.labelVisibilityMode : invokeV.intValue;
     }
 
-    public BadgeDrawable getOrCreateBadge(int i2) {
+    public BadgeDrawable getOrCreateBadge(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            validateMenuItemId(i2);
-            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            validateMenuItemId(i);
+            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
             if (badgeDrawable == null) {
                 badgeDrawable = BadgeDrawable.create(getContext());
-                this.badgeDrawables.put(i2, badgeDrawable);
+                this.badgeDrawables.put(i, badgeDrawable);
             }
-            BottomNavigationItemView findItemView = findItemView(i2);
+            BottomNavigationItemView findItemView = findItemView(i);
             if (findItemView != null) {
                 findItemView.setBadge(badgeDrawable);
             }
@@ -422,102 +422,102 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int childCount = getChildCount();
+            int i5 = i3 - i;
             int i6 = i4 - i2;
-            int i7 = i5 - i3;
-            int i8 = 0;
-            for (int i9 = 0; i9 < childCount; i9++) {
-                View childAt = getChildAt(i9);
+            int i7 = 0;
+            for (int i8 = 0; i8 < childCount; i8++) {
+                View childAt = getChildAt(i8);
                 if (childAt.getVisibility() != 8) {
                     if (ViewCompat.getLayoutDirection(this) == 1) {
-                        int i10 = i6 - i8;
-                        childAt.layout(i10 - childAt.getMeasuredWidth(), 0, i10, i7);
+                        int i9 = i5 - i7;
+                        childAt.layout(i9 - childAt.getMeasuredWidth(), 0, i9, i6);
                     } else {
-                        childAt.layout(i8, 0, childAt.getMeasuredWidth() + i8, i7);
+                        childAt.layout(i7, 0, childAt.getMeasuredWidth() + i7, i6);
                     }
-                    i8 += childAt.getMeasuredWidth();
+                    i7 += childAt.getMeasuredWidth();
                 }
             }
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
             int size2 = this.menu.getVisibleItems().size();
             int childCount = getChildCount();
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.itemHeight, 1073741824);
             if (isShifting(this.labelVisibilityMode, size2) && this.itemHorizontalTranslationEnabled) {
                 View childAt = getChildAt(this.selectedItemPosition);
-                int i4 = this.activeItemMinWidth;
+                int i3 = this.activeItemMinWidth;
                 if (childAt.getVisibility() != 8) {
                     childAt.measure(View.MeasureSpec.makeMeasureSpec(this.activeItemMaxWidth, Integer.MIN_VALUE), makeMeasureSpec);
-                    i4 = Math.max(i4, childAt.getMeasuredWidth());
+                    i3 = Math.max(i3, childAt.getMeasuredWidth());
                 }
-                int i5 = size2 - (childAt.getVisibility() != 8 ? 1 : 0);
-                int min = Math.min(size - (this.inactiveItemMinWidth * i5), Math.min(i4, this.activeItemMaxWidth));
-                int i6 = size - min;
-                int min2 = Math.min(i6 / (i5 == 0 ? 1 : i5), this.inactiveItemMaxWidth);
-                int i7 = i6 - (i5 * min2);
-                int i8 = 0;
-                while (i8 < childCount) {
-                    if (getChildAt(i8).getVisibility() != 8) {
-                        this.tempChildWidths[i8] = i8 == this.selectedItemPosition ? min : min2;
-                        if (i7 > 0) {
+                int i4 = size2 - (childAt.getVisibility() != 8 ? 1 : 0);
+                int min = Math.min(size - (this.inactiveItemMinWidth * i4), Math.min(i3, this.activeItemMaxWidth));
+                int i5 = size - min;
+                int min2 = Math.min(i5 / (i4 == 0 ? 1 : i4), this.inactiveItemMaxWidth);
+                int i6 = i5 - (i4 * min2);
+                int i7 = 0;
+                while (i7 < childCount) {
+                    if (getChildAt(i7).getVisibility() != 8) {
+                        this.tempChildWidths[i7] = i7 == this.selectedItemPosition ? min : min2;
+                        if (i6 > 0) {
                             int[] iArr = this.tempChildWidths;
-                            iArr[i8] = iArr[i8] + 1;
-                            i7--;
+                            iArr[i7] = iArr[i7] + 1;
+                            i6--;
                         }
                     } else {
-                        this.tempChildWidths[i8] = 0;
+                        this.tempChildWidths[i7] = 0;
                     }
-                    i8++;
+                    i7++;
                 }
             } else {
                 int min3 = Math.min(size / (size2 == 0 ? 1 : size2), this.activeItemMaxWidth);
-                int i9 = size - (size2 * min3);
-                for (int i10 = 0; i10 < childCount; i10++) {
-                    if (getChildAt(i10).getVisibility() != 8) {
+                int i8 = size - (size2 * min3);
+                for (int i9 = 0; i9 < childCount; i9++) {
+                    if (getChildAt(i9).getVisibility() != 8) {
                         int[] iArr2 = this.tempChildWidths;
-                        iArr2[i10] = min3;
-                        if (i9 > 0) {
-                            iArr2[i10] = iArr2[i10] + 1;
-                            i9--;
+                        iArr2[i9] = min3;
+                        if (i8 > 0) {
+                            iArr2[i9] = iArr2[i9] + 1;
+                            i8--;
                         }
                     } else {
-                        this.tempChildWidths[i10] = 0;
+                        this.tempChildWidths[i9] = 0;
                     }
                 }
             }
-            int i11 = 0;
-            for (int i12 = 0; i12 < childCount; i12++) {
-                View childAt2 = getChildAt(i12);
+            int i10 = 0;
+            for (int i11 = 0; i11 < childCount; i11++) {
+                View childAt2 = getChildAt(i11);
                 if (childAt2.getVisibility() != 8) {
-                    childAt2.measure(View.MeasureSpec.makeMeasureSpec(this.tempChildWidths[i12], 1073741824), makeMeasureSpec);
+                    childAt2.measure(View.MeasureSpec.makeMeasureSpec(this.tempChildWidths[i11], 1073741824), makeMeasureSpec);
                     childAt2.getLayoutParams().width = childAt2.getMeasuredWidth();
-                    i11 += childAt2.getMeasuredWidth();
+                    i10 += childAt2.getMeasuredWidth();
                 }
             }
-            setMeasuredDimension(View.resolveSizeAndState(i11, View.MeasureSpec.makeMeasureSpec(i11, 1073741824), 0), View.resolveSizeAndState(this.itemHeight, makeMeasureSpec, 0));
+            setMeasuredDimension(View.resolveSizeAndState(i10, View.MeasureSpec.makeMeasureSpec(i10, 1073741824), 0), View.resolveSizeAndState(this.itemHeight, makeMeasureSpec, 0));
         }
     }
 
-    public void removeBadge(int i2) {
+    public void removeBadge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            validateMenuItemId(i2);
-            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i2);
-            BottomNavigationItemView findItemView = findItemView(i2);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            validateMenuItemId(i);
+            BadgeDrawable badgeDrawable = this.badgeDrawables.get(i);
+            BottomNavigationItemView findItemView = findItemView(i);
             if (findItemView != null) {
                 findItemView.removeBadge();
             }
             if (badgeDrawable != null) {
-                this.badgeDrawables.remove(i2);
+                this.badgeDrawables.remove(i);
             }
         }
     }
@@ -561,14 +561,14 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemBackgroundRes(int i2) {
+    public void setItemBackgroundRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.itemBackgroundRes = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.itemBackgroundRes = i;
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    bottomNavigationItemView.setItemBackground(i2);
+                    bottomNavigationItemView.setItemBackground(i);
                 }
             }
         }
@@ -581,27 +581,27 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemIconSize(@Dimension int i2) {
+    public void setItemIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.itemIconSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.itemIconSize = i;
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    bottomNavigationItemView.setIconSize(i2);
+                    bottomNavigationItemView.setIconSize(i);
                 }
             }
         }
     }
 
-    public void setItemTextAppearanceActive(@StyleRes int i2) {
+    public void setItemTextAppearanceActive(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.itemTextAppearanceActive = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.itemTextAppearanceActive = i;
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    bottomNavigationItemView.setTextAppearanceActive(i2);
+                    bottomNavigationItemView.setTextAppearanceActive(i);
                     ColorStateList colorStateList = this.itemTextColorFromUser;
                     if (colorStateList != null) {
                         bottomNavigationItemView.setTextColor(colorStateList);
@@ -611,14 +611,14 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setItemTextAppearanceInactive(@StyleRes int i2) {
+    public void setItemTextAppearanceInactive(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.itemTextAppearanceInactive = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.itemTextAppearanceInactive = i;
             BottomNavigationItemView[] bottomNavigationItemViewArr = this.buttons;
             if (bottomNavigationItemViewArr != null) {
                 for (BottomNavigationItemView bottomNavigationItemView : bottomNavigationItemViewArr) {
-                    bottomNavigationItemView.setTextAppearanceInactive(i2);
+                    bottomNavigationItemView.setTextAppearanceInactive(i);
                     ColorStateList colorStateList = this.itemTextColorFromUser;
                     if (colorStateList != null) {
                         bottomNavigationItemView.setTextColor(colorStateList);
@@ -641,10 +641,10 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void setLabelVisibilityMode(int i2) {
+    public void setLabelVisibilityMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.labelVisibilityMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.labelVisibilityMode = i;
         }
     }
 
@@ -655,15 +655,15 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         }
     }
 
-    public void tryRestoreSelectedItemId(int i2) {
+    public void tryRestoreSelectedItemId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
             int size = this.menu.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                MenuItem item = this.menu.getItem(i3);
-                if (i2 == item.getItemId()) {
-                    this.selectedItemId = i2;
-                    this.selectedItemPosition = i3;
+            for (int i2 = 0; i2 < size; i2++) {
+                MenuItem item = this.menu.getItem(i2);
+                if (i == item.getItemId()) {
+                    this.selectedItemId = i;
+                    this.selectedItemPosition = i2;
                     item.setChecked(true);
                     return;
                 }
@@ -682,23 +682,23 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             buildMenuView();
             return;
         }
-        int i2 = this.selectedItemId;
-        for (int i3 = 0; i3 < size; i3++) {
-            MenuItem item = this.menu.getItem(i3);
+        int i = this.selectedItemId;
+        for (int i2 = 0; i2 < size; i2++) {
+            MenuItem item = this.menu.getItem(i2);
             if (item.isChecked()) {
                 this.selectedItemId = item.getItemId();
-                this.selectedItemPosition = i3;
+                this.selectedItemPosition = i2;
             }
         }
-        if (i2 != this.selectedItemId) {
+        if (i != this.selectedItemId) {
             TransitionManager.beginDelayedTransition(this, this.set);
         }
         boolean isShifting = isShifting(this.labelVisibilityMode, this.menu.getVisibleItems().size());
-        for (int i4 = 0; i4 < size; i4++) {
+        for (int i3 = 0; i3 < size; i3++) {
             this.presenter.setUpdateSuspended(true);
-            this.buttons[i4].setLabelVisibilityMode(this.labelVisibilityMode);
-            this.buttons[i4].setShifting(isShifting);
-            this.buttons[i4].initialize((MenuItemImpl) this.menu.getItem(i4), 0);
+            this.buttons[i3].setLabelVisibilityMode(this.labelVisibilityMode);
+            this.buttons[i3].setShifting(isShifting);
+            this.buttons[i3].initialize((MenuItemImpl) this.menu.getItem(i3), 0);
             this.presenter.setUpdateSuspended(false);
         }
     }
@@ -712,9 +712,9 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -727,11 +727,11 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
         this.selectedItemPosition = 0;
         this.badgeDrawables = new SparseArray<>(5);
         Resources resources = getResources();
-        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_item_max_width);
-        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_item_min_width);
-        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_max_width);
-        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_active_item_min_width);
-        this.itemHeight = resources.getDimensionPixelSize(R.dimen.design_bottom_navigation_height);
+        this.inactiveItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f7);
+        this.inactiveItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f8);
+        this.activeItemMaxWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f1);
+        this.activeItemMinWidth = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f2);
+        this.itemHeight = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701f5);
         this.itemTextColorDefault = createDefaultColorStateList(16842808);
         AutoTransition autoTransition = new AutoTransition();
         this.set = autoTransition;
@@ -751,9 +751,9 @@ public class BottomNavigationMenuView extends ViewGroup implements MenuView {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

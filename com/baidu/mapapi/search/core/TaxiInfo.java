@@ -19,19 +19,19 @@ public class TaxiInfo implements Parcelable {
     public float a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f34155b;
+    public String f26389b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34156c;
+    public int f26390c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f34157d;
+    public int f26391d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f34158e;
+    public float f26392e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f34159f;
+    public float f26393f;
 
     static {
         InterceptResult invokeClinit;
@@ -54,9 +54,9 @@ public class TaxiInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -70,20 +70,20 @@ public class TaxiInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = parcel.readFloat();
-        this.f34155b = parcel.readString();
-        this.f34156c = parcel.readInt();
-        this.f34157d = parcel.readInt();
-        this.f34158e = parcel.readFloat();
-        this.f34159f = parcel.readFloat();
+        this.f26389b = parcel.readString();
+        this.f26390c = parcel.readInt();
+        this.f26391d = parcel.readInt();
+        this.f26392e = parcel.readFloat();
+        this.f26393f = parcel.readFloat();
     }
 
     @Override // android.os.Parcelable
@@ -99,31 +99,31 @@ public class TaxiInfo implements Parcelable {
     public String getDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34155b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26389b : (String) invokeV.objValue;
     }
 
     public int getDistance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34156c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26390c : invokeV.intValue;
     }
 
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34157d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26391d : invokeV.intValue;
     }
 
     public float getPerKMPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34158e : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26392e : invokeV.floatValue;
     }
 
     public float getStartPrice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f34159f : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f26393f : invokeV.floatValue;
     }
 
     public float getTotalPrice() {
@@ -135,35 +135,35 @@ public class TaxiInfo implements Parcelable {
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f34155b = str;
+            this.f26389b = str;
         }
     }
 
-    public void setDistance(int i2) {
+    public void setDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f34156c = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f26390c = i;
         }
     }
 
-    public void setDuration(int i2) {
+    public void setDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f34157d = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.f26391d = i;
         }
     }
 
     public void setPerKMPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048586, this, f2) == null) {
-            this.f34158e = f2;
+            this.f26392e = f2;
         }
     }
 
     public void setStartPrice(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048587, this, f2) == null) {
-            this.f34159f = f2;
+            this.f26393f = f2;
         }
     }
 
@@ -175,15 +175,15 @@ public class TaxiInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeFloat(this.a);
-            parcel.writeString(this.f34155b);
-            parcel.writeInt(this.f34156c);
-            parcel.writeInt(this.f34157d);
-            parcel.writeFloat(this.f34158e);
-            parcel.writeFloat(this.f34159f);
+            parcel.writeString(this.f26389b);
+            parcel.writeInt(this.f26390c);
+            parcel.writeInt(this.f26391d);
+            parcel.writeFloat(this.f26392e);
+            parcel.writeFloat(this.f26393f);
         }
     }
 }

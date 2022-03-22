@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.mode.CommandMessage;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.ArrayList;
@@ -84,11 +83,12 @@ public final class g {
             HashMap hashMap = new HashMap();
             hashMap.put("pipl", a());
             hashMap.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, Long.toString(System.currentTimeMillis()));
-            hashMap.put("bussinessType", str3);
             hashMap.put("rl", "00000");
-            hashMap.put(CommandMessage.SDK_VERSION, "SDK-JJ-v3.6.2");
+            hashMap.put("bussinessType", str3);
+            hashMap.put("sdkversion", "SDK-JJ-v3.7.3");
             hashMap.put("networkType", f.f(context));
             hashMap.put("onlineType", f.g(context));
+            hashMap.put("aip", context.getPackageName());
             return a(str, str2, hashMap, str4);
         }
         return (String) invokeLLLLL.objValue;
@@ -149,9 +149,9 @@ public final class g {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }

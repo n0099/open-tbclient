@@ -30,9 +30,9 @@ public class GetContactActivty extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,13 +56,13 @@ public class GetContactActivty extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 4002) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 4002) {
                 GetContactResult getContactResult = new GetContactResult();
-                if (i3 == -1 && intent != null) {
+                if (i2 == -1 && intent != null) {
                     String[] phoneContacts = getPhoneContacts(intent.getData());
                     String str = phoneContacts[0];
                     getContactResult.name = str;

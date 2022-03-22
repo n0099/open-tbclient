@@ -15,21 +15,21 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     /* renamed from: com.facebook.datasource.FirstAvailableDataSourceSupplier$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @ThreadSafe
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FirstAvailableDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
         public int mIndex;
         public final /* synthetic */ FirstAvailableDataSourceSupplier this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                     newInitContext.initArgs = r2;
                     Object[] objArr = {firstAvailableDataSource};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -109,9 +109,9 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                 newInitContext.initArgs = r2;
                 Object[] objArr = {firstAvailableDataSourceSupplier};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -174,9 +174,9 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
                         return null;
                     }
                     List list = this.this$0.mDataSourceSuppliers;
-                    int i2 = this.mIndex;
-                    this.mIndex = i2 + 1;
-                    return (Supplier) list.get(i2);
+                    int i = this.mIndex;
+                    this.mIndex = i + 1;
+                    return (Supplier) list.get(i);
                 }
             }
             return (Supplier) invokeV.objValue;
@@ -319,9 +319,9 @@ public class FirstAvailableDataSourceSupplier<T> implements Supplier<DataSource<
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

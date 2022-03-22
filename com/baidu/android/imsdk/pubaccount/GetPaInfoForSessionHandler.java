@@ -29,9 +29,9 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,48 +43,48 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callBackChatType(int i2, PaInfo paInfo, CallBack callBack) {
+    public void callBackChatType(int i, PaInfo paInfo, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, this, i2, paInfo, callBack) == null) {
+        if (interceptable == null || interceptable.invokeILL(65538, this, i, paInfo, callBack) == null) {
             deleteUUid();
-            int i3 = 17;
-            if (i2 == 1) {
-                i3 = 1;
-            } else if (i2 == 5) {
-                i3 = 5;
-            } else if (i2 == 7) {
-                i3 = 7;
-            } else if (i2 == 19) {
-                i3 = 19;
-            } else if (i2 == 23) {
-                i3 = 23;
-            } else if (i2 == 29) {
-                i3 = 29;
-            } else if (i2 == 100) {
-                i3 = 100;
-            } else if (i2 == 16) {
-                i3 = 16;
-            } else if (i2 != 17) {
-                switch (i2) {
+            int i2 = 17;
+            if (i == 1) {
+                i2 = 1;
+            } else if (i == 5) {
+                i2 = 5;
+            } else if (i == 7) {
+                i2 = 7;
+            } else if (i == 19) {
+                i2 = 19;
+            } else if (i == 23) {
+                i2 = 23;
+            } else if (i == 29) {
+                i2 = 29;
+            } else if (i == 100) {
+                i2 = 100;
+            } else if (i == 16) {
+                i2 = 16;
+            } else if (i != 17) {
+                switch (i) {
                     case 25:
-                        i3 = 25;
+                        i2 = 25;
                         break;
                     case 26:
-                        i3 = 26;
+                        i2 = 26;
                         break;
                     case 27:
-                        i3 = 27;
+                        i2 = 27;
                         break;
                     default:
-                        i3 = -1;
+                        i2 = -1;
                         break;
                 }
             }
-            if (i3 != -1 || !Utility.availableNotificationPaType(i2)) {
-                i2 = i3;
+            if (i2 != -1 || !Utility.availableNotificationPaType(i)) {
+                i = i2;
             }
-            if (i2 != -1) {
-                callBack.onSuccess(i2, 0, paInfo);
+            if (i != -1) {
+                callBack.onSuccess(i, 0, paInfo);
             } else {
                 LogUtils.d("GetPaInfoForSessionHandler", "pa type as default -1");
             }
@@ -92,19 +92,19 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void getChatObjectInfo(long j2, CallBack callBack) {
+    public void getChatObjectInfo(long j, CallBack callBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, callBack) == null) {
-            PaInfo paInfo = PaManagerImpl.getInstance(this.mContext).getPaInfo(j2);
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, callBack) == null) {
+            PaInfo paInfo = PaManagerImpl.getInstance(this.mContext).getPaInfo(j);
             if (paInfo == null) {
-                int i2 = this.mNextTask;
-                if (i2 != -1) {
-                    GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(this.mContext, 0, j2, i2);
+                int i = this.mNextTask;
+                if (i != -1) {
+                    GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler = (GetChatObjectInfoForRecordHandler) GetChatObjectInfoForRecordManager.newInstance(this.mContext, 0, j, i);
                     this.mChatObjectHandler = getChatObjectInfoForRecordHandler;
-                    if (getChatObjectInfoForRecordHandler.getChatObjectInfoSync(this.mContext, j2, callBack)) {
+                    if (getChatObjectInfoForRecordHandler.getChatObjectInfoSync(this.mContext, j, callBack)) {
                         return;
                     }
-                    PaManager.getPaInfo(this.mContext, j2, new IGetPaInfoListener(this, callBack) { // from class: com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler.1
+                    PaManager.getPaInfo(this.mContext, j, new IGetPaInfoListener(this, callBack) { // from class: com.baidu.android.imsdk.pubaccount.GetPaInfoForSessionHandler.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ GetPaInfoForSessionHandler this$0;
@@ -117,9 +117,9 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, callBack};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -130,9 +130,9 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
                         }
 
                         @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfoListener
-                        public void onGetPaInfoResult(int i3, String str, PaInfo paInfo2) {
+                        public void onGetPaInfoResult(int i2, String str, PaInfo paInfo2) {
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str, paInfo2) == null) && i3 == 0) {
+                            if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, paInfo2) == null) && i2 == 0) {
                                 LogUtils.d("GetPaInfoForSessionHandler", "painfo=" + paInfo2.toString());
                                 this.this$0.callBackChatType(paInfo2.getSubtype(), paInfo2, this.val$callBack);
                             }
@@ -147,14 +147,14 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
     }
 
     @Override // com.baidu.android.imsdk.GetChatObjectInfoForRecordHandler
-    public void updateChatRecord(ChatObject chatObject, int i2, int i3, Object obj) {
+    public void updateChatRecord(ChatObject chatObject, int i, int i2, Object obj) {
         GetChatObjectInfoForRecordHandler getChatObjectInfoForRecordHandler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) || obj == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{chatObject, Integer.valueOf(i), Integer.valueOf(i2), obj}) == null) || obj == null) {
             return;
         }
         if (!(obj instanceof PaInfo) && (getChatObjectInfoForRecordHandler = this.mChatObjectHandler) != null) {
-            getChatObjectInfoForRecordHandler.updateChatRecord(chatObject, i2, i3, obj);
+            getChatObjectInfoForRecordHandler.updateChatRecord(chatObject, i, i2, obj);
             return;
         }
         PaInfo paInfo = (PaInfo) obj;
@@ -162,6 +162,6 @@ public class GetPaInfoForSessionHandler extends GetChatObjectInfoForRecordHandle
             return;
         }
         chatObject.setPaid(paInfo.getPaId());
-        updateChatRecord(chatObject, paInfo.getNickName(), i2, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime(), paInfo.getShield(), paInfo.getShieldTime(), paInfo.getVipId(), paInfo.getVPortrait(), paInfo.getIdentity());
+        updateChatRecord(chatObject, paInfo.getNickName(), i, paInfo.getAvatar(), paInfo.getClassType(), paInfo.getClassTitle(), paInfo.getClassavatar(), paInfo.getClassshow(), paInfo.getMarkTop(), paInfo.getMarkTopTime(), paInfo.getShield(), paInfo.getShieldTime(), paInfo.getVipId(), paInfo.getVPortrait(), paInfo.getIdentity());
     }
 }

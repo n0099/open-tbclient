@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBox.c, ImageProvider, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_COMMON_ATTENTION = 1;
@@ -38,9 +38,9 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,11 +71,11 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
                 return null;
             }
             ArrayList<String> arrayList = new ArrayList<>();
-            for (int i2 = 0; i2 < iconInfo.size(); i2++) {
-                arrayList.add(iconInfo.get(i2).getIcon());
+            for (int i = 0; i < iconInfo.size(); i++) {
+                arrayList.add(iconInfo.get(i).getIcon());
             }
-            for (int i3 = 0; i3 < iconInfo.size(); i3++) {
-                arrayList.add(tShowInfoNew.get(i3).getIcon());
+            for (int i2 = 0; i2 < iconInfo.size(); i2++) {
+                arrayList.add(tShowInfoNew.get(i2).getIcon());
             }
             return arrayList;
         }
@@ -161,7 +161,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.r.l0.t.a
+    @Override // com.baidu.tbadk.data.MetaData, c.a.o0.r.l0.t.a
     public void setIsLike(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
@@ -174,17 +174,17 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UserData(long j2, String str, String str2, int i2) {
-        super(j2, str, str2, i2);
+    public UserData(long j, String str, String str2, int i) {
+        super(j, str, str2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), (String) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;

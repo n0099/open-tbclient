@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultTrackSelector extends MappingTrackSelector {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float FRACTION_TO_CONSIDER_FULLSCREEN = 0.98f;
@@ -36,7 +36,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     public final TrackSelection.Factory adaptiveTrackSelectionFactory;
     public final AtomicReference<Parameters> paramsReference;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AudioConfigurationTuple {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,23 +44,23 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         public final String mimeType;
         public final int sampleRate;
 
-        public AudioConfigurationTuple(int i2, int i3, String str) {
+        public AudioConfigurationTuple(int i, int i2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.channelCount = i2;
-            this.sampleRate = i3;
+            this.channelCount = i;
+            this.sampleRate = i2;
             this.mimeType = str;
         }
 
@@ -84,15 +84,15 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = ((this.channelCount * 31) + this.sampleRate) * 31;
+                int i = ((this.channelCount * 31) + this.sampleRate) * 31;
                 String str = this.mimeType;
-                return i2 + (str != null ? str.hashCode() : 0);
+                return i + (str != null ? str.hashCode() : 0);
             }
             return invokeV.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AudioTrackScore implements Comparable<AudioTrackScore> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,23 +104,23 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         public final int sampleRate;
         public final int withinRendererCapabilitiesScore;
 
-        public AudioTrackScore(Format format, Parameters parameters, int i2) {
+        public AudioTrackScore(Format format, Parameters parameters, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {format, parameters, Integer.valueOf(i2)};
+                Object[] objArr = {format, parameters, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parameters = parameters;
-            this.withinRendererCapabilitiesScore = DefaultTrackSelector.isSupported(i2, false) ? 1 : 0;
+            this.withinRendererCapabilitiesScore = DefaultTrackSelector.isSupported(i, false) ? 1 : 0;
             this.matchLanguageScore = DefaultTrackSelector.formatHasLanguage(format, parameters.preferredAudioLanguage) ? 1 : 0;
             this.defaultSelectionFlagScore = (format.selectionFlags & 1) != 0 ? 1 : 0;
             this.channelCount = format.channelCount;
@@ -157,41 +157,41 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             int compareInts;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, audioTrackScore)) == null) {
-                int i2 = this.withinRendererCapabilitiesScore;
-                int i3 = audioTrackScore.withinRendererCapabilitiesScore;
-                if (i2 != i3) {
-                    return DefaultTrackSelector.compareInts(i2, i3);
+                int i = this.withinRendererCapabilitiesScore;
+                int i2 = audioTrackScore.withinRendererCapabilitiesScore;
+                if (i != i2) {
+                    return DefaultTrackSelector.compareInts(i, i2);
                 }
-                int i4 = this.matchLanguageScore;
-                int i5 = audioTrackScore.matchLanguageScore;
-                if (i4 != i5) {
-                    return DefaultTrackSelector.compareInts(i4, i5);
+                int i3 = this.matchLanguageScore;
+                int i4 = audioTrackScore.matchLanguageScore;
+                if (i3 != i4) {
+                    return DefaultTrackSelector.compareInts(i3, i4);
                 }
-                int i6 = this.defaultSelectionFlagScore;
-                int i7 = audioTrackScore.defaultSelectionFlagScore;
-                if (i6 != i7) {
-                    return DefaultTrackSelector.compareInts(i6, i7);
+                int i5 = this.defaultSelectionFlagScore;
+                int i6 = audioTrackScore.defaultSelectionFlagScore;
+                if (i5 != i6) {
+                    return DefaultTrackSelector.compareInts(i5, i6);
                 }
                 if (this.parameters.forceLowestBitrate) {
                     return DefaultTrackSelector.compareInts(audioTrackScore.bitrate, this.bitrate);
                 }
-                int i8 = i2 != 1 ? -1 : 1;
-                int i9 = this.channelCount;
-                int i10 = audioTrackScore.channelCount;
-                if (i9 != i10) {
-                    compareInts = DefaultTrackSelector.compareInts(i9, i10);
+                int i7 = i != 1 ? -1 : 1;
+                int i8 = this.channelCount;
+                int i9 = audioTrackScore.channelCount;
+                if (i8 != i9) {
+                    compareInts = DefaultTrackSelector.compareInts(i8, i9);
                 } else {
-                    int i11 = this.sampleRate;
-                    int i12 = audioTrackScore.sampleRate;
-                    compareInts = i11 != i12 ? DefaultTrackSelector.compareInts(i11, i12) : DefaultTrackSelector.compareInts(this.bitrate, audioTrackScore.bitrate);
+                    int i10 = this.sampleRate;
+                    int i11 = audioTrackScore.sampleRate;
+                    compareInts = i10 != i11 ? DefaultTrackSelector.compareInts(i10, i11) : DefaultTrackSelector.compareInts(this.bitrate, audioTrackScore.bitrate);
                 }
-                return i8 * compareInts;
+                return i7 * compareInts;
             }
             return invokeL.intValue;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Parameters {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -216,9 +216,9 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     this((String) objArr[0], (String) objArr[1], ((Boolean) objArr[2]).booleanValue(), ((Boolean) objArr[3]).booleanValue(), ((Boolean) objArr[4]).booleanValue(), ((Integer) objArr[5]).intValue(), ((Integer) objArr[6]).intValue(), ((Integer) objArr[7]).intValue(), ((Boolean) objArr[8]).booleanValue(), ((Boolean) objArr[9]).booleanValue(), ((Integer) objArr[10]).intValue(), ((Integer) objArr[11]).intValue(), ((Boolean) objArr[12]).booleanValue());
                     newInitContext.thisArg = this;
@@ -283,20 +283,20 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             return (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) ? z == this.forceLowestBitrate ? this : new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, z, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, this.viewportWidth, this.viewportHeight, this.viewportOrientationMayChange) : (Parameters) invokeZ.objValue;
         }
 
-        public Parameters withMaxVideoBitrate(int i2) {
+        public Parameters withMaxVideoBitrate(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 == this.maxVideoBitrate ? this : new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, i2, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, this.viewportWidth, this.viewportHeight, this.viewportOrientationMayChange) : (Parameters) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == this.maxVideoBitrate ? this : new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, i, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, this.viewportWidth, this.viewportHeight, this.viewportOrientationMayChange) : (Parameters) invokeI.objValue;
         }
 
-        public Parameters withMaxVideoSize(int i2, int i3) {
+        public Parameters withMaxVideoSize(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3)) == null) {
-                if (i2 == this.maxVideoWidth && i3 == this.maxVideoHeight) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2)) == null) {
+                if (i == this.maxVideoWidth && i2 == this.maxVideoHeight) {
                     return this;
                 }
-                return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, i2, i3, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, this.viewportWidth, this.viewportHeight, this.viewportOrientationMayChange);
+                return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, i, i2, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, this.viewportWidth, this.viewportHeight, this.viewportOrientationMayChange);
             }
             return (Parameters) invokeII.objValue;
         }
@@ -327,17 +327,17 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             return (Parameters) invokeL.objValue;
         }
 
-        public Parameters withViewportSize(int i2, int i3, boolean z) {
+        public Parameters withViewportSize(int i, int i2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                if (i2 == this.viewportWidth && i3 == this.viewportHeight) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                if (i == this.viewportWidth && i2 == this.viewportHeight) {
                     if (z == this.viewportOrientationMayChange) {
                         return this;
                     }
-                    return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, i2, i3, z);
+                    return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, i, i2, z);
                 }
-                return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, i2, i3, z);
+                return new Parameters(this.preferredAudioLanguage, this.preferredTextLanguage, this.forceLowestBitrate, this.allowMixedMimeAdaptiveness, this.allowNonSeamlessAdaptiveness, this.maxVideoWidth, this.maxVideoHeight, this.maxVideoBitrate, this.exceedVideoConstraintsIfNecessary, this.exceedRendererCapabilitiesIfNecessary, i, i2, z);
             }
             return (Parameters) invokeCommon.objValue;
         }
@@ -364,16 +364,16 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? withViewportSize(Integer.MAX_VALUE, Integer.MAX_VALUE, true) : (Parameters) invokeV.objValue;
         }
 
-        public Parameters(String str, String str2, boolean z, boolean z2, boolean z3, int i2, int i3, int i4, boolean z4, boolean z5, int i5, int i6, boolean z6) {
+        public Parameters(String str, String str2, boolean z, boolean z2, boolean z3, int i, int i2, int i3, boolean z4, boolean z5, int i4, int i5, boolean z6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z4), Boolean.valueOf(z5), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z6)};
+                Object[] objArr = {str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z4), Boolean.valueOf(z5), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z6)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -384,13 +384,13 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             this.forceLowestBitrate = z;
             this.allowMixedMimeAdaptiveness = z2;
             this.allowNonSeamlessAdaptiveness = z3;
-            this.maxVideoWidth = i2;
-            this.maxVideoHeight = i3;
-            this.maxVideoBitrate = i4;
+            this.maxVideoWidth = i;
+            this.maxVideoHeight = i2;
+            this.maxVideoBitrate = i3;
             this.exceedVideoConstraintsIfNecessary = z4;
             this.exceedRendererCapabilitiesIfNecessary = z5;
-            this.viewportWidth = i5;
-            this.viewportHeight = i6;
+            this.viewportWidth = i4;
+            this.viewportHeight = i5;
             this.viewportOrientationMayChange = z6;
         }
     }
@@ -418,9 +418,9 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((TrackSelection.Factory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -429,39 +429,39 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         }
     }
 
-    public static int compareFormatValues(int i2, int i3) {
+    public static int compareFormatValues(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
-            if (i2 == -1) {
-                return i3 == -1 ? 0 : -1;
-            } else if (i3 == -1) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            if (i == -1) {
+                return i2 == -1 ? 0 : -1;
+            } else if (i2 == -1) {
                 return 1;
             } else {
-                return i2 - i3;
+                return i - i2;
             }
         }
         return invokeII.intValue;
     }
 
-    public static int compareInts(int i2, int i3) {
+    public static int compareInts(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
-            if (i2 > i3) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
+            if (i > i2) {
                 return 1;
             }
-            return i3 > i2 ? -1 : 0;
+            return i2 > i ? -1 : 0;
         }
         return invokeII.intValue;
     }
 
-    public static void filterAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i2, String str, int i3, int i4, int i5, List<Integer> list) {
+    public static void filterAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{trackGroup, iArr, Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), list}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{trackGroup, iArr, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list}) == null) {
             for (int size = list.size() - 1; size >= 0; size--) {
                 int intValue = list.get(size).intValue();
-                if (!isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i2, i3, i4, i5)) {
+                if (!isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i, i2, i3, i4)) {
                     list.remove(size);
                 }
             }
@@ -478,13 +478,13 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, trackGroup, iArr, audioConfigurationTuple)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < trackGroup.length; i3++) {
-                if (isSupportedAdaptiveAudioTrack(trackGroup.getFormat(i3), iArr[i3], audioConfigurationTuple)) {
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < trackGroup.length; i2++) {
+                if (isSupportedAdaptiveAudioTrack(trackGroup.getFormat(i2), iArr[i2], audioConfigurationTuple)) {
+                    i++;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLLL.intValue;
     }
@@ -496,22 +496,22 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, trackGroup, iArr, z)) == null) {
             HashSet hashSet = new HashSet();
             AudioConfigurationTuple audioConfigurationTuple = null;
-            int i2 = 0;
-            for (int i3 = 0; i3 < trackGroup.length; i3++) {
-                Format format = trackGroup.getFormat(i3);
+            int i = 0;
+            for (int i2 = 0; i2 < trackGroup.length; i2++) {
+                Format format = trackGroup.getFormat(i2);
                 AudioConfigurationTuple audioConfigurationTuple2 = new AudioConfigurationTuple(format.channelCount, format.sampleRate, z ? null : format.sampleMimeType);
-                if (hashSet.add(audioConfigurationTuple2) && (adaptiveAudioTrackCount = getAdaptiveAudioTrackCount(trackGroup, iArr, audioConfigurationTuple2)) > i2) {
-                    i2 = adaptiveAudioTrackCount;
+                if (hashSet.add(audioConfigurationTuple2) && (adaptiveAudioTrackCount = getAdaptiveAudioTrackCount(trackGroup, iArr, audioConfigurationTuple2)) > i) {
+                    i = adaptiveAudioTrackCount;
                     audioConfigurationTuple = audioConfigurationTuple2;
                 }
             }
-            if (i2 > 1) {
-                int[] iArr2 = new int[i2];
-                int i4 = 0;
-                for (int i5 = 0; i5 < trackGroup.length; i5++) {
-                    if (isSupportedAdaptiveAudioTrack(trackGroup.getFormat(i5), iArr[i5], audioConfigurationTuple)) {
-                        iArr2[i4] = i5;
-                        i4++;
+            if (i > 1) {
+                int[] iArr2 = new int[i];
+                int i3 = 0;
+                for (int i4 = 0; i4 < trackGroup.length; i4++) {
+                    if (isSupportedAdaptiveAudioTrack(trackGroup.getFormat(i4), iArr[i4], audioConfigurationTuple)) {
+                        iArr2[i3] = i4;
+                        i3++;
                     }
                 }
                 return iArr2;
@@ -521,32 +521,32 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return (int[]) invokeLLZ.objValue;
     }
 
-    public static int getAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i2, String str, int i3, int i4, int i5, List<Integer> list) {
+    public static int getAdaptiveVideoTrackCountForMimeType(TrackGroup trackGroup, int[] iArr, int i, String str, int i2, int i3, int i4, List<Integer> list) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{trackGroup, iArr, Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), list})) == null) {
-            int i6 = 0;
-            for (int i7 = 0; i7 < list.size(); i7++) {
-                int intValue = list.get(i7).intValue();
-                if (isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i2, i3, i4, i5)) {
-                    i6++;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{trackGroup, iArr, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list})) == null) {
+            int i5 = 0;
+            for (int i6 = 0; i6 < list.size(); i6++) {
+                int intValue = list.get(i6).intValue();
+                if (isSupportedAdaptiveVideoTrack(trackGroup.getFormat(intValue), str, iArr[intValue], i, i2, i3, i4)) {
+                    i5++;
                 }
             }
-            return i6;
+            return i5;
         }
         return invokeCommon.intValue;
     }
 
-    public static int[] getAdaptiveVideoTracksForGroup(TrackGroup trackGroup, int[] iArr, boolean z, int i2, int i3, int i4, int i5, int i6, int i7, boolean z2) {
+    public static int[] getAdaptiveVideoTracksForGroup(TrackGroup trackGroup, int[] iArr, boolean z, int i, int i2, int i3, int i4, int i5, int i6, boolean z2) {
         InterceptResult invokeCommon;
         String str;
         int adaptiveVideoTrackCountForMimeType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{trackGroup, iArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{trackGroup, iArr, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z2)})) == null) {
             if (trackGroup.length < 2) {
                 return NO_TRACKS;
             }
-            List<Integer> viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup, i6, i7, z2);
+            List<Integer> viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup, i5, i6, z2);
             if (viewportFilteredTrackIndices.size() < 2) {
                 return NO_TRACKS;
             }
@@ -555,17 +555,17 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             } else {
                 HashSet hashSet = new HashSet();
                 String str2 = null;
-                int i8 = 0;
-                for (int i9 = 0; i9 < viewportFilteredTrackIndices.size(); i9++) {
-                    String str3 = trackGroup.getFormat(viewportFilteredTrackIndices.get(i9).intValue()).sampleMimeType;
-                    if (hashSet.add(str3) && (adaptiveVideoTrackCountForMimeType = getAdaptiveVideoTrackCountForMimeType(trackGroup, iArr, i2, str3, i3, i4, i5, viewportFilteredTrackIndices)) > i8) {
-                        i8 = adaptiveVideoTrackCountForMimeType;
+                int i7 = 0;
+                for (int i8 = 0; i8 < viewportFilteredTrackIndices.size(); i8++) {
+                    String str3 = trackGroup.getFormat(viewportFilteredTrackIndices.get(i8).intValue()).sampleMimeType;
+                    if (hashSet.add(str3) && (adaptiveVideoTrackCountForMimeType = getAdaptiveVideoTrackCountForMimeType(trackGroup, iArr, i, str3, i2, i3, i4, viewportFilteredTrackIndices)) > i7) {
+                        i7 = adaptiveVideoTrackCountForMimeType;
                         str2 = str3;
                     }
                 }
                 str = str2;
             }
-            filterAdaptiveVideoTrackCountForMimeType(trackGroup, iArr, i2, str, i3, i4, i5, viewportFilteredTrackIndices);
+            filterAdaptiveVideoTrackCountForMimeType(trackGroup, iArr, i, str, i2, i3, i4, viewportFilteredTrackIndices);
             return viewportFilteredTrackIndices.size() < 2 ? NO_TRACKS : Util.toArray(viewportFilteredTrackIndices);
         }
         return (int[]) invokeCommon.objValue;
@@ -577,52 +577,52 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static Point getMaxVideoSizeInViewport(boolean z, int i2, int i3, int i4, int i5) {
+    public static Point getMaxVideoSizeInViewport(boolean z, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
             if (z) {
             }
-            i3 = i2;
-            i2 = i3;
+            i2 = i;
+            i = i2;
+            int i5 = i3 * i;
             int i6 = i4 * i2;
-            int i7 = i5 * i3;
-            if (i6 >= i7) {
-                return new Point(i3, Util.ceilDivide(i7, i4));
+            if (i5 >= i6) {
+                return new Point(i2, Util.ceilDivide(i6, i3));
             }
-            return new Point(Util.ceilDivide(i6, i5), i2);
+            return new Point(Util.ceilDivide(i5, i4), i);
         }
         return (Point) invokeCommon.objValue;
     }
 
-    public static List<Integer> getViewportFilteredTrackIndices(TrackGroup trackGroup, int i2, int i3, boolean z) {
+    public static List<Integer> getViewportFilteredTrackIndices(TrackGroup trackGroup, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{trackGroup, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{trackGroup, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             ArrayList arrayList = new ArrayList(trackGroup.length);
-            for (int i5 = 0; i5 < trackGroup.length; i5++) {
-                arrayList.add(Integer.valueOf(i5));
+            for (int i4 = 0; i4 < trackGroup.length; i4++) {
+                arrayList.add(Integer.valueOf(i4));
             }
-            if (i2 != Integer.MAX_VALUE && i3 != Integer.MAX_VALUE) {
-                int i6 = Integer.MAX_VALUE;
-                for (int i7 = 0; i7 < trackGroup.length; i7++) {
-                    Format format = trackGroup.getFormat(i7);
-                    int i8 = format.width;
-                    if (i8 > 0 && (i4 = format.height) > 0) {
-                        Point maxVideoSizeInViewport = getMaxVideoSizeInViewport(z, i2, i3, i8, i4);
-                        int i9 = format.width;
-                        int i10 = format.height;
-                        int i11 = i9 * i10;
-                        if (i9 >= ((int) (maxVideoSizeInViewport.x * 0.98f)) && i10 >= ((int) (maxVideoSizeInViewport.y * 0.98f)) && i11 < i6) {
-                            i6 = i11;
+            if (i != Integer.MAX_VALUE && i2 != Integer.MAX_VALUE) {
+                int i5 = Integer.MAX_VALUE;
+                for (int i6 = 0; i6 < trackGroup.length; i6++) {
+                    Format format = trackGroup.getFormat(i6);
+                    int i7 = format.width;
+                    if (i7 > 0 && (i3 = format.height) > 0) {
+                        Point maxVideoSizeInViewport = getMaxVideoSizeInViewport(z, i, i2, i7, i3);
+                        int i8 = format.width;
+                        int i9 = format.height;
+                        int i10 = i8 * i9;
+                        if (i8 >= ((int) (maxVideoSizeInViewport.x * 0.98f)) && i9 >= ((int) (maxVideoSizeInViewport.y * 0.98f)) && i10 < i5) {
+                            i5 = i10;
                         }
                     }
                 }
-                if (i6 != Integer.MAX_VALUE) {
+                if (i5 != Integer.MAX_VALUE) {
                     for (int size = arrayList.size() - 1; size >= 0; size--) {
                         int pixelCount = trackGroup.getFormat(((Integer) arrayList.get(size)).intValue()).getPixelCount();
-                        if (pixelCount == -1 || pixelCount > i6) {
+                        if (pixelCount == -1 || pixelCount > i5) {
                             arrayList.remove(size);
                         }
                     }
@@ -633,21 +633,21 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return (List) invokeCommon.objValue;
     }
 
-    public static boolean isSupported(int i2, boolean z) {
+    public static boolean isSupported(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int i3 = i2 & 7;
-            return i3 == 4 || (z && i3 == 3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int i2 = i & 7;
+            return i2 == 4 || (z && i2 == 3);
         }
         return invokeCommon.booleanValue;
     }
 
-    public static boolean isSupportedAdaptiveAudioTrack(Format format, int i2, AudioConfigurationTuple audioConfigurationTuple) {
+    public static boolean isSupportedAdaptiveAudioTrack(Format format, int i, AudioConfigurationTuple audioConfigurationTuple) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65552, null, format, i2, audioConfigurationTuple)) == null) {
-            if (isSupported(i2, false) && format.channelCount == audioConfigurationTuple.channelCount && format.sampleRate == audioConfigurationTuple.sampleRate) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65552, null, format, i, audioConfigurationTuple)) == null) {
+            if (isSupported(i, false) && format.channelCount == audioConfigurationTuple.channelCount && format.sampleRate == audioConfigurationTuple.sampleRate) {
                 String str = audioConfigurationTuple.mimeType;
                 return str == null || TextUtils.equals(str, format.sampleMimeType);
             }
@@ -656,20 +656,20 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean isSupportedAdaptiveVideoTrack(Format format, String str, int i2, int i3, int i4, int i5, int i6) {
+    public static boolean isSupportedAdaptiveVideoTrack(Format format, String str, int i, int i2, int i3, int i4, int i5) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{format, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            if (!isSupported(i2, false) || (i2 & i3) == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{format, str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+            if (!isSupported(i, false) || (i & i2) == 0) {
                 return false;
             }
             if (str == null || Util.areEqual(format.sampleMimeType, str)) {
-                int i7 = format.width;
-                if (i7 == -1 || i7 <= i4) {
-                    int i8 = format.height;
-                    if (i8 == -1 || i8 <= i5) {
-                        int i9 = format.bitrate;
-                        return i9 == -1 || i9 <= i6;
+                int i6 = format.width;
+                if (i6 == -1 || i6 <= i3) {
+                    int i7 = format.height;
+                    if (i7 == -1 || i7 <= i4) {
+                        int i8 = format.bitrate;
+                        return i8 == -1 || i8 <= i5;
                     }
                     return false;
                 }
@@ -684,11 +684,11 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65554, null, rendererCapabilities, trackGroupArray, iArr, parameters, factory)) == null) {
-            int i2 = parameters.allowNonSeamlessAdaptiveness ? 24 : 16;
-            boolean z = parameters.allowMixedMimeAdaptiveness && (rendererCapabilities.supportsMixedMimeTypeAdaptation() & i2) != 0;
-            for (int i3 = 0; i3 < trackGroupArray.length; i3++) {
-                TrackGroup trackGroup = trackGroupArray.get(i3);
-                int[] adaptiveVideoTracksForGroup = getAdaptiveVideoTracksForGroup(trackGroup, iArr[i3], z, i2, parameters.maxVideoWidth, parameters.maxVideoHeight, parameters.maxVideoBitrate, parameters.viewportWidth, parameters.viewportHeight, parameters.viewportOrientationMayChange);
+            int i = parameters.allowNonSeamlessAdaptiveness ? 24 : 16;
+            boolean z = parameters.allowMixedMimeAdaptiveness && (rendererCapabilities.supportsMixedMimeTypeAdaptation() & i) != 0;
+            for (int i2 = 0; i2 < trackGroupArray.length; i2++) {
+                TrackGroup trackGroup = trackGroupArray.get(i2);
+                int[] adaptiveVideoTracksForGroup = getAdaptiveVideoTracksForGroup(trackGroup, iArr[i2], z, i, parameters.maxVideoWidth, parameters.maxVideoHeight, parameters.maxVideoBitrate, parameters.viewportWidth, parameters.viewportHeight, parameters.viewportOrientationMayChange);
                 if (adaptiveVideoTracksForGroup.length > 0) {
                     return factory.createTrackSelection(trackGroup, adaptiveVideoTracksForGroup);
                 }
@@ -707,43 +707,43 @@ public class DefaultTrackSelector extends MappingTrackSelector {
     public static TrackSelection selectFixedVideoTrack(TrackGroupArray trackGroupArray, int[][] iArr, Parameters parameters) {
         InterceptResult invokeLLL;
         int compareFormatValues;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, trackGroupArray, iArr, parameters)) == null) {
             TrackGroupArray trackGroupArray2 = trackGroupArray;
-            int i5 = -1;
-            int i6 = 0;
+            int i4 = -1;
+            int i5 = 0;
             TrackGroup trackGroup = null;
+            int i6 = 0;
             int i7 = 0;
-            int i8 = 0;
+            int i8 = -1;
             int i9 = -1;
-            int i10 = -1;
-            while (i6 < trackGroupArray2.length) {
-                TrackGroup trackGroup2 = trackGroupArray2.get(i6);
+            while (i5 < trackGroupArray2.length) {
+                TrackGroup trackGroup2 = trackGroupArray2.get(i5);
                 List<Integer> viewportFilteredTrackIndices = getViewportFilteredTrackIndices(trackGroup2, parameters.viewportWidth, parameters.viewportHeight, parameters.viewportOrientationMayChange);
-                int[] iArr2 = iArr[i6];
-                int i11 = 0;
-                while (i11 < trackGroup2.length) {
-                    if (isSupported(iArr2[i11], parameters.exceedRendererCapabilitiesIfNecessary)) {
-                        Format format = trackGroup2.getFormat(i11);
+                int[] iArr2 = iArr[i5];
+                int i10 = 0;
+                while (i10 < trackGroup2.length) {
+                    if (isSupported(iArr2[i10], parameters.exceedRendererCapabilitiesIfNecessary)) {
+                        Format format = trackGroup2.getFormat(i10);
                         boolean z = true;
-                        boolean z2 = viewportFilteredTrackIndices.contains(Integer.valueOf(i11)) && ((i2 = format.width) == i5 || i2 <= parameters.maxVideoWidth) && (((i3 = format.height) == i5 || i3 <= parameters.maxVideoHeight) && ((i4 = format.bitrate) == i5 || i4 <= parameters.maxVideoBitrate));
+                        boolean z2 = viewportFilteredTrackIndices.contains(Integer.valueOf(i10)) && ((i = format.width) == i4 || i <= parameters.maxVideoWidth) && (((i2 = format.height) == i4 || i2 <= parameters.maxVideoHeight) && ((i3 = format.bitrate) == i4 || i3 <= parameters.maxVideoBitrate));
                         if (z2 || parameters.exceedVideoConstraintsIfNecessary) {
-                            int i12 = z2 ? 2 : 1;
-                            boolean isSupported = isSupported(iArr2[i11], false);
+                            int i11 = z2 ? 2 : 1;
+                            boolean isSupported = isSupported(iArr2[i10], false);
                             if (isSupported) {
-                                i12 += 1000;
+                                i11 += 1000;
                             }
-                            boolean z3 = i12 > i8;
-                            if (i12 == i8) {
+                            boolean z3 = i11 > i7;
+                            if (i11 == i7) {
                                 if (!parameters.forceLowestBitrate) {
                                     int pixelCount = format.getPixelCount();
-                                    if (pixelCount != i9) {
-                                        compareFormatValues = compareFormatValues(pixelCount, i9);
+                                    if (pixelCount != i8) {
+                                        compareFormatValues = compareFormatValues(pixelCount, i8);
                                     } else {
-                                        compareFormatValues = compareFormatValues(format.bitrate, i10);
+                                        compareFormatValues = compareFormatValues(format.bitrate, i9);
                                     }
                                     if (isSupported) {
                                     }
@@ -752,25 +752,25 @@ public class DefaultTrackSelector extends MappingTrackSelector {
                                 }
                             }
                             if (z3) {
-                                i10 = format.bitrate;
-                                i9 = format.getPixelCount();
+                                i9 = format.bitrate;
+                                i8 = format.getPixelCount();
                                 trackGroup = trackGroup2;
+                                i6 = i10;
                                 i7 = i11;
-                                i8 = i12;
                             }
                         }
                     }
-                    i11++;
-                    i5 = -1;
+                    i10++;
+                    i4 = -1;
                 }
-                i6++;
+                i5++;
                 trackGroupArray2 = trackGroupArray;
-                i5 = -1;
+                i4 = -1;
             }
             if (trackGroup == null) {
                 return null;
             }
-            return new FixedTrackSelection(trackGroup, i7);
+            return new FixedTrackSelection(trackGroup, i6);
         }
         return (TrackSelection) invokeLLL.objValue;
     }
@@ -786,73 +786,41 @@ public class DefaultTrackSelector extends MappingTrackSelector {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trackGroupArray, iArr, parameters, factory)) == null) {
             AudioTrackScore audioTrackScore = null;
+            int i = -1;
             int i2 = -1;
-            int i3 = -1;
-            for (int i4 = 0; i4 < trackGroupArray.length; i4++) {
-                TrackGroup trackGroup = trackGroupArray.get(i4);
-                int[] iArr2 = iArr[i4];
-                for (int i5 = 0; i5 < trackGroup.length; i5++) {
-                    if (isSupported(iArr2[i5], parameters.exceedRendererCapabilitiesIfNecessary)) {
-                        AudioTrackScore audioTrackScore2 = new AudioTrackScore(trackGroup.getFormat(i5), parameters, iArr2[i5]);
+            for (int i3 = 0; i3 < trackGroupArray.length; i3++) {
+                TrackGroup trackGroup = trackGroupArray.get(i3);
+                int[] iArr2 = iArr[i3];
+                for (int i4 = 0; i4 < trackGroup.length; i4++) {
+                    if (isSupported(iArr2[i4], parameters.exceedRendererCapabilitiesIfNecessary)) {
+                        AudioTrackScore audioTrackScore2 = new AudioTrackScore(trackGroup.getFormat(i4), parameters, iArr2[i4]);
                         if (audioTrackScore == null || audioTrackScore2.compareTo(audioTrackScore) > 0) {
+                            i = i3;
                             i2 = i4;
-                            i3 = i5;
                             audioTrackScore = audioTrackScore2;
                         }
                     }
                 }
             }
-            if (i2 == -1) {
+            if (i == -1) {
                 return null;
             }
-            TrackGroup trackGroup2 = trackGroupArray.get(i2);
+            TrackGroup trackGroup2 = trackGroupArray.get(i);
             if (!parameters.forceLowestBitrate && factory != null) {
-                int[] adaptiveAudioTracks = getAdaptiveAudioTracks(trackGroup2, iArr[i2], parameters.allowMixedMimeAdaptiveness);
+                int[] adaptiveAudioTracks = getAdaptiveAudioTracks(trackGroup2, iArr[i], parameters.allowMixedMimeAdaptiveness);
                 if (adaptiveAudioTracks.length > 0) {
                     return factory.createTrackSelection(trackGroup2, adaptiveAudioTracks);
                 }
             }
-            return new FixedTrackSelection(trackGroup2, i3);
+            return new FixedTrackSelection(trackGroup2, i2);
         }
         return (TrackSelection) invokeLLLL.objValue;
     }
 
-    public TrackSelection selectOtherTrack(int i2, TrackGroupArray trackGroupArray, int[][] iArr, Parameters parameters) throws ExoPlaybackException {
+    public TrackSelection selectOtherTrack(int i, TrackGroupArray trackGroupArray, int[][] iArr, Parameters parameters) throws ExoPlaybackException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), trackGroupArray, iArr, parameters})) == null) {
-            TrackGroup trackGroup = null;
-            int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < trackGroupArray.length; i5++) {
-                TrackGroup trackGroup2 = trackGroupArray.get(i5);
-                int[] iArr2 = iArr[i5];
-                for (int i6 = 0; i6 < trackGroup2.length; i6++) {
-                    if (isSupported(iArr2[i6], parameters.exceedRendererCapabilitiesIfNecessary)) {
-                        int i7 = (trackGroup2.getFormat(i6).selectionFlags & 1) != 0 ? 2 : 1;
-                        if (isSupported(iArr2[i6], false)) {
-                            i7 += 1000;
-                        }
-                        if (i7 > i4) {
-                            trackGroup = trackGroup2;
-                            i3 = i6;
-                            i4 = i7;
-                        }
-                    }
-                }
-            }
-            if (trackGroup == null) {
-                return null;
-            }
-            return new FixedTrackSelection(trackGroup, i3);
-        }
-        return (TrackSelection) invokeCommon.objValue;
-    }
-
-    public TrackSelection selectTextTrack(TrackGroupArray trackGroupArray, int[][] iArr, Parameters parameters) throws ExoPlaybackException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, trackGroupArray, iArr, parameters)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), trackGroupArray, iArr, parameters})) == null) {
             TrackGroup trackGroup = null;
             int i2 = 0;
             int i3 = 0;
@@ -861,19 +829,7 @@ public class DefaultTrackSelector extends MappingTrackSelector {
                 int[] iArr2 = iArr[i4];
                 for (int i5 = 0; i5 < trackGroup2.length; i5++) {
                     if (isSupported(iArr2[i5], parameters.exceedRendererCapabilitiesIfNecessary)) {
-                        Format format = trackGroup2.getFormat(i5);
-                        int i6 = 1;
-                        boolean z = (format.selectionFlags & 1) != 0;
-                        boolean z2 = (format.selectionFlags & 2) != 0;
-                        if (formatHasLanguage(format, parameters.preferredTextLanguage)) {
-                            i6 = z ? 6 : !z2 ? 5 : 4;
-                        } else if (z) {
-                            i6 = 3;
-                        } else if (z2) {
-                            if (formatHasLanguage(format, parameters.preferredAudioLanguage)) {
-                                i6 = 2;
-                            }
-                        }
+                        int i6 = (trackGroup2.getFormat(i5).selectionFlags & 1) != 0 ? 2 : 1;
                         if (isSupported(iArr2[i5], false)) {
                             i6 += 1000;
                         }
@@ -890,6 +846,50 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             }
             return new FixedTrackSelection(trackGroup, i2);
         }
+        return (TrackSelection) invokeCommon.objValue;
+    }
+
+    public TrackSelection selectTextTrack(TrackGroupArray trackGroupArray, int[][] iArr, Parameters parameters) throws ExoPlaybackException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, trackGroupArray, iArr, parameters)) == null) {
+            TrackGroup trackGroup = null;
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < trackGroupArray.length; i3++) {
+                TrackGroup trackGroup2 = trackGroupArray.get(i3);
+                int[] iArr2 = iArr[i3];
+                for (int i4 = 0; i4 < trackGroup2.length; i4++) {
+                    if (isSupported(iArr2[i4], parameters.exceedRendererCapabilitiesIfNecessary)) {
+                        Format format = trackGroup2.getFormat(i4);
+                        int i5 = 1;
+                        boolean z = (format.selectionFlags & 1) != 0;
+                        boolean z2 = (format.selectionFlags & 2) != 0;
+                        if (formatHasLanguage(format, parameters.preferredTextLanguage)) {
+                            i5 = z ? 6 : !z2 ? 5 : 4;
+                        } else if (z) {
+                            i5 = 3;
+                        } else if (z2) {
+                            if (formatHasLanguage(format, parameters.preferredAudioLanguage)) {
+                                i5 = 2;
+                            }
+                        }
+                        if (isSupported(iArr2[i4], false)) {
+                            i5 += 1000;
+                        }
+                        if (i5 > i2) {
+                            trackGroup = trackGroup2;
+                            i = i4;
+                            i2 = i5;
+                        }
+                    }
+                }
+            }
+            if (trackGroup == null) {
+                return null;
+            }
+            return new FixedTrackSelection(trackGroup, i);
+        }
         return (TrackSelection) invokeLLL.objValue;
     }
 
@@ -902,37 +902,37 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             TrackSelection[] trackSelectionArr = new TrackSelection[length];
             Parameters parameters = this.paramsReference.get();
             boolean z = false;
-            int i2 = 0;
+            int i = 0;
             boolean z2 = false;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
                 }
-                if (2 == rendererCapabilitiesArr[i2].getTrackType()) {
+                if (2 == rendererCapabilitiesArr[i].getTrackType()) {
                     if (!z) {
-                        trackSelectionArr[i2] = selectVideoTrack(rendererCapabilitiesArr[i2], trackGroupArrayArr[i2], iArr[i2], parameters, this.adaptiveTrackSelectionFactory);
-                        z = trackSelectionArr[i2] != null;
+                        trackSelectionArr[i] = selectVideoTrack(rendererCapabilitiesArr[i], trackGroupArrayArr[i], iArr[i], parameters, this.adaptiveTrackSelectionFactory);
+                        z = trackSelectionArr[i] != null;
                     }
-                    z2 |= trackGroupArrayArr[i2].length > 0;
+                    z2 |= trackGroupArrayArr[i].length > 0;
                 }
-                i2++;
+                i++;
             }
             boolean z3 = false;
             boolean z4 = false;
-            for (int i3 = 0; i3 < length; i3++) {
-                int trackType = rendererCapabilitiesArr[i3].getTrackType();
+            for (int i2 = 0; i2 < length; i2++) {
+                int trackType = rendererCapabilitiesArr[i2].getTrackType();
                 if (trackType != 1) {
                     if (trackType != 2) {
                         if (trackType != 3) {
-                            trackSelectionArr[i3] = selectOtherTrack(rendererCapabilitiesArr[i3].getTrackType(), trackGroupArrayArr[i3], iArr[i3], parameters);
+                            trackSelectionArr[i2] = selectOtherTrack(rendererCapabilitiesArr[i2].getTrackType(), trackGroupArrayArr[i2], iArr[i2], parameters);
                         } else if (!z4) {
-                            trackSelectionArr[i3] = selectTextTrack(trackGroupArrayArr[i3], iArr[i3], parameters);
-                            z4 = trackSelectionArr[i3] != null;
+                            trackSelectionArr[i2] = selectTextTrack(trackGroupArrayArr[i2], iArr[i2], parameters);
+                            z4 = trackSelectionArr[i2] != null;
                         }
                     }
                 } else if (!z3) {
-                    trackSelectionArr[i3] = selectAudioTrack(trackGroupArrayArr[i3], iArr[i3], parameters, z2 ? null : this.adaptiveTrackSelectionFactory);
-                    z3 = trackSelectionArr[i3] != null;
+                    trackSelectionArr[i2] = selectAudioTrack(trackGroupArrayArr[i2], iArr[i2], parameters, z2 ? null : this.adaptiveTrackSelectionFactory);
+                    z3 = trackSelectionArr[i2] != null;
                 }
             }
             return trackSelectionArr;
@@ -970,9 +970,9 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             newInitContext.initArgs = r2;
             Object[] objArr = {bandwidthMeter};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((TrackSelection.Factory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -988,9 +988,9 @@ public class DefaultTrackSelector extends MappingTrackSelector {
             newInitContext.initArgs = r2;
             Object[] objArr = {factory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

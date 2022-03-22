@@ -1,7 +1,7 @@
 package com.baidubce.callback;
 
 import com.baidubce.model.AbstractBceRequest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface BceProgressCallback<T extends AbstractBceRequest> {
-    void onProgress(T t, long j2, long j3);
+    void onProgress(T t, long j, long j2);
 }

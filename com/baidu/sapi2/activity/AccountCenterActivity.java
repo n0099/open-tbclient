@@ -76,9 +76,9 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -150,9 +150,9 @@ public class AccountCenterActivity extends SlideActiviy {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -221,11 +221,11 @@ public class AccountCenterActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 1004 && i3 == -1) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 1004 && i2 == -1) {
                 String stringExtra = intent.getStringExtra("bduss");
                 this.D = stringExtra;
                 loadAccountCenter(stringExtra);
@@ -269,7 +269,7 @@ public class AccountCenterActivity extends SlideActiviy {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -290,15 +290,15 @@ public class AccountCenterActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, keyEvent)) == null) {
-            if (i2 != 4) {
-                return super.onKeyDown(i2, keyEvent);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, keyEvent)) == null) {
+            if (i != 4) {
+                return super.onKeyDown(i, keyEvent);
             }
             if (TextUtils.isEmpty(this.F)) {
-                this.sapiWebView.onKeyUp(i2);
+                this.sapiWebView.onKeyUp(i);
                 return true;
             }
             SapiWebView sapiWebView = this.sapiWebView;
@@ -352,10 +352,10 @@ public class AccountCenterActivity extends SlideActiviy {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048589, this, i2, strArr, iArr) == null) {
-            super.onRequestPermissionsResult(i2, strArr, iArr);
+        if (interceptable == null || interceptable.invokeILL(1048589, this, i, strArr, iArr) == null) {
+            super.onRequestPermissionsResult(i, strArr, iArr);
         }
     }
 
@@ -393,9 +393,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -424,9 +424,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -436,10 +436,10 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
 
                 @Override // com.baidu.sapi2.SapiWebView.LeftBtnVisibleCallback
-                public void onLeftBtnVisible(int i2) {
+                public void onLeftBtnVisible(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                        if (i2 == 0) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                        if (i == 0) {
                             this.a.setBtnVisibility(4, 4, 4);
                         } else {
                             this.a.setBtnVisibility(4, 0, 4);
@@ -453,7 +453,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f36637b;
+                public final /* synthetic */ AccountCenterActivity f28398b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -462,15 +462,15 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, accountCenterCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36637b = this;
+                    this.f28398b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -492,9 +492,9 @@ public class AccountCenterActivity extends SlideActiviy {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -508,10 +508,10 @@ public class AccountCenterActivity extends SlideActiviy {
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
                                         super.loginSuc();
-                                        this.a.f36637b.D = SapiContext.getInstance().getCurrentAccount().bduss;
-                                        AccountCenterActivity accountCenterActivity = this.a.f36637b;
+                                        this.a.f28398b.D = SapiContext.getInstance().getCurrentAccount().bduss;
+                                        AccountCenterActivity accountCenterActivity = this.a.f28398b;
                                         accountCenterActivity.loadAccountCenter(accountCenterActivity.D);
-                                        this.a.f36637b.loginStatusChange = true;
+                                        this.a.f28398b.loginStatusChange = true;
                                     }
                                 }
                             };
@@ -527,12 +527,12 @@ public class AccountCenterActivity extends SlideActiviy {
                             this.a.onFinish(accountCenterResult);
                             return;
                         }
-                        Intent intent = new Intent(this.f36637b, LoginActivity.class);
+                        Intent intent = new Intent(this.f28398b, LoginActivity.class);
                         intent.putExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2003);
-                        int i2 = result.switchAccountType;
-                        if (i2 == 1) {
+                        int i = result.switchAccountType;
+                        if (i == 1) {
                             intent.putExtra("username", result.userName);
-                        } else if (i2 == 2) {
+                        } else if (i == 2) {
                             if (result.loginType == 0) {
                                 intent.putExtra(LoginActivity.EXTRA_LOGIN_TYPE, WebLoginDTO.EXTRA_LOGIN_WITH_USERNAME);
                             } else {
@@ -544,7 +544,7 @@ public class AccountCenterActivity extends SlideActiviy {
                             }
                             intent.putExtra(LoginActivity.EXTRA_PARAM_ENCRYPTED_UID, result.encryptedUid);
                         }
-                        this.f36637b.startActivityForResult(intent, 1004);
+                        this.f28398b.startActivityForResult(intent, 1004);
                     }
                 }
             });
@@ -560,9 +560,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -592,9 +592,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -624,7 +624,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f36638b;
+                public final /* synthetic */ AccountCenterActivity f28399b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -633,15 +633,15 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, accountCenterCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36638b = this;
+                    this.f28399b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -667,9 +667,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -705,9 +705,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -736,9 +736,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -748,9 +748,9 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void onFailed(int i2, String str) {
+                public void onFailed(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
 
@@ -778,9 +778,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -800,7 +800,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 }
             });
             if (TextUtils.isEmpty(this.F)) {
-                setTitleText(R.string.sapi_sdk_title_account_center);
+                setTitleText(R.string.obfuscated_res_0x7f0f1045);
                 loadAccountCenter(this.D);
             } else {
                 this.sapiWebView.loadUrl(this.F);
@@ -810,16 +810,16 @@ public class AccountCenterActivity extends SlideActiviy {
                 SapiConfiguration sapiConfiguration = this.configuration;
                 if (sapiConfiguration != null && sapiConfiguration.isDarkMode) {
                     if (this.useTitle) {
-                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
-                        setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
-                        setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
-                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg_darkmode));
+                        ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060900));
+                        setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f060900));
+                        setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060902));
+                        this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f060900));
                     }
                 } else if (this.useTitle) {
-                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text_darkmode));
-                    setTitleLayoutBg(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
-                    setTitleTextColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_text));
-                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.sapi_sdk_account_center_titlebar_bg));
+                    ViewUtility.enableStatusBarTint(this, getResources().getColor(R.color.obfuscated_res_0x7f060902));
+                    setTitleLayoutBg(getResources().getColor(R.color.obfuscated_res_0x7f0608ff));
+                    setTitleTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060901));
+                    this.sapiWebView.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0608ff));
                 }
             }
             this.sapiWebView.setJumpToUriCallBack(new SapiJsCallBacks.JumpToUriCallBack(this, accountCenterCallback) { // from class: com.baidu.sapi2.activity.AccountCenterActivity.11
@@ -828,7 +828,7 @@ public class AccountCenterActivity extends SlideActiviy {
                 public final /* synthetic */ AccountCenterCallback a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ AccountCenterActivity f36636b;
+                public final /* synthetic */ AccountCenterActivity f28397b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -837,15 +837,15 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, accountCenterCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36636b = this;
+                    this.f28397b = this;
                     this.a = accountCenterCallback;
                 }
 
@@ -893,9 +893,9 @@ public class AccountCenterActivity extends SlideActiviy {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

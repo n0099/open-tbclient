@@ -1,5 +1,6 @@
 package com.baidu.searchbox.ai;
 
+import android.util.Log;
 import com.baidu.android.util.soloader.SoLoader;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -35,9 +36,9 @@ public class Common {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -51,17 +52,20 @@ public class Common {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             try {
-                return "mml" + getJniVersion();
+                int jniVersion = getJniVersion();
+                return "mml" + jniVersion;
             } catch (UnsatisfiedLinkError unused) {
                 SoLoader.load(AppRuntime.getAppContext(), "protobuf-lite");
                 SoLoader.load(AppRuntime.getAppContext(), "ai-entry");
                 try {
-                    return "mml" + getJniVersion();
+                    int jniVersion2 = getJniVersion();
+                    return "mml" + jniVersion2;
                 } catch (Throwable unused2) {
                     return null;
                 }
             } catch (Throwable th) {
-                String str = "invoke getJniVersion e: " + th.getLocalizedMessage();
+                String str = TAG;
+                Log.e(str, "invoke getJniVersion e: " + th.getLocalizedMessage());
                 return null;
             }
         }

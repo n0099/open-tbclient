@@ -12,14 +12,14 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
     public Presenter a;
 
     /* renamed from: b  reason: collision with root package name */
-    public T f54114b;
+    public T f39261b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ViewGroup f54115c;
+    public ViewGroup f39262c;
 
     public b(Context context) {
         super(context);
-        this.f54115c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
+        this.f39262c = (ViewGroup) FrameLayout.inflate(getContext(), getLayoutId(), this);
     }
 
     public void a() {
@@ -27,7 +27,7 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
         if (presenter != null) {
             presenter.k();
         }
-        this.f54115c = null;
+        this.f39262c = null;
     }
 
     public abstract T b();
@@ -41,19 +41,19 @@ public abstract class b<T extends com.kwad.sdk.core.e.b> extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        this.f54114b = b();
+        this.f39261b = b();
         if (this.a == null) {
             Presenter c2 = c();
             this.a = c2;
-            c2.c(this.f54115c);
+            c2.c(this.f39262c);
         }
-        this.a.a(this.f54114b);
+        this.a.a(this.f39261b);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        T t = this.f54114b;
+        T t = this.f39261b;
         if (t != null) {
             t.a();
         }

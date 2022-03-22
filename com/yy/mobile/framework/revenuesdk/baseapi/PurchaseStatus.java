@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PurchaseStatus {
     public static final /* synthetic */ PurchaseStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -61,16 +61,16 @@ public final class PurchaseStatus {
         $VALUES = new PurchaseStatus[]{UNKNOWN, ORDER_START, ORDER_SUCCESS, ORDER_FAIL, PAY_START, PAY_CANCEL, PAY_SUCCESS, PAY_FAIL, REPORT_START, REPORT_SUCCESS, purchaseStatus};
     }
 
-    public PurchaseStatus(String str, int i2, int i3, String str2) {
+    public PurchaseStatus(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -79,7 +79,7 @@ public final class PurchaseStatus {
                 return;
             }
         }
-        this.code = i3;
+        this.code = i2;
         this.msg = str2;
     }
 
@@ -107,13 +107,13 @@ public final class PurchaseStatus {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
     }
 
-    public static PurchaseStatus valueOf(int i2) {
+    public static PurchaseStatus valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 120) {
-                if (i2 != 121) {
-                    switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 120) {
+                if (i != 121) {
+                    switch (i) {
                         case 100:
                             return ORDER_START;
                         case 101:
@@ -121,7 +121,7 @@ public final class PurchaseStatus {
                         case 102:
                             return ORDER_FAIL;
                         default:
-                            switch (i2) {
+                            switch (i) {
                                 case 110:
                                     return PAY_START;
                                 case 111:

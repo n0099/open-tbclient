@@ -49,9 +49,9 @@ public class NetInfoUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,15 +83,15 @@ public class NetInfoUtil {
         return (String) invokeL.objValue;
     }
 
-    public static int getNetworkClassByType(int i2) {
+    public static int getNetworkClassByType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            int i3 = -101;
-            if (i2 != -101) {
-                i3 = -1;
-                if (i2 != -1) {
-                    switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = -101;
+            if (i != -101) {
+                i2 = -1;
+                if (i != -1) {
+                    switch (i) {
                         case 1:
                         case 2:
                         case 4:
@@ -115,7 +115,7 @@ public class NetInfoUtil {
                     }
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -125,24 +125,24 @@ public class NetInfoUtil {
         TelephonyManager telephonyManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int i2 = 0;
+            int i = 0;
             try {
                 ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
                 NetworkInfo activeNetworkInfo = connectivityManager != null ? connectivityManager.getActiveNetworkInfo() : null;
                 if (activeNetworkInfo != null && activeNetworkInfo.isAvailable() && activeNetworkInfo.isConnected()) {
                     int type = activeNetworkInfo.getType();
                     if (type == 1) {
-                        i2 = -101;
+                        i = -101;
                     } else if (type == 0 && (telephonyManager = (TelephonyManager) context.getSystemService("phone")) != null) {
-                        i2 = telephonyManager.getNetworkType();
+                        i = telephonyManager.getNetworkType();
                     }
                 } else {
-                    i2 = -1;
+                    i = -1;
                 }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            int networkClassByType = getNetworkClassByType(i2);
+            int networkClassByType = getNetworkClassByType(i);
             return networkClassByType != -101 ? (networkClassByType == -1 || networkClassByType == 0) ? RomUtils.UNKNOWN : networkClassByType != 1 ? networkClassByType != 2 ? networkClassByType != 3 ? RomUtils.UNKNOWN : "4G" : "3G" : "2G" : CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
         }
         return (String) invokeL.objValue;

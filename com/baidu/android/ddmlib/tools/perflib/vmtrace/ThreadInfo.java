@@ -16,22 +16,22 @@ public class ThreadInfo {
     public final String mName;
     public final Call mTopLevelCall;
 
-    public ThreadInfo(int i2, @NonNull String str, @Nullable Call call) {
+    public ThreadInfo(int i, @NonNull String str, @Nullable Call call) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, call};
+            Object[] objArr = {Integer.valueOf(i), str, call};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mId = i2;
+        this.mId = i;
         this.mName = str;
         this.mTopLevelCall = call;
     }

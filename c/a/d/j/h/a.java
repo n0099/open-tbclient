@@ -26,7 +26,7 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f2990b;
+    public static volatile a f2491b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> a;
 
@@ -50,9 +50,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -67,14 +67,14 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             synchronized (a.class) {
-                if (f2990b == null) {
+                if (f2491b == null) {
                     synchronized (a.class) {
-                        if (f2990b == null) {
-                            f2990b = new a();
+                        if (f2491b == null) {
+                            f2491b = new a();
                         }
                     }
                 }
-                aVar = f2990b;
+                aVar = f2491b;
             }
             return aVar;
         }
@@ -104,8 +104,8 @@ public class a {
             if (pluginSetting == null) {
                 pluginSetting = c.j().h(str2);
             }
-            int i2 = pluginSetting != null ? pluginSetting.install_fail_count : 0;
-            j(str, null, str2, "failContent_" + i2 + "-callFrom_" + str3);
+            int i = pluginSetting != null ? pluginSetting.install_fail_count : 0;
+            j(str, null, str2, "failContent_" + i + "-callFrom_" + str3);
         }
     }
 
@@ -115,8 +115,8 @@ public class a {
             if (pluginSetting == null) {
                 pluginSetting = c.j().h(str2);
             }
-            int i2 = pluginSetting != null ? pluginSetting.install_fail_count : 0;
-            j(str, str3, str2, "failContent_" + i2);
+            int i = pluginSetting != null ? pluginSetting.install_fail_count : 0;
+            j(str, str3, str2, "failContent_" + i);
         }
     }
 
@@ -133,10 +133,10 @@ public class a {
         }
     }
 
-    public void h(String str, int i2) {
+    public void h(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i2) == null) {
-            j(str, null, null, UserStickinessSQLiteOpenHelper.COUNT_PREFIX + i2);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
+            j(str, null, null, UserStickinessSQLiteOpenHelper.COUNT_PREFIX + i);
         }
     }
 
@@ -174,14 +174,14 @@ public class a {
         }
     }
 
-    public void k(String str, long j2, int i2, String str2) {
+    public void k(String str, long j, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j2), Integer.valueOf(i2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{str, Long.valueOf(j), Integer.valueOf(i), str2}) == null) {
             c.a.d.f.n.a c2 = c();
             c2.b("workflow", str + "_cost");
-            c2.c("cost", Long.valueOf(j2));
-            if (i2 != 0) {
-                c2.c("count", Integer.valueOf(i2));
+            c2.c("cost", Long.valueOf(j));
+            if (i != 0) {
+                c2.c("count", Integer.valueOf(i));
             }
             if (str2 != null) {
                 c2.b("pname", str2);
@@ -196,10 +196,10 @@ public class a {
         }
     }
 
-    public void l(String str, long j2, String str2) {
+    public void l(String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j2), str2}) == null) {
-            k(str, j2, 0, str2);
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, Long.valueOf(j), str2}) == null) {
+            k(str, j, 0, str2);
         }
     }
 

@@ -11,35 +11,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.walletfacesdk.LightInvokerImpl;
 import com.sdk.base.api.CallBack;
 import com.sdk.base.framework.a.f;
 import com.sdk.base.framework.a.j;
 import com.sdk.base.framework.bean.DataInfo;
 import com.sdk.base.framework.f.g.g;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.mobile.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f57834b;
+    public static Boolean f42601b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public CallBack<T> f57835c;
+    public CallBack<T> f42602c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f57836d;
+    public Context f42603d;
 
     /* renamed from: e  reason: collision with root package name */
-    public e f57837e;
+    public e f42604e;
 
     /* renamed from: f  reason: collision with root package name */
-    public f f57838f;
+    public f f42605f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f57839g;
+    public int f42606g;
 
     static {
         InterceptResult invokeClinit;
@@ -54,91 +53,91 @@ public class a<T> {
                 return;
             }
         }
-        f57834b = Boolean.valueOf(com.sdk.base.framework.c.f.f57798b);
+        f42601b = Boolean.valueOf(com.sdk.base.framework.c.f.f42567b);
     }
 
-    public a(Context context, int i2, CallBack<T> callBack) {
+    public a(Context context, int i, CallBack<T> callBack) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), callBack};
+            Object[] objArr = {context, Integer.valueOf(i), callBack};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f57835c = callBack;
-        this.f57836d = context;
-        i2 = i2 <= 0 ? 30 : i2;
-        this.f57839g = i2;
-        e eVar = new e(this, i2 * 1000);
-        this.f57837e = eVar;
+        this.f42602c = callBack;
+        this.f42603d = context;
+        i = i <= 0 ? 30 : i;
+        this.f42606g = i;
+        e eVar = new e(this, i * 1000);
+        this.f42604e = eVar;
         eVar.a();
         com.sdk.base.framework.f.f.a.a();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, int i3, String str) {
+    public void a(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, i3, str) == null) {
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, i2, str) == null) {
             String a2 = com.sdk.base.framework.f.f.a.b().a();
             if (com.sdk.base.framework.a.a.c.a(a2).booleanValue()) {
                 a2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            e eVar = this.f57837e;
+            e eVar = this.f42604e;
             if (eVar != null) {
                 eVar.b();
             }
-            CallBack<T> callBack = this.f57835c;
+            CallBack<T> callBack = this.f42602c;
             if (callBack != null) {
-                callBack.onFailed(i2, i3, str, a2);
-                this.f57835c = null;
+                callBack.onFailed(i, i2, str, a2);
+                this.f42602c = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f57836d, i3, str, a2, this.f57839g);
+            com.sdk.base.framework.f.k.a.a(this.f42603d, i2, str, a2, this.f42606g);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str, int i3, T t, String str2) {
+    public void a(int i, String str, int i2, T t, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), t, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), t, str2}) == null) {
             if (com.sdk.base.framework.a.a.c.a(str2).booleanValue()) {
                 str2 = com.sdk.base.framework.f.i.a.a(20);
             }
-            e eVar = this.f57837e;
+            e eVar = this.f42604e;
             if (eVar != null) {
                 eVar.b();
             }
-            CallBack<T> callBack = this.f57835c;
+            CallBack<T> callBack = this.f42602c;
             if (callBack != null) {
-                callBack.onSuccess(i2, str, i3, t, str2);
-                this.f57835c = null;
+                callBack.onSuccess(i, str, i2, t, str2);
+                this.f42602c = null;
             }
-            com.sdk.base.framework.f.k.a.a(this.f57836d, i3, str, str2, this.f57839g);
+            com.sdk.base.framework.f.k.a.a(this.f42603d, i2, str, str2, this.f42606g);
         }
     }
 
-    public final void a(int i2) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            String a2 = com.sdk.base.framework.a.a.a.a(this.f57836d, i2, g.a.a());
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            String a2 = com.sdk.base.framework.a.a.a.a(this.f42603d, i, g.a.a());
             if (com.sdk.base.framework.a.a.c.b(a2).booleanValue()) {
                 a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(a2), com.sdk.base.framework.a.a.a.b(a2));
-            } else if (!com.sdk.base.framework.f.i.b.a(this.f57836d)) {
+            } else if (!com.sdk.base.framework.f.i.b.a(this.f42603d)) {
                 a(1, IMTrack.CrashBuilder.CRASH_TYPE_CATCH, "操作频繁请,稍后再试");
             } else {
                 new com.sdk.mobile.a.a();
-                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f57836d, new b(this, i2));
+                com.sdk.mobile.c.a aVar = new com.sdk.mobile.c.a(this.f42603d, new b(this, i));
                 DataInfo dataInfo = new DataInfo();
-                dataInfo.putData(LightInvokerImpl.LIVENESS_SERVIVETYPE, Integer.valueOf(i2));
+                dataInfo.putData("serviceType", Integer.valueOf(i));
                 dataInfo.putData("privateIp", com.sdk.base.framework.f.a.a.a());
                 dataInfo.putData("newVersion", "10");
-                this.f57838f = aVar.a(aVar.f57805b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, j.f57765b);
+                this.f42605f = aVar.a(aVar.f42574b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, j.f42537b);
             }
         }
     }
@@ -146,18 +145,18 @@ public class a<T> {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            com.sdk.base.framework.a.a.a.a(this.f57836d);
+            com.sdk.base.framework.a.a.a.a(this.f42603d);
             new com.sdk.mobile.a.a();
-            this.f57838f = com.sdk.mobile.a.a.a(this.f57836d, str, null, new d(this));
+            this.f42605f = com.sdk.mobile.a.a.a(this.f42603d, str, null, new d(this));
         }
     }
 
     public final void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            com.sdk.base.framework.a.a.a.b(this.f57836d);
+            com.sdk.base.framework.a.a.a.b(this.f42603d);
             new com.sdk.mobile.a.a();
-            this.f57838f = com.sdk.mobile.a.a.a(this.f57836d, str, str2, new c(this));
+            this.f42605f = com.sdk.mobile.a.a.a(this.f42603d, str, str2, new c(this));
         }
     }
 }

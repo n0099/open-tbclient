@@ -11,10 +11,10 @@ public class f {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30501b;
+    public String f24381b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30502c;
+    public String f24382c;
 
     public f(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
@@ -23,19 +23,19 @@ public class f {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f30501b = "";
-        this.f30502c = "";
+        this.f24381b = "";
+        this.f24382c = "";
         this.a = str;
-        this.f30501b = str2;
-        this.f30502c = str3;
+        this.f24381b = str2;
+        this.f24382c = str3;
     }
 }

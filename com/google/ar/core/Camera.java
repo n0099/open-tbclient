@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Camera {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public class Camera {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -28,27 +28,27 @@ public class Camera {
         this.a = 0L;
     }
 
-    public static native long nativeAcquireCamera(long j2, long j3);
+    public static native long nativeAcquireCamera(long j, long j2);
 
-    private native long nativeCreateCameraIntrinsics(long j2);
+    private native long nativeCreateCameraIntrinsics(long j);
 
-    private native Pose nativeDisplayOrientedPose(long j2, long j3);
+    private native Pose nativeDisplayOrientedPose(long j, long j2);
 
-    private native void nativeGetImageIntrinsics(long j2, long j3, long j4);
+    private native void nativeGetImageIntrinsics(long j, long j2, long j3);
 
-    private native Pose nativeGetPose(long j2, long j3);
+    private native Pose nativeGetPose(long j, long j2);
 
-    private native void nativeGetProjectionMatrix(long j2, long j3, float[] fArr, int i2, float f2, float f3);
+    private native void nativeGetProjectionMatrix(long j, long j2, float[] fArr, int i, float f2, float f3);
 
-    private native void nativeGetTextureIntrinsics(long j2, long j3, long j4);
+    private native void nativeGetTextureIntrinsics(long j, long j2, long j3);
 
-    private native int nativeGetTrackingFailureReason(long j2, long j3);
+    private native int nativeGetTrackingFailureReason(long j, long j2);
 
-    private native int nativeGetTrackingState(long j2, long j3);
+    private native int nativeGetTrackingState(long j, long j2);
 
-    private native void nativeGetViewMatrix(long j2, long j3, float[] fArr, int i2);
+    private native void nativeGetViewMatrix(long j, long j2, float[] fArr, int i);
 
-    public static native void nativeReleaseCamera(long j2);
+    public static native void nativeReleaseCamera(long j);
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -59,9 +59,9 @@ public class Camera {
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                nativeReleaseCamera(j2);
+            long j = this.a;
+            if (j != 0) {
+                nativeReleaseCamera(j);
             }
             super.finalize();
         }

@@ -21,7 +21,7 @@ public class ThreadPool {
     public static volatile c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f34790b;
+    public static volatile c f26963b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -35,9 +35,9 @@ public class ThreadPool {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -91,16 +91,16 @@ public class ThreadPool {
             $VALUES = new QueueProcessingType[]{FIFO, queueProcessingType};
         }
 
-        public QueueProcessingType(String str, int i2) {
+        public QueueProcessingType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -133,21 +133,19 @@ public class ThreadPool {
     public static class b implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
 
-        /* renamed from: i  reason: collision with root package name */
-        public static final AtomicInteger f34791i;
-        public transient /* synthetic */ FieldHolder $fh;
-
         /* renamed from: e  reason: collision with root package name */
-        public final ThreadGroup f34792e;
+        public static final AtomicInteger f26964e;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ThreadGroup a;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final AtomicInteger f34793f;
+        /* renamed from: b  reason: collision with root package name */
+        public final AtomicInteger f26965b;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final String f34794g;
+        /* renamed from: c  reason: collision with root package name */
+        public final String f26966c;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final int f34795h;
+        /* renamed from: d  reason: collision with root package name */
+        public final int f26967d;
 
         static {
             InterceptResult invokeClinit;
@@ -162,29 +160,29 @@ public class ThreadPool {
                     return;
                 }
             }
-            f34791i = new AtomicInteger(1);
+            f26964e = new AtomicInteger(1);
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f34793f = new AtomicInteger(1);
-            this.f34795h = i2;
+            this.f26965b = new AtomicInteger(1);
+            this.f26967d = i;
             SecurityManager securityManager = System.getSecurityManager();
-            this.f34792e = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
-            this.f34794g = str + "-" + f34791i.getAndIncrement() + "-thread-";
+            this.a = securityManager == null ? Thread.currentThread().getThreadGroup() : securityManager.getThreadGroup();
+            this.f26966c = str + "-" + f26964e.getAndIncrement() + "-thread-";
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -192,12 +190,12 @@ public class ThreadPool {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                ThreadGroup threadGroup = this.f34792e;
-                Thread thread = new Thread(threadGroup, runnable, this.f34794g + this.f34793f.getAndIncrement(), 0L);
+                ThreadGroup threadGroup = this.a;
+                Thread thread = new Thread(threadGroup, runnable, this.f26966c + this.f26965b.getAndIncrement(), 0L);
                 if (thread.isDaemon()) {
                     thread.setDaemon(false);
                 }
-                thread.setPriority(this.f34795h);
+                thread.setPriority(this.f26967d);
                 return thread;
             }
             return (Thread) invokeL.objValue;
@@ -209,27 +207,27 @@ public class ThreadPool {
         public static /* synthetic */ Interceptable $ic;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final int f34796f;
+        public static final int f26968f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final int f34797g;
+        public static final int f26969g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final int f34798h;
+        public static final int f26970h;
         public transient /* synthetic */ FieldHolder $fh;
         public ExecutorService a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f34799b;
+        public int f26971b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f34800c;
+        public int f26972c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f34801d;
+        public String f26973d;
 
         /* renamed from: e  reason: collision with root package name */
-        public QueueProcessingType f34802e;
+        public QueueProcessingType f26974e;
 
         static {
             InterceptResult invokeClinit;
@@ -245,23 +243,23 @@ public class ThreadPool {
                 }
             }
             int availableProcessors = Runtime.getRuntime().availableProcessors();
-            f34796f = availableProcessors;
-            f34797g = Math.max(2, Math.min(availableProcessors - 1, 4));
-            f34798h = f34796f;
+            f26968f = availableProcessors;
+            f26969g = Math.max(2, Math.min(availableProcessors - 1, 4));
+            f26970h = f26968f;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public c(String str, int i2) {
-            this(str, i2, 9, QueueProcessingType.FIFO);
+        public c(String str, int i) {
+            this(str, i, 9, QueueProcessingType.FIFO);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (QueueProcessingType) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -282,11 +280,11 @@ public class ThreadPool {
             }
         }
 
-        public final ExecutorService d(String str, int i2, int i3, QueueProcessingType queueProcessingType) {
+        public final ExecutorService d(String str, int i, int i2, QueueProcessingType queueProcessingType) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), queueProcessingType})) == null) {
-                return new ThreadPoolExecutor(i2, i2, 3L, TimeUnit.SECONDS, queueProcessingType == QueueProcessingType.FIFO ? new LinkedBlockingQueue() : new LIFOLinkedBlockingDeque(null), new b(str, i3));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), queueProcessingType})) == null) {
+                return new ThreadPoolExecutor(i, i, 3L, TimeUnit.SECONDS, queueProcessingType == QueueProcessingType.FIFO ? new LinkedBlockingQueue() : new LIFOLinkedBlockingDeque(null), new b(str, i2));
             }
             return (ExecutorService) invokeCommon.objValue;
         }
@@ -298,30 +296,30 @@ public class ThreadPool {
             }
         }
 
-        public c(String str, int i2, int i3, QueueProcessingType queueProcessingType) {
+        public c(String str, int i, int i2, QueueProcessingType queueProcessingType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), queueProcessingType};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), queueProcessingType};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
-            this.f34799b = f34797g;
-            this.f34800c = 4;
-            this.f34802e = QueueProcessingType.FIFO;
-            this.f34801d = str;
-            this.f34799b = i2;
-            this.f34800c = i3;
-            this.f34802e = queueProcessingType;
+            this.f26971b = f26969g;
+            this.f26972c = 4;
+            this.f26974e = QueueProcessingType.FIFO;
+            this.f26973d = str;
+            this.f26971b = i;
+            this.f26972c = i2;
+            this.f26974e = queueProcessingType;
             if (this.a == null) {
-                this.a = d(str, i2, i3, queueProcessingType);
+                this.a = d(str, i, i2, queueProcessingType);
             }
         }
     }
@@ -331,9 +329,9 @@ public class ThreadPool {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -344,16 +342,16 @@ public class ThreadPool {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f34790b == null) {
+            if (f26963b == null) {
                 synchronized (ThreadPool.class) {
-                    if (f34790b == null) {
-                        c cVar = new c("ComputationThreadPool", c.f34797g);
+                    if (f26963b == null) {
+                        c cVar = new c("ComputationThreadPool", c.f26969g);
                         cVar.c();
-                        f34790b = cVar;
+                        f26963b = cVar;
                     }
                 }
             }
-            return f34790b;
+            return f26963b;
         }
         return (c) invokeV.objValue;
     }
@@ -365,7 +363,7 @@ public class ThreadPool {
             if (a == null) {
                 synchronized (ThreadPool.class) {
                     if (a == null) {
-                        c cVar = new c("IOThreadPool", c.f34798h);
+                        c cVar = new c("IOThreadPool", c.f26970h);
                         cVar.c();
                         a = cVar;
                     }

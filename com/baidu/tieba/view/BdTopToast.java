@@ -24,31 +24,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class BdTopToast extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int DEFAULT_THIRD_DURATION = 3000;
-    public static final int DEFAULT_YOUNGSTER_DURATION = 2000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public BottomShadowLinearLayout f36807b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f36808c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f36809d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f47619e;
+    public Animation f36810e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BottomShadowLinearLayout f47620f;
+    public Animation f36811f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f47621g;
+    public Runnable f36812g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f47622h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Animation f47623i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Animation f47624j;
-    public Runnable k;
-    public int l;
-    public boolean m;
+    public int f36813h;
+    public boolean i;
 
     /* loaded from: classes6.dex */
     public class a implements Animation.AnimationListener {
@@ -63,9 +63,9 @@ public class BdTopToast extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdTopToast};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,7 +78,7 @@ public class BdTopToast extends LinearLayout {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.f();
+                this.a.g();
                 if (this.a.getParent() != null) {
                     ((ViewGroup) this.a.getParent()).removeView(this.a);
                 }
@@ -104,9 +104,7 @@ public class BdTopToast extends LinearLayout {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdTopToast f47625e;
+        public final /* synthetic */ BdTopToast a;
 
         public b(BdTopToast bdTopToast) {
             Interceptable interceptable = $ic;
@@ -115,52 +113,52 @@ public class BdTopToast extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdTopToast};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47625e = bdTopToast;
+            this.a = bdTopToast;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f47625e.c();
+                this.a.c();
             }
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdTopToast(Context context, int i2) {
+    public BdTopToast(Context context, int i) {
         this(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = i2;
+        this.f36813h = i;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f();
-            startAnimation(this.f47624j);
+            g();
+            startAnimation(this.f36811f);
         }
     }
 
@@ -169,13 +167,13 @@ public class BdTopToast extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                this.f47619e = new View(getContext());
-                addView(this.f47619e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+                this.a = new View(getContext());
+                addView(this.a, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
             }
-            LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-            this.f47620f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-            this.f47621g = (ImageView) findViewById(R.id.bd_top_toast_icon);
-            this.f47622h = (TextView) findViewById(R.id.bd_top_toast_content);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0151, this);
+            this.f36807b = (BottomShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f09033f);
+            this.f36808c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090340);
+            this.f36809d = (TextView) findViewById(R.id.obfuscated_res_0x7f09033e);
             e();
         }
     }
@@ -183,58 +181,58 @@ public class BdTopToast extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47623i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
-            this.f47624j = loadAnimation;
+            this.f36810e = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008b);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100b3);
+            this.f36811f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
-            this.k = new b(this);
+            this.f36812g = new b(this);
         }
     }
 
-    public final void f() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e.a().removeCallbacks(this.k);
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0207);
+            if (this.i) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f36808c, R.drawable.obfuscated_res_0x7f080616, R.color.CAM_X0302, null);
+                SkinManager.setViewTextColor(this.f36809d, (int) R.color.CAM_X0302);
+            } else {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f36808c, R.drawable.obfuscated_res_0x7f080601, R.color.CAM_X0301, null);
+                SkinManager.setViewTextColor(this.f36809d, (int) R.color.CAM_X0301);
+            }
+            this.f36807b.b();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            e.a().removeCallbacks(this.f36812g);
             clearAnimation();
         }
     }
 
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f47619e, R.color.CAM_X0207);
-            if (this.m) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47621g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-                SkinManager.setViewTextColor(this.f47622h, (int) R.color.CAM_X0302);
-            } else {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f47621g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-                SkinManager.setViewTextColor(this.f47622h, (int) R.color.CAM_X0301);
-            }
-            this.f47620f.onChangeSkinType();
-        }
-    }
-
-    public BdTopToast setContent(String str) {
+    public BdTopToast h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.f47622h.setText(str);
+            this.f36809d.setText(str);
             return this;
         }
         return (BdTopToast) invokeL.objValue;
     }
 
-    public BdTopToast setIcon(boolean z) {
+    public BdTopToast i(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            this.m = z;
+            this.i = z;
             return this;
         }
         return (BdTopToast) invokeZ.objValue;
     }
 
-    public void show(ViewGroup viewGroup) {
+    public void j(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048583, this, viewGroup) == null) || viewGroup == null) {
             return;
@@ -242,14 +240,14 @@ public class BdTopToast extends LinearLayout {
         if (getParent() != null) {
             ((ViewGroup) getParent()).removeView(this);
         }
-        f();
+        g();
         viewGroup.addView(this, -1, -2);
-        onChangeSkinType();
-        startAnimation(this.f47623i);
-        if (this.l >= 0) {
-            e.a().postDelayed(this.k, this.l);
+        f();
+        startAnimation(this.f36810e);
+        if (this.f36813h >= 0) {
+            e.a().postDelayed(this.f36812g, this.f36813h);
         } else {
-            e.a().postDelayed(this.k, 5000L);
+            e.a().postDelayed(this.f36812g, 5000L);
         }
     }
 
@@ -262,9 +260,9 @@ public class BdTopToast extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -283,9 +281,9 @@ public class BdTopToast extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -296,17 +294,17 @@ public class BdTopToast extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BdTopToast(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -314,7 +312,7 @@ public class BdTopToast extends LinearLayout {
                 return;
             }
         }
-        this.l = -1;
+        this.f36813h = -1;
         d();
     }
 }

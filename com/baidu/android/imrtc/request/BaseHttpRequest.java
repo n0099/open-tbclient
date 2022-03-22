@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -28,9 +27,9 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,20 +79,20 @@ public abstract class BaseHttpRequest implements HttpExecutor.HttpRequest, HttpE
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "POST" : (String) invokeV.objValue;
     }
 
-    public void report(int i2, int i3) {
+    public void report(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) || BIMRtcManager.mBIMRtcEvent == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) || BIMRtcManager.mBIMRtcEvent == null) {
             return;
         }
-        BIMRtcManager.mBIMRtcEvent.sdkAction = i2;
-        BIMRtcManager.mBIMRtcEvent.sdkRoomId = i3 == 0 ? this.mRtcRoomId : StatHelper.SENSOR_ERR_2;
-        BIMRtcManager.mBIMRtcEvent.sdkSeqId = i3;
+        BIMRtcManager.mBIMRtcEvent.sdkAction = i;
+        BIMRtcManager.mBIMRtcEvent.sdkRoomId = i2 == 0 ? this.mRtcRoomId : "-2";
+        BIMRtcManager.mBIMRtcEvent.sdkSeqId = i2;
     }
 
-    public void trackRequest(int i2, String str) {
+    public void trackRequest(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId(str).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i2).ext(trackExt()).build();
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            new BIMRtcTrack.RequestBuilder(this.mContext).method(str).requestId(str).requestTime(System.currentTimeMillis()).responseTime(System.nanoTime()).aliasId(501210L).errorCode(i).ext(trackExt()).build();
         }
     }
 }

@@ -36,9 +36,9 @@ public final class HandShakePacketResponse {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,10 +79,10 @@ public final class HandShakePacketResponse {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.udp_port : invokeV.longValue;
         }
 
-        public final void setAccessid(long j2) {
+        public final void setAccessid(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.accessid = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.accessid = j;
             }
         }
 
@@ -110,10 +110,10 @@ public final class HandShakePacketResponse {
             }
         }
 
-        public final void setUdp_port(long j2) {
+        public final void setUdp_port(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.udp_port = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.udp_port = j;
             }
         }
 
@@ -132,9 +132,9 @@ public final class HandShakePacketResponse {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,10 +161,10 @@ public final class HandShakePacketResponse {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.info : (Info) invokeV.objValue;
     }
 
-    public final void setError_code(int i2) {
+    public final void setError_code(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.error_code = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.error_code = i;
         }
     }
 

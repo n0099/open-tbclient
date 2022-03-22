@@ -30,7 +30,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCreate<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
     public final FlowableOnSubscribe<T> source;
 
     /* renamed from: io.reactivex.internal.operators.flowable.FlowableCreate$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$io$reactivex$BackpressureStrategy;
         public static /* synthetic */ Interceptable $ic;
@@ -78,7 +78,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class BaseEmitter<T> extends AtomicLong implements FlowableEmitter<T>, Subscription {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 7326289992464377023L;
@@ -93,9 +93,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -185,10 +185,10 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this, j);
                 onRequested();
             }
         }
@@ -231,7 +231,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BufferAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 2427151001689639875L;
@@ -242,40 +242,40 @@ public final class FlowableCreate<T> extends Flowable<T> {
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public BufferAsyncEmitter(Subscriber<? super T> subscriber, int i2) {
+        public BufferAsyncEmitter(Subscriber<? super T> subscriber, int i) {
             super(subscriber);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.wip = new AtomicInteger();
         }
 
         public void drain() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = this.actual;
                 SpscLinkedArrayQueue<T> spscLinkedArrayQueue = this.queue;
-                int i3 = 1;
+                int i2 = 1;
                 do {
-                    long j2 = get();
-                    long j3 = 0;
+                    long j = get();
+                    long j2 = 0;
                     while (true) {
-                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i == 0) {
                             break;
                         } else if (isCancelled()) {
                             spscLinkedArrayQueue.clear();
@@ -297,11 +297,11 @@ public final class FlowableCreate<T> extends Flowable<T> {
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j3++;
+                                j2++;
                             }
                         }
                     }
-                    if (i2 == 0) {
+                    if (i == 0) {
                         if (isCancelled()) {
                             spscLinkedArrayQueue.clear();
                             return;
@@ -319,11 +319,11 @@ public final class FlowableCreate<T> extends Flowable<T> {
                             }
                         }
                     }
-                    if (j3 != 0) {
-                        BackpressureHelper.produced(this, j3);
+                    if (j2 != 0) {
+                        BackpressureHelper.produced(this, j2);
                     }
-                    i3 = this.wip.addAndGet(-i3);
-                } while (i3 != 0);
+                    i2 = this.wip.addAndGet(-i2);
+                } while (i2 != 0);
             }
         }
 
@@ -386,7 +386,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class DropAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 8360058422307496563L;
@@ -401,9 +401,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -420,7 +420,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ErrorAsyncEmitter<T> extends NoOverflowBaseAsyncEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 338953216916120960L;
@@ -435,9 +435,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -455,7 +455,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class LatestAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4023437720691792495L;
@@ -474,9 +474,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -549,14 +549,14 @@ public final class FlowableCreate<T> extends Flowable<T> {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
                 Subscriber<? super T> subscriber = this.actual;
                 AtomicReference<T> atomicReference = this.queue;
-                int i2 = 1;
+                int i = 1;
                 do {
-                    long j2 = get();
-                    long j3 = 0;
+                    long j = get();
+                    long j2 = 0;
                     while (true) {
                         boolean z = false;
-                        int i3 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i3 == 0) {
+                        int i2 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i2 == 0) {
                             break;
                         } else if (isCancelled()) {
                             atomicReference.lazySet(null);
@@ -578,11 +578,11 @@ public final class FlowableCreate<T> extends Flowable<T> {
                                 break;
                             } else {
                                 subscriber.onNext(obj);
-                                j3++;
+                                j2++;
                             }
                         }
                     }
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -645,7 +645,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class MissingEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 3776720187248809713L;
@@ -660,9 +660,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -673,7 +673,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
 
         @Override // io.reactivex.Emitter
         public void onNext(T t) {
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || isCancelled()) {
                 return;
@@ -681,18 +681,18 @@ public final class FlowableCreate<T> extends Flowable<T> {
             if (t != null) {
                 this.actual.onNext(t);
                 do {
-                    j2 = get();
-                    if (j2 == 0) {
+                    j = get();
+                    if (j == 0) {
                         return;
                     }
-                } while (!compareAndSet(j2, j2 - 1));
+                } while (!compareAndSet(j, j - 1));
                 return;
             }
             onError(new NullPointerException("onNext called with null. Null values are generally not allowed in 2.x operators and sources."));
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class NoOverflowBaseAsyncEmitter<T> extends BaseEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4127754106204442833L;
@@ -707,9 +707,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -737,7 +737,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
         public abstract void onOverflow();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class SerializedEmitter<T> extends AtomicInteger implements FlowableEmitter<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4883307006032401862L;
@@ -754,9 +754,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseEmitter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -780,7 +780,7 @@ public final class FlowableCreate<T> extends Flowable<T> {
                 BaseEmitter<T> baseEmitter = this.emitter;
                 SimplePlainQueue<T> simplePlainQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.error;
-                int i2 = 1;
+                int i = 1;
                 while (!baseEmitter.isCancelled()) {
                     if (atomicThrowable.get() != null) {
                         simplePlainQueue.clear();
@@ -794,8 +794,8 @@ public final class FlowableCreate<T> extends Flowable<T> {
                         baseEmitter.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -917,9 +917,9 @@ public final class FlowableCreate<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {flowableOnSubscribe, backpressureStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -934,14 +934,14 @@ public final class FlowableCreate<T> extends Flowable<T> {
         BaseEmitter missingEmitter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$io$reactivex$BackpressureStrategy[this.backpressure.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$io$reactivex$BackpressureStrategy[this.backpressure.ordinal()];
+            if (i == 1) {
                 missingEmitter = new MissingEmitter(subscriber);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 missingEmitter = new ErrorAsyncEmitter(subscriber);
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 missingEmitter = new DropAsyncEmitter(subscriber);
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 missingEmitter = new BufferAsyncEmitter(subscriber, Flowable.bufferSize());
             } else {
                 missingEmitter = new LatestAsyncEmitter(subscriber);

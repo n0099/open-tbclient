@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8Object;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object, tKJSContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,26 +46,26 @@ public class TKOnPageChangeCallbackImpl implements ITKOnPageChangeCallback {
     }
 
     @Override // com.tachikoma.core.component.listview.viewpager.ITKOnPageChangeCallback
-    public void onPageScrollStateChanged(int i2) {
+    public void onPageScrollStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            executeJsFunction("onPageScrollStateChanged", Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            executeJsFunction("onPageScrollStateChanged", Integer.valueOf(i));
         }
     }
 
     @Override // com.tachikoma.core.component.listview.viewpager.ITKOnPageChangeCallback
-    public void onPageScrolled(int i2, float f2, int i3) {
+    public void onPageScrolled(int i, float f2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-            executeJsFunction("onPageScrolled", Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+            executeJsFunction("onPageScrolled", Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2));
         }
     }
 
     @Override // com.tachikoma.core.component.listview.viewpager.ITKOnPageChangeCallback
-    public void onPageSelected(int i2) {
+    public void onPageSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            executeJsFunction("onPageSelected", Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            executeJsFunction("onPageSelected", Integer.valueOf(i));
         }
     }
 }

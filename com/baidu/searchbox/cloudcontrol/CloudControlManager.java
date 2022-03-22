@@ -1,6 +1,7 @@
 package com.baidu.searchbox.cloudcontrol;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.SharedPrefsWrapper;
@@ -39,9 +40,9 @@ public class CloudControlManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,9 +84,9 @@ public class CloudControlManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, arrayList};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -124,7 +125,7 @@ public class CloudControlManager {
                 return parseConnectResponse != null;
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    String str2 = "connect response parse is error" + e2.toString();
+                    Log.d(TAG, "connect response parse is error" + e2.toString());
                 }
                 return false;
             }
@@ -143,7 +144,7 @@ public class CloudControlManager {
                 jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    String str2 = "drage is not json  " + e2.toString();
+                    Log.d(TAG, "drage is not json  " + e2.toString());
                 }
                 jSONObject = null;
             }
@@ -264,9 +265,9 @@ public class CloudControlManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -299,7 +300,7 @@ public class CloudControlManager {
                     jSONObject = new JSONObject(this.mSharedPrefsWrapper.getString(CloudControlConstant.SP_KEY_DEGRADE_LIST, ""));
                 } catch (JSONException e2) {
                     if (AppConfig.isDebug()) {
-                        String str4 = "drage is not json  " + e2.toString();
+                        Log.d(TAG, "drage is not json  " + e2.toString());
                     }
                     jSONObject = null;
                 }

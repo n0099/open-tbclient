@@ -38,9 +38,9 @@ public class LoggerManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,16 +62,16 @@ public class LoggerManager {
         }
 
         @Override // com.baidu.yalog.Logger
-        public void log(String str, int i2, String str2, String str3) {
+        public void log(String str, int i, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i2, str2, str3) == null) {
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2, str3) == null) {
             }
         }
 
         @Override // com.baidu.yalog.Logger
-        public void logSync(String str, int i2, String str2, String str3) {
+        public void logSync(String str, int i, String str2, String str3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(1048579, this, str, i2, str2, str3) == null) {
+            if (interceptable == null || interceptable.invokeLILL(1048579, this, str, i, str2, str3) == null) {
             }
         }
 
@@ -91,9 +91,9 @@ public class LoggerManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,7 +102,7 @@ public class LoggerManager {
             this.a = new ConcurrentHashMap();
         }
 
-        public abstract List<String> a(long j2, long j3, String str, String str2, boolean z, boolean z2, String str3);
+        public abstract List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3);
 
         public abstract String b();
 
@@ -127,7 +127,7 @@ public class LoggerManager {
 
         public abstract Logger d(String str);
 
-        public abstract List<String> e(long j2, long j3, String str, String str2);
+        public abstract List<String> e(long j, long j2, String str, String str2);
 
         public abstract void f();
     }
@@ -153,22 +153,22 @@ public class LoggerManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static List<String> createLogSnapShot(long j2, long j3, String str, String str2, boolean z, boolean z2, String str3) {
+    public static List<String> createLogSnapShot(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
-            c a2 = c.a.b1.a.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            c a2 = c.a.y0.a.a();
             if (a2 != null) {
-                return a2.a(j2, j3, str, str2, z, z2, str3);
+                return a2.a(j, j2, str, str2, z, z2, str3);
             }
             return null;
         }
@@ -179,7 +179,7 @@ public class LoggerManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            c a2 = c.a.b1.a.a();
+            c a2 = c.a.y0.a.a();
             if (a2 != null) {
                 String b2 = a2.b();
                 return !TextUtils.isEmpty(b2) ? b2 : "";
@@ -199,20 +199,20 @@ public class LoggerManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            c a2 = c.a.b1.a.a();
+            c a2 = c.a.y0.a.a();
             Logger c2 = a2 != null ? a2.c(str) : null;
             return c2 != null ? c2 : a;
         }
         return (Logger) invokeL.objValue;
     }
 
-    public static List<String> queryLogFiles(long j2, long j3, String str, String str2) {
+    public static List<String> queryLogFiles(long j, long j2, String str, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, str2})) == null) {
-            c a2 = c.a.b1.a.a();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            c a2 = c.a.y0.a.a();
             if (a2 != null) {
-                return a2.e(j2, j3, str, str2);
+                return a2.e(j, j2, str, str2);
             }
             return new ArrayList();
         }
@@ -222,7 +222,7 @@ public class LoggerManager {
     public static void requestCleanOverQuotaLog() {
         c a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || (a2 = c.a.b1.a.a()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65543, null) == null) || (a2 = c.a.y0.a.a()) == null) {
             return;
         }
         a2.f();

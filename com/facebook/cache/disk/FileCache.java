@@ -6,11 +6,11 @@ import com.facebook.cache.common.WriterCallback;
 import com.facebook.cache.disk.DiskStorage;
 import com.facebook.common.disk.DiskTrimmable;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface FileCache extends DiskTrimmable {
     void clearAll();
 
-    long clearOldEntries(long j2);
+    long clearOldEntries(long j);
 
     long getCount();
 

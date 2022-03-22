@@ -6,6 +6,7 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.auth.FeatureCodes;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CalendarConstraints implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<CalendarConstraints> CREATOR;
@@ -29,9 +30,9 @@ public final class CalendarConstraints implements Parcelable {
     public final DateValidator validator;
     public final int yearSpan;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DateValidator extends Parcelable {
-        boolean isValid(long j2);
+        boolean isValid(long j);
     }
 
     static {
@@ -56,9 +57,9 @@ public final class CalendarConstraints implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -79,10 +80,10 @@ public final class CalendarConstraints implements Parcelable {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public CalendarConstraints[] newArray(int i2) {
+            public CalendarConstraints[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new CalendarConstraints[i2] : (CalendarConstraints[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new CalendarConstraints[i] : (CalendarConstraints[]) invokeI.objValue;
             }
         };
     }
@@ -170,13 +171,13 @@ public final class CalendarConstraints implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? Arrays.hashCode(new Object[]{this.start, this.end, this.openAt, this.validator}) : invokeV.intValue;
     }
 
-    public boolean isWithinBounds(long j2) {
+    public boolean isWithinBounds(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            if (this.start.getDay(1) <= j2) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            if (this.start.getDay(1) <= j) {
                 Month month = this.end;
-                if (j2 <= month.getDay(month.daysInMonth)) {
+                if (j <= month.getDay(month.daysInMonth)) {
                     return true;
                 }
             }
@@ -186,9 +187,9 @@ public final class CalendarConstraints implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
             parcel.writeParcelable(this.start, 0);
             parcel.writeParcelable(this.end, 0);
             parcel.writeParcelable(this.openAt, 0);
@@ -203,9 +204,9 @@ public final class CalendarConstraints implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {month, month2, month3, dateValidator};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -226,7 +227,7 @@ public final class CalendarConstraints implements Parcelable {
         throw new IllegalArgumentException("start Month cannot be after current Month");
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DEEP_COPY_VALIDATOR_KEY = "DEEP_COPY_VALIDATOR_KEY";
@@ -251,7 +252,7 @@ public final class CalendarConstraints implements Parcelable {
                     return;
                 }
             }
-            DEFAULT_START = UtcDates.canonicalYearMonthDay(Month.create(1900, 0).timeInMillis);
+            DEFAULT_START = UtcDates.canonicalYearMonthDay(Month.create(FeatureCodes.SKY_SEG, 0).timeInMillis);
             DEFAULT_END = UtcDates.canonicalYearMonthDay(Month.create(2100, 11).timeInMillis);
         }
 
@@ -260,9 +261,9 @@ public final class CalendarConstraints implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -293,33 +294,33 @@ public final class CalendarConstraints implements Parcelable {
         }
 
         @NonNull
-        public Builder setEnd(long j2) {
+        public Builder setEnd(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-                this.end = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+                this.end = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
         @NonNull
-        public Builder setOpenAt(long j2) {
+        public Builder setOpenAt(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                this.openAt = Long.valueOf(j2);
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.openAt = Long.valueOf(j);
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
         @NonNull
-        public Builder setStart(long j2) {
+        public Builder setStart(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.start = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.start = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -343,9 +344,9 @@ public final class CalendarConstraints implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {calendarConstraints};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;

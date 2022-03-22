@@ -6,34 +6,34 @@ import com.kwad.sdk.export.proxy.AdRequestExtentParamsProxy;
 import com.kwad.sdk.utils.t;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l implements com.kwad.sdk.core.b {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f54745b;
+    public int f39848b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54746c;
+    public String f39849c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54747d;
+    public String f39850d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54748e;
+    public String f39851e;
 
     public static l a() {
         Map<String, String> extentParams;
         l lVar = new l();
         AdRequestExtentParamsProxy requestExtentParamsProxy = KsAdSDKImpl.get().getRequestExtentParamsProxy();
         if (requestExtentParamsProxy != null && (extentParams = requestExtentParamsProxy.getExtentParams()) != null) {
-            lVar.f54747d = extentParams.get("user_id");
+            lVar.f39850d = extentParams.get("user_id");
         }
         return lVar;
     }
 
     public void a(String str) {
-        this.f54748e = str;
+        this.f39851e = str;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -43,17 +43,17 @@ public class l implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        t.a(jSONObject, "user_id", this.f54747d);
-        t.a(jSONObject, "thirdUserId", this.f54748e);
-        int i2 = this.a;
+        t.a(jSONObject, "user_id", this.f39850d);
+        t.a(jSONObject, "thirdUserId", this.f39851e);
+        int i = this.a;
+        if (i != 0) {
+            t.a(jSONObject, "thirdAge", i);
+        }
+        int i2 = this.f39848b;
         if (i2 != 0) {
-            t.a(jSONObject, "thirdAge", i2);
+            t.a(jSONObject, "thirdGender", i2);
         }
-        int i3 = this.f54745b;
-        if (i3 != 0) {
-            t.a(jSONObject, "thirdGender", i3);
-        }
-        t.a(jSONObject, "thirdInterest", this.f54746c);
+        t.a(jSONObject, "thirdInterest", this.f39849c);
         return jSONObject;
     }
 }

@@ -28,50 +28,50 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements KsLoadManager {
     public static final Handler a = new Handler(Looper.getMainLooper());
 
     /* renamed from: com.kwad.sdk.core.request.d$5  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class AnonymousClass5 implements a {
         public final /* synthetic */ KsLoadManager.FeedAdListener a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ KsScene f54680b;
+        public final /* synthetic */ KsScene f39787b;
 
         public AnonymousClass5(KsLoadManager.FeedAdListener feedAdListener, KsScene ksScene) {
             this.a = feedAdListener;
-            this.f54680b = ksScene;
+            this.f39787b = ksScene;
         }
 
         @Override // com.kwad.sdk.core.request.d.a
-        public void a(final int i2, final String str) {
+        public void a(final int i, final String str) {
             d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.5.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                    AnonymousClass5.this.a.onError(i2, str);
+                    com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                    AnonymousClass5.this.a.onError(i, str);
                 }
             });
         }
 
         @Override // com.kwad.sdk.core.request.d.a
         public void a(@NonNull AdResultData adResultData) {
-            d.this.c(adResultData, this.f54680b.getPosId());
+            d.this.c(adResultData, this.f39787b.getPosId());
             final ArrayList arrayList = new ArrayList();
             String str = null;
             for (AdTemplate adTemplate : adResultData.adTemplateList) {
                 if (adTemplate != null) {
-                    AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
+                    AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
                     if (FeedType.checkTypeValid(adTemplate)) {
-                        KsScene ksScene = this.f54680b;
+                        KsScene ksScene = this.f39787b;
                         if (ksScene instanceof SceneImpl) {
                             adTemplate.mAdScene = (SceneImpl) ksScene;
                         }
-                        arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f54680b.getWidth(), true));
+                        arrayList.add(new com.kwad.sdk.feed.b(adTemplate, this.f39787b.getWidth(), true));
                     } else {
-                        str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.a.a.R(j2)), FeedType.fromInt(adTemplate.type));
+                        str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.a.a.R(j)), FeedType.fromInt(adTemplate.type));
                     }
                 }
             }
@@ -86,8 +86,8 @@ public class d implements KsLoadManager {
                         }
                         final b.a aVar = new b.a(size);
                         for (KsFeedAd ksFeedAd : arrayList) {
-                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC2121b() { // from class: com.kwad.sdk.core.request.d.5.2.1
-                                @Override // com.kwad.sdk.feed.b.InterfaceC2121b
+                            ((com.kwad.sdk.feed.b) ksFeedAd).a(new b.InterfaceC1982b() { // from class: com.kwad.sdk.core.request.d.5.2.1
+                                @Override // com.kwad.sdk.feed.b.InterfaceC1982b
                                 public void a() {
                                     if (aVar.a()) {
                                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
@@ -100,21 +100,21 @@ public class d implements KsLoadManager {
                 });
                 return;
             }
-            int i2 = f.f54457e.n;
-            a(i2, f.f54457e.o + str);
+            int i = f.f39580e.n;
+            a(i, f.f39580e.o + str);
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         @WorkerThread
-        void a(int i2, String str);
+        void a(int i, String str);
 
         @WorkerThread
         void a(@NonNull AdResultData adResultData);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public volatile boolean a;
 
@@ -149,9 +149,9 @@ public class d implements KsLoadManager {
         return jVar;
     }
 
-    private AdTemplate a(long j2) {
+    private AdTemplate a(long j) {
         com.kwad.sdk.core.diskcache.a.a a2 = com.kwad.sdk.core.diskcache.a.a.a();
-        Object c2 = a2.c("feed_ad_cache_" + j2);
+        Object c2 = a2.c("feed_ad_cache_" + j);
         if (c2 == null || c2 == "") {
             return null;
         }
@@ -198,8 +198,8 @@ public class d implements KsLoadManager {
         }.a(new com.kwad.sdk.core.network.j<com.kwad.sdk.core.request.a, AdResultData>() { // from class: com.kwad.sdk.core.request.d.9
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
-            public void a(@NonNull com.kwad.sdk.core.request.a aVar2, int i2, String str) {
-                aVar.a(i2, str);
+            public void a(@NonNull com.kwad.sdk.core.request.a aVar2, int i, String str) {
+                aVar.a(i, str);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -210,7 +210,7 @@ public class d implements KsLoadManager {
                     return;
                 }
                 a aVar3 = aVar;
-                f fVar2 = f.f54457e;
+                f fVar2 = f.f39580e;
                 aVar3.a(fVar2.n, fVar2.o);
             }
         });
@@ -231,13 +231,13 @@ public class d implements KsLoadManager {
         return com.kwad.sdk.core.response.a.d.j(adTemplate).adBaseInfo.adCacheSecond * 1000 > System.currentTimeMillis();
     }
 
-    public static void b(AdResultData adResultData, long j2) {
+    public static void b(AdResultData adResultData, long j) {
         AdTemplate adTemplate;
         long elapsedRealtime = SystemClock.elapsedRealtime();
         if (adResultData.adTemplateList.size() <= 0 || (adTemplate = adResultData.adTemplateList.get(0)) == null) {
             return;
         }
-        com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j2);
+        com.kwad.sdk.core.report.d.a(adTemplate, elapsedRealtime - j);
     }
 
     private void b(AdTemplate adTemplate) {
@@ -248,8 +248,8 @@ public class d implements KsLoadManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(AdResultData adResultData, long j2) {
-        AdTemplate a2 = a(j2);
+    public void c(AdResultData adResultData, long j) {
+        AdTemplate a2 = a(j);
         if (adResultData.adTemplateList.isEmpty() && a(a2)) {
             adResultData.adTemplateList.add(a2);
         } else if (adResultData.adTemplateList.isEmpty()) {
@@ -279,8 +279,8 @@ public class d implements KsLoadManager {
         com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashScreenCache ");
         a(new com.kwad.sdk.core.request.model.f(ksScene), new ArrayList(), false, false, a(ksScene, false), new a() { // from class: com.kwad.sdk.core.request.d.12
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(int i2, String str) {
-                com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashScreenCache onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
+            public void a(int i, String str) {
+                com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashScreenCache onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
             }
 
             @Override // com.kwad.sdk.core.request.d.a
@@ -307,12 +307,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(6);
         a(new com.kwad.sdk.core.request.model.f(ksScene), new a() { // from class: com.kwad.sdk.core.request.d.6
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadDrawAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        drawAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadDrawAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        drawAdListener.onError(i, str);
                     }
                 });
             }
@@ -334,8 +334,8 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                int i2 = f.f54457e.n;
-                a(i2, f.f54457e.o + "(无视频资源)");
+                int i = f.f39580e.n;
+                a(i, f.f39580e.o + "(无视频资源)");
             }
         }, a2);
     }
@@ -346,12 +346,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(1);
         a(new com.kwad.sdk.core.request.model.f(ksScene), null, false, a2, a(ksScene, true), new a() { // from class: com.kwad.sdk.core.request.d.4
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.4.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        feedAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFeedAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        feedAdListener.onError(i, str);
                     }
                 });
             }
@@ -363,7 +363,7 @@ public class d implements KsLoadManager {
                 String str = null;
                 for (AdTemplate adTemplate : adResultData.adTemplateList) {
                     if (adTemplate != null) {
-                        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
+                        AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
                         if (FeedType.checkTypeValid(adTemplate)) {
                             KsScene ksScene2 = ksScene;
                             if (ksScene2 instanceof SceneImpl) {
@@ -371,7 +371,7 @@ public class d implements KsLoadManager {
                             }
                             arrayList.add(new com.kwad.sdk.feed.b(adTemplate));
                         } else {
-                            str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.a.a.R(j2)), FeedType.fromInt(adTemplate.type));
+                            str = String.format("(模板不匹配materialType:%s_feedType:%s)", Integer.valueOf(com.kwad.sdk.core.response.a.a.R(j)), FeedType.fromInt(adTemplate.type));
                         }
                     }
                 }
@@ -384,8 +384,8 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                int i2 = f.f54457e.n;
-                a(i2, f.f54457e.o + str);
+                int i = f.f39580e.n;
+                a(i, f.f39580e.o + str);
             }
         }, true);
     }
@@ -397,12 +397,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(3);
         a(new com.kwad.sdk.core.request.model.f(ksScene), new a() { // from class: com.kwad.sdk.core.request.d.13
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.13.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFullScreenVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        fullScreenVideoAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadFullScreenVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        fullScreenVideoAdListener.onError(i, str);
                     }
                 });
             }
@@ -464,12 +464,12 @@ public class d implements KsLoadManager {
                         });
                         return;
                     }
-                    f fVar = f.f54458f;
+                    f fVar = f.f39581f;
                     a(fVar.n, fVar.o);
                     return;
                 }
-                int i2 = f.f54457e.n;
-                a(i2, f.f54457e.o + "(无视频资源)");
+                int i = f.f39580e.n;
+                a(i, f.f39580e.o + "(无视频资源)");
             }
         }, a2);
     }
@@ -481,12 +481,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(13);
         a(new com.kwad.sdk.core.request.model.f(ksScene), new a() { // from class: com.kwad.sdk.core.request.d.7
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.7.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        interstitialAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadInterstitialAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        interstitialAdListener.onError(i, str);
                     }
                 });
             }
@@ -537,7 +537,7 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                f fVar = f.f54457e;
+                f fVar = f.f39580e;
                 a(fVar.n, fVar.o);
             }
         }, a2);
@@ -549,12 +549,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(10000);
         a(new com.kwad.sdk.core.request.model.f(ksScene), new a() { // from class: com.kwad.sdk.core.request.d.15
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.15.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        nativeAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadNativeAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        nativeAdListener.onError(i, str);
                     }
                 });
             }
@@ -589,7 +589,7 @@ public class d implements KsLoadManager {
                 public void run() {
                     com.kwad.sdk.core.d.a.e("AdRequestManager", "method parseJson params jsonResult is empty");
                     KsLoadManager.NativeAdListener nativeAdListener2 = nativeAdListener;
-                    f fVar = f.f54457e;
+                    f fVar = f.f39580e;
                     nativeAdListener2.onError(fVar.n, fVar.o);
                 }
             });
@@ -615,7 +615,7 @@ public class d implements KsLoadManager {
                     @Override // java.lang.Runnable
                     public void run() {
                         KsLoadManager.NativeAdListener nativeAdListener2 = nativeAdListener;
-                        f fVar = f.f54457e;
+                        f fVar = f.f39580e;
                         nativeAdListener2.onError(fVar.n, fVar.o);
                     }
                 };
@@ -636,7 +636,7 @@ public class d implements KsLoadManager {
             a(runnable);
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
-            f fVar = f.f54456d;
+            f fVar = f.f39579d;
             nativeAdListener.onError(fVar.n, fVar.o);
         }
     }
@@ -648,12 +648,12 @@ public class d implements KsLoadManager {
         ksScene.setAdStyle(2);
         a(new com.kwad.sdk.core.request.model.f(ksScene), new a() { // from class: com.kwad.sdk.core.request.d.14
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.14.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadRewardVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                        rewardVideoAdListener.onError(i2, str);
+                        com.kwad.sdk.core.d.a.e("AdRequestManager", "loadRewardVideoAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                        rewardVideoAdListener.onError(i, str);
                     }
                 });
             }
@@ -683,9 +683,9 @@ public class d implements KsLoadManager {
                                 adTemplate.mAdScene = (SceneImpl) ksScene2;
                             }
                         }
-                        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
-                        String a3 = com.kwad.sdk.core.response.a.a.a(j2);
-                        if (com.kwad.sdk.core.response.a.a.as(j2)) {
+                        AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
+                        String a3 = com.kwad.sdk.core.response.a.a.a(j);
+                        if (com.kwad.sdk.core.response.a.a.as(j)) {
                             arrayList.add(new com.kwad.sdk.reward.f(adTemplate));
                             z = true;
                         } else if (!TextUtils.isEmpty(a3)) {
@@ -708,11 +708,11 @@ public class d implements KsLoadManager {
                 }
                 if (!z) {
                     if (!z2) {
-                        int i2 = f.f54457e.n;
-                        a(i2, f.f54457e.o + "(无视频资源)");
+                        int i = f.f39580e.n;
+                        a(i, f.f39580e.o + "(无视频资源)");
                         return;
                     } else if (!z3) {
-                        f fVar = f.f54458f;
+                        f fVar = f.f39581f;
                         a(fVar.n, fVar.o);
                         return;
                     }
@@ -749,7 +749,7 @@ public class d implements KsLoadManager {
                 bVar.a = true;
                 com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd mTimeOutRunnable timeOut");
                 KsLoadManager.SplashScreenAdListener splashScreenAdListener2 = splashScreenAdListener;
-                f fVar = f.f54459g;
+                f fVar = f.f39582g;
                 splashScreenAdListener2.onError(fVar.n, fVar.o);
                 com.kwad.sdk.core.report.d.a(4);
             }
@@ -757,15 +757,15 @@ public class d implements KsLoadManager {
         a.postDelayed(runnable, com.kwad.sdk.core.config.b.i());
         a(new com.kwad.sdk.core.request.model.f(ksScene), c2, true, a2, a(ksScene, false), new a() { // from class: com.kwad.sdk.core.request.d.11
             @Override // com.kwad.sdk.core.request.d.a
-            public void a(final int i2, final String str) {
+            public void a(final int i, final String str) {
                 if (!bVar.a) {
                     d.a.removeCallbacks(runnable);
                     d.a.post(new Runnable() { // from class: com.kwad.sdk.core.request.d.11.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
-                            splashScreenAdListener.onError(i2, str);
-                            if (i2 == f.f54460h.n) {
+                            com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError:" + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
+                            splashScreenAdListener.onError(i, str);
+                            if (i == f.f39583h.n) {
                                 com.kwad.sdk.core.report.d.a(0);
                             } else {
                                 com.kwad.sdk.core.report.d.a(3);
@@ -774,7 +774,7 @@ public class d implements KsLoadManager {
                     });
                     return;
                 }
-                com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError isTimeOut return " + String.format("code:%s__msg:%s", Integer.valueOf(i2), str));
+                com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd onError isTimeOut return " + String.format("code:%s__msg:%s", Integer.valueOf(i), str));
             }
 
             @Override // com.kwad.sdk.core.request.d.a
@@ -826,7 +826,7 @@ public class d implements KsLoadManager {
                             com.kwad.sdk.core.report.d.a(2);
                             return;
                         }
-                        f fVar = f.f54460h;
+                        f fVar = f.f39583h;
                         a(fVar.n, fVar.o);
                         return;
                     } else if (bVar.a) {
@@ -834,7 +834,7 @@ public class d implements KsLoadManager {
                         return;
                     } else {
                         d.a.removeCallbacks(runnable);
-                        a(f.f54458f.n, "请求成功，但缓存未命中");
+                        a(f.f39581f.n, "请求成功，但缓存未命中");
                         com.kwad.sdk.core.d.a.a("AdRequestManager", "loadSplashAd no cache returned");
                     }
                 } else if (bVar.a) {
@@ -842,7 +842,7 @@ public class d implements KsLoadManager {
                     return;
                 } else {
                     d.a.removeCallbacks(runnable);
-                    f fVar2 = f.f54457e;
+                    f fVar2 = f.f39580e;
                     a(fVar2.n, fVar2.o);
                 }
                 com.kwad.sdk.core.report.d.a(3);

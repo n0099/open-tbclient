@@ -37,7 +37,7 @@ import com.google.android.material.button.MaterialButton;
 import java.util.Calendar;
 import java.util.Iterator;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MaterialCalendar<S> extends PickerFragment<S> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CALENDAR_CONSTRAINTS_KEY = "CALENDAR_CONSTRAINTS_KEY";
@@ -69,7 +69,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     public RecyclerView yearSelector;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CalendarSelector {
         public static final /* synthetic */ CalendarSelector[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -96,16 +96,16 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
             $VALUES = new CalendarSelector[]{DAY, calendarSelector};
         }
 
-        public CalendarSelector(String str, int i2) {
+        public CalendarSelector(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -128,9 +128,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnDayClickListener {
-        void onDayClick(long j2);
+        void onDayClick(long j);
     }
 
     static {
@@ -157,9 +157,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -169,7 +169,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     private void addActionsToMonthNavigation(@NonNull View view, @NonNull MonthsPagerAdapter monthsPagerAdapter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, view, monthsPagerAdapter) == null) {
-            MaterialButton materialButton = (MaterialButton) view.findViewById(R.id.month_navigation_fragment_toggle);
+            MaterialButton materialButton = (MaterialButton) view.findViewById(R.id.obfuscated_res_0x7f091433);
             materialButton.setTag(SELECTOR_TOGGLE_TAG);
             ViewCompat.setAccessibilityDelegate(materialButton, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendar.5
                 public static /* synthetic */ Interceptable $ic;
@@ -183,9 +183,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -201,20 +201,20 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, view2, accessibilityNodeInfoCompat) == null) {
                         super.onInitializeAccessibilityNodeInfo(view2, accessibilityNodeInfoCompat);
                         if (this.this$0.dayFrame.getVisibility() == 0) {
-                            string = this.this$0.getString(R.string.mtrl_picker_toggle_to_year_selection);
+                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b05);
                         } else {
-                            string = this.this$0.getString(R.string.mtrl_picker_toggle_to_day_selection);
+                            string = this.this$0.getString(R.string.obfuscated_res_0x7f0f0b03);
                         }
                         accessibilityNodeInfoCompat.setHintText(string);
                     }
                 }
             });
-            MaterialButton materialButton2 = (MaterialButton) view.findViewById(R.id.month_navigation_previous);
+            MaterialButton materialButton2 = (MaterialButton) view.findViewById(R.id.obfuscated_res_0x7f091435);
             materialButton2.setTag(NAVIGATION_PREV_TAG);
-            MaterialButton materialButton3 = (MaterialButton) view.findViewById(R.id.month_navigation_next);
+            MaterialButton materialButton3 = (MaterialButton) view.findViewById(R.id.obfuscated_res_0x7f091434);
             materialButton3.setTag(NAVIGATION_NEXT_TAG);
-            this.yearFrame = view.findViewById(R.id.mtrl_calendar_year_selector_frame);
-            this.dayFrame = view.findViewById(R.id.mtrl_calendar_day_selector_frame);
+            this.yearFrame = view.findViewById(R.id.obfuscated_res_0x7f091468);
+            this.dayFrame = view.findViewById(R.id.obfuscated_res_0x7f091461);
             setSelector(CalendarSelector.DAY);
             materialButton.setText(this.current.getLongName());
             this.recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener(this, monthsPagerAdapter, materialButton) { // from class: com.google.android.material.datepicker.MaterialCalendar.6
@@ -231,9 +231,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, monthsPagerAdapter, materialButton};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -245,9 +245,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
+                public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i2) == null) && i2 == 0) {
+                    if ((interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i) == null) && i == 0) {
                         CharSequence text = this.val$monthDropSelect.getText();
                         if (Build.VERSION.SDK_INT >= 16) {
                             recyclerView.announceForAccessibility(text);
@@ -258,11 +258,11 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 }
 
                 @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-                public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+                public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
                     int findLastVisibleItemPosition;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
-                        if (i2 < 0) {
+                    if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
+                        if (i < 0) {
                             findLastVisibleItemPosition = this.this$0.getLayoutManager().findFirstVisibleItemPosition();
                         } else {
                             findLastVisibleItemPosition = this.this$0.getLayoutManager().findLastVisibleItemPosition();
@@ -284,9 +284,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -316,9 +316,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, monthsPagerAdapter};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -351,9 +351,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, monthsPagerAdapter};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -394,9 +394,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -425,21 +425,21 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                             View findViewByPosition2 = gridLayoutManager.findViewByPosition(positionForYear2);
                             int spanCount = positionForYear / gridLayoutManager.getSpanCount();
                             int spanCount2 = positionForYear2 / gridLayoutManager.getSpanCount();
-                            int i2 = spanCount;
-                            while (i2 <= spanCount2) {
-                                View findViewByPosition3 = gridLayoutManager.findViewByPosition(gridLayoutManager.getSpanCount() * i2);
+                            int i = spanCount;
+                            while (i <= spanCount2) {
+                                View findViewByPosition3 = gridLayoutManager.findViewByPosition(gridLayoutManager.getSpanCount() * i);
                                 if (findViewByPosition3 != null) {
                                     int top = findViewByPosition3.getTop() + this.this$0.calendarStyle.year.getTopInset();
                                     int bottom = findViewByPosition3.getBottom() - this.this$0.calendarStyle.year.getBottomInset();
-                                    int left = i2 == spanCount ? findViewByPosition.getLeft() + (findViewByPosition.getWidth() / 2) : 0;
-                                    if (i2 == spanCount2) {
+                                    int left = i == spanCount ? findViewByPosition.getLeft() + (findViewByPosition.getWidth() / 2) : 0;
+                                    if (i == spanCount2) {
                                         width = findViewByPosition2.getLeft() + (findViewByPosition2.getWidth() / 2);
                                     } else {
                                         width = recyclerView.getWidth();
                                     }
                                     canvas.drawRect(left, top, width, bottom, this.this$0.calendarStyle.rangeFill);
                                 }
-                                i2++;
+                                i++;
                             }
                         }
                     }
@@ -452,17 +452,17 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     public static int getDayHeight(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getResources().getDimensionPixelSize(R.dimen.mtrl_calendar_day_height) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) ? context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070402) : invokeL.intValue;
     }
 
     @NonNull
-    public static <T> MaterialCalendar<T> newInstance(DateSelector<T> dateSelector, int i2, @NonNull CalendarConstraints calendarConstraints) {
+    public static <T> MaterialCalendar<T> newInstance(DateSelector<T> dateSelector, int i, @NonNull CalendarConstraints calendarConstraints) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, dateSelector, i2, calendarConstraints)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, dateSelector, i, calendarConstraints)) == null) {
             MaterialCalendar<T> materialCalendar = new MaterialCalendar<>();
             Bundle bundle = new Bundle();
-            bundle.putInt(THEME_RES_ID_KEY, i2);
+            bundle.putInt(THEME_RES_ID_KEY, i);
             bundle.putParcelable(GRID_SELECTOR_KEY, dateSelector);
             bundle.putParcelable("CALENDAR_CONSTRAINTS_KEY", calendarConstraints);
             bundle.putParcelable(CURRENT_MONTH_KEY, calendarConstraints.getOpenAt());
@@ -472,10 +472,10 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
         return (MaterialCalendar) invokeLIL.objValue;
     }
 
-    private void postSmoothRecyclerViewScroll(int i2) {
+    private void postSmoothRecyclerViewScroll(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, this, i2) == null) {
-            this.recyclerView.post(new Runnable(this, i2) { // from class: com.google.android.material.datepicker.MaterialCalendar.10
+        if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
+            this.recyclerView.post(new Runnable(this, i) { // from class: com.google.android.material.datepicker.MaterialCalendar.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MaterialCalendar this$0;
@@ -486,18 +486,18 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$position = i2;
+                    this.val$position = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -565,8 +565,8 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
     @NonNull
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
             ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(getContext(), this.themeResId);
@@ -574,14 +574,14 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
             LayoutInflater cloneInContext = layoutInflater.cloneInContext(contextThemeWrapper);
             Month start = this.calendarConstraints.getStart();
             if (MaterialDatePicker.isFullscreen(contextThemeWrapper)) {
-                i2 = R.layout.mtrl_calendar_vertical;
-                i3 = 1;
+                i = R.layout.obfuscated_res_0x7f0d057d;
+                i2 = 1;
             } else {
-                i2 = R.layout.mtrl_calendar_horizontal;
-                i3 = 0;
+                i = R.layout.obfuscated_res_0x7f0d0578;
+                i2 = 0;
             }
-            View inflate = cloneInContext.inflate(i2, viewGroup, false);
-            GridView gridView = (GridView) inflate.findViewById(R.id.mtrl_calendar_days_of_week);
+            View inflate = cloneInContext.inflate(i, viewGroup, false);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091462);
             ViewCompat.setAccessibilityDelegate(gridView, new AccessibilityDelegateCompat(this) { // from class: com.google.android.material.datepicker.MaterialCalendar.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -594,9 +594,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -617,8 +617,8 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
             gridView.setAdapter((ListAdapter) new DaysOfWeekAdapter());
             gridView.setNumColumns(start.daysInWeek);
             gridView.setEnabled(false);
-            this.recyclerView = (RecyclerView) inflate.findViewById(R.id.mtrl_calendar_months);
-            this.recyclerView.setLayoutManager(new SmoothCalendarLayoutManager(this, getContext(), i3, false, i3) { // from class: com.google.android.material.datepicker.MaterialCalendar.2
+            this.recyclerView = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091465);
+            this.recyclerView.setLayoutManager(new SmoothCalendarLayoutManager(this, getContext(), i2, false, i2) { // from class: com.google.android.material.datepicker.MaterialCalendar.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MaterialCalendar this$0;
@@ -626,16 +626,16 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(r10, i3, r12);
+                    super(r10, i2, r12);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r10, Integer.valueOf(i3), Boolean.valueOf(r12), Integer.valueOf(i3)};
+                        Object[] objArr = {this, r10, Integer.valueOf(i2), Boolean.valueOf(r12), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                             newInitContext.thisArg = this;
@@ -644,7 +644,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         }
                     }
                     this.this$0 = this;
-                    this.val$orientation = i3;
+                    this.val$orientation = i2;
                 }
 
                 @Override // androidx.recyclerview.widget.LinearLayoutManager
@@ -674,9 +674,9 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -686,10 +686,10 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 }
 
                 @Override // com.google.android.material.datepicker.MaterialCalendar.OnDayClickListener
-                public void onDayClick(long j2) {
+                public void onDayClick(long j) {
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 == null || interceptable2.invokeJ(1048576, this, j2) == null) && this.this$0.calendarConstraints.getDateValidator().isValid(j2)) {
-                        this.this$0.dateSelector.select(j2);
+                    if ((interceptable2 == null || interceptable2.invokeJ(1048576, this, j) == null) && this.this$0.calendarConstraints.getDateValidator().isValid(j)) {
+                        this.this$0.dateSelector.select(j);
                         Iterator<OnSelectionChangedListener<S>> it = this.this$0.onSelectionChangedListeners.iterator();
                         while (it.hasNext()) {
                             it.next().onSelectionChanged((S) this.this$0.dateSelector.getSelection());
@@ -702,8 +702,8 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 }
             });
             this.recyclerView.setAdapter(monthsPagerAdapter);
-            int integer = contextThemeWrapper.getResources().getInteger(R.integer.mtrl_calendar_year_selector_span);
-            RecyclerView recyclerView = (RecyclerView) inflate.findViewById(R.id.mtrl_calendar_year_selector_frame);
+            int integer = contextThemeWrapper.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0015);
+            RecyclerView recyclerView = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f091468);
             this.yearSelector = recyclerView;
             if (recyclerView != null) {
                 recyclerView.setHasFixedSize(true);
@@ -711,7 +711,7 @@ public final class MaterialCalendar<S> extends PickerFragment<S> {
                 this.yearSelector.setAdapter(new YearGridAdapter(this));
                 this.yearSelector.addItemDecoration(createItemDecoration());
             }
-            if (inflate.findViewById(R.id.month_navigation_fragment_toggle) != null) {
+            if (inflate.findViewById(R.id.obfuscated_res_0x7f091433) != null) {
                 addActionsToMonthNavigation(inflate, monthsPagerAdapter);
             }
             if (!MaterialDatePicker.isFullscreen(contextThemeWrapper)) {

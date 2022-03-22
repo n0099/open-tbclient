@@ -1,7 +1,7 @@
 package com.google.android.exoplayer2.decoder;
 
 import java.lang.Exception;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Decoder<I, O, E extends Exception> {
     I dequeueInputBuffer() throws Exception;
 
@@ -11,7 +11,7 @@ public interface Decoder<I, O, E extends Exception> {
 
     String getName();
 
-    void queueInputBuffer(I i2) throws Exception;
+    void queueInputBuffer(I i) throws Exception;
 
     void release();
 }

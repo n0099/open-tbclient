@@ -42,9 +42,9 @@ public final class URIParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -55,16 +55,16 @@ public final class URIParsedResult extends ParsedResult {
         this.title = str2;
     }
 
-    public static boolean isColonFollowedByPortNumber(String str, int i2) {
+    public static boolean isColonFollowedByPortNumber(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
-            int i3 = i2 + 1;
-            int indexOf = str.indexOf(47, i3);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            int i2 = i + 1;
+            int indexOf = str.indexOf(47, i2);
             if (indexOf < 0) {
                 indexOf = str.length();
             }
-            return ResultParser.isSubstringOfDigits(str, i3, indexOf - i3);
+            return ResultParser.isSubstringOfDigits(str, i2, indexOf - i2);
         }
         return invokeLI.booleanValue;
     }

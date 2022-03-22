@@ -11,7 +11,6 @@ import com.googlecode.mp4parser.util.CastUtils;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.WritableByteChannel;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class SampleImpl implements Sample {
     public static /* synthetic */ Interceptable $ic;
@@ -28,9 +27,9 @@ public class SampleImpl implements Sample {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBuffer};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -85,7 +84,7 @@ public class SampleImpl implements Sample {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SampleImpl{offset=" + this.offset + "{size=" + this.size + ExtendedMessageFormat.END_FE;
+            return "SampleImpl{offset=" + this.offset + "{size=" + this.size + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -108,62 +107,62 @@ public class SampleImpl implements Sample {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBufferArr};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
         this.offset = -1L;
-        int i4 = 0;
+        int i3 = 0;
         for (ByteBuffer byteBuffer : byteBufferArr) {
-            i4 += byteBuffer.remaining();
+            i3 += byteBuffer.remaining();
         }
-        this.size = i4;
+        this.size = i3;
         this.data = byteBufferArr;
         this.parent = null;
     }
 
-    public SampleImpl(long j2, long j3, ByteBuffer byteBuffer) {
+    public SampleImpl(long j, long j2, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), byteBuffer};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.offset = j2;
-        this.size = j3;
+        this.offset = j;
+        this.size = j2;
         this.data = new ByteBuffer[]{byteBuffer};
         this.parent = null;
     }
 
-    public SampleImpl(long j2, long j3, Container container) {
+    public SampleImpl(long j, long j2, Container container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), container};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), container};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.offset = j2;
-        this.size = j3;
+        this.offset = j;
+        this.size = j2;
         this.data = null;
         this.parent = container;
     }

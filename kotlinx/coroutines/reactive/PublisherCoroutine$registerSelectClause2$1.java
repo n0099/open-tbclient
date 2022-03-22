@@ -12,7 +12,7 @@ import kotlin.jvm.functions.Function2;
 import kotlinx.coroutines.sync.Mutex;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u0002H\u0001\"\u0004\b\u0000\u0010\u0001\"\u0006\b\u0001\u0010\u0002 \u00002\u0006\u0010\u0003\u001a\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "R", "T", AdvanceSetting.NETWORK_TYPE, "Lkotlinx/coroutines/sync/Mutex;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.reactive.PublisherCoroutine$registerSelectClause2$1", f = "Publish.kt", i = {0}, l = {125}, m = "invokeSuspend", n = {AdvanceSetting.NETWORK_TYPE}, s = {"L$0"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PublisherCoroutine$registerSelectClause2$1 extends SuspendLambda implements Function2<Mutex, Continuation<? super R>, Object> {
     public final /* synthetic */ Function2 $block;
     public final /* synthetic */ Object $element;
@@ -45,8 +45,8 @@ public final class PublisherCoroutine$registerSelectClause2$1 extends SuspendLam
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             Mutex mutex = this.p$0;
             this.this$0.doLockedNext(this.$element);
@@ -58,7 +58,7 @@ public final class PublisherCoroutine$registerSelectClause2$1 extends SuspendLam
             if (obj == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i2 != 1) {
+        } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             Mutex mutex2 = (Mutex) this.L$0;

@@ -54,9 +54,9 @@ public class SafeService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -74,17 +74,17 @@ public class SafeService {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? SingletonContainer.mSingleInstance : (SafeService) invokeV.objValue;
     }
 
-    public String getDeviceAuthToken(Context context, String str, String str2, int i2) {
+    public String getDeviceAuthToken(Context context, String str, String str2, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, str, str2, i2)) == null) ? FH.gt(context, str, str2, i2, null) : (String) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, str, str2, i)) == null) ? FH.gt(context, str, str2, i, null) : (String) invokeLLLI.objValue;
     }
 
-    public String getZidAndCheckSafe(Context context, String str, int i2) {
+    public String getZidAndCheckSafe(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i2)) == null) {
-            String gzfi = FH.gzfi(context, str, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, i)) == null) {
+            String gzfi = FH.gzfi(context, str, i);
             return TextUtils.isEmpty(gzfi) ? "NoZidYet" : gzfi;
         }
         return (String) invokeLLI.objValue;
@@ -110,9 +110,9 @@ public class SafeService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

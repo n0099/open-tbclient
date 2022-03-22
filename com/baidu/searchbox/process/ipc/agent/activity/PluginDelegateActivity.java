@@ -26,9 +26,9 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,9 +63,9 @@ public class PluginDelegateActivity extends ProcessDelegateBaseActivity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onResume();
             if (this.mFallbackFinish) {
-                int i2 = this.mResumeCount + 1;
-                this.mResumeCount = i2;
-                if (i2 > 1) {
+                int i = this.mResumeCount + 1;
+                this.mResumeCount = i;
+                if (i > 1) {
                     this.mDelegation.onSelfFinish();
                     exit(6, "");
                 }

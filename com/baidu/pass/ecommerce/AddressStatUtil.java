@@ -5,6 +5,7 @@ import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
+import com.baidu.sapi2.stat.AddressManagerStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,9 +26,9 @@ public class AddressStatUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,16 +57,18 @@ public class AddressStatUtil {
             LinkedHashMap linkedHashMap = new LinkedHashMap(2);
             linkedHashMap.put("eventType", str);
             linkedHashMap.put(SapiAccount.SAPI_ACCOUNT_FROMTYPE, str2);
+            AddressManagerStat.statExtMap.put(str, linkedHashMap);
             StatService.onEventAutoStatistic(linkedHashMap);
         }
     }
 
-    public static void statAddressOption(String str, long j2) {
+    public static void statAddressOption(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
-            commonParamsMap.put("time", "" + j2);
-            Log.d(TAG, "statAddressOption key=" + str + " time=" + j2);
+            commonParamsMap.put("time", "" + j);
+            Log.d(TAG, "statAddressOption key=" + str + " time=" + j);
+            AddressManagerStat.statExtMap.put(str, "1");
             StatService.onEvent(str, commonParamsMap);
         }
     }
@@ -75,6 +78,7 @@ public class AddressStatUtil {
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
             Log.d(TAG, "statAddressOption key=" + str);
+            AddressManagerStat.statExtMap.put(str, "1");
             StatService.onEvent(str, commonParamsMap);
         }
     }
@@ -85,6 +89,7 @@ public class AddressStatUtil {
             HashMap<String, String> commonParamsMap = getCommonParamsMap();
             commonParamsMap.putAll(hashMap);
             Log.d(TAG, "statAddressOption key=" + str);
+            AddressManagerStat.statExtMap.put(str, hashMap);
             StatService.onEvent(str, commonParamsMap);
         }
     }

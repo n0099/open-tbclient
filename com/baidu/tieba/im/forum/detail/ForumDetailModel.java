@@ -2,7 +2,7 @@ package com.baidu.tieba.im.forum.detail;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.y;
+import c.a.p0.a4.y;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -30,12 +30,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ForumDetailActivity a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ForumDetailActivity f43558e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public f f43559f;
+    /* renamed from: b  reason: collision with root package name */
+    public f f33805b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -44,17 +42,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public final /* synthetic */ ForumDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ForumDetailModel forumDetailModel, int i2) {
-            super(i2);
+        public a(ForumDetailModel forumDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {forumDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -69,7 +67,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y)) {
-                this.a.f43558e.updateLikeAndMsgStatus(((y) customResponsedMessage.getData()).m() == 1);
+                this.a.a.updateLikeAndMsgStatus(((y) customResponsedMessage.getData()).n() == 1);
             }
         }
     }
@@ -81,17 +79,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public final /* synthetic */ ForumDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ForumDetailModel forumDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public b(ForumDetailModel forumDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {forumDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -107,19 +105,19 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 if (responsedMessage == null) {
-                    if (this.a.f43559f != null) {
-                        this.a.f43559f.onNetError(null);
+                    if (this.a.f33805b != null) {
+                        this.a.f33805b.onNetError(null);
                     }
                 } else if (responsedMessage.hasError()) {
-                    if (this.a.f43559f != null) {
-                        this.a.f43559f.onNetError(responsedMessage.getErrorString());
+                    if (this.a.f33805b != null) {
+                        this.a.f33805b.onNetError(responsedMessage.getErrorString());
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.f43559f.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
+                        this.a.f33805b.onHttpResponsedMessage((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.f43559f.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
+                        this.a.f33805b.onSocketResponsedMessage((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -133,17 +131,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public final /* synthetic */ ForumDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ForumDetailModel forumDetailModel, int i2) {
-            super(i2);
+        public c(ForumDetailModel forumDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {forumDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -168,20 +166,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                     if (responseUpdateMaskInfoMessage.getError() != 0) {
                         if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                            errorString = this.a.f43558e.getResources().getString(R.string.neterror);
+                            errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                         } else {
                             errorString = responseUpdateMaskInfoMessage.getErrorString();
                         }
-                        this.a.f43558e.showToast(errorString);
+                        this.a.a.showToast(errorString);
                         if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                            this.a.f43559f.onSubscrib(false);
+                            this.a.f33805b.onSubscrib(false);
                         } else {
-                            this.a.f43559f.onUnSubscrib(false);
+                            this.a.f33805b.onUnSubscrib(false);
                         }
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.f43559f.onSubscrib(true);
+                        this.a.f33805b.onSubscrib(true);
                     } else {
-                        this.a.f43559f.onUnSubscrib(true);
+                        this.a.f33805b.onUnSubscrib(true);
                     }
                 }
             }
@@ -195,17 +193,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public final /* synthetic */ ForumDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(ForumDetailModel forumDetailModel, int i2) {
-            super(i2);
+        public d(ForumDetailModel forumDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {forumDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -220,7 +218,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001151) {
-                this.a.f43558e.showToast(R.string.delete_success);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f049c);
             }
         }
     }
@@ -232,17 +230,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         public final /* synthetic */ ForumDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(ForumDetailModel forumDetailModel, int i2) {
-            super(i2);
+        public e(ForumDetailModel forumDetailModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailModel, Integer.valueOf(i2)};
+                Object[] objArr = {forumDetailModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -259,11 +257,11 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002510 && ((z = httpResponsedMessage instanceof BarEmotionResponseMessage))) {
                 if (httpResponsedMessage.hasError()) {
-                    if (this.a.f43559f != null) {
-                        this.a.f43559f.onNetError(httpResponsedMessage.getErrorString());
+                    if (this.a.f33805b != null) {
+                        this.a.f33805b.onNetError(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.f43559f.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.f33805b.onHttpEmotionResponseMessage((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -293,58 +291,72 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             newInitContext.initArgs = r2;
             Object[] objArr = {forumDetailActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((c.a.d.a.f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43558e = forumDetailActivity;
-        this.f43559f = forumDetailActivity;
+        this.a = forumDetailActivity;
+        this.f33805b = forumDetailActivity;
+        D();
+        E();
+        A();
+        F();
         B();
         C();
-        y();
-        D();
-        z();
-        A();
     }
 
     public final void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");
-            tbHttpMessageTask.setResponsedClass(BarEmotionResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            registerListener(new d(this, 2001151));
         }
     }
 
     public final void B() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            registerListener(new b(this, CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
+            registerListener(new e(this, CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
         }
     }
 
     public final void C() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            registerListener(new c(this, 104102));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");
+            tbHttpMessageTask.setResponsedClass(BarEmotionResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
     public final void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            registerListener(new b(this, CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            registerListener(new c(this, 104102));
+        }
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new a(this, 2001266));
         }
     }
 
-    public void E(String str) {
+    public void G(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MSG_FORUM_EMOTION_CMD);
@@ -352,9 +364,9 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         sendMessage(httpMessage);
     }
 
-    public void F(String str) {
+    public void H(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
             forumDetailRequestMessage.setForumId(c.a.d.f.m.b.g(str, 0L));
             sendMessage(forumDetailRequestMessage);
@@ -365,7 +377,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD);
             return false;
         }
@@ -376,7 +388,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     public boolean loadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -384,7 +396,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     public void subscribeBar(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z, str) == null) {
+        if (interceptable == null || interceptable.invokeZL(1048586, this, z, str) == null) {
             RequestUpdateMaskInfoMessage requestUpdateMaskInfoMessage = new RequestUpdateMaskInfoMessage();
             if (z) {
                 requestUpdateMaskInfoMessage.setIsMask(0);
@@ -394,20 +406,6 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             requestUpdateMaskInfoMessage.setMaskType(12);
             requestUpdateMaskInfoMessage.setList(str);
             sendMessage(requestUpdateMaskInfoMessage);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            registerListener(new d(this, 2001151));
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            registerListener(new e(this, CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
         }
     }
 }

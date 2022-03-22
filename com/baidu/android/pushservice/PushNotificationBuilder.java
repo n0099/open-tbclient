@@ -31,9 +31,9 @@ public abstract class PushNotificationBuilder implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,10 +56,10 @@ public abstract class PushNotificationBuilder implements Serializable {
         }
     }
 
-    public void setColor(int i2) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mColor = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mColor = i;
         }
     }
 
@@ -70,17 +70,17 @@ public abstract class PushNotificationBuilder implements Serializable {
         }
     }
 
-    public void setNotificationDefaults(int i2) {
+    public void setNotificationDefaults(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mNotificationDefaults = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mNotificationDefaults = i;
         }
     }
 
-    public void setNotificationFlags(int i2) {
+    public void setNotificationFlags(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mNotificationFlags = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mNotificationFlags = i;
         }
     }
 
@@ -105,10 +105,10 @@ public abstract class PushNotificationBuilder implements Serializable {
         }
     }
 
-    public void setStatusbarIcon(int i2) {
+    public void setStatusbarIcon(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mStatusbarIcon = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mStatusbarIcon = i;
         }
     }
 }

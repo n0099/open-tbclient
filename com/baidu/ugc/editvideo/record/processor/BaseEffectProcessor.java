@@ -25,9 +25,9 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -116,19 +116,19 @@ public abstract class BaseEffectProcessor implements IEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public void setInputTextureMode(int i2) {
+    public void setInputTextureMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mInputTextureMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mInputTextureMode = i;
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048588, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 }

@@ -118,16 +118,16 @@ public final class LocationClientOption {
             $VALUES = new LocationMode[]{Hight_Accuracy, Battery_Saving, locationMode};
         }
 
-        public LocationMode(String str, int i2) {
+        public LocationMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -155,9 +155,9 @@ public final class LocationClientOption {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -197,9 +197,9 @@ public final class LocationClientOption {
             newInitContext.initArgs = r2;
             Object[] objArr = {locationClientOption};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -432,14 +432,14 @@ public final class LocationClientOption {
     public void setLocationMode(LocationMode locationMode) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, locationMode) == null) {
-            int i2 = AnonymousClass1.a[locationMode.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.a[locationMode.ordinal()];
+            if (i == 1) {
                 this.openGps = true;
                 this.priority = 1;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 this.openGps = false;
                 this.priority = 2;
-            } else if (i2 != 3) {
+            } else if (i != 3) {
                 throw new IllegalArgumentException("Illegal this mode : " + locationMode);
             } else {
                 this.priority = 3;
@@ -477,30 +477,30 @@ public final class LocationClientOption {
         }
     }
 
-    public void setOpenAutoNotifyMode(int i2, int i3, int i4) {
+    public void setOpenAutoNotifyMode(int i, int i2, int i3) {
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048607, this, i2, i3, i4) == null) {
-            int i5 = TiebaStatic.MAX_COST_VALUE;
-            if (i2 > 180000) {
-                i5 = i2 + 1000;
+        if (interceptable == null || interceptable.invokeIII(1048607, this, i, i2, i3) == null) {
+            int i4 = TiebaStatic.MAX_COST_VALUE;
+            if (i > 180000) {
+                i4 = i + 1000;
             }
-            if (i5 < 10000) {
-                throw new IllegalArgumentException("Illegal this maxLocInterval : " + i5 + " , maxLocInterval must >= 10000");
+            if (i4 < 10000) {
+                throw new IllegalArgumentException("Illegal this maxLocInterval : " + i4 + " , maxLocInterval must >= 10000");
             }
-            if (i4 == 1) {
+            if (i3 == 1) {
                 f2 = 0.5f;
-            } else if (i4 == 2) {
+            } else if (i3 == 2) {
                 f2 = 0.3f;
-            } else if (i4 != 3) {
-                throw new IllegalArgumentException("Illegal this locSensitivity : " + i4);
+            } else if (i3 != 3) {
+                throw new IllegalArgumentException("Illegal this locSensitivity : " + i3);
             } else {
                 f2 = 0.1f;
             }
             this.autoNotifyLocSensitivity = f2;
-            this.autoNotifyMaxInterval = i5;
-            this.autoNotifyMinTimeInterval = i2;
-            this.autoNotifyMinDistance = i3;
+            this.autoNotifyMaxInterval = i4;
+            this.autoNotifyMinTimeInterval = i;
+            this.autoNotifyMinDistance = i2;
         }
     }
 
@@ -512,11 +512,11 @@ public final class LocationClientOption {
     }
 
     @Deprecated
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            if (i2 == 1 || i2 == 2) {
-                this.priority = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            if (i == 1 || i == 2) {
+                this.priority = i;
             }
         }
     }
@@ -531,12 +531,12 @@ public final class LocationClientOption {
         }
     }
 
-    public void setScanSpan(int i2) {
+    public void setScanSpan(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048611, this, i2) == null) || i2 < 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048611, this, i) == null) || i < 0) {
             return;
         }
-        this.scanSpan = i2;
+        this.scanSpan = i;
     }
 
     @Deprecated
@@ -556,18 +556,18 @@ public final class LocationClientOption {
         }
     }
 
-    public void setTimeOut(int i2) {
+    public void setTimeOut(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.timeOut = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.timeOut = i;
         }
     }
 
-    public void setWifiCacheTimeOut(int i2) {
+    public void setWifiCacheTimeOut(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048615, this, i2) == null) || i2 < 10000) {
+        if (!(interceptable == null || interceptable.invokeI(1048615, this, i) == null) || i < 10000) {
             return;
         }
-        this.wifiCacheTimeOut = i2;
+        this.wifiCacheTimeOut = i;
     }
 }

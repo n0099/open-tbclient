@@ -1,6 +1,6 @@
 package com.baidu.tieba.godSquare;
 
-import c.a.r0.y3.g0.a;
+import c.a.p0.a4.g0.a;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GodSquareActivityConfig;
@@ -32,7 +32,7 @@ public class GodSquareActivityStatic {
                 return;
             }
         }
-        a.b(2016446, c.a.r0.i1.c.c.a.class);
+        a.b(2016446, c.a.p0.k1.c.c.a.class);
         a.d(CmdConfigHttp.CMD_GET_HOT_GOD, 309315, TbConfig.GET_HOT_GOD, GodSquareHttpResponsedMsg.class, GodSquareSocketResponsedMsg.class);
         TbadkCoreApplication.getInst().RegisterIntent(GodSquareActivityConfig.class, GodSquareActivity.class);
     }
@@ -42,9 +42,9 @@ public class GodSquareActivityStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

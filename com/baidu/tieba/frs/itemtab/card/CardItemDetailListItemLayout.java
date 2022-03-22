@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import c.a.d.a.j;
 import c.a.d.f.p.m;
-import c.a.q0.r.v.c;
-import c.a.r0.d1.d2.g.h;
+import c.a.o0.r.v.c;
+import c.a.p0.f1.d2.g.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
@@ -23,21 +23,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class CardItemDetailListItemLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static String f42192i;
-    public transient /* synthetic */ FieldHolder $fh;
-
     /* renamed from: e  reason: collision with root package name */
-    public EMTextView f42193e;
+    public static String f32680e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public EMTextView a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public LimitiedCoTextView f42194f;
+    /* renamed from: b  reason: collision with root package name */
+    public LimitiedCoTextView f32681b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public View f42195g;
+    /* renamed from: c  reason: collision with root package name */
+    public View f32682c;
 
-    /* renamed from: h  reason: collision with root package name */
-    public String f42196h;
+    /* renamed from: d  reason: collision with root package name */
+    public String f32683d;
 
     /* loaded from: classes5.dex */
     public static class LimitiedCoTextView extends EMTextView {
@@ -53,9 +51,9 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -65,11 +63,11 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
 
         @Override // android.widget.TextView, android.view.View
-        public void onMeasure(int i2, int i3) {
+        public void onMeasure(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-                super.onMeasure(i2, i3);
-                if (getText() == null || !getText().toString().endsWith(CardItemDetailListItemLayout.f42192i)) {
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                super.onMeasure(i, i2);
+                if (getText() == null || !getText().toString().endsWith(CardItemDetailListItemLayout.f32680e)) {
                     return;
                 }
                 Layout layout = getLayout();
@@ -94,9 +92,9 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -107,17 +105,17 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LimitiedCoTextView(Context context, AttributeSet attributeSet, int i2) {
-            super(context, attributeSet, i2);
+        public LimitiedCoTextView(Context context, AttributeSet attributeSet, int i) {
+            super(context, attributeSet, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+                Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -132,9 +130,7 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CardItemDetailListItemLayout f42197e;
+        public final /* synthetic */ CardItemDetailListItemLayout a;
 
         public a(CardItemDetailListItemLayout cardItemDetailListItemLayout) {
             Interceptable interceptable = $ic;
@@ -143,22 +139,22 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardItemDetailListItemLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42197e = cardItemDetailListItemLayout;
+            this.a = cardItemDetailListItemLayout;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !m.isEmpty(this.f42197e.f42196h) && (j.a(this.f42197e.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f42197e.getContext()), new String[]{this.f42197e.f42196h});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && !m.isEmpty(this.a.f32683d) && (j.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.getContext()), new String[]{this.a.f32683d});
             }
         }
     }
@@ -172,9 +168,9 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -187,47 +183,47 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f42192i == null) {
-                f42192i = getContext().getString(R.string.limited_company);
+            if (f32680e == null) {
+                f32680e = getContext().getString(R.string.obfuscated_res_0x7f0f09e3);
             }
-            RelativeLayout.inflate(getContext(), R.layout.item_detail_list_item_layout, this);
-            this.f42193e = (EMTextView) findViewById(R.id.name);
-            this.f42194f = (LimitiedCoTextView) findViewById(R.id.value);
-            this.f42195g = findViewById(R.id.divider);
-            this.f42194f.setOnClickListener(new a(this));
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d03fd, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0914e9);
+            this.f32681b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0922ed);
+            this.f32682c = findViewById(R.id.obfuscated_res_0x7f0907e1);
+            this.f32681b.setOnClickListener(new a(this));
         }
     }
 
-    public void onChangeSkinType() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.d(this.f42193e).v(R.color.CAM_X0108);
-            if (m.isEmpty(this.f42196h)) {
-                c d2 = c.d(this.f42194f);
+            c.d(this.a).v(R.color.CAM_X0108);
+            if (m.isEmpty(this.f32683d)) {
+                c d2 = c.d(this.f32681b);
                 d2.w(R.dimen.M_T_X002);
                 d2.v(R.color.CAM_X0105);
             } else {
-                c d3 = c.d(this.f42194f);
+                c d3 = c.d(this.f32681b);
                 d3.w(R.dimen.M_T_X002);
                 d3.v(R.color.CAM_X0304);
             }
-            SkinManager.setBackgroundColor(this.f42195g, R.color.CAM_X0203);
+            SkinManager.setBackgroundColor(this.f32682c, R.color.CAM_X0203);
         }
     }
 
     public void setData(h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hVar) == null) {
-            this.f42193e.setText(hVar.a);
-            this.f42194f.setText(hVar.f15459b);
-            this.f42196h = hVar.f15460c;
+            this.a.setText(hVar.a);
+            this.f32681b.setText(hVar.f13934b);
+            this.f32683d = hVar.f13935c;
         }
     }
 
     public void setDividerVisible(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.f42195g.setVisibility(z ? 0 : 8);
+            this.f32682c.setVisibility(z ? 0 : 8);
         }
     }
 
@@ -240,9 +236,9 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -254,43 +250,21 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardItemDetailListItemLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CardItemDetailListItemLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        c();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CardItemDetailListItemLayout(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }

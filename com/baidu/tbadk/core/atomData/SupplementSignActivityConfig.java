@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String CONTINUOUS_SIGN_ALL_DAYS = "continuous_sign_all_days";
@@ -40,17 +40,17 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public SupplementSignActivityConfig(Context context, int i2, int i3) {
-        super(context, r4, JUMP_URL + "?forum_id=" + i2 + "&_client_version=" + TbConfig.getVersion(), true, true, true);
+    public SupplementSignActivityConfig(Context context, int i, int i2) {
+        super(context, r4, JUMP_URL + "?forum_id=" + i + "&_client_version=" + TbConfig.getVersion(), true, true, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
@@ -58,9 +58,9 @@ public class SupplementSignActivityConfig extends TbWebViewActivityConfig {
                 return;
             }
         }
-        String string = context.getResources().getString(R.string.resign);
-        getIntent().putExtra(FORUM_ID, i2);
-        setRequestCode(i3);
+        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0fb6);
+        getIntent().putExtra(FORUM_ID, i);
+        setRequestCode(i2);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

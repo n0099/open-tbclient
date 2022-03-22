@@ -10,7 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,9 +17,10 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.mobstat.Config;
 import com.baidu.sapi2.SapiWebView;
-import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.DailyClassicalActivityConfig;
@@ -37,41 +37,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
 import java.net.URLDecoder;
 @Deprecated
 /* loaded from: classes6.dex */
-public class DailyClassicalActivity extends ProxyAdkBaseActivity implements BaseWebView.d {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean t;
-    public static long u;
+public class DailyClassicalActivity extends BaseActivity implements BaseWebView.d {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String DAILY_CLASSICAL = "c/s/tag/gettogether";
+    public static long msgID;
+    public static boolean pvSign;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f46576e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f46577f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f46578g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f46579h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f46580i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public BaseWebView f46581j;
-    public ProgressBar k;
-    public LinearLayout l;
-    public c m;
-    public boolean n;
-    public boolean o;
-    public TextView p;
-    public TextView q;
-    public boolean r;
-    public String s;
+    public boolean isRefreshing;
+    public ImageView mBack;
+    public c mContentAsyncTask;
+    public View.OnClickListener mOncClickListener;
+    public RelativeLayout mParent;
+    public ProgressBar mProgressBar;
+    public RelativeLayout mTitle;
+    public TextView mTitleText;
+    public BaseWebView mWebView;
+    public boolean refreshWebview;
+    public String requestPage;
+    public LinearLayout tagWebViewLayout;
+    public TextView webviewCrashTip;
+    public TextView webviewFail;
+    public boolean webviewSucess;
 
     /* loaded from: classes6.dex */
     public static class a implements CustomMessageTask.CustomRunnable<DailyClassicalActivityConfig> {
@@ -83,9 +73,9 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,9 +100,7 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DailyClassicalActivity f46582e;
+        public final /* synthetic */ DailyClassicalActivity a;
 
         public b(DailyClassicalActivity dailyClassicalActivity) {
             Interceptable interceptable = $ic;
@@ -121,15 +109,15 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dailyClassicalActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46582e = dailyClassicalActivity;
+            this.a = dailyClassicalActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -137,10 +125,10 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 int id = view.getId();
-                if (id == R.id.back) {
-                    this.f46582e.finish();
-                } else if (id == R.id.tag_webview_item) {
-                    this.f46582e.y();
+                if (id == R.id.obfuscated_res_0x7f0902ef) {
+                    this.a.finish();
+                } else if (id == R.id.obfuscated_res_0x7f091ec2) {
+                    this.a.refresh();
                 }
             }
         }
@@ -153,10 +141,10 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         public NetWork a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f46583b;
+        public String f35997b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ DailyClassicalActivity f46584c;
+        public final /* synthetic */ DailyClassicalActivity f35998c;
 
         public c(DailyClassicalActivity dailyClassicalActivity) {
             Interceptable interceptable = $ic;
@@ -165,60 +153,48 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dailyClassicalActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46584c = dailyClassicalActivity;
+            this.f35998c = dailyClassicalActivity;
             this.a = null;
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void cancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NetWork netWork = this.a;
-                if (netWork != null) {
-                    netWork.cancelNetConnect();
-                }
-                this.f46584c.r = false;
-                super.cancel(true);
-            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
         public String doInBackground(Object... objArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr)) == null) {
-                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/tag/gettogether");
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + DailyClassicalActivity.DAILY_CLASSICAL);
                 this.a = netWork;
                 netWork.getNetContext().getRequest().getNetWorkParam().mIsJson = false;
                 if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                     this.a.addPostData("night_type", "1");
                 }
-                this.a.addPostData("pn", this.f46584c.s);
+                this.a.addPostData(Config.PACKAGE_NAME, this.f35998c.requestPage);
                 this.a.addPostData("_version_more", "1");
-                this.a.addPostData(com.tencent.connect.common.Constants.PARAM_PLATFORM, "android");
-                if (DailyClassicalActivity.t) {
-                    boolean unused = DailyClassicalActivity.t = false;
+                this.a.addPostData(Constants.PARAM_PLATFORM, "android");
+                if (DailyClassicalActivity.pvSign) {
+                    boolean unused = DailyClassicalActivity.pvSign = false;
                     this.a.addPostData("msg_click", "1");
-                    this.a.addPostData("message_id", String.valueOf(DailyClassicalActivity.u));
+                    this.a.addPostData("message_id", String.valueOf(DailyClassicalActivity.msgID));
                 }
-                Address j2 = c.a.d.f.i.a.n().j(false);
-                if (j2 != null && this.f46584c.u()) {
+                Address j = c.a.d.f.i.a.n().j(false);
+                if (j != null && this.f35998c.getIsLocationOn()) {
                     NetWork netWork2 = this.a;
-                    netWork2.addPostData("lbs", String.valueOf(j2.getLatitude()) + "," + String.valueOf(j2.getLongitude()));
+                    netWork2.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
                 }
                 try {
-                    this.f46583b = this.a.postNetData();
+                    this.f35997b = this.a.postNetData();
                     if (this.a.isNetSuccess()) {
-                        return this.f46583b;
+                        return this.f35997b;
                     }
                     return null;
                 } catch (Exception e2) {
@@ -229,26 +205,39 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             return (String) invokeL.objValue;
         }
 
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                }
+                this.f35998c.isRefreshing = false;
+                super.cancel(true);
+            }
+        }
+
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.f46584c.m = null;
-                this.f46584c.l.setOnClickListener(null);
+                this.f35998c.mContentAsyncTask = null;
+                this.f35998c.tagWebViewLayout.setOnClickListener(null);
                 NetWork netWork = this.a;
                 if (netWork == null || !netWork.isNetSuccess() || str == null || str.length() <= 0) {
-                    this.f46584c.o = false;
-                    this.f46584c.p.setVisibility(0);
-                    this.f46584c.f46581j.setVisibility(8);
-                    this.f46584c.l.setOnClickListener(this.f46584c.f46580i);
+                    this.f35998c.webviewSucess = false;
+                    this.f35998c.webviewFail.setVisibility(0);
+                    this.f35998c.mWebView.setVisibility(8);
+                    this.f35998c.tagWebViewLayout.setOnClickListener(this.f35998c.mOncClickListener);
                 } else {
-                    this.f46584c.f46581j.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, "utf-8", "");
-                    this.f46584c.p.setVisibility(8);
-                    this.f46584c.f46581j.setVisibility(0);
+                    this.f35998c.mWebView.loadDataWithBaseURL(TbConfig.SERVER_ADDRESS, str, SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, "");
+                    this.f35998c.webviewFail.setVisibility(8);
+                    this.f35998c.mWebView.setVisibility(0);
                 }
-                this.f46584c.n = true;
-                this.f46584c.x();
+                this.f35998c.refreshWebview = true;
+                this.f35998c.onRefreshFinish();
             }
         }
 
@@ -280,87 +269,235 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f46576e = null;
-        this.f46577f = null;
-        this.f46578g = null;
-        this.f46579h = null;
-        this.f46580i = null;
-        this.f46581j = null;
-        this.k = null;
-        this.l = null;
-        this.m = null;
-        this.n = false;
-        this.o = true;
-        this.p = null;
-        this.q = null;
-        this.r = false;
-        this.s = "1";
+        this.mBack = null;
+        this.mParent = null;
+        this.mTitle = null;
+        this.mTitleText = null;
+        this.mOncClickListener = null;
+        this.mWebView = null;
+        this.mProgressBar = null;
+        this.tagWebViewLayout = null;
+        this.mContentAsyncTask = null;
+        this.refreshWebview = false;
+        this.webviewSucess = true;
+        this.webviewFail = null;
+        this.webviewCrashTip = null;
+        this.isRefreshing = false;
+        this.requestPage = "1";
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
+    private void cancelTask() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(65551, this) == null) || (cVar = this.mContentAsyncTask) == null) {
+            return;
+        }
+        cVar.cancel();
+    }
+
+    private boolean createWebView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65552, this)) == null) {
+            if (this.mWebView == null) {
+                try {
+                    if (UtilHelper.webViewIsProbablyCorrupt(this)) {
+                        super.showToast(getString(R.string.obfuscated_res_0x7f0f154a));
+                        return false;
+                    }
+                    BaseWebView baseWebView = new BaseWebView(this);
+                    this.mWebView = baseWebView;
+                    SkinManager.setBgColor(baseWebView, TbadkCoreApplication.getInst().getSkinType());
+                    this.mWebView.setOnLoadUrlListener(this);
+                    this.mWebView.setHorizontalScrollBarEnabled(false);
+                    this.mWebView.setHorizontalScrollbarOverlay(false);
+                    this.mWebView.setScrollBarStyle(33554432);
+                    this.mWebView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                    this.tagWebViewLayout.addView(this.mWebView);
+                    return true;
+                } catch (Exception e2) {
+                    BdLog.e(e2.getMessage());
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    private String getMatchStringFromURL(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, this, str, str2)) == null) {
+            int indexOf = str.indexOf(str2);
+            if (indexOf != -1) {
+                int length = indexOf + str2.length();
+                int i = length;
+                while (i < str.length() && str.charAt(i) != '&') {
+                    i++;
+                }
+                return URLDecoder.decode(str.substring(length, i));
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static long getMsgID() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? msgID : invokeV.longValue;
+    }
+
+    public static boolean getPvSign() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) ? pvSign : invokeV.booleanValue;
+    }
+
+    private void initUI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, this) == null) {
+            this.mParent = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091647);
+            this.mTitle = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09202b);
+            this.mTitleText = (TextView) findViewById(R.id.obfuscated_res_0x7f092059);
+            this.tagWebViewLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ec2);
+            this.mBack = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ef);
+            this.webviewFail = (TextView) this.tagWebViewLayout.findViewById(R.id.obfuscated_res_0x7f09244f);
+            this.webviewCrashTip = (TextView) this.tagWebViewLayout.findViewById(R.id.obfuscated_res_0x7f09244e);
+            this.mProgressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091e9b);
+            b bVar = new b(this);
+            this.mOncClickListener = bVar;
+            this.mBack.setOnClickListener(bVar);
+            if (createWebView()) {
+                this.webviewCrashTip.setVisibility(8);
+                refresh();
+                return;
+            }
+            this.webviewCrashTip.setVisibility(0);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void onRefreshFinish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65557, this) == null) && this.refreshWebview) {
+            if (!this.webviewSucess) {
+                showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
+            }
+            this.isRefreshing = false;
+            this.mProgressBar.setVisibility(8);
+        }
+    }
+
+    public static void setMsgID(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65558, null, j) == null) {
+            msgID = j;
+        }
+    }
+
+    public static void setPvSign(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65559, null, z) == null) {
+            pvSign = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
     public boolean getGpuSwitch() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbadkCoreApplication.getInst().isGpuOpen() : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i2) {
+    public boolean getIsLocationOn() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            SkinManager.setBgColor(this.f46577f, i2);
-            SkinManager.setTopBarBgImage(this.f46578g, i2);
-            SkinManager.setTopBarTitleColor(this.f46579h, i2);
-            SkinManager.setTopBarBackBgImage(this.f46576e, i2);
-            BaseWebView baseWebView = this.f46581j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
+            SkinManager.setBgColor(this.mParent, i);
+            SkinManager.setTopBarBgImage(this.mTitle, i);
+            SkinManager.setTopBarTitleColor(this.mTitleText, i);
+            SkinManager.setTopBarBackBgImage(this.mBack, i);
+            BaseWebView baseWebView = this.mWebView;
             if (baseWebView != null) {
-                SkinManager.setBgColor(baseWebView, i2);
-                y();
+                SkinManager.setBgColor(baseWebView, i);
+                refresh();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.day_classical_activity);
-            w();
+            setContentView(R.layout.obfuscated_res_0x7f0d0217);
+            initUI();
         }
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
         }
     }
 
-    public final void s() {
-        c cVar;
+    public void refresh() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (cVar = this.m) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (TbadkCoreApplication.getInst().getWebviewCrashCount() == 0 && !createWebView()) {
+                this.webviewCrashTip.setVisibility(0);
+                return;
+            }
+            this.webviewCrashTip.setVisibility(8);
+            if (this.isRefreshing) {
+                return;
+            }
+            this.isRefreshing = true;
+            this.mProgressBar.setVisibility(0);
+            this.refreshWebview = false;
+            this.webviewSucess = true;
+            cancelTask();
+            c cVar = new c(this, null);
+            this.mContentAsyncTask = cVar;
+            cVar.setPriority(3);
+            this.mContentAsyncTask.execute(new Object[0]);
         }
-        cVar.cancel();
+    }
+
+    public void resetPage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.requestPage = "1";
+        }
     }
 
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
     public boolean shouldOverrideUrlLoading(WebView webView, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return false;
             }
@@ -373,134 +510,20 @@ public class DailyClassicalActivity extends ProxyAdkBaseActivity implements Base
             } else {
                 if (str.contains("jumptoapp_browser=classic_everyday")) {
                     if (str.contains("pn=")) {
-                        String v = v(str, "pn=");
-                        if (v != null && v.length() >= 0) {
-                            this.s = v;
+                        String matchStringFromURL = getMatchStringFromURL(str, "pn=");
+                        if (matchStringFromURL != null && matchStringFromURL.length() >= 0) {
+                            this.requestPage = matchStringFromURL;
                         }
                     } else {
-                        this.s = "1";
+                        this.requestPage = "1";
                     }
-                    y();
+                    refresh();
                     return true;
                 }
-                c.a.q0.l.a.l(this, str + "&_client_version=" + TbConfig.getVersion());
+                c.a.o0.l.a.l(this, str + "&_client_version=" + TbConfig.getVersion());
                 return true;
             }
         }
         return invokeLL.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f46581j == null) {
-                try {
-                    if (UtilHelper.webViewIsProbablyCorrupt(this)) {
-                        super.showToast(getString(R.string.web_view_corrupted));
-                        return false;
-                    }
-                    BaseWebView baseWebView = new BaseWebView(this);
-                    this.f46581j = baseWebView;
-                    SkinManager.setBgColor(baseWebView, TbadkCoreApplication.getInst().getSkinType());
-                    this.f46581j.setOnLoadUrlListener(this);
-                    this.f46581j.setHorizontalScrollBarEnabled(false);
-                    this.f46581j.setHorizontalScrollbarOverlay(false);
-                    this.f46581j.setScrollBarStyle(33554432);
-                    this.f46581j.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                    this.l.addView(this.f46581j);
-                    return true;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
-            int indexOf = str.indexOf(str2);
-            if (indexOf != -1) {
-                int length = indexOf + str2.length();
-                int i2 = length;
-                while (i2 < str.length() && str.charAt(i2) != '&') {
-                    i2++;
-                }
-                return URLDecoder.decode(str.substring(length, i2));
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.f46577f = (RelativeLayout) findViewById(R.id.parent);
-            this.f46578g = (RelativeLayout) findViewById(R.id.title);
-            this.f46579h = (TextView) findViewById(R.id.title_text);
-            this.l = (LinearLayout) findViewById(R.id.tag_webview_item);
-            this.f46576e = (ImageView) findViewById(R.id.back);
-            this.p = (TextView) this.l.findViewById(R.id.webview_fail);
-            this.q = (TextView) this.l.findViewById(R.id.webview_crash_tip);
-            this.k = (ProgressBar) findViewById(R.id.tag_progress);
-            b bVar = new b(this);
-            this.f46580i = bVar;
-            this.f46576e.setOnClickListener(bVar);
-            if (t()) {
-                this.q.setVisibility(8);
-                y();
-                return;
-            }
-            this.q.setVisibility(0);
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.n) {
-            if (!this.o) {
-                showToast(getResources().getString(R.string.neterror));
-            }
-            this.r = false;
-            this.k.setVisibility(8);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (TbadkCoreApplication.getInst().getWebviewCrashCount() == 0 && !t()) {
-                this.q.setVisibility(0);
-                return;
-            }
-            this.q.setVisibility(8);
-            if (this.r) {
-                return;
-            }
-            this.r = true;
-            this.k.setVisibility(0);
-            this.n = false;
-            this.o = true;
-            s();
-            c cVar = new c(this, null);
-            this.m = cVar;
-            cVar.setPriority(3);
-            this.m.execute(new Object[0]);
-        }
     }
 }

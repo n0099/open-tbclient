@@ -22,9 +22,9 @@ public final class ParallelFromArray<T> extends ParallelFlowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {publisherArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,8 +45,8 @@ public final class ParallelFromArray<T> extends ParallelFlowable<T> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                this.sources[i2].subscribe(subscriberArr[i2]);
+            for (int i = 0; i < length; i++) {
+                this.sources[i].subscribe(subscriberArr[i]);
             }
         }
     }

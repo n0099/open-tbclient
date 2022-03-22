@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import c.a.d.f.p.n;
-import c.a.q0.r.l0.n.b;
+import c.a.o0.r.l0.n.b;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -21,20 +21,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class LocationInfoView extends LinearLayout implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int STATE_INIT = 0;
-    public static final int STATE_LOADING = 1;
-    public static final int STATE_RESULT = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TBSpecificationBtn a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TBSpecificationBtn f39590e;
+    /* renamed from: b  reason: collision with root package name */
+    public a f30496b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public a f39591f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39592g;
+    /* renamed from: c  reason: collision with root package name */
+    public int f30497c;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -50,9 +45,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -69,43 +64,43 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             setGravity(16);
             b bVar = new b();
             bVar.p(R.color.CAM_X0209, R.color.CAM_X0105);
-            bVar.i(R.drawable.ic_icon_pure_post_location12, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            bVar.i(R.drawable.obfuscated_res_0x7f080610, 0, TBSpecificationButtonConfig.IconType.WEBP);
             bVar.h(R.color.CAM_X0110);
             bVar.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             bVar.m(n.f(getContext(), R.dimen.M_W_X004), n.f(getContext(), R.dimen.M_W_X004));
             bVar.n(n.f(getContext(), R.dimen.M_H_X002));
             bVar.g(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
             TBSpecificationBtn tBSpecificationBtn = new TBSpecificationBtn(getContext());
-            this.f39590e = tBSpecificationBtn;
+            this.a = tBSpecificationBtn;
             tBSpecificationBtn.setConfig(bVar);
-            this.f39590e.setTextSize(R.dimen.T_X09);
-            this.f39590e.setOnClickListener(this);
-            this.f39590e.setText(getContext().getString(R.string.location_where_are_you));
-            addView(this.f39590e, new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds62)));
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            this.a.setTextSize(R.dimen.T_X09);
+            this.a.setOnClickListener(this);
+            this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a48));
+            addView(this.a, new LinearLayout.LayoutParams(-2, n.f(getContext(), R.dimen.tbds62)));
+            b(TbadkCoreApplication.getInst().getSkinType());
         }
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.f30497c == i) {
+            return;
+        }
+        this.a.k();
+        this.f30497c = i;
     }
 
     public TBSpecificationBtn getLocationBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39590e : (TBSpecificationBtn) invokeV.objValue;
-    }
-
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f39592g == i2) {
-            return;
-        }
-        this.f39590e.changeSkinType();
-        this.f39592g = i2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (TBSpecificationBtn) invokeV.objValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (aVar = this.f39591f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || (aVar = this.f30496b) == null) {
             return;
         }
         aVar.a();
@@ -114,25 +109,25 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     public void setLocationClickListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f39591f = aVar;
+            this.f30496b = aVar;
         }
     }
 
-    public void setState(int i2, String str) {
+    public void setState(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
             if (!StringUtils.isNull(str)) {
                 if (str.contains("·")) {
                     int indexOf = str.indexOf("·");
                     str = str.substring(0, indexOf) + str.substring(indexOf + 1, str.length());
                 }
-                this.f39590e.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, "..."));
-            } else if (i2 == 1) {
-                this.f39590e.setText(getContext().getString(R.string.location_loading));
+                this.a.setText(StringHelper.cutChineseAndEnglishWithSuffix(str, 8, StringHelper.STRING_MORE));
+            } else if (i == 1) {
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a42));
             } else {
-                this.f39590e.setText(getContext().getString(R.string.location_where_are_you));
+                this.a.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a48));
             }
-            this.f39590e.btnState = Integer.valueOf(i2);
+            this.a.a = Integer.valueOf(i);
         }
     }
 
@@ -145,9 +140,9 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -155,7 +150,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        this.f39592g = 3;
+        this.f30497c = 3;
         a();
     }
 }

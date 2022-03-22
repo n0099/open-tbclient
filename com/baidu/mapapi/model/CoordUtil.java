@@ -22,9 +22,9 @@ public class CoordUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,10 +79,10 @@ public class CoordUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, point, point2)) == null) ? com.baidu.mapsdkplatform.comjni.tools.a.a(point, point2) : invokeLL.doubleValue;
     }
 
-    public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i2) {
+    public static int getMCDistanceByOneLatLngAndRadius(LatLng latLng, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, latLng, i2)) == null) ? SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i2) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, latLng, i)) == null) ? SDKInitializer.getCoordType() == CoordType.GCJ02 ? com.baidu.mapsdkplatform.comapi.util.b.a(CoordTrans.gcjToBaidu(latLng), i) : com.baidu.mapsdkplatform.comapi.util.b.a(latLng, i) : invokeLI.intValue;
     }
 
     public static GeoPoint ll2mc(LatLng latLng) {

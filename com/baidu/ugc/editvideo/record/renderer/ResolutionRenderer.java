@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
-import c.a.a0.b.a.e;
+import c.a.z.b.a.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,9 +23,9 @@ public class ResolutionRenderer extends MediaBaseRenderer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,48 +38,48 @@ public class ResolutionRenderer extends MediaBaseRenderer {
     private void checkRatio(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65537, this, f2) == null) {
-            int i2 = this.mSurfaceViewWidth;
-            this.mResolutionWidth = i2;
-            this.mResolutionHeight = (int) (i2 * f2);
+            int i = this.mSurfaceViewWidth;
+            this.mResolutionWidth = i;
+            this.mResolutionHeight = (int) (i * f2);
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(e eVar, int i2, float[] fArr) {
+    public void onDrawFrame(e eVar, int i, float[] fArr) {
+        int i2;
         int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i2, fArr) == null) || this.mRatio == 0.0f) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, eVar, i, fArr) == null) || this.mRatio == 0.0f) {
             return;
         }
-        if (!(this.mResolutionWidth == this.mSurfaceViewWidth && this.mResolutionHeight == this.mSurfaceViewHeight) && (i3 = (this.mSurfaceViewHeight - this.mResolutionHeight) / 2) > 1) {
+        if (!(this.mResolutionWidth == this.mSurfaceViewWidth && this.mResolutionHeight == this.mSurfaceViewHeight) && (i2 = (this.mSurfaceViewHeight - this.mResolutionHeight) / 2) > 1) {
             long currentTimeMillis = System.currentTimeMillis() - this.mLastTimeStamp;
-            int i6 = this.mDuration;
-            if (currentTimeMillis >= i6) {
+            int i5 = this.mDuration;
+            if (currentTimeMillis >= i5) {
                 this.mProgress = 1.0f;
             } else {
-                this.mProgress = (((float) currentTimeMillis) * 1.0f) / i6;
+                this.mProgress = (((float) currentTimeMillis) * 1.0f) / i5;
             }
             GLES20.glEnable(3089);
             float f2 = this.mProgress;
             if (f2 != 1.0f) {
-                int i7 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.466f) / 0.5f);
-                i4 = (int) (i7 + ((((int) ((i3 * 0.466f) / 0.5f)) - i7) * f2));
+                int i6 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.466f) / 0.5f);
+                i3 = (int) (i6 + ((((int) ((i2 * 0.466f) / 0.5f)) - i6) * f2));
             } else {
-                i4 = (int) ((i3 * 0.466f) / 0.5f);
+                i3 = (int) ((i2 * 0.466f) / 0.5f);
             }
-            GLES20.glScissor(0, this.mSurfaceViewHeight - i4, this.mResolutionWidth, i4);
+            GLES20.glScissor(0, this.mSurfaceViewHeight - i3, this.mResolutionWidth, i3);
             GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
             GLES20.glClear(16640);
             float f3 = this.mProgress;
             if (f3 != 1.0f) {
-                int i8 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.53400004f) / 0.5f);
-                i5 = (int) (i8 + ((((int) ((i3 * 0.53400004f) / 0.5f)) - i8) * f3));
+                int i7 = (int) ((((this.mSurfaceViewHeight - this.mLastResolutionHeight) / 2) * 0.53400004f) / 0.5f);
+                i4 = (int) (i7 + ((((int) ((i2 * 0.53400004f) / 0.5f)) - i7) * f3));
             } else {
-                i5 = (int) ((i3 * 0.53400004f) / 0.5f);
+                i4 = (int) ((i2 * 0.53400004f) / 0.5f);
             }
-            GLES20.glScissor(0, 0, this.mResolutionWidth, i5);
+            GLES20.glScissor(0, 0, this.mResolutionWidth, i4);
             GLES20.glClearColor(this.mRed, this.mGreen, this.mBlue, this.mAlpha);
             GLES20.glClear(16640);
             GLES20.glDisable(3089);

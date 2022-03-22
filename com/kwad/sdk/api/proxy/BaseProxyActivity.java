@@ -62,15 +62,15 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
-        this.mDelegate.onActivityResult(i2, i3, intent);
+    public void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
+        this.mDelegate.onActivityResult(i, i2, intent);
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper
-    public void onApplyThemeResource(Resources.Theme theme, int i2, boolean z) {
-        super.onApplyThemeResource(theme, i2, z);
-        this.mDelegate.onApplyThemeResource(theme, i2, z);
+    public void onApplyThemeResource(Resources.Theme theme, int i, boolean z) {
+        super.onApplyThemeResource(theme, i, z);
+        this.mDelegate.onApplyThemeResource(theme, i, z);
     }
 
     @Override // android.app.Activity
@@ -110,18 +110,18 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyDown(i2, keyEvent);
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyDown(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyLongPress(int i2, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyLongPress(i2, keyEvent);
+    public boolean onKeyLongPress(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyLongPress(i, keyEvent);
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
-        return this.mDelegate.onKeyUp(i2, keyEvent);
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
+        return this.mDelegate.onKeyUp(i, keyEvent);
     }
 
     @Override // android.app.Activity
@@ -190,9 +190,9 @@ public abstract class BaseProxyActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onTitleChanged(CharSequence charSequence, int i2) {
-        super.onTitleChanged(charSequence, i2);
-        this.mDelegate.onTitleChanged(charSequence, i2);
+    public void onTitleChanged(CharSequence charSequence, int i) {
+        super.onTitleChanged(charSequence, i);
+        this.mDelegate.onTitleChanged(charSequence, i);
     }
 
     @Override // android.app.Activity
@@ -213,15 +213,15 @@ public abstract class BaseProxyActivity extends Activity {
         super.onBackPressed();
     }
 
-    public boolean superOnKeyDown(int i2, KeyEvent keyEvent) {
-        return super.onKeyDown(i2, keyEvent);
+    public boolean superOnKeyDown(int i, KeyEvent keyEvent) {
+        return super.onKeyDown(i, keyEvent);
     }
 
-    public boolean superOnKeyLongPress(int i2, KeyEvent keyEvent) {
-        return super.onKeyLongPress(i2, keyEvent);
+    public boolean superOnKeyLongPress(int i, KeyEvent keyEvent) {
+        return super.onKeyLongPress(i, keyEvent);
     }
 
-    public boolean superOnKeyUp(int i2, KeyEvent keyEvent) {
-        return super.onKeyUp(i2, keyEvent);
+    public boolean superOnKeyUp(int i, KeyEvent keyEvent) {
+        return super.onKeyUp(i, keyEvent);
     }
 }

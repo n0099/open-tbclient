@@ -2,9 +2,9 @@ package com.ss.android.socialbase.downloader.f;
 
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.PluginCenter;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.h.e;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
@@ -16,26 +16,24 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class k implements f, c.a {
     public int A;
     public final boolean B;
     public final DownloadInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final n f58592b;
+    public final n f43308b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f58593c;
+    public final b f43309c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final com.ss.android.socialbase.downloader.h.f f58594d;
+    public final com.ss.android.socialbase.downloader.h.f f43310d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f58595e;
-
-    /* renamed from: j  reason: collision with root package name */
-    public com.ss.android.socialbase.downloader.model.d f58600j;
+    public final g f43311e;
+    public com.ss.android.socialbase.downloader.model.d j;
     public com.ss.android.socialbase.downloader.model.d k;
     public long m;
     public int p;
@@ -49,16 +47,14 @@ public class k implements f, c.a {
     public float z;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f58596f = false;
+    public volatile boolean f43312f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f58597g = false;
+    public volatile boolean f43313g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<m> f58598h = new ArrayList();
-
-    /* renamed from: i  reason: collision with root package name */
-    public final List<q> f58599i = new ArrayList();
+    public final List<m> f43314h = new ArrayList();
+    public final List<q> i = new ArrayList();
     public volatile boolean l = true;
     public final LinkedList<i> n = new LinkedList<>();
     public final List<i> o = new ArrayList();
@@ -67,27 +63,28 @@ public class k implements f, c.a {
     public final e.b C = new e.b() { // from class: com.ss.android.socialbase.downloader.f.k.1
 
         /* renamed from: b  reason: collision with root package name */
-        public int f58601b;
+        public int f43315b;
 
         @Override // com.ss.android.socialbase.downloader.h.e.b
         public long a() {
-            if (k.this.f58596f || k.this.f58597g) {
+            if (k.this.f43312f || k.this.f43313g) {
                 return -1L;
             }
             synchronized (k.this) {
-                if (k.this.f58600j == null && k.this.k == null) {
-                    long j2 = k.this.w;
-                    if (j2 <= 0) {
+                if (k.this.j == null && k.this.k == null) {
+                    long j = k.this.w;
+                    if (j <= 0) {
                         return -1L;
                     }
-                    this.f58601b++;
-                    m a = k.this.a(false, System.currentTimeMillis(), j2);
+                    this.f43315b++;
+                    m a = k.this.a(false, System.currentTimeMillis(), j);
                     if (a != null) {
+                        Log.i("SegmentDispatcher", "connectWatcher: switchUrl and reconnect");
                         k.this.c(a);
                         a.f();
-                        return ((this.f58601b / k.this.f58599i.size()) + 1) * j2;
+                        return ((this.f43315b / k.this.i.size()) + 1) * j;
                     }
-                    return j2;
+                    return j;
                 }
                 return -1L;
             }
@@ -102,11 +99,11 @@ public class k implements f, c.a {
 
     public k(@NonNull DownloadInfo downloadInfo, @NonNull n nVar, com.ss.android.socialbase.downloader.h.f fVar) {
         this.a = downloadInfo;
-        this.f58592b = nVar;
-        b bVar = new b(nVar.d(), this.f58592b.e());
-        this.f58593c = bVar;
-        this.f58594d = fVar;
-        this.f58595e = new g(downloadInfo, fVar, bVar);
+        this.f43308b = nVar;
+        b bVar = new b(nVar.d(), this.f43308b.e());
+        this.f43309c = bVar;
+        this.f43310d = fVar;
+        this.f43311e = new g(downloadInfo, fVar, bVar);
         this.u = new com.ss.android.socialbase.downloader.h.e();
         this.t = new com.ss.android.socialbase.downloader.i.e();
         this.B = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).b("debug") == 1;
@@ -121,7 +118,7 @@ public class k implements f, c.a {
 
     private void i() {
         List<String> backUpUrls;
-        int l = this.f58592b.l();
+        int l = this.f43308b.l();
         if (l <= 0) {
             this.l = false;
             e();
@@ -142,25 +139,25 @@ public class k implements f, c.a {
     private q j() {
         q qVar;
         synchronized (this) {
-            int size = this.p % this.f58599i.size();
-            if (this.f58592b.b()) {
+            int size = this.p % this.i.size();
+            if (this.f43308b.b()) {
                 this.p++;
             }
-            qVar = this.f58599i.get(size);
+            qVar = this.i.get(size);
         }
         return qVar;
     }
 
     private void k() {
         com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onComplete");
-        this.f58593c.c();
+        this.f43309c.c();
         synchronized (this.s) {
             this.s.notify();
         }
     }
 
     private boolean l() {
-        for (m mVar : this.f58598h) {
+        for (m mVar : this.f43314h) {
             if (!mVar.g()) {
                 return false;
             }
@@ -172,29 +169,29 @@ public class k implements f, c.a {
         int size;
         if (this.m > 0 && (size = this.o.size()) > 1) {
             ArrayList<i> arrayList = null;
-            int i2 = 0;
-            for (int i3 = 1; i3 < size; i3++) {
-                i iVar = this.o.get(i2);
-                i iVar2 = this.o.get(i3);
+            int i = 0;
+            for (int i2 = 1; i2 < size; i2++) {
+                i iVar = this.o.get(i);
+                i iVar2 = this.o.get(i2);
                 if (iVar.e() > iVar2.c() && iVar2.a() <= 0 && iVar2.a == null) {
                     if (arrayList == null) {
                         arrayList = new ArrayList(1);
                     }
                     arrayList.add(iVar2);
                     if (this.B) {
-                        String str = "clearCovered, covered = " + iVar2 + ", prev = " + iVar;
+                        Log.w("SegmentDispatcher", "clearCovered, covered = " + iVar2 + ", prev = " + iVar);
                     }
                 } else if (iVar2.e() > iVar.e()) {
-                    i2++;
+                    i++;
                 }
             }
             if (arrayList != null) {
                 for (i iVar3 : arrayList) {
                     this.o.remove(iVar3);
-                    for (m mVar : this.f58598h) {
+                    for (m mVar : this.f43314h) {
                         if (mVar.a == iVar3) {
                             if (this.B) {
-                                String str2 = "clearCoveredSegmentLocked: reconnect, segment = " + iVar3 + ", threadIndex = " + mVar.f58605c;
+                                Log.w("SegmentDispatcher", "clearCoveredSegmentLocked: reconnect, segment = " + iVar3 + ", threadIndex = " + mVar.f43319c);
                             }
                             mVar.a(true);
                         }
@@ -205,15 +202,15 @@ public class k implements f, c.a {
     }
 
     private boolean n() {
-        long j2 = this.m;
-        if (j2 <= 0) {
+        long j = this.m;
+        if (j <= 0) {
             this.r = false;
             return false;
         }
         synchronized (this) {
             long a = o.a(this.o);
             com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "isAllContentDownloaded: firstOffset = " + a);
-            if (a >= j2) {
+            if (a >= j) {
                 this.r = true;
                 return true;
             }
@@ -223,15 +220,15 @@ public class k implements f, c.a {
     }
 
     private long o() {
-        long j2 = 0;
-        for (m mVar : this.f58598h) {
-            j2 += mVar.b();
+        long j = 0;
+        for (m mVar : this.f43314h) {
+            j += mVar.b();
         }
-        return j2;
+        return j;
     }
 
     private i p() {
-        int i2 = 0;
+        int i = 0;
         while (true) {
             i q = q();
             if (q == null) {
@@ -246,16 +243,16 @@ public class k implements f, c.a {
             }
             long currentTimeMillis = System.currentTimeMillis();
             b(currentTimeMillis);
-            if (currentTimeMillis - mVar.f58608f > 2000 && a(mVar, currentTimeMillis - 2000, currentTimeMillis, 500L, 1.0d)) {
+            if (currentTimeMillis - mVar.f43322f > 2000 && a(mVar, currentTimeMillis - 2000, currentTimeMillis, 500L, 1.0d)) {
                 if (this.B) {
-                    String str = "obtainSegmentWhenNoNewSegment: isDownloadSpeedPoor segment = " + q + ", owner.threadIndex = " + mVar.f58605c;
+                    Log.i("SegmentDispatcher", "obtainSegmentWhenNoNewSegment: isDownloadSpeedPoor segment = " + q + ", owner.threadIndex = " + mVar.f43319c);
                 }
                 return q;
             }
-            int i3 = i2 + 1;
-            if (i2 > 2) {
+            int i2 = i + 1;
+            if (i > 2) {
                 if (this.B) {
-                    String str2 = "obtainSegmentWhenNoNewSegment: waitCount > 2, return segment = " + q;
+                    Log.i("SegmentDispatcher", "obtainSegmentWhenNoNewSegment: waitCount > 2, return segment = " + q);
                 }
                 return q;
             }
@@ -263,7 +260,7 @@ public class k implements f, c.a {
                 synchronized (this) {
                     wait(500L);
                 }
-                i2 = i3;
+                i = i2;
             } catch (InterruptedException unused) {
                 return null;
             }
@@ -271,13 +268,13 @@ public class k implements f, c.a {
     }
 
     private i q() {
-        int j2;
+        int j;
         i iVar = null;
-        int i2 = Integer.MAX_VALUE;
+        int i = Integer.MAX_VALUE;
         for (i iVar2 : this.o) {
-            if (a(iVar2) > 0 && (j2 = iVar2.j()) < i2) {
+            if (a(iVar2) > 0 && (j = iVar2.j()) < i) {
                 iVar = iVar2;
-                i2 = j2;
+                i = j;
             }
         }
         return iVar;
@@ -285,16 +282,16 @@ public class k implements f, c.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public long r() {
-        if (this.f58596f || this.f58597g) {
+        if (this.f43312f || this.f43313g) {
             return -1L;
         }
         long currentTimeMillis = System.currentTimeMillis();
         synchronized (this) {
             b(currentTimeMillis);
-            long k = this.f58592b.k();
+            long k = this.f43308b.k();
             if (k > 0) {
-                long j2 = this.y;
-                if (j2 > 0 && currentTimeMillis - j2 > k && a(currentTimeMillis, k)) {
+                long j = this.y;
+                if (j > 0 && currentTimeMillis - j > k && a(currentTimeMillis, k)) {
                     this.y = currentTimeMillis;
                     this.A++;
                 }
@@ -328,25 +325,25 @@ public class k implements f, c.a {
     private void c() throws BaseException, InterruptedException {
         BaseException baseException;
         synchronized (this.s) {
-            if (this.f58600j == null && this.k == null) {
+            if (this.j == null && this.k == null) {
                 this.s.wait();
             }
         }
-        if (this.f58600j == null && this.k == null && (baseException = this.q) != null) {
+        if (this.j == null && this.k == null && (baseException = this.q) != null) {
             throw baseException;
         }
     }
 
     private void d() throws BaseException {
         try {
-            this.f58595e.a((d) this.f58593c);
+            this.f43311e.a((d) this.f43309c);
         } catch (p unused) {
         } catch (BaseException e2) {
             com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "dispatchSegments: loopAndWrite e = " + e2);
             a(e2);
             throw e2;
         }
-        if (this.f58597g || this.f58596f) {
+        if (this.f43313g || this.f43312f) {
             return;
         }
         try {
@@ -373,52 +370,52 @@ public class k implements f, c.a {
     }
 
     private void e() {
-        int i2;
+        int i;
         if (this.m <= 0 || this.l) {
-            i2 = 1;
+            i = 1;
         } else {
-            i2 = this.f58592b.a();
-            int h2 = (int) (this.m / this.f58592b.h());
-            if (i2 > h2) {
-                i2 = h2;
+            i = this.f43308b.a();
+            int h2 = (int) (this.m / this.f43308b.h());
+            if (i > h2) {
+                i = h2;
             }
         }
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "dispatchReadThread: totalLength = " + this.m + ", threadCount = " + i2);
-        int i3 = i2 > 0 ? i2 : 1;
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "dispatchReadThread: totalLength = " + this.m + ", threadCount = " + i);
+        int i2 = i > 0 ? i : 1;
         synchronized (this) {
             do {
-                if (this.f58598h.size() >= i3) {
+                if (this.f43314h.size() >= i2) {
                     break;
                 }
-                if (!this.f58597g && !this.f58596f) {
+                if (!this.f43313g && !this.f43312f) {
                     a(j());
                 }
                 return;
-            } while (!this.f58592b.f());
+            } while (!this.f43308b.f());
         }
     }
 
     private void f() {
-        this.f58599i.add(new q(this.a.getUrl(), true));
+        this.i.add(new q(this.a.getUrl(), true));
         List<String> backUpUrls = this.a.getBackUpUrls();
         if (backUpUrls != null) {
             for (String str : backUpUrls) {
                 if (!TextUtils.isEmpty(str)) {
-                    this.f58599i.add(new q(str, false));
+                    this.i.add(new q(str, false));
                 }
             }
         }
-        this.f58592b.a(this.f58599i.size());
+        this.f43308b.a(this.i.size());
     }
 
     private void g() {
-        n nVar = this.f58592b;
+        n nVar = this.f43308b;
         this.w = nVar.j();
         this.x = nVar.k();
         this.z = nVar.o();
-        int i2 = this.A;
-        if (i2 > 0) {
-            this.u.a(this.C, i2);
+        int i = this.A;
+        if (i > 0) {
+            this.u.a(this.C, i);
         }
     }
 
@@ -435,20 +432,20 @@ public class k implements f, c.a {
             long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
             this.a.increaseAllConnectTime(currentTimeMillis2);
             this.a.setFirstSpeedTime(currentTimeMillis2);
-            if (!this.f58597g && !this.f58596f) {
-                this.f58594d.a(this.m);
+            if (!this.f43313g && !this.f43312f) {
+                this.f43310d.a(this.m);
                 h();
                 d();
                 return true;
             }
-            if (!this.f58597g && !this.f58596f) {
+            if (!this.f43313g && !this.f43312f) {
                 com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "finally pause");
                 b();
             }
             this.u.b();
             return true;
         } finally {
-            if (!this.f58597g && !this.f58596f) {
+            if (!this.f43313g && !this.f43312f) {
                 com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "finally pause");
                 b();
             }
@@ -471,149 +468,183 @@ public class k implements f, c.a {
     /* JADX WARN: Code restructure failed: missing block: B:27:0x00a1, code lost:
         if ((r10.e() - r24.e()) < (r14 / 2)) goto L28;
      */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x00fb  */
+    /* JADX WARN: Code restructure failed: missing block: B:68:0x01f2, code lost:
+        r3 = r3 + 1;
+        r6 = r22.o.size();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x01fa, code lost:
+        if (r3 >= r6) goto L81;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:70:0x01fc, code lost:
+        r7 = r22.o.get(r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:71:0x020c, code lost:
+        if (r7.a() > 0) goto L80;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:73:0x0210, code lost:
+        if (r7.a == null) goto L62;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:75:0x0213, code lost:
+        r3 = r3 + 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:76:0x0216, code lost:
+        r11 = r24.f();
+        r15 = r7.c();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:77:0x0220, code lost:
+        if (r11 <= 0) goto L79;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:79:0x0224, code lost:
+        if (r11 < r15) goto L68;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:80:0x0226, code lost:
+        r8 = r15 - 1;
+        r24.c(r8);
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: segment set end:" + r8 + ", later = " + r7);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:81:0x0247, code lost:
+        android.util.Log.d("SegmentDispatcher", "applySegmentLocked: break 2");
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:82:0x024c, code lost:
+        r6 = r24.f();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:83:0x0254, code lost:
+        if (r6 <= 0) goto L77;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:85:0x0258, code lost:
+        if (r20 > r6) goto L75;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:87:0x0260, code lost:
+        if (r24.e() > r6) goto L75;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:90:0x0278, code lost:
+        throw new com.ss.android.socialbase.downloader.f.j(6, "applySegment: " + r24);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:91:0x0279, code lost:
+        r24.a = r23;
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: OK " + r24);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:92:0x028f, code lost:
+        return;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0107  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void e(m mVar, i iVar) throws j {
         i iVar2;
-        long j2;
-        long f2;
+        long j;
         boolean z;
         com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: start " + iVar);
-        if (iVar.a != mVar) {
-            if (iVar.a == null) {
-                if (mVar.h() == iVar.e()) {
-                    long c2 = iVar.c();
-                    int a = a(c2);
-                    if (a != -1 && (iVar2 = this.o.get(a)) != null) {
-                        if (iVar2 != iVar) {
-                            if (iVar2.c() == iVar.c()) {
-                                long a2 = a(iVar2);
-                                if (a2 > 0) {
-                                    m mVar2 = iVar2.a;
-                                    if (mVar2 != null) {
-                                        if (a2 < PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
-                                            j2 = c2;
-                                            if (mVar.f58608f - mVar2.f58608f > 1000) {
-                                            }
-                                        } else {
-                                            j2 = c2;
-                                        }
-                                        String str = "applySegmentLocked: has same segment, but owner is normal, abort. segmentInList = " + iVar2;
-                                        z = false;
-                                        if (!z) {
-                                            com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: " + iVar + " not exist! but has another same segment, segmentInList = " + iVar2);
-                                            throw new j(2, "segment not exist, but has another same segment");
+        if (iVar.a == mVar) {
+            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: " + mVar + " is already the owner of " + iVar);
+        } else if (iVar.a == null) {
+            if (mVar.h() == iVar.e()) {
+                long c2 = iVar.c();
+                int a = a(c2);
+                if (a != -1 && (iVar2 = this.o.get(a)) != null) {
+                    if (iVar2 != iVar) {
+                        if (iVar2.c() == iVar.c()) {
+                            long a2 = a(iVar2);
+                            if (a2 > 0) {
+                                m mVar2 = iVar2.a;
+                                if (mVar2 != null) {
+                                    if (a2 < PlaybackStateCompat.ACTION_SET_SHUFFLE_MODE_ENABLED) {
+                                        j = c2;
+                                        if (mVar.f43322f - mVar2.f43322f > 1000) {
                                         }
                                     } else {
-                                        j2 = c2;
+                                        j = c2;
                                     }
-                                    if (mVar2 != null) {
-                                        String str2 = "applySegmentLocked: has same segment,and owner too slow, segmentInList = " + iVar2;
-                                        mVar2.a(true);
-                                    } else {
-                                        String str3 = "applySegmentLocked: has same segment and no owner, segmentInList = " + iVar2;
-                                    }
-                                    iVar.c(iVar2.f());
-                                    iVar.b(iVar2.j());
-                                    this.o.set(a, iVar);
-                                    z = true;
+                                    Log.i("SegmentDispatcher", "applySegmentLocked: has same segment, but owner is normal, abort. segmentInList = " + iVar2);
+                                    z = false;
                                     if (!z) {
-                                    }
-                                }
-                            }
-                            j2 = c2;
-                            z = false;
-                            if (!z) {
-                            }
-                        } else {
-                            j2 = c2;
-                        }
-                        long a3 = iVar.a();
-                        int i2 = a - 1;
-                        while (true) {
-                            if (i2 < 0) {
-                                break;
-                            }
-                            i iVar3 = this.o.get(i2);
-                            long f3 = iVar3.f();
-                            if (f3 <= 0 || f3 >= j2) {
-                                if (a3 <= 0 && iVar3.e() > j2) {
-                                    com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment:prev's current has over this start, prev = " + iVar3 + ", segment = " + iVar);
-                                    this.o.remove(iVar);
-                                    throw new j(3, "prev overstep");
-                                } else if (iVar3.a == null) {
-                                    iVar3.c(j2 - 1);
-                                    com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: prev set end, prev = " + iVar3);
-                                    if (iVar3.a() > 0) {
-                                        break;
+                                        com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: " + iVar + " not exist! but has another same segment, segmentInList = " + iVar2);
+                                        throw new j(2, "segment not exist, but has another same segment");
                                     }
                                 } else {
-                                    long j3 = j2 - 1;
-                                    if (iVar3.a.a(j3)) {
-                                        iVar3.c(j3);
-                                        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: adjustSegmentEndOffset succeed, prev = " + iVar3);
-                                    } else {
-                                        com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: adjustSegmentEndOffset filed, prev = " + iVar3);
-                                        throw new j(4, "prev end adjust fail");
-                                    }
+                                    j = c2;
+                                }
+                                if (mVar2 != null) {
+                                    Log.i("SegmentDispatcher", "applySegmentLocked: has same segment,and owner too slow, segmentInList = " + iVar2);
+                                    mVar2.a(true);
+                                } else {
+                                    Log.i("SegmentDispatcher", "applySegmentLocked: has same segment and no owner, segmentInList = " + iVar2);
+                                }
+                                iVar.c(iVar2.f());
+                                iVar.b(iVar2.j());
+                                this.o.set(a, iVar);
+                                z = true;
+                                if (!z) {
                                 }
                             }
-                            i2--;
                         }
-                        int size = this.o.size();
-                        for (int i3 = a + 1; i3 < size; i3++) {
-                            i iVar4 = this.o.get(i3);
-                            if (iVar4.a() > 0 || iVar4.a != null) {
-                                long f4 = iVar.f();
-                                long c3 = iVar4.c();
-                                if (f4 <= 0 || f4 >= c3) {
-                                    long j4 = c3 - 1;
-                                    iVar.c(j4);
-                                    com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: segment set end:" + j4 + ", later = " + iVar4);
-                                }
-                                f2 = iVar.f();
-                                if (f2 <= 0 && (j2 > f2 || iVar.e() > f2)) {
-                                    throw new j(6, "applySegment: " + iVar);
-                                }
-                                iVar.a = mVar;
-                                com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: OK " + iVar);
-                                return;
-                            }
+                        j = c2;
+                        z = false;
+                        if (!z) {
                         }
-                        f2 = iVar.f();
-                        if (f2 <= 0) {
-                        }
-                        iVar.a = mVar;
-                        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: OK " + iVar);
-                        return;
+                    } else {
+                        j = c2;
                     }
+                    long a3 = iVar.a();
+                    int i = a - 1;
+                    while (true) {
+                        if (i < 0) {
+                            break;
+                        }
+                        i iVar3 = this.o.get(i);
+                        long f2 = iVar3.f();
+                        if (f2 <= 0 || f2 >= j) {
+                            if (a3 <= 0 && iVar3.e() > j) {
+                                com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment:prev's current has over this start, prev = " + iVar3 + ", segment = " + iVar);
+                                this.o.remove(iVar);
+                                throw new j(3, "prev overstep");
+                            } else if (iVar3.a == null) {
+                                iVar3.c(j - 1);
+                                com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: prev set end, prev = " + iVar3);
+                                if (iVar3.a() > 0) {
+                                    Log.d("SegmentDispatcher", "applySegmentLocked:q break");
+                                    break;
+                                }
+                            } else {
+                                long j2 = j - 1;
+                                if (iVar3.a.a(j2)) {
+                                    iVar3.c(j2);
+                                    com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: adjustSegmentEndOffset succeed, prev = " + iVar3);
+                                } else {
+                                    com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: adjustSegmentEndOffset filed, prev = " + iVar3);
+                                    throw new j(4, "prev end adjust fail");
+                                }
+                            }
+                        }
+                        i--;
+                    }
+                } else {
                     com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: " + iVar + " not exist! segmentIndex = " + a);
                     throw new j(2, "segment not exist");
                 }
-                throw new j(5, "applySegment");
             } else {
-                com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: " + iVar + " is already has an owner:" + iVar.a);
-                throw new j(1, "segment already has an owner");
+                throw new j(5, "applySegment");
             }
+        } else {
+            com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "applySegment: " + iVar + " is already has an owner:" + iVar.a);
+            throw new j(1, "segment already has an owner");
         }
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "applySegment: " + mVar + " is already the owner of " + iVar);
     }
 
     private void b(String str, List<q> list) {
         int a;
-        Iterator<q> it;
         if (this.B) {
-            while (list.iterator().hasNext()) {
-                String str2 = "addIpListLocked: urlRecord = " + it.next();
+            Iterator<q> it = list.iterator();
+            while (it.hasNext()) {
+                Log.i("SegmentDispatcher", "addIpListLocked: urlRecord = " + it.next());
             }
         }
-        int l = this.f58592b.l();
-        if ((l == 1 || l == 3) && (a = a(str)) >= 0 && a < this.f58599i.size()) {
-            this.f58599i.addAll(a + 1, list);
+        int l = this.f43308b.l();
+        if ((l == 1 || l == 3) && (a = a(str)) >= 0 && a < this.i.size()) {
+            this.i.addAll(a + 1, list);
         } else {
-            this.f58599i.addAll(list);
+            this.i.addAll(list);
         }
     }
 
@@ -621,26 +652,26 @@ public class k implements f, c.a {
         boolean z;
         if (list != null && !list.isEmpty()) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            int i2 = 0;
+            int i = 0;
             for (InetAddress inetAddress : list) {
                 if (inetAddress != null) {
                     String hostAddress = inetAddress.getHostAddress();
                     if (!TextUtils.isEmpty(hostAddress)) {
                         if (this.B) {
-                            String str2 = "onDnsResolved: ip = " + hostAddress;
+                            Log.i("SegmentDispatcher", "onDnsResolved: ip = " + hostAddress);
                         }
                         q qVar = new q(str, hostAddress);
-                        LinkedList linkedList = (LinkedList) linkedHashMap.get(qVar.f58615c);
+                        LinkedList linkedList = (LinkedList) linkedHashMap.get(qVar.f43327c);
                         if (linkedList == null) {
                             linkedList = new LinkedList();
-                            linkedHashMap.put(qVar.f58615c, linkedList);
+                            linkedHashMap.put(qVar.f43327c, linkedList);
                         }
                         linkedList.add(qVar);
-                        i2++;
+                        i++;
                     }
                 }
             }
-            if (i2 > 0) {
+            if (i > 0) {
                 ArrayList arrayList = new ArrayList();
                 do {
                     z = false;
@@ -648,11 +679,11 @@ public class k implements f, c.a {
                         LinkedList linkedList2 = (LinkedList) entry.getValue();
                         if (linkedList2 != null && !linkedList2.isEmpty()) {
                             arrayList.add((q) linkedList2.pollFirst());
-                            i2--;
+                            i--;
                             z = true;
                         }
                     }
-                    if (i2 <= 0) {
+                    if (i <= 0) {
                         break;
                     }
                 } while (z);
@@ -667,7 +698,7 @@ public class k implements f, c.a {
         long c2 = iVar.c();
         if (c2 > 0) {
             i iVar2 = new i(0L, c2 - 1);
-            r0 = "fixSegmentsLocked: first = " + iVar + ", add new first = " + iVar2;
+            Log.w("SegmentDispatcher", "fixSegmentsLocked: first = " + iVar + ", add new first = " + iVar2);
             a(list, iVar2, true);
         }
         Iterator<i> it = list.iterator();
@@ -722,7 +753,7 @@ public class k implements f, c.a {
 
     @Override // com.ss.android.socialbase.downloader.network.c.a
     public void a(String str, List<InetAddress> list) {
-        if (this.f58597g || this.f58596f) {
+        if (this.f43313g || this.f43312f) {
             return;
         }
         List<q> list2 = null;
@@ -736,22 +767,24 @@ public class k implements f, c.a {
                 b(str, list2);
             }
             this.l = false;
-            this.f58592b.a(this.f58599i.size());
+            this.f43308b.a(this.i.size());
+            Log.i("SegmentDispatcher", "onDnsResolved: dispatchReadThread");
             e();
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.f.f
     public void b(m mVar) {
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onReaderExit: threadIndex = " + mVar.f58605c);
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onReaderExit: threadIndex = " + mVar.f43319c);
         synchronized (this) {
             mVar.c(true);
-            this.f58598h.remove(mVar);
+            this.f43314h.remove(mVar);
             m();
-            if (this.f58598h.isEmpty()) {
+            if (this.f43314h.isEmpty()) {
                 k();
             } else if (n()) {
-                for (m mVar2 : this.f58598h) {
+                Log.i("SegmentDispatcher", "onReaderExit: allContentDownloaded");
+                for (m mVar2 : this.f43314h) {
                     mVar2.e();
                 }
                 k();
@@ -775,18 +808,18 @@ public class k implements f, c.a {
     public e d(m mVar, i iVar) throws BaseException {
         e a;
         synchronized (this) {
-            l lVar = new l(this.a, this.f58593c, iVar);
-            this.f58595e.a(lVar);
+            l lVar = new l(this.a, this.f43309c, iVar);
+            this.f43311e.a(lVar);
             a = lVar.a();
         }
         return a;
     }
 
     private int a(String str) {
-        int size = this.f58599i.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            if (TextUtils.equals(this.f58599i.get(i2).a, str)) {
-                return i2;
+        int size = this.i.size();
+        for (int i = 0; i < size; i++) {
+            if (TextUtils.equals(this.i.get(i).a, str)) {
+                return i;
             }
         }
         return -1;
@@ -803,22 +836,9 @@ public class k implements f, c.a {
         }
     }
 
-    private void a(List<i> list, i iVar, boolean z) {
-        long c2 = iVar.c();
-        int size = list.size();
-        int i2 = 0;
-        while (i2 < size && c2 >= list.get(i2).c()) {
-            i2++;
-        }
-        list.add(i2, iVar);
-        if (z) {
-            iVar.a(size);
-        }
-    }
-
     private q d(m mVar) {
         q qVar;
-        Iterator<q> it = this.f58599i.iterator();
+        Iterator<q> it = this.i.iterator();
         q qVar2 = null;
         while (true) {
             if (!it.hasNext()) {
@@ -826,7 +846,7 @@ public class k implements f, c.a {
                 break;
             }
             qVar = it.next();
-            if (qVar != mVar.f58604b && !qVar.d()) {
+            if (qVar != mVar.f43318b && !qVar.d()) {
                 if (qVar2 == null) {
                     qVar2 = qVar;
                 }
@@ -835,15 +855,28 @@ public class k implements f, c.a {
                 }
             }
         }
-        if (this.f58592b.b()) {
+        if (this.f43308b.b()) {
             if (qVar != null) {
                 return qVar;
             }
-            if (this.f58592b.c()) {
+            if (this.f43308b.c()) {
                 return null;
             }
         }
         return qVar2;
+    }
+
+    private void a(List<i> list, i iVar, boolean z) {
+        long c2 = iVar.c();
+        int size = list.size();
+        int i = 0;
+        while (i < size && c2 >= list.get(i).c()) {
+            i++;
+        }
+        list.add(i, iVar);
+        if (z) {
+            iVar.a(size);
+        }
     }
 
     private void b(m mVar, i iVar, q qVar, com.ss.android.socialbase.downloader.model.d dVar) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
@@ -856,29 +889,29 @@ public class k implements f, c.a {
                 if (iVar.e() <= 0) {
                     com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "parseHttpResponse: segment.getCurrentOffsetRead = " + iVar.e());
                     if (!dVar.a()) {
-                        int i2 = dVar.f58792c;
-                        throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "2: response code error : " + dVar.f58792c + " segment=" + iVar);
+                        int i = dVar.f43485c;
+                        throw new com.ss.android.socialbase.downloader.exception.b(1004, i, "2: response code error : " + dVar.f43485c + " segment=" + iVar);
                     }
                 } else {
-                    int i3 = dVar.f58792c;
-                    throw new com.ss.android.socialbase.downloader.exception.b(1004, i3, "1: response code error : " + dVar.f58792c + " segment=" + iVar);
+                    int i2 = dVar.f43485c;
+                    throw new com.ss.android.socialbase.downloader.exception.b(1004, i2, "1: response code error : " + dVar.f43485c + " segment=" + iVar);
                 }
             }
-            if (qVar.f58616d) {
-                if (this.f58600j == null) {
-                    this.f58600j = dVar;
+            if (qVar.f43328d) {
+                if (this.j == null) {
+                    this.j = dVar;
                     synchronized (this.s) {
                         this.s.notify();
                     }
-                    com.ss.android.socialbase.downloader.h.f fVar = this.f58594d;
+                    com.ss.android.socialbase.downloader.h.f fVar = this.f43310d;
                     if (fVar != null) {
-                        fVar.a(qVar.a, dVar.f58791b, iVar.e());
+                        fVar.a(qVar.a, dVar.f43484b, iVar.e());
                     }
-                    long j2 = dVar.j();
-                    if (j2 > 0) {
+                    long j = dVar.j();
+                    if (j > 0) {
                         for (i iVar2 : this.o) {
-                            if (iVar2.f() <= 0 || iVar2.f() > j2 - 1) {
-                                iVar2.c(j2 - 1);
+                            if (iVar2.f() <= 0 || iVar2.f() > j - 1) {
+                                iVar2.c(j - 1);
                             }
                         }
                         return;
@@ -891,9 +924,9 @@ public class k implements f, c.a {
             if (this.k == null) {
                 this.k = dVar;
                 if (this.a.getTotalBytes() <= 0) {
-                    long j3 = dVar.j();
-                    com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "checkSegmentHttpResponse:len=" + j3 + ",url=" + qVar.a);
-                    this.a.setTotalBytes(j3);
+                    long j2 = dVar.j();
+                    com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "checkSegmentHttpResponse:len=" + j2 + ",url=" + qVar.a);
+                    this.a.setTotalBytes(j2);
                 }
                 synchronized (this.s) {
                     this.s.notify();
@@ -914,29 +947,29 @@ public class k implements f, c.a {
         float f2;
         float f3;
         int size = this.o.size();
-        long j2 = -1;
-        int i2 = -1;
-        for (int i3 = 0; i3 < size; i3++) {
-            long a = a(i3, size);
-            if (a > j2) {
-                i2 = i3;
-                j2 = a;
+        long j = -1;
+        int i = -1;
+        for (int i2 = 0; i2 < size; i2++) {
+            long a = a(i2, size);
+            if (a > j) {
+                i = i2;
+                j = a;
             }
         }
-        long g2 = this.f58592b.g();
-        long i4 = this.f58592b.i();
-        if (i2 < 0 || j2 <= g2) {
+        long g2 = this.f43308b.g();
+        long i3 = this.f43308b.i();
+        if (i < 0 || j <= g2) {
             return null;
         }
-        i iVar = this.o.get(i2);
-        int n = this.o.size() < this.f58598h.size() ? 2 : this.f58592b.n();
+        i iVar = this.o.get(i);
+        int n = this.o.size() < this.f43314h.size() ? 2 : this.f43308b.n();
         if (n == 1) {
             m mVar2 = iVar.a;
             if (mVar2 != null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                long j3 = currentTimeMillis - PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
-                long a2 = mVar2.a(j3, currentTimeMillis);
-                long a3 = mVar.a(j3, currentTimeMillis);
+                long j2 = currentTimeMillis - PluginCenter.PLUGIN_RETRY_MIN_TIME_INTERVAL;
+                long a2 = mVar2.a(j2, currentTimeMillis);
+                long a3 = mVar.a(j2, currentTimeMillis);
                 float f4 = (a2 <= 0 || a3 <= 0) ? -1.0f : ((float) a3) / ((float) (a2 + a3));
                 if (f4 == -1.0f) {
                     long b2 = mVar2.b();
@@ -946,22 +979,22 @@ public class k implements f, c.a {
                         f3 = ((float) b3) / ((float) (b2 + b3));
                         if (f3 > 0.0f) {
                             float f5 = f3 * 0.9f;
-                            long j4 = ((float) j2) * f5;
-                            if (j4 < g2) {
-                                j4 = g2;
+                            long j3 = ((float) j) * f5;
+                            if (j3 < g2) {
+                                j3 = g2;
                             }
-                            if (i4 <= 0 || j4 <= i4) {
-                                i4 = j4;
+                            if (i3 <= 0 || j3 <= i3) {
+                                i3 = j3;
                             }
-                            long j5 = g2 / 2;
-                            long j6 = j2 - j5;
-                            if (i4 > j6) {
-                                i4 = j6;
-                            } else if (i4 < j5) {
-                                i4 = j5;
+                            long j4 = g2 / 2;
+                            long j5 = j - j4;
+                            if (i3 > j5) {
+                                i3 = j5;
+                            } else if (i3 < j4) {
+                                i3 = j4;
                             }
-                            i iVar2 = new i(iVar.e() + (j2 - i4), iVar.f());
-                            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "obtainSegment: parent = " + iVar + ", child = " + iVar2 + ", maxRemainBytes = " + j2 + ", childLength = " + i4 + ", ratio = " + f5 + ", threadIndex = " + mVar.f58605c);
+                            i iVar2 = new i(iVar.e() + (j - i3), iVar.f());
+                            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "obtainSegment: parent = " + iVar + ", child = " + iVar2 + ", maxRemainBytes = " + j + ", childLength = " + i3 + ", ratio = " + f5 + ", threadIndex = " + mVar.f43319c);
                             return iVar2;
                         }
                     }
@@ -979,46 +1012,40 @@ public class k implements f, c.a {
             if (curBytes < g2) {
                 curBytes = g2;
             }
-            if (i4 <= 0 || curBytes <= i4) {
-                i4 = curBytes;
+            if (i3 <= 0 || curBytes <= i3) {
+                i3 = curBytes;
             }
-            long j7 = g2 / 2;
-            long j8 = j2 - j7;
-            if (i4 > j8) {
-                i4 = j8;
-            } else if (i4 < j7) {
-                i4 = j7;
+            long j6 = g2 / 2;
+            long j7 = j - j6;
+            if (i3 > j7) {
+                i3 = j7;
+            } else if (i3 < j6) {
+                i3 = j6;
             }
-            i iVar3 = new i(iVar.e() + (j2 - i4), iVar.f());
-            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "obtainSegment: parent = " + iVar + ", child = " + iVar3 + ", maxRemainBytes = " + j2 + ", childLength = " + i4 + ", ratio = " + d2 + ", threadIndex = " + mVar.f58605c);
+            i iVar3 = new i(iVar.e() + (j - i3), iVar.f());
+            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "obtainSegment: parent = " + iVar + ", child = " + iVar3 + ", maxRemainBytes = " + j + ", childLength = " + i3 + ", ratio = " + d2 + ", threadIndex = " + mVar.f43319c);
             return iVar3;
         } else {
             str = "SegmentDispatcher";
         }
-        i iVar4 = new i(iVar.e() + (j2 / 2), iVar.f());
+        i iVar4 = new i(iVar.e() + (j / 2), iVar.f());
         com.ss.android.socialbase.downloader.c.a.c(str, "obtainSegment: parent = " + iVar + ",child = " + iVar4);
         return iVar4;
     }
 
-    private void a(q qVar) {
-        m mVar = new m(this.a, this, this.f58593c, qVar, this.f58598h.size());
-        this.f58598h.add(mVar);
-        mVar.a(com.ss.android.socialbase.downloader.downloader.c.q().submit(mVar));
-    }
-
     private float d(m mVar, q qVar) {
         long b2 = mVar.b();
-        int size = this.f58598h.size();
+        int size = this.f43314h.size();
         if (size <= 1) {
-            size = this.f58592b.a();
+            size = this.f43308b.a();
         }
         float f2 = 1.0f;
         if (b2 <= 0) {
-            float m = this.f58592b.m();
+            float m = this.f43308b.m();
             if (m <= 0.0f || m >= 1.0f) {
                 m = 1.0f / size;
             }
-            if (mVar.f58605c == 0) {
+            if (mVar.f43319c == 0) {
                 return m;
             }
             if (size > 1) {
@@ -1034,16 +1061,22 @@ public class k implements f, c.a {
         return f2 / size;
     }
 
+    private void a(q qVar) {
+        m mVar = new m(this.a, this, this.f43309c, qVar, this.f43314h.size());
+        this.f43314h.add(mVar);
+        mVar.a(com.ss.android.socialbase.downloader.downloader.c.q().submit(mVar));
+    }
+
     @Override // com.ss.android.socialbase.downloader.f.f
     public void a(m mVar) {
         if (this.B) {
-            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onReaderRun, threadIndex = " + mVar.f58605c);
+            com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "onReaderRun, threadIndex = " + mVar.f43319c);
         }
     }
 
     @Override // com.ss.android.socialbase.downloader.f.f
     public i a(m mVar, q qVar) {
-        if (this.f58596f || this.f58597g) {
+        if (this.f43312f || this.f43313g) {
             return null;
         }
         synchronized (this) {
@@ -1068,7 +1101,7 @@ public class k implements f, c.a {
     @Override // com.ss.android.socialbase.downloader.f.f
     public void a(m mVar, i iVar, q qVar, com.ss.android.socialbase.downloader.model.d dVar) throws BaseException, com.ss.android.socialbase.downloader.exception.i {
         synchronized (this) {
-            if (!this.f58596f && !this.f58597g) {
+            if (!this.f43312f && !this.f43313g) {
                 b(mVar, iVar, qVar, dVar);
                 mVar.b(false);
                 if (this.m <= 0) {
@@ -1078,7 +1111,7 @@ public class k implements f, c.a {
                         this.m = dVar.j();
                     }
                     e();
-                } else if (this.f58592b.f()) {
+                } else if (this.f43308b.f()) {
                     e();
                 }
             } else {
@@ -1088,24 +1121,24 @@ public class k implements f, c.a {
     }
 
     @Override // com.ss.android.socialbase.downloader.f.f
-    public void a(m mVar, q qVar, i iVar, BaseException baseException, int i2, int i3) {
+    public void a(m mVar, q qVar, i iVar, BaseException baseException, int i, int i2) {
         com.ss.android.socialbase.downloader.i.f.b(baseException);
         int errorCode = baseException.getErrorCode();
-        if (((errorCode == 1047 || errorCode == 1074 || errorCode == 1055) ? true : true) || i2 >= i3) {
+        if (((errorCode == 1047 || errorCode == 1074 || errorCode == 1055) ? true : true) || i >= i2) {
             c(mVar);
         }
     }
 
     public void b() {
         com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "pause1");
-        this.f58597g = true;
+        this.f43313g = true;
         synchronized (this) {
-            for (m mVar : this.f58598h) {
+            for (m mVar : this.f43314h) {
                 mVar.e();
             }
         }
-        this.f58595e.b();
-        this.f58593c.c();
+        this.f43311e.b();
+        this.f43309c.c();
     }
 
     @Override // com.ss.android.socialbase.downloader.f.f
@@ -1113,7 +1146,7 @@ public class k implements f, c.a {
         synchronized (this) {
             com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "onSegmentFailed: segment = " + iVar + ", e = " + baseException);
             mVar.b(true);
-            if (mVar.f58605c == 0) {
+            if (mVar.f43319c == 0) {
                 this.q = baseException;
             }
             if (l()) {
@@ -1126,35 +1159,35 @@ public class k implements f, c.a {
         }
     }
 
-    private void b(long j2) {
-        this.t.a(this.a.getCurBytes(), j2);
-        for (m mVar : this.f58598h) {
-            mVar.b(j2);
+    private void b(long j) {
+        this.t.a(this.a.getCurBytes(), j);
+        for (m mVar : this.f43314h) {
+            mVar.b(j);
         }
     }
 
     private void a(BaseException baseException) {
         com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", "onError, e = " + baseException);
         this.q = baseException;
-        this.f58593c.c();
+        this.f43309c.c();
         synchronized (this) {
-            for (m mVar : this.f58598h) {
+            for (m mVar : this.f43314h) {
                 mVar.e();
             }
         }
     }
 
     private void a(com.ss.android.socialbase.downloader.model.d dVar) throws BaseException {
-        com.ss.android.socialbase.downloader.model.d dVar2 = this.f58600j;
+        com.ss.android.socialbase.downloader.model.d dVar2 = this.j;
         if (dVar2 == null && (dVar2 = this.k) == null) {
             return;
         }
-        long j2 = dVar.j();
-        long j3 = dVar2.j();
-        if (j2 != j3) {
-            String str = "total len not equals,len=" + j2 + ",sLen=" + j3 + ",code=" + dVar.f58792c + ",sCode=" + dVar2.f58792c + ",range=" + dVar.e() + ",sRange = " + dVar2.e() + ",url = " + dVar.a + ",sUrl=" + dVar2.a;
+        long j = dVar.j();
+        long j2 = dVar2.j();
+        if (j != j2) {
+            String str = "total len not equals,len=" + j + ",sLen=" + j2 + ",code=" + dVar.f43485c + ",sCode=" + dVar2.f43485c + ",range=" + dVar.e() + ",sRange = " + dVar2.e() + ",url = " + dVar.a + ",sUrl=" + dVar2.a;
             com.ss.android.socialbase.downloader.c.a.e("SegmentDispatcher", str);
-            if (j2 > 0 && j3 > 0) {
+            if (j > 0 && j2 > 0) {
                 throw new BaseException(1074, str);
             }
         }
@@ -1171,36 +1204,36 @@ public class k implements f, c.a {
     }
 
     public void a() {
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", QueryResponse.Options.CANCEL);
-        this.f58596f = true;
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "cancel");
+        this.f43312f = true;
         synchronized (this) {
-            for (m mVar : this.f58598h) {
+            for (m mVar : this.f43314h) {
                 mVar.e();
             }
         }
-        this.f58595e.a();
-        this.f58593c.c();
+        this.f43311e.a();
+        this.f43309c.c();
     }
 
-    private int a(long j2) {
+    private int a(long j) {
         int size = this.o.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            i iVar = this.o.get(i2);
-            if (iVar.c() == j2) {
-                return i2;
+        for (int i = 0; i < size; i++) {
+            i iVar = this.o.get(i);
+            if (iVar.c() == j) {
+                return i;
             }
-            if (iVar.c() > j2) {
+            if (iVar.c() > j) {
                 return -1;
             }
         }
         return -1;
     }
 
-    private long a(int i2, int i3) {
-        i iVar = this.o.get(i2);
+    private long a(int i, int i2) {
+        i iVar = this.o.get(i);
         long a = a(iVar);
-        int i4 = i2 + 1;
-        i iVar2 = i4 < i3 ? this.o.get(i4) : null;
+        int i3 = i + 1;
+        i iVar2 = i3 < i2 ? this.o.get(i3) : null;
         if (iVar2 == null) {
             return a;
         }
@@ -1211,18 +1244,18 @@ public class k implements f, c.a {
     private long a(i iVar) {
         long b2 = iVar.b();
         if (b2 == -1) {
-            long j2 = this.m;
-            return j2 > 0 ? j2 - iVar.e() : b2;
+            long j = this.m;
+            return j > 0 ? j - iVar.e() : b2;
         }
         return b2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public m a(boolean z, long j2, long j3) {
+    public m a(boolean z, long j, long j2) {
         m mVar = null;
-        for (m mVar2 : this.f58598h) {
-            if (mVar2.f58605c != 0 || z) {
-                if (mVar2.f58606d > 0 && mVar2.f58607e <= 0 && j2 - mVar2.f58606d > j3 && (mVar == null || mVar2.f58606d < mVar.f58606d)) {
+        for (m mVar2 : this.f43314h) {
+            if (mVar2.f43319c != 0 || z) {
+                if (mVar2.f43320d > 0 && mVar2.f43321e <= 0 && j - mVar2.f43320d > j2 && (mVar == null || mVar2.f43320d < mVar.f43320d)) {
                     mVar = mVar2;
                 }
             }
@@ -1230,14 +1263,14 @@ public class k implements f, c.a {
         return mVar;
     }
 
-    private boolean a(m mVar, long j2, long j3, long j4, double d2) {
-        if (mVar.f58608f > 0) {
-            long b2 = this.t.b(j2, j3);
-            int size = this.f58598h.size();
-            long j5 = size > 0 ? b2 / size : b2;
-            long a = mVar.a(j2, j3);
-            if (a < j4 || a < j5 * d2) {
-                String str = "isDownloadSpeedPoor: totalSpeed = " + b2 + ", threadAvgSpeed = " + j5 + ", poorSpeed = " + j4 + ", speed = " + a + ",threadIndex = " + mVar.f58605c;
+    private boolean a(m mVar, long j, long j2, long j3, double d2) {
+        if (mVar.f43322f > 0) {
+            long b2 = this.t.b(j, j2);
+            int size = this.f43314h.size();
+            long j4 = size > 0 ? b2 / size : b2;
+            long a = mVar.a(j, j2);
+            if (a < j3 || a < j4 * d2) {
+                Log.i("SegmentDispatcher", "isDownloadSpeedPoor: totalSpeed = " + b2 + ", threadAvgSpeed = " + j4 + ", poorSpeed = " + j3 + ", speed = " + a + ",threadIndex = " + mVar.f43319c);
                 return true;
             }
             return false;
@@ -1245,44 +1278,48 @@ public class k implements f, c.a {
         return false;
     }
 
-    private boolean a(long j2, long j3) {
-        long j4 = j2 - j3;
-        long b2 = this.t.b(j4, j2);
-        int size = this.f58598h.size();
+    private boolean a(long j, long j2) {
+        long j3 = j - j2;
+        long b2 = this.t.b(j3, j);
+        int size = this.f43314h.size();
         if (size > 0) {
             b2 /= size;
         }
-        m a = a(j4, j2, Math.max(10.0f, ((float) b2) * this.z), size / 2);
+        m a = a(j3, j, Math.max(10.0f, ((float) b2) * this.z), size / 2);
         if (a != null) {
             c(a);
-            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "handlePoorReadThread: reconnect for poor speed, threadIndex = " + a.f58605c);
+            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "handlePoorReadThread: reconnect for poor speed, threadIndex = " + a.f43319c);
             a.f();
             return true;
         }
-        m a2 = a(true, j2, j3);
+        m a2 = a(true, j, j2);
         if (a2 != null) {
             c(a2);
-            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "handlePoorReadThread: reconnect for connect timeout, threadIndex = " + a2.f58605c);
+            com.ss.android.socialbase.downloader.c.a.d("SegmentDispatcher", "handlePoorReadThread: reconnect for connect timeout, threadIndex = " + a2.f43319c);
             a2.f();
             return true;
         }
         return false;
     }
 
-    private m a(long j2, long j3, long j4, int i2) {
+    private m a(long j, long j2, long j3, int i) {
+        long j4;
         long j5 = Long.MAX_VALUE;
-        int i3 = 0;
+        int i2 = 0;
         m mVar = null;
-        for (m mVar2 : this.f58598h) {
-            if (mVar2.f58608f > 0) {
-                i3++;
+        for (m mVar2 : this.f43314h) {
+            if (mVar2.f43322f > 0) {
+                i2++;
                 long j6 = j5;
-                if (mVar2.f58608f < j2) {
-                    long a = mVar2.a(j2, j3);
+                if (mVar2.f43322f < j) {
+                    long a = mVar2.a(j, j2);
                     if (this.B) {
-                        String str = "findPoorReadThread: speed = " + a + ", threadIndex = " + mVar2.f58605c;
+                        Log.i("SegmentDispatcher", "findPoorReadThread: speed = " + a + ", threadIndex = " + mVar2.f43319c);
+                        j4 = 0;
+                    } else {
+                        j4 = 0;
                     }
-                    if (a >= 0 && a < j6) {
+                    if (a >= j4 && a < j6) {
                         j5 = a;
                         mVar = mVar2;
                     }
@@ -1291,10 +1328,10 @@ public class k implements f, c.a {
             }
         }
         long j7 = j5;
-        if (mVar == null || i3 < i2 || j7 >= j4) {
+        if (mVar == null || i2 < i || j7 >= j3) {
             return null;
         }
-        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "findPoorReadThread: ----------- minSpeed = " + j7 + ", threadIndex = " + mVar.f58605c);
+        com.ss.android.socialbase.downloader.c.a.c("SegmentDispatcher", "findPoorReadThread: ----------- minSpeed = " + j7 + ", threadIndex = " + mVar.f43319c);
         return mVar;
     }
 }

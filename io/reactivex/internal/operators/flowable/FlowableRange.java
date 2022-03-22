@@ -29,23 +29,23 @@ public final class FlowableRange extends Flowable<Integer> {
         public final int end;
         public int index;
 
-        public BaseRangeSubscription(int i2, int i3) {
+        public BaseRangeSubscription(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.index = i2;
-            this.end = i3;
+            this.index = i;
+            this.end = i2;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -74,25 +74,25 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) && SubscriptionHelper.validate(j2) && BackpressureHelper.add(this, j2) == 0) {
-                if (j2 == Long.MAX_VALUE) {
+            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.add(this, j) == 0) {
+                if (j == Long.MAX_VALUE) {
                     fastPath();
                 } else {
-                    slowPath(j2);
+                    slowPath(j);
                 }
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public final int requestFusion(int i2) {
+        public final int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? i2 & 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i & 1 : invokeI.intValue;
         }
 
-        public abstract void slowPath(long j2);
+        public abstract void slowPath(long j);
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -101,12 +101,12 @@ public final class FlowableRange extends Flowable<Integer> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                int i2 = this.index;
-                if (i2 == this.end) {
+                int i = this.index;
+                if (i == this.end) {
                     return null;
                 }
-                this.index = i2 + 1;
-                return Integer.valueOf(i2);
+                this.index = i + 1;
+                return Integer.valueOf(i);
             }
             return (Integer) invokeV.objValue;
         }
@@ -120,17 +120,17 @@ public final class FlowableRange extends Flowable<Integer> {
         public final ConditionalSubscriber<? super Integer> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RangeConditionalSubscription(ConditionalSubscriber<? super Integer> conditionalSubscriber, int i2, int i3) {
-            super(i2, i3);
+        public RangeConditionalSubscription(ConditionalSubscriber<? super Integer> conditionalSubscriber, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {conditionalSubscriber, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {conditionalSubscriber, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -145,13 +145,13 @@ public final class FlowableRange extends Flowable<Integer> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.end;
+                int i = this.end;
                 ConditionalSubscriber<? super Integer> conditionalSubscriber = this.actual;
-                for (int i3 = this.index; i3 != i2; i3++) {
+                for (int i2 = this.index; i2 != i; i2++) {
                     if (this.cancelled) {
                         return;
                     }
-                    conditionalSubscriber.tryOnNext(Integer.valueOf(i3));
+                    conditionalSubscriber.tryOnNext(Integer.valueOf(i2));
                 }
                 if (this.cancelled) {
                     return;
@@ -161,38 +161,38 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableRange.BaseRangeSubscription
-        public void slowPath(long j2) {
+        public void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                int i2 = this.end;
-                int i3 = this.index;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                int i = this.end;
+                int i2 = this.index;
                 ConditionalSubscriber<? super Integer> conditionalSubscriber = this.actual;
                 do {
-                    long j3 = 0;
+                    long j2 = 0;
                     while (true) {
-                        if (j3 == j2 || i3 == i2) {
-                            if (i3 == i2) {
+                        if (j2 == j || i2 == i) {
+                            if (i2 == i) {
                                 if (this.cancelled) {
                                     return;
                                 }
                                 conditionalSubscriber.onComplete();
                                 return;
                             }
-                            j2 = get();
-                            if (j3 == j2) {
-                                this.index = i3;
-                                j2 = addAndGet(-j3);
+                            j = get();
+                            if (j2 == j) {
+                                this.index = i2;
+                                j = addAndGet(-j2);
                             }
                         } else if (this.cancelled) {
                             return;
                         } else {
-                            if (conditionalSubscriber.tryOnNext(Integer.valueOf(i3))) {
-                                j3++;
+                            if (conditionalSubscriber.tryOnNext(Integer.valueOf(i2))) {
+                                j2++;
                             }
-                            i3++;
+                            i2++;
                         }
                     }
-                } while (j2 != 0);
+                } while (j != 0);
             }
         }
     }
@@ -205,17 +205,17 @@ public final class FlowableRange extends Flowable<Integer> {
         public final Subscriber<? super Integer> actual;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public RangeSubscription(Subscriber<? super Integer> subscriber, int i2, int i3) {
-            super(i2, i3);
+        public RangeSubscription(Subscriber<? super Integer> subscriber, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -230,13 +230,13 @@ public final class FlowableRange extends Flowable<Integer> {
         public void fastPath() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.end;
+                int i = this.end;
                 Subscriber<? super Integer> subscriber = this.actual;
-                for (int i3 = this.index; i3 != i2; i3++) {
+                for (int i2 = this.index; i2 != i; i2++) {
                     if (this.cancelled) {
                         return;
                     }
-                    subscriber.onNext(Integer.valueOf(i3));
+                    subscriber.onNext(Integer.valueOf(i2));
                 }
                 if (this.cancelled) {
                     return;
@@ -246,58 +246,58 @@ public final class FlowableRange extends Flowable<Integer> {
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableRange.BaseRangeSubscription
-        public void slowPath(long j2) {
+        public void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                int i2 = this.end;
-                int i3 = this.index;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                int i = this.end;
+                int i2 = this.index;
                 Subscriber<? super Integer> subscriber = this.actual;
                 do {
-                    long j3 = 0;
+                    long j2 = 0;
                     while (true) {
-                        if (j3 == j2 || i3 == i2) {
-                            if (i3 == i2) {
+                        if (j2 == j || i2 == i) {
+                            if (i2 == i) {
                                 if (this.cancelled) {
                                     return;
                                 }
                                 subscriber.onComplete();
                                 return;
                             }
-                            j2 = get();
-                            if (j3 == j2) {
-                                this.index = i3;
-                                j2 = addAndGet(-j3);
+                            j = get();
+                            if (j2 == j) {
+                                this.index = i2;
+                                j = addAndGet(-j2);
                             }
                         } else if (this.cancelled) {
                             return;
                         } else {
-                            subscriber.onNext(Integer.valueOf(i3));
-                            j3++;
-                            i3++;
+                            subscriber.onNext(Integer.valueOf(i2));
+                            j2++;
+                            i2++;
                         }
                     }
-                } while (j2 != 0);
+                } while (j != 0);
             }
         }
     }
 
-    public FlowableRange(int i2, int i3) {
+    public FlowableRange(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.start = i2;
-        this.end = i2 + i3;
+        this.start = i;
+        this.end = i + i2;
     }
 
     @Override // io.reactivex.Flowable

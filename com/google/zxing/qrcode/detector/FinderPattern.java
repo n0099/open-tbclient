@@ -23,9 +23,9 @@ public final class FinderPattern extends ResultPoint {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Float) objArr2[0]).floatValue(), ((Float) objArr2[1]).floatValue(), ((Float) objArr2[2]).floatValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -52,11 +52,11 @@ public final class FinderPattern extends ResultPoint {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
-            int i2 = this.count;
-            int i3 = i2 + 1;
-            float x = (i2 * getX()) + f3;
-            float f5 = i3;
-            return new FinderPattern(x / f5, ((this.count * getY()) + f2) / f5, ((this.count * this.estimatedModuleSize) + f4) / f5, i3);
+            int i = this.count;
+            int i2 = i + 1;
+            float x = (i * getX()) + f3;
+            float f5 = i2;
+            return new FinderPattern(x / f5, ((this.count * getY()) + f2) / f5, ((this.count * this.estimatedModuleSize) + f4) / f5, i2);
         }
         return (FinderPattern) invokeCommon.objValue;
     }
@@ -74,17 +74,17 @@ public final class FinderPattern extends ResultPoint {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FinderPattern(float f2, float f3, float f4, int i2) {
+    public FinderPattern(float f2, float f3, float f4, int i) {
         super(f2, f3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i2)};
+            Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Float) objArr2[0]).floatValue(), ((Float) objArr2[1]).floatValue());
                 newInitContext.thisArg = this;
@@ -93,6 +93,6 @@ public final class FinderPattern extends ResultPoint {
             }
         }
         this.estimatedModuleSize = f4;
-        this.count = i2;
+        this.count = i;
     }
 }

@@ -75,9 +75,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -311,12 +311,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048615, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048615, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -350,12 +350,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j2) {
+            public Builder setTimestamp(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048618, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.timestamp_ = j2;
+                    this.timestamp_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -439,26 +439,26 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Ack ack = new Ack(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     ack.type_ = this.type_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     ack.value_ = this.value_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     ack.timestamp_ = this.timestamp_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     ack.ext_ = this.ext_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     ack.aliasId_ = this.aliasId_;
-                    ack.bitField0_ = i3;
+                    ack.bitField0_ = i2;
                     return ack;
                 }
                 return (Ack) invokeV.objValue;
@@ -472,19 +472,19 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.type_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.value_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.timestamp_ = 0L;
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.ext_ = "";
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i5 & (-17);
+                    this.bitField0_ = i4 & (-17);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -602,9 +602,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -717,9 +717,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTypeBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -952,9 +952,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -990,9 +990,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -1027,9 +1027,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1155,9 +1155,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -1690,42 +1690,42 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Action action = new Action(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     action.actionType_ = this.actionType_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     action.ui_ = this.ui_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     action.crash_ = this.crash_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     action.db_ = this.db_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     action.connection_ = this.connection_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     action.request_ = this.request_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     action.ack_ = this.ack_;
-                    if ((i2 & 128) == 128) {
-                        i3 |= 128;
+                    if ((i & 128) == 128) {
+                        i2 |= 128;
                     }
                     action.msg_ = this.msg_;
-                    if ((i2 & 256) == 256) {
-                        i3 |= 256;
+                    if ((i & 256) == 256) {
+                        i2 |= 256;
                     }
                     action.newConnection_ = this.newConnection_;
-                    action.bitField0_ = i3;
+                    action.bitField0_ = i2;
                     return action;
                 }
                 return (Action) invokeV.objValue;
@@ -1970,9 +1970,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -2103,9 +2103,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeEnumSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.actionType_.getNumber()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -2320,9 +2320,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -2358,9 +2358,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -2396,9 +2396,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -2607,9 +2607,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -2619,24 +2619,24 @@ public final class IMPushPb {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.protobuf.Internal.EnumLiteMap
-                public ActionType findValueByNumber(int i2) {
+                public ActionType findValueByNumber(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? ActionType.valueOf(i2) : (ActionType) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? ActionType.valueOf(i) : (ActionType) invokeI.objValue;
                 }
             };
         }
 
-        public ActionType(String str, int i2, int i3, int i4) {
+        public ActionType(String str, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -2645,7 +2645,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            this.value = i4;
+            this.value = i3;
         }
 
         public static Internal.EnumLiteMap<ActionType> internalGetValueMap() {
@@ -2673,18 +2673,18 @@ public final class IMPushPb {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
         }
 
-        public static ActionType valueOf(int i2) {
+        public static ActionType valueOf(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 101) {
-                    if (i2 != 201) {
-                        if (i2 != 301) {
-                            if (i2 != 401) {
-                                if (i2 != 501) {
-                                    if (i2 != 601) {
-                                        if (i2 != 701) {
-                                            if (i2 != 801) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 301) {
+                            if (i != 401) {
+                                if (i != 501) {
+                                    if (i != 601) {
+                                        if (i != 701) {
+                                            if (i != 801) {
                                                 return null;
                                             }
                                             return NEWCONNECTION;
@@ -2738,9 +2738,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -3030,18 +3030,18 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     AppInfo appInfo = new AppInfo(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     appInfo.appName_ = this.appName_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     appInfo.appVersion_ = this.appVersion_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     appInfo.appChannel_ = this.appChannel_;
-                    appInfo.bitField0_ = i3;
+                    appInfo.bitField0_ = i2;
                     return appInfo;
                 }
                 return (AppInfo) invokeV.objValue;
@@ -3055,13 +3055,13 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.appName_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.appVersion_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.appChannel_ = "";
-                    this.bitField0_ = i3 & (-5);
+                    this.bitField0_ = i2 & (-5);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -3173,9 +3173,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -3349,9 +3349,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getAppNameBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -3481,9 +3481,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -3519,9 +3519,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -3556,9 +3556,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -3667,9 +3667,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -4131,23 +4131,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j2) {
+            public Builder setTimestamp(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.timestamp_ = j2;
+                    this.timestamp_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setUserTimestamp(long j2) {
+            public Builder setUserTimestamp(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.userTimestamp_ = j2;
+                    this.userTimestamp_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -4175,38 +4175,38 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Common common2 = new Common(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     common2.productName_ = this.productName_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     common2.moduleName_ = this.moduleName_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     common2.deviceId_ = this.deviceId_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     common2.timestamp_ = this.timestamp_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     common2.userTimestamp_ = this.userTimestamp_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     common2.terminalInfo_ = this.terminalInfo_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     common2.appInfo_ = this.appInfo_;
-                    if ((i2 & 128) == 128) {
-                        i3 |= 128;
+                    if ((i & 128) == 128) {
+                        i2 |= 128;
                     }
                     common2.netInfo_ = this.netInfo_;
-                    common2.bitField0_ = i3;
+                    common2.bitField0_ = i2;
                     return common2;
                 }
                 return (Common) invokeV.objValue;
@@ -4220,18 +4220,18 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.productName_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.moduleName_ = "";
-                    this.bitField0_ = i2 & (-3);
+                    this.bitField0_ = i & (-3);
                     this.deviceId_ = DeviceID.getDefaultInstance();
-                    int i3 = this.bitField0_ & (-5);
-                    this.bitField0_ = i3;
+                    int i2 = this.bitField0_ & (-5);
+                    this.bitField0_ = i2;
                     this.timestamp_ = 0L;
-                    int i4 = i3 & (-9);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-9);
+                    this.bitField0_ = i3;
                     this.userTimestamp_ = 0L;
-                    this.bitField0_ = i4 & (-17);
+                    this.bitField0_ = i3 & (-17);
                     this.terminalInfo_ = TerminalInfo.getDefaultInstance();
                     this.bitField0_ &= -33;
                     this.appInfo_ = AppInfo.getDefaultInstance();
@@ -4407,9 +4407,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -4574,9 +4574,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProductNameBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -4799,9 +4799,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -4837,9 +4837,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -4875,9 +4875,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -5042,9 +5042,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -5302,12 +5302,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -5369,45 +5369,45 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRetryCount(long j2) {
+            public Builder setRetryCount(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.retryCount_ = j2;
+                    this.retryCount_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setRetryTime(long j2) {
+            public Builder setRetryTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048626, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.retryTime_ = j2;
+                    this.retryTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStartTime(long j2) {
+            public Builder setStartTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048627, this, j)) == null) {
                     this.bitField0_ |= 1;
-                    this.startTime_ = j2;
+                    this.startTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStopTime(long j2) {
+            public Builder setStopTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
                     this.bitField0_ |= 2;
-                    this.stopTime_ = j2;
+                    this.stopTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -5435,34 +5435,34 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Connection connection = new Connection(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     connection.startTime_ = this.startTime_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     connection.stopTime_ = this.stopTime_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     connection.reason_ = this.reason_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     connection.retryTime_ = this.retryTime_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     connection.retryCount_ = this.retryCount_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     connection.ext_ = this.ext_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     connection.aliasId_ = this.aliasId_;
-                    connection.bitField0_ = i3;
+                    connection.bitField0_ = i2;
                     return connection;
                 }
                 return (Connection) invokeV.objValue;
@@ -5476,25 +5476,25 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.startTime_ = 0L;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.stopTime_ = 0L;
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.reason_ = "";
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.retryTime_ = 0L;
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.retryCount_ = 0L;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.ext_ = "";
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i7 & (-65);
+                    this.bitField0_ = i6 & (-65);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -5617,9 +5617,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -5783,9 +5783,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -5981,9 +5981,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -6019,9 +6019,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -6056,9 +6056,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -6181,9 +6181,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -6366,12 +6366,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048611, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048611, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -6433,12 +6433,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setTimestamp(long j2) {
+            public Builder setTimestamp(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048616, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048616, this, j)) == null) {
                     this.bitField0_ |= 2;
-                    this.timestamp_ = j2;
+                    this.timestamp_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -6466,22 +6466,22 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Crash crash = new Crash(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     crash.exception_ = this.exception_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     crash.timestamp_ = this.timestamp_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     crash.ext_ = this.ext_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     crash.aliasId_ = this.aliasId_;
-                    crash.bitField0_ = i3;
+                    crash.bitField0_ = i2;
                     return crash;
                 }
                 return (Crash) invokeV.objValue;
@@ -6495,16 +6495,16 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.exception_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.timestamp_ = 0L;
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.ext_ = "";
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i4 & (-9);
+                    this.bitField0_ = i3 & (-9);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -6618,9 +6618,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -6767,9 +6767,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getExceptionBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -6919,9 +6919,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -6957,9 +6957,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -6994,9 +6994,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -7113,9 +7113,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -7529,12 +7529,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048631, this, j)) == null) {
                     this.bitField0_ |= 256;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7568,23 +7568,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setDuration(long j2) {
+            public Builder setDuration(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048634, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048634, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.duration_ = j2;
+                    this.duration_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j2) {
+            public Builder setEndTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048635, this, j)) == null) {
                     this.bitField0_ |= 32;
-                    this.endTime_ = j2;
+                    this.endTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7646,12 +7646,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartTime(long j2) {
+            public Builder setStartTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048640, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.startTime_ = j2;
+                    this.startTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -7707,42 +7707,42 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Db db = new Db(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     db.table_ = this.table_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     db.className_ = this.className_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     db.method_ = this.method_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     db.action_ = this.action_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     db.startTime_ = this.startTime_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     db.endTime_ = this.endTime_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     db.duration_ = this.duration_;
-                    if ((i2 & 128) == 128) {
-                        i3 |= 128;
+                    if ((i & 128) == 128) {
+                        i2 |= 128;
                     }
                     db.ext_ = this.ext_;
-                    if ((i2 & 256) == 256) {
-                        i3 |= 256;
+                    if ((i & 256) == 256) {
+                        i2 |= 256;
                     }
                     db.aliasId_ = this.aliasId_;
-                    db.bitField0_ = i3;
+                    db.bitField0_ = i2;
                     return db;
                 }
                 return (Db) invokeV.objValue;
@@ -7756,31 +7756,31 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.table_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.className_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.method_ = "";
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.action_ = "";
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.startTime_ = 0L;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.endTime_ = 0L;
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.duration_ = 0L;
-                    int i8 = i7 & (-65);
-                    this.bitField0_ = i8;
+                    int i7 = i6 & (-65);
+                    this.bitField0_ = i7;
                     this.ext_ = "";
-                    int i9 = i8 & (-129);
-                    this.bitField0_ = i9;
+                    int i8 = i7 & (-129);
+                    this.bitField0_ = i8;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i9 & (-257);
+                    this.bitField0_ = i8 & (-257);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -7912,9 +7912,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -8150,9 +8150,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTableBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -8402,9 +8402,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -8440,9 +8440,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -8477,9 +8477,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -8615,9 +8615,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -8746,9 +8746,9 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     DeviceID deviceID = new DeviceID(this, (AnonymousClass1) null);
-                    int i2 = (this.bitField0_ & 1) != 1 ? 0 : 1;
+                    int i = (this.bitField0_ & 1) != 1 ? 0 : 1;
                     deviceID.cuid_ = this.cuid_;
-                    deviceID.bitField0_ = i2;
+                    deviceID.bitField0_ = i;
                     return deviceID;
                 }
                 return (DeviceID) invokeV.objValue;
@@ -8863,9 +8863,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -8967,9 +8967,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(4, getCuidBytes()) : 0;
                 this.memoizedSerializedSize = computeBytesSize;
@@ -9077,9 +9077,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -9115,9 +9115,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -9152,9 +9152,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -9235,9 +9235,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -9606,22 +9606,22 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     LcpNetInfo lcpNetInfo = new LcpNetInfo(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     lcpNetInfo.protocol_ = this.protocol_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     lcpNetInfo.port_ = this.port_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     lcpNetInfo.ip_ = this.ip_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     lcpNetInfo.domain_ = this.domain_;
-                    lcpNetInfo.bitField0_ = i3;
+                    lcpNetInfo.bitField0_ = i2;
                     return lcpNetInfo;
                 }
                 return (LcpNetInfo) invokeV.objValue;
@@ -9635,16 +9635,16 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.protocol_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.port_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.ip_ = "";
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.domain_ = "";
-                    this.bitField0_ = i4 & (-9);
+                    this.bitField0_ = i3 & (-9);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -9760,9 +9760,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -9972,9 +9972,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProtocolBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -10117,9 +10117,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -10155,9 +10155,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -10192,9 +10192,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -10297,9 +10297,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -10458,12 +10458,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setLogModuleId(int i2) {
+            public Builder setLogModuleId(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
                     this.bitField0_ |= 1;
-                    this.logModuleId_ = i2;
+                    this.logModuleId_ = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
@@ -10547,18 +10547,18 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     MetaData metaData = new MetaData(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     metaData.logModuleId_ = this.logModuleId_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     metaData.logName_ = this.logName_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     metaData.productName_ = this.productName_;
-                    metaData.bitField0_ = i3;
+                    metaData.bitField0_ = i2;
                     return metaData;
                 }
                 return (MetaData) invokeV.objValue;
@@ -10572,13 +10572,13 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.logModuleId_ = 7399;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.logName_ = "push_im_client";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.productName_ = "phonebaidu";
-                    this.bitField0_ = i3 & (-5);
+                    this.bitField0_ = i2 & (-5);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -10689,9 +10689,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -10837,9 +10837,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt32Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.logModuleId_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -10969,9 +10969,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -11007,9 +11007,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -11044,9 +11044,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -11150,9 +11150,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -11410,34 +11410,34 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048620, this, j)) == null) {
                     this.bitField0_ |= 32;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDuration(long j2) {
+            public Builder setDuration(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.duration_ = j2;
+                    this.duration_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndMsgid(long j2) {
+            public Builder setEndMsgid(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.endMsgid_ = j2;
+                    this.endMsgid_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -11471,12 +11471,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setMsgCount(long j2) {
+            public Builder setMsgCount(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
                     this.bitField0_ |= 1;
-                    this.msgCount_ = j2;
+                    this.msgCount_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -11510,12 +11510,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartMsgid(long j2) {
+            public Builder setStartMsgid(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048628, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.startMsgid_ = j2;
+                    this.startMsgid_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -11543,34 +11543,34 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Msg msg = new Msg(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     msg.msgCount_ = this.msgCount_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     msg.roomId_ = this.roomId_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     msg.duration_ = this.duration_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     msg.endMsgid_ = this.endMsgid_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     msg.ext_ = this.ext_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     msg.aliasId_ = this.aliasId_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     msg.startMsgid_ = this.startMsgid_;
-                    msg.bitField0_ = i3;
+                    msg.bitField0_ = i2;
                     return msg;
                 }
                 return (Msg) invokeV.objValue;
@@ -11584,25 +11584,25 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.msgCount_ = 0L;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.roomId_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.duration_ = 0L;
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.endMsgid_ = 0L;
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.ext_ = "";
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.aliasId_ = 0L;
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.startMsgid_ = 0L;
-                    this.bitField0_ = i7 & (-65);
+                    this.bitField0_ = i6 & (-65);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -11725,9 +11725,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -11898,9 +11898,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgCount_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -12089,9 +12089,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -12127,9 +12127,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -12164,9 +12164,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -12283,9 +12283,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -12496,14 +12496,14 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     NetInfo netInfo = new NetInfo(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     netInfo.netType_ = this.netType_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     netInfo.netApn_ = this.netApn_;
-                    netInfo.bitField0_ = i3;
+                    netInfo.bitField0_ = i2;
                     return netInfo;
                 }
                 return (NetInfo) invokeV.objValue;
@@ -12517,10 +12517,10 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.netType_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.netApn_ = "";
-                    this.bitField0_ = i2 & (-3);
+                    this.bitField0_ = i & (-3);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -12628,9 +12628,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -12768,9 +12768,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNetTypeBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -12887,9 +12887,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -12925,9 +12925,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -12962,9 +12962,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -13093,9 +13093,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -13645,12 +13645,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048652, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048652, this, j)) == null) {
                     this.bitField0_ |= 32768;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13712,45 +13712,45 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setConnectState(long j2) {
+            public Builder setConnectState(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048657, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.connectState_ = j2;
+                    this.connectState_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDnsBegin(long j2) {
+            public Builder setDnsBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048658, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048658, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.dnsBegin_ = j2;
+                    this.dnsBegin_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setDnsEnd(long j2) {
+            public Builder setDnsEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048659, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048659, this, j)) == null) {
                     this.bitField0_ |= 128;
-                    this.dnsEnd_ = j2;
+                    this.dnsEnd_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j2) {
+            public Builder setEndTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048660, this, j)) == null) {
                     this.bitField0_ |= 2;
-                    this.endTime_ = j2;
+                    this.endTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13784,23 +13784,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setLcpLoginBegin(long j2) {
+            public Builder setLcpLoginBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048663, this, j)) == null) {
                     this.bitField0_ |= 1024;
-                    this.lcpLoginBegin_ = j2;
+                    this.lcpLoginBegin_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setLcpLoginEnd(long j2) {
+            public Builder setLcpLoginEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048664, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048664, this, j)) == null) {
                     this.bitField0_ |= 2048;
-                    this.lcpLoginEnd_ = j2;
+                    this.lcpLoginEnd_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13820,67 +13820,67 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setRetry(long j2) {
+            public Builder setRetry(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048667, this, j)) == null) {
                     this.bitField0_ |= 65536;
-                    this.retry_ = j2;
+                    this.retry_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setSocketBegin(long j2) {
+            public Builder setSocketBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048668, this, j)) == null) {
                     this.bitField0_ |= 256;
-                    this.socketBegin_ = j2;
+                    this.socketBegin_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setSocketEnd(long j2) {
+            public Builder setSocketEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048669, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048669, this, j)) == null) {
                     this.bitField0_ |= 512;
-                    this.socketEnd_ = j2;
+                    this.socketEnd_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setStartTime(long j2) {
+            public Builder setStartTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048670, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048670, this, j)) == null) {
                     this.bitField0_ |= 1;
-                    this.startTime_ = j2;
+                    this.startTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTokenBegin(long j2) {
+            public Builder setTokenBegin(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048671, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.tokenBegin_ = j2;
+                    this.tokenBegin_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTokenEnd(long j2) {
+            public Builder setTokenEnd(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048672, this, j)) == null) {
                     this.bitField0_ |= 32;
-                    this.tokenEnd_ = j2;
+                    this.tokenEnd_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -13908,74 +13908,74 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     NewConnection newConnection = new NewConnection(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     newConnection.startTime_ = this.startTime_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     newConnection.endTime_ = this.endTime_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     newConnection.connectState_ = this.connectState_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     newConnection.connectErrorCode_ = this.connectErrorCode_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     newConnection.tokenBegin_ = this.tokenBegin_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     newConnection.tokenEnd_ = this.tokenEnd_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     newConnection.dnsBegin_ = this.dnsBegin_;
-                    if ((i2 & 128) == 128) {
-                        i3 |= 128;
+                    if ((i & 128) == 128) {
+                        i2 |= 128;
                     }
                     newConnection.dnsEnd_ = this.dnsEnd_;
-                    if ((i2 & 256) == 256) {
-                        i3 |= 256;
+                    if ((i & 256) == 256) {
+                        i2 |= 256;
                     }
                     newConnection.socketBegin_ = this.socketBegin_;
-                    if ((i2 & 512) == 512) {
-                        i3 |= 512;
+                    if ((i & 512) == 512) {
+                        i2 |= 512;
                     }
                     newConnection.socketEnd_ = this.socketEnd_;
-                    if ((i2 & 1024) == 1024) {
-                        i3 |= 1024;
+                    if ((i & 1024) == 1024) {
+                        i2 |= 1024;
                     }
                     newConnection.lcpLoginBegin_ = this.lcpLoginBegin_;
-                    if ((i2 & 2048) == 2048) {
-                        i3 |= 2048;
+                    if ((i & 2048) == 2048) {
+                        i2 |= 2048;
                     }
                     newConnection.lcpLoginEnd_ = this.lcpLoginEnd_;
-                    if ((i2 & 4096) == 4096) {
-                        i3 |= 4096;
+                    if ((i & 4096) == 4096) {
+                        i2 |= 4096;
                     }
                     newConnection.connectSource_ = this.connectSource_;
-                    if ((i2 & 8192) == 8192) {
-                        i3 |= 8192;
+                    if ((i & 8192) == 8192) {
+                        i2 |= 8192;
                     }
                     newConnection.ext_ = this.ext_;
-                    if ((i2 & 16384) == 16384) {
-                        i3 |= 16384;
+                    if ((i & 16384) == 16384) {
+                        i2 |= 16384;
                     }
                     newConnection.netInfo_ = this.netInfo_;
-                    if ((i2 & 32768) == 32768) {
-                        i3 |= 32768;
+                    if ((i & 32768) == 32768) {
+                        i2 |= 32768;
                     }
                     newConnection.aliasId_ = this.aliasId_;
-                    if ((i2 & 65536) == 65536) {
-                        i3 |= 65536;
+                    if ((i & 65536) == 65536) {
+                        i2 |= 65536;
                     }
                     newConnection.retry_ = this.retry_;
-                    newConnection.bitField0_ = i3;
+                    newConnection.bitField0_ = i2;
                     return newConnection;
                 }
                 return (NewConnection) invokeV.objValue;
@@ -13989,54 +13989,54 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.startTime_ = 0L;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.endTime_ = 0L;
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.connectState_ = 0L;
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.connectErrorCode_ = "";
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.tokenBegin_ = 0L;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.tokenEnd_ = 0L;
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.dnsBegin_ = 0L;
-                    int i8 = i7 & (-65);
-                    this.bitField0_ = i8;
+                    int i7 = i6 & (-65);
+                    this.bitField0_ = i7;
                     this.dnsEnd_ = 0L;
-                    int i9 = i8 & (-129);
-                    this.bitField0_ = i9;
+                    int i8 = i7 & (-129);
+                    this.bitField0_ = i8;
                     this.socketBegin_ = 0L;
-                    int i10 = i9 & (-257);
-                    this.bitField0_ = i10;
+                    int i9 = i8 & (-257);
+                    this.bitField0_ = i9;
                     this.socketEnd_ = 0L;
-                    int i11 = i10 & (-513);
-                    this.bitField0_ = i11;
+                    int i10 = i9 & (-513);
+                    this.bitField0_ = i10;
                     this.lcpLoginBegin_ = 0L;
-                    int i12 = i11 & (-1025);
-                    this.bitField0_ = i12;
+                    int i11 = i10 & (-1025);
+                    this.bitField0_ = i11;
                     this.lcpLoginEnd_ = 0L;
-                    int i13 = i12 & (-2049);
-                    this.bitField0_ = i13;
+                    int i12 = i11 & (-2049);
+                    this.bitField0_ = i12;
                     this.connectSource_ = "";
-                    int i14 = i13 & (-4097);
-                    this.bitField0_ = i14;
+                    int i13 = i12 & (-4097);
+                    this.bitField0_ = i13;
                     this.ext_ = "";
-                    this.bitField0_ = i14 & (-8193);
+                    this.bitField0_ = i13 & (-8193);
                     this.netInfo_ = LcpNetInfo.getDefaultInstance();
-                    int i15 = this.bitField0_ & (-16385);
-                    this.bitField0_ = i15;
+                    int i14 = this.bitField0_ & (-16385);
+                    this.bitField0_ = i14;
                     this.aliasId_ = 0L;
-                    int i16 = i15 & (-32769);
-                    this.bitField0_ = i16;
+                    int i15 = i14 & (-32769);
+                    this.bitField0_ = i15;
                     this.retry_ = 0L;
-                    this.bitField0_ = (-65537) & i16;
+                    this.bitField0_ = (-65537) & i15;
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -14201,9 +14201,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -14454,9 +14454,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime_) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -14803,9 +14803,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -14841,9 +14841,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -14878,9 +14878,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -15113,9 +15113,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -15125,24 +15125,24 @@ public final class IMPushPb {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.google.protobuf.Internal.EnumLiteMap
-                public OSType findValueByNumber(int i2) {
+                public OSType findValueByNumber(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i2)) == null) ? OSType.valueOf(i2) : (OSType) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i)) == null) ? OSType.valueOf(i) : (OSType) invokeI.objValue;
                 }
             };
         }
 
-        public OSType(String str, int i2, int i3, int i4) {
+        public OSType(String str, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -15151,7 +15151,7 @@ public final class IMPushPb {
                     return;
                 }
             }
-            this.value = i4;
+            this.value = i3;
         }
 
         public static Internal.EnumLiteMap<OSType> internalGetValueMap() {
@@ -15179,14 +15179,14 @@ public final class IMPushPb {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
         }
 
-        public static OSType valueOf(int i2) {
+        public static OSType valueOf(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i != 2) {
+                            if (i != 3) {
                                 return null;
                             }
                             return WINDOWSPHONE;
@@ -15238,9 +15238,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -15355,10 +15355,10 @@ public final class IMPushPb {
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-            public Action getActions(int i2) {
+            public Action getActions(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.actions_.get(i2) : (Action) invokeI.objValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.actions_.get(i) : (Action) invokeI.objValue;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -15493,24 +15493,24 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder removeActions(int i2) {
+            public Builder removeActions(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i)) == null) {
                     ensureActionsIsMutable();
-                    this.actions_.remove(i2);
+                    this.actions_.remove(i);
                     return this;
                 }
                 return (Builder) invokeI.objValue;
             }
 
-            public Builder setActions(int i2, Action action) {
+            public Builder setActions(int i, Action action) {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048623, this, i2, action)) == null) {
+                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048623, this, i, action)) == null) {
                     if (action != null) {
                         ensureActionsIsMutable();
-                        this.actions_.set(i2, action);
+                        this.actions_.set(i, action);
                         return this;
                     }
                     throw null;
@@ -15574,12 +15574,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setSdkVersion(long j2) {
+            public Builder setSdkVersion(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.sdkVersion_ = j2;
+                    this.sdkVersion_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -15607,19 +15607,19 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                     PushImClient pushImClient = new PushImClient(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     pushImClient.metadata_ = this.metadata_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     pushImClient.common_ = this.common_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     pushImClient.sdkName_ = this.sdkName_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     pushImClient.sdkVersion_ = this.sdkVersion_;
                     if ((this.bitField0_ & 16) == 16) {
@@ -15627,7 +15627,7 @@ public final class IMPushPb {
                         this.bitField0_ &= -17;
                     }
                     pushImClient.actions_ = this.actions_;
-                    pushImClient.bitField0_ = i3;
+                    pushImClient.bitField0_ = i2;
                     return pushImClient;
                 }
                 return (PushImClient) invokeV.objValue;
@@ -15643,13 +15643,13 @@ public final class IMPushPb {
                     this.metadata_ = MetaData.getDefaultInstance();
                     this.bitField0_ &= -2;
                     this.common_ = Common.getDefaultInstance();
-                    int i2 = this.bitField0_ & (-3);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-3);
+                    this.bitField0_ = i;
                     this.sdkName_ = "";
-                    int i3 = i2 & (-5);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-5);
+                    this.bitField0_ = i2;
                     this.sdkVersion_ = 0L;
-                    this.bitField0_ = i3 & (-9);
+                    this.bitField0_ = i2 & (-9);
                     this.actions_ = Collections.emptyList();
                     this.bitField0_ &= -17;
                     return this;
@@ -15665,13 +15665,13 @@ public final class IMPushPb {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? PushImClient.getDefaultInstance() : (PushImClient) invokeV.objValue;
             }
 
-            public Builder addActions(int i2, Action action) {
+            public Builder addActions(int i, Action action) {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, action)) == null) {
+                if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, action)) == null) {
                     if (action != null) {
                         ensureActionsIsMutable();
-                        this.actions_.add(i2, action);
+                        this.actions_.add(i, action);
                         return this;
                     }
                     throw null;
@@ -15715,12 +15715,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setActions(int i2, Action.Builder builder) {
+            public Builder setActions(int i, Action.Builder builder) {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048622, this, i2, builder)) == null) {
+                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048622, this, i, builder)) == null) {
                     ensureActionsIsMutable();
-                    this.actions_.set(i2, builder.build());
+                    this.actions_.set(i, builder.build());
                     return this;
                 }
                 return (Builder) invokeIL.objValue;
@@ -15767,12 +15767,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder addActions(int i2, Action.Builder builder) {
+            public Builder addActions(int i, Action.Builder builder) {
                 InterceptResult invokeIL;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, builder)) == null) {
+                if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, builder)) == null) {
                     ensureActionsIsMutable();
-                    this.actions_.add(i2, builder.build());
+                    this.actions_.add(i, builder.build());
                     return this;
                 }
                 return (Builder) invokeIL.objValue;
@@ -15842,9 +15842,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -15904,10 +15904,10 @@ public final class IMPushPb {
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
-        public Action getActions(int i2) {
+        public Action getActions(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.actions_.get(i2) : (Action) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.actions_.get(i) : (Action) invokeI.objValue;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
@@ -15924,10 +15924,10 @@ public final class IMPushPb {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.actions_ : (List) invokeV.objValue;
         }
 
-        public ActionOrBuilder getActionsOrBuilder(int i2) {
+        public ActionOrBuilder getActionsOrBuilder(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.actions_.get(i2) : (ActionOrBuilder) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.actions_.get(i) : (ActionOrBuilder) invokeI.objValue;
         }
 
         public List<? extends ActionOrBuilder> getActionsOrBuilderList() {
@@ -16004,9 +16004,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeMessageSize = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata_) + 0 : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -16018,8 +16018,8 @@ public final class IMPushPb {
                 if ((this.bitField0_ & 8) == 8) {
                     computeMessageSize += CodedOutputStream.computeInt64Size(131, this.sdkVersion_);
                 }
-                for (int i3 = 0; i3 < this.actions_.size(); i3++) {
-                    computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions_.get(i3));
+                for (int i2 = 0; i2 < this.actions_.size(); i2++) {
+                    computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions_.get(i2));
                 }
                 this.memoizedSerializedSize = computeMessageSize;
                 return computeMessageSize;
@@ -16101,8 +16101,8 @@ public final class IMPushPb {
                 if ((this.bitField0_ & 8) == 8) {
                     codedOutputStream.writeInt64(131, this.sdkVersion_);
                 }
-                for (int i2 = 0; i2 < this.actions_.size(); i2++) {
-                    codedOutputStream.writeMessage(132, this.actions_.get(i2));
+                for (int i = 0; i < this.actions_.size(); i++) {
+                    codedOutputStream.writeMessage(132, this.actions_.get(i));
                 }
             }
         }
@@ -16162,9 +16162,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -16200,9 +16200,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -16240,9 +16240,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -16314,7 +16314,7 @@ public final class IMPushPb {
 
     /* loaded from: classes3.dex */
     public interface PushImClientOrBuilder extends MessageLiteOrBuilder {
-        Action getActions(int i2);
+        Action getActions(int i);
 
         int getActionsCount();
 
@@ -16382,9 +16382,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -16668,23 +16668,23 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setErrorCode(long j2) {
+            public Builder setErrorCode(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048622, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.errorCode_ = j2;
+                    this.errorCode_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -16774,23 +16774,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setResponseTime(long j2) {
+            public Builder setResponseTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048629, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.responseTime_ = j2;
+                    this.responseTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setTimestamp(long j2) {
+            public Builder setTimestamp(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.timestamp_ = j2;
+                    this.timestamp_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -16818,34 +16818,34 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Request request = new Request(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     request.method_ = this.method_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     request.requestId_ = this.requestId_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     request.timestamp_ = this.timestamp_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     request.responseTime_ = this.responseTime_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     request.errorCode_ = this.errorCode_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     request.ext_ = this.ext_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     request.aliasId_ = this.aliasId_;
-                    request.bitField0_ = i3;
+                    request.bitField0_ = i2;
                     return request;
                 }
                 return (Request) invokeV.objValue;
@@ -16859,25 +16859,25 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.method_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.requestId_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.timestamp_ = 0L;
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.responseTime_ = 0L;
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.errorCode_ = 0L;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.ext_ = "";
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i7 & (-65);
+                    this.bitField0_ = i6 & (-65);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -17001,9 +17001,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -17202,9 +17202,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getMethodBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -17393,9 +17393,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -17431,9 +17431,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -17468,9 +17468,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -17606,9 +17606,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -17963,34 +17963,34 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setPpi(int i2) {
+            public Builder setPpi(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i)) == null) {
                     this.bitField0_ |= 64;
-                    this.ppi_ = i2;
+                    this.ppi_ = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
             }
 
-            public Builder setResolutionH(int i2) {
+            public Builder setResolutionH(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i)) == null) {
                     this.bitField0_ |= 16;
-                    this.resolutionH_ = i2;
+                    this.resolutionH_ = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
             }
 
-            public Builder setResolutionV(int i2) {
+            public Builder setResolutionV(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i2)) == null) {
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
                     this.bitField0_ |= 32;
-                    this.resolutionV_ = i2;
+                    this.resolutionV_ = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
@@ -18046,34 +18046,34 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     TerminalInfo terminalInfo = new TerminalInfo(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     terminalInfo.os_ = this.os_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     terminalInfo.osVersion_ = this.osVersion_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     terminalInfo.manufacturer_ = this.manufacturer_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     terminalInfo.terminalType_ = this.terminalType_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     terminalInfo.resolutionH_ = this.resolutionH_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     terminalInfo.resolutionV_ = this.resolutionV_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     terminalInfo.ppi_ = this.ppi_;
-                    terminalInfo.bitField0_ = i3;
+                    terminalInfo.bitField0_ = i2;
                     return terminalInfo;
                 }
                 return (TerminalInfo) invokeV.objValue;
@@ -18087,25 +18087,25 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.os_ = OSType.OS_TYPE_UNKNWON;
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.osVersion_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.manufacturer_ = "";
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.terminalType_ = "";
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.resolutionH_ = 0;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.resolutionV_ = 0;
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.ppi_ = 0;
-                    this.bitField0_ = i7 & (-65);
+                    this.bitField0_ = i6 & (-65);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -18229,9 +18229,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -18402,9 +18402,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeEnumSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.os_.getNumber()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -18621,9 +18621,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -18659,9 +18659,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -18696,9 +18696,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -18835,9 +18835,9 @@ public final class IMPushPb {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -19121,12 +19121,12 @@ public final class IMPushPb {
                 return invokeV.booleanValue;
             }
 
-            public Builder setAliasId(long j2) {
+            public Builder setAliasId(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048621, this, j)) == null) {
                     this.bitField0_ |= 64;
-                    this.aliasId_ = j2;
+                    this.aliasId_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19160,23 +19160,23 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setDuration(long j2) {
+            public Builder setDuration(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048624, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048624, this, j)) == null) {
                     this.bitField0_ |= 16;
-                    this.duration_ = j2;
+                    this.duration_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
             }
 
-            public Builder setEndTime(long j2) {
+            public Builder setEndTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048625, this, j)) == null) {
                     this.bitField0_ |= 8;
-                    this.endTime_ = j2;
+                    this.endTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19238,12 +19238,12 @@ public final class IMPushPb {
                 return (Builder) invokeL.objValue;
             }
 
-            public Builder setStartTime(long j2) {
+            public Builder setStartTime(long j) {
                 InterceptResult invokeJ;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j2)) == null) {
+                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048630, this, j)) == null) {
                     this.bitField0_ |= 4;
-                    this.startTime_ = j2;
+                    this.startTime_ = j;
                     return this;
                 }
                 return (Builder) invokeJ.objValue;
@@ -19271,34 +19271,34 @@ public final class IMPushPb {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     Ui ui = new Ui(this, (AnonymousClass1) null);
-                    int i2 = this.bitField0_;
-                    int i3 = (i2 & 1) != 1 ? 0 : 1;
+                    int i = this.bitField0_;
+                    int i2 = (i & 1) != 1 ? 0 : 1;
                     ui.category_ = this.category_;
-                    if ((i2 & 2) == 2) {
-                        i3 |= 2;
+                    if ((i & 2) == 2) {
+                        i2 |= 2;
                     }
                     ui.page_ = this.page_;
-                    if ((i2 & 4) == 4) {
-                        i3 |= 4;
+                    if ((i & 4) == 4) {
+                        i2 |= 4;
                     }
                     ui.startTime_ = this.startTime_;
-                    if ((i2 & 8) == 8) {
-                        i3 |= 8;
+                    if ((i & 8) == 8) {
+                        i2 |= 8;
                     }
                     ui.endTime_ = this.endTime_;
-                    if ((i2 & 16) == 16) {
-                        i3 |= 16;
+                    if ((i & 16) == 16) {
+                        i2 |= 16;
                     }
                     ui.duration_ = this.duration_;
-                    if ((i2 & 32) == 32) {
-                        i3 |= 32;
+                    if ((i & 32) == 32) {
+                        i2 |= 32;
                     }
                     ui.ext_ = this.ext_;
-                    if ((i2 & 64) == 64) {
-                        i3 |= 64;
+                    if ((i & 64) == 64) {
+                        i2 |= 64;
                     }
                     ui.aliasId_ = this.aliasId_;
-                    ui.bitField0_ = i3;
+                    ui.bitField0_ = i2;
                     return ui;
                 }
                 return (Ui) invokeV.objValue;
@@ -19312,25 +19312,25 @@ public final class IMPushPb {
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                     super.clear();
                     this.category_ = "";
-                    int i2 = this.bitField0_ & (-2);
-                    this.bitField0_ = i2;
+                    int i = this.bitField0_ & (-2);
+                    this.bitField0_ = i;
                     this.page_ = "";
-                    int i3 = i2 & (-3);
-                    this.bitField0_ = i3;
+                    int i2 = i & (-3);
+                    this.bitField0_ = i2;
                     this.startTime_ = 0L;
-                    int i4 = i3 & (-5);
-                    this.bitField0_ = i4;
+                    int i3 = i2 & (-5);
+                    this.bitField0_ = i3;
                     this.endTime_ = 0L;
-                    int i5 = i4 & (-9);
-                    this.bitField0_ = i5;
+                    int i4 = i3 & (-9);
+                    this.bitField0_ = i4;
                     this.duration_ = 0L;
-                    int i6 = i5 & (-17);
-                    this.bitField0_ = i6;
+                    int i5 = i4 & (-17);
+                    this.bitField0_ = i5;
                     this.ext_ = "";
-                    int i7 = i6 & (-33);
-                    this.bitField0_ = i7;
+                    int i6 = i5 & (-33);
+                    this.bitField0_ = i6;
                     this.aliasId_ = 0L;
-                    this.bitField0_ = i7 & (-65);
+                    this.bitField0_ = i6 & (-65);
                     return this;
                 }
                 return (Builder) invokeV.objValue;
@@ -19454,9 +19454,9 @@ public final class IMPushPb {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -19655,9 +19655,9 @@ public final class IMPushPb {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                int i2 = this.memoizedSerializedSize;
-                if (i2 != -1) {
-                    return i2;
+                int i = this.memoizedSerializedSize;
+                if (i != -1) {
+                    return i;
                 }
                 int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCategoryBytes()) : 0;
                 if ((this.bitField0_ & 2) == 2) {
@@ -19846,9 +19846,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((GeneratedMessageLite.Builder) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -19884,9 +19884,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
                     return;
@@ -19921,9 +19921,9 @@ public final class IMPushPb {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {codedInputStream, extensionRegistryLite};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -20036,9 +20036,9 @@ public final class IMPushPb {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

@@ -11,7 +11,6 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class CencSampleAuxiliaryDataFormat {
     public static /* synthetic */ Interceptable $ic;
@@ -27,24 +26,24 @@ public class CencSampleAuxiliaryDataFormat {
         public long encrypted;
         public final /* synthetic */ CencSampleAuxiliaryDataFormat this$0;
 
-        public Pair(CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, int i2, long j2) {
+        public Pair(CencSampleAuxiliaryDataFormat cencSampleAuxiliaryDataFormat, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cencSampleAuxiliaryDataFormat, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {cencSampleAuxiliaryDataFormat, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = cencSampleAuxiliaryDataFormat;
-            this.clear = i2;
-            this.encrypted = j2;
+            this.clear = i;
+            this.encrypted = j;
         }
 
         public boolean equals(Object obj) {
@@ -67,8 +66,8 @@ public class CencSampleAuxiliaryDataFormat {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                long j2 = this.encrypted;
-                return (this.clear * 31) + ((int) (j2 ^ (j2 >>> 32)));
+                long j = this.encrypted;
+                return (this.clear * 31) + ((int) (j ^ (j >>> 32)));
             }
             return invokeV.intValue;
         }
@@ -88,9 +87,9 @@ public class CencSampleAuxiliaryDataFormat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,10 +98,10 @@ public class CencSampleAuxiliaryDataFormat {
         this.pairs = new LinkedList();
     }
 
-    public Pair createPair(int i2, long j2) {
+    public Pair createPair(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? new Pair(this, i2, j2) : (Pair) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? new Pair(this, i, j) : (Pair) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -153,7 +152,7 @@ public class CencSampleAuxiliaryDataFormat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "Entry{iv=" + Hex.encodeHex(this.iv) + ", pairs=" + this.pairs + ExtendedMessageFormat.END_FE;
+            return "Entry{iv=" + Hex.encodeHex(this.iv) + ", pairs=" + this.pairs + '}';
         }
         return (String) invokeV.objValue;
     }

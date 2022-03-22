@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class InsideMode {
     public static /* synthetic */ Interceptable $ic;
     public static boolean encriptIMEI;
@@ -21,7 +21,7 @@ public class InsideMode {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.yy.hiidostatis.inner.util.InsideMode$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType;
         public static final /* synthetic */ int[] $SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp;
@@ -81,7 +81,7 @@ public class InsideMode {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class EncriptType {
         public static final /* synthetic */ EncriptType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -112,16 +112,16 @@ public class InsideMode {
             $VALUES = new EncriptType[]{NONE, MD5, DOUBLE_MD5, encriptType};
         }
 
-        public EncriptType(String str, int i2) {
+        public EncriptType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -145,7 +145,7 @@ public class InsideMode {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class HostApp {
         public static final /* synthetic */ HostApp[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -176,16 +176,16 @@ public class InsideMode {
             $VALUES = new HostApp[]{NONE, MI, VIVO, hostApp};
         }
 
-        public HostApp(String str, int i2) {
+        public HostApp(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -230,9 +230,9 @@ public class InsideMode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -247,10 +247,10 @@ public class InsideMode {
                 return str;
             }
             try {
-                int i2 = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType[encriptType.ordinal()];
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        return i2 != 4 ? str : Coder.encryptMD5(Coder.encryptMD5(str));
+                int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$EncriptType[encriptType.ordinal()];
+                if (i != 2) {
+                    if (i != 3) {
+                        return i != 4 ? str : Coder.encryptMD5(Coder.encryptMD5(str));
                     }
                     return Coder.sha256Encrypt(str);
                 }
@@ -266,23 +266,23 @@ public class InsideMode {
     public static void initHostApp(HostApp hostApp2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, hostApp2) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp[hostApp2.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$yy$hiidostatis$inner$util$InsideMode$HostApp[hostApp2.ordinal()];
+            if (i == 1) {
                 encriptIMEI = false;
                 encriptIMSI = false;
                 encriptMAC = false;
                 encriptType = EncriptType.NONE;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 encriptIMEI = true;
                 encriptIMSI = true;
                 encriptMAC = false;
                 encriptType = EncriptType.SHA256;
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 encriptIMEI = true;
                 encriptIMSI = true;
                 encriptMAC = true;
                 encriptType = EncriptType.DOUBLE_MD5;
-            } else if (i2 != 4) {
+            } else if (i != 4) {
             } else {
                 encriptIMEI = true;
                 encriptIMSI = true;

@@ -5,6 +5,7 @@ import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import androidx.annotation.NonNull;
@@ -67,9 +68,9 @@ public class ThemeUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -82,7 +83,7 @@ public class ThemeUtils {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(R$styleable.AppCompatTheme);
             try {
                 if (!obtainStyledAttributes.hasValue(R$styleable.AppCompatTheme_windowActionBar)) {
-                    String str = "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).";
+                    Log.e(TAG, "View " + view.getClass() + " is an AppCompat widget that can only be used with a Theme.AppCompat theme (or descendant).");
                 }
             } finally {
                 obtainStyledAttributes.recycle();
@@ -91,33 +92,33 @@ public class ThemeUtils {
     }
 
     @NonNull
-    public static ColorStateList createDisabledStateList(int i2, int i3) {
+    public static ColorStateList createDisabledStateList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) ? new ColorStateList(new int[][]{DISABLED_STATE_SET, EMPTY_STATE_SET}, new int[]{i3, i2}) : (ColorStateList) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) ? new ColorStateList(new int[][]{DISABLED_STATE_SET, EMPTY_STATE_SET}, new int[]{i2, i}) : (ColorStateList) invokeII.objValue;
     }
 
-    public static int getDisabledThemeAttrColor(@NonNull Context context, int i2) {
+    public static int getDisabledThemeAttrColor(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
-            ColorStateList themeAttrColorStateList = getThemeAttrColorStateList(context, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
+            ColorStateList themeAttrColorStateList = getThemeAttrColorStateList(context, i);
             if (themeAttrColorStateList != null && themeAttrColorStateList.isStateful()) {
                 return themeAttrColorStateList.getColorForState(DISABLED_STATE_SET, themeAttrColorStateList.getDefaultColor());
             }
             TypedValue typedValue = getTypedValue();
             context.getTheme().resolveAttribute(16842803, typedValue, true);
-            return getThemeAttrColor(context, i2, typedValue.getFloat());
+            return getThemeAttrColor(context, i, typedValue.getFloat());
         }
         return invokeLI.intValue;
     }
 
-    public static int getThemeAttrColor(@NonNull Context context, int i2) {
+    public static int getThemeAttrColor(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
             int[] iArr = TEMP_ARRAY;
-            iArr[0] = i2;
+            iArr[0] = i;
             TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, iArr);
             try {
                 return obtainStyledAttributes.getColor(0, 0);
@@ -129,12 +130,12 @@ public class ThemeUtils {
     }
 
     @Nullable
-    public static ColorStateList getThemeAttrColorStateList(@NonNull Context context, int i2) {
+    public static ColorStateList getThemeAttrColorStateList(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, context, i)) == null) {
             int[] iArr = TEMP_ARRAY;
-            iArr[0] = i2;
+            iArr[0] = i;
             TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, (AttributeSet) null, iArr);
             try {
                 return obtainStyledAttributes.getColorStateList(0);
@@ -160,11 +161,11 @@ public class ThemeUtils {
         return (TypedValue) invokeV.objValue;
     }
 
-    public static int getThemeAttrColor(@NonNull Context context, int i2, float f2) {
+    public static int getThemeAttrColor(@NonNull Context context, int i, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            int themeAttrColor = getThemeAttrColor(context, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+            int themeAttrColor = getThemeAttrColor(context, i);
             return ColorUtils.setAlphaComponent(themeAttrColor, Math.round(Color.alpha(themeAttrColor) * f2));
         }
         return invokeCommon.intValue;

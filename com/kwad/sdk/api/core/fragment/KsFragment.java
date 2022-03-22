@@ -232,7 +232,7 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Keep
     @Deprecated
     public final Resources getResources() {
-        if (a.f53923c.booleanValue()) {
+        if (a.f39077c.booleanValue()) {
             throw new RuntimeException("please use getContext().getResources()");
         }
         return this.mBase.getContext().getResources();
@@ -274,8 +274,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     @Deprecated
-    public final String getString(@StringRes int i2) {
-        return getResources().getString(i2);
+    public final String getString(@StringRes int i) {
+        return getResources().getString(i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -283,8 +283,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     @Deprecated
-    public final String getString(@StringRes int i2, Object... objArr) {
-        return getResources().getString(i2, objArr);
+    public final String getString(@StringRes int i, Object... objArr) {
+        return getResources().getString(i, objArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -307,8 +307,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @KsAdSdkDynamicApi
     @Keep
     @Deprecated
-    public final CharSequence getText(@StringRes int i2) {
-        return getResources().getText(i2);
+    public final CharSequence getText(@StringRes int i) {
+        return getResources().getText(i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -414,8 +414,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onActivityResult(int i2, int i3, Intent intent) {
-        super.onActivityResult(i2, i3, intent);
+    public /* bridge */ /* synthetic */ void onActivityResult(int i, int i2, Intent intent) {
+        super.onActivityResult(i, i2, intent);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -449,13 +449,13 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i2, boolean z, int i3) {
-        return super.onCreateAnimation(i2, z, i3);
+    public /* bridge */ /* synthetic */ Animation onCreateAnimation(int i, boolean z, int i2) {
+        return super.onCreateAnimation(i, z, i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i2, boolean z, int i3) {
-        return super.onCreateAnimator(i2, z, i3);
+    public /* bridge */ /* synthetic */ Animator onCreateAnimator(int i, boolean z, int i2) {
+        return super.onCreateAnimator(i, z, i2);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -552,8 +552,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
-    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
-        super.onRequestPermissionsResult(i2, strArr, iArr);
+    public /* bridge */ /* synthetic */ void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+        super.onRequestPermissionsResult(i, strArr, iArr);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
@@ -603,8 +603,8 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void requestPermissions(@NonNull String[] strArr, int i2) {
-        this.mBase.requestPermissions(strArr, i2);
+    public final void requestPermissions(@NonNull String[] strArr, int i) {
+        this.mBase.requestPermissions(strArr, i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
@@ -732,22 +732,22 @@ public class KsFragment extends AbstractIFragmentLifecycle implements IFragment,
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void startActivityForResult(Intent intent, int i2) {
-        this.mBase.startActivityForResult(intent, i2);
+    public final void startActivityForResult(Intent intent, int i) {
+        this.mBase.startActivityForResult(intent, i);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void startActivityForResult(Intent intent, int i2, @Nullable Bundle bundle) {
-        this.mBase.startActivityForResult(intent, i2, bundle);
+    public final void startActivityForResult(Intent intent, int i, @Nullable Bundle bundle) {
+        this.mBase.startActivityForResult(intent, i, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment
     @KsAdSdkDynamicApi
     @Keep
-    public final void startIntentSenderForResult(IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, Bundle bundle) {
-        this.mBase.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
+    public final void startIntentSenderForResult(IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) {
+        this.mBase.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
     }
 
     @Override // com.kwad.sdk.api.core.fragment.IFragment

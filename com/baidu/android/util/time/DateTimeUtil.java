@@ -49,9 +49,9 @@ public final class DateTimeUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -100,16 +100,16 @@ public final class DateTimeUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, date, str)) == null) ? DateTimeUtils.getFormatDateTime(date, str) : (String) invokeLL.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j2) {
+    public static String getFormatTeletextTime(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j2)) == null) ? getFormatTeletextTime(context, j2, true) : (String) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, null, context, j)) == null) ? getFormatTeletextTime(context, j, true) : (String) invokeLJ.objValue;
     }
 
-    public static long getNextDay(long j2, int i2) {
+    public static long getNextDay(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? DateTimeUtils.getNextDayByMode(j2, i2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? DateTimeUtils.getNextDayByMode(j, i) : invokeCommon.longValue;
     }
 
     public static String getWeek() {
@@ -130,10 +130,10 @@ public final class DateTimeUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, l, l2)) == null) ? DateTimeUtils.interval(l.longValue(), l2.longValue()) : invokeLL.longValue;
     }
 
-    public static boolean isFewDaysAgo(Long l, int i2) {
+    public static boolean isFewDaysAgo(Long l, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, l, i2)) == null) ? DateTimeUtils.isFewDaysAgo(l.longValue(), i2) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, l, i)) == null) ? DateTimeUtils.isFewDaysAgo(l.longValue(), i) : invokeLI.booleanValue;
     }
 
     public static boolean isSameDay(Long l, Long l2) {
@@ -179,10 +179,10 @@ public final class DateTimeUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, str2)) == null) ? DateTimeUtils.getFormatDateTime(str, str2) : (Date) invokeLL.objValue;
     }
 
-    public static String getFormatTeletextTime(Context context, long j2, boolean z) {
+    public static String getFormatTeletextTime(Context context, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? DateTimeUtils.getFormatTeletextTime(context, j2, z) : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{context, Long.valueOf(j), Boolean.valueOf(z)})) == null) ? DateTimeUtils.getFormatTeletextTime(context, j, z) : (String) invokeCommon.objValue;
     }
 
     public static Date getFormatDate(String str, String[] strArr) {

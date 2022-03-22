@@ -3,14 +3,14 @@ package com.baidu.searchbox.task.sync.appcreate;
 import android.content.Intent;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.c.f.k;
-import c.a.q0.c1.c0;
-import c.a.q0.r.r.z0;
-import c.a.q0.v0.a;
-import c.a.q0.v0.c;
-import c.a.q0.v0.e;
-import c.a.q0.v0.f;
-import c.a.r0.k1.b;
-import c.a.r0.y3.o0.d.d;
+import c.a.o0.c1.c0;
+import c.a.o0.r.r.x0;
+import c.a.o0.v0.a;
+import c.a.o0.v0.c;
+import c.a.o0.v0.e;
+import c.a.o0.v0.f;
+import c.a.p0.a4.o0.d.d;
+import c.a.p0.m1.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -55,9 +55,9 @@ public class InitMessageManagerTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,9 +77,9 @@ public class InitMessageManagerTask extends LaunchTask {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -96,7 +96,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof d)) {
                     d dVar = (d) customResponsedMessage.getData();
                     DescriptionTableInfo.setModuleSet(dVar.a);
-                    DescriptionTableInfo.setDescriptionTable(dVar.f25133b);
+                    DescriptionTableInfo.setDescriptionTable(dVar.f12326b);
                 }
             }
         };
@@ -114,9 +114,9 @@ public class InitMessageManagerTask extends LaunchTask {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -154,12 +154,12 @@ public class InitMessageManagerTask extends LaunchTask {
             messageManager.addMessageRule(new f(0));
             messageManager.addMessageRule(new c(0));
             messageManager.addResponsedMessageRule(new e(0));
-            messageManager.addRemovedMessageRule(new c.a.q0.v0.d(0));
-            messageManager.addResponsedMessageRule(new c.a.r0.k1.c());
+            messageManager.addRemovedMessageRule(new c.a.o0.v0.d(0));
+            messageManager.addResponsedMessageRule(new c.a.p0.m1.c());
             messageManager.addResponsedMessageRule(new b());
             messageManager.addResponsedMessageRule(new a());
-            messageManager.addResponsedMessageRule(new c.a.q0.v0.b());
-            messageManager.addResponsedMessageRule(new c.a.r0.h4.c.a());
+            messageManager.addResponsedMessageRule(new c.a.o0.v0.b());
+            messageManager.addResponsedMessageRule(new c.a.p0.j4.c.a());
         }
     }
 
@@ -180,9 +180,9 @@ public class InitMessageManagerTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Integer.valueOf(r8)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -220,9 +220,9 @@ public class InitMessageManagerTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Integer.valueOf(r8)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -252,7 +252,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void registeDealIntentTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            c.a.q0.z0.a aVar = new c.a.q0.z0.a(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
+            c.a.o0.z0.a aVar = new c.a.o0.z0.a(2012000, new CustomMessageTask.CustomRunnable<Intent>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -264,9 +264,9 @@ public class InitMessageManagerTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -294,7 +294,7 @@ public class InitMessageManagerTask extends LaunchTask {
     private void registeYYNotificationTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            c.a.q0.z0.a aVar = new c.a.q0.z0.a(2012100, new CustomMessageTask.CustomRunnable<z0>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
+            c.a.o0.z0.a aVar = new c.a.o0.z0.a(2012100, new CustomMessageTask.CustomRunnable<x0>(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitMessageManagerTask.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ InitMessageManagerTask this$0;
@@ -306,9 +306,9 @@ public class InitMessageManagerTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -318,7 +318,7 @@ public class InitMessageManagerTask extends LaunchTask {
                 }
 
                 @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-                public CustomResponsedMessage<?> run(CustomMessage<z0> customMessage) {
+                public CustomResponsedMessage<?> run(CustomMessage<x0> customMessage) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
@@ -348,9 +348,9 @@ public class InitMessageManagerTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -399,7 +399,7 @@ public class InitMessageManagerTask extends LaunchTask {
             try {
                 c0.b().e();
                 if (TbadkCoreApplication.getInst().isMainProcess(false, AppRuntime.getAppContext())) {
-                    c.a.q0.f.a.d().f();
+                    c.a.o0.f.a.d().f();
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

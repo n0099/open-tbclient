@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopicselect;
 
-import c.a.q0.r.s.a;
-import c.a.r0.r1.c;
+import c.a.o0.r.s.a;
+import c.a.p0.t1.c;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -31,9 +31,9 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,10 +42,10 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         }
     }
 
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null) {
                 currentAccount = "";

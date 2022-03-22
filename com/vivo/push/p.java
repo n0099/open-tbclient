@@ -6,19 +6,19 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
     public static final Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Uri f59284b;
+    public static final Uri f43917b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Uri f59285c;
+    public static final Uri f43918c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Uri f59286d;
+    public static final Uri f43919d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,16 +35,16 @@ public final class p {
             }
         }
         a = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/config");
-        f59284b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
-        f59285c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
-        f59286d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
+        f43917b = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/permission");
+        f43918c = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/clientState");
+        f43919d = Uri.parse("content://com.vivo.push.sdk.service.SystemPushConfig/debugInfo");
     }
 
-    public static String a(int i2) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
                 case 2002:
                     return "method_alias_bind";
                 case 2003:

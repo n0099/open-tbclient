@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
+import com.baidu.sofire.rp.service.Service;
 import com.bytedance.pangle.ApkVerifier;
 import com.bytedance.pangle.Zeus;
 import com.bytedance.pangle.ZeusParam;
@@ -40,45 +41,45 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile DexClassLoader f51868f;
+    public static volatile DexClassLoader f38281f;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51870h;
+    public String f38283h;
     public static final String a = "next" + File.separator;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f51864b = File.separator + "conf";
+    public static final String f38277b = File.separator + "conf";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final CountDownLatch f51865c = new CountDownLatch(1);
+    public static final CountDownLatch f38278c = new CountDownLatch(1);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final HashMap<String, TTPluginListener> f51866d = new HashMap<>();
+    public static final HashMap<String, TTPluginListener> f38279d = new HashMap<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public static final HashMap<String, Handler> f51867e = new HashMap<>();
+    public static final HashMap<String, Handler> f38280e = new HashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile f f51869g = null;
+    public static volatile f f38282g = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static final c a = new c();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class b implements TTAdEvent {
         @Override // com.bytedance.sdk.openadsdk.TTAdEvent
-        public void onEvent(int i2, Bundle bundle) {
-            if (i2 == 1) {
+        public void onEvent(int i, Bundle bundle) {
+            if (i == 1) {
                 d a = f.a(bundle.getString(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME));
                 if (a != null && !TextUtils.isEmpty(a.mPackageName)) {
                     boolean z = bundle.getBoolean("success");
-                    TTPluginListener tTPluginListener = (TTPluginListener) f.f51866d.get(a.mPackageName);
+                    TTPluginListener tTPluginListener = (TTPluginListener) f.f38279d.get(a.mPackageName);
                     if (z) {
                         com.bytedance.sdk.openadsdk.api.b.d.c("TTPluginManager", "plugin update received: " + a.mPackageName);
                         if (!a.isRevert) {
@@ -141,7 +142,7 @@ public class f {
             ArrayList arrayList = new ArrayList();
             for (File file : listFiles) {
                 d a2 = a(c(file));
-                if (a2 != null && a2.f51859b.exists()) {
+                if (a2 != null && a2.f38272b.exists()) {
                     arrayList.add(a2);
                 }
             }
@@ -155,7 +156,7 @@ public class f {
     }
 
     public static File g(Context context) {
-        return new File(h(context), f51864b);
+        return new File(h(context), f38277b);
     }
 
     public static File h(Context context) {
@@ -177,7 +178,7 @@ public class f {
                     if (b2 != null) {
                         return a.a.a(b2.a, file);
                     }
-                    return a.a.a(f.this.f51870h, file);
+                    return a.a.a(f.this.f38283h, file);
                 }
             }).pluginProvider(new PluginProvider() { // from class: com.bytedance.sdk.openadsdk.api.plugin.f.1
                 @Override // com.bytedance.pangle.plugin.PluginProvider
@@ -206,12 +207,12 @@ public class f {
                     com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Plugin install result: [" + str + "]," + z);
                     if ("com.byted.pangle".equals(str)) {
                         if (z && Zeus.loadPlugin(str)) {
-                            DexClassLoader unused = f.f51868f = Zeus.getPlugin(str).mClassLoader;
+                            DexClassLoader unused = f.f38281f = Zeus.getPlugin(str).mClassLoader;
                         }
-                        f.f51865c.countDown();
+                        f.f38278c.countDown();
                         return;
                     }
-                    f.b(z, str, (TTPluginListener) f.f51866d.get(str));
+                    f.b(z, str, (TTPluginListener) f.f38279d.get(str));
                 }
             });
         } catch (Throwable th) {
@@ -232,14 +233,14 @@ public class f {
     }
 
     public static f a(Context context) {
-        if (f51869g == null) {
+        if (f38282g == null) {
             synchronized (f.class) {
-                if (f51869g == null) {
-                    f51869g = new f(context);
+                if (f38282g == null) {
+                    f38282g = new f(context);
                 }
             }
         }
-        return f51869g;
+        return f38282g;
     }
 
     public static String b(String str) {
@@ -252,7 +253,7 @@ public class f {
 
     public static boolean b(d dVar, TTPluginListener tTPluginListener) {
         File file;
-        if (dVar != null && (file = dVar.f51859b) != null) {
+        if (dVar != null && (file = dVar.f38272b) != null) {
             boolean syncInstallPlugin = Zeus.syncInstallPlugin(file.getAbsolutePath());
             b(syncInstallPlugin, dVar.mPackageName, tTPluginListener);
             return syncInstallPlugin;
@@ -265,16 +266,16 @@ public class f {
         long currentTimeMillis = System.currentTimeMillis();
         try {
             if (!Zeus.isPluginInstalled("com.byted.pangle")) {
-                f51865c.await(60000L, TimeUnit.MILLISECONDS);
+                f38278c.await(60000L, TimeUnit.MILLISECONDS);
             }
             if (!Zeus.isPluginLoaded("com.byted.pangle") && Zeus.loadPlugin("com.byted.pangle")) {
-                f51868f = Zeus.getPlugin("com.byted.pangle").mClassLoader;
+                f38281f = Zeus.getPlugin("com.byted.pangle").mClassLoader;
             }
         } catch (Exception e2) {
             com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Unexpected error for load plugin.", e2);
             e.a(3, e2.getMessage(), System.currentTimeMillis() - currentTimeMillis);
         }
-        return f51868f;
+        return f38281f;
     }
 
     public static void b(boolean z, String str, TTPluginListener tTPluginListener) {
@@ -285,7 +286,7 @@ public class f {
         sb.append(", need notify: ");
         sb.append(tTPluginListener != null);
         com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", sb.toString());
-        Handler handler = f51867e.get(str);
+        Handler handler = f38280e.get(str);
         if (tTPluginListener == null || handler == null) {
             return;
         }
@@ -305,8 +306,8 @@ public class f {
         } else {
             tTPluginListener.onPluginListener(1001, null, null, null);
         }
-        f51866d.remove(str);
-        f51867e.remove(str);
+        f38279d.remove(str);
+        f38280e.remove(str);
     }
 
     public static String c(File file) {
@@ -364,7 +365,7 @@ public class f {
             com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Selected plugin with empty sign");
             return null;
         }
-        this.f51870h = str;
+        this.f38283h = str;
         return file;
     }
 
@@ -389,7 +390,7 @@ public class f {
                 com.bytedance.sdk.openadsdk.api.b.d.a("TTPluginManager", "Load plugin failed, caused by timeout.");
                 tTPluginListener.onPluginListener(1001, null, null, null);
             }
-        }, 180000L);
+        }, Service.TRIGGER_INTERVAL);
         String packageName = tTPluginListener.packageName();
         Plugin plugin2 = (Zeus.isPluginInstalled(packageName) && (Zeus.isPluginLoaded(packageName) || Zeus.loadPlugin(packageName))) ? Zeus.getPlugin(packageName) : null;
         StringBuilder sb = new StringBuilder();
@@ -402,8 +403,8 @@ public class f {
             tTPluginListener.onPluginListener(1000, plugin2.mClassLoader, plugin2.mResources, null);
             return;
         }
-        f51866d.put(packageName, tTPluginListener);
-        f51867e.put(packageName, handler);
+        f38279d.put(packageName, tTPluginListener);
+        f38280e.put(packageName, handler);
     }
 
     public static d a(String str) {
@@ -431,7 +432,7 @@ public class f {
         dVar.mApiVersionMax = jSONObject.optInt("max_version");
         dVar.a = jSONObject.optString("sign");
         dVar.isRevert = jSONObject.optBoolean("is_revert");
-        dVar.f51859b = new File(jSONObject.optString("plugin_file"));
+        dVar.f38272b = new File(jSONObject.optString("plugin_file"));
         return dVar;
     }
 
@@ -492,12 +493,12 @@ public class f {
         }
     }
 
-    public static String a(int i2) {
-        char[] charArray = String.valueOf(i2).toCharArray();
+    public static String a(int i) {
+        char[] charArray = String.valueOf(i).toCharArray();
         StringBuilder sb = new StringBuilder();
-        for (int i3 = 0; i3 < charArray.length; i3++) {
-            sb.append(charArray[i3]);
-            if (i3 < charArray.length - 1) {
+        for (int i2 = 0; i2 < charArray.length; i2++) {
+            sb.append(charArray[i2]);
+            if (i2 < charArray.length - 1) {
                 sb.append(".");
             }
         }

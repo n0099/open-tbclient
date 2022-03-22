@@ -20,33 +20,31 @@ public class LegacyLinker extends Linker {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ long f48711e;
-
-        public a(long j2) {
+        public a(long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2)};
+                Object[] objArr = {Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48711e = j2;
+            this.a = j;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LegacyLinker.nativeRunCallbackOnUiThread(this.f48711e);
+                LegacyLinker.nativeRunCallbackOnUiThread(this.a);
             }
         }
     }
@@ -71,30 +69,30 @@ public class LegacyLinker extends Linker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static native boolean nativeCreateSharedRelro(String str, long j2, Linker.LibInfo libInfo);
+    public static native boolean nativeCreateSharedRelro(String str, long j, Linker.LibInfo libInfo);
 
-    public static native boolean nativeLoadLibrary(String str, long j2, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibrary(String str, long j, Linker.LibInfo libInfo);
 
-    public static native boolean nativeLoadLibraryInZipFile(@Nullable String str, String str2, long j2, Linker.LibInfo libInfo);
+    public static native boolean nativeLoadLibraryInZipFile(@Nullable String str, String str2, long j, Linker.LibInfo libInfo);
 
-    public static native void nativeRunCallbackOnUiThread(long j2);
+    public static native void nativeRunCallbackOnUiThread(long j);
 
     public static native boolean nativeUseSharedRelro(String str, Linker.LibInfo libInfo);
 
     @CalledByNative
-    public static void postCallbackOnMainThread(long j2) {
+    public static void postCallbackOnMainThread(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65544, null, j2) == null) {
-            ThreadUtils.b(new a(j2));
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            ThreadUtils.b(new a(j));
         }
     }
 }

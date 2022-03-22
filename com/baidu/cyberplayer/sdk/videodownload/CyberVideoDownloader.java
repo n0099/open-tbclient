@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CyberVideoDownloader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DMDownloadError {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int Cust01 = 1901;
@@ -35,15 +35,15 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface DownloadListener {
         void onDataTransfer(String str, VideoDownloadBean videoDownloadBean);
 
-        void operationCallback(String str, int i2, int i3);
+        void operationCallback(String str, int i, int i2);
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DownloadOperation {
         public static /* synthetic */ Interceptable $ic;
         public static final int DELETE = 0;
@@ -57,9 +57,9 @@ public class CyberVideoDownloader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cyberVideoDownloader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,7 +70,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DownloadSubStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int FILE_EXIST = 1;
@@ -85,9 +85,9 @@ public class CyberVideoDownloader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cyberVideoDownloader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,7 +98,7 @@ public class CyberVideoDownloader {
     }
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class DownloadTaskStatus {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ABNORMAL_EXIT = 8;
@@ -121,9 +121,9 @@ public class CyberVideoDownloader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cyberVideoDownloader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -138,9 +138,9 @@ public class CyberVideoDownloader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

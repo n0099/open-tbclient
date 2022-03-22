@@ -7,7 +7,7 @@ import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
@@ -82,16 +82,16 @@ public final class IMConnection {
         public int mPort;
         public final /* synthetic */ IMConnection this$0;
 
-        public ConnectTask(IMConnection iMConnection, boolean z, String str, int i2, Integer num) {
+        public ConnectTask(IMConnection iMConnection, boolean z, String str, int i, Integer num) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iMConnection, Boolean.valueOf(z), str, Integer.valueOf(i2), num};
+                Object[] objArr = {iMConnection, Boolean.valueOf(z), str, Integer.valueOf(i), num};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -100,7 +100,7 @@ public final class IMConnection {
             this.this$0 = iMConnection;
             this.mIsInternalAction = z;
             this.mIp = str;
-            this.mPort = i2;
+            this.mPort = i;
             this.mConnectTaskId = num;
         }
 
@@ -203,9 +203,9 @@ public final class IMConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMConnection, num};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -258,9 +258,9 @@ public final class IMConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMConnection, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -276,11 +276,11 @@ public final class IMConnection {
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 super.handleMessage(message);
                 if (message.what == 1) {
-                    long j2 = message.arg1;
+                    long j = message.arg1;
                     synchronized (this.this$0.mSync) {
-                        if (this.this$0.mSendMessageMap.containsKey(Long.valueOf(j2))) {
-                            LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) this.this$0.mSendMessageMap.get(Long.valueOf(j2))).toString());
-                            this.this$0.mMessageHandler.handleMessage((Message) this.this$0.mSendMessageMap.remove(Long.valueOf(j2)), null, false);
+                        if (this.this$0.mSendMessageMap.containsKey(Long.valueOf(j))) {
+                            LogUtils.d(IMConnection.TAG, "send msg timeout!!! " + ((Message) this.this$0.mSendMessageMap.get(Long.valueOf(j))).toString());
+                            this.this$0.mMessageHandler.handleMessage((Message) this.this$0.mSendMessageMap.remove(Long.valueOf(j)), null, false);
                         }
                     }
                 }
@@ -301,9 +301,9 @@ public final class IMConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -370,9 +370,9 @@ public final class IMConnection {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMConnection};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -520,9 +520,9 @@ public final class IMConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -548,9 +548,9 @@ public final class IMConnection {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -562,7 +562,7 @@ public final class IMConnection {
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f25914e) {
+                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || a.f21228e) {
                     return;
                 }
                 this.this$0.internalConnect(false);
@@ -580,9 +580,9 @@ public final class IMConnection {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -616,9 +616,9 @@ public final class IMConnection {
     }
 
     public static /* synthetic */ long access$2108(IMConnection iMConnection) {
-        long j2 = iMConnection.mNowId;
-        iMConnection.mNowId = 1 + j2;
-        return j2;
+        long j = iMConnection.mNowId;
+        iMConnection.mNowId = 1 + j;
+        return j;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -646,21 +646,21 @@ public final class IMConnection {
         }
     }
 
-    private long computeDelayTime(int i2) {
+    private long computeDelayTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, this, i)) == null) {
             if (this.mDelayTimes < 0) {
                 this.mDelayTimes = new Random().nextInt(30) % 31;
             }
-            return ((long) ((Math.pow(2.0d, i2) * 0.3d) + this.mDelayTimes)) * 1000;
+            return ((long) ((Math.pow(2.0d, i) * 0.3d) + this.mDelayTimes)) * 1000;
         }
         return invokeI.longValue;
     }
 
     private void connectImpl(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f25914e) {
+        if (!(interceptable == null || interceptable.invokeZ(65567, this, z) == null) || a.f21228e) {
             return;
         }
         if (!this.mConnected.get() && !this.mConnectting.get()) {
@@ -685,9 +685,9 @@ public final class IMConnection {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -704,10 +704,10 @@ public final class IMConnection {
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
                 public void onGetSocketAddrResult(String str) {
-                    int i2;
+                    int i;
                     String str2;
                     String str3;
-                    int i3;
+                    int i2;
                     boolean submitForNetWork;
                     int lastIndexOf;
                     Interceptable interceptable2 = $ic;
@@ -717,10 +717,10 @@ public final class IMConnection {
                         Utility.writeLoginFlag(context, "14N_0", "socketConnect :" + str);
                         try {
                             lastIndexOf = str.lastIndexOf(":");
-                            i2 = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
+                            i = Integer.valueOf(str.substring(lastIndexOf + 1)).intValue();
                         } catch (Exception e2) {
                             e = e2;
-                            i2 = -1;
+                            i = -1;
                         }
                         try {
                             str2 = str.substring(0, lastIndexOf);
@@ -732,24 +732,24 @@ public final class IMConnection {
                             if (TextUtils.isEmpty(str2)) {
                             }
                             str3 = Constants.URL_SOCKET_SERVER;
-                            i3 = 443;
+                            i2 = 443;
                             TaskManager taskManager = TaskManager.getInstance(this.this$0.mContext);
                             IMConnection iMConnection = this.this$0;
-                            submitForNetWork = taskManager.submitForNetWork(new ConnectTask(iMConnection, this.val$isInternalAction, str3, i3, Integer.valueOf(iMConnection.mConnectId.incrementAndGet())));
+                            submitForNetWork = taskManager.submitForNetWork(new ConnectTask(iMConnection, this.val$isInternalAction, str3, i2, Integer.valueOf(iMConnection.mConnectId.incrementAndGet())));
                             LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
                             if (submitForNetWork) {
                             }
                         }
-                        if (!TextUtils.isEmpty(str2) || i2 == -1) {
+                        if (!TextUtils.isEmpty(str2) || i == -1) {
                             str3 = Constants.URL_SOCKET_SERVER;
-                            i3 = 443;
+                            i2 = 443;
                         } else {
                             str3 = str2;
-                            i3 = i2;
+                            i2 = i;
                         }
                         TaskManager taskManager2 = TaskManager.getInstance(this.this$0.mContext);
                         IMConnection iMConnection2 = this.this$0;
-                        submitForNetWork = taskManager2.submitForNetWork(new ConnectTask(iMConnection2, this.val$isInternalAction, str3, i3, Integer.valueOf(iMConnection2.mConnectId.incrementAndGet())));
+                        submitForNetWork = taskManager2.submitForNetWork(new ConnectTask(iMConnection2, this.val$isInternalAction, str3, i2, Integer.valueOf(iMConnection2.mConnectId.incrementAndGet())));
                         LogUtils.i(IMConnection.TAG, "ConnectTask add to ThreadPool = " + submitForNetWork);
                         if (submitForNetWork) {
                             this.this$0.mConnectting.set(false);
@@ -766,19 +766,19 @@ public final class IMConnection {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void connectTrack(int i2, String str) {
+    public void connectTrack(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65568, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65568, this, i, str) == null) {
             if (this.mConnectIps.contains(Constants.URL_SOCKET_SERVER) && !this.mMessageHandler.mSocketIp.isEmpty()) {
                 this.mConnectIps = this.mMessageHandler.mSocketIp + ":" + Constants.URL_SOCKET_PORT;
             }
             this.mConnectIps += ":" + RequsetNetworkUtils.getNetInfo(this.mContext);
-            int i3 = this.mFailedNumber.get();
-            LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i3 + "， reason ： " + str);
-            long j2 = (long) i3;
-            new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i2).reason(str).ext(this.mConnectIps).retryCount(j2).build();
-            if (this.mFailedNumber.get() >= 5 && i2 != 401201) {
-                IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j2).build()).build());
+            int i2 = this.mFailedNumber.get();
+            LogUtils.d(TAG, "connectTrack ext:" + this.mConnectIps + "， mFailedNumber ：" + i2 + "， reason ： " + str);
+            long j = (long) i2;
+            new IMTrack.ConnectionBuilder(this.mContext).startTime(this.mStartConnTime).stopTime(System.currentTimeMillis()).aliasId((long) i).reason(str).ext(this.mConnectIps).retryCount(j).build();
+            if (this.mFailedNumber.get() >= 5 && i != 401201) {
+                IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CONNECTION).setConnection(IMPushPb.Connection.newBuilder().setStartTime(this.mStartConnTime).setStopTime(System.currentTimeMillis()).setAliasId(401206L).setReason(str).setExt(this.mConnectIps).setRetryCount(j).build()).build());
             }
             this.mConnectIps = "";
         }
@@ -786,7 +786,7 @@ public final class IMConnection {
 
     private void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f25914e) {
+        if (!(interceptable == null || interceptable.invokeV(65569, this) == null) || a.f21228e) {
             return;
         }
         LogUtils.i(TAG, "destroy");
@@ -877,7 +877,7 @@ public final class IMConnection {
 
     public void disconnectedByPeer() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f25914e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || a.f21228e) {
             return;
         }
         LogUtils.i(TAG, "disconnectedByPeer, mStoped == " + this.mStoped);

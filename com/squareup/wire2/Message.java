@@ -1,7 +1,7 @@
 package com.squareup.wire2;
 
 import androidx.core.view.InputDeviceCompat;
-import c.n.a.d;
+import c.k.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -17,7 +17,7 @@ import java.io.Serializable;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ByteString;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final long serialVersionUID = 0;
@@ -27,7 +27,7 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
     public transient int hashCode;
     public final transient ByteString unknownFields;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a<T extends Message<T, B>, B extends a<T, B>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,26 +39,26 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public final a<T, B> addUnknownField(int i2, FieldEncoding fieldEncoding, Object obj) {
+        public final a<T, B> addUnknownField(int i, FieldEncoding fieldEncoding, Object obj) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, fieldEncoding, obj)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, fieldEncoding, obj)) == null) {
                 if (this.unknownFieldsWriter == null) {
                     Buffer buffer = new Buffer();
                     this.unknownFieldsBuffer = buffer;
                     this.unknownFieldsWriter = new d(buffer);
                 }
                 try {
-                    fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i2, obj);
+                    fieldEncoding.rawProtoAdapter().encodeWithTag(this.unknownFieldsWriter, i, obj);
                     return this;
                 } catch (IOException unused) {
                     throw new AssertionError();
@@ -119,9 +119,9 @@ public abstract class Message<M extends Message<M, B>, B extends a<M, B>> implem
             newInitContext.initArgs = r2;
             Object[] objArr = {protoAdapter, byteString};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

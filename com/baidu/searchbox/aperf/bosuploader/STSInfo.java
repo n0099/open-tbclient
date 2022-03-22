@@ -19,16 +19,16 @@ public class STSInfo {
     public String sk;
     public String token;
 
-    public STSInfo(String str, String str2, String str3, long j2, String str4, String str5, String str6) {
+    public STSInfo(String str, String str2, String str3, long j, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Long.valueOf(j2), str4, str5, str6};
+            Object[] objArr = {str, str2, str3, Long.valueOf(j), str4, str5, str6};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +37,7 @@ public class STSInfo {
         this.ak = str;
         this.sk = str2;
         this.token = str3;
-        this.expiredAt = j2;
+        this.expiredAt = j;
         this.expired = str4;
         this.bucket = str5;
         this.endpoint = str6;

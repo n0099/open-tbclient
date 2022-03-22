@@ -7,7 +7,6 @@ import com.airbnb.lottie.utils.Logger;
 import com.airbnb.lottie.utils.MiscUtils;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class ShapeData {
     public boolean closed;
@@ -77,7 +76,7 @@ public class ShapeData {
     }
 
     public String toString() {
-        return "ShapeData{numCurves=" + this.curves.size() + "closed=" + this.closed + ExtendedMessageFormat.END_FE;
+        return "ShapeData{numCurves=" + this.curves.size() + "closed=" + this.closed + '}';
     }
 
     public ShapeData() {

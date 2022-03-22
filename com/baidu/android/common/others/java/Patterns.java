@@ -65,9 +65,9 @@ public class Patterns {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -80,10 +80,10 @@ public class Patterns {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, matcher)) == null) {
             StringBuilder sb = new StringBuilder();
             int groupCount = matcher.groupCount();
-            for (int i2 = 1; i2 <= groupCount; i2++) {
-                String group = matcher.group(i2);
+            for (int i = 1; i <= groupCount; i++) {
+                String group = matcher.group(i);
                 PrintStream printStream = System.err;
-                printStream.println("Group(" + i2 + ") : " + group);
+                printStream.println("Group(" + i + ") : " + group);
                 if (group != null) {
                     sb.append(group);
                 }
@@ -100,8 +100,8 @@ public class Patterns {
             StringBuilder sb = new StringBuilder();
             String group = matcher.group();
             int length = group.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = group.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = group.charAt(i);
                 if (charAt == '+' || Character.isDigit(charAt)) {
                     sb.append(charAt);
                 }

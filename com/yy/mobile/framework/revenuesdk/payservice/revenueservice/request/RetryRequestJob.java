@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.banksign.datamodel.QueryResponse;
 import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.protocolbase.BaseJsonRequest;
@@ -26,8 +25,8 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.StringCompanionObject;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u0000 >2\u00020\u00012\u00020\u0002:\u0001>BS\u0012\u0006\u0010\"\u001a\u00020\t\u0012\u0006\u0010 \u001a\u00020\t\u0012\u0006\u0010/\u001a\u00020.\u0012\b\u0010$\u001a\u0004\u0018\u00010#\u0012\b\u0010)\u001a\u0004\u0018\u00010(\u0012\u0006\u00104\u001a\u00020\t\u0012\u0006\u0010+\u001a\u00020\t\u0012\u0006\u0010;\u001a\u00020\t\u0012\u0006\u00105\u001a\u00020\t¢\u0006\u0004\b<\u0010=J\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0011\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000f\u0010\u000bJ\u000f\u0010\u0010\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0010\u0010\u000bJ\u000f\u0010\u0011\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0011\u0010\u000bJ\u000f\u0010\u0012\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0012\u0010\u000bJ\u001f\u0010\u0015\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\t2\b\u0010\u0014\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0017\u0010\u0005J\u000f\u0010\u0018\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0018\u0010\u0005J\u000f\u0010\u001a\u001a\u00020\u0019H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0019\u0010\u001d\u001a\u00020\u00032\b\u0010\u001c\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001f\u0010\u0005R\u0016\u0010 \u001a\u00020\t8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b \u0010!R\u0016\u0010\"\u001a\u00020\t8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\"\u0010!R\u0018\u0010$\u001a\u0004\u0018\u00010#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0018\u0010&\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010!R\u0016\u0010,\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\u0016\u0010/\u001a\u00020.8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b/\u00100R\u0018\u00102\u001a\u0004\u0018\u0001018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010!R\u0016\u00105\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u0010!R\"\u00106\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u00107\u001a\u0004\b8\u0010\u000e\"\u0004\b9\u0010:R\u0016\u0010;\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010!¨\u0006?"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/DefaultRetryPolicy;", "", QueryResponse.Options.CANCEL, "()V", "", "getExtParam", "()Ljava/lang/Object;", "", "getReqCommand", "()I", "", "getReqSeq", "()Ljava/lang/String;", "getRetryCount", "getRetryInterval", "getTimeout", "getTotalRetryCount", "srvErrorCode", "message", "onRequestError", "(ILjava/lang/String;)V", "onRetry", "retryCountExhaust", "", "run", "()Z", "param", "setExtParam", "(Ljava/lang/Object;)V", IntentConfig.STOP, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "command", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "encoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "extParam", "Ljava/lang/Object;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "iDataSender", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "intervalMs", "isRun", "Z", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "params", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/BaseJsonRequest;", "req", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/BaseJsonRequest;", "retryCount", "retryType", "seq", "Ljava/lang/String;", "getSeq", "setSeq", "(Ljava/lang/String;)V", "timeOutMs", "<init>", "(IILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;IIII)V", "Companion", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\u000b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u000e\u0018\u0000 >2\u00020\u00012\u00020\u0002:\u0001>BS\u0012\u0006\u0010\"\u001a\u00020\t\u0012\u0006\u0010 \u001a\u00020\t\u0012\u0006\u0010/\u001a\u00020.\u0012\b\u0010$\u001a\u0004\u0018\u00010#\u0012\b\u0010)\u001a\u0004\u0018\u00010(\u0012\u0006\u00104\u001a\u00020\t\u0012\u0006\u0010+\u001a\u00020\t\u0012\u0006\u0010;\u001a\u00020\t\u0012\u0006\u00105\u001a\u00020\t¢\u0006\u0004\b<\u0010=J\u000f\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0011\u0010\u0007\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u0007\u0010\bJ\u000f\u0010\n\u001a\u00020\tH\u0016¢\u0006\u0004\b\n\u0010\u000bJ\u000f\u0010\r\u001a\u00020\fH\u0016¢\u0006\u0004\b\r\u0010\u000eJ\u000f\u0010\u000f\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000f\u0010\u000bJ\u000f\u0010\u0010\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0010\u0010\u000bJ\u000f\u0010\u0011\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0011\u0010\u000bJ\u000f\u0010\u0012\u001a\u00020\tH\u0016¢\u0006\u0004\b\u0012\u0010\u000bJ\u001f\u0010\u0015\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\t2\b\u0010\u0014\u001a\u0004\u0018\u00010\f¢\u0006\u0004\b\u0015\u0010\u0016J\u000f\u0010\u0017\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0017\u0010\u0005J\u000f\u0010\u0018\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0018\u0010\u0005J\u000f\u0010\u001a\u001a\u00020\u0019H\u0016¢\u0006\u0004\b\u001a\u0010\u001bJ\u0019\u0010\u001d\u001a\u00020\u00032\b\u0010\u001c\u001a\u0004\u0018\u00010\u0006H\u0016¢\u0006\u0004\b\u001d\u0010\u001eJ\u000f\u0010\u001f\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u001f\u0010\u0005R\u0016\u0010 \u001a\u00020\t8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b \u0010!R\u0016\u0010\"\u001a\u00020\t8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\"\u0010!R\u0018\u0010$\u001a\u0004\u0018\u00010#8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b$\u0010%R\u0018\u0010&\u001a\u0004\u0018\u00010\u00068\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b&\u0010'R\u0018\u0010)\u001a\u0004\u0018\u00010(8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b)\u0010*R\u0016\u0010+\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b+\u0010!R\u0016\u0010,\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b,\u0010-R\u0016\u0010/\u001a\u00020.8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b/\u00100R\u0018\u00102\u001a\u0004\u0018\u0001018\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b2\u00103R\u0016\u00104\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b4\u0010!R\u0016\u00105\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b5\u0010!R\"\u00106\u001a\u00020\f8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u00107\u001a\u0004\b8\u0010\u000e\"\u0004\b9\u0010:R\u0016\u0010;\u001a\u00020\t8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b;\u0010!¨\u0006?"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/IRequest;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/DefaultRetryPolicy;", "", "cancel", "()V", "", "getExtParam", "()Ljava/lang/Object;", "", "getReqCommand", "()I", "", "getReqSeq", "()Ljava/lang/String;", "getRetryCount", "getRetryInterval", "getTimeout", "getTotalRetryCount", "srvErrorCode", "message", "onRequestError", "(ILjava/lang/String;)V", "onRetry", "retryCountExhaust", "", "run", "()Z", "param", "setExtParam", "(Ljava/lang/Object;)V", IntentConfig.STOP, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "command", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "encoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "extParam", "Ljava/lang/Object;", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "iDataSender", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "intervalMs", "isRun", "Z", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "params", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/BaseJsonRequest;", "req", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/BaseJsonRequest;", "retryCount", "retryType", "seq", "Ljava/lang/String;", "getSeq", "setSeq", "(Ljava/lang/String;)V", "timeOutMs", "<init>", "(IILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;IIII)V", "Companion", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+/* loaded from: classes7.dex */
 public final class RetryRequestJob extends DefaultRetryPolicy implements IRequest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
@@ -48,7 +47,7 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
     public int timeOutMs;
 
     @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0014\u0010\u0015JU\u0010\u000f\u001a\u00020\u000e2\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u00012\u0006\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0007\u001a\u00020\u00062\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\u00012\u0006\u0010\u000b\u001a\u00020\u00012\u0006\u0010\f\u001a\u00020\u00012\u0006\u0010\r\u001a\u00020\u0001¢\u0006\u0004\b\u000f\u0010\u0010R\u0016\u0010\u0012\u001a\u00020\u00118\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0012\u0010\u0013¨\u0006\u0016"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob$Companion;", "", "command", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "params", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;", "encoder", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;", "iDataSender", "retryCount", "intervalMs", "timeOutMs", "retryType", "Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "obtain", "(IILcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/ProtocolEncoder;Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/IDataSender;IIII)Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/request/RetryRequestJob;", "", "TAG", "Ljava/lang/String;", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Companion {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -58,21 +57,21 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public final RetryRequestJob obtain(int i2, int i3, RequestParams requestParams, ProtocolEncoder protocolEncoder, IDataSender iDataSender, int i4, int i5, int i6, int i7) {
+        public final RetryRequestJob obtain(int i, int i2, RequestParams requestParams, ProtocolEncoder protocolEncoder, IDataSender iDataSender, int i3, int i4, int i5, int i6) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), requestParams, protocolEncoder, iDataSender, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), requestParams, protocolEncoder, iDataSender, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
                 requestParams.setSeq(SeqUtil.increaseSeqId());
-                RetryRequestJob retryRequestJob = new RetryRequestJob(i2, i3, requestParams, protocolEncoder, iDataSender, i4, i5, i6, i7);
+                RetryRequestJob retryRequestJob = new RetryRequestJob(i, i2, requestParams, protocolEncoder, iDataSender, i3, i4, i5, i6);
                 String seq = requestParams.getSeq();
                 if (seq == null) {
                     Intrinsics.throwNpe();
@@ -109,17 +108,17 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RetryRequestJob(int i2, int i3, RequestParams requestParams, ProtocolEncoder protocolEncoder, IDataSender iDataSender, int i4, int i5, int i6, int i7) {
-        super(new Handler(Looper.getMainLooper()), i6, i4, i5, i7);
+    public RetryRequestJob(int i, int i2, RequestParams requestParams, ProtocolEncoder protocolEncoder, IDataSender iDataSender, int i3, int i4, int i5, int i6) {
+        super(new Handler(Looper.getMainLooper()), i5, i3, i4, i6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), requestParams, protocolEncoder, iDataSender, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), requestParams, protocolEncoder, iDataSender, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i8 = newInitContext.flag;
-            if ((i8 & 1) != 0) {
-                int i9 = i8 & 2;
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Handler) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -127,15 +126,15 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
                 return;
             }
         }
-        this.command = i2;
-        this.appId = i3;
+        this.command = i;
+        this.appId = i2;
         this.params = requestParams;
         this.encoder = protocolEncoder;
         this.iDataSender = iDataSender;
-        this.retryCount = i4;
-        this.intervalMs = i5;
-        this.timeOutMs = i6;
-        this.retryType = i7;
+        this.retryCount = i3;
+        this.intervalMs = i4;
+        this.timeOutMs = i5;
+        this.retryType = i6;
         this.seq = "";
     }
 
@@ -210,10 +209,10 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.retryCount : invokeV.intValue;
     }
 
-    public final void onRequestError(int i2, String str) {
+    public final void onRequestError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
+            switch (i) {
                 case 408:
                 case 504:
                 case 110001:
@@ -225,7 +224,7 @@ public final class RetryRequestJob extends DefaultRetryPolicy implements IReques
                 default:
                     IDataSender iDataSender = this.iDataSender;
                     if (iDataSender != null) {
-                        iDataSender.cancel(this.command, this.seq, i2, str);
+                        iDataSender.cancel(this.command, this.seq, i, str);
                     }
                     done();
                     return;

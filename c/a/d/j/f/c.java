@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 public interface c {
     Service getService();
 
-    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i2);
+    boolean proxyBindService(Intent intent, ServiceConnection serviceConnection, int i);
 
     void proxyDump(FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
@@ -21,7 +21,7 @@ public interface c {
 
     PackageManager proxyGetPackageManager();
 
-    SharedPreferences proxyGetSharedPreferences(String str, int i2);
+    SharedPreferences proxyGetSharedPreferences(String str, int i);
 
     void proxyOnConfigurationChanged(Configuration configuration);
 
@@ -31,9 +31,9 @@ public interface c {
 
     void proxyOnRebind(Intent intent);
 
-    void proxyOnStart(Intent intent, int i2);
+    void proxyOnStart(Intent intent, int i);
 
-    int proxyOnStartCommand(Intent intent, int i2, int i3);
+    int proxyOnStartCommand(Intent intent, int i, int i2);
 
     boolean proxyOnUnbind(Intent intent);
 

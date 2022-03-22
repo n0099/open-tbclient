@@ -15,35 +15,35 @@ import java.util.UUID;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static final String a = "e";
 
     public static long a(String str) {
-        long j2;
-        long j3 = 0;
-        int i2 = 0;
-        while (i2 < str.length()) {
-            char charAt = str.charAt(i2);
+        long j;
+        long j2 = 0;
+        int i = 0;
+        while (i < str.length()) {
+            char charAt = str.charAt(i);
             if (charAt <= 127) {
-                j2 = 1;
+                j = 1;
             } else if (charAt <= 2047) {
-                j2 = 2;
+                j = 2;
             } else {
                 if (charAt >= 55296 && charAt <= 57343) {
-                    j3 += 4;
-                    i2++;
+                    j2 += 4;
+                    i++;
                 } else if (charAt < 65535) {
-                    j2 = 3;
+                    j = 3;
                 } else {
-                    j3 += 4;
+                    j2 += 4;
                 }
-                i2++;
+                i++;
             }
-            j3 += j2;
-            i2++;
+            j2 += j;
+            i++;
         }
-        return j3;
+        return j2;
     }
 
     public static Object a(Object obj) {
@@ -65,8 +65,8 @@ public class e {
         } else if (obj.getClass().isArray()) {
             JSONArray jSONArray2 = new JSONArray();
             int length = Array.getLength(obj);
-            for (int i2 = 0; i2 < length; i2++) {
-                jSONArray2.put(a(Array.get(obj, i2)));
+            for (int i = 0; i < length; i++) {
+                jSONArray2.put(a(Array.get(obj, i)));
             }
             return jSONArray2;
         } else if (obj instanceof Map) {
@@ -104,8 +104,8 @@ public class e {
         return jSONObject;
     }
 
-    public static boolean a(long j2, long j3, long j4) {
-        return j2 > j3 - j4;
+    public static boolean a(long j, long j2, long j3) {
+        return j > j2 - j3;
     }
 
     public static boolean a(Context context) {

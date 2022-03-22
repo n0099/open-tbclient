@@ -9,9 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import dalvik.system.DexClassLoader;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PluginClassLoader extends DexClassLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PluginClassLoader";
@@ -28,9 +27,9 @@ public class PluginClassLoader extends DexClassLoader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -54,7 +53,7 @@ public class PluginClassLoader extends DexClassLoader {
                 return classNotFoundException;
             }
             sb.append(classNotFoundException2.getCause());
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             return new ClassNotFoundException(sb.toString(), classNotFoundException2);
         }
         return (ClassNotFoundException) invokeLLL.objValue;

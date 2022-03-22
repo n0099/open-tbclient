@@ -11,7 +11,7 @@ import com.kwad.v8.Releasable;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import com.kwad.v8.V8ResultUndefined;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ScriptBreakPoint implements Releasable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CONDITION = "condition";
@@ -28,9 +28,9 @@ public class ScriptBreakPoint implements Releasable {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

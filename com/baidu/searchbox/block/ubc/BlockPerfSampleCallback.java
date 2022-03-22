@@ -1,6 +1,7 @@
 package com.baidu.searchbox.block.ubc;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.PerfSampleManager;
@@ -26,9 +27,9 @@ public class BlockPerfSampleCallback implements PerfSampleManager.IPerfSampleCal
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,7 +45,7 @@ public class BlockPerfSampleCallback implements PerfSampleManager.IPerfSampleCal
             if (uBCManager != null) {
                 String uploadType = uBCManager.getUploadType("3256");
                 if (AppConfig.isDebug()) {
-                    String str = "getSampleFlag uploadType " + uploadType;
+                    Log.d("BlockPerfSampleCallback", "getSampleFlag uploadType " + uploadType);
                 }
                 if (TextUtils.equals("1", uploadType)) {
                     if (!UbcBlockRegister.sEnable) {

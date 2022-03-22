@@ -14,6 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import com.kuaishou.weapon.un.w0;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,7 +27,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000^\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\t\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010#\n\u0002\b\u000f\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0010\b\u0086\b\u0018\u0000 \\2\u00020\u0001:\u0001\\B]\u0012\b\b\u0002\u0010$\u001a\u00020\u0017\u0012\b\b\u0002\u0010%\u001a\u00020\n\u0012\b\b\u0002\u0010&\u001a\u00020\u0017\u0012\u0006\u0010'\u001a\u00020\n\u0012\u0006\u0010(\u001a\u00020\u0017\u0012\u0006\u0010)\u001a\u00020\u0017\u0012\u000e\b\u0002\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00050 \u0012\u000e\b\u0002\u0010+\u001a\b\u0012\u0004\u0012\u00020\u000e0 ¢\u0006\u0004\bZ\u0010[J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0015\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\t\u001a\u00020\u0002¢\u0006\u0004\b\t\u0010\u0004J\u0015\u0010\f\u001a\u00020\u00022\u0006\u0010\u000b\u001a\u00020\n¢\u0006\u0004\b\f\u0010\rJ\u0015\u0010\u0010\u001a\u00020\u00022\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0010\u0010\u0011J\r\u0010\u0012\u001a\u00020\u0002¢\u0006\u0004\b\u0012\u0010\u0004J\r\u0010\u0013\u001a\u00020\u0002¢\u0006\u0004\b\u0013\u0010\u0004J\r\u0010\u0014\u001a\u00020\u0002¢\u0006\u0004\b\u0014\u0010\u0004J\r\u0010\u0015\u001a\u00020\u0002¢\u0006\u0004\b\u0015\u0010\u0004J\r\u0010\u0016\u001a\u00020\u0002¢\u0006\u0004\b\u0016\u0010\u0004J\u0010\u0010\u0018\u001a\u00020\u0017HÆ\u0003¢\u0006\u0004\b\u0018\u0010\u0019J\u0010\u0010\u001a\u001a\u00020\nHÆ\u0003¢\u0006\u0004\b\u001a\u0010\u001bJ\u0010\u0010\u001c\u001a\u00020\u0017HÆ\u0003¢\u0006\u0004\b\u001c\u0010\u0019J\u0010\u0010\u001d\u001a\u00020\nHÆ\u0003¢\u0006\u0004\b\u001d\u0010\u001bJ\u0010\u0010\u001e\u001a\u00020\u0017HÆ\u0003¢\u0006\u0004\b\u001e\u0010\u0019J\u0010\u0010\u001f\u001a\u00020\u0017HÆ\u0003¢\u0006\u0004\b\u001f\u0010\u0019J\u0016\u0010!\u001a\b\u0012\u0004\u0012\u00020\u00050 HÂ\u0003¢\u0006\u0004\b!\u0010\"J\u0016\u0010#\u001a\b\u0012\u0004\u0012\u00020\u000e0 HÂ\u0003¢\u0006\u0004\b#\u0010\"Jl\u0010,\u001a\u00020\u00002\b\b\u0002\u0010$\u001a\u00020\u00172\b\b\u0002\u0010%\u001a\u00020\n2\b\b\u0002\u0010&\u001a\u00020\u00172\b\b\u0002\u0010'\u001a\u00020\n2\b\b\u0002\u0010(\u001a\u00020\u00172\b\b\u0002\u0010)\u001a\u00020\u00172\u000e\b\u0002\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00050 2\u000e\b\u0002\u0010+\u001a\b\u0012\u0004\u0012\u00020\u000e0 HÆ\u0001¢\u0006\u0004\b,\u0010-J\u000f\u0010.\u001a\u00020\u0000H\u0016¢\u0006\u0004\b.\u0010/J\u001a\u00103\u001a\u0002022\b\u00101\u001a\u0004\u0018\u000100HÖ\u0003¢\u0006\u0004\b3\u00104J\r\u00105\u001a\u00020\n¢\u0006\u0004\b5\u0010\u001bJ\r\u00107\u001a\u000206¢\u0006\u0004\b7\u00108J\u0010\u00109\u001a\u00020\u0017HÖ\u0001¢\u0006\u0004\b9\u0010\u0019J\r\u0010:\u001a\u000202¢\u0006\u0004\b:\u0010;J\u0015\u0010<\u001a\u0002022\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b<\u0010=J\r\u0010>\u001a\u000202¢\u0006\u0004\b>\u0010;J\r\u0010?\u001a\u000202¢\u0006\u0004\b?\u0010;J\r\u0010@\u001a\u000202¢\u0006\u0004\b@\u0010;J\u000f\u0010A\u001a\u000206H\u0002¢\u0006\u0004\bA\u00108J\u000f\u0010B\u001a\u000206H\u0002¢\u0006\u0004\bB\u00108J\u000f\u0010D\u001a\u00020CH\u0016¢\u0006\u0004\bD\u0010EJ\u0010\u0010F\u001a\u00020\u000eHÖ\u0001¢\u0006\u0004\bF\u0010GR\"\u0010&\u001a\u00020\u00178\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b&\u0010H\u001a\u0004\bI\u0010\u0019\"\u0004\bJ\u0010KR\u001c\u0010+\u001a\b\u0012\u0004\u0012\u00020\u000e0 8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b+\u0010LR\u0016\u0010N\u001a\u00020M8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\bN\u0010OR\u0019\u0010)\u001a\u00020\u00178\u0006@\u0006¢\u0006\f\n\u0004\b)\u0010H\u001a\u0004\bP\u0010\u0019R\"\u0010(\u001a\u00020\u00178\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b(\u0010H\u001a\u0004\bQ\u0010\u0019\"\u0004\bR\u0010KR\"\u0010'\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010S\u001a\u0004\bT\u0010\u001b\"\u0004\bU\u0010\rR\"\u0010$\u001a\u00020\u00178\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010H\u001a\u0004\bV\u0010\u0019\"\u0004\bW\u0010KR\"\u0010%\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b%\u0010S\u001a\u0004\bX\u0010\u001b\"\u0004\bY\u0010\rR\u001c\u0010*\u001a\b\u0012\u0004\u0012\u00020\u00050 8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b*\u0010L¨\u0006]"}, d2 = {"Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "addClickNumber", "()V", "Lcom/baidu/bdtask/ctrl/model/TaskEnvTag;", "tag", "addEnvTag", "(Lcom/baidu/bdtask/ctrl/model/TaskEnvTag;)V", "addNoClickTimes", "", "time", "addStayTime", "(J)V", "", "id", "cacheDuplicateId", "(Ljava/lang/String;)V", "cleanDuplicateId", "cleanNoClickTimes", "clearClickNumber", "clearStayTime", "clearTags", "", "component1", "()I", "component2", "()J", "component3", "component4", "component5", "component6", "", "component7", "()Ljava/util/Set;", "component8", "repeatTimes", TaskProcess.keyStayDurTimeMs, TaskProcess.keyCurNoClickTimes, "maxStayTimeMS", "maxRepeatTimes", TaskProcess.keyMaxNoClickTimes, "tags", "duplicateIds", "copy", "(IJIJIILjava/util/Set;Ljava/util/Set;)Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "deepCopy", "()Lcom/baidu/bdtask/ctrl/model/TaskProcess;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "getFormatStay", "Lorg/json/JSONArray;", "getSerializeTags", "()Lorg/json/JSONArray;", TTDownloadField.TT_HASHCODE, "isCompleted", "()Z", "isContainsInDuplicateIds", "(Ljava/lang/String;)Z", "isGotClickedNumber", "isGotMaxNoClickTimes", "isGotStayTime", "serializeDuplicateId", "serializeTags", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "()Ljava/lang/String;", "I", "getCurNoClickTimes", "setCurNoClickTimes", "(I)V", "Ljava/util/Set;", "Ljava/util/concurrent/locks/ReentrantLock;", "fairLock", "Ljava/util/concurrent/locks/ReentrantLock;", "getMaxNoClickTimes", "getMaxRepeatTimes", "setMaxRepeatTimes", "J", "getMaxStayTimeMS", "setMaxStayTimeMS", "getRepeatTimes", "setRepeatTimes", "getStayDurTimeMs", "setStayDurTimeMs", "<init>", "(IJIJIILjava/util/Set;Ljava/util/Set;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskProcess implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -50,7 +51,7 @@ public final class TaskProcess implements ITaskModelData {
     public long stayDurTimeMs;
     public final Set<TaskEnvTag> tags;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +61,9 @@ public final class TaskProcess implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,7 +73,7 @@ public final class TaskProcess implements ITaskModelData {
         public final TaskProcess a(TaskRuleData taskRuleData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) ? new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, 199, null) : (TaskProcess) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskRuleData)) == null) ? new TaskProcess(0, 0L, 0, taskRuleData.getStay(), taskRuleData.getRepeat(), taskRuleData.getNoclickTimes(), null, null, w0.b1, null) : (TaskProcess) invokeL.objValue;
         }
 
         public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
@@ -96,27 +97,27 @@ public final class TaskProcess implements ITaskModelData {
         Companion = new a(null);
     }
 
-    public TaskProcess(int i2, long j2, int i3, long j3, int i4, int i5, Set<TaskEnvTag> set, Set<String> set2) {
+    public TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set<TaskEnvTag> set, Set<String> set2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Long.valueOf(j3), Integer.valueOf(i4), Integer.valueOf(i5), set, set2};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), set, set2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.repeatTimes = i2;
-        this.stayDurTimeMs = j2;
-        this.curNoClickTimes = i3;
-        this.maxStayTimeMS = j3;
-        this.maxRepeatTimes = i4;
-        this.maxNoClickTimes = i5;
+        this.repeatTimes = i;
+        this.stayDurTimeMs = j;
+        this.curNoClickTimes = i2;
+        this.maxStayTimeMS = j2;
+        this.maxRepeatTimes = i3;
+        this.maxNoClickTimes = i4;
         this.tags = set;
         this.duplicateIds = set2;
         this.fairLock = new ReentrantLock(true);
@@ -177,11 +178,11 @@ public final class TaskProcess implements ITaskModelData {
     public final void addClickNumber() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.repeatTimes + 1;
-            this.repeatTimes = i2;
-            int i3 = this.maxRepeatTimes;
-            if (i2 >= i3) {
-                this.repeatTimes = i3;
+            int i = this.repeatTimes + 1;
+            this.repeatTimes = i;
+            int i2 = this.maxRepeatTimes;
+            if (i >= i2) {
+                this.repeatTimes = i2;
             }
         }
     }
@@ -209,26 +210,26 @@ public final class TaskProcess implements ITaskModelData {
     }
 
     public final void addNoClickTimes() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i2 = this.maxNoClickTimes) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i = this.maxNoClickTimes) <= 0) {
             return;
         }
-        int i3 = this.curNoClickTimes + 1;
-        this.curNoClickTimes = i3;
-        if (i3 > i2) {
-            this.curNoClickTimes = i2;
+        int i2 = this.curNoClickTimes + 1;
+        this.curNoClickTimes = i2;
+        if (i2 > i) {
+            this.curNoClickTimes = i;
         }
     }
 
-    public final void addStayTime(long j2) {
+    public final void addStayTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            long j3 = this.stayDurTimeMs + j2;
-            this.stayDurTimeMs = j3;
-            long j4 = this.maxStayTimeMS;
-            if (j3 > j4) {
-                this.stayDurTimeMs = j4;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            long j2 = this.stayDurTimeMs + j;
+            this.stayDurTimeMs = j2;
+            long j3 = this.maxStayTimeMS;
+            if (j2 > j3) {
+                this.stayDurTimeMs = j3;
             }
         }
     }
@@ -243,13 +244,13 @@ public final class TaskProcess implements ITaskModelData {
                     int size = this.duplicateIds.size() - 100;
                     Iterator<String> it = this.duplicateIds.iterator();
                     while (it.hasNext()) {
-                        int i2 = size - 1;
+                        int i = size - 1;
                         if (size <= 0) {
                             break;
                         }
                         it.next();
                         it.remove();
-                        size = i2;
+                        size = i;
                     }
                 }
                 this.duplicateIds.add(f.a.b(str));
@@ -344,10 +345,10 @@ public final class TaskProcess implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.maxNoClickTimes : invokeV.intValue;
     }
 
-    public final TaskProcess copy(int i2, long j2, int i3, long j3, int i4, int i5, Set<TaskEnvTag> set, Set<String> set2) {
+    public final TaskProcess copy(int i, long j, int i2, long j2, int i3, int i4, Set<TaskEnvTag> set, Set<String> set2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Long.valueOf(j3), Integer.valueOf(i4), Integer.valueOf(i5), set, set2})) == null) ? new TaskProcess(i2, j2, i3, j3, i4, i5, set, set2) : (TaskProcess) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Integer.valueOf(i4), set, set2})) == null) ? new TaskProcess(i, j, i2, j2, i3, i4, set, set2) : (TaskProcess) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -438,11 +439,11 @@ public final class TaskProcess implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            long j2 = this.stayDurTimeMs;
-            long j3 = this.maxStayTimeMS;
-            int i2 = ((((((((((this.repeatTimes * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.curNoClickTimes) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + this.maxRepeatTimes) * 31) + this.maxNoClickTimes) * 31;
+            long j = this.stayDurTimeMs;
+            long j2 = this.maxStayTimeMS;
+            int i = ((((((((((this.repeatTimes * 31) + ((int) (j ^ (j >>> 32)))) * 31) + this.curNoClickTimes) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + this.maxRepeatTimes) * 31) + this.maxNoClickTimes) * 31;
             Set<TaskEnvTag> set = this.tags;
-            int hashCode = (i2 + (set != null ? set.hashCode() : 0)) * 31;
+            int hashCode = (i + (set != null ? set.hashCode() : 0)) * 31;
             Set<String> set2 = this.duplicateIds;
             return hashCode + (set2 != null ? set2.hashCode() : 0);
         }
@@ -487,8 +488,8 @@ public final class TaskProcess implements ITaskModelData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            int i2 = this.maxNoClickTimes;
-            return (i2 == -1 || i2 == 0 || this.curNoClickTimes < i2) ? false : true;
+            int i = this.maxNoClickTimes;
+            return (i == -1 || i == 0 || this.curNoClickTimes < i) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -499,38 +500,38 @@ public final class TaskProcess implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.stayDurTimeMs >= this.maxStayTimeMS : invokeV.booleanValue;
     }
 
-    public final void setCurNoClickTimes(int i2) {
+    public final void setCurNoClickTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.curNoClickTimes = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.curNoClickTimes = i;
         }
     }
 
-    public final void setMaxRepeatTimes(int i2) {
+    public final void setMaxRepeatTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.maxRepeatTimes = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.maxRepeatTimes = i;
         }
     }
 
-    public final void setMaxStayTimeMS(long j2) {
+    public final void setMaxStayTimeMS(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048613, this, j2) == null) {
-            this.maxStayTimeMS = j2;
+        if (interceptable == null || interceptable.invokeJ(1048613, this, j) == null) {
+            this.maxStayTimeMS = j;
         }
     }
 
-    public final void setRepeatTimes(int i2) {
+    public final void setRepeatTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.repeatTimes = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.repeatTimes = i;
         }
     }
 
-    public final void setStayDurTimeMs(long j2) {
+    public final void setStayDurTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048615, this, j2) == null) {
-            this.stayDurTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048615, this, j) == null) {
+            this.stayDurTimeMs = j;
         }
     }
 
@@ -579,7 +580,7 @@ public final class TaskProcess implements ITaskModelData {
         return (TaskProcess) invokeV.objValue;
     }
 
-    public /* synthetic */ TaskProcess(int i2, long j2, int i3, long j3, int i4, int i5, Set set, Set set2, int i6, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i6 & 1) != 0 ? 0 : i2, (i6 & 2) != 0 ? 0L : j2, (i6 & 4) != 0 ? 0 : i3, j3, i4, i5, (i6 & 64) != 0 ? new HashSet() : set, (i6 & 128) != 0 ? new HashSet() : set2);
+    public /* synthetic */ TaskProcess(int i, long j, int i2, long j2, int i3, int i4, Set set, Set set2, int i5, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i5 & 1) != 0 ? 0 : i, (i5 & 2) != 0 ? 0L : j, (i5 & 4) != 0 ? 0 : i2, j2, i3, i4, (i5 & 64) != 0 ? new HashSet() : set, (i5 & 128) != 0 ? new HashSet() : set2);
     }
 }

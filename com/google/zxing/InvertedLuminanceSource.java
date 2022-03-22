@@ -21,9 +21,9 @@ public final class InvertedLuminanceSource extends LuminanceSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {luminanceSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -35,10 +35,10 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public LuminanceSource crop(int i2, int i3, int i4, int i5) {
+    public LuminanceSource crop(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i2, i3, i4, i5)) == null) ? new InvertedLuminanceSource(this.delegate.crop(i2, i3, i4, i5)) : (LuminanceSource) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) ? new InvertedLuminanceSource(this.delegate.crop(i, i2, i3, i4)) : (LuminanceSource) invokeIIII.objValue;
     }
 
     @Override // com.google.zxing.LuminanceSource
@@ -49,8 +49,8 @@ public final class InvertedLuminanceSource extends LuminanceSource {
             byte[] matrix = this.delegate.getMatrix();
             int width = getWidth() * getHeight();
             byte[] bArr = new byte[width];
-            for (int i2 = 0; i2 < width; i2++) {
-                bArr[i2] = (byte) (255 - (matrix[i2] & 255));
+            for (int i = 0; i < width; i++) {
+                bArr[i] = (byte) (255 - (matrix[i] & 255));
             }
             return bArr;
         }
@@ -58,14 +58,14 @@ public final class InvertedLuminanceSource extends LuminanceSource {
     }
 
     @Override // com.google.zxing.LuminanceSource
-    public byte[] getRow(int i2, byte[] bArr) {
+    public byte[] getRow(int i, byte[] bArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr)) == null) {
-            byte[] row = this.delegate.getRow(i2, bArr);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bArr)) == null) {
+            byte[] row = this.delegate.getRow(i, bArr);
             int width = getWidth();
-            for (int i3 = 0; i3 < width; i3++) {
-                row[i3] = (byte) (255 - (row[i3] & 255));
+            for (int i2 = 0; i2 < width; i2++) {
+                row[i2] = (byte) (255 - (row[i2] & 255));
             }
             return row;
         }

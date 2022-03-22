@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ay extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ av.b.c a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ay(av.b.c cVar, int i2) {
-        super(i2);
+    public ay(av.b.c cVar, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Integer.valueOf(i2)};
+            Object[] objArr = {cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,11 +47,11 @@ public class ay extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av a = av.a();
-            av.b bVar = this.a.f923a;
-            if (a.a(bVar.f59985g, bVar.f919b).f910a == null) {
-                XMPushService xMPushService = this.a.f59990b.f912a;
-                av.b bVar2 = this.a.f923a;
-                xMPushService.a(bVar2.f59985g, bVar2.f919b, 2, null, null);
+            av.b bVar = this.a.f899a;
+            if (a.a(bVar.f44551g, bVar.f895b).f886a == null) {
+                XMPushService xMPushService = this.a.f44555b.f888a;
+                av.b bVar2 = this.a.f899a;
+                xMPushService.a(bVar2.f44551g, bVar2.f895b, 2, null, null);
             }
         }
     }

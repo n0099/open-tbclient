@@ -10,7 +10,7 @@ import org.apache.http.conn.ClientConnectionManager;
 import org.apache.http.impl.conn.AbstractPoolEntry;
 import org.apache.http.impl.conn.AbstractPooledConnAdapter;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicPooledConnAdapter extends AbstractPooledConnAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class BasicPooledConnAdapter extends AbstractPooledConnAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {threadSafeClientConnManager, abstractPoolEntry};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ClientConnectionManager) objArr2[0], (AbstractPoolEntry) objArr2[1]);
                 newInitContext.thisArg = this;

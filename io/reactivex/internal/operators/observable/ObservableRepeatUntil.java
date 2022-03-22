@@ -36,9 +36,9 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, booleanSupplier, sequentialDisposable, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,11 +94,11 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
         public void subscribeNext() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 do {
                     this.source.subscribe(this);
-                    i2 = addAndGet(-i2);
-                } while (i2 != 0);
+                    i = addAndGet(-i);
+                } while (i != 0);
             }
         }
     }
@@ -112,9 +112,9 @@ public final class ObservableRepeatUntil<T> extends AbstractObservableWithUpstre
             newInitContext.initArgs = r2;
             Object[] objArr = {observable, booleanSupplier};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

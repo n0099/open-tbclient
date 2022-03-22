@@ -11,8 +11,8 @@ import java.util.List;
 public class FIFOLimitedMemoryCache extends LimitedMemoryCache {
     public final List<DecodedResult> queue;
 
-    public FIFOLimitedMemoryCache(int i2) {
-        super(i2);
+    public FIFOLimitedMemoryCache(int i) {
+        super(i);
         this.queue = Collections.synchronizedList(new LinkedList());
     }
 

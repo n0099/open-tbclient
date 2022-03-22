@@ -1,8 +1,9 @@
 package com.baidu.searchbox.block.impl;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.h.a.a;
+import c.e.a.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -52,19 +53,20 @@ public class BlockMonitor implements IBlockMonitor {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // c.h.a.a.f
+        @Override // c.e.a.a.f
         public void onAppNotResponding(ANRError aNRError) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
+                Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
                 BlockMonitor.collectData(aNRError.getSTStackMap());
             }
         }
@@ -95,9 +97,9 @@ public class BlockMonitor implements IBlockMonitor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,7 +154,8 @@ public class BlockMonitor implements IBlockMonitor {
                             sb.append(stackTraceElement.toString() + "\r\n");
                         }
                     }
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e("ThreadCollector", "ThreadInfo Collector Interrupted!!", e2);
                 }
             }
             return sb.toString();
@@ -168,19 +171,19 @@ public class BlockMonitor implements IBlockMonitor {
     }
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
-    public void startBlockMonitor(int i2) {
+    public void startBlockMonitor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.mMonitorStarted) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.mMonitorStarted) {
             return;
         }
         this.mMonitorStarted = true;
-        a aVar = new a(i2);
+        a aVar = new a(i);
         this.mBlockWatchDog = aVar;
         aVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl(null));
         if (AppConfig.isDebug()) {
-            String str = "start mBlockWatchDog = " + this.mBlockWatchDog.getName() + " Monitor";
+            Log.d(TAG, "start mBlockWatchDog = " + this.mBlockWatchDog.getName() + " Monitor");
         }
         this.mBlockWatchDog.start();
     }

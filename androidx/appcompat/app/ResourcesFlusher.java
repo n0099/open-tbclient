@@ -2,6 +2,7 @@ package androidx.appcompat.app;
 
 import android.content.res.Resources;
 import android.os.Build;
+import android.util.Log;
 import android.util.LongSparseArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -31,9 +32,9 @@ public class ResourcesFlusher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,16 +42,16 @@ public class ResourcesFlusher {
     }
 
     public static void flush(@NonNull Resources resources) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, resources) == null) || (i2 = Build.VERSION.SDK_INT) >= 28) {
+        if (!(interceptable == null || interceptable.invokeL(65537, null, resources) == null) || (i = Build.VERSION.SDK_INT) >= 28) {
             return;
         }
-        if (i2 >= 24) {
+        if (i >= 24) {
             flushNougats(resources);
-        } else if (i2 >= 23) {
+        } else if (i >= 23) {
             flushMarshmallows(resources);
-        } else if (i2 >= 21) {
+        } else if (i >= 21) {
             flushLollipops(resources);
         }
     }
@@ -64,7 +65,8 @@ public class ResourcesFlusher {
                     Field declaredField = Resources.class.getDeclaredField("mDrawableCache");
                     sDrawableCacheField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "Could not retrieve Resources#mDrawableCache field", e2);
                 }
                 sDrawableCacheFieldFetched = true;
             }
@@ -73,7 +75,8 @@ public class ResourcesFlusher {
                 Map map = null;
                 try {
                     map = (Map) field.get(resources);
-                } catch (IllegalAccessException unused2) {
+                } catch (IllegalAccessException e3) {
+                    Log.e(TAG, "Could not retrieve value from Resources#mDrawableCache", e3);
                 }
                 if (map != null) {
                     map.clear();
@@ -91,7 +94,8 @@ public class ResourcesFlusher {
                     Field declaredField = Resources.class.getDeclaredField("mDrawableCache");
                     sDrawableCacheField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "Could not retrieve Resources#mDrawableCache field", e2);
                 }
                 sDrawableCacheFieldFetched = true;
             }
@@ -100,7 +104,8 @@ public class ResourcesFlusher {
             if (field != null) {
                 try {
                     obj = field.get(resources);
-                } catch (IllegalAccessException unused2) {
+                } catch (IllegalAccessException e3) {
+                    Log.e(TAG, "Could not retrieve value from Resources#mDrawableCache", e3);
                 }
             }
             if (obj == null) {
@@ -120,7 +125,8 @@ public class ResourcesFlusher {
                     Field declaredField = Resources.class.getDeclaredField("mResourcesImpl");
                     sResourcesImplField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
+                } catch (NoSuchFieldException e2) {
+                    Log.e(TAG, "Could not retrieve Resources#mResourcesImpl field", e2);
                 }
                 sResourcesImplFieldFetched = true;
             }
@@ -131,7 +137,8 @@ public class ResourcesFlusher {
             Object obj2 = null;
             try {
                 obj = field.get(resources);
-            } catch (IllegalAccessException unused2) {
+            } catch (IllegalAccessException e3) {
+                Log.e(TAG, "Could not retrieve value from Resources#mResourcesImpl", e3);
                 obj = null;
             }
             if (obj == null) {
@@ -142,7 +149,8 @@ public class ResourcesFlusher {
                     Field declaredField2 = obj.getClass().getDeclaredField("mDrawableCache");
                     sDrawableCacheField = declaredField2;
                     declaredField2.setAccessible(true);
-                } catch (NoSuchFieldException unused3) {
+                } catch (NoSuchFieldException e4) {
+                    Log.e(TAG, "Could not retrieve ResourcesImpl#mDrawableCache field", e4);
                 }
                 sDrawableCacheFieldFetched = true;
             }
@@ -150,7 +158,8 @@ public class ResourcesFlusher {
             if (field2 != null) {
                 try {
                     obj2 = field2.get(obj);
-                } catch (IllegalAccessException unused4) {
+                } catch (IllegalAccessException e5) {
+                    Log.e(TAG, "Could not retrieve value from ResourcesImpl#mDrawableCache", e5);
                 }
             }
             if (obj2 != null) {
@@ -166,7 +175,8 @@ public class ResourcesFlusher {
             if (!sThemedResourceCacheClazzFetched) {
                 try {
                     sThemedResourceCacheClazz = Class.forName("android.content.res.ThemedResourceCache");
-                } catch (ClassNotFoundException unused) {
+                } catch (ClassNotFoundException e2) {
+                    Log.e(TAG, "Could not find ThemedResourceCache class", e2);
                 }
                 sThemedResourceCacheClazzFetched = true;
             }
@@ -179,7 +189,8 @@ public class ResourcesFlusher {
                     Field declaredField = cls.getDeclaredField("mUnthemedEntries");
                     sThemedResourceCache_mUnthemedEntriesField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused2) {
+                } catch (NoSuchFieldException e3) {
+                    Log.e(TAG, "Could not retrieve ThemedResourceCache#mUnthemedEntries field", e3);
                 }
                 sThemedResourceCache_mUnthemedEntriesFieldFetched = true;
             }
@@ -190,7 +201,8 @@ public class ResourcesFlusher {
             LongSparseArray longSparseArray = null;
             try {
                 longSparseArray = (LongSparseArray) field.get(obj);
-            } catch (IllegalAccessException unused3) {
+            } catch (IllegalAccessException e4) {
+                Log.e(TAG, "Could not retrieve value from ThemedResourceCache#mUnthemedEntries", e4);
             }
             if (longSparseArray != null) {
                 longSparseArray.clear();

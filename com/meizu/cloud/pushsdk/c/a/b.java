@@ -4,12 +4,12 @@ import com.meizu.cloud.pushsdk.c.f.d;
 import com.meizu.cloud.pushsdk.c.f.e;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements a {
     public final String a = b.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public final HashMap<String, Object> f57226b = new HashMap<>();
+    public final HashMap<String, Object> f42064b = new HashMap<>();
 
     public b(String str, Object obj) {
         a(str);
@@ -20,20 +20,20 @@ public class b implements a {
         if (obj == null) {
             return this;
         }
-        this.f57226b.put("dt", obj);
+        this.f42064b.put("dt", obj);
         return this;
     }
 
     public b a(String str) {
         d.a(str, "schema cannot be null");
         d.a(!str.isEmpty(), "schema cannot be empty.");
-        this.f57226b.put("sa", str);
+        this.f42064b.put("sa", str);
         return this;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public Map<String, Object> a() {
-        return this.f57226b;
+        return this.f42064b;
     }
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
@@ -49,6 +49,6 @@ public class b implements a {
 
     @Override // com.meizu.cloud.pushsdk.c.a.a
     public String toString() {
-        return e.a((Map) this.f57226b).toString();
+        return e.a((Map) this.f42064b).toString();
     }
 }

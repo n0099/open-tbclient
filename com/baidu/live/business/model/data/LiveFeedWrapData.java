@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.w.b.f.c;
-import c.a.w.f.g.d;
+import c.a.v.b.f.c;
+import c.a.v.f.g.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -20,7 +20,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class LiveFeedWrapData implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<LiveFeedWrapData> CREATOR;
@@ -40,7 +40,7 @@ public class LiveFeedWrapData implements Parcelable {
     public String subTab;
     public String tab;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Parcelable.Creator<LiveFeedWrapData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class LiveFeedWrapData implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,10 +71,10 @@ public class LiveFeedWrapData implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public LiveFeedWrapData[] newArray(int i2) {
+        public LiveFeedWrapData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new LiveFeedWrapData[i2] : (LiveFeedWrapData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new LiveFeedWrapData[i] : (LiveFeedWrapData[]) invokeI.objValue;
         }
     }
 
@@ -99,9 +99,9 @@ public class LiveFeedWrapData implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -134,8 +134,8 @@ public class LiveFeedWrapData implements Parcelable {
         boolean z = false;
         if (optJSONArray != null && optJSONArray.length() > 0) {
             this.roomInfoList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     LiveRoomEntity liveRoomEntity = new LiveRoomEntity();
                     liveRoomEntity.parserJson(optJSONObject);
@@ -162,12 +162,12 @@ public class LiveFeedWrapData implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.refreshType == 0 : invokeV.booleanValue;
     }
 
-    public void parserJson(JSONObject jSONObject, int i2) {
+    public void parserJson(JSONObject jSONObject, int i) {
         List<LiveRoomEntity> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
             parseJsonByResponse(jSONObject);
-            if (TextUtils.isEmpty(this.tab) || (list = this.roomInfoList) == null || list.isEmpty() || i2 != 0) {
+            if (TextUtils.isEmpty(this.tab) || (list = this.roomInfoList) == null || list.isEmpty() || i != 0) {
                 return;
             }
             try {
@@ -180,9 +180,9 @@ public class LiveFeedWrapData implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.resource);
             parcel.writeInt(this.errCode);
             parcel.writeString(this.errMsg);
@@ -205,9 +205,9 @@ public class LiveFeedWrapData implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

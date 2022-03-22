@@ -23,17 +23,17 @@ public class WebResourceResponse {
     public int mStatusCode;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WebResourceResponse(String str, String str2, int i2, String str3, Map<String, String> map, InputStream inputStream) {
+    public WebResourceResponse(String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
         this(str, str2, inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2), str3, map, inputStream};
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, map, inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (InputStream) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -41,7 +41,7 @@ public class WebResourceResponse {
                 return;
             }
         }
-        setStatusCodeAndReasonPhrase(i2, str3);
+        setStatusCodeAndReasonPhrase(i, str3);
         setResponseHeaders(map);
     }
 
@@ -52,9 +52,9 @@ public class WebResourceResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, inputStream};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,16 +65,16 @@ public class WebResourceResponse {
         setData(inputStream);
     }
 
-    public WebResourceResponse(boolean z, String str, String str2, int i2, String str3, Map<String, String> map, InputStream inputStream) {
+    public WebResourceResponse(boolean z, String str, String str2, int i, String str3, Map<String, String> map, InputStream inputStream) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), str, str2, Integer.valueOf(i2), str3, map, inputStream};
+            Object[] objArr = {Boolean.valueOf(z), str, str2, Integer.valueOf(i), str3, map, inputStream};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -83,7 +83,7 @@ public class WebResourceResponse {
         this.mImmutable = z;
         this.mMimeType = str;
         this.mEncoding = str2;
-        this.mStatusCode = i2;
+        this.mStatusCode = i;
         this.mReasonPhrase = str3;
         this.mResponseHeaders = map;
         this.mInputStream = inputStream;
@@ -173,17 +173,17 @@ public class WebResourceResponse {
         }
     }
 
-    public void setStatusCodeAndReasonPhrase(int i2, String str) {
+    public void setStatusCodeAndReasonPhrase(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
             checkImmutable();
-            if (i2 < 100) {
+            if (i < 100) {
                 throw new IllegalArgumentException("statusCode can't be less than 100.");
             }
-            if (i2 > 599) {
+            if (i > 599) {
                 throw new IllegalArgumentException("statusCode can't be greater than 599.");
             }
-            if (i2 > 299 && i2 < 400) {
+            if (i > 299 && i < 400) {
                 throw new IllegalArgumentException("statusCode can't be in the [300, 399] range.");
             }
             if (str == null) {
@@ -192,12 +192,12 @@ public class WebResourceResponse {
             if (str.trim().isEmpty()) {
                 throw new IllegalArgumentException("reasonPhrase can't be empty.");
             }
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                if (str.charAt(i3) > 127) {
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (str.charAt(i2) > 127) {
                     throw new IllegalArgumentException("reasonPhrase can't contain non-ASCII characters.");
                 }
             }
-            this.mStatusCode = i2;
+            this.mStatusCode = i;
             this.mReasonPhrase = str;
         }
     }

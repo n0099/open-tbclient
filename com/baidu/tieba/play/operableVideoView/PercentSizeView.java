@@ -9,16 +9,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PercentSizeView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f45939e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f45940f;
+    /* renamed from: b  reason: collision with root package name */
+    public float f35586b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PercentSizeView(Context context) {
@@ -29,35 +27,35 @@ public class PercentSizeView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45939e = 1.0f;
-        this.f45940f = 1.0f;
+        this.a = 1.0f;
+        this.f35586b = 1.0f;
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         int measuredWidth;
         int measuredHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            if (View.MeasureSpec.getMode(i2) == 1073741824) {
-                measuredWidth = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (View.MeasureSpec.getMode(i) == 1073741824) {
+                measuredWidth = View.MeasureSpec.getSize(i);
             } else {
-                measuredWidth = (int) (getMeasuredWidth() * this.f45940f);
+                measuredWidth = (int) (getMeasuredWidth() * this.f35586b);
             }
-            if (View.MeasureSpec.getMode(i3) == 1073741824) {
-                measuredHeight = View.MeasureSpec.getSize(i3);
+            if (View.MeasureSpec.getMode(i2) == 1073741824) {
+                measuredHeight = View.MeasureSpec.getSize(i2);
             } else {
-                measuredHeight = (int) (getMeasuredHeight() * this.f45939e);
+                measuredHeight = (int) (getMeasuredHeight() * this.a);
             }
             setMeasuredDimension(measuredWidth, measuredHeight);
         }
@@ -68,7 +66,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f45939e = f2;
+        this.a = f2;
     }
 
     public void setWidthPercent(float f2) {
@@ -76,7 +74,7 @@ public class PercentSizeView extends View {
         if (!(interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2) == null) || f2 <= 0.0f) {
             return;
         }
-        this.f45940f = f2;
+        this.f35586b = f2;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,9 +86,9 @@ public class PercentSizeView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -98,22 +96,22 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f45939e = 1.0f;
-        this.f45940f = 1.0f;
+        this.a = 1.0f;
+        this.f35586b = 1.0f;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -121,7 +119,7 @@ public class PercentSizeView extends View {
                 return;
             }
         }
-        this.f45939e = 1.0f;
-        this.f45940f = 1.0f;
+        this.a = 1.0f;
+        this.f35586b = 1.0f;
     }
 }

@@ -3,6 +3,7 @@ package com.baidu.searchbox.logsystem.basic.upload;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.JsonWriter;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.util.io.Closeables;
@@ -50,9 +51,9 @@ public final class CrashPadUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,7 +72,7 @@ public final class CrashPadUtil {
             }
             if (DEBUG) {
                 DebugUtil.saveLog("json-extra : " + ((String) readFile.first));
-                String str = "json-extra.size = " + ((String) readFile.first).length();
+                Log.d(TAG, "json-extra.size = " + ((String) readFile.first).length());
             }
             jsonWriter.name(Constant.CRASH_ENVIR).value((String) readFile.first);
         } catch (IOException e2) {
@@ -108,14 +109,14 @@ public final class CrashPadUtil {
         try {
             byte[] bArr = new byte[1024];
             int round = Math.round(76800.0f);
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 int read = fileInputStream.read(bArr);
-                if (read == -1 || i2 >= round) {
+                if (read == -1 || i >= round) {
                     break;
                 }
                 byteArrayOutputStream.write(bArr, 0, read);
-                i2 += read;
+                i += read;
             }
             byteArrayOutputStream.flush();
             String encodeToString = Base64.encodeToString(byteArrayOutputStream.toByteArray(), 11);

@@ -4,23 +4,24 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class v implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Map f59242b;
+    public final /* synthetic */ Map f43877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ u f59243c;
+    public final /* synthetic */ u f43878c;
 
     public v(u uVar, Context context, Map map) {
         Interceptable interceptable = $ic;
@@ -29,17 +30,17 @@ public final class v implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {uVar, context, map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59243c = uVar;
+        this.f43878c = uVar;
         this.a = context;
-        this.f59242b = map;
+        this.f43877b = map;
     }
 
     @Override // java.lang.Runnable
@@ -57,7 +58,7 @@ public final class v implements Runnable {
                             Intent intent = new Intent();
                             intent.setComponent(componentName);
                             intent.setFlags(335544320);
-                            u.b(intent, this.f59242b);
+                            u.b(intent, this.f43877b);
                             this.a.startActivity(intent);
                             return;
                         }
@@ -68,8 +69,8 @@ public final class v implements Runnable {
             }
             Intent launchIntentForPackage = this.a.getPackageManager().getLaunchIntentForPackage(this.a.getPackageName());
             if (launchIntentForPackage != null) {
-                launchIntentForPackage.setFlags(268435456);
-                u.b(launchIntentForPackage, this.f59242b);
+                launchIntentForPackage.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                u.b(launchIntentForPackage, this.f43877b);
                 this.a.startActivity(launchIntentForPackage);
                 return;
             }

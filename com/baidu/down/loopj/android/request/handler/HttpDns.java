@@ -1,5 +1,6 @@
 package com.baidu.down.loopj.android.request.handler;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.utils.NamingThreadFactory;
@@ -28,7 +29,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class HttpDns {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCOUNT_ID = "0024";
@@ -45,7 +46,7 @@ public final class HttpDns {
     public CopyOnWriteArrayList<String> mRequstingHost;
     public ExecutorService pool;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class HostObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +63,9 @@ public final class HttpDns {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpDns};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -117,17 +118,17 @@ public final class HttpDns {
             }
         }
 
-        public void setmQueryTime(long j2) {
+        public void setmQueryTime(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.mQueryTime = j2;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.mQueryTime = j;
             }
         }
 
-        public void setmTtl(long j2) {
+        public void setmTtl(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-                this.mTtl = j2;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.mTtl = j;
             }
         }
 
@@ -141,7 +142,7 @@ public final class HttpDns {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class QueryHostTask implements Callable<String[]> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,9 +157,9 @@ public final class HttpDns {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpDns, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -170,21 +171,20 @@ public final class HttpDns {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:86:0x01c3  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x01cb A[RETURN] */
+        /* JADX WARN: Removed duplicated region for block: B:87:0x01cb  */
+        /* JADX WARN: Removed duplicated region for block: B:89:0x01d3 A[RETURN] */
         @Override // java.util.concurrent.Callable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public String[] call() {
             InterceptResult invokeV;
-            Throwable th;
             InputStream inputStream;
             HttpURLConnection httpURLConnection;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 String str = "http://" + HttpDns.serverIp + "/" + HttpDns.ACCOUNT_ID + "/?dn=" + this.hostName;
-                String str2 = "[QueryHostTask.call] - buildUrl: " + str;
+                Log.v(HttpDns.TAG, "[QueryHostTask.call] - buildUrl: " + str);
                 HttpURLConnection httpURLConnection2 = null;
                 try {
                     httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
@@ -192,7 +192,7 @@ public final class HttpDns {
                         httpURLConnection.setConnectTimeout(10000);
                         httpURLConnection.setReadTimeout(10000);
                         if (httpURLConnection.getResponseCode() != 200) {
-                            String str3 = "[QueryHostTask.call] - response code: " + httpURLConnection.getResponseCode();
+                            Log.w(HttpDns.TAG, "[QueryHostTask.call] - response code: " + httpURLConnection.getResponseCode());
                         } else {
                             inputStream = httpURLConnection.getInputStream();
                             try {
@@ -206,11 +206,11 @@ public final class HttpDns {
                                     sb.append(readLine);
                                 }
                                 JSONObject jSONObject = new JSONObject(sb.toString());
-                                long j2 = jSONObject.getLong(ResultTB.TTL);
+                                long j = jSONObject.getLong(ResultTB.TTL);
                                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                                 if (optJSONObject != null) {
-                                    if (j2 == 0) {
-                                        j2 = 300;
+                                    if (j == 0) {
+                                        j = 300;
                                     }
                                     HostObject hostObject = new HostObject(this.this$0);
                                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(this.hostName);
@@ -232,12 +232,12 @@ public final class HttpDns {
                                         JSONArray optJSONArray = optJSONObject2.optJSONArray("ip");
                                         if (optJSONArray != null) {
                                             String[] strArr = new String[optJSONArray.length()];
-                                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                                strArr[i2] = optJSONArray.getString(i2);
-                                                String str4 = "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i2] + " mTtl:" + j2;
+                                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                                strArr[i] = optJSONArray.getString(i);
+                                                Log.v(HttpDns.TAG, "[QueryHostTask.call] - resolve host:" + this.hostName + " ip:" + strArr[i] + " mTtl:" + j);
                                             }
                                             hostObject.setHostName(this.hostName);
-                                            hostObject.setmTtl(j2);
+                                            hostObject.setmTtl(j);
                                             hostObject.setIp(strArr);
                                             hostObject.setmQueryTime(System.currentTimeMillis() / 1000);
                                             if (this.this$0.hostManager.size() < 100) {
@@ -288,9 +288,9 @@ public final class HttpDns {
                                 this.this$0.mRequstingHost.remove(this.hostName);
                                 if (this.isRequestRetried) {
                                 }
-                            } catch (Throwable th2) {
+                            } catch (Throwable th) {
+                                th = th;
                                 httpURLConnection2 = httpURLConnection;
-                                th = th2;
                                 if (httpURLConnection2 != null) {
                                     httpURLConnection2.disconnect();
                                 }
@@ -308,16 +308,15 @@ public final class HttpDns {
                         httpURLConnection.disconnect();
                     } catch (Exception unused2) {
                         inputStream = null;
-                    } catch (Throwable th3) {
-                        httpURLConnection2 = httpURLConnection;
-                        th = th3;
+                    } catch (Throwable th2) {
+                        th = th2;
                         inputStream = null;
                     }
                 } catch (Exception unused3) {
                     httpURLConnection = null;
                     inputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
+                } catch (Throwable th3) {
+                    th = th3;
                     inputStream = null;
                 }
                 this.this$0.mRequstingHost.remove(this.hostName);
@@ -352,9 +351,9 @@ public final class HttpDns {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -379,7 +378,7 @@ public final class HttpDns {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
                 if (this.degradationFilter != null && this.degradationFilter.shouldDegradeHttpDNS(str)) {
-                    String str2 = "[degradationFilter] - degradationFilter Degrade " + str;
+                    Log.v(TAG, "[degradationFilter] - degradationFilter Degrade " + str);
                     return null;
                 }
                 HostObject hostObject = this.hostManager.get(str);
@@ -389,7 +388,7 @@ public final class HttpDns {
                     }
                     return hostObject.getIp();
                 }
-                String str3 = "[getIpByHost] - fetch result from network, host: " + str;
+                Log.v(TAG, "[getIpByHost] - fetch result from network, host: " + str);
                 Future submit = this.pool.submit(new QueryHostTask(this, str));
                 this.mRequstingHost.add(str);
                 try {

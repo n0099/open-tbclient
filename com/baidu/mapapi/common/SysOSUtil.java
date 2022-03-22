@@ -17,9 +17,9 @@ public class SysOSUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,7 +29,7 @@ public class SysOSUtil {
     public static float getDensity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f34738c : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? i.f26916c : invokeV.floatValue;
     }
 
     public static int getDensityDpi() {

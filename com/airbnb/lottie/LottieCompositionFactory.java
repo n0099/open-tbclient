@@ -184,13 +184,13 @@ public class LottieCompositionFactory {
         return fromJsonStringSync(jSONObject.toString(), str);
     }
 
-    public static LottieTask<LottieComposition> fromRawRes(Context context, @RawRes int i2) {
-        return fromRawRes(context, i2, rawResCacheKey(context, i2));
+    public static LottieTask<LottieComposition> fromRawRes(Context context, @RawRes int i) {
+        return fromRawRes(context, i, rawResCacheKey(context, i));
     }
 
     @WorkerThread
-    public static LottieResult<LottieComposition> fromRawResSync(Context context, @RawRes int i2) {
-        return fromRawResSync(context, i2, rawResCacheKey(context, i2));
+    public static LottieResult<LottieComposition> fromRawResSync(Context context, @RawRes int i) {
+        return fromRawResSync(context, i, rawResCacheKey(context, i));
     }
 
     public static LottieTask<LottieComposition> fromUrl(Context context, String str) {
@@ -270,16 +270,16 @@ public class LottieCompositionFactory {
         return (context.getResources().getConfiguration().uiMode & 48) == 32;
     }
 
-    public static String rawResCacheKey(Context context, @RawRes int i2) {
+    public static String rawResCacheKey(Context context, @RawRes int i) {
         StringBuilder sb = new StringBuilder();
         sb.append("rawRes");
         sb.append(isNightMode(context) ? "_night_" : "_day_");
-        sb.append(i2);
+        sb.append(i);
         return sb.toString();
     }
 
-    public static void setMaxCacheSize(int i2) {
-        LottieCompositionCache.getInstance().resize(i2);
+    public static void setMaxCacheSize(int i) {
+        LottieCompositionCache.getInstance().resize(i);
     }
 
     @WorkerThread
@@ -293,7 +293,7 @@ public class LottieCompositionFactory {
         }
     }
 
-    public static LottieTask<LottieComposition> fromRawRes(Context context, @RawRes final int i2, @Nullable final String str) {
+    public static LottieTask<LottieComposition> fromRawRes(Context context, @RawRes final int i, @Nullable final String str) {
         final WeakReference weakReference = new WeakReference(context);
         final Context applicationContext = context.getApplicationContext();
         return cache(str, new Callable<LottieResult<LottieComposition>>() { // from class: com.airbnb.lottie.LottieCompositionFactory.3
@@ -305,15 +305,15 @@ public class LottieCompositionFactory {
                 if (context2 == null) {
                     context2 = applicationContext;
                 }
-                return LottieCompositionFactory.fromRawResSync(context2, i2, str);
+                return LottieCompositionFactory.fromRawResSync(context2, i, str);
             }
         });
     }
 
     @WorkerThread
-    public static LottieResult<LottieComposition> fromRawResSync(Context context, @RawRes int i2, @Nullable String str) {
+    public static LottieResult<LottieComposition> fromRawResSync(Context context, @RawRes int i, @Nullable String str) {
         try {
-            return fromJsonInputStreamSync(context.getResources().openRawResource(i2), str);
+            return fromJsonInputStreamSync(context.getResources().openRawResource(i), str);
         } catch (Resources.NotFoundException e2) {
             return new LottieResult<>(e2);
         }

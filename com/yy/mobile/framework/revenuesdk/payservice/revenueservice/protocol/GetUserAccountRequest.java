@@ -10,7 +10,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetUserAccountRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,25 +20,25 @@ public class GetUserAccountRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    public GetUserAccountRequest(String str, long j2, int i2, int i3, boolean z) {
+    public GetUserAccountRequest(String str, long j, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.seq = str;
-        this.uid = j2;
-        this.appId = i2;
-        this.usedChannel = i3;
+        this.uid = j;
+        this.appId = i;
+        this.usedChannel = i2;
         this.returnYb = z;
     }
 

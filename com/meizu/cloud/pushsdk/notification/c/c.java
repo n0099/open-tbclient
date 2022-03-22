@@ -1,18 +1,20 @@
 package com.meizu.cloud.pushsdk.notification.c;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.sina.weibo.sdk.utils.ResourceManager;
+/* loaded from: classes7.dex */
 public class c {
     public static int a(Context context) {
-        return d.a(context).a("push_expandable_big_image_notification", "layout");
+        return d.a(context).a("push_expandable_big_image_notification", TtmlNode.TAG_LAYOUT);
     }
 
     public static int b(Context context) {
-        return d.a(context).a("push_expandable_big_text_notification", "layout");
+        return d.a(context).a("push_expandable_big_text_notification", TtmlNode.TAG_LAYOUT);
     }
 
     public static int c(Context context) {
-        return d.a(context).a("push_pure_pic_notification", "layout");
+        return d.a(context).a("push_pure_pic_notification", TtmlNode.TAG_LAYOUT);
     }
 
     public static int d(Context context) {
@@ -48,6 +50,6 @@ public class c {
     }
 
     public static int l(Context context) {
-        return d.a(context).a("stat_sys_third_app_notify", "drawable");
+        return d.a(context).a("stat_sys_third_app_notify", ResourceManager.DRAWABLE);
     }
 }

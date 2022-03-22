@@ -17,13 +17,13 @@ public class VMsg {
     public static final String a = "VMsg";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Handler f34754b;
+    public static Handler f26930b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HandlerThread f34755c;
+    public static HandlerThread f26931c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static VMsg f34756d;
+    public static VMsg f26932d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -40,9 +40,9 @@ public class VMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -74,7 +74,7 @@ public class VMsg {
                 return;
             }
         }
-        f34756d = new VMsg();
+        f26932d = new VMsg();
     }
 
     public VMsg() {
@@ -82,9 +82,9 @@ public class VMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -93,40 +93,40 @@ public class VMsg {
 
     public static native void InitClass(Object obj);
 
-    public static native void OnUserCommand1(int i2, int i3, int i4, long j2);
+    public static native void OnUserCommand1(int i, int i2, int i3, long j);
 
     public static void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            f34755c.quit();
-            f34755c = null;
-            f34754b.removeCallbacksAndMessages(null);
-            f34754b = null;
+            f26931c.quit();
+            f26931c = null;
+            f26930b.removeCallbacksAndMessages(null);
+            f26930b = null;
         }
     }
 
     public static VMsg getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f34756d : (VMsg) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? f26932d : (VMsg) invokeV.objValue;
     }
 
     public static void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             HandlerThread handlerThread = new HandlerThread("VIMsgThread");
-            f34755c = handlerThread;
+            f26931c = handlerThread;
             handlerThread.start();
-            f34754b = new a(f34755c.getLooper());
+            f26930b = new a(f26931c.getLooper());
         }
     }
 
-    public static void postMessage(int i2, int i3, int i4, long j2) {
+    public static void postMessage(int i, int i2, int i3, long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)}) == null) || (handler = f34754b) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) || (handler = f26930b) == null) {
             return;
         }
-        Message.obtain(handler, i2, i3, i4, j2 == 0 ? null : Long.valueOf(j2)).sendToTarget();
+        Message.obtain(handler, i, i2, i3, j == 0 ? null : Long.valueOf(j)).sendToTarget();
     }
 }

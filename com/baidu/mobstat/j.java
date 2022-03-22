@@ -25,9 +25,9 @@ public abstract class j implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,7 +51,7 @@ public abstract class j implements Closeable {
 
     public abstract long a(String str, String str2);
 
-    public abstract ArrayList<i> a(int i2, int i3);
+    public abstract ArrayList<i> a(int i, int i2);
 
     public int b() {
         InterceptResult invokeV;
@@ -59,7 +59,7 @@ public abstract class j implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.b() : invokeV.intValue;
     }
 
-    public abstract boolean b(long j2);
+    public abstract boolean b(long j);
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public synchronized void close() {
@@ -93,22 +93,22 @@ public abstract class j implements Closeable {
         return invokeV.booleanValue;
     }
 
-    public Cursor a(String str, int i2, int i3) {
+    public Cursor a(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i2, i3)) == null) {
-            return this.a.a(null, null, null, null, null, str + " desc", i3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            return this.a.a(null, null, null, null, null, str + " desc", i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + i);
         }
         return (Cursor) invokeLII.objValue;
     }
 
-    public Cursor a(String str, String str2, String str3, int i2) {
+    public Cursor a(String str, String str2, String str3, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, str2, str3, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048579, this, str, str2, str3, i)) == null) {
             String str4 = str + "=? ";
             String[] strArr = {str2};
-            return this.a.a(null, str4, strArr, null, null, str3 + " desc", i2 + "");
+            return this.a.a(null, str4, strArr, null, null, str3 + " desc", i + "");
         }
         return (Cursor) invokeLLLI.objValue;
     }
@@ -119,12 +119,12 @@ public abstract class j implements Closeable {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contentValues)) == null) ? this.a.a((String) null, contentValues) : invokeL.longValue;
     }
 
-    public boolean a(long j2) {
+    public boolean a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
             StringBuilder sb = new StringBuilder();
-            sb.append(j2);
+            sb.append(j);
             sb.append("");
             return this.a.a("_id=? ", new String[]{sb.toString()}) > 0;
         }

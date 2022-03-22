@@ -16,7 +16,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -26,16 +25,16 @@ public class ExceptionAnalysis {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34932b;
+    public boolean f27093b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f34933c;
+    public Context f27094c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HeadObject f34934d;
+    public HeadObject f27095d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34935e;
+    public String f27096e;
     public Callback mCallback;
 
     /* loaded from: classes4.dex */
@@ -64,16 +63,16 @@ public class ExceptionAnalysis {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f34932b = false;
-        this.f34934d = new HeadObject();
+        this.f27093b = false;
+        this.f27095d = new HeadObject();
     }
 
     private JSONObject a() {
@@ -82,11 +81,11 @@ public class ExceptionAnalysis {
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("app_session", 0);
+                jSONObject.put(Config.TRACE_APPLICATION_SESSION, 0);
             } catch (Exception unused) {
             }
             try {
-                jSONObject.put("failed_cnt", 0);
+                jSONObject.put(Config.TRACE_FAILED_CNT, 0);
             } catch (Exception unused2) {
             }
             return jSONObject;
@@ -104,28 +103,28 @@ public class ExceptionAnalysis {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
             if (context != null) {
-                this.f34933c = context.getApplicationContext();
+                this.f27094c = context.getApplicationContext();
             }
-            if (this.f34933c == null || this.f34932b) {
+            if (this.f27094c == null || this.f27093b) {
                 return;
             }
-            this.f34932b = true;
-            ad.a().a(this.f34933c);
+            this.f27093b = true;
+            ad.a().a(this.f27094c);
             if (z) {
                 return;
             }
-            NativeCrashHandler.init(this.f34933c);
+            NativeCrashHandler.init(this.f27094c);
         }
     }
 
     public void saveCrashInfo(Context context, Throwable th, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, context, th, z) == null) {
             if (context != null) {
-                this.f34933c = context.getApplicationContext();
+                this.f27094c = context.getApplicationContext();
             }
-            if (this.f34933c == null) {
+            if (this.f27094c == null) {
                 return;
             }
             String th2 = th.toString();
@@ -142,13 +141,13 @@ public class ExceptionAnalysis {
             th.printStackTrace(new PrintWriter(stringWriter));
             String obj = stringWriter.toString();
             if (z) {
-                i2 = 0;
+                i = 0;
             } else if (th instanceof Exception) {
-                i2 = 11;
+                i = 11;
             } else {
-                i2 = th instanceof Error ? 12 : 13;
+                i = th instanceof Error ? 12 : 13;
             }
-            saveCrashInfo(this.f34933c, System.currentTimeMillis(), obj, str2, 0, i2);
+            saveCrashInfo(this.f27094c, System.currentTimeMillis(), obj, str2, 0, i);
         }
     }
 
@@ -160,7 +159,7 @@ public class ExceptionAnalysis {
         if (str.length() > 256) {
             str = str.substring(0, 256);
         }
-        this.f34935e = str;
+        this.f27096e = str;
     }
 
     public ExceptionAnalysis(Callback callback) {
@@ -170,16 +169,16 @@ public class ExceptionAnalysis {
             newInitContext.initArgs = r2;
             Object[] objArr = {callback};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f34932b = false;
-        this.f34934d = new HeadObject();
+        this.f27093b = false;
+        this.f27095d = new HeadObject();
         this.mCallback = callback;
     }
 
@@ -200,7 +199,7 @@ public class ExceptionAnalysis {
                     jSONObject.put("total", memoryInfo.totalMem);
                 }
                 jSONObject.put("free", memoryInfo.availMem);
-                jSONObject.put("low", memoryInfo.lowMemory ? 1 : 0);
+                jSONObject.put(Config.EXCEPTION_MEMORY_LOW, memoryInfo.lowMemory ? 1 : 0);
             } catch (Exception unused) {
             }
             return jSONObject;
@@ -208,39 +207,39 @@ public class ExceptionAnalysis {
         return (JSONObject) invokeL.objValue;
     }
 
-    public void saveCrashInfo(Context context, long j2, String str, String str2, int i2, int i3) {
+    public void saveCrashInfo(Context context, long j, String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j2), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             BDStatCore.instance().autoTrackSessionEndTime(context);
             if (context != null && str != null && !str.trim().equals("")) {
                 try {
                     StringBuilder sb = new StringBuilder(str);
-                    if (!TextUtils.isEmpty(this.f34935e)) {
-                        sb.append(StringUtils.LF);
+                    if (!TextUtils.isEmpty(this.f27096e)) {
+                        sb.append("\n");
                         sb.append("ExtraInfo:");
-                        sb.append(this.f34935e);
+                        sb.append(this.f27096e);
                     }
                     String appVersionName = CooperService.instance().getAppVersionName(context);
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("t", j2);
+                    jSONObject.put("t", j);
                     jSONObject.put("c", sb.toString());
                     jSONObject.put("y", str2);
                     jSONObject.put("v", appVersionName);
-                    jSONObject.put("ct", i2);
+                    jSONObject.put(Config.EXCEPTION_CRASH_TYPE, i);
                     jSONObject.put("mem", a(context));
-                    jSONObject.put("ty", i3);
+                    jSONObject.put(Config.EXCEPTION_CRASH_CHANNEL, i2);
                     JSONArray jSONArray = new JSONArray();
                     jSONArray.put(jSONObject);
                     JSONObject jSONObject2 = new JSONObject();
-                    this.f34934d.installHeader(context, jSONObject2);
+                    this.f27095d.installHeader(context, jSONObject2);
                     jSONObject2.put("ss", 0);
-                    jSONObject2.put("sq", 0);
+                    jSONObject2.put(Config.SEQUENCE_INDEX, 0);
                     JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put("he", jSONObject2);
+                    jSONObject3.put(Config.HEADER_PART, jSONObject2);
                     jSONObject3.put("pr", new JSONArray());
-                    jSONObject3.put("ev", new JSONArray());
-                    jSONObject3.put("ex", jSONArray);
-                    jSONObject3.put("trace", a());
+                    jSONObject3.put(Config.EVENT_PART, new JSONArray());
+                    jSONObject3.put(Config.EXCEPTION_PART, jSONArray);
+                    jSONObject3.put(Config.TRACE_PART, a());
                     if (this.mCallback != null) {
                         this.mCallback.onCallback(jSONObject3);
                     }

@@ -1,7 +1,7 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
 
 import android.content.DialogInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IDialogStatusChangedListener {
     void onCancel(DialogInterface dialogInterface);
 

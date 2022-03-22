@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"BaseActivity"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INSTALL_ERROR_CODE = "install_error";
@@ -27,9 +27,9 @@ public class InstallPluginDelegateActivity extends PluginDelegateActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,13 +39,13 @@ public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     }
 
     @Override // com.baidu.searchbox.process.ipc.agent.activity.ProcessDelegateBaseActivity
-    public void exit(int i2, String str) {
+    public void exit(int i, String str) {
         Bundle bundle;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             Intent intent = new Intent();
             intent.putExtra(DelegateDef.EXTRA_DELEGATION_NAME, this.mDelegationName);
-            intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i2);
+            intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i);
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra(DelegateDef.EXTRA_RESULT_DESC, str);
             }
@@ -66,14 +66,14 @@ public class InstallPluginDelegateActivity extends PluginDelegateActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 1245421) {
-                if (i3 == -1) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 1245421) {
+                if (i2 == -1) {
                     this.mErrorCode = 31021;
-                } else if (i3 == 1) {
+                } else if (i2 == 1) {
                     this.mErrorCode = 31022;
                     if (intent != null) {
                         this.mErrorCode = intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022);

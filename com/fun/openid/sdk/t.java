@@ -11,32 +11,32 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface t extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements t {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int a = 0;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.fun.openid.sdk.t$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C2056a implements t {
+        /* loaded from: classes6.dex */
+        public static class C1933a implements t {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2056a(IBinder iBinder) {
+            public C1933a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;

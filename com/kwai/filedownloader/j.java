@@ -15,31 +15,31 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.LinkedBlockingQueue;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class j {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 10;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f56851b = 5;
+    public static int f41715b = 5;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Executor f56852c;
+    public final Executor f41716c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Handler f56853d;
+    public final Handler f41717d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedBlockingQueue<t> f56854e;
+    public final LinkedBlockingQueue<t> f41718e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f56855f;
+    public final Object f41719f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final ArrayList<t> f56856g;
+    public final ArrayList<t> f41720g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final j a;
@@ -62,7 +62,7 @@ public class j {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public class j {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -97,10 +97,10 @@ public class j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i2 = message.what;
-                if (i2 == 1) {
+                int i = message.what;
+                if (i == 1) {
                     ((t) message.obj).b();
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     a((ArrayList) message.obj);
                     j.a().c();
                 }
@@ -130,19 +130,19 @@ public class j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f56852c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
-        this.f56855f = new Object();
-        this.f56856g = new ArrayList<>();
-        this.f56853d = new Handler(Looper.getMainLooper(), new b());
-        this.f56854e = new LinkedBlockingQueue<>();
+        this.f41716c = com.kwai.filedownloader.e.b.a(5, "BlockCompleted");
+        this.f41719f = new Object();
+        this.f41720g = new ArrayList<>();
+        this.f41717d = new Handler(Looper.getMainLooper(), new b());
+        this.f41718e = new LinkedBlockingQueue<>();
     }
 
     public static j a() {
@@ -154,7 +154,7 @@ public class j {
     private void b(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tVar) == null) {
-            Handler handler = this.f56853d;
+            Handler handler = this.f41717d;
             handler.sendMessage(handler.obtainMessage(1, tVar));
         }
     }
@@ -169,25 +169,25 @@ public class j {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            synchronized (this.f56855f) {
-                if (this.f56856g.isEmpty()) {
-                    if (this.f56854e.isEmpty()) {
+            synchronized (this.f41719f) {
+                if (this.f41720g.isEmpty()) {
+                    if (this.f41718e.isEmpty()) {
                         return;
                     }
-                    int i2 = 0;
+                    int i = 0;
                     if (b()) {
-                        int i3 = a;
-                        int min = Math.min(this.f56854e.size(), f56851b);
-                        while (i2 < min) {
-                            this.f56856g.add(this.f56854e.remove());
-                            i2++;
+                        int i2 = a;
+                        int min = Math.min(this.f41718e.size(), f41715b);
+                        while (i < min) {
+                            this.f41720g.add(this.f41718e.remove());
+                            i++;
                         }
-                        i2 = i3;
+                        i = i2;
                     } else {
-                        this.f56854e.drainTo(this.f56856g);
+                        this.f41718e.drainTo(this.f41720g);
                     }
-                    Handler handler = this.f56853d;
-                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f56856g), i2);
+                    Handler handler = this.f41717d;
+                    handler.sendMessageDelayed(handler.obtainMessage(2, this.f41720g), i);
                 }
             }
         }
@@ -196,8 +196,8 @@ public class j {
     private void c(t tVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, tVar) == null) {
-            synchronized (this.f56855f) {
-                this.f56854e.offer(tVar);
+            synchronized (this.f41719f) {
+                this.f41718e.offer(tVar);
             }
             c();
         }
@@ -216,13 +216,13 @@ public class j {
             if (tVar.c()) {
                 tVar.b();
             } else if (tVar.d()) {
-                this.f56852c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
+                this.f41716c.execute(new Runnable(this, tVar) { // from class: com.kwai.filedownloader.j.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ t a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ j f56857b;
+                    public final /* synthetic */ j f41721b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -231,15 +231,15 @@ public class j {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, tVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f56857b = this;
+                        this.f41721b = this;
                         this.a = tVar;
                     }
 
@@ -252,15 +252,15 @@ public class j {
                     }
                 });
             } else {
-                if (!b() && !this.f56854e.isEmpty()) {
-                    synchronized (this.f56855f) {
-                        if (!this.f56854e.isEmpty()) {
-                            Iterator<t> it = this.f56854e.iterator();
+                if (!b() && !this.f41718e.isEmpty()) {
+                    synchronized (this.f41719f) {
+                        if (!this.f41718e.isEmpty()) {
+                            Iterator<t> it = this.f41718e.iterator();
                             while (it.hasNext()) {
                                 b(it.next());
                             }
                         }
-                        this.f56854e.clear();
+                        this.f41718e.clear();
                     }
                 }
                 if (!b() || z) {

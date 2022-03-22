@@ -20,17 +20,17 @@ public class b extends Handler {
     public final a kz;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b(a aVar, Looper looper, int i2) {
+    public b(a aVar, Looper looper, int i) {
         super(looper);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, looper, Integer.valueOf(i2)};
+            Object[] objArr = {aVar, looper, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,7 +39,7 @@ public class b extends Handler {
         }
         this.kB = false;
         this.kz = aVar;
-        this.ky = i2;
+        this.ky = i;
         this.kx = new d();
     }
 

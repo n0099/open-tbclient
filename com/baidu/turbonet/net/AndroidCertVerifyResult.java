@@ -21,29 +21,29 @@ public class AndroidCertVerifyResult {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f48713b;
+    public final boolean f37651b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final List<X509Certificate> f48714c;
+    public final List<X509Certificate> f37652c;
 
-    public AndroidCertVerifyResult(int i2, boolean z, List<X509Certificate> list) {
+    public AndroidCertVerifyResult(int i, boolean z, List<X509Certificate> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), list};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f48713b = z;
-        this.f48714c = new ArrayList(list);
+        this.a = i;
+        this.f37651b = z;
+        this.f37652c = new ArrayList(list);
     }
 
     @CalledByNative
@@ -51,10 +51,10 @@ public class AndroidCertVerifyResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            byte[][] bArr = new byte[this.f48714c.size()];
-            for (int i2 = 0; i2 < this.f48714c.size(); i2++) {
+            byte[][] bArr = new byte[this.f37652c.size()];
+            for (int i = 0; i < this.f37652c.size(); i++) {
                 try {
-                    bArr[i2] = this.f48714c.get(i2).getEncoded();
+                    bArr[i] = this.f37652c.get(i).getEncoded();
                 } catch (CertificateEncodingException unused) {
                     return new byte[0];
                 }
@@ -75,26 +75,26 @@ public class AndroidCertVerifyResult {
     public boolean isIssuedByKnownRoot() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48713b : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f37651b : invokeV.booleanValue;
     }
 
-    public AndroidCertVerifyResult(int i2) {
+    public AndroidCertVerifyResult(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f48713b = false;
-        this.f48714c = Collections.emptyList();
+        this.a = i;
+        this.f37651b = false;
+        this.f37652c = Collections.emptyList();
     }
 }

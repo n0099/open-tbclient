@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.widget.Toast;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +22,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class QQEmotion extends BaseApi {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +37,9 @@ public class QQEmotion extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {qQToken};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -58,21 +59,21 @@ public class QQEmotion extends BaseApi {
                 SLog.i("QQEMOTION", "isLegality -->illegal, file count > 9, count = " + arrayList.size());
                 return false;
             }
-            long j2 = 0;
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                String a = l.a(context, arrayList.get(i2));
-                long j3 = l.j(a);
-                if (j3 > 1048576) {
-                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j3 + "， path =" + a);
+            long j = 0;
+            for (int i = 0; i < arrayList.size(); i++) {
+                String a = l.a(context, arrayList.get(i));
+                long j2 = l.j(a);
+                if (j2 > 1048576) {
+                    SLog.i("QQEMOTION", "isLegality -->illegal, fileSize: " + j2 + "， path =" + a);
                     return false;
                 }
-                j2 += j3;
+                j += j2;
             }
-            if (j2 > 3145728) {
-                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j2);
+            if (j > 3145728) {
+                SLog.i("QQEMOTION", "isLegality -->illegal, totalSize: " + j);
                 return false;
             }
-            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j2);
+            SLog.i("QQEMOTION", "isLegality -->legal, totalSize: " + j);
             return true;
         }
         return invokeLL.booleanValue;
@@ -97,12 +98,12 @@ public class QQEmotion extends BaseApi {
                 StringBuffer stringBuffer = new StringBuffer("mqqapi://profile/sdk_face_collection?");
                 if (!TextUtils.isEmpty(a)) {
                     if (a.length() > 20) {
-                        a = a.substring(0, 20) + "...";
+                        a = a.substring(0, 20) + StringHelper.STRING_MORE;
                     }
                     stringBuffer.append("&app_name=" + Base64.encodeToString(l.i(a), 2));
                 }
-                String appId = this.f58993c.getAppId();
-                String openId = this.f58993c.getOpenId();
+                String appId = this.f43645c.getAppId();
+                String openId = this.f43645c.getOpenId();
                 if (!TextUtils.isEmpty(appId)) {
                     stringBuffer.append("&share_id=" + appId);
                 }
@@ -131,8 +132,8 @@ public class QQEmotion extends BaseApi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, arrayList)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                sb.append(arrayList.get(i2));
+            for (int i = 0; i < arrayList.size(); i++) {
+                sb.append(arrayList.get(i));
                 sb.append(";");
             }
             String sb2 = sb.toString();

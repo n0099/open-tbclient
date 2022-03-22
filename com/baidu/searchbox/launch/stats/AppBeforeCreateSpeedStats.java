@@ -33,9 +33,9 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,10 +65,10 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2) {
+    public void addStatsTimeStamp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            addStatsTimeStamp(i2, System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            addStatsTimeStamp(i, System.currentTimeMillis());
         }
     }
 
@@ -87,7 +87,7 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:44:0x00c3
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:44:0x00c4
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -97,7 +97,7 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
         /*
             r22 = this;
             com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats.$ic
-            if (r0 != 0) goto L101
+            if (r0 != 0) goto L102
         L4:
             r1 = r22
             r2 = r23
@@ -128,35 +128,35 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
             long r6 = r6 - r4
             r4 = 0
             int r0 = (r8 > r4 ? 1 : (r8 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             r12 = 60000(0xea60, double:2.9644E-319)
             int r0 = (r8 > r12 ? 1 : (r8 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r16 > r4 ? 1 : (r16 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r16 > r12 ? 1 : (r16 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r14 > r4 ? 1 : (r14 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r14 > r12 ? 1 : (r14 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r18 > r4 ? 1 : (r18 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r18 > r12 ? 1 : (r18 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r2 > r4 ? 1 : (r2 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r2 > r12 ? 1 : (r2 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r20 > r4 ? 1 : (r20 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r20 > r12 ? 1 : (r20 == r12 ? 0 : -1))
-            if (r0 > 0) goto Lff
+            if (r0 > 0) goto L100
             int r0 = (r6 > r4 ? 1 : (r6 == r4 ? 0 : -1))
-            if (r0 < 0) goto Lff
+            if (r0 < 0) goto L100
             int r0 = (r6 > r12 ? 1 : (r6 == r12 ? 0 : -1))
             if (r0 <= 0) goto L78
-            goto Lff
+            goto L100
         L78:
             java.util.HashMap r0 = new java.util.HashMap
             r0.<init>()
@@ -179,54 +179,54 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
             java.lang.String r3 = "installContentProvider"
             r0.put(r3, r2)
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r8, r0)
-            if (r0 == 0) goto Ld0
+            if (r0 == 0) goto Ld1
             java.lang.String r2 = "beforeAppCreate"
             r4 = r23
-            r4.put(r2, r0)     // Catch: org.json.JSONException -> Lc1
-            goto Ld2
-        Lc1:
+            r4.put(r2, r0)     // Catch: org.json.JSONException -> Lc2
+            goto Ld3
+        Lc2:
             r0 = move-exception
-            goto Lc6
-        Lc3:
+            goto Lc7
+        Lc4:
             r0 = move-exception
             r4 = r23
-        Lc6:
+        Lc7:
             boolean r2 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r2 == 0) goto Ld2
+            if (r2 == 0) goto Ld3
             r0.printStackTrace()
-            goto Ld2
-        Ld0:
+            goto Ld3
+        Ld1:
             r4 = r23
-        Ld2:
+        Ld3:
             r2 = 0
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r10, r2)
-            if (r0 == 0) goto Le8
-            r4.put(r5, r0)     // Catch: org.json.JSONException -> Ldd
-            goto Le8
-        Ldd:
+            if (r0 == 0) goto Le9
+            r4.put(r5, r0)     // Catch: org.json.JSONException -> Lde
+            goto Le9
+        Lde:
             r0 = move-exception
             r5 = r0
             boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r0 == 0) goto Le8
+            if (r0 == 0) goto Le9
             r5.printStackTrace()
-        Le8:
+        Le9:
             org.json.JSONObject r0 = com.baidu.searchbox.launch.utils.SpeedStatsUtils.getJsonData(r6, r2)
-            if (r0 == 0) goto Lfd
-            r4.put(r3, r0)     // Catch: org.json.JSONException -> Lf2
-            goto Lfd
-        Lf2:
+            if (r0 == 0) goto Lfe
+            r4.put(r3, r0)     // Catch: org.json.JSONException -> Lf3
+            goto Lfe
+        Lf3:
             r0 = move-exception
             r2 = r0
             boolean r0 = com.baidu.searchbox.config.AppConfig.isDebug()
-            if (r0 == 0) goto Lfd
+            if (r0 == 0) goto Lfe
             r2.printStackTrace()
-        Lfd:
+        Lfe:
             r2 = 1
             return r2
-        Lff:
+        L100:
             r0 = 0
             return r0
-        L101:
+        L102:
             r20 = r0
             r21 = 1048581(0x100005, float:1.469375E-39)
             com.baidu.titan.sdk.runtime.InterceptResult r0 = r20.invokeL(r21, r22, r23)
@@ -253,38 +253,38 @@ public final class AppBeforeCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            super.addStatsTimeStamp(i2, j2);
-            if (i2 != 2000) {
-                switch (i2) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.addStatsTimeStamp(i, j);
+            if (i != 2000) {
+                switch (i) {
                     case 1002:
-                        this.mAttachBaseContextStartTimeStamp = j2;
+                        this.mAttachBaseContextStartTimeStamp = j;
                         return;
                     case 1003:
-                        this.mMultiDexinstallEndTimeStamp = j2;
+                        this.mMultiDexinstallEndTimeStamp = j;
                         return;
                     case 1004:
-                        this.mAiappsRuntimeEndTimeStamp = j2;
+                        this.mAiappsRuntimeEndTimeStamp = j;
                         return;
                     default:
-                        switch (i2) {
+                        switch (i) {
                             case 1010:
-                                this.mAppAttachContextEndTimeStamp = j2;
+                                this.mAppAttachContextEndTimeStamp = j;
                                 return;
                             case 1011:
-                                this.mNpsInitEndTimeStamp = j2;
+                                this.mNpsInitEndTimeStamp = j;
                                 return;
                             case 1012:
-                                this.mTiTanInitEndTimeStamp = j2;
+                                this.mTiTanInitEndTimeStamp = j;
                                 return;
                             default:
                                 return;
                         }
                 }
             }
-            this.mAppCreateStartTime = j2;
+            this.mAppCreateStartTime = j;
         }
     }
 }

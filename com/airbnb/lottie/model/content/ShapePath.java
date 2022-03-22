@@ -5,7 +5,6 @@ import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.ShapeContent;
 import com.airbnb.lottie.model.animatable.AnimatableShapeValue;
 import com.airbnb.lottie.model.layer.BaseLayer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class ShapePath implements ContentModel {
     public final boolean hidden;
@@ -13,9 +12,9 @@ public class ShapePath implements ContentModel {
     public final String name;
     public final AnimatableShapeValue shapePath;
 
-    public ShapePath(String str, int i2, AnimatableShapeValue animatableShapeValue, boolean z) {
+    public ShapePath(String str, int i, AnimatableShapeValue animatableShapeValue, boolean z) {
         this.name = str;
-        this.index = i2;
+        this.index = i;
         this.shapePath = animatableShapeValue;
         this.hidden = z;
     }
@@ -38,6 +37,6 @@ public class ShapePath implements ContentModel {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.name + ", index=" + this.index + ExtendedMessageFormat.END_FE;
+        return "ShapePath{name=" + this.name + ", index=" + this.index + '}';
     }
 }

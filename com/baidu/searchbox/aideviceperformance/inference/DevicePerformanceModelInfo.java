@@ -12,16 +12,16 @@ public class DevicePerformanceModelInfo {
     public String modelPath;
     public long versionCode;
 
-    public DevicePerformanceModelInfo(String str, long j2) {
+    public DevicePerformanceModelInfo(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2)};
+            Object[] objArr = {str, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -29,7 +29,7 @@ public class DevicePerformanceModelInfo {
         }
         this.versionCode = -1L;
         this.modelPath = str;
-        this.versionCode = j2;
+        this.versionCode = j;
     }
 
     public String getModelPath() {
@@ -43,9 +43,9 @@ public class DevicePerformanceModelInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

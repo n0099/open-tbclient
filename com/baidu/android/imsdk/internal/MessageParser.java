@@ -3,8 +3,8 @@ package com.baidu.android.imsdk.internal;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import c.a.t.a;
-import c.a.u.a.b.d.b;
+import c.a.s.a;
+import c.a.t.a.b.d.b;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
@@ -59,16 +59,16 @@ public class MessageParser {
         public ChatMsg msg;
         public boolean msgIsNull;
 
-        public DuParser(Context context, String str, int i2) {
+        public DuParser(Context context, String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2)};
+                Object[] objArr = {context, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,7 +76,7 @@ public class MessageParser {
             }
             this.context = context;
             this.content = str;
-            this.category = i2;
+            this.category = i;
         }
 
         public ChatMsg getMsg() {
@@ -92,10 +92,10 @@ public class MessageParser {
         */
         public DuParser invokeParse() throws Exception {
             InterceptResult invokeV;
-            int i2;
+            int i;
             String str;
+            int i2;
             int i3;
-            int i4;
             ChatMsg newChatMsg;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -120,35 +120,35 @@ public class MessageParser {
                                     JSONObject jSONObject4 = new JSONObject();
                                     jSONObject4.put("text", jSONObject3.optString(TtmlNode.TAG_BODY));
                                     optString5 = jSONObject4.toString();
-                                    i2 = optInt;
+                                    i = optInt;
                                     str = MessageParser.TAG;
-                                    i4 = 0;
+                                    i3 = 0;
                                 } else if (optInt3 == 0) {
                                     JSONArray jSONArray = new JSONArray(jSONObject3.optString(TtmlNode.TAG_BODY));
-                                    i3 = optInt2;
+                                    i2 = optInt2;
                                     if (jSONArray.length() > 1) {
                                         JSONArray jSONArray2 = new JSONArray();
-                                        int i5 = 0;
-                                        while (i5 < jSONArray.length()) {
-                                            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
+                                        int i4 = 0;
+                                        while (i4 < jSONArray.length()) {
+                                            JSONObject optJSONObject = jSONArray.optJSONObject(i4);
                                             String str3 = str2;
                                             JSONObject jSONObject5 = new JSONObject();
                                             jSONObject5.put("title", optJSONObject.optString("title"));
                                             jSONObject5.put("article_url", optJSONObject.optString("url"));
                                             jSONObject5.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject.optString("headImage"));
                                             jSONArray2.put(jSONObject5);
-                                            i5++;
+                                            i4++;
                                             str2 = str3;
                                             optInt = optInt;
                                         }
-                                        i2 = optInt;
+                                        i = optInt;
                                         str = str2;
                                         JSONObject jSONObject6 = new JSONObject();
                                         jSONObject6.put("articles", jSONArray2);
                                         optString5 = jSONObject6.toString();
-                                        i4 = 9;
+                                        i3 = 9;
                                     } else {
-                                        i2 = optInt;
+                                        i = optInt;
                                         str = MessageParser.TAG;
                                         if (jSONArray.length() == 1) {
                                             JSONObject optJSONObject2 = jSONArray.optJSONObject(0);
@@ -157,12 +157,12 @@ public class MessageParser {
                                             jSONObject7.put("article_url", optJSONObject2.optString("url"));
                                             jSONObject7.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, optJSONObject2.optString("headImage"));
                                             optString5 = jSONObject7.toString();
-                                            i4 = 8;
+                                            i3 = 8;
                                         }
-                                        i4 = i3;
+                                        i3 = i2;
                                     }
                                 }
-                                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
+                                newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i3, -1);
                                 this.msg = newChatMsg;
                                 if (newChatMsg != null) {
                                     this.msgIsNull = true;
@@ -200,23 +200,23 @@ public class MessageParser {
                                     } else if (optInt4 == 20) {
                                         this.msg.setChatType(20);
                                     }
-                                    this.msg.setMsgType(i4);
-                                    if (i4 == 18) {
+                                    this.msg.setMsgType(i3);
+                                    if (i3 == 18) {
                                         ((HtmlMsg) this.msg).setDesc(jSONObject2.optString("description"));
                                     }
                                     this.jsonParseResult = this.msg.setMsgContentFromServer(optString5);
                                     this.msg.setmExtJson(optString6);
                                     this.msg.setServiceType(optString2);
-                                    this.msg.setTemplateType(i2);
+                                    this.msg.setTemplateType(i);
                                 } else {
                                     LogUtils.e(str, "duzhan msg parse error! ext in content is null!");
                                 }
                             }
-                            i2 = optInt;
+                            i = optInt;
                             str = MessageParser.TAG;
-                            i3 = optInt2;
-                            i4 = i3;
-                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i4, -1);
+                            i2 = optInt2;
+                            i3 = i2;
+                            newChatMsg = ChatMsgFactory.getInstance().newChatMsg(this.context, this.category, i3, -1);
                             this.msg = newChatMsg;
                             if (newChatMsg != null) {
                             }
@@ -253,9 +253,9 @@ public class MessageParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -279,9 +279,9 @@ public class MessageParser {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -292,11 +292,11 @@ public class MessageParser {
                 }
 
                 @Override // com.baidu.android.imsdk.pubaccount.IGetPaInfosListener
-                public void onResult(int i2, String str, ArrayList<PaInfo> arrayList3) {
+                public void onResult(int i, String str, ArrayList<PaInfo> arrayList3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, arrayList3) == null) {
-                        LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i2 + ", strMsg=" + str);
-                        if (i2 != 0 || arrayList3 == null || arrayList3.size() <= 0) {
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, arrayList3) == null) {
+                        LogUtils.d(MessageParser.TAG, "ack> get remote painfos, responseCode=" + i + ", strMsg=" + str);
+                        if (i != 0 || arrayList3 == null || arrayList3.size() <= 0) {
                             return;
                         }
                         LogUtils.d(MessageParser.TAG, "ack> get remote pa, painfos size=" + arrayList3.size());
@@ -313,10 +313,10 @@ public class MessageParser {
         }
     }
 
-    public static String getPaPage(int i2, int i3) {
+    public static String getPaPage(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i2, i3)) == null) ? i3 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i3 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i2 == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i2 == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i2 == 1 || i2 == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i2 == 19 || i2 == 6 || i2 == 29) ? Constants.PAGE_HUDONG_NAME : "" : (String) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) ? i2 == 16 ? Constants.PAGE_SHANGXIONGHAO_NAME : i2 == 21 ? Constants.PAGE_XIAOCHENGXUKEFU_NAME : i == 7 ? Constants.PAGE_BAIJIAHAO_NAME : i == 17 ? Constants.PAGE_FUWUXIAOXI_NAME : (i == 1 || i == 5) ? Constants.PAGE_SHOWBAIFUWUHAO_NAME : (i == 19 || i == 6 || i == 29) ? Constants.PAGE_HUDONG_NAME : "" : (String) invokeII.objValue;
     }
 
     public static synchronized List<NewAckMessage.Tripule> handleAck(Context context, ArrayList<ChatMsg> arrayList, boolean z) {
@@ -340,9 +340,9 @@ public class MessageParser {
             JSONObject jSONObject2 = new JSONObject();
             int notifyCmd = chatMsg.getNotifyCmd();
             if (notifyCmd == 0) {
-                long j2 = jSONObject.getLong("from");
+                long j = jSONObject.getLong("from");
                 jSONObject2.put("text", jSONObject.getString("description"));
-                chatMsg.setFromUser(j2);
+                chatMsg.setFromUser(j);
             } else {
                 if (notifyCmd == 1) {
                     chatMsg.setFromUser(jSONObject.getLong("from"));
@@ -370,10 +370,10 @@ public class MessageParser {
         InterceptResult invokeCommon;
         Context context2;
         String str;
+        long j;
         long j2;
-        long j3;
+        int i;
         int i2;
-        int i3;
         boolean z2;
         DuParser invokeParse;
         ChatMsg msg;
@@ -408,15 +408,15 @@ public class MessageParser {
                     msg = newChatMsg;
                 } else if (optInt != 2) {
                     if (optInt == 3) {
-                        int i4 = jSONObject.getInt("cmd");
-                        msg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i4);
+                        int i3 = jSONObject.getInt("cmd");
+                        msg = ChatMsgFactory.getInstance().newChatMsg(context, 3, -1, i3);
                         if (msg == null) {
                             return msg;
                         }
                         msg.setCategory(optInt);
                         msg.setContacter(optLong4);
                         msg.setFromUser(optLong2);
-                        msg.setNotifyCmd(i4);
+                        msg.setNotifyCmd(i3);
                         isJsonParseResult = msg.setMsgContentFromServer(optString);
                     } else if (optInt == 4) {
                         int optInt3 = jSONObject.optInt("type");
@@ -438,7 +438,7 @@ public class MessageParser {
                         LogUtils.d("IMFetchMsgByIdMsg parse ", isJsonParseResult + "");
                     } else if (optInt != 6) {
                         str = "";
-                        j2 = optLong;
+                        j = optLong;
                         isJsonParseResult = false;
                         msg = null;
                         context2 = context;
@@ -456,8 +456,8 @@ public class MessageParser {
                     }
                     str = "";
                 } else {
-                    int i5 = jSONObject.getInt("cmd");
-                    ChatMsg newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i5);
+                    int i4 = jSONObject.getInt("cmd");
+                    ChatMsg newChatMsg2 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, -1, i4);
                     if (newChatMsg2 == null) {
                         return newChatMsg2;
                     }
@@ -465,34 +465,34 @@ public class MessageParser {
                     newChatMsg2.setContacter(optLong4);
                     newChatMsg2.setFromUser(optLong2);
                     boolean msgContentFromServer = newChatMsg2.setMsgContentFromServer(optString);
-                    newChatMsg2.setNotifyCmd(i5);
+                    newChatMsg2.setNotifyCmd(i4);
                     ChatMsg handleSysChatMsg = handleSysChatMsg(newChatMsg2);
                     handleSysChatMsg.setMsgType(-1);
                     msg = handleSysChatMsg;
                     str = "";
                     isJsonParseResult = msgContentFromServer;
                 }
-                j2 = optLong;
+                j = optLong;
                 context2 = context;
             } else {
                 str = "";
                 int optInt5 = jSONObject.optInt("type");
-                j2 = optLong;
+                j = optLong;
                 long optLong6 = jSONObject.optLong("msg_expires", 0L);
                 int optInt6 = jSONObject.optInt(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
                 try {
-                    j3 = optLong6;
+                    j2 = optLong6;
                     try {
-                        i2 = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
+                        i = new JSONObject(optString).optInt(TableDefine.MessageColumns.COLUME_TEMPLATE, 0);
                     } catch (JSONException e2) {
                         e = e2;
                         LogUtils.e(TAG, "parserMessage template_type:", e);
-                        i2 = 0;
+                        i = 0;
                         if (optInt5 == 80) {
                         }
-                        i3 = 2;
+                        i2 = 2;
                         z2 = false;
-                        if (i2 != i3) {
+                        if (i != i2) {
                         }
                         if (z2) {
                         }
@@ -510,19 +510,19 @@ public class MessageParser {
                     }
                 } catch (JSONException e4) {
                     e = e4;
-                    j3 = optLong6;
+                    j2 = optLong6;
                 }
-                if (((optInt5 == 80 || optInt6 == 11) && !(optInt5 == 0 && optInt6 == 10)) || i2 != 0) {
-                    i3 = 2;
+                if (((optInt5 == 80 || optInt6 == 11) && !(optInt5 == 0 && optInt6 == 10)) || i != 0) {
+                    i2 = 2;
                     z2 = false;
                 } else {
-                    i3 = 2;
+                    i2 = 2;
                     z2 = true;
                 }
-                boolean z3 = i2 != i3 || i2 == 3;
+                boolean z3 = i != i2 || i == 3;
                 try {
                     if (z2 && !z3) {
-                        if ((i2 == 1 || i2 == 4) && optInt5 == 80) {
+                        if ((i == 1 || i == 4) && optInt5 == 80) {
                             optInt5 = 0;
                         }
                         ChatMsg newChatMsg3 = ChatMsgFactory.getInstance().newChatMsg(context, optInt, optInt5, -1);
@@ -531,7 +531,7 @@ public class MessageParser {
                         }
                         newChatMsg3.setMsgType(optInt5);
                         boolean msgContentFromServer2 = newChatMsg3.setMsgContentFromServer(optString);
-                        newChatMsg3.setTemplateType(i2);
+                        newChatMsg3.setTemplateType(i);
                         if (newChatMsg3.isDumiMessage()) {
                             newChatMsg3.setChatType(100);
                             LogUtils.d(TAG, "setchattype as dumi " + newChatMsg3.getMsgId());
@@ -568,7 +568,7 @@ public class MessageParser {
                     msg.setCategory(optInt);
                     msg.setContacter(optLong4);
                     msg.setFromUser(optLong2);
-                    msg.setExpiresTime(j3);
+                    msg.setExpiresTime(j2);
                 } catch (Exception e6) {
                     e = e6;
                     context2 = context;
@@ -583,7 +583,7 @@ public class MessageParser {
                         LogUtils.d(TAG, "msg will abandon for shouldAbandonMsg=true, msg=" + msg.toString());
                         return null;
                     }
-                    msg.setMsgId(j2);
+                    msg.setMsgId(j);
                     msg.setMsgTime(optLong3);
                     if (jSONObject.has("appid")) {
                         msg.setAppId(jSONObject.optLong("appid"));
@@ -622,23 +622,23 @@ public class MessageParser {
         }
     }
 
-    public static void sendNewAckToServer(Context context, long j2, List<NewAckMessage.Tripule> list, boolean z) {
+    public static void sendNewAckToServer(Context context, long j, List<NewAckMessage.Tripule> list, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Long.valueOf(j2), list, Boolean.valueOf(z)}) == null) || list == null || list.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, Long.valueOf(j), list, Boolean.valueOf(z)}) == null) || list == null || list.size() == 0) {
             return;
         }
         List<List<NewAckMessage.Tripule>> splitList = Utils.splitList(list, 20);
         if (splitList != null && splitList.size() > 0) {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
-                NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j2, z);
+                NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f25914e) {
+                if (a.f21228e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
                     bLCPRequest.a = 2L;
-                    bLCPRequest.f33258b = 95L;
-                    bLCPRequest.f33259c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f33260d = System.nanoTime();
-                    c.a.u.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                    bLCPRequest.f25611b = 95L;
+                    bLCPRequest.f25612c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f25613d = System.nanoTime();
+                    c.a.t.a.b.a.c(bLCPRequest, new b(newAckMessage, context) { // from class: com.baidu.android.imsdk.internal.MessageParser.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -651,9 +651,9 @@ public class MessageParser {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {newAckMessage, context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -663,17 +663,17 @@ public class MessageParser {
                             this.val$context = context;
                         }
 
-                        @Override // c.a.u.a.b.d.b
-                        public void onResponse(int i2, String str, long j3, long j4, long j5, byte[] bArr) {
+                        @Override // c.a.t.a.b.d.b
+                        public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), bArr}) == null) {
-                                LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i2 + ", methodId :" + j4 + ", data :" + bArr.length);
-                                if (i2 == 0) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
+                                LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + j3 + ", data :" + bArr.length);
+                                if (i == 0) {
                                     try {
                                         JSONObject jSONObject = new JSONObject(new String(bArr));
                                         int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
                                         String optString = jSONObject.optString("msg", "");
-                                        if (j4 == 95) {
+                                        if (j3 == 95) {
                                             this.val$msg.handleMessageResult(this.val$context, new JSONObject(new String(bArr)), optInt, optString);
                                             if (optInt != 0) {
                                                 LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
@@ -1036,8 +1036,8 @@ public class MessageParser {
                 try {
                     Type type2 = new Type();
                     type2.t = 0L;
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i2), type2, z);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        ChatMsg parserMessage = parserMessage(context, jSONArray.getJSONObject(i), type2, z);
                         if (type.t.longValue() < ((Long) type2.t).longValue()) {
                             type.t = type2.t;
                         }
@@ -1069,9 +1069,9 @@ public class MessageParser {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {context, arrayList};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

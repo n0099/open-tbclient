@@ -24,7 +24,7 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8DebugServer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEBUG_BREAK_HANDLER = "__j2v8_debug_handler";
@@ -59,13 +59,13 @@ public class V8DebugServer {
     public boolean waitForConnection;
 
     /* renamed from: com.kwad.v8.debug.V8DebugServer$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ClientLoop implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class V8DebugServer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8DebugServer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,35 +94,35 @@ public class V8DebugServer {
             this(v8DebugServer);
         }
 
-        private int indexOf(byte[] bArr, byte[] bArr2, int i2, int i3) {
+        private int indexOf(byte[] bArr, byte[] bArr2, int i, int i2) {
             InterceptResult invokeLLII;
-            int i4;
+            int i3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, this, bArr, bArr2, i2, i3)) == null) {
+            if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, this, bArr, bArr2, i, i2)) == null) {
                 int length = bArr.length;
-                while (i2 < i3) {
-                    while (i4 <= length) {
-                        if (i4 == length) {
-                            return i2;
+                while (i < i2) {
+                    while (i3 <= length) {
+                        if (i3 == length) {
+                            return i;
                         }
-                        int i5 = i2 + i4;
-                        i4 = (i5 < i3 && bArr2[i5] == bArr[i4]) ? i4 + 1 : 0;
-                        i2++;
+                        int i4 = i + i3;
+                        i3 = (i4 < i2 && bArr2[i4] == bArr[i3]) ? i3 + 1 : 0;
+                        i++;
                     }
-                    i2++;
+                    i++;
                 }
                 return -1;
             }
             return invokeLLII.intValue;
         }
 
-        private byte[] join(byte[] bArr, byte[] bArr2, int i2, int i3) {
+        private byte[] join(byte[] bArr, byte[] bArr2, int i, int i2) {
             InterceptResult invokeLLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, this, bArr, bArr2, i2, i3)) == null) {
-                byte[] bArr3 = new byte[bArr.length + i3];
+            if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, this, bArr, bArr2, i, i2)) == null) {
+                byte[] bArr3 = new byte[bArr.length + i2];
                 System.arraycopy(bArr, 0, bArr3, 0, bArr.length);
-                System.arraycopy(bArr2, i2, bArr3, bArr.length, i3);
+                System.arraycopy(bArr2, i, bArr3, bArr.length, i2);
                 return bArr3;
             }
             return (byte[]) invokeLLII.objValue;
@@ -140,57 +140,57 @@ public class V8DebugServer {
                 inputStream = this.this$0.client.getInputStream();
             }
             byte[] bArr3 = bArr;
-            int i2 = 0;
+            int i = 0;
             boolean z = false;
-            int i3 = -1;
+            int i2 = -1;
             while (true) {
-                int read = inputStream.read(bArr2, i2, 4096 - i2);
+                int read = inputStream.read(bArr2, i, 4096 - i);
                 if (read <= 0) {
                     return;
                 }
-                int i4 = read + i2;
+                int i3 = read + i;
                 this.from = 0;
                 do {
-                    if (i3 < 0) {
-                        i3 = readContentLength(bArr2, i4);
-                        if (i3 < 0) {
+                    if (i2 < 0) {
+                        i2 = readContentLength(bArr2, i3);
+                        if (i2 < 0) {
                             break;
                         }
                     }
-                    if (!z && !(z = skipToolInfo(bArr2, i4))) {
+                    if (!z && !(z = skipToolInfo(bArr2, i3))) {
                         break;
                     }
-                    int min = Math.min(i3 - bArr3.length, i4 - this.from);
+                    int min = Math.min(i2 - bArr3.length, i3 - this.from);
                     bArr3 = join(bArr3, bArr2, this.from, min);
                     this.from += min;
-                    if (bArr3.length == i3) {
+                    if (bArr3.length == i2) {
                         String str = new String(bArr3, V8DebugServer.PROTOCOL_CHARSET);
                         synchronized (this.this$0.requests) {
                             this.this$0.requests.add(str);
                         }
                         bArr3 = bArr;
                         z = false;
-                        i3 = -1;
+                        i2 = -1;
                     }
-                } while (this.from < i4);
-                int i5 = this.from;
-                if (i5 < i4) {
-                    System.arraycopy(bArr2, i5, bArr2, 0, i4 - i5);
-                    i2 = i4 - this.from;
+                } while (this.from < i3);
+                int i4 = this.from;
+                if (i4 < i3) {
+                    System.arraycopy(bArr2, i4, bArr2, 0, i3 - i4);
+                    i = i3 - this.from;
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
             }
         }
 
-        private int readContentLength(byte[] bArr, int i2) {
+        private int readContentLength(byte[] bArr, int i) {
             InterceptResult invokeLI;
             int length;
             int indexOf;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, bArr, i2)) == null) {
-                int indexOf2 = indexOf(V8DebugServer.PROTOCOL_CONTENT_LENGTH_BYTES, bArr, this.from, i2);
-                if (indexOf2 >= 0 && (indexOf = indexOf(V8DebugServer.PROTOCOL_EOL_BYTES, bArr, (length = indexOf2 + V8DebugServer.PROTOCOL_CONTENT_LENGTH_BYTES.length), i2)) >= 0) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, bArr, i)) == null) {
+                int indexOf2 = indexOf(V8DebugServer.PROTOCOL_CONTENT_LENGTH_BYTES, bArr, this.from, i);
+                if (indexOf2 >= 0 && (indexOf = indexOf(V8DebugServer.PROTOCOL_EOL_BYTES, bArr, (length = indexOf2 + V8DebugServer.PROTOCOL_CONTENT_LENGTH_BYTES.length), i)) >= 0) {
                     String str = new String(bArr, length, indexOf - length, V8DebugServer.PROTOCOL_CHARSET);
                     try {
                         int parseInt = Integer.parseInt(str.trim());
@@ -205,11 +205,11 @@ public class V8DebugServer {
             return invokeLI.intValue;
         }
 
-        private boolean skipToolInfo(byte[] bArr, int i2) {
+        private boolean skipToolInfo(byte[] bArr, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, bArr, i2)) == null) {
-                int indexOf = indexOf(V8DebugServer.PROTOCOL_EOL_BYTES, bArr, this.from, i2);
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, bArr, i)) == null) {
+                int indexOf = indexOf(V8DebugServer.PROTOCOL_EOL_BYTES, bArr, this.from, i);
                 if (indexOf < 0) {
                     return false;
                 }
@@ -259,7 +259,7 @@ public class V8DebugServer {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class EventHandler implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,9 +272,9 @@ public class V8DebugServer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8DebugServer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -403,16 +403,16 @@ public class V8DebugServer {
         PROTOCOL_CONTENT_LENGTH_BYTES = PROTOCOL_CONTENT_LENGTH_HEADER.getBytes(PROTOCOL_CHARSET);
     }
 
-    public V8DebugServer(V8 v8, int i2, boolean z) {
+    public V8DebugServer(V8 v8, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v8, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {v8, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -433,7 +433,7 @@ public class V8DebugServer {
             object.close();
             v8.executeVoidScript("(function() {\n " + DEBUG_OBJECT_NAME + ".Debug. " + MAKE_BREAK_EVENT + " = function (break_id,breakpoints_hit) {\n  return new " + DEBUG_OBJECT_NAME + ".BreakEvent(break_id,breakpoints_hit);\n }\n " + DEBUG_OBJECT_NAME + ".Debug. " + MAKE_COMPILE_EVENT + " = function(script,type) {\n  var scripts = " + DEBUG_OBJECT_NAME + ".Debug.scripts()\n  for (var i in scripts) {\n   if (scripts[i].id == script.id()) {\n     return new " + DEBUG_OBJECT_NAME + ".CompileEvent(scripts[i], type);\n   }\n  }\n  return {toJSONProtocol: function() {return ''}}\n }\n})()");
             try {
-                this.server = new ServerSocket(i2);
+                this.server = new ServerSocket(i);
             } catch (Exception e2) {
                 logError(e2);
             }
@@ -679,10 +679,10 @@ public class V8DebugServer {
         }
     }
 
-    public void processRequests(long j2) {
+    public void processRequests(long j) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || this.server == null) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || this.server == null) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
@@ -699,11 +699,11 @@ public class V8DebugServer {
                 }
             }
             if (strArr.length <= 0) {
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                if (i2 > 0) {
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i > 0) {
                     Thread.sleep(10L);
                 }
-                if (i2 <= 0 || currentTimeMillis + j2 <= System.currentTimeMillis()) {
+                if (i <= 0 || currentTimeMillis + j <= System.currentTimeMillis()) {
                     return;
                 }
             }

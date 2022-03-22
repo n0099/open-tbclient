@@ -6,7 +6,7 @@ import com.kwad.sdk.core.response.model.AdStyleInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static String a(@Nullable AdTemplate adTemplate) {
         return adTemplate == null ? "" : h(adTemplate).playDetailInfo.detailTopToolBarInfo.rewardCallDescription;

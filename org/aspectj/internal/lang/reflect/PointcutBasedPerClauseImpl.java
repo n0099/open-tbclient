@@ -12,14 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.PerClauseKind;
 import org.aspectj.lang.reflect.PointcutBasedPerClause;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PointcutBasedPerClauseImpl extends PerClauseImpl implements PointcutBasedPerClause {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final PointcutExpression pointcutExpression;
 
     /* renamed from: org.aspectj.internal.lang.reflect.PointcutBasedPerClauseImpl$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$PerClauseKind;
         public static /* synthetic */ Interceptable $ic;
@@ -68,9 +68,9 @@ public class PointcutBasedPerClauseImpl extends PerClauseImpl implements Pointcu
             newInitContext.initArgs = r2;
             Object[] objArr = {perClauseKind, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((PerClauseKind) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -93,14 +93,14 @@ public class PointcutBasedPerClauseImpl extends PerClauseImpl implements Pointcu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            int i2 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$PerClauseKind[getKind().ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$PerClauseKind[getKind().ordinal()];
+            if (i == 1) {
                 stringBuffer.append("percflow(");
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 stringBuffer.append("percflowbelow(");
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 stringBuffer.append("pertarget(");
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 stringBuffer.append("perthis(");
             }
             stringBuffer.append(this.pointcutExpression.asString());

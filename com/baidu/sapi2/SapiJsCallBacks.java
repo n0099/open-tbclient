@@ -39,9 +39,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,7 +51,7 @@ public class SapiJsCallBacks {
 
     /* loaded from: classes4.dex */
     public interface BiometricsIdentificationLiveCallBack {
-        void getLiveImage(int i2, PassFaceRecogCallback passFaceRecogCallback);
+        void getLiveImage(int i, PassFaceRecogCallback passFaceRecogCallback);
     }
 
     /* loaded from: classes4.dex */
@@ -121,9 +121,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -158,9 +158,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -178,9 +178,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -202,16 +202,16 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract void setResult(int i2);
+        public abstract void setResult(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -224,16 +224,16 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public abstract void onCallback(int i2);
+        public abstract void onCallback(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -246,7 +246,7 @@ public class SapiJsCallBacks {
         public static final int backWap = 0;
         public static final int remainNa = 1;
 
-        void onGrant(int i2);
+        void onGrant(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -276,9 +276,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -298,16 +298,16 @@ public class SapiJsCallBacks {
 
     /* loaded from: classes4.dex */
     public interface MakeVibrateCallBack {
-        void presetVibrate();
+        void presetVibrate(String str);
 
-        void vibrate(long[] jArr, int i2);
+        void vibrate(long[] jArr, int i, String str);
     }
 
     /* loaded from: classes4.dex */
     public interface NormalizeGuestAccountCallback {
         public static final int MERGE_ACCOUNT = 1;
 
-        void onFailure(int i2, String str);
+        void onFailure(int i, String str);
 
         void onSuccess(boolean z, String str);
     }
@@ -317,7 +317,7 @@ public class SapiJsCallBacks {
         public static final int STATE_FIRST = 1;
         public static final int STATE_OTHER = 2;
 
-        void pageState(int i2);
+        void pageState(int i);
     }
 
     /* loaded from: classes4.dex */
@@ -339,9 +339,9 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -368,18 +368,18 @@ public class SapiJsCallBacks {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void setSpeechData(int i2, String str) {
+        public void setSpeechData(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
             }
         }
     }
@@ -407,9 +407,9 @@ public class SapiJsCallBacks {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

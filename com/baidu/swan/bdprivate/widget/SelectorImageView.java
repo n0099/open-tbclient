@@ -2,6 +2,7 @@ package com.baidu.swan.bdprivate.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
@@ -15,15 +16,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SelectorImageView extends BdBaseImageView {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static int f38208g = 255;
+    /* renamed from: c  reason: collision with root package name */
+    public static int f29394c = 255;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +34,9 @@ public class SelectorImageView extends BdBaseImageView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -48,14 +49,19 @@ public class SelectorImageView extends BdBaseImageView {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
                 int action = motionEvent.getAction();
-                if (action != 0) {
-                    if ((action == 1 || action == 3) && (view instanceof ImageView)) {
-                        ((ImageView) view).setImageAlpha(255);
+                if (action == 0) {
+                    Log.d("ACTION_DOWN", "ACTION_DOWN");
+                    if (view instanceof ImageView) {
+                        ((ImageView) view).setImageAlpha(76);
                         return false;
                     }
                     return false;
-                } else if (view instanceof ImageView) {
-                    ((ImageView) view).setImageAlpha(76);
+                } else if (action == 1 || action == 3) {
+                    Log.d("ACTION_UP", "ACTION_UP");
+                    if (view instanceof ImageView) {
+                        ((ImageView) view).setImageAlpha(255);
+                        return false;
+                    }
                     return false;
                 } else {
                     return false;
@@ -89,9 +95,9 @@ public class SelectorImageView extends BdBaseImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -114,9 +120,11 @@ public class SelectorImageView extends BdBaseImageView {
             if (isEnabled()) {
                 int action = motionEvent.getAction();
                 if (action == 0) {
+                    Log.d("ACTION_DOWN", "ACTION_DOWN");
                     setImageAlpha(76);
                 } else if (action == 1 || action == 3) {
-                    setImageAlpha(f38208g);
+                    Log.d("ACTION_UP", "ACTION_UP");
+                    setImageAlpha(f29394c);
                 }
             }
             return super.onTouchEvent(motionEvent);
@@ -133,7 +141,7 @@ public class SelectorImageView extends BdBaseImageView {
             if (!z) {
                 setImageAlpha(255);
             } else {
-                setImageAlpha(f38208g);
+                setImageAlpha(f29394c);
             }
         }
     }
@@ -147,9 +155,9 @@ public class SelectorImageView extends BdBaseImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -160,17 +168,17 @@ public class SelectorImageView extends BdBaseImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectorImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectorImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

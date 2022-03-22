@@ -21,9 +21,9 @@ public class SidePropagation extends VisibilityPropagation {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,28 +48,28 @@ public class SidePropagation extends VisibilityPropagation {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private int distance(View view, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+    private int distance(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)})) == null) {
-            int i10 = this.mSide;
-            if (i10 != 8388611) {
-                if (i10 == 8388613) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)})) == null) {
+            int i9 = this.mSide;
+            if (i9 != 8388611) {
+                if (i9 == 8388613) {
                 }
             }
-            if (i10 != 3) {
-                if (i10 != 5) {
-                    if (i10 != 48) {
-                        if (i10 != 80) {
+            if (i9 != 3) {
+                if (i9 != 5) {
+                    if (i9 != 48) {
+                        if (i9 != 80) {
                             return 0;
                         }
-                        return (i3 - i7) + Math.abs(i4 - i2);
+                        return (i2 - i6) + Math.abs(i3 - i);
                     }
-                    return (i9 - i3) + Math.abs(i4 - i2);
+                    return (i8 - i2) + Math.abs(i3 - i);
                 }
-                return (i2 - i6) + Math.abs(i5 - i3);
+                return (i - i5) + Math.abs(i4 - i2);
             }
-            return (i8 - i2) + Math.abs(i5 - i3);
+            return (i7 - i) + Math.abs(i4 - i2);
         }
         return invokeCommon.intValue;
     }
@@ -78,8 +78,8 @@ public class SidePropagation extends VisibilityPropagation {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, viewGroup)) == null) {
-            int i2 = this.mSide;
-            if (i2 != 3 && i2 != 5 && i2 != 8388611 && i2 != 8388613) {
+            int i = this.mSide;
+            if (i != 3 && i != 5 && i != 8388611 && i != 8388613) {
                 return viewGroup.getHeight();
             }
             return viewGroup.getWidth();
@@ -90,9 +90,9 @@ public class SidePropagation extends VisibilityPropagation {
     @Override // androidx.transition.TransitionPropagation
     public long getStartDelay(ViewGroup viewGroup, Transition transition, TransitionValues transitionValues, TransitionValues transitionValues2) {
         InterceptResult invokeLLLL;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, viewGroup, transition, transitionValues, transitionValues2)) == null) {
             TransitionValues transitionValues3 = transitionValues;
@@ -101,10 +101,10 @@ public class SidePropagation extends VisibilityPropagation {
             }
             Rect epicenter = transition.getEpicenter();
             if (transitionValues2 == null || getViewVisibility(transitionValues3) == 0) {
-                i2 = -1;
+                i = -1;
             } else {
                 transitionValues3 = transitionValues2;
-                i2 = 1;
+                i = 1;
             }
             int viewX = getViewX(transitionValues3);
             int viewY = getViewY(transitionValues3);
@@ -115,18 +115,18 @@ public class SidePropagation extends VisibilityPropagation {
             int width = round + viewGroup.getWidth();
             int height = round2 + viewGroup.getHeight();
             if (epicenter != null) {
-                i3 = epicenter.centerX();
-                i4 = epicenter.centerY();
+                i2 = epicenter.centerX();
+                i3 = epicenter.centerY();
             } else {
-                i3 = (round + width) / 2;
-                i4 = (round2 + height) / 2;
+                i2 = (round + width) / 2;
+                i3 = (round2 + height) / 2;
             }
-            float distance = distance(viewGroup, viewX, viewY, i3, i4, round, round2, width, height) / getMaxDistance(viewGroup);
+            float distance = distance(viewGroup, viewX, viewY, i2, i3, round, round2, width, height) / getMaxDistance(viewGroup);
             long duration = transition.getDuration();
             if (duration < 0) {
                 duration = 300;
             }
-            return Math.round((((float) (duration * i2)) / this.mPropagationSpeed) * distance);
+            return Math.round((((float) (duration * i)) / this.mPropagationSpeed) * distance);
         }
         return invokeLLLL.longValue;
     }
@@ -142,10 +142,10 @@ public class SidePropagation extends VisibilityPropagation {
         }
     }
 
-    public void setSide(int i2) {
+    public void setSide(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.mSide = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mSide = i;
         }
     }
 }

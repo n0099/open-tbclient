@@ -37,9 +37,9 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -48,24 +48,24 @@ public final class b {
 
     public final a a(TaskStatus taskStatus, TaskInfo taskInfo) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         TaskUIData taskUIData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
             if (taskStatus.isFinished()) {
                 taskUIData = taskInfo.getResponse().getUi();
-                i2 = taskInfo.getResponse().getUiType();
+                i = taskInfo.getResponse().getUiType();
             } else if (taskStatus.isRunning()) {
                 taskUIData = taskInfo.getTaskMeter().getUi();
-                i2 = taskInfo.getTaskMeter().getUiType();
+                i = taskInfo.getTaskMeter().getUiType();
             } else if (taskStatus.isInited() || taskStatus.isRegistered()) {
                 taskUIData = taskInfo.getTaskGuide().getUi();
-                i2 = taskInfo.getTaskGuide().getUiType();
+                i = taskInfo.getTaskGuide().getUiType();
             } else {
-                i2 = -1;
+                i = -1;
                 taskUIData = null;
             }
-            return new a(i2, taskUIData);
+            return new a(i, taskUIData);
         }
         return (a) invokeLL.objValue;
     }

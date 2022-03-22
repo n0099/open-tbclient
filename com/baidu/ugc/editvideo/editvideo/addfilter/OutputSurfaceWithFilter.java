@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.opengl.GLES20;
 import android.opengl.GLUtils;
 import android.os.Handler;
-import c.a.y0.b;
+import c.a.v0.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,6 @@ import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.baidu.ugc.editvideo.filter.FilterValue;
 import com.baidu.ugc.editvideo.magicmusic.effect.BaseEffect;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class OutputSurfaceWithFilter extends BaseOutputSurface {
@@ -40,9 +39,9 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,16 +52,16 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         this.mContext = context;
     }
 
-    public OutputSurfaceWithFilter(Context context, FilterValue filterValue, boolean z, int i2, int i3) {
+    public OutputSurfaceWithFilter(Context context, FilterValue filterValue, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, filterValue, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, filterValue, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -75,19 +74,19 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         if (filterValue != null) {
             this.mFilterValue = filterValue;
         }
-        init(i2, i3);
+        init(i, i2);
     }
 
-    public OutputSurfaceWithFilter(Context context, FilterValue filterValue, boolean z, int i2, int i3, boolean z2, Handler handler) {
+    public OutputSurfaceWithFilter(Context context, FilterValue filterValue, boolean z, int i, int i2, boolean z2, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, filterValue, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z2), handler};
+            Object[] objArr = {context, filterValue, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2), handler};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -100,14 +99,14 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
         if (filterValue != null) {
             this.mFilterValue = filterValue;
         }
-        init(i2, i3, z2, handler);
+        init(i, i2, z2, handler);
     }
 
     @Override // com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface
-    public void drawImage(int i2) {
+    public void drawImage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.drawImage(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.drawImage(i);
             if (!this.mIsAddWaterMark) {
                 this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
                 return;
@@ -118,12 +117,12 @@ public class OutputSurfaceWithFilter extends BaseOutputSurface {
             }
             this.mFullScreenEXT.drawFrame(this.mTextureId, this.mSTMatrix);
             int min = Math.min(this.mVideoWidth, this.mVideoHeight);
-            int i3 = (min * 16) / 720;
-            int i4 = (min * 112) / 720;
-            GLES20.glViewport(i3, (this.mVideoHeight - i4) - i3, (min * 300) / 720, i4);
+            int i2 = (min * 16) / 720;
+            int i3 = (min * 112) / 720;
+            GLES20.glViewport(i2, (this.mVideoHeight - i3) - i2, (min * 300) / 720, i3);
             GLES20.glDisable(2929);
             GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-            GLES20.glBlendFunc(1, BankSignFactory.BEAN_ID_BIND_CARD);
+            GLES20.glBlendFunc(1, 771);
             this.mFullScreenFUDisplay.setAngle(180.0f);
             this.mFullScreenFUDisplay.setScale(1.0f, -1.0f);
             this.mFullScreenFUDisplay.drawFrame(this.mWaterMarkTextureId, GlUtil.IDENTITY_MATRIX, true);

@@ -11,7 +11,7 @@ import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.api.loader.Wrapper;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class af {
     public static void a(Context context, boolean z) {
         try {

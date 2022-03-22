@@ -16,9 +16,9 @@ public final class EdifactEncoder implements Encoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,13 +38,13 @@ public final class EdifactEncoder implements Encoder {
         }
     }
 
-    public static String encodeToCodewords(CharSequence charSequence, int i2) {
+    public static String encodeToCodewords(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i2)) == null) {
-            int length = charSequence.length() - i2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, charSequence, i)) == null) {
+            int length = charSequence.length() - i;
             if (length != 0) {
-                int charAt = (charSequence.charAt(i2) << 18) + ((length >= 2 ? charSequence.charAt(i2 + 1) : (char) 0) << '\f') + ((length >= 3 ? charSequence.charAt(i2 + 2) : (char) 0) << 6) + (length >= 4 ? charSequence.charAt(i2 + 3) : (char) 0);
+                int charAt = (charSequence.charAt(i) << 18) + ((length >= 2 ? charSequence.charAt(i + 1) : (char) 0) << '\f') + ((length >= 3 ? charSequence.charAt(i + 2) : (char) 0) << 6) + (length >= 4 ? charSequence.charAt(i + 3) : (char) 0);
                 char c2 = (char) ((charAt >> 8) & 255);
                 char c3 = (char) (charAt & 255);
                 StringBuilder sb = new StringBuilder(3);
@@ -79,13 +79,13 @@ public final class EdifactEncoder implements Encoder {
                     }
                 }
                 if (length <= 4) {
-                    int i2 = length - 1;
+                    int i = length - 1;
                     String encodeToCodewords = encodeToCodewords(charSequence, 0);
-                    if (!(!encoderContext.hasMoreCharacters()) || i2 > 2) {
+                    if (!(!encoderContext.hasMoreCharacters()) || i > 2) {
                         z = false;
                     }
-                    if (i2 <= 2) {
-                        encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + i2);
+                    if (i <= 2) {
+                        encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + i);
                         if (encoderContext.getSymbolInfo().getDataCapacity() - encoderContext.getCodewordCount() >= 3) {
                             encoderContext.updateSymbolInfo(encoderContext.getCodewordCount() + encodeToCodewords.length());
                             z = false;
@@ -93,7 +93,7 @@ public final class EdifactEncoder implements Encoder {
                     }
                     if (z) {
                         encoderContext.resetSymbolInfo();
-                        encoderContext.pos -= i2;
+                        encoderContext.pos -= i;
                     } else {
                         encoderContext.writeCodewords(encodeToCodewords);
                     }

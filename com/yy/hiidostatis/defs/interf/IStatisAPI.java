@@ -4,10 +4,10 @@ import android.content.Context;
 import com.yy.hiidostatis.api.StatisContent;
 import com.yy.hiidostatis.api.StatisOption;
 import com.yy.hiidostatis.message.Packer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IStatisAPI {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface ReportResult {
         void onReportResult(boolean z);
     }
@@ -22,43 +22,43 @@ public interface IStatisAPI {
 
     void init(Context context, StatisOption statisOption);
 
-    void reportAppList(long j2, String str, String str2);
+    void reportAppList(long j, String str, String str2);
 
-    void reportAppList(long j2, String str, String str2, String str3);
+    void reportAppList(long j, String str, String str2, String str3);
 
-    void reportCrash(long j2, String str);
+    void reportCrash(long j, String str);
 
-    void reportCrash(long j2, Throwable th);
+    void reportCrash(long j, Throwable th);
 
-    void reportCrashInner(long j2, Throwable th);
+    void reportCrashInner(long j, Throwable th);
 
-    void reportDevice(long j2, StatisContent statisContent, ReportResult reportResult);
-
-    @Deprecated
-    boolean reportDevice(long j2);
+    void reportDevice(long j, StatisContent statisContent, ReportResult reportResult);
 
     @Deprecated
-    boolean reportDevice(long j2, StatisContent statisContent);
-
-    void reportEvent(long j2, String str);
+    boolean reportDevice(long j);
 
     @Deprecated
-    void reportInstall(int i2, ReportResult reportResult);
+    boolean reportDevice(long j, StatisContent statisContent);
 
-    void reportInstall(int i2, Packer.OnSavedListener onSavedListener);
+    void reportEvent(long j, String str);
 
     @Deprecated
-    boolean reportInstall(int i2);
+    void reportInstall(int i, ReportResult reportResult);
 
-    void reportLanuch(long j2, String str, StatisContent statisContent);
+    void reportInstall(int i, Packer.OnSavedListener onSavedListener);
 
-    void reportPage(long j2, String str);
+    @Deprecated
+    boolean reportInstall(int i);
 
-    void reportPageState(long j2, String str, long j3);
+    void reportLanuch(long j, String str, StatisContent statisContent);
 
-    void reportRecentAppList(long j2, String str, String str2);
+    void reportPage(long j, String str);
 
-    void reportSdkList(long j2, String str);
+    void reportPageState(long j, String str, long j2);
+
+    void reportRecentAppList(long j, String str, String str2);
+
+    void reportSdkList(long j, String str);
 
     void setSession(String str);
 }

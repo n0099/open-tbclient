@@ -33,7 +33,7 @@ import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.animation.AnimatorSetCompat;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class IndicatorViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CAPTION_OPACITY_FADE_ANIMATION_DURATION = 167;
@@ -83,9 +83,9 @@ public final class IndicatorViewController {
             newInitContext.initArgs = r2;
             Object[] objArr = {textInputLayout};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,7 +94,7 @@ public final class IndicatorViewController {
         Context context = textInputLayout.getContext();
         this.context = context;
         this.textInputView = textInputLayout;
-        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.design_textinput_caption_translate_y);
+        this.captionTranslationYPx = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070223);
     }
 
     private boolean canAdjustIndicatorPadding() {
@@ -103,12 +103,12 @@ public final class IndicatorViewController {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? (this.indicatorArea == null || this.textInputView.getEditText() == null) ? false : true : invokeV.booleanValue;
     }
 
-    private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i2, int i3, int i4) {
+    private void createCaptionAnimators(@NonNull List<Animator> list, boolean z, @Nullable TextView textView, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && textView != null && z) {
-            if (i2 == i4 || i2 == i3) {
-                list.add(createCaptionOpacityAnimator(textView, i4 == i2));
-                if (i4 == i2) {
+        if ((interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{list, Boolean.valueOf(z), textView, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && textView != null && z) {
+            if (i == i3 || i == i2) {
+                list.add(createCaptionOpacityAnimator(textView, i3 == i));
+                if (i3 == i) {
                     list.add(createCaptionTranslationYAnimator(textView));
                 }
             }
@@ -140,12 +140,12 @@ public final class IndicatorViewController {
     }
 
     @Nullable
-    private TextView getCaptionViewFromDisplayState(int i2) {
+    private TextView getCaptionViewFromDisplayState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
                     return null;
                 }
                 return this.helperTextView;
@@ -155,36 +155,36 @@ public final class IndicatorViewController {
         return (TextView) invokeI.objValue;
     }
 
-    private boolean isCaptionStateError(int i2) {
+    private boolean isCaptionStateError(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) ? (i2 != 1 || this.errorView == null || TextUtils.isEmpty(this.errorText)) ? false : true : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) ? (i != 1 || this.errorView == null || TextUtils.isEmpty(this.errorText)) ? false : true : invokeI.booleanValue;
     }
 
-    private boolean isCaptionStateHelperText(int i2) {
+    private boolean isCaptionStateHelperText(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) ? (i2 != 2 || this.helperTextView == null || TextUtils.isEmpty(this.helperText)) ? false : true : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) ? (i != 2 || this.helperTextView == null || TextUtils.isEmpty(this.helperText)) ? false : true : invokeI.booleanValue;
     }
 
-    private void setCaptionViewVisibilities(int i2, int i3) {
+    private void setCaptionViewVisibilities(int i, int i2) {
         TextView captionViewFromDisplayState;
         TextView captionViewFromDisplayState2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65547, this, i2, i3) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeII(65547, this, i, i2) == null) || i == i2) {
             return;
         }
-        if (i3 != 0 && (captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i3)) != null) {
+        if (i2 != 0 && (captionViewFromDisplayState2 = getCaptionViewFromDisplayState(i2)) != null) {
             captionViewFromDisplayState2.setVisibility(0);
             captionViewFromDisplayState2.setAlpha(1.0f);
         }
-        if (i2 != 0 && (captionViewFromDisplayState = getCaptionViewFromDisplayState(i2)) != null) {
+        if (i != 0 && (captionViewFromDisplayState = getCaptionViewFromDisplayState(i)) != null) {
             captionViewFromDisplayState.setVisibility(4);
-            if (i2 == 1) {
+            if (i == 1) {
                 captionViewFromDisplayState.setText((CharSequence) null);
             }
         }
-        this.captionDisplayed = i3;
+        this.captionDisplayed = i2;
     }
 
     private void setTextViewTypeface(@Nullable TextView textView, Typeface typeface) {
@@ -195,9 +195,9 @@ public final class IndicatorViewController {
         textView.setTypeface(typeface);
     }
 
-    private void setViewGroupGoneIfEmpty(@NonNull ViewGroup viewGroup, int i2) {
+    private void setViewGroupGoneIfEmpty(@NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, this, viewGroup, i2) == null) && i2 == 0) {
+        if ((interceptable == null || interceptable.invokeLI(65549, this, viewGroup, i) == null) && i == 0) {
             viewGroup.setVisibility(8);
         }
     }
@@ -208,19 +208,19 @@ public final class IndicatorViewController {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, this, textView, charSequence)) == null) ? ViewCompat.isLaidOut(this.textInputView) && this.textInputView.isEnabled() && !(this.captionToShow == this.captionDisplayed && textView != null && TextUtils.equals(textView.getText(), charSequence)) : invokeLL.booleanValue;
     }
 
-    private void updateCaptionViewsVisibility(int i2, int i3, boolean z) {
+    private void updateCaptionViewsVisibility(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || i == i2) {
             return;
         }
         if (z) {
             AnimatorSet animatorSet = new AnimatorSet();
             this.captionAnimator = animatorSet;
             ArrayList arrayList = new ArrayList();
-            createCaptionAnimators(arrayList, this.helperTextEnabled, this.helperTextView, 2, i2, i3);
-            createCaptionAnimators(arrayList, this.errorEnabled, this.errorView, 1, i2, i3);
+            createCaptionAnimators(arrayList, this.helperTextEnabled, this.helperTextView, 2, i, i2);
+            createCaptionAnimators(arrayList, this.errorEnabled, this.errorView, 1, i, i2);
             AnimatorSetCompat.playTogether(animatorSet, arrayList);
-            animatorSet.addListener(new AnimatorListenerAdapter(this, i3, getCaptionViewFromDisplayState(i2), i2, getCaptionViewFromDisplayState(i3)) { // from class: com.google.android.material.textfield.IndicatorViewController.1
+            animatorSet.addListener(new AnimatorListenerAdapter(this, i2, getCaptionViewFromDisplayState(i), i, getCaptionViewFromDisplayState(i2)) { // from class: com.google.android.material.textfield.IndicatorViewController.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ IndicatorViewController this$0;
@@ -234,20 +234,20 @@ public final class IndicatorViewController {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i3), r8, Integer.valueOf(i2), r10};
+                        Object[] objArr = {this, Integer.valueOf(i2), r8, Integer.valueOf(i), r10};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$captionToShow = i3;
+                    this.val$captionToShow = i2;
                     this.val$captionViewToHide = r8;
-                    this.val$captionToHide = i2;
+                    this.val$captionToHide = i;
                     this.val$captionViewToShow = r10;
                 }
 
@@ -284,16 +284,16 @@ public final class IndicatorViewController {
             });
             animatorSet.start();
         } else {
-            setCaptionViewVisibilities(i2, i3);
+            setCaptionViewVisibilities(i, i2);
         }
         this.textInputView.updateEditTextBackground();
         this.textInputView.updateLabelState(z);
         this.textInputView.updateTextInputBoxState();
     }
 
-    public void addIndicator(TextView textView, int i2) {
+    public void addIndicator(TextView textView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, textView, i) == null) {
             if (this.indicatorArea == null && this.captionArea == null) {
                 LinearLayout linearLayout = new LinearLayout(this.context);
                 this.indicatorArea = linearLayout;
@@ -305,7 +305,7 @@ public final class IndicatorViewController {
                     adjustIndicatorPadding();
                 }
             }
-            if (isCaptionView(i2)) {
+            if (isCaptionView(i)) {
                 this.captionArea.setVisibility(0);
                 this.captionArea.addView(textView);
                 this.captionViewsAdded++;
@@ -460,10 +460,10 @@ public final class IndicatorViewController {
         }
     }
 
-    public boolean isCaptionView(int i2) {
+    public boolean isCaptionView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? i2 == 0 || i2 == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? i == 0 || i == 1 : invokeI.booleanValue;
     }
 
     public boolean isErrorEnabled() {
@@ -478,23 +478,23 @@ public final class IndicatorViewController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.helperTextEnabled : invokeV.booleanValue;
     }
 
-    public void removeIndicator(TextView textView, int i2) {
+    public void removeIndicator(TextView textView, int i) {
         FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048595, this, textView, i2) == null) || this.indicatorArea == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048595, this, textView, i) == null) || this.indicatorArea == null) {
             return;
         }
-        if (isCaptionView(i2) && (frameLayout = this.captionArea) != null) {
-            int i3 = this.captionViewsAdded - 1;
-            this.captionViewsAdded = i3;
-            setViewGroupGoneIfEmpty(frameLayout, i3);
+        if (isCaptionView(i) && (frameLayout = this.captionArea) != null) {
+            int i2 = this.captionViewsAdded - 1;
+            this.captionViewsAdded = i2;
+            setViewGroupGoneIfEmpty(frameLayout, i2);
             this.captionArea.removeView(textView);
         } else {
             this.indicatorArea.removeView(textView);
         }
-        int i4 = this.indicatorsAdded - 1;
-        this.indicatorsAdded = i4;
-        setViewGroupGoneIfEmpty(this.indicatorArea, i4);
+        int i3 = this.indicatorsAdded - 1;
+        this.indicatorsAdded = i3;
+        setViewGroupGoneIfEmpty(this.indicatorArea, i3);
     }
 
     public void setErrorContentDescription(@Nullable CharSequence charSequence) {
@@ -517,7 +517,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.errorView = appCompatTextView;
-            appCompatTextView.setId(R.id.textinput_error);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f62);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.errorView.setTextAlignment(5);
             }
@@ -541,13 +541,13 @@ public final class IndicatorViewController {
         this.errorEnabled = z;
     }
 
-    public void setErrorTextAppearance(@StyleRes int i2) {
+    public void setErrorTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.errorTextAppearance = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.errorTextAppearance = i;
             TextView textView = this.errorView;
             if (textView != null) {
-                this.textInputView.setTextAppearanceCompatWithErrorFallback(textView, i2);
+                this.textInputView.setTextAppearanceCompatWithErrorFallback(textView, i);
             }
         }
     }
@@ -564,13 +564,13 @@ public final class IndicatorViewController {
         }
     }
 
-    public void setHelperTextAppearance(@StyleRes int i2) {
+    public void setHelperTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.helperTextTextAppearance = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.helperTextTextAppearance = i;
             TextView textView = this.helperTextView;
             if (textView != null) {
-                TextViewCompat.setTextAppearance(textView, i2);
+                TextViewCompat.setTextAppearance(textView, i);
             }
         }
     }
@@ -584,7 +584,7 @@ public final class IndicatorViewController {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(this.context);
             this.helperTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.textinput_helper_text);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f091f63);
             if (Build.VERSION.SDK_INT >= 17) {
                 this.helperTextView.setTextAlignment(5);
             }

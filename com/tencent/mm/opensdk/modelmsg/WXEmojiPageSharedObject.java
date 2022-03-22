@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
 import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.mm.opensdk.utils.d;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXEmojiSharedObject";
@@ -29,38 +29,38 @@ public class WXEmojiPageSharedObject implements WXMediaMessage.IMediaObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public WXEmojiPageSharedObject(int i2, int i3, String str, String str2, String str3, String str4, int i4, String str5) {
+    public WXEmojiPageSharedObject(int i, int i2, String str, String str2, String str3, String str4, int i3, String str5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, str2, str3, str4, Integer.valueOf(i4), str5};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4, Integer.valueOf(i3), str5};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.tid = i3;
+        this.tid = i2;
         this.title = str;
         this.desc = str2;
         this.iconUrl = str3;
         this.secondUrl = str4;
-        this.pageType = i4;
+        this.pageType = i3;
         this.url = str5;
-        this.type = i2;
+        this.type = i;
     }
 
     @Override // com.tencent.mm.opensdk.modelmsg.WXMediaMessage.IMediaObject

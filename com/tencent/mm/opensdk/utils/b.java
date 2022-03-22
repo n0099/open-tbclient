@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,12 @@ public final class b {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 char[] cArr2 = new char[digest.length * 2];
-                int i2 = 0;
+                int i = 0;
                 for (byte b2 : digest) {
-                    int i3 = i2 + 1;
-                    cArr2[i2] = cArr[(b2 >>> 4) & 15];
-                    i2 = i3 + 1;
-                    cArr2[i3] = cArr[b2 & 15];
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b2 >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b2 & 15];
                 }
                 return new String(cArr2);
             } catch (Exception unused) {

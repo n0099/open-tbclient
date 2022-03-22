@@ -10,14 +10,15 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.MimeTypeMap;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.nps.utils.Constant;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +26,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.baidu.webkit.internal.ConectivityUtils;
 import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import com.google.android.exoplayer2.util.MimeTypes;
@@ -39,7 +39,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_DL_FILENAME = "downloadfile";
@@ -76,7 +76,7 @@ public class Utils {
         extMimeMap.put(".jp2", "image/jp2");
         extMimeMap.put(".jpe", "image/jpeg");
         extMimeMap.put(".jpeg", "image/jpeg");
-        extMimeMap.put(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, "image/jpeg");
+        extMimeMap.put(".jpg", "image/jpeg");
         extMimeMap.put(".kar", "audio/midi");
         extMimeMap.put(".m3u", "audio/x-mpegurl");
         extMimeMap.put(".m4a", "audio/mp4a-latm");
@@ -135,9 +135,9 @@ public class Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -225,7 +225,7 @@ public class Utils {
             }
             String replaceAll = str2.replaceAll("[()（）.,：:\\-|^$#_，。：=、/+《》<>*?？‘“”''\"\"]", "_");
             try {
-                return URLEncoder.encode(replaceAll, "utf-8");
+                return URLEncoder.encode(replaceAll, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
                 return replaceAll;
@@ -242,7 +242,7 @@ public class Utils {
             int length2 = str2.length();
             if (length + length2 > 243) {
                 if (length2 < 243) {
-                    str = str.substring(0, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK - length2);
+                    str = str.substring(0, 243 - length2);
                 } else {
                     str = "" + System.currentTimeMillis();
                     str2 = DownloadDataConstants.DEFAULT_DL_BINARY_EXTENSION;
@@ -254,14 +254,14 @@ public class Utils {
             }
             if (new File(str3).exists()) {
                 String str4 = str + "_";
-                int i2 = 1;
-                for (int i3 = 1; i3 < 1000000000; i3 *= 10) {
-                    for (int i4 = 0; i4 < 9; i4++) {
-                        String str5 = str4 + i2 + str2;
+                int i = 1;
+                for (int i2 = 1; i2 < 1000000000; i2 *= 10) {
+                    for (int i3 = 0; i3 < 9; i3++) {
+                        String str5 = str4 + i + str2;
                         if (!new File(str5).exists()) {
                             return str5;
                         }
-                        i2 += new Random(SystemClock.uptimeMillis()).nextInt(i3) + 1;
+                        i += new Random(SystemClock.uptimeMillis()).nextInt(i2) + 1;
                     }
                 }
                 return "";
@@ -294,26 +294,26 @@ public class Utils {
         return invokeL.booleanValue;
     }
 
-    public static int extractPositiveInteger(String str, int i2) {
+    public static int extractPositiveInteger(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
             int length = str.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                char charAt = str.charAt(i3);
+            for (int i2 = 0; i2 < length; i2++) {
+                char charAt = str.charAt(i2);
                 if (charAt >= '0' && charAt <= '9') {
-                    int i4 = i3 + 1;
-                    while (i4 < length) {
-                        char charAt2 = str.charAt(i4);
+                    int i3 = i2 + 1;
+                    while (i3 < length) {
+                        char charAt2 = str.charAt(i3);
                         if (charAt2 < '0' || charAt2 > '9') {
                             break;
                         }
-                        i4++;
+                        i3++;
                     }
-                    return Integer.parseInt(str.substring(i3, i4));
+                    return Integer.parseInt(str.substring(i2, i3));
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -380,7 +380,7 @@ public class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
             try {
-                return TextUtils.isEmpty(str) ? "" : URLEncoder.encode(str, "utf-8");
+                return TextUtils.isEmpty(str) ? "" : URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();
                 return "";
@@ -411,7 +411,11 @@ public class Utils {
             System.currentTimeMillis();
             try {
                 HttpUrlHelper parse = HttpUrlHelper.parse(str);
-                return parse == null ? str : parse.toString();
+                if (parse == null) {
+                    Log.i(TAG, "HttpUrlHelper parse error");
+                    return str;
+                }
+                return parse.toString();
             } catch (Exception unused) {
                 return str;
             }
@@ -526,24 +530,24 @@ public class Utils {
                 return false;
             }
             int indexOf = str.indexOf(46);
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < str.length()) {
+            while (i < str.length()) {
                 if (indexOf == -1) {
                     indexOf = str.length();
                 }
                 try {
-                    int parseInt = Integer.parseInt(str.substring(i2, indexOf));
+                    int parseInt = Integer.parseInt(str.substring(i, indexOf));
                     if (parseInt <= 255 && parseInt >= 0) {
-                        i3++;
-                        i2 = indexOf + 1;
-                        indexOf = str.indexOf(46, i2);
+                        i2++;
+                        i = indexOf + 1;
+                        indexOf = str.indexOf(46, i);
                     }
                 } catch (NumberFormatException unused) {
                 }
                 return false;
             }
-            return i3 == 4;
+            return i2 == 4;
         }
         return invokeL.booleanValue;
     }

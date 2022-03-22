@@ -46,9 +46,9 @@ public class a extends j {
             newInitContext.initArgs = r2;
             Object[] objArr = {sensorManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SensorManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -85,9 +85,9 @@ public class a extends j {
     public void onSensorChanged(SensorEvent sensorEvent) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, sensorEvent) == null) && sensorEvent.sensor.getType() == 4) {
-            long j2 = this.timestamp;
-            if (j2 != 0) {
-                float f2 = ((float) (sensorEvent.timestamp - j2)) * 1.0E-9f;
+            long j = this.timestamp;
+            if (j != 0) {
+                float f2 = ((float) (sensorEvent.timestamp - j)) * 1.0E-9f;
                 float[] fArr = sensorEvent.values;
                 float f3 = fArr[0];
                 float f4 = fArr[1];
@@ -109,16 +109,16 @@ public class a extends j {
                 synchronized (this.sy) {
                     this.rA.multiplyByQuat(this.sB, this.sB);
                 }
-                Quaternion m33clone = this.sB.m33clone();
-                m33clone.w(-m33clone.w());
+                Quaternion m31clone = this.sB.m31clone();
+                m31clone.w(-m31clone.w());
                 synchronized (this.sy) {
-                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m33clone.toArray());
+                    SensorManager.getRotationMatrixFromVector(this.sA.matrix, m31clone.toArray());
                 }
             }
             this.timestamp = sensorEvent.timestamp;
-            int i2 = this.rB + 1;
-            this.rB = i2;
-            if (i2 > 20) {
+            int i = this.rB + 1;
+            this.rB = i;
+            if (i > 20) {
                 eQ();
                 setChanged();
                 notifyObservers();

@@ -30,9 +30,9 @@ public class IMLikeRequest implements LikeRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,9 +52,9 @@ public class IMLikeRequest implements LikeRequest {
     }
 
     @Override // com.baidu.livesdk.api.service.LikeRequest
-    public void like(Context context, String str, String str2, int i2, int i3, SimpleResponseListener simpleResponseListener) {
+    public void like(Context context, String str, String str2, int i, int i2, SimpleResponseListener simpleResponseListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i2), Integer.valueOf(i3), simpleResponseListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2), simpleResponseListener}) == null) {
             try {
                 this.mClickHeartCount++;
                 if (needSyncToNet()) {
@@ -65,9 +65,9 @@ public class IMLikeRequest implements LikeRequest {
                     if (conversation != null) {
                         BIMConversation baseConversation = ((BDIMConversation) conversation).getBaseConversation();
                         IMLikeData iMLikeData = new IMLikeData();
-                        iMLikeData.num = i2;
+                        iMLikeData.num = i;
                         iMLikeData.roomId = parseLong;
-                        iMLikeData.callFlag = i3;
+                        iMLikeData.callFlag = i2;
                         iMLikeData.sourceType = 0;
                         Account account = liveSDK.getAccount();
                         if (account != null && account.isLogin() && account.accountInfo() != null) {
@@ -95,9 +95,9 @@ public class IMLikeRequest implements LikeRequest {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, simpleResponseListener};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -108,13 +108,13 @@ public class IMLikeRequest implements LikeRequest {
                             }
 
                             @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                            public void onResult(int i4, long j2, long j3) {
+                            public void onResult(int i3, long j, long j2) {
                                 SimpleResponseListener simpleResponseListener2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (simpleResponseListener2 = this.val$listener) == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2)}) == null) || (simpleResponseListener2 = this.val$listener) == null) {
                                     return;
                                 }
-                                simpleResponseListener2.onResult(i4, j2, j3);
+                                simpleResponseListener2.onResult(i3, j, j2);
                             }
                         });
                     } else if (simpleResponseListener != null) {

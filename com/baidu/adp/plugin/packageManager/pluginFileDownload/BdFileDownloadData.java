@@ -48,9 +48,9 @@ public class BdFileDownloadData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -206,17 +206,17 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.errorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.errorCode = i;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.height = i;
         }
     }
 
@@ -227,10 +227,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setLength(long j2) {
+    public void setLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.length = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.length = j;
         }
     }
 
@@ -241,10 +241,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setNotifyId(int i2) {
+    public void setNotifyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.notifyId = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.notifyId = i;
         }
     }
 
@@ -255,24 +255,24 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setPosition(int i2) {
+    public void setPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.position = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.position = i;
         }
     }
 
-    public void setSize(long j2) {
+    public void setSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
-            this.size = j2;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.size = j;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.status = i;
         }
     }
 
@@ -283,10 +283,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -297,10 +297,10 @@ public class BdFileDownloadData implements Serializable {
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.width = i;
         }
     }
 
@@ -311,9 +311,9 @@ public class BdFileDownloadData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -341,9 +341,9 @@ public class BdFileDownloadData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, aVar};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

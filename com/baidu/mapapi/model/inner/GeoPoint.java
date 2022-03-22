@@ -13,7 +13,7 @@ public class GeoPoint {
     public double a;
 
     /* renamed from: b  reason: collision with root package name */
-    public double f34119b;
+    public double f26355b;
 
     public GeoPoint(double d2, double d3) {
         Interceptable interceptable = $ic;
@@ -22,16 +22,16 @@ public class GeoPoint {
             newInitContext.initArgs = r2;
             Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = d2;
-        this.f34119b = d3;
+        this.f26355b = d3;
     }
 
     public boolean equals(Object obj) {
@@ -40,7 +40,7 @@ public class GeoPoint {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             if (obj != null && obj.getClass() == GeoPoint.class) {
                 GeoPoint geoPoint = (GeoPoint) obj;
-                return this.a == geoPoint.a && this.f34119b == geoPoint.f34119b;
+                return this.a == geoPoint.a && this.f26355b == geoPoint.f26355b;
             }
             return false;
         }
@@ -56,7 +56,7 @@ public class GeoPoint {
     public double getLongitudeE6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34119b : invokeV.doubleValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26355b : invokeV.doubleValue;
     }
 
     public void setLatitudeE6(double d2) {
@@ -69,7 +69,7 @@ public class GeoPoint {
     public void setLongitudeE6(double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d2)}) == null) {
-            this.f34119b = d2;
+            this.f26355b = d2;
         }
     }
 
@@ -77,7 +77,7 @@ public class GeoPoint {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "GeoPoint: Latitude: " + this.a + ", Longitude: " + this.f34119b;
+            return "GeoPoint: Latitude: " + this.a + ", Longitude: " + this.f26355b;
         }
         return (String) invokeV.objValue;
     }

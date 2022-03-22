@@ -15,10 +15,10 @@ public final class b {
     public final Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<? extends c.a.j.h.c.d.a<?>> f3735b;
+    public final Class<? extends c.a.j.h.c.d.a<?>> f3217b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final boolean f3736c;
+    public final boolean f3218c;
 
     public b(Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> cls, Class<? extends c.a.j.h.c.d.a<?>> cls2, boolean z) {
         Interceptable interceptable = $ic;
@@ -27,23 +27,23 @@ public final class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, cls2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = cls;
-        this.f3735b = cls2;
-        this.f3736c = z;
+        this.f3217b = cls2;
+        this.f3218c = z;
     }
 
     public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3736c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3218c : invokeV.booleanValue;
     }
 
     public final Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> b() {
@@ -55,7 +55,7 @@ public final class b {
     public final Class<? extends c.a.j.h.c.d.a<?>> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3735b : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3217b : (Class) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -65,8 +65,8 @@ public final class b {
             if (this != obj) {
                 if (obj instanceof b) {
                     b bVar = (b) obj;
-                    if (Intrinsics.areEqual(this.a, bVar.a) && Intrinsics.areEqual(this.f3735b, bVar.f3735b)) {
-                        if (this.f3736c == bVar.f3736c) {
+                    if (Intrinsics.areEqual(this.a, bVar.a) && Intrinsics.areEqual(this.f3217b, bVar.f3217b)) {
+                        if (this.f3218c == bVar.f3218c) {
                         }
                     }
                 }
@@ -85,14 +85,14 @@ public final class b {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             Class<? extends c.a.j.h.c.d.b<? extends c.a.j.h.c.d.a<?>>> cls = this.a;
             int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
-            Class<? extends c.a.j.h.c.d.a<?>> cls2 = this.f3735b;
+            Class<? extends c.a.j.h.c.d.a<?>> cls2 = this.f3217b;
             int hashCode2 = (hashCode + (cls2 != null ? cls2.hashCode() : 0)) * 31;
-            boolean z = this.f3736c;
-            int i2 = z;
+            boolean z = this.f3218c;
+            int i = z;
             if (z != 0) {
-                i2 = 1;
+                i = 1;
             }
-            return hashCode2 + i2;
+            return hashCode2 + i;
         }
         return invokeV.intValue;
     }
@@ -101,7 +101,7 @@ public final class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "ToastPlugin(viewClass=" + this.a + ", viewModelClass=" + this.f3735b + ", needSysToastFix=" + this.f3736c + SmallTailInfo.EMOTION_SUFFIX;
+            return "ToastPlugin(viewClass=" + this.a + ", viewModelClass=" + this.f3217b + ", needSysToastFix=" + this.f3218c + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

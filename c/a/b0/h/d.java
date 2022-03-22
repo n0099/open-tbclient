@@ -1,22 +1,43 @@
 package c.a.b0.h;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
 /* loaded from: classes.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@Nullable Closeable closeable) {
+    public static NetworkInfo a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
+            }
         }
-        try {
-            closeable.close();
-        } catch (Throwable unused) {
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo a = a(context);
+            return a != null && a.isAvailable() && a.getType() == 1;
         }
+        return invokeL.booleanValue;
     }
 }

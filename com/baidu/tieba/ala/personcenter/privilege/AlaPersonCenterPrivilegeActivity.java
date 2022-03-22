@@ -31,9 +31,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaPersonCenterPrivilegeActivity f40758e;
+        public final /* synthetic */ AlaPersonCenterPrivilegeActivity a;
 
         public a(AlaPersonCenterPrivilegeActivity alaPersonCenterPrivilegeActivity) {
             Interceptable interceptable = $ic;
@@ -42,22 +40,22 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaPersonCenterPrivilegeActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40758e = alaPersonCenterPrivilegeActivity;
+            this.a = alaPersonCenterPrivilegeActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40758e.finish();
+                this.a.finish();
             }
         }
     }
@@ -67,9 +65,9 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,10 +84,10 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             if (ListUtils.isEmpty(this.mFragmentList)) {
                 return;
             }
@@ -97,7 +95,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
             while (it.hasNext()) {
                 AbsFragment next = it.next();
                 if (next != null) {
-                    next.onActivityResult(i2, i3, intent);
+                    next.onActivityResult(i, i2, intent);
                 }
             }
         }
@@ -129,7 +127,7 @@ public class AlaPersonCenterPrivilegeActivity extends AbsTabActivity {
     public void setNavigationBar(NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, navigationBar) == null) {
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.ala_person_live_privilege));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0237));
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
         }
     }

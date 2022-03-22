@@ -19,7 +19,7 @@ import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import org.webrtc.EglBase;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EglBase10 implements EglBase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_CONTEXT_CLIENT_VERSION = 12440;
@@ -31,7 +31,7 @@ public class EglBase10 implements EglBase {
     public EGLDisplay eglDisplay;
     public EGLSurface eglSurface;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Context implements EglBase.Context {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +44,9 @@ public class EglBase10 implements EglBase {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eGLContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,9 +73,9 @@ public class EglBase10 implements EglBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -190,17 +190,17 @@ public class EglBase10 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void createPbufferSurface(int i2, int i3) {
+    public void createPbufferSurface(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             checkIsNotReleased();
             if (this.eglSurface == EGL10.EGL_NO_SURFACE) {
-                EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i2, 12374, i3, 12344});
+                EGLSurface eglCreatePbufferSurface = this.egl.eglCreatePbufferSurface(this.eglDisplay, this.eglConfig, new int[]{12375, i, 12374, i2, 12344});
                 this.eglSurface = eglCreatePbufferSurface;
                 if (eglCreatePbufferSurface != EGL10.EGL_NO_SURFACE) {
                     return;
                 }
-                throw new RuntimeException("Failed to create pixel buffer surface with size " + i2 + "x" + i3 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
+                throw new RuntimeException("Failed to create pixel buffer surface with size " + i + "x" + i2 + ": 0x" + Integer.toHexString(this.egl.eglGetError()));
             }
             throw new RuntimeException("Already has an EGLSurface");
         }
@@ -223,9 +223,9 @@ public class EglBase10 implements EglBase {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, surface};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -300,16 +300,16 @@ public class EglBase10 implements EglBase {
                 }
 
                 @Override // android.view.SurfaceHolder
-                public void setFixedSize(int i2, int i3) {
+                public void setFixedSize(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048583, this, i2, i3) == null) {
+                    if (interceptable2 == null || interceptable2.invokeII(1048583, this, i, i2) == null) {
                     }
                 }
 
                 @Override // android.view.SurfaceHolder
-                public void setFormat(int i2) {
+                public void setFormat(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
                     }
                 }
 
@@ -329,9 +329,9 @@ public class EglBase10 implements EglBase {
 
                 @Override // android.view.SurfaceHolder
                 @Deprecated
-                public void setType(int i2) {
+                public void setType(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeI(1048587, this, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeI(1048587, this, i) == null) {
                     }
                 }
 
@@ -462,9 +462,9 @@ public class EglBase10 implements EglBase {
     }
 
     @Override // org.webrtc.EglBase
-    public void swapBuffers(long j2) {
+    public void swapBuffers(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
             swapBuffers();
         }
     }

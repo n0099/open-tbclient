@@ -13,11 +13,10 @@ import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MovieFragmentHeaderBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "mfhd";
@@ -50,9 +49,9 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -106,11 +105,11 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
         return invokeV.longValue;
     }
 
-    public void setSequenceNumber(long j2) {
+    public void setSequenceNumber(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j2)));
-            this.sequenceNumber = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.longObject(j)));
+            this.sequenceNumber = j;
         }
     }
 
@@ -119,7 +118,7 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_2, this, this));
-            return "MovieFragmentHeaderBox{sequenceNumber=" + this.sequenceNumber + ExtendedMessageFormat.END_FE;
+            return "MovieFragmentHeaderBox{sequenceNumber=" + this.sequenceNumber + '}';
         }
         return (String) invokeV.objValue;
     }

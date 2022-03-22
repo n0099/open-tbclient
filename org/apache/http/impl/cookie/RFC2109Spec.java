@@ -13,7 +13,7 @@ import org.apache.http.cookie.CookieOrigin;
 import org.apache.http.cookie.MalformedCookieException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RFC2109Spec extends CookieSpecBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class RFC2109Spec extends CookieSpecBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -36,9 +36,9 @@ public class RFC2109Spec extends CookieSpecBase {
         throw new RuntimeException("Stub!");
     }
 
-    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i2) {
+    public void formatCookieAsVer(CharArrayBuffer charArrayBuffer, Cookie cookie, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, charArrayBuffer, cookie, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, charArrayBuffer, cookie, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -53,9 +53,9 @@ public class RFC2109Spec extends CookieSpecBase {
         return (List) invokeL.objValue;
     }
 
-    public void formatParamAsVer(CharArrayBuffer charArrayBuffer, String str, String str2, int i2) {
+    public void formatParamAsVer(CharArrayBuffer charArrayBuffer, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, charArrayBuffer, str, str2, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, charArrayBuffer, str, str2, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -103,9 +103,9 @@ public class RFC2109Spec extends CookieSpecBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

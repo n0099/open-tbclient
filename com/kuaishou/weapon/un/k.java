@@ -15,31 +15,27 @@ public class k implements Serializable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f53663b;
+    public a f38856b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f53664c;
+    public b f38857c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f53665d;
+    public int f38858d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f53666e;
+    public int f38859e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f53667f;
+    public String f38860f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f53668g;
+    public int f38861g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f53669h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f53670i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f53671j;
+    public String f38862h;
+    public String i;
+    public String j;
     public int k;
     public int l;
     public c m;
@@ -58,19 +54,19 @@ public class k implements Serializable {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53672b;
+        public int f38863b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53673c;
+        public int f38864c;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,26 +76,26 @@ public class k implements Serializable {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53672b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38863b : invokeV.intValue;
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f53672b = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.f38863b = i;
             }
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53673c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38864c : invokeV.intValue;
         }
 
-        public void b(int i2) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.f53673c = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.f38864c = i;
             }
         }
 
@@ -109,10 +105,10 @@ public class k implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
         }
 
-        public void c(int i2) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.a = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.a = i;
             }
         }
     }
@@ -124,13 +120,13 @@ public class k implements Serializable {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53674b;
+        public int f38865b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53675c;
+        public int f38866c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f53676d;
+        public a f38867d;
 
         /* loaded from: classes7.dex */
         public static class a {
@@ -139,31 +135,27 @@ public class k implements Serializable {
             public int a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f53677b;
+            public int f38868b;
 
             /* renamed from: c  reason: collision with root package name */
-            public int f53678c;
+            public int f38869c;
 
             /* renamed from: d  reason: collision with root package name */
-            public int f53679d;
+            public int f38870d;
 
             /* renamed from: e  reason: collision with root package name */
-            public int f53680e;
+            public int f38871e;
 
             /* renamed from: f  reason: collision with root package name */
-            public int f53681f;
+            public int f38872f;
 
             /* renamed from: g  reason: collision with root package name */
-            public int f53682g;
+            public int f38873g;
 
             /* renamed from: h  reason: collision with root package name */
-            public int f53683h;
-
-            /* renamed from: i  reason: collision with root package name */
-            public int f53684i;
-
-            /* renamed from: j  reason: collision with root package name */
-            public int f53685j;
+            public int f38874h;
+            public int i;
+            public int j;
             public int k;
             public int l;
             public int m;
@@ -176,9 +168,9 @@ public class k implements Serializable {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -191,10 +183,10 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
             }
 
-            public void a(int i2) {
+            public void a(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                    this.a = i2;
+                if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                    this.a = i;
                 }
             }
 
@@ -204,36 +196,36 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : invokeV.intValue;
             }
 
-            public void b(int i2) {
+            public void b(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                    this.n = i2;
+                if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                    this.n = i;
                 }
             }
 
             public int c() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f53677b : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f38868b : invokeV.intValue;
             }
 
-            public void c(int i2) {
+            public void c(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                    this.f53677b = i2;
+                if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                    this.f38868b = i;
                 }
             }
 
             public int d() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53679d : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38870d : invokeV.intValue;
             }
 
-            public void d(int i2) {
+            public void d(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                    this.f53679d = i2;
+                if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                    this.f38870d = i;
                 }
             }
 
@@ -243,10 +235,10 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : invokeV.intValue;
             }
 
-            public void e(int i2) {
+            public void e(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                    this.m = i2;
+                if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                    this.m = i;
                 }
             }
 
@@ -256,36 +248,36 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.o : invokeV.intValue;
             }
 
-            public void f(int i2) {
+            public void f(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                    this.o = i2;
+                if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                    this.o = i;
                 }
             }
 
             public int g() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f53678c : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38869c : invokeV.intValue;
             }
 
-            public void g(int i2) {
+            public void g(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-                    this.f53678c = i2;
+                if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+                    this.f38869c = i;
                 }
             }
 
             public int h() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f53680e : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f38871e : invokeV.intValue;
             }
 
-            public void h(int i2) {
+            public void h(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-                    this.f53680e = i2;
+                if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+                    this.f38871e = i;
                 }
             }
 
@@ -295,36 +287,36 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.k : invokeV.intValue;
             }
 
-            public void i(int i2) {
+            public void i(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-                    this.k = i2;
+                if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+                    this.k = i;
                 }
             }
 
             public int j() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f53681f : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.f38872f : invokeV.intValue;
             }
 
-            public void j(int i2) {
+            public void j(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-                    this.f53681f = i2;
+                if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+                    this.f38872f = i;
                 }
             }
 
             public int k() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f53683h : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.f38874h : invokeV.intValue;
             }
 
-            public void k(int i2) {
+            public void k(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-                    this.f53683h = i2;
+                if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+                    this.f38874h = i;
                 }
             }
 
@@ -334,49 +326,49 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.p : invokeV.intValue;
             }
 
-            public void l(int i2) {
+            public void l(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-                    this.p = i2;
+                if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+                    this.p = i;
                 }
             }
 
             public int m() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f53684i : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.i : invokeV.intValue;
             }
 
-            public void m(int i2) {
+            public void m(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-                    this.f53684i = i2;
+                if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+                    this.i = i;
                 }
             }
 
             public int n() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f53682g : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f38873g : invokeV.intValue;
             }
 
-            public void n(int i2) {
+            public void n(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-                    this.f53682g = i2;
+                if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+                    this.f38873g = i;
                 }
             }
 
             public int o() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.f53685j : invokeV.intValue;
+                return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.j : invokeV.intValue;
             }
 
-            public void o(int i2) {
+            public void o(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-                    this.f53685j = i2;
+                if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+                    this.j = i;
                 }
             }
 
@@ -386,10 +378,10 @@ public class k implements Serializable {
                 return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.l : invokeV.intValue;
             }
 
-            public void p(int i2) {
+            public void p(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-                    this.l = i2;
+                if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+                    this.l = i;
                 }
             }
         }
@@ -399,9 +391,9 @@ public class k implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -411,46 +403,46 @@ public class k implements Serializable {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53674b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38865b : invokeV.intValue;
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f53674b = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.f38865b = i;
             }
         }
 
         public void a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-                this.f53676d = aVar;
+                this.f38867d = aVar;
             }
         }
 
         public a b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53676d : (a) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38867d : (a) invokeV.objValue;
         }
 
-        public void b(int i2) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.f53675c = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.f38866c = i;
             }
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f53675c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f38866c : invokeV.intValue;
         }
 
-        public void c(int i2) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.a = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.a = i;
             }
         }
 
@@ -468,19 +460,19 @@ public class k implements Serializable {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53686b;
+        public int f38875b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53687c;
+        public int f38876c;
 
         public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -490,26 +482,26 @@ public class k implements Serializable {
         public int a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53686b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38875b : invokeV.intValue;
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                this.f53686b = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.f38875b = i;
             }
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53687c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38876c : invokeV.intValue;
         }
 
-        public void b(int i2) {
+        public void b(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.f53687c = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.f38876c = i;
             }
         }
 
@@ -519,10 +511,10 @@ public class k implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
         }
 
-        public void c(int i2) {
+        public void c(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.a = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.a = i;
             }
         }
     }
@@ -532,9 +524,9 @@ public class k implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -544,27 +536,27 @@ public class k implements Serializable {
     public a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53663b : (a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38856b : (a) invokeV.objValue;
     }
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.k = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.k = i;
         }
     }
 
     public void a(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f53663b = aVar;
+            this.f38856b = aVar;
         }
     }
 
     public void a(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.f53664c = bVar;
+            this.f38857c = bVar;
         }
     }
 
@@ -578,67 +570,67 @@ public class k implements Serializable {
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.f53670i = str;
+            this.i = str;
         }
     }
 
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f53670i : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.l = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.l = i;
         }
     }
 
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.f53671j = str;
+            this.j = str;
         }
     }
 
     public b c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f53664c : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f38857c : (b) invokeV.objValue;
     }
 
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.n = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.n = i;
         }
     }
 
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f53669h = str;
+            this.f38862h = str;
         }
     }
 
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f53671j : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.j : (String) invokeV.objValue;
     }
 
-    public void d(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.o = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.o = i;
         }
     }
 
     public void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.f53667f = str;
+            this.f38860f = str;
         }
     }
 
@@ -648,10 +640,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.k : invokeV.intValue;
     }
 
-    public void e(int i2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.p = i;
         }
     }
 
@@ -661,10 +653,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.l : invokeV.intValue;
     }
 
-    public void f(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.s = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.s = i;
         }
     }
 
@@ -674,10 +666,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.n : invokeV.intValue;
     }
 
-    public void g(int i2) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.r = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.r = i;
         }
     }
 
@@ -687,10 +679,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.o : invokeV.intValue;
     }
 
-    public void h(int i2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.q = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.q = i;
         }
     }
 
@@ -700,10 +692,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.p : invokeV.intValue;
     }
 
-    public void i(int i2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -713,10 +705,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.s : invokeV.intValue;
     }
 
-    public void j(int i2) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.f53665d = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.f38858d = i;
         }
     }
 
@@ -726,10 +718,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.r : invokeV.intValue;
     }
 
-    public void k(int i2) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.f53666e = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.f38859e = i;
         }
     }
 
@@ -739,10 +731,10 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.q : invokeV.intValue;
     }
 
-    public void l(int i2) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.f53668g = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.f38861g = i;
         }
     }
 
@@ -752,35 +744,35 @@ public class k implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void m(int i2) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.t = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.t = i;
         }
     }
 
     public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f53665d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.f38858d : invokeV.intValue;
     }
 
     public int o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f53666e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) ? this.f38859e : invokeV.intValue;
     }
 
     public int p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f53668g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? this.f38861g : invokeV.intValue;
     }
 
     public String q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f53669h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) ? this.f38862h : (String) invokeV.objValue;
     }
 
     public c r() {
@@ -792,7 +784,7 @@ public class k implements Serializable {
     public String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f53667f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f38860f : (String) invokeV.objValue;
     }
 
     public int t() {

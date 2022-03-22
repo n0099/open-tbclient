@@ -10,15 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f27038e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f22300b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f27039f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c f27040g;
+    /* renamed from: c  reason: collision with root package name */
+    public c f22301c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public f() {
@@ -27,9 +25,9 @@ public abstract class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,7 +45,7 @@ public abstract class f {
     public final void d(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f27040g = cVar;
+            this.f22301c = cVar;
             c(cVar);
         }
     }
@@ -55,13 +53,13 @@ public abstract class f {
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27039f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22300b : invokeV.booleanValue;
     }
 
     public c f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f27040g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f22301c : (c) invokeV.objValue;
     }
 
     public void g(c cVar) {
@@ -73,7 +71,7 @@ public abstract class f {
     public final void h(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
-            this.f27040g = null;
+            this.f22301c = null;
             g(cVar);
         }
     }
@@ -84,22 +82,22 @@ public abstract class f {
         }
     }
 
-    public f(int i2) {
+    public f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27038e = i2;
-        this.f27039f = true;
+        this.a = i;
+        this.f22300b = true;
     }
 }

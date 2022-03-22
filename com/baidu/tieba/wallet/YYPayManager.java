@@ -7,11 +7,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.q0.a;
-import c.a.q0.q0.c;
-import c.a.q0.q0.g;
-import c.a.q0.q0.h;
-import c.a.q0.r.j0.b;
+import c.a.o0.q0.a;
+import c.a.o0.q0.c;
+import c.a.o0.q0.g;
+import c.a.o0.q0.h;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.internal.Constants;
@@ -82,19 +82,19 @@ public class YYPayManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static MiddleRevenueConfig buildMiddleRevenueConfig(int i2) {
+    public static MiddleRevenueConfig buildMiddleRevenueConfig(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
             Context applicationContext = BdBaseApplication.getInst().getApp().getApplicationContext();
             String packageName = applicationContext.getPackageName();
             String q = b.k().q("version_name", "");
@@ -109,7 +109,7 @@ public class YYPayManager {
             MiddleRevenueConfig build2 = new MiddleRevenueConfig.MiddleRevenueConfigBuilder().build();
             build2.setAppContext(applicationContext);
             build2.setAppId(41);
-            build2.setUseChannel(i2);
+            build2.setUseChannel(i);
             build2.setCurrencyType(4);
             build2.setPackageName(packageName);
             build2.setVersion(q);
@@ -129,9 +129,9 @@ public class YYPayManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -175,25 +175,25 @@ public class YYPayManager {
         }
         initYYPaySDK();
         createUIKit();
-        yyPayResultCallback = gVar.f12802e;
+        yyPayResultCallback = gVar.f10481e;
         Object obj = gVar.a;
         if (!(obj instanceof Activity)) {
             obj = getCurrentActivity();
         }
         IYYPayAmountView.ViewParams viewParams = new IYYPayAmountView.ViewParams();
-        viewParams.closeOnSuccess = gVar.f12804g;
-        if (!TextUtils.isEmpty(gVar.f12800c)) {
-            viewParams.payAmountDialogTitle = gVar.f12800c;
+        viewParams.closeOnSuccess = gVar.f10483g;
+        if (!TextUtils.isEmpty(gVar.f10479c)) {
+            viewParams.payAmountDialogTitle = gVar.f10479c;
         }
-        Long l = gVar.f12801d;
+        Long l = gVar.f10480d;
         if (l != null) {
             int intValue = l.intValue();
             viewParams.targetAmount = intValue;
             if (intValue > 0) {
-                int i2 = gVar.f12803f;
-                if (i2 == 1) {
+                int i = gVar.f10482f;
+                if (i == 1) {
                     viewParams.payScene = PayScene.DIALOG_PAY_SCENE;
-                } else if (i2 != 3) {
+                } else if (i != 3) {
                     viewParams.payScene = PayScene.DIALOG_QUICK_PAY;
                 } else {
                     viewParams.payScene = PayScene.DIALOG_TARGET_PAY;
@@ -214,9 +214,9 @@ public class YYPayManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r6};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -245,9 +245,9 @@ public class YYPayManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -255,12 +255,12 @@ public class YYPayManager {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-                public void onFail(int i3, String str, PayCallBackBean payCallBackBean) {
+                public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str, payCallBackBean) == null) || YYPayManager.yyPayResultCallback == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, payCallBackBean) == null) || YYPayManager.yyPayResultCallback == null) {
                         return;
                     }
-                    YYPayManager.yyPayResultCallback.onFail(i3, str);
+                    YYPayManager.yyPayResultCallback.onFail(i2, str);
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
@@ -289,19 +289,19 @@ public class YYPayManager {
                     }
                     h hVar = new h();
                     CurrencyChargeMessage currencyChargeMessage = (CurrencyChargeMessage) obj2;
-                    hVar.f12810g = currencyChargeMessage.status;
-                    hVar.f12805b = currencyChargeMessage.appid;
-                    hVar.f12811h = Long.valueOf(currencyChargeMessage.uid);
-                    hVar.f12812i = currencyChargeMessage.usedChannel;
-                    hVar.f12807d = currencyChargeMessage.currencyType;
+                    hVar.f10489g = currencyChargeMessage.status;
+                    hVar.f10484b = currencyChargeMessage.appid;
+                    hVar.f10490h = Long.valueOf(currencyChargeMessage.uid);
+                    hVar.i = currencyChargeMessage.usedChannel;
+                    hVar.f10486d = currencyChargeMessage.currencyType;
                     hVar.a = Long.valueOf(currencyChargeMessage.amount);
-                    hVar.f12806c = Long.valueOf(currencyChargeMessage.currencyAmount);
-                    hVar.f12809f = currencyChargeMessage.orderId;
-                    hVar.f12808e = currencyChargeMessage.expand;
+                    hVar.f10485c = Long.valueOf(currencyChargeMessage.currencyAmount);
+                    hVar.f10488f = currencyChargeMessage.orderId;
+                    hVar.f10487e = currencyChargeMessage.expand;
                     YYPayManager.yyPayResultCallback.a(hVar);
                 }
             };
-            if (gVar.f12799b == 0) {
+            if (gVar.f10478b == 0) {
                 yyPayUIKit.startPayDialog((Activity) obj, viewParams, iPayCallback);
             } else {
                 yyPayUIKitYYLive.startPayDialog((Activity) obj, viewParams, iPayCallback);
@@ -438,9 +438,9 @@ public class YYPayManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }

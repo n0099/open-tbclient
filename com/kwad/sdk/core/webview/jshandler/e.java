@@ -1,13 +1,14 @@
 package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.kwad.sdk.KsAdSDKImpl;
 import com.kwad.sdk.utils.ad;
 import com.kwad.sdk.utils.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e implements com.kwad.sdk.core.webview.kwai.a {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a extends com.kwad.sdk.core.response.kwai.a {
         public String A;
         public int B;
@@ -15,31 +16,27 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f54929b;
+        public int f40019b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54930c;
+        public String f40020c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f54931d;
+        public int f40021d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54932e;
+        public int f40022e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f54933f;
+        public String f40023f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f54934g;
+        public String f40024g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f54935h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f54936i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f54937j;
+        public String f40025h;
+        public String i;
+        public String j;
         public String k;
         public String l;
         public String m;
@@ -60,15 +57,15 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
         public static a a() {
             a aVar = new a();
             aVar.a = "3.3.17.4";
-            aVar.f54929b = 3031704;
-            aVar.f54930c = KsAdSDKImpl.get().getApiVersion();
-            aVar.f54931d = KsAdSDKImpl.get().getApiVersionCode();
-            aVar.f54932e = KsAdSDKImpl.get().getSDKType();
-            aVar.f54933f = av.w(KsAdSDKImpl.get().getContext());
-            aVar.f54934g = KsAdSDKImpl.get().getAppName();
-            aVar.f54935h = KsAdSDKImpl.get().getAppId();
-            aVar.f54936i = "";
-            aVar.f54937j = com.kwad.sdk.core.a.e.a();
+            aVar.f40019b = 3031704;
+            aVar.f40020c = KsAdSDKImpl.get().getApiVersion();
+            aVar.f40021d = KsAdSDKImpl.get().getApiVersionCode();
+            aVar.f40022e = KsAdSDKImpl.get().getSDKType();
+            aVar.f40023f = av.w(KsAdSDKImpl.get().getContext());
+            aVar.f40024g = KsAdSDKImpl.get().getAppName();
+            aVar.f40025h = KsAdSDKImpl.get().getAppId();
+            aVar.i = "";
+            aVar.j = com.kwad.sdk.core.a.e.a();
             aVar.k = com.kwad.sdk.core.a.e.b();
             aVar.l = String.valueOf(ad.c(KsAdSDKImpl.get().getContext()));
             aVar.m = av.n();
@@ -95,7 +92,7 @@ public class e implements com.kwad.sdk.core.webview.kwai.a {
     @Override // com.kwad.sdk.core.webview.kwai.a
     @NonNull
     public String a() {
-        return "getDeviceInfo";
+        return CommonTbJsBridge.GET_DEVICE_INFO;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

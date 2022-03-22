@@ -37,9 +37,9 @@ public class Base64Encoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -124,18 +124,18 @@ public class Base64Encoder {
         return invokeV.intValue;
     }
 
-    public static final native byte[] nativeB64Decode(byte[] bArr, int i2);
+    public static final native byte[] nativeB64Decode(byte[] bArr, int i);
 
-    public static final native byte[] nativeB64Encode(byte[] bArr, int i2);
+    public static final native byte[] nativeB64Encode(byte[] bArr, int i);
 
     public static final native int nativeB64GetVersion();
 
-    public static final byte[] b64Decode(byte[] bArr, int i2) {
+    public static final byte[] b64Decode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, bArr, i)) == null) {
             try {
-                return nativeB64Decode(bArr, i2);
+                return nativeB64Decode(bArr, i);
             } catch (Error | Exception unused) {
                 return bArr;
             }
@@ -143,12 +143,12 @@ public class Base64Encoder {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static final byte[] b64Encode(byte[] bArr, int i2) {
+    public static final byte[] b64Encode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
             try {
-                return nativeB64Encode(bArr, i2);
+                return nativeB64Encode(bArr, i);
             } catch (Error | Exception unused) {
                 return bArr;
             }

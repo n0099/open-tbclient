@@ -4,7 +4,7 @@ import android.content.Context;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface a {
-    void a(Context context, long j2);
+    void a(Context context, long j);
 
     void a(Context context, String str);
 

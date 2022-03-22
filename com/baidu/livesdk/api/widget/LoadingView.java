@@ -6,12 +6,12 @@ public interface LoadingView {
 
     /* loaded from: classes4.dex */
     public interface LoadingViewListener {
-        void onView(int i2, View view);
+        void onView(int i, View view);
     }
 
     void getLoadingView(LoadingViewListener loadingViewListener);
 
-    void seType(View view, int i2);
+    void seType(View view, int i);
 
     void startShimmerAnimation(View view);
 

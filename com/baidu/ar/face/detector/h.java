@@ -23,16 +23,16 @@ public class h extends com.baidu.ar.c.a<f> {
     public long timestamp;
     public int width;
 
-    public h(ByteBuffer byteBuffer, int i2, int i3, long j2, boolean z, int i4, boolean z2) {
+    public h(ByteBuffer byteBuffer, int i, int i2, long j, boolean z, int i3, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Boolean.valueOf(z), Integer.valueOf(i4), Boolean.valueOf(z2)};
+            Object[] objArr = {byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,11 +40,11 @@ public class h extends com.baidu.ar.c.a<f> {
         }
         this.oj = "face_detect";
         this.oe = byteBuffer;
-        this.width = i2;
-        this.height = i3;
-        this.timestamp = j2;
+        this.width = i;
+        this.height = i2;
+        this.timestamp = j;
         this.oi = z;
-        this.orientation = i4;
+        this.orientation = i3;
         this.oz = z2;
         setPriority(10);
     }

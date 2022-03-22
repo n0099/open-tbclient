@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,13 +30,11 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public NoNetworkView noNetWorkView;
     public RelativeLayout rootView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NavigationBarActivity f46342e;
+        public final /* synthetic */ NavigationBarActivity a;
 
         public a(NavigationBarActivity navigationBarActivity) {
             Interceptable interceptable = $ic;
@@ -45,22 +43,22 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {navigationBarActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46342e = navigationBarActivity;
+            this.a = navigationBarActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f46342e.finish();
+                this.a.finish();
             }
         }
     }
@@ -70,9 +68,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -110,20 +108,20 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.navigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.navigationBar.onChangeSkinType(getPageContext(), i);
             NoNetworkView noNetworkView = this.noNetWorkView;
             if (noNetworkView != null) {
-                noNetworkView.onChangeSkinType(getPageContext(), i2);
+                noNetworkView.c(getPageContext(), i);
             }
             NoDataView noDataView = this.noDataView;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(getPageContext(), i2);
+                noDataView.f(getPageContext(), i);
             }
-            getLayoutMode().k(i2 == 1);
+            getLayoutMode().k(i == 1);
             getLayoutMode().j(this.rootView);
         }
     }
@@ -133,12 +131,12 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            super.setContentView(R.layout.nevigationbar_layout);
-            this.navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
-            this.rootView = (RelativeLayout) findViewById(R.id.navigation_bar_root);
+            super.setContentView(R.layout.obfuscated_res_0x7f0d05ef);
+            this.navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
+            this.rootView = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09151e);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
             if (needNoNetWorkView()) {
-                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
+                this.noNetWorkView = (NoNetworkView) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09159d)).inflate();
             }
         }
     }
@@ -162,24 +160,24 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             if (this.noDataView == null) {
                 this.noDataView = NoDataViewFactory.a(getPageContext().getContext(), this.rootView, dVar, eVar, cVar);
             }
-            this.noDataView.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            this.noDataView.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             this.noDataView.setVisibility(0);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void setContentView(int i2) {
+    public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             if (needNoNetWorkView()) {
-                layoutParams.addRule(3, R.id.no_network_view);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09159c);
             } else {
-                layoutParams.addRule(3, R.id.no_network_viewstub);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f09159d);
             }
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.contentRootView = relativeLayout;
-            relativeLayout.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i2, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
+            relativeLayout.addView(LayoutInflater.from(getPageContext().getContext()).inflate(i, (ViewGroup) null), new ViewGroup.LayoutParams(-1, -1));
             this.rootView.addView(this.contentRootView, layoutParams);
         }
     }

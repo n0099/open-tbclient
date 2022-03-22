@@ -58,16 +58,16 @@ public class FlatPackageWriterImpl implements PackageWriter {
         LOG = Logger.getLogger(FlatPackageWriterImpl.class.getName());
     }
 
-    public FlatPackageWriterImpl(int i2) {
+    public FlatPackageWriterImpl(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -207,21 +207,21 @@ public class FlatPackageWriterImpl implements PackageWriter {
                 Logger logger = LOG;
                 logger.finer("Created : " + file2.getCanonicalPath());
                 long[] calculateFragmentDurations = this.manifestWriter.calculateFragmentDurations(track2, correctTimescale);
-                long j2 = 0;
+                long j = 0;
                 char c2 = 0;
-                int i2 = 0;
+                int i = 0;
                 while (it2.hasNext()) {
                     Box next2 = it2.next();
                     if ((next2 instanceof MovieFragmentBox) && ((MovieFragmentBox) next2).getTrackNumbers()[c2] == trackId) {
-                        FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j2)));
-                        int i3 = i2 + 1;
-                        j2 += calculateFragmentDurations[i2];
+                        FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file2, Long.toString(j)));
+                        int i2 = i + 1;
+                        j += calculateFragmentDurations[i];
                         FileChannel channel = fileOutputStream4.getChannel();
                         next2.getBox(channel);
                         it2.next().getBox(channel);
                         channel.truncate(channel.position());
                         channel.close();
-                        i2 = i3;
+                        i = i2;
                     }
                     c2 = 0;
                 }

@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +42,7 @@ import com.sina.weibo.sdk.web.param.BaseWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.DefaultWebViewRequestParam;
 import com.sina.weibo.sdk.web.param.ShareWebViewRequestParam;
 import com.sina.weibo.sdk.web.view.LoadingBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BROWSER_CLOSE_SCHEME = "sinaweibo://browser/close";
@@ -72,7 +73,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     public WebView webView;
     public BaseWebViewClient webViewClient;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class MyChromeClient extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -85,9 +86,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 newInitContext.initArgs = r2;
                 Object[] objArr = {weiboSdkWebActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,12 +98,12 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i2) {
+        public void onProgressChanged(WebView webView, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-                super.onProgressChanged(webView, i2);
-                this.this$0.loadingBar.drawProgress(i2);
-                if (i2 == 100) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
+                super.onProgressChanged(webView, i);
+                this.this$0.loadingBar.drawProgress(i);
+                if (i == 100) {
                     this.this$0.loadingBar.setVisibility(4);
                 } else {
                     this.this$0.loadingBar.setVisibility(0);
@@ -127,9 +128,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,18 +169,18 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 finish();
                 return;
             }
-            int i2 = extras.getInt("type", -1);
-            if (i2 == -1) {
+            int i = extras.getInt("type", -1);
+            if (i == -1) {
                 finish();
                 return;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 this.baseParam = new DefaultWebViewRequestParam();
                 this.webViewClient = new DefaultWebViewClient(this, this.baseParam);
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 this.baseParam = new ShareWebViewRequestParam(this);
                 this.webViewClient = new ShareWebViewClient(this, this, this.baseParam);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 this.baseParam = new AuthWebViewRequestParam();
                 this.webViewClient = new AuthWebViewClient(this, this, this.baseParam);
             }
@@ -199,9 +200,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -266,9 +267,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -311,7 +312,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             layoutParams4.topMargin = UIUtils.dip2px(55, this);
             relativeLayout.addView(this.loadingBar, layoutParams4);
             View view = new View(this);
-            view.setBackgroundResource(getResources().getIdentifier("weibosdk_common_shadow_top", "drawable", getPackageName()));
+            view.setBackgroundResource(getResources().getIdentifier("weibosdk_common_shadow_top", ResourceManager.DRAWABLE, getPackageName()));
             RelativeLayout.LayoutParams layoutParams5 = new RelativeLayout.LayoutParams(-1, UIUtils.dip2px(3, this));
             layoutParams5.topMargin = UIUtils.dip2px(55, this);
             relativeLayout.addView(view, layoutParams5);
@@ -319,7 +320,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             this.retryLayout = linearLayout;
             linearLayout.setOrientation(1);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(getResources().getIdentifier("weibosdk_empty_failed", "drawable", getPackageName()));
+            imageView.setImageResource(getResources().getIdentifier("weibosdk_empty_failed", ResourceManager.DRAWABLE, getPackageName()));
             this.retryLayout.addView(imageView);
             TextView textView3 = new TextView(this);
             this.retryTitle = textView3;
@@ -336,7 +337,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
             LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(UIUtils.dip2px(Cea708Decoder.COMMAND_DLC, this), UIUtils.dip2px(46, this));
             layoutParams7.gravity = 17;
             this.retryLayout.addView(this.retryBtn, layoutParams7);
-            this.retryBtn.setBackgroundResource(getResources().getIdentifier("retry_btn_selector", "drawable", getPackageName()));
+            this.retryBtn.setBackgroundResource(getResources().getIdentifier("retry_btn_selector", ResourceManager.DRAWABLE, getPackageName()));
             RelativeLayout.LayoutParams layoutParams8 = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams8.addRule(13);
             relativeLayout.addView(this.retryLayout, layoutParams8);
@@ -354,9 +355,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -453,11 +454,11 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 if (this.webViewClient.onBackKeyDown()) {
                     return true;
                 }
@@ -466,7 +467,7 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                     return true;
                 }
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -491,9 +492,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
     }
 
     @Override // com.sina.weibo.sdk.web.WebViewRequestCallback
-    public void onReceivedErrorCallBack(WebView webView, int i2, String str, String str2) {
+    public void onReceivedErrorCallBack(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i2, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048581, this, webView, i, str, str2) == null) {
             String url = webView.getUrl();
             try {
                 if (TextUtils.isEmpty(url) || TextUtils.isEmpty(str2)) {
@@ -529,9 +530,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sslErrorHandler};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -542,14 +543,14 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i2) {
+                public void onClick(DialogInterface dialogInterface, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                         this.val$handler.proceed();
                     }
                 }
             });
-            builder.setNegativeButton("取消", new DialogInterface.OnClickListener(this, sslErrorHandler) { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
+            builder.setNegativeButton(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new DialogInterface.OnClickListener(this, sslErrorHandler) { // from class: com.sina.weibo.sdk.web.WeiboSdkWebActivity.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WeiboSdkWebActivity this$0;
@@ -562,9 +563,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, sslErrorHandler};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -575,9 +576,9 @@ public class WeiboSdkWebActivity extends Activity implements WebViewRequestCallb
                 }
 
                 @Override // android.content.DialogInterface.OnClickListener
-                public void onClick(DialogInterface dialogInterface, int i2) {
+                public void onClick(DialogInterface dialogInterface, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i2) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, dialogInterface, i) == null) {
                         this.val$handler.cancel();
                     }
                 }

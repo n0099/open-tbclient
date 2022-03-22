@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public static /* synthetic */ Interceptable $ic;
     public static HashMap<String, String> a;
@@ -159,11 +159,11 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eVar)) == null) {
-            int i2 = k.a[eVar.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = k.a[eVar.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
                         return "ftos_push_token";
@@ -188,22 +188,22 @@ public class i {
             if (TextUtils.isEmpty(a2)) {
                 return hashMap;
             }
-            int i2 = k.a[eVar.ordinal()];
+            int i = k.a[eVar.ordinal()];
             String str = null;
             ApplicationInfo applicationInfo = null;
-            if (i2 != 1) {
-                if (i2 == 2) {
+            if (i != 1) {
+                if (i == 2) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f59442c;
-                } else if (i2 == 3) {
+                    afVar = af.f44061c;
+                } else if (i == 3) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f59443d;
-                } else if (i2 == 4) {
+                    afVar = af.f44062d;
+                } else if (i == 4) {
                     sb = new StringBuilder();
                     sb.append("brand:");
-                    afVar = af.f59444e;
+                    afVar = af.f44063e;
                 }
                 sb.append(afVar.name());
                 sb.append(Constants.WAVE_SEPARATOR);
@@ -230,13 +230,13 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m193a(Context context) {
+    public static void m172a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
             boolean z = false;
             SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
             String a2 = a(e.a);
-            String a3 = a(e.f59460b);
+            String a3 = a(e.f44079b);
             if (!TextUtils.isEmpty(sharedPreferences.getString(a2, "")) && TextUtils.isEmpty(sharedPreferences.getString(a3, ""))) {
                 z = true;
             }
@@ -247,7 +247,7 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m194a(Context context, e eVar) {
+    public static void m173a(Context context, e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, context, eVar) == null) {
             String a2 = a(eVar);
@@ -266,15 +266,15 @@ public class i {
         SharedPreferences sharedPreferences = context.getSharedPreferences("mipush_extra", 0);
         String a2 = a(eVar);
         if (TextUtils.isEmpty(a2)) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+            com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
             return;
         }
         String string = sharedPreferences.getString(a2, "");
         if (!TextUtils.isEmpty(string) && str.equals(string)) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : do not need to send token");
+            com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : do not need to send token");
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : send token upload");
+        com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : send token upload");
         a(eVar, str);
         at a3 = l.a(eVar);
         if (a3 == null) {
@@ -298,9 +298,9 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                 } else if (TextUtils.isEmpty(str)) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : token is null");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : token is null");
                 } else {
                     a.put(a2, str);
                 }
@@ -308,15 +308,15 @@ public class i {
         }
     }
 
-    public static void a(String str, int i2) {
+    public static void a(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, str, i2) == null) {
-            MiTinyDataClient.upload("hms_push_error", str, 1L, "error code = " + i2);
+        if (interceptable == null || interceptable.invokeLI(65547, null, str, i) == null) {
+            MiTinyDataClient.upload("hms_push_error", str, 1L, "error code = " + i);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m195a(Context context) {
+    public static boolean m174a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
@@ -329,12 +329,12 @@ public class i {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m196a(Context context, e eVar) {
+    public static boolean m175a(Context context, e eVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, eVar)) == null) {
-            if (l.m198a(eVar) != null) {
-                return com.xiaomi.push.service.aq.a(context).a(l.m198a(eVar).a(), true);
+            if (l.m177a(eVar) != null) {
+                return com.xiaomi.push.service.aq.a(context).a(l.m177a(eVar).a(), true);
             }
             return false;
         }
@@ -345,11 +345,11 @@ public class i {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, eVar)) == null) {
-            int i2 = k.a[eVar.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
+            int i = k.a[eVar.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
                             return null;
                         }
                         return "ftos_push_error";
@@ -390,11 +390,11 @@ public class i {
             synchronized (i.class) {
                 String a2 = a(eVar);
                 if (TextUtils.isEmpty(a2)) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
+                    com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : can not find the key of token used in sp file");
                     return;
                 }
                 com.xiaomi.push.r.a(context.getSharedPreferences("mipush_extra", 0).edit().putString(a2, str));
-                com.xiaomi.channel.commonutils.logger.b.m133a("ASSEMBLE_PUSH : update sp file success!  " + str);
+                com.xiaomi.channel.commonutils.logger.b.m112a("ASSEMBLE_PUSH : update sp file success!  " + str);
             }
         }
     }

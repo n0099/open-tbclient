@@ -22,7 +22,7 @@ public interface IFragmentLifecycle {
     @Deprecated
     void onActivityCreated(@Nullable Bundle bundle);
 
-    void onActivityResult(int i2, int i3, Intent intent);
+    void onActivityResult(int i, int i2, Intent intent);
 
     void onAttach(Activity activity);
 
@@ -36,9 +36,9 @@ public interface IFragmentLifecycle {
 
     void onCreate(@Nullable Bundle bundle);
 
-    Animation onCreateAnimation(int i2, boolean z, int i3);
+    Animation onCreateAnimation(int i, boolean z, int i2);
 
-    Animator onCreateAnimator(int i2, boolean z, int i3);
+    Animator onCreateAnimator(int i, boolean z, int i2);
 
     void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo);
 
@@ -75,7 +75,7 @@ public interface IFragmentLifecycle {
 
     void onPrepareOptionsMenu(Menu menu);
 
-    void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr);
+    void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
 
     void onResume();
 

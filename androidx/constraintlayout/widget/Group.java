@@ -24,9 +24,9 @@ public class Group extends ConstraintHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,8 +60,8 @@ public class Group extends ConstraintHelper {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, constraintLayout) == null) {
             int visibility = getVisibility();
             float elevation = Build.VERSION.SDK_INT >= 21 ? getElevation() : 0.0f;
-            for (int i2 = 0; i2 < this.mCount; i2++) {
-                View viewById = constraintLayout.getViewById(this.mIds[i2]);
+            for (int i = 0; i < this.mCount; i++) {
+                View viewById = constraintLayout.getViewById(this.mIds[i]);
                 if (viewById != null) {
                     viewById.setVisibility(visibility);
                     if (elevation > 0.0f && Build.VERSION.SDK_INT >= 21) {
@@ -81,9 +81,9 @@ public class Group extends ConstraintHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -94,17 +94,17 @@ public class Group extends ConstraintHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Group(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public Group(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -52,15 +52,15 @@ public class ShapeDataParser implements ValueParser<ShapeData> {
             int size = list.size();
             PointF pointF = list.get(0);
             ArrayList arrayList = new ArrayList(size);
-            for (int i2 = 1; i2 < size; i2++) {
-                PointF pointF2 = list.get(i2);
-                int i3 = i2 - 1;
-                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i3), list3.get(i3)), MiscUtils.addPoints(pointF2, list2.get(i2)), pointF2));
+            for (int i = 1; i < size; i++) {
+                PointF pointF2 = list.get(i);
+                int i2 = i - 1;
+                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i2), list3.get(i2)), MiscUtils.addPoints(pointF2, list2.get(i)), pointF2));
             }
             if (z) {
                 PointF pointF3 = list.get(0);
-                int i4 = size - 1;
-                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i4), list3.get(i4)), MiscUtils.addPoints(pointF3, list2.get(0)), pointF3));
+                int i3 = size - 1;
+                arrayList.add(new CubicCurveData(MiscUtils.addPoints(list.get(i3), list3.get(i3)), MiscUtils.addPoints(pointF3, list2.get(0)), pointF3));
             }
             return new ShapeData(pointF, z, arrayList);
         }

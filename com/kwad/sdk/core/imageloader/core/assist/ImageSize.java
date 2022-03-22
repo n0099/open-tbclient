@@ -6,19 +6,19 @@ public class ImageSize {
     public final int height;
     public final int width;
 
-    public ImageSize(int i2, int i3) {
-        this.width = i2;
-        this.height = i3;
+    public ImageSize(int i, int i2) {
+        this.width = i;
+        this.height = i2;
     }
 
-    public ImageSize(int i2, int i3, int i4) {
-        if (i4 % 180 == 0) {
-            this.width = i2;
-            this.height = i3;
+    public ImageSize(int i, int i2, int i3) {
+        if (i3 % 180 == 0) {
+            this.width = i;
+            this.height = i2;
             return;
         }
-        this.width = i3;
-        this.height = i2;
+        this.width = i2;
+        this.height = i;
     }
 
     public int getHeight() {
@@ -33,8 +33,8 @@ public class ImageSize {
         return new ImageSize((int) (this.width * f2), (int) (this.height * f2));
     }
 
-    public ImageSize scaleDown(int i2) {
-        return new ImageSize(this.width / i2, this.height / i2);
+    public ImageSize scaleDown(int i) {
+        return new ImageSize(this.width / i, this.height / i);
     }
 
     public String toString() {

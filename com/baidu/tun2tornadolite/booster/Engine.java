@@ -50,9 +50,9 @@ public final class Engine {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -89,13 +89,13 @@ public final class Engine {
         }
     }
 
-    public final void start(int i2, String region, String gameID, String gamePackageName) {
+    public final void start(int i, String region, String gameID, String gamePackageName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), region, gameID, gamePackageName}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), region, gameID, gamePackageName}) == null) {
             Intrinsics.checkNotNullParameter(region, "region");
             Intrinsics.checkNotNullParameter(gameID, "gameID");
             Intrinsics.checkNotNullParameter(gamePackageName, "gamePackageName");
-            BuildersKt.runBlocking$default(null, new Engine$start$1(this, i2, region, gameID, gamePackageName, null), 1, null);
+            BuildersKt.runBlocking$default(null, new Engine$start$1(this, i, region, gameID, gamePackageName, null), 1, null);
         }
     }
 

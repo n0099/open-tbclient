@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import org.xmlpull.v1.XmlPullParserException;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DrawableUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public final class DrawableUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,13 +46,13 @@ public final class DrawableUtils {
     }
 
     @NonNull
-    public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i2, @NonNull CharSequence charSequence) {
+    public static AttributeSet parseDrawableXml(@NonNull Context context, @XmlRes int i, @NonNull CharSequence charSequence) {
         int next;
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, context, i2, charSequence)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, context, i, charSequence)) == null) {
             try {
-                XmlResourceParser xml = context.getResources().getXml(i2);
+                XmlResourceParser xml = context.getResources().getXml(i);
                 do {
                     next = xml.next();
                     if (next == 2) {
@@ -67,7 +67,7 @@ public final class DrawableUtils {
                 }
                 throw new XmlPullParserException("No start tag found");
             } catch (IOException | XmlPullParserException e2) {
-                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i2));
+                Resources.NotFoundException notFoundException = new Resources.NotFoundException("Can't load badge resource ID #0x" + Integer.toHexString(i));
                 notFoundException.initCause(e2);
                 throw notFoundException;
             }
@@ -76,15 +76,15 @@ public final class DrawableUtils {
     }
 
     @TargetApi(21)
-    public static void setRippleDrawableRadius(@Nullable RippleDrawable rippleDrawable, int i2) {
+    public static void setRippleDrawableRadius(@Nullable RippleDrawable rippleDrawable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, rippleDrawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65538, null, rippleDrawable, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                rippleDrawable.setRadius(i2);
+                rippleDrawable.setRadius(i);
                 return;
             }
             try {
-                RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i2));
+                RippleDrawable.class.getDeclaredMethod("setMaxRadius", Integer.TYPE).invoke(rippleDrawable, Integer.valueOf(i));
             } catch (IllegalAccessException | NoSuchMethodException | InvocationTargetException e2) {
                 throw new IllegalStateException("Couldn't set RippleDrawable radius", e2);
             }

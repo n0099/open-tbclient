@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
 import c.a.d.f.p.n;
-import c.a.r0.f;
-import c.a.r0.p;
-import c.a.r0.q;
+import c.a.p0.f;
+import c.a.p0.p;
+import c.a.p0.q;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -38,17 +38,17 @@ public class SelectForumActivity extends SuspendedActivity {
         public final /* synthetic */ SelectForumActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SelectForumActivity selectForumActivity, int i2) {
-            super(i2);
+        public a(SelectForumActivity selectForumActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {selectForumActivity, Integer.valueOf(i2)};
+                Object[] objArr = {selectForumActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -76,17 +76,17 @@ public class SelectForumActivity extends SuspendedActivity {
         public final /* synthetic */ SelectForumActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SelectForumActivity selectForumActivity, int i2) {
-            super(i2);
+        public b(SelectForumActivity selectForumActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {selectForumActivity, Integer.valueOf(i2)};
+                Object[] objArr = {selectForumActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -103,7 +103,7 @@ public class SelectForumActivity extends SuspendedActivity {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
                 if (TextUtils.isEmpty(str)) {
-                    str = this.a.getString(R.string.activity_select_forum_error);
+                    str = this.a.getString(R.string.obfuscated_res_0x7f0f008d);
                 }
                 n.N(this.a, str);
             }
@@ -123,9 +123,9 @@ public class SelectForumActivity extends SuspendedActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {selectForumActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -134,7 +134,7 @@ public class SelectForumActivity extends SuspendedActivity {
             this.a = selectForumActivity;
         }
 
-        @Override // c.a.r0.q.f
+        @Override // c.a.p0.q.f
         public void a(ArrayList<SelectForumData> arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
@@ -151,9 +151,9 @@ public class SelectForumActivity extends SuspendedActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -181,7 +181,7 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.q0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.o0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, linearLayout, navigationBar)) == null) {
@@ -194,7 +194,7 @@ public class SelectForumActivity extends SuspendedActivity {
             }
             return this.selectForumView;
         }
-        return (c.a.q0.x0.b) invokeLL.objValue;
+        return (c.a.o0.x0.b) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity

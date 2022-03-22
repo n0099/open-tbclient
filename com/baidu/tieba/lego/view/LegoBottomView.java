@@ -6,7 +6,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.AbsListView;
 import android.widget.RelativeLayout;
-import c.a.r0.z1.k;
+import c.a.p0.b2.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
@@ -21,26 +21,22 @@ import com.tachikoma.core.component.anim.AnimationProperty;
 public class LegoBottomView extends RelativeLayout implements k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ObjectAnimator a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ObjectAnimator f44264e;
+    /* renamed from: b  reason: collision with root package name */
+    public Runnable f34319b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Runnable f44265f;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f34320c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f44266g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f44267h;
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f34321d;
 
     /* loaded from: classes5.dex */
     public class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoBottomView f44268e;
+        public final /* synthetic */ LegoBottomView a;
 
         public a(LegoBottomView legoBottomView) {
             Interceptable interceptable = $ic;
@@ -49,15 +45,15 @@ public class LegoBottomView extends RelativeLayout implements k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {legoBottomView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44268e = legoBottomView;
+            this.a = legoBottomView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -85,7 +81,7 @@ public class LegoBottomView extends RelativeLayout implements k {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f44268e.setVisibility(0);
+                this.a.setVisibility(0);
             }
         }
     }
@@ -94,9 +90,7 @@ public class LegoBottomView extends RelativeLayout implements k {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LegoBottomView f44269e;
+        public final /* synthetic */ LegoBottomView a;
 
         public b(LegoBottomView legoBottomView) {
             Interceptable interceptable = $ic;
@@ -105,22 +99,22 @@ public class LegoBottomView extends RelativeLayout implements k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {legoBottomView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44269e = legoBottomView;
+            this.a = legoBottomView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f44269e.f44264e.start();
+                this.a.a.start();
             }
         }
     }
@@ -134,23 +128,23 @@ public class LegoBottomView extends RelativeLayout implements k {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44264e = null;
-        this.f44265f = null;
-        this.f44266g = false;
-        this.f44267h = false;
-        b();
+        this.a = null;
+        this.f34319b = null;
+        this.f34320c = false;
+        this.f34321d = false;
+        d();
     }
 
-    public void addComponentView(BaseCardView baseCardView, ICardInfo iCardInfo) {
+    public void b(BaseCardView baseCardView, ICardInfo iCardInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, baseCardView, iCardInfo) == null) {
             baseCardView.update(iCardInfo);
@@ -161,44 +155,44 @@ public class LegoBottomView extends RelativeLayout implements k {
         }
     }
 
-    public final void b() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 0.5f, 1.0f);
-            this.f44264e = ofFloat;
-            ofFloat.setDuration(1000L);
-            this.f44264e.addListener(new a(this));
-            this.f44265f = new b(this);
+            this.f34320c = false;
+            this.f34321d = false;
+            removeCallbacks(this.f34319b);
         }
     }
 
-    public void destory() {
+    public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f44266g = false;
-            this.f44267h = false;
-            removeCallbacks(this.f44265f);
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 0.5f, 1.0f);
+            this.a = ofFloat;
+            ofFloat.setDuration(1000L);
+            this.a.addListener(new a(this));
+            this.f34319b = new b(this);
         }
     }
 
-    public boolean isShow() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f44266g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34320c : invokeV.booleanValue;
     }
 
-    @Override // c.a.r0.z1.k
-    public void onScrollStateChanged(AbsListView absListView, int i2) {
+    @Override // c.a.p0.b2.k
+    public void onScrollStateChanged(AbsListView absListView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i2) == null) {
-            if (i2 != 0) {
-                if (i2 == 1 || i2 == 2) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, absListView, i) == null) {
+            if (i != 0) {
+                if (i == 1 || i == 2) {
                     setVisibility(8);
                 }
-            } else if (getVisibility() == 0 || this.f44267h) {
+            } else if (getVisibility() == 0 || this.f34321d) {
             } else {
-                removeCallbacks(this.f44265f);
-                postDelayed(this.f44265f, 1000L);
+                removeCallbacks(this.f34319b);
+                postDelayed(this.f34319b, 1000L);
             }
         }
     }
@@ -206,15 +200,15 @@ public class LegoBottomView extends RelativeLayout implements k {
     public void setIsShow(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f44266g = z;
+            this.f34320c = z;
         }
     }
 
     public void setIsVideoLandscape(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            removeCallbacks(this.f44265f);
-            this.f44267h = z;
+            removeCallbacks(this.f34319b);
+            this.f34321d = z;
         }
     }
 
@@ -227,9 +221,9 @@ public class LegoBottomView extends RelativeLayout implements k {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -237,25 +231,25 @@ public class LegoBottomView extends RelativeLayout implements k {
                 return;
             }
         }
-        this.f44264e = null;
-        this.f44265f = null;
-        this.f44266g = false;
-        this.f44267h = false;
-        b();
+        this.a = null;
+        this.f34319b = null;
+        this.f34320c = false;
+        this.f34321d = false;
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LegoBottomView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LegoBottomView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -263,10 +257,10 @@ public class LegoBottomView extends RelativeLayout implements k {
                 return;
             }
         }
-        this.f44264e = null;
-        this.f44265f = null;
-        this.f44266g = false;
-        this.f44267h = false;
-        b();
+        this.a = null;
+        this.f34319b = null;
+        this.f34320c = false;
+        this.f34321d = false;
+        d();
     }
 }

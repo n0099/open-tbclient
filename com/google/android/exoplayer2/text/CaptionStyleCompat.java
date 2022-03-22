@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CaptionStyleCompat {
     public static /* synthetic */ Interceptable $ic = null;
     public static final CaptionStyleCompat DEFAULT;
@@ -33,7 +33,7 @@ public final class CaptionStyleCompat {
     public final int windowColor;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface EdgeType {
     }
 
@@ -53,26 +53,26 @@ public final class CaptionStyleCompat {
         DEFAULT = new CaptionStyleCompat(-1, -16777216, 0, 0, -1, null);
     }
 
-    public CaptionStyleCompat(int i2, int i3, int i4, int i5, int i6, Typeface typeface) {
+    public CaptionStyleCompat(int i, int i2, int i3, int i4, int i5, Typeface typeface) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), typeface};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), typeface};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i7 = newInitContext.flag;
-            if ((i7 & 1) != 0) {
-                int i8 = i7 & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.foregroundColor = i2;
-        this.backgroundColor = i3;
-        this.windowColor = i4;
-        this.edgeType = i5;
-        this.edgeColor = i6;
+        this.foregroundColor = i;
+        this.backgroundColor = i2;
+        this.windowColor = i3;
+        this.edgeType = i4;
+        this.edgeColor = i5;
         this.typeface = typeface;
     }
 

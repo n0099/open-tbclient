@@ -2,6 +2,7 @@ package com.baidu.yunjiasu.tornadosdk.backend;
 
 import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,9 +40,9 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
             newInitContext.initArgs = r2;
             Object[] objArr = {continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -95,7 +96,7 @@ public final class Backend$getSClientConfig$2 extends SuspendLambda implements F
                     Request.Builder addHeader = url2.addHeader("X-Channel-Name", str);
                     str2 = Backend.device;
                     if (str2 == null) {
-                        Intrinsics.throwUninitializedPropertyAccessException("device");
+                        Intrinsics.throwUninitializedPropertyAccessException(Config.DEVICE_PART);
                         str2 = null;
                     }
                     Request.Builder addHeader2 = addHeader.addHeader("X-Device-Name", str2);

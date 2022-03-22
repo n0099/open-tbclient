@@ -34,45 +34,49 @@ import java.util.List;
 public class z extends c.b.b.b implements m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float[] A;
-    public final Application B;
-    public final Context C;
-    public final t D;
-    public int E;
+    public int A;
+    public boolean B;
+    public boolean C;
+    public final float[] D;
+    public final float[] E;
     public boolean F;
-    public boolean G;
-    public final float[] H;
-    public final float[] I;
-    public boolean J;
-    public c.b.b.g K;
-    public final c.b.b.l.a.b L;
-    public final Input.Orientation M;
-    public SensorEventListener N;
-    public SensorEventListener O;
-    public SensorEventListener P;
-    public SensorEventListener Q;
-    public final ArrayList<View.OnGenericMotionListener> R;
-    public final o S;
-    public boolean T;
+    public c.b.b.g G;
+    public final c.b.b.l.a.b H;
+    public final Input.Orientation I;
+    public SensorEventListener J;
+    public SensorEventListener K;
+    public SensorEventListener L;
+    public SensorEventListener M;
+    public final ArrayList<View.OnGenericMotionListener> N;
+    public final o O;
+    public boolean P;
 
-    /* renamed from: j  reason: collision with root package name */
-    public c.b.b.q.z<d> f27206j;
-    public c.b.b.q.z<f> k;
-    public ArrayList<View.OnKeyListener> l;
-    public ArrayList<d> m;
-    public ArrayList<f> n;
-    public int[] o;
+    /* renamed from: f  reason: collision with root package name */
+    public c.b.b.q.z<d> f22454f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public c.b.b.q.z<f> f22455g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public ArrayList<View.OnKeyListener> f22456h;
+    public ArrayList<d> i;
+    public ArrayList<f> j;
+    public int[] k;
+    public int[] l;
+    public int[] m;
+    public int[] n;
+    public boolean[] o;
     public int[] p;
     public int[] q;
-    public int[] r;
+    public float[] r;
     public boolean[] s;
-    public int[] t;
-    public int[] u;
-    public float[] v;
-    public boolean[] w;
-    public SensorManager x;
-    public boolean y;
-    public final float[] z;
+    public SensorManager t;
+    public boolean u;
+    public final float[] v;
+    public final float[] w;
+    public final Application x;
+    public final Context y;
+    public final t z;
 
     /* loaded from: classes3.dex */
     public class a extends c.b.b.q.z<d> {
@@ -80,17 +84,17 @@ public class z extends c.b.b.b implements m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(z zVar, int i2, int i3) {
-            super(i2, i3);
+        public a(z zVar, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {zVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -116,17 +120,17 @@ public class z extends c.b.b.b implements m {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(z zVar, int i2, int i3) {
-            super(i2, i3);
+        public b(z zVar, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {zVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -197,22 +201,22 @@ public class z extends c.b.b.b implements m {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27207b;
+        public int f22457b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27208c;
+        public int f22458c;
 
         /* renamed from: d  reason: collision with root package name */
-        public char f27209d;
+        public char f22459d;
 
         public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -224,9 +228,7 @@ public class z extends c.b.b.b implements m {
     public class e implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ z f27210e;
+        public final /* synthetic */ z a;
 
         public e(z zVar) {
             Interceptable interceptable = $ic;
@@ -235,21 +237,21 @@ public class z extends c.b.b.b implements m {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {zVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27210e = zVar;
+            this.a = zVar;
         }
 
         @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i2) {
+        public void onAccuracyChanged(Sensor sensor, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
             }
         }
 
@@ -258,13 +260,13 @@ public class z extends c.b.b.b implements m {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
                 if (sensorEvent.sensor.getType() == 1) {
-                    z zVar = this.f27210e;
-                    if (zVar.M == Input.Orientation.Portrait) {
+                    z zVar = this.a;
+                    if (zVar.I == Input.Orientation.Portrait) {
                         float[] fArr = sensorEvent.values;
-                        float[] fArr2 = zVar.z;
+                        float[] fArr2 = zVar.v;
                         System.arraycopy(fArr, 0, fArr2, 0, fArr2.length);
                     } else {
-                        float[] fArr3 = zVar.z;
+                        float[] fArr3 = zVar.v;
                         float[] fArr4 = sensorEvent.values;
                         fArr3[0] = fArr4[1];
                         fArr3[1] = -fArr4[0];
@@ -273,17 +275,17 @@ public class z extends c.b.b.b implements m {
                 }
                 if (sensorEvent.sensor.getType() == 2) {
                     float[] fArr5 = sensorEvent.values;
-                    float[] fArr6 = this.f27210e.H;
+                    float[] fArr6 = this.a.D;
                     System.arraycopy(fArr5, 0, fArr6, 0, fArr6.length);
                 }
                 if (sensorEvent.sensor.getType() == 4) {
-                    z zVar2 = this.f27210e;
-                    if (zVar2.M == Input.Orientation.Portrait) {
+                    z zVar2 = this.a;
+                    if (zVar2.I == Input.Orientation.Portrait) {
                         float[] fArr7 = sensorEvent.values;
-                        float[] fArr8 = zVar2.A;
+                        float[] fArr8 = zVar2.w;
                         System.arraycopy(fArr7, 0, fArr8, 0, fArr8.length);
                     } else {
-                        float[] fArr9 = zVar2.A;
+                        float[] fArr9 = zVar2.w;
                         float[] fArr10 = sensorEvent.values;
                         fArr9[0] = fArr10[1];
                         fArr9[1] = -fArr10[0];
@@ -291,14 +293,14 @@ public class z extends c.b.b.b implements m {
                     }
                 }
                 if (sensorEvent.sensor.getType() == 11) {
-                    z zVar3 = this.f27210e;
-                    if (zVar3.M == Input.Orientation.Portrait) {
+                    z zVar3 = this.a;
+                    if (zVar3.I == Input.Orientation.Portrait) {
                         float[] fArr11 = sensorEvent.values;
-                        float[] fArr12 = zVar3.I;
+                        float[] fArr12 = zVar3.E;
                         System.arraycopy(fArr11, 0, fArr12, 0, fArr12.length);
                         return;
                     }
-                    float[] fArr13 = zVar3.I;
+                    float[] fArr13 = zVar3.E;
                     float[] fArr14 = sensorEvent.values;
                     fArr13[0] = fArr14[1];
                     fArr13[1] = -fArr14[0];
@@ -315,34 +317,34 @@ public class z extends c.b.b.b implements m {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27211b;
+        public int f22460b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27212c;
+        public int f22461c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27213d;
+        public int f22462d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f27214e;
+        public int f22463e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f27215f;
+        public int f22464f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f27216g;
+        public int f22465g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f27217h;
+        public int f22466h;
 
         public f() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -357,40 +359,40 @@ public class z extends c.b.b.b implements m {
             newInitContext.initArgs = r2;
             Object[] objArr = {application, context, obj, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27206j = new a(this, 16, 1000);
-        this.k = new b(this, 16, 1000);
-        this.l = new ArrayList<>();
-        this.m = new ArrayList<>();
-        this.n = new ArrayList<>();
-        this.o = new int[20];
+        this.f22454f = new a(this, 16, 1000);
+        this.f22455g = new b(this, 16, 1000);
+        this.f22456h = new ArrayList<>();
+        this.i = new ArrayList<>();
+        this.j = new ArrayList<>();
+        this.k = new int[20];
+        this.l = new int[20];
+        this.m = new int[20];
+        this.n = new int[20];
+        this.o = new boolean[20];
         this.p = new int[20];
         this.q = new int[20];
-        this.r = new int[20];
+        this.r = new float[20];
         this.s = new boolean[20];
-        this.t = new int[20];
-        this.u = new int[20];
-        this.v = new float[20];
-        this.w = new boolean[20];
-        int i4 = 0;
-        this.y = false;
-        this.z = new float[3];
-        this.A = new float[3];
-        this.E = 0;
+        int i3 = 0;
+        this.u = false;
+        this.v = new float[3];
+        this.w = new float[3];
+        this.A = 0;
+        this.B = false;
+        this.C = false;
+        this.D = new float[3];
+        this.E = new float[3];
         this.F = false;
-        this.G = false;
-        this.H = new float[3];
-        this.I = new float[3];
-        this.J = false;
-        this.R = new ArrayList<>();
-        this.T = true;
+        this.N = new ArrayList<>();
+        this.P = true;
         if (obj instanceof View) {
             View view = (View) obj;
             view.setOnKeyListener(this);
@@ -400,44 +402,44 @@ public class z extends c.b.b.b implements m {
             view.requestFocus();
             view.setOnGenericMotionListener(this);
         }
-        this.L = bVar;
-        this.S = new o();
+        this.H = bVar;
+        this.O = new o();
         while (true) {
-            int[] iArr = this.u;
-            if (i4 >= iArr.length) {
+            int[] iArr = this.q;
+            if (i3 >= iArr.length) {
                 break;
             }
-            iArr[i4] = -1;
-            i4++;
+            iArr[i3] = -1;
+            i3++;
         }
         new Handler();
-        this.B = application;
-        this.C = context;
-        this.E = bVar.m;
+        this.x = application;
+        this.y = context;
+        this.A = bVar.m;
         t tVar = new t();
-        this.D = tVar;
+        this.z = tVar;
         tVar.c(context);
         Vibrator vibrator = (Vibrator) context.getSystemService("vibrator");
-        int f2 = f();
-        Graphics.a f3 = this.B.getGraphics().f();
-        if (((f2 != 0 && f2 != 180) || f3.a < f3.f29678b) && ((f2 != 90 && f2 != 270) || f3.a > f3.f29678b)) {
-            this.M = Input.Orientation.Portrait;
+        int e2 = e();
+        Graphics.a f2 = this.x.getGraphics().f();
+        if (((e2 != 0 && e2 != 180) || f2.a < f2.f23709b) && ((e2 != 90 && e2 != 270) || f2.a > f2.f23709b)) {
+            this.I = Input.Orientation.Portrait;
         } else {
-            this.M = Input.Orientation.Landscape;
+            this.I = Input.Orientation.Landscape;
         }
         b(255, true);
     }
 
-    public static int d(Input.OnscreenKeyboardType onscreenKeyboardType) {
+    public static int c(Input.OnscreenKeyboardType onscreenKeyboardType) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, onscreenKeyboardType)) == null) {
-            int i2 = c.a[onscreenKeyboardType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
+            int i = c.a[onscreenKeyboardType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
                                 return Cea708Decoder.COMMAND_SPA;
                             }
                             return 17;
@@ -454,41 +456,42 @@ public class z extends c.b.b.b implements m {
     }
 
     @Override // c.b.b.l.a.m
-    public void c(boolean z) {
+    public void a0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g();
         }
     }
 
-    public int e() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int length = this.u.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (this.u[i2] == -1) {
-                    return i2;
+            int length = this.q.length;
+            for (int i = 0; i < length; i++) {
+                if (this.q[i] == -1) {
+                    return i;
                 }
             }
-            this.v = k(this.v);
-            this.u = l(this.u);
-            this.o = l(this.o);
-            this.p = l(this.p);
-            this.q = l(this.q);
-            this.r = l(this.r);
-            this.s = n(this.s);
-            this.t = l(this.t);
+            this.r = h(this.r);
+            this.q = j(this.q);
+            this.k = j(this.k);
+            this.l = j(this.l);
+            this.m = j(this.m);
+            this.n = j(this.n);
+            this.o = k(this.o);
+            this.p = j(this.p);
             return length;
         }
         return invokeV.intValue;
     }
 
-    public int f() {
+    public int e() {
         InterceptResult invokeV;
         int rotation;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Context context = this.C;
+            Context context = this.y;
             if (context instanceof Activity) {
                 rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
             } else {
@@ -505,78 +508,60 @@ public class z extends c.b.b.b implements m {
         return invokeV.intValue;
     }
 
-    @Override // c.b.b.l.a.m
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            o();
-            Arrays.fill(this.u, -1);
-            Arrays.fill(this.s, false);
-        }
-    }
-
-    @Override // c.b.b.l.a.m
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j();
-        }
-    }
-
-    public int i(int i2) {
+    public int f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            int length = this.u.length;
-            for (int i3 = 0; i3 < length; i3++) {
-                if (this.u[i3] == i2) {
-                    return i3;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int length = this.q.length;
+            for (int i2 = 0; i2 < length; i2++) {
+                if (this.q[i2] == i) {
+                    return i2;
                 }
             }
             StringBuilder sb = new StringBuilder();
-            for (int i4 = 0; i4 < length; i4++) {
-                sb.append(i4 + ":" + this.u[i4] + " ");
+            for (int i3 = 0; i3 < length; i3++) {
+                sb.append(i3 + ":" + this.q[i3] + " ");
             }
             Application application = c.b.b.f.a;
-            application.log("AndroidInput", "Pointer ID lookup failed: " + i2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
+            application.log("AndroidInput", "Pointer ID lookup failed: " + i + StringUtil.ARRAY_ELEMENT_SEPARATOR + sb.toString());
             return -1;
         }
         return invokeI.intValue;
     }
 
-    public void j() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.L.f27156h) {
-                SensorManager sensorManager = (SensorManager) this.C.getSystemService("sensor");
-                this.x = sensorManager;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.H.f22411h) {
+                SensorManager sensorManager = (SensorManager) this.y.getSystemService("sensor");
+                this.t = sensorManager;
                 if (sensorManager.getSensorList(1).isEmpty()) {
-                    this.y = false;
+                    this.u = false;
                 } else {
                     e eVar = new e(this);
-                    this.N = eVar;
-                    this.y = this.x.registerListener(eVar, this.x.getSensorList(1).get(0), this.L.l);
+                    this.J = eVar;
+                    this.u = this.t.registerListener(eVar, this.t.getSensorList(1).get(0), this.H.l);
                 }
             } else {
-                this.y = false;
+                this.u = false;
             }
-            if (this.L.f27157i) {
-                SensorManager sensorManager2 = (SensorManager) this.C.getSystemService("sensor");
-                this.x = sensorManager2;
+            if (this.H.i) {
+                SensorManager sensorManager2 = (SensorManager) this.y.getSystemService("sensor");
+                this.t = sensorManager2;
                 if (!sensorManager2.getSensorList(4).isEmpty()) {
                     e eVar2 = new e(this);
-                    this.O = eVar2;
-                    this.x.registerListener(eVar2, this.x.getSensorList(4).get(0), this.L.l);
+                    this.K = eVar2;
+                    this.t.registerListener(eVar2, this.t.getSensorList(4).get(0), this.H.l);
                 }
             }
-            this.G = false;
-            if (this.L.k) {
-                if (this.x == null) {
-                    this.x = (SensorManager) this.C.getSystemService("sensor");
+            this.C = false;
+            if (this.H.k) {
+                if (this.t == null) {
+                    this.t = (SensorManager) this.y.getSystemService("sensor");
                 }
-                List<Sensor> sensorList = this.x.getSensorList(11);
+                List<Sensor> sensorList = this.t.getSensorList(11);
                 if (!sensorList.isEmpty()) {
-                    this.Q = new e(this);
+                    this.M = new e(this);
                     Iterator<Sensor> it = sensorList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -584,42 +569,123 @@ public class z extends c.b.b.b implements m {
                         }
                         Sensor next = it.next();
                         if (next.getVendor().equals("Google Inc.") && next.getVersion() == 3) {
-                            this.G = this.x.registerListener(this.Q, next, this.L.l);
+                            this.C = this.t.registerListener(this.M, next, this.H.l);
                             break;
                         }
                     }
-                    if (!this.G) {
-                        this.G = this.x.registerListener(this.Q, sensorList.get(0), this.L.l);
+                    if (!this.C) {
+                        this.C = this.t.registerListener(this.M, sensorList.get(0), this.H.l);
                     }
                 }
             }
-            if (this.L.f27158j && !this.G) {
-                if (this.x == null) {
-                    this.x = (SensorManager) this.C.getSystemService("sensor");
+            if (this.H.j && !this.C) {
+                if (this.t == null) {
+                    this.t = (SensorManager) this.y.getSystemService("sensor");
                 }
-                Sensor defaultSensor = this.x.getDefaultSensor(2);
+                Sensor defaultSensor = this.t.getDefaultSensor(2);
                 if (defaultSensor != null) {
-                    boolean z = this.y;
-                    this.F = z;
+                    boolean z = this.u;
+                    this.B = z;
                     if (z) {
                         e eVar3 = new e(this);
-                        this.P = eVar3;
-                        this.F = this.x.registerListener(eVar3, defaultSensor, this.L.l);
+                        this.L = eVar3;
+                        this.B = this.t.registerListener(eVar3, defaultSensor, this.H.l);
                     }
                 } else {
-                    this.F = false;
+                    this.B = false;
                 }
             } else {
-                this.F = false;
+                this.B = false;
             }
             c.b.b.f.a.log("AndroidInput", "sensor listener setup");
         }
     }
 
-    public final float[] k(float[] fArr) {
+    @Override // c.b.b.l.a.m
+    public void g0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (this.F) {
+                    this.F = false;
+                    for (int i = 0; i < this.s.length; i++) {
+                        this.s[i] = false;
+                    }
+                }
+                if (this.f22330e) {
+                    this.f22330e = false;
+                    for (int i2 = 0; i2 < this.f22327b.length; i2++) {
+                        this.f22327b[i2] = false;
+                    }
+                }
+                if (this.G != null) {
+                    c.b.b.g gVar = this.G;
+                    int size = this.i.size();
+                    for (int i3 = 0; i3 < size; i3++) {
+                        d dVar = this.i.get(i3);
+                        long j = dVar.a;
+                        int i4 = dVar.f22457b;
+                        if (i4 == 0) {
+                            gVar.g(dVar.f22458c);
+                            this.f22330e = true;
+                            this.f22327b[dVar.f22458c] = true;
+                        } else if (i4 == 1) {
+                            gVar.f(dVar.f22458c);
+                        } else if (i4 == 2) {
+                            gVar.h(dVar.f22459d);
+                        }
+                        this.f22454f.c(dVar);
+                    }
+                    int size2 = this.j.size();
+                    for (int i5 = 0; i5 < size2; i5++) {
+                        f fVar = this.j.get(i5);
+                        long j2 = fVar.a;
+                        int i6 = fVar.f22460b;
+                        if (i6 == 0) {
+                            gVar.b(fVar.f22461c, fVar.f22462d, fVar.f22466h, fVar.f22465g);
+                            this.F = true;
+                            this.s[fVar.f22465g] = true;
+                        } else if (i6 == 1) {
+                            gVar.a(fVar.f22461c, fVar.f22462d, fVar.f22466h, fVar.f22465g);
+                        } else if (i6 == 2) {
+                            gVar.d(fVar.f22461c, fVar.f22462d, fVar.f22466h);
+                        } else if (i6 == 3) {
+                            gVar.c(fVar.f22463e, fVar.f22464f);
+                        } else if (i6 == 4) {
+                            gVar.e(fVar.f22461c, fVar.f22462d);
+                        }
+                        this.f22455g.c(fVar);
+                    }
+                } else {
+                    int size3 = this.j.size();
+                    for (int i7 = 0; i7 < size3; i7++) {
+                        f fVar2 = this.j.get(i7);
+                        if (fVar2.f22460b == 0) {
+                            this.F = true;
+                        }
+                        this.f22455g.c(fVar2);
+                    }
+                    int size4 = this.i.size();
+                    for (int i8 = 0; i8 < size4; i8++) {
+                        this.f22454f.c(this.i.get(i8));
+                    }
+                }
+                if (this.j.isEmpty()) {
+                    for (int i9 = 0; i9 < this.m.length; i9++) {
+                        this.m[0] = 0;
+                        this.n[0] = 0;
+                    }
+                }
+                this.i.clear();
+                this.j.clear();
+            }
+        }
+    }
+
+    public final float[] h(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fArr)) == null) {
             float[] fArr2 = new float[fArr.length + 2];
             System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
             return fArr2;
@@ -627,7 +693,14 @@ public class z extends c.b.b.b implements m {
         return (float[]) invokeL.objValue;
     }
 
-    public final int[] l(int[] iArr) {
+    @Override // c.b.b.l.a.m
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        }
+    }
+
+    public final int[] j(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
@@ -638,91 +711,10 @@ public class z extends c.b.b.b implements m {
         return (int[]) invokeL.objValue;
     }
 
-    @Override // c.b.b.l.a.m
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                if (this.J) {
-                    this.J = false;
-                    for (int i2 = 0; i2 < this.w.length; i2++) {
-                        this.w[i2] = false;
-                    }
-                }
-                if (this.f27073i) {
-                    this.f27073i = false;
-                    for (int i3 = 0; i3 < this.f27070f.length; i3++) {
-                        this.f27070f[i3] = false;
-                    }
-                }
-                if (this.K != null) {
-                    c.b.b.g gVar = this.K;
-                    int size = this.m.size();
-                    for (int i4 = 0; i4 < size; i4++) {
-                        d dVar = this.m.get(i4);
-                        long j2 = dVar.a;
-                        int i5 = dVar.f27207b;
-                        if (i5 == 0) {
-                            gVar.g(dVar.f27208c);
-                            this.f27073i = true;
-                            this.f27070f[dVar.f27208c] = true;
-                        } else if (i5 == 1) {
-                            gVar.f(dVar.f27208c);
-                        } else if (i5 == 2) {
-                            gVar.h(dVar.f27209d);
-                        }
-                        this.f27206j.c(dVar);
-                    }
-                    int size2 = this.n.size();
-                    for (int i6 = 0; i6 < size2; i6++) {
-                        f fVar = this.n.get(i6);
-                        long j3 = fVar.a;
-                        int i7 = fVar.f27211b;
-                        if (i7 == 0) {
-                            gVar.b(fVar.f27212c, fVar.f27213d, fVar.f27217h, fVar.f27216g);
-                            this.J = true;
-                            this.w[fVar.f27216g] = true;
-                        } else if (i7 == 1) {
-                            gVar.a(fVar.f27212c, fVar.f27213d, fVar.f27217h, fVar.f27216g);
-                        } else if (i7 == 2) {
-                            gVar.d(fVar.f27212c, fVar.f27213d, fVar.f27217h);
-                        } else if (i7 == 3) {
-                            gVar.c(fVar.f27214e, fVar.f27215f);
-                        } else if (i7 == 4) {
-                            gVar.e(fVar.f27212c, fVar.f27213d);
-                        }
-                        this.k.c(fVar);
-                    }
-                } else {
-                    int size3 = this.n.size();
-                    for (int i8 = 0; i8 < size3; i8++) {
-                        f fVar2 = this.n.get(i8);
-                        if (fVar2.f27211b == 0) {
-                            this.J = true;
-                        }
-                        this.k.c(fVar2);
-                    }
-                    int size4 = this.m.size();
-                    for (int i9 = 0; i9 < size4; i9++) {
-                        this.f27206j.c(this.m.get(i9));
-                    }
-                }
-                if (this.n.isEmpty()) {
-                    for (int i10 = 0; i10 < this.q.length; i10++) {
-                        this.q[0] = 0;
-                        this.r[0] = 0;
-                    }
-                }
-                this.m.clear();
-                this.n.clear();
-            }
-        }
-    }
-
-    public final boolean[] n(boolean[] zArr) {
+    public final boolean[] k(boolean[] zArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, zArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zArr)) == null) {
             boolean[] zArr2 = new boolean[zArr.length + 2];
             System.arraycopy(zArr, 0, zArr2, 0, zArr.length);
             return zArr2;
@@ -730,32 +722,32 @@ public class z extends c.b.b.b implements m {
         return (boolean[]) invokeL.objValue;
     }
 
-    public void o() {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SensorManager sensorManager = this.x;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            SensorManager sensorManager = this.t;
             if (sensorManager != null) {
-                SensorEventListener sensorEventListener = this.N;
+                SensorEventListener sensorEventListener = this.J;
                 if (sensorEventListener != null) {
                     sensorManager.unregisterListener(sensorEventListener);
-                    this.N = null;
+                    this.J = null;
                 }
-                SensorEventListener sensorEventListener2 = this.O;
+                SensorEventListener sensorEventListener2 = this.K;
                 if (sensorEventListener2 != null) {
-                    this.x.unregisterListener(sensorEventListener2);
-                    this.O = null;
+                    this.t.unregisterListener(sensorEventListener2);
+                    this.K = null;
                 }
-                SensorEventListener sensorEventListener3 = this.Q;
+                SensorEventListener sensorEventListener3 = this.M;
                 if (sensorEventListener3 != null) {
-                    this.x.unregisterListener(sensorEventListener3);
-                    this.Q = null;
+                    this.t.unregisterListener(sensorEventListener3);
+                    this.M = null;
                 }
-                SensorEventListener sensorEventListener4 = this.P;
+                SensorEventListener sensorEventListener4 = this.L;
                 if (sensorEventListener4 != null) {
-                    this.x.unregisterListener(sensorEventListener4);
-                    this.P = null;
+                    this.t.unregisterListener(sensorEventListener4);
+                    this.L = null;
                 }
-                this.x = null;
+                this.t = null;
             }
             c.b.b.f.a.log("AndroidInput", "sensor listener tear down");
         }
@@ -765,13 +757,13 @@ public class z extends c.b.b.b implements m {
     public boolean onGenericMotion(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, view, motionEvent)) == null) {
-            if (this.S.a(motionEvent, this)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, view, motionEvent)) == null) {
+            if (this.O.a(motionEvent, this)) {
                 return true;
             }
-            int size = this.R.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (this.R.get(i2).onGenericMotion(view, motionEvent)) {
+            int size = this.N.size();
+            for (int i = 0; i < size; i++) {
+                if (this.N.get(i).onGenericMotion(view, motionEvent)) {
                     return true;
                 }
             }
@@ -781,83 +773,83 @@ public class z extends c.b.b.b implements m {
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048589, this, view, i2, keyEvent)) == null) {
-            int size = this.l.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                if (this.l.get(i3).onKey(view, i2, keyEvent)) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, view, i, keyEvent)) == null) {
+            int size = this.f22456h.size();
+            for (int i2 = 0; i2 < size; i2++) {
+                if (this.f22456h.get(i2).onKey(view, i, keyEvent)) {
                     return true;
                 }
             }
             if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() > 0) {
-                return a(i2);
+                return a(i);
             }
             synchronized (this) {
                 if (keyEvent.getKeyCode() == 0 && keyEvent.getAction() == 2) {
                     String characters = keyEvent.getCharacters();
-                    for (int i4 = 0; i4 < characters.length(); i4++) {
-                        d e2 = this.f27206j.e();
+                    for (int i3 = 0; i3 < characters.length(); i3++) {
+                        d e2 = this.f22454f.e();
                         e2.a = System.nanoTime();
-                        e2.f27208c = 0;
-                        e2.f27209d = characters.charAt(i4);
-                        e2.f27207b = 2;
-                        this.m.add(e2);
+                        e2.f22458c = 0;
+                        e2.f22459d = characters.charAt(i3);
+                        e2.f22457b = 2;
+                        this.i.add(e2);
                     }
                     return false;
                 }
                 char unicodeChar = (char) keyEvent.getUnicodeChar();
-                if (i2 == 67) {
+                if (i == 67) {
                     unicodeChar = '\b';
                 }
                 if (keyEvent.getKeyCode() >= 0 && keyEvent.getKeyCode() <= 255) {
                     int action = keyEvent.getAction();
                     if (action == 0) {
-                        d e3 = this.f27206j.e();
+                        d e3 = this.f22454f.e();
                         e3.a = System.nanoTime();
-                        e3.f27209d = (char) 0;
-                        e3.f27208c = keyEvent.getKeyCode();
-                        e3.f27207b = 0;
-                        if (i2 == 4 && keyEvent.isAltPressed()) {
-                            e3.f27208c = 255;
-                            i2 = 255;
+                        e3.f22459d = (char) 0;
+                        e3.f22458c = keyEvent.getKeyCode();
+                        e3.f22457b = 0;
+                        if (i == 4 && keyEvent.isAltPressed()) {
+                            e3.f22458c = 255;
+                            i = 255;
                         }
-                        this.m.add(e3);
-                        if (!this.f27069e[e3.f27208c]) {
-                            this.f27072h++;
-                            this.f27069e[e3.f27208c] = true;
+                        this.i.add(e3);
+                        if (!this.a[e3.f22458c]) {
+                            this.f22329d++;
+                            this.a[e3.f22458c] = true;
                         }
                     } else if (action == 1) {
                         long nanoTime = System.nanoTime();
-                        d e4 = this.f27206j.e();
+                        d e4 = this.f22454f.e();
                         e4.a = nanoTime;
-                        e4.f27209d = (char) 0;
-                        e4.f27208c = keyEvent.getKeyCode();
-                        e4.f27207b = 1;
-                        if (i2 == 4 && keyEvent.isAltPressed()) {
-                            e4.f27208c = 255;
-                            i2 = 255;
+                        e4.f22459d = (char) 0;
+                        e4.f22458c = keyEvent.getKeyCode();
+                        e4.f22457b = 1;
+                        if (i == 4 && keyEvent.isAltPressed()) {
+                            e4.f22458c = 255;
+                            i = 255;
                         }
-                        this.m.add(e4);
-                        d e5 = this.f27206j.e();
+                        this.i.add(e4);
+                        d e5 = this.f22454f.e();
                         e5.a = nanoTime;
-                        e5.f27209d = unicodeChar;
-                        e5.f27208c = 0;
-                        e5.f27207b = 2;
-                        this.m.add(e5);
-                        if (i2 == 255) {
-                            if (this.f27069e[255]) {
-                                this.f27072h--;
-                                this.f27069e[255] = false;
+                        e5.f22459d = unicodeChar;
+                        e5.f22458c = 0;
+                        e5.f22457b = 2;
+                        this.i.add(e5);
+                        if (i == 255) {
+                            if (this.a[255]) {
+                                this.f22329d--;
+                                this.a[255] = false;
                             }
-                        } else if (this.f27069e[keyEvent.getKeyCode()]) {
-                            this.f27072h--;
-                            this.f27069e[keyEvent.getKeyCode()] = false;
+                        } else if (this.a[keyEvent.getKeyCode()]) {
+                            this.f22329d--;
+                            this.a[keyEvent.getKeyCode()] = false;
                         }
                     }
-                    this.B.getGraphics().c();
-                    return a(i2);
+                    this.x.getGraphics().c();
+                    return a(i);
                 }
                 return false;
             }
@@ -868,18 +860,18 @@ public class z extends c.b.b.b implements m {
     @Override // c.b.b.l.a.m
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            o();
-            Arrays.fill(this.u, -1);
-            Arrays.fill(this.s, false);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            l();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
         }
     }
 
     @Override // c.b.b.l.a.m
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            j();
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            g();
         }
     }
 
@@ -887,22 +879,32 @@ public class z extends c.b.b.b implements m {
     public boolean onTouch(View view, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, view, motionEvent)) == null) {
-            if (this.T && view != null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view, motionEvent)) == null) {
+            if (this.P && view != null) {
                 view.setFocusableInTouchMode(true);
                 view.requestFocus();
-                this.T = false;
+                this.P = false;
             }
-            this.D.a(motionEvent, this);
-            int i2 = this.E;
-            if (i2 != 0) {
+            this.z.a(motionEvent, this);
+            int i = this.A;
+            if (i != 0) {
                 try {
-                    Thread.sleep(i2);
+                    Thread.sleep(i);
                 } catch (InterruptedException unused) {
                 }
             }
             return true;
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // c.b.b.l.a.m
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            l();
+            Arrays.fill(this.q, -1);
+            Arrays.fill(this.o, false);
+        }
     }
 }

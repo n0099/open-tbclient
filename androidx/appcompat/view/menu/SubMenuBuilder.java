@@ -33,9 +33,9 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, menuBuilder, menuItemImpl};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -188,25 +188,25 @@ public class SubMenuBuilder extends MenuBuilder implements SubMenu {
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderIcon(int i2) {
+    public SubMenu setHeaderIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? (SubMenu) super.setHeaderIconInt(i2) : (SubMenu) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? (SubMenu) super.setHeaderIconInt(i) : (SubMenu) invokeI.objValue;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setHeaderTitle(int i2) {
+    public SubMenu setHeaderTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) ? (SubMenu) super.setHeaderTitleInt(i2) : (SubMenu) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) ? (SubMenu) super.setHeaderTitleInt(i) : (SubMenu) invokeI.objValue;
     }
 
     @Override // android.view.SubMenu
-    public SubMenu setIcon(int i2) {
+    public SubMenu setIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            this.mItem.setIcon(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            this.mItem.setIcon(i);
             return this;
         }
         return (SubMenu) invokeI.objValue;

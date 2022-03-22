@@ -2,6 +2,7 @@ package com.baidu.searchbox.ruka.ubc;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -65,9 +66,9 @@ public class UBCLooperRegister extends ILooperRegister {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -88,10 +89,15 @@ public class UBCLooperRegister extends ILooperRegister {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, looperBlock) == null) {
             if (!sEnable) {
-                AppConfig.isDebug();
+                if (AppConfig.isDebug()) {
+                    Log.d(TAG, "UBCLooperRegister, sEnable = false");
+                    return;
+                }
                 return;
             }
-            AppConfig.isDebug();
+            if (AppConfig.isDebug()) {
+                Log.d(TAG, "UBCLooperRegister, sEnable = true, write LooperBlock into UBC");
+            }
             JSONObject jSONObject = new JSONObject();
             try {
                 Object oSVersion = CommonUtils.getOSVersion();
@@ -155,23 +161,23 @@ public class UBCLooperRegister extends ILooperRegister {
                 jSONObject.put(Constant.KEY_TIME_COST_END, looperBlock.getEndLagTime());
                 String sb = looperBlock.getStackSb().toString();
                 if (AppConfig.isDebug()) {
-                    String str = "stack format before: " + sb;
+                    Log.d(TAG, "stack format before: " + sb);
                 }
                 String[] split = sb.split(this.separator + this.separator);
                 if (split.length > 0) {
-                    String str2 = split[0];
-                    if (str2.length() > 0 && str2.contains("stack = ")) {
-                        sb = "Looper" + looperBlock.getStackSb().toString().replace(str2, "");
+                    String str = split[0];
+                    if (str.length() > 0 && str.contains("stack = ")) {
+                        sb = "Looper" + looperBlock.getStackSb().toString().replace(str, "");
                     }
                 }
                 jSONObject.put("stacktrace", sb);
                 if (AppConfig.isDebug()) {
-                    String str3 = "stack format after: " + sb;
+                    Log.d(TAG, "stack format after: " + sb);
                 }
                 LinkedList<TrackUI> trackUIs = looperBlock.getTrackUIs();
                 if (trackUIs != null && trackUIs.size() > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    int i2 = 1;
+                    int i = 1;
                     int size = trackUIs.size() - 1;
                     while (true) {
                         TrackUI trackUI = trackUIs.get(size);
@@ -180,16 +186,16 @@ public class UBCLooperRegister extends ILooperRegister {
                         jSONObject2.put("page", RukaTrackUIUtil.trackUI2StringPage(trackUI));
                         jSONObject2.put("event", trackUI.getEvent());
                         jSONArray.put(jSONObject2);
-                        int i3 = i2 + 1;
-                        if (i2 >= 20) {
+                        int i2 = i + 1;
+                        if (i >= 20) {
                             break;
                         }
-                        int i4 = size - 1;
+                        int i3 = size - 1;
                         if (size <= 0) {
                             break;
                         }
-                        size = i4;
-                        i2 = i3;
+                        size = i3;
+                        i = i2;
                     }
                     jSONObject.put("pageTrace", jSONArray);
                 }

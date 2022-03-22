@@ -17,9 +17,9 @@ public class StickerUnit extends RichStickerBaseUnit {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,7 +28,7 @@ public class StickerUnit extends RichStickerBaseUnit {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public StickerUnit m99clone() throws CloneNotSupportedException {
+    public StickerUnit m93clone() throws CloneNotSupportedException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (StickerUnit) super.clone() : (StickerUnit) invokeV.objValue;

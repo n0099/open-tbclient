@@ -11,7 +11,7 @@ public class j {
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f27556b;
+    public static boolean f22767b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,10 +33,10 @@ public class j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (j.class) {
-                if (f27556b) {
+                if (f22767b) {
                     return;
                 }
-                f27556b = true;
+                f22767b = true;
                 if (a) {
                     return;
                 }

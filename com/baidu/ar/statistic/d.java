@@ -1,6 +1,7 @@
 package com.baidu.ar.statistic;
 
 import android.content.Context;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,7 +13,6 @@ import java.io.FileOutputStream;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class d extends ArrayList<a> {
     public static /* synthetic */ Interceptable $ic;
@@ -23,16 +23,16 @@ public class d extends ArrayList<a> {
     public WeakReference<Context> wn;
     public String wz;
 
-    public d(Context context, String str, int i2, int i3) {
+    public d(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,9 +40,9 @@ public class d extends ArrayList<a> {
         }
         this.wn = new WeakReference<>(context);
         this.sM = false;
-        this.wA = i2;
+        this.wA = i;
         this.wz = str;
-        this.wB = i3;
+        this.wB = i2;
     }
 
     private void a(Closeable closeable) {
@@ -79,7 +79,7 @@ public class d extends ArrayList<a> {
             fileInputStream = null;
         }
         try {
-            closeable = new Scanner(fileInputStream, "utf-8");
+            closeable = new Scanner(fileInputStream, IMAudioTransRequest.CHARSET);
             while (closeable.hasNextLine()) {
                 try {
                     try {
@@ -114,16 +114,16 @@ public class d extends ArrayList<a> {
         a(closeable);
     }
 
-    public void S(int i2) {
+    public void S(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
             return;
         }
-        a[] aVarArr = new a[i2];
-        for (int i3 = 0; i3 < i2; i3++) {
-            aVarArr[i3] = get(i3);
+        a[] aVarArr = new a[i];
+        for (int i2 = 0; i2 < i; i2++) {
+            aVarArr[i2] = get(i2);
         }
-        removeRange(0, i2);
+        removeRange(0, i);
         a.a(aVarArr);
     }
 
@@ -142,8 +142,8 @@ public class d extends ArrayList<a> {
                     if (size > this.wB) {
                         size = this.wB;
                     }
-                    for (int i2 = 0; i2 < size; i2++) {
-                        fileOutputStream.write((a.b((a) get(i2)) + StringUtils.LF).getBytes("utf-8"));
+                    for (int i = 0; i < size; i++) {
+                        fileOutputStream.write((a.b((a) get(i)) + "\n").getBytes(IMAudioTransRequest.CHARSET));
                     }
                 }
             } catch (Exception e2) {

@@ -3,7 +3,7 @@ package com.baidu.webkit.internal;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.IDevices;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,9 +49,9 @@ public class CpuInfo implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,7 +77,7 @@ public class CpuInfo implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             File file = new File(str);
-            int i2 = 2;
+            int i = 2;
             if (file.exists()) {
                 try {
                     try {
@@ -89,16 +89,16 @@ public class CpuInfo implements INoProGuard {
                                     if (readLine != null) {
                                         if (!readLine.contains("neon")) {
                                             if (!readLine.contains("Atom")) {
-                                                if (readLine.contains(IDevices.ABI_MIPS)) {
-                                                    i2 = 4;
+                                                if (readLine.contains("mips")) {
+                                                    i = 4;
                                                     break;
                                                 }
                                             } else {
-                                                i2 = 3;
+                                                i = 3;
                                                 break;
                                             }
                                         } else {
-                                            i2 = 1;
+                                            i = 1;
                                             break;
                                         }
                                     } else {
@@ -110,7 +110,7 @@ public class CpuInfo implements INoProGuard {
                                     if (bufferedReader != null) {
                                         bufferedReader.close();
                                     }
-                                    return i2;
+                                    return i;
                                 }
                             } catch (Throwable th2) {
                                 th = th2;
@@ -139,7 +139,7 @@ public class CpuInfo implements INoProGuard {
                     throw th;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -228,14 +228,14 @@ public class CpuInfo implements INoProGuard {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             int cpuType = getCpuType();
-            return cpuType != 1 ? cpuType != 2 ? cpuType != 3 ? cpuType != 4 ? "" : IDevices.ABI_MIPS : "x86" : "ar" : "neon";
+            return cpuType != 1 ? cpuType != 2 ? cpuType != 3 ? cpuType != 4 ? "" : "mips" : "x86" : "ar" : "neon";
         }
         return (String) invokeV.objValue;
     }
 
     public static int getCpuType() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
             if (sCheckedCpuInfo) {
@@ -246,16 +246,16 @@ public class CpuInfo implements INoProGuard {
                 String lowerCase = str.toLowerCase();
                 if (!lowerCase.startsWith("arm")) {
                     if (lowerCase.startsWith("x86") || lowerCase.startsWith("i686")) {
-                        i2 = 3;
-                    } else if (lowerCase.startsWith(IDevices.ABI_MIPS)) {
-                        i2 = 4;
+                        i = 3;
+                    } else if (lowerCase.startsWith("mips")) {
+                        i = 4;
                     }
-                    sCpuType = i2;
+                    sCpuType = i;
                 } else if (supportNeon()) {
                     sCpuType = 1;
                 } else {
-                    i2 = 2;
-                    sCpuType = i2;
+                    i = 2;
+                    sCpuType = i;
                 }
             }
             sCheckedCpuInfo = true;
@@ -285,7 +285,7 @@ public class CpuInfo implements INoProGuard {
             if (TextUtils.isEmpty(property) || !property.endsWith(WebKitFactory.OS_64)) {
                 try {
                     Class<?> cls = Class.forName("android.os.SystemProperties");
-                    String str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
+                    String str = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, "ro.product.cpu.abilist64", "");
                     if (str != null) {
                         if (!str.isEmpty()) {
                             return true;

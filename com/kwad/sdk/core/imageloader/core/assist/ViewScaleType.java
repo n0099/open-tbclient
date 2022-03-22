@@ -50,7 +50,7 @@ public enum ViewScaleType {
     }
 
     public static ViewScaleType fromImageView(ImageView imageView) {
-        int i2 = AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-        return (i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5) ? FIT_INSIDE : CROP;
+        int i = AnonymousClass1.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+        return (i == 1 || i == 2 || i == 3 || i == 4 || i == 5) ? FIT_INSIDE : CROP;
     }
 }

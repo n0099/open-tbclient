@@ -5,7 +5,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.impls.r;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class l {
     public static com.ss.android.downloadlib.addownload.a.c a;
 
@@ -13,15 +13,15 @@ public class l {
         return a;
     }
 
-    public static boolean a(int i2) {
-        return i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 || i2 == 5 || i2 == 7 || i2 == 8;
+    public static boolean a(int i) {
+        return i == 1 || i == 2 || i == 3 || i == 4 || i == 5 || i == 7 || i == 8;
     }
 
     public static void a(com.ss.android.downloadlib.addownload.a.c cVar) {
         a = cVar;
     }
 
-    public static boolean a(final com.ss.android.downloadad.api.a.b bVar, DownloadInfo downloadInfo, int i2, final com.ss.android.downloadlib.addownload.d.c cVar) {
+    public static boolean a(final com.ss.android.downloadad.api.a.b bVar, DownloadInfo downloadInfo, int i, final com.ss.android.downloadlib.addownload.d.c cVar) {
         if (bVar == null) {
             com.ss.android.downloadlib.e.c.a().a("tryReverseWifi nativeModel null");
             return false;
@@ -38,7 +38,7 @@ public class l {
                 e2.printStackTrace();
             }
             com.ss.android.downloadlib.d.a.a().a("pause_reserve_wifi_switch_status", jSONObject, bVar);
-            if (b2 && a(i2) && !com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && !downloadInfo.hasPauseReservedOnWifi()) {
+            if (b2 && a(i) && !com.ss.android.socialbase.downloader.i.f.b(j.getContext()) && !downloadInfo.hasPauseReservedOnWifi()) {
                 a(new com.ss.android.downloadlib.addownload.a.c() { // from class: com.ss.android.downloadlib.addownload.l.1
                     @Override // com.ss.android.downloadlib.addownload.a.c
                     public void a() {

@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.p0.a.p2.n0;
+import c.a.n0.a.p2.n0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,17 +17,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f38552c;
+    public static final int f29639c;
     public transient /* synthetic */ FieldHolder $fh;
     public ColorDrawable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f38553b;
+    public boolean f29640b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
                 return;
             }
         }
-        f38552c = n0.g(15.0f);
+        f29639c = n0.g(15.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -54,9 +54,9 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -69,14 +69,14 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
     public final void drawVertical(Canvas canvas, RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, canvas, recyclerView) == null) {
-            int paddingLeft = recyclerView.getPaddingLeft() + f38552c;
-            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f38552c;
+            int paddingLeft = recyclerView.getPaddingLeft() + f29639c;
+            int width = (recyclerView.getWidth() - recyclerView.getPaddingRight()) - f29639c;
             int childCount = recyclerView.getChildCount();
-            if (!this.f38553b) {
+            if (!this.f29640b) {
                 childCount--;
             }
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = recyclerView.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = recyclerView.getChildAt(i);
                 if (childAt != null) {
                     int bottom = childAt.getBottom() + ((ViewGroup.MarginLayoutParams) ((RecyclerView.LayoutParams) childAt.getLayoutParams())).bottomMargin;
                     this.a.setBounds(paddingLeft, bottom, width, bottom + 1);
@@ -109,16 +109,16 @@ public class LocationItemDecoration extends RecyclerView.ItemDecoration {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f38553b = true;
-        this.a = new ColorDrawable(context.getResources().getColor(R.color.aiapps_location_item_bg_pressed));
-        this.f38553b = z;
+        this.f29640b = true;
+        this.a = new ColorDrawable(context.getResources().getColor(R.color.obfuscated_res_0x7f0603bb));
+        this.f29640b = z;
     }
 }

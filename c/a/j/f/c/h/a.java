@@ -16,19 +16,19 @@ public final class a extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final TaskInfo f3654d;
+    public final TaskInfo f3144d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final b f3655e;
+    public final b f3145e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.f.e.a f3656f;
+    public final c.a.j.f.e.a f3146f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final String f3657g;
+    public final String f3147g;
 
-    public /* synthetic */ a(TaskInfo taskInfo, b bVar, c.a.j.f.e.a aVar, String str, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, bVar, aVar, (i2 & 8) != 0 ? taskInfo.getSingleKey() : str, (i2 & 16) != 0 ? null : num, (i2 & 32) != 0 ? null : str2);
+    public /* synthetic */ a(TaskInfo taskInfo, b bVar, c.a.j.f.e.a aVar, String str, Integer num, String str2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, bVar, aVar, (i & 8) != 0 ? taskInfo.getSingleKey() : str, (i & 16) != 0 ? null : num, (i & 32) != 0 ? null : str2);
     }
 
     @Override // c.a.j.h.a.a
@@ -42,7 +42,7 @@ public final class a extends d {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3657g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3147g : (String) invokeV.objValue;
     }
 
     public int g() {
@@ -57,19 +57,19 @@ public final class a extends d {
     public final TaskInfo h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3654d : (TaskInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3144d : (TaskInfo) invokeV.objValue;
     }
 
     public final b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3655e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3145e : (b) invokeV.objValue;
     }
 
     public final c.a.j.f.e.a j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3656f : (c.a.j.f.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3146f : (c.a.j.f.e.a) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,9 +81,9 @@ public final class a extends d {
             newInitContext.initArgs = r2;
             Object[] objArr = {taskInfo, bVar, aVar, str, num, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -91,9 +91,9 @@ public final class a extends d {
                 return;
             }
         }
-        this.f3654d = taskInfo;
-        this.f3655e = bVar;
-        this.f3656f = aVar;
-        this.f3657g = str;
+        this.f3144d = taskInfo;
+        this.f3145e = bVar;
+        this.f3146f = aVar;
+        this.f3147g = str;
     }
 }

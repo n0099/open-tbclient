@@ -8,11 +8,11 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.r0;
-import c.a.r0.f0.m;
+import c.a.o0.r.r.q0;
+import c.a.p0.h0.m;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -24,26 +24,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadLinkView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f30162b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f30163c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f30164d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f39190e;
+    public TextView f30165e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f39191f;
+    public ViewGroup f30166f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f39192g;
+    public View f30167g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f39193h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f39194i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ViewGroup f39195j;
-    public View k;
-    public BdUniqueId l;
+    public BdUniqueId f30168h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadLinkView(Context context) {
@@ -54,9 +56,9 @@ public class ThreadLinkView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -69,97 +71,97 @@ public class ThreadLinkView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f39190e = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.link_thread_item, (ViewGroup) this, true);
-            this.f39195j = (ViewGroup) inflate.findViewById(R.id.root_layout);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.link_thread_head_img);
-            this.f39191f = tbImageView;
+            this.a = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04fb, (ViewGroup) this, true);
+            this.f30166f = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f091ae5);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091270);
+            this.f30162b = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.icon_card_url_n);
-            this.f39192g = (TextView) inflate.findViewById(R.id.link_thread_title);
-            this.f39193h = (TextView) inflate.findViewById(R.id.link_thread_abstract);
-            this.f39194i = (TextView) inflate.findViewById(R.id.link_thread_url);
-            this.k = inflate.findViewById(R.id.link_thread_content);
-            this.f39191f.setLongIconSupport(false);
-            this.f39191f.setGifIconSupport(false);
-            this.f39191f.setRadius(n.f(context, R.dimen.tbds10));
-            this.f39191f.setConrers(5);
-            b(inflate);
+            this.f30163c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091272);
+            this.f30164d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09126d);
+            this.f30165e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091273);
+            this.f30167g = inflate.findViewById(R.id.obfuscated_res_0x7f09126e);
+            this.f30162b.setLongIconSupport(false);
+            this.f30162b.setGifIconSupport(false);
+            this.f30162b.setRadius(n.f(context, R.dimen.tbds10));
+            this.f30162b.setConrers(5);
+            d(inflate);
         }
     }
 
-    public final void b(View view) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) || this.f39195j == null || this.f39191f == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.f30167g, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.f30162b, R.drawable.shape_link_thread_head_bg);
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            m.l(this.f30163c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.l(this.f30165e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            m.l(this.f30164d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+        }
+    }
+
+    public final void d(View view) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || this.f30166f == null || this.f30162b == null) {
             return;
         }
-        int k = (((n.k(this.f39190e) - (n.f(this.f39190e, R.dimen.tbds44) * 2)) - (n.f(getContext(), R.dimen.tbds26) * 2)) - (n.f(getContext(), R.dimen.tbds10) * 4)) / 5;
-        ViewGroup.LayoutParams layoutParams = this.f39195j.getLayoutParams();
+        int k = (((n.k(this.a) - (n.f(this.a, R.dimen.tbds44) * 2)) - (n.f(getContext(), R.dimen.tbds26) * 2)) - (n.f(getContext(), R.dimen.tbds10) * 4)) / 5;
+        ViewGroup.LayoutParams layoutParams = this.f30166f.getLayoutParams();
         layoutParams.height = k;
-        this.f39195j.setLayoutParams(layoutParams);
-        ViewGroup.LayoutParams layoutParams2 = this.f39191f.getLayoutParams();
+        this.f30166f.setLayoutParams(layoutParams);
+        ViewGroup.LayoutParams layoutParams2 = this.f30162b.getLayoutParams();
         layoutParams2.width = k;
         layoutParams2.height = k;
-        this.f39191f.setLayoutParams(layoutParams2);
+        this.f30162b.setLayoutParams(layoutParams2);
     }
 
-    public void onChangeSkinType() {
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0205);
-            SkinManager.setBackgroundResource(this.f39191f, R.drawable.shape_link_thread_head_bg);
-        }
-    }
-
-    public void refreshTextView(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            m.l(this.f39192g, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            m.l(this.f39194i, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            m.l(this.f39193h, str, R.color.CAM_X0107, R.color.CAM_X0109);
-        }
-    }
-
-    public void setData(e2 e2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, e2Var) == null) {
-            if (e2Var != null && e2Var.D0() != null && !c.a.d.f.p.m.isEmpty(e2Var.D0().e())) {
-                r0 D0 = e2Var.D0();
-                if (!D0.f() && D0.c() != r0.f13362g) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
+            if (threadData != null && threadData.getLinkThreadData() != null && !c.a.d.f.p.m.isEmpty(threadData.getLinkThreadData().e())) {
+                q0 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != q0.f10930g) {
                     setVisibility(8);
                     return;
                 }
                 setVisibility(0);
-                this.f39191f.setPageId(this.l);
-                if (D0.f()) {
-                    this.f39194i.setVisibility(0);
-                    this.f39192g.setVisibility(8);
-                    this.f39193h.setVisibility(8);
-                    this.f39194i.setText(D0.e());
-                    this.f39191f.reset();
+                this.f30162b.setPageId(this.f30168h);
+                if (linkThreadData.f()) {
+                    this.f30165e.setVisibility(0);
+                    this.f30163c.setVisibility(8);
+                    this.f30164d.setVisibility(8);
+                    this.f30165e.setText(linkThreadData.e());
+                    this.f30162b.F();
                 } else {
-                    this.f39194i.setVisibility(8);
-                    String d2 = D0.d();
-                    String a = D0.a();
+                    this.f30165e.setVisibility(8);
+                    String d2 = linkThreadData.d();
+                    String a = linkThreadData.a();
                     if (!c.a.d.f.p.m.isEmpty(d2)) {
-                        this.f39192g.setText(d2);
-                        this.f39192g.setVisibility(0);
-                        this.f39193h.setVisibility(8);
+                        this.f30163c.setText(d2);
+                        this.f30163c.setVisibility(0);
+                        this.f30164d.setVisibility(8);
                     } else {
-                        this.f39192g.setVisibility(8);
+                        this.f30163c.setVisibility(8);
                         if (!c.a.d.f.p.m.isEmpty(a)) {
-                            this.f39193h.setText(a);
-                            this.f39193h.setVisibility(0);
+                            this.f30164d.setText(a);
+                            this.f30164d.setVisibility(0);
                         } else {
-                            this.f39193h.setVisibility(4);
+                            this.f30164d.setVisibility(4);
                         }
                     }
-                    if (!c.a.d.f.p.m.isEmpty(D0.b())) {
-                        this.f39191f.startLoad(D0.b(), 10, false);
+                    if (!c.a.d.f.p.m.isEmpty(linkThreadData.b())) {
+                        this.f30162b.J(linkThreadData.b(), 10, false);
                     } else {
-                        this.f39191f.reset();
+                        this.f30162b.F();
                     }
                 }
-                refreshTextView(e2Var.h0());
+                c(threadData.getId());
                 return;
             }
             setVisibility(8);
@@ -169,7 +171,7 @@ public class ThreadLinkView extends RelativeLayout {
     public void setTag(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.l = bdUniqueId;
+            this.f30168h = bdUniqueId;
         }
     }
 
@@ -182,9 +184,9 @@ public class ThreadLinkView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -196,17 +198,17 @@ public class ThreadLinkView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ThreadLinkView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ThreadLinkView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

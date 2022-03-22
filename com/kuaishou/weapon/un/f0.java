@@ -18,9 +18,9 @@ public class f0 implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,7 +34,7 @@ public class f0 implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                g1.a(new g0(this.a).a(q0.f53773c), this.a);
+                g1.a(new g0(this.a).a(q0.f38950c), this.a);
             } catch (Throwable th) {
                 x0.a(th);
             }

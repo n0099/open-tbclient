@@ -1,120 +1,122 @@
 package c.a.r0.o0;
 
-import android.telephony.TelephonyManager;
-import c.a.d.f.p.l;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.config.QuickPersistConfig;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-/* loaded from: classes2.dex */
-public class a {
+/* loaded from: classes3.dex */
+public class a implements c.a.r0.n0.a {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: c  reason: collision with root package name */
-    public static final String[] f19591c;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static final String[] f19592d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static final String[] f19593e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public static final String[] f19594f;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public volatile String f19595b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1792118077, "Lc/a/r0/o0/a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1792118077, "Lc/a/r0/o0/a;");
-                return;
-            }
-        }
-        f19591c = new String[]{"119.75.222.62", "119.75.222.63"};
-        f19592d = new String[]{"111.13.100.247", "117.185.16.61"};
-        f19593e = new String[]{"111.206.37.190"};
-        f19594f = new String[]{"115.239.211.146", "180.97.33.196"};
-    }
 
     public a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public String a() {
+    @Override // c.a.r0.n0.a
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            QuickPersistConfig.getInstance().putInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, i);
+        }
+    }
+
+    @Override // c.a.r0.n0.a
+    public String b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) ? z ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc" : "https://tcbox.baidu.com/ztbox?action=zubc" : (String) invokeZ.objValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? CommonUrlParamManager.getInstance().processUrl(str) : (String) invokeL.objValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b();
-            if (l.H()) {
-                return f19594f[new Random().nextInt(f19594f.length)];
-            }
-            if (l.x()) {
-                if (this.a == 1) {
-                    return f19591c[new Random().nextInt(f19591c.length)];
-                }
-                if (this.a == 2) {
-                    return f19592d[new Random().nextInt(f19592d.length)];
-                }
-                if (this.a == 3) {
-                    return f19593e[new Random().nextInt(f19593e.length)];
-                }
-            }
-            return "119.75.222.62";
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? QuickPersistConfig.getInstance().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0) : invokeV.intValue;
     }
 
-    public void b() {
+    @Override // c.a.r0.n0.a
+    public String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && PermissionUtil.isAgreePrivacyPolicy() && PermissionUtil.checkReadPhoneState(TbadkCoreApplication.getInst().getContext())) {
-            try {
-                this.f19595b = ((TelephonyManager) TbadkCoreApplication.getInst().getContext().getSystemService("phone")).getSubscriberId();
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-            this.a = 0;
-            if (this.f19595b != null) {
-                if (!this.f19595b.startsWith("46000") && !this.f19595b.startsWith("46002") && !this.f19595b.startsWith("46007")) {
-                    if (!this.f19595b.startsWith("46001") && !this.f19595b.startsWith("46006")) {
-                        if (this.f19595b.startsWith("46003") || this.f19595b.startsWith("46005")) {
-                            this.a = 3;
-                            return;
-                        }
-                        return;
-                    }
-                    this.a = 2;
-                    return;
-                }
-                this.a = 1;
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? CommonUrlParamManager.getInstance().spliceNoPrivacyParams(str) : (String) invokeL.objValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public Context getAppContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public int getInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) ? c.a.r0.m0.b.d().getInt(str, i) : invokeLI.intValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048583, this, str, j)) == null) ? c.a.r0.m0.b.d().getLong(str, j) : invokeLJ.longValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public boolean isDebug() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? AppConfig.isDebug() : invokeV.booleanValue;
+    }
+
+    @Override // c.a.r0.n0.a
+    public void putInt(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
+            c.a.r0.m0.b.d().putInt(str, i);
+        }
+    }
+
+    @Override // c.a.r0.n0.a
+    public void putLong(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048586, this, str, j) == null) {
+            c.a.r0.m0.b.d().putLong(str, j);
+        }
+    }
+
+    @Override // c.a.r0.n0.a
+    public void putString(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+            c.a.r0.m0.b.d().putString(str, str2);
         }
     }
 }

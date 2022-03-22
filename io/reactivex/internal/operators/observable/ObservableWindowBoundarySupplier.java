@@ -46,9 +46,9 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,23 +128,23 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
             NEXT_WINDOW = new Object();
         }
 
-        public WindowBoundaryMainObserver(Observer<? super Observable<T>> observer, int i2, Callable<? extends ObservableSource<B>> callable) {
+        public WindowBoundaryMainObserver(Observer<? super Observable<T>> observer, int i, Callable<? extends ObservableSource<B>> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Integer.valueOf(i2), callable};
+                Object[] objArr = {observer, Integer.valueOf(i), callable};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.downstream = observer;
-            this.capacityHint = i2;
+            this.capacityHint = i;
             this.boundaryObserver = new AtomicReference<>();
             this.windows = new AtomicInteger(1);
             this.queue = new MpscLinkedQueue<>();
@@ -183,7 +183,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
                 Observer<? super Observable<T>> observer = this.downstream;
                 MpscLinkedQueue<Object> mpscLinkedQueue = this.queue;
                 AtomicThrowable atomicThrowable = this.errors;
-                int i2 = 1;
+                int i = 1;
                 while (this.windows.get() != 0) {
                     UnicastSubject<T> unicastSubject = this.window;
                     boolean z = this.done;
@@ -216,8 +216,8 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
                         observer.onError(terminate2);
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else if (poll != NEXT_WINDOW) {
@@ -343,17 +343,17 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableWindowBoundarySupplier(ObservableSource<T> observableSource, Callable<? extends ObservableSource<B>> callable, int i2) {
+    public ObservableWindowBoundarySupplier(ObservableSource<T> observableSource, Callable<? extends ObservableSource<B>> callable, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, callable, Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, callable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -361,7 +361,7 @@ public final class ObservableWindowBoundarySupplier<T, B> extends AbstractObserv
             }
         }
         this.other = callable;
-        this.capacityHint = i2;
+        this.capacityHint = i;
     }
 
     @Override // io.reactivex.Observable

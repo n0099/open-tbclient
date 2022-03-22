@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i extends g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class i extends g {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,10 +42,10 @@ public class i extends g {
     private void a(Set<File> set) {
         com.kwai.sodler.lib.a.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f56981f) == null || bVar.f56936h.size() <= 0 || set == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, set) == null) || (bVar = this.f41841f) == null || bVar.f41800h.size() <= 0 || set == null) {
             return;
         }
-        HashMap<String, String> hashMap = this.f56981f.f56936h;
+        HashMap<String, String> hashMap = this.f41841f.f41800h;
         for (File file : set) {
             String f2 = com.kwai.sodler.lib.b.b.f(file);
             String str = hashMap.get(file.getName());
@@ -72,7 +72,7 @@ public class i extends g {
             a.b("Sodler.simple.SoLib", "Install plugin so libs, destDir = " + file2);
             HashSet hashSet = new HashSet();
             if (!file2.exists() || file2.list().length <= 0) {
-                File file3 = new File(file2.getParentFile(), this.f56978c.d());
+                File file3 = new File(file2.getParentFile(), this.f41838c.d());
                 com.kwai.sodler.lib.b.b.e(file3);
                 Set<String> a = com.kwai.sodler.lib.b.c.a(file, file3);
                 if (a != null) {
@@ -121,7 +121,7 @@ public class i extends g {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            File file2 = new File(file.getParentFile(), this.f56978c.c());
+            File file2 = new File(file.getParentFile(), this.f41838c.c());
             com.kwai.sodler.lib.b.b.e(file2);
             return file2;
         }

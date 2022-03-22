@@ -9,5 +9,5 @@ import java.util.List;
 public interface KeyPathElement {
     <T> void addValueCallback(T t, @Nullable LottieValueCallback<T> lottieValueCallback);
 
-    void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2);
+    void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2);
 }

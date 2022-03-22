@@ -1,19 +1,18 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import c.k.a.a.a;
+import c.h.a.a.a;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SubTagsStatus extends BasicPushStatus {
     public String pushId;
     public List<Tag> tagList;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class Tag implements Serializable {
         public int tagId;
         public String tagName;
@@ -29,8 +28,8 @@ public class SubTagsStatus extends BasicPushStatus {
             return this.tagName;
         }
 
-        public void setTagId(int i2) {
-            this.tagId = i2;
+        public void setTagId(int i) {
+            this.tagId = i;
         }
 
         public void setTagName(String str) {
@@ -38,7 +37,7 @@ public class SubTagsStatus extends BasicPushStatus {
         }
 
         public String toString() {
-            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "Tag{tagId=" + this.tagId + ", tagName='" + this.tagName + "'}";
         }
     }
 
@@ -67,8 +66,8 @@ public class SubTagsStatus extends BasicPushStatus {
         }
         JSONArray jSONArray = jSONObject.getJSONArray("tags");
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+        for (int i = 0; i < jSONArray.length(); i++) {
+            JSONObject jSONObject2 = jSONArray.getJSONObject(i);
             Tag tag = new Tag();
             if (!jSONObject2.isNull("tagId")) {
                 tag.tagId = jSONObject2.getInt("tagId");
@@ -92,6 +91,6 @@ public class SubTagsStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + " SubTagsStatus{pushId='" + this.pushId + ExtendedMessageFormat.QUOTE + ", tagList=" + this.tagList + ExtendedMessageFormat.END_FE;
+        return super.toString() + " SubTagsStatus{pushId='" + this.pushId + "', tagList=" + this.tagList + '}';
     }
 }

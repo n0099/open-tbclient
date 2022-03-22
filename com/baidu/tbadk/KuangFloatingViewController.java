@@ -11,11 +11,12 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.r0.j4.d;
+import c.a.p0.l4.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
@@ -32,7 +33,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class KuangFloatingViewController {
     public static /* synthetic */ Interceptable $ic = null;
     public static String STORY_PACKAGE = "com.baidu.tieba.story";
@@ -65,9 +66,9 @@ public class KuangFloatingViewController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,9 +88,9 @@ public class KuangFloatingViewController {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -123,9 +124,9 @@ public class KuangFloatingViewController {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -192,7 +193,7 @@ public class KuangFloatingViewController {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             View view = this.mFloatingView;
             if (view == null) {
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.floating_view_from_kuang, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d029c, (ViewGroup) null);
                 this.mFloatingView = inflate;
                 inflate.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.3
                     public static /* synthetic */ Interceptable $ic;
@@ -206,9 +207,9 @@ public class KuangFloatingViewController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -229,14 +230,14 @@ public class KuangFloatingViewController {
                             TiebaStatic.log(new StatisticItem("c12264").param("obj_source", 1));
                             Intent launchIntentForPackage = TbadkCoreApplication.getInst().getPackageManager().getLaunchIntentForPackage("com.baidu.searchbox");
                             if (launchIntentForPackage != null) {
-                                launchIntentForPackage.addFlags(268435456);
+                                launchIntentForPackage.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                                 TbadkCoreApplication.getInst().startActivity(launchIntentForPackage);
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.FLOATING_VIEW_CLICK_KEY).param("obj_type", 1));
                             }
                         }
                     }
                 });
-                this.mFloatingView.findViewById(R.id.floating_view_close).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
+                this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f0909d8).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.tbadk.KuangFloatingViewController.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ KuangFloatingViewController this$0;
@@ -248,9 +249,9 @@ public class KuangFloatingViewController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -270,7 +271,7 @@ public class KuangFloatingViewController {
             } else if (view.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.info)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f090ef3)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -287,11 +288,11 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = d.a(2002);
+            layoutParams.type = e.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = n.f(TbadkCoreApplication.getInst(), R.dimen.ds260) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f070283) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

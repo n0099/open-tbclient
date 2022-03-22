@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.view.Surface;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -53,9 +53,9 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,28 +80,28 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
     }
 
     @RequiresApi(api = 24)
-    private Bitmap saveOffscreenBitmapWith2Pbo(int i2, int i3) {
+    private Bitmap saveOffscreenBitmapWith2Pbo(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65538, this, i, i2)) == null) {
             try {
                 System.currentTimeMillis();
                 GLES30.glBindBuffer(35051, this.mPbo[this.mPboIndex]);
-                GLES30.glReadPixels(0, 0, i2, i3, (int) GeneratedTexture.FORMAT, 5121, 0);
+                GLES30.glReadPixels(0, 0, i, i2, (int) GeneratedTexture.FORMAT, 5121, 0);
                 System.currentTimeMillis();
                 System.currentTimeMillis();
                 GLES30.glBindBuffer(35051, this.mPbo[this.mPboNextIndex]);
                 Buffer glMapBufferRange = GLES30.glMapBufferRange(35051, 0, this.mVideoWidth * 4 * this.mVideoHeight, 1);
                 System.currentTimeMillis();
                 System.currentTimeMillis();
-                Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                 createBitmap.copyPixelsFromBuffer(glMapBufferRange);
                 System.currentTimeMillis();
                 GLES30.glUnmapBuffer(35051);
                 GLES30.glBindBuffer(35051, 0);
-                int i4 = (this.mPboIndex + 1) % 2;
-                this.mPboIndex = i4;
-                this.mPboNextIndex = (i4 + 1) % 2;
+                int i3 = (this.mPboIndex + 1) % 2;
+                this.mPboIndex = i3;
+                this.mPboNextIndex = (i3 + 1) % 2;
                 return createBitmap;
             } catch (OutOfMemoryError e2) {
                 c.g(e2);
@@ -111,13 +111,13 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         return (Bitmap) invokeII.objValue;
     }
 
-    private Bitmap saveOffscreenBitmapWithImageReader(int i2, int i3) {
+    private Bitmap saveOffscreenBitmapWithImageReader(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, this, i, i2)) == null) {
             try {
-                ImageReader newInstance = ImageReader.newInstance(i2, i3, 1, 2);
-                newInstance.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener(this, i2, i3) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface.1
+                ImageReader newInstance = ImageReader.newInstance(i, i2, 1, 2);
+                newInstance.setOnImageAvailableListener(new ImageReader.OnImageAvailableListener(this, i, i2) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BaseOutputSurface this$0;
@@ -129,19 +129,19 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3)};
+                            Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$width = i2;
-                        this.val$height = i3;
+                        this.val$width = i;
+                        this.val$height = i2;
                     }
 
                     @Override // android.media.ImageReader.OnImageAvailableListener
@@ -152,11 +152,11 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
                             ByteBuffer buffer = planes[0].getBuffer();
                             byte[] bArr = new byte[this.val$width * this.val$height * 4];
                             int rowStride = planes[0].getRowStride() - (planes[0].getPixelStride() * this.val$width);
-                            int i4 = 0;
-                            for (int i5 = 0; i5 < this.val$height; i5++) {
-                                buffer.position((i5 * rowStride) + i4);
-                                buffer.get(bArr, i4, this.val$width * 4);
-                                i4 += this.val$width * 4;
+                            int i3 = 0;
+                            for (int i4 = 0; i4 < this.val$height; i4++) {
+                                buffer.position((i4 * rowStride) + i3);
+                                buffer.get(bArr, i3, this.val$width * 4);
+                                i3 += this.val$width * 4;
                             }
                         }
                     }
@@ -221,10 +221,10 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         }
     }
 
-    public void drawImage(int i2) {
+    public void drawImage(int i) {
         SurfaceTexture surfaceTexture;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (surfaceTexture = this.mSurfaceTexture) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (surfaceTexture = this.mSurfaceTexture) == null) {
             return;
         }
         surfaceTexture.updateTexImage();
@@ -270,10 +270,10 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mSurface : (Surface) invokeV.objValue;
     }
 
-    public void init(int i2, int i3) {
+    public void init(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            init(i2, i3, false, null);
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            init(i, i2, false, null);
         }
     }
 
@@ -333,12 +333,12 @@ public abstract class BaseOutputSurface implements SurfaceTexture.OnFrameAvailab
         }
     }
 
-    public void init(int i2, int i3, boolean z, Handler handler) {
+    public void init(int i, int i2, boolean z, Handler handler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), handler}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), handler}) == null) {
             this.mIsOffscreenRenderer = z;
-            this.mVideoWidth = i2;
-            this.mVideoHeight = i3;
+            this.mVideoWidth = i;
+            this.mVideoHeight = i2;
             setupEgl();
             setup();
             this.mSurfaceTexture = new SurfaceTexture(this.mTextureId);

@@ -43,9 +43,9 @@ public class DatabaseConfiguration {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, factory, migrationContainer, list, Boolean.valueOf(z), journalMode, executor, Boolean.valueOf(z2), set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,10 +63,10 @@ public class DatabaseConfiguration {
         this.mMigrationNotRequiredFrom = set;
     }
 
-    public boolean isMigrationRequiredFrom(int i2) {
+    public boolean isMigrationRequiredFrom(int i) {
         InterceptResult invokeI;
         Set<Integer> set;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.requireMigration && ((set = this.mMigrationNotRequiredFrom) == null || !set.contains(Integer.valueOf(i2))) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.requireMigration && ((set = this.mMigrationNotRequiredFrom) == null || !set.contains(Integer.valueOf(i))) : invokeI.booleanValue;
     }
 }

@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.DefaultPreference;
 import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CacheManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f60114c;
+    public Context f44677c;
     public String mCacheKey;
     public String mCacheValue;
     public String mPrefCacheKey;
@@ -29,15 +29,15 @@ public class CacheManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f60114c = context;
+        this.f44677c = context;
         this.mPrefCacheKey = str;
         this.mPrefCacheValue = str2;
         String cacheKey = getCacheKey();
@@ -92,7 +92,7 @@ public class CacheManager {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            saveCacheValue(this.f60114c, this.mCacheKey, this.mCacheValue);
+            saveCacheValue(this.f44677c, this.mCacheKey, this.mCacheValue);
             this.mCacheValue = null;
         }
     }

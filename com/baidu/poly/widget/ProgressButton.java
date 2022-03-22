@@ -20,21 +20,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ProgressButton extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f28252b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Animation f28253c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28254d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f36474e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f36475f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Animation f36476g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f36477h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Context f36478i;
+    public Context f28255e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ProgressButton(Context context) {
@@ -45,9 +43,9 @@ public class ProgressButton extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,30 +58,50 @@ public class ProgressButton extends FrameLayout {
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f36478i = context;
-            LayoutInflater.from(context).inflate(R.layout.button_progress, (ViewGroup) this, true);
-            this.f36474e = (TextView) findViewById(R.id.text_view);
-            this.f36475f = (ImageView) findViewById(R.id.progress_bar);
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.textColor});
-            this.f36474e.setTextColor(obtainStyledAttributes.getColor(0, -1));
+            this.f28255e = context;
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091f58);
+            this.f28252b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09192e);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040611});
+            this.a.setTextColor(obtainStyledAttributes.getColor(0, -1));
             obtainStyledAttributes.recycle();
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.f28252b.setVisibility(0);
+            Animation loadAnimation = AnimationUtils.loadAnimation(this.f28255e, R.anim.obfuscated_res_0x7f01008f);
+            this.f28253c = loadAnimation;
+            this.f28252b.startAnimation(loadAnimation);
+            this.a.setVisibility(4);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f28252b.clearAnimation();
+            this.f28252b.setVisibility(8);
+            this.a.setVisibility(0);
         }
     }
 
     public void setEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             super.setEnabled(z);
-            this.f36477h = z;
+            this.f28254d = z;
         }
     }
 
     @Override // android.view.View
     public void setPressed(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             super.setPressed(z);
-            if (this.f36477h) {
+            if (this.f28254d) {
                 setAlpha(z ? 0.2f : 1.0f);
             } else {
                 setAlpha(0.2f);
@@ -93,30 +111,10 @@ public class ProgressButton extends FrameLayout {
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f36474e.setText(str);
-            this.f36475f.setVisibility(4);
-            this.f36474e.setVisibility(0);
-        }
-    }
-
-    public void startLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f36475f.setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(this.f36478i, R.anim.loading_rotate);
-            this.f36476g = loadAnimation;
-            this.f36475f.startAnimation(loadAnimation);
-            this.f36474e.setVisibility(4);
-        }
-    }
-
-    public void stopLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f36475f.clearAnimation();
-            this.f36475f.setVisibility(8);
-            this.f36474e.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setText(str);
+            this.f28252b.setVisibility(4);
+            this.a.setVisibility(0);
         }
     }
 
@@ -129,9 +127,9 @@ public class ProgressButton extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -142,17 +140,17 @@ public class ProgressButton extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ProgressButton(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ProgressButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

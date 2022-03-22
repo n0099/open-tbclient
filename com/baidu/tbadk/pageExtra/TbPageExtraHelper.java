@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -12,7 +13,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import c.a.d.f.m.e;
-import c.a.q0.n0.c;
+import c.a.o0.n0.c;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.BaseFragment;
@@ -49,9 +50,7 @@ public class TbPageExtraHelper {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f39735e;
+        public final /* synthetic */ String a;
 
         public a(String str) {
             Interceptable interceptable = $ic;
@@ -60,22 +59,22 @@ public class TbPageExtraHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39735e = str;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String unused = TbPageExtraHelper.prePageKey = (String) TbPageExtraHelper.typeAndPreFlutterPageKeyMap.get(this.f39735e);
+                String unused = TbPageExtraHelper.prePageKey = (String) TbPageExtraHelper.typeAndPreFlutterPageKeyMap.get(this.a);
             }
         }
     }
@@ -102,9 +101,9 @@ public class TbPageExtraHelper {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -128,9 +127,9 @@ public class TbPageExtraHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -157,7 +156,7 @@ public class TbPageExtraHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, view)) == null) {
-            c.a.q0.n0.a findFragmentExtraSupportByView = findFragmentExtraSupportByView(view);
+            c.a.o0.n0.a findFragmentExtraSupportByView = findFragmentExtraSupportByView(view);
             if (findFragmentExtraSupportByView == null || findFragmentExtraSupportByView.getTbFragmentExtra() == null) {
                 return null;
             }
@@ -166,22 +165,22 @@ public class TbPageExtraHelper {
         return (BaseFragment) invokeL.objValue;
     }
 
-    public static c.a.q0.n0.a findFragmentExtraSupportByView(View view) {
+    public static c.a.o0.n0.a findFragmentExtraSupportByView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, view)) == null) {
             ViewParent parent = view.getParent();
-            c.a.q0.n0.a aVar = null;
+            c.a.o0.n0.a aVar = null;
             if (parent instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) parent;
-                if (viewGroup instanceof c.a.q0.n0.a) {
-                    aVar = (c.a.q0.n0.a) parent;
+                if (viewGroup instanceof c.a.o0.n0.a) {
+                    aVar = (c.a.o0.n0.a) parent;
                     printLog(viewGroup, "ITbFragmentExtraSupport From Implements Interface------->");
                 }
                 if (aVar == null) {
-                    Object tag = viewGroup.getTag(R.id.tag_tb_fragment_extra);
-                    if (tag instanceof c.a.q0.n0.a) {
-                        aVar = (c.a.q0.n0.a) tag;
+                    Object tag = viewGroup.getTag(R.id.obfuscated_res_0x7f091eb1);
+                    if (tag instanceof c.a.o0.n0.a) {
+                        aVar = (c.a.o0.n0.a) tag;
                         printLog(viewGroup, "ITbFragmentExtraSupport From View.getTag()------->");
                     }
                 }
@@ -197,7 +196,7 @@ public class TbPageExtraHelper {
             }
             return null;
         }
-        return (c.a.q0.n0.a) invokeL.objValue;
+        return (c.a.o0.n0.a) invokeL.objValue;
     }
 
     public static c findPageExtraByView(View view) {
@@ -385,8 +384,11 @@ public class TbPageExtraHelper {
 
     public static final void printLog(Object obj, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65555, null, obj, str) == null) && isNeedPrintLog() && obj != null) {
-            String str2 = obj.getClass().getSimpleName() + ZeusCrashHandler.NAME_SEPERATOR + str;
+        if ((interceptable == null || interceptable.invokeLL(65555, null, obj, str) == null) && isNeedPrintLog()) {
+            if (obj != null) {
+                str = obj.getClass().getSimpleName() + ZeusCrashHandler.NAME_SEPERATOR + str;
+            }
+            Log.d(KEY, str);
         }
     }
 
@@ -439,7 +441,8 @@ public class TbPageExtraHelper {
 
     public static final void printLog(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65556, null, str) != null) || !isNeedPrintLog()) {
+        if ((interceptable == null || interceptable.invokeL(65556, null, str) == null) && isNeedPrintLog()) {
+            Log.d(KEY, str);
         }
     }
 }

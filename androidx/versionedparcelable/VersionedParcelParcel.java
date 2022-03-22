@@ -43,9 +43,9 @@ public class VersionedParcelParcel extends VersionedParcel {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Parcel) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3], (ArrayMap) objArr2[4], (ArrayMap) objArr2[5], (ArrayMap) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -57,15 +57,15 @@ public class VersionedParcelParcel extends VersionedParcel {
 
     @Override // androidx.versionedparcelable.VersionedParcel
     public void closeField() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i2 = this.mCurrentField) < 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (i = this.mCurrentField) < 0) {
             return;
         }
-        int i3 = this.mPositionLookup.get(i2);
+        int i2 = this.mPositionLookup.get(i);
         int dataPosition = this.mParcel.dataPosition();
-        this.mParcel.setDataPosition(i3);
-        this.mParcel.writeInt(dataPosition - i3);
+        this.mParcel.setDataPosition(i2);
+        this.mParcel.writeInt(dataPosition - i2);
         this.mParcel.setDataPosition(dataPosition);
     }
 
@@ -76,12 +76,12 @@ public class VersionedParcelParcel extends VersionedParcel {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             Parcel parcel = this.mParcel;
             int dataPosition = parcel.dataPosition();
-            int i2 = this.mNextRead;
-            if (i2 == this.mOffset) {
-                i2 = this.mEnd;
+            int i = this.mNextRead;
+            if (i == this.mOffset) {
+                i = this.mEnd;
             }
-            int i3 = i2;
-            return new VersionedParcelParcel(parcel, dataPosition, i3, this.mPrefix + GlideException.IndentedAppendable.INDENT, this.mReadCache, this.mWriteCache, this.mParcelizerCache);
+            int i2 = i;
+            return new VersionedParcelParcel(parcel, dataPosition, i2, this.mPrefix + GlideException.IndentedAppendable.INDENT, this.mReadCache, this.mWriteCache, this.mParcelizerCache);
         }
         return (VersionedParcel) invokeV.objValue;
     }
@@ -131,16 +131,16 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public boolean readField(int i2) {
+    public boolean readField(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             while (this.mNextRead < this.mEnd) {
-                int i3 = this.mFieldId;
-                if (i3 == i2) {
+                int i2 = this.mFieldId;
+                if (i2 == i) {
                     return true;
                 }
-                if (String.valueOf(i3).compareTo(String.valueOf(i2)) > 0) {
+                if (String.valueOf(i2).compareTo(String.valueOf(i)) > 0) {
                     return false;
                 }
                 this.mParcel.setDataPosition(this.mNextRead);
@@ -148,7 +148,7 @@ public class VersionedParcelParcel extends VersionedParcel {
                 this.mFieldId = this.mParcel.readInt();
                 this.mNextRead += readInt;
             }
-            return this.mFieldId == i2;
+            return this.mFieldId == i;
         }
         return invokeI.booleanValue;
     }
@@ -196,14 +196,14 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void setOutputField(int i2) {
+    public void setOutputField(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             closeField();
-            this.mCurrentField = i2;
-            this.mPositionLookup.put(i2, this.mParcel.dataPosition());
+            this.mCurrentField = i;
+            this.mPositionLookup.put(i, this.mParcel.dataPosition());
             writeInt(0);
-            writeInt(i2);
+            writeInt(i);
         }
     }
 
@@ -261,18 +261,18 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeInt(int i2) {
+    public void writeInt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mParcel.writeInt(i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mParcel.writeInt(i);
         }
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeLong(long j2) {
+    public void writeLong(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.mParcel.writeLong(j2);
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.mParcel.writeLong(j);
         }
     }
 
@@ -309,17 +309,17 @@ public class VersionedParcelParcel extends VersionedParcel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VersionedParcelParcel(Parcel parcel, int i2, int i3, String str, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
+    public VersionedParcelParcel(Parcel parcel, int i, int i2, String str, ArrayMap<String, Method> arrayMap, ArrayMap<String, Method> arrayMap2, ArrayMap<String, Class> arrayMap3) {
         super(arrayMap, arrayMap2, arrayMap3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parcel, Integer.valueOf(i2), Integer.valueOf(i3), str, arrayMap, arrayMap2, arrayMap3};
+            Object[] objArr = {parcel, Integer.valueOf(i), Integer.valueOf(i2), str, arrayMap, arrayMap2, arrayMap3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ArrayMap) objArr2[0], (ArrayMap) objArr2[1], (ArrayMap) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -332,19 +332,19 @@ public class VersionedParcelParcel extends VersionedParcel {
         this.mNextRead = 0;
         this.mFieldId = -1;
         this.mParcel = parcel;
-        this.mOffset = i2;
-        this.mEnd = i3;
-        this.mNextRead = i2;
+        this.mOffset = i;
+        this.mEnd = i2;
+        this.mNextRead = i;
         this.mPrefix = str;
     }
 
     @Override // androidx.versionedparcelable.VersionedParcel
-    public void writeByteArray(byte[] bArr, int i2, int i3) {
+    public void writeByteArray(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048594, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048594, this, bArr, i, i2) == null) {
             if (bArr != null) {
                 this.mParcel.writeInt(bArr.length);
-                this.mParcel.writeByteArray(bArr, i2, i3);
+                this.mParcel.writeByteArray(bArr, i, i2);
                 return;
             }
             this.mParcel.writeInt(-1);

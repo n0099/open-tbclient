@@ -39,16 +39,16 @@ public class CircleImageView extends ImageView {
         public Paint mShadowPaint;
         public final /* synthetic */ CircleImageView this$0;
 
-        public OvalShadow(CircleImageView circleImageView, int i2) {
+        public OvalShadow(CircleImageView circleImageView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {circleImageView, Integer.valueOf(i2)};
+                Object[] objArr = {circleImageView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,14 +56,14 @@ public class CircleImageView extends ImageView {
             }
             this.this$0 = circleImageView;
             this.mShadowPaint = new Paint();
-            circleImageView.mShadowRadius = i2;
+            circleImageView.mShadowRadius = i;
             updateRadialGradient((int) rect().width());
         }
 
-        private void updateRadialGradient(int i2) {
+        private void updateRadialGradient(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-                float f2 = i2 / 2;
+            if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
+                float f2 = i / 2;
                 RadialGradient radialGradient = new RadialGradient(f2, f2, this.this$0.mShadowRadius, new int[]{CircleImageView.FILL_SHADOW_COLOR, 0}, (float[]) null, Shader.TileMode.CLAMP);
                 this.mRadialGradient = radialGradient;
                 this.mShadowPaint.setShader(radialGradient);
@@ -93,18 +93,18 @@ public class CircleImageView extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleImageView(Context context, int i2) {
+    public CircleImageView(Context context, int i) {
         super(context);
         ShapeDrawable shapeDrawable;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -112,8 +112,8 @@ public class CircleImageView extends ImageView {
             }
         }
         float f2 = getContext().getResources().getDisplayMetrics().density;
-        int i5 = (int) (1.75f * f2);
-        int i6 = (int) (0.0f * f2);
+        int i4 = (int) (1.75f * f2);
+        int i5 = (int) (0.0f * f2);
         this.mShadowRadius = (int) (3.5f * f2);
         if (elevationSupported()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
@@ -121,12 +121,12 @@ public class CircleImageView extends ImageView {
         } else {
             ShapeDrawable shapeDrawable2 = new ShapeDrawable(new OvalShadow(this, this.mShadowRadius));
             setLayerType(1, shapeDrawable2.getPaint());
-            shapeDrawable2.getPaint().setShadowLayer(this.mShadowRadius, i6, i5, KEY_SHADOW_COLOR);
-            int i7 = this.mShadowRadius;
-            setPadding(i7, i7, i7, i7);
+            shapeDrawable2.getPaint().setShadowLayer(this.mShadowRadius, i5, i4, KEY_SHADOW_COLOR);
+            int i6 = this.mShadowRadius;
+            setPadding(i6, i6, i6, i6);
             shapeDrawable = shapeDrawable2;
         }
-        shapeDrawable.getPaint().setColor(i2);
+        shapeDrawable.getPaint().setColor(i);
         ViewCompat.setBackground(this, shapeDrawable);
     }
 
@@ -161,10 +161,10 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             if (elevationSupported()) {
                 return;
             }
@@ -180,17 +180,17 @@ public class CircleImageView extends ImageView {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && (getBackground() instanceof ShapeDrawable)) {
-            ((ShapeDrawable) getBackground()).getPaint().setColor(i2);
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (getBackground() instanceof ShapeDrawable)) {
+            ((ShapeDrawable) getBackground()).getPaint().setColor(i);
         }
     }
 
-    public void setBackgroundColorRes(int i2) {
+    public void setBackgroundColorRes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            setBackgroundColor(ContextCompat.getColor(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            setBackgroundColor(ContextCompat.getColor(getContext(), i));
         }
     }
 }

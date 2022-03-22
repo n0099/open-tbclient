@@ -9,9 +9,8 @@ import com.kwad.sdk.crash.utils.i;
 import com.kwad.sdk.crash.utils.j;
 import com.kwad.sdk.utils.t;
 import java.io.Serializable;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class ExceptionMessage implements b, Serializable {
     public static final long serialVersionUID = -5338556142957298914L;
     public long mCurrentTimeStamp;
@@ -140,101 +139,101 @@ public abstract class ExceptionMessage implements b, Serializable {
             sb.append("异常状态汇总:\n");
             sb.append("UUID: ");
             sb.append(this.mLogUUID);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("CPU架构: ");
             sb.append(this.mAbi);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("异常进程: ");
             sb.append(this.mProcessName);
             sb.append(" (");
             sb.append(this.mPid);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("异常线程: ");
             sb.append(this.mThreadName);
             sb.append(" (");
             sb.append(this.mTid);
             sb.append(SmallTailInfo.EMOTION_SUFFIX);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("异常类型: ");
             sb.append(this.mCrashType);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("应用多开环境: ");
             sb.append(this.mVirtualApp);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("TaskId: ");
             sb.append(this.mTaskId);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("mTid: ");
             sb.append(this.mTid);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("自定义信息: ");
             sb.append(this.mCustomMsg);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("前后台状态: ");
             sb.append(this.mIsAppOnForeground);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("异常发生时间: ");
             sb.append(i.a(this.mCurrentTimeStamp));
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("版本号: ");
             sb.append(this.mVersionCode);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("升级前版本号: ");
             sb.append(this.mAppVersionBeforeLastUpload);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("使用时长: ");
             sb.append(j.a(this.mUsageTimeMills));
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("异常详情: \n");
-            sb.append(this instanceof JavaExceptionMessage ? this.mCrashDetail.replace(SevenZipUtils.FILE_SEP, "\n\t").replace("#", StringUtils.LF) : this.mCrashDetail);
-            sb.append(StringUtils.LF);
+            sb.append(this instanceof JavaExceptionMessage ? this.mCrashDetail.replace(SevenZipUtils.FILE_SEP, "\n\t").replace("#", "\n") : this.mCrashDetail);
+            sb.append("\n");
             sb.append("磁盘详情: \n");
             sb.append(this.mDiskInfo);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             if (!TextUtils.isEmpty(this.mErrorMessage)) {
                 sb.append("异常上报Debug: \n");
                 sb.append(this.mErrorMessage);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mBuildConfigInfo)) {
                 sb.append("BuildConfig信息: \n");
                 sb.append(this.mBuildConfigInfo);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mJNIError)) {
                 sb.append("JNI异常: \n");
                 sb.append(this.mJNIError);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mGCInfo)) {
                 sb.append("GC耗时: \n");
                 sb.append(this.mGCInfo);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mLockInfo)) {
                 sb.append("锁耗时(dvm_lock_sample): \n");
                 sb.append(this.mLockInfo);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mMonitorInfo)) {
                 sb.append("锁耗时(monitor): \n");
                 sb.append(this.mMonitorInfo);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mSlowLooper)) {
                 sb.append("Looper耗时: \n");
                 sb.append(this.mSlowLooper);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             if (!TextUtils.isEmpty(this.mSlowOperation)) {
                 sb.append("AMS调度耗时: \n");
                 sb.append(this.mSlowOperation);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("内存详情: \n");
             sb.append(this.mMemoryInfo);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         } catch (Throwable th) {
             com.kwad.sdk.core.d.a.b(th);
         }

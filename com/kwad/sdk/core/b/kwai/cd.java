@@ -11,8 +11,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
             return;
         }
         bVar.a = jSONObject.optDouble("progress");
-        bVar.f54983b = jSONObject.optInt("status");
-        bVar.f54984c = jSONObject.optLong("totalBytes");
+        bVar.f40069b = jSONObject.optInt("status");
+        bVar.f40070c = jSONObject.optLong("totalBytes");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -22,8 +22,8 @@ public class cd implements com.kwad.sdk.core.d<n.b> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "progress", bVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f54983b);
-        com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f54984c);
+        com.kwad.sdk.utils.t.a(jSONObject, "status", bVar.f40069b);
+        com.kwad.sdk.utils.t.a(jSONObject, "totalBytes", bVar.f40070c);
         return jSONObject;
     }
 }

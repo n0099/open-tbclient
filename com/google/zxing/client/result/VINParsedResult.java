@@ -23,17 +23,17 @@ public final class VINParsedResult extends ParsedResult {
     public final String worldManufacturerID;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i2, char c2, String str7) {
+    public VINParsedResult(String str, String str2, String str3, String str4, String str5, String str6, int i, char c2, String str7) {
         super(ParsedResultType.VIN);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i2), Character.valueOf(c2), str7};
+            Object[] objArr = {str, str2, str3, str4, str5, str6, Integer.valueOf(i), Character.valueOf(c2), str7};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,7 +46,7 @@ public final class VINParsedResult extends ParsedResult {
         this.vehicleIdentifierSection = str4;
         this.countryCode = str5;
         this.vehicleAttributes = str6;
-        this.modelYear = i2;
+        this.modelYear = i;
         this.plantCode = c2;
         this.sequentialNumber = str7;
     }

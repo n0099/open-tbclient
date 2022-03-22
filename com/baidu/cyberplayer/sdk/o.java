@@ -17,7 +17,10 @@ import android.os.Process;
 import android.os.StatFs;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.mobstat.Config;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +29,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import com.kuaishou.weapon.un.s;
 import com.kuaishou.weapon.un.w0;
 import dalvik.system.BaseDexClassLoader;
 import java.io.BufferedInputStream;
@@ -48,31 +50,30 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32186b = "last_file_cache_time";
+    public static String f25423b = "last_file_cache_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f32187c = 86400000;
+    public static long f25424c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f32188d = 104857600;
+    public static long f25425d = 104857600;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f32189e = -1;
+    public static volatile int f25426e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f32190f = -1;
+    public static volatile int f25427f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f32191g;
+    public static volatile String f25428g;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -95,20 +96,20 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bool)) == null) {
             if (bool.booleanValue() || r()) {
-                long i2 = d.i();
+                long i = d.i();
                 d.a(bool.booleanValue() ? 0L : CyberCfgManager.getInstance().getCfgLongValue("file_lru_expired_duration", 600L));
-                long i3 = d.i();
-                CyberCfgManager.getInstance().setPrefLong(f32186b, System.currentTimeMillis());
+                long i2 = d.i();
+                CyberCfgManager.getInstance().setPrefLong(f25423b, System.currentTimeMillis());
                 StringBuilder sb = new StringBuilder();
                 sb.append("delete file success,  beforeSpace = ");
-                sb.append(i2);
+                sb.append(i);
                 sb.append(" afterSpace = ");
-                sb.append(i3);
+                sb.append(i2);
                 sb.append(" deleteSpaceSize = ");
-                long j2 = i2 - i3;
-                sb.append(j2);
+                long j = i - i2;
+                sb.append(j);
                 CyberLog.i("sdk_Utils", sb.toString());
-                return j2;
+                return j;
             }
             return 0L;
         }
@@ -168,7 +169,7 @@ public class o {
 
     public static String a(File file) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
             if (file != null && file.isFile()) {
@@ -187,9 +188,9 @@ public class o {
                     byte[] digest = messageDigest.digest();
                     char[] charArray = "0123456789abcdef".toCharArray();
                     StringBuilder sb = new StringBuilder(digest.length * 2);
-                    for (i2 = 0; i2 < digest.length; i2++) {
-                        sb.append(charArray[(digest[i2] >> 4) & 15]);
-                        sb.append(charArray[digest[i2] & 15]);
+                    for (i = 0; i < digest.length; i++) {
+                        sb.append(charArray[(digest[i] >> 4) & 15]);
+                        sb.append(charArray[digest[i] & 15]);
                     }
                     return sb.toString();
                 } catch (Exception e2) {
@@ -212,9 +213,9 @@ public class o {
                     byte[] digest = messageDigest.digest();
                     char[] charArray = "0123456789abcdef".toCharArray();
                     StringBuilder sb = new StringBuilder(digest.length * 2);
-                    for (int i2 = 0; i2 < digest.length; i2++) {
-                        sb.append(charArray[(digest[i2] >> 4) & 15]);
-                        sb.append(charArray[digest[i2] & 15]);
+                    for (int i = 0; i < digest.length; i++) {
+                        sb.append(charArray[(digest[i] >> 4) & 15]);
+                        sb.append(charArray[digest[i] & 15]);
                     }
                     return sb.toString();
                 } catch (Exception e2) {
@@ -233,33 +234,33 @@ public class o {
             try {
                 byte[] bytes = str.getBytes();
                 byte[] bArr2 = new byte[256];
-                for (int i2 = 0; i2 < 256; i2++) {
-                    bArr2[i2] = (byte) i2;
+                for (int i = 0; i < 256; i++) {
+                    bArr2[i] = (byte) i;
                 }
+                int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                for (int i5 = 0; i5 < 256; i5++) {
-                    i4 = ((bytes[i3] & 255) + bArr2[i5] + i4) & 255;
-                    byte b2 = bArr2[i5];
-                    bArr2[i5] = bArr2[i4];
-                    bArr2[i4] = b2;
-                    i3 = (i3 + 1) % bytes.length;
+                for (int i4 = 0; i4 < 256; i4++) {
+                    i3 = ((bytes[i2] & 255) + bArr2[i4] + i3) & 255;
+                    byte b2 = bArr2[i4];
+                    bArr2[i4] = bArr2[i3];
+                    bArr2[i3] = b2;
+                    i2 = (i2 + 1) % bytes.length;
                 }
                 int length = bArr.length;
                 byte[] bArr3 = new byte[length];
                 int length2 = bArr.length;
                 if (length2 <= length) {
+                    int i5 = 0;
                     int i6 = 0;
-                    int i7 = 0;
-                    for (int i8 = 0; i8 < length2; i8++) {
-                        i6 = (i6 + 1) & 255;
-                        i7 = (bArr2[i6] + i7) & 255;
-                        byte b3 = bArr2[i6];
-                        bArr2[i6] = bArr2[i7];
-                        bArr2[i7] = b3;
-                        bArr3[i8] = (byte) (bArr[i8] ^ bArr2[(bArr2[i6] + bArr2[i7]) & 255]);
+                    for (int i7 = 0; i7 < length2; i7++) {
+                        i5 = (i5 + 1) & 255;
+                        i6 = (bArr2[i5] + i6) & 255;
+                        byte b3 = bArr2[i5];
+                        bArr2[i5] = bArr2[i6];
+                        bArr2[i6] = b3;
+                        bArr3[i7] = (byte) (bArr[i7] ^ bArr2[(bArr2[i5] + bArr2[i6]) & 255]);
                     }
-                    return new String(bArr3, "utf-8");
+                    return new String(bArr3, IMAudioTransRequest.CHARSET);
                 }
                 throw new RuntimeException("output buffer too short");
             } catch (Exception e2) {
@@ -356,10 +357,10 @@ public class o {
         return (Map) invokeL.objValue;
     }
 
-    public static void a(long j2) {
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65546, null, j2) == null) {
-            d.b(j2);
+        if (interceptable == null || interceptable.invokeJ(65546, null, j) == null) {
+            d.b(j);
         }
     }
 
@@ -375,20 +376,20 @@ public class o {
         if (!(interceptable == null || interceptable.invokeLL(65548, null, str, arrayList) == null) || str == null || arrayList == null) {
             return;
         }
-        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            a(str + File.separator + arrayList.get(i2));
+        for (int i = 0; i < arrayList.size(); i++) {
+            a(str + File.separator + arrayList.get(i));
         }
     }
 
-    public static void a(StringBuilder sb, String str, long j2) {
+    public static void a(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j2);
+            sb.append(j);
         }
     }
 
@@ -416,7 +417,7 @@ public class o {
                 throw new Exception(file.getName() + " is not exists");
             }
             String a2 = a(file);
-            CyberLog.d("sdk_Utils", str2 + "---->MD5\n" + str + StringUtils.LF + a2);
+            CyberLog.d("sdk_Utils", str2 + "---->MD5\n" + str + "\n" + a2);
             return str.equalsIgnoreCase(a2);
         }
         return invokeLL.booleanValue;
@@ -446,7 +447,7 @@ public class o {
             }
             String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
             CyberLog.i("sdk_Utils", "Utils.getExternalStorageSpace():" + f());
-            if (f() < 10485760 || str == null) {
+            if (f() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
                 str = str2;
             }
             new File(str).mkdirs();
@@ -537,7 +538,7 @@ public class o {
             if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
                     if (Build.VERSION.SDK_INT < 30) {
-                        return packageManager.checkPermission(s.f53810i, context.getPackageName()) == 0 && packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                        return packageManager.checkPermission("android.permission.READ_EXTERNAL_STORAGE", context.getPackageName()) == 0 && packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
                     }
                     CyberLog.i("sdk_Utils", "android 11 no ExternalStorage Permission!");
                     return false;
@@ -607,7 +608,7 @@ public class o {
                     } else if (!p.contains("AArch64")) {
                         if (TextUtils.isEmpty(Build.CPU_ABI)) {
                             str2 = "unknown";
-                        } else if (!Build.CPU_ABI.equals("armeabi-v7a")) {
+                        } else if (!Build.CPU_ABI.equals(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A)) {
                             str2 = Build.CPU_ABI;
                         }
                     }
@@ -692,9 +693,9 @@ public class o {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -722,14 +723,14 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (TextUtils.isEmpty(f32191g)) {
-                f32191g = t();
-                if (TextUtils.isEmpty(f32191g)) {
-                    f32191g = u();
+            if (TextUtils.isEmpty(f25428g)) {
+                f25428g = t();
+                if (TextUtils.isEmpty(f25428g)) {
+                    f25428g = u();
                 }
-                return f32191g;
+                return f25428g;
             }
-            return f32191g;
+            return f25428g;
         }
         return (String) invokeV.objValue;
     }
@@ -738,15 +739,15 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            if (f32189e < 0) {
+            if (f25426e < 0) {
                 Context applicationContext = CyberPlayerManager.getApplicationContext();
                 if (applicationContext == null || applicationContext.getPackageName().equals(l())) {
-                    f32189e = 1;
+                    f25426e = 1;
                 } else {
-                    f32189e = 0;
+                    f25426e = 0;
                 }
             }
-            return f32189e == 1;
+            return f25426e == 1;
         }
         return invokeV.booleanValue;
     }
@@ -783,10 +784,10 @@ public class o {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if (f32190f < 0) {
-                f32190f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+            if (f25427f < 0) {
+                f25427f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
             }
-            return f32190f == 1 ? "arm64-v8a" : "armeabi-v7a";
+            return f25427f == 1 ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
         }
         return (String) invokeV.objValue;
     }
@@ -818,7 +819,7 @@ public class o {
     public static long q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f32188d) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f25425d) : invokeV.longValue;
     }
 
     public static boolean r() {
@@ -826,12 +827,12 @@ public class o {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65573, null)) == null) {
             try {
-                long prefLong = CyberCfgManager.getInstance().getPrefLong(f32186b, 0L);
+                long prefLong = CyberCfgManager.getInstance().getPrefLong(f25423b, 0L);
                 long currentTimeMillis = System.currentTimeMillis();
                 if (prefLong > 0) {
                     return (((currentTimeMillis - prefLong) > s() ? 1 : ((currentTimeMillis - prefLong) == s() ? 0 : -1)) > 0) || ((d.i() > q() ? 1 : (d.i() == q() ? 0 : -1)) > 0);
                 }
-                CyberCfgManager.getInstance().setPrefLong(f32186b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f25423b, currentTimeMillis);
                 return false;
             } catch (Exception | OutOfMemoryError unused) {
                 return true;
@@ -843,7 +844,7 @@ public class o {
     public static long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f32187c) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) ? CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f25424c) : invokeV.longValue;
     }
 
     public static String t() {

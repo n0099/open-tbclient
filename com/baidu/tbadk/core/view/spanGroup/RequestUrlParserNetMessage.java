@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.view.spanGroup;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -27,9 +27,9 @@ public class RequestUrlParserNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -81,13 +81,13 @@ public class RequestUrlParserNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mUrl : (String) invokeV.objValue;
     }
 
-    public void setParams(long j2, int i2, String str, int i3) {
+    public void setParams(long j, int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            this.mForumId = j2;
-            this.mLinkNum = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            this.mForumId = j;
+            this.mLinkNum = i;
             this.mUrl = str;
-            this.mSpanGroupId = i3;
+            this.mSpanGroupId = i2;
         }
     }
 }

@@ -22,7 +22,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiModelLoaderFactory {
     public static /* synthetic */ Interceptable $ic;
     public static final Factory DEFAULT_FACTORY;
@@ -33,7 +33,7 @@ public class MultiModelLoaderFactory {
     public final Factory factory;
     public final Pools.Pool<List<Throwable>> throwableListPool;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EmptyModelLoader implements ModelLoader<Object, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class MultiModelLoaderFactory {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -54,10 +54,10 @@ public class MultiModelLoaderFactory {
 
         @Override // com.bumptech.glide.load.model.ModelLoader
         @Nullable
-        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i2, int i3, @NonNull Options options) {
+        public ModelLoader.LoadData<Object> buildLoadData(@NonNull Object obj, int i, int i2, @NonNull Options options) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{obj, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) {
                 return null;
             }
             return (ModelLoader.LoadData) invokeCommon.objValue;
@@ -74,7 +74,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry<Model, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -89,9 +89,9 @@ public class MultiModelLoaderFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cls, cls2, modelLoaderFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -115,7 +115,7 @@ public class MultiModelLoaderFactory {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -125,9 +125,9 @@ public class MultiModelLoaderFactory {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -168,9 +168,9 @@ public class MultiModelLoaderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {pool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Pools.Pool) objArr2[0], (Factory) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -312,9 +312,9 @@ public class MultiModelLoaderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {pool, factory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

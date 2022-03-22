@@ -100,15 +100,15 @@ public class KsDialogFragment extends KsFragment implements IDialogFragmentLifec
 
     @KsAdSdkDynamicApi
     @Keep
-    public void setStyle(int i2, int i3) {
-        this.mBase.setStyle(i2, i3);
+    public void setStyle(int i, int i2) {
+        this.mBase.setStyle(i, i2);
     }
 
     @KsAdSdkDynamicApi
     @Keep
     @SuppressLint({"RestrictedApi"})
-    public void setupDialog(Dialog dialog, int i2) {
-        this.mBase.setupDialog(dialog, i2);
+    public void setupDialog(Dialog dialog, int i) {
+        this.mBase.setupDialog(dialog, i);
     }
 
     @KsAdSdkDynamicApi

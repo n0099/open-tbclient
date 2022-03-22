@@ -41,9 +41,9 @@ public class k {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper, dVar, iARPRenderer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,9 +73,9 @@ public class k {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -146,9 +146,9 @@ public class k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -167,13 +167,13 @@ public class k {
         });
     }
 
-    private void h(int i2, int i3) {
+    private void h(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65544, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65544, this, i, i2) == null) {
             PixelReadParams pixelReadParams = new PixelReadParams(PixelType.RGBA);
             this.ih = pixelReadParams;
-            pixelReadParams.setOutputWidth(i2);
-            this.ih.setOutputHeight(i3);
+            pixelReadParams.setOutputWidth(i);
+            this.ih.setOutputHeight(i2);
             this.ih.setFrameType(PixelReadParams.FrameType.SINGLE_FRAME);
             this.ii = new PixelReadListener(this) { // from class: com.baidu.ar.arrender.k.1
                 public static /* synthetic */ Interceptable $ic;
@@ -187,9 +187,9 @@ public class k {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -237,10 +237,10 @@ public class k {
         iARPRenderer.clearCaptureData();
     }
 
-    public void g(int i2, int i3) {
+    public void g(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            h(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            h(i, i2);
             a(this.f1if);
         }
     }

@@ -60,9 +60,9 @@ public class BdBaseApplication extends Application {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -273,24 +273,24 @@ public class BdBaseApplication extends Application {
         }
     }
 
-    public void setSmallFlowInterval(long j2) {
+    public void setSmallFlowInterval(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.mSmallFlowInterval = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.mSmallFlowInterval = j;
         }
     }
 
-    public void setStartSmallFlowTime(long j2) {
+    public void setStartSmallFlowTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.mStartSmallFlowTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mStartSmallFlowTime = j;
         }
     }
 
-    private boolean checkInterrupt(long j2) {
+    private boolean checkInterrupt(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, this, j)) == null) {
             Calendar calendar = Calendar.getInstance();
             calendar.set(2019, 5, 7, 19, 20, 0);
             long timeInMillis = calendar.getTimeInMillis();
@@ -303,7 +303,7 @@ public class BdBaseApplication extends Application {
             calendar.set(2019, 4, 27, 20, 0, 0);
             long timeInMillis5 = calendar.getTimeInMillis();
             calendar.set(2019, 4, 27, 20, 30, 0);
-            return (timeInMillis <= j2 && j2 <= timeInMillis2) || (timeInMillis3 <= j2 && j2 <= timeInMillis4) || (timeInMillis5 <= j2 && j2 <= calendar.getTimeInMillis());
+            return (timeInMillis <= j && j <= timeInMillis2) || (timeInMillis3 <= j && j <= timeInMillis4) || (timeInMillis5 <= j && j <= calendar.getTimeInMillis());
         }
         return invokeJ.booleanValue;
     }

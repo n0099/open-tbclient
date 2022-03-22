@@ -4,6 +4,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,9 +24,9 @@ public final class HandlerCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,14 +38,15 @@ public final class HandlerCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, looper)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 28) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
                 return Handler.createAsync(looper);
             }
-            if (i2 >= 16) {
+            if (i >= 16) {
                 try {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, null, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
+                    Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
                 } catch (InvocationTargetException e2) {
                     Throwable cause = e2.getCause();
                     if (!(cause instanceof RuntimeException)) {
@@ -61,16 +63,16 @@ public final class HandlerCompat {
         return (Handler) invokeL.objValue;
     }
 
-    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j2) {
+    public static boolean postDelayed(@NonNull Handler handler, @NonNull Runnable runnable, @Nullable Object obj, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{handler, runnable, obj, Long.valueOf(j)})) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return handler.postDelayed(runnable, obj, j2);
+                return handler.postDelayed(runnable, obj, j);
             }
             Message obtain = Message.obtain(handler, runnable);
             obtain.obj = obj;
-            return handler.sendMessageDelayed(obtain, j2);
+            return handler.sendMessageDelayed(obtain, j);
         }
         return invokeCommon.booleanValue;
     }
@@ -80,14 +82,15 @@ public final class HandlerCompat {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, looper, callback)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 28) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
                 return Handler.createAsync(looper, callback);
             }
-            if (i2 >= 16) {
+            if (i >= 16) {
                 try {
                     return (Handler) Handler.class.getDeclaredConstructor(Looper.class, Handler.Callback.class, Boolean.TYPE).newInstance(looper, callback, Boolean.TRUE);
                 } catch (IllegalAccessException | InstantiationException | NoSuchMethodException unused) {
+                    Log.v(TAG, "Unable to invoke Handler(Looper, Callback, boolean) constructor");
                 } catch (InvocationTargetException e2) {
                     Throwable cause = e2.getCause();
                     if (!(cause instanceof RuntimeException)) {

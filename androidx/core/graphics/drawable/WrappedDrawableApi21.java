@@ -11,6 +11,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.InsetDrawable;
 import android.graphics.drawable.RippleDrawable;
 import android.os.Build;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
@@ -38,9 +39,9 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -55,7 +56,8 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sIsProjectedDrawableMethod == null) {
             try {
                 sIsProjectedDrawableMethod = Drawable.class.getDeclaredMethod("isProjected", new Class[0]);
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve Drawable#isProjected() method", e2);
             }
         }
     }
@@ -100,7 +102,8 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
             if (drawable != null && (method = sIsProjectedDrawableMethod) != null) {
                 try {
                     return ((Boolean) method.invoke(drawable, new Object[0])).booleanValue();
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.w(TAG, "Error calling Drawable#isProjected() method", e2);
                 }
             }
             return false;
@@ -117,10 +120,10 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            this.mDrawable.setHotspotBounds(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.mDrawable.setHotspotBounds(i, i2, i3, i4);
         }
     }
 
@@ -139,13 +142,13 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
     }
 
     @Override // androidx.core.graphics.drawable.WrappedDrawableApi14, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
-    public void setTint(int i2) {
+    public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             if (isCompatTintEnabled()) {
-                super.setTint(i2);
+                super.setTint(i);
             } else {
-                this.mDrawable.setTint(i2);
+                this.mDrawable.setTint(i);
             }
         }
     }
@@ -183,9 +186,9 @@ public class WrappedDrawableApi21 extends WrappedDrawableApi14 {
             newInitContext.initArgs = r2;
             Object[] objArr = {wrappedDrawableState, resources};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((WrappedDrawableState) objArr2[0], (Resources) objArr2[1]);
                 newInitContext.thisArg = this;

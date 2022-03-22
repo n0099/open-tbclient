@@ -27,9 +27,9 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitArray, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((BitArray) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,49 +40,49 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
         this.firstAIdigits = str;
     }
 
-    private void encodeCompressedDate(StringBuilder sb, int i2) {
+    private void encodeCompressedDate(StringBuilder sb, int i) {
         int extractNumericValueFromBitArray;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65537, this, sb, i2) == null) || (extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i2, 16)) == 38400) {
+        if (!(interceptable == null || interceptable.invokeLI(65537, this, sb, i) == null) || (extractNumericValueFromBitArray = getGeneralDecoder().extractNumericValueFromBitArray(i, 16)) == 38400) {
             return;
         }
         sb.append('(');
         sb.append(this.dateCode);
         sb.append(')');
-        int i3 = extractNumericValueFromBitArray % 32;
-        int i4 = extractNumericValueFromBitArray / 32;
-        int i5 = (i4 % 12) + 1;
-        int i6 = i4 / 12;
-        if (i6 / 10 == 0) {
-            sb.append('0');
-        }
-        sb.append(i6);
+        int i2 = extractNumericValueFromBitArray % 32;
+        int i3 = extractNumericValueFromBitArray / 32;
+        int i4 = (i3 % 12) + 1;
+        int i5 = i3 / 12;
         if (i5 / 10 == 0) {
             sb.append('0');
         }
         sb.append(i5);
-        if (i3 / 10 == 0) {
+        if (i4 / 10 == 0) {
             sb.append('0');
         }
-        sb.append(i3);
+        sb.append(i4);
+        if (i2 / 10 == 0) {
+            sb.append('0');
+        }
+        sb.append(i2);
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public void addWeightCode(StringBuilder sb, int i2) {
+    public void addWeightCode(StringBuilder sb, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, sb, i) == null) {
             sb.append('(');
             sb.append(this.firstAIdigits);
-            sb.append(i2 / 100000);
+            sb.append(i / 100000);
             sb.append(')');
         }
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
-    public int checkWeight(int i2) {
+    public int checkWeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? i2 % 100000 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i % 100000 : invokeI.intValue;
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder

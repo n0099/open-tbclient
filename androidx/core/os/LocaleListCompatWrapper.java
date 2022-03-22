@@ -7,7 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.fsg.base.statistics.h;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,7 +46,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             }
         }
         sEmptyList = new Locale[0];
-        LOCALE_EN_XA = new Locale(h.a, "XA");
+        LOCALE_EN_XA = new Locale("en", "XA");
         LOCALE_AR_XB = new Locale("ar", "XB");
         EN_LATN = LocaleListCompat.forLanguageTagCompat("en-Latn");
     }
@@ -59,9 +58,9 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {localeArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -75,22 +74,22 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         Locale[] localeArr2 = new Locale[localeArr.length];
         HashSet hashSet = new HashSet();
         StringBuilder sb = new StringBuilder();
-        for (int i4 = 0; i4 < localeArr.length; i4++) {
-            Locale locale = localeArr[i4];
+        for (int i3 = 0; i3 < localeArr.length; i3++) {
+            Locale locale = localeArr[i3];
             if (locale != null) {
                 if (!hashSet.contains(locale)) {
                     Locale locale2 = (Locale) locale.clone();
-                    localeArr2[i4] = locale2;
+                    localeArr2[i3] = locale2;
                     toLanguageTag(sb, locale2);
-                    if (i4 < localeArr.length - 1) {
+                    if (i3 < localeArr.length - 1) {
                         sb.append(',');
                     }
                     hashSet.add(locale2);
                 } else {
-                    throw new IllegalArgumentException("list[" + i4 + "] is a repetition");
+                    throw new IllegalArgumentException("list[" + i3 + "] is a repetition");
                 }
             } else {
-                throw new NullPointerException("list[" + i4 + "] is null");
+                throw new NullPointerException("list[" + i3 + "] is null");
             }
         }
         this.mList = localeArr2;
@@ -118,7 +117,7 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
     */
     private int computeFirstMatchIndex(Collection<String> collection, boolean z) {
         InterceptResult invokeLZ;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, this, collection, z)) == null) {
             Locale[] localeArr = this.mList;
@@ -129,25 +128,25 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
                 return -1;
             }
             if (z) {
-                i2 = findFirstMatchIndex(EN_LATN);
-                if (i2 == 0) {
+                i = findFirstMatchIndex(EN_LATN);
+                if (i == 0) {
                     return 0;
                 }
             }
-            i2 = Integer.MAX_VALUE;
+            i = Integer.MAX_VALUE;
             for (String str : collection) {
                 int findFirstMatchIndex = findFirstMatchIndex(LocaleListCompat.forLanguageTagCompat(str));
                 if (findFirstMatchIndex == 0) {
                     return 0;
                 }
-                if (findFirstMatchIndex < i2) {
-                    i2 = findFirstMatchIndex;
+                if (findFirstMatchIndex < i) {
+                    i = findFirstMatchIndex;
                 }
             }
-            if (i2 == Integer.MAX_VALUE) {
+            if (i == Integer.MAX_VALUE) {
                 return 0;
             }
-            return i2;
+            return i;
         }
         return invokeLZ.intValue;
     }
@@ -158,16 +157,16 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, locale)) != null) {
             return invokeL.intValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Locale[] localeArr = this.mList;
-            if (i2 >= localeArr.length) {
+            if (i >= localeArr.length) {
                 return Integer.MAX_VALUE;
             }
-            if (matchScore(locale, localeArr[i2]) > 0) {
-                return i2;
+            if (matchScore(locale, localeArr[i]) > 0) {
+                return i;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -243,28 +242,28 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         if (this.mList.length != localeArr.length) {
             return false;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Locale[] localeArr2 = this.mList;
-            if (i2 >= localeArr2.length) {
+            if (i >= localeArr2.length) {
                 return true;
             }
-            if (!localeArr2[i2].equals(localeArr[i2])) {
+            if (!localeArr2[i].equals(localeArr[i])) {
                 return false;
             }
-            i2++;
+            i++;
         }
     }
 
     @Override // androidx.core.os.LocaleListInterface
-    public Locale get(int i2) {
+    public Locale get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0) {
                 Locale[] localeArr = this.mList;
-                if (i2 < localeArr.length) {
-                    return localeArr[i2];
+                if (i < localeArr.length) {
+                    return localeArr[i];
                 }
             }
             return null;
@@ -296,15 +295,15 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048580, this)) != null) {
             return invokeV.intValue;
         }
-        int i2 = 1;
-        int i3 = 0;
+        int i = 1;
+        int i2 = 0;
         while (true) {
             Locale[] localeArr = this.mList;
-            if (i3 >= localeArr.length) {
-                return i2;
+            if (i2 >= localeArr.length) {
+                return i;
             }
-            i2 = (i2 * 31) + localeArr[i3].hashCode();
-            i3++;
+            i = (i * 31) + localeArr[i2].hashCode();
+            i2++;
         }
     }
 
@@ -315,16 +314,16 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048581, this, locale)) != null) {
             return invokeL.intValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Locale[] localeArr = this.mList;
-            if (i2 >= localeArr.length) {
+            if (i >= localeArr.length) {
                 return -1;
             }
-            if (localeArr[i2].equals(locale)) {
-                return i2;
+            if (localeArr[i].equals(locale)) {
+                return i;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -357,15 +356,15 @@ public final class LocaleListCompatWrapper implements LocaleListInterface {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(PreferencesUtil.LEFT_MOUNT);
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Locale[] localeArr = this.mList;
-            if (i2 < localeArr.length) {
-                sb.append(localeArr[i2]);
-                if (i2 < this.mList.length - 1) {
+            if (i < localeArr.length) {
+                sb.append(localeArr[i]);
+                if (i < this.mList.length - 1) {
                     sb.append(',');
                 }
-                i2++;
+                i++;
             } else {
                 sb.append(PreferencesUtil.RIGHT_MOUNT);
                 return sb.toString();

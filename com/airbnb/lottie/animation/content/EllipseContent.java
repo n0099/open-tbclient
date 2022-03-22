@@ -111,14 +111,14 @@ public class EllipseContent implements PathContent, BaseKeyframeAnimation.Animat
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list.size(); i2++) {
-            Content content = list.get(i2);
+        for (int i = 0; i < list.size(); i++) {
+            Content content = list.get(i);
             if (content instanceof TrimPathContent) {
                 TrimPathContent trimPathContent = (TrimPathContent) content;
                 if (trimPathContent.getType() == ShapeTrimPath.Type.SIMULTANEOUSLY) {

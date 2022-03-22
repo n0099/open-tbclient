@@ -89,9 +89,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -121,9 +121,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -154,9 +154,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -187,9 +187,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -220,9 +220,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -253,9 +253,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         newInitContext.initArgs = r2;
                         Object[] objArr = {r9, Integer.valueOf(r10)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (AnonymousClass1) objArr2[2]);
                             newInitContext.thisArg = this;
@@ -277,16 +277,16 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             $VALUES = new TestWaitStrategy[]{SPIN, YIELD, SLEEP_1MS, SLEEP_10MS, SLEEP_100MS, testWaitStrategy};
         }
 
-        public TestWaitStrategy(String str, int i2) {
+        public TestWaitStrategy(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -296,11 +296,11 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             }
         }
 
-        public static void sleep(int i2) {
+        public static void sleep(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
                 try {
-                    Thread.sleep(i2);
+                    Thread.sleep(i);
                 } catch (InterruptedException e2) {
                     throw new RuntimeException(e2);
                 }
@@ -322,8 +322,8 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         @Override // java.lang.Runnable
         public abstract void run();
 
-        public /* synthetic */ TestWaitStrategy(String str, int i2, AnonymousClass1 anonymousClass1) {
-            this(str, i2);
+        public /* synthetic */ TestWaitStrategy(String str, int i, AnonymousClass1 anonymousClass1) {
+            this(str, i);
         }
     }
 
@@ -332,9 +332,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -361,12 +361,12 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j2 = this.completions;
-            if (j2 != 0) {
-                if (j2 <= 1) {
+            long j = this.completions;
+            if (j != 0) {
+                if (j <= 1) {
                     return this;
                 }
-                throw fail("Multiple completions: " + j2);
+                throw fail("Multiple completions: " + j);
             }
             throw fail("Not completed");
         }
@@ -422,9 +422,9 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, t)) == null) {
             int size = this.values.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (ObjectHelper.equals(this.values.get(i2), t)) {
-                    throw fail("Value at position " + i2 + " is equal to " + valueAndClass(t) + "; Expected them to be different");
+            for (int i = 0; i < size; i++) {
+                if (ObjectHelper.equals(this.values.get(i), t)) {
+                    throw fail("Value at position " + i + " is equal to " + valueAndClass(t) + "; Expected them to be different");
                 }
             }
             return this;
@@ -466,13 +466,13 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = this.completions;
-            int i2 = (j2 > 1L ? 1 : (j2 == 1L ? 0 : -1));
-            if (i2 != 0) {
-                if (i2 <= 0) {
+            long j = this.completions;
+            int i = (j > 1L ? 1 : (j == 1L ? 0 : -1));
+            if (i != 0) {
+                if (i <= 0) {
                     return this;
                 }
-                throw fail("Multiple completions: " + j2);
+                throw fail("Multiple completions: " + j);
             }
             throw fail("Completed!");
         }
@@ -506,18 +506,18 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (this.done.getCount() == 0) {
-                long j2 = this.completions;
-                if (j2 <= 1) {
+                long j = this.completions;
+                if (j <= 1) {
                     int size = this.errors.size();
                     if (size > 1) {
                         throw fail("Terminated with multiple errors: " + size);
-                    } else if (j2 == 0 || size == 0) {
+                    } else if (j == 0 || size == 0) {
                         return this;
                     } else {
-                        throw fail("Terminated with multiple completions and errors: " + j2);
+                        throw fail("Terminated with multiple completions and errors: " + j);
                     }
                 }
-                throw fail("Terminated with multiple completions: " + j2);
+                throw fail("Terminated with multiple completions: " + j);
             }
             throw fail("Subscriber still running!");
         }
@@ -553,35 +553,35 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
     }
 
     @Experimental
-    public final U assertValueAt(int i2, T t) {
+    public final U assertValueAt(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i2, t)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048600, this, i, t)) == null) {
             int size = this.values.size();
             if (size != 0) {
-                if (i2 < size) {
-                    T t2 = this.values.get(i2);
+                if (i < size) {
+                    T t2 = this.values.get(i);
                     if (ObjectHelper.equals(t, t2)) {
                         return this;
                     }
                     throw fail("Expected: " + valueAndClass(t) + ", Actual: " + valueAndClass(t2));
                 }
-                throw fail("Invalid index: " + i2);
+                throw fail("Invalid index: " + i);
             }
             throw fail("No values");
         }
         return (U) invokeIL.objValue;
     }
 
-    public final U assertValueCount(int i2) {
+    public final U assertValueCount(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
             int size = this.values.size();
-            if (size == i2) {
+            if (size == i) {
                 return this;
             }
-            throw fail("Value counts differ; Expected: " + i2 + ", Actual: " + size);
+            throw fail("Value counts differ; Expected: " + i + ", Actual: " + size);
         }
         return (U) invokeI.objValue;
     }
@@ -594,7 +594,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, iterable)) == null) {
             Iterator<T> it = this.values.iterator();
             Iterator<? extends T> it2 = iterable.iterator();
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 hasNext = it2.hasNext();
                 hasNext2 = it.hasNext();
@@ -604,14 +604,14 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                 T next = it2.next();
                 T next2 = it.next();
                 if (!ObjectHelper.equals(next, next2)) {
-                    throw fail("Values at position " + i2 + " differ; Expected: " + valueAndClass(next) + ", Actual: " + valueAndClass(next2));
+                    throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(next) + ", Actual: " + valueAndClass(next2));
                 }
-                i2++;
+                i++;
             }
             if (hasNext2) {
-                throw fail("More values received than expected (" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                throw fail("More values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
             } else if (hasNext) {
-                throw fail("Fewer values received than expected (" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                throw fail("Fewer values received than expected (" + i + SmallTailInfo.EMOTION_SUFFIX);
             } else {
                 return this;
             }
@@ -645,11 +645,11 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             if (size != tArr.length) {
                 throw fail("Value count differs; Expected: " + tArr.length + " " + Arrays.toString(tArr) + ", Actual: " + size + " " + this.values);
             }
-            for (int i2 = 0; i2 < size; i2++) {
-                T t = this.values.get(i2);
-                T t2 = tArr[i2];
+            for (int i = 0; i < size; i++) {
+                T t = this.values.get(i);
+                T t2 = tArr[i];
                 if (!ObjectHelper.equals(t2, t)) {
-                    throw fail("Values at position " + i2 + " differ; Expected: " + valueAndClass(t2) + ", Actual: " + valueAndClass(t));
+                    throw fail("Values at position " + i + " differ; Expected: " + valueAndClass(t2) + ", Actual: " + valueAndClass(t));
                 }
             }
             return this;
@@ -677,18 +677,18 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeV.objValue;
     }
 
-    public final U awaitCount(int i2) {
+    public final U awaitCount(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) ? awaitCount(i2, TestWaitStrategy.SLEEP_10MS, 5000L) : (U) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) ? awaitCount(i, TestWaitStrategy.SLEEP_10MS, 5000L) : (U) invokeI.objValue;
     }
 
-    public final U awaitDone(long j2, TimeUnit timeUnit) {
+    public final U awaitDone(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048611, this, j, timeUnit)) == null) {
             try {
-                if (!this.done.await(j2, timeUnit)) {
+                if (!this.done.await(j, timeUnit)) {
                     this.timeout = true;
                     dispose();
                 }
@@ -795,7 +795,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
             arrayList.add(values());
             arrayList.add(errors());
             ArrayList arrayList2 = new ArrayList();
-            for (long j2 = 0; j2 < this.completions; j2++) {
+            for (long j = 0; j < this.completions; j++) {
                 arrayList2.add(Notification.createOnComplete());
             }
             arrayList.add(arrayList2);
@@ -850,10 +850,10 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cls)) == null) ? assertError(Functions.isInstanceOf(cls)) : (U) invokeL.objValue;
     }
 
-    public final U awaitCount(int i2, Runnable runnable) {
+    public final U awaitCount(int i, Runnable runnable) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048609, this, i2, runnable)) == null) ? awaitCount(i2, runnable, 5000L) : (U) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048609, this, i, runnable)) == null) ? awaitCount(i, runnable, 5000L) : (U) invokeIL.objValue;
     }
 
     public final U assertError(Predicate<Throwable> predicate) {
@@ -890,27 +890,27 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeL.objValue;
     }
 
-    public final boolean await(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public final boolean await(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j2, timeUnit)) == null) {
-            boolean z = this.done.getCount() == 0 || this.done.await(j2, timeUnit);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048607, this, j, timeUnit)) == null) {
+            boolean z = this.done.getCount() == 0 || this.done.await(j, timeUnit);
             this.timeout = !z;
             return z;
         }
         return invokeJL.booleanValue;
     }
 
-    public final U awaitCount(int i2, Runnable runnable, long j2) {
+    public final U awaitCount(int i, Runnable runnable, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), runnable, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), runnable, Long.valueOf(j)})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             while (true) {
-                if (j2 > 0 && System.currentTimeMillis() - currentTimeMillis >= j2) {
+                if (j > 0 && System.currentTimeMillis() - currentTimeMillis >= j) {
                     this.timeout = true;
                     break;
-                } else if (this.done.getCount() == 0 || this.values.size() >= i2) {
+                } else if (this.done.getCount() == 0 || this.values.size() >= i) {
                     break;
                 } else {
                     runnable.run();
@@ -921,12 +921,12 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeCommon.objValue;
     }
 
-    public final boolean awaitTerminalEvent(long j2, TimeUnit timeUnit) {
+    public final boolean awaitTerminalEvent(long j, TimeUnit timeUnit) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048613, this, j, timeUnit)) == null) {
             try {
-                return await(j2, timeUnit);
+                return await(j, timeUnit);
             } catch (InterruptedException unused) {
                 Thread.currentThread().interrupt();
                 return false;
@@ -947,10 +947,10 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, predicate)) == null) {
             int size = this.values.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    if (predicate.test((T) this.values.get(i2))) {
-                        throw fail("Value at position " + i2 + " matches predicate " + predicate.toString() + ", which was not expected.");
+                    if (predicate.test((T) this.values.get(i))) {
+                        throw fail("Value at position " + i + " matches predicate " + predicate.toString() + ", which was not expected.");
                     }
                 } catch (Exception e2) {
                     throw ExceptionHelper.wrapOrThrow(e2);
@@ -974,14 +974,14 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
         return (U) invokeL.objValue;
     }
 
-    public final U assertValueAt(int i2, Predicate<T> predicate) {
+    public final U assertValueAt(int i, Predicate<T> predicate) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i2, predicate)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048599, this, i, predicate)) == null) {
             if (this.values.size() != 0) {
-                if (i2 < this.values.size()) {
+                if (i < this.values.size()) {
                     try {
-                        if (predicate.test(this.values.get(i2))) {
+                        if (predicate.test(this.values.get(i))) {
                             return this;
                         }
                         throw fail("Value not present");
@@ -989,7 +989,7 @@ public abstract class BaseTestConsumer<T, U extends BaseTestConsumer<T, U>> impl
                         throw ExceptionHelper.wrapOrThrow(e2);
                     }
                 }
-                throw fail("Invalid index: " + i2);
+                throw fail("Invalid index: " + i);
             }
             throw fail("No values");
         }

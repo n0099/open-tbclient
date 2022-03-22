@@ -17,7 +17,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public final class ArraySet<E> implements Collection<E>, Set<E> {
     public static /* synthetic */ Interceptable $ic = null;
@@ -63,9 +62,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -74,10 +73,10 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         }
     }
 
-    private void allocArrays(int i2) {
+    private void allocArrays(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, this, i2) == null) {
-            if (i2 == 8) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
+            if (i == 8) {
                 synchronized (ArraySet.class) {
                     if (sTwiceBaseCache != null) {
                         Object[] objArr = sTwiceBaseCache;
@@ -90,7 +89,7 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                         return;
                     }
                 }
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 synchronized (ArraySet.class) {
                     if (sBaseCache != null) {
                         Object[] objArr2 = sBaseCache;
@@ -104,21 +103,21 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     }
                 }
             }
-            this.mHashes = new int[i2];
-            this.mArray = new Object[i2];
+            this.mHashes = new int[i];
+            this.mArray = new Object[i];
         }
     }
 
-    public static void freeArrays(int[] iArr, Object[] objArr, int i2) {
+    public static void freeArrays(int[] iArr, Object[] objArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, iArr, objArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65542, null, iArr, objArr, i) == null) {
             if (iArr.length == 8) {
                 synchronized (ArraySet.class) {
                     if (sTwiceBaseCacheSize < 10) {
                         objArr[0] = sTwiceBaseCache;
                         objArr[1] = iArr;
-                        for (int i3 = i2 - 1; i3 >= 2; i3--) {
-                            objArr[i3] = null;
+                        for (int i2 = i - 1; i2 >= 2; i2--) {
+                            objArr[i2] = null;
                         }
                         sTwiceBaseCache = objArr;
                         sTwiceBaseCacheSize++;
@@ -129,8 +128,8 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     if (sBaseCacheSize < 10) {
                         objArr[0] = sBaseCache;
                         objArr[1] = iArr;
-                        for (int i4 = i2 - 1; i4 >= 2; i4--) {
-                            objArr[i4] = null;
+                        for (int i3 = i - 1; i3 >= 2; i3--) {
+                            objArr[i3] = null;
                         }
                         sBaseCache = objArr;
                         sBaseCacheSize++;
@@ -157,9 +156,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -177,10 +176,10 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public Object colGetEntry(int i2, int i3) {
+                    public Object colGetEntry(int i, int i2) {
                         InterceptResult invokeII;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) ? this.this$0.mArray[i2] : invokeII.objValue;
+                        return (interceptable2 == null || (invokeII = interceptable2.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) ? this.this$0.mArray[i] : invokeII.objValue;
                     }
 
                     @Override // androidx.collection.MapCollections
@@ -223,18 +222,18 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public void colRemoveAt(int i2) {
+                    public void colRemoveAt(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048583, this, i2) == null) {
-                            this.this$0.removeAt(i2);
+                        if (interceptable2 == null || interceptable2.invokeI(1048583, this, i) == null) {
+                            this.this$0.removeAt(i);
                         }
                     }
 
                     @Override // androidx.collection.MapCollections
-                    public E colSetValue(int i2, E e2) {
+                    public E colSetValue(int i, E e2) {
                         InterceptResult invokeIL;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, e2)) == null) {
+                        if (interceptable2 == null || (invokeIL = interceptable2.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, e2)) == null) {
                             throw new UnsupportedOperationException("not a map");
                         }
                         return (E) invokeIL.objValue;
@@ -246,29 +245,29 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         return (MapCollections) invokeV.objValue;
     }
 
-    private int indexOf(Object obj, int i2) {
+    private int indexOf(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, obj, i2)) == null) {
-            int i3 = this.mSize;
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, obj, i)) == null) {
+            int i2 = this.mSize;
+            if (i2 == 0) {
                 return -1;
             }
-            int binarySearch = ContainerHelpers.binarySearch(this.mHashes, i3, i2);
+            int binarySearch = ContainerHelpers.binarySearch(this.mHashes, i2, i);
             if (binarySearch >= 0 && !obj.equals(this.mArray[binarySearch])) {
-                int i4 = binarySearch + 1;
-                while (i4 < i3 && this.mHashes[i4] == i2) {
+                int i3 = binarySearch + 1;
+                while (i3 < i2 && this.mHashes[i3] == i) {
+                    if (obj.equals(this.mArray[i3])) {
+                        return i3;
+                    }
+                    i3++;
+                }
+                for (int i4 = binarySearch - 1; i4 >= 0 && this.mHashes[i4] == i; i4--) {
                     if (obj.equals(this.mArray[i4])) {
                         return i4;
                     }
-                    i4++;
                 }
-                for (int i5 = binarySearch - 1; i5 >= 0 && this.mHashes[i5] == i2; i5--) {
-                    if (obj.equals(this.mArray[i5])) {
-                        return i5;
-                    }
-                }
-                return ~i4;
+                return ~i3;
             }
             return binarySearch;
         }
@@ -279,25 +278,25 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
-            int i2 = this.mSize;
-            if (i2 == 0) {
+            int i = this.mSize;
+            if (i == 0) {
                 return -1;
             }
-            int binarySearch = ContainerHelpers.binarySearch(this.mHashes, i2, 0);
+            int binarySearch = ContainerHelpers.binarySearch(this.mHashes, i, 0);
             if (binarySearch >= 0 && this.mArray[binarySearch] != null) {
-                int i3 = binarySearch + 1;
-                while (i3 < i2 && this.mHashes[i3] == 0) {
+                int i2 = binarySearch + 1;
+                while (i2 < i && this.mHashes[i2] == 0) {
+                    if (this.mArray[i2] == null) {
+                        return i2;
+                    }
+                    i2++;
+                }
+                for (int i3 = binarySearch - 1; i3 >= 0 && this.mHashes[i3] == 0; i3--) {
                     if (this.mArray[i3] == null) {
                         return i3;
                     }
-                    i3++;
                 }
-                for (int i4 = binarySearch - 1; i4 >= 0 && this.mHashes[i4] == 0; i4--) {
-                    if (this.mArray[i4] == null) {
-                        return i4;
-                    }
-                }
-                return ~i3;
+                return ~i2;
             }
             return binarySearch;
         }
@@ -307,33 +306,33 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     @Override // java.util.Collection, java.util.Set
     public boolean add(@Nullable E e2) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         int indexOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e2)) == null) {
             if (e2 == null) {
                 indexOf = indexOfNull();
-                i2 = 0;
+                i = 0;
             } else {
                 int hashCode = e2.hashCode();
-                i2 = hashCode;
+                i = hashCode;
                 indexOf = indexOf(e2, hashCode);
             }
             if (indexOf >= 0) {
                 return false;
             }
-            int i3 = ~indexOf;
-            int i4 = this.mSize;
-            if (i4 >= this.mHashes.length) {
-                int i5 = 4;
-                if (i4 >= 8) {
-                    i5 = (i4 >> 1) + i4;
-                } else if (i4 >= 4) {
-                    i5 = 8;
+            int i2 = ~indexOf;
+            int i3 = this.mSize;
+            if (i3 >= this.mHashes.length) {
+                int i4 = 4;
+                if (i3 >= 8) {
+                    i4 = (i3 >> 1) + i3;
+                } else if (i3 >= 4) {
+                    i4 = 8;
                 }
                 int[] iArr = this.mHashes;
                 Object[] objArr = this.mArray;
-                allocArrays(i5);
+                allocArrays(i4);
                 int[] iArr2 = this.mHashes;
                 if (iArr2.length > 0) {
                     System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
@@ -341,16 +340,16 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                 }
                 freeArrays(iArr, objArr, this.mSize);
             }
-            int i6 = this.mSize;
-            if (i3 < i6) {
+            int i5 = this.mSize;
+            if (i2 < i5) {
                 int[] iArr3 = this.mHashes;
-                int i7 = i3 + 1;
-                System.arraycopy(iArr3, i3, iArr3, i7, i6 - i3);
+                int i6 = i2 + 1;
+                System.arraycopy(iArr3, i2, iArr3, i6, i5 - i2);
                 Object[] objArr2 = this.mArray;
-                System.arraycopy(objArr2, i3, objArr2, i7, this.mSize - i3);
+                System.arraycopy(objArr2, i2, objArr2, i6, this.mSize - i2);
             }
-            this.mHashes[i3] = i2;
-            this.mArray[i3] = e2;
+            this.mHashes[i2] = i;
+            this.mArray[i2] = e2;
             this.mSize++;
             return true;
         }
@@ -360,28 +359,28 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
     public void addAll(@NonNull ArraySet<? extends E> arraySet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) == null) {
-            int i2 = arraySet.mSize;
-            ensureCapacity(this.mSize + i2);
+            int i = arraySet.mSize;
+            ensureCapacity(this.mSize + i);
             if (this.mSize != 0) {
-                for (int i3 = 0; i3 < i2; i3++) {
-                    add(arraySet.valueAt(i3));
+                for (int i2 = 0; i2 < i; i2++) {
+                    add(arraySet.valueAt(i2));
                 }
-            } else if (i2 > 0) {
-                System.arraycopy(arraySet.mHashes, 0, this.mHashes, 0, i2);
-                System.arraycopy(arraySet.mArray, 0, this.mArray, 0, i2);
-                this.mSize = i2;
+            } else if (i > 0) {
+                System.arraycopy(arraySet.mHashes, 0, this.mHashes, 0, i);
+                System.arraycopy(arraySet.mArray, 0, this.mArray, 0, i);
+                this.mSize = i;
             }
         }
     }
 
     @Override // java.util.Collection, java.util.Set
     public void clear() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i2 = this.mSize) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i = this.mSize) == 0) {
             return;
         }
-        freeArrays(this.mHashes, this.mArray, i2);
+        freeArrays(this.mHashes, this.mArray, i);
         this.mHashes = INT;
         this.mArray = OBJECT;
         this.mSize = 0;
@@ -410,16 +409,16 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         return invokeL.booleanValue;
     }
 
-    public void ensureCapacity(int i2) {
+    public void ensureCapacity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             int[] iArr = this.mHashes;
-            if (iArr.length < i2) {
+            if (iArr.length < i) {
                 Object[] objArr = this.mArray;
-                allocArrays(i2);
-                int i3 = this.mSize;
-                if (i3 > 0) {
-                    System.arraycopy(iArr, 0, this.mHashes, 0, i3);
+                allocArrays(i);
+                int i2 = this.mSize;
+                if (i2 > 0) {
+                    System.arraycopy(iArr, 0, this.mHashes, 0, i2);
                     System.arraycopy(objArr, 0, this.mArray, 0, this.mSize);
                 }
                 freeArrays(iArr, objArr, this.mSize);
@@ -440,9 +439,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                 if (size() != set.size()) {
                     return false;
                 }
-                for (int i2 = 0; i2 < this.mSize; i2++) {
+                for (int i = 0; i < this.mSize; i++) {
                     try {
-                        if (!set.contains(valueAt(i2))) {
+                        if (!set.contains(valueAt(i))) {
                             return false;
                         }
                     } catch (ClassCastException | NullPointerException unused) {
@@ -461,12 +460,12 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             int[] iArr = this.mHashes;
-            int i2 = this.mSize;
-            int i3 = 0;
-            for (int i4 = 0; i4 < i2; i4++) {
-                i3 += iArr[i4];
+            int i = this.mSize;
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 += iArr[i3];
             }
-            return i3;
+            return i2;
         }
         return invokeV.intValue;
     }
@@ -504,55 +503,55 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, arraySet)) == null) {
-            int i2 = arraySet.mSize;
-            int i3 = this.mSize;
-            for (int i4 = 0; i4 < i2; i4++) {
-                remove(arraySet.valueAt(i4));
+            int i = arraySet.mSize;
+            int i2 = this.mSize;
+            for (int i3 = 0; i3 < i; i3++) {
+                remove(arraySet.valueAt(i3));
             }
-            return i3 != this.mSize;
+            return i2 != this.mSize;
         }
         return invokeL.booleanValue;
     }
 
-    public E removeAt(int i2) {
+    public E removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             Object[] objArr = this.mArray;
-            E e2 = (E) objArr[i2];
-            int i3 = this.mSize;
-            if (i3 <= 1) {
-                freeArrays(this.mHashes, objArr, i3);
+            E e2 = (E) objArr[i];
+            int i2 = this.mSize;
+            if (i2 <= 1) {
+                freeArrays(this.mHashes, objArr, i2);
                 this.mHashes = INT;
                 this.mArray = OBJECT;
                 this.mSize = 0;
             } else {
                 int[] iArr = this.mHashes;
-                if (iArr.length > 8 && i3 < iArr.length / 3) {
-                    int i4 = i3 > 8 ? i3 + (i3 >> 1) : 8;
+                if (iArr.length > 8 && i2 < iArr.length / 3) {
+                    int i3 = i2 > 8 ? i2 + (i2 >> 1) : 8;
                     int[] iArr2 = this.mHashes;
                     Object[] objArr2 = this.mArray;
-                    allocArrays(i4);
+                    allocArrays(i3);
                     this.mSize--;
-                    if (i2 > 0) {
-                        System.arraycopy(iArr2, 0, this.mHashes, 0, i2);
-                        System.arraycopy(objArr2, 0, this.mArray, 0, i2);
+                    if (i > 0) {
+                        System.arraycopy(iArr2, 0, this.mHashes, 0, i);
+                        System.arraycopy(objArr2, 0, this.mArray, 0, i);
                     }
-                    int i5 = this.mSize;
-                    if (i2 < i5) {
-                        int i6 = i2 + 1;
-                        System.arraycopy(iArr2, i6, this.mHashes, i2, i5 - i2);
-                        System.arraycopy(objArr2, i6, this.mArray, i2, this.mSize - i2);
+                    int i4 = this.mSize;
+                    if (i < i4) {
+                        int i5 = i + 1;
+                        System.arraycopy(iArr2, i5, this.mHashes, i, i4 - i);
+                        System.arraycopy(objArr2, i5, this.mArray, i, this.mSize - i);
                     }
                 } else {
-                    int i7 = this.mSize - 1;
-                    this.mSize = i7;
-                    if (i2 < i7) {
+                    int i6 = this.mSize - 1;
+                    this.mSize = i6;
+                    if (i < i6) {
                         int[] iArr3 = this.mHashes;
-                        int i8 = i2 + 1;
-                        System.arraycopy(iArr3, i8, iArr3, i2, i7 - i2);
+                        int i7 = i + 1;
+                        System.arraycopy(iArr3, i7, iArr3, i, i6 - i);
                         Object[] objArr3 = this.mArray;
-                        System.arraycopy(objArr3, i8, objArr3, i2, this.mSize - i2);
+                        System.arraycopy(objArr3, i7, objArr3, i, this.mSize - i);
                     }
                     this.mArray[this.mSize] = null;
                 }
@@ -568,9 +567,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, collection)) == null) {
             boolean z = false;
-            for (int i2 = this.mSize - 1; i2 >= 0; i2--) {
-                if (!collection.contains(this.mArray[i2])) {
-                    removeAt(i2);
+            for (int i = this.mSize - 1; i >= 0; i--) {
+                if (!collection.contains(this.mArray[i])) {
+                    removeAt(i);
                     z = true;
                 }
             }
@@ -592,9 +591,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            int i2 = this.mSize;
-            Object[] objArr = new Object[i2];
-            System.arraycopy(this.mArray, 0, objArr, 0, i2);
+            int i = this.mSize;
+            Object[] objArr = new Object[i];
+            System.arraycopy(this.mArray, 0, objArr, 0, i);
             return objArr;
         }
         return (Object[]) invokeV.objValue;
@@ -608,51 +607,51 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 14);
-            sb.append(ExtendedMessageFormat.START_FE);
-            for (int i2 = 0; i2 < this.mSize; i2++) {
-                if (i2 > 0) {
+            sb.append('{');
+            for (int i = 0; i < this.mSize; i++) {
+                if (i > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                E valueAt = valueAt(i2);
+                E valueAt = valueAt(i);
                 if (valueAt != this) {
                     sb.append(valueAt);
                 } else {
                     sb.append("(this Set)");
                 }
             }
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
     @Nullable
-    public E valueAt(int i2) {
+    public E valueAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) ? (E) this.mArray[i2] : (E) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) ? (E) this.mArray[i] : (E) invokeI.objValue;
     }
 
-    public ArraySet(int i2) {
+    public ArraySet(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        if (i2 == 0) {
+        if (i == 0) {
             this.mHashes = INT;
             this.mArray = OBJECT;
         } else {
-            allocArrays(i2);
+            allocArrays(i);
         }
         this.mSize = 0;
     }
@@ -668,9 +667,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
             }
             System.arraycopy(this.mArray, 0, tArr, 0, this.mSize);
             int length = tArr.length;
-            int i2 = this.mSize;
-            if (length > i2) {
-                tArr[i2] = null;
+            int i = this.mSize;
+            if (length > i) {
+                tArr[i] = null;
             }
             return tArr;
         }
@@ -701,9 +700,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
             newInitContext.initArgs = r2;
             Object[] objArr = {arraySet};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -745,9 +744,9 @@ public final class ArraySet<E> implements Collection<E>, Set<E> {
             newInitContext.initArgs = r2;
             Object[] objArr = {collection};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);

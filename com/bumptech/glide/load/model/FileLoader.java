@@ -4,6 +4,7 @@ import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,14 +21,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FileLoader<Data> implements ModelLoader<File, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FileLoader";
     public transient /* synthetic */ FieldHolder $fh;
     public final FileOpener<Data> fileOpener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Factory<Data> implements ModelLoaderFactory<File, Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +41,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fileOpener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -67,7 +68,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FileDescriptorFactory extends Factory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +84,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                         }
@@ -114,16 +115,16 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                 public ParcelFileDescriptor open(File file) throws FileNotFoundException {
                     InterceptResult invokeL;
                     Interceptable interceptable = $ic;
-                    return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) ? ParcelFileDescriptor.open(file, 268435456) : (ParcelFileDescriptor) invokeL.objValue;
+                    return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, file)) == null) ? ParcelFileDescriptor.open(file, LaunchTaskConstants.OTHER_PROCESS) : (ParcelFileDescriptor) invokeL.objValue;
                 }
             });
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FileOpener) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -133,7 +134,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FileFetcher<Data> implements DataFetcher<Data> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -148,9 +149,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {file, fileOpener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -206,14 +207,16 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                     this.data = open;
                     dataCallback.onDataReady(open);
                 } catch (FileNotFoundException e2) {
-                    Log.isLoggable(FileLoader.TAG, 3);
+                    if (Log.isLoggable(FileLoader.TAG, 3)) {
+                        Log.d(FileLoader.TAG, "Failed to open file", e2);
+                    }
                     dataCallback.onLoadFailed(e2);
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FileOpener<Data> {
         void close(Data data) throws IOException;
 
@@ -222,7 +225,7 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
         Data open(File file) throws FileNotFoundException;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory extends Factory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -238,9 +241,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                         }
@@ -276,9 +279,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FileOpener) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -295,9 +298,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fileOpener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -319,9 +322,9 @@ public class FileLoader<Data> implements ModelLoader<File, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull File file, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener)) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(file), new FileFetcher(file, this.fileOpener)) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 }

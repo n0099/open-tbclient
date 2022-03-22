@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExtractFromZipSoSource extends UnpackingSoSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,13 +28,13 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
     public final String mZipSearchPattern;
 
     /* renamed from: com.facebook.soloader.ExtractFromZipSoSource$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ZipDso extends UnpackingSoSource.Dso implements Comparable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,17 +42,17 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         public final ZipEntry backingEntry;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ZipDso(String str, ZipEntry zipEntry, int i2) {
+        public ZipDso(String str, ZipEntry zipEntry, int i) {
             super(str, makePseudoHash(zipEntry));
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, zipEntry, Integer.valueOf(i2)};
+                Object[] objArr = {str, zipEntry, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -61,7 +61,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                 }
             }
             this.backingEntry = zipEntry;
-            this.abiScore = i2;
+            this.abiScore = i;
         }
 
         public static String makePseudoHash(ZipEntry zipEntry) {
@@ -78,7 +78,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class ZipUnpacker extends UnpackingSoSource.Unpacker {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -88,7 +88,7 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
         public final ZipFile mZipFile;
         public final /* synthetic */ ExtractFromZipSoSource this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public final class ZipBackedInputDsoIterator extends UnpackingSoSource.InputDsoIterator {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +102,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {zipUnpacker};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -131,9 +131,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                 if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                     this.this$1.ensureDsos();
                     ZipDso[] zipDsoArr = this.this$1.mDsos;
-                    int i2 = this.mCurrentDso;
-                    this.mCurrentDso = i2 + 1;
-                    ZipDso zipDso = zipDsoArr[i2];
+                    int i = this.mCurrentDso;
+                    this.mCurrentDso = i + 1;
+                    ZipDso zipDso = zipDsoArr[i];
                     InputStream inputStream = this.this$1.mZipFile.getInputStream(zipDso.backingEntry);
                     try {
                         return new UnpackingSoSource.InputDso(zipDso, inputStream);
@@ -159,9 +159,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extractFromZipSoSource, unpackingSoSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -209,21 +209,21 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
                     this.mSoSource.setSoSourceAbis((String[]) linkedHashSet.toArray(new String[linkedHashSet.size()]));
                     ZipDso[] zipDsoArr = (ZipDso[]) hashMap.values().toArray(new ZipDso[hashMap.size()]);
                     Arrays.sort(zipDsoArr);
-                    int i2 = 0;
-                    for (int i3 = 0; i3 < zipDsoArr.length; i3++) {
-                        ZipDso zipDso2 = zipDsoArr[i3];
+                    int i = 0;
+                    for (int i2 = 0; i2 < zipDsoArr.length; i2++) {
+                        ZipDso zipDso2 = zipDsoArr[i2];
                         if (shouldExtract(zipDso2.backingEntry, zipDso2.name)) {
-                            i2++;
+                            i++;
                         } else {
-                            zipDsoArr[i3] = null;
+                            zipDsoArr[i2] = null;
                         }
                     }
-                    ZipDso[] zipDsoArr2 = new ZipDso[i2];
-                    int i4 = 0;
+                    ZipDso[] zipDsoArr2 = new ZipDso[i];
+                    int i3 = 0;
                     for (ZipDso zipDso3 : zipDsoArr) {
                         if (zipDso3 != null) {
-                            zipDsoArr2[i4] = zipDso3;
-                            i4++;
+                            zipDsoArr2[i3] = zipDso3;
+                            i3++;
                         }
                     }
                     this.mDsos = zipDsoArr2;
@@ -266,9 +266,9 @@ public class ExtractFromZipSoSource extends UnpackingSoSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, file, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;

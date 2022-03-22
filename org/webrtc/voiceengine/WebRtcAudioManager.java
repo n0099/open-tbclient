@@ -16,7 +16,7 @@ import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.ContextUtils;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -48,7 +48,7 @@ public class WebRtcAudioManager {
     public int sampleRate;
     public final VolumeLogger volumeLogger;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class VolumeLogger {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String THREAD_NAME = "WebRtcVolumeLevelLoggerThread";
@@ -58,7 +58,7 @@ public class WebRtcAudioManager {
         @Nullable
         public Timer timer;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public class LogVolumeTask extends TimerTask {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -66,24 +66,24 @@ public class WebRtcAudioManager {
             public final int maxVoiceCallVolume;
             public final /* synthetic */ VolumeLogger this$0;
 
-            public LogVolumeTask(VolumeLogger volumeLogger, int i2, int i3) {
+            public LogVolumeTask(VolumeLogger volumeLogger, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {volumeLogger, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {volumeLogger, Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = volumeLogger;
-                this.maxRingVolume = i2;
-                this.maxVoiceCallVolume = i3;
+                this.maxRingVolume = i;
+                this.maxVoiceCallVolume = i2;
             }
 
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -107,9 +107,9 @@ public class WebRtcAudioManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {audioManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,28 +139,28 @@ public class WebRtcAudioManager {
         }
     }
 
-    public WebRtcAudioManager(long j2) {
+    public WebRtcAudioManager(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Logging.d(TAG, "ctor" + WebRtcAudioUtils.getThreadInfo());
-        this.nativeAudioManager = j2;
+        this.nativeAudioManager = j;
         AudioManager audioManager = (AudioManager) ContextUtils.getApplicationContext().getSystemService("audio");
         this.audioManager = audioManager;
         this.volumeLogger = new VolumeLogger(audioManager);
         storeAudioParameters();
-        nativeCacheAudioParameters(this.sampleRate, this.outputChannels, this.inputChannels, this.hardwareAEC, this.hardwareAGC, this.hardwareNS, this.lowLatencyOutput, this.lowLatencyInput, this.proAudio, this.aAudio, this.outputBufferSize, this.inputBufferSize, j2);
+        nativeCacheAudioParameters(this.sampleRate, this.outputChannels, this.inputChannels, this.hardwareAEC, this.hardwareAGC, this.hardwareNS, this.lowLatencyOutput, this.lowLatencyInput, this.proAudio, this.aAudio, this.outputBufferSize, this.inputBufferSize, j);
         WebRtcAudioUtils.logAudioState(TAG);
     }
 
@@ -205,20 +205,20 @@ public class WebRtcAudioManager {
         return invokeV.intValue;
     }
 
-    public static int getMinInputFrameSize(int i2, int i3) {
+    public static int getMinInputFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
-            return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
         }
         return invokeII.intValue;
     }
 
-    public static int getMinOutputFrameSize(int i2, int i3) {
+    public static int getMinOutputFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
-            return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
+            return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
         }
         return invokeII.intValue;
     }
@@ -359,7 +359,7 @@ public class WebRtcAudioManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) ? Build.VERSION.SDK_INT >= 23 && ContextUtils.getApplicationContext().getPackageManager().hasSystemFeature("android.hardware.audio.pro") : invokeV.booleanValue;
     }
 
-    private native void nativeCacheAudioParameters(int i2, int i3, int i4, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i5, int i6, long j2);
+    private native void nativeCacheAudioParameters(int i, int i2, int i3, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, int i4, int i5, long j);
 
     public static synchronized void setBlacklistDeviceForOpenSLESUsage(boolean z) {
         Interceptable interceptable = $ic;

@@ -11,7 +11,7 @@ import org.apache.http.io.HttpTransportMetrics;
 import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class LoggingSessionInputBuffer implements SessionInputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class LoggingSessionInputBuffer implements SessionInputBuffer {
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionInputBuffer, wire};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,20 +45,20 @@ public class LoggingSessionInputBuffer implements SessionInputBuffer {
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public boolean isDataAvailable(int i2) throws IOException {
+    public boolean isDataAvailable(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;
     }
 
     @Override // org.apache.http.io.SessionInputBuffer
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, bArr, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLII.intValue;

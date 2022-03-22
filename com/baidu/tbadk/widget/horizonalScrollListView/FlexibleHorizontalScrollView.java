@@ -16,33 +16,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f30763b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f30764c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f30765d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39928e;
+    public ValueAnimator f30766e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39929f;
+    public float f30767f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f39930g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f39931h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ValueAnimator f39932i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f39933j;
-    public int k;
+    public int f30768g;
 
     /* loaded from: classes5.dex */
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FlexibleHorizontalScrollView f39934e;
+        public final /* synthetic */ FlexibleHorizontalScrollView a;
 
         public a(FlexibleHorizontalScrollView flexibleHorizontalScrollView) {
             Interceptable interceptable = $ic;
@@ -51,22 +49,22 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flexibleHorizontalScrollView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39934e = flexibleHorizontalScrollView;
+            this.a = flexibleHorizontalScrollView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f39934e.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                this.a.setX(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         }
     }
@@ -80,34 +78,34 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39928e = 150;
-        this.f39931h = 0.0f;
+        this.a = 150;
+        this.f30765d = 0.0f;
     }
 
-    public final void a() {
+    public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.f39932i == null) {
+            if (this.f30766e == null) {
                 ValueAnimator valueAnimator = new ValueAnimator();
-                this.f39932i = valueAnimator;
+                this.f30766e = valueAnimator;
                 valueAnimator.setDuration(200L);
-                this.f39932i.setInterpolator(new DecelerateInterpolator());
-                this.f39932i.addUpdateListener(new a(this));
+                this.f30766e.setInterpolator(new DecelerateInterpolator());
+                this.f30766e.addUpdateListener(new a(this));
             }
-            if (this.k == 0) {
+            if (this.f30768g == 0) {
                 setOverScrollMode(2);
                 int a2 = g.a(getContext());
-                this.k = a2;
-                this.f39933j = (this.f39928e * 1.0f) / a2;
+                this.f30768g = a2;
+                this.f30767f = (this.a * 1.0f) / a2;
             }
         }
     }
@@ -125,62 +123,62 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int scrollX = getScrollX();
             float x = getX();
-            if (scrollX > 0 && scrollX < this.f39929f && x == 0.0f) {
+            if (scrollX > 0 && scrollX < this.f30763b && x == 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
             int action = motionEvent.getAction() & 255;
-            int i2 = this.f39928e;
-            a();
+            int i = this.a;
+            c();
             if (action != 0) {
-                int i3 = 0;
+                int i2 = 0;
                 if (action != 1) {
                     if (action == 2) {
-                        float rawX = motionEvent.getRawX() - this.f39930g;
+                        float rawX = motionEvent.getRawX() - this.f30764c;
                         if (Math.abs(rawX) > 50.0f && x == 0.0f) {
-                            this.f39930g = motionEvent.getRawX();
+                            this.f30764c = motionEvent.getRawX();
                             return true;
                         }
-                        float f2 = this.f39931h;
+                        float f2 = this.f30765d;
                         if (f2 * rawX < 0.0f) {
-                            this.f39931h = f2 + rawX;
+                            this.f30765d = f2 + rawX;
                         } else {
-                            this.f39931h = f2 + (rawX * this.f39933j);
+                            this.f30765d = f2 + (rawX * this.f30767f);
                         }
-                        this.f39930g = motionEvent.getRawX();
+                        this.f30764c = motionEvent.getRawX();
                         if (scrollX == 0) {
-                            i3 = 1;
-                        } else if (scrollX == this.f39929f) {
-                            i3 = -1;
+                            i2 = 1;
+                        } else if (scrollX == this.f30763b) {
+                            i2 = -1;
                         }
-                        if (i3 != 0) {
-                            float f3 = i3;
-                            float f4 = this.f39931h;
-                            if (f3 * f4 > i2) {
-                                this.f39931h = i3 * i2;
-                                this.f39930g = motionEvent.getRawX();
+                        if (i2 != 0) {
+                            float f3 = i2;
+                            float f4 = this.f30765d;
+                            if (f3 * f4 > i) {
+                                this.f30765d = i2 * i;
+                                this.f30764c = motionEvent.getRawX();
                             } else if (f3 * f4 < 0.0f) {
-                                this.f39931h = 0.0f;
-                                this.f39930g = motionEvent.getRawX();
+                                this.f30765d = 0.0f;
+                                this.f30764c = motionEvent.getRawX();
                                 setX(0.0f);
                                 return super.onTouchEvent(motionEvent);
                             }
-                            setX(this.f39931h);
+                            setX(this.f30765d);
                             return true;
                         }
                     }
                 }
                 if (x != 0.0f) {
-                    this.f39931h = 0.0f;
-                    this.f39930g = 0.0f;
-                    this.f39932i.setFloatValues(x, 0.0f);
-                    this.f39932i.start();
+                    this.f30765d = 0.0f;
+                    this.f30764c = 0.0f;
+                    this.f30766e.setFloatValues(x, 0.0f);
+                    this.f30766e.start();
                     return true;
                 }
             } else {
-                if (this.f39932i.isRunning()) {
-                    this.f39932i.cancel();
+                if (this.f30766e.isRunning()) {
+                    this.f30766e.cancel();
                 }
-                this.f39930g = motionEvent.getRawX();
+                this.f30764c = motionEvent.getRawX();
             }
             return super.onTouchEvent(motionEvent);
         }
@@ -188,23 +186,23 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
     }
 
     @Override // android.view.View
-    public boolean overScrollBy(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, boolean z) {
+    public boolean overScrollBy(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Boolean.valueOf(z)})) == null) {
-            this.f39929f = i6;
-            return super.overScrollBy(i2, i3, i4, i5, i6, i7, i8, i9, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Boolean.valueOf(z)})) == null) {
+            this.f30763b = i5;
+            return super.overScrollBy(i, i2, i3, i4, i5, i6, i7, i8, z);
         }
         return invokeCommon.booleanValue;
     }
 
-    public void setMaxOverScrollDistance(int i2) {
+    public void setMaxOverScrollDistance(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || i <= 0) {
             return;
         }
-        this.f39928e = i2;
-        this.f39933j = (i2 * 1.0f) / this.k;
+        this.a = i;
+        this.f30767f = (i * 1.0f) / this.f30768g;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -216,9 +214,9 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -226,7 +224,7 @@ public class FlexibleHorizontalScrollView extends MyHorizontalScrollView {
                 return;
             }
         }
-        this.f39928e = 150;
-        this.f39931h = 0.0f;
+        this.a = 150;
+        this.f30765d = 0.0f;
     }
 }

@@ -28,23 +28,23 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     public String mKey;
     public long mPaid;
 
-    public IMPaGetQuickReplies(Context context, long j2, String str) {
+    public IMPaGetQuickReplies(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mPaid = j2;
+        this.mPaid = j;
         this.mKey = str;
     }
 
@@ -109,10 +109,10 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048580, this, i2, bArr, th) == null) {
-            transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, bArr, th) == null) {
+            transErrorCode(i, bArr, th);
             IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iGetQuickReplyListener != null) {
                 iGetQuickReplyListener.onGetQuickReply(null, false);
@@ -126,29 +126,29 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
         JSONObject jSONObject;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeIL(1048581, this, i2, bArr) != null) {
+        if (interceptable != null && interceptable.invokeIL(1048581, this, i, bArr) != null) {
             return;
         }
         str = "";
         String str2 = new String(bArr);
-        int i4 = 1010;
+        int i3 = 1010;
         try {
             jSONObject = new JSONObject(str2);
-            i3 = jSONObject.getInt("error_code");
+            i2 = jSONObject.getInt("error_code");
             jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
         } catch (JSONException e2) {
             new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
         }
-        if (i3 == 0) {
+        if (i2 == 0) {
             str = jSONObject.has("response_params") ? jSONObject.getString("response_params") : "";
             String str3 = str;
             IGetQuickReplyListener iGetQuickReplyListener = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-            if (i4 == 0) {
+            if (i3 == 0) {
                 if (iGetQuickReplyListener != null) {
                     iGetQuickReplyListener.onGetQuickReply(null, false);
                     return;
@@ -175,10 +175,10 @@ public class IMPaGetQuickReplies extends PaBaseHttpRequest {
             }
             return;
         }
-        i4 = i3;
+        i3 = i2;
         String str32 = str;
         IGetQuickReplyListener iGetQuickReplyListener2 = (IGetQuickReplyListener) ListenerManager.getInstance().removeListener(this.mKey);
-        if (i4 == 0) {
+        if (i3 == 0) {
         }
     }
 

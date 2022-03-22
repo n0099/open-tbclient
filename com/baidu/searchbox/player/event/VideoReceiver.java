@@ -29,7 +29,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
     /* loaded from: classes4.dex */
     public interface VideoReceiverListener {
-        void onBatteryChanged(int i2);
+        void onBatteryChanged(int i);
 
         void onBluetoothHeadsetChanged(boolean z);
 
@@ -41,7 +41,7 @@ public class VideoReceiver extends BroadcastReceiver {
 
         void onScreenStatusChanged(boolean z);
 
-        void onVolumeChanged(int i2);
+        void onVolumeChanged(int i);
     }
 
     public VideoReceiver(@NonNull VideoReceiverListener videoReceiverListener) {
@@ -51,9 +51,9 @@ public class VideoReceiver extends BroadcastReceiver {
             newInitContext.initArgs = r2;
             Object[] objArr = {videoReceiverListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,15 +85,15 @@ public class VideoReceiver extends BroadcastReceiver {
         if (!(interceptable == null || interceptable.invokeL(65538, this, context) == null) || (audioManager = (AudioManager) context.getApplicationContext().getSystemService("audio")) == null) {
             return;
         }
-        int i2 = this.mLastVolume;
+        int i = this.mLastVolume;
         try {
-            i2 = audioManager.getStreamVolume(3);
+            i = audioManager.getStreamVolume(3);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        if (i2 != this.mLastVolume) {
-            this.mLastVolume = i2;
-            this.mListener.onVolumeChanged(i2);
+        if (i != this.mLastVolume) {
+            this.mLastVolume = i;
+            this.mListener.onVolumeChanged(i);
         }
     }
 

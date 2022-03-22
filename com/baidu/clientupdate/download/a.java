@@ -11,7 +11,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.pass.face.platform.common.ConstantHelper;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.util.LogUtil;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public static a a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f32003b;
+    public Context f25265b;
 
     static {
         InterceptResult invokeClinit;
@@ -54,9 +54,9 @@ public class a extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -64,7 +64,7 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        this.f32003b = context;
+        this.f25265b = context;
     }
 
     public static synchronized a a(Context context) {
@@ -101,8 +101,8 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jArr)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append("(");
-            for (int i2 = 0; i2 < jArr.length; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < jArr.length; i++) {
+                if (i > 0) {
                     sb.append("OR ");
                 }
                 sb.append("_id");
@@ -131,14 +131,14 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
             ContentValues contentValues = new ContentValues();
-            contentValues.put("ug", aVar.f31962b);
+            contentValues.put("ug", aVar.f25228b);
             contentValues.put("sessioninfo", aVar.a + "\"tm\":\"" + (System.currentTimeMillis() / 1000) + "\"}");
-            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f31963c);
-            contentValues.put(ConstantHelper.LOG_STM, aVar.f31965e.toString());
-            contentValues.put("sc", aVar.f31966f.toString());
-            contentValues.put(ConstantHelper.LOG_ETM, aVar.f31967g.toString());
-            contentValues.put("mg", aVar.f31968h.toString());
-            contentValues.put("ex", aVar.f31969i.toString());
+            contentValues.put(SearchView.IME_OPTION_NO_MICROPHONE, aVar.f25229c);
+            contentValues.put("stm", aVar.f25231e.toString());
+            contentValues.put(Config.STAT_SDK_CHANNEL, aVar.f25232f.toString());
+            contentValues.put("etm", aVar.f25233g.toString());
+            contentValues.put("mg", aVar.f25234h.toString());
+            contentValues.put(Config.EXCEPTION_PART, aVar.i.toString());
             return contentValues;
         }
         return (ContentValues) invokeL.objValue;
@@ -171,8 +171,8 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jArr)) == null) {
             String[] strArr = new String[jArr.length];
-            for (int i2 = 0; i2 < jArr.length; i2++) {
-                strArr[i2] = Long.toString(jArr[i2]);
+            for (int i = 0; i < jArr.length; i++) {
+                strArr[i] = Long.toString(jArr[i]);
             }
             return strArr;
         }
@@ -183,20 +183,20 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jArr)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (jArr == null || jArr.length == 0) {
                 return 0;
             }
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                i2 = writableDatabase.delete("downloads", b(jArr), c(jArr));
+                i = writableDatabase.delete("downloads", b(jArr), c(jArr));
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                return i2;
+                return i;
             } catch (Exception e2) {
                 LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
-                return i2;
+                return i;
             }
         }
         return invokeL.intValue;
@@ -206,19 +206,19 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = -1;
+            long j = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 ContentValues c2 = c(aVar);
                 writableDatabase.beginTransaction();
-                j2 = writableDatabase.insert("logs", null, c2);
-                com.baidu.util.a.a(this.f32003b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                j = writableDatabase.insert("logs", null, c2);
+                com.baidu.util.a.a(this.f25265b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                return j2;
+                return j;
             } catch (Exception e2) {
                 LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
-                return j2;
+                return j;
             }
         }
         return invokeL.longValue;
@@ -228,19 +228,19 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, download)) == null) {
-            long j2 = -1;
+            long j = -1;
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 ContentValues c2 = c(download);
                 writableDatabase.beginTransaction();
-                j2 = writableDatabase.insert("downloads", null, c2);
+                j = writableDatabase.insert("downloads", null, c2);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                download.mId = j2;
-                return j2;
+                download.mId = j;
+                return j;
             } catch (Exception e2) {
                 LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
-                return j2;
+                return j;
             }
         }
         return invokeL.longValue;
@@ -252,7 +252,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f32003b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("downloads", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -276,7 +276,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f32003b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{str}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -304,17 +304,17 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                i2 = writableDatabase.delete("logs", null, null);
+                i = writableDatabase.delete("logs", null, null);
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                return i2;
+                return i;
             } catch (Exception e2) {
                 LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
-                return i2;
+                return i;
             }
         }
         return invokeV.intValue;
@@ -324,10 +324,10 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.f31963c});
-                com.baidu.util.a.a(this.f32003b).b("lcsdk_xml", "time", System.currentTimeMillis());
+                writableDatabase.update("logs", c(aVar), "nm = ?", new String[]{aVar.f25229c});
+                com.baidu.util.a.a(this.f25265b).b("lcsdk_xml", "time", System.currentTimeMillis());
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
             } catch (IllegalStateException e2) {
@@ -343,7 +343,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, download) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 writableDatabase.update("downloads", c(download), "_id = ?", new String[]{Long.toString(download.mId)});
                 writableDatabase.setTransactionSuccessful();
@@ -358,17 +358,17 @@ public class a extends SQLiteOpenHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
-                i2 = writableDatabase.delete("logs", "flag=?", new String[]{"1"});
+                i = writableDatabase.delete("logs", "flag=?", new String[]{"1"});
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                return i2;
+                return i;
             } catch (Exception e2) {
                 LogUtil.logE("DownloadDBHelper", Log.getStackTraceString(e2));
-                return i2;
+                return i;
             }
         }
         return invokeV.intValue;
@@ -378,7 +378,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "1");
@@ -398,7 +398,7 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             try {
-                SQLiteDatabase writableDatabase = a(this.f32003b).getWritableDatabase();
+                SQLiteDatabase writableDatabase = a(this.f25265b).getWritableDatabase();
                 writableDatabase.beginTransaction();
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("flag", "0");
@@ -420,7 +420,7 @@ public class a extends SQLiteOpenHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             Cursor cursor = null;
             try {
-                SQLiteDatabase readableDatabase = a(this.f32003b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, null, null, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -462,7 +462,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f32003b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a6"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -505,7 +505,7 @@ public class a extends SQLiteOpenHelper {
         Cursor cursor = null;
         try {
             try {
-                SQLiteDatabase readableDatabase = a(this.f32003b).getReadableDatabase();
+                SQLiteDatabase readableDatabase = a(this.f25265b).getReadableDatabase();
                 readableDatabase.beginTransaction();
                 cursor = readableDatabase.query("logs", null, "nm=?", new String[]{"a9"}, null, null, null);
                 readableDatabase.setTransactionSuccessful();
@@ -542,10 +542,10 @@ public class a extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048591, this, sQLiteDatabase, i2, i3) == null) {
-            LogUtil.logD("DownloadDBHelper", i2 + " to " + i3 + ", which will destroy all old data");
+        if (interceptable == null || interceptable.invokeLII(1048591, this, sQLiteDatabase, i, i2) == null) {
+            LogUtil.logD("DownloadDBHelper", i + " to " + i2 + ", which will destroy all old data");
             sQLiteDatabase.execSQL("DROP TABLE IF EXISTS downloads");
             onCreate(sQLiteDatabase);
         }

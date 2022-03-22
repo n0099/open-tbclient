@@ -6,8 +6,6 @@ import android.view.View;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,29 +15,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FiltersView extends HorizontalScrollView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Runnable a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f39462e;
+    /* renamed from: b  reason: collision with root package name */
+    public View f30392b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Runnable f39463f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Context f39464g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f39465h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f39466i;
+    /* renamed from: c  reason: collision with root package name */
+    public View f30393c;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FiltersView f39467e;
+        public final /* synthetic */ FiltersView a;
 
         public a(FiltersView filtersView) {
             Interceptable interceptable = $ic;
@@ -48,105 +36,42 @@ public class FiltersView extends HorizontalScrollView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {filtersView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39467e = filtersView;
+            this.a = filtersView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f39467e.f39465h == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.f30392b == null) {
                 return;
             }
-            int childCount = ((LinearLayout) this.f39467e.getChildAt(0)).getChildCount();
-            int i3 = 0;
+            int childCount = ((LinearLayout) this.a.getChildAt(0)).getChildCount();
+            int i2 = 0;
             while (true) {
-                if (i3 >= childCount) {
-                    i2 = 0;
+                if (i2 >= childCount) {
+                    i = 0;
                     break;
                 }
-                View childAt = ((LinearLayout) this.f39467e.getChildAt(0)).getChildAt(i3);
-                if (childAt == this.f39467e.f39465h) {
-                    i2 = childAt.getRight();
+                View childAt = ((LinearLayout) this.a.getChildAt(0)).getChildAt(i2);
+                if (childAt == this.a.f30392b) {
+                    i = childAt.getRight();
                     break;
                 }
-                i3++;
+                i2++;
             }
-            this.f39467e.f39465h = null;
-            int width = i2 - this.f39467e.getWidth();
+            this.a.f30392b = null;
+            int width = i - this.a.getWidth();
             if (width > 0) {
-                this.f39467e.scrollBy(width, 0);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FiltersView(TbPageContextSupport tbPageContextSupport, String str) {
-        super(tbPageContextSupport.getPageContext().getContext());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContextSupport, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.f39462e = 0;
-        this.f39463f = new a(this);
-        this.f39464g = null;
-        this.f39465h = null;
-        this.f39466i = null;
-        this.f39464g = tbPageContextSupport.getPageContext().getContext();
-        c();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f39464g.getResources().getDimension(R.dimen.ds4);
-            this.f39462e = (int) this.f39464g.getResources().getDimension(R.dimen.ds30);
-            LinearLayout linearLayout = new LinearLayout(this.f39464g);
-            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            linearLayout.setGravity(16);
-            linearLayout.setOrientation(0);
-            linearLayout.setPadding(this.f39462e, linearLayout.getPaddingTop(), linearLayout.getPaddingRight(), linearLayout.getPaddingBottom());
-            setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            addView(linearLayout);
-        }
-    }
-
-    public String getSelectedFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.f39466i;
-            return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            if (this.f39465h != null) {
-                post(this.f39463f);
+                this.a.scrollBy(width, 0);
             }
         }
     }
@@ -160,9 +85,9 @@ public class FiltersView extends HorizontalScrollView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -170,10 +95,29 @@ public class FiltersView extends HorizontalScrollView {
                 return;
             }
         }
-        this.f39462e = 0;
-        this.f39463f = new a(this);
-        this.f39464g = null;
-        this.f39465h = null;
-        this.f39466i = null;
+        this.a = new a(this);
+        this.f30392b = null;
+        this.f30393c = null;
+    }
+
+    public String getSelectedFilter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            View view = this.f30393c;
+            return view != null ? (String) ((View) view.getTag()).getTag() : "normal";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
+    public void onMeasure(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            if (this.f30392b != null) {
+                post(this.a);
+            }
+        }
     }
 }

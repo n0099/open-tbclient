@@ -31,9 +31,7 @@ public class CustomALSHttpMessage extends HttpMessage {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CustomALSHttpMessage f40406e;
+        public final /* synthetic */ CustomALSHttpMessage a;
 
         public a(CustomALSHttpMessage customALSHttpMessage) {
             Interceptable interceptable = $ic;
@@ -42,22 +40,22 @@ public class CustomALSHttpMessage extends HttpMessage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {customALSHttpMessage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40406e = customALSHttpMessage;
+            this.a = customALSHttpMessage;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(this.f40406e, CustomALSHttpMessage.task);
+                MessageManager.getInstance().sendMessage(this.a, CustomALSHttpMessage.task);
             }
         }
     }
@@ -89,9 +87,9 @@ public class CustomALSHttpMessage extends HttpMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -99,7 +97,7 @@ public class CustomALSHttpMessage extends HttpMessage {
             }
         }
         this.mUIHandler = null;
-        addParam("productId", "2");
+        addParam(AdUploadHttpRequest.KEY_PRODUCT_ID, "2");
         addParam(AdUploadHttpRequest.KEY_OS_VERSION, Build.VERSION.RELEASE);
         addParam(AdUploadHttpRequest.KEY_OS_TYPE, "ANDROID");
         addParam("net_type", String.valueOf(l.I()));

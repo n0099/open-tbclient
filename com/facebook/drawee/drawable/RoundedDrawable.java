@@ -22,7 +22,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class RoundedDrawable extends Drawable implements Rounded, TransformAwareDrawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -83,9 +83,9 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -235,21 +235,21 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mDelegate.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mDelegate.setAlpha(i);
         }
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i2, float f2) {
+    public void setBorder(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (this.mBorderColor == i2 && this.mBorderWidth == f2) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            if (this.mBorderColor == i && this.mBorderWidth == f2) {
                 return;
             }
-            this.mBorderColor = i2;
+            this.mBorderColor = i;
             this.mBorderWidth = f2;
             this.mIsPathDirty = true;
             invalidateSelf();
@@ -267,10 +267,10 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setColorFilter(int i2, @NonNull PorterDuff.Mode mode) {
+    public void setColorFilter(int i, @NonNull PorterDuff.Mode mode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i2, mode) == null) {
-            this.mDelegate.setColorFilter(i2, mode);
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, mode) == null) {
+            this.mDelegate.setColorFilter(i, mode);
         }
     }
 
@@ -306,8 +306,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                 Preconditions.checkArgument(fArr.length == 8, "radii should have exactly 8 values");
                 System.arraycopy(fArr, 0, this.mCornerRadii, 0, 8);
                 this.mRadiiNonZero = false;
-                for (int i2 = 0; i2 < 8; i2++) {
-                    this.mRadiiNonZero |= fArr[i2] > 0.0f;
+                for (int i = 0; i < 8; i++) {
+                    this.mRadiiNonZero |= fArr[i] > 0.0f;
                 }
             }
             this.mIsPathDirty = true;
@@ -319,10 +319,10 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
     public void setRadius(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048599, this, f2) == null) {
-            int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
-            Preconditions.checkState(i2 >= 0);
+            int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+            Preconditions.checkState(i >= 0);
             Arrays.fill(this.mCornerRadii, f2);
-            this.mRadiiNonZero = i2 != 0;
+            this.mRadiiNonZero = i != 0;
             this.mIsPathDirty = true;
             invalidateSelf();
         }
@@ -365,14 +365,14 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mRootBounds.centerX(), this.mRootBounds.centerY(), Math.min(this.mRootBounds.width(), this.mRootBounds.height()) / 2.0f, Path.Direction.CW);
             } else {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     fArr = this.mBorderRadii;
-                    if (i2 >= fArr.length) {
+                    if (i >= fArr.length) {
                         break;
                     }
-                    fArr[i2] = (this.mCornerRadii[i2] + this.mPadding) - (this.mBorderWidth / 2.0f);
-                    i2++;
+                    fArr[i] = (this.mCornerRadii[i] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                    i++;
                 }
                 this.mBorderPath.addRoundRect(this.mRootBounds, fArr, Path.Direction.CW);
             }
@@ -388,8 +388,8 @@ public abstract class RoundedDrawable extends Drawable implements Rounded, Trans
                 if (this.mInsideBorderRadii == null) {
                     this.mInsideBorderRadii = new float[8];
                 }
-                for (int i3 = 0; i3 < this.mBorderRadii.length; i3++) {
-                    this.mInsideBorderRadii[i3] = this.mCornerRadii[i3] - this.mBorderWidth;
+                for (int i2 = 0; i2 < this.mBorderRadii.length; i2++) {
+                    this.mInsideBorderRadii[i2] = this.mCornerRadii[i2] - this.mBorderWidth;
                 }
                 this.mPath.addRoundRect(this.mRootBounds, this.mInsideBorderRadii, Path.Direction.CW);
             } else {

@@ -20,16 +20,16 @@ public final class SparseBooleanArrayKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean contains(SparseBooleanArray sparseBooleanArray, int i2) {
+    public static final boolean contains(SparseBooleanArray sparseBooleanArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseBooleanArray, i2)) == null) ? sparseBooleanArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseBooleanArray, i)) == null) ? sparseBooleanArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
-    public static final boolean containsKey(SparseBooleanArray sparseBooleanArray, int i2) {
+    public static final boolean containsKey(SparseBooleanArray sparseBooleanArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseBooleanArray, i2)) == null) ? sparseBooleanArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseBooleanArray, i)) == null) ? sparseBooleanArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
     public static final boolean containsValue(SparseBooleanArray sparseBooleanArray, boolean z) {
@@ -42,23 +42,23 @@ public final class SparseBooleanArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, sparseBooleanArray, function2) == null) {
             int size = sparseBooleanArray.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                function2.invoke(Integer.valueOf(sparseBooleanArray.keyAt(i2)), Boolean.valueOf(sparseBooleanArray.valueAt(i2)));
+            for (int i = 0; i < size; i++) {
+                function2.invoke(Integer.valueOf(sparseBooleanArray.keyAt(i)), Boolean.valueOf(sparseBooleanArray.valueAt(i)));
             }
         }
     }
 
-    public static final boolean getOrDefault(SparseBooleanArray sparseBooleanArray, int i2, boolean z) {
+    public static final boolean getOrDefault(SparseBooleanArray sparseBooleanArray, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseBooleanArray, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? sparseBooleanArray.get(i2, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseBooleanArray, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? sparseBooleanArray.get(i, z) : invokeCommon.booleanValue;
     }
 
-    public static final boolean getOrElse(SparseBooleanArray sparseBooleanArray, int i2, Function0<Boolean> function0) {
+    public static final boolean getOrElse(SparseBooleanArray sparseBooleanArray, int i, Function0<Boolean> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseBooleanArray, i2, function0)) == null) {
-            int indexOfKey = sparseBooleanArray.indexOfKey(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseBooleanArray, i, function0)) == null) {
+            int indexOfKey = sparseBooleanArray.indexOfKey(i);
             return indexOfKey >= 0 ? sparseBooleanArray.valueAt(indexOfKey) : function0.invoke().booleanValue();
         }
         return invokeLIL.booleanValue;
@@ -98,9 +98,9 @@ public final class SparseBooleanArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseBooleanArray};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -128,17 +128,17 @@ public final class SparseBooleanArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseBooleanArray sparseBooleanArray2 = this.$this_keyIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseBooleanArray2.keyAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseBooleanArray2.keyAt(i);
                 }
                 return invokeV.intValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (IntIterator) invokeL.objValue;
@@ -160,30 +160,30 @@ public final class SparseBooleanArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, sparseBooleanArray, sparseBooleanArray2) == null) {
             int size = sparseBooleanArray2.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sparseBooleanArray.put(sparseBooleanArray2.keyAt(i2), sparseBooleanArray2.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                sparseBooleanArray.put(sparseBooleanArray2.keyAt(i), sparseBooleanArray2.valueAt(i));
             }
         }
     }
 
-    public static final boolean remove(SparseBooleanArray sparseBooleanArray, int i2, boolean z) {
+    public static final boolean remove(SparseBooleanArray sparseBooleanArray, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseBooleanArray, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int indexOfKey = sparseBooleanArray.indexOfKey(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseBooleanArray, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            int indexOfKey = sparseBooleanArray.indexOfKey(i);
             if (indexOfKey < 0 || z != sparseBooleanArray.valueAt(indexOfKey)) {
                 return false;
             }
-            sparseBooleanArray.delete(i2);
+            sparseBooleanArray.delete(i);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public static final void set(SparseBooleanArray sparseBooleanArray, int i2, boolean z) {
+    public static final void set(SparseBooleanArray sparseBooleanArray, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseBooleanArray, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            sparseBooleanArray.put(i2, z);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseBooleanArray, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            sparseBooleanArray.put(i, z);
         }
     }
 
@@ -203,9 +203,9 @@ public final class SparseBooleanArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseBooleanArray};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -233,17 +233,17 @@ public final class SparseBooleanArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseBooleanArray sparseBooleanArray2 = this.$this_valueIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseBooleanArray2.valueAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseBooleanArray2.valueAt(i);
                 }
                 return invokeV.booleanValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (BooleanIterator) invokeL.objValue;

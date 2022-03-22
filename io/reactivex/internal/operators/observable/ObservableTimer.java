@@ -36,9 +36,9 @@ public final class ObservableTimer extends Observable<Long> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,22 +81,22 @@ public final class ObservableTimer extends Observable<Long> {
         }
     }
 
-    public ObservableTimer(long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableTimer(long j, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.delay = j2;
+        this.delay = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

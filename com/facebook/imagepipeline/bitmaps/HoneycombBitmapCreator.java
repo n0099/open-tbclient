@@ -16,7 +16,7 @@ import com.facebook.imageformat.DefaultImageFormats;
 import com.facebook.imagepipeline.image.EncodedImage;
 import com.facebook.imagepipeline.memory.FlexByteArrayPool;
 import com.facebook.imagepipeline.memory.PoolFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HoneycombBitmapCreator implements BitmapCreator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class HoneycombBitmapCreator implements BitmapCreator {
             newInitContext.initArgs = r2;
             Object[] objArr = {poolFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,16 +42,16 @@ public class HoneycombBitmapCreator implements BitmapCreator {
         this.mJpegGenerator = new EmptyJpegGenerator(poolFactory.getPooledByteBufferFactory());
     }
 
-    public static BitmapFactory.Options getBitmapFactoryOptions(int i2, Bitmap.Config config) {
+    public static BitmapFactory.Options getBitmapFactoryOptions(int i, Bitmap.Config config) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, config)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, config)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = true;
             options.inPreferredConfig = config;
             options.inPurgeable = true;
             options.inInputShareable = true;
-            options.inSampleSize = i2;
+            options.inSampleSize = i;
             if (Build.VERSION.SDK_INT >= 11) {
                 options.inMutable = true;
             }
@@ -62,14 +62,14 @@ public class HoneycombBitmapCreator implements BitmapCreator {
 
     @Override // com.facebook.common.webp.BitmapCreator
     @TargetApi(12)
-    public Bitmap createNakedBitmap(int i2, int i3, Bitmap.Config config) {
+    public Bitmap createNakedBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         EncodedImage encodedImage;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) != null) {
+        if (interceptable != null && (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) != null) {
             return (Bitmap) invokeIIL.objValue;
         }
-        CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i2, (short) i3);
+        CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i, (short) i2);
         CloseableReference<byte[]> closeableReference = null;
         try {
             encodedImage = new EncodedImage(generate);

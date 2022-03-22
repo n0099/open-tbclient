@@ -12,13 +12,13 @@ public final class CommonUtilsKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final float dp2px(int i2) {
+    public static final float dp2px(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
             Resources system = Resources.getSystem();
             Intrinsics.checkNotNullExpressionValue(system, "Resources.getSystem()");
-            return (i2 * system.getDisplayMetrics().density) + 0.5f;
+            return (i * system.getDisplayMetrics().density) + 0.5f;
         }
         return invokeI.floatValue;
     }

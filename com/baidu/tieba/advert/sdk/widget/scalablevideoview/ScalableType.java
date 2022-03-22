@@ -83,16 +83,16 @@ public final class ScalableType {
         $VALUES = new ScalableType[]{NONE, FIT_XY, FIT_START, FIT_CENTER, FIT_END, LEFT_TOP, LEFT_CENTER, LEFT_BOTTOM, CENTER_TOP, CENTER, CENTER_BOTTOM, RIGHT_TOP, RIGHT_CENTER, RIGHT_BOTTOM, LEFT_TOP_CROP, LEFT_CENTER_CROP, LEFT_BOTTOM_CROP, CENTER_TOP_CROP, CENTER_CROP, CENTER_BOTTOM_CROP, RIGHT_TOP_CROP, RIGHT_CENTER_CROP, RIGHT_BOTTOM_CROP, START_INSIDE, CENTER_INSIDE, scalableType};
     }
 
-    public ScalableType(String str, int i2) {
+    public ScalableType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

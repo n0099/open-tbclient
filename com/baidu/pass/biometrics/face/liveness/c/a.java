@@ -24,9 +24,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,10 +62,10 @@ public class a {
         return (Bitmap) invokeL.objValue;
     }
 
-    public static byte[] a(Bitmap bitmap, int i2) {
+    public static byte[] a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -73,7 +73,7 @@ public class a {
             matrix.setScale(0.5f, 0.5f);
             Bitmap createBitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            createBitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+            createBitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
             return byteArrayOutputStream.toByteArray();
         }
         return (byte[]) invokeLI.objValue;

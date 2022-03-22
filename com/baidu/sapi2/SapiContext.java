@@ -22,7 +22,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -92,16 +91,16 @@ public final class SapiContext implements NoProguard {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f36291c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f28041c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {
@@ -160,8 +159,8 @@ public final class SapiContext implements NoProguard {
     }
 
     public void addLoginAccount(SapiAccount sapiAccount) {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) || sapiAccount == null) {
             return;
@@ -173,31 +172,31 @@ public final class SapiContext implements NoProguard {
                 loginAccounts.add(sapiAccount);
             } else {
                 int size = loginAccounts.size();
-                int i4 = 0;
+                int i3 = 0;
                 while (true) {
-                    i3 = size - 1;
-                    if (i4 >= i3) {
+                    i2 = size - 1;
+                    if (i3 >= i2) {
                         break;
                     }
-                    int i5 = i4 + 1;
-                    loginAccounts.set(i4, loginAccounts.get(i5));
-                    i4 = i5;
+                    int i4 = i3 + 1;
+                    loginAccounts.set(i3, loginAccounts.get(i4));
+                    i3 = i4;
                 }
-                loginAccounts.set(i3, sapiAccount);
+                loginAccounts.set(i2, sapiAccount);
             }
         } else {
             int indexOf = loginAccounts.indexOf(sapiAccount);
             int size2 = loginAccounts.size();
             while (true) {
-                i2 = size2 - 1;
-                if (indexOf >= i2) {
+                i = size2 - 1;
+                if (indexOf >= i) {
                     break;
                 }
-                int i6 = indexOf + 1;
-                loginAccounts.set(indexOf, loginAccounts.get(i6));
-                indexOf = i6;
+                int i5 = indexOf + 1;
+                loginAccounts.set(indexOf, loginAccounts.get(i5));
+                indexOf = i5;
             }
-            loginAccounts.set(i2, sapiAccount);
+            loginAccounts.set(i, sapiAccount);
         }
         setLoginAccounts(loginAccounts);
     }
@@ -418,9 +417,9 @@ public final class SapiContext implements NoProguard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            long j2 = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
-            put(KEY_DEVICE_INFO_READ_TIMES, j2);
-            return j2;
+            long j = getLong(KEY_DEVICE_INFO_READ_TIMES, 0L) + 1;
+            put(KEY_DEVICE_INFO_READ_TIMES, j);
+            return j;
         }
         return invokeV.longValue;
     }
@@ -431,10 +430,10 @@ public final class SapiContext implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? getSapiOptions().diExceptIndex : (List) invokeV.objValue;
     }
 
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048599, this, str, i2)) == null) ? this.storage.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048599, this, str, i)) == null) ? this.storage.getInt(str, i) : invokeLI.intValue;
     }
 
     public boolean getIsAlreadyShowExplainCamera() {
@@ -493,10 +492,10 @@ public final class SapiContext implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? getSapiOptions().loginStatExtraLimitLen : invokeV.intValue;
     }
 
-    public long getLong(String str, long j2) {
+    public long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048605, this, str, j2)) == null) ? this.storage.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048605, this, str, j)) == null) ? this.storage.getLong(str, j) : invokeLJ.longValue;
     }
 
     public boolean getModifiedDirExecPer() {
@@ -647,10 +646,10 @@ public final class SapiContext implements NoProguard {
                 JSONObject jSONObject = new JSONObject(decryptStr);
                 JSONArray optJSONArray = jSONObject.optJSONArray("list");
                 String[] deleteFaceLoginList = getDeleteFaceLoginList();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
                     for (String str : deleteFaceLoginList) {
-                        if (str.equals(optJSONArray.getJSONObject(i2).optString("livinguname"))) {
-                            optJSONArray.remove(i2);
+                        if (str.equals(optJSONArray.getJSONObject(i).optString("livinguname"))) {
+                            optJSONArray.remove(i);
                         }
                     }
                 }
@@ -683,11 +682,11 @@ public final class SapiContext implements NoProguard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) ? getBoolean(KEY_HOSTS_HIJACKED, false) : invokeV.booleanValue;
     }
 
-    public boolean isMeetOneKeyLoginGray(int i2) {
+    public boolean isMeetOneKeyLoginGray(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i2)) == null) {
-            return getSapiOptions().gray.getGrayModuleByFunName(i2 != 1 ? i2 != 2 ? i2 != 3 ? "unkown" : SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH).meetGray;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048627, this, i)) == null) {
+            return getSapiOptions().gray.getGrayModuleByFunName(i != 1 ? i != 2 ? i != 3 ? "unkown" : SapiOptions.Gray.FUN_NAME_CHINA_TELECOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_UNICOM_OAUTH : SapiOptions.Gray.FUN_NAME_CHINA_MOBILE_OAUTH).meetGray;
         }
         return invokeI.booleanValue;
     }
@@ -702,8 +701,8 @@ public final class SapiContext implements NoProguard {
                 sb.append(",");
             }
             int length2 = jSONArray.length();
-            for (int i2 = 0; i2 < length2; i2++) {
-                sb.append(URLDecoder.decode(jSONArray.optString(i2)));
+            for (int i = 0; i < length2; i++) {
+                sb.append(URLDecoder.decode(jSONArray.optString(i)));
                 sb.append(",");
             }
             put(KEY_FACE_LOGIN_DELETE_LIST, sb.toString().substring(0, sb.toString().length() - 1));
@@ -725,9 +724,9 @@ public final class SapiContext implements NoProguard {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -744,7 +743,7 @@ public final class SapiContext implements NoProguard {
                         try {
                             ArrayList arrayList = new ArrayList();
                             for (String str : this.this$0.getOpenBdussDomains()) {
-                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, BeanConstants.COOKIE_OPENBDUSS, "")));
+                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, "OPENBDUSS", "")));
                             }
                             SapiUtils.syncCookies(this.this$0.context, arrayList);
                         } catch (Throwable th) {
@@ -828,10 +827,10 @@ public final class SapiContext implements NoProguard {
         }
     }
 
-    public void setCancelNuomiAddrCount(int i2) {
+    public void setCancelNuomiAddrCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            put(getCancelNuomiAddrCountKey(), i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            put(getCancelNuomiAddrCountKey(), i);
         }
     }
 
@@ -994,17 +993,17 @@ public final class SapiContext implements NoProguard {
         }
     }
 
-    public void put(String str, int i2) {
+    public void put(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048630, this, str, i2) == null) {
-            this.storage.edit().putInt(str, i2).apply();
+        if (interceptable == null || interceptable.invokeLI(1048630, this, str, i) == null) {
+            this.storage.edit().putInt(str, i).apply();
         }
     }
 
-    public void put(String str, long j2) {
+    public void put(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048631, this, str, j2) == null) {
-            this.storage.edit().putLong(str, j2).apply();
+        if (interceptable == null || interceptable.invokeLJ(1048631, this, str, j) == null) {
+            this.storage.edit().putLong(str, j).apply();
         }
     }
 

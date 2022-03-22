@@ -13,10 +13,10 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface TsPayloadReader {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DvbSubtitleInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -24,28 +24,28 @@ public interface TsPayloadReader {
         public final String language;
         public final int type;
 
-        public DvbSubtitleInfo(String str, int i2, byte[] bArr) {
+        public DvbSubtitleInfo(String str, int i, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), bArr};
+                Object[] objArr = {str, Integer.valueOf(i), bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.language = str;
-            this.type = i2;
+            this.type = i;
             this.initializationData = bArr;
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EsInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -54,23 +54,23 @@ public interface TsPayloadReader {
         public final String language;
         public final int streamType;
 
-        public EsInfo(int i2, String str, List<DvbSubtitleInfo> list, byte[] bArr) {
+        public EsInfo(int i, String str, List<DvbSubtitleInfo> list, byte[] bArr) {
             List<DvbSubtitleInfo> unmodifiableList;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str, list, bArr};
+                Object[] objArr = {Integer.valueOf(i), str, list, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.streamType = i2;
+            this.streamType = i;
             this.language = str;
             if (list == null) {
                 unmodifiableList = Collections.emptyList();
@@ -82,14 +82,14 @@ public interface TsPayloadReader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory {
         SparseArray<TsPayloadReader> createInitialPayloadReaders();
 
-        TsPayloadReader createPayloadReader(int i2, EsInfo esInfo);
+        TsPayloadReader createPayloadReader(int i, EsInfo esInfo);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class TrackIdGenerator {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int ID_UNSET = Integer.MIN_VALUE;
@@ -101,17 +101,17 @@ public interface TsPayloadReader {
         public final int trackIdIncrement;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public TrackIdGenerator(int i2, int i3) {
-            this(Integer.MIN_VALUE, i2, i3);
+        public TrackIdGenerator(int i, int i2) {
+            this(Integer.MIN_VALUE, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -131,8 +131,8 @@ public interface TsPayloadReader {
         public void generateNewId() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i2 = this.trackId;
-                this.trackId = i2 == Integer.MIN_VALUE ? this.firstTrackId : i2 + this.trackIdIncrement;
+                int i = this.trackId;
+                this.trackId = i == Integer.MIN_VALUE ? this.firstTrackId : i + this.trackIdIncrement;
                 this.formatId = this.formatIdPrefix + this.trackId;
             }
         }
@@ -157,30 +157,30 @@ public interface TsPayloadReader {
             return invokeV.intValue;
         }
 
-        public TrackIdGenerator(int i2, int i3, int i4) {
+        public TrackIdGenerator(int i, int i2, int i3) {
             String str;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            if (i2 != Integer.MIN_VALUE) {
-                str = i2 + "/";
+            if (i != Integer.MIN_VALUE) {
+                str = i + "/";
             } else {
                 str = "";
             }
             this.formatIdPrefix = str;
-            this.firstTrackId = i3;
-            this.trackIdIncrement = i4;
+            this.firstTrackId = i2;
+            this.trackIdIncrement = i3;
             this.trackId = Integer.MIN_VALUE;
         }
     }

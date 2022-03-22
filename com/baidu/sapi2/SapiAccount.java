@@ -11,7 +11,6 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.AccountType;
 import com.baidu.sapi2.utils.enums.FromType;
 import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,7 +23,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,9 +72,9 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -144,9 +142,9 @@ public class SapiAccount implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -226,9 +224,9 @@ public class SapiAccount implements Parcelable, Cloneable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -247,10 +245,10 @@ public class SapiAccount implements Parcelable, Cloneable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public SapiAccount[] newArray(int i2) {
+            public SapiAccount[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SapiAccount[i2] : (SapiAccount[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SapiAccount[i] : (SapiAccount[]) invokeI.objValue;
             }
         };
     }
@@ -260,9 +258,9 @@ public class SapiAccount implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -277,9 +275,9 @@ public class SapiAccount implements Parcelable, Cloneable {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                for (int i = 0; i < jSONArray.length(); i++) {
                     try {
-                        SapiAccount fromJSONObject = fromJSONObject(jSONArray.getJSONObject(i2));
+                        SapiAccount fromJSONObject = fromJSONObject(jSONArray.getJSONObject(i));
                         if (fromJSONObject != null) {
                             arrayList.add(fromJSONObject);
                         }
@@ -485,23 +483,23 @@ public class SapiAccount implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "https://himg.bdimg.com/sys/portrait/item/" + this.portrait + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+            return "https://himg.bdimg.com/sys/portrait/item/" + this.portrait + ".jpg";
         }
         return (String) invokeV.objValue;
     }
 
-    public int getIntExtra(String str, int i2) {
+    public int getIntExtra(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
             if (!TextUtils.isEmpty(this.extra)) {
                 try {
-                    return new JSONObject(this.extra).optInt(str, i2);
+                    return new JSONObject(this.extra).optInt(str, i);
                 } catch (JSONException e2) {
                     Log.e(e2);
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -653,7 +651,7 @@ public class SapiAccount implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return "SapiAccount{uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", displayname='" + this.displayname + ExtendedMessageFormat.QUOTE + ", username='" + this.username + ExtendedMessageFormat.QUOTE + ", email='" + this.email + ExtendedMessageFormat.QUOTE + ", phone='" + this.phone + ExtendedMessageFormat.QUOTE + ", bduss='" + this.bduss + ExtendedMessageFormat.QUOTE + ", app='" + this.app + ExtendedMessageFormat.QUOTE + ", ptoken='" + this.ptoken + ExtendedMessageFormat.QUOTE + ", stoken='" + this.stoken + ExtendedMessageFormat.QUOTE + ", extra='" + this.extra + ExtendedMessageFormat.QUOTE + ", portrait='" + this.portrait + ExtendedMessageFormat.QUOTE + ", fromType='" + this.fromType + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SapiAccount{uid='" + this.uid + "', displayname='" + this.displayname + "', username='" + this.username + "', email='" + this.email + "', phone='" + this.phone + "', bduss='" + this.bduss + "', app='" + this.app + "', ptoken='" + this.ptoken + "', stoken='" + this.stoken + "', extra='" + this.extra + "', portrait='" + this.portrait + "', fromType='" + this.fromType + "'}";
         }
         return (String) invokeV.objValue;
     }
@@ -703,9 +701,9 @@ public class SapiAccount implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048604, this, parcel, i) == null) {
             parcel.writeString(this.uid);
             parcel.writeString(this.displayname);
             parcel.writeString(this.username);
@@ -728,9 +726,9 @@ public class SapiAccount implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

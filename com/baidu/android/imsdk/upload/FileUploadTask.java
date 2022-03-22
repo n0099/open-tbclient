@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -61,9 +62,9 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3, str4, str5, iFileUploadListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,49 +92,49 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
                     HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(this.mUrl).openConnection();
                     httpURLConnection.setDoInput(true);
                     httpURLConnection.setDoOutput(true);
-                    int i2 = 0;
+                    int i = 0;
                     httpURLConnection.setUseCaches(false);
                     httpURLConnection.setRequestMethod(HttpPut.METHOD_NAME);
                     httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "utf-8");
+                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, IMAudioTransRequest.CHARSET);
                     httpURLConnection.setRequestProperty("Content-type", this.mContentType);
                     httpURLConnection.setRequestProperty("Authorization", this.mAuthorization);
                     httpURLConnection.setRequestProperty(Headers.BCE_DATE, this.mXbcs);
                     DataOutputStream dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
                     FileInputStream fileInputStream = new FileInputStream(this.mFilePath);
                     byte[] bArr = new byte[8192];
-                    long j2 = 0;
+                    long j = 0;
                     long length = file.length();
                     long currentTimeMillis = System.currentTimeMillis();
+                    int i2 = -1;
                     int i3 = -1;
-                    int i4 = -1;
                     while (true) {
                         int read = fileInputStream.read(bArr);
-                        if (read == i3) {
+                        if (read == i2) {
                             break;
                         }
-                        dataOutputStream.write(bArr, i2, read);
+                        dataOutputStream.write(bArr, i, read);
                         HttpURLConnection httpURLConnection2 = httpURLConnection;
-                        j2 += read;
+                        j += read;
                         String str2 = TAG;
                         StringBuilder sb = new StringBuilder();
                         sb.append("write bytes:");
                         sb.append(read);
                         sb.append("  total:");
-                        sb.append(j2);
+                        sb.append(j);
                         sb.append("  time:");
                         DataOutputStream dataOutputStream2 = dataOutputStream;
                         sb.append(((float) (System.currentTimeMillis() - currentTimeMillis)) / 1000.0f);
                         LogUtils.d(str2, sb.toString());
-                        int i5 = (int) ((100 * j2) / length);
-                        if (i5 != i4) {
-                            this.mListener.onProgress(i5);
-                            i4 = i5;
+                        int i4 = (int) ((100 * j) / length);
+                        if (i4 != i3) {
+                            this.mListener.onProgress(i4);
+                            i3 = i4;
                         }
                         dataOutputStream = dataOutputStream2;
                         httpURLConnection = httpURLConnection2;
-                        i3 = -1;
-                        i2 = 0;
+                        i2 = -1;
+                        i = 0;
                     }
                     DataOutputStream dataOutputStream3 = dataOutputStream;
                     fileInputStream.close();
@@ -160,12 +161,12 @@ public class FileUploadTask extends AsyncTask<Void, Integer, Integer> {
         return (Integer) invokeV.objValue;
     }
 
-    private void notifyFailed(int i2) {
+    private void notifyFailed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
             try {
                 if (this.mListener != null) {
-                    this.mListener.onFailed(i2, "upload failure");
+                    this.mListener.onFailed(i, "upload failure");
                 }
             } catch (Exception e2) {
                 String str = TAG;

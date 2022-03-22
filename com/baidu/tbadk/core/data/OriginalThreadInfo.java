@@ -5,13 +5,12 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.e1.n.e;
-import c.a.q0.e1.p.b;
-import c.a.q0.r.r.c1;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.m2;
-import c.a.q0.r.r.r0;
-import c.a.q0.t0.a;
+import c.a.o0.e1.n.e;
+import c.a.o0.e1.p.c;
+import c.a.o0.r.r.a1;
+import c.a.o0.r.r.h2;
+import c.a.o0.r.r.q0;
+import c.a.o0.t0.a;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,7 +40,7 @@ import tbclient.OriginThreadInfo;
 import tbclient.PbContent;
 import tbclient.User;
 import tbclient.VideoInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class OriginalThreadInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -56,31 +55,27 @@ public class OriginalThreadInfo {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f38789b;
+    public String f29822b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f38790c;
+    public String f29823c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f38791d;
+    public String f29824d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f38792e;
+    public long f29825e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f38793f;
+    public String f29826f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f38794g;
+    public String f29827g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ArrayList<MediaData> f38795h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public List<AbstractData> f38796i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public AlaInfoData f38797j;
+    public ArrayList<MediaData> f29828h;
+    public List<AbstractData> i;
+    public AlaInfoData j;
     public int k;
     public String l;
     public boolean m;
@@ -94,9 +89,9 @@ public class OriginalThreadInfo {
     public final List<PbContent> t;
     public SpannableString u;
     @Nullable
-    public List<b> v;
+    public List<c> v;
     @Nullable
-    public e2 w;
+    public ThreadData w;
     public boolean x;
     public User y;
     public Agree z;
@@ -106,9 +101,9 @@ public class OriginalThreadInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,79 +113,79 @@ public class OriginalThreadInfo {
         this.t = new ArrayList();
     }
 
-    public static OriginalThreadInfo l(e2 e2Var) {
+    public static OriginalThreadInfo l(ThreadData threadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) {
-            if (e2Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null) {
                 return null;
             }
-            OriginalThreadInfo originalThreadInfo = e2Var.z1;
+            OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null) {
                 return originalThreadInfo;
             }
             OriginalThreadInfo originalThreadInfo2 = new OriginalThreadInfo();
-            originalThreadInfo2.s(e2Var);
-            originalThreadInfo2.f38791d = e2Var.b0();
-            originalThreadInfo2.f38792e = e2Var.U();
-            originalThreadInfo2.f38793f = e2Var.w1();
-            originalThreadInfo2.f38794g = e2Var.getTitle();
-            originalThreadInfo2.k = e2Var.s1();
+            originalThreadInfo2.s(threadData);
+            originalThreadInfo2.f29824d = threadData.getForum_name();
+            originalThreadInfo2.f29825e = threadData.getFid();
+            originalThreadInfo2.f29826f = threadData.getTid();
+            originalThreadInfo2.f29827g = threadData.getTitle();
+            originalThreadInfo2.k = threadData.getThreadType();
             ArrayList arrayList = new ArrayList();
             AbstractData abstractData = new AbstractData();
-            abstractData.text = e2Var.o();
+            abstractData.text = threadData.getAbstract();
             arrayList.add(abstractData);
-            originalThreadInfo2.f38796i = arrayList;
+            originalThreadInfo2.i = arrayList;
             ArrayList<MediaData> arrayList2 = new ArrayList<>();
             MediaData mediaData = new MediaData();
             arrayList2.add(mediaData);
-            originalThreadInfo2.f38795h = arrayList2;
-            originalThreadInfo2.r = e2Var.u1();
-            if (e2Var.i2() && e2Var.D0() != null) {
-                r0 D0 = e2Var.D0();
-                originalThreadInfo2.f38794g = D0.d();
-                abstractData.text = D0.a();
-                mediaData.setPic(D0.b());
-            } else if (e2Var.h2() && e2Var.n1() != null) {
-                mediaData.setPic(e2Var.n1().i());
-            } else if (ListUtils.getCount(e2Var.G0()) > 0) {
-                originalThreadInfo2.f38795h = e2Var.G0();
-            } else if (e2Var.u1() != null && !StringUtils.isNull(e2Var.u1().thumbnail_url)) {
-                mediaData.setPic(e2Var.u1().thumbnail_url);
+            originalThreadInfo2.f29828h = arrayList2;
+            originalThreadInfo2.r = threadData.getThreadVideoInfo();
+            if (threadData.isLinkThread() && threadData.getLinkThreadData() != null) {
+                q0 linkThreadData = threadData.getLinkThreadData();
+                originalThreadInfo2.f29827g = linkThreadData.d();
+                abstractData.text = linkThreadData.a();
+                mediaData.setPic(linkThreadData.b());
+            } else if (threadData.isInterviewLiveStyle() && threadData.getTaskInfoData() != null) {
+                mediaData.setPic(threadData.getTaskInfoData().i());
+            } else if (ListUtils.getCount(threadData.getMedias()) > 0) {
+                originalThreadInfo2.f29828h = threadData.getMedias();
+            } else if (threadData.getThreadVideoInfo() != null && !StringUtils.isNull(threadData.getThreadVideoInfo().thumbnail_url)) {
+                mediaData.setPic(threadData.getThreadVideoInfo().thumbnail_url);
             }
-            originalThreadInfo2.f38797j = e2Var.p1();
+            originalThreadInfo2.j = threadData.getThreadAlaInfo();
             originalThreadInfo2.r();
-            originalThreadInfo2.D = e2Var.B2;
-            originalThreadInfo2.F = e2Var.D2;
-            originalThreadInfo2.p = e2Var.L();
-            originalThreadInfo2.G = e2Var.K0();
+            originalThreadInfo2.D = threadData.itemData;
+            originalThreadInfo2.F = threadData.itemStarData;
+            originalThreadInfo2.p = threadData.getBaijiahaoData();
+            originalThreadInfo2.G = threadData.getPollData();
             return originalThreadInfo2;
         }
         return (OriginalThreadInfo) invokeL.objValue;
     }
 
-    public e2 a() {
+    public ThreadData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            e2 e2Var = new e2();
-            e2Var.G4(this.f38794g);
-            if (this.f38795h != null) {
-                e2Var.n4(new ArrayList<>(this.f38795h));
+            ThreadData threadData = new ThreadData();
+            threadData.setTitle(this.f29827g);
+            if (this.f29828h != null) {
+                threadData.setMedias(new ArrayList<>(this.f29828h));
             }
-            e2Var.N3(this.f38791d);
-            e2Var.F4(this.f38793f);
-            e2Var.C4(this.f38797j);
-            e2Var.J3(this.f38792e);
-            e2Var.E4(this.k);
-            e2Var.A1 = true;
-            e2Var.D3(this.p);
-            e2Var.L4(this.r);
-            e2Var.B3(this.f38790c);
-            e2Var.z1 = this;
-            return e2Var;
+            threadData.setForum_name(this.f29824d);
+            threadData.setTid(this.f29826f);
+            threadData.setThreadAlaInfo(this.j);
+            threadData.setFid(this.f29825e);
+            threadData.setThreadType(this.k);
+            threadData.isShareThread = true;
+            threadData.setBaijiahaoData(this.p);
+            threadData.setVideoInfo(this.r);
+            threadData.setArticeCover(this.f29823c);
+            threadData.originalThreadData = this;
+            return threadData;
         }
-        return (e2) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
     @Nullable
@@ -210,8 +205,8 @@ public class OriginalThreadInfo {
                 return null;
             }
             int size = this.s.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                PbContent pbContent = this.s.get(i2);
+            for (int i = 0; i < size; i++) {
+                PbContent pbContent = this.s.get(i);
                 if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && k() && (str = pbContent.text) != null && str.length() >= 3) {
                     ActivityItemData activityItemData = new ActivityItemData();
                     activityItemData.link_url = a.d(pbContent.text);
@@ -230,12 +225,12 @@ public class OriginalThreadInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!StringUtils.isNull(this.f38794g)) {
-                str = this.f38794g;
+            if (!StringUtils.isNull(this.f29827g)) {
+                str = this.f29827g;
             } else {
-                str = (ListUtils.getItem(this.f38796i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f38796i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.f38796i, 0)).text;
+                str = (ListUtils.getItem(this.i, 0) == null || StringUtils.isNull(((AbstractData) ListUtils.getItem(this.i, 0)).text)) ? null : ((AbstractData) ListUtils.getItem(this.i, 0)).text;
             }
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.publisher_share_default_title) : str;
+            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0efe) : str;
         }
         return (String) invokeV.objValue;
     }
@@ -259,7 +254,7 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public List<b> f() {
+    public List<c> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.v : (List) invokeV.objValue;
@@ -299,8 +294,8 @@ public class OriginalThreadInfo {
             if (baijiahaoData == null) {
                 return false;
             }
-            int i2 = baijiahaoData.oriUgcType;
-            return i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4;
+            int i = baijiahaoData.oriUgcType;
+            return i == 1 || i == 2 || i == 3 || i == 4;
         }
         return invokeV.booleanValue;
     }
@@ -309,8 +304,8 @@ public class OriginalThreadInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.k;
-            return i2 == 40 || i2 == 50;
+            int i = this.k;
+            return i == 40 || i == 50;
         }
         return invokeV.booleanValue;
     }
@@ -322,18 +317,18 @@ public class OriginalThreadInfo {
         }
     }
 
-    public void n(OriginThreadInfo originThreadInfo, @Nullable e2 e2Var) {
+    public void n(OriginThreadInfo originThreadInfo, @Nullable ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, originThreadInfo, e2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048588, this, originThreadInfo, threadData) == null) {
             if (originThreadInfo == null) {
                 q();
                 return;
             }
-            s(e2Var);
-            this.f38791d = originThreadInfo.fname;
-            this.f38792e = originThreadInfo.fid.longValue();
-            this.f38793f = originThreadInfo.tid;
-            this.f38794g = originThreadInfo.title;
+            s(threadData);
+            this.f29824d = originThreadInfo.fname;
+            this.f29825e = originThreadInfo.fid.longValue();
+            this.f29826f = originThreadInfo.tid;
+            this.f29827g = originThreadInfo.title;
             this.k = originThreadInfo.thread_type.intValue();
             this.s = originThreadInfo.content;
             this.y = originThreadInfo.author;
@@ -341,35 +336,35 @@ public class OriginalThreadInfo {
             this.A = originThreadInfo.reply_num;
             this.B = originThreadInfo.shared_num;
             if (!ListUtils.isEmpty(originThreadInfo.media)) {
-                this.f38795h = new ArrayList<>();
+                this.f29828h = new ArrayList<>();
                 for (Media media : originThreadInfo.media) {
                     if (media != null) {
                         MediaData mediaData = new MediaData();
                         mediaData.parserProtobuf(media);
-                        this.f38795h.add(mediaData);
+                        this.f29828h.add(mediaData);
                     }
                 }
             } else {
-                this.f38795h = null;
+                this.f29828h = null;
             }
             if (!ListUtils.isEmpty(originThreadInfo._abstract)) {
-                this.f38796i = new ArrayList();
+                this.i = new ArrayList();
                 for (Abstract r1 : originThreadInfo._abstract) {
                     if (r1 != null) {
                         AbstractData abstractData = new AbstractData();
                         abstractData.parser(r1);
-                        this.f38796i.add(abstractData);
+                        this.i.add(abstractData);
                     }
                 }
             } else {
-                this.f38796i = null;
+                this.i = null;
             }
             if (originThreadInfo.ala_info != null) {
                 AlaInfoData alaInfoData = new AlaInfoData();
-                this.f38797j = alaInfoData;
+                this.j = alaInfoData;
                 alaInfoData.parserProtobuf(originThreadInfo.ala_info);
             } else {
-                this.f38797j = null;
+                this.j = null;
             }
             this.m = originThreadInfo.is_deleted.intValue() == 1;
             this.o = originThreadInfo.is_ugc.intValue() == 1;
@@ -382,9 +377,9 @@ public class OriginalThreadInfo {
             this.x = originThreadInfo.is_new_style.intValue() == 1;
             if (originThreadInfo.voice_info != null) {
                 this.q = new ArrayList<>();
-                for (int i2 = 0; i2 < originThreadInfo.voice_info.size(); i2++) {
+                for (int i = 0; i < originThreadInfo.voice_info.size(); i++) {
                     VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-                    voiceModel.parserProtobuf(originThreadInfo.voice_info.get(i2));
+                    voiceModel.parserProtobuf(originThreadInfo.voice_info.get(i));
                     this.q.add(voiceModel);
                 }
             }
@@ -433,41 +428,41 @@ public class OriginalThreadInfo {
                 return;
             }
             try {
-                this.f38791d = jSONObject.optString("fname");
-                this.f38792e = jSONObject.optLong("fid", 0L);
-                this.f38793f = jSONObject.optString("tid");
-                this.f38794g = jSONObject.optString("title");
+                this.f29824d = jSONObject.optString("fname");
+                this.f29825e = jSONObject.optLong("fid", 0L);
+                this.f29826f = jSONObject.optString("tid");
+                this.f29827g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
-                this.s = c1.a(jSONObject.optJSONArray("content"));
+                this.s = a1.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
                 if (optJSONObject != null) {
                     AlaInfoData alaInfoData = new AlaInfoData();
-                    this.f38797j = alaInfoData;
+                    this.j = alaInfoData;
                     alaInfoData.parserJson(optJSONObject);
                 }
                 JSONArray optJSONArray = jSONObject.optJSONArray(VodClient.PATH_MEDIA);
                 if (optJSONArray != null) {
-                    this.f38795h = new ArrayList<>();
+                    this.f29828h = new ArrayList<>();
                     int length = optJSONArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
+                    for (int i = 0; i < length; i++) {
                         MediaData mediaData = new MediaData();
-                        mediaData.parserJson(optJSONArray.getJSONObject(i2));
-                        this.f38795h.add(mediaData);
+                        mediaData.parserJson(optJSONArray.getJSONObject(i));
+                        this.f29828h.add(mediaData);
                     }
                 } else {
-                    this.f38795h = null;
+                    this.f29828h = null;
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("abstract");
                 if (optJSONArray2 != null) {
-                    this.f38796i = new ArrayList();
+                    this.i = new ArrayList();
                     int length2 = optJSONArray2.length();
-                    for (int i3 = 0; i3 < length2; i3++) {
+                    for (int i2 = 0; i2 < length2; i2++) {
                         AbstractData abstractData = new AbstractData();
-                        abstractData.parserJson(optJSONArray2.getJSONObject(i3));
-                        this.f38796i.add(abstractData);
+                        abstractData.parserJson(optJSONArray2.getJSONObject(i2));
+                        this.i.add(abstractData);
                     }
                 } else {
-                    this.f38796i = null;
+                    this.i = null;
                 }
                 boolean z = true;
                 this.m = jSONObject.optInt("is_deleted") == 1;
@@ -482,13 +477,13 @@ public class OriginalThreadInfo {
                     this.p = baijiahaoData;
                     baijiahaoData.parseJson(optJSONObject2);
                 }
-                this.r = m2.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+                this.r = h2.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     this.q = new ArrayList<>();
-                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
                         VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-                        voiceModel.parseJson(optJSONArray3.optJSONObject(i4));
+                        voiceModel.parseJson(optJSONArray3.optJSONObject(i3));
                         this.q.add(voiceModel);
                     }
                 }
@@ -505,8 +500,8 @@ public class OriginalThreadInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.a = 0;
-            this.f38789b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
-            this.f38790c = null;
+            this.f29822b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cea);
+            this.f29823c = null;
         }
     }
 
@@ -514,51 +509,51 @@ public class OriginalThreadInfo {
         VideoInfo videoInfo;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            int i2 = this.k;
-            if (i2 == 40) {
+            int i = this.k;
+            if (i == 40) {
                 this.a = 3;
-            } else if (i2 == 54) {
+            } else if (i == 54) {
                 this.a = 2;
-            } else if (i2 != 60 && i2 != 69 && i2 != 49 && i2 != 50) {
+            } else if (i != 60 && i != 69 && i != 49 && i != 50) {
                 this.a = 0;
             } else {
                 this.a = 4;
             }
-            if (ListUtils.getItem(this.f38795h, 0) != null) {
-                String str = ((MediaData) ListUtils.getItem(this.f38795h, 0)).small_pic_url;
-                this.f38790c = str;
+            if (ListUtils.getItem(this.f29828h, 0) != null) {
+                String str = ((MediaData) ListUtils.getItem(this.f29828h, 0)).small_pic_url;
+                this.f29823c = str;
                 if (StringUtils.isNull(str)) {
-                    this.f38790c = ((MediaData) ListUtils.getItem(this.f38795h, 0)).getPicUrl();
+                    this.f29823c = ((MediaData) ListUtils.getItem(this.f29828h, 0)).getPicUrl();
                 }
             }
-            if (StringUtils.isNull(this.f38790c) && (videoInfo = this.r) != null) {
-                this.f38790c = videoInfo.thumbnail_url;
+            if (StringUtils.isNull(this.f29823c) && (videoInfo = this.r) != null) {
+                this.f29823c = videoInfo.thumbnail_url;
             }
             if (this.a == 0) {
-                if (StringUtils.isNull(this.f38790c)) {
+                if (StringUtils.isNull(this.f29823c)) {
                     this.a = 0;
                 } else {
                     this.a = 1;
                 }
             }
-            if (ListUtils.getItem(this.f38796i, 0) != null && !StringUtils.isNull(((AbstractData) ListUtils.getItem(this.f38796i, 0)).text)) {
-                this.f38789b = ((AbstractData) ListUtils.getItem(this.f38796i, 0)).text;
-            } else if (!StringUtils.isNull(this.f38794g)) {
-                this.f38789b = this.f38794g;
+            if (ListUtils.getItem(this.i, 0) != null && !StringUtils.isNull(((AbstractData) ListUtils.getItem(this.i, 0)).text)) {
+                this.f29822b = ((AbstractData) ListUtils.getItem(this.i, 0)).text;
+            } else if (!StringUtils.isNull(this.f29827g)) {
+                this.f29822b = this.f29827g;
             } else {
-                this.f38789b = TbadkCoreApplication.getInst().getString(R.string.original_thread_default_txt);
+                this.f29822b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0cea);
             }
         }
     }
 
-    public void s(@Nullable e2 e2Var) {
+    public void s(@Nullable ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, e2Var) == null) {
-            this.w = e2Var;
+        if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
+            this.w = threadData;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ShareInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -577,9 +572,9 @@ public class OriginalThreadInfo {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -589,12 +584,12 @@ public class OriginalThreadInfo {
         public static ShareInfo generateShareInfo(OriginalThreadInfo originalThreadInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, originalThreadInfo)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, originalThreadInfo)) == null) {
                 ShareInfo shareInfo = new ShareInfo();
-                shareInfo.threadId = originalThreadInfo.f38793f;
+                shareInfo.threadId = originalThreadInfo.f29826f;
                 shareInfo.showType = originalThreadInfo.a;
-                shareInfo.showText = originalThreadInfo.f38789b;
-                shareInfo.showPicUrl = originalThreadInfo.f38790c;
+                shareInfo.showText = originalThreadInfo.f29822b;
+                shareInfo.showPicUrl = originalThreadInfo.f29823c;
                 shareInfo.videoId = originalThreadInfo.l;
                 shareInfo.oriUgcInfo = originalThreadInfo.p;
                 shareInfo.itemData = originalThreadInfo.D;
@@ -605,10 +600,10 @@ public class OriginalThreadInfo {
             return (ShareInfo) invokeL.objValue;
         }
 
-        public static ShareInfo generateShareInfo(e2 e2Var) {
+        public static ShareInfo generateShareInfo(ThreadData threadData) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, e2Var)) == null) ? generateShareInfo(OriginalThreadInfo.l(e2Var)) : (ShareInfo) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) ? generateShareInfo(OriginalThreadInfo.l(threadData)) : (ShareInfo) invokeL.objValue;
         }
     }
 }

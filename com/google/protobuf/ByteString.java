@@ -48,8 +48,8 @@ public abstract class ByteString implements Iterable<Byte> {
         public final byte[] buffer;
         public final CodedOutputStream output;
 
-        public /* synthetic */ CodedBuilder(int i2, AnonymousClass1 anonymousClass1) {
-            this(i2);
+        public /* synthetic */ CodedBuilder(int i, AnonymousClass1 anonymousClass1) {
+            this(i);
         }
 
         public ByteString build() {
@@ -68,22 +68,22 @@ public abstract class ByteString implements Iterable<Byte> {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.output : (CodedOutputStream) invokeV.objValue;
         }
 
-        public CodedBuilder(int i2) {
+        public CodedBuilder(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            byte[] bArr = new byte[i2];
+            byte[] bArr = new byte[i];
             this.buffer = bArr;
             this.output = CodedOutputStream.newInstance(bArr);
         }
@@ -110,34 +110,34 @@ public abstract class ByteString implements Iterable<Byte> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ByteString balancedConcat(Iterator<ByteString> it, int i2) {
+    public static ByteString balancedConcat(Iterator<ByteString> it, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, it, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, it, i)) == null) {
+            if (i == 1) {
                 return it.next();
             }
-            int i3 = i2 >>> 1;
-            return balancedConcat(it, i3).concat(balancedConcat(it, i2 - i3));
+            int i2 = i >>> 1;
+            return balancedConcat(it, i2).concat(balancedConcat(it, i - i2));
         }
         return (ByteString) invokeLI.objValue;
     }
 
-    public static ByteString copyFrom(byte[] bArr, int i2, int i3) {
+    public static ByteString copyFrom(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i2, i3)) == null) {
-            byte[] bArr2 = new byte[i3];
-            System.arraycopy(bArr, i2, bArr2, 0, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
             return new LiteralByteString(bArr2);
         }
         return (ByteString) invokeLII.objValue;
@@ -156,35 +156,35 @@ public abstract class ByteString implements Iterable<Byte> {
         return (ByteString) invokeL.objValue;
     }
 
-    public static CodedBuilder newCodedBuilder(int i2) {
+    public static CodedBuilder newCodedBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? new CodedBuilder(i2, null) : (CodedBuilder) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? new CodedBuilder(i, null) : (CodedBuilder) invokeI.objValue;
     }
 
-    public static Output newOutput(int i2) {
+    public static Output newOutput(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i2)) == null) ? new Output(i2) : (Output) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) ? new Output(i) : (Output) invokeI.objValue;
     }
 
-    public static ByteString readChunk(InputStream inputStream, int i2) throws IOException {
+    public static ByteString readChunk(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, inputStream, i2)) == null) {
-            byte[] bArr = new byte[i2];
-            int i3 = 0;
-            while (i3 < i2) {
-                int read = inputStream.read(bArr, i3, i2 - i3);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, inputStream, i)) == null) {
+            byte[] bArr = new byte[i];
+            int i2 = 0;
+            while (i2 < i) {
+                int read = inputStream.read(bArr, i2, i - i2);
                 if (read == -1) {
                     break;
                 }
-                i3 += read;
+                i2 += read;
             }
-            if (i3 == 0) {
+            if (i2 == 0) {
                 return null;
             }
-            return copyFrom(bArr, 0, i3);
+            return copyFrom(bArr, 0, i2);
         }
         return (ByteString) invokeLI.objValue;
     }
@@ -199,7 +199,7 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public abstract List<ByteBuffer> asReadOnlyByteBufferList();
 
-    public abstract byte byteAt(int i2);
+    public abstract byte byteAt(int i);
 
     public ByteString concat(ByteString byteString) {
         InterceptResult invokeL;
@@ -217,14 +217,14 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public abstract void copyTo(ByteBuffer byteBuffer);
 
-    public void copyTo(byte[] bArr, int i2) {
+    public void copyTo(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, bArr, i2) == null) {
-            copyTo(bArr, 0, i2, size());
+        if (interceptable == null || interceptable.invokeLI(1048581, this, bArr, i) == null) {
+            copyTo(bArr, 0, i, size());
         }
     }
 
-    public abstract void copyToInternal(byte[] bArr, int i2, int i3, int i4);
+    public abstract void copyToInternal(byte[] bArr, int i, int i2, int i3);
 
     public abstract boolean equals(Object obj);
 
@@ -252,9 +252,9 @@ public abstract class ByteString implements Iterable<Byte> {
 
     public abstract InputStream newInput();
 
-    public abstract int partialHash(int i2, int i3, int i4);
+    public abstract int partialHash(int i, int i2, int i3);
 
-    public abstract int partialIsValidUtf8(int i2, int i3, int i4);
+    public abstract int partialIsValidUtf8(int i, int i2, int i3);
 
     public abstract int peekCachedHashCode();
 
@@ -266,13 +266,13 @@ public abstract class ByteString implements Iterable<Byte> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, byteString)) == null) ? size() >= byteString.size() && substring(0, byteString.size()).equals(byteString) : invokeL.booleanValue;
     }
 
-    public ByteString substring(int i2) {
+    public ByteString substring(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? substring(i2, size()) : (ByteString) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? substring(i, size()) : (ByteString) invokeI.objValue;
     }
 
-    public abstract ByteString substring(int i2, int i3);
+    public abstract ByteString substring(int i, int i2);
 
     public byte[] toByteArray() {
         InterceptResult invokeV;
@@ -315,53 +315,53 @@ public abstract class ByteString implements Iterable<Byte> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) ? new Output(128) : (Output) invokeV.objValue;
     }
 
-    public static ByteString readFrom(InputStream inputStream, int i2) throws IOException {
+    public static ByteString readFrom(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, inputStream, i2)) == null) ? readFrom(inputStream, i2, i2) : (ByteString) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, inputStream, i)) == null) ? readFrom(inputStream, i, i) : (ByteString) invokeLI.objValue;
     }
 
-    public void copyTo(byte[] bArr, int i2, int i3, int i4) {
+    public void copyTo(byte[] bArr, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048582, this, bArr, i2, i3, i4) == null) {
-            if (i2 < 0) {
-                throw new IndexOutOfBoundsException("Source offset < 0: " + i2);
-            } else if (i3 < 0) {
-                throw new IndexOutOfBoundsException("Target offset < 0: " + i3);
-            } else if (i4 >= 0) {
-                int i5 = i2 + i4;
-                if (i5 <= size()) {
-                    int i6 = i3 + i4;
-                    if (i6 <= bArr.length) {
-                        if (i4 > 0) {
-                            copyToInternal(bArr, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeLIII(1048582, this, bArr, i, i2, i3) == null) {
+            if (i < 0) {
+                throw new IndexOutOfBoundsException("Source offset < 0: " + i);
+            } else if (i2 < 0) {
+                throw new IndexOutOfBoundsException("Target offset < 0: " + i2);
+            } else if (i3 >= 0) {
+                int i4 = i + i3;
+                if (i4 <= size()) {
+                    int i5 = i2 + i3;
+                    if (i5 <= bArr.length) {
+                        if (i3 > 0) {
+                            copyToInternal(bArr, i, i2, i3);
                             return;
                         }
                         return;
                     }
-                    throw new IndexOutOfBoundsException("Target end offset < 0: " + i6);
+                    throw new IndexOutOfBoundsException("Target end offset < 0: " + i5);
                 }
-                throw new IndexOutOfBoundsException("Source end offset < 0: " + i5);
+                throw new IndexOutOfBoundsException("Source end offset < 0: " + i4);
             } else {
-                throw new IndexOutOfBoundsException("Length < 0: " + i4);
+                throw new IndexOutOfBoundsException("Length < 0: " + i3);
             }
         }
     }
 
-    public static ByteString readFrom(InputStream inputStream, int i2, int i3) throws IOException {
+    public static ByteString readFrom(InputStream inputStream, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLII = interceptable.invokeLII(65552, null, inputStream, i2, i3)) != null) {
+        if (interceptable != null && (invokeLII = interceptable.invokeLII(65552, null, inputStream, i, i2)) != null) {
             return (ByteString) invokeLII.objValue;
         }
         ArrayList arrayList = new ArrayList();
         while (true) {
-            ByteString readChunk = readChunk(inputStream, i2);
+            ByteString readChunk = readChunk(inputStream, i);
             if (readChunk == null) {
                 return copyFrom(arrayList);
             }
             arrayList.add(readChunk);
-            i2 = Math.min(i2 * 2, i3);
+            i = Math.min(i * 2, i2);
         }
     }
 
@@ -392,48 +392,48 @@ public abstract class ByteString implements Iterable<Byte> {
             EMPTY_BYTE_ARRAY = new byte[0];
         }
 
-        public Output(int i2) {
+        public Output(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            if (i2 >= 0) {
-                this.initialCapacity = i2;
+            if (i >= 0) {
+                this.initialCapacity = i;
                 this.flushedBuffers = new ArrayList<>();
-                this.buffer = new byte[i2];
+                this.buffer = new byte[i];
                 return;
             }
             throw new IllegalArgumentException("Buffer size < 0");
         }
 
-        private byte[] copyArray(byte[] bArr, int i2) {
+        private byte[] copyArray(byte[] bArr, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, bArr, i2)) == null) {
-                byte[] bArr2 = new byte[i2];
-                System.arraycopy(bArr, 0, bArr2, 0, Math.min(bArr.length, i2));
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, bArr, i)) == null) {
+                byte[] bArr2 = new byte[i];
+                System.arraycopy(bArr, 0, bArr2, 0, Math.min(bArr.length, i));
                 return bArr2;
             }
             return (byte[]) invokeLI.objValue;
         }
 
-        private void flushFullBuffer(int i2) {
+        private void flushFullBuffer(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
                 this.flushedBuffers.add(new LiteralByteString(this.buffer));
                 int length = this.flushedBuffersTotalBytes + this.buffer.length;
                 this.flushedBuffersTotalBytes = length;
-                this.buffer = new byte[Math.max(this.initialCapacity, Math.max(i2, length >>> 1))];
+                this.buffer = new byte[Math.max(this.initialCapacity, Math.max(i, length >>> 1))];
                 this.bufferPos = 0;
             }
         }
@@ -441,13 +441,13 @@ public abstract class ByteString implements Iterable<Byte> {
         private void flushLastBuffer() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-                int i2 = this.bufferPos;
+                int i = this.bufferPos;
                 byte[] bArr = this.buffer;
-                if (i2 >= bArr.length) {
+                if (i >= bArr.length) {
                     this.flushedBuffers.add(new LiteralByteString(this.buffer));
                     this.buffer = EMPTY_BYTE_ARRAY;
-                } else if (i2 > 0) {
-                    this.flushedBuffers.add(new LiteralByteString(copyArray(bArr, i2)));
+                } else if (i > 0) {
+                    this.flushedBuffers.add(new LiteralByteString(copyArray(bArr, i)));
                 }
                 this.flushedBuffersTotalBytes += this.bufferPos;
                 this.bufferPos = 0;
@@ -467,13 +467,13 @@ public abstract class ByteString implements Iterable<Byte> {
 
         public synchronized int size() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 synchronized (this) {
-                    i2 = this.flushedBuffersTotalBytes + this.bufferPos;
+                    i = this.flushedBuffersTotalBytes + this.bufferPos;
                 }
-                return i2;
+                return i;
             }
             return invokeV.intValue;
         }
@@ -499,17 +499,17 @@ public abstract class ByteString implements Iterable<Byte> {
         }
 
         @Override // java.io.OutputStream
-        public synchronized void write(int i2) {
+        public synchronized void write(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
                 synchronized (this) {
                     if (this.bufferPos == this.buffer.length) {
                         flushFullBuffer(1);
                     }
                     byte[] bArr = this.buffer;
-                    int i3 = this.bufferPos;
-                    this.bufferPos = i3 + 1;
-                    bArr[i3] = (byte) i2;
+                    int i2 = this.bufferPos;
+                    this.bufferPos = i2 + 1;
+                    bArr[i2] = (byte) i;
                 }
             }
         }
@@ -517,36 +517,36 @@ public abstract class ByteString implements Iterable<Byte> {
         public void writeTo(OutputStream outputStream) throws IOException {
             ByteString[] byteStringArr;
             byte[] bArr;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, outputStream) == null) {
                 synchronized (this) {
                     byteStringArr = (ByteString[]) this.flushedBuffers.toArray(new ByteString[this.flushedBuffers.size()]);
                     bArr = this.buffer;
-                    i2 = this.bufferPos;
+                    i = this.bufferPos;
                 }
                 for (ByteString byteString : byteStringArr) {
                     byteString.writeTo(outputStream);
                 }
-                outputStream.write(copyArray(bArr, i2));
+                outputStream.write(copyArray(bArr, i));
             }
         }
 
         @Override // java.io.OutputStream
-        public synchronized void write(byte[] bArr, int i2, int i3) {
+        public synchronized void write(byte[] bArr, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048581, this, bArr, i, i2) == null) {
                 synchronized (this) {
-                    if (i3 <= this.buffer.length - this.bufferPos) {
-                        System.arraycopy(bArr, i2, this.buffer, this.bufferPos, i3);
-                        this.bufferPos += i3;
+                    if (i2 <= this.buffer.length - this.bufferPos) {
+                        System.arraycopy(bArr, i, this.buffer, this.bufferPos, i2);
+                        this.bufferPos += i2;
                     } else {
                         int length = this.buffer.length - this.bufferPos;
-                        System.arraycopy(bArr, i2, this.buffer, this.bufferPos, length);
-                        int i4 = i3 - length;
-                        flushFullBuffer(i4);
-                        System.arraycopy(bArr, i2 + length, this.buffer, 0, i4);
-                        this.bufferPos = i4;
+                        System.arraycopy(bArr, i, this.buffer, this.bufferPos, length);
+                        int i3 = i2 - length;
+                        flushFullBuffer(i3);
+                        System.arraycopy(bArr, i + length, this.buffer, 0, i3);
+                        this.bufferPos = i3;
                     }
                 }
             }
@@ -559,11 +559,11 @@ public abstract class ByteString implements Iterable<Byte> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? copyFrom(bArr, 0, bArr.length) : (ByteString) invokeL.objValue;
     }
 
-    public static ByteString copyFrom(ByteBuffer byteBuffer, int i2) {
+    public static ByteString copyFrom(ByteBuffer byteBuffer, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, byteBuffer, i2)) == null) {
-            byte[] bArr = new byte[i2];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, byteBuffer, i)) == null) {
+            byte[] bArr = new byte[i];
             byteBuffer.get(bArr);
             return new LiteralByteString(bArr);
         }

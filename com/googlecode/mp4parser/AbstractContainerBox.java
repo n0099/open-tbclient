@@ -30,9 +30,9 @@ public class AbstractContainerBox extends BasicContainer implements Box {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,12 +105,12 @@ public class AbstractContainerBox extends BasicContainer implements Box {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.type : (String) invokeV.objValue;
     }
 
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             this.offset = dataSource.position() - byteBuffer.remaining();
             this.largeBox = byteBuffer.remaining() == 16;
-            parseContainer(dataSource, j2, boxParser);
+            parseContainer(dataSource, j, boxParser);
         }
     }
 

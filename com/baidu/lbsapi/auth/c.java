@@ -10,19 +10,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, String> f33242b;
+    public HashMap<String, String> f25595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f33243c;
+    public a<String> f25596c;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a<Result> {
         void a(Result result);
     }
@@ -34,16 +34,16 @@ public class c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33242b = null;
-        this.f33243c = null;
+        this.f25595b = null;
+        this.f25596c = null;
         this.a = context;
     }
 
@@ -82,7 +82,7 @@ public class c {
                     e2.printStackTrace();
                 }
             }
-            a<String> aVar = this.f33243c;
+            a<String> aVar = this.f25596c;
             if (aVar != null) {
                 aVar.a(jSONObject.toString());
             }
@@ -92,8 +92,8 @@ public class c {
     public void a(HashMap<String, String> hashMap, a<String> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, hashMap, aVar) == null) {
-            this.f33242b = a(hashMap);
-            this.f33243c = aVar;
+            this.f25595b = a(hashMap);
+            this.f25596c = aVar;
             new Thread(new d(this)).start();
         }
     }

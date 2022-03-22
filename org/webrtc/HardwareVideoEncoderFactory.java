@@ -18,7 +18,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import org.webrtc.EglBase;
 import org.webrtc.EglBase14;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final List<String> H264_HW_EXCEPTION_MODELS;
@@ -33,7 +33,7 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
     public final EglBase14.Context sharedContext;
 
     /* renamed from: org.webrtc.HardwareVideoEncoderFactory$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$webrtc$VideoCodecType;
         public static /* synthetic */ Interceptable $ic;
@@ -92,9 +92,9 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -132,21 +132,21 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         if (interceptable != null && (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, videoCodecType)) != null) {
             return (MediaCodecInfo) invokeL.objValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             MediaCodecInfo mediaCodecInfo = null;
-            if (i2 >= MediaCodecList.getCodecCount()) {
+            if (i >= MediaCodecList.getCodecCount()) {
                 return null;
             }
             try {
-                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i2);
+                mediaCodecInfo = MediaCodecList.getCodecInfoAt(i);
             } catch (IllegalArgumentException e2) {
                 Logging.e(TAG, "Cannot retrieve encoder codec info", e2);
             }
             if (mediaCodecInfo != null && mediaCodecInfo.isEncoder() && isSupportedCodec(mediaCodecInfo, videoCodecType)) {
                 return mediaCodecInfo;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -155,12 +155,12 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, videoCodecType, str)) == null) {
             if (videoCodecType == VideoCodecType.VP8 && str.startsWith("OMX.qcom.")) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 != 21 && i2 != 22) {
-                    if (i2 == 23) {
+                int i = Build.VERSION.SDK_INT;
+                if (i != 21 && i != 22) {
+                    if (i == 23) {
                         return 20000;
                     }
-                    if (i2 <= 23) {
+                    if (i <= 23) {
                         return 0;
                     }
                 }
@@ -175,11 +175,11 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, videoCodecType)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-            if (i2 == 1 || i2 == 2) {
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+            if (i == 1 || i == 2) {
                 return 100;
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 return 20;
             }
             throw new IllegalArgumentException("Unsupported VideoCodecType " + videoCodecType);
@@ -197,10 +197,10 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, this, mediaCodecInfo, videoCodecType)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
+            int i = AnonymousClass1.$SwitchMap$org$webrtc$VideoCodecType[videoCodecType.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
                         return false;
                     }
                     return isHardwareSupportedInCurrentSdkH264(mediaCodecInfo);
@@ -297,8 +297,8 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             }
             ArrayList arrayList = new ArrayList();
             VideoCodecType[] videoCodecTypeArr = {VideoCodecType.VP8, VideoCodecType.VP9, VideoCodecType.H264};
-            for (int i2 = 0; i2 < 3; i2++) {
-                VideoCodecType videoCodecType = videoCodecTypeArr[i2];
+            for (int i = 0; i < 3; i++) {
+                VideoCodecType videoCodecType = videoCodecTypeArr[i];
                 MediaCodecInfo findCodecForType = findCodecForType(videoCodecType);
                 if (findCodecForType != null) {
                     String name = videoCodecType.name();
@@ -323,9 +323,9 @@ public class HardwareVideoEncoderFactory implements VideoEncoderFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((EglBase.Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;

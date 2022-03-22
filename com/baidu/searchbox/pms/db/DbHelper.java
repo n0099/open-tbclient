@@ -25,9 +25,9 @@ public class DbHelper extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -106,16 +106,16 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+            if (i == 1) {
                 alterAddDependencies(sQLiteDatabase);
                 alterAddAbi(sQLiteDatabase);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 alterAddDependencies(sQLiteDatabase);
                 alterAddAbi(sQLiteDatabase);
-            } else if (i2 != 3) {
+            } else if (i != 3) {
             } else {
                 alterAddAbi(sQLiteDatabase);
             }

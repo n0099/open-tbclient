@@ -25,9 +25,9 @@ public final class SMSParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -73,17 +73,17 @@ public final class SMSParsedResult extends ParsedResult {
             StringBuilder sb = new StringBuilder();
             sb.append(UrlSchemaHelper.SCHEMA_TYPE_SMS);
             boolean z = true;
-            for (int i2 = 0; i2 < this.numbers.length; i2++) {
+            for (int i = 0; i < this.numbers.length; i++) {
                 if (z) {
                     z = false;
                 } else {
                     sb.append(',');
                 }
-                sb.append(this.numbers[i2]);
+                sb.append(this.numbers[i]);
                 String[] strArr = this.vias;
-                if (strArr != null && strArr[i2] != null) {
+                if (strArr != null && strArr[i] != null) {
                     sb.append(";via=");
-                    sb.append(this.vias[i2]);
+                    sb.append(this.vias[i]);
                 }
             }
             boolean z2 = this.body != null;
@@ -128,9 +128,9 @@ public final class SMSParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {strArr, strArr2, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.image.EncodedImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ThumbnailSizeChecker {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float ACCEPTABLE_REQUESTED_TO_ACTUAL_SIZE_RATIO = 1.3333334f;
@@ -20,25 +20,25 @@ public final class ThumbnailSizeChecker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getAcceptableSize(int i2) {
+    public static int getAcceptableSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? (int) (i2 * 1.3333334f) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) (i * 1.3333334f) : invokeI.intValue;
     }
 
-    public static boolean isImageBigEnough(int i2, int i3, ResizeOptions resizeOptions) {
+    public static boolean isImageBigEnough(int i, int i2, ResizeOptions resizeOptions) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i2, i3, resizeOptions)) == null) ? resizeOptions == null ? ((float) getAcceptableSize(i2)) >= 2048.0f && getAcceptableSize(i3) >= 2048 : getAcceptableSize(i2) >= resizeOptions.width && getAcceptableSize(i3) >= resizeOptions.height : invokeIIL.booleanValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, resizeOptions)) == null) ? resizeOptions == null ? ((float) getAcceptableSize(i)) >= 2048.0f && getAcceptableSize(i2) >= 2048 : getAcceptableSize(i) >= resizeOptions.width && getAcceptableSize(i2) >= resizeOptions.height : invokeIIL.booleanValue;
     }
 
     public static boolean isImageBigEnough(EncodedImage encodedImage, ResizeOptions resizeOptions) {

@@ -46,9 +46,9 @@ public final class HttpDate {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -79,9 +79,9 @@ public final class HttpDate {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -108,12 +108,12 @@ public final class HttpDate {
             }
             synchronized (BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS) {
                 int length = BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    DateFormat dateFormat = BROWSER_COMPATIBLE_DATE_FORMATS[i2];
+                for (int i = 0; i < length; i++) {
+                    DateFormat dateFormat = BROWSER_COMPATIBLE_DATE_FORMATS[i];
                     if (dateFormat == null) {
-                        dateFormat = new SimpleDateFormat(BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS[i2], Locale.US);
+                        dateFormat = new SimpleDateFormat(BROWSER_COMPATIBLE_DATE_FORMAT_STRINGS[i], Locale.US);
                         dateFormat.setTimeZone(Util.UTC);
-                        BROWSER_COMPATIBLE_DATE_FORMATS[i2] = dateFormat;
+                        BROWSER_COMPATIBLE_DATE_FORMATS[i] = dateFormat;
                     }
                     parsePosition.setIndex(0);
                     Date parse2 = dateFormat.parse(str, parsePosition);

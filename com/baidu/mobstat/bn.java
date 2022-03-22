@@ -19,9 +19,9 @@ public abstract class bn {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,29 +50,29 @@ public abstract class bn {
         }
     }
 
-    public int a(Context context, String str, int i2) {
+    public int a(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, str, i2)) == null) ? a(context).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, context, str, i)) == null) ? a(context).getInt(str, i) : invokeLLI.intValue;
     }
 
-    public void b(Context context, String str, int i2) {
+    public void b(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, context, str, i2) == null) {
-            a(context).edit().putInt(str, i2).commit();
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, context, str, i) == null) {
+            a(context).edit().putInt(str, i).commit();
         }
     }
 
-    public long a(Context context, String str, long j2) {
+    public long a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j2)})) == null) ? a(context).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, str, Long.valueOf(j)})) == null) ? a(context).getLong(str, j) : invokeCommon.longValue;
     }
 
-    public void b(Context context, String str, long j2) {
+    public void b(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j2)}) == null) {
-            a(context).edit().putLong(str, j2).commit();
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, str, Long.valueOf(j)}) == null) {
+            a(context).edit().putLong(str, j).commit();
         }
     }
 

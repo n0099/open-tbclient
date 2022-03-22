@@ -12,7 +12,7 @@ import com.facebook.common.internal.DoNotStrip;
 import com.facebook.imagepipeline.animated.base.AnimatedImageFrame;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebPFrame implements AnimatedImageFrame {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +20,22 @@ public class WebPFrame implements AnimatedImageFrame {
     public long mNativeContext;
 
     @DoNotStrip
-    public WebPFrame(long j2) {
+    public WebPFrame(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mNativeContext = j2;
+        this.mNativeContext = j;
     }
 
     private native void nativeDispose();
@@ -54,7 +54,7 @@ public class WebPFrame implements AnimatedImageFrame {
 
     private native boolean nativeIsBlendWithPreviousFrame();
 
-    private native void nativeRenderFrame(int i2, int i3, Bitmap bitmap);
+    private native void nativeRenderFrame(int i, int i2, Bitmap bitmap);
 
     private native boolean nativeShouldDisposeToBackgroundColor();
 
@@ -115,10 +115,10 @@ public class WebPFrame implements AnimatedImageFrame {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImageFrame
-    public void renderFrame(int i2, int i3, Bitmap bitmap) {
+    public void renderFrame(int i, int i2, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, bitmap) == null) {
-            nativeRenderFrame(i2, i3, bitmap);
+        if (interceptable == null || interceptable.invokeIIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, bitmap) == null) {
+            nativeRenderFrame(i, i2, bitmap);
         }
     }
 

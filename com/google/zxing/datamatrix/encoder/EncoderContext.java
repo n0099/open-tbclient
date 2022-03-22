@@ -30,9 +30,9 @@ public final class EncoderContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,9 +41,9 @@ public final class EncoderContext {
         byte[] bytes = str.getBytes(Charset.forName("ISO-8859-1"));
         StringBuilder sb = new StringBuilder(bytes.length);
         int length = bytes.length;
-        for (int i4 = 0; i4 < length; i4++) {
-            char c2 = (char) (bytes[i4] & 255);
-            if (c2 == '?' && str.charAt(i4) != '?') {
+        for (int i3 = 0; i3 < length; i3++) {
+            char c2 = (char) (bytes[i3] & 255);
+            if (c2 == '?' && str.charAt(i3) != '?') {
                 throw new IllegalArgumentException("Message contains characters outside ISO-8859-1 encoding.");
             }
             sb.append(c2);
@@ -136,10 +136,10 @@ public final class EncoderContext {
         }
     }
 
-    public void setSkipAtEnd(int i2) {
+    public void setSkipAtEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.skipAtEnd = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.skipAtEnd = i;
         }
     }
 
@@ -150,10 +150,10 @@ public final class EncoderContext {
         }
     }
 
-    public void signalEncoderChange(int i2) {
+    public void signalEncoderChange(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.newEncoding = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.newEncoding = i;
         }
     }
 
@@ -178,12 +178,12 @@ public final class EncoderContext {
         }
     }
 
-    public void updateSymbolInfo(int i2) {
+    public void updateSymbolInfo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             SymbolInfo symbolInfo = this.symbolInfo;
-            if (symbolInfo == null || i2 > symbolInfo.getDataCapacity()) {
-                this.symbolInfo = SymbolInfo.lookup(i2, this.shape, this.minSize, this.maxSize, true);
+            if (symbolInfo == null || i > symbolInfo.getDataCapacity()) {
+                this.symbolInfo = SymbolInfo.lookup(i, this.shape, this.minSize, this.maxSize, true);
             }
         }
     }

@@ -1,6 +1,7 @@
 package com.baidu.android.pushservice.i;
 
 import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,27 +18,27 @@ public class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONArray a(String str, int i2, int i3) {
+    public static JSONArray a(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
             JSONArray jSONArray = new JSONArray();
             int length = str.length() / 100;
             int length2 = str.length() % 100;
             if (length2 != 0) {
                 length++;
             }
-            int i4 = 0;
-            while (i4 < length) {
+            int i3 = 0;
+            while (i3 < length) {
                 JSONObject jSONObject = new JSONObject();
                 try {
-                    String encodeToString = Base64.encodeToString(a(str.substring(i4 * 100, (i4 != length + (-1) || length2 == 0) ? (i4 + 1) * 100 : str.length()).getBytes(), BaiduAppSSOJni.getPublicKey(i2)), i3);
+                    String encodeToString = Base64.encodeToString(a(str.substring(i3 * 100, (i3 != length + (-1) || length2 == 0) ? (i3 + 1) * 100 : str.length()).getBytes(), BaiduAppSSOJni.getPublicKey(i)), i2);
                     jSONObject.put("data", encodeToString);
                     jSONObject.put("data_len", encodeToString.length());
                     jSONArray.put(jSONObject);
                 } catch (Exception unused) {
                 }
-                i4++;
+                i3++;
             }
             return jSONArray;
         }
@@ -49,7 +50,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, bArr, str, str2)) == null) {
             try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 2)));
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 2)));
                 Signature signature = Signature.getInstance("SHA1WithRSA");
                 signature.initVerify(generatePublic);
                 signature.update(bArr);
@@ -65,7 +66,7 @@ public class k {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
+            PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str, 2)));
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
             cipher.init(1, generatePublic);
             return cipher.doFinal(bArr);

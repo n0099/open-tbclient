@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class HttpConnectionParams implements CoreConnectionPNames {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public final class HttpConnectionParams implements CoreConnectionPNames {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,30 +82,30 @@ public final class HttpConnectionParams implements CoreConnectionPNames {
         return invokeL.booleanValue;
     }
 
-    public static void setConnectionTimeout(HttpParams httpParams, int i2) {
+    public static void setConnectionTimeout(HttpParams httpParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, httpParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65543, null, httpParams, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public static void setLinger(HttpParams httpParams, int i2) {
+    public static void setLinger(HttpParams httpParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, httpParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, null, httpParams, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public static void setSoTimeout(HttpParams httpParams, int i2) {
+    public static void setSoTimeout(HttpParams httpParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65545, null, httpParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65545, null, httpParams, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
 
-    public static void setSocketBufferSize(HttpParams httpParams, int i2) {
+    public static void setSocketBufferSize(HttpParams httpParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, httpParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65546, null, httpParams, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }

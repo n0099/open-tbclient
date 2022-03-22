@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WriteMulitImageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTRANCE_ALBUM = 2;
@@ -27,18 +27,18 @@ public class WriteMulitImageActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteMulitImageActivityConfig(Activity activity, int i2, WriteImagesInfo writeImagesInfo, int i3) {
+    public WriteMulitImageActivityConfig(Activity activity, int i, WriteImagesInfo writeImagesInfo, int i2) {
         super(activity);
         int size;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i2), writeImagesInfo, Integer.valueOf(i3)};
+            Object[] objArr = {activity, Integer.valueOf(i), writeImagesInfo, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,27 +46,27 @@ public class WriteMulitImageActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
-        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i3 >= 0 && i3 < size) {
+        setRequestCode(i);
+        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i2 >= 0 && i2 < size) {
             getIntent().putExtra(EXTRA_WRITE_IMG_INFO_JSON_STR, writeImagesInfo.toJsonString());
-            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i3);
+            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i2);
             getIntent().putExtra(SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteMulitImageActivityConfig(Activity activity, int i2, WriteImagesInfo writeImagesInfo, int i3, ForumWriteData forumWriteData, int i4) {
+    public WriteMulitImageActivityConfig(Activity activity, int i, WriteImagesInfo writeImagesInfo, int i2, ForumWriteData forumWriteData, int i3) {
         super(activity);
         int size;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Integer.valueOf(i2), writeImagesInfo, Integer.valueOf(i3), forumWriteData, Integer.valueOf(i4)};
+            Object[] objArr = {activity, Integer.valueOf(i), writeImagesInfo, Integer.valueOf(i2), forumWriteData, Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -74,12 +74,12 @@ public class WriteMulitImageActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
-        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i3 >= 0 && i3 < size) {
+        setRequestCode(i);
+        if (writeImagesInfo != null && writeImagesInfo.getChosedFiles() != null && (size = writeImagesInfo.getChosedFiles().size()) >= 1 && i2 >= 0 && i2 < size) {
             getIntent().putExtra(EXTRA_WRITE_IMG_INFO_JSON_STR, writeImagesInfo.toJsonString());
-            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i3);
+            getIntent().putExtra(EXTRA_IMG_CURRENT_INDEX, i2);
             getIntent().putExtra(FOURM_WRITE_DATA, forumWriteData);
-            getIntent().putExtra(FOURM_WRITE_ENTRANCE, i4);
+            getIntent().putExtra(FOURM_WRITE_ENTRANCE, i3);
             getIntent().putExtra(SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
         }
     }

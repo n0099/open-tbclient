@@ -5,7 +5,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class OAuthResult extends SapiResult {
     public static /* synthetic */ Interceptable $ic = null;
@@ -26,9 +25,9 @@ public class OAuthResult extends SapiResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +41,7 @@ public class OAuthResult extends SapiResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "OAuthResult{accessToken='" + this.accessToken + ExtendedMessageFormat.QUOTE + ", expiresIn=" + this.expiresIn + ", refreshToken='" + this.refreshToken + ExtendedMessageFormat.QUOTE + ", scope='" + this.scope + ExtendedMessageFormat.QUOTE + ", sessionKey='" + this.sessionKey + ExtendedMessageFormat.QUOTE + ", sessionSecret='" + this.sessionSecret + ExtendedMessageFormat.QUOTE + ", extra='" + this.extra + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "OAuthResult{accessToken='" + this.accessToken + "', expiresIn=" + this.expiresIn + ", refreshToken='" + this.refreshToken + "', scope='" + this.scope + "', sessionKey='" + this.sessionKey + "', sessionSecret='" + this.sessionSecret + "', extra='" + this.extra + "'}";
         }
         return (String) invokeV.objValue;
     }

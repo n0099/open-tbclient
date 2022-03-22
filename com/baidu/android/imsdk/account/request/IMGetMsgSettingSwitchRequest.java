@@ -35,9 +35,9 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iGetMsgSettingSwitchListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -122,20 +122,20 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
-        int i3;
+    public void onFailure(int i, byte[] bArr, Throwable th) {
+        int i2;
         IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             String str = new String(bArr);
             LogUtils.e(TAG, "IMGetMsgSettingSwitchRequest onFailure :" + str);
-            int i4 = 0;
+            int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                i3 = jSONObject.optInt("push_privacy", 0);
+                i2 = jSONObject.optInt("push_privacy", 0);
                 try {
-                    i4 = jSONObject.optInt("block_stranger", 0);
+                    i3 = jSONObject.optInt("block_stranger", 0);
                 } catch (JSONException e2) {
                     e = e2;
                     LogUtils.e(TAG, "onFailure JSONException", e);
@@ -145,11 +145,11 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
                 }
             } catch (JSONException e3) {
                 e = e3;
-                i3 = 0;
+                i2 = 0;
             }
             iGetMsgSettingSwitchListener = this.mListener;
             if (iGetMsgSettingSwitchListener == null) {
-                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i4, i3);
+                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, i3, i2);
             }
         }
     }
@@ -160,32 +160,32 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         int i3;
-        int i4;
         String str;
         IGetMsgSettingSwitchListener iGetMsgSettingSwitchListener;
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.e(TAG, "IMGetMsgSettingSwitchRequest onSuccess :" + str2);
-            int i5 = 0;
+            int i4 = 0;
             try {
                 jSONObject = new JSONObject(str2);
-                i4 = jSONObject.getInt("error_code");
+                i3 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                i3 = jSONObject.optInt("push_privacy", 0);
+                i2 = jSONObject.optInt("push_privacy", 0);
             } catch (JSONException e2) {
                 e = e2;
-                i3 = 0;
+                i2 = 0;
             }
             try {
-                i5 = jSONObject.optInt("block_stranger", 0);
+                i4 = jSONObject.optInt("block_stranger", 0);
             } catch (JSONException e3) {
                 e = e3;
                 LogUtils.e(TAG, "JSONException", e);
-                i4 = 1010;
+                i3 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 iGetMsgSettingSwitchListener = this.mListener;
                 if (iGetMsgSettingSwitchListener == null) {
@@ -193,7 +193,7 @@ public class IMGetMsgSettingSwitchRequest extends BaseHttpRequest {
             }
             iGetMsgSettingSwitchListener = this.mListener;
             if (iGetMsgSettingSwitchListener == null) {
-                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(i4, str, i5, i3);
+                iGetMsgSettingSwitchListener.onGetMsgSettingSwitch(i3, str, i4, i2);
             }
         }
     }

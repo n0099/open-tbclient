@@ -2,6 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +19,7 @@ import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000:\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b&\n\u0002\u0010\t\n\u0002\b\f\u0018\u00002\u00020\u0001B\u000f\u0012\u0006\u0010C\u001a\u00020\u0005¢\u0006\u0004\bD\u0010\tJ\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0019\u0010\b\u001a\u00020\u00072\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005H\u0016¢\u0006\u0004\b\b\u0010\tR\"\u0010\u000b\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000b\u0010\f\u001a\u0004\b\r\u0010\u000e\"\u0004\b\u000f\u0010\u0010R(\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00120\u00118\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\"\u0010\u0019\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\f\u001a\u0004\b\u001a\u0010\u000e\"\u0004\b\u001b\u0010\u0010R\"\u0010\u001c\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001c\u0010\u001d\u001a\u0004\b\u001e\u0010\u001f\"\u0004\b \u0010\tR\"\u0010!\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b!\u0010\u001d\u001a\u0004\b\"\u0010\u001f\"\u0004\b#\u0010\tR\"\u0010$\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010\u001d\u001a\u0004\b%\u0010\u001f\"\u0004\b&\u0010\tR\"\u0010'\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b'\u0010\u001d\u001a\u0004\b(\u0010\u001f\"\u0004\b)\u0010\tR\"\u0010*\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b*\u0010\u001d\u001a\u0004\b+\u0010\u001f\"\u0004\b,\u0010\tR\"\u0010-\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b-\u0010\f\u001a\u0004\b.\u0010\u000e\"\u0004\b/\u0010\u0010R\"\u00100\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b0\u0010\u001d\u001a\u0004\b1\u0010\u001f\"\u0004\b2\u0010\tR\"\u00103\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b3\u0010\f\u001a\u0004\b4\u0010\u000e\"\u0004\b5\u0010\u0010R\"\u00106\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b6\u0010\u001d\u001a\u0004\b7\u0010\u001f\"\u0004\b8\u0010\tR\"\u0010:\u001a\u0002098\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b:\u0010;\u001a\u0004\b<\u0010=\"\u0004\b>\u0010?R\"\u0010@\u001a\u00020\n8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b@\u0010\f\u001a\u0004\bA\u0010\u000e\"\u0004\bB\u0010\u0010¨\u0006E"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payservice/revenueservice/protocol/QueryRechargeHistoryResponse;", "Lcom/yy/mobile/framework/revenuesdk/baseapi/protocolbase/IBaseJsonResponse;", "Lcom/yy/mobile/framework/revenuesdk/payapi/callbackresult/RechargeHistoryResult;", "getResponse", "()Lcom/yy/mobile/framework/revenuesdk/payapi/callbackresult/RechargeHistoryResult;", "", "jsonMsg", "", "parserResponse", "(Ljava/lang/String;)V", "", BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, "I", "getAppId", "()I", "setAppId", "(I)V", "", "Lcom/yy/mobile/framework/revenuesdk/payapi/bean/ChargeOrder;", "chargeOrderList", "Ljava/util/List;", "getChargeOrderList", "()Ljava/util/List;", "setChargeOrderList", "(Ljava/util/List;)V", "cmd", "getCmd", "setCmd", "countryCode", "Ljava/lang/String;", "getCountryCode", "()Ljava/lang/String;", "setCountryCode", "expand", "getExpand", "setExpand", "language", "getLanguage", "setLanguage", "liveCategoryId", "getLiveCategoryId", "setLiveCategoryId", "message", "getMessage", "setMessage", "result", "getResult", "setResult", "seq", "getSeq", "setSeq", "total", "getTotal", "setTotal", "traceId", "getTraceId", "setTraceId", "", "uid", "J", "getUid", "()J", "setUid", "(J)V", "usedChannel", "getUsedChannel", "setUsedChannel", "rspData", "<init>", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,9 +45,9 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -163,7 +164,7 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
             Intrinsics.checkExpressionValueIsNotNull(optString, "jObject.optString(\"seq\", \"\")");
             this.seq = optString;
             this.uid = jSONObject.optLong("uid", 0L);
-            int i2 = 0;
+            int i = 0;
             this.result = jSONObject.optInt("result", 0);
             String optString2 = jSONObject.optString("message", "");
             Intrinsics.checkExpressionValueIsNotNull(optString2, "jObject.optString(\"message\", \"\")");
@@ -187,11 +188,11 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
                     optJSONArray = null;
                 }
                 if (optJSONArray != null) {
-                    for (int length = optJSONArray.length(); i2 < length; length = length) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                    for (int length = optJSONArray.length(); i < length; length = length) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                         String optString7 = optJSONObject.optString("rechargeAmount");
                         Intrinsics.checkExpressionValueIsNotNull(optString7, "jsonOrder.optString(\"rechargeAmount\")");
-                        long optLong = optJSONObject.optLong("createTime");
+                        long optLong = optJSONObject.optLong(FileMetaUtil.CREATE_TIME);
                         int optInt = optJSONObject.optInt("diamondAmount");
                         String optString8 = optJSONObject.optString("currencySymbol");
                         Intrinsics.checkExpressionValueIsNotNull(optString8, "jsonOrder.optString(\"currencySymbol\")");
@@ -209,7 +210,7 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
                         String optString10 = optJSONObject.optString("otherChargeOrderId");
                         Intrinsics.checkExpressionValueIsNotNull(optString10, "jsonOrder.optString(\"otherChargeOrderId\")");
                         this.chargeOrderList.add(new ChargeOrder(optString7, optLong, optInt, optString8, optString9, optLong2, optInt2, optInt3, optInt4, optInt5, optInt6, optInt7, optInt8, optString10, optJSONObject.optInt("chargeConfigType")));
-                        i2++;
+                        i++;
                         optJSONArray = jSONArray;
                     }
                 }
@@ -217,10 +218,10 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
         }
     }
 
-    public final void setAppId(int i2) {
+    public final void setAppId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.appId = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.appId = i;
         }
     }
 
@@ -231,10 +232,10 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
         }
     }
 
-    public final void setCmd(int i2) {
+    public final void setCmd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.cmd = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.cmd = i;
         }
     }
 
@@ -273,10 +274,10 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
         }
     }
 
-    public final void setResult(int i2) {
+    public final void setResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.result = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.result = i;
         }
     }
 
@@ -287,10 +288,10 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
         }
     }
 
-    public final void setTotal(int i2) {
+    public final void setTotal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.total = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.total = i;
         }
     }
 
@@ -301,17 +302,17 @@ public final class QueryRechargeHistoryResponse implements IBaseJsonResponse {
         }
     }
 
-    public final void setUid(long j2) {
+    public final void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.uid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.uid = j;
         }
     }
 
-    public final void setUsedChannel(int i2) {
+    public final void setUsedChannel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.usedChannel = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.usedChannel = i;
         }
     }
 }

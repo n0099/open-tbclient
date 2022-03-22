@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PostprocessorProducer implements Producer<CloseableReference<CloseableImage>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String NAME = "PostprocessorProducer";
@@ -34,13 +34,13 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
     public final Producer<CloseableReference<CloseableImage>> mInputProducer;
 
     /* renamed from: com.facebook.imagepipeline.producers.PostprocessorProducer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postprocessorProducer, consumer, producerListener, str, postprocessor, producerContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -99,9 +99,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, postprocessorProducer};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -155,12 +155,12 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void doPostprocessing(CloseableReference<CloseableImage> closeableReference, int i2) {
+        public void doPostprocessing(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65546, this, closeableReference, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(65546, this, closeableReference, i) == null) {
                 Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
                 if (!shouldPostprocess(closeableReference.get())) {
-                    maybeNotifyOnNewResult(closeableReference, i2);
+                    maybeNotifyOnNewResult(closeableReference, i);
                     return;
                 }
                 this.mListener.onProducerStart(this.mRequestId, PostprocessorProducer.NAME);
@@ -168,7 +168,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                     try {
                         CloseableReference<CloseableImage> postprocessInternal = postprocessInternal(closeableReference.get());
                         this.mListener.onProducerFinishWithSuccess(this.mRequestId, PostprocessorProducer.NAME, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
-                        maybeNotifyOnNewResult(postprocessInternal, i2);
+                        maybeNotifyOnNewResult(postprocessInternal, i);
                         CloseableReference.closeSafely(postprocessInternal);
                     } catch (Exception e2) {
                         this.mListener.onProducerFinishWithFailure(this.mRequestId, PostprocessorProducer.NAME, e2, getExtraMap(this.mListener, this.mRequestId, this.mPostprocessor));
@@ -223,14 +223,14 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
             }
         }
 
-        private void maybeNotifyOnNewResult(CloseableReference<CloseableImage> closeableReference, int i2) {
+        private void maybeNotifyOnNewResult(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65551, this, closeableReference, i2) == null) {
-                boolean isLast = BaseConsumer.isLast(i2);
+            if (interceptable == null || interceptable.invokeLI(65551, this, closeableReference, i) == null) {
+                boolean isLast = BaseConsumer.isLast(i);
                 if ((isLast || isClosed()) && !(isLast && close())) {
                     return;
                 }
-                getConsumer().onNewResult(closeableReference, i2);
+                getConsumer().onNewResult(closeableReference, i);
             }
         }
 
@@ -285,9 +285,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -299,18 +299,18 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                     @Override // java.lang.Runnable
                     public void run() {
                         CloseableReference closeableReference;
-                        int i2;
+                        int i;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                             synchronized (this.this$1) {
                                 closeableReference = this.this$1.mSourceImageRef;
-                                i2 = this.this$1.mStatus;
+                                i = this.this$1.mStatus;
                                 this.this$1.mSourceImageRef = null;
                                 this.this$1.mIsDirty = false;
                             }
                             if (CloseableReference.isValid(closeableReference)) {
                                 try {
-                                    this.this$1.doPostprocessing(closeableReference, i2);
+                                    this.this$1.doPostprocessing(closeableReference, i);
                                 } finally {
                                     CloseableReference.closeSafely(closeableReference);
                                 }
@@ -322,16 +322,16 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
             }
         }
 
-        private void updateSourceImageRef(@Nullable CloseableReference<CloseableImage> closeableReference, int i2) {
+        private void updateSourceImageRef(@Nullable CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65556, this, closeableReference, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(65556, this, closeableReference, i) == null) {
                 synchronized (this) {
                     if (this.mIsClosed) {
                         return;
                     }
                     CloseableReference<CloseableImage> closeableReference2 = this.mSourceImageRef;
                     this.mSourceImageRef = CloseableReference.cloneOrNull(closeableReference);
-                    this.mStatus = i2;
+                    this.mStatus = i;
                     this.mIsDirty = true;
                     boolean runningIfDirtyAndNotRunning = setRunningIfDirtyAndNotRunning();
                     CloseableReference.closeSafely(closeableReference2);
@@ -360,22 +360,22 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, closeableReference, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, closeableReference, i) == null) {
                 if (!CloseableReference.isValid(closeableReference)) {
-                    if (BaseConsumer.isLast(i2)) {
-                        maybeNotifyOnNewResult(null, i2);
+                    if (BaseConsumer.isLast(i)) {
+                        maybeNotifyOnNewResult(null, i);
                         return;
                     }
                     return;
                 }
-                updateSourceImageRef(closeableReference, i2);
+                updateSourceImageRef(closeableReference, i);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class RepeatedPostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> implements RepeatedPostprocessorRunner {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -475,9 +475,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postprocessorProducer, postprocessorConsumer, repeatedPostprocessor, producerContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -501,9 +501,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, postprocessorProducer};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -525,9 +525,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, closeableReference, i2) == null) || BaseConsumer.isNotLast(i2)) {
+            if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, closeableReference, i) == null) || BaseConsumer.isNotLast(i)) {
                 return;
             }
             setSourceImageRef(closeableReference);
@@ -535,7 +535,7 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class SingleUsePostprocessorConsumer extends DelegatingConsumer<CloseableReference<CloseableImage>, CloseableReference<CloseableImage>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -554,9 +554,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postprocessorProducer, postprocessorConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -568,12 +568,12 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i2) {
+        public void onNewResultImpl(CloseableReference<CloseableImage> closeableReference, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i2) == null) || BaseConsumer.isNotLast(i2)) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, closeableReference, i) == null) || BaseConsumer.isNotLast(i)) {
                 return;
             }
-            getConsumer().onNewResult(closeableReference, i2);
+            getConsumer().onNewResult(closeableReference, i);
         }
     }
 
@@ -584,9 +584,9 @@ public class PostprocessorProducer implements Producer<CloseableReference<Closea
             newInitContext.initArgs = r2;
             Object[] objArr = {producer, platformBitmapFactory, executor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

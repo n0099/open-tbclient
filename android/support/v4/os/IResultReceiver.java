@@ -25,9 +25,9 @@ public interface IResultReceiver extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -45,9 +45,9 @@ public interface IResultReceiver extends IInterface {
         }
 
         @Override // android.support.v4.os.IResultReceiver
-        public void send(int i2, Bundle bundle) throws RemoteException {
+        public void send(int i, Bundle bundle) throws RemoteException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bundle) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
             }
         }
     }
@@ -73,9 +73,9 @@ public interface IResultReceiver extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -98,13 +98,13 @@ public interface IResultReceiver extends IInterface {
             }
 
             @Override // android.support.v4.os.IResultReceiver
-            public void send(int i2, Bundle bundle) throws RemoteException {
+            public void send(int i, Bundle bundle) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) {
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bundle) == null) {
                     Parcel obtain = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         if (bundle != null) {
                             obtain.writeInt(1);
                             bundle.writeToParcel(obtain, 0);
@@ -114,7 +114,7 @@ public interface IResultReceiver extends IInterface {
                         if (this.mRemote.transact(1, obtain, null, 1) || Stub.getDefaultImpl() == null) {
                             return;
                         }
-                        Stub.getDefaultImpl().send(i2, bundle);
+                        Stub.getDefaultImpl().send(i, bundle);
                     } finally {
                         obtain.recycle();
                     }
@@ -127,9 +127,9 @@ public interface IResultReceiver extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -181,16 +181,16 @@ public interface IResultReceiver extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1) {
                     parcel.enforceInterface(DESCRIPTOR);
                     send(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                     return true;
-                } else if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+                } else if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 } else {
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -200,5 +200,5 @@ public interface IResultReceiver extends IInterface {
         }
     }
 
-    void send(int i2, Bundle bundle) throws RemoteException;
+    void send(int i, Bundle bundle) throws RemoteException;
 }

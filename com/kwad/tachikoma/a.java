@@ -19,26 +19,26 @@ import com.kwad.v8.V8Object;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, com.kwad.sdk.core.webview.kwai.a> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.kwai.a f56661b;
+    public com.kwad.sdk.core.webview.kwai.a f41537b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f56662c;
+    public boolean f41538c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TKContext f56663d;
+    public TKContext f41539d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56664e;
+    public String f41540e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56665f;
+    public String f41541f;
 
     public a(TKContext tKContext, String str) {
         Interceptable interceptable = $ic;
@@ -47,28 +47,28 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {tKContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new ConcurrentHashMap();
-        this.f56661b = new com.kwad.sdk.core.webview.kwai.d();
-        this.f56663d = tKContext;
-        this.f56665f = str;
+        this.f41537b = new com.kwad.sdk.core.webview.kwai.d();
+        this.f41539d = tKContext;
+        this.f41541f = str;
         g gVar = (g) f.a(g.class);
         if (gVar != null) {
-            this.f56664e = gVar.d();
+            this.f41540e = gVar.d();
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, str) == null) {
-            i.a("ad_client_error_log", new CommercialAction.TKPerformMsg().setRenderState(3).setErrorReason(str).setTemplateId(this.f56665f).setVersionCode(this.f56664e));
+            i.a("ad_client_error_log", new CommercialAction.TKPerformMsg().setRenderState(3).setErrorReason(str).setTemplateId(this.f41541f).setVersionCode(this.f41540e));
         }
     }
 
@@ -77,12 +77,12 @@ public class a {
         String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, this, str, str2) == null) {
-            if (this.f56662c) {
+            if (this.f41538c) {
                 str3 = "callJS after destroy jsInterface, " + str2;
             } else if (str != null) {
                 com.kwad.sdk.core.d.a.c("TKJSBridge", "callJS callback:+ " + str + "--params: " + str2);
                 try {
-                    this.f56663d.evaluateScript(str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, null, null);
+                    this.f41539d.evaluateScript(str + "(" + JSONObject.quote(str2) + SmallTailInfo.EMOTION_SUFFIX, null, null);
                     return;
                 } catch (Throwable th) {
                     g gVar = (g) f.a(g.class);
@@ -126,7 +126,7 @@ public class a {
             com.kwad.sdk.core.webview.kwai.a aVar = this.a.get(string);
             if (aVar == null) {
                 a("Js Action not found");
-                aVar = this.f56661b;
+                aVar = this.f41537b;
             }
             if (aVar == null) {
                 com.kwad.sdk.core.d.a.e("TKJSBridge", "bridgeHandler is null");
@@ -139,7 +139,7 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f56666b;
+                    public final /* synthetic */ a f41542b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -148,23 +148,23 @@ public class a {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, string3};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f56666b = this;
+                        this.f41542b = this;
                         this.a = string3;
                     }
 
                     @Override // com.kwad.sdk.core.webview.kwai.c
-                    public void a(int i2, String str) {
+                    public void a(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
-                            this.f56666b.a(this.a, new e(i2, str).toJson().toString());
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
+                            this.f41542b.a(this.a, new e(i, str).toJson().toString());
                         }
                     }
 
@@ -172,7 +172,7 @@ public class a {
                     public void a(com.kwad.sdk.core.b bVar) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-                            this.f56666b.a(this.a, new com.kwad.sdk.core.webview.kwai.f(bVar).toJson().toString());
+                            this.f41542b.a(this.a, new com.kwad.sdk.core.webview.kwai.f(bVar).toJson().toString());
                         }
                     }
                 } : new com.kwad.sdk.core.webview.kwai.c(this) { // from class: com.kwad.tachikoma.a.2
@@ -187,9 +187,9 @@ public class a {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -199,9 +199,9 @@ public class a {
                     }
 
                     @Override // com.kwad.sdk.core.webview.kwai.c
-                    public void a(int i2, String str) {
+                    public void a(int i, String str) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                         }
                     }
 

@@ -27,7 +27,7 @@ import okhttp3.internal.http.HttpCodec;
 import okhttp3.internal.http2.ConnectionShutdownException;
 import okhttp3.internal.http2.ErrorCode;
 import okhttp3.internal.http2.StreamResetException;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class StreamAllocation {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -47,7 +47,7 @@ public final class StreamAllocation {
     public RouteSelector.Selection routeSelection;
     public final RouteSelector routeSelector;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class StreamAllocationReference extends WeakReference<StreamAllocation> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public final class StreamAllocation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {streamAllocation, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -97,9 +97,9 @@ public final class StreamAllocation {
             newInitContext.initArgs = r2;
             Object[] objArr = {connectionPool, address, call, eventListener, obj};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -153,7 +153,7 @@ public final class StreamAllocation {
         return (Socket) invokeCommon.objValue;
     }
 
-    private RealConnection findConnection(int i2, int i3, int i4, int i5, boolean z) throws IOException {
+    private RealConnection findConnection(int i, int i2, int i3, int i4, boolean z) throws IOException {
         InterceptResult invokeCommon;
         Socket releaseIfNoNewStreams;
         Socket socket;
@@ -164,7 +164,7 @@ public final class StreamAllocation {
         boolean z3;
         RouteSelector.Selection selection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
             synchronized (this.connectionPool) {
                 if (!this.released) {
                     if (this.codec == null) {
@@ -228,12 +228,12 @@ public final class StreamAllocation {
                 if (z3) {
                     List<Route> all = this.routeSelection.getAll();
                     int size = all.size();
-                    int i6 = 0;
+                    int i5 = 0;
                     while (true) {
-                        if (i6 >= size) {
+                        if (i5 >= size) {
                             break;
                         }
-                        Route route2 = all.get(i6);
+                        Route route2 = all.get(i5);
                         Internal.instance.get(this.connectionPool, this.address, this, route2);
                         if (this.connection != null) {
                             realConnection2 = this.connection;
@@ -241,7 +241,7 @@ public final class StreamAllocation {
                             z2 = true;
                             break;
                         }
-                        i6++;
+                        i5++;
                     }
                 }
                 if (!z2) {
@@ -258,7 +258,7 @@ public final class StreamAllocation {
                 this.eventListener.connectionAcquired(this.call, realConnection2);
                 return realConnection2;
             }
-            realConnection2.connect(i2, i3, i4, i5, z, this.call, this.eventListener);
+            realConnection2.connect(i, i2, i3, i4, z, this.call, this.eventListener);
             routeDatabase().connected(realConnection2.route());
             synchronized (this.connectionPool) {
                 this.reportedAcquired = true;
@@ -275,14 +275,14 @@ public final class StreamAllocation {
         return (RealConnection) invokeCommon.objValue;
     }
 
-    private RealConnection findHealthyConnection(int i2, int i3, int i4, int i5, boolean z, boolean z2) throws IOException {
+    private RealConnection findHealthyConnection(int i, int i2, int i3, int i4, boolean z, boolean z2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
             return (RealConnection) invokeCommon.objValue;
         }
         while (true) {
-            RealConnection findConnection = findConnection(i2, i3, i4, i5, z);
+            RealConnection findConnection = findConnection(i, i2, i3, i4, z);
             synchronized (this.connectionPool) {
                 if (findConnection.successCount == 0) {
                     return findConnection;
@@ -466,9 +466,9 @@ public final class StreamAllocation {
                 if (iOException instanceof StreamResetException) {
                     ErrorCode errorCode = ((StreamResetException) iOException).errorCode;
                     if (errorCode == ErrorCode.REFUSED_STREAM) {
-                        int i2 = this.refusedStreamCount + 1;
-                        this.refusedStreamCount = i2;
-                        if (i2 > 1) {
+                        int i = this.refusedStreamCount + 1;
+                        this.refusedStreamCount = i;
+                        if (i > 1) {
                             this.route = null;
                             z = true;
                         }
@@ -505,13 +505,13 @@ public final class StreamAllocation {
         }
     }
 
-    public void streamFinished(boolean z, HttpCodec httpCodec, long j2, IOException iOException) {
+    public void streamFinished(boolean z, HttpCodec httpCodec, long j, IOException iOException) {
         RealConnection realConnection;
         Socket deallocate;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j2), iOException}) == null) {
-            this.eventListener.responseBodyEnd(this.call, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), httpCodec, Long.valueOf(j), iOException}) == null) {
+            this.eventListener.responseBodyEnd(this.call, j);
             synchronized (this.connectionPool) {
                 if (httpCodec != null) {
                     if (httpCodec == this.codec) {
@@ -554,9 +554,9 @@ public final class StreamAllocation {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, realConnection) == null) {
             int size = realConnection.allocations.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (realConnection.allocations.get(i2).get() == this) {
-                    realConnection.allocations.remove(i2);
+            for (int i = 0; i < size; i++) {
+                if (realConnection.allocations.get(i).get() == this) {
+                    realConnection.allocations.remove(i);
                     return;
                 }
             }

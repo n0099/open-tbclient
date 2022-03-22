@@ -5,22 +5,22 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface h extends IInterface {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements h {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.h$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2202a implements h {
+        /* loaded from: classes7.dex */
+        public static class C2063a implements h {
             public static h a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58495b;
+            public IBinder f43223b;
 
-            public C2202a(IBinder iBinder) {
-                this.f58495b = iBinder;
+            public C2063a(IBinder iBinder) {
+                this.f43223b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.h
@@ -29,7 +29,7 @@ public interface h extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
-                    if (!this.f58495b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43223b.transact(1, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();
@@ -42,7 +42,7 @@ public interface h extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58495b;
+                return this.f43223b;
             }
         }
 
@@ -58,11 +58,11 @@ public interface h extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof h)) {
                 return (h) queryLocalInterface;
             }
-            return new C2202a(iBinder);
+            return new C2063a(iBinder);
         }
 
         public static h b() {
-            return C2202a.a;
+            return C2063a.a;
         }
 
         @Override // android.os.IInterface
@@ -71,10 +71,10 @@ public interface h extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadAidlInterceptor");
                 return true;

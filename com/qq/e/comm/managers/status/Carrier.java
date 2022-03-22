@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Carrier {
     public static /* synthetic */ Interceptable $ic;
     public static final Carrier CMCC;
@@ -19,7 +19,7 @@ public final class Carrier {
     public static final Carrier UNKNOWN;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ Carrier[] f57670b;
+    public static final /* synthetic */ Carrier[] f42448b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -41,19 +41,19 @@ public final class Carrier {
         UNICOM = new Carrier("UNICOM", 2, 2);
         Carrier carrier = new Carrier("TELECOM", 3, 3);
         TELECOM = carrier;
-        f57670b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
+        f42448b = new Carrier[]{UNKNOWN, CMCC, UNICOM, carrier};
     }
 
-    public Carrier(String str, int i2, int i3) {
+    public Carrier(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -62,7 +62,7 @@ public final class Carrier {
                 return;
             }
         }
-        this.a = i3;
+        this.a = i2;
     }
 
     public static Carrier valueOf(String str) {
@@ -74,7 +74,7 @@ public final class Carrier {
     public static Carrier[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f57670b.clone() : (Carrier[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Carrier[]) f42448b.clone() : (Carrier[]) invokeV.objValue;
     }
 
     public int getValue() {

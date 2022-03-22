@@ -3,7 +3,7 @@ package com.baidu.tbadk.img;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.c0.i.d;
+import c.a.o0.c0.i.d;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -46,9 +46,9 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -160,15 +160,15 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ImageFileInfo getImageInfoAt(int i2) {
+    public ImageFileInfo getImageInfoAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             LinkedList<ImageFileInfo> linkedList = this.chosedFiles;
-            if (linkedList == null || i2 < 0 || i2 >= linkedList.size()) {
+            if (linkedList == null || i < 0 || i >= linkedList.size()) {
                 return null;
             }
-            return this.chosedFiles.get(i2);
+            return this.chosedFiles.get(i);
         }
         return (ImageFileInfo) invokeI.objValue;
     }
@@ -293,10 +293,10 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setMaxImagesAllowed(int i2) {
+    public void setMaxImagesAllowed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.maxImagesAllowed = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.maxImagesAllowed = i;
         }
     }
 
@@ -307,17 +307,17 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         }
     }
 
-    public void setOriginalImgIndex(int i2) {
+    public void setOriginalImgIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.originalImgIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.originalImgIndex = i;
         }
     }
 
-    public void setOriginalImgViewIndex(int i2) {
+    public void setOriginalImgViewIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.originalImgViewIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.originalImgViewIndex = i;
         }
     }
 
@@ -415,25 +415,25 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         JSONArray optJSONArray = jSONObject.optJSONArray("chosedFiles");
         this.chosedFiles = new LinkedList<>();
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 ImageFileInfo imageFileInfo = new ImageFileInfo();
-                imageFileInfo.parseJson(optJSONArray.optJSONObject(i2));
+                imageFileInfo.parseJson(optJSONArray.optJSONObject(i));
                 imageFileInfo.setIsLong(FileHelper.checkIsLongImage(imageFileInfo.getFilePath()));
                 this.chosedFiles.add(imageFileInfo);
             }
         }
     }
 
-    public WriteImagesInfo(int i2) {
+    public WriteImagesInfo(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -443,6 +443,6 @@ public class WriteImagesInfo extends OrmObject implements Serializable {
         this.isOriginalImg = false;
         this.isEnableChooseOriginalImg = true;
         this.isFromQRCode = false;
-        this.maxImagesAllowed = i2;
+        this.maxImagesAllowed = i;
     }
 }

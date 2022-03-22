@@ -18,9 +18,9 @@ public final class BackpressureHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -29,110 +29,110 @@ public final class BackpressureHelper {
         throw new IllegalStateException("No instances!");
     }
 
-    public static long add(AtomicLong atomicLong, long j2) {
-        long j3;
+    public static long add(AtomicLong atomicLong, long j) {
+        long j2;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
             do {
-                j3 = atomicLong.get();
-                if (j3 == Long.MAX_VALUE) {
+                j2 = atomicLong.get();
+                if (j2 == Long.MAX_VALUE) {
                     return Long.MAX_VALUE;
                 }
-            } while (!atomicLong.compareAndSet(j3, addCap(j3, j2)));
-            return j3;
+            } while (!atomicLong.compareAndSet(j2, addCap(j2, j)));
+            return j2;
         }
         return invokeLJ.longValue;
     }
 
-    public static long addCancel(AtomicLong atomicLong, long j2) {
-        long j3;
+    public static long addCancel(AtomicLong atomicLong, long j) {
+        long j2;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, atomicLong, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, atomicLong, j)) == null) {
             do {
-                j3 = atomicLong.get();
-                if (j3 == Long.MIN_VALUE) {
+                j2 = atomicLong.get();
+                if (j2 == Long.MIN_VALUE) {
                     return Long.MIN_VALUE;
                 }
-                if (j3 == Long.MAX_VALUE) {
+                if (j2 == Long.MAX_VALUE) {
                     return Long.MAX_VALUE;
                 }
-            } while (!atomicLong.compareAndSet(j3, addCap(j3, j2)));
-            return j3;
+            } while (!atomicLong.compareAndSet(j2, addCap(j2, j)));
+            return j2;
         }
         return invokeLJ.longValue;
     }
 
-    public static long addCap(long j2, long j3) {
+    public static long addCap(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = j2 + j3;
-            if (j4 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j + j2;
+            if (j3 < 0) {
                 return Long.MAX_VALUE;
             }
-            return j4;
+            return j3;
         }
         return invokeCommon.longValue;
     }
 
-    public static long multiplyCap(long j2, long j3) {
+    public static long multiplyCap(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long j4 = j2 * j3;
-            if (((j2 | j3) >>> 31) == 0 || j4 / j2 == j3) {
-                return j4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j * j2;
+            if (((j | j2) >>> 31) == 0 || j3 / j == j2) {
+                return j3;
             }
             return Long.MAX_VALUE;
         }
         return invokeCommon.longValue;
     }
 
-    public static long produced(AtomicLong atomicLong, long j2) {
+    public static long produced(AtomicLong atomicLong, long j) {
+        long j2;
         long j3;
-        long j4;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, atomicLong, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, atomicLong, j)) == null) {
             do {
-                j3 = atomicLong.get();
-                if (j3 == Long.MAX_VALUE) {
+                j2 = atomicLong.get();
+                if (j2 == Long.MAX_VALUE) {
                     return Long.MAX_VALUE;
                 }
-                j4 = j3 - j2;
-                if (j4 < 0) {
-                    RxJavaPlugins.onError(new IllegalStateException("More produced than requested: " + j4));
-                    j4 = 0L;
+                j3 = j2 - j;
+                if (j3 < 0) {
+                    RxJavaPlugins.onError(new IllegalStateException("More produced than requested: " + j3));
+                    j3 = 0L;
                 }
-            } while (!atomicLong.compareAndSet(j3, j4));
-            return j4;
+            } while (!atomicLong.compareAndSet(j2, j3));
+            return j3;
         }
         return invokeLJ.longValue;
     }
 
-    public static long producedCancel(AtomicLong atomicLong, long j2) {
+    public static long producedCancel(AtomicLong atomicLong, long j) {
+        long j2;
         long j3;
-        long j4;
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
             do {
-                j3 = atomicLong.get();
-                if (j3 == Long.MIN_VALUE) {
+                j2 = atomicLong.get();
+                if (j2 == Long.MIN_VALUE) {
                     return Long.MIN_VALUE;
                 }
-                if (j3 == Long.MAX_VALUE) {
+                if (j2 == Long.MAX_VALUE) {
                     return Long.MAX_VALUE;
                 }
-                j4 = j3 - j2;
-                if (j4 < 0) {
-                    RxJavaPlugins.onError(new IllegalStateException("More produced than requested: " + j4));
-                    j4 = 0L;
+                j3 = j2 - j;
+                if (j3 < 0) {
+                    RxJavaPlugins.onError(new IllegalStateException("More produced than requested: " + j3));
+                    j3 = 0L;
                 }
-            } while (!atomicLong.compareAndSet(j3, j4));
-            return j4;
+            } while (!atomicLong.compareAndSet(j2, j3));
+            return j3;
         }
         return invokeLJ.longValue;
     }

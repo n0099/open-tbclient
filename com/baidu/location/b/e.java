@@ -12,7 +12,7 @@ public class e implements Runnable {
     public final /* synthetic */ Location a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f33616b;
+    public final /* synthetic */ d f25918b;
 
     public e(d dVar, Location location) {
         Interceptable interceptable = $ic;
@@ -21,15 +21,15 @@ public class e implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar, location};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33616b = dVar;
+        this.f25918b = dVar;
         this.a = location;
     }
 
@@ -37,7 +37,7 @@ public class e implements Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f33616b.b(this.a);
+            this.f25918b.b(this.a);
         }
     }
 }

@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Point extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class OrientationMode {
         public static final /* synthetic */ OrientationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -43,16 +43,16 @@ public class Point extends TrackableBase {
             $VALUES = new OrientationMode[]{INITIALIZED_TO_IDENTITY, orientationMode};
         }
 
-        public OrientationMode(String str, int i2, int i3) {
+        public OrientationMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -61,22 +61,22 @@ public class Point extends TrackableBase {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static OrientationMode fromNumber(int i2) {
+        public static OrientationMode fromNumber(int i) {
             InterceptResult invokeI;
             OrientationMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (OrientationMode orientationMode : values()) {
-                    if (orientationMode.nativeCode == i2) {
+                    if (orientationMode.nativeCode == i) {
                         return orientationMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(69);
                 sb.append("Unexpected value for native Point Orientation Mode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (OrientationMode) invokeI.objValue;
@@ -96,17 +96,17 @@ public class Point extends TrackableBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Point(long j2, Session session) {
-        super(j2, session);
+    public Point(long j, Session session) {
+        super(j, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), session};
+            Object[] objArr = {Long.valueOf(j), session};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), (Session) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,9 +116,9 @@ public class Point extends TrackableBase {
         }
     }
 
-    private native int nativeGetOrientationMode(long j2, long j3);
+    private native int nativeGetOrientationMode(long j, long j2);
 
-    private native Pose nativeGetPose(long j2, long j3);
+    private native Pose nativeGetPose(long j, long j2);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Point() {
@@ -127,9 +127,9 @@ public class Point extends TrackableBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
                 newInitContext.thisArg = this;

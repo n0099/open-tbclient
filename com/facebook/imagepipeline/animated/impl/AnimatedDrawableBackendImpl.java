@@ -21,7 +21,7 @@ import com.facebook.imagepipeline.animated.base.AnimatedImageResult;
 import com.facebook.imagepipeline.animated.util.AnimatedDrawableUtil;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedDrawableUtil, animatedImageResult, rect, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,8 +69,8 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
         this.mRenderedBounds = getBoundsToUse(this.mAnimatedImage, rect);
         this.mDownscaleFrameToDrawableDimensions = z;
         this.mFrameInfos = new AnimatedDrawableFrameInfo[this.mAnimatedImage.getFrameCount()];
-        for (int i4 = 0; i4 < this.mAnimatedImage.getFrameCount(); i4++) {
-            this.mFrameInfos[i4] = this.mAnimatedImage.getFrameInfo(i4);
+        for (int i3 = 0; i3 < this.mAnimatedImage.getFrameCount(); i3++) {
+            this.mFrameInfos[i3] = this.mAnimatedImage.getFrameInfo(i3);
         }
     }
 
@@ -98,15 +98,15 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
         return (Rect) invokeLL.objValue;
     }
 
-    private synchronized void prepareTempBitmapForThisSize(int i2, int i3) {
+    private synchronized void prepareTempBitmapForThisSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
             synchronized (this) {
-                if (this.mTempBitmap != null && (this.mTempBitmap.getWidth() < i2 || this.mTempBitmap.getHeight() < i3)) {
+                if (this.mTempBitmap != null && (this.mTempBitmap.getWidth() < i || this.mTempBitmap.getHeight() < i2)) {
                     clearTempBitmap();
                 }
                 if (this.mTempBitmap == null) {
-                    this.mTempBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                    this.mTempBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                 }
                 this.mTempBitmap.eraseColor(0);
             }
@@ -196,10 +196,10 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getDurationMsForFrame(int i2) {
+    public int getDurationMsForFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.mFrameDurationsMs[i2] : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.mFrameDurationsMs[i] : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -217,17 +217,17 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameForTimestampMs(int i2) {
+    public int getFrameForTimestampMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mAnimatedDrawableUtil.getFrameForTimestampMs(this.mFrameTimestampsMs, i) : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.mFrameInfos[i2] : (AnimatedDrawableFrameInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.mFrameInfos[i] : (AnimatedDrawableFrameInfo) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -259,10 +259,10 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference<Bitmap> getPreDecodedFrame(int i2) {
+    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.mAnimatedImageResult.getDecodedFrame(i2) : (CloseableReference) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.mAnimatedImageResult.getDecodedFrame(i) : (CloseableReference) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -280,12 +280,12 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getTimestampMsForFrame(int i2) {
+    public int getTimestampMsForFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            Preconditions.checkElementIndex(i2, this.mFrameTimestampsMs.length);
-            return this.mFrameTimestampsMs[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            Preconditions.checkElementIndex(i, this.mFrameTimestampsMs.length);
+            return this.mFrameTimestampsMs[i];
         }
         return invokeI.intValue;
     }
@@ -298,17 +298,17 @@ public class AnimatedDrawableBackendImpl implements AnimatedDrawableBackend {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public boolean hasPreDecodedFrame(int i2) {
+    public boolean hasPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.mAnimatedImageResult.hasDecodedFrame(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mAnimatedImageResult.hasDecodedFrame(i) : invokeI.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public void renderFrame(int i2, Canvas canvas) {
+    public void renderFrame(int i, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i2, canvas) == null) {
-            AnimatedImageFrame frame = this.mAnimatedImage.getFrame(i2);
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, canvas) == null) {
+            AnimatedImageFrame frame = this.mAnimatedImage.getFrame(i);
             try {
                 if (this.mAnimatedImage.doesRenderSupportScaling()) {
                     renderImageSupportsScaling(canvas, frame);

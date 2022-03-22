@@ -1,16 +1,17 @@
 package com.ss.android.socialbase.downloader.c;
 
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+import android.util.Log;
+/* loaded from: classes7.dex */
 public class a {
     public static int a = 4;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AbstractC2195a f58447b;
+    public static AbstractC2056a f43178b;
 
     /* renamed from: com.ss.android.socialbase.downloader.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static abstract class AbstractC2195a {
+    /* loaded from: classes7.dex */
+    public static abstract class AbstractC2056a {
         public void a(String str, String str2) {
         }
 
@@ -30,8 +31,8 @@ public class a {
         }
     }
 
-    public static void a(int i2) {
-        a = i2;
+    public static void a(int i) {
+        a = i;
     }
 
     public static String b(String str) {
@@ -46,11 +47,11 @@ public class a {
             return;
         }
         if (a <= 4) {
-            b(str);
+            Log.i(b(str), str2);
         }
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.c(b(str), str2);
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.c(b(str), str2);
         }
     }
 
@@ -59,11 +60,11 @@ public class a {
             return;
         }
         if (a <= 5) {
-            b(str);
+            Log.w(b(str), str2);
         }
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.e(b(str), str2);
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.e(b(str), str2);
         }
     }
 
@@ -72,11 +73,11 @@ public class a {
             return;
         }
         if (a <= 6) {
-            b(str);
+            Log.e(b(str), str2);
         }
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.d(b(str), str2);
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.d(b(str), str2);
         }
     }
 
@@ -88,10 +89,12 @@ public class a {
         if (str2 == null) {
             return;
         }
-        int i2 = a;
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.a(b(str), str2);
+        if (a <= 2) {
+            Log.v(str, str2);
+        }
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.a(b(str), str2);
         }
     }
 
@@ -100,11 +103,11 @@ public class a {
             return;
         }
         if (a <= 3) {
-            b(str);
+            Log.d(b(str), str2);
         }
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.b(b(str), str2);
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.b(b(str), str2);
         }
     }
 
@@ -121,11 +124,11 @@ public class a {
             return;
         }
         if (a <= 6) {
-            b(str);
+            Log.e(b(str), str2, th);
         }
-        AbstractC2195a abstractC2195a = f58447b;
-        if (abstractC2195a != null) {
-            abstractC2195a.a(b(str), str2, th);
+        AbstractC2056a abstractC2056a = f43178b;
+        if (abstractC2056a != null) {
+            abstractC2056a.a(b(str), str2, th);
         }
     }
 }

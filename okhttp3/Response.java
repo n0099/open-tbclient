@@ -16,9 +16,8 @@ import okhttp3.Headers;
 import okhttp3.internal.http.HttpHeaders;
 import okio.Buffer;
 import okio.BufferedSource;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.auth.AUTH;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Response implements Closeable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +47,9 @@ public final class Response implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,10 +103,10 @@ public final class Response implements Closeable {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i2 = this.code;
-            if (i2 == 401) {
+            int i = this.code;
+            if (i == 401) {
                 str = AUTH.WWW_AUTH;
-            } else if (i2 != 407) {
+            } else if (i != 407) {
                 return Collections.emptyList();
             } else {
                 str = AUTH.PROXY_AUTH;
@@ -159,11 +158,11 @@ public final class Response implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i2 = this.code;
-            if (i2 == 307 || i2 == 308) {
+            int i = this.code;
+            if (i == 307 || i == 308) {
                 return true;
             }
-            switch (i2) {
+            switch (i) {
                 case 300:
                 case 301:
                 case 302:
@@ -180,8 +179,8 @@ public final class Response implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.code;
-            return i2 >= 200 && i2 < 300;
+            int i = this.code;
+            return i >= 200 && i < 300;
         }
         return invokeV.booleanValue;
     }
@@ -205,16 +204,16 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? new Builder(this) : (Builder) invokeV.objValue;
     }
 
-    public ResponseBody peekBody(long j2) throws IOException {
+    public ResponseBody peekBody(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
             BufferedSource source = this.body.source();
-            source.request(j2);
+            source.request(j);
             Buffer clone = source.buffer().clone();
-            if (clone.size() > j2) {
+            if (clone.size() > j) {
                 Buffer buffer = new Buffer();
-                buffer.write(clone, j2);
+                buffer.write(clone, j);
                 clone.clear();
                 clone = buffer;
             }
@@ -258,7 +257,7 @@ public final class Response implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + ExtendedMessageFormat.END_FE;
+            return "Response{protocol=" + this.protocol + ", code=" + this.code + ", message=" + this.message + ", url=" + this.request.url() + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -280,7 +279,7 @@ public final class Response implements Closeable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.headers : (Headers) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -303,9 +302,9 @@ public final class Response implements Closeable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -395,11 +394,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder code(int i2) {
+        public Builder code(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.code = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.code = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -481,11 +480,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder receivedResponseAtMillis(long j2) {
+        public Builder receivedResponseAtMillis(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j2)) == null) {
-                this.receivedResponseAtMillis = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
+                this.receivedResponseAtMillis = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -511,11 +510,11 @@ public final class Response implements Closeable {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder sentRequestAtMillis(long j2) {
+        public Builder sentRequestAtMillis(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j2)) == null) {
-                this.sentRequestAtMillis = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048591, this, j)) == null) {
+                this.sentRequestAtMillis = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -528,9 +527,9 @@ public final class Response implements Closeable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {response};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

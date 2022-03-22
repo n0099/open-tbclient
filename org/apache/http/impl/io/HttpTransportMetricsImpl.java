@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.io.HttpTransportMetrics;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HttpTransportMetricsImpl implements HttpTransportMetrics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,9 +39,9 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         return invokeV.longValue;
     }
 
-    public void incrementBytesTransferred(long j2) {
+    public void incrementBytesTransferred(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -54,9 +54,9 @@ public class HttpTransportMetricsImpl implements HttpTransportMetrics {
         }
     }
 
-    public void setBytesTransferred(long j2) {
+    public void setBytesTransferred(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             throw new RuntimeException("Stub!");
         }
     }

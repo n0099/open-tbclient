@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LimitedInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,17 +17,17 @@ public class LimitedInputStream extends FilterInputStream {
     public int mBytesToReadWhenMarked;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LimitedInputStream(InputStream inputStream, int i2) {
+    public LimitedInputStream(InputStream inputStream, int i) {
         super(inputStream);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, Integer.valueOf(i2)};
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,8 +37,8 @@ public class LimitedInputStream extends FilterInputStream {
         if (inputStream == null) {
             throw null;
         }
-        if (i2 >= 0) {
-            this.mBytesToRead = i2;
+        if (i >= 0) {
+            this.mBytesToRead = i;
             this.mBytesToReadWhenMarked = -1;
             return;
         }
@@ -53,10 +53,10 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i2) {
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) && ((FilterInputStream) this).in.markSupported()) {
-            ((FilterInputStream) this).in.mark(i2);
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
+            ((FilterInputStream) this).in.mark(i);
             this.mBytesToReadWhenMarked = this.mBytesToRead;
         }
     }
@@ -95,11 +95,11 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public long skip(long j2) throws IOException {
+    public long skip(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-            long skip = ((FilterInputStream) this).in.skip(Math.min(j2, this.mBytesToRead));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+            long skip = ((FilterInputStream) this).in.skip(Math.min(j, this.mBytesToRead));
             this.mBytesToRead = (int) (this.mBytesToRead - skip);
             return skip;
         }
@@ -107,15 +107,15 @@ public class LimitedInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            int i4 = this.mBytesToRead;
-            if (i4 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int i3 = this.mBytesToRead;
+            if (i3 == 0) {
                 return -1;
             }
-            int read = ((FilterInputStream) this).in.read(bArr, i2, Math.min(i3, i4));
+            int read = ((FilterInputStream) this).in.read(bArr, i, Math.min(i2, i3));
             if (read > 0) {
                 this.mBytesToRead -= read;
             }

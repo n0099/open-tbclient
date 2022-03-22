@@ -7,7 +7,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface NSPVI extends LADI {
     public static final Map<String, String> ext = new HashMap();
 
@@ -28,13 +28,13 @@ public interface NSPVI extends LADI {
     void setAdListener(ADListener aDListener);
 
     @Deprecated
-    void setAdLogoMargin(int i2, int i3);
+    void setAdLogoMargin(int i, int i2);
 
-    void setDeveloperLogo(int i2);
+    void setDeveloperLogo(int i);
 
     void setDeveloperLogo(byte[] bArr);
 
-    void setFetchDelay(int i2);
+    void setFetchDelay(int i);
 
     void setFloatView(View view);
 

@@ -50,9 +50,9 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
             newInitContext.initArgs = r2;
             Object[] objArr = {continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -105,9 +105,9 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
         String str;
         Function1 sClient$loopProbe$2$handleData$1;
         SClient$loopProbe$2 sClient$loopProbe$2;
-        long j2;
+        long j;
         Integer[] numArr;
-        int i2;
+        int i;
         DatagramSocket datagramSocket;
         Throwable th;
         Object obj2;
@@ -119,10 +119,10 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
             return invokeL.objValue;
         }
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i3 = this.label;
-        long j3 = 0;
-        int i4 = 0;
-        if (i3 == 0) {
+        int i2 = this.label;
+        long j2 = 0;
+        int i3 = 0;
+        if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
             androidOperationInterface = SClient.ai;
             if (androidOperationInterface != null) {
@@ -135,22 +135,22 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
             InetSocketAddress inetSocketAddress = new InetSocketAddress((String) StringsKt__StringsKt.split$default((CharSequence) str, new String[]{":"}, false, 0, 6, (Object) null).get(0), 8018);
             byte[] bArr = new byte[1];
             Integer[] numArr2 = new Integer[10];
-            for (int i5 = 0; i5 < 10; i5++) {
-                numArr2[i5] = Boxing.boxInt(0);
+            for (int i4 = 0; i4 < 10; i4++) {
+                numArr2[i4] = Boxing.boxInt(0);
             }
             sClient$loopProbe$2$handleData$1 = new SClient$loopProbe$2$handleData$1(bArr, inetSocketAddress, numArr2, 10);
             sClient$loopProbe$2 = this;
-            j2 = 0;
+            j = 0;
             numArr = numArr2;
-            i2 = 10;
+            i = 10;
             z = SClient.looping;
             if (z) {
             }
-        } else if (i3 != 1) {
+        } else if (i2 != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
-            j2 = this.J$0;
-            i2 = this.I$0;
+            j = this.J$0;
+            i = this.I$0;
             sClient$loopProbe$2$handleData$1 = (Function1) this.L$1;
             numArr = (Integer[]) this.L$0;
             try {
@@ -165,16 +165,16 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                 SClient.looping = false;
                 th.printStackTrace();
                 coroutine_suspended = obj2;
-                j3 = 0;
-                i4 = 0;
+                j2 = 0;
+                i3 = 0;
                 z = SClient.looping;
                 if (z) {
                 }
             }
-            j2++;
+            j++;
             coroutine_suspended = obj2;
-            j3 = 0;
-            i4 = 0;
+            j2 = 0;
+            i3 = 0;
             z = SClient.looping;
             if (z) {
                 try {
@@ -185,26 +185,26 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                     SClient.looping = false;
                     th.printStackTrace();
                     coroutine_suspended = obj2;
-                    j3 = 0;
-                    i4 = 0;
+                    j2 = 0;
+                    i3 = 0;
                     z = SClient.looping;
                     if (z) {
                     }
                 }
-                ArraysKt___ArraysJvmKt.fill(numArr, Boxing.boxInt(i4), i4, i2 - 1);
-                long j4 = j3;
-                if (i2 > 0) {
-                    int i6 = 0;
+                ArraysKt___ArraysJvmKt.fill(numArr, Boxing.boxInt(i3), i3, i - 1);
+                long j3 = j2;
+                if (i > 0) {
+                    int i5 = 0;
                     while (true) {
-                        int i7 = i6 + 1;
-                        long longValue = ((Number) sClient$loopProbe$2$handleData$1.invoke(UByte.m725boximpl(UByte.m731constructorimpl((byte) i6)))).longValue();
-                        if (longValue != j3) {
-                            j4 += longValue;
+                        int i6 = i5 + 1;
+                        long longValue = ((Number) sClient$loopProbe$2$handleData$1.invoke(UByte.m704boximpl(UByte.m710constructorimpl((byte) i5)))).longValue();
+                        if (longValue != j2) {
+                            j3 += longValue;
                         }
-                        if (i7 >= i2) {
+                        if (i6 >= i) {
                             break;
                         }
-                        i6 = i7;
+                        i5 = i6;
                     }
                 }
                 int sumOfInt = ArraysKt___ArraysKt.sumOfInt(numArr);
@@ -215,22 +215,22 @@ public final class SClient$loopProbe$2 extends SuspendLambda implements Function
                 } else {
                     obj3 = coroutine_suspended;
                     TornadoLiteRuntime.INSTANCE.setLossRateFromMClientToSClient$tun2tornadolite_release((int) (((1000 - (sumOfInt * 100)) / 1000.0d) * 100));
-                    TornadoLiteRuntime.INSTANCE.setLatencyFromMClientToSClient$tun2tornadolite_release((int) (((float) j4) / sumOfInt));
+                    TornadoLiteRuntime.INSTANCE.setLatencyFromMClientToSClient$tun2tornadolite_release((int) (((float) j3) / sumOfInt));
                 }
-                LogTo.INSTANCE.d("*****", "[Probe " + j2 + "] packets:" + sumOfInt + WebvttCueParser.CHAR_SLASH + i2 + " loss:" + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() + " latency:" + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
+                LogTo.INSTANCE.d("*****", "[Probe " + j + "] packets:" + sumOfInt + WebvttCueParser.CHAR_SLASH + i + " loss:" + TornadoLiteRuntime.INSTANCE.getLossRateFromMClientToSClient() + " latency:" + TornadoLiteRuntime.INSTANCE.getLatencyFromMClientToSClient());
                 sClient$loopProbe$2.L$0 = numArr;
                 sClient$loopProbe$2.L$1 = sClient$loopProbe$2$handleData$1;
-                sClient$loopProbe$2.I$0 = i2;
-                sClient$loopProbe$2.J$0 = j2;
+                sClient$loopProbe$2.I$0 = i;
+                sClient$loopProbe$2.J$0 = j;
                 sClient$loopProbe$2.label = 1;
                 obj2 = obj3;
                 if (DelayKt.delay(5000L, sClient$loopProbe$2) == obj2) {
                     return obj2;
                 }
-                j2++;
+                j++;
                 coroutine_suspended = obj2;
-                j3 = 0;
-                i4 = 0;
+                j2 = 0;
+                i3 = 0;
                 z = SClient.looping;
                 if (z) {
                     datagramSocket2 = SClient.udpSocket;

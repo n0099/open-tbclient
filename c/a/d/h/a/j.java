@@ -21,9 +21,9 @@ public abstract class j extends c {
 
     /* loaded from: classes.dex */
     public interface a {
-        void drawWhenPathAvailable(Canvas canvas);
+        Path a(RectF rectF);
 
-        Path makePath(RectF rectF);
+        void b(Canvas canvas);
     }
 
     public j() {
@@ -31,9 +31,9 @@ public abstract class j extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,15 +46,15 @@ public abstract class j extends c {
 
     @Override // c.a.d.h.a.a
     public void c(d dVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path makePath;
+        Path a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, dVar, imageView, scaleType) == null) {
             super.c(dVar, imageView, scaleType);
             a aVar = this.t;
-            if (aVar == null || (makePath = aVar.makePath(j())) == null) {
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
                 return;
             }
-            this.r.set(makePath);
+            this.r.set(a2);
             if (this.s == null) {
                 Paint paint = new Paint();
                 this.s = paint;
@@ -77,7 +77,7 @@ public abstract class j extends c {
                 canvas.drawPath(this.r, this.s);
                 a aVar = this.t;
                 if (aVar != null) {
-                    aVar.drawWhenPathAvailable(canvas);
+                    aVar.b(canvas);
                 }
             }
         }

@@ -45,9 +45,9 @@ public final class StringUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -64,11 +64,12 @@ public final class StringUtils {
             }
             int length = bArr2.length;
             boolean z = true;
-            int i2 = 0;
+            int i = 0;
             boolean z2 = bArr2.length > 3 && bArr2[0] == -17 && bArr2[1] == -69 && bArr2[2] == -65;
-            int i3 = 0;
+            int i2 = 0;
             boolean z3 = true;
             boolean z4 = true;
+            int i3 = 0;
             int i4 = 0;
             int i5 = 0;
             int i6 = 0;
@@ -78,28 +79,27 @@ public final class StringUtils {
             int i10 = 0;
             int i11 = 0;
             int i12 = 0;
-            int i13 = 0;
-            while (i4 < length && (z || z3 || z4)) {
-                int i14 = bArr2[i4] & 255;
+            while (i3 < length && (z || z3 || z4)) {
+                int i13 = bArr2[i3] & 255;
                 if (z4) {
-                    if (i5 > 0) {
-                        if ((i14 & 128) != 0) {
-                            i5--;
+                    if (i4 > 0) {
+                        if ((i13 & 128) != 0) {
+                            i4--;
                         }
                         z4 = false;
-                    } else if ((i14 & 128) != 0) {
-                        if ((i14 & 64) != 0) {
-                            i5++;
-                            if ((i14 & 32) == 0) {
-                                i7++;
+                    } else if ((i13 & 128) != 0) {
+                        if ((i13 & 64) != 0) {
+                            i4++;
+                            if ((i13 & 32) == 0) {
+                                i6++;
                             } else {
-                                i5++;
-                                if ((i14 & 16) == 0) {
-                                    i8++;
+                                i4++;
+                                if ((i13 & 16) == 0) {
+                                    i7++;
                                 } else {
-                                    i5++;
-                                    if ((i14 & 8) == 0) {
-                                        i9++;
+                                    i4++;
+                                    if ((i13 & 8) == 0) {
+                                        i8++;
                                     }
                                 }
                             }
@@ -108,59 +108,59 @@ public final class StringUtils {
                     }
                 }
                 if (z) {
-                    if (i14 > 127 && i14 < 160) {
+                    if (i13 > 127 && i13 < 160) {
                         z = false;
-                    } else if (i14 > 159 && (i14 < 192 || i14 == 215 || i14 == 247)) {
-                        i11++;
+                    } else if (i13 > 159 && (i13 < 192 || i13 == 215 || i13 == 247)) {
+                        i10++;
                     }
                 }
                 if (z3) {
-                    if (i6 > 0) {
-                        if (i14 >= 64 && i14 != 127 && i14 <= 252) {
-                            i6--;
+                    if (i5 > 0) {
+                        if (i13 >= 64 && i13 != 127 && i13 <= 252) {
+                            i5--;
                         }
                         z3 = false;
                     } else {
-                        if (i14 != 128 && i14 != 160 && i14 <= 239) {
-                            if (i14 <= 160 || i14 >= 224) {
-                                if (i14 > 127) {
-                                    i6++;
-                                    int i15 = i12 + 1;
-                                    if (i15 > i2) {
-                                        i2 = i15;
-                                        i12 = i2;
+                        if (i13 != 128 && i13 != 160 && i13 <= 239) {
+                            if (i13 <= 160 || i13 >= 224) {
+                                if (i13 > 127) {
+                                    i5++;
+                                    int i14 = i11 + 1;
+                                    if (i14 > i) {
+                                        i = i14;
+                                        i11 = i;
                                     } else {
-                                        i12 = i15;
+                                        i11 = i14;
                                     }
                                 } else {
-                                    i12 = 0;
-                                }
-                                i13 = 0;
-                            } else {
-                                i3++;
-                                int i16 = i13 + 1;
-                                if (i16 > i10) {
-                                    i10 = i16;
-                                    i13 = i10;
-                                } else {
-                                    i13 = i16;
+                                    i11 = 0;
                                 }
                                 i12 = 0;
+                            } else {
+                                i2++;
+                                int i15 = i12 + 1;
+                                if (i15 > i9) {
+                                    i9 = i15;
+                                    i12 = i9;
+                                } else {
+                                    i12 = i15;
+                                }
+                                i11 = 0;
                             }
                         }
                         z3 = false;
                     }
                 }
-                i4++;
+                i3++;
                 bArr2 = bArr;
             }
-            if (z4 && i5 > 0) {
+            if (z4 && i4 > 0) {
                 z4 = false;
             }
-            if (z3 && i6 > 0) {
+            if (z3 && i5 > 0) {
                 z3 = false;
             }
-            return (!z4 || (!z2 && (i7 + i8) + i9 <= 0)) ? (!z3 || (!ASSUME_SHIFT_JIS && i10 < 3 && i2 < 3)) ? (z && z3) ? (!(i10 == 2 && i3 == 2) && i11 * 10 < length) ? ISO88591 : SHIFT_JIS : z ? ISO88591 : z3 ? SHIFT_JIS : z4 ? UTF8 : PLATFORM_DEFAULT_ENCODING : SHIFT_JIS : UTF8;
+            return (!z4 || (!z2 && (i6 + i7) + i8 <= 0)) ? (!z3 || (!ASSUME_SHIFT_JIS && i9 < 3 && i < 3)) ? (z && z3) ? (!(i9 == 2 && i2 == 2) && i10 * 10 < length) ? ISO88591 : SHIFT_JIS : z ? ISO88591 : z3 ? SHIFT_JIS : z4 ? UTF8 : PLATFORM_DEFAULT_ENCODING : SHIFT_JIS : UTF8;
         }
         return (String) invokeLL.objValue;
     }

@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.Signature;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.ar.plugin.helper.ActivityThreadCompat;
 import com.baidu.ar.plugin.helper.CompatibilityInfoCompat;
@@ -62,9 +63,9 @@ public class PluginManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -134,6 +135,7 @@ public class PluginManager {
                             try {
                                 dexClassLoader = new DexClassLoader(str2, pluginDalvikCacheDir, pluginNativeLibraryDir, this.mContext.getClassLoader().getParent());
                             } catch (Exception unused) {
+                                Log.i("andrew", "load classloader exeception!!!!");
                             }
                             if (dexClassLoader == null) {
                                 PluginDirHelper.cleanOptimizedDirectory(pluginDalvikCacheDir);
@@ -159,12 +161,12 @@ public class PluginManager {
         if (!(interceptable == null || interceptable.invokeL(65542, this, packageInfo) == null) || packageInfo == null || (signatureArr = packageInfo.signatures) == null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         for (Signature signature : signatureArr) {
-            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i2));
+            File file = new File(PluginDirHelper.getPluginSignatureFile(this.mContext, packageInfo.packageName, i));
             try {
                 Utils.writeToFile(file, signature.toByteArray());
-                i2++;
+                i++;
             } catch (Exception e2) {
                 e2.printStackTrace();
                 file.delete();

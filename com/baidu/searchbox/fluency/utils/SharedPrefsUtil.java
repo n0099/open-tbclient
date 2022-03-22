@@ -54,9 +54,9 @@ public class SharedPrefsUtil {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                     }
@@ -81,9 +81,9 @@ public class SharedPrefsUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -98,9 +98,9 @@ public class SharedPrefsUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -125,16 +125,16 @@ public class SharedPrefsUtil {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? FpsPreferences.getInstance() : (SharedPrefsWrapper) invokeV.objValue;
     }
 
-    public static int getInt(String str, int i2) {
+    public static int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) ? getFpsPreference().getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) ? getFpsPreference().getInt(str, i) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j2) {
+    public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j2)) == null) ? getFpsPreference().getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, str, j)) == null) ? getFpsPreference().getLong(str, j) : invokeLJ.longValue;
     }
 
     public static String getString(String str, String str2) {
@@ -150,17 +150,17 @@ public class SharedPrefsUtil {
         }
     }
 
-    public static void putInt(String str, int i2) {
+    public static void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, str, i2) == null) {
-            getFpsPreference().putInt(str, i2);
+        if (interceptable == null || interceptable.invokeLI(65544, null, str, i) == null) {
+            getFpsPreference().putInt(str, i);
         }
     }
 
-    public static void putLong(String str, long j2) {
+    public static void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65545, null, str, j2) == null) {
-            getFpsPreference().putLong(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(65545, null, str, j) == null) {
+            getFpsPreference().putLong(str, j);
         }
     }
 

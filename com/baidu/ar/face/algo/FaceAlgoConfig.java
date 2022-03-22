@@ -35,16 +35,16 @@ public class FaceAlgoConfig {
     public float trackingSmoothAlpha;
     public float trackingSmoothThreshold;
 
-    public FaceAlgoConfig(int i2) {
+    public FaceAlgoConfig(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,19 +71,19 @@ public class FaceAlgoConfig {
         this.needRefineMouth = false;
         this.needExpression = false;
         this.debug = false;
-        this.trackingRotation = i2;
+        this.trackingRotation = i;
     }
 
-    public FaceAlgoConfig(int i2, int i3, float f2, float f3) {
+    public FaceAlgoConfig(int i, int i2, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -110,8 +110,8 @@ public class FaceAlgoConfig {
         this.needRefineMouth = false;
         this.needExpression = false;
         this.debug = false;
-        this.trackingRotation = i2;
-        this.failureThreshold = i3;
+        this.trackingRotation = i;
+        this.failureThreshold = i2;
         this.trackingSmoothAlpha = f2;
         this.trackingSmoothThreshold = f3;
     }
@@ -168,10 +168,10 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setFailureThreshold(int i2) {
+    public void setFailureThreshold(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.failureThreshold = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.failureThreshold = i;
         }
     }
 
@@ -189,10 +189,10 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setMaxTrackingFace(int i2) {
+    public void setMaxTrackingFace(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.maxTrackingFace = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.maxTrackingFace = i;
         }
     }
 
@@ -246,10 +246,10 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setRunningMode(int i2) {
+    public void setRunningMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.runningMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.runningMode = i;
         }
     }
 
@@ -267,10 +267,10 @@ public class FaceAlgoConfig {
         }
     }
 
-    public void setTrackingRT(int i2) {
+    public void setTrackingRT(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.trackingRotation = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.trackingRotation = i;
         }
     }
 

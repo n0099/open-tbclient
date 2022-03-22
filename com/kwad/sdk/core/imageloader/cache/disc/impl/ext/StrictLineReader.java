@@ -17,11 +17,11 @@ public class StrictLineReader implements Closeable {
     public final InputStream in;
     public int pos;
 
-    public StrictLineReader(InputStream inputStream, int i2, Charset charset) {
+    public StrictLineReader(InputStream inputStream, int i, Charset charset) {
         if (inputStream == null || charset == null) {
             throw null;
         }
-        if (i2 < 0) {
+        if (i < 0) {
             throw new IllegalArgumentException("capacity <= 0");
         }
         if (!charset.equals(Util.US_ASCII)) {
@@ -29,7 +29,7 @@ public class StrictLineReader implements Closeable {
         }
         this.in = inputStream;
         this.charset = charset;
-        this.buf = new byte[i2];
+        this.buf = new byte[i];
     }
 
     public StrictLineReader(InputStream inputStream, Charset charset) {
@@ -58,35 +58,35 @@ public class StrictLineReader implements Closeable {
     }
 
     public String readLine() {
+        int i;
         int i2;
-        int i3;
         synchronized (this.in) {
             if (this.buf != null) {
                 if (this.pos >= this.end) {
                     fillBuf();
                 }
-                for (int i4 = this.pos; i4 != this.end; i4++) {
-                    if (this.buf[i4] == 10) {
-                        if (i4 != this.pos) {
-                            i3 = i4 - 1;
-                            if (this.buf[i3] == 13) {
-                                String str = new String(this.buf, this.pos, i3 - this.pos, this.charset.name());
-                                this.pos = i4 + 1;
+                for (int i3 = this.pos; i3 != this.end; i3++) {
+                    if (this.buf[i3] == 10) {
+                        if (i3 != this.pos) {
+                            i2 = i3 - 1;
+                            if (this.buf[i2] == 13) {
+                                String str = new String(this.buf, this.pos, i2 - this.pos, this.charset.name());
+                                this.pos = i3 + 1;
                                 return str;
                             }
                         }
-                        i3 = i4;
-                        String str2 = new String(this.buf, this.pos, i3 - this.pos, this.charset.name());
-                        this.pos = i4 + 1;
+                        i2 = i3;
+                        String str2 = new String(this.buf, this.pos, i2 - this.pos, this.charset.name());
+                        this.pos = i3 + 1;
                         return str2;
                     }
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream((this.end - this.pos) + 80) { // from class: com.kwad.sdk.core.imageloader.cache.disc.impl.ext.StrictLineReader.1
                     @Override // java.io.ByteArrayOutputStream
                     public String toString() {
-                        int i5 = ((ByteArrayOutputStream) this).count;
+                        int i4 = ((ByteArrayOutputStream) this).count;
                         try {
-                            return new String(((ByteArrayOutputStream) this).buf, 0, (i5 <= 0 || ((ByteArrayOutputStream) this).buf[i5 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i5 - 1, StrictLineReader.this.charset.name());
+                            return new String(((ByteArrayOutputStream) this).buf, 0, (i4 <= 0 || ((ByteArrayOutputStream) this).buf[i4 + (-1)] != 13) ? ((ByteArrayOutputStream) this).count : i4 - 1, StrictLineReader.this.charset.name());
                         } catch (UnsupportedEncodingException e2) {
                             throw new AssertionError(e2);
                         }
@@ -96,18 +96,18 @@ public class StrictLineReader implements Closeable {
                     byteArrayOutputStream.write(this.buf, this.pos, this.end - this.pos);
                     this.end = -1;
                     fillBuf();
-                    i2 = this.pos;
-                    while (i2 != this.end) {
-                        if (this.buf[i2] == 10) {
+                    i = this.pos;
+                    while (i != this.end) {
+                        if (this.buf[i] == 10) {
                             break loop1;
                         }
-                        i2++;
+                        i++;
                     }
                 }
-                if (i2 != this.pos) {
-                    byteArrayOutputStream.write(this.buf, this.pos, i2 - this.pos);
+                if (i != this.pos) {
+                    byteArrayOutputStream.write(this.buf, this.pos, i - this.pos);
                 }
-                this.pos = i2 + 1;
+                this.pos = i + 1;
                 return byteArrayOutputStream.toString();
             }
             throw new IOException("LineReader is closed");

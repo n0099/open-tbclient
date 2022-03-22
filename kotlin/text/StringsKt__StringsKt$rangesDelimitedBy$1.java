@@ -7,7 +7,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\u0010\r\n\u0002\b\u0002\u0010\u0000\u001a\u0010\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u0002\u0018\u00010\u0001*\u00020\u00032\u0006\u0010\u0004\u001a\u00020\u0002H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "Lkotlin/Pair;", "", "", "currentIndex", "invoke"}, k = 3, mv = {1, 5, 1})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class StringsKt__StringsKt$rangesDelimitedBy$1 extends Lambda implements Function2<CharSequence, Integer, Pair<? extends Integer, ? extends Integer>> {
     public final /* synthetic */ char[] $delimiters;
     public final /* synthetic */ boolean $ignoreCase;
@@ -26,9 +26,9 @@ public final class StringsKt__StringsKt$rangesDelimitedBy$1 extends Lambda imple
         return invoke(charSequence, num.intValue());
     }
 
-    public final Pair<Integer, Integer> invoke(CharSequence receiver, int i2) {
+    public final Pair<Integer, Integer> invoke(CharSequence receiver, int i) {
         Intrinsics.checkNotNullParameter(receiver, "$receiver");
-        int indexOfAny = StringsKt__StringsKt.indexOfAny(receiver, this.$delimiters, i2, this.$ignoreCase);
+        int indexOfAny = StringsKt__StringsKt.indexOfAny(receiver, this.$delimiters, i, this.$ignoreCase);
         if (indexOfAny < 0) {
             return null;
         }

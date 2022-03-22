@@ -9,51 +9,51 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.regex.Pattern;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class m {
     public static final byte[] a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f57153b = new String[0];
+    public static final String[] f41992b = new String[0];
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f57154c = Charset.forName("UTF-8");
+    public static final Charset f41993c = Charset.forName("UTF-8");
 
     /* renamed from: d  reason: collision with root package name */
-    public static final TimeZone f57155d = TimeZone.getTimeZone("GMT");
+    public static final TimeZone f41994d = TimeZone.getTimeZone("GMT");
 
     /* renamed from: e  reason: collision with root package name */
-    public static final Pattern f57156e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    public static final Pattern f41995e = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
 
-    public static int a(String str, int i2, int i3) {
-        while (i2 < i3) {
-            char charAt = str.charAt(i2);
+    public static int a(String str, int i, int i2) {
+        while (i < i2) {
+            char charAt = str.charAt(i);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i2;
+                return i;
             }
-            i2++;
+            i++;
         }
-        return i3;
+        return i2;
     }
 
-    public static int a(String str, int i2, int i3, char c2) {
-        while (i2 < i3) {
-            if (str.charAt(i2) == c2) {
-                return i2;
+    public static int a(String str, int i, int i2, char c2) {
+        while (i < i2) {
+            if (str.charAt(i) == c2) {
+                return i;
             }
-            i2++;
+            i++;
         }
-        return i3;
+        return i2;
     }
 
-    public static int a(String str, int i2, int i3, String str2) {
-        while (i2 < i3) {
-            if (str2.indexOf(str.charAt(i2)) != -1) {
-                return i2;
+    public static int a(String str, int i, int i2, String str2) {
+        while (i < i2) {
+            if (str2.indexOf(str.charAt(i)) != -1) {
+                return i;
             }
-            i2++;
+            i++;
         }
-        return i3;
+        return i2;
     }
 
     public static String a(String str) {
@@ -75,8 +75,8 @@ public class m {
         return Collections.unmodifiableList(new ArrayList(list));
     }
 
-    public static void a(long j2, long j3, long j4) {
-        if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+    public static void a(long j, long j2, long j3) {
+        if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
@@ -92,19 +92,19 @@ public class m {
         }
     }
 
-    public static int b(String str, int i2, int i3) {
-        for (int i4 = i3 - 1; i4 >= i2; i4--) {
-            char charAt = str.charAt(i4);
+    public static int b(String str, int i, int i2) {
+        for (int i3 = i2 - 1; i3 >= i; i3--) {
+            char charAt = str.charAt(i3);
             if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                return i4 + 1;
+                return i3 + 1;
             }
         }
-        return i2;
+        return i;
     }
 
     public static boolean b(String str) {
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            char charAt = str.charAt(i2);
+        for (int i = 0; i < str.length(); i++) {
+            char charAt = str.charAt(i);
             if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                 return true;
             }

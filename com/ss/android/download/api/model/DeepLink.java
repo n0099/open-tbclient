@@ -1,7 +1,7 @@
 package com.ss.android.download.api.model;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DeepLink {
     public long id;
     public JSONObject json;
@@ -49,8 +49,8 @@ public class DeepLink {
         this.mCloudGameUrl = str;
     }
 
-    public void setId(long j2) {
-        this.id = j2;
+    public void setId(long j) {
+        this.id = j;
     }
 
     public void setJson(JSONObject jSONObject) {

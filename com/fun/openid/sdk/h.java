@@ -1,13 +1,14 @@
 package com.fun.openid.sdk;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.openid.sdk.f;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class h implements f {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +18,9 @@ public class h implements f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,12 +32,14 @@ public class h implements f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, aVar) == null) {
             String str = null;
-            if (!((n.f52908b == null || n.a == null) ? false : true)) {
-                FunOpenIDSdk.isLogEnabled();
+            if (!((n.f38669b == null || n.a == null) ? false : true)) {
+                if (FunOpenIDSdk.isLogEnabled()) {
+                    Log.e(FunOpenIDSdk.TAG, "当前设备不支持获取OAID");
+                }
                 aVar.a(false, null);
                 return;
             }
-            Method method = n.f52909c;
+            Method method = n.f38670c;
             Object obj = n.a;
             if (obj != null && method != null) {
                 try {
@@ -44,7 +47,8 @@ public class h implements f {
                     if (invoke != null) {
                         str = (String) invoke;
                     }
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e("IdentifierManager", "invoke exception!", e2);
                 }
             }
             aVar.a(true, str);

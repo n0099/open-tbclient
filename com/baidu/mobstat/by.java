@@ -18,19 +18,19 @@ public interface by {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f35199b;
+        public static final a f27336b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f35200c;
+        public static final a f27337c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f35201d;
+        public static final a f27338d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f35202e;
+        public static final a f27339e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f35203f;
+        public static final /* synthetic */ a[] f27340f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -47,24 +47,24 @@ public interface by {
                 }
             }
             a = new a("NOT_YET_CONNECTED", 0);
-            f35199b = new a("CONNECTING", 1);
-            f35200c = new a("OPEN", 2);
-            f35201d = new a("CLOSING", 3);
+            f27336b = new a("CONNECTING", 1);
+            f27337c = new a("OPEN", 2);
+            f27338d = new a("CLOSING", 3);
             a aVar = new a("CLOSED", 4);
-            f35202e = aVar;
-            f35203f = new a[]{a, f35199b, f35200c, f35201d, aVar};
+            f27339e = aVar;
+            f27340f = new a[]{a, f27336b, f27337c, f27338d, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -83,7 +83,7 @@ public interface by {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f35203f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f27340f.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -94,7 +94,7 @@ public interface by {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ b[] f35204b;
+        public static final /* synthetic */ b[] f27341b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -112,19 +112,19 @@ public interface by {
             }
             b bVar = new b("CLIENT", 0);
             a = bVar;
-            f35204b = new b[]{bVar};
+            f27341b = new b[]{bVar};
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -143,7 +143,7 @@ public interface by {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f35204b.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f27341b.clone() : (b[]) invokeV.objValue;
         }
     }
 

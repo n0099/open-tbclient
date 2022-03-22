@@ -13,8 +13,8 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f40526h;
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f31262d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public NoActiveStopAlaPlayAnimationView(Context context) {
@@ -25,16 +25,16 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40526h = false;
+        this.f31262d = false;
     }
 
     @Override // com.baidu.tieba.view.AlaPlayAnimationView, android.widget.ImageView, android.view.View
@@ -42,10 +42,10 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             super.onAttachedToWindow();
-            if (this.f40526h) {
+            if (this.f31262d) {
                 return;
             }
-            startPlayAnimation();
+            b();
         }
     }
 
@@ -60,7 +60,7 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
     public void setFromSpecialForum(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f40526h = z;
+            this.f31262d = z;
         }
     }
 
@@ -73,9 +73,9 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -83,6 +83,6 @@ public class NoActiveStopAlaPlayAnimationView extends AlaPlayAnimationView {
                 return;
             }
         }
-        this.f40526h = false;
+        this.f31262d = false;
     }
 }

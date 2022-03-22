@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import javax.crypto.Cipher;
@@ -23,13 +24,13 @@ public class j {
     public IvParameterSpec a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SecretKeySpec f33651b;
+    public SecretKeySpec f25948b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Cipher f33652c;
+    public Cipher f25949c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f33653d;
+    public boolean f25950d;
 
     /* renamed from: com.baidu.location.b.j$1  reason: invalid class name */
     /* loaded from: classes4.dex */
@@ -66,25 +67,25 @@ public class j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33653d = false;
+        this.f25950d = false;
         try {
             String str = Jni.getldkaiv();
             if (str == null || !str.contains("|")) {
                 return;
             }
-            String[] split = str.split("\\|");
+            String[] split = str.split(WebChromeClient.PARAM_SEPARATOR);
             this.a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f33651b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
-            this.f33652c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-            this.f33653d = true;
+            this.f25948b = new SecretKeySpec(split[0].getBytes("UTF-8"), "AES");
+            this.f25949c = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            this.f25950d = true;
         } catch (UnsupportedEncodingException e2) {
             e2.printStackTrace();
         } catch (NoSuchAlgorithmException e3) {
@@ -108,10 +109,10 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.f33653d) {
+            if (this.f25950d) {
                 try {
-                    this.f33652c.init(2, this.f33651b, this.a);
-                    return new String(this.f33652c.doFinal(Base64.decode(str, 0)), "UTF-8");
+                    this.f25949c.init(2, this.f25948b, this.a);
+                    return new String(this.f25949c.doFinal(Base64.decode(str, 0)), "UTF-8");
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -125,6 +126,6 @@ public class j {
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33653d : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25950d : invokeV.booleanValue;
     }
 }

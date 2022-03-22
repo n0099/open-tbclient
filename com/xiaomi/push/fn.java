@@ -3,10 +3,11 @@ package com.xiaomi.push;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.kuaishou.weapon.un.w0;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class fn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +56,10 @@ public class fn {
                 if (message.indexOf("No route to host") != -1) {
                     return 104;
                 }
-                return message.endsWith("EINVAL (Invalid argument)") ? 106 : 199;
+                if (message.endsWith("EINVAL (Invalid argument)")) {
+                    return 106;
+                }
+                return w0.b1;
             }
         }
         return invokeL.intValue;

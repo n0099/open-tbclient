@@ -2,6 +2,7 @@ package androidx.core.view;
 
 import android.graphics.Rect;
 import android.os.Build;
+import android.util.Log;
 import android.view.WindowInsets;
 import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
@@ -44,9 +45,9 @@ public class WindowInsetsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((WindowInsetsCompat) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -105,9 +106,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -130,9 +131,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -230,10 +231,10 @@ public class WindowInsetsCompat {
         }
 
         @NonNull
-        public WindowInsetsCompat inset(int i2, int i3, int i4, int i5) {
+        public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048587, this, i2, i3, i4, i5)) == null) ? WindowInsetsCompat.CONSUMED : (WindowInsetsCompat) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048587, this, i, i2, i3, i4)) == null) ? WindowInsetsCompat.CONSUMED : (WindowInsetsCompat) invokeIIII.objValue;
         }
 
         public boolean isConsumed() {
@@ -270,9 +271,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, windowInsets};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (WindowInsets) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -330,9 +331,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, impl28};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (Impl21) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -367,37 +368,37 @@ public class WindowInsetsCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {windowInsets};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int i4 = Build.VERSION.SDK_INT;
-        if (i4 >= 29) {
+        int i3 = Build.VERSION.SDK_INT;
+        if (i3 >= 29) {
             this.mImpl = new Impl29(this, windowInsets);
-        } else if (i4 >= 28) {
+        } else if (i3 >= 28) {
             this.mImpl = new Impl28(this, windowInsets);
-        } else if (i4 >= 21) {
+        } else if (i3 >= 21) {
             this.mImpl = new Impl21(this, windowInsets);
-        } else if (i4 >= 20) {
+        } else if (i3 >= 20) {
             this.mImpl = new Impl20(this, windowInsets);
         } else {
             this.mImpl = new Impl(this);
         }
     }
 
-    public static Insets insetInsets(Insets insets, int i2, int i3, int i4, int i5) {
+    public static Insets insetInsets(Insets insets, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{insets, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            int max = Math.max(0, insets.left - i2);
-            int max2 = Math.max(0, insets.top - i3);
-            int max3 = Math.max(0, insets.right - i4);
-            int max4 = Math.max(0, insets.bottom - i5);
-            return (max == i2 && max2 == i3 && max3 == i4 && max4 == i5) ? insets : Insets.of(max, max2, max3, max4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{insets, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            int max = Math.max(0, insets.left - i);
+            int max2 = Math.max(0, insets.top - i2);
+            int max3 = Math.max(0, insets.right - i3);
+            int max4 = Math.max(0, insets.bottom - i4);
+            return (max == i && max2 == i2 && max3 == i3 && max4 == i4) ? insets : Insets.of(max, max2, max3, max4);
         }
         return (Insets) invokeCommon.objValue;
     }
@@ -588,10 +589,10 @@ public class WindowInsetsCompat {
 
     @NonNull
     @Deprecated
-    public WindowInsetsCompat replaceSystemWindowInsets(int i2, int i3, int i4, int i5) {
+    public WindowInsetsCompat replaceSystemWindowInsets(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048602, this, i2, i3, i4, i5)) == null) ? new Builder(this).setSystemWindowInsets(Insets.of(i2, i3, i4, i5)).build() : (WindowInsetsCompat) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048602, this, i, i2, i3, i4)) == null) ? new Builder(this).setSystemWindowInsets(Insets.of(i, i2, i3, i4)).build() : (WindowInsetsCompat) invokeIIII.objValue;
     }
 
     @Nullable
@@ -640,9 +641,9 @@ public class WindowInsetsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -659,7 +660,8 @@ public class WindowInsetsCompat {
                 if (!sConsumedFieldFetched) {
                     try {
                         sConsumedField = WindowInsets.class.getDeclaredField("CONSUMED");
-                    } catch (ReflectiveOperationException unused) {
+                    } catch (ReflectiveOperationException e2) {
+                        Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets.CONSUMED field", e2);
                     }
                     sConsumedFieldFetched = true;
                 }
@@ -670,13 +672,15 @@ public class WindowInsetsCompat {
                         if (windowInsets != null) {
                             return new WindowInsets(windowInsets);
                         }
-                    } catch (ReflectiveOperationException unused2) {
+                    } catch (ReflectiveOperationException e3) {
+                        Log.i(WindowInsetsCompat.TAG, "Could not get value from WindowInsets.CONSUMED field", e3);
                     }
                 }
                 if (!sConstructorFetched) {
                     try {
                         sConstructor = WindowInsets.class.getConstructor(Rect.class);
-                    } catch (ReflectiveOperationException unused3) {
+                    } catch (ReflectiveOperationException e4) {
+                        Log.i(WindowInsetsCompat.TAG, "Could not retrieve WindowInsets(Rect) constructor", e4);
                     }
                     sConstructorFetched = true;
                 }
@@ -684,7 +688,8 @@ public class WindowInsetsCompat {
                 if (constructor != null) {
                     try {
                         return constructor.newInstance(new Rect());
-                    } catch (ReflectiveOperationException unused4) {
+                    } catch (ReflectiveOperationException e5) {
+                        Log.i(WindowInsetsCompat.TAG, "Could not invoke WindowInsets(Rect) constructor", e5);
                     }
                 }
                 return null;
@@ -717,9 +722,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -741,9 +746,9 @@ public class WindowInsetsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -816,9 +821,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -850,9 +855,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, windowInsets};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (WindowInsets) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -909,9 +914,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, impl21};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (Impl20) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -924,10 +929,10 @@ public class WindowInsetsCompat {
     }
 
     @NonNull
-    public WindowInsetsCompat inset(@IntRange(from = 0) int i2, @IntRange(from = 0) int i3, @IntRange(from = 0) int i4, @IntRange(from = 0) int i5) {
+    public WindowInsetsCompat inset(@IntRange(from = 0) int i, @IntRange(from = 0) int i2, @IntRange(from = 0) int i3, @IntRange(from = 0) int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048598, this, i2, i3, i4, i5)) == null) ? this.mImpl.inset(i2, i3, i4, i5) : (WindowInsetsCompat) invokeIIII.objValue;
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048598, this, i, i2, i3, i4)) == null) ? this.mImpl.inset(i, i2, i3, i4) : (WindowInsetsCompat) invokeIIII.objValue;
     }
 
     @RequiresApi(20)
@@ -948,9 +953,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, windowInsets};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((WindowInsetsCompat) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -977,13 +982,13 @@ public class WindowInsetsCompat {
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl
         @NonNull
-        public WindowInsetsCompat inset(int i2, int i3, int i4, int i5) {
+        public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4, i5)) == null) {
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
                 Builder builder = new Builder(WindowInsetsCompat.toWindowInsetsCompat(this.mPlatformInsets));
-                builder.setSystemWindowInsets(WindowInsetsCompat.insetInsets(getSystemWindowInsets(), i2, i3, i4, i5));
-                builder.setStableInsets(WindowInsetsCompat.insetInsets(getStableInsets(), i2, i3, i4, i5));
+                builder.setSystemWindowInsets(WindowInsetsCompat.insetInsets(getSystemWindowInsets(), i, i2, i3, i4));
+                builder.setStableInsets(WindowInsetsCompat.insetInsets(getStableInsets(), i, i2, i3, i4));
                 return builder.build();
             }
             return (WindowInsetsCompat) invokeIIII.objValue;
@@ -1005,9 +1010,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, impl20};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((WindowInsetsCompat) objArr2[0], (WindowInsets) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1036,9 +1041,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, windowInsets};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (WindowInsets) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1095,10 +1100,10 @@ public class WindowInsetsCompat {
 
         @Override // androidx.core.view.WindowInsetsCompat.Impl20, androidx.core.view.WindowInsetsCompat.Impl
         @NonNull
-        public WindowInsetsCompat inset(int i2, int i3, int i4, int i5) {
+        public WindowInsetsCompat inset(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i2, i3, i4, i5)) == null) ? WindowInsetsCompat.toWindowInsetsCompat(this.mPlatformInsets.inset(i2, i3, i4, i5)) : (WindowInsetsCompat) invokeIIII.objValue;
+            return (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048579, this, i, i2, i3, i4)) == null) ? WindowInsetsCompat.toWindowInsetsCompat(this.mPlatformInsets.inset(i, i2, i3, i4)) : (WindowInsetsCompat) invokeIIII.objValue;
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -1110,9 +1115,9 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat, impl29};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((WindowInsetsCompat) objArr2[0], (Impl28) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -1145,18 +1150,18 @@ public class WindowInsetsCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 29) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 29) {
                 this.mImpl = new BuilderImpl29();
-            } else if (i4 >= 20) {
+            } else if (i3 >= 20) {
                 this.mImpl = new BuilderImpl20();
             } else {
                 this.mImpl = new BuilderImpl();
@@ -1243,18 +1248,18 @@ public class WindowInsetsCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowInsetsCompat};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 29) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 29) {
                 this.mImpl = new BuilderImpl29(windowInsetsCompat);
-            } else if (i4 >= 20) {
+            } else if (i3 >= 20) {
                 this.mImpl = new BuilderImpl20(windowInsetsCompat);
             } else {
                 this.mImpl = new BuilderImpl(windowInsetsCompat);
@@ -1269,9 +1274,9 @@ public class WindowInsetsCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {windowInsetsCompat};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

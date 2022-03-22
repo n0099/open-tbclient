@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LandmarksPoints {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COORDS_PER_VERTEX = 2;
@@ -59,9 +59,9 @@ public class LandmarksPoints {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -115,18 +115,18 @@ public class LandmarksPoints {
         }
     }
 
-    public void refresh(float[] fArr, int i2, int i3, float f2, float f3, boolean z) {
+    public void refresh(float[] fArr, int i, int i2, float f2, float f3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
-            for (int i4 = 0; i4 < 150; i4++) {
-                this.pointsCoords[i4] = fArr[i4];
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{fArr, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            for (int i3 = 0; i3 < 150; i3++) {
+                this.pointsCoords[i3] = fArr[i3];
             }
-            for (int i5 = 0; i5 < fArr.length; i5 += 2) {
-                float f4 = z ? i2 - this.pointsCoords[i5] : this.pointsCoords[i5];
+            for (int i4 = 0; i4 < fArr.length; i4 += 2) {
+                float f4 = z ? i - this.pointsCoords[i4] : this.pointsCoords[i4];
                 float[] fArr2 = this.pointsCoords;
-                int i6 = i5 + 1;
-                fArr2[i5] = (-(((fArr2[i6] / i3) * 0.8f) + 0.2f)) * 1.0f;
-                fArr2[i6] = (((((f4 / i2) - f2) / f3) * 0.64f) + 0.36f) * 1.0f;
+                int i5 = i4 + 1;
+                fArr2[i4] = (-(((fArr2[i5] / i2) * 0.8f) + 0.2f)) * 1.0f;
+                fArr2[i5] = (((((f4 / i) - f2) / f3) * 0.64f) + 0.36f) * 1.0f;
             }
             this.vertexBuffer.put(this.pointsCoords);
             this.vertexBuffer.position(0);

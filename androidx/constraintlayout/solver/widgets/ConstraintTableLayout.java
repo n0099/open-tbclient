@@ -45,9 +45,9 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constraintTableLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,9 +74,9 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constraintTableLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,9 +92,9 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,14 +115,14 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             int size = this.mChildren.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                ConstraintWidget constraintWidget = this.mChildren.get(i3);
-                int containerItemSkip = i2 + constraintWidget.getContainerItemSkip();
-                int i4 = this.mNumCols;
-                int i5 = containerItemSkip % i4;
-                HorizontalSlice horizontalSlice = this.mHorizontalSlices.get(containerItemSkip / i4);
-                VerticalSlice verticalSlice = this.mVerticalSlices.get(i5);
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                ConstraintWidget constraintWidget = this.mChildren.get(i2);
+                int containerItemSkip = i + constraintWidget.getContainerItemSkip();
+                int i3 = this.mNumCols;
+                int i4 = containerItemSkip % i3;
+                HorizontalSlice horizontalSlice = this.mHorizontalSlices.get(containerItemSkip / i3);
+                VerticalSlice verticalSlice = this.mVerticalSlices.get(i4);
                 ConstraintWidget constraintWidget2 = verticalSlice.left;
                 ConstraintWidget constraintWidget3 = verticalSlice.right;
                 ConstraintWidget constraintWidget4 = horizontalSlice.top;
@@ -133,14 +133,14 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                 } else {
                     constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT).connect(constraintWidget3.getAnchor(ConstraintAnchor.Type.RIGHT), this.mPadding);
                 }
-                int i6 = verticalSlice.alignment;
-                if (i6 == 1) {
+                int i5 = verticalSlice.alignment;
+                if (i5 == 1) {
                     constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT).setStrength(ConstraintAnchor.Strength.STRONG);
                     constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT).setStrength(ConstraintAnchor.Strength.WEAK);
-                } else if (i6 == 2) {
+                } else if (i5 == 2) {
                     constraintWidget.getAnchor(ConstraintAnchor.Type.LEFT).setStrength(ConstraintAnchor.Strength.WEAK);
                     constraintWidget.getAnchor(ConstraintAnchor.Type.RIGHT).setStrength(ConstraintAnchor.Strength.STRONG);
-                } else if (i6 == 3) {
+                } else if (i5 == 3) {
                     constraintWidget.setHorizontalDimensionBehaviour(ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT);
                 }
                 constraintWidget.getAnchor(ConstraintAnchor.Type.TOP).connect(constraintWidget4.getAnchor(ConstraintAnchor.Type.TOP), this.mPadding);
@@ -149,7 +149,7 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
                 } else {
                     constraintWidget.getAnchor(ConstraintAnchor.Type.BOTTOM).connect(constraintWidget5.getAnchor(ConstraintAnchor.Type.BOTTOM), this.mPadding);
                 }
-                i2 = containerItemSkip + 1;
+                i = containerItemSkip + 1;
             }
         }
     }
@@ -161,10 +161,10 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             float f2 = 100.0f / this.mNumRows;
             ConstraintWidget constraintWidget = this;
             float f3 = f2;
-            for (int i2 = 0; i2 < this.mNumRows; i2++) {
+            for (int i = 0; i < this.mNumRows; i++) {
                 HorizontalSlice horizontalSlice = new HorizontalSlice(this);
                 horizontalSlice.top = constraintWidget;
-                if (i2 < this.mNumRows - 1) {
+                if (i < this.mNumRows - 1) {
                     Guideline guideline = new Guideline();
                     guideline.setOrientation(0);
                     guideline.setParent(this);
@@ -189,10 +189,10 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             float f2 = 100.0f / this.mNumCols;
             ConstraintWidget constraintWidget = this;
             float f3 = f2;
-            for (int i2 = 0; i2 < this.mNumCols; i2++) {
+            for (int i = 0; i < this.mNumCols; i++) {
                 VerticalSlice verticalSlice = new VerticalSlice(this);
                 verticalSlice.left = constraintWidget;
-                if (i2 < this.mNumCols - 1) {
+                if (i < this.mNumCols - 1) {
                     Guideline guideline = new Guideline();
                     guideline.setOrientation(1);
                     guideline.setParent(this);
@@ -216,14 +216,14 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             return;
         }
         int size = this.mVerticalGuidelines.size();
-        for (int i2 = 0; i2 < size; i2++) {
+        for (int i = 0; i < size; i++) {
             LinearSystem linearSystem = this.system;
-            this.mVerticalGuidelines.get(i2).setDebugSolverName(linearSystem, getDebugName() + ".VG" + i2);
+            this.mVerticalGuidelines.get(i).setDebugSolverName(linearSystem, getDebugName() + ".VG" + i);
         }
         int size2 = this.mHorizontalGuidelines.size();
-        for (int i3 = 0; i3 < size2; i3++) {
+        for (int i2 = 0; i2 < size2; i2++) {
             LinearSystem linearSystem2 = this.system;
-            this.mHorizontalGuidelines.get(i3).setDebugSolverName(linearSystem2, getDebugName() + ".HG" + i3);
+            this.mHorizontalGuidelines.get(i2).setDebugSolverName(linearSystem2, getDebugName() + ".HG" + i2);
         }
     }
 
@@ -239,28 +239,28 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             setTableDimensions();
             if (linearSystem == this.mSystem) {
                 int size2 = this.mVerticalGuidelines.size();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     boolean z = true;
-                    if (i2 >= size2) {
+                    if (i >= size2) {
                         break;
                     }
-                    Guideline guideline = this.mVerticalGuidelines.get(i2);
+                    Guideline guideline = this.mVerticalGuidelines.get(i);
                     if (getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT) {
                         z = false;
                     }
                     guideline.setPositionRelaxed(z);
                     guideline.addToSolver(linearSystem);
-                    i2++;
+                    i++;
                 }
                 int size3 = this.mHorizontalGuidelines.size();
-                for (int i3 = 0; i3 < size3; i3++) {
-                    Guideline guideline2 = this.mHorizontalGuidelines.get(i3);
+                for (int i2 = 0; i2 < size3; i2++) {
+                    Guideline guideline2 = this.mHorizontalGuidelines.get(i2);
                     guideline2.setPositionRelaxed(getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT);
                     guideline2.addToSolver(linearSystem);
                 }
-                for (int i4 = 0; i4 < size; i4++) {
-                    this.mChildren.get(i4).addToSolver(linearSystem);
+                for (int i3 = 0; i3 < size; i3++) {
+                    this.mChildren.get(i3).addToSolver(linearSystem);
                 }
             }
         }
@@ -270,38 +270,38 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int size = this.mVerticalGuidelines.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mVerticalGuidelines.get(i2).inferRelativePercentPosition();
+            for (int i = 0; i < size; i++) {
+                this.mVerticalGuidelines.get(i).inferRelativePercentPosition();
             }
             int size2 = this.mHorizontalGuidelines.size();
-            for (int i3 = 0; i3 < size2; i3++) {
-                this.mHorizontalGuidelines.get(i3).inferRelativePercentPosition();
+            for (int i2 = 0; i2 < size2; i2++) {
+                this.mHorizontalGuidelines.get(i2).inferRelativePercentPosition();
             }
         }
     }
 
-    public void cycleColumnAlignment(int i2) {
+    public void cycleColumnAlignment(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            VerticalSlice verticalSlice = this.mVerticalSlices.get(i2);
-            int i3 = verticalSlice.alignment;
-            if (i3 == 0) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            VerticalSlice verticalSlice = this.mVerticalSlices.get(i);
+            int i2 = verticalSlice.alignment;
+            if (i2 == 0) {
                 verticalSlice.alignment = 2;
-            } else if (i3 == 1) {
+            } else if (i2 == 1) {
                 verticalSlice.alignment = 0;
-            } else if (i3 == 2) {
+            } else if (i2 == 2) {
                 verticalSlice.alignment = 1;
             }
             setChildrenConnections();
         }
     }
 
-    public String getColumnAlignmentRepresentation(int i2) {
+    public String getColumnAlignmentRepresentation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            int i3 = this.mVerticalSlices.get(i2).alignment;
-            return i3 == 1 ? "L" : i3 == 0 ? "C" : i3 == 3 ? "F" : i3 == 2 ? "R" : "!";
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            int i2 = this.mVerticalSlices.get(i).alignment;
+            return i2 == 1 ? "L" : i2 == 0 ? "C" : i2 == 3 ? "F" : i2 == 2 ? "R" : "!";
         }
         return (String) invokeI.objValue;
     }
@@ -312,15 +312,15 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int size = this.mVerticalSlices.size();
             String str = "";
-            for (int i2 = 0; i2 < size; i2++) {
-                int i3 = this.mVerticalSlices.get(i2).alignment;
-                if (i3 == 1) {
+            for (int i = 0; i < size; i++) {
+                int i2 = this.mVerticalSlices.get(i).alignment;
+                if (i2 == 1) {
                     str = str + "L";
-                } else if (i3 == 0) {
+                } else if (i2 == 0) {
                     str = str + "C";
-                } else if (i3 == 3) {
+                } else if (i2 == 3) {
                     str = str + "F";
-                } else if (i3 == 2) {
+                } else if (i2 == 2) {
                     str = str + "R";
                 }
             }
@@ -384,12 +384,12 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.mVerticalGrowth : invokeV.booleanValue;
     }
 
-    public void setColumnAlignment(int i2, int i3) {
+    public void setColumnAlignment(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) || i2 >= this.mVerticalSlices.size()) {
+        if (!(interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) || i >= this.mVerticalSlices.size()) {
             return;
         }
-        this.mVerticalSlices.get(i2).alignment = i3;
+        this.mVerticalSlices.get(i).alignment = i2;
         setChildrenConnections();
     }
 
@@ -403,69 +403,69 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         }
     }
 
-    public void setNumCols(int i2) {
+    public void setNumCols(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048592, this, i2) == null) && this.mVerticalGrowth && this.mNumCols != i2) {
-            this.mNumCols = i2;
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && this.mVerticalGrowth && this.mNumCols != i) {
+            this.mNumCols = i;
             setVerticalSlices();
             setTableDimensions();
         }
     }
 
-    public void setNumRows(int i2) {
+    public void setNumRows(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048593, this, i2) == null) || this.mVerticalGrowth || this.mNumCols == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048593, this, i) == null) || this.mVerticalGrowth || this.mNumCols == i) {
             return;
         }
-        this.mNumRows = i2;
+        this.mNumRows = i;
         setHorizontalSlices();
         setTableDimensions();
     }
 
-    public void setPadding(int i2) {
+    public void setPadding(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= 1) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i <= 1) {
             return;
         }
-        this.mPadding = i2;
+        this.mPadding = i;
     }
 
     public void setTableDimensions() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             int size = this.mChildren.size();
-            int i2 = 0;
-            for (int i3 = 0; i3 < size; i3++) {
-                i2 += this.mChildren.get(i3).getContainerItemSkip();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                i += this.mChildren.get(i2).getContainerItemSkip();
             }
-            int i4 = size + i2;
+            int i3 = size + i;
             if (this.mVerticalGrowth) {
                 if (this.mNumCols == 0) {
                     setNumCols(1);
                 }
-                int i5 = this.mNumCols;
-                int i6 = i4 / i5;
-                if (i5 * i6 < i4) {
-                    i6++;
+                int i4 = this.mNumCols;
+                int i5 = i3 / i4;
+                if (i4 * i5 < i3) {
+                    i5++;
                 }
-                if (this.mNumRows == i6 && this.mVerticalGuidelines.size() == this.mNumCols - 1) {
+                if (this.mNumRows == i5 && this.mVerticalGuidelines.size() == this.mNumCols - 1) {
                     return;
                 }
-                this.mNumRows = i6;
+                this.mNumRows = i5;
                 setHorizontalSlices();
             } else {
                 if (this.mNumRows == 0) {
                     setNumRows(1);
                 }
-                int i7 = this.mNumRows;
-                int i8 = i4 / i7;
-                if (i7 * i8 < i4) {
-                    i8++;
+                int i6 = this.mNumRows;
+                int i7 = i3 / i6;
+                if (i6 * i7 < i3) {
+                    i7++;
                 }
-                if (this.mNumCols == i8 && this.mHorizontalGuidelines.size() == this.mNumRows - 1) {
+                if (this.mNumCols == i7 && this.mHorizontalGuidelines.size() == this.mNumRows - 1) {
                     return;
                 }
-                this.mNumCols = i8;
+                this.mNumCols = i7;
                 setVerticalSlices();
             }
             setChildrenConnections();
@@ -486,12 +486,12 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
             super.updateFromSolver(linearSystem);
             if (linearSystem == this.mSystem) {
                 int size = this.mVerticalGuidelines.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mVerticalGuidelines.get(i2).updateFromSolver(linearSystem);
+                for (int i = 0; i < size; i++) {
+                    this.mVerticalGuidelines.get(i).updateFromSolver(linearSystem);
                 }
                 int size2 = this.mHorizontalGuidelines.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    this.mHorizontalGuidelines.get(i3).updateFromSolver(linearSystem);
+                for (int i2 = 0; i2 < size2; i2++) {
+                    this.mHorizontalGuidelines.get(i2).updateFromSolver(linearSystem);
                 }
             }
         }
@@ -501,35 +501,35 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt == 'L') {
-                    setColumnAlignment(i2, 1);
+                    setColumnAlignment(i, 1);
                 } else if (charAt == 'C') {
-                    setColumnAlignment(i2, 0);
+                    setColumnAlignment(i, 0);
                 } else if (charAt == 'F') {
-                    setColumnAlignment(i2, 3);
+                    setColumnAlignment(i, 3);
                 } else if (charAt == 'R') {
-                    setColumnAlignment(i2, 2);
+                    setColumnAlignment(i, 2);
                 } else {
-                    setColumnAlignment(i2, 0);
+                    setColumnAlignment(i, 0);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintTableLayout(int i2, int i3, int i4, int i5) {
-        super(i2, i3, i4, i5);
+    public ConstraintTableLayout(int i, int i2, int i3, int i4) {
+        super(i, i2, i3, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -549,17 +549,17 @@ public class ConstraintTableLayout extends ConstraintWidgetContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintTableLayout(int i2, int i3) {
-        super(i2, i3);
+    public ConstraintTableLayout(int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

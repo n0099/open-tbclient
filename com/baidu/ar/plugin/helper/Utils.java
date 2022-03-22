@@ -42,7 +42,7 @@ public class Utils {
                 return;
             }
         }
-        ANDROID_DATA_PATTERN = Pattern.compile("(\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*\\.)*\\p{javaJavaIdentifierStart}\\p{javaJavaIdentifierPart}*");
+        ANDROID_DATA_PATTERN = Pattern.compile(VALID_JAVA_IDENTIFIER);
         HEX = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
@@ -51,9 +51,9 @@ public class Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -142,12 +142,12 @@ public class Utils {
         }
     }
 
-    public static String getProcessName(Context context, int i2) {
+    public static String getProcessName(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, context, i)) == null) {
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
-                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i2) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == i) {
                     return runningAppProcessInfo.processName;
                 }
             }

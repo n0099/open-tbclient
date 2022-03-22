@@ -13,26 +13,27 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.data.MsgCacheData;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHolder<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<MsglistActivity<?>> m;
-    public c.a.d.f.h.a n;
-    public b o;
-    public long p;
-    public boolean q;
-    public boolean r;
-    public int s;
-    public boolean t;
-    public Map<String, String> u;
-    public AbsMsglistView.g v;
+    public TbPageContext<MsglistActivity<?>> i;
+    public c.a.d.f.h.a j;
+    public b k;
+    public long l;
+    public boolean m;
+    public boolean n;
+    public int o;
+    public boolean p;
+    public ArrayList<ReportPrivateMsgData> q;
+    public AbsMsglistView.g r;
 
     /* loaded from: classes5.dex */
     public static class MsgViewHolder<T> extends TypeAdapter.ViewHolder {
@@ -49,9 +50,9 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view, t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,7 +62,7 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
             this.a = t;
         }
 
-        public T getMsgItemView() {
+        public T c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
@@ -77,9 +78,9 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -87,41 +88,41 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
                 return;
             }
         }
-        this.n = null;
-        this.o = null;
-        this.p = 0L;
-        this.q = false;
-        this.r = false;
-        this.t = false;
-        this.m = tbPageContext;
+        this.j = null;
+        this.k = null;
+        this.l = 0L;
+        this.m = false;
+        this.n = false;
+        this.p = false;
+        this.i = tbPageContext;
     }
 
     public final void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.p = System.currentTimeMillis() / 1000;
+            this.l = System.currentTimeMillis() / 1000;
         }
     }
 
     public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.r : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.n : invokeV.booleanValue;
     }
 
     public boolean b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.q : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.m : invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: c0 */
-    public View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
+    public View S(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgViewHolder<T> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view, viewGroup, chatMessage, msgViewHolder})) == null) {
             if (chatMessage != null && chatMessage.getCacheData() == null) {
                 chatMessage.setCacheData(new MsgCacheData());
             }
@@ -134,56 +135,56 @@ public abstract class MsgCommonItemAdapter<T> extends a<ChatMessage, MsgViewHold
     public void d0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.t = z;
+            this.p = z;
         }
     }
 
     public void e0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.r = z;
+            this.n = z;
         }
     }
 
     public void f0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.q = z;
+            this.m = z;
         }
     }
 
     public void g0(c.a.d.f.h.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            this.n = aVar;
+            this.j = aVar;
         }
     }
 
     public void h0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.o = bVar;
+            this.k = bVar;
         }
     }
 
-    public void i0(Map<String, String> map) {
+    public void i0(ArrayList<ReportPrivateMsgData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, map) == null) {
-            this.u = map;
+        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+            this.q = arrayList;
         }
     }
 
-    public void j0(int i2) {
+    public void j0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.s = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.o = i;
         }
     }
 
     public void k0(AbsMsglistView.g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, gVar) == null) {
-            this.v = gVar;
+            this.r = gVar;
         }
     }
 }

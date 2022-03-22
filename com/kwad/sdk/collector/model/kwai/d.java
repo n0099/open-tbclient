@@ -5,23 +5,22 @@ import androidx.annotation.WorkerThread;
 import com.kwad.sdk.collector.model.e;
 import com.kwad.sdk.utils.q;
 import com.kwad.sdk.utils.t;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class d implements e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54100b;
+    public String f39249b;
 
     public d(String str, String str2) {
         this.a = str;
-        this.f54100b = str2;
+        this.f39249b = str2;
     }
 
     private String b() {
         try {
-            return this.f54100b.substring(this.f54100b.indexOf(this.a)).replaceFirst(this.a, "");
+            return this.f39249b.substring(this.f39249b.indexOf(this.a)).replaceFirst(this.a, "");
         } catch (Throwable unused) {
             return null;
         }
@@ -34,7 +33,7 @@ public class d implements e {
         try {
             JSONObject jSONObject = new JSONObject();
             t.a(jSONObject, "packageName", this.a);
-            t.a(jSONObject, "content", q.a(this.f54100b));
+            t.a(jSONObject, "content", q.a(this.f39249b));
             t.a(jSONObject, "fileName", b());
             return jSONObject;
         } catch (Throwable unused) {
@@ -51,13 +50,13 @@ public class d implements e {
         }
         d dVar = (d) obj;
         if (this.a.equals(dVar.a)) {
-            return this.f54100b.equals(dVar.f54100b);
+            return this.f39249b.equals(dVar.f39249b);
         }
         return false;
     }
 
     public int hashCode() {
-        return (this.a.hashCode() * 31) + this.f54100b.hashCode();
+        return (this.a.hashCode() * 31) + this.f39249b.hashCode();
     }
 
     @Override // com.kwad.sdk.core.b
@@ -66,18 +65,18 @@ public class d implements e {
             return;
         }
         this.a = jSONObject.optString("packageName");
-        this.f54100b = jSONObject.optString("originFilePath");
+        this.f39249b = jSONObject.optString("originFilePath");
     }
 
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "packageName", this.a);
-        t.a(jSONObject, "originFilePath", this.f54100b);
+        t.a(jSONObject, "originFilePath", this.f39249b);
         return jSONObject;
     }
 
     public String toString() {
-        return "UploadEntryJava{packageName='" + this.a + ExtendedMessageFormat.QUOTE + ", originFilePath='" + this.f54100b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "UploadEntryJava{packageName='" + this.a + "', originFilePath='" + this.f39249b + "'}";
     }
 }

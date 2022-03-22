@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class WriteImageActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String CANCEL_TEXT = "cancel_text";
@@ -45,17 +45,17 @@ public class WriteImageActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData, int i4, String str3, String str4, String str5, String str6) {
+    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5, String str6) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), uri, str, str2, antiData, Integer.valueOf(i4), str3, str4, str5, str6};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, str, str2, antiData, Integer.valueOf(i3), str3, str4, str5, str6};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -63,11 +63,11 @@ public class WriteImageActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("request", i2);
+        getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
         getIntent().putExtra("foruimname", str2);
-        getIntent().putExtra("display_size", i4);
+        getIntent().putExtra("display_size", i3);
         if (str3 != null) {
             getIntent().putExtra("finish_text", str3);
         }
@@ -78,21 +78,21 @@ public class WriteImageActivityConfig extends IntentConfig {
             getIntent().putExtra("file_name", str6);
         }
         getIntent().setData(uri);
-        setRequestCode(i3);
+        setRequestCode(i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData, int i4, String str3, String str4, String str5) {
+    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData, int i3, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), uri, str, str2, antiData, Integer.valueOf(i4), str3, str4, str5};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, str, str2, antiData, Integer.valueOf(i3), str3, str4, str5};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -100,11 +100,11 @@ public class WriteImageActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        getIntent().putExtra("request", i2);
+        getIntent().putExtra("request", i);
         getIntent().putExtra("from", str5);
         getIntent().putExtra("forumid", str);
         getIntent().putExtra("foruimname", str2);
-        getIntent().putExtra("display_size", i4);
+        getIntent().putExtra("display_size", i3);
         if (str3 != null) {
             getIntent().putExtra("finish_text", str3);
         }
@@ -112,21 +112,21 @@ public class WriteImageActivityConfig extends IntentConfig {
             getIntent().putExtra("cancel_text", str4);
         }
         getIntent().setData(uri);
-        setRequestCode(i3);
+        setRequestCode(i2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public WriteImageActivityConfig(Context context, int i2, int i3, Uri uri, String str, String str2, AntiData antiData) {
-        this(context, i2, i3, uri, str, str2, antiData, 0, null, null, "frs");
+    public WriteImageActivityConfig(Context context, int i, int i2, Uri uri, String str, String str2, AntiData antiData) {
+        this(context, i, i2, uri, str, str2, antiData, 0, null, null, "frs");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), uri, str, str2, antiData};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), uri, str, str2, antiData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (Uri) objArr2[3], (String) objArr2[4], (String) objArr2[5], (AntiData) objArr2[6], ((Integer) objArr2[7]).intValue(), (String) objArr2[8], (String) objArr2[9], (String) objArr2[10]);
                 newInitContext.thisArg = this;

@@ -18,9 +18,9 @@ public class c implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {permissionsHelperActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,7 +34,7 @@ public class c implements View.OnClickListener {
         PermissionsCallback permissionsCallback;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            permissionsCallback = this.a.f36331d;
+            permissionsCallback = this.a.f28152d;
             permissionsCallback.onFailure(-1);
             this.a.finish();
         }

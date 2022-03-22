@@ -53,9 +53,9 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,9 +83,9 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     private void addHorizontalChain(ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, constraintWidget) == null) {
-            int i2 = this.mHorizontalChainsSize + 1;
+            int i = this.mHorizontalChainsSize + 1;
             ChainHead[] chainHeadArr = this.mHorizontalChainsArray;
-            if (i2 >= chainHeadArr.length) {
+            if (i >= chainHeadArr.length) {
                 this.mHorizontalChainsArray = (ChainHead[]) Arrays.copyOf(chainHeadArr, chainHeadArr.length * 2);
             }
             this.mHorizontalChainsArray[this.mHorizontalChainsSize] = new ChainHead(constraintWidget, 0, isRtl());
@@ -96,9 +96,9 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     private void addVerticalChain(ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, constraintWidget) == null) {
-            int i2 = this.mVerticalChainsSize + 1;
+            int i = this.mVerticalChainsSize + 1;
             ChainHead[] chainHeadArr = this.mVerticalChainsArray;
-            if (i2 >= chainHeadArr.length) {
+            if (i >= chainHeadArr.length) {
                 this.mVerticalChainsArray = (ChainHead[]) Arrays.copyOf(chainHeadArr, chainHeadArr.length * 2);
             }
             this.mVerticalChainsArray[this.mVerticalChainsSize] = new ChainHead(constraintWidget, 1, isRtl());
@@ -114,12 +114,12 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         }
     }
 
-    public void addChain(ConstraintWidget constraintWidget, int i2) {
+    public void addChain(ConstraintWidget constraintWidget, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, constraintWidget, i2) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, constraintWidget, i) == null) {
+            if (i == 0) {
                 addHorizontalChain(constraintWidget);
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 addVerticalChain(constraintWidget);
             }
         }
@@ -131,8 +131,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearSystem)) == null) {
             addToSolver(linearSystem);
             int size = this.mChildren.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintWidget constraintWidget = this.mChildren.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintWidget constraintWidget = this.mChildren.get(i);
                 if (constraintWidget instanceof ConstraintWidgetContainer) {
                     ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
                     ConstraintWidget.DimensionBehaviour dimensionBehaviour = dimensionBehaviourArr[0];
@@ -167,13 +167,13 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void analyze(int i2) {
+    public void analyze(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.analyze(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.analyze(i);
             int size = this.mChildren.size();
-            for (int i3 = 0; i3 < size; i3++) {
-                this.mChildren.get(i3).analyze(i2);
+            for (int i2 = 0; i2 < size; i2++) {
+                this.mChildren.get(i2).analyze(i);
             }
         }
     }
@@ -191,8 +191,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             ArrayList<Guideline> arrayList = new ArrayList<>();
             int size = this.mChildren.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintWidget constraintWidget = this.mChildren.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintWidget constraintWidget = this.mChildren.get(i);
                 if (constraintWidget instanceof Guideline) {
                     Guideline guideline = (Guideline) constraintWidget;
                     if (guideline.getOrientation() == 0) {
@@ -230,8 +230,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList<Guideline> arrayList = new ArrayList<>();
             int size = this.mChildren.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintWidget constraintWidget = this.mChildren.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintWidget constraintWidget = this.mChildren.get(i);
                 if (constraintWidget instanceof Guideline) {
                     Guideline guideline = (Guideline) constraintWidget;
                     if (guideline.getOrientation() == 1) {
@@ -292,10 +292,10 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void layout() {
+        int i;
         int i2;
-        int i3;
         char c2;
-        int i4;
+        int i3;
         boolean z;
         int max;
         int max2;
@@ -303,8 +303,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            int i5 = this.mX;
-            int i6 = this.mY;
+            int i4 = this.mX;
+            int i5 = this.mY;
             int max3 = Math.max(0, getWidth());
             int max4 = Math.max(0, getHeight());
             this.mWidthMeasuredTooSmall = false;
@@ -322,7 +322,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                 this.mX = 0;
                 this.mY = 0;
             }
-            int i7 = 32;
+            int i6 = 32;
             if (this.mOptimizationLevel != 0) {
                 if (!optimizeFor(8)) {
                     optimizeReset();
@@ -346,42 +346,42 @@ public class ConstraintWidgetContainer extends WidgetContainer {
             ArrayList<ConstraintWidget> arrayList = this.mChildren;
             boolean z3 = getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT;
             boolean z4 = false;
-            int i8 = 0;
-            while (i8 < size && !this.mSkipSolver) {
-                if (this.mWidgetGroups.get(i8).mSkipSolver) {
-                    i2 = size;
+            int i7 = 0;
+            while (i7 < size && !this.mSkipSolver) {
+                if (this.mWidgetGroups.get(i7).mSkipSolver) {
+                    i = size;
                 } else {
-                    if (optimizeFor(i7)) {
+                    if (optimizeFor(i6)) {
                         if (getHorizontalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.FIXED && getVerticalDimensionBehaviour() == ConstraintWidget.DimensionBehaviour.FIXED) {
-                            this.mChildren = (ArrayList) this.mWidgetGroups.get(i8).getWidgetsToSolve();
+                            this.mChildren = (ArrayList) this.mWidgetGroups.get(i7).getWidgetsToSolve();
                         } else {
-                            this.mChildren = (ArrayList) this.mWidgetGroups.get(i8).mConstrainedGroup;
+                            this.mChildren = (ArrayList) this.mWidgetGroups.get(i7).mConstrainedGroup;
                         }
                     }
                     resetChains();
                     int size2 = this.mChildren.size();
-                    for (int i9 = 0; i9 < size2; i9++) {
-                        ConstraintWidget constraintWidget = this.mChildren.get(i9);
+                    for (int i8 = 0; i8 < size2; i8++) {
+                        ConstraintWidget constraintWidget = this.mChildren.get(i8);
                         if (constraintWidget instanceof WidgetContainer) {
                             ((WidgetContainer) constraintWidget).layout();
                         }
                     }
                     boolean z5 = z4;
-                    int i10 = 0;
+                    int i9 = 0;
                     boolean z6 = true;
                     while (z6) {
                         boolean z7 = z5;
-                        int i11 = i10 + 1;
+                        int i10 = i9 + 1;
                         try {
                             this.mSystem.reset();
                             resetChains();
                             createObjectVariables(this.mSystem);
-                            int i12 = 0;
-                            while (i12 < size2) {
+                            int i11 = 0;
+                            while (i11 < size2) {
                                 boolean z8 = z6;
                                 try {
-                                    this.mChildren.get(i12).createObjectVariables(this.mSystem);
-                                    i12++;
+                                    this.mChildren.get(i11).createObjectVariables(this.mSystem);
+                                    i11++;
                                     z6 = z8;
                                 } catch (Exception e2) {
                                     e = e2;
@@ -390,7 +390,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     PrintStream printStream = System.out;
                                     boolean z9 = z6;
                                     StringBuilder sb = new StringBuilder();
-                                    i3 = size;
+                                    i2 = size;
                                     sb.append("EXCEPTION : ");
                                     sb.append(e);
                                     printStream.println(sb.toString());
@@ -400,7 +400,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     c2 = 2;
                                     if (z3) {
                                     }
-                                    i4 = i11;
+                                    i3 = i10;
                                     z = false;
                                     max = Math.max(this.mMinWidth, getWidth());
                                     if (max > getWidth()) {
@@ -412,8 +412,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     }
                                     z6 = z;
                                     z5 = z2;
-                                    i10 = i4;
-                                    size = i3;
+                                    i9 = i3;
+                                    size = i2;
                                 }
                             }
                             z6 = addChildrenToSolver(this.mSystem);
@@ -426,7 +426,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     PrintStream printStream2 = System.out;
                                     boolean z92 = z6;
                                     StringBuilder sb2 = new StringBuilder();
-                                    i3 = size;
+                                    i2 = size;
                                     sb2.append("EXCEPTION : ");
                                     sb2.append(e);
                                     printStream2.println(sb2.toString());
@@ -436,7 +436,7 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     c2 = 2;
                                     if (z3) {
                                     }
-                                    i4 = i11;
+                                    i3 = i10;
                                     z = false;
                                     max = Math.max(this.mMinWidth, getWidth());
                                     if (max > getWidth()) {
@@ -448,11 +448,11 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     }
                                     z6 = z;
                                     z5 = z2;
-                                    i10 = i4;
-                                    size = i3;
+                                    i9 = i3;
+                                    size = i2;
                                 }
                             }
-                            i3 = size;
+                            i2 = size;
                         } catch (Exception e4) {
                             e = e4;
                         }
@@ -460,12 +460,12 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                             updateChildrenFromSolver(this.mSystem, Optimizer.flags);
                         } else {
                             updateFromSolver(this.mSystem);
-                            int i13 = 0;
+                            int i12 = 0;
                             while (true) {
-                                if (i13 >= size2) {
+                                if (i12 >= size2) {
                                     break;
                                 }
-                                ConstraintWidget constraintWidget2 = this.mChildren.get(i13);
+                                ConstraintWidget constraintWidget2 = this.mChildren.get(i12);
                                 if (constraintWidget2.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget2.getWidth() < constraintWidget2.getWrapWidth()) {
                                     Optimizer.flags[2] = true;
                                     break;
@@ -474,26 +474,26 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     Optimizer.flags[2] = true;
                                     break;
                                 } else {
-                                    i13++;
+                                    i12++;
                                 }
                             }
-                            if (z3 || i11 >= 8 || !Optimizer.flags[c2]) {
-                                i4 = i11;
+                            if (z3 || i10 >= 8 || !Optimizer.flags[c2]) {
+                                i3 = i10;
                                 z = false;
                             } else {
+                                int i13 = 0;
                                 int i14 = 0;
                                 int i15 = 0;
-                                int i16 = 0;
-                                while (i14 < size2) {
-                                    ConstraintWidget constraintWidget3 = this.mChildren.get(i14);
-                                    i15 = Math.max(i15, constraintWidget3.mX + constraintWidget3.getWidth());
-                                    i16 = Math.max(i16, constraintWidget3.mY + constraintWidget3.getHeight());
-                                    i14++;
-                                    i11 = i11;
+                                while (i13 < size2) {
+                                    ConstraintWidget constraintWidget3 = this.mChildren.get(i13);
+                                    i14 = Math.max(i14, constraintWidget3.mX + constraintWidget3.getWidth());
+                                    i15 = Math.max(i15, constraintWidget3.mY + constraintWidget3.getHeight());
+                                    i13++;
+                                    i10 = i10;
                                 }
-                                i4 = i11;
-                                int max5 = Math.max(this.mMinWidth, i15);
-                                int max6 = Math.max(this.mMinHeight, i16);
+                                i3 = i10;
+                                int max5 = Math.max(this.mMinWidth, i14);
+                                int max6 = Math.max(this.mMinHeight, i15);
                                 if (dimensionBehaviour2 != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || getWidth() >= max5) {
                                     z = false;
                                 } else {
@@ -541,19 +541,19 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                                     setHeight(max4);
                                     z5 = true;
                                     z6 = true;
-                                    i10 = i4;
-                                    size = i3;
+                                    i9 = i3;
+                                    size = i2;
                                 }
                             }
                             z6 = z;
                             z5 = z2;
-                            i10 = i4;
-                            size = i3;
+                            i9 = i3;
+                            size = i2;
                         }
                         c2 = 2;
                         if (z3) {
                         }
-                        i4 = i11;
+                        i3 = i10;
                         z = false;
                         max = Math.max(this.mMinWidth, getWidth());
                         if (max > getWidth()) {
@@ -565,16 +565,16 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                         }
                         z6 = z;
                         z5 = z2;
-                        i10 = i4;
-                        size = i3;
+                        i9 = i3;
+                        size = i2;
                     }
-                    i2 = size;
-                    this.mWidgetGroups.get(i8).updateUnresolvedWidgets();
+                    i = size;
+                    this.mWidgetGroups.get(i7).updateUnresolvedWidgets();
                     z4 = z5;
                 }
-                i8++;
-                size = i2;
-                i7 = 32;
+                i7++;
+                size = i;
+                i6 = 32;
             }
             this.mChildren = arrayList;
             if (this.mParent != null) {
@@ -584,8 +584,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
                 setWidth(max7 + this.mPaddingLeft + this.mPaddingRight);
                 setHeight(max8 + this.mPaddingTop + this.mPaddingBottom);
             } else {
-                this.mX = i5;
-                this.mY = i6;
+                this.mX = i4;
+                this.mY = i5;
             }
             if (z4) {
                 ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr2 = this.mListDimensionBehaviors;
@@ -609,24 +609,24 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         }
     }
 
-    public boolean optimizeFor(int i2) {
+    public boolean optimizeFor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? (this.mOptimizationLevel & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? (this.mOptimizationLevel & i) == i : invokeI.booleanValue;
     }
 
-    public void optimizeForDimensions(int i2, int i3) {
+    public void optimizeForDimensions(int i, int i2) {
         ResolutionDimension resolutionDimension;
         ResolutionDimension resolutionDimension2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             if (this.mListDimensionBehaviors[0] != ConstraintWidget.DimensionBehaviour.WRAP_CONTENT && (resolutionDimension2 = this.mResolutionWidth) != null) {
-                resolutionDimension2.resolve(i2);
+                resolutionDimension2.resolve(i);
             }
             if (this.mListDimensionBehaviors[1] == ConstraintWidget.DimensionBehaviour.WRAP_CONTENT || (resolutionDimension = this.mResolutionHeight) == null) {
                 return;
             }
-            resolutionDimension.resolve(i3);
+            resolutionDimension.resolve(i2);
         }
     }
 
@@ -635,8 +635,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             int size = this.mChildren.size();
             resetResolutionNodes();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mChildren.get(i2).resetResolutionNodes();
+            for (int i = 0; i < size; i++) {
+                this.mChildren.get(i).resetResolutionNodes();
             }
         }
     }
@@ -676,20 +676,20 @@ public class ConstraintWidgetContainer extends WidgetContainer {
         }
     }
 
-    public void setOptimizationLevel(int i2) {
+    public void setOptimizationLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mOptimizationLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mOptimizationLevel = i;
         }
     }
 
-    public void setPadding(int i2, int i3, int i4, int i5) {
+    public void setPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048599, this, i2, i3, i4, i5) == null) {
-            this.mPaddingLeft = i2;
-            this.mPaddingTop = i3;
-            this.mPaddingRight = i4;
-            this.mPaddingBottom = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048599, this, i, i2, i3, i4) == null) {
+            this.mPaddingLeft = i;
+            this.mPaddingTop = i2;
+            this.mPaddingRight = i3;
+            this.mPaddingBottom = i4;
         }
     }
 
@@ -716,8 +716,8 @@ public class ConstraintWidgetContainer extends WidgetContainer {
             zArr[2] = false;
             updateFromSolver(linearSystem);
             int size = this.mChildren.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                ConstraintWidget constraintWidget = this.mChildren.get(i2);
+            for (int i = 0; i < size; i++) {
+                ConstraintWidget constraintWidget = this.mChildren.get(i);
                 constraintWidget.updateFromSolver(linearSystem);
                 if (constraintWidget.mListDimensionBehaviors[0] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT && constraintWidget.getWidth() < constraintWidget.getWrapWidth()) {
                     zArr[2] = true;
@@ -730,17 +730,17 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintWidgetContainer(int i2, int i3, int i4, int i5) {
-        super(i2, i3, i4, i5);
+    public ConstraintWidgetContainer(int i, int i2, int i3, int i4) {
+        super(i, i2, i3, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -768,17 +768,17 @@ public class ConstraintWidgetContainer extends WidgetContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ConstraintWidgetContainer(int i2, int i3) {
-        super(i2, i3);
+    public ConstraintWidgetContainer(int i, int i2) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

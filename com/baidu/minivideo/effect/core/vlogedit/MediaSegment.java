@@ -51,9 +51,9 @@ public class MediaSegment implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -72,10 +72,10 @@ public class MediaSegment implements Parcelable, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaSegment[] newArray(int i2) {
+        public MediaSegment[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new MediaSegment[i2] : (MediaSegment[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaSegment[i] : (MediaSegment[]) invokeI.objValue;
         }
     }
 
@@ -89,9 +89,9 @@ public class MediaSegment implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -120,9 +120,9 @@ public class MediaSegment implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -138,7 +138,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             }
             new ArrayList();
             try {
-                return (List) new c.a.y0.j.b().c(str, new b().getType());
+                return (List) new c.a.v0.j.b().c(str, new b().getType());
             } catch (Exception unused) {
                 return null;
             }
@@ -157,9 +157,9 @@ public class MediaSegment implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.superpositionType);
             parcel.writeString(this.scaleType);
             parcel.writeString(this.type);
@@ -168,7 +168,7 @@ public class MediaSegment implements Parcelable, Cloneable {
             parcel.writeString(this.shaderConfigKey);
             parcel.writeString(this.effectConfigKey);
             parcel.writeString(this.lutConfigKey);
-            parcel.writeParcelable(this.mediaAEffect, i2);
+            parcel.writeParcelable(this.mediaAEffect, i);
             parcel.writeLong(this.effectStart);
             parcel.writeLong(this.effectEnd);
             parcel.writeFloatArray(this.textureMtx);
@@ -183,9 +183,9 @@ public class MediaSegment implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -208,14 +208,14 @@ public class MediaSegment implements Parcelable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public MediaSegment m37clone() {
+    public MediaSegment m35clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 MediaSegment mediaSegment = (MediaSegment) super.clone();
                 if (this.mediaAEffect != null) {
-                    mediaSegment.mediaAEffect = this.mediaAEffect.m35clone();
+                    mediaSegment.mediaAEffect = this.mediaAEffect.m33clone();
                 }
                 return mediaSegment;
             } catch (Exception e2) {

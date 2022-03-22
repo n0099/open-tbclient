@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-import c.a.r0.s1.h.o.a;
-import c.a.r0.s1.l.c.b;
+import c.a.p0.u1.h.o.a;
+import c.a.p0.u1.l.c.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -32,9 +32,9 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,16 +66,16 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.skinChangeType == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.skinChangeType == i) {
             return;
         }
-        this.skinChangeType = i2;
-        super.onChangeSkinType(i2);
+        this.skinChangeType = i;
+        super.onChangeSkinType(i);
         OfficialBarFeedMsglistView officialBarFeedMsglistView = this.mCurrentMsgListView;
         if (officialBarFeedMsglistView != null) {
-            officialBarFeedMsglistView.onChangeSkinType(i2);
+            officialBarFeedMsglistView.onChangeSkinType(i);
         }
     }
 
@@ -105,7 +105,7 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     public void onListDataLoad(List<b> list, List<a> list2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) {
-            this.mCurrentMsgListView.j(list, list2);
+            this.mCurrentMsgListView.l(list, list2);
         }
     }
 
@@ -123,10 +123,10 @@ public class OfficialBarFeedActivity extends BaseActivity<OfficialBarFeedActivit
     }
 
     @Override // com.baidu.tieba.im.model.OfficialBarFeedMsglistModel.IFeedHeadLoadCallback
-    public void onReadCountLoad(LongSparseArray<c.a.r0.s1.i.a.b.b> longSparseArray) {
+    public void onReadCountLoad(LongSparseArray<c.a.p0.u1.i.a.b.b> longSparseArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, longSparseArray) == null) {
-            this.mCurrentMsgListView.k(longSparseArray);
+            this.mCurrentMsgListView.m(longSparseArray);
         }
     }
 

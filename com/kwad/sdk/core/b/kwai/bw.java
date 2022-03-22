@@ -17,18 +17,18 @@ public class bw implements com.kwad.sdk.core.d<HotspotListData> {
         hotspotListData.trends = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("trends");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 HotspotInfo hotspotInfo = new HotspotInfo();
-                hotspotInfo.parseJson(optJSONArray.optJSONObject(i2));
+                hotspotInfo.parseJson(optJSONArray.optJSONObject(i));
                 hotspotListData.trends.add(hotspotInfo);
             }
         }
         hotspotListData.tabList = new ArrayList();
         JSONArray optJSONArray2 = jSONObject.optJSONArray("tabList");
         if (optJSONArray2 != null) {
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 TabInfo tabInfo = new TabInfo();
-                tabInfo.parseJson(optJSONArray2.optJSONObject(i3));
+                tabInfo.parseJson(optJSONArray2.optJSONObject(i2));
                 hotspotListData.tabList.add(tabInfo);
             }
         }

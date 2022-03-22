@@ -2,11 +2,11 @@ package com.facebook.imagepipeline.memory;
 
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface MemoryChunk {
     void close();
 
-    void copy(int i2, MemoryChunk memoryChunk, int i3, int i4);
+    void copy(int i, MemoryChunk memoryChunk, int i2, int i3);
 
     @Nullable
     ByteBuffer getByteBuffer();
@@ -19,9 +19,9 @@ public interface MemoryChunk {
 
     boolean isClosed();
 
-    byte read(int i2);
+    byte read(int i);
 
-    int read(int i2, byte[] bArr, int i3, int i4);
+    int read(int i, byte[] bArr, int i2, int i3);
 
-    int write(int i2, byte[] bArr, int i3, int i4);
+    int write(int i, byte[] bArr, int i2, int i3);
 }

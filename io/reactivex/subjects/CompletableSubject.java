@@ -42,9 +42,9 @@ public final class CompletableSubject extends Completable implements Completable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver, completableSubject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,9 +94,9 @@ public final class CompletableSubject extends Completable implements Completable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -218,27 +218,27 @@ public final class CompletableSubject extends Completable implements Completable
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (completableDisposableArr[i3] == completableDisposable) {
-                        i2 = i3;
+                    } else if (completableDisposableArr[i2] == completableDisposable) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     completableDisposableArr2 = EMPTY;
                 } else {
                     CompletableDisposable[] completableDisposableArr3 = new CompletableDisposable[length - 1];
-                    System.arraycopy(completableDisposableArr, 0, completableDisposableArr3, 0, i2);
-                    System.arraycopy(completableDisposableArr, i2 + 1, completableDisposableArr3, i2, (length - i2) - 1);
+                    System.arraycopy(completableDisposableArr, 0, completableDisposableArr3, 0, i);
+                    System.arraycopy(completableDisposableArr, i + 1, completableDisposableArr3, i, (length - i) - 1);
                     completableDisposableArr2 = completableDisposableArr3;
                 }
             } while (!this.observers.compareAndSet(completableDisposableArr, completableDisposableArr2));

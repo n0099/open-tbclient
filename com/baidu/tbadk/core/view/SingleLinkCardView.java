@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.r.l0.b;
-import c.a.r0.f0.d0.c;
+import c.a.o0.r.l0.b;
+import c.a.p0.h0.e0.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.PbGoodsData;
@@ -27,15 +27,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SingleLinkCardView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TbImageView f39135e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f30117b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f39136f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f39137g;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f30118c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SingleLinkCardView(Context context) {
@@ -46,9 +44,9 @@ public class SingleLinkCardView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -58,12 +56,12 @@ public class SingleLinkCardView extends RelativeLayout {
         }
     }
 
-    public void bindData(c cVar) {
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
             if (cVar instanceof PbLinkData) {
                 PbLinkData pbLinkData = (PbLinkData) cVar;
-                this.f39135e.startLoad(pbLinkData.picUrl, 10, false);
+                this.a.J(pbLinkData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbLinkData.linkFrom)) {
                     spannableStringBuilder.append((CharSequence) pbLinkData.linkFrom);
@@ -84,24 +82,24 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder.append((CharSequence) pbLinkData.title);
                 }
-                this.f39136f.setText(spannableStringBuilder);
+                this.f30117b.setText(spannableStringBuilder);
                 if (pbLinkData.urlType == 2) {
                     if (TextUtils.isEmpty(pbLinkData.extTxt)) {
-                        this.f39137g.setVisibility(8);
+                        this.f30118c.setVisibility(8);
                     } else {
-                        this.f39136f.setMaxLines(1);
-                        this.f39137g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbLinkData.extTxt));
-                        this.f39137g.setVisibility(0);
+                        this.f30117b.setMaxLines(1);
+                        this.f30118c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0401), pbLinkData.extTxt));
+                        this.f30118c.setVisibility(0);
                     }
                 } else {
-                    this.f39137g.setVisibility(8);
+                    this.f30118c.setVisibility(8);
                 }
                 if (TextUtils.isEmpty(pbLinkData.title) && !TextUtils.isEmpty(pbLinkData.linkUrl) && TextUtils.isEmpty(pbLinkData.extTxt)) {
-                    this.f39136f.setMaxLines(1);
+                    this.f30117b.setMaxLines(1);
                 }
             } else if (cVar instanceof PbGoodsData) {
                 PbGoodsData pbGoodsData = (PbGoodsData) cVar;
-                this.f39135e.startLoad(pbGoodsData.picUrl, 10, false);
+                this.a.J(pbGoodsData.picUrl, 10, false);
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
                 if (!TextUtils.isEmpty(pbGoodsData.linkFrom)) {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.linkFrom);
@@ -122,34 +120,34 @@ public class SingleLinkCardView extends RelativeLayout {
                 } else {
                     spannableStringBuilder2.append((CharSequence) pbGoodsData.title);
                 }
-                this.f39136f.setText(spannableStringBuilder2);
+                this.f30117b.setText(spannableStringBuilder2);
                 if (TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f39137g.setVisibility(8);
+                    this.f30118c.setVisibility(8);
                 } else {
-                    this.f39136f.setMaxLines(1);
-                    this.f39137g.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.commodity_price_prefix), pbGoodsData.price));
-                    this.f39137g.setVisibility(0);
+                    this.f30117b.setMaxLines(1);
+                    this.f30118c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0401), pbGoodsData.price));
+                    this.f30118c.setVisibility(0);
                 }
                 if (TextUtils.isEmpty(pbGoodsData.title) && !TextUtils.isEmpty(pbGoodsData.linkUrl) && TextUtils.isEmpty(pbGoodsData.price)) {
-                    this.f39136f.setMaxLines(1);
+                    this.f30117b.setMaxLines(1);
                 }
             }
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             SkinManager.setBackgroundResource(this, R.drawable.bg_link_card);
-            SkinManager.setViewTextColor(this.f39136f, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.f39137g, (int) R.color.CAM_X0305);
+            SkinManager.setViewTextColor(this.f30117b, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f30118c, (int) R.color.CAM_X0305);
         }
     }
 
-    public void setMarginTop(int i2) {
+    public void setMarginTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            ((ViewGroup.MarginLayoutParams) getLayoutParams()).topMargin = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            ((ViewGroup.MarginLayoutParams) getLayoutParams()).topMargin = i;
             requestLayout();
         }
     }
@@ -163,9 +161,9 @@ public class SingleLinkCardView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -176,17 +174,17 @@ public class SingleLinkCardView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleLinkCardView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SingleLinkCardView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -194,21 +192,21 @@ public class SingleLinkCardView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.single_link_card_layout, this);
-        TbImageView tbImageView = (TbImageView) findViewById(R.id.iv_single_link_icon);
-        this.f39135e = tbImageView;
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0783, this);
+        TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ff8);
+        this.a = tbImageView;
         tbImageView.setBorderSurroundContent(true);
-        this.f39135e.setDrawCorner(true);
-        this.f39135e.setConrers(15);
-        this.f39135e.setGifIconSupport(false);
-        this.f39135e.setLongIconSupport(false);
-        this.f39135e.setDrawBorder(true);
-        this.f39135e.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
-        this.f39135e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-        this.f39135e.setRadius(n.f(context, R.dimen.tbds10));
-        this.f39135e.setPlaceHolder(2);
-        this.f39136f = (TextView) findViewById(R.id.tv_single_link_text);
-        this.f39137g = (TextView) findViewById(R.id.goods_price);
-        onChangeSkinType();
+        this.a.setDrawCorner(true);
+        this.a.setConrers(15);
+        this.a.setGifIconSupport(false);
+        this.a.setLongIconSupport(false);
+        this.a.setDrawBorder(true);
+        this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.tbds1));
+        this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        this.a.setRadius(n.f(context, R.dimen.tbds10));
+        this.a.setPlaceHolder(2);
+        this.f30117b = (TextView) findViewById(R.id.obfuscated_res_0x7f09220a);
+        this.f30118c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cdf);
+        b();
     }
 }

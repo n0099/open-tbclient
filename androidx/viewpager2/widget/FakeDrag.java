@@ -32,9 +32,9 @@ public final class FakeDrag {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewPager2, scrollEventAdapter, recyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public final class FakeDrag {
         this.mRecyclerView = recyclerView;
     }
 
-    private void addFakeMotionEvent(long j2, int i2, float f2, float f3) {
+    private void addFakeMotionEvent(long j, int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j2, i2, f2, f3, 0);
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            MotionEvent obtain = MotionEvent.obtain(this.mFakeDragBeginTime, j, i, f2, f3, 0);
             this.mVelocityTracker.addMovement(obtain);
             obtain.recycle();
         }
@@ -121,11 +121,11 @@ public final class FakeDrag {
                 this.mActualDraggedDistance += round;
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean z = this.mViewPager.getOrientation() == 0;
-                int i2 = z ? round : 0;
-                int i3 = z ? 0 : round;
+                int i = z ? round : 0;
+                int i2 = z ? 0 : round;
                 float f4 = z ? this.mRequestedDragDistance : 0.0f;
                 float f5 = z ? 0.0f : this.mRequestedDragDistance;
-                this.mRecyclerView.scrollBy(i2, i3);
+                this.mRecyclerView.scrollBy(i, i2);
                 addFakeMotionEvent(uptimeMillis, 2, f4, f5);
                 return true;
             }

@@ -4,11 +4,12 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.rtc.BaiduRtcRoom;
 import com.baidu.rtc.internal.BaiduRtcRoomImp;
 import com.baidu.rtc.logreport.ErrorInfoReport;
@@ -22,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.baidubce.services.vod.VodClient;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
@@ -133,9 +133,9 @@ public class WebSocketChannel {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -165,9 +165,9 @@ public class WebSocketChannel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -226,9 +226,9 @@ public class WebSocketChannel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -258,9 +258,9 @@ public class WebSocketChannel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -301,9 +301,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -335,9 +335,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -426,9 +426,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -457,9 +457,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -493,14 +493,13 @@ public class WebSocketChannel {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onMessage(String str) {
-        JanusHandle janusHandle;
         BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode;
         long optLong;
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65563, this, str) == null) {
             if (BaiduRtcRoomImp.mbEnableDebugLog) {
-                String str2 = "onMessage" + str;
+                Log.i(TAG, "onMessage" + str);
             }
             try {
                 JSONObject jSONObject = new JSONObject(str);
@@ -536,7 +535,7 @@ public class WebSocketChannel {
                         janusTransaction3.success.success(jSONObject);
                     }
                     this.ackTransactions.remove(optString5);
-                } else if (optString.equals(a.O)) {
+                } else if (optString.equals("timeout")) {
                     this.mHandler.removeCallbacks(this.fireKeepAlive);
                     this.keepAliveTimer.removeCallbacks(this.serverKeepAliveTimeout);
                     if (this.mIsEnableErrorInfoMonitor) {
@@ -561,14 +560,14 @@ public class WebSocketChannel {
                         this.delegate.onMessage(new BigInteger(optJSONObject.optString("from")), optJSONObject.optString("data"));
                         return;
                     }
-                    String str3 = "";
+                    String str2 = "";
                     if (jSONObject.has("userevent")) {
                         JSONObject optJSONObject2 = jSONObject.optJSONObject("userevent");
                         if (optJSONObject2.has("joined")) {
                             BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo2 = new BaiduRtcRoom.RtcRoomUserInfo();
                             rtcRoomUserInfo2.userId = optJSONObject2.optLong("joined");
                             rtcRoomUserInfo2.userName = optJSONObject2.optString("display");
-                            rtcRoomUserInfo2.attribute = optJSONObject2.optString("attribute");
+                            rtcRoomUserInfo2.attribute = optJSONObject2.optString(Config.EVENT_ATTR);
                             this.mUserInfoList.put(BigInteger.valueOf(rtcRoomUserInfo2.userId), rtcRoomUserInfo2);
                             this.delegate.onUserJoinedRoom(new BigInteger(optJSONObject2.optString("joined")), optJSONObject2.optString("display"), "");
                         } else if (optJSONObject2.has("leaving")) {
@@ -576,17 +575,17 @@ public class WebSocketChannel {
                             this.delegate.onUserLeavingRoom(new BigInteger(optJSONObject2.optString("leaving")));
                         } else if (optJSONObject2.has(IMConstants.AT_DATA_TYPE_USER) && (optJSONArray = optJSONObject2.optJSONArray(IMConstants.AT_DATA_TYPE_USER)) != null && optJSONArray.length() > 0) {
                             int length = optJSONArray.length();
-                            for (int i2 = 0; i2 <= length - 1; i2++) {
-                                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i2);
+                            for (int i = 0; i <= length - 1; i++) {
+                                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
                                 BigInteger bigInteger = new BigInteger(optJSONObject3.optString("id"));
                                 String optString6 = optJSONObject3.optString("display");
                                 BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo3 = new BaiduRtcRoom.RtcRoomUserInfo();
                                 rtcRoomUserInfo3.userId = optJSONObject3.optLong("id");
                                 rtcRoomUserInfo3.userName = optJSONObject3.optString("display");
-                                rtcRoomUserInfo3.attribute = optJSONObject3.optString("attribute");
+                                rtcRoomUserInfo3.attribute = optJSONObject3.optString(Config.EVENT_ATTR);
                                 this.mUserInfoList.put(bigInteger, rtcRoomUserInfo3);
                                 this.delegate.onUserJoinedRoom(bigInteger, optString6, "");
-                                String optString7 = optJSONObject3.optString("attribute");
+                                String optString7 = optJSONObject3.optString(Config.EVENT_ATTR);
                                 if (!optString7.isEmpty()) {
                                     this.delegate.onAttribute(bigInteger, optString7);
                                 }
@@ -619,21 +618,24 @@ public class WebSocketChannel {
                             if (optJSONObject5.has(DefaultDataSource.SCHEME_RTMP)) {
                                 JSONObject optJSONObject6 = optJSONObject5.optJSONObject(DefaultDataSource.SCHEME_RTMP);
                                 if (optJSONObject6.has("url")) {
-                                    str3 = optJSONObject6.optString("url");
+                                    str2 = optJSONObject6.optString("url");
                                 }
                             }
                             String optString8 = optJSONObject5.optString("bypassStatus");
                             if (optString8.contains("success")) {
-                                this.delegate.onLivePublishSucceed(rtcLiveTransferMode, str3);
+                                this.delegate.onLivePublishSucceed(rtcLiveTransferMode, str2);
                             } else if (optString8.contains(SmsLoginView.f.l)) {
-                                this.delegate.onLivePublishFailed(rtcLiveTransferMode, str3);
+                                this.delegate.onLivePublishFailed(rtcLiveTransferMode, str2);
                             } else if (optString8.contains("break")) {
-                                this.delegate.onLivePublishInterrupted(rtcLiveTransferMode, str3);
+                                this.delegate.onLivePublishInterrupted(rtcLiveTransferMode, str2);
                             }
                         }
                     }
-                } else if (jSONObject.has("sender") && (janusHandle = this.handles.get(new BigInteger(jSONObject.optString("sender")))) != null) {
-                    if (optString.equals("event")) {
+                } else if (jSONObject.has("sender")) {
+                    JanusHandle janusHandle = this.handles.get(new BigInteger(jSONObject.optString("sender")));
+                    if (janusHandle == null) {
+                        Log.e(TAG, "missing handle");
+                    } else if (optString.equals("event")) {
                         JSONObject optJSONObject7 = jSONObject.optJSONObject("plugindata").optJSONObject("data");
                         if (optJSONObject7.optString("videoroom").equals("joined")) {
                             janusHandle.onJoined.onJoined(janusHandle);
@@ -642,6 +644,7 @@ public class WebSocketChannel {
                                 this.delegate.onSignalErrorInfo(optJSONObject7.optInt("error_code"));
                             }
                             if (optJSONObject7.optInt("error_code") == 436) {
+                                Log.e(TAG, "error_code 436， so try again。");
                                 this.mHandler.postDelayed(new Runnable(this, janusHandle) { // from class: com.baidu.rtc.WebSocketChannel.4
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
@@ -655,9 +658,9 @@ public class WebSocketChannel {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, janusHandle};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i3 = newInitContext.flag;
-                                            if ((i3 & 1) != 0) {
-                                                int i4 = i3 & 2;
+                                            int i2 = newInitContext.flag;
+                                            if ((i2 & 1) != 0) {
+                                                int i3 = i2 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -680,8 +683,8 @@ public class WebSocketChannel {
                         JSONArray optJSONArray2 = optJSONObject7.optJSONArray("publishers");
                         if (optJSONArray2 != null && optJSONArray2.length() > 0) {
                             int length2 = optJSONArray2.length();
-                            for (int i3 = 0; i3 <= length2 - 1; i3++) {
-                                JSONObject optJSONObject8 = optJSONArray2.optJSONObject(i3);
+                            for (int i2 = 0; i2 <= length2 - 1; i2++) {
+                                JSONObject optJSONObject8 = optJSONArray2.optJSONObject(i2);
                                 BigInteger bigInteger2 = new BigInteger(optJSONObject8.optString("id"));
                                 String optString9 = optJSONObject8.optString("display");
                                 this.delegate.onComing(bigInteger2, optString9);
@@ -691,7 +694,7 @@ public class WebSocketChannel {
                             }
                         }
                         String optString10 = optJSONObject7.optString("leaving");
-                        if (!TextUtils.isEmpty(optString10) && !optString10.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG)) {
+                        if (!TextUtils.isEmpty(optString10) && !optString10.equals("ok")) {
                             this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString10));
                             JanusHandle janusHandle2 = this.feeds.get(new BigInteger(optString10));
                             if (janusHandle2 != null && janusHandle2.onLeaving != null) {
@@ -700,7 +703,7 @@ public class WebSocketChannel {
                         }
                         String optString11 = optJSONObject7.optString("unpublished");
                         if (!TextUtils.isEmpty(optString11)) {
-                            if (!optString11.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG) && !optString11.equals("self")) {
+                            if (!optString11.equals("ok") && !optString11.equals("self")) {
                                 this.delegate.onLeaving(janusHandle.handleId, new BigInteger(optString11));
                                 JanusHandle janusHandle3 = this.feeds.get(new BigInteger(optString11));
                                 if (janusHandle3 != null && janusHandle3.onLeaving != null) {
@@ -753,9 +756,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -782,9 +785,9 @@ public class WebSocketChannel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -814,9 +817,9 @@ public class WebSocketChannel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -861,9 +864,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -951,7 +954,7 @@ public class WebSocketChannel {
         if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, num)) == null) {
             Random random = new Random();
             StringBuilder sb = new StringBuilder(num.intValue());
-            for (int i2 = 0; i2 < num.intValue(); i2++) {
+            for (int i = 0; i < num.intValue(); i++) {
                 sb.append("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".charAt(random.nextInt(62)));
             }
             return sb.toString();
@@ -967,7 +970,7 @@ public class WebSocketChannel {
                 webSocket.send(jSONObject.toString());
             }
             if (BaiduRtcRoomImp.mbEnableDebugLog) {
-                jSONObject.toString();
+                Log.i(TAG, jSONObject.toString());
             }
         }
     }
@@ -1021,9 +1024,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1051,9 +1054,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1091,13 +1094,13 @@ public class WebSocketChannel {
                 return null;
             }
             BaiduRtcRoom.RtcRoomUserInfo[] rtcRoomUserInfoArr = new BaiduRtcRoom.RtcRoomUserInfo[this.mUserInfoList.size()];
-            int i2 = 0;
+            int i = 0;
             for (BaiduRtcRoom.RtcRoomUserInfo rtcRoomUserInfo : this.mUserInfoList.values()) {
-                rtcRoomUserInfoArr[i2] = new BaiduRtcRoom.RtcRoomUserInfo();
-                rtcRoomUserInfoArr[i2].userId = rtcRoomUserInfo.userId;
-                rtcRoomUserInfoArr[i2].userName = rtcRoomUserInfo.userName;
-                rtcRoomUserInfoArr[i2].attribute = rtcRoomUserInfo.attribute;
-                i2++;
+                rtcRoomUserInfoArr[i] = new BaiduRtcRoom.RtcRoomUserInfo();
+                rtcRoomUserInfoArr[i].userId = rtcRoomUserInfo.userId;
+                rtcRoomUserInfoArr[i].userName = rtcRoomUserInfo.userName;
+                rtcRoomUserInfoArr[i].attribute = rtcRoomUserInfo.attribute;
+                i++;
             }
             return rtcRoomUserInfoArr;
         }
@@ -1123,9 +1126,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1142,11 +1145,11 @@ public class WebSocketChannel {
                         JSONArray optJSONArray2 = jSONObject.optJSONObject("plugindata").optJSONObject("data").optJSONArray("listeners");
                         if (optJSONArray != null) {
                             BaiduRtcRoom.UserList userList = new BaiduRtcRoom.UserList(optJSONArray.length(), optJSONArray2.length());
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                userList.Publishers[i2] = optJSONArray.optJSONObject(i2).optInt("clientUserId");
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                userList.Publishers[i] = optJSONArray.optJSONObject(i).optInt("clientUserId");
                             }
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                userList.Listeners[i3] = optJSONArray2.optJSONObject(i3).optInt("clientUserId");
+                            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                                userList.Listeners[i2] = optJSONArray2.optJSONObject(i2).optInt("clientUserId");
                             }
                             this.this$0.mUserList = userList;
                         }
@@ -1171,9 +1174,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1215,9 +1218,9 @@ public class WebSocketChannel {
         return (BaiduRtcRoom.UserList) invokeV.objValue;
     }
 
-    public void createRoom(long j2, String str, JanusHandle janusHandle) {
+    public void createRoom(long j, String str, JanusHandle janusHandle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), str, janusHandle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, janusHandle}) == null) {
             String randomString = randomString(12);
             JanusTransaction janusTransaction = new JanusTransaction();
             janusTransaction.tid = randomString;
@@ -1234,9 +1237,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, janusHandle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1267,9 +1270,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, janusHandle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1294,7 +1297,7 @@ public class WebSocketChannel {
             JSONObject jSONObject4 = new JSONObject();
             try {
                 jSONObject.putOpt("request", "create");
-                jSONObject.putOpt("room", Long.valueOf(j2));
+                jSONObject.putOpt("room", Long.valueOf(j));
                 jSONObject.putOpt("description", str);
                 jSONObject.putOpt("publishers", 1000);
                 jSONObject.putOpt("is_private", Boolean.FALSE);
@@ -1348,9 +1351,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, janusHandle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1365,7 +1368,7 @@ public class WebSocketChannel {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
                         this.this$0.mRoomId = jSONObject.optJSONObject("plugindata").optJSONObject("data").optLong("room");
-                        String str = "Got RoomID:" + this.this$0.mRoomId;
+                        Log.v("createRoomWithoutRoomID", "Got RoomID:" + this.this$0.mRoomId);
                         ErrorInfoReport.getInstance().setRoomId(this.this$0.mRoomId);
                         this.this$0.publisherJoinRoom(this.val$handle);
                     }
@@ -1384,9 +1387,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, janusHandle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1503,13 +1506,13 @@ public class WebSocketChannel {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRoomId : invokeV.longValue;
     }
 
-    public void getUserAttribute(long j2) {
+    public void getUserAttribute(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
             String randomString = randomString(12);
             JanusTransaction janusTransaction = new JanusTransaction();
             janusTransaction.tid = randomString;
-            janusTransaction.success = new TransactionCallbackSuccess(this, j2) { // from class: com.baidu.rtc.WebSocketChannel.28
+            janusTransaction.success = new TransactionCallbackSuccess(this, j) { // from class: com.baidu.rtc.WebSocketChannel.28
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ WebSocketChannel this$0;
@@ -1520,18 +1523,18 @@ public class WebSocketChannel {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2)};
+                        Object[] objArr = {this, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$feedid = j2;
+                    this.val$feedid = j;
                 }
 
                 @Override // com.baidu.rtc.TransactionCallbackSuccess
@@ -1558,9 +1561,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1582,7 +1585,7 @@ public class WebSocketChannel {
             try {
                 jSONObject.putOpt("request", "getuserattribute");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("id", Long.valueOf(j2));
+                jSONObject.putOpt("id", Long.valueOf(j));
                 jSONObject2.putOpt("janus", "message");
                 jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
                 jSONObject2.putOpt("transaction", randomString);
@@ -1604,7 +1607,7 @@ public class WebSocketChannel {
                 str2 = str2 + "&compulsive=true";
             }
             if (BaiduRtcRoomImp.mbEnableDebugLog) {
-                String str3 = "connect url: " + str2;
+                Log.i(TAG, "connect url: " + str2);
             }
             this.mWebSocket = httpclientBuilder.connectTimeout(this.mConnectionTimeoutMs, TimeUnit.MILLISECONDS).readTimeout(this.mReadTimeoutMs, TimeUnit.MILLISECONDS).dns(new Dns(this) { // from class: com.baidu.rtc.WebSocketChannel.2
                 public static /* synthetic */ Interceptable $ic;
@@ -1618,9 +1621,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1630,11 +1633,11 @@ public class WebSocketChannel {
                 }
 
                 @Override // okhttp3.Dns
-                public List<InetAddress> lookup(String str4) {
+                public List<InetAddress> lookup(String str3) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str4)) == null) {
-                        if (str4.equals("mytestrtc.exp.bcelive.com")) {
+                    if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, str3)) == null) {
+                        if (str3.equals("mytestrtc.exp.bcelive.com")) {
                             ArrayList arrayList = new ArrayList();
                             try {
                                 arrayList.add(InetAddress.getByName("10.99.206.86"));
@@ -1643,7 +1646,7 @@ public class WebSocketChannel {
                             return arrayList;
                         }
                         try {
-                            FutureTask futureTask = new FutureTask(new Callable<List<InetAddress>>(this, str4) { // from class: com.baidu.rtc.WebSocketChannel.2.1
+                            FutureTask futureTask = new FutureTask(new Callable<List<InetAddress>>(this, str3) { // from class: com.baidu.rtc.WebSocketChannel.2.1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ AnonymousClass2 this$1;
@@ -1654,18 +1657,18 @@ public class WebSocketChannel {
                                     if (interceptable3 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr = {this, str4};
+                                        Object[] objArr = {this, str3};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
                                         }
                                     }
                                     this.this$1 = this;
-                                    this.val$hostname = str4;
+                                    this.val$hostname = str3;
                                 }
 
                                 /* JADX DEBUG: Method merged with bridge method */
@@ -1696,9 +1699,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1708,18 +1711,20 @@ public class WebSocketChannel {
                 }
 
                 @Override // okhttp3.WebSocketListener
-                public void onClosed(WebSocket webSocket, int i2, String str4) {
+                public void onClosed(WebSocket webSocket, int i, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, webSocket, i2, str4) == null) {
-                        boolean z2 = BaiduRtcRoomImp.mbEnableDebugLog;
+                    if ((interceptable2 == null || interceptable2.invokeLIL(1048576, this, webSocket, i, str3) == null) && BaiduRtcRoomImp.mbEnableDebugLog) {
+                        Log.i(WebSocketChannel.TAG, "onClosed");
                     }
                 }
 
                 @Override // okhttp3.WebSocketListener
-                public void onClosing(WebSocket webSocket, int i2, String str4) {
+                public void onClosing(WebSocket webSocket, int i, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, i2, str4) == null) {
-                        boolean z2 = BaiduRtcRoomImp.mbEnableDebugLog;
+                    if (interceptable2 == null || interceptable2.invokeLIL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, i, str3) == null) {
+                        if (BaiduRtcRoomImp.mbEnableDebugLog) {
+                            Log.i(WebSocketChannel.TAG, "onClosing");
+                        }
                         if (this.this$0.delegate != null) {
                             this.this$0.delegate.onConnectError();
                         }
@@ -1731,7 +1736,9 @@ public class WebSocketChannel {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, webSocket, th, response) == null) {
                         if (th != null) {
-                            String str4 = "onFailure" + th.toString();
+                            Log.e(WebSocketChannel.TAG, "onFailure" + th.toString());
+                        } else {
+                            Log.e(WebSocketChannel.TAG, "onFailure");
                         }
                         if (this.this$0.delegate == null) {
                             return;
@@ -1740,30 +1747,31 @@ public class WebSocketChannel {
                             if (this.this$0.delegate != null) {
                                 this.this$0.delegate.onLoginTimeout();
                             }
-                        } else if ((th instanceof NumberFormatException) || (th instanceof NullPointerException)) {
-                        } else {
-                            if (th instanceof SSLException) {
-                                if (this.this$0.delegate != null) {
-                                    this.this$0.delegate.onConnectError();
-                                    return;
-                                }
-                                return;
-                            }
+                        } else if (th instanceof NumberFormatException) {
+                            Log.e(WebSocketChannel.TAG, "onFailure: java.lang.NumberFormatException");
+                        } else if (th instanceof NullPointerException) {
+                            Log.e(WebSocketChannel.TAG, "onFailure: java.lang.NullPointerException");
+                        } else if (!(th instanceof SSLException)) {
                             if (this.this$0.mIsEnableErrorInfoMonitor) {
                                 ErrorInfoReport.getInstance().reportErrorInfo(ErrorInfoReport.ErrorCode.SIGNAL_CHANNEL_CONNECTION_LOST);
                             }
                             if (this.this$0.delegate != null) {
                                 this.this$0.delegate.onLoginError();
                             }
+                        } else {
+                            Log.e(WebSocketChannel.TAG, "onFailure: SSLException");
+                            if (this.this$0.delegate != null) {
+                                this.this$0.delegate.onConnectError();
+                            }
                         }
                     }
                 }
 
                 @Override // okhttp3.WebSocketListener
-                public void onMessage(WebSocket webSocket, String str4) {
+                public void onMessage(WebSocket webSocket, String str3) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLL(1048579, this, webSocket, str4) == null) {
-                        this.this$0.onMessage(str4);
+                    if (interceptable2 == null || interceptable2.invokeLL(1048579, this, webSocket, str3) == null) {
+                        this.this$0.onMessage(str3);
                     }
                 }
 
@@ -1778,7 +1786,9 @@ public class WebSocketChannel {
                 public void onOpen(WebSocket webSocket, Response response) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048581, this, webSocket, response) == null) {
-                        boolean z2 = BaiduRtcRoomImp.mbEnableDebugLog;
+                        if (BaiduRtcRoomImp.mbEnableDebugLog) {
+                            Log.i(WebSocketChannel.TAG, "onOpen");
+                        }
                         this.this$0.createSession();
                     }
                 }
@@ -1786,14 +1796,14 @@ public class WebSocketChannel {
         }
     }
 
-    public void kickOffUserWithId(long j2) {
+    public void kickOffUserWithId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("request", "kickoutuser");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("target", Long.valueOf(j2));
+                jSONObject.putOpt("target", Long.valueOf(j));
                 Send(jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -1816,9 +1826,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1832,9 +1842,9 @@ public class WebSocketChannel {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         int size = this.this$0.handles.size();
-                        for (int i2 = 0; i2 < size; i2++) {
+                        for (int i = 0; i < size; i++) {
                             WebSocketChannel webSocketChannel = this.this$0;
-                            webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i2]);
+                            webSocketChannel.doLeaveRoom((JanusHandle) webSocketChannel.handles.values().toArray()[i]);
                             try {
                                 Thread.sleep(50L);
                             } catch (Exception unused) {
@@ -1874,10 +1884,10 @@ public class WebSocketChannel {
         }
     }
 
-    public void sendMessageToUser(String str, long j2) {
+    public void sendMessageToUser(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048592, this, str, j2) == null) {
-            sendMessageToUser(str, j2, false);
+        if (interceptable == null || interceptable.invokeLJ(1048592, this, str, j) == null) {
+            sendMessageToUser(str, j, false);
         }
     }
 
@@ -1916,10 +1926,10 @@ public class WebSocketChannel {
         }
     }
 
-    public void setConnectionTimeoutMs(int i2) {
+    public void setConnectionTimeoutMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mConnectionTimeoutMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mConnectionTimeoutMs = i;
         }
     }
 
@@ -2025,10 +2035,10 @@ public class WebSocketChannel {
         }
     }
 
-    public void setReadTimeoutMs(int i2) {
+    public void setReadTimeoutMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mReadTimeoutMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mReadTimeoutMs = i;
         }
     }
 
@@ -2039,98 +2049,101 @@ public class WebSocketChannel {
         }
     }
 
-    public void setRemoteStreamPlayState(Boolean bool, Boolean bool2, long j2) {
-        JanusHandle janusHandle;
+    public void setRemoteStreamPlayState(Boolean bool, Boolean bool2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{bool, bool2, Long.valueOf(j2)}) == null) || (janusHandle = this.feeds.get(BigInteger.valueOf(j2))) == null) {
-            return;
-        }
-        String randomString = randomString(12);
-        JanusTransaction janusTransaction = new JanusTransaction();
-        janusTransaction.tid = randomString;
-        janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.22
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WebSocketChannel this$0;
+        if (interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{bool, bool2, Long.valueOf(j)}) == null) {
+            JanusHandle janusHandle = this.feeds.get(BigInteger.valueOf(j));
+            if (janusHandle == null) {
+                Log.e(TAG, "wrong userID");
+                return;
+            }
+            String randomString = randomString(12);
+            JanusTransaction janusTransaction = new JanusTransaction();
+            janusTransaction.tid = randomString;
+            janusTransaction.success = new TransactionCallbackSuccess(this) { // from class: com.baidu.rtc.WebSocketChannel.22
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                @Override // com.baidu.rtc.TransactionCallbackSuccess
+                public void success(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
                     }
                 }
-                this.this$0 = this;
-            }
+            };
+            janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.23
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ WebSocketChannel this$0;
 
-            @Override // com.baidu.rtc.TransactionCallbackSuccess
-            public void success(JSONObject jSONObject) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
                 }
-            }
-        };
-        janusTransaction.error = new TransactionCallbackError(this) { // from class: com.baidu.rtc.WebSocketChannel.23
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WebSocketChannel this$0;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
-                        return;
+                @Override // com.baidu.rtc.TransactionCallbackError
+                public void error(JSONObject jSONObject) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
                     }
                 }
-                this.this$0 = this;
+            };
+            this.transactions.put(randomString, janusTransaction);
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject.putOpt("request", "configure");
+                jSONObject.putOpt("audio", bool2);
+                jSONObject.putOpt("video", bool);
+                jSONObject.putOpt("data", Boolean.TRUE);
+                jSONObject2.putOpt("janus", "message");
+                jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
+                jSONObject2.putOpt("transaction", randomString);
+                jSONObject2.putOpt("session_id", this.mSessionId);
+                jSONObject2.putOpt("handle_id", janusHandle.handleId);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
-
-            @Override // com.baidu.rtc.TransactionCallbackError
-            public void error(JSONObject jSONObject) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(1048576, this, jSONObject) == null) {
-                }
-            }
-        };
-        this.transactions.put(randomString, janusTransaction);
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            jSONObject.putOpt("request", "configure");
-            jSONObject.putOpt("audio", bool2);
-            jSONObject.putOpt("video", bool);
-            jSONObject.putOpt("data", Boolean.TRUE);
-            jSONObject2.putOpt("janus", "message");
-            jSONObject2.putOpt(TtmlNode.TAG_BODY, jSONObject);
-            jSONObject2.putOpt("transaction", randomString);
-            jSONObject2.putOpt("session_id", this.mSessionId);
-            jSONObject2.putOpt("handle_id", janusHandle.handleId);
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+            sendMessage(jSONObject2);
         }
-        sendMessage(jSONObject2);
     }
 
-    public void setRoomId(int i2) {
+    public void setRoomId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.mRoomId = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mRoomId = i;
         }
     }
 
@@ -2174,9 +2187,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2206,9 +2219,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2243,10 +2256,10 @@ public class WebSocketChannel {
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.mUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mUserId = j;
         }
     }
 
@@ -2257,14 +2270,14 @@ public class WebSocketChannel {
         }
     }
 
-    public void shutUpUserWithId(long j2, boolean z) {
+    public void shutUpUserWithId(long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.putOpt("request", "forwardconfigure");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
-                jSONObject.putOpt("target", Long.valueOf(j2));
+                jSONObject.putOpt("target", Long.valueOf(j));
                 boolean z2 = true;
                 jSONObject.putOpt("audio", Boolean.valueOf(!z));
                 jSONObject.putOpt("video", Boolean.valueOf(!z));
@@ -2365,9 +2378,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, bigInteger, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2398,9 +2411,9 @@ public class WebSocketChannel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -2429,9 +2442,9 @@ public class WebSocketChannel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -2466,9 +2479,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2517,9 +2530,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, janusHandle};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2554,9 +2567,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2644,9 +2657,9 @@ public class WebSocketChannel {
         }
     }
 
-    public void sendMessageToUser(String str, long j2, boolean z) {
+    public void sendMessageToUser(String str, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             String randomString = randomString(12);
             JanusTransaction janusTransaction = new JanusTransaction();
             janusTransaction.tid = randomString;
@@ -2662,9 +2675,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2692,9 +2705,9 @@ public class WebSocketChannel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2717,7 +2730,7 @@ public class WebSocketChannel {
                 jSONObject.putOpt("request", "senddata");
                 jSONObject.putOpt("room", Long.valueOf(this.mRoomId));
                 jSONObject.putOpt("id", Long.valueOf(this.mUserId));
-                jSONObject.putOpt("to", Long.valueOf(j2));
+                jSONObject.putOpt("to", Long.valueOf(j));
                 jSONObject.putOpt("data", str);
                 jSONObject.putOpt("internal", Boolean.valueOf(z));
                 jSONObject2.putOpt("janus", "message");

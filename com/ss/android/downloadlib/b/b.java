@@ -1,9 +1,9 @@
 package com.ss.android.downloadlib.b;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
-    public void a(@NonNull final com.ss.android.downloadad.api.a.b bVar, @NonNull final g gVar, int i2) {
+    public void a(@NonNull final com.ss.android.downloadad.api.a.b bVar, @NonNull final g gVar, int i) {
         com.ss.android.downloadlib.d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.b.b.1
             @Override // java.lang.Runnable
             public void run() {
@@ -20,6 +20,6 @@ public class b {
                     });
                 }
             }
-        }, i2);
+        }, i);
     }
 }

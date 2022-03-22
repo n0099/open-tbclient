@@ -1,5 +1,6 @@
 package com.airbnb.lottie;
 
+import android.util.Log;
 import androidx.collection.ArraySet;
 import androidx.core.util.Pair;
 import com.airbnb.lottie.utils.MeanCalculator;
@@ -56,9 +57,10 @@ public class PerformanceTracker {
     public void logRenderTimes() {
         if (this.enabled) {
             List<Pair<String, Float>> sortedRenderTimes = getSortedRenderTimes();
-            for (int i2 = 0; i2 < sortedRenderTimes.size(); i2++) {
-                Pair<String, Float> pair = sortedRenderTimes.get(i2);
-                String.format("\t\t%30s:%.2f", pair.first, pair.second);
+            Log.d(L.TAG, "Render times:");
+            for (int i = 0; i < sortedRenderTimes.size(); i++) {
+                Pair<String, Float> pair = sortedRenderTimes.get(i);
+                Log.d(L.TAG, String.format("\t\t%30s:%.2f", pair.first, pair.second));
             }
         }
     }

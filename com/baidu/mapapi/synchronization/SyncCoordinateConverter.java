@@ -18,7 +18,7 @@ public class SyncCoordinateConverter {
     public LatLng a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CoordType f34313b;
+    public CoordType f26531b;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -48,16 +48,16 @@ public class SyncCoordinateConverter {
             a = new CoordType[]{COMMON, coordType};
         }
 
-        public CoordType(String str, int i2) {
+        public CoordType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -85,9 +85,9 @@ public class SyncCoordinateConverter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -131,12 +131,12 @@ public class SyncCoordinateConverter {
             if (this.a == null) {
                 return null;
             }
-            if (this.f34313b == null) {
-                this.f34313b = CoordType.BD09LL;
+            if (this.f26531b == null) {
+                this.f26531b = CoordType.BD09LL;
             }
-            int i2 = a.a[this.f34313b.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = a.a[this.f26531b.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return null;
                 }
                 return b(this.a);
@@ -160,7 +160,7 @@ public class SyncCoordinateConverter {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, coordType)) == null) {
-            this.f34313b = coordType;
+            this.f26531b = coordType;
             return this;
         }
         return (SyncCoordinateConverter) invokeL.objValue;

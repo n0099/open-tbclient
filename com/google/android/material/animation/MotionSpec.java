@@ -7,6 +7,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.util.Log;
 import android.util.Property;
 import androidx.annotation.AnimatorRes;
 import androidx.annotation.NonNull;
@@ -22,8 +23,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MotionSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MotionSpec";
@@ -36,9 +36,9 @@ public class MotionSpec {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,8 +67,8 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, propertyValuesHolderArr)) == null) {
             PropertyValuesHolder[] propertyValuesHolderArr2 = new PropertyValuesHolder[propertyValuesHolderArr.length];
-            for (int i2 = 0; i2 < propertyValuesHolderArr.length; i2++) {
-                propertyValuesHolderArr2[i2] = propertyValuesHolderArr[i2].clone();
+            for (int i = 0; i < propertyValuesHolderArr.length; i++) {
+                propertyValuesHolderArr2[i] = propertyValuesHolderArr[i].clone();
             }
             return propertyValuesHolderArr2;
         }
@@ -76,12 +76,12 @@ public class MotionSpec {
     }
 
     @Nullable
-    public static MotionSpec createFromAttribute(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i2) {
+    public static MotionSpec createFromAttribute(@NonNull Context context, @NonNull TypedArray typedArray, @StyleableRes int i) {
         InterceptResult invokeLLI;
         int resourceId;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, typedArray, i2)) == null) {
-            if (!typedArray.hasValue(i2) || (resourceId = typedArray.getResourceId(i2, 0)) == 0) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, typedArray, i)) == null) {
+            if (!typedArray.hasValue(i) || (resourceId = typedArray.getResourceId(i, 0)) == 0) {
                 return null;
             }
             return createFromResource(context, resourceId);
@@ -90,12 +90,12 @@ public class MotionSpec {
     }
 
     @Nullable
-    public static MotionSpec createFromResource(@NonNull Context context, @AnimatorRes int i2) {
+    public static MotionSpec createFromResource(@NonNull Context context, @AnimatorRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
             try {
-                Animator loadAnimator = AnimatorInflater.loadAnimator(context, i2);
+                Animator loadAnimator = AnimatorInflater.loadAnimator(context, i);
                 if (loadAnimator instanceof AnimatorSet) {
                     return createSpecFromAnimators(((AnimatorSet) loadAnimator).getChildAnimations());
                 }
@@ -105,8 +105,8 @@ public class MotionSpec {
                     return createSpecFromAnimators(arrayList);
                 }
                 return null;
-            } catch (Exception unused) {
-                String str = "Can't load animation resource ID #0x" + Integer.toHexString(i2);
+            } catch (Exception e2) {
+                Log.w(TAG, "Can't load animation resource ID #0x" + Integer.toHexString(i), e2);
                 return null;
             }
         }
@@ -120,8 +120,8 @@ public class MotionSpec {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, list)) == null) {
             MotionSpec motionSpec = new MotionSpec();
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                addInfoFromAnimator(motionSpec, list.get(i2));
+            for (int i = 0; i < size; i++) {
+                addInfoFromAnimator(motionSpec, list.get(i));
             }
             return motionSpec;
         }
@@ -186,12 +186,12 @@ public class MotionSpec {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             int size = this.timings.size();
-            long j2 = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                MotionTiming valueAt = this.timings.valueAt(i2);
-                j2 = Math.max(j2, valueAt.getDelay() + valueAt.getDuration());
+            long j = 0;
+            for (int i = 0; i < size; i++) {
+                MotionTiming valueAt = this.timings.valueAt(i);
+                j = Math.max(j, valueAt.getDelay() + valueAt.getDuration());
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -233,7 +233,7 @@ public class MotionSpec {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return '\n' + MotionSpec.class.getName() + ExtendedMessageFormat.START_FE + Integer.toHexString(System.identityHashCode(this)) + " timings: " + this.timings + "}\n";
+            return '\n' + MotionSpec.class.getName() + '{' + Integer.toHexString(System.identityHashCode(this)) + " timings: " + this.timings + "}\n";
         }
         return (String) invokeV.objValue;
     }

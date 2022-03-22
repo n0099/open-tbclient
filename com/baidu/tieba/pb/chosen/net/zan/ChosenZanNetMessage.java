@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen.net.zan;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ChosenZanNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class ChosenZanNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -63,31 +63,31 @@ public class ChosenZanNetMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.action == 1 : invokeV.booleanValue;
     }
 
-    public void setAction(int i2) {
+    public void setAction(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.action = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.action = i;
         }
     }
 
-    public void setExcId(long j2) {
+    public void setExcId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.excId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.excId = j;
         }
     }
 
-    public void setPostId(long j2) {
+    public void setPostId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.postId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.postId = j;
         }
     }
 
-    public void setThreadId(long j2) {
+    public void setThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.threadId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.threadId = j;
         }
     }
 }

@@ -87,10 +87,10 @@ public class JsonUtils {
     }
 
     public static PointF jsonToPoint(JsonReader jsonReader, float f2) throws IOException {
-        int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token[jsonReader.peek().ordinal()];
-        if (i2 != 1) {
-            if (i2 != 2) {
-                if (i2 == 3) {
+        int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token[jsonReader.peek().ordinal()];
+        if (i != 1) {
+            if (i != 2) {
+                if (i == 3) {
                     return jsonObjectToPoint(jsonReader, f2);
                 }
                 throw new IllegalArgumentException("Unknown point starts with " + jsonReader.peek());
@@ -114,9 +114,9 @@ public class JsonUtils {
 
     public static float valueFromObject(JsonReader jsonReader) throws IOException {
         JsonReader.Token peek = jsonReader.peek();
-        int i2 = AnonymousClass1.$SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token[peek.ordinal()];
-        if (i2 != 1) {
-            if (i2 == 2) {
+        int i = AnonymousClass1.$SwitchMap$com$airbnb$lottie$parser$moshi$JsonReader$Token[peek.ordinal()];
+        if (i != 1) {
+            if (i == 2) {
                 jsonReader.beginArray();
                 float nextDouble = (float) jsonReader.nextDouble();
                 while (jsonReader.hasNext()) {

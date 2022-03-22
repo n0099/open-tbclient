@@ -1,9 +1,12 @@
 package com.baidu.searchbox.task.async.appcreate;
 
-import c.a.q0.h0.e;
+import android.view.View;
+import c.a.o0.h0.e;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.PreInitMainTabViewSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,9 +22,9 @@ public class InitPersonalizeViewTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,7 +36,11 @@ public class InitPersonalizeViewTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             try {
-                e.e().f(TbadkCoreApplication.getInst());
+                if (e.e().a()) {
+                    e.e().f(TbadkCoreApplication.getInst());
+                } else if (PreInitMainTabViewSwitch.getIsOn()) {
+                    MessageManager.getInstance().runTask(2921676, View.class, TbadkCoreApplication.getInst());
+                }
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -44,7 +51,7 @@ public class InitPersonalizeViewTask extends LaunchTask {
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "InitAccount" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "InitPersonalizeView" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

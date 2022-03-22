@@ -12,7 +12,7 @@ import com.coremedia.iso.boxes.sampleentry.VisualSampleEntry;
 import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.googlecode.mp4parser.boxes.AC3SpecificBox;
 import com.googlecode.mp4parser.boxes.EC3SpecificBox;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MimeTypes {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String APPLICATION_CAMERA_MOTION = "application/x-camera-motion";
@@ -81,9 +81,9 @@ public final class MimeTypes {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -36,9 +36,9 @@ public final class AccessibilityServiceInfoCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,22 +46,22 @@ public final class AccessibilityServiceInfoCompat {
     }
 
     @NonNull
-    public static String capabilityToString(int i2) {
+    public static String capabilityToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 4 ? i2 != 8 ? RomUtils.UNKNOWN : "CAPABILITY_CAN_FILTER_KEY_EVENTS" : "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY" : "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION" : "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 1 ? i != 2 ? i != 4 ? i != 8 ? RomUtils.UNKNOWN : "CAPABILITY_CAN_FILTER_KEY_EVENTS" : "CAPABILITY_CAN_REQUEST_ENHANCED_WEB_ACCESSIBILITY" : "CAPABILITY_CAN_REQUEST_TOUCH_EXPLORATION" : "CAPABILITY_CAN_RETRIEVE_WINDOW_CONTENT" : (String) invokeI.objValue;
     }
 
     @NonNull
-    public static String feedbackTypeToString(int i2) {
+    public static String feedbackTypeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append(PreferencesUtil.LEFT_MOUNT);
-            while (i2 > 0) {
-                int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(i2);
-                i2 &= ~numberOfTrailingZeros;
+            while (i > 0) {
+                int numberOfTrailingZeros = 1 << Integer.numberOfTrailingZeros(i);
+                i &= ~numberOfTrailingZeros;
                 if (sb.length() > 1) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
@@ -84,16 +84,16 @@ public final class AccessibilityServiceInfoCompat {
     }
 
     @Nullable
-    public static String flagToString(int i2) {
+    public static String flagToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 4) {
-                        if (i2 != 8) {
-                            if (i2 != 16) {
-                                if (i2 != 32) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 4) {
+                        if (i != 8) {
+                            if (i != 16) {
+                                if (i != 32) {
                                     return null;
                                 }
                                 return "FLAG_REQUEST_FILTER_KEY_EVENTS";

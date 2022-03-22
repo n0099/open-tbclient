@@ -5,8 +5,8 @@ import android.view.View;
 import android.widget.TextView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import c.a.l.q;
-import c.a.q0.r.v.c;
-import c.a.r0.o1.l.a.c.b;
+import c.a.o0.r.v.c;
+import c.a.p0.q1.l.a.c.b;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
@@ -22,18 +22,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConstraintLayout a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ConstraintLayout f43177e;
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f33517b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TbImageView f43178f;
+    /* renamed from: c  reason: collision with root package name */
+    public EllipsizeTagTitleView f33518c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public EllipsizeTagTitleView f43179g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f43180h;
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33519d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicHolder(View view) {
@@ -44,47 +42,47 @@ public class LocalChannelTopicHolder extends TypeAdapter.ViewHolder implements q
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43177e = (ConstraintLayout) view.findViewById(R.id.topic_root);
-        this.f43178f = (TbImageView) view.findViewById(R.id.topic_image_iv);
-        this.f43179g = (EllipsizeTagTitleView) view.findViewById(R.id.topic_title_tv);
-        this.f43180h = (TextView) view.findViewById(R.id.topic_desc_tv);
+        this.a = (ConstraintLayout) view.findViewById(R.id.obfuscated_res_0x7f092112);
+        this.f33517b = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f0920f1);
+        this.f33518c = (EllipsizeTagTitleView) view.findViewById(R.id.obfuscated_res_0x7f09212c);
+        this.f33519d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920de);
     }
 
-    public void bindData(b bVar) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.f43178f.setConrers(15);
-            this.f43178f.setPlaceHolder(1);
-            this.f43178f.startLoad(bVar.f20205h, 10, false);
-            this.f43179g.setTitleAndTag(this.itemView.getContext().getString(R.string.local_channel_topic_wrap, bVar.f20202e), bVar.f20204g);
-            if (!TextUtils.isEmpty(bVar.f20203f)) {
-                this.f43180h.setText(bVar.f20203f);
-                this.f43180h.setVisibility(0);
+            this.f33517b.setConrers(15);
+            this.f33517b.setPlaceHolder(1);
+            this.f33517b.J(bVar.f17539d, 10, false);
+            this.f33518c.setTitleAndTag(this.itemView.getContext().getString(R.string.obfuscated_res_0x7f0f0a35, bVar.a), bVar.f17538c);
+            if (!TextUtils.isEmpty(bVar.f17537b)) {
+                this.f33519d.setText(bVar.f17537b);
+                this.f33519d.setVisibility(0);
                 return;
             }
-            this.f43180h.setVisibility(8);
+            this.f33519d.setVisibility(8);
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i2) == null) {
-            EllipsizeTagTitleView ellipsizeTagTitleView = this.f43179g;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            EllipsizeTagTitleView ellipsizeTagTitleView = this.f33518c;
             if (ellipsizeTagTitleView != null) {
-                ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i2);
+                ellipsizeTagTitleView.onChangeSkinType(tbPageContext, i);
             }
-            SkinManager.setViewTextColor(this.f43180h, (int) R.color.CAM_X0109);
-            c.d(this.f43177e).i(R.color.CAM_X0201, R.color.CAM_X0202);
+            SkinManager.setViewTextColor(this.f33519d, (int) R.color.CAM_X0109);
+            c.d(this.a).i(R.color.CAM_X0201, R.color.CAM_X0202);
         }
     }
 }

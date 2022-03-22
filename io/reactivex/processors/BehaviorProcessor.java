@@ -63,9 +63,9 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, behaviorProcessor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,9 +130,9 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
             }
         }
 
-        public void emitNext(Object obj, long j2) {
+        public void emitNext(Object obj, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j2) == null) || this.cancelled) {
+            if (!(interceptable == null || interceptable.invokeLJ(1048579, this, obj, j) == null) || this.cancelled) {
                 return;
             }
             if (!this.fastPath) {
@@ -140,7 +140,7 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                     if (this.cancelled) {
                         return;
                     }
-                    if (this.index == j2) {
+                    if (this.index == j) {
                         return;
                     }
                     if (this.emitting) {
@@ -166,10 +166,10 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this, j);
             }
         }
 
@@ -188,10 +188,10 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                     this.actual.onError(NotificationLite.getError(obj));
                     return true;
                 } else {
-                    long j2 = get();
-                    if (j2 != 0) {
+                    long j = get();
+                    if (j != 0) {
                         this.actual.onNext((Object) NotificationLite.getValue(obj));
-                        if (j2 != Long.MAX_VALUE) {
+                        if (j != Long.MAX_VALUE) {
                             decrementAndGet();
                             return false;
                         }
@@ -229,9 +229,9 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -448,27 +448,27 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
                 if (length == 0) {
                     return;
                 }
-                int i2 = -1;
-                int i3 = 0;
+                int i = -1;
+                int i2 = 0;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         break;
-                    } else if (behaviorSubscriptionArr[i3] == behaviorSubscription) {
-                        i2 = i3;
+                    } else if (behaviorSubscriptionArr[i2] == behaviorSubscription) {
+                        i = i2;
                         break;
                     } else {
-                        i3++;
+                        i2++;
                     }
                 }
-                if (i2 < 0) {
+                if (i < 0) {
                     return;
                 }
                 if (length == 1) {
                     behaviorSubscriptionArr2 = EMPTY;
                 } else {
                     BehaviorSubscription[] behaviorSubscriptionArr3 = new BehaviorSubscription[length - 1];
-                    System.arraycopy(behaviorSubscriptionArr, 0, behaviorSubscriptionArr3, 0, i2);
-                    System.arraycopy(behaviorSubscriptionArr, i2 + 1, behaviorSubscriptionArr3, i2, (length - i2) - 1);
+                    System.arraycopy(behaviorSubscriptionArr, 0, behaviorSubscriptionArr3, 0, i);
+                    System.arraycopy(behaviorSubscriptionArr, i + 1, behaviorSubscriptionArr3, i, (length - i) - 1);
                     behaviorSubscriptionArr2 = behaviorSubscriptionArr3;
                 }
             } while (!this.subscribers.compareAndSet(behaviorSubscriptionArr, behaviorSubscriptionArr2));
@@ -568,9 +568,9 @@ public final class BehaviorProcessor<T> extends FlowableProcessor<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this();
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

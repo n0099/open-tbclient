@@ -6,7 +6,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public final class TextEncoder extends C40Encoder {
     public static /* synthetic */ Interceptable $ic;
@@ -17,9 +16,9 @@ public final class TextEncoder extends C40Encoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,7 +65,7 @@ public final class TextEncoder extends C40Encoder {
                 return 2;
             } else if (c2 >= '{' && c2 <= 127) {
                 sb.append((char) 2);
-                sb.append((char) ((c2 - ExtendedMessageFormat.START_FE) + 27));
+                sb.append((char) ((c2 - '{') + 27));
                 return 2;
             } else if (c2 >= 128) {
                 sb.append("\u0001\u001e");

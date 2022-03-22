@@ -56,9 +56,9 @@ public abstract class JobIntentService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jobIntentService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,9 +130,9 @@ public abstract class JobIntentService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, componentName};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ComponentName) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -217,16 +217,16 @@ public abstract class JobIntentService extends Service {
         public final int mStartId;
         public final /* synthetic */ JobIntentService this$0;
 
-        public CompatWorkItem(JobIntentService jobIntentService, Intent intent, int i2) {
+        public CompatWorkItem(JobIntentService jobIntentService, Intent intent, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jobIntentService, intent, Integer.valueOf(i2)};
+                Object[] objArr = {jobIntentService, intent, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -234,7 +234,7 @@ public abstract class JobIntentService extends Service {
             }
             this.this$0 = jobIntentService;
             this.mIntent = intent;
-            this.mStartId = i2;
+            this.mStartId = i;
         }
 
         @Override // androidx.core.app.JobIntentService.GenericWorkItem
@@ -285,9 +285,9 @@ public abstract class JobIntentService extends Service {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {jobServiceEngineImpl, jobWorkItem};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -326,9 +326,9 @@ public abstract class JobIntentService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jobIntentService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Service) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -402,25 +402,25 @@ public abstract class JobIntentService extends Service {
         public final JobScheduler mJobScheduler;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JobWorkEnqueuer(Context context, ComponentName componentName, int i2) {
+        public JobWorkEnqueuer(Context context, ComponentName componentName, int i) {
             super(componentName);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, componentName, Integer.valueOf(i2)};
+                Object[] objArr = {context, componentName, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super((ComponentName) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            ensureJobId(i2);
-            this.mJobInfo = new JobInfo.Builder(i2, this.mComponentName).setOverrideDeadline(0L).build();
+            ensureJobId(i);
+            this.mJobInfo = new JobInfo.Builder(i, this.mComponentName).setOverrideDeadline(0L).build();
             this.mJobScheduler = (JobScheduler) context.getApplicationContext().getSystemService("jobscheduler");
         }
 
@@ -448,9 +448,9 @@ public abstract class JobIntentService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {componentName};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -461,15 +461,15 @@ public abstract class JobIntentService extends Service {
 
         public abstract void enqueueWork(Intent intent);
 
-        public void ensureJobId(int i2) {
+        public void ensureJobId(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                 if (!this.mHasJobId) {
                     this.mHasJobId = true;
-                    this.mJobId = i2;
-                } else if (this.mJobId == i2) {
+                    this.mJobId = i;
+                } else if (this.mJobId == i) {
                 } else {
-                    throw new IllegalArgumentException("Given job ID " + i2 + " is different than previous " + this.mJobId);
+                    throw new IllegalArgumentException("Given job ID " + i + " is different than previous " + this.mJobId);
                 }
             }
         }
@@ -515,9 +515,9 @@ public abstract class JobIntentService extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -533,24 +533,24 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    public static void enqueueWork(@NonNull Context context, @NonNull Class<?> cls, int i2, @NonNull Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull Class<?> cls, int i, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65539, null, context, cls, i2, intent) == null) {
-            enqueueWork(context, new ComponentName(context, cls), i2, intent);
+        if (interceptable == null || interceptable.invokeLLIL(65539, null, context, cls, i, intent) == null) {
+            enqueueWork(context, new ComponentName(context, cls), i, intent);
         }
     }
 
-    public static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName componentName, boolean z, int i2) {
+    public static WorkEnqueuer getWorkEnqueuer(Context context, ComponentName componentName, boolean z, int i) {
         InterceptResult invokeCommon;
         WorkEnqueuer compatWorkEnqueuer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, componentName, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, componentName, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             WorkEnqueuer workEnqueuer = sClassWorkEnqueuer.get(componentName);
             if (workEnqueuer == null) {
                 if (Build.VERSION.SDK_INT < 26) {
                     compatWorkEnqueuer = new CompatWorkEnqueuer(context, componentName);
                 } else if (z) {
-                    compatWorkEnqueuer = new JobWorkEnqueuer(context, componentName, i2);
+                    compatWorkEnqueuer = new JobWorkEnqueuer(context, componentName, i);
                 } else {
                     throw new IllegalArgumentException("Can't be here without a job id");
                 }
@@ -660,10 +660,10 @@ public abstract class JobIntentService extends Service {
     public abstract void onHandleWork(@NonNull Intent intent);
 
     @Override // android.app.Service
-    public int onStartCommand(@Nullable Intent intent, int i2, int i3) {
+    public int onStartCommand(@Nullable Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, intent, i, i2)) == null) {
             if (this.mCompatQueue != null) {
                 this.mCompatWorkEnqueuer.serviceStartReceived();
                 synchronized (this.mCompatQueue) {
@@ -671,7 +671,7 @@ public abstract class JobIntentService extends Service {
                     if (intent == null) {
                         intent = new Intent();
                     }
-                    arrayList.add(new CompatWorkItem(this, intent, i3));
+                    arrayList.add(new CompatWorkItem(this, intent, i2));
                     ensureProcessorRunningLocked(true);
                 }
                 return 3;
@@ -713,13 +713,13 @@ public abstract class JobIntentService extends Service {
         }
     }
 
-    public static void enqueueWork(@NonNull Context context, @NonNull ComponentName componentName, int i2, @NonNull Intent intent) {
+    public static void enqueueWork(@NonNull Context context, @NonNull ComponentName componentName, int i, @NonNull Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, context, componentName, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(65538, null, context, componentName, i, intent) == null) {
             if (intent != null) {
                 synchronized (sLock) {
-                    WorkEnqueuer workEnqueuer = getWorkEnqueuer(context, componentName, true, i2);
-                    workEnqueuer.ensureJobId(i2);
+                    WorkEnqueuer workEnqueuer = getWorkEnqueuer(context, componentName, true, i);
+                    workEnqueuer.ensureJobId(i);
                     workEnqueuer.enqueueWork(intent);
                 }
                 return;

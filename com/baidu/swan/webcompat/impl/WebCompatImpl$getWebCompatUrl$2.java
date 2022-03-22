@@ -11,7 +11,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"externalUrlTransform", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class WebCompatImpl$getWebCompatUrl$2 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class WebCompatImpl$getWebCompatUrl$2 extends Lambda implements Fun
             newInitContext.initArgs = r2;
             Object[] objArr = {webCompatImpl, webCompatImpl$getWebCompatUrl$1, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,13 +46,13 @@ public final class WebCompatImpl$getWebCompatUrl$2 extends Lambda implements Fun
     @Override // kotlin.jvm.functions.Function0
     public final String invoke() {
         InterceptResult invokeV;
-        FilePathInfo j2;
+        FilePathInfo j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            j2 = this.this$0.j();
-            if (j2 != null) {
+            j = this.this$0.j();
+            if (j != null) {
                 WebCompatImpl$getWebCompatUrl$1 webCompatImpl$getWebCompatUrl$1 = this.$urlTransform$1;
-                String b2 = j2.b();
+                String b2 = j.b();
                 Intrinsics.checkNotNullExpressionValue(b2, "it.filesUrl");
                 String invoke = webCompatImpl$getWebCompatUrl$1.invoke(b2, "external_files");
                 if (invoke != null) {

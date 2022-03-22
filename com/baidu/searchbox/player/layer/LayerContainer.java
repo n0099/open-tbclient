@@ -35,9 +35,9 @@ public class LayerContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -128,15 +128,15 @@ public class LayerContainer extends FrameLayout {
     }
 
     @PublicMethod
-    public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i2) {
+    public void insertLayer(@NonNull AbsLayer absLayer, @IntRange(from = 0, to = 20) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, absLayer, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, absLayer, i) == null) {
             detachLayer(absLayer);
-            if (i2 < this.mLayers.size()) {
+            if (i < this.mLayers.size()) {
                 absLayer.setLayerContainer(this);
                 absLayer.attachMessenger(getBindPlayer().getMessenger());
-                this.mLayers.add(i2, absLayer);
-                addView(absLayer.getContentView(), i2, getContainerParams());
+                this.mLayers.add(i, absLayer);
+                addView(absLayer.getContentView(), i, getContainerParams());
             }
         }
     }
@@ -158,8 +158,8 @@ public class LayerContainer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             int size = this.mLayers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mLayers.get(i2).onLayerRelease();
+            for (int i = 0; i < size; i++) {
+                this.mLayers.get(i).onLayerRelease();
             }
             this.mLayers.clear();
             removeAllViews();
@@ -191,9 +191,9 @@ public class LayerContainer extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -213,17 +213,17 @@ public class LayerContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

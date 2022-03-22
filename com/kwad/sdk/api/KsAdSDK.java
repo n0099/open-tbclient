@@ -113,8 +113,8 @@ public class KsAdSDK {
 
     @KsAdSdkApi
     @Keep
-    public static String getSDKVersion(int i2) {
-        return i2 != 1 ? "" : "3.3.17.4";
+    public static String getSDKVersion(int i) {
+        return i != 1 ? "" : "3.3.17.4";
     }
 
     @KsAdSdkApi
@@ -211,10 +211,10 @@ public class KsAdSDK {
         }
     }
 
-    public static void setThemeMode(int i2) {
+    public static void setThemeMode(int i) {
         IKsAdSDK iKsAdSDK = sSdk;
         if (iKsAdSDK != null) {
-            iKsAdSDK.setThemeMode(i2);
+            iKsAdSDK.setThemeMode(i);
         }
     }
 

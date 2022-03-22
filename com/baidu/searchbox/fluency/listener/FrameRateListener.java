@@ -40,9 +40,9 @@ public class FrameRateListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,9 +80,9 @@ public class FrameRateListener {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -133,9 +133,9 @@ public class FrameRateListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -210,38 +210,38 @@ public class FrameRateListener {
             }
         }
 
-        public final void setAnimationCostNs(long j2) {
+        public final void setAnimationCostNs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.animationCostNs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.animationCostNs = j;
             }
         }
 
-        public final void setDropFrame(int i2) {
+        public final void setDropFrame(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.dropFrame = i2;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.dropFrame = i;
             }
         }
 
-        public final void setEndNs(long j2) {
+        public final void setEndNs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                this.endNs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                this.endNs = j;
             }
         }
 
-        public final void setInputCostNs(long j2) {
+        public final void setInputCostNs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-                this.inputCostNs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+                this.inputCostNs = j;
             }
         }
 
-        public final void setStartNs(long j2) {
+        public final void setStartNs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                this.startNs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                this.startNs = j;
             }
         }
 
@@ -253,10 +253,10 @@ public class FrameRateListener {
             }
         }
 
-        public final void setTraversalCostNs(long j2) {
+        public final void setTraversalCostNs(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-                this.traversalCostNs = j2;
+            if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+                this.traversalCostNs = j;
             }
         }
 
@@ -290,9 +290,9 @@ public class FrameRateListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -302,19 +302,19 @@ public class FrameRateListener {
     }
 
     @CallSuper
-    public void collect(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
+    public void collect(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
             FrameReplay create = FrameReplay.Companion.create();
             create.setTopPage(topPage);
-            create.setStartNs(j2);
-            create.setEndNs(j3);
-            create.setDropFrame(i2);
+            create.setStartNs(j);
+            create.setEndNs(j2);
+            create.setDropFrame(i);
             create.setVsyncFrame(z);
-            create.setInputCostNs(j4);
-            create.setAnimationCostNs(j5);
-            create.setTraversalCostNs(j6);
+            create.setInputCostNs(j3);
+            create.setAnimationCostNs(j4);
+            create.setTraversalCostNs(j5);
             this.frameList.add(create);
             if (this.frameList.size() >= getIntervalFrameReplay()) {
                 final LinkedList linkedList = new LinkedList(this.frameList);
@@ -334,9 +334,9 @@ public class FrameRateListener {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, linkedList};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -362,16 +362,16 @@ public class FrameRateListener {
         }
     }
 
-    public void doFrameAsync(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
+    public void doFrameAsync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
     }
 
-    public void doFrameSync(String topPage, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
+    public void doFrameSync(String topPage, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
             Intrinsics.checkNotNullParameter(topPage, "topPage");
         }
     }

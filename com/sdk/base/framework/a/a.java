@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.HttpURLConnection;
 import java.net.URL;
 @SuppressLint({"NewApi"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.a.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static Boolean f57704b;
+    public static Boolean f42478b;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ConnectivityManager.NetworkCallback f57705d;
+    public static ConnectivityManager.NetworkCallback f42479d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public HttpURLConnection f57706c;
+    public HttpURLConnection f42480c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +42,7 @@ public class a {
                 return;
             }
         }
-        f57704b = Boolean.valueOf(com.sdk.base.framework.c.f.f57798b);
+        f42478b = Boolean.valueOf(com.sdk.base.framework.c.f.f42567b);
     }
 
     public a(Context context, URL url) {
@@ -52,9 +52,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, url};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -66,10 +66,10 @@ public class a {
             builder.addTransportType(0);
             NetworkRequest build = builder.build();
             b bVar = new b(this, url);
-            f57705d = bVar;
+            f42479d = bVar;
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, bVar);
         } catch (Exception e2) {
-            com.sdk.base.framework.a.a.c.b(a, e2.toString(), f57704b);
+            com.sdk.base.framework.a.a.c.b(a, e2.toString(), f42478b);
         }
     }
 
@@ -79,7 +79,7 @@ public class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             c cVar = new c(this, 2000L);
             while (!cVar.a()) {
-                HttpURLConnection httpURLConnection = this.f57706c;
+                HttpURLConnection httpURLConnection = this.f42480c;
                 if (httpURLConnection != null) {
                     return httpURLConnection;
                 }

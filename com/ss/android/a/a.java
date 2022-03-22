@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
     public final RandomAccessFile a;
 
@@ -23,12 +23,12 @@ public class a implements b {
     }
 
     @Override // com.ss.android.a.b
-    public int a(byte[] bArr, int i2, int i3) throws IOException {
-        return this.a.read(bArr, i2, i3);
+    public int a(byte[] bArr, int i, int i2) throws IOException {
+        return this.a.read(bArr, i, i2);
     }
 
     @Override // com.ss.android.a.b
-    public void a(long j2, long j3) throws IOException {
-        this.a.seek(j2);
+    public void a(long j, long j2) throws IOException {
+        this.a.seek(j);
     }
 }

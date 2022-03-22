@@ -13,23 +13,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f60064b;
+    public a f44627b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.yxcorp.kuaishou.addfp.a.b.b f60065c;
+    public com.yxcorp.kuaishou.addfp.a.b.b f44628c;
 
     /* renamed from: d  reason: collision with root package name */
-    public CountDownLatch f60066d;
+    public CountDownLatch f44629d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ServiceConnection f60067e;
+    public ServiceConnection f44630e;
 
     public e(Context context, com.yxcorp.kuaishou.addfp.a.b.b bVar) {
         Interceptable interceptable = $ic;
@@ -38,28 +38,28 @@ public final class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f60066d = new CountDownLatch(1);
-        this.f60067e = new f(this);
+        this.f44629d = new CountDownLatch(1);
+        this.f44630e = new f(this);
         try {
             this.a = context;
-            this.f60065c = bVar;
+            this.f44628c = bVar;
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (!this.a.bindService(intent, this.f60067e, 1)) {
+            if (!this.a.bindService(intent, this.f44630e, 1)) {
                 a(false);
                 return;
             }
-            this.f60066d.await(10L, TimeUnit.SECONDS);
-            if (this.f60064b != null) {
+            this.f44629d.await(10L, TimeUnit.SECONDS);
+            if (this.f44627b != null) {
                 a(true);
             } else {
                 a(false);
@@ -77,7 +77,7 @@ public final class e {
                 try {
                     String c2 = c();
                     if (!TextUtils.isEmpty(c2)) {
-                        this.f60065c.a(c2);
+                        this.f44628c.a(c2);
                         return;
                     }
                 } catch (Throwable th) {
@@ -85,7 +85,7 @@ public final class e {
                     return;
                 }
             }
-            this.f60065c.e();
+            this.f44628c.e();
         }
     }
 
@@ -94,8 +94,8 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
-                if (this.f60064b != null) {
-                    return this.f60064b.a();
+                if (this.f44627b != null) {
+                    return this.f44627b.a();
                 }
                 return null;
             } catch (Throwable th) {
@@ -124,11 +124,11 @@ public final class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                this.a.unbindService(this.f60067e);
+                this.a.unbindService(this.f44630e);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            this.f60064b = null;
+            this.f44627b = null;
         }
     }
 }

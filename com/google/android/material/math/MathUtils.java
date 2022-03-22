@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MathUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_EPSILON = 1.0E-4f;
@@ -17,9 +17,9 @@ public final class MathUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,16 +38,16 @@ public final class MathUtils {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) ? max(dist(f2, f3, f4, f5), dist(f2, f3, f6, f5), dist(f2, f3, f6, f7), dist(f2, f3, f4, f7)) : invokeCommon.floatValue;
     }
 
-    public static float floorMod(float f2, int i2) {
+    public static float floorMod(float f2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
-            float f3 = i2;
-            int i3 = (int) (f2 / f3);
-            if (Math.signum(f2) * f3 < 0.0f && i3 * i2 != f2) {
-                i3--;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) {
+            float f3 = i;
+            int i2 = (int) (f2 / f3);
+            if (Math.signum(f2) * f3 < 0.0f && i2 * i != f2) {
+                i2--;
             }
-            return f2 - (i3 * i2);
+            return f2 - (i2 * i);
         }
         return invokeCommon.floatValue;
     }
@@ -70,15 +70,15 @@ public final class MathUtils {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) ? (f2 <= f3 || f2 <= f4 || f2 <= f5) ? (f3 <= f4 || f3 <= f5) ? f4 > f5 ? f4 : f5 : f3 : f2 : invokeCommon.floatValue;
     }
 
-    public static int floorMod(int i2, int i3) {
+    public static int floorMod(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
-            int i4 = i2 / i3;
-            if ((i2 ^ i3) < 0 && i4 * i3 != i2) {
-                i4--;
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            int i3 = i / i2;
+            if ((i ^ i2) < 0 && i3 * i2 != i) {
+                i3--;
             }
-            return i2 - (i4 * i3);
+            return i - (i3 * i2);
         }
         return invokeII.intValue;
     }

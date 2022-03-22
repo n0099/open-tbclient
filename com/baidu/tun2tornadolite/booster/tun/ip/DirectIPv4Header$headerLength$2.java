@@ -26,9 +26,9 @@ public final class DirectIPv4Header$headerLength$2 extends Lambda implements Fun
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,9 +45,9 @@ public final class DirectIPv4Header$headerLength$2 extends Lambda implements Fun
         return invoke(num.intValue());
     }
 
-    public final Integer invoke(int i2) {
+    public final Integer invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Integer.valueOf((UByte.m731constructorimpl(this.$buffer[i2]) & 255 & 15) * 4) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf((UByte.m710constructorimpl(this.$buffer[i]) & 255 & 15) * 4) : (Integer) invokeI.objValue;
     }
 }

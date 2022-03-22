@@ -49,13 +49,13 @@ public class ImageLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(@NonNull Canvas canvas, Matrix matrix, int i2) {
+    public void drawLayer(@NonNull Canvas canvas, Matrix matrix, int i) {
         Bitmap bitmap = getBitmap();
         if (bitmap == null || bitmap.isRecycled()) {
             return;
         }
         float dpScale = Utils.dpScale();
-        this.paint.setAlpha(i2);
+        this.paint.setAlpha(i);
         BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
         if (baseKeyframeAnimation != null) {
             this.paint.setColorFilter(baseKeyframeAnimation.getValue());

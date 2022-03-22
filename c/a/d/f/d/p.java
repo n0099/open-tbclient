@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,9 +24,9 @@ public class p {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,11 +41,11 @@ public class p {
             try {
                 ContentValues contentValues = new ContentValues();
                 contentValues.put("nameSpace", hVar.a);
-                contentValues.put("tableName", hVar.f2526b);
-                contentValues.put("maxSize", Integer.valueOf(hVar.f2527c));
-                contentValues.put("cacheVersion", Integer.valueOf(hVar.f2529e));
-                contentValues.put("cacheType", hVar.f2528d);
-                contentValues.put("lastActiveTime", Long.valueOf(hVar.f2530f));
+                contentValues.put("tableName", hVar.f2081b);
+                contentValues.put("maxSize", Integer.valueOf(hVar.f2082c));
+                contentValues.put("cacheVersion", Integer.valueOf(hVar.f2084e));
+                contentValues.put("cacheType", hVar.f2083d);
+                contentValues.put("lastActiveTime", Long.valueOf(hVar.f2085f));
                 SQLiteDatabase f2 = this.a.f();
                 if (f2 == null || f2.update("cache_meta_info", contentValues, "nameSpace = ?", new String[]{hVar.a}) != 0) {
                     return;
@@ -71,17 +72,17 @@ public class p {
                 if (cursor.moveToNext()) {
                     h hVar = new h();
                     hVar.a = cursor.getString(0);
-                    hVar.f2526b = cursor.getString(1);
-                    hVar.f2527c = cursor.getInt(2);
-                    hVar.f2528d = cursor.getString(3);
-                    hVar.f2529e = cursor.getInt(4);
-                    hVar.f2530f = cursor.getLong(5);
+                    hVar.f2081b = cursor.getString(1);
+                    hVar.f2082c = cursor.getInt(2);
+                    hVar.f2083d = cursor.getString(3);
+                    hVar.f2084e = cursor.getInt(4);
+                    hVar.f2085f = cursor.getLong(5);
                     return hVar;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 try {
-                    this.a.i(th, "get");
+                    this.a.i(th, SharedPreferenceManager.OPERATION_GET_PERFIX);
                     return null;
                 } finally {
                     c.a.d.f.m.a.a(cursor);

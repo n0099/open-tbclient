@@ -16,29 +16,29 @@ public class cy implements cu {
     public byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TreeMap<String, String> f35249b;
+    public TreeMap<String, String> f27382b;
 
     public cy() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35249b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.f27382b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
     @Override // com.baidu.mobstat.cu
     public void a(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.f35249b.put(str, str2);
+            this.f27382b.put(str, str2);
         }
     }
 
@@ -46,7 +46,7 @@ public class cy implements cu {
     public Iterator<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f35249b.keySet()).iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Collections.unmodifiableSet(this.f27382b.keySet()).iterator() : (Iterator) invokeV.objValue;
     }
 
     @Override // com.baidu.mobstat.cx
@@ -61,7 +61,7 @@ public class cy implements cu {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String str2 = this.f35249b.get(str);
+            String str2 = this.f27382b.get(str);
             return str2 == null ? "" : str2;
         }
         return (String) invokeL.objValue;
@@ -71,6 +71,6 @@ public class cy implements cu {
     public boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f35249b.containsKey(str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f27382b.containsKey(str) : invokeL.booleanValue;
     }
 }

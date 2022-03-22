@@ -29,14 +29,14 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends Iterable<? extends R>> mapper;
     public final int prefetch;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3096000382929934955L;
@@ -55,16 +55,16 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
         public final AtomicLong requested;
         public Subscription s;
 
-        public FlattenIterableSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Iterable<? extends R>> function, int i2) {
+        public FlattenIterableSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Iterable<? extends R>> function, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,8 +72,8 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
             }
             this.actual = subscriber;
             this.mapper = function;
-            this.prefetch = i2;
-            this.limit = i2 - (i2 >> 2);
+            this.prefetch = i;
+            this.limit = i - (i >> 2);
             this.error = new AtomicReference<>();
             this.requested = new AtomicLong();
         }
@@ -131,13 +131,13 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
         public void consumedOne(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && z) {
-                int i2 = this.consumed + 1;
-                if (i2 == this.limit) {
+                int i = this.consumed + 1;
+                if (i == this.limit) {
                     this.consumed = 0;
-                    this.s.request(i2);
+                    this.s.request(i);
                     return;
                 }
-                this.consumed = i2;
+                this.consumed = i;
             }
         }
 
@@ -156,7 +156,7 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
             SimpleQueue<T> simpleQueue = this.queue;
             boolean z = this.fusionMode != 1;
             Iterator<? extends R> it = this.current;
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 if (it == null) {
                     boolean z2 = this.done;
@@ -194,10 +194,10 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                     }
                 }
                 if (it != null) {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        if (j3 == j2) {
+                        if (j2 == j) {
                             break;
                         } else if (checkTerminated(this.done, false, subscriber, simpleQueue)) {
                             return;
@@ -207,7 +207,7 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                                 if (checkTerminated(this.done, false, subscriber, simpleQueue)) {
                                     return;
                                 }
-                                j3++;
+                                j2++;
                                 try {
                                     if (!it.hasNext()) {
                                         consumedOne(z);
@@ -233,17 +233,17 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
                             }
                         }
                     }
-                    if (j3 == j2) {
+                    if (j2 == j) {
                         if (checkTerminated(this.done, simpleQueue.isEmpty() && it == null, subscriber, simpleQueue)) {
                             return;
                         }
                     }
-                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j3);
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
                     }
                 }
-                i2 = addAndGet(-i2);
-                if (i2 == 0) {
+                i = addAndGet(-i);
+                if (i == 0) {
                     return;
                 }
             }
@@ -364,34 +364,34 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? ((i2 & 1) == 0 || this.fusionMode != 1) ? 0 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? ((i & 1) == 0 || this.fusionMode != 1) ? 0 : 1 : invokeI.intValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableFlattenIterable(Flowable<T> flowable, Function<? super T, ? extends Iterable<? extends R>> function, int i2) {
+    public FlowableFlattenIterable(Flowable<T> flowable, Function<? super T, ? extends Iterable<? extends R>> function, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, function, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, function, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -399,7 +399,7 @@ public final class FlowableFlattenIterable<T, R> extends AbstractFlowableWithUps
             }
         }
         this.mapper = function;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Flowable

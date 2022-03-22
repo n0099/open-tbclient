@@ -2,25 +2,25 @@ package com.qq.e.comm.pi;
 
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface NUADI extends ADI {
     String getAdNetWorkName();
 
-    void loadData(int i2);
+    void loadData(int i);
 
-    void loadData(int i2, LoadAdParams loadAdParams);
+    void loadData(int i, LoadAdParams loadAdParams);
 
     void setCategories(List<String> list);
 
-    void setMaxVideoDuration(int i2);
+    void setMaxVideoDuration(int i);
 
-    void setMinVideoDuration(int i2);
+    void setMinVideoDuration(int i);
 
     void setVastClassName(String str);
 
     @Deprecated
-    void setVideoADContainerRender(int i2);
+    void setVideoADContainerRender(int i);
 
     @Deprecated
-    void setVideoPlayPolicy(int i2);
+    void setVideoPlayPolicy(int i);
 }

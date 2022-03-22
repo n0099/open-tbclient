@@ -42,9 +42,9 @@ public class SyncGroupMessage extends SyncStrategy {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -100,11 +100,11 @@ public class SyncGroupMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void onComplete(int i2) {
+    public void onComplete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             String str = TAG;
-            LogUtils.d(str, "SYNCGROUP complete code is " + i2);
+            LogUtils.d(str, "SYNCGROUP complete code is " + i);
             SyncStrategy.CompleteListener completeListener = this.completeListener;
             if (completeListener != null) {
                 completeListener.onComplete(this.mDialogRecord);
@@ -137,15 +137,15 @@ public class SyncGroupMessage extends SyncStrategy {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
-    public void updateData(Context context, long j2) {
+    public void updateData(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048585, this, context, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048585, this, context, j) == null) {
             String str = TAG;
-            LogUtils.i(str, "updateData : " + j2);
-            if (j2 < 0) {
+            LogUtils.i(str, "updateData : " + j);
+            if (j < 0) {
                 return;
             }
-            this.mDialogRecord.setMaxMsgid(j2);
+            this.mDialogRecord.setMaxMsgid(j);
         }
     }
 

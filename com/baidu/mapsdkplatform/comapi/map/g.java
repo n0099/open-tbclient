@@ -14,17 +14,17 @@ public class g extends ag {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34493c = 0;
-        this.f34492b = "compass";
-        this.f34494d = 0;
-        this.f34482g = 20;
+        this.f26697c = 0;
+        this.f26696b = "compass";
+        this.f26698d = 0;
+        this.f26688g = 20;
     }
 }

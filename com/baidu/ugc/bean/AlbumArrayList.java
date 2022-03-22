@@ -17,9 +17,9 @@ public class AlbumArrayList<E> extends ArrayList<LocalAlbumInfo> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,20 +40,20 @@ public class AlbumArrayList<E> extends ArrayList<LocalAlbumInfo> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             if (obj instanceof LocalAlbumInfo) {
                 LocalAlbumInfo localAlbumInfo = (LocalAlbumInfo) obj;
-                int i2 = 0;
+                int i = 0;
                 if (localAlbumInfo == null) {
-                    while (i2 < size()) {
-                        if (get(i2) == null) {
-                            return i2;
+                    while (i < size()) {
+                        if (get(i) == null) {
+                            return i;
                         }
-                        i2++;
+                        i++;
                     }
                 } else {
-                    while (i2 < size()) {
-                        if (localAlbumInfo.equals(get(i2))) {
-                            return i2;
+                    while (i < size()) {
+                        if (localAlbumInfo.equals(get(i))) {
+                            return i;
                         }
-                        i2++;
+                        i++;
                     }
                 }
                 return -1;
@@ -70,9 +70,9 @@ public class AlbumArrayList<E> extends ArrayList<LocalAlbumInfo> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
             if (obj instanceof LocalAlbumInfo) {
                 LocalAlbumInfo localAlbumInfo = (LocalAlbumInfo) obj;
-                for (int i2 = 0; i2 < size(); i2++) {
-                    if (localAlbumInfo.equals(get(i2))) {
-                        return remove(i2) != null;
+                for (int i = 0; i < size(); i++) {
+                    if (localAlbumInfo.equals(get(i))) {
+                        return remove(i) != null;
                     }
                 }
                 return false;

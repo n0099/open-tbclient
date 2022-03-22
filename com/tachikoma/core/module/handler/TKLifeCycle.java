@@ -25,13 +25,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKLifeCycle implements NativeModule {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public V8Object mV8AssociatedObject;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class ActivityLifecycleCallbacksProxy implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public static final Map<TKJSContext, TKLifeCycle> mCallBackMaps;
@@ -58,9 +58,9 @@ public class TKLifeCycle implements NativeModule {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -159,9 +159,9 @@ public class TKLifeCycle implements NativeModule {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

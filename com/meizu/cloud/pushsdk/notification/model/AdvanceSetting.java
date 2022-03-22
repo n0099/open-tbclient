@@ -3,10 +3,9 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdvanceSetting implements Parcelable {
     public static final String ADVANCE_SETTING = "as";
     public static final String CLEAR_NOTIFICATION = "cn";
@@ -21,8 +20,8 @@ public class AdvanceSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public AdvanceSetting[] newArray(int i2) {
-            return new AdvanceSetting[i2];
+        public AdvanceSetting[] newArray(int i) {
+            return new AdvanceSetting[i];
         }
     };
     public static final String HEAD_UP_NOTIFICATION = "hn";
@@ -56,7 +55,7 @@ public class AdvanceSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -91,7 +90,7 @@ public class AdvanceSetting implements Parcelable {
             return advanceSetting;
         }
         str = "no such tag advance_setting";
-        c.k.a.a.a.b(TAG, str);
+        c.h.a.a.a.b(TAG, str);
         return advanceSetting;
     }
 
@@ -124,8 +123,8 @@ public class AdvanceSetting implements Parcelable {
         this.headUpNotification = z;
     }
 
-    public void setNetWorkType(int i2) {
-        this.netWorkType = i2;
+    public void setNetWorkType(int i) {
+        this.netWorkType = i;
     }
 
     public void setNotifyType(NotifyType notifyType) {
@@ -133,13 +132,13 @@ public class AdvanceSetting implements Parcelable {
     }
 
     public String toString() {
-        return "AdvanceSetting{netWorkType=" + this.netWorkType + ", notifyType=" + this.notifyType + ", clearNotification=" + this.clearNotification + ", headUpNotification=" + this.headUpNotification + ExtendedMessageFormat.END_FE;
+        return "AdvanceSetting{netWorkType=" + this.netWorkType + ", notifyType=" + this.notifyType + ", clearNotification=" + this.clearNotification + ", headUpNotification=" + this.headUpNotification + '}';
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.netWorkType);
-        parcel.writeParcelable(this.notifyType, i2);
+        parcel.writeParcelable(this.notifyType, i);
         parcel.writeByte(this.clearNotification ? (byte) 1 : (byte) 0);
         parcel.writeByte(this.headUpNotification ? (byte) 1 : (byte) 0);
     }

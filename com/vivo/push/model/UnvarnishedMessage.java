@@ -15,7 +15,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UnvarnishedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "UnvarnishedMessage";
@@ -31,9 +31,9 @@ public class UnvarnishedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,10 +99,10 @@ public class UnvarnishedMessage {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mMsgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mMsgId = j;
         }
     }
 
@@ -113,10 +113,10 @@ public class UnvarnishedMessage {
         }
     }
 
-    public void setTargetType(int i2) {
+    public void setTargetType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mTargetType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mTargetType = i;
         }
     }
 
@@ -152,9 +152,9 @@ public class UnvarnishedMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

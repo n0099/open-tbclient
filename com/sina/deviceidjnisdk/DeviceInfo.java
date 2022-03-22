@@ -12,8 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DeviceInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +22,9 @@ public class DeviceInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,7 +39,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, s.f53804c)) {
+            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
                 try {
                     telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 } catch (Exception unused) {
@@ -75,7 +74,7 @@ public class DeviceInfo {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (isPermissionGranted(context, s.f53804c)) {
+            if (isPermissionGranted(context, "android.permission.READ_PHONE_STATE")) {
                 TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
                 if (telephonyManager == null) {
                     return null;
@@ -95,7 +94,7 @@ public class DeviceInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             String str = null;
-            if (isPermissionGranted(context, s.f53805d)) {
+            if (isPermissionGranted(context, "android.permission.ACCESS_WIFI_STATE")) {
                 try {
                     WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService("wifi");
                     if (wifiManager == null || (connectionInfo = wifiManager.getConnectionInfo()) == null) {

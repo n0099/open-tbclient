@@ -25,9 +25,9 @@ public final class DirectHeader$int8$1 extends Lambda implements Function1<Integ
             newInitContext.initArgs = r2;
             Object[] objArr = {directHeader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -44,9 +44,9 @@ public final class DirectHeader$int8$1 extends Lambda implements Function1<Integ
         return invoke(num.intValue());
     }
 
-    public final Integer invoke(int i2) {
+    public final Integer invoke(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? Integer.valueOf(UByte.m731constructorimpl(this.this$0.getBuffer()[i2]) & 255) : (Integer) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? Integer.valueOf(UByte.m710constructorimpl(this.this$0.getBuffer()[i]) & 255) : (Integer) invokeI.objValue;
     }
 }

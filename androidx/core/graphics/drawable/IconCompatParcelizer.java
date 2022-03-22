@@ -20,9 +20,9 @@ public class IconCompatParcelizer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,9 +52,9 @@ public class IconCompatParcelizer {
         if (interceptable == null || interceptable.invokeLL(65538, null, iconCompat, versionedParcel) == null) {
             versionedParcel.setSerializationFlags(true, true);
             iconCompat.onPreParceling(versionedParcel.isStream());
-            int i2 = iconCompat.mType;
-            if (-1 != i2) {
-                versionedParcel.writeInt(i2, 1);
+            int i = iconCompat.mType;
+            if (-1 != i) {
+                versionedParcel.writeInt(i, 1);
             }
             byte[] bArr = iconCompat.mData;
             if (bArr != null) {
@@ -64,13 +64,13 @@ public class IconCompatParcelizer {
             if (parcelable != null) {
                 versionedParcel.writeParcelable(parcelable, 3);
             }
-            int i3 = iconCompat.mInt1;
-            if (i3 != 0) {
-                versionedParcel.writeInt(i3, 4);
+            int i2 = iconCompat.mInt1;
+            if (i2 != 0) {
+                versionedParcel.writeInt(i2, 4);
             }
-            int i4 = iconCompat.mInt2;
-            if (i4 != 0) {
-                versionedParcel.writeInt(i4, 5);
+            int i3 = iconCompat.mInt2;
+            if (i3 != 0) {
+                versionedParcel.writeInt(i3, 5);
             }
             ColorStateList colorStateList = iconCompat.mTintList;
             if (colorStateList != null) {

@@ -44,16 +44,16 @@ public class IMAckRequest extends BaseHttpRequest {
     public long mTriggerId;
     public long mUk;
 
-    public IMAckRequest(Context context, String str, long j2, long j3, int i2, int i3, long j4, long j5, boolean z, ArrayList<ChatMsg> arrayList) {
+    public IMAckRequest(Context context, String str, long j, long j2, int i, int i2, long j3, long j4, boolean z, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {context, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z), arrayList};
+            Object[] objArr = {context, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,12 +62,12 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mAckList = new JSONArray();
         this.mContext = context;
         this.mKey = str;
-        this.mUk = j2;
-        this.mContacter = j3;
-        this.mCategory = i2;
-        this.mCount = i3;
-        this.mBeginid = j4;
-        this.mEndid = j5;
+        this.mUk = j;
+        this.mContacter = j2;
+        this.mCategory = i;
+        this.mCount = i2;
+        this.mBeginid = j3;
+        this.mEndid = j4;
         this.mIsReliable = z;
         this.mMsgList = arrayList;
         this.mTriggerId = Utility.getTriggerId(context);
@@ -179,20 +179,20 @@ public class IMAckRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i2, bArr, th) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048582, this, i, bArr, th) == null) {
             String str = new String(bArr);
-            LogUtils.d(TAG, "errorCode：" + i2 + ", resultContent: " + str);
+            LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, bArr) == null) {
             String str = new String(bArr);
-            LogUtils.d(TAG, "errorCode：" + i2 + ", resultContent: " + str);
+            LogUtils.d(TAG, "errorCode：" + i + ", resultContent: " + str);
         }
     }
 

@@ -19,7 +19,7 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.util.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1816a {
+    public static class C1770a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,9 +29,9 @@ public class a {
             if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
                 char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
                 StringBuilder sb = new StringBuilder(bArr.length * 2);
-                for (int i2 = 0; i2 < bArr.length; i2++) {
-                    sb.append(cArr[(bArr[i2] & 240) >> 4]);
-                    sb.append(cArr[bArr[i2] & 15]);
+                for (int i = 0; i < bArr.length; i++) {
+                    sb.append(cArr[(bArr[i] & 240) >> 4]);
+                    sb.append(cArr[bArr[i] & 15]);
                 }
                 return sb.toString();
             }
@@ -77,9 +77,9 @@ public class a {
                 return stringBuffer2.toString();
             }
             StringBuffer stringBuffer22 = new StringBuffer();
-            for (int i2 = 0; i2 < str2.length(); i2++) {
-                stringBuffer22.append(str2.charAt(i2));
-                if (i2 > 0 && i2 % 2 == 1 && i2 < str2.length() - 1) {
+            for (int i = 0; i < str2.length(); i++) {
+                stringBuffer22.append(str2.charAt(i));
+                if (i > 0 && i % 2 == 1 && i < str2.length() - 1) {
                     stringBuffer22.append(":");
                 }
             }
@@ -93,7 +93,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, x509Certificate)) == null) {
             try {
-                return C1816a.a(a(x509Certificate.getEncoded()));
+                return C1770a.a(a(x509Certificate.getEncoded()));
             } catch (CertificateEncodingException unused) {
                 return null;
             }

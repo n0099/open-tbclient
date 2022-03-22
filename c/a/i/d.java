@@ -11,15 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class d implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ BDHttpDns.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDns.a f3544e;
+    /* renamed from: b  reason: collision with root package name */
+    public final /* synthetic */ BDHttpDnsResult.ResolveType f2991b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ BDHttpDnsResult.ResolveType f3545f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ h.a f3546g;
+    /* renamed from: c  reason: collision with root package name */
+    public final /* synthetic */ h.a f2992c;
 
     public d(BDHttpDns bDHttpDns, BDHttpDns.a aVar, BDHttpDnsResult.ResolveType resolveType, h.a aVar2) {
         Interceptable interceptable = $ic;
@@ -28,24 +26,24 @@ public class d implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDHttpDns, aVar, resolveType, aVar2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3544e = aVar;
-        this.f3545f = resolveType;
-        this.f3546g = aVar2;
+        this.a = aVar;
+        this.f2991b = resolveType;
+        this.f2992c = aVar2;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f3544e.a(new BDHttpDnsResult(this.f3545f, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f3546g.d(), this.f3546g.g()));
+            this.a.a(new BDHttpDnsResult(this.f2991b, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, this.f2992c.d(), this.f2992c.g()));
         }
     }
 }

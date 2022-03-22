@@ -33,9 +33,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AlaShareInBarEmptyActivity f44280e;
+        public final /* synthetic */ AlaShareInBarEmptyActivity a;
 
         public a(AlaShareInBarEmptyActivity alaShareInBarEmptyActivity) {
             Interceptable interceptable = $ic;
@@ -44,22 +42,22 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaShareInBarEmptyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44280e = alaShareInBarEmptyActivity;
+            this.a = alaShareInBarEmptyActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f44280e.mPostModel.cancelLoadData();
+                this.a.mPostModel.cancelLoadData();
             }
         }
     }
@@ -77,9 +75,9 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaShareInBarEmptyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,19 +87,19 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         }
 
         @Override // com.baidu.tieba.livesdk.share.model.AlaShareInBarModel.b
-        public void a(int i2, String str, c.a.r0.c2.e.b.a aVar) {
+        public void a(int i, String str, c.a.p0.e2.e.b.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, aVar) == null) {
                 this.a.closeLoadingDialog();
-                int i3 = 1;
-                if (i2 == 0 && aVar != null) {
-                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.share_alert_success), R.drawable.icon_pure_toast_succeed40_svg, 3000, true).q();
+                int i2 = 1;
+                if (i == 0 && aVar != null) {
+                    BdToast.h(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f1109), R.drawable.obfuscated_res_0x7f0809a1, 3000, true).q();
                 } else {
                     this.a.showToast(str);
-                    i3 = 2;
+                    i2 = 2;
                 }
                 Intent intent = new Intent();
-                intent.putExtra("extra_share_status", i3);
+                intent.putExtra("extra_share_status", i2);
                 this.a.setResult(-1, intent);
                 this.a.finish();
             }
@@ -113,9 +111,9 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -130,7 +128,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         if (interceptable == null || interceptable.invokeL(65538, this, bundle) == null) {
             AlaShareInBarModel alaShareInBarModel = new AlaShareInBarModel();
             this.mPostModel = alaShareInBarModel;
-            alaShareInBarModel.z(this.mOnPostDataCallBack);
+            alaShareInBarModel.B(this.mOnPostDataCallBack);
             Intent intent = getIntent();
             if (intent != null) {
                 this.mLiveId = intent.getStringExtra("extra_key_live_id");
@@ -148,7 +146,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             if (!l.z()) {
-                showToast(R.string.neterror);
+                showToast(R.string.obfuscated_res_0x7f0f0c15);
                 finish();
             } else if ((StringUtils.isNull(this.mLiveId) && TextUtils.isEmpty(this.mYyAnchorBdUid)) || ListUtils.isEmpty(this.mTransmitForumDataList)) {
                 finish();
@@ -156,7 +154,7 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
                 showLoadingDialog((String) null, new a(this));
                 TransmitForumData transmitForumData = this.mTransmitForumDataList.get(0);
                 if (transmitForumData != null) {
-                    this.mPostModel.y(this.mLiveId, this.mYyAnchorBdUid, String.valueOf(transmitForumData.forumId), "");
+                    this.mPostModel.A(this.mLiveId, this.mYyAnchorBdUid, String.valueOf(transmitForumData.forumId), "");
                 }
             }
         }
@@ -186,9 +184,9 @@ public class AlaShareInBarEmptyActivity extends BaseActivity<AlaShareInBarEmptyA
     }
 
     @Override // android.app.Activity
-    public void overridePendingTransition(int i2, int i3) {
+    public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
             super.overridePendingTransition(0, 0);
         }
     }

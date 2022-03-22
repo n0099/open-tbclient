@@ -17,35 +17,31 @@ import java.util.concurrent.TimeUnit;
 public class a implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public final ExecutorService f27603e;
+    public final ExecutorService a;
 
     /* renamed from: c.b.b.q.o0.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public class ThreadFactoryC1642a implements ThreadFactory {
+    public class ThreadFactoryC1652a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f27604e;
-
-        public ThreadFactoryC1642a(a aVar, String str) {
+        public ThreadFactoryC1652a(a aVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27604e = str;
+            this.a = str;
         }
 
         @Override // java.util.concurrent.ThreadFactory
@@ -53,7 +49,7 @@ public class a implements h {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.f27604e);
+                Thread thread = new Thread(runnable, this.a);
                 thread.setDaemon(true);
                 return thread;
             }
@@ -65,9 +61,7 @@ public class a implements h {
     public class b implements Callable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f27605e;
+        public final /* synthetic */ c a;
 
         public b(a aVar, c cVar) {
             Interceptable interceptable = $ic;
@@ -76,15 +70,15 @@ public class a implements h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27605e = cVar;
+            this.a = cVar;
         }
 
         /* JADX WARN: Type inference failed for: r0v3, types: [T, java.lang.Object] */
@@ -93,34 +87,34 @@ public class a implements h {
         public T call() throws Exception {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27605e.call() : invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.call() : invokeV.objValue;
         }
     }
 
-    public a(int i2, String str) {
+    public a(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27603e = Executors.newFixedThreadPool(i2, new ThreadFactoryC1642a(this, str));
+        this.a = Executors.newFixedThreadPool(i, new ThreadFactoryC1652a(this, str));
     }
 
     public <T> c.b.b.q.o0.b<T> a(c<T> cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-            if (!this.f27603e.isShutdown()) {
-                return new c.b.b.q.o0.b<>(this.f27603e.submit(new b(this, cVar)));
+            if (!this.a.isShutdown()) {
+                return new c.b.b.q.o0.b<>(this.a.submit(new b(this, cVar)));
             }
             throw new GdxRuntimeException("Cannot run tasks on an executor that has been shutdown (disposed)");
         }
@@ -131,9 +125,9 @@ public class a implements h {
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f27603e.shutdown();
+            this.a.shutdown();
             try {
-                this.f27603e.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+                this.a.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
             } catch (InterruptedException e2) {
                 throw new GdxRuntimeException("Couldn't shutdown loading thread", e2);
             }

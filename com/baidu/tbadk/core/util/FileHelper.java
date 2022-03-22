@@ -26,7 +26,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.storage.swankv.SwanKV;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -48,7 +47,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FileHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final File CACHE_DIR;
@@ -68,7 +67,7 @@ public class FileHelper {
     public static final int FILE_TYPE_VOICE = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DataDir {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String PACKAGE_DATA_DIR;
@@ -76,7 +75,7 @@ public class FileHelper {
         public static final String PACKAGE_VERSION_LAST_DIR = "/package.last";
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* loaded from: classes5.dex */
+        /* loaded from: classes4.dex */
         public static class CompratorByLastModified implements Comparator<File> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +85,9 @@ public class FileHelper {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -101,11 +100,11 @@ public class FileHelper {
                 InterceptResult invokeLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                    int i2 = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
-                    if (i2 > 0) {
+                    int i = ((file.lastModified() - file2.lastModified()) > 0L ? 1 : ((file.lastModified() - file2.lastModified()) == 0L ? 0 : -1));
+                    if (i > 0) {
                         return 1;
                     }
-                    return i2 == 0 ? 0 : -1;
+                    return i == 0 ? 0 : -1;
                 }
                 return invokeLL.intValue;
             }
@@ -132,9 +131,9 @@ public class FileHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -205,11 +204,11 @@ public class FileHelper {
                         if (file.isDirectory()) {
                             File[] listFiles = file.listFiles();
                             int length = listFiles.length;
-                            for (int i2 = 0; i2 < length; i2++) {
-                                if (listFiles[i2].isFile()) {
-                                    listFiles[i2].delete();
+                            for (int i = 0; i < length; i++) {
+                                if (listFiles[i].isFile()) {
+                                    listFiles[i].delete();
                                 } else {
-                                    deleteFileOrDir(listFiles[i2]);
+                                    deleteFileOrDir(listFiles[i]);
                                 }
                             }
                         }
@@ -231,12 +230,12 @@ public class FileHelper {
                     File file = new File(PACKAGE_DATA_DIR + "/" + str);
                     if (file.exists() && file.isDirectory()) {
                         File[] listFiles = file.listFiles();
-                        long j2 = 0;
+                        long j = 0;
                         int length = listFiles.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            if (j2 < listFiles[i2].lastModified()) {
-                                j2 = listFiles[i2].lastModified();
-                                str2 = listFiles[i2].getName();
+                        for (int i = 0; i < length; i++) {
+                            if (j < listFiles[i].lastModified()) {
+                                j = listFiles[i].lastModified();
+                                str2 = listFiles[i].getName();
                             }
                         }
                     }
@@ -274,7 +273,7 @@ public class FileHelper {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface MediaScanCallback {
         void callBack(HashMap<String, String> hashMap);
     }
@@ -301,9 +300,9 @@ public class FileHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -698,23 +697,23 @@ public class FileHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String SaveTempFile(int i2, String str, byte[] bArr) {
+    public static String SaveTempFile(int i, String str, byte[] bArr) {
         InterceptResult invokeILL;
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(65559, null, i2, str, bArr)) != null) {
+        if (interceptable != null && (invokeILL = interceptable.invokeILL(65559, null, i, str, bArr)) != null) {
             return (String) invokeILL.objValue;
         }
         FileOutputStream fileOutputStream2 = null;
         if (str == null || bArr == null || bArr.length == 0) {
             return null;
         }
-        String tempFilePath = getTempFilePath(i2, str, true);
+        String tempFilePath = getTempFilePath(i, str, true);
         if (tempFilePath != null) {
             return tempFilePath;
         }
         try {
-            File createTempFile = File.createTempFile(getPrefixByType(i2), str, CACHE_DIR);
+            File createTempFile = File.createTempFile(getPrefixByType(i), str, CACHE_DIR);
             if (createTempFile == null) {
                 return null;
             }
@@ -884,11 +883,11 @@ public class FileHelper {
         deleteCacheDirFiles(new File(CACHE_DIR + "/" + str));
     }
 
-    public static String compressBitmapToFile(String str, Bitmap bitmap, float f2, int i2) {
+    public static String compressBitmapToFile(String str, Bitmap bitmap, float f2, int i) {
         InterceptResult invokeCommon;
         File dataDirectory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{str, bitmap, Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65569, null, new Object[]{str, bitmap, Float.valueOf(f2), Integer.valueOf(i)})) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -907,11 +906,11 @@ public class FileHelper {
             try {
                 if ((!file.exists() || file.delete()) && file.createNewFile()) {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                     while (byteArrayOutputStream.toByteArray().length > f2) {
                         byteArrayOutputStream.reset();
-                        i2 -= 5;
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                        i -= 5;
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                     }
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     fileOutputStream.write(byteArrayOutputStream.toByteArray());
@@ -1127,16 +1126,13 @@ public class FileHelper {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65574, null, str, str2, context)) == null) {
             if (str2 != null && str2.length() != 0 && context != null) {
                 try {
-                    String str3 = ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-                    if (isGifImage(str)) {
-                        str3 = ".gif";
-                    }
+                    String str3 = isGifImage(str) ? ".gif" : ".jpg";
                     String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
                     if (nameMd5FromUrl == null) {
                         return -1;
                     }
                     String str4 = nameMd5FromUrl + str3;
-                    for (int i2 = 0; CheckFile(str4) && i2 < 10000; i2++) {
+                    for (int i = 0; CheckFile(str4) && i < 10000; i++) {
                         str4 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str3;
                     }
                     String str5 = getCacheDir() + str4;
@@ -1189,11 +1185,11 @@ public class FileHelper {
                     if (file.isDirectory()) {
                         File[] listFiles = file.listFiles();
                         int length = listFiles.length;
-                        for (int i2 = 0; i2 < length; i2++) {
-                            if (listFiles[i2].isFile()) {
-                                listFiles[i2].delete();
+                        for (int i = 0; i < length; i++) {
+                            if (listFiles[i].isFile()) {
+                                listFiles[i].delete();
                             } else {
-                                deleteFileOrDir(listFiles[i2]);
+                                deleteFileOrDir(listFiles[i]);
                             }
                         }
                     }
@@ -1352,16 +1348,16 @@ public class FileHelper {
         return (String) invokeL.objValue;
     }
 
-    public static String getFilePath(String str, int i2, boolean z) {
+    public static String getFilePath(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65590, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65590, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (checkSD()) {
                 StringBuilder sb = new StringBuilder();
                 if (z) {
                     sb.append(getCacheDir());
                 }
-                sb.append(getPrefixByType(i2));
+                sb.append(getPrefixByType(i));
                 sb.append(File.separator);
                 sb.append(str);
                 return sb.toString();
@@ -1516,10 +1512,10 @@ public class FileHelper {
         }
     }
 
-    public static String getPrefixByType(int i2) {
+    public static String getPrefixByType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65597, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65597, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? "" : FILE_CACHE_BUBBLE : FILE_CACHE_EMOTION_PACKAGE : "voice" : (String) invokeI.objValue;
     }
 
     public static String getPrefixPath(String str, boolean z) {
@@ -1537,29 +1533,29 @@ public class FileHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65599, null)) == null) {
             String externalStorageState = Environment.getExternalStorageState();
             if (externalStorageState.equals("removed")) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f058f);
             }
             if (!externalStorageState.equals("unmounted") && !externalStorageState.equals("unmountable")) {
                 if (externalStorageState.equals(SwanKV.FLAVOR_SHARED)) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_shared);
+                    return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0594);
                 }
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.error_sd_error);
+                return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0592);
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.error_no_sdcard);
+            return TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f058f);
         }
         return (String) invokeV.objValue;
     }
 
-    public static String getStoreFile(String str, int i2) {
+    public static String getStoreFile(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65600, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65600, null, str, i)) == null) {
             if (str == null) {
                 return null;
             }
             if (checkSD()) {
-                if (CheckFile(getFilePath(str, i2, false))) {
-                    return getFilePath(str, i2, true);
+                if (CheckFile(getFilePath(str, i, false))) {
+                    return getFilePath(str, i, true);
                 }
                 return null;
             }
@@ -1568,10 +1564,10 @@ public class FileHelper {
         return (String) invokeLI.objValue;
     }
 
-    public static String getTempFilePath(int i2, String str) {
+    public static String getTempFilePath(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65601, null, i2, str)) == null) ? getTempFilePath(i2, str, false) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65601, null, i, str)) == null) ? getTempFilePath(i, str, false) : (String) invokeIL.objValue;
     }
 
     public static String getVideoTmpDir() {
@@ -1823,10 +1819,10 @@ public class FileHelper {
         return (String) invokeLLLL.objValue;
     }
 
-    public static String saveBitmapByAbsolutelyPath(String str, String str2, Bitmap bitmap, int i2) {
+    public static String saveBitmapByAbsolutelyPath(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65612, null, str, str2, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65612, null, str, str2, bitmap, i)) == null) {
             if (bitmap != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 File file = new File(str);
                 if (file.exists() && !file.isDirectory()) {
@@ -1839,7 +1835,7 @@ public class FileHelper {
                 try {
                     if ((!file2.exists() || file2.delete()) && file2.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
                         fileOutputStream.flush();
                         fileOutputStream.close();
                         return file2.getAbsolutePath();
@@ -1855,11 +1851,11 @@ public class FileHelper {
         return (String) invokeLLLI.objValue;
     }
 
-    public static String saveBitmapByRelativelyPath(String str, String str2, Bitmap bitmap, int i2) {
+    public static String saveBitmapByRelativelyPath(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65613, null, str, str2, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65613, null, str, str2, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -1873,7 +1869,7 @@ public class FileHelper {
                 try {
                     if ((!file.exists() || file.delete()) && file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, i, fileOutputStream);
                         fileOutputStream.flush();
                         fileOutputStream.close();
                         return file.getPath();
@@ -1889,22 +1885,22 @@ public class FileHelper {
         return (String) invokeLLLI.objValue;
     }
 
-    public static String saveFileAsPNG(String str, String str2, Bitmap bitmap, int i2) {
+    public static String saveFileAsPNG(String str, String str2, Bitmap bitmap, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65614, null, str, str2, bitmap, i2)) == null) ? saveFileAsPic(str, str2, bitmap, i2, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65614, null, str, str2, bitmap, i)) == null) ? saveFileAsPic(str, str2, bitmap, i, Bitmap.CompressFormat.PNG) : (String) invokeLLLI.objValue;
     }
 
-    public static String saveFileAsPic(String str, String str2, Bitmap bitmap, int i2, Bitmap.CompressFormat compressFormat) {
+    public static String saveFileAsPic(String str, String str2, Bitmap bitmap, int i, Bitmap.CompressFormat compressFormat) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, str2, bitmap, Integer.valueOf(i2), compressFormat})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65615, null, new Object[]{str, str2, bitmap, Integer.valueOf(i), compressFormat})) == null) {
             if (bitmap != null && CheckTempDir(str) && bitmap != null) {
                 File file = new File(str + str2);
                 try {
                     if ((!file.exists() || file.delete()) && file.createNewFile()) {
                         FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        bitmap.compress(compressFormat, i2, fileOutputStream);
+                        bitmap.compress(compressFormat, i, fileOutputStream);
                         fileOutputStream.flush();
                         fileOutputStream.close();
                         return file.getPath();
@@ -1995,11 +1991,11 @@ public class FileHelper {
         return (String) invokeLLL.objValue;
     }
 
-    public static String saveFileToSDOrMemory(String str, Bitmap bitmap, int i2) {
+    public static String saveFileToSDOrMemory(String str, Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         String absolutePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65622, null, str, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65622, null, str, bitmap, i)) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -2008,7 +2004,7 @@ public class FileHelper {
             } else {
                 absolutePath = Environment.getDataDirectory().getAbsolutePath();
             }
-            return saveBitmapByAbsolutelyPath(absolutePath, str, bitmap, i2);
+            return saveBitmapByAbsolutelyPath(absolutePath, str, bitmap, i);
         }
         return (String) invokeLLI.objValue;
     }
@@ -2020,10 +2016,7 @@ public class FileHelper {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65623, null, str, bArr, context)) == null) {
             if (bArr != null && str != null && str.length() != 0 && context != null) {
                 try {
-                    String str2 = ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
-                    if (n.A(bArr)) {
-                        str2 = ".gif";
-                    }
+                    String str2 = n.A(bArr) ? ".gif" : ".jpg";
                     if (n.y(bArr) && (decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length)) != null) {
                         bArr = f.d().a(decodeByteArray, 100);
                         decodeByteArray.recycle();
@@ -2033,7 +2026,7 @@ public class FileHelper {
                         return -1;
                     }
                     String str3 = nameMd5FromUrl + str2;
-                    for (int i2 = 0; CheckFile(str3) && i2 < 10000; i2++) {
+                    for (int i = 0; CheckFile(str3) && i < 10000; i++) {
                         str3 = nameMd5FromUrl + Math.round(Math.random() * 9.9999999E7d) + str2;
                     }
                     String saveFileByBytes = saveFileByBytes(str3, bArr);
@@ -2089,9 +2082,9 @@ public class FileHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {hashMap, Integer.valueOf(r7), mediaScanCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2124,9 +2117,9 @@ public class FileHelper {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -2176,40 +2169,40 @@ public class FileHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65586, null, file, z)) == null) {
             File[] listFiles = file.listFiles();
-            long j2 = 0;
+            long j = 0;
             if (listFiles == null) {
                 return 0L;
             }
-            for (int i2 = 0; i2 < listFiles.length; i2++) {
-                if (listFiles[i2].isDirectory() && !z) {
-                    length = getDirectorySize(listFiles[i2], false);
+            for (int i = 0; i < listFiles.length; i++) {
+                if (listFiles[i].isDirectory() && !z) {
+                    length = getDirectorySize(listFiles[i], false);
                 } else {
-                    length = listFiles[i2].length();
+                    length = listFiles[i].length();
                 }
-                j2 += length;
+                j += length;
             }
-            return j2;
+            return j;
         }
         return invokeLZ.longValue;
     }
 
-    public static String getTempFilePath(int i2, String str, boolean z) {
+    public static String getTempFilePath(int i, String str, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65602, null, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65602, null, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
             File file = CACHE_DIR;
             if (file == null) {
                 return null;
             }
             File[] listFiles = file.listFiles();
-            String prefixByType = getPrefixByType(i2);
-            for (int i3 = 0; i3 < listFiles.length; i3++) {
-                if (listFiles[i3] != null && listFiles[i3].getName().startsWith(prefixByType)) {
-                    if (listFiles[i3].getName().endsWith(str)) {
-                        return listFiles[i3].getAbsolutePath();
+            String prefixByType = getPrefixByType(i);
+            for (int i2 = 0; i2 < listFiles.length; i2++) {
+                if (listFiles[i2] != null && listFiles[i2].getName().startsWith(prefixByType)) {
+                    if (listFiles[i2].getName().endsWith(str)) {
+                        return listFiles[i2].getAbsolutePath();
                     }
                     if (z) {
-                        listFiles[i3].delete();
+                        listFiles[i2].delete();
                     }
                 }
             }
@@ -2218,14 +2211,14 @@ public class FileHelper {
         return (String) invokeCommon.objValue;
     }
 
-    public static String saveFileByBytes(String str, byte[] bArr, int i2) {
+    public static String saveFileByBytes(String str, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65619, null, str, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65619, null, str, bArr, i)) == null) {
             if (checkSD()) {
-                return saveFileByBytes((String) null, getFilePath(str, i2, false), bArr);
+                return saveFileByBytes((String) null, getFilePath(str, i, false), bArr);
             }
-            return SaveTempFile(i2, str, bArr);
+            return SaveTempFile(i, str, bArr);
         }
         return (String) invokeLLI.objValue;
     }
@@ -2236,7 +2229,7 @@ public class FileHelper {
         if (interceptable != null && (invokeL = interceptable.invokeL(65591, null, file)) != null) {
             return invokeL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         FileInputStream fileInputStream = null;
         try {
         } catch (Exception e2) {
@@ -2247,7 +2240,7 @@ public class FileHelper {
                 if (file.exists()) {
                     FileInputStream fileInputStream2 = new FileInputStream(file);
                     try {
-                        j2 = fileInputStream2.available();
+                        j = fileInputStream2.available();
                         fileInputStream = fileInputStream2;
                     } catch (Exception e3) {
                         e = e3;
@@ -2256,7 +2249,7 @@ public class FileHelper {
                         if (fileInputStream != null) {
                             fileInputStream.close();
                         }
-                        return j2;
+                        return j;
                     } catch (Throwable th) {
                         th = th;
                         fileInputStream = fileInputStream2;
@@ -2276,7 +2269,7 @@ public class FileHelper {
             if (fileInputStream != null) {
                 fileInputStream.close();
             }
-            return j2;
+            return j;
         } catch (Throwable th2) {
             th = th2;
         }
@@ -2540,11 +2533,11 @@ public class FileHelper {
         return invokeLL.booleanValue;
     }
 
-    public static String compressBitmapToFile(String str, String str2, Bitmap bitmap, float f2, int i2) {
+    public static String compressBitmapToFile(String str, String str2, Bitmap bitmap, float f2, int i) {
         InterceptResult invokeCommon;
         File dataDirectory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{str, str2, bitmap, Float.valueOf(f2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65570, null, new Object[]{str, str2, bitmap, Float.valueOf(f2), Integer.valueOf(i)})) == null) {
             if (bitmap == null) {
                 return null;
             }
@@ -2574,11 +2567,11 @@ public class FileHelper {
             try {
                 if ((!file.exists() || file.delete()) && file.createNewFile()) {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                     while (byteArrayOutputStream.toByteArray().length > f2) {
                         byteArrayOutputStream.reset();
-                        i2 -= 5;
-                        bitmap.compress(Bitmap.CompressFormat.JPEG, i2, byteArrayOutputStream);
+                        i -= 5;
+                        bitmap.compress(Bitmap.CompressFormat.JPEG, i, byteArrayOutputStream);
                     }
                     FileOutputStream fileOutputStream = new FileOutputStream(file);
                     fileOutputStream.write(byteArrayOutputStream.toByteArray());

@@ -57,9 +57,9 @@ public class UgcSharedPreferences {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -138,10 +138,10 @@ public class UgcSharedPreferences {
         return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? sPref.getBoolean(FRONT_OR_BACK_CAMERA, true) : invokeV.booleanValue;
     }
 
-    public static void setBeautifulLevel(int i2) {
+    public static void setBeautifulLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i2) == null) {
-            sPref.edit().putInt(KEY_BEAUTIFUL_LEVEL, i2).apply();
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            sPref.edit().putInt(KEY_BEAUTIFUL_LEVEL, i).apply();
         }
     }
 
@@ -199,31 +199,31 @@ public class UgcSharedPreferences {
         }
     }
 
-    public static void setLastCaptureConfigTime(long j2) {
+    public static void setLastCaptureConfigTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65555, null, j2) == null) {
-            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j2).apply();
+        if (interceptable == null || interceptable.invokeJ(65555, null, j) == null) {
+            sPref.edit().putLong(LAST_CAPTURE_CONFIG_TIME, j).apply();
         }
     }
 
-    public static void setSaveVideoLocalStatus(int i2) {
+    public static void setSaveVideoLocalStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65556, null, i2) == null) {
-            sPref.edit().putInt(KEY_SAVE_VIDEO_LOACL, i2).apply();
+        if (interceptable == null || interceptable.invokeI(65556, null, i) == null) {
+            sPref.edit().putInt(KEY_SAVE_VIDEO_LOACL, i).apply();
         }
     }
 
-    public static void setShootDisplayLimit(int i2) {
+    public static void setShootDisplayLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, null, i2) == null) {
-            sPref.edit().putInt(KEY_CONFIG_DISPLAY_TIMES, i2).apply();
+        if (interceptable == null || interceptable.invokeI(65557, null, i) == null) {
+            sPref.edit().putInt(KEY_CONFIG_DISPLAY_TIMES, i).apply();
         }
     }
 
-    public static void setSyncIconCloseTimes(String str, int i2) {
+    public static void setSyncIconCloseTimes(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, str, i2) == null) {
-            sPref.edit().putInt(str, i2).apply();
+        if (interceptable == null || interceptable.invokeLI(65558, null, str, i) == null) {
+            sPref.edit().putInt(str, i).apply();
         }
     }
 
@@ -235,10 +235,10 @@ public class UgcSharedPreferences {
         sPref.edit().putString(SYNC_VIDEO_PUBLISH_CONFIG, str).apply();
     }
 
-    public static void setThinFaceLevel(int i2) {
+    public static void setThinFaceLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65560, null, i2) == null) {
-            sPref.edit().putInt(KEY_THIN_FACE_LEVEL, i2).apply();
+        if (interceptable == null || interceptable.invokeI(65560, null, i) == null) {
+            sPref.edit().putInt(KEY_THIN_FACE_LEVEL, i).apply();
         }
     }
 }

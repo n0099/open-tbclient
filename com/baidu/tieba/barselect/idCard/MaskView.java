@@ -15,6 +15,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,30 +24,27 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class MaskView extends View {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int MASK_TYPE_ID_CARD_BACK = 2;
-    public static final int MASK_TYPE_ID_CARD_FRONT = 1;
-    public static final int MASK_TYPE_NONE = 0;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f31550b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f31551c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f31552d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40878e;
+    public Rect f31553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40879f;
+    public Drawable f31554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f40880g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public Paint f40881h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Rect f40882i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Drawable f40883j;
-    public Path k;
+    public Path f31555g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaskView(Context context) {
@@ -57,26 +55,26 @@ public class MaskView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40878e = 1;
-        this.f40879f = Color.argb(100, 0, 0, 0);
-        this.f40880g = new Paint(1);
-        this.f40881h = new Paint(1);
-        this.f40882i = new Rect();
-        this.k = new Path();
+        this.a = 1;
+        this.f31550b = Color.argb(100, 0, 0, 0);
+        this.f31551c = new Paint(1);
+        this.f31552d = new Paint(1);
+        this.f31553e = new Rect();
+        this.f31555g = new Path();
         setLayerType(1, null);
-        this.f40881h.setColor(-1);
-        this.f40881h.setStyle(Paint.Style.STROKE);
-        this.f40881h.setStrokeWidth(6.0f);
-        this.f40880g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f31552d.setColor(-1);
+        this.f31552d.setStyle(Paint.Style.STROKE);
+        this.f31552d.setStrokeWidth(6.0f);
+        this.f31551c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 
@@ -84,7 +82,7 @@ public class MaskView extends View {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7), Boolean.valueOf(z)})) == null) {
-            this.k.reset();
+            this.f31555g.reset();
             if (f6 < 0.0f) {
                 f6 = 0.0f;
             }
@@ -103,25 +101,25 @@ public class MaskView extends View {
             }
             float f12 = f8 - (f6 * 2.0f);
             float f13 = f9 - (2.0f * f7);
-            this.k.moveTo(f4, f3 + f7);
+            this.f31555g.moveTo(f4, f3 + f7);
             float f14 = -f7;
             float f15 = -f6;
-            this.k.rQuadTo(0.0f, f14, f15, f14);
-            this.k.rLineTo(-f12, 0.0f);
-            this.k.rQuadTo(f15, 0.0f, f15, f7);
-            this.k.rLineTo(0.0f, f13);
+            this.f31555g.rQuadTo(0.0f, f14, f15, f14);
+            this.f31555g.rLineTo(-f12, 0.0f);
+            this.f31555g.rQuadTo(f15, 0.0f, f15, f7);
+            this.f31555g.rLineTo(0.0f, f13);
             if (z) {
-                this.k.rLineTo(0.0f, f7);
-                this.k.rLineTo(f8, 0.0f);
-                this.k.rLineTo(0.0f, f14);
+                this.f31555g.rLineTo(0.0f, f7);
+                this.f31555g.rLineTo(f8, 0.0f);
+                this.f31555g.rLineTo(0.0f, f14);
             } else {
-                this.k.rQuadTo(0.0f, f7, f6, f7);
-                this.k.rLineTo(f12, 0.0f);
-                this.k.rQuadTo(f6, 0.0f, f6, f14);
+                this.f31555g.rQuadTo(0.0f, f7, f6, f7);
+                this.f31555g.rLineTo(f12, 0.0f);
+                this.f31555g.rQuadTo(f6, 0.0f, f6, f14);
             }
-            this.k.rLineTo(0.0f, -f13);
-            this.k.close();
-            return this.k;
+            this.f31555g.rLineTo(0.0f, -f13);
+            this.f31555g.close();
+            return this.f31555g;
         }
         return (Path) invokeCommon.objValue;
     }
@@ -129,7 +127,7 @@ public class MaskView extends View {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40883j = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
+            this.f31554f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
         }
     }
 
@@ -137,10 +135,10 @@ public class MaskView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.f40878e == 0) {
+            if (this.a == 0) {
                 return new Rect(0, 0, getWidth(), getHeight());
             }
-            return new Rect(this.f40882i);
+            return new Rect(this.f31553e);
         }
         return (Rect) invokeV.objValue;
     }
@@ -149,14 +147,14 @@ public class MaskView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Rect rect = new Rect(this.f40882i);
-            Rect rect2 = this.f40882i;
-            int i2 = (int) ((rect2.right - rect2.left) * 0.02f);
-            int i3 = (int) ((rect2.bottom - rect2.top) * 0.02f);
-            rect.left -= i2;
-            rect.right += i2;
-            rect.top -= i3;
-            rect.bottom += i3;
+            Rect rect = new Rect(this.f31553e);
+            Rect rect2 = this.f31553e;
+            int i = (int) ((rect2.right - rect2.left) * 0.02f);
+            int i2 = (int) ((rect2.bottom - rect2.top) * 0.02f);
+            rect.left -= i;
+            rect.right += i;
+            rect.top -= i2;
+            rect.bottom += i2;
             return rect;
         }
         return (Rect) invokeV.objValue;
@@ -165,7 +163,7 @@ public class MaskView extends View {
     public int getMaskType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40878e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : invokeV.intValue;
     }
 
     @Override // android.view.View
@@ -174,30 +172,30 @@ public class MaskView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
             super.onDraw(canvas);
-            Rect rect = this.f40882i;
+            Rect rect = this.f31553e;
             int width = rect.width();
             int height = rect.height();
-            int i2 = rect.left;
-            int i3 = rect.top;
-            int i4 = rect.right;
-            int i5 = rect.bottom;
-            canvas.drawColor(this.f40879f);
-            float f2 = i2;
-            float f3 = i3;
-            a(f2, f3, i4, i5, 30.0f, 30.0f, false);
-            canvas.drawPath(this.k, this.f40881h);
-            canvas.drawPath(this.k, this.f40880g);
-            int i6 = this.f40878e;
-            if (i6 == 1) {
+            int i = rect.left;
+            int i2 = rect.top;
+            int i3 = rect.right;
+            int i4 = rect.bottom;
+            canvas.drawColor(this.f31550b);
+            float f2 = i;
+            float f3 = i2;
+            a(f2, f3, i3, i4, 30.0f, 30.0f, false);
+            canvas.drawPath(this.f31555g, this.f31552d);
+            canvas.drawPath(this.f31555g, this.f31551c);
+            int i5 = this.a;
+            if (i5 == 1) {
                 float f4 = width;
                 float f5 = height;
-                this.f40883j.setBounds((int) ((0.5974155f * f4) + f2), (int) ((0.17405063f * f5) + f3), (int) (f2 + (f4 * 0.95725644f)), (int) (f3 + (f5 * 0.7531645f)));
-            } else if (i6 == 2) {
+                this.f31554f.setBounds((int) ((0.5974155f * f4) + f2), (int) ((0.17405063f * f5) + f3), (int) (f2 + (f4 * 0.95725644f)), (int) (f3 + (f5 * 0.7531645f)));
+            } else if (i5 == 2) {
                 float f6 = width;
                 float f7 = height;
-                this.f40883j.setBounds((int) ((0.050695825f * f6) + f2), (int) ((0.07594936f * f7) + f3), (int) (f2 + (f6 * 0.24850895f)), (int) (f3 + (f7 * 0.41455695f)));
+                this.f31554f.setBounds((int) ((0.050695825f * f6) + f2), (int) ((0.07594936f * f7) + f3), (int) (f2 + (f6 * 0.24850895f)), (int) (f3 + (f7 * 0.41455695f)));
             }
-            Drawable drawable = this.f40883j;
+            Drawable drawable = this.f31554f;
             if (drawable != null) {
                 drawable.draw(canvas);
             }
@@ -205,54 +203,54 @@ public class MaskView extends View {
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            if (i2 <= 0 || i3 <= 0) {
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            if (i <= 0 || i2 <= 0) {
                 return;
             }
-            int i6 = (int) (i2 * (i3 > i2 ? 0.9f : 0.72f));
-            int i7 = (i6 * 400) / 620;
+            int i5 = (int) (i * (i2 > i ? 0.9f : 0.72f));
+            int i6 = (i5 * 400) / PassBiometricUtil.f27932f;
+            int i7 = (i - i5) / 2;
             int i8 = (i2 - i6) / 2;
-            int i9 = (i3 - i7) / 2;
-            Rect rect = this.f40882i;
-            rect.left = i8;
-            rect.top = i9;
-            rect.right = i6 + i8;
-            rect.bottom = i7 + i9;
+            Rect rect = this.f31553e;
+            rect.left = i7;
+            rect.top = i8;
+            rect.right = i5 + i7;
+            rect.bottom = i6 + i8;
         }
     }
 
-    public void setLineColor(int i2) {
+    public void setLineColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
-    public void setMaskColor(int i2) {
+    public void setMaskColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.f40879f = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f31550b = i;
         }
     }
 
-    public void setMaskType(int i2) {
+    public void setMaskType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f40878e = i2;
-            if (i2 == 1) {
-                this.f40883j = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_front, null);
-            } else if (i2 == 2) {
-                this.f40883j = ResourcesCompat.getDrawable(getResources(), R.drawable.bd_ocr_id_card_locator_back, null);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.f31554f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080204, null);
+            } else if (i == 2) {
+                this.f31554f = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080203, null);
             }
             invalidate();
         }
     }
 
-    public void setOrientation(int i2) {
+    public void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
@@ -265,9 +263,9 @@ public class MaskView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -275,32 +273,32 @@ public class MaskView extends View {
                 return;
             }
         }
-        this.f40878e = 1;
-        this.f40879f = Color.argb(100, 0, 0, 0);
-        this.f40880g = new Paint(1);
-        this.f40881h = new Paint(1);
-        this.f40882i = new Rect();
-        this.k = new Path();
+        this.a = 1;
+        this.f31550b = Color.argb(100, 0, 0, 0);
+        this.f31551c = new Paint(1);
+        this.f31552d = new Paint(1);
+        this.f31553e = new Rect();
+        this.f31555g = new Path();
         setLayerType(1, null);
-        this.f40881h.setColor(-1);
-        this.f40881h.setStyle(Paint.Style.STROKE);
-        this.f40881h.setStrokeWidth(6.0f);
-        this.f40880g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f31552d.setColor(-1);
+        this.f31552d.setStyle(Paint.Style.STROKE);
+        this.f31552d.setStrokeWidth(6.0f);
+        this.f31551c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaskView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MaskView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -308,17 +306,17 @@ public class MaskView extends View {
                 return;
             }
         }
-        this.f40878e = 1;
-        this.f40879f = Color.argb(100, 0, 0, 0);
-        this.f40880g = new Paint(1);
-        this.f40881h = new Paint(1);
-        this.f40882i = new Rect();
-        this.k = new Path();
+        this.a = 1;
+        this.f31550b = Color.argb(100, 0, 0, 0);
+        this.f31551c = new Paint(1);
+        this.f31552d = new Paint(1);
+        this.f31553e = new Rect();
+        this.f31555g = new Path();
         setLayerType(1, null);
-        this.f40881h.setColor(-1);
-        this.f40881h.setStyle(Paint.Style.STROKE);
-        this.f40881h.setStrokeWidth(6.0f);
-        this.f40880g.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+        this.f31552d.setColor(-1);
+        this.f31552d.setStyle(Paint.Style.STROKE);
+        this.f31552d.setStrokeWidth(6.0f);
+        this.f31551c.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         b();
     }
 }

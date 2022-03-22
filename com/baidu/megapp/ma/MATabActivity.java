@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,9 +22,9 @@ public abstract class MATabActivity extends TabActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,6 +53,7 @@ public abstract class MATabActivity extends TabActivity {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Log.d(TAG, "onGetBottomBar");
             return null;
         }
         return (MABottomToolBar) invokeV.objValue;
@@ -63,10 +65,10 @@ public abstract class MATabActivity extends TabActivity {
         }
     }
 
-    public void setMABottomToolBarVisibility(int i2) {
+    public void setMABottomToolBarVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            String str = "setMABottomToolBarVisibility = " + i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            Log.d(TAG, "setMABottomToolBarVisibility = " + i);
         }
     }
 }

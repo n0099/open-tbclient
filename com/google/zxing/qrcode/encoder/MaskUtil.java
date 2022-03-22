@@ -20,9 +20,9 @@ public final class MaskUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,27 +42,27 @@ public final class MaskUtil {
             int height = z ? byteMatrix.getHeight() : byteMatrix.getWidth();
             int width = z ? byteMatrix.getWidth() : byteMatrix.getHeight();
             byte[][] array = byteMatrix.getArray();
-            int i2 = 0;
-            for (int i3 = 0; i3 < height; i3++) {
+            int i = 0;
+            for (int i2 = 0; i2 < height; i2++) {
                 byte b2 = -1;
-                int i4 = 0;
-                for (int i5 = 0; i5 < width; i5++) {
-                    byte b3 = z ? array[i3][i5] : array[i5][i3];
+                int i3 = 0;
+                for (int i4 = 0; i4 < width; i4++) {
+                    byte b3 = z ? array[i2][i4] : array[i4][i2];
                     if (b3 == b2) {
-                        i4++;
+                        i3++;
                     } else {
-                        if (i4 >= 5) {
-                            i2 += (i4 - 5) + 3;
+                        if (i3 >= 5) {
+                            i += (i3 - 5) + 3;
                         }
                         b2 = b3;
-                        i4 = 1;
+                        i3 = 1;
                     }
                 }
-                if (i4 >= 5) {
-                    i2 += (i4 - 5) + 3;
+                if (i3 >= 5) {
+                    i += (i3 - 5) + 3;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLZ.intValue;
     }
@@ -74,22 +74,22 @@ public final class MaskUtil {
             byte[][] array = byteMatrix.getArray();
             int width = byteMatrix.getWidth();
             int height = byteMatrix.getHeight();
-            int i2 = 0;
-            for (int i3 = 0; i3 < height - 1; i3++) {
-                int i4 = 0;
-                while (i4 < width - 1) {
-                    byte b2 = array[i3][i4];
-                    int i5 = i4 + 1;
-                    if (b2 == array[i3][i5]) {
-                        int i6 = i3 + 1;
-                        if (b2 == array[i6][i4] && b2 == array[i6][i5]) {
-                            i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < height - 1; i2++) {
+                int i3 = 0;
+                while (i3 < width - 1) {
+                    byte b2 = array[i2][i3];
+                    int i4 = i3 + 1;
+                    if (b2 == array[i2][i4]) {
+                        int i5 = i2 + 1;
+                        if (b2 == array[i5][i3] && b2 == array[i5][i4]) {
+                            i++;
                         }
                     }
-                    i4 = i5;
+                    i3 = i4;
                 }
             }
-            return i2 * 3;
+            return i * 3;
         }
         return invokeL.intValue;
     }
@@ -101,21 +101,21 @@ public final class MaskUtil {
             byte[][] array = byteMatrix.getArray();
             int width = byteMatrix.getWidth();
             int height = byteMatrix.getHeight();
-            int i2 = 0;
-            for (int i3 = 0; i3 < height; i3++) {
-                for (int i4 = 0; i4 < width; i4++) {
-                    byte[] bArr = array[i3];
-                    int i5 = i4 + 6;
-                    if (i5 < width && bArr[i4] == 1 && bArr[i4 + 1] == 0 && bArr[i4 + 2] == 1 && bArr[i4 + 3] == 1 && bArr[i4 + 4] == 1 && bArr[i4 + 5] == 0 && bArr[i5] == 1 && (isWhiteHorizontal(bArr, i4 - 4, i4) || isWhiteHorizontal(bArr, i4 + 7, i4 + 11))) {
-                        i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < height; i2++) {
+                for (int i3 = 0; i3 < width; i3++) {
+                    byte[] bArr = array[i2];
+                    int i4 = i3 + 6;
+                    if (i4 < width && bArr[i3] == 1 && bArr[i3 + 1] == 0 && bArr[i3 + 2] == 1 && bArr[i3 + 3] == 1 && bArr[i3 + 4] == 1 && bArr[i3 + 5] == 0 && bArr[i4] == 1 && (isWhiteHorizontal(bArr, i3 - 4, i3) || isWhiteHorizontal(bArr, i3 + 7, i3 + 11))) {
+                        i++;
                     }
-                    int i6 = i3 + 6;
-                    if (i6 < height && array[i3][i4] == 1 && array[i3 + 1][i4] == 0 && array[i3 + 2][i4] == 1 && array[i3 + 3][i4] == 1 && array[i3 + 4][i4] == 1 && array[i3 + 5][i4] == 0 && array[i6][i4] == 1 && (isWhiteVertical(array, i4, i3 - 4, i3) || isWhiteVertical(array, i4, i3 + 7, i3 + 11))) {
-                        i2++;
+                    int i5 = i2 + 6;
+                    if (i5 < height && array[i2][i3] == 1 && array[i2 + 1][i3] == 0 && array[i2 + 2][i3] == 1 && array[i2 + 3][i3] == 1 && array[i2 + 4][i3] == 1 && array[i2 + 5][i3] == 0 && array[i5][i3] == 1 && (isWhiteVertical(array, i3, i2 - 4, i2) || isWhiteVertical(array, i3, i2 + 7, i2 + 11))) {
+                        i++;
                     }
                 }
             }
-            return i2 * 40;
+            return i * 40;
         }
         return invokeL.intValue;
     }
@@ -127,75 +127,75 @@ public final class MaskUtil {
             byte[][] array = byteMatrix.getArray();
             int width = byteMatrix.getWidth();
             int height = byteMatrix.getHeight();
-            int i2 = 0;
-            for (int i3 = 0; i3 < height; i3++) {
-                byte[] bArr = array[i3];
-                for (int i4 = 0; i4 < width; i4++) {
-                    if (bArr[i4] == 1) {
-                        i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < height; i2++) {
+                byte[] bArr = array[i2];
+                for (int i3 = 0; i3 < width; i3++) {
+                    if (bArr[i3] == 1) {
+                        i++;
                     }
                 }
             }
             int height2 = byteMatrix.getHeight() * byteMatrix.getWidth();
-            return ((Math.abs((i2 << 1) - height2) * 10) / height2) * 10;
+            return ((Math.abs((i << 1) - height2) * 10) / height2) * 10;
         }
         return invokeL.intValue;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static boolean getDataMaskBit(int i2, int i3, int i4) {
+    public static boolean getDataMaskBit(int i, int i2, int i3) {
         InterceptResult invokeIII;
+        int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
+            switch (i) {
                 case 0:
-                    i4 += i3;
-                    i5 = i4 & 1;
+                    i3 += i2;
+                    i4 = i3 & 1;
                     break;
                 case 1:
-                    i5 = i4 & 1;
+                    i4 = i3 & 1;
                     break;
                 case 2:
-                    i5 = i3 % 3;
+                    i4 = i2 % 3;
                     break;
                 case 3:
-                    i5 = (i4 + i3) % 3;
+                    i4 = (i3 + i2) % 3;
                     break;
                 case 4:
-                    i4 /= 2;
-                    i3 /= 3;
-                    i4 += i3;
-                    i5 = i4 & 1;
+                    i3 /= 2;
+                    i2 /= 3;
+                    i3 += i2;
+                    i4 = i3 & 1;
                     break;
                 case 5:
-                    int i7 = i4 * i3;
-                    i5 = (i7 & 1) + (i7 % 3);
+                    int i6 = i3 * i2;
+                    i4 = (i6 & 1) + (i6 % 3);
                     break;
                 case 6:
-                    int i8 = i4 * i3;
-                    i6 = (i8 & 1) + (i8 % 3);
-                    i5 = i6 & 1;
+                    int i7 = i3 * i2;
+                    i5 = (i7 & 1) + (i7 % 3);
+                    i4 = i5 & 1;
                     break;
                 case 7:
-                    i6 = ((i4 * i3) % 3) + ((i4 + i3) & 1);
-                    i5 = i6 & 1;
+                    i5 = ((i3 * i2) % 3) + ((i3 + i2) & 1);
+                    i4 = i5 & 1;
                     break;
                 default:
-                    throw new IllegalArgumentException("Invalid mask pattern: " + i2);
+                    throw new IllegalArgumentException("Invalid mask pattern: " + i);
             }
-            return i5 == 0;
+            return i4 == 0;
         }
         return invokeIII.booleanValue;
     }
 
-    public static boolean isWhiteHorizontal(byte[] bArr, int i2, int i3) {
+    public static boolean isWhiteHorizontal(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i2, i3)) == null) {
-            int min = Math.min(i3, bArr.length);
-            for (int max = Math.max(i2, 0); max < min; max++) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i, i2)) == null) {
+            int min = Math.min(i2, bArr.length);
+            for (int max = Math.max(i, 0); max < min; max++) {
                 if (bArr[max] == 1) {
                     return false;
                 }
@@ -205,13 +205,13 @@ public final class MaskUtil {
         return invokeLII.booleanValue;
     }
 
-    public static boolean isWhiteVertical(byte[][] bArr, int i2, int i3, int i4) {
+    public static boolean isWhiteVertical(byte[][] bArr, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65544, null, bArr, i2, i3, i4)) == null) {
-            int min = Math.min(i4, bArr.length);
-            for (int max = Math.max(i3, 0); max < min; max++) {
-                if (bArr[max][i2] == 1) {
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65544, null, bArr, i, i2, i3)) == null) {
+            int min = Math.min(i3, bArr.length);
+            for (int max = Math.max(i2, 0); max < min; max++) {
+                if (bArr[max][i] == 1) {
                     return false;
                 }
             }

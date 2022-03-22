@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.util.io.Closeables;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,46 +58,46 @@ public class DefaultContentUploader extends BaseContentUploader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0006 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:100:0x0008 */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:83:0x0133 A[Catch: all -> 0x0154, TryCatch #9 {all -> 0x0154, blocks: (B:81:0x012f, B:83:0x0133, B:86:0x013b, B:88:0x013f), top: B:102:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x013f A[Catch: all -> 0x0154, TRY_LEAVE, TryCatch #9 {all -> 0x0154, blocks: (B:81:0x012f, B:83:0x0133, B:86:0x013b, B:88:0x013f), top: B:102:0x0006 }] */
-    /* JADX WARN: Type inference failed for: r12v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r12v15 */
-    /* JADX WARN: Type inference failed for: r12v16 */
-    /* JADX WARN: Type inference failed for: r12v17 */
-    /* JADX WARN: Type inference failed for: r12v18 */
-    /* JADX WARN: Type inference failed for: r12v3 */
-    /* JADX WARN: Type inference failed for: r12v6, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r13v0, types: [java.util.Map<java.lang.String, java.lang.String>, java.util.Map, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r13v36 */
-    /* JADX WARN: Type inference failed for: r13v37 */
-    /* JADX WARN: Type inference failed for: r13v38 */
-    /* JADX WARN: Type inference failed for: r13v39 */
-    /* JADX WARN: Type inference failed for: r13v4 */
-    /* JADX WARN: Type inference failed for: r13v8, types: [java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r7v14 */
-    /* JADX WARN: Type inference failed for: r7v15 */
-    /* JADX WARN: Type inference failed for: r7v16, types: [java.io.ByteArrayOutputStream] */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v19 */
-    /* JADX WARN: Type inference failed for: r7v20 */
-    /* JADX WARN: Type inference failed for: r7v21 */
-    /* JADX WARN: Type inference failed for: r7v22 */
-    /* JADX WARN: Type inference failed for: r7v23, types: [java.io.ByteArrayOutputStream, java.io.Closeable] */
-    /* JADX WARN: Type inference failed for: r7v24 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v6 */
-    /* JADX WARN: Type inference failed for: r7v8 */
+    /* JADX WARN: Removed duplicated region for block: B:83:0x013e A[Catch: all -> 0x0167, TryCatch #6 {all -> 0x0167, blocks: (B:81:0x013a, B:83:0x013e, B:86:0x014a, B:88:0x014e), top: B:100:0x0008 }] */
+    /* JADX WARN: Removed duplicated region for block: B:88:0x014e A[Catch: all -> 0x0167, TRY_LEAVE, TryCatch #6 {all -> 0x0167, blocks: (B:81:0x013a, B:83:0x013e, B:86:0x014a, B:88:0x014e), top: B:100:0x0008 }] */
+    /* JADX WARN: Type inference failed for: r13v0, types: [java.lang.Object, java.io.File] */
+    /* JADX WARN: Type inference failed for: r13v15 */
+    /* JADX WARN: Type inference failed for: r13v16 */
+    /* JADX WARN: Type inference failed for: r13v17 */
+    /* JADX WARN: Type inference failed for: r13v18 */
+    /* JADX WARN: Type inference failed for: r13v3 */
+    /* JADX WARN: Type inference failed for: r13v6, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r14v0, types: [java.util.Map<java.lang.String, java.lang.String>, java.util.Map, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r14v37 */
+    /* JADX WARN: Type inference failed for: r14v38 */
+    /* JADX WARN: Type inference failed for: r14v39 */
+    /* JADX WARN: Type inference failed for: r14v4 */
+    /* JADX WARN: Type inference failed for: r14v40 */
+    /* JADX WARN: Type inference failed for: r14v8, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v14 */
+    /* JADX WARN: Type inference failed for: r8v15 */
+    /* JADX WARN: Type inference failed for: r8v16, types: [java.io.ByteArrayOutputStream] */
+    /* JADX WARN: Type inference failed for: r8v18 */
+    /* JADX WARN: Type inference failed for: r8v19 */
+    /* JADX WARN: Type inference failed for: r8v20 */
+    /* JADX WARN: Type inference failed for: r8v21 */
+    /* JADX WARN: Type inference failed for: r8v22 */
+    /* JADX WARN: Type inference failed for: r8v23, types: [java.io.ByteArrayOutputStream, java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r8v24 */
+    /* JADX WARN: Type inference failed for: r8v4 */
+    /* JADX WARN: Type inference failed for: r8v6 */
+    /* JADX WARN: Type inference failed for: r8v8 */
     @Override // com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -123,22 +124,22 @@ public class DefaultContentUploader extends BaseContentUploader {
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, file, map)) == null) {
             boolean z = false;
             FileInputStream fileInputStream2 = null;
-            r1 = null;
+            r2 = null;
             fileInputStream2 = null;
             fileInputStream2 = null;
             Closeable closeable = null;
             try {
                 try {
                     if (DEBUG) {
-                        String str2 = "DefaultContentUploader.uploadDataRequestSync=" + str;
+                        Log.d("LSStrategy", "DefaultContentUploader.uploadDataRequestSync=" + str);
                     }
                     httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setReadTimeout(30000);
                     httpURLConnection.setConnectTimeout(30000);
                     if (map != 0) {
-                        for (String str3 : map.keySet()) {
-                            httpURLConnection.setRequestProperty(str3, (String) map.get(str3));
+                        for (String str2 : map.keySet()) {
+                            httpURLConnection.setRequestProperty(str2, (String) map.get(str2));
                         }
                     }
                     httpURLConnection.setDoOutput(true);
@@ -217,6 +218,9 @@ public class DefaultContentUploader extends BaseContentUploader {
                                 file = outputStream2;
                                 map = inputStream4;
                                 if (DEBUG) {
+                                    Log.d("LSStrategy", Log.getStackTraceString(e));
+                                    file = outputStream2;
+                                    map = inputStream4;
                                 }
                                 Closeables.closeSafely((Closeable) file);
                                 Closeables.closeSafely(fileInputStream2);
@@ -233,6 +237,9 @@ public class DefaultContentUploader extends BaseContentUploader {
                                 file = outputStream;
                                 map = inputStream3;
                                 if (DEBUG) {
+                                    Log.d("LSStrategy", Log.getStackTraceString(e));
+                                    file = outputStream;
+                                    map = inputStream3;
                                 }
                                 Closeables.closeSafely((Closeable) file);
                                 Closeables.closeSafely(fileInputStream2);
@@ -264,9 +271,6 @@ public class DefaultContentUploader extends BaseContentUploader {
                         file = outputStream2;
                         map = inputStream4;
                         if (DEBUG) {
-                            Log.getStackTraceString(e);
-                            file = outputStream2;
-                            map = inputStream4;
                         }
                         Closeables.closeSafely((Closeable) file);
                         Closeables.closeSafely(fileInputStream2);
@@ -284,9 +288,6 @@ public class DefaultContentUploader extends BaseContentUploader {
                         file = outputStream;
                         map = inputStream3;
                         if (DEBUG) {
-                            Log.getStackTraceString(e);
-                            file = outputStream;
-                            map = inputStream3;
                         }
                         Closeables.closeSafely((Closeable) file);
                         Closeables.closeSafely(fileInputStream2);
@@ -309,7 +310,7 @@ public class DefaultContentUploader extends BaseContentUploader {
                 } else {
                     inputStream2 = null;
                 }
-                String byteArrayOutputStream = inputStream2 != null ? inputStream2.toString("utf-8") : null;
+                String byteArrayOutputStream = inputStream2 != null ? inputStream2.toString(IMAudioTransRequest.CHARSET) : null;
                 if (responseCode == 200 && !TextUtils.isEmpty(byteArrayOutputStream)) {
                     try {
                         if (new JSONObject(byteArrayOutputStream).optInt("error", -1) == 0) {
@@ -320,7 +321,7 @@ public class DefaultContentUploader extends BaseContentUploader {
                     }
                 }
                 if (DEBUG) {
-                    String str4 = "DefaultContentUploader: success = " + z + ", resultStr= " + byteArrayOutputStream;
+                    Log.d("LSStrategy", "DefaultContentUploader: success = " + z + ", resultStr= " + byteArrayOutputStream);
                 }
                 ResponseEntity responseEntity = new ResponseEntity(z, byteArrayOutputStream);
                 Closeables.closeSafely(outputStream6);

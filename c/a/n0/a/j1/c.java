@@ -1,0 +1,118 @@
+package c.a.n0.a.j1;
+
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import c.a.n0.a.j1.i;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+/* loaded from: classes.dex */
+public class c extends c.a.n0.a.j1.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes.dex */
+    public class a implements i.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ c f4881b;
+
+        public a(c cVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f4881b = cVar;
+            this.a = str;
+        }
+
+        @Override // c.a.n0.a.j1.i.d
+        public void a(@NonNull c.a.n0.a.k.h.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+                this.f4881b.d(this.a, bVar);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c(@NonNull c.a.n0.a.k.c.b bVar) {
+        super(bVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((c.a.n0.a.k.c.b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // c.a.n0.a.k.c.d
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentApi" : (String) invokeV.objValue;
+    }
+
+    public c.a.n0.a.k.h.b x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#requestThirdPayment", false);
+            c.a.n0.a.t1.e a0 = c.a.n0.a.t1.e.a0();
+            if (a0 == null) {
+                return new c.a.n0.a.k.h.b(1001, "swan app is null");
+            }
+            SwanAppActivity x = a0.x();
+            if (x == null) {
+                return new c.a.n0.a.k.h.b(1001, "swan activity is null");
+            }
+            Pair<c.a.n0.a.k.h.b, JSONObject> s = s(str);
+            c.a.n0.a.k.h.b bVar = (c.a.n0.a.k.h.b) s.first;
+            if (bVar.isSuccess()) {
+                JSONObject jSONObject = (JSONObject) s.second;
+                String optString = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    return new c.a.n0.a.k.h.b(202, "cb is empty");
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("orderInfo");
+                String optString2 = jSONObject.optString("invokeFrom");
+                if (TextUtils.isEmpty(optString2)) {
+                    optString2 = RetrieveTaskManager.KEY;
+                }
+                new i(a0, x, new a(this, optString)).n(optJSONObject, optString2);
+                return c.a.n0.a.k.h.b.f();
+            }
+            return bVar;
+        }
+        return (c.a.n0.a.k.h.b) invokeL.objValue;
+    }
+}

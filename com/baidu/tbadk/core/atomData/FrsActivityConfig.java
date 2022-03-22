@@ -9,16 +9,17 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.q0.c1.h0;
-import c.a.q0.r.r.e2;
-import c.a.r0.d1.r2.p;
-import c.a.r0.j3.z;
+import c.a.o0.c1.h0;
+import c.a.p0.f1.r2.p;
+import c.a.p0.l3.z;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.abtest.helper.FrsTabTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -29,8 +30,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class FrsActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_IS_ONLIVING = "ala_is_living";
@@ -107,9 +107,9 @@ public class FrsActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -137,10 +137,10 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", false);
-            intent.putExtra("good", false);
+            intent.putExtra(GOOD, false);
             intent.putExtra("yuelaou_locate", str3);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             return this;
         }
@@ -155,11 +155,11 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", false);
-            intent.putExtra("good", false);
+            intent.putExtra(GOOD, false);
             intent.putExtra(FOLLOWED_HAS_NEW, false);
             intent.putExtra(ALA_IS_ONLIVING, z);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             return this;
         }
@@ -193,63 +193,63 @@ public class FrsActivityConfig extends IntentConfig {
             if (TextUtils.isEmpty(stringExtra3)) {
                 stringExtra3 = "";
             }
-            int i2 = -1;
+            int i = -1;
             FrsRequestData frsRequestData = new FrsRequestData();
             if (FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(stringExtra2)) {
-                i2 = 3;
+                i = 3;
             } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
-                i2 = 6;
+                i = 6;
             }
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
-                frsRequestData.H(p.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                frsRequestData.J(p.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
-            frsRequestData.setSortType(p.d(i2));
-            if (i2 == 5) {
-                frsRequestData.K(1);
+            frsRequestData.setSortType(p.d(i));
+            if (i == 5) {
+                frsRequestData.M(1);
             } else {
-                frsRequestData.K(0);
+                frsRequestData.M(0);
             }
-            frsRequestData.w("forum_name", m.getUrlEncode(stringExtra));
-            frsRequestData.w("client_type", "2");
+            frsRequestData.y("forum_name", m.getUrlEncode(stringExtra));
+            frsRequestData.y("client_type", "2");
             frsRequestData.setPn(1);
             frsRequestData.setCallFrom(intExtra);
-            p.e(i2, frsRequestData);
-            frsRequestData.S("2");
-            frsRequestData.T(StatHelper.SENSOR_ERR_2);
-            frsRequestData.M(stringExtra);
-            frsRequestData.Z(1);
-            frsRequestData.E(0);
-            frsRequestData.Y(n.k(TbadkCoreApplication.getInst()));
-            frsRequestData.X(n.i(TbadkCoreApplication.getInst()));
-            frsRequestData.W(n.h(TbadkCoreApplication.getInst()));
-            frsRequestData.b0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
+            p.e(i, frsRequestData);
+            frsRequestData.U("2");
+            frsRequestData.V("-2");
+            frsRequestData.O(stringExtra);
+            frsRequestData.b0(1);
+            frsRequestData.G(0);
+            frsRequestData.a0(n.k(TbadkCoreApplication.getInst()));
+            frsRequestData.Z(n.i(TbadkCoreApplication.getInst()));
+            frsRequestData.Y(n.h(TbadkCoreApplication.getInst()));
+            frsRequestData.d0(TbImageHelper.getInstance().isShowBigImage() ? 2 : 1);
             if (uri != null) {
-                frsRequestData.V(uri.toString());
+                frsRequestData.X(uri.toString());
             }
-            frsRequestData.O(null);
-            frsRequestData.a0(stringExtra3);
-            frsRequestData.N(b.g(h0.a(), 0L));
+            frsRequestData.Q(null);
+            frsRequestData.c0(stringExtra3);
+            frsRequestData.P(b.g(h0.a(), 0L));
             frsRequestData.setStType(stringExtra2);
-            frsRequestData.J(1);
+            frsRequestData.L(1);
             frsRequestData.setNeedCache(true);
             frsRequestData.setUpdateType(3);
-            frsRequestData.I(longExtra);
-            p.e(i2, frsRequestData);
-            frsRequestData.Q(1);
-            if (e2.X3.get() && z.q().b() != null) {
+            frsRequestData.K(longExtra);
+            p.e(i, frsRequestData);
+            frsRequestData.S(1);
+            if (ThreadData.isRecAppLoaded.get() && z.q().b() != null) {
                 int d2 = z.q().b().d(stringExtra, false);
                 int e2 = z.q().b().e(stringExtra, false);
-                if (frsRequestData.A() == 1) {
+                if (frsRequestData.C() == 1) {
                     d2++;
-                } else if (frsRequestData.A() == 2) {
+                } else if (frsRequestData.C() == 2) {
                     e2++;
                 }
-                frsRequestData.U(d2);
-                frsRequestData.P(e2);
+                frsRequestData.W(d2);
+                frsRequestData.R(e2);
             }
             FrsNetModel frsNetModel = new FrsNetModel(null, frsRequestData);
             frsNetModel.setUniqueId(this.mPageId);
-            frsNetModel.Y(frsNetModel);
+            frsNetModel.a0(frsNetModel);
             TbadkCoreApplication.getInst().getFrsModeArray().put(this.mPageId.getId(), frsNetModel);
             frsNetModel.loadData();
         }
@@ -264,43 +264,43 @@ public class FrsActivityConfig extends IntentConfig {
         intent.putExtra(KEY_ACHIEVEMENT_URL, str);
     }
 
-    public FrsActivityConfig setCallFrom(int i2) {
+    public FrsActivityConfig setCallFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            getIntent().putExtra(FRS_CALL_FROM, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            getIntent().putExtra(FRS_CALL_FROM, i);
             return this;
         }
         return (FrsActivityConfig) invokeI.objValue;
     }
 
-    public FrsActivityConfig setDefaultGameTabId(int i2) {
+    public FrsActivityConfig setDefaultGameTabId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            getIntent().putExtra(FRS_GAME_DEFAULT_TAB_ID, i);
             return this;
         }
         return (FrsActivityConfig) invokeI.objValue;
     }
 
-    public FrsActivityConfig setFakeThreadId(long j2) {
+    public FrsActivityConfig setFakeThreadId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            getIntent().putExtra(FRS_FAKE_THREAD_ID, j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            getIntent().putExtra(FRS_FAKE_THREAD_ID, j);
             return this;
         }
         return (FrsActivityConfig) invokeJ.objValue;
     }
 
-    public void setFrsCallFromByItemPosition(int i2) {
+    public void setFrsCallFromByItemPosition(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(FRS_CALL_FROM_BY_ITEM_POSITION, i2);
+        intent.putExtra(FRS_CALL_FROM_BY_ITEM_POSITION, i);
     }
 
     public void setUri(Uri uri) {
@@ -320,10 +320,10 @@ public class FrsActivityConfig extends IntentConfig {
             intent.putExtra("name", str);
             intent.putExtra("from", str2);
             intent.putExtra("back_special", z);
-            intent.putExtra("good", z2);
+            intent.putExtra(GOOD, z2);
             intent.putExtra(FOLLOWED_HAS_NEW, z3);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             return this;
         }

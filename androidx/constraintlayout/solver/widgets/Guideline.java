@@ -100,9 +100,9 @@ public class Guideline extends ConstraintWidget {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,8 +120,8 @@ public class Guideline extends ConstraintWidget {
         this.mAnchors.clear();
         this.mAnchors.add(this.mAnchor);
         int length = this.mListAnchors.length;
-        for (int i4 = 0; i4 < length; i4++) {
-            this.mListAnchors[i4] = this.mAnchor;
+        for (int i3 = 0; i3 < length; i3++) {
+            this.mListAnchors[i3] = this.mAnchor;
         }
     }
 
@@ -173,10 +173,10 @@ public class Guideline extends ConstraintWidget {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void analyze(int i2) {
+    public void analyze(int i) {
         ConstraintWidget parent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (parent = getParent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (parent = getParent()) == null) {
             return;
         }
         if (getOrientation() == 1) {
@@ -193,9 +193,9 @@ public class Guideline extends ConstraintWidget {
             } else if (this.mRelativePercent == -1.0f || parent.getHorizontalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
                 return;
             } else {
-                int i3 = (int) (parent.mWidth * this.mRelativePercent);
-                this.mLeft.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i3);
-                this.mRight.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i3);
+                int i2 = (int) (parent.mWidth * this.mRelativePercent);
+                this.mLeft.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i2);
+                this.mRight.getResolutionNode().dependsOn(1, parent.mLeft.getResolutionNode(), i2);
                 return;
             }
         }
@@ -209,9 +209,9 @@ public class Guideline extends ConstraintWidget {
             this.mBottom.getResolutionNode().dependsOn(1, parent.mBottom.getResolutionNode(), -this.mRelativeEnd);
         } else if (this.mRelativePercent == -1.0f || parent.getVerticalDimensionBehaviour() != ConstraintWidget.DimensionBehaviour.FIXED) {
         } else {
-            int i4 = (int) (parent.mHeight * this.mRelativePercent);
-            this.mTop.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i4);
-            this.mBottom.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i4);
+            int i3 = (int) (parent.mHeight * this.mRelativePercent);
+            this.mTop.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i3);
+            this.mBottom.getResolutionNode().dependsOn(1, parent.mTop.getResolutionNode(), i3);
         }
     }
 
@@ -248,14 +248,14 @@ public class Guideline extends ConstraintWidget {
             Rectangle rectangle = this.mHead;
             int drawX = getDrawX() - this.mHeadSize;
             int drawY = getDrawY();
-            int i2 = this.mHeadSize;
-            rectangle.setBounds(drawX, drawY - (i2 * 2), i2 * 2, i2 * 2);
+            int i = this.mHeadSize;
+            rectangle.setBounds(drawX, drawY - (i * 2), i * 2, i * 2);
             if (getOrientation() == 0) {
                 Rectangle rectangle2 = this.mHead;
                 int drawX2 = getDrawX() - (this.mHeadSize * 2);
                 int drawY2 = getDrawY();
-                int i3 = this.mHeadSize;
-                rectangle2.setBounds(drawX2, drawY2 - i3, i3 * 2, i3 * 2);
+                int i2 = this.mHeadSize;
+                rectangle2.setBounds(drawX2, drawY2 - i2, i2 * 2, i2 * 2);
             }
             return this.mHead;
         }
@@ -342,75 +342,75 @@ public class Guideline extends ConstraintWidget {
     }
 
     @Override // androidx.constraintlayout.solver.widgets.ConstraintWidget
-    public void setDrawOrigin(int i2, int i3) {
+    public void setDrawOrigin(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
             if (this.mOrientation == 1) {
-                int i4 = i2 - this.mOffsetX;
+                int i3 = i - this.mOffsetX;
                 if (this.mRelativeBegin != -1) {
-                    setGuideBegin(i4);
+                    setGuideBegin(i3);
                     return;
                 } else if (this.mRelativeEnd != -1) {
-                    setGuideEnd(getParent().getWidth() - i4);
+                    setGuideEnd(getParent().getWidth() - i3);
                     return;
                 } else if (this.mRelativePercent != -1.0f) {
-                    setGuidePercent(i4 / getParent().getWidth());
+                    setGuidePercent(i3 / getParent().getWidth());
                     return;
                 } else {
                     return;
                 }
             }
-            int i5 = i3 - this.mOffsetY;
+            int i4 = i2 - this.mOffsetY;
             if (this.mRelativeBegin != -1) {
-                setGuideBegin(i5);
+                setGuideBegin(i4);
             } else if (this.mRelativeEnd != -1) {
-                setGuideEnd(getParent().getHeight() - i5);
+                setGuideEnd(getParent().getHeight() - i4);
             } else if (this.mRelativePercent != -1.0f) {
-                setGuidePercent(i5 / getParent().getHeight());
+                setGuidePercent(i4 / getParent().getHeight());
             }
         }
     }
 
-    public void setGuideBegin(int i2) {
+    public void setGuideBegin(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i <= -1) {
             return;
         }
         this.mRelativePercent = -1.0f;
-        this.mRelativeBegin = i2;
+        this.mRelativeBegin = i;
         this.mRelativeEnd = -1;
     }
 
-    public void setGuideEnd(int i2) {
+    public void setGuideEnd(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || i2 <= -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i <= -1) {
             return;
         }
         this.mRelativePercent = -1.0f;
         this.mRelativeBegin = -1;
-        this.mRelativeEnd = i2;
+        this.mRelativeEnd = i;
     }
 
-    public void setGuidePercent(int i2) {
+    public void setGuidePercent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            setGuidePercent(i2 / 100.0f);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            setGuidePercent(i / 100.0f);
         }
     }
 
-    public void setMinimumPosition(int i2) {
+    public void setMinimumPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mMinimumPosition = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mMinimumPosition = i;
         }
     }
 
-    public void setOrientation(int i2) {
+    public void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048599, this, i2) == null) || this.mOrientation == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048599, this, i) == null) || this.mOrientation == i) {
             return;
         }
-        this.mOrientation = i2;
+        this.mOrientation = i;
         this.mAnchors.clear();
         if (this.mOrientation == 1) {
             this.mAnchor = this.mLeft;
@@ -419,8 +419,8 @@ public class Guideline extends ConstraintWidget {
         }
         this.mAnchors.add(this.mAnchor);
         int length = this.mListAnchors.length;
-        for (int i3 = 0; i3 < length; i3++) {
-            this.mListAnchors[i3] = this.mAnchor;
+        for (int i2 = 0; i2 < length; i2++) {
+            this.mListAnchors[i2] = this.mAnchor;
         }
     }
 

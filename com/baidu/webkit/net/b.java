@@ -15,15 +15,15 @@ public class b {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f51501b = "b";
+    public static final String f37953b = "b";
     public transient /* synthetic */ FieldHolder $fh;
     public BdNetTask a;
 
     /* renamed from: c  reason: collision with root package name */
-    public BdNet f51502c;
+    public BdNet f37954c;
 
     /* renamed from: d  reason: collision with root package name */
-    public BdNetEngine f51503d;
+    public BdNetEngine f37955d;
 
     static {
         InterceptResult invokeClinit;
@@ -47,22 +47,22 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {bdNet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f51502c = bdNet;
+        this.f37954c = bdNet;
     }
 
     public final void a(BdNetEngine bdNetEngine) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bdNetEngine) == null) {
-            this.f51503d = bdNetEngine;
-            bdNetEngine.setEventListener(this.f51502c);
+            this.f37955d = bdNetEngine;
+            bdNetEngine.setEventListener(this.f37954c);
         }
     }
 
@@ -85,23 +85,23 @@ public class b {
             }
             try {
                 this.a = bdNetTask;
-                bdNetTask.setNet(this.f51502c);
+                bdNetTask.setNet(this.f37954c);
                 this.a.setWorker(this);
-                if (a.a().f51500c == null) {
-                    a.a().f51500c = this.f51502c.getContext();
+                if (a.a().f37952c == null) {
+                    a.a().f37952c = this.f37954c.getContext();
                 }
                 BdNetEngine e2 = a.a().e();
-                this.f51503d = e2;
+                this.f37955d = e2;
                 if (e2 != null) {
-                    e2.setEventListener(this.f51502c);
+                    e2.setEventListener(this.f37954c);
                     a.a();
                     if (!a.b()) {
-                        bdNetEngine = this.f51503d;
+                        bdNetEngine = this.f37955d;
                         bdNetTask2 = this.a;
                     } else if (!this.a.isHigherPriority()) {
                         return true;
                     } else {
-                        bdNetEngine = this.f51503d;
+                        bdNetEngine = this.f37955d;
                         bdNetTask2 = this.a;
                     }
                     bdNetEngine.startDownload(bdNetTask2);
@@ -112,7 +112,7 @@ public class b {
                     BdNetTask bdNetTask3 = this.a;
                     if (bdNetTask3.getTaskPriority() == null) {
                         a = a.a();
-                        ordinal = BdNetTask.b.f51491b.ordinal();
+                        ordinal = BdNetTask.b.f37943b.ordinal();
                     } else {
                         a = a.a();
                         ordinal = bdNetTask3.getTaskPriority().ordinal();
@@ -122,11 +122,11 @@ public class b {
                 }
                 return true;
             } catch (Exception unused) {
-                BdNetEngine bdNetEngine2 = this.f51503d;
+                BdNetEngine bdNetEngine2 = this.f37955d;
                 if (bdNetEngine2 != null) {
                     bdNetEngine2.recycle();
                 }
-                BdNet bdNet = this.f51502c;
+                BdNet bdNet = this.f37954c;
                 if (bdNet != null) {
                     bdNet.startError(bdNetTask);
                 }
@@ -146,7 +146,7 @@ public class b {
                     this.a = null;
                 }
             } catch (Exception e2) {
-                Log.d(f51501b, "stop Exception", e2);
+                Log.d(f37953b, "stop Exception", e2);
             }
         }
     }

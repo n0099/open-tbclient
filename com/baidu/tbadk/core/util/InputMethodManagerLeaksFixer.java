@@ -5,13 +5,13 @@ import android.app.Application;
 import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import c.a.q0.m.g;
+import c.a.o0.m.g;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Field;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class InputMethodManagerLeaksFixer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class InputMethodManagerLeaksFixer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -38,11 +38,11 @@ public class InputMethodManagerLeaksFixer {
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
         Field[] fieldArr = new Field[3];
-        for (int i2 = 0; i2 < 3; i2++) {
+        for (int i = 0; i < 3; i++) {
             try {
-                fieldArr[i2] = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
-                if (!fieldArr[i2].isAccessible()) {
-                    fieldArr[i2].setAccessible(true);
+                fieldArr[i] = inputMethodManager.getClass().getDeclaredField(strArr[i]);
+                if (!fieldArr[i].isAccessible()) {
+                    fieldArr[i].setAccessible(true);
                 }
             } catch (Exception unused) {
             }
@@ -60,9 +60,9 @@ public class InputMethodManagerLeaksFixer {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {fieldArr, inputMethodManager};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -72,7 +72,7 @@ public class InputMethodManagerLeaksFixer {
                 this.val$inputMethodManager = inputMethodManager;
             }
 
-            @Override // c.a.q0.m.g, android.app.Application.ActivityLifecycleCallbacks
+            @Override // c.a.o0.m.g, android.app.Application.ActivityLifecycleCallbacks
             public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, activity) == null) {

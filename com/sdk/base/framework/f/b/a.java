@@ -15,13 +15,13 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.i.c;
 import java.nio.charset.Charset;
 @SuppressLint({"ApplySharedPref"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.b.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Boolean f57815b;
+    public static final Boolean f42582b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public class a {
                 return;
             }
         }
-        f57815b = Boolean.valueOf(f.f57798b);
+        f42582b = Boolean.valueOf(f.f42567b);
     }
 
     public a() {
@@ -45,9 +45,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -63,7 +63,7 @@ public class a {
                 str2 = context.getSharedPreferences("ZzxCache", 0).getString(str, "");
                 return new String(c.a(str2), Charset.defaultCharset());
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
                 return str2;
             }
         }
@@ -78,7 +78,7 @@ public class a {
                 edit.putLong(str, l.longValue());
                 edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
             }
         }
     }
@@ -92,7 +92,7 @@ public class a {
                 edit.putString(str, c.a(str2.getBytes(Charset.defaultCharset())));
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
                 return false;
             }
         }
@@ -106,7 +106,7 @@ public class a {
             try {
                 return context.getSharedPreferences("ZzxCache", 0).getString(str, "");
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
                 return "";
             }
         }
@@ -122,7 +122,7 @@ public class a {
                 edit.putString(str, str2);
                 return edit.commit();
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
                 return false;
             }
         }
@@ -133,13 +133,13 @@ public class a {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
-                j2 = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
+                j = context.getSharedPreferences("ZzxCache", 0).getLong(str, 0L);
             } catch (Exception e2) {
-                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f57815b);
+                com.sdk.base.framework.a.a.c.b(a, e2.getMessage(), f42582b);
             }
-            return Long.valueOf(j2);
+            return Long.valueOf(j);
         }
         return (Long) invokeLL.objValue;
     }

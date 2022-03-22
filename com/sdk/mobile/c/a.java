@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.c.f;
 import com.sdk.mobile.config.MobileConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a<T> extends com.sdk.base.module.b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,7 +29,7 @@ public class a<T> extends com.sdk.base.module.b.a<T> {
                 return;
             }
         }
-        boolean z = f.f57798b;
+        boolean z = f.f42567b;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,9 +41,9 @@ public class a<T> extends com.sdk.base.module.b.a<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (com.sdk.base.framework.b.a) objArr2[1], (e) objArr2[2]);
                 newInitContext.thisArg = this;

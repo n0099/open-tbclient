@@ -1,7 +1,7 @@
 package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
-import c.a.q0.c1.h;
+import c.a.o0.c1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,9 +35,9 @@ public class AdExtParam {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,8 +52,8 @@ public class AdExtParam {
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
                 hashMap.put(AdExtParam.KEY_IADEX, h.e());
-                if (c.a.r0.a.h().y()) {
-                    aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.0.0.12");
+                if (c.a.p0.a.h().y()) {
+                    aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.1.0.0");
                 }
                 return aVar;
             }
@@ -113,21 +113,21 @@ public class AdExtParam {
             return (a) invokeL.objValue;
         }
 
-        public a g(int i2) {
+        public a g(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i2));
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.a.put(AdExtParam.KEY_THREAD_COUNT, Integer.valueOf(i));
                 return this;
             }
             return (a) invokeI.objValue;
         }
 
-        public a h(int i2) {
+        public a h(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i2));
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.a.put(AdExtParam.KEY_REQUEST_TYPE, Integer.valueOf(i));
                 return this;
             }
             return (a) invokeI.objValue;
@@ -139,9 +139,9 @@ public class AdExtParam {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

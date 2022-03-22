@@ -9,6 +9,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
@@ -70,9 +71,9 @@ public final class ResourceManagerInternal {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -86,7 +87,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedStateListDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e("AsldcInflateDelegate", "Exception while inflating <animated-selector>", e2);
                     return null;
                 }
             }
@@ -104,9 +106,9 @@ public final class ResourceManagerInternal {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -120,7 +122,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return AnimatedVectorDrawableCompat.createFromXmlInner(context, context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e("AvdcInflateDelegate", "Exception while inflating <animated-vector>", e2);
                     return null;
                 }
             }
@@ -134,17 +137,17 @@ public final class ResourceManagerInternal {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ColorFilterLruCache(int i2) {
-            super(i2);
+        public ColorFilterLruCache(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -153,22 +156,22 @@ public final class ResourceManagerInternal {
             }
         }
 
-        public static int generateCacheKey(int i2, PorterDuff.Mode mode) {
+        public static int generateCacheKey(int i, PorterDuff.Mode mode) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, mode)) == null) ? ((i2 + 31) * 31) + mode.hashCode() : invokeIL.intValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, mode)) == null) ? ((i + 31) * 31) + mode.hashCode() : invokeIL.intValue;
         }
 
-        public PorterDuffColorFilter get(int i2, PorterDuff.Mode mode) {
+        public PorterDuffColorFilter get(int i, PorterDuff.Mode mode) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, mode)) == null) ? get(Integer.valueOf(generateCacheKey(i2, mode))) : (PorterDuffColorFilter) invokeIL.objValue;
+            return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, mode)) == null) ? get(Integer.valueOf(generateCacheKey(i, mode))) : (PorterDuffColorFilter) invokeIL.objValue;
         }
 
-        public PorterDuffColorFilter put(int i2, PorterDuff.Mode mode, PorterDuffColorFilter porterDuffColorFilter) {
+        public PorterDuffColorFilter put(int i, PorterDuff.Mode mode, PorterDuffColorFilter porterDuffColorFilter) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, mode, porterDuffColorFilter)) == null) ? put(Integer.valueOf(generateCacheKey(i2, mode)), porterDuffColorFilter) : (PorterDuffColorFilter) invokeILL.objValue;
+            return (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, mode, porterDuffColorFilter)) == null) ? put(Integer.valueOf(generateCacheKey(i, mode)), porterDuffColorFilter) : (PorterDuffColorFilter) invokeILL.objValue;
         }
     }
 
@@ -180,15 +183,15 @@ public final class ResourceManagerInternal {
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     /* loaded from: classes.dex */
     public interface ResourceManagerHooks {
-        Drawable createDrawableFor(@NonNull ResourceManagerInternal resourceManagerInternal, @NonNull Context context, @DrawableRes int i2);
+        Drawable createDrawableFor(@NonNull ResourceManagerInternal resourceManagerInternal, @NonNull Context context, @DrawableRes int i);
 
-        ColorStateList getTintListForDrawableRes(@NonNull Context context, @DrawableRes int i2);
+        ColorStateList getTintListForDrawableRes(@NonNull Context context, @DrawableRes int i);
 
-        PorterDuff.Mode getTintModeForDrawableRes(int i2);
+        PorterDuff.Mode getTintModeForDrawableRes(int i);
 
-        boolean tintDrawable(@NonNull Context context, @DrawableRes int i2, @NonNull Drawable drawable);
+        boolean tintDrawable(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable);
 
-        boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i2, @NonNull Drawable drawable);
+        boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable);
     }
 
     /* loaded from: classes.dex */
@@ -201,9 +204,9 @@ public final class ResourceManagerInternal {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -217,7 +220,8 @@ public final class ResourceManagerInternal {
             if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xmlPullParser, attributeSet, theme)) == null) {
                 try {
                     return VectorDrawableCompat.createFromXmlInner(context.getResources(), xmlPullParser, attributeSet, theme);
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e("VdcInflateDelegate", "Exception while inflating <vector>", e2);
                     return null;
                 }
             }
@@ -247,9 +251,9 @@ public final class ResourceManagerInternal {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -268,10 +272,10 @@ public final class ResourceManagerInternal {
         }
     }
 
-    private synchronized boolean addDrawableToCache(@NonNull Context context, long j2, @NonNull Drawable drawable) {
+    private synchronized boolean addDrawableToCache(@NonNull Context context, long j, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j2), drawable})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{context, Long.valueOf(j), drawable})) == null) {
             synchronized (this) {
                 Drawable.ConstantState constantState = drawable.getConstantState();
                 if (constantState != null) {
@@ -280,7 +284,7 @@ public final class ResourceManagerInternal {
                         longSparseArray = new LongSparseArray<>();
                         this.mDrawableCaches.put(context, longSparseArray);
                     }
-                    longSparseArray.put(j2, new WeakReference<>(constantState));
+                    longSparseArray.put(j, new WeakReference<>(constantState));
                     return true;
                 }
                 return false;
@@ -289,9 +293,9 @@ public final class ResourceManagerInternal {
         return invokeCommon.booleanValue;
     }
 
-    private void addTintListToCache(@NonNull Context context, @DrawableRes int i2, @NonNull ColorStateList colorStateList) {
+    private void addTintListToCache(@NonNull Context context, @DrawableRes int i, @NonNull ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i2, colorStateList) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, this, context, i, colorStateList) == null) {
             if (this.mTintLists == null) {
                 this.mTintLists = new WeakHashMap<>();
             }
@@ -300,7 +304,7 @@ public final class ResourceManagerInternal {
                 sparseArrayCompat = new SparseArrayCompat<>();
                 this.mTintLists.put(context, sparseArrayCompat);
             }
-            sparseArrayCompat.append(i2, colorStateList);
+            sparseArrayCompat.append(i, colorStateList);
         }
     }
 
@@ -323,22 +327,22 @@ public final class ResourceManagerInternal {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, typedValue)) == null) ? (typedValue.assetCookie << 32) | typedValue.data : invokeL.longValue;
     }
 
-    private Drawable createDrawableIfNeeded(@NonNull Context context, @DrawableRes int i2) {
+    private Drawable createDrawableIfNeeded(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, context, i)) == null) {
             if (this.mTypedValue == null) {
                 this.mTypedValue = new TypedValue();
             }
             TypedValue typedValue = this.mTypedValue;
-            context.getResources().getValue(i2, typedValue, true);
+            context.getResources().getValue(i, typedValue, true);
             long createCacheKey = createCacheKey(typedValue);
             Drawable cachedDrawable = getCachedDrawable(context, createCacheKey);
             if (cachedDrawable != null) {
                 return cachedDrawable;
             }
             ResourceManagerHooks resourceManagerHooks = this.mHooks;
-            Drawable createDrawableFor = resourceManagerHooks == null ? null : resourceManagerHooks.createDrawableFor(this, context, i2);
+            Drawable createDrawableFor = resourceManagerHooks == null ? null : resourceManagerHooks.createDrawableFor(this, context, i);
             if (createDrawableFor != null) {
                 createDrawableFor.setChangingConfigurations(typedValue.changingConfigurations);
                 addDrawableToCache(context, createCacheKey, createDrawableFor);
@@ -378,22 +382,22 @@ public final class ResourceManagerInternal {
         return (ResourceManagerInternal) invokeV.objValue;
     }
 
-    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j2) {
+    private synchronized Drawable getCachedDrawable(@NonNull Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65546, this, context, j)) == null) {
             synchronized (this) {
                 LongSparseArray<WeakReference<Drawable.ConstantState>> longSparseArray = this.mDrawableCaches.get(context);
                 if (longSparseArray == null) {
                     return null;
                 }
-                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j2);
+                WeakReference<Drawable.ConstantState> weakReference = longSparseArray.get(j);
                 if (weakReference != null) {
                     Drawable.ConstantState constantState = weakReference.get();
                     if (constantState != null) {
                         return constantState.newDrawable(context.getResources());
                     }
-                    longSparseArray.remove(j2);
+                    longSparseArray.remove(j);
                 }
                 return null;
             }
@@ -401,16 +405,16 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeLJ.objValue;
     }
 
-    public static synchronized PorterDuffColorFilter getPorterDuffColorFilter(int i2, PorterDuff.Mode mode) {
+    public static synchronized PorterDuffColorFilter getPorterDuffColorFilter(int i, PorterDuff.Mode mode) {
         InterceptResult invokeIL;
         PorterDuffColorFilter porterDuffColorFilter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i2, mode)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65547, null, i, mode)) == null) {
             synchronized (ResourceManagerInternal.class) {
-                porterDuffColorFilter = COLOR_FILTER_CACHE.get(i2, mode);
+                porterDuffColorFilter = COLOR_FILTER_CACHE.get(i, mode);
                 if (porterDuffColorFilter == null) {
-                    porterDuffColorFilter = new PorterDuffColorFilter(i2, mode);
-                    COLOR_FILTER_CACHE.put(i2, mode, porterDuffColorFilter);
+                    porterDuffColorFilter = new PorterDuffColorFilter(i, mode);
+                    COLOR_FILTER_CACHE.put(i, mode, porterDuffColorFilter);
                 }
             }
             return porterDuffColorFilter;
@@ -418,16 +422,16 @@ public final class ResourceManagerInternal {
         return (PorterDuffColorFilter) invokeIL.objValue;
     }
 
-    private ColorStateList getTintListFromCache(@NonNull Context context, @DrawableRes int i2) {
+    private ColorStateList getTintListFromCache(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         SparseArrayCompat<ColorStateList> sparseArrayCompat;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, this, context, i)) == null) {
             WeakHashMap<Context, SparseArrayCompat<ColorStateList>> weakHashMap = this.mTintLists;
             if (weakHashMap == null || (sparseArrayCompat = weakHashMap.get(context)) == null) {
                 return null;
             }
-            return sparseArrayCompat.get(i2);
+            return sparseArrayCompat.get(i);
         }
         return (ColorStateList) invokeLI.objValue;
     }
@@ -448,18 +452,18 @@ public final class ResourceManagerInternal {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, drawable)) == null) ? (drawable instanceof VectorDrawableCompat) || "android.graphics.drawable.VectorDrawable".equals(drawable.getClass().getName()) : invokeL.booleanValue;
     }
 
-    private Drawable loadDrawableFromDelegates(@NonNull Context context, @DrawableRes int i2) {
+    private Drawable loadDrawableFromDelegates(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, this, context, i)) == null) {
             SimpleArrayMap<String, InflateDelegate> simpleArrayMap = this.mDelegates;
             if (simpleArrayMap == null || simpleArrayMap.isEmpty()) {
                 return null;
             }
             SparseArrayCompat<String> sparseArrayCompat = this.mKnownDrawableIdTags;
             if (sparseArrayCompat != null) {
-                String str = sparseArrayCompat.get(i2);
+                String str = sparseArrayCompat.get(i);
                 if (SKIP_DRAWABLE_TAG.equals(str) || (str != null && this.mDelegates.get(str) == null)) {
                     return null;
                 }
@@ -471,7 +475,7 @@ public final class ResourceManagerInternal {
             }
             TypedValue typedValue = this.mTypedValue;
             Resources resources = context.getResources();
-            resources.getValue(i2, typedValue, true);
+            resources.getValue(i, typedValue, true);
             long createCacheKey = createCacheKey(typedValue);
             Drawable cachedDrawable = getCachedDrawable(context, createCacheKey);
             if (cachedDrawable != null) {
@@ -480,7 +484,7 @@ public final class ResourceManagerInternal {
             CharSequence charSequence = typedValue.string;
             if (charSequence != null && charSequence.toString().endsWith(ActivityChooserModel.HISTORY_FILE_EXTENSION)) {
                 try {
-                    XmlResourceParser xml = resources.getXml(i2);
+                    XmlResourceParser xml = resources.getXml(i);
                     AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
                     while (true) {
                         next = xml.next();
@@ -490,7 +494,7 @@ public final class ResourceManagerInternal {
                     }
                     if (next == 2) {
                         String name = xml.getName();
-                        this.mKnownDrawableIdTags.append(i2, name);
+                        this.mKnownDrawableIdTags.append(i, name);
                         InflateDelegate inflateDelegate = this.mDelegates.get(name);
                         if (inflateDelegate != null) {
                             cachedDrawable = inflateDelegate.createFromXmlInner(context, xml, asAttributeSet, context.getTheme());
@@ -502,29 +506,30 @@ public final class ResourceManagerInternal {
                     } else {
                         throw new XmlPullParserException("No start tag found");
                     }
-                } catch (Exception unused) {
+                } catch (Exception e2) {
+                    Log.e(TAG, "Exception while inflating drawable", e2);
                 }
             }
             if (cachedDrawable == null) {
-                this.mKnownDrawableIdTags.append(i2, SKIP_DRAWABLE_TAG);
+                this.mKnownDrawableIdTags.append(i, SKIP_DRAWABLE_TAG);
             }
             return cachedDrawable;
         }
         return (Drawable) invokeLI.objValue;
     }
 
-    private Drawable tintDrawable(@NonNull Context context, @DrawableRes int i2, boolean z, @NonNull Drawable drawable) {
+    private Drawable tintDrawable(@NonNull Context context, @DrawableRes int i, boolean z, @NonNull Drawable drawable) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z), drawable})) == null) {
-            ColorStateList tintList = getTintList(context, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z), drawable})) == null) {
+            ColorStateList tintList = getTintList(context, i);
             if (tintList != null) {
                 if (DrawableUtils.canSafelyMutateDrawable(drawable)) {
                     drawable = drawable.mutate();
                 }
                 Drawable wrap = DrawableCompat.wrap(drawable);
                 DrawableCompat.setTintList(wrap, tintList);
-                PorterDuff.Mode tintMode = getTintMode(i2);
+                PorterDuff.Mode tintMode = getTintMode(i);
                 if (tintMode != null) {
                     DrawableCompat.setTintMode(wrap, tintMode);
                     return wrap;
@@ -532,7 +537,7 @@ public final class ResourceManagerInternal {
                 return wrap;
             }
             ResourceManagerHooks resourceManagerHooks = this.mHooks;
-            if ((resourceManagerHooks == null || !resourceManagerHooks.tintDrawable(context, i2, drawable)) && !tintDrawableUsingColorFilter(context, i2, drawable) && z) {
+            if ((resourceManagerHooks == null || !resourceManagerHooks.tintDrawable(context, i, drawable)) && !tintDrawableUsingColorFilter(context, i, drawable) && z) {
                 return null;
             }
             return drawable;
@@ -540,30 +545,30 @@ public final class ResourceManagerInternal {
         return (Drawable) invokeCommon.objValue;
     }
 
-    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i2) {
+    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
             synchronized (this) {
-                drawable = getDrawable(context, i2, false);
+                drawable = getDrawable(context, i, false);
             }
             return drawable;
         }
         return (Drawable) invokeLI.objValue;
     }
 
-    public synchronized ColorStateList getTintList(@NonNull Context context, @DrawableRes int i2) {
+    public synchronized ColorStateList getTintList(@NonNull Context context, @DrawableRes int i) {
         InterceptResult invokeLI;
         ColorStateList tintListFromCache;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, context, i)) == null) {
             synchronized (this) {
-                tintListFromCache = getTintListFromCache(context, i2);
+                tintListFromCache = getTintListFromCache(context, i);
                 if (tintListFromCache == null) {
-                    tintListFromCache = this.mHooks == null ? null : this.mHooks.getTintListForDrawableRes(context, i2);
+                    tintListFromCache = this.mHooks == null ? null : this.mHooks.getTintListForDrawableRes(context, i);
                     if (tintListFromCache != null) {
-                        addTintListToCache(context, i2, tintListFromCache);
+                        addTintListToCache(context, i, tintListFromCache);
                     }
                 }
             }
@@ -572,15 +577,15 @@ public final class ResourceManagerInternal {
         return (ColorStateList) invokeLI.objValue;
     }
 
-    public PorterDuff.Mode getTintMode(int i2) {
+    public PorterDuff.Mode getTintMode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             ResourceManagerHooks resourceManagerHooks = this.mHooks;
             if (resourceManagerHooks == null) {
                 return null;
             }
-            return resourceManagerHooks.getTintModeForDrawableRes(i2);
+            return resourceManagerHooks.getTintModeForDrawableRes(i);
         }
         return (PorterDuff.Mode) invokeI.objValue;
     }
@@ -597,17 +602,17 @@ public final class ResourceManagerInternal {
         }
     }
 
-    public synchronized Drawable onDrawableLoadedFromResources(@NonNull Context context, @NonNull VectorEnabledTintResources vectorEnabledTintResources, @DrawableRes int i2) {
+    public synchronized Drawable onDrawableLoadedFromResources(@NonNull Context context, @NonNull VectorEnabledTintResources vectorEnabledTintResources, @DrawableRes int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, vectorEnabledTintResources, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, vectorEnabledTintResources, i)) == null) {
             synchronized (this) {
-                Drawable loadDrawableFromDelegates = loadDrawableFromDelegates(context, i2);
+                Drawable loadDrawableFromDelegates = loadDrawableFromDelegates(context, i);
                 if (loadDrawableFromDelegates == null) {
-                    loadDrawableFromDelegates = vectorEnabledTintResources.superGetDrawable(i2);
+                    loadDrawableFromDelegates = vectorEnabledTintResources.superGetDrawable(i);
                 }
                 if (loadDrawableFromDelegates != null) {
-                    return tintDrawable(context, i2, false, loadDrawableFromDelegates);
+                    return tintDrawable(context, i, false, loadDrawableFromDelegates);
                 }
                 return null;
             }
@@ -624,32 +629,32 @@ public final class ResourceManagerInternal {
         }
     }
 
-    public boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i2, @NonNull Drawable drawable) {
+    public boolean tintDrawableUsingColorFilter(@NonNull Context context, @DrawableRes int i, @NonNull Drawable drawable) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, context, i2, drawable)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, context, i, drawable)) == null) {
             ResourceManagerHooks resourceManagerHooks = this.mHooks;
-            return resourceManagerHooks != null && resourceManagerHooks.tintDrawableUsingColorFilter(context, i2, drawable);
+            return resourceManagerHooks != null && resourceManagerHooks.tintDrawableUsingColorFilter(context, i, drawable);
         }
         return invokeLIL.booleanValue;
     }
 
-    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i2, boolean z) {
+    public synchronized Drawable getDrawable(@NonNull Context context, @DrawableRes int i, boolean z) {
         InterceptResult invokeCommon;
         Drawable loadDrawableFromDelegates;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             synchronized (this) {
                 checkVectorDrawableSetup(context);
-                loadDrawableFromDelegates = loadDrawableFromDelegates(context, i2);
+                loadDrawableFromDelegates = loadDrawableFromDelegates(context, i);
                 if (loadDrawableFromDelegates == null) {
-                    loadDrawableFromDelegates = createDrawableIfNeeded(context, i2);
+                    loadDrawableFromDelegates = createDrawableIfNeeded(context, i);
                 }
                 if (loadDrawableFromDelegates == null) {
-                    loadDrawableFromDelegates = ContextCompat.getDrawable(context, i2);
+                    loadDrawableFromDelegates = ContextCompat.getDrawable(context, i);
                 }
                 if (loadDrawableFromDelegates != null) {
-                    loadDrawableFromDelegates = tintDrawable(context, i2, z, loadDrawableFromDelegates);
+                    loadDrawableFromDelegates = tintDrawable(context, i, z, loadDrawableFromDelegates);
                 }
                 if (loadDrawableFromDelegates != null) {
                     DrawableUtils.fixDrawable(loadDrawableFromDelegates);
@@ -663,15 +668,17 @@ public final class ResourceManagerInternal {
     public static void tintDrawable(Drawable drawable, TintInfo tintInfo, int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65553, null, drawable, tintInfo, iArr) == null) {
-            if (!DrawableUtils.canSafelyMutateDrawable(drawable) || drawable.mutate() == drawable) {
-                if (!tintInfo.mHasTintList && !tintInfo.mHasTintMode) {
-                    drawable.clearColorFilter();
-                } else {
-                    drawable.setColorFilter(createTintFilter(tintInfo.mHasTintList ? tintInfo.mTintList : null, tintInfo.mHasTintMode ? tintInfo.mTintMode : DEFAULT_MODE, iArr));
-                }
-                if (Build.VERSION.SDK_INT <= 23) {
-                    drawable.invalidateSelf();
-                }
+            if (DrawableUtils.canSafelyMutateDrawable(drawable) && drawable.mutate() != drawable) {
+                Log.d(TAG, "Mutated drawable is not the same instance as the input.");
+                return;
+            }
+            if (!tintInfo.mHasTintList && !tintInfo.mHasTintMode) {
+                drawable.clearColorFilter();
+            } else {
+                drawable.setColorFilter(createTintFilter(tintInfo.mHasTintList ? tintInfo.mTintList : null, tintInfo.mHasTintMode ? tintInfo.mTintMode : DEFAULT_MODE, iArr));
+            }
+            if (Build.VERSION.SDK_INT <= 23) {
+                drawable.invalidateSelf();
             }
         }
     }

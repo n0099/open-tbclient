@@ -43,9 +43,9 @@ public class VideoAsyncHostHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -91,8 +91,8 @@ public class VideoAsyncHostHelper {
             try {
                 sVideoHostWhiteList.clear();
                 JSONArray jSONArray = new JSONArray(string);
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    sVideoHostWhiteList.add(jSONArray.opt(i2).toString());
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sVideoHostWhiteList.add(jSONArray.opt(i).toString());
                 }
             } catch (Exception e2) {
                 if (BDPlayerConfig.isDebug()) {

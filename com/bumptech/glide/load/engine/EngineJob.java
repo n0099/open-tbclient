@@ -25,7 +25,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import com.bumptech.glide.util.pool.StateVerifier;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final EngineResourceFactory DEFAULT_FACTORY;
@@ -59,7 +59,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
     public boolean useUnlimitedSourceGeneratorPool;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EngineResourceFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -69,9 +69,9 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -85,7 +85,7 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class MainThreadCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -95,9 +95,9 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,12 +110,12 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
                 EngineJob engineJob = (EngineJob) message.obj;
-                int i2 = message.what;
-                if (i2 == 1) {
+                int i = message.what;
+                if (i == 1) {
                     engineJob.handleResultOnMainThread();
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     engineJob.handleExceptionOnMainThread();
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     engineJob.handleCancelledOnMainThread();
                 } else {
                     throw new IllegalStateException("Unrecognized message: " + message.what);
@@ -152,9 +152,9 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
             newInitContext.initArgs = r2;
             Object[] objArr = {glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, pool};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((GlideExecutor) objArr2[0], (GlideExecutor) objArr2[1], (GlideExecutor) objArr2[2], (GlideExecutor) objArr2[3], (EngineJobListener) objArr2[4], (Pools.Pool) objArr2[5], (EngineResourceFactory) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -308,8 +308,8 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
                     build.acquire();
                     this.listener.onEngineJobComplete(this, this.key, this.engineResource);
                     int size = this.cbs.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        ResourceCallback resourceCallback = this.cbs.get(i2);
+                    for (int i = 0; i < size; i++) {
+                        ResourceCallback resourceCallback = this.cbs.get(i);
                         if (!isInIgnoredCallbacks(resourceCallback)) {
                             this.engineResource.acquire();
                             resourceCallback.onResourceReady(this.engineResource, this.dataSource);
@@ -421,9 +421,9 @@ public class EngineJob<R> implements DecodeJob.Callback<R>, FactoryPools.Poolabl
             newInitContext.initArgs = r2;
             Object[] objArr = {glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener, pool, engineResourceFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

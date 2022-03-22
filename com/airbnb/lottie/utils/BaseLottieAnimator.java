@@ -90,13 +90,13 @@ public abstract class BaseLottieAnimator extends ValueAnimator {
     }
 
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public void setStartDelay(long j2) {
+    public void setStartDelay(long j) {
         throw new UnsupportedOperationException("LottieAnimator does not support setStartDelay.");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.animation.ValueAnimator, android.animation.Animator
-    public ValueAnimator setDuration(long j2) {
+    public ValueAnimator setDuration(long j) {
         throw new UnsupportedOperationException("LottieAnimator does not support setDuration.");
     }
 }

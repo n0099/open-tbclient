@@ -11,5 +11,5 @@ public interface ARRenderFpsCallback {
 
     void onRenderStarted();
 
-    void renderFps(int i2);
+    void renderFps(int i);
 }

@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetChargeCouponDiscountRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,27 +26,27 @@ public class GetChargeCouponDiscountRequest implements IRequestProtocol {
     public int usedChannel;
     public int userCouponId;
 
-    public GetChargeCouponDiscountRequest(String str, String str2, long j2, int i2, int i3, int i4, int i5, String str3, List<Integer> list) {
+    public GetChargeCouponDiscountRequest(String str, String str2, long j, int i, int i2, int i3, int i4, String str3, List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), str3, list};
+            Object[] objArr = {str, str2, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str3, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.seq = str;
-        this.uid = j2;
-        this.appId = i2;
-        this.currencyType = i3;
-        this.usedChannel = i4;
-        this.userCouponId = i5;
+        this.uid = j;
+        this.appId = i;
+        this.currencyType = i2;
+        this.usedChannel = i3;
+        this.userCouponId = i4;
         this.payChannel = str3;
         this.chargeConfigIds = list;
     }

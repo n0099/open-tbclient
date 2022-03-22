@@ -52,9 +52,9 @@ public class Vector3 implements Serializable, e<Vector3> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -128,11 +128,11 @@ public class Vector3 implements Serializable, e<Vector3> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             int indexOf = str.indexOf(44, 1);
-            int i2 = indexOf + 1;
-            int indexOf2 = str.indexOf(44, i2);
+            int i = indexOf + 1;
+            int indexOf2 = str.indexOf(44, i);
             if (indexOf != -1 && indexOf2 != -1 && str.charAt(0) == '(' && str.charAt(str.length() - 1) == ')') {
                 try {
-                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i2, indexOf2)), Float.parseFloat(str.substring(indexOf2 + 1, str.length() - 1)));
+                    return set(Float.parseFloat(str.substring(1, indexOf)), Float.parseFloat(str.substring(i, indexOf2)), Float.parseFloat(str.substring(indexOf2 + 1, str.length() - 1)));
                 } catch (NumberFormatException unused) {
                 }
             }
@@ -271,7 +271,7 @@ public class Vector3 implements Serializable, e<Vector3> {
                 float f5 = vector3.z - (this.z * dot);
                 float f6 = (f3 * f3) + (f4 * f4) + (f5 * f5);
                 float sqrt = sin * (f6 >= 1.0E-4f ? 1.0f / ((float) Math.sqrt(f6)) : 1.0f);
-                return m23scl((float) Math.cos(acos)).add(f3 * sqrt, f4 * sqrt, f5 * sqrt).m22nor();
+                return m21scl((float) Math.cos(acos)).add(f3 * sqrt, f4 * sqrt, f5 * sqrt).m20nor();
             }
             return lerp(vector3, f2);
         }
@@ -338,9 +338,9 @@ public class Vector3 implements Serializable, e<Vector3> {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -370,7 +370,7 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clamp */
-    public Vector3 m18clamp(float f2, float f3) {
+    public Vector3 m16clamp(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
@@ -380,17 +380,17 @@ public class Vector3 implements Serializable, e<Vector3> {
             }
             float f4 = f3 * f3;
             if (len2 > f4) {
-                return m23scl((float) Math.sqrt(f4 / len2));
+                return m21scl((float) Math.sqrt(f4 / len2));
             }
             float f5 = f2 * f2;
-            return len2 < f5 ? m23scl((float) Math.sqrt(f5 / len2)) : this;
+            return len2 < f5 ? m21scl((float) Math.sqrt(f5 / len2)) : this;
         }
         return (Vector3) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: cpy */
-    public Vector3 m19cpy() {
+    public Vector3 m17cpy() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new Vector3(this) : (Vector3) invokeV.objValue;
@@ -500,21 +500,21 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit */
-    public Vector3 m20limit(float f2) {
+    public Vector3 m18limit(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048634, this, f2)) == null) ? m21limit2(f2 * f2) : (Vector3) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048634, this, f2)) == null) ? m19limit2(f2 * f2) : (Vector3) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: limit2 */
-    public Vector3 m21limit2(float f2) {
+    public Vector3 m19limit2(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048636, this, f2)) == null) {
             float len2 = len2();
             if (len2 > f2) {
-                m23scl((float) Math.sqrt(f2 / len2));
+                m21scl((float) Math.sqrt(f2 / len2));
             }
             return this;
         }
@@ -523,12 +523,12 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: nor */
-    public Vector3 m22nor() {
+    public Vector3 m20nor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             float len2 = len2();
-            return (len2 == 0.0f || len2 == 1.0f) ? this : m23scl(1.0f / ((float) Math.sqrt(len2)));
+            return (len2 == 0.0f || len2 == 1.0f) ? this : m21scl(1.0f / ((float) Math.sqrt(len2)));
         }
         return (Vector3) invokeV.objValue;
     }
@@ -567,27 +567,27 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength */
-    public Vector3 m24setLength(float f2) {
+    public Vector3 m22setLength(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048665, this, f2)) == null) ? m25setLength2(f2 * f2) : (Vector3) invokeF.objValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048665, this, f2)) == null) ? m23setLength2(f2 * f2) : (Vector3) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setLength2 */
-    public Vector3 m25setLength2(float f2) {
+    public Vector3 m23setLength2(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048667, this, f2)) == null) {
             float len2 = len2();
-            return (len2 == 0.0f || len2 == f2) ? this : m23scl((float) Math.sqrt(f2 / len2));
+            return (len2 == 0.0f || len2 == f2) ? this : m21scl((float) Math.sqrt(f2 / len2));
         }
         return (Vector3) invokeF.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setToRandomDirection */
-    public Vector3 m26setToRandomDirection() {
+    public Vector3 m24setToRandomDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) ? setFromSpherical(d.k() * 6.2831855f, (float) Math.acos((d.k() * 2.0f) - 1.0f)) : (Vector3) invokeV.objValue;
@@ -595,7 +595,7 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: setZero */
-    public Vector3 m27setZero() {
+    public Vector3 m25setZero() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
@@ -706,7 +706,7 @@ public class Vector3 implements Serializable, e<Vector3> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: scl */
-    public Vector3 m23scl(float f2) {
+    public Vector3 m21scl(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeF = interceptable.invokeF(1048654, this, f2)) == null) ? set(this.x * f2, this.y * f2, this.z * f2) : (Vector3) invokeF.objValue;
@@ -739,9 +739,9 @@ public class Vector3 implements Serializable, e<Vector3> {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector3};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -851,9 +851,9 @@ public class Vector3 implements Serializable, e<Vector3> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fArr};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -906,9 +906,9 @@ public class Vector3 implements Serializable, e<Vector3> {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector2, Float.valueOf(f2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

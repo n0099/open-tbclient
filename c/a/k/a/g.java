@@ -19,10 +19,10 @@ public final class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static g f3886b;
+    public static g f3351b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static HashMap<String, c.a.k.a.k.f<String, Integer>> f3887c;
+    public static HashMap<String, c.a.k.a.k.e<String, Integer>> f3352c;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -39,7 +39,7 @@ public final class g {
                 return;
             }
         }
-        f3887c = new HashMap<>();
+        f3352c = new HashMap<>();
     }
 
     public g() {
@@ -47,9 +47,9 @@ public final class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -70,10 +70,10 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (g.class) {
-                if (f3886b == null) {
-                    f3886b = new g();
+                if (f3351b == null) {
+                    f3351b = new g();
                 }
-                gVar = f3886b;
+                gVar = f3351b;
             }
             return gVar;
         }
@@ -86,16 +86,16 @@ public final class g {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             a(str2, str);
-            c.a.k.a.k.f<String, Integer> fVar = f3887c.get(str);
-            if (fVar == null) {
-                fVar = new c.a.k.a.k.f<>(100);
-                f3887c.put(str, fVar);
+            c.a.k.a.k.e<String, Integer> eVar = f3352c.get(str);
+            if (eVar == null) {
+                eVar = new c.a.k.a.k.e<>(100);
+                f3352c.put(str, eVar);
             }
-            Integer c2 = fVar.c(str2);
+            Integer c2 = eVar.c(str2);
             if (c2 == null) {
                 try {
                     int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
-                    fVar.d(str2, Integer.valueOf(identifier));
+                    eVar.d(str2, Integer.valueOf(identifier));
                     return identifier;
                 } catch (Error e2) {
                     e2.printStackTrace();

@@ -14,7 +14,7 @@ import kotlinx.coroutines.flow.Flow;
 import kotlinx.coroutines.flow.FlowCollector;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlinx/coroutines/CoroutineScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest$flowCollect$3", f = "Merge.kt", i = {0, 0, 0}, l = {99}, m = "invokeSuspend", n = {"$this$flowScope", "previousFlow", "$this$collect$iv"}, s = {"L$0", "L$1", "L$2"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambda implements Function2<CoroutineScope, Continuation<? super Unit>, Object> {
     public final /* synthetic */ FlowCollector $collector;
     public Object L$0;
@@ -47,8 +47,8 @@ public final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambd
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             CoroutineScope coroutineScope = this.p$;
             Ref.ObjectRef objectRef = new Ref.ObjectRef();
@@ -62,7 +62,7 @@ public final class ChannelFlowTransformLatest$flowCollect$3 extends SuspendLambd
             if (flow.collect(channelFlowTransformLatest$flowCollect$3$invokeSuspend$$inlined$collect$1, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i2 != 1) {
+        } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             Flow flow2 = (Flow) this.L$2;

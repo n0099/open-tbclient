@@ -25,14 +25,14 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Properties;
 /* renamed from: com.google.gson.internal.$Gson$Types  reason: invalid class name */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class C$Gson$Types {
     public static /* synthetic */ Interceptable $ic;
     public static final Type[] EMPTY_TYPE_ARRAY;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.google.gson.internal.$Gson$Types$GenericArrayTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class GenericArrayTypeImpl implements GenericArrayType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -46,9 +46,9 @@ public final class C$Gson$Types {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {type};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,7 +87,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$ParameterizedTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ParameterizedTypeImpl implements ParameterizedType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -103,9 +103,9 @@ public final class C$Gson$Types {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {type, type2, typeArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -125,11 +125,11 @@ public final class C$Gson$Types {
             Type[] typeArr2 = (Type[]) typeArr.clone();
             this.typeArguments = typeArr2;
             int length = typeArr2.length;
-            for (int i4 = 0; i4 < length; i4++) {
-                C$Gson$Preconditions.checkNotNull(this.typeArguments[i4]);
-                C$Gson$Types.checkNotPrimitive(this.typeArguments[i4]);
+            for (int i3 = 0; i3 < length; i3++) {
+                C$Gson$Preconditions.checkNotNull(this.typeArguments[i3]);
+                C$Gson$Types.checkNotPrimitive(this.typeArguments[i3]);
                 Type[] typeArr3 = this.typeArguments;
-                typeArr3[i4] = C$Gson$Types.canonicalize(typeArr3[i4]);
+                typeArr3[i3] = C$Gson$Types.canonicalize(typeArr3[i3]);
             }
         }
 
@@ -178,9 +178,9 @@ public final class C$Gson$Types {
                 sb.append(C$Gson$Types.typeToString(this.rawType));
                 sb.append("<");
                 sb.append(C$Gson$Types.typeToString(this.typeArguments[0]));
-                for (int i2 = 1; i2 < length; i2++) {
+                for (int i = 1; i < length; i++) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    sb.append(C$Gson$Types.typeToString(this.typeArguments[i2]));
+                    sb.append(C$Gson$Types.typeToString(this.typeArguments[i]));
                 }
                 sb.append(">");
                 return sb.toString();
@@ -190,7 +190,7 @@ public final class C$Gson$Types {
     }
 
     /* renamed from: com.google.gson.internal.$Gson$Types$WildcardTypeImpl */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class WildcardTypeImpl implements WildcardType, Serializable {
         public static /* synthetic */ Interceptable $ic;
         public static final long serialVersionUID = 0;
@@ -205,9 +205,9 @@ public final class C$Gson$Types {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {typeArr, typeArr2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -300,9 +300,9 @@ public final class C$Gson$Types {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -444,12 +444,12 @@ public final class C$Gson$Types {
             if (cls2.isInterface()) {
                 Class<?>[] interfaces = cls.getInterfaces();
                 int length = interfaces.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (interfaces[i2] == cls2) {
-                        return cls.getGenericInterfaces()[i2];
+                for (int i = 0; i < length; i++) {
+                    if (interfaces[i] == cls2) {
+                        return cls.getGenericInterfaces()[i];
                     }
-                    if (cls2.isAssignableFrom(interfaces[i2])) {
-                        return getGenericSupertype(cls.getGenericInterfaces()[i2], interfaces[i2], cls2);
+                    if (cls2.isAssignableFrom(interfaces[i])) {
+                        return getGenericSupertype(cls.getGenericInterfaces()[i], interfaces[i], cls2);
                     }
                 }
             }
@@ -540,9 +540,9 @@ public final class C$Gson$Types {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, objArr, obj)) == null) {
             int length = objArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (obj.equals(objArr[i2])) {
-                    return i2;
+            for (int i = 0; i < length; i++) {
+                if (obj.equals(objArr[i])) {
+                    return i;
                 }
             }
             throw new NoSuchElementException();
@@ -637,14 +637,14 @@ public final class C$Gson$Types {
                 boolean z = resolve3 != ownerType;
                 Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
                 int length = actualTypeArguments.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    Type resolve4 = resolve(type, cls, actualTypeArguments[i2], collection);
-                    if (resolve4 != actualTypeArguments[i2]) {
+                for (int i = 0; i < length; i++) {
+                    Type resolve4 = resolve(type, cls, actualTypeArguments[i], collection);
+                    if (resolve4 != actualTypeArguments[i]) {
                         if (!z) {
                             actualTypeArguments = (Type[]) actualTypeArguments.clone();
                             z = true;
                         }
-                        actualTypeArguments[i2] = resolve4;
+                        actualTypeArguments[i] = resolve4;
                     }
                 }
                 return z ? newParameterizedTypeWithOwner(resolve3, parameterizedType.getRawType(), actualTypeArguments) : parameterizedType;

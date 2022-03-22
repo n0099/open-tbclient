@@ -1,8 +1,8 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AdConfig {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface SdkInfo {
         boolean isPlugin();
 

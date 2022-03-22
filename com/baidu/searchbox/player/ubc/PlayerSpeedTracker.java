@@ -21,9 +21,9 @@ public class PlayerSpeedTracker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -125,18 +125,18 @@ public class PlayerSpeedTracker {
         }
     }
 
-    public static void endTrack(@NonNull String str, @NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j2) {
+    public static void endTrack(@NonNull String str, @NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{str, bDVideoPlayerUbcContent, obj, Long.valueOf(j2)}) == null) {
-            FlowInstanceManager.setValueAndEndFlow(str, getPerformanceString(bDVideoPlayerUbcContent, obj, j2));
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{str, bDVideoPlayerUbcContent, obj, Long.valueOf(j)}) == null) {
+            FlowInstanceManager.setValueAndEndFlow(str, getPerformanceString(bDVideoPlayerUbcContent, obj, j));
         }
     }
 
     @NonNull
-    public static String getPerformanceString(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j2) {
+    public static String getPerformanceString(@NonNull BDVideoPlayerUbcContent bDVideoPlayerUbcContent, @Nullable Object obj, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{bDVideoPlayerUbcContent, obj, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, null, new Object[]{bDVideoPlayerUbcContent, obj, Long.valueOf(j)})) == null) {
             JSONObject extStatisticsLogClone = bDVideoPlayerUbcContent.getExtStatisticsLogClone();
             JSONObject jSONObject = new JSONObject();
             if (obj != null) {
@@ -146,8 +146,8 @@ public class PlayerSpeedTracker {
                     e2.printStackTrace();
                 }
             }
-            if (j2 > 0) {
-                extStatisticsLogClone.put("msgChannelCost", j2);
+            if (j > 0) {
+                extStatisticsLogClone.put("msgChannelCost", j);
             }
             if (bDVideoPlayerUbcContent.getPlayerPrepareTime() > 0) {
                 extStatisticsLogClone.put("prepareTime", bDVideoPlayerUbcContent.getPlayerPrepareTime());

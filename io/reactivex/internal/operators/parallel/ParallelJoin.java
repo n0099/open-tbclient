@@ -40,24 +40,24 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public long produced;
         public volatile SimplePlainQueue<T> queue;
 
-        public JoinInnerSubscriber(JoinSubscriptionBase<T> joinSubscriptionBase, int i2) {
+        public JoinInnerSubscriber(JoinSubscriptionBase<T> joinSubscriptionBase, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {joinSubscriptionBase, Integer.valueOf(i2)};
+                Object[] objArr = {joinSubscriptionBase, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = joinSubscriptionBase;
-            this.prefetch = i2;
-            this.limit = i2 - (i2 >> 2);
+            this.prefetch = i;
+            this.limit = i - (i >> 2);
         }
 
         public boolean cancel() {
@@ -113,29 +113,29 @@ public final class ParallelJoin<T> extends Flowable<T> {
             }
         }
 
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-                long j3 = this.produced + j2;
-                if (j3 >= this.limit) {
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                long j2 = this.produced + j;
+                if (j2 >= this.limit) {
                     this.produced = 0L;
-                    get().request(j3);
+                    get().request(j2);
                     return;
                 }
-                this.produced = j3;
+                this.produced = j2;
             }
         }
 
         public void requestOne() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                long j2 = this.produced + 1;
-                if (j2 == this.limit) {
+                long j = this.produced + 1;
+                if (j == this.limit) {
                     this.produced = 0L;
-                    get().request(j2);
+                    get().request(j);
                     return;
                 }
-                this.produced = j2;
+                this.produced = j;
             }
         }
     }
@@ -147,17 +147,17 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscription(Subscriber<? super T> subscriber, int i2, int i3) {
-            super(subscriber, i2, i3);
+        public JoinSubscription(Subscriber<? super T> subscriber, int i, int i2) {
+            super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -203,11 +203,11 @@ public final class ParallelJoin<T> extends Flowable<T> {
             JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
             int length = joinInnerSubscriberArr.length;
             Subscriber<? super T> subscriber = this.actual;
-            int i2 = 1;
+            int i = 1;
             while (true) {
-                long j2 = this.requested.get();
-                long j3 = 0;
-                while (j3 != j2) {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (j2 != j) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -219,27 +219,27 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         return;
                     }
                     boolean z2 = this.done.get() == 0;
-                    int i3 = 0;
+                    int i2 = 0;
                     boolean z3 = true;
                     while (true) {
-                        if (i3 >= joinInnerSubscriberArr.length) {
+                        if (i2 >= joinInnerSubscriberArr.length) {
                             break;
                         }
-                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i3];
+                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
                         SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
                         if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
                             subscriber.onNext(obj);
                             joinInnerSubscriber.requestOne();
-                            j3++;
-                            if (j3 == j2) {
+                            j2++;
+                            if (j2 == j) {
                                 break;
                             }
                             z3 = false;
                         }
-                        i3++;
+                        i2++;
                     }
                 }
-                if (j3 == j2) {
+                if (j2 == j) {
                     if (this.cancelled) {
                         cleanup();
                         return;
@@ -251,15 +251,15 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         return;
                     }
                     boolean z4 = this.done.get() == 0;
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i4 < length) {
-                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i4].queue;
+                        if (i3 < length) {
+                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
                             if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
                                 z = false;
                                 break;
                             }
-                            i4++;
+                            i3++;
                         } else {
                             z = true;
                             break;
@@ -270,14 +270,14 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         return;
                     }
                 }
-                if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j3);
+                if (j2 != 0 && j != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j2);
                 }
-                int i5 = get();
-                if (i5 == i2 && (i5 = addAndGet(-i2)) == 0) {
+                int i4 = get();
+                if (i4 == i && (i4 = addAndGet(-i)) == 0) {
                     return;
                 }
-                i2 = i5;
+                i = i4;
             }
         }
 
@@ -352,16 +352,16 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public final AtomicLong requested;
         public final JoinInnerSubscriber<T>[] subscribers;
 
-        public JoinSubscriptionBase(Subscriber<? super T> subscriber, int i2, int i3) {
+        public JoinSubscriptionBase(Subscriber<? super T> subscriber, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -371,12 +371,12 @@ public final class ParallelJoin<T> extends Flowable<T> {
             this.requested = new AtomicLong();
             this.done = new AtomicInteger();
             this.actual = subscriber;
-            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = new JoinInnerSubscriber[i2];
-            for (int i6 = 0; i6 < i2; i6++) {
-                joinInnerSubscriberArr[i6] = new JoinInnerSubscriber<>(this, i3);
+            JoinInnerSubscriber<T>[] joinInnerSubscriberArr = new JoinInnerSubscriber[i];
+            for (int i5 = 0; i5 < i; i5++) {
+                joinInnerSubscriberArr[i5] = new JoinInnerSubscriber<>(this, i2);
             }
             this.subscribers = joinInnerSubscriberArr;
-            this.done.lazySet(i2);
+            this.done.lazySet(i);
         }
 
         @Override // org.reactivestreams.Subscription
@@ -397,14 +397,14 @@ public final class ParallelJoin<T> extends Flowable<T> {
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-                if (i2 >= joinInnerSubscriberArr.length) {
+                if (i >= joinInnerSubscriberArr.length) {
                     return;
                 }
-                joinInnerSubscriberArr[i2].cancel();
-                i2++;
+                joinInnerSubscriberArr[i].cancel();
+                i++;
             }
         }
 
@@ -413,14 +413,14 @@ public final class ParallelJoin<T> extends Flowable<T> {
             if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
-                if (i2 >= joinInnerSubscriberArr.length) {
+                if (i >= joinInnerSubscriberArr.length) {
                     return;
                 }
-                joinInnerSubscriberArr[i2].queue = null;
-                i2++;
+                joinInnerSubscriberArr[i].queue = null;
+                i++;
             }
         }
 
@@ -433,10 +433,10 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public abstract void onNext(JoinInnerSubscriber<T> joinInnerSubscriber, T t);
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -449,17 +449,17 @@ public final class ParallelJoin<T> extends Flowable<T> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public JoinSubscriptionDelayError(Subscriber<? super T> subscriber, int i2, int i3) {
-            super(subscriber, i2, i3);
+        public JoinSubscriptionDelayError(Subscriber<? super T> subscriber, int i, int i2) {
+            super(subscriber, i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -514,51 +514,51 @@ public final class ParallelJoin<T> extends Flowable<T> {
             JoinInnerSubscriber<T>[] joinInnerSubscriberArr = this.subscribers;
             int length = joinInnerSubscriberArr.length;
             Subscriber<? super T> subscriber = this.actual;
-            int i2 = 1;
+            int i = 1;
             while (true) {
-                long j2 = this.requested.get();
-                long j3 = 0;
-                while (j3 != j2) {
+                long j = this.requested.get();
+                long j2 = 0;
+                while (j2 != j) {
                     if (this.cancelled) {
                         cleanup();
                         return;
                     }
                     boolean z2 = this.done.get() == 0;
-                    int i3 = 0;
+                    int i2 = 0;
                     boolean z3 = true;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
                         }
-                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i3];
+                        JoinInnerSubscriber<T> joinInnerSubscriber = joinInnerSubscriberArr[i2];
                         SimplePlainQueue<T> simplePlainQueue = joinInnerSubscriber.queue;
                         if (simplePlainQueue != null && (obj = (T) simplePlainQueue.poll()) != null) {
                             subscriber.onNext(obj);
                             joinInnerSubscriber.requestOne();
-                            j3++;
-                            if (j3 == j2) {
+                            j2++;
+                            if (j2 == j) {
                                 break;
                             }
                             z3 = false;
                         }
-                        i3++;
+                        i2++;
                     }
                 }
-                if (j3 == j2) {
+                if (j2 == j) {
                     if (this.cancelled) {
                         cleanup();
                         return;
                     }
                     boolean z4 = this.done.get() == 0;
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i4 < length) {
-                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i4].queue;
+                        if (i3 < length) {
+                            SimplePlainQueue<T> simplePlainQueue2 = joinInnerSubscriberArr[i3].queue;
                             if (simplePlainQueue2 != null && !simplePlainQueue2.isEmpty()) {
                                 z = false;
                                 break;
                             }
-                            i4++;
+                            i3++;
                         } else {
                             z = true;
                             break;
@@ -574,14 +574,14 @@ public final class ParallelJoin<T> extends Flowable<T> {
                         }
                     }
                 }
-                if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j3);
+                if (j2 != 0 && j != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j2);
                 }
-                int i5 = get();
-                if (i5 == i2 && (i5 = addAndGet(-i2)) == 0) {
+                int i4 = get();
+                if (i4 == i && (i4 = addAndGet(-i)) == 0) {
                     return;
                 }
-                i2 = i5;
+                i = i4;
             }
         }
 
@@ -639,23 +639,23 @@ public final class ParallelJoin<T> extends Flowable<T> {
         }
     }
 
-    public ParallelJoin(ParallelFlowable<? extends T> parallelFlowable, int i2, boolean z) {
+    public ParallelJoin(ParallelFlowable<? extends T> parallelFlowable, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {parallelFlowable, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {parallelFlowable, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = parallelFlowable;
-        this.prefetch = i2;
+        this.prefetch = i;
         this.delayErrors = z;
     }
 

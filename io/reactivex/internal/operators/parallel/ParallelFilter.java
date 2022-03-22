@@ -36,9 +36,9 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {predicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,10 +65,10 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public final void request(long j2) {
+        public final void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
@@ -88,9 +88,9 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {conditionalSubscriber, predicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Predicate) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -169,9 +169,9 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, predicate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Predicate) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -243,9 +243,9 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {parallelFlowable, predicate};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -268,12 +268,12 @@ public final class ParallelFilter<T> extends ParallelFlowable<T> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
             Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                Subscriber<? super T> subscriber = subscriberArr[i2];
+            for (int i = 0; i < length; i++) {
+                Subscriber<? super T> subscriber = subscriberArr[i];
                 if (subscriber instanceof ConditionalSubscriber) {
-                    subscriberArr2[i2] = new ParallelFilterConditionalSubscriber((ConditionalSubscriber) subscriber, this.predicate);
+                    subscriberArr2[i] = new ParallelFilterConditionalSubscriber((ConditionalSubscriber) subscriber, this.predicate);
                 } else {
-                    subscriberArr2[i2] = new ParallelFilterSubscriber(subscriber, this.predicate);
+                    subscriberArr2[i] = new ParallelFilterSubscriber(subscriber, this.predicate);
                 }
             }
             this.source.subscribe(subscriberArr2);

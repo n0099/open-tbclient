@@ -1,52 +1,53 @@
 package c.a.p0.v;
 
-import android.annotation.SuppressLint;
-import c.a.p0.w.j;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"StaticFieldLeak"})
+import java.util.HashMap;
 /* loaded from: classes2.dex */
-public final class b extends j {
+public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: d  reason: collision with root package name */
-    public static volatile b f11386d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<Integer, Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b() {
-        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public static b f() {
-        InterceptResult invokeV;
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f11386d == null) {
-                synchronized (b.class) {
-                    if (f11386d == null) {
-                        f11386d = new b();
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            HashMap<Integer, Integer> hashMap = this.a;
+            if (hashMap != null && hashMap.containsKey(Integer.valueOf(i))) {
+                return this.a.get(Integer.valueOf(i)).intValue();
             }
-            return f11386d;
+            return 0;
         }
-        return (b) invokeV.objValue;
+        return invokeI.intValue;
+    }
+
+    public void b(int i, int i2) {
+        HashMap<Integer, Integer> hashMap;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) || (hashMap = this.a) == null) {
+            return;
+        }
+        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
     }
 }

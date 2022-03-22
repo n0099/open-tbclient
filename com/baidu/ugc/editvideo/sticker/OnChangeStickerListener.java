@@ -5,13 +5,13 @@ import com.baidu.ugc.editvideo.data.MultiMediaData;
 public interface OnChangeStickerListener {
     void onAutoAdjust(String str);
 
-    void onChangeSticker(int i2, MultiMediaData multiMediaData, String str);
+    void onChangeSticker(int i, MultiMediaData multiMediaData, String str);
 
     void onClickSticker(MultiMediaData multiMediaData, String str, boolean z);
 
     void onClickStickerOutside(String str);
 
-    void onDeleteSticker(MultiMediaData multiMediaData, int i2, String str, boolean z);
+    void onDeleteSticker(MultiMediaData multiMediaData, int i, String str, boolean z);
 
     void onEditSticker(MultiMediaData multiMediaData, String str);
 

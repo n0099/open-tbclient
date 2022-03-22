@@ -26,9 +26,9 @@ public class RequestGetLivableForumList extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -56,38 +56,38 @@ public class RequestGetLivableForumList extends TbSocketMessage {
         return invokeV.objValue;
     }
 
-    public void setFilterFlag(int i2) {
+    public void setFilterFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.filterFlag = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.filterFlag = i;
         }
     }
 
-    public void setGetLikeForum(int i2) {
+    public void setGetLikeForum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.likeForumFlag = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.likeForumFlag = i;
         }
     }
 
-    public void setPageNo(int i2) {
+    public void setPageNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.pageNo = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.pageNo = i;
         }
     }
 
-    public void setPageSize(int i2) {
+    public void setPageSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.pageSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.pageSize = i;
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.userId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.userId = j;
         }
     }
 }

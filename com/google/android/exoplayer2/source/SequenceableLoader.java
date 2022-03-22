@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.source;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface SequenceableLoader {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Callback<T extends SequenceableLoader> {
         void onContinueLoadingRequested(T t);
     }
 
-    boolean continueLoading(long j2);
+    boolean continueLoading(long j);
 
     long getBufferedPositionUs();
 

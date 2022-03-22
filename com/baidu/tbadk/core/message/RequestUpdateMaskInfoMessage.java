@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.UpdateMaskInfo.DataReq;
 import protobuf.UpdateMaskInfo.UpdateMaskInfoReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FALSE = 0;
@@ -33,9 +33,9 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -105,24 +105,24 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.isMask != 1 : invokeV.booleanValue;
     }
 
-    public void setCallFrom(int i2) {
+    public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.call_from = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.call_from = i;
         }
     }
 
-    public void setG_id(long j2) {
+    public void setG_id(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.g_id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.g_id = j;
         }
     }
 
-    public void setIsMask(int i2) {
+    public void setIsMask(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.isMask = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.isMask = i;
         }
     }
 
@@ -140,10 +140,10 @@ public class RequestUpdateMaskInfoMessage extends TbSocketMessage {
         }
     }
 
-    public void setMaskType(int i2) {
+    public void setMaskType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.maskType = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.maskType = i;
         }
     }
 

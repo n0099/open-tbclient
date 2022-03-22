@@ -1,5 +1,6 @@
 package com.baidu.searchbox.launch;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -55,9 +56,9 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -172,15 +173,15 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
             this.isExecuted = Boolean.TRUE;
             this.endTime = System.currentTimeMillis();
             if (DEBUG) {
-                String str = "task id: " + this.id + " name: " + this.name + " startTime: " + this.startTime + " endTime " + this.endTime + " duration: " + (this.endTime - this.startTime);
+                Log.d(TAG, "task id: " + this.id + " name: " + this.name + " startTime: " + this.startTime + " endTime " + this.endTime + " duration: " + (this.endTime - this.startTime));
             }
         }
     }
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.priority = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.priority = i;
         }
     }
 
@@ -191,10 +192,10 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -227,9 +228,9 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -246,9 +247,9 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -266,16 +267,16 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
         this.name = str2;
     }
 
-    public SmartLaunchTask(String str, int i2, boolean z) {
+    public SmartLaunchTask(String str, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -290,7 +291,7 @@ public abstract class SmartLaunchTask implements Runnable, Comparable<SmartLaunc
         this.isMainThreadIdleTask = false;
         this.mDependencyList = null;
         this.id = str;
-        this.priority = i2;
+        this.priority = i;
         this.isMainThreadIdleTask = z;
     }
 }

@@ -9,15 +9,15 @@ import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Field;
 import java.util.Observable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class x extends Observable {
     public static volatile x a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<Activity> f56522b;
+    public WeakReference<Activity> f41409b;
 
     /* renamed from: c  reason: collision with root package name */
-    public WeakReference<Activity> f56523c;
+    public WeakReference<Activity> f41410c;
 
     public static x a() {
         if (a == null) {
@@ -41,12 +41,12 @@ public class x extends Observable {
         if (!(applicationContext instanceof Application)) {
             Field[] declaredFields = applicationContext.getClass().getDeclaredFields();
             int length = declaredFields.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
                 }
-                Field field = declaredFields[i2];
+                Field field = declaredFields[i];
                 field.setAccessible(true);
                 try {
                     obj = field.get(applicationContext);
@@ -58,7 +58,7 @@ public class x extends Observable {
                     break;
                 } else {
                     continue;
-                    i2++;
+                    i++;
                 }
             }
         } else {
@@ -69,7 +69,7 @@ public class x extends Observable {
             application.registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.kwad.sdk.utils.x.1
 
                 /* renamed from: b  reason: collision with root package name */
-                public int f56524b = 0;
+                public int f41411b = 0;
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
@@ -81,16 +81,16 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityPaused(@NonNull Activity activity) {
-                    if (x.this.f56522b == null || x.this.f56522b.get() == null || !((Activity) x.this.f56522b.get()).equals(activity)) {
+                    if (x.this.f41409b == null || x.this.f41409b.get() == null || !((Activity) x.this.f41409b.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f56522b = null;
+                    x.this.f41409b = null;
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityResumed(@NonNull Activity activity) {
-                    x.this.f56522b = new WeakReference(activity);
-                    x.this.f56523c = new WeakReference(activity);
+                    x.this.f41409b = new WeakReference(activity);
+                    x.this.f41410c = new WeakReference(activity);
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -99,24 +99,24 @@ public class x extends Observable {
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStarted(@NonNull Activity activity) {
-                    int i3 = this.f56524b + 1;
-                    this.f56524b = i3;
-                    if (i3 == 1) {
+                    int i2 = this.f41411b + 1;
+                    this.f41411b = i2;
+                    if (i2 == 1) {
                         x.this.e();
                     }
                 }
 
                 @Override // android.app.Application.ActivityLifecycleCallbacks
                 public void onActivityStopped(@NonNull Activity activity) {
-                    int i3 = this.f56524b - 1;
-                    this.f56524b = i3;
-                    if (i3 == 0) {
+                    int i2 = this.f41411b - 1;
+                    this.f41411b = i2;
+                    if (i2 == 0) {
                         x.this.f();
                     }
-                    if (x.this.f56523c == null || x.this.f56523c.get() == null || !((Activity) x.this.f56523c.get()).equals(activity)) {
+                    if (x.this.f41410c == null || x.this.f41410c.get() == null || !((Activity) x.this.f41410c.get()).equals(activity)) {
                         return;
                     }
-                    x.this.f56523c = null;
+                    x.this.f41410c = null;
                 }
             });
         }
@@ -128,7 +128,7 @@ public class x extends Observable {
 
     @Nullable
     public Activity c() {
-        WeakReference<Activity> weakReference = this.f56522b;
+        WeakReference<Activity> weakReference = this.f41409b;
         if (weakReference == null) {
             return null;
         }
@@ -137,7 +137,7 @@ public class x extends Observable {
 
     public int d() {
         Activity activity;
-        WeakReference<Activity> weakReference = this.f56523c;
+        WeakReference<Activity> weakReference = this.f41410c;
         if (weakReference == null || (activity = weakReference.get()) == null) {
             return 0;
         }

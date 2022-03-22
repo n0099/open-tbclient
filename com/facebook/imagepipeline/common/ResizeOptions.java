@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.util.HashCodeUtil;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResizeOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DEFAULT_ROUNDUP_FRACTION = 0.6666667f;
@@ -21,17 +21,17 @@ public class ResizeOptions {
     public final int width;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ResizeOptions(int i2, int i3) {
-        this(i2, i3, 2048.0f);
+    public ResizeOptions(int i, int i2) {
+        this(i, i2, 2048.0f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Float) objArr2[2]).floatValue());
                 newInitContext.thisArg = this;
@@ -42,27 +42,27 @@ public class ResizeOptions {
     }
 
     @Nullable
-    public static ResizeOptions forDimensions(int i2, int i3) {
+    public static ResizeOptions forDimensions(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            if (i2 <= 0 || i3 <= 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i <= 0 || i2 <= 0) {
                 return null;
             }
-            return new ResizeOptions(i2, i3);
+            return new ResizeOptions(i, i2);
         }
         return (ResizeOptions) invokeII.objValue;
     }
 
     @Nullable
-    public static ResizeOptions forSquareSize(int i2) {
+    public static ResizeOptions forSquareSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            if (i <= 0) {
                 return null;
             }
-            return new ResizeOptions(i2, i2);
+            return new ResizeOptions(i, i);
         }
         return (ResizeOptions) invokeI.objValue;
     }
@@ -96,17 +96,17 @@ public class ResizeOptions {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ResizeOptions(int i2, int i3, float f2) {
-        this(i2, i3, f2, 0.6666667f);
+    public ResizeOptions(int i, int i2, float f2) {
+        this(i, i2, f2, 0.6666667f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue());
                 newInitContext.thisArg = this;
@@ -116,25 +116,25 @@ public class ResizeOptions {
         }
     }
 
-    public ResizeOptions(int i2, int i3, float f2, float f3) {
+    public ResizeOptions(int i, int i2, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
+        Preconditions.checkArgument(i > 0);
         Preconditions.checkArgument(i2 > 0);
-        Preconditions.checkArgument(i3 > 0);
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.maxBitmapSize = f2;
         this.roundUpFraction = f3;
     }

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsScene, Serializable, Cloneable {
     public static final long serialVersionUID = 93865491903408451L;
     public int action;
@@ -35,13 +35,13 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         this.mEcAttribute = new EcAttribute();
     }
 
-    public SceneImpl(long j2) {
+    public SceneImpl(long j) {
         this.adNum = 1;
         this.screenOrientation = 0;
         this.needShowMiniWindow = false;
         this.mEcAttribute = new EcAttribute();
-        this.posId = j2;
-        this.entryScene = j2;
+        this.posId = j;
+        this.entryScene = j;
     }
 
     public SceneImpl(KsScene ksScene) {
@@ -107,7 +107,7 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public SceneImpl m121clone() {
+    public SceneImpl m109clone() {
         String jSONObject = toJson().toString();
         try {
             SceneImpl sceneImpl = new SceneImpl();
@@ -235,18 +235,18 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setAction(int i2) {
-        this.action = i2;
+    public void setAction(int i) {
+        this.action = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setAdNum(int i2) {
-        this.adNum = i2;
+    public void setAdNum(int i) {
+        this.adNum = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setAdStyle(int i2) {
-        this.adStyle = i2;
+    public void setAdStyle(int i) {
+        this.adStyle = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -260,8 +260,8 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setHeight(int i2) {
-        this.height = i2;
+    public void setHeight(int i) {
+        this.height = i;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -272,19 +272,19 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         a aVar2 = new a();
         this.mKsAdLabel = aVar2;
         aVar2.a = aVar.a();
-        this.mKsAdLabel.f55555b = aVar.b();
-        this.mKsAdLabel.f55556c = aVar.c();
-        this.mKsAdLabel.f55557d = aVar.d();
-        this.mKsAdLabel.f55558e = aVar.e();
-        this.mKsAdLabel.f55559f = aVar.f();
-        this.mKsAdLabel.f55560g = aVar.g();
-        this.mKsAdLabel.f55561h = aVar.h();
+        this.mKsAdLabel.f40580b = aVar.b();
+        this.mKsAdLabel.f40581c = aVar.c();
+        this.mKsAdLabel.f40582d = aVar.d();
+        this.mKsAdLabel.f40583e = aVar.e();
+        this.mKsAdLabel.f40584f = aVar.f();
+        this.mKsAdLabel.f40585g = aVar.g();
+        this.mKsAdLabel.f40586h = aVar.h();
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setPosId(long j2) {
-        this.posId = j2;
-        this.entryScene = j2;
+    public void setPosId(long j) {
+        this.posId = j;
+        this.entryScene = j;
     }
 
     @Override // com.kwad.sdk.api.KsScene
@@ -298,8 +298,8 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setScreenOrientation(int i2) {
-        this.screenOrientation = i2;
+    public void setScreenOrientation(int i) {
+        this.screenOrientation = i;
     }
 
     public void setUrlPackage(URLPackage uRLPackage) {
@@ -307,18 +307,18 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setUserCommRateBuying(int i2) {
-        this.mEcAttribute.setUserCommRateBuying(i2);
+    public void setUserCommRateBuying(int i) {
+        this.mEcAttribute.setUserCommRateBuying(i);
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setUserCommRateSharing(int i2) {
-        this.mEcAttribute.setUserCommRateSharing(i2);
+    public void setUserCommRateSharing(int i) {
+        this.mEcAttribute.setUserCommRateSharing(i);
     }
 
     @Override // com.kwad.sdk.api.KsScene
-    public void setWidth(int i2) {
-        this.width = i2;
+    public void setWidth(int i) {
+        this.width = i;
     }
 
     @Override // com.kwad.sdk.core.response.kwai.a, com.kwad.sdk.core.b
@@ -332,9 +332,9 @@ public class SceneImpl extends com.kwad.sdk.core.response.kwai.a implements KsSc
         t.a(jSONObject, "height", this.height);
         a aVar = this.mKsAdLabel;
         if (aVar != null) {
-            long j2 = aVar.f55561h;
-            if (j2 != 0) {
-                t.a(jSONObject, "cpmBidFloor", j2);
+            long j = aVar.f40586h;
+            if (j != 0) {
+                t.a(jSONObject, "cpmBidFloor", j);
             }
         }
         t.a(jSONObject, "adStyle", this.adStyle);

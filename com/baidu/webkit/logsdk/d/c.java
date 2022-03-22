@@ -3,6 +3,7 @@ package com.baidu.webkit.logsdk.d;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.nio.channels.FileChannel;
 import java.nio.channels.FileLock;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -83,11 +83,17 @@ public final class c {
         return (String) invokeLL.objValue;
     }
 
+    /* JADX WARN: Removed duplicated region for block: B:65:0x00aa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:75:0x00a0 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static String a(File file) {
         InterceptResult invokeL;
         DataInputStream dataInputStream;
         Throwable th;
         ByteArrayOutputStream byteArrayOutputStream;
+        Exception e2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65539, null, file)) != null) {
             return (String) invokeL.objValue;
@@ -96,70 +102,87 @@ public final class c {
             return "";
         }
         e("BdLogSDK", "readDataFromFile " + file.getName());
-        ByteArrayOutputStream byteArrayOutputStream2 = null;
         try {
             dataInputStream = new DataInputStream(new FileInputStream(file));
             try {
                 byteArrayOutputStream = new ByteArrayOutputStream();
                 try {
-                    byte[] bArr = new byte[1024];
-                    while (true) {
-                        int read = dataInputStream.read(bArr);
-                        if (read == -1) {
-                            break;
+                    try {
+                        byte[] bArr = new byte[1024];
+                        while (true) {
+                            int read = dataInputStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            byteArrayOutputStream.write(bArr, 0, read);
                         }
-                        byteArrayOutputStream.write(bArr, 0, read);
-                    }
-                    String str = new String(Base64.decode(new String(RC4.kernelEncrypt(byteArrayOutputStream.toByteArray())), 0));
-                    try {
-                        byteArrayOutputStream.close();
-                    } catch (Exception unused) {
-                    }
-                    try {
-                        dataInputStream.close();
-                    } catch (Exception unused2) {
-                    }
-                    return str;
-                } catch (Exception unused3) {
-                    byteArrayOutputStream2 = byteArrayOutputStream;
-                    if (byteArrayOutputStream2 != null) {
+                        String str = new String(Base64.decode(new String(RC4.kernelEncrypt(byteArrayOutputStream.toByteArray())), 0));
                         try {
-                            byteArrayOutputStream2.close();
-                        } catch (Exception unused4) {
+                            byteArrayOutputStream.close();
+                        } catch (Exception e3) {
+                            Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e3);
                         }
-                    }
-                    if (dataInputStream != null) {
                         try {
                             dataInputStream.close();
-                            return "";
-                        } catch (Exception unused5) {
-                            return "";
+                        } catch (Exception e4) {
+                            Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e4);
                         }
+                        return str;
+                    } catch (Exception e5) {
+                        e2 = e5;
+                        Log.w("BdLogSDK", "readStatisticsDataFromFile Exception", e2);
+                        if (byteArrayOutputStream != null) {
+                            try {
+                                byteArrayOutputStream.close();
+                            } catch (Exception e6) {
+                                Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e6);
+                            }
+                        }
+                        if (dataInputStream != null) {
+                            try {
+                                dataInputStream.close();
+                                return "";
+                            } catch (Exception e7) {
+                                Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e7);
+                                return "";
+                            }
+                        }
+                        return "";
                     }
-                    return "";
                 } catch (Throwable th2) {
                     th = th2;
                     if (byteArrayOutputStream != null) {
                         try {
                             byteArrayOutputStream.close();
-                        } catch (Exception unused6) {
+                        } catch (Exception e8) {
+                            Log.w("BdLogSDK", "readStatisticsDataFromFile close Exception", e8);
                         }
                     }
                     if (dataInputStream != null) {
                         try {
                             dataInputStream.close();
-                        } catch (Exception unused7) {
+                        } catch (Exception e9) {
+                            Log.w("BdLogSDK", "readUserBehaviorStatisticsDataFromFile close Exception", e9);
                         }
                     }
                     throw th;
                 }
-            } catch (Exception unused8) {
+            } catch (Exception e10) {
+                e2 = e10;
+                byteArrayOutputStream = null;
             } catch (Throwable th3) {
                 th = th3;
                 byteArrayOutputStream = null;
+                if (byteArrayOutputStream != null) {
+                }
+                if (dataInputStream != null) {
+                }
+                throw th;
             }
-        } catch (Exception unused9) {
+        } catch (Exception e11) {
             dataInputStream = null;
+            e2 = e11;
+            byteArrayOutputStream = null;
         } catch (Throwable th4) {
             dataInputStream = null;
             th = th4;
@@ -187,11 +210,14 @@ public final class c {
     public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, str3) == null) {
-            if (!com.baidu.webkit.logsdk.a.f51426b || TextUtils.isEmpty(str3)) {
-                boolean z = com.baidu.webkit.logsdk.a.a;
+            if (!com.baidu.webkit.logsdk.a.f37883b || TextUtils.isEmpty(str3)) {
+                if (com.baidu.webkit.logsdk.a.a) {
+                    Log.i(str, str2);
+                    return;
+                }
                 return;
             }
-            String str4 = str2 + " = " + str3;
+            Log.d(str, str2 + " = " + str3);
         }
     }
 
@@ -199,7 +225,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, th) == null) {
             th.printStackTrace();
-            if (com.baidu.webkit.logsdk.a.f51426b) {
+            if (com.baidu.webkit.logsdk.a.f37883b) {
                 System.exit(0);
             }
         }
@@ -217,99 +243,128 @@ public final class c {
         return (String) invokeL.objValue;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0067 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:56:0x00a0 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v0, resolved type: java.lang.String */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: java.nio.channels.FileChannel */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v3, resolved type: java.nio.channels.FileChannel */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v6, resolved type: java.nio.channels.FileChannel */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r6v1 */
+    /* JADX WARN: Type inference failed for: r6v9, types: [java.nio.channels.FileChannel] */
     public static void b(String str, String str2) {
-        FileChannel fileChannel;
         DataOutputStream dataOutputStream;
+        DataOutputStream dataOutputStream2;
+        byte[] encode;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(65544, null, str, str2) != null) {
-            return;
+        if (interceptable != null) {
+            dataOutputStream = null;
+            if (interceptable.invokeLL(65544, null, str, str2) != null) {
+                return;
+            }
         }
         FileLock fileLock = null;
         try {
-            e("BdLogSDK", "writeDataToFile ".concat(String.valueOf(str)));
-            byte[] encode = Base64.encode(str2.getBytes(), 0);
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(str));
-            fileChannel = fileOutputStream.getChannel();
             try {
-                dataOutputStream = new DataOutputStream(fileOutputStream);
+                e("BdLogSDK", "writeDataToFile ".concat(String.valueOf(str)));
+                encode = Base64.encode(str2.getBytes(), 0);
+                fileOutputStream = new FileOutputStream(new File(str));
+                str = fileOutputStream.getChannel();
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                dataOutputStream2 = new DataOutputStream(fileOutputStream);
                 do {
                     try {
-                        fileLock = fileChannel.tryLock();
-                    } catch (Exception unused) {
+                        fileLock = str.tryLock();
+                    } catch (Exception e2) {
+                        e = e2;
+                        Log.w("BdLogSDK", "writeDataToFile Exception", e);
                         if (fileLock != null) {
                             try {
                                 fileLock.release();
-                            } catch (IOException unused2) {
+                            } catch (IOException e3) {
+                                Log.w("BdLogSDK", "writeDataToFile IOException", e3);
                             }
                         }
-                        if (fileChannel != null && fileChannel.isOpen()) {
+                        if (str != 0 && str.isOpen()) {
                             try {
-                                fileChannel.close();
-                            } catch (IOException unused3) {
+                                str.close();
+                            } catch (IOException e4) {
+                                Log.w("BdLogSDK", "writeDataToFile IOException", e4);
                             }
                         }
-                        if (dataOutputStream != null) {
+                        if (dataOutputStream2 != null) {
                             try {
-                                dataOutputStream.close();
+                                dataOutputStream2.close();
                                 return;
-                            } catch (Exception unused4) {
+                            } catch (Exception e5) {
+                                Log.w("BdLogSDK", "writeDataToFile close Exception", e5);
                                 return;
                             }
                         }
                         return;
-                    } catch (Throwable th) {
-                        th = th;
-                        if (fileLock != null) {
-                            try {
-                                fileLock.release();
-                            } catch (IOException unused5) {
-                            }
-                        }
-                        if (fileChannel != null && fileChannel.isOpen()) {
-                            try {
-                                fileChannel.close();
-                            } catch (IOException unused6) {
-                            }
-                        }
-                        if (dataOutputStream != null) {
-                            try {
-                                dataOutputStream.close();
-                            } catch (Exception unused7) {
-                            }
-                        }
-                        throw th;
                     }
                 } while (fileLock == null);
-                dataOutputStream.write(RC4.kernelEncrypt(encode));
-                dataOutputStream.flush();
+                dataOutputStream2.write(RC4.kernelEncrypt(encode));
+                dataOutputStream2.flush();
                 if (fileLock != null) {
                     try {
                         fileLock.release();
-                    } catch (IOException unused8) {
+                    } catch (IOException e6) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e6);
                     }
                 }
-                if (fileChannel != null && fileChannel.isOpen()) {
+                if (str != 0 && str.isOpen()) {
                     try {
-                        fileChannel.close();
-                    } catch (IOException unused9) {
+                        str.close();
+                    } catch (IOException e7) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e7);
                     }
                 }
                 try {
-                    dataOutputStream.close();
-                } catch (Exception unused10) {
+                    dataOutputStream2.close();
+                } catch (Exception e8) {
+                    Log.w("BdLogSDK", "writeDataToFile close Exception", e8);
                 }
-            } catch (Exception unused11) {
-                dataOutputStream = null;
+            } catch (Exception e9) {
+                e = e9;
+                dataOutputStream2 = null;
             } catch (Throwable th2) {
                 th = th2;
                 dataOutputStream = null;
+                if (0 != 0) {
+                    try {
+                        fileLock.release();
+                    } catch (IOException e10) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e10);
+                    }
+                }
+                if (str != 0 && str.isOpen()) {
+                    try {
+                        str.close();
+                    } catch (IOException e11) {
+                        Log.w("BdLogSDK", "writeDataToFile IOException", e11);
+                    }
+                }
+                if (dataOutputStream != null) {
+                    try {
+                        dataOutputStream.close();
+                    } catch (Exception e12) {
+                        Log.w("BdLogSDK", "writeDataToFile close Exception", e12);
+                    }
+                }
+                throw th;
             }
-        } catch (Exception unused12) {
-            fileChannel = null;
-            dataOutputStream = null;
+        } catch (Exception e13) {
+            e = e13;
+            str = 0;
+            dataOutputStream2 = null;
         } catch (Throwable th3) {
             th = th3;
-            fileChannel = null;
+            str = 0;
             dataOutputStream = null;
         }
     }
@@ -322,11 +377,11 @@ public final class c {
                 byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes("UTF-8"));
                 StringBuilder sb = new StringBuilder(digest.length * 2);
                 for (byte b2 : digest) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append("0");
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
             } catch (UnsupportedEncodingException e2) {
@@ -373,8 +428,8 @@ public final class c {
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) {
-            boolean z = com.baidu.webkit.logsdk.a.a;
+        if ((interceptable == null || interceptable.invokeLL(65549, null, str, str2) == null) && com.baidu.webkit.logsdk.a.a) {
+            Log.w(str, str2);
         }
     }
 }

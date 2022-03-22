@@ -3,6 +3,7 @@ package androidx.core.view;
 import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.os.Build;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import androidx.core.internal.view.SupportMenuItem;
@@ -41,9 +42,9 @@ public final class MenuItemCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -71,6 +72,7 @@ public final class MenuItemCompat {
             if (menuItem instanceof SupportMenuItem) {
                 return ((SupportMenuItem) menuItem).getSupportActionProvider();
             }
+            Log.w(TAG, "getActionProvider: item does not implement SupportMenuItem; returning null");
             return null;
         }
         return (ActionProvider) invokeL.objValue;
@@ -183,7 +185,14 @@ public final class MenuItemCompat {
     public static MenuItem setActionProvider(MenuItem menuItem, ActionProvider actionProvider) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, menuItem, actionProvider)) == null) ? menuItem instanceof SupportMenuItem ? ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider) : menuItem : (MenuItem) invokeLL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, menuItem, actionProvider)) == null) {
+            if (menuItem instanceof SupportMenuItem) {
+                return ((SupportMenuItem) menuItem).setSupportActionProvider(actionProvider);
+            }
+            Log.w(TAG, "setActionProvider: item does not implement SupportMenuItem; ignoring");
+            return menuItem;
+        }
+        return (MenuItem) invokeLL.objValue;
     }
 
     @Deprecated
@@ -193,13 +202,13 @@ public final class MenuItemCompat {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, menuItem, view)) == null) ? menuItem.setActionView(view) : (MenuItem) invokeLL.objValue;
     }
 
-    public static void setAlphabeticShortcut(MenuItem menuItem, char c2, int i2) {
+    public static void setAlphabeticShortcut(MenuItem menuItem, char c2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65551, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setAlphabeticShortcut(c2, i2);
+                ((SupportMenuItem) menuItem).setAlphabeticShortcut(c2, i);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setAlphabeticShortcut(c2, i2);
+                menuItem.setAlphabeticShortcut(c2, i);
             }
         }
     }
@@ -237,13 +246,13 @@ public final class MenuItemCompat {
         }
     }
 
-    public static void setNumericShortcut(MenuItem menuItem, char c2, int i2) {
+    public static void setNumericShortcut(MenuItem menuItem, char c2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65555, null, new Object[]{menuItem, Character.valueOf(c2), Integer.valueOf(i)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setNumericShortcut(c2, i2);
+                ((SupportMenuItem) menuItem).setNumericShortcut(c2, i);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setNumericShortcut(c2, i2);
+                menuItem.setNumericShortcut(c2, i);
             }
         }
     }
@@ -264,9 +273,9 @@ public final class MenuItemCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {onActionExpandListener};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -291,22 +300,22 @@ public final class MenuItemCompat {
         }) : (MenuItem) invokeLL.objValue;
     }
 
-    public static void setShortcut(MenuItem menuItem, char c2, char c3, int i2, int i3) {
+    public static void setShortcut(MenuItem menuItem, char c2, char c3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{menuItem, Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, null, new Object[]{menuItem, Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (menuItem instanceof SupportMenuItem) {
-                ((SupportMenuItem) menuItem).setShortcut(c2, c3, i2, i3);
+                ((SupportMenuItem) menuItem).setShortcut(c2, c3, i, i2);
             } else if (Build.VERSION.SDK_INT >= 26) {
-                menuItem.setShortcut(c2, c3, i2, i3);
+                menuItem.setShortcut(c2, c3, i, i2);
             }
         }
     }
 
     @Deprecated
-    public static void setShowAsAction(MenuItem menuItem, int i2) {
+    public static void setShowAsAction(MenuItem menuItem, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65558, null, menuItem, i2) == null) {
-            menuItem.setShowAsAction(i2);
+        if (interceptable == null || interceptable.invokeLI(65558, null, menuItem, i) == null) {
+            menuItem.setShowAsAction(i);
         }
     }
 
@@ -322,9 +331,9 @@ public final class MenuItemCompat {
     }
 
     @Deprecated
-    public static MenuItem setActionView(MenuItem menuItem, int i2) {
+    public static MenuItem setActionView(MenuItem menuItem, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, menuItem, i2)) == null) ? menuItem.setActionView(i2) : (MenuItem) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, menuItem, i)) == null) ? menuItem.setActionView(i) : (MenuItem) invokeLI.objValue;
     }
 }

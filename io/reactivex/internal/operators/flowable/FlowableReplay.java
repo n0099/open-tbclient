@@ -62,9 +62,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,9 +108,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 Object enterTransform = enterTransform(NotificationLite.complete());
-                long j2 = this.index + 1;
-                this.index = j2;
-                addLast(new Node(enterTransform, j2));
+                long j = this.index + 1;
+                this.index = j;
+                addLast(new Node(enterTransform, j));
                 truncateFinal();
             }
         }
@@ -126,9 +126,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
                 Object enterTransform = enterTransform(NotificationLite.error(th));
-                long j2 = this.index + 1;
-                this.index = j2;
-                addLast(new Node(enterTransform, j2));
+                long j = this.index + 1;
+                this.index = j;
+                addLast(new Node(enterTransform, j));
                 truncateFinal();
             }
         }
@@ -170,9 +170,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048585, this, t) == null) {
                 Object enterTransform = enterTransform(NotificationLite.next(t));
-                long j2 = this.index + 1;
-                this.index = j2;
-                addLast(new Node(enterTransform, j2));
+                long j = this.index + 1;
+                this.index = j;
+                addLast(new Node(enterTransform, j));
                 truncate();
             }
         }
@@ -190,13 +190,13 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             }
         }
 
-        public final void removeSome(int i2) {
+        public final void removeSome(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
                 Node node = get();
-                while (i2 > 0) {
+                while (i > 0) {
                     node = node.get();
-                    i2--;
+                    i--;
                     this.size--;
                 }
                 setFirst(node);
@@ -215,24 +215,24 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                     }
                     innerSubscription.emitting = true;
                     while (!innerSubscription.isDisposed()) {
-                        long j2 = innerSubscription.get();
-                        boolean z = j2 == Long.MAX_VALUE;
+                        long j = innerSubscription.get();
+                        boolean z = j == Long.MAX_VALUE;
                         Node node2 = (Node) innerSubscription.index();
                         if (node2 == null) {
                             node2 = getHead();
                             innerSubscription.index = node2;
                             BackpressureHelper.add(innerSubscription.totalRequested, node2.index);
                         }
-                        long j3 = 0;
-                        while (j2 != 0 && (node = node2.get()) != null) {
+                        long j2 = 0;
+                        while (j != 0 && (node = node2.get()) != null) {
                             Object leaveTransform = leaveTransform(node.value);
                             try {
                                 if (NotificationLite.accept(leaveTransform, innerSubscription.child)) {
                                     innerSubscription.index = null;
                                     return;
                                 }
-                                j3++;
-                                j2--;
+                                j2++;
+                                j--;
                                 if (innerSubscription.isDisposed()) {
                                     return;
                                 }
@@ -248,10 +248,10 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                                 return;
                             }
                         }
-                        if (j3 != 0) {
+                        if (j2 != 0) {
                             innerSubscription.index = node2;
                             if (!z) {
-                                innerSubscription.produced(j3);
+                                innerSubscription.produced(j2);
                             }
                         }
                         synchronized (innerSubscription) {
@@ -313,9 +313,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 newInitContext.initArgs = r2;
                 Object[] objArr = {connectableFlowable, flowable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -352,9 +352,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -389,9 +389,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 newInitContext.initArgs = r2;
                 Object[] objArr = {replaySubscriber, subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -433,17 +433,17 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? get() == Long.MIN_VALUE : invokeV.booleanValue;
         }
 
-        public long produced(long j2) {
+        public long produced(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? BackpressureHelper.producedCancel(this, j2) : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? BackpressureHelper.producedCancel(this, j) : invokeJ.longValue;
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2) && BackpressureHelper.addCancel(this, j2) != Long.MIN_VALUE) {
-                BackpressureHelper.add(this.totalRequested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j) && BackpressureHelper.addCancel(this, j) != Long.MIN_VALUE) {
+                BackpressureHelper.add(this.totalRequested, j);
                 this.parent.manageRequests();
                 this.parent.buffer.replay(this);
             }
@@ -471,9 +471,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                     newInitContext.initArgs = r2;
                     Object[] objArr = {multicastFlowable, subscriberResourceWrapper};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -500,9 +500,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 newInitContext.initArgs = r2;
                 Object[] objArr = {callable, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -543,23 +543,23 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public final long index;
         public final Object value;
 
-        public Node(Object obj, long j2) {
+        public Node(Object obj, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj, Long.valueOf(j2)};
+                Object[] objArr = {obj, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.value = obj;
-            this.index = j2;
+            this.index = j;
         }
     }
 
@@ -580,22 +580,22 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
 
-        public ReplayBufferTask(int i2) {
+        public ReplayBufferTask(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -621,9 +621,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 newInitContext.initArgs = r2;
                 Object[] objArr = {atomicReference, callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -707,9 +707,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 newInitContext.initArgs = r2;
                 Object[] objArr = {replayBuffer};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -764,37 +764,37 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public void manageRequests() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.management.getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 while (!isDisposed()) {
                     InnerSubscription<T>[] innerSubscriptionArr = this.subscribers.get();
-                    long j2 = this.maxChildRequested;
-                    long j3 = j2;
+                    long j = this.maxChildRequested;
+                    long j2 = j;
                     for (InnerSubscription<T> innerSubscription : innerSubscriptionArr) {
-                        j3 = Math.max(j3, innerSubscription.totalRequested.get());
+                        j2 = Math.max(j2, innerSubscription.totalRequested.get());
                     }
-                    long j4 = this.maxUpstreamRequested;
+                    long j3 = this.maxUpstreamRequested;
                     Subscription subscription = get();
-                    long j5 = j3 - j2;
-                    if (j5 != 0) {
-                        this.maxChildRequested = j3;
+                    long j4 = j2 - j;
+                    if (j4 != 0) {
+                        this.maxChildRequested = j2;
                         if (subscription == null) {
-                            long j6 = j4 + j5;
-                            if (j6 < 0) {
-                                j6 = Long.MAX_VALUE;
+                            long j5 = j3 + j4;
+                            if (j5 < 0) {
+                                j5 = Long.MAX_VALUE;
                             }
-                            this.maxUpstreamRequested = j6;
-                        } else if (j4 != 0) {
+                            this.maxUpstreamRequested = j5;
+                        } else if (j3 != 0) {
                             this.maxUpstreamRequested = 0L;
-                            subscription.request(j4 + j5);
+                            subscription.request(j3 + j4);
                         } else {
-                            subscription.request(j5);
+                            subscription.request(j4);
                         }
-                    } else if (j4 != 0 && subscription != null) {
+                    } else if (j3 != 0 && subscription != null) {
                         this.maxUpstreamRequested = 0L;
-                        subscription.request(j4);
+                        subscription.request(j3);
                     }
-                    i2 = this.management.addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = this.management.addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -866,27 +866,27 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (innerSubscriptionArr[i3].equals(innerSubscription)) {
-                            i2 = i3;
+                        } else if (innerSubscriptionArr[i2].equals(innerSubscription)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         innerSubscriptionArr2 = EMPTY;
                     } else {
                         InnerSubscription[] innerSubscriptionArr3 = new InnerSubscription[length - 1];
-                        System.arraycopy(innerSubscriptionArr, 0, innerSubscriptionArr3, 0, i2);
-                        System.arraycopy(innerSubscriptionArr, i2 + 1, innerSubscriptionArr3, i2, (length - i2) - 1);
+                        System.arraycopy(innerSubscriptionArr, 0, innerSubscriptionArr3, 0, i);
+                        System.arraycopy(innerSubscriptionArr, i + 1, innerSubscriptionArr3, i, (length - i) - 1);
                         innerSubscriptionArr2 = innerSubscriptionArr3;
                     }
                 } while (!this.subscribers.compareAndSet(innerSubscriptionArr, innerSubscriptionArr2));
@@ -903,23 +903,23 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public ScheduledReplayBufferTask(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public ScheduledReplayBufferTask(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.bufferSize = i2;
-            this.maxAge = j2;
+            this.bufferSize = i;
+            this.maxAge = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -943,24 +943,24 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.scheduler = scheduler;
-            this.limit = i2;
-            this.maxAge = j2;
+            this.limit = i;
+            this.maxAge = j;
             this.unit = timeUnit;
         }
 
@@ -1014,21 +1014,21 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 long now = this.scheduler.now(this.unit) - this.maxAge;
                 Node node2 = get();
                 Node node3 = node2.get();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     Node node4 = node3;
                     node = node2;
                     node2 = node4;
                     if (node2 != null) {
-                        int i3 = this.size;
-                        if (i3 > this.limit) {
-                            i2++;
-                            this.size = i3 - 1;
+                        int i2 = this.size;
+                        if (i2 > this.limit) {
+                            i++;
+                            this.size = i2 - 1;
                             node3 = node2.get();
                         } else if (((Timed) node2.value).time() > now) {
                             break;
                         } else {
-                            i2++;
+                            i++;
                             this.size--;
                             node3 = node2.get();
                         }
@@ -1036,7 +1036,7 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                         break;
                     }
                 }
-                if (i2 != 0) {
+                if (i != 0) {
                     setFirst(node);
                 }
             }
@@ -1058,7 +1058,7 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                 long now = this.scheduler.now(this.unit) - this.maxAge;
                 Node node = get();
                 Node node2 = node.get();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     Node node3 = node2;
                     Node node4 = node;
@@ -1066,7 +1066,7 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                     if (node == null || this.size <= 1 || ((Timed) node.value).time() > now) {
                         break;
                     }
-                    i2++;
+                    i++;
                     this.size--;
                     node2 = node.get();
                 }
@@ -1081,22 +1081,22 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public transient /* synthetic */ FieldHolder $fh;
         public final int limit;
 
-        public SizeBoundReplayBuffer(int i2) {
+        public SizeBoundReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.limit = i2;
+            this.limit = i;
         }
 
         @Override // io.reactivex.internal.operators.flowable.FlowableReplay.BoundedReplayBuffer
@@ -1117,17 +1117,17 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         public volatile int size;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UnboundedReplayBuffer(int i2) {
-            super(i2);
+        public UnboundedReplayBuffer(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1175,21 +1175,21 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                     innerSubscription.emitting = true;
                     Subscriber<? super T> subscriber = innerSubscription.child;
                     while (!innerSubscription.isDisposed()) {
-                        int i2 = this.size;
+                        int i = this.size;
                         Integer num = (Integer) innerSubscription.index();
                         int intValue = num != null ? num.intValue() : 0;
-                        long j2 = innerSubscription.get();
-                        long j3 = j2;
-                        long j4 = 0;
-                        while (j3 != 0 && intValue < i2) {
+                        long j = innerSubscription.get();
+                        long j2 = j;
+                        long j3 = 0;
+                        while (j2 != 0 && intValue < i) {
                             Object obj = get(intValue);
                             try {
                                 if (NotificationLite.accept(obj, subscriber) || innerSubscription.isDisposed()) {
                                     return;
                                 }
                                 intValue++;
-                                j3--;
-                                j4++;
+                                j2--;
+                                j3++;
                             } catch (Throwable th) {
                                 Exceptions.throwIfFatal(th);
                                 innerSubscription.dispose();
@@ -1200,10 +1200,10 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
                                 return;
                             }
                         }
-                        if (j4 != 0) {
+                        if (j3 != 0) {
                             innerSubscription.index = Integer.valueOf(intValue);
-                            if (j2 != Long.MAX_VALUE) {
-                                innerSubscription.produced(j4);
+                            if (j != Long.MAX_VALUE) {
+                                innerSubscription.produced(j3);
                             }
                         }
                         synchronized (innerSubscription) {
@@ -1242,9 +1242,9 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
             newInitContext.initArgs = r2;
             Object[] objArr = {publisher, flowable, atomicReference, callable};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1256,14 +1256,14 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         this.bufferFactory = callable;
     }
 
-    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i2) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, flowable, i2)) == null) {
-            if (i2 == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, flowable, i)) == null) {
+            if (i == Integer.MAX_VALUE) {
                 return createFrom(flowable);
             }
-            return create(flowable, new ReplayBufferTask(i2));
+            return create(flowable, new ReplayBufferTask(i));
         }
         return (ConnectableFlowable) invokeLI.objValue;
     }
@@ -1356,16 +1356,16 @@ public final class FlowableReplay<T> extends ConnectableFlowable<T> implements H
         }
     }
 
-    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flowable, Long.valueOf(j2), timeUnit, scheduler})) == null) ? create(flowable, j2, timeUnit, scheduler, Integer.MAX_VALUE) : (ConnectableFlowable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler})) == null) ? create(flowable, j, timeUnit, scheduler, Integer.MAX_VALUE) : (ConnectableFlowable) invokeCommon.objValue;
     }
 
-    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{flowable, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? create(flowable, new ScheduledReplayBufferTask(i2, j2, timeUnit, scheduler)) : (ConnectableFlowable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{flowable, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) ? create(flowable, new ScheduledReplayBufferTask(i, j, timeUnit, scheduler)) : (ConnectableFlowable) invokeCommon.objValue;
     }
 
     public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, Callable<? extends ReplayBuffer<T>> callable) {

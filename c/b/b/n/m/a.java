@@ -18,19 +18,19 @@ public class a implements TextureData {
     public c.b.b.m.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ETC1.a f27421b;
+    public ETC1.a f22646b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f27422c;
+    public boolean f22647c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f27423d;
+    public int f22648d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27424e;
+    public int f22649e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f27425f;
+    public boolean f22650f;
 
     public a(c.b.b.m.a aVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -39,26 +39,26 @@ public class a implements TextureData {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27423d = 0;
-        this.f27424e = 0;
-        this.f27425f = false;
+        this.f22648d = 0;
+        this.f22649e = 0;
+        this.f22650f = false;
         this.a = aVar;
-        this.f27422c = z;
+        this.f22647c = z;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27425f : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22650f : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -72,33 +72,33 @@ public class a implements TextureData {
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f27425f) {
-                if (!c.b.b.f.f27074b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
-                    Pixmap a = ETC1.a(this.f27421b, Pixmap.Format.RGB565);
-                    c.b.b.f.f27077e.q(i2, 0, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
-                    if (this.f27422c) {
-                        h.a(i2, a, a.n(), a.l());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.f22650f) {
+                if (!c.b.b.f.f22331b.a("GL_OES_compressed_ETC1_RGB8_texture")) {
+                    Pixmap a = ETC1.a(this.f22646b, Pixmap.Format.RGB565);
+                    c.b.b.f.f22334e.q(i, 0, a.j(), a.n(), a.l(), 0, a.i(), a.k(), a.m());
+                    if (this.f22647c) {
+                        h.a(i, a, a.n(), a.l());
                     }
                     a.dispose();
-                    this.f27422c = false;
+                    this.f22647c = false;
                 } else {
-                    c.b.b.n.c cVar = c.b.b.f.f27077e;
-                    int i3 = ETC1.f29756b;
-                    int i4 = this.f27423d;
-                    int i5 = this.f27424e;
-                    int capacity = this.f27421b.f29759g.capacity();
-                    ETC1.a aVar = this.f27421b;
-                    cVar.h(i2, 0, i3, i4, i5, 0, capacity - aVar.f29760h, aVar.f29759g);
+                    c.b.b.n.c cVar = c.b.b.f.f22334e;
+                    int i2 = ETC1.f23777b;
+                    int i3 = this.f22648d;
+                    int i4 = this.f22649e;
+                    int capacity = this.f22646b.f23779c.capacity();
+                    ETC1.a aVar = this.f22646b;
+                    cVar.h(i, 0, i2, i3, i4, 0, capacity - aVar.f23780d, aVar.f23779c);
                     if (g()) {
-                        c.b.b.f.f27078f.F(3553);
+                        c.b.b.f.f22335f.F(3553);
                     }
                 }
-                this.f27421b.dispose();
-                this.f27421b = null;
-                this.f27425f = false;
+                this.f22646b.dispose();
+                this.f22646b = null;
+                this.f22650f = false;
                 return;
             }
             throw new GdxRuntimeException("Call prepare() before calling consumeCompressedData()");
@@ -126,14 +126,14 @@ public class a implements TextureData {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27422c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22647c : invokeV.booleanValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f27424e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f22649e : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -147,7 +147,7 @@ public class a implements TextureData {
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f27423d : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f22648d : invokeV.intValue;
     }
 
     @Override // com.badlogic.gdx.graphics.TextureData
@@ -164,18 +164,18 @@ public class a implements TextureData {
     public void prepare() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            if (!this.f27425f) {
-                if (this.a == null && this.f27421b == null) {
+            if (!this.f22650f) {
+                if (this.a == null && this.f22646b == null) {
                     throw new GdxRuntimeException("Can only load once from ETC1Data");
                 }
                 c.b.b.m.a aVar = this.a;
                 if (aVar != null) {
-                    this.f27421b = new ETC1.a(aVar);
+                    this.f22646b = new ETC1.a(aVar);
                 }
-                ETC1.a aVar2 = this.f27421b;
-                this.f27423d = aVar2.f29757e;
-                this.f27424e = aVar2.f29758f;
-                this.f27425f = true;
+                ETC1.a aVar2 = this.f22646b;
+                this.f22648d = aVar2.a;
+                this.f22649e = aVar2.f23778b;
+                this.f22650f = true;
                 return;
             }
             throw new GdxRuntimeException("Already prepared");

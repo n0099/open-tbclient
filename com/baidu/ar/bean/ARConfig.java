@@ -57,9 +57,9 @@ public class ARConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -243,10 +243,10 @@ public class ARConfig {
         }
     }
 
-    public static void setARInitialType(int i2) {
+    public static void setARInitialType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, null, i2) == null) {
-            mARInitialType = i2;
+        if (interceptable == null || interceptable.invokeI(65557, null, i) == null) {
+            mARInitialType = i;
         }
     }
 
@@ -257,10 +257,10 @@ public class ARConfig {
         }
     }
 
-    public static void setARLaunchMode(int i2) {
+    public static void setARLaunchMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65559, null, i2) == null) {
-            mARLaunchMode = i2;
+        if (interceptable == null || interceptable.invokeI(65559, null, i) == null) {
+            mARLaunchMode = i;
         }
     }
 
@@ -271,10 +271,10 @@ public class ARConfig {
         }
     }
 
-    public static void setARType(int i2) {
+    public static void setARType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65561, null, i2) == null) {
-            mARType = i2;
+        if (interceptable == null || interceptable.invokeI(65561, null, i) == null) {
+            mARType = i;
         }
     }
 

@@ -4,6 +4,7 @@ import android.media.Rating;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -68,9 +69,9 @@ public final class RatingCompat implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -89,30 +90,30 @@ public final class RatingCompat implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public RatingCompat[] newArray(int i2) {
+            public RatingCompat[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new RatingCompat[i2] : (RatingCompat[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RatingCompat[i] : (RatingCompat[]) invokeI.objValue;
             }
         };
     }
 
-    public RatingCompat(int i2, float f2) {
+    public RatingCompat(int i, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Float.valueOf(f2)};
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mRatingStyle = i2;
+        this.mRatingStyle = i;
         this.mRatingValue = f2;
     }
 
@@ -166,33 +167,35 @@ public final class RatingCompat implements Parcelable {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
-            if (f2 < 0.0f || f2 > 100.0f) {
-                return null;
+            if (f2 >= 0.0f && f2 <= 100.0f) {
+                return new RatingCompat(6, f2);
             }
-            return new RatingCompat(6, f2);
+            Log.e(TAG, "Invalid percentage-based rating value");
+            return null;
         }
         return (RatingCompat) invokeF.objValue;
     }
 
-    public static RatingCompat newStarRating(int i2, float f2) {
+    public static RatingCompat newStarRating(int i, float f2) {
         InterceptResult invokeCommon;
         float f3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            if (i2 == 3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+            if (i == 3) {
                 f3 = 3.0f;
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 f3 = 4.0f;
-            } else if (i2 != 5) {
-                String str = "Invalid rating style (" + i2 + ") for a star rating";
+            } else if (i != 5) {
+                Log.e(TAG, "Invalid rating style (" + i + ") for a star rating");
                 return null;
             } else {
                 f3 = 5.0f;
             }
-            if (f2 < 0.0f || f2 > f3) {
-                return null;
+            if (f2 >= 0.0f && f2 <= f3) {
+                return new RatingCompat(i, f2);
             }
-            return new RatingCompat(i2, f2);
+            Log.e(TAG, "Trying to set out of range star-based rating");
+            return null;
         }
         return (RatingCompat) invokeCommon.objValue;
     }
@@ -206,18 +209,18 @@ public final class RatingCompat implements Parcelable {
         return (RatingCompat) invokeZ.objValue;
     }
 
-    public static RatingCompat newUnratedRating(int i2) {
+    public static RatingCompat newUnratedRating(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 3:
                 case 4:
                 case 5:
                 case 6:
-                    return new RatingCompat(i2, -1.0f);
+                    return new RatingCompat(i, -1.0f);
                 default:
                     return null;
             }
@@ -250,8 +253,8 @@ public final class RatingCompat implements Parcelable {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.mRatingObj == null && Build.VERSION.SDK_INT >= 19) {
                 if (isRated()) {
-                    int i2 = this.mRatingStyle;
-                    switch (i2) {
+                    int i = this.mRatingStyle;
+                    switch (i) {
                         case 1:
                             this.mRatingObj = Rating.newHeartRating(hasHeart());
                             break;
@@ -261,7 +264,7 @@ public final class RatingCompat implements Parcelable {
                         case 3:
                         case 4:
                         case 5:
-                            this.mRatingObj = Rating.newStarRating(i2, getStarRating());
+                            this.mRatingObj = Rating.newStarRating(i, getStarRating());
                             break;
                         case 6:
                             this.mRatingObj = Rating.newPercentageRating(getPercentRating());
@@ -288,8 +291,8 @@ public final class RatingCompat implements Parcelable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.mRatingStyle;
-            if ((i2 == 3 || i2 == 4 || i2 == 5) && isRated()) {
+            int i = this.mRatingStyle;
+            if ((i == 3 || i == 4 || i == 5) && isRated()) {
                 return this.mRatingValue;
             }
             return -1.0f;
@@ -331,9 +334,9 @@ public final class RatingCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             parcel.writeInt(this.mRatingStyle);
             parcel.writeFloat(this.mRatingValue);
         }

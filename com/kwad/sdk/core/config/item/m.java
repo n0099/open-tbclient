@@ -34,8 +34,8 @@ public class m extends b<List<com.kwad.sdk.core.response.model.b>> {
                 JSONArray jSONArray = new JSONArray(string);
                 if (jSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
                         com.kwad.sdk.core.response.model.b bVar = new com.kwad.sdk.core.response.model.b();
                         bVar.parseJson(optJSONObject);
                         arrayList.add(bVar);
@@ -57,8 +57,8 @@ public class m extends b<List<com.kwad.sdk.core.response.model.b>> {
         JSONArray optJSONArray;
         if (jSONObject != null && (optJSONArray = jSONObject.optJSONArray("posContentInfoList")) != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     com.kwad.sdk.core.response.model.b bVar = new com.kwad.sdk.core.response.model.b();
                     bVar.parseJson(optJSONObject);

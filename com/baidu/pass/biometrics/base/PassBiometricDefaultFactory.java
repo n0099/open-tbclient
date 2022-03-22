@@ -23,9 +23,9 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,9 +47,9 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -101,12 +101,12 @@ public class PassBiometricDefaultFactory extends PassBiometricFactory {
     }
 
     @Override // com.baidu.pass.biometrics.base.PassBiometricFactory
-    public PassBiometric getBiometric(int i2) {
+    public PassBiometric getBiometric(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             try {
-                return (PassBiometric) Class.forName(BiometricType.a(i2)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
+                return (PassBiometric) Class.forName(BiometricType.a(i)).getMethod("getInstance", new Class[0]).invoke(null, new Object[0]);
             } catch (Exception e2) {
                 Log.e(e2);
                 return a();

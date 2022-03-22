@@ -3,12 +3,12 @@ package com.ss.android.socialbase.downloader.f;
 import androidx.annotation.NonNull;
 import com.baidu.adp.plugin.PluginCenter;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n {
     public final JSONObject a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f58613b;
+    public int f43325b;
 
     public n(JSONObject jSONObject) {
         this.a = jSONObject;
@@ -18,8 +18,8 @@ public class n {
         return this.a.optInt("url_balance", 2);
     }
 
-    public void a(int i2) {
-        this.f58613b = b(i2);
+    public void a(int i) {
+        this.f43325b = b(i);
     }
 
     public boolean b() {
@@ -98,22 +98,22 @@ public class n {
         return Math.min(Math.max(0.0f, (float) this.a.optDouble("poor_speed_ratio", 0.0d)), 1.0f);
     }
 
-    private int b(int i2) {
+    private int b(int i) {
         int optInt = this.a.optInt("thread_count", 4);
         if (optInt > 16) {
             optInt = 16;
         }
         if (optInt > 0) {
-            return p() == 1 ? Math.min(optInt, i2) : optInt;
+            return p() == 1 ? Math.min(optInt, i) : optInt;
         } else if (p() > 0) {
-            return i2;
+            return i;
         } else {
             return 1;
         }
     }
 
     public int a() {
-        return this.f58613b;
+        return this.f43325b;
     }
 
     @NonNull

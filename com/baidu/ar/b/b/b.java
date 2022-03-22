@@ -20,43 +20,43 @@ public abstract class b extends com.baidu.ar.c.a<a> {
         public final /* synthetic */ b cK;
         public int type;
 
-        public a(b bVar, int i2, int i3) {
+        public a(b bVar, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {bVar, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.cK = bVar;
-            this.type = i2;
-            this.cJ = i3;
+            this.type = i;
+            this.cJ = i2;
         }
     }
 
-    public b(int i2) {
+    public b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.cI = i2;
+        this.cI = i;
     }
 
     public abstract int a(com.baidu.ar.mdl.a aVar);
@@ -66,18 +66,18 @@ public abstract class b extends com.baidu.ar.c.a<a> {
     /* renamed from: az */
     public a ay() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (com.baidu.ar.b.a.as().c(this.cI)) {
-                i2 = 0;
+                i = 0;
             } else {
-                i2 = a(com.baidu.ar.b.a.as().g(this.cI));
-                if (i2 == 0) {
+                i = a(com.baidu.ar.b.a.as().g(this.cI));
+                if (i == 0) {
                     com.baidu.ar.b.a.as().d(this.cI);
                 }
             }
-            return new a(this, this.cI, i2);
+            return new a(this, this.cI, i);
         }
         return (a) invokeV.objValue;
     }

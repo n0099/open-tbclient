@@ -6,9 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackSelectionArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +22,9 @@ public final class TrackSelectionArray {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackSelectionArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,10 +49,10 @@ public final class TrackSelectionArray {
         return invokeL.booleanValue;
     }
 
-    public TrackSelection get(int i2) {
+    public TrackSelection get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.trackSelections[i2] : (TrackSelection) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.trackSelections[i] : (TrackSelection) invokeI.objValue;
     }
 
     public TrackSelection[] getAll() {
@@ -67,7 +66,7 @@ public final class TrackSelectionArray {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (this.hashCode == 0) {
-                this.hashCode = PayBeanFactory.BEAN_ID_WIDTHDRAW + Arrays.hashCode(this.trackSelections);
+                this.hashCode = 527 + Arrays.hashCode(this.trackSelections);
             }
             return this.hashCode;
         }

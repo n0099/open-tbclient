@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.AbstractContainerBox;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MovieBox extends AbstractContainerBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "moov";
@@ -16,14 +16,14 @@ public class MovieBox extends AbstractContainerBox {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MovieBox() {
-        super(TYPE);
+        super("moov");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -58,8 +58,8 @@ public class MovieBox extends AbstractContainerBox {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             List boxes = getBoxes(TrackBox.class);
             long[] jArr = new long[boxes.size()];
-            for (int i2 = 0; i2 < boxes.size(); i2++) {
-                jArr[i2] = ((TrackBox) boxes.get(i2)).getTrackHeaderBox().getTrackId();
+            for (int i = 0; i < boxes.size(); i++) {
+                jArr[i] = ((TrackBox) boxes.get(i)).getTrackHeaderBox().getTrackId();
             }
             return jArr;
         }

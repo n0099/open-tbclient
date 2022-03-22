@@ -30,35 +30,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PostAnimateFloatView extends FrameLayout implements q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f33492b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33493c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f33494d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f43147e;
+    public boolean f33495e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f43148f;
+    public float f33496f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43149g;
+    public ValueAnimator f33497g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f43150h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f43151i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f43152j;
-    public ValueAnimator k;
-    public ValueAnimator l;
-    public final Runnable m;
+    public ValueAnimator f33498h;
+    public final Runnable i;
 
     /* loaded from: classes5.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43153e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public a(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -67,22 +67,22 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43153e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43153e.animateHide();
+                this.a.f();
             }
         }
     }
@@ -91,9 +91,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43154e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public b(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -102,23 +100,23 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43154e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.r0.o1.k.c.f();
-                new LocalChannelTopicListActivityConfig(this.f43154e.getContext()).start();
+                c.a.p0.q1.k.c.f();
+                new LocalChannelTopicListActivityConfig(this.a.getContext()).start();
             }
         }
     }
@@ -127,9 +125,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43155e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public c(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -138,15 +134,15 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43155e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -154,14 +150,14 @@ public class PostAnimateFloatView extends FrameLayout implements q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (this.f43155e.f43150h) {
-                    if (this.f43155e.f43149g != null) {
-                        this.f43155e.f43149g.getLayoutParams().width = (int) (this.f43155e.f43152j * floatValue);
-                        this.f43155e.f43149g.requestLayout();
+                if (this.a.f33494d) {
+                    if (this.a.f33493c != null) {
+                        this.a.f33493c.getLayoutParams().width = (int) (this.a.f33496f * floatValue);
+                        this.a.f33493c.requestLayout();
                     }
-                } else if (this.f43155e.f43149g != null) {
-                    this.f43155e.f43149g.getLayoutParams().width = (int) (this.f43155e.f43152j * (1.0f - floatValue));
-                    this.f43155e.f43149g.requestLayout();
+                } else if (this.a.f33493c != null) {
+                    this.a.f33493c.getLayoutParams().width = (int) (this.a.f33496f * (1.0f - floatValue));
+                    this.a.f33493c.requestLayout();
                 }
             }
         }
@@ -171,9 +167,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     public class d extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43156e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public d(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -182,40 +176,40 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43156e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.f43156e.f43150h) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animator) == null) || this.a.f33494d) {
                 return;
             }
-            this.f43156e.f43151i = false;
+            this.a.f33495e = false;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.f43156e.f43150h) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) || this.a.f33494d) {
                 return;
             }
-            this.f43156e.f43151i = false;
+            this.a.f33495e = false;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) && this.f43156e.f43150h) {
-                this.f43156e.f43151i = true;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) && this.a.f33494d) {
+                this.a.f33495e = true;
             }
         }
     }
@@ -224,9 +218,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     public class e implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43157e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public e(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -235,15 +227,15 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43157e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -251,12 +243,12 @@ public class PostAnimateFloatView extends FrameLayout implements q {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                if (this.f43157e.f43150h) {
-                    if (this.f43157e.f43149g != null) {
-                        this.f43157e.f43149g.setAlpha(floatValue);
+                if (this.a.f33494d) {
+                    if (this.a.f33493c != null) {
+                        this.a.f33493c.setAlpha(floatValue);
                     }
-                } else if (this.f43157e.f43149g != null) {
-                    this.f43157e.f43149g.setAlpha(1.0f - floatValue);
+                } else if (this.a.f33493c != null) {
+                    this.a.f33493c.setAlpha(1.0f - floatValue);
                 }
             }
         }
@@ -266,9 +258,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     public class f extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostAnimateFloatView f43158e;
+        public final /* synthetic */ PostAnimateFloatView a;
 
         public f(PostAnimateFloatView postAnimateFloatView) {
             Interceptable interceptable = $ic;
@@ -277,41 +267,41 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postAnimateFloatView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43158e = postAnimateFloatView;
+            this.a = postAnimateFloatView;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.f43158e.f43150h) {
-                this.f43158e.f43151i = false;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.a.f33494d) {
+                this.a.f33495e = false;
             }
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.f43158e.f43150h) {
-                this.f43158e.f43151i = false;
-                c.a.d.f.m.e.a().postDelayed(this.f43158e.m, 5000L);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) && this.a.f33494d) {
+                this.a.f33495e = false;
+                c.a.d.f.m.e.a().postDelayed(this.a.i, 5000L);
             }
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.f43158e.f43150h) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) || this.a.f33494d) {
                 return;
             }
-            this.f43158e.f43151i = true;
+            this.a.f33495e = true;
         }
     }
 
@@ -324,9 +314,9 @@ public class PostAnimateFloatView extends FrameLayout implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -337,117 +327,117 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     }
 
     @SuppressLint({"NewApi"})
-    public void animateHide() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f43151i && this.f43150h) {
-            h();
-            this.f43150h = false;
-            this.l.setStartDelay(0L);
-            this.k.setStartDelay(300L);
-            this.l.start();
-            this.k.start();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.f33495e && this.f33494d) {
+            k();
+            this.f33494d = false;
+            this.f33498h.setStartDelay(0L);
+            this.f33497g.setStartDelay(300L);
+            this.f33498h.start();
+            this.f33497g.start();
         }
     }
 
     @SuppressLint({"NewApi"})
-    public void animateShow() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f43151i || this.f43150h) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f33495e || this.f33494d) {
             return;
         }
-        h();
-        this.f43150h = true;
-        this.k.setStartDelay(0L);
-        this.l.setStartDelay(250L);
-        this.k.start();
-        this.l.start();
+        k();
+        this.f33494d = true;
+        this.f33497g.setStartDelay(0L);
+        this.f33498h.setStartDelay(250L);
+        this.f33497g.start();
+        this.f33498h.start();
     }
 
     @SuppressLint({"NewApi"})
-    public void destroy() {
+    public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ValueAnimator valueAnimator = this.l;
+            ValueAnimator valueAnimator = this.f33498h;
             if (valueAnimator != null) {
                 valueAnimator.removeAllUpdateListeners();
-                this.l.removeAllListeners();
+                this.f33498h.removeAllListeners();
             }
-            ValueAnimator valueAnimator2 = this.k;
+            ValueAnimator valueAnimator2 = this.f33497g;
             if (valueAnimator2 != null) {
                 valueAnimator2.removeAllUpdateListeners();
-                this.k.removeAllListeners();
+                this.f33497g.removeAllListeners();
             }
-            c.a.d.f.m.e.a().removeCallbacks(this.m);
+            c.a.d.f.m.e.a().removeCallbacks(this.i);
         }
     }
 
-    public final void f(Context context) {
+    public final void i(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.layout_post_animate_float_view, (ViewGroup) this, true);
-            this.f43147e = (LinearLayout) findViewById(R.id.root);
-            this.f43148f = (ImageView) findViewById(R.id.post_iv);
-            TextView textView = (TextView) findViewById(R.id.post_tv);
-            this.f43149g = textView;
-            this.f43152j = textView.getPaint().measureText(getContext().getString(R.string.post_new_local_thread));
-            g();
-            this.f43147e.setOnClickListener(new b(this));
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04b4, (ViewGroup) this, true);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091ad7);
+            this.f33492b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0918b4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0918d0);
+            this.f33493c = textView;
+            this.f33496f = textView.getPaint().measureText(getContext().getString(R.string.obfuscated_res_0x7f0f0e9c));
+            j();
+            this.a.setOnClickListener(new b(this));
         }
     }
 
     @SuppressLint({"NewApi"})
-    public final void g() {
+    public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.k == null) {
+            if (this.f33497g == null) {
                 ValueAnimator duration = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(350L);
-                this.k = duration;
+                this.f33497g = duration;
                 duration.setInterpolator(new LinearInterpolator());
             }
-            if (this.l == null) {
+            if (this.f33498h == null) {
                 ValueAnimator duration2 = ValueAnimator.ofFloat(0.0f, 1.0f).setDuration(400L);
-                this.l = duration2;
+                this.f33498h = duration2;
                 duration2.setInterpolator(new LinearInterpolator());
             }
         }
     }
 
     @SuppressLint({"NewApi"})
-    public final void h() {
+    public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ValueAnimator valueAnimator = this.k;
+            ValueAnimator valueAnimator = this.f33497g;
             if (valueAnimator != null) {
                 valueAnimator.removeAllUpdateListeners();
-                this.k.removeAllListeners();
-                this.k.addUpdateListener(new c(this));
-                this.k.addListener(new d(this));
+                this.f33497g.removeAllListeners();
+                this.f33497g.addUpdateListener(new c(this));
+                this.f33497g.addListener(new d(this));
             }
-            ValueAnimator valueAnimator2 = this.l;
+            ValueAnimator valueAnimator2 = this.f33498h;
             if (valueAnimator2 != null) {
                 valueAnimator2.removeAllUpdateListeners();
-                this.l.removeAllListeners();
-                this.l.addUpdateListener(new e(this));
-                this.l.addListener(new f(this));
+                this.f33498h.removeAllListeners();
+                this.f33498h.addUpdateListener(new e(this));
+                this.f33498h.addListener(new f(this));
             }
         }
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i2) == null) {
-            ImageView imageView = this.f43148f;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
+            ImageView imageView = this.f33492b;
             if (imageView != null) {
-                WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_issue30, R.color.CAM_X0101, null);
+                WebPManager.setPureDrawable(imageView, R.drawable.obfuscated_res_0x7f080914, R.color.CAM_X0101, null);
             }
-            TextView textView = this.f43149g;
+            TextView textView = this.f33493c;
             if (textView != null) {
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
             }
-            LinearLayout linearLayout = this.f43147e;
+            LinearLayout linearLayout = this.a;
             if (linearLayout != null) {
-                c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(linearLayout);
+                c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(linearLayout);
                 d2.n(R.string.J_X01);
                 d2.h(R.color.CAM_X0302);
             }
@@ -463,9 +453,9 @@ public class PostAnimateFloatView extends FrameLayout implements q {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -476,17 +466,17 @@ public class PostAnimateFloatView extends FrameLayout implements q {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PostAnimateFloatView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -494,7 +484,7 @@ public class PostAnimateFloatView extends FrameLayout implements q {
                 return;
             }
         }
-        this.m = new a(this);
-        f(context);
+        this.i = new a(this);
+        i(context);
     }
 }

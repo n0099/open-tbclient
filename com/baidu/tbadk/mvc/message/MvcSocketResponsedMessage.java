@@ -3,9 +3,9 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import c.a.d.f.d.l;
 import c.a.d.f.p.p;
-import c.a.q0.k0.b.d;
-import c.a.q0.k0.b.h;
-import c.a.q0.r.s.a;
+import c.a.o0.k0.b.d;
+import c.a.o0.k0.b.h;
+import c.a.o0.r.s.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
@@ -26,17 +26,17 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
     public D data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MvcSocketResponsedMessage(int i2) {
-        super(i2);
+    public MvcSocketResponsedMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -82,11 +82,11 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            super.afterDispatchInBackGround(i2, (int) bArr);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() != 0 || bArr == null) {
                 return;
             }
@@ -107,13 +107,13 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
             }
             if (dVar != null) {
                 String cacheKey = dVar.getCacheKey();
-                String v = dVar.v();
+                String x = dVar.x();
                 String currentAccount = dVar.isNeedUid() ? TbadkCoreApplication.getCurrentAccount() : null;
-                if (cacheKey == null || TextUtils.isEmpty(v) || bArr == null) {
+                if (cacheKey == null || TextUtils.isEmpty(x) || bArr == null) {
                     return;
                 }
                 a.f();
-                l<byte[]> e2 = a.e(v, currentAccount);
+                l<byte[]> e2 = a.e(x, currentAccount);
                 if (e2 == null) {
                     return;
                 }
@@ -124,11 +124,11 @@ public abstract class MvcSocketResponsedMessage<D extends h, M extends Message> 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
         List<Field> c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
             List<Field> c3 = c.a.d.f.p.d.c(parseFrom, Error.class);
             if (c3 == null || c3.size() <= 0) {

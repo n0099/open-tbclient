@@ -3,30 +3,30 @@ package com.ss.android.downloadlib.addownload.b;
 import com.ss.android.downloadlib.g.l;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57996b;
+    public long f42746b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f57997c;
+    public long f42747c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57998d;
+    public String f42748d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f57999e;
+    public String f42749e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f58000f;
+    public String f42750f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f58001g;
+    public String f42751g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile long f58002h;
+    public volatile long f42752h;
 
     public a() {
     }
@@ -35,27 +35,27 @@ public class a {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("mDownloadId", this.a);
-            jSONObject.put("mAdId", this.f57996b);
-            jSONObject.put("mExtValue", this.f57997c);
-            jSONObject.put("mPackageName", this.f57998d);
-            jSONObject.put("mAppName", this.f57999e);
-            jSONObject.put("mLogExtra", this.f58000f);
-            jSONObject.put("mFileName", this.f58001g);
-            jSONObject.put("mTimeStamp", this.f58002h);
+            jSONObject.put("mAdId", this.f42746b);
+            jSONObject.put("mExtValue", this.f42747c);
+            jSONObject.put("mPackageName", this.f42748d);
+            jSONObject.put("mAppName", this.f42749e);
+            jSONObject.put("mLogExtra", this.f42750f);
+            jSONObject.put("mFileName", this.f42751g);
+            jSONObject.put("mTimeStamp", this.f42752h);
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
         return jSONObject;
     }
 
-    public a(long j2, long j3, long j4, String str, String str2, String str3, String str4) {
-        this.a = j2;
-        this.f57996b = j3;
-        this.f57997c = j4;
-        this.f57998d = str;
-        this.f57999e = str2;
-        this.f58000f = str3;
-        this.f58001g = str4;
+    public a(long j, long j2, long j3, String str, String str2, String str3, String str4) {
+        this.a = j;
+        this.f42746b = j2;
+        this.f42747c = j3;
+        this.f42748d = str;
+        this.f42749e = str2;
+        this.f42750f = str3;
+        this.f42751g = str4;
     }
 
     public static a a(JSONObject jSONObject) {
@@ -65,13 +65,13 @@ public class a {
         a aVar = new a();
         try {
             aVar.a = l.a(jSONObject, "mDownloadId");
-            aVar.f57996b = l.a(jSONObject, "mAdId");
-            aVar.f57997c = l.a(jSONObject, "mExtValue");
-            aVar.f57998d = jSONObject.optString("mPackageName");
-            aVar.f57999e = jSONObject.optString("mAppName");
-            aVar.f58000f = jSONObject.optString("mLogExtra");
-            aVar.f58001g = jSONObject.optString("mFileName");
-            aVar.f58002h = l.a(jSONObject, "mTimeStamp");
+            aVar.f42746b = l.a(jSONObject, "mAdId");
+            aVar.f42747c = l.a(jSONObject, "mExtValue");
+            aVar.f42748d = jSONObject.optString("mPackageName");
+            aVar.f42749e = jSONObject.optString("mAppName");
+            aVar.f42750f = jSONObject.optString("mLogExtra");
+            aVar.f42751g = jSONObject.optString("mFileName");
+            aVar.f42752h = l.a(jSONObject, "mTimeStamp");
             return aVar;
         } catch (Exception e2) {
             e2.printStackTrace();

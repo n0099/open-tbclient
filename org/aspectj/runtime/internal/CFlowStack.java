@@ -16,7 +16,7 @@ import org.aspectj.runtime.internal.cflowstack.ThreadStack;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactory;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl;
 import org.aspectj.runtime.internal.cflowstack.ThreadStackFactoryImpl11;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class CFlowStack {
     public static /* synthetic */ Interceptable $ic;
     public static ThreadStackFactory tsFactory;
@@ -44,9 +44,9 @@ public class CFlowStack {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -108,15 +108,15 @@ public class CFlowStack {
         }
     }
 
-    public Object get(int i2) {
+    public Object get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             CFlow peekCFlow = peekCFlow();
             if (peekCFlow == null) {
                 return null;
             }
-            return peekCFlow.get(i2);
+            return peekCFlow.get(i);
         }
         return invokeI.objValue;
     }

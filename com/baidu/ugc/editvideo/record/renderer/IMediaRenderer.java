@@ -1,6 +1,6 @@
 package com.baidu.ugc.editvideo.record.renderer;
 
-import c.a.a0.b.a.e;
+import c.a.z.b.a.e;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.record.IMediaLifeCycleIncludeGlThread;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -17,11 +17,11 @@ public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
         public static final int TEXTURE_MODE_EXT = 0;
     }
 
-    void onDrawFrame(e eVar, int i2, float[] fArr);
+    void onDrawFrame(e eVar, int i, float[] fArr);
 
     void onGLLocation(GLViewPortLocation gLViewPortLocation);
 
-    void onSurfaceChanged(GL10 gl10, int i2, int i3);
+    void onSurfaceChanged(GL10 gl10, int i, int i2);
 
     void onSurfaceCreate(FullFrameRect fullFrameRect, FullFrameRect fullFrameRect2);
 
@@ -29,11 +29,11 @@ public interface IMediaRenderer extends IMediaLifeCycleIncludeGlThread {
 
     void setGlClearColor(float f2, float f3, float f4, float f5);
 
-    void setPreviewSize(int i2, int i3);
+    void setPreviewSize(int i, int i2);
 
     void setResolutionRatio(float f2);
 
     void setScaleAndTranslate(float f2, float f3, float f4, float f5);
 
-    void setTextureMode(int i2);
+    void setTextureMode(int i);
 }

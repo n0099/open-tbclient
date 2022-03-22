@@ -8,6 +8,7 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity;
 import com.ss.android.socialbase.downloader.depend.af;
 import com.ss.android.socialbase.downloader.depend.z;
@@ -15,7 +16,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadHandlerService extends Service {
     public static final String a = DownloadHandlerService.class.getSimpleName();
 
@@ -81,7 +82,7 @@ public class DownloadHandlerService extends Service {
         int id = downloadInfo.getId();
         Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
         intent.putExtra("extra_click_download_ids", id);
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         startActivity(intent);
         com.ss.android.socialbase.downloader.notification.b.a().a(id);
         downloadInfo.updateDownloadTime();
@@ -105,8 +106,8 @@ public class DownloadHandlerService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        super.onStartCommand(intent, i2, i3);
+    public int onStartCommand(Intent intent, int i, int i2) {
+        super.onStartCommand(intent, i, i2);
         if (com.ss.android.socialbase.downloader.c.a.a()) {
             com.ss.android.socialbase.downloader.c.a.b(a, "onStartCommand");
         }
@@ -173,7 +174,7 @@ public class DownloadHandlerService extends Service {
             if (a2) {
                 Intent intent = new Intent(this, DownloadTaskDeleteActivity.class);
                 intent.putExtra("extra_click_download_ids", id);
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 startActivity(intent);
                 com.ss.android.socialbase.downloader.notification.b.a().a(id);
                 downloadInfo.updateDownloadTime();
@@ -193,19 +194,19 @@ public class DownloadHandlerService extends Service {
         }
     }
 
-    public static void a(Context context, int i2, boolean z) {
+    public static void a(Context context, int i, boolean z) {
         boolean z2;
         af m;
         DownloadInfo downloadInfo;
-        if (z && (m = com.ss.android.socialbase.downloader.downloader.d.a().m(i2)) != null) {
+        if (z && (m = com.ss.android.socialbase.downloader.downloader.d.a().m(i)) != null) {
             try {
-                downloadInfo = Downloader.getInstance(context).getDownloadInfo(i2);
+                downloadInfo = Downloader.getInstance(context).getDownloadInfo(i);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (downloadInfo != null) {
                 z2 = m.b(downloadInfo);
-                if (z2 && c.a(context, i2, true) == 0) {
+                if (z2 && c.a(context, i, true) == 0) {
                     Toast.makeText(context, "Open Fail!", 0).show();
                 }
                 return;

@@ -65,16 +65,16 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         }
     }
 
-    public SegDetector(int i2) {
+    public SegDetector(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -97,7 +97,7 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         this.oz = true;
         this.oK = true;
         c.cd().a(this);
-        this.oU = i2;
+        this.oU = i;
         this.nk = new PixelReadParams(PixelType.BGR);
         fY();
     }
@@ -106,9 +106,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
-            int i2 = this.oU;
-            if (i2 != 4) {
-                return i2 != 5 ? 11 : 12;
+            int i = this.oU;
+            if (i != 4) {
+                return i != 5 ? 11 : 12;
             }
             return 13;
         }
@@ -117,27 +117,27 @@ public class SegDetector extends com.baidu.ar.b.a.a {
 
     private void fY() {
         PixelReadParams pixelReadParams;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
-            int i3 = this.oU;
-            if (i3 == 4) {
+            int i2 = this.oU;
+            if (i2 == 4) {
                 this.nk.setPixelType(PixelType.NV21);
                 this.nk.setOutputWidth(this.vG);
                 pixelReadParams = this.nk;
-                i2 = this.vH;
-            } else if (i3 != 5) {
+                i = this.vH;
+            } else if (i2 != 5) {
                 this.nk.setPixelType(PixelType.BGR);
                 this.nk.setOutputWidth(this.vC);
                 pixelReadParams = this.nk;
-                i2 = this.vD;
+                i = this.vD;
             } else {
                 this.nk.setPixelType(PixelType.NV21);
                 this.nk.setOutputWidth(this.vK);
                 pixelReadParams = this.nk;
-                i2 = this.vL;
+                i = this.vL;
             }
-            pixelReadParams.setOutputHeight(i2);
+            pixelReadParams.setOutputHeight(i);
         }
     }
 
@@ -146,10 +146,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
-            int i2 = this.vO;
-            if (i2 != -90) {
-                if (i2 != 90) {
-                    if (i2 != 180) {
+            int i = this.vO;
+            if (i != -90) {
+                if (i != 90) {
+                    if (i != 180) {
                         if (this.mIsFrontCamera) {
                             return 3;
                         }
@@ -170,10 +170,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, this)) == null) {
-            int i2 = this.vO;
-            if (i2 != -90) {
-                if (i2 != 90) {
-                    if (i2 != 180) {
+            int i = this.vO;
+            if (i != -90) {
+                if (i != 90) {
+                    if (i != 180) {
                         if (this.mIsFrontCamera) {
                             return 3;
                         }
@@ -197,10 +197,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65558, this)) == null) {
-            int i2 = this.vO;
-            if (i2 != -90) {
-                if (i2 != 90) {
-                    return (i2 == 180 ? !this.mIsFrontCamera : this.mIsFrontCamera) ? 270 : 90;
+            int i = this.vO;
+            if (i != -90) {
+                if (i != 90) {
+                    return (i == 180 ? !this.mIsFrontCamera : this.mIsFrontCamera) ? 270 : 90;
                 }
                 return 180;
             }
@@ -227,9 +227,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -245,16 +245,16 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, aVar)) == null) {
                     String str = aVar.tw[0];
-                    int i2 = this.vP.oU;
-                    if (i2 == 2) {
+                    int i = this.vP.oU;
+                    if (i == 2) {
                         int[] iArr = new int[2];
-                        return aVar.f31475tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
-                    } else if (i2 == 4) {
-                        return aVar.f31475tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
-                    } else if (i2 != 5) {
+                        return aVar.f24836tv ? ARMdlInterfaceJNI.initHumanSegFromAssetDir(str, 1, iArr) : ARMdlInterfaceJNI.initHumanSeg(str, 1, iArr);
+                    } else if (i == 4) {
+                        return aVar.f24836tv ? ARMdlInterfaceJNI.initHairSegFromAssetDir(str) : ARMdlInterfaceJNI.initHairSeg(str);
+                    } else if (i != 5) {
                         return -1;
                     } else {
-                        return aVar.f31475tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
+                        return aVar.f24836tv ? ARMdlInterfaceJNI.initSkySegFromAssetDir(str) : ARMdlInterfaceJNI.initSkySeg(str);
                     }
                 }
                 return invokeL2.intValue;
@@ -309,9 +309,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -326,14 +326,14 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 InterceptResult invokeV2;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) {
-                    int i2 = this.vP.oU;
-                    if (i2 == 2) {
+                    int i = this.vP.oU;
+                    if (i == 2) {
                         ARMdlInterfaceJNI.releaseHumanSeg();
                         return 0;
-                    } else if (i2 == 4) {
+                    } else if (i == 4) {
                         ARMdlInterfaceJNI.releaseHairSeg();
                         return 0;
-                    } else if (i2 != 5) {
+                    } else if (i != 5) {
                         return 0;
                     } else {
                         ARMdlInterfaceJNI.releaseSkySeg();
@@ -377,9 +377,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), framePixels};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -409,21 +409,21 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                 byte[] bArr2;
                 byte[] bArr3;
                 byte[] bArr4;
+                int i;
                 int i2;
                 int i3;
-                int i4;
                 Exception exc2;
                 byte[] bArr5;
                 byte[] bArr6;
                 byte[] bArr7;
+                int i4;
                 int i5;
-                int i6;
                 int gb;
                 byte[] bArr8;
                 byte[] bArr9;
                 f performanceApi;
                 long elapsedRealtime;
-                int i7;
+                int i6;
                 String str;
                 byte[] bArr10;
                 byte[] bArr11;
@@ -441,14 +441,14 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                     SegDetector segDetector = this.vP;
                     segDetector.mIsFrontCamera = isFrontCamera;
                     segDetector.vO = degree;
-                    int i8 = segDetector.oU;
-                    if (i8 != 2) {
+                    int i7 = segDetector.oU;
+                    if (i7 != 2) {
                         try {
                             try {
-                                if (i8 == 4) {
+                                if (i7 == 4) {
                                     byte[] bArr12 = new byte[this.vP.vI * this.vP.vJ];
-                                    i5 = this.vP.vI;
-                                    i6 = this.vP.vJ;
+                                    i4 = this.vP.vI;
+                                    i5 = this.vP.vJ;
                                     gb = this.vP.gb();
                                     long elapsedRealtime2 = SystemClock.elapsedRealtime();
                                     if (this.vP.oK) {
@@ -470,7 +470,7 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                             bArr6 = bArr9;
                                             performanceApi = StatisticApi.getPerformanceApi();
                                             elapsedRealtime = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                                            i7 = 0;
+                                            i6 = 0;
                                             str = "hair_seg";
                                         }
                                     } else {
@@ -480,17 +480,17 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                     bArr6 = bArr8;
                                     performanceApi = StatisticApi.getPerformanceApi();
                                     elapsedRealtime = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                                    i7 = 0;
+                                    i6 = 0;
                                     str = "hair_seg";
-                                } else if (i8 != 5) {
+                                } else if (i7 != 5) {
                                     bArr4 = null;
-                                    i4 = degree;
+                                    i3 = degree;
+                                    i = 0;
                                     i2 = 0;
-                                    i3 = 0;
                                 } else {
                                     byte[] bArr13 = new byte[this.vP.vM * this.vP.vN];
-                                    i5 = this.vP.vM;
-                                    i6 = this.vP.vN;
+                                    i4 = this.vP.vM;
+                                    i5 = this.vP.vN;
                                     gb = this.vP.ga();
                                     long elapsedRealtime3 = SystemClock.elapsedRealtime();
                                     if (this.vP.oK) {
@@ -511,7 +511,7 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                             bArr6 = bArr11;
                                             performanceApi = StatisticApi.getPerformanceApi();
                                             elapsedRealtime = SystemClock.elapsedRealtime() - elapsedRealtime3;
-                                            i7 = 0;
+                                            i6 = 0;
                                             str = "sky_seg";
                                         }
                                     } else {
@@ -521,19 +521,19 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                     bArr6 = bArr10;
                                     performanceApi = StatisticApi.getPerformanceApi();
                                     elapsedRealtime = SystemClock.elapsedRealtime() - elapsedRealtime3;
-                                    i7 = 0;
+                                    i6 = 0;
                                     str = "sky_seg";
                                 }
-                                performanceApi.recordAlgoTimeCost(str, "predict", elapsedRealtime, i7);
+                                performanceApi.recordAlgoTimeCost(str, "predict", elapsedRealtime, i6);
                             } catch (Exception e2) {
                                 exc2 = e2;
                                 bArr6 = bArr7;
                                 exc2.printStackTrace();
                                 bArr4 = bArr6;
+                                i = i4;
                                 i2 = i5;
-                                i3 = i6;
-                                i4 = gb;
-                                bVar.b(new a(bArr4, i2, i3, i4, framePixels2.isFrontCamera()));
+                                i3 = gb;
+                                bVar.b(new a(bArr4, i, i2, i3, framePixels2.isFrontCamera()));
                                 bVar.W(this.vP.getName());
                                 return bVar;
                             }
@@ -542,22 +542,22 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                             bArr6 = bArr5;
                             exc2.printStackTrace();
                             bArr4 = bArr6;
+                            i = i4;
                             i2 = i5;
-                            i3 = i6;
-                            i4 = gb;
-                            bVar.b(new a(bArr4, i2, i3, i4, framePixels2.isFrontCamera()));
+                            i3 = gb;
+                            bVar.b(new a(bArr4, i, i2, i3, framePixels2.isFrontCamera()));
                             bVar.W(this.vP.getName());
                             return bVar;
                         }
                         bArr4 = bArr6;
+                        i = i4;
                         i2 = i5;
-                        i3 = i6;
-                        i4 = gb;
+                        i3 = gb;
                     } else {
                         int[] iArr = new int[2];
                         byte[] bArr14 = new byte[this.vP.vE * this.vP.vF];
-                        int i9 = this.vP.vE;
-                        int i10 = this.vP.vF;
+                        int i8 = this.vP.vE;
+                        int i9 = this.vP.vF;
                         int fZ = this.vP.fZ();
                         long elapsedRealtime4 = SystemClock.elapsedRealtime();
                         if (this.vP.oK) {
@@ -580,10 +580,10 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                             bArr2 = bArr3;
                                             exc.printStackTrace();
                                             bArr4 = bArr2;
+                                            i = i8;
                                             i2 = i9;
-                                            i3 = i10;
-                                            i4 = fZ;
-                                            bVar.b(new a(bArr4, i2, i3, i4, framePixels2.isFrontCamera()));
+                                            i3 = fZ;
+                                            bVar.b(new a(bArr4, i, i2, i3, framePixels2.isFrontCamera()));
                                             bVar.W(this.vP.getName());
                                             return bVar;
                                         }
@@ -598,9 +598,9 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                                     bArr2 = bArr;
                                 }
                                 bArr4 = bArr2;
+                                i = i8;
                                 i2 = i9;
-                                i3 = i10;
-                                i4 = fZ;
+                                i3 = fZ;
                             }
                         } else {
                             bArr = bArr14;
@@ -609,11 +609,11 @@ public class SegDetector extends com.baidu.ar.b.a.a {
                         bArr2 = bArr;
                         StatisticApi.getPerformanceApi().recordAlgoTimeCost("bg_seg", "predict", SystemClock.elapsedRealtime() - elapsedRealtime4, 0);
                         bArr4 = bArr2;
+                        i = i8;
                         i2 = i9;
-                        i3 = i10;
-                        i4 = fZ;
+                        i3 = fZ;
                     }
-                    bVar.b(new a(bArr4, i2, i3, i4, framePixels2.isFrontCamera()));
+                    bVar.b(new a(bArr4, i, i2, i3, framePixels2.isFrontCamera()));
                     bVar.W(this.vP.getName());
                     return bVar;
                 }
@@ -645,8 +645,8 @@ public class SegDetector extends com.baidu.ar.b.a.a {
             byte[] gc = bVar.gd().gc();
             int orientation = bVar.gd().getOrientation();
             if (width > 0 && height > 0 && gc != null && gc.length > 0) {
-                int i2 = this.oU;
-                String str = i2 != 4 ? i2 != 5 ? "ability_image_segmentation" : "ability_sky_segmentation" : "ability_hair_segmentation";
+                int i = this.oU;
+                String str = i != 4 ? i != 5 ? "ability_image_segmentation" : "ability_sky_segmentation" : "ability_hair_segmentation";
                 if (orientation == 0 || orientation == 180 || orientation == 2) {
                     height = width;
                     width = height;

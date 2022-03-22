@@ -12,7 +12,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes9.dex */
+import org.apache.commons.codec.binary4util.BaseNCodec;
+/* loaded from: classes8.dex */
 public final class Base64 {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] MAP;
@@ -41,9 +42,9 @@ public final class Base64 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,7 +53,7 @@ public final class Base64 {
 
     public static byte[] decode(String str) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         char charAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -60,58 +61,58 @@ public final class Base64 {
             while (length > 0 && ((charAt = str.charAt(length - 1)) == '=' || charAt == '\n' || charAt == '\r' || charAt == ' ' || charAt == '\t')) {
                 length--;
             }
-            int i3 = (int) ((length * 6) / 8);
-            byte[] bArr = new byte[i3];
+            int i2 = (int) ((length * 6) / 8);
+            byte[] bArr = new byte[i2];
+            int i3 = 0;
             int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
-            for (int i7 = 0; i7 < length; i7++) {
-                char charAt2 = str.charAt(i7);
+            for (int i6 = 0; i6 < length; i6++) {
+                char charAt2 = str.charAt(i6);
                 if (charAt2 >= 'A' && charAt2 <= 'Z') {
-                    i2 = charAt2 - 'A';
+                    i = charAt2 - 'A';
                 } else if (charAt2 >= 'a' && charAt2 <= 'z') {
-                    i2 = charAt2 - 'G';
+                    i = charAt2 - 'G';
                 } else if (charAt2 >= '0' && charAt2 <= '9') {
-                    i2 = charAt2 + 4;
+                    i = charAt2 + 4;
                 } else if (charAt2 == '+' || charAt2 == '-') {
-                    i2 = 62;
+                    i = 62;
                 } else if (charAt2 == '/' || charAt2 == '_') {
-                    i2 = 63;
+                    i = 63;
                 } else {
                     if (charAt2 != '\n' && charAt2 != '\r' && charAt2 != ' ' && charAt2 != '\t') {
                         return null;
                     }
                 }
-                i5 = (i5 << 6) | ((byte) i2);
-                i4++;
-                if (i4 % 4 == 0) {
-                    int i8 = i6 + 1;
-                    bArr[i6] = (byte) (i5 >> 16);
-                    int i9 = i8 + 1;
-                    bArr[i8] = (byte) (i5 >> 8);
-                    bArr[i9] = (byte) i5;
-                    i6 = i9 + 1;
+                i4 = (i4 << 6) | ((byte) i);
+                i3++;
+                if (i3 % 4 == 0) {
+                    int i7 = i5 + 1;
+                    bArr[i5] = (byte) (i4 >> 16);
+                    int i8 = i7 + 1;
+                    bArr[i7] = (byte) (i4 >> 8);
+                    bArr[i8] = (byte) i4;
+                    i5 = i8 + 1;
                 }
             }
-            int i10 = i4 % 4;
-            if (i10 == 1) {
+            int i9 = i3 % 4;
+            if (i9 == 1) {
                 return null;
             }
-            if (i10 == 2) {
-                bArr[i6] = (byte) ((i5 << 12) >> 16);
-                i6++;
-            } else if (i10 == 3) {
-                int i11 = i5 << 6;
-                int i12 = i6 + 1;
-                bArr[i6] = (byte) (i11 >> 16);
-                i6 = i12 + 1;
-                bArr[i12] = (byte) (i11 >> 8);
+            if (i9 == 2) {
+                bArr[i5] = (byte) ((i4 << 12) >> 16);
+                i5++;
+            } else if (i9 == 3) {
+                int i10 = i4 << 6;
+                int i11 = i5 + 1;
+                bArr[i5] = (byte) (i10 >> 16);
+                i5 = i11 + 1;
+                bArr[i11] = (byte) (i10 >> 8);
             }
-            if (i6 == i3) {
+            if (i5 == i2) {
                 return bArr;
             }
-            byte[] bArr2 = new byte[i6];
-            System.arraycopy(bArr, 0, bArr2, 0, i6);
+            byte[] bArr2 = new byte[i5];
+            System.arraycopy(bArr, 0, bArr2, 0, i5);
             return bArr2;
         }
         return (byte[]) invokeL.objValue;
@@ -135,35 +136,35 @@ public final class Base64 {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, bArr2)) == null) {
             byte[] bArr3 = new byte[((bArr.length + 2) / 3) * 4];
             int length = bArr.length - (bArr.length % 3);
-            int i2 = 0;
-            for (int i3 = 0; i3 < length; i3 += 3) {
-                int i4 = i2 + 1;
-                bArr3[i2] = bArr2[(bArr[i3] & 255) >> 2];
-                int i5 = i4 + 1;
-                int i6 = i3 + 1;
-                bArr3[i4] = bArr2[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
-                int i7 = i5 + 1;
-                int i8 = i3 + 2;
-                bArr3[i5] = bArr2[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
-                i2 = i7 + 1;
-                bArr3[i7] = bArr2[bArr[i8] & 63];
+            int i = 0;
+            for (int i2 = 0; i2 < length; i2 += 3) {
+                int i3 = i + 1;
+                bArr3[i] = bArr2[(bArr[i2] & 255) >> 2];
+                int i4 = i3 + 1;
+                int i5 = i2 + 1;
+                bArr3[i3] = bArr2[((bArr[i2] & 3) << 4) | ((bArr[i5] & 255) >> 4)];
+                int i6 = i4 + 1;
+                int i7 = i2 + 2;
+                bArr3[i4] = bArr2[((bArr[i5] & 15) << 2) | ((bArr[i7] & 255) >> 6)];
+                i = i6 + 1;
+                bArr3[i6] = bArr2[bArr[i7] & 63];
             }
             int length2 = bArr.length % 3;
             if (length2 == 1) {
-                int i9 = i2 + 1;
-                bArr3[i2] = bArr2[(bArr[length] & 255) >> 2];
-                int i10 = i9 + 1;
-                bArr3[i9] = bArr2[(bArr[length] & 3) << 4];
-                bArr3[i10] = 61;
-                bArr3[i10 + 1] = 61;
+                int i8 = i + 1;
+                bArr3[i] = bArr2[(bArr[length] & 255) >> 2];
+                int i9 = i8 + 1;
+                bArr3[i8] = bArr2[(bArr[length] & 3) << 4];
+                bArr3[i9] = BaseNCodec.PAD_DEFAULT;
+                bArr3[i9 + 1] = BaseNCodec.PAD_DEFAULT;
             } else if (length2 == 2) {
-                int i11 = i2 + 1;
-                bArr3[i2] = bArr2[(bArr[length] & 255) >> 2];
-                int i12 = i11 + 1;
-                int i13 = length + 1;
-                bArr3[i11] = bArr2[((bArr[i13] & 255) >> 4) | ((bArr[length] & 3) << 4)];
-                bArr3[i12] = bArr2[(bArr[i13] & 15) << 2];
-                bArr3[i12 + 1] = 61;
+                int i10 = i + 1;
+                bArr3[i] = bArr2[(bArr[length] & 255) >> 2];
+                int i11 = i10 + 1;
+                int i12 = length + 1;
+                bArr3[i10] = bArr2[((bArr[i12] & 255) >> 4) | ((bArr[length] & 3) << 4)];
+                bArr3[i11] = bArr2[(bArr[i12] & 15) << 2];
+                bArr3[i11 + 1] = BaseNCodec.PAD_DEFAULT;
             }
             try {
                 return new String(bArr3, "US-ASCII");

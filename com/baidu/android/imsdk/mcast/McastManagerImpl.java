@@ -22,9 +22,9 @@ public class McastManagerImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,21 +61,21 @@ public class McastManagerImpl {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getJoinedCastId() : invokeV.longValue;
     }
 
-    public long getMaxReliableMsgId(long j2) {
+    public long getMaxReliableMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getMaxReliableMsgId(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getMaxReliableMsgId(j) : invokeJ.longValue;
     }
 
-    public long getReliableMsgCount(long j2) {
+    public long getReliableMsgCount(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? ConversationStudioManImpl.getInstance(this.mContext).getReliableMsgCount(j) : invokeJ.longValue;
     }
 
-    public void sendQuizOpts(long j2, long j3, int i2, String str, IMcastSetListener iMcastSetListener) {
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str, iMcastSetListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
         }
     }
 }

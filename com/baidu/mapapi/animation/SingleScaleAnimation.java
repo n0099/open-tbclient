@@ -45,16 +45,16 @@ public class SingleScaleAnimation extends Animation {
             a = new ScaleType[]{SCALE_X, scaleType};
         }
 
-        public ScaleType(String str, int i2) {
+        public ScaleType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -85,9 +85,9 @@ public class SingleScaleAnimation extends Animation {
             newInitContext.initArgs = r2;
             Object[] objArr = {scaleType, fArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -123,10 +123,10 @@ public class SingleScaleAnimation extends Animation {
     }
 
     @Override // com.baidu.mapapi.animation.Animation
-    public void setDuration(long j2) {
+    public void setDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.bdAnimation.a(j2);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.bdAnimation.a(j);
         }
     }
 
@@ -138,28 +138,28 @@ public class SingleScaleAnimation extends Animation {
         }
     }
 
-    public void setRepeatCount(int i2) {
+    public void setRepeatCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.bdAnimation.b(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.bdAnimation.b(i);
         }
     }
 
     public void setRepeatMode(Animation.RepeatMode repeatMode) {
         c cVar;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, repeatMode) == null) {
             if (repeatMode == Animation.RepeatMode.RESTART) {
                 cVar = this.bdAnimation;
-                i2 = 1;
+                i = 1;
             } else if (repeatMode != Animation.RepeatMode.REVERSE) {
                 return;
             } else {
                 cVar = this.bdAnimation;
-                i2 = 2;
+                i = 2;
             }
-            cVar.a(i2);
+            cVar.a(i);
         }
     }
 }

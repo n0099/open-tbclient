@@ -15,7 +15,7 @@ import com.tachikoma.core.bridge.JSContext;
 import com.tachikoma.core.bridge.TKJSContext;
 import com.tachikoma.core.exception.TKExceptionDispatcher;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8Proxy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class V8Proxy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -73,8 +73,8 @@ public class V8Proxy {
                     return v8Object.executeIntegerFunction(str, null);
                 }
                 V8Array makeV8Array = tKJSContext.context().makeV8Array();
-                for (int i2 : iArr) {
-                    makeV8Array.push(i2);
+                for (int i : iArr) {
+                    makeV8Array.push(i);
                 }
                 return v8Object.executeIntegerFunction(str, makeV8Array);
             } catch (Exception e2) {
@@ -140,14 +140,14 @@ public class V8Proxy {
         return invokeLL.intValue;
     }
 
-    public static int getV8IntValueSafely(V8Object v8Object, String str, int i2) {
+    public static int getV8IntValueSafely(V8Object v8Object, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, v8Object, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, v8Object, str, i)) == null) {
             try {
                 return getV8IntValue(v8Object, str);
             } catch (Exception unused) {
-                return i2;
+                return i;
             }
         }
         return invokeLLI.intValue;

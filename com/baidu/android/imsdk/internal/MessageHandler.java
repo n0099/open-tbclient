@@ -73,9 +73,9 @@ public class MessageHandler extends IMessageHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -85,12 +85,12 @@ public class MessageHandler extends IMessageHandler {
         this.mCurrentSocketState = null;
     }
 
-    private SocketState connectImpl(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
+    private SocketState connectImpl(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, str, i2)) == null) {
-            LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i2 + "-----------------");
-            this.mSocket = createSocket(str, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, this, str, i)) == null) {
+            LogUtils.i(TAG, "---------------ip:" + str + "  port:" + i + "-----------------");
+            this.mSocket = createSocket(str, i);
             SocketState socketState = new SocketState();
             Socket socket = this.mSocket;
             if (socket == null) {
@@ -109,18 +109,18 @@ public class MessageHandler extends IMessageHandler {
         return (SocketState) invokeLI.objValue;
     }
 
-    private Socket createSocket(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
+    private Socket createSocket(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, str, i)) == null) {
             int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
             if (readIntData != 0) {
                 if (readIntData == 1 || readIntData == 2 || readIntData == 3) {
-                    return createSocketRD(str, i2);
+                    return createSocketRD(str, i);
                 }
                 return null;
             } else if (Utility.isCreateTlsSocket(this.mContext)) {
-                return createSocketOnLine(str, i2);
+                return createSocketOnLine(str, i);
             } else {
                 LogUtils.d(TAG, "createSocketOnlineByTcp ip = " + str + " port = 8100");
                 return createSocketOnlineByTcp(str, 8100);
@@ -136,27 +136,27 @@ public class MessageHandler extends IMessageHandler {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private Socket createSocketOnLine(String str, int i2) throws IOException, IllegalArgumentException, AssertionError {
+    private Socket createSocketOnLine(String str, int i) throws IOException, IllegalArgumentException, AssertionError {
         InterceptResult invokeLI;
         SSLCertificateSocketFactory sSLCertificateSocketFactory;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i)) == null) {
             SSLSessionCache sSLSessionCache = new SSLSessionCache(this.mContext);
             if (Constants.URL_SOCKET_SERVER.equals(str)) {
                 try {
                     InetAddress[] allByName = InetAddress.getAllByName(str);
                     if (allByName != null && allByName.length > 0 && Utility.isIpv4Reachable()) {
                         int length = allByName.length;
-                        int i3 = 0;
+                        int i2 = 0;
                         while (true) {
-                            if (i3 >= length) {
+                            if (i2 >= length) {
                                 break;
                             }
-                            InetAddress inetAddress = allByName[i3];
+                            InetAddress inetAddress = allByName[i2];
                             if (inetAddress instanceof Inet4Address) {
                                 break;
                             }
-                            i3++;
+                            i2++;
                         }
                     }
                 } catch (Exception e2) {
@@ -171,7 +171,7 @@ public class MessageHandler extends IMessageHandler {
             }
             SSLSocket sSLSocket = null;
             if (sSLCertificateSocketFactory != null) {
-                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i2);
+                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
                 sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
                 sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
                 enableSessionTicket(sSLCertificateSocketFactory, sSLSocket);
@@ -191,16 +191,16 @@ public class MessageHandler extends IMessageHandler {
         return (Socket) invokeLI.objValue;
     }
 
-    private Socket createSocketOnlineByTcp(String str, int i2) throws IOException {
+    private Socket createSocketOnlineByTcp(String str, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
     }
 
-    private Socket createSocketRD(String str, int i2) throws IOException {
+    private Socket createSocketRD(String str, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i2)) == null) ? new Socket(str, i2) : (Socket) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
     }
 
     @TargetApi(17)
@@ -251,10 +251,10 @@ public class MessageHandler extends IMessageHandler {
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler
-    public SocketState socketConnect(String str, int i2) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+    public SocketState socketConnect(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) ? connectImpl(str, i2) : (SocketState) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) ? connectImpl(str, i) : (SocketState) invokeLI.objValue;
     }
 
     @Override // com.baidu.android.imsdk.internal.IMessageHandler

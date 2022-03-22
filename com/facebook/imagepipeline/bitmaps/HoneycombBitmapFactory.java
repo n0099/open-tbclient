@@ -19,7 +19,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(11)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class HoneycombBitmapFactory extends PlatformBitmapFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HoneycombBitmapFactory";
@@ -51,9 +51,9 @@ public class HoneycombBitmapFactory extends PlatformBitmapFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {emptyJpegGenerator, platformDecoder, closeableReferenceFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,22 +64,22 @@ public class HoneycombBitmapFactory extends PlatformBitmapFactory {
         this.mCloseableReferenceFactory = closeableReferenceFactory;
     }
 
-    private CloseableReference<Bitmap> createFallbackBitmap(int i2, int i3, Bitmap.Config config) {
+    private CloseableReference<Bitmap> createFallbackBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, this, i2, i3, config)) == null) ? this.mCloseableReferenceFactory.create(Bitmap.createBitmap(i2, i3, config), SimpleBitmapReleaser.getInstance()) : (CloseableReference) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, this, i, i2, config)) == null) ? this.mCloseableReferenceFactory.create(Bitmap.createBitmap(i, i2, config), SimpleBitmapReleaser.getInstance()) : (CloseableReference) invokeIIL.objValue;
     }
 
     @Override // com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory
     @TargetApi(12)
-    public CloseableReference<Bitmap> createBitmapInternal(int i2, int i3, Bitmap.Config config) {
+    public CloseableReference<Bitmap> createBitmapInternal(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) {
             if (this.mImmutableBitmapFallback) {
-                return createFallbackBitmap(i2, i3, config);
+                return createFallbackBitmap(i, i2, config);
             }
-            CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i2, (short) i3);
+            CloseableReference<PooledByteBuffer> generate = this.mJpegGenerator.generate((short) i, (short) i2);
             try {
                 EncodedImage encodedImage = new EncodedImage(generate);
                 encodedImage.setImageFormat(DefaultImageFormats.JPEG);
@@ -88,7 +88,7 @@ public class HoneycombBitmapFactory extends PlatformBitmapFactory {
                     CloseableReference.closeSafely(decodeJPEGFromEncodedImage);
                     this.mImmutableBitmapFallback = true;
                     FLog.wtf(TAG, "Immutable bitmap returned by decoder");
-                    CloseableReference<Bitmap> createFallbackBitmap = createFallbackBitmap(i2, i3, config);
+                    CloseableReference<Bitmap> createFallbackBitmap = createFallbackBitmap(i, i2, config);
                     EncodedImage.closeSafely(encodedImage);
                     return createFallbackBitmap;
                 }

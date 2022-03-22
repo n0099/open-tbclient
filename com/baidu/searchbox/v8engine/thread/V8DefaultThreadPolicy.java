@@ -30,9 +30,9 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8DefaultThreadPolicy};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -60,9 +60,9 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Engine};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -127,12 +127,12 @@ public class V8DefaultThreadPolicy implements V8ThreadDelegatePolicy {
     }
 
     @Override // com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy
-    public void doDelegateRunnable(Runnable runnable, long j2) {
+    public void doDelegateRunnable(Runnable runnable, long j) {
         Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2) == null) || (handler = this.mHandler) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j) == null) || (handler = this.mHandler) == null) {
             return;
         }
-        handler.postDelayed(runnable, j2);
+        handler.postDelayed(runnable, j);
     }
 }

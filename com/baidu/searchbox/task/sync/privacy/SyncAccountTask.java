@@ -1,9 +1,10 @@
 package com.baidu.searchbox.task.sync.privacy;
 
-import c.a.q0.r.d0.a;
-import c.a.q0.r.m.c;
+import c.a.o0.r.d0.a;
+import c.a.o0.r.m.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,9 +23,9 @@ public class SyncAccountTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,11 +36,11 @@ public class SyncAccountTask extends LaunchTask {
     public void execute() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && StringUtils.isNull(TbadkCoreApplication.getCurrentAccount())) {
-            a.a("account", -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
+            a.a(DI.ACCOUNT, -1L, 0, "logo_activity_uninit_account", 0, "", new Object[0]);
             if (TbadkCoreApplication.getInst().getDatabasePath(TbConfig.PHONE_DATEBASE_NAME).exists()) {
                 return;
             }
-            a.a("account", -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
+            a.a(DI.ACCOUNT, -1L, 0, "logo_activity_sync_account", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(c.e(), TbadkCoreApplication.getInst());
         }
     }

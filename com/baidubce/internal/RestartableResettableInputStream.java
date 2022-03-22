@@ -10,7 +10,7 @@ import com.baidubce.BceClientException;
 import com.baidubce.util.CheckUtils;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RestartableResettableInputStream extends RestartableInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class RestartableResettableInputStream extends RestartableInputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public class RestartableResettableInputStream extends RestartableInputStream {
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3)) == null) ? this.input.read(bArr, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) ? this.input.read(bArr, i, i2) : invokeLII.intValue;
     }
 
     @Override // com.baidubce.internal.RestartableInputStream

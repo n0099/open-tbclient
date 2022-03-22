@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,9 +40,8 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ActLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LENGTH_APPKEY = 8;
@@ -68,17 +68,17 @@ public class ActLog {
     public static volatile String mUploadUrl;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface ActLogListener {
         void sendFail(String str, String str2, String str3, String str4, Integer num, String str5, String str6, String str7);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface ILogConfigListener {
         JSONObject getLogConfig();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class LogWriter {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BUFFER_MAX_LEN = 50;
@@ -146,7 +146,7 @@ public class ActLog {
                     this.bufferCount.decrementAndGet();
                     try {
                         fileWriter.write(poll);
-                        fileWriter.write(StringUtils.LF);
+                        fileWriter.write("\n");
                         fileWriter.flush();
                         poll = this.logBuffer.poll();
                     } catch (IOException e2) {
@@ -180,9 +180,9 @@ public class ActLog {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -224,29 +224,29 @@ public class ActLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void addLogLength(long j2) {
+    public static void addLogLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65550, null, j2) == null) {
-            long addAndGet = countLength.addAndGet(j2);
+        if (interceptable == null || interceptable.invokeJ(65550, null, j) == null) {
+            long addAndGet = countLength.addAndGet(j);
             if (addAndGet > 52428800) {
-                countLength.getAndAdd(delLog(addAndGet - 10485760) * (-1));
+                countLength.getAndAdd(delLog(addAndGet - Config.FULL_TRACE_LOG_LIMIT) * (-1));
             }
         }
     }
 
-    public static long delLog(long j2, String str) {
+    public static long delLog(long j, String str) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65552, null, j2, str)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65552, null, j, str)) == null) {
             File[] listFiles = new File(str).listFiles();
             ArrayList arrayList = new ArrayList(listFiles.length);
             for (File file : listFiles) {
@@ -261,9 +261,9 @@ public class ActLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -279,26 +279,26 @@ public class ActLog {
                 }
             });
             Iterator it = arrayList.iterator();
-            long j3 = 0;
+            long j2 = 0;
             while (it.hasNext()) {
                 File file2 = (File) it.next();
                 long length = file2.length();
                 if (file2.delete()) {
-                    j3 += length;
+                    j2 += length;
                 }
-                if (j3 >= j2) {
+                if (j2 >= j) {
                     break;
                 }
             }
-            return j3;
+            return j2;
         }
         return invokeJL.longValue;
     }
 
-    public static void delLogFile(String str, int i2) {
+    public static void delLogFile(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65553, null, str, i2) == null) && isDelete.compareAndSet(false, true)) {
-            ThreadPool.getPool().execute(new Runnable(str, i2) { // from class: com.yy.hiidostatis.inner.util.log.ActLog.5
+        if ((interceptable == null || interceptable.invokeLI(65553, null, str, i) == null) && isDelete.compareAndSet(false, true)) {
+            ThreadPool.getPool().execute(new Runnable(str, i) { // from class: com.yy.hiidostatis.inner.util.log.ActLog.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int val$dayAgo;
@@ -309,18 +309,18 @@ public class ActLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {str, Integer.valueOf(i2)};
+                        Object[] objArr = {str, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.val$path = str;
-                    this.val$dayAgo = i2;
+                    this.val$dayAgo = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -332,18 +332,18 @@ public class ActLog {
                             File[] listFiles = file.listFiles();
                             if (listFiles != null) {
                                 int length = listFiles.length;
-                                int i3 = 0;
+                                int i2 = 0;
                                 for (File file2 : listFiles) {
                                     String name = file2.getName();
                                     if (ActLog.matchFileName(name, this.val$dayAgo)) {
                                         boolean delete = file2.delete();
                                         if (delete) {
-                                            i3++;
+                                            i2++;
                                         }
                                         L.debug("ActLog", "delLogFile [%s] = %b ", name, Boolean.valueOf(delete));
                                     }
                                 }
-                                if (i3 == length) {
+                                if (i2 == length) {
                                     file.delete();
                                 }
                             }
@@ -395,11 +395,11 @@ public class ActLog {
     public static int[] getTotal(Context context, String str) {
         InterceptResult invokeLL;
         BufferedReader bufferedReader;
+        int i;
         int i2;
         int i3;
         int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65557, null, context, str)) == null) {
             if (initActLog(context)) {
@@ -416,9 +416,9 @@ public class ActLog {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i7 = newInitContext.flag;
-                                    if ((i7 & 1) != 0) {
-                                        int i8 = i7 & 2;
+                                    int i6 = newInitContext.flag;
+                                    if ((i6 & 1) != 0) {
+                                        int i7 = i6 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -436,11 +436,11 @@ public class ActLog {
                         }));
                     }
                     BufferedReader bufferedReader2 = null;
+                    i = 0;
                     i2 = 0;
                     i3 = 0;
                     i4 = 0;
                     i5 = 0;
-                    i6 = 0;
                     for (File file : arrayList) {
                         try {
                             try {
@@ -459,15 +459,15 @@ public class ActLog {
                                             }
                                             String str2 = strArr[strArr.length > 8 ? (char) 4 : (char) 3];
                                             if (TYPE_ADD.equals(str2)) {
-                                                i2++;
+                                                i++;
                                             } else if (TYPE_FAIL.equals(str2)) {
-                                                i3++;
+                                                i2++;
                                             } else if (TYPE_SUC.equals(str2)) {
-                                                i4++;
+                                                i3++;
                                             } else if (TYPE_DISCARD.equals(str2)) {
-                                                i5++;
+                                                i4++;
                                             } else if (TYPE_RETRY.equals(str2)) {
-                                                i6++;
+                                                i5++;
                                             }
                                         } else {
                                             try {
@@ -483,7 +483,7 @@ public class ActLog {
                                                             L.error("ActLog", th2.getMessage(), new Object[0]);
                                                         }
                                                     }
-                                                    return new int[]{i2, i3, i4, i5, i6};
+                                                    return new int[]{i, i2, i3, i4, i5};
                                                 } catch (Throwable th3) {
                                                     if (bufferedReader != null) {
                                                         try {
@@ -526,13 +526,13 @@ public class ActLog {
                 } catch (Throwable th9) {
                     th = th9;
                     bufferedReader = null;
+                    i = 0;
                     i2 = 0;
                     i3 = 0;
                     i4 = 0;
                     i5 = 0;
-                    i6 = 0;
                 }
-                return new int[]{i2, i3, i4, i5, i6};
+                return new int[]{i, i2, i3, i4, i5};
             }
             return new int[]{0, 0, 0, 0, 0};
         }
@@ -555,15 +555,15 @@ public class ActLog {
                 }
                 mContext = (Application) (context instanceof Application ? context : context.getApplicationContext());
                 innerPath = String.format("%s/%s", context.getCacheDir().getAbsolutePath(), mLogNamePre);
-                long j2 = 0;
+                long j = 0;
                 File file = new File(innerPath);
                 if (file.exists()) {
                     innerPathValid = true;
                     for (File file2 : file.listFiles()) {
-                        j2 += file2.length();
+                        j += file2.length();
                     }
                 }
-                countLength.set(j2);
+                countLength.set(j);
                 initActLog = true;
                 return initActLog;
             }
@@ -577,12 +577,12 @@ public class ActLog {
         return (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) ? logEnable : invokeV.booleanValue;
     }
 
-    public static boolean matchFileName(String str, int i2) {
+    public static boolean matchFileName(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65560, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65560, null, str, i)) == null) {
             try {
-                return Util.daysBetween(Util.parseDate("yyyyMMdd", str.substring(str.lastIndexOf("_") + 1, str.lastIndexOf(".")).substring(0, 8)).getTime(), System.currentTimeMillis()) > i2;
+                return Util.daysBetween(Util.parseDate("yyyyMMdd", str.substring(str.lastIndexOf("_") + 1, str.lastIndexOf(".")).substring(0, 8)).getTime(), System.currentTimeMillis()) > i;
             } catch (Throwable th) {
                 L.warn("ActLog", "matchFileName excetion = %s", th);
                 return false;
@@ -662,9 +662,9 @@ public class ActLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {iLogConfigListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -745,9 +745,9 @@ public class ActLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str3, str, str4, str2, str5, str6, str7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -815,9 +815,9 @@ public class ActLog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str2, str3, str, num, str5, str4};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -838,7 +838,7 @@ public class ActLog {
                             try {
                                 String str6 = this.val$host;
                                 if (str6 != null) {
-                                    str6 = (str6 + StringUtils.LF + InetAddress.getByName(this.val$host).getHostAddress()) + StringUtils.LF + TextUtils.join(" ", InetAddress.getAllByName(this.val$host));
+                                    str6 = (str6 + "\n" + InetAddress.getByName(this.val$host).getHostAddress()) + "\n" + TextUtils.join(" ", InetAddress.getAllByName(this.val$host));
                                 }
                                 String formatDate = Util.formatDate("yyyyMMddHHmmss", System.currentTimeMillis());
                                 Map<String, String> parseParams = Util.parseParams(this.val$content);
@@ -893,9 +893,9 @@ public class ActLog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str3, str, str2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -990,9 +990,9 @@ public class ActLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str2, str, str3, str4, str5};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1043,13 +1043,13 @@ public class ActLog {
         }
     }
 
-    public static long delLog(long j2) {
+    public static long delLog(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65551, null, j)) == null) {
             try {
                 if (innerPathValid) {
-                    return delLog(j2, innerPath);
+                    return delLog(j, innerPath);
                 }
                 return 0L;
             } catch (Throwable th) {

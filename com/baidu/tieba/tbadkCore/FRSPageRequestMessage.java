@@ -1,9 +1,9 @@
 package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.b0;
-import c.a.q0.c1.i;
-import c.a.r0.j3.k0.a;
+import c.a.o0.c1.b0;
+import c.a.o0.c1.i;
+import c.a.p0.l3.k0.a;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -47,9 +47,9 @@ public class FRSPageRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -173,45 +173,45 @@ public class FRSPageRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.needCache : invokeV.booleanValue;
     }
 
-    public void setCallFrom(int i2) {
+    public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.callFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.callFrom = i;
         }
     }
 
-    public void setCategoryId(int i2) {
+    public void setCategoryId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.categoryId = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.categoryId = i;
         }
     }
 
-    public void setCid(int i2) {
+    public void setCid(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.cid = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.cid = i;
         }
     }
 
-    public void setCtime(int i2) {
+    public void setCtime(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.ctime = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.ctime = i;
         }
     }
 
-    public void setDataSize(int i2) {
+    public void setDataSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.dataSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.dataSize = i;
         }
     }
 
-    public void setIsGood(int i2) {
+    public void setIsGood(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.isGood = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.isGood = i;
         }
     }
 
@@ -236,24 +236,24 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setNetError(int i2) {
+    public void setNetError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.netError = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.netError = i;
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setRn(int i2) {
+    public void setRn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.rn = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.rn = i;
         }
     }
 
@@ -264,24 +264,24 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setScrH(int i2) {
+    public void setScrH(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.scrH = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.scrH = i;
         }
     }
 
-    public void setScrW(int i2) {
+    public void setScrW(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.scrW = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.scrW = i;
         }
     }
 
-    public void setStParam(int i2) {
+    public void setStParam(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.stParam = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.stParam = i;
         }
     }
 
@@ -292,24 +292,24 @@ public class FRSPageRequestMessage extends NetMessage {
         }
     }
 
-    public void setUpdateType(int i2) {
+    public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.updateType = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.updateType = i;
         }
     }
 
-    public void setWithGroup(int i2) {
+    public void setWithGroup(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.withGroup = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.withGroup = i;
         }
     }
 
-    public void setqType(int i2) {
+    public void setqType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.qType = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.qType = i;
         }
     }
 

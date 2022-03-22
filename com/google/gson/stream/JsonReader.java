@@ -1,6 +1,7 @@
 package com.google.gson.stream;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,8 +18,7 @@ import java.io.Closeable;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.Reader;
-import org.apache.commons.lang3.CharUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
+import kotlin.text.Typography;
 /* loaded from: classes7.dex */
 public class JsonReader implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -90,9 +90,9 @@ public class JsonReader implements Closeable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -107,15 +107,15 @@ public class JsonReader implements Closeable {
                         ((JsonTreeReader) jsonReader).promoteNameToValue();
                         return;
                     }
-                    int i2 = jsonReader.peeked;
-                    if (i2 == 0) {
-                        i2 = jsonReader.doPeek();
+                    int i = jsonReader.peeked;
+                    if (i == 0) {
+                        i = jsonReader.doPeek();
                     }
-                    if (i2 == 13) {
+                    if (i == 13) {
                         jsonReader.peeked = 9;
-                    } else if (i2 == 12) {
+                    } else if (i == 12) {
                         jsonReader.peeked = 8;
-                    } else if (i2 == 14) {
+                    } else if (i == 14) {
                         jsonReader.peeked = 10;
                     } else {
                         throw new IllegalStateException("Expected a name but was " + jsonReader.peek() + jsonReader.locationString());
@@ -132,9 +132,9 @@ public class JsonReader implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {reader};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -174,20 +174,20 @@ public class JsonReader implements Closeable {
             return;
         }
         nextNonWhitespace(true);
-        int i2 = this.pos - 1;
-        this.pos = i2;
+        int i = this.pos - 1;
+        this.pos = i;
         char[] cArr = NON_EXECUTE_PREFIX;
-        if (i2 + cArr.length > this.limit && !fillBuffer(cArr.length)) {
+        if (i + cArr.length > this.limit && !fillBuffer(cArr.length)) {
             return;
         }
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
             char[] cArr2 = NON_EXECUTE_PREFIX;
-            if (i3 < cArr2.length) {
-                if (this.buffer[this.pos + i3] != cArr2[i3]) {
+            if (i2 < cArr2.length) {
+                if (this.buffer[this.pos + i2] != cArr2[i2]) {
                     return;
                 }
-                i3++;
+                i2++;
             } else {
                 this.pos += cArr2.length;
                 return;
@@ -195,39 +195,39 @@ public class JsonReader implements Closeable {
         }
     }
 
-    private boolean fillBuffer(int i2) throws IOException {
+    private boolean fillBuffer(int i) throws IOException {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
             char[] cArr = this.buffer;
-            int i4 = this.lineStart;
-            int i5 = this.pos;
-            this.lineStart = i4 - i5;
-            int i6 = this.limit;
-            if (i6 != i5) {
-                int i7 = i6 - i5;
-                this.limit = i7;
-                System.arraycopy(cArr, i5, cArr, 0, i7);
+            int i3 = this.lineStart;
+            int i4 = this.pos;
+            this.lineStart = i3 - i4;
+            int i5 = this.limit;
+            if (i5 != i4) {
+                int i6 = i5 - i4;
+                this.limit = i6;
+                System.arraycopy(cArr, i4, cArr, 0, i6);
             } else {
                 this.limit = 0;
             }
             this.pos = 0;
             do {
                 Reader reader = this.in;
-                int i8 = this.limit;
-                int read = reader.read(cArr, i8, cArr.length - i8);
+                int i7 = this.limit;
+                int read = reader.read(cArr, i7, cArr.length - i7);
                 if (read == -1) {
                     return false;
                 }
-                int i9 = this.limit + read;
-                this.limit = i9;
-                if (this.lineNumber == 0 && (i3 = this.lineStart) == 0 && i9 > 0 && cArr[0] == 65279) {
+                int i8 = this.limit + read;
+                this.limit = i8;
+                if (this.lineNumber == 0 && (i2 = this.lineStart) == 0 && i8 > 0 && cArr[0] == 65279) {
                     this.pos++;
-                    this.lineStart = i3 + 1;
-                    i2++;
+                    this.lineStart = i2 + 1;
+                    i++;
                 }
-            } while (this.limit < i2);
+            } while (this.limit < i);
             return true;
         }
         return invokeI.booleanValue;
@@ -274,30 +274,30 @@ public class JsonReader implements Closeable {
             return invokeZ.intValue;
         }
         char[] cArr = this.buffer;
-        int i2 = this.pos;
-        int i3 = this.limit;
+        int i = this.pos;
+        int i2 = this.limit;
         while (true) {
-            if (i2 == i3) {
-                this.pos = i2;
+            if (i == i2) {
+                this.pos = i;
                 if (!fillBuffer(1)) {
                     if (z) {
                         throw new EOFException("End of input" + locationString());
                     }
                     return -1;
                 }
-                i2 = this.pos;
-                i3 = this.limit;
+                i = this.pos;
+                i2 = this.limit;
             }
-            int i4 = i2 + 1;
-            char c2 = cArr[i2];
+            int i3 = i + 1;
+            char c2 = cArr[i];
             if (c2 == '\n') {
                 this.lineNumber++;
-                this.lineStart = i4;
+                this.lineStart = i3;
             } else if (c2 != ' ' && c2 != '\r' && c2 != '\t') {
                 if (c2 == '/') {
-                    this.pos = i4;
-                    if (i4 == i3) {
-                        this.pos = i4 - 1;
+                    this.pos = i3;
+                    if (i3 == i2) {
+                        this.pos = i3 - 1;
                         boolean fillBuffer = fillBuffer(2);
                         this.pos++;
                         if (!fillBuffer) {
@@ -305,36 +305,36 @@ public class JsonReader implements Closeable {
                         }
                     }
                     checkLenient();
-                    int i5 = this.pos;
-                    char c3 = cArr[i5];
+                    int i4 = this.pos;
+                    char c3 = cArr[i4];
                     if (c3 == '*') {
-                        this.pos = i5 + 1;
+                        this.pos = i4 + 1;
                         if (skipTo("*/")) {
-                            i2 = this.pos + 2;
-                            i3 = this.limit;
+                            i = this.pos + 2;
+                            i2 = this.limit;
                         } else {
                             throw syntaxError("Unterminated comment");
                         }
                     } else if (c3 != '/') {
                         return c2;
                     } else {
-                        this.pos = i5 + 1;
+                        this.pos = i4 + 1;
                         skipToEndOfLine();
-                        i2 = this.pos;
-                        i3 = this.limit;
+                        i = this.pos;
+                        i2 = this.limit;
                     }
                 } else if (c2 == '#') {
-                    this.pos = i4;
+                    this.pos = i3;
                     checkLenient();
                     skipToEndOfLine();
-                    i2 = this.pos;
-                    i3 = this.limit;
+                    i = this.pos;
+                    i2 = this.limit;
                 } else {
-                    this.pos = i4;
+                    this.pos = i3;
                     return c2;
                 }
             }
-            i2 = i4;
+            i = i3;
         }
     }
 
@@ -358,38 +358,38 @@ public class JsonReader implements Closeable {
             char[] cArr = this.buffer;
             StringBuilder sb = null;
             do {
-                int i2 = this.pos;
-                int i3 = this.limit;
+                int i = this.pos;
+                int i2 = this.limit;
                 while (true) {
-                    int i4 = i3;
-                    int i5 = i2;
-                    while (i2 < i4) {
-                        int i6 = i2 + 1;
-                        char c3 = cArr[i2];
+                    int i3 = i2;
+                    int i4 = i;
+                    while (i < i3) {
+                        int i5 = i + 1;
+                        char c3 = cArr[i];
                         if (c3 == c2) {
-                            this.pos = i6;
-                            int i7 = (i6 - i5) - 1;
+                            this.pos = i5;
+                            int i6 = (i5 - i4) - 1;
                             if (sb == null) {
-                                return new String(cArr, i5, i7);
+                                return new String(cArr, i4, i6);
                             }
-                            sb.append(cArr, i5, i7);
+                            sb.append(cArr, i4, i6);
                             return sb.toString();
                         } else if (c3 == '\\') {
-                            this.pos = i6;
-                            int i8 = (i6 - i5) - 1;
+                            this.pos = i5;
+                            int i7 = (i5 - i4) - 1;
                             if (sb == null) {
-                                sb = new StringBuilder(Math.max((i8 + 1) * 2, 16));
+                                sb = new StringBuilder(Math.max((i7 + 1) * 2, 16));
                             }
-                            sb.append(cArr, i5, i8);
+                            sb.append(cArr, i4, i7);
                             sb.append(readEscapeCharacter());
-                            i2 = this.pos;
-                            i3 = this.limit;
+                            i = this.pos;
+                            i2 = this.limit;
                         } else {
                             if (c3 == '\n') {
                                 this.lineNumber++;
-                                this.lineStart = i6;
+                                this.lineStart = i5;
                             }
-                            i2 = i6;
+                            i = i5;
                         }
                     }
                     break;
@@ -413,14 +413,14 @@ public class JsonReader implements Closeable {
         String sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             StringBuilder sb2 = null;
             do {
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
-                    int i4 = this.pos;
-                    if (i4 + i3 < this.limit) {
-                        char c2 = this.buffer[i4 + i3];
+                    int i3 = this.pos;
+                    if (i3 + i2 < this.limit) {
+                        char c2 = this.buffer[i3 + i2];
                         if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
                             if (c2 != '#') {
                                 if (c2 != ',') {
@@ -434,7 +434,7 @@ public class JsonReader implements Closeable {
                                                     case '\\':
                                                         break;
                                                     default:
-                                                        i3++;
+                                                        i2++;
                                                 }
                                             }
                                         }
@@ -442,30 +442,30 @@ public class JsonReader implements Closeable {
                                 }
                             }
                         }
-                    } else if (i3 < this.buffer.length) {
-                        if (fillBuffer(i3 + 1)) {
+                    } else if (i2 < this.buffer.length) {
+                        if (fillBuffer(i2 + 1)) {
                         }
                     } else {
                         if (sb2 == null) {
-                            sb2 = new StringBuilder(Math.max(i3, 16));
+                            sb2 = new StringBuilder(Math.max(i2, 16));
                         }
-                        sb2.append(this.buffer, this.pos, i3);
-                        this.pos += i3;
+                        sb2.append(this.buffer, this.pos, i2);
+                        this.pos += i2;
                     }
                 }
-                i2 = i3;
+                i = i2;
                 if (sb2 != null) {
-                    sb = new String(this.buffer, this.pos, i2);
+                    sb = new String(this.buffer, this.pos, i);
                 } else {
-                    sb2.append(this.buffer, this.pos, i2);
+                    sb2.append(this.buffer, this.pos, i);
                     sb = sb2.toString();
                 }
-                this.pos += i2;
+                this.pos += i;
                 return sb;
             } while (fillBuffer(1));
             if (sb2 != null) {
             }
-            this.pos += i2;
+            this.pos += i;
             return sb;
         }
         return (String) invokeV.objValue;
@@ -473,34 +473,34 @@ public class JsonReader implements Closeable {
 
     private int peekKeyword() throws IOException {
         InterceptResult invokeV;
-        int i2;
+        int i;
         String str;
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             char c2 = this.buffer[this.pos];
             if (c2 == 't' || c2 == 'T') {
-                i2 = 5;
+                i = 5;
                 str = "true";
                 str2 = "TRUE";
             } else if (c2 == 'f' || c2 == 'F') {
-                i2 = 6;
+                i = 6;
                 str = "false";
                 str2 = "FALSE";
             } else if (c2 != 'n' && c2 != 'N') {
                 return 0;
             } else {
-                i2 = 7;
+                i = 7;
                 str = StringUtil.NULL_STRING;
                 str2 = "NULL";
             }
             int length = str.length();
-            for (int i3 = 1; i3 < length; i3++) {
-                if (this.pos + i3 >= this.limit && !fillBuffer(i3 + 1)) {
+            for (int i2 = 1; i2 < length; i2++) {
+                if (this.pos + i2 >= this.limit && !fillBuffer(i2 + 1)) {
                     return 0;
                 }
-                char c3 = this.buffer[this.pos + i3];
-                if (c3 != str.charAt(i3) && c3 != str2.charAt(i3)) {
+                char c3 = this.buffer[this.pos + i2];
+                if (c3 != str.charAt(i2) && c3 != str2.charAt(i2)) {
                     return 0;
                 }
             }
@@ -508,8 +508,8 @@ public class JsonReader implements Closeable {
                 return 0;
             }
             this.pos += length;
-            this.peeked = i2;
-            return i2;
+            this.peeked = i;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -581,35 +581,35 @@ public class JsonReader implements Closeable {
             return invokeV.intValue;
         }
         char[] cArr = this.buffer;
-        int i2 = this.pos;
-        int i3 = this.limit;
+        int i = this.pos;
+        int i2 = this.limit;
+        int i3 = 0;
         int i4 = 0;
-        int i5 = 0;
         char c2 = 0;
         boolean z = true;
-        long j2 = 0;
+        long j = 0;
         boolean z2 = false;
         while (true) {
-            if (i2 + i5 == i3) {
-                if (i5 == cArr.length) {
-                    return i4;
+            if (i + i4 == i2) {
+                if (i4 == cArr.length) {
+                    return i3;
                 }
-                if (!fillBuffer(i5 + 1)) {
+                if (!fillBuffer(i4 + 1)) {
                     break;
                 }
-                i2 = this.pos;
-                i3 = this.limit;
+                i = this.pos;
+                i2 = this.limit;
             }
-            char c3 = cArr[i2 + i5];
+            char c3 = cArr[i + i4];
             if (c3 != '+') {
                 if (c3 == 'E' || c3 == 'e') {
-                    i4 = 0;
+                    i3 = 0;
                     if (c2 != 2 && c2 != 4) {
                         return 0;
                     }
                     c2 = 5;
                 } else if (c3 == '-') {
-                    i4 = 0;
+                    i3 = 0;
                     if (c2 == 0) {
                         c2 = 1;
                         z2 = true;
@@ -617,7 +617,7 @@ public class JsonReader implements Closeable {
                         return 0;
                     }
                 } else if (c3 == '.') {
-                    i4 = 0;
+                    i3 = 0;
                     if (c2 != 2) {
                         return 0;
                     }
@@ -625,49 +625,49 @@ public class JsonReader implements Closeable {
                 } else if (c3 < '0' || c3 > '9') {
                     break;
                 } else if (c2 == 1 || c2 == 0) {
-                    j2 = -(c3 - '0');
-                    i4 = 0;
+                    j = -(c3 - '0');
+                    i3 = 0;
                     c2 = 2;
                 } else {
                     if (c2 == 2) {
-                        if (j2 == 0) {
+                        if (j == 0) {
                             return 0;
                         }
-                        long j3 = (10 * j2) - (c3 - '0');
-                        int i6 = (j2 > (-922337203685477580L) ? 1 : (j2 == (-922337203685477580L) ? 0 : -1));
-                        z &= i6 > 0 || (i6 == 0 && j3 < j2);
-                        j2 = j3;
+                        long j2 = (10 * j) - (c3 - '0');
+                        int i5 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
+                        z &= i5 > 0 || (i5 == 0 && j2 < j);
+                        j = j2;
                     } else if (c2 == 3) {
-                        i4 = 0;
+                        i3 = 0;
                         c2 = 4;
                     } else if (c2 == 5 || c2 == 6) {
-                        i4 = 0;
+                        i3 = 0;
                         c2 = 7;
                     }
-                    i4 = 0;
+                    i3 = 0;
                 }
-                i5++;
+                i4++;
             } else {
-                i4 = 0;
+                i3 = 0;
                 if (c2 != 5) {
                     return 0;
                 }
             }
             c2 = 6;
-            i5++;
+            i4++;
         }
     }
 
-    private void push(int i2) {
+    private void push(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
-            int i3 = this.stackSize;
+        if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+            int i2 = this.stackSize;
             int[] iArr = this.stack;
-            if (i3 == iArr.length) {
-                int[] iArr2 = new int[i3 * 2];
-                int[] iArr3 = new int[i3 * 2];
-                String[] strArr = new String[i3 * 2];
-                System.arraycopy(iArr, 0, iArr2, 0, i3);
+            if (i2 == iArr.length) {
+                int[] iArr2 = new int[i2 * 2];
+                int[] iArr3 = new int[i2 * 2];
+                String[] strArr = new String[i2 * 2];
+                System.arraycopy(iArr, 0, iArr2, 0, i2);
                 System.arraycopy(this.pathIndices, 0, iArr3, 0, this.stackSize);
                 System.arraycopy(this.pathNames, 0, strArr, 0, this.stackSize);
                 this.stack = iArr2;
@@ -675,29 +675,29 @@ public class JsonReader implements Closeable {
                 this.pathNames = strArr;
             }
             int[] iArr4 = this.stack;
-            int i4 = this.stackSize;
-            this.stackSize = i4 + 1;
-            iArr4[i4] = i2;
+            int i3 = this.stackSize;
+            this.stackSize = i3 + 1;
+            iArr4[i3] = i;
         }
     }
 
     private char readEscapeCharacter() throws IOException {
         InterceptResult invokeV;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
             if (this.pos == this.limit && !fillBuffer(1)) {
                 throw syntaxError("Unterminated escape sequence");
             }
             char[] cArr = this.buffer;
-            int i4 = this.pos;
-            int i5 = i4 + 1;
-            this.pos = i5;
-            char c2 = cArr[i4];
+            int i3 = this.pos;
+            int i4 = i3 + 1;
+            this.pos = i4;
+            char c2 = cArr[i3];
             if (c2 == '\n') {
                 this.lineNumber++;
-                this.lineStart = i5;
+                this.lineStart = i4;
             } else if (c2 != '\"' && c2 != '\'' && c2 != '/' && c2 != '\\') {
                 if (c2 != 'b') {
                     if (c2 != 'f') {
@@ -705,29 +705,29 @@ public class JsonReader implements Closeable {
                             if (c2 != 'r') {
                                 if (c2 != 't') {
                                     if (c2 == 'u') {
-                                        if (i5 + 4 > this.limit && !fillBuffer(4)) {
+                                        if (i4 + 4 > this.limit && !fillBuffer(4)) {
                                             throw syntaxError("Unterminated escape sequence");
                                         }
                                         char c3 = 0;
-                                        int i6 = this.pos;
-                                        int i7 = i6 + 4;
-                                        while (i6 < i7) {
-                                            char c4 = this.buffer[i6];
+                                        int i5 = this.pos;
+                                        int i6 = i5 + 4;
+                                        while (i5 < i6) {
+                                            char c4 = this.buffer[i5];
                                             char c5 = (char) (c3 << 4);
                                             if (c4 < '0' || c4 > '9') {
                                                 if (c4 >= 'a' && c4 <= 'f') {
-                                                    i2 = c4 - 'a';
+                                                    i = c4 - 'a';
                                                 } else if (c4 < 'A' || c4 > 'F') {
                                                     throw new NumberFormatException("\\u" + new String(this.buffer, this.pos, 4));
                                                 } else {
-                                                    i2 = c4 - 'A';
+                                                    i = c4 - 'A';
                                                 }
-                                                i3 = i2 + 10;
+                                                i2 = i + 10;
                                             } else {
-                                                i3 = c4 - '0';
+                                                i2 = c4 - '0';
                                             }
-                                            c3 = (char) (c5 + i3);
-                                            i6++;
+                                            c3 = (char) (c5 + i2);
+                                            i5++;
                                         }
                                         this.pos += 4;
                                         return c3;
@@ -736,7 +736,7 @@ public class JsonReader implements Closeable {
                                 }
                                 return '\t';
                             }
-                            return CharUtils.CR;
+                            return '\r';
                         }
                         return '\n';
                     }
@@ -754,28 +754,28 @@ public class JsonReader implements Closeable {
         if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Character.valueOf(c2)}) == null) {
             char[] cArr = this.buffer;
             do {
-                int i2 = this.pos;
-                int i3 = this.limit;
-                while (i2 < i3) {
-                    int i4 = i2 + 1;
-                    char c3 = cArr[i2];
+                int i = this.pos;
+                int i2 = this.limit;
+                while (i < i2) {
+                    int i3 = i + 1;
+                    char c3 = cArr[i];
                     if (c3 == c2) {
-                        this.pos = i4;
+                        this.pos = i3;
                         return;
                     } else if (c3 == '\\') {
-                        this.pos = i4;
+                        this.pos = i3;
                         readEscapeCharacter();
-                        i2 = this.pos;
-                        i3 = this.limit;
+                        i = this.pos;
+                        i2 = this.limit;
                     } else {
                         if (c3 == '\n') {
                             this.lineNumber++;
-                            this.lineStart = i4;
+                            this.lineStart = i3;
                         }
-                        i2 = i4;
+                        i = i3;
                     }
                 }
-                this.pos = i2;
+                this.pos = i;
             } while (fillBuffer(1));
             throw syntaxError("Unterminated string");
         }
@@ -793,17 +793,17 @@ public class JsonReader implements Closeable {
                 return false;
             }
             char[] cArr = this.buffer;
-            int i2 = this.pos;
-            if (cArr[i2] != '\n') {
-                for (int i3 = 0; i3 < length; i3++) {
-                    if (this.buffer[this.pos + i3] != str.charAt(i3)) {
+            int i = this.pos;
+            if (cArr[i] != '\n') {
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (this.buffer[this.pos + i2] != str.charAt(i2)) {
                         break;
                     }
                 }
                 return true;
             }
             this.lineNumber++;
-            this.lineStart = i2 + 1;
+            this.lineStart = i + 1;
             this.pos++;
         }
     }
@@ -817,13 +817,13 @@ public class JsonReader implements Closeable {
                     return;
                 }
                 char[] cArr = this.buffer;
-                int i2 = this.pos;
-                int i3 = i2 + 1;
-                this.pos = i3;
-                c2 = cArr[i2];
+                int i = this.pos;
+                int i2 = i + 1;
+                this.pos = i2;
+                c2 = cArr[i];
                 if (c2 == '\n') {
                     this.lineNumber++;
-                    this.lineStart = i3;
+                    this.lineStart = i2;
                     return;
                 }
             } while (c2 != '\r');
@@ -840,11 +840,11 @@ public class JsonReader implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             do {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    int i3 = this.pos;
-                    if (i3 + i2 < this.limit) {
-                        char c2 = this.buffer[i3 + i2];
+                    int i2 = this.pos;
+                    if (i2 + i < this.limit) {
+                        char c2 = this.buffer[i2 + i];
                         if (c2 != '\t' && c2 != '\n' && c2 != '\f' && c2 != '\r' && c2 != ' ') {
                             if (c2 != '#') {
                                 if (c2 != ',') {
@@ -858,7 +858,7 @@ public class JsonReader implements Closeable {
                                                     case '\\':
                                                         break;
                                                     default:
-                                                        i2++;
+                                                        i++;
                                                 }
                                             }
                                         }
@@ -867,10 +867,10 @@ public class JsonReader implements Closeable {
                             }
                         }
                     } else {
-                        this.pos = i3 + i2;
+                        this.pos = i2 + i;
                     }
                 }
-                this.pos += i2;
+                this.pos += i;
                 return;
             } while (fillBuffer(1));
         }
@@ -888,11 +888,11 @@ public class JsonReader implements Closeable {
     public void beginArray() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 push(1);
                 this.pathIndices[this.stackSize - 1] = 0;
                 this.peeked = 0;
@@ -905,11 +905,11 @@ public class JsonReader implements Closeable {
     public void beginObject() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 push(3);
                 this.peeked = 0;
                 return;
@@ -935,11 +935,11 @@ public class JsonReader implements Closeable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             int[] iArr = this.stack;
-            int i2 = this.stackSize;
-            int i3 = iArr[i2 - 1];
-            if (i3 == 1) {
-                iArr[i2 - 1] = 2;
-            } else if (i3 == 2) {
+            int i = this.stackSize;
+            int i2 = iArr[i - 1];
+            if (i2 == 1) {
+                iArr[i - 1] = 2;
+            } else if (i2 == 2) {
                 int nextNonWhitespace2 = nextNonWhitespace(true);
                 if (nextNonWhitespace2 != 44) {
                     if (nextNonWhitespace2 != 59) {
@@ -951,9 +951,9 @@ public class JsonReader implements Closeable {
                     }
                     checkLenient();
                 }
-            } else if (i3 == 3 || i3 == 5) {
+            } else if (i2 == 3 || i2 == 5) {
                 this.stack[this.stackSize - 1] = 4;
-                if (i3 == 5 && (nextNonWhitespace = nextNonWhitespace(true)) != 44) {
+                if (i2 == 5 && (nextNonWhitespace = nextNonWhitespace(true)) != 44) {
                     if (nextNonWhitespace != 59) {
                         if (nextNonWhitespace == 125) {
                             this.peeked = 2;
@@ -972,7 +972,7 @@ public class JsonReader implements Closeable {
                     this.peeked = 12;
                     return 12;
                 } else if (nextNonWhitespace3 == 125) {
-                    if (i3 != 5) {
+                    if (i2 != 5) {
                         this.peeked = 2;
                         return 2;
                     }
@@ -986,36 +986,36 @@ public class JsonReader implements Closeable {
                     }
                     throw syntaxError("Expected name");
                 }
-            } else if (i3 == 4) {
-                iArr[i2 - 1] = 5;
+            } else if (i2 == 4) {
+                iArr[i - 1] = 5;
                 int nextNonWhitespace4 = nextNonWhitespace(true);
                 if (nextNonWhitespace4 != 58) {
                     if (nextNonWhitespace4 == 61) {
                         checkLenient();
                         if (this.pos < this.limit || fillBuffer(1)) {
                             char[] cArr = this.buffer;
-                            int i4 = this.pos;
-                            if (cArr[i4] == '>') {
-                                this.pos = i4 + 1;
+                            int i3 = this.pos;
+                            if (cArr[i3] == '>') {
+                                this.pos = i3 + 1;
                             }
                         }
                     } else {
                         throw syntaxError("Expected ':'");
                     }
                 }
-            } else if (i3 == 6) {
+            } else if (i2 == 6) {
                 if (this.lenient) {
                     consumeNonExecutePrefix();
                 }
                 this.stack[this.stackSize - 1] = 7;
-            } else if (i3 == 7) {
+            } else if (i2 == 7) {
                 if (nextNonWhitespace(false) == -1) {
                     this.peeked = 17;
                     return 17;
                 }
                 checkLenient();
                 this.pos--;
-            } else if (i3 == 8) {
+            } else if (i2 == 8) {
                 throw new IllegalStateException("JsonReader is closed");
             }
             int nextNonWhitespace5 = nextNonWhitespace(true);
@@ -1051,12 +1051,12 @@ public class JsonReader implements Closeable {
                         }
                         this.peeked = 1;
                         return 1;
-                    } else if (i3 == 1) {
+                    } else if (i2 == 1) {
                         this.peeked = 4;
                         return 4;
                     }
                 }
-                if (i3 != 1 && i3 != 2) {
+                if (i2 != 1 && i2 != 2) {
                     throw syntaxError("Unexpected value");
                 }
                 checkLenient();
@@ -1071,16 +1071,16 @@ public class JsonReader implements Closeable {
     public void endArray() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 4) {
-                int i3 = this.stackSize - 1;
-                this.stackSize = i3;
+            if (i == 4) {
+                int i2 = this.stackSize - 1;
+                this.stackSize = i2;
                 int[] iArr = this.pathIndices;
-                int i4 = i3 - 1;
-                iArr[i4] = iArr[i4] + 1;
+                int i3 = i2 - 1;
+                iArr[i3] = iArr[i3] + 1;
                 this.peeked = 0;
                 return;
             }
@@ -1091,17 +1091,17 @@ public class JsonReader implements Closeable {
     public void endObject() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 2) {
-                int i3 = this.stackSize - 1;
-                this.stackSize = i3;
-                this.pathNames[i3] = null;
+            if (i == 2) {
+                int i2 = this.stackSize - 1;
+                this.stackSize = i2;
+                this.pathNames[i2] = null;
                 int[] iArr = this.pathIndices;
-                int i4 = i3 - 1;
-                iArr[i4] = iArr[i4] + 1;
+                int i3 = i2 - 1;
+                iArr[i3] = iArr[i3] + 1;
                 this.peeked = 0;
                 return;
             }
@@ -1115,18 +1115,18 @@ public class JsonReader implements Closeable {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             StringBuilder sb = new StringBuilder();
             sb.append('$');
-            int i2 = this.stackSize;
-            for (int i3 = 0; i3 < i2; i3++) {
-                int i4 = this.stack[i3];
-                if (i4 == 1 || i4 == 2) {
+            int i = this.stackSize;
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = this.stack[i2];
+                if (i3 == 1 || i3 == 2) {
                     sb.append('[');
-                    sb.append(this.pathIndices[i3]);
+                    sb.append(this.pathIndices[i2]);
                     sb.append(']');
-                } else if (i4 == 3 || i4 == 4 || i4 == 5) {
-                    sb.append('.');
+                } else if (i3 == 3 || i3 == 4 || i3 == 5) {
+                    sb.append(IStringUtil.EXTENSION_SEPARATOR);
                     String[] strArr = this.pathNames;
-                    if (strArr[i3] != null) {
-                        sb.append(strArr[i3]);
+                    if (strArr[i2] != null) {
+                        sb.append(strArr[i2]);
                     }
                 }
             }
@@ -1139,11 +1139,11 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            return (i2 == 2 || i2 == 4) ? false : true;
+            return (i == 2 || i == 4) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -1167,21 +1167,21 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 5) {
+            if (i == 5) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i3 = this.stackSize - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
                 return true;
-            } else if (i2 == 6) {
+            } else if (i == 6) {
                 this.peeked = 0;
                 int[] iArr2 = this.pathIndices;
-                int i4 = this.stackSize - 1;
-                iArr2[i4] = iArr2[i4] + 1;
+                int i3 = this.stackSize - 1;
+                iArr2[i3] = iArr2[i3] + 1;
                 return false;
             } else {
                 throw new IllegalStateException("Expected a boolean but was " + peek() + locationString());
@@ -1194,25 +1194,25 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 15) {
+            if (i == 15) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i3 = this.stackSize - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
                 return this.peekedLong;
             }
-            if (i2 == 16) {
+            if (i == 16) {
                 this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
                 this.pos += this.peekedNumberLength;
-            } else if (i2 == 8 || i2 == 9) {
-                this.peekedString = nextQuotedValue(i2 == 8 ? ExtendedMessageFormat.QUOTE : '\"');
-            } else if (i2 == 10) {
+            } else if (i == 8 || i == 9) {
+                this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
+            } else if (i == 10) {
                 this.peekedString = nextUnquotedValue();
-            } else if (i2 != 11) {
+            } else if (i != 11) {
                 throw new IllegalStateException("Expected a double but was " + peek() + locationString());
             }
             this.peeked = 11;
@@ -1223,8 +1223,8 @@ public class JsonReader implements Closeable {
             this.peekedString = null;
             this.peeked = 0;
             int[] iArr2 = this.pathIndices;
-            int i4 = this.stackSize - 1;
-            iArr2[i4] = iArr2[i4] + 1;
+            int i3 = this.stackSize - 1;
+            iArr2[i3] = iArr2[i3] + 1;
             return parseDouble;
         }
         return invokeV.doubleValue;
@@ -1234,53 +1234,53 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 15) {
-                long j2 = this.peekedLong;
-                int i3 = (int) j2;
-                if (j2 == i3) {
+            if (i == 15) {
+                long j = this.peekedLong;
+                int i2 = (int) j;
+                if (j == i2) {
                     this.peeked = 0;
                     int[] iArr = this.pathIndices;
-                    int i4 = this.stackSize - 1;
-                    iArr[i4] = iArr[i4] + 1;
-                    return i3;
+                    int i3 = this.stackSize - 1;
+                    iArr[i3] = iArr[i3] + 1;
+                    return i2;
                 }
                 throw new NumberFormatException("Expected an int but was " + this.peekedLong + locationString());
             }
-            if (i2 == 16) {
+            if (i == 16) {
                 this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
                 this.pos += this.peekedNumberLength;
-            } else if (i2 != 8 && i2 != 9 && i2 != 10) {
+            } else if (i != 8 && i != 9 && i != 10) {
                 throw new IllegalStateException("Expected an int but was " + peek() + locationString());
             } else {
-                if (i2 == 10) {
+                if (i == 10) {
                     this.peekedString = nextUnquotedValue();
                 } else {
-                    this.peekedString = nextQuotedValue(i2 == 8 ? ExtendedMessageFormat.QUOTE : '\"');
+                    this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
                 }
                 try {
                     int parseInt = Integer.parseInt(this.peekedString);
                     this.peeked = 0;
                     int[] iArr2 = this.pathIndices;
-                    int i5 = this.stackSize - 1;
-                    iArr2[i5] = iArr2[i5] + 1;
+                    int i4 = this.stackSize - 1;
+                    iArr2[i4] = iArr2[i4] + 1;
                     return parseInt;
                 } catch (NumberFormatException unused) {
                 }
             }
             this.peeked = 11;
             double parseDouble = Double.parseDouble(this.peekedString);
-            int i6 = (int) parseDouble;
-            if (i6 == parseDouble) {
+            int i5 = (int) parseDouble;
+            if (i5 == parseDouble) {
                 this.peekedString = null;
                 this.peeked = 0;
                 int[] iArr3 = this.pathIndices;
-                int i7 = this.stackSize - 1;
-                iArr3[i7] = iArr3[i7] + 1;
-                return i6;
+                int i6 = this.stackSize - 1;
+                iArr3[i6] = iArr3[i6] + 1;
+                return i5;
             }
             throw new NumberFormatException("Expected an int but was " + this.peekedString + locationString());
         }
@@ -1291,48 +1291,48 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 15) {
+            if (i == 15) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i3 = this.stackSize - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
                 return this.peekedLong;
             }
-            if (i2 == 16) {
+            if (i == 16) {
                 this.peekedString = new String(this.buffer, this.pos, this.peekedNumberLength);
                 this.pos += this.peekedNumberLength;
-            } else if (i2 != 8 && i2 != 9 && i2 != 10) {
+            } else if (i != 8 && i != 9 && i != 10) {
                 throw new IllegalStateException("Expected a long but was " + peek() + locationString());
             } else {
-                if (i2 == 10) {
+                if (i == 10) {
                     this.peekedString = nextUnquotedValue();
                 } else {
-                    this.peekedString = nextQuotedValue(i2 == 8 ? ExtendedMessageFormat.QUOTE : '\"');
+                    this.peekedString = nextQuotedValue(i == 8 ? '\'' : Typography.quote);
                 }
                 try {
                     long parseLong = Long.parseLong(this.peekedString);
                     this.peeked = 0;
                     int[] iArr2 = this.pathIndices;
-                    int i4 = this.stackSize - 1;
-                    iArr2[i4] = iArr2[i4] + 1;
+                    int i3 = this.stackSize - 1;
+                    iArr2[i3] = iArr2[i3] + 1;
                     return parseLong;
                 } catch (NumberFormatException unused) {
                 }
             }
             this.peeked = 11;
             double parseDouble = Double.parseDouble(this.peekedString);
-            long j2 = (long) parseDouble;
-            if (j2 == parseDouble) {
+            long j = (long) parseDouble;
+            if (j == parseDouble) {
                 this.peekedString = null;
                 this.peeked = 0;
                 int[] iArr3 = this.pathIndices;
-                int i5 = this.stackSize - 1;
-                iArr3[i5] = iArr3[i5] + 1;
-                return j2;
+                int i4 = this.stackSize - 1;
+                iArr3[i4] = iArr3[i4] + 1;
+                return j;
             }
             throw new NumberFormatException("Expected a long but was " + this.peekedString + locationString());
         }
@@ -1344,16 +1344,16 @@ public class JsonReader implements Closeable {
         String nextQuotedValue;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 14) {
+            if (i == 14) {
                 nextQuotedValue = nextUnquotedValue();
-            } else if (i2 == 12) {
-                nextQuotedValue = nextQuotedValue(ExtendedMessageFormat.QUOTE);
-            } else if (i2 == 13) {
-                nextQuotedValue = nextQuotedValue('\"');
+            } else if (i == 12) {
+                nextQuotedValue = nextQuotedValue('\'');
+            } else if (i == 13) {
+                nextQuotedValue = nextQuotedValue(Typography.quote);
             } else {
                 throw new IllegalStateException("Expected a name but was " + peek() + locationString());
             }
@@ -1367,15 +1367,15 @@ public class JsonReader implements Closeable {
     public void nextNull() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 7) {
+            if (i == 7) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i3 = this.stackSize - 1;
-                iArr[i3] = iArr[i3] + 1;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
                 return;
             }
             throw new IllegalStateException("Expected null but was " + peek() + locationString());
@@ -1387,22 +1387,22 @@ public class JsonReader implements Closeable {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 10) {
+            if (i == 10) {
                 str = nextUnquotedValue();
-            } else if (i2 == 8) {
-                str = nextQuotedValue(ExtendedMessageFormat.QUOTE);
-            } else if (i2 == 9) {
-                str = nextQuotedValue('\"');
-            } else if (i2 == 11) {
+            } else if (i == 8) {
+                str = nextQuotedValue('\'');
+            } else if (i == 9) {
+                str = nextQuotedValue(Typography.quote);
+            } else if (i == 11) {
                 str = this.peekedString;
                 this.peekedString = null;
-            } else if (i2 == 15) {
+            } else if (i == 15) {
                 str = Long.toString(this.peekedLong);
-            } else if (i2 == 16) {
+            } else if (i == 16) {
                 str = new String(this.buffer, this.pos, this.peekedNumberLength);
                 this.pos += this.peekedNumberLength;
             } else {
@@ -1410,8 +1410,8 @@ public class JsonReader implements Closeable {
             }
             this.peeked = 0;
             int[] iArr = this.pathIndices;
-            int i3 = this.stackSize - 1;
-            iArr[i3] = iArr[i3] + 1;
+            int i2 = this.stackSize - 1;
+            iArr[i2] = iArr[i2] + 1;
             return str;
         }
         return (String) invokeV.objValue;
@@ -1421,11 +1421,11 @@ public class JsonReader implements Closeable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            switch (i2) {
+            switch (i) {
                 case 1:
                     return JsonToken.BEGIN_OBJECT;
                 case 2:
@@ -1470,44 +1470,44 @@ public class JsonReader implements Closeable {
     public void skipValue() throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            int i2 = 0;
+            int i = 0;
             do {
-                int i3 = this.peeked;
-                if (i3 == 0) {
-                    i3 = doPeek();
+                int i2 = this.peeked;
+                if (i2 == 0) {
+                    i2 = doPeek();
                 }
-                if (i3 == 3) {
+                if (i2 == 3) {
                     push(1);
-                } else if (i3 == 1) {
+                } else if (i2 == 1) {
                     push(3);
                 } else {
-                    if (i3 == 4) {
+                    if (i2 == 4) {
                         this.stackSize--;
-                    } else if (i3 == 2) {
+                    } else if (i2 == 2) {
                         this.stackSize--;
                     } else {
-                        if (i3 == 14 || i3 == 10) {
+                        if (i2 == 14 || i2 == 10) {
                             skipUnquotedValue();
-                        } else if (i3 == 8 || i3 == 12) {
-                            skipQuotedValue(ExtendedMessageFormat.QUOTE);
-                        } else if (i3 == 9 || i3 == 13) {
-                            skipQuotedValue('\"');
-                        } else if (i3 == 16) {
+                        } else if (i2 == 8 || i2 == 12) {
+                            skipQuotedValue('\'');
+                        } else if (i2 == 9 || i2 == 13) {
+                            skipQuotedValue(Typography.quote);
+                        } else if (i2 == 16) {
                             this.pos += this.peekedNumberLength;
                         }
                         this.peeked = 0;
                     }
-                    i2--;
+                    i--;
                     this.peeked = 0;
                 }
-                i2++;
+                i++;
                 this.peeked = 0;
-            } while (i2 != 0);
+            } while (i != 0);
             int[] iArr = this.pathIndices;
-            int i4 = this.stackSize;
-            int i5 = i4 - 1;
-            iArr[i5] = iArr[i5] + 1;
-            this.pathNames[i4 - 1] = StringUtil.NULL_STRING;
+            int i3 = this.stackSize;
+            int i4 = i3 - 1;
+            iArr[i4] = iArr[i4] + 1;
+            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
         }
     }
 

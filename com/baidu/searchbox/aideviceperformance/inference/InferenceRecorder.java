@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.inference;
 
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -23,9 +24,9 @@ public class InferenceRecorder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,16 +75,16 @@ public class InferenceRecorder {
                 if (this.mInferenceMap.containsKey(str)) {
                     int intValue = this.mInferenceMap.get(str).intValue();
                     if (intValue > 0 && this.mCount > 0) {
-                        int i2 = intValue - 1;
-                        if (i2 == 0) {
+                        int i = intValue - 1;
+                        if (i == 0) {
                             this.mInferenceMap.remove(str);
                         } else {
-                            this.mInferenceMap.put(str, Integer.valueOf(i2));
+                            this.mInferenceMap.put(str, Integer.valueOf(i));
                         }
                         this.mCount--;
                     }
                     if (InferenceConfig.DEBUG) {
-                        String str2 = "Inference count error mCount=" + this.mCount + ", count is " + intValue + " for " + str;
+                        Log.e(TAG, "Inference count error mCount=" + this.mCount + ", count is " + intValue + " for " + str);
                     }
                 }
             }

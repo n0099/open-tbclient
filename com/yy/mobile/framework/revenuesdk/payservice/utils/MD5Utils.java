@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MD5Utils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MD5Utils";
@@ -24,9 +24,9 @@ public class MD5Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -175,22 +175,22 @@ public class MD5Utils {
         return (String) invokeL.objValue;
     }
 
-    public static String bufferToHex(byte[] bArr, int i2, int i3) {
+    public static String bufferToHex(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i2, i3)) == null) {
-            if (bArr == null || i2 < 0 || i3 < 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, bArr, i, i2)) == null) {
+            if (bArr == null || i < 0 || i2 < 0) {
                 return null;
             }
-            StringBuilder sb = new StringBuilder(i3 * 2);
-            int i4 = i3 + i2;
-            while (i2 < i4) {
-                String hexString = Integer.toHexString(bArr[i2] & 255);
+            StringBuilder sb = new StringBuilder(i2 * 2);
+            int i3 = i2 + i;
+            while (i < i3) {
+                String hexString = Integer.toHexString(bArr[i] & 255);
                 if (hexString.length() == 1) {
                     hexString = "0" + hexString;
                 }
                 sb.append(hexString);
-                i2++;
+                i++;
             }
             return sb.toString();
         }

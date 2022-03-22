@@ -27,14 +27,14 @@ public class PolystarShape implements ContentModel {
         
         public final int value;
 
-        Type(int i2) {
-            this.value = i2;
+        Type(int i) {
+            this.value = i;
         }
 
-        public static Type forValue(int i2) {
+        public static Type forValue(int i) {
             Type[] values;
             for (Type type : values()) {
-                if (type.value == i2) {
+                if (type.value == i) {
                     return type;
                 }
             }

@@ -35,9 +35,9 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -78,7 +78,7 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
             Context context = getContext();
             Intrinsics.checkNotNullExpressionValue(context, "context");
             BdPlayerSeekBar bdPlayerSeekBar = new BdPlayerSeekBar(context, null, 0, 6, null);
-            bdPlayerSeekBar.setId(R.id.bdvideoplayer_seekbar);
+            bdPlayerSeekBar.setId(R.id.obfuscated_res_0x7f090346);
             Unit unit = Unit.INSTANCE;
             this.seekBar = bdPlayerSeekBar;
             if (bdPlayerSeekBar == null) {
@@ -152,9 +152,9 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
     }
 
     @Override // com.baidu.searchbox.player.callback.ISeekBarListener
-    public void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i2, boolean z) {
+    public void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{bdThumbSeekBarView, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
         }
     }
 
@@ -193,14 +193,14 @@ public class SeekBarElement extends AbsElement implements ISeekBarListener {
         }
     }
 
-    public final void syncPos(int i2, int i3, int i4) {
+    public final void syncPos(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
             BdPlayerSeekBar bdPlayerSeekBar = this.seekBar;
             if (bdPlayerSeekBar == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("seekBar");
             }
-            bdPlayerSeekBar.syncPos(i2, i3, i4);
+            bdPlayerSeekBar.syncPos(i, i2, i3);
         }
     }
 }

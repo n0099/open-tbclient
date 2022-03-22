@@ -21,34 +21,36 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TabTextView extends AppCompatTextView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final int f25796b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f25797c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f25798d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f33473e;
+    public int f25799e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f33474f;
+    public int f25800f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f33475g;
+    public CharSequence f25801g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33476h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f33477i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f33478j;
-    public CharSequence k;
-    public CharSequence l;
+    public CharSequence f25802h;
+    public boolean i;
+    public boolean j;
+    public float k;
+    public float l;
     public boolean m;
     public boolean n;
-    public float o;
-    public float p;
-    public boolean q;
-    public boolean r;
-    public LinearGradient s;
-    public boolean t;
+    public LinearGradient o;
+    public boolean p;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TabTextView(Context context) {
@@ -59,9 +61,9 @@ public class TabTextView extends AppCompatTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -75,12 +77,12 @@ public class TabTextView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65539, this, z) == null) {
             if (z) {
-                if (this.q) {
+                if (this.m) {
                     setTypeface(Typeface.DEFAULT_BOLD);
                 } else {
                     setTypeface(Typeface.DEFAULT);
                 }
-            } else if (this.r) {
+            } else if (this.n) {
                 setTypeface(Typeface.DEFAULT_BOLD);
             } else {
                 setTypeface(Typeface.DEFAULT);
@@ -88,203 +90,190 @@ public class TabTextView extends AppCompatTextView {
         }
     }
 
-    public final void a(boolean z) {
+    public final void d(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                if (d()) {
-                    if (this.s == null) {
+                if (h()) {
+                    if (this.o == null) {
                         if (getMeasuredWidth() == 0) {
                             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                             measure(makeMeasureSpec, makeMeasureSpec);
                         }
-                        this.s = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.f33473e, this.f33474f}, (float[]) null, Shader.TileMode.CLAMP);
+                        this.o = new LinearGradient(0.0f, 0.0f, getMeasuredWidth(), getMeasuredHeight(), new int[]{this.a, this.f25796b}, (float[]) null, Shader.TileMode.CLAMP);
                     }
-                    getPaint().setShader(this.s);
+                    getPaint().setShader(this.o);
                     return;
                 }
-                int i2 = this.f33476h;
-                if (i2 == 0 || this.m || !this.n) {
+                int i = this.f25798d;
+                if (i == 0 || this.i || !this.j) {
                     return;
                 }
-                setTextColor(i2);
-                int i3 = this.f33478j;
-                if (i3 != 0) {
-                    setBackgroundResource(i3);
+                setTextColor(i);
+                int i2 = this.f25800f;
+                if (i2 != 0) {
+                    setBackgroundResource(i2);
                 }
-                if (TextUtils.isEmpty(this.l)) {
+                if (TextUtils.isEmpty(this.f25802h)) {
                     return;
                 }
-                setText(this.l);
+                setText(this.f25802h);
                 return;
             }
             getPaint().setShader(null);
-            int i4 = this.f33475g;
-            if (i4 == 0 || this.m || !this.n) {
+            int i3 = this.f25797c;
+            if (i3 == 0 || this.i || !this.j) {
                 return;
             }
-            setTextColor(i4);
-            int i5 = this.f33477i;
-            if (i5 != 0) {
-                setBackgroundResource(i5);
+            setTextColor(i3);
+            int i4 = this.f25799e;
+            if (i4 != 0) {
+                setBackgroundResource(i4);
             }
-            if (TextUtils.isEmpty(this.k)) {
+            if (TextUtils.isEmpty(this.f25801g)) {
                 return;
             }
-            setText(this.k);
+            setText(this.f25801g);
         }
     }
 
-    public final void b(boolean z) {
+    @Override // android.view.View
+    public void dispatchSetSelected(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && this.t) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            super.dispatchSetSelected(z);
+            e(z);
+            setBold(z);
+            d(z);
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.p) {
             if (z) {
-                float f2 = this.p;
+                float f2 = this.l;
                 if (f2 != -1.0f) {
                     setTextSize(0, f2);
                     return;
                 }
                 return;
             }
-            float f3 = this.o;
+            float f3 = this.k;
             if (f3 != -1.0f) {
                 setTextSize(0, f3);
             }
         }
     }
 
-    public final void c() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            float f2 = this.o;
-            if (f2 != -1.0f) {
-                setTextSize(0, f2);
-            }
-            int i2 = this.f33475g;
-            if (i2 != 0) {
-                setTextColor(i2);
-            }
-        }
-    }
-
-    public void changeTextSizeEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.t = z;
-        }
-    }
-
-    public void clearGradientColor() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             getPaint().setShader(null);
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.f33473e == -1 || this.f33474f == -1 || !this.m) ? false : true : invokeV.booleanValue;
-    }
-
-    @Override // android.view.View
-    public void dispatchSetSelected(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            super.dispatchSetSelected(z);
-            b(z);
-            setBold(z);
-            a(z);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            float f2 = this.k;
+            if (f2 != -1.0f) {
+                setTextSize(0, f2);
+            }
+            int i = this.f25797c;
+            if (i != 0) {
+                setTextColor(i);
+            }
         }
     }
 
-    public boolean isChangeTextSizeEnable() {
+    public final boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.t : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? (this.a == -1 || this.f25796b == -1 || !this.i) ? false : true : invokeV.booleanValue;
     }
 
     public void setDefaultTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f2) == null) {
-            this.o = f2;
+        if (interceptable == null || interceptable.invokeF(1048582, this, f2) == null) {
+            this.k = f2;
         }
     }
 
     public void setGradientColorEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.m = z;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.i = z;
         }
     }
 
-    public void setNormalBackground(int i2) {
+    public void setNormalBackground(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.f33477i = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f25799e = i;
         }
     }
 
     public void setNormalText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, charSequence) == null) {
-            this.k = charSequence;
+        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+            this.f25801g = charSequence;
         }
     }
 
-    public void setSelectedBackground(int i2) {
+    public void setSelectedBackground(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f33478j = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.f25800f = i;
         }
     }
 
     public void setSelectedBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.q = z;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.m = z;
         }
     }
 
-    public void setSelectedColor(int i2) {
+    public void setSelectedColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.f33476h = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f25798d = i;
         }
     }
 
     public void setSelectedColorEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.n = z;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.j = z;
         }
     }
 
     public void setSelectedText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, charSequence) == null) {
-            this.l = charSequence;
+        if (interceptable == null || interceptable.invokeL(1048590, this, charSequence) == null) {
+            this.f25802h = charSequence;
         }
     }
 
     public void setSelectedTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048593, this, f2) == null) {
-            this.p = f2;
+        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+            this.l = f2;
         }
     }
 
-    public void setUnSelectedColor(int i2) {
+    public void setUnSelectedColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.f33475g = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.f25797c = i;
         }
     }
 
     public void setUnselectedBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.r = z;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.n = z;
         }
     }
 
@@ -297,9 +286,9 @@ public class TabTextView extends AppCompatTextView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -310,17 +299,17 @@ public class TabTextView extends AppCompatTextView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TabTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TabTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -328,19 +317,19 @@ public class TabTextView extends AppCompatTextView {
                 return;
             }
         }
-        this.m = true;
-        this.n = false;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.live_feed_page_defaultTextSize, R.attr.live_feed_page_endTextColor, R.attr.live_feed_page_normalTextColor, R.attr.live_feed_page_selectedBold, R.attr.live_feed_page_selectedTextColor, R.attr.live_feed_page_selectedTextSize, R.attr.live_feed_page_sizeChangeEnable, R.attr.live_feed_page_startTextColor, R.attr.live_feed_page_unselectedBold});
-        this.f33473e = obtainStyledAttributes.getColor(7, 0);
-        this.f33474f = obtainStyledAttributes.getColor(1, 0);
-        this.f33476h = obtainStyledAttributes.getColor(4, 0);
-        this.f33475g = obtainStyledAttributes.getColor(2, 0);
-        this.o = obtainStyledAttributes.getDimension(0, -1.0f);
-        this.p = obtainStyledAttributes.getDimension(5, -1.0f);
-        this.q = obtainStyledAttributes.getBoolean(3, true);
-        this.r = obtainStyledAttributes.getBoolean(8, false);
-        this.t = obtainStyledAttributes.getBoolean(6, false);
+        this.i = true;
+        this.j = false;
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0403cd, R.attr.obfuscated_res_0x7f0403d3, R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403ef});
+        this.a = obtainStyledAttributes.getColor(7, 0);
+        this.f25796b = obtainStyledAttributes.getColor(1, 0);
+        this.f25798d = obtainStyledAttributes.getColor(4, 0);
+        this.f25797c = obtainStyledAttributes.getColor(2, 0);
+        this.k = obtainStyledAttributes.getDimension(0, -1.0f);
+        this.l = obtainStyledAttributes.getDimension(5, -1.0f);
+        this.m = obtainStyledAttributes.getBoolean(3, true);
+        this.n = obtainStyledAttributes.getBoolean(8, false);
+        this.p = obtainStyledAttributes.getBoolean(6, false);
         obtainStyledAttributes.recycle();
-        c();
+        g();
     }
 }

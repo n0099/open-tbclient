@@ -14,31 +14,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface b extends IInterface {
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.baidu.cyberplayer.sdk.remote.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public static class C1790a implements b {
+        /* loaded from: classes3.dex */
+        public static class C1751a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C1790a(IBinder iBinder) {
+            public C1751a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -105,14 +105,14 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
-            public void a(int i2) throws RemoteException {
+            public void a(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.a.transact(8, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -123,15 +123,15 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
-            public void a(int i2, int i3) throws RemoteException {
+            public void a(int i, int i2) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+                if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
+                        obtain.writeInt(i);
                         obtain.writeInt(i2);
-                        obtain.writeInt(i3);
                         this.a.transact(35, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -142,16 +142,16 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
-            public void a(int i2, int i3, long j2, String str) throws RemoteException {
+            public void a(int i, int i2, long j, String str) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), str}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
+                        obtain.writeInt(i);
                         obtain.writeInt(i2);
-                        obtain.writeInt(i3);
-                        obtain.writeLong(j2);
+                        obtain.writeLong(j);
                         obtain.writeString(str);
                         this.a.transact(25, obtain, obtain2, 0);
                         obtain2.readException();
@@ -163,15 +163,15 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
-            public void a(long j2, int i2) throws RemoteException {
+            public void a(long j, int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        obtain.writeLong(j2);
-                        obtain.writeInt(i2);
+                        obtain.writeLong(j);
+                        obtain.writeInt(i);
                         this.a.transact(13, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -344,14 +344,14 @@ public interface b extends IInterface {
             }
 
             @Override // com.baidu.cyberplayer.sdk.remote.b
-            public void b(int i2) throws RemoteException {
+            public void b(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.a.transact(32, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -722,9 +722,9 @@ public interface b extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -741,7 +741,7 @@ public interface b extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1790a(iBinder) : (b) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof b)) ? new C1751a(iBinder) : (b) queryLocalInterface;
             }
             return (b) invokeL.objValue;
         }
@@ -754,15 +754,15 @@ public interface b extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1598968902) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1598968902) {
                     parcel2.writeString("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                     return true;
                 }
-                switch (i2) {
+                switch (i) {
                     case 1:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
                         int a = a();
@@ -834,15 +834,15 @@ public interface b extends IInterface {
                         return true;
                     case 14:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        int i4 = i();
+                        int i3 = i();
                         parcel2.writeNoException();
-                        parcel2.writeInt(i4);
+                        parcel2.writeInt(i3);
                         return true;
                     case 15:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
-                        int j2 = j();
+                        int j = j();
                         parcel2.writeNoException();
-                        parcel2.writeInt(j2);
+                        parcel2.writeInt(j);
                         return true;
                     case 16:
                         parcel.enforceInterface("com.baidu.cyberplayer.sdk.remote.IRemotePlayer");
@@ -949,7 +949,7 @@ public interface b extends IInterface {
                         parcel2.writeNoException();
                         return true;
                     default:
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                        return super.onTransact(i, parcel, parcel2, i2);
                 }
             }
             return invokeCommon.booleanValue;
@@ -962,13 +962,13 @@ public interface b extends IInterface {
 
     void a(float f2, float f3) throws RemoteException;
 
-    void a(int i2) throws RemoteException;
+    void a(int i) throws RemoteException;
 
-    void a(int i2, int i3) throws RemoteException;
+    void a(int i, int i2) throws RemoteException;
 
-    void a(int i2, int i3, long j2, String str) throws RemoteException;
+    void a(int i, int i2, long j, String str) throws RemoteException;
 
-    void a(long j2, int i2) throws RemoteException;
+    void a(long j, int i) throws RemoteException;
 
     void a(Surface surface) throws RemoteException;
 
@@ -986,7 +986,7 @@ public interface b extends IInterface {
 
     void b() throws RemoteException;
 
-    void b(int i2) throws RemoteException;
+    void b(int i) throws RemoteException;
 
     void b(d dVar) throws RemoteException;
 

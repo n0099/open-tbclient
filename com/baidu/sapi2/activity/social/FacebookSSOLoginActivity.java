@@ -46,9 +46,9 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facebookSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,7 +77,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
                 hashMap.put("supportGuestAccount", "1");
                 String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.sapi_sdk_facebook_logging));
+                facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(R.string.obfuscated_res_0x7f0f101d));
             }
         }
 
@@ -86,7 +86,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f36710g);
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f28475g);
             }
         }
 
@@ -95,7 +95,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, facebookException) == null) {
                 Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
                 FacebookSSOLoginActivity facebookSSOLoginActivity = this.a;
-                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f36710g);
+                facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f28475g);
             }
         }
     }
@@ -121,9 +121,9 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -145,11 +145,11 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            this.n.onActivityResult(i2, i3, intent);
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            this.n.onActivityResult(i, i2, intent);
+            super.onActivityResult(i, i2, intent);
         }
     }
 
@@ -173,7 +173,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_login_facebook);
+            setTitleText(R.string.obfuscated_res_0x7f0f104b);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

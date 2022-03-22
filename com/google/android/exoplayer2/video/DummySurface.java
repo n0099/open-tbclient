@@ -12,6 +12,7 @@ import android.opengl.GLES20;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
+import android.util.Log;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,7 +27,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
 import org.webrtc.EglBase10;
 @TargetApi(17)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DummySurface extends Surface {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EGL_PROTECTED_CONTENT_EXT = 12992;
@@ -39,13 +40,13 @@ public final class DummySurface extends Surface {
     public boolean threadReleased;
 
     /* renamed from: com.google.android.exoplayer2.video.DummySurface$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DummySurfaceThread extends HandlerThread implements SurfaceTexture.OnFrameAvailableListener, Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_INIT = 1;
@@ -69,9 +70,9 @@ public final class DummySurface extends Surface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -137,43 +138,47 @@ public final class DummySurface extends Surface {
             }
         }
 
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE, MOVE_EXCEPTION, CONST_STR, CONST_STR, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i2 = message.what;
+                int i = message.what;
                 try {
-                    if (i2 != 1) {
-                        if (i2 == 2) {
+                    if (i != 1) {
+                        if (i == 2) {
                             this.surfaceTexture.updateTexImage();
                             return true;
-                        } else if (i2 != 3) {
+                        } else if (i != 3) {
                             return true;
                         } else {
                             try {
                                 releaseInternal();
-                            } catch (Throwable unused) {
+                            } finally {
+                                try {
+                                    return true;
+                                } finally {
+                                }
                             }
-                            quit();
                             return true;
                         }
                     }
                     try {
-                        try {
-                            initInternal(message.arg1 != 0);
-                            synchronized (this) {
-                                notify();
-                            }
-                        } catch (RuntimeException e2) {
-                            this.initException = e2;
-                            synchronized (this) {
-                                notify();
-                            }
+                        initInternal(message.arg1 != 0);
+                        synchronized (this) {
+                            notify();
                         }
-                    } catch (Error e3) {
-                        this.initError = e3;
+                    } catch (Error e2) {
+                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e2);
+                        this.initError = e2;
+                        synchronized (this) {
+                            notify();
+                        }
+                    } catch (RuntimeException e3) {
+                        Log.e(DummySurface.TAG, "Failed to initialize dummy surface", e3);
+                        this.initException = e3;
                         synchronized (this) {
                             notify();
                         }
@@ -315,9 +320,9 @@ public final class DummySurface extends Surface {
             newInitContext.initArgs = r2;
             Object[] objArr = {dummySurfaceThread, surfaceTexture, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SurfaceTexture) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

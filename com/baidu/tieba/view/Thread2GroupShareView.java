@@ -22,24 +22,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public final class Thread2GroupShareView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public EditText f36999b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f37000c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f37001d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f47837e;
+    public TextView f37002e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EditText f47838f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47839g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f47840h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f47841i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ShareFromPBMsgData f47842j;
+    public ShareFromPBMsgData f37003f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public Thread2GroupShareView(Context context, AttributeSet attributeSet) {
@@ -50,9 +48,9 @@ public final class Thread2GroupShareView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,48 +58,66 @@ public final class Thread2GroupShareView extends LinearLayout {
                 return;
             }
         }
-        a(context);
+        b(context);
     }
 
-    public final void a(Context context) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.thread_to_group_share_view, this);
-            setOrientation(1);
-            this.f47837e = (LinearLayout) findViewById(R.id.share_content);
-            this.f47841i = (TextView) findViewById(R.id.share_title_view);
-            this.f47838f = (EditText) findViewById(R.id.chat_msg);
-            this.f47839g = (TbImageView) findViewById(R.id.chat_group_img);
-            this.f47840h = (TextView) findViewById(R.id.chat_group_desc);
-            SkinManager.setViewTextColor(this.f47841i, R.color.CAM_X0105, 1);
-            SkinManager.setViewTextColor(this.f47838f, R.color.CAM_X0105, 2);
-            SkinManager.setViewTextColor(this.f47840h, R.color.CAM_X0106, 1);
-            this.f47838f.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-            this.f47838f.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
-            hideEditTextCursor();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.setFocusable(true);
+            this.a.setFocusableInTouchMode(true);
+            this.a.requestFocus();
         }
     }
 
-    public final void b() {
+    public final void b(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47841i.setText(this.f47842j.getTitle());
-            this.f47839g.setTag(this.f47842j.getImageUrl());
-            this.f47840h.setText(this.f47842j.getContent());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0838, this);
+            setOrientation(1);
+            this.a = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091cb8);
+            this.f37002e = (TextView) findViewById(R.id.obfuscated_res_0x7f091ce0);
+            this.f36999b = (EditText) findViewById(R.id.obfuscated_res_0x7f0905fc);
+            this.f37000c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0905f6);
+            this.f37001d = (TextView) findViewById(R.id.obfuscated_res_0x7f0905f5);
+            SkinManager.setViewTextColor(this.f37002e, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.f36999b, R.color.CAM_X0105, 2);
+            SkinManager.setViewTextColor(this.f37001d, R.color.CAM_X0106, 1);
+            this.f36999b.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            this.f36999b.setPadding(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0, 0, 0);
+            a();
+        }
+    }
+
+    public void c(String str, boolean z) {
+        TbImageView tbImageView;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) || (tbImageView = this.f37000c) == null) {
+            return;
+        }
+        tbImageView.J(str, z ? 17 : 18, false);
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f37002e.setText(this.f37003f.getTitle());
+            this.f37000c.setTag(this.f37003f.getImageUrl());
+            this.f37001d.setText(this.f37003f.getContent());
         }
     }
 
     public EditText getChatMsgView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47838f : (EditText) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36999b : (EditText) invokeV.objValue;
     }
 
     public String getLeaveMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            EditText editText = this.f47838f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            EditText editText = this.f36999b;
             if (editText != null) {
                 return m.charSequence2String(editText.getText(), null);
             }
@@ -110,29 +126,11 @@ public final class Thread2GroupShareView extends LinearLayout {
         return (String) invokeV.objValue;
     }
 
-    public void hideEditTextCursor() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f47837e.setFocusable(true);
-            this.f47837e.setFocusableInTouchMode(true);
-            this.f47837e.requestFocus();
-        }
-    }
-
-    public void loadImageIcon(String str, boolean z) {
-        TbImageView tbImageView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048583, this, str, z) == null) || (tbImageView = this.f47839g) == null) {
-            return;
-        }
-        tbImageView.startLoad(str, z ? 17 : 18, false);
-    }
-
     public void setData(ShareFromPBMsgData shareFromPBMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareFromPBMsgData) == null) {
-            this.f47842j = shareFromPBMsgData;
-            b();
+            this.f37003f = shareFromPBMsgData;
+            d();
         }
     }
 
@@ -141,7 +139,7 @@ public final class Thread2GroupShareView extends LinearLayout {
     public LinearLayout.LayoutParams generateDefaultLayoutParams() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new LinearLayout.LayoutParams(-1, -2) : (LinearLayout.LayoutParams) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -153,15 +151,15 @@ public final class Thread2GroupShareView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(context);
+        b(context);
     }
 }

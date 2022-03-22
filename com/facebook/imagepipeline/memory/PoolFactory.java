@@ -13,7 +13,7 @@ import com.facebook.common.memory.PooledByteBufferFactory;
 import com.facebook.common.memory.PooledByteStreams;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PoolFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class PoolFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {poolConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,12 +45,12 @@ public class PoolFactory {
         this.mConfig = (PoolConfig) Preconditions.checkNotNull(poolConfig);
     }
 
-    private MemoryChunkPool getMemoryChunkPool(int i2) {
+    private MemoryChunkPool getMemoryChunkPool(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 == 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            if (i != 0) {
+                if (i == 1) {
                     return getBufferMemoryChunkPool();
                 }
                 throw new IllegalArgumentException("Invalid MemoryChunkType");
@@ -192,12 +192,12 @@ public class PoolFactory {
         return (ByteArrayPool) invokeV.objValue;
     }
 
-    public PooledByteBufferFactory getPooledByteBufferFactory(int i2) {
+    public PooledByteBufferFactory getPooledByteBufferFactory(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             if (this.mPooledByteBufferFactory == null) {
-                this.mPooledByteBufferFactory = new MemoryPooledByteBufferFactory(getMemoryChunkPool(i2), getPooledByteStreams());
+                this.mPooledByteBufferFactory = new MemoryPooledByteBufferFactory(getMemoryChunkPool(i), getPooledByteStreams());
             }
             return this.mPooledByteBufferFactory;
         }

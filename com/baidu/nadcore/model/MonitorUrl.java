@@ -26,9 +26,9 @@ public final class MonitorUrl implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,8 +47,8 @@ public final class MonitorUrl implements Serializable {
             if (jSONArray == null) {
                 return arrayList;
             }
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     arrayList.add(new MonitorUrl(optJSONObject.optString("show_url"), optJSONObject.optString("show_url")));
                 }

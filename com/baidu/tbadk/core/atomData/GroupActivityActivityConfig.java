@@ -2,12 +2,13 @@ package com.baidu.tbadk.core.atomData;
 
 import android.app.Activity;
 import android.content.Context;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GroupActivityActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTIVITY_ID = "activity_id";
@@ -19,29 +20,29 @@ public class GroupActivityActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GroupActivityActivityConfig(Context context, int i2, long j2, int i3) {
+    public GroupActivityActivityConfig(Context context, int i, long j, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("activity_id", i2);
-        getIntent().putExtra("group_id", j2);
-        getIntent().putExtra("from", i3);
+        getIntent().putExtra("activity_id", i);
+        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("from", i2);
         if (context instanceof Activity) {
             return;
         }
-        getIntent().addFlags(268435456);
+        getIntent().addFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

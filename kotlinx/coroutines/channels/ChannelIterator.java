@@ -8,11 +8,11 @@ import kotlin.coroutines.Continuation;
 import kotlin.coroutines.intrinsics.IntrinsicsKt__IntrinsicsKt;
 import kotlin.jvm.JvmName;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0002\b\u0006\bf\u0018\u0000*\u0006\b\u0000\u0010\u0001 \u00012\u00020\u0002J\u0013\u0010\u0004\u001a\u00020\u0003H¦Bø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005J\u0010\u0010\u0006\u001a\u00028\u0000H¦\u0002¢\u0006\u0004\b\u0006\u0010\u0007J\u0013\u0010\b\u001a\u00028\u0000H\u0097@ø\u0001\u0000¢\u0006\u0004\b\u0006\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\t"}, d2 = {"Lkotlinx/coroutines/channels/ChannelIterator;", "E", "Lkotlin/Any;", "", "hasNext", "(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "next", "()Ljava/lang/Object;", "next0", "kotlinx-coroutines-core"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ChannelIterator<E> {
 
     @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class DefaultImpls {
         /* JADX WARN: Removed duplicated region for block: B:10:0x0023  */
         /* JADX WARN: Removed duplicated region for block: B:14:0x0035  */
@@ -26,16 +26,16 @@ public interface ChannelIterator<E> {
         public static /* synthetic */ <E> Object next(ChannelIterator<? extends E> channelIterator, Continuation<? super E> continuation) {
             ChannelIterator$next0$1 channelIterator$next0$1;
             Object obj;
-            int i2;
+            int i;
             if (continuation instanceof ChannelIterator$next0$1) {
                 channelIterator$next0$1 = (ChannelIterator$next0$1) continuation;
-                int i3 = channelIterator$next0$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    channelIterator$next0$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = channelIterator$next0$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    channelIterator$next0$1.label = i2 - Integer.MIN_VALUE;
                     obj = channelIterator$next0$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = channelIterator$next0$1.label;
-                    if (i2 != 0) {
+                    i = channelIterator$next0$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj);
                         channelIterator$next0$1.L$0 = channelIterator;
                         channelIterator$next0$1.label = 1;
@@ -43,7 +43,7 @@ public interface ChannelIterator<E> {
                         if (obj == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         channelIterator = (ChannelIterator) channelIterator$next0$1.L$0;
@@ -58,8 +58,8 @@ public interface ChannelIterator<E> {
             channelIterator$next0$1 = new ChannelIterator$next0$1(channelIterator, continuation);
             obj = channelIterator$next0$1.result;
             Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            i2 = channelIterator$next0$1.label;
-            if (i2 != 0) {
+            i = channelIterator$next0$1.label;
+            if (i != 0) {
             }
             if (!((Boolean) obj).booleanValue()) {
             }

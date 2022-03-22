@@ -1,5 +1,6 @@
 package com.bytedance.sdk.openadsdk.api.a;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -14,10 +15,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509TrustManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         public static final c a = new c();
     }
@@ -83,7 +84,7 @@ public class c {
                     }
                     int responseCode = httpsURLConnection.getResponseCode();
                     if (responseCode >= 200 && responseCode < 300) {
-                        String str2 = new String(a(httpsURLConnection.getInputStream(), 1024), a(httpsURLConnection.getHeaderField("Content-Type"), "utf-8"));
+                        String str2 = new String(a(httpsURLConnection.getInputStream(), 1024), a(httpsURLConnection.getHeaderField("Content-Type"), IMAudioTransRequest.CHARSET));
                         if (httpsURLConnection != null) {
                             try {
                                 httpsURLConnection.disconnect();
@@ -118,15 +119,15 @@ public class c {
         }
     }
 
-    public static byte[] a(InputStream inputStream, int i2) throws IOException {
+    public static byte[] a(InputStream inputStream, int i) throws IOException {
         if (inputStream == null) {
             return null;
         }
-        if (i2 < 1) {
-            i2 = 1;
+        if (i < 1) {
+            i = 1;
         }
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[i2];
+        byte[] bArr = new byte[i];
         while (true) {
             int read = inputStream.read(bArr);
             if (read != -1) {
@@ -142,8 +143,8 @@ public class c {
     public static String a(String str, String str2) {
         if (str != null) {
             String[] split = str.split(";", 0);
-            for (int i2 = 1; i2 < split.length; i2++) {
-                String[] split2 = split[i2].trim().split("=", 0);
+            for (int i = 1; i < split.length; i++) {
+                String[] split2 = split[i].trim().split("=", 0);
                 if (split2.length == 2 && split2[0].equals("charset")) {
                     return split2[1];
                 }

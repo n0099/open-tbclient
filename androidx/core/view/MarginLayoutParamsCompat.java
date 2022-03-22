@@ -17,9 +17,9 @@ public final class MarginLayoutParamsCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -75,40 +75,40 @@ public final class MarginLayoutParamsCompat {
         return invokeL.booleanValue;
     }
 
-    public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
+    public static void resolveLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, marginLayoutParams, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        marginLayoutParams.resolveLayoutDirection(i2);
+        marginLayoutParams.resolveLayoutDirection(i);
     }
 
-    public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
+    public static void setLayoutDirection(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65542, null, marginLayoutParams, i2) == null) || Build.VERSION.SDK_INT < 17) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, marginLayoutParams, i) == null) || Build.VERSION.SDK_INT < 17) {
             return;
         }
-        marginLayoutParams.setLayoutDirection(i2);
+        marginLayoutParams.setLayoutDirection(i);
     }
 
-    public static void setMarginEnd(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
+    public static void setMarginEnd(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65543, null, marginLayoutParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65543, null, marginLayoutParams, i) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                marginLayoutParams.setMarginEnd(i2);
+                marginLayoutParams.setMarginEnd(i);
             } else {
-                marginLayoutParams.rightMargin = i2;
+                marginLayoutParams.rightMargin = i;
             }
         }
     }
 
-    public static void setMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams, int i2) {
+    public static void setMarginStart(ViewGroup.MarginLayoutParams marginLayoutParams, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, marginLayoutParams, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, null, marginLayoutParams, i) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                marginLayoutParams.setMarginStart(i2);
+                marginLayoutParams.setMarginStart(i);
             } else {
-                marginLayoutParams.leftMargin = i2;
+                marginLayoutParams.leftMargin = i;
             }
         }
     }

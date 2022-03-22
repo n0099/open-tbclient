@@ -12,7 +12,7 @@ import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.Serializable;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TaskData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MAGIC_MD5 = "hd!@#$%";
@@ -38,9 +38,9 @@ public class TaskData implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -169,10 +169,10 @@ public class TaskData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? getDataId().hashCode() : invokeV.intValue;
     }
 
-    public void setAid(long j2) {
+    public void setAid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.aid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.aid = j;
         }
     }
 
@@ -190,10 +190,10 @@ public class TaskData implements Serializable {
         }
     }
 
-    public void setCrepid(int i2) {
+    public void setCrepid(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.crepid = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.crepid = i;
         }
     }
 
@@ -204,38 +204,38 @@ public class TaskData implements Serializable {
         }
     }
 
-    public void setOrder(long j2) {
+    public void setOrder(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.order = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.order = j;
         }
     }
 
-    public void setPackId(int i2) {
+    public void setPackId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.packId = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.packId = i;
         }
     }
 
-    public void setRemain(int i2) {
+    public void setRemain(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.remain = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.remain = i;
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.time = j;
         }
     }
 
-    public void setTryTimes(int i2) {
+    public void setTryTimes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.tryTimes = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.tryTimes = i;
         }
     }
 

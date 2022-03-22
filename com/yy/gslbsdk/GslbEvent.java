@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.util.GlobalTools;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class GslbEvent {
     public static final /* synthetic */ GslbEvent[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -19,7 +19,7 @@ public final class GslbEvent {
     public transient /* synthetic */ FieldHolder $fh;
     public GslbEventListener listener;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface GslbEventListener {
         void onMessage(String str);
     }
@@ -42,16 +42,16 @@ public final class GslbEvent {
         $VALUES = new GslbEvent[]{gslbEvent};
     }
 
-    public GslbEvent(String str, int i2) {
+    public GslbEvent(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

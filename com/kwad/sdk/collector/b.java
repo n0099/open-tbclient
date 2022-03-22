@@ -27,33 +27,33 @@ public class b {
             return str.substring(lastIndexOf + 1);
         }
 
-        public static void a(long j2, String str, File file, ArrayList<com.kwad.sdk.collector.model.e> arrayList) {
-            if ((file.exists() && file.isFile()) && file.length() <= j2) {
+        public static void a(long j, String str, File file, ArrayList<com.kwad.sdk.collector.model.e> arrayList) {
+            if ((file.exists() && file.isFile()) && file.length() <= j) {
                 arrayList.add(new com.kwad.sdk.collector.model.kwai.d(str, file.getAbsolutePath()));
             }
         }
 
-        public static void a(com.kwad.sdk.collector.model.kwai.b bVar, long j2, @NonNull List<com.kwad.sdk.collector.model.b> list, long j3, AppStatusRules.Strategy strategy) {
+        public static void a(com.kwad.sdk.collector.model.kwai.b bVar, long j, @NonNull List<com.kwad.sdk.collector.model.b> list, long j2, AppStatusRules.Strategy strategy) {
             long startTimeWithMS = strategy.getStartTimeWithMS();
-            if (j2 <= 0 || startTimeWithMS + j2 <= j3) {
+            if (j <= 0 || startTimeWithMS + j <= j2) {
                 return;
             }
             com.kwad.sdk.collector.model.kwai.b clone = bVar.clone();
-            clone.c(j2);
+            clone.c(j);
             list.add(clone);
         }
 
         @Override // com.kwad.sdk.collector.a
         public List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
             String[] list;
-            int i2;
+            int i;
             String[] strArr;
-            int i3;
+            int i2;
             File file;
             String[] list2;
             String[] strArr2;
             String str;
-            int i4;
+            int i3;
             File file2;
             String str2;
             String str3;
@@ -72,28 +72,28 @@ public class b {
                 com.kwad.sdk.collector.model.kwai.b c2 = aVar2.c();
                 if (c2 != null) {
                     for (String str4 : b2) {
-                        int i5 = 0;
+                        int i4 = 0;
                         if (str4.endsWith(AppStatusRules.SUFFIX_ALL_CHILDREN)) {
                             File file4 = new File(file3, str4.replace(AppStatusRules.SUFFIX_ALL_CHILDREN, ""));
                             if (file4.exists() && file4.isDirectory() && (list = file4.list()) != null) {
                                 int length = list.length;
-                                while (i5 < length) {
-                                    File file5 = new File(file4, list[i5]);
+                                while (i4 < length) {
+                                    File file5 = new File(file4, list[i4]);
                                     if (file5.exists()) {
-                                        i2 = i5;
+                                        i = i4;
                                         strArr = list;
-                                        i3 = length;
+                                        i2 = length;
                                         file = file4;
                                         a(c2, file5.lastModified(), arrayList, currentTimeMillis, strategy);
                                     } else {
-                                        i2 = i5;
+                                        i = i4;
                                         strArr = list;
-                                        i3 = length;
+                                        i2 = length;
                                         file = file4;
                                     }
-                                    i5 = i2 + 1;
+                                    i4 = i + 1;
                                     list = strArr;
-                                    length = i3;
+                                    length = i2;
                                     file4 = file;
                                 }
                             }
@@ -104,22 +104,22 @@ public class b {
                             if (file6.exists() && file6.isDirectory() && (list2 = file6.list()) != null) {
                                 String absolutePath = file6.getAbsolutePath();
                                 int length2 = list2.length;
-                                while (i5 < length2) {
-                                    int i6 = length2;
-                                    String str6 = list2[i5];
+                                while (i4 < length2) {
+                                    int i5 = length2;
+                                    String str6 = list2[i4];
                                     String[] strArr3 = list2;
                                     if ((absolutePath + str5 + str6).contains(replace)) {
                                         File file7 = new File(file6, str6);
                                         if (file7.exists()) {
                                             strArr2 = strArr3;
                                             str = absolutePath;
-                                            i4 = i5;
+                                            i3 = i4;
                                             file2 = file6;
                                             str2 = replace;
                                             str3 = str5;
                                             a(c2, file7.lastModified(), arrayList, currentTimeMillis, strategy);
-                                            i5 = i4 + 1;
-                                            length2 = i6;
+                                            i4 = i3 + 1;
+                                            length2 = i5;
                                             file6 = file2;
                                             list2 = strArr2;
                                             absolutePath = str;
@@ -129,12 +129,12 @@ public class b {
                                     }
                                     strArr2 = strArr3;
                                     str = absolutePath;
-                                    i4 = i5;
+                                    i3 = i4;
                                     file2 = file6;
                                     str2 = replace;
                                     str3 = str5;
-                                    i5 = i4 + 1;
-                                    length2 = i6;
+                                    i4 = i3 + 1;
+                                    length2 = i5;
                                     file6 = file2;
                                     list2 = strArr2;
                                     absolutePath = str;
@@ -160,7 +160,7 @@ public class b {
         }
 
         @Override // com.kwad.sdk.collector.a
-        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j2, String str) {
+        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j, String str) {
             ArrayList arrayList = new ArrayList();
             for (com.kwad.sdk.collector.model.d dVar : list) {
                 if (!(dVar instanceof com.kwad.sdk.collector.model.kwai.c)) {
@@ -173,32 +173,32 @@ public class b {
                     if (new File(str, a).exists()) {
                         for (String str2 : b2) {
                             String a2 = a(str2);
-                            int i2 = 0;
+                            int i = 0;
                             if (str2.endsWith(AppStatusRules.SUFFIX_ALL_CHILDREN)) {
                                 File[] listFiles = new File(str, str2.replace(AppStatusRules.SUFFIX_ALL_CHILDREN, "")).listFiles();
                                 if (listFiles != null && listFiles.length > 0) {
                                     int length = listFiles.length;
-                                    while (i2 < length) {
-                                        File file = listFiles[i2];
+                                    while (i < length) {
+                                        File file = listFiles[i];
                                         if (file.isFile()) {
-                                            a(j2, a, file, arrayList);
+                                            a(j, a, file, arrayList);
                                         }
-                                        i2++;
+                                        i++;
                                     }
                                 }
                             } else if (str2.endsWith(AppStatusRules.SUFFIX_ALL_FILE)) {
                                 File[] listFiles2 = new File(str, str2.substring(0, str2.lastIndexOf("/"))).listFiles();
                                 String replace = str2.replace(AppStatusRules.SUFFIX_ALL_FILE, "");
                                 int length2 = listFiles2.length;
-                                while (i2 < length2) {
-                                    File file2 = listFiles2[i2];
+                                while (i < length2) {
+                                    File file2 = listFiles2[i];
                                     if (file2.isFile() && file2.getAbsolutePath().contains(replace)) {
-                                        a(j2, a, file2, arrayList);
+                                        a(j, a, file2, arrayList);
                                     }
-                                    i2++;
+                                    i++;
                                 }
                             } else if (a2 == null || !a2.startsWith(AppStatusRules.SUFFIX_ALL_FILE)) {
-                                a(j2, a, new File(str, str2), arrayList);
+                                a(j, a, new File(str, str2), arrayList);
                             }
                         }
                     }
@@ -210,7 +210,7 @@ public class b {
 
     /* renamed from: com.kwad.sdk.collector.b$b  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2088b implements com.kwad.sdk.collector.a {
+    public static class C1949b implements com.kwad.sdk.collector.a {
         @Override // com.kwad.sdk.collector.a
         public List<com.kwad.sdk.collector.model.b> a(AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
             ArrayList arrayList = new ArrayList();
@@ -219,42 +219,42 @@ public class b {
             File file = new File(Environment.getExternalStorageDirectory(), "/Android/data/");
             int size = arrayList2.size();
             long[] jArr = new long[size];
-            for (int i2 = 0; i2 < size; i2++) {
-                com.kwad.sdk.collector.model.a aVar = (com.kwad.sdk.collector.model.a) arrayList2.get(i2);
+            for (int i = 0; i < size; i++) {
+                com.kwad.sdk.collector.model.a aVar = (com.kwad.sdk.collector.model.a) arrayList2.get(i);
                 if (!(aVar instanceof AnalyseTaskNative)) {
                     return arrayList;
                 }
-                jArr[i2] = ((AnalyseTaskNative) aVar).getNativePtr();
+                jArr[i] = ((AnalyseTaskNative) aVar).getNativePtr();
             }
             long[] analysis = AppStatusNative.analysis(jArr, file.getAbsolutePath() + "/");
             com.kwad.sdk.core.d.a.a("AppStatusAnalyserNative", "analysisByFile: runningInfoPtrs: " + analysis);
-            for (long j2 : analysis) {
-                arrayList.add(new AppRunningInfoNative(j2));
+            for (long j : analysis) {
+                arrayList.add(new AppRunningInfoNative(j));
             }
             com.kwad.sdk.core.d.a.a("AppStatusAnalyserNative", "analysisByFile: info size: " + arrayList.size());
             return arrayList;
         }
 
         @Override // com.kwad.sdk.collector.a
-        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j2, String str) {
+        public List<com.kwad.sdk.collector.model.e> a(List<com.kwad.sdk.collector.model.d> list, long j, String str) {
             int size = list.size();
             long[] jArr = new long[list.size()];
-            for (int i2 = 0; i2 < size; i2++) {
-                com.kwad.sdk.collector.model.d dVar = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                com.kwad.sdk.collector.model.d dVar = list.get(i);
                 if (dVar instanceof RulesTargetNative) {
-                    jArr[i2] = ((RulesTargetNative) dVar).getNativePtr();
+                    jArr[i] = ((RulesTargetNative) dVar).getNativePtr();
                 }
             }
-            long[] nativeGetUploadEntry = AppStatusNative.nativeGetUploadEntry(jArr, j2, str);
+            long[] nativeGetUploadEntry = AppStatusNative.nativeGetUploadEntry(jArr, j, str);
             ArrayList arrayList = new ArrayList();
-            for (long j3 : nativeGetUploadEntry) {
-                arrayList.add(new UploadEntryNative(j3));
+            for (long j2 : nativeGetUploadEntry) {
+                arrayList.add(new UploadEntryNative(j2));
             }
             return arrayList;
         }
     }
 
     public static com.kwad.sdk.collector.a a() {
-        return com.kwad.sdk.core.config.b.ai() ? new C2088b() : new a();
+        return com.kwad.sdk.core.config.b.ai() ? new C1949b() : new a();
     }
 }

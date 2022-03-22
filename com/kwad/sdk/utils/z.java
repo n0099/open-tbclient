@@ -6,46 +6,46 @@ import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.kwad.sdk.KsAdSDKImpl;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class z {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f56525b;
+        public int f41412b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f56526c;
+        public int f41413c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f56527d;
+        public int f41414d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f56528e;
+        public int f41415e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f56529f;
+        public int f41416f;
 
         public a() {
             this.a = -1;
-            this.f56525b = -1;
-            this.f56526c = -1;
-            this.f56527d = -1;
-            this.f56528e = -1;
-            this.f56529f = -1;
+            this.f41412b = -1;
+            this.f41413c = -1;
+            this.f41414d = -1;
+            this.f41415e = -1;
+            this.f41416f = -1;
         }
 
-        public a(int i2, int i3) {
+        public a(int i, int i2) {
             this.a = -1;
-            this.f56525b = -1;
-            this.f56526c = -1;
-            this.f56527d = -1;
-            this.f56528e = -1;
-            this.f56529f = -1;
-            this.a = i2;
-            this.f56525b = i3;
+            this.f41412b = -1;
+            this.f41413c = -1;
+            this.f41414d = -1;
+            this.f41415e = -1;
+            this.f41416f = -1;
+            this.a = i;
+            this.f41412b = i2;
         }
 
         public int a() {
@@ -53,48 +53,48 @@ public final class z {
         }
 
         public void a(float f2, float f3) {
-            this.f56526c = (int) f2;
-            this.f56527d = (int) f3;
+            this.f41413c = (int) f2;
+            this.f41414d = (int) f3;
         }
 
-        public void a(int i2, int i3) {
-            this.a = i2;
-            this.f56525b = i3;
+        public void a(int i, int i2) {
+            this.a = i;
+            this.f41412b = i2;
         }
 
         public int b() {
-            return this.f56525b;
+            return this.f41412b;
         }
 
         public void b(float f2, float f3) {
-            this.f56528e = (int) f2;
-            this.f56529f = (int) f3;
+            this.f41415e = (int) f2;
+            this.f41416f = (int) f3;
         }
 
         public int c() {
-            return this.f56526c;
+            return this.f41413c;
         }
 
         public int d() {
-            return this.f56527d;
+            return this.f41414d;
         }
 
         public int e() {
-            return this.f56528e;
+            return this.f41415e;
         }
 
         public int f() {
-            return this.f56529f;
+            return this.f41416f;
         }
 
         @NonNull
         public String toString() {
-            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f56525b + "," + this.f56526c + "," + this.f56527d + "," + this.f56528e + "," + this.f56529f + PreferencesUtil.RIGHT_MOUNT;
+            return PreferencesUtil.LEFT_MOUNT + this.a + "," + this.f41412b + "," + this.f41413c + "," + this.f41414d + "," + this.f41415e + "," + this.f41416f + PreferencesUtil.RIGHT_MOUNT;
         }
     }
 
-    public static String a(int i2) {
-        return i2 > -1 ? String.valueOf(i2) : "-999";
+    public static String a(int i) {
+        return i > -1 ? String.valueOf(i) : "-999";
     }
 
     public static String a(String str) {

@@ -34,16 +34,16 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
         public final DebounceTimedObserver<T> parent;
         public final T value;
 
-        public DebounceEmitter(T t, long j2, DebounceTimedObserver<T> debounceTimedObserver) {
+        public DebounceEmitter(T t, long j, DebounceTimedObserver<T> debounceTimedObserver) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, Long.valueOf(j2), debounceTimedObserver};
+                Object[] objArr = {t, Long.valueOf(j), debounceTimedObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,7 +51,7 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
             }
             this.once = new AtomicBoolean();
             this.value = t;
-            this.idx = j2;
+            this.idx = j;
             this.parent = debounceTimedObserver;
         }
 
@@ -99,23 +99,23 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
         public final TimeUnit unit;
         public final Scheduler.Worker worker;
 
-        public DebounceTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler.Worker worker) {
+        public DebounceTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler.Worker worker) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, worker};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, worker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.timeout = j2;
+            this.timeout = j;
             this.unit = timeUnit;
             this.worker = worker;
         }
@@ -129,9 +129,9 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
             }
         }
 
-        public void emit(long j2, T t, DebounceEmitter<T> debounceEmitter) {
+        public void emit(long j, T t, DebounceEmitter<T> debounceEmitter) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), t, debounceEmitter}) == null) && j2 == this.index) {
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), t, debounceEmitter}) == null) && j == this.index) {
                 this.actual.onNext(t);
                 debounceEmitter.dispose();
             }
@@ -187,13 +187,13 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
             if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.index + 1;
-            this.index = j2;
+            long j = this.index + 1;
+            this.index = j;
             Disposable disposable = this.timer;
             if (disposable != null) {
                 disposable.dispose();
             }
-            DebounceEmitter debounceEmitter = new DebounceEmitter(t, j2, this);
+            DebounceEmitter debounceEmitter = new DebounceEmitter(t, j, this);
             this.timer = debounceEmitter;
             debounceEmitter.setResource(this.worker.schedule(debounceEmitter, this.timeout, this.unit));
         }
@@ -209,24 +209,24 @@ public final class ObservableDebounceTimed<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableDebounceTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableDebounceTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler};
+            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.timeout = j2;
+        this.timeout = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

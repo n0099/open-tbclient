@@ -10,15 +10,15 @@ import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public DownAPPConfirmPolicy f57503f;
+    public DownAPPConfirmPolicy f42310f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface BasicADListener {
         void onNoAD(AdError adError);
     }
@@ -28,9 +28,9 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -40,7 +40,7 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void a(T t) {
         DownAPPConfirmPolicy downAPPConfirmPolicy;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f57503f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || (downAPPConfirmPolicy = this.f42310f) == null) {
             return;
         }
         setDownAPPConfirmPolicy(downAPPConfirmPolicy);
@@ -64,7 +64,7 @@ public abstract class NativeAbstractAD<T extends ADI> extends AbstractAD<T> {
     public void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, downAPPConfirmPolicy) == null) {
-            this.f57503f = downAPPConfirmPolicy;
+            this.f42310f = downAPPConfirmPolicy;
             T t = this.a;
             if (t == 0 || downAPPConfirmPolicy == null) {
                 return;

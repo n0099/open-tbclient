@@ -24,17 +24,17 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdRecordHttpMessage(int i2, String str, String str2, String str3, String str4, String str5) {
+    public FunAdRecordHttpMessage(int i, String str, String str2, String str3, String str4, String str5) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4, str5};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4, str5};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -43,7 +43,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("obj_source", String.valueOf(i2));
+            jSONObject.put("obj_source", String.valueOf(i));
             jSONObject.put("obj_type", str);
             if (!StringUtils.isNull(str2)) {
                 jSONObject.put("obj_locate", str2);
@@ -87,17 +87,17 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdRecordHttpMessage(String str, int i2, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+    public FunAdRecordHttpMessage(String str, int i, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, str4, str5, str6, str7, str8, str9, str10};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, str4, str5, str6, str7, str8, str9, str10};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -106,7 +106,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("obj_source", String.valueOf(i2));
+            jSONObject.put("obj_source", String.valueOf(i));
             jSONObject.put("obj_type", str2);
             if (!StringUtils.isNull(str4)) {
                 jSONObject.put("tid", str4);
@@ -141,17 +141,17 @@ public class FunAdRecordHttpMessage extends HttpMessage {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunAdRecordHttpMessage(int i2, String str) {
+    public FunAdRecordHttpMessage(int i, String str) {
         super(CmdConfigHttp.CMD_FUN_AD_RECORD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -160,7 +160,7 @@ public class FunAdRecordHttpMessage extends HttpMessage {
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("obj_source", String.valueOf(i2));
+            jSONObject.put("obj_source", String.valueOf(i));
             jSONObject.put("obj_type", str);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put(SKIP_SPLASH_RECORD, jSONObject);

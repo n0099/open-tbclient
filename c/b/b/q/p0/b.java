@@ -62,8 +62,8 @@ public final class b {
             Field[] declaredFields = cls.getDeclaredFields();
             d[] dVarArr = new d[declaredFields.length];
             int length = declaredFields.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                dVarArr[i2] = new d(declaredFields[i2]);
+            for (int i = 0; i < length; i++) {
+                dVarArr[i] = new d(declaredFields[i]);
             }
             return dVarArr;
         }

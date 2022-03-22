@@ -25,9 +25,9 @@ public interface IFaceResultData extends Parcelable {
 
     List<PointF> getNormalizedFacePoints();
 
-    List<PointF> getSingleFacePoints(int i2);
+    List<PointF> getSingleFacePoints(int i);
 
-    List<PointF> getSingleNormalizedFacePoints(int i2);
+    List<PointF> getSingleNormalizedFacePoints(int i);
 
     long getTimestamp();
 

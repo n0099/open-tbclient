@@ -39,9 +39,9 @@ public class Base64 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,12 +50,12 @@ public class Base64 {
 
     public static int decode(char c2) throws RuntimeException {
         InterceptResult invokeCommon;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c2)})) == null) {
             if (c2 < 'A' || c2 > 'Z') {
                 if (c2 >= 'a' && c2 <= 'z') {
-                    i2 = c2 - 'a';
+                    i = c2 - 'a';
                 } else if (c2 < '0' || c2 > '9') {
                     if (c2 != '+') {
                         if (c2 != '/') {
@@ -68,9 +68,9 @@ public class Base64 {
                     }
                     return 62;
                 } else {
-                    i2 = (c2 - '0') + 26;
+                    i = (c2 - '0') + 26;
                 }
-                return i2 + 26;
+                return i + 26;
             }
             return c2 - 'A';
         }
@@ -83,36 +83,36 @@ public class Base64 {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             int length = bArr.length;
             StringBuffer stringBuffer = new StringBuffer((bArr.length * 3) / 2);
-            int i2 = length - 3;
-            int i3 = 0;
+            int i = length - 3;
+            int i2 = 0;
             loop0: while (true) {
-                int i4 = 0;
-                while (i3 <= i2) {
-                    int i5 = ((bArr[i3] & 255) << 16) | ((bArr[i3 + 1] & 255) << 8) | (bArr[i3 + 2] & 255);
-                    stringBuffer.append(legalChars[(i5 >> 18) & 63]);
-                    stringBuffer.append(legalChars[(i5 >> 12) & 63]);
-                    stringBuffer.append(legalChars[(i5 >> 6) & 63]);
-                    stringBuffer.append(legalChars[i5 & 63]);
-                    i3 += 3;
-                    int i6 = i4 + 1;
-                    if (i4 >= 14) {
+                int i3 = 0;
+                while (i2 <= i) {
+                    int i4 = ((bArr[i2] & 255) << 16) | ((bArr[i2 + 1] & 255) << 8) | (bArr[i2 + 2] & 255);
+                    stringBuffer.append(legalChars[(i4 >> 18) & 63]);
+                    stringBuffer.append(legalChars[(i4 >> 12) & 63]);
+                    stringBuffer.append(legalChars[(i4 >> 6) & 63]);
+                    stringBuffer.append(legalChars[i4 & 63]);
+                    i2 += 3;
+                    int i5 = i3 + 1;
+                    if (i3 >= 14) {
                         break;
                     }
-                    i4 = i6;
+                    i3 = i5;
                 }
                 stringBuffer.append(" ");
             }
-            int i7 = 0 + length;
-            if (i3 == i7 - 2) {
-                int i8 = ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3] & 255) << 16);
+            int i6 = 0 + length;
+            if (i2 == i6 - 2) {
+                int i7 = ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2] & 255) << 16);
+                stringBuffer.append(legalChars[(i7 >> 18) & 63]);
+                stringBuffer.append(legalChars[(i7 >> 12) & 63]);
+                stringBuffer.append(legalChars[(i7 >> 6) & 63]);
+                stringBuffer.append("=");
+            } else if (i2 == i6 - 1) {
+                int i8 = (bArr[i2] & 255) << 16;
                 stringBuffer.append(legalChars[(i8 >> 18) & 63]);
                 stringBuffer.append(legalChars[(i8 >> 12) & 63]);
-                stringBuffer.append(legalChars[(i8 >> 6) & 63]);
-                stringBuffer.append("=");
-            } else if (i3 == i7 - 1) {
-                int i9 = (bArr[i3] & 255) << 16;
-                stringBuffer.append(legalChars[(i9 >> 18) & 63]);
-                stringBuffer.append(legalChars[(i9 >> 12) & 63]);
                 stringBuffer.append("==");
             }
             return stringBuffer.toString();
@@ -148,26 +148,26 @@ public class Base64 {
             return;
         }
         int length = str.length();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 < length && str.charAt(i2) <= ' ') {
-                i2++;
-            } else if (i2 == length) {
+            if (i < length && str.charAt(i) <= ' ') {
+                i++;
+            } else if (i == length) {
                 return;
             } else {
-                int i3 = i2 + 2;
-                int i4 = i2 + 3;
-                int decode = (decode(str.charAt(i2)) << 18) + (decode(str.charAt(i2 + 1)) << 12) + (decode(str.charAt(i3)) << 6) + decode(str.charAt(i4));
+                int i2 = i + 2;
+                int i3 = i + 3;
+                int decode = (decode(str.charAt(i)) << 18) + (decode(str.charAt(i + 1)) << 12) + (decode(str.charAt(i2)) << 6) + decode(str.charAt(i3));
                 outputStream.write((decode >> 16) & 255);
-                if (str.charAt(i3) == '=') {
+                if (str.charAt(i2) == '=') {
                     return;
                 }
                 outputStream.write((decode >> 8) & 255);
-                if (str.charAt(i4) == '=') {
+                if (str.charAt(i3) == '=') {
                     return;
                 }
                 outputStream.write(decode & 255);
-                i2 += 4;
+                i += 4;
             }
         }
     }

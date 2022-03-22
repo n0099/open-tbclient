@@ -4,9 +4,8 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.q0.r.r.a;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.x0;
+import c.a.o0.r.r.a;
+import c.a.o0.r.r.v0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,6 +18,7 @@ import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.PbGoodsData;
 import com.baidu.tbadk.core.data.PbLinkData;
 import com.baidu.tbadk.core.data.PollData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
@@ -50,54 +50,56 @@ import tbclient.Voice;
 /* loaded from: classes5.dex */
 public class CardPersonDynamicThreadData extends a {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId M;
+    public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PbContent> A;
-    public MediaData[] B;
-    public VideoInfo C;
-    public VoiceData.VoiceModel[] D;
-    public ZhiBoInfoTW E;
-    public MultipleForum[] F;
-    public boolean G;
-    public boolean H;
-    public boolean I;
-    public boolean J;
-    public String K;
-    public int L;
+    public ZhiBoInfoTW A;
+    public MultipleForum[] B;
+    public boolean C;
+    public boolean D;
+    public boolean E;
+    public boolean F;
+    public String G;
+    public int H;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public String f31670b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f31671c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f31672d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f41018e;
+    public String f31673e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f41019f;
+    public String f31674f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f41020g;
+    public int f31675g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f41021h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f41022i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f41023j;
-    public int k;
-    public String l;
-    public String m;
-    public String n;
-    public long o;
-    public int p;
+    public String f31676h;
+    public String i;
+    public String j;
+    public long k;
+    public int l;
+    public int m;
+    public int n;
+    public boolean o;
+    public ThreadData p;
     public int q;
-    public int r;
-    public boolean s;
-    public e2 t;
-    public int u;
-    public String v;
-    public String w;
-    public String x;
-    public Abs[] y;
-    public List<PbContent> z;
+    public String r;
+    public String s;
+    public String t;
+    public Abs[] u;
+    public List<PbContent> v;
+    public List<PbContent> w;
+    public MediaData[] x;
+    public VideoInfo y;
+    public VoiceData.VoiceModel[] z;
 
     /* loaded from: classes5.dex */
     public static class Abs extends OrmObject implements Serializable {
@@ -114,9 +116,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -165,9 +167,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -222,9 +224,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -259,9 +261,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -298,9 +300,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -338,9 +340,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -374,9 +376,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -399,10 +401,10 @@ public class CardPersonDynamicThreadData extends a {
             List<Abstract> list = postInfoContent.post_content;
             if (list != null) {
                 this.post_content = new Abs[list.size()];
-                for (int i2 = 0; i2 < this.post_content.length; i2++) {
+                for (int i = 0; i < this.post_content.length; i++) {
                     Abs abs = new Abs();
-                    abs.parseProtobuf(postInfoContent.post_content.get(i2));
-                    this.post_content[i2] = abs;
+                    abs.parseProtobuf(postInfoContent.post_content.get(i));
+                    this.post_content[i] = abs;
                 }
             }
         }
@@ -423,9 +425,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -464,9 +466,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -499,9 +501,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -545,9 +547,9 @@ public class CardPersonDynamicThreadData extends a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -571,9 +573,9 @@ public class CardPersonDynamicThreadData extends a {
             this.showExpressionViewIndex = new ArrayList<>();
         }
 
-        public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i2) {
+        public void parseProtobuf(tbclient.ZhiBoInfoTW zhiBoInfoTW, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zhiBoInfoTW, i2) == null) || zhiBoInfoTW == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, zhiBoInfoTW, i) == null) || zhiBoInfoTW == null) {
                 return;
             }
             this.post_num = zhiBoInfoTW.post_num.intValue();
@@ -586,7 +588,7 @@ public class CardPersonDynamicThreadData extends a {
             this.content = zhiBoInfoTW.content;
             this.livecover_src = zhiBoInfoTW.livecover_src;
             this.reply_num = zhiBoInfoTW.reply_num.intValue();
-            this.showStyle = i2;
+            this.showStyle = i;
             this.zan.parseProtobuf(zhiBoInfoTW.zan);
             this.isHeadLive = zhiBoInfoTW.is_headline.intValue() == 1;
             this.userInfo.parseProtobuf(zhiBoInfoTW.user);
@@ -594,17 +596,17 @@ public class CardPersonDynamicThreadData extends a {
             if (list != null) {
                 int size = list.size();
                 this.labelList = new LabelInfo[size];
-                for (int i3 = 0; i3 < size; i3++) {
-                    if (zhiBoInfoTW.labelInfo.get(i3) != null) {
+                for (int i2 = 0; i2 < size; i2++) {
+                    if (zhiBoInfoTW.labelInfo.get(i2) != null) {
                         LabelInfo labelInfo = new LabelInfo();
-                        labelInfo.labelHot = zhiBoInfoTW.labelInfo.get(i3).labelHot.intValue();
-                        labelInfo.LabelId = zhiBoInfoTW.labelInfo.get(i3).labelId;
-                        labelInfo.labelName = zhiBoInfoTW.labelInfo.get(i3).labelContent;
-                        this.labelList[i3] = labelInfo;
+                        labelInfo.labelHot = zhiBoInfoTW.labelInfo.get(i2).labelHot.intValue();
+                        labelInfo.LabelId = zhiBoInfoTW.labelInfo.get(i2).labelId;
+                        labelInfo.labelName = zhiBoInfoTW.labelInfo.get(i2).labelContent;
+                        this.labelList[i2] = labelInfo;
                     }
                 }
             }
-            CardPersonDynamicThreadData.p(this.labelList, this.showExpressionViewIndex);
+            CardPersonDynamicThreadData.m(this.labelList, this.showExpressionViewIndex);
         }
     }
 
@@ -621,7 +623,7 @@ public class CardPersonDynamicThreadData extends a {
                 return;
             }
         }
-        M = BdUniqueId.gen();
+        I = BdUniqueId.gen();
     }
 
     public CardPersonDynamicThreadData() {
@@ -629,34 +631,34 @@ public class CardPersonDynamicThreadData extends a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.r = 0;
-        this.u = 0;
-        this.y = new Abs[0];
-        this.B = new MediaData[0];
-        this.D = new VoiceData.VoiceModel[0];
-        this.E = new ZhiBoInfoTW();
-        this.F = new MultipleForum[0];
-        this.G = true;
-        this.H = true;
-        this.I = false;
-        this.J = true;
+        this.n = 0;
+        this.q = 0;
+        this.u = new Abs[0];
+        this.x = new MediaData[0];
+        this.z = new VoiceData.VoiceModel[0];
+        this.A = new ZhiBoInfoTW();
+        this.B = new MultipleForum[0];
+        this.C = true;
+        this.D = true;
+        this.E = false;
+        this.F = true;
     }
 
-    public static int g(int i2, int i3, int i4) {
+    public static int e(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) {
-            for (int i5 = 0; i5 < i2 && i5 < 3; i5++) {
-                if (i5 != i3 && i5 != i4) {
-                    return i5;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
+            for (int i4 = 0; i4 < i && i4 < 3; i4++) {
+                if (i4 != i2 && i4 != i3) {
+                    return i4;
                 }
             }
             return -1;
@@ -664,245 +666,245 @@ public class CardPersonDynamicThreadData extends a {
         return invokeIII.intValue;
     }
 
-    public static int i(int i2, int i3) {
+    public static int g(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            int nextInt = new Random().nextInt(i2);
-            return nextInt == i3 ? (nextInt + 1) % i2 : nextInt;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            int nextInt = new Random().nextInt(i);
+            return nextInt == i2 ? (nextInt + 1) % i : nextInt;
         }
         return invokeII.intValue;
     }
 
-    public static void p(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void m(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) == null) || labelInfoArr == null) {
             return;
         }
         int length = labelInfoArr.length;
+        int i = -1;
         int i2 = -1;
-        int i3 = -1;
-        for (int i4 = 0; i4 < length && i4 < 3; i4++) {
-            if (labelInfoArr[i4] != null) {
-                int i5 = i(3, -1);
-                if (i5 == i2 || i5 == i3) {
-                    i5 = g(length, i2, i3);
+        for (int i3 = 0; i3 < length && i3 < 3; i3++) {
+            if (labelInfoArr[i3] != null) {
+                int g2 = g(3, -1);
+                if (g2 == i || g2 == i2) {
+                    g2 = e(length, i, i2);
                 }
-                if (i4 == 0) {
-                    i2 = i5;
+                if (i3 == 0) {
+                    i = g2;
                 }
-                if (i4 == 1) {
-                    i3 = i5;
+                if (i3 == 1) {
+                    i2 = g2;
                 }
-                arrayList.add(Integer.valueOf(i5));
+                arrayList.add(Integer.valueOf(g2));
             }
         }
     }
 
-    @Override // c.a.q0.r.r.a
-    public x0 getNegFeedBackData() {
+    @Override // c.a.o0.r.r.a
+    public v0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (x0) invokeV.objValue;
+        return (v0) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.r.a
-    public e2 getThreadData() {
+    @Override // c.a.o0.r.r.a
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.t : (e2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.p : (ThreadData) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, c.a.d.o.e.n
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? M : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? I : (BdUniqueId) invokeV.objValue;
     }
 
-    public void k(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i2) {
+    public void i(User user, @Nullable MetaData metaData, PostInfoList postInfoList, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i2) == null) || postInfoList == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048579, this, user, metaData, postInfoList, i) == null) || postInfoList == null) {
             return;
         }
-        this.f41018e = String.valueOf(postInfoList.forum_id);
-        this.f41019f = String.valueOf(postInfoList.thread_id);
-        this.f41020g = postInfoList.is_manager.intValue();
-        this.f41021h = postInfoList.is_origin_manager.intValue();
+        this.a = String.valueOf(postInfoList.forum_id);
+        this.f31670b = String.valueOf(postInfoList.thread_id);
+        this.f31671c = postInfoList.is_manager.intValue();
+        this.f31672d = postInfoList.is_origin_manager.intValue();
         String valueOf = String.valueOf(postInfoList.post_id);
-        this.f41022i = valueOf;
-        this.f41023j = valueOf;
-        this.k = postInfoList.create_time.intValue();
+        this.f31673e = valueOf;
+        this.f31674f = valueOf;
+        this.f31675g = postInfoList.create_time.intValue();
         long intValue = postInfoList.create_time.intValue() * 1000;
-        this.v = StringHelper.getChineseYearBytime(intValue);
-        this.w = StringHelper.getChineseMonthBytime(intValue);
-        this.x = StringHelper.getDateBytime(intValue);
-        this.l = postInfoList.forum_name;
-        this.m = postInfoList.title;
-        this.z = postInfoList.rich_title;
-        this.A = postInfoList.rich_abstract;
+        this.r = StringHelper.getChineseYearBytime(intValue);
+        this.s = StringHelper.getChineseMonthBytime(intValue);
+        this.t = StringHelper.getDateBytime(intValue);
+        this.f31676h = postInfoList.forum_name;
+        this.i = postInfoList.title;
+        this.v = postInfoList.rich_title;
+        this.w = postInfoList.rich_abstract;
         String str = postInfoList.user_name;
         postInfoList.user_id.longValue();
         String str2 = postInfoList.user_portrait;
-        this.o = postInfoList.thread_type.longValue();
-        this.r = postInfoList.is_post_deleted.intValue();
+        this.k = postInfoList.thread_type.longValue();
+        this.n = postInfoList.is_post_deleted.intValue();
         if (postInfoList.is_remain.intValue() == 0) {
-            this.s = false;
+            this.o = false;
         } else if (postInfoList.is_remain.intValue() == 1) {
-            this.s = true;
+            this.o = true;
         }
         StringBuilder sb = new StringBuilder();
         List<Abstract> list = postInfoList.abstract_thread;
         if (list != null) {
-            this.y = new Abs[list.size()];
-            for (int i3 = 0; i3 < this.y.length; i3++) {
+            this.u = new Abs[list.size()];
+            for (int i2 = 0; i2 < this.u.length; i2++) {
                 Abs abs = new Abs();
-                abs.parseProtobuf(postInfoList.abstract_thread.get(i3));
-                this.y[i3] = abs;
-                if (postInfoList.abstract_thread.get(i3).type.intValue() == 0) {
-                    sb.append(postInfoList.abstract_thread.get(i3).text);
+                abs.parseProtobuf(postInfoList.abstract_thread.get(i2));
+                this.u[i2] = abs;
+                if (postInfoList.abstract_thread.get(i2).type.intValue() == 0) {
+                    sb.append(postInfoList.abstract_thread.get(i2).text);
                 }
             }
         }
-        this.n = sb.toString();
-        this.p = postInfoList.reply_num.intValue();
-        this.q = postInfoList.freq_num.intValue();
+        this.j = sb.toString();
+        this.l = postInfoList.reply_num.intValue();
+        this.m = postInfoList.freq_num.intValue();
         List<tbclient.Media> list2 = postInfoList.media;
         if (list2 != null) {
-            this.B = new MediaData[list2.size()];
-            for (int i4 = 0; i4 < this.B.length; i4++) {
+            this.x = new MediaData[list2.size()];
+            for (int i3 = 0; i3 < this.x.length; i3++) {
                 MediaData mediaData = new MediaData();
-                mediaData.parserProtobuf(postInfoList.media.get(i4));
-                this.B[i4] = mediaData;
+                mediaData.parserProtobuf(postInfoList.media.get(i3));
+                this.x[i3] = mediaData;
             }
         }
         List<Voice> list3 = postInfoList.voice_info;
         if (list3 != null) {
-            this.D = new VoiceData.VoiceModel[list3.size()];
-            for (int i5 = 0; i5 < this.D.length; i5++) {
+            this.z = new VoiceData.VoiceModel[list3.size()];
+            for (int i4 = 0; i4 < this.z.length; i4++) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-                voiceModel.parserProtobuf(postInfoList.voice_info.get(i5));
-                this.D[i5] = voiceModel;
+                voiceModel.parserProtobuf(postInfoList.voice_info.get(i4));
+                this.z[i4] = voiceModel;
             }
         }
         tbclient.ZhiBoInfoTW zhiBoInfoTW = postInfoList.twzhibo_info;
         if (zhiBoInfoTW != null) {
-            this.E.parseProtobuf(zhiBoInfoTW, i2);
+            this.A.parseProtobuf(zhiBoInfoTW, i);
         }
         VideoInfo videoInfo = postInfoList.video_info;
         if (videoInfo != null) {
-            this.C = videoInfo;
+            this.y = videoInfo;
         }
         List<tbclient.MultipleForum> list4 = postInfoList.multiple_forum_list;
         if (list4 != null && list4.size() > 0) {
-            this.F = new MultipleForum[postInfoList.multiple_forum_list.size()];
-            for (int i6 = 0; i6 < this.F.length; i6++) {
+            this.B = new MultipleForum[postInfoList.multiple_forum_list.size()];
+            for (int i5 = 0; i5 < this.B.length; i5++) {
                 MultipleForum multipleForum = new MultipleForum();
-                multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i6));
-                this.F[i6] = multipleForum;
+                multipleForum.parseProtobuf(postInfoList.multiple_forum_list.get(i5));
+                this.B[i5] = multipleForum;
             }
-        } else if (!TextUtils.isEmpty(this.l) && b.g(this.f41018e, -1L) != -1) {
-            this.F = new MultipleForum[1];
+        } else if (!TextUtils.isEmpty(this.f31676h) && b.g(this.a, -1L) != -1) {
+            this.B = new MultipleForum[1];
             MultipleForum multipleForum2 = new MultipleForum();
-            multipleForum2.forum_id = b.g(this.f41018e, 0L);
-            multipleForum2.forum_name = this.l;
-            this.F[0] = multipleForum2;
+            multipleForum2.forum_id = b.g(this.a, 0L);
+            multipleForum2.forum_name = this.f31676h;
+            this.B[0] = multipleForum2;
         }
-        this.t = new e2();
+        this.p = new ThreadData();
         if (postInfoList.ala_info != null) {
             AlaInfoData alaInfoData = new AlaInfoData();
             alaInfoData.parserProtobuf(postInfoList.ala_info);
-            this.t.C4(alaInfoData);
-            this.t.G4(this.m);
-            this.q = postInfoList.view_num.intValue();
+            this.p.setThreadAlaInfo(alaInfoData);
+            this.p.setTitle(this.i);
+            this.m = postInfoList.view_num.intValue();
         }
         Agree agree = postInfoList.agree;
         if (agree != null) {
-            this.t.z3(agree.agree_type.intValue());
-            this.t.R3(postInfoList.agree.has_agree.intValue());
+            this.p.setAgreeType(agree.agree_type.intValue());
+            this.p.setHasAgree(postInfoList.agree.has_agree.intValue());
             long longValue = postInfoList.agree.agree_num.longValue() > 0 ? postInfoList.agree.agree_num.longValue() : 0L;
             long longValue2 = postInfoList.agree.disagree_num.longValue() > 0 ? postInfoList.agree.disagree_num.longValue() : 0L;
-            this.t.y3(longValue);
-            this.t.F3(longValue2);
-            if (this.t.f0() == 1 && longValue == 0 && longValue2 == 0) {
-                this.t.x3(1);
+            this.p.setAgreeNum(longValue);
+            this.p.setDisAgreeNum(longValue2);
+            if (this.p.getHasAgree() == 1 && longValue == 0 && longValue2 == 0) {
+                this.p.setAgreeNum(1);
             }
-            AgreeData B = this.t.B();
-            if (B != null) {
-                B.threadId = this.f41019f;
-                B.parseProtobuf(postInfoList.agree);
+            AgreeData agreeData = this.p.getAgreeData();
+            if (agreeData != null) {
+                agreeData.threadId = this.f31670b;
+                agreeData.parseProtobuf(postInfoList.agree);
             }
         }
         if (postInfoList.is_share_thread.intValue() == 1) {
             OriginalThreadInfo originalThreadInfo = new OriginalThreadInfo();
-            originalThreadInfo.n(postInfoList.origin_thread_info, this.t);
-            e2 e2Var = this.t;
-            e2Var.z1 = originalThreadInfo;
-            e2Var.A1 = true;
+            originalThreadInfo.n(postInfoList.origin_thread_info, this.p);
+            ThreadData threadData = this.p;
+            threadData.originalThreadData = originalThreadInfo;
+            threadData.isShareThread = true;
         }
-        this.t.x4(postInfoList.share_num.intValue());
-        this.t.T3(this.f41019f);
-        this.t.X3(this.f41020g);
-        this.t.Z3(this.f41021h);
-        this.t.F4(this.f41019f);
-        this.t.J3(postInfoList.forum_id.longValue());
-        this.t.N3(this.l);
-        this.t.s4(this.p);
-        this.t.M4(this.q);
-        this.t.h4(this.k);
-        this.t.G4(this.m);
-        this.t.v4(this.z);
-        this.t.u4(this.A);
-        this.t.u3(this.n);
-        this.t.E4((int) this.o);
-        this.t.L3(postInfoList.first_post_content);
-        if (this.B != null) {
-            this.t.n4(new ArrayList<>(Arrays.asList(this.B)));
+        this.p.setShareNum(postInfoList.share_num.intValue());
+        this.p.setId(this.f31670b);
+        this.p.setIsManager(this.f31671c);
+        this.p.setIsOriginManager(this.f31672d);
+        this.p.setTid(this.f31670b);
+        this.p.setFid(postInfoList.forum_id.longValue());
+        this.p.setForum_name(this.f31676h);
+        this.p.setReply_num(this.l);
+        this.p.setView_num(this.m);
+        this.p.setLast_time_int(this.f31675g);
+        this.p.setTitle(this.i);
+        this.p.setRichTitleList(this.v);
+        this.p.setRichAbstractList(this.w);
+        this.p.setAbstract(this.j);
+        this.p.setThreadType((int) this.k);
+        this.p.setFirstFloorList(postInfoList.first_post_content);
+        if (this.x != null) {
+            this.p.setMedias(new ArrayList<>(Arrays.asList(this.x)));
         }
-        if (this.D != null) {
-            this.t.N4(new ArrayList<>(Arrays.asList(this.D)));
+        if (this.z != null) {
+            this.p.setVoices(new ArrayList<>(Arrays.asList(this.z)));
         }
-        this.t.S4(postInfoList.is_ntitle.intValue());
-        e2 e2Var2 = this.t;
-        e2Var2.e2 = true;
-        if (e2Var2.J() != null) {
+        this.p.updateIsNotitle(postInfoList.is_ntitle.intValue());
+        ThreadData threadData2 = this.p;
+        threadData2.isFromPersonPolymeric = true;
+        if (threadData2.getAuthor() != null) {
             if (metaData != null) {
-                this.t.C3(metaData);
+                this.p.setAuthor(metaData);
             } else if (user != null) {
-                this.t.J().parserProtobuf(user);
+                this.p.getAuthor().parserProtobuf(user);
             }
-            this.t.j3();
+            this.p.praserTimeConsumingInfo();
         }
-        this.t.B3(postInfoList.article_cover);
-        this.t.L4(this.C);
-        this.t.K4(postInfoList.user_post_perm);
-        if (this.t.H2()) {
-            this.t.V3(1);
+        this.p.setArticeCover(postInfoList.article_cover);
+        this.p.setVideoInfo(this.y);
+        this.p.setUserPostPerm(postInfoList.user_post_perm);
+        if (this.p.isUgcThreadType()) {
+            this.p.setIsBjh(1);
         }
-        e2 e2Var3 = this.t;
-        e2Var3.l2 = this.s;
-        e2Var3.m2 = this.f41023j;
+        ThreadData threadData3 = this.p;
+        threadData3.isPrivacy = this.o;
+        threadData3.person_center_post_id = this.f31674f;
         Item item = postInfoList.item;
         if (item != null) {
-            e2Var3.e4(item);
+            threadData3.setItem(item);
             ItemData itemData = new ItemData();
             itemData.parseProto(postInfoList.item);
-            this.t.B2 = itemData;
+            this.p.itemData = itemData;
         }
         List<HeadItem> list5 = postInfoList.item_star;
         if (list5 != null) {
-            this.t.g4(list5);
+            this.p.setItemStar(list5);
             ItemStarData itemStarData = new ItemStarData();
             itemStarData.parseProto(postInfoList.item_star);
-            this.t.D2 = itemStarData;
+            this.p.itemStarData = itemStarData;
         }
         if (postInfoList.poll_info != null) {
             PollData pollData = new PollData();
             pollData.parserProtobuf(postInfoList.poll_info);
-            this.t.p4(pollData);
+            this.p.setPollData(pollData);
         }
         List<PbLinkInfo> list6 = postInfoList.pb_link_info;
         if (list6 != null && !ListUtils.isEmpty(list6)) {
@@ -912,7 +914,7 @@ public class CardPersonDynamicThreadData extends a {
                 pbLinkData.parseProto(pbLinkInfo);
                 arrayList.add(pbLinkData);
             }
-            this.t.i4(arrayList);
+            this.p.setLinkDataList(arrayList);
         }
         List<PbGoodsInfo> list7 = postInfoList.pb_goods_info;
         if (list7 != null && !ListUtils.isEmpty(list7)) {
@@ -922,11 +924,11 @@ public class CardPersonDynamicThreadData extends a {
                 pbGoodsData.parseProto(pbGoodsInfo);
                 arrayList2.add(pbGoodsData);
             }
-            this.t.P4(arrayList2);
+            this.p.setmGoodsDataList(arrayList2);
         }
         int intValue2 = postInfoList.is_author_view.intValue();
-        this.L = intValue2;
-        this.t.N2 = intValue2;
+        this.H = intValue2;
+        this.p.isAuthorView = intValue2;
         List<PbLinkInfo> list8 = postInfoList.pb_link_info;
         if (list8 != null && !ListUtils.isEmpty(list8)) {
             ArrayList arrayList3 = new ArrayList();
@@ -935,117 +937,117 @@ public class CardPersonDynamicThreadData extends a {
                 pbLinkData2.parseProto(pbLinkInfo2);
                 arrayList3.add(pbLinkData2);
             }
-            this.t.i4(arrayList3);
+            this.p.setLinkDataList(arrayList3);
         }
-        this.t.o3();
+        this.p.processExtensionInfoForPersonCenter();
     }
 
-    public void o(User user, ThreadInfo threadInfo, int i2, long j2) {
+    public void k(User user, ThreadInfo threadInfo, int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || threadInfo == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{user, threadInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) || threadInfo == null) {
             return;
         }
-        this.f41018e = String.valueOf(threadInfo.fid);
-        this.f41019f = String.valueOf(threadInfo.tid);
+        this.a = String.valueOf(threadInfo.fid);
+        this.f31670b = String.valueOf(threadInfo.tid);
         String valueOf = String.valueOf(threadInfo.post_id);
-        this.f41022i = valueOf;
-        this.f41023j = valueOf;
-        this.k = threadInfo.create_time.intValue();
-        long j3 = j2 * 1000;
-        this.v = StringHelper.getChineseYearBytime(j3);
-        this.w = StringHelper.getChineseMonthBytime(j3);
-        this.x = StringHelper.getDateBytime(j3);
-        this.l = threadInfo.fname;
-        this.C = threadInfo.video_info;
-        this.m = threadInfo.title;
-        this.z = threadInfo.rich_title;
-        this.A = threadInfo.rich_abstract;
+        this.f31673e = valueOf;
+        this.f31674f = valueOf;
+        this.f31675g = threadInfo.create_time.intValue();
+        long j2 = j * 1000;
+        this.r = StringHelper.getChineseYearBytime(j2);
+        this.s = StringHelper.getChineseMonthBytime(j2);
+        this.t = StringHelper.getDateBytime(j2);
+        this.f31676h = threadInfo.fname;
+        this.y = threadInfo.video_info;
+        this.i = threadInfo.title;
+        this.v = threadInfo.rich_title;
+        this.w = threadInfo.rich_abstract;
         User user2 = threadInfo.author;
         if (user2 != null) {
             String str = user2.name;
             user2.id.longValue();
             String str2 = threadInfo.author.portrait;
         }
-        this.o = threadInfo.thread_type.intValue();
-        this.y = new Abs[threadInfo._abstract.size()];
+        this.k = threadInfo.thread_type.intValue();
+        this.u = new Abs[threadInfo._abstract.size()];
         StringBuilder sb = new StringBuilder();
         if (threadInfo._abstract != null) {
-            for (int i3 = 0; i3 < this.y.length; i3++) {
+            for (int i2 = 0; i2 < this.u.length; i2++) {
                 Abs abs = new Abs();
-                abs.parseProtobuf(threadInfo._abstract.get(i3));
-                this.y[i3] = abs;
-                if (threadInfo._abstract.get(i3).type.intValue() == 0) {
-                    sb.append(threadInfo._abstract.get(i3).text);
+                abs.parseProtobuf(threadInfo._abstract.get(i2));
+                this.u[i2] = abs;
+                if (threadInfo._abstract.get(i2).type.intValue() == 0) {
+                    sb.append(threadInfo._abstract.get(i2).text);
                 }
             }
         }
-        this.n = sb.toString();
-        this.p = threadInfo.reply_num.intValue();
-        this.q = threadInfo.view_num.intValue();
+        this.j = sb.toString();
+        this.l = threadInfo.reply_num.intValue();
+        this.m = threadInfo.view_num.intValue();
         List<tbclient.Media> list = threadInfo.media;
         if (list != null) {
-            this.B = new MediaData[list.size()];
-            for (int i4 = 0; i4 < this.B.length; i4++) {
+            this.x = new MediaData[list.size()];
+            for (int i3 = 0; i3 < this.x.length; i3++) {
                 MediaData mediaData = new MediaData();
-                mediaData.parserProtobuf(threadInfo.media.get(i4));
-                this.B[i4] = mediaData;
+                mediaData.parserProtobuf(threadInfo.media.get(i3));
+                this.x[i3] = mediaData;
             }
         }
         List<Voice> list2 = threadInfo.voice_info;
         if (list2 != null) {
-            this.D = new VoiceData.VoiceModel[list2.size()];
-            for (int i5 = 0; i5 < this.D.length; i5++) {
+            this.z = new VoiceData.VoiceModel[list2.size()];
+            for (int i4 = 0; i4 < this.z.length; i4++) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
-                voiceModel.parserProtobuf(threadInfo.voice_info.get(i5));
-                this.D[i5] = voiceModel;
+                voiceModel.parserProtobuf(threadInfo.voice_info.get(i4));
+                this.z[i4] = voiceModel;
             }
         }
         List<tbclient.MultipleForum> list3 = threadInfo.multiple_forum_list;
         if (list3 != null) {
-            this.F = new MultipleForum[list3.size()];
-            for (int i6 = 0; i6 < this.F.length; i6++) {
+            this.B = new MultipleForum[list3.size()];
+            for (int i5 = 0; i5 < this.B.length; i5++) {
                 MultipleForum multipleForum = new MultipleForum();
-                multipleForum.parseProtobuf(threadInfo.multiple_forum_list.get(i6));
-                this.F[i6] = multipleForum;
+                multipleForum.parseProtobuf(threadInfo.multiple_forum_list.get(i5));
+                this.B[i5] = multipleForum;
             }
         }
         tbclient.ZhiBoInfoTW zhiBoInfoTW = threadInfo.twzhibo_info;
         if (zhiBoInfoTW != null) {
-            this.E.parseProtobuf(zhiBoInfoTW, i2);
+            this.A.parseProtobuf(zhiBoInfoTW, i);
         }
-        e2 e2Var = new e2();
-        this.t = e2Var;
-        e2Var.d3(threadInfo);
-        this.t.T3(this.f41019f);
-        this.t.F4(this.f41019f);
-        this.t.J3(threadInfo.fid.longValue());
-        this.t.s4(this.p);
-        this.t.M4(this.q);
-        this.t.h4(this.k);
+        ThreadData threadData = new ThreadData();
+        this.p = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.p.setId(this.f31670b);
+        this.p.setTid(this.f31670b);
+        this.p.setFid(threadInfo.fid.longValue());
+        this.p.setReply_num(this.l);
+        this.p.setView_num(this.m);
+        this.p.setLast_time_int(this.f31675g);
         Agree agree = threadInfo.agree;
         if (agree != null) {
-            this.t.z3(agree.agree_type.intValue());
-            this.t.R3(threadInfo.agree.has_agree.intValue());
+            this.p.setAgreeType(agree.agree_type.intValue());
+            this.p.setHasAgree(threadInfo.agree.has_agree.intValue());
             long longValue = threadInfo.agree.agree_num.longValue() > 0 ? threadInfo.agree.agree_num.longValue() : 0L;
             long longValue2 = threadInfo.agree.disagree_num.longValue() > 0 ? threadInfo.agree.disagree_num.longValue() : 0L;
-            this.t.y3(longValue);
-            this.t.F3(longValue2);
-            if (this.t.f0() == 1 && longValue == 0 && longValue2 == 0) {
-                this.t.x3(1);
+            this.p.setAgreeNum(longValue);
+            this.p.setDisAgreeNum(longValue2);
+            if (this.p.getHasAgree() == 1 && longValue == 0 && longValue2 == 0) {
+                this.p.setAgreeNum(1);
             }
         }
-        this.t.S4(threadInfo.is_ntitle.intValue());
-        e2 e2Var2 = this.t;
-        e2Var2.e2 = true;
-        if (e2Var2.J() != null && user != null) {
-            this.t.J().parserProtobuf(user);
-            this.t.j3();
+        this.p.updateIsNotitle(threadInfo.is_ntitle.intValue());
+        ThreadData threadData2 = this.p;
+        threadData2.isFromPersonPolymeric = true;
+        if (threadData2.getAuthor() != null && user != null) {
+            this.p.getAuthor().parserProtobuf(user);
+            this.p.praserTimeConsumingInfo();
         }
-        this.t.B3(threadInfo.article_cover);
-        this.t.L4(this.C);
-        if (this.t.H2()) {
-            this.t.V3(1);
+        this.p.setArticeCover(threadInfo.article_cover);
+        this.p.setVideoInfo(this.y);
+        if (this.p.isUgcThreadType()) {
+            this.p.setIsBjh(1);
         }
-        this.t.o3();
+        this.p.processExtensionInfoForPersonCenter();
     }
 }

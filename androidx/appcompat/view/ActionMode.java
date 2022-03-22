@@ -33,9 +33,9 @@ public abstract class ActionMode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -89,7 +89,7 @@ public abstract class ActionMode {
 
     public abstract void setCustomView(View view);
 
-    public abstract void setSubtitle(int i2);
+    public abstract void setSubtitle(int i);
 
     public abstract void setSubtitle(CharSequence charSequence);
 
@@ -100,7 +100,7 @@ public abstract class ActionMode {
         }
     }
 
-    public abstract void setTitle(int i2);
+    public abstract void setTitle(int i);
 
     public abstract void setTitle(CharSequence charSequence);
 

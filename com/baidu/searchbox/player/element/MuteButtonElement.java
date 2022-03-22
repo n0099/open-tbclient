@@ -34,9 +34,9 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,20 +53,20 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
                 if (imageView == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("muteButton");
                 }
-                imageView.setImageResource(R.drawable.bdvideoplayer_mute_on);
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f080210);
                 return;
             }
             ImageView imageView2 = this.muteButton;
             if (imageView2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("muteButton");
             }
-            imageView2.setImageResource(R.drawable.bdvideoplayer_mute_off);
+            imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08020f);
         }
     }
 
-    public static /* synthetic */ void setMuteIcon$default(MuteButtonElement muteButtonElement, boolean z, int i2, Object obj) {
+    public static /* synthetic */ void setMuteIcon$default(MuteButtonElement muteButtonElement, boolean z, int i, Object obj) {
         if (obj == null) {
-            if ((i2 & 1) != 0) {
+            if ((i & 1) != 0) {
                 z = false;
             }
             muteButtonElement.setMuteIcon(z);
@@ -185,10 +185,10 @@ public class MuteButtonElement extends AbsElement implements View.OnClickListene
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement
-    public void onParentVisibleChanged(int i2) {
+    public void onParentVisibleChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.isPanelShowing = i2 == 0;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.isPanelShowing = i == 0;
             setMuteVisibility();
         }
     }

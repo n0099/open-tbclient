@@ -3,6 +3,7 @@ package com.baidu.ar.plugin;
 import android.content.Context;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,9 +41,9 @@ public class PluginDirHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -100,7 +101,7 @@ public class PluginDirHelper {
     public static String getPluginApkDir(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "apk")) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), D.COLUMU_PLUGIN_DEX_PATH)) : (String) invokeLL.objValue;
     }
 
     public static String getPluginApkFile(Context context, String str) {
@@ -151,10 +152,10 @@ public class PluginDirHelper {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, context, str)) == null) ? enforceDirExists(new File(makePluginBaseDir(context, str), "Signature/")) : (String) invokeLL.objValue;
     }
 
-    public static String getPluginSignatureFile(Context context, String str, int i2) {
+    public static String getPluginSignatureFile(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, context, str, i2)) == null) ? new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i2))).getPath() : (String) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65549, null, context, str, i)) == null) ? new File(getPluginSignatureDir(context, str), String.format("Signature_%s.key", Integer.valueOf(i))).getPath() : (String) invokeLLI.objValue;
     }
 
     public static List<String> getPluginSignatureFiles(Context context, String str) {

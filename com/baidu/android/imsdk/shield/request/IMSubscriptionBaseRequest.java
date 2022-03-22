@@ -30,16 +30,16 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     public String mSource;
     public List<Long> mTopicList;
 
-    public IMSubscriptionBaseRequest(Context context, long j2, List<Long> list, List<String> list2, String str, String str2) {
+    public IMSubscriptionBaseRequest(Context context, long j, List<Long> list, List<String> list2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), list, list2, str, str2};
+            Object[] objArr = {context, Long.valueOf(j), list, list2, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,7 +52,7 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
             this.mMiNiAppTopicList = new ArrayList(list2);
         }
         this.mContext = context;
-        this.mPaid = j2;
+        this.mPaid = j;
         this.mKey = str;
         this.mSource = str2;
     }

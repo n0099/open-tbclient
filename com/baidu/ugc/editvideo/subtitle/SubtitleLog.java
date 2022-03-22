@@ -1,7 +1,8 @@
 package com.baidu.ugc.editvideo.subtitle;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,9 +23,9 @@ public final class SubtitleLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,6 +62,7 @@ public final class SubtitleLog {
     public static void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            Log.d(TAG, str);
         }
     }
 
@@ -71,12 +73,12 @@ public final class SubtitleLog {
                 d("list empty");
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             for (T t : list) {
                 if (t instanceof SubTitleUnit) {
                     SubTitleUnit subTitleUnit = (SubTitleUnit) t;
-                    d(i2 + ": " + subTitleUnit.line + " [" + subTitleUnit.startTime + StringUtil.ARRAY_ELEMENT_SEPARATOR + subTitleUnit.endTime + PreferencesUtil.RIGHT_MOUNT);
-                    i2++;
+                    d(i + ": " + subTitleUnit.line + " [" + subTitleUnit.startTime + StringUtil.ARRAY_ELEMENT_SEPARATOR + subTitleUnit.endTime + PreferencesUtil.RIGHT_MOUNT);
+                    i++;
                 }
             }
         }

@@ -18,9 +18,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -29,30 +29,30 @@ public class a {
         this.a = new SparseArray<>();
     }
 
-    public c a(int i2) {
+    public c a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.a.get(i2) : (c) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.get(i) : (c) invokeI.objValue;
     }
 
-    public boolean b(int i2) {
+    public boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            c a = a(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            c a = a(i);
             return a != null && a.b() > 0 && a.a() > 0;
         }
         return invokeI.booleanValue;
     }
 
-    public boolean c(int i2, int i3, int i4) {
+    public boolean c(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4)) == null) {
-            if (i3 <= 0 || i4 <= 0) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
+            if (i2 <= 0 || i3 <= 0) {
                 return false;
             }
-            this.a.put(i2, new c(i3, i4));
+            this.a.put(i, new c(i2, i3));
             return true;
         }
         return invokeIII.booleanValue;

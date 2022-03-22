@@ -23,9 +23,9 @@ public class LifecycleService extends Service implements LifecycleOwner {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,19 +77,19 @@ public class LifecycleService extends Service implements LifecycleOwner {
 
     @Override // android.app.Service
     @CallSuper
-    public void onStart(@Nullable Intent intent, int i2) {
+    public void onStart(@Nullable Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, intent, i) == null) {
             this.mDispatcher.onServicePreSuperOnStart();
-            super.onStart(intent, i2);
+            super.onStart(intent, i);
         }
     }
 
     @Override // android.app.Service
     @CallSuper
-    public int onStartCommand(@Nullable Intent intent, int i2, int i3) {
+    public int onStartCommand(@Nullable Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, intent, i, i2)) == null) ? super.onStartCommand(intent, i, i2) : invokeLII.intValue;
     }
 }

@@ -13,7 +13,7 @@ import com.facebook.infer.annotation.ThreadSafe;
 import java.util.LinkedList;
 import javax.annotation.Nullable;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BucketMap<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,14 +26,14 @@ public class BucketMap<T> {
     public LinkedEntry<T> mTail;
 
     /* renamed from: com.facebook.imagepipeline.memory.BucketMap$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LinkedEntry<I> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,8 +44,8 @@ public class BucketMap<T> {
         public LinkedEntry<I> prev;
         public LinkedList<I> value;
 
-        public /* synthetic */ LinkedEntry(LinkedEntry linkedEntry, int i2, LinkedList linkedList, LinkedEntry linkedEntry2, AnonymousClass1 anonymousClass1) {
-            this(linkedEntry, i2, linkedList, linkedEntry2);
+        public /* synthetic */ LinkedEntry(LinkedEntry linkedEntry, int i, LinkedList linkedList, LinkedEntry linkedEntry2, AnonymousClass1 anonymousClass1) {
+            this(linkedEntry, i, linkedList, linkedEntry2);
         }
 
         public String toString() {
@@ -57,23 +57,23 @@ public class BucketMap<T> {
             return (String) invokeV.objValue;
         }
 
-        public LinkedEntry(@Nullable LinkedEntry<I> linkedEntry, int i2, LinkedList<I> linkedList, @Nullable LinkedEntry<I> linkedEntry2) {
+        public LinkedEntry(@Nullable LinkedEntry<I> linkedEntry, int i, LinkedList<I> linkedList, @Nullable LinkedEntry<I> linkedEntry2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {linkedEntry, Integer.valueOf(i2), linkedList, linkedEntry2};
+                Object[] objArr = {linkedEntry, Integer.valueOf(i), linkedList, linkedEntry2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.prev = linkedEntry;
-            this.key = i2;
+            this.key = i;
             this.value = linkedList;
             this.next = linkedEntry2;
         }
@@ -84,9 +84,9 @@ public class BucketMap<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -147,12 +147,12 @@ public class BucketMap<T> {
     }
 
     @Nullable
-    public synchronized T acquire(int i2) {
+    public synchronized T acquire(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this) {
-                LinkedEntry<T> linkedEntry = this.mMap.get(i2);
+                LinkedEntry<T> linkedEntry = this.mMap.get(i);
                 if (linkedEntry == null) {
                     return null;
                 }
@@ -164,14 +164,14 @@ public class BucketMap<T> {
         return (T) invokeI.objValue;
     }
 
-    public synchronized void release(int i2, T t) {
+    public synchronized void release(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t) == null) {
             synchronized (this) {
-                LinkedEntry<T> linkedEntry = this.mMap.get(i2);
+                LinkedEntry<T> linkedEntry = this.mMap.get(i);
                 if (linkedEntry == null) {
-                    linkedEntry = new LinkedEntry<>(null, i2, new LinkedList(), null, null);
-                    this.mMap.put(i2, linkedEntry);
+                    linkedEntry = new LinkedEntry<>(null, i, new LinkedList(), null, null);
+                    this.mMap.put(i, linkedEntry);
                 }
                 linkedEntry.value.addLast(t);
                 moveToFront(linkedEntry);
@@ -200,18 +200,18 @@ public class BucketMap<T> {
     @VisibleForTesting
     public synchronized int valueCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             synchronized (this) {
-                i2 = 0;
+                i = 0;
                 for (LinkedEntry linkedEntry = this.mHead; linkedEntry != null; linkedEntry = linkedEntry.next) {
                     if (linkedEntry.value != null) {
-                        i2 += linkedEntry.value.size();
+                        i += linkedEntry.value.size();
                     }
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

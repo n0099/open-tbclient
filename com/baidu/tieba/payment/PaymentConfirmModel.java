@@ -19,13 +19,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.input.InputType;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public f<T> f44952e;
+    public f<T> a;
 
     public PaymentConfirmModel(f<T> fVar) {
         Interceptable interceptable = $ic;
@@ -34,68 +32,20 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44952e = fVar;
+        this.a = fVar;
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void A() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void w(PayRequestData payRequestData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payRequestData) == null) || payRequestData == null) {
-            return;
-        }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);
-        httpMessage.addParam("order_id", payRequestData.getOrderId());
-        httpMessage.addParam("scene_id", String.valueOf(payRequestData.getSceneId()));
-        httpMessage.addParam("open_id", payRequestData.getOpenId());
-        httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
-        httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
-        httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
-        httpMessage.addParam(InputType.PASSWORD, payRequestData.getPassword());
-        httpMessage.addParam("bindid", payRequestData.getBindId());
-        httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f44952e.sendMessage(httpMessage);
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, TbConfig.SERVER_ADDRESS + "c/e/consume/getBuyForm");
-            tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
-            messageManager.registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_PAY, TbConfig.SERVER_ADDRESS + "c/c/encourage/consume/payOpenGoods");
             tbHttpMessageTask.setResponsedClass(ResponsePaymentPayMessage.class);
@@ -103,9 +53,9 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         }
     }
 
-    public void z(PaymentConfirmRequestData paymentConfirmRequestData) {
+    public void B(PaymentConfirmRequestData paymentConfirmRequestData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, paymentConfirmRequestData) == null) || paymentConfirmRequestData == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, paymentConfirmRequestData) == null) || paymentConfirmRequestData == null) {
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO);
@@ -122,6 +72,54 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f44952e.sendMessage(httpMessage);
+        this.a.sendMessage(httpMessage);
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void y(PayRequestData payRequestData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, payRequestData) == null) || payRequestData == null) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PAYMENT_PAY);
+        httpMessage.addParam("order_id", payRequestData.getOrderId());
+        httpMessage.addParam("scene_id", String.valueOf(payRequestData.getSceneId()));
+        httpMessage.addParam("open_id", payRequestData.getOpenId());
+        httpMessage.addParam(HttpRequest.TBS, payRequestData.getTbs());
+        httpMessage.addParam("captcha_vcode_str", payRequestData.getCaptchaVcodeStr());
+        httpMessage.addParam("captcha_input_str", payRequestData.getCaptchaInputStr());
+        httpMessage.addParam(InputType.PASSWORD, payRequestData.getPassword());
+        httpMessage.addParam("bindid", payRequestData.getBindId());
+        httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
+        this.a.sendMessage(httpMessage);
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            MessageManager messageManager = MessageManager.getInstance();
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PAYMENT_CONFIRM_INFO, TbConfig.SERVER_ADDRESS + "c/e/consume/getBuyForm");
+            tbHttpMessageTask.setResponsedClass(ResponsePaymentConfirmInfoMessage.class);
+            messageManager.registerTask(tbHttpMessageTask);
+        }
     }
 }

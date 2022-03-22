@@ -8,24 +8,23 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.baidu.pass.face.platform.utils.DeviceUtils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Scanner;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static String a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f57208b = "";
+    public static String f42046b = "";
 
     public static String a(Context context) {
-        if (TextUtils.isEmpty(f57208b)) {
-            f57208b = !a() ? c(context) : d(context);
-            return f57208b;
+        if (TextUtils.isEmpty(f42046b)) {
+            f42046b = !a() ? c(context) : d(context);
+            return f42046b;
         }
-        return f57208b;
+        return f42046b;
     }
 
     public static String a(String str) {
@@ -37,15 +36,15 @@ public class c {
             fileInputStream.close();
         } catch (FileNotFoundException unused) {
             str2 = "getMacAddressWithIfName File not found Exception";
-            c.k.a.a.a.b(DeviceUtils.TAG, str2);
+            c.h.a.a.a.b("DeviceUtils", str2);
             return r1;
         } catch (IOException unused2) {
             str2 = "getMacAddressWithIfName IOException";
-            c.k.a.a.a.b(DeviceUtils.TAG, str2);
+            c.h.a.a.a.b("DeviceUtils", str2);
             return r1;
         } catch (Exception unused3) {
             str2 = "getMacAddressWithIfName Exception ";
-            c.k.a.a.a.b(DeviceUtils.TAG, str2);
+            c.h.a.a.a.b("DeviceUtils", str2);
             return r1;
         }
         return r1;
@@ -54,10 +53,10 @@ public class c {
     public static boolean a() {
         String a2 = j.a("ro.target.product");
         if (TextUtils.isEmpty(a2)) {
-            c.k.a.a.a.d(DeviceUtils.TAG, "current product is phone");
+            c.h.a.a.a.d("DeviceUtils", "current product is phone");
             return true;
         }
-        c.k.a.a.a.d(DeviceUtils.TAG, "current product is " + a2);
+        c.h.a.a.a.d("DeviceUtils", "current product is " + a2);
         return false;
     }
 
@@ -75,7 +74,7 @@ public class c {
             try {
                 str = null;
             } catch (Exception unused) {
-                c.k.a.a.a.b(DeviceUtils.TAG, "get address exception ");
+                c.h.a.a.a.b("DeviceUtils", "get address exception ");
             }
             if (Build.VERSION.SDK_INT < 23) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
@@ -102,7 +101,7 @@ public class c {
             }
             a = str;
             return a;
-            c.k.a.a.a.b(DeviceUtils.TAG, "get address exception ");
+            c.h.a.a.a.b("DeviceUtils", "get address exception ");
             return a;
         }
         return a;
@@ -111,11 +110,11 @@ public class c {
     public static String c(Context context) {
         StringBuilder sb = new StringBuilder();
         String str = Build.SERIAL;
-        c.k.a.a.a.d(DeviceUtils.TAG, "device serial " + str);
+        c.h.a.a.a.d("DeviceUtils", "device serial " + str);
         if (!TextUtils.isEmpty(str)) {
             sb.append(str);
             String b2 = b(context);
-            c.k.a.a.a.b(DeviceUtils.TAG, "mac address " + b2);
+            c.h.a.a.a.b("DeviceUtils", "mac address " + b2);
             if (!TextUtils.isEmpty(b2)) {
                 sb.append(b2.replace(":", "").toUpperCase());
                 return sb.toString();
@@ -126,6 +125,6 @@ public class c {
 
     public static String d(Context context) {
         com.meizu.cloud.pushsdk.base.a.d a2 = com.meizu.cloud.pushsdk.base.a.a.a("android.telephony.MzTelephonyManager").a("getDeviceId", new Class[0]).a(new Object[0]);
-        return a2.a ? (String) a2.f57196b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+        return a2.a ? (String) a2.f42035b : ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
     }
 }

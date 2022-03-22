@@ -87,10 +87,10 @@ public class o {
         }
     }
 
-    public static void a(JSONObject jSONObject, int i2, Object[] objArr) {
+    public static void a(JSONObject jSONObject, int i, Object[] objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, jSONObject, i2, objArr) == null) {
-            jSONObject.put(HttpConstants.AIP_APP_ID, i2);
+        if (interceptable == null || interceptable.invokeLIL(65538, null, jSONObject, i, objArr) == null) {
+            jSONObject.put(HttpConstants.AIP_APP_ID, i);
             jSONObject.put(HttpConstants.IS_AIP, "3");
             jSONObject.put("sign", objArr[0]);
             jSONObject.put("timestamp", objArr[1]);

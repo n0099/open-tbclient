@@ -10,7 +10,7 @@ import com.kwai.sodler.lib.ext.b;
 import com.kwai.sodler.lib.g;
 import com.kwai.sodler.lib.h;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final AtomicBoolean a = new AtomicBoolean(false);
 
@@ -36,11 +36,11 @@ public class a {
         }
         com.kwai.sodler.kwai.b.a(context);
         com.kwai.sodler.lib.a.b bVar = new com.kwai.sodler.lib.a.b();
-        bVar.f56931c = v;
-        bVar.f56933e = true;
+        bVar.f41795c = v;
+        bVar.f41797e = true;
         bVar.a = str;
-        bVar.f56930b = "3.0";
-        bVar.f56935g = false;
+        bVar.f41794b = "3.0";
+        bVar.f41799g = false;
         com.kwai.sodler.kwai.b.a(str, bVar, new b.a() { // from class: com.kwad.sdk.glide.kwai.a.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */

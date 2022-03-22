@@ -17,10 +17,9 @@ import javax.annotation.Nullable;
 import okhttp3.Headers;
 import okhttp3.internal.Util;
 import okhttp3.internal.http.HttpMethod;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Request {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +31,7 @@ public final class Request {
     public final Map<Class<?>, Object> tags;
     public final HttpUrl url;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +46,9 @@ public final class Request {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,7 +86,7 @@ public final class Request {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cacheControl)) == null) {
                 String cacheControl2 = cacheControl.toString();
-                return cacheControl2.isEmpty() ? removeHeader("Cache-Control") : header("Cache-Control", cacheControl2);
+                return cacheControl2.isEmpty() ? removeHeader(com.baidubce.http.Headers.CACHE_CONTROL) : header(com.baidubce.http.Headers.CACHE_CONTROL, cacheControl2);
             }
             return (Builder) invokeL.objValue;
         }
@@ -251,9 +250,9 @@ public final class Request {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {request};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -292,9 +291,9 @@ public final class Request {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -371,7 +370,7 @@ public final class Request {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + ExtendedMessageFormat.END_FE;
+            return "Request{method=" + this.method + ", url=" + this.url + ", tags=" + this.tags + '}';
         }
         return (String) invokeV.objValue;
     }

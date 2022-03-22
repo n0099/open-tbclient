@@ -7,9 +7,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BannerConfigItem {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +17,7 @@ public class BannerConfigItem {
     public int type;
 
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class BannerInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +31,9 @@ public class BannerConfigItem {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -45,7 +44,7 @@ public class BannerConfigItem {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "BannerInfo{id=" + this.id + ", imageUrl=" + this.imageUrl + ", jumpType=" + this.jumpType + ", jumpData='" + this.jumpData + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "BannerInfo{id=" + this.id + ", imageUrl=" + this.imageUrl + ", jumpType=" + this.jumpType + ", jumpData='" + this.jumpData + "'}";
             }
             return (String) invokeV.objValue;
         }
@@ -56,9 +55,9 @@ public class BannerConfigItem {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

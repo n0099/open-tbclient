@@ -9,40 +9,40 @@ import com.kwad.sdk.reward.g;
 import com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl;
 import com.kwad.sdk.utils.w;
 import com.kwad.sdk.widget.KsLogoView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends g implements RewardActionBarControl.c {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f56121b;
+    public ViewGroup f41059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.reward.d.g f56122c;
+    public com.kwad.sdk.reward.d.g f41060c;
 
     /* renamed from: d  reason: collision with root package name */
-    public KsLogoView f56123d;
+    public KsLogoView f41061d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f56124e;
+    public int f41062e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FrameLayout.LayoutParams f56125f;
+    public FrameLayout.LayoutParams f41063f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g.a f56126g;
+    public g.a f41064g;
 
     public d(ViewGroup viewGroup, g.a aVar) {
-        this.f56121b = viewGroup;
-        this.f56126g = aVar;
+        this.f41059b = viewGroup;
+        this.f41064g = aVar;
     }
 
     @Override // com.kwad.sdk.reward.g, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
         ((com.kwad.sdk.reward.g) this).a.n.a(this);
-        AdInfo j2 = com.kwad.sdk.core.response.a.d.j(((com.kwad.sdk.reward.g) this).a.f55769g);
-        this.f56124e = this.f56123d.getVisibility();
-        this.f56125f = c.a(q(), j2, this.f56123d, R.dimen.ksad_reward_order_logo_margin_bottom);
-        com.kwad.sdk.reward.d.g gVar = new com.kwad.sdk.reward.d.g(this.f56121b, new com.kwad.sdk.reward.d.a(q(), ((com.kwad.sdk.reward.g) this).a) { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.d.1
+        AdInfo j = com.kwad.sdk.core.response.a.d.j(((com.kwad.sdk.reward.g) this).a.f40747g);
+        this.f41062e = this.f41061d.getVisibility();
+        this.f41063f = c.a(q(), j, this.f41061d, R.dimen.obfuscated_res_0x7f070393);
+        com.kwad.sdk.reward.d.g gVar = new com.kwad.sdk.reward.d.g(this.f41059b, new com.kwad.sdk.reward.d.a(q(), ((com.kwad.sdk.reward.g) this).a) { // from class: com.kwad.sdk.reward.presenter.platdetail.actionbar.d.1
             @Override // com.kwad.sdk.reward.d.a, com.kwad.sdk.reward.d.b
             public void a() {
                 ((com.kwad.sdk.reward.g) d.this).a.a(d.this.q(), 10, 1);
@@ -53,30 +53,30 @@ public class d extends g implements RewardActionBarControl.c {
                 ((com.kwad.sdk.reward.g) d.this).a.a(d.this.q(), 10, 1);
             }
         });
-        this.f56122c = gVar;
-        gVar.a(this.f56126g);
-        this.f56122c.a(((com.kwad.sdk.reward.g) this).a.f55769g);
-        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), this.f56122c.a());
+        this.f41060c = gVar;
+        gVar.a(this.f41064g);
+        this.f41060c.a(((com.kwad.sdk.reward.g) this).a.f40747g);
+        w.a(new com.kwad.sdk.widget.c(com.kwad.sdk.core.config.b.aL()), this.f41060c.a());
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f56123d.setVisibility(this.f56124e);
-        FrameLayout.LayoutParams layoutParams = this.f56125f;
+        this.f41061d.setVisibility(this.f41062e);
+        FrameLayout.LayoutParams layoutParams = this.f41063f;
         if (layoutParams != null) {
-            this.f56123d.setLayoutParams(layoutParams);
+            this.f41061d.setLayoutParams(layoutParams);
         }
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c_() {
         super.c_();
-        this.f56123d = (KsLogoView) a(R.id.ksad_ad_label_play_bar);
+        this.f41061d = (KsLogoView) a(R.id.obfuscated_res_0x7f091020);
     }
 
     @Override // com.kwad.sdk.reward.presenter.platdetail.actionbar.RewardActionBarControl.c
     public void d() {
-        this.f56121b.setVisibility(0);
+        this.f41059b.setVisibility(0);
     }
 }

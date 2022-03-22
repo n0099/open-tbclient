@@ -1,8 +1,9 @@
 package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.a;
+import c.a.n0.a.a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,16 +45,16 @@ public final class ResType {
         $VALUES = new ResType[]{NONE, TEST, VIDEO, resType};
     }
 
-    public ResType(String str, int i2) {
+    public ResType(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -73,20 +74,20 @@ public final class ResType {
             ResType resType = NONE;
             ResType[] values = values();
             int length = values.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
                 }
-                ResType resType2 = values[i2];
+                ResType resType2 = values[i];
                 if (str.equalsIgnoreCase(resType2.name())) {
                     resType = resType2;
                     break;
                 }
-                i2++;
+                i++;
             }
             if (a.a) {
-                String str2 = "res type - " + resType.name();
+                Log.d("ResType", "res type - " + resType.name());
             }
             return resType;
         }

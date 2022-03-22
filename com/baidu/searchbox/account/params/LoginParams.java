@@ -65,9 +65,9 @@ public final class LoginParams {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -95,8 +95,8 @@ public final class LoginParams {
                 if (this.mLoginSrc == null) {
                     this.mLoginSrc = new UserAccountActionItem(UserAccountActionItem.UserAccountAction.LOGIN, UserAccountActionItem.UserAccountType.NATIVE, "unknown");
                 }
-                int i2 = this.mLoginPageAnim;
-                if (i2 != 10 && i2 != 11) {
+                int i = this.mLoginPageAnim;
+                if (i != 10 && i != 11) {
                     this.mLoginPageAnim = 11;
                 }
                 return new LoginParams(this, null);
@@ -114,21 +114,21 @@ public final class LoginParams {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setIntentFlags(int i2) {
+        public Builder setIntentFlags(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.mIntentFlags = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.mIntentFlags = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setLoginAnim(int i2) {
+        public Builder setLoginAnim(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                this.mLoginPageAnim = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.mLoginPageAnim = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -144,11 +144,11 @@ public final class LoginParams {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setLoginMode(int i2) {
+        public Builder setLoginMode(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.mLoginMode = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.mLoginMode = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -273,9 +273,9 @@ public final class LoginParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

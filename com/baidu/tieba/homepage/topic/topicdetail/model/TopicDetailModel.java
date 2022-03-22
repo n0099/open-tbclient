@@ -27,15 +27,13 @@ import java.util.List;
 public class TopicDetailModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.p0.q1.l.b.a a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public c.a.r0.o1.l.b.a f43187e;
+    /* renamed from: b  reason: collision with root package name */
+    public c.a.p0.q1.l.b.c.a f33524b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.o1.l.b.c.a f43188f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.c.g.a f43189g;
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.c.g.a f33525c;
 
     /* loaded from: classes5.dex */
     public class a extends c.a.d.c.g.a {
@@ -44,17 +42,17 @@ public class TopicDetailModel extends BdBaseModel {
         public final /* synthetic */ TopicDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TopicDetailModel topicDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public a(TopicDetailModel topicDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topicDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {topicDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -67,31 +65,31 @@ public class TopicDetailModel extends BdBaseModel {
 
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
+            long j;
             long j2;
-            long j3;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
                 return;
             }
             if (responsedMessage instanceof BlessHttpResponseMessage) {
                 BlessHttpResponseMessage blessHttpResponseMessage = (BlessHttpResponseMessage) responsedMessage;
-                j2 = blessHttpResponseMessage.userPkId;
-                j3 = blessHttpResponseMessage.pkID;
+                j = blessHttpResponseMessage.userPkId;
+                j2 = blessHttpResponseMessage.pkID;
             } else if (responsedMessage instanceof BlessSocketResponseMessage) {
                 BlessSocketResponseMessage blessSocketResponseMessage = (BlessSocketResponseMessage) responsedMessage;
-                j2 = blessSocketResponseMessage.userPkId;
-                j3 = blessSocketResponseMessage.pkID;
+                j = blessSocketResponseMessage.userPkId;
+                j2 = blessSocketResponseMessage.pkID;
             } else {
+                j = 0;
                 j2 = 0;
-                j3 = 0;
             }
-            if (j3 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
-                j3 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
+            if (j2 == 0 && responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof RequestBlessMessage)) {
+                j2 = ((RequestBlessMessage) responsedMessage.getOrginalMessage().getExtra()).pk_id.longValue();
             }
-            if (j3 == 0 || this.a.f43188f == null || this.a.f43188f.f20215e == null || this.a.f43188f.f20215e.f20223e == null || this.a.f43188f.f20215e.f20223e.f20262b != j3) {
+            if (j2 == 0 || this.a.f33524b == null || this.a.f33524b.f17549e == null || this.a.f33524b.f17549e.f17556e == null || this.a.f33524b.f17549e.f17556e.f17589b != j2) {
                 return;
             }
-            this.a.f43188f.f20215e.f20223e.f20263c = j2;
+            this.a.f33524b.f17549e.f17556e.f17590c = j;
         }
     }
 
@@ -102,17 +100,17 @@ public class TopicDetailModel extends BdBaseModel {
         public final /* synthetic */ TopicDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(TopicDetailModel topicDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public b(TopicDetailModel topicDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topicDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {topicDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -126,16 +124,16 @@ public class TopicDetailModel extends BdBaseModel {
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.f43187e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
             if (responsedMessage instanceof ResponseHttpGetTopicDetailMessage) {
-                this.a.f43188f = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                this.a.f33524b = ((ResponseHttpGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
             if (responsedMessage instanceof ResponseSocketGetTopicDetailMessage) {
-                this.a.f43188f = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
+                this.a.f33524b = ((ResponseSocketGetTopicDetailMessage) responsedMessage).getTopicDetailData();
             }
-            this.a.f43187e.netCallback(responsedMessage.getError(), this.a.f43188f);
+            this.a.a.netCallback(responsedMessage.getError(), this.a.f33524b);
         }
     }
 
@@ -146,17 +144,17 @@ public class TopicDetailModel extends BdBaseModel {
         public final /* synthetic */ TopicDetailModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(TopicDetailModel topicDetailModel, int i2, int i3) {
-            super(i2, i3);
+        public c(TopicDetailModel topicDetailModel, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {topicDetailModel, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {topicDetailModel, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -170,7 +168,7 @@ public class TopicDetailModel extends BdBaseModel {
         @Override // c.a.d.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.f43187e == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null || responsedMessage.getOrginalMessage() == null || this.a.unique_id != responsedMessage.getOrginalMessage().getTag() || this.a.a == null) {
                 return;
             }
             List<n> list = null;
@@ -187,7 +185,7 @@ public class TopicDetailModel extends BdBaseModel {
                 z = responseSocketGetTopicThreadMessage.getHasMore();
                 list = dataList2;
             }
-            this.a.f43187e.netThreadCallback(responsedMessage.getError(), z, list);
+            this.a.a.netThreadCallback(responsedMessage.getError(), z, list);
         }
     }
 
@@ -200,26 +198,26 @@ public class TopicDetailModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43189g = new a(this, CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
+        this.f33525c = new a(this, CmdConfigHttp.CMD_TOPIC_BLESS, 309085);
         registerListener(new b(this, CmdConfigHttp.CMD_TOPIC_DETAIL, 309629));
         registerListener(new c(this, CmdConfigHttp.CMD_TOPIC_THREAD, 309631));
-        registerListener(this.f43189g);
+        registerListener(this.f33525c);
     }
 
-    public void B(long j2) {
+    public void D(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (!l.A()) {
-                c.a.r0.o1.l.b.a aVar = this.f43187e;
+                c.a.p0.q1.l.b.a aVar = this.a;
                 if (aVar != null) {
                     aVar.netCallback(-1, null);
                     return;
@@ -227,18 +225,18 @@ public class TopicDetailModel extends BdBaseModel {
                 return;
             }
             RequestGetTopicDetailMessage requestGetTopicDetailMessage = new RequestGetTopicDetailMessage();
-            requestGetTopicDetailMessage.setTopicId(j2);
+            requestGetTopicDetailMessage.setTopicId(j);
             requestGetTopicDetailMessage.setCallFrom("topic_tab");
             requestGetTopicDetailMessage.setTag(this.unique_id);
             sendMessage(requestGetTopicDetailMessage);
         }
     }
 
-    public void C(long j2, long j3, long j4) {
+    public void E(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
             if (!l.A()) {
-                c.a.r0.o1.l.b.a aVar = this.f43187e;
+                c.a.p0.q1.l.b.a aVar = this.a;
                 if (aVar != null) {
                     aVar.netThreadCallback(-1, false, null);
                     return;
@@ -246,19 +244,19 @@ public class TopicDetailModel extends BdBaseModel {
                 return;
             }
             RequestGetTopicThreadMessage requestGetTopicThreadMessage = new RequestGetTopicThreadMessage();
-            requestGetTopicThreadMessage.setTopicId(j2);
-            requestGetTopicThreadMessage.setPageNo(j3);
-            requestGetTopicThreadMessage.setLastFeedId(j4);
+            requestGetTopicThreadMessage.setTopicId(j);
+            requestGetTopicThreadMessage.setPageNo(j2);
+            requestGetTopicThreadMessage.setLastFeedId(j3);
             requestGetTopicThreadMessage.setCallFrom("topic_tab");
             requestGetTopicThreadMessage.setTag(this.unique_id);
             sendMessage(requestGetTopicThreadMessage);
         }
     }
 
-    public void D(c.a.r0.o1.l.b.a aVar) {
+    public void F(c.a.p0.q1.l.b.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f43187e = aVar;
+            this.a = aVar;
         }
     }
 

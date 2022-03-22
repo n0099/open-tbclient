@@ -1,6 +1,8 @@
 package c.a.d.f.p;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.retrieve.file.util.AESUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,16 +43,16 @@ public class v {
             }
         }
         Charset.forName("UTF-8");
-        a = new byte[]{-92, 11, -56, 52, -42, -107, -13, 19};
+        a = new byte[]{-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
     }
 
-    public static byte[] a(SecretKey secretKey, byte[] bArr, int i2, int i3) throws GeneralSecurityException {
+    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i, i2)) == null) {
             Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
             cipher.init(2, secretKey);
-            return cipher.doFinal(bArr, i2, i3);
+            return cipher.doFinal(bArr, i, i2);
         }
         return (byte[]) invokeLLII.objValue;
     }
@@ -91,7 +93,7 @@ public class v {
     public static PublicKey e(byte[] bArr) throws Exception {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) ? KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
     }
 
     public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -101,20 +103,20 @@ public class v {
             SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             int length = str.length();
             char[] cArr = new char[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                cArr[i2] = (char) (((byte) str.charAt(i2)) & 255);
+            for (int i = 0; i < length; i++) {
+                cArr[i] = (char) (((byte) str.charAt(i)) & 255);
             }
             return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
         }
         return (SecretKey) invokeL.objValue;
     }
 
-    public static String g(int i2) {
+    public static String g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            String bigInteger = new BigInteger(i2 * 5, new SecureRandom()).toString(36);
-            return bigInteger.length() > i2 ? bigInteger.substring(0, bigInteger.length()) : bigInteger;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
+            return bigInteger.length() > i ? bigInteger.substring(0, bigInteger.length()) : bigInteger;
         }
         return (String) invokeI.objValue;
     }

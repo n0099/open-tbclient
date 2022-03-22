@@ -51,9 +51,9 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -109,28 +109,28 @@ public abstract class AppleVariableSignedIntegerBox extends AppleDataBox {
         }
     }
 
-    public void setIntLength(int i2) {
+    public void setIntLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            this.intLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            this.intLength = i;
         }
     }
 
-    public void setValue(long j2) {
+    public void setValue(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j2)));
-            if (j2 <= 127 && j2 > -128) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.longObject(j)));
+            if (j <= 127 && j > -128) {
                 this.intLength = 1;
-            } else if (j2 <= 32767 && j2 > -32768 && this.intLength < 2) {
+            } else if (j <= 32767 && j > -32768 && this.intLength < 2) {
                 this.intLength = 2;
-            } else if (j2 <= 8388607 && j2 > -8388608 && this.intLength < 3) {
+            } else if (j <= 8388607 && j > -8388608 && this.intLength < 3) {
                 this.intLength = 3;
             } else {
                 this.intLength = 4;
             }
-            this.value = j2;
+            this.value = j;
         }
     }
 

@@ -9,7 +9,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static <T extends c> List<T> a(String str, @NonNull d<T> dVar) {
         ArrayList arrayList = new ArrayList();
@@ -18,8 +18,8 @@ public final class f {
         }
         try {
             JSONArray jSONArray = new JSONArray(str);
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
                 T createInstance = dVar.createInstance();
                 createInstance.parseJson(jSONObject);
                 arrayList.add(createInstance);
@@ -55,9 +55,9 @@ public final class f {
         return jSONObject;
     }
 
-    public static void a(JSONObject jSONObject, String str, int i2) {
+    public static void a(JSONObject jSONObject, String str, int i) {
         try {
-            jSONObject.put(str, i2);
+            jSONObject.put(str, i);
         } catch (JSONException unused) {
         }
     }

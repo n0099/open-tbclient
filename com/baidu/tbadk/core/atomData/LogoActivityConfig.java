@@ -3,6 +3,7 @@ package com.baidu.tbadk.core.atomData;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class LogoActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRAINTENT = "extra_intent";
@@ -43,9 +44,9 @@ public class LogoActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, intent};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -55,7 +56,7 @@ public class LogoActivityConfig extends IntentConfig {
         isFirst = true;
         setIntentAction(IntentAction.Activity);
         if (!(context instanceof Activity)) {
-            getIntent().setFlags(268435456);
+            getIntent().setFlags(LaunchTaskConstants.OTHER_PROCESS);
         }
         if (intent != null) {
             getIntent().putExtra(EXTRAINTENT, intent);
@@ -71,9 +72,9 @@ public class LogoActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -85,6 +86,6 @@ public class LogoActivityConfig extends IntentConfig {
         if (context instanceof Activity) {
             return;
         }
-        getIntent().setFlags(268435456);
+        getIntent().setFlags(LaunchTaskConstants.OTHER_PROCESS);
     }
 }

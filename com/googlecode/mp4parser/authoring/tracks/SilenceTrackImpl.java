@@ -31,16 +31,16 @@ public class SilenceTrackImpl implements Track {
     public List<Sample> samples;
     public Track source;
 
-    public SilenceTrackImpl(Track track, long j2) {
+    public SilenceTrackImpl(Track track, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j2)};
+            Object[] objArr = {track, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,17 +49,17 @@ public class SilenceTrackImpl implements Track {
         this.samples = new LinkedList();
         this.source = track;
         if (AudioSampleEntry.TYPE3.equals(track.getSampleDescriptionBox().getSampleEntry().getType())) {
-            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j2) / 1000) / 1024);
+            int l2i = CastUtils.l2i(((getTrackMetaData().getTimescale() * j) / 1000) / 1024);
             long[] jArr = new long[l2i];
             this.decodingTimes = jArr;
-            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j2) / l2i) / 1000);
+            Arrays.fill(jArr, ((getTrackMetaData().getTimescale() * j) / l2i) / 1000);
             while (true) {
-                int i4 = l2i - 1;
+                int i3 = l2i - 1;
                 if (l2i <= 0) {
                     return;
                 }
                 this.samples.add(new SampleImpl((ByteBuffer) ByteBuffer.wrap(new byte[]{33, YogaNodeJNIBase.HAS_NEW_LAYOUT, 4, 96, -116, 28}).rewind()));
-                l2i = i4;
+                l2i = i3;
             }
         } else {
             throw new RuntimeException("Tracks of type " + track.getClass().getSimpleName() + " are not supported");
@@ -81,11 +81,11 @@ public class SilenceTrackImpl implements Track {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = 0;
-            for (long j3 : this.decodingTimes) {
-                j2 += j3;
+            long j = 0;
+            for (long j2 : this.decodingTimes) {
+                j += j2;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

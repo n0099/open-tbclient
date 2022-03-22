@@ -18,19 +18,19 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class db {
     public static /* synthetic */ Interceptable $ic;
     public static volatile db a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f222a;
+    public Context f198a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ConcurrentLinkedQueue<b> f223a;
+    public final ConcurrentLinkedQueue<b> f199a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class db {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((db) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -66,14 +66,14 @@ public class db {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b extends al.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ db f59532b;
+        public final /* synthetic */ db f44148b;
 
         public b(db dbVar) {
             Interceptable interceptable = $ic;
@@ -82,15 +82,15 @@ public class db {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f59532b = dbVar;
+            this.f44148b = dbVar;
             this.a = System.currentTimeMillis();
         }
 
@@ -119,29 +119,29 @@ public class db {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c extends b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final /* synthetic */ db f224a;
+        public final /* synthetic */ db f200a;
 
         /* renamed from: a  reason: collision with other field name */
-        public File f225a;
+        public File f201a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f226a;
+        public String f202a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f227a;
+        public boolean f203a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59533b;
+        public String f44149b;
 
         /* renamed from: b  reason: collision with other field name */
-        public boolean f228b;
+        public boolean f204b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(db dbVar, String str, String str2, File file, boolean z) {
@@ -152,49 +152,49 @@ public class db {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dbVar, str, str2, file, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((db) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f224a = dbVar;
-            this.f226a = str;
-            this.f59533b = str2;
-            this.f225a = file;
-            this.f228b = z;
+            this.f200a = dbVar;
+            this.f202a = str;
+            this.f44149b = str2;
+            this.f201a = file;
+            this.f204b = z;
         }
 
         private boolean c() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-                int i3 = 0;
-                SharedPreferences sharedPreferences = this.f224a.f222a.getSharedPreferences("log.timestamp", 0);
+                int i2 = 0;
+                SharedPreferences sharedPreferences = this.f200a.f198a.getSharedPreferences("log.timestamp", 0);
                 String string = sharedPreferences.getString("log.requst", "");
                 long currentTimeMillis = System.currentTimeMillis();
                 try {
                     JSONObject jSONObject = new JSONObject(string);
                     currentTimeMillis = jSONObject.getLong("time");
-                    i2 = jSONObject.getInt("times");
+                    i = jSONObject.getInt("times");
                 } catch (JSONException unused) {
-                    i2 = 0;
+                    i = 0;
                 }
                 if (System.currentTimeMillis() - currentTimeMillis >= 86400000) {
                     currentTimeMillis = System.currentTimeMillis();
-                } else if (i2 > 10) {
+                } else if (i > 10) {
                     return false;
                 } else {
-                    i3 = i2;
+                    i2 = i;
                 }
                 JSONObject jSONObject2 = new JSONObject();
                 try {
                     jSONObject2.put("time", currentTimeMillis);
-                    jSONObject2.put("times", i3 + 1);
+                    jSONObject2.put("times", i2 + 1);
                     sharedPreferences.edit().putString("log.requst", jSONObject2.toString()).commit();
                 } catch (JSONException e2) {
                     com.xiaomi.channel.commonutils.logger.b.c("JSONException on put " + e2.getMessage());
@@ -208,7 +208,7 @@ public class db {
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bg.e(this.f224a.f222a) || (this.f228b && bg.b(this.f224a.f222a)) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? bg.e(this.f200a.f198a) || (this.f204b && bg.b(this.f200a.f198a)) : invokeV.booleanValue;
         }
 
         @Override // com.xiaomi.push.db.b, com.xiaomi.push.al.b
@@ -218,12 +218,12 @@ public class db {
                 try {
                     if (c()) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("uid", com.xiaomi.push.service.bi.m675a());
-                        hashMap.put("token", this.f59533b);
-                        hashMap.put("net", bg.m235a(this.f224a.f222a));
-                        bg.a(this.f226a, hashMap, this.f225a, "file");
+                        hashMap.put("uid", com.xiaomi.push.service.bi.m654a());
+                        hashMap.put("token", this.f44149b);
+                        hashMap.put("net", bg.m214a(this.f200a.f198a));
+                        bg.a(this.f202a, hashMap, this.f201a, "file");
                     }
-                    this.f227a = true;
+                    this.f203a = true;
                 } catch (IOException unused) {
                 }
             }
@@ -231,20 +231,20 @@ public class db {
 
         @Override // com.xiaomi.push.al.b
         /* renamed from: c  reason: collision with other method in class */
-        public void mo305c() {
+        public void mo284c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (!this.f227a) {
-                    int i2 = this.a + 1;
-                    this.a = i2;
-                    if (i2 < 3) {
-                        this.f224a.f223a.add(this);
+                if (!this.f203a) {
+                    int i = this.a + 1;
+                    this.a = i;
+                    if (i < 3) {
+                        this.f200a.f199a.add(this);
                     }
                 }
-                if (this.f227a || this.a >= 3) {
-                    this.f225a.delete();
+                if (this.f203a || this.a >= 3) {
+                    this.f201a.delete();
                 }
-                this.f224a.a((1 << this.a) * 1000);
+                this.f200a.a((1 << this.a) * 1000);
             }
         }
     }
@@ -271,17 +271,17 @@ public class db {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         ConcurrentLinkedQueue<b> concurrentLinkedQueue = new ConcurrentLinkedQueue<>();
-        this.f223a = concurrentLinkedQueue;
-        this.f222a = context;
+        this.f199a = concurrentLinkedQueue;
+        this.f198a = context;
         concurrentLinkedQueue.add(new a(this));
         b(0L);
     }
@@ -297,29 +297,29 @@ public class db {
                     }
                 }
             }
-            a.f222a = context;
+            a.f198a = context;
             return a;
         }
         return (db) invokeL.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(long j2) {
+    public void a(long j) {
         b peek;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, this, j2) == null) && (peek = this.f223a.peek()) != null && peek.a()) {
-            b(j2);
+        if ((interceptable == null || interceptable.invokeJ(65541, this, j) == null) && (peek = this.f199a.peek()) != null && peek.a()) {
+            b(j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m201a()) {
+        if (!(interceptable == null || interceptable.invokeV(65544, this) == null) || aa.b() || aa.m180a()) {
             return;
         }
         try {
-            File file = new File(this.f222a.getExternalFilesDir(null) + "/.logcache");
+            File file = new File(this.f198a.getExternalFilesDir(null) + "/.logcache");
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();
@@ -329,25 +329,25 @@ public class db {
         }
     }
 
-    private void b(long j2) {
+    private void b(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65545, this, j2) == null) || this.f223a.isEmpty()) {
+        if (!(interceptable == null || interceptable.invokeJ(65545, this, j) == null) || this.f199a.isEmpty()) {
             return;
         }
-        go.a(new dd(this), j2);
+        go.a(new dd(this), j);
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            while (!this.f223a.isEmpty()) {
-                b peek = this.f223a.peek();
+            while (!this.f199a.isEmpty()) {
+                b peek = this.f199a.peek();
                 if (peek != null) {
-                    if (!peek.b() && this.f223a.size() <= 6) {
+                    if (!peek.b() && this.f199a.size() <= 6) {
                         return;
                     }
                     com.xiaomi.channel.commonutils.logger.b.c("remove Expired task");
-                    this.f223a.remove(peek);
+                    this.f199a.remove(peek);
                 }
             }
         }
@@ -361,10 +361,10 @@ public class db {
         }
     }
 
-    public void a(String str, String str2, Date date, Date date2, int i2, boolean z) {
+    public void a(String str, String str2, Date date, Date date2, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.f223a.add(new dc(this, i2, date, date2, str, str2, z));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, date, date2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.f199a.add(new dc(this, i, date, date2, str, str2, z));
             b(0L);
         }
     }

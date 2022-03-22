@@ -16,24 +16,24 @@ public class ScoreMetaBuilder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ScoreMetaData buildLaunchSpeedMetaData(long j2) {
+    public static ScoreMetaData buildLaunchSpeedMetaData(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
             ScoreMetaData scoreMetaData = new ScoreMetaData();
             scoreMetaData.type = IDeviceScore.TYPE_LAUNCH_SPEED;
             HashMap hashMap = new HashMap(1);
             scoreMetaData.params = hashMap;
-            hashMap.put(ParamKeys.KEY_LAUNCH_SPEED_LAUNCH_TS, Long.valueOf(j2));
+            hashMap.put(ParamKeys.KEY_LAUNCH_SPEED_LAUNCH_TS, Long.valueOf(j));
             return scoreMetaData;
         }
         return (ScoreMetaData) invokeJ.objValue;

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.PlaybackParameters;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class StandaloneMediaClock implements MediaClock {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public final class StandaloneMediaClock implements MediaClock {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,7 +46,7 @@ public final class StandaloneMediaClock implements MediaClock {
         long speedAdjustedDurationUs;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.baseUs;
+            long j = this.baseUs;
             if (this.started) {
                 long elapsedRealtime = android.os.SystemClock.elapsedRealtime() - this.baseElapsedMs;
                 PlaybackParameters playbackParameters = this.playbackParameters;
@@ -55,9 +55,9 @@ public final class StandaloneMediaClock implements MediaClock {
                 } else {
                     speedAdjustedDurationUs = playbackParameters.getSpeedAdjustedDurationUs(elapsedRealtime);
                 }
-                return j2 + speedAdjustedDurationUs;
+                return j + speedAdjustedDurationUs;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -76,10 +76,10 @@ public final class StandaloneMediaClock implements MediaClock {
         return (PlaybackParameters) invokeL.objValue;
     }
 
-    public void setPositionUs(long j2) {
+    public void setPositionUs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.baseUs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.baseUs = j;
             if (this.started) {
                 this.baseElapsedMs = android.os.SystemClock.elapsedRealtime();
             }

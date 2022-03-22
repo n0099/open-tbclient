@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.source.ads;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,7 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AdsMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "AdsMediaSource";
@@ -52,7 +53,7 @@ public final class AdsMediaSource implements MediaSource {
     public Handler playerHandler;
     public volatile boolean released;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AdsListener {
         void onAdClicked();
 
@@ -61,7 +62,7 @@ public final class AdsMediaSource implements MediaSource {
         void onAdTapped();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ComponentListener implements AdsLoader.EventListener, ExtractorMediaSource.EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +75,9 @@ public final class AdsMediaSource implements MediaSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adsMediaSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,9 +104,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -144,9 +145,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, adPlaybackState};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -185,9 +186,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -226,9 +227,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iOException};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -259,9 +260,9 @@ public final class AdsMediaSource implements MediaSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {mediaSource, factory, adsLoader, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((MediaSource) objArr2[0], (DataSource.Factory) objArr2[1], (AdsLoader) objArr2[2], (ViewGroup) objArr2[3], (Handler) objArr2[4], (AdsListener) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -304,11 +305,11 @@ public final class AdsMediaSource implements MediaSource {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void onAdSourceInfoRefreshed(int i2, int i3, Timeline timeline) {
+    public void onAdSourceInfoRefreshed(int i, int i2, Timeline timeline) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65551, this, i2, i3, timeline) == null) {
+        if (interceptable == null || interceptable.invokeIIL(65551, this, i, i2, timeline) == null) {
             Assertions.checkArgument(timeline.getPeriodCount() == 1);
-            this.adDurationsUs[i2][i3] = timeline.getPeriod(0, this.period).getDurationUs();
+            this.adDurationsUs[i][i2] = timeline.getPeriod(0, this.period).getDurationUs();
             maybeUpdateSourceInfo();
         }
     }
@@ -325,45 +326,48 @@ public final class AdsMediaSource implements MediaSource {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onLoadError(IOException iOException) {
-        Handler handler;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65553, this, iOException) == null) || (handler = this.eventHandler) == null || this.eventListener == null) {
-            return;
-        }
-        handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.5
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ AdsMediaSource this$0;
-            public final /* synthetic */ IOException val$error;
+        if (interceptable == null || interceptable.invokeL(65553, this, iOException) == null) {
+            Log.w(TAG, "Ad load error", iOException);
+            Handler handler = this.eventHandler;
+            if (handler == null || this.eventListener == null) {
+                return;
+            }
+            handler.post(new Runnable(this, iOException) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.5
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ AdsMediaSource this$0;
+                public final /* synthetic */ IOException val$error;
 
-            {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {this, iOException};
-                    interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
-                        newInitContext.thisArg = this;
-                        interceptable2.invokeInitBody(65536, newInitContext);
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this, iOException};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                    this.val$error = iOException;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.released) {
                         return;
                     }
+                    this.this$0.eventListener.onAdLoadError(this.val$error);
                 }
-                this.this$0 = this;
-                this.val$error = iOException;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.this$0.released) {
-                    return;
-                }
-                this.this$0.eventListener.onAdLoadError(this.val$error);
-            }
-        });
+            });
+        }
     }
 
     @Override // com.google.android.exoplayer2.source.MediaSource
@@ -372,21 +376,21 @@ public final class AdsMediaSource implements MediaSource {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaPeriodId, allocator)) == null) {
             if (this.adPlaybackState.adGroupCount > 0 && mediaPeriodId.isAd()) {
-                int i2 = mediaPeriodId.adGroupIndex;
-                int i3 = mediaPeriodId.adIndexInAdGroup;
-                if (this.adGroupMediaSources[i2].length <= i3) {
-                    ExtractorMediaSource extractorMediaSource = new ExtractorMediaSource(this.adPlaybackState.adUris[i2][i3], this.dataSourceFactory, new DefaultExtractorsFactory(), this.mainHandler, this.componentListener);
+                int i = mediaPeriodId.adGroupIndex;
+                int i2 = mediaPeriodId.adIndexInAdGroup;
+                if (this.adGroupMediaSources[i].length <= i2) {
+                    ExtractorMediaSource extractorMediaSource = new ExtractorMediaSource(this.adPlaybackState.adUris[i][i2], this.dataSourceFactory, new DefaultExtractorsFactory(), this.mainHandler, this.componentListener);
                     MediaSource[][] mediaSourceArr = this.adGroupMediaSources;
                     int length = mediaSourceArr[mediaPeriodId.adGroupIndex].length;
-                    if (i3 >= length) {
-                        int i4 = i3 + 1;
-                        mediaSourceArr[i2] = (MediaSource[]) Arrays.copyOf(mediaSourceArr[i2], i4);
+                    if (i2 >= length) {
+                        int i3 = i2 + 1;
+                        mediaSourceArr[i] = (MediaSource[]) Arrays.copyOf(mediaSourceArr[i], i3);
                         long[][] jArr = this.adDurationsUs;
-                        jArr[i2] = Arrays.copyOf(jArr[i2], i4);
-                        Arrays.fill(this.adDurationsUs[i2], length, i4, (long) C.TIME_UNSET);
+                        jArr[i] = Arrays.copyOf(jArr[i], i3);
+                        Arrays.fill(this.adDurationsUs[i], length, i3, (long) C.TIME_UNSET);
                     }
-                    this.adGroupMediaSources[i2][i3] = extractorMediaSource;
-                    extractorMediaSource.prepareSource(this.player, false, new MediaSource.Listener(this, i2, i3) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.3
+                    this.adGroupMediaSources[i][i2] = extractorMediaSource;
+                    extractorMediaSource.prepareSource(this.player, false, new MediaSource.Listener(this, i, i2) { // from class: com.google.android.exoplayer2.source.ads.AdsMediaSource.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AdsMediaSource this$0;
@@ -398,19 +402,19 @@ public final class AdsMediaSource implements MediaSource {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3)};
+                                Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i5 = newInitContext.flag;
-                                if ((i5 & 1) != 0) {
-                                    int i6 = i5 & 2;
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$0 = this;
-                            this.val$adGroupIndex = i2;
-                            this.val$adIndexInAdGroup = i3;
+                            this.val$adGroupIndex = i;
+                            this.val$adIndexInAdGroup = i2;
                         }
 
                         @Override // com.google.android.exoplayer2.source.MediaSource.Listener
@@ -422,7 +426,7 @@ public final class AdsMediaSource implements MediaSource {
                         }
                     });
                 }
-                MediaSource mediaSource = this.adGroupMediaSources[i2][i3];
+                MediaSource mediaSource = this.adGroupMediaSources[i][i2];
                 MediaPeriod createPeriod = mediaSource.createPeriod(new MediaSource.MediaPeriodId(0), allocator);
                 this.adMediaSourceByMediaPeriod.put(createPeriod, mediaSource);
                 return createPeriod;
@@ -468,9 +472,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -500,9 +504,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, exoPlayer};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -561,9 +565,9 @@ public final class AdsMediaSource implements MediaSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -590,9 +594,9 @@ public final class AdsMediaSource implements MediaSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {mediaSource, factory, adsLoader, viewGroup, handler, adsListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -13,28 +13,26 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f51474b;
+    public int f37927b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51475c;
+    public boolean f37928c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f51476d;
+    public long f37929d;
 
     /* renamed from: e  reason: collision with root package name */
-    public com.baidu.webkit.logsdk.b.a f51477e;
+    public com.baidu.webkit.logsdk.b.a f37930e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f51478f;
+    public String f37931f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f51479g;
+    public String f37932g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f51480h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f51481i;
+    public String f37933h;
+    public String i;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public a(com.baidu.webkit.logsdk.b.a aVar, String str) {
@@ -45,9 +43,9 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((com.baidu.webkit.logsdk.b.a) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -64,24 +62,24 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f51474b = 0;
-        this.f51475c = false;
-        this.f51477e = aVar;
+        this.f37927b = 0;
+        this.f37928c = false;
+        this.f37930e = aVar;
         int a = !TextUtils.isEmpty(str2) ? c.a(str2) : -1;
         if (a <= 1 && a >= 0) {
-            this.f51478f = str2;
+            this.f37931f = str2;
             return;
         }
-        this.f51478f = aVar.f51454c;
-        this.f51479g = aVar.f51455d;
+        this.f37931f = aVar.f37907c;
+        this.f37932g = aVar.f37908d;
     }
 }

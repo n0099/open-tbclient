@@ -25,20 +25,20 @@ public class SpeedCalculator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String humanReadableSpeed(long j2, boolean z) {
+    public static String humanReadableSpeed(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            return Util.humanReadableBytes(j2, z) + "/s";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            return Util.humanReadableBytes(j, z) + "/s";
         }
         return (String) invokeCommon.objValue;
     }
@@ -49,17 +49,17 @@ public class SpeedCalculator {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? speedFromBegin() : (String) invokeV.objValue;
     }
 
-    public synchronized void downloading(long j2) {
+    public synchronized void downloading(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             synchronized (this) {
                 if (this.timestamp == 0) {
                     long nowMillis = nowMillis();
                     this.timestamp = nowMillis;
                     this.beginTimestamp = nowMillis;
                 }
-                this.increaseBytes += j2;
-                this.allIncreaseBytes += j2;
+                this.increaseBytes += j;
+                this.allIncreaseBytes += j;
             }
         }
     }
@@ -78,11 +78,11 @@ public class SpeedCalculator {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
                 long nowMillis = nowMillis();
-                long j2 = this.increaseBytes;
+                long j = this.increaseBytes;
                 long max = Math.max(1L, nowMillis - this.timestamp);
                 this.increaseBytes = 0L;
                 this.timestamp = nowMillis;
-                this.bytesPerSecond = (((float) j2) / ((float) max)) * 1000.0f;
+                this.bytesPerSecond = (((float) j) / ((float) max)) * 1000.0f;
             }
         }
     }

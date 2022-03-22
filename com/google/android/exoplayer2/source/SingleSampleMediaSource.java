@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SingleSampleMediaSource implements MediaSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MIN_LOADABLE_RETRY_COUNT = 3;
@@ -31,23 +31,23 @@ public final class SingleSampleMediaSource implements MediaSource {
     public final boolean treatLoadErrorsAsEndOfStream;
     public final Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventListener {
-        void onLoadError(int i2, IOException iOException);
+        void onLoadError(int i, IOException iOException);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j2) {
-        this(uri, factory, format, j2, 3);
+    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j) {
+        this(uri, factory, format, j, 3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, format, Long.valueOf(j2)};
+            Object[] objArr = {uri, factory, format, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (Format) objArr2[2], ((Long) objArr2[3]).longValue(), ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -99,17 +99,17 @@ public final class SingleSampleMediaSource implements MediaSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j2, int i2) {
-        this(uri, factory, format, j2, i2, null, null, 0, false);
+    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j, int i) {
+        this(uri, factory, format, j, i, null, null, 0, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {uri, factory, format, Long.valueOf(j2), Integer.valueOf(i2)};
+            Object[] objArr = {uri, factory, format, Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], (Format) objArr2[2], ((Long) objArr2[3]).longValue(), ((Integer) objArr2[4]).intValue(), (Handler) objArr2[5], (EventListener) objArr2[6], ((Integer) objArr2[7]).intValue(), ((Boolean) objArr2[8]).booleanValue());
                 newInitContext.thisArg = this;
@@ -119,16 +119,16 @@ public final class SingleSampleMediaSource implements MediaSource {
         }
     }
 
-    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j2, int i2, Handler handler, EventListener eventListener, int i3, boolean z) {
+    public SingleSampleMediaSource(Uri uri, DataSource.Factory factory, Format format, long j, int i, Handler handler, EventListener eventListener, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, format, Long.valueOf(j2), Integer.valueOf(i2), handler, eventListener, Integer.valueOf(i3), Boolean.valueOf(z)};
+            Object[] objArr = {uri, factory, format, Long.valueOf(j), Integer.valueOf(i), handler, eventListener, Integer.valueOf(i2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -137,11 +137,11 @@ public final class SingleSampleMediaSource implements MediaSource {
         this.uri = uri;
         this.dataSourceFactory = factory;
         this.format = format;
-        this.minLoadableRetryCount = i2;
+        this.minLoadableRetryCount = i;
         this.eventHandler = handler;
         this.eventListener = eventListener;
-        this.eventSourceId = i3;
+        this.eventSourceId = i2;
         this.treatLoadErrorsAsEndOfStream = z;
-        this.timeline = new SinglePeriodTimeline(j2, true);
+        this.timeline = new SinglePeriodTimeline(j, true);
     }
 }

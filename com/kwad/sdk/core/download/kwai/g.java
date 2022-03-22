@@ -18,53 +18,53 @@ public class g extends com.kwad.sdk.widget.a {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f54377b;
+    public String f39501b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f54378c;
+    public String f39502c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f54379d;
+    public int f39503d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f54380e;
+    public String f39504e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f54381f;
+    public int f39505f;
 
     /* loaded from: classes7.dex */
     public static class a {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f54382b;
+        public b f39506b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f54383c;
+        public String f39507c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f54384d;
+        public String f39508d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f54385e;
+        public int f39509e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f54386f;
+        public String f39510f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f54387g;
+        public int f39511g;
 
         public a(@NonNull Context context) {
             this.a = context;
         }
 
         public a a(b bVar) {
-            this.f54382b = bVar;
+            this.f39506b = bVar;
             return this;
         }
 
         public a a(@NonNull String str) {
-            this.f54383c = str;
+            this.f39507c = str;
             return this;
         }
 
@@ -88,8 +88,8 @@ public class g extends com.kwad.sdk.widget.a {
     }
 
     private View a() {
-        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.ksad_no_title_common_dialog_content_layout, (ViewGroup) null, false);
-        inflate.findViewById(R.id.ksad_no_title_common_dialog_layout).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.1
+        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d0454, (ViewGroup) null, false);
+        inflate.findViewById(R.id.obfuscated_res_0x7f0910bb).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (g.this.a != null) {
@@ -97,11 +97,11 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        TextView textView = (TextView) inflate.findViewById(R.id.ksad_no_title_common_positive_btn);
-        if (!TextUtils.isEmpty(this.f54378c)) {
-            textView.setText(this.f54378c);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910bd);
+        if (!TextUtils.isEmpty(this.f39502c)) {
+            textView.setText(this.f39502c);
         }
-        textView.setTextColor(this.f54379d);
+        textView.setTextColor(this.f39503d);
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -110,11 +110,11 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        TextView textView2 = (TextView) inflate.findViewById(R.id.ksad_no_title_common_negative_btn);
-        if (!TextUtils.isEmpty(this.f54380e)) {
-            textView2.setText(this.f54380e);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910bc);
+        if (!TextUtils.isEmpty(this.f39504e)) {
+            textView2.setText(this.f39504e);
         }
-        textView2.setTextColor(this.f54381f);
+        textView2.setTextColor(this.f39505f);
         textView2.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.core.download.kwai.g.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -123,7 +123,7 @@ public class g extends com.kwad.sdk.widget.a {
                 }
             }
         });
-        ((TextView) inflate.findViewById(R.id.ksad_no_title_common_content_text)).setText(this.f54377b);
+        ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0910ba)).setText(this.f39501b);
         return inflate;
     }
 
@@ -131,12 +131,12 @@ public class g extends com.kwad.sdk.widget.a {
         if (aVar.a instanceof Activity) {
             setOwnerActivity((Activity) aVar.a);
         }
-        this.a = aVar.f54382b;
-        this.f54377b = aVar.f54383c;
-        this.f54378c = !TextUtils.isEmpty(aVar.f54384d) ? aVar.f54384d : aVar.a.getString(R.string.ksad_no_title_common_dialog_positivebtn_title);
-        this.f54379d = aVar.f54385e != 0 ? aVar.f54385e : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_positivebtn_color);
-        this.f54380e = !TextUtils.isEmpty(aVar.f54386f) ? aVar.f54386f : aVar.a.getString(R.string.ksad_no_title_common_dialog_negativebtn_title);
-        this.f54381f = aVar.f54387g != 0 ? aVar.f54387g : aVar.a.getResources().getColor(R.color.ksad_no_title_common_dialog_negativebtn_color);
+        this.a = aVar.f39506b;
+        this.f39501b = aVar.f39507c;
+        this.f39502c = !TextUtils.isEmpty(aVar.f39508d) ? aVar.f39508d : aVar.a.getString(R.string.obfuscated_res_0x7f0f099e);
+        this.f39503d = aVar.f39509e != 0 ? aVar.f39509e : aVar.a.getResources().getColor(R.color.obfuscated_res_0x7f06074b);
+        this.f39504e = !TextUtils.isEmpty(aVar.f39510f) ? aVar.f39510f : aVar.a.getString(R.string.obfuscated_res_0x7f0f099d);
+        this.f39505f = aVar.f39511g != 0 ? aVar.f39511g : aVar.a.getResources().getColor(R.color.obfuscated_res_0x7f06074a);
     }
 
     @Override // android.app.Dialog

@@ -48,9 +48,9 @@ public class CarUUID {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -73,7 +73,7 @@ public class CarUUID {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (c(context, com.kuaishou.weapon.un.s.f53810i)) {
+            if (c(context, "android.permission.READ_EXTERNAL_STORAGE")) {
                 return a(new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".dueros_uuid"));
             }
             return null;
@@ -89,7 +89,7 @@ public class CarUUID {
             List<ApplicationInfo> installedApplications = context.getPackageManager().getInstalledApplications(0);
             ApplicationInfo applicationInfo = context.getApplicationInfo();
             for (ApplicationInfo applicationInfo2 : installedApplications) {
-                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, com.baidu.fsg.face.base.b.c.f32638g), "libdueros_uuid.so"))) != null) {
+                if (!applicationInfo.packageName.equals(applicationInfo2.packageName) && (a2 = a(new File(new File(applicationInfo2.dataDir, "files"), "libdueros_uuid.so"))) != null) {
                     return a2;
                 }
             }
@@ -253,15 +253,15 @@ public class CarUUID {
     }
 
     @SuppressLint({"NewApi"})
-    public static boolean a(File file, int i2) {
+    public static boolean a(File file, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, file, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, file, i)) == null) {
             if (Build.VERSION.SDK_INT < 21) {
                 return true;
             }
             try {
-                Os.chmod(file.getAbsolutePath(), i2);
+                Os.chmod(file.getAbsolutePath(), i);
                 return true;
             } catch (Exception unused) {
                 return false;

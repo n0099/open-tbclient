@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import c.a.q0.r.l0.h;
+import c.a.o0.r.l0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.AgreeView;
 import com.baidu.tieba.R;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPraiseInfoLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AgreeView.d v;
+    public AgreeView.d m0;
 
     /* loaded from: classes5.dex */
     public class a implements AgreeView.d {
@@ -34,9 +34,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 newInitContext.initArgs = r2;
                 Object[] objArr = {threadCardBottomOpSegmentWeightLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,7 +49,7 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
         public void a(View view, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
-                this.a.v(z);
+                this.a.N(z);
             }
         }
     }
@@ -63,68 +63,68 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.v = new a(this);
+        this.m0 = new a(this);
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public View getRootView(Context context) {
-        InterceptResult invokeL;
+    public void F() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.weight_thread_comment_and_praise_info_layout, (ViewGroup) this, true) : (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void initView(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            super.initView(view);
-            this.mAgreeView.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
-            this.mAgreeView.isUseHomePageStyleAb(true);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void updateLayout() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.updateLayout();
-            this.mAgreeView.setVisibilityListener(this.v);
-            this.mAgreeView.adjustLayoutForWeight(true);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.F();
+            this.f30124d.setVisibilityListener(this.m0);
+            this.f30124d.k(true);
             h.b(this);
         }
     }
 
-    public final void v(boolean z) {
+    public final void N(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && w()) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && O()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30124d.getLayoutParams();
             float f2 = z ? 1.0f : 2.0f;
             layoutParams.width = 0;
             layoutParams.weight = f2;
             layoutParams.leftMargin = 0;
             layoutParams.rightMargin = 0;
-            this.mAgreeView.setLayoutParams(layoutParams);
+            this.f30124d.setLayoutParams(layoutParams);
         }
     }
 
-    public final boolean w() {
+    public final boolean O() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean isAgreeAlone = this.mAgreeView.isAgreeAlone();
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mAgreeView.getLayoutParams();
-            return (layoutParams.weight == (isAgreeAlone ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            boolean r = this.f30124d.r();
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30124d.getLayoutParams();
+            return (layoutParams.weight == (r ? 1.0f : 2.0f) && layoutParams.width == 0) ? false : true;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public View i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) ? LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08bf, (ViewGroup) this, true) : (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void p(View view) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view) == null) {
+            super.p(view);
+            this.f30124d.setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
+            this.f30124d.t(true);
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,9 +136,9 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -146,6 +146,6 @@ public class ThreadCardBottomOpSegmentWeightLayout extends ThreadCommentAndPrais
                 return;
             }
         }
-        this.v = new a(this);
+        this.m0 = new a(this);
     }
 }

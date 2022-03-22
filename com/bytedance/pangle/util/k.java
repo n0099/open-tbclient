@@ -9,28 +9,28 @@ import java.io.File;
 import java.io.RandomAccessFile;
 import java.util.zip.CRC32;
 import java.util.zip.ZipException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f51768b;
+        public long f38189b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,8 +58,8 @@ public final class k {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
             long length = randomAccessFile.length() - 22;
             if (length >= 0) {
-                long j2 = length - 65536;
-                long j3 = j2 >= 0 ? j2 : 0L;
+                long j = length - 65536;
+                long j2 = j >= 0 ? j : 0L;
                 int reverseBytes = Integer.reverseBytes(101010256);
                 do {
                     randomAccessFile.seek(length);
@@ -69,12 +69,12 @@ public final class k {
                         randomAccessFile.skipBytes(2);
                         randomAccessFile.skipBytes(2);
                         a aVar = new a();
-                        aVar.f51768b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
+                        aVar.f38189b = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         aVar.a = Integer.reverseBytes(randomAccessFile.readInt()) & 4294967295L;
                         return aVar;
                     }
                     length--;
-                } while (length >= j3);
+                } while (length >= j2);
                 throw new ZipException("End Of Central Directory signature not found");
             }
             throw new ZipException("File too short to be a zip file: " + randomAccessFile.length());
@@ -87,9 +87,9 @@ public final class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, randomAccessFile, aVar)) == null) {
             CRC32 crc32 = new CRC32();
-            long j2 = aVar.f51768b;
+            long j = aVar.f38189b;
             randomAccessFile.seek(aVar.a);
-            int min = (int) Math.min(16384L, j2);
+            int min = (int) Math.min(16384L, j);
             byte[] bArr = new byte[16384];
             while (true) {
                 int read = randomAccessFile.read(bArr, 0, min);
@@ -97,11 +97,11 @@ public final class k {
                     break;
                 }
                 crc32.update(bArr, 0, read);
-                j2 -= read;
-                if (j2 == 0) {
+                j -= read;
+                if (j == 0) {
                     break;
                 }
-                min = (int) Math.min(16384L, j2);
+                min = (int) Math.min(16384L, j);
             }
             return crc32.getValue();
         }

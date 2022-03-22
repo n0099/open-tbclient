@@ -39,8 +39,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder addAction(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
-            this.mBuilder.addAction(i2, charSequence, pendingIntent);
+        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+            this.mBuilder.addAction(i, charSequence, pendingIntent);
             return this;
         }
 
@@ -85,8 +85,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setBadgeIconType(int i2) {
-            this.mBuilder.setBadgeIconType(i2);
+        public Builder setBadgeIconType(int i) {
+            this.mBuilder.setBadgeIconType(i);
             return this;
         }
 
@@ -106,8 +106,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setColor(@ColorInt int i2) {
-            this.mBuilder.setColor(i2);
+        public Builder setColor(@ColorInt int i) {
+            this.mBuilder.setColor(i);
             return this;
         }
 
@@ -176,8 +176,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setDefaults(int i2) {
-            this.mBuilder.setDefaults(i2);
+        public Builder setDefaults(int i) {
+            this.mBuilder.setDefaults(i);
             return this;
         }
 
@@ -211,8 +211,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setGroupAlertBehavior(int i2) {
-            this.mBuilder.setGroupAlertBehavior(i2);
+        public Builder setGroupAlertBehavior(int i) {
+            this.mBuilder.setGroupAlertBehavior(i);
             return this;
         }
 
@@ -232,8 +232,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setLights(@ColorInt int i2, int i3, int i4) {
-            this.mBuilder.setLights(i2, i3, i4);
+        public Builder setLights(@ColorInt int i, int i2, int i3) {
+            this.mBuilder.setLights(i, i2, i3);
             return this;
         }
 
@@ -246,8 +246,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setNumber(int i2) {
-            this.mBuilder.setNumber(i2);
+        public Builder setNumber(int i) {
+            this.mBuilder.setNumber(i);
             return this;
         }
 
@@ -267,15 +267,15 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setPriority(int i2) {
-            this.mBuilder.setPriority(i2);
+        public Builder setPriority(int i) {
+            this.mBuilder.setPriority(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setProgress(int i2, int i3, boolean z) {
-            this.mBuilder.setProgress(i2, i3, z);
+        public Builder setProgress(int i, int i2, boolean z) {
+            this.mBuilder.setProgress(i, i2, z);
             return this;
         }
 
@@ -309,15 +309,15 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i2) {
-            this.mBuilder.setSmallIcon(i2);
+        public Builder setSmallIcon(int i) {
+            this.mBuilder.setSmallIcon(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setSmallIcon(int i2, int i3) {
-            this.mBuilder.setSmallIcon(i2, i3);
+        public Builder setSmallIcon(int i, int i2) {
+            this.mBuilder.setSmallIcon(i, i2);
             return this;
         }
 
@@ -337,8 +337,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setSound(Uri uri, int i2) {
-            this.mBuilder.setSound(uri, i2);
+        public Builder setSound(Uri uri, int i) {
+            this.mBuilder.setSound(uri, i);
             return this;
         }
 
@@ -365,8 +365,8 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setTimeoutAfter(long j2) {
-            this.mBuilder.setTimeoutAfter(j2);
+        public Builder setTimeoutAfter(long j) {
+            this.mBuilder.setTimeoutAfter(j);
             return this;
         }
 
@@ -386,15 +386,15 @@ public class KsNotificationCompat {
 
         @KsAdSdkApi
         @Keep
-        public Builder setVisibility(int i2) {
-            this.mBuilder.setVisibility(i2);
+        public Builder setVisibility(int i) {
+            this.mBuilder.setVisibility(i);
             return this;
         }
 
         @KsAdSdkApi
         @Keep
-        public Builder setWhen(long j2) {
-            this.mBuilder.setWhen(j2);
+        public Builder setWhen(long j) {
+            this.mBuilder.setWhen(j);
             return this;
         }
     }

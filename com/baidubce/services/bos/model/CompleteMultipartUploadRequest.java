@@ -12,7 +12,7 @@ import com.baidubce.util.CheckUtils;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CompleteMultipartUploadRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,12 +58,12 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             CheckUtils.isNotNull(list, "partETags should not be null.");
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                PartETag partETag = list.get(i2);
-                CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i2));
+            for (int i = 0; i < list.size(); i++) {
+                PartETag partETag = list.get(i);
+                CheckUtils.isNotNull(partETag, "partETags[%s] should not be null.", Integer.valueOf(i));
                 int partNumber = partETag.getPartNumber();
-                CheckUtils.checkArgument(partNumber > 0, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i2), Integer.valueOf(partNumber));
-                CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i2));
+                CheckUtils.checkArgument(partNumber > 0, "partNumber should be positive. partETags[%s].partNumber:%s", Integer.valueOf(i), Integer.valueOf(partNumber));
+                CheckUtils.isNotNull(partETag.getETag(), "partETags[%s].eTag should not be null.", Integer.valueOf(i));
             }
             Collections.sort(list, new Comparator<PartETag>(this) { // from class: com.baidubce.services.bos.model.CompleteMultipartUploadRequest.1
                 public static /* synthetic */ Interceptable $ic;
@@ -77,9 +77,9 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -96,13 +96,13 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
                     return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, partETag2, partETag3)) == null) ? partETag2.getPartNumber() - partETag3.getPartNumber() : invokeLL.intValue;
                 }
             });
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < list.size()) {
-                int partNumber2 = list.get(i3).getPartNumber();
-                CheckUtils.checkArgument(partNumber2 != i4, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
-                i3++;
-                i4 = partNumber2;
+            while (i2 < list.size()) {
+                int partNumber2 = list.get(i2).getPartNumber();
+                CheckUtils.checkArgument(partNumber2 != i3, "Duplicated partNumber %s.", Integer.valueOf(partNumber2));
+                i2++;
+                i3 = partNumber2;
             }
             this.partETags = list;
         }
@@ -185,9 +185,9 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (List) objArr2[3], (ObjectMetadata) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -206,9 +206,9 @@ public class CompleteMultipartUploadRequest extends GenericUploadRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, list, objectMetadata};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;

@@ -21,16 +21,16 @@ public final class SubscriptionInfo {
     public final Object subscriber;
     public int threadMode;
 
-    public SubscriptionInfo(Object subscriber, Class<?> eventType, int i2, Action<Object> action) {
+    public SubscriptionInfo(Object subscriber, Class<?> eventType, int i, Action<Object> action) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {subscriber, eventType, Integer.valueOf(i2), action};
+            Object[] objArr = {subscriber, eventType, Integer.valueOf(i), action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,7 +41,7 @@ public final class SubscriptionInfo {
         Intrinsics.checkNotNullParameter(action, "action");
         this.subscriber = subscriber;
         this.eventType = eventType;
-        this.threadMode = i2;
+        this.threadMode = i;
         this.action = action;
     }
 
@@ -107,10 +107,10 @@ public final class SubscriptionInfo {
         }
     }
 
-    public final void setThreadMode(int i2) {
+    public final void setThreadMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.threadMode = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.threadMode = i;
         }
     }
 }

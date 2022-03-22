@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
 import android.os.ResultReceiver;
+import android.util.Log;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -53,7 +54,7 @@ public class MediaSessionCompatApi21 {
 
         void onRewind();
 
-        void onSeekTo(long j2);
+        void onSeekTo(long j);
 
         void onSetRating(Object obj);
 
@@ -63,7 +64,7 @@ public class MediaSessionCompatApi21 {
 
         void onSkipToPrevious();
 
-        void onSkipToQueueItem(long j2);
+        void onSkipToQueueItem(long j);
 
         void onStop();
     }
@@ -81,9 +82,9 @@ public class MediaSessionCompatApi21 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -168,10 +169,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSeekTo(long j2) {
+        public void onSeekTo(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.mCallback.onSeekTo(j2);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.mCallback.onSeekTo(j);
             }
         }
 
@@ -200,10 +201,10 @@ public class MediaSessionCompatApi21 {
         }
 
         @Override // android.media.session.MediaSession.Callback
-        public void onSkipToQueueItem(long j2) {
+        public void onSkipToQueueItem(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-                this.mCallback.onSkipToQueueItem(j2);
+            if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+                this.mCallback.onSkipToQueueItem(j);
             }
         }
 
@@ -226,19 +227,19 @@ public class MediaSessionCompatApi21 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static Object createItem(Object obj, long j2) {
+        public static Object createItem(Object obj, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j2)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j2) : invokeLJ.objValue;
+            return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, obj, j)) == null) ? new MediaSession.QueueItem((MediaDescription) obj, j) : invokeLJ.objValue;
         }
 
         public static Object getDescription(Object obj) {
@@ -259,9 +260,9 @@ public class MediaSessionCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -296,10 +297,10 @@ public class MediaSessionCompatApi21 {
                     declaredField.setAccessible(true);
                     return declaredField.get(obj) != null;
                 }
-                return false;
             } catch (IllegalAccessException | NoSuchFieldException unused) {
-                return false;
+                Log.w(TAG, "Failed to get mCallback object.");
             }
+            return false;
         }
         return invokeL.booleanValue;
     }
@@ -345,10 +346,10 @@ public class MediaSessionCompatApi21 {
         }
     }
 
-    public static void setFlags(Object obj, int i2) {
+    public static void setFlags(Object obj, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, null, obj, i2) == null) {
-            ((MediaSession) obj).setFlags(i2);
+        if (interceptable == null || interceptable.invokeLI(65547, null, obj, i) == null) {
+            ((MediaSession) obj).setFlags(i);
         }
     }
 
@@ -373,11 +374,11 @@ public class MediaSessionCompatApi21 {
         }
     }
 
-    public static void setPlaybackToLocal(Object obj, int i2) {
+    public static void setPlaybackToLocal(Object obj, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, null, obj, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65551, null, obj, i) == null) {
             AudioAttributes.Builder builder = new AudioAttributes.Builder();
-            builder.setLegacyStreamType(i2);
+            builder.setLegacyStreamType(i);
             ((MediaSession) obj).setPlaybackToLocal(builder.build());
         }
     }

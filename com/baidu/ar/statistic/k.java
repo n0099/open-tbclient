@@ -22,28 +22,28 @@ public final class k {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void R(int i2);
+        void R(int i);
     }
 
-    public k(d dVar, int i2, int i3) {
+    public k(d dVar, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {dVar, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.wI = dVar;
-        i2 = i2 <= 0 ? 20 : i2;
-        this.wK = i2;
-        this.wL = i3 < i2 ? i2 : i3;
+        i = i <= 0 ? 20 : i;
+        this.wK = i;
+        this.wL = i2 < i ? i : i2;
         this.wJ = new ArrayList<>(this.wK);
         this.wM = false;
         this.wN = null;

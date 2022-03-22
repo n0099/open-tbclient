@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ChunkIndex implements SeekMap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public final class ChunkIndex implements SeekMap {
             newInitContext.initArgs = r2;
             Object[] objArr = {iArr, jArr, jArr2, jArr3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,10 +46,10 @@ public final class ChunkIndex implements SeekMap {
         }
     }
 
-    public int getChunkIndex(long j2) {
+    public int getChunkIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) ? Util.binarySearchFloor(this.timesUs, j2, true, true) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) ? Util.binarySearchFloor(this.timesUs, j, true, true) : invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
@@ -60,10 +60,10 @@ public final class ChunkIndex implements SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j2) {
+    public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) ? this.offsets[getChunkIndex(j2)] : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? this.offsets[getChunkIndex(j)] : invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap

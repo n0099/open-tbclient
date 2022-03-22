@@ -16,16 +16,16 @@ public class IMServiceNotifyMenuMergeListener implements IGetSubscriptionListene
     public GetShieldAndTopResult mShieldResult;
     public GetSubscriptionResult mSubscriptionResult;
 
-    public IMServiceNotifyMenuMergeListener(int i2, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
+    public IMServiceNotifyMenuMergeListener(int i, IGetServiceNotifyMenuListener iGetServiceNotifyMenuListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), iGetServiceNotifyMenuListener};
+            Object[] objArr = {Integer.valueOf(i), iGetServiceNotifyMenuListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,7 +34,7 @@ public class IMServiceNotifyMenuMergeListener implements IGetSubscriptionListene
         this.mShieldResult = null;
         this.mSubscriptionResult = null;
         this.mListener = iGetServiceNotifyMenuListener;
-        this.mCategory = i2;
+        this.mCategory = i;
     }
 
     @Override // com.baidu.android.imsdk.shield.IGetShieldAndTopListener

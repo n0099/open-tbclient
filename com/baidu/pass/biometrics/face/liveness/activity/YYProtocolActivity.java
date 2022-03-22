@@ -33,7 +33,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WebView f36219b;
+    public WebView f27979b;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
@@ -48,9 +48,9 @@ public class YYProtocolActivity extends Activity implements NoProguard {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {yYProtocolActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,9 +73,9 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -92,12 +92,12 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.a = (ImageView) findViewById(R.id.iv_back);
-            WebView webView = (WebView) findViewById(R.id.webView);
-            this.f36219b = webView;
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fc3);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092445);
+            this.f27979b = webView;
             webView.setWebChromeClient(new WebChromeClient());
-            this.f36219b.setWebViewClient(new WebViewClient());
-            this.f36219b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
+            this.f27979b.setWebViewClient(new WebViewClient());
+            this.f27979b.loadUrl(PassBioEnv.YY_PERSONAL_INFO_PROTOCOL);
         }
     }
 
@@ -128,13 +128,13 @@ public class YYProtocolActivity extends Activity implements NoProguard {
     public static void setTranslucentStatus(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, activity) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 21) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 21) {
                 Window window = activity.getWindow();
                 window.getDecorView().setSystemUiVisibility(Build.VERSION.SDK_INT >= 23 ? 9472 : 1280);
                 window.addFlags(Integer.MIN_VALUE);
                 window.setStatusBarColor(0);
-            } else if (i2 >= 19) {
+            } else if (i >= 19) {
                 Window window2 = activity.getWindow();
                 WindowManager.LayoutParams attributes = window2.getAttributes();
                 attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
@@ -153,7 +153,7 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             }
             getWindow().addFlags(128);
             super.onCreate(bundle);
-            setContentView(R.layout.layout_pass_liveness_protocol);
+            setContentView(R.layout.obfuscated_res_0x7f0d04a9);
             b();
             a();
             newLoginStatusBarTint(this);
@@ -166,10 +166,10 @@ public class YYProtocolActivity extends Activity implements NoProguard {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            WebView webView = this.f36219b;
+            WebView webView = this.f27979b;
             if (webView != null) {
                 webView.destroy();
-                this.f36219b = null;
+                this.f27979b = null;
             }
         }
     }
@@ -184,9 +184,9 @@ public class YYProtocolActivity extends Activity implements NoProguard {
                 Field declaredField2 = WindowManager.LayoutParams.class.getDeclaredField("meizuFlags");
                 declaredField.setAccessible(true);
                 declaredField2.setAccessible(true);
-                int i2 = declaredField.getInt(null);
-                int i3 = declaredField2.getInt(attributes);
-                declaredField2.setInt(attributes, z ? i3 | i2 : (~i2) & i3);
+                int i = declaredField.getInt(null);
+                int i2 = declaredField2.getInt(attributes);
+                declaredField2.setInt(attributes, z ? i2 | i : (~i) & i2);
                 activity.getWindow().setAttributes(attributes);
                 return true;
             } catch (Throwable unused) {
@@ -207,12 +207,12 @@ public class YYProtocolActivity extends Activity implements NoProguard {
             Class<?> cls = activity.getWindow().getClass();
             try {
                 Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
+                int i = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
                 Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
                 Window window2 = activity.getWindow();
                 Object[] objArr = new Object[2];
-                objArr[0] = Integer.valueOf(z ? i2 : 0);
-                objArr[1] = Integer.valueOf(i2);
+                objArr[0] = Integer.valueOf(z ? i : 0);
+                objArr[1] = Integer.valueOf(i);
                 method.invoke(window2, objArr);
                 return true;
             } catch (Throwable unused) {

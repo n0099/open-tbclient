@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,11 +35,11 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
-            viewGroup.removeView(this.a.get(i2));
-            super.destroyItem(viewGroup, i2, obj);
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
+            viewGroup.removeView(this.a.get(i));
+            super.destroyItem(viewGroup, i, obj);
         }
     }
 
@@ -51,12 +51,12 @@ public class NoHorizontalScrollerVPAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-            viewGroup.addView(this.a.get(i2));
-            return this.a.get(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            viewGroup.addView(this.a.get(i));
+            return this.a.get(i);
         }
         return invokeLI.objValue;
     }

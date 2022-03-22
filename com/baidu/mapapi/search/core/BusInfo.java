@@ -18,7 +18,7 @@ public class BusInfo extends TransitBaseInfo {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34136b;
+    public int f26370b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,9 +41,9 @@ public class BusInfo extends TransitBaseInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -59,9 +59,9 @@ public class BusInfo extends TransitBaseInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -69,7 +69,7 @@ public class BusInfo extends TransitBaseInfo {
             }
         }
         this.a = parcel.readInt();
-        this.f34136b = parcel.readInt();
+        this.f26370b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
@@ -85,7 +85,7 @@ public class BusInfo extends TransitBaseInfo {
     public int getStopNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34136b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f26370b : invokeV.intValue;
     }
 
     public int getType() {
@@ -94,27 +94,27 @@ public class BusInfo extends TransitBaseInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void setStopNum(int i2) {
+    public void setStopNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f34136b = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f26370b = i;
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
         }
     }
 
     @Override // com.baidu.mapapi.search.core.TransitBaseInfo, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f34136b);
+            parcel.writeInt(this.f26370b);
         }
     }
 }

@@ -12,7 +12,7 @@ public interface HttpConnectTask extends Runnable {
 
         void onConnectPaused();
 
-        void onConnected(long j2, long j3, boolean z);
+        void onConnected(long j, long j2, boolean z);
 
         void onConnecting();
     }

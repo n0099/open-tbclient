@@ -37,7 +37,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f60733d;
+        public final AtomicReference<Disposable> f45343d;
         public final AtomicThrowable error;
         public final RepeatWhenObserver<T>.InnerRepeatObserver inner;
         public final Subject<Object> signaller;
@@ -58,9 +58,9 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
                     newInitContext.initArgs = r2;
                     Object[] objArr = {repeatWhenObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -109,9 +109,9 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, subject, observableSource};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -123,14 +123,14 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
             this.wip = new AtomicInteger();
             this.error = new AtomicThrowable();
             this.inner = new InnerRepeatObserver(this);
-            this.f60733d = new AtomicReference<>();
+            this.f45343d = new AtomicReference<>();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                DisposableHelper.dispose(this.f60733d);
+                DisposableHelper.dispose(this.f45343d);
                 DisposableHelper.dispose(this.inner);
             }
         }
@@ -138,7 +138,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public void innerComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                DisposableHelper.dispose(this.f60733d);
+                DisposableHelper.dispose(this.f45343d);
                 HalfSerializer.onComplete(this.actual, this, this.error);
             }
         }
@@ -146,7 +146,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public void innerError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                DisposableHelper.dispose(this.f60733d);
+                DisposableHelper.dispose(this.f45343d);
                 HalfSerializer.onError(this.actual, th, this, this.error);
             }
         }
@@ -162,7 +162,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.f60733d.get()) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? DisposableHelper.isDisposed(this.f45343d.get()) : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -195,7 +195,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, disposable) == null) {
-                DisposableHelper.replace(this.f60733d, disposable);
+                DisposableHelper.replace(this.f45343d, disposable);
             }
         }
 
@@ -224,9 +224,9 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

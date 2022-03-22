@@ -18,9 +18,9 @@ public class f implements OnNmeaMessageListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -30,9 +30,9 @@ public class f implements OnNmeaMessageListener {
     }
 
     @Override // android.location.OnNmeaMessageListener
-    public void onNmeaMessage(String str, long j2) {
+    public void onNmeaMessage(String str, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) && this.a.b(str)) {
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) && this.a.b(str)) {
             this.a.a(str);
         }
     }

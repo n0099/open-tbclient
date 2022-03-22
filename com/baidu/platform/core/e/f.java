@@ -21,9 +21,9 @@ public class f extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,10 +83,10 @@ public class f extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetShareUrlResultListener)) {
             OnGetShareUrlResultListener onGetShareUrlResultListener = (OnGetShareUrlResultListener) obj;
-            int i2 = g.a[a().ordinal()];
-            if (i2 == 1) {
+            int i = g.a[a().ordinal()];
+            if (i == 1) {
                 onGetShareUrlResultListener.onGetPoiDetailShareUrlResult((ShareUrlResult) searchResult);
-            } else if (i2 != 2) {
+            } else if (i != 2) {
             } else {
                 onGetShareUrlResultListener.onGetLocationShareUrlResult((ShareUrlResult) searchResult);
             }

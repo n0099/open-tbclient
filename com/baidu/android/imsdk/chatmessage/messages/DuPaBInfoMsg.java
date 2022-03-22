@@ -56,9 +56,9 @@ public class DuPaBInfoMsg extends ChatMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -77,10 +77,10 @@ public class DuPaBInfoMsg extends ChatMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public DuPaBInfoMsg[] newArray(int i2) {
+            public DuPaBInfoMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new DuPaBInfoMsg[i2] : (DuPaBInfoMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new DuPaBInfoMsg[i] : (DuPaBInfoMsg[]) invokeI.objValue;
             }
         };
     }
@@ -125,10 +125,10 @@ public class DuPaBInfoMsg extends ChatMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.addr);
             parcel.writeLong(this.time);
             parcel.writeString(this.longitude);
@@ -138,16 +138,16 @@ public class DuPaBInfoMsg extends ChatMsg {
         }
     }
 
-    public DuPaBInfoMsg(String str, long j2, String str2, String str3, String str4, int i2) {
+    public DuPaBInfoMsg(String str, long j, String str2, String str3, String str4, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), str2, str3, str4, Integer.valueOf(i2)};
+            Object[] objArr = {str, Long.valueOf(j), str2, str3, str4, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -157,11 +157,11 @@ public class DuPaBInfoMsg extends ChatMsg {
         setCategory(7);
         setChatType(7);
         this.addr = str;
-        this.time = j2;
+        this.time = j;
         this.longitude = str2;
         this.latitude = str3;
         this.ip = str4;
-        this.action = i2;
+        this.action = i;
         setMsgContent(getBInfoContentJson());
     }
 
@@ -174,9 +174,9 @@ public class DuPaBInfoMsg extends ChatMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

@@ -23,9 +23,9 @@ public class a extends DiskFileOperate {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -47,7 +47,7 @@ public class a extends DiskFileOperate {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null && NSGif.f29796f) {
+            if (bArr != null && NSGif.f23809f) {
                 NSGif f2 = NSGif.f(bArr, 0, bArr.length);
                 this.a = f2;
                 if (f2 != null) {

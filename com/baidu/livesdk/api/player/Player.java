@@ -43,9 +43,9 @@ public interface Player {
 
     void reset();
 
-    void seekTo(int i2);
+    void seekTo(int i);
 
-    void setDecodeMode(int i2);
+    void setDecodeMode(int i);
 
     void setExternalInfo(String str, Object obj);
 
@@ -53,9 +53,9 @@ public interface Player {
 
     void setVideoPath(String str);
 
-    void setVideoRotation(int i2);
+    void setVideoRotation(int i);
 
-    void setVideoScalingMode(int i2);
+    void setVideoScalingMode(int i);
 
     void setVideoViewHolder(FrameLayout frameLayout);
 

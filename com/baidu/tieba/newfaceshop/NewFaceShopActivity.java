@@ -15,9 +15,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.t.a;
-import c.a.r0.y0.t;
-import c.a.r0.y3.y;
+import c.a.o0.r.t.a;
+import c.a.p0.a1.u;
+import c.a.p0.a4.y;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -58,7 +58,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NewFaceShopActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,10 +68,10 @@ public class NewFaceShopActivity extends BaseActivity {
     public CustomMessageListener mFaceGroupUploadFinishListener;
     public CustomMessageListener mLikeListener;
     public boolean mLoadSuccess;
-    public c.a.q0.f0.g mLoadingView;
+    public c.a.o0.f0.g mLoadingView;
     public TbPageContext<NewFaceShopActivity> mPageContext;
     public CustomMessageListener mRefreshCurrentPageListener;
-    public c.a.q0.f0.h mRefreshView;
+    public c.a.o0.f0.h mRefreshView;
     public View mRootView;
     public String mTempShareUrl;
     public Handler mUIHandler;
@@ -80,13 +80,11 @@ public class NewFaceShopActivity extends BaseActivity {
     public BaseWebView mWebView;
     public RelativeLayout mWebViewContainer;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44720e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public a(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -95,33 +93,31 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44720e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                this.f44720e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.a.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44721e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public b(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -130,24 +126,24 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44721e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<MyEmotionGroupData> f2 = c.a.r0.p2.c.i().f();
+                List<MyEmotionGroupData> f2 = c.a.p0.r2.c.i().f();
                 if (f2 == null || f2.isEmpty()) {
-                    this.f44721e.loadUrl("javascript:__js_bridge_emoticon_has_action()");
+                    this.a.loadUrl("javascript:__js_bridge_emoticon_has_action()");
                     return;
                 }
                 StringBuilder sb = new StringBuilder();
@@ -157,22 +153,20 @@ public class NewFaceShopActivity extends BaseActivity {
                         sb.append(",");
                     }
                 }
-                NewFaceShopActivity newFaceShopActivity = this.f44721e;
+                NewFaceShopActivity newFaceShopActivity = this.a;
                 newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_has_action('" + sb.toString() + "')");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f44722e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44723f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NewFaceShopActivity f34658b;
 
         public c(NewFaceShopActivity newFaceShopActivity, String str) {
             Interceptable interceptable = $ic;
@@ -181,38 +175,36 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44723f = newFaceShopActivity;
-            this.f44722e = str;
+            this.f34658b = newFaceShopActivity;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f44723f.mWebView == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f34658b.mWebView == null) {
                 return;
             }
-            this.f44723f.mWebView.loadUrl(this.f44722e);
+            this.f34658b.mWebView.loadUrl(this.a);
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44724e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44725f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NewFaceShopActivity f34659b;
 
         public d(NewFaceShopActivity newFaceShopActivity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -221,30 +213,30 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44725f = newFaceShopActivity;
-            this.f44724e = jSONObject;
+            this.f34659b = newFaceShopActivity;
+            this.a = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.r0.p2.c.i().j(new ArrayList(Arrays.asList(this.f44724e.optString("id").split(","))), true);
-                this.f44725f.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
+                c.a.p0.r2.c.i().j(new ArrayList(Arrays.asList(this.a.optString("id").split(","))), true);
+                this.f34659b.loadUrl("javascript:__js_bridge_emoticon_sort_action()");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class e implements c.a.r0.p2.e.b {
+    /* loaded from: classes5.dex */
+    public class e implements c.a.p0.r2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -256,9 +248,9 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -267,7 +259,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // c.a.r0.p2.e.b
+        @Override // c.a.p0.r2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -275,17 +267,17 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.r0.p2.e.b
-        public void onProgress(int i2) {
+        @Override // c.a.p0.r2.e.b
+        public void onProgress(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0 || i2 >= 100) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0 || i >= 100) {
                 return;
             }
             NewFaceShopActivity newFaceShopActivity = this.a;
-            newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_down_process_action(" + i2 + SmallTailInfo.EMOTION_SUFFIX);
+            newFaceShopActivity.loadUrl("javascript:__js_bridge_emoticon_down_process_action(" + i + SmallTailInfo.EMOTION_SUFFIX);
         }
 
-        @Override // c.a.r0.p2.e.b
+        @Override // c.a.p0.r2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -294,16 +286,14 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class f implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ JSONObject f44726e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44727f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NewFaceShopActivity f34660b;
 
         public f(NewFaceShopActivity newFaceShopActivity, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
@@ -312,46 +302,44 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44727f = newFaceShopActivity;
-            this.f44726e = jSONObject;
+            this.f34660b = newFaceShopActivity;
+            this.a = jSONObject;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.f44726e.optString("id").split(",")));
-                boolean c2 = c.a.r0.p2.c.i().c(arrayList, true);
+                ArrayList<String> arrayList = new ArrayList(Arrays.asList(this.a.optString("id").split(",")));
+                boolean c2 = c.a.p0.r2.c.i().c(arrayList, true);
                 for (String str : arrayList) {
-                    c.a.r0.y0.g.k().h(str);
+                    c.a.p0.a1.g.k().h(str);
                 }
                 if (c2) {
-                    this.f44727f.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
+                    this.f34660b.loadUrl("javascript:__js_bridge_emoticon_del_action(1)");
                 } else {
-                    this.f44727f.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
+                    this.f34660b.loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ShareItem f44728e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44729f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NewFaceShopActivity f34661b;
 
         public g(NewFaceShopActivity newFaceShopActivity, ShareItem shareItem) {
             Interceptable interceptable = $ic;
@@ -360,46 +348,46 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity, shareItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44729f = newFaceShopActivity;
-            this.f44728e = shareItem;
+            this.f34661b = newFaceShopActivity;
+            this.a = shareItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                c.a.d.f.p.c.a(this.f44728e.t);
-                c.a.d.f.p.n.N(this.f44729f.getPageContext().getPageActivity(), view.getResources().getString(R.string.copy_pb_url_success));
+                c.a.d.f.p.c.a(this.a.t);
+                c.a.d.f.p.n.N(this.f34661b.getPageContext().getPageActivity(), view.getResources().getString(R.string.obfuscated_res_0x7f0f0438));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class h extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(NewFaceShopActivity newFaceShopActivity, int i2) {
-            super(i2);
+        public h(NewFaceShopActivity newFaceShopActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i2)};
+                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -434,24 +422,24 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class i extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(NewFaceShopActivity newFaceShopActivity, int i2) {
-            super(i2);
+        public i(NewFaceShopActivity newFaceShopActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i2)};
+                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -471,24 +459,24 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class j extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public j(NewFaceShopActivity newFaceShopActivity, int i2) {
-            super(i2);
+        public j(NewFaceShopActivity newFaceShopActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i2)};
+                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -502,30 +490,30 @@ public class NewFaceShopActivity extends BaseActivity {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y) && ((y) customResponsedMessage.getData()).m() == 1) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof y) && ((y) customResponsedMessage.getData()).n() == 1) {
                 this.a.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class k extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public k(NewFaceShopActivity newFaceShopActivity, int i2) {
-            super(i2);
+        public k(NewFaceShopActivity newFaceShopActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i2)};
+                Object[] objArr = {newFaceShopActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -550,13 +538,11 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class l implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44730e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public l(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -565,33 +551,31 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44730e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f44730e.reloadPage();
+                this.a.reloadPage();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class m implements c.a.r0.y0.x.d.c {
+    /* loaded from: classes5.dex */
+    public class m implements c.a.p0.a1.y.d.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44731e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public m(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -600,45 +584,45 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44731e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
-        @Override // c.a.r0.y0.x.d.c
+        @Override // c.a.p0.a1.y.d.c
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f44731e.getPageContext().getPageActivity(), 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.a.getPageContext().getPageActivity(), 25021)));
             }
         }
 
-        @Override // c.a.r0.y0.x.d.c
+        @Override // c.a.p0.a1.y.d.c
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.f44731e.getPageContext().getPageActivity(), true, 25021)));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new FaceGroupMakeActivityConfig(this.a.getPageContext().getPageActivity(), true, 25021)));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class n extends c.a.d.a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LikeModel a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f44732b;
+        public final /* synthetic */ String f34662b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44733c;
+        public final /* synthetic */ NewFaceShopActivity f34663c;
 
         public n(NewFaceShopActivity newFaceShopActivity, LikeModel likeModel, String str) {
             Interceptable interceptable = $ic;
@@ -647,17 +631,17 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity, likeModel, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44733c = newFaceShopActivity;
+            this.f34663c = newFaceShopActivity;
             this.a = likeModel;
-            this.f44732b = str;
+            this.f34662b = str;
         }
 
         @Override // c.a.d.a.e
@@ -665,33 +649,33 @@ public class NewFaceShopActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
                 if (this.a.getErrorCode() == 22) {
-                    this.f44733c.showToast(R.string.unfollow_title);
-                    this.f44733c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                    this.f34663c.showToast(R.string.obfuscated_res_0x7f0f1467);
+                    this.f34663c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else if (AntiHelper.m(this.a.getErrorCode(), this.a.getErrorString())) {
-                    AntiHelper.u(this.f44733c.getPageContext().getPageActivity(), this.a.getErrorString());
+                    AntiHelper.u(this.f34663c.getPageContext().getPageActivity(), this.a.getErrorString());
                 } else if (this.a.getErrorCode() != 0) {
-                    this.f44733c.showToast(this.a.getErrorString());
-                    this.f44733c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                    this.f34663c.showToast(this.a.getErrorString());
+                    this.f34663c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 } else {
                     y yVar = (y) obj;
                     if (yVar != null) {
-                        this.f44733c.showToast(R.string.attention_success);
-                        TbadkApplication.getInst().addLikeForum(this.f44732b);
-                        yVar.x(1);
+                        this.f34663c.showToast(R.string.obfuscated_res_0x7f0f02ab);
+                        TbadkApplication.getInst().addLikeForum(this.f34662b);
+                        yVar.y(1);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, yVar));
-                        this.f44733c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
+                        this.f34663c.loadUrl("javascript:__js_bridge_emoticon_attend_action(1)");
                         return;
                     }
-                    NewFaceShopActivity newFaceShopActivity = this.f44733c;
-                    newFaceShopActivity.showToast(newFaceShopActivity.getPageContext().getString(R.string.neterror));
-                    this.f44733c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
+                    NewFaceShopActivity newFaceShopActivity = this.f34663c;
+                    newFaceShopActivity.showToast(newFaceShopActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
+                    this.f34663c.loadUrl("javascript:__js_bridge_emoticon_attend_action(0)");
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class o implements c.a.r0.p2.e.b {
+    /* loaded from: classes5.dex */
+    public class o implements c.a.p0.r2.e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewFaceShopActivity a;
@@ -703,9 +687,9 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -714,7 +698,7 @@ public class NewFaceShopActivity extends BaseActivity {
             this.a = newFaceShopActivity;
         }
 
-        @Override // c.a.r0.p2.e.b
+        @Override // c.a.p0.r2.e.b
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -722,14 +706,14 @@ public class NewFaceShopActivity extends BaseActivity {
             }
         }
 
-        @Override // c.a.r0.p2.e.b
-        public void onProgress(int i2) {
+        @Override // c.a.p0.r2.e.b
+        public void onProgress(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             }
         }
 
-        @Override // c.a.r0.p2.e.b
+        @Override // c.a.p0.r2.e.b
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -738,13 +722,11 @@ public class NewFaceShopActivity extends BaseActivity {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class p implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44734e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public p(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -753,34 +735,32 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44734e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f44734e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
+                this.a.loadUrl("javascript:__js_bridge_emoticon_show_dialog(1)");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class q implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewFaceShopActivity f44735e;
+        public final /* synthetic */ NewFaceShopActivity a;
 
         public q(NewFaceShopActivity newFaceShopActivity) {
             Interceptable interceptable = $ic;
@@ -789,28 +769,28 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44735e = newFaceShopActivity;
+            this.a = newFaceShopActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
-                this.f44735e.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
+                this.a.loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class r extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -823,9 +803,9 @@ public class NewFaceShopActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newFaceShopActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -857,10 +837,10 @@ public class NewFaceShopActivity extends BaseActivity {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) {
-                super.onReceivedError(webView, i2, str, str2);
+            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
+                super.onReceivedError(webView, i, str, str2);
                 this.a.showNetRefreshView();
             }
         }
@@ -870,7 +850,7 @@ public class NewFaceShopActivity extends BaseActivity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                c.a.q0.l.h.a("NewFaceShopActivity", webView);
+                c.a.o0.l.h.a("NewFaceShopActivity", webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -940,18 +920,18 @@ public class NewFaceShopActivity extends BaseActivity {
         LikeModel likeModel = new LikeModel(getPageContext());
         likeModel.setFrom("emotion_center_follow");
         likeModel.setLoadDataCallBack(new n(this, likeModel, optString2));
-        likeModel.N(optString2, String.valueOf(optString));
+        likeModel.P(optString2, String.valueOf(optString));
     }
 
     private void checkIsUploadingFaceGroup() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            if (c.a.r0.p2.g.e.l().r()) {
+            if (c.a.p0.r2.g.e.l().r()) {
                 loadCheckUploadStatusUrl(1, null);
-            } else if (c.a.r0.p2.g.e.l().k() == null) {
+            } else if (c.a.p0.r2.g.e.l().k() == null) {
                 loadCheckUploadStatusUrl(0, null);
             } else {
-                FaceGroupDraft k2 = c.a.r0.p2.g.e.l().k();
+                FaceGroupDraft k2 = c.a.p0.r2.g.e.l().k();
                 if (!TextUtils.isEmpty(k2.getFailMsg())) {
                     loadCheckUploadStatusUrl(2, k2.getFailMsg());
                 } else {
@@ -966,7 +946,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
             String optString = jSONObject.optString("url");
             int optInt = jSONObject.optInt("pck_id");
-            t s = t.s();
+            u s = u.s();
             String str = "";
             if (optInt != -1) {
                 str = "" + optInt;
@@ -979,22 +959,22 @@ public class NewFaceShopActivity extends BaseActivity {
     private void deleteEmotion(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, jSONObject) == null) {
-            if (c.a.r0.p2.d.m().o()) {
+            if (c.a.p0.r2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_del_action(0)");
-                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f05ce);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DELETE);
-            c.a.r0.p2.a.b().a(new f(this, jSONObject));
+            c.a.p0.r2.a.b().a(new f(this, jSONObject));
         }
     }
 
     private void downloadEmotion(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, this, jSONObject) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity())) {
-            if (c.a.r0.p2.d.m().o()) {
+            if (c.a.p0.r2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_down_process_action(-1)");
-                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f05ce);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_DOWNLOAD);
@@ -1002,14 +982,14 @@ public class NewFaceShopActivity extends BaseActivity {
             if (this.mFaceGroupDownloadModel == null) {
                 this.mFaceGroupDownloadModel = new NewFaceGroupDownloadModel();
             }
-            this.mFaceGroupDownloadModel.w(optString, Boolean.TRUE, new e(this));
+            this.mFaceGroupDownloadModel.y(optString, Boolean.TRUE, new e(this));
         }
     }
 
     private void getHasDownedEmotionGroupIds() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            c.a.r0.p2.a.b().a(new b(this));
+            c.a.p0.r2.a.b().a(new b(this));
         }
     }
 
@@ -1039,8 +1019,8 @@ public class NewFaceShopActivity extends BaseActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            this.mRootView = findViewById(R.id.root_layout);
-            this.mWebViewContainer = (RelativeLayout) findViewById(R.id.webview_container);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091ae5);
+            this.mWebViewContainer = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09244c);
             BaseWebView baseWebView = new BaseWebView(getPageContext().getPageActivity());
             this.mWebView = baseWebView;
             baseWebView.setWebViewClient(new r(this, null));
@@ -1094,7 +1074,7 @@ public class NewFaceShopActivity extends BaseActivity {
     private void makeDailogForCreateEmotion() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, this) == null) {
-            c.a.r0.y0.x.d.a aVar = new c.a.r0.y0.x.d.a(getPageContext().getPageActivity(), 1);
+            c.a.p0.a1.y.d.a aVar = new c.a.p0.a1.y.d.a(getPageContext().getPageActivity(), 1);
             aVar.d(new m(this));
             aVar.showAtLocation(this.mRootView, 81, 0, 0);
         }
@@ -1168,19 +1148,19 @@ public class NewFaceShopActivity extends BaseActivity {
         if (this.mFaceGroupShareModel == null) {
             this.mFaceGroupShareModel = new NewFaceGroupShareModel();
         }
-        this.mFaceGroupShareModel.w(str);
+        this.mFaceGroupShareModel.y(str);
     }
 
     private void reOrderGroup(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65558, this, jSONObject) == null) {
-            if (c.a.r0.p2.d.m().o()) {
+            if (c.a.p0.r2.d.m().o()) {
                 loadUrl("javascript:__js_bridge_emoticon_sort_action()");
-                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.face_group_is_syncing);
+                c.a.d.f.p.n.M(this.mPageContext.getPageActivity(), R.string.obfuscated_res_0x7f0f05ce);
                 return;
             }
             TiebaStatic.log(TbadkCoreStatisticKey.FACESHOP_ORDER);
-            c.a.r0.p2.a.b().a(new d(this, jSONObject));
+            c.a.p0.r2.a.b().a(new d(this, jSONObject));
         }
     }
 
@@ -1191,7 +1171,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(optString)) {
                 return;
             }
-            c.a.r0.p2.c.i().d(optString, new o(this));
+            c.a.p0.r2.c.i().d(optString, new o(this));
         }
     }
 
@@ -1221,7 +1201,7 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(optString) || TextUtils.isEmpty(optString2) || TextUtils.isEmpty(optString3)) {
                 loadUrl("javascript:__js_bridge_emoticon_show_dialog(0)");
             }
-            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getPageContext().getPageActivity());
+            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getPageContext().getPageActivity());
             aVar.setMessage(optString);
             aVar.setPositiveButton(optString2, new p(this));
             aVar.setNegativeButton(optString3, new q(this));
@@ -1242,7 +1222,7 @@ public class NewFaceShopActivity extends BaseActivity {
     }
 
     public void hideLoadingView() {
-        c.a.q0.f0.g gVar;
+        c.a.o0.f0.g gVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (gVar = this.mLoadingView) == null) {
             return;
@@ -1294,9 +1274,9 @@ public class NewFaceShopActivity extends BaseActivity {
             if (TextUtils.isEmpty(stringExtra)) {
                 this.mUrl = CommonEmotionManagerActivity.FACE_SHOP_URL;
             }
-            setContentView(R.layout.new_faceshop_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d05f2);
             initView();
-            c.a.q0.l.a.f(getApplicationContext());
+            c.a.o0.l.a.f(getApplicationContext());
             loadUrl(this.mUrl);
             registerListener(this.mRefreshCurrentPageListener);
             registerListener(this.mLikeListener);
@@ -1372,7 +1352,7 @@ public class NewFaceShopActivity extends BaseActivity {
         if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (tbPageContext = this.mPageContext) == null || this.mRootView == null) {
             return;
         }
-        c.a.q0.f0.g gVar = new c.a.q0.f0.g(tbPageContext.getPageActivity());
+        c.a.o0.f0.g gVar = new c.a.o0.f0.g(tbPageContext.getPageActivity());
         this.mLoadingView = gVar;
         gVar.attachView(this.mRootView, false);
         this.mLoadingView.onChangeSkinType();
@@ -1381,9 +1361,9 @@ public class NewFaceShopActivity extends BaseActivity {
     public void showNetRefreshView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            String string = TbadkCoreApplication.getInst().getString(R.string.neterror);
+            String string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0c15);
             if (this.mRefreshView == null) {
-                c.a.q0.f0.h hVar = new c.a.q0.f0.h(this.mPageContext.getPageActivity(), new l(this));
+                c.a.o0.f0.h hVar = new c.a.o0.f0.h(this.mPageContext.getPageActivity(), new l(this));
                 this.mRefreshView = hVar;
                 hVar.onChangeSkinType();
             }
@@ -1394,14 +1374,14 @@ public class NewFaceShopActivity extends BaseActivity {
             this.mRefreshView.m(string);
             this.mRefreshView.attachView(this.mRootView, false);
             this.mRefreshView.p();
-            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.ds280));
+            this.mRefreshView.k(this.mPageContext.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07028b));
         }
     }
 
     public void showNormalView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            c.a.q0.f0.h hVar = this.mRefreshView;
+            c.a.o0.f0.h hVar = this.mRefreshView;
             if (hVar != null) {
                 hVar.dettachView(this.mRootView);
                 this.mRefreshView = null;

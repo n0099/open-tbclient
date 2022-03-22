@@ -18,10 +18,10 @@ public class ComponentOperationHandler {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f29669b;
+    public c f23700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public c.b.b.q.a<ComponentOperation> f29670c;
+    public c.b.b.q.a<ComponentOperation> f23701c;
 
     /* loaded from: classes3.dex */
     public static class ComponentOperation implements z.a {
@@ -30,7 +30,7 @@ public class ComponentOperationHandler {
         public Type a;
 
         /* renamed from: b  reason: collision with root package name */
-        public d f29671b;
+        public d f23702b;
 
         /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
         /* loaded from: classes3.dex */
@@ -60,16 +60,16 @@ public class ComponentOperationHandler {
                 $VALUES = new Type[]{Add, type};
             }
 
-            public Type(String str, int i2) {
+            public Type(String str, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, Integer.valueOf(i2)};
+                    Object[] objArr = {str, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         String str2 = (String) objArr2[0];
                         ((Integer) objArr2[1]).intValue();
@@ -97,9 +97,9 @@ public class ComponentOperationHandler {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,7 +110,7 @@ public class ComponentOperationHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
                 this.a = Type.Add;
-                this.f29671b = dVar;
+                this.f23702b = dVar;
             }
         }
 
@@ -118,7 +118,7 @@ public class ComponentOperationHandler {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
                 this.a = Type.Remove;
-                this.f29671b = dVar;
+                this.f23702b = dVar;
             }
         }
 
@@ -126,7 +126,7 @@ public class ComponentOperationHandler {
         public void reset() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f29671b = null;
+                this.f23702b = null;
             }
         }
 
@@ -182,9 +182,9 @@ public class ComponentOperationHandler {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -212,16 +212,16 @@ public class ComponentOperationHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f29669b = new c(null);
-        this.f29670c = new c.b.b.q.a<>();
+        this.f23700b = new c(null);
+        this.f23701c = new c.b.b.q.a<>();
         this.a = bVar;
     }
 
@@ -229,9 +229,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
             if (this.a.value()) {
-                ComponentOperation e2 = this.f29669b.e();
+                ComponentOperation e2 = this.f23700b.e();
                 e2.a(dVar);
-                this.f29670c.a(e2);
+                this.f23701c.a(e2);
                 return;
             }
             dVar.g();
@@ -243,19 +243,19 @@ public class ComponentOperationHandler {
         if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            c.b.b.q.a<ComponentOperation> aVar = this.f29670c;
-            if (i2 < aVar.f27499f) {
-                ComponentOperation componentOperation = aVar.get(i2);
-                int i3 = a.a[componentOperation.a.ordinal()];
-                if (i3 == 1) {
-                    componentOperation.f29671b.g();
-                } else if (i3 == 2) {
-                    componentOperation.f29671b.h();
+            c.b.b.q.a<ComponentOperation> aVar = this.f23701c;
+            if (i < aVar.f22717b) {
+                ComponentOperation componentOperation = aVar.get(i);
+                int i2 = a.a[componentOperation.a.ordinal()];
+                if (i2 == 1) {
+                    componentOperation.f23702b.g();
+                } else if (i2 == 2) {
+                    componentOperation.f23702b.h();
                 }
-                this.f29669b.c(componentOperation);
-                i2++;
+                this.f23700b.c(componentOperation);
+                i++;
             } else {
                 aVar.clear();
                 return;
@@ -267,9 +267,9 @@ public class ComponentOperationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
             if (this.a.value()) {
-                ComponentOperation e2 = this.f29669b.e();
+                ComponentOperation e2 = this.f23700b.e();
                 e2.b(dVar);
-                this.f29670c.a(e2);
+                this.f23701c.a(e2);
                 return;
             }
             dVar.h();

@@ -19,9 +19,9 @@ public class DialogCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,14 +29,14 @@ public class DialogCompat {
     }
 
     @NonNull
-    public static View requireViewById(@NonNull Dialog dialog, int i2) {
+    public static View requireViewById(@NonNull Dialog dialog, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, dialog, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, dialog, i)) == null) {
             if (Build.VERSION.SDK_INT >= 28) {
-                return dialog.requireViewById(i2);
+                return dialog.requireViewById(i);
             }
-            View findViewById = dialog.findViewById(i2);
+            View findViewById = dialog.findViewById(i);
             if (findViewById != null) {
                 return findViewById;
             }

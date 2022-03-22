@@ -1,6 +1,7 @@
 package com.baidu.turbonet.base;
 
 import android.os.StrictMode;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -41,9 +42,9 @@ public class SysUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,36 +59,38 @@ public class SysUtils {
             Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
             StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
             try {
-                fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                StrictMode.setThreadPolicy(allowThreadDiskReads);
-                throw th;
-            }
-            try {
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
-                    }
-                    Matcher matcher = compile.matcher(readLine);
-                    if (matcher.find()) {
-                        int parseInt = Integer.parseInt(matcher.group(1));
-                        if (parseInt <= 1024) {
-                            String str = "Invalid /proc/meminfo total size in kB: " + matcher.group(1);
-                        } else {
-                            bufferedReader.close();
-                            StrictMode.setThreadPolicy(allowThreadDiskReads);
-                            return parseInt;
+                try {
+                    fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                } catch (Exception e2) {
+                    Log.w("SysUtils", "Cannot get total physical size from /proc/meminfo", e2);
+                }
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader);
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            Log.w("SysUtils", "/proc/meminfo lacks a MemTotal entry?");
+                            break;
+                        }
+                        Matcher matcher = compile.matcher(readLine);
+                        if (matcher.find()) {
+                            int parseInt = Integer.parseInt(matcher.group(1));
+                            if (parseInt <= 1024) {
+                                Log.w("SysUtils", "Invalid /proc/meminfo total size in kB: " + matcher.group(1));
+                            } else {
+                                bufferedReader.close();
+                                return parseInt;
+                            }
                         }
                     }
+                    bufferedReader.close();
+                    StrictMode.setThreadPolicy(allowThreadDiskReads);
+                    return 0;
+                } finally {
+                    fileReader.close();
                 }
-                bufferedReader.close();
-                StrictMode.setThreadPolicy(allowThreadDiskReads);
-                return 0;
             } finally {
-                fileReader.close();
+                StrictMode.setThreadPolicy(allowThreadDiskReads);
             }
         }
         return invokeV.intValue;

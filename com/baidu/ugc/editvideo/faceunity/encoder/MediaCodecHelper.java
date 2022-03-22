@@ -28,9 +28,9 @@ public class MediaCodecHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -78,10 +78,10 @@ public class MediaCodecHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaExtractor)) == null) {
-            for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
-                if (isVideoFormat(mediaExtractor.getTrackFormat(i2))) {
-                    mediaExtractor.selectTrack(i2);
-                    return i2;
+            for (int i = 0; i < mediaExtractor.getTrackCount(); i++) {
+                if (isVideoFormat(mediaExtractor.getTrackFormat(i))) {
+                    mediaExtractor.selectTrack(i);
+                    return i;
                 }
             }
             return -1;
@@ -107,14 +107,14 @@ public class MediaCodecHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, mediaFormat)) == null) ? getMimeTypeFor(mediaFormat).startsWith(FileUtils.VIDEO_FILE_START) : invokeL.booleanValue;
     }
 
-    public static void setMediaFormatProperty(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i2) {
+    public static void setMediaFormatProperty(MediaFormat mediaFormat, MediaFormat mediaFormat2, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65544, null, mediaFormat, mediaFormat2, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(65544, null, mediaFormat, mediaFormat2, str, i) == null) {
             if (mediaFormat != null && mediaFormat.containsKey(str) && mediaFormat.getInteger(str) > 0) {
-                i2 = mediaFormat.getInteger(str);
+                i = mediaFormat.getInteger(str);
             }
             if (mediaFormat2 != null) {
-                mediaFormat2.setInteger(str, i2);
+                mediaFormat2.setInteger(str, i);
             }
         }
     }

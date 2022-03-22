@@ -4,8 +4,8 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.o.e.n;
 import c.a.d.o.e.s;
-import c.a.q0.c1.f;
-import c.a.q0.r.v.c;
+import c.a.o0.c1.f;
+import c.a.o0.r.v.c;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -48,16 +48,16 @@ public final class CardLinkageManager {
         $VALUES = new CardLinkageManager[]{cardLinkageManager};
     }
 
-    public CardLinkageManager(String str, int i2) {
+    public CardLinkageManager(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -79,13 +79,13 @@ public final class CardLinkageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (CardLinkageManager[]) $VALUES.clone() : (CardLinkageManager[]) invokeV.objValue;
     }
 
-    public void addThreadId(long j2) {
+    public void addThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             if (this.mThreadIdList == null) {
                 this.mThreadIdList = new ArrayList();
             }
-            this.mThreadIdList.add(Long.valueOf(j2));
+            this.mThreadIdList.add(Long.valueOf(j));
         }
     }
 
@@ -98,10 +98,10 @@ public final class CardLinkageManager {
         list.clear();
     }
 
-    public void pressLinkage(s sVar, int i2, boolean z) {
+    public void pressLinkage(s sVar, int i, boolean z) {
         View findViewByPosition;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sVar, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && (sVar instanceof BdTypeRecyclerView)) {
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sVar, Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (sVar instanceof BdTypeRecyclerView)) {
             BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) sVar;
             int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
             int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
@@ -110,46 +110,46 @@ public final class CardLinkageManager {
                 return;
             }
             List<n> data = bdTypeRecyclerView.getData();
-            Object item = ListUtils.getItem(data, i2);
+            Object item = ListUtils.getItem(data, i);
             if (item instanceof BaseCardInfo) {
                 BaseCardInfo baseCardInfo = (BaseCardInfo) item;
                 int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
-                for (int i3 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i3 <= lastVisiblePosition; i3++) {
-                    Object item2 = ListUtils.getItem(data, i3 - headerViewsCount);
+                for (int i2 = firstVisiblePosition > headerViewsCount ? firstVisiblePosition - headerViewsCount : headerViewsCount; i2 <= lastVisiblePosition; i2++) {
+                    Object item2 = ListUtils.getItem(data, i2 - headerViewsCount);
                     if (item2 instanceof BaseCardInfo) {
                         BaseCardInfo baseCardInfo2 = (BaseCardInfo) item2;
-                        if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i3)) != null) {
+                        if (baseCardInfo.position == baseCardInfo2.position && (findViewByPosition = layoutManager.findViewByPosition(i2)) != null) {
                             boolean isSupportFull = baseCardInfo2.isSupportFull();
-                            int i4 = R.color.CAM_X0206;
+                            int i3 = R.color.CAM_X0206;
                             if (isSupportFull) {
                                 c d2 = c.d(findViewByPosition);
                                 d2.m(0);
                                 d2.n(R.string.J_X06);
                                 if (!z) {
-                                    i4 = R.color.CAM_X0205;
+                                    i3 = R.color.CAM_X0205;
                                 }
-                                d2.f(i4);
+                                d2.f(i3);
                             } else if (baseCardInfo2.isSupportTop()) {
                                 c d3 = c.d(findViewByPosition);
                                 d3.m(1);
                                 d3.n(R.string.J_X06);
                                 if (!z) {
-                                    i4 = R.color.CAM_X0205;
+                                    i3 = R.color.CAM_X0205;
                                 }
-                                d3.f(i4);
+                                d3.f(i3);
                             } else if (baseCardInfo2.isSupportBottom()) {
                                 c d4 = c.d(findViewByPosition);
                                 d4.m(2);
                                 d4.n(R.string.J_X06);
                                 if (!z) {
-                                    i4 = R.color.CAM_X0205;
+                                    i3 = R.color.CAM_X0205;
                                 }
-                                d4.f(i4);
+                                d4.f(i3);
                             } else if (baseCardInfo2.isSupportContent() || baseCardInfo2.isSupportExtend()) {
                                 if (!z) {
-                                    i4 = R.color.CAM_X0205;
+                                    i3 = R.color.CAM_X0205;
                                 }
-                                SkinManager.setBackgroundColor(findViewByPosition, i4);
+                                SkinManager.setBackgroundColor(findViewByPosition, i3);
                             }
                         }
                     }
@@ -158,11 +158,11 @@ public final class CardLinkageManager {
         }
     }
 
-    public void translationY(BdTypeRecyclerView bdTypeRecyclerView, int i2, float f2) {
+    public void translationY(BdTypeRecyclerView bdTypeRecyclerView, int i, float f2) {
         View findViewByPosition;
         View findViewByPosition2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdTypeRecyclerView, Integer.valueOf(i2), Float.valueOf(f2)}) == null) || bdTypeRecyclerView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bdTypeRecyclerView, Integer.valueOf(i), Float.valueOf(f2)}) == null) || bdTypeRecyclerView == null) {
             return;
         }
         int lastVisiblePosition = bdTypeRecyclerView.getLastVisiblePosition();
@@ -172,12 +172,12 @@ public final class CardLinkageManager {
         }
         int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
         List<n> data = bdTypeRecyclerView.getData();
-        Object item = ListUtils.getItem(data, i2 - headerViewsCount);
+        Object item = ListUtils.getItem(data, i - headerViewsCount);
         if (item instanceof BaseCardInfo) {
             BaseCardInfo baseCardInfo = (BaseCardInfo) item;
             for (int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition(); firstVisiblePosition <= lastVisiblePosition; firstVisiblePosition++) {
                 Object item2 = ListUtils.getItem(data, firstVisiblePosition - headerViewsCount);
-                if (!f.h(item2)) {
+                if (!f.p(item2)) {
                     if (!(item2 instanceof BaseCardInfo)) {
                         if ((item2 instanceof n) && (findViewByPosition2 = layoutManager.findViewByPosition(firstVisiblePosition)) != null) {
                             findViewByPosition2.setTranslationY(f2);

@@ -26,7 +26,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyChannelsRe
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payapi.request.QueryRechargeHistoryReqParams;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface IAppPayService {
     void addAlipaySdkProxy(IAlipaySdkServiceProxy iAlipaySdkServiceProxy);
 
@@ -46,11 +46,11 @@ public interface IAppPayService {
 
     boolean isSupported(@NonNull Activity activity, @NonNull PayType payType);
 
-    void onQQPayResult(int i2, String str);
+    void onQQPayResult(int i, String str);
 
-    void onWxPayResult(int i2, String str);
+    void onWxPayResult(int i, String str);
 
-    void payWithProductInfo(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i2, int i3, int i4, IPayCallback<String> iPayCallback);
+    void payWithProductInfo(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, int i, int i2, int i3, IPayCallback<String> iPayCallback);
 
     void payWithProductInfo(@NonNull Activity activity, @NonNull ChargeCurrencyReqParams chargeCurrencyReqParams, @NonNull ProductInfo productInfo, @NonNull PayType payType, IPayCallback<String> iPayCallback);
 
@@ -72,7 +72,7 @@ public interface IAppPayService {
 
     void removePayListener(IAppPayServiceListener iAppPayServiceListener);
 
-    void reportPayEntrancePage(int i2);
+    void reportPayEntrancePage(int i);
 
     void requestPay(@NonNull Activity activity, @NonNull PayType payType, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback);
 }

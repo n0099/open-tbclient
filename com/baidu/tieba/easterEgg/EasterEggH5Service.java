@@ -10,7 +10,7 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import c.a.d.f.p.m;
-import c.a.r0.r0.d;
+import c.a.p0.t0.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -39,19 +39,19 @@ public class EasterEggH5Service extends Service {
     public transient /* synthetic */ FieldHolder $fh;
     public EasterEggBridge eggBridge;
     public Gson gson;
-    public c.a.r0.y3.o0.a jsBridge;
-    public c.a.r0.r0.g.a mHttpRule;
-    public c.a.r0.r0.g.b mSocketRule;
+    public c.a.p0.a4.o0.a jsBridge;
+    public c.a.p0.t0.g.a mHttpRule;
+    public c.a.p0.t0.g.b mSocketRule;
     public BdUniqueId mTag;
     public String mUrl;
     public BaseWebView mWebView;
-    public c.a.r0.r0.d model;
-    public c.a.r0.r0.c onHitEventListener;
+    public c.a.p0.t0.d model;
+    public c.a.p0.t0.c onHitEventListener;
     public CustomMessageListener onSearchEventListener;
     public CustomMessageListener onWriteReadListener;
 
     /* loaded from: classes5.dex */
-    public class a implements c.a.r0.r0.c {
+    public class a implements c.a.p0.t0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -63,9 +63,9 @@ public class EasterEggH5Service extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {easterEggH5Service};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,7 +74,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // c.a.r0.r0.c
+        @Override // c.a.p0.t0.c
         public void a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) || this.a.mWebView == null) {
@@ -92,17 +92,17 @@ public class EasterEggH5Service extends Service {
         public final /* synthetic */ EasterEggH5Service a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(EasterEggH5Service easterEggH5Service, int i2) {
-            super(i2);
+        public b(EasterEggH5Service easterEggH5Service, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {easterEggH5Service, Integer.valueOf(i2)};
+                Object[] objArr = {easterEggH5Service, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -137,17 +137,17 @@ public class EasterEggH5Service extends Service {
         public final /* synthetic */ EasterEggH5Service a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(EasterEggH5Service easterEggH5Service, int i2) {
-            super(i2);
+        public c(EasterEggH5Service easterEggH5Service, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {easterEggH5Service, Integer.valueOf(i2)};
+                Object[] objArr = {easterEggH5Service, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -167,9 +167,9 @@ public class EasterEggH5Service extends Service {
                 if (a != null) {
                     HashMap hashMap = new HashMap();
                     if (!ListUtils.isEmpty(netWorkParam.mPostData)) {
-                        for (int i2 = 0; i2 < netWorkParam.mPostData.size(); i2++) {
-                            if (netWorkParam.mPostData.get(i2) != null) {
-                                hashMap.put(netWorkParam.mPostData.get(i2).getName(), netWorkParam.mPostData.get(i2).getValue());
+                        for (int i = 0; i < netWorkParam.mPostData.size(); i++) {
+                            if (netWorkParam.mPostData.get(i) != null) {
+                                hashMap.put(netWorkParam.mPostData.get(i).getName(), netWorkParam.mPostData.get(i).getValue());
                             }
                         }
                     }
@@ -192,9 +192,9 @@ public class EasterEggH5Service extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {easterEggH5Service};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -203,8 +203,8 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // c.a.r0.r0.d.b
-        public void a(boolean z, c.a.r0.r0.e.a aVar) {
+        @Override // c.a.p0.t0.d.b
+        public void a(boolean z, c.a.p0.t0.e.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, aVar) == null) {
                 if (z && aVar != null && !m.isEmpty(aVar.a()) && aVar.c()) {
@@ -237,9 +237,9 @@ public class EasterEggH5Service extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {easterEggH5Service};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -259,7 +259,7 @@ public class EasterEggH5Service extends Service {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements c.a.r0.y3.o0.c {
+    public class f implements c.a.p0.a4.o0.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EasterEggH5Service a;
@@ -271,9 +271,9 @@ public class EasterEggH5Service extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {easterEggH5Service};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -282,7 +282,7 @@ public class EasterEggH5Service extends Service {
             this.a = easterEggH5Service;
         }
 
-        @Override // c.a.r0.y3.o0.c
+        @Override // c.a.p0.a4.o0.c
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -310,9 +310,9 @@ public class EasterEggH5Service extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -333,11 +333,11 @@ public class EasterEggH5Service extends Service {
             MessageManager.getInstance().registerListener(this.onSearchEventListener);
             this.onWriteReadListener.setTag(this.mTag);
             MessageManager.getInstance().registerListener(this.onWriteReadListener);
-            c.a.r0.r0.g.a aVar = new c.a.r0.r0.g.a(0);
+            c.a.p0.t0.g.a aVar = new c.a.p0.t0.g.a(0);
             this.mHttpRule = aVar;
             aVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mHttpRule);
-            c.a.r0.r0.g.b bVar = new c.a.r0.r0.g.b(0);
+            c.a.p0.t0.g.b bVar = new c.a.p0.t0.g.b(0);
             this.mSocketRule = bVar;
             bVar.b(this.onHitEventListener);
             MessageManager.getInstance().addMessageRule(this.mSocketRule);
@@ -349,7 +349,7 @@ public class EasterEggH5Service extends Service {
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
             try {
                 this.mWebView = new BaseWebView(this);
-                this.jsBridge = new c.a.r0.y3.o0.a();
+                this.jsBridge = new c.a.p0.a4.o0.a();
                 this.mWebView.initCommonJsBridge(this);
                 if (Build.VERSION.SDK_INT >= 21) {
                     this.mWebView.getSettings().setMixedContentMode(0);
@@ -360,7 +360,7 @@ public class EasterEggH5Service extends Service {
                 this.jsBridge.a(easterEggBridge);
                 this.mWebView.setOnJsPromptCallback(new f(this));
             } catch (Throwable th) {
-                c.a.q0.r.d0.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
+                c.a.o0.r.d0.a.a("img", -1L, 0, "easteregg_error", 0, th.getClass().getName(), "", "");
                 TbadkCoreApplication.getInst().onLowMemory();
                 stopSelf();
             }
@@ -375,9 +375,9 @@ public class EasterEggH5Service extends Service {
         }
         String str2 = "javascript:" + str + "(";
         if (strArr != null) {
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                str2 = str2 + strArr[i2];
-                if (i2 != strArr.length - 1) {
+            for (int i = 0; i < strArr.length; i++) {
+                str2 = str2 + strArr[i];
+                if (i != strArr.length - 1) {
                     str2 = str2 + ",";
                 }
             }
@@ -407,7 +407,7 @@ public class EasterEggH5Service extends Service {
             super.onCreate();
             initWebView();
             initListenerAndRule();
-            c.a.r0.r0.d dVar = new c.a.r0.r0.d();
+            c.a.p0.t0.d dVar = new c.a.p0.t0.d();
             this.model = dVar;
             dVar.d(new d(this));
             this.model.e();
@@ -418,7 +418,7 @@ public class EasterEggH5Service extends Service {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            c.a.r0.r0.d dVar = this.model;
+            c.a.p0.t0.d dVar = this.model;
             if (dVar != null) {
                 dVar.c();
             }
@@ -434,10 +434,10 @@ public class EasterEggH5Service extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) == null) {
             if (intent != null) {
                 String stringExtra = intent.getStringExtra(KEY_URL);
                 this.mUrl = stringExtra;
@@ -445,7 +445,7 @@ public class EasterEggH5Service extends Service {
                     this.mWebView.loadUrl(this.mUrl);
                 }
             }
-            return super.onStartCommand(intent, i2, i3);
+            return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }

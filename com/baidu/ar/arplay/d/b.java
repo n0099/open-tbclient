@@ -6,6 +6,7 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,9 +73,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -106,9 +107,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -129,9 +130,9 @@ public class b {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -149,13 +150,13 @@ public class b {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     super.handleMessage(message);
                     Object obj = message.obj;
-                    a.C1748a c1748a = obj instanceof a.C1748a ? (a.C1748a) obj : null;
+                    a.C1709a c1709a = obj instanceof a.C1709a ? (a.C1709a) obj : null;
                     switch (message.what) {
                         case 103:
-                            this.gq.a(c1748a);
+                            this.gq.a(c1709a);
                             return;
                         case 104:
-                            if (c1748a == null || (n = this.gq.n(c1748a.dM)) == null || (str = c1748a.ge) == null) {
+                            if (c1709a == null || (n = this.gq.n(c1709a.dM)) == null || (str = c1709a.ge) == null) {
                                 return;
                             }
                             n.evaluateJavascript(str, new ValueCallback<String>(this, n) { // from class: com.baidu.ar.arplay.d.b.1.1
@@ -171,9 +172,9 @@ public class b {
                                         newInitContext2.initArgs = r2;
                                         Object[] objArr = {this, n};
                                         interceptable3.invokeUnInit(65536, newInitContext2);
-                                        int i4 = newInitContext2.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i3 = newInitContext2.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
                                             newInitContext2.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext2);
                                             return;
@@ -205,7 +206,7 @@ public class b {
                             }
                             return;
                         case 106:
-                            this.gq.b(c1748a);
+                            this.gq.b(c1709a);
                             return;
                         default:
                             return;
@@ -225,9 +226,9 @@ public class b {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -303,9 +304,9 @@ public class b {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -315,11 +316,11 @@ public class b {
             }
 
             @Override // android.webkit.WebChromeClient
-            public void onProgressChanged(WebView webView, int i4) {
+            public void onProgressChanged(WebView webView, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i4) == null) {
-                    super.onProgressChanged(webView, i4);
-                    if (i4 == 100) {
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, webView, i3) == null) {
+                    super.onProgressChanged(webView, i3);
+                    if (i3 == 100) {
                         this.gq.o(((com.baidu.ar.arplay.d.a) webView).getWebViewData().dM);
                     }
                 }
@@ -328,13 +329,13 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, a aVar) {
+    public void a(int i, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, this, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(65541, this, i, aVar) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("event_name", "webView_operation_load_failed");
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("texture_id", Integer.valueOf(i2));
+            hashMap2.put("texture_id", Integer.valueOf(i));
             HashMap hashMap3 = new HashMap();
             hashMap3.put(com.tencent.connect.common.Constants.PARAM_PLATFORM, aVar.gt);
             hashMap3.put("error_code", Integer.valueOf(aVar.dY));
@@ -342,33 +343,33 @@ public class b {
             hashMap2.put("data", hashMap3);
             hashMap.put("event_data", hashMap2);
             ARPMessage.getInstance().sendMessage(1902, hashMap);
-            o(i2);
+            o(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(a.C1748a c1748a) {
+    public void a(a.C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, this, c1748a) == null) && c1748a != null && isValid()) {
-            com.baidu.ar.arplay.d.a e2 = e(c1748a.width, c1748a.height);
-            e2.setWebViewData(c1748a);
-            d.bp().b(c1748a.dM, c1748a.width, c1748a.height);
-            e2.setTag(Integer.valueOf(c1748a.dM));
-            String str = c1748a.url;
-            if (!c1748a.gd) {
+        if ((interceptable == null || interceptable.invokeL(65542, this, c1709a) == null) && c1709a != null && isValid()) {
+            com.baidu.ar.arplay.d.a e2 = e(c1709a.width, c1709a.height);
+            e2.setWebViewData(c1709a);
+            d.bp().b(c1709a.dM, c1709a.width, c1709a.height);
+            e2.setTag(Integer.valueOf(c1709a.dM));
+            String str = c1709a.url;
+            if (!c1709a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             e2.loadUrl(str);
             e2.invalidate();
             e2.setIsNeedRender(true);
-            e(c1748a);
+            e(c1709a);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(a.C1748a c1748a) {
+    public void b(a.C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, c1748a) == null) && c1748a != null && bn()) {
+        if ((interceptable == null || interceptable.invokeL(65546, this, c1709a) == null) && c1709a != null && bn()) {
             if (this.gm == null) {
                 WebView webView = new WebView(this.mContext);
                 this.gm = webView;
@@ -391,9 +392,9 @@ public class b {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -417,8 +418,8 @@ public class b {
                 });
                 this.gl.addView(this.gm, layoutParams);
             }
-            String str = c1748a.url;
-            if (!c1748a.gd) {
+            String str = c1709a.url;
+            if (!c1709a.gd) {
                 str = "file://" + this.mContext.getFilesDir().getAbsolutePath().concat(File.separator) + "ar/" + str;
             }
             this.gm.loadUrl(str);
@@ -445,16 +446,23 @@ public class b {
     private boolean bn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) ? (this.mContext == null || this.gl == null) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, this)) == null) {
+            if (this.mContext == null || this.gl == null) {
+                Log.e("GLWebView", "Native WebView context or root is null!");
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
-    private com.baidu.ar.arplay.d.a e(int i2, int i3) {
+    private com.baidu.ar.arplay.d.a e(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65555, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65555, this, i, i2)) == null) {
             com.baidu.ar.arplay.d.a aVar = new com.baidu.ar.arplay.d.a(this.mContext);
             ViewGroup viewGroup = this.gg;
-            ViewGroup.LayoutParams layoutParams = viewGroup instanceof FrameLayout ? new FrameLayout.LayoutParams(i2, i3) : viewGroup instanceof LinearLayout ? new LinearLayout.LayoutParams(i2, i3) : viewGroup instanceof RelativeLayout ? new RelativeLayout.LayoutParams(i2, i3) : null;
+            ViewGroup.LayoutParams layoutParams = viewGroup instanceof FrameLayout ? new FrameLayout.LayoutParams(i, i2) : viewGroup instanceof LinearLayout ? new LinearLayout.LayoutParams(i, i2) : viewGroup instanceof RelativeLayout ? new RelativeLayout.LayoutParams(i, i2) : null;
             aVar.setBackgroundColor(17170445);
             aVar.setWebViewClient(this.go);
             aVar.setWebChromeClient(this.gp);
@@ -479,9 +487,9 @@ public class b {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, aVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -514,9 +522,9 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -548,42 +556,49 @@ public class b {
     private boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) ? (this.mContext == null || this.gg == null) ? false : true : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
+            if (this.mContext == null || this.gg == null) {
+                Log.e("GLWebView", "GLWebView context or root is null!");
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void l(int i2) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65557, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65557, this, i) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("event_name", "webView_operation_load_finish");
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("texture_id", Integer.valueOf(i2));
+            hashMap2.put("texture_id", Integer.valueOf(i));
             hashMap.put("event_data", hashMap2);
             ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void m(int i2) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("event_name", "webView_operation_update_finish");
             HashMap hashMap2 = new HashMap();
-            hashMap2.put("texture_id", Integer.valueOf(i2));
+            hashMap2.put("texture_id", Integer.valueOf(i));
             hashMap.put("event_data", hashMap2);
             ARPMessage.getInstance().sendMessage(1902, hashMap);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.ar.arplay.d.a n(int i2) {
+    public com.baidu.ar.arplay.d.a n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65559, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65559, this, i)) == null) {
             for (com.baidu.ar.arplay.d.a aVar : this.gk) {
-                if (aVar != null && aVar.getWebViewData() != null && aVar.getWebViewData().dM == i2) {
+                if (aVar != null && aVar.getWebViewData() != null && aVar.getWebViewData().dM == i) {
                     return aVar;
                 }
             }
@@ -593,12 +608,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void o(int i2) {
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65560, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65560, this, i) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 105;
-            obtainMessage.arg1 = i2;
+            obtainMessage.arg1 = i;
             this.gn.sendMessage(obtainMessage);
         }
     }
@@ -628,9 +643,9 @@ public class b {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -640,11 +655,11 @@ public class b {
                 }
 
                 @Override // com.baidu.ar.arplay.core.engine.ARPDataInteraction.a
-                public boolean c(int i2, int i3) {
+                public boolean c(int i, int i2) {
                     InterceptResult invokeII;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i2, i3)) == null) {
-                        this.gq.o(i2);
+                    if (interceptable2 == null || (invokeII = interceptable2.invokeII(1048576, this, i, i2)) == null) {
+                        this.gq.o(i);
                         return true;
                     }
                     return invokeII.booleanValue;
@@ -662,35 +677,35 @@ public class b {
         }
     }
 
-    public void c(a.C1748a c1748a) {
+    public void c(a.C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c1748a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, c1709a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 103;
-            obtainMessage.obj = c1748a;
+            obtainMessage.obj = c1709a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void d(a.C1748a c1748a) {
+    public void d(a.C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c1748a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1709a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 106;
-            obtainMessage.obj = c1748a;
+            obtainMessage.obj = c1709a;
             this.gn.sendMessage(obtainMessage);
         }
     }
 
-    public void e(a.C1748a c1748a) {
+    public void e(a.C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, c1748a) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, c1709a) == null) {
             Message obtainMessage = this.gn.obtainMessage();
             obtainMessage.what = 104;
-            obtainMessage.obj = c1748a;
-            com.baidu.ar.arplay.d.a n = n(c1748a.dM);
+            obtainMessage.obj = c1709a;
+            com.baidu.ar.arplay.d.a n = n(c1709a.dM);
             if (n != null) {
-                n.setWebViewData(c1748a);
+                n.setWebViewData(c1709a);
                 this.gn.sendMessage(obtainMessage);
             }
         }
@@ -717,9 +732,9 @@ public class b {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

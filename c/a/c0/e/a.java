@@ -1,7 +1,7 @@
 package c.a.c0.e;
 
-import com.baidu.nps.pm.IBundleInfo;
+import org.json.JSONObject;
 /* loaded from: classes.dex */
 public interface a {
-    void checkAuthorization(IBundleInfo iBundleInfo, int i2, b bVar);
+    void a(boolean z, JSONObject jSONObject);
 }

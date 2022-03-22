@@ -16,17 +16,17 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ArrayCompositeSubscription(int i2) {
-        super(i2);
+    public ArrayCompositeSubscription(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,10 +42,10 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (get(0) != SubscriptionHelper.CANCELLED) {
                 int length = length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    Subscription subscription = get(i2);
+                for (int i = 0; i < length; i++) {
+                    Subscription subscription = get(i);
                     SubscriptionHelper subscriptionHelper = SubscriptionHelper.CANCELLED;
-                    if (subscription != subscriptionHelper && (andSet = getAndSet(i2, subscriptionHelper)) != SubscriptionHelper.CANCELLED && andSet != null) {
+                    if (subscription != subscriptionHelper && (andSet = getAndSet(i, subscriptionHelper)) != SubscriptionHelper.CANCELLED && andSet != null) {
                         andSet.cancel();
                     }
                 }
@@ -60,13 +60,13 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get(0) == SubscriptionHelper.CANCELLED : invokeV.booleanValue;
     }
 
-    public Subscription replaceResource(int i2, Subscription subscription) {
+    public Subscription replaceResource(int i, Subscription subscription) {
         Subscription subscription2;
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, subscription)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, subscription)) == null) {
             do {
-                subscription2 = get(i2);
+                subscription2 = get(i);
                 if (subscription2 == SubscriptionHelper.CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();
@@ -74,19 +74,19 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
                     }
                     return null;
                 }
-            } while (!compareAndSet(i2, subscription2, subscription));
+            } while (!compareAndSet(i, subscription2, subscription));
             return subscription2;
         }
         return (Subscription) invokeIL.objValue;
     }
 
-    public boolean setResource(int i2, Subscription subscription) {
+    public boolean setResource(int i, Subscription subscription) {
         Subscription subscription2;
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, subscription)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, subscription)) == null) {
             do {
-                subscription2 = get(i2);
+                subscription2 = get(i);
                 if (subscription2 == SubscriptionHelper.CANCELLED) {
                     if (subscription != null) {
                         subscription.cancel();
@@ -94,7 +94,7 @@ public final class ArrayCompositeSubscription extends AtomicReferenceArray<Subsc
                     }
                     return false;
                 }
-            } while (!compareAndSet(i2, subscription2, subscription));
+            } while (!compareAndSet(i, subscription2, subscription));
             if (subscription2 != null) {
                 subscription2.cancel();
                 return true;

@@ -20,16 +20,16 @@ public final class LiveMasterSwitchBean {
     public final String errmsg;
     public final int errno;
 
-    public LiveMasterSwitchBean(Data data, String str, int i2) {
+    public LiveMasterSwitchBean(Data data, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, str, Integer.valueOf(i2)};
+            Object[] objArr = {data, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,20 +37,20 @@ public final class LiveMasterSwitchBean {
         }
         this.data = data;
         this.errmsg = str;
-        this.errno = i2;
+        this.errno = i;
     }
 
-    public static /* synthetic */ LiveMasterSwitchBean copy$default(LiveMasterSwitchBean liveMasterSwitchBean, Data data, String str, int i2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
+    public static /* synthetic */ LiveMasterSwitchBean copy$default(LiveMasterSwitchBean liveMasterSwitchBean, Data data, String str, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
             data = liveMasterSwitchBean.data;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             str = liveMasterSwitchBean.errmsg;
         }
-        if ((i3 & 4) != 0) {
-            i2 = liveMasterSwitchBean.errno;
+        if ((i2 & 4) != 0) {
+            i = liveMasterSwitchBean.errno;
         }
-        return liveMasterSwitchBean.copy(data, str, i2);
+        return liveMasterSwitchBean.copy(data, str, i);
     }
 
     public final Data component1() {
@@ -71,10 +71,10 @@ public final class LiveMasterSwitchBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.errno : invokeV.intValue;
     }
 
-    public final LiveMasterSwitchBean copy(Data data, String str, int i2) {
+    public final LiveMasterSwitchBean copy(Data data, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, data, str, i2)) == null) ? new LiveMasterSwitchBean(data, str, i2) : (LiveMasterSwitchBean) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, data, str, i)) == null) ? new LiveMasterSwitchBean(data, str, i) : (LiveMasterSwitchBean) invokeLLI.objValue;
     }
 
     public boolean equals(Object obj) {

@@ -12,20 +12,20 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f57743c = 60000;
+    public static long f42517c = 60000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final ConcurrentHashMap<String, Boolean> f57744d;
+    public static final ConcurrentHashMap<String, Boolean> f42518d;
     public transient /* synthetic */ FieldHolder $fh;
     public final com.sdk.base.framework.a.a.c<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f57745b;
+    public int f42519b;
 
     static {
         InterceptResult invokeClinit;
@@ -41,7 +41,7 @@ public final class d {
             }
         }
         ConcurrentHashMap<String, Boolean> concurrentHashMap = new ConcurrentHashMap<>(10);
-        f57744d = concurrentHashMap;
+        f42518d = concurrentHashMap;
         concurrentHashMap.put(j.a.toString(), Boolean.TRUE);
         new ConcurrentHashMap(10);
     }
@@ -53,9 +53,9 @@ public final class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Integer) objArr[0]).intValue(), ((Long) objArr[1]).longValue());
                 newInitContext.thisArg = this;
@@ -65,31 +65,31 @@ public final class d {
         }
     }
 
-    public d(int i2, long j2) {
+    public d(int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f57745b = 102400;
-        this.f57745b = 102400;
-        f57743c = 60000L;
+        this.f42519b = 102400;
+        this.f42519b = 102400;
+        f42517c = 60000L;
         this.a = new e(this, 102400);
     }
 
     public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f57743c : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? f42517c : invokeV.longValue;
     }
 
     @SuppressLint({"DefaultLocale"})
@@ -98,7 +98,7 @@ public final class d {
         Boolean bool;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (bool = f57744d.get(str.toUpperCase())) == null) {
+            if (TextUtils.isEmpty(str) || (bool = f42518d.get(str.toUpperCase())) == null) {
                 return false;
             }
             return bool.booleanValue();
@@ -118,11 +118,11 @@ public final class d {
         return (String) invokeL.objValue;
     }
 
-    public final void a(String str, String str2, long j2) {
+    public final void a(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || str == null || str2 == null || j2 < 1) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || str == null || str2 == null || j < 1) {
             return;
         }
-        this.a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j2);
+        this.a.a((com.sdk.base.framework.a.a.c<String, String>) str, str2, System.currentTimeMillis() + j);
     }
 }

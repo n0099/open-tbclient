@@ -13,22 +13,22 @@ public final class SpannedStringKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final /* synthetic */ <T> T[] getSpans(Spanned spanned, int i2, int i3) {
+    public static final /* synthetic */ <T> T[] getSpans(Spanned spanned, int i, int i2) {
         Intrinsics.reifiedOperationMarker(4, "T");
-        T[] tArr = (T[]) spanned.getSpans(i2, i3, Object.class);
+        T[] tArr = (T[]) spanned.getSpans(i, i2, Object.class);
         Intrinsics.checkExpressionValueIsNotNull(tArr, "getSpans(start, end, T::class.java)");
         return tArr;
     }
 
-    public static /* synthetic */ Object[] getSpans$default(Spanned spanned, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ Object[] getSpans$default(Spanned spanned, int i, int i2, int i3, Object obj) {
+        if ((i3 & 1) != 0) {
+            i = 0;
         }
-        if ((i4 & 2) != 0) {
-            i3 = spanned.length();
+        if ((i3 & 2) != 0) {
+            i2 = spanned.length();
         }
         Intrinsics.reifiedOperationMarker(4, "T");
-        Object[] spans = spanned.getSpans(i2, i3, Object.class);
+        Object[] spans = spanned.getSpans(i, i2, Object.class);
         Intrinsics.checkExpressionValueIsNotNull(spans, "getSpans(start, end, T::class.java)");
         return spans;
     }

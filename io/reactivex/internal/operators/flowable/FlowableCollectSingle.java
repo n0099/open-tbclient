@@ -20,7 +20,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import java.util.concurrent.Callable;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableCollectSingle<T, U> extends Single<U> implements FuseToFlowable<U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
     public final Callable<? extends U> initialSupplier;
     public final Flowable<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CollectSubscriber<T, U> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, u, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -134,9 +134,9 @@ public final class FlowableCollectSingle<T, U> extends Single<U> implements Fuse
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, callable, biConsumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

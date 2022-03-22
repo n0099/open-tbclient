@@ -3,9 +3,9 @@ package com.baidu.ala.view;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.q0.r.j0.b;
-import c.a.q0.r.t.a;
-import c.a.q0.s.d.d;
+import c.a.o0.r.j0.b;
+import c.a.o0.r.t.a;
+import c.a.o0.s.d.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -65,9 +65,9 @@ public class AlaAttentionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {alaAttentionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,12 +157,12 @@ public class AlaAttentionManager {
                 if (this.mNetwork != null) {
                     UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
                     aVar.a = this.mNetwork.getNetContext().getResponse().isRequestSuccess();
-                    aVar.f39405b = this.mNetwork.getErrorString();
-                    aVar.f39407d = this.isAttention;
-                    aVar.f39406c = this.toUid;
-                    aVar.f39409f = this.isGod;
+                    aVar.f30337b = this.mNetwork.getErrorString();
+                    aVar.f30339d = this.isAttention;
+                    aVar.f30338c = this.toUid;
+                    aVar.f30341f = this.isGod;
                     aVar.b(str, this.showToastAfterAttentionSuc);
-                    aVar.f39410g = this.mNetwork.getNetContext().getResponse();
+                    aVar.f30342g = this.mNetwork.getNetContext().getResponse();
                     UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
                     updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.pageId));
                     MessageManager.getInstance().dispatchResponsedMessage(updateAttentionMessage);
@@ -181,9 +181,9 @@ public class AlaAttentionManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -198,7 +198,7 @@ public class AlaAttentionManager {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, linkedList, alaAttentionData) == null) || alaAttentionData == null) {
             return;
         }
-        linkedList.add(alaAttentionData.m30clone());
+        linkedList.add(alaAttentionData.m28clone());
     }
 
     private void dealAttentionUpdateData(LinkedList<AlaAttentionData> linkedList, AlaAttentionData alaAttentionData) {
@@ -311,15 +311,15 @@ public class AlaAttentionManager {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, aVar, fVar, z)) == null) {
-            if (aVar != null && aVar.f39411h != null && aVar.f39410g != null && fVar != null && fVar.getPageActivity() != null) {
-                int i2 = aVar.f39410g.mServerErrorCode;
-                if (!(i2 == 3250001 || i2 == 3250002 || i2 == 3250003 || i2 == 3250004)) {
+            if (aVar != null && aVar.f30343h != null && aVar.f30342g != null && fVar != null && fVar.getPageActivity() != null) {
+                int i = aVar.f30342g.mServerErrorCode;
+                if (!(i == 3250001 || i == 3250002 || i == 3250003 || i == 3250004)) {
                     return false;
                 }
-                if (aVar.f39412i) {
+                if (aVar.i) {
                     return true;
                 }
-                JSONObject optJSONObject = aVar.f39411h.optJSONObject("info");
+                JSONObject optJSONObject = aVar.f30343h.optJSONObject("info");
                 if (optJSONObject == null) {
                     return false;
                 }
@@ -328,7 +328,7 @@ public class AlaAttentionManager {
                 String optString3 = optJSONObject.optString("block_confirm");
                 String optString4 = optJSONObject.optString("block_cancel");
                 if (optString != null && optString2 != null && optString3 != null && optString4 != null) {
-                    aVar.f39412i = true;
+                    aVar.i = true;
                     a aVar2 = new a(fVar.getPageActivity());
                     aVar2.setAutoNight(z);
                     aVar2.setMessage(optString);
@@ -346,9 +346,9 @@ public class AlaAttentionManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, fVar, optString2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -359,11 +359,11 @@ public class AlaAttentionManager {
                             this.val$dealurl = optString2;
                         }
 
-                        @Override // c.a.q0.r.t.a.e
+                        @Override // c.a.o0.r.t.a.e
                         public void onClick(a aVar3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {
-                                c.a.q0.l.a.m(this.val$pageContext.getPageActivity(), this.val$dealurl);
+                                c.a.o0.l.a.m(this.val$pageContext.getPageActivity(), this.val$dealurl);
                                 aVar3.dismiss();
                                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
                             }
@@ -381,9 +381,9 @@ public class AlaAttentionManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -392,7 +392,7 @@ public class AlaAttentionManager {
                             this.this$0 = this;
                         }
 
-                        @Override // c.a.q0.r.t.a.e
+                        @Override // c.a.o0.r.t.a.e
                         public void onClick(a aVar3) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar3) == null) {
@@ -448,7 +448,7 @@ public class AlaAttentionManager {
         if (!(interceptable == null || interceptable.invokeL(1048582, this, tbPageContext) == null) || tbPageContext == null) {
             return;
         }
-        tbPageContext.showToast((int) R.string.ala_attention_success_toast);
+        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f01f6);
     }
 
     public void showAttentionSuccessTipAndLivePushDialog(TbPageContext tbPageContext, boolean z) {

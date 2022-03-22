@@ -19,32 +19,32 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Cipher f57697b;
+    public static Cipher f42471b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Cipher f57698c;
+    public static Cipher f42472c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f57699d;
+    public static final String f42473d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final byte[] f57700e;
+    public static final byte[] f42474e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.qq.e.comm.net.rr.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public static class C2171a extends Exception {
+    /* loaded from: classes7.dex */
+    public static class C2032a extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C2171a(String str, Throwable th) {
+        public C2032a(String str, Throwable th) {
             super(str, th);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -52,9 +52,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -65,7 +65,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -106,57 +106,57 @@ public class a {
             }
         }
         a = new byte[]{91, -62};
-        f57699d = String.format("AES/%s/PKCS7Padding", "ECB");
-        f57700e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
+        f42473d = String.format("AES/%s/PKCS7Padding", "ECB");
+        f42474e = Base64.decode("4M3PpUC4Vu1uMp+Y0Mxd+vfc6v4ggJAINfgTlH74pis=", 0);
     }
 
-    public static byte[] a(byte[] bArr) throws C2171a {
+    public static byte[] a(byte[] bArr) throws C2032a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f57698c;
+                cipher = f42472c;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f57699d);
-                        cipher.init(2, new SecretKeySpec(f57700e, "AES"));
-                        f57698c = cipher;
+                        cipher = Cipher.getInstance(f42473d);
+                        cipher.init(2, new SecretKeySpec(f42474e, "AES"));
+                        f42472c = cipher;
                     } catch (Exception e2) {
-                        throw new C2171a("Fail To Init Cipher", e2);
+                        throw new C2032a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C2171a("Exception While dencrypt byte array", e3);
+                throw new C2032a("Exception While dencrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws C2171a {
+    public static byte[] b(byte[] bArr) throws C2032a {
         InterceptResult invokeL;
         Cipher cipher;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             synchronized (a.class) {
-                cipher = f57697b;
+                cipher = f42471b;
                 if (cipher == null) {
                     try {
-                        cipher = Cipher.getInstance(f57699d);
-                        cipher.init(1, new SecretKeySpec(f57700e, "AES"));
-                        f57697b = cipher;
+                        cipher = Cipher.getInstance(f42473d);
+                        cipher.init(1, new SecretKeySpec(f42474e, "AES"));
+                        f42471b = cipher;
                     } catch (Exception e2) {
-                        throw new C2171a("Fail To Init Cipher", e2);
+                        throw new C2032a("Fail To Init Cipher", e2);
                     }
                 }
             }
             try {
                 return cipher.doFinal(bArr);
             } catch (Exception e3) {
-                throw new C2171a("Exception While encrypt byte array", e3);
+                throw new C2032a("Exception While encrypt byte array", e3);
             }
         }
         return (byte[]) invokeL.objValue;

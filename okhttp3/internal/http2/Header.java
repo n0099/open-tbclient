@@ -8,10 +8,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import okhttp3.internal.Util;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Header {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString PSEUDO_PREFIX;
@@ -55,9 +54,9 @@ public final class Header {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ByteString) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -83,7 +82,7 @@ public final class Header {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((PayBeanFactory.BEAN_ID_WIDTHDRAW + this.name.hashCode()) * 31) + this.value.hashCode() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ((527 + this.name.hashCode()) * 31) + this.value.hashCode() : invokeV.intValue;
     }
 
     public String toString() {
@@ -101,9 +100,9 @@ public final class Header {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteString, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ByteString) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -120,9 +119,9 @@ public final class Header {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteString, byteString2};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

@@ -47,7 +47,7 @@ public class MainTabActivityStatic {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f46916b;
+    public static boolean f36256b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -60,9 +60,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,7 +77,7 @@ public class MainTabActivityStatic {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!StringUtils.isNull(str) && str.startsWith("tiebavr:") && !TbadkCoreApplication.getInst().appResponseToIntentClass(VrPlayerActivityConfig.class)) {
-                        tbPageContext.showToast((int) R.string.vr_plugin_not_available);
+                        tbPageContext.showToast((int) R.string.obfuscated_res_0x7f0f1541);
                         return 1;
                     }
                 }
@@ -93,17 +93,17 @@ public class MainTabActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -119,7 +119,7 @@ public class MainTabActivityStatic {
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 Object data = customResponsedMessage.getData();
                 if (data instanceof Activity) {
-                    c.a.q0.r.f0.b.d((Activity) data);
+                    c.a.o0.r.f0.b.d((Activity) data);
                 }
             }
         }
@@ -135,9 +135,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -151,17 +151,17 @@ public class MainTabActivityStatic {
         */
         public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
             InterceptResult invokeLL;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                 if (tbPageContext != null && strArr != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE)) {
                         if (str.contains(UrlSchemaHelper.GOTO_ENTERFORUM_TAB)) {
-                            c.a.q0.r.f0.b.f(tbPageContext.getPageActivity(), 1, true);
+                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), 1, true);
                             return 1;
                         } else if (str.contains(UrlSchemaHelper.GOTO_RECOMMNEDS_FRS_TAB)) {
-                            c.a.q0.r.f0.b.f(tbPageContext.getPageActivity(), 2, true);
+                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), 2, true);
                             return 1;
                         }
                     }
@@ -169,26 +169,26 @@ public class MainTabActivityStatic {
                         try {
                             Uri parse = Uri.parse(str);
                             if (parse == null || StringUtils.isNull(parse.getQueryParameter("subTabIndex"))) {
-                                i2 = -1;
+                                i = -1;
                             } else {
                                 int e2 = c.a.d.f.m.b.e(parse.getQueryParameter("subTabIndex"), 0);
-                                i2 = e2 == 1 ? 18 : 17;
+                                i = e2 == 1 ? 18 : 17;
                                 try {
                                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921446, Integer.valueOf(e2)));
                                 } catch (Exception e3) {
                                     e = e3;
                                     e.printStackTrace();
-                                    if (i2 != -1) {
+                                    if (i != -1) {
                                     }
                                     return 3;
                                 }
                             }
                         } catch (Exception e4) {
                             e = e4;
-                            i2 = -1;
+                            i = -1;
                         }
-                        if (i2 != -1) {
-                            c.a.q0.r.f0.b.f(tbPageContext.getPageActivity(), i2, true);
+                        if (i != -1) {
+                            c.a.o0.r.f0.b.f(tbPageContext.getPageActivity(), i, true);
                             return 1;
                         }
                     }
@@ -205,17 +205,17 @@ public class MainTabActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(int i2) {
-            super(i2);
+        public d(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -240,17 +240,17 @@ public class MainTabActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2) {
-            super(i2);
+        public e(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -266,11 +266,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof KeyBoardSwitchMessage) && (data = ((KeyBoardSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (!data.booleanValue()) {
-                    c.a.q0.i0.g.c.b().m(c.a.q0.i0.g.c.b().j());
-                    c.a.q0.i0.g.c.b().c();
-                } else if (c.a.q0.i0.g.c.b().i() || !c.a.q0.i0.g.c.b().k()) {
+                    c.a.o0.i0.g.c.b().m(c.a.o0.i0.g.c.b().j());
+                    c.a.o0.i0.g.c.b().c();
+                } else if (c.a.o0.i0.g.c.b().i() || !c.a.o0.i0.g.c.b().k()) {
                 } else {
-                    c.a.q0.i0.g.c.b().o();
+                    c.a.o0.i0.g.c.b().o();
                 }
             }
         }
@@ -282,17 +282,17 @@ public class MainTabActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(int i2) {
-            super(i2);
+        public f(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -308,11 +308,11 @@ public class MainTabActivityStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof WindowSwitchMessage) && (data = ((WindowSwitchMessage) customResponsedMessage).getData()) != null) {
                 if (data.booleanValue()) {
-                    c.a.q0.i0.g.c.b().m(c.a.q0.i0.g.c.b().j());
-                    c.a.q0.i0.g.c.b().c();
-                } else if (c.a.q0.i0.g.c.b().i() || !c.a.q0.i0.g.c.b().k()) {
+                    c.a.o0.i0.g.c.b().m(c.a.o0.i0.g.c.b().j());
+                    c.a.o0.i0.g.c.b().c();
+                } else if (c.a.o0.i0.g.c.b().i() || !c.a.o0.i0.g.c.b().k()) {
                 } else {
-                    c.a.q0.i0.g.c.b().o();
+                    c.a.o0.i0.g.c.b().o();
                 }
             }
         }
@@ -328,9 +328,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -369,11 +369,11 @@ public class MainTabActivityStatic {
                             if (!StringUtils.isNull(str) && !StringUtils.isNull(str3)) {
                                 ForumWriteData forumWriteData = new ForumWriteData(str3, str, null, null);
                                 forumWriteData.writeCallFrom = "0";
-                                c.a.r0.q4.i.j(tbPageContext, "", forumWriteData);
+                                c.a.p0.s4.i.j(tbPageContext, "", forumWriteData);
                             } else {
                                 ForumWriteData forumWriteData2 = new ForumWriteData("", "", null, null);
                                 forumWriteData2.writeCallFrom = "0";
-                                c.a.r0.q4.i.j(tbPageContext, str2, forumWriteData2);
+                                c.a.p0.s4.i.j(tbPageContext, str2, forumWriteData2);
                             }
                             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ENTRANCE_CLICKED).param("obj_locate", 4).param("obj_type", 2));
                             TiebaStatic.log(new StatisticItem("c12292").param("obj_locate", "3"));
@@ -397,9 +397,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -430,9 +430,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -464,9 +464,9 @@ public class MainTabActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -561,11 +561,11 @@ public class MainTabActivityStatic {
         }
         int b2 = b(newsRemindMessage);
         boolean c2 = c(newsRemindMessage);
-        if (b2 == a && c2 == f46916b) {
+        if (b2 == a && c2 == f36256b) {
             return;
         }
         a = b2;
-        f46916b = c2;
+        f36256b = c2;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921002, new Pair(Integer.valueOf(b2), Boolean.valueOf(c2))));
     }
 

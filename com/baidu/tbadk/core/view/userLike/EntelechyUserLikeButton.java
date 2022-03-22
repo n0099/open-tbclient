@@ -26,9 +26,9 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,23 +37,39 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void init() {
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.o0.r.l0.t.b
+    public void e(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.init();
-            setTextSize(0, n.f(getContext(), R.dimen.ds26));
-            setCompoundDrawablePadding(n.f(getContext(), R.dimen.ds6));
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            this.f30301c = z;
+            if (z) {
+                setClickable(false);
+                setText(this.a);
+            } else {
+                setClickable(true);
+                setText(this.f30300b);
+            }
+            g(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.f();
+            setTextSize(0, n.f(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+            setCompoundDrawablePadding(n.f(getContext(), R.dimen.obfuscated_res_0x7f0702df));
             setGravity(5);
             setGravity(16);
         }
     }
 
     @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton
-    public void onChangeSkinType(int i2) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (this.mCurrentIsLike) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.f30301c) {
                 setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 SkinManager.setViewTextColor(this, (int) R.color.CAM_X0109);
                 setBackgroundDrawable(null);
@@ -61,22 +77,6 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
             }
             setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(R.drawable.btn_focus_cross_bg), (Drawable) null, (Drawable) null, (Drawable) null);
             SkinManager.setViewTextColor(this, (int) R.color.btn_forum_focus_color);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.userLike.CommonUserLikeButton, c.a.q0.r.l0.t.b
-    public void updateLikeStatus(boolean z, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            this.mCurrentIsLike = z;
-            if (z) {
-                setClickable(false);
-                setText(this.mStrAlreadyFollowed);
-            } else {
-                setClickable(true);
-                setText(this.mStrFollow);
-            }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -89,9 +89,9 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -102,17 +102,17 @@ public class EntelechyUserLikeButton extends CommonUserLikeButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EntelechyUserLikeButton(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EntelechyUserLikeButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

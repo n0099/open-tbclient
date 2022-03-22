@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ChunkExtractorWrapper implements ExtractorOutput {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
     public SeekMap seekMap;
     public TrackOutputProvider trackOutputProvider;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class BindingTrackOutput implements TrackOutput {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,23 +40,23 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         public TrackOutput trackOutput;
         public final int type;
 
-        public BindingTrackOutput(int i2, int i3, Format format) {
+        public BindingTrackOutput(int i, int i2, Format format) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), format};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), format};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.id = i2;
-            this.type = i3;
+            this.id = i;
+            this.type = i2;
             this.manifestFormat = format;
         }
 
@@ -90,51 +90,51 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         }
 
         @Override // com.google.android.exoplayer2.extractor.TrackOutput
-        public int sampleData(ExtractorInput extractorInput, int i2, boolean z) throws IOException, InterruptedException {
+        public int sampleData(ExtractorInput extractorInput, int i, boolean z) throws IOException, InterruptedException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{extractorInput, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? this.trackOutput.sampleData(extractorInput, i2, z) : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{extractorInput, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? this.trackOutput.sampleData(extractorInput, i, z) : invokeCommon.intValue;
         }
 
         @Override // com.google.android.exoplayer2.extractor.TrackOutput
-        public void sampleMetadata(long j2, int i2, int i3, int i4, TrackOutput.CryptoData cryptoData) {
+        public void sampleMetadata(long j, int i, int i2, int i3, TrackOutput.CryptoData cryptoData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), cryptoData}) == null) {
-                this.trackOutput.sampleMetadata(j2, i2, i3, i4, cryptoData);
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), cryptoData}) == null) {
+                this.trackOutput.sampleMetadata(j, i, i2, i3, cryptoData);
             }
         }
 
         @Override // com.google.android.exoplayer2.extractor.TrackOutput
-        public void sampleData(ParsableByteArray parsableByteArray, int i2) {
+        public void sampleData(ParsableByteArray parsableByteArray, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048579, this, parsableByteArray, i2) == null) {
-                this.trackOutput.sampleData(parsableByteArray, i2);
+            if (interceptable == null || interceptable.invokeLI(1048579, this, parsableByteArray, i) == null) {
+                this.trackOutput.sampleData(parsableByteArray, i);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface TrackOutputProvider {
-        TrackOutput track(int i2, int i3);
+        TrackOutput track(int i, int i2);
     }
 
-    public ChunkExtractorWrapper(Extractor extractor, int i2, Format format) {
+    public ChunkExtractorWrapper(Extractor extractor, int i, Format format) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {extractor, Integer.valueOf(i2), format};
+            Object[] objArr = {extractor, Integer.valueOf(i), format};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.extractor = extractor;
-        this.primaryTrackType = i2;
+        this.primaryTrackType = i;
         this.primaryTrackManifestFormat = format;
         this.bindingTrackOutputs = new SparseArray<>();
     }
@@ -144,8 +144,8 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Format[] formatArr = new Format[this.bindingTrackOutputs.size()];
-            for (int i2 = 0; i2 < this.bindingTrackOutputs.size(); i2++) {
-                formatArr[i2] = this.bindingTrackOutputs.valueAt(i2).sampleFormat;
+            for (int i = 0; i < this.bindingTrackOutputs.size(); i++) {
+                formatArr[i] = this.bindingTrackOutputs.valueAt(i).sampleFormat;
             }
             this.sampleFormats = formatArr;
         }
@@ -173,8 +173,8 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
                 return;
             }
             this.extractor.seek(0L, 0L);
-            for (int i2 = 0; i2 < this.bindingTrackOutputs.size(); i2++) {
-                this.bindingTrackOutputs.valueAt(i2).bind(trackOutputProvider);
+            for (int i = 0; i < this.bindingTrackOutputs.size(); i++) {
+                this.bindingTrackOutputs.valueAt(i).bind(trackOutputProvider);
             }
         }
     }
@@ -188,16 +188,16 @@ public final class ChunkExtractorWrapper implements ExtractorOutput {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
-    public TrackOutput track(int i2, int i3) {
+    public TrackOutput track(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) {
-            BindingTrackOutput bindingTrackOutput = this.bindingTrackOutputs.get(i2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) {
+            BindingTrackOutput bindingTrackOutput = this.bindingTrackOutputs.get(i);
             if (bindingTrackOutput == null) {
                 Assertions.checkState(this.sampleFormats == null);
-                bindingTrackOutput = new BindingTrackOutput(i2, i3, i3 == this.primaryTrackType ? this.primaryTrackManifestFormat : null);
+                bindingTrackOutput = new BindingTrackOutput(i, i2, i2 == this.primaryTrackType ? this.primaryTrackManifestFormat : null);
                 bindingTrackOutput.bind(this.trackOutputProvider);
-                this.bindingTrackOutputs.put(i2, bindingTrackOutput);
+                this.bindingTrackOutputs.put(i, bindingTrackOutput);
             }
             return bindingTrackOutput;
         }

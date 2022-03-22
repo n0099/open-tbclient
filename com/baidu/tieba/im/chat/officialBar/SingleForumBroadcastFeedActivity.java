@@ -2,8 +2,8 @@ package com.baidu.tieba.im.chat.officialBar;
 
 import android.os.Bundle;
 import android.util.LongSparseArray;
-import c.a.q0.j0.i;
-import c.a.r0.s1.f.j.g;
+import c.a.o0.j0.i;
+import c.a.p0.u1.f.j.g;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -35,8 +35,8 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ SingleForumBroadcastFeedActivity f43495g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ SingleForumBroadcastFeedActivity f33758c;
 
         public a(SingleForumBroadcastFeedActivity singleForumBroadcastFeedActivity) {
             Interceptable interceptable = $ic;
@@ -45,26 +45,26 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleForumBroadcastFeedActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43495g = singleForumBroadcastFeedActivity;
+            this.f33758c = singleForumBroadcastFeedActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.j0.b
+        @Override // c.a.o0.j0.b
         /* renamed from: a */
         public boolean onEvent(TopToastEvent topToastEvent) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, topToastEvent)) == null) {
-                if (this.f43495g.feedView != null) {
-                    this.f43495g.feedView.m(topToastEvent.isSuccess(), topToastEvent.getContent());
+                if (this.f33758c.feedView != null) {
+                    this.f33758c.feedView.o(topToastEvent.isSuccess(), topToastEvent.getContent());
                     return false;
                 }
                 return false;
@@ -86,9 +86,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleForumBroadcastFeedActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,19 +97,19 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
             this.a = singleForumBroadcastFeedActivity;
         }
 
-        @Override // c.a.r0.s1.f.j.g.d
-        public void a(List<c.a.r0.s1.l.c.b> list) {
+        @Override // c.a.p0.u1.f.j.g.d
+        public void a(List<c.a.p0.u1.l.c.b> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.feedView.j(list, null);
+                this.a.feedView.l(list, null);
             }
         }
 
-        @Override // c.a.r0.s1.f.j.g.d
-        public void onReadCountLoad(LongSparseArray<c.a.r0.s1.i.a.b.b> longSparseArray) {
+        @Override // c.a.p0.u1.f.j.g.d
+        public void onReadCountLoad(LongSparseArray<c.a.p0.u1.i.a.b.b> longSparseArray) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, longSparseArray) == null) {
-                this.a.feedView.k(longSparseArray);
+                this.a.feedView.m(longSparseArray);
             }
         }
     }
@@ -119,9 +119,9 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -132,11 +132,11 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.feedView.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.feedView.onChangeSkinType(i);
         }
     }
 
@@ -153,7 +153,7 @@ public class SingleForumBroadcastFeedActivity extends BaseActivity {
                 this.forumId = getIntent().getStringExtra("key_uid");
                 this.source = getIntent().getByteExtra(SingleForumBroadcastFeedActivityConfig.KEY_SOURCE, (byte) 3);
                 this.model.f(this.forumId);
-                this.feedView.n(this.forumId, System.currentTimeMillis());
+                this.feedView.p(this.forumId, System.currentTimeMillis());
             }
             registerResponsedEventListener(TopToastEvent.class, this.mTopToastEventListener);
         }

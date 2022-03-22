@@ -26,7 +26,7 @@ import com.facebook.drawee.interfaces.DraweeHierarchy;
 import com.facebook.drawee.view.AspectRatioMeasure;
 import com.facebook.imagepipeline.systrace.FrescoSystrace;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sGlobalLegacyVisibilityHandlingEnabled;
@@ -61,9 +61,9 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -233,12 +233,12 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @Override // android.widget.ImageView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) {
             AspectRatioMeasure.Spec spec = this.mMeasureSpec;
-            spec.width = i2;
-            spec.height = i3;
+            spec.width = i;
+            spec.height = i2;
             AspectRatioMeasure.updateMeasureSpec(spec, this.mAspectRatio, getLayoutParams(), getPaddingLeft() + getPaddingRight(), getPaddingTop() + getPaddingBottom());
             AspectRatioMeasure.Spec spec2 = this.mMeasureSpec;
             super.onMeasure(spec2.width, spec2.height);
@@ -269,10 +269,10 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     @Override // android.view.View
-    public void onVisibilityChanged(View view, int i2) {
+    public void onVisibilityChanged(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048592, this, view, i2) == null) {
-            super.onVisibilityChanged(view, i2);
+        if (interceptable == null || interceptable.invokeLI(1048592, this, view, i) == null) {
+            super.onVisibilityChanged(view, i);
             maybeOverrideVisibilityHandling();
         }
     }
@@ -326,12 +326,12 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
 
     @Override // android.widget.ImageView
     @Deprecated
-    public void setImageResource(int i2) {
+    public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
             init(getContext());
             this.mDraweeHolder.setController(null);
-            super.setImageResource(i2);
+            super.setImageResource(i);
         }
     }
 
@@ -374,9 +374,9 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -392,17 +392,17 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DraweeView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public DraweeView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -419,17 +419,17 @@ public class DraweeView<DH extends DraweeHierarchy> extends ImageView {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @TargetApi(21)
-    public DraweeView(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
+    public DraweeView(Context context, AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;

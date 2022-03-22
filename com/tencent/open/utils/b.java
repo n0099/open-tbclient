@@ -19,17 +19,17 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.zip.ZipException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static final m a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final n f59146b;
+    public static final n f43783b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.tencent.open.utils.b$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,26 +49,26 @@ public final class b {
             }
         }
         a = new m(101010256L);
-        f59146b = new n(38651);
+        f43783b = new n(38651);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Properties a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte[] f59147b;
+        public byte[] f43784b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -83,10 +83,10 @@ public final class b {
                 return;
             }
             ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            int length = b.f59146b.a().length;
+            int length = b.f43783b.a().length;
             byte[] bArr2 = new byte[length];
             wrap.get(bArr2);
-            if (b.f59146b.equals(new n(bArr2))) {
+            if (b.f43783b.equals(new n(bArr2))) {
                 if (bArr.length - length <= 2) {
                     return;
                 }
@@ -102,7 +102,7 @@ public final class b {
                 int length2 = ((bArr.length - length) - b2) - 2;
                 if (length2 > 0) {
                     byte[] bArr5 = new byte[length2];
-                    this.f59147b = bArr5;
+                    this.f43784b = bArr5;
                     wrap.get(bArr5);
                     return;
                 }
@@ -115,7 +115,7 @@ public final class b {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "ApkExternalInfo [p=" + this.a + ", otherData=" + Arrays.toString(this.f59147b) + PreferencesUtil.RIGHT_MOUNT;
+                return "ApkExternalInfo [p=" + this.a + ", otherData=" + Arrays.toString(this.f43784b) + PreferencesUtil.RIGHT_MOUNT;
             }
             return (String) invokeV.objValue;
         }

@@ -26,9 +26,9 @@ public class n0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {n0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -43,14 +43,14 @@ public class n0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    if (new d(this.a.a).a(d.c0, 1) != 1 || (a = new d1(q0.f53775e, q0.f53776f).a(this.a.a)) == null) {
+                    if (new d(this.a.a).a(d.c0, 1) != 1 || (a = new d1(q0.f38952e, q0.f38953f).a(this.a.a)) == null) {
                         return;
                     }
                     JSONObject jSONObject = new JSONObject();
                     List<p> b2 = x.a(this.a.a).b();
                     jSONObject.put("11030", b2.size());
-                    jSONObject.put("11031", b2.size() > 0 ? b2.get(0).f53757d : "");
-                    jSONObject.put("11032", b2.size() > 1 ? b2.get(1).f53757d : "");
+                    jSONObject.put("11031", b2.size() > 0 ? b2.get(0).f38937d : "");
+                    jSONObject.put("11032", b2.size() > 1 ? b2.get(1).f38937d : "");
                     a.put("module_section", jSONObject);
                     g1.a(a.toString(), this.a.a);
                 } catch (Throwable th) {
@@ -67,9 +67,9 @@ public class n0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

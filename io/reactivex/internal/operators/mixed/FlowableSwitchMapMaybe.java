@@ -69,9 +69,9 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {switchMapMaybeSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -144,9 +144,9 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, function, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -189,8 +189,8 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                 AtomicThrowable atomicThrowable = this.errors;
                 AtomicReference<SwitchMapMaybeObserver<R>> atomicReference = this.inner;
                 AtomicLong atomicLong = this.requested;
-                long j2 = this.emitted;
-                int i2 = 1;
+                long j = this.emitted;
+                int i = 1;
                 while (!this.cancelled) {
                     if (atomicThrowable.get() != null && !this.delayErrors) {
                         subscriber.onError(atomicThrowable.terminate());
@@ -208,14 +208,14 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
                             subscriber.onComplete();
                             return;
                         }
-                    } else if (!z2 && switchMapMaybeObserver.item != null && j2 != atomicLong.get()) {
+                    } else if (!z2 && switchMapMaybeObserver.item != null && j != atomicLong.get()) {
                         atomicReference.compareAndSet(switchMapMaybeObserver, null);
                         subscriber.onNext((R) switchMapMaybeObserver.item);
-                        j2++;
+                        j++;
                     } else {
-                        this.emitted = j2;
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        this.emitted = j;
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     }
@@ -311,10 +311,10 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                BackpressureHelper.add(this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -327,9 +327,9 @@ public final class FlowableSwitchMapMaybe<T, R> extends Flowable<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, function, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -41,9 +41,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -157,16 +157,16 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         return invokeV.booleanValue;
     }
 
-    public final void notifyOnBufferingUpdate(int i2) {
+    public final void notifyOnBufferingUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
             IMediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener = this.mOnBufferingUpdateListener;
             if (onBufferingUpdateListener != null) {
-                onBufferingUpdateListener.onBufferingUpdate(this, i2);
+                onBufferingUpdateListener.onBufferingUpdate(this, i);
             }
             IMediaPlayer.Listener listener = this.listener;
             if (listener != null) {
-                listener.onBufferingUpdate(i2);
+                listener.onBufferingUpdate(i);
             }
         }
     }
@@ -185,26 +185,26 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         }
     }
 
-    public final boolean notifyOnError(int i2, int i3, Exception exc) {
+    public final boolean notifyOnError(int i, int i2, Exception exc) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i2, i3, exc)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i, i2, exc)) == null) {
             IMediaPlayer.OnErrorListener onErrorListener = this.mOnErrorListener;
-            boolean z = onErrorListener != null && onErrorListener.onError(this, i2, i3);
+            boolean z = onErrorListener != null && onErrorListener.onError(this, i, i2);
             IMediaPlayer.Listener listener = this.listener;
-            return z || (listener != null && listener.onError(i2, i3, exc));
+            return z || (listener != null && listener.onError(i, i2, exc));
         }
         return invokeIIL.booleanValue;
     }
 
-    public final boolean notifyOnInfo(int i2, int i3) {
+    public final boolean notifyOnInfo(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048589, this, i, i2)) == null) {
             IMediaPlayer.OnInfoListener onInfoListener = this.mOnInfoListener;
-            boolean z = onInfoListener != null && onInfoListener.onInfo(this, i2, i3);
+            boolean z = onInfoListener != null && onInfoListener.onInfo(this, i, i2);
             IMediaPlayer.Listener listener = this.listener;
-            return z || (listener != null && listener.onInfo(i2, i3));
+            return z || (listener != null && listener.onInfo(i, i2));
         }
         return invokeII.booleanValue;
     }
@@ -218,13 +218,13 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         onLoopingListener.onLoop();
     }
 
-    public final void notifyOnPlayStateChange(int i2) {
+    public final void notifyOnPlayStateChange(int i) {
         IPlayer.OnPlayerPlayStateListener onPlayerPlayStateListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048591, this, i2) == null) || (onPlayerPlayStateListener = this.mOnPlayStateListener) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || (onPlayerPlayStateListener = this.mOnPlayStateListener) == null) {
             return;
         }
-        onPlayerPlayStateListener.onStateChange(this, i2);
+        onPlayerPlayStateListener.onStateChange(this, i);
     }
 
     public final void notifyOnPrepared() {
@@ -264,16 +264,16 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         listener.onStateChanged(this.playbackState);
     }
 
-    public final void notifyOnVideoSizeChanged(int i2, int i3, int i4, float f2) {
+    public final void notifyOnVideoSizeChanged(int i, int i2, int i3, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
             IMediaPlayer.OnVideoSizeChangedListener onVideoSizeChangedListener = this.mOnVideoSizeChangedListener;
             if (onVideoSizeChangedListener != null) {
-                onVideoSizeChangedListener.onVideoSizeChanged(this, i2, i3, i4, (int) f2);
+                onVideoSizeChangedListener.onVideoSizeChanged(this, i, i2, i3, (int) f2);
             }
             IMediaPlayer.Listener listener = this.listener;
             if (listener != null) {
-                listener.onVideoSizeChanged(i2, i3, i4, f2);
+                listener.onVideoSizeChanged(i, i2, i3, f2);
             }
         }
     }
@@ -309,9 +309,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer
-    public void setAudioStreamType(int i2) {
+    public void setAudioStreamType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
         }
     }
 
@@ -403,9 +403,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onPlayerCompletionListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -445,9 +445,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onPlayerErrorListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -458,15 +458,15 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                 }
 
                 @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnErrorListener
-                public boolean onError(IMediaPlayer iMediaPlayer, int i2, int i3) {
+                public boolean onError(IMediaPlayer iMediaPlayer, int i, int i2) {
                     InterceptResult invokeLII;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i2, i3)) == null) {
+                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i, i2)) == null) {
                         IPlayer.OnPlayerErrorListener onPlayerErrorListener2 = this.val$listener;
                         if (onPlayerErrorListener2 == null) {
                             return false;
                         }
-                        return onPlayerErrorListener2.onError(this.this$0, i2, i3, new Exception());
+                        return onPlayerErrorListener2.onError(this.this$0, i, i2, new Exception());
                     }
                     return invokeLII.booleanValue;
                 }
@@ -491,9 +491,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onPlayerInfoListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -504,15 +504,15 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                 }
 
                 @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnInfoListener
-                public boolean onInfo(IMediaPlayer iMediaPlayer, int i2, int i3) {
+                public boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2) {
                     InterceptResult invokeLII;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i2, i3)) == null) {
+                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iMediaPlayer, i, i2)) == null) {
                         IPlayer.OnPlayerInfoListener onPlayerInfoListener2 = this.val$listener;
                         if (onPlayerInfoListener2 == null) {
                             return false;
                         }
-                        onPlayerInfoListener2.onInfo(this.this$0, i2, i3);
+                        onPlayerInfoListener2.onInfo(this.this$0, i, i2);
                         return false;
                     }
                     return invokeLII.booleanValue;
@@ -546,9 +546,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onPlayerPreparedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -588,9 +588,9 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onPlayerVideoSizeChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -601,13 +601,13 @@ public abstract class AMediaPlayer implements IMediaPlayer {
                 }
 
                 @Override // com.baidu.ugc.editvideo.record.source.multimedia.exo.ijk.IMediaPlayer.OnVideoSizeChangedListener
-                public void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i2, int i3, int i4, int i5) {
+                public void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4) {
                     IPlayer.OnPlayerVideoSizeChangedListener onPlayerVideoSizeChangedListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{iMediaPlayer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (onPlayerVideoSizeChangedListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{iMediaPlayer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || (onPlayerVideoSizeChangedListener2 = this.val$listener) == null) {
                         return;
                     }
-                    onPlayerVideoSizeChangedListener2.onVideoSizeChanged(i2, i3);
+                    onPlayerVideoSizeChangedListener2.onVideoSizeChanged(i, i2);
                 }
             });
         }
@@ -637,10 +637,10 @@ public abstract class AMediaPlayer implements IMediaPlayer {
         }
     }
 
-    public void setPlaybackState(int i2) {
+    public void setPlaybackState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.playbackState = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.playbackState = i;
             notifyOnStateChanged();
         }
     }

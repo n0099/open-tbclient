@@ -2,12 +2,18 @@ package com.baidu.sapi2.utils;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.fsg.base.statistics.h;
 import com.baidu.sapi2.NoProguard;
 import com.baidu.sapi2.SapiConfiguration;
 import com.baidu.sapi2.SapiContext;
+import com.baidu.sapi2.SapiOptions;
+import com.baidu.sapi2.ServiceManager;
+import com.baidu.sapi2.service.interfaces.ISAccountManager;
+import com.baidu.sapi2.utils.enums.BindInfoAction;
 import com.baidu.sapi2.utils.enums.Language;
 import com.baidu.sapi2.utils.enums.SocialType;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,19 +25,55 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ParamsUtil implements NoProguard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* renamed from: com.baidu.sapi2.utils.ParamsUtil$1  reason: invalid class name */
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class AnonymousClass1 {
+        public static final /* synthetic */ int[] $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction;
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1232389526, "Lcom/baidu/sapi2/utils/ParamsUtil$1;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1232389526, "Lcom/baidu/sapi2/utils/ParamsUtil$1;");
+                    return;
+                }
+            }
+            int[] iArr = new int[BindInfoAction.values().length];
+            $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction = iArr;
+            try {
+                iArr[BindInfoAction.BIND_EMAIL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                $SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[BindInfoAction.BIND_MOBILE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
 
     public ParamsUtil() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -92,16 +134,90 @@ public class ParamsUtil implements NoProguard {
         return (List) invokeLL.objValue;
     }
 
+    public static boolean checkDiUpload(JSONArray jSONArray, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, jSONArray, i)) == null) {
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                String optString = jSONArray.optString(i2);
+                if (!TextUtils.isEmpty(optString) && optString.equals(String.valueOf(i))) {
+                    Log.e("privacy_parameter_control", "di is not upload , index = " + i);
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
     public static String getAdapterParamValue(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? z ? "3" : z2 ? "8" : "" : (String) invokeCommon.objValue;
+    }
+
+    public static String getBindInfoType(BindInfoAction bindInfoAction) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bindInfoAction)) == null) ? (bindInfoAction != null && AnonymousClass1.$SwitchMap$com$baidu$sapi2$utils$enums$BindInfoAction[bindInfoAction.ordinal()] == 1) ? "&type=email" : "" : (String) invokeL.objValue;
+    }
+
+    public static JSONArray getGrayControlParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            ISAccountManager isAccountManager = ServiceManager.getInstance().getIsAccountManager();
+            if (isAccountManager == null) {
+                Log.e("privacy_parameter_control", "accountManager is null");
+                return jSONArray;
+            }
+            SapiConfiguration confignation = isAccountManager.getConfignation();
+            if (confignation == null) {
+                Log.e("privacy_parameter_control", "confignation is null");
+                return jSONArray;
+            } else if (!confignation.mPrivacyParamesRegulation) {
+                Log.e("privacy_parameter_control", "params is not be regulation");
+                return jSONArray;
+            } else {
+                SapiOptions.Gray gray = SapiContext.getInstance().getSapiOptions().gray;
+                if (gray == null) {
+                    Log.e("privacy_parameter_control", "gray is null");
+                    return jSONArray;
+                }
+                SapiOptions.Gray.GrayModule grayModuleByFunName = gray.getGrayModuleByFunName(SapiOptions.Gray.FUN_NAME_MAPPING);
+                if (grayModuleByFunName == null) {
+                    Log.e("privacy_parameter_control", "grayModule is null");
+                    return jSONArray;
+                } else if (!grayModuleByFunName.isMeetGray()) {
+                    Log.e("privacy_parameter_control", "meetGray is false");
+                    return jSONArray;
+                } else {
+                    String extraParams = grayModuleByFunName.getExtraParams();
+                    if (extraParams == null) {
+                        Log.e("privacy_parameter_control", "extraParams is null");
+                        return jSONArray;
+                    }
+                    Log.e("privacy_parameter_control", "extraParams : " + extraParams);
+                    try {
+                        jSONArray = new JSONObject(extraParams).optJSONArray("dt_params");
+                        Log.e("privacy_parameter_control", "paramsList : " + jSONArray);
+                        return jSONArray;
+                    } catch (JSONException e2) {
+                        Log.e("privacy_parameter_control", "exception : " + e2);
+                        e2.printStackTrace();
+                        return jSONArray;
+                    }
+                }
+            }
+        }
+        return (JSONArray) invokeV.objValue;
     }
 
     public static String getUrlBind(SapiConfiguration sapiConfiguration, SocialType socialType, String str, String str2, String str3) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65543, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65546, null, sapiConfiguration, socialType, str, str2, str3)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("display", "native");
             hashMap.put("type", socialType.getType() + "");
@@ -118,10 +234,23 @@ public class ParamsUtil implements NoProguard {
         return (String) invokeLLLLL.objValue;
     }
 
+    public static String getUrlCFOLogin(SapiConfiguration sapiConfiguration, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, sapiConfiguration, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("type", SocialType.CFO.getType() + "");
+            hashMap.put("appid", sapiConfiguration.cfoAppKey);
+            hashMap.put("code", str);
+            return sapiConfiguration.environment.getURL() + "/phoenix/account/ssologin?" + buildH5CommonParams(sapiConfiguration) + "&" + SapiUtils.mapToUrlParams(hashMap, true);
+        }
+        return (String) invokeLL.objValue;
+    }
+
     public static String getUrlQQBind(SapiConfiguration sapiConfiguration, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65544, null, sapiConfiguration, str, str2, str3)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, sapiConfiguration, str, str2, str3)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.QQ_SSO.getType() + "");
             hashMap.put("appid", sapiConfiguration.qqAppID);
@@ -139,7 +268,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlTwitterLogin(SapiConfiguration sapiConfiguration) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, sapiConfiguration)) == null) {
             String str = sapiConfiguration.environment.getURL() + SapiEnv.SOCIAL_START_URI;
             HashMap hashMap = new HashMap();
             hashMap.put("type", String.valueOf(SocialType.TWITTER.getType()));
@@ -153,7 +282,7 @@ public class ParamsUtil implements NoProguard {
             hashMap.put("display", "native");
             hashMap.put("act", "optional");
             hashMap.put("supportGuestAccount", "1");
-            hashMap.put("app_key", sapiConfiguration.twitterAppKey);
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, sapiConfiguration.twitterAppKey);
             hashMap.put("client", "android");
             hashMap.put("clientfrom", "native");
             return str + SapiUtils.mapToUrlParams(hashMap, false);
@@ -164,7 +293,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlWeixinBind(SapiConfiguration sapiConfiguration, String str, String str2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{sapiConfiguration, str, str2, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{sapiConfiguration, str, str2, Boolean.valueOf(z)})) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.WEIXIN.getType() + "");
             hashMap.put("mkey", str2);
@@ -186,7 +315,7 @@ public class ParamsUtil implements NoProguard {
     public static String getUrlYYLogin(String str, SapiConfiguration sapiConfiguration) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65547, null, str, sapiConfiguration)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, sapiConfiguration)) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("type", SocialType.YY.getType() + "");
             hashMap.put("appid", sapiConfiguration.yyAppId);
@@ -224,7 +353,7 @@ public class ParamsUtil implements NoProguard {
                 hashMap.put("connect", "1");
             }
             if (sapiConfiguration.language == Language.ENGLISH) {
-                hashMap.put(WebvttCueParser.TAG_LANG, h.a);
+                hashMap.put(WebvttCueParser.TAG_LANG, "en");
             }
             hashMap.put("suppcheck", "1");
             if (sapiConfiguration.supportFaceLogin) {

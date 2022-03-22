@@ -3,7 +3,9 @@ package okhttp3.internal.platform;
 import android.os.Build;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +32,7 @@ import okhttp3.Protocol;
 import okhttp3.internal.Util;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AndroidPlatform extends Platform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_LOG_LENGTH = 4000;
@@ -42,7 +44,7 @@ public class AndroidPlatform extends Platform {
     public final OptionalMethod<Socket> setUseSessionTickets;
     public final Class<?> sslParametersClass;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AndroidCertificateChainCleaner extends CertificateChainCleaner {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,9 +58,9 @@ public class AndroidPlatform extends Platform {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj, method};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,7 +76,7 @@ public class AndroidPlatform extends Platform {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, str)) == null) {
                 try {
-                    return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), "RSA", str);
+                    return (List) this.checkServerTrusted.invoke(this.x509TrustManagerExtensions, (X509Certificate[]) list.toArray(new X509Certificate[list.size()]), RSAUtil.ALGORITHM_RSA, str);
                 } catch (IllegalAccessException e2) {
                     throw new AssertionError(e2);
                 } catch (InvocationTargetException e3) {
@@ -102,7 +104,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AndroidTrustRootIndex implements TrustRootIndex {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -116,9 +118,9 @@ public class AndroidPlatform extends Platform {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {x509TrustManager, method};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -171,7 +173,7 @@ public class AndroidPlatform extends Platform {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class CloseGuard {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,9 +188,9 @@ public class AndroidPlatform extends Platform {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {method, method2, method3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -208,7 +210,7 @@ public class AndroidPlatform extends Platform {
                 Method method3 = null;
                 try {
                     Class<?> cls = Class.forName("dalvik.system.CloseGuard");
-                    Method method4 = cls.getMethod("get", new Class[0]);
+                    Method method4 = cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, new Class[0]);
                     method2 = cls.getMethod("open", String.class);
                     method = cls.getMethod("warnIfOpen", new Class[0]);
                     method3 = method4;
@@ -264,9 +266,9 @@ public class AndroidPlatform extends Platform {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, optionalMethod, optionalMethod2, optionalMethod3, optionalMethod4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -403,11 +405,11 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i2) throws IOException {
+    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, socket, inetSocketAddress, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048579, this, socket, inetSocketAddress, i) == null) {
             try {
-                socket.connect(inetSocketAddress, i2);
+                socket.connect(inetSocketAddress, i);
             } catch (AssertionError e2) {
                 if (!Util.isAndroidGetsocknameError(e2)) {
                     throw e2;
@@ -433,8 +435,8 @@ public class AndroidPlatform extends Platform {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 16 && i2 < 22) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 16 && i < 22) {
                 try {
                     return SSLContext.getInstance("TLSv1.2");
                 } catch (NoSuchAlgorithmException unused) {
@@ -497,30 +499,30 @@ public class AndroidPlatform extends Platform {
     }
 
     @Override // okhttp3.internal.platform.Platform
-    public void log(int i2, String str, Throwable th) {
+    public void log(int i, String str, Throwable th) {
         int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str, th) == null) {
-            int i3 = i2 != 5 ? 3 : 5;
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, th) == null) {
+            int i2 = i != 5 ? 3 : 5;
             if (th != null) {
                 str = str + '\n' + Log.getStackTraceString(th);
             }
-            int i4 = 0;
+            int i3 = 0;
             int length = str.length();
-            while (i4 < length) {
-                int indexOf = str.indexOf(10, i4);
+            while (i3 < length) {
+                int indexOf = str.indexOf(10, i3);
                 if (indexOf == -1) {
                     indexOf = length;
                 }
                 while (true) {
-                    min = Math.min(indexOf, i4 + 4000);
-                    Log.println(i3, "OkHttp", str.substring(i4, min));
+                    min = Math.min(indexOf, i3 + 4000);
+                    Log.println(i2, "OkHttp", str.substring(i3, min));
                     if (min >= indexOf) {
                         break;
                     }
-                    i4 = min;
+                    i3 = min;
                 }
-                i4 = min + 1;
+                i3 = min + 1;
             }
         }
     }

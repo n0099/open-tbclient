@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DBAccessMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DBAccessMgr";
@@ -55,9 +55,9 @@ public class DBAccessMgr {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -345,7 +345,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, hijackTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -375,18 +375,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(hijackTB.getHip()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_HIJACK, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_HIJACK, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -403,7 +403,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -412,18 +412,18 @@ public class DBAccessMgr {
                         linkedList2.add(str);
                     }
                     String str2 = "";
-                    for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                        str2 = str2 + ((String) linkedList.get(i3));
-                        if (i3 != linkedList.size() - 1) {
+                    for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                        str2 = str2 + ((String) linkedList.get(i2));
+                        if (i2 != linkedList.size() - 1) {
                             str2 = str2 + " and ";
                         }
                     }
                     try {
-                        i2 = this.db.delete(DBInitMgr.TB_HIJACK, str2, (String[]) linkedList2.toArray(new String[0]));
+                        i = this.db.delete(DBInitMgr.TB_HIJACK, str2, (String[]) linkedList2.toArray(new String[0]));
                     } catch (Exception e2) {
                         LogTools.printWarning(TAG, e2);
                     }
-                    return i2;
+                    return i;
                 }
                 return 0;
             }
@@ -436,7 +436,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, hostTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -454,18 +454,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(hostTB.getIsPre()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_HOST, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_HOST, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -482,7 +482,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, resultTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -504,18 +504,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(resultTB.getIp()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_RESULT, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_RESULT, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -532,7 +532,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (noNeedDB || this.openDBFailed) {
                     return 0;
                 }
@@ -544,18 +544,18 @@ public class DBAccessMgr {
                 linkedList.add("host=?");
                 linkedList2.add(str);
                 String str2 = "";
-                for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                    str2 = str2 + ((String) linkedList.get(i3));
-                    if (i3 != linkedList.size() - 1) {
+                for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                    str2 = str2 + ((String) linkedList.get(i2));
+                    if (i2 != linkedList.size() - 1) {
                         str2 = str2 + " and ";
                     }
                 }
                 try {
-                    i2 = this.db.delete(DBInitMgr.TB_RESULT, str2, (String[]) linkedList2.toArray(new String[0]));
+                    i = this.db.delete(DBInitMgr.TB_RESULT, str2, (String[]) linkedList2.toArray(new String[0]));
                 } catch (Exception e2) {
                     LogTools.printWarning(TAG, e2);
                 }
-                return i2;
+                return i;
             }
         }
         return invokeL.intValue;
@@ -566,7 +566,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, resultTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -588,18 +588,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(resultTB.getIp()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_RESULT_V6, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_RESULT_V6, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -616,7 +616,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (noNeedDB || this.openDBFailed) {
                     return 0;
                 }
@@ -628,18 +628,18 @@ public class DBAccessMgr {
                 linkedList.add("host=?");
                 linkedList2.add(str);
                 String str2 = "";
-                for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                    str2 = str2 + ((String) linkedList.get(i3));
-                    if (i3 != linkedList.size() - 1) {
+                for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                    str2 = str2 + ((String) linkedList.get(i2));
+                    if (i2 != linkedList.size() - 1) {
                         str2 = str2 + " and ";
                     }
                 }
                 try {
-                    i2 = this.db.delete(DBInitMgr.TB_RESULT_V6, str2, (String[]) linkedList2.toArray(new String[0]));
+                    i = this.db.delete(DBInitMgr.TB_RESULT_V6, str2, (String[]) linkedList2.toArray(new String[0]));
                 } catch (Exception e2) {
                     LogTools.printWarning(TAG, e2);
                 }
-                return i2;
+                return i;
             }
         }
         return invokeL.intValue;
@@ -650,7 +650,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, serverTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -668,18 +668,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(serverTB.getIp()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_SERVER, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_SERVER, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -696,7 +696,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, serverV6TB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     LinkedList linkedList = new LinkedList();
                     LinkedList linkedList2 = new LinkedList();
@@ -714,18 +714,18 @@ public class DBAccessMgr {
                             linkedList2.add(String.valueOf(serverV6TB.getIp()));
                         }
                         String str = "";
-                        for (int i3 = 0; i3 < linkedList.size(); i3++) {
-                            str = str + ((String) linkedList.get(i3));
-                            if (i3 != linkedList.size() - 1) {
+                        for (int i2 = 0; i2 < linkedList.size(); i2++) {
+                            str = str + ((String) linkedList.get(i2));
+                            if (i2 != linkedList.size() - 1) {
                                 str = str + " and ";
                             }
                         }
                         try {
-                            i2 = this.db.delete(DBInitMgr.TB_SERVER_V6, str, (String[]) linkedList2.toArray(new String[0]));
+                            i = this.db.delete(DBInitMgr.TB_SERVER_V6, str, (String[]) linkedList2.toArray(new String[0]));
                         } catch (Exception e2) {
                             LogTools.printWarning(TAG, e2);
                         }
-                        return i2;
+                        return i;
                     } catch (Exception e3) {
                         LogTools.printWarning(TAG, e3);
                         return -1;
@@ -1010,10 +1010,10 @@ public class DBAccessMgr {
         return (List) invokeLL.objValue;
     }
 
-    public synchronized List<ServerTB> getServerByIsp(int i2) {
+    public synchronized List<ServerTB> getServerByIsp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList();
                 if (noNeedDB || this.openDBFailed) {
@@ -1021,7 +1021,7 @@ public class DBAccessMgr {
                 }
                 try {
                     SQLiteDatabase sQLiteDatabase = this.db;
-                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER, null, "isp=" + i2, null, null, null, "_id");
+                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER, null, "isp=" + i, null, null, null, "_id");
                     query.moveToFirst();
                     while (!query.isAfterLast()) {
                         ServerTB serverTB = new ServerTB();
@@ -1042,10 +1042,10 @@ public class DBAccessMgr {
         return (List) invokeI.objValue;
     }
 
-    public synchronized List<ServerV6TB> getServerV6ByIsp(int i2) {
+    public synchronized List<ServerV6TB> getServerV6ByIsp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
             synchronized (this) {
                 ArrayList arrayList = new ArrayList();
                 if (noNeedDB || this.openDBFailed) {
@@ -1053,7 +1053,7 @@ public class DBAccessMgr {
                 }
                 try {
                     SQLiteDatabase sQLiteDatabase = this.db;
-                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER_V6, null, "isp=" + i2, null, null, null, "_id");
+                    Cursor query = sQLiteDatabase.query(DBInitMgr.TB_SERVER_V6, null, "isp=" + i, null, null, null, "_id");
                     query.moveToFirst();
                     while (!query.isAfterLast()) {
                         ServerV6TB serverV6TB = new ServerV6TB();
@@ -1079,7 +1079,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, hostTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     ContentValues contentValues = new ContentValues();
                     if (hostTB.getHost() != null) {
@@ -1092,11 +1092,11 @@ public class DBAccessMgr {
                         contentValues.put(HostTB.INSERTTIME, Long.valueOf(hostTB.getInsertTime()));
                     }
                     try {
-                        i2 = this.db.update(DBInitMgr.TB_HOST, contentValues, "_id=?", new String[]{String.valueOf(hostTB.getId())});
+                        i = this.db.update(DBInitMgr.TB_HOST, contentValues, "_id=?", new String[]{String.valueOf(hostTB.getId())});
                     } catch (Exception e2) {
                         LogTools.printWarning(TAG, e2);
                     }
-                    return i2;
+                    return i;
                 }
                 return 0;
             }
@@ -1109,7 +1109,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, resultTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     ContentValues contentValues = new ContentValues();
                     if (resultTB.getNetwork() != null) {
@@ -1140,11 +1140,11 @@ public class DBAccessMgr {
                         contentValues.put("uip", resultTB.getUip());
                     }
                     try {
-                        i2 = this.db.update(DBInitMgr.TB_RESULT, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
+                        i = this.db.update(DBInitMgr.TB_RESULT, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
                     } catch (Exception e2) {
                         LogTools.printWarning(TAG, e2);
                     }
-                    return i2;
+                    return i;
                 }
                 return 0;
             }
@@ -1157,7 +1157,7 @@ public class DBAccessMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, resultTB)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 if (!noNeedDB && !this.openDBFailed) {
                     ContentValues contentValues = new ContentValues();
                     if (resultTB.getNetwork() != null) {
@@ -1188,11 +1188,11 @@ public class DBAccessMgr {
                         contentValues.put("uip", resultTB.getUip());
                     }
                     try {
-                        i2 = this.db.update(DBInitMgr.TB_RESULT_V6, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
+                        i = this.db.update(DBInitMgr.TB_RESULT_V6, contentValues, "_id=?", new String[]{String.valueOf(resultTB.getId())});
                     } catch (Exception e2) {
                         LogTools.printWarning(TAG, e2);
                     }
-                    return i2;
+                    return i;
                 }
                 return 0;
             }

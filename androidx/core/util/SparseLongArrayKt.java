@@ -22,24 +22,24 @@ public final class SparseLongArrayKt {
     public transient /* synthetic */ FieldHolder $fh;
 
     @RequiresApi(18)
-    public static final boolean contains(SparseLongArray sparseLongArray, int i2) {
+    public static final boolean contains(SparseLongArray sparseLongArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseLongArray, i2)) == null) ? sparseLongArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, sparseLongArray, i)) == null) ? sparseLongArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
     @RequiresApi(18)
-    public static final boolean containsKey(SparseLongArray sparseLongArray, int i2) {
+    public static final boolean containsKey(SparseLongArray sparseLongArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseLongArray, i2)) == null) ? sparseLongArray.indexOfKey(i2) >= 0 : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, sparseLongArray, i)) == null) ? sparseLongArray.indexOfKey(i) >= 0 : invokeLI.booleanValue;
     }
 
     @RequiresApi(18)
-    public static final boolean containsValue(SparseLongArray sparseLongArray, long j2) {
+    public static final boolean containsValue(SparseLongArray sparseLongArray, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, sparseLongArray, j2)) == null) ? sparseLongArray.indexOfValue(j2) >= 0 : invokeLJ.booleanValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, sparseLongArray, j)) == null) ? sparseLongArray.indexOfValue(j) >= 0 : invokeLJ.booleanValue;
     }
 
     @RequiresApi(18)
@@ -47,25 +47,25 @@ public final class SparseLongArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, sparseLongArray, function2) == null) {
             int size = sparseLongArray.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                function2.invoke(Integer.valueOf(sparseLongArray.keyAt(i2)), Long.valueOf(sparseLongArray.valueAt(i2)));
+            for (int i = 0; i < size; i++) {
+                function2.invoke(Integer.valueOf(sparseLongArray.keyAt(i)), Long.valueOf(sparseLongArray.valueAt(i)));
             }
         }
     }
 
     @RequiresApi(18)
-    public static final long getOrDefault(SparseLongArray sparseLongArray, int i2, long j2) {
+    public static final long getOrDefault(SparseLongArray sparseLongArray, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? sparseLongArray.get(i2, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sparseLongArray, Integer.valueOf(i), Long.valueOf(j)})) == null) ? sparseLongArray.get(i, j) : invokeCommon.longValue;
     }
 
     @RequiresApi(18)
-    public static final long getOrElse(SparseLongArray sparseLongArray, int i2, Function0<Long> function0) {
+    public static final long getOrElse(SparseLongArray sparseLongArray, int i, Function0<Long> function0) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseLongArray, i2, function0)) == null) {
-            int indexOfKey = sparseLongArray.indexOfKey(i2);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, null, sparseLongArray, i, function0)) == null) {
+            int indexOfKey = sparseLongArray.indexOfKey(i);
             return indexOfKey >= 0 ? sparseLongArray.valueAt(indexOfKey) : function0.invoke().longValue();
         }
         return invokeLIL.longValue;
@@ -109,9 +109,9 @@ public final class SparseLongArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseLongArray};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -139,17 +139,17 @@ public final class SparseLongArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseLongArray sparseLongArray2 = this.$this_keyIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseLongArray2.keyAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseLongArray2.keyAt(i);
                 }
                 return invokeV.intValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (IntIterator) invokeL.objValue;
@@ -173,19 +173,19 @@ public final class SparseLongArrayKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, sparseLongArray, sparseLongArray2) == null) {
             int size = sparseLongArray2.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                sparseLongArray.put(sparseLongArray2.keyAt(i2), sparseLongArray2.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                sparseLongArray.put(sparseLongArray2.keyAt(i), sparseLongArray2.valueAt(i));
             }
         }
     }
 
     @RequiresApi(18)
-    public static final boolean remove(SparseLongArray sparseLongArray, int i2, long j2) {
+    public static final boolean remove(SparseLongArray sparseLongArray, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            int indexOfKey = sparseLongArray.indexOfKey(i2);
-            if (indexOfKey < 0 || j2 != sparseLongArray.valueAt(indexOfKey)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{sparseLongArray, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            int indexOfKey = sparseLongArray.indexOfKey(i);
+            if (indexOfKey < 0 || j != sparseLongArray.valueAt(indexOfKey)) {
                 return false;
             }
             sparseLongArray.removeAt(indexOfKey);
@@ -195,10 +195,10 @@ public final class SparseLongArrayKt {
     }
 
     @RequiresApi(18)
-    public static final void set(SparseLongArray sparseLongArray, int i2, long j2) {
+    public static final void set(SparseLongArray sparseLongArray, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseLongArray, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            sparseLongArray.put(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{sparseLongArray, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            sparseLongArray.put(i, j);
         }
     }
 
@@ -219,9 +219,9 @@ public final class SparseLongArrayKt {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {sparseLongArray};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -249,17 +249,17 @@ public final class SparseLongArrayKt {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                     SparseLongArray sparseLongArray2 = this.$this_valueIterator;
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    return sparseLongArray2.valueAt(i2);
+                    int i = this.index;
+                    this.index = i + 1;
+                    return sparseLongArray2.valueAt(i);
                 }
                 return invokeV.longValue;
             }
 
-            public final void setIndex(int i2) {
+            public final void setIndex(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
-                    this.index = i2;
+                if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
+                    this.index = i;
                 }
             }
         } : (LongIterator) invokeL.objValue;

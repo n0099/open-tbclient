@@ -13,31 +13,29 @@ import java.util.Iterator;
 public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public long f27321e;
+    /* renamed from: b  reason: collision with root package name */
+    public final c.b.b.q.a<a> f22550b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27322f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f27323g;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f22551c;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27322f = new c.b.b.q.a<>();
-        this.f27323g = true;
+        this.f22550b = new c.b.b.q.a<>();
+        this.f22551c = true;
     }
 
     public int b() {
@@ -45,14 +43,14 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             j();
-            int i2 = this.f27322f.f27499f;
-            long j2 = this.f27321e + 71;
-            int i3 = 1;
-            for (int i4 = 0; i4 < i2; i4++) {
-                i3 = (i3 * 7) & 65535;
-                j2 += this.f27321e * this.f27322f.get(i4).hashCode() * i3;
+            int i = this.f22550b.f22717b;
+            long j = this.a + 71;
+            int i2 = 1;
+            for (int i3 = 0; i3 < i; i3++) {
+                i2 = (i2 * 7) & 65535;
+                j += this.a * this.f22550b.get(i3).hashCode() * i2;
             }
-            return (int) (j2 ^ (j2 >> 32));
+            return (int) (j ^ (j >> 32));
         }
         return invokeV.intValue;
     }
@@ -63,7 +61,7 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
     public final int compare(a aVar, a aVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2)) == null) ? (int) (aVar.f27319e - aVar2.f27319e) : invokeLL.intValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, aVar2)) == null) ? (int) (aVar.a - aVar2.a) : invokeLL.intValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -78,34 +76,34 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
         if (bVar == this) {
             return 0;
         }
-        long j2 = this.f27321e;
-        long j3 = bVar.f27321e;
-        if (j2 != j3) {
-            return j2 < j3 ? -1 : 1;
+        long j = this.a;
+        long j2 = bVar.a;
+        if (j != j2) {
+            return j < j2 ? -1 : 1;
         }
         j();
         bVar.j();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            c.b.b.q.a<a> aVar = this.f27322f;
-            if (i2 >= aVar.f27499f) {
+            c.b.b.q.a<a> aVar = this.f22550b;
+            if (i >= aVar.f22717b) {
                 return 0;
             }
-            int compareTo = aVar.get(i2).compareTo(bVar.f27322f.get(i2));
+            int compareTo = aVar.get(i).compareTo(bVar.f22550b.get(i));
             if (compareTo != 0) {
                 if (compareTo < 0) {
                     return -1;
                 }
                 return compareTo > 0 ? 1 : 0;
             }
-            i2++;
+            i++;
         }
     }
 
-    public final void e(long j2) {
+    public final void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f27321e = j2 | this.f27321e;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.a = j | this.a;
         }
     }
 
@@ -125,31 +123,31 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
         return invokeL.booleanValue;
     }
 
-    public final boolean f(long j2) {
+    public final boolean f(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? j2 != 0 && (this.f27321e & j2) == j2 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? j != 0 && (this.a & j) == j : invokeJ.booleanValue;
     }
 
-    public int g(long j2) {
+    public int g(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) != null) {
             return invokeJ.intValue;
         }
-        if (!f(j2)) {
+        if (!f(j)) {
             return -1;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            c.b.b.q.a<a> aVar = this.f27322f;
-            if (i2 >= aVar.f27499f) {
+            c.b.b.q.a<a> aVar = this.f22550b;
+            if (i >= aVar.f22717b) {
                 return -1;
             }
-            if (aVar.get(i2).f27319e == j2) {
-                return i2;
+            if (aVar.get(i).a == j) {
+                return i;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -162,7 +160,7 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
         if (bVar == this) {
             return true;
         }
-        if (bVar == null || this.f27321e != bVar.f27321e) {
+        if (bVar == null || this.a != bVar.a) {
             return false;
         }
         if (!z) {
@@ -170,16 +168,16 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
         }
         j();
         bVar.j();
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            c.b.b.q.a<a> aVar = this.f27322f;
-            if (i2 >= aVar.f27499f) {
+            c.b.b.q.a<a> aVar = this.f22550b;
+            if (i >= aVar.f22717b) {
                 return true;
             }
-            if (!aVar.get(i2).a(bVar.f27322f.get(i2))) {
+            if (!aVar.get(i).a(bVar.f22550b.get(i))) {
                 return false;
             }
-            i2++;
+            i++;
         }
     }
 
@@ -192,13 +190,13 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
     public final void i(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, aVar) == null) {
-            int g2 = g(aVar.f27319e);
+            int g2 = g(aVar.a);
             if (g2 < 0) {
-                e(aVar.f27319e);
-                this.f27322f.a(aVar);
-                this.f27323g = false;
+                e(aVar.a);
+                this.f22550b.a(aVar);
+                this.f22551c = false;
             } else {
-                this.f27322f.k(g2, aVar);
+                this.f22550b.l(g2, aVar);
             }
             j();
         }
@@ -208,15 +206,15 @@ public class b implements Iterable<a>, Comparator<a>, Comparable<b> {
     public final Iterator<a> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f27322f.iterator() : (Iterator) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f22550b.iterator() : (Iterator) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f27323g) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || this.f22551c) {
             return;
         }
-        this.f27322f.sort(this);
-        this.f27323g = true;
+        this.f22550b.sort(this);
+        this.f22551c = true;
     }
 }

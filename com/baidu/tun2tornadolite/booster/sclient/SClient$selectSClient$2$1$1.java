@@ -27,17 +27,17 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$selectSClient$2$1$1(String str, long j2, Continuation<? super SClient$selectSClient$2$1$1> continuation) {
+    public SClient$selectSClient$2$1$1(String str, long j, Continuation<? super SClient$selectSClient$2$1$1> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), continuation};
+            Object[] objArr = {str, Long.valueOf(j), continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,7 +46,7 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
             }
         }
         this.$address = str;
-        this.$timeout = j2;
+        this.$timeout = j;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -70,18 +70,18 @@ public final class SClient$selectSClient$2$1$1 extends SuspendLambda implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 SClient sClient = SClient.INSTANCE;
                 String str = this.$address;
-                long j2 = this.$timeout;
+                long j = this.$timeout;
                 this.label = 1;
-                obj = sClient.getConnectSClientTime(str, j2, this);
+                obj = sClient.getConnectSClientTime(str, j, this);
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 ResultKt.throwOnFailure(obj);

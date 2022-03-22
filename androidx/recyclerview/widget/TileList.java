@@ -25,58 +25,58 @@ public class TileList<T> {
         public Tile<T> mNext;
         public int mStartPosition;
 
-        public Tile(Class<T> cls, int i2) {
+        public Tile(Class<T> cls, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cls, Integer.valueOf(i2)};
+                Object[] objArr = {cls, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mItems = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i2));
+            this.mItems = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, i));
         }
 
-        public boolean containsPosition(int i2) {
+        public boolean containsPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                int i3 = this.mStartPosition;
-                return i3 <= i2 && i2 < i3 + this.mItemCount;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                int i2 = this.mStartPosition;
+                return i2 <= i && i < i2 + this.mItemCount;
             }
             return invokeI.booleanValue;
         }
 
-        public T getByPosition(int i2) {
+        public T getByPosition(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mItems[i2 - this.mStartPosition] : (T) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mItems[i - this.mStartPosition] : (T) invokeI.objValue;
         }
     }
 
-    public TileList(int i2) {
+    public TileList(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mTiles = new SparseArray<>(10);
-        this.mTileSize = i2;
+        this.mTileSize = i;
     }
 
     public Tile<T> addOrReplace(Tile<T> tile) {
@@ -105,38 +105,38 @@ public class TileList<T> {
         }
     }
 
-    public Tile<T> getAtIndex(int i2) {
+    public Tile<T> getAtIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mTiles.valueAt(i2) : (Tile) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mTiles.valueAt(i) : (Tile) invokeI.objValue;
     }
 
-    public T getItemAt(int i2) {
+    public T getItemAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             Tile<T> tile = this.mLastAccessedTile;
-            if (tile == null || !tile.containsPosition(i2)) {
-                int indexOfKey = this.mTiles.indexOfKey(i2 - (i2 % this.mTileSize));
+            if (tile == null || !tile.containsPosition(i)) {
+                int indexOfKey = this.mTiles.indexOfKey(i - (i % this.mTileSize));
                 if (indexOfKey < 0) {
                     return null;
                 }
                 this.mLastAccessedTile = this.mTiles.valueAt(indexOfKey);
             }
-            return this.mLastAccessedTile.getByPosition(i2);
+            return this.mLastAccessedTile.getByPosition(i);
         }
         return (T) invokeI.objValue;
     }
 
-    public Tile<T> removeAtPos(int i2) {
+    public Tile<T> removeAtPos(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Tile<T> tile = this.mTiles.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            Tile<T> tile = this.mTiles.get(i);
             if (this.mLastAccessedTile == tile) {
                 this.mLastAccessedTile = null;
             }
-            this.mTiles.delete(i2);
+            this.mTiles.delete(i);
             return tile;
         }
         return (Tile) invokeI.objValue;

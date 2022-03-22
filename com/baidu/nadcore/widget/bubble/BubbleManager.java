@@ -1,7 +1,7 @@
 package com.baidu.nadcore.widget.bubble;
 
 import android.view.View;
-import c.a.b0.l0.o.c.c;
+import c.a.a0.l0.p.c.c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class BubbleManager extends c.a.b0.l0.o.d.b implements View.OnClickListener {
+public class BubbleManager extends c.a.a0.l0.p.d.b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,16 +42,16 @@ public class BubbleManager extends c.a.b0.l0.o.d.b implements View.OnClickListen
             $VALUES = new BubbleStyle[]{TextOnly, bubbleStyle};
         }
 
-        public BubbleStyle(String str, int i2) {
+        public BubbleStyle(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -92,11 +92,11 @@ public class BubbleManager extends c.a.b0.l0.o.d.b implements View.OnClickListen
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
-            if (cls == c.class || cls == c.a.b0.l0.o.c.b.class) {
+            if (cls == c.class || cls == c.a.a0.l0.p.c.b.class) {
                 try {
                     return cls.newInstance();
                 } catch (Exception e2) {
-                    c.a.b0.i.a.b("BubbleManager", "", e2);
+                    c.a.a0.i.a.b("BubbleManager", "", e2);
                     return null;
                 }
             }

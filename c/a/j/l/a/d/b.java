@@ -16,31 +16,27 @@ public class b {
     public CharSequence a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3790b;
+    public int f3262b;
 
     /* renamed from: c  reason: collision with root package name */
-    public CharSequence f3791c;
+    public CharSequence f3263c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3792d;
+    public int f3264d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f3793e;
+    public int f3265e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f3794f;
+    public a f3266f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f3795g;
+    public String f3267g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f3796h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f3797i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f3798j;
+    public String f3268h;
+    public String i;
+    public String j;
     public String k;
     public String l;
     public c.a.j.h.c.d.c m;
@@ -55,17 +51,17 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3793e = 2;
-        this.f3790b = 14;
-        this.f3792d = 14;
+        this.f3265e = 2;
+        this.f3262b = 14;
+        this.f3264d = 14;
     }
 
     public static void f() {
@@ -82,10 +78,10 @@ public class b {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? c.a.j.h.d.d.a() : invokeL.intValue;
     }
 
-    public b a(int i2) {
+    public b a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this : (b) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this : (b) invokeI.objValue;
     }
 
     public b b(c.a.j.h.c.d.c cVar) {
@@ -102,7 +98,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
-            this.f3794f = aVar;
+            this.f3266f = aVar;
             return this;
         }
         return (b) invokeL.objValue;
@@ -122,7 +118,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.f3795g = str;
+            this.f3267g = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -132,18 +128,18 @@ public class b {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, context) == null) && l()) {
             f();
-            d.g(context, this.a, this.f3793e, this.f3795g, this.l, this.f3796h, this.m);
+            d.g(context, this.a, this.f3265e, this.f3267g, this.l, this.f3268h, this.m);
         }
     }
 
-    public b h(int i2) {
+    public b h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (i2 >= 1 && i2 <= 10) {
-                this.f3793e = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i >= 1 && i <= 10) {
+                this.f3265e = i;
             } else {
-                this.f3793e = 2;
+                this.f3265e = 2;
             }
             return this;
         }
@@ -154,7 +150,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, charSequence)) == null) {
-            this.f3791c = charSequence;
+            this.f3263c = charSequence;
             return this;
         }
         return (b) invokeL.objValue;
@@ -164,7 +160,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.f3796h = str;
+            this.f3268h = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -175,9 +171,9 @@ public class b {
         if ((interceptable == null || interceptable.invokeL(1048585, this, context) == null) && l() && context != null) {
             f();
             if (context instanceof Activity) {
-                f.g((Activity) context, this.a, this.f3790b, this.f3791c, this.f3792d, this.f3793e, this.f3795g, this.l, this.f3796h, this.f3797i, this.f3798j, this.k, this.f3794f, this.m);
+                f.g((Activity) context, this.a, this.f3262b, this.f3263c, this.f3264d, this.f3265e, this.f3267g, this.l, this.f3268h, this.i, this.j, this.k, this.f3266f, this.m);
             } else {
-                d.f(context, this.a, this.f3790b, this.l, this.f3791c, this.f3792d, this.f3793e, this.f3795g, this.f3796h, this.f3797i, this.f3798j, this.k, this.f3794f, this.m);
+                d.f(context, this.a, this.f3262b, this.l, this.f3263c, this.f3264d, this.f3265e, this.f3267g, this.f3268h, this.i, this.j, this.k, this.f3266f, this.m);
             }
         }
     }
@@ -192,7 +188,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.f3797i = str;
+            this.i = str;
             return this;
         }
         return (b) invokeL.objValue;
@@ -202,7 +198,7 @@ public class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.f3798j = str;
+            this.j = str;
             return this;
         }
         return (b) invokeL.objValue;

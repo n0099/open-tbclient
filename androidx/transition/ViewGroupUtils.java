@@ -43,21 +43,21 @@ public class ViewGroupUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int getChildDrawingOrder(@NonNull ViewGroup viewGroup, int i2) {
+    public static int getChildDrawingOrder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, viewGroup, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, viewGroup, i)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                return viewGroup.getChildDrawingOrder(i2);
+                return viewGroup.getChildDrawingOrder(i);
             }
             if (!sGetChildDrawingOrderMethodFetched) {
                 try {
@@ -71,11 +71,11 @@ public class ViewGroupUtils {
             Method method = sGetChildDrawingOrderMethod;
             if (method != null) {
                 try {
-                    return ((Integer) method.invoke(viewGroup, Integer.valueOf(viewGroup.getChildCount()), Integer.valueOf(i2))).intValue();
+                    return ((Integer) method.invoke(viewGroup, Integer.valueOf(viewGroup.getChildCount()), Integer.valueOf(i))).intValue();
                 } catch (IllegalAccessException | InvocationTargetException unused2) {
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -108,10 +108,10 @@ public class ViewGroupUtils {
     public static void suppressLayout(@NonNull ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65541, null, viewGroup, z) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 29) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
                 viewGroup.suppressLayout(z);
-            } else if (i2 >= 18) {
+            } else if (i >= 18) {
                 hiddenSuppressLayout(viewGroup, z);
             } else {
                 ViewGroupUtilsApi14.suppressLayout(viewGroup, z);

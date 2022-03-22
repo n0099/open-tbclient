@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,9 +63,9 @@ public final class AsyncLayoutInflater {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -116,9 +117,9 @@ public final class AsyncLayoutInflater {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -157,9 +158,9 @@ public final class AsyncLayoutInflater {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -226,10 +227,12 @@ public final class AsyncLayoutInflater {
                     InflateRequest take = this.mQueue.take();
                     try {
                         take.view = take.inflater.mInflater.inflate(take.resid, take.parent, false);
-                    } catch (RuntimeException unused) {
+                    } catch (RuntimeException e2) {
+                        Log.w(AsyncLayoutInflater.TAG, "Failed to inflate resource in the background! Retrying on the UI thread", e2);
                     }
                     Message.obtain(take.inflater.mHandler, 0, take).sendToTarget();
-                } catch (InterruptedException unused2) {
+                } catch (InterruptedException e3) {
+                    Log.w(AsyncLayoutInflater.TAG, e3);
                 }
             }
         }
@@ -237,7 +240,7 @@ public final class AsyncLayoutInflater {
 
     /* loaded from: classes.dex */
     public interface OnInflateFinishedListener {
-        void onInflateFinished(@NonNull View view, @LayoutRes int i2, @Nullable ViewGroup viewGroup);
+        void onInflateFinished(@NonNull View view, @LayoutRes int i, @Nullable ViewGroup viewGroup);
     }
 
     public AsyncLayoutInflater(@NonNull Context context) {
@@ -247,9 +250,9 @@ public final class AsyncLayoutInflater {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -267,9 +270,9 @@ public final class AsyncLayoutInflater {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -300,13 +303,13 @@ public final class AsyncLayoutInflater {
     }
 
     @UiThread
-    public void inflate(@LayoutRes int i2, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
+    public void inflate(@LayoutRes int i, @Nullable ViewGroup viewGroup, @NonNull OnInflateFinishedListener onInflateFinishedListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, viewGroup, onInflateFinishedListener) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, viewGroup, onInflateFinishedListener) == null) {
             if (onInflateFinishedListener != null) {
                 InflateRequest obtainRequest = this.mInflateThread.obtainRequest();
                 obtainRequest.inflater = this;
-                obtainRequest.resid = i2;
+                obtainRequest.resid = i;
                 obtainRequest.parent = viewGroup;
                 obtainRequest.callback = onInflateFinishedListener;
                 this.mInflateThread.enqueue(obtainRequest);

@@ -1,5 +1,5 @@
 package com.kwad.sdk.pngencrypt.chunk;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ab extends ae {
     public ab(com.kwad.sdk.pngencrypt.k kVar) {
         super("tEXt", kVar);
@@ -7,17 +7,17 @@ public class ab extends ae {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            byte[] bArr = dVar.f55629d;
-            if (i2 >= bArr.length || bArr[i2] == 0) {
+            byte[] bArr = dVar.f40643d;
+            if (i >= bArr.length || bArr[i] == 0) {
                 break;
             }
-            i2++;
+            i++;
         }
-        ((ae) this).f55619h = b.a(dVar.f55629d, 0, i2);
-        int i3 = i2 + 1;
-        byte[] bArr2 = dVar.f55629d;
-        this.f55620i = i3 < bArr2.length ? b.a(bArr2, i3, bArr2.length - i3) : "";
+        ((ae) this).f40634h = b.a(dVar.f40643d, 0, i);
+        int i2 = i + 1;
+        byte[] bArr2 = dVar.f40643d;
+        this.i = i2 < bArr2.length ? b.a(bArr2, i2, bArr2.length - i2) : "";
     }
 }

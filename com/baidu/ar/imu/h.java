@@ -56,9 +56,9 @@ public class h implements Observer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -114,10 +114,10 @@ public class h implements Observer {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, fArr) == null) {
             Matrix.invertM(this.sj, 0, fArr, 0);
             Matrix.multiplyMM(this.sp, 0, sf, 0, this.sj, 0);
-            float j2 = j(this.sp);
-            this.sk = j2;
-            if (j2 > 0.0f) {
-                float pow = (float) (Math.pow(1.13d, j2) + 600.0d);
+            float j = j(this.sp);
+            this.sk = j;
+            if (j > 0.0f) {
+                float pow = (float) (Math.pow(1.13d, j) + 600.0d);
                 this.sl = pow;
                 if (pow > 15000.0f) {
                     this.sl = 15000.0f;
@@ -130,9 +130,9 @@ public class h implements Observer {
             fArr2[13] = -fArr3[1];
             fArr2[14] = -fArr3[2];
             Matrix.invertM(this.sj, 0, fArr2, 0);
-            float i2 = i(this.so);
-            this.sd = i2;
-            Matrix.rotateM(this.sj, 0, i2, 0.0f, 0.0f, 1.0f);
+            float i = i(this.so);
+            this.sd = i;
+            Matrix.rotateM(this.sj, 0, i, 0.0f, 0.0f, 1.0f);
         }
     }
 
@@ -142,20 +142,20 @@ public class h implements Observer {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, fArr)) == null) {
             float f2 = -fArr[0];
             float f3 = -fArr[1];
-            int i2 = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
-            if (i2 != 0 || f2 >= 0.0f) {
-                if (i2 != 0 || f2 <= 0.0f) {
-                    int i3 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
-                    if (i3 != 0 || f3 >= 0.0f) {
-                        if (i3 != 0 || i2 <= 0) {
+            int i = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
+            if (i != 0 || f2 >= 0.0f) {
+                if (i != 0 || f2 <= 0.0f) {
+                    int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                    if (i2 != 0 || f3 >= 0.0f) {
+                        if (i2 != 0 || i <= 0) {
                             float atan = (float) ((Math.atan(Math.abs(f3) / Math.abs(f2)) / 3.141592653589793d) * 180.0d);
-                            if (i3 > 0 && f3 < 0.0f) {
+                            if (i2 > 0 && f3 < 0.0f) {
                                 atan = 180.0f - atan;
                             }
-                            if (i3 > 0 && i2 > 0) {
+                            if (i2 > 0 && i > 0) {
                                 atan += 180.0f;
                             }
-                            return (f2 >= 0.0f || i2 <= 0) ? atan : 360.0f - atan;
+                            return (f2 >= 0.0f || i <= 0) ? atan : 360.0f - atan;
                         }
                         return 270.0f;
                     }

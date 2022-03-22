@@ -20,26 +20,28 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ShareFromFrsView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public HeadImageView f33907b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33908c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33909d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f43695e;
+    public TextView f33910e;
 
     /* renamed from: f  reason: collision with root package name */
-    public HeadImageView f43696f;
+    public TextView f33911f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43697g;
+    public Context f33912g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f43698h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f43699i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f43700j;
-    public Context k;
-    public ShareFromFrsMsgData l;
+    public ShareFromFrsMsgData f33913h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ShareFromFrsView(Context context, AttributeSet attributeSet) {
@@ -50,9 +52,9 @@ public class ShareFromFrsView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,7 +62,7 @@ public class ShareFromFrsView extends LinearLayout {
                 return;
             }
         }
-        this.k = context;
+        this.f33912g = context;
         b();
     }
 
@@ -68,7 +70,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return m.cutString(str, 8) + this.k.getString(R.string.forum);
+            return m.cutString(str, 8) + this.f33912g.getString(R.string.obfuscated_res_0x7f0f063c);
         }
         return (String) invokeL.objValue;
     }
@@ -76,32 +78,32 @@ public class ShareFromFrsView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.share_from_frs_view, this);
-            this.f43695e = (TextView) findViewById(R.id.frs_name);
-            this.f43696f = (HeadImageView) findViewById(R.id.frs_img);
-            this.f43698h = (TextView) findViewById(R.id.frs_member_num);
-            this.f43700j = (TextView) findViewById(R.id.frs_post_num);
-            this.f43697g = (TextView) findViewById(R.id.frs_member_num_label);
-            this.f43699i = (TextView) findViewById(R.id.frs_post_num_label);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0771, this);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f090b98);
+            this.f33907b = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090b39);
+            this.f33909d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b86);
+            this.f33911f = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba2);
+            this.f33908c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b87);
+            this.f33910e = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba3);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f43695e.setText(a(this.l.getName()));
-            this.f43696f.setPlaceHolder(1);
-            this.f43696f.setAutoChangeStyle(false);
-            this.f43696f.startLoad(this.l.getImageUrl(), 10, false);
-            this.f43698h.setText(StringHelper.numFormatOver10000(this.l.getMemberNum()));
-            this.f43700j.setText(StringHelper.numFormatOver10000(this.l.getPostNum()));
+            this.a.setText(a(this.f33913h.getName()));
+            this.f33907b.setPlaceHolder(1);
+            this.f33907b.setAutoChangeStyle(false);
+            this.f33907b.J(this.f33913h.getImageUrl(), 10, false);
+            this.f33909d.setText(StringHelper.numFormatOver10000(this.f33913h.getMemberNum()));
+            this.f33911f.setText(StringHelper.numFormatOver10000(this.f33913h.getPostNum()));
         }
     }
 
     public void setData(ShareFromFrsMsgData shareFromFrsMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, shareFromFrsMsgData) == null) {
-            this.l = shareFromFrsMsgData;
+            this.f33913h = shareFromFrsMsgData;
             c();
         }
     }
@@ -110,18 +112,18 @@ public class ShareFromFrsView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             if (z) {
-                this.f43695e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
-                this.f43698h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f43700j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f43697g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
-                this.f43699i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0105));
+                this.f33909d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f33911f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f33908c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
+                this.f33910e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0106));
                 return;
             }
-            this.f43695e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f43698h.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f43700j.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f43697g.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
-            this.f43699i.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.a.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f33909d.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f33911f.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f33908c.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
+            this.f33910e.setTextColor(getContext().getResources().getColor(R.color.CAM_X0111));
         }
     }
 
@@ -134,16 +136,16 @@ public class ShareFromFrsView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = context;
+        this.f33912g = context;
         b();
     }
 }

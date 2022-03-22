@@ -5,7 +5,6 @@ import android.view.animation.Interpolator;
 import androidx.annotation.FloatRange;
 import androidx.annotation.Nullable;
 import com.airbnb.lottie.LottieComposition;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class Keyframe<T> {
     public static final float UNSET_FLOAT = -3987645.8f;
@@ -109,7 +108,7 @@ public class Keyframe<T> {
     }
 
     public String toString() {
-        return "Keyframe{startValue=" + this.startValue + ", endValue=" + this.endValue + ", startFrame=" + this.startFrame + ", endFrame=" + this.endFrame + ", interpolator=" + this.interpolator + ExtendedMessageFormat.END_FE;
+        return "Keyframe{startValue=" + this.startValue + ", endValue=" + this.endValue + ", startFrame=" + this.startFrame + ", endFrame=" + this.endFrame + ", interpolator=" + this.interpolator + '}';
     }
 
     public Keyframe(T t) {

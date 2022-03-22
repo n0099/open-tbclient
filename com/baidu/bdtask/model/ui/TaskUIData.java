@@ -17,7 +17,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000>\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0017\b\u0086\b\u0018\u0000 D2\u00020\u0001:\u0001DB\u007f\u0012\b\b\u0002\u0010\u0016\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0017\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u0018\u001a\u00020\u0005\u0012\b\b\u0002\u0010\u0019\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u001a\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u001b\u001a\u00020\u0002\u0012\b\b\u0002\u0010\u001c\u001a\u00020\u000f\u0012\b\b\u0002\u0010\u001d\u001a\u00020\u0012\u0012\b\b\u0002\u0010\u001e\u001a\u00020\u0012\u0012\b\b\u0002\u0010\u001f\u001a\u00020\u0005\u0012\b\b\u0002\u0010 \u001a\u00020\u0002\u0012\b\b\u0002\u0010!\u001a\u00020\u0002¢\u0006\u0004\bB\u0010CJ\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0010\u0010\b\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\b\u0010\u0004J\u0010\u0010\t\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\t\u0010\u0004J\u0010\u0010\n\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\n\u0010\u0004J\u0010\u0010\u000b\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u000b\u0010\u0007J\u0010\u0010\f\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\f\u0010\u0004J\u0010\u0010\r\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\r\u0010\u0004J\u0010\u0010\u000e\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u000e\u0010\u0004J\u0010\u0010\u0010\u001a\u00020\u000fHÆ\u0003¢\u0006\u0004\b\u0010\u0010\u0011J\u0010\u0010\u0013\u001a\u00020\u0012HÆ\u0003¢\u0006\u0004\b\u0013\u0010\u0014J\u0010\u0010\u0015\u001a\u00020\u0012HÆ\u0003¢\u0006\u0004\b\u0015\u0010\u0014J\u0088\u0001\u0010\"\u001a\u00020\u00002\b\b\u0002\u0010\u0016\u001a\u00020\u00022\b\b\u0002\u0010\u0017\u001a\u00020\u00022\b\b\u0002\u0010\u0018\u001a\u00020\u00052\b\b\u0002\u0010\u0019\u001a\u00020\u00022\b\b\u0002\u0010\u001a\u001a\u00020\u00022\b\b\u0002\u0010\u001b\u001a\u00020\u00022\b\b\u0002\u0010\u001c\u001a\u00020\u000f2\b\b\u0002\u0010\u001d\u001a\u00020\u00122\b\b\u0002\u0010\u001e\u001a\u00020\u00122\b\b\u0002\u0010\u001f\u001a\u00020\u00052\b\b\u0002\u0010 \u001a\u00020\u00022\b\b\u0002\u0010!\u001a\u00020\u0002HÆ\u0001¢\u0006\u0004\b\"\u0010#J\u000f\u0010$\u001a\u00020\u0000H\u0016¢\u0006\u0004\b$\u0010%J\u001a\u0010)\u001a\u00020(2\b\u0010'\u001a\u0004\u0018\u00010&HÖ\u0003¢\u0006\u0004\b)\u0010*J\u0010\u0010+\u001a\u00020\u0005HÖ\u0001¢\u0006\u0004\b+\u0010\u0007J\u000f\u0010,\u001a\u00020(H\u0016¢\u0006\u0004\b,\u0010-J\u000f\u0010/\u001a\u00020.H\u0016¢\u0006\u0004\b/\u00100J\u0010\u00101\u001a\u00020\u0002HÖ\u0001¢\u0006\u0004\b1\u0010\u0004R\u0019\u0010\u001d\u001a\u00020\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u001d\u00102\u001a\u0004\b3\u0010\u0014R\u0019\u0010\u0016\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0016\u00104\u001a\u0004\b5\u0010\u0004R\u0019\u0010\u001a\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u00104\u001a\u0004\b6\u0010\u0004R\u0019\u0010\u001e\u001a\u00020\u00128\u0006@\u0006¢\u0006\f\n\u0004\b\u001e\u00102\u001a\u0004\b7\u0010\u0014R\u0019\u0010 \u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b \u00104\u001a\u0004\b8\u0010\u0004R\u0019\u0010\u0018\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u0018\u00109\u001a\u0004\b:\u0010\u0007R\u0019\u0010!\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b!\u00104\u001a\u0004\b;\u0010\u0004R\u0019\u0010\u0019\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0019\u00104\u001a\u0004\b<\u0010\u0004R\u0019\u0010\u0017\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u0017\u00104\u001a\u0004\b=\u0010\u0004R\u0019\u0010\u001f\u001a\u00020\u00058\u0006@\u0006¢\u0006\f\n\u0004\b\u001f\u00109\u001a\u0004\b>\u0010\u0007R\u0019\u0010\u001c\u001a\u00020\u000f8\u0006@\u0006¢\u0006\f\n\u0004\b\u001c\u0010?\u001a\u0004\b@\u0010\u0011R\u0019\u0010\u001b\u001a\u00020\u00028\u0006@\u0006¢\u0006\f\n\u0004\b\u001b\u00104\u001a\u0004\bA\u0010\u0004¨\u0006E"}, d2 = {"Lcom/baidu/bdtask/model/ui/TaskUIData;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()Ljava/lang/String;", "", "component10", "()I", "component11", "component12", "component2", "component3", "component4", "component5", "component6", "Lcom/baidu/bdtask/model/ui/TaskUIProgress;", "component7", "()Lcom/baidu/bdtask/model/ui/TaskUIProgress;", "Lcom/baidu/bdtask/model/ui/TaskUIBtn;", "component8", "()Lcom/baidu/bdtask/model/ui/TaskUIBtn;", "component9", "backColor", "message", "duration", "foreColor", TaskUIData.keyBgUrl, TaskUIData.keyTxtColor, "progress", TaskUIData.keyBackBtn, TaskUIData.keyCancelBtn, TaskUIData.keyModalType, TaskUIData.keyCloseBg, "extra", "copy", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/bdtask/model/ui/TaskUIProgress;Lcom/baidu/bdtask/model/ui/TaskUIBtn;Lcom/baidu/bdtask/model/ui/TaskUIBtn;ILjava/lang/String;Ljava/lang/String;)Lcom/baidu/bdtask/model/ui/TaskUIData;", "deepCopy", "()Lcom/baidu/bdtask/model/ui/TaskUIData;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", TTDownloadField.TT_HASHCODE, "isEmpty", "()Z", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "Lcom/baidu/bdtask/model/ui/TaskUIBtn;", "getBackBtn", "Ljava/lang/String;", "getBackColor", "getBgUrl", "getCancelBtn", "getCloseBg", "I", "getDuration", "getExtra", "getForeColor", "getMessage", "getModalType", "Lcom/baidu/bdtask/model/ui/TaskUIProgress;", "getProgress", "getTxtColor", "<init>", "(Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/bdtask/model/ui/TaskUIProgress;Lcom/baidu/bdtask/model/ui/TaskUIBtn;Lcom/baidu/bdtask/model/ui/TaskUIBtn;ILjava/lang/String;Ljava/lang/String;)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskUIData implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -50,7 +50,7 @@ public final class TaskUIData implements ITaskModelData {
     public final TaskUIProgress progress;
     public final String txtColor;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +60,9 @@ public final class TaskUIData implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -97,9 +97,9 @@ public final class TaskUIData implements ITaskModelData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((String) objArr[0], (String) objArr[1], ((Integer) objArr[2]).intValue(), (String) objArr[3], (String) objArr[4], (String) objArr[5], (TaskUIProgress) objArr[6], (TaskUIBtn) objArr[7], (TaskUIBtn) objArr[8], ((Integer) objArr[9]).intValue(), (String) objArr[10], (String) objArr[11], ((Integer) objArr[12]).intValue(), (DefaultConstructorMarker) objArr[13]);
                 newInitContext.thisArg = this;
@@ -109,16 +109,16 @@ public final class TaskUIData implements ITaskModelData {
         }
     }
 
-    public TaskUIData(String str, String str2, int i2, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i3, String str6, String str7) {
+    public TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, str2, Integer.valueOf(i2), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i3), str6, str7};
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i2), str6, str7};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -126,14 +126,14 @@ public final class TaskUIData implements ITaskModelData {
         }
         this.backColor = str;
         this.message = str2;
-        this.duration = i2;
+        this.duration = i;
         this.foreColor = str3;
         this.bgUrl = str4;
         this.txtColor = str5;
         this.progress = taskUIProgress;
         this.backBtn = taskUIBtn;
         this.cancelBtn = taskUIBtn2;
-        this.modalType = i3;
+        this.modalType = i2;
         this.closeBg = str6;
         this.extra = str7;
     }
@@ -210,10 +210,10 @@ public final class TaskUIData implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.cancelBtn : (TaskUIBtn) invokeV.objValue;
     }
 
-    public final TaskUIData copy(String str, String str2, int i2, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i3, String str6, String str7) {
+    public final TaskUIData copy(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, str2, Integer.valueOf(i2), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i3), str6, str7})) == null) ? new TaskUIData(str, str2, i2, str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, i3, str6, str7) : (TaskUIData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, str2, Integer.valueOf(i), str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, Integer.valueOf(i2), str6, str7})) == null) ? new TaskUIData(str, str2, i, str3, str4, str5, taskUIProgress, taskUIBtn, taskUIBtn2, i2, str6, str7) : (TaskUIData) invokeCommon.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -379,8 +379,8 @@ public final class TaskUIData implements ITaskModelData {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ TaskUIData(String str, String str2, int i2, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i3, String str6, String str7, int i4, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i4 & 1) != 0 ? "" : str, (i4 & 2) != 0 ? "" : str2, (i4 & 4) != 0 ? 0 : i2, (i4 & 8) != 0 ? "" : str3, (i4 & 16) != 0 ? "" : str4, (i4 & 32) != 0 ? "" : str5, (i4 & 64) != 0 ? new TaskUIProgress(null, null, 3, null) : taskUIProgress, (i4 & 128) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn, (i4 & 256) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn2, (i4 & 512) != 0 ? -1 : i3, (i4 & 1024) != 0 ? "" : str6, (i4 & 2048) == 0 ? str7 : "");
+    public /* synthetic */ TaskUIData(String str, String str2, int i, String str3, String str4, String str5, TaskUIProgress taskUIProgress, TaskUIBtn taskUIBtn, TaskUIBtn taskUIBtn2, int i2, String str6, String str7, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i3 & 1) != 0 ? "" : str, (i3 & 2) != 0 ? "" : str2, (i3 & 4) != 0 ? 0 : i, (i3 & 8) != 0 ? "" : str3, (i3 & 16) != 0 ? "" : str4, (i3 & 32) != 0 ? "" : str5, (i3 & 64) != 0 ? new TaskUIProgress(null, null, 3, null) : taskUIProgress, (i3 & 128) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn, (i3 & 256) != 0 ? new TaskUIBtn(null, null, null, null, null, 31, null) : taskUIBtn2, (i3 & 512) != 0 ? -1 : i2, (i3 & 1024) != 0 ? "" : str6, (i3 & 2048) == 0 ? str7 : "");
     }
 
     /* JADX DEBUG: Method merged with bridge method */

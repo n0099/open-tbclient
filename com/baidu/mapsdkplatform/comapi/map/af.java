@@ -23,9 +23,9 @@ public class af {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,12 +57,12 @@ public class af {
         return (Point) invokeL.objValue;
     }
 
-    public GeoPoint a(int i2, int i3) {
+    public GeoPoint a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
             GeoPoint geoPoint = new GeoPoint(0.0d, 0.0d);
-            String a = this.a.a(i2, i3);
+            String a = this.a.a(i, i2);
             if (a != null && !a.isEmpty()) {
                 try {
                     JSONObject jSONObject = new JSONObject(a);

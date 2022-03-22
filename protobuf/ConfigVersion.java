@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.squareup.wire.Message;
 import com.squareup.wire.ProtoField;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ConfigVersion extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_PLUGIN = "";
@@ -17,17 +17,17 @@ public final class ConfigVersion extends Message {
     @ProtoField(tag = 2, type = Message.Datatype.STRING)
 
     /* renamed from: plugin  reason: collision with root package name */
-    public final String f61011plugin;
+    public final String f45369plugin;
     @ProtoField(tag = 1, type = Message.Datatype.STRING)
     public final String sync;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder extends Message.Builder<ConfigVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: plugin  reason: collision with root package name */
-        public String f61012plugin;
+        public String f45370plugin;
         public String sync;
 
         public Builder() {
@@ -35,9 +35,9 @@ public final class ConfigVersion extends Message {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -53,9 +53,9 @@ public final class ConfigVersion extends Message {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {configVersion};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Message) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -66,7 +66,7 @@ public final class ConfigVersion extends Message {
                 return;
             }
             this.sync = configVersion.sync;
-            this.f61012plugin = configVersion.f61011plugin;
+            this.f45370plugin = configVersion.f45369plugin;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -78,7 +78,7 @@ public final class ConfigVersion extends Message {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,9 +97,9 @@ public final class ConfigVersion extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Message.Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -113,16 +113,16 @@ public final class ConfigVersion extends Message {
             } else {
                 this.sync = str;
             }
-            String str2 = builder.f61012plugin;
+            String str2 = builder.f45370plugin;
             if (str2 == null) {
-                this.f61011plugin = "";
+                this.f45369plugin = "";
                 return;
             } else {
-                this.f61011plugin = str2;
+                this.f45369plugin = str2;
                 return;
             }
         }
         this.sync = builder.sync;
-        this.f61011plugin = builder.f61012plugin;
+        this.f45369plugin = builder.f45370plugin;
     }
 }

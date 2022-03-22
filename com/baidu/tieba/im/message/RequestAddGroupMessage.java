@@ -34,9 +34,9 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -141,24 +141,24 @@ public class RequestAddGroupMessage extends TbSocketMessage {
         }
     }
 
-    public void setFlag(int i2) {
+    public void setFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.flag = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.flag = i;
         }
     }
 
-    public void setForumId(int i2) {
+    public void setForumId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.forumId = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.forumId = i;
         }
     }
 
-    public void setGroupType(int i2) {
+    public void setGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.groupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.groupType = i;
         }
     }
 

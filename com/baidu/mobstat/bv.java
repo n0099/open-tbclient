@@ -1,6 +1,7 @@
 package com.baidu.mobstat;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,7 +56,7 @@ public class bv {
         InterceptResult invokeZL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65537, null, z, bArr)) == null) {
-            KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+            KeyFactory keyFactory = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA);
             if (z) {
                 return (RSAPrivateKey) keyFactory.generatePrivate(new PKCS8EncodedKeySpec(bArr));
             }
@@ -64,21 +65,21 @@ public class bv {
         return (RSAKey) invokeZL.objValue;
     }
 
-    public static byte[] a(int i2, Key key, int i3, byte[] bArr) throws Exception {
+    public static byte[] a(int i, Key key, int i2, byte[] bArr) throws Exception {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), key, Integer.valueOf(i3), bArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), key, Integer.valueOf(i2), bArr})) == null) {
             Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(i2, key);
+            cipher.init(i, key);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            int i4 = 0;
-            while (i4 < bArr.length) {
-                int length = bArr.length - i4;
-                if (length > i3) {
-                    length = i3;
+            int i3 = 0;
+            while (i3 < bArr.length) {
+                int length = bArr.length - i3;
+                if (length > i2) {
+                    length = i2;
                 }
-                byteArrayOutputStream.write(cipher.doFinal(bArr, i4, length));
-                i4 += i3;
+                byteArrayOutputStream.write(cipher.doFinal(bArr, i3, length));
+                i3 += i2;
             }
             return byteArrayOutputStream.toByteArray();
         }

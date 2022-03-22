@@ -2,13 +2,12 @@ package com.baidu.sofire.ac;
 
 import android.text.TextUtils;
 import com.baidu.sofire.ac.FaceEnum;
-import com.baidu.sofire.utility.c;
+import com.baidu.sofire.utility.CommonMethods;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import java.net.URLEncoder;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -24,16 +23,16 @@ public class FaceVerifyInfo implements IFaceProcessInfo {
     public FaceEnum.SpoofingControl spoofingControl;
     public int verifyType;
 
-    public FaceVerifyInfo(String str, String str2, int i2, String str3, FaceEnum.LivenessControl livenessControl, FaceEnum.SpoofingControl spoofingControl, FaceEnum.QualityControl qualityControl, String str4) {
+    public FaceVerifyInfo(String str, String str2, int i, String str3, FaceEnum.LivenessControl livenessControl, FaceEnum.SpoofingControl spoofingControl, FaceEnum.QualityControl qualityControl, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2), str3, livenessControl, spoofingControl, qualityControl, str4};
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, livenessControl, spoofingControl, qualityControl, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,7 +40,7 @@ public class FaceVerifyInfo implements IFaceProcessInfo {
         }
         this.idCardNumber = str;
         this.name = str2;
-        this.verifyType = i2;
+        this.verifyType = i;
         this.nation = str3;
         this.livenessControl = livenessControl;
         this.spoofingControl = spoofingControl;
@@ -64,7 +63,7 @@ public class FaceVerifyInfo implements IFaceProcessInfo {
                 }
                 jSONObject.put("verify_type", String.valueOf(this.verifyType));
                 if (this.nation != null) {
-                    jSONObject.put(UrlOcrConfig.IdCardKey.NATION, this.nation);
+                    jSONObject.put("nation", this.nation);
                 }
                 if (this.livenessControl != null) {
                     jSONObject.put("liveness_control", this.livenessControl.name());
@@ -79,8 +78,8 @@ public class FaceVerifyInfo implements IFaceProcessInfo {
                     jSONObject.put("phone", this.phoneNumber);
                 }
                 return jSONObject;
-            } catch (Throwable unused) {
-                c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return null;
             }
         }

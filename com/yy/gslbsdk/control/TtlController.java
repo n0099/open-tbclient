@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TtlController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACTIVE_THRESHOLD = 5;
@@ -47,9 +47,9 @@ public class TtlController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -67,13 +67,13 @@ public class TtlController {
             synchronized (this.mList) {
                 list = (List) ((ArrayList) this.mList).clone();
             }
-            int i2 = 0;
+            int i = 0;
             for (Boolean bool : list) {
                 if (bool != null && !bool.booleanValue()) {
-                    i2++;
+                    i++;
                 }
             }
-            this.mTtlFailedCount = Math.min(i2, 15);
+            this.mTtlFailedCount = Math.min(i, 15);
         }
     }
 
@@ -116,9 +116,9 @@ public class TtlController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.mTtlIntervalCount + 1;
-            this.mTtlIntervalCount = i2;
-            if (i2 < getTtlIntervalValue()) {
+            int i = this.mTtlIntervalCount + 1;
+            this.mTtlIntervalCount = i;
+            if (i < getTtlIntervalValue()) {
                 return false;
             }
             resetTtlIntervalCount();
@@ -187,10 +187,10 @@ public class TtlController {
             }
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append("( ");
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                stringBuffer.append(i2);
+            for (int i = 0; i < list.size(); i++) {
+                stringBuffer.append(i);
                 stringBuffer.append("-");
-                stringBuffer.append(((Boolean) list.get(i2)).booleanValue() ? "t" : "f");
+                stringBuffer.append(((Boolean) list.get(i)).booleanValue() ? "t" : "f");
                 stringBuffer.append(" ");
             }
             stringBuffer.append(SmallTailInfo.EMOTION_SUFFIX);

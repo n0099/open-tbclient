@@ -15,7 +15,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractMessageParser implements HttpMessageParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionInputBuffer, lineParser, httpParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,10 +39,10 @@ public abstract class AbstractMessageParser implements HttpMessageParser {
         throw new RuntimeException("Stub!");
     }
 
-    public static Header[] parseHeaders(SessionInputBuffer sessionInputBuffer, int i2, int i3, LineParser lineParser) throws HttpException, IOException {
+    public static Header[] parseHeaders(SessionInputBuffer sessionInputBuffer, int i, int i2, LineParser lineParser) throws HttpException, IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{sessionInputBuffer, Integer.valueOf(i2), Integer.valueOf(i3), lineParser})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{sessionInputBuffer, Integer.valueOf(i), Integer.valueOf(i2), lineParser})) == null) {
             throw new RuntimeException("Stub!");
         }
         return (Header[]) invokeCommon.objValue;

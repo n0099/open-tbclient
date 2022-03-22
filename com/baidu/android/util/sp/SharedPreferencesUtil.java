@@ -44,22 +44,22 @@ public final class SharedPreferencesUtil {
     }
 
     @SuppressLint({"CommitPrefEdits"})
-    public SharedPreferencesUtil(Context context, String str, int i2) {
+    public SharedPreferencesUtil(Context context, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        SharedPreferences sharedPreferences = context.getSharedPreferences(str, i2);
+        SharedPreferences sharedPreferences = context.getSharedPreferences(str, i);
         this.mSharedPreferences = sharedPreferences;
         this.mEditor = sharedPreferences.edit();
     }
@@ -95,16 +95,16 @@ public final class SharedPreferencesUtil {
         return (interceptable == null || (invokeLF = interceptable.invokeLF(1048579, this, str, f2)) == null) ? this.mSharedPreferences.getFloat(str, f2) : invokeLF.floatValue;
     }
 
-    public int getIntPreference(String str, int i2) {
+    public int getIntPreference(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i2)) == null) ? this.mSharedPreferences.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) ? this.mSharedPreferences.getInt(str, i) : invokeLI.intValue;
     }
 
-    public long getLongPreference(String str, long j2) {
+    public long getLongPreference(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j2)) == null) ? this.mSharedPreferences.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) ? this.mSharedPreferences.getLong(str, j) : invokeLJ.longValue;
     }
 
     public String getStringPreference(String str, String str2) {
@@ -137,18 +137,18 @@ public final class SharedPreferencesUtil {
         }
     }
 
-    public void setIntPreference(String str, int i2) {
+    public void setIntPreference(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i2) == null) {
-            this.mEditor.putInt(str, i2);
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            this.mEditor.putInt(str, i);
             this.mEditor.commit();
         }
     }
 
-    public void setLongPreference(String str, long j2) {
+    public void setLongPreference(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j2) == null) {
-            this.mEditor.putLong(str, j2);
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
+            this.mEditor.putLong(str, j);
             this.mEditor.commit();
         }
     }
@@ -168,16 +168,16 @@ public final class SharedPreferencesUtil {
         }
     }
 
-    public static SharedPreferencesUtil getInstance(Context context, String str, int i2) {
+    public static SharedPreferencesUtil getInstance(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i)) == null) {
             SharedPreferencesUtil sharedPreferencesUtil = mPrefrencesUtil.get(str);
             if (sharedPreferencesUtil == null) {
                 synchronized (SharedPreferencesUtil.class) {
                     sharedPreferencesUtil = mPrefrencesUtil.get(str);
                     if (sharedPreferencesUtil == null) {
-                        sharedPreferencesUtil = new SharedPreferencesUtil(context, str, i2);
+                        sharedPreferencesUtil = new SharedPreferencesUtil(context, str, i);
                         mPrefrencesUtil.put(str, sharedPreferencesUtil);
                     }
                 }

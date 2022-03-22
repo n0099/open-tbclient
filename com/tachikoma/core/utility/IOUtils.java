@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IOUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_BUFFER_SIZE = 4096;
@@ -22,9 +22,9 @@ public class IOUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,14 +56,14 @@ public class IOUtils {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65539, null, inputStream, outputStream, bArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = inputStream.read(bArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             outputStream.write(bArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 
@@ -79,14 +79,14 @@ public class IOUtils {
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65541, null, reader, writer, cArr)) != null) {
             return invokeLLL.longValue;
         }
-        long j2 = 0;
+        long j = 0;
         while (true) {
             int read = reader.read(cArr);
             if (-1 == read) {
-                return j2;
+                return j;
             }
             writer.write(cArr, 0, read);
-            j2 += read;
+            j += read;
         }
     }
 }

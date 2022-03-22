@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FACE_SHOP_URL = "http://tieba.baidu.com/n/interact/emoticoncenter";
@@ -27,9 +27,9 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,9 +37,9 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
@@ -49,8 +49,8 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.common_emotion_manager_activity);
-            this.mRootView = (FrameLayout) findViewById(R.id.container);
+            setContentView(R.layout.obfuscated_res_0x7f0d01f2);
+            this.mRootView = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0906c9);
             if (isUseStyleImmersiveSticky()) {
                 ((FrameLayout.LayoutParams) this.mRootView.getLayoutParams()).topMargin = n.r(getPageContext().getPageActivity());
             }
@@ -63,7 +63,7 @@ public class CommonEmotionManagerActivity extends BaseFragmentActivity {
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.mUrl);
             this.mFragment.setArguments(bundle2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.container, this.mFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f0906c9, this.mFragment).commit();
         }
     }
 

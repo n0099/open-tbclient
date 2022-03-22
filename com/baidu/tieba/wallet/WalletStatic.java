@@ -7,11 +7,11 @@ import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.b;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.q0.d.a;
-import c.a.q0.q0.c;
-import c.a.q0.q0.e;
-import c.a.q0.q0.f;
-import c.a.q0.q0.g;
+import c.a.o0.d.a;
+import c.a.o0.q0.c;
+import c.a.o0.q0.e;
+import c.a.o0.q0.f;
+import c.a.o0.q0.g;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -22,6 +22,7 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.fsg.base.router.LocalRouter;
+import com.baidu.pass.biometrics.face.liveness.dto.PassFaceRecogDTO;
 import com.baidu.sapi2.PassportSDK;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.callback.AccountRealNameCallback;
@@ -102,9 +103,9 @@ public class WalletStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -123,9 +124,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -139,28 +140,28 @@ public class WalletStatic {
                     Activity activity;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, customMessage)) == null) {
-                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f12795d) == null) {
+                        if (customMessage == null || (data = customMessage.getData()) == null || (activity = data.f10474d) == null) {
                             return null;
                         }
                         BdUniqueId bdUniqueId = data.a;
-                        String str = data.f12794c;
-                        int i2 = data.f12793b;
-                        if (i2 == 1) {
-                            WalletPluginManager.getInstance().doBaiduPay(data.f12795d, str, bdUniqueId);
-                        } else if (i2 == 2) {
-                            WalletPluginManager.getInstance().doAliPay(data.f12795d, str, bdUniqueId);
-                        } else if (i2 == 3) {
-                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f12795d, data.f12796e, data.f12794c, bdUniqueId);
-                        } else if (i2 == 4 && data.f12797f != null) {
+                        String str = data.f10473c;
+                        int i = data.f10472b;
+                        if (i == 1) {
+                            WalletPluginManager.getInstance().doBaiduPay(data.f10474d, str, bdUniqueId);
+                        } else if (i == 2) {
+                            WalletPluginManager.getInstance().doAliPay(data.f10474d, str, bdUniqueId);
+                        } else if (i == 3) {
+                            WalletPluginManager.getInstance().doBaiduLBSPay(data.f10474d, data.f10475e, data.f10473c, bdUniqueId);
+                        } else if (i == 4 && data.f10476f != null) {
                             IWXAPI createWXAPI = WXAPIFactory.createWXAPI(activity, TbConfig.WEIXIN_SHARE_APP_ID);
                             PayReq payReq = new PayReq();
-                            payReq.appId = data.f12797f.get("appid");
-                            payReq.partnerId = data.f12797f.get("partnerid");
-                            payReq.prepayId = data.f12797f.get("prepayid");
-                            payReq.packageValue = data.f12797f.get("packagealias");
-                            payReq.nonceStr = data.f12797f.get("noncestr");
-                            payReq.timeStamp = data.f12797f.get("timestamp");
-                            payReq.sign = data.f12797f.get("sign");
+                            payReq.appId = data.f10476f.get("appid");
+                            payReq.partnerId = data.f10476f.get("partnerid");
+                            payReq.prepayId = data.f10476f.get("prepayid");
+                            payReq.packageValue = data.f10476f.get("packagealias");
+                            payReq.nonceStr = data.f10476f.get("noncestr");
+                            payReq.timeStamp = data.f10476f.get("timestamp");
+                            payReq.sign = data.f10476f.get("sign");
                             createWXAPI.registerApp(payReq.appId);
                             createWXAPI.sendReq(payReq);
                         }
@@ -186,9 +187,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -203,7 +204,7 @@ public class WalletStatic {
                         if (customMessage.getData() == null) {
                             return null;
                         }
-                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f12248b, customMessage.getData().f12249c));
+                        return new CustomResponsedMessage<>(2921539, WalletPluginManager.getInstance().doAliPay(customMessage.getData().a, customMessage.getData().f9995b, customMessage.getData().f9996c));
                     }
                     return (CustomResponsedMessage) invokeL.objValue;
                 }
@@ -225,9 +226,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -268,9 +269,9 @@ public class WalletStatic {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Integer.valueOf(r7)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -288,7 +289,7 @@ public class WalletStatic {
                     }
                     UserBfbInfo userBfbInfo = (UserBfbInfo) customResponsedMessage.getData();
                     HashMap hashMap = new HashMap();
-                    hashMap.put("sp_no", userBfbInfo.android_bfb_sdk.sp_no.toString());
+                    hashMap.put(PassFaceRecogDTO.KEY_EXTRA_PASS_PRODUCT_ID, userBfbInfo.android_bfb_sdk.sp_no.toString());
                     hashMap.put("version", userBfbInfo.android_bfb_sdk.version);
                     hashMap.put("activity_no", userBfbInfo.android_bfb_sdk.activity_no);
                     hashMap.put("order_no", userBfbInfo.android_bfb_sdk.order_no);
@@ -313,9 +314,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -326,16 +327,16 @@ public class WalletStatic {
                 public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
                     InterceptResult invokeLL;
                     int indexOf;
-                    int i2;
+                    int i;
                     String substring;
                     int indexOf2;
-                    int i3;
+                    int i2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
                         if (strArr != null && strArr.length > 0) {
                             String str = strArr[0];
-                            if (!StringUtils.isNull(str) && str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB) && (indexOf = str.indexOf("://")) >= 0 && (i2 = indexOf + 3) <= str.length() && (indexOf2 = (substring = str.substring(i2)).indexOf("url=")) >= 0 && (i3 = indexOf2 + 4) <= substring.length() && e.c().e()) {
-                                WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), substring.substring(i3));
+                            if (!StringUtils.isNull(str) && str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_FINANCIAL_FRS_SDK_TAB) && (indexOf = str.indexOf("://")) >= 0 && (i = indexOf + 3) <= str.length() && (indexOf2 = (substring = str.substring(i)).indexOf("url=")) >= 0 && (i2 = indexOf2 + 4) <= substring.length() && e.c().d()) {
+                                WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), substring.substring(i2));
                                 return 0;
                             }
                         }
@@ -350,8 +351,8 @@ public class WalletStatic {
     public static void registerHttpAndSocketTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            c.a.r0.y3.g0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, c.a.r0.y3.g0.a.a(TbConfig.GET_ORDER, 303043));
+            c.a.p0.a4.g0.a.f(303043, ResponsedGetOrderSocketMessage.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_ORDER, c.a.p0.a4.g0.a.a(TbConfig.GET_ORDER, 303043));
             tbHttpMessageTask.setResponsedClass(ResponsedGetOrderHttpMessage.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -373,9 +374,9 @@ public class WalletStatic {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Integer.valueOf(r7)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -408,9 +409,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -448,9 +449,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -467,7 +468,7 @@ public class WalletStatic {
                         }
                         String str = strArr[0];
                         if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_ICACH) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_GOTO_WALLET_SDK_DUXIAOMAN)) {
-                            if (n.B() && e.c().e()) {
+                            if (n.B() && e.c().d()) {
                                 WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), str);
                             } else {
                                 BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
@@ -485,9 +486,9 @@ public class WalletStatic {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, str};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -500,7 +501,7 @@ public class WalletStatic {
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         Interceptable interceptable3 = $ic;
-                                        if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && e.c().e()) {
+                                        if ((interceptable3 == null || interceptable3.invokeV(1048576, this) == null) && e.c().d()) {
                                             WalletPluginManager.getInstance().openH5Module(TbadkApplication.getInst().getContext(), this.val$link);
                                         }
                                     }
@@ -528,9 +529,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -567,9 +568,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -604,9 +605,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -645,9 +646,9 @@ public class WalletStatic {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {Integer.valueOf(r7)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Integer) newInitContext.callArgs[0]).intValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -680,9 +681,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -705,9 +706,9 @@ public class WalletStatic {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -741,9 +742,9 @@ public class WalletStatic {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, certificationCallback};
                                             interceptable4.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable4.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -802,9 +803,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -835,9 +836,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -869,9 +870,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -879,14 +880,14 @@ public class WalletStatic {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IAlipaySdkServiceProxy
-                public void sendPay(long j2, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
+                public void sendPay(long j, Activity activity, String str, IAlipayProxyCallback iAlipayProxyCallback) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iAlipayProxyCallback}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iAlipayProxyCallback}) == null) {
                         try {
                             a aVar = new a();
                             aVar.a = activity;
-                            aVar.f12248b = str;
-                            aVar.f12249c = false;
+                            aVar.f9995b = str;
+                            aVar.f9996c = false;
                             iAlipayProxyCallback.onSuccess((String) MessageManager.getInstance().runTask(2921539, String.class, aVar).getData());
                         } catch (Exception e2) {
                             iAlipayProxyCallback.onFail(e2.getMessage());
@@ -903,9 +904,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -913,16 +914,16 @@ public class WalletStatic {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
-                public void onWxPayResult(int i2, String str) {
+                public void onWxPayResult(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IWechatSdkServiceProxy
-                public void sendPay(long j2, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
+                public void sendPay(long j, Activity activity, String str, IWechatProxyCallback iWechatProxyCallback) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), activity, str, iWechatProxyCallback}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), activity, str, iWechatProxyCallback}) == null) {
                         YYPayManager.registerYYPayUIKitProxy(str, iWechatProxyCallback);
                     }
                 }
@@ -936,9 +937,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -946,9 +947,9 @@ public class WalletStatic {
                 }
 
                 @Override // com.yy.mobile.framework.revenuesdk.payapi.payproxy.IDxmSdkServiceProxy
-                public void sendPay(long j2, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
+                public void sendPay(long j, Activity activity, String str, IDxmProxyCallback iDxmProxyCallback) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), activity, str, iDxmProxyCallback}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), activity, str, iDxmProxyCallback}) == null) {
                         WalletPluginManager.getInstance().doYYPay(str, iDxmProxyCallback);
                     }
                 }
@@ -967,9 +968,9 @@ public class WalletStatic {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }

@@ -17,14 +17,14 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> SCHEMES;
     public transient /* synthetic */ FieldHolder $fh;
     public final ModelLoader<GlideUrl, Data> urlLoader;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -82,9 +82,9 @@ public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
             newInitContext.initArgs = r2;
             Object[] objArr = {modelLoader};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,10 +95,10 @@ public class UrlUriLoader<Data> implements ModelLoader<Uri, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i2, i3, options) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? this.urlLoader.buildLoadData(new GlideUrl(uri.toString()), i, i2, options) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

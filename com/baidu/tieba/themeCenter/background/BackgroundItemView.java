@@ -8,12 +8,9 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.d.a.j;
 import c.a.d.f.p.n;
-import c.a.r0.d4.e.d;
+import c.a.p0.f4.e.d;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -28,39 +25,39 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BackgroundItemView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f36316b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f36317c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f36318d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47012e;
+    public TbImageView f36319e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47013f;
+    public ImageView f36320f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f47014g;
+    public TextView f36321g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f47015h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TbImageView f47016i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public ImageView f47017j;
-    public TextView k;
-    public SkinProgressView l;
-    public DressItemData m;
-    public int n;
-    public int o;
-    public d p;
-    public View.OnClickListener q;
+    public SkinProgressView f36322h;
+    public DressItemData i;
+    public int j;
+    public int k;
+    public d l;
+    public View.OnClickListener m;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BackgroundItemView f47018e;
+        public final /* synthetic */ BackgroundItemView a;
 
         public a(BackgroundItemView backgroundItemView) {
             Interceptable interceptable = $ic;
@@ -69,29 +66,29 @@ public class BackgroundItemView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {backgroundItemView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47018e = backgroundItemView;
+            this.a = backgroundItemView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.f47018e.m == null || this.f47018e.p == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null || this.a.i == null || this.a.l == null) {
                 return;
             }
-            if (view == this.f47018e.l) {
-                TiebaStatic.log(new StatisticItem("c10280").param("obj_id", this.f47018e.m.getPropsId()));
-                this.f47018e.p.e(this.f47018e.m, false);
-            } else if (view == this.f47018e.f47014g) {
-                TiebaStatic.log(new StatisticItem("c10279").param("obj_id", this.f47018e.m.getPropsId()));
-                this.f47018e.p.b(this.f47018e.m);
+            if (view == this.a.f36322h) {
+                TiebaStatic.log(new StatisticItem("c10280").param("obj_id", this.a.i.getPropsId()));
+                this.a.l.e(this.a.i, false);
+            } else if (view == this.a.f36317c) {
+                TiebaStatic.log(new StatisticItem("c10279").param("obj_id", this.a.i.getPropsId()));
+                this.a.l.b(this.a.i);
             }
         }
     }
@@ -105,101 +102,91 @@ public class BackgroundItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = new a(this);
-        this.f47012e = context;
-        e();
+        this.m = new a(this);
+        this.a = context;
+        g();
     }
 
-    public final void e() {
+    public void e(DressItemData dressItemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int k = (n.k(this.f47012e) - n.f(this.f47012e, R.dimen.ds88)) / 3;
-            this.n = k;
-            this.o = (int) (k / 0.66d);
-            View inflate = LayoutInflater.from(this.f47012e).inflate(R.layout.background_item, this);
-            this.f47013f = inflate;
-            this.f47014g = (TbImageView) inflate.findViewById(R.id.bg_image);
-            TbImageView tbImageView = (TbImageView) this.f47013f.findViewById(R.id.permission_icon);
-            this.f47015h = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.transparent_bg);
-            this.f47015h.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.f47013f.findViewById(R.id.state_icon);
-            this.f47016i = tbImageView2;
-            tbImageView2.setDefaultResource(R.drawable.transparent_bg);
-            this.f47016i.setDefaultBgResource(R.drawable.transparent_bg);
-            this.f47017j = (ImageView) this.f47013f.findViewById(R.id.choosed_icon);
-            this.k = (TextView) this.f47013f.findViewById(R.id.text_bg_name);
-            SkinProgressView skinProgressView = (SkinProgressView) this.f47013f.findViewById(R.id.view_bg_use);
-            this.l = skinProgressView;
-            skinProgressView.setOnClickListener(this.q);
-            this.f47014g.setOnClickListener(this.q);
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f47014g.getLayoutParams();
-            layoutParams.height = this.o;
-            layoutParams.width = this.n;
-            this.f47014g.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void fillView(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData) == null) || dressItemData == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dressItemData) == null) || dressItemData == null) {
             return;
         }
-        this.m = dressItemData;
+        this.i = dressItemData;
         Boolean valueOf = Boolean.valueOf(dressItemData.getInUse());
         if (dressItemData.getPropsId() == 0) {
-            SkinManager.setImageResource(this.f47014g, R.drawable.pic_bg_moren);
+            SkinManager.setImageResource(this.f36317c, R.drawable.pic_bg_moren);
         } else {
-            this.f47014g.setImageBitmap(null);
-            this.f47014g.startLoad(dressItemData.getExampleImgUrl(), 10, false);
+            this.f36317c.setImageBitmap(null);
+            this.f36317c.J(dressItemData.getExampleImgUrl(), 10, false);
         }
-        this.k.setText(dressItemData.getTitle());
+        this.f36321g.setText(dressItemData.getTitle());
         if (valueOf.booleanValue()) {
-            this.f47017j.setVisibility(0);
-            SkinManager.setImageResource(this.f47017j, R.drawable.icon_choose_photo);
+            this.f36320f.setVisibility(0);
+            SkinManager.setImageResource(this.f36320f, R.drawable.icon_choose_photo);
         } else {
-            this.f47017j.setVisibility(8);
+            this.f36320f.setVisibility(8);
         }
-        this.f47015h.startLoad(dressItemData.getPermissionImgUrl(), 10, false);
-        this.f47016i.startLoad(dressItemData.getPropsStateImg(), 10, false);
+        this.f36318d.J(dressItemData.getPermissionImgUrl(), 10, false);
+        this.f36319e.J(dressItemData.getPropsStateImg(), 10, false);
         if (valueOf.booleanValue()) {
-            this.l.updateStatus(0, 0.0f);
+            this.f36322h.c(0, 0.0f);
         } else {
-            this.l.updateStatus(4, 0.0f);
+            this.f36322h.c(4, 0.0f);
         }
         setVisibility(0);
     }
 
-    public void hide() {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setVisibility(8);
         }
     }
 
-    public void onChangeSkinType() {
-        TbPageContext tbPageContext;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (tbPageContext = (TbPageContext) j.a(this.f47012e)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int k = (n.k(this.a) - n.f(this.a, R.dimen.obfuscated_res_0x7f0702ff)) / 3;
+            this.j = k;
+            this.k = (int) (k / 0.66d);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d012f, this);
+            this.f36316b = inflate;
+            this.f36317c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09035d);
+            TbImageView tbImageView = (TbImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f09176d);
+            this.f36318d = tbImageView;
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f36318d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
+            TbImageView tbImageView2 = (TbImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f091da2);
+            this.f36319e = tbImageView2;
+            tbImageView2.setDefaultResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f36319e.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081200);
+            this.f36320f = (ImageView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f090615);
+            this.f36321g = (TextView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f091f29);
+            SkinProgressView skinProgressView = (SkinProgressView) this.f36316b.findViewById(R.id.obfuscated_res_0x7f0923b0);
+            this.f36322h = skinProgressView;
+            skinProgressView.setOnClickListener(this.m);
+            this.f36317c.setOnClickListener(this.m);
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f36317c.getLayoutParams();
+            layoutParams.height = this.k;
+            layoutParams.width = this.j;
+            this.f36317c.setLayoutParams(layoutParams);
         }
-        tbPageContext.getLayoutMode().k(TbadkApplication.getInst().getSkinType() == 1);
-        tbPageContext.getLayoutMode().j(this.f47013f);
     }
 
     public void setController(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            this.p = dVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.l = dVar;
         }
     }
 
@@ -212,9 +199,9 @@ public class BackgroundItemView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -222,23 +209,23 @@ public class BackgroundItemView extends LinearLayout {
                 return;
             }
         }
-        this.q = new a(this);
-        this.f47012e = context;
-        e();
+        this.m = new a(this);
+        this.a = context;
+        g();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BackgroundItemView(Context context, AttributeSet attributeSet, int i2) {
+    public BackgroundItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -246,8 +233,8 @@ public class BackgroundItemView extends LinearLayout {
                 return;
             }
         }
-        this.q = new a(this);
-        this.f47012e = context;
-        e();
+        this.m = new a(this);
+        this.a = context;
+        g();
     }
 }

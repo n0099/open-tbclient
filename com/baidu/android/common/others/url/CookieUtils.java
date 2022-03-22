@@ -15,20 +15,20 @@ public final class CookieUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String getCookieStr(String str, String str2, String str3, long j2) {
+    public static String getCookieStr(String str, String str2, String str3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Long.valueOf(j2)})) == null) {
-            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j2 + ";";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
+            return str2 + "=" + str3 + ";domain=" + str + ";path=/;max-age=" + j + ";";
         }
         return (String) invokeCommon.objValue;
     }

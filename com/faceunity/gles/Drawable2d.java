@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.FloatBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Drawable2d {
     public static /* synthetic */ Interceptable $ic = null;
     public static final FloatBuffer FULL_RECTANGLE_BUF;
@@ -36,7 +36,7 @@ public class Drawable2d {
     public int mVertexStride;
 
     /* renamed from: com.faceunity.gles.Drawable2d$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$faceunity$gles$Drawable2d$Prefab;
         public static /* synthetic */ Interceptable $ic;
@@ -73,7 +73,7 @@ public class Drawable2d {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Prefab {
         public static final /* synthetic */ Prefab[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -102,16 +102,16 @@ public class Drawable2d {
             $VALUES = new Prefab[]{TRIANGLE, RECTANGLE, prefab};
         }
 
-        public Prefab(String str, int i2) {
+        public Prefab(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -171,28 +171,28 @@ public class Drawable2d {
             newInitContext.initArgs = r2;
             Object[] objArr = {prefab};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int i4 = AnonymousClass1.$SwitchMap$com$faceunity$gles$Drawable2d$Prefab[prefab.ordinal()];
-        if (i4 == 1) {
+        int i3 = AnonymousClass1.$SwitchMap$com$faceunity$gles$Drawable2d$Prefab[prefab.ordinal()];
+        if (i3 == 1) {
             this.mVertexArray = TRIANGLE_BUF;
             this.mTexCoordArray = TRIANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = TRIANGLE_COORDS.length / 2;
-        } else if (i4 == 2) {
+        } else if (i3 == 2) {
             this.mVertexArray = RECTANGLE_BUF;
             this.mTexCoordArray = RECTANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = RECTANGLE_COORDS.length / 2;
-        } else if (i4 == 3) {
+        } else if (i3 == 3) {
             this.mVertexArray = FULL_RECTANGLE_BUF;
             this.mTexCoordArray = FULL_RECTANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;

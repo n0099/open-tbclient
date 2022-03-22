@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.resources.MaterialResources;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CalendarItemStyle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,16 +35,16 @@ public final class CalendarItemStyle {
     public final int strokeWidth;
     public final ColorStateList textColor;
 
-    public CalendarItemStyle(ColorStateList colorStateList, ColorStateList colorStateList2, ColorStateList colorStateList3, int i2, ShapeAppearanceModel shapeAppearanceModel, @NonNull Rect rect) {
+    public CalendarItemStyle(ColorStateList colorStateList, ColorStateList colorStateList2, ColorStateList colorStateList3, int i, ShapeAppearanceModel shapeAppearanceModel, @NonNull Rect rect) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {colorStateList, colorStateList2, colorStateList3, Integer.valueOf(i2), shapeAppearanceModel, rect};
+            Object[] objArr = {colorStateList, colorStateList2, colorStateList3, Integer.valueOf(i), shapeAppearanceModel, rect};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,17 +58,17 @@ public final class CalendarItemStyle {
         this.textColor = colorStateList2;
         this.backgroundColor = colorStateList;
         this.strokeColor = colorStateList3;
-        this.strokeWidth = i2;
+        this.strokeWidth = i;
         this.itemShape = shapeAppearanceModel;
     }
 
     @NonNull
-    public static CalendarItemStyle create(@NonNull Context context, @StyleRes int i2) {
+    public static CalendarItemStyle create(@NonNull Context context, @StyleRes int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
-            Preconditions.checkArgument(i2 != 0, "Cannot create a CalendarItemStyle with a styleResId of 0");
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i2, new int[]{16843191, 16843192, 16843193, 16843194, R.attr.itemFillColor, R.attr.itemShapeAppearance, R.attr.itemShapeAppearanceOverlay, R.attr.itemStrokeColor, R.attr.itemStrokeWidth, R.attr.itemTextColor});
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            Preconditions.checkArgument(i != 0, "Cannot create a CalendarItemStyle with a styleResId of 0");
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(i, new int[]{16843191, 16843192, 16843193, 16843194, R.attr.obfuscated_res_0x7f0402da, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402eb, R.attr.obfuscated_res_0x7f0402ec, R.attr.obfuscated_res_0x7f0402f0});
             Rect rect = new Rect(obtainStyledAttributes.getDimensionPixelOffset(0, 0), obtainStyledAttributes.getDimensionPixelOffset(2, 0), obtainStyledAttributes.getDimensionPixelOffset(1, 0), obtainStyledAttributes.getDimensionPixelOffset(3, 0));
             ColorStateList colorStateList = MaterialResources.getColorStateList(context, obtainStyledAttributes, 4);
             ColorStateList colorStateList2 = MaterialResources.getColorStateList(context, obtainStyledAttributes, 9);

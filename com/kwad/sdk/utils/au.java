@@ -1,10 +1,11 @@
 package com.kwad.sdk.utils;
 
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class au {
     public static Class a;
 
@@ -23,7 +24,7 @@ public class au {
     }
 
     public static String a(String str) {
-        Object a2 = a("get", new Class[]{String.class}, new Object[]{str});
+        Object a2 = a(SharedPreferenceManager.OPERATION_GET_PERFIX, new Class[]{String.class}, new Object[]{str});
         return a2 instanceof String ? (String) a2 : b(str);
     }
 

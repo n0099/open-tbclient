@@ -4,10 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.handler.MessageV3;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements Parcelable {
     public static final Parcelable.Creator<a> CREATOR = new Parcelable.Creator<a>() { // from class: com.meizu.cloud.pushsdk.notification.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,14 +19,14 @@ public class a implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public a[] newArray(int i2) {
-            return new a[i2];
+        public a[] newArray(int i) {
+            return new a[i];
         }
     };
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57374b;
+    public String f42199b;
 
     public a() {
         this.a = 0;
@@ -36,7 +35,7 @@ public class a implements Parcelable {
     public a(Parcel parcel) {
         this.a = 0;
         this.a = parcel.readInt();
-        this.f57374b = parcel.readString();
+        this.f42199b = parcel.readString();
     }
 
     public static a a(MessageV3 messageV3) {
@@ -44,10 +43,10 @@ public class a implements Parcelable {
         try {
             c2 = !TextUtils.isEmpty(messageV3.getNotificationMessage()) ? a(new JSONObject(messageV3.getNotificationMessage()).getJSONObject("data").getJSONObject("extra").getJSONObject("no")) : null;
         } catch (Exception e2) {
-            c.k.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
+            c.h.a.a.a.b("NotifyOption", "parse flyme NotifyOption setting error " + e2.getMessage() + " so get from notificationMessage");
             c2 = c(messageV3.getNotificationMessage());
         }
-        c.k.a.a.a.d("NotifyOption", "current notify option is " + c2);
+        c.h.a.a.a.d("NotifyOption", "current notify option is " + c2);
         return c2;
     }
 
@@ -68,7 +67,7 @@ public class a implements Parcelable {
             return aVar;
         }
         str = "no such tag NotifyOption";
-        c.k.a.a.a.b("NotifyOption", str);
+        c.h.a.a.a.b("NotifyOption", str);
         return aVar;
     }
 
@@ -86,7 +85,7 @@ public class a implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.k.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
+                c.h.a.a.a.b("NotifyOption", "parse json string error " + e2.getMessage());
             }
             return a(jSONObject);
         }
@@ -101,7 +100,7 @@ public class a implements Parcelable {
             }
             return b(new JSONObject(str).getString("no"));
         } catch (JSONException e2) {
-            c.k.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
+            c.h.a.a.a.b("NotifyOption", "parse notificationMessage error " + e2.getMessage());
             return null;
         }
     }
@@ -110,16 +109,16 @@ public class a implements Parcelable {
         return this.a;
     }
 
-    public void a(int i2) {
-        this.a = i2;
+    public void a(int i) {
+        this.a = i;
     }
 
     public void a(String str) {
-        this.f57374b = str;
+        this.f42199b = str;
     }
 
     public String b() {
-        return this.f57374b;
+        return this.f42199b;
     }
 
     @Override // android.os.Parcelable
@@ -128,12 +127,12 @@ public class a implements Parcelable {
     }
 
     public String toString() {
-        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f57374b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "NotifyOption{notifyId=" + this.a + ", notifyKey='" + this.f42199b + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeInt(this.a);
-        parcel.writeString(this.f57374b);
+        parcel.writeString(this.f42199b);
     }
 }

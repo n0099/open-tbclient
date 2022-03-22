@@ -29,24 +29,24 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
         public long remaining;
         public Subscription subscription;
 
-        public TakeSubscriber(Subscriber<? super T> subscriber, long j2) {
+        public TakeSubscriber(Subscriber<? super T> subscriber, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2)};
+                Object[] objArr = {subscriber, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = subscriber;
-            this.limit = j2;
-            this.remaining = j2;
+            this.limit = j;
+            this.remaining = j;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -84,11 +84,11 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
             if (!(interceptable == null || interceptable.invokeL(1048579, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.remaining;
-            long j3 = j2 - 1;
-            this.remaining = j3;
-            if (j2 > 0) {
-                boolean z = j3 == 0;
+            long j = this.remaining;
+            long j2 = j - 1;
+            this.remaining = j2;
+            if (j > 0) {
+                boolean z = j2 == 0;
                 this.actual.onNext(t);
                 if (z) {
                     this.subscription.cancel();
@@ -113,37 +113,37 @@ public final class FlowableTake<T> extends AbstractFlowableWithUpstream<T, T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                if (!get() && compareAndSet(false, true) && j2 >= this.limit) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+                if (!get() && compareAndSet(false, true) && j >= this.limit) {
                     this.subscription.request(Long.MAX_VALUE);
                 } else {
-                    this.subscription.request(j2);
+                    this.subscription.request(j);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableTake(Flowable<T> flowable, long j2) {
+    public FlowableTake(Flowable<T> flowable, long j) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2)};
+            Object[] objArr = {flowable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.limit = j2;
+        this.limit = j;
     }
 
     @Override // io.reactivex.Flowable

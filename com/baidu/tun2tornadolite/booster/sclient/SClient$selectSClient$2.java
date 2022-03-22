@@ -37,17 +37,17 @@ public final class SClient$selectSClient$2 extends SuspendLambda implements Func
     public int label;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$selectSClient$2(SClientConfig sClientConfig, long j2, Continuation<? super SClient$selectSClient$2> continuation) {
+    public SClient$selectSClient$2(SClientConfig sClientConfig, long j, Continuation<? super SClient$selectSClient$2> continuation) {
         super(2, continuation);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sClientConfig, Long.valueOf(j2), continuation};
+            Object[] objArr = {sClientConfig, Long.valueOf(j), continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -56,7 +56,7 @@ public final class SClient$selectSClient$2 extends SuspendLambda implements Func
             }
         }
         this.$config = sClientConfig;
-        this.$timeout = j2;
+        this.$timeout = j;
     }
 
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
@@ -86,15 +86,15 @@ public final class SClient$selectSClient$2 extends SuspendLambda implements Func
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = (CoroutineScope) this.L$0;
                 ArrayList arrayList = new ArrayList();
                 ArrayList<String> sclients = this.$config.getSclients();
-                long j2 = this.$timeout;
+                long j = this.$timeout;
                 for (String str : sclients) {
-                    async$default = BuildersKt__Builders_commonKt.async$default(coroutineScope, null, null, new SClient$selectSClient$2$1$1(str, j2, null), 3, null);
+                    async$default = BuildersKt__Builders_commonKt.async$default(coroutineScope, null, null, new SClient$selectSClient$2$1$1(str, j, null), 3, null);
                     arrayList.add(async$default);
                 }
                 LogTo logTo = LogTo.INSTANCE;
@@ -105,7 +105,7 @@ public final class SClient$selectSClient$2 extends SuspendLambda implements Func
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 ResultKt.throwOnFailure(obj);

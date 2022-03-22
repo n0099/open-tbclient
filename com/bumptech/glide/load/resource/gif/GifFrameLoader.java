@@ -32,7 +32,7 @@ import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifFrameLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -55,7 +55,7 @@ public class GifFrameLoader {
     public Transformation<Bitmap> transformation;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DelayTarget extends SimpleTarget<Bitmap> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,24 +64,24 @@ public class GifFrameLoader {
         public Bitmap resource;
         public final long targetTime;
 
-        public DelayTarget(Handler handler, int i2, long j2) {
+        public DelayTarget(Handler handler, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {handler, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {handler, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.handler = handler;
-            this.index = i2;
-            this.targetTime = j2;
+            this.index = i;
+            this.targetTime = j;
         }
 
         public Bitmap getResource() {
@@ -104,12 +104,12 @@ public class GifFrameLoader {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface FrameCallback {
         void onFrameReady();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FrameLoaderCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MSG_CLEAR = 2;
@@ -124,9 +124,9 @@ public class GifFrameLoader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gifFrameLoader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -140,11 +140,11 @@ public class GifFrameLoader {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i2 = message.what;
-                if (i2 == 1) {
+                int i = message.what;
+                if (i == 1) {
                     this.this$0.onFrameReady((DelayTarget) message.obj);
                     return true;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     this.this$0.requestManager.clear((DelayTarget) message.obj);
                     return false;
                 } else {
@@ -156,23 +156,23 @@ public class GifFrameLoader {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnEveryFrameListener {
         void onFrameReady();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i2, int i3, Transformation<Bitmap> transformation, Bitmap bitmap) {
-        this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i2, i3), transformation, bitmap);
+    public GifFrameLoader(Glide glide, GifDecoder gifDecoder, int i, int i2, Transformation<Bitmap> transformation, Bitmap bitmap) {
+        this(glide.getBitmapPool(), Glide.with(glide.getContext()), gifDecoder, null, getRequestBuilder(Glide.with(glide.getContext()), i, i2), transformation, bitmap);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r5;
-            Object[] objArr = {glide, gifDecoder, Integer.valueOf(i2), Integer.valueOf(i3), transformation, bitmap};
+            Object[] objArr = {glide, gifDecoder, Integer.valueOf(i), Integer.valueOf(i2), transformation, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BitmapPool) objArr2[0], (RequestManager) objArr2[1], (GifDecoder) objArr2[2], (Handler) objArr2[3], (RequestBuilder) objArr2[4], (Transformation) objArr2[5], (Bitmap) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -194,10 +194,10 @@ public class GifFrameLoader {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? Util.getBitmapByteSize(getCurrentFrame().getWidth(), getCurrentFrame().getHeight(), getCurrentFrame().getConfig()) : invokeV.intValue;
     }
 
-    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i2, int i3) {
+    public static RequestBuilder<Bitmap> getRequestBuilder(RequestManager requestManager, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, requestManager, i2, i3)) == null) ? requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i2, i3)) : (RequestBuilder) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, requestManager, i, i2)) == null) ? requestManager.asBitmap().apply(RequestOptions.diskCacheStrategyOf(DiskCacheStrategy.NONE).useAnimationPool(true).skipMemoryCache(true).override(i, i2)) : (RequestBuilder) invokeLII.objValue;
     }
 
     private void loadNextFrame() {
@@ -442,9 +442,9 @@ public class GifFrameLoader {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapPool, requestManager, gifDecoder, handler, requestBuilder, transformation, bitmap};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

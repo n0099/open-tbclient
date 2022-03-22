@@ -7,7 +7,6 @@ import android.os.Process;
 import android.util.Log;
 import androidx.annotation.WorkerThread;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.kuaishou.weapon.un.j0;
 import com.kwad.sdk.utils.ag;
 import com.kwad.sdk.utils.au;
@@ -26,7 +25,7 @@ public class c {
     public static com.kwad.sdk.collector.kwai.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f54074b;
+    public static Context f39223b;
 
     /* loaded from: classes7.dex */
     public static class a extends com.kwad.sdk.collector.kwai.a {
@@ -36,39 +35,39 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f54073b = arrayList;
+            this.f39222b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
-                    int i2 = (Build.PRODUCT.contains("sdk") || Build.PRODUCT.contains("Andy") || Build.PRODUCT.contains("ttVM_Hdragon") || Build.PRODUCT.contains("google_sdk") || Build.PRODUCT.contains("Droid4X") || Build.PRODUCT.contains("nox") || Build.PRODUCT.contains("sdk_x86") || Build.PRODUCT.contains("sdk_google") || Build.PRODUCT.contains("vbox86p") || Build.PRODUCT.contains("aries")) ? 1 : 0;
+                    int i = (Build.PRODUCT.contains("sdk") || Build.PRODUCT.contains("Andy") || Build.PRODUCT.contains("ttVM_Hdragon") || Build.PRODUCT.contains("google_sdk") || Build.PRODUCT.contains("Droid4X") || Build.PRODUCT.contains("nox") || Build.PRODUCT.contains("sdk_x86") || Build.PRODUCT.contains("sdk_google") || Build.PRODUCT.contains("vbox86p") || Build.PRODUCT.contains("aries")) ? 1 : 0;
                     if (Build.MANUFACTURER.equals("unknown") || Build.MANUFACTURER.equals("Genymotion") || Build.MANUFACTURER.contains("Andy") || Build.MANUFACTURER.contains("MIT") || Build.MANUFACTURER.contains("nox") || Build.MANUFACTURER.contains("TiantianVM")) {
-                        i2++;
+                        i++;
                     }
                     if (Build.BRAND.equals("generic") || Build.BRAND.equals("generic_x86") || Build.BRAND.equals("TTVM") || Build.BRAND.contains("Andy")) {
-                        i2++;
+                        i++;
                     }
                     if (Build.DEVICE.contains("generic") || Build.DEVICE.contains("generic_x86") || Build.DEVICE.contains("Andy") || Build.DEVICE.contains("ttVM_Hdragon") || Build.DEVICE.contains("Droid4X") || Build.DEVICE.contains("nox") || Build.DEVICE.contains("generic_x86_64") || Build.DEVICE.contains("vbox86p") || Build.DEVICE.contains("aries")) {
-                        i2++;
+                        i++;
                     }
                     if (Build.MODEL.equals("sdk") || Build.MODEL.contains("Emulator") || Build.MODEL.equals("google_sdk") || Build.MODEL.contains("Droid4X") || Build.MODEL.contains("TiantianVM") || Build.MODEL.contains("Andy") || Build.MODEL.equals("Android SDK built for x86_64") || Build.MODEL.equals("Android SDK built for x86")) {
-                        i2++;
+                        i++;
                     }
                     if (Build.HARDWARE.equals("goldfish") || Build.HARDWARE.equals("vbox86") || Build.HARDWARE.contains("nox") || Build.HARDWARE.contains("ttVM_x86")) {
-                        i2++;
+                        i++;
                     }
                     if (Build.FINGERPRINT.contains("generic/sdk/generic") || Build.FINGERPRINT.contains("generic_x86/sdk_x86/generic_x86") || Build.FINGERPRINT.contains("Andy") || Build.FINGERPRINT.contains("ttVM_Hdragon") || Build.FINGERPRINT.contains("generic_x86_64") || Build.FINGERPRINT.contains("generic/google_sdk/generic") || Build.FINGERPRINT.contains("vbox86p") || Build.FINGERPRINT.contains("generic/vbox86p/vbox86p")) {
-                        i2++;
+                        i++;
                     }
                     try {
                         if (new File(Environment.getExternalStorageDirectory().toString() + File.separatorChar + Platform.WINDOWS + File.separatorChar + "BstSharedFolder").exists()) {
-                            i2 += 10;
+                            i += 10;
                         }
                     } catch (Exception unused) {
                     }
-                    return i2 > 3;
+                    return i > 3;
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.a.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return "1".equals(au.a("ro.kernel.qemu"));
@@ -83,7 +82,7 @@ public class c {
 
     /* renamed from: com.kwad.sdk.collector.kwai.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C2089c extends com.kwad.sdk.collector.kwai.a {
+    public static class C1950c extends com.kwad.sdk.collector.kwai.a {
     }
 
     /* loaded from: classes7.dex */
@@ -94,39 +93,39 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f54073b = arrayList;
+            this.f39222b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return new File("/system/app/Superuser.apk").exists();
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     String[] strArr = {"/system/bin/", "/system/xbin/", "/system/sbin/", "/sbin/", "/vendor/bin/"};
-                    for (int i2 = 0; i2 < 5; i2++) {
-                        if (new File(strArr[i2] + j0.f53652b).exists()) {
+                    for (int i = 0; i < 5; i++) {
+                        if (new File(strArr[i] + j0.f38847b).exists()) {
                             return true;
                         }
                     }
                     return false;
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
-                    return c.a(new String[]{"/system/xbin/which", j0.f53652b}) != null;
+                    return c.a(new String[]{"/system/xbin/which", j0.f38847b}) != null;
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.d.4
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     Charset forName = Charset.forName("UTF-8");
                     File file = new File("/data/su_test");
                     try {
-                        q.a(file, NewBindCardEntry.BING_CARD_SUCCESS_MSG, forName, false);
-                        return q.a(file, forName).equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG);
+                        q.a(file, "ok", forName, false);
+                        return q.a(file, forName).equals("ok");
                     } catch (Throwable unused) {
                         return false;
                     }
@@ -143,14 +142,14 @@ public class c {
 
         private void b() {
             ArrayList arrayList = new ArrayList();
-            this.f54073b = arrayList;
+            this.f39222b = arrayList;
             arrayList.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.1
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     return ag.a(context, "de.robv.android.xposed.installer") || ag.a(context, "com.saurik.substrate");
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.2
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     StackTraceElement[] stackTrace;
@@ -158,11 +157,11 @@ public class c {
                         throw new Exception(SchemeCollecter.CLASSIFY_EMPTY);
                     } catch (Exception e2) {
                         boolean z = false;
-                        int i2 = 0;
+                        int i = 0;
                         for (StackTraceElement stackTraceElement : e2.getStackTrace()) {
                             String className = stackTraceElement.getClassName();
                             String methodName = stackTraceElement.getMethodName();
-                            if (className.equals("com.android.internal.os.ZygoteInit") && (i2 = i2 + 1) == 2) {
+                            if (className.equals("com.android.internal.os.ZygoteInit") && (i = i + 1) == 2) {
                                 z = true;
                             }
                             if (className.equals("com.saurik.substrate.MS$2") && methodName.equals("invoked")) {
@@ -180,7 +179,7 @@ public class c {
                     }
                 }
             });
-            this.f54073b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
+            this.f39222b.add(new com.kwad.sdk.collector.kwai.a(this.a) { // from class: com.kwad.sdk.collector.kwai.c.e.3
                 @Override // com.kwad.sdk.collector.kwai.a
                 public boolean b(Context context) {
                     boolean z = false;
@@ -221,12 +220,12 @@ public class c {
                 if (a != null) {
                     return a;
                 }
-                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(f54074b);
-                boolean a2 = new d().a(f54074b);
-                boolean a3 = new e().a(f54074b);
-                boolean a4 = new b().a(f54074b);
-                boolean a5 = new a().a(f54074b);
-                boolean a6 = new C2089c().a(f54074b);
+                com.kwad.sdk.collector.kwai.d dVar = new com.kwad.sdk.collector.kwai.d(f39223b);
+                boolean a2 = new d().a(f39223b);
+                boolean a3 = new e().a(f39223b);
+                boolean a4 = new b().a(f39223b);
+                boolean a5 = new a().a(f39223b);
+                boolean a6 = new C1950c().a(f39223b);
                 dVar.a(a2);
                 dVar.b(a3);
                 dVar.c(a4);
@@ -274,7 +273,7 @@ public class c {
             if (context == null) {
                 return;
             }
-            f54074b = context.getApplicationContext();
+            f39223b = context.getApplicationContext();
         }
     }
 }

@@ -30,24 +30,24 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     public int mStatus;
     public int mSwitchCategory;
 
-    public IMSetMsgSettingSwitchRequest(Context context, int i2, int i3, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+    public IMSetMsgSettingSwitchRequest(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), iSetMsgSettingSwitchListener};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), iSetMsgSettingSwitchListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mSwitchCategory = i2;
-        this.mStatus = i3;
+        this.mSwitchCategory = i;
+        this.mStatus = i2;
         this.mListener = iSetMsgSettingSwitchListener;
     }
 
@@ -126,10 +126,10 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
             if (iSetMsgSettingSwitchListener != null) {
                 iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second);
@@ -138,25 +138,25 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.e(TAG, "IMSetMsgSettingSwitchRequest onSuccess :" + str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "JSONException", e2);
-                i3 = 1010;
+                i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener = this.mListener;
             if (iSetMsgSettingSwitchListener != null) {
-                iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i3, str);
+                iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(i2, str);
             }
         }
     }

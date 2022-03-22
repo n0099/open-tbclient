@@ -59,9 +59,9 @@ public class TransitionInflater {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -300,11 +300,11 @@ public class TransitionInflater {
         }
     }
 
-    public Transition inflateTransition(int i2) {
+    public Transition inflateTransition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            XmlResourceParser xml = this.mContext.getResources().getXml(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            XmlResourceParser xml = this.mContext.getResources().getXml(i);
             try {
                 try {
                     return createTransitionFromXml(xml, Xml.asAttributeSet(xml), null);
@@ -320,11 +320,11 @@ public class TransitionInflater {
         return (Transition) invokeI.objValue;
     }
 
-    public TransitionManager inflateTransitionManager(int i2, ViewGroup viewGroup) {
+    public TransitionManager inflateTransitionManager(int i, ViewGroup viewGroup) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, viewGroup)) == null) {
-            XmlResourceParser xml = this.mContext.getResources().getXml(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, viewGroup)) == null) {
+            XmlResourceParser xml = this.mContext.getResources().getXml(i);
             try {
                 try {
                     return createTransitionManagerFromXml(xml, Xml.asAttributeSet(xml), viewGroup);

@@ -28,7 +28,7 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60742d;
+        public Disposable f45351d;
         public final Action onAfterTerminate;
 
         public DoAfterTerminateObserver(SingleObserver<? super T> singleObserver, Action action) {
@@ -38,9 +38,9 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,7 +66,7 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60742d.dispose();
+                this.f45351d.dispose();
             }
         }
 
@@ -74,7 +74,7 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60742d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45351d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -89,8 +89,8 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f60742d, disposable)) {
-                this.f60742d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f45351d, disposable)) {
+                this.f45351d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -112,9 +112,9 @@ public final class SingleDoAfterTerminate<T> extends Single<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

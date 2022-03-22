@@ -1,7 +1,7 @@
 package com.qq.e.ads.nativ.widget;
 
 import android.view.MotionEvent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ViewStatusListener {
     void onAttachToWindow();
 
@@ -11,5 +11,5 @@ public interface ViewStatusListener {
 
     void onWindowFocusChanged(boolean z);
 
-    void onWindowVisibilityChanged(int i2);
+    void onWindowVisibilityChanged(int i);
 }

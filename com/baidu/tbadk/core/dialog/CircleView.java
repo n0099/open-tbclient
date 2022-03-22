@@ -15,31 +15,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CircleView extends View {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int l = 360;
-    public static int m = 100;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38828e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f38829f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f38830g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Paint f38831h;
+    public static int f29840h = 360;
+    public static int i = 100;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f38832i;
+    /* renamed from: b  reason: collision with root package name */
+    public int f29841b;
 
-    /* renamed from: j  reason: collision with root package name */
-    public RectF f38833j;
-    public int k;
+    /* renamed from: c  reason: collision with root package name */
+    public int f29842c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Paint f29843d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public Paint f29844e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RectF f29845f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public int f29846g;
 
     static {
         InterceptResult invokeClinit;
@@ -75,31 +77,31 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.k = 0;
-        init();
+        this.f29846g = 0;
+        a();
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38828e = getResources().getDimensionPixelSize(R.dimen.ds100);
-            this.f38829f = getResources().getDimensionPixelSize(R.dimen.ds4);
-            this.f38830g = getResources().getDimensionPixelSize(R.dimen.ds2);
+            this.a = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a);
+            this.f29841b = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
+            this.f29842c = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d4);
             Paint paint = new Paint();
-            this.f38831h = paint;
-            paint.setStrokeWidth(this.f38829f);
-            this.f38831h.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f38831h.setStyle(Paint.Style.STROKE);
-            this.f38831h.setAntiAlias(true);
+            this.f29843d = paint;
+            paint.setStrokeWidth(this.f29841b);
+            this.f29843d.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f29843d.setStyle(Paint.Style.STROKE);
+            this.f29843d.setAntiAlias(true);
             Paint paint2 = new Paint();
-            this.f38832i = paint2;
-            paint2.setStrokeWidth(this.f38830g);
-            this.f38832i.setColor(getResources().getColor(R.color.common_color_10042));
-            this.f38832i.setStyle(Paint.Style.STROKE);
-            this.f38832i.setAntiAlias(true);
-            int i2 = this.f38829f;
-            int i3 = this.f38828e;
-            this.f38833j = new RectF(i2, i2, i3 + i2, i3 + i2);
+            this.f29844e = paint2;
+            paint2.setStrokeWidth(this.f29842c);
+            this.f29844e.setColor(getResources().getColor(R.color.common_color_10042));
+            this.f29844e.setStyle(Paint.Style.STROKE);
+            this.f29844e.setAntiAlias(true);
+            int i2 = this.f29841b;
+            int i3 = this.a;
+            this.f29845f = new RectF(i2, i2, i3 + i2, i3 + i2);
         }
     }
 
@@ -107,15 +109,15 @@ public class CircleView extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f38833j, 0.0f, l, false, this.f38832i);
-            canvas.drawArc(this.f38833j, 270.0f, (l * this.k) / m, false, this.f38831h);
+            canvas.drawArc(this.f29845f, 0.0f, f29840h, false, this.f29844e);
+            canvas.drawArc(this.f29845f, 270.0f, (f29840h * this.f29846g) / i, false, this.f29843d);
         }
     }
 
     public void setProgress(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.k = i2;
+            this.f29846g = i2;
             invalidate();
         }
     }
@@ -139,8 +141,8 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.k = 0;
-        init();
+        this.f29846g = 0;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -161,7 +163,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        this.k = 0;
-        init();
+        this.f29846g = 0;
+        a();
     }
 }

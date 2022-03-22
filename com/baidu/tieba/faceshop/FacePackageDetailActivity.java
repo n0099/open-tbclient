@@ -10,16 +10,15 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.r0.y0.h;
+import c.a.p0.a1.i;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.ProxyAdkBaseActivity;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NoNetworkView;
@@ -34,40 +33,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageDetailActivity> {
-    public static /* synthetic */ Interceptable $ic;
+public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailActivity> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int BUY_DOING = 1;
+    public static final int BUY_NOT_BEGIN = 0;
+    public static final int BUY_SUCCESS = 2;
+    public static final int DETAIL_REQUEST_BUY = 10001;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public FacePackageDetailModel f41448e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public h f41449f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public FacePackageDownloadModel f41450g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public FaceBuyModel f41451h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f41452i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f41453j;
-    public boolean k;
-    public final Rect l;
-    public final NoNetworkView.b m;
-    public final ProxyAdkBaseActivity<FacePackageDetailActivity>.LoadDataCallBack n;
-    public final CustomMessageListener o;
+    public FaceBuyModel mBuyModel;
+    public float mDownX;
+    public float mDownY;
+    public FacePackageDownloadModel mGetDownloadUrlModel;
+    public boolean mIsFromNetEnd;
+    public final CustomMessageListener mListener;
+    public final BaseActivity<FacePackageDetailActivity>.LoadDataCallBack mLoadDataCallBack;
+    public FacePackageDetailModel mModel;
+    public final NoNetworkView.b mNetworkChangeListener;
+    public i mView;
+    public final Rect tmpRect;
 
     /* loaded from: classes5.dex */
     public class a implements NoNetworkView.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDetailActivity f41454e;
+        public final /* synthetic */ FacePackageDetailActivity a;
 
         public a(FacePackageDetailActivity facePackageDetailActivity) {
             Interceptable interceptable = $ic;
@@ -76,31 +65,31 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facePackageDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41454e = facePackageDetailActivity;
+            this.a = facePackageDetailActivity;
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void onNetworkChange(boolean z) {
+        public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
-                    this.f41454e.s();
+                    this.a.refresh();
                 }
-                this.f41454e.f41449f.c(z);
+                this.a.mView.c(z);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b extends ProxyAdkBaseActivity<FacePackageDetailActivity>.LoadDataCallBack {
+    public class b extends BaseActivity<FacePackageDetailActivity>.LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePackageDetailActivity a;
@@ -114,10 +103,10 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facePackageDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super((ProxyAdkBaseActivity) newInitContext.callArgs[0]);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((BaseActivity) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,7 +115,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             this.a = facePackageDetailActivity;
         }
 
-        @Override // com.baidu.tbadk.ProxyAdkBaseActivity.LoadDataCallBack
+        @Override // com.baidu.tbadk.BaseActivity.LoadDataCallBack
         public void callback(Object... objArr) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
@@ -134,12 +123,12 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 Object obj = objArr[0];
                 Boolean bool = (Boolean) objArr[1];
                 if (obj != null && (obj instanceof FacePackageDetailData)) {
-                    if (this.a.f41449f != null) {
+                    if (this.a.mView != null) {
                         FacePackageDetailData facePackageDetailData = (FacePackageDetailData) obj;
                         if (facePackageDetailData.errno == 0 && facePackageDetailData.usermsg != null) {
-                            this.a.f41449f.o(this.a.f41448e);
+                            this.a.mView.o(this.a.mModel);
                             if (!bool.booleanValue()) {
-                                this.a.k = true;
+                                this.a.mIsFromNetEnd = true;
                                 return;
                             } else {
                                 this.a.showProgressBar();
@@ -151,13 +140,13 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                             this.a.showToast(str);
                             return;
                         } else {
-                            this.a.showToast(R.string.neterror);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                             return;
                         }
                     }
                     return;
                 }
-                this.a.showToast(R.string.neterror);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
             }
         }
     }
@@ -169,7 +158,7 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         public final /* synthetic */ DownloadData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ FacePackageDetailActivity f41455b;
+        public final /* synthetic */ FacePackageDetailActivity f32043b;
 
         public c(FacePackageDetailActivity facePackageDetailActivity, DownloadData downloadData) {
             Interceptable interceptable = $ic;
@@ -178,15 +167,15 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facePackageDetailActivity, downloadData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41455b = facePackageDetailActivity;
+            this.f32043b = facePackageDetailActivity;
             this.a = downloadData;
         }
 
@@ -198,24 +187,24 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                     if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                         String str = facePackageDownloadData.pack_url;
-                        this.f41455b.f41448e.J(str);
-                        if (this.f41455b.f41448e.E() == null || this.f41455b.f41448e.E().faces_list == null) {
+                        this.f32043b.mModel.L(str);
+                        if (this.f32043b.mModel.G() == null || this.f32043b.mModel.G().faces_list == null) {
                             return;
                         }
-                        FacePackageDetailActivity facePackageDetailActivity = this.f41455b;
-                        facePackageDetailActivity.l(facePackageDetailActivity.f41448e.getPid(), this.f41455b.f41448e.E().faces_list.pname, str);
+                        FacePackageDetailActivity facePackageDetailActivity = this.f32043b;
+                        facePackageDetailActivity.createDownload(facePackageDetailActivity.mModel.getPid(), this.f32043b.mModel.G().faces_list.pname, str);
                         return;
                     }
                     String str2 = facePackageDownloadData.usermsg;
                     if (str2 != null) {
-                        this.f41455b.showToast(str2);
+                        this.f32043b.showToast(str2);
                         return;
                     } else {
-                        c.a.r0.y0.f.f().i(this.a);
+                        c.a.p0.a1.f.f().i(this.a);
                         return;
                     }
                 }
-                c.a.r0.y0.f.f().i(this.a);
+                c.a.p0.a1.f.f().i(this.a);
             }
         }
     }
@@ -233,9 +222,9 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facePackageDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -256,21 +245,21 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                         String str = buyInfo.buy_url;
                         String str2 = buyInfo.return_url;
                         if (buyInfo.buy_status != 2) {
-                            this.a.f41448e.M(String.valueOf(faceBuyData.buy_info.order_id));
+                            this.a.mModel.O(String.valueOf(faceBuyData.buy_info.order_id));
                             IntentConfig intentConfig = new IntentConfig(this.a.getActivity());
-                            intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
-                            intentConfig.getIntent().putExtra("tag_hook_url", str2);
-                            intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_TITLE, this.a.getString(R.string.buy_book));
-                            intentConfig.getIntent().putExtra("tag_position", 0);
+                            intentConfig.getIntent().putExtra("tag_url", str);
+                            intentConfig.getIntent().putExtra(FaceBuyWebViewActivity.TAG_HOOK_URL, str2);
+                            intentConfig.getIntent().putExtra("tag_title", this.a.getString(R.string.obfuscated_res_0x7f0f0344));
+                            intentConfig.getIntent().putExtra(FaceBuyWebViewActivity.TAG_POSITION, 0);
                             MessageManager.getInstance().sendMessage(new CustomMessage(2902013, intentConfig));
                             return;
                         }
-                        this.a.showToast(R.string.has_buy_book);
-                        FacePackageData facePackageData = this.a.f41448e.E().faces_list;
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0806);
+                        FacePackageData facePackageData = this.a.mModel.G().faces_list;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
-                        this.a.f41448e.N(facePackageData);
-                        this.a.f41449f.z();
+                        this.a.mModel.P(facePackageData);
+                        this.a.mView.z();
                         return;
                     }
                     String str3 = faceBuyData.usermsg;
@@ -278,11 +267,11 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                         this.a.showToast(str3);
                         return;
                     } else {
-                        this.a.showToast(R.string.neterror);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                         return;
                     }
                 }
-                this.a.showToast(R.string.neterror);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
             }
         }
     }
@@ -300,9 +289,9 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                 newInitContext.initArgs = r2;
                 Object[] objArr = {facePackageDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -319,17 +308,17 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
                     if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
-                            this.a.r();
+                            this.a.onBuySuccess();
                             return;
                         } else {
-                            this.a.q();
+                            this.a.onBuyFail();
                             return;
                         }
                     }
-                    this.a.q();
+                    this.a.onBuyFail();
                     return;
                 }
-                this.a.q();
+                this.a.onBuyFail();
             }
         }
     }
@@ -341,17 +330,17 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         public final /* synthetic */ FacePackageDetailActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(FacePackageDetailActivity facePackageDetailActivity, int i2) {
-            super(i2);
+        public f(FacePackageDetailActivity facePackageDetailActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {facePackageDetailActivity, Integer.valueOf(i2)};
+                Object[] objArr = {facePackageDetailActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -367,11 +356,11 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
             List<DownloadData> data;
             DownloadData downloadData;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.f41448e == null || this.a.f41448e.E() == null || this.a.f41449f == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.mModel == null || this.a.mModel.G() == null || this.a.mView == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            FacePackageData facePackageData = this.a.f41448e.E().faces_list;
-            if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(this.a.f41448e.getPid())) {
+            FacePackageData facePackageData = this.a.mModel.G().faces_list;
+            if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(this.a.mModel.getPid())) {
                 int status = downloadData.getStatus();
                 if (status == 3 || status == 0) {
                     facePackageData.downloaded = 1;
@@ -380,8 +369,8 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     if (!m.isEmpty(downloadData.getStatusMsg())) {
                         this.a.showToast(downloadData.getStatusMsg());
                     }
-                    if (this.a.f41450g != null) {
-                        this.a.f41450g.cancelLoadData();
+                    if (this.a.mGetDownloadUrlModel != null) {
+                        this.a.mGetDownloadUrlModel.cancelLoadData();
                     }
                     facePackageData.downloaded = 0;
                     facePackageData.downloading = 0;
@@ -392,8 +381,8 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
                     facePackageData.downloadNow = downloadData.getLength();
                 }
             }
-            this.a.f41448e.N(facePackageData);
-            this.a.f41449f.w(this.a.f41448e);
+            this.a.mModel.P(facePackageData);
+            this.a.mView.w(this.a.mModel);
         }
     }
 
@@ -402,61 +391,162 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = false;
-        this.l = new Rect();
-        this.m = new a(this);
-        this.n = new b(this);
-        this.o = new f(this, 2001118);
+        this.mIsFromNetEnd = false;
+        this.tmpRect = new Rect();
+        this.mNetworkChangeListener = new a(this);
+        this.mLoadDataCallBack = new b(this);
+        this.mListener = new f(this, 2001118);
+    }
+
+    private void addNetWorkStateChangeListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+            this.mView.b(this.mNetworkChangeListener);
+        }
+    }
+
+    private void downLoad() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(getActivity());
+            this.mGetDownloadUrlModel = facePackageDownloadModel;
+            facePackageDownloadModel.F(this.mModel.getPid());
+            DownloadData downloadData = new DownloadData(this.mModel.getPid());
+            downloadData.setType(11);
+            downloadData.setStatus(2);
+            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0c15));
+            this.mGetDownloadUrlModel.setLoadDataCallBack(new c(this, downloadData));
+        }
+    }
+
+    private void initData(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, this, bundle) == null) {
+            FacePackageDetailModel facePackageDetailModel = new FacePackageDetailModel(this);
+            this.mModel = facePackageDetailModel;
+            if (bundle != null) {
+                facePackageDetailModel.setStType(bundle.getString("st_type"));
+                this.mModel.setPid(bundle.getString(IntentConfig.PKG_ID));
+                this.mModel.M(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
+            } else {
+                facePackageDetailModel.setStType(getIntent().getStringExtra("st_type"));
+                this.mModel.setPid(getIntent().getStringExtra(IntentConfig.PKG_ID));
+                this.mModel.M(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
+                TiebaStatic.log(getIntent().getStringExtra("st_type"));
+            }
+            this.mModel.N(this.mLoadDataCallBack);
+        }
+    }
+
+    private void initUI() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+            this.mView = new i(getPageContext());
+            addNetWorkStateChangeListener();
+            registerListener(this.mListener);
+            c.a.p0.a1.f.f();
+        }
+    }
+
+    private boolean isFingerMovedExceedLimit(float f2, float f3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+            float f4 = f2 - this.mDownX;
+            float f5 = f3 - this.mDownY;
+            return Math.sqrt((double) ((f4 * f4) + (f5 * f5))) > ((double) getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070270));
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    private void removeNetWorkStateChangeListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, this) == null) {
+            this.mView.q(this.mNetworkChangeListener);
+        }
+    }
+
+    private void showFloatView(View view, int i) {
+        FacePackageData facePackageData;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65547, this, view, i) == null) || view == null) {
+            return;
+        }
+        view.getDrawingRect(this.tmpRect);
+        ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view, this.tmpRect);
+        if (this.mModel.G() == null || (facePackageData = this.mModel.G().faces_list) == null) {
+            return;
+        }
+        this.mView.C(i, this.tmpRect, facePackageData);
+    }
+
+    public void buyFacePackage() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            showProgressBar();
+            String pid = this.mModel.getPid();
+            FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
+            this.mBuyModel = faceBuyModel;
+            faceBuyModel.setLoadDataCallBack(new d(this));
+            this.mBuyModel.F(pid);
+        }
+    }
+
+    public void createDownload(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3) == null) {
+            c.a.p0.a1.f.f().j(str, str2, str3);
+        }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:18:0x0030, code lost:
         if (r0 != 3) goto L19;
      */
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f41452i = motionEvent.getX();
-                this.f41453j = motionEvent.getY();
+                this.mDownX = motionEvent.getX();
+                this.mDownY = motionEvent.getY();
             }
-            h hVar = this.f41449f;
-            if (hVar == null) {
+            i iVar = this.mView;
+            if (iVar == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            if (hVar.j()) {
+            if (iVar.j()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
                         int x = (int) motionEvent.getX();
                         int y = (int) motionEvent.getY();
-                        this.l.set(x, y, x + 1, y + 1);
-                        GridView g2 = this.f41449f.g();
-                        ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(g2, this.l);
-                        Rect rect = this.l;
+                        this.tmpRect.set(x, y, x + 1, y + 1);
+                        GridView g2 = this.mView.g();
+                        ((ViewGroup) getWindow().getDecorView()).offsetRectIntoDescendantCoords(g2, this.tmpRect);
+                        Rect rect = this.tmpRect;
                         int pointToPosition = g2.pointToPosition(rect.left, rect.top);
                         if (pointToPosition != -1) {
                             View childAt = g2.getChildAt(pointToPosition - g2.getFirstVisiblePosition());
-                            if (p(x, y)) {
-                                u(childAt, pointToPosition);
+                            if (isFingerMovedExceedLimit(x, y)) {
+                                showFloatView(childAt, pointToPosition);
                             }
                         }
                     }
                     return true;
                 }
-                this.f41449f.d();
+                this.mView.d();
                 return true;
             }
             return super.dispatchTouchEvent(motionEvent);
@@ -464,304 +554,203 @@ public class FacePackageDetailActivity extends ProxyAdkBaseActivity<FacePackageD
         return invokeL.booleanValue;
     }
 
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f41449f.b(this.m);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            showProgressBar();
-            String pid = this.f41448e.getPid();
-            FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
-            this.f41451h = faceBuyModel;
-            faceBuyModel.setLoadDataCallBack(new d(this));
-            this.f41451h.D(pid);
-        }
-    }
-
-    public void l(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            c.a.r0.y0.f.f().j(str, str2, str3);
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(getActivity());
-            this.f41450g = facePackageDownloadModel;
-            facePackageDownloadModel.D(this.f41448e.getPid());
-            DownloadData downloadData = new DownloadData(this.f41448e.getPid());
-            downloadData.setType(11);
-            downloadData.setStatus(2);
-            downloadData.setStatusMsg(getResources().getString(R.string.neterror));
-            this.f41450g.setLoadDataCallBack(new c(this, downloadData));
-        }
-    }
-
-    public final void n(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-            FacePackageDetailModel facePackageDetailModel = new FacePackageDetailModel(this);
-            this.f41448e = facePackageDetailModel;
-            if (bundle != null) {
-                facePackageDetailModel.setStType(bundle.getString("st_type"));
-                this.f41448e.setPid(bundle.getString(IntentConfig.PKG_ID));
-                this.f41448e.K(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
-            } else {
-                facePackageDetailModel.setStType(getIntent().getStringExtra("st_type"));
-                this.f41448e.setPid(getIntent().getStringExtra(IntentConfig.PKG_ID));
-                this.f41448e.K(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
-                TiebaStatic.log(getIntent().getStringExtra("st_type"));
-            }
-            this.f41448e.L(this.n);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f41449f = new h(getPageContext());
-            j();
-            registerListener(this.o);
-            c.a.r0.y0.f.f();
-        }
-    }
-
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
+    public void onActivityResult(int i, int i2, Intent intent) {
         FacePackageDetailModel facePackageDetailModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i3 != -1 || this.f41449f == null || (facePackageDetailModel = this.f41448e) == null || facePackageDetailModel.E() == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 != -1 || this.mView == null || (facePackageDetailModel = this.mModel) == null || facePackageDetailModel.G() == null) {
                 return;
             }
-            if (i2 != 10001) {
-                if (i2 == 11003) {
-                    if (this.f41448e.E().faces_list.can_download == 1) {
-                        m();
+            if (i != 10001) {
+                if (i == 11003) {
+                    if (this.mModel.G().faces_list.can_download == 1) {
+                        downLoad();
                         return;
                     } else {
-                        k();
+                        buyFacePackage();
                         return;
                     }
                 }
                 return;
             }
-            String stringExtra = intent.getStringExtra("tag_order_id");
-            if (this.f41448e.E().faces_list == null) {
+            String stringExtra = intent.getStringExtra(FaceBuyWebViewActivity.TAG_ORDER_ID);
+            if (this.mModel.G().faces_list == null) {
                 return;
             }
             if (m.isEmpty(stringExtra)) {
-                stringExtra = this.f41448e.H();
+                stringExtra = this.mModel.J();
             }
-            this.f41449f.y();
+            this.mView.y();
             FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
-            this.f41451h = faceBuyModel;
+            this.mBuyModel = faceBuyModel;
             faceBuyModel.setLoadDataCallBack(new e(this));
-            this.f41451h.E(stringExtra);
+            this.mBuyModel.G(stringExtra);
         }
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onBuyFail() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            h hVar = this.f41449f;
-            if (hVar != null) {
-                hVar.l(i2);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.mView.r();
+        }
+    }
+
+    public void onBuySuccess() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.mView.h();
+            downLoad();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            super.onChangeSkinType(i);
+            i iVar = this.mView;
+            if (iVar != null) {
+                iVar.l(i);
             }
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.view.View.OnClickListener
+    @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        h hVar;
+        i iVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || this.f41448e == null || (hVar = this.f41449f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, view) == null) || this.mModel == null || (iVar = this.mView) == null) {
             return;
         }
-        if (view == hVar.e()) {
+        if (view == iVar.e()) {
             if (!TbadkCoreApplication.isLogin()) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                 return;
-            } else if (!this.k) {
+            } else if (!this.mIsFromNetEnd) {
                 return;
             } else {
-                int I = this.f41448e.I();
-                if (I == 2 || I == 3) {
+                int K = this.mModel.K();
+                if (K == 2 || K == 3) {
                     TiebaStatic.log("emotion_package_detail_free");
-                    String F = this.f41448e.F();
-                    DownloadData downloadData = new DownloadData(this.f41448e.getPid());
+                    String H = this.mModel.H();
+                    DownloadData downloadData = new DownloadData(this.mModel.getPid());
                     downloadData.setStatus(1);
                     downloadData.setStatusMsg(null);
                     downloadData.setType(11);
-                    c.a.r0.y0.f.f().i(downloadData);
-                    if (!m.isEmpty(F)) {
-                        if (this.f41448e.E() == null || this.f41448e.E().faces_list == null) {
+                    c.a.p0.a1.f.f().i(downloadData);
+                    if (!m.isEmpty(H)) {
+                        if (this.mModel.G() == null || this.mModel.G().faces_list == null) {
                             return;
                         }
-                        l(this.f41448e.getPid(), this.f41448e.E().faces_list.pname, F);
+                        createDownload(this.mModel.getPid(), this.mModel.G().faces_list.pname, H);
                     } else {
-                        m();
+                        downLoad();
                     }
-                } else if (I == 4) {
+                } else if (K == 4) {
                     TiebaStatic.log("emotion_package_detail_buy");
-                    k();
+                    buyFacePackage();
                 }
             }
-        } else if (view == this.f41449f.f()) {
-            DownloadData downloadData2 = new DownloadData(this.f41448e.getPid());
+        } else if (view == this.mView.f()) {
+            DownloadData downloadData2 = new DownloadData(this.mModel.getPid());
             downloadData2.setStatus(4);
             downloadData2.setStatusMsg(null);
             downloadData2.setType(11);
-            c.a.r0.y0.f.f().i(downloadData2);
-            this.f41448e.K(false);
-            c.a.r0.y0.f.f().e(this.f41448e.getPid());
+            c.a.p0.a1.f.f().i(downloadData2);
+            this.mModel.M(false);
+            c.a.p0.a1.f.f().e(this.mModel.getPid());
         }
         super.onClick(view);
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            n(bundle);
-            o();
-            s();
+            initData(bundle);
+            initUI();
+            refresh();
         }
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            FacePackageDetailModel facePackageDetailModel = this.f41448e;
+            FacePackageDetailModel facePackageDetailModel = this.mModel;
             if (facePackageDetailModel != null) {
                 facePackageDetailModel.cancelLoadData();
             }
-            FacePackageDownloadModel facePackageDownloadModel = this.f41450g;
+            FacePackageDownloadModel facePackageDownloadModel = this.mGetDownloadUrlModel;
             if (facePackageDownloadModel != null) {
                 facePackageDownloadModel.cancelLoadData();
             }
-            FaceBuyModel faceBuyModel = this.f41451h;
+            FaceBuyModel faceBuyModel = this.mBuyModel;
             if (faceBuyModel != null) {
                 faceBuyModel.cancelLoadData();
             }
-            t();
+            removeNetWorkStateChangeListener();
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // android.app.Activity, android.view.Window.Callback
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDetachedFromWindow();
-            h hVar = this.f41449f;
-            if (hVar != null) {
-                hVar.p();
+            i iVar = this.mView;
+            if (iVar != null) {
+                iVar.p();
             }
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            u(view, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            showFloatView(view, i);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.ProxyAdkBaseActivity, com.baidu.adp.plugin.pluginBase.PluginAdpBaseActivity, com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            h hVar = this.f41449f;
-            if (hVar != null) {
-                hVar.m();
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            i iVar = this.mView;
+            if (iVar != null) {
+                iVar.m();
             }
             super.onResume();
         }
     }
 
-    @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity
+    @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
-            FacePackageDetailModel facePackageDetailModel = this.f41448e;
+        if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
+            FacePackageDetailModel facePackageDetailModel = this.mModel;
             if (facePackageDetailModel != null) {
                 bundle.putString("st_type", facePackageDetailModel.getStType());
-                bundle.putString(IntentConfig.PKG_ID, this.f41448e.getPid());
-                bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.f41448e.G());
+                bundle.putString(IntentConfig.PKG_ID, this.mModel.getPid());
+                bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.mModel.I());
             }
             super.onSaveInstanceState(bundle);
         }
     }
 
-    public final boolean p(float f2, float f3) {
-        InterceptResult invokeCommon;
+    public void refresh() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            float f4 = f2 - this.f41452i;
-            float f5 = f3 - this.f41453j;
-            return Math.sqrt((double) ((f4 * f4) + (f5 * f5))) > ((double) getResources().getDimensionPixelSize(R.dimen.ds22));
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.f41449f.r();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            this.f41449f.h();
-            m();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             showProgressBar();
-            this.f41448e.loadData();
+            this.mModel.loadData();
         }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.f41449f.q(this.m);
-        }
-    }
-
-    public final void u(View view, int i2) {
-        FacePackageData facePackageData;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048597, this, view, i2) == null) || view == null) {
-            return;
-        }
-        view.getDrawingRect(this.l);
-        ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view, this.l);
-        if (this.f41448e.E() == null || (facePackageData = this.f41448e.E().faces_list) == null) {
-            return;
-        }
-        this.f41449f.C(i2, this.l, facePackageData);
     }
 }

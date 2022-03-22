@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SubtitleInputBuffer extends DecoderInputBuffer implements Comparable<SubtitleInputBuffer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public final class SubtitleInputBuffer extends DecoderInputBuffer implements Com
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,11 +40,11 @@ public final class SubtitleInputBuffer extends DecoderInputBuffer implements Com
             if (isEndOfStream() != subtitleInputBuffer.isEndOfStream()) {
                 return isEndOfStream() ? 1 : -1;
             }
-            int i2 = ((this.timeUs - subtitleInputBuffer.timeUs) > 0L ? 1 : ((this.timeUs - subtitleInputBuffer.timeUs) == 0L ? 0 : -1));
-            if (i2 == 0) {
+            int i = ((this.timeUs - subtitleInputBuffer.timeUs) > 0L ? 1 : ((this.timeUs - subtitleInputBuffer.timeUs) == 0L ? 0 : -1));
+            if (i == 0) {
                 return 0;
             }
-            return i2 > 0 ? 1 : -1;
+            return i > 0 ? 1 : -1;
         }
         return invokeL.intValue;
     }

@@ -10,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.PushStatus;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PushStatusData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATUS_ALREADY_PUSH = 2;
@@ -24,9 +24,9 @@ public class PushStatusData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,17 +53,17 @@ public class PushStatusData implements Serializable {
         this.mStatus = pushStatus.status.intValue();
         this.mPushTypeDatas = new ArrayList();
         int size = pushStatus.types.size();
-        for (int i2 = 0; i2 < size; i2++) {
+        for (int i = 0; i < size; i++) {
             PushTypeData pushTypeData = new PushTypeData();
-            pushTypeData.parserProtobuf(pushStatus.types.get(i2));
+            pushTypeData.parserProtobuf(pushStatus.types.get(i));
             this.mPushTypeDatas.add(pushTypeData);
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mStatus = i;
         }
     }
 }

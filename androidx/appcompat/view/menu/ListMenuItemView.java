@@ -63,9 +63,9 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -148,9 +148,9 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(MenuItemImpl menuItemImpl, int i2) {
+    public void initialize(MenuItemImpl menuItemImpl, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, menuItemImpl, i) == null) {
             this.mItemData = menuItemImpl;
             setVisibility(menuItemImpl.isVisible() ? 0 : 8);
             setTitle(menuItemImpl.getTitleForItemView(this));
@@ -171,34 +171,34 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
             ViewCompat.setBackground(this, this.mBackground);
             TextView textView = (TextView) findViewById(R$id.title);
             this.mTitleView = textView;
-            int i2 = this.mTextAppearance;
-            if (i2 != -1) {
-                textView.setTextAppearance(this.mTextAppearanceContext, i2);
+            int i = this.mTextAppearance;
+            if (i != -1) {
+                textView.setTextAppearance(this.mTextAppearanceContext, i);
             }
-            this.mShortcutView = (TextView) findViewById(R$id.shortcut);
+            this.mShortcutView = (TextView) findViewById(R$id.obfuscated);
             ImageView imageView = (ImageView) findViewById(R$id.submenuarrow);
             this.mSubMenuArrowView = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(this.mSubMenuArrow);
             }
             this.mGroupDivider = (ImageView) findViewById(R$id.group_divider);
-            this.mContent = (LinearLayout) findViewById(R$id.content);
+            this.mContent = (LinearLayout) findViewById(R$id.obfuscated);
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             if (this.mIconView != null && this.mPreserveIconSpacing) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mIconView.getLayoutParams();
-                int i4 = layoutParams.height;
-                if (i4 > 0 && layoutParams2.width <= 0) {
-                    layoutParams2.width = i4;
+                int i3 = layoutParams.height;
+                if (i3 > 0 && layoutParams2.width <= 0) {
+                    layoutParams2.width = i3;
                 }
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
@@ -325,12 +325,12 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     public void setShortcut(boolean z, char c2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Character.valueOf(c2)}) == null) {
-            int i2 = (z && this.mItemData.shouldShowShortcut()) ? 0 : 8;
-            if (i2 == 0) {
+            int i = (z && this.mItemData.shouldShowShortcut()) ? 0 : 8;
+            if (i == 0) {
                 this.mShortcutView.setText(this.mItemData.getShortcutLabel());
             }
-            if (this.mShortcutView.getVisibility() != i2) {
-                this.mShortcutView.setVisibility(i2);
+            if (this.mShortcutView.getVisibility() != i) {
+                this.mShortcutView.setVisibility(i);
             }
         }
     }
@@ -358,17 +358,17 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ListMenuItemView(Context context, AttributeSet attributeSet, int i2) {
+    public ListMenuItemView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -376,7 +376,7 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
                 return;
             }
         }
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.MenuView, i2, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.MenuView, i, 0);
         this.mBackground = obtainStyledAttributes.getDrawable(R$styleable.MenuView_android_itemBackground);
         this.mTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.MenuView_android_itemTextAppearance, -1);
         this.mPreserveIconSpacing = obtainStyledAttributes.getBoolean(R$styleable.MenuView_preserveIconSpacing, false);
@@ -388,14 +388,14 @@ public class ListMenuItemView extends LinearLayout implements MenuView.ItemView,
         obtainStyledAttributes2.recycle();
     }
 
-    private void addContentView(View view, int i2) {
+    private void addContentView(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65539, this, view, i) == null) {
             LinearLayout linearLayout = this.mContent;
             if (linearLayout != null) {
-                linearLayout.addView(view, i2);
+                linearLayout.addView(view, i);
             } else {
-                addView(view, i2);
+                addView(view, i);
             }
         }
     }

@@ -26,9 +26,9 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,16 +46,16 @@ public class PushNotifyMessageDecoder extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            BdLog.e("cmd is " + i2);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            BdLog.e("cmd is " + i);
             PushNotifyResIdl pushNotifyResIdl = (PushNotifyResIdl) new Wire(new Class[0]).parseFrom(bArr, PushNotifyResIdl.class);
             List<PusherMsg> list = pushNotifyResIdl.multiMsg;
             int size = list == null ? 0 : list.size();
             this.mMsgList = new LinkedList<>();
-            for (int i3 = 0; i3 < size; i3++) {
-                PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i3);
+            for (int i2 = 0; i2 < size; i2++) {
+                PusherMsg pusherMsg = pushNotifyResIdl.multiMsg.get(i2);
                 PushNotifyMessage pushNotifyMessage = new PushNotifyMessage();
                 pushNotifyMessage.setGroupId(pusherMsg.data.groupId.longValue());
                 pushNotifyMessage.setNewestMsgId(pusherMsg.data.msgId.longValue());

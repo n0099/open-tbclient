@@ -127,17 +127,17 @@ public class LoadErrorCode {
             public int mErrorCode;
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            public ErrorItem(int i2, int i3, String str) {
-                this(i2, i3, str, 1);
+            public ErrorItem(int i, int i2, String str) {
+                this(i, i2, str, 1);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str};
+                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (String) objArr2[2], ((Integer) objArr2[3]).intValue());
                         newInitContext.thisArg = this;
@@ -147,25 +147,25 @@ public class LoadErrorCode {
                 }
             }
 
-            public ErrorItem(int i2, int i3, String str, int i4) {
+            public ErrorItem(int i, int i2, String str, int i3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4)};
+                    Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3)};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i5 = newInitContext.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                         return;
                     }
                 }
-                this.mEngineType = i2;
-                this.mErrorCode = i3;
+                this.mEngineType = i;
+                this.mErrorCode = i2;
                 this.mDetails = str;
-                this.mCount = i4;
+                this.mCount = i3;
             }
         }
 
@@ -191,9 +191,9 @@ public class LoadErrorCode {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -285,8 +285,8 @@ public class LoadErrorCode {
                 try {
                     JSONArray jSONArray = jSONObject.getJSONArray(KEY_T7_ERROR_LIST);
                     int length = jSONArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                         sErrorList.add(new ErrorItem(1, jSONObject2.getInt("error_code"), jSONObject2.getString(KEY_ERROR_REASON), jSONObject2.getInt(KEY_ERROR_CNT)));
                     }
                     z = true;
@@ -538,18 +538,18 @@ public class LoadErrorCode {
                     return null;
                 }
                 byte[] bytes = jSONObject.toString().getBytes();
-                for (int i2 = 0; i2 < bytes.length; i2++) {
-                    byte b2 = bytes[i2];
+                for (int i = 0; i < bytes.length; i++) {
+                    byte b2 = bytes[i];
                     if (b2 == 34) {
-                        bytes[i2] = Cea608Decoder.CTRL_END_OF_CAPTION;
+                        bytes[i] = Cea608Decoder.CTRL_END_OF_CAPTION;
                     } else if (b2 == 91) {
-                        bytes[i2] = 60;
+                        bytes[i] = 60;
                     } else if (b2 == 93) {
-                        bytes[i2] = 62;
+                        bytes[i] = 62;
                     } else if (b2 == 123) {
-                        bytes[i2] = 40;
+                        bytes[i] = 40;
                     } else if (b2 == 125) {
-                        bytes[i2] = Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING;
+                        bytes[i] = Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING;
                     }
                 }
                 return new String(bytes);
@@ -614,42 +614,42 @@ public class LoadErrorCode {
         }
     }
 
-    public LoadErrorCode(int i2) {
+    public LoadErrorCode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mErrorCode = i2;
+        this.mErrorCode = i;
         this.mDetails = new StringBuilder();
         this.mDownloadInfo = new JSONArray();
     }
 
-    public LoadErrorCode(int i2, String str) {
+    public LoadErrorCode(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mErrorCode = i2;
+        this.mErrorCode = i;
         this.mDetails = new StringBuilder(str);
         this.mDownloadInfo = new JSONArray();
     }
@@ -694,11 +694,11 @@ public class LoadErrorCode {
         return (String) invokeL.objValue;
     }
 
-    public synchronized void addDownloadInfo(int i2) {
+    public synchronized void addDownloadInfo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             synchronized (this) {
-                addDownloadInfo(String.valueOf(i2));
+                addDownloadInfo(String.valueOf(i));
             }
         }
     }
@@ -755,13 +755,13 @@ public class LoadErrorCode {
 
     public synchronized int getInt() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                i2 = this.mErrorCode;
+                i = this.mErrorCode;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -780,32 +780,32 @@ public class LoadErrorCode {
         return (String) invokeV.objValue;
     }
 
-    public synchronized void set(int i2) {
+    public synchronized void set(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             synchronized (this) {
                 if (this.mErrorCode == 0) {
-                    this.mErrorCode = i2;
+                    this.mErrorCode = i;
                 }
             }
         }
     }
 
-    public synchronized void set(int i2, String str) {
+    public synchronized void set(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
             synchronized (this) {
-                set(i2);
+                set(i);
                 trace(str);
             }
         }
     }
 
-    public synchronized void trace(int i2) {
+    public synchronized void trace(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             synchronized (this) {
-                trace(String.valueOf(i2));
+                trace(String.valueOf(i));
             }
         }
     }

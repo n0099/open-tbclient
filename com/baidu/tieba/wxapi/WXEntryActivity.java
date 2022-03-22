@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
-import c.a.r0.s2.a;
+import c.a.p0.u2.a;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -45,9 +45,9 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,15 +65,15 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
                 if (str.startsWith("tid=")) {
                     String[] split = str.split("&");
                     int length = split.length;
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (i2 < length) {
-                            String str2 = split[i2];
+                        if (i < length) {
+                            String str2 = split[i];
                             if (str2 != null && str2.startsWith("tid=")) {
                                 str = UrlSchemaHelper.SCHEMA_TYPE_PB + str2.substring(4);
                                 break;
                             }
-                            i2++;
+                            i++;
                         } else {
                             break;
                         }
@@ -99,13 +99,13 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
             NavigationBar navigationBar = this.mNavigationBar;
             if (navigationBar != null) {
-                navigationBar.onChangeSkinType(getPageContext(), i2);
+                navigationBar.onChangeSkinType(getPageContext(), i);
             }
         }
     }
@@ -117,11 +117,11 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             MessageManager.getInstance().runTask(2921332, (Class) null);
-            setContentView(R.layout.layout_sapi_webview_login);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.sapi_login_navi);
+            setContentView(R.layout.obfuscated_res_0x7f0d04e6);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091b34);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.mNavigationBar.setTitleText(getResources().getString(R.string.login));
+            this.mNavigationBar.setTitleText(getResources().getString(R.string.obfuscated_res_0x7f0f0a4b));
             try {
                 this.mWxAPI = WXAPIFactory.createWXAPI(getActivity(), TbConfig.WEIXIN_SHARE_APP_ID, false);
             } catch (Exception e2) {
@@ -169,26 +169,26 @@ public class WXEntryActivity extends BaseActivity<WXEntryActivity> implements IW
         if (1 == type) {
             a aVar = new a();
             aVar.a = this;
-            aVar.f22044b = baseResp;
+            aVar.f18950b = baseResp;
             MessageManager.getInstance().runTask(2921351, null, aVar);
             closeActivity();
         } else if (2 == type && (baseResp instanceof SendMessageToWX.Resp)) {
             SendMessageToWX.Resp resp = (SendMessageToWX.Resp) baseResp;
-            int i2 = resp.errCode;
+            int i = resp.errCode;
             String str = resp.errStr;
             if (str == null) {
                 str = "";
             }
             Intent intent = new Intent(WXEntryActivityConfig.ACTION_WX_SHARE_RESULT);
             intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent.putExtra("weixin_result_errCode", i2);
+            intent.putExtra("weixin_result_errCode", i);
             intent.putExtra("weixin_result_errMsg", str);
-            if (i2 == 0) {
+            if (i == 0) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016450, Boolean.TRUE));
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_SUCCESS);
-            } else if (i2 == -2) {
+            } else if (i == -2) {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_CANCLE);
-            } else if (i2 == 123456) {
+            } else if (i == 123456) {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);
             } else {
                 intent.putExtra(WXEntryActivityConfig.KEY_RESULT_WX_SHARE, WXEntryActivityConfig.WX_SHARE_FAIL);

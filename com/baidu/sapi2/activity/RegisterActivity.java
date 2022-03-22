@@ -28,9 +28,9 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,9 +48,9 @@ public class RegisterActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -117,7 +117,7 @@ public class RegisterActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 init();
                 setupViews();
             } catch (Throwable th) {
@@ -150,7 +150,7 @@ public class RegisterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_register);
+            setTitleText(R.string.obfuscated_res_0x7f0f1059);
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             this.sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.RegisterActivity.2
                 public static /* synthetic */ Interceptable $ic;
@@ -164,9 +164,9 @@ public class RegisterActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -189,7 +189,7 @@ public class RegisterActivity extends BaseActivity {
                 public final /* synthetic */ WebAuthListener a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ RegisterActivity f36689b;
+                public final /* synthetic */ RegisterActivity f28455b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -198,15 +198,15 @@ public class RegisterActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, webAuthListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36689b = this;
+                    this.f28455b = this;
                     this.a = webAuthListener;
                 }
 
@@ -223,16 +223,16 @@ public class RegisterActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void onFailed(int i2, String str) {
+                public void onFailed(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                        this.f36689b.t.setResultCode(i2);
-                        this.f36689b.t.setResultMsg(str);
+                    if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                        this.f28455b.t.setResultCode(i);
+                        this.f28455b.t.setResultMsg(str);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onFailure(this.f36689b.t);
+                            webAuthListener2.onFailure(this.f28455b.t);
                         }
-                        this.f36689b.finish();
+                        this.f28455b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }
@@ -242,17 +242,17 @@ public class RegisterActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountType) == null) {
                         super.onSuccess(accountType);
-                        this.f36689b.t.accountType = accountType;
-                        this.f36689b.t.setResultCode(0);
+                        this.f28455b.t.accountType = accountType;
+                        this.f28455b.t.setResultCode(0);
                         WebAuthListener webAuthListener2 = this.a;
                         if (webAuthListener2 != null) {
-                            webAuthListener2.onSuccess(this.f36689b.t);
+                            webAuthListener2.onSuccess(this.f28455b.t);
                         }
                         WebRegDTO webRegDTO = CoreViewRouter.getInstance().getWebRegDTO();
                         if (webRegDTO == null || !webRegDTO.finishActivityAfterSuc) {
                             return;
                         }
-                        this.f36689b.finish();
+                        this.f28455b.finish();
                         CoreViewRouter.getInstance().release();
                     }
                 }

@@ -91,9 +91,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {voiceSinWaveView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,9 +128,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {voiceSinWaveView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -197,9 +197,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -242,7 +242,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void drawFrame() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || this.mIsNeedGetSize) {
             return;
@@ -254,32 +254,32 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         this.mSecondaryPath.rewind();
         this.mFillPath.rewind();
         this.mPrimaryPath.moveTo(0.0f, getY(0, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-        int i3 = 1;
+        int i2 = 1;
         while (true) {
-            i2 = this.mWidth;
-            if (i3 > i2) {
+            i = this.mWidth;
+            if (i2 > i) {
                 break;
             }
-            this.mPrimaryPath.lineTo(i3, getY(i3, i2, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-            i3 += SapiUtils.dip2px(getContext(), this.mDensity);
+            this.mPrimaryPath.lineTo(i2, getY(i2, i, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
+            i2 += SapiUtils.dip2px(getContext(), this.mDensity);
         }
-        this.mPrimaryPath.lineTo(this.mWidth, getY(i2, i2, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
-        int i4 = this.mWidth;
-        this.mSecondaryPath.moveTo(this.mWidth, getY(i4, i4, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
-        int i5 = this.mWidth - 1;
-        while (i5 >= 0) {
-            this.mSecondaryPath.lineTo(i5, getY(i5, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
-            i5 -= SapiUtils.dip2px(getContext(), this.mDensity);
+        this.mPrimaryPath.lineTo(this.mWidth, getY(i, i, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude, this.mPrimaryFrequency, this.mPrimaryPhase));
+        int i3 = this.mWidth;
+        this.mSecondaryPath.moveTo(this.mWidth, getY(i3, i3, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
+        int i4 = this.mWidth - 1;
+        while (i4 >= 0) {
+            this.mSecondaryPath.lineTo(i4, getY(i4, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
+            i4 -= SapiUtils.dip2px(getContext(), this.mDensity);
         }
         this.mSecondaryPath.lineTo(0.0f, getY(0, this.mWidth, this.mHeight, this.mMaxAmplitude, this.mNormedAmplitude * 0.8f, this.mSecondaryFrequency, this.mSecondaryPhase));
         this.mFillPath.addPath(this.mPrimaryPath);
         this.mFillPath.addPath(this.mSecondaryPath);
     }
 
-    private float getY(int i2, float f2, float f3, float f4, float f5, float f6, float f7) {
+    private float getY(int i, float f2, float f3, float f4, float f5, float f6, float f7) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) ? ((1.0f - ((float) Math.pow(((i2 * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i2 / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f) : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6), Float.valueOf(f7)})) == null) ? ((1.0f - ((float) Math.pow(((i * 2) / f2) - 1.0f, 2.0d))) * f4 * f5 * ((float) Math.sin(((i / f2) * 6.283185307179586d * f6) + f7))) + (f3 * 0.5f) : invokeCommon.floatValue;
     }
 
     private void initialize() {
@@ -315,15 +315,15 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65557, this) == null) {
             Log.d(TAG, "setPaintShader.");
-            int i2 = this.mHeight;
-            if (i2 <= 0 || this.mWidth <= 0) {
+            int i = this.mHeight;
+            if (i <= 0 || this.mWidth <= 0) {
                 return;
             }
-            this.mMaxAmplitude = (i2 - 4.0f) * 0.5f;
-            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.sapi_sdk_mms_voice_primary_start), getResources().getColor(R.color.sapi_sdk_mms_voice_primary_end), Shader.TileMode.MIRROR));
-            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_start), getResources().getColor(R.color.sapi_sdk_mms_voice_secondary_end), Shader.TileMode.MIRROR));
-            int color = getResources().getColor(R.color.sapi_sdk_mms_voice_fill_top);
-            int color2 = getResources().getColor(R.color.sapi_sdk_mms_voice_fill_bottom);
+            this.mMaxAmplitude = (i - 4.0f) * 0.5f;
+            this.mPrimaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609dc), getResources().getColor(R.color.obfuscated_res_0x7f0609db), Shader.TileMode.MIRROR));
+            this.mSecondaryPaint.setShader(new LinearGradient(0.0f, 0.0f, this.mWidth, 0.0f, getResources().getColor(R.color.obfuscated_res_0x7f0609de), getResources().getColor(R.color.obfuscated_res_0x7f0609dd), Shader.TileMode.MIRROR));
+            int color = getResources().getColor(R.color.obfuscated_res_0x7f0609da);
+            int color2 = getResources().getColor(R.color.obfuscated_res_0x7f0609d9);
             float f2 = this.mHeight / 2;
             float f3 = this.mMaxAmplitude;
             this.mFillPaint.setShader(new LinearGradient(0.0f, f2 - f3, 0.0f, f2 + f3, color, color2, Shader.TileMode.MIRROR));
@@ -340,8 +340,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         if (0 == this.mLastVolumeTimeMillis) {
             this.mLastVolumeTimeMillis = currentTimeMillis - 100;
         }
-        long j2 = currentTimeMillis - this.mLastVolumeTimeMillis;
-        long j3 = j2 > 0 ? j2 : 100L;
+        long j = currentTimeMillis - this.mLastVolumeTimeMillis;
+        long j2 = j > 0 ? j : 100L;
         ValueAnimator valueAnimator = this.mValueAnimator;
         if (valueAnimator != null) {
             valueAnimator.cancel();
@@ -349,7 +349,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
         }
         ValueAnimator ofFloat = ValueAnimator.ofFloat(this.mLastVolume, f2);
         this.mValueAnimator = ofFloat;
-        ofFloat.setDuration(j3);
+        ofFloat.setDuration(j2);
         this.mValueAnimator.setInterpolator(this.mLinearInterpolator);
         this.mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(this) { // from class: com.baidu.pass.ecommerce.view.VoiceSinWaveView.4
             public static /* synthetic */ Interceptable $ic;
@@ -363,9 +363,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -409,7 +409,7 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
@@ -419,12 +419,12 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                     this.mWidth = viewGroup.getWidth();
                     this.mHeight = this.mParent.getHeight();
                 }
-                int i3 = this.mWidth;
-                if (i3 <= 0 || (i2 = this.mHeight) <= 0) {
+                int i2 = this.mWidth;
+                if (i2 <= 0 || (i = this.mHeight) <= 0) {
                     return;
                 }
                 if (this.mSinWaveBitmap == null) {
-                    this.mSinWaveBitmap = Bitmap.createBitmap(i3, i2, Bitmap.Config.ARGB_8888);
+                    this.mSinWaveBitmap = Bitmap.createBitmap(i2, i, Bitmap.Config.ARGB_8888);
                     this.mSinWaveCanvas = new Canvas(this.mSinWaveBitmap);
                 }
                 setPaintShader();
@@ -438,8 +438,8 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                 return;
             }
             int saveLayer = canvas.saveLayer(0.0f, 0.0f, this.mWidth, this.mHeight, null, 31);
-            int i4 = this.mFadeX;
-            canvas.drawRect(i4, 0.0f, this.mWidth - i4, this.mHeight, this.mMaskPaint);
+            int i3 = this.mFadeX;
+            canvas.drawRect(i3, 0.0f, this.mWidth - i3, this.mHeight, this.mMaskPaint);
             this.mMaskPaint.setXfermode(this.mPorterDuffXfermode);
             if (this.mSinWaveBitmap != null) {
                 this.mSinWaveCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
@@ -557,9 +557,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -596,9 +596,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r7, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -636,9 +636,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -672,9 +672,9 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, voiceWaveCallBack};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -686,17 +686,17 @@ public class VoiceSinWaveView extends View implements VoiceWaveInterface {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VoiceSinWaveView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public VoiceSinWaveView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

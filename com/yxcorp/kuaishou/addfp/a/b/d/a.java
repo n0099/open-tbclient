@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile a f60068b;
+    public static volatile a f44631b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
@@ -42,9 +42,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -57,14 +57,14 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (f60068b == null) {
+            if (f44631b == null) {
                 synchronized (a.class) {
-                    if (f60068b == null) {
-                        f60068b = new a(context);
+                    if (f44631b == null) {
+                        f44631b = new a(context);
                     }
                 }
             }
-            return f60068b;
+            return f44631b;
         }
         return (a) invokeL.objValue;
     }

@@ -52,9 +52,9 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -73,10 +73,10 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaTrackConfig[] newArray(int i2) {
+        public MediaTrackConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new MediaTrackConfig[i2] : (MediaTrackConfig[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTrackConfig[i] : (MediaTrackConfig[]) invokeI.objValue;
         }
     }
 
@@ -101,9 +101,9 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -124,9 +124,9 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.id);
             parcel.writeString(this.name);
             parcel.writeLong(this.maxVideoDuration);
@@ -136,7 +136,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
             parcel.writeInt(this.effectConfigMap.size());
             for (Map.Entry<String, MediaAEffect> entry : this.effectConfigMap.entrySet()) {
                 parcel.writeString(entry.getKey());
-                parcel.writeParcelable(entry.getValue(), i2);
+                parcel.writeParcelable(entry.getValue(), i);
             }
             parcel.writeInt(this.effectResourceMap.size());
             for (Map.Entry<String, String> entry2 : this.effectResourceMap.entrySet()) {
@@ -153,7 +153,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
             parcel.writeInt(this.shaderConfigMapDebug.size());
             for (Map.Entry<String, ShaderConfig> entry4 : this.shaderConfigMapDebug.entrySet()) {
                 parcel.writeString(entry4.getKey());
-                parcel.writeParcelable(entry4.getValue(), i2);
+                parcel.writeParcelable(entry4.getValue(), i);
             }
             parcel.writeString(this.bgRes);
             parcel.writeFloat(this.videoRatio);
@@ -163,7 +163,7 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @NonNull
     /* renamed from: clone */
-    public MediaTrackConfig m38clone() {
+    public MediaTrackConfig m36clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -186,9 +186,9 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -204,24 +204,24 @@ public class MediaTrackConfig implements Parcelable, Cloneable {
         this.mediaTracks = parcel.createTypedArrayList(MediaTrack.CREATOR);
         int readInt = parcel.readInt();
         this.effectConfigMap = new LinkedHashMap(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
+        for (int i3 = 0; i3 < readInt; i3++) {
             this.effectConfigMap.put(parcel.readString(), (MediaAEffect) parcel.readParcelable(MediaAEffect.class.getClassLoader()));
         }
         int readInt2 = parcel.readInt();
         this.effectResourceMap = new HashMap(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
+        for (int i4 = 0; i4 < readInt2; i4++) {
             this.effectResourceMap.put(parcel.readString(), parcel.readString());
         }
         this.transitionConfigs = parcel.createTypedArrayList(MediaTransition.CREATOR);
         this.transitionResourceList = parcel.createStringArrayList();
         int readInt3 = parcel.readInt();
         this.shaderResourceMap = new HashMap(readInt3);
-        for (int i6 = 0; i6 < readInt3; i6++) {
+        for (int i5 = 0; i5 < readInt3; i5++) {
             this.shaderResourceMap.put(parcel.readString(), parcel.readString());
         }
         int readInt4 = parcel.readInt();
         this.shaderConfigMapDebug = new HashMap(readInt4);
-        for (int i7 = 0; i7 < readInt4; i7++) {
+        for (int i6 = 0; i6 < readInt4; i6++) {
             this.shaderConfigMapDebug.put(parcel.readString(), (ShaderConfig) parcel.readParcelable(ShaderConfig.class.getClassLoader()));
         }
         this.bgRes = parcel.readString();

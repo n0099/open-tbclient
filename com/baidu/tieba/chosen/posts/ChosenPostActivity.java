@@ -1,9 +1,9 @@
 package com.baidu.tieba.chosen.posts;
 
 import android.os.Bundle;
-import c.a.q0.k0.c.a;
-import c.a.r0.g0.a.b;
-import c.a.r0.g0.a.c.d;
+import c.a.o0.k0.c.a;
+import c.a.p0.i0.a.b;
+import c.a.p0.i0.a.c.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -35,19 +35,19 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private void handlePictureClick(c.a.q0.k0.c.b bVar) {
+    private void handlePictureClick(c.a.o0.k0.c.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, this, bVar) == null) {
-            c.a.q0.k0.b.a a = bVar.a();
+            c.a.o0.k0.b.a a = bVar.a();
             if (a instanceof d) {
                 sendMessage(((d) a).a(getPageContext().getPageActivity()));
             }
@@ -90,7 +90,7 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
         return (b) invokeV.objValue;
     }
 
-    @Override // c.a.q0.k0.c.a
+    @Override // c.a.o0.k0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -101,11 +101,11 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            getViewController().n(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
+            getViewController().p(getPageContext(), i);
         }
     }
 
@@ -118,28 +118,28 @@ public class ChosenPostActivity extends BaseActivity<ChosenPostActivity> impleme
             this.mModelController = getModelController();
             this.mViewController = getViewController();
             if (getIntent() != null) {
-                this.mModelController.B(getIntent().getExtras());
+                this.mModelController.D(getIntent().getExtras());
             } else if (bundle != null) {
-                this.mModelController.B(bundle);
+                this.mModelController.D(bundle);
             } else {
-                this.mModelController.B(null);
+                this.mModelController.D(null);
             }
-            setContentView(this.mViewController.o());
-            this.mViewController.q();
-            this.mViewController.n(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
+            setContentView(this.mViewController.q());
+            this.mViewController.s();
+            this.mViewController.p(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
             adjustResizeForSoftInput();
         }
     }
 
-    @Override // c.a.q0.k0.c.a
-    public boolean onEventDispatch(c.a.q0.k0.c.b bVar) {
+    @Override // c.a.o0.k0.c.a
+    public boolean onEventDispatch(c.a.o0.k0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bVar)) == null) {
             if (bVar.b() == 4096) {
                 handlePictureClick(bVar);
             }
-            return getViewController().p(bVar) || getModelController().D(bVar);
+            return getViewController().r(bVar) || getModelController().F(bVar);
         }
         return invokeL.booleanValue;
     }

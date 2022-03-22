@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UpdateInfoService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a.c locationCallBack;
     public ReportUserInfoModel mModel;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements ReportUserInfoModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class UpdateInfoService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {updateInfoService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -47,31 +47,31 @@ public class UpdateInfoService extends BdBaseService {
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void b(int i2) {
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                BdLog.i("location_success");
-                BdLog.e("location_success next time=" + i2);
-                if (i2 <= 0) {
-                    i2 = 3600;
-                } else if (i2 >= 32400) {
-                    i2 = 32400;
-                }
-                this.a.mModel.B(i2 * 1000);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                BdLog.i("location_errorCode&errorCode=" + i + "&errorMsg" + str);
+                this.a.mModel.D(600000L);
             }
         }
 
         @Override // com.baidu.tieba.model.ReportUserInfoModel.b
-        public void onError(int i2, String str) {
+        public void onSuccess(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                BdLog.i("location_errorCode&errorCode=" + i2 + "&errorMsg" + str);
-                this.a.mModel.B(600000L);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                BdLog.i("location_success");
+                BdLog.e("location_success next time=" + i);
+                if (i <= 0) {
+                    i = 3600;
+                } else if (i >= 32400) {
+                    i = 32400;
+                }
+                this.a.mModel.D(i * 1000);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,9 +84,9 @@ public class UpdateInfoService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {updateInfoService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,17 +96,17 @@ public class UpdateInfoService extends BdBaseService {
         }
 
         @Override // c.a.d.f.i.a.c
-        public void onLocationGeted(int i2, String str, Address address) {
+        public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) && i2 == 0 && address != null) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                c.a.r0.j3.k0.a.e().j(String.valueOf(longitude));
-                c.a.r0.j3.k0.a.e().i(String.valueOf(latitude));
-                c.a.r0.j3.k0.a.e().k(System.currentTimeMillis());
-                if (this.a.mModel.x() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    this.a.mModel.z(1, longitude, latitude);
-                    this.a.mModel.A();
+                c.a.p0.l3.k0.a.e().j(String.valueOf(longitude));
+                c.a.p0.l3.k0.a.e().i(String.valueOf(latitude));
+                c.a.p0.l3.k0.a.e().k(System.currentTimeMillis());
+                if (this.a.mModel.z() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    this.a.mModel.B(1, longitude, latitude);
+                    this.a.mModel.C();
                 }
             }
         }
@@ -117,9 +117,9 @@ public class UpdateInfoService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -159,9 +159,9 @@ public class UpdateInfoService extends BdBaseService {
             super.onCreate();
             ReportUserInfoModel reportUserInfoModel = new ReportUserInfoModel(null);
             this.mModel = reportUserInfoModel;
-            reportUserInfoModel.y();
-            this.mModel.B(540000L);
-            this.mModel.C(new a(this));
+            reportUserInfoModel.A();
+            this.mModel.D(540000L);
+            this.mModel.E(new a(this));
         }
     }
 
@@ -176,11 +176,11 @@ public class UpdateInfoService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i2) == null) {
-            super.onStart(intent, i2);
-            if (this.mModel.x()) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, intent, i) == null) {
+            super.onStart(intent, i);
+            if (this.mModel.z()) {
                 findLocationFromLocal();
             }
         }

@@ -70,16 +70,16 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
 
-        public b(View view, int i2, long j2) {
+        public b(View view, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {view, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,7 +96,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public Parcelable a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PLA_AdapterView f53563b;
+        public final /* synthetic */ PLA_AdapterView f38769b;
 
         public c(PLA_AdapterView pLA_AdapterView) {
             Interceptable interceptable = $ic;
@@ -105,15 +105,15 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pLA_AdapterView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f53563b = pLA_AdapterView;
+            this.f38769b = pLA_AdapterView;
             this.a = null;
         }
 
@@ -122,21 +122,21 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             Parcelable parcelable;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.j.a.a.a.a("data changed by onChanged()");
-                PLA_AdapterView pLA_AdapterView = this.f53563b;
+                c.g.a.a.a.a("data changed by onChanged()");
+                PLA_AdapterView pLA_AdapterView = this.f38769b;
                 pLA_AdapterView.mDataChanged = true;
                 pLA_AdapterView.mOldItemCount = pLA_AdapterView.mItemCount;
                 pLA_AdapterView.mItemCount = pLA_AdapterView.getAdapter().getCount();
-                if (this.f53563b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
-                    PLA_AdapterView pLA_AdapterView2 = this.f53563b;
+                if (this.f38769b.getAdapter().hasStableIds() && (parcelable = this.a) != null) {
+                    PLA_AdapterView pLA_AdapterView2 = this.f38769b;
                     if (pLA_AdapterView2.mOldItemCount == 0 && pLA_AdapterView2.mItemCount > 0) {
                         pLA_AdapterView2.onRestoreInstanceState(parcelable);
                         this.a = null;
-                        this.f53563b.requestLayout();
+                        this.f38769b.requestLayout();
                     }
                 }
-                this.f53563b.rememberSyncState();
-                this.f53563b.requestLayout();
+                this.f38769b.rememberSyncState();
+                this.f38769b.requestLayout();
             }
         }
 
@@ -144,13 +144,13 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         public void onInvalidated() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                c.j.a.a.a.a("data changed by onInvalidated()");
-                PLA_AdapterView pLA_AdapterView = this.f53563b;
+                c.g.a.a.a.a("data changed by onInvalidated()");
+                PLA_AdapterView pLA_AdapterView = this.f38769b;
                 pLA_AdapterView.mDataChanged = true;
                 if (pLA_AdapterView.getAdapter().hasStableIds()) {
-                    this.a = this.f53563b.onSaveInstanceState();
+                    this.a = this.f38769b.onSaveInstanceState();
                 }
-                PLA_AdapterView pLA_AdapterView2 = this.f53563b;
+                PLA_AdapterView pLA_AdapterView2 = this.f38769b;
                 pLA_AdapterView2.mOldItemCount = pLA_AdapterView2.mItemCount;
                 pLA_AdapterView2.mItemCount = 0;
                 pLA_AdapterView2.mSelectedPosition = -1;
@@ -163,17 +163,17 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
 
     /* loaded from: classes7.dex */
     public interface d {
-        void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2);
+        void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
     /* loaded from: classes7.dex */
     public interface e {
-        boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2);
+        boolean onItemLongClick(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
     }
 
     /* loaded from: classes7.dex */
     public interface f {
-        void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i2, long j2);
+        void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view, int i, long j);
 
         void onNothingSelected(PLA_AdapterView<?> pLA_AdapterView);
     }
@@ -182,9 +182,7 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     public class g implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PLA_AdapterView f53564e;
+        public final /* synthetic */ PLA_AdapterView a;
 
         public g(PLA_AdapterView pLA_AdapterView) {
             Interceptable interceptable = $ic;
@@ -193,27 +191,27 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pLA_AdapterView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f53564e = pLA_AdapterView;
+            this.a = pLA_AdapterView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                PLA_AdapterView pLA_AdapterView = this.f53564e;
+                PLA_AdapterView pLA_AdapterView = this.a;
                 if (!pLA_AdapterView.mDataChanged) {
                     pLA_AdapterView.fireOnSelected();
-                    this.f53564e.performAccessibilityActionsOnSelected();
+                    this.a.performAccessibilityActionsOnSelected();
                 } else if (pLA_AdapterView.getAdapter() != null) {
-                    this.f53564e.post(this);
+                    this.a.post(this);
                 }
             }
         }
@@ -232,9 +230,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -373,38 +371,38 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i2 = this.mItemCount;
-            if (i2 == 0) {
+            int i = this.mItemCount;
+            if (i == 0) {
                 return -1;
             }
-            long j2 = this.mSyncRowId;
-            int i3 = this.mSyncPosition;
-            if (j2 == Long.MIN_VALUE) {
+            long j = this.mSyncRowId;
+            int i2 = this.mSyncPosition;
+            if (j == Long.MIN_VALUE) {
                 return -1;
             }
-            int i4 = i2 - 1;
-            int min = Math.min(i4, Math.max(0, i3));
+            int i3 = i - 1;
+            int min = Math.min(i3, Math.max(0, i2));
             long uptimeMillis = SystemClock.uptimeMillis() + 100;
             T adapter = getAdapter();
             if (adapter == null) {
                 return -1;
             }
-            int i5 = min;
-            int i6 = i5;
+            int i4 = min;
+            int i5 = i4;
             loop0: while (true) {
                 boolean z = false;
                 while (SystemClock.uptimeMillis() <= uptimeMillis) {
-                    if (adapter.getItemId(min) != j2) {
-                        boolean z2 = i5 == i4;
-                        boolean z3 = i6 == 0;
+                    if (adapter.getItemId(min) != j) {
+                        boolean z2 = i4 == i3;
+                        boolean z3 = i5 == 0;
                         if (z2 && z3) {
                             break loop0;
                         } else if (z3 || (z && !z2)) {
-                            i5++;
-                            min = i5;
+                            i4++;
+                            min = i4;
                         } else if (z2 || (!z && !z3)) {
-                            i6--;
-                            min = i6;
+                            i5--;
+                            min = i5;
                             z = true;
                         }
                     } else {
@@ -439,28 +437,28 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mFirstPosition : invokeV.intValue;
     }
 
-    public Object getItemAtPosition(int i2) {
+    public Object getItemAtPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
             T adapter = getAdapter();
-            if (adapter == null || i2 < 0) {
+            if (adapter == null || i < 0) {
                 return null;
             }
-            return adapter.getItem(i2);
+            return adapter.getItem(i);
         }
         return invokeI.objValue;
     }
 
-    public long getItemIdAtPosition(int i2) {
+    public long getItemIdAtPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
             T adapter = getAdapter();
-            if (adapter == null || i2 < 0) {
+            if (adapter == null || i < 0) {
                 return Long.MIN_VALUE;
             }
-            return adapter.getItemId(i2);
+            return adapter.getItemId(i);
         }
         return invokeI.longValue;
     }
@@ -504,9 +502,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
                 }
             }
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (getChildAt(i2).equals(view)) {
-                    return this.mFirstPosition + i2;
+            for (int i = 0; i < childCount; i++) {
+                if (getChildAt(i).equals(view)) {
+                    return this.mFirstPosition + i;
                 }
             }
             return -1;
@@ -566,10 +564,10 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    public int lookForSelectablePosition(int i2, boolean z) {
+    public int lookForSelectablePosition(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? i2 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048603, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? i : invokeCommon.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -582,20 +580,20 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.mLayoutHeight = getHeight();
         }
     }
 
-    public boolean performItemClick(View view, int i2, long j2) {
+    public boolean performItemClick(View view, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (this.mOnItemClickListener != null) {
                 playSoundEffect(0);
-                this.mOnItemClickListener.onItemClick(this, view, i2, j2);
+                this.mOnItemClickListener.onItemClick(this, view, i, j);
                 return true;
             }
             return false;
@@ -612,8 +610,8 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         this.mSyncHeight = this.mLayoutHeight;
         View childAt = getChildAt(0);
         T adapter = getAdapter();
-        int i2 = this.mFirstPosition;
-        if (i2 >= 0 && i2 < adapter.getCount()) {
+        int i = this.mFirstPosition;
+        if (i >= 0 && i < adapter.getCount()) {
             this.mSyncRowId = adapter.getItemId(this.mFirstPosition);
         } else {
             this.mSyncRowId = -1L;
@@ -642,9 +640,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i2) {
+    public void removeViewAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
             throw new UnsupportedOperationException("removeViewAt(int) is not supported in AdapterView");
         }
     }
@@ -708,12 +706,12 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
         }
     }
 
-    public abstract void setSelection(int i2);
+    public abstract void setSelection(int i);
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2) {
+    public void addView(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i) == null) {
             throw new UnsupportedOperationException("addView(View, int) is not supported in AdapterView");
         }
     }
@@ -727,9 +725,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, layoutParams) == null) {
             throw new UnsupportedOperationException("addView(View, int, LayoutParams) is not supported in AdapterView");
         }
     }
@@ -743,9 +741,9 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -765,17 +763,17 @@ public abstract class PLA_AdapterView<T extends Adapter> extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PLA_AdapterView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PLA_AdapterView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

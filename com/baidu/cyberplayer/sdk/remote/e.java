@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class e implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<e> CREATOR;
@@ -21,7 +21,7 @@ public class e implements Parcelable {
     public Uri a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Map<String, String> f32192b;
+    public Map<String, String> f25429b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,9 +45,9 @@ public class e implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -66,10 +66,10 @@ public class e implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: a */
-            public e[] newArray(int i2) {
+            public e[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new e[i2] : (e[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new e[i] : (e[]) invokeI.objValue;
             }
         };
     }
@@ -81,16 +81,16 @@ public class e implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, map};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = uri;
-        this.f32192b = map;
+        this.f25429b = map;
     }
 
     public e(Parcel parcel) {
@@ -100,19 +100,19 @@ public class e implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f32192b = new HashMap();
+        this.f25429b = new HashMap();
         int readInt = parcel.readInt();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            this.f32192b.put(parcel.readString(), parcel.readString());
+        for (int i3 = 0; i3 < readInt; i3++) {
+            this.f25429b.put(parcel.readString(), parcel.readString());
         }
     }
 
@@ -125,7 +125,7 @@ public class e implements Parcelable {
     public Map<String, String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f32192b : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f25429b : (Map) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -139,17 +139,17 @@ public class e implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
-            parcel.writeParcelable(this.a, i2);
-            Map<String, String> map = this.f32192b;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
+            parcel.writeParcelable(this.a, i);
+            Map<String, String> map = this.f25429b;
             if (map == null || map.size() <= 0) {
                 parcel.writeInt(0);
                 return;
             }
-            parcel.writeInt(this.f32192b.size());
-            for (Map.Entry<String, String> entry : this.f32192b.entrySet()) {
+            parcel.writeInt(this.f25429b.size());
+            for (Map.Entry<String, String> entry : this.f25429b.entrySet()) {
                 parcel.writeString(entry.getKey());
                 parcel.writeString(entry.getValue());
             }

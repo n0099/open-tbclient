@@ -20,7 +20,7 @@ public final class BufferUtils {
     public static a<ByteBuffer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29769b;
+    public static int f23789b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,7 +37,7 @@ public final class BufferUtils {
             }
         }
         a = new a<>();
-        f29769b = 0;
+        f23789b = 0;
     }
 
     public BufferUtils() {
@@ -45,24 +45,24 @@ public final class BufferUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(float[] fArr, Buffer buffer, int i2, int i3) {
+    public static void a(float[] fArr, Buffer buffer, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65538, null, fArr, buffer, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65538, null, fArr, buffer, i, i2) == null) {
             if (buffer instanceof ByteBuffer) {
-                buffer.limit(i2 << 2);
+                buffer.limit(i << 2);
             } else if (buffer instanceof FloatBuffer) {
-                buffer.limit(i2);
+                buffer.limit(i);
             }
-            copyJni(fArr, buffer, i2, i3);
+            copyJni(fArr, buffer, i, i2);
             buffer.position(0);
         }
     }
@@ -72,64 +72,64 @@ public final class BufferUtils {
         if (interceptable == null || interceptable.invokeL(65539, null, byteBuffer) == null) {
             int capacity = byteBuffer.capacity();
             synchronized (a) {
-                if (!a.i(byteBuffer, true)) {
+                if (!a.j(byteBuffer, true)) {
                     throw new IllegalArgumentException("buffer not allocated with newUnsafeByteBuffer or already disposed");
                 }
             }
-            f29769b -= capacity;
+            f23789b -= capacity;
             freeMemory(byteBuffer);
         }
     }
 
-    public static FloatBuffer c(int i2) {
+    public static FloatBuffer c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2 * 4);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             return allocateDirect.asFloatBuffer();
         }
         return (FloatBuffer) invokeI.objValue;
     }
 
-    public static native void clear(ByteBuffer byteBuffer, int i2);
+    public static native void clear(ByteBuffer byteBuffer, int i);
 
-    public static native void copyJni(Buffer buffer, int i2, Buffer buffer2, int i3, int i4);
+    public static native void copyJni(Buffer buffer, int i, Buffer buffer2, int i2, int i3);
 
-    public static native void copyJni(byte[] bArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(byte[] bArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(char[] cArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(char[] cArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(double[] dArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(double[] dArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(float[] fArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(float[] fArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(float[] fArr, Buffer buffer, int i2, int i3);
+    public static native void copyJni(float[] fArr, Buffer buffer, int i, int i2);
 
-    public static native void copyJni(int[] iArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(int[] iArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(long[] jArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(long[] jArr, int i, Buffer buffer, int i2, int i3);
 
-    public static native void copyJni(short[] sArr, int i2, Buffer buffer, int i3, int i4);
+    public static native void copyJni(short[] sArr, int i, Buffer buffer, int i2, int i3);
 
-    public static IntBuffer d(int i2) {
+    public static IntBuffer d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2 * 4);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) {
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i * 4);
             allocateDirect.order(ByteOrder.nativeOrder());
             return allocateDirect.asIntBuffer();
         }
         return (IntBuffer) invokeI.objValue;
     }
 
-    public static ByteBuffer e(int i2) {
+    public static ByteBuffer e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) {
-            ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) {
+            ByteBuffer newDisposableByteBuffer = newDisposableByteBuffer(i);
             newDisposableByteBuffer.order(ByteOrder.nativeOrder());
-            f29769b += i2;
+            f23789b += i;
             synchronized (a) {
                 a.a(newDisposableByteBuffer);
             }
@@ -138,45 +138,45 @@ public final class BufferUtils {
         return (ByteBuffer) invokeI.objValue;
     }
 
-    public static native long find(Buffer buffer, int i2, int i3, Buffer buffer2, int i4, int i5);
+    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4);
 
-    public static native long find(Buffer buffer, int i2, int i3, Buffer buffer2, int i4, int i5, float f2);
+    public static native long find(Buffer buffer, int i, int i2, Buffer buffer2, int i3, int i4, float f2);
 
-    public static native long find(Buffer buffer, int i2, int i3, float[] fArr, int i4, int i5);
+    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4);
 
-    public static native long find(Buffer buffer, int i2, int i3, float[] fArr, int i4, int i5, float f2);
+    public static native long find(Buffer buffer, int i, int i2, float[] fArr, int i3, int i4, float f2);
 
-    public static native long find(float[] fArr, int i2, int i3, Buffer buffer, int i4, int i5);
+    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4);
 
-    public static native long find(float[] fArr, int i2, int i3, Buffer buffer, int i4, int i5, float f2);
+    public static native long find(float[] fArr, int i, int i2, Buffer buffer, int i3, int i4, float f2);
 
-    public static native long find(float[] fArr, int i2, int i3, float[] fArr2, int i4, int i5);
+    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4);
 
-    public static native long find(float[] fArr, int i2, int i3, float[] fArr2, int i4, int i5, float f2);
+    public static native long find(float[] fArr, int i, int i2, float[] fArr2, int i3, int i4, float f2);
 
     public static native void freeMemory(ByteBuffer byteBuffer);
 
     public static native long getBufferAddress(Buffer buffer);
 
-    public static native ByteBuffer newDisposableByteBuffer(int i2);
+    public static native ByteBuffer newDisposableByteBuffer(int i);
 
-    public static native void transformV2M3Jni(Buffer buffer, int i2, int i3, float[] fArr, int i4);
+    public static native void transformV2M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
 
-    public static native void transformV2M3Jni(float[] fArr, int i2, int i3, float[] fArr2, int i4);
+    public static native void transformV2M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 
-    public static native void transformV2M4Jni(Buffer buffer, int i2, int i3, float[] fArr, int i4);
+    public static native void transformV2M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
 
-    public static native void transformV2M4Jni(float[] fArr, int i2, int i3, float[] fArr2, int i4);
+    public static native void transformV2M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 
-    public static native void transformV3M3Jni(Buffer buffer, int i2, int i3, float[] fArr, int i4);
+    public static native void transformV3M3Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
 
-    public static native void transformV3M3Jni(float[] fArr, int i2, int i3, float[] fArr2, int i4);
+    public static native void transformV3M3Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 
-    public static native void transformV3M4Jni(Buffer buffer, int i2, int i3, float[] fArr, int i4);
+    public static native void transformV3M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
 
-    public static native void transformV3M4Jni(float[] fArr, int i2, int i3, float[] fArr2, int i4);
+    public static native void transformV3M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 
-    public static native void transformV4M4Jni(Buffer buffer, int i2, int i3, float[] fArr, int i4);
+    public static native void transformV4M4Jni(Buffer buffer, int i, int i2, float[] fArr, int i3);
 
-    public static native void transformV4M4Jni(float[] fArr, int i2, int i3, float[] fArr2, int i4);
+    public static native void transformV4M4Jni(float[] fArr, int i, int i2, float[] fArr2, int i3);
 }

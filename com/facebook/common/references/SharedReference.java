@@ -16,7 +16,7 @@ import java.util.IdentityHashMap;
 import java.util.Map;
 import javax.annotation.concurrent.GuardedBy;
 @VisibleForTesting
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SharedReference<T> {
     public static /* synthetic */ Interceptable $ic;
     @GuardedBy("itself")
@@ -28,7 +28,7 @@ public class SharedReference<T> {
     @GuardedBy("this")
     public T mValue;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NullReferenceException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public class SharedReference<T> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -75,9 +75,9 @@ public class SharedReference<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {t, resourceReleaser};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -105,16 +105,16 @@ public class SharedReference<T> {
 
     private synchronized int decreaseRefCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             synchronized (this) {
                 ensureValid();
                 Preconditions.checkArgument(this.mRefCount > 0);
-                i2 = this.mRefCount - 1;
-                this.mRefCount = i2;
+                i = this.mRefCount - 1;
+                this.mRefCount = i;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -195,13 +195,13 @@ public class SharedReference<T> {
 
     public synchronized int getRefCountTestOnly() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                i2 = this.mRefCount;
+                i = this.mRefCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

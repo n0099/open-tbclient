@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.defs.interf.IAct;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Act implements IAct {
     public static final /* synthetic */ Act[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -73,9 +73,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -105,9 +105,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -137,9 +137,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -169,9 +169,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -201,9 +201,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -233,9 +233,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -265,9 +265,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -297,9 +297,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -329,9 +329,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -361,9 +361,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -393,9 +393,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -425,9 +425,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -457,9 +457,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -489,9 +489,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -521,9 +521,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -553,9 +553,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -585,9 +585,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -617,9 +617,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -649,9 +649,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -681,9 +681,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -713,9 +713,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -745,9 +745,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -777,9 +777,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -809,9 +809,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -841,9 +841,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -873,9 +873,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -905,9 +905,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -937,9 +937,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -969,9 +969,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -1001,9 +1001,9 @@ public class Act implements IAct {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r9, Integer.valueOf(r10)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -1024,16 +1024,16 @@ public class Act implements IAct {
         $VALUES = new Act[]{MBSDK_INSTALL, MBSDK_RUN, MBSDK_ACTION, MBSDK_ERROR, MBSDK_DO, MBSDK_DO5, MBSDK_DO1, MBSDK_LOGIN, MBSDK_REG, MBSDK_REPORT, MBSDK_CRASH, MBSDK_SUCCESS, MBSDK_FAILURE, MBSDK_APPLIST, MBSDK_SDKLIST, MBSDK_SDKDEVICE, MBSDK_LAUNCH, MBSDK_PAGE, MBSDK_EVENT, MBSDK_PUSH, MBSDK_FBACK, MBSDK_LOCATION, MBSDK_RECENT_APPLIST, MBSDK_PAGE_STATE, MBSDK_GZIP_BATCH, MBSDK_USER_ACTION, MBSDK_APPSFLYER, MBSDK_SHARE, MBSDK_URL_SCHEME, act};
     }
 
-    public Act(String str, int i2) {
+    public Act(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

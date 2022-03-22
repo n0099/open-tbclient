@@ -35,7 +35,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
         public volatile boolean cancelled;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60746d;
+        public Disposable f45355d;
         public volatile Iterator<? extends R> it;
         public final Function<? super T, ? extends Iterable<? extends R>> mapper;
         public boolean outputFused;
@@ -47,9 +47,9 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -72,8 +72,8 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.cancelled = true;
-                this.f60746d.dispose();
-                this.f60746d = DisposableHelper.DISPOSED;
+                this.f45355d.dispose();
+                this.f45355d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -95,7 +95,7 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-                this.f60746d = DisposableHelper.DISPOSED;
+                this.f45355d = DisposableHelper.DISPOSED;
                 this.actual.onError(th);
             }
         }
@@ -103,8 +103,8 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f60746d, disposable)) {
-                this.f60746d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45355d, disposable)) {
+                this.f45355d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -174,11 +174,11 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -195,9 +195,9 @@ public final class SingleFlatMapIterableObservable<T, R> extends Observable<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

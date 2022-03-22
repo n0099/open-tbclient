@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes4.dex */
 public final class FaceStatusNewEnum {
@@ -60,7 +59,7 @@ public final class FaceStatusNewEnum {
                 return;
             }
         }
-        OK = new FaceStatusNewEnum(StatHelper.SENSOR_OK, 0);
+        OK = new FaceStatusNewEnum("OK", 0);
         DetectRemindCodeBeyondPreviewFrame = new FaceStatusNewEnum("DetectRemindCodeBeyondPreviewFrame", 1);
         DetectRemindCodeNoFaceDetected = new FaceStatusNewEnum("DetectRemindCodeNoFaceDetected", 2);
         DetectRemindCodeMuchIllumination = new FaceStatusNewEnum("DetectRemindCodeMuchIllumination", 3);
@@ -96,16 +95,16 @@ public final class FaceStatusNewEnum {
         $VALUES = new FaceStatusNewEnum[]{OK, DetectRemindCodeBeyondPreviewFrame, DetectRemindCodeNoFaceDetected, DetectRemindCodeMuchIllumination, DetectRemindCodePoorIllumination, DetectRemindCodeImageBlured, DetectRemindCodeTooFar, DetectRemindCodeTooClose, DetectRemindCodePitchOutofDownRange, DetectRemindCodePitchOutofUpRange, DetectRemindCodeYawOutofLeftRange, DetectRemindCodeYawOutofRightRange, DetectRemindCodeOcclusionLeftEye, DetectRemindCodeOcclusionRightEye, DetectRemindCodeOcclusionNose, DetectRemindCodeOcclusionMouth, DetectRemindCodeOcclusionLeftContour, DetectRemindCodeOcclusionRightContour, DetectRemindCodeOcclusionChinContour, DetectRemindCodeTimeout, FaceLivenessActionTypeLiveEye, FaceLivenessActionTypeLiveMouth, FaceLivenessActionTypeLiveYawRight, FaceLivenessActionTypeLiveYawLeft, FaceLivenessActionTypeLivePitchUp, FaceLivenessActionTypeLivePitchDown, FaceLivenessActionTypeLiveYaw, FaceLivenessActionComplete, FaceLivenessActionCodeTimeout, DetectRemindCodeLeftEyeClosed, DetectRemindCodeRightEyeClosed, faceStatusNewEnum};
     }
 
-    public FaceStatusNewEnum(String str, int i2) {
+    public FaceStatusNewEnum(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

@@ -23,22 +23,20 @@ public final class f {
 
     /* loaded from: classes.dex */
     public interface a {
-        void a(int i2, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j2, String str);
+        void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str);
     }
 
     /* loaded from: classes.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public String f3548e;
+        /* renamed from: b  reason: collision with root package name */
+        public a f2994b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public a f3549f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ f f3550g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ f f2995c;
 
         public b(f fVar, String str, a aVar) {
             Interceptable interceptable = $ic;
@@ -47,17 +45,17 @@ public final class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fVar, str, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f3550g = fVar;
-            this.f3548e = str;
-            this.f3549f = aVar;
+            this.f2995c = fVar;
+            this.a = str;
+            this.f2994b = aVar;
         }
 
         @Override // java.lang.Runnable
@@ -66,7 +64,7 @@ public final class f {
             ArrayList<String> arrayList2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Map e2 = this.f3550g.e(this.f3548e);
+                Map e2 = this.f2995c.e(this.a);
                 if (e2 != null) {
                     arrayList2 = (ArrayList) e2.get(HttpDnsCacheForHost.JSON_KEY_IPV6);
                     arrayList = (ArrayList) e2.get("ipv4");
@@ -74,7 +72,7 @@ public final class f {
                     arrayList = null;
                     arrayList2 = null;
                 }
-                this.f3549f.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.f3548e);
+                this.f2994b.a(((arrayList == null || arrayList.isEmpty()) && (arrayList2 == null || arrayList2.isEmpty())) ? -1 : 0, arrayList, arrayList2, 60L, this.a);
             }
         }
     }
@@ -84,9 +82,9 @@ public final class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

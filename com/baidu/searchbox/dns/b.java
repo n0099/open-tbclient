@@ -1,6 +1,7 @@
 package com.baidu.searchbox.dns;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.dns.c.a;
 import com.baidu.searchbox.dns.util.DnsUtil;
@@ -13,9 +14,7 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static List<String> f36947i;
+    public static List<String> i;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static DnsParseResult a(String str, boolean z) {
@@ -27,20 +26,20 @@ public class b {
                 return null;
             }
             int i2 = 0;
-            com.baidu.searchbox.dns.c.a k = new a.C1843a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
+            com.baidu.searchbox.dns.c.a k = new a.C1796a(System.currentTimeMillis(), com.baidu.searchbox.dns.d.b.o().a(str, false, 2), com.baidu.searchbox.dns.a.a.e().c(str)).k();
             com.baidu.searchbox.dns.d.a i3 = k.i();
             com.baidu.searchbox.dns.d.a.a h2 = k.h();
-            int j2 = k.j();
+            int j = k.j();
             if (h2 != null) {
                 list = a(h2, DnsUtil.stackType);
                 if (list == null || list.isEmpty()) {
-                    j2 = 1006;
+                    j = 1006;
                 } else {
-                    if (j2 == 1001) {
+                    if (j == 1001) {
                         z = true;
                     }
                     if (DnsUtil.DEBUG) {
-                        String str2 = "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(list);
+                        Log.d(DnsUtil.TAG, "DnsEngine getIplist -> cache response hit: " + str + " ip: " + a(list));
                     }
                     i2 = 2000;
                 }
@@ -51,17 +50,17 @@ public class b {
                 }
                 i3.start();
                 if (DnsUtil.DEBUG) {
-                    String str3 = " DnsEngine getIplist -> trasmitTask start: " + str;
+                    Log.d(DnsUtil.TAG, " DnsEngine getIplist -> trasmitTask start: " + str);
                 }
             } else if (i3 == null) {
                 if (DnsUtil.DEBUG) {
-                    String str4 = " DnsEngine getIplist -> no need start transmitTask: " + str;
+                    Log.d(DnsUtil.TAG, " DnsEngine getIplist -> no need start transmitTask: " + str);
                 }
                 if (i2 == 0) {
-                    j2 = 4;
+                    j = 4;
                 }
             }
-            return new DnsParseResult(list, i2, j2, DnsUtil.stackType);
+            return new DnsParseResult(list, i2, j, DnsUtil.stackType);
         }
         return (DnsParseResult) invokeLZ.objValue;
     }
@@ -89,7 +88,7 @@ public class b {
                             i2 = 0;
                         }
                         if (DnsUtil.DEBUG) {
-                            String str2 = "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g2);
+                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> wait http dns request: " + str + " ip: " + a(g2));
                         }
                         subType = i3;
                         ipList = g2;
@@ -102,12 +101,12 @@ public class b {
                             subType = 5;
                         }
                         if (DnsUtil.DEBUG) {
-                            String str3 = "DnsEngine getIplist -> use local dns:" + str + " ip: " + a(ipList);
+                            Log.d(DnsUtil.TAG, "DnsEngine getIplist -> use local dns:" + str + " ip: " + a(ipList));
                         }
                     }
                 }
                 if (DnsUtil.DEBUG) {
-                    String str4 = "Dns parse result type: " + type + " subtype: " + subType;
+                    Log.d(DnsUtil.TAG, "Dns parse result type: " + type + " subtype: " + subType);
                 }
                 return new DnsParseResult(ipList, type, subType, stackType);
             }
@@ -120,8 +119,8 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
             synchronized (b.class) {
-                if (f36947i != null && f36947i.size() > 0) {
-                    for (String str : f36947i) {
+                if (i != null && i.size() > 0) {
+                    for (String str : i) {
                         b(str);
                     }
                 }
@@ -147,11 +146,11 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
             synchronized (b.class) {
-                if (f36947i == null) {
-                    f36947i = new ArrayList(4);
+                if (i == null) {
+                    i = new ArrayList(4);
                 }
-                if (!f36947i.contains(str)) {
-                    f36947i.add(str);
+                if (!i.contains(str)) {
+                    i.add(str);
                 }
             }
         }
@@ -164,7 +163,7 @@ public class b {
             return;
         }
         if (DnsUtil.DEBUG) {
-            String str2 = " start update domain task: " + str;
+            Log.d(DnsUtil.TAG, " start update domain task: " + str);
         }
         a.start();
     }

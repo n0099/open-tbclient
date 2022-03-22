@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Frame extends Mirror {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARGUMENT_COUNT = "argumentCount";
@@ -40,9 +40,9 @@ public class Frame extends Mirror {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8Object};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((V8Object) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -57,12 +57,12 @@ public class Frame extends Mirror {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.v8Object.executeIntegerFunction(ARGUMENT_COUNT, null) : invokeV.intValue;
     }
 
-    public String getArgumentName(int i2) {
+    public String getArgumentName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 return this.v8Object.executeStringFunction(ARGUMENT_NAME, v8Array);
             } finally {
@@ -72,12 +72,12 @@ public class Frame extends Mirror {
         return (String) invokeI.objValue;
     }
 
-    public ValueMirror getArgumentValue(int i2) {
+    public ValueMirror getArgumentValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             AutoCloseable autoCloseable = null;
             try {
                 V8Object executeObjectFunction = this.v8Object.executeObjectFunction(ARGUMENT_VALUE, v8Array);
@@ -124,12 +124,12 @@ public class Frame extends Mirror {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.v8Object.executeIntegerFunction(LOCAL_COUNT, null) : invokeV.intValue;
     }
 
-    public String getLocalName(int i2) {
+    public String getLocalName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             try {
                 return this.v8Object.executeStringFunction(LOCAL_NAME, v8Array);
             } finally {
@@ -139,12 +139,12 @@ public class Frame extends Mirror {
         return (String) invokeI.objValue;
     }
 
-    public ValueMirror getLocalValue(int i2) {
+    public ValueMirror getLocalValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             AutoCloseable autoCloseable = null;
             try {
                 V8Object executeObjectFunction = this.v8Object.executeObjectFunction(LOCAL_VALUE, v8Array);
@@ -168,12 +168,12 @@ public class Frame extends Mirror {
         return (ValueMirror) invokeI.objValue;
     }
 
-    public Scope getScope(int i2) {
+    public Scope getScope(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             V8Array v8Array = new V8Array(this.v8Object.getRuntime());
-            v8Array.push(i2);
+            v8Array.push(i);
             V8Object v8Object = null;
             try {
                 v8Object = this.v8Object.executeObjectFunction("scope", v8Array);

@@ -44,16 +44,16 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f40373b;
+        public String f31130b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f40374c;
+        public String f31131c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f40375d;
+        public String f31132d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f40376e;
+        public String f31133e;
 
         public b(@NonNull DownloadCacheKey downloadCacheKey) {
             Interceptable interceptable = $ic;
@@ -62,17 +62,17 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {downloadCacheKey};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = downloadCacheKey.mAdId;
-            this.f40373b = downloadCacheKey.mDownloadUrl;
-            this.f40374c = downloadCacheKey.mPackageName;
+            this.f31130b = downloadCacheKey.mDownloadUrl;
+            this.f31131c = downloadCacheKey.mPackageName;
         }
 
         @NonNull
@@ -259,10 +259,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         }
     }
 
-    public void setContentLength(long j2) {
+    public void setContentLength(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.mContentLength = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.mContentLength = j;
         }
     }
 
@@ -287,13 +287,13 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         }
     }
 
-    public void setFakePercent(int i2) {
+    public void setFakePercent(int i) {
         AdDownloadExtra adDownloadExtra;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048604, this, i2) == null) || (adDownloadExtra = this.mExtra) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048604, this, i) == null) || (adDownloadExtra = this.mExtra) == null) {
             return;
         }
-        adDownloadExtra.setDownloadFakePercent(i2);
+        adDownloadExtra.setDownloadFakePercent(i);
     }
 
     public void setPage(String str) {
@@ -303,10 +303,10 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
         }
     }
 
-    public void setPercent(int i2) {
+    public void setPercent(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.mExtra.setPercent(i2);
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.mExtra.setPercent(i);
         }
     }
 
@@ -331,19 +331,19 @@ public final class AdDownloadData implements Serializable, IDownloadModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mAdId = bVar.a;
-        this.mPackageName = bVar.f40374c;
-        this.mDownloadUrl = bVar.f40373b;
-        this.mDeeplinkUrl = bVar.f40375d;
+        this.mPackageName = bVar.f31131c;
+        this.mDownloadUrl = bVar.f31130b;
+        this.mDeeplinkUrl = bVar.f31132d;
         this.mExtra = new AdDownloadExtra(this);
-        this.mCmdScheme = bVar.f40376e;
+        this.mCmdScheme = bVar.f31133e;
     }
 }

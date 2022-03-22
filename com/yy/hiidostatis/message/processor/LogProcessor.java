@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.message.processor;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LogProcessor implements MessageProcessor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +19,9 @@ public class LogProcessor implements MessageProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,7 +34,7 @@ public class LogProcessor implements MessageProcessor {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
             try {
-                L.debug(message, "id:%s \n urlParams:%s \n content:%s \n", message.getMsgId(), message.getUrlParams(), new String(message.getContent(), "utf-8"));
+                L.debug(message, "id:%s \n urlParams:%s \n content:%s \n", message.getMsgId(), message.getUrlParams(), new String(message.getContent(), IMAudioTransRequest.CHARSET));
             } catch (Throwable th) {
                 th.printStackTrace();
             }

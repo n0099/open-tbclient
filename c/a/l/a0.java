@@ -18,7 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a0 extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiLinkCardView l;
+
+    /* renamed from: h  reason: collision with root package name */
+    public MultiLinkCardView f3396h;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public a0(Context context) {
@@ -29,62 +31,62 @@ public class a0 extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().o instanceof MultiLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().o.getParent() == null) {
-            this.l = (MultiLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().o;
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().n instanceof MultiLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().n.getParent() == null) {
+            this.f3396h = (MultiLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().n;
         } else {
-            this.l = new MultiLinkCardView(context);
+            this.f3396h = new MultiLinkCardView(context);
         }
-        q(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        r(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.l : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3396h : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.l.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f3396h.b();
         }
     }
 
-    public final boolean r(c.a.q0.r.r.a aVar) {
+    public final boolean s(c.a.o0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().I2() || aVar.getThreadData().u1() == null) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || !aVar.getThreadData().isVideoThreadType() || aVar.getThreadData().getThreadVideoInfo() == null) ? false : true : invokeL.booleanValue;
     }
 
-    public final boolean s(c.a.q0.r.r.a aVar) {
+    public final boolean t(c.a.o0.r.r.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().K0() == null || aVar.getThreadData().K0().getOptions() == null || aVar.getThreadData().K0().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aVar)) == null) ? (aVar == null || aVar.getThreadData() == null || aVar.getThreadData().getPollData() == null || aVar.getThreadData().getPollData().getOptions() == null || aVar.getThreadData().getPollData().getOptions().size() <= 0) ? false : true : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: t */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: u */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            if (!s(aVar) && !r(aVar) && aVar != null && aVar.getThreadData() != null && ((!ListUtils.isEmpty(aVar.getThreadData().C0()) || ListUtils.getCount(aVar.getThreadData().e0()) > 1) && ((!ListUtils.isEmpty(aVar.getThreadData().e0()) || ListUtils.getCount(aVar.getThreadData().C0()) > 1) && ListUtils.getCount(aVar.getThreadData().C0()) + ListUtils.getCount(aVar.getThreadData().e0()) > 1))) {
-                this.l.bindData(aVar.getThreadData().C0(), aVar.getThreadData().e0());
-                this.l.setVisibility(0);
+            if (!t(aVar) && !s(aVar) && aVar != null && aVar.getThreadData() != null && ((!ListUtils.isEmpty(aVar.getThreadData().getLinkDataList()) || ListUtils.getCount(aVar.getThreadData().getGoodsDataList()) > 1) && ((!ListUtils.isEmpty(aVar.getThreadData().getGoodsDataList()) || ListUtils.getCount(aVar.getThreadData().getLinkDataList()) > 1) && ListUtils.getCount(aVar.getThreadData().getLinkDataList()) + ListUtils.getCount(aVar.getThreadData().getGoodsDataList()) > 1))) {
+                this.f3396h.a(aVar.getThreadData().getLinkDataList(), aVar.getThreadData().getGoodsDataList());
+                this.f3396h.setVisibility(0);
                 return;
             }
-            this.l.setVisibility(8);
+            this.f3396h.setVisibility(8);
         }
     }
 }

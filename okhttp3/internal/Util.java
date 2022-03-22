@@ -1,5 +1,6 @@
 package okhttp3.internal;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
@@ -47,7 +48,8 @@ import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
 import okio.Source;
-/* loaded from: classes9.dex */
+import org.apache.commons.base.CharEncoding;
+/* loaded from: classes8.dex */
 public final class Util {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EMPTY_BYTE_ARRAY;
@@ -97,8 +99,8 @@ public final class Util {
         UTF_32_LE_BOM = ByteString.decodeHex("ffff0000");
         UTF_8 = Charset.forName("UTF-8");
         ISO_8859_1 = Charset.forName("ISO-8859-1");
-        UTF_16_BE = Charset.forName("UTF-16BE");
-        UTF_16_LE = Charset.forName("UTF-16LE");
+        UTF_16_BE = Charset.forName(CharEncoding.UTF_16BE);
+        UTF_16_LE = Charset.forName(CharEncoding.UTF_16LE);
         UTF_32_BE = Charset.forName("UTF-32BE");
         UTF_32_LE = Charset.forName("UTF-32LE");
         UTC = TimeZone.getTimeZone("GMT");
@@ -111,9 +113,9 @@ public final class Util {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -141,9 +143,9 @@ public final class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -238,18 +240,18 @@ public final class Util {
         return (String) invokeL.objValue;
     }
 
-    public static int checkDuration(String str, long j2, TimeUnit timeUnit) {
+    public static int checkDuration(String str, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j2), timeUnit})) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j), timeUnit})) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
                 throw new IllegalArgumentException(str + " < 0");
             } else if (timeUnit != null) {
-                long millis = timeUnit.toMillis(j2);
+                long millis = timeUnit.toMillis(j);
                 if (millis > 2147483647L) {
                     throw new IllegalArgumentException(str + " too large.");
-                } else if (millis != 0 || i2 <= 0) {
+                } else if (millis != 0 || i <= 0) {
                     return (int) millis;
                 } else {
                     throw new IllegalArgumentException(str + " too small.");
@@ -261,10 +263,10 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static void checkOffsetAndCount(long j2, long j3, long j4) {
+    public static void checkOffsetAndCount(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            if ((j3 | j4) < 0 || j3 > j2 || j2 - j3 < j4) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if ((j2 | j3) < 0 || j2 > j || j - j2 < j3) {
                 throw new ArrayIndexOutOfBoundsException();
             }
         }
@@ -300,8 +302,8 @@ public final class Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                     return true;
                 }
@@ -330,41 +332,41 @@ public final class Util {
         return invokeCommon.intValue;
     }
 
-    public static boolean decodeIpv4Suffix(String str, int i2, int i3, byte[] bArr, int i4) {
+    public static boolean decodeIpv4Suffix(String str, int i, int i2, byte[] bArr, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr, Integer.valueOf(i4)})) == null) {
-            int i5 = i4;
-            while (i2 < i3) {
-                if (i5 == bArr.length) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr, Integer.valueOf(i3)})) == null) {
+            int i4 = i3;
+            while (i < i2) {
+                if (i4 == bArr.length) {
                     return false;
                 }
-                if (i5 != i4) {
-                    if (str.charAt(i2) != '.') {
+                if (i4 != i3) {
+                    if (str.charAt(i) != '.') {
                         return false;
                     }
-                    i2++;
+                    i++;
                 }
-                int i6 = i2;
-                int i7 = 0;
-                while (i6 < i3) {
-                    char charAt = str.charAt(i6);
+                int i5 = i;
+                int i6 = 0;
+                while (i5 < i2) {
+                    char charAt = str.charAt(i5);
                     if (charAt < '0' || charAt > '9') {
                         break;
-                    } else if ((i7 == 0 && i2 != i6) || (i7 = ((i7 * 10) + charAt) - 48) > 255) {
+                    } else if ((i6 == 0 && i != i5) || (i6 = ((i6 * 10) + charAt) - 48) > 255) {
                         return false;
                     } else {
-                        i6++;
+                        i5++;
                     }
                 }
-                if (i6 - i2 == 0) {
+                if (i5 - i == 0) {
                     return false;
                 }
-                bArr[i5] = (byte) i7;
-                i5++;
-                i2 = i6;
+                bArr[i4] = (byte) i6;
+                i4++;
+                i = i5;
             }
-            return i5 == i4 + 4;
+            return i4 == i3 + 4;
         }
         return invokeCommon.booleanValue;
     }
@@ -377,31 +379,31 @@ public final class Util {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InetAddress decodeIpv6(String str, int i2, int i3) {
+    public static InetAddress decodeIpv6(String str, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65551, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65551, null, str, i, i2)) == null) {
             byte[] bArr = new byte[16];
-            int i5 = 0;
+            int i4 = 0;
+            int i5 = -1;
             int i6 = -1;
-            int i7 = -1;
             while (true) {
-                if (i2 < i3) {
-                    if (i5 != 16) {
-                        int i8 = i2 + 2;
-                        if (i8 <= i3 && str.regionMatches(i2, "::", 0, 2)) {
-                            if (i6 == -1) {
-                                i5 += 2;
-                                i6 = i5;
-                                if (i8 != i3) {
-                                    i7 = i8;
-                                    i2 = i7;
-                                    int i9 = 0;
-                                    while (i2 < i3) {
+                if (i < i2) {
+                    if (i4 != 16) {
+                        int i7 = i + 2;
+                        if (i7 <= i2 && str.regionMatches(i, "::", 0, 2)) {
+                            if (i5 == -1) {
+                                i4 += 2;
+                                i5 = i4;
+                                if (i7 != i2) {
+                                    i6 = i7;
+                                    i = i6;
+                                    int i8 = 0;
+                                    while (i < i2) {
                                     }
-                                    i4 = i2 - i7;
-                                    if (i4 == 0) {
+                                    i3 = i - i6;
+                                    if (i3 == 0) {
                                         break;
                                     }
                                     break;
@@ -410,34 +412,34 @@ public final class Util {
                             }
                             return null;
                         }
-                        if (i5 != 0) {
-                            if (str.regionMatches(i2, ":", 0, 1)) {
-                                i2++;
-                            } else if (!str.regionMatches(i2, ".", 0, 1) || !decodeIpv4Suffix(str, i7, i3, bArr, i5 - 2)) {
+                        if (i4 != 0) {
+                            if (str.regionMatches(i, ":", 0, 1)) {
+                                i++;
+                            } else if (!str.regionMatches(i, ".", 0, 1) || !decodeIpv4Suffix(str, i6, i2, bArr, i4 - 2)) {
                                 return null;
                             } else {
-                                i5 += 2;
+                                i4 += 2;
                             }
                         }
-                        i7 = i2;
-                        i2 = i7;
-                        int i92 = 0;
-                        while (i2 < i3) {
-                            int decodeHexDigit = decodeHexDigit(str.charAt(i2));
+                        i6 = i;
+                        i = i6;
+                        int i82 = 0;
+                        while (i < i2) {
+                            int decodeHexDigit = decodeHexDigit(str.charAt(i));
                             if (decodeHexDigit == -1) {
                                 break;
                             }
-                            i92 = (i92 << 4) + decodeHexDigit;
-                            i2++;
+                            i82 = (i82 << 4) + decodeHexDigit;
+                            i++;
                         }
-                        i4 = i2 - i7;
-                        if (i4 == 0 || i4 > 4) {
+                        i3 = i - i6;
+                        if (i3 == 0 || i3 > 4) {
                             break;
                         }
-                        int i10 = i5 + 1;
-                        bArr[i5] = (byte) ((i92 >>> 8) & 255);
-                        i5 = i10 + 1;
-                        bArr[i10] = (byte) (i92 & 255);
+                        int i9 = i4 + 1;
+                        bArr[i4] = (byte) ((i82 >>> 8) & 255);
+                        i4 = i9 + 1;
+                        bArr[i9] = (byte) (i82 & 255);
                     } else {
                         return null;
                     }
@@ -445,13 +447,13 @@ public final class Util {
                     break;
                 }
             }
-            if (i5 != 16) {
-                if (i6 == -1) {
+            if (i4 != 16) {
+                if (i5 == -1) {
                     return null;
                 }
-                int i11 = i5 - i6;
-                System.arraycopy(bArr, i6, bArr, 16 - i11, i11);
-                Arrays.fill(bArr, i6, (16 - i5) + i6, (byte) 0);
+                int i10 = i4 - i5;
+                System.arraycopy(bArr, i5, bArr, 16 - i10, i10);
+                Arrays.fill(bArr, i5, (16 - i4) + i5, (byte) 0);
             }
             try {
                 return InetAddress.getByAddress(bArr);
@@ -462,27 +464,27 @@ public final class Util {
         return (InetAddress) invokeLII.objValue;
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, String str2) {
+    public static int delimiterOffset(String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            while (i2 < i3) {
-                if (str2.indexOf(str.charAt(i2)) != -1) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            while (i < i2) {
+                if (str2.indexOf(str.charAt(i)) != -1) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    public static boolean discard(Source source, int i2, TimeUnit timeUnit) {
+    public static boolean discard(Source source, int i, TimeUnit timeUnit) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65554, null, source, i2, timeUnit)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65554, null, source, i, timeUnit)) == null) {
             try {
-                return skipAll(source, i2, timeUnit);
+                return skipAll(source, i, timeUnit);
             } catch (IOException unused) {
                 return false;
             }
@@ -543,9 +545,9 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65561, null, comparator, strArr, str)) == null) {
             int length = strArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                if (comparator.compare(strArr[i2], str) == 0) {
-                    return i2;
+            for (int i = 0; i < length; i++) {
+                if (comparator.compare(strArr[i], str) == 0) {
+                    return i;
                 }
             }
             return -1;
@@ -558,10 +560,10 @@ public final class Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, str)) == null) {
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127) {
-                    return i2;
+                    return i;
                 }
             }
             return -1;
@@ -573,36 +575,36 @@ public final class Util {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, bArr)) == null) {
-            int i2 = 0;
-            int i3 = -1;
+            int i = 0;
+            int i2 = -1;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < bArr.length) {
-                int i6 = i4;
-                while (i6 < 16 && bArr[i6] == 0 && bArr[i6 + 1] == 0) {
-                    i6 += 2;
+            while (i3 < bArr.length) {
+                int i5 = i3;
+                while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
+                    i5 += 2;
                 }
-                int i7 = i6 - i4;
-                if (i7 > i5 && i7 >= 4) {
-                    i3 = i4;
-                    i5 = i7;
+                int i6 = i5 - i3;
+                if (i6 > i4 && i6 >= 4) {
+                    i2 = i3;
+                    i4 = i6;
                 }
-                i4 = i6 + 2;
+                i3 = i5 + 2;
             }
             Buffer buffer = new Buffer();
-            while (i2 < bArr.length) {
-                if (i2 == i3) {
+            while (i < bArr.length) {
+                if (i == i2) {
                     buffer.writeByte(58);
-                    i2 += i5;
-                    if (i2 == 16) {
+                    i += i4;
+                    if (i == 16) {
                         buffer.writeByte(58);
                     }
                 } else {
-                    if (i2 > 0) {
+                    if (i > 0) {
                         buffer.writeByte(58);
                     }
-                    buffer.writeHexadecimalUnsignedLong(((bArr[i2] & 255) << 8) | (bArr[i2 + 1] & 255));
-                    i2 += 2;
+                    buffer.writeHexadecimalUnsignedLong(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
+                    i += 2;
                 }
             }
             return buffer.readUtf8();
@@ -617,15 +619,15 @@ public final class Util {
             ArrayList arrayList = new ArrayList();
             for (String str : strArr) {
                 int length = strArr2.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         break;
-                    } else if (comparator.compare(str, strArr2[i2]) == 0) {
+                    } else if (comparator.compare(str, strArr2[i]) == 0) {
                         arrayList.add(str);
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
             }
@@ -678,16 +680,16 @@ public final class Util {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CMP_L]}, finally: {[CMP_L, INVOKE, INVOKE, INVOKE, ARITH, INVOKE, IF] complete} */
-    public static boolean skipAll(Source source, int i2, TimeUnit timeUnit) throws IOException {
+    public static boolean skipAll(Source source, int i, TimeUnit timeUnit) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65568, null, source, i2, timeUnit)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65568, null, source, i, timeUnit)) == null) {
             long nanoTime = System.nanoTime();
             long deadlineNanoTime = source.timeout().hasDeadline() ? source.timeout().deadlineNanoTime() - nanoTime : Long.MAX_VALUE;
-            source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i2)) + nanoTime);
+            source.timeout().deadlineNanoTime(Math.min(deadlineNanoTime, timeUnit.toNanos(i)) + nanoTime);
             try {
                 Buffer buffer = new Buffer();
-                while (source.read(buffer, 8192L) != -1) {
+                while (source.read(buffer, PlaybackStateCompat.ACTION_PLAY_FROM_URI) != -1) {
                     buffer.clear();
                 }
                 if (deadlineNanoTime == Long.MAX_VALUE) {
@@ -715,33 +717,33 @@ public final class Util {
         return invokeLIL.booleanValue;
     }
 
-    public static int skipLeadingAsciiWhitespace(String str, int i2, int i3) {
+    public static int skipLeadingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65569, null, str, i2, i3)) == null) {
-            while (i2 < i3) {
-                char charAt = str.charAt(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65569, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
                 if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i2;
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLII.intValue;
     }
 
-    public static int skipTrailingAsciiWhitespace(String str, int i2, int i3) {
+    public static int skipTrailingAsciiWhitespace(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65570, null, str, i2, i3)) == null) {
-            for (int i4 = i3 - 1; i4 >= i2; i4--) {
-                char charAt = str.charAt(i4);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65570, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
                 if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
-                    return i4 + 1;
+                    return i3 + 1;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeLII.intValue;
     }
@@ -762,9 +764,9 @@ public final class Util {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {str, Boolean.valueOf(z)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -788,12 +790,12 @@ public final class Util {
         } : (ThreadFactory) invokeLZ.objValue;
     }
 
-    public static String trimSubstring(String str, int i2, int i3) {
+    public static String trimSubstring(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65572, null, str, i2, i3)) == null) {
-            int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i2, i3);
-            return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i3));
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65572, null, str, i, i2)) == null) {
+            int skipLeadingAsciiWhitespace = skipLeadingAsciiWhitespace(str, i, i2);
+            return str.substring(skipLeadingAsciiWhitespace, skipTrailingAsciiWhitespace(str, skipLeadingAsciiWhitespace, i2));
         }
         return (String) invokeLII.objValue;
     }
@@ -804,17 +806,17 @@ public final class Util {
         return (interceptable == null || (invokeL = interceptable.invokeL(65573, null, str)) == null) ? VERIFY_AS_IP_ADDRESS.matcher(str).matches() : invokeL.booleanValue;
     }
 
-    public static int delimiterOffset(String str, int i2, int i3, char c2) {
+    public static int delimiterOffset(String str, int i, int i2, char c2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), Character.valueOf(c2)})) == null) {
-            while (i2 < i3) {
-                if (str.charAt(i2) == c2) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65552, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c2) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }

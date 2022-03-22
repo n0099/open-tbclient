@@ -105,24 +105,24 @@ public final class PointKt {
         return (PointF) invokeLL.objValue;
     }
 
-    public static final Point minus(Point point, int i2) {
+    public static final Point minus(Point point, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, point, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, point, i)) == null) {
             Point point2 = new Point(point.x, point.y);
-            int i3 = -i2;
-            point2.offset(i3, i3);
+            int i2 = -i;
+            point2.offset(i2, i2);
             return point2;
         }
         return (Point) invokeLI.objValue;
     }
 
-    public static final Point plus(Point point, int i2) {
+    public static final Point plus(Point point, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, point, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, point, i)) == null) {
             Point point2 = new Point(point.x, point.y);
-            point2.offset(i2, i2);
+            point2.offset(i, i);
             return point2;
         }
         return (Point) invokeLI.objValue;

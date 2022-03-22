@@ -27,7 +27,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
     public String descStr;
     public String dueDate;
     public HttpMessageListener getTCodeInfoListener;
-    public c.a.r0.h2.d.a mView;
+    public c.a.p0.j2.d.a mView;
     public String memberImage;
     public String memberLevelIcon;
     public String memberName;
@@ -39,17 +39,17 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         public final /* synthetic */ MemberExchangeActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MemberExchangeActivity memberExchangeActivity, int i2) {
-            super(i2);
+        public a(MemberExchangeActivity memberExchangeActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {memberExchangeActivity, Integer.valueOf(i2)};
+                Object[] objArr = {memberExchangeActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -68,19 +68,19 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (getTCodeResMessage.getTCodeInfo() != null) {
                         if (getTCodeResMessage.getTCodeInfo().a.equals("0")) {
-                            this.a.showToast(R.string.exchange_success);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05ab);
                             return;
                         } else {
-                            this.a.showToast(R.string.exchange_error);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f05a5);
                             return;
                         }
                     }
-                    this.a.showToast(R.string.neterror);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                     return;
                 }
                 String errorString = httpResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString) || StringUtil.NULL_STRING.equals(errorString)) {
-                    errorString = this.a.getResources().getString(R.string.neterror);
+                    errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                 }
                 this.a.showToast(errorString);
             }
@@ -92,9 +92,9 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,7 +134,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
         if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
             return;
         }
-        if (view.getId() == R.id.go_to_exchange) {
+        if (view.getId() == R.id.obfuscated_res_0x7f090cc1) {
             requestTCodeInfo();
         } else {
             n.w(getPageContext().getPageActivity(), this.mView.b());
@@ -161,7 +161,7 @@ public class MemberExchangeActivity extends BaseActivity<MemberExchangeActivity>
             }
             initTask();
             initListener();
-            c.a.r0.h2.d.a aVar = new c.a.r0.h2.d.a(this);
+            c.a.p0.j2.d.a aVar = new c.a.p0.j2.d.a(this);
             this.mView = aVar;
             aVar.a(this.memberImage, this.memberName, this.memberLevelIcon, this.dueDate, this.descStr);
         }

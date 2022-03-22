@@ -40,9 +40,9 @@ public class WeaponHI {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,10 +85,10 @@ public class WeaponHI {
         public final /* synthetic */ String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f53588b;
+        public final /* synthetic */ String f38793b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ String f53589c;
+        public final /* synthetic */ String f38794c;
 
         public b(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -97,34 +97,34 @@ public class WeaponHI {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f53588b = str2;
-            this.f53589c = str3;
+            this.f38793b = str2;
+            this.f38794c = str3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             String[] a;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f53588b) && !TextUtils.isEmpty(this.f53589c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f53588b)) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.f38793b) && !TextUtils.isEmpty(this.f38794c) && (a = l1.a(WeaponHI.mContext)) != null && a.length == 2 && a[0] != null && a[1] != null && a[0].equals(this.a) && a[1].equals(this.f38793b)) {
                 try {
                     if (new d(WeaponHI.mContext).a(d.g0, 0) == 0) {
                         return;
                     }
-                    r0.a(this.f53589c);
+                    r0.a(this.f38794c);
                     n a2 = n.a(WeaponHI.mContext);
                     if (a2 == null) {
                         return;
                     }
-                    a2.a(this.f53589c);
+                    a2.a(this.f38794c);
                 } catch (Exception unused) {
                 }
             }
@@ -144,9 +144,9 @@ public class WeaponHI {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iWeaponInitParams};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -205,9 +205,9 @@ public class WeaponHI {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

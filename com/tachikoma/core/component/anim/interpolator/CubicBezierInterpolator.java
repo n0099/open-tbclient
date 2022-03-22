@@ -9,17 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CubicBezierInterpolator implements Interpolator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PointF a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PointF f58906b;
+    public PointF f43564b;
 
     /* renamed from: c  reason: collision with root package name */
-    public PointF f58907c;
+    public PointF f43565c;
     public PointF end;
     public PointF start;
 
@@ -32,9 +32,9 @@ public class CubicBezierInterpolator implements Interpolator {
             newInitContext.initArgs = r4;
             Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Float) objArr2[0]).floatValue(), ((Float) objArr2[1]).floatValue(), ((Float) objArr2[2]).floatValue(), ((Float) objArr2[3]).floatValue());
                 newInitContext.thisArg = this;
@@ -53,9 +53,9 @@ public class CubicBezierInterpolator implements Interpolator {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((PointF) objArr2[0], (PointF) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -72,17 +72,17 @@ public class CubicBezierInterpolator implements Interpolator {
             newInitContext.initArgs = r2;
             Object[] objArr = {pointF, pointF2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = new PointF();
-        this.f58906b = new PointF();
-        this.f58907c = new PointF();
+        this.f43564b = new PointF();
+        this.f43565c = new PointF();
         float f2 = pointF.x;
         if (f2 < 0.0f || f2 > 1.0f) {
             throw new IllegalArgumentException("startX value must be in the range [0, 1]");
@@ -129,11 +129,11 @@ public class CubicBezierInterpolator implements Interpolator {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(65544, this, f2)) == null) {
-            PointF pointF = this.f58907c;
+            PointF pointF = this.f43565c;
             PointF pointF2 = this.start;
             float f3 = pointF2.x * 3.0f;
             pointF.x = f3;
-            PointF pointF3 = this.f58906b;
+            PointF pointF3 = this.f43564b;
             float f4 = ((this.end.x - pointF2.x) * 3.0f) - f3;
             pointF3.x = f4;
             PointF pointF4 = this.a;
@@ -147,18 +147,18 @@ public class CubicBezierInterpolator implements Interpolator {
     private float getXDerivate(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) ? this.f58907c.x + (f2 * ((this.f58906b.x * 2.0f) + (this.a.x * 3.0f * f2))) : invokeF.floatValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65545, this, f2)) == null) ? this.f43565c.x + (f2 * ((this.f43564b.x * 2.0f) + (this.a.x * 3.0f * f2))) : invokeF.floatValue;
     }
 
     public float getBezierCoordinateY(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-            PointF pointF = this.f58907c;
+            PointF pointF = this.f43565c;
             PointF pointF2 = this.start;
             float f3 = pointF2.y * 3.0f;
             pointF.y = f3;
-            PointF pointF3 = this.f58906b;
+            PointF pointF3 = this.f43564b;
             float f4 = ((this.end.y - pointF2.y) * 3.0f) - f3;
             pointF3.y = f4;
             PointF pointF4 = this.a;
@@ -181,7 +181,7 @@ public class CubicBezierInterpolator implements Interpolator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) {
             float f3 = f2;
-            for (int i2 = 1; i2 < 14; i2++) {
+            for (int i = 1; i < 14; i++) {
                 float bezierCoordinateX = getBezierCoordinateX(f3) - f2;
                 if (Math.abs(bezierCoordinateX) < 0.001d) {
                     break;

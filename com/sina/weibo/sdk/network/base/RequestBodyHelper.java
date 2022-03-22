@@ -20,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestBodyHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -32,9 +32,9 @@ public class RequestBodyHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -166,12 +166,12 @@ public class RequestBodyHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
-            for (int i2 = 1; i2 < 12; i2++) {
-                long currentTimeMillis = System.currentTimeMillis() + i2;
-                long j2 = currentTimeMillis % 3;
-                if (j2 == 0) {
+            for (int i = 1; i < 12; i++) {
+                long currentTimeMillis = System.currentTimeMillis() + i;
+                long j = currentTimeMillis % 3;
+                if (j == 0) {
                     stringBuffer.append(((char) currentTimeMillis) % '\t');
-                } else if (j2 == 1) {
+                } else if (j == 1) {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 65));
                 } else {
                     stringBuffer.append((char) ((currentTimeMillis % 26) + 97));

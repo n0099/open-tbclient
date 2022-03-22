@@ -17,32 +17,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbLandscapeListView extends BdTypeListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int N;
-    public boolean O;
-    public b P;
-    public float Q;
-    public float R;
-    public c S;
-    public Handler.Callback T;
-    public Handler U;
-    public boolean V;
-    public boolean W;
-    public boolean a0;
+    public final int J;
+    public boolean K;
+    public b L;
+    public float M;
+    public float N;
+    public c O;
+    public Handler.Callback P;
+    public Handler Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
     @NonNull
-    public c.a.q0.e1.r.a b0;
-    public boolean c0;
+    public c.a.o0.e1.r.a U;
+    public boolean V;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbLandscapeListView f45136e;
+        public final /* synthetic */ PbLandscapeListView a;
 
         public a(PbLandscapeListView pbLandscapeListView) {
             Interceptable interceptable = $ic;
@@ -51,15 +49,15 @@ public class PbLandscapeListView extends BdTypeListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbLandscapeListView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45136e = pbLandscapeListView;
+            this.a = pbLandscapeListView;
         }
 
         @Override // android.os.Handler.Callback
@@ -73,8 +71,8 @@ public class PbLandscapeListView extends BdTypeListView {
                     if (message.what != 0) {
                         return false;
                     }
-                    if (this.f45136e.S != null) {
-                        this.f45136e.S.a(dVar.a, dVar.f45137b, dVar.f45138c, dVar.f45140e, dVar.f45139d, dVar.f45141f);
+                    if (this.a.O != null) {
+                        this.a.O.a(dVar.a, dVar.f34939b, dVar.f34940c, dVar.f34942e, dVar.f34941d, dVar.f34943f);
                         return true;
                     }
                     return true;
@@ -85,45 +83,45 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void onLayout();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface c {
-        void a(int i2, int i3, float f2, float f3, float f4, float f5);
+        void a(int i, int i2, float f2, float f3, float f4, float f5);
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f45137b;
+        public int f34939b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f45138c;
+        public float f34940c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f45139d;
+        public float f34941d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f45140e;
+        public float f34942e;
 
         /* renamed from: f  reason: collision with root package name */
-        public float f45141f;
+        public float f34943f;
 
         public d() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -140,42 +138,57 @@ public class PbLandscapeListView extends BdTypeListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.N = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
-        this.O = false;
-        this.T = new a(this);
-        this.U = new Handler(this.T);
-        this.V = false;
-        this.W = false;
-        this.a0 = false;
-        this.b0 = new c.a.q0.e1.r.a(this);
-        x();
+        this.J = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.K = false;
+        this.P = new a(this);
+        this.Q = new Handler(this.P);
+        this.R = false;
+        this.S = false;
+        this.T = false;
+        this.U = new c.a.o0.e1.r.a(this);
+        H();
     }
 
-    private void x() {
+    private void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.b0.d(false);
+            this.U.d(false);
         }
     }
 
-    @Override // com.baidu.adp.widget.ListView.BdListView
-    public void addPullRefreshView(View view) {
+    public boolean J() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            if (this.V) {
-                getAdapter2().f(view, null, false, 1);
-            } else {
-                getAdapter2().f(view, null, false, 0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.T : invokeV.booleanValue;
+    }
+
+    public final void K(int i, int i2, float f2, float f3, float f4, float f5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
+            this.Q.removeMessages(0);
+            if (this.Q.hasMessages(0)) {
+                return;
             }
+            Message message = new Message();
+            message.what = 0;
+            d dVar = new d();
+            dVar.a = i;
+            dVar.f34939b = i2;
+            dVar.f34940c = f2;
+            dVar.f34941d = f3;
+            dVar.f34942e = f4;
+            dVar.f34943f = f5;
+            message.obj = dVar;
+            this.Q.sendMessageDelayed(message, 60L);
         }
     }
 
@@ -183,33 +196,33 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent.getAction() != 1) {
-                this.c0 = this.b0.a(motionEvent);
+                this.V = this.U.a(motionEvent);
             }
             int action = motionEvent.getAction();
             if (action == 0) {
-                this.Q = motionEvent.getRawX();
-                this.R = motionEvent.getRawY();
-                this.W = false;
-                this.a0 = false;
+                this.M = motionEvent.getRawX();
+                this.N = motionEvent.getRawY();
+                this.S = false;
+                this.T = false;
             } else if (action == 1) {
                 float rawX = motionEvent.getRawX();
                 float rawY = motionEvent.getRawY();
-                if (!this.W && this.S != null) {
-                    int i2 = (int) (rawX - this.Q);
-                    int i3 = (int) (rawY - this.R);
-                    int abs = Math.abs(i2);
-                    if (abs > this.N && abs > Math.abs(i3) && !this.c0) {
-                        z(i2, i3, this.Q, this.R, rawX, rawY);
-                        this.a0 = true;
+                if (!this.S && this.O != null) {
+                    int i = (int) (rawX - this.M);
+                    int i2 = (int) (rawY - this.N);
+                    int abs = Math.abs(i);
+                    if (abs > this.J && abs > Math.abs(i2) && !this.V) {
+                        K(i, i2, this.M, this.N, rawX, rawY);
+                        this.T = true;
                         return false;
                     }
                 }
-                this.Q = 0.0f;
-                this.R = 0.0f;
+                this.M = 0.0f;
+                this.N = 0.0f;
             }
-            if (motionEvent.getAction() != 2 || this.c0) {
+            if (motionEvent.getAction() != 2 || this.V) {
                 return super.dispatchTouchEvent(motionEvent);
             }
             return true;
@@ -217,18 +230,12 @@ public class PbLandscapeListView extends BdTypeListView {
         return invokeL.booleanValue;
     }
 
-    public boolean isDragListenerExecuted() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a0 : invokeV.booleanValue;
-    }
-
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            if (this.O) {
+            if (this.K) {
                 return false;
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -237,11 +244,11 @@ public class PbLandscapeListView extends BdTypeListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            b bVar = this.P;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            b bVar = this.L;
             if (bVar != null) {
                 bVar.onLayout();
             }
@@ -253,7 +260,7 @@ public class PbLandscapeListView extends BdTypeListView {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
-            if (this.O) {
+            if (this.K) {
                 return false;
             }
             return super.onTouchEvent(motionEvent);
@@ -264,56 +271,47 @@ public class PbLandscapeListView extends BdTypeListView {
     public void setForbidDragListener(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.W = z;
+            this.S = z;
         }
     }
 
     public void setIsLandscape(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.O = z;
+            this.K = z;
         }
     }
 
     public void setListViewDragListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
-            this.S = cVar;
+            this.O = cVar;
         }
     }
 
     public void setOnLayoutListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) {
-            this.P = bVar;
+            this.L = bVar;
         }
     }
 
     public void setTextViewAdded(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.V = z;
+            this.R = z;
         }
     }
 
-    public final void z(int i2, int i3, float f2, float f3, float f4, float f5) {
+    @Override // com.baidu.adp.widget.ListView.BdListView
+    public void y(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            this.U.removeMessages(0);
-            if (this.U.hasMessages(0)) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
+            if (this.R) {
+                getAdapter2().h(view, null, false, 1);
+            } else {
+                getAdapter2().h(view, null, false, 0);
             }
-            Message message = new Message();
-            message.what = 0;
-            d dVar = new d();
-            dVar.a = i2;
-            dVar.f45137b = i3;
-            dVar.f45138c = f2;
-            dVar.f45139d = f3;
-            dVar.f45140e = f4;
-            dVar.f45141f = f5;
-            message.obj = dVar;
-            this.U.sendMessageDelayed(message, 60L);
         }
     }
 
@@ -326,9 +324,9 @@ public class PbLandscapeListView extends BdTypeListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -336,29 +334,29 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.N = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
-        this.O = false;
-        this.T = new a(this);
-        this.U = new Handler(this.T);
-        this.V = false;
-        this.W = false;
-        this.a0 = false;
-        this.b0 = new c.a.q0.e1.r.a(this);
-        x();
+        this.J = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.K = false;
+        this.P = new a(this);
+        this.Q = new Handler(this.P);
+        this.R = false;
+        this.S = false;
+        this.T = false;
+        this.U = new c.a.o0.e1.r.a(this);
+        H();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbLandscapeListView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PbLandscapeListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -366,14 +364,14 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.N = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
-        this.O = false;
-        this.T = new a(this);
-        this.U = new Handler(this.T);
-        this.V = false;
-        this.W = false;
-        this.a0 = false;
-        this.b0 = new c.a.q0.e1.r.a(this);
-        x();
+        this.J = n.k(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.K = false;
+        this.P = new a(this);
+        this.Q = new Handler(this.P);
+        this.R = false;
+        this.S = false;
+        this.T = false;
+        this.U = new c.a.o0.e1.r.a(this);
+        H();
     }
 }

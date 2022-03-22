@@ -36,9 +36,9 @@ public final class SingleAmb<T> extends Single<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, compositeDisposable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,9 +86,9 @@ public final class SingleAmb<T> extends Single<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSourceArr, iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,9 +118,9 @@ public final class SingleAmb<T> extends Single<T> {
                             System.arraycopy(singleSourceArr, 0, singleSourceArr2, 0, length);
                             singleSourceArr = singleSourceArr2;
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         singleSourceArr[length] = singleSource;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -133,8 +133,8 @@ public final class SingleAmb<T> extends Single<T> {
             CompositeDisposable compositeDisposable = new CompositeDisposable();
             AmbSingleObserver ambSingleObserver = new AmbSingleObserver(singleObserver, compositeDisposable);
             singleObserver.onSubscribe(compositeDisposable);
-            for (int i3 = 0; i3 < length; i3++) {
-                SingleSource<? extends T> singleSource2 = singleSourceArr[i3];
+            for (int i2 = 0; i2 < length; i2++) {
+                SingleSource<? extends T> singleSource2 = singleSourceArr[i2];
                 if (ambSingleObserver.get()) {
                     return;
                 }

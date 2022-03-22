@@ -48,9 +48,9 @@ public final class SingleScheduler extends Scheduler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {scheduledExecutorService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,21 +79,21 @@ public final class SingleScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Future<?> schedule;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
                 ScheduledRunnable scheduledRunnable = new ScheduledRunnable(RxJavaPlugins.onSchedule(runnable), this.tasks);
                 this.tasks.add(scheduledRunnable);
                 try {
-                    if (j2 <= 0) {
+                    if (j <= 0) {
                         schedule = this.executor.submit((Callable) scheduledRunnable);
                     } else {
-                        schedule = this.executor.schedule((Callable) scheduledRunnable, j2, timeUnit);
+                        schedule = this.executor.schedule((Callable) scheduledRunnable, j, timeUnit);
                     }
                     scheduledRunnable.setFuture(schedule);
                     return scheduledRunnable;
@@ -133,9 +133,9 @@ public final class SingleScheduler extends Scheduler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((ThreadFactory) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -160,17 +160,17 @@ public final class SingleScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             ScheduledDirectTask scheduledDirectTask = new ScheduledDirectTask(RxJavaPlugins.onSchedule(runnable));
             try {
-                if (j2 <= 0) {
+                if (j <= 0) {
                     schedule = this.executor.get().submit(scheduledDirectTask);
                 } else {
-                    schedule = this.executor.get().schedule(scheduledDirectTask, j2, timeUnit);
+                    schedule = this.executor.get().schedule(scheduledDirectTask, j, timeUnit);
                 }
                 scheduledDirectTask.setFuture(schedule);
                 return scheduledDirectTask;
@@ -184,20 +184,20 @@ public final class SingleScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j2, long j3, TimeUnit timeUnit) {
+    public Disposable schedulePeriodicallyDirect(@NonNull Runnable runnable, long j, long j2, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Future<?> schedule;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), Long.valueOf(j3), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), Long.valueOf(j2), timeUnit})) == null) {
             Runnable onSchedule = RxJavaPlugins.onSchedule(runnable);
-            if (j3 <= 0) {
+            if (j2 <= 0) {
                 ScheduledExecutorService scheduledExecutorService = this.executor.get();
                 InstantPeriodicTask instantPeriodicTask = new InstantPeriodicTask(onSchedule, scheduledExecutorService);
                 try {
-                    if (j2 <= 0) {
+                    if (j <= 0) {
                         schedule = scheduledExecutorService.submit(instantPeriodicTask);
                     } else {
-                        schedule = scheduledExecutorService.schedule(instantPeriodicTask, j2, timeUnit);
+                        schedule = scheduledExecutorService.schedule(instantPeriodicTask, j, timeUnit);
                     }
                     instantPeriodicTask.setFirst(schedule);
                     return instantPeriodicTask;
@@ -208,7 +208,7 @@ public final class SingleScheduler extends Scheduler {
             }
             ScheduledDirectPeriodicTask scheduledDirectPeriodicTask = new ScheduledDirectPeriodicTask(onSchedule);
             try {
-                scheduledDirectPeriodicTask.setFuture(this.executor.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j2, j3, timeUnit));
+                scheduledDirectPeriodicTask.setFuture(this.executor.get().scheduleAtFixedRate(scheduledDirectPeriodicTask, j, j2, timeUnit));
                 return scheduledDirectPeriodicTask;
             } catch (RejectedExecutionException e3) {
                 RxJavaPlugins.onError(e3);
@@ -260,9 +260,9 @@ public final class SingleScheduler extends Scheduler {
             newInitContext.initArgs = r2;
             Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

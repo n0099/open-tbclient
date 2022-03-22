@@ -40,9 +40,9 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
             newInitContext.initArgs = r2;
             Object[] objArr = {context, actionBarContextView, callback, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -208,18 +208,18 @@ public class StandaloneActionMode extends ActionMode implements MenuBuilder.Call
     }
 
     @Override // androidx.appcompat.view.ActionMode
-    public void setSubtitle(int i2) {
+    public void setSubtitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            setSubtitle(this.mContext.getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            setSubtitle(this.mContext.getString(i));
         }
     }
 
     @Override // androidx.appcompat.view.ActionMode
-    public void setTitle(int i2) {
+    public void setTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            setTitle(this.mContext.getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            setTitle(this.mContext.getString(i));
         }
     }
 }

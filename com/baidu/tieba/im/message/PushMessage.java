@@ -13,17 +13,17 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PushMessage(int i2, GroupNewsPojo groupNewsPojo) {
-        super(i2, groupNewsPojo);
+    public PushMessage(int i, GroupNewsPojo groupNewsPojo) {
+        super(i, groupNewsPojo);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), groupNewsPojo};
+            Object[] objArr = {Integer.valueOf(i), groupNewsPojo};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;
@@ -35,60 +35,60 @@ public class PushMessage extends CustomResponsedMessage<GroupNewsPojo> {
 
     public static PushMessage newInstance(GroupNewsPojo groupNewsPojo) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, groupNewsPojo)) == null) {
             String cmd = groupNewsPojo.getCmd();
             if (cmd.equals("apply_join_group")) {
-                i2 = 2001125;
+                i = 2001125;
             } else if (cmd.equals("apply_join_success")) {
-                i2 = 2001126;
+                i = 2001126;
             } else if (cmd.equals("apply_join_fail")) {
-                i2 = 2001127;
+                i = 2001127;
             } else if (cmd.equals("kick_out")) {
-                i2 = 2001128;
+                i = 2001128;
             } else if (cmd.equals("group_notice_change")) {
-                i2 = 2001129;
+                i = 2001129;
             } else if (cmd.equals("group_name_change")) {
-                i2 = 2001130;
+                i = 2001130;
             } else if (cmd.equals("group_event_info")) {
-                i2 = 2001131;
+                i = 2001131;
             } else if (cmd.equals("group_intro_change")) {
-                i2 = 2001132;
+                i = 2001132;
             } else if (cmd.equals("group_level_up")) {
-                i2 = 2001133;
+                i = 2001133;
             } else if (cmd.equals("group_head_change")) {
-                i2 = 2001134;
+                i = 2001134;
             } else if (cmd.equals("group_activitys_change")) {
-                i2 = 2001135;
+                i = 2001135;
             } else if (cmd.equals("dismiss_group")) {
-                i2 = 2001137;
+                i = 2001137;
             } else if (cmd.equals("hide_group_warn")) {
-                i2 = 2001138;
+                i = 2001138;
             } else if (cmd.equals("hide_group")) {
-                i2 = 2001139;
+                i = 2001139;
             } else if (cmd.equals("apply_new_friend")) {
-                i2 = 2001172;
+                i = 2001172;
             } else if (cmd.equals("passed_new_friend")) {
-                i2 = 2001173;
+                i = 2001173;
             } else if (cmd.equals("delete_new_friend")) {
-                i2 = 2001209;
+                i = 2001209;
             } else if (cmd.equals("apply_reply_message")) {
-                i2 = 2001219;
+                i = 2001219;
             } else if (cmd.equals("apply_add_friend")) {
-                i2 = 2001220;
+                i = 2001220;
             } else if (cmd.equals("apply_pass_friend")) {
-                i2 = 2001221;
+                i = 2001221;
             } else if (cmd.equals("upload_stat")) {
-                i2 = 2001320;
+                i = 2001320;
             } else if (cmd.equals("plugin_config_sync")) {
-                i2 = 2001401;
+                i = 2001401;
             } else if (!cmd.equals("offline_debug")) {
                 return null;
             } else {
-                i2 = 2001413;
+                i = 2001413;
             }
-            return new PushMessage(i2, groupNewsPojo);
+            return new PushMessage(i, groupNewsPojo);
         }
         return (PushMessage) invokeL.objValue;
     }

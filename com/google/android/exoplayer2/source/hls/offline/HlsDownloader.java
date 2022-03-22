@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, St
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, downloaderConstructorHelper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Uri) objArr2[0], (DownloaderConstructorHelper) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,23 +50,23 @@ public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, St
     public static void addSegment(ArrayList<SegmentDownloader.Segment> arrayList, HlsMediaPlaylist hlsMediaPlaylist, HlsMediaPlaylist.Segment segment, HashSet<Uri> hashSet) throws IOException, InterruptedException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65537, null, arrayList, hlsMediaPlaylist, segment, hashSet) == null) {
-            long j2 = hlsMediaPlaylist.startTimeUs + segment.relativeStartTimeUs;
+            long j = hlsMediaPlaylist.startTimeUs + segment.relativeStartTimeUs;
             String str = segment.fullSegmentEncryptionKeyUri;
             if (str != null) {
                 Uri resolveToUri = UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, str);
                 if (hashSet.add(resolveToUri)) {
-                    arrayList.add(new SegmentDownloader.Segment(j2, new DataSpec(resolveToUri)));
+                    arrayList.add(new SegmentDownloader.Segment(j, new DataSpec(resolveToUri)));
                 }
             }
-            arrayList.add(new SegmentDownloader.Segment(j2, new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment.url), segment.byterangeOffset, segment.byterangeLength, null)));
+            arrayList.add(new SegmentDownloader.Segment(j, new DataSpec(UriUtil.resolveToUri(hlsMediaPlaylist.baseUri, segment.url), segment.byterangeOffset, segment.byterangeLength, null)));
         }
     }
 
     public static void extractUrls(List<HlsMasterPlaylist.HlsUrl> list, ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, list, arrayList) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                arrayList.add(list.get(i2).url);
+            for (int i = 0; i < list.size(); i++) {
+                arrayList.add(list.get(i).url);
             }
         }
     }
@@ -138,8 +138,8 @@ public final class HlsDownloader extends SegmentDownloader<HlsMasterPlaylist, St
                         addSegment(arrayList, hlsMediaPlaylist, segment, hashSet);
                     }
                     List<HlsMediaPlaylist.Segment> list = hlsMediaPlaylist.segments;
-                    for (int i2 = 0; i2 < list.size(); i2++) {
-                        addSegment(arrayList, hlsMediaPlaylist, list.get(i2), hashSet);
+                    for (int i = 0; i < list.size(); i++) {
+                        addSegment(arrayList, hlsMediaPlaylist, list.get(i), hashSet);
                     }
                 }
             }

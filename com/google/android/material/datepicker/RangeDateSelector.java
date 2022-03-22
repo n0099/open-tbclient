@@ -34,7 +34,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RangeDateSelector> CREATOR;
@@ -72,9 +72,9 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -101,10 +101,10 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public RangeDateSelector[] newArray(int i2) {
+            public RangeDateSelector[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new RangeDateSelector[i2] : (RangeDateSelector[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RangeDateSelector[i] : (RangeDateSelector[]) invokeI.objValue;
             }
         };
     }
@@ -114,9 +114,9 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -142,10 +142,10 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         }
     }
 
-    private boolean isValidRange(long j2, long j3) {
+    private boolean isValidRange(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 <= j3 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j <= j2 : invokeCommon.booleanValue;
     }
 
     private void setInvalidRange(@NonNull TextInputLayout textInputLayout, @NonNull TextInputLayout textInputLayout2) {
@@ -194,7 +194,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
             Resources resources = context.getResources();
             DisplayMetrics displayMetrics = resources.getDisplayMetrics();
-            return MaterialAttributes.resolveOrThrow(context, Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) > resources.getDimensionPixelSize(R.dimen.mtrl_calendar_maximum_default_fullscreen_minor_axis) ? R.attr.materialCalendarTheme : R.attr.materialCalendarFullscreenTheme, MaterialDatePicker.class.getCanonicalName());
+            return MaterialAttributes.resolveOrThrow(context, Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) > resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070413) ? R.attr.obfuscated_res_0x7f040413 : R.attr.obfuscated_res_0x7f04040b, MaterialDatePicker.class.getCanonicalName());
         }
         return invokeL.intValue;
     }
@@ -203,7 +203,7 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     public int getDefaultTitleResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.mtrl_picker_range_header_title : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0af9 : invokeV.intValue;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -250,18 +250,18 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
             Resources resources = context.getResources();
             if (this.selectedStartItem == null && this.selectedEndItem == null) {
-                return resources.getString(R.string.mtrl_picker_range_header_unselected);
+                return resources.getString(R.string.obfuscated_res_0x7f0f0afa);
             }
             Long l = this.selectedEndItem;
             if (l == null) {
-                return resources.getString(R.string.mtrl_picker_range_header_only_start_selected, DateStrings.getDateString(this.selectedStartItem.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0af7, DateStrings.getDateString(this.selectedStartItem.longValue()));
             }
             Long l2 = this.selectedStartItem;
             if (l2 == null) {
-                return resources.getString(R.string.mtrl_picker_range_header_only_end_selected, DateStrings.getDateString(l.longValue()));
+                return resources.getString(R.string.obfuscated_res_0x7f0f0af6, DateStrings.getDateString(l.longValue()));
             }
             Pair<String, String> dateRangeString = DateStrings.getDateRangeString(l2, l);
-            return resources.getString(R.string.mtrl_picker_range_header_selected, dateRangeString.first, dateRangeString.second);
+            return resources.getString(R.string.obfuscated_res_0x7f0f0af8, dateRangeString.first, dateRangeString.second);
         }
         return (String) invokeL.objValue;
     }
@@ -282,16 +282,16 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, layoutInflater, viewGroup, bundle, calendarConstraints, onSelectionChangedListener)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.mtrl_picker_text_input_date_range, viewGroup, false);
-            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.mtrl_picker_text_input_range_start);
-            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.mtrl_picker_text_input_range_end);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d058a, viewGroup, false);
+            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091474);
+            TextInputLayout textInputLayout2 = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091473);
             EditText editText = textInputLayout.getEditText();
             EditText editText2 = textInputLayout2.getEditText();
             if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
                 editText.setInputType(17);
                 editText2.setInputType(17);
             }
-            this.invalidRangeStartError = inflate.getResources().getString(R.string.mtrl_picker_invalid_range);
+            this.invalidRangeStartError = inflate.getResources().getString(R.string.obfuscated_res_0x7f0f0af3);
             SimpleDateFormat textInputFormat = UtcDates.getTextInputFormat();
             Long l = this.selectedStartItem;
             if (l != null) {
@@ -321,9 +321,9 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, textInputHint, textInputFormat, textInputLayout, calendarConstraints, textInputLayout, textInputLayout2, onSelectionChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], (DateFormat) objArr2[1], (TextInputLayout) objArr2[2], (CalendarConstraints) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -372,9 +372,9 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, textInputHint, textInputFormat, textInputLayout2, calendarConstraints, textInputLayout, textInputLayout2, onSelectionChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], (DateFormat) objArr2[1], (TextInputLayout) objArr2[2], (CalendarConstraints) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -413,25 +413,25 @@ public class RangeDateSelector implements DateSelector<Pair<Long, Long>> {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public void select(long j2) {
+    public void select(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
             Long l = this.selectedStartItem;
             if (l == null) {
-                this.selectedStartItem = Long.valueOf(j2);
-            } else if (this.selectedEndItem == null && isValidRange(l.longValue(), j2)) {
-                this.selectedEndItem = Long.valueOf(j2);
+                this.selectedStartItem = Long.valueOf(j);
+            } else if (this.selectedEndItem == null && isValidRange(l.longValue(), j)) {
+                this.selectedEndItem = Long.valueOf(j);
             } else {
                 this.selectedEndItem = null;
-                this.selectedStartItem = Long.valueOf(j2);
+                this.selectedStartItem = Long.valueOf(j);
             }
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeValue(this.selectedStartItem);
             parcel.writeValue(this.selectedEndItem);
         }

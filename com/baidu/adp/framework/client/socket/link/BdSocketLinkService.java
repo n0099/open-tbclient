@@ -74,9 +74,9 @@ public class BdSocketLinkService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSocketLinkService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -110,9 +110,9 @@ public class BdSocketLinkService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -142,9 +142,9 @@ public class BdSocketLinkService extends BdBaseService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -161,19 +161,19 @@ public class BdSocketLinkService extends BdBaseService {
         }
 
         @Override // c.a.d.f.r.j, c.a.d.f.r.g
-        public void b(int i2, String str) {
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-                i.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onClose", i2, str);
-                if (i2 == 6 || i2 == 5 || i2 == 2 || i2 == 3 || i2 == 4) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                i.a(BdSocketLinkService.MODULE_NAME, 0, 0, "onClose", i, str);
+                if (i == 6 || i == 5 || i == 2 || i == 3 || i == 4) {
                     i.d();
                 }
                 BdSocketLinkService.mHandler.removeMessages(1);
-                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i2, null) : false) || i2 == 1 || !n.C()) {
+                if ((BdSocketLinkService.connStateCallBack != null ? BdSocketLinkService.connStateCallBack.b(i, null) : false) || i == 1 || !n.C()) {
                     return;
                 }
                 c.a.d.c.e.c.k.d dVar = BdSocketLinkService.reConnStra;
-                dVar.e("onClose:" + i2 + ":" + str);
+                dVar.e("onClose:" + i + ":" + str);
             }
         }
 
@@ -213,9 +213,7 @@ public class BdSocketLinkService extends BdBaseService {
     public class c implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f29788e;
+        public final /* synthetic */ BdSocketLinkService a;
 
         public c(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -224,15 +222,15 @@ public class BdSocketLinkService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSocketLinkService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29788e = bdSocketLinkService;
+            this.a = bdSocketLinkService;
         }
 
         @Override // android.content.ServiceConnection
@@ -255,9 +253,7 @@ public class BdSocketLinkService extends BdBaseService {
     public class d extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSocketLinkService f29789e;
+        public final /* synthetic */ BdSocketLinkService a;
 
         public d(BdSocketLinkService bdSocketLinkService) {
             Interceptable interceptable = $ic;
@@ -266,15 +262,15 @@ public class BdSocketLinkService extends BdBaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdSocketLinkService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29789e = bdSocketLinkService;
+            this.a = bdSocketLinkService;
         }
     }
 
@@ -308,9 +304,9 @@ public class BdSocketLinkService extends BdBaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -526,10 +522,10 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     @Override // android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, intent, i) == null) {
+            super.onStart(intent, i);
             c.a.d.c.e.c.k.b bVar = mCanOpenWebSocket;
             if (bVar != null && !bVar.canOpenWebSocket()) {
                 close("exit app");
@@ -553,20 +549,20 @@ public class BdSocketLinkService extends BdBaseService {
     }
 
     @Override // com.baidu.adp.base.BdBaseService, android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, intent, i2, i3)) == null) ? super.onStartCommand(intent, i2, i3) : invokeLII.intValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, intent, i, i2)) == null) ? super.onStartCommand(intent, i, i2) : invokeLII.intValue;
     }
 
-    public static void close(int i2, String str) {
+    public static void close(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65541, null, i2, str) == null) || isClose()) {
+        if (!(interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) || isClose()) {
             return;
         }
-        i.a(MODULE_NAME, 0, 0, IntentConfig.CLOSE, i2, str);
+        i.a(MODULE_NAME, 0, 0, IntentConfig.CLOSE, i, str);
         i.d();
         mHandler.removeMessages(1);
-        h.j().f(i2, str);
+        h.j().f(i, str);
     }
 }

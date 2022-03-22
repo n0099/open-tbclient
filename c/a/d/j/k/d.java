@@ -26,7 +26,7 @@ public class d {
         public final Class<? extends T> a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f3020b;
+        public final T f2520b;
     }
 
     static {
@@ -105,11 +105,11 @@ public class d {
                 int length = Array.getLength(obj);
                 int length2 = Array.getLength(obj2) + length;
                 Object newInstance = Array.newInstance(componentType, length2);
-                for (int i2 = 0; i2 < length2; i2++) {
-                    if (i2 < length) {
-                        Array.set(newInstance, i2, Array.get(obj, i2));
+                for (int i = 0; i < length2; i++) {
+                    if (i < length) {
+                        Array.set(newInstance, i, Array.get(obj, i));
                     } else {
-                        Array.set(newInstance, i2, Array.get(obj2, i2 - length));
+                        Array.set(newInstance, i, Array.get(obj2, i - length));
                     }
                 }
                 return newInstance;
@@ -140,8 +140,8 @@ public class d {
             } else if (length != clsArr2.length) {
                 return false;
             } else {
-                for (int i2 = length - 1; i2 >= 0; i2--) {
-                    if (clsArr[i2].isAssignableFrom(clsArr2[i2]) || (a.containsKey(clsArr[i2]) && a.get(clsArr[i2]).equals(a.get(clsArr2[i2])))) {
+                for (int i = length - 1; i >= 0; i--) {
+                    if (clsArr[i].isAssignableFrom(clsArr2[i]) || (a.containsKey(clsArr[i]) && a.get(clsArr[i]).equals(a.get(clsArr2[i])))) {
                         return true;
                     }
                 }
@@ -215,12 +215,12 @@ public class d {
                 return null;
             }
             Class<?>[] clsArr = new Class[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
                 if (obj != null && (obj instanceof a)) {
-                    clsArr[i2] = ((a) obj).a;
+                    clsArr[i] = ((a) obj).a;
                 } else {
-                    clsArr[i2] = obj == null ? null : obj.getClass();
+                    clsArr[i] = obj == null ? null : obj.getClass();
                 }
             }
             return clsArr;
@@ -236,12 +236,12 @@ public class d {
                 return null;
             }
             Object[] objArr2 = new Object[objArr.length];
-            for (int i2 = 0; i2 < objArr.length; i2++) {
-                Object obj = objArr[i2];
+            for (int i = 0; i < objArr.length; i++) {
+                Object obj = objArr[i];
                 if (obj != null && (obj instanceof a)) {
-                    objArr2[i2] = ((a) obj).f3020b;
+                    objArr2[i] = ((a) obj).f2520b;
                 } else {
-                    objArr2[i2] = obj;
+                    objArr2[i] = obj;
                 }
             }
             return objArr2;

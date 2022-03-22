@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ThreadHandoffProducer<T> implements Producer<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BackgroundThreadHandoffProducer";
@@ -23,9 +23,9 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {producer, threadHandoffProducerQueue};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,9 +59,9 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
                         newInitContext.initArgs = r3;
                         Object[] objArr = {this, consumer, listener, r14, id, listener, id, consumer, producerContext};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -116,9 +116,9 @@ public class ThreadHandoffProducer<T> implements Producer<T> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, statefulProducerRunnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

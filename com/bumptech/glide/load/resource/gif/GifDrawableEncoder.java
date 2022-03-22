@@ -15,7 +15,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GifEncoder";
@@ -26,9 +26,9 @@ public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,8 +52,10 @@ public class GifDrawableEncoder implements ResourceEncoder<GifDrawable> {
             try {
                 ByteBufferUtil.toFile(resource.get().getBuffer(), file);
                 return true;
-            } catch (IOException unused) {
-                Log.isLoggable(TAG, 5);
+            } catch (IOException e2) {
+                if (Log.isLoggable(TAG, 5)) {
+                    Log.w(TAG, "Failed to encode GIF drawable data", e2);
+                }
                 return false;
             }
         }

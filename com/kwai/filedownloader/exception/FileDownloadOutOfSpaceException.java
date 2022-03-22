@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwai.filedownloader.e.f;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadOutOfSpaceException extends IOException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,39 +18,39 @@ public class FileDownloadOutOfSpaceException extends IOException {
     public long requiredSpaceBytes;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FileDownloadOutOfSpaceException(long j2, long j3, long j4) {
-        super(f.a("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)));
+    public FileDownloadOutOfSpaceException(long j, long j2, long j3) {
+        super(f.a("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init(j2, j3, j4);
+        init(j, j2, j3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @TargetApi(9)
-    public FileDownloadOutOfSpaceException(long j2, long j3, long j4, Throwable th) {
-        super(f.a("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j4), Long.valueOf(j3), Long.valueOf(j2)), th);
+    public FileDownloadOutOfSpaceException(long j, long j2, long j3, Throwable th) {
+        super(f.a("The file is too large to store, breakpoint in bytes:  %d, required space in bytes: %d, but free space in bytes: %d", Long.valueOf(j3), Long.valueOf(j2), Long.valueOf(j)), th);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), th};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), th};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -58,15 +58,15 @@ public class FileDownloadOutOfSpaceException extends IOException {
                 return;
             }
         }
-        init(j2, j3, j4);
+        init(j, j2, j3);
     }
 
-    private void init(long j2, long j3, long j4) {
+    private void init(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            this.freeSpaceBytes = j2;
-            this.requiredSpaceBytes = j3;
-            this.breakpointBytes = j4;
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            this.freeSpaceBytes = j;
+            this.requiredSpaceBytes = j2;
+            this.breakpointBytes = j3;
         }
     }
 

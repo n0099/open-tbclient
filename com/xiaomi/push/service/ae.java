@@ -10,54 +10,54 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.ai;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ae extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Notification f886a;
+    public final /* synthetic */ Notification f862a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Context f887a;
+    public final /* synthetic */ Context f863a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f888a;
+    public final /* synthetic */ String f864a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f59976b;
+    public final /* synthetic */ String f44542b;
 
-    public ae(int i2, String str, Context context, String str2, Notification notification) {
+    public ae(int i, String str, Context context, String str2, Notification notification) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, context, str2, notification};
+            Object[] objArr = {Integer.valueOf(i), str, context, str2, notification};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f888a = str;
-        this.f887a = context;
-        this.f59976b = str2;
-        this.f886a = notification;
+        this.a = i;
+        this.f864a = str;
+        this.f863a = context;
+        this.f44542b = str2;
+        this.f862a = notification;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo247a() {
+    public String mo226a() {
         InterceptResult invokeV;
         String b2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            b2 = ac.b(this.a, this.f888a);
+            b2 = ac.b(this.a, this.f864a);
             return b2;
         }
         return (String) invokeV.objValue;
@@ -68,7 +68,7 @@ public final class ae extends ai.a {
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ac.b(this.f887a, this.f59976b, this.a, this.f888a, this.f886a);
+            ac.b(this.f863a, this.f44542b, this.a, this.f864a, this.f862a);
         }
     }
 }

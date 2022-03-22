@@ -2,6 +2,7 @@ package androidx.core.net;
 
 import android.net.Uri;
 import androidx.annotation.NonNull;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,9 +19,9 @@ public final class UriCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,7 +36,7 @@ public final class UriCompat {
             String scheme = uri.getScheme();
             String schemeSpecificPart = uri.getSchemeSpecificPart();
             if (scheme != null) {
-                if (!scheme.equalsIgnoreCase(InputType.TEL) && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase("sms") && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase("mailto") && !scheme.equalsIgnoreCase("nfc")) {
+                if (!scheme.equalsIgnoreCase(InputType.TEL) && !scheme.equalsIgnoreCase("sip") && !scheme.equalsIgnoreCase(LoginConstants.SMS_LOGIN) && !scheme.equalsIgnoreCase("smsto") && !scheme.equalsIgnoreCase("mailto") && !scheme.equalsIgnoreCase("nfc")) {
                     if (scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https") || scheme.equalsIgnoreCase("ftp") || scheme.equalsIgnoreCase("rtsp")) {
                         StringBuilder sb = new StringBuilder();
                         sb.append("//");
@@ -49,8 +50,8 @@ public final class UriCompat {
                     sb2.append(scheme);
                     sb2.append(':');
                     if (schemeSpecificPart != null) {
-                        for (int i2 = 0; i2 < schemeSpecificPart.length(); i2++) {
-                            char charAt = schemeSpecificPart.charAt(i2);
+                        for (int i = 0; i < schemeSpecificPart.length(); i++) {
+                            char charAt = schemeSpecificPart.charAt(i);
                             if (charAt != '-' && charAt != '@' && charAt != '.') {
                                 sb2.append('x');
                             } else {

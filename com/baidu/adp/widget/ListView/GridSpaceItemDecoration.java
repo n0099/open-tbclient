@@ -15,29 +15,29 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f30003b;
+    public int f23982b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f30004c;
+    public int f23983c;
 
-    public GridSpaceItemDecoration(int i2, int i3, int i4) {
+    public GridSpaceItemDecoration(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f30003b = i3;
-        this.f30004c = i4;
+        this.a = i;
+        this.f23982b = i2;
+        this.f23983c = i3;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -48,11 +48,11 @@ public class GridSpaceItemDecoration extends RecyclerView.ItemDecoration {
             if (layoutParams.getSpanIndex() != -1) {
                 if (layoutParams.getSpanIndex() % 2 == 0) {
                     rect.left = this.a;
-                    rect.right = this.f30003b;
+                    rect.right = this.f23982b;
                     return;
                 }
-                rect.left = this.f30003b;
-                rect.right = this.f30004c;
+                rect.left = this.f23982b;
+                rect.right = this.f23983c;
             }
         }
     }

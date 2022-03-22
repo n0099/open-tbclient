@@ -26,7 +26,7 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public final MaybeObserver<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60708d;
+        public Disposable f45318d;
         public final Function<? super T, ? extends R> mapper;
 
         public MapMaybeObserver(MaybeObserver<? super R> maybeObserver, Function<? super T, ? extends R> function) {
@@ -36,9 +36,9 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,8 +52,8 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Disposable disposable = this.f60708d;
-                this.f60708d = DisposableHelper.DISPOSED;
+                Disposable disposable = this.f45318d;
+                this.f45318d = DisposableHelper.DISPOSED;
                 disposable.dispose();
             }
         }
@@ -62,7 +62,7 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60708d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45318d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -84,8 +84,8 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f60708d, disposable)) {
-                this.f60708d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45318d, disposable)) {
+                this.f45318d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -113,9 +113,9 @@ public final class MaybeMap<T, R> extends AbstractMaybeWithUpstream<T, R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MaybeSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

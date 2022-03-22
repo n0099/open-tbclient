@@ -21,9 +21,9 @@ public class PreLoadVideoHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,9 +51,9 @@ public class PreLoadVideoHelper {
                 if (lastVisiblePosition < 0 || adapter.getCount() <= 0) {
                     return;
                 }
-                for (int i2 = z ? 0 : lastVisiblePosition; i2 < adapter.getCount() && i2 < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum(); i2++) {
-                    VideoPreLoadLog.log("video preload  i=  " + i2);
-                    Object item = adapter.getItem(i2);
+                for (int i = z ? 0 : lastVisiblePosition; i < adapter.getCount() && i < lastVisiblePosition + 10 && arrayList.size() <= PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum(); i++) {
+                    VideoPreLoadLog.log("video preload  i=  " + i);
+                    Object item = adapter.getItem(i);
                     if (item instanceof IVideoData) {
                         IVideoData iVideoData = (IVideoData) item;
                         if (!TextUtils.isEmpty(iVideoData.getVideoUrl())) {

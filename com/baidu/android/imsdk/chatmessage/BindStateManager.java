@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.request.IMUnBindPushRequest;
@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import com.baidu.sofire.rp.service.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,16 +75,16 @@ public class BindStateManager {
             $VALUES = new BindState[]{NOTBIND, BINDED, bindState};
         }
 
-        public BindState(String str, int i2) {
+        public BindState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -117,9 +118,9 @@ public class BindStateManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -155,9 +156,9 @@ public class BindStateManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -208,9 +209,9 @@ public class BindStateManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -302,11 +303,11 @@ public class BindStateManager {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) ? Long.valueOf(Utility.readLongData(context, KEY_UNBIND_UK, 0L)) : (Long) invokeL.objValue;
     }
 
-    public static void onRegisterNotifyResult(Context context, String str, int i2, String str2, boolean z) {
+    public static void onRegisterNotifyResult(Context context, String str, int i, String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Integer.valueOf(i2), str2, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
             String str3 = TAG;
-            LogUtils.d(str3, "bind > onRegisterNotifyResult----errorCode: " + i2 + " msg: " + str2);
+            LogUtils.d(str3, "bind > onRegisterNotifyResult----errorCode: " + i + " msg: " + str2);
             synchronized (mTinerSync) {
                 if (timer != null) {
                     timer.cancel();
@@ -318,7 +319,7 @@ public class BindStateManager {
                 LogUtils.d(TAG, "bind > channelIdEmpty, return!");
                 return;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 LogUtils.d(TAG, "bind > sucess!");
                 setBindPushSuc(context);
             } else {
@@ -331,13 +332,13 @@ public class BindStateManager {
                 while (it.hasNext()) {
                     IOnRegisterNotifyListener next = it.next();
                     if (next != null) {
-                        next.onRegisterNotifyResult(i2, str2);
+                        next.onRegisterNotifyResult(i, str2);
                     }
                     it.remove();
                 }
             }
             if (iOnRegisterNotifyListener != null) {
-                iOnRegisterNotifyListener.onRegisterNotifyResult(i2, str2);
+                iOnRegisterNotifyListener.onRegisterNotifyResult(i, str2);
             }
         }
     }
@@ -393,11 +394,11 @@ public class BindStateManager {
         }
     }
 
-    public static synchronized void setBindPush(Context context, int i2) {
+    public static synchronized void setBindPush(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65549, null, context, i) == null) {
             synchronized (BindStateManager.class) {
-                Utility.writeIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, i2);
+                Utility.writeIntData(context, AccountManager.getUK(context) + KEY_BIND_PUSH, i);
             }
         }
     }
@@ -485,7 +486,7 @@ public class BindStateManager {
                     MyTimeTask myTimeTask = new MyTimeTask();
                     task = myTimeTask;
                     myTimeTask.setContext(context);
-                    timer.schedule(task, 180000L);
+                    timer.schedule(task, Service.TRIGGER_INTERVAL);
                 }
                 LogUtils.d(TAG, "bind > start binding!");
                 if (!TextUtils.isEmpty(str)) {

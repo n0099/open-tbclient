@@ -1,7 +1,7 @@
 package com.sdk.base.api;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface CallBack<T> {
-    void onFailed(int i2, int i3, String str, String str2);
+    void onFailed(int i, int i2, String str, String str2);
 
-    void onSuccess(int i2, String str, int i3, T t, String str2);
+    void onSuccess(int i, String str, int i2, T t, String str2);
 }

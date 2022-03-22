@@ -52,9 +52,9 @@ public abstract class AbsActionBarView extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {absActionBarView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,12 +92,12 @@ public abstract class AbsActionBarView extends ViewGroup {
             }
         }
 
-        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i2) {
+        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimatorCompat viewPropertyAnimatorCompat, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewPropertyAnimatorCompat, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewPropertyAnimatorCompat, i)) == null) {
                 this.this$0.mVisibilityAnim = viewPropertyAnimatorCompat;
-                this.mFinalVisibility = i2;
+                this.mFinalVisibility = i;
                 return this;
             }
             return (VisibilityAnimListener) invokeLI.objValue;
@@ -113,9 +113,9 @@ public abstract class AbsActionBarView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -125,16 +125,16 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
     }
 
-    public static int next(int i2, int i3, boolean z) {
+    public static int next(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? z ? i2 - i3 : i2 + i3 : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? z ? i - i2 : i + i2 : invokeCommon.intValue;
     }
 
-    public void animateToVisibility(int i2) {
+    public void animateToVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            setupAnimatorToVisibility(i2, 200L).start();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            setupAnimatorToVisibility(i, 200L).start();
         }
     }
 
@@ -220,12 +220,12 @@ public abstract class AbsActionBarView extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    public int measureChildView(View view, int i2, int i3, int i4) {
+    public int measureChildView(View view, int i, int i2, int i3) {
         InterceptResult invokeLIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, view, i2, i3, i4)) == null) {
-            view.measure(View.MeasureSpec.makeMeasureSpec(i2, Integer.MIN_VALUE), i3);
-            return Math.max(0, (i2 - view.getMeasuredWidth()) - i4);
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048585, this, view, i, i2, i3)) == null) {
+            view.measure(View.MeasureSpec.makeMeasureSpec(i, Integer.MIN_VALUE), i2);
+            return Math.max(0, (i - view.getMeasuredWidth()) - i3);
         }
         return invokeLIII.intValue;
     }
@@ -291,17 +291,17 @@ public abstract class AbsActionBarView extends ViewGroup {
         return invokeL.booleanValue;
     }
 
-    public int positionChild(View view, int i2, int i3, int i4, boolean z) {
+    public int positionChild(View view, int i, int i2, int i3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
             int measuredWidth = view.getMeasuredWidth();
             int measuredHeight = view.getMeasuredHeight();
-            int i5 = i3 + ((i4 - measuredHeight) / 2);
+            int i4 = i2 + ((i3 - measuredHeight) / 2);
             if (z) {
-                view.layout(i2 - measuredWidth, i5, i2, measuredHeight + i5);
+                view.layout(i - measuredWidth, i4, i, measuredHeight + i4);
             } else {
-                view.layout(i2, i5, i2 + measuredWidth, measuredHeight + i5);
+                view.layout(i, i4, i + measuredWidth, measuredHeight + i4);
             }
             return z ? -measuredWidth : measuredWidth;
         }
@@ -323,9 +323,9 @@ public abstract class AbsActionBarView extends ViewGroup {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -345,47 +345,47 @@ public abstract class AbsActionBarView extends ViewGroup {
         }
     }
 
-    public void setContentHeight(int i2) {
+    public void setContentHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mContentHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mContentHeight = i;
             requestLayout();
         }
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || i2 == getVisibility()) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || i == getVisibility()) {
             return;
         }
         ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
         if (viewPropertyAnimatorCompat != null) {
             viewPropertyAnimatorCompat.cancel();
         }
-        super.setVisibility(i2);
+        super.setVisibility(i);
     }
 
-    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i2, long j2) {
+    public ViewPropertyAnimatorCompat setupAnimatorToVisibility(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             ViewPropertyAnimatorCompat viewPropertyAnimatorCompat = this.mVisibilityAnim;
             if (viewPropertyAnimatorCompat != null) {
                 viewPropertyAnimatorCompat.cancel();
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 if (getVisibility() != 0) {
                     setAlpha(0.0f);
                 }
                 ViewPropertyAnimatorCompat alpha = ViewCompat.animate(this).alpha(1.0f);
-                alpha.setDuration(j2);
-                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
+                alpha.setDuration(j);
+                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
                 return alpha;
             }
             ViewPropertyAnimatorCompat alpha2 = ViewCompat.animate(this).alpha(0.0f);
-            alpha2.setDuration(j2);
-            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
+            alpha2.setDuration(j);
+            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
             return alpha2;
         }
         return (ViewPropertyAnimatorCompat) invokeCommon.objValue;
@@ -413,9 +413,9 @@ public abstract class AbsActionBarView extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -426,17 +426,17 @@ public abstract class AbsActionBarView extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AbsActionBarView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -34,21 +34,21 @@ public class SelectImageHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Bitmap AlbumImageResult(Context context, Uri uri, int i2) {
+    public static Bitmap AlbumImageResult(Context context, Uri uri, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, uri, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, uri, i)) == null) {
             try {
-                return BitmapHelper.subSampleBitmap(context, uri, i2);
+                return BitmapHelper.subSampleBitmap(context, uri, i);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
                 return null;
@@ -57,14 +57,14 @@ public class SelectImageHelper {
         return (Bitmap) invokeLLI.objValue;
     }
 
-    public static Bitmap ImageResult(int i2, Context context, Uri uri, int i3) {
+    public static Bitmap ImageResult(int i, Context context, Uri uri, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), context, uri, Integer.valueOf(i3)})) == null) {
-            if (i2 == 12001) {
-                return photoResult(i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), context, uri, Integer.valueOf(i2)})) == null) {
+            if (i == 12001) {
+                return photoResult(i2);
             }
-            return AlbumImageResult(context, uri, i3);
+            return AlbumImageResult(context, uri, i2);
         }
         return (Bitmap) invokeCommon.objValue;
     }
@@ -90,13 +90,13 @@ public class SelectImageHelper {
         }
     }
 
-    public static Bitmap photoResult(int i2) {
+    public static Bitmap photoResult(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
             try {
                 int readPictureDegree = readPictureDegree(FileHelper.getFileDireciory(TMP_IMAGE_NAME));
-                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i2);
+                Bitmap subSampleBitmap = BitmapHelper.subSampleBitmap(TMP_IMAGE_NAME, i);
                 return (readPictureDegree == 0 || subSampleBitmap == null) ? subSampleBitmap : BitmapHelper.rotateBitmapBydegree(subSampleBitmap, readPictureDegree);
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -148,9 +148,9 @@ public class SelectImageHelper {
                     intent.putExtra("output", UtilHelper.getUriFromFile(CreateFile, intent, tbPageContext.getPageActivity()));
                     tbPageContext.getPageActivity().startActivityForResult(intent, w0.I5);
                 } else if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0592));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0592));
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
@@ -188,9 +188,9 @@ public class SelectImageHelper {
                     return;
                 }
                 if (tbPageContext.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0592));
                 } else if (tbPageContext instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.error_sd_error));
+                    ((BaseFragmentActivity) tbPageContext.getOrignalPage()).showToast(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0592));
                 }
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());

@@ -14,10 +14,10 @@ public final class ColorDrawableKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final ColorDrawable toDrawable(@ColorInt int i2) {
+    public static final ColorDrawable toDrawable(@ColorInt int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i2)) == null) ? new ColorDrawable(i2) : (ColorDrawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? new ColorDrawable(i) : (ColorDrawable) invokeI.objValue;
     }
 
     @RequiresApi(26)

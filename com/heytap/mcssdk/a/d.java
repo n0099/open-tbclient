@@ -5,5 +5,5 @@ import android.content.Intent;
 import com.heytap.mcssdk.mode.Message;
 /* loaded from: classes7.dex */
 public interface d {
-    Message a(Context context, int i2, Intent intent);
+    Message a(Context context, int i, Intent intent);
 }

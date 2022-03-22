@@ -11,10 +11,10 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.i.a;
 import c.a.d.f.p.m;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.c1.s;
-import c.a.r0.t1.a.e.a;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.c1.s;
+import c.a.p0.v1.a.e.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -46,6 +46,7 @@ import com.baidu.tieba.im.chat.CommonPersonalChatActivity;
 import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
 import com.baidu.tieba.im.message.PushMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.imMessageCenter.PersonalTalkSettingActivityConfig;
@@ -59,9 +60,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
@@ -77,7 +77,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public PersonalMsglistModel mCurrentModel;
     public PersonalChatView mCurrentView;
     public Handler mHandler;
-    public c.a.q0.s.f.b mLbs;
+    public c.a.o0.s.f.b mLbs;
     public Runnable mRefreshTitleRunnable;
     public UserData mUser;
     public CustomMessageListener overSelectToastListener;
@@ -91,7 +91,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f43741b;
+        public final /* synthetic */ PersonalChatActivity f33945b;
 
         public a(PersonalChatActivity personalChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -100,26 +100,26 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity, userData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43741b = personalChatActivity;
+            this.f33945b = personalChatActivity;
             this.a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.k0
+        @Override // c.a.o0.c1.k0
         /* renamed from: a */
         public Void doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.r0.s1.t.e.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.a);
+                c.a.p0.u1.t.e.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(0), this.a);
                 return null;
             }
             return (Void) invokeV.objValue;
@@ -139,9 +139,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -171,9 +171,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f43742e;
+        public final /* synthetic */ PersonalChatActivity a;
 
         public c(PersonalChatActivity personalChatActivity) {
             Interceptable interceptable = $ic;
@@ -182,22 +180,22 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43742e = personalChatActivity;
+            this.a = personalChatActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43742e.sendAutoMessage();
+                this.a.sendAutoMessage();
             }
         }
     }
@@ -209,17 +207,17 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ PersonalChatActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(PersonalChatActivity personalChatActivity, int i2) {
-            super(i2);
+        public d(PersonalChatActivity personalChatActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalChatActivity, Integer.valueOf(i2)};
+                Object[] objArr = {personalChatActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -234,14 +232,14 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof ResponseNewFriendDataMessage)) {
-                c.a.r0.s1.g.a data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
-                PersonalMsglistModel.CardStatus G = this.a.mCurrentModel.G(data);
-                this.a.mCurrentModel.P(G);
-                if (G != PersonalMsglistModel.CardStatus.AGREE) {
-                    this.a.mCurrentView.p(G, false, new String[0]);
+                c.a.p0.u1.g.a data = ((ResponseNewFriendDataMessage) customResponsedMessage).getData();
+                PersonalMsglistModel.CardStatus I = this.a.mCurrentModel.I(data);
+                this.a.mCurrentModel.R(I);
+                if (I != PersonalMsglistModel.CardStatus.AGREE) {
+                    this.a.mCurrentView.u(I, false, new String[0]);
                     return;
                 }
-                this.a.mCurrentView.p(G, false, data.a());
+                this.a.mCurrentView.u(I, false, data.a());
             }
         }
     }
@@ -250,9 +248,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public class e implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f43743e;
+        public final /* synthetic */ PersonalChatActivity a;
 
         public e(PersonalChatActivity personalChatActivity) {
             Interceptable interceptable = $ic;
@@ -261,24 +257,24 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43743e = personalChatActivity;
+            this.a = personalChatActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f43743e.mListView.refreshPersonalHeadFooter(this.f43743e.mUser.getName_show(), this.f43743e.mLbs);
-                if (this.f43743e.timeGrade != 0) {
-                    this.f43743e.mHandler.postDelayed(this.f43743e.mRefreshTitleRunnable, this.f43743e.timeGrade);
+                this.a.mListView.refreshPersonalHeadFooter(this.a.mUser.getName_show(), this.a.mLbs);
+                if (this.a.timeGrade != 0) {
+                    this.a.mHandler.postDelayed(this.a.mRefreshTitleRunnable, this.a.timeGrade);
                 }
             }
         }
@@ -291,17 +287,17 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ PersonalChatActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(PersonalChatActivity personalChatActivity, int i2) {
-            super(i2);
+        public f(PersonalChatActivity personalChatActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalChatActivity, Integer.valueOf(i2)};
+                Object[] objArr = {personalChatActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -329,17 +325,17 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ PersonalChatActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(PersonalChatActivity personalChatActivity, int i2, boolean z) {
-            super(i2, z);
+        public g(PersonalChatActivity personalChatActivity, int i, boolean z) {
+            super(i, z);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalChatActivity, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {personalChatActivity, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -366,8 +362,8 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 if (this.a.timeGrade != 0) {
                     this.a.mHandler.postDelayed(this.a.mRefreshTitleRunnable, this.a.timeGrade);
                 }
-                c.a.r0.t1.a.b.b.e b2 = PersonalChatActivityStatic.b();
-                b2.a(this.a.curruntId + "&" + user.getUserId(), new c.a.r0.t1.a.b.b.a(this.a.mLbs, System.currentTimeMillis()));
+                c.a.p0.v1.a.b.b.e b2 = PersonalChatActivityStatic.b();
+                b2.a(this.a.curruntId + "&" + user.getUserId(), new c.a.p0.v1.a.b.b.a(this.a.mLbs, System.currentTimeMillis()));
             }
         }
     }
@@ -379,17 +375,17 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ PersonalChatActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(PersonalChatActivity personalChatActivity, int i2) {
-            super(i2);
+        public h(PersonalChatActivity personalChatActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalChatActivity, Integer.valueOf(i2)};
+                Object[] objArr = {personalChatActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -406,7 +402,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
                 return;
             }
-            new BdTopToast(this.a.getPageContext().getPageActivity()).setIcon(false).setContent(this.a.getString(R.string.max_choose_report_primsg_num)).show(this.a.mCurrentView.n());
+            BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
+            bdTopToast.i(false);
+            bdTopToast.h(this.a.getString(R.string.obfuscated_res_0x7f0f0a93));
+            bdTopToast.j(this.a.mCurrentView.s());
         }
     }
 
@@ -417,17 +416,17 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ PersonalChatActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public i(PersonalChatActivity personalChatActivity, int i2) {
-            super(i2);
+        public i(PersonalChatActivity personalChatActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {personalChatActivity, Integer.valueOf(i2)};
+                Object[] objArr = {personalChatActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -458,20 +457,20 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 if (optJSONObject != null && optJSONObject.optLong("user_id") == c.a.d.f.m.b.g(this.a.mCurrentModel.getUser().getUserId(), 0L)) {
                     String optString = optJSONObject.optString("message");
                     if (cmd.equals("apply_new_friend")) {
-                        this.a.mCurrentView.p(PersonalMsglistModel.CardStatus.AGREE, true, optString);
-                        this.a.mCurrentModel.P(PersonalMsglistModel.CardStatus.AGREE);
+                        this.a.mCurrentView.u(PersonalMsglistModel.CardStatus.AGREE, true, optString);
+                        this.a.mCurrentModel.R(PersonalMsglistModel.CardStatus.AGREE);
                     } else if (cmd.equals("passed_new_friend")) {
-                        this.a.mCurrentView.p(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                        this.a.mCurrentModel.P(PersonalMsglistModel.CardStatus.PASS);
+                        this.a.mCurrentView.u(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
+                        this.a.mCurrentModel.R(PersonalMsglistModel.CardStatus.PASS);
                         this.a.mCurrentModel.setIsFriend(1);
                         this.a.mCurrentModel.setFollowStatus(1);
                         this.a.mCurrentView.getBtnGroupInfo().setVisibility(0);
                     } else if (cmd.equals("apply_add_friend")) {
-                        this.a.mCurrentView.p(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
-                        this.a.mCurrentModel.P(PersonalMsglistModel.CardStatus.WAIT);
+                        this.a.mCurrentView.u(PersonalMsglistModel.CardStatus.WAIT, true, new String[0]);
+                        this.a.mCurrentModel.R(PersonalMsglistModel.CardStatus.WAIT);
                     } else if (cmd.equals("apply_pass_friend")) {
-                        this.a.mCurrentView.p(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
-                        this.a.mCurrentModel.P(PersonalMsglistModel.CardStatus.PASS);
+                        this.a.mCurrentView.u(PersonalMsglistModel.CardStatus.PASS, true, new String[0]);
+                        this.a.mCurrentModel.R(PersonalMsglistModel.CardStatus.PASS);
                         this.a.mCurrentModel.setIsFriend(1);
                         this.a.mCurrentModel.setFollowStatus(1);
                         this.a.mCurrentView.getBtnGroupInfo().setVisibility(0);
@@ -496,9 +495,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -508,9 +507,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         @Override // c.a.d.f.i.a.c
-        public void onLocationGeted(int i2, String str, Address address) {
+        public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) && i2 == 0 && address != null) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 String valueOf = String.valueOf(address.getLatitude());
                 String valueOf2 = String.valueOf(address.getLongitude());
                 UserData user = ((PersonalMsglistModel) this.a.mListModel).getUser();
@@ -530,7 +529,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         public final /* synthetic */ UserData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PersonalChatActivity f43744b;
+        public final /* synthetic */ PersonalChatActivity f33946b;
 
         public k(PersonalChatActivity personalChatActivity, UserData userData) {
             Interceptable interceptable = $ic;
@@ -539,25 +538,25 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity, userData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43744b = personalChatActivity;
+            this.f33946b = personalChatActivity;
             this.a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // c.a.q0.c1.k0
+        @Override // c.a.o0.c1.k0
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.r0.s1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId()))) : (Boolean) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(c.a.p0.u1.t.e.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.a.getUserId()))) : (Boolean) invokeV.objValue;
         }
     }
 
@@ -574,9 +573,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalChatActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -586,7 +585,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -632,12 +631,12 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
             boolean areNotificationsEnabled = NotificationManagerCompat.from(this).areNotificationsEnabled();
-            boolean h2 = c.a.q0.r.j0.b.k().h("key_private_chat_show_notification", false);
+            boolean h2 = c.a.o0.r.j0.b.k().h("key_private_chat_show_notification", false);
             if (areNotificationsEnabled || h2) {
                 return false;
             }
-            c.a.q0.s.h.a.f(getPageContext(), new boolean[]{true, false}, 3);
-            c.a.q0.r.j0.b.k().u("key_private_chat_show_notification", true);
+            c.a.o0.s.h.a.f(getPageContext(), new boolean[]{true, false}, 3);
+            c.a.o0.r.j0.b.k().u("key_private_chat_show_notification", true);
             return true;
         }
         return invokeV.booleanValue;
@@ -737,7 +736,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(c.a.r0.s1.f.c cVar) {
+    public boolean first(c.a.p0.u1.f.c cVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
@@ -753,7 +752,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mCurrentModel : (PersonalMsglistModel) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.q0.e1.n.i
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, c.a.o0.e1.n.i
     public c.a.d.f.k.b<ItemCardView> getItemCardViewPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -797,7 +796,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 registerListener(this.joinGroupListener);
                 registerListener(this.getNewFriend);
                 if (PersonalChatActivityStatic.b() == null) {
-                    PersonalChatActivityStatic.d(new c.a.r0.t1.a.b.b.e());
+                    PersonalChatActivityStatic.d(new c.a.p0.v1.a.b.b.e());
                 }
                 PersonalMsglistModel personalMsglistModel = new PersonalMsglistModel(this);
                 this.mListModel = personalMsglistModel;
@@ -824,7 +823,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             this.mListView = new PersonalChatView(this, this.mListModel.getIsAcceptNotify());
             this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
             this.mCurrentView = (PersonalChatView) this.mListView;
-            long longValue = c.a.r0.s1.s.a.f21975i.longValue();
+            long longValue = c.a.p0.u1.s.a.i.longValue();
             MsglistModel msglistModel = this.mListModel;
             if ((msglistModel instanceof PersonalMsglistModel) && (user = ((PersonalMsglistModel) msglistModel).getUser()) != null) {
                 this.mUser = user;
@@ -834,9 +833,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 if (!isFriend()) {
                     showAddFriendStatus();
                 }
-                if (!TextUtils.isEmpty(this.mCurrentModel.J())) {
+                if (!TextUtils.isEmpty(this.mCurrentModel.L())) {
                     PersonalMsglistModel personalMsglistModel = this.mCurrentModel;
-                    personalMsglistModel.L(personalMsglistModel.J());
+                    personalMsglistModel.N(personalMsglistModel.L());
                 }
                 TiebaStatic.log(new StatisticItem("c14573").param("uid", TbadkCoreApplication.getCurrentAccount()));
             }
@@ -858,7 +857,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
     public boolean isReportSelect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((PersonalMsglistModel) this.mListModel).H() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? ((PersonalMsglistModel) this.mListModel).J() : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -868,10 +867,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (interceptable == null || interceptable.invokeL(1048587, this, view) == null) {
             super.onClick(view);
             if (view == this.mListView.getBtnGroupInfo()) {
-                if (((PersonalMsglistModel) this.mListModel).H()) {
+                if (((PersonalMsglistModel) this.mListModel).J()) {
                     TiebaStatic.log(new StatisticItem("c14578").param("uid", TbadkCoreApplication.getCurrentAccount()));
                     Intent intent = new Intent();
-                    intent.putExtra(PersonalChatActivityConfig.KEY_SELECT_MSG_LIST_FINISH, (Serializable) this.mCurrentView.m());
+                    intent.putParcelableArrayListExtra(PersonalChatActivityConfig.KEY_SELECT_MSG_LIST_FINISH, this.mCurrentView.r());
                     setResult(-1, intent);
                     finish();
                     return;
@@ -885,10 +884,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                         sendMessage(new CustomMessage(2002001, new PersonalTalkSettingActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong())));
                     }
                 }
-            } else if (view == this.mCurrentView.l()) {
-                if (this.mCurrentModel.F() != PersonalMsglistModel.CardStatus.APPLY && this.mCurrentModel.F() != PersonalMsglistModel.CardStatus.WAIT) {
-                    if (this.mCurrentModel.F() == PersonalMsglistModel.CardStatus.AGREE) {
-                        c.a.q0.l0.a.a(c.a.d.f.m.b.g(this.mCurrentModel.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
+            } else if (view == this.mCurrentView.q()) {
+                if (this.mCurrentModel.H() != PersonalMsglistModel.CardStatus.APPLY && this.mCurrentModel.H() != PersonalMsglistModel.CardStatus.WAIT) {
+                    if (this.mCurrentModel.H() == PersonalMsglistModel.CardStatus.AGREE) {
+                        c.a.o0.l0.a.a(c.a.d.f.m.b.g(this.mCurrentModel.getUser().getUserId(), 0L), AddFriendActivityConfig.TYPE_STRANGER_CHAT);
                         TiebaStatic.eventStat(getActivity(), "add_fri_aio", "click", 1, new Object[0]);
                         return;
                     }
@@ -921,9 +920,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             initCurId();
             ((PersonalMsglistModel) this.mListModel).setIsFriend(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FRIEND));
             ((PersonalMsglistModel) this.mListModel).setFollowStatus(bundle.getInt(PersonalChatActivityConfig.KEY_IS_FOLLOW));
-            ((PersonalMsglistModel) this.mListModel).Q(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
-            ((PersonalMsglistModel) this.mListModel).R(bundle.getBoolean(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT));
-            ((PersonalMsglistModel) this.mListModel).setSelectList((Map) bundle.getSerializable(PersonalChatActivityConfig.KEY_HAS_SELECT_MSG_LIST));
+            ((PersonalMsglistModel) this.mListModel).S(bundle.getString(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+            ((PersonalMsglistModel) this.mListModel).T(bundle.getBoolean(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT));
+            ((PersonalMsglistModel) this.mListModel).setSelectList(bundle.getParcelableArrayList(PersonalChatActivityConfig.KEY_HAS_SELECT_MSG_LIST));
         }
     }
 
@@ -933,7 +932,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         ChatMessage msg2;
         String f2;
         ChatMessage msg3;
-        a.C1392a a2;
+        a.C1445a a2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
             super.onItemViewClick(view, i2, i3, j2);
@@ -943,15 +942,15 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getPageContext().getContext(), msg.getUserInfo().getUserId(), msg.getUserInfo().getUserName())));
             } else if (i2 != 4) {
-                if (i2 != 14 || (msg3 = this.mListModel.getMsg(i3)) == null || msg3.getContent() == null || (a2 = c.a.r0.t1.a.e.a.a(msg3.getContent())) == null) {
+                if (i2 != 14 || (msg3 = this.mListModel.getMsg(i3)) == null || msg3.getContent() == null || (a2 = c.a.p0.v1.a.e.a.a(msg3.getContent())) == null) {
                     return;
                 }
-                if (a2.f22220h == 1) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(a2.f22217e, a2.f22218f, null, false)));
+                if (a2.f19094h == 1) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(a2.f19091e, a2.f19092f, null, false)));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(a2.f22217e, a2.f22218f, null)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getPageContext().getPageActivity()).createNormalCfg(a2.f19091e, a2.f19092f, null)));
                 }
-            } else if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && c.a.r0.s1.w.c.s(msg2) && (f2 = c.a.r0.s1.w.c.f(msg2.getContent(), true)) != null) {
+            } else if (isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && c.a.p0.u1.w.c.s(msg2) && (f2 = c.a.p0.u1.w.c.f(msg2.getContent(), true)) != null) {
                 MsglistModel msglistModel = this.mListModel;
                 if (!(msglistModel instanceof CommonPersonalMsglistModel) || ((CommonPersonalMsglistModel) msglistModel).getUser() == null) {
                     return;
@@ -990,13 +989,13 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             }
             ChatStatusManager.getInst().setIsOpen(0, true);
             String curId = ChatStatusManager.getInst().getCurId(0);
-            c.a.q0.s.d.b.g0().s(curId);
+            c.a.o0.s.d.b.g0().s(curId);
             MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 2)));
             MsglistModel msglistModel = this.mListModel;
             if (msglistModel == null || !(msglistModel instanceof PersonalMsglistModel)) {
                 return;
             }
-            ((PersonalMsglistModel) msglistModel).O();
+            ((PersonalMsglistModel) msglistModel).Q();
         }
     }
 
@@ -1006,8 +1005,8 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putInt(PersonalChatActivityConfig.KEY_IS_FRIEND, ((PersonalMsglistModel) this.mListModel).getIsFriend());
-            bundle.putString(PersonalChatActivityConfig.KEY_REPLY_CONTENT, ((PersonalMsglistModel) this.mListModel).J());
-            bundle.putBoolean(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT, ((PersonalMsglistModel) this.mListModel).H());
+            bundle.putString(PersonalChatActivityConfig.KEY_REPLY_CONTENT, ((PersonalMsglistModel) this.mListModel).L());
+            bundle.putBoolean(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT, ((PersonalMsglistModel) this.mListModel).J());
         }
     }
 
@@ -1032,10 +1031,10 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
         }
     }
 
-    public Map<String, String> selectList() {
+    public ArrayList<ReportPrivateMsgData> selectList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? ((PersonalMsglistModel) this.mListModel).K() : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? ((PersonalMsglistModel) this.mListModel).M() : (ArrayList) invokeV.objValue;
     }
 
     public void sendLbsMessage() {
@@ -1046,7 +1045,7 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
                 c.a.d.f.i.a.n().k(false, this.locationCallBack);
                 return;
             }
-            c.a.q0.s.f.b c2 = PersonalChatActivityStatic.b().c(str);
+            c.a.o0.s.f.b c2 = PersonalChatActivityStatic.b().c(str);
             this.mListView.refreshPersonalHeadFooter(this.mUser.getName_show(), c2);
             long timeGrade = getTimeGrade(StringHelper.getTimeInterval(c2.c()));
             this.timeGrade = timeGrade;
@@ -1073,9 +1072,9 @@ public class PersonalChatActivity extends CommonPersonalChatActivity<PersonalCha
             initCurId();
             ((PersonalMsglistModel) this.mListModel).setIsFriend(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FRIEND, 1));
             ((PersonalMsglistModel) this.mListModel).setFollowStatus(intent.getIntExtra(PersonalChatActivityConfig.KEY_IS_FOLLOW, 1));
-            ((PersonalMsglistModel) this.mListModel).Q(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
-            ((PersonalMsglistModel) this.mListModel).R(intent.getBooleanExtra(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT, false));
-            ((PersonalMsglistModel) this.mListModel).setSelectList((Map) intent.getSerializableExtra(PersonalChatActivityConfig.KEY_HAS_SELECT_MSG_LIST));
+            ((PersonalMsglistModel) this.mListModel).S(intent.getStringExtra(PersonalChatActivityConfig.KEY_REPLY_CONTENT));
+            ((PersonalMsglistModel) this.mListModel).T(intent.getBooleanExtra(PersonalChatActivityConfig.KEY_FROM_REPORT_SELECT, false));
+            ((PersonalMsglistModel) this.mListModel).setSelectList(intent.getParcelableArrayListExtra(PersonalChatActivityConfig.KEY_HAS_SELECT_MSG_LIST));
         }
     }
 }

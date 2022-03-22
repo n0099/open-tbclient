@@ -51,9 +51,9 @@ public final class WebViewClientWrapper extends WebViewClient {
             newInitContext.initArgs = r2;
             Object[] objArr = {webViewImpl, webViewClient};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -121,10 +121,10 @@ public final class WebViewClientWrapper extends WebViewClient {
     }
 
     @Override // android.webkit.WebViewClient
-    public final void onReceivedError(WebView webView, int i2, String str, String str2) {
+    public final void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i2, str, str2) == null) {
-            this.mClient.onReceivedError(this.mWebView.getWebView(), i2, str, str2);
+        if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i, str, str2) == null) {
+            this.mClient.onReceivedError(this.mWebView.getWebView(), i, str, str2);
         }
     }
 

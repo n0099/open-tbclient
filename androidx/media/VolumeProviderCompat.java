@@ -34,9 +34,9 @@ public abstract class VolumeProviderCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,24 +52,24 @@ public abstract class VolumeProviderCompat {
     public @interface ControlType {
     }
 
-    public VolumeProviderCompat(int i2, int i3, int i4) {
+    public VolumeProviderCompat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mControlType = i2;
-        this.mMaxVolume = i3;
-        this.mCurrentVolume = i4;
+        this.mControlType = i;
+        this.mMaxVolume = i2;
+        this.mCurrentVolume = i3;
     }
 
     public final int getCurrentVolume() {
@@ -107,9 +107,9 @@ public abstract class VolumeProviderCompat {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -119,18 +119,18 @@ public abstract class VolumeProviderCompat {
                     }
 
                     @Override // androidx.media.VolumeProviderCompatApi21.Delegate
-                    public void onAdjustVolume(int i2) {
+                    public void onAdjustVolume(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
-                            this.this$0.onAdjustVolume(i2);
+                        if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
+                            this.this$0.onAdjustVolume(i);
                         }
                     }
 
                     @Override // androidx.media.VolumeProviderCompatApi21.Delegate
-                    public void onSetVolumeTo(int i2) {
+                    public void onSetVolumeTo(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-                            this.this$0.onSetVolumeTo(i2);
+                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                            this.this$0.onSetVolumeTo(i);
                         }
                     }
                 });
@@ -140,15 +140,15 @@ public abstract class VolumeProviderCompat {
         return invokeV.objValue;
     }
 
-    public void onAdjustVolume(int i2) {
+    public void onAdjustVolume(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
         }
     }
 
-    public void onSetVolumeTo(int i2) {
+    public void onSetVolumeTo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
         }
     }
 
@@ -159,13 +159,13 @@ public abstract class VolumeProviderCompat {
         }
     }
 
-    public final void setCurrentVolume(int i2) {
+    public final void setCurrentVolume(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mCurrentVolume = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mCurrentVolume = i;
             Object volumeProvider = getVolumeProvider();
             if (volumeProvider != null && Build.VERSION.SDK_INT >= 21) {
-                VolumeProviderCompatApi21.setCurrentVolume(volumeProvider, i2);
+                VolumeProviderCompatApi21.setCurrentVolume(volumeProvider, i);
             }
             Callback callback = this.mCallback;
             if (callback != null) {

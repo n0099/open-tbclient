@@ -11,40 +11,40 @@ public class j implements Runnable {
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f34100b;
+    public final /* synthetic */ int f26336b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ int f34101c;
+    public final /* synthetic */ int f26337c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ HeatMap f34102d;
+    public final /* synthetic */ HeatMap f26338d;
 
-    public j(HeatMap heatMap, int i2, int i3, int i4) {
+    public j(HeatMap heatMap, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {heatMap, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {heatMap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34102d = heatMap;
-        this.a = i2;
-        this.f34100b = i3;
-        this.f34101c = i4;
+        this.f26338d = heatMap;
+        this.a = i;
+        this.f26336b = i2;
+        this.f26337c = i3;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f34102d.b(this.a, this.f34100b, this.f34101c);
+            this.f26338d.b(this.a, this.f26336b, this.f26337c);
         }
     }
 }

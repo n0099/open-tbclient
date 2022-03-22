@@ -1,6 +1,6 @@
 package com.baidu.tieba.pb.chosen.net;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ExcPbPage.DataReq;
 import tbclient.ExcPbPage.ExcPbPageReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ChosenPbNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int QUALITY_HIGH = 80;
@@ -32,9 +32,9 @@ public class ChosenPbNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -65,52 +65,52 @@ public class ChosenPbNetMessage extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setExcId(long j2) {
+    public void setExcId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-            this.excId = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.excId = j;
         }
     }
 
-    public void setQ_type(long j2) {
+    public void setQ_type(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.q_type = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.q_type = j;
         }
     }
 
-    public void setScrH(long j2) {
+    public void setScrH(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.scrH = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.scrH = j;
         }
     }
 
-    public void setScrW(long j2) {
+    public void setScrW(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.scrW = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.scrW = j;
         }
     }
 
-    public void setScr_dip(long j2) {
+    public void setScr_dip(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.scr_dip = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.scr_dip = j;
         }
     }
 
-    public void setTagCode(long j2) {
+    public void setTagCode(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.tagCode = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.tagCode = j;
         }
     }
 
-    public void setThreadId(long j2) {
+    public void setThreadId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.threadId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.threadId = j;
         }
     }
 }

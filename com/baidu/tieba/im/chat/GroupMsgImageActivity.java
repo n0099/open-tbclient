@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.chat;
 
-import c.a.r0.s1.s.a;
-import c.a.r0.s1.s.c;
+import c.a.p0.u1.s.a;
+import c.a.p0.u1.s.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,9 +16,9 @@ public class GroupMsgImageActivity extends AbsMsgImageActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

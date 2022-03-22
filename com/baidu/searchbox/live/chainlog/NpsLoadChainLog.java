@@ -3,6 +3,7 @@ package com.baidu.searchbox.live.chainlog;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -69,9 +70,9 @@ public class NpsLoadChainLog {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -80,11 +81,11 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject genNodeJsonObj(int i2, int i3, String str) {
+    public JSONObject genNodeJsonObj(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65557, this, i2, i3, str)) == null) {
-            JSONObject genNodeJsonObj = genNodeJsonObj(i2, i3);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65557, this, i, i2, str)) == null) {
+            JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
                 genNodeJsonObj.put("errorMsg", str);
             } catch (JSONException e2) {
@@ -195,15 +196,15 @@ public class NpsLoadChainLog {
 
     public void dLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            isDebug();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && isDebug()) {
+            Log.e("David990099", str);
         }
     }
 
-    public void endDownloadLiveNps(long j2, long j3) {
+    public void endDownloadLiveNps(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            postTask(new Runnable(this, j2, j3) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            postTask(new Runnable(this, j, j2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -215,19 +216,19 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$downloadSize = j2;
-                    this.val$totalSize = j3;
+                    this.val$downloadSize = j;
+                    this.val$totalSize = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -267,9 +268,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z), str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -320,9 +321,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -356,10 +357,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endInstallLiveNps(boolean z, int i2) {
+    public void endInstallLiveNps(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.8
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            postTask(new Runnable(this, z, i) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -371,11 +372,11 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i2)};
+                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -383,7 +384,7 @@ public class NpsLoadChainLog {
                     }
                     this.this$0 = this;
                     this.val$isSucc = z;
-                    this.val$errCode = i2;
+                    this.val$errCode = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -410,10 +411,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endLoadClazzLiveNps(boolean z, int i2) {
+    public void endLoadClazzLiveNps(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.11
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            postTask(new Runnable(this, z, i) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.11
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -425,11 +426,11 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i2)};
+                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -437,7 +438,7 @@ public class NpsLoadChainLog {
                     }
                     this.this$0 = this;
                     this.val$isSucc = z;
-                    this.val$errCode = i2;
+                    this.val$errCode = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -464,10 +465,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endMergeDexEntrance(boolean z, int i2) {
+    public void endMergeDexEntrance(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.17
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            postTask(new Runnable(this, z, i) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.17
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -479,11 +480,11 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i2)};
+                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -491,7 +492,7 @@ public class NpsLoadChainLog {
                     }
                     this.this$0 = this;
                     this.val$isSucc = z;
-                    this.val$errCode = i2;
+                    this.val$errCode = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -518,10 +519,10 @@ public class NpsLoadChainLog {
         }
     }
 
-    public void endPreloadClazzLiveNps(boolean z, int i2) {
+    public void endPreloadClazzLiveNps(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            postTask(new Runnable(this, z, i2) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.13
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            postTask(new Runnable(this, z, i) { // from class: com.baidu.searchbox.live.chainlog.NpsLoadChainLog.13
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ NpsLoadChainLog this$0;
@@ -533,11 +534,11 @@ public class NpsLoadChainLog {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i2)};
+                        Object[] objArr = {this, Boolean.valueOf(z), Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -545,7 +546,7 @@ public class NpsLoadChainLog {
                     }
                     this.this$0 = this;
                     this.val$isSucc = z;
-                    this.val$errCode = i2;
+                    this.val$errCode = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -637,9 +638,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -680,9 +681,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -725,9 +726,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -774,9 +775,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -800,7 +801,7 @@ public class NpsLoadChainLog {
     public void showPathAndDuration() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && isDebug() && this.pathJsonObj != null) {
-            String str = "path = " + getPath();
+            Log.e("David990099", "path = " + getPath());
         }
     }
 
@@ -819,9 +820,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -865,9 +866,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -911,9 +912,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -957,9 +958,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1003,9 +1004,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1049,9 +1050,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1095,9 +1096,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1141,9 +1142,9 @@ public class NpsLoadChainLog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1177,9 +1178,9 @@ public class NpsLoadChainLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -1199,14 +1200,14 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject genNodeJsonObj(int i2, int i3, long j2, long j3) {
+    public JSONObject genNodeJsonObj(int i, int i2, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            JSONObject genNodeJsonObj = genNodeJsonObj(i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            JSONObject genNodeJsonObj = genNodeJsonObj(i, i2);
             try {
-                genNodeJsonObj.put("downloadSize", j2);
-                genNodeJsonObj.put("totalSize", j3);
+                genNodeJsonObj.put("downloadSize", j);
+                genNodeJsonObj.put("totalSize", j2);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -1216,18 +1217,18 @@ public class NpsLoadChainLog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject genNodeJsonObj(int i2, int i3) {
+    public JSONObject genNodeJsonObj(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65555, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65555, this, i, i2)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("time", System.currentTimeMillis());
-                if (-1 != i2) {
-                    jSONObject.put("status", i2);
+                if (-1 != i) {
+                    jSONObject.put("status", i);
                 }
-                if (1 != i2 && Integer.MIN_VALUE != i3) {
-                    jSONObject.put("errorCode", i3);
+                if (1 != i && Integer.MIN_VALUE != i2) {
+                    jSONObject.put("errorCode", i2);
                 }
             } catch (JSONException e2) {
                 e2.printStackTrace();

@@ -66,33 +66,33 @@ public final class FrameRefreshMonitor implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public final void dispatchBegin(long j2) {
+        public final void dispatchBegin(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 this.isDispatchBegin = true;
             }
         }
 
         @CallSuper
-        public final void dispatchEnd(long j2, long j3) {
+        public final void dispatchEnd(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 this.isDispatchBegin = false;
             }
         }
 
-        public void doFrame(String topPage, long j2, long j3, boolean z, long j4, long j5, long j6) {
+        public void doFrame(String topPage, long j, long j2, boolean z, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topPage, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
                 Intrinsics.checkNotNullParameter(topPage, "topPage");
             }
         }
@@ -135,9 +135,9 @@ public final class FrameRefreshMonitor implements Runnable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -209,26 +209,26 @@ public final class FrameRefreshMonitor implements Runnable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    private final synchronized void addCallbackToQueue(int i2, Runnable runnable) {
+    private final synchronized void addCallbackToQueue(int i, Runnable runnable) {
         Method method;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65548, this, i2, runnable) == null) {
+        if (interceptable == null || interceptable.invokeIL(65548, this, i, runnable) == null) {
             synchronized (this) {
                 boolean[] zArr = callbackExist;
                 Intrinsics.checkNotNull(zArr);
-                if (zArr[i2]) {
+                if (zArr[i]) {
                     return;
                 }
-                if (!isAlive && i2 == 0) {
+                if (!isAlive && i == 0) {
                     Logcat.INSTANCE.d(TAG, "[addCallbackToQueue] UIThreadMonitor is not alive!");
                     return;
                 }
@@ -236,20 +236,20 @@ public final class FrameRefreshMonitor implements Runnable {
                     Object obj = callbackQueueLock;
                     Intrinsics.checkNotNull(obj);
                     synchronized (obj) {
-                        if (i2 == 0) {
+                        if (i == 0) {
                             method = addInputQueue;
-                        } else if (i2 == CALLBACK_ANIMATION) {
+                        } else if (i == CALLBACK_ANIMATION) {
                             method = addAnimationQueue;
                         } else {
-                            method = i2 == CALLBACK_TRAVERSAL ? addTraversalQueue : null;
+                            method = i == CALLBACK_TRAVERSAL ? addTraversalQueue : null;
                         }
                         if (method != null) {
                             Object[] objArr = callbackQueues;
                             Intrinsics.checkNotNull(objArr);
-                            method.invoke(objArr[i2], -1, runnable, null);
+                            method.invoke(objArr[i], -1, runnable, null);
                             boolean[] zArr2 = callbackExist;
                             Intrinsics.checkNotNull(zArr2);
-                            zArr2[i2] = true;
+                            zArr2[i] = true;
                         }
                         Unit unit = Unit.INSTANCE;
                     }
@@ -283,19 +283,19 @@ public final class FrameRefreshMonitor implements Runnable {
 
     /* JADX INFO: Access modifiers changed from: private */
     public final void dispatchEnd() {
+        long j;
         long j2;
-        long j3;
         String str;
         Class<?> cls;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            long j4 = dispatchTimeNs[0];
+            long j3 = dispatchTimeNs[0];
             if (isVsyncFrame) {
                 doQueueEnd(CALLBACK_TRAVERSAL);
                 addCallbackToQueue(0, this);
-                j2 = getIntendedFrameTimeNs(j4);
+                j = getIntendedFrameTimeNs(j3);
             } else {
-                j2 = j4;
+                j = j3;
             }
             long nanoTime = System.nanoTime();
             Logcat logcat = Logcat.INSTANCE;
@@ -304,16 +304,16 @@ public final class FrameRefreshMonitor implements Runnable {
             sb.append(isVsyncFrame);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("dispatchCost: ");
-            long j5 = 1000000;
-            sb.append((nanoTime - j4) / j5);
+            long j4 = 1000000;
+            sb.append((nanoTime - j3) / j4);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("frameCost: ");
-            sb.append((nanoTime - j2) / j5);
+            sb.append((nanoTime - j) / j4);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("intendedFrameTimeNs: ");
-            sb.append(j2);
+            sb.append(j);
             sb.append(", startNs: ");
-            sb.append(j4);
+            sb.append(j3);
             sb.append(", endNs: ");
             sb.append(nanoTime);
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -345,18 +345,18 @@ public final class FrameRefreshMonitor implements Runnable {
                         boolean z = isVsyncFrame;
                         long[] jArr4 = queueCost;
                         Intrinsics.checkNotNull(jArr4);
-                        long j6 = jArr4[0];
+                        long j5 = jArr4[0];
                         long[] jArr5 = queueCost;
                         Intrinsics.checkNotNull(jArr5);
-                        long j7 = jArr5[CALLBACK_ANIMATION];
+                        long j6 = jArr5[CALLBACK_ANIMATION];
                         long[] jArr6 = queueCost;
                         Intrinsics.checkNotNull(jArr6);
-                        j3 = nanoTime;
-                        next.doFrame(str2, j2, nanoTime, z, j6, j7, jArr6[CALLBACK_TRAVERSAL]);
+                        j2 = nanoTime;
+                        next.doFrame(str2, j, nanoTime, z, j5, j6, jArr6[CALLBACK_TRAVERSAL]);
                     } else {
-                        j3 = nanoTime;
+                        j2 = nanoTime;
                     }
-                    nanoTime = j3;
+                    nanoTime = j2;
                 }
                 Unit unit = Unit.INSTANCE;
             }
@@ -376,37 +376,37 @@ public final class FrameRefreshMonitor implements Runnable {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void doQueueBegin(int i2) {
+    public final void doQueueBegin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65551, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65551, this, i) == null) {
             long[] jArr = queueCost;
             Intrinsics.checkNotNull(jArr);
-            jArr[i2] = System.nanoTime();
+            jArr[i] = System.nanoTime();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final void doQueueEnd(int i2) {
+    public final void doQueueEnd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65552, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65552, this, i) == null) {
             long[] jArr = queueCost;
             Intrinsics.checkNotNull(jArr);
             long nanoTime = System.nanoTime();
             long[] jArr2 = queueCost;
             Intrinsics.checkNotNull(jArr2);
-            jArr[i2] = nanoTime - jArr2[i2];
+            jArr[i] = nanoTime - jArr2[i];
             boolean[] zArr = callbackExist;
             Intrinsics.checkNotNull(zArr);
-            zArr[i2] = false;
+            zArr[i] = false;
         }
     }
 
-    private final long getIntendedFrameTimeNs(long j2) {
+    private final long getIntendedFrameTimeNs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65553, this, j)) == null) {
             try {
-                Object reflectField = ReflectHelper.INSTANCE.reflectField(vsyncRecevier, "mTimestampNanos", Long.valueOf(j2), true);
+                Object reflectField = ReflectHelper.INSTANCE.reflectField(vsyncRecevier, "mTimestampNanos", Long.valueOf(j), true);
                 if (reflectField != null) {
                     return ((Long) reflectField).longValue();
                 }
@@ -414,7 +414,7 @@ public final class FrameRefreshMonitor implements Runnable {
             } catch (Exception e2) {
                 Logcat logcat = Logcat.INSTANCE;
                 logcat.e(TAG, "[getIntendedFrameTimeNs] " + e2.toString());
-                return j2;
+                return j;
             }
         }
         return invokeJ.longValue;
@@ -433,9 +433,9 @@ public final class FrameRefreshMonitor implements Runnable {
         }
         isAlive = true;
         getMainLooperMonitor().register(looperListener);
-        int i2 = CALLBACK_LAST;
-        queueCost = new long[i2 + 1];
-        callbackExist = new boolean[i2 + 1];
+        int i = CALLBACK_LAST;
+        queueCost = new long[i + 1];
+        callbackExist = new boolean[i + 1];
         addCallbackToQueue(0, this);
     }
 

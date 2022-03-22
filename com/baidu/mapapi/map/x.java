@@ -28,9 +28,9 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
             newInitContext.initArgs = r2;
             Object[] objArr = {wearMapView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,22 +53,22 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
         TextView textView2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jVar = this.a.f34087f;
+            jVar = this.a.f26325f;
             if (jVar != null) {
-                jVar2 = this.a.f34087f;
+                jVar2 = this.a.f26325f;
                 if (jVar2.a() == null) {
                     return;
                 }
-                jVar3 = this.a.f34087f;
+                jVar3 = this.a.f26325f;
                 float f3 = jVar3.a().E().a;
                 f2 = this.a.A;
                 if (f2 != f3) {
                     sparseArray = WearMapView.x;
                     int intValue = ((Integer) sparseArray.get((int) f3)).intValue();
-                    jVar4 = this.a.f34087f;
+                    jVar4 = this.a.f26325f;
                     imageView = this.a.r;
-                    int i2 = ((int) (intValue / jVar4.a().E().m)) / 2;
-                    imageView.setPadding(i2, 0, i2, 0);
+                    int i = ((int) (intValue / jVar4.a().E().m)) / 2;
+                    imageView.setPadding(i, 0, i, 0);
                     Object[] objArr = new Object[1];
                     if (intValue >= 1000) {
                         objArr[0] = Integer.valueOf(intValue / 1000);
@@ -138,9 +138,9 @@ public class x implements com.baidu.mapsdkplatform.comapi.map.l {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(boolean z, int i2) {
+    public void a(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
         }
     }
 

@@ -4,6 +4,7 @@ import com.baidu.android.imsdk.retrieve.RetrieveTaskManager;
 import com.baidu.browser.sailor.BdSailorConfig;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.NotifyAdapterUtil;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class NetworkType {
     public static final /* synthetic */ NetworkType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -49,7 +50,7 @@ public final class NetworkType {
         API = new NetworkType("API", 0, RetrieveTaskManager.KEY);
         LOG = new NetworkType("LOG", 1, TbConfig.TMP_LOG_DIR_NAME);
         UPLOAD = new NetworkType(BdSailorConfig.SAILOR_BASE_UPLOAD, 2, StatConstants.VALUE_TYPE_UPLOAD);
-        PAY = new NetworkType("PAY", 3, "pay");
+        PAY = new NetworkType("PAY", 3, TiebaStatic.DQPay.TYPE_VALUE);
         PAYGATEWAY = new NetworkType("PAYGATEWAY", 4, "payGateway");
         HTTPS = new NetworkType("HTTPS", 5, "https");
         LIVE = new NetworkType("LIVE", 6, "live");
@@ -63,16 +64,16 @@ public final class NetworkType {
         $VALUES = new NetworkType[]{API, LOG, UPLOAD, PAY, PAYGATEWAY, HTTPS, LIVE, IM, PUSH, AD, MERCHANT, GZONE, networkType};
     }
 
-    public NetworkType(String str, int i2, String str2) {
+    public NetworkType(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

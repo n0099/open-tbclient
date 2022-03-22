@@ -1,5 +1,5 @@
 package com.facebook.common.activitylistener;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ListenableActivity {
     void addActivityListener(ActivityListener activityListener);
 

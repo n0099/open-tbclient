@@ -31,9 +31,9 @@ public class LivenessBaseActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -99,10 +99,10 @@ public class LivenessBaseActivity extends BaseActivity {
                 Serializable serializable = bundle.getSerializable("PassFaceRecogDTO");
                 if (serializable instanceof PassFaceRecogDTO) {
                     this.mPassFaceRecogDTO = (PassFaceRecogDTO) serializable;
-                    a.b().a("request_data", this.mPassFaceRecogDTO);
+                    a.b().a(a.f27965c, this.mPassFaceRecogDTO);
                 }
             } else {
-                this.mPassFaceRecogDTO = (PassFaceRecogDTO) a.b().a("request_data");
+                this.mPassFaceRecogDTO = (PassFaceRecogDTO) a.b().a(a.f27965c);
             }
             this.mConfiguration = PassFaceRecogManager.getInstance().getConfiguration();
             customLiuHai();
@@ -118,12 +118,12 @@ public class LivenessBaseActivity extends BaseActivity {
         }
     }
 
-    public void setActivityResult(int i2) {
+    public void setActivityResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             Intent intent = new Intent();
             intent.putExtras(new Bundle());
-            setResult(i2, intent);
+            setResult(i, intent);
         }
     }
 }

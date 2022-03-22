@@ -16,7 +16,7 @@ public class c extends b<c.b.b.n.k.a, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.C1636a f27099b;
+    public a.C1646a f22355b;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<c.b.b.n.k.a> {
@@ -24,43 +24,43 @@ public class c extends b<c.b.b.n.k.a, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f27100b;
+        public boolean f22356b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27101c;
+        public boolean f22357c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Texture.TextureFilter f27102d;
+        public Texture.TextureFilter f22358d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Texture.TextureFilter f27103e;
+        public Texture.TextureFilter f22359e;
 
         /* renamed from: f  reason: collision with root package name */
-        public a.C1636a f27104f;
+        public a.C1646a f22360f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f27105g;
+        public String f22361g;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27100b = false;
-            this.f27101c = false;
+            this.f22356b = false;
+            this.f22357c = false;
             Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f27102d = textureFilter;
-            this.f27103e = textureFilter;
-            this.f27104f = null;
-            this.f27105g = null;
+            this.f22358d = textureFilter;
+            this.f22359e = textureFilter;
+            this.f22360f = null;
+            this.f22361g = null;
         }
     }
 
@@ -73,9 +73,9 @@ public class c extends b<c.b.b.n.k.a, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -90,25 +90,25 @@ public class c extends b<c.b.b.n.k.a, a> {
     public c.b.b.q.a<c.b.b.j.a> a(String str, c.b.b.m.a aVar, a aVar2) {
         InterceptResult invokeLLL;
         String str2;
-        a.C1636a c1636a;
+        a.C1646a c1646a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, aVar, aVar2)) == null) {
             c.b.b.q.a<c.b.b.j.a> aVar3 = new c.b.b.q.a<>();
-            if (aVar2 != null && (c1636a = aVar2.f27104f) != null) {
-                this.f27099b = c1636a;
+            if (aVar2 != null && (c1646a = aVar2.f22360f) != null) {
+                this.f22355b = c1646a;
                 return aVar3;
             }
-            this.f27099b = new a.C1636a(aVar, aVar2 != null && aVar2.f27100b);
-            if (aVar2 != null && (str2 = aVar2.f27105g) != null) {
+            this.f22355b = new a.C1646a(aVar, aVar2 != null && aVar2.f22356b);
+            if (aVar2 != null && (str2 = aVar2.f22361g) != null) {
                 aVar3.a(new c.b.b.j.a(str2, c.b.b.n.k.h.class));
             } else {
-                for (int i2 = 0; i2 < this.f27099b.d().length; i2++) {
-                    c.b.b.m.a b2 = b(this.f27099b.c(i2));
+                for (int i = 0; i < this.f22355b.d().length; i++) {
+                    c.b.b.m.a b2 = b(this.f22355b.c(i));
                     p.b bVar = new p.b();
                     if (aVar2 != null) {
-                        bVar.f27143c = aVar2.f27101c;
-                        bVar.f27146f = aVar2.f27102d;
-                        bVar.f27147g = aVar2.f27103e;
+                        bVar.f22399c = aVar2.f22357c;
+                        bVar.f22402f = aVar2.f22358d;
+                        bVar.f22403g = aVar2.f22359e;
                     }
                     aVar3.a(new c.b.b.j.a(b2, Texture.class, bVar));
                 }
@@ -135,20 +135,20 @@ public class c extends b<c.b.b.n.k.a, a> {
         String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            if (aVar2 != null && (str2 = aVar2.f27105g) != null) {
-                String str3 = aVar.s(this.f27099b.f27250b[0]).h().toString();
+            if (aVar2 != null && (str2 = aVar2.f22361g) != null) {
+                String str3 = aVar.s(this.f22355b.f22496b[0]).h().toString();
                 h.a f2 = ((c.b.b.n.k.h) eVar.j(str2, c.b.b.n.k.h.class)).f(str3);
                 if (f2 != null) {
                     return new c.b.b.n.k.a(aVar, f2);
                 }
-                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar2.f27105g);
+                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar2.f22361g);
             }
-            int length = this.f27099b.d().length;
+            int length = this.f22355b.d().length;
             c.b.b.q.a aVar3 = new c.b.b.q.a(length);
-            for (int i2 = 0; i2 < length; i2++) {
-                aVar3.a(new c.b.b.n.k.i((Texture) eVar.j(this.f27099b.c(i2), Texture.class)));
+            for (int i = 0; i < length; i++) {
+                aVar3.a(new c.b.b.n.k.i((Texture) eVar.j(this.f22355b.c(i), Texture.class)));
             }
-            return new c.b.b.n.k.a(this.f27099b, (c.b.b.q.a<c.b.b.n.k.i>) aVar3, true);
+            return new c.b.b.n.k.a(this.f22355b, (c.b.b.q.a<c.b.b.n.k.i>) aVar3, true);
         }
         return (c.b.b.n.k.a) invokeLLLL.objValue;
     }

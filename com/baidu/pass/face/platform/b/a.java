@@ -1,0 +1,132 @@
+package com.baidu.pass.face.platform.b;
+
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.face.platform.FaceConfig;
+import com.baidu.pass.face.platform.FaceSDKManager;
+import com.baidu.pass.face.platform.model.FaceExtInfo;
+import com.baidu.pass.face.platform.model.ImageInfo;
+import com.baidu.pass.main.facesdk.FaceInfo;
+import com.baidu.pass.main.facesdk.model.BDFaceImageInstance;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+/* loaded from: classes4.dex */
+public class a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public FaceExtInfo[] a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public FaceExtInfo f28072b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public FaceConfig f28073c;
+
+    public a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public ArrayList<ImageInfo> a(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, faceExtInfo, bDFaceImageInstance)) == null) {
+            if (faceExtInfo == null) {
+                str = "faceInfo == null";
+            } else if (bDFaceImageInstance != null) {
+                ArrayList<ImageInfo> arrayList = new ArrayList<>();
+                ImageInfo imageInfo = new ImageInfo();
+                FaceConfig faceConfig = this.f28073c;
+                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
+                imageInfo.setBase64(bDFaceImageInstance.getBase64());
+                if (secType == 1) {
+                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                    if (!TextUtils.isEmpty(imageSec)) {
+                        imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
+                    }
+                }
+                arrayList.add(imageInfo);
+                return arrayList;
+            } else {
+                str = "cropInstance == null";
+            }
+            Log.e("FaceModuleNew", str);
+            return null;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    public void a(FaceConfig faceConfig) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, faceConfig) == null) {
+            this.f28073c = faceConfig;
+        }
+    }
+
+    public FaceExtInfo[] a(FaceInfo[] faceInfoArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faceInfoArr)) == null) {
+            if (this.a == null) {
+                this.a = new FaceExtInfo[1];
+                this.f28072b = new FaceExtInfo();
+            }
+            if (faceInfoArr == null || faceInfoArr.length <= 0) {
+                this.a[0] = null;
+            } else {
+                if (this.f28072b == null) {
+                    this.f28072b = new FaceExtInfo();
+                }
+                this.f28072b.addFaceInfo(faceInfoArr[0]);
+                this.a[0] = this.f28072b;
+            }
+            return this.a;
+        }
+        return (FaceExtInfo[]) invokeL.objValue;
+    }
+
+    public ArrayList<ImageInfo> b(FaceExtInfo faceExtInfo, BDFaceImageInstance bDFaceImageInstance) {
+        InterceptResult invokeLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, faceExtInfo, bDFaceImageInstance)) == null) {
+            if (faceExtInfo == null) {
+                str = "faceInfo == null";
+            } else if (bDFaceImageInstance != null) {
+                ArrayList<ImageInfo> arrayList = new ArrayList<>();
+                ImageInfo imageInfo = new ImageInfo();
+                FaceConfig faceConfig = this.f28073c;
+                int secType = faceConfig != null ? faceConfig.getSecType() : 0;
+                imageInfo.setBase64(bDFaceImageInstance.getBase64());
+                if (secType == 1) {
+                    String imageSec = FaceSDKManager.getInstance().imageSec(bDFaceImageInstance);
+                    if (!TextUtils.isEmpty(imageSec)) {
+                        imageInfo.setSecBase64(imageSec.replaceAll("\n", ""));
+                    }
+                }
+                arrayList.add(imageInfo);
+                return arrayList;
+            } else {
+                str = "cropInstance == null";
+            }
+            Log.e("FaceModuleNew", str);
+            return null;
+        }
+        return (ArrayList) invokeLL.objValue;
+    }
+}

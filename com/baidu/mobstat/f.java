@@ -31,7 +31,7 @@ public class f {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35516b;
+    public String f27400b;
 
     /* loaded from: classes4.dex */
     public static class a {
@@ -40,10 +40,10 @@ public class f {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35517b;
+        public String f27401b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35518c;
+        public String f27402c;
 
         public a(String str, String str2, String str3) {
             Interceptable interceptable = $ic;
@@ -52,17 +52,17 @@ public class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str == null ? "" : str;
-            this.f35517b = str2 == null ? "" : str2;
-            this.f35518c = str3 == null ? "" : str3;
+            this.f27401b = str2 == null ? "" : str2;
+            this.f27402c = str3 == null ? "" : str3;
         }
 
         public JSONObject a() {
@@ -72,8 +72,8 @@ public class f {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f35517b);
-                    jSONObject.put("w", this.f35518c);
+                    jSONObject.put("v", this.f27401b);
+                    jSONObject.put("w", this.f27402c);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -111,28 +111,28 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35516b = "";
+        this.f27400b = "";
     }
 
-    private boolean a(int i2) {
+    private boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) ? i2 == 100 || i2 == 200 || i2 == 130 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) ? i == 100 || i == 200 || i == 130 : invokeI.booleanValue;
     }
 
-    private ArrayList<a> b(Context context, int i2) {
+    private ArrayList<a> b(Context context, int i) {
         InterceptResult invokeLI;
         List<ActivityManager.RunningTaskInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, context, i)) == null) {
             try {
                 list = ((ActivityManager) context.getSystemService("activity")).getRunningTasks(50);
             } catch (Exception e2) {
@@ -144,7 +144,7 @@ public class f {
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             for (ActivityManager.RunningTaskInfo runningTaskInfo : list) {
-                if (linkedHashMap.size() > i2) {
+                if (linkedHashMap.size() > i) {
                     break;
                 }
                 ComponentName componentName = runningTaskInfo.topActivity;
@@ -160,18 +160,18 @@ public class f {
         return (ArrayList) invokeLI.objValue;
     }
 
-    private ArrayList<a> c(Context context, int i2) {
+    private ArrayList<a> c(Context context, int i) {
         InterceptResult invokeLI;
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, this, context, i)) == null) {
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses == null) {
                 return new ArrayList<>();
             }
             LinkedHashMap linkedHashMap = new LinkedHashMap();
-            for (int i3 = 0; i3 < runningAppProcesses.size() && linkedHashMap.size() <= i2; i3++) {
-                ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i3);
+            for (int i2 = 0; i2 < runningAppProcesses.size() && linkedHashMap.size() <= i; i2++) {
+                ActivityManager.RunningAppProcessInfo runningAppProcessInfo = runningAppProcesses.get(i2);
                 if (a(runningAppProcessInfo.importance) && (strArr = runningAppProcessInfo.pkgList) != null && strArr.length != 0) {
                     String str = strArr[0];
                     if (!TextUtils.isEmpty(str) && !b(context, str) && !linkedHashMap.containsKey(str)) {
@@ -193,29 +193,29 @@ public class f {
         }
     }
 
-    private void a(Context context, boolean z, int i2) {
+    private void a(Context context, boolean z, int i) {
         ArrayList<a> a2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || (a2 = a(context, i2)) == null || a2.size() == 0) {
+        if (!(interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a2 = a(context, i)) == null || a2.size() == 0) {
             return;
         }
         if (z) {
             String b2 = a2.get(0).b();
-            if (a(b2, this.f35516b)) {
-                this.f35516b = b2;
+            if (a(b2, this.f27400b)) {
+                this.f27400b = b2;
             }
         }
         a(context, a2, z);
     }
 
-    private ArrayList<a> a(Context context, int i2) {
+    private ArrayList<a> a(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return c(context, i2);
+                return c(context, i);
             }
-            return b(context, i2);
+            return b(context, i);
         }
         return (ArrayList) invokeLI.objValue;
     }
@@ -223,7 +223,7 @@ public class f {
     private boolean a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f35516b)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65543, this, str, str2)) == null) ? (TextUtils.isEmpty(str) || str.equals(this.f27400b)) ? false : true : invokeLL.booleanValue;
     }
 
     private String a(Context context, String str) {
@@ -273,7 +273,7 @@ public class f {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f35531c.a(System.currentTimeMillis(), str);
+            k.f27413c.a(System.currentTimeMillis(), str);
         }
     }
 

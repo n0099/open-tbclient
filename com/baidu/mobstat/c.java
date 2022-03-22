@@ -20,7 +20,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
             f.a.a(context, z);
-            y.a(context).a(z ? g.f35521d : g.f35522e, System.currentTimeMillis());
+            y.a(context).a(z ? g.f27405d : g.f27406e, System.currentTimeMillis());
         }
     }
 
@@ -28,7 +28,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65537, null, context, z) == null) {
             e.a.a(context, z);
-            y.a(context).a(z ? g.f35520c : g.f35519b, System.currentTimeMillis());
+            y.a(context).a(z ? g.f27404c : g.f27403b, System.currentTimeMillis());
         }
     }
 
@@ -36,7 +36,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             d.a.a(context);
-            y.a(context).a(g.f35524g, System.currentTimeMillis());
+            y.a(context).a(g.f27408g, System.currentTimeMillis());
         }
     }
 }

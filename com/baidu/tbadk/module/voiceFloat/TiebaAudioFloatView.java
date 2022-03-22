@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -27,21 +27,19 @@ import kotlin.jvm.internal.Intrinsics;
 public final class TiebaAudioFloatView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RelativeLayout f30589b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TBLottieAnimationView f30590c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f30591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f39710e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f39711f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TBLottieAnimationView f39712g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f39713h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a f39714i;
+    public a f30592e;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -59,9 +57,9 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -69,7 +67,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0529, (ViewGroup) this, true);
         c();
         b();
     }
@@ -78,7 +76,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ImageView imageView = this$0.f39713h;
+            ImageView imageView = this$0.f30591d;
             if (imageView == null) {
                 return;
             }
@@ -95,11 +93,11 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            RelativeLayout relativeLayout = this.f39711f;
+            RelativeLayout relativeLayout = this.f30589b;
             if (relativeLayout != null) {
                 relativeLayout.setOnClickListener(this);
             }
-            ImageView imageView = this.f39713h;
+            ImageView imageView = this.f30591d;
             if (imageView == null) {
                 return;
             }
@@ -111,28 +109,28 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setLayoutParams(new RelativeLayout.LayoutParams(-2, a(50.0f)));
-            this.f39710e = (ImageView) findViewById(R.id.user_avatar);
-            this.f39711f = (RelativeLayout) findViewById(R.id.audio_avatar);
-            this.f39712g = (TBLottieAnimationView) findViewById(R.id.float_lottie);
-            ImageView imageView = (ImageView) findViewById(R.id.close_btn);
-            this.f39713h = imageView;
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f092296);
+            this.f30589b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0902cc);
+            this.f30590c = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0909d0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090668);
+            this.f30591d = imageView;
             if (imageView != null) {
-                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_voiceroom_close20, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
+                imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e4, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));
             }
-            ImageView imageView2 = this.f39710e;
+            ImageView imageView2 = this.a;
             if (imageView2 != null) {
-                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_voiceroom_floatingball, false));
+                imageView2.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f080ad5, false));
             }
-            SkinManager.setLottieAnimation(this.f39712g, R.raw.lottie_video_window_min);
-            TBLottieAnimationView tBLottieAnimationView = this.f39712g;
+            SkinManager.setLottieAnimation(this.f30590c, R.raw.obfuscated_res_0x7f110044);
+            TBLottieAnimationView tBLottieAnimationView = this.f30590c;
             if (tBLottieAnimationView != null) {
                 tBLottieAnimationView.setRepeatCount(Integer.MAX_VALUE);
             }
-            TBLottieAnimationView tBLottieAnimationView2 = this.f39712g;
+            TBLottieAnimationView tBLottieAnimationView2 = this.f30590c;
             if (tBLottieAnimationView2 != null) {
                 tBLottieAnimationView2.setRepeatMode(1);
             }
-            TBLottieAnimationView tBLottieAnimationView3 = this.f39712g;
+            TBLottieAnimationView tBLottieAnimationView3 = this.f30590c;
             if (tBLottieAnimationView3 != null) {
                 tBLottieAnimationView3.playAnimation();
             }
@@ -146,24 +144,24 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            if (Intrinsics.areEqual(view, this.f39713h)) {
-                a aVar = this.f39714i;
+            if (Intrinsics.areEqual(view, this.f30591d)) {
+                a aVar = this.f30592e;
                 if (aVar == null) {
                     return;
                 }
                 aVar.closeFloatView();
-            } else if (Intrinsics.areEqual(view, this.f39711f)) {
-                ImageView imageView = this.f39713h;
+            } else if (Intrinsics.areEqual(view, this.f30589b)) {
+                ImageView imageView = this.f30591d;
                 if (imageView != null && imageView.getVisibility() == 8) {
-                    ImageView imageView2 = this.f39713h;
+                    ImageView imageView2 = this.f30591d;
                     if (imageView2 != null) {
                         imageView2.setVisibility(0);
                     }
-                    ImageView imageView3 = this.f39713h;
+                    ImageView imageView3 = this.f30591d;
                     if (imageView3 == null) {
                         return;
                     }
-                    imageView3.postDelayed(new Runnable() { // from class: c.a.q0.i0.g.a
+                    imageView3.postDelayed(new Runnable() { // from class: c.a.o0.i0.g.a
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -177,11 +175,11 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     }, 2000L);
                     return;
                 }
-                ImageView imageView4 = this.f39713h;
+                ImageView imageView4 = this.f30591d;
                 if (imageView4 != null) {
                     imageView4.setVisibility(8);
                 }
-                a aVar2 = this.f39714i;
+                a aVar2 = this.f30592e;
                 if (aVar2 == null) {
                     return;
                 }
@@ -194,7 +192,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
-            this.f39714i = listener;
+            this.f30592e = listener;
         }
     }
 
@@ -207,9 +205,9 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -219,23 +217,23 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0529, (ViewGroup) this, true);
         c();
         b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TiebaAudioFloatView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TiebaAudioFloatView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -245,7 +243,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attributeSet, "attributeSet");
-        LayoutInflater.from(getContext()).inflate(R.layout.liveaudio_tieba_audio_float_view, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0529, (ViewGroup) this, true);
         c();
         b();
     }

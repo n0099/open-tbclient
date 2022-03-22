@@ -36,9 +36,9 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,9 +63,9 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -91,9 +91,9 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,7 +133,7 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public EmotionShare m48decodeToResource(byte[] bArr, Object... objArr) {
+    public EmotionShare m46decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -159,10 +159,10 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public EmotionShare getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public EmotionShare getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             return null;
         }
         return (EmotionShare) invokeCommon.objValue;
@@ -185,22 +185,22 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     }
 
     @Override // c.a.d.f.l.e
-    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) {
-            this.impl.updateMemory(str, obj, i2, i3, objArr);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) {
+            this.impl.updateMemory(str, obj, i, i2, objArr);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public EmotionShare getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public EmotionShare getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             clearShareHub();
-            a fromLocal = this.impl.getFromLocal(str, str2, i2, i3, bVar, objArr);
+            a fromLocal = this.impl.getFromLocal(str, str2, i, i2, bVar, objArr);
             if (fromLocal == null || fromLocal.k() == null) {
                 return null;
             }
@@ -216,12 +216,12 @@ public class EmotionShareLoaderProc implements e<EmotionShare> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public EmotionShare getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public EmotionShare getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             clearShareHub();
-            a fromRemote = this.impl.getFromRemote(str, str2, i2, i3, bVar, objArr);
+            a fromRemote = this.impl.getFromRemote(str, str2, i, i2, bVar, objArr);
             if (fromRemote == null || fromRemote.k() == null) {
                 return null;
             }

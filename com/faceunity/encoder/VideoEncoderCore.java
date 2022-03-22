@@ -5,10 +5,11 @@ import android.media.MediaCrypto;
 import android.media.MediaFormat;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Surface;
-import c.a.r0.j2.a;
-import c.a.r0.j2.g;
-import c.a.r0.j2.k;
+import c.a.p0.l2.a;
+import c.a.p0.l2.g;
+import c.a.p0.l2.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -19,7 +20,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class VideoEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "video/avc";
@@ -37,16 +38,16 @@ public class VideoEncoderCore {
     public int mTrackIndex;
     public Bundle params;
 
-    public VideoEncoderCore(int i2, int i3, int i4, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
+    public VideoEncoderCore(int i, int i2, int i3, MediaMuxerWrapper mediaMuxerWrapper) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), mediaMuxerWrapper};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), mediaMuxerWrapper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -61,9 +62,9 @@ public class VideoEncoderCore {
             this.mPostMonitorManager = kVar.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i2, i3);
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
         createVideoFormat.setInteger("color-format", 2130708361);
-        createVideoFormat.setInteger("bitrate", i4);
+        createVideoFormat.setInteger("bitrate", i3);
         createVideoFormat.setInteger("frame-rate", 20);
         createVideoFormat.setInteger("i-frame-interval", 1);
         MediaCodec createEncoderByType = MediaCodec.createEncoderByType("video/avc");
@@ -100,7 +101,7 @@ public class VideoEncoderCore {
             } else if (dequeueOutputBuffer == -2) {
                 if (!this.mMuxerStarted) {
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
-                    String str = "encoder output format changed: " + outputFormat;
+                    Log.d(TAG, "encoder output format changed: " + outputFormat);
                     this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
                     if (!this.mMuxer.start()) {
                         synchronized (this.mMuxer) {
@@ -121,7 +122,7 @@ public class VideoEncoderCore {
                     throw new RuntimeException("format changed twice");
                 }
             } else if (dequeueOutputBuffer < 0) {
-                String str2 = "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer;
+                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
             } else {
                 ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
                 if (byteBuffer != null) {
@@ -146,6 +147,10 @@ public class VideoEncoderCore {
                         this.mLastFrameSyncTime = System.currentTimeMillis();
                     }
                     if ((this.mBufferInfo.flags & 4) != 0) {
+                        if (z) {
+                            return;
+                        }
+                        Log.w(TAG, "reached end of stream unexpectedly");
                         return;
                     }
                 } else {

@@ -14,7 +14,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.http.RetryPolicy;
 import com.baidubce.util.CheckUtils;
 import java.net.InetAddress;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BosClientConfiguration extends BceClientConfiguration {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_STREAM_BUFFER_SIZE = 5242880;
@@ -27,9 +27,9 @@ public class BosClientConfiguration extends BceClientConfiguration {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,11 +57,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
         }
     }
 
-    public void setStreamBufferSize(int i2) {
+    public void setStreamBufferSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            CheckUtils.checkArgument(i2 > 0, "streamBufferSize should be positive.");
-            this.streamBufferSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            CheckUtils.checkArgument(i > 0, "streamBufferSize should be positive.");
+            this.streamBufferSize = i;
         }
     }
 
@@ -86,11 +86,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
         return (BceClientConfiguration) invokeZ.objValue;
     }
 
-    public BosClientConfiguration withStreamBufferSize(int i2) {
+    public BosClientConfiguration withStreamBufferSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) {
-            setStreamBufferSize(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) {
+            setStreamBufferSize(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;
@@ -98,11 +98,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withConnectionTimeoutInMillis(int i2) {
+    public BosClientConfiguration withConnectionTimeoutInMillis(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            setConnectionTimeoutInMillis(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            setConnectionTimeoutInMillis(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;
@@ -146,11 +146,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withMaxConnections(int i2) {
+    public BosClientConfiguration withMaxConnections(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
-            setMaxConnections(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            setMaxConnections(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;
@@ -206,11 +206,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withProxyPort(int i2) {
+    public BosClientConfiguration withProxyPort(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-            setProxyPort(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+            setProxyPort(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;
@@ -266,11 +266,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketBufferSizeInBytes(int i2) {
+    public BosClientConfiguration withSocketBufferSizeInBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
-            setSocketBufferSizeInBytes(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
+            setSocketBufferSizeInBytes(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;
@@ -278,11 +278,11 @@ public class BosClientConfiguration extends BceClientConfiguration {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidubce.BceClientConfiguration
-    public BosClientConfiguration withSocketTimeoutInMillis(int i2) {
+    public BosClientConfiguration withSocketTimeoutInMillis(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
-            setSocketTimeoutInMillis(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
+            setSocketTimeoutInMillis(i);
             return this;
         }
         return (BosClientConfiguration) invokeI.objValue;

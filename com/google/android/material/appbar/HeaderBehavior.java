@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_POINTER = -1;
@@ -34,7 +34,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
     @Nullable
     public VelocityTracker velocityTracker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FlingRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                 newInitContext.initArgs = r2;
                 Object[] objArr = {headerBehavior, coordinatorLayout, v};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -84,9 +84,9 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,10 +112,10 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         return invokeL.booleanValue;
     }
 
-    public final boolean fling(CoordinatorLayout coordinatorLayout, @NonNull V v, int i2, int i3, float f2) {
+    public final boolean fling(CoordinatorLayout coordinatorLayout, @NonNull V v, int i, int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
             Runnable runnable = this.flingRunnable;
             if (runnable != null) {
                 v.removeCallbacks(runnable);
@@ -124,7 +124,7 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
             if (this.scroller == null) {
                 this.scroller = new OverScroller(v.getContext());
             }
-            this.scroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f2), 0, 0, i2, i3);
+            this.scroller.fling(0, getTopAndBottomOffset(), 0, Math.round(f2), 0, 0, i, i2);
             if (this.scroller.computeScrollOffset()) {
                 FlingRunnable flingRunnable = new FlingRunnable(this, coordinatorLayout, v);
                 this.flingRunnable = flingRunnable;
@@ -171,8 +171,8 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                 this.touchSlop = ViewConfiguration.get(coordinatorLayout.getContext()).getScaledTouchSlop();
             }
             if (motionEvent.getActionMasked() == 2 && this.isBeingDragged) {
-                int i2 = this.activePointerId;
-                if (i2 == -1 || (findPointerIndex = motionEvent.findPointerIndex(i2)) == -1) {
+                int i = this.activePointerId;
+                if (i == -1 || (findPointerIndex = motionEvent.findPointerIndex(i)) == -1) {
                     return false;
                 }
                 int y = (int) motionEvent.getY(findPointerIndex);
@@ -257,9 +257,9 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
                 scroll(coordinatorLayout, v, this.lastMotionY - y, getMaxDragOffset(v), 0);
             } else if (actionMasked != 3) {
                 if (actionMasked == 6) {
-                    int i2 = motionEvent.getActionIndex() == 0 ? 1 : 0;
-                    this.activePointerId = motionEvent.getPointerId(i2);
-                    this.lastMotionY = (int) (motionEvent.getY(i2) + 0.5f);
+                    int i = motionEvent.getActionIndex() == 0 ? 1 : 0;
+                    this.activePointerId = motionEvent.getPointerId(i);
+                    this.lastMotionY = (int) (motionEvent.getY(i) + 0.5f);
                 }
             }
             z = false;
@@ -282,25 +282,25 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
         }
     }
 
-    public final int scroll(CoordinatorLayout coordinatorLayout, V v, int i2, int i3, int i4) {
+    public final int scroll(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? setHeaderTopBottomOffset(coordinatorLayout, v, getTopBottomOffsetForScrollingSibling() - i2, i3, i4) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? setHeaderTopBottomOffset(coordinatorLayout, v, getTopBottomOffsetForScrollingSibling() - i, i2, i3) : invokeCommon.intValue;
     }
 
-    public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i2) {
+    public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, v, i2)) == null) ? setHeaderTopBottomOffset(coordinatorLayout, v, i2, Integer.MIN_VALUE, Integer.MAX_VALUE) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, coordinatorLayout, v, i)) == null) ? setHeaderTopBottomOffset(coordinatorLayout, v, i, Integer.MIN_VALUE, Integer.MAX_VALUE) : invokeLLI.intValue;
     }
 
-    public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i2, int i3, int i4) {
+    public int setHeaderTopBottomOffset(CoordinatorLayout coordinatorLayout, V v, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         int clamp;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             int topAndBottomOffset = getTopAndBottomOffset();
-            if (i3 == 0 || topAndBottomOffset < i3 || topAndBottomOffset > i4 || topAndBottomOffset == (clamp = MathUtils.clamp(i2, i3, i4))) {
+            if (i2 == 0 || topAndBottomOffset < i2 || topAndBottomOffset > i3 || topAndBottomOffset == (clamp = MathUtils.clamp(i, i2, i3))) {
                 return 0;
             }
             setTopAndBottomOffset(clamp);
@@ -318,9 +318,9 @@ public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes5.dex */
 public class DownloadCacheKey implements Serializable {
     public static /* synthetic */ Interceptable $ic;
@@ -26,9 +25,9 @@ public class DownloadCacheKey implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,7 +98,7 @@ public class DownloadCacheKey implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "DownloadCacheKey{mAdId='" + this.mAdId + ExtendedMessageFormat.QUOTE + ", mDownloadUrl='" + this.mDownloadUrl + ExtendedMessageFormat.QUOTE + ", mPackageName='" + this.mPackageName + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "DownloadCacheKey{mAdId='" + this.mAdId + "', mDownloadUrl='" + this.mDownloadUrl + "', mPackageName='" + this.mPackageName + "'}";
         }
         return (String) invokeV.objValue;
     }

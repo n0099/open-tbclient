@@ -1,5 +1,6 @@
 package com.baidu.searchbox.cloudcontrol.data;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -29,9 +30,9 @@ public class CloudControlUBCData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,15 +42,15 @@ public class CloudControlUBCData {
         this.controlJsonObject = new JSONObject();
     }
 
-    public void collectDegradegInfo(int i2, int i3, int i4, JSONArray jSONArray) {
+    public void collectDegradegInfo(int i, int i2, int i3, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), jSONArray}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), jSONArray}) == null) {
             try {
-                this.controlJsonObject.put("count", i2 + "," + i3 + "," + i4);
+                this.controlJsonObject.put("count", i + "," + i2 + "," + i3);
                 this.controlJsonObject.put("items", jSONArray);
             } catch (JSONException e2) {
                 if (AppConfig.isDebug()) {
-                    String str = "collectDegradegInfo is error" + e2.toString();
+                    Log.d(TAG, "collectDegradegInfo is error" + e2.toString());
                 }
             }
         }

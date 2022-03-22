@@ -1,6 +1,7 @@
 package androidx.core.view;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
@@ -38,9 +39,9 @@ public abstract class ActionProvider {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -133,7 +134,7 @@ public abstract class ActionProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, visibilityListener) == null) {
             if (this.mVisibilityListener != null && visibilityListener != null) {
-                String str = "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?";
+                Log.w(TAG, "setVisibilityListener: Setting a new ActionProvider.VisibilityListener when one is already set. Are you reusing this " + getClass().getSimpleName() + " instance while it is still in use somewhere else?");
             }
             this.mVisibilityListener = visibilityListener;
         }

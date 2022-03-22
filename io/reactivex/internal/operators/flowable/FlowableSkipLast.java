@@ -27,17 +27,17 @@ public final class FlowableSkipLast<T> extends AbstractFlowableWithUpstream<T, T
         public final int skip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SkipLastSubscriber(Subscriber<? super T> subscriber, int i2) {
-            super(i2);
+        public SkipLastSubscriber(Subscriber<? super T> subscriber, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -45,7 +45,7 @@ public final class FlowableSkipLast<T> extends AbstractFlowableWithUpstream<T, T
                 }
             }
             this.actual = subscriber;
-            this.skip = i2;
+            this.skip = i;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -96,33 +96,33 @@ public final class FlowableSkipLast<T> extends AbstractFlowableWithUpstream<T, T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.s.request(j2);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.s.request(j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSkipLast(Flowable<T> flowable, int i2) {
+    public FlowableSkipLast(Flowable<T> flowable, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.skip = i2;
+        this.skip = i;
     }
 
     @Override // io.reactivex.Flowable

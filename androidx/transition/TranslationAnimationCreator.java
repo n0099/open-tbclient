@@ -34,16 +34,16 @@ public class TranslationAnimationCreator {
         public int[] mTransitionPosition;
         public final View mViewInHierarchy;
 
-        public TransitionPositionListener(View view, View view2, int i2, int i3, float f2, float f3) {
+        public TransitionPositionListener(View view, View view2, int i, int i2, float f2, float f3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, view2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3)};
+                Object[] objArr = {view, view2, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,8 +51,8 @@ public class TranslationAnimationCreator {
             }
             this.mMovingView = view;
             this.mViewInHierarchy = view2;
-            this.mStartX = i2 - Math.round(view.getTranslationX());
-            this.mStartY = i3 - Math.round(this.mMovingView.getTranslationY());
+            this.mStartX = i - Math.round(view.getTranslationX());
+            this.mStartY = i2 - Math.round(this.mMovingView.getTranslationY());
             this.mTerminalX = f2;
             this.mTerminalY = f3;
             int[] iArr = (int[]) this.mViewInHierarchy.getTag(R$id.transition_position);
@@ -139,9 +139,9 @@ public class TranslationAnimationCreator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -149,24 +149,24 @@ public class TranslationAnimationCreator {
     }
 
     @Nullable
-    public static Animator createAnimation(@NonNull View view, @NonNull TransitionValues transitionValues, int i2, int i3, float f2, float f3, float f4, float f5, @Nullable TimeInterpolator timeInterpolator, @NonNull Transition transition) {
+    public static Animator createAnimation(@NonNull View view, @NonNull TransitionValues transitionValues, int i, int i2, float f2, float f3, float f4, float f5, @Nullable TimeInterpolator timeInterpolator, @NonNull Transition transition) {
         InterceptResult invokeCommon;
         float f6;
         float f7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view, transitionValues, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), timeInterpolator, transition})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), timeInterpolator, transition})) == null) {
             float translationX = view.getTranslationX();
             float translationY = view.getTranslationY();
             int[] iArr = (int[]) transitionValues.view.getTag(R$id.transition_position);
             if (iArr != null) {
-                f6 = (iArr[0] - i2) + translationX;
-                f7 = (iArr[1] - i3) + translationY;
+                f6 = (iArr[0] - i) + translationX;
+                f7 = (iArr[1] - i2) + translationY;
             } else {
                 f6 = f2;
                 f7 = f3;
             }
-            int round = i2 + Math.round(f6 - translationX);
-            int round2 = i3 + Math.round(f7 - translationY);
+            int round = i + Math.round(f6 - translationX);
+            int round2 = i2 + Math.round(f7 - translationY);
             view.setTranslationX(f6);
             view.setTranslationY(f7);
             if (f6 == f4 && f7 == f5) {

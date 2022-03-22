@@ -17,19 +17,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TbVideoViewSet {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static TbVideoViewSet f45922c;
+    public static TbVideoViewSet f35571c;
     public transient /* synthetic */ FieldHolder $fh;
     public LRULinkedHashMap<String, TbVideoViewContainer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f45923b;
+    public boolean f35572b;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class LRULinkedHashMap<K extends String, V> extends LinkedHashMap<K, TbVideoViewContainer> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_PLAYERS = 3;
@@ -46,9 +46,9 @@ public class TbVideoViewSet {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tbVideoViewSet};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Float) objArr2[1]).floatValue(), ((Boolean) objArr2[2]).booleanValue());
                     newInitContext.thisArg = this;
@@ -67,9 +67,9 @@ public class TbVideoViewSet {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, entry)) == null) {
                 boolean z = size() > 3;
                 if (z && (value = entry.getValue()) != null) {
-                    this.this$0.f45923b = true;
+                    this.this$0.f35572b = true;
                     value.getControl().stopPlayback();
-                    this.this$0.f45923b = false;
+                    this.this$0.f35572b = false;
                 }
                 return z;
             }
@@ -77,23 +77,23 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(TbVideoViewSet tbVideoViewSet, int i2) {
-            super(i2);
+        public a(TbVideoViewSet tbVideoViewSet, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tbVideoViewSet, Integer.valueOf(i2)};
+                Object[] objArr = {tbVideoViewSet, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -112,7 +112,7 @@ public class TbVideoViewSet {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
         void a();
 
@@ -139,9 +139,9 @@ public class TbVideoViewSet {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -155,14 +155,14 @@ public class TbVideoViewSet {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f45922c == null) {
+            if (f35571c == null) {
                 synchronized (TbVideoViewSet.class) {
-                    if (f45922c == null) {
-                        f45922c = new TbVideoViewSet();
+                    if (f35571c == null) {
+                        f35571c = new TbVideoViewSet();
                     }
                 }
             }
-            return f45922c;
+            return f35571c;
         }
         return (TbVideoViewSet) invokeV.objValue;
     }
@@ -182,7 +182,7 @@ public class TbVideoViewSet {
     public void d(String str) {
         TbVideoViewContainer remove;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f45923b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || this.f35572b || !this.a.containsKey(str) || (remove = this.a.remove(str)) == null) {
             return;
         }
         remove.getControl().stopPlayback();
@@ -209,7 +209,7 @@ public class TbVideoViewSet {
                         break;
                     }
                 }
-                if (!this.f45923b && !m.isEmpty(str2)) {
+                if (!this.f35572b && !m.isEmpty(str2)) {
                     this.a.remove(str2);
                 }
             }

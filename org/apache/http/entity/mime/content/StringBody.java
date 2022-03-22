@@ -14,7 +14,7 @@ import java.io.OutputStream;
 import java.io.Reader;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class StringBody extends AbstractContentBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class StringBody extends AbstractContentBody {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, charset};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -99,9 +99,9 @@ public class StringBody extends AbstractContentBody {
     }
 
     @Deprecated
-    public void writeTo(OutputStream outputStream, int i2) throws IOException {
+    public void writeTo(OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, outputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, outputStream, i) == null) {
             writeTo(outputStream);
         }
     }
@@ -150,9 +150,9 @@ public class StringBody extends AbstractContentBody {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, charset};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (Charset) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -171,9 +171,9 @@ public class StringBody extends AbstractContentBody {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (Charset) objArr2[2]);
                 newInitContext.thisArg = this;

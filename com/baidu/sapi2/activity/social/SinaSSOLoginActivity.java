@@ -48,9 +48,9 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sinaSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,12 +64,12 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f36709f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f28474f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                     return;
                 }
-                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f36710g);
+                sinaSSOLoginActivity.a(((BaseSSOLoginActivity) sinaSSOLoginActivity).f28475g);
             }
         }
 
@@ -79,7 +79,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wbConnectErrorMessage) == null) {
                 Toast.makeText(this.a, wbConnectErrorMessage.getErrorMessage(), 0).show();
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f36709f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f28474f) {
                     sinaSSOLoginActivity.b(3001);
                     this.a.finish();
                 }
@@ -94,7 +94,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
                 String uid = oauth2AccessToken.getUid();
                 String urlBind = ParamsUtil.getUrlBind(this.a.configuration, SocialType.SINA_WEIBO_SSO, token, uid, this.a.configuration.sinaAppId);
                 SinaSSOLoginActivity sinaSSOLoginActivity = this.a;
-                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f36709f) {
+                if (((BaseSSOLoginActivity) sinaSSOLoginActivity).f28474f) {
                     Intent intent = new Intent();
                     intent.putExtra(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_ACCESS_TOKEN, token);
                     intent.putExtra("userId", uid);
@@ -131,9 +131,9 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -150,13 +150,13 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
             String str = p;
-            Log.d(str, "requestCode = " + i2 + " resultCode = " + i3 + " data = " + intent);
-            super.onActivityResult(i2, i3, intent);
-            this.n.authorizeCallBack(i2, i3, intent);
+            Log.d(str, "requestCode = " + i + " resultCode = " + i2 + " data = " + intent);
+            super.onActivityResult(i, i2, intent);
+            this.n.authorizeCallBack(i, i2, intent);
         }
     }
 
@@ -179,7 +179,7 @@ public class SinaSSOLoginActivity extends BaseSSOLoginActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.setupViews();
-            setTitleText(R.string.sapi_sdk_title_login_sina);
+            setTitleText(R.string.obfuscated_res_0x7f0f1051);
             RelativeLayout relativeLayout = this.rootView;
             if (relativeLayout != null) {
                 relativeLayout.setVisibility(4);

@@ -35,9 +35,9 @@ public class ColorSelector implements ISelector<ColorStateList, TextView> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,11 +77,11 @@ public class ColorSelector implements ISelector<ColorStateList, TextView> {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new ColorSelector() : (ColorSelector) invokeV.objValue;
     }
 
-    public ColorSelector defaultColor(@ColorRes int i2) {
+    public ColorSelector defaultColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            int color = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int color = SelectorHelper.getColor(i);
             this.normalColor = color;
             if (!this.hasSetDisabledColor) {
                 this.disabledColor = color;
@@ -100,67 +100,67 @@ public class ColorSelector implements ISelector<ColorStateList, TextView> {
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector disabledColor(@ColorRes int i2) {
+    public ColorSelector disabledColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            this.disabledColor = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.disabledColor = SelectorHelper.getColor(i);
             this.hasSetDisabledColor = true;
             return this;
         }
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector focusedColor(@ColorRes int i2) {
+    public ColorSelector focusedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.focusedColor = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.focusedColor = SelectorHelper.getColor(i);
             this.hasSetFocusedColor = true;
             return this;
         }
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector pressedColor(@ColorRes int i2) {
+    public ColorSelector pressedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.pressedColor = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.pressedColor = SelectorHelper.getColor(i);
             this.hasSetPressedColor = true;
             return this;
         }
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector selectedColor(@ColorRes int i2) {
+    public ColorSelector selectedColor(@ColorRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.selectedColor = SelectorHelper.getColor(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.selectedColor = SelectorHelper.getColor(i);
             this.hasSetSelectedColor = true;
             return this;
         }
         return (ColorSelector) invokeI.objValue;
     }
 
-    public ColorSelector selectorColor(@ColorRes int i2, @ColorRes int i3) {
+    public ColorSelector selectorColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i2, i3)) == null) {
-            this.pressedColor = i2;
-            this.normalColor = i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) {
+            this.pressedColor = i;
+            this.normalColor = i2;
             this.hasSetPressedColor = true;
             return this;
         }
         return (ColorSelector) invokeII.objValue;
     }
 
-    public ColorSelector textType(int i2) {
+    public ColorSelector textType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            this.textType = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            this.textType = i;
             return this;
         }
         return (ColorSelector) invokeI.objValue;

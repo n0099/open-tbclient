@@ -33,9 +33,9 @@ public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Sub
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Subscriber) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -175,10 +175,10 @@ public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Sub
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.subscription.request(j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.subscription.request(j);
         }
     }
 
@@ -189,9 +189,9 @@ public final class SerializedSubscriber<T> implements FlowableSubscriber<T>, Sub
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BottomNavigationMenu extends MenuBuilder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_ITEM_COUNT = 5;
@@ -29,9 +29,9 @@ public final class BottomNavigationMenu extends MenuBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,13 +41,13 @@ public final class BottomNavigationMenu extends MenuBuilder {
     }
 
     @Override // androidx.appcompat.view.menu.MenuBuilder
-    public MenuItem addInternal(int i2, int i3, int i4, CharSequence charSequence) {
+    public MenuItem addInternal(int i, int i2, int i3, CharSequence charSequence) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), charSequence})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), charSequence})) == null) {
             if (size() + 1 <= 5) {
                 stopDispatchingItemsChanged();
-                MenuItem addInternal = super.addInternal(i2, i3, i4, charSequence);
+                MenuItem addInternal = super.addInternal(i, i2, i3, charSequence);
                 if (addInternal instanceof MenuItemImpl) {
                     ((MenuItemImpl) addInternal).setExclusiveCheckable(true);
                 }
@@ -61,10 +61,10 @@ public final class BottomNavigationMenu extends MenuBuilder {
 
     @Override // androidx.appcompat.view.menu.MenuBuilder, android.view.Menu
     @NonNull
-    public SubMenu addSubMenu(int i2, int i3, int i4, CharSequence charSequence) {
+    public SubMenu addSubMenu(int i, int i2, int i3, CharSequence charSequence) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), charSequence})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), charSequence})) == null) {
             throw new UnsupportedOperationException("BottomNavigationView does not support submenus");
         }
         return (SubMenu) invokeCommon.objValue;

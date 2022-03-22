@@ -17,8 +17,8 @@ public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
 
     /* loaded from: classes7.dex */
     public static class RoundedVignetteDrawable extends RoundedBitmapDisplayer.RoundedDrawable {
-        public RoundedVignetteDrawable(Bitmap bitmap, int i2, int i3) {
-            super(bitmap, i2, i3);
+        public RoundedVignetteDrawable(Bitmap bitmap, int i, int i2) {
+            super(bitmap, i, i2);
         }
 
         @Override // com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer.RoundedDrawable, android.graphics.drawable.Drawable
@@ -32,8 +32,8 @@ public class RoundedVignetteBitmapDisplayer extends RoundedBitmapDisplayer {
         }
     }
 
-    public RoundedVignetteBitmapDisplayer(int i2, int i3) {
-        super(i2, i3);
+    public RoundedVignetteBitmapDisplayer(int i, int i2) {
+        super(i, i2);
     }
 
     @Override // com.kwad.sdk.core.imageloader.core.display.RoundedBitmapDisplayer, com.kwad.sdk.core.imageloader.core.display.BitmapDisplayer

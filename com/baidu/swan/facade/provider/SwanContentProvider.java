@@ -10,8 +10,8 @@ import android.os.Process;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.a;
-import c.a.p0.g.j.b.c;
+import c.a.n0.a.a;
+import c.a.n0.g.j.b.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanContentProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHORITY;
@@ -65,9 +65,9 @@ public class SwanContentProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -87,7 +87,7 @@ public class SwanContentProvider extends ContentProvider {
                 return true;
             }
             String a = c.a(callingPackage);
-            Set<String> a2 = c.a.p0.d.g.c.e().a();
+            Set<String> a2 = c.a.n0.d.g.c.e().a();
             z = (a2 == null || !a2.contains(a)) ? false : false;
             if (z) {
                 sAccreditedSet.add(callingPackage);
@@ -109,11 +109,11 @@ public class SwanContentProvider extends ContentProvider {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) ? checkPermission() : invokeV.booleanValue;
     }
 
-    private c.a.p0.g.j.a.a getProcessor(int i2) {
+    private c.a.n0.g.j.a.a getProcessor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            Class<? extends c.a.p0.g.j.a.a> processorClass = ProcessorInfo.getProcessorClass(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            Class<? extends c.a.n0.g.j.a.a> processorClass = ProcessorInfo.getProcessorClass(i);
             if (processorClass != null) {
                 try {
                     return processorClass.newInstance();
@@ -127,19 +127,19 @@ public class SwanContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (c.a.p0.g.j.a.a) invokeI.objValue;
+        return (c.a.n0.g.j.a.a) invokeI.objValue;
     }
 
-    public static boolean isSameApp(int i2, int i3) {
+    public static boolean isSameApp(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) ? i2 % 100000 == i3 % 100000 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i % 100000 == i2 % 100000 : invokeII.booleanValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
-        c.a.p0.g.j.a.a processor;
+        c.a.n0.g.j.a.a processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, uri, str, strArr)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -165,7 +165,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
-        c.a.p0.g.j.a.a processor;
+        c.a.n0.g.j.a.a processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, uri, contentValues)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -190,7 +190,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        c.a.p0.g.j.a.a processor;
+        c.a.n0.g.j.a.a processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048580, this, uri, strArr, str, strArr2, str2)) == null) {
             if (!checkReadPermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {
@@ -204,7 +204,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
-        c.a.p0.g.j.a.a processor;
+        c.a.n0.g.j.a.a processor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, uri, contentValues, str, strArr)) == null) {
             if (!checkWritePermission() || (processor = getProcessor(sUriMatcher.match(uri))) == null) {

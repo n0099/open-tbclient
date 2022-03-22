@@ -14,9 +14,9 @@ public class LottieImageAsset {
     public final int width;
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public LottieImageAsset(int i2, int i3, String str, String str2, String str3) {
-        this.width = i2;
-        this.height = i3;
+    public LottieImageAsset(int i, int i2, String str, String str2, String str3) {
+        this.width = i;
+        this.height = i2;
         this.id = str;
         this.fileName = str2;
         this.dirName = str3;

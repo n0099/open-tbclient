@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.io.InputStream;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class EofSensorInputStream extends InputStream implements ConnectionReleaseTrigger {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class EofSensorInputStream extends InputStream implements ConnectionRelea
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream, eofSensorWatcher};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,9 +66,9 @@ public class EofSensorInputStream extends InputStream implements ConnectionRelea
         }
     }
 
-    public void checkEOF(int i2) throws IOException {
+    public void checkEOF(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -109,10 +109,10 @@ public class EofSensorInputStream extends InputStream implements ConnectionRelea
     }
 
     @Override // java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048585, this, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048585, this, bArr, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeLII.intValue;

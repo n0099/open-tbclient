@@ -4,14 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.j;
-import i.k;
-import i.n.b;
-import i.p.a;
-import i.q.f;
+import g.d;
+import g.j;
+import g.k;
+import g.n.b;
+import g.p.a;
+import g.q.f;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,31 +19,31 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements d.
     public final int numberOfSubscribers;
     public final a<? extends T> source;
 
-    public OnSubscribeAutoConnect(a<? extends T> aVar, int i2, b<? super k> bVar) {
+    public OnSubscribeAutoConnect(a<? extends T> aVar, int i, b<? super k> bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i2), bVar};
+            Object[] objArr = {aVar, Integer.valueOf(i), bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i2 > 0) {
+        if (i > 0) {
             this.source = aVar;
-            this.numberOfSubscribers = i2;
+            this.numberOfSubscribers = i;
             this.connection = bVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    @Override // i.d.a, i.n.b
+    @Override // g.d.a, g.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }

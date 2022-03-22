@@ -22,17 +22,17 @@ public interface b {
             bVar.a(subTaskState);
         }
 
-        public static boolean b(b bVar, TaskInfo taskInfo, int i2) {
+        public static boolean b(b bVar, TaskInfo taskInfo, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bVar, taskInfo, i2)) == null) ? i2 == 304 : invokeLLI.booleanValue;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
         }
 
         @CallSuper
         public static void c(b bVar, SubTaskState subTaskState) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(65538, null, bVar, subTaskState) == null) {
-                c.a.j.k.e.a.a.f3782c.b(subTaskState);
+                c.a.j.k.e.a.a.f3255c.b(subTaskState);
             }
         }
     }
@@ -40,5 +40,5 @@ public interface b {
     @CallSuper
     void a(SubTaskState subTaskState);
 
-    boolean b(TaskInfo taskInfo, int i2);
+    boolean b(TaskInfo taskInfo, int i);
 }

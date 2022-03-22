@@ -16,15 +16,15 @@ import java.util.Map;
 public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlProtocol {
     public static final String FILTER_ORIGINAL = "FILTER_ORIGINAL";
 
-    void addMultiMediaData(int i2, List<MultiMediaData> list);
+    void addMultiMediaData(int i, List<MultiMediaData> list);
 
     void addOneTrack(MediaTrack mediaTrack);
 
     void addStickerData(MultiMediaData multiMediaData, String str);
 
-    void deleteMultiMediaData(int i2);
+    void deleteMultiMediaData(int i);
 
-    int editOneEffect(int i2, MediaAEffectConfig mediaAEffectConfig, long j2, long j3);
+    int editOneEffect(int i, MediaAEffectConfig mediaAEffectConfig, long j, long j2);
 
     String exportConfigJson(String str);
 
@@ -32,7 +32,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     ArrayList<MultiMediaData> getInputMultiMediaData();
 
-    MultiMediaData getMultiMediaData(int i2);
+    MultiMediaData getMultiMediaData(int i);
 
     MediaTrack getOriginEffectTrack();
 
@@ -44,24 +44,24 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     float getVideoRatio();
 
-    void modifyTimeByRange(long j2, long j3);
+    void modifyTimeByRange(long j, long j2);
 
     void needDrawEffect(boolean z);
 
-    boolean rangeSegmentScope(int i2, long j2, long j3);
+    boolean rangeSegmentScope(int i, long j, long j2);
 
     void removeLastEffect();
 
     void removeOneTrack(String str);
 
-    void replaceStickerData(int i2, MultiMediaData multiMediaData, String str);
+    void replaceStickerData(int i, MultiMediaData multiMediaData, String str);
 
-    void setAngle(int i2, float f2);
+    void setAngle(int i, float f2);
 
     @Deprecated
-    void setAngle(int i2, int i3);
+    void setAngle(int i, int i2);
 
-    void setAudioChangeType(int i2);
+    void setAudioChangeType(int i);
 
     void setAudioChangeType(int[] iArr);
 
@@ -71,9 +71,9 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setFilter(float f2, String str);
 
-    void setFilter(int i2, float f2, String str);
+    void setFilter(int i, float f2, String str);
 
-    void setFrameRate(int i2);
+    void setFrameRate(int i);
 
     void setMediaTrackConfig(MediaTrackConfig mediaTrackConfig);
 
@@ -91,7 +91,7 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setSubtitleOnStickerLayerTop();
 
-    void setTransitionByIndex(int i2, MediaTransitionConfig mediaTransitionConfig);
+    void setTransitionByIndex(int i, MediaTransitionConfig mediaTransitionConfig);
 
     void setVideoRatio(float f2);
 
@@ -99,9 +99,9 @@ public interface IVlogEditManager extends IVLogLifeProtocol, IVLogPlayControlPro
 
     void setY(float f2);
 
-    void split(int i2, long j2, OnMultiMediaSplitListener onMultiMediaSplitListener);
+    void split(int i, long j, OnMultiMediaSplitListener onMultiMediaSplitListener);
 
     void updateInputDataOrder(List<MultiMediaData> list);
 
-    void updateStickerDataRange(int i2, String str, long j2, long j3);
+    void updateStickerDataRange(int i, String str, long j, long j2);
 }

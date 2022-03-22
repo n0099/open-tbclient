@@ -34,9 +34,9 @@ public interface MessageLite extends MessageLiteOrBuilder {
 
         Builder mergeFrom(byte[] bArr) throws InvalidProtocolBufferException;
 
-        Builder mergeFrom(byte[] bArr, int i2, int i3) throws InvalidProtocolBufferException;
+        Builder mergeFrom(byte[] bArr, int i, int i2) throws InvalidProtocolBufferException;
 
-        Builder mergeFrom(byte[] bArr, int i2, int i3, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
+        Builder mergeFrom(byte[] bArr, int i, int i2, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
 
         Builder mergeFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException;
     }

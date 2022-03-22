@@ -10,14 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
+import com.yy.gslbsdk.db.ProbeTB;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,9 +73,9 @@ public class NetworkStatRecord {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -238,7 +237,7 @@ public class NetworkStatRecord {
             sb.append(this.httpDnsAreaInfo);
             sb.append(", httpDnsAreaUpdateTime=");
             sb.append(this.httpDnsAreaInfoLastUpdateTime);
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
@@ -256,7 +255,7 @@ public class NetworkStatRecord {
                     jSONObject.put("url", this.url);
                 }
                 if (!TextUtils.isEmpty(this.protocol)) {
-                    jSONObject.put("protocol", this.protocol);
+                    jSONObject.put(ProbeTB.PROTOCOL, this.protocol);
                 }
                 if (!TextUtils.isEmpty(this.netType)) {
                     jSONObject.put("netType", this.netType);
@@ -299,7 +298,7 @@ public class NetworkStatRecord {
                     jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, getStackTraceString(this.exception));
                 }
                 if (this.statusCode != -1) {
-                    jSONObject.put(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, this.statusCode);
+                    jSONObject.put("statusCode", this.statusCode);
                 }
                 if (!TextUtils.isEmpty(this.localIP)) {
                     jSONObject.put("localIP", this.localIP);

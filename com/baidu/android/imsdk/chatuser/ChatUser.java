@@ -73,9 +73,9 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -94,24 +94,24 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ChatUser[] newArray(int i2) {
+            public ChatUser[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ChatUser[i2] : (ChatUser[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ChatUser[i] : (ChatUser[]) invokeI.objValue;
             }
         };
     }
 
-    public ChatUser(long j2, long j3, String str, String str2) {
+    public ChatUser(long j, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str, str2};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -140,8 +140,8 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mSpecialIdentity = "";
         this.mUserExt = "";
         this.mGroupStatus = 1;
-        this.mUk = j2;
-        this.mBuid = j3;
+        this.mUk = j;
+        this.mBuid = j2;
         this.mUserName = str;
         this.mIconUrl = str2;
     }
@@ -373,38 +373,38 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         return (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) ? this.mIsIpLocatonExist == 0 : invokeV.booleanValue;
     }
 
-    public void setAccountType(int i2) {
+    public void setAccountType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.mAccountType = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.mAccountType = i;
         }
     }
 
-    public void setBlack(int i2) {
+    public void setBlack(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.mAttrBlack = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.mAttrBlack = i;
         }
     }
 
-    public void setDisturb(int i2) {
+    public void setDisturb(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            this.mAttrDisturb = i2;
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            this.mAttrDisturb = i;
         }
     }
 
-    public void setGroupStatus(int i2) {
+    public void setGroupStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.mGroupStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.mGroupStatus = i;
         }
     }
 
-    public void setHasSpecialIdentity(int i2) {
+    public void setHasSpecialIdentity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mHasSpecialIdentity = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mHasSpecialIdentity = i;
         }
     }
 
@@ -429,45 +429,45 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setIsIpLocationExist(int i2) {
+    public void setIsIpLocationExist(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.mIsIpLocatonExist = i2;
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.mIsIpLocatonExist = i;
         }
     }
 
-    public void setLastUpdate(long j2) {
+    public void setLastUpdate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048619, this, j2) == null) {
-            this.mLastUpdate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
+            this.mLastUpdate = j;
         }
     }
 
-    public void setMarkTop(int i2) {
+    public void setMarkTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.mMarkTop = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.mMarkTop = i;
         }
     }
 
-    public void setMarkTopTime(long j2) {
+    public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048621, this, j2) == null) {
-            this.mMarkTopTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048621, this, j) == null) {
+            this.mMarkTopTime = j;
         }
     }
 
-    public void setPhone(long j2) {
+    public void setPhone(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048622, this, j2) == null) {
-            this.mPhone = j2;
+        if (interceptable == null || interceptable.invokeJ(1048622, this, j) == null) {
+            this.mPhone = j;
         }
     }
 
-    public void setPhoneRelation(int i2) {
+    public void setPhoneRelation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            this.mPhoneRelation = i2;
+        if (interceptable == null || interceptable.invokeI(1048623, this, i) == null) {
+            this.mPhoneRelation = i;
         }
     }
 
@@ -478,24 +478,24 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            this.mSex = i2;
+        if (interceptable == null || interceptable.invokeI(1048625, this, i) == null) {
+            this.mSex = i;
         }
     }
 
-    public void setShield(int i2) {
+    public void setShield(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048626, this, i2) == null) {
-            this.mShield = i2;
+        if (interceptable == null || interceptable.invokeI(1048626, this, i) == null) {
+            this.mShield = i;
         }
     }
 
-    public void setShieldTime(long j2) {
+    public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048627, this, j2) == null) {
-            this.mShieldTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048627, this, j) == null) {
+            this.mShieldTime = j;
         }
     }
 
@@ -506,10 +506,10 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         }
     }
 
-    public void setSubscribe(int i2) {
+    public void setSubscribe(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            this.mSubscribe = i2;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.mSubscribe = i;
         }
     }
 
@@ -574,9 +574,9 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048637, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048637, this, parcel, i) == null) {
             parcel.writeLong(this.mUk);
             parcel.writeLong(this.mBuid);
             parcel.writeString(this.mUserName);
@@ -588,7 +588,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             parcel.writeString(this.mUserNamePy);
             parcel.writeInt(this.mAccountType);
             parcel.writeInt(this.mIsIpLocatonExist);
-            parcel.writeParcelable(this.mIpInfo, i2);
+            parcel.writeParcelable(this.mIpInfo, i);
             parcel.writeString(this.mVipId);
             parcel.writeString(this.vPortrait);
             parcel.writeString(this.mIdentity);
@@ -614,9 +614,9 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

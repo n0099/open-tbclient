@@ -15,25 +15,25 @@ public final class FinderPattern {
     public final int[] startEnd;
     public final int value;
 
-    public FinderPattern(int i2, int[] iArr, int i3, int i4, int i5) {
+    public FinderPattern(int i, int[] iArr, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), iArr, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), iArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.value = i2;
+        this.value = i;
         this.startEnd = iArr;
-        float f2 = i5;
-        this.resultPoints = new ResultPoint[]{new ResultPoint(i3, f2), new ResultPoint(i4, f2)};
+        float f2 = i4;
+        this.resultPoints = new ResultPoint[]{new ResultPoint(i2, f2), new ResultPoint(i3, f2)};
     }
 
     public boolean equals(Object obj) {

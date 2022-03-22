@@ -14,15 +14,15 @@ public class f {
         return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) ? b(bArr, 0, bArr.length) : (byte[]) invokeL.objValue;
     }
 
-    public static byte[] b(byte[] bArr, int i2, int i3) {
+    public static byte[] b(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, bArr, i, i2)) == null) {
             if (bArr == null || bArr.length == 0) {
                 return new byte[0];
             }
-            byte[] bArr2 = new byte[i3];
-            System.arraycopy(bArr, i2, bArr2, 0, i3);
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
             return bArr2;
         }
         return (byte[]) invokeLII.objValue;

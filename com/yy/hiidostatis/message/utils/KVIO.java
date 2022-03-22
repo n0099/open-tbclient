@@ -13,7 +13,7 @@ import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.ProcessUtil;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KVIO {
     public static /* synthetic */ Interceptable $ic;
     public static KVIO kvio;
@@ -28,9 +28,9 @@ public class KVIO {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -158,16 +158,16 @@ public class KVIO {
         return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f2)) == null) ? this.cache.getFloat(str, f2) : invokeLF.floatValue;
     }
 
-    public int decodeInt(String str, int i2) {
+    public int decodeInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i2)) == null) ? this.cache.getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) ? this.cache.getInt(str, i) : invokeLI.intValue;
     }
 
-    public long decodeLong(String str, long j2) {
+    public long decodeLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j2)) == null) ? this.cache.getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048588, this, str, j)) == null) ? this.cache.getLong(str, j) : invokeLJ.longValue;
     }
 
     public String decodeString(String str, String str2) {
@@ -182,11 +182,11 @@ public class KVIO {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) ? decodeStringSet(str, set, HashSet.class) : (Set) invokeLL.objValue;
     }
 
-    public boolean encode(String str, int i2) {
+    public boolean encode(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, str, i2)) == null) {
-            this.editor.putInt(str, i2).apply();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048595, this, str, i)) == null) {
+            this.editor.putInt(str, i).apply();
             return true;
         }
         return invokeLI.booleanValue;
@@ -198,11 +198,11 @@ public class KVIO {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, this, str, set, cls)) == null) ? this.cache.getStringSet(str, set) : (Set) invokeLLL.objValue;
     }
 
-    public boolean encode(String str, long j2) {
+    public boolean encode(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j2)) == null) {
-            this.editor.putLong(str, j2).apply();
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048596, this, str, j)) == null) {
+            this.editor.putLong(str, j).apply();
             return true;
         }
         return invokeLJ.booleanValue;

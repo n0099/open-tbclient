@@ -10,8 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.bq;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEFAULT_EVENT_ENCRYPTED = true;
@@ -29,7 +28,7 @@ public class Config {
     public long mPerfUploadFrequency;
     public boolean mPerfUploadSwitchOpen;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +45,9 @@ public class Config {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,11 +88,11 @@ public class Config {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setEventUploadFrequency(long j2) {
+        public Builder setEventUploadFrequency(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-                this.mEventUploadFrequency = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+                this.mEventUploadFrequency = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -109,21 +108,21 @@ public class Config {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setMaxFileLength(long j2) {
+        public Builder setMaxFileLength(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
-                this.mMaxFileLength = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j)) == null) {
+                this.mMaxFileLength = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
         }
 
-        public Builder setPerfUploadFrequency(long j2) {
+        public Builder setPerfUploadFrequency(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j2)) == null) {
-                this.mPerfUploadFrequency = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048582, this, j)) == null) {
+                this.mPerfUploadFrequency = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -145,9 +144,9 @@ public class Config {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -168,9 +167,9 @@ public class Config {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, builder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -268,7 +267,7 @@ public class Config {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "Config{mEventEncrypted=" + this.mEventEncrypted + ", mAESKey='" + this.mAESKey + ExtendedMessageFormat.QUOTE + ", mMaxFileLength=" + this.mMaxFileLength + ", mEventUploadSwitchOpen=" + this.mEventUploadSwitchOpen + ", mPerfUploadSwitchOpen=" + this.mPerfUploadSwitchOpen + ", mEventUploadFrequency=" + this.mEventUploadFrequency + ", mPerfUploadFrequency=" + this.mPerfUploadFrequency + ExtendedMessageFormat.END_FE;
+            return "Config{mEventEncrypted=" + this.mEventEncrypted + ", mAESKey='" + this.mAESKey + "', mMaxFileLength=" + this.mMaxFileLength + ", mEventUploadSwitchOpen=" + this.mEventUploadSwitchOpen + ", mPerfUploadSwitchOpen=" + this.mPerfUploadSwitchOpen + ", mEventUploadFrequency=" + this.mEventUploadFrequency + ", mPerfUploadFrequency=" + this.mPerfUploadFrequency + '}';
         }
         return (String) invokeV.objValue;
     }

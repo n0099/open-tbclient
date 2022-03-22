@@ -15,10 +15,10 @@ public class f {
     public static final String a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f29220b;
+    public static byte[] f23649b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Charset f29221c;
+    public static final Charset f23650c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,8 +34,8 @@ public class f {
                 return;
             }
         }
-        f29220b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
-        f29221c = Charset.forName("UTF-8");
+        f23649b = new byte[]{68, 64, 94, 49, 69, Base64.INTERNAL_PADDING, 50, 83};
+        f23650c = Charset.forName("UTF-8");
     }
 
     public f() {
@@ -43,9 +43,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -59,10 +59,10 @@ public class f {
             try {
                 int length = bArr.length;
                 byte[] bArr2 = new byte[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    bArr2[i2] = bArr[i2];
-                    for (byte b2 : f29220b) {
-                        bArr2[i2] = (byte) (b2 ^ bArr2[i2]);
+                for (int i = 0; i < length; i++) {
+                    bArr2[i] = bArr[i];
+                    for (byte b2 : f23649b) {
+                        bArr2[i] = (byte) (b2 ^ bArr2[i]);
                     }
                 }
                 return new String(bArr2);

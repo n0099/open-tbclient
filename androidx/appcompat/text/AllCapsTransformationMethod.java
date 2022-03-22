@@ -26,9 +26,9 @@ public class AllCapsTransformationMethod implements TransformationMethod {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,9 +51,9 @@ public class AllCapsTransformationMethod implements TransformationMethod {
     }
 
     @Override // android.text.method.TransformationMethod
-    public void onFocusChanged(View view, CharSequence charSequence, boolean z, int i2, Rect rect) {
+    public void onFocusChanged(View view, CharSequence charSequence, boolean z, int i, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, charSequence, Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, charSequence, Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
         }
     }
 }

@@ -12,7 +12,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageMonitorImpl implements MessageMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PROCESS_ID_KEY = "hiido_process_id";
@@ -22,7 +22,7 @@ public class MessageMonitorImpl implements MessageMonitor {
     public final ConcurrentHashMap<String, MessageParams> msgParams;
     public int processId;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class MessageParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class MessageMonitorImpl implements MessageMonitor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,9 +90,9 @@ public class MessageMonitorImpl implements MessageMonitor {
             newInitContext.initArgs = r2;
             Object[] objArr = {messageConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -9,18 +9,18 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.ss.android.downloadlib.addownload.b.e f58075b;
+    public com.ss.android.downloadlib.addownload.b.e f42821b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f58076c = new AtomicBoolean(false);
+    public AtomicBoolean f42822c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f58077d = new AtomicBoolean(false);
+    public AtomicBoolean f42823d = new AtomicBoolean(false);
 
     public d(Handler handler) {
         this.a = handler;
@@ -37,11 +37,11 @@ public class d {
         return com.ss.android.downloadlib.g.l.a(0L);
     }
 
-    private void b(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j2, long j3) {
+    private void b(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j, long j2) {
         bVar.l("1");
         com.ss.android.downloadlib.addownload.b.i.a().a(bVar);
         try {
-            jSONObject.putOpt("quite_clean_size", Long.valueOf(j3 - j2));
+            jSONObject.putOpt("quite_clean_size", Long.valueOf(j2 - j));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
@@ -49,30 +49,30 @@ public class d {
     }
 
     public void a(com.ss.android.downloadlib.addownload.b.e eVar) {
-        this.f58075b = eVar;
+        this.f42821b = eVar;
     }
 
     public boolean a() {
-        return this.f58077d.get();
+        return this.f42823d.get();
     }
 
     public void a(boolean z) {
-        this.f58077d.set(z);
+        this.f42823d.set(z);
     }
 
-    public void a(final int i2, final long j2, long j3, final e.a aVar) {
-        this.f58077d.set(false);
+    public void a(final int i, final long j, long j2, final e.a aVar) {
+        this.f42823d.set(false);
         if (aVar == null) {
             return;
         }
-        if (com.ss.android.downloadlib.g.e.f(i2) && com.ss.android.downloadlib.g.e.e(i2)) {
-            long c2 = com.ss.android.downloadlib.g.e.c(i2);
-            this.f58076c.set(false);
-            final String downloadUrl = this.f58075b.f58026b.getDownloadUrl();
+        if (com.ss.android.downloadlib.g.e.f(i) && com.ss.android.downloadlib.g.e.e(i)) {
+            long c2 = com.ss.android.downloadlib.g.e.c(i);
+            this.f42822c.set(false);
+            final String downloadUrl = this.f42821b.f42774b.getDownloadUrl();
             com.ss.android.downloadad.api.a.b b2 = com.ss.android.downloadlib.addownload.b.f.a().b(downloadUrl);
             if (b2 == null) {
-                com.ss.android.downloadlib.addownload.b.e eVar = this.f58075b;
-                b2 = new com.ss.android.downloadad.api.a.b(eVar.f58026b, eVar.f58027c, eVar.f58028d, 0);
+                com.ss.android.downloadlib.addownload.b.e eVar = this.f42821b;
+                b2 = new com.ss.android.downloadad.api.a.b(eVar.f42774b, eVar.f42775c, eVar.f42776d, 0);
                 com.ss.android.downloadlib.addownload.b.f.a().a(b2);
             }
             final com.ss.android.downloadad.api.a.b bVar = b2;
@@ -81,14 +81,14 @@ public class d {
                 j.l().a(bVar.b());
             }
             com.ss.android.downloadlib.addownload.c.d.a().a(bVar.a());
-            boolean d2 = com.ss.android.downloadlib.g.e.d(i2);
-            if (j3 > 0) {
-                a(i2, downloadUrl, j3, bVar, j2, aVar);
+            boolean d2 = com.ss.android.downloadlib.g.e.d(i);
+            if (j2 > 0) {
+                a(i, downloadUrl, j2, bVar, j, aVar);
             } else if (d2) {
                 a(downloadUrl, bVar, new e.b() { // from class: com.ss.android.downloadlib.addownload.d.1
                     @Override // com.ss.android.downloadlib.addownload.e.b
-                    public void a(long j4) {
-                        d.this.a(i2, downloadUrl, j4, bVar, j2, aVar);
+                    public void a(long j3) {
+                        d.this.a(i, downloadUrl, j3, bVar, j, aVar);
                     }
                 });
             } else {
@@ -97,10 +97,10 @@ public class d {
             this.a.postDelayed(new Runnable() { // from class: com.ss.android.downloadlib.addownload.d.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (d.this.f58076c.get()) {
+                    if (d.this.f42822c.get()) {
                         return;
                     }
-                    d.this.f58076c.set(true);
+                    d.this.f42822c.set(true);
                     aVar.a();
                 }
             }, c2);
@@ -116,10 +116,10 @@ public class d {
         com.ss.android.socialbase.downloader.network.a.b.a(str, new com.ss.android.socialbase.downloader.network.j() { // from class: com.ss.android.downloadlib.addownload.d.3
             @Override // com.ss.android.socialbase.downloader.network.j
             public void a(Map<String, String> map) {
-                if (d.this.f58076c.get()) {
+                if (d.this.f42822c.get()) {
                     return;
                 }
-                d.this.f58076c.set(true);
+                d.this.f42822c.set(true);
                 long a = d.this.a(map);
                 if (a > 0) {
                     JSONObject jSONObject = new JSONObject();
@@ -153,17 +153,17 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str, long j2, final com.ss.android.downloadad.api.a.b bVar, long j3, final e.a aVar) {
-        this.f58076c.set(true);
+    public void a(int i, String str, long j, final com.ss.android.downloadad.api.a.b bVar, long j2, final e.a aVar) {
+        this.f42822c.set(true);
         boolean z = false;
-        if (j2 > 0) {
+        if (j > 0) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("apk_size", Long.valueOf(j2));
+                jSONObject.putOpt("apk_size", Long.valueOf(j));
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
-            long longValue = (Double.valueOf((com.ss.android.downloadlib.g.e.a(i2) + 1.0d) * j2).longValue() + com.ss.android.downloadlib.g.e.b(i2)) - j3;
+            long longValue = (Double.valueOf((com.ss.android.downloadlib.g.e.a(i) + 1.0d) * j).longValue() + com.ss.android.downloadlib.g.e.b(i)) - j2;
             long d2 = d();
             if (d2 < longValue) {
                 a(bVar, jSONObject, longValue, d2);
@@ -174,7 +174,7 @@ public class d {
                     final String a = bVar.a();
                     com.ss.android.downloadlib.addownload.c.d.a().a(a, new com.ss.android.downloadlib.addownload.c.e() { // from class: com.ss.android.downloadlib.addownload.d.4
                     });
-                    z = a(i2, bVar, str, longValue);
+                    z = a(i, bVar, str, longValue);
                     if (z) {
                         bVar.e(true);
                     }
@@ -194,10 +194,10 @@ public class d {
         });
     }
 
-    private boolean a(int i2, @NonNull com.ss.android.downloadad.api.a.b bVar, String str, long j2) {
-        if (com.ss.android.downloadlib.g.e.f(i2)) {
+    private boolean a(int i, @NonNull com.ss.android.downloadad.api.a.b bVar, String str, long j) {
+        if (com.ss.android.downloadlib.g.e.f(i)) {
             if (j.l() != null) {
-                return j.l().a(i2, str, true, j2);
+                return j.l().a(i, str, true, j);
             }
             JSONObject jSONObject = new JSONObject();
             try {
@@ -211,11 +211,11 @@ public class d {
         return false;
     }
 
-    public static boolean a(final DownloadInfo downloadInfo, long j2) {
+    public static boolean a(final DownloadInfo downloadInfo, long j) {
         int id = downloadInfo.getId();
         boolean z = false;
         if (com.ss.android.downloadlib.g.e.f(id)) {
-            if (j.l() != null && (z = j.l().a(id, downloadInfo.getUrl(), false, j2))) {
+            if (j.l() != null && (z = j.l().a(id, downloadInfo.getUrl(), false, j))) {
                 com.ss.android.downloadlib.addownload.c.d.a().a(downloadInfo.getUrl(), new com.ss.android.downloadlib.addownload.c.e() { // from class: com.ss.android.downloadlib.addownload.d.6
                 });
             }
@@ -234,8 +234,8 @@ public class d {
         return jSONObject;
     }
 
-    public static void a(int i2) {
-        if (com.ss.android.downloadlib.g.e.f(i2) && j.l() != null && j.l().b()) {
+    public static void a(int i) {
+        if (com.ss.android.downloadlib.g.e.f(i) && j.l() != null && j.l().b()) {
             j.l().c();
         }
     }
@@ -260,10 +260,10 @@ public class d {
         com.ss.android.downloadlib.d.a.a().a("clean_quite_finish", jSONObject, bVar);
     }
 
-    private void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j2, long j3) {
+    private void a(com.ss.android.downloadad.api.a.b bVar, JSONObject jSONObject, long j, long j2) {
         try {
-            jSONObject.putOpt("available_space", Long.valueOf(j3));
-            jSONObject.putOpt("apk_download_need_size", Long.valueOf(j2));
+            jSONObject.putOpt("available_space", Long.valueOf(j2));
+            jSONObject.putOpt("apk_download_need_size", Long.valueOf(j));
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

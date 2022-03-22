@@ -1,6 +1,6 @@
 package com.baidu.tbadk.newFriends;
 
-import c.a.r0.s1.g.a;
+import c.a.p0.u1.g.a;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,9 +20,9 @@ public class ResponseNewFriendDataMessage extends CustomResponsedMessage<a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;

@@ -24,9 +24,9 @@ public class CurrencySwitchResponseMessage extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,10 +39,10 @@ public class CurrencySwitchResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 this.isSwitchSuccess = jSONObject.optInt("convert_success", 0) == 1;
                 this.tipMessage = jSONObject.optString("convert_msg");

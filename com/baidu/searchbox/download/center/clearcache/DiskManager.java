@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.devices.StorageUtils;
@@ -90,16 +91,16 @@ public final class DiskManager {
             $VALUES = new DiskLevel[]{diskLevel, diskLevel2, diskLevel3};
         }
 
-        public DiskLevel(String str, int i2, String str2, int i3) {
+        public DiskLevel(String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -109,7 +110,7 @@ public final class DiskManager {
                 }
             }
             this.desc = str2;
-            this.value = i3;
+            this.value = i2;
         }
 
         public static DiskLevel valueOf(String str) {
@@ -173,16 +174,16 @@ public final class DiskManager {
             $VALUES = new NotifyLevel[]{notifyLevel, notifyLevel2, notifyLevel3, notifyLevel4};
         }
 
-        public NotifyLevel(String str, int i2) {
+        public NotifyLevel(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -256,16 +257,16 @@ public final class DiskManager {
             $VALUES = new QuotaBusiness[]{quotaBusiness, quotaBusiness2, quotaBusiness3, quotaBusiness4, quotaBusiness5, quotaBusiness6, quotaBusiness7, quotaBusiness8};
         }
 
-        public QuotaBusiness(String str, int i2, long j2, long j3, long j4) {
+        public QuotaBusiness(String str, int i, long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {str, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -274,9 +275,9 @@ public final class DiskManager {
                     return;
                 }
             }
-            this.normal = j2;
-            this.warning = j3;
-            this.critical = j4;
+            this.normal = j;
+            this.warning = j2;
+            this.critical = j3;
         }
 
         public static QuotaBusiness valueOf(String str) {
@@ -364,9 +365,9 @@ public final class DiskManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -374,17 +375,17 @@ public final class DiskManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final DiskLevel getCurrentAppLevel(DiskLevel diskLevel, long j2) {
+    public final DiskLevel getCurrentAppLevel(DiskLevel diskLevel, long j) {
         InterceptResult invokeLJ;
         DiskLevel diskLevel2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, this, diskLevel, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, this, diskLevel, j)) == null) {
             if (!Intrinsics.areEqual("1", DiskManagerSharedPrefsUtils.INSTANCE.getString(DiskManagerSharedPrefsUtils.SP_KEY_APP_LIMIT_SWITCH, "0"))) {
                 return DiskLevel.NORMAL;
             }
-            long j3 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_APP_CRITICAL_LIMIT, 0L);
-            long j4 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_APP_WARING_LIMIT, 0L);
-            if (j3 != 0 && j4 != 0) {
+            long j2 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_APP_CRITICAL_LIMIT, 0L);
+            long j3 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_APP_WARING_LIMIT, 0L);
+            if (j2 != 0 && j3 != 0) {
                 IClearCacheContext clearCacheContext = ClearCacheRuntime.getClearCacheContext();
                 Intrinsics.checkNotNullExpressionValue(clearCacheContext, "ClearCacheRuntime.getClearCacheContext()");
                 List<File> appFileList = clearCacheContext.getAppFileList();
@@ -392,21 +393,21 @@ public final class DiskManager {
                 IClearCacheContext clearCacheContext2 = ClearCacheRuntime.getClearCacheContext();
                 Intrinsics.checkNotNullExpressionValue(clearCacheContext2, "ClearCacheRuntime.getClearCacheContext()");
                 long calculateFileListSize = DiskUtilKt.calculateFileListSize(appFileList, clearCacheContext2.getUserAssetFileList(), null);
-                int i2 = MEMORY_BASE_UNIT;
-                long j5 = (calculateFileListSize / i2) / i2;
-                if (j5 <= 0) {
+                int i = MEMORY_BASE_UNIT;
+                long j4 = (calculateFileListSize / i) / i;
+                if (j4 <= 0) {
                     return DiskLevel.NORMAL;
                 }
-                if (j5 >= j3) {
+                if (j4 >= j2) {
                     diskLevel2 = DiskLevel.CRITICAL;
-                } else if (j4 <= j5 && j3 >= j5) {
+                } else if (j3 <= j4 && j2 >= j4) {
                     diskLevel2 = DiskLevel.WARNING;
                 } else {
                     diskLevel2 = DiskLevel.NORMAL;
                 }
                 if (diskLevel != diskLevel2) {
-                    int i3 = WhenMappings.$EnumSwitchMapping$1[diskLevel.ordinal()];
-                    return i3 != 1 ? i3 != 2 ? (i3 == 3 && j5 < j4 + j2) ? DiskLevel.NORMAL : diskLevel2 : (j5 < j4 - j2 || j5 > j3 + j2) ? diskLevel2 : DiskLevel.WARNING : j5 > j3 - j2 ? DiskLevel.CRITICAL : diskLevel2;
+                    int i2 = WhenMappings.$EnumSwitchMapping$1[diskLevel.ordinal()];
+                    return i2 != 1 ? i2 != 2 ? (i2 == 3 && j4 < j3 + j) ? DiskLevel.NORMAL : diskLevel2 : (j4 < j3 - j || j4 > j2 + j) ? diskLevel2 : DiskLevel.WARNING : j4 > j2 - j ? DiskLevel.CRITICAL : diskLevel2;
                 }
                 return diskLevel2;
             }
@@ -416,24 +417,24 @@ public final class DiskManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final DiskLevel getCurrentDiskLevel(DiskLevel diskLevel, long j2) {
+    public final DiskLevel getCurrentDiskLevel(DiskLevel diskLevel, long j) {
         InterceptResult invokeLJ;
         DiskLevel diskLevel2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, this, diskLevel, j2)) == null) {
-            long j3 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_CRITICAL_LIMIT, 0L);
-            long j4 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_WARING_LIMIT, 0L);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65548, this, diskLevel, j)) == null) {
+            long j2 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_CRITICAL_LIMIT, 0L);
+            long j3 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_WARING_LIMIT, 0L);
             long diskAvailSizeByM = getDiskAvailSizeByM();
-            if (diskAvailSizeByM <= j3) {
+            if (diskAvailSizeByM <= j2) {
                 diskLevel2 = DiskLevel.CRITICAL;
-            } else if (j3 <= diskAvailSizeByM && j4 >= diskAvailSizeByM) {
+            } else if (j2 <= diskAvailSizeByM && j3 >= diskAvailSizeByM) {
                 diskLevel2 = DiskLevel.WARNING;
             } else {
                 diskLevel2 = DiskLevel.NORMAL;
             }
             if (diskLevel != diskLevel2) {
-                int i2 = WhenMappings.$EnumSwitchMapping$0[diskLevel.ordinal()];
-                return i2 != 1 ? i2 != 2 ? (i2 == 3 && diskAvailSizeByM >= j4 - j2) ? DiskLevel.NORMAL : diskLevel2 : (diskAvailSizeByM < j3 - j2 || diskAvailSizeByM > j4 + j2) ? diskLevel2 : DiskLevel.WARNING : diskAvailSizeByM <= j3 + j2 ? DiskLevel.CRITICAL : diskLevel2;
+                int i = WhenMappings.$EnumSwitchMapping$0[diskLevel.ordinal()];
+                return i != 1 ? i != 2 ? (i == 3 && diskAvailSizeByM >= j3 - j) ? DiskLevel.NORMAL : diskLevel2 : (diskAvailSizeByM < j2 - j || diskAvailSizeByM > j3 + j) ? diskLevel2 : DiskLevel.WARNING : diskAvailSizeByM <= j2 + j ? DiskLevel.CRITICAL : diskLevel2;
             }
             return diskLevel2;
         }
@@ -443,13 +444,13 @@ public final class DiskManager {
     /* JADX INFO: Access modifiers changed from: private */
     public final synchronized long getLastNotifyTime() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, this)) == null) {
             synchronized (this) {
-                j2 = lastNotifyTime;
+                j = lastNotifyTime;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -460,11 +461,11 @@ public final class DiskManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65550, this, notifyLevel, diskLevel, diskLevel2, allCompletionCallback)) == null) {
             if (!(notifyLevel == NotifyLevel.StateNotify && diskLevel == diskLevel2) && diskUsageLevelChangedObservers.size() > 0) {
-                final long j2 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_CLEANUP_TIMEOUT, 10L);
+                final long j = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_CLEANUP_TIMEOUT, 10L);
                 if (AppConfig.isDebug()) {
-                    String str = "notify --------->lastState=" + diskLevel.name() + " currentState=" + diskLevel2.name();
+                    Log.i(TAG, "notify --------->lastState=" + diskLevel.name() + " currentState=" + diskLevel2.name());
                 }
-                ExecutorUtilsExt.postOnSerial(new Runnable(diskLevel, diskLevel2, j2, allCompletionCallback, notifyLevel) { // from class: com.baidu.searchbox.download.center.clearcache.DiskManager$notifyDiskLevelChanged$1
+                ExecutorUtilsExt.postOnSerial(new Runnable(diskLevel, diskLevel2, j, allCompletionCallback, notifyLevel) { // from class: com.baidu.searchbox.download.center.clearcache.DiskManager$notifyDiskLevelChanged$1
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ AllCompletionCallback $callback;
                     public final /* synthetic */ DiskManager.DiskLevel $currentState;
@@ -478,11 +479,11 @@ public final class DiskManager {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {diskLevel, diskLevel2, Long.valueOf(j2), allCompletionCallback, notifyLevel};
+                            Object[] objArr = {diskLevel, diskLevel2, Long.valueOf(j), allCompletionCallback, notifyLevel};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -490,7 +491,7 @@ public final class DiskManager {
                         }
                         this.$lastState = diskLevel;
                         this.$currentState = diskLevel2;
-                        this.$timeOutTime = j2;
+                        this.$timeOutTime = j;
                         this.$callback = allCompletionCallback;
                         this.$notifyLevel = notifyLevel;
                     }
@@ -518,9 +519,9 @@ public final class DiskManager {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {countDownLatch};
                                             interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable3.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -544,7 +545,7 @@ public final class DiskManager {
                                     e2.printStackTrace();
                                 }
                                 if (AppConfig.isDebug()) {
-                                    String str2 = "notify item--------->,time=" + currentTimeMillis2;
+                                    Log.i(DiskManager.TAG, "notify item--------->,time=" + currentTimeMillis2);
                                 }
                             }
                             DiskManager.INSTANCE.setLastNotifyTime(System.currentTimeMillis());
@@ -562,9 +563,9 @@ public final class DiskManager {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -597,11 +598,11 @@ public final class DiskManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final synchronized void setLastNotifyTime(long j2) {
+    public final synchronized void setLastNotifyTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65551, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65551, this, j) == null) {
             synchronized (this) {
-                lastNotifyTime = j2;
+                lastNotifyTime = j;
             }
         }
     }
@@ -654,7 +655,7 @@ public final class DiskManager {
     public final long getQuota(QuotaBusiness bussinessId) {
         InterceptResult invokeL;
         String str;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, bussinessId)) != null) {
             return invokeL.longValue;
@@ -701,9 +702,9 @@ public final class DiskManager {
                     if (l != null) {
                         return l.longValue();
                     }
-                    i2 = WhenMappings.$EnumSwitchMapping$2[diskLevel.ordinal()];
-                    if (i2 == 1) {
-                        if (i2 != 2) {
+                    i = WhenMappings.$EnumSwitchMapping$2[diskLevel.ordinal()];
+                    if (i == 1) {
+                        if (i != 2) {
                             return bussinessId.getNormal();
                         }
                         return bussinessId.getWarning();
@@ -718,8 +719,8 @@ public final class DiskManager {
         }
         if (l != null) {
         }
-        i2 = WhenMappings.$EnumSwitchMapping$2[diskLevel.ordinal()];
-        if (i2 == 1) {
+        i = WhenMappings.$EnumSwitchMapping$2[diskLevel.ordinal()];
+        if (i == 1) {
         }
     }
 
@@ -747,9 +748,9 @@ public final class DiskManager {
     public final void startCheckDiskStateAndNotify() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && firstStart) {
-            long j2 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_NOTIFY_DELAYAFTERSTART, 120L);
+            long j = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_NOTIFY_DELAYAFTERSTART, 120L);
             handler.removeCallbacks(startCheckRunnable);
-            handler.postDelayed(startCheckRunnable, j2 * 1000);
+            handler.postDelayed(startCheckRunnable, j * 1000);
             if (AppConfig.isDebug()) {
                 handler.postDelayed(DiskManager$startCheckDiskStateAndNotify$1.INSTANCE, 5000L);
             } else if (new Random().nextFloat() <= 0.01f) {
@@ -788,9 +789,9 @@ public final class DiskManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {notifyLevel, allCompletionCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -810,7 +811,7 @@ public final class DiskManager {
                         DiskManager.DiskLevel diskLevel2 = DiskManager.DiskLevel.NORMAL;
                         if (AppConfig.isDebug() && new SharedPrefsWrapper("").getBoolean(DiskManager.DEBUG_DISK_OPEN_KEY, false)) {
                             String string = new SharedPrefsWrapper("").getString(DiskManager.DEBUG_DISK_LEVEL_KEY, "");
-                            String str = "use-debug_state ---------------------> " + string + WebvttCueParser.CHAR_SPACE;
+                            Log.i(DiskManager.TAG, "use-debug_state ---------------------> " + string + WebvttCueParser.CHAR_SPACE);
                             if (TextUtils.equals(string, DiskManager.DiskLevel.WARNING.getDesc())) {
                                 diskLevel2 = DiskManager.DiskLevel.WARNING;
                             } else if (TextUtils.equals(string, DiskManager.DiskLevel.CRITICAL.getDesc())) {
@@ -819,10 +820,10 @@ public final class DiskManager {
                                 diskLevel2 = DiskManager.DiskLevel.NORMAL;
                             }
                         } else if (this.$notifyLevel != DiskManager.NotifyLevel.ForceNotify) {
-                            long j2 = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_DIFF, 0L);
-                            currentDiskLevel = DiskManager.INSTANCE.getCurrentDiskLevel(diskLevel, j2);
+                            long j = DiskManagerSharedPrefsUtils.INSTANCE.getLong(DiskManagerSharedPrefsUtils.SP_KEY_DIFF, 0L);
+                            currentDiskLevel = DiskManager.INSTANCE.getCurrentDiskLevel(diskLevel, j);
                             if (currentDiskLevel != DiskManager.DiskLevel.CRITICAL) {
-                                diskLevel2 = DiskManager.INSTANCE.getCurrentAppLevel(diskLevel, j2);
+                                diskLevel2 = DiskManager.INSTANCE.getCurrentAppLevel(diskLevel, j);
                             }
                             if (currentDiskLevel.getValue() > diskLevel2.getValue()) {
                                 diskLevel2 = currentDiskLevel;

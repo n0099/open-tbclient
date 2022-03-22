@@ -13,7 +13,7 @@ import io.reactivex.exceptions.Exceptions;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.fuseable.QueueDisposable;
 import io.reactivex.plugins.RxJavaPlugins;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueDisposable<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueD
             newInitContext.initArgs = r2;
             Object[] objArr = {observer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -143,15 +143,15 @@ public abstract class BasicFuseableObserver<T, R> implements Observer<T>, QueueD
         }
     }
 
-    public final int transitiveBoundaryFusion(int i2) {
+    public final int transitiveBoundaryFusion(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             QueueDisposable<T> queueDisposable = this.qs;
-            if (queueDisposable == null || (i2 & 4) != 0) {
+            if (queueDisposable == null || (i & 4) != 0) {
                 return 0;
             }
-            int requestFusion = queueDisposable.requestFusion(i2);
+            int requestFusion = queueDisposable.requestFusion(i);
             if (requestFusion != 0) {
                 this.sourceMode = requestFusion;
             }

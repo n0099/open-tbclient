@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import c.a.d.i.c;
-import c.a.q0.k0.f.b;
+import c.a.o0.k0.f.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.pm.BundleInfo;
 import com.baidu.pass.ecommerce.common.view.ToastUtil;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class NpsPluginCenterActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     public int mFromType;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public b<Object, c.a.q0.k0.d.b, c.a.q0.k0.f.a<Object, c.a.q0.k0.d.b>> mPluginCenterAdapter;
+    public b<Object, c.a.o0.k0.d.b, c.a.o0.k0.f.a<Object, c.a.o0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
     @NonNull
@@ -40,16 +40,14 @@ public class NpsPluginCenterActivity extends BaseActivity {
     @NonNull
     public final List<String> whiteList;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BundleInfo a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BundleInfo f45948e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ NpsPluginCenterActivity f45949f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ NpsPluginCenterActivity f35595b;
 
         public a(NpsPluginCenterActivity npsPluginCenterActivity, BundleInfo bundleInfo) {
             Interceptable interceptable = $ic;
@@ -58,23 +56,23 @@ public class NpsPluginCenterActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {npsPluginCenterActivity, bundleInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45949f = npsPluginCenterActivity;
-            this.f45948e = bundleInfo;
+            this.f35595b = npsPluginCenterActivity;
+            this.a = bundleInfo;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ToastUtil.show(this.f45948e.getPackageName());
+                ToastUtil.show(this.a.getPackageName());
             }
         }
     }
@@ -84,9 +82,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -102,9 +100,9 @@ public class NpsPluginCenterActivity extends BaseActivity {
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.plugin_center));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e56));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -112,7 +110,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
     private void initScrollContent() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.scroll_content);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c0b);
             this.whiteList.add("com.baidu.searchbox.bjhlivenps");
             this.whiteList.add("com.baidu.live.media.business");
             this.whiteList.add(LiveNPSPluginManager.NPS_PLUGIN_PKG_NAME);
@@ -138,26 +136,26 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             TbSettingTextTipView tbSettingTextTipView = new TbSettingTextTipView(this);
-            tbSettingTextTipView.hideArrow();
+            tbSettingTextTipView.c();
             return tbSettingTextTipView;
         }
         return (TbSettingTextTipView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0204);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(getPageContext(), i2);
+                noDataView.f(getPageContext(), i);
             }
             for (TbSettingTextTipView tbSettingTextTipView : this.tipViewList) {
-                tbSettingTextTipView.onChangeSkinType(i2);
+                tbSettingTextTipView.f(i);
             }
         }
     }
@@ -167,7 +165,7 @@ public class NpsPluginCenterActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.nps_plugin_center_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d0634);
             initNavigationBar();
             initScrollContent();
         }

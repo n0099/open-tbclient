@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompositeException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 3026362227162912146L;
@@ -26,7 +26,7 @@ public final class CompositeException extends RuntimeException {
     public final List<Throwable> exceptions;
     public final String message;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CompositeExceptionCausalChain extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String MESSAGE = "Chain of Causes for CompositeException In Order Received =>";
@@ -38,9 +38,9 @@ public final class CompositeException extends RuntimeException {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -55,7 +55,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -65,9 +65,9 @@ public final class CompositeException extends RuntimeException {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -77,7 +77,7 @@ public final class CompositeException extends RuntimeException {
         public abstract void println(Object obj);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class WrappedPrintStream extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -90,9 +90,9 @@ public final class CompositeException extends RuntimeException {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {printStream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -110,7 +110,7 @@ public final class CompositeException extends RuntimeException {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class WrappedPrintWriter extends PrintStreamOrWriter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,9 +123,9 @@ public final class CompositeException extends RuntimeException {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {printWriter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -152,9 +152,9 @@ public final class CompositeException extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {thArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Iterable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -315,9 +315,9 @@ public final class CompositeException extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -359,13 +359,13 @@ public final class CompositeException extends RuntimeException {
                 sb.append(stackTraceElement);
                 sb.append('\n');
             }
-            int i2 = 1;
+            int i = 1;
             for (Throwable th : this.exceptions) {
                 sb.append("  ComposedException ");
-                sb.append(i2);
+                sb.append(i);
                 sb.append(" :\n");
                 appendStackTrace(sb, th, "\t");
-                i2++;
+                i++;
             }
             printStreamOrWriter.println(sb.toString());
         }

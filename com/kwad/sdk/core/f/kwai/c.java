@@ -12,15 +12,15 @@ public class c {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f54395b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f39519b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f54396c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.c.1
+    public ServiceConnection f39520c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.c.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
                 com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "onServiceConnected");
-                c.this.f54395b.put(iBinder);
+                c.this.f39519b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -42,16 +42,16 @@ public class c {
         try {
             Intent intent = new Intent();
             intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-            if (this.a.bindService(intent, this.f54396c, 1)) {
+            if (this.a.bindService(intent, this.f39520c, 1)) {
                 try {
-                    str = new c.a(this.f54395b.take()).a();
+                    str = new c.a(this.f39519b.take()).a();
                     com.kwad.sdk.core.d.a.c("LenovoDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f54396c;
+                    serviceConnection = this.f39520c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f54396c;
+                    serviceConnection = this.f39520c;
                 }
                 context.unbindService(serviceConnection);
             }

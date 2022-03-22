@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PayType {
     public static final /* synthetic */ PayType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -52,16 +52,16 @@ public final class PayType {
         $VALUES = new PayType[]{WECHAT_PAY, ALI_PAY, PAYTM_PAY, DXM_PAY, DXM_PAY_KJ, MOCK_TEST_PAY, QQ_PAY, payType};
     }
 
-    public PayType(String str, int i2, String str2, String str3) {
+    public PayType(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str4 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

@@ -17,10 +17,10 @@ public class g implements f.a {
     public final BDHttpDns.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BDHttpDns f3551b;
+    public final BDHttpDns f2996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f3552c;
+    public final h f2997c;
 
     public g(Context context, BDHttpDns.a aVar) {
         Interceptable interceptable = $ic;
@@ -29,35 +29,35 @@ public class g implements f.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = aVar;
-        BDHttpDns j2 = BDHttpDns.j(context);
-        this.f3551b = j2;
-        this.f3552c = j2.d();
+        BDHttpDns j = BDHttpDns.j(context);
+        this.f2996b = j;
+        this.f2997c = j.d();
     }
 
     @Override // c.a.i.f.a
-    public void a(int i2, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j2, String str) {
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
         BDHttpDns.a aVar;
         BDHttpDnsResult bDHttpDnsResult;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), arrayList, arrayList2, Long.valueOf(j2), str}) == null) {
-            if (i2 == -1) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
+            if (i == -1) {
                 k.a("Async resolve failed, host(%s), dns resolve failed", str);
                 aVar = this.a;
                 if (aVar == null) {
                     return;
                 }
                 bDHttpDnsResult = new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2);
-            } else if (i2 != 0) {
-                k.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i2));
+            } else if (i != 0) {
+                k.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
                 return;
             } else {
                 Object[] objArr = new Object[4];
@@ -71,7 +71,7 @@ public class g implements f.a {
                 aVar2.e(System.currentTimeMillis() / 1000);
                 aVar2.b(arrayList);
                 aVar2.f(arrayList2);
-                this.f3552c.c(str, aVar2);
+                this.f2997c.c(str, aVar2);
                 aVar = this.a;
                 if (aVar == null) {
                     return;

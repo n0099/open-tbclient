@@ -27,9 +27,9 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,17 +60,17 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         return (String) invokeL.objValue;
     }
 
-    public ArrayList<String> getLogStringByIndex(int i2, ArrayList<String> arrayList) {
+    public ArrayList<String> getLogStringByIndex(int i, ArrayList<String> arrayList) {
         InterceptResult invokeIL;
         String[] split;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, arrayList)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, arrayList)) == null) {
             int size = arrayList != null ? arrayList.size() : 0;
-            ArrayList<d> arrayList2 = get(i2);
+            ArrayList<d> arrayList2 = get(i);
             ArrayList<String> arrayList3 = new ArrayList<>();
-            for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList2.get(i3).f2745b);
+            for (int i2 = 0; i2 < arrayList2.size(); i2++) {
+                String readLogFileString = readLogFileString(arrayList2.get(i2).f2269b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         if (size > 0) {
@@ -94,14 +94,14 @@ public class BdUploadingLogInfo extends ArrayList<ArrayList<d>> {
         return (ArrayList) invokeIL.objValue;
     }
 
-    public ArrayList<String> getTrackLogStringByIndex(int i2) {
+    public ArrayList<String> getTrackLogStringByIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            ArrayList<d> arrayList = get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ArrayList<d> arrayList = get(i);
             ArrayList<String> arrayList2 = new ArrayList<>();
-            for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                String readLogFileString = readLogFileString(arrayList.get(i3).f2745b);
+            for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                String readLogFileString = readLogFileString(arrayList.get(i2).f2269b);
                 if (!TextUtils.isEmpty(readLogFileString)) {
                     for (String str : readLogFileString.split("\r\n")) {
                         arrayList2.add(str);

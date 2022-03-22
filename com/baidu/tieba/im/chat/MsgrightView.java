@@ -6,7 +6,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.s1.f.e;
+import c.a.p0.u1.f.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -38,9 +38,7 @@ public class MsgrightView extends e {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f43388e;
+        public final /* synthetic */ MsgrightView a;
 
         public a(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -49,23 +47,23 @@ public class MsgrightView extends e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgrightView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43388e = msgrightView;
+            this.a = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f43388e;
-                msgrightView.f21674b.onItemViewClick(view, 6, msgrightView.f21678f, 0L);
+                MsgrightView msgrightView = this.a;
+                msgrightView.f18676b.onItemViewClick(view, 6, msgrightView.f18680f, 0L);
             }
         }
     }
@@ -74,9 +72,7 @@ public class MsgrightView extends e {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ MsgrightView f43389e;
+        public final /* synthetic */ MsgrightView a;
 
         public b(MsgrightView msgrightView) {
             Interceptable interceptable = $ic;
@@ -85,23 +81,23 @@ public class MsgrightView extends e {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgrightView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43389e = msgrightView;
+            this.a = msgrightView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                MsgrightView msgrightView = this.f43389e;
-                msgrightView.f21674b.onItemViewClick(view, 1, msgrightView.f21678f, 0L);
+                MsgrightView msgrightView = this.a;
+                msgrightView.f18676b.onItemViewClick(view, 1, msgrightView.f18680f, 0L);
             }
         }
     }
@@ -123,16 +119,16 @@ public class MsgrightView extends e {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.msg_msgright_view);
+        super(tbPageContext, R.layout.obfuscated_res_0x7f0d0563);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -145,39 +141,39 @@ public class MsgrightView extends e {
         if (chatImageWithTailView != null && chatImageWithTailView.getImage() != null && (this.p.getImage() instanceof ChatClipImageItemView)) {
             this.p.getImage().setLeft(false);
         }
-        this.A = (TextView) c(R.id.img_msgitem_progressbar);
-        this.y = (ProgressBar) c(R.id.progress);
-        this.z = (ImageButton) c(R.id.btn_msgitem_resend);
-        HeadImageView headImageView = (HeadImageView) c(R.id.img_msgitem_photo);
+        this.A = (TextView) c(R.id.obfuscated_res_0x7f090ec4);
+        this.y = (ProgressBar) c(R.id.obfuscated_res_0x7f091929);
+        this.z = (ImageButton) c(R.id.obfuscated_res_0x7f090425);
+        HeadImageView headImageView = (HeadImageView) c(R.id.obfuscated_res_0x7f090ec3);
         this.B = headImageView;
         headImageView.setAutoChangeStyle(false);
         this.B.setDrawerType(1);
         this.B.setRadius(n.d(this.mContext.getContext(), 4.0f));
         this.B.setPlaceHolder(1);
         this.B.setOnClickListener(new a(this));
-        this.C = (TextView) c(R.id.has_read);
-        this.D = (TextView) c(R.id.has_sent);
+        this.C = (TextView) c(R.id.obfuscated_res_0x7f090d18);
+        this.D = (TextView) c(R.id.obfuscated_res_0x7f090d19);
         this.m.setIsLeft(false);
         this.n.setIsLeft(false);
     }
 
-    @Override // c.a.r0.s1.f.e
+    @Override // c.a.p0.u1.f.e
     public void n(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view, chatMessage) == null) {
             super.n(view, chatMessage);
             if (chatMessage == null) {
-                this.f21680h.setVisibility(8);
+                this.f18682h.setVisibility(8);
                 this.y.setVisibility(8);
                 this.z.setVisibility(8);
                 this.C.setVisibility(8);
                 this.D.setVisibility(8);
-                this.f21681i.setVisibility(0);
-                this.f21681i.setText(null);
+                this.i.setVisibility(0);
+                this.i.setText(null);
                 p(8);
                 this.p.getImage().setTag(null);
-                this.f21682j.setVisibility(8);
-                this.f21682j.setTag(null);
+                this.j.setVisibility(8);
+                this.j.setTag(null);
                 this.m.setVisibility(8);
                 this.n.setVisibility(8);
                 this.o.setVisibility(8);
@@ -186,12 +182,12 @@ public class MsgrightView extends e {
             try {
                 B(chatMessage);
                 G(chatMessage);
-                this.B.setDefaultResource(R.drawable.photo);
+                this.B.setDefaultResource(R.drawable.obfuscated_res_0x7f080ed1);
                 if (chatMessage.getUserInfo() != null) {
                     this.B.setUserId(chatMessage.getUserInfo().getUserId());
                     String currentAvatar = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAvatar() : null;
                     if (currentAvatar != null && currentAvatar.length() > 0) {
-                        this.B.startLoad(currentAvatar, 12, false);
+                        this.B.J(currentAvatar, 12, false);
                     }
                 }
                 this.B.setContentDescription(chatMessage.getUserInfo().getName_show());
@@ -221,9 +217,9 @@ public class MsgrightView extends e {
                 if (this.z.getVisibility() == 0) {
                     this.z.setOnClickListener(new b(this));
                 }
-                this.f21681i.setVisibility(8);
+                this.i.setVisibility(8);
                 p(8);
-                this.f21682j.setVisibility(8);
+                this.j.setVisibility(8);
                 this.k.setVisibility(8);
                 this.n.setVisibility(8);
                 this.m.setVisibility(8);
@@ -235,7 +231,7 @@ public class MsgrightView extends e {
                     D(view, chatMessage, E);
                 } else if (msgType == 3) {
                     F(chatMessage, E);
-                    this.f21682j.setVisibility(0);
+                    this.j.setVisibility(0);
                 } else if (msgType == 4) {
                     z(chatMessage, true);
                 } else if (msgType != 9) {
@@ -247,7 +243,7 @@ public class MsgrightView extends e {
         }
     }
 
-    @Override // c.a.r0.s1.f.e
+    @Override // c.a.p0.u1.f.e
     public void w(View view, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, chatMessage) == null) {

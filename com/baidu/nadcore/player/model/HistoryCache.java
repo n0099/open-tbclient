@@ -1,8 +1,8 @@
 package com.baidu.nadcore.player.model;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.v.m0.f;
-import c.a.b0.v.v0.h;
+import c.a.a0.v.m0.f;
+import c.a.a0.v.v0.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ public final class HistoryCache extends ArrayList<f> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -101,16 +101,16 @@ public final class HistoryCache extends ArrayList<f> {
     }
 
     @Override // java.util.ArrayList, java.util.AbstractList, java.util.List
-    public final /* bridge */ f remove(int i2) {
+    public final /* bridge */ f remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? removeAt(i2) : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? removeAt(i) : (f) invokeI.objValue;
     }
 
-    public /* bridge */ f removeAt(int i2) {
+    public /* bridge */ f removeAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? (f) super.remove(i2) : (f) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? (f) super.remove(i) : (f) invokeI.objValue;
     }
 
     public final f removeCache(String str, String str2) {

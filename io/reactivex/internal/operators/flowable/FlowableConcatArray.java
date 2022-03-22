@@ -15,14 +15,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatArray<T> extends Flowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final boolean delayError;
     public final Publisher<? extends T>[] sources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ConcatArraySubscriber<T> extends SubscriptionArbiter implements FlowableSubscriber<T> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8158322871608889516L;
@@ -42,9 +42,9 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {publisherArr, Boolean.valueOf(z), subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,32 +62,32 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.wip.getAndIncrement() == 0) {
                 Publisher<? extends T>[] publisherArr = this.sources;
                 int length = publisherArr.length;
-                int i2 = this.index;
-                while (i2 != length) {
-                    Publisher<? extends T> publisher = publisherArr[i2];
+                int i = this.index;
+                while (i != length) {
+                    Publisher<? extends T> publisher = publisherArr[i];
                     if (publisher == null) {
                         NullPointerException nullPointerException = new NullPointerException("A Publisher entry is null");
                         if (this.delayError) {
                             List list = this.errors;
                             if (list == null) {
-                                list = new ArrayList((length - i2) + 1);
+                                list = new ArrayList((length - i) + 1);
                                 this.errors = list;
                             }
                             list.add(nullPointerException);
-                            i2++;
+                            i++;
                         } else {
                             this.actual.onError(nullPointerException);
                             return;
                         }
                     } else {
-                        long j2 = this.produced;
-                        if (j2 != 0) {
+                        long j = this.produced;
+                        if (j != 0) {
                             this.produced = 0L;
-                            produced(j2);
+                            produced(j);
                         }
                         publisher.subscribe(this);
-                        i2++;
-                        this.index = i2;
+                        i++;
+                        this.index = i;
                         if (this.wip.decrementAndGet() == 0) {
                             return;
                         }
@@ -150,9 +150,9 @@ public final class FlowableConcatArray<T> extends Flowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {publisherArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

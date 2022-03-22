@@ -1,9 +1,9 @@
 package com.yy.hiidostatis.message;
 
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface MessageSupplier {
-    Message fetchMessage(int i2);
+    Message fetchMessage(int i);
 
     void removeMessage(String str);
 

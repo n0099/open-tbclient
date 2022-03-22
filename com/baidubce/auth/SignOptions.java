@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SignOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final SignOptions DEFAULT;
@@ -42,9 +42,9 @@ public class SignOptions {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,10 +73,10 @@ public class SignOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timestamp : (Date) invokeV.objValue;
     }
 
-    public void setExpirationInSeconds(int i2) {
+    public void setExpirationInSeconds(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.expirationInSeconds = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.expirationInSeconds = i;
         }
     }
 

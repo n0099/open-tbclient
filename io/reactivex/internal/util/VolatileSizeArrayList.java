@@ -26,9 +26,9 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,10 +98,10 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public T get(int i2) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.list.get(i2) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.list.get(i) : (T) invokeI.objValue;
     }
 
     @Override // java.util.List, java.util.Collection
@@ -183,10 +183,10 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public T set(int i2, T t) {
+    public T set(int i, T t) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i2, t)) == null) ? this.list.set(i2, t) : (T) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048596, this, i, t)) == null) ? this.list.set(i, t) : (T) invokeIL.objValue;
     }
 
     @Override // java.util.List, java.util.Collection
@@ -197,10 +197,10 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public List<T> subList(int i2, int i3) {
+    public List<T> subList(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i2, i3)) == null) ? this.list.subList(i2, i3) : (List) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048598, this, i, i2)) == null) ? this.list.subList(i, i2) : (List) invokeII.objValue;
     }
 
     @Override // java.util.List, java.util.Collection
@@ -218,10 +218,10 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public ListIterator<T> listIterator(int i2) {
+    public ListIterator<T> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) ? this.list.listIterator(i2) : (ListIterator) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? this.list.listIterator(i) : (ListIterator) invokeI.objValue;
     }
 
     @Override // java.util.List, java.util.Collection
@@ -231,39 +231,39 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
         return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, eArr)) == null) ? (E[]) this.list.toArray(eArr) : (E[]) ((Object[]) invokeL.objValue);
     }
 
-    public VolatileSizeArrayList(int i2) {
+    public VolatileSizeArrayList(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.list = new ArrayList<>(i2);
+        this.list = new ArrayList<>(i);
     }
 
     @Override // java.util.List
-    public void add(int i2, T t) {
+    public void add(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, t) == null) {
-            this.list.add(i2, t);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
+            this.list.add(i, t);
             lazySet(this.list.size());
         }
     }
 
     @Override // java.util.List
-    public boolean addAll(int i2, Collection<? extends T> collection) {
+    public boolean addAll(int i, Collection<? extends T> collection) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, collection)) == null) {
-            boolean addAll = this.list.addAll(i2, collection);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, collection)) == null) {
+            boolean addAll = this.list.addAll(i, collection);
             lazySet(this.list.size());
             return addAll;
         }
@@ -271,11 +271,11 @@ public final class VolatileSizeArrayList<T> extends AtomicInteger implements Lis
     }
 
     @Override // java.util.List
-    public T remove(int i2) {
+    public T remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            T remove = this.list.remove(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            T remove = this.list.remove(i);
             lazySet(this.list.size());
             return remove;
         }

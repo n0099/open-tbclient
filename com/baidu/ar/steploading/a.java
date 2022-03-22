@@ -28,9 +28,9 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,8 +54,8 @@ public class a {
                     JSONArray optJSONArray = new JSONObject(i.f(file)).optJSONArray(UriUtil.LOCAL_RESOURCE_SCHEME);
                     if (optJSONArray != null && optJSONArray.length() > 0) {
                         int length = optJSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                        for (int i = 0; i < length; i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                             if (optJSONObject != null) {
                                 f fVar = new f();
                                 fVar.xK = optJSONObject.getString("resPath");

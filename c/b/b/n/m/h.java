@@ -30,63 +30,63 @@ public class h {
         }
     }
 
-    public static void a(int i2, Pixmap pixmap, int i3, int i4) {
+    public static void a(int i, Pixmap pixmap, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), pixmap, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (!a) {
-                b(i2, pixmap, i3, i4);
+                b(i, pixmap, i2, i3);
             } else if (c.b.b.f.a.getType() != Application.ApplicationType.Android && c.b.b.f.a.getType() != Application.ApplicationType.WebGL && c.b.b.f.a.getType() != Application.ApplicationType.iOS) {
-                c(i2, pixmap, i3, i4);
+                c(i, pixmap, i2, i3);
             } else {
-                d(i2, pixmap);
+                d(i, pixmap);
             }
         }
     }
 
-    public static void b(int i2, Pixmap pixmap, int i3, int i4) {
+    public static void b(int i, Pixmap pixmap, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), pixmap, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            if (c.b.b.f.f27078f == null && i3 != i4) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            c.b.b.f.f22334e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            if (c.b.b.f.f22335f == null && i2 != i3) {
                 throw new GdxRuntimeException("texture width and height must be square when using mipmapping.");
             }
             int n = pixmap.n() / 2;
             int l = pixmap.l() / 2;
-            int i5 = 1;
+            int i4 = 1;
             Pixmap pixmap2 = pixmap;
             while (n > 0 && l > 0) {
                 Pixmap pixmap3 = new Pixmap(n, l, pixmap2.h());
                 pixmap3.o(Pixmap.Blending.None);
                 pixmap3.f(pixmap2, 0, 0, pixmap2.n(), pixmap2.l(), 0, 0, n, l);
-                if (i5 > 1) {
+                if (i4 > 1) {
                     pixmap2.dispose();
                 }
                 pixmap2 = pixmap3;
-                c.b.b.f.f27077e.q(i2, i5, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
+                c.b.b.f.f22334e.q(i, i4, pixmap3.j(), pixmap3.n(), pixmap3.l(), 0, pixmap3.i(), pixmap3.k(), pixmap3.m());
                 n = pixmap2.n() / 2;
                 l = pixmap2.l() / 2;
-                i5++;
+                i4++;
             }
         }
     }
 
-    public static void c(int i2, Pixmap pixmap, int i3, int i4) {
+    public static void c(int i, Pixmap pixmap, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), pixmap, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            if (!c.b.b.f.f27074b.a("GL_ARB_framebuffer_object") && !c.b.b.f.f27074b.a("GL_EXT_framebuffer_object") && c.b.b.f.f27079g == null) {
-                b(i2, pixmap, i3, i4);
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), pixmap, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (!c.b.b.f.f22331b.a("GL_ARB_framebuffer_object") && !c.b.b.f.f22331b.a("GL_EXT_framebuffer_object") && c.b.b.f.f22336g == null) {
+                b(i, pixmap, i2, i3);
                 return;
             }
-            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            c.b.b.f.f27078f.F(i2);
+            c.b.b.f.f22334e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            c.b.b.f.f22335f.F(i);
         }
     }
 
-    public static void d(int i2, Pixmap pixmap) {
+    public static void d(int i, Pixmap pixmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, pixmap) == null) {
-            c.b.b.f.f27077e.q(i2, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
-            c.b.b.f.f27078f.F(i2);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, pixmap) == null) {
+            c.b.b.f.f22334e.q(i, 0, pixmap.j(), pixmap.n(), pixmap.l(), 0, pixmap.i(), pixmap.k(), pixmap.m());
+            c.b.b.f.f22335f.F(i);
         }
     }
 }

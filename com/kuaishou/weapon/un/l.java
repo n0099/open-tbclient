@@ -17,7 +17,7 @@ public class l {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final long f53710b = 1;
+    public static final long f38896b = 1;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<m> a;
 
@@ -29,9 +29,9 @@ public class l {
             newInitContext.initArgs = r2;
             Object[] objArr = {activityInfoArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,24 +42,24 @@ public class l {
             return;
         }
         this.a = new ArrayList<>(length);
-        for (int i4 = 0; i4 < length; i4++) {
-            if (activityInfoArr[i4] != null) {
+        for (int i3 = 0; i3 < length; i3++) {
+            if (activityInfoArr[i3] != null) {
                 m mVar = new m();
-                mVar.f53721h = activityInfoArr[i4].configChanges;
-                mVar.f53719f = activityInfoArr[i4].flags;
-                mVar.m = activityInfoArr[i4].labelRes;
-                mVar.f53715b = activityInfoArr[i4].launchMode;
-                if (activityInfoArr[i4].nonLocalizedLabel != null) {
-                    mVar.n = activityInfoArr[i4].nonLocalizedLabel.toString();
+                mVar.f38907h = activityInfoArr[i3].configChanges;
+                mVar.f38905f = activityInfoArr[i3].flags;
+                mVar.m = activityInfoArr[i3].labelRes;
+                mVar.f38901b = activityInfoArr[i3].launchMode;
+                if (activityInfoArr[i3].nonLocalizedLabel != null) {
+                    mVar.n = activityInfoArr[i3].nonLocalizedLabel.toString();
                 }
-                mVar.k = activityInfoArr[i4].name;
-                mVar.l = activityInfoArr[i4].packageName;
-                mVar.f53716c = activityInfoArr[i4].permission;
-                mVar.f53720g = activityInfoArr[i4].screenOrientation;
-                mVar.f53722i = activityInfoArr[i4].softInputMode;
-                mVar.f53718e = activityInfoArr[i4].targetActivity;
-                mVar.f53717d = activityInfoArr[i4].taskAffinity;
-                mVar.a = activityInfoArr[i4].theme;
+                mVar.k = activityInfoArr[i3].name;
+                mVar.l = activityInfoArr[i3].packageName;
+                mVar.f38902c = activityInfoArr[i3].permission;
+                mVar.f38906g = activityInfoArr[i3].screenOrientation;
+                mVar.i = activityInfoArr[i3].softInputMode;
+                mVar.f38904e = activityInfoArr[i3].targetActivity;
+                mVar.f38903d = activityInfoArr[i3].taskAffinity;
+                mVar.a = activityInfoArr[i3].theme;
                 this.a.add(mVar);
             }
         }

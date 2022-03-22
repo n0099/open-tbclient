@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonPolymericActivity extends BaseFragmentActivity implements VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,7 +67,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,25 +99,25 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             PersonPolymericFragment personPolymericFragment = this.mFragment;
             if (personPolymericFragment != null) {
-                personPolymericFragment.onActivityResult(i2, i3, intent);
+                personPolymericFragment.onActivityResult(i, i2, intent);
             }
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         PersonPolymericFragment personPolymericFragment;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (personPolymericFragment = this.mFragment) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (personPolymericFragment = this.mFragment) == null) {
             return;
         }
-        personPolymericFragment.onChangeSkinType(i2);
+        personPolymericFragment.onChangeSkinType(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -125,9 +125,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.person_new_fragment_view);
+            setContentView(R.layout.obfuscated_res_0x7f0d06cd);
             this.mFragment = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, this.mFragment).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090aa7, this.mFragment).commit();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
             }

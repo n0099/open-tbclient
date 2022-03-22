@@ -20,9 +20,9 @@ public abstract class BaseUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,8 +34,8 @@ public abstract class BaseUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                if (isEmojiCharacter(str.charAt(i2))) {
+            for (int i = 0; i < length; i++) {
+                if (isEmojiCharacter(str.charAt(i))) {
                     return true;
                 }
             }

@@ -128,16 +128,16 @@ public class BdThumbSeekBarView extends View {
             $VALUES = new BdSeeBarStatus[]{None, bdSeeBarStatus};
         }
 
-        public BdSeeBarStatus(String str, int i2) {
+        public BdSeeBarStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -188,16 +188,16 @@ public class BdThumbSeekBarView extends View {
             $VALUES = new BdSeekBarStyle[]{LINE, bdSeekBarStyle};
         }
 
-        public BdSeekBarStyle(String str, int i2) {
+        public BdSeekBarStyle(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -222,7 +222,7 @@ public class BdThumbSeekBarView extends View {
 
     /* loaded from: classes4.dex */
     public interface OnBdSeekBarChangeListener {
-        void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i2, boolean z);
+        void onProgressChanged(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
         void onStartTrackingTouch(BdThumbSeekBarView bdThumbSeekBarView);
 
@@ -257,16 +257,16 @@ public class BdThumbSeekBarView extends View {
             $VALUES = new SeekBarDirect[]{Vertical, seekBarDirect};
         }
 
-        public SeekBarDirect(String str, int i2) {
+        public SeekBarDirect(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -290,17 +290,17 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdThumbSeekBarView(Context context, int i2) {
-        this(context, BdSeekBarStyle.LINE, i2);
+    public BdThumbSeekBarView(Context context, int i) {
+        this(context, BdSeekBarStyle.LINE, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (BdSeekBarStyle) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -313,9 +313,9 @@ public class BdThumbSeekBarView extends View {
     private void computeDrawRect() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle[this.mStyle.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle[this.mStyle.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return;
                 }
                 this.mDrawRectF.top = (((getMeasuredHeight() - this.mUISelectHeight) + getPaddingTop()) - getPaddingBottom()) >> 1;
@@ -337,12 +337,12 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    private int measureHeight(int i2) {
+    private int measureHeight(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i2)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, this, i)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             int height = this.mThumb.getHeight() + getPaddingTop() + getPaddingBottom();
             if (mode == Integer.MIN_VALUE) {
                 if (height > size) {
@@ -361,28 +361,28 @@ public class BdThumbSeekBarView extends View {
         return invokeI.intValue;
     }
 
-    private int measureWidth(int i2) {
+    private int measureWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             int width = this.mThumb.getWidth() + getPaddingLeft() + getPaddingRight();
-            int i3 = this.mDefaultWidth;
-            int i4 = width + i3;
+            int i2 = this.mDefaultWidth;
+            int i3 = width + i2;
             if (mode == Integer.MIN_VALUE) {
-                if (i4 - i3 > size) {
+                if (i3 - i2 > size) {
                     scaleThumb(((size - getPaddingLeft()) - getPaddingRight()) / this.mThumb.getWidth());
                     return size;
                 }
             } else if (mode == 1073741824) {
-                if (i4 - i3 > size) {
+                if (i3 - i2 > size) {
                     scaleThumb(((size - getPaddingLeft()) - getPaddingRight()) / this.mThumb.getHeight());
                     return size;
                 }
                 return size;
             }
-            return i4;
+            return i3;
         }
         return invokeI.intValue;
     }
@@ -453,8 +453,8 @@ public class BdThumbSeekBarView extends View {
         float width;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle[this.mStyle.ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$com$baidu$searchbox$player$widget$BdThumbSeekBarView$BdSeekBarStyle[this.mStyle.ordinal()];
+            if (i == 1) {
                 if (this.mNeedThumbScale) {
                     this.mPaint.setColor(UI_DRAG_TRACE_COLOR);
                 }
@@ -489,9 +489,9 @@ public class BdThumbSeekBarView extends View {
                 if (this.mNeedThumbScale) {
                     if (this.mDirect == SeekBarDirect.Horizontal) {
                         int width2 = (int) (this.mDrawRectF.right - (this.mThumb.getWidth() >> 1));
-                        int i3 = this.mThumbPadding;
-                        if (width2 < (-i3) + f2) {
-                            width = (-i3) + f2;
+                        int i2 = this.mThumbPadding;
+                        if (width2 < (-i2) + f2) {
+                            width = (-i2) + f2;
                         } else {
                             float f7 = abs + f2;
                             if ((this.mThumb.getWidth() + width2) - this.mThumbPadding > f7) {
@@ -515,11 +515,11 @@ public class BdThumbSeekBarView extends View {
                         }
                     }
                 }
-            } else if (i2 == 2) {
-                this.mPaint.setColor(1291845632);
+            } else if (i == 2) {
+                this.mPaint.setColor(UI_TRACE_COLOR);
                 RectF rectF7 = this.mDrawRectF;
-                int i4 = this.mUISelectHeight;
-                canvas.drawRoundRect(rectF7, i4 >> 1, i4, this.mPaint);
+                int i3 = this.mUISelectHeight;
+                canvas.drawRoundRect(rectF7, i3 >> 1, i3, this.mPaint);
                 this.mPaint.setColor(UI_SELECT_COLOR_START);
                 float f8 = this.mMax;
                 if (f8 > 0.1f) {
@@ -529,8 +529,8 @@ public class BdThumbSeekBarView extends View {
                 }
                 RectF rectF9 = this.mDrawRectF;
                 rectF9.right = rectF9.left + r1;
-                int i5 = this.mUISelectHeight;
-                canvas.drawRoundRect(rectF9, i5 >> 1, i5, this.mPaint);
+                int i4 = this.mUISelectHeight;
+                canvas.drawRoundRect(rectF9, i4 >> 1, i4, this.mPaint);
                 Bitmap bitmap = this.mThumb;
                 canvas.drawBitmap(bitmap, this.mDrawRectF.right - (bitmap.getWidth() >> 1), (int) (this.mDrawRectF.top + ((this.mUISelectHeight - this.mThumb.getHeight()) >> 1)), (Paint) null);
             }
@@ -539,11 +539,11 @@ public class BdThumbSeekBarView extends View {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             specifyPadding();
-            setMeasuredDimension(measureWidth(i2), measureHeight(i3));
+            setMeasuredDimension(measureWidth(i), measureHeight(i2));
             computeDrawRect();
         }
     }
@@ -626,19 +626,19 @@ public class BdThumbSeekBarView extends View {
         return invokeL.booleanValue;
     }
 
-    public void setBufferColor(int i2) {
+    public void setBufferColor(int i) {
         Paint paint;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (paint = this.mBufferingPaint) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (paint = this.mBufferingPaint) == null) {
             return;
         }
-        paint.setColor(i2);
+        paint.setColor(i);
     }
 
-    public void setBufferingProgress(int i2) {
+    public void setBufferingProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mBufferingProgress = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mBufferingProgress = i;
         }
     }
 
@@ -656,10 +656,10 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void setMaxDuration(int i2) {
+    public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            setMax(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            setMax(i);
         }
     }
 
@@ -670,24 +670,24 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void setProgress(int i2) {
+    public void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            setProgress(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            setProgress(i);
         }
     }
 
-    public void setProgressBackgroundColor(int i2) {
+    public void setProgressBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mPaint.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mPaint.setColor(i);
         }
     }
 
-    public void setProgressColor(int i2) {
+    public void setProgressColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mSeekPaint.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mSeekPaint.setColor(i);
         }
     }
 
@@ -719,12 +719,12 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void syncPos(int i2, int i3, int i4) {
+    public void syncPos(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048597, this, i2, i3, i4) == null) {
-            setMax(i3);
-            setBufferingProgress(i4);
-            setProgress(i2);
+        if (interceptable == null || interceptable.invokeIII(1048597, this, i, i2, i3) == null) {
+            setMax(i2);
+            setBufferingProgress(i3);
+            setProgress(i);
         }
     }
 
@@ -737,9 +737,9 @@ public class BdThumbSeekBarView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], (BdSeekBarStyle) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -758,17 +758,17 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, int i2) {
-        this(context, attributeSet, i2, BdSeekBarStyle.LINE, 1);
+    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, int i) {
+        this(context, attributeSet, i, BdSeekBarStyle.LINE, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (BdSeekBarStyle) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -779,17 +779,17 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdThumbSeekBarView(Context context, BdSeekBarStyle bdSeekBarStyle, int i2) {
-        this(context, null, bdSeekBarStyle, i2);
+    public BdThumbSeekBarView(Context context, BdSeekBarStyle bdSeekBarStyle, int i) {
+        this(context, null, bdSeekBarStyle, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdSeekBarStyle, Integer.valueOf(i2)};
+            Object[] objArr = {context, bdSeekBarStyle, Integer.valueOf(i)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], (BdSeekBarStyle) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -799,26 +799,26 @@ public class BdThumbSeekBarView extends View {
         }
     }
 
-    public void syncPos(int i2, int i3) {
+    public void syncPos(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) {
-            setBufferingProgress(i3);
-            setProgress(i2);
+        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
+            setBufferingProgress(i2);
+            setProgress(i);
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, BdSeekBarStyle bdSeekBarStyle, int i2) {
-        this(context, attributeSet, 0, bdSeekBarStyle, i2);
+    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, BdSeekBarStyle bdSeekBarStyle, int i) {
+        this(context, attributeSet, 0, bdSeekBarStyle, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, bdSeekBarStyle, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, bdSeekBarStyle, Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (BdSeekBarStyle) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -829,17 +829,17 @@ public class BdThumbSeekBarView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, int i2, BdSeekBarStyle bdSeekBarStyle, int i3) {
-        super(context, attributeSet, i2);
+    public BdThumbSeekBarView(Context context, AttributeSet attributeSet, int i, BdSeekBarStyle bdSeekBarStyle, int i2) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), bdSeekBarStyle, Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), bdSeekBarStyle, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -856,20 +856,20 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.mPaint = paint;
         paint.setAntiAlias(true);
-        this.mPaint.setColor(getResources().getColor(R.color.bdvideoplayer_seek_bar_bg_color));
+        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060404));
         Paint paint2 = new Paint();
         this.mSeekPaint = paint2;
         paint2.setAntiAlias(true);
-        this.mSeekPaint.setColor(getResources().getColor(R.color.bdvideoplayer_seek_bar_played_color));
+        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060406));
         Paint paint3 = new Paint();
         this.mBufferingPaint = paint3;
         paint3.setAntiAlias(true);
-        this.mBufferingPaint.setColor(getResources().getColor(R.color.bdvideoplayer_seek_bar_buffered_color));
+        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060405));
         this.mMax = 100.0f;
         this.mProgress = 0.0f;
         this.mBufferingProgress = 0;
         if (this.mThumb == null) {
-            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.bdvideoplayer_seekbar_thumb);
+            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080216);
         }
         this.mThumbPadding = BdPlayerUtils.dp2px(this, 0.0f);
         if (this.mThumbScale == null) {
@@ -879,7 +879,7 @@ public class BdThumbSeekBarView extends View {
         float f2 = getResources().getDisplayMetrics().density;
         this.mUISpace = (int) (0.0f * f2);
         this.mUIRightSpace = (int) (5.0f * f2);
-        this.mUITraceHeight = (int) ((i3 * f2) + 0.5d);
+        this.mUITraceHeight = (int) ((i2 * f2) + 0.5d);
         this.mDefaultWidth = (int) (50.0f * f2);
         this.mUISelectHeight = (int) (f2 * 3.0f);
         BdVideoLog.d(TAG, "mUITraceHeight: " + this.mUITraceHeight);

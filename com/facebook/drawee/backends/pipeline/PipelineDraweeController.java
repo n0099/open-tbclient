@@ -48,7 +48,7 @@ import java.util.Set;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PipelineDraweeController extends AbstractDraweeController<CloseableReference<CloseableImage>, ImageInfo> {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -99,9 +99,9 @@ public class PipelineDraweeController extends AbstractDraweeController<Closeable
             newInitContext.initArgs = r2;
             Object[] objArr = {resources, deferredReleaser, drawableFactory, executor, memoryCache, immutableList};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DeferredReleaser) objArr2[0], (Executor) objArr2[1], (String) objArr2[2], objArr2[3]);
                 newInitContext.thisArg = this;

@@ -2,8 +2,8 @@ package com.baidu.tbadk.data;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.o.e.n;
-import c.a.q0.r.r.j2;
-import c.a.q0.t.q;
+import c.a.o0.r.r.e2;
+import c.a.o0.t.q;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -77,7 +77,7 @@ public class UserData extends MetaData {
     public String lng;
     public long loginTime;
     public ActivitySponsorData mActivitySponsorData;
-    public j2 mBirthdayInfo;
+    public e2 mBirthdayInfo;
     public List<MyGift> mGift;
     public int mGiftNum;
     public List<MyGroup> mGroup;
@@ -119,9 +119,9 @@ public class UserData extends MetaData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -146,17 +146,17 @@ public class UserData extends MetaData {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getIsGroupManager() || getIsGroupOwner() : invokeV.booleanValue;
         }
 
-        public void setIsGroupManager(int i2) {
+        public void setIsGroupManager(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.isGroupManager = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.isGroupManager = i;
             }
         }
 
-        public void setIsGroupOwner(int i2) {
+        public void setIsGroupOwner(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.isGroupOwner = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.isGroupOwner = i;
             }
         }
     }
@@ -166,9 +166,9 @@ public class UserData extends MetaData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -230,10 +230,10 @@ public class UserData extends MetaData {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.bimg_url : (String) invokeV.objValue;
     }
 
-    public j2 getBirthdayInfo() {
+    public e2 getBirthdayInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (j2) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mBirthdayInfo : (e2) invokeV.objValue;
     }
 
     public CloseAdData getCloseAdData() {
@@ -482,8 +482,8 @@ public class UserData extends MetaData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            int i2 = this.managerLevel;
-            return i2 == 1 || i2 == 2;
+            int i = this.managerLevel;
+            return i == 1 || i == 2;
         }
         return invokeV.booleanValue;
     }
@@ -549,18 +549,18 @@ public class UserData extends MetaData {
         }
         this.mPhotoAlbum.clear();
         q qVar = new q();
-        qVar.g(getPortraitH());
+        qVar.f(getPortraitH());
         qVar.i(getPortrait());
-        qVar.h(true);
+        qVar.g(true);
         this.mPhotoAlbum.add(qVar);
         List<UserPics> list = user.user_pics;
         if (list != null && list.size() > 0) {
             for (UserPics userPics : user.user_pics) {
                 if (userPics != null) {
                     q qVar2 = new q();
-                    qVar2.g(userPics.big);
+                    qVar2.f(userPics.big);
                     qVar2.i(userPics.small);
-                    qVar2.h(false);
+                    qVar2.g(false);
                     this.mPhotoAlbum.add(qVar2);
                 }
             }
@@ -593,7 +593,7 @@ public class UserData extends MetaData {
         if (vipCloseAd != null) {
             CloseAdData closeAdData = new CloseAdData();
             this.closeAdData = closeAdData;
-            closeAdData.y(vipCloseAd);
+            closeAdData.A(vipCloseAd);
         }
         this.bg_pic = user.bg_pic;
         this.bimg_url = user.bimg_url;
@@ -603,13 +603,13 @@ public class UserData extends MetaData {
         if (privSets != null) {
             PersonPrivateData personPrivateData = new PersonPrivateData();
             this.personPrivate = personPrivateData;
-            personPrivateData.x(privSets);
+            personPrivateData.z(privSets);
         }
         PayMemberInfo payMemberInfo = user.pay_member_info;
         if (payMemberInfo != null) {
             PayMemberInfoData payMemberInfoData = new PayMemberInfoData();
             this.payMemberInfo = payMemberInfoData;
-            payMemberInfoData.z(payMemberInfo);
+            payMemberInfoData.y(payMemberInfo);
         }
         if (user.is_mask.intValue() == 1) {
             this.isMask = true;
@@ -621,27 +621,27 @@ public class UserData extends MetaData {
         this.mLikeForum.clear();
         List<LikeForumInfo> list2 = user.likeForum;
         if (list2 != null) {
-            for (int i2 = 0; i2 < list2.size(); i2++) {
+            for (int i = 0; i < list2.size(); i++) {
                 MyLikeForum myLikeForum = new MyLikeForum();
-                myLikeForum.parserProtobuf(list2.get(i2));
+                myLikeForum.parserProtobuf(list2.get(i));
                 this.mLikeForum.add(myLikeForum);
             }
         }
         this.mGroup.clear();
         List<MyGroupInfo> list3 = user.groupList;
         if (list3 != null) {
-            for (int i3 = 0; i3 < list3.size(); i3++) {
+            for (int i2 = 0; i2 < list3.size(); i2++) {
                 MyGroup myGroup = new MyGroup();
-                myGroup.parserProtobuf(list3.get(i3));
+                myGroup.parserProtobuf(list3.get(i2));
                 this.mGroup.add(myGroup);
             }
         }
         this.mGift.clear();
         List<GiftInfo> list4 = user.gift_list;
         if (list4 != null) {
-            for (int i4 = 0; i4 < list4.size(); i4++) {
+            for (int i3 = 0; i3 < list4.size(); i3++) {
                 MyGift myGift = new MyGift();
-                myGift.parserProtobuf(list4.get(i4));
+                myGift.parserProtobuf(list4.get(i3));
                 this.mGift.add(myGift);
             }
         }
@@ -662,7 +662,7 @@ public class UserData extends MetaData {
         if (activitySponsor != null) {
             ActivitySponsorData activitySponsorData = new ActivitySponsorData();
             this.mActivitySponsorData = activitySponsorData;
-            activitySponsorData.w(activitySponsor);
+            activitySponsorData.y(activitySponsor);
         }
         AlaUserInfo alaUserInfo = user.ala_info;
         if (alaUserInfo != null) {
@@ -682,9 +682,9 @@ public class UserData extends MetaData {
         this.isShowRedPacket = user.is_show_redpacket.intValue() == 1;
         BirthdayInfo birthdayInfo = user.birthday_info;
         if (birthdayInfo != null) {
-            j2 j2Var = new j2();
-            this.mBirthdayInfo = j2Var;
-            j2Var.b(birthdayInfo);
+            e2 e2Var = new e2();
+            this.mBirthdayInfo = e2Var;
+            e2Var.b(birthdayInfo);
         }
         this.bawuThrones = user.bawu_thrones;
         this.showPbPrivateFlag = user.show_pb_private_flag.intValue();
@@ -705,10 +705,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setBimg_end_time(int i2) {
+    public void setBimg_end_time(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048631, this, i2) == null) {
-            this.bimg_end_time = i2;
+        if (interceptable == null || interceptable.invokeI(1048631, this, i) == null) {
+            this.bimg_end_time = i;
         }
     }
 
@@ -727,10 +727,10 @@ public class UserData extends MetaData {
     }
 
     @Override // com.baidu.tbadk.data.MetaData
-    public void setGiftNum(int i2) {
+    public void setGiftNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            this.mGiftNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+            this.mGiftNum = i;
         }
     }
 
@@ -748,17 +748,17 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setHave_attention(int i2) {
+    public void setHave_attention(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            setLikeStatus(i2);
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
+            setLikeStatus(i);
         }
     }
 
-    public void setInTime(long j2) {
+    public void setInTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048638, this, j2) == null) {
-            this.inTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048638, this, j) == null) {
+            this.inTime = j;
         }
     }
 
@@ -776,24 +776,24 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setIsFriend(int i2) {
+    public void setIsFriend(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048641, this, i2) == null) {
-            this.isFriend = i2;
+        if (interceptable == null || interceptable.invokeI(1048641, this, i) == null) {
+            this.isFriend = i;
         }
     }
 
-    public void setIsMem(int i2) {
+    public void setIsMem(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
-            this.is_mem = i2;
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
+            this.is_mem = i;
         }
     }
 
-    public void setLastReplyTime(long j2) {
+    public void setLastReplyTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048643, this, j2) == null) {
-            this.lastReplyTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048643, this, j) == null) {
+            this.lastReplyTime = j;
         }
     }
 
@@ -822,19 +822,19 @@ public class UserData extends MetaData {
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, c.a.q0.r.l0.t.a
-    public void setLikeStatus(int i2) {
+    @Override // com.baidu.tbadk.data.MetaData, c.a.o0.r.l0.t.a
+    public void setLikeStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048647, this, i2) == null) {
-            super.setLikeStatus(i2);
-            this.have_attention = i2;
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+            super.setLikeStatus(i);
+            this.have_attention = i;
         }
     }
 
-    public void setLike_bars(int i2) {
+    public void setLike_bars(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            this.like_bars = i2;
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+            this.like_bars = i;
         }
     }
 
@@ -845,10 +845,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setLoginTime(long j2) {
+    public void setLoginTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048650, this, j2) == null) {
-            this.loginTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048650, this, j) == null) {
+            this.loginTime = j;
         }
     }
 
@@ -873,24 +873,24 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setPosts_num(int i2) {
+    public void setPosts_num(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048654, this, i2) == null) {
-            this.posts_num = i2;
+        if (interceptable == null || interceptable.invokeI(1048654, this, i) == null) {
+            this.posts_num = i;
         }
     }
 
-    public void setPrivateThread(int i2) {
+    public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048655, this, i2) == null) {
-            this.privateThread = i2;
+        if (interceptable == null || interceptable.invokeI(1048655, this, i) == null) {
+            this.privateThread = i;
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
-            this.sex = i2;
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
+            this.sex = i;
         }
     }
 
@@ -901,10 +901,10 @@ public class UserData extends MetaData {
         }
     }
 
-    public void setUserType(int i2) {
+    public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048658, this, i2) == null) {
-            this.userType = i2;
+        if (interceptable == null || interceptable.invokeI(1048658, this, i) == null) {
+            this.userType = i;
         }
     }
 
@@ -1002,20 +1002,20 @@ public class UserData extends MetaData {
                 }
                 this.mPhotoAlbum.clear();
                 q qVar = new q();
-                qVar.g(getPortraitH());
+                qVar.f(getPortraitH());
                 qVar.i(getPortrait());
-                qVar.h(true);
+                qVar.g(true);
                 this.mPhotoAlbum.add(qVar);
                 JSONArray optJSONArray = jSONObject.optJSONArray("user_pics");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     int length = optJSONArray.length();
-                    for (int i2 = 0; i2 < length; i2++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         if (jSONObject2 != null) {
                             q qVar2 = new q();
-                            qVar2.g(jSONObject2.optString("big"));
+                            qVar2.f(jSONObject2.optString("big"));
                             qVar2.i(jSONObject2.optString("small"));
-                            qVar2.h(false);
+                            qVar2.g(false);
                             this.mPhotoAlbum.add(qVar2);
                         }
                     }
@@ -1025,8 +1025,8 @@ public class UserData extends MetaData {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("likeForum");
                 if (optJSONArray2 != null) {
-                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                        JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i3);
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        JSONObject optJSONObject6 = optJSONArray2.optJSONObject(i2);
                         if (optJSONObject6 != null) {
                             MyLikeForum myLikeForum = new MyLikeForum();
                             myLikeForum.parseJson(optJSONObject6);
@@ -1036,8 +1036,8 @@ public class UserData extends MetaData {
                 }
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("groupList");
                 if (optJSONArray3 != null) {
-                    for (int i4 = 0; i4 < optJSONArray3.length(); i4++) {
-                        JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i4);
+                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
+                        JSONObject optJSONObject7 = optJSONArray3.optJSONObject(i3);
                         if (optJSONObject7 != null) {
                             MyGroup myGroup = new MyGroup();
                             myGroup.parseJson(optJSONObject7);
@@ -1047,8 +1047,8 @@ public class UserData extends MetaData {
                 }
                 JSONArray optJSONArray4 = jSONObject.optJSONArray("gift_list");
                 if (optJSONArray4 != null) {
-                    for (int i5 = 0; i5 < optJSONArray4.length(); i5++) {
-                        JSONObject optJSONObject8 = optJSONArray4.optJSONObject(i5);
+                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
+                        JSONObject optJSONObject8 = optJSONArray4.optJSONObject(i4);
                         if (optJSONObject8 != null) {
                             MyGift myGift = new MyGift();
                             myGift.parseJson(optJSONObject8);
@@ -1071,9 +1071,9 @@ public class UserData extends MetaData {
                 }
                 JSONObject optJSONObject10 = jSONObject.optJSONObject("birthday_info");
                 if (optJSONObject10 != null) {
-                    j2 j2Var = new j2();
-                    this.mBirthdayInfo = j2Var;
-                    j2Var.a(optJSONObject10);
+                    e2 e2Var = new e2();
+                    this.mBirthdayInfo = e2Var;
+                    e2Var.a(optJSONObject10);
                 }
                 this.mTiebaUid = jSONObject.optString("tieba_uid");
             } catch (Exception e2) {
@@ -1082,16 +1082,16 @@ public class UserData extends MetaData {
         }
     }
 
-    public UserData(long j2, String str, String str2, int i2) {
+    public UserData(long j, String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1110,9 +1110,9 @@ public class UserData extends MetaData {
         this.liveStatus = 0;
         this.liveId = "0";
         this.isGodInvited = false;
-        setUserId(String.valueOf(j2));
+        setUserId(String.valueOf(j));
         setUserName(str);
         setPortrait(str2);
-        this.sex = i2;
+        this.sex = i;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.searchbox.perfframe.impl;
 
-import c.a.i0.a.b.b;
-import c.a.i0.a.b.d;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.perfframe.ioc.IPerfFrameRegister;
@@ -24,9 +24,9 @@ public class PerfFrameRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

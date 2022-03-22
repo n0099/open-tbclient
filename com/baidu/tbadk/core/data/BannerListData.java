@@ -2,8 +2,8 @@ package com.baidu.tbadk.core.data;
 
 import android.text.TextUtils;
 import c.a.d.f.m.b;
-import c.a.r0.f0.d0.o;
-import c.a.r0.j3.z;
+import c.a.p0.h0.e0.o;
+import c.a.p0.l3.z;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,7 +22,7 @@ import org.json.JSONObject;
 import tbclient.App;
 import tbclient.BannerList;
 import tbclient.FeedForumInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BannerListData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 1630193525564805923L;
@@ -31,7 +31,7 @@ public class BannerListData implements Serializable {
     public ArrayList<FeedForumData> feedForumList;
     public o recomTopicData;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Comparator<AdvertAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class BannerListData implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bannerListData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -59,7 +59,7 @@ public class BannerListData implements Serializable {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, advertAppInfo, advertAppInfo2)) == null) {
-                return (advertAppInfo != null ? b.e(advertAppInfo.m4, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.m4, 0) : 0);
+                return (advertAppInfo != null ? b.e(advertAppInfo.f29820g, 0) : 0) - (advertAppInfo2 != null ? b.e(advertAppInfo2.f29820g, 0) : 0);
             }
             return invokeLL.intValue;
         }
@@ -70,9 +70,9 @@ public class BannerListData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,10 +104,10 @@ public class BannerListData implements Serializable {
             }
             StringBuilder sb = new StringBuilder();
             int size = this.advertAppList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (!TextUtils.isEmpty(this.advertAppList.get(i2).g4)) {
-                    sb.append(this.advertAppList.get(i2).g4);
-                    if (i2 != size - 1) {
+            for (int i = 0; i < size; i++) {
+                if (!TextUtils.isEmpty(this.advertAppList.get(i).a)) {
+                    sb.append(this.advertAppList.get(i).a);
+                    if (i != size - 1) {
                         sb.append(",");
                     }
                 }
@@ -146,10 +146,10 @@ public class BannerListData implements Serializable {
             }
             List<App> list = bannerList.app;
             if (list != null && list.size() > 0) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (list.get(i2) != null) {
+                for (int i = 0; i < list.size(); i++) {
+                    if (list.get(i) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.b5(list.get(i2));
+                        advertAppInfo.s(list.get(i));
                         this.advertAppList.add(advertAppInfo);
                         if (h2 != null) {
                             h2.add(advertAppInfo);
@@ -161,10 +161,10 @@ public class BannerListData implements Serializable {
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {
-                for (int i3 = 0; i3 < list2.size(); i3++) {
-                    if (list2.get(i3) != null) {
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    if (list2.get(i2) != null) {
                         FeedForumData feedForumData = new FeedForumData();
-                        feedForumData.parseFromFeedForumInfo(list2.get(i3));
+                        feedForumData.parseFromFeedForumInfo(list2.get(i2));
                         this.feedForumList.add(feedForumData);
                     }
                 }
@@ -177,17 +177,17 @@ public class BannerListData implements Serializable {
         }
     }
 
-    public void setFeedForumLiked(String str, int i2) {
+    public void setFeedForumLiked(String str, int i) {
         ArrayList<FeedForumData> arrayList;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i2) == null) || (arrayList = this.feedForumList) == null || str == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) || (arrayList = this.feedForumList) == null || str == null) {
             return;
         }
         Iterator<FeedForumData> it = arrayList.iterator();
         while (it.hasNext()) {
             FeedForumData next = it.next();
             if (next != null && next.getForumId() != null && next.getForumId().equals(str)) {
-                next.setIsLike(i2);
+                next.setIsLike(i);
                 return;
             }
         }
@@ -203,7 +203,7 @@ public class BannerListData implements Serializable {
             if (optJSONArray == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
             }
         } catch (Exception e2) {
             BdLog.e(e2.getMessage());

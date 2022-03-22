@@ -42,7 +42,7 @@ import com.ss.android.socialbase.downloader.model.a;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g {
     public static Handler a = new Handler(Looper.getMainLooper());
 
@@ -50,7 +50,7 @@ public class g {
         if (downloadTask == null) {
             return null;
         }
-        return new a.AbstractBinderC2216a() { // from class: com.ss.android.socialbase.downloader.i.g.1
+        return new a.AbstractBinderC2077a() { // from class: com.ss.android.socialbase.downloader.i.g.1
             @Override // com.ss.android.socialbase.downloader.model.a
             public DownloadInfo a() throws RemoteException {
                 return DownloadTask.this.getDownloadInfo();
@@ -112,23 +112,23 @@ public class g {
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
-            public int a(int i2) throws RemoteException {
-                return DownloadTask.this.getDownloadListenerSize(f.e(i2));
+            public int a(int i) throws RemoteException {
+                return DownloadTask.this.getDownloadListenerSize(f.e(i));
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
-            public com.ss.android.socialbase.downloader.depend.i b(int i2) throws RemoteException {
-                return g.a(DownloadTask.this.getSingleDownloadListener(f.e(i2)), i2 != com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
+            public com.ss.android.socialbase.downloader.depend.i b(int i) throws RemoteException {
+                return g.a(DownloadTask.this.getSingleDownloadListener(f.e(i)), i != com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
-            public l c(int i2) throws RemoteException {
-                return g.a(DownloadTask.this.getDownloadCompleteHandlerByIndex(i2));
+            public l c(int i) throws RemoteException {
+                return g.a(DownloadTask.this.getDownloadCompleteHandlerByIndex(i));
             }
 
             @Override // com.ss.android.socialbase.downloader.model.a
-            public com.ss.android.socialbase.downloader.depend.i a(int i2, int i3) throws RemoteException {
-                return g.a(DownloadTask.this.getDownloadListenerByIndex(f.e(i2), i3), i2 != com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
+            public com.ss.android.socialbase.downloader.depend.i a(int i, int i2) throws RemoteException {
+                return g.a(DownloadTask.this.getDownloadListenerByIndex(f.e(i), i2), i != com.ss.android.socialbase.downloader.constants.f.SUB.ordinal());
             }
         };
     }
@@ -322,8 +322,8 @@ public class g {
         }
         return new y.a() { // from class: com.ss.android.socialbase.downloader.i.g.23
             @Override // com.ss.android.socialbase.downloader.depend.y
-            public void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
-                z.this.a(i2, downloadInfo, str, str2);
+            public void a(int i, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
+                z.this.a(i, downloadInfo, str, str2);
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -366,8 +366,8 @@ public class g {
         }
         return new ah.a() { // from class: com.ss.android.socialbase.downloader.i.g.27
             @Override // com.ss.android.socialbase.downloader.depend.ah
-            public long a(int i2, int i3) throws RemoteException {
-                return com.ss.android.socialbase.downloader.downloader.s.this.a(i2, i3);
+            public long a(int i, int i2) throws RemoteException {
+                return com.ss.android.socialbase.downloader.downloader.s.this.a(i, i2);
             }
         };
     }
@@ -428,8 +428,8 @@ public class g {
         }
         return new p.a() { // from class: com.ss.android.socialbase.downloader.i.g.31
             @Override // com.ss.android.socialbase.downloader.depend.p
-            public boolean a(long j2, long j3, o oVar) throws RemoteException {
-                return r.this.a(j2, j3, g.a(oVar));
+            public boolean a(long j, long j2, o oVar) throws RemoteException {
+                return r.this.a(j, j2, g.a(oVar));
             }
         };
     }
@@ -456,8 +456,8 @@ public class g {
         }
         return new f.a() { // from class: com.ss.android.socialbase.downloader.i.g.3
             @Override // com.ss.android.socialbase.downloader.depend.f
-            public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) throws RemoteException {
-                n.this.a(downloadInfo, baseException, i2);
+            public void a(DownloadInfo downloadInfo, BaseException baseException, int i) throws RemoteException {
+                n.this.a(downloadInfo, baseException, i);
             }
         };
     }
@@ -501,8 +501,8 @@ public class g {
         }
         return new e.a() { // from class: com.ss.android.socialbase.downloader.i.g.5
             @Override // com.ss.android.socialbase.downloader.depend.e
-            public int a(long j2) throws RemoteException {
-                return com.ss.android.socialbase.downloader.downloader.h.this.a(j2);
+            public int a(long j) throws RemoteException {
+                return com.ss.android.socialbase.downloader.downloader.h.this.a(j);
             }
         };
     }
@@ -551,8 +551,8 @@ public class g {
 
     public static void a(DownloadTask downloadTask, com.ss.android.socialbase.downloader.model.a aVar, com.ss.android.socialbase.downloader.constants.f fVar) throws RemoteException {
         SparseArray<IDownloadListener> sparseArray = new SparseArray<>();
-        for (int i2 = 0; i2 < aVar.a(fVar.ordinal()); i2++) {
-            com.ss.android.socialbase.downloader.depend.i a2 = aVar.a(fVar.ordinal(), i2);
+        for (int i = 0; i < aVar.a(fVar.ordinal()); i++) {
+            com.ss.android.socialbase.downloader.depend.i a2 = aVar.a(fVar.ordinal(), i);
             if (a2 != null) {
                 sparseArray.put(a2.a(), a(a2));
             }
@@ -561,8 +561,8 @@ public class g {
     }
 
     public static void a(DownloadTask downloadTask, com.ss.android.socialbase.downloader.model.a aVar) throws RemoteException {
-        for (int i2 = 0; i2 < aVar.l(); i2++) {
-            l c2 = aVar.c(i2);
+        for (int i = 0; i < aVar.l(); i++) {
+            l c2 = aVar.c(i);
             if (c2 != null) {
                 downloadTask.addDownloadCompleteHandler(a(c2));
             }
@@ -575,9 +575,9 @@ public class g {
         }
         return new z() { // from class: com.ss.android.socialbase.downloader.i.g.7
             @Override // com.ss.android.socialbase.downloader.depend.z
-            public void a(int i2, DownloadInfo downloadInfo, String str, String str2) {
+            public void a(int i, DownloadInfo downloadInfo, String str, String str2) {
                 try {
-                    y.this.a(i2, downloadInfo, str, str2);
+                    y.this.a(i, downloadInfo, str, str2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -695,9 +695,9 @@ public class g {
         }
         return new com.ss.android.socialbase.downloader.downloader.h() { // from class: com.ss.android.socialbase.downloader.i.g.11
             @Override // com.ss.android.socialbase.downloader.downloader.h
-            public int a(long j2) {
+            public int a(long j) {
                 try {
-                    return com.ss.android.socialbase.downloader.depend.e.this.a(j2);
+                    return com.ss.android.socialbase.downloader.depend.e.this.a(j);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return 0;
@@ -712,12 +712,12 @@ public class g {
         }
         return new n() { // from class: com.ss.android.socialbase.downloader.i.g.13
             @Override // com.ss.android.socialbase.downloader.depend.n
-            public void a(DownloadInfo downloadInfo, BaseException baseException, int i2) {
+            public void a(DownloadInfo downloadInfo, BaseException baseException, int i) {
                 if (downloadInfo == null) {
                     return;
                 }
                 try {
-                    com.ss.android.socialbase.downloader.depend.f.this.a(downloadInfo, baseException, i2);
+                    com.ss.android.socialbase.downloader.depend.f.this.a(downloadInfo, baseException, i);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -804,8 +804,8 @@ public class g {
         }
         return new aj.a() { // from class: com.ss.android.socialbase.downloader.i.g.17
             @Override // com.ss.android.socialbase.downloader.depend.aj
-            public void a(int i2, int i3) {
-                ak.this.a(i2, i3);
+            public void a(int i, int i2) {
+                ak.this.a(i, i2);
             }
         };
     }
@@ -816,9 +816,9 @@ public class g {
         }
         return new ak() { // from class: com.ss.android.socialbase.downloader.i.g.18
             @Override // com.ss.android.socialbase.downloader.depend.ak
-            public void a(int i2, int i3) {
+            public void a(int i, int i2) {
                 try {
-                    aj.this.a(i2, i3);
+                    aj.this.a(i, i2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                 }
@@ -832,9 +832,9 @@ public class g {
         }
         return new r() { // from class: com.ss.android.socialbase.downloader.i.g.19
             @Override // com.ss.android.socialbase.downloader.depend.r
-            public boolean a(long j2, long j3, q qVar) {
+            public boolean a(long j, long j2, q qVar) {
                 try {
-                    return p.this.a(j2, j3, g.a(qVar));
+                    return p.this.a(j, j2, g.a(qVar));
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return false;
@@ -861,9 +861,9 @@ public class g {
         }
         return new com.ss.android.socialbase.downloader.downloader.s() { // from class: com.ss.android.socialbase.downloader.i.g.21
             @Override // com.ss.android.socialbase.downloader.downloader.s
-            public long a(int i2, int i3) {
+            public long a(int i, int i2) {
                 try {
-                    return ah.this.a(i2, i3);
+                    return ah.this.a(i, i2);
                 } catch (RemoteException e2) {
                     e2.printStackTrace();
                     return 0L;

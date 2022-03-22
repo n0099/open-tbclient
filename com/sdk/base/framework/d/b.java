@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.a.a.c;
 import com.sdk.base.framework.a.l;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b extends com.sdk.base.framework.b.b<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public final class b extends com.sdk.base.framework.b.b<String> {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,13 +35,13 @@ public final class b extends com.sdk.base.framework.b.b<String> {
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r6v0 java.lang.Object)] */
     @Override // com.sdk.base.framework.b.b
-    public final void a(int i2, Object obj) {
+    public final void a(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) {
             a aVar = this.a;
             StringBuilder sb = new StringBuilder();
             sb.append(obj);
-            aVar.a(i2, 302002, sb.toString());
+            aVar.a(i, 302002, sb.toString());
             Context context = this.a.a;
             com.sdk.base.framework.f.g.a.a();
         }
@@ -49,7 +49,7 @@ public final class b extends com.sdk.base.framework.b.b<String> {
 
     @Override // com.sdk.base.framework.b.b
     public final void a(l<String> lVar) {
-        int i2;
+        int i;
         String str;
         boolean z;
         String str2;
@@ -73,21 +73,21 @@ public final class b extends com.sdk.base.framework.b.b<String> {
                     return;
                 }
                 this.a.a(1, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str2 = a.f57803d;
-                z2 = a.f57804e;
+                str2 = a.f42572d;
+                z2 = a.f42573e;
                 c.b(str2, "返回数据为空", Boolean.valueOf(z2));
             } catch (Throwable th) {
                 th = th;
-                i2 = optInt;
+                i = optInt;
                 com.sdk.base.framework.f.f.a.c(th.toString());
-                this.a.a(i2, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
-                str = a.f57803d;
-                z = a.f57804e;
+                this.a.a(i, "服务端数据格式出错", 302003, null, com.sdk.base.framework.f.f.a.b().a());
+                str = a.f42572d;
+                z = a.f42573e;
                 c.b(str, "返回数据解析异常：" + th.toString(), Boolean.valueOf(z));
             }
         } catch (Throwable th2) {
             th = th2;
-            i2 = 1;
+            i = 1;
         }
     }
 }

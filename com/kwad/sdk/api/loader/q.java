@@ -11,8 +11,8 @@ public class q {
     }
 
     @SuppressLint({"ApplySharedPref"})
-    public static void a(Context context, String str, long j2) {
-        context.getSharedPreferences(a, 0).edit().putLong(str, j2).commit();
+    public static void a(Context context, String str, long j) {
+        context.getSharedPreferences(a, 0).edit().putLong(str, j).commit();
     }
 
     @SuppressLint({"ApplySharedPref"})
@@ -24,8 +24,8 @@ public class q {
         return b(context, str, 0L);
     }
 
-    public static long b(Context context, String str, long j2) {
-        return context.getSharedPreferences(a, 0).getLong(str, j2);
+    public static long b(Context context, String str, long j) {
+        return context.getSharedPreferences(a, 0).getLong(str, j);
     }
 
     public static String b(Context context, String str, String str2) {

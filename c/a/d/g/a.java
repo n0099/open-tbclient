@@ -1,7 +1,7 @@
 package c.a.d.g;
 
 import android.content.Context;
-import c.a.r.a.a.b;
+import c.a.q.a.a.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -29,24 +29,24 @@ public class a implements IOutbackContext {
     public HashMap<String, CallFactory.CallFactoryProducer> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CallFactory.CallFactoryProducer f2919b;
+    public CallFactory.CallFactoryProducer f2432b;
 
     /* renamed from: c.a.d.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0113a implements HostnameVerifier {
+    public class C0102a implements HostnameVerifier {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0113a(a aVar) {
+        public C0102a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -73,9 +73,9 @@ public class a implements IOutbackContext {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -158,28 +158,28 @@ public class a implements IOutbackContext {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new HashMap<>();
-        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new C0113a(this)).build();
-        b.C0908b c0908b = new b.C0908b();
-        c0908b.p(build);
-        c.a.r.a.a.b n = c0908b.n();
-        this.f2919b = n;
-        this.a.put(n.getEngineName(), this.f2919b);
+        OkHttpClient build = new OkHttpClient.Builder().hostnameVerifier(new C0102a(this)).build();
+        b.C1567b c1567b = new b.C1567b();
+        c1567b.p(build);
+        c.a.q.a.a.b n = c1567b.n();
+        this.f2432b = n;
+        this.a.put(n.getEngineName(), this.f2432b);
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext
     public CallFactory.CallFactoryProducer getBackupCallFactoryProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2919b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2432b : (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext
@@ -203,7 +203,7 @@ public class a implements IOutbackContext {
     public CallFactory.CallFactoryProducer getDefaultCallFactoryProducer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2919b : (CallFactory.CallFactoryProducer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2432b : (CallFactory.CallFactoryProducer) invokeV.objValue;
     }
 
     @Override // com.baidu.searchbox.network.outback.IOutbackContext

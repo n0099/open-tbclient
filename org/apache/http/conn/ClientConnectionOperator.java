@@ -6,7 +6,7 @@ import org.apache.http.HttpHost;
 import org.apache.http.params.HttpParams;
 import org.apache.http.protocol.HttpContext;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface ClientConnectionOperator {
     OperatedClientConnection createConnection();
 

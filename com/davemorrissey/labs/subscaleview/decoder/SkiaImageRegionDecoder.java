@@ -15,8 +15,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PREFIX = "file:///android_asset/";
@@ -31,9 +32,9 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,14 +44,14 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     }
 
     @Override // com.davemorrissey.labs.subscaleview.decoder.ImageRegionDecoder
-    public Bitmap decodeRegion(Rect rect, int i2) {
+    public Bitmap decodeRegion(Rect rect, int i) {
         InterceptResult invokeLI;
         Bitmap decodeRegion;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, rect, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, rect, i)) == null) {
             synchronized (this.decoderLock) {
                 BitmapFactory.Options options = new BitmapFactory.Options();
-                options.inSampleSize = i2;
+                options.inSampleSize = i;
                 options.inPreferredConfig = Bitmap.Config.RGB_565;
                 decodeRegion = this.decoder.decodeRegion(rect, options);
                 if (decodeRegion == null) {
@@ -66,7 +67,7 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
     public Point init(Context context, Uri uri) throws Exception {
         InterceptResult invokeLL;
         Resources resourcesForApplication;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, uri)) == null) {
             String uri2 = uri.toString();
@@ -79,18 +80,18 @@ public class SkiaImageRegionDecoder implements ImageRegionDecoder {
                 }
                 List<String> pathSegments = uri.getPathSegments();
                 int size = pathSegments.size();
-                if (size == 2 && pathSegments.get(0).equals("drawable")) {
-                    i2 = resourcesForApplication.getIdentifier(pathSegments.get(1), "drawable", authority);
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
                 } else {
                     if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
                         try {
-                            i2 = Integer.parseInt(pathSegments.get(0));
+                            i = Integer.parseInt(pathSegments.get(0));
                         } catch (NumberFormatException unused) {
                         }
                     }
-                    i2 = 0;
+                    i = 0;
                 }
-                this.decoder = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i2), false);
+                this.decoder = BitmapRegionDecoder.newInstance(context.getResources().openRawResource(i), false);
             } else if (uri2.startsWith("file:///android_asset/")) {
                 this.decoder = BitmapRegionDecoder.newInstance(context.getAssets().open(uri2.substring(22), 1), false);
             } else if (uri2.startsWith("file://")) {

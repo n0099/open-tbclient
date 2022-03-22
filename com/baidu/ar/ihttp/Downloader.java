@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.download.PayDownloadModule;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -29,9 +28,9 @@ public final class Downloader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,10 +40,10 @@ public final class Downloader {
         this.rt = 0;
     }
 
-    public static void a(InputStream inputStream, String str, int i2, IProgressCallback iProgressCallback) {
+    public static void a(InputStream inputStream, String str, int i, IProgressCallback iProgressCallback) {
         RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLIL(65539, null, inputStream, str, i2, iProgressCallback) != null) {
+        if (interceptable != null && interceptable.invokeLLIL(65539, null, inputStream, str, i, iProgressCallback) != null) {
             return;
         }
         i.c(new File(str));
@@ -55,7 +54,7 @@ public final class Downloader {
             try {
                 randomAccessFile.seek(0L);
                 BufferedInputStream bufferedInputStream2 = new BufferedInputStream(inputStream, 8192);
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
                     try {
                         int read = bufferedInputStream2.read(bArr, 0, 8192);
@@ -65,9 +64,9 @@ public final class Downloader {
                             return;
                         }
                         randomAccessFile.write(bArr, 0, read);
-                        i3 += read;
+                        i2 += read;
                         if (iProgressCallback != null) {
-                            iProgressCallback.onProgress(i3, i2);
+                            iProgressCallback.onProgress(i2, i);
                         }
                     } catch (Throwable th) {
                         th = th;
@@ -102,7 +101,7 @@ public final class Downloader {
                 a(execute.getStream(), str, fileSize, iProgressCallback);
                 return fileSize;
             }
-            throw new HttpException(4, PayDownloadModule.STATUS_DOWNLOAD_MSG_FAIL);
+            throw new HttpException(4, "下载失败");
         }
         return invokeLL.intValue;
     }
@@ -127,7 +126,7 @@ public final class Downloader {
                 public final /* synthetic */ ICallbackWith rw;
 
                 /* renamed from: rx  reason: collision with root package name */
-                public final /* synthetic */ Downloader f31473rx;
+                public final /* synthetic */ Downloader f24834rx;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -136,15 +135,15 @@ public final class Downloader {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str, iProgressCallback, iCallbackWith2, iCallbackWith};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f31473rx = this;
+                    this.f24834rx = this;
                     this.ru = str;
                     this.rv = iProgressCallback;
                     this.rw = iCallbackWith2;
@@ -163,10 +162,10 @@ public final class Downloader {
                 public void a(IHttpResponse iHttpResponse) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iHttpResponse) == null) {
-                        this.f31473rx.rt = iHttpResponse.getContentLength();
+                        this.f24834rx.rt = iHttpResponse.getContentLength();
                         try {
-                            this.f31473rx.download(this.ru, this.rv);
-                            this.bT.run(Integer.valueOf(this.f31473rx.rt));
+                            this.f24834rx.download(this.ru, this.rv);
+                            this.bT.run(Integer.valueOf(this.f24834rx.rt));
                         } catch (Exception e2) {
                             e2.printStackTrace();
                             this.rw.run(e2);

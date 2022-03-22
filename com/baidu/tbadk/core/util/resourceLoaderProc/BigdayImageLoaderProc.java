@@ -31,9 +31,9 @@ public class BigdayImageLoaderProc implements e<a> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,7 +59,7 @@ public class BigdayImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m47decodeToResource(byte[] bArr, Object... objArr) {
+    public a m45decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -102,12 +102,12 @@ public class BigdayImageLoaderProc implements e<a> {
     }
 
     @Override // c.a.d.f.l.e
-    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                c.a.q0.b0.c.k().d(str, aVar);
+                c.a.o0.b0.c.k().d(str, aVar);
             }
         }
     }
@@ -115,10 +115,10 @@ public class BigdayImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             byte[] bArr = new byte[0];
             c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, TbMd5.getNameMd5FromUrl(str2), DiskFileOperate.Action.READ);
             cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
@@ -133,10 +133,10 @@ public class BigdayImageLoaderProc implements e<a> {
             }
             boolean H = l.H();
             if (c.a.d.f.a.d.f().a(cVar)) {
-                int i4 = H ? 300 : 2000;
+                int i3 = H ? 300 : 2000;
                 synchronized (bArr) {
                     try {
-                        bArr.wait(i4);
+                        bArr.wait(i3);
                     } catch (InterruptedException unused) {
                     }
                 }
@@ -158,19 +158,19 @@ public class BigdayImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) ? c.a.q0.b0.c.k().m(str) : (a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) ? c.a.o0.b0.c.k().m(str) : (a) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }

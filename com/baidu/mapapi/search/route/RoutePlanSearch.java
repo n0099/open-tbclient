@@ -14,22 +14,22 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
     public com.baidu.platform.core.d.e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34266b;
+    public boolean f26491b;
 
     public RoutePlanSearch() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34266b = false;
+        this.f26491b = false;
         this.a = new com.baidu.platform.core.d.j();
     }
 
@@ -67,10 +67,10 @@ public class RoutePlanSearch extends com.baidu.mapapi.search.core.l {
 
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f34266b) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f26491b) {
             return;
         }
-        this.f34266b = true;
+        this.f26491b = true;
         this.a.a();
         BMapManager.destroy();
     }

@@ -32,7 +32,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TransformationUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Lock BITMAP_DRAWABLE_LOCK;
@@ -45,7 +45,7 @@ public final class TransformationUtils {
     public static final String TAG = "TransformationUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class NoLock implements Lock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public final class TransformationUtils {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -100,10 +100,10 @@ public final class TransformationUtils {
         }
 
         @Override // java.util.concurrent.locks.Lock
-        public boolean tryLock(long j2, @NonNull TimeUnit timeUnit) throws InterruptedException {
+        public boolean tryLock(long j, @NonNull TimeUnit timeUnit) throws InterruptedException {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j2, timeUnit)) == null) {
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048580, this, j, timeUnit)) == null) {
                 return true;
             }
             return invokeJL.booleanValue;
@@ -145,9 +145,9 @@ public final class TransformationUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -168,28 +168,28 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap centerCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public static Bitmap centerCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         float width;
         float height;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, bitmapPool, bitmap, i2, i3)) == null) {
-            if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, bitmapPool, bitmap, i, i2)) == null) {
+            if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
                 return bitmap;
             }
             Matrix matrix = new Matrix();
             float f2 = 0.0f;
-            if (bitmap.getWidth() * i3 > bitmap.getHeight() * i2) {
-                width = i3 / bitmap.getHeight();
-                f2 = (i2 - (bitmap.getWidth() * width)) * 0.5f;
+            if (bitmap.getWidth() * i2 > bitmap.getHeight() * i) {
+                width = i2 / bitmap.getHeight();
+                f2 = (i - (bitmap.getWidth() * width)) * 0.5f;
                 height = 0.0f;
             } else {
-                width = i2 / bitmap.getWidth();
-                height = (i3 - (bitmap.getHeight() * width)) * 0.5f;
+                width = i / bitmap.getWidth();
+                height = (i2 - (bitmap.getHeight() * width)) * 0.5f;
             }
             matrix.setScale(width, width);
             matrix.postTranslate((int) (f2 + 0.5f), (int) (height + 0.5f));
-            Bitmap bitmap2 = bitmapPool.get(i2, i3, getNonNullConfig(bitmap));
+            Bitmap bitmap2 = bitmapPool.get(i, i2, getNonNullConfig(bitmap));
             setAlpha(bitmap, bitmap2);
             applyMatrix(bitmap, bitmap2, matrix);
             return bitmap2;
@@ -197,25 +197,29 @@ public final class TransformationUtils {
         return (Bitmap) invokeLLII.objValue;
     }
 
-    public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public static Bitmap centerInside(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool, bitmap, i2, i3)) == null) {
-            if (bitmap.getWidth() <= i2 && bitmap.getHeight() <= i3) {
-                Log.isLoggable(TAG, 2);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmapPool, bitmap, i, i2)) == null) {
+            if (bitmap.getWidth() <= i && bitmap.getHeight() <= i2) {
+                if (Log.isLoggable(TAG, 2)) {
+                    Log.v(TAG, "requested target size larger or equal to input, returning input");
+                }
                 return bitmap;
             }
-            Log.isLoggable(TAG, 2);
-            return fitCenter(bitmapPool, bitmap, i2, i3);
+            if (Log.isLoggable(TAG, 2)) {
+                Log.v(TAG, "requested target size too big for input, fit centering instead");
+            }
+            return fitCenter(bitmapPool, bitmap, i, i2);
         }
         return (Bitmap) invokeLLII.objValue;
     }
 
-    public static Bitmap circleCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public static Bitmap circleCrop(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmapPool, bitmap, i2, i3)) == null) {
-            int min = Math.min(i2, i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65541, null, bitmapPool, bitmap, i, i2)) == null) {
+            int min = Math.min(i, i2);
             float f2 = min;
             float f3 = f2 / 2.0f;
             float width = bitmap.getWidth();
@@ -255,28 +259,35 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap fitCenter(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3) {
+    public static Bitmap fitCenter(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, bitmapPool, bitmap, i2, i3)) == null) {
-            if (bitmap.getWidth() == i2 && bitmap.getHeight() == i3) {
-                Log.isLoggable(TAG, 2);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65543, null, bitmapPool, bitmap, i, i2)) == null) {
+            if (bitmap.getWidth() == i && bitmap.getHeight() == i2) {
+                if (Log.isLoggable(TAG, 2)) {
+                    Log.v(TAG, "requested target size matches input, returning input");
+                }
                 return bitmap;
             }
-            float min = Math.min(i2 / bitmap.getWidth(), i3 / bitmap.getHeight());
+            float min = Math.min(i / bitmap.getWidth(), i2 / bitmap.getHeight());
             int round = Math.round(bitmap.getWidth() * min);
             int round2 = Math.round(bitmap.getHeight() * min);
             if (bitmap.getWidth() == round && bitmap.getHeight() == round2) {
-                Log.isLoggable(TAG, 2);
+                if (Log.isLoggable(TAG, 2)) {
+                    Log.v(TAG, "adjusted target size matches input, returning input");
+                }
                 return bitmap;
             }
             Bitmap bitmap2 = bitmapPool.get((int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), getNonNullConfig(bitmap));
             setAlpha(bitmap, bitmap2);
             if (Log.isLoggable(TAG, 2)) {
-                String str = "request: " + i2 + "x" + i3;
-                String str2 = "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight();
-                String str3 = "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight();
-                String str4 = "minPct:   " + min;
+                Log.v(TAG, "request: " + i + "x" + i2);
+                Log.v(TAG, "toFit:   " + bitmap.getWidth() + "x" + bitmap.getHeight());
+                Log.v(TAG, "toReuse: " + bitmap2.getWidth() + "x" + bitmap2.getHeight());
+                StringBuilder sb = new StringBuilder();
+                sb.append("minPct:   ");
+                sb.append(min);
+                Log.v(TAG, sb.toString());
             }
             Matrix matrix = new Matrix();
             matrix.setScale(min, min);
@@ -320,11 +331,11 @@ public final class TransformationUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? BITMAP_DRAWABLE_LOCK : (Lock) invokeV.objValue;
     }
 
-    public static int getExifOrientationDegrees(int i2) {
+    public static int getExifOrientationDegrees(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
+            switch (i) {
                 case 3:
                 case 4:
                     return 180;
@@ -349,10 +360,10 @@ public final class TransformationUtils {
     }
 
     @VisibleForTesting
-    public static void initializeMatrixForRotation(int i2, Matrix matrix) {
+    public static void initializeMatrixForRotation(int i, Matrix matrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65549, null, i2, matrix) == null) {
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeIL(65549, null, i, matrix) == null) {
+            switch (i) {
                 case 2:
                     matrix.setScale(-1.0f, 1.0f);
                     return;
@@ -383,11 +394,11 @@ public final class TransformationUtils {
         }
     }
 
-    public static boolean isExifOrientationRequired(int i2) {
+    public static boolean isExifOrientationRequired(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
+            switch (i) {
                 case 2:
                 case 3:
                 case 4:
@@ -403,17 +414,20 @@ public final class TransformationUtils {
         return invokeI.booleanValue;
     }
 
-    public static Bitmap rotateImage(@NonNull Bitmap bitmap, int i2) {
+    public static Bitmap rotateImage(@NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, bitmap, i2)) == null) {
-            if (i2 != 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, bitmap, i)) == null) {
+            if (i != 0) {
                 try {
                     Matrix matrix = new Matrix();
-                    matrix.setRotate(i2);
+                    matrix.setRotate(i);
                     return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-                } catch (Exception unused) {
-                    Log.isLoggable(TAG, 6);
+                } catch (Exception e2) {
+                    if (Log.isLoggable(TAG, 6)) {
+                        Log.e(TAG, "Exception when trying to orient image", e2);
+                        return bitmap;
+                    }
                     return bitmap;
                 }
             }
@@ -422,13 +436,13 @@ public final class TransformationUtils {
         return (Bitmap) invokeLI.objValue;
     }
 
-    public static Bitmap rotateImageExif(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2) {
+    public static Bitmap rotateImageExif(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, bitmapPool, bitmap, i2)) == null) {
-            if (isExifOrientationRequired(i2)) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65552, null, bitmapPool, bitmap, i)) == null) {
+            if (isExifOrientationRequired(i)) {
                 Matrix matrix = new Matrix();
-                initializeMatrixForRotation(i2, matrix);
+                initializeMatrixForRotation(i, matrix);
                 RectF rectF = new RectF(0.0f, 0.0f, bitmap.getWidth(), bitmap.getHeight());
                 matrix.mapRect(rectF);
                 Bitmap bitmap2 = bitmapPool.get(Math.round(rectF.width()), Math.round(rectF.height()), getNonNullConfig(bitmap));
@@ -442,10 +456,10 @@ public final class TransformationUtils {
     }
 
     @Deprecated
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2, int i3, int i4) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{bitmapPool, bitmap, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? roundedCorners(bitmapPool, bitmap, i4) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{bitmapPool, bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? roundedCorners(bitmapPool, bitmap, i3) : (Bitmap) invokeCommon.objValue;
     }
 
     public static void setAlpha(Bitmap bitmap, Bitmap bitmap2) {
@@ -455,11 +469,11 @@ public final class TransformationUtils {
         }
     }
 
-    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i2) {
+    public static Bitmap roundedCorners(@NonNull BitmapPool bitmapPool, @NonNull Bitmap bitmap, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, bitmapPool, bitmap, i2)) == null) {
-            Preconditions.checkArgument(i2 > 0, "roundingRadius must be greater than 0.");
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65553, null, bitmapPool, bitmap, i)) == null) {
+            Preconditions.checkArgument(i > 0, "roundingRadius must be greater than 0.");
             Bitmap.Config alphaSafeConfig = getAlphaSafeConfig(bitmap);
             Bitmap alphaSafeBitmap = getAlphaSafeBitmap(bitmapPool, bitmap);
             Bitmap bitmap2 = bitmapPool.get(alphaSafeBitmap.getWidth(), alphaSafeBitmap.getHeight(), alphaSafeConfig);
@@ -474,7 +488,7 @@ public final class TransformationUtils {
             try {
                 Canvas canvas = new Canvas(bitmap2);
                 canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                float f2 = i2;
+                float f2 = i;
                 canvas.drawRoundRect(rectF, f2, f2, paint);
                 clear(canvas);
                 BITMAP_DRAWABLE_LOCK.unlock();

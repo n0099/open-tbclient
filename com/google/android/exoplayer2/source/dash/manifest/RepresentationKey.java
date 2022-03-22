@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class RepresentationKey implements Parcelable, Comparable<RepresentationKey> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<RepresentationKey> CREATOR;
@@ -42,9 +42,9 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -63,32 +63,32 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public RepresentationKey[] newArray(int i2) {
+            public RepresentationKey[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new RepresentationKey[i2] : (RepresentationKey[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new RepresentationKey[i] : (RepresentationKey[]) invokeI.objValue;
             }
         };
     }
 
-    public RepresentationKey(int i2, int i3, int i4) {
+    public RepresentationKey(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.periodIndex = i2;
-        this.adaptationSetIndex = i3;
-        this.representationIndex = i4;
+        this.periodIndex = i;
+        this.adaptationSetIndex = i2;
+        this.representationIndex = i3;
     }
 
     @Override // android.os.Parcelable
@@ -133,9 +133,9 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeInt(this.periodIndex);
             parcel.writeInt(this.adaptationSetIndex);
             parcel.writeInt(this.representationIndex);
@@ -148,12 +148,12 @@ public final class RepresentationKey implements Parcelable, Comparable<Represent
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, representationKey)) == null) {
-            int i2 = this.periodIndex - representationKey.periodIndex;
-            if (i2 == 0) {
-                int i3 = this.adaptationSetIndex - representationKey.adaptationSetIndex;
-                return i3 == 0 ? this.representationIndex - representationKey.representationIndex : i3;
+            int i = this.periodIndex - representationKey.periodIndex;
+            if (i == 0) {
+                int i2 = this.adaptationSetIndex - representationKey.adaptationSetIndex;
+                return i2 == 0 ? this.representationIndex - representationKey.representationIndex : i2;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }

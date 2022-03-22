@@ -22,15 +22,15 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2550d;
+    public static a f2100d;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2551b;
+    public String f2101b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2552c;
+    public long f2102c;
 
     static {
         InterceptResult invokeClinit;
@@ -52,35 +52,35 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = 0L;
-        this.f2551b = null;
-        this.f2552c = 0L;
+        this.f2101b = null;
+        this.f2102c = 0L;
         SharedPreferences a = a();
         this.a = a.getLong(f("c.tieba.baidu.com"), 0L);
-        this.f2551b = a.getString(e("c.tieba.baidu.com"), null);
-        this.f2552c = a.getLong(d("c.tieba.baidu.com"), 0L);
+        this.f2101b = a.getString(e("c.tieba.baidu.com"), null);
+        this.f2102c = a.getLong(d("c.tieba.baidu.com"), 0L);
     }
 
     public static final a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2550d == null) {
+            if (f2100d == null) {
                 synchronized (a.class) {
-                    if (f2550d == null) {
-                        f2550d = new a();
+                    if (f2100d == null) {
+                        f2100d = new a();
                     }
                 }
             }
-            return f2550d;
+            return f2100d;
         }
         return (a) invokeV.objValue;
     }
@@ -149,23 +149,23 @@ public class a {
                 }
                 if ("c.tieba.baidu.com".equals(host)) {
                     long currentTimeMillis = System.currentTimeMillis();
-                    long j2 = this.a;
-                    long j3 = this.f2552c;
-                    String str4 = this.f2551b;
-                    if (currentTimeMillis - j2 > 43200000) {
+                    long j = this.a;
+                    long j2 = this.f2102c;
+                    String str4 = this.f2101b;
+                    if (currentTimeMillis - j > 43200000) {
                         h(host, str3, z, "12hour", z2);
                         return;
                     }
                     Calendar calendar = Calendar.getInstance();
                     calendar.setTimeInMillis(currentTimeMillis);
-                    int i2 = calendar.get(6);
-                    calendar.setTimeInMillis(j2);
-                    if (i2 != calendar.get(6)) {
+                    int i = calendar.get(6);
+                    calendar.setTimeInMillis(j);
+                    if (i != calendar.get(6)) {
                         h(host, str3, z, "newday", z2);
-                    } else if (System.currentTimeMillis() - j3 > 3600000) {
+                    } else if (System.currentTimeMillis() - j2 > 3600000) {
                         String b2 = TextUtils.isEmpty(str3) ? b(host) : str3;
                         if (TextUtils.equals(b2, str4) && str4 != null) {
-                            this.f2552c = System.currentTimeMillis();
+                            this.f2102c = System.currentTimeMillis();
                         } else {
                             h(host, b2, z, "ipchange", z2);
                         }
@@ -200,7 +200,7 @@ public class a {
         EditorHelper.putString(a, e(str), str2);
         EditorHelper.putLong(a, d(str), currentTimeMillis2);
         this.a = currentTimeMillis;
-        this.f2552c = currentTimeMillis2;
-        this.f2551b = str2;
+        this.f2102c = currentTimeMillis2;
+        this.f2101b = str2;
     }
 }

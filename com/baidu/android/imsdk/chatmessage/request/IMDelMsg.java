@@ -54,16 +54,16 @@ public class IMDelMsg extends Message {
         }
     }
 
-    public IMDelMsg(Context context, long j2, int i2, long[] jArr, long j3, boolean z) {
+    public IMDelMsg(Context context, long j, int i, long[] jArr, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), jArr, Long.valueOf(j3), Boolean.valueOf(z)};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), jArr, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -73,12 +73,12 @@ public class IMDelMsg extends Message {
         this.mReSendCount = 0;
         initCommonParameter(context);
         this.mContext = context;
-        this.mToId = j2;
+        this.mToId = j;
         setNeedReplay(true);
-        this.mCategory = i2;
+        this.mCategory = i;
         setType(57);
         this.mMsgIds = jArr;
-        this.mClientMaxMsgid = j3;
+        this.mClientMaxMsgid = j2;
         this.mPriority = 14;
         this.mIsZhida = z;
     }
@@ -135,8 +135,8 @@ public class IMDelMsg extends Message {
                 jSONObject.put("origin_id", Utility.getTriggerId(this.mContext));
                 if (this.mMsgIds != null && this.mMsgIds.length > 0) {
                     JSONArray jSONArray = new JSONArray();
-                    for (long j2 : this.mMsgIds) {
-                        jSONArray.put(Long.valueOf(j2));
+                    for (long j : this.mMsgIds) {
+                        jSONArray.put(Long.valueOf(j));
                     }
                     jSONObject.put("msgid", jSONArray);
                 }
@@ -173,16 +173,16 @@ public class IMDelMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i, str) == null) {
             try {
                 if (TextUtils.isEmpty(this.mListenerKey)) {
-                    if (i2 == 0) {
+                    if (i == 0) {
                         DBManager.getInstance(context).deleteCmdMsg(getUUID());
                         setNeedReSend(false);
                     } else {
-                        if (i2 != 1004 && i2 != 1001) {
+                        if (i != 1004 && i != 1001) {
                             if (this.mReSendCount >= 3) {
                                 setNeedReSend(false);
                                 DBManager.getInstance(context).deleteCmdMsg(getUUID());
@@ -193,13 +193,13 @@ public class IMDelMsg extends Message {
                             DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                         }
                         setNeedReSend(false);
-                        LoginManager.getInstance(this.mContext).triggleLogoutListener(i2, str);
+                        LoginManager.getInstance(this.mContext).triggleLogoutListener(i, str);
                         DBManager.getInstance(context).updateCmdMsgSendStatus(getUUID(), 1);
                     }
-                } else if (i2 == 0) {
+                } else if (i == 0) {
                     updateDB(context);
                 }
-                super.handleMessageResult(context, jSONObject, i2, str);
+                super.handleMessageResult(context, jSONObject, i, str);
             } catch (Exception e2) {
                 LogUtils.e(TAG, "handle IMDelMsg exception :", e2);
             }
@@ -214,17 +214,17 @@ public class IMDelMsg extends Message {
         }
     }
 
-    public void setChatType(int i2) {
+    public void setChatType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mChatType = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mChatType = i;
         }
     }
 
-    public void setPaid(long j2) {
+    public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.mPaid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.mPaid = j;
         }
     }
 }

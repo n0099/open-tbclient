@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ByteString {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteString EMPTY;
@@ -45,9 +45,9 @@ public final class ByteString {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,28 +62,28 @@ public final class ByteString {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) ? new ByteString((byte[]) bArr.clone()) : (ByteString) invokeL.objValue;
     }
 
-    public static ByteString read(InputStream inputStream, int i2) throws IOException {
+    public static ByteString read(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) == null) {
-            byte[] bArr = new byte[i2];
-            int i3 = 0;
-            while (i3 < i2) {
-                int read = inputStream.read(bArr, i3, i2 - i3);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i)) == null) {
+            byte[] bArr = new byte[i];
+            int i2 = 0;
+            while (i2 < i) {
+                int read = inputStream.read(bArr, i2, i - i2);
                 if (read == -1) {
-                    throw new EOFException("Expected " + i2 + "; received " + i3);
+                    throw new EOFException("Expected " + i + "; received " + i2);
                 }
-                i3 += read;
+                i2 += read;
             }
             return new ByteString(bArr);
         }
         return (ByteString) invokeLI.objValue;
     }
 
-    public byte byteAt(int i2) {
+    public byte byteAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.data[i2] : invokeI.byteValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.data[i] : invokeI.byteValue;
     }
 
     public boolean equals(Object obj) {
@@ -102,9 +102,9 @@ public final class ByteString {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 != 0) {
-                return i2;
+            int i = this.hashCode;
+            if (i != 0) {
+                return i;
             }
             int hashCode = Arrays.hashCode(this.data);
             this.hashCode = hashCode;
@@ -138,21 +138,21 @@ public final class ByteString {
         }
     }
 
-    public static ByteString of(byte[] bArr, int i2, int i3) {
+    public static ByteString of(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) {
-            byte[] bArr2 = new byte[i3];
-            System.arraycopy(bArr, i2, bArr2, 0, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[i2];
+            System.arraycopy(bArr, i, bArr2, 0, i2);
             return new ByteString(bArr2);
         }
         return (ByteString) invokeLII.objValue;
     }
 
-    public void write(OutputStream outputStream, int i2, int i3) throws IOException {
+    public void write(OutputStream outputStream, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048583, this, outputStream, i2, i3) == null) {
-            outputStream.write(this.data, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048583, this, outputStream, i, i2) == null) {
+            outputStream.write(this.data, i, i2);
         }
     }
 

@@ -15,7 +15,7 @@ import com.facebook.common.util.StreamUtil;
 import com.facebook.imagepipeline.image.EncodedImage;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ProgressiveJpegParser {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 16384;
@@ -43,9 +43,9 @@ public class ProgressiveJpegParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteArrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,29 +65,29 @@ public class ProgressiveJpegParser {
         int read;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, inputStream)) == null) {
-            int i2 = this.mBestScanNumber;
+            int i = this.mBestScanNumber;
             while (this.mParserState != 6 && (read = inputStream.read()) != -1) {
                 try {
-                    int i3 = this.mBytesParsed + 1;
-                    this.mBytesParsed = i3;
+                    int i2 = this.mBytesParsed + 1;
+                    this.mBytesParsed = i2;
                     if (this.mEndMarkerRead) {
                         this.mParserState = 6;
                         this.mEndMarkerRead = false;
                         return false;
                     }
-                    int i4 = this.mParserState;
-                    if (i4 != 0) {
-                        if (i4 != 1) {
-                            if (i4 != 2) {
-                                if (i4 != 3) {
-                                    if (i4 == 4) {
+                    int i3 = this.mParserState;
+                    if (i3 != 0) {
+                        if (i3 != 1) {
+                            if (i3 != 2) {
+                                if (i3 != 3) {
+                                    if (i3 == 4) {
                                         this.mParserState = 5;
-                                    } else if (i4 != 5) {
+                                    } else if (i3 != 5) {
                                         Preconditions.checkState(false);
                                     } else {
-                                        int i5 = ((this.mLastByteRead << 8) + read) - 2;
-                                        StreamUtil.skip(inputStream, i5);
-                                        this.mBytesParsed += i5;
+                                        int i4 = ((this.mLastByteRead << 8) + read) - 2;
+                                        StreamUtil.skip(inputStream, i4);
+                                        this.mBytesParsed += i4;
                                         this.mParserState = 2;
                                     }
                                 } else if (read == 255) {
@@ -96,11 +96,11 @@ public class ProgressiveJpegParser {
                                     this.mParserState = 2;
                                 } else if (read == 217) {
                                     this.mEndMarkerRead = true;
-                                    newScanOrImageEndFound(i3 - 2);
+                                    newScanOrImageEndFound(i2 - 2);
                                     this.mParserState = 2;
                                 } else {
                                     if (read == 218) {
-                                        newScanOrImageEndFound(i3 - 2);
+                                        newScanOrImageEndFound(i2 - 2);
                                     }
                                     if (doesMarkerStartSegment(read)) {
                                         this.mParserState = 4;
@@ -126,32 +126,32 @@ public class ProgressiveJpegParser {
                     Throwables.propagate(e2);
                 }
             }
-            return (this.mParserState == 6 || this.mBestScanNumber == i2) ? false : true;
+            return (this.mParserState == 6 || this.mBestScanNumber == i) ? false : true;
         }
         return invokeL.booleanValue;
     }
 
-    public static boolean doesMarkerStartSegment(int i2) {
+    public static boolean doesMarkerStartSegment(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 1) {
                 return false;
             }
-            return ((i2 >= 208 && i2 <= 215) || i2 == 217 || i2 == 216) ? false : true;
+            return ((i >= 208 && i <= 215) || i == 217 || i == 216) ? false : true;
         }
         return invokeI.booleanValue;
     }
 
-    private void newScanOrImageEndFound(int i2) {
+    private void newScanOrImageEndFound(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
             if (this.mNextFullScanNumber > 0) {
-                this.mBestScanEndOffset = i2;
+                this.mBestScanEndOffset = i;
             }
-            int i3 = this.mNextFullScanNumber;
-            this.mNextFullScanNumber = i3 + 1;
-            this.mBestScanNumber = i3;
+            int i2 = this.mNextFullScanNumber;
+            this.mNextFullScanNumber = i2 + 1;
+            this.mBestScanNumber = i2;
         }
     }
 

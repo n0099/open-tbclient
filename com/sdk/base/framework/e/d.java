@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PushbackInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public abstract class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,38 +28,38 @@ public abstract class d {
     }
 
     public final void a(InputStream inputStream, OutputStream outputStream) {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(1048576, this, inputStream, outputStream) != null) {
             return;
         }
         PushbackInputStream pushbackInputStream = new PushbackInputStream(inputStream);
         while (true) {
-            int i4 = 0;
+            int i3 = 0;
             while (true) {
-                i2 = i4 + 4;
-                i3 = 4;
-                if (i2 >= 72) {
+                i = i3 + 4;
+                i2 = 4;
+                if (i >= 72) {
                     break;
                 }
                 try {
                     a(pushbackInputStream, outputStream, 4);
-                    i4 = i2;
+                    i3 = i;
                 } catch (c unused) {
                     return;
                 }
             }
-            if (i2 != 72) {
-                i3 = 72 - i4;
+            if (i != 72) {
+                i2 = 72 - i3;
             }
-            a(pushbackInputStream, outputStream, i3);
+            a(pushbackInputStream, outputStream, i2);
         }
     }
 
-    public void a(PushbackInputStream pushbackInputStream, OutputStream outputStream, int i2) {
+    public void a(PushbackInputStream pushbackInputStream, OutputStream outputStream, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushbackInputStream, outputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushbackInputStream, outputStream, i) == null) {
             throw new c();
         }
     }

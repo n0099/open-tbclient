@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import java.io.UnsupportedEncodingException;
+import org.apache.commons.codec.binary4util.BaseNCodec;
 /* loaded from: classes.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
@@ -38,50 +39,50 @@ public final class a {
             int length = (bArr.length * 4) / 3;
             byte[] bArr2 = new byte[length + (length / 76) + 3];
             int length2 = bArr.length - (bArr.length % 3);
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            for (int i4 = 0; i4 < length2; i4 += 3) {
-                int i5 = i2 + 1;
+            for (int i3 = 0; i3 < length2; i3 += 3) {
+                int i4 = i + 1;
                 byte[] bArr3 = a;
-                bArr2[i2] = bArr3[(bArr[i4] & 255) >> 2];
-                int i6 = i5 + 1;
-                int i7 = i4 + 1;
-                bArr2[i5] = bArr3[((bArr[i4] & 3) << 4) | ((bArr[i7] & 255) >> 4)];
-                int i8 = i6 + 1;
-                int i9 = i4 + 2;
-                bArr2[i6] = bArr3[((bArr[i7] & 15) << 2) | ((bArr[i9] & 255) >> 6)];
-                i2 = i8 + 1;
-                bArr2[i8] = bArr3[bArr[i9] & 63];
-                if ((i2 - i3) % 76 == 0 && i2 != 0) {
-                    bArr2[i2] = 10;
-                    i3++;
+                bArr2[i] = bArr3[(bArr[i3] & 255) >> 2];
+                int i5 = i4 + 1;
+                int i6 = i3 + 1;
+                bArr2[i4] = bArr3[((bArr[i3] & 3) << 4) | ((bArr[i6] & 255) >> 4)];
+                int i7 = i5 + 1;
+                int i8 = i3 + 2;
+                bArr2[i5] = bArr3[((bArr[i6] & 15) << 2) | ((bArr[i8] & 255) >> 6)];
+                i = i7 + 1;
+                bArr2[i7] = bArr3[bArr[i8] & 63];
+                if ((i - i2) % 76 == 0 && i != 0) {
+                    bArr2[i] = 10;
                     i2++;
+                    i++;
                 }
             }
             int length3 = bArr.length % 3;
             if (length3 == 1) {
-                int i10 = i2 + 1;
+                int i9 = i + 1;
                 byte[] bArr4 = a;
-                bArr2[i2] = bArr4[(bArr[length2] & 255) >> 2];
+                bArr2[i] = bArr4[(bArr[length2] & 255) >> 2];
+                int i10 = i9 + 1;
+                bArr2[i9] = bArr4[(bArr[length2] & 3) << 4];
                 int i11 = i10 + 1;
-                bArr2[i10] = bArr4[(bArr[length2] & 3) << 4];
-                int i12 = i11 + 1;
-                bArr2[i11] = 61;
-                i2 = i12 + 1;
-                bArr2[i12] = 61;
+                bArr2[i10] = BaseNCodec.PAD_DEFAULT;
+                i = i11 + 1;
+                bArr2[i11] = BaseNCodec.PAD_DEFAULT;
             } else if (length3 == 2) {
-                int i13 = i2 + 1;
+                int i12 = i + 1;
                 byte[] bArr5 = a;
-                bArr2[i2] = bArr5[(bArr[length2] & 255) >> 2];
-                int i14 = i13 + 1;
-                int i15 = length2 + 1;
-                bArr2[i13] = bArr5[((bArr[i15] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
-                int i16 = i14 + 1;
-                bArr2[i14] = bArr5[(bArr[i15] & 15) << 2];
-                i2 = i16 + 1;
-                bArr2[i16] = 61;
+                bArr2[i] = bArr5[(bArr[length2] & 255) >> 2];
+                int i13 = i12 + 1;
+                int i14 = length2 + 1;
+                bArr2[i12] = bArr5[((bArr[i14] & 255) >> 4) | ((bArr[length2] & 3) << 4)];
+                int i15 = i13 + 1;
+                bArr2[i13] = bArr5[(bArr[i14] & 15) << 2];
+                i = i15 + 1;
+                bArr2[i15] = BaseNCodec.PAD_DEFAULT;
             }
-            return new String(bArr2, 0, i2, str);
+            return new String(bArr2, 0, i, str);
         }
         return (String) invokeLL.objValue;
     }
@@ -92,77 +93,77 @@ public final class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c(bArr, bArr.length) : (byte[]) invokeL.objValue;
     }
 
-    public static byte[] c(byte[] bArr, int i2) {
+    public static byte[] c(byte[] bArr, int i) {
         InterceptResult invokeLI;
         byte b2;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i2)) == null) {
-            int i4 = (i2 / 4) * 3;
-            if (i4 == 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            int i3 = (i / 4) * 3;
+            if (i3 == 0) {
                 return new byte[0];
             }
-            byte[] bArr2 = new byte[i4];
-            int i5 = i2;
-            int i6 = 0;
+            byte[] bArr2 = new byte[i3];
+            int i4 = i;
+            int i5 = 0;
             while (true) {
-                byte b3 = bArr[i5 - 1];
+                byte b3 = bArr[i4 - 1];
                 b2 = 10;
                 if (b3 != 10 && b3 != 13 && b3 != 32 && b3 != 9) {
                     if (b3 != 61) {
                         break;
                     }
-                    i6++;
+                    i5++;
                 }
-                i5--;
+                i4--;
             }
+            int i6 = 0;
             int i7 = 0;
             int i8 = 0;
             int i9 = 0;
-            int i10 = 0;
-            while (i7 < i5) {
-                byte b4 = bArr[i7];
+            while (i6 < i4) {
+                byte b4 = bArr[i6];
                 if (b4 != b2 && b4 != 13 && b4 != 32 && b4 != 9) {
                     if (b4 >= 65 && b4 <= 90) {
-                        i3 = b4 - 65;
+                        i2 = b4 - 65;
                     } else if (b4 >= 97 && b4 <= 122) {
-                        i3 = b4 - 71;
+                        i2 = b4 - 71;
                     } else if (b4 >= 48 && b4 <= 57) {
-                        i3 = b4 + 4;
+                        i2 = b4 + 4;
                     } else if (b4 == 43) {
-                        i3 = 62;
+                        i2 = 62;
                     } else if (b4 != 47) {
                         return null;
                     } else {
-                        i3 = 63;
+                        i2 = 63;
                     }
-                    i9 = ((byte) i3) | (i9 << 6);
-                    if (i10 % 4 == 3) {
-                        int i11 = i8 + 1;
-                        bArr2[i8] = (byte) ((16711680 & i9) >> 16);
-                        int i12 = i11 + 1;
-                        bArr2[i11] = (byte) ((65280 & i9) >> 8);
-                        bArr2[i12] = (byte) (i9 & 255);
-                        i8 = i12 + 1;
+                    i8 = ((byte) i2) | (i8 << 6);
+                    if (i9 % 4 == 3) {
+                        int i10 = i7 + 1;
+                        bArr2[i7] = (byte) ((16711680 & i8) >> 16);
+                        int i11 = i10 + 1;
+                        bArr2[i10] = (byte) ((65280 & i8) >> 8);
+                        bArr2[i11] = (byte) (i8 & 255);
+                        i7 = i11 + 1;
                     }
-                    i10++;
+                    i9++;
                 }
-                i7++;
+                i6++;
                 b2 = 10;
             }
-            if (i6 > 0) {
-                int i13 = i9 << (i6 * 6);
-                int i14 = i8 + 1;
-                bArr2[i8] = (byte) ((i13 & 16711680) >> 16);
-                if (i6 == 1) {
-                    i8 = i14 + 1;
-                    bArr2[i14] = (byte) ((i13 & 65280) >> 8);
+            if (i5 > 0) {
+                int i12 = i8 << (i5 * 6);
+                int i13 = i7 + 1;
+                bArr2[i7] = (byte) ((i12 & 16711680) >> 16);
+                if (i5 == 1) {
+                    i7 = i13 + 1;
+                    bArr2[i13] = (byte) ((i12 & 65280) >> 8);
                 } else {
-                    i8 = i14;
+                    i7 = i13;
                 }
             }
-            byte[] bArr3 = new byte[i8];
-            System.arraycopy(bArr2, 0, bArr3, 0, i8);
+            byte[] bArr3 = new byte[i7];
+            System.arraycopy(bArr2, 0, bArr3, 0, i7);
             return bArr3;
         }
         return (byte[]) invokeLI.objValue;

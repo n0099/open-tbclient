@@ -23,7 +23,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ImageUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class ImageUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,11 +59,11 @@ public class ImageUtils {
                 return false;
             }
             File file = new File(str);
-            int i2 = 1;
-            while (!z && i2 <= 5 && file.isFile() && file.exists()) {
+            int i = 1;
+            while (!z && i <= 5 && file.isFile() && file.exists()) {
                 z = file.delete();
                 if (!z) {
-                    i2++;
+                    i++;
                 }
             }
             return z;
@@ -138,10 +138,10 @@ public class ImageUtils {
         }
     }
 
-    public static void revitionImageSize(String str, int i2, int i3) throws IOException {
+    public static void revitionImageSize(String str, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65544, null, str, i2, i3) == null) {
-            if (i2 > 0) {
+        if (interceptable == null || interceptable.invokeLII(65544, null, str, i, i2) == null) {
+            if (i > 0) {
                 if (!isFileExisted(str)) {
                     if (str == null) {
                         str = StringUtil.NULL_STRING;
@@ -157,14 +157,14 @@ public class ImageUtils {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if ((options.outWidth >> i4) <= i2 && (options.outHeight >> i4) <= i2) {
+                        if ((options.outWidth >> i3) <= i && (options.outHeight >> i3) <= i) {
                             break;
                         }
-                        i4++;
+                        i3++;
                     }
-                    options.inSampleSize = (int) Math.pow(2.0d, i4);
+                    options.inSampleSize = (int) Math.pow(2.0d, i3);
                     options.inJustDecodeBounds = false;
                     Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
                     if (safeDecodeBimtapFile != null) {
@@ -173,9 +173,9 @@ public class ImageUtils {
                         FileOutputStream fileOutputStream = new FileOutputStream(str);
                         String str2 = options.outMimeType;
                         if (str2 != null && str2.contains("png")) {
-                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
                         } else {
-                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
                         }
                         try {
                             fileOutputStream.close();
@@ -194,18 +194,18 @@ public class ImageUtils {
         }
     }
 
-    public static void revitionImageSizeHD(String str, int i2, int i3) throws IOException {
+    public static void revitionImageSizeHD(String str, int i, int i2) throws IOException {
         Bitmap createBitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65545, null, str, i2, i3) == null) {
-            if (i2 > 0) {
+        if (interceptable == null || interceptable.invokeLII(65545, null, str, i, i2) == null) {
+            if (i > 0) {
                 if (!isFileExisted(str)) {
                     if (str == null) {
                         str = StringUtil.NULL_STRING;
                     }
                     throw new FileNotFoundException(str);
                 } else if (BitmapHelper.verifyBitmap(str)) {
-                    int i4 = i2 * 2;
+                    int i3 = i * 2;
                     FileInputStream fileInputStream = new FileInputStream(str);
                     BitmapFactory.Options options = new BitmapFactory.Options();
                     options.inJustDecodeBounds = true;
@@ -215,20 +215,20 @@ public class ImageUtils {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                     }
-                    int i5 = 0;
+                    int i4 = 0;
                     while (true) {
-                        if ((options.outWidth >> i5) <= i4 && (options.outHeight >> i5) <= i4) {
+                        if ((options.outWidth >> i4) <= i3 && (options.outHeight >> i4) <= i3) {
                             break;
                         }
-                        i5++;
+                        i4++;
                     }
-                    options.inSampleSize = (int) Math.pow(2.0d, i5);
+                    options.inSampleSize = (int) Math.pow(2.0d, i4);
                     options.inJustDecodeBounds = false;
                     Bitmap safeDecodeBimtapFile = safeDecodeBimtapFile(str, options);
                     if (safeDecodeBimtapFile != null) {
                         deleteDependon(str);
                         makesureFileExist(str);
-                        float width = i2 / (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight() ? safeDecodeBimtapFile.getWidth() : safeDecodeBimtapFile.getHeight());
+                        float width = i / (safeDecodeBimtapFile.getWidth() > safeDecodeBimtapFile.getHeight() ? safeDecodeBimtapFile.getWidth() : safeDecodeBimtapFile.getHeight());
                         if (width < 1.0f) {
                             while (true) {
                                 try {
@@ -252,9 +252,9 @@ public class ImageUtils {
                         FileOutputStream fileOutputStream = new FileOutputStream(str);
                         String str2 = options.outMimeType;
                         if (str2 != null && str2.contains("png")) {
-                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i3, fileOutputStream);
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.PNG, i2, fileOutputStream);
                         } else {
-                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i3, fileOutputStream);
+                            safeDecodeBimtapFile.compress(Bitmap.CompressFormat.JPEG, i2, fileOutputStream);
                         }
                         try {
                             fileOutputStream.close();
@@ -286,10 +286,10 @@ public class ImageUtils {
             } else {
                 options2 = options;
             }
-            int i2 = 0;
+            int i = 0;
             Bitmap bitmap = null;
             FileInputStream fileInputStream2 = null;
-            while (i2 < 5) {
+            while (i < 5) {
                 try {
                     try {
                         fileInputStream = new FileInputStream(str);
@@ -312,7 +312,7 @@ public class ImageUtils {
                         } catch (IOException e5) {
                             e5.printStackTrace();
                         }
-                        i2++;
+                        i++;
                         fileInputStream2 = fileInputStream;
                     }
                 } catch (OutOfMemoryError e6) {

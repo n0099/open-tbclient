@@ -65,9 +65,9 @@ public final class RemoteInput {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,11 +149,11 @@ public final class RemoteInput {
         }
 
         @NonNull
-        public Builder setEditChoicesBeforeSending(int i2) {
+        public Builder setEditChoicesBeforeSending(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.mEditChoicesBeforeSending = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.mEditChoicesBeforeSending = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -183,16 +183,16 @@ public final class RemoteInput {
     public @interface Source {
     }
 
-    public RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, int i2, Bundle bundle, Set<String> set) {
+    public RemoteInput(String str, CharSequence charSequence, CharSequence[] charSequenceArr, boolean z, int i, Bundle bundle, Set<String> set) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, charSequence, charSequenceArr, Boolean.valueOf(z), Integer.valueOf(i2), bundle, set};
+            Object[] objArr = {str, charSequence, charSequenceArr, Boolean.valueOf(z), Integer.valueOf(i), bundle, set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -202,7 +202,7 @@ public final class RemoteInput {
         this.mLabel = charSequence;
         this.mChoices = charSequenceArr;
         this.mAllowFreeFormTextInput = z;
-        this.mEditChoicesBeforeSending = i2;
+        this.mEditChoicesBeforeSending = i;
         this.mExtras = bundle;
         this.mAllowedDataTypes = set;
         if (getEditChoicesBeforeSending() == 2 && !getAllowFreeFormInput()) {
@@ -213,10 +213,10 @@ public final class RemoteInput {
     public static void addDataResultToIntent(RemoteInput remoteInput, Intent intent, Map<String, Uri> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65537, null, remoteInput, intent, map) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26) {
                 android.app.RemoteInput.addDataResultToIntent(fromCompat(remoteInput), intent, map);
-            } else if (i2 >= 16) {
+            } else if (i >= 16) {
                 Intent clipDataIntentFromIntent = getClipDataIntentFromIntent(intent);
                 if (clipDataIntentFromIntent == null) {
                     clipDataIntentFromIntent = new Intent();
@@ -241,12 +241,12 @@ public final class RemoteInput {
     public static void addResultsToIntent(RemoteInput[] remoteInputArr, Intent intent, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65538, null, remoteInputArr, intent, bundle) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26) {
                 android.app.RemoteInput.addResultsToIntent(fromCompat(remoteInputArr), intent, bundle);
                 return;
             }
-            if (i2 >= 20) {
+            if (i >= 20) {
                 Bundle resultsFromIntent = getResultsFromIntent(intent);
                 int resultsSource = getResultsSource(intent);
                 if (resultsFromIntent != null) {
@@ -261,7 +261,7 @@ public final class RemoteInput {
                     }
                 }
                 setResultsSource(intent, resultsSource);
-            } else if (i2 >= 16) {
+            } else if (i >= 16) {
                 Intent clipDataIntentFromIntent = getClipDataIntentFromIntent(intent);
                 if (clipDataIntentFromIntent == null) {
                     clipDataIntentFromIntent = new Intent();
@@ -291,8 +291,8 @@ public final class RemoteInput {
                 return null;
             }
             android.app.RemoteInput[] remoteInputArr2 = new android.app.RemoteInput[remoteInputArr.length];
-            for (int i2 = 0; i2 < remoteInputArr.length; i2++) {
-                remoteInputArr2[i2] = fromCompat(remoteInputArr[i2]);
+            for (int i = 0; i < remoteInputArr.length; i++) {
+                remoteInputArr2[i] = fromCompat(remoteInputArr[i]);
             }
             return remoteInputArr2;
         }
@@ -323,11 +323,11 @@ public final class RemoteInput {
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, intent, str)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 26) {
                 return android.app.RemoteInput.getDataResultsFromIntent(intent, str);
             }
-            if (i2 < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
+            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
                 return null;
             }
             HashMap hashMap = new HashMap();
@@ -361,11 +361,11 @@ public final class RemoteInput {
         Intent clipDataIntentFromIntent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, intent)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 20) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
                 return android.app.RemoteInput.getResultsFromIntent(intent);
             }
-            if (i2 < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
+            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
                 return null;
             }
             return (Bundle) clipDataIntentFromIntent.getExtras().getParcelable(EXTRA_RESULTS_DATA);
@@ -378,11 +378,11 @@ public final class RemoteInput {
         Intent clipDataIntentFromIntent;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, intent)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 28) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 28) {
                 return android.app.RemoteInput.getResultsSource(intent);
             }
-            if (i2 < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
+            if (i < 16 || (clipDataIntentFromIntent = getClipDataIntentFromIntent(intent)) == null) {
                 return 0;
             }
             return clipDataIntentFromIntent.getExtras().getInt(EXTRA_RESULTS_SOURCE, 0);
@@ -390,18 +390,18 @@ public final class RemoteInput {
         return invokeL.intValue;
     }
 
-    public static void setResultsSource(@NonNull Intent intent, int i2) {
+    public static void setResultsSource(@NonNull Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, intent, i2) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 28) {
-                android.app.RemoteInput.setResultsSource(intent, i2);
-            } else if (i3 >= 16) {
+        if (interceptable == null || interceptable.invokeLI(65546, null, intent, i) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 28) {
+                android.app.RemoteInput.setResultsSource(intent, i);
+            } else if (i2 >= 16) {
                 Intent clipDataIntentFromIntent = getClipDataIntentFromIntent(intent);
                 if (clipDataIntentFromIntent == null) {
                     clipDataIntentFromIntent = new Intent();
                 }
-                clipDataIntentFromIntent.putExtra(EXTRA_RESULTS_SOURCE, i2);
+                clipDataIntentFromIntent.putExtra(EXTRA_RESULTS_SOURCE, i);
                 intent.setClipData(ClipData.newIntent(RESULTS_CLIP_LABEL, clipDataIntentFromIntent));
             }
         }

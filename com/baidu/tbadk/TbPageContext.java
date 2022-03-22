@@ -8,12 +8,12 @@ import android.view.View;
 import android.view.animation.Animation;
 import c.a.d.a.f;
 import c.a.d.c.g.a;
-import c.a.q0.r.c;
+import c.a.o0.r.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.MessageListener;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface TbPageContext<T> extends f<T> {
     @Override // c.a.d.a.f
     /* synthetic */ Context getContext();
@@ -30,14 +30,14 @@ public interface TbPageContext<T> extends f<T> {
     /* synthetic */ Resources getResources();
 
     @Override // c.a.d.a.f
-    /* synthetic */ String getString(int i2);
+    /* synthetic */ String getString(int i);
 
     @Override // c.a.d.a.f
     /* synthetic */ BdUniqueId getUniqueId();
 
-    /* synthetic */ void registerListener(int i2, a aVar);
+    /* synthetic */ void registerListener(int i, a aVar);
 
-    /* synthetic */ void registerListener(int i2, MessageListener<?> messageListener);
+    /* synthetic */ void registerListener(int i, MessageListener<?> messageListener);
 
     /* synthetic */ void registerListener(a aVar);
 
@@ -49,9 +49,9 @@ public interface TbPageContext<T> extends f<T> {
 
     /* synthetic */ void sendMessage(NetMessage netMessage);
 
-    void showToast(int i2);
+    void showToast(int i);
 
-    void showToast(int i2, boolean z);
+    void showToast(int i, boolean z);
 
     void showToast(String str);
 

@@ -25,26 +25,26 @@ public class EntelechyBannerView extends BannerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        i();
+        l();
     }
 
-    public final void i() {
+    public final void l() {
         Button button;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.mClose) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.mClose.getLayoutParams();
-            layoutParams.topMargin = (n.f(getContext(), R.dimen.ds100) - n.d(getContext(), 20.0f)) / 2;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (button = this.f30382c) != null && (button.getLayoutParams() instanceof RelativeLayout.LayoutParams)) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f30382c.getLayoutParams();
+            layoutParams.topMargin = (n.f(getContext(), R.dimen.obfuscated_res_0x7f07019a) - n.d(getContext(), 20.0f)) / 2;
             layoutParams.addRule(10);
-            this.mClose.requestLayout();
+            this.f30382c.requestLayout();
         }
     }
 
@@ -57,9 +57,9 @@ public class EntelechyBannerView extends BannerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -67,6 +67,6 @@ public class EntelechyBannerView extends BannerView {
                 return;
             }
         }
-        i();
+        l();
     }
 }

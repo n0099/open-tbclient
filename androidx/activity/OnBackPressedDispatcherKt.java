@@ -35,9 +35,9 @@ public final class OnBackPressedDispatcherKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1, Boolean.valueOf(z), Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -66,11 +66,11 @@ public final class OnBackPressedDispatcherKt {
         return (OnBackPressedCallback) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ OnBackPressedCallback addCallback$default(OnBackPressedDispatcher onBackPressedDispatcher, LifecycleOwner lifecycleOwner, boolean z, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ OnBackPressedCallback addCallback$default(OnBackPressedDispatcher onBackPressedDispatcher, LifecycleOwner lifecycleOwner, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             lifecycleOwner = null;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             z = true;
         }
         return addCallback(onBackPressedDispatcher, lifecycleOwner, z, function1);

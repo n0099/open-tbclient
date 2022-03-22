@@ -12,7 +12,7 @@ import com.bumptech.glide.load.engine.Resource;
 import java.security.MessageDigest;
 import java.util.Arrays;
 import java.util.Collection;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MultiTransformation<T> implements Transformation<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class MultiTransformation<T> implements Transformation<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {transformationArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,13 +63,13 @@ public class MultiTransformation<T> implements Transformation<T> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i2, int i3) {
+    public Resource<T> transform(@NonNull Context context, @NonNull Resource<T> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, context, resource, i, i2)) == null) {
             Resource<T> resource2 = resource;
             for (Transformation<T> transformation : this.transformations) {
-                Resource<T> transform = transformation.transform(context, resource2, i2, i3);
+                Resource<T> transform = transformation.transform(context, resource2, i, i2);
                 if (resource2 != null && !resource2.equals(resource) && !resource2.equals(transform)) {
                     resource2.recycle();
                 }
@@ -97,9 +97,9 @@ public class MultiTransformation<T> implements Transformation<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {collection};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

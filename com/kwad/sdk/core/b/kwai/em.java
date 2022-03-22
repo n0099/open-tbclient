@@ -14,35 +14,35 @@ public class em implements com.kwad.sdk.core.d<h.a> {
             return;
         }
         aVar.a = jSONObject.optInt("type");
-        aVar.f54946b = jSONObject.optString("appName");
+        aVar.f40034b = jSONObject.optString("appName");
         if (jSONObject.opt("appName") == JSONObject.NULL) {
-            aVar.f54946b = "";
+            aVar.f40034b = "";
         }
-        aVar.f54947c = jSONObject.optString("pkgName");
+        aVar.f40035c = jSONObject.optString("pkgName");
         if (jSONObject.opt("pkgName") == JSONObject.NULL) {
-            aVar.f54947c = "";
+            aVar.f40035c = "";
         }
-        aVar.f54948d = jSONObject.optString("version");
+        aVar.f40036d = jSONObject.optString("version");
         if (jSONObject.opt("version") == JSONObject.NULL) {
-            aVar.f54948d = "";
+            aVar.f40036d = "";
         }
-        aVar.f54949e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
-        aVar.f54950f = jSONObject.optInt("appSize");
-        aVar.f54951g = jSONObject.optString(PackageTable.MD5);
+        aVar.f40037e = jSONObject.optInt(PushManager.APP_VERSION_CODE);
+        aVar.f40038f = jSONObject.optInt("appSize");
+        aVar.f40039g = jSONObject.optString(PackageTable.MD5);
         if (jSONObject.opt(PackageTable.MD5) == JSONObject.NULL) {
-            aVar.f54951g = "";
+            aVar.f40039g = "";
         }
-        aVar.f54952h = jSONObject.optString("url");
+        aVar.f40040h = jSONObject.optString("url");
         if (jSONObject.opt("url") == JSONObject.NULL) {
-            aVar.f54952h = "";
+            aVar.f40040h = "";
         }
-        aVar.f54953i = jSONObject.optString("appLink");
+        aVar.i = jSONObject.optString("appLink");
         if (jSONObject.opt("appLink") == JSONObject.NULL) {
-            aVar.f54953i = "";
+            aVar.i = "";
         }
-        aVar.f54954j = jSONObject.optString("icon");
+        aVar.j = jSONObject.optString("icon");
         if (jSONObject.opt("icon") == JSONObject.NULL) {
-            aVar.f54954j = "";
+            aVar.j = "";
         }
         aVar.k = jSONObject.optString("desc");
         if (jSONObject.opt("desc") == JSONObject.NULL) {
@@ -68,15 +68,15 @@ public class em implements com.kwad.sdk.core.d<h.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "type", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f54946b);
-        com.kwad.sdk.utils.t.a(jSONObject, "pkgName", aVar.f54947c);
-        com.kwad.sdk.utils.t.a(jSONObject, "version", aVar.f54948d);
-        com.kwad.sdk.utils.t.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.f54949e);
-        com.kwad.sdk.utils.t.a(jSONObject, "appSize", aVar.f54950f);
-        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, aVar.f54951g);
-        com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.f54952h);
-        com.kwad.sdk.utils.t.a(jSONObject, "appLink", aVar.f54953i);
-        com.kwad.sdk.utils.t.a(jSONObject, "icon", aVar.f54954j);
+        com.kwad.sdk.utils.t.a(jSONObject, "appName", aVar.f40034b);
+        com.kwad.sdk.utils.t.a(jSONObject, "pkgName", aVar.f40035c);
+        com.kwad.sdk.utils.t.a(jSONObject, "version", aVar.f40036d);
+        com.kwad.sdk.utils.t.a(jSONObject, PushManager.APP_VERSION_CODE, aVar.f40037e);
+        com.kwad.sdk.utils.t.a(jSONObject, "appSize", aVar.f40038f);
+        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, aVar.f40039g);
+        com.kwad.sdk.utils.t.a(jSONObject, "url", aVar.f40040h);
+        com.kwad.sdk.utils.t.a(jSONObject, "appLink", aVar.i);
+        com.kwad.sdk.utils.t.a(jSONObject, "icon", aVar.j);
         com.kwad.sdk.utils.t.a(jSONObject, "desc", aVar.k);
         com.kwad.sdk.utils.t.a(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, aVar.l);
         com.kwad.sdk.utils.t.a(jSONObject, "marketUri", aVar.m);

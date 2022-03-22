@@ -28,17 +28,17 @@ public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda impl
     public final /* synthetic */ long $total;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1(JSONArray jSONArray, long j2, JSONObject jSONObject) {
+    public DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1(JSONArray jSONArray, long j, JSONObject jSONObject) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray, Long.valueOf(j2), jSONObject};
+            Object[] objArr = {jSONArray, Long.valueOf(j), jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -46,7 +46,7 @@ public final class DiskUtilKt$cleanCacheMonitorUBC$1$baidu$1 extends Lambda impl
             }
         }
         this.$exceptionFiles = jSONArray;
-        this.$total = j2;
+        this.$total = j;
         this.$extList = jSONObject;
     }
 

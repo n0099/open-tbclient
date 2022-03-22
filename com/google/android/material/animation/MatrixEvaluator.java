@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MatrixEvaluator implements TypeEvaluator<Matrix> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class MatrixEvaluator implements TypeEvaluator<Matrix> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,11 +43,11 @@ public class MatrixEvaluator implements TypeEvaluator<Matrix> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), matrix, matrix2})) == null) {
             matrix.getValues(this.tempStartValues);
             matrix2.getValues(this.tempEndValues);
-            for (int i2 = 0; i2 < 9; i2++) {
+            for (int i = 0; i < 9; i++) {
                 float[] fArr = this.tempEndValues;
-                float f3 = fArr[i2];
+                float f3 = fArr[i];
                 float[] fArr2 = this.tempStartValues;
-                fArr[i2] = fArr2[i2] + ((f3 - fArr2[i2]) * f2);
+                fArr[i] = fArr2[i] + ((f3 - fArr2[i]) * f2);
             }
             this.tempMatrix.setValues(this.tempEndValues);
             return this.tempMatrix;

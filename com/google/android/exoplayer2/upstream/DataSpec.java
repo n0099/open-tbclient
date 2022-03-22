@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DataSpec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FLAG_ALLOW_CACHING_UNKNOWN_LENGTH = 2;
@@ -29,7 +29,7 @@ public final class DataSpec {
     public final Uri uri;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface Flags {
     }
 
@@ -42,9 +42,9 @@ public final class DataSpec {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -54,18 +54,18 @@ public final class DataSpec {
         }
     }
 
-    public boolean isFlagSet(int i2) {
+    public boolean isFlagSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? (this.flags & i2) == i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (this.flags & i) == i : invokeI.booleanValue;
     }
 
-    public DataSpec subrange(long j2) {
+    public DataSpec subrange(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) {
-            long j3 = this.length;
-            return subrange(j2, j3 != -1 ? j3 - j2 : -1L);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            long j2 = this.length;
+            return subrange(j, j2 != -1 ? j2 - j : -1L);
         }
         return (DataSpec) invokeJ.objValue;
     }
@@ -80,17 +80,17 @@ public final class DataSpec {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DataSpec(Uri uri, int i2) {
-        this(uri, 0L, -1L, null, i2);
+    public DataSpec(Uri uri, int i) {
+        this(uri, 0L, -1L, null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, Integer.valueOf(i2)};
+            Object[] objArr = {uri, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), (String) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -100,24 +100,24 @@ public final class DataSpec {
         }
     }
 
-    public DataSpec subrange(long j2, long j3) {
+    public DataSpec subrange(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? (j2 == 0 && this.length == j3) ? this : new DataSpec(this.uri, this.postBody, this.absoluteStreamPosition + j2, this.position + j2, j3, this.key, this.flags) : (DataSpec) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (j == 0 && this.length == j2) ? this : new DataSpec(this.uri, this.postBody, this.absoluteStreamPosition + j, this.position + j, j2, this.key, this.flags) : (DataSpec) invokeCommon.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DataSpec(Uri uri, long j2, long j3, String str) {
-        this(uri, j2, j2, j3, str, 0);
+    public DataSpec(Uri uri, long j, long j2, String str) {
+        this(uri, j, j, j2, str, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, Long.valueOf(j2), Long.valueOf(j3), str};
+            Object[] objArr = {uri, Long.valueOf(j), Long.valueOf(j2), str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -128,17 +128,17 @@ public final class DataSpec {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DataSpec(Uri uri, long j2, long j3, String str, int i2) {
-        this(uri, j2, j2, j3, str, i2);
+    public DataSpec(Uri uri, long j, long j2, String str, int i) {
+        this(uri, j, j, j2, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i2)};
+            Object[] objArr = {uri, Long.valueOf(j), Long.valueOf(j2), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -149,17 +149,17 @@ public final class DataSpec {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DataSpec(Uri uri, long j2, long j3, long j4, String str, int i2) {
-        this(uri, null, j2, j3, j4, str, i2);
+    public DataSpec(Uri uri, long j, long j2, long j3, String str, int i) {
+        this(uri, null, j, j2, j3, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {uri, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str, Integer.valueOf(i2)};
+            Object[] objArr = {uri, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (byte[]) objArr2[1], ((Long) objArr2[2]).longValue(), ((Long) objArr2[3]).longValue(), ((Long) objArr2[4]).longValue(), (String) objArr2[5], ((Integer) objArr2[6]).intValue());
                 newInitContext.thisArg = this;
@@ -169,34 +169,34 @@ public final class DataSpec {
         }
     }
 
-    public DataSpec(Uri uri, byte[] bArr, long j2, long j3, long j4, String str, int i2) {
+    public DataSpec(Uri uri, byte[] bArr, long j, long j2, long j3, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, bArr, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), str, Integer.valueOf(i2)};
+            Object[] objArr = {uri, bArr, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
         boolean z = true;
+        Assertions.checkArgument(j >= 0);
         Assertions.checkArgument(j2 >= 0);
-        Assertions.checkArgument(j3 >= 0);
-        if (j4 <= 0 && j4 != -1) {
+        if (j3 <= 0 && j3 != -1) {
             z = false;
         }
         Assertions.checkArgument(z);
         this.uri = uri;
         this.postBody = bArr;
-        this.absoluteStreamPosition = j2;
-        this.position = j3;
-        this.length = j4;
+        this.absoluteStreamPosition = j;
+        this.position = j2;
+        this.length = j3;
         this.key = str;
-        this.flags = i2;
+        this.flags = i;
     }
 }

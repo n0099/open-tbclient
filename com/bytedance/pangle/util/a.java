@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.bytedance.pangle.activity.IPluginActivity;
 import com.bytedance.pangle.log.ZeusLogger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class a {
                 if (a == null) {
                     return;
                 }
-                for (int i2 : a) {
-                    if (i2 != 0) {
-                        aVar.setWrapperActivityTheme(i2);
+                for (int i : a) {
+                    if (i != 0) {
+                        aVar.setWrapperActivityTheme(i);
                     }
                 }
             } catch (Exception e2) {
@@ -76,8 +76,8 @@ public final class a {
                 }
                 String[] split = str.trim().replace("!", "").split(" ");
                 int[] iArr = new int[split.length];
-                for (int i2 = 0; i2 < split.length; i2++) {
-                    iArr[i2] = Integer.parseInt(split[i2], 16);
+                for (int i = 0; i < split.length; i++) {
+                    iArr[i] = Integer.parseInt(split[i], 16);
                 }
                 return iArr;
             } catch (Throwable th) {
@@ -98,9 +98,9 @@ public final class a {
                 if (a == null) {
                     return;
                 }
-                for (int i2 : a) {
-                    if (i2 != 0) {
-                        iPluginActivity.setProxyTheme2Plugin(i2);
+                for (int i : a) {
+                    if (i != 0) {
+                        iPluginActivity.setProxyTheme2Plugin(i);
                     }
                 }
             } catch (Exception e2) {

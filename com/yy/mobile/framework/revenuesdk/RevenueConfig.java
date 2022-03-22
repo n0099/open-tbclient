@@ -13,7 +13,7 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.data.IRevenueDataSender;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.ReportConfig;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RevenueConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class RevenueConfig {
     public long uid;
     public int usedChannel;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class RevenueConfigBuilder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,9 +61,9 @@ public class RevenueConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -117,21 +117,21 @@ public class RevenueConfig {
             return (RevenueConfig) invokeV.objValue;
         }
 
-        public RevenueConfigBuilder setAppId(int i2) {
+        public RevenueConfigBuilder setAppId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.appId = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.appId = i;
                 return this;
             }
             return (RevenueConfigBuilder) invokeI.objValue;
         }
 
-        public RevenueConfigBuilder setAuthType(@NonNull int i2) {
+        public RevenueConfigBuilder setAuthType(@NonNull int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.authType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.authType = i;
                 return this;
             }
             return (RevenueConfigBuilder) invokeI.objValue;
@@ -167,11 +167,11 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setCurrencyType(int i2) {
+        public RevenueConfigBuilder setCurrencyType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.currencyType = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.currencyType = i;
                 return this;
             }
             return (RevenueConfigBuilder) invokeI.objValue;
@@ -267,21 +267,21 @@ public class RevenueConfig {
             return (RevenueConfigBuilder) invokeL.objValue;
         }
 
-        public RevenueConfigBuilder setUid(long j2) {
+        public RevenueConfigBuilder setUid(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j2)) == null) {
-                this.uid = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048592, this, j)) == null) {
+                this.uid = j;
                 return this;
             }
             return (RevenueConfigBuilder) invokeJ.objValue;
         }
 
-        public RevenueConfigBuilder setUsedChannel(int i2) {
+        public RevenueConfigBuilder setUsedChannel(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-                this.usedChannel = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+                this.usedChannel = i;
                 return this;
             }
             return (RevenueConfigBuilder) invokeI.objValue;
@@ -293,9 +293,9 @@ public class RevenueConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -404,10 +404,10 @@ public class RevenueConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.mContext : (Context) invokeV.objValue;
     }
 
-    public void setAppId(int i2) {
+    public void setAppId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.appId = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.appId = i;
         }
     }
 
@@ -418,10 +418,10 @@ public class RevenueConfig {
         }
     }
 
-    public void setUid(long j2) {
+    public void setUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.uid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.uid = j;
         }
     }
 

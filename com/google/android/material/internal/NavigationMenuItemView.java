@@ -39,7 +39,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NavigationMenuItemView extends ForegroundLinearLayout implements MenuView.ItemView {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] CHECKED_STATE_SET;
@@ -80,9 +80,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -139,7 +139,7 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             return;
         }
         if (this.actionArea == null) {
-            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.design_menu_item_action_area_stub)).inflate();
+            this.actionArea = (FrameLayout) ((ViewStub) findViewById(R.id.obfuscated_res_0x7f090788)).inflate();
         }
         this.actionArea.removeAllViews();
         this.actionArea.addView(view);
@@ -159,9 +159,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView
-    public void initialize(@NonNull MenuItemImpl menuItemImpl, int i2) {
+    public void initialize(@NonNull MenuItemImpl menuItemImpl, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemImpl, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemImpl, i) == null) {
             this.itemData = menuItemImpl;
             if (menuItemImpl.getItemId() > 0) {
                 setId(menuItemImpl.getItemId());
@@ -183,11 +183,11 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 1);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
             MenuItemImpl menuItemImpl = this.itemData;
             if (menuItemImpl != null && menuItemImpl.isCheckable() && this.itemData.isChecked()) {
                 ViewGroup.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
@@ -239,10 +239,10 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
-    public void setHorizontalPadding(int i2) {
+    public void setHorizontalPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            setPadding(i2, 0, i2, 0);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            setPadding(i, 0, i, 0);
         }
     }
 
@@ -259,15 +259,15 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                     drawable = DrawableCompat.wrap(drawable).mutate();
                     DrawableCompat.setTintList(drawable, this.iconTintList);
                 }
-                int i2 = this.iconSize;
-                drawable.setBounds(0, 0, i2, i2);
+                int i = this.iconSize;
+                drawable.setBounds(0, 0, i, i);
             } else if (this.needsEmptyIcon) {
                 if (this.emptyDrawable == null) {
-                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.navigation_empty_icon, getContext().getTheme());
+                    Drawable drawable2 = ResourcesCompat.getDrawable(getResources(), R.drawable.obfuscated_res_0x7f080e19, getContext().getTheme());
                     this.emptyDrawable = drawable2;
                     if (drawable2 != null) {
-                        int i3 = this.iconSize;
-                        drawable2.setBounds(0, 0, i3, i3);
+                        int i2 = this.iconSize;
+                        drawable2.setBounds(0, 0, i2, i2);
                     }
                 }
                 drawable = this.emptyDrawable;
@@ -276,17 +276,17 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
-    public void setIconPadding(int i2) {
+    public void setIconPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.textView.setCompoundDrawablePadding(i2);
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.textView.setCompoundDrawablePadding(i);
         }
     }
 
-    public void setIconSize(@Dimension int i2) {
+    public void setIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.iconSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.iconSize = i;
         }
     }
 
@@ -302,10 +302,10 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
-    public void setMaxLines(int i2) {
+    public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.textView.setMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.textView.setMaxLines(i);
         }
     }
 
@@ -323,10 +323,10 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
         }
     }
 
-    public void setTextAppearance(int i2) {
+    public void setTextAppearance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            TextViewCompat.setTextAppearance(this.textView, i2);
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            TextViewCompat.setTextAppearance(this.textView, i);
         }
     }
 
@@ -364,9 +364,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -377,17 +377,17 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NavigationMenuItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NavigationMenuItemView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -407,9 +407,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -428,9 +428,9 @@ public class NavigationMenuItemView extends ForegroundLinearLayout implements Me
             }
         };
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.design_navigation_menu_item, (ViewGroup) this, true);
-        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.design_navigation_icon_size));
-        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.design_menu_item_text);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) this, true);
+        setIconSize(context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020b));
+        CheckedTextView checkedTextView = (CheckedTextView) findViewById(R.id.obfuscated_res_0x7f090789);
         this.textView = checkedTextView;
         checkedTextView.setDuplicateParentStateEnabled(true);
         ViewCompat.setAccessibilityDelegate(this.textView, this.accessibilityDelegate);

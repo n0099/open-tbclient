@@ -50,9 +50,9 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {abstractHttpManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,11 +134,11 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
 
     public abstract HttpRequest build();
 
-    public T connectionTimeout(int i2) {
+    public T connectionTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.connectionTimeout = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.connectionTimeout = i;
             return this;
         }
         return (T) invokeI.objValue;
@@ -235,11 +235,11 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return (T) invokeL.objValue;
     }
 
-    public T readTimeout(int i2) {
+    public T readTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            this.readTimeout = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            this.readTimeout = i;
             return this;
         }
         return (T) invokeI.objValue;
@@ -297,21 +297,21 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return (T) invokeL.objValue;
     }
 
-    public T requestFrom(int i2) {
+    public T requestFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
-            this.requestFrom = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.requestFrom = i;
             return this;
         }
         return (T) invokeI.objValue;
     }
 
-    public T requestSubFrom(int i2) {
+    public T requestSubFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) {
-            this.requestSubFrom = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.requestSubFrom = i;
             return this;
         }
         return (T) invokeI.objValue;
@@ -407,11 +407,11 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
         return (T) invokeZ.objValue;
     }
 
-    public T writeTimeout(int i2) {
+    public T writeTimeout(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-            this.writeTimeout = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+            this.writeTimeout = i;
             return this;
         }
         return (T) invokeI.objValue;
@@ -424,9 +424,9 @@ public abstract class HttpRequestBuilder<T extends HttpRequestBuilder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpRequest, abstractHttpManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

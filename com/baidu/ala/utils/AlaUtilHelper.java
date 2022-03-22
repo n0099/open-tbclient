@@ -10,6 +10,9 @@ import android.view.Display;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,9 +30,9 @@ public class AlaUtilHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +44,7 @@ public class AlaUtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             try {
-                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
                 declaredMethod.setAccessible(true);
                 return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
@@ -57,7 +60,7 @@ public class AlaUtilHelper {
         int identifier;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
+            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android")) <= 0) {
                 return 0;
             }
             return resources.getDimensionPixelSize(identifier);
@@ -110,7 +113,7 @@ public class AlaUtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 String navBarOverride = getNavBarOverride();
@@ -147,11 +150,11 @@ public class AlaUtilHelper {
             return;
         }
         if (z2 && str.toLowerCase().startsWith("http")) {
-            tbImageView.startLoad(str, 10, false);
+            tbImageView.J(str, 10, false);
         } else if (z) {
-            tbImageView.startLoad(str, 25, false);
+            tbImageView.J(str, 25, false);
         } else {
-            tbImageView.startLoad(str, 12, false);
+            tbImageView.J(str, 12, false);
         }
     }
 
@@ -161,11 +164,11 @@ public class AlaUtilHelper {
             return;
         }
         if (str.toLowerCase().startsWith("http")) {
-            tbImageView.startLoad(str, 10, false);
+            tbImageView.J(str, 10, false);
         } else if (z) {
-            tbImageView.startLoad(str, 25, false);
+            tbImageView.J(str, 25, false);
         } else {
-            tbImageView.startLoad(str, 12, false);
+            tbImageView.J(str, 12, false);
         }
     }
 }

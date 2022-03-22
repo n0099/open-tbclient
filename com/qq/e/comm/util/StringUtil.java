@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StringUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public class StringUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,11 +42,11 @@ public class StringUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
             StringBuffer stringBuffer = new StringBuffer();
             if (strArr != null) {
-                for (int i2 = 0; i2 < strArr.length; i2++) {
-                    if (str != null && i2 != 0) {
+                for (int i = 0; i < strArr.length; i++) {
+                    if (str != null && i != 0) {
                         stringBuffer.append(str);
                     }
-                    stringBuffer.append(strArr[i2]);
+                    stringBuffer.append(strArr[i]);
                 }
             }
             return stringBuffer.toString();
@@ -67,14 +67,14 @@ public class StringUtil {
         return invokeLF.floatValue;
     }
 
-    public static int parseInteger(String str, int i2) {
+    public static int parseInteger(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
             try {
                 return Integer.parseInt(str);
             } catch (Throwable unused) {
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;

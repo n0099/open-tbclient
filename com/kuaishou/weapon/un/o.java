@@ -10,6 +10,7 @@ import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.plugin.install.PluginInstallerService;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,28 +45,24 @@ public class o {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f53745c = -1;
+    public static final int f38927c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f53746d = -2;
+    public static final int f38928d = -2;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f53747e = -3;
+    public static final int f38929e = -3;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f53748f = 4;
+    public static final int f38930f = 4;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f53749g = 5;
+    public static final int f38931g = 5;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f53750h = 6;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static o f53751i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static Application f53752j;
+    public static final int f38932h = 6;
+    public static o i;
+    public static Application j;
     public static Random k;
     public static Map<String, p> l;
     public static Map<String, p> m;
@@ -75,7 +72,7 @@ public class o {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f53753b;
+    public String f38933b;
 
     static {
         InterceptResult invokeClinit;
@@ -132,13 +129,13 @@ public class o {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, context, z)) == null) {
-            if (f53751i == null) {
+            if (i == null) {
                 if (context.getApplicationContext() instanceof Application) {
-                    f53752j = (Application) context.getApplicationContext();
+                    j = (Application) context.getApplicationContext();
                 }
-                f53751i = new o();
+                i = new o();
             }
-            return f53751i;
+            return i;
         }
         return (o) invokeLZ.objValue;
     }
@@ -275,7 +272,7 @@ public class o {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{pVar, str, str2, hashSet, bArr, sb, Boolean.valueOf(z)}) == null) {
-            ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(pVar.f53758e));
+            ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(pVar.f38938e));
             FileOutputStream fileOutputStream2 = null;
             while (true) {
                 try {
@@ -287,7 +284,7 @@ public class o {
                     if (name.startsWith(PluginInstallerService.APK_LIB_DIR_PREFIX) && !nextEntry.isDirectory()) {
                         String str3 = Build.CPU_ABI;
                         String str4 = Build.VERSION.SDK_INT >= 8 ? Build.CPU_ABI2 : null;
-                        if (name.contains(str3) || ((!TextUtils.isEmpty(str4) && name.contains(str4)) || (name.contains("armeabi") && ("armeabi-v7a".equalsIgnoreCase(str3) || (!TextUtils.isEmpty(str4) && "armeabi-v7a".equalsIgnoreCase(str4)))))) {
+                        if (name.contains(str3) || ((!TextUtils.isEmpty(str4) && name.contains(str4)) || (name.contains("armeabi") && (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str3) || (!TextUtils.isEmpty(str4) && PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str4)))))) {
                             StringBuilder sb2 = new StringBuilder();
                             sb2.append(str);
                             String substring = name.substring(3);
@@ -324,7 +321,7 @@ public class o {
                     if (name.endsWith(".dex") && !nextEntry.isDirectory() && z) {
                         String str5 = pVar.m;
                         g(str5);
-                        File file2 = new File(str5, pVar.a + "-" + pVar.f53757d + ".dex");
+                        File file2 = new File(str5, pVar.a + "-" + pVar.f38937d + ".dex");
                         try {
                             file2.delete();
                             file2.createNewFile();
@@ -550,23 +547,23 @@ public class o {
         r20 = "";
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x007e, code lost:
-        r7 = r28.f53759f.getFilesDir();
-        r11 = com.kuaishou.weapon.un.r1.f53802j;
-        r0 = new java.io.File(r7, com.kuaishou.weapon.un.r1.f53802j);
+        r7 = r28.f38939f.getFilesDir();
+        r11 = com.kuaishou.weapon.un.r1.j;
+        r0 = new java.io.File(r7, com.kuaishou.weapon.un.r1.j);
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x008d, code lost:
         if (r0.exists() != false) goto L338;
      */
     /* JADX WARN: Code restructure failed: missing block: B:35:0x008f, code lost:
-        r7 = new java.io.File(r0, r28.a + "-" + r28.f53757d);
+        r7 = new java.io.File(r0, r28.a + "-" + r28.f38937d);
      */
     /* JADX WARN: Code restructure failed: missing block: B:36:0x00b0, code lost:
         if (r7.exists() != false) goto L340;
      */
     /* JADX WARN: Code restructure failed: missing block: B:37:0x00b2, code lost:
-        r0 = new java.io.File(r28.f53758e);
+        r0 = new java.io.File(r28.f38938e);
         com.kuaishou.weapon.un.l1.a(r7, r0);
-        com.kuaishou.weapon.un.l1.a(r28.f53758e, java.lang.Boolean.TRUE);
+        com.kuaishou.weapon.un.l1.a(r28.f38938e, java.lang.Boolean.TRUE);
         com.kuaishou.weapon.un.b.a(r0);
         com.kuaishou.weapon.un.b.a(r0, r7);
      */
@@ -574,7 +571,7 @@ public class o {
         if (r0.exists() != false) goto L344;
      */
     /* JADX WARN: Code restructure failed: missing block: B:39:0x00cf, code lost:
-        r0 = new java.util.zip.ZipFile(r28.f53758e);
+        r0 = new java.util.zip.ZipFile(r28.f38938e);
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Removed duplicated region for block: B:168:0x02ec  */
@@ -676,7 +673,7 @@ public class o {
         if (interceptable != null && interceptable.invokeCommon(65542, this, new Object[]{pVar, str, str2, Boolean.valueOf(z)}) != null) {
             return;
         }
-        InputStream inputStream9 = r1.f53798f;
+        InputStream inputStream9 = r1.f38973f;
         String str13 = ".so";
         String str14 = "-";
         hashSet = new HashSet<>();
@@ -687,7 +684,7 @@ public class o {
                         File file2 = new File(pVar.n);
                         if (file2.exists() && file2.isFile()) {
                             z2 = false;
-                            String replace = TextUtils.isEmpty(pVar.f53757d) ? pVar.f53757d.replace(".", "") : "";
+                            String replace = TextUtils.isEmpty(pVar.f38937d) ? pVar.f38937d.replace(".", "") : "";
                             sb = new StringBuilder();
                             if (!z2) {
                                 sb.append(pVar.n);
@@ -698,7 +695,7 @@ public class o {
                             inputStream = null;
                             str8 = null;
                             str8 = null;
-                            ZipFile zipFile4 = new ZipFile(pVar.f53758e);
+                            ZipFile zipFile4 = new ZipFile(pVar.f38938e);
                             String str15 = "";
                             zipFile2 = zipFile4;
                             entries = zipFile2.entries();
@@ -827,7 +824,7 @@ public class o {
                                                             inputStream9 = inputStream2;
                                                             str13 = str9;
                                                         }
-                                                        if (name.contains(str11) || ((!TextUtils.isEmpty(str12) && name.contains(str12)) || (name.contains("armeabi") && ("armeabi-v7a".equalsIgnoreCase(str11) || (!TextUtils.isEmpty(str12) && "armeabi-v7a".equalsIgnoreCase(str12)))))) {
+                                                        if (name.contains(str11) || ((!TextUtils.isEmpty(str12) && name.contains(str12)) || (name.contains("armeabi") && (PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str11) || (!TextUtils.isEmpty(str12) && PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equalsIgnoreCase(str12)))))) {
                                                             StringBuilder sb92 = new StringBuilder();
                                                             sb92.append(str);
                                                             sb92.append(name.substring(3).replace(str13, replace + str13));
@@ -1027,7 +1024,7 @@ public class o {
                                                 String str17 = str10;
                                                 try {
                                                     sb11.append(str17);
-                                                    sb11.append(pVar.f53757d);
+                                                    sb11.append(pVar.f38937d);
                                                     sb11.append(".dex");
                                                     file = new File(str16, sb11.toString());
                                                     try {
@@ -1232,7 +1229,7 @@ public class o {
                     th = th9;
                     fileOutputStream = null;
                 }
-                ZipFile zipFile42 = new ZipFile(pVar.f53758e);
+                ZipFile zipFile42 = new ZipFile(pVar.f38938e);
                 String str152 = "";
                 zipFile2 = zipFile42;
             } catch (Throwable th10) {
@@ -1256,7 +1253,7 @@ public class o {
             zipFile2 = zipFile3;
         }
         z2 = true;
-        if (TextUtils.isEmpty(pVar.f53757d)) {
+        if (TextUtils.isEmpty(pVar.f38937d)) {
         }
         sb = new StringBuilder();
         if (!z2) {
@@ -1268,10 +1265,10 @@ public class o {
         str8 = null;
         str8 = null;
         str4 = str3;
-        if (TextUtils.isEmpty(str4) && (("armeabi-v7a".equals(Build.CPU_ABI) && hashSet.contains("armeabi")) || (Build.VERSION.SDK_INT >= 8 && "armeabi-v7a".equals(Build.CPU_ABI2) && hashSet.contains("armeabi")))) {
+        if (TextUtils.isEmpty(str4) && ((PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI) && hashSet.contains("armeabi")) || (Build.VERSION.SDK_INT >= 8 && PassBiometricUtil.CPU_TYPE_ARMEABI_V7A.equals(Build.CPU_ABI2) && hashSet.contains("armeabi")))) {
             str4 = str + "/armeabi:" + System.getProperty("java.library.path");
         }
-        pVar.f53761h = str4;
+        pVar.f38941h = str4;
         pVar.n = sb2.toString();
         try {
             str5 = str2;
@@ -1282,17 +1279,17 @@ public class o {
             String absolutePath = new File(str5, "apkDex").getAbsolutePath();
             l1.b(absolutePath);
             g(absolutePath);
-            pVar.f53760g = new q(sb2.toString(), absolutePath, str4, getClass().getClassLoader());
+            pVar.f38940g = new q(sb2.toString(), absolutePath, str4, getClass().getClassLoader());
             StringBuilder sb13 = new StringBuilder();
-            sb13.append(pVar.f53756c);
-            str6 = r1.f53798f;
+            sb13.append(pVar.f38936c);
+            str6 = r1.f38973f;
         } catch (Throwable unused28) {
-            str6 = r1.f53798f;
+            str6 = r1.f38973f;
             String absolutePath2 = new File(str5, "dexDex").getAbsolutePath();
             l1.b(absolutePath2);
             g(absolutePath2);
-            pVar.f53760g = new q(pVar.f53758e, absolutePath2, str4, getClass().getClassLoader());
-            loadClass = pVar.f53760g.loadClass(pVar.f53756c + str6);
+            pVar.f38940g = new q(pVar.f38938e, absolutePath2, str4, getClass().getClassLoader());
+            loadClass = pVar.f38940g.loadClass(pVar.f38936c + str6);
             if (loadClass != null || TextUtils.isEmpty(loadClass.getName())) {
                 throw new Exception("class Weapon ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
             }
@@ -1300,7 +1297,7 @@ public class o {
         }
         try {
             sb13.append(str6);
-            loadClass2 = pVar.f53760g.loadClass(sb13.toString());
+            loadClass2 = pVar.f38940g.loadClass(sb13.toString());
             if (loadClass2 != null || TextUtils.isEmpty(loadClass2.getName())) {
                 throw new Exception("class W_ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
             }
@@ -1309,8 +1306,8 @@ public class o {
             String absolutePath22 = new File(str5, "dexDex").getAbsolutePath();
             l1.b(absolutePath22);
             g(absolutePath22);
-            pVar.f53760g = new q(pVar.f53758e, absolutePath22, str4, getClass().getClassLoader());
-            loadClass = pVar.f53760g.loadClass(pVar.f53756c + str6);
+            pVar.f38940g = new q(pVar.f38938e, absolutePath22, str4, getClass().getClassLoader());
+            loadClass = pVar.f38940g.loadClass(pVar.f38936c + str6);
             if (loadClass != null) {
             }
             throw new Exception("class Weapon ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
@@ -1324,18 +1321,18 @@ public class o {
         if (TextUtils.isEmpty(str4)) {
             str4 = str + "/armeabi:" + System.getProperty("java.library.path");
         }
-        pVar.f53761h = str4;
+        pVar.f38941h = str4;
         pVar.n = sb2.toString();
         str5 = str2;
         String absolutePath3 = new File(str5, "apkDex").getAbsolutePath();
         l1.b(absolutePath3);
         g(absolutePath3);
-        pVar.f53760g = new q(sb2.toString(), absolutePath3, str4, getClass().getClassLoader());
+        pVar.f38940g = new q(sb2.toString(), absolutePath3, str4, getClass().getClassLoader());
         StringBuilder sb132 = new StringBuilder();
-        sb132.append(pVar.f53756c);
-        str6 = r1.f53798f;
+        sb132.append(pVar.f38936c);
+        str6 = r1.f38973f;
         sb132.append(str6);
-        loadClass2 = pVar.f53760g.loadClass(sb132.toString());
+        loadClass2 = pVar.f38940g.loadClass(sb132.toString());
         if (loadClass2 != null) {
         }
         throw new Exception("class W_ENGINE_IMPL_CLASS_FULL_PATH loaded is null");
@@ -1347,62 +1344,62 @@ public class o {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, pVar)) == null) {
             synchronized (this) {
                 if (pVar != null) {
-                    if (!TextUtils.isEmpty(pVar.f53758e)) {
-                        p pVar2 = l.get(pVar.f53758e);
+                    if (!TextUtils.isEmpty(pVar.f38938e)) {
+                        p pVar2 = l.get(pVar.f38938e);
                         if (pVar2 != null) {
-                            if (pVar2.f53757d.equals(pVar.f53757d)) {
+                            if (pVar2.f38937d.equals(pVar.f38937d)) {
                                 return true;
                             }
-                            f(pVar2.f53758e);
+                            f(pVar2.f38938e);
                         }
                         try {
-                            pVar.f53759f = f53752j;
+                            pVar.f38939f = j;
                             if (pVar.p == 1) {
-                                if (TextUtils.isEmpty(pVar.f53756c) || TextUtils.isEmpty(pVar.f53758e)) {
+                                if (TextUtils.isEmpty(pVar.f38936c) || TextUtils.isEmpty(pVar.f38938e)) {
                                     throw new RuntimeException("apkPackageName or apkPkgPath is null");
                                 }
-                                pVar.m = f53752j.getFilesDir().getCanonicalPath() + r1.k + pVar.a;
+                                pVar.m = j.getFilesDir().getCanonicalPath() + "/." + pVar.a;
                                 String str = pVar.m + "/dex";
-                                String str2 = (pVar.m + "/lib/" + this.f53753b) + "/" + k.nextInt();
+                                String str2 = (pVar.m + "/lib/" + this.f38933b) + "/" + k.nextInt();
                                 g(str);
                                 l1.a(str, Boolean.FALSE);
                                 g(str2);
                                 a(pVar, str2, str, false);
-                                m.put(pVar.f53756c, pVar);
-                                l.put(pVar.f53758e, pVar);
+                                m.put(pVar.f38936c, pVar);
+                                l.put(pVar.f38938e, pVar);
                                 a(pVar, pVar.o);
                             }
                             if (pVar.p != 1 || 0 != 0) {
                                 PackageInfo packageInfo = pVar.s;
                                 if (packageInfo == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) {
-                                    packageInfo = f53752j.getPackageManager().getPackageArchiveInfo(pVar.f53758e, 1);
+                                    packageInfo = j.getPackageManager().getPackageArchiveInfo(pVar.f38938e, 1);
                                 }
                                 if (TextUtils.isEmpty(packageInfo.packageName) || !packageInfo.packageName.startsWith("com.kuaishou.weapon")) {
                                     throw new Exception("weapon package name check failed");
                                 }
-                                if (pVar.p != 1 && pVar.f53755b != 1 && !((Boolean) a(pVar.f53763j, pVar.f53758e).first).booleanValue()) {
+                                if (pVar.p != 1 && pVar.f38935b != 1 && !((Boolean) a(pVar.j, pVar.f38938e).first).booleanValue()) {
                                     return false;
                                 }
-                                pVar.f53756c = packageInfo.packageName;
+                                pVar.f38936c = packageInfo.packageName;
                                 pVar.o = packageInfo.applicationInfo.className;
-                                pVar.f53757d = packageInfo.versionName;
+                                pVar.f38937d = packageInfo.versionName;
                                 pVar.l = packageInfo.activities;
                                 pVar.q = packageInfo.applicationInfo.theme;
-                                pVar.m = f53752j.getFilesDir().getCanonicalPath() + r1.k + pVar.a;
+                                pVar.m = j.getFilesDir().getCanonicalPath() + "/." + pVar.a;
                                 String str3 = pVar.m + "/dex";
-                                String str4 = (pVar.m + "/lib/" + this.f53753b) + "/" + k.nextInt();
+                                String str4 = (pVar.m + "/lib/" + this.f38933b) + "/" + k.nextInt();
                                 g(str3);
                                 l1.a(str3, Boolean.FALSE);
                                 g(str4);
                                 a(pVar, str4, str3, true);
-                                m.put(pVar.f53756c, pVar);
-                                l.put(pVar.f53758e, pVar);
+                                m.put(pVar.f38936c, pVar);
+                                l.put(pVar.f38938e, pVar);
                                 o.add(Integer.valueOf(pVar.a));
                                 a(pVar, packageInfo.applicationInfo.className);
                             }
                             return true;
                         } catch (Throwable unused) {
-                            f(pVar.f53758e);
+                            f(pVar.f38938e);
                             return false;
                         }
                     }
@@ -1421,11 +1418,11 @@ public class o {
                 if (TextUtils.isEmpty(str)) {
                     return true;
                 }
-                Class<?> loadClass = pVar.f53760g.loadClass(str);
+                Class<?> loadClass = pVar.f38940g.loadClass(str);
                 if (loadClass.newInstance() instanceof Application) {
                     Application application = (Application) loadClass.newInstance();
-                    e.a(Application.class, f53752j, application);
-                    a(application, f53752j);
+                    e.a(Application.class, j, application);
+                    a(application, j);
                     application.onCreate();
                 }
                 return true;
@@ -1440,13 +1437,13 @@ public class o {
     public static o c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? f53751i : (o) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) ? i : (o) invokeV.objValue;
     }
 
     public static Application d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? f53752j : (Application) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? j : (Application) invokeV.objValue;
     }
 
     public static boolean g(String str) {
@@ -1522,7 +1519,7 @@ public class o {
                 try {
                 } finally {
                 }
-                if (rVar.f53790d == null) {
+                if (rVar.f38965d == null) {
                     return;
                 }
                 p pVar = m.get(rVar.a);
@@ -1536,18 +1533,18 @@ public class o {
                         }
                     }
                     pVar.r.add(rVar);
-                    String a = a(rVar.f53790d);
+                    String a = a(rVar.f38965d);
                     if (!TextUtils.isEmpty(a) && !a.equals("____")) {
                         if (!n.keySet().contains(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                             WeaponRECE weaponRECE = new WeaponRECE();
-                            f53752j.registerReceiver(weaponRECE, rVar.f53790d);
+                            j.registerReceiver(weaponRECE, rVar.f38965d);
                             if (0 != 0) {
                                 try {
                                     Thread.sleep(3000L);
                                 } catch (InterruptedException e2) {
                                     l1.a(e2);
                                 }
-                                f53752j.registerReceiver(weaponRECE, rVar.f53790d);
+                                j.registerReceiver(weaponRECE, rVar.f38965d);
                             }
                             n.put(a, weaponRECE);
                         }
@@ -1563,7 +1560,7 @@ public class o {
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, pVar, z)) == null) {
             System.currentTimeMillis();
             this.a = z;
-            this.f53753b = pVar.f53757d;
+            this.f38933b = pVar.f38937d;
             return a(pVar);
         }
         return invokeLZ.booleanValue;
@@ -1597,7 +1594,7 @@ public class o {
                     } catch (Throwable th) {
                         l1.a(th);
                     }
-                    if (rVar.f53790d != null) {
+                    if (rVar.f38965d != null) {
                         p pVar = m.get(rVar.a);
                         if (pVar != null && pVar.r != null) {
                             ArrayList<Integer> arrayList = new ArrayList();
@@ -1616,12 +1613,12 @@ public class o {
                                 pVar.r = null;
                             }
                         }
-                        String a = a(rVar.f53790d);
+                        String a = a(rVar.f38965d);
                         if (!TextUtils.isEmpty(a) && !"android.intent.action.PACKAGE_REMOVED__package".equals(a)) {
                             for (p pVar2 : a()) {
                                 if (pVar2.r != null && pVar2.r.size() > 0) {
                                     for (r rVar2 : pVar2.r) {
-                                        String a2 = a(rVar2.f53790d);
+                                        String a2 = a(rVar2.f38965d);
                                         if (!TextUtils.isEmpty(a2) && a2.equals(a)) {
                                             return;
                                         }
@@ -1629,7 +1626,7 @@ public class o {
                                     continue;
                                 }
                             }
-                            f53752j.unregisterReceiver(n.get(a));
+                            j.unregisterReceiver(n.get(a));
                             n.remove(a);
                         }
                     }
@@ -1646,7 +1643,7 @@ public class o {
             if (pVar == null) {
                 return null;
             }
-            return pVar.f53758e;
+            return pVar.f38938e;
         }
         return (String) invokeL.objValue;
     }
@@ -1663,12 +1660,12 @@ public class o {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             p pVar = m.get(str);
             if (pVar != null) {
-                l.remove(pVar.f53758e);
+                l.remove(pVar.f38938e);
                 m.remove(str);
                 l1.b(pVar.m);
-                Application application = f53752j;
+                Application application = j;
                 if (application != null) {
-                    l1.b(application.getFileStreamPath(pVar.f53756c).getAbsolutePath());
+                    l1.b(application.getFileStreamPath(pVar.f38936c).getAbsolutePath());
                     return true;
                 }
                 return true;
@@ -1685,11 +1682,11 @@ public class o {
             p pVar = l.get(str);
             if (pVar != null) {
                 l.remove(str);
-                m.remove(pVar.f53756c);
+                m.remove(pVar.f38936c);
                 l1.b(pVar.m);
-                Application application = f53752j;
+                Application application = j;
                 if (application != null) {
-                    l1.b(application.getFileStreamPath(pVar.f53756c).getAbsolutePath());
+                    l1.b(application.getFileStreamPath(pVar.f38936c).getAbsolutePath());
                     return true;
                 }
                 return true;

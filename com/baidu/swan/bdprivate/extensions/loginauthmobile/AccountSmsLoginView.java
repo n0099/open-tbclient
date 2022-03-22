@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.util.AttributeSet;
 import android.widget.EditText;
 import androidx.fragment.app.FragmentActivity;
-import c.a.p0.a.p2.x;
+import c.a.n0.a.p2.x;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.views.SmsLoginView;
 import com.baidu.tieba.R;
@@ -13,19 +13,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AccountSmsLoginView extends SmsLoginView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context w;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f38163e;
+        public final /* synthetic */ AccountSmsLoginView a;
 
         public a(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -34,33 +32,31 @@ public class AccountSmsLoginView extends SmsLoginView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {accountSmsLoginView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38163e = accountSmsLoginView;
+            this.a = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.a(this.f38163e.w, ((FragmentActivity) this.f38163e.w).getWindow().getDecorView().getWindowToken());
+                x.a(this.a.w, ((FragmentActivity) this.a.w).getWindow().getDecorView().getWindowToken());
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountSmsLoginView f38164e;
+        public final /* synthetic */ AccountSmsLoginView a;
 
         public b(AccountSmsLoginView accountSmsLoginView) {
             Interceptable interceptable = $ic;
@@ -69,22 +65,22 @@ public class AccountSmsLoginView extends SmsLoginView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {accountSmsLoginView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38164e = accountSmsLoginView;
+            this.a = accountSmsLoginView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x.b(this.f38164e.w, false);
+                x.b(this.a.w, false);
             }
         }
     }
@@ -98,9 +94,9 @@ public class AccountSmsLoginView extends SmsLoginView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -108,7 +104,7 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.w = context;
-        requestFocusAndShowKeyBoard();
+        p();
     }
 
     @Override // com.baidu.sapi2.views.SmsLoginView
@@ -128,10 +124,10 @@ public class AccountSmsLoginView extends SmsLoginView {
         }
     }
 
-    public void requestFocusAndShowKeyBoard() {
+    public void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ((EditText) findViewById(R.id.phone)).requestFocus();
+            ((EditText) findViewById(R.id.obfuscated_res_0x7f09181f)).requestFocus();
             new Handler().postDelayed(new b(this), 100L);
         }
     }
@@ -145,9 +141,9 @@ public class AccountSmsLoginView extends SmsLoginView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -156,21 +152,21 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.w = context;
-        requestFocusAndShowKeyBoard();
+        p();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AccountSmsLoginView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -179,6 +175,6 @@ public class AccountSmsLoginView extends SmsLoginView {
             }
         }
         this.w = context;
-        requestFocusAndShowKeyBoard();
+        p();
     }
 }

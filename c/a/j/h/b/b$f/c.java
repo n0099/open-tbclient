@@ -25,43 +25,41 @@ public class c {
 
         /* renamed from: c.a.j.h.b.b$f.c$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public class RunnableC0167a implements Runnable {
+        public class RunnableC0173a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ byte[] a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ byte[] f3723e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ a f3208b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f3724f;
-
-            public RunnableC0167a(a aVar, byte[] bArr) {
+            public RunnableC0173a(a aVar, byte[] bArr) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, bArr};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3724f = aVar;
-                this.f3723e = bArr;
+                this.f3208b = aVar;
+                this.a = bArr;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f3724f.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f3208b.a) == null) {
                     return;
                 }
-                bVar.a(true, this.f3723e);
+                bVar.a(true, this.a);
             }
         }
 
@@ -69,9 +67,7 @@ public class c {
         public class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ a f3725e;
+            public final /* synthetic */ a a;
 
             public b(a aVar) {
                 Interceptable interceptable = $ic;
@@ -80,22 +76,22 @@ public class c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3725e = aVar;
+                this.a = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 b bVar;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f3725e.a) == null) {
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.a.a) == null) {
                     return;
                 }
                 bVar.a(false, null);
@@ -109,9 +105,9 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -123,20 +119,20 @@ public class c {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: a */
-        public void onSuccess(byte[] bArr, int i2) {
+        public void onSuccess(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i2) == null) {
-                ExecutorUtilsExt.postOnSerial(new RunnableC0167a(this, bArr), "HandshakeRequest");
+            if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
+                ExecutorUtilsExt.postOnSerial(new RunnableC0173a(this, bArr), "HandshakeRequest");
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         /* renamed from: b */
-        public byte[] parseResponse(Response response, int i2) throws Exception {
+        public byte[] parseResponse(Response response, int i) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) ? response.body().bytes() : (byte[]) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) ? response.body().bytes() : (byte[]) invokeLI.objValue;
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
@@ -158,9 +154,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -175,7 +171,7 @@ public class c {
             hashMap.put("Bdtls", "Bdtls");
             hashMap.put("Bdtls-Content-Type", "json");
             CookieManager cookieManager = CookieManager.WEBKIT_COOKIES;
-            HttpManager.getDefault(c.a.j.h.b.b.f3674c.h().getAppContext()).postByteRequest().url(c.a.j.h.b.b.f3674c.h().b().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
+            HttpManager.getDefault(c.a.j.h.b.b.f3162c.h().getAppContext()).postByteRequest().url(c.a.j.h.b.b.f3162c.h().b().b() + "/bdtls").cookieManager(cookieManager).headers(hashMap).content(bArr).build().executeAsync(new a(this, bVar));
         }
     }
 }

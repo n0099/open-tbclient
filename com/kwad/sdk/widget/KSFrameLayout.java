@@ -15,68 +15,68 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KSFrameLayout extends FrameLayout implements j {
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f56562b;
+    public h f41443b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f56563c;
+    public j f41444c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f56564d;
+    public i f41445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f56565e;
+    public float f41446e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z.a f56566f;
+    public final z.a f41447f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56567g;
+    public boolean f41448g;
 
     public KSFrameLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
-        this.f56565e = 0.0f;
-        this.f56566f = new z.a();
-        this.f56567g = true;
+        this.f41446e = 0.0f;
+        this.f41447f = new z.a();
+        this.f41448g = true;
         a(context, null);
     }
 
     public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
-        this.f56565e = 0.0f;
-        this.f56566f = new z.a();
-        this.f56567g = true;
+        this.f41446e = 0.0f;
+        this.f41447f = new z.a();
+        this.f41448g = true;
         a(context, attributeSet);
     }
 
-    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KSFrameLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.a = new AtomicBoolean(true);
-        this.f56565e = 0.0f;
-        this.f56566f = new z.a();
-        this.f56567g = true;
+        this.f41446e = 0.0f;
+        this.f41447f = new z.a();
+        this.f41448g = true;
         a(context, attributeSet);
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.ksad_ratio};
+            int[] iArr = {R.attr.obfuscated_res_0x7f040321};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.f56565e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.ksad_ratio), 0.0f);
+            this.f41446e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040321), 0.0f);
             obtainStyledAttributes.recycle();
         }
         h hVar = new h(this, this);
-        this.f56562b = hVar;
+        this.f41443b = hVar;
         hVar.a(n());
         i iVar = new i();
-        this.f56564d = iVar;
+        this.f41445d = iVar;
         iVar.a(context, attributeSet);
     }
 
@@ -101,17 +101,17 @@ public class KSFrameLayout extends FrameLayout implements j {
 
     @CallSuper
     public void a() {
-        this.f56562b.b();
+        this.f41443b.b();
     }
 
     public void a(float f2, float f3, float f4, float f5) {
-        this.f56564d.a(b(f2, f3, f4, f5));
+        this.f41445d.a(b(f2, f3, f4, f5));
         postInvalidate();
     }
 
     @CallSuper
     public void a(View view) {
-        j jVar = this.f56563c;
+        j jVar = this.f41444c;
         if (jVar != null) {
             jVar.a(view);
         }
@@ -119,42 +119,42 @@ public class KSFrameLayout extends FrameLayout implements j {
 
     @CallSuper
     public void b() {
-        this.f56562b.c();
+        this.f41443b.c();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.f56564d.c(canvas);
+        this.f41445d.c(canvas);
         super.dispatchDraw(canvas);
-        this.f56564d.d(canvas);
+        this.f41445d.d(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f56566f.a(getWidth(), getHeight());
-            this.f56566f.a(motionEvent.getX(), motionEvent.getY());
+            this.f41447f.a(getWidth(), getHeight());
+            this.f41447f.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f56566f.b(motionEvent.getX(), motionEvent.getY());
+            this.f41447f.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f56564d.a(canvas);
+        this.f41445d.a(canvas);
         super.draw(canvas);
-        this.f56564d.b(canvas);
+        this.f41445d.b(canvas);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return this.f56566f;
+        return this.f41447f;
     }
 
     public float getVisiblePercent() {
-        return this.f56562b.a();
+        return this.f41443b.a();
     }
 
     public boolean n() {
@@ -182,23 +182,23 @@ public class KSFrameLayout extends FrameLayout implements j {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
-        if (this.f56565e != 0.0f) {
-            if (this.f56567g) {
-                i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f56565e), 1073741824);
+    public void onMeasure(int i, int i2) {
+        if (this.f41446e != 0.0f) {
+            if (this.f41448g) {
+                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.f41446e), 1073741824);
             } else {
-                i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i3) / this.f56565e), 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) / this.f41446e), 1073741824);
             }
         }
-        super.onMeasure(i2, i3);
+        super.onMeasure(i, i2);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        this.f56562b.a(i2, i3, i4, i5);
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.f56562b.b(i2, i3, i4, i5);
-        this.f56564d.a(i2, i3);
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        this.f41443b.a(i, i2, i3, i4);
+        super.onSizeChanged(i, i2, i3, i4);
+        this.f41443b.b(i, i2, i3, i4);
+        this.f41445d.a(i, i2);
     }
 
     @Override // android.view.View
@@ -208,23 +208,23 @@ public class KSFrameLayout extends FrameLayout implements j {
     }
 
     public void setRadius(float f2) {
-        this.f56564d.a(f2);
+        this.f41445d.a(f2);
         postInvalidate();
     }
 
     public void setRatio(float f2) {
-        this.f56565e = f2;
+        this.f41446e = f2;
     }
 
     public void setViewVisibleListener(j jVar) {
-        this.f56563c = jVar;
+        this.f41444c = jVar;
     }
 
     public void setVisiblePercent(float f2) {
-        this.f56562b.a(f2);
+        this.f41443b.a(f2);
     }
 
     public void setWidthBasedRatio(boolean z) {
-        this.f56567g = z;
+        this.f41448g = z;
     }
 }

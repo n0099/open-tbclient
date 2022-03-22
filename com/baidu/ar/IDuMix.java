@@ -9,15 +9,15 @@ public interface IDuMix extends View.OnTouchListener {
 
     void addOutput(DuMixOutput duMixOutput);
 
-    void changeInputSize(int i2, int i3);
+    void changeInputSize(int i, int i2);
 
-    void changeInputSize(SurfaceTexture surfaceTexture, int i2, int i3);
+    void changeInputSize(SurfaceTexture surfaceTexture, int i, int i2);
 
     void changeOutput(DuMixOutput duMixOutput);
 
-    void changeOutputObject(Object obj, int i2, int i3);
+    void changeOutputObject(Object obj, int i, int i2);
 
-    void changeOutputSize(int i2, int i3);
+    void changeOutputSize(int i, int i2);
 
     void clearCase();
 

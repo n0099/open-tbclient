@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class WebSocketListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,24 +17,24 @@ public abstract class WebSocketListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void onClosed(WebSocket webSocket, int i2, String str) {
+    public void onClosed(WebSocket webSocket, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, webSocket, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, webSocket, i, str) == null) {
         }
     }
 
-    public void onClosing(WebSocket webSocket, int i2, String str) {
+    public void onClosing(WebSocket webSocket, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, i, str) == null) {
         }
     }
 

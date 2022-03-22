@@ -31,39 +31,39 @@ public class a {
     public static e a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Object f30314b;
+    public static final Object f24213b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f30315c = 200;
+    public static int f24214c = 200;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.android.pushservice.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static final class EnumC1708a {
+    public static final class EnumC1676a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC1708a a;
+        public static final EnumC1676a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final EnumC1708a f30320b;
+        public static final EnumC1676a f24219b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final EnumC1708a f30321c;
+        public static final EnumC1676a f24220c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final EnumC1708a f30322d;
+        public static final EnumC1676a f24221d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final EnumC1708a f30323e;
+        public static final EnumC1676a f24222e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final EnumC1708a f30324f;
+        public static final EnumC1676a f24223f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final EnumC1708a f30325g;
+        public static final EnumC1676a f24224g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final /* synthetic */ EnumC1708a[] f30326h;
+        public static final /* synthetic */ EnumC1676a[] f24225h;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -79,27 +79,27 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC1708a("alarmMsgInfoId", 0);
-            f30320b = new EnumC1708a("msgId", 1);
-            f30321c = new EnumC1708a("sendtime", 2);
-            f30322d = new EnumC1708a("showtime", 3);
-            f30323e = new EnumC1708a("expiretime", 4);
-            f30324f = new EnumC1708a("msgEnable", 5);
-            EnumC1708a enumC1708a = new EnumC1708a("isAlarm", 6);
-            f30325g = enumC1708a;
-            f30326h = new EnumC1708a[]{a, f30320b, f30321c, f30322d, f30323e, f30324f, enumC1708a};
+            a = new EnumC1676a("alarmMsgInfoId", 0);
+            f24219b = new EnumC1676a("msgId", 1);
+            f24220c = new EnumC1676a("sendtime", 2);
+            f24221d = new EnumC1676a("showtime", 3);
+            f24222e = new EnumC1676a("expiretime", 4);
+            f24223f = new EnumC1676a("msgEnable", 5);
+            EnumC1676a enumC1676a = new EnumC1676a("isAlarm", 6);
+            f24224g = enumC1676a;
+            f24225h = new EnumC1676a[]{a, f24219b, f24220c, f24221d, f24222e, f24223f, enumC1676a};
         }
 
-        public EnumC1708a(String str, int i2) {
+        public EnumC1676a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -117,31 +117,27 @@ public class a {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f30333b;
+        public static final b f24232b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f30334c;
+        public static final b f24233c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f30335d;
+        public static final b f24234d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final b f30336e;
+        public static final b f24235e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final b f30337f;
+        public static final b f24236f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final b f30338g;
+        public static final b f24237g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final b f30339h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final b f30340i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static final /* synthetic */ b[] f30341j;
+        public static final b f24238h;
+        public static final b i;
+        public static final /* synthetic */ b[] j;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -158,16 +154,16 @@ public class a {
                 }
             }
             a = new b("appInfoId", 0);
-            f30333b = new b("appid", 1);
-            f30334c = new b("appType", 2);
-            f30335d = new b("packageName", 3);
-            f30336e = new b("appName", 4);
-            f30337f = new b("cFrom", 5);
-            f30338g = new b(PushManager.APP_VERSION_CODE, 6);
-            f30339h = new b(PushManager.APP_VERSION_NAME, 7);
+            f24232b = new b("appid", 1);
+            f24233c = new b("appType", 2);
+            f24234d = new b("packageName", 3);
+            f24235e = new b("appName", 4);
+            f24236f = new b("cFrom", 5);
+            f24237g = new b(PushManager.APP_VERSION_CODE, 6);
+            f24238h = new b(PushManager.APP_VERSION_NAME, 7);
             b bVar = new b("intergratedPushVersion", 8);
-            f30340i = bVar;
-            f30341j = new b[]{a, f30333b, f30334c, f30335d, f30336e, f30337f, f30338g, f30339h, bVar};
+            i = bVar;
+            j = new b[]{a, f24232b, f24233c, f24234d, f24235e, f24236f, f24237g, f24238h, bVar};
         }
 
         public b(String str, int i2) {
@@ -197,31 +193,27 @@ public class a {
         public static final c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final c f30345b;
+        public static final c f24242b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final c f30346c;
+        public static final c f24243c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final c f30347d;
+        public static final c f24244d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final c f30348e;
+        public static final c f24245e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final c f30349f;
+        public static final c f24246f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final c f30350g;
+        public static final c f24247g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final c f30351h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final c f30352i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static final c f30353j;
+        public static final c f24248h;
+        public static final c i;
+        public static final c j;
         public static final c k;
         public static final c l;
         public static final c m;
@@ -244,22 +236,22 @@ public class a {
                 }
             }
             a = new c("actionId", 0);
-            f30345b = new c("actionName", 1);
-            f30346c = new c(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
-            f30347d = new c("networkStatus", 3);
-            f30348e = new c("msgType", 4);
-            f30349f = new c("msgId", 5);
-            f30350g = new c("msgLen", 6);
-            f30351h = new c("errorMsg", 7);
-            f30352i = new c("requestId", 8);
-            f30353j = new c("stableHeartInterval", 9);
+            f24242b = new c("actionName", 1);
+            f24243c = new c(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
+            f24244d = new c("networkStatus", 3);
+            f24245e = new c("msgType", 4);
+            f24246f = new c("msgId", 5);
+            f24247g = new c("msgLen", 6);
+            f24248h = new c("errorMsg", 7);
+            i = new c("requestId", 8);
+            j = new c("stableHeartInterval", 9);
             k = new c("errorCode", 10);
             l = new c("appid", 11);
             m = new c("channel", 12);
             n = new c("openByPackageName", 13);
             c cVar = new c("packageName", 14);
             o = cVar;
-            p = new c[]{a, f30345b, f30346c, f30347d, f30348e, f30349f, f30350g, f30351h, f30352i, f30353j, k, l, m, n, cVar};
+            p = new c[]{a, f24242b, f24243c, f24244d, f24245e, f24246f, f24247g, f24248h, i, j, k, l, m, n, cVar};
         }
 
         public c(String str, int i2) {
@@ -292,9 +284,9 @@ public class a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -353,22 +345,22 @@ public class a {
         public static final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final String f30368b;
+        public static final String f24262b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f30369c;
+        public static final String f24263c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final String f30370d;
+        public static final String f24264d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final String f30371e;
+        public static final String f24265e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String f30372f;
+        public static final String f24266f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final String f30373g;
+        public static final String f24267g;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -384,63 +376,63 @@ public class a {
                     return;
                 }
             }
-            a = "CREATE TABLE StatisticsInfo (" + i.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.f30391b.name() + " TEXT NOT NULL, " + i.f30392c.name() + " TEXT NOT NULL, " + i.f30393d.name() + " TEXT, " + i.f30394e.name() + " TEXT NOT NULL, " + i.f30395f.name() + " TEXT NOT NULL, " + i.f30396g.name() + " TEXT NOT NULL, " + i.f30397h.name() + " TEXT);";
-            f30368b = "CREATE TABLE PushBehavior (" + c.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.f30345b.name() + " TEXT NOT NULL, " + c.f30346c.name() + " LONG NOT NULL, " + c.f30347d.name() + " TEXT, " + c.f30348e.name() + " INTEGER, " + c.f30349f.name() + " TEXT, " + c.f30350g.name() + " INTEGER, " + c.f30351h.name() + " TEXT, " + c.f30352i.name() + " TEXT, " + c.f30353j.name() + " INTEGER, " + c.k.name() + " INTEGER, " + c.l.name() + " TEXT, " + c.m.name() + " TEXT, " + c.o.name() + " TEXT, " + c.n.name() + " TEXT);";
+            a = "CREATE TABLE StatisticsInfo (" + i.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + i.f24283b.name() + " TEXT NOT NULL, " + i.f24284c.name() + " TEXT NOT NULL, " + i.f24285d.name() + " TEXT, " + i.f24286e.name() + " TEXT NOT NULL, " + i.f24287f.name() + " TEXT NOT NULL, " + i.f24288g.name() + " TEXT NOT NULL, " + i.f24289h.name() + " TEXT);";
+            f24262b = "CREATE TABLE PushBehavior (" + c.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + c.f24242b.name() + " TEXT NOT NULL, " + c.f24243c.name() + " LONG NOT NULL, " + c.f24244d.name() + " TEXT, " + c.f24245e.name() + " INTEGER, " + c.f24246f.name() + " TEXT, " + c.f24247g.name() + " INTEGER, " + c.f24248h.name() + " TEXT, " + c.i.name() + " TEXT, " + c.j.name() + " INTEGER, " + c.k.name() + " INTEGER, " + c.l.name() + " TEXT, " + c.m.name() + " TEXT, " + c.o.name() + " TEXT, " + c.n.name() + " TEXT);";
             StringBuilder sb = new StringBuilder();
             sb.append("CREATE TABLE MsgArriveApp (");
             sb.append(g.a.name());
             sb.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb.append(g.f30383b.name());
+            sb.append(g.f24275b.name());
             sb.append(" TEXT NOT NULL, ");
-            sb.append(g.f30384c.name());
+            sb.append(g.f24276c.name());
             sb.append(" LONG NOT NULL);");
-            f30369c = sb.toString();
+            f24263c = sb.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CREATE TABLE AlarmMsgInfo (");
-            sb2.append(EnumC1708a.a.name());
+            sb2.append(EnumC1676a.a.name());
             sb2.append(" INTEGER PRIMARY KEY AUTOINCREMENT, ");
-            sb2.append(EnumC1708a.f30320b.name());
+            sb2.append(EnumC1676a.f24219b.name());
             sb2.append(" TEXT NOT NULL, ");
-            sb2.append(EnumC1708a.f30321c.name());
+            sb2.append(EnumC1676a.f24220c.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC1708a.f30322d.name());
+            sb2.append(EnumC1676a.f24221d.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC1708a.f30323e.name());
+            sb2.append(EnumC1676a.f24222e.name());
             sb2.append(" LONG NOT NULL, ");
-            sb2.append(EnumC1708a.f30324f.name());
+            sb2.append(EnumC1676a.f24223f.name());
             sb2.append(" INTEGER, ");
-            sb2.append(EnumC1708a.f30325g.name());
+            sb2.append(EnumC1676a.f24224g.name());
             sb2.append(" INTEGER);");
-            f30370d = sb2.toString();
-            f30371e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.f30333b.name() + " TEXT, " + b.f30334c.name() + " INTEGER, " + b.f30335d.name() + " TEXT UNIQUE, " + b.f30336e.name() + " TEXT, " + b.f30337f.name() + " TEXT, " + b.f30338g.name() + " TEXT, " + b.f30339h.name() + " TEXT, " + b.f30340i.name() + " TEXT);";
-            f30372f = "CREATE TABLE FileDownloadingInfo (" + f.a.name() + " TEXT, " + f.f30374b.name() + " TEXT PRIMARY KEY, " + f.f30377e.name() + " TEXT NOT NULL, " + f.f30375c.name() + " TEXT, " + f.f30376d.name() + " TEXT, " + f.f30378f.name() + " TEXT NOT NULL, " + f.f30379g.name() + " INTEGER NOT NULL, " + f.f30380h.name() + " INTEGER NOT NULL, " + f.f30381i.name() + " INTEGER NOT NULL," + f.f30382j.name() + " INTEGER NOT NULL);";
+            f24264d = sb2.toString();
+            f24265e = "CREATE TABLE AppInfo (" + b.a.name() + " INTEGER PRIMARY KEY AUTOINCREMENT, " + b.f24232b.name() + " TEXT, " + b.f24233c.name() + " INTEGER, " + b.f24234d.name() + " TEXT UNIQUE, " + b.f24235e.name() + " TEXT, " + b.f24236f.name() + " TEXT, " + b.f24237g.name() + " TEXT, " + b.f24238h.name() + " TEXT, " + b.i.name() + " TEXT);";
+            f24266f = "CREATE TABLE FileDownloadingInfo (" + f.a.name() + " TEXT, " + f.f24268b.name() + " TEXT PRIMARY KEY, " + f.f24271e.name() + " TEXT NOT NULL, " + f.f24269c.name() + " TEXT, " + f.f24270d.name() + " TEXT, " + f.f24272f.name() + " TEXT NOT NULL, " + f.f24273g.name() + " INTEGER NOT NULL, " + f.f24274h.name() + " INTEGER NOT NULL, " + f.i.name() + " INTEGER NOT NULL," + f.j.name() + " INTEGER NOT NULL);";
             StringBuilder sb3 = new StringBuilder();
             sb3.append("CREATE TABLE NoDisturb (");
             sb3.append(h.a.name());
             sb3.append(" TEXT NOT NULL, ");
-            sb3.append(h.f30386b.name());
+            sb3.append(h.f24278b.name());
             sb3.append(" INTEGER, ");
-            sb3.append(h.f30387c.name());
+            sb3.append(h.f24279c.name());
             sb3.append(" INTEGER, ");
-            sb3.append(h.f30388d.name());
+            sb3.append(h.f24280d.name());
             sb3.append(" INTEGER, ");
-            sb3.append(h.f30389e.name());
+            sb3.append(h.f24281e.name());
             sb3.append(" INTEGER);");
-            f30373g = sb3.toString();
+            f24267g = sb3.toString();
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Context context, String str, int i2) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+        public e(Context context, String str, int i) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2)};
+                Object[] objArr = {context, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
@@ -451,17 +443,17 @@ public class a {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Context context, String str, int i2, DatabaseErrorHandler databaseErrorHandler) {
-            super(context, str, null, i2, databaseErrorHandler);
+        public e(Context context, String str, int i, DatabaseErrorHandler databaseErrorHandler) {
+            super(context, str, null, i, databaseErrorHandler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2), databaseErrorHandler};
+                Object[] objArr = {context, str, Integer.valueOf(i), databaseErrorHandler};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
                     newInitContext.thisArg = this;
@@ -493,21 +485,21 @@ public class a {
             if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
                 try {
                     sQLiteDatabase.execSQL(a);
-                    sQLiteDatabase.execSQL(f30368b);
-                    sQLiteDatabase.execSQL(f30369c);
-                    sQLiteDatabase.execSQL(f30370d);
-                    sQLiteDatabase.execSQL(f30371e);
-                    sQLiteDatabase.execSQL(f30372f);
-                    sQLiteDatabase.execSQL(f30373g);
+                    sQLiteDatabase.execSQL(f24262b);
+                    sQLiteDatabase.execSQL(f24263c);
+                    sQLiteDatabase.execSQL(f24264d);
+                    sQLiteDatabase.execSQL(f24265e);
+                    sQLiteDatabase.execSQL(f24266f);
+                    sQLiteDatabase.execSQL(f24267g);
                 } catch (Exception unused) {
                 }
             }
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 a(sQLiteDatabase);
                 onCreate(sQLiteDatabase);
             }
@@ -521,31 +513,27 @@ public class a {
         public static final f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final f f30374b;
+        public static final f f24268b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final f f30375c;
+        public static final f f24269c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final f f30376d;
+        public static final f f24270d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final f f30377e;
+        public static final f f24271e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final f f30378f;
+        public static final f f24272f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final f f30379g;
+        public static final f f24273g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final f f30380h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final f f30381i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public static final f f30382j;
+        public static final f f24274h;
+        public static final f i;
+        public static final f j;
         public static final /* synthetic */ f[] k;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -563,17 +551,17 @@ public class a {
                 }
             }
             a = new f("belongTo", 0);
-            f30374b = new f(TTDownloadField.TT_DOWNLOAD_URL, 1);
-            f30375c = new f("title", 2);
-            f30376d = new f("description", 3);
-            f30377e = new f("savePath", 4);
-            f30378f = new f("fileName", 5);
-            f30379g = new f("downloadBytes", 6);
-            f30380h = new f("totalBytes", 7);
-            f30381i = new f("downloadStatus", 8);
+            f24268b = new f(TTDownloadField.TT_DOWNLOAD_URL, 1);
+            f24269c = new f("title", 2);
+            f24270d = new f("description", 3);
+            f24271e = new f("savePath", 4);
+            f24272f = new f("fileName", 5);
+            f24273g = new f("downloadBytes", 6);
+            f24274h = new f("totalBytes", 7);
+            i = new f("downloadStatus", 8);
             f fVar = new f(PmsConstant.Statistic.Key.REV_TIMESTAMP, 9);
-            f30382j = fVar;
-            k = new f[]{a, f30374b, f30375c, f30376d, f30377e, f30378f, f30379g, f30380h, f30381i, fVar};
+            j = fVar;
+            k = new f[]{a, f24268b, f24269c, f24270d, f24271e, f24272f, f24273g, f24274h, i, fVar};
         }
 
         public f(String str, int i2) {
@@ -603,13 +591,13 @@ public class a {
         public static final g a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final g f30383b;
+        public static final g f24275b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final g f30384c;
+        public static final g f24276c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final /* synthetic */ g[] f30385d;
+        public static final /* synthetic */ g[] f24277d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -626,22 +614,22 @@ public class a {
                 }
             }
             a = new g("MsgInfoId", 0);
-            f30383b = new g("msgId", 1);
+            f24275b = new g("msgId", 1);
             g gVar = new g(PmsConstant.Statistic.Key.REV_TIMESTAMP, 2);
-            f30384c = gVar;
-            f30385d = new g[]{a, f30383b, gVar};
+            f24276c = gVar;
+            f24277d = new g[]{a, f24275b, gVar};
         }
 
-        public g(String str, int i2) {
+        public g(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -659,19 +647,19 @@ public class a {
         public static final h a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final h f30386b;
+        public static final h f24278b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final h f30387c;
+        public static final h f24279c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final h f30388d;
+        public static final h f24280d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final h f30389e;
+        public static final h f24281e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ h[] f30390f;
+        public static final /* synthetic */ h[] f24282f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -688,24 +676,24 @@ public class a {
                 }
             }
             a = new h("pkgName", 0);
-            f30386b = new h("startHour", 1);
-            f30387c = new h("startMinute", 2);
-            f30388d = new h("endHour", 3);
+            f24278b = new h("startHour", 1);
+            f24279c = new h("startMinute", 2);
+            f24280d = new h("endHour", 3);
             h hVar = new h("endMinute", 4);
-            f30389e = hVar;
-            f30390f = new h[]{a, f30386b, f30387c, f30388d, hVar};
+            f24281e = hVar;
+            f24282f = new h[]{a, f24278b, f24279c, f24280d, hVar};
         }
 
-        public h(String str, int i2) {
+        public h(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -723,28 +711,26 @@ public class a {
         public static final i a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final i f30391b;
+        public static final i f24283b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final i f30392c;
+        public static final i f24284c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final i f30393d;
+        public static final i f24285d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final i f30394e;
+        public static final i f24286e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final i f30395f;
+        public static final i f24287f;
 
         /* renamed from: g  reason: collision with root package name */
-        public static final i f30396g;
+        public static final i f24288g;
 
         /* renamed from: h  reason: collision with root package name */
-        public static final i f30397h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public static final /* synthetic */ i[] f30398i;
+        public static final i f24289h;
+        public static final /* synthetic */ i[] i;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -761,15 +747,15 @@ public class a {
                 }
             }
             a = new i("info_id", 0);
-            f30391b = new i("packageName", 1);
-            f30392c = new i("open_type", 2);
-            f30393d = new i("msgid", 3);
-            f30394e = new i("app_open_time", 4);
-            f30395f = new i("app_close_time", 5);
-            f30396g = new i("use_duration", 6);
+            f24283b = new i("packageName", 1);
+            f24284c = new i("open_type", 2);
+            f24285d = new i("msgid", 3);
+            f24286e = new i("app_open_time", 4);
+            f24287f = new i("app_close_time", 5);
+            f24288g = new i("use_duration", 6);
             i iVar = new i("extra", 7);
-            f30397h = iVar;
-            f30398i = new i[]{a, f30391b, f30392c, f30393d, f30394e, f30395f, f30396g, iVar};
+            f24289h = iVar;
+            i = new i[]{a, f24283b, f24284c, f24285d, f24286e, f24287f, f24288g, iVar};
         }
 
         public i(String str, int i2) {
@@ -805,7 +791,7 @@ public class a {
                 return;
             }
         }
-        f30314b = new Object();
+        f24213b = new Object();
     }
 
     public static long a(Context context, String str, int i2, int i3, int i4, int i5) {
@@ -813,8 +799,8 @@ public class a {
         int update;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
-            synchronized (f30314b) {
-                long j2 = -1;
+            synchronized (f24213b) {
+                long j = -1;
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return -1L;
@@ -825,19 +811,19 @@ public class a {
                     try {
                         ContentValues contentValues = new ContentValues();
                         contentValues.put(h.a.name(), str);
-                        contentValues.put(h.f30386b.name(), Integer.valueOf(i2));
-                        contentValues.put(h.f30387c.name(), Integer.valueOf(i3));
-                        contentValues.put(h.f30388d.name(), Integer.valueOf(i4));
-                        contentValues.put(h.f30389e.name(), Integer.valueOf(i5));
+                        contentValues.put(h.f24278b.name(), Integer.valueOf(i2));
+                        contentValues.put(h.f24279c.name(), Integer.valueOf(i3));
+                        contentValues.put(h.f24280d.name(), Integer.valueOf(i4));
+                        contentValues.put(h.f24281e.name(), Integer.valueOf(i5));
                         if (query == null || !query.moveToNext()) {
-                            j2 = a2.insert("NoDisturb", null, contentValues);
+                            j = a2.insert("NoDisturb", null, contentValues);
                         } else {
                             if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
                                 update = a2.delete("NoDisturb", h.a.name() + "= ?", new String[]{str});
                             } else {
                                 update = a2.update("NoDisturb", contentValues, h.a.name() + "= ?", new String[]{str});
                             }
-                            j2 = update;
+                            j = update;
                         }
                         if (query != null) {
                             query.close();
@@ -851,7 +837,7 @@ public class a {
                             cursor.close();
                         }
                         a2.close();
-                        return j2;
+                        return j;
                     } catch (Throwable th) {
                         th = th;
                         cursor = query;
@@ -866,7 +852,7 @@ public class a {
                     th = th2;
                 }
                 a2.close();
-                return j2;
+                return j;
             }
         }
         return invokeCommon.longValue;
@@ -892,7 +878,7 @@ public class a {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            synchronized (f30314b) {
+            synchronized (f24213b) {
                 try {
                     if (a != null) {
                         a.close();
@@ -962,7 +948,7 @@ public class a {
         Cursor query;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            synchronized (f30314b) {
+            synchronized (f24213b) {
                 SQLiteDatabase a2 = a(context);
                 if (a2 == null) {
                     return true;
@@ -971,10 +957,10 @@ public class a {
                 try {
                     contentValues = new ContentValues();
                     contentValues.clear();
-                    contentValues.put(g.f30383b.name(), str);
-                    contentValues.put(g.f30384c.name(), Long.valueOf(System.currentTimeMillis()));
-                    String str2 = g.f30383b.name() + " =? ";
-                    query = a2.query("MsgArriveApp", new String[]{g.f30383b.name()}, str2, new String[]{str}, null, null, null);
+                    contentValues.put(g.f24275b.name(), str);
+                    contentValues.put(g.f24276c.name(), Long.valueOf(System.currentTimeMillis()));
+                    String str2 = g.f24275b.name() + " =? ";
+                    query = a2.query("MsgArriveApp", new String[]{g.f24275b.name()}, str2, new String[]{str}, null, null, null);
                     if (query != null) {
                         try {
                             if (query.getCount() > 0) {
@@ -1019,7 +1005,7 @@ public class a {
                 }
                 try {
                     cursor.moveToFirst();
-                    if (cursor.getInt(0) > f30315c) {
+                    if (cursor.getInt(0) > f24214c) {
                         a2.delete("MsgArriveApp", null, null);
                     }
                     a2.insert("MsgArriveApp", null, contentValues);
@@ -1062,7 +1048,7 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            synchronized (f30314b) {
+            synchronized (f24213b) {
                 if (a == null) {
                     String path = context.getDatabasePath("pushstat_8.1.9.db").getPath();
                     a("pushstat_8.1.9.db", context);
@@ -1083,7 +1069,7 @@ public class a {
         Cursor cursor;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, str)) == null) {
-            synchronized (f30314b) {
+            synchronized (f24213b) {
                 SQLiteDatabase a2 = a(context);
                 Cursor cursor2 = null;
                 if (a2 == null) {
@@ -1094,10 +1080,10 @@ public class a {
                     if (cursor != null) {
                         try {
                             if (cursor.moveToNext()) {
-                                int i2 = cursor.getInt(cursor.getColumnIndex(h.f30386b.name()));
-                                int i3 = cursor.getInt(cursor.getColumnIndex(h.f30387c.name()));
-                                int i4 = cursor.getInt(cursor.getColumnIndex(h.f30388d.name()));
-                                int i5 = cursor.getInt(cursor.getColumnIndex(h.f30389e.name()));
+                                int i2 = cursor.getInt(cursor.getColumnIndex(h.f24278b.name()));
+                                int i3 = cursor.getInt(cursor.getColumnIndex(h.f24279c.name()));
+                                int i4 = cursor.getInt(cursor.getColumnIndex(h.f24280d.name()));
+                                int i5 = cursor.getInt(cursor.getColumnIndex(h.f24281e.name()));
                                 if (i2 == 0 && i3 == 0 && i4 == 0 && i5 == 0) {
                                     int[] iArr = new int[0];
                                     if (cursor != null) {

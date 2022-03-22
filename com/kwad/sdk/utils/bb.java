@@ -15,7 +15,7 @@ import androidx.annotation.Nullable;
 import com.kwad.sdk.api.core.ResContext;
 import com.kwad.sdk.core.response.model.PhotoInfo;
 import java.util.HashSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bb {
     public static long a;
 
@@ -42,21 +42,21 @@ public class bb {
         return b2 == null ? view.getContext() : b2;
     }
 
-    public static void a(View view, int i2, int i3, int i4, int i5) {
+    public static void a(View view, int i, int i2, int i3, int i4) {
         if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).setMargins(i2, i3, i4, i5);
+            ((ViewGroup.MarginLayoutParams) view.getLayoutParams()).setMargins(i, i2, i3, i4);
             view.requestLayout();
         }
     }
 
     public static boolean a() {
         long uptimeMillis = SystemClock.uptimeMillis();
-        int i2 = (Math.abs(uptimeMillis - a) > 500L ? 1 : (Math.abs(uptimeMillis - a) == 500L ? 0 : -1));
+        int i = (Math.abs(uptimeMillis - a) > 500L ? 1 : (Math.abs(uptimeMillis - a) == 500L ? 0 : -1));
         a = uptimeMillis;
-        return i2 < 0;
+        return i < 0;
     }
 
-    public static boolean a(@Nullable Matrix matrix, int i2, int i3, PhotoInfo.VideoInfo videoInfo) {
+    public static boolean a(@Nullable Matrix matrix, int i, int i2, PhotoInfo.VideoInfo videoInfo) {
         if (matrix != null) {
             matrix.reset();
         }
@@ -72,9 +72,9 @@ public class bb {
         float f5 = (float) videoInfo.topRatio;
         float f6 = (float) videoInfo.widthRatio;
         float f7 = (float) videoInfo.heightRatio;
-        float f8 = i2;
+        float f8 = i;
         float f9 = f8 / f2;
-        float f10 = i3;
+        float f10 = i2;
         float f11 = f10 / f3;
         float f12 = f9 / f11;
         if (Math.abs(f12 - 1.0f) < 0.01d) {
@@ -102,12 +102,12 @@ public class bb {
         return true;
     }
 
-    public static boolean a(View view, int i2) {
-        return view != null && b(view, i2, true) && view.hasWindowFocus() && e(view.getContext());
+    public static boolean a(View view, int i) {
+        return view != null && b(view, i, true) && view.hasWindowFocus() && e(view.getContext());
     }
 
-    public static boolean a(View view, int i2, boolean z) {
-        return view != null && b(view, i2, z) && e(view.getContext());
+    public static boolean a(View view, int i, boolean z) {
+        return view != null && b(view, i, z) && e(view.getContext());
     }
 
     @Deprecated
@@ -137,7 +137,7 @@ public class bb {
         return null;
     }
 
-    public static boolean b(View view, int i2, boolean z) {
+    public static boolean b(View view, int i, boolean z) {
         if (view == null || view.getParent() == null) {
             return false;
         }
@@ -153,7 +153,7 @@ public class bb {
             if (view.getGlobalVisibleRect(rect)) {
                 long height = rect.height() * rect.width();
                 long height2 = view.getHeight() * view.getWidth();
-                return height2 > 0 && height * 100 >= ((long) i2) * height2;
+                return height2 > 0 && height * 100 >= ((long) i) * height2;
             }
             return false;
         }

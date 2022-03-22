@@ -11,7 +11,7 @@ import com.yy.gslbsdk.util.GlobalTools;
 import com.yy.gslbsdk.util.LogTools;
 import java.util.LinkedList;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DnsInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "DnsInfo";
@@ -33,9 +33,9 @@ public class DnsInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,9 +108,9 @@ public class DnsInfo {
                 return null;
             }
             String str = "";
-            for (int i2 = 0; i2 < this.ips.size(); i2++) {
-                str = str + this.ips.get(i2);
-                if (i2 != this.ips.size() - 1) {
+            for (int i = 0; i < this.ips.size(); i++) {
+                str = str + this.ips.get(i);
+                if (i != this.ips.size() - 1) {
                     str = str + ",";
                 }
             }
@@ -193,10 +193,10 @@ public class DnsInfo {
         }
     }
 
-    public void setEndTime(long j2) {
+    public void setEndTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.endTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.endTime = j;
         }
     }
 
@@ -231,39 +231,39 @@ public class DnsInfo {
         this.ips = linkedList;
     }
 
-    public void setNt(int i2) {
+    public void setNt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.nt = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.nt = i;
         }
     }
 
-    public void setProbeTime(long j2) {
+    public void setProbeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.probeTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.probeTime = j;
         }
     }
 
-    public void setSource(int i2) {
+    public void setSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.source = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.source = i;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.status = i;
         }
     }
 
-    public void setTtl(int i2) {
+    public void setTtl(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.ttl = i2;
-            float f2 = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.ttl = i;
+            float f2 = i;
             this.endTime = System.currentTimeMillis() + ((int) (GlobalTools.TTL_EXPIRED_FACTOR * f2 * 1000.0f));
             this.probeTime = System.currentTimeMillis() + ((int) (f2 * GlobalTools.TTL_PROBE_FACTOR * 1000.0f));
         }

@@ -95,9 +95,9 @@ public class BIMConversationMsg extends BIMConversation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, category, str, chatSession};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BIMManager.CATEGORY) objArr2[1], (String) objArr2[2], (ChatSession) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -117,9 +117,9 @@ public class BIMConversationMsg extends BIMConversation {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -129,12 +129,12 @@ public class BIMConversationMsg extends BIMConversation {
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
-            public void onSendMessageResult(int i4, ChatMsg chatMsg) {
+            public void onSendMessageResult(int i3, ChatMsg chatMsg) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) {
                     String str2 = BIMConversationMsg.TAG;
-                    LogUtils.d(str2, "conversion onSendMessageResult" + i4);
-                    if (i4 != 0 || chatMsg == null) {
+                    LogUtils.d(str2, "conversion onSendMessageResult" + i3);
+                    if (i3 != 0 || chatMsg == null) {
                         return;
                     }
                     if (this.this$0.mLastChatMsg == null || this.this$0.mLastChatMsg.getMsgId() < chatMsg.getMsgId()) {
@@ -164,17 +164,17 @@ public class BIMConversationMsg extends BIMConversation {
         return invokeL.booleanValue;
     }
 
-    private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
+    private void handleFetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
         ArrayList<ChatMsg> fetchMessageSync;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i2), Boolean.valueOf(z), iFetchMessageListener}) == null) {
-            int i3 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
-            if (i3 == 1) {
-                fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
-            } else if (i3 != 2) {
-                fetchMessageSync = i3 != 3 ? null : ChatMsgManagerImpl.getInstance(this.mContext).fetchGroupNotifyMsgsSync(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i), Boolean.valueOf(z), iFetchMessageListener}) == null) {
+            int i2 = AnonymousClass4.$SwitchMap$com$baidu$android$imsdk$BIMConversation$MSGTYPE[msgtype.ordinal()];
+            if (i2 == 1) {
+                fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSync(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
+            } else if (i2 != 2) {
+                fetchMessageSync = i2 != 3 ? null : ChatMsgManagerImpl.getInstance(this.mContext).fetchGroupNotifyMsgsSync(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
             } else {
-                fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSyncExceptSystemMsg(this.session.getCategory(), this.session.getContacter(), i2, z, chatMsg);
+                fetchMessageSync = ChatMsgManagerImpl.getInstance(this.mContext).fetchMessageSyncExceptSystemMsg(this.session.getCategory(), this.session.getContacter(), i, z, chatMsg);
             }
             if (fetchMessageSync != null && fetchMessageSync.size() > 0) {
                 ChatMsg chatMsg2 = fetchMessageSync.get(fetchMessageSync.size() - 1);
@@ -226,11 +226,11 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void fetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i2, boolean z, IFetchMessageListener iFetchMessageListener) {
+    public void fetchMessage(BIMConversation.MSGTYPE msgtype, ChatMsg chatMsg, int i, boolean z, IFetchMessageListener iFetchMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i2), Boolean.valueOf(z), iFetchMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{msgtype, chatMsg, Integer.valueOf(i), Boolean.valueOf(z), iFetchMessageListener}) == null) {
             if (chatMsg == null || checkChatMsg(chatMsg)) {
-                handleFetchMessage(msgtype, chatMsg, i2, z, iFetchMessageListener);
+                handleFetchMessage(msgtype, chatMsg, i, z, iFetchMessageListener);
             } else if (iFetchMessageListener != null) {
                 iFetchMessageListener.onFetchMessageResult(1005, null);
             }
@@ -345,13 +345,13 @@ public class BIMConversationMsg extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void setDisturb(int i2, BIMValueCallBack<String> bIMValueCallBack) {
+    public void setDisturb(int i, BIMValueCallBack<String> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, bIMValueCallBack) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, bIMValueCallBack) == null) {
             if (this.session.getCategory() == 1) {
-                GroupManagerImpl.getInstance(this.mContext).setGroupDisturb(String.valueOf(this.session.getContacter()), i2, bIMValueCallBack);
+                GroupManagerImpl.getInstance(this.mContext).setGroupDisturb(String.valueOf(this.session.getContacter()), i, bIMValueCallBack);
             } else {
-                ChatUserManager.setUserDisturb(this.mContext, this.session.getContacter(), i2, new IUserPrivacyListener(this, bIMValueCallBack) { // from class: com.baidu.android.imsdk.BIMConversationMsg.3
+                ChatUserManager.setUserDisturb(this.mContext, this.session.getContacter(), i, new IUserPrivacyListener(this, bIMValueCallBack) { // from class: com.baidu.android.imsdk.BIMConversationMsg.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BIMConversationMsg this$0;
@@ -364,9 +364,9 @@ public class BIMConversationMsg extends BIMConversation {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, bIMValueCallBack};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -377,13 +377,13 @@ public class BIMConversationMsg extends BIMConversation {
                     }
 
                     @Override // com.baidu.android.imsdk.chatuser.IUserPrivacyListener
-                    public void onResult(int i3, String str) {
+                    public void onResult(int i2, String str) {
                         BIMValueCallBack bIMValueCallBack2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) || (bIMValueCallBack2 = this.val$listener) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) || (bIMValueCallBack2 = this.val$listener) == null) {
                             return;
                         }
-                        bIMValueCallBack2.onResult(i3, str, this.this$0.getId());
+                        bIMValueCallBack2.onResult(i2, str, this.this$0.getId());
                     }
                 });
             }
@@ -422,9 +422,9 @@ public class BIMConversationMsg extends BIMConversation {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

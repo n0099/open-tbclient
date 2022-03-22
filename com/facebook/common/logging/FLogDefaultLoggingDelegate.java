@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     public static /* synthetic */ Interceptable $ic;
     public static final FLogDefaultLoggingDelegate sInstance;
@@ -41,9 +41,9 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -94,10 +94,10 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         return (String) invokeL.objValue;
     }
 
-    private void println(int i2, String str, String str2) {
+    private void println(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i2, str, str2) == null) {
-            Log.println(i2, prefixTag(str), str2);
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, str, str2) == null) {
+            Log.println(i, prefixTag(str), str2);
         }
     }
 
@@ -133,17 +133,17 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public boolean isLoggable(int i2) {
+    public boolean isLoggable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.mMinimumLoggingLevel <= i2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mMinimumLoggingLevel <= i : invokeI.booleanValue;
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public void log(int i2, String str, String str2) {
+    public void log(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str, str2) == null) {
-            println(i2, str, str2);
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str, str2) == null) {
+            println(i, str, str2);
         }
     }
 
@@ -155,10 +155,10 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
     }
 
     @Override // com.facebook.common.logging.LoggingDelegate
-    public void setMinimumLoggingLevel(int i2) {
+    public void setMinimumLoggingLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mMinimumLoggingLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mMinimumLoggingLevel = i;
         }
     }
 
@@ -186,10 +186,10 @@ public class FLogDefaultLoggingDelegate implements LoggingDelegate {
         }
     }
 
-    private void println(int i2, String str, String str2, Throwable th) {
+    private void println(int i, String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i2), str, str2, th}) == null) {
-            Log.println(i2, prefixTag(str), getMsg(str2, th));
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            Log.println(i, prefixTag(str), getMsg(str2, th));
         }
     }
 

@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.q0.c1.s;
-import c.a.r0.s1.t.d;
+import c.a.o0.c1.s;
+import c.a.p0.u1.t.d;
 import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -28,27 +28,29 @@ import tbclient.RecommendForumInfo;
 public class ItemMsgManage extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SettingTextSwitchView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RelativeLayout f33830b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RelativeLayout f33831c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public RelativeLayout f33832d;
 
     /* renamed from: e  reason: collision with root package name */
-    public SettingTextSwitchView f43591e;
+    public RelativeLayout f33833e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RelativeLayout f43592f;
+    public TextView f33834f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f43593g;
+    public RelativeLayout f33835g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RelativeLayout f43594h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public RelativeLayout f43595i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f43596j;
-    public RelativeLayout k;
-    public RelativeLayout l;
-    public TextView m;
+    public RelativeLayout f33836h;
+    public TextView i;
 
     /* loaded from: classes5.dex */
     public class a implements s<Boolean> {
@@ -63,9 +65,9 @@ public class ItemMsgManage extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {itemMsgManage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,7 +77,7 @@ public class ItemMsgManage extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.c1.s
+        @Override // c.a.o0.c1.s
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
@@ -95,16 +97,16 @@ public class ItemMsgManage extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 
     private void setShowState(RecommendForumInfo recommendForumInfo) {
@@ -114,48 +116,48 @@ public class ItemMsgManage extends LinearLayout {
         }
         int intValue = recommendForumInfo.forum_type.intValue();
         if (intValue == 0) {
-            this.f43591e.setVisibility(8);
-            this.f43592f.setVisibility(8);
-            this.f43593g.setVisibility(8);
+            this.a.setVisibility(8);
+            this.f33830b.setVisibility(8);
+            this.f33831c.setVisibility(8);
         } else if (intValue == 1) {
             setVisibility(0);
-            this.f43591e.setVisibility(0);
-            this.f43592f.setVisibility(0);
-            this.f43593g.setVisibility(0);
+            this.a.setVisibility(0);
+            this.f33830b.setVisibility(0);
+            this.f33831c.setVisibility(0);
         } else if (intValue == 2) {
-            this.f43593g.setVisibility(8);
-            this.f43592f.setVisibility(0);
-            this.f43591e.setVisibility(0);
+            this.f33831c.setVisibility(8);
+            this.f33830b.setVisibility(0);
+            this.a.setVisibility(0);
             setVisibility(0);
         }
     }
 
-    public void init(Context context) {
+    public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.forum_detail_msg_manage, (ViewGroup) this, true);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.bar_notify);
-            this.f43591e = settingTextSwitchView;
-            settingTextSwitchView.setTextLeftMargin(R.dimen.ds20);
-            this.f43592f = (RelativeLayout) findViewById(R.id.bar_info_clean_lay);
-            this.f43593g = (RelativeLayout) findViewById(R.id.bar_info_history_lay);
-            this.f43594h = (RelativeLayout) findViewById(R.id.bar_info_member_lay);
-            this.f43595i = (RelativeLayout) findViewById(R.id.bar_info_manager_lay);
-            this.f43596j = (TextView) findViewById(R.id.bar_info_member_status);
-            this.k = (RelativeLayout) findViewById(R.id.bar_info_complaint_lay);
-            this.l = (RelativeLayout) findViewById(R.id.bar_manager_apply_lay);
-            this.m = (TextView) findViewById(R.id.bar_manager_apply_status);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02b2, (ViewGroup) this, true);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f09031e);
+            this.a = settingTextSwitchView;
+            settingTextSwitchView.setTextLeftMargin(R.dimen.obfuscated_res_0x7f0701d5);
+            this.f33830b = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09030f);
+            this.f33831c = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090314);
+            this.f33832d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090317);
+            this.f33833e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090316);
+            this.f33834f = (TextView) findViewById(R.id.obfuscated_res_0x7f090318);
+            this.f33835g = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090311);
+            this.f33836h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090319);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f09031a);
             setVisibility(8);
         }
     }
 
-    public void onChangeSkinType(ForumDetailActivity forumDetailActivity, int i2) {
+    public void b(ForumDetailActivity forumDetailActivity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i2) == null) {
-            forumDetailActivity.getLayoutMode().k(i2 == 1);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
+            forumDetailActivity.getLayoutMode().k(i == 1);
             forumDetailActivity.getLayoutMode().j(this);
-            this.f43591e.switchSkinType(i2);
+            this.a.d(i);
         }
     }
 
@@ -167,44 +169,44 @@ public class ItemMsgManage extends LinearLayout {
             if (!TbadkCoreApplication.isLogin()) {
                 setVisibility(8);
             } else {
-                this.k.setVisibility(z2 ? 0 : 8);
+                this.f33835g.setVisibility(z2 ? 0 : 8);
                 if (recommendForumInfo.is_like.intValue() == 0) {
-                    this.f43591e.setVisibility(8);
-                    this.f43592f.setVisibility(8);
-                    this.f43593g.setVisibility(8);
-                    this.k.setVisibility(8);
+                    this.a.setVisibility(8);
+                    this.f33830b.setVisibility(8);
+                    this.f33831c.setVisibility(8);
+                    this.f33835g.setVisibility(8);
                 }
-                this.f43595i.setVisibility(z ? 0 : 8);
-                findViewById(R.id.bar_info_manager_divider).setVisibility(z ? 0 : 8);
+                this.f33833e.setVisibility(z ? 0 : 8);
+                findViewById(R.id.obfuscated_res_0x7f090315).setVisibility(z ? 0 : 8);
                 if (managerElectionTab != null) {
                     if (managerElectionTab.is_new_strategy.intValue() == 1) {
-                        this.l.setVisibility(0);
-                        this.m.setText(managerElectionTab.new_strategy_text);
+                        this.f33836h.setVisibility(0);
+                        this.i.setText(managerElectionTab.new_strategy_text);
                     } else {
-                        this.l.setVisibility(8);
+                        this.f33836h.setVisibility(8);
                     }
                 }
                 setVisibility(0);
             }
             if (!z3) {
-                this.f43596j.setVisibility(8);
+                this.f33834f.setVisibility(8);
             } else if (priManagerApplyInfo != null) {
                 int intValue = priManagerApplyInfo.assist_apply_status.intValue();
                 int intValue2 = priManagerApplyInfo.assist_left_num.intValue();
-                this.f43596j.setVisibility(0);
+                this.f33834f.setVisibility(0);
                 if (intValue == -1) {
-                    String format = String.format(getResources().getString(R.string.forum_detail_private_apply_left_num_tip), StringHelper.numberUniformFormat(intValue2));
+                    String format = String.format(getResources().getString(R.string.obfuscated_res_0x7f0f064e), StringHelper.numberUniformFormat(intValue2));
                     if (intValue2 > 0) {
-                        this.f43596j.setText(format);
+                        this.f33834f.setText(format);
                     } else {
-                        this.f43596j.setVisibility(8);
+                        this.f33834f.setVisibility(8);
                     }
                 } else if (intValue == 1) {
-                    this.f43596j.setText(getResources().getString(R.string.forum_detail_private_applying));
+                    this.f33834f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064f));
                 } else if (intValue == 2) {
-                    this.f43596j.setText(getResources().getString(R.string.forum_detail_private_apply_failed));
+                    this.f33834f.setText(getResources().getString(R.string.obfuscated_res_0x7f0f064d));
                 } else {
-                    this.f43596j.setVisibility(8);
+                    this.f33834f.setVisibility(8);
                 }
             }
             d.j().d(TbadkCoreApplication.getCurrentAccount(), String.valueOf(recommendForumInfo.forum_id), new a(this));
@@ -214,12 +216,12 @@ public class ItemMsgManage extends LinearLayout {
     public void setMsgOnClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f43592f.setOnClickListener(onClickListener);
-            this.f43593g.setOnClickListener(onClickListener);
-            this.f43594h.setOnClickListener(onClickListener);
-            this.f43595i.setOnClickListener(onClickListener);
-            this.k.setOnClickListener(onClickListener);
-            this.l.setOnClickListener(onClickListener);
+            this.f33830b.setOnClickListener(onClickListener);
+            this.f33831c.setOnClickListener(onClickListener);
+            this.f33832d.setOnClickListener(onClickListener);
+            this.f33833e.setOnClickListener(onClickListener);
+            this.f33835g.setOnClickListener(onClickListener);
+            this.f33836h.setOnClickListener(onClickListener);
         }
     }
 
@@ -227,9 +229,9 @@ public class ItemMsgManage extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             if (z) {
-                this.f43591e.getSwitchView().turnOnNoCallback();
+                this.a.getSwitchView().l();
             } else {
-                this.f43591e.getSwitchView().turnOffNoCallback();
+                this.a.getSwitchView().h();
             }
         }
     }
@@ -237,15 +239,15 @@ public class ItemMsgManage extends LinearLayout {
     public void setSwitchChangeListener(BdSwitchView.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f43591e.setSwitchStateChangeListener(bVar);
+            this.a.setSwitchStateChangeListener(bVar);
         }
     }
 
     @Override // android.view.View
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setVisibility(i);
         }
     }
 
@@ -258,9 +260,9 @@ public class ItemMsgManage extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -268,7 +270,7 @@ public class ItemMsgManage extends LinearLayout {
                 return;
             }
         }
-        init(context);
+        a(context);
     }
 
     public void setShowState(RecommendForumInfo recommendForumInfo, boolean z) {

@@ -58,13 +58,13 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NavigationView extends ScrimInsetsFrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_Design_NavigationView = 2131755854;
+    public static final int obfuscated_res_0x7f100327 = 2131755815;
     public static final int[] DISABLED_STATE_SET;
     public static final int PRESENTER_NAVIGATION_VIEW_ID = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -77,7 +77,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     public final NavigationMenuPresenter presenter;
     public final int[] tmpLocation;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnNavigationItemSelectedListener {
         boolean onNavigationItemSelected(@NonNull MenuItem menuItem);
     }
@@ -108,9 +108,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -121,17 +121,17 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     @Nullable
-    private ColorStateList createDefaultColorStateList(int i2) {
+    private ColorStateList createDefaultColorStateList(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
             TypedValue typedValue = new TypedValue();
-            if (getContext().getTheme().resolveAttribute(i2, typedValue, true)) {
+            if (getContext().getTheme().resolveAttribute(i, typedValue, true)) {
                 ColorStateList colorStateList = AppCompatResources.getColorStateList(getContext(), typedValue.resourceId);
-                if (getContext().getTheme().resolveAttribute(R$attr.colorPrimary, typedValue, true)) {
-                    int i3 = typedValue.data;
+                if (getContext().getTheme().resolveAttribute(R$attr.obfuscated, typedValue, true)) {
+                    int i2 = typedValue.data;
                     int defaultColor = colorStateList.getDefaultColor();
-                    return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i3, defaultColor});
+                    return new ColorStateList(new int[][]{DISABLED_STATE_SET, CHECKED_STATE_SET, FrameLayout.EMPTY_STATE_SET}, new int[]{colorStateList.getColorForState(DISABLED_STATE_SET, defaultColor), i2, defaultColor});
                 }
                 return null;
             }
@@ -185,9 +185,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -238,10 +238,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.presenter.getHeaderCount() : invokeV.intValue;
     }
 
-    public View getHeaderView(int i2) {
+    public View getHeaderView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.presenter.getHeaderView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.presenter.getHeaderView(i) : (View) invokeI.objValue;
     }
 
     @Nullable
@@ -292,17 +292,17 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.menu : (Menu) invokeV.objValue;
     }
 
-    public View inflateHeaderView(@LayoutRes int i2) {
+    public View inflateHeaderView(@LayoutRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? this.presenter.inflateHeaderView(i2) : (View) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this.presenter.inflateHeaderView(i) : (View) invokeI.objValue;
     }
 
-    public void inflateMenu(int i2) {
+    public void inflateMenu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             this.presenter.setUpdateSuspended(true);
-            getMenuInflater().inflate(i2, this.menu);
+            getMenuInflater().inflate(i, this.menu);
             this.presenter.setUpdateSuspended(false);
             this.presenter.updateMenuView(false);
         }
@@ -340,16 +340,16 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048592, this, i2, i3) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
+        if (interceptable == null || interceptable.invokeII(1048592, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i);
             if (mode == Integer.MIN_VALUE) {
-                i2 = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i2), this.maxWidth), 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(Math.min(View.MeasureSpec.getSize(i), this.maxWidth), 1073741824);
             } else if (mode == 0) {
-                i2 = View.MeasureSpec.makeMeasureSpec(this.maxWidth, 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(this.maxWidth, 1073741824);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
@@ -388,10 +388,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    public void setCheckedItem(@IdRes int i2) {
+    public void setCheckedItem(@IdRes int i) {
         MenuItem findItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || (findItem = this.menu.findItem(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (findItem = this.menu.findItem(i)) == null) {
             return;
         }
         this.presenter.setCheckedItem((MenuItemImpl) findItem);
@@ -415,45 +415,45 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    public void setItemBackgroundResource(@DrawableRes int i2) {
+    public void setItemBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            setItemBackground(ContextCompat.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            setItemBackground(ContextCompat.getDrawable(getContext(), i));
         }
     }
 
-    public void setItemHorizontalPadding(@Dimension int i2) {
+    public void setItemHorizontalPadding(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.presenter.setItemHorizontalPadding(i2);
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.presenter.setItemHorizontalPadding(i);
         }
     }
 
-    public void setItemHorizontalPaddingResource(@DimenRes int i2) {
+    public void setItemHorizontalPaddingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.presenter.setItemHorizontalPadding(getResources().getDimensionPixelSize(i2));
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.presenter.setItemHorizontalPadding(getResources().getDimensionPixelSize(i));
         }
     }
 
-    public void setItemIconPadding(@Dimension int i2) {
+    public void setItemIconPadding(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.presenter.setItemIconPadding(i2);
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.presenter.setItemIconPadding(i);
         }
     }
 
-    public void setItemIconPaddingResource(int i2) {
+    public void setItemIconPaddingResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.presenter.setItemIconPadding(getResources().getDimensionPixelSize(i2));
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.presenter.setItemIconPadding(getResources().getDimensionPixelSize(i));
         }
     }
 
-    public void setItemIconSize(@Dimension int i2) {
+    public void setItemIconSize(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.presenter.setItemIconSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.presenter.setItemIconSize(i);
         }
     }
 
@@ -464,17 +464,17 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
     }
 
-    public void setItemMaxLines(int i2) {
+    public void setItemMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.presenter.setItemMaxLines(i2);
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.presenter.setItemMaxLines(i);
         }
     }
 
-    public void setItemTextAppearance(@StyleRes int i2) {
+    public void setItemTextAppearance(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.presenter.setItemTextAppearance(i2);
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.presenter.setItemTextAppearance(i);
         }
     }
 
@@ -493,18 +493,18 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     @Override // android.view.View
-    public void setOverScrollMode(int i2) {
+    public void setOverScrollMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            super.setOverScrollMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            super.setOverScrollMode(i);
             NavigationMenuPresenter navigationMenuPresenter = this.presenter;
             if (navigationMenuPresenter != null) {
-                navigationMenuPresenter.setOverScrollMode(i2);
+                navigationMenuPresenter.setOverScrollMode(i);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -534,9 +534,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -546,10 +546,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -582,9 +582,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -596,10 +596,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeBundle(this.menuState);
             }
         }
@@ -613,9 +613,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -627,16 +627,16 @@ public class NavigationView extends ScrimInsetsFrameLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.navigationViewStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04044b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -647,20 +647,20 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_Design_NavigationView), attributeSet, i2);
+    public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100327), attributeSet, i);
         ColorStateList createDefaultColorStateList;
-        int i3;
+        int i2;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -672,7 +672,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.tmpLocation = new int[2];
         Context context2 = getContext();
         this.menu = new NavigationMenu(context2);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.elevation, R.attr.headerLayout, R.attr.itemBackground, R.attr.itemHorizontalPadding, R.attr.itemIconPadding, R.attr.itemIconSize, R.attr.itemIconTint, R.attr.itemMaxLines, R.attr.itemShapeAppearance, R.attr.itemShapeAppearanceOverlay, R.attr.itemShapeFillColor, R.attr.itemShapeInsetBottom, R.attr.itemShapeInsetEnd, R.attr.itemShapeInsetStart, R.attr.itemShapeInsetTop, R.attr.itemTextAppearance, R.attr.itemTextColor, R.attr.menu}, i2, Widget_Design_NavigationView, new int[0]);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, new int[]{16842964, 16842973, 16843039, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f040270, R.attr.obfuscated_res_0x7f0402d9, R.attr.obfuscated_res_0x7f0402db, R.attr.obfuscated_res_0x7f0402dd, R.attr.obfuscated_res_0x7f0402de, R.attr.obfuscated_res_0x7f0402df, R.attr.obfuscated_res_0x7f0402e0, R.attr.obfuscated_res_0x7f0402e3, R.attr.obfuscated_res_0x7f0402e4, R.attr.obfuscated_res_0x7f0402e5, R.attr.obfuscated_res_0x7f0402e6, R.attr.obfuscated_res_0x7f0402e7, R.attr.obfuscated_res_0x7f0402e8, R.attr.obfuscated_res_0x7f0402e9, R.attr.obfuscated_res_0x7f0402ed, R.attr.obfuscated_res_0x7f0402f0, R.attr.obfuscated_res_0x7f040427}, i, obfuscated_res_0x7f100327, new int[0]);
         if (obtainTintedStyledAttributes.hasValue(0)) {
             ViewCompat.setBackground(this, obtainTintedStyledAttributes.getDrawable(0));
         }
@@ -696,10 +696,10 @@ public class NavigationView extends ScrimInsetsFrameLayout {
             createDefaultColorStateList = createDefaultColorStateList(16842808);
         }
         if (obtainTintedStyledAttributes.hasValue(18)) {
-            i3 = obtainTintedStyledAttributes.getResourceId(18, 0);
+            i2 = obtainTintedStyledAttributes.getResourceId(18, 0);
             z = true;
         } else {
-            i3 = 0;
+            i2 = 0;
             z = false;
         }
         if (obtainTintedStyledAttributes.hasValue(8)) {
@@ -730,9 +730,9 @@ public class NavigationView extends ScrimInsetsFrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -764,7 +764,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
         this.presenter.setItemIconTintList(createDefaultColorStateList);
         this.presenter.setOverScrollMode(getOverScrollMode());
         if (z) {
-            this.presenter.setItemTextAppearance(i3);
+            this.presenter.setItemTextAppearance(i2);
         }
         this.presenter.setItemTextColor(colorStateList);
         this.presenter.setItemBackground(drawable);

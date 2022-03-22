@@ -1,0 +1,14 @@
+package c.a.n0.a.x.i.g.c;
+
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.NonNull;
+import c.a.n0.a.x.i.g.c.b;
+/* loaded from: classes.dex */
+public interface c<T extends b> {
+    void a(@NonNull Handler handler);
+
+    void b(T t);
+
+    Looper getLooper();
+}

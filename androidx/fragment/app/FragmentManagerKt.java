@@ -29,8 +29,8 @@ public final class FragmentManagerKt {
         }
     }
 
-    public static /* synthetic */ void commit$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ void commit$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
@@ -57,8 +57,8 @@ public final class FragmentManagerKt {
         }
     }
 
-    public static /* synthetic */ void commitNow$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ void commitNow$default(FragmentManager fragmentManager, boolean z, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         FragmentTransaction beginTransaction = fragmentManager.beginTransaction();
@@ -92,11 +92,11 @@ public final class FragmentManagerKt {
         }
     }
 
-    public static /* synthetic */ void transaction$default(FragmentManager fragmentManager, boolean z, boolean z2, Function1 function1, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ void transaction$default(FragmentManager fragmentManager, boolean z, boolean z2, Function1 function1, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             z2 = false;
         }
         FragmentTransaction beginTransaction = fragmentManager.beginTransaction();

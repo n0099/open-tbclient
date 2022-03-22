@@ -2,6 +2,7 @@ package com.baidu.android.imsdk.upload.action;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMPushUploadConstants;
@@ -11,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import java.io.IOException;
@@ -56,9 +56,9 @@ public class IMPushUploadManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMPushUploadManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -83,9 +83,9 @@ public class IMPushUploadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, requestBody};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -120,7 +120,8 @@ public class IMPushUploadManager {
                         try {
                             this.val$body.writeTo(buffer);
                             buffer.close();
-                        } catch (IOException unused) {
+                        } catch (IOException e2) {
+                            Log.e(IMPushUploadConstants.TAG, "RequestBody gzip exception ", e2);
                         }
                     }
                 }
@@ -153,9 +154,9 @@ public class IMPushUploadManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -221,9 +222,10 @@ public class IMPushUploadManager {
                     this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS);
                     this.mOkHttpClient = this.mOkHttpClient.newBuilder().pingInterval(parseFrom.getPingIntervalMs(), TimeUnit.MILLISECONDS).build();
                 }
-                String str = "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg();
+                Log.d(IMPushUploadConstants.TAG, "parseResponse errorCode :" + parseFrom.getErrorCode() + ", errorMsg ：" + parseFrom.getErrorMsg());
                 return new String[]{String.valueOf(parseFrom.getErrorCode()), parseFrom.getErrorMsg()};
-            } catch (InvalidProtocolBufferException unused) {
+            } catch (InvalidProtocolBufferException e2) {
+                Log.e(IMPushUploadConstants.TAG, "parseResponse has exception ", e2);
                 return new String[]{String.valueOf(-1), "parseResponse exception"};
             }
         }
@@ -252,9 +254,9 @@ public class IMPushUploadManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iMPushUploadResponseListener, str2};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -286,32 +288,35 @@ public class IMPushUploadManager {
                     IMPushUploadResponseListener iMPushUploadResponseListener2;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                        String str3 = NewBindCardEntry.BING_CARD_SUCCESS_MSG;
-                        int i2 = 0;
+                        String str3 = "ok";
+                        int i = 0;
                         try {
-                            if (response.body() != null) {
-                                String[] parseResponse = this.this$0.parseResponse(response.body().bytes());
-                                i2 = Integer.valueOf(parseResponse[0]).intValue();
-                                str3 = parseResponse[1];
+                            try {
+                                if (response.body() != null) {
+                                    String[] parseResponse = this.this$0.parseResponse(response.body().bytes());
+                                    i = Integer.valueOf(parseResponse[0]).intValue();
+                                    str3 = parseResponse[1];
+                                }
+                                Log.d(IMPushUploadConstants.TAG, "onResponse response = " + i + " body = " + str3 + ", logId :" + this.val$logId);
+                                iMPushUploadResponseListener2 = this.val$responseListener;
+                                if (iMPushUploadResponseListener2 == null) {
+                                    return;
+                                }
+                            } catch (IOException e2) {
+                                Log.e(IMPushUploadConstants.TAG, "onResponse exception ", e2);
+                                iMPushUploadResponseListener2 = this.val$responseListener;
+                                if (iMPushUploadResponseListener2 == null) {
+                                    return;
+                                }
                             }
-                            String str4 = "onResponse response = " + i2 + " body = " + str3 + ", logId :" + this.val$logId;
-                            iMPushUploadResponseListener2 = this.val$responseListener;
-                            if (iMPushUploadResponseListener2 == null) {
-                                return;
-                            }
-                        } catch (IOException unused) {
-                            iMPushUploadResponseListener2 = this.val$responseListener;
-                            if (iMPushUploadResponseListener2 == null) {
-                                return;
-                            }
+                            iMPushUploadResponseListener2.uploadResponse(i, str3);
                         } catch (Throwable th) {
                             IMPushUploadResponseListener iMPushUploadResponseListener3 = this.val$responseListener;
                             if (iMPushUploadResponseListener3 != null) {
-                                iMPushUploadResponseListener3.uploadResponse(i2, str3);
+                                iMPushUploadResponseListener3.uploadResponse(i, str3);
                             }
                             throw th;
                         }
-                        iMPushUploadResponseListener2.uploadResponse(i2, str3);
                     }
                 }
             });

@@ -14,16 +14,16 @@ public class LPaint extends Paint {
     public void setTextLocales(@NonNull LocaleList localeList) {
     }
 
-    public LPaint(int i2) {
-        super(i2);
+    public LPaint(int i) {
+        super(i);
     }
 
     public LPaint(PorterDuff.Mode mode) {
         setXfermode(new PorterDuffXfermode(mode));
     }
 
-    public LPaint(int i2, PorterDuff.Mode mode) {
-        super(i2);
+    public LPaint(int i, PorterDuff.Mode mode) {
+        super(i);
         setXfermode(new PorterDuffXfermode(mode));
     }
 }

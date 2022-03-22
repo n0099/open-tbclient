@@ -26,31 +26,27 @@ public class PlayDrawable extends Drawable {
     public final ValueAnimator a;
 
     /* renamed from: b  reason: collision with root package name */
-    public float f35848b;
+    public float f27713b;
 
     /* renamed from: c  reason: collision with root package name */
-    public float[] f35849c;
+    public float[] f27714c;
 
     /* renamed from: d  reason: collision with root package name */
-    public float[] f35850d;
+    public float[] f27715d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float[] f35851e;
+    public float[] f27716e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float[] f35852f;
+    public float[] f27717f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Path f35853g;
+    public final Path f27718g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Path f35854h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final Paint f35855i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public IconState f35856j;
+    public final Path f27719h;
+    public final Paint i;
+    public IconState j;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -80,16 +76,16 @@ public class PlayDrawable extends Drawable {
             $VALUES = new IconState[]{PLAY_STATE, iconState};
         }
 
-        public IconState(String str, int i2) {
+        public IconState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -116,9 +112,7 @@ public class PlayDrawable extends Drawable {
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PlayDrawable f35857e;
+        public final /* synthetic */ PlayDrawable a;
 
         public a(PlayDrawable playDrawable) {
             Interceptable interceptable = $ic;
@@ -127,22 +121,22 @@ public class PlayDrawable extends Drawable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {playDrawable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f35857e = playDrawable;
+            this.a = playDrawable;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.f35857e.s(valueAnimator.getAnimatedFraction());
+                this.a.s(valueAnimator.getAnimatedFraction());
             }
         }
     }
@@ -168,20 +162,20 @@ public class PlayDrawable extends Drawable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.f35853g = new Path();
-        this.f35854h = new Path();
+        this.f27718g = new Path();
+        this.f27719h = new Path();
         Paint paint = new Paint(1);
-        this.f35855i = paint;
-        this.f35856j = IconState.PLAY_STATE;
+        this.i = paint;
+        this.j = IconState.PLAY_STATE;
         paint.setColor(-1);
         this.a.setDuration(150L);
         this.a.addUpdateListener(new a(this));
@@ -221,8 +215,8 @@ public class PlayDrawable extends Drawable {
     public void draw(@NonNull Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            d(canvas, this.f35849c, this.f35851e, this.f35848b, this.f35853g, this.f35855i);
-            d(canvas, this.f35850d, this.f35852f, this.f35848b, this.f35854h, this.f35855i);
+            d(canvas, this.f27714c, this.f27716e, this.f27713b, this.f27718g, this.i);
+            d(canvas, this.f27715d, this.f27717f, this.f27713b, this.f27719h, this.i);
         }
     }
 
@@ -231,16 +225,16 @@ public class PlayDrawable extends Drawable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             float m = m();
-            float j2 = j();
+            float j = j();
             float l = l();
             float k2 = k();
             Rect rect = new Rect();
-            int i2 = (int) ((m - l) / 2.0f);
-            rect.left = i2;
-            int i3 = (int) ((j2 - k2) / 2.0f);
-            rect.top = i3;
-            rect.right = (int) (i2 + l);
-            rect.bottom = (int) (i3 + k2);
+            int i = (int) ((m - l) / 2.0f);
+            rect.left = i;
+            int i2 = (int) ((j - k2) / 2.0f);
+            rect.top = i2;
+            rect.right = (int) (i + l);
+            rect.bottom = (int) (i2 + k2);
             return rect;
         }
         return (Rect) invokeV.objValue;
@@ -252,8 +246,8 @@ public class PlayDrawable extends Drawable {
             return;
         }
         int length = fArr2.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            fArr[i2] = c(fArr2[i2], fArr3[i2], f2);
+        for (int i = 0; i < length; i++) {
+            fArr[i] = c(fArr2[i], fArr3[i], f2);
         }
     }
 
@@ -321,12 +315,12 @@ public class PlayDrawable extends Drawable {
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             Rect e2 = e();
             int m = (int) (m() * 0.074f);
-            this.f35849c = new float[]{e2.left + m, e2.top, ((int) h()) + m, (e2.height() * 0.25f) + e2.top, ((int) h()) + m, (e2.height() * 0.75f) + e2.top, e2.left + m, e2.height() + e2.top};
-            int i2 = e2.top;
-            this.f35850d = new float[]{((int) h()) + m, (e2.height() * 0.25f) + e2.top, e2.left + e2.width() + m, i(), e2.left + e2.width() + m, i(), ((int) h()) + m, (e2.height() * 0.75f) + i2};
-            int i3 = e2.left;
-            this.f35851e = new float[]{i3, i2, i3 + (e2.width() * 0.285f), e2.top, e2.left + (e2.width() * 0.285f), e2.top + e2.height(), e2.left, e2.top + e2.height()};
-            this.f35852f = new float[]{e2.left + (e2.width() * 0.715f), e2.top, e2.left + e2.width(), e2.top, e2.left + e2.width(), e2.top + e2.height(), e2.left + (e2.width() * 0.715f), e2.top + e2.height()};
+            this.f27714c = new float[]{e2.left + m, e2.top, ((int) h()) + m, (e2.height() * 0.25f) + e2.top, ((int) h()) + m, (e2.height() * 0.75f) + e2.top, e2.left + m, e2.height() + e2.top};
+            int i = e2.top;
+            this.f27715d = new float[]{((int) h()) + m, (e2.height() * 0.25f) + e2.top, e2.left + e2.width() + m, i(), e2.left + e2.width() + m, i(), ((int) h()) + m, (e2.height() * 0.75f) + i};
+            int i2 = e2.left;
+            this.f27716e = new float[]{i2, i, i2 + (e2.width() * 0.285f), e2.top, e2.left + (e2.width() * 0.285f), e2.top + e2.height(), e2.left, e2.top + e2.height()};
+            this.f27717f = new float[]{e2.left + (e2.width() * 0.715f), e2.top, e2.left + e2.width(), e2.top, e2.left + e2.width(), e2.top + e2.height(), e2.left + (e2.width() * 0.715f), e2.top + e2.height()};
         }
     }
 
@@ -351,7 +345,7 @@ public class PlayDrawable extends Drawable {
             if (o()) {
                 this.a.cancel();
             }
-            this.f35848b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
+            this.f27713b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
             t(iconState);
             invalidateSelf();
         }
@@ -362,7 +356,7 @@ public class PlayDrawable extends Drawable {
         if (!(interceptable == null || interceptable.invokeL(1048594, this, iconState) == null) || o()) {
             return;
         }
-        this.f35848b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
+        this.f27713b = iconState == IconState.PLAY_STATE ? 0.0f : 1.0f;
         t(iconState);
         invalidateSelf();
     }
@@ -370,7 +364,7 @@ public class PlayDrawable extends Drawable {
     public void r(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            IconState iconState = this.f35856j;
+            IconState iconState = this.j;
             IconState iconState2 = IconState.PLAY_STATE;
             if (iconState == iconState2) {
                 iconState2 = IconState.PAUSE_STATE;
@@ -386,16 +380,16 @@ public class PlayDrawable extends Drawable {
     public final void s(float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048596, this, f2) == null) {
-            this.f35848b = f2;
+            this.f27713b = f2;
             invalidateSelf();
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.f35855i.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.i.setAlpha(i);
             invalidateSelf();
         }
     }
@@ -404,7 +398,7 @@ public class PlayDrawable extends Drawable {
     public void setColorFilter(@Nullable ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, colorFilter) == null) {
-            this.f35855i.setColorFilter(colorFilter);
+            this.i.setColorFilter(colorFilter);
             invalidateSelf();
         }
     }
@@ -412,7 +406,7 @@ public class PlayDrawable extends Drawable {
     public final void t(IconState iconState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, iconState) == null) {
-            this.f35856j = iconState;
+            this.j = iconState;
         }
     }
 }

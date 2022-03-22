@@ -2,10 +2,10 @@ package com.baidu.ugc.editvideo.record.processor;
 
 import android.graphics.Bitmap;
 import android.opengl.GLES20;
-import c.a.a0.b.a.e;
-import c.a.a0.b.a.k.c;
-import c.a.y0.r.h;
-import c.a.y0.r.u;
+import c.a.v0.r.h;
+import c.a.v0.r.u;
+import c.a.z.b.a.e;
+import c.a.z.b.a.k.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.utils.ThreadPool;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -32,22 +32,22 @@ public class InputProcessor extends BaseEffectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private void testPic(int i2, String str) {
-        int i3;
+    private void testPic(int i, String str) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65537, this, i2, str) == null) || (i3 = this.mTestSavePicCount) >= 10) {
+        if (!(interceptable == null || interceptable.invokeIL(65537, this, i, str) == null) || (i2 = this.mTestSavePicCount) >= 10) {
             return;
         }
-        if (i3 == 0) {
+        if (i2 == 0) {
             u.a().post(new Runnable(this) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +60,9 @@ public class InputProcessor extends BaseEffectProcessor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -83,7 +83,7 @@ public class InputProcessor extends BaseEffectProcessor {
         FullFrameRect fullFrameRect = new FullFrameRect(new Texture2dProgram(Texture2dProgram.ProgramType.TEXTURE_2D));
         GLES20.glViewport(0, 0, this.mPreviewWidth, this.mPreviewHeight);
         GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-        fullFrameRect.drawFrame(i2, GlUtil.IDENTITY_MATRIX);
+        fullFrameRect.drawFrame(i, GlUtil.IDENTITY_MATRIX);
         ThreadPool.b().e(new Runnable(this, str + "-test-" + this.mTestSavePicCount + "—" + System.currentTimeMillis() + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX, MultiDataSourceUtil.saveOffscreenBitmap(this.mPreviewWidth, this.mPreviewHeight)) { // from class: com.baidu.ugc.editvideo.record.processor.InputProcessor.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -98,9 +98,9 @@ public class InputProcessor extends BaseEffectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, r7, r8};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -123,26 +123,26 @@ public class InputProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(e eVar, int i2, float[] fArr) {
+    public int onProcessFrame(e eVar, int i, float[] fArr) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i2, fArr)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, eVar, i, fArr)) == null) {
             if (eVar == null || eVar.l() == null) {
-                return i2;
+                return i;
             }
             MediaTrack mediaTrack = (MediaTrack) h.c(eVar.l(), 0);
             boolean m = c.m(mediaTrack, "input_blank");
-            int f2 = !m ? eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, i2, 1, null), 5, null), 2, null), 3, null), 4, null) : i2;
+            int f2 = !m ? eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, eVar.f(mediaTrack, i, 1, null), 5, null), 2, null), 3, null), 4, null) : i;
             if (m) {
-                for (int i3 = 1; i3 < eVar.l().size(); i3++) {
-                    MediaTrack mediaTrack2 = eVar.l().get(i3);
+                for (int i2 = 1; i2 < eVar.l().size(); i2++) {
+                    MediaTrack mediaTrack2 = eVar.l().get(i2);
                     if (mediaTrack2 != null && c.m(mediaTrack2, "multi_input")) {
                         f2 = eVar.i(mediaTrack2, f2, null);
                     }
                 }
                 f2 = eVar.f(mediaTrack, f2, 1, null);
             }
-            return f2 == 0 ? i2 : f2;
+            return f2 == 0 ? i : f2;
         }
         return invokeLIL.intValue;
     }

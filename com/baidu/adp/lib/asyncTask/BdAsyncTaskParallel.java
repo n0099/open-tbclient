@@ -17,10 +17,10 @@ public class BdAsyncTaskParallel {
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public BdAsyncTaskParallelType f29806b;
+    public BdAsyncTaskParallelType f23817b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f29807c;
+    public int f23818c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -58,16 +58,16 @@ public class BdAsyncTaskParallel {
             $VALUES = new BdAsyncTaskParallelType[]{SERIAL, TWO_PARALLEL, THREE_PARALLEL, FOUR_PARALLEL, CUSTOM_PARALLEL, bdAsyncTaskParallelType};
         }
 
-        public BdAsyncTaskParallelType(String str, int i2) {
+        public BdAsyncTaskParallelType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -97,19 +97,19 @@ public class BdAsyncTaskParallel {
             newInitContext.initArgs = r2;
             Object[] objArr = {bdAsyncTaskParallelType, bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f29806b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f29807c = 1;
+        this.f23817b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f23818c = 1;
         if (bdAsyncTaskParallelType != null && bdUniqueId != null) {
-            this.f29806b = bdAsyncTaskParallelType;
+            this.f23817b = bdAsyncTaskParallelType;
             this.a = bdUniqueId;
             return;
         }
@@ -119,7 +119,7 @@ public class BdAsyncTaskParallel {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29807c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f23818c : invokeV.intValue;
     }
 
     public int b() {
@@ -138,30 +138,30 @@ public class BdAsyncTaskParallel {
     public BdAsyncTaskParallelType getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29806b : (BdAsyncTaskParallelType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23817b : (BdAsyncTaskParallelType) invokeV.objValue;
     }
 
-    public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i2) {
+    public BdAsyncTaskParallel(BdUniqueId bdUniqueId, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, Integer.valueOf(i2)};
+            Object[] objArr = {bdUniqueId, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f29806b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.f29807c = 1;
+        this.f23817b = BdAsyncTaskParallelType.MAX_PARALLEL;
+        this.f23818c = 1;
         if (bdUniqueId != null) {
-            this.f29806b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
-            this.f29807c = i2;
+            this.f23817b = BdAsyncTaskParallelType.CUSTOM_PARALLEL;
+            this.f23818c = i;
             this.a = bdUniqueId;
             return;
         }

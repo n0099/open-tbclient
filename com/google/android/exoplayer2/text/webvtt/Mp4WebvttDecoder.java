@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.util.ArrayList;
 import java.util.Collections;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Mp4WebvttDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_HEADER_SIZE = 8;
@@ -52,9 +52,9 @@ public final class Mp4WebvttDecoder extends SimpleSubtitleDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -65,19 +65,19 @@ public final class Mp4WebvttDecoder extends SimpleSubtitleDecoder {
         this.builder = new WebvttCue.Builder();
     }
 
-    public static Cue parseVttCueBox(ParsableByteArray parsableByteArray, WebvttCue.Builder builder, int i2) throws SubtitleDecoderException {
+    public static Cue parseVttCueBox(ParsableByteArray parsableByteArray, WebvttCue.Builder builder, int i) throws SubtitleDecoderException {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, parsableByteArray, builder, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, parsableByteArray, builder, i)) == null) {
             builder.reset();
-            while (i2 > 0) {
-                if (i2 >= 8) {
+            while (i > 0) {
+                if (i >= 8) {
                     int readInt = parsableByteArray.readInt();
                     int readInt2 = parsableByteArray.readInt();
-                    int i3 = readInt - 8;
-                    String str = new String(parsableByteArray.data, parsableByteArray.getPosition(), i3);
-                    parsableByteArray.skipBytes(i3);
-                    i2 = (i2 - 8) - i3;
+                    int i2 = readInt - 8;
+                    String str = new String(parsableByteArray.data, parsableByteArray.getPosition(), i2);
+                    parsableByteArray.skipBytes(i2);
+                    i = (i - 8) - i2;
                     if (readInt2 == TYPE_sttg) {
                         WebvttCueParser.parseCueSettingsList(str, builder);
                     } else if (readInt2 == TYPE_payl) {
@@ -94,11 +94,11 @@ public final class Mp4WebvttDecoder extends SimpleSubtitleDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
-    public Mp4WebvttSubtitle decode(byte[] bArr, int i2, boolean z) throws SubtitleDecoderException {
+    public Mp4WebvttSubtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            this.sampleData.reset(bArr, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            this.sampleData.reset(bArr, i);
             ArrayList arrayList = new ArrayList();
             while (this.sampleData.bytesLeft() > 0) {
                 if (this.sampleData.bytesLeft() >= 8) {

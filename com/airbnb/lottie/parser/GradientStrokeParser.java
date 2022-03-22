@@ -11,13 +11,12 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.fsg.base.statistics.k;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes3.dex */
 public class GradientStrokeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", k.f32451h, "lj", "ml", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", "o", "t", "s", "e", "w", "lc", "lj", "ml", "hd", "d");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", "k");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 
@@ -42,7 +41,7 @@ public class GradientStrokeParser {
                     str = jsonReader.nextString();
                     break;
                 case 1:
-                    int i2 = -1;
+                    int i = -1;
                     jsonReader.beginObject();
                     while (jsonReader.hasNext()) {
                         int selectName = jsonReader.selectName(GRADIENT_NAMES);
@@ -52,11 +51,11 @@ public class GradientStrokeParser {
                                 jsonReader.skipName();
                                 jsonReader.skipValue();
                             } else {
-                                animatableGradientColorValue2 = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i2);
+                                animatableGradientColorValue2 = AnimatableValueParser.parseGradientColor(jsonReader, lottieComposition, i);
                             }
                         } else {
                             animatableGradientColorValue = animatableGradientColorValue2;
-                            i2 = jsonReader.nextInt();
+                            i = jsonReader.nextInt();
                         }
                         animatableGradientColorValue2 = animatableGradientColorValue;
                     }

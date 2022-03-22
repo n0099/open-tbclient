@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
@@ -19,16 +20,16 @@ import com.ss.android.socialbase.downloader.depend.z;
 import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadTaskDeleteActivity extends Activity {
     public k a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Intent f58380b;
+    public Intent f43113b;
 
     private void b() {
         Intent intent;
-        if (this.a != null || (intent = this.f58380b) == null) {
+        if (this.a != null || (intent = this.f43113b) == null) {
             return;
         }
         try {
@@ -40,6 +41,7 @@ public class DownloadTaskDeleteActivity extends Activity {
             }
             String title = downloadInfo.getTitle();
             if (TextUtils.isEmpty(title)) {
+                Log.w("DeleteActivity", "Missing appName; skipping handle");
                 return;
             }
             String format = String.format(getString(i.a(this, "tt_appdownloader_notification_download_delete")), title);
@@ -62,7 +64,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                 }
                 a2.a(a3).a(format).a(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.3
                     @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i2) {
+                    public void onClick(DialogInterface dialogInterface, int i) {
                         if (!z) {
                             DownloadTaskDeleteActivity.this.a(downloadInfo, intExtra);
                         } else {
@@ -79,7 +81,7 @@ public class DownloadTaskDeleteActivity extends Activity {
                     }
                 }).b(a5, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity.2
                     @Override // android.content.DialogInterface.OnClickListener
-                    public void onClick(DialogInterface dialogInterface, int i2) {
+                    public void onClick(DialogInterface dialogInterface, int i) {
                         if (z) {
                             DownloadTaskDeleteActivity.this.a(downloadInfo, intExtra);
                         }
@@ -113,7 +115,7 @@ public class DownloadTaskDeleteActivity extends Activity {
     @Override // android.app.Activity
     public void onResume() {
         super.onResume();
-        this.f58380b = getIntent();
+        this.f43113b = getIntent();
         b();
         k kVar = this.a;
         if (kVar != null && !kVar.b()) {
@@ -131,17 +133,17 @@ public class DownloadTaskDeleteActivity extends Activity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(DownloadInfo downloadInfo, int i2) {
+    public void a(DownloadInfo downloadInfo, int i) {
         com.ss.android.socialbase.appdownloader.c.d b2 = d.j().b();
         if (b2 != null) {
             b2.a(downloadInfo);
         }
-        z downloadNotificationEventListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadNotificationEventListener(i2);
+        z downloadNotificationEventListener = Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).getDownloadNotificationEventListener(i);
         if (downloadNotificationEventListener != null) {
             downloadNotificationEventListener.a(10, downloadInfo, "", "");
         }
         if (com.ss.android.socialbase.downloader.downloader.c.N() != null) {
-            Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).cancel(i2);
+            Downloader.getInstance(com.ss.android.socialbase.downloader.downloader.c.N()).cancel(i);
         }
     }
 }

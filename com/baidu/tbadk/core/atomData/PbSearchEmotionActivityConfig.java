@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PbSearchEmotionActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AUTHOR_SHOW_NAME = "author_show_name";
@@ -20,17 +20,17 @@ public class PbSearchEmotionActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbSearchEmotionActivityConfig(Context context, int i2, String str, List<String> list, String str2, List<String> list2) {
+    public PbSearchEmotionActivityConfig(Context context, int i, String str, List<String> list, String str2, List<String> list2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, list, str2, list2};
+            Object[] objArr = {context, Integer.valueOf(i), str, list, str2, list2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -38,7 +38,7 @@ public class PbSearchEmotionActivityConfig extends IntentConfig {
             }
         }
         setIntentAction(IntentAction.ActivityForResult);
-        setRequestCode(i2);
+        setRequestCode(i);
         if (!TextUtils.isEmpty(str)) {
             getIntent().putExtra(CURRENT_QUERY_WORD, str);
         }

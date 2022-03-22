@@ -18,6 +18,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.StateSet;
 import android.util.Xml;
 import androidx.annotation.DrawableRes;
@@ -85,9 +86,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animatable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -132,9 +133,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animatedStateListState, animatedStateListDrawableCompat, resources};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((StateListDrawable.StateListState) objArr2[0], (StateListDrawable) objArr2[1], (Resources) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -151,48 +152,48 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             this.mStateIds = new SparseArrayCompat<>();
         }
 
-        public static long generateTransitionKey(int i2, int i3) {
+        public static long generateTransitionKey(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i2, i3)) == null) ? i3 | (i2 << 32) : invokeII.longValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) ? i2 | (i << 32) : invokeII.longValue;
         }
 
-        public int addStateSet(@NonNull int[] iArr, @NonNull Drawable drawable, int i2) {
+        public int addStateSet(@NonNull int[] iArr, @NonNull Drawable drawable, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, iArr, drawable, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, iArr, drawable, i)) == null) {
                 int addStateSet = super.addStateSet(iArr, drawable);
-                this.mStateIds.put(addStateSet, Integer.valueOf(i2));
+                this.mStateIds.put(addStateSet, Integer.valueOf(i));
                 return addStateSet;
             }
             return invokeLLI.intValue;
         }
 
-        public int addTransition(int i2, int i3, @NonNull Drawable drawable, boolean z) {
+        public int addTransition(int i, int i2, @NonNull Drawable drawable, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), drawable, Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), drawable, Boolean.valueOf(z)})) == null) {
                 int addChild = super.addChild(drawable);
-                long generateTransitionKey = generateTransitionKey(i2, i3);
-                long j2 = z ? 8589934592L : 0L;
-                long j3 = addChild;
-                this.mTransitions.append(generateTransitionKey, Long.valueOf(j3 | j2));
+                long generateTransitionKey = generateTransitionKey(i, i2);
+                long j = z ? 8589934592L : 0L;
+                long j2 = addChild;
+                this.mTransitions.append(generateTransitionKey, Long.valueOf(j2 | j));
                 if (z) {
-                    this.mTransitions.append(generateTransitionKey(i3, i2), Long.valueOf(4294967296L | j3 | j2));
+                    this.mTransitions.append(generateTransitionKey(i2, i), Long.valueOf(4294967296L | j2 | j));
                 }
                 return addChild;
             }
             return invokeCommon.intValue;
         }
 
-        public int getKeyframeIdAt(int i2) {
+        public int getKeyframeIdAt(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                if (i2 < 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                if (i < 0) {
                     return 0;
                 }
-                return this.mStateIds.get(i2, 0).intValue();
+                return this.mStateIds.get(i, 0).intValue();
             }
             return invokeI.intValue;
         }
@@ -207,16 +208,16 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             return invokeL.intValue;
         }
 
-        public int indexOfTransition(int i2, int i3) {
+        public int indexOfTransition(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i2, i3)) == null) ? (int) this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() : invokeII.intValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) ? (int) this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() : invokeII.intValue;
         }
 
-        public boolean isTransitionReversed(int i2, int i3) {
+        public boolean isTransitionReversed(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) ? (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & 4294967296L) != 0 : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) ? (this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 4294967296L) != 0 : invokeII.booleanValue;
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, androidx.appcompat.graphics.drawable.DrawableContainer.DrawableContainerState
@@ -236,10 +237,10 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new AnimatedStateListDrawableCompat(this, null) : (Drawable) invokeV.objValue;
         }
 
-        public boolean transitionHasReversibleFlag(int i2, int i3) {
+        public boolean transitionHasReversibleFlag(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) ? (this.mTransitions.get(generateTransitionKey(i2, i3), -1L).longValue() & 8589934592L) != 0 : invokeII.booleanValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) ? (this.mTransitions.get(generateTransitionKey(i, i2), -1L).longValue() & 8589934592L) != 0 : invokeII.booleanValue;
         }
 
         @Override // androidx.appcompat.graphics.drawable.StateListDrawable.StateListState, android.graphics.drawable.Drawable.ConstantState
@@ -266,9 +267,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animatedVectorDrawableCompat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -311,9 +312,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animationDrawable, Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AnonymousClass1) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -321,10 +322,10 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 }
             }
             int numberOfFrames = animationDrawable.getNumberOfFrames();
-            int i4 = z ? numberOfFrames - 1 : 0;
-            int i5 = z ? 0 : numberOfFrames - 1;
+            int i3 = z ? numberOfFrames - 1 : 0;
+            int i4 = z ? 0 : numberOfFrames - 1;
             FrameInterpolator frameInterpolator = new FrameInterpolator(animationDrawable, z);
-            ObjectAnimator ofInt = ObjectAnimator.ofInt(animationDrawable, "currentIndex", i4, i5);
+            ObjectAnimator ofInt = ObjectAnimator.ofInt(animationDrawable, "currentIndex", i3, i4);
             if (Build.VERSION.SDK_INT >= 18) {
                 ofInt.setAutoCancel(true);
             }
@@ -381,9 +382,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                 newInitContext.initArgs = r2;
                 Object[] objArr = {animationDrawable, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -397,15 +398,15 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             InterceptResult invokeF;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f2)) == null) {
-                int i2 = (int) ((f2 * this.mTotalDuration) + 0.5f);
-                int i3 = this.mFrames;
+                int i = (int) ((f2 * this.mTotalDuration) + 0.5f);
+                int i2 = this.mFrames;
                 int[] iArr = this.mFrameTimes;
-                int i4 = 0;
-                while (i4 < i3 && i2 >= iArr[i4]) {
-                    i2 -= iArr[i4];
-                    i4++;
+                int i3 = 0;
+                while (i3 < i2 && i >= iArr[i3]) {
+                    i -= iArr[i3];
+                    i3++;
                 }
-                return (i4 / i3) + (i4 < i3 ? i2 / this.mTotalDuration : 0.0f);
+                return (i3 / i2) + (i3 < i2 ? i / this.mTotalDuration : 0.0f);
             }
             return invokeF.floatValue;
         }
@@ -427,14 +428,14 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                     this.mFrameTimes = new int[numberOfFrames];
                 }
                 int[] iArr2 = this.mFrameTimes;
-                int i2 = 0;
-                for (int i3 = 0; i3 < numberOfFrames; i3++) {
-                    int duration = animationDrawable.getDuration(z ? (numberOfFrames - i3) - 1 : i3);
-                    iArr2[i3] = duration;
-                    i2 += duration;
+                int i = 0;
+                for (int i2 = 0; i2 < numberOfFrames; i2++) {
+                    int duration = animationDrawable.getDuration(z ? (numberOfFrames - i2) - 1 : i2);
+                    iArr2[i2] = duration;
+                    i += duration;
                 }
-                this.mTotalDuration = i2;
-                return i2;
+                this.mTotalDuration = i;
+                return i;
             }
             return invokeLZ.intValue;
         }
@@ -450,9 +451,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -506,9 +507,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((AnimatedStateListState) objArr[0], (Resources) objArr[1]);
                 newInitContext.thisArg = this;
@@ -519,14 +520,14 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Nullable
-    public static AnimatedStateListDrawableCompat create(@NonNull Context context, @DrawableRes int i2, @Nullable Resources.Theme theme) {
-        int next;
+    public static AnimatedStateListDrawableCompat create(@NonNull Context context, @DrawableRes int i, @Nullable Resources.Theme theme) {
         InterceptResult invokeLIL;
+        int next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i2, theme)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65539, null, context, i, theme)) == null) {
             try {
                 Resources resources = context.getResources();
-                XmlResourceParser xml = resources.getXml(i2);
+                XmlResourceParser xml = resources.getXml(i);
                 AttributeSet asAttributeSet = Xml.asAttributeSet(xml);
                 while (true) {
                     next = xml.next();
@@ -538,7 +539,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
                     return createFromXmlInner(context, resources, xml, asAttributeSet, theme);
                 }
                 throw new XmlPullParserException("No start tag found");
-            } catch (IOException | XmlPullParserException unused) {
+            } catch (IOException e2) {
+                Log.e(LOGTAG, "parser error", e2);
+                return null;
+            } catch (XmlPullParserException e3) {
+                Log.e(LOGTAG, "parser error", e3);
                 return null;
             }
         }
@@ -666,22 +671,22 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         return invokeLLLLL.intValue;
     }
 
-    private boolean selectTransition(int i2) {
+    private boolean selectTransition(int i) {
         InterceptResult invokeI;
         int currentIndex;
         int indexOfTransition;
         Transition animatableTransition;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, this, i)) == null) {
             Transition transition = this.mTransition;
             if (transition != null) {
-                if (i2 == this.mTransitionToIndex) {
+                if (i == this.mTransitionToIndex) {
                     return true;
                 }
-                if (i2 == this.mTransitionFromIndex && transition.canReverse()) {
+                if (i == this.mTransitionFromIndex && transition.canReverse()) {
                     transition.reverse();
                     this.mTransitionToIndex = this.mTransitionFromIndex;
-                    this.mTransitionFromIndex = i2;
+                    this.mTransitionFromIndex = i;
                     return true;
                 }
                 currentIndex = this.mTransitionToIndex;
@@ -694,7 +699,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             this.mTransitionToIndex = -1;
             AnimatedStateListState animatedStateListState = this.mState;
             int keyframeIdAt = animatedStateListState.getKeyframeIdAt(currentIndex);
-            int keyframeIdAt2 = animatedStateListState.getKeyframeIdAt(i2);
+            int keyframeIdAt2 = animatedStateListState.getKeyframeIdAt(i);
             if (keyframeIdAt2 == 0 || keyframeIdAt == 0 || (indexOfTransition = animatedStateListState.indexOfTransition(keyframeIdAt, keyframeIdAt2)) < 0) {
                 return false;
             }
@@ -714,7 +719,7 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             animatableTransition.start();
             this.mTransition = animatableTransition;
             this.mTransitionFromIndex = currentIndex;
-            this.mTransitionToIndex = i2;
+            this.mTransitionToIndex = i;
             return true;
         }
         return invokeI.booleanValue;
@@ -740,11 +745,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         super.addState(iArr, drawable);
     }
 
-    public <T extends Drawable & Animatable> void addTransition(int i2, int i3, @NonNull T t, boolean z) {
+    public <T extends Drawable & Animatable> void addTransition(int i, int i2, @NonNull T t, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), t, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), t, Boolean.valueOf(z)}) == null) {
             if (t != null) {
-                this.mState.addTransition(i2, i3, t, z);
+                this.mState.addTransition(i, i2, t, z);
                 return;
             }
             throw new IllegalArgumentException("Transition drawable must not be null");
@@ -899,8 +904,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ boolean onLayoutDirectionChanged(int i2) {
-        return super.onLayoutDirectionChanged(i2);
+    public /* bridge */ /* synthetic */ boolean onLayoutDirectionChanged(int i) {
+        return super.onLayoutDirectionChanged(i);
     }
 
     @Override // androidx.appcompat.graphics.drawable.StateListDrawable, androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -917,13 +922,13 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable.Callback
-    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
-        super.scheduleDrawable(drawable, runnable, j2);
+    public /* bridge */ /* synthetic */ void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
+        super.scheduleDrawable(drawable, runnable, j);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setAlpha(int i2) {
-        super.setAlpha(i2);
+    public /* bridge */ /* synthetic */ void setAlpha(int i) {
+        super.setAlpha(i);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -953,13 +958,13 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
-    public /* bridge */ /* synthetic */ void setEnterFadeDuration(int i2) {
-        super.setEnterFadeDuration(i2);
+    public /* bridge */ /* synthetic */ void setEnterFadeDuration(int i) {
+        super.setEnterFadeDuration(i);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer
-    public /* bridge */ /* synthetic */ void setExitFadeDuration(int i2) {
-        super.setExitFadeDuration(i2);
+    public /* bridge */ /* synthetic */ void setExitFadeDuration(int i) {
+        super.setExitFadeDuration(i);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
@@ -968,8 +973,8 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable
-    public /* bridge */ /* synthetic */ void setHotspotBounds(int i2, int i3, int i4, int i5) {
-        super.setHotspotBounds(i2, i3, i4, i5);
+    public /* bridge */ /* synthetic */ void setHotspotBounds(int i, int i2, int i3, int i4) {
+        super.setHotspotBounds(i, i2, i3, i4);
     }
 
     @Override // androidx.appcompat.graphics.drawable.DrawableContainer, android.graphics.drawable.Drawable, androidx.core.graphics.drawable.TintAwareDrawable
@@ -1014,9 +1019,9 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedStateListState, resources};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((StateListDrawable.StateListState) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -1030,11 +1035,11 @@ public class AnimatedStateListDrawableCompat extends StateListDrawable implement
         jumpToCurrentState();
     }
 
-    public void addState(@NonNull int[] iArr, @NonNull Drawable drawable, int i2) {
+    public void addState(@NonNull int[] iArr, @NonNull Drawable drawable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, drawable, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr, drawable, i) == null) {
             if (drawable != null) {
-                this.mState.addStateSet(iArr, drawable, i2);
+                this.mState.addStateSet(iArr, drawable, i);
                 onStateChange(getState());
                 return;
             }

@@ -4,11 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.j;
-import i.o.a.b;
+import g.d;
+import g.j;
+import g.o.a.b;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements d.a<T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2817751667698696782L;
@@ -22,9 +22,9 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,7 +33,7 @@ public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean imp
         this.state = bVar;
     }
 
-    @Override // i.d.a, i.n.b
+    @Override // g.d.a, g.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }

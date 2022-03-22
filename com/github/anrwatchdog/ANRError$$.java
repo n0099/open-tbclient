@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.github.anrwatchdog.ANRError;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ANRError$$ implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,7 +17,7 @@ public class ANRError$$ implements Serializable {
     public final LinkedHashMap<Long, StackTraceElement[]> _stackMap;
     public final StackTraceElement[] _stackTrace;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class _Thread extends Throwable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class ANRError$$ implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aNRError$$, _thread};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -82,9 +82,9 @@ public class ANRError$$ implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, stackTraceElementArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -104,9 +104,9 @@ public class ANRError$$ implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, linkedHashMap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

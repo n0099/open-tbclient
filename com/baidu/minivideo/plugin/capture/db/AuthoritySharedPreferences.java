@@ -58,9 +58,9 @@ public class AuthoritySharedPreferences {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -149,10 +149,10 @@ public class AuthoritySharedPreferences {
         }
     }
 
-    public static void setAuthorityConfigTimestamp(long j2) {
+    public static void setAuthorityConfigTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65549, null, j2) == null) {
-            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j2).apply();
+        if (interceptable == null || interceptable.invokeJ(65549, null, j) == null) {
+            sPref.edit().putLong(KEY_AUTHORITY_CONFIG_TIMESTAMP, j).apply();
         }
     }
 

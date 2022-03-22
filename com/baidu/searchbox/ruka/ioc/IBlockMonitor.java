@@ -3,7 +3,7 @@ package com.baidu.searchbox.ruka.ioc;
 public interface IBlockMonitor {
     boolean enableMonitor();
 
-    void startBlockMonitor(int i2);
+    void startBlockMonitor(int i);
 
     void stopBlockMonitor();
 }

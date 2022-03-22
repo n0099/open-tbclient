@@ -51,7 +51,7 @@ public interface IBundleInfo {
 
     boolean needForceUpdate();
 
-    void setAbi(int i2);
+    void setAbi(int i);
 
     void setApkPath(String str);
 
@@ -73,7 +73,7 @@ public interface IBundleInfo {
 
     void setMd5(String str);
 
-    void setMinVersion(int i2);
+    void setMinVersion(int i);
 
     void setName(String str);
 
@@ -85,19 +85,19 @@ public interface IBundleInfo {
 
     void setSignature(String str);
 
-    void setSilence(int i2);
+    void setSilence(int i);
 
-    void setSilenceUpdate(int i2);
+    void setSilenceUpdate(int i);
 
-    void setSize(long j2);
+    void setSize(long j);
 
-    void setType(int i2);
+    void setType(int i);
 
-    void setUpdateV(long j2);
+    void setUpdateV(long j);
 
-    void setVersionCode(int i2);
+    void setVersionCode(int i);
 
     void setVisible(boolean z);
 
-    void setWifiOnly(int i2);
+    void setWifiOnly(int i);
 }

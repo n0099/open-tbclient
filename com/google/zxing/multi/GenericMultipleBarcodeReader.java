@@ -32,9 +32,9 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
             newInitContext.initArgs = r2;
             Object[] objArr = {reader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,14 +43,14 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
         this.delegate = reader;
     }
 
-    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, List<Result> list, int i2, int i3, int i4) {
+    private void doDecodeMultiple(BinaryBitmap binaryBitmap, Map<DecodeHintType, ?> map, List<Result> list, int i, int i2, int i3) {
         boolean z;
         float f2;
         float f3;
+        int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{binaryBitmap, map, list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || i4 > 4) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{binaryBitmap, map, list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || i3 > 4) {
             return;
         }
         try {
@@ -68,7 +68,7 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
                 }
             }
             if (!z) {
-                list.add(translateResultPoints(decode, i2, i3));
+                list.add(translateResultPoints(decode, i, i2));
             }
             ResultPoint[] resultPoints = decode.getResultPoints();
             if (resultPoints == null || resultPoints.length == 0) {
@@ -101,44 +101,44 @@ public final class GenericMultipleBarcodeReader implements MultipleBarcodeReader
             if (f4 > 100.0f) {
                 f2 = f6;
                 f3 = f5;
-                i5 = height;
-                i6 = width;
-                doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f4, height), map, list, i2, i3, i4 + 1);
+                i4 = height;
+                i5 = width;
+                doDecodeMultiple(binaryBitmap.crop(0, 0, (int) f4, height), map, list, i, i2, i3 + 1);
             } else {
                 f2 = f6;
                 f3 = f5;
-                i5 = height;
-                i6 = width;
+                i4 = height;
+                i5 = width;
             }
             if (f3 > 100.0f) {
-                doDecodeMultiple(binaryBitmap.crop(0, 0, i6, (int) f3), map, list, i2, i3, i4 + 1);
+                doDecodeMultiple(binaryBitmap.crop(0, 0, i5, (int) f3), map, list, i, i2, i3 + 1);
             }
             float f8 = f2;
-            if (f8 < i6 - 100) {
-                int i7 = (int) f8;
-                doDecodeMultiple(binaryBitmap.crop(i7, 0, i6 - i7, i5), map, list, i2 + i7, i3, i4 + 1);
+            if (f8 < i5 - 100) {
+                int i6 = (int) f8;
+                doDecodeMultiple(binaryBitmap.crop(i6, 0, i5 - i6, i4), map, list, i + i6, i2, i3 + 1);
             }
-            if (f7 < i5 - 100) {
-                int i8 = (int) f7;
-                doDecodeMultiple(binaryBitmap.crop(0, i8, i6, i5 - i8), map, list, i2, i3 + i8, i4 + 1);
+            if (f7 < i4 - 100) {
+                int i7 = (int) f7;
+                doDecodeMultiple(binaryBitmap.crop(0, i7, i5, i4 - i7), map, list, i, i2 + i7, i3 + 1);
             }
         } catch (ReaderException unused) {
         }
     }
 
-    public static Result translateResultPoints(Result result, int i2, int i3) {
+    public static Result translateResultPoints(Result result, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, result, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, result, i, i2)) == null) {
             ResultPoint[] resultPoints = result.getResultPoints();
             if (resultPoints == null) {
                 return result;
             }
             ResultPoint[] resultPointArr = new ResultPoint[resultPoints.length];
-            for (int i4 = 0; i4 < resultPoints.length; i4++) {
-                ResultPoint resultPoint = resultPoints[i4];
+            for (int i3 = 0; i3 < resultPoints.length; i3++) {
+                ResultPoint resultPoint = resultPoints[i3];
                 if (resultPoint != null) {
-                    resultPointArr[i4] = new ResultPoint(resultPoint.getX() + i2, resultPoint.getY() + i3);
+                    resultPointArr[i3] = new ResultPoint(resultPoint.getX() + i, resultPoint.getY() + i2);
                 }
             }
             Result result2 = new Result(result.getText(), result.getRawBytes(), result.getNumBits(), resultPointArr, result.getBarcodeFormat(), result.getTimestamp());

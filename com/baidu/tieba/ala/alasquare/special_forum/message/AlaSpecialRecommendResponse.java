@@ -1,9 +1,9 @@
 package com.baidu.tieba.ala.alasquare.special_forum.message;
 
-import c.a.q0.r.r.e2;
-import c.a.r0.a0.f.g.c.b;
-import c.a.r0.a0.f.g.c.c;
+import c.a.p0.c0.f.g.c.b;
+import c.a.p0.c0.f.g.c.c;
 import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<e2> livesList;
+    public List<ThreadData> livesList;
     public c mSpecialActivityListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -28,9 +28,9 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,22 +43,22 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null) {
                 this.hasMore = jSONObject.optInt("has_more") == 1;
                 JSONObject optJSONObject = jSONObject.optJSONObject("live_info");
                 if (optJSONObject != null) {
                     JSONArray optJSONArray = optJSONObject.optJSONArray("lives");
                     if (optJSONArray != null && optJSONArray.length() > 0) {
-                        for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                             if (optJSONObject2 != null) {
-                                e2 e2Var = new e2();
-                                e2Var.c3(optJSONObject2);
-                                this.livesList.add(e2Var);
+                                ThreadData threadData = new ThreadData();
+                                threadData.parserJson(optJSONObject2);
+                                this.livesList.add(threadData);
                             }
                         }
                     } else {
@@ -69,16 +69,16 @@ public class AlaSpecialRecommendResponse extends JsonHttpResponsedMessage {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("activity_info_detail");
                 c cVar = this.mSpecialActivityListData;
-                if (cVar != null && cVar.f14438e == null) {
-                    cVar.f14438e = new ArrayList();
+                if (cVar != null && cVar.a == null) {
+                    cVar.a = new ArrayList();
                 }
                 if (optJSONArray2 != null) {
-                    for (int i4 = 0; i4 < optJSONArray2.length(); i4++) {
-                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i4);
+                    for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                        JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                         if (optJSONObject3 != null) {
                             b bVar = new b();
-                            bVar.g(optJSONObject3);
-                            this.mSpecialActivityListData.f14438e.add(bVar);
+                            bVar.e(optJSONObject3);
+                            this.mSpecialActivityListData.a.add(bVar);
                         }
                     }
                 }

@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AudioRendererEventListener {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public interface AudioRendererEventListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler, audioRendererEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -41,12 +41,12 @@ public interface AudioRendererEventListener {
             this.listener = audioRendererEventListener;
         }
 
-        public void audioSessionId(int i2) {
+        public void audioSessionId(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.6
+            this.handler.post(new Runnable(this, i) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -57,18 +57,18 @@ public interface AudioRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$audioSessionId = i2;
+                    this.val$audioSessionId = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -81,12 +81,12 @@ public interface AudioRendererEventListener {
             });
         }
 
-        public void audioTrackUnderrun(int i2, long j2, long j3) {
+        public void audioTrackUnderrun(int i, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2, j2, j3) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.4
+            this.handler.post(new Runnable(this, i, j, j2) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -99,20 +99,20 @@ public interface AudioRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$bufferSize = i2;
-                    this.val$bufferSizeMs = j2;
-                    this.val$elapsedSinceLastFeedMs = j3;
+                    this.val$bufferSize = i;
+                    this.val$bufferSizeMs = j;
+                    this.val$elapsedSinceLastFeedMs = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -125,12 +125,12 @@ public interface AudioRendererEventListener {
             });
         }
 
-        public void decoderInitialized(String str, long j2, long j3) {
+        public void decoderInitialized(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, str, j2, j3) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.2
+            this.handler.post(new Runnable(this, str, j, j2) { // from class: com.google.android.exoplayer2.audio.AudioRendererEventListener.EventDispatcher.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -143,11 +143,11 @@ public interface AudioRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, str, Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -155,8 +155,8 @@ public interface AudioRendererEventListener {
                     }
                     this.this$0 = this;
                     this.val$decoderName = str;
-                    this.val$initializedTimestampMs = j2;
-                    this.val$initializationDurationMs = j3;
+                    this.val$initializedTimestampMs = j;
+                    this.val$initializationDurationMs = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -187,9 +187,9 @@ public interface AudioRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, decoderCounters};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -228,9 +228,9 @@ public interface AudioRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, decoderCounters};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -268,9 +268,9 @@ public interface AudioRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, format};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -291,7 +291,7 @@ public interface AudioRendererEventListener {
         }
     }
 
-    void onAudioDecoderInitialized(String str, long j2, long j3);
+    void onAudioDecoderInitialized(String str, long j, long j2);
 
     void onAudioDisabled(DecoderCounters decoderCounters);
 
@@ -299,7 +299,7 @@ public interface AudioRendererEventListener {
 
     void onAudioInputFormatChanged(Format format);
 
-    void onAudioSessionId(int i2);
+    void onAudioSessionId(int i);
 
-    void onAudioSinkUnderrun(int i2, long j2, long j3);
+    void onAudioSinkUnderrun(int i, long j, long j2);
 }

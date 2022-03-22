@@ -14,7 +14,7 @@ import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapResource implements Resource<Bitmap>, Initializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class BitmapResource implements Resource<Bitmap>, Initializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmap, bitmapPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -43,13 +43,13 @@ public interface IHttpRequest {
 
     IHttpRequest setCharset(Charset charset);
 
-    IHttpRequest setConnectionTimeout(int i2);
+    IHttpRequest setConnectionTimeout(int i);
 
     IHttpRequest setMethod(String str);
 
     void setProgressCallback(IProgressCallback iProgressCallback);
 
-    IHttpRequest setReadTimeout(int i2);
+    IHttpRequest setReadTimeout(int i);
 
     IHttpRequest setUrl(String str);
 

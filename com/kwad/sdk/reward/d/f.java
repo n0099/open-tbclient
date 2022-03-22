@@ -12,59 +12,59 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.af;
 import com.kwad.sdk.utils.at;
 import com.kwad.sdk.widget.KSCornerImageView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f extends d implements View.OnClickListener {
     public ViewGroup a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f55823b;
+    public ViewGroup f40793b;
 
     /* renamed from: c  reason: collision with root package name */
-    public KSCornerImageView f55824c;
+    public KSCornerImageView f40794c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f55825d;
+    public TextView f40795d;
 
     /* renamed from: e  reason: collision with root package name */
-    public KSCornerImageView f55826e;
+    public KSCornerImageView f40796e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f55827f;
+    public b f40797f;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f55828b;
+        public String f40798b;
 
         @Nullable
         public static a a(AdTemplate adTemplate) {
             if (adTemplate == null) {
                 return null;
             }
-            AdInfo j2 = com.kwad.sdk.core.response.a.d.j(adTemplate);
+            AdInfo j = com.kwad.sdk.core.response.a.d.j(adTemplate);
             a aVar = new a();
-            aVar.f55828b = com.kwad.sdk.core.config.b.aD();
-            aVar.a = com.kwad.sdk.core.response.a.a.aE(j2);
+            aVar.f40798b = com.kwad.sdk.core.config.b.aD();
+            aVar.a = com.kwad.sdk.core.response.a.a.aE(j);
             return aVar;
         }
     }
 
     public f(ViewGroup viewGroup, b bVar) {
         this.a = viewGroup;
-        this.f55827f = bVar;
+        this.f40797f = bVar;
         b();
     }
 
     private void b() {
-        this.f55824c = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_icon);
-        this.f55825d = (TextView) this.a.findViewById(R.id.ksad_reward_followed_btn_follow);
-        this.f55826e = (KSCornerImageView) this.a.findViewById(R.id.ksad_reward_followed_kwai_logo);
-        this.f55823b = (ViewGroup) this.a.findViewById(R.id.ksad_reward_followed_root);
-        this.f55825d.setOnClickListener(this);
-        this.f55824c.setOnClickListener(this);
-        this.f55823b.setOnClickListener(this);
+        this.f40794c = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091105);
+        this.f40795d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091103);
+        this.f40796e = (KSCornerImageView) this.a.findViewById(R.id.obfuscated_res_0x7f091106);
+        this.f40793b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f091107);
+        this.f40795d.setOnClickListener(this);
+        this.f40794c.setOnClickListener(this);
+        this.f40793b.setOnClickListener(this);
         if (af.e(this.a.getContext())) {
             return;
         }
@@ -76,7 +76,7 @@ public class f extends d implements View.OnClickListener {
 
     @Override // com.kwad.sdk.reward.d.d
     public ViewGroup a() {
-        return this.f55823b;
+        return this.f40793b;
     }
 
     @Override // com.kwad.sdk.reward.d.d
@@ -86,26 +86,26 @@ public class f extends d implements View.OnClickListener {
         if (a2 == null) {
             return;
         }
-        this.f55825d.setText(a2.f55828b);
-        KSImageLoader.loadImage(this.f55824c, a2.a, adTemplate);
+        this.f40795d.setText(a2.f40798b);
+        KSImageLoader.loadImage(this.f40794c, a2.a, adTemplate);
         String aF = com.kwad.sdk.core.config.b.aF();
         if (at.a(aF)) {
             return;
         }
-        KSImageLoader.loadImage(this.f55826e, aF, adTemplate);
+        KSImageLoader.loadImage(this.f40796e, aF, adTemplate);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f55827f == null) {
+        if (this.f40797f == null) {
             return;
         }
-        if (view.equals(this.f55825d)) {
-            this.f55827f.c();
-        } else if (view.equals(this.f55824c)) {
-            this.f55827f.a();
-        } else if (view.equals(this.f55823b)) {
-            this.f55827f.b();
+        if (view.equals(this.f40795d)) {
+            this.f40797f.c();
+        } else if (view.equals(this.f40794c)) {
+            this.f40797f.a();
+        } else if (view.equals(this.f40793b)) {
+            this.f40797f.b();
         }
     }
 }

@@ -16,7 +16,6 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
 /* loaded from: classes7.dex */
@@ -40,9 +39,9 @@ public class FontTableBox extends AbstractBox {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -76,27 +75,27 @@ public class FontTableBox extends AbstractBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+                return "FontRecord{fontId=" + this.fontId + ", fontname='" + this.fontname + "'}";
             }
             return (String) invokeV.objValue;
         }
 
-        public FontRecord(int i2, String str) {
+        public FontRecord(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), str};
+                Object[] objArr = {Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.fontId = i2;
+            this.fontId = i;
             this.fontname = str;
         }
     }
@@ -124,9 +123,9 @@ public class FontTableBox extends AbstractBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -147,7 +146,7 @@ public class FontTableBox extends AbstractBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, byteBuffer) == null) {
             int readUInt16 = IsoTypeReader.readUInt16(byteBuffer);
-            for (int i2 = 0; i2 < readUInt16; i2++) {
+            for (int i = 0; i < readUInt16; i++) {
                 FontRecord fontRecord = new FontRecord();
                 fontRecord.parse(byteBuffer);
                 this.entries.add(fontRecord);
@@ -171,11 +170,11 @@ public class FontTableBox extends AbstractBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = 2;
+            int i = 2;
             for (FontRecord fontRecord : this.entries) {
-                i2 += fontRecord.getSize();
+                i += fontRecord.getSize();
             }
-            return i2;
+            return i;
         }
         return invokeV.longValue;
     }

@@ -10,8 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitReaderBuffer;
 import com.googlecode.mp4parser.boxes.mp4.objectdescriptors.BitWriterBuffer;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SampleFlags {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +27,9 @@ public class SampleFlags {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -118,38 +117,38 @@ public class SampleFlags {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.sampleIsDifferenceSample : invokeV.booleanValue;
     }
 
-    public void setReserved(int i2) {
+    public void setReserved(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.reserved = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.reserved = i;
         }
     }
 
-    public void setSampleDegradationPriority(int i2) {
+    public void setSampleDegradationPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.sampleDegradationPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.sampleDegradationPriority = i;
         }
     }
 
-    public void setSampleDependsOn(int i2) {
+    public void setSampleDependsOn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.sampleDependsOn = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.sampleDependsOn = i;
         }
     }
 
-    public void setSampleHasRedundancy(int i2) {
+    public void setSampleHasRedundancy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.sampleHasRedundancy = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.sampleHasRedundancy = i;
         }
     }
 
-    public void setSampleIsDependedOn(int i2) {
+    public void setSampleIsDependedOn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.sampleIsDependedOn = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.sampleIsDependedOn = i;
         }
     }
 
@@ -160,10 +159,10 @@ public class SampleFlags {
         }
     }
 
-    public void setSamplePaddingValue(int i2) {
+    public void setSamplePaddingValue(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.samplePaddingValue = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.samplePaddingValue = i;
         }
     }
 
@@ -171,7 +170,7 @@ public class SampleFlags {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return "SampleFlags{reserved=" + this.reserved + ", sampleDependsOn=" + this.sampleDependsOn + ", sampleHasRedundancy=" + this.sampleHasRedundancy + ", samplePaddingValue=" + this.samplePaddingValue + ", sampleIsDifferenceSample=" + this.sampleIsDifferenceSample + ", sampleDegradationPriority=" + this.sampleDegradationPriority + ExtendedMessageFormat.END_FE;
+            return "SampleFlags{reserved=" + this.reserved + ", sampleDependsOn=" + this.sampleDependsOn + ", sampleHasRedundancy=" + this.sampleHasRedundancy + ", samplePaddingValue=" + this.samplePaddingValue + ", sampleIsDifferenceSample=" + this.sampleIsDifferenceSample + ", sampleDegradationPriority=" + this.sampleDegradationPriority + '}';
         }
         return (String) invokeV.objValue;
     }
@@ -183,9 +182,9 @@ public class SampleFlags {
             newInitContext.initArgs = r2;
             Object[] objArr = {byteBuffer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

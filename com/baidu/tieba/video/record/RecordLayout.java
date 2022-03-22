@@ -18,24 +18,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RecordLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public VelocityTracker a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f36489b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f36490c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f36491d;
 
     /* renamed from: e  reason: collision with root package name */
-    public VelocityTracker f47222e;
+    public float f36492e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f47223f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f47224g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f47225h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f47226i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public a f47227j;
+    public a f36493f;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -53,9 +51,9 @@ public class RecordLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -68,9 +66,9 @@ public class RecordLayout extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f47224g = ViewConfiguration.getMaximumFlingVelocity();
-            this.f47223f = ViewConfiguration.getMinimumFlingVelocity();
-            this.f47225h = n.f(getContext(), R.dimen.ds150);
+            this.f36490c = ViewConfiguration.getMaximumFlingVelocity();
+            this.f36489b = ViewConfiguration.getMinimumFlingVelocity();
+            this.f36491d = n.f(getContext(), R.dimen.obfuscated_res_0x7f070246);
         }
     }
 
@@ -79,35 +77,35 @@ public class RecordLayout extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (this.f47222e == null) {
-                this.f47222e = VelocityTracker.obtain();
+            if (this.a == null) {
+                this.a = VelocityTracker.obtain();
             }
-            this.f47222e.addMovement(motionEvent);
+            this.a.addMovement(motionEvent);
             int action = motionEvent.getAction();
             if (action != 0) {
-                if ((action == 1 || action == 3) && this.f47227j != null) {
-                    this.f47222e.computeCurrentVelocity(1000, this.f47224g);
-                    float xVelocity = this.f47222e.getXVelocity();
-                    int rawX = (int) (motionEvent.getRawX() - this.f47226i);
-                    if (Math.abs(xVelocity) <= this.f47223f || Math.abs(rawX) <= this.f47225h) {
+                if ((action == 1 || action == 3) && this.f36493f != null) {
+                    this.a.computeCurrentVelocity(1000, this.f36490c);
+                    float xVelocity = this.a.getXVelocity();
+                    int rawX = (int) (motionEvent.getRawX() - this.f36492e);
+                    if (Math.abs(xVelocity) <= this.f36489b || Math.abs(rawX) <= this.f36491d) {
                         if (Math.abs(rawX) > n.k(getContext()) * 0.5d) {
                             if (rawX > 0) {
-                                this.f47227j.onTouchToRight();
+                                this.f36493f.onTouchToRight();
                             } else {
-                                this.f47227j.onTouchToRight();
+                                this.f36493f.onTouchToRight();
                             }
                         }
                     } else if (rawX > 0) {
-                        this.f47227j.onTouchToRight();
+                        this.f36493f.onTouchToRight();
                     } else {
-                        this.f47227j.onTouchToLeft();
+                        this.f36493f.onTouchToLeft();
                     }
-                    this.f47222e.clear();
-                    this.f47222e.recycle();
-                    this.f47222e = null;
+                    this.a.clear();
+                    this.a.recycle();
+                    this.a = null;
                 }
             } else {
-                this.f47226i = motionEvent.getRawX();
+                this.f36492e = motionEvent.getRawX();
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
@@ -117,7 +115,7 @@ public class RecordLayout extends RelativeLayout {
     public void setListener(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.f47227j = aVar;
+            this.f36493f = aVar;
         }
     }
 
@@ -130,9 +128,9 @@ public class RecordLayout extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -144,17 +142,17 @@ public class RecordLayout extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecordLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RecordLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

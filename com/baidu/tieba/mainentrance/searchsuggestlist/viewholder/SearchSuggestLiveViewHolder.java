@@ -15,13 +15,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView mLivingText;
-    public View mRootView;
-    public View mSearchSuggetLine;
-    public TextView mSuggest;
-    public ImageView searchBarIcon;
-    public FrameLayout searchLiveLayout;
-    public TBLottieAnimationView searchLiveLottieView;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f34368b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f34369c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TBLottieAnimationView f34370d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public FrameLayout f34371e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public TextView f34372f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f34373g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchSuggestLiveViewHolder(View view) {
@@ -32,21 +44,21 @@ public class SearchSuggestLiveViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mRootView = view.findViewById(R.id.rootview);
-        this.mSuggest = (TextView) view.findViewById(R.id.search_suggest_title);
-        this.searchBarIcon = (ImageView) view.findViewById(R.id.search_bar_icon);
-        this.searchLiveLottieView = (TBLottieAnimationView) view.findViewById(R.id.search_live_lottie);
-        this.searchLiveLayout = (FrameLayout) view.findViewById(R.id.search_live_layout);
-        this.mLivingText = (TextView) view.findViewById(R.id.living_text);
-        this.mSearchSuggetLine = view.findViewById(R.id.search_sugget_line);
+        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.f34368b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c48);
+        this.f34369c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f091c1c);
+        this.f34370d = (TBLottieAnimationView) view.findViewById(R.id.obfuscated_res_0x7f091c3c);
+        this.f34371e = (FrameLayout) view.findViewById(R.id.obfuscated_res_0x7f091c3b);
+        this.f34372f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0912dd);
+        this.f34373g = view.findViewById(R.id.obfuscated_res_0x7f091c49);
     }
 }

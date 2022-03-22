@@ -11,6 +11,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.sofire.d.D;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -69,9 +71,9 @@ public class VideoPasterRequestData extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -81,7 +83,7 @@ public class VideoPasterRequestData extends HttpMessage {
         addCommonParams();
         addHeader("Cookie", CookieManager.getInstance().getCookie(TbPatternsCompat.TB_DOMAIN_NAME));
         addParam("pid", aVar.g());
-        addParam("ac", "1");
+        addParam(D.COLUMN_PLUGIN_ACTIVITY_INFO_LIST, "1");
         String ext = getExt(aVar);
         if (!StringUtils.isNull(ext)) {
             addParam("ext", ext);
@@ -93,7 +95,7 @@ public class VideoPasterRequestData extends HttpMessage {
         addParam("apna", TbadkCoreApplication.getInst().getPackageName());
         addParam("fc", String.valueOf(aVar.b()));
         addParam("ft", aVar.c());
-        addParam("ct", "2");
+        addParam(Config.EXCEPTION_CRASH_TYPE, "2");
     }
 
     private void addCommonParams() {

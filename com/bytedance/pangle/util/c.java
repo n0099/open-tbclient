@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] a;
@@ -30,24 +30,24 @@ public final class c {
         a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
-    public static String a(byte[] bArr, int i2) {
+    public static String a(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
             if (bArr != null) {
-                if (i2 + 0 <= bArr.length) {
-                    int i3 = i2 * 2;
-                    char[] cArr = new char[i3];
-                    int i4 = 0;
-                    for (int i5 = 0; i5 < i2; i5++) {
-                        int i6 = bArr[i5 + 0] & 255;
-                        int i7 = i4 + 1;
+                if (i + 0 <= bArr.length) {
+                    int i2 = i * 2;
+                    char[] cArr = new char[i2];
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < i; i4++) {
+                        int i5 = bArr[i4 + 0] & 255;
+                        int i6 = i3 + 1;
                         char[] cArr2 = a;
-                        cArr[i4] = cArr2[i6 >> 4];
-                        i4 = i7 + 1;
-                        cArr[i7] = cArr2[i6 & 15];
+                        cArr[i3] = cArr2[i5 >> 4];
+                        i3 = i6 + 1;
+                        cArr[i6] = cArr2[i5 & 15];
                     }
-                    return new String(cArr, 0, i3);
+                    return new String(cArr, 0, i2);
                 }
                 throw new IndexOutOfBoundsException();
             }

@@ -33,9 +33,9 @@ public class s {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -49,12 +49,12 @@ public class s {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                long j2 = bVar.f2537c;
-                long j3 = bVar2.f2537c;
-                if (j2 == j3) {
+                long j = bVar.f2090c;
+                long j2 = bVar2.f2090c;
+                if (j == j2) {
                     return 0;
                 }
-                return j2 > j3 ? -1 : 1;
+                return j > j2 ? -1 : 1;
             }
             return invokeLL.intValue;
         }
@@ -64,7 +64,7 @@ public class s {
         }
     }
 
-    /* JADX WARN: Type inference failed for: r3v11, types: [byte[], T] */
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
     public static List<l.b<byte[]>> a(c.a.d.f.d.l<byte[]> lVar) {
         InterceptResult invokeL;
         Cursor cursor;
@@ -84,9 +84,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2537c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f2090c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2536b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    bVar.f2089b = cursor.getBlob(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;
@@ -127,9 +127,9 @@ public class s {
                 try {
                     l.b bVar = new l.b();
                     bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
-                    bVar.f2537c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    bVar.f2090c = cursor.getLong(cursor.getColumnIndex("saveTime"));
                     cursor.getLong(cursor.getColumnIndex("timeToExpire"));
-                    bVar.f2536b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    bVar.f2089b = cursor.getString(cursor.getColumnIndex("m_value"));
                     linkedList.add(bVar);
                 } catch (Throwable th2) {
                     th = th2;

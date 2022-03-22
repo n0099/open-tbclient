@@ -16,30 +16,24 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 /* loaded from: classes6.dex */
 public class AspectGLSurfaceView extends GLSurfaceView {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int TYPE_CORP_CENTER = 1;
-    public static final int TYPE_INSIDE = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public double a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public double f47877e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f37031b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f47878f;
+    /* renamed from: c  reason: collision with root package name */
+    public GLSurfaceView.Renderer f37032c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public GLSurfaceView.Renderer f47879g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public GLSurfaceView.Renderer f47880h;
+    /* renamed from: d  reason: collision with root package name */
+    public GLSurfaceView.Renderer f37033d;
 
     /* loaded from: classes6.dex */
     public class a implements GLSurfaceView.Renderer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AspectGLSurfaceView f47881e;
+        public final /* synthetic */ AspectGLSurfaceView a;
 
         public a(AspectGLSurfaceView aspectGLSurfaceView) {
             Interceptable interceptable = $ic;
@@ -48,23 +42,23 @@ public class AspectGLSurfaceView extends GLSurfaceView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aspectGLSurfaceView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47881e = aspectGLSurfaceView;
+            this.a = aspectGLSurfaceView;
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
         public void onDrawFrame(GL10 gl10) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, gl10) == null) {
-                if (this.f47881e.f47880h != null) {
-                    this.f47881e.f47880h.onDrawFrame(gl10);
+                if (this.a.f37033d != null) {
+                    this.a.f37033d.onDrawFrame(gl10);
                 } else {
                     gl10.glClear(16640);
                 }
@@ -72,13 +66,13 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+        public void onSurfaceChanged(GL10 gl10, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10, i2, i3) == null) {
-                if (this.f47881e.f47880h != null) {
-                    this.f47881e.f47880h.onSurfaceChanged(gl10, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gl10, i, i2) == null) {
+                if (this.a.f37033d != null) {
+                    this.a.f37033d.onSurfaceChanged(gl10, i, i2);
                 } else {
-                    gl10.glViewport(0, 0, i2, i3);
+                    gl10.glViewport(0, 0, i, i2);
                 }
             }
         }
@@ -87,8 +81,8 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         public void onSurfaceCreated(GL10 gl10, EGLConfig eGLConfig) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, gl10, eGLConfig) == null) {
-                if (this.f47881e.f47880h != null) {
-                    this.f47881e.f47880h.onSurfaceCreated(gl10, eGLConfig);
+                if (this.a.f37033d != null) {
+                    this.a.f37033d.onSurfaceCreated(gl10, eGLConfig);
                 } else {
                     gl10.glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
                 }
@@ -105,9 +99,9 @@ public class AspectGLSurfaceView extends GLSurfaceView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -117,48 +111,48 @@ public class AspectGLSurfaceView extends GLSurfaceView {
         }
     }
 
-    public void initDefault(int i2, int i3) {
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            this.f47879g = new a(this);
-            setEGLContextClientVersion(i2);
-            super.setRenderer(this.f47879g);
-            setRenderMode(i3);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.f37032c = new a(this);
+            setEGLContextClientVersion(i);
+            super.setRenderer(this.f37032c);
+            setRenderMode(i2);
         }
     }
 
     @Override // android.view.SurfaceView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            if (this.f47877e > 0.0d) {
-                int size = View.MeasureSpec.getSize(i2);
-                int size2 = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            if (this.a > 0.0d) {
+                int size = View.MeasureSpec.getSize(i);
+                int size2 = View.MeasureSpec.getSize(i2);
                 int paddingLeft = getPaddingLeft() + getPaddingRight();
                 int paddingTop = getPaddingTop() + getPaddingBottom();
-                int i4 = size - paddingLeft;
-                int i5 = size2 - paddingTop;
-                double d2 = i4;
-                double d3 = i5;
-                double d4 = this.f47877e;
-                if (d4 <= d2 / d3 ? this.f47878f != 1 : this.f47878f == 1) {
-                    i4 = (int) (d3 * d4);
+                int i3 = size - paddingLeft;
+                int i4 = size2 - paddingTop;
+                double d2 = i3;
+                double d3 = i4;
+                double d4 = this.a;
+                if (d4 <= d2 / d3 ? this.f37031b != 1 : this.f37031b == 1) {
+                    i3 = (int) (d3 * d4);
                 } else {
-                    i5 = (int) (d2 / d4);
+                    i4 = (int) (d2 / d4);
                 }
-                i2 = View.MeasureSpec.makeMeasureSpec(i4 + paddingLeft, 1073741824);
-                i3 = View.MeasureSpec.makeMeasureSpec(i5 + paddingTop, 1073741824);
+                i = View.MeasureSpec.makeMeasureSpec(i3 + paddingLeft, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(i4 + paddingTop, 1073741824);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
-    public void setAspectRatio(double d2, int i2) {
+    public void setAspectRatio(double d2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i2)}) == null) {
-            this.f47878f = i2;
-            if (this.f47877e != d2) {
-                this.f47877e = d2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)}) == null) {
+            this.f37031b = i;
+            if (this.a != d2) {
+                this.a = d2;
                 requestLayout();
             }
         }
@@ -168,10 +162,10 @@ public class AspectGLSurfaceView extends GLSurfaceView {
     public void setRenderer(GLSurfaceView.Renderer renderer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, renderer) == null) {
-            if (this.f47879g == null) {
+            if (this.f37032c == null) {
                 super.setRenderer(renderer);
             } else {
-                this.f47880h = renderer;
+                this.f37033d = renderer;
             }
         }
     }
@@ -196,9 +190,9 @@ public class AspectGLSurfaceView extends GLSurfaceView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -206,7 +200,7 @@ public class AspectGLSurfaceView extends GLSurfaceView {
                 return;
             }
         }
-        this.f47877e = -1.0d;
-        this.f47878f = 1;
+        this.a = -1.0d;
+        this.f37031b = 1;
     }
 }

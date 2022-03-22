@@ -1,8 +1,9 @@
 package com.baidu.tieba.advert.sdk.data;
 
 import android.text.TextUtils;
-import c.a.r0.y.a.d.b;
+import c.a.p0.a0.a.d.b;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,9 +73,9 @@ public class AdInfo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,7 +92,7 @@ public class AdInfo implements Serializable {
             if (!TextUtils.isEmpty(str)) {
                 for (String str2 : str.split(",")) {
                     try {
-                        arrayList.add(URLDecoder.decode(str2, "utf-8"));
+                        arrayList.add(URLDecoder.decode(str2, IMAudioTransRequest.CHARSET));
                     } catch (Exception e2) {
                         BdLog.e("decode 监测地址失败" + e2);
                     }
@@ -184,11 +185,11 @@ public class AdInfo implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b b2 = b.b(c.a.r0.y.a.i.b.d());
-            if (TextUtils.isEmpty(b2.f24651d)) {
+            b b2 = b.b(c.a.p0.a0.a.i.b.d());
+            if (TextUtils.isEmpty(b2.f11897d)) {
                 return true;
             }
-            return TextUtils.isEmpty(b2.f24650c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f24650c.equals(this.adVideoUrl);
+            return TextUtils.isEmpty(b2.f11896c) ? !TextUtils.isEmpty(this.adVideoUrl) : !b2.f11896c.equals(this.adVideoUrl);
         }
         return invokeV.booleanValue;
     }

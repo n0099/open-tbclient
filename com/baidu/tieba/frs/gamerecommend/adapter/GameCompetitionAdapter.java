@@ -7,8 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.k.b;
 import c.a.d.f.p.n;
-import c.a.r0.d1.k;
-import c.a.r0.m0.c;
+import c.a.p0.f1.k;
+import c.a.p0.o0.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,8 +28,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String x;
-    public b<CardFrsGameCompetitionItemView> y;
+    public String t;
+    public b<CardFrsGameCompetitionItemView> u;
 
     /* loaded from: classes5.dex */
     public class CardFrsGameCompetitionHolder extends TypeAdapter.ViewHolder {
@@ -38,19 +38,19 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
         public LinearLayout a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f42070b;
+        public TextView f32580b;
 
         /* renamed from: c  reason: collision with root package name */
-        public FlexibleHorizontalScrollView f42071c;
+        public FlexibleHorizontalScrollView f32581c;
 
         /* renamed from: d  reason: collision with root package name */
-        public CardFrsGameCompetitionLayout f42072d;
+        public CardFrsGameCompetitionLayout f32582d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f42073e;
+        public View f32583e;
 
         /* renamed from: f  reason: collision with root package name */
-        public View f42074f;
+        public View f32584f;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public CardFrsGameCompetitionHolder(GameCompetitionAdapter gameCompetitionAdapter, View view) {
@@ -61,24 +61,24 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gameCompetitionAdapter, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = (LinearLayout) view.findViewById(R.id.card_game_competition_content);
-            this.f42070b = (TextView) view.findViewById(R.id.game_competition_title);
-            this.f42071c = (FlexibleHorizontalScrollView) view.findViewById(R.id.game_competition_scroll_container);
-            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view.findViewById(R.id.game_competition_container);
-            this.f42072d = cardFrsGameCompetitionLayout;
+            this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090528);
+            this.f32580b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090c3c);
+            this.f32581c = (FlexibleHorizontalScrollView) view.findViewById(R.id.obfuscated_res_0x7f090c3b);
+            CardFrsGameCompetitionLayout cardFrsGameCompetitionLayout = (CardFrsGameCompetitionLayout) view.findViewById(R.id.obfuscated_res_0x7f090c3a);
+            this.f32582d = cardFrsGameCompetitionLayout;
             cardFrsGameCompetitionLayout.setItemSpace(n.f(view.getContext(), R.dimen.tbds20));
-            this.f42072d.setItemWidth(((n.f(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
-            this.f42073e = view.findViewById(R.id.divider_line_1);
-            this.f42074f = view.findViewById(R.id.divider_line_2);
+            this.f32582d.setItemWidth(((n.f(view.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
+            this.f32583e = view.findViewById(R.id.obfuscated_res_0x7f0907f5);
+            this.f32584f = view.findViewById(R.id.obfuscated_res_0x7f0907f6);
         }
     }
 
@@ -95,9 +95,9 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gameCompetitionAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -146,8 +146,8 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = new CardFrsGameCompetitionItemView(this.a.f3076e);
-                cardFrsGameCompetitionItemView.setForumId(this.a.x);
+                CardFrsGameCompetitionItemView cardFrsGameCompetitionItemView = new CardFrsGameCompetitionItemView(this.a.a);
+                cardFrsGameCompetitionItemView.setForumId(this.a.t);
                 return cardFrsGameCompetitionItemView;
             }
             return (CardFrsGameCompetitionItemView) invokeV.objValue;
@@ -169,9 +169,9 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -179,43 +179,43 @@ public class GameCompetitionAdapter extends k<c, CardFrsGameCompetitionHolder> {
                 return;
             }
         }
-        this.y = new b<>(new a(this), 10, 0);
-        this.x = str;
+        this.u = new b<>(new a(this), 10, 0);
+        this.t = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
-    /* renamed from: o0 */
+    /* renamed from: n0 */
     public CardFrsGameCompetitionHolder M(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.f3076e).inflate(R.layout.card_frs_game_competition_layout, viewGroup, false));
-            cardFrsGameCompetitionHolder.f42072d.setViewPool(this.y);
+            CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder = new CardFrsGameCompetitionHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d018a, viewGroup, false));
+            cardFrsGameCompetitionHolder.f32582d.setViewPool(this.u);
             return cardFrsGameCompetitionHolder;
         }
         return (CardFrsGameCompetitionHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.r0.d1.k, c.a.d.o.e.a
-    /* renamed from: p0 */
-    public View S(int i2, View view, ViewGroup viewGroup, c cVar, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
+    @Override // c.a.p0.f1.k, c.a.d.o.e.a
+    /* renamed from: o0 */
+    public View S(int i, View view, ViewGroup viewGroup, c cVar, CardFrsGameCompetitionHolder cardFrsGameCompetitionHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, cVar, cardFrsGameCompetitionHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, cVar, cardFrsGameCompetitionHolder})) == null) {
             if (cVar != null && cVar.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameCompetitionHolder.f42070b.setText(cVar.a().title);
-                cardFrsGameCompetitionHolder.f42070b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
-                cardFrsGameCompetitionHolder.f42072d.setPageContext(this.o);
-                cardFrsGameCompetitionHolder.f42072d.setData(cVar.a().sub_nodes);
-                cardFrsGameCompetitionHolder.f42071c.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.f42072d.getChildItemWidth());
+                cardFrsGameCompetitionHolder.f32580b.setText(cVar.a().title);
+                cardFrsGameCompetitionHolder.f32580b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
+                cardFrsGameCompetitionHolder.f32582d.setPageContext(this.k);
+                cardFrsGameCompetitionHolder.f32582d.setData(cVar.a().sub_nodes);
+                cardFrsGameCompetitionHolder.f32581c.setMaxOverScrollDistance(cardFrsGameCompetitionHolder.f32582d.getChildItemWidth());
                 cardFrsGameCompetitionHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
-                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f42073e, R.color.CAM_X0205);
-                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f42074f, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f32583e, R.color.CAM_X0205);
+                SkinManager.setBackgroundResource(cardFrsGameCompetitionHolder.f32584f, R.color.CAM_X0205);
             }
-            return cardFrsGameCompetitionHolder.getView();
+            return cardFrsGameCompetitionHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

@@ -10,11 +10,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import c.a.q0.r.r.e2;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
@@ -27,33 +27,35 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaSquareLiveVideoMask extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f31255b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f31256c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f31257d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f40520e;
+    public HeadImageView f31258e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f40521f;
+    public TextView f31259f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f40522g;
+    public TextView f31260g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f40523h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HeadImageView f40524i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f40525j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public ImageView n;
-    public NoActiveStopAlaPlayAnimationView o;
-    public ProgressBar p;
-    public FrameLayout q;
-    public Animation r;
-    public boolean s;
+    public TextView f31261h;
+    public TextView i;
+    public ImageView j;
+    public NoActiveStopAlaPlayAnimationView k;
+    public ProgressBar l;
+    public FrameLayout m;
+    public Animation n;
+    public boolean o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaSquareLiveVideoMask(Context context) {
@@ -64,130 +66,130 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
+        this.o = false;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f40520e = context;
-            this.r = AnimationUtils.loadAnimation(context, R.anim.video_cover_fade_out);
-            View inflate = LayoutInflater.from(context).inflate(R.layout.new_square_top_live_card_mask, this);
-            this.f40521f = inflate;
-            this.q = (FrameLayout) inflate.findViewById(R.id.fade_out_view_root);
-            TbImageView tbImageView = (TbImageView) this.f40521f.findViewById(R.id.live_cover);
-            this.f40522g = tbImageView;
+            this.a = context;
+            this.n = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010133);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0604, this);
+            this.f31255b = inflate;
+            this.m = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090962);
+            TbImageView tbImageView = (TbImageView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f091295);
+            this.f31256c = tbImageView;
             tbImageView.setDefaultBgResource(R.drawable.pic_bg_video_frs);
-            this.f40522g.setAutoChangeStyle(false);
-            View findViewById = this.f40521f.findViewById(R.id.head_root_view);
-            this.f40523h = findViewById;
-            findViewById.setBackgroundResource(R.drawable.round_host_header_bg_n);
-            this.f40524i = (HeadImageView) this.f40521f.findViewById(R.id.hostheader_image);
-            this.f40525j = (TextView) this.f40521f.findViewById(R.id.hostheader_name);
-            this.k = (TextView) this.f40521f.findViewById(R.id.hostheader_id);
-            this.f40524i.setIsRound(true);
-            this.f40524i.setAutoChangeStyle(false);
-            this.l = (TextView) this.f40521f.findViewById(R.id.tvSquareTitle);
-            this.m = (TextView) this.f40521f.findViewById(R.id.tvLiveCount);
-            this.n = (ImageView) this.f40521f.findViewById(R.id.image_video_play);
-            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f40521f.findViewById(R.id.ala_play);
-            this.o = noActiveStopAlaPlayAnimationView;
-            noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.s);
-            SkinManager.setImageResource(this.n, R.drawable.btn_icon_play_live_on_n);
-            this.p = (ProgressBar) this.f40521f.findViewById(R.id.auto_video_loading_progress);
-            onChangeSkin();
+            this.f31256c.setAutoChangeStyle(false);
+            View findViewById = this.f31255b.findViewById(R.id.obfuscated_res_0x7f090d25);
+            this.f31257d = findViewById;
+            findViewById.setBackgroundResource(R.drawable.obfuscated_res_0x7f080faf);
+            this.f31258e = (HeadImageView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f090dad);
+            this.f31259f = (TextView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f090dae);
+            this.f31260g = (TextView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f090dac);
+            this.f31258e.setIsRound(true);
+            this.f31258e.setAutoChangeStyle(false);
+            this.f31261h = (TextView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f092174);
+            this.i = (TextView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f09216a);
+            this.j = (ImageView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f090e87);
+            NoActiveStopAlaPlayAnimationView noActiveStopAlaPlayAnimationView = (NoActiveStopAlaPlayAnimationView) this.f31255b.findViewById(R.id.obfuscated_res_0x7f09021a);
+            this.k = noActiveStopAlaPlayAnimationView;
+            noActiveStopAlaPlayAnimationView.setFromSpecialForum(this.o);
+            SkinManager.setImageResource(this.j, R.drawable.obfuscated_res_0x7f080399);
+            this.l = (ProgressBar) this.f31255b.findViewById(R.id.obfuscated_res_0x7f0902e4);
+            b();
         }
     }
 
-    public void onChangeSkin() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.f40525j, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0101);
-            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f31259f, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f31260g, (int) R.color.CAM_X0101);
+            SkinManager.setViewTextColor(this.f31261h, (int) R.color.CAM_X0101);
         }
     }
 
-    public void onDestroy() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!this.s) {
-                this.o.stopPlayAnimation();
+            if (!this.o) {
+                this.k.c();
             }
-            this.q.clearAnimation();
+            this.m.clearAnimation();
         }
     }
 
-    public void setData(e2 e2Var) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, e2Var) == null) || e2Var == null || e2Var.p1() == null || e2Var.J() == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.o) {
+                this.j.setVisibility(8);
+                this.l.setVisibility(8);
+                this.k.setVisibility(8);
+            }
+            this.m.startAnimation(this.n);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.o) {
             return;
         }
-        AlaInfoData p1 = e2Var.p1();
-        this.f40522g.startLoad(p1.cover, 10, false);
-        AlaUserInfoData alaUserInfoData = p1.user_info;
+        this.k.b();
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.m.clearAnimation();
+        }
+    }
+
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) || threadData == null || threadData.getThreadAlaInfo() == null || threadData.getAuthor() == null) {
+            return;
+        }
+        AlaInfoData threadAlaInfo = threadData.getThreadAlaInfo();
+        this.f31256c.J(threadAlaInfo.cover, 10, false);
+        AlaUserInfoData alaUserInfoData = threadAlaInfo.user_info;
         if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
-            this.f40523h.setVisibility(0);
-            this.f40524i.startLoad(alaUserInfoData.portrait, 10, false);
-            this.f40525j.setText(e2Var.J().getName_show());
-            this.k.setText(String.format(this.f40520e.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
+            this.f31257d.setVisibility(0);
+            this.f31258e.J(alaUserInfoData.portrait, 10, false);
+            this.f31259f.setText(threadData.getAuthor().getName_show());
+            this.f31260g.setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f11af), String.valueOf(alaUserInfoData.ala_id)));
         } else {
-            this.f40523h.setVisibility(8);
+            this.f31257d.setVisibility(8);
         }
-        this.l.setText(e2Var.getTitle());
-        this.m.setText(this.f40520e.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(p1.audience_count)));
-        if (this.s) {
+        this.f31261h.setText(threadData.getTitle());
+        this.i.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f11b4, String.valueOf(threadAlaInfo.audience_count)));
+        if (this.o) {
             return;
         }
-        this.o.startPlayAnimation();
+        this.k.b();
     }
 
     public void setFromSpecialForum(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.s = z;
-            this.n.setVisibility(8);
-            this.p.setVisibility(8);
-            this.o.setVisibility(8);
-            this.o.setFromSpecialForum(this.s);
-        }
-    }
-
-    public void startFadeAnim() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.s) {
-                this.n.setVisibility(8);
-                this.p.setVisibility(8);
-                this.o.setVisibility(8);
-            }
-            this.q.startAnimation(this.r);
-        }
-    }
-
-    public void startIconAnim() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.s) {
-            return;
-        }
-        this.o.startPlayAnimation();
-    }
-
-    public void stopFadeAnim() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q.clearAnimation();
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.o = z;
+            this.j.setVisibility(8);
+            this.l.setVisibility(8);
+            this.k.setVisibility(8);
+            this.k.setFromSpecialForum(this.o);
         }
     }
 
@@ -200,9 +202,9 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -210,22 +212,22 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
                 return;
             }
         }
-        this.s = false;
+        this.o = false;
         a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AlaSquareLiveVideoMask(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -233,7 +235,7 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
                 return;
             }
         }
-        this.s = false;
+        this.o = false;
         a(context);
     }
 }

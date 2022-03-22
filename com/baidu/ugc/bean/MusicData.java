@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.SmartLaunchStats;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -80,9 +81,9 @@ public class MusicData extends MusicBaseBean {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -112,7 +113,7 @@ public class MusicData extends MusicBaseBean {
                 e = e2;
             }
             try {
-                musicData.id = jSONObject.optString("music_id");
+                musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
                 musicData.title = jSONObject.optString("music_title");
                 musicData.singer = jSONObject.optString("music_singer");
                 musicData.icon = jSONObject.optString("music_icon");
@@ -196,7 +197,7 @@ public class MusicData extends MusicBaseBean {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("music_id", musicData.id);
+                jSONObject.put(CloudMusicActivityConfig.MUSIC_ID, musicData.id);
                 jSONObject.put("music_title", musicData.title);
                 jSONObject.put("music_singer", musicData.singer);
                 jSONObject.put("music_icon", musicData.icon);
@@ -339,24 +340,24 @@ public class MusicData extends MusicBaseBean {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? ((int) this.clipFrom) + this.startPosition : invokeV.intValue;
     }
 
-    public void setClipFrom(long j2) {
+    public void setClipFrom(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.clipFrom = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.clipFrom = j;
         }
     }
 
-    public void setClipTo(long j2) {
+    public void setClipTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.clipTo = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.clipTo = j;
         }
     }
 
-    public void setStartPosition(int i2) {
+    public void setStartPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.startPosition = i2 - ((int) this.clipFrom);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.startPosition = i - ((int) this.clipFrom);
         }
     }
 }

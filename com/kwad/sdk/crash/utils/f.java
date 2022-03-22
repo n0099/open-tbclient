@@ -11,7 +11,6 @@ import android.system.Os;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 import com.kuaishou.weapon.adsdk.DeviceInfo;
 import com.kwad.sdk.crash.model.message.DiskInfo;
@@ -47,15 +46,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.regex.Matcher;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f {
     public static final File a = new File("/proc/self/fd");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final File f55125b = new File("/proc/self/task");
+    public static final File f40202b = new File("/proc/self/task");
 
     public static int a() {
         File[] listFiles;
@@ -133,13 +131,13 @@ public final class f {
         return a(stackTraceElementArr, 0);
     }
 
-    public static String a(StackTraceElement[] stackTraceElementArr, int i2) {
+    public static String a(StackTraceElement[] stackTraceElementArr, int i) {
         if (stackTraceElementArr == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : stackTraceElementArr) {
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 sb.append("\t");
             }
             sb.append("at ");
@@ -154,13 +152,13 @@ public final class f {
         exceptionMessage.mVersionCode = com.kwad.sdk.crash.d.a().e();
     }
 
-    public static void a(ExceptionMessage exceptionMessage, int i2) {
+    public static void a(ExceptionMessage exceptionMessage, int i) {
         com.kwad.sdk.crash.f g2 = com.kwad.sdk.crash.d.a().g();
         if (g2 == null) {
             com.kwad.sdk.core.d.a.a("tag", "getter is null!");
             return;
         }
-        com.kwad.sdk.crash.model.message.a a2 = g2.a(i2);
+        com.kwad.sdk.crash.model.message.a a2 = g2.a(i);
         if (a2 != null) {
             exceptionMessage.mCustomMsg = a2.toString();
         }
@@ -231,17 +229,17 @@ public final class f {
         List<String> list;
         String canonicalPath;
         SystemUtil.a c2 = SystemUtil.c();
-        c2.f55123e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        c2.f40200e = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
         c2.a = SystemUtil.a();
         long pss = Debug.getPss();
-        c2.f55122d = pss;
+        c2.f40199d = pss;
         memoryInfo.mTotalMB = (int) (c2.a / 1048576);
         memoryInfo.mJavaHeapLimitMB = (int) (com.kwad.sdk.crash.c.a / 1048576.0d);
-        memoryInfo.mJavaHeapMB = (int) (c2.f55123e / 1048576);
-        memoryInfo.mVssMB = (int) (c2.f55120b / 1024);
-        memoryInfo.mRssMB = (int) (c2.f55121c / 1024);
+        memoryInfo.mJavaHeapMB = (int) (c2.f40200e / 1048576);
+        memoryInfo.mVssMB = (int) (c2.f40197b / 1024);
+        memoryInfo.mRssMB = (int) (c2.f40198c / 1024);
         memoryInfo.mPssMB = (int) (pss / 1024);
-        memoryInfo.mThreadsCount = c2.f55124f;
+        memoryInfo.mThreadsCount = c2.f40201f;
         memoryInfo.mFdCount = a();
         if (context != null) {
             memoryInfo.mAvailableMB = (int) (SystemUtil.c(context) / 1048576);
@@ -270,7 +268,7 @@ public final class f {
             }
         }
         exceptionMessage.mThreadOverflow = "False";
-        if (c2.f55124f > 400) {
+        if (c2.f40201f > 400) {
             exceptionMessage.mCrashType = exceptionMessage.getTypeThreadOOM();
             exceptionMessage.mThreadOverflow = "True";
             a(memoryInfo);
@@ -287,7 +285,7 @@ public final class f {
     }
 
     public static void a(MemoryInfo memoryInfo) {
-        File[] listFiles = f55125b.listFiles();
+        File[] listFiles = f40202b.listFiles();
         if (listFiles == null) {
             return;
         }
@@ -299,7 +297,7 @@ public final class f {
                 com.kwad.sdk.core.d.a.b(e2);
             }
             if (!TextUtils.isEmpty(threadInfo.mName)) {
-                threadInfo.mName = a(threadInfo.mName, StringUtils.LF);
+                threadInfo.mName = a(threadInfo.mName, "\n");
                 memoryInfo.mAllThreads.add(threadInfo);
             }
         }
@@ -307,7 +305,7 @@ public final class f {
 
     public static void a(File file) {
         try {
-            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", ConstantHelper.LOG_OS, "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", ConstantHelper.LOG_OS, "-b", "events", "-d", "-f", file.getPath()}, 0);
+            c.a(SystemUtil.a(21) ? new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-b", "crash", "-d", "-f", file.getPath()} : new String[]{"logcat", "-v", "threadtime", "-b", "main", "-b", "system", "-b", "events", "-d", "-f", file.getPath()}, 0);
         } catch (IOException e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
@@ -449,9 +447,9 @@ public final class f {
         StringBuilder sb = new StringBuilder();
         try {
             sb.append("BuildConfig Version Name: 3.3.17.4\n");
-            sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + StringUtils.LF);
-            sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + StringUtils.LF);
-            sb.append("DexPath: " + c(context) + StringUtils.LF);
+            sb.append("PackageInfo CodePath: " + context.getPackageCodePath() + "\n");
+            sb.append("PackageInfo ResPath: " + context.getPackageResourcePath() + "\n");
+            sb.append("DexPath: " + c(context) + "\n");
         } catch (Exception e2) {
             com.kwad.sdk.core.d.a.b(e2);
         }
@@ -471,12 +469,12 @@ public final class f {
             com.kwad.sdk.core.d.a.b(e2);
             absolutePath = parentFile.getAbsolutePath();
         }
-        if (com.kwad.sdk.crash.c.f55094b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f55095c.matcher(absolutePath).matches()) {
+        if (com.kwad.sdk.crash.c.f40171b.matcher(absolutePath).matches() || com.kwad.sdk.crash.c.f40172c.matcher(absolutePath).matches()) {
             exceptionMessage.mVirtualApp = context.getPackageName();
             return;
         }
-        Matcher matcher = com.kwad.sdk.crash.c.f55096d.matcher(absolutePath);
-        Matcher matcher2 = com.kwad.sdk.crash.c.f55097e.matcher(absolutePath);
+        Matcher matcher = com.kwad.sdk.crash.c.f40173d.matcher(absolutePath);
+        Matcher matcher2 = com.kwad.sdk.crash.c.f40174e.matcher(absolutePath);
         if (matcher.matches()) {
             group = matcher.group(1);
         } else if (!matcher2.matches()) {
@@ -522,7 +520,7 @@ public final class f {
             String obj = classLoader.toString();
             StringBuilder sb2 = new StringBuilder();
             sb2.append("ClassLoader ");
-            int i2 = 0;
+            int i = 0;
             sb2.append(0);
             sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
             sb2.append(obj);
@@ -532,10 +530,10 @@ public final class f {
                     break;
                 }
                 classLoader = classLoader.getParent();
-                i2++;
+                i++;
                 sb2 = new StringBuilder();
                 sb2.append("\nClassLoader ");
-                sb2.append(i2);
+                sb2.append(i);
                 sb2.append(ZeusCrashHandler.NAME_SEPERATOR);
                 sb2.append(classLoader.toString());
             }
@@ -551,14 +549,14 @@ public final class f {
 
     public static String c(String str) {
         HashSet hashSet = new HashSet();
-        for (String str2 : str.split(StringUtils.LF)) {
+        for (String str2 : str.split("\n")) {
             hashSet.add(str2);
         }
         ArrayList<String> arrayList = new ArrayList(hashSet);
         StringBuilder sb = new StringBuilder();
         for (String str3 : arrayList) {
             sb.append(str3);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         }
         return sb.substring(0);
     }

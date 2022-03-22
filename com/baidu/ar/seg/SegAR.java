@@ -42,7 +42,7 @@ public class SegAR extends c {
     public LuaMsgListener cc;
 
     /* renamed from: io  reason: collision with root package name */
-    public byte[] f31476io;
+    public byte[] f24837io;
     public e mv;
     public int oU;
     public boolean pH;
@@ -152,9 +152,9 @@ public class SegAR extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -179,7 +179,7 @@ public class SegAR extends c {
         this.vn = 1.0f;
         this.vw = 0;
         this.vx = 0;
-        this.f31476io = null;
+        this.f24837io = null;
         this.vy = 0L;
         this.cb = null;
         this.vz = -1;
@@ -190,14 +190,14 @@ public class SegAR extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
-            int i2 = this.oU;
-            if (i2 != 4) {
-                if (i2 == 2) {
+            int i = this.oU;
+            if (i != 4) {
+                if (i == 2) {
                     getImgSegOrientation(aVar.getOrientation());
                     HashMap<String, Object> hashMap = new HashMap<>();
                     hashMap.put("u_maskRotate", this.vc);
                     return hashMap;
-                } else if (i2 == 5) {
+                } else if (i == 5) {
                     getSkySegOrientation(aVar.getOrientation());
                     HashMap<String, Object> hashMap2 = new HashMap<>();
                     hashMap2.put("u_maskRotate", this.vc);
@@ -275,9 +275,9 @@ public class SegAR extends c {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -311,66 +311,66 @@ public class SegAR extends c {
         }
     }
 
-    private void b(long j2) {
+    private void b(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65551, this, j2) == null) || (algoHandleController = this.cb) == null || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65551, this, j) == null) || (algoHandleController = this.cb) == null || j <= 0) {
             return;
         }
-        long handleType = algoHandleController.getHandleType(j2);
+        long handleType = algoHandleController.getHandleType(j);
         SegDetector segDetector = this.uY;
         if (segDetector == null || handleType != this.vz) {
             return;
         }
-        segDetector.b(j2);
+        segDetector.b(j);
     }
 
-    private void b(byte[] bArr, int i2, int i3) {
+    private void b(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65553, this, bArr, i2, i3) == null) || bArr == null || i2 <= 0 || i3 <= 0 || bArr.length < i2 * i3) {
+        if (!(interceptable == null || interceptable.invokeLII(65553, this, bArr, i, i2) == null) || bArr == null || i <= 0 || i2 <= 0 || bArr.length < i * i2) {
             return;
         }
-        this.vm = c(bArr, i2, i3);
-        this.vn = d(bArr, i2, i3);
-        int i4 = this.vb;
-        if (i4 == 1 || i4 == 3) {
-            float f2 = i3;
+        this.vm = c(bArr, i, i2);
+        this.vn = d(bArr, i, i2);
+        int i3 = this.vb;
+        if (i3 == 1 || i3 == 3) {
+            float f2 = i2;
             this.vm -= 16.0f / f2;
             this.vn += 12.0f / f2;
         }
     }
 
-    private float c(byte[] bArr, int i2, int i3) {
+    private float c(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65555, this, bArr, i2, i3)) == null) {
-            int i4 = 0;
-            while (i4 < i3) {
-                for (int i5 = 0; i5 < i2; i5++) {
-                    if ((bArr[(i4 * i2) + i5] & 255) > ((int) (this.vd * 255.0f))) {
-                        return (i4 >= 3 ? i4 - 3 : 0) / i3;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65555, this, bArr, i, i2)) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                for (int i4 = 0; i4 < i; i4++) {
+                    if ((bArr[(i3 * i) + i4] & 255) > ((int) (this.vd * 255.0f))) {
+                        return (i3 >= 3 ? i3 - 3 : 0) / i2;
                     }
                 }
-                i4 += 3;
+                i3 += 3;
             }
             return 0.0f;
         }
         return invokeLII.floatValue;
     }
 
-    private float d(byte[] bArr, int i2, int i3) {
+    private float d(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65557, this, bArr, i2, i3)) == null) {
-            int i4 = i3 - 1;
-            for (int i5 = i4; i5 > 0; i5 -= 3) {
-                for (int i6 = 0; i6 < i2; i6++) {
-                    if ((bArr[(i5 * i2) + i6] & 255) > ((int) (this.vd * 255.0f))) {
-                        int i7 = i5 + 3;
-                        if (i7 <= i4) {
-                            i4 = i7;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65557, this, bArr, i, i2)) == null) {
+            int i3 = i2 - 1;
+            for (int i4 = i3; i4 > 0; i4 -= 3) {
+                for (int i5 = 0; i5 < i; i5++) {
+                    if ((bArr[(i4 * i) + i5] & 255) > ((int) (this.vd * 255.0f))) {
+                        int i6 = i4 + 3;
+                        if (i6 <= i3) {
+                            i3 = i6;
                         }
-                        return i4 / i3;
+                        return i3 / i2;
                     }
                 }
             }
@@ -386,8 +386,8 @@ public class SegAR extends c {
     */
     private void l(HashMap<String, Object> hashMap) {
         String str;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65564, this, hashMap) == null) {
             if (com.baidu.ar.arplay.c.c.a(hashMap.get("id"), -1) == 5011) {
@@ -423,16 +423,16 @@ public class SegAR extends c {
                 } else {
                     this.oU = -10;
                 }
-                i2 = this.oU;
-                if (i2 != 4) {
-                    i3 = 13;
-                } else if (i2 != 5) {
+                i = this.oU;
+                if (i != 4) {
+                    i2 = 13;
+                } else if (i != 5) {
                     this.vz = 11;
                     return;
                 } else {
-                    i3 = 12;
+                    i2 = 12;
                 }
-                this.vz = i3;
+                this.vz = i2;
             } else {
                 StatisticApi.onEvent(StatisticConstants.MDL_SKY_SEG_OPEN);
                 String a4 = com.baidu.ar.arplay.c.c.a(hashMap.get("node_name"), "");
@@ -443,10 +443,10 @@ public class SegAR extends c {
                 str = "ability_sky_segmentation";
             }
             this.bD = str;
-            i2 = this.oU;
-            if (i2 != 4) {
+            i = this.oU;
+            if (i != 4) {
             }
-            this.vz = i3;
+            this.vz = i2;
         }
     }
 
@@ -475,27 +475,27 @@ public class SegAR extends c {
     }
 
     @Override // com.baidu.ar.c
-    public void a(long j2) {
+    public void a(long j) {
         AlgoHandleController algoHandleController;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            super.a(j2);
-            if (j2 <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j2) != this.vz) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            super.a(j);
+            if (j <= 0 || (algoHandleController = this.cb) == null || algoHandleController.getHandleType(j) != this.vz) {
                 return;
             }
-            b(j2);
+            b(j);
         }
     }
 
-    public void getHairSegOrientation(int i2) {
+    public void getHairSegOrientation(int i) {
         PixelRotation pixelRotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 != 0) {
-                if (i2 == 90) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i != 0) {
+                if (i == 90) {
                     this.vb = this.pH ? 2 : 0;
                     pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i2 != 180) {
+                } else if (i != 180) {
                     this.vb = this.pH ? 0 : 2;
                     pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
                 } else {
@@ -510,15 +510,15 @@ public class SegAR extends c {
         }
     }
 
-    public void getImgSegOrientation(int i2) {
+    public void getImgSegOrientation(int i) {
         PixelRotation pixelRotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (i2 != 0) {
-                if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (i != 0) {
+                if (i == 1) {
                     this.vb = this.pH ? 2 : 0;
                     pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i2 != 2) {
+                } else if (i != 2) {
                     this.vb = this.pH ? 0 : 2;
                     pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
                 } else {
@@ -533,15 +533,15 @@ public class SegAR extends c {
         }
     }
 
-    public void getSkySegOrientation(int i2) {
+    public void getSkySegOrientation(int i) {
         PixelRotation pixelRotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 != 0) {
-                if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i != 0) {
+                if (i == 1) {
                     this.vb = this.pH ? 2 : 0;
                     pixelRotation = this.pH ? PixelRotation.FlipVertical : PixelRotation.NoRotation;
-                } else if (i2 != 2) {
+                } else if (i != 2) {
                     this.vb = this.pH ? 0 : 2;
                     pixelRotation = this.pH ? PixelRotation.FlipHorizontal : PixelRotation.Rotate180;
                 } else {
@@ -617,9 +617,9 @@ public class SegAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -658,9 +658,9 @@ public class SegAR extends c {
                                 if (r != null) {
                                     this.vA.vw = gd.getWidth();
                                     this.vA.vx = gd.getHeight();
-                                    this.vA.f31476io = gd.gc();
+                                    this.vA.f24837io = gd.gc();
                                     this.vA.vy = bVar.getTimestamp();
-                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f31476io == null) {
+                                    if (this.vA.vw <= 0 || this.vA.vx <= 0 || this.vA.f24837io == null) {
                                         return;
                                     }
                                     j jVar = new j();

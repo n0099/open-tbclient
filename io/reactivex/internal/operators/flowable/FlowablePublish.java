@@ -49,23 +49,23 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         public final int bufferSize;
         public final AtomicReference<PublishSubscriber<T>> curr;
 
-        public FlowablePublisher(AtomicReference<PublishSubscriber<T>> atomicReference, int i2) {
+        public FlowablePublisher(AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, Integer.valueOf(i2)};
+                Object[] objArr = {atomicReference, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.curr = atomicReference;
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // org.reactivestreams.Publisher
@@ -115,9 +115,9 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -138,10 +138,10 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.addCancel(this, j2);
+            if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.addCancel(this, j);
                 PublishSubscriber<T> publishSubscriber = this.parent;
                 if (publishSubscriber != null) {
                     publishSubscriber.dispatch();
@@ -183,16 +183,16 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
             TERMINATED = new InnerSubscriber[0];
         }
 
-        public PublishSubscriber(AtomicReference<PublishSubscriber<T>> atomicReference, int i2) {
+        public PublishSubscriber(AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {atomicReference, Integer.valueOf(i2)};
+                Object[] objArr = {atomicReference, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -202,7 +202,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
             this.subscribers = new AtomicReference<>(EMPTY);
             this.current = atomicReference;
             this.shouldConnect = new AtomicBoolean();
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         public boolean add(InnerSubscriber<T> innerSubscriber) {
@@ -230,7 +230,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
             InterceptResult invokeLZ;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, z)) == null) {
-                int i2 = 0;
+                int i = 0;
                 if (obj != null) {
                     if (!NotificationLite.isComplete(obj)) {
                         Throwable error = NotificationLite.getError(obj);
@@ -238,9 +238,9 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                         InnerSubscriber<T>[] andSet = this.subscribers.getAndSet(TERMINATED);
                         if (andSet.length != 0) {
                             int length = andSet.length;
-                            while (i2 < length) {
-                                andSet[i2].child.onError(error);
-                                i2++;
+                            while (i < length) {
+                                andSet[i].child.onError(error);
+                                i++;
                             }
                         } else {
                             RxJavaPlugins.onError(error);
@@ -250,9 +250,9 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                         this.current.compareAndSet(this, null);
                         InnerSubscriber<T>[] andSet2 = this.subscribers.getAndSet(TERMINATED);
                         int length2 = andSet2.length;
-                        while (i2 < length2) {
-                            andSet2[i2].child.onComplete();
-                            i2++;
+                        while (i < length2) {
+                            andSet2[i].child.onComplete();
+                            i++;
                         }
                         return true;
                     }
@@ -271,7 +271,7 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         */
         public void dispatch() {
             T t;
-            long j2;
+            long j;
             T t2;
             SimpleQueue<T> simpleQueue;
             boolean z;
@@ -280,9 +280,9 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                 return;
             }
             AtomicReference<InnerSubscriber<T>[]> atomicReference = this.subscribers;
-            int i2 = 1;
+            int i = 1;
             InnerSubscriber<T>[] innerSubscriberArr = atomicReference.get();
-            int i3 = 1;
+            int i2 = 1;
             while (true) {
                 Object obj = this.terminalEvent;
                 SimpleQueue<T> simpleQueue2 = this.queue;
@@ -292,17 +292,17 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                 }
                 if (!z2) {
                     int length = innerSubscriberArr.length;
-                    int i4 = 0;
-                    long j3 = Long.MAX_VALUE;
+                    int i3 = 0;
+                    long j2 = Long.MAX_VALUE;
                     for (InnerSubscriber<T> innerSubscriber : innerSubscriberArr) {
-                        long j4 = innerSubscriber.get();
-                        if (j4 != Long.MIN_VALUE) {
-                            j3 = Math.min(j3, j4 - innerSubscriber.emitted);
+                        long j3 = innerSubscriber.get();
+                        if (j3 != Long.MIN_VALUE) {
+                            j2 = Math.min(j2, j3 - innerSubscriber.emitted);
                         } else {
-                            i4++;
+                            i3++;
                         }
                     }
-                    if (length == i4) {
+                    if (length == i3) {
                         Object obj2 = this.terminalEvent;
                         try {
                             t = simpleQueue2.poll();
@@ -316,14 +316,14 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                         if (checkTerminated(obj2, t == null)) {
                             return;
                         }
-                        if (this.sourceMode != i2) {
+                        if (this.sourceMode != i) {
                             this.s.get().request(1L);
                         }
                     } else {
-                        int i5 = 0;
+                        int i4 = 0;
                         while (true) {
-                            j2 = i5;
-                            if (j2 >= j3) {
+                            j = i4;
+                            if (j >= j2) {
                                 break;
                             }
                             Object obj3 = this.terminalEvent;
@@ -346,16 +346,16 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                             }
                             Object value = NotificationLite.getValue(t2);
                             int length2 = innerSubscriberArr.length;
-                            int i6 = 0;
+                            int i5 = 0;
                             boolean z4 = false;
-                            while (i6 < length2) {
-                                InnerSubscriber<T> innerSubscriber2 = innerSubscriberArr[i6];
-                                long j5 = innerSubscriber2.get();
-                                if (j5 != Long.MIN_VALUE) {
-                                    int i7 = (j5 > Long.MAX_VALUE ? 1 : (j5 == Long.MAX_VALUE ? 0 : -1));
+                            while (i5 < length2) {
+                                InnerSubscriber<T> innerSubscriber2 = innerSubscriberArr[i5];
+                                long j4 = innerSubscriber2.get();
+                                if (j4 != Long.MIN_VALUE) {
+                                    int i6 = (j4 > Long.MAX_VALUE ? 1 : (j4 == Long.MAX_VALUE ? 0 : -1));
                                     simpleQueue = simpleQueue2;
                                     z = z3;
-                                    if (i7 != 0) {
+                                    if (i6 != 0) {
                                         innerSubscriber2.emitted++;
                                     }
                                     innerSubscriber2.child.onNext(value);
@@ -364,13 +364,13 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                                     z = z3;
                                     z4 = true;
                                 }
-                                i6++;
+                                i5++;
                                 simpleQueue2 = simpleQueue;
                                 z3 = z;
                             }
                             SimpleQueue<T> simpleQueue3 = simpleQueue2;
                             boolean z5 = z3;
-                            i5++;
+                            i4++;
                             InnerSubscriber<T>[] innerSubscriberArr2 = atomicReference.get();
                             if (z4 || innerSubscriberArr2 != innerSubscriberArr) {
                                 break;
@@ -378,20 +378,20 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                             simpleQueue2 = simpleQueue3;
                             z2 = z5;
                         }
-                        if (i5 > 0) {
-                            i2 = 1;
+                        if (i4 > 0) {
+                            i = 1;
                             if (this.sourceMode != 1) {
-                                this.s.get().request(j2);
+                                this.s.get().request(j);
                             }
                         } else {
-                            i2 = 1;
+                            i = 1;
                         }
-                        if (j3 != 0 && !z2) {
+                        if (j2 != 0 && !z2) {
                         }
                     }
                 }
-                i3 = addAndGet(-i3);
-                if (i3 == 0) {
+                i2 = addAndGet(-i2);
+                if (i2 == 0) {
                     return;
                 }
                 innerSubscriberArr = atomicReference.get();
@@ -491,27 +491,27 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (innerSubscriberArr[i3].equals(innerSubscriber)) {
-                            i2 = i3;
+                        } else if (innerSubscriberArr[i2].equals(innerSubscriber)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         innerSubscriberArr2 = EMPTY;
                     } else {
                         InnerSubscriber[] innerSubscriberArr3 = new InnerSubscriber[length - 1];
-                        System.arraycopy(innerSubscriberArr, 0, innerSubscriberArr3, 0, i2);
-                        System.arraycopy(innerSubscriberArr, i2 + 1, innerSubscriberArr3, i2, (length - i2) - 1);
+                        System.arraycopy(innerSubscriberArr, 0, innerSubscriberArr3, 0, i);
+                        System.arraycopy(innerSubscriberArr, i + 1, innerSubscriberArr3, i, (length - i) - 1);
                         innerSubscriberArr2 = innerSubscriberArr3;
                     }
                 } while (!this.subscribers.compareAndSet(innerSubscriberArr, innerSubscriberArr2));
@@ -519,16 +519,16 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         }
     }
 
-    public FlowablePublish(Publisher<T> publisher, Flowable<T> flowable, AtomicReference<PublishSubscriber<T>> atomicReference, int i2) {
+    public FlowablePublish(Publisher<T> publisher, Flowable<T> flowable, AtomicReference<PublishSubscriber<T>> atomicReference, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, flowable, atomicReference, Integer.valueOf(i2)};
+            Object[] objArr = {publisher, flowable, atomicReference, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -537,15 +537,15 @@ public final class FlowablePublish<T> extends ConnectableFlowable<T> implements 
         this.onSubscribe = publisher;
         this.source = flowable;
         this.current = atomicReference;
-        this.bufferSize = i2;
+        this.bufferSize = i;
     }
 
-    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i2) {
+    public static <T> ConnectableFlowable<T> create(Flowable<T> flowable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, flowable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, flowable, i)) == null) {
             AtomicReference atomicReference = new AtomicReference();
-            return RxJavaPlugins.onAssembly((ConnectableFlowable) new FlowablePublish(new FlowablePublisher(atomicReference, i2), flowable, atomicReference, i2));
+            return RxJavaPlugins.onAssembly((ConnectableFlowable) new FlowablePublish(new FlowablePublisher(atomicReference, i), flowable, atomicReference, i));
         }
         return (ConnectableFlowable) invokeLI.objValue;
     }

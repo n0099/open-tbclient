@@ -16,10 +16,10 @@ public class i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(Context context, String str, long j2) {
+    public static long a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j2)})) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, str, Long.valueOf(j)})) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, j) : invokeCommon.longValue;
     }
 
     public static String a(Context context, String str) {
@@ -28,12 +28,12 @@ public class i {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getString(str, "") : (String) invokeLL.objValue;
     }
 
-    public static void a(Context context, String str, int i2) {
+    public static void a(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65538, null, context, str, i) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
-                edit.putInt(str, i2);
+                edit.putInt(str, i);
                 edit.commit();
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();
@@ -41,13 +41,13 @@ public class i {
         }
     }
 
-    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j2, String str6, String str7) {
+    public static void a(Context context, String str, String str2, String str3, String str4, String str5, long j, String str6, String str7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j2), str6, str7}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, str3, str4, str5, Long.valueOf(j), str6, str7}) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences("com.baidu.pushservice.BIND_CACHE", 0).edit();
-                if (j2 != 0) {
-                    edit.putLong("currbindtime", j2);
+                if (j != 0) {
+                    edit.putLong("currbindtime", j);
                 }
                 if (!TextUtils.isEmpty(str6)) {
                     edit.putString("access_token", str6);
@@ -89,10 +89,10 @@ public class i {
         return invokeLLL.booleanValue;
     }
 
-    public static int b(Context context, String str, int i2) {
+    public static int b(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, context, str, i2)) == null) ? context.getSharedPreferences(x.y, 0).getInt(str, i2) : invokeLLI.intValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65541, null, context, str, i)) == null) ? context.getSharedPreferences(x.y, 0).getInt(str, i) : invokeLLI.intValue;
     }
 
     public static long b(Context context, String str) {
@@ -101,12 +101,12 @@ public class i {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) ? context.getSharedPreferences(x.y, 0).getLong(str, 0L) : invokeLL.longValue;
     }
 
-    public static void b(Context context, String str, long j2) {
+    public static void b(Context context, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, str, Long.valueOf(j)}) == null) {
             try {
                 SharedPreferences.Editor edit = context.getSharedPreferences(x.y, 0).edit();
-                edit.putLong(str, j2);
+                edit.putLong(str, j);
                 edit.commit();
             } catch (Exception e2) {
                 new b.c(context).a(Log.getStackTraceString(e2)).a();

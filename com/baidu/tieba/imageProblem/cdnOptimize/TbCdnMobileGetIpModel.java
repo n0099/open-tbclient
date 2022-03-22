@@ -8,7 +8,7 @@ import android.os.Message;
 import c.a.d.f.j.b.f;
 import c.a.d.f.p.l;
 import c.a.d.f.p.t;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -39,19 +39,19 @@ public class TbCdnMobileGetIpModel {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f43934d;
+    public static Object f34094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f43935e;
+    public static long f34095e;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HttpMessageListener f43936b;
+    public HttpMessageListener f34096b;
     @SuppressLint({"HandlerLeak"})
 
     /* renamed from: c  reason: collision with root package name */
-    public final Handler f43937c;
+    public final Handler f34097c;
 
     /* loaded from: classes5.dex */
     public class TBCdnMobileTachometerAsyncTask extends BdAsyncTask<Object, Integer, ArrayList<String>> {
@@ -60,10 +60,10 @@ public class TbCdnMobileGetIpModel {
         public TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<TBCdnIpData> f43938b;
+        public ArrayList<TBCdnIpData> f34098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ TbCdnMobileGetIpModel f43939c;
+        public final /* synthetic */ TbCdnMobileGetIpModel f34099c;
 
         /* loaded from: classes5.dex */
         public class TBCdnIpData {
@@ -72,7 +72,7 @@ public class TbCdnMobileGetIpModel {
             public String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public long f43940b;
+            public long f34100b;
 
             public TBCdnIpData(TBCdnMobileTachometerAsyncTask tBCdnMobileTachometerAsyncTask) {
                 Interceptable interceptable = $ic;
@@ -81,9 +81,9 @@ public class TbCdnMobileGetIpModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {tBCdnMobileTachometerAsyncTask};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -98,15 +98,15 @@ public class TbCdnMobileGetIpModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tbCdnMobileGetIpModel, tBCdnMobileListData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43939c = tbCdnMobileGetIpModel;
+            this.f34099c = tbCdnMobileGetIpModel;
             this.a = null;
             this.a = tBCdnMobileListData;
         }
@@ -118,18 +118,18 @@ public class TbCdnMobileGetIpModel {
             InterceptResult invokeL;
             String str;
             String str2;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
                 TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData = this.a;
-                if (tBCdnMobileListData != null && (str = tBCdnMobileListData.a) != null && str.length() > 0 && (str2 = this.a.f43943b) != null && str2.length() > 0) {
+                if (tBCdnMobileListData != null && (str = tBCdnMobileListData.a) != null && str.length() > 0 && (str2 = this.a.f34102b) != null && str2.length() > 0) {
                     try {
                         String host = new URL(str).getHost();
                         if (host != null && host.length() > 0) {
                             long currentTimeMillis = System.currentTimeMillis();
-                            Iterator<String> it = this.a.f43944c.iterator();
+                            Iterator<String> it = this.a.f34103c.iterator();
                             while (true) {
-                                i2 = 0;
+                                i = 0;
                                 if (!it.hasNext()) {
                                     break;
                                 }
@@ -139,19 +139,19 @@ public class TbCdnMobileGetIpModel {
                                 ImgHttpClient imgHttpClient = new ImgHttpClient(fVar);
                                 fVar.b().t(str);
                                 imgHttpClient.getNetDataWithIp(next, host, 1);
-                                byte[] bArr = fVar.c().f2629h;
+                                byte[] bArr = fVar.c().i;
                                 long currentTimeMillis3 = System.currentTimeMillis() - currentTimeMillis2;
                                 if (bArr != null && str2.equalsIgnoreCase(t.d(bArr))) {
-                                    i2 = 1;
+                                    i = 1;
                                 }
-                                if (i2 != 0) {
+                                if (i != 0) {
                                     d(next, currentTimeMillis3);
                                 }
                             }
                             ArrayList<String> arrayList = new ArrayList<>();
-                            while (i2 < this.f43938b.size() && i2 < 4) {
-                                arrayList.add(this.f43938b.get(i2).a);
-                                i2++;
+                            while (i < this.f34098b.size() && i < 4) {
+                                arrayList.add(this.f34098b.get(i).a);
+                                i++;
                             }
                             ImageLogger.mobileTachometerLoger(arrayList, System.currentTimeMillis() - currentTimeMillis);
                             return arrayList;
@@ -174,36 +174,36 @@ public class TbCdnMobileGetIpModel {
                 if (arrayList == null) {
                     return;
                 }
-                this.f43939c.g(arrayList);
+                this.f34099c.g(arrayList);
             }
         }
 
-        public final void d(String str, long j2) {
+        public final void d(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2) == null) {
-                if (this.f43938b == null) {
-                    this.f43938b = new ArrayList<>();
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+                if (this.f34098b == null) {
+                    this.f34098b = new ArrayList<>();
                 }
                 TBCdnIpData tBCdnIpData = new TBCdnIpData();
                 tBCdnIpData.a = str;
-                tBCdnIpData.f43940b = j2;
-                if (this.f43938b.size() == 0) {
-                    this.f43938b.add(tBCdnIpData);
-                } else if (this.f43938b.size() > 5) {
+                tBCdnIpData.f34100b = j;
+                if (this.f34098b.size() == 0) {
+                    this.f34098b.add(tBCdnIpData);
+                } else if (this.f34098b.size() > 5) {
                 } else {
-                    int size = this.f43938b.size();
-                    int i2 = 0;
+                    int size = this.f34098b.size();
+                    int i = 0;
                     while (true) {
-                        if (i2 >= this.f43938b.size()) {
+                        if (i >= this.f34098b.size()) {
                             break;
-                        } else if (this.f43938b.get(i2).f43940b > j2) {
-                            size = i2;
+                        } else if (this.f34098b.get(i).f34100b > j) {
+                            size = i;
                             break;
                         } else {
-                            i2++;
+                            i++;
                         }
                     }
-                    this.f43938b.add(size, tBCdnIpData);
+                    this.f34098b.add(size, tBCdnIpData);
                 }
             }
         }
@@ -222,7 +222,7 @@ public class TbCdnMobileGetIpModel {
                 return;
             }
         }
-        f43934d = new Object();
+        f34094d = new Object();
     }
 
     public TbCdnMobileGetIpModel() {
@@ -230,16 +230,16 @@ public class TbCdnMobileGetIpModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = BdUniqueId.gen();
-        this.f43936b = new HttpMessageListener(this, CmdConfigHttp.MOBILE_CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
+        this.f34096b = new HttpMessageListener(this, CmdConfigHttp.MOBILE_CDN_IPLIST_CMD) { // from class: com.baidu.tieba.imageProblem.cdnOptimize.TbCdnMobileGetIpModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbCdnMobileGetIpModel a;
@@ -253,9 +253,9 @@ public class TbCdnMobileGetIpModel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -275,7 +275,7 @@ public class TbCdnMobileGetIpModel {
                     TbMobileCdnGetIPListHttpResponseMsg.TBCdnMobileListData tBCdnMobileListData = tbMobileCdnGetIPListHttpResponseMsg.mobileCdnData;
                     if (tBCdnMobileListData != null) {
                         this.a.i(tBCdnMobileListData);
-                        if (tbMobileCdnGetIPListHttpResponseMsg.mobileCdnData.f43944c.size() > 0) {
+                        if (tbMobileCdnGetIPListHttpResponseMsg.mobileCdnData.f34103c.size() > 0) {
                             z = true;
                         }
                     }
@@ -297,9 +297,9 @@ public class TbCdnMobileGetIpModel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -314,16 +314,16 @@ public class TbCdnMobileGetIpModel {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
                     super.handleMessage(message);
-                    int i4 = message.what;
-                    if (10001 == i4) {
+                    int i3 = message.what;
+                    if (10001 == i3) {
                         this.a.h();
-                    } else if (10002 == i4) {
+                    } else if (10002 == i3) {
                         this.a.f();
                     }
                 }
             }
         };
-        this.f43937c = handler;
+        this.f34097c = handler;
         handler.sendEmptyMessage(10001);
     }
 
@@ -331,7 +331,7 @@ public class TbCdnMobileGetIpModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().unRegisterTask(CmdConfigHttp.MOBILE_CDN_IPLIST_CMD);
-            MessageManager.getInstance().unRegisterListener(this.f43936b);
+            MessageManager.getInstance().unRegisterListener(this.f34096b);
         }
     }
 
@@ -365,8 +365,8 @@ public class TbCdnMobileGetIpModel {
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(TbMobileCdnGetIPListHttpResponseMsg.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            MessageManager.getInstance().unRegisterListener(this.f43936b);
-            MessageManager.getInstance().registerListener(this.f43936b);
+            MessageManager.getInstance().unRegisterListener(this.f34096b);
+            MessageManager.getInstance().registerListener(this.f34096b);
         }
     }
 
@@ -375,7 +375,7 @@ public class TbCdnMobileGetIpModel {
         if (!(interceptable == null || interceptable.invokeL(1048580, this, tBCdnMobileListData) == null) || tBCdnMobileListData == null) {
             return;
         }
-        g(tBCdnMobileListData.f43944c);
+        g(tBCdnMobileListData.f34103c);
         TBCdnMobileTachometerAsyncTask tBCdnMobileTachometerAsyncTask = new TBCdnMobileTachometerAsyncTask(this, tBCdnMobileListData);
         tBCdnMobileTachometerAsyncTask.setPriority(4);
         tBCdnMobileTachometerAsyncTask.execute(new Object[0]);
@@ -385,19 +385,19 @@ public class TbCdnMobileGetIpModel {
         long currentTimeMillis;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !l.H() && TbadkCoreApplication.getInst().isMainProcess(true)) {
-            synchronized (f43934d) {
+            synchronized (f34094d) {
                 try {
-                    if (0 == f43935e) {
-                        f43935e = b.k().m("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
+                    if (0 == f34095e) {
+                        f34095e = b.k().m("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", 0L);
                     }
                     currentTimeMillis = System.currentTimeMillis();
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
-                if (0 == f43935e || currentTimeMillis - f43935e >= 300000) {
-                    f43935e = currentTimeMillis;
+                if (0 == f34095e || currentTimeMillis - f34095e >= 300000) {
+                    f34095e = currentTimeMillis;
                     b.k().x("com.baidu.tbadk.opTimize.mobileLastGetCdnListTiem", currentTimeMillis);
-                    this.f43937c.sendEmptyMessage(10002);
+                    this.f34097c.sendEmptyMessage(10002);
                 }
             }
         }

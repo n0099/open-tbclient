@@ -16,28 +16,26 @@ public class ModelMaterial {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f29748b;
+    public a f23770b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f29749c;
+    public a f23771c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f29750d;
+    public a f23772d;
 
     /* renamed from: e  reason: collision with root package name */
-    public a f29751e;
+    public a f23773e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f29752f;
+    public a f23774f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f29753g;
+    public float f23775g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f29754h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public c.b.b.q.a<i> f29755i;
+    public float f23776h;
+    public c.b.b.q.a<i> i;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -67,16 +65,16 @@ public class ModelMaterial {
             $VALUES = new MaterialType[]{Lambert, materialType};
         }
 
-        public MaterialType(String str, int i2) {
+        public MaterialType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -104,14 +102,14 @@ public class ModelMaterial {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f29754h = 1.0f;
+        this.f23776h = 1.0f;
     }
 }

@@ -36,9 +36,9 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, viewGroup, view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,8 +54,8 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
             ViewGroup contentView = getContentView(view);
             if (contentView != null) {
                 int childCount = contentView.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = contentView.getChildAt(i2);
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = contentView.getChildAt(i);
                     if (childAt instanceof OverlayViewGroup) {
                         return ((OverlayViewGroup) childAt).mViewOverlay;
                     }
@@ -139,9 +139,9 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, viewGroup, view, viewOverlayApi14};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -216,8 +216,8 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
                 super.dispatchDraw(canvas);
                 ArrayList<Drawable> arrayList = this.mDrawables;
                 int size = arrayList == null ? 0 : arrayList.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mDrawables.get(i2).draw(canvas);
+                for (int i = 0; i < size; i++) {
+                    this.mDrawables.get(i).draw(canvas);
                 }
             }
         }
@@ -256,16 +256,16 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public ViewParent invalidateChildInParentFast(int i2, int i3, Rect rect) {
+        public ViewParent invalidateChildInParentFast(int i, int i2, Rect rect) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i2, i3, rect)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048581, this, i, i2, rect)) == null) {
                 if (!(this.mHostView instanceof ViewGroup) || sInvalidateChildInParentFastMethod == null) {
                     return null;
                 }
                 try {
                     getOffset(new int[2]);
-                    sInvalidateChildInParentFastMethod.invoke(this.mHostView, Integer.valueOf(i2), Integer.valueOf(i3), rect);
+                    sInvalidateChildInParentFastMethod.invoke(this.mHostView, Integer.valueOf(i), Integer.valueOf(i2), rect);
                     return null;
                 } catch (IllegalAccessException e2) {
                     e2.printStackTrace();
@@ -287,9 +287,9 @@ public class ViewOverlayApi14 implements ViewOverlayImpl {
         }
 
         @Override // android.view.ViewGroup, android.view.View
-        public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+        public void onLayout(boolean z, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
         }
 

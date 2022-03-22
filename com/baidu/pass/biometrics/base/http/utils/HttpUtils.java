@@ -2,7 +2,6 @@ package com.baidu.pass.biometrics.base.http.utils;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.pass.biometrics.base.restnet.RestNameValuePair;
 import com.baidu.pass.biometrics.base.utils.Crypto;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +26,9 @@ public class HttpUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,9 +51,9 @@ public class HttpUtils {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -88,8 +87,8 @@ public class HttpUtils {
             if (messageDigest == null) {
                 return "";
             }
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                RestNameValuePair restNameValuePair2 = (RestNameValuePair) arrayList.get(i2);
+            for (int i = 0; i < arrayList.size(); i++) {
+                RestNameValuePair restNameValuePair2 = (RestNameValuePair) arrayList.get(i);
                 String name = restNameValuePair2.getName();
                 String value = restNameValuePair2.getValue();
                 if (!TextUtils.isEmpty(name)) {
@@ -98,9 +97,9 @@ public class HttpUtils {
                     }
                     StringBuilder sb = new StringBuilder();
                     sb.append(name);
-                    sb.append(a.f29503h);
+                    sb.append('=');
                     sb.append(value);
-                    if (i2 != arrayList.size() - 1) {
+                    if (i != arrayList.size() - 1) {
                         sb.append('&');
                     }
                     if (!TextUtils.isEmpty(sb)) {

@@ -6,8 +6,8 @@ public class BuddyInitHolder {
     public BuddyInitHolder next;
     public Object[] paras;
 
-    public BuddyInitHolder(int i2, int i3) {
-        this.locals = new Object[i2];
-        this.paras = new Object[i3];
+    public BuddyInitHolder(int i, int i2) {
+        this.locals = new Object[i];
+        this.paras = new Object[i2];
     }
 }

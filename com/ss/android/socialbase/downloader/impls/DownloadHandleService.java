@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadHandleService extends Service {
     public static final String a = DownloadHandleService.class.getSimpleName();
 
@@ -47,8 +47,8 @@ public class DownloadHandleService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        super.onStartCommand(intent, i2, i3);
+    public int onStartCommand(Intent intent, int i, int i2) {
+        super.onStartCommand(intent, i, i2);
         a(intent);
         return 2;
     }

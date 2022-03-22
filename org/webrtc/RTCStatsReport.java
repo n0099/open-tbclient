@@ -7,37 +7,37 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RTCStatsReport {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, RTCStats> stats;
     public final long timestampUs;
 
-    public RTCStatsReport(long j2, Map<String, RTCStats> map) {
+    public RTCStatsReport(long j, Map<String, RTCStats> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), map};
+            Object[] objArr = {Long.valueOf(j), map};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.timestampUs = j2;
+        this.timestampUs = j;
         this.stats = map;
     }
 
     @CalledByNative
-    public static RTCStatsReport create(long j2, Map map) {
+    public static RTCStatsReport create(long j, Map map) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j2, map)) == null) ? new RTCStatsReport(j2, map) : (RTCStatsReport) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65537, null, j, map)) == null) ? new RTCStatsReport(j, map) : (RTCStatsReport) invokeJL.objValue;
     }
 
     public Map<String, RTCStats> getStatsMap() {

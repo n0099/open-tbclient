@@ -58,9 +58,9 @@ public class FaceLoginService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,7 +99,7 @@ public class FaceLoginService {
                 if (linkedHashMap.size() > 10) {
                     Iterator it = linkedHashMap.entrySet().iterator();
                     int size = linkedHashMap.size() - 10;
-                    for (int i2 = 0; it.hasNext() && i2 < size; i2++) {
+                    for (int i = 0; it.hasNext() && i < size; i++) {
                         it.next();
                         it.remove();
                     }
@@ -169,8 +169,8 @@ public class FaceLoginService {
             try {
                 if (!TextUtils.isEmpty(str)) {
                     JSONArray optJSONArray = new JSONObject(str).optJSONArray(KEY_FACE_LOGIN_LIVINGUNAMES);
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                         String optString = optJSONObject.optString("livinguname");
                         long optLong = optJSONObject.optLong("time", 0L);
                         if (!TextUtils.isEmpty(optString)) {

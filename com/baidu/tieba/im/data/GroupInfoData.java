@@ -62,9 +62,9 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -207,17 +207,17 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.isMemGroup : invokeV.booleanValue;
     }
 
-    public void setAuthorId(long j2) {
+    public void setAuthorId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.authorId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.authorId = j;
         }
     }
 
-    public void setAuthorIsMeizhi(int i2) {
+    public void setAuthorIsMeizhi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.authorIsMeizhi = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.authorIsMeizhi = i;
         }
     }
 
@@ -228,10 +228,10 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         }
     }
 
-    public void setForumId(int i2) {
+    public void setForumId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.forumId = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.forumId = i;
         }
     }
 
@@ -249,24 +249,24 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.from = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.from = i;
         }
     }
 
-    public void setGrade(int i2) {
+    public void setGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.grade = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.grade = i;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
+            this.groupId = j;
         }
     }
 
@@ -277,17 +277,17 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         }
     }
 
-    public void setIsGroupManager(int i2) {
+    public void setIsGroupManager(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-            this.isGroupManager = i2;
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+            this.isGroupManager = i;
         }
     }
 
-    public void setMaxMemberNum(int i2) {
+    public void setMaxMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.maxMemberNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.maxMemberNum = i;
         }
     }
 
@@ -298,10 +298,10 @@ public class GroupInfoData extends AbstractImageProvider implements n, Serializa
         }
     }
 
-    public void setMemberNum(int i2) {
+    public void setMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.memberNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.memberNum = i;
         }
     }
 

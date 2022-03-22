@@ -203,14 +203,14 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
             clearCanvas(canvas);
         }
         L.endSection("Layer#saveLayer");
-        for (int i2 = 0; i2 < this.mask.getMasks().size(); i2++) {
-            Mask mask = this.mask.getMasks().get(i2);
-            BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation = this.mask.getMaskAnimations().get(i2);
-            BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2 = this.mask.getOpacityAnimations().get(i2);
-            int i3 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
-            if (i3 != 1) {
-                if (i3 == 2) {
-                    if (i2 == 0) {
+        for (int i = 0; i < this.mask.getMasks().size(); i++) {
+            Mask mask = this.mask.getMasks().get(i);
+            BaseKeyframeAnimation<ShapeData, Path> baseKeyframeAnimation = this.mask.getMaskAnimations().get(i);
+            BaseKeyframeAnimation<Integer, Integer> baseKeyframeAnimation2 = this.mask.getOpacityAnimations().get(i);
+            int i2 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    if (i == 0) {
                         this.contentPaint.setColor(-16777216);
                         this.contentPaint.setAlpha(255);
                         canvas.drawRect(this.rect, this.contentPaint);
@@ -220,8 +220,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
                     } else {
                         applySubtractMask(canvas, matrix, mask, baseKeyframeAnimation, baseKeyframeAnimation2);
                     }
-                } else if (i3 != 3) {
-                    if (i3 == 4) {
+                } else if (i2 != 3) {
+                    if (i2 == 4) {
                         if (mask.isInverted()) {
                             applyInvertedAddMask(canvas, matrix, mask, baseKeyframeAnimation, baseKeyframeAnimation2);
                         } else {
@@ -253,8 +253,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         if (this.mask.getMaskAnimations().isEmpty()) {
             return false;
         }
-        for (int i2 = 0; i2 < this.mask.getMasks().size(); i2++) {
-            if (this.mask.getMasks().get(i2).getMaskMode() != Mask.MaskMode.MASK_MODE_NONE) {
+        for (int i = 0; i < this.mask.getMasks().size(); i++) {
+            if (this.mask.getMasks().get(i).getMaskMode() != Mask.MaskMode.MASK_MODE_NONE) {
                 return false;
             }
         }
@@ -307,19 +307,19 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         this.maskBoundsRect.set(0.0f, 0.0f, 0.0f, 0.0f);
         if (hasMasksOnThisLayer()) {
             int size = this.mask.getMasks().size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Mask mask = this.mask.getMasks().get(i2);
-                this.path.set(this.mask.getMaskAnimations().get(i2).getValue());
+            for (int i = 0; i < size; i++) {
+                Mask mask = this.mask.getMasks().get(i);
+                this.path.set(this.mask.getMaskAnimations().get(i).getValue());
                 this.path.transform(matrix);
-                int i3 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
-                if (i3 == 1 || i3 == 2) {
+                int i2 = AnonymousClass2.$SwitchMap$com$airbnb$lottie$model$content$Mask$MaskMode[mask.getMaskMode().ordinal()];
+                if (i2 == 1 || i2 == 2) {
                     return;
                 }
-                if ((i3 == 3 || i3 == 4) && mask.isInverted()) {
+                if ((i2 == 3 || i2 == 4) && mask.isInverted()) {
                     return;
                 }
                 this.path.computeBounds(this.tempMaskBoundsRect, false);
-                if (i2 == 0) {
+                if (i == 0) {
                     this.maskBoundsRect.set(this.tempMaskBoundsRect);
                 } else {
                     RectF rectF2 = this.maskBoundsRect;
@@ -393,7 +393,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         L.beginSection(this.drawTraceName);
         if (this.visible && !this.layerModel.isHidden()) {
             buildParentLayerListIfNeeded();
@@ -404,7 +404,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
                 this.matrix.preConcat(this.parentLayers.get(size).transform.getMatrix());
             }
             L.endSection("Layer#parentMatrix");
-            int intValue = (int) ((((i2 / 255.0f) * (this.transform.getOpacity() == null ? 100 : this.transform.getOpacity().getValue().intValue())) / 100.0f) * 255.0f);
+            int intValue = (int) ((((i / 255.0f) * (this.transform.getOpacity() == null ? 100 : this.transform.getOpacity().getValue().intValue())) / 100.0f) * 255.0f);
             if (!hasMatteOnThisLayer() && !hasMasksOnThisLayer()) {
                 this.matrix.preConcat(this.transform.getMatrix());
                 L.beginSection("Layer#drawLayer");
@@ -456,7 +456,7 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         L.endSection(this.drawTraceName);
     }
 
-    public abstract void drawLayer(Canvas canvas, Matrix matrix, int i2);
+    public abstract void drawLayer(Canvas canvas, Matrix matrix, int i);
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
     @CallSuper
@@ -507,20 +507,20 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         this.animations.remove(baseKeyframeAnimation);
     }
 
-    public void resolveChildKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
+    public void resolveChildKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        if (keyPath.matches(getName(), i2)) {
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        if (keyPath.matches(getName(), i)) {
             if (!"__container".equals(getName())) {
                 keyPath2 = keyPath2.addKey(getName());
-                if (keyPath.fullyResolvesTo(getName(), i2)) {
+                if (keyPath.fullyResolvesTo(getName(), i)) {
                     list.add(keyPath2.resolve(this));
                 }
             }
-            if (keyPath.propagateToChildren(getName(), i2)) {
-                resolveChildKeyPath(keyPath, i2 + keyPath.incrementDepthBy(getName(), i2), list, keyPath2);
+            if (keyPath.propagateToChildren(getName(), i)) {
+                resolveChildKeyPath(keyPath, i + keyPath.incrementDepthBy(getName(), i), list, keyPath2);
             }
         }
     }
@@ -540,8 +540,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
     public void setProgress(@FloatRange(from = 0.0d, to = 1.0d) float f2) {
         this.transform.setProgress(f2);
         if (this.mask != null) {
-            for (int i2 = 0; i2 < this.mask.getMaskAnimations().size(); i2++) {
-                this.mask.getMaskAnimations().get(i2).setProgress(f2);
+            for (int i = 0; i < this.mask.getMaskAnimations().size(); i++) {
+                this.mask.getMaskAnimations().get(i).setProgress(f2);
             }
         }
         if (this.layerModel.getTimeStretch() != 0.0f) {
@@ -555,8 +555,8 @@ public abstract class BaseLayer implements DrawingContent, BaseKeyframeAnimation
         if (baseLayer != null) {
             this.matteLayer.setProgress(baseLayer.layerModel.getTimeStretch() * f2);
         }
-        for (int i3 = 0; i3 < this.animations.size(); i3++) {
-            this.animations.get(i3).setProgress(f2);
+        for (int i2 = 0; i2 < this.animations.size(); i2++) {
+            this.animations.get(i2).setProgress(f2);
         }
     }
 }

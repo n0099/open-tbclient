@@ -19,9 +19,9 @@ public class s extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {rVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,9 +37,9 @@ public class s extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             super.handleMessage(message);
-            rVar = r.f34544c;
+            rVar = r.f26742c;
             if (rVar != null) {
-                wVar = this.a.f34546d;
+                wVar = this.a.f26744d;
                 wVar.a(message);
             }
         }

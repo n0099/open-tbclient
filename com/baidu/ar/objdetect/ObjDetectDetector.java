@@ -46,9 +46,9 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,13 +63,13 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int d(int i2, boolean z) {
+    public int d(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 != -90) {
-                if (i2 != 90) {
-                    if (i2 != 180) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != -90) {
+                if (i != 90) {
+                    if (i != 180) {
                         if (z) {
                             return 3;
                         }
@@ -106,9 +106,9 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -127,7 +127,7 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                     if (strArr == null || strArr.length == 0) {
                         return -1;
                     }
-                    return aVar.f31475tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
+                    return aVar.f24836tv ? ARMdlInterfaceJNI.initObjDetectFromAsset(strArr[0], strArr[1]) : ARMdlInterfaceJNI.initObjDetect(strArr[0], strArr[1]);
                 }
                 return invokeL2.intValue;
             }
@@ -168,9 +168,9 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -221,9 +221,9 @@ public class ObjDetectDetector extends com.baidu.ar.b.a.a {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r9), framePixels};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), (FramePixels) objArr2[1]);
                         newInitContext.thisArg = this;

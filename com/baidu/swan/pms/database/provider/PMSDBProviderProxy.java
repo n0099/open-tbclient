@@ -9,8 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.p0.q.f.e.b;
-import c.a.p0.q.o.a;
+import c.a.n0.q.f.e.b;
+import c.a.n0.q.o.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PMSDBProviderProxy extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a LOG;
@@ -49,9 +49,9 @@ public class PMSDBProviderProxy extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,14 +77,14 @@ public class PMSDBProviderProxy extends ContentProvider {
                     writableDatabase.beginTransaction();
                     ContentProviderResult[] applyBatch = super.applyBatch(arrayList);
                     int length = applyBatch.length;
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        if (i2 < length) {
-                            ContentProviderResult contentProviderResult = applyBatch[i2];
+                        if (i < length) {
+                            ContentProviderResult contentProviderResult = applyBatch[i];
                             if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                                 break;
                             }
-                            i2++;
+                            i++;
                         } else {
                             break;
                         }

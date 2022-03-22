@@ -10,7 +10,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.util.zip.DataFormatException;
 import java.util.zip.Inflater;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class InflaterSource implements Source {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class InflaterSource implements Source {
             newInitContext.initArgs = r2;
             Object[] objArr = {source, inflater};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BufferedSource) objArr2[0], (Inflater) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -41,12 +41,12 @@ public final class InflaterSource implements Source {
     }
 
     private void releaseInflatedBytes() throws IOException {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.bufferBytesHeldByInflater) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i = this.bufferBytesHeldByInflater) == 0) {
             return;
         }
-        int remaining = i2 - this.inflater.getRemaining();
+        int remaining = i - this.inflater.getRemaining();
         this.bufferBytesHeldByInflater -= remaining;
         this.source.skip(remaining);
     }
@@ -82,30 +82,30 @@ public final class InflaterSource implements Source {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public long read(Buffer buffer, long j2) throws IOException {
+    public long read(Buffer buffer, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) != null) {
+        if (interceptable != null && (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) != null) {
             return invokeLJ.longValue;
         }
-        int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        if (i2 >= 0) {
+        int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+        if (i >= 0) {
             if (this.closed) {
                 throw new IllegalStateException("closed");
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return 0L;
             }
             while (true) {
                 boolean refill = refill();
                 try {
                     Segment writableSegment = buffer.writableSegment(1);
-                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j2, 8192 - writableSegment.limit));
+                    int inflate = this.inflater.inflate(writableSegment.data, writableSegment.limit, (int) Math.min(j, 8192 - writableSegment.limit));
                     if (inflate > 0) {
                         writableSegment.limit += inflate;
-                        long j3 = inflate;
-                        buffer.size += j3;
-                        return j3;
+                        long j2 = inflate;
+                        buffer.size += j2;
+                        return j2;
                     } else if (this.inflater.finished() || this.inflater.needsDictionary()) {
                         break;
                     } else if (refill) {
@@ -116,11 +116,11 @@ public final class InflaterSource implements Source {
                 }
             }
         } else {
-            throw new IllegalArgumentException("byteCount < 0: " + j2);
+            throw new IllegalArgumentException("byteCount < 0: " + j);
         }
     }
 
-    public final boolean refill() throws IOException {
+    public boolean refill() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -131,11 +131,11 @@ public final class InflaterSource implements Source {
                         return true;
                     }
                     Segment segment = this.source.buffer().head;
-                    int i2 = segment.limit;
-                    int i3 = segment.pos;
-                    int i4 = i2 - i3;
-                    this.bufferBytesHeldByInflater = i4;
-                    this.inflater.setInput(segment.data, i3, i4);
+                    int i = segment.limit;
+                    int i2 = segment.pos;
+                    int i3 = i - i2;
+                    this.bufferBytesHeldByInflater = i3;
+                    this.inflater.setInput(segment.data, i2, i3);
                     return false;
                 }
                 throw new IllegalStateException("?");
@@ -159,9 +159,9 @@ public final class InflaterSource implements Source {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedSource, inflater};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -7,14 +7,14 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.a2;
-import c.a.q0.r.r.e2;
+import c.a.o0.r.r.x1;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
@@ -25,44 +25,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbBusinessPromotionContainer extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final int q;
-    public static final int r;
+    public static final int m;
+    public static final int n;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f35256b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f35257c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f35258d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f45546e;
+    public ThreadData f35259e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbImageView f45547f;
+    public View.OnClickListener f35260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f45548g;
+    public boolean f35261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f45549h;
+    public boolean f35262h;
+    public boolean i;
+    public final View.OnClickListener j;
+    public CustomMessageListener k;
+    public CustomMessageListener l;
 
-    /* renamed from: i  reason: collision with root package name */
-    public e2 f45550i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View.OnClickListener f45551j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
-    public final View.OnClickListener n;
-    public CustomMessageListener o;
-    public CustomMessageListener p;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbBusinessPromotionContainer f45552e;
+        public final /* synthetic */ PbBusinessPromotionContainer a;
 
         public a(PbBusinessPromotionContainer pbBusinessPromotionContainer) {
             Interceptable interceptable = $ic;
@@ -71,47 +71,47 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbBusinessPromotionContainer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45552e = pbBusinessPromotionContainer;
+            this.a = pbBusinessPromotionContainer;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                view.setTag(this.f45552e.f45550i);
-                if (this.f45552e.f45551j != null) {
-                    this.f45552e.f45551j.onClick(view);
+                view.setTag(this.a.f35259e);
+                if (this.a.f35260f != null) {
+                    this.a.f35260f.onClick(view);
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbBusinessPromotionContainer a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
-            super(i2);
+        public b(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbBusinessPromotionContainer, Integer.valueOf(i2)};
+                Object[] objArr = {pbBusinessPromotionContainer, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -127,32 +127,32 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.a.f45550i != null && this.a.f45550i.U() == longValue && this.a.m) {
-                    this.a.l = false;
-                    this.a.g();
+                if (this.a.f35259e != null && this.a.f35259e.getFid() == longValue && this.a.i) {
+                    this.a.f35262h = false;
+                    this.a.j();
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PbBusinessPromotionContainer a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i2) {
-            super(i2);
+        public c(PbBusinessPromotionContainer pbBusinessPromotionContainer, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbBusinessPromotionContainer, Integer.valueOf(i2)};
+                Object[] objArr = {pbBusinessPromotionContainer, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -168,9 +168,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
                 long longValue = ((Long) customResponsedMessage.getData()).longValue();
-                if (this.a.f45550i != null && this.a.f45550i.U() == longValue && this.a.m) {
-                    this.a.l = true;
-                    this.a.g();
+                if (this.a.f35259e != null && this.a.f35259e.getFid() == longValue && this.a.i) {
+                    this.a.f35262h = true;
+                    this.a.j();
                 }
             }
         }
@@ -189,8 +189,8 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 return;
             }
         }
-        q = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
-        r = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
+        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds60);
+        n = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds30);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -202,9 +202,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -214,94 +214,94 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         }
     }
 
-    public void bindForumData(e2 e2Var, a2 a2Var, boolean z) {
+    public void f(ThreadData threadData, x1 x1Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, e2Var, a2Var, z) == null) {
-            if (e2Var != null && a2Var != null && !StringUtils.isNull(a2Var.getForumName())) {
-                this.f45550i = e2Var;
-                f(z);
-                this.m = true;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, threadData, x1Var, z) == null) {
+            if (threadData != null && x1Var != null && !StringUtils.isNull(x1Var.a())) {
+                this.f35259e = threadData;
+                i(z);
+                this.i = true;
                 setVisibility(0);
-                this.f45547f.startLoad(a2Var.b(), 10, false);
-                this.f45548g.setText(a2Var.getForumName());
-                if (this.k) {
+                this.f35256b.J(x1Var.b(), 10, false);
+                this.f35257c.setText(x1Var.a());
+                if (this.f35261g) {
                     return;
                 }
-                this.k = true;
-                this.l = a2Var.getIsLike();
-                g();
+                this.f35261g = true;
+                this.f35262h = x1Var.getIsLike();
+                j();
                 return;
             }
-            this.m = false;
+            this.i = false;
             setVisibility(8);
         }
     }
 
-    public void destroy() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.k = false;
-            this.l = false;
-            this.m = false;
-            if (this.p != null) {
-                MessageManager.getInstance().unRegisterListener(this.p);
+            this.f35261g = false;
+            this.f35262h = false;
+            this.i = false;
+            if (this.l != null) {
+                MessageManager.getInstance().unRegisterListener(this.l);
             }
-            if (this.o != null) {
-                MessageManager.getInstance().unRegisterListener(this.o);
+            if (this.k != null) {
+                MessageManager.getInstance().unRegisterListener(this.k);
             }
         }
     }
 
-    public final void f(boolean z) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            SkinManager.setViewTextColor(this.f35257c, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(this.a, R.drawable.pb_business_promotion_bg);
+            if (this.f35262h) {
+                SkinManager.setViewTextColor(this.f35258d, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f35258d, 17170445);
+                return;
+            }
+            SkinManager.setViewTextColor(this.f35258d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f35258d, R.drawable.pb_business_promotion_attention_bg);
+        }
+    }
+
+    public final void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             if (z) {
                 setPadding(0, 0, 0, 0);
             } else {
-                setPadding(0, q, 0, r);
+                setPadding(0, m, 0, n);
             }
         }
     }
 
-    public final void g() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.l) {
-                this.f45549h.setText(getResources().getString(R.string.followed));
-                SkinManager.setViewTextColor(this.f45549h, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f45549h, 17170445);
-                this.f45549h.setOnClickListener(null);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f35262h) {
+                this.f35258d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0627));
+                SkinManager.setViewTextColor(this.f35258d, (int) R.color.CAM_X0109);
+                SkinManager.setBackgroundResource(this.f35258d, 17170445);
+                this.f35258d.setOnClickListener(null);
                 return;
             }
-            this.f45549h.setText(getResources().getString(R.string.attention));
-            SkinManager.setViewTextColor(this.f45549h, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f45549h, R.drawable.pb_business_promotion_attention_bg);
-            this.f45549h.setOnClickListener(this.n);
+            this.f35258d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f029b));
+            SkinManager.setViewTextColor(this.f35258d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(this.f35258d, R.drawable.pb_business_promotion_attention_bg);
+            this.f35258d.setOnClickListener(this.j);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onAttachedToWindow();
-            MessageManager.getInstance().registerListener(this.p);
-            MessageManager.getInstance().registerListener(this.o);
-        }
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SkinManager.setViewTextColor(this.f45548g, (int) R.color.CAM_X0105);
-            SkinManager.setBackgroundResource(this.f45546e, R.drawable.pb_business_promotion_bg);
-            if (this.l) {
-                SkinManager.setViewTextColor(this.f45549h, (int) R.color.CAM_X0109);
-                SkinManager.setBackgroundResource(this.f45549h, 17170445);
-                return;
-            }
-            SkinManager.setViewTextColor(this.f45549h, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(this.f45549h, R.drawable.pb_business_promotion_attention_bg);
+            super.onAttachedToWindow();
+            MessageManager.getInstance().registerListener(this.l);
+            MessageManager.getInstance().registerListener(this.k);
         }
     }
 
@@ -310,15 +310,15 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            MessageManager.getInstance().unRegisterListener(this.p);
-            MessageManager.getInstance().unRegisterListener(this.o);
+            MessageManager.getInstance().unRegisterListener(this.l);
+            MessageManager.getInstance().unRegisterListener(this.k);
         }
     }
 
     public void setAfterItemClickListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
-            this.f45551j = onClickListener;
+            this.f35260f = onClickListener;
         }
     }
 
@@ -331,9 +331,9 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -344,17 +344,17 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PbBusinessPromotionContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -362,23 +362,23 @@ public class PbBusinessPromotionContainer extends RelativeLayout {
                 return;
             }
         }
-        this.k = false;
-        this.l = false;
-        this.m = false;
-        this.n = new a(this);
-        this.o = new b(this, 2001336);
-        this.p = new c(this, 2001335);
-        LayoutInflater.from(context).inflate(R.layout.layout_pb_business_promotion, this);
-        this.f45546e = (RelativeLayout) findViewById(R.id.id_pb_business_promotion_wrapper);
-        this.f45547f = (TbImageView) findViewById(R.id.id_pb_business_promotion_avatar);
-        this.f45548g = (TextView) findViewById(R.id.id_pb_business_promotion_forum_name);
-        this.f45549h = (TextView) findViewById(R.id.id_pb_business_promotion_attention);
-        this.f45547f.setRadius(n.f(context, R.dimen.tbds24));
-        this.f45547f.setConrers(5);
-        this.f45547f.setDefaultResource(17170445);
-        this.f45547f.setDefaultBgResource(17170445);
-        this.f45546e.setOnClickListener(this.n);
-        MessageManager.getInstance().registerListener(this.p);
-        MessageManager.getInstance().registerListener(this.o);
+        this.f35261g = false;
+        this.f35262h = false;
+        this.i = false;
+        this.j = new a(this);
+        this.k = new b(this, 2001336);
+        this.l = new c(this, 2001335);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ab, this);
+        this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090e38);
+        this.f35256b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e36);
+        this.f35257c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e37);
+        this.f35258d = (TextView) findViewById(R.id.obfuscated_res_0x7f090e35);
+        this.f35256b.setRadius(n.f(context, R.dimen.tbds24));
+        this.f35256b.setConrers(5);
+        this.f35256b.setDefaultResource(17170445);
+        this.f35256b.setDefaultBgResource(17170445);
+        this.a.setOnClickListener(this.j);
+        MessageManager.getInstance().registerListener(this.l);
+        MessageManager.getInstance().registerListener(this.k);
     }
 }

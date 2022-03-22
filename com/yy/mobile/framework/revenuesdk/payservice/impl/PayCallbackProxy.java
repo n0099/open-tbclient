@@ -19,7 +19,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
 import com.yy.mobile.framework.revenuesdk.payservice.utils.JsonDataParerUtil;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayEventType;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
             newInitContext.initArgs = r2;
             Object[] objArr = {payType, str, chargeCurrencyReqParams, str2, pollingModeInfo, str3, iEventReporter, iAppPayService, iPayServiceCallback, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,36 +75,36 @@ public class PayCallbackProxy implements IPayCallback<PurchaseInfo> {
         this.reportResponse.mPageId = str3;
     }
 
-    private void failCallBackInternal(int i2, String str, PayCallBackBean payCallBackBean) {
+    private void failCallBackInternal(int i, String str, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, this, i2, str, payCallBackBean) == null) {
+        if (interceptable == null || interceptable.invokeILL(65537, this, i, str, payCallBackBean) == null) {
             if (this.iPayCallback != null) {
                 PayCallBackBean payCallBackBean2 = new PayCallBackBean(this.orderId, this.params.getProductId(), "", this.requestTime, null, this.payLoad, null, null, PurchaseStatus.PAY_FAIL, this.params.getAppClientExpand());
                 this.iPayCallback.onPayStatus(PurchaseStatus.PAY_FAIL, payCallBackBean2);
-                this.iPayCallback.onFail(i2, "failed " + str, payCallBackBean2);
+                this.iPayCallback.onFail(i, "failed " + str, payCallBackBean2);
             }
             IEventReporter iEventReporter = this.mEventReporter;
             if (iEventReporter != null) {
-                iEventReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i2 + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
+                iEventReporter.reportPayFlow(PayEventType.payingaddpaymentrespone, i + "", "pay failed reason:" + str, this.orderId, "" + this.requestTime, this.params.getProductId(), this.payType.getChannel(), this.params.getTraceid());
             }
             IAppPayService iAppPayService = this.appPayService;
             if (iAppPayService != null && iAppPayService.getPayRepoter() != null) {
                 HiidoReport.CReportResponse cReportResponse = this.reportResponse;
                 cReportResponse.mEventId = "5";
                 cReportResponse.mEventaliae = EventAlias.PayEventAlias.PAY_FAIL;
-                cReportResponse.mErrCode = i2 + "";
+                cReportResponse.mErrCode = i + "";
                 this.reportResponse.mErrMsg = "pay failed reason:" + str;
                 this.appPayService.getPayRepoter().onPayResult(this.reportResponse);
             }
-            RLog.info("PayCallbackProxy", "payingaddpaymentrespone pay fail! failReason:" + str + " code:" + i2 + " orderId:" + this.orderId);
+            RLog.info("PayCallbackProxy", "payingaddpaymentrespone pay fail! failReason:" + str + " code:" + i + " orderId:" + this.orderId);
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-    public void onFail(int i2, String str, PayCallBackBean payCallBackBean) {
+    public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, payCallBackBean) == null) {
-            failCallBackInternal(i2, str, payCallBackBean);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, payCallBackBean) == null) {
+            failCallBackInternal(i, str, payCallBackBean);
         }
     }
 

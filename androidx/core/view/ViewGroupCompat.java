@@ -23,9 +23,9 @@ public final class ViewGroupCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,12 +79,12 @@ public final class ViewGroupCompat {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, view, accessibilityEvent)) == null) ? viewGroup.onRequestSendAccessibilityEvent(view, accessibilityEvent) : invokeLLL.booleanValue;
     }
 
-    public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i2) {
+    public static void setLayoutMode(@NonNull ViewGroup viewGroup, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, viewGroup, i2) == null) || Build.VERSION.SDK_INT < 18) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, viewGroup, i) == null) || Build.VERSION.SDK_INT < 18) {
             return;
         }
-        viewGroup.setLayoutMode(i2);
+        viewGroup.setLayoutMode(i);
     }
 
     @Deprecated

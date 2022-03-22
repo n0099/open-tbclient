@@ -14,15 +14,15 @@ public class v {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static v f53831d;
+    public static v f39000d;
     public transient /* synthetic */ FieldHolder $fh;
     public w a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f53832b;
+    public d f39001b;
 
     /* renamed from: c  reason: collision with root package name */
-    public u f53833c;
+    public u f39002c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,38 +46,38 @@ public class v {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         d dVar = new d(context);
-        this.f53832b = dVar;
+        this.f39001b = dVar;
         this.a = new w(dVar);
-        this.f53833c = new u(this.f53832b);
+        this.f39002c = new u(this.f39001b);
     }
 
     public static v a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f53831d : (v) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f39000d : (v) invokeV.objValue;
     }
 
     public static v a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (f53831d == null) {
+            if (f39000d == null) {
                 synchronized (v.class) {
-                    if (f53831d == null) {
-                        f53831d = new v(context);
+                    if (f39000d == null) {
+                        f39000d = new v(context);
                     }
                 }
             }
-            return f53831d;
+            return f39000d;
         }
         return (v) invokeL.objValue;
     }
@@ -85,24 +85,24 @@ public class v {
     public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f53833c.a(str, "") : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.f39002c.a(str, "") : (String) invokeL.objValue;
     }
 
     public String a(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? this.f53833c.a(str, str2) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) ? this.f39002c.a(str, str2) : (String) invokeLL.objValue;
     }
 
-    public boolean a(int i2) {
+    public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.a.a(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.a.a(i) : invokeI.booleanValue;
     }
 
     public boolean b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f53833c.b(str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) ? this.f39002c.b(str, str2) : invokeLL.booleanValue;
     }
 }

@@ -13,8 +13,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import org.apache.commons.lang3.SystemUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LibraryLoader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DELIMITER;
@@ -45,9 +44,9 @@ public class LibraryLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -207,7 +206,7 @@ public class LibraryLoader {
                 return;
             }
             if (str == null) {
-                str = System.getProperty(SystemUtils.JAVA_IO_TMPDIR_KEY);
+                str = System.getProperty("java.io.tmpdir");
             }
             if (extract(str, true, stringBuffer) || extract(str, false, stringBuffer)) {
                 return;
@@ -222,7 +221,7 @@ public class LibraryLoader {
         if (interceptable == null || (invokeZL = interceptable.invokeZL(65545, null, z, stringBuffer)) == null) {
             String computeLibraryShortName = computeLibraryShortName(z);
             String computeLibraryFullName = computeLibraryFullName(z);
-            String str = System.getProperty(SystemUtils.USER_DIR_KEY) + SEPARATOR + "jni" + SEPARATOR + computeLibraryFullName;
+            String str = System.getProperty("user.dir") + SEPARATOR + "jni" + SEPARATOR + computeLibraryFullName;
             if (load(computeLibraryFullName, stringBuffer) || load(computeLibraryShortName, stringBuffer)) {
                 return true;
             }

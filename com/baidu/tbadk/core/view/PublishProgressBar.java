@@ -19,15 +19,13 @@ import com.kuaishou.weapon.un.w0;
 public class PublishProgressBar extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f39121e;
+    /* renamed from: b  reason: collision with root package name */
+    public Paint f30105b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public Paint f39122f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Rect f39123g;
+    /* renamed from: c  reason: collision with root package name */
+    public Rect f30106c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PublishProgressBar(Context context, AttributeSet attributeSet) {
@@ -38,9 +36,9 @@ public class PublishProgressBar extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -48,15 +46,15 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f39121e = 0;
+        this.a = 0;
         a(context, attributeSet);
     }
 
     public final void a(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            this.f39122f = new Paint(1);
-            this.f39123g = new Rect();
+            this.f30105b = new Paint(1);
+            this.f30106c = new Rect();
             b();
         }
     }
@@ -67,29 +65,29 @@ public class PublishProgressBar extends View {
             int color = SkinManager.getColor(R.color.CAM_X0302);
             setBackgroundColor(color);
             getBackground().setAlpha(w0.d0);
-            this.f39122f.setColor(color);
-            this.f39122f.setAlpha(w0.d0);
+            this.f30105b.setColor(color);
+            this.f30105b.setAlpha(w0.d0);
             postInvalidate();
         }
     }
 
-    public int c(int i2) {
+    public int c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i < 0) {
                 return 0;
             }
-            if (i2 > 100) {
+            if (i > 100) {
                 return 100;
             }
-            int i3 = this.f39121e;
-            if (i2 == i3) {
-                return i3;
+            int i2 = this.a;
+            if (i == i2) {
+                return i2;
             }
-            this.f39121e = i2;
+            this.a = i;
             postInvalidate();
-            return this.f39121e;
+            return this.a;
         }
         return invokeI.intValue;
     }
@@ -99,23 +97,23 @@ public class PublishProgressBar extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f39123g.set(0, 0, (int) (getWidth() * (this.f39121e / 100.0f)), getHeight());
-            canvas.drawRect(this.f39123g, this.f39122f);
+            this.f30106c.set(0, 0, (int) (getWidth() * (this.a / 100.0f)), getHeight());
+            canvas.drawRect(this.f30106c, this.f30105b);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PublishProgressBar(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public PublishProgressBar(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -123,7 +121,7 @@ public class PublishProgressBar extends View {
                 return;
             }
         }
-        this.f39121e = 0;
+        this.a = 0;
         a(context, attributeSet);
     }
 }

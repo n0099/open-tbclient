@@ -25,9 +25,9 @@ public class StorageFile {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -127,11 +127,11 @@ public class StorageFile {
             if (str == null) {
                 return null;
             }
-            long j2 = 0;
+            long j = 0;
             for (byte b2 : str.getBytes()) {
-                j2 += b2;
+                j += b2;
             }
-            return FileUtils.IMAGE_FILE_START + (j2 % 20);
+            return FileUtils.IMAGE_FILE_START + (j % 20);
         }
         return (String) invokeL.objValue;
     }

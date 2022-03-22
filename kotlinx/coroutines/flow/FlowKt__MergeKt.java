@@ -19,7 +19,7 @@ import kotlinx.coroutines.flow.internal.ChannelFlowTransformLatest;
 import kotlinx.coroutines.flow.internal.ChannelLimitedFlowMerge;
 import kotlinx.coroutines.internal.SystemPropsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000P\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0010\u001c\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0010\u000e\n\u0002\b\u0004\u001a;\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u00002\u001e\u0010\u0003\u001a\u0010\u0012\f\b\u0001\u0012\b\u0012\u0004\u0012\u00028\u00000\u00020\u0001\"\b\u0012\u0004\u0012\u00028\u00000\u0002H\u0007¢\u0006\u0004\b\u0004\u0010\u0005\u001ag\u0010\u000e\u001a\b\u0012\u0004\u0012\u00028\u00010\u0002\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\u0006*\b\u0012\u0004\u0012\u00028\u00000\u000227\u0010\r\u001a3\b\u0001\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u00020\u000b\u0012\u0006\u0012\u0004\u0018\u00010\f0\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\u000e\u0010\u000f\u001aj\u0010\u0010\u001a\b\u0012\u0004\u0012\u00028\u00010\u0002\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\u0006*\b\u0012\u0004\u0012\u00028\u00000\u000229\b\u0005\u0010\r\u001a3\b\u0001\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u00020\u000b\u0012\u0006\u0012\u0004\u0018\u00010\f0\u0007H\u0087\bø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u000f\u001aq\u0010\u0013\u001a\b\u0012\u0004\u0012\u00028\u00010\u0002\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\u0006*\b\u0012\u0004\u0012\u00028\u00000\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u001127\u0010\r\u001a3\b\u0001\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n\u0012\u0010\u0012\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u00020\u000b\u0012\u0006\u0012\u0004\u0018\u00010\f0\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0013\u0010\u0014\u001a+\u0010\u0015\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00020\u0002H\u0007¢\u0006\u0004\b\u0015\u0010\u0016\u001a5\u0010\u0017\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00020\u00022\b\b\u0002\u0010\u0012\u001a\u00020\u0011H\u0007¢\u0006\u0004\b\u0017\u0010\u0018\u001ac\u0010\u0019\u001a\b\u0012\u0004\u0012\u00028\u00010\u0002\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\u0006*\b\u0012\u0004\u0012\u00028\u00000\u000223\b\u0001\u0010\r\u001a-\b\u0001\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u000b\u0012\u0006\u0012\u0004\u0018\u00010\f0\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u000f\u001a+\u0010\u0004\u001a\b\u0012\u0004\u0012\u00028\u00000\u0002\"\u0004\b\u0000\u0010\u0000*\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00000\u00020\u001aH\u0007¢\u0006\u0004\b\u0004\u0010\u001b\u001at\u0010 \u001a\b\u0012\u0004\u0012\u00028\u00010\u0002\"\u0004\b\u0000\u0010\u0000\"\u0004\b\u0001\u0010\u0006*\b\u0012\u0004\u0012\u00028\u00000\u00022D\b\u0001\u0010\r\u001a>\b\u0001\u0012\n\u0012\b\u0012\u0004\u0012\u00028\u00010\u001d\u0012\u0013\u0012\u00118\u0000¢\u0006\f\b\b\u0012\b\b\t\u0012\u0004\b\b(\n\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u001e0\u000b\u0012\u0006\u0012\u0004\u0018\u00010\f0\u001c¢\u0006\u0002\b\u001fH\u0007ø\u0001\u0000¢\u0006\u0004\b \u0010!\"\"\u0010\"\u001a\u00020\u00118\u0006@\u0007X\u0087\u0004¢\u0006\u0012\n\u0004\b\"\u0010#\u0012\u0004\b&\u0010'\u001a\u0004\b$\u0010%\"\u001c\u0010)\u001a\u00020(8\u0006@\u0007X\u0087T¢\u0006\f\n\u0004\b)\u0010*\u0012\u0004\b+\u0010'\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006,"}, d2 = {"T", "", "Lkotlinx/coroutines/flow/Flow;", "flows", "merge", "([Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;", "R", "Lkotlin/Function2;", "Lkotlin/ParameterName;", "name", "value", "Lkotlin/coroutines/Continuation;", "", AnimationProperty.TRANSFORM, "flatMapConcat", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;", "flatMapLatest", "", "concurrency", "flatMapMerge", "(Lkotlinx/coroutines/flow/Flow;ILkotlin/jvm/functions/Function2;)Lkotlinx/coroutines/flow/Flow;", "flattenConcat", "(Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;", "flattenMerge", "(Lkotlinx/coroutines/flow/Flow;I)Lkotlinx/coroutines/flow/Flow;", "mapLatest", "", "(Ljava/lang/Iterable;)Lkotlinx/coroutines/flow/Flow;", "Lkotlin/Function3;", "Lkotlinx/coroutines/flow/FlowCollector;", "", "Lkotlin/ExtensionFunctionType;", "transformLatest", "(Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function3;)Lkotlinx/coroutines/flow/Flow;", "DEFAULT_CONCURRENCY", "I", "getDEFAULT_CONCURRENCY", "()I", "DEFAULT_CONCURRENCY$annotations", "()V", "", "DEFAULT_CONCURRENCY_PROPERTY_NAME", "Ljava/lang/String;", "DEFAULT_CONCURRENCY_PROPERTY_NAME$annotations", "kotlinx-coroutines-core"}, k = 5, mv = {1, 1, 15}, pn = "", xi = 0, xs = "kotlinx/coroutines/flow/FlowKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final /* synthetic */ class FlowKt__MergeKt {
     public static final int DEFAULT_CONCURRENCY = SystemPropsKt.systemProp(FlowKt.DEFAULT_CONCURRENCY_PROPERTY_NAME, 16, 1, Integer.MAX_VALUE);
 
@@ -33,7 +33,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
 
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$1$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapConcat$$inlined$map$1$2  reason: invalid class name */
-            /* loaded from: classes9.dex */
+            /* loaded from: classes8.dex */
             public static final class AnonymousClass2 implements FlowCollector<T> {
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__MergeKt$flatMapConcat$$inlined$map$1 this$0;
@@ -41,7 +41,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000æ\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u00022\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\u0096@¨\u0006\n"}, d2 = {"emit", "", "T", "value", "continuation", "Lkotlin/coroutines/Continuation;", "", "kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3$emit$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$$special$$inlined$collect$1$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$unsafeTransform$$inlined$unsafeFlow$1$lambda$1$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$1$2$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
                 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapConcat$$inlined$map$1$2", f = "Merge.kt", i = {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, l = {138, 138}, m = "emit", n = {"this", "value", "continuation", "value", "continuation", "value", "$receiver", "this", "value", "continuation", "value", "continuation", "value", "$receiver"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$5", "L$6", "L$0", "L$1", "L$2", "L$3", "L$4", "L$5", "L$6"})
                 /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapConcat$$inlined$map$1$2$1  reason: invalid class name */
-                /* loaded from: classes9.dex */
+                /* loaded from: classes8.dex */
                 public static final class AnonymousClass1 extends ContinuationImpl {
                     public Object L$0;
                     public Object L$1;
@@ -82,7 +82,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     AnonymousClass1 anonymousClass1;
                     Object obj2;
                     Object coroutine_suspended;
-                    int i2;
+                    int i;
                     AnonymousClass2 anonymousClass2;
                     Object obj3;
                     Object obj4;
@@ -93,13 +93,13 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     FlowCollector flowCollector2;
                     if (continuation instanceof AnonymousClass1) {
                         anonymousClass1 = (AnonymousClass1) continuation;
-                        int i3 = anonymousClass1.label;
-                        if ((i3 & Integer.MIN_VALUE) != 0) {
-                            anonymousClass1.label = i3 - Integer.MIN_VALUE;
+                        int i2 = anonymousClass1.label;
+                        if ((i2 & Integer.MIN_VALUE) != 0) {
+                            anonymousClass1.label = i2 - Integer.MIN_VALUE;
                             obj2 = anonymousClass1.result;
                             coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                            i2 = anonymousClass1.label;
-                            if (i2 != 0) {
+                            i = anonymousClass1.label;
+                            if (i != 0) {
                                 ResultKt.throwOnFailure(obj2);
                                 FlowCollector flowCollector3 = this.$this_unsafeFlow$inlined;
                                 Function2 function2 = function2;
@@ -125,8 +125,8 @@ public final /* synthetic */ class FlowKt__MergeKt {
                                 anonymousClass13 = anonymousClass12;
                                 obj2 = invoke;
                                 flowCollector2 = flowCollector;
-                            } else if (i2 != 1) {
-                                if (i2 == 2) {
+                            } else if (i != 1) {
+                                if (i == 2) {
                                     FlowCollector flowCollector4 = (FlowCollector) anonymousClass1.L$6;
                                     Object obj6 = anonymousClass1.L$5;
                                     AnonymousClass1 anonymousClass14 = (AnonymousClass1) anonymousClass1.L$4;
@@ -166,8 +166,8 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     anonymousClass1 = new AnonymousClass1(continuation);
                     obj2 = anonymousClass1.result;
                     coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = anonymousClass1.label;
-                    if (i2 != 0) {
+                    i = anonymousClass1.label;
+                    if (i != 0) {
                     }
                     anonymousClass1.L$0 = anonymousClass2;
                     anonymousClass1.L$1 = obj5;
@@ -197,12 +197,12 @@ public final /* synthetic */ class FlowKt__MergeKt {
     }
 
     @FlowPreview
-    public static final <T, R> Flow<R> flatMapMerge(final Flow<? extends T> flow, int i2, final Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
+    public static final <T, R> Flow<R> flatMapMerge(final Flow<? extends T> flow, int i, final Function2<? super T, ? super Continuation<? super Flow<? extends R>>, ? extends Object> function2) {
         return FlowKt.flattenMerge(new Flow<Flow<? extends R>>() { // from class: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1
 
             @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0013\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004*\u0001\u0000\b\n\u0018\u00002\u00020\u0001J\u001b\u0010\u0004\u001a\u00020\u00032\u0006\u0010\u0002\u001a\u00028\u0000H\u0096@ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006\u0006¸\u0006\u0007"}, d2 = {"kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3", "Lkotlinx/coroutines/flow/FlowCollector;", "value", "", "emit", "(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "kotlinx-coroutines-core", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$2$2"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
             /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1$2  reason: invalid class name */
-            /* loaded from: classes9.dex */
+            /* loaded from: classes8.dex */
             public static final class AnonymousClass2 implements FlowCollector<T> {
                 public final /* synthetic */ FlowCollector $this_unsafeFlow$inlined;
                 public final /* synthetic */ FlowKt__MergeKt$flatMapMerge$$inlined$map$1 this$0;
@@ -210,7 +210,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000æ\u0002\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\b\u0003\n\u0002\b\u0004\u0010\u0000\u001a\u0004\u0018\u00010\u0001\"\u0004\b\u0000\u0010\u00022\u0006\u0010\u0003\u001a\u0002H\u00022\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005H\u0096@¨\u0006\n"}, d2 = {"emit", "", "T", "value", "continuation", "Lkotlin/coroutines/Continuation;", "", "kotlinx/coroutines/flow/FlowKt__CollectKt$collect$3$emit$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$$special$$inlined$collect$2$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$unsafeTransform$$inlined$unsafeFlow$2$lambda$1$1", "kotlinx/coroutines/flow/FlowKt__MergeKt$map$$inlined$unsafeTransform$2$2$1"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
                 @DebugMetadata(c = "kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1$2", f = "Merge.kt", i = {0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1}, l = {138, 138}, m = "emit", n = {"this", "value", "continuation", "value", "continuation", "value", "$receiver", "this", "value", "continuation", "value", "continuation", "value", "$receiver"}, s = {"L$0", "L$1", "L$2", "L$3", "L$4", "L$5", "L$6", "L$0", "L$1", "L$2", "L$3", "L$4", "L$5", "L$6"})
                 /* renamed from: kotlinx.coroutines.flow.FlowKt__MergeKt$flatMapMerge$$inlined$map$1$2$1  reason: invalid class name */
-                /* loaded from: classes9.dex */
+                /* loaded from: classes8.dex */
                 public static final class AnonymousClass1 extends ContinuationImpl {
                     public Object L$0;
                     public Object L$1;
@@ -251,7 +251,7 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     AnonymousClass1 anonymousClass1;
                     Object obj2;
                     Object coroutine_suspended;
-                    int i2;
+                    int i;
                     AnonymousClass2 anonymousClass2;
                     Object obj3;
                     Object obj4;
@@ -262,13 +262,13 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     FlowCollector flowCollector2;
                     if (continuation instanceof AnonymousClass1) {
                         anonymousClass1 = (AnonymousClass1) continuation;
-                        int i3 = anonymousClass1.label;
-                        if ((i3 & Integer.MIN_VALUE) != 0) {
-                            anonymousClass1.label = i3 - Integer.MIN_VALUE;
+                        int i2 = anonymousClass1.label;
+                        if ((i2 & Integer.MIN_VALUE) != 0) {
+                            anonymousClass1.label = i2 - Integer.MIN_VALUE;
                             obj2 = anonymousClass1.result;
                             coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                            i2 = anonymousClass1.label;
-                            if (i2 != 0) {
+                            i = anonymousClass1.label;
+                            if (i != 0) {
                                 ResultKt.throwOnFailure(obj2);
                                 FlowCollector flowCollector3 = this.$this_unsafeFlow$inlined;
                                 Function2 function2 = function2;
@@ -294,8 +294,8 @@ public final /* synthetic */ class FlowKt__MergeKt {
                                 anonymousClass13 = anonymousClass12;
                                 obj2 = invoke;
                                 flowCollector2 = flowCollector;
-                            } else if (i2 != 1) {
-                                if (i2 == 2) {
+                            } else if (i != 1) {
+                                if (i == 2) {
                                     FlowCollector flowCollector4 = (FlowCollector) anonymousClass1.L$6;
                                     Object obj6 = anonymousClass1.L$5;
                                     AnonymousClass1 anonymousClass14 = (AnonymousClass1) anonymousClass1.L$4;
@@ -335,8 +335,8 @@ public final /* synthetic */ class FlowKt__MergeKt {
                     anonymousClass1 = new AnonymousClass1(continuation);
                     obj2 = anonymousClass1.result;
                     coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = anonymousClass1.label;
-                    if (i2 != 0) {
+                    i = anonymousClass1.label;
+                    if (i != 0) {
                     }
                     anonymousClass1.L$0 = anonymousClass2;
                     anonymousClass1.L$1 = obj5;
@@ -357,14 +357,14 @@ public final /* synthetic */ class FlowKt__MergeKt {
                 Object collect = Flow.this.collect(new AnonymousClass2(flowCollector, this), continuation);
                 return collect == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED() ? collect : Unit.INSTANCE;
             }
-        }, i2);
+        }, i);
     }
 
-    public static /* synthetic */ Flow flatMapMerge$default(Flow flow, int i2, Function2 function2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = DEFAULT_CONCURRENCY;
+    public static /* synthetic */ Flow flatMapMerge$default(Flow flow, int i, Function2 function2, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = DEFAULT_CONCURRENCY;
         }
-        return FlowKt.flatMapMerge(flow, i2, function2);
+        return FlowKt.flatMapMerge(flow, i, function2);
     }
 
     @FlowPreview
@@ -385,18 +385,18 @@ public final /* synthetic */ class FlowKt__MergeKt {
     }
 
     @FlowPreview
-    public static final <T> Flow<T> flattenMerge(Flow<? extends Flow<? extends T>> flow, int i2) {
-        if (i2 > 0) {
-            return i2 == 1 ? FlowKt.flattenConcat(flow) : new ChannelFlowMerge(flow, i2, null, 0, 12, null);
+    public static final <T> Flow<T> flattenMerge(Flow<? extends Flow<? extends T>> flow, int i) {
+        if (i > 0) {
+            return i == 1 ? FlowKt.flattenConcat(flow) : new ChannelFlowMerge(flow, i, null, 0, 12, null);
         }
-        throw new IllegalArgumentException(("Expected positive concurrency level, but had " + i2).toString());
+        throw new IllegalArgumentException(("Expected positive concurrency level, but had " + i).toString());
     }
 
-    public static /* synthetic */ Flow flattenMerge$default(Flow flow, int i2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = DEFAULT_CONCURRENCY;
+    public static /* synthetic */ Flow flattenMerge$default(Flow flow, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = DEFAULT_CONCURRENCY;
         }
-        return FlowKt.flattenMerge(flow, i2);
+        return FlowKt.flattenMerge(flow, i);
     }
 
     public static final int getDEFAULT_CONCURRENCY() {

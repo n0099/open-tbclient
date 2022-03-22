@@ -21,6 +21,7 @@ import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import com.baidu.webkit.sdk.WebSettings;
 import com.baidu.webkit.sdk.WebViewFactory;
+import com.baidubce.http.Headers;
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
 /* loaded from: classes6.dex */
@@ -57,9 +58,9 @@ public class PacDownload implements IResourceTask, INetListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -262,22 +263,22 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048583, this, bdNet, bdNetTask, netError, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048583, this, bdNet, bdNetTask, netError, i) == null) {
             Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
             mDownloading = false;
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet, bdNetTask, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNet, bdNetTask, bArr, i) == null) {
             if (this.mData == null) {
                 this.mData = new ByteArrayOutputStream();
             }
-            this.mData.write(bArr, 0, i2);
+            this.mData.write(bArr, 0, i);
         }
     }
 
@@ -290,27 +291,27 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, bdNet, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, bdNet, bdNetTask, i)) == null) {
             return false;
         }
         return invokeLLI.booleanValue;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048587, this, bdNet, bdNetTask, i2) == null) {
-            Log.w(LOG_TAG, "onNetResponseCode  " + i2 + " url " + bdNetTask.getUrl());
+        if (interceptable == null || interceptable.invokeLLI(1048587, this, bdNet, bdNetTask, i) == null) {
+            Log.w(LOG_TAG, "onNetResponseCode  " + i + " url " + bdNetTask.getUrl());
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048588, this, bdNet, bdNetTask, netState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048588, this, bdNet, bdNetTask, netState, i) == null) {
         }
     }
 
@@ -330,7 +331,7 @@ public class PacDownload implements IResourceTask, INetListener {
                 String str = new String(byteArray, "UTF-8");
                 if (getFreeFlowEnabled()) {
                     if (this.mHeader != null) {
-                        String str2 = this.mHeader.get("Last-Modified");
+                        String str2 = this.mHeader.get(Headers.LAST_MODIFIED);
                         Log.w(LOG_TAG, "lastModify freeflow  ".concat(String.valueOf(str2)));
                         if (str2 != null) {
                             Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str2)));
@@ -343,7 +344,7 @@ public class PacDownload implements IResourceTask, INetListener {
                     return;
                 }
                 if (this.mHeader != null) {
-                    String str3 = this.mHeader.get("Last-Modified");
+                    String str3 = this.mHeader.get(Headers.LAST_MODIFIED);
                     Log.w(LOG_TAG, "lastModify ".concat(String.valueOf(str3)));
                     if (str3 != null) {
                         Log.w(LOG_TAG, "lastModify1 ".concat(String.valueOf(str3)));
@@ -375,9 +376,9 @@ public class PacDownload implements IResourceTask, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048592, this, bdNet, bdNetTask, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048592, this, bdNet, bdNetTask, i, i2) == null) {
         }
     }
 

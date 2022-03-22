@@ -4,6 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.sofire.rp.db.ReportDb;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,8 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.b.j;
-import com.baidu.wallet.paysdk.ui.widget.PayTypeItemView;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.zxing.FormatException;
 import com.google.zxing.aztec.AztecDetectorResult;
@@ -24,7 +23,6 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.Arrays;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public final class Decoder {
     public static /* synthetic */ Interceptable $ic;
@@ -117,16 +115,16 @@ public final class Decoder {
             $VALUES = new Table[]{UPPER, LOWER, MIXED, DIGIT, PUNCT, table};
         }
 
-        public Table(String str, int i2) {
+        public Table(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -163,9 +161,9 @@ public final class Decoder {
             }
         }
         UPPER_TABLE = new String[]{"CTRL_PS", " ", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "CTRL_LL", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-        LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", j.q, "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
-        MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", StringUtils.LF, "\u000b", "\f", StringUtils.CR, "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, PayTypeItemView.PayTypeItemViewData.MASK_FLAG, "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
-        PUNCT_TABLE = new String[]{"", StringUtils.CR, "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
+        LOWER_TABLE = new String[]{"CTRL_PS", " ", "a", "b", "c", "d", "e", "f", "g", "h", "i", ReportDb.EVENT_REPORT_TYPE, "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "CTRL_US", "CTRL_ML", "CTRL_DL", "CTRL_BS"};
+        MIXED_TABLE = new String[]{"CTRL_PS", " ", "\u0001", "\u0002", "\u0003", "\u0004", "\u0005", "\u0006", "\u0007", "\b", "\t", "\n", "\u000b", "\f", "\r", "\u001b", "\u001c", "\u001d", "\u001e", "\u001f", "@", IStringUtil.WINDOWS_FOLDER_SEPARATOR, "^", "_", "`", "|", Constants.WAVE_SEPARATOR, "\u007f", "CTRL_LL", "CTRL_UL", "CTRL_PL", "CTRL_BS"};
+        PUNCT_TABLE = new String[]{"", "\r", "\r\n", ". ", StringUtil.ARRAY_ELEMENT_SEPARATOR, ": ", "!", "\"", "#", "$", "%", "&", "'", "(", SmallTailInfo.EMOTION_SUFFIX, "*", BadgeDrawable.DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX, ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", PreferencesUtil.LEFT_MOUNT, PreferencesUtil.RIGHT_MOUNT, "{", "}", "CTRL_UL"};
         DIGIT_TABLE = new String[]{"CTRL_PS", " ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ",", ".", "CTRL_UL", "CTRL_US"};
     }
 
@@ -174,9 +172,9 @@ public final class Decoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -189,8 +187,8 @@ public final class Decoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, zArr)) == null) {
             int length = (zArr.length + 7) / 8;
             byte[] bArr = new byte[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                bArr[i2] = readByte(zArr, i2 << 3);
+            for (int i = 0; i < length; i++) {
+                bArr[i] = readByte(zArr, i << 3);
             }
             return bArr;
         }
@@ -202,57 +200,57 @@ public final class Decoder {
         GenericGF genericGF;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, zArr)) == null) {
-            int i2 = 8;
+            int i = 8;
             if (this.ddata.getNbLayers() <= 2) {
-                i2 = 6;
+                i = 6;
                 genericGF = GenericGF.AZTEC_DATA_6;
             } else if (this.ddata.getNbLayers() <= 8) {
                 genericGF = GenericGF.AZTEC_DATA_8;
             } else if (this.ddata.getNbLayers() <= 22) {
-                i2 = 10;
+                i = 10;
                 genericGF = GenericGF.AZTEC_DATA_10;
             } else {
-                i2 = 12;
+                i = 12;
                 genericGF = GenericGF.AZTEC_DATA_12;
             }
             int nbDatablocks = this.ddata.getNbDatablocks();
-            int length = zArr.length / i2;
+            int length = zArr.length / i;
             if (length >= nbDatablocks) {
-                int length2 = zArr.length % i2;
+                int length2 = zArr.length % i;
                 int[] iArr = new int[length];
-                int i3 = 0;
-                while (i3 < length) {
-                    iArr[i3] = readCode(zArr, length2, i2);
-                    i3++;
-                    length2 += i2;
+                int i2 = 0;
+                while (i2 < length) {
+                    iArr[i2] = readCode(zArr, length2, i);
+                    i2++;
+                    length2 += i;
                 }
                 try {
                     new ReedSolomonDecoder(genericGF).decode(iArr, length - nbDatablocks);
-                    int i4 = (1 << i2) - 1;
-                    int i5 = 0;
-                    for (int i6 = 0; i6 < nbDatablocks; i6++) {
-                        int i7 = iArr[i6];
-                        if (i7 == 0 || i7 == i4) {
+                    int i3 = (1 << i) - 1;
+                    int i4 = 0;
+                    for (int i5 = 0; i5 < nbDatablocks; i5++) {
+                        int i6 = iArr[i5];
+                        if (i6 == 0 || i6 == i3) {
                             throw FormatException.getFormatInstance();
                         }
-                        if (i7 == 1 || i7 == i4 - 1) {
-                            i5++;
+                        if (i6 == 1 || i6 == i3 - 1) {
+                            i4++;
                         }
                     }
-                    boolean[] zArr2 = new boolean[(nbDatablocks * i2) - i5];
-                    int i8 = 0;
-                    for (int i9 = 0; i9 < nbDatablocks; i9++) {
-                        int i10 = iArr[i9];
-                        if (i10 == 1 || i10 == i4 - 1) {
-                            Arrays.fill(zArr2, i8, (i8 + i2) - 1, i10 > 1);
-                            i8 += i2 - 1;
+                    boolean[] zArr2 = new boolean[(nbDatablocks * i) - i4];
+                    int i7 = 0;
+                    for (int i8 = 0; i8 < nbDatablocks; i8++) {
+                        int i9 = iArr[i8];
+                        if (i9 == 1 || i9 == i3 - 1) {
+                            Arrays.fill(zArr2, i7, (i7 + i) - 1, i9 > 1);
+                            i7 += i - 1;
                         } else {
-                            int i11 = i2 - 1;
-                            while (i11 >= 0) {
-                                int i12 = i8 + 1;
-                                zArr2[i8] = ((1 << i11) & i10) != 0;
-                                i11--;
-                                i8 = i12;
+                            int i10 = i - 1;
+                            while (i10 >= 0) {
+                                int i11 = i7 + 1;
+                                zArr2[i7] = ((1 << i10) & i9) != 0;
+                                i10--;
+                                i7 = i11;
                             }
                         }
                     }
@@ -272,81 +270,81 @@ public final class Decoder {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, bitMatrix)) == null) {
             boolean isCompact = this.ddata.isCompact();
             int nbLayers = this.ddata.getNbLayers();
-            int i2 = (isCompact ? 11 : 14) + (nbLayers << 2);
-            int[] iArr = new int[i2];
+            int i = (isCompact ? 11 : 14) + (nbLayers << 2);
+            int[] iArr = new int[i];
             boolean[] zArr = new boolean[totalBitsInLayer(nbLayers, isCompact)];
-            int i3 = 2;
+            int i2 = 2;
             if (isCompact) {
-                for (int i4 = 0; i4 < i2; i4++) {
-                    iArr[i4] = i4;
+                for (int i3 = 0; i3 < i; i3++) {
+                    iArr[i3] = i3;
                 }
             } else {
-                int i5 = i2 / 2;
-                int i6 = ((i2 + 1) + (((i5 - 1) / 15) * 2)) / 2;
-                for (int i7 = 0; i7 < i5; i7++) {
-                    int i8 = (i7 / 15) + i7;
-                    iArr[(i5 - i7) - 1] = (i6 - i8) - 1;
-                    iArr[i5 + i7] = i8 + i6 + 1;
+                int i4 = i / 2;
+                int i5 = ((i + 1) + (((i4 - 1) / 15) * 2)) / 2;
+                for (int i6 = 0; i6 < i4; i6++) {
+                    int i7 = (i6 / 15) + i6;
+                    iArr[(i4 - i6) - 1] = (i5 - i7) - 1;
+                    iArr[i4 + i6] = i7 + i5 + 1;
                 }
             }
+            int i8 = 0;
             int i9 = 0;
-            int i10 = 0;
-            while (i9 < nbLayers) {
-                int i11 = ((nbLayers - i9) << i3) + (isCompact ? 9 : 12);
-                int i12 = i9 << 1;
-                int i13 = (i2 - 1) - i12;
-                int i14 = 0;
-                while (i14 < i11) {
-                    int i15 = i14 << 1;
-                    int i16 = 0;
-                    while (i16 < i3) {
-                        int i17 = i12 + i16;
-                        int i18 = i12 + i14;
-                        zArr[i10 + i15 + i16] = bitMatrix.get(iArr[i17], iArr[i18]);
-                        int i19 = iArr[i18];
-                        int i20 = i13 - i16;
-                        zArr[(i11 * 2) + i10 + i15 + i16] = bitMatrix.get(i19, iArr[i20]);
-                        int i21 = i13 - i14;
-                        zArr[(i11 * 4) + i10 + i15 + i16] = bitMatrix.get(iArr[i20], iArr[i21]);
-                        zArr[(i11 * 6) + i10 + i15 + i16] = bitMatrix.get(iArr[i21], iArr[i17]);
-                        i16++;
+            while (i8 < nbLayers) {
+                int i10 = ((nbLayers - i8) << i2) + (isCompact ? 9 : 12);
+                int i11 = i8 << 1;
+                int i12 = (i - 1) - i11;
+                int i13 = 0;
+                while (i13 < i10) {
+                    int i14 = i13 << 1;
+                    int i15 = 0;
+                    while (i15 < i2) {
+                        int i16 = i11 + i15;
+                        int i17 = i11 + i13;
+                        zArr[i9 + i14 + i15] = bitMatrix.get(iArr[i16], iArr[i17]);
+                        int i18 = iArr[i17];
+                        int i19 = i12 - i15;
+                        zArr[(i10 * 2) + i9 + i14 + i15] = bitMatrix.get(i18, iArr[i19]);
+                        int i20 = i12 - i13;
+                        zArr[(i10 * 4) + i9 + i14 + i15] = bitMatrix.get(iArr[i19], iArr[i20]);
+                        zArr[(i10 * 6) + i9 + i14 + i15] = bitMatrix.get(iArr[i20], iArr[i16]);
+                        i15++;
                         nbLayers = nbLayers;
                         isCompact = isCompact;
-                        i3 = 2;
+                        i2 = 2;
                     }
-                    i14++;
-                    i3 = 2;
+                    i13++;
+                    i2 = 2;
                 }
-                i10 += i11 << 3;
-                i9++;
-                i3 = 2;
+                i9 += i10 << 3;
+                i8++;
+                i2 = 2;
             }
             return zArr;
         }
         return (boolean[]) invokeL.objValue;
     }
 
-    public static String getCharacter(Table table, int i2) {
+    public static String getCharacter(Table table, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, table, i2)) == null) {
-            int i3 = AnonymousClass1.$SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table[table.ordinal()];
-            if (i3 != 1) {
-                if (i3 != 2) {
-                    if (i3 != 3) {
-                        if (i3 != 4) {
-                            if (i3 == 5) {
-                                return DIGIT_TABLE[i2];
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, table, i)) == null) {
+            int i2 = AnonymousClass1.$SwitchMap$com$google$zxing$aztec$decoder$Decoder$Table[table.ordinal()];
+            if (i2 != 1) {
+                if (i2 != 2) {
+                    if (i2 != 3) {
+                        if (i2 != 4) {
+                            if (i2 == 5) {
+                                return DIGIT_TABLE[i];
                             }
                             throw new IllegalStateException("Bad table");
                         }
-                        return PUNCT_TABLE[i2];
+                        return PUNCT_TABLE[i];
                     }
-                    return MIXED_TABLE[i2];
+                    return MIXED_TABLE[i];
                 }
-                return LOWER_TABLE[i2];
+                return LOWER_TABLE[i];
             }
-            return UPPER_TABLE[i2];
+            return UPPER_TABLE[i];
         }
         return (String) invokeLI.objValue;
     }
@@ -359,15 +357,15 @@ public final class Decoder {
             Table table = Table.UPPER;
             StringBuilder sb = new StringBuilder(20);
             Table table2 = table;
-            int i2 = 0;
-            while (i2 < length) {
+            int i = 0;
+            while (i < length) {
                 if (table != Table.BINARY) {
-                    int i3 = table == Table.DIGIT ? 4 : 5;
-                    if (length - i2 < i3) {
+                    int i2 = table == Table.DIGIT ? 4 : 5;
+                    if (length - i < i2) {
                         break;
                     }
-                    int readCode = readCode(zArr, i2, i3);
-                    i2 += i3;
+                    int readCode = readCode(zArr, i, i2);
+                    i += i2;
                     String character = getCharacter(table, readCode);
                     if (character.startsWith("CTRL_")) {
                         table2 = getTable(character.charAt(5));
@@ -379,29 +377,29 @@ public final class Decoder {
                         sb.append(character);
                     }
                     table = table2;
-                } else if (length - i2 < 5) {
+                } else if (length - i < 5) {
                     break;
                 } else {
-                    int readCode2 = readCode(zArr, i2, 5);
-                    i2 += 5;
+                    int readCode2 = readCode(zArr, i, 5);
+                    i += 5;
                     if (readCode2 == 0) {
-                        if (length - i2 < 11) {
+                        if (length - i < 11) {
                             break;
                         }
-                        readCode2 = readCode(zArr, i2, 11) + 31;
-                        i2 += 11;
+                        readCode2 = readCode(zArr, i, 11) + 31;
+                        i += 11;
                     }
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
-                        if (i4 >= readCode2) {
+                        if (i3 >= readCode2) {
                             break;
-                        } else if (length - i2 < 8) {
-                            i2 = length;
+                        } else if (length - i < 8) {
+                            i = length;
                             break;
                         } else {
-                            sb.append((char) readCode(zArr, i2, 8));
-                            i2 += 8;
-                            i4++;
+                            sb.append((char) readCode(zArr, i, 8));
+                            i += 8;
+                            i3++;
                         }
                     }
                     table = table2;
@@ -442,43 +440,43 @@ public final class Decoder {
         return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, zArr)) == null) ? getEncodedData(zArr) : (String) invokeL.objValue;
     }
 
-    public static byte readByte(boolean[] zArr, int i2) {
+    public static byte readByte(boolean[] zArr, int i) {
         InterceptResult invokeLI;
         int readCode;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, zArr, i2)) == null) {
-            int length = zArr.length - i2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, zArr, i)) == null) {
+            int length = zArr.length - i;
             if (length >= 8) {
-                readCode = readCode(zArr, i2, 8);
+                readCode = readCode(zArr, i, 8);
             } else {
-                readCode = readCode(zArr, i2, length) << (8 - length);
+                readCode = readCode(zArr, i, length) << (8 - length);
             }
             return (byte) readCode;
         }
         return invokeLI.byteValue;
     }
 
-    public static int readCode(boolean[] zArr, int i2, int i3) {
+    public static int readCode(boolean[] zArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, zArr, i2, i3)) == null) {
-            int i4 = 0;
-            for (int i5 = i2; i5 < i2 + i3; i5++) {
-                i4 <<= 1;
-                if (zArr[i5]) {
-                    i4 |= 1;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, zArr, i, i2)) == null) {
+            int i3 = 0;
+            for (int i4 = i; i4 < i + i2; i4++) {
+                i3 <<= 1;
+                if (zArr[i4]) {
+                    i3 |= 1;
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }
 
-    public static int totalBitsInLayer(int i2, boolean z) {
+    public static int totalBitsInLayer(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            return ((z ? 88 : 112) + (i2 << 4)) * i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return ((z ? 88 : 112) + (i << 4)) * i;
         }
         return invokeCommon.intValue;
     }

@@ -19,7 +19,7 @@ import com.bumptech.glide.load.data.StreamAssetPathFetcher;
 import com.bumptech.glide.load.model.ModelLoader;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSET_PATH_SEGMENT = "android_asset";
@@ -29,12 +29,12 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
     public final AssetManager assetManager;
     public final AssetFetcherFactory<Data> factory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface AssetFetcherFactory<Data> {
         DataFetcher<Data> buildFetcher(AssetManager assetManager, String str);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FileDescriptorFactory implements ModelLoaderFactory<Uri, ParcelFileDescriptor>, AssetFetcherFactory<ParcelFileDescriptor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -47,9 +47,9 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assetManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,7 +81,7 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory implements ModelLoaderFactory<Uri, InputStream>, AssetFetcherFactory<InputStream> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +94,9 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assetManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,9 +150,9 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
             newInitContext.initArgs = r2;
             Object[] objArr = {assetManager, assetFetcherFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -164,10 +164,10 @@ public class AssetUriLoader<Data> implements ModelLoader<Uri, Data> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.load.model.ModelLoader
-    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i2, int i3, @NonNull Options options) {
+    public ModelLoader.LoadData<Data> buildLoadData(@NonNull Uri uri, int i, int i2, @NonNull Options options) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i2), Integer.valueOf(i3), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(uri), this.factory.buildFetcher(this.assetManager, uri.toString().substring(ASSET_PREFIX_LENGTH))) : (ModelLoader.LoadData) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{uri, Integer.valueOf(i), Integer.valueOf(i2), options})) == null) ? new ModelLoader.LoadData<>(new ObjectKey(uri), this.factory.buildFetcher(this.assetManager, uri.toString().substring(ASSET_PREFIX_LENGTH))) : (ModelLoader.LoadData) invokeCommon.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

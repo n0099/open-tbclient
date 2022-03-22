@@ -41,36 +41,36 @@ public class CaptureDownloadService extends Service {
         public LocalBroadcastManager mLocalBroadcastManager;
         public int mPosition;
 
-        public ProgressCallback(int i2, RequestTask requestTask, Context context) {
+        public ProgressCallback(int i, RequestTask requestTask, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), requestTask, context};
+                Object[] objArr = {Integer.valueOf(i), requestTask, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mPosition = i2;
+            this.mPosition = i;
             this.mAppInfo = requestTask;
             this.mLocalBroadcastManager = LocalBroadcastManager.getInstance(context);
         }
 
-        private boolean checkSendBroadLimit(int i2) {
+        private boolean checkSendBroadLimit(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - this.mLastTime <= 300 || i2 == this.mLastProgress) {
+                if (currentTimeMillis - this.mLastTime <= 300 || i == this.mLastProgress) {
                     return false;
                 }
                 this.mLastTime = currentTimeMillis;
-                this.mLastProgress = i2;
+                this.mLastProgress = i;
                 return true;
             }
             return invokeI.booleanValue;
@@ -129,16 +129,16 @@ public class CaptureDownloadService extends Service {
         }
 
         @Override // com.baidu.minivideo.plugin.capture.download.base.DownloadCallback
-        public void onProgress(long j2, long j3, int i2) {
+        public void onProgress(long j, long j2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
                 if (this.mLastTime == 0) {
                     this.mLastTime = System.currentTimeMillis();
                 }
                 this.mAppInfo.setStatus(3);
-                this.mAppInfo.setProgress(i2);
-                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j2, j3));
-                if (checkSendBroadLimit(i2)) {
+                this.mAppInfo.setProgress(i);
+                this.mAppInfo.setDownloadPerSize(CommonUtils.getDownloadPerSize(j, j2));
+                if (checkSendBroadLimit(i)) {
                     sendBroadCast(this.mAppInfo);
                 }
             }
@@ -150,9 +150,9 @@ public class CaptureDownloadService extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -185,10 +185,10 @@ public class CaptureDownloadService extends Service {
         }
     }
 
-    private void download(int i2, RequestTask requestTask, String str) {
+    private void download(int i, RequestTask requestTask, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65542, this, i2, requestTask, str) == null) {
-            this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i2, requestTask, getApplicationContext()));
+        if (interceptable == null || interceptable.invokeILL(65542, this, i, requestTask, str) == null) {
+            this.mDownloadManager.download(new DownloadRequest.Builder().setUri(requestTask.getUrl()).build(), str, new ProgressCallback(i, requestTask, getApplicationContext()));
         }
     }
 
@@ -254,10 +254,10 @@ public class CaptureDownloadService extends Service {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, intent, i, i2)) == null) {
             if (intent != null) {
                 String action = intent.getAction();
                 char c2 = 0;
@@ -311,17 +311,17 @@ public class CaptureDownloadService extends Service {
                     cancelAll();
                 }
             }
-            return super.onStartCommand(intent, i2, i3);
+            return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }
 
-    public static void start(Context context, int i2, String str, RequestTask requestTask) {
+    public static void start(Context context, int i, String str, RequestTask requestTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i2, str, requestTask) == null) {
+        if (interceptable == null || interceptable.invokeLILL(65547, null, context, i, str, requestTask) == null) {
             Intent intent = new Intent(context, CaptureDownloadService.class);
             intent.setAction("com.baidu.ugc.download.ACTION_DOWNLOAD");
-            intent.putExtra("extra_position", i2);
+            intent.putExtra("extra_position", i);
             intent.putExtra("extra_tag", str);
             intent.putExtra("extra_file_info", requestTask);
             context.startService(intent);

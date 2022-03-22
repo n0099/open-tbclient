@@ -33,12 +33,12 @@ public abstract class AbstractSet<E> extends AbstractCollection<E> implements Se
         public final int unorderedHashCode$kotlin_stdlib(Collection<?> c2) {
             Intrinsics.checkNotNullParameter(c2, "c");
             Iterator<?> it = c2.iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
                 Object next = it.next();
-                i2 += next != null ? next.hashCode() : 0;
+                i += next != null ? next.hashCode() : 0;
             }
-            return i2;
+            return i;
         }
 
         public /* synthetic */ Companion(DefaultConstructorMarker defaultConstructorMarker) {

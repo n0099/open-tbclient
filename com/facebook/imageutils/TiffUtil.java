@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.logging.FLog;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TiffUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Class<?> TAG;
@@ -22,13 +22,13 @@ public class TiffUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.TiffUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TiffHeader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class TiffUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -76,22 +76,22 @@ public class TiffUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int getAutoRotateAngleFromOrientation(int i2) {
+    public static int getAutoRotateAngleFromOrientation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 3) {
-                if (i2 != 6) {
-                    return i2 != 8 ? 0 : 270;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 3) {
+                if (i != 6) {
+                    return i != 8 ? 0 : 270;
                 }
                 return 90;
             }
@@ -100,11 +100,11 @@ public class TiffUtil {
         return invokeI.intValue;
     }
 
-    public static int getOrientationFromTiffEntry(InputStream inputStream, int i2, boolean z) throws IOException {
+    public static int getOrientationFromTiffEntry(InputStream inputStream, int i, boolean z) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 >= 10 && StreamProcessor.readPackedInt(inputStream, 2, z) == 3 && StreamProcessor.readPackedInt(inputStream, 4, z) == 1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{inputStream, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i >= 10 && StreamProcessor.readPackedInt(inputStream, 2, z) == 3 && StreamProcessor.readPackedInt(inputStream, 4, z) == 1) {
                 int readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, z);
                 StreamProcessor.readPackedInt(inputStream, 2, z);
                 return readPackedInt;
@@ -120,58 +120,58 @@ public class TiffUtil {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static int moveToTiffEntryWithTag(InputStream inputStream, int i2, boolean z, int i3) throws IOException {
+    public static int moveToTiffEntryWithTag(InputStream inputStream, int i, boolean z, int i2) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{inputStream, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)})) != null) {
             return invokeCommon.intValue;
         }
-        if (i2 < 14) {
+        if (i < 14) {
             return 0;
         }
         int readPackedInt = StreamProcessor.readPackedInt(inputStream, 2, z);
-        int i4 = i2 - 2;
+        int i3 = i - 2;
         while (true) {
-            int i5 = readPackedInt - 1;
-            if (readPackedInt <= 0 || i4 < 12) {
+            int i4 = readPackedInt - 1;
+            if (readPackedInt <= 0 || i3 < 12) {
                 break;
             }
-            int i6 = i4 - 2;
-            if (StreamProcessor.readPackedInt(inputStream, 2, z) == i3) {
-                return i6;
+            int i5 = i3 - 2;
+            if (StreamProcessor.readPackedInt(inputStream, 2, z) == i2) {
+                return i5;
             }
             inputStream.skip(10L);
-            i4 = i6 - 10;
-            readPackedInt = i5;
+            i3 = i5 - 10;
+            readPackedInt = i4;
         }
     }
 
-    public static int readOrientationFromTIFF(InputStream inputStream, int i2) throws IOException {
+    public static int readOrientationFromTIFF(InputStream inputStream, int i) throws IOException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, inputStream, i)) == null) {
             TiffHeader tiffHeader = new TiffHeader(null);
-            int readTiffHeader = readTiffHeader(inputStream, i2, tiffHeader);
-            int i3 = tiffHeader.firstIfdOffset - 8;
-            if (readTiffHeader == 0 || i3 > readTiffHeader) {
+            int readTiffHeader = readTiffHeader(inputStream, i, tiffHeader);
+            int i2 = tiffHeader.firstIfdOffset - 8;
+            if (readTiffHeader == 0 || i2 > readTiffHeader) {
                 return 0;
             }
-            inputStream.skip(i3);
-            return getOrientationFromTiffEntry(inputStream, moveToTiffEntryWithTag(inputStream, readTiffHeader - i3, tiffHeader.isLittleEndian, 274), tiffHeader.isLittleEndian);
+            inputStream.skip(i2);
+            return getOrientationFromTiffEntry(inputStream, moveToTiffEntryWithTag(inputStream, readTiffHeader - i2, tiffHeader.isLittleEndian, 274), tiffHeader.isLittleEndian);
         }
         return invokeLI.intValue;
     }
 
-    public static int readTiffHeader(InputStream inputStream, int i2, TiffHeader tiffHeader) throws IOException {
+    public static int readTiffHeader(InputStream inputStream, int i, TiffHeader tiffHeader) throws IOException {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, inputStream, i2, tiffHeader)) == null) {
-            if (i2 <= 8) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, inputStream, i, tiffHeader)) == null) {
+            if (i <= 8) {
                 return 0;
             }
             int readPackedInt = StreamProcessor.readPackedInt(inputStream, 4, false);
             tiffHeader.byteOrder = readPackedInt;
-            int i3 = i2 - 4;
+            int i2 = i - 4;
             if (readPackedInt != 1229531648 && readPackedInt != 1296891946) {
                 FLog.e(TAG, "Invalid TIFF header");
                 return 0;
@@ -180,12 +180,12 @@ public class TiffUtil {
             tiffHeader.isLittleEndian = z;
             int readPackedInt2 = StreamProcessor.readPackedInt(inputStream, 4, z);
             tiffHeader.firstIfdOffset = readPackedInt2;
-            int i4 = i3 - 4;
-            if (readPackedInt2 < 8 || readPackedInt2 - 8 > i4) {
+            int i3 = i2 - 4;
+            if (readPackedInt2 < 8 || readPackedInt2 - 8 > i3) {
                 FLog.e(TAG, "Invalid offset");
                 return 0;
             }
-            return i4;
+            return i3;
         }
         return invokeLIL.intValue;
     }

@@ -11,20 +11,20 @@ import com.facebook.imagepipeline.image.ImmutableQualityInfo;
 import com.facebook.imagepipeline.image.QualityInfo;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final DynamicValueConfig mDynamicValueConfig;
 
     /* renamed from: com.facebook.imagepipeline.decoder.SimpleProgressiveJpegConfig$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DefaultDynamicValueConfig implements DynamicValueConfig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -65,7 +65,7 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface DynamicValueConfig {
         int getGoodEnoughScanNumber();
 
@@ -79,9 +79,9 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((DynamicValueConfig) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -91,17 +91,17 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     }
 
     @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public int getNextScanNumberToDecode(int i2) {
+    public int getNextScanNumberToDecode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             List<Integer> scansToDecode = this.mDynamicValueConfig.getScansToDecode();
             if (scansToDecode == null || scansToDecode.isEmpty()) {
-                return i2 + 1;
+                return i + 1;
             }
-            for (int i3 = 0; i3 < scansToDecode.size(); i3++) {
-                if (scansToDecode.get(i3).intValue() > i2) {
-                    return scansToDecode.get(i3).intValue();
+            for (int i2 = 0; i2 < scansToDecode.size(); i2++) {
+                if (scansToDecode.get(i2).intValue() > i) {
+                    return scansToDecode.get(i2).intValue();
                 }
             }
             return Integer.MAX_VALUE;
@@ -110,11 +110,11 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
     }
 
     @Override // com.facebook.imagepipeline.decoder.ProgressiveJpegConfig
-    public QualityInfo getQualityInfo(int i2) {
+    public QualityInfo getQualityInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            return ImmutableQualityInfo.of(i2, i2 >= this.mDynamicValueConfig.getGoodEnoughScanNumber(), false);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return ImmutableQualityInfo.of(i, i >= this.mDynamicValueConfig.getGoodEnoughScanNumber(), false);
         }
         return (QualityInfo) invokeI.objValue;
     }
@@ -126,9 +126,9 @@ public class SimpleProgressiveJpegConfig implements ProgressiveJpegConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {dynamicValueConfig};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

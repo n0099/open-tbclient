@@ -22,41 +22,41 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SplashPreloadManager {
     public HashMap<String, PreLoadItem> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f54576b;
+    public List<String> f39687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile SharedPreferences f54577c;
+    public volatile SharedPreferences f39688c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Object f54578d;
+    public final Object f39689d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class PreLoadItem extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public long cacheTime;
         public long expiredTime;
         public String preloadId;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class PreLoadPara extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public int isValidReturned;
         public long spreadTime;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static final SplashPreloadManager a = new SplashPreloadManager();
     }
 
     public SplashPreloadManager() {
-        this.f54578d = new Object();
+        this.f39689d = new Object();
         this.a = new HashMap<>();
-        this.f54576b = new ArrayList();
+        this.f39687b = new ArrayList();
         a();
     }
 
@@ -66,14 +66,14 @@ public class SplashPreloadManager {
         preLoadItem.cacheTime = System.currentTimeMillis();
         preLoadItem.expiredTime = System.currentTimeMillis() + (adInfo.adPreloadInfo.validityPeriod * 1000);
         preLoadItem.preloadId = com.kwad.sdk.core.response.a.a.N(adInfo);
-        synchronized (this.f54578d) {
+        synchronized (this.f39689d) {
             this.a.put(adInfo.adPreloadInfo.preloadId, preLoadItem);
-            if (!this.f54576b.contains(adInfo.adPreloadInfo.preloadId)) {
-                this.f54576b.add(adInfo.adPreloadInfo.preloadId);
+            if (!this.f39687b.contains(adInfo.adPreloadInfo.preloadId)) {
+                this.f39687b.add(adInfo.adPreloadInfo.preloadId);
             }
         }
-        if (this.f54577c != null) {
-            SharedPreferences.Editor edit = this.f54577c.edit();
+        if (this.f39688c != null) {
+            SharedPreferences.Editor edit = this.f39688c.edit();
             edit.putString(adInfo.adPreloadInfo.preloadId, preLoadItem.toJson().toString());
             edit.apply();
         }
@@ -82,7 +82,7 @@ public class SplashPreloadManager {
     @AnyThread
     public static SplashPreloadManager b() {
         SplashPreloadManager splashPreloadManager = a.a;
-        if (splashPreloadManager.f54577c == null) {
+        if (splashPreloadManager.f39688c == null) {
             splashPreloadManager.a();
         }
         return splashPreloadManager;
@@ -104,7 +104,7 @@ public class SplashPreloadManager {
     }
 
     private void d() {
-        Map<String, ?> all = this.f54577c.getAll();
+        Map<String, ?> all = this.f39688c.getAll();
         ArrayList<String> arrayList = new ArrayList();
         for (String str : all.keySet()) {
             PreLoadItem preLoadItem = new PreLoadItem();
@@ -118,10 +118,10 @@ public class SplashPreloadManager {
                             arrayList.add(preLoadItem.preloadId);
                             com.kwad.sdk.core.d.a.a("PreloadManager", "Remove null file list " + preLoadItem.preloadId);
                         } else {
-                            synchronized (this.f54578d) {
+                            synchronized (this.f39689d) {
                                 this.a.put(str, preLoadItem);
-                                if (!this.f54576b.contains(str)) {
-                                    this.f54576b.add(str);
+                                if (!this.f39687b.contains(str)) {
+                                    this.f39687b.add(str);
                                 }
                             }
                         }
@@ -131,7 +131,7 @@ public class SplashPreloadManager {
                 com.kwad.sdk.core.d.a.a(e2);
             }
         }
-        SharedPreferences.Editor edit = this.f54577c.edit();
+        SharedPreferences.Editor edit = this.f39688c.edit();
         for (String str3 : arrayList) {
             edit.remove(str3);
         }
@@ -141,7 +141,7 @@ public class SplashPreloadManager {
     private void e() {
         int size;
         long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.f54578d) {
+        synchronized (this.f39689d) {
             ArrayList<String> arrayList = new ArrayList();
             for (String str : this.a.keySet()) {
                 PreLoadItem preLoadItem = this.a.get(str);
@@ -149,34 +149,34 @@ public class SplashPreloadManager {
                     arrayList.add(str);
                 }
             }
-            SharedPreferences.Editor edit = this.f54577c.edit();
+            SharedPreferences.Editor edit = this.f39688c.edit();
             for (String str2 : arrayList) {
-                this.f54576b.remove(str2);
+                this.f39687b.remove(str2);
                 this.a.remove(str2);
                 edit.remove(str2);
                 com.kwad.sdk.core.diskcache.a.a.a().d(str2);
             }
             edit.apply();
-            size = this.f54576b.size();
+            size = this.f39687b.size();
         }
         if (size > 30) {
             com.kwad.sdk.core.d.a.a("PreloadManager", "大于 30 按失效日期远近顺序移除");
-            int i2 = size - 15;
-            for (int i3 = 0; i3 < i2; i3++) {
-                long j2 = Long.MAX_VALUE;
+            int i = size - 15;
+            for (int i2 = 0; i2 < i; i2++) {
+                long j = Long.MAX_VALUE;
                 String str3 = "";
-                synchronized (this.f54578d) {
+                synchronized (this.f39689d) {
                     for (PreLoadItem preLoadItem2 : this.a.values()) {
-                        if (preLoadItem2.expiredTime < j2) {
-                            j2 = preLoadItem2.expiredTime;
+                        if (preLoadItem2.expiredTime < j) {
+                            j = preLoadItem2.expiredTime;
                             str3 = preLoadItem2.preloadId;
                         }
                     }
                     if (!TextUtils.isEmpty(str3)) {
-                        this.f54576b.remove(str3);
+                        this.f39687b.remove(str3);
                         this.a.remove(str3);
-                        this.f54577c.edit().remove(str3).apply();
-                        com.kwad.sdk.core.d.a.a("PreloadManager", "移除 preloadId = " + str3 + " expiredTime =  " + j2);
+                        this.f39688c.edit().remove(str3).apply();
+                        com.kwad.sdk.core.d.a.a("PreloadManager", "移除 preloadId = " + str3 + " expiredTime =  " + j);
                     }
                 }
                 if (!TextUtils.isEmpty(str3)) {
@@ -189,7 +189,7 @@ public class SplashPreloadManager {
     @AnyThread
     public int a(AdResultData adResultData, boolean z) {
         Iterator<AdTemplate> it = adResultData.adTemplateList.iterator();
-        int i2 = 0;
+        int i = 0;
         while (true) {
             if (!it.hasNext()) {
                 break;
@@ -197,7 +197,7 @@ public class SplashPreloadManager {
             AdTemplate next = it.next();
             if (next != null) {
                 for (AdInfo adInfo : next.adInfoList) {
-                    if (adInfo.adPreloadInfo != null && this.f54577c != null) {
+                    if (adInfo.adPreloadInfo != null && this.f39688c != null) {
                         if (!b(adInfo.adPreloadInfo.preloadId)) {
                             String a2 = com.kwad.sdk.core.response.a.a.P(adInfo) ? com.kwad.sdk.core.response.a.a.a(adInfo) : com.kwad.sdk.core.response.a.a.Q(adInfo) ? com.kwad.sdk.core.response.a.a.I(adInfo).materialUrl : null;
                             if (!TextUtils.isEmpty(a2)) {
@@ -213,16 +213,16 @@ public class SplashPreloadManager {
                             }
                         }
                         a(adInfo);
-                        i2++;
+                        i++;
                     }
                 }
             }
         }
         AdTemplate adTemplate = adResultData.adTemplateList.size() > 0 ? adResultData.adTemplateList.get(0) : null;
-        if (i2 > 0) {
-            d.a(adTemplate, i2);
+        if (i > 0) {
+            d.a(adTemplate, i);
         }
-        return i2;
+        return i;
     }
 
     public File a(String str) {
@@ -240,7 +240,7 @@ public class SplashPreloadManager {
     public void a() {
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null) {
-            this.f54577c = context.getSharedPreferences("ksadsdk_splash_preload_id_list", 0);
+            this.f39688c = context.getSharedPreferences("ksadsdk_splash_preload_id_list", 0);
             d();
         }
     }
@@ -261,7 +261,7 @@ public class SplashPreloadManager {
                     PreLoadPara preLoadPara = new PreLoadPara();
                     preLoadPara.isValidReturned = z ? 1 : 0;
                     if (z) {
-                        synchronized (this.f54578d) {
+                        synchronized (this.f39689d) {
                             preLoadItem = this.a.get(N);
                         }
                         if (preLoadItem != null) {
@@ -289,10 +289,10 @@ public class SplashPreloadManager {
 
     public List<String> c() {
         ArrayList arrayList = new ArrayList();
-        synchronized (this.f54578d) {
+        synchronized (this.f39689d) {
             com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList start ");
-            for (int i2 = 0; i2 < this.f54576b.size(); i2++) {
-                String str = this.f54576b.get(i2);
+            for (int i = 0; i < this.f39687b.size(); i++) {
+                String str = this.f39687b.get(i);
                 File b2 = com.kwad.sdk.core.diskcache.a.a.a().b(str);
                 if (b2 != null && b2.exists()) {
                     arrayList.add(str);
@@ -300,7 +300,7 @@ public class SplashPreloadManager {
             }
             com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList end ");
         }
-        com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList " + this.f54576b.size());
+        com.kwad.sdk.core.d.a.a("PreloadManager", "getPreloadIdList " + this.f39687b.size());
         return arrayList;
     }
 }

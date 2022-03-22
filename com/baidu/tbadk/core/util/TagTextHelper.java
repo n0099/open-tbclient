@@ -47,25 +47,25 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            NEW = new HotTopicTag("NEW", 0, R.string.tag_str_new, R.color.CAM_X0305);
-            HOT = new HotTopicTag("HOT", 1, R.string.tag_str_hot, R.color.CAM_X0301);
-            REC = new HotTopicTag("REC", 2, R.string.tag_str_rec, R.color.CAM_X0306);
-            BAO = new HotTopicTag("BAO", 3, R.string.tag_str_bao, R.color.CAM_X0308);
-            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.tag_str_fei, R.color.CAM_X0317);
+            NEW = new HotTopicTag("NEW", 0, R.string.obfuscated_res_0x7f0f132c, R.color.CAM_X0305);
+            HOT = new HotTopicTag("HOT", 1, R.string.obfuscated_res_0x7f0f132b, R.color.CAM_X0301);
+            REC = new HotTopicTag("REC", 2, R.string.obfuscated_res_0x7f0f132d, R.color.CAM_X0306);
+            BAO = new HotTopicTag("BAO", 3, R.string.obfuscated_res_0x7f0f1329, R.color.CAM_X0308);
+            HotTopicTag hotTopicTag = new HotTopicTag("FEI", 4, R.string.obfuscated_res_0x7f0f132a, R.color.CAM_X0317);
             FEI = hotTopicTag;
             $VALUES = new HotTopicTag[]{NEW, HOT, REC, BAO, hotTopicTag};
         }
 
-        public HotTopicTag(@StringRes String str, @ColorRes int i2, int i3, int i4) {
+        public HotTopicTag(@StringRes String str, @ColorRes int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -74,19 +74,19 @@ public final class TagTextHelper {
                     return;
                 }
             }
-            this.tagStrRes = i3;
-            this.tagColorRes = i4;
+            this.tagStrRes = i2;
+            this.tagColorRes = i3;
         }
 
-        public static HotTopicTag getHotTopicTag(int i2) {
+        public static HotTopicTag getHotTopicTag(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
-                                if (i2 != 5) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                if (i != 5) {
                                     return null;
                                 }
                                 return FEI;
@@ -120,9 +120,9 @@ public final class TagTextHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -130,30 +130,30 @@ public final class TagTextHelper {
     }
 
     @ColorRes
-    public static int getHotTopicTagColorRes(int i2) {
+    public static int getHotTopicTagColorRes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
             return hotTopicTag != null ? hotTopicTag.tagColorRes : R.color.transparent;
         }
         return invokeI.intValue;
     }
 
-    public static String getHotTopicTagStr(@NonNull Context context, int i2) {
+    public static String getHotTopicTagStr(@NonNull Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i2)) == null) {
-            HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            HotTopicTag hotTopicTag = HotTopicTag.getHotTopicTag(i);
             return hotTopicTag != null ? context.getString(hotTopicTag.tagStrRes) : "";
         }
         return (String) invokeLI.objValue;
     }
 
     @ColorRes
-    public static int getIndexTextColorRes(int i2) {
+    public static int getIndexTextColorRes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 3 ? R.color.CAM_X0315 : R.color.CAM_X0305 : R.color.CAM_X0319 : R.color.CAM_X0301 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? R.color.CAM_X0315 : R.color.CAM_X0305 : R.color.CAM_X0319 : R.color.CAM_X0301 : invokeI.intValue;
     }
 }

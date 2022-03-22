@@ -35,9 +35,9 @@ public final class FutureSubscriber<T> extends CountDownLatch implements Flowabl
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -170,20 +170,20 @@ public final class FutureSubscriber<T> extends CountDownLatch implements Flowabl
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
         }
     }
 
     @Override // java.util.concurrent.Future
-    public T get(long j2, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
+    public T get(long j, TimeUnit timeUnit) throws InterruptedException, ExecutionException, TimeoutException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048579, this, j, timeUnit)) == null) {
             if (getCount() != 0) {
                 BlockingHelper.verifyNonBlocking();
-                if (!await(j2, timeUnit)) {
+                if (!await(j, timeUnit)) {
                     throw new TimeoutException();
                 }
             }

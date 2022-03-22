@@ -15,22 +15,22 @@ public class TbDimenUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void setDensity(DisplayMetrics displayMetrics, float f2, int i2) {
+    public static void setDensity(DisplayMetrics displayMetrics, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i2)}) == null) || displayMetrics == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i)}) == null) || displayMetrics == null) {
             return;
         }
         displayMetrics.density = f2;
-        displayMetrics.densityDpi = i2;
+        displayMetrics.densityDpi = i;
         displayMetrics.scaledDensity = f2;
     }
 }

@@ -3,11 +3,11 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.c1.s;
-import c.a.r0.s1.h.d;
-import c.a.r0.s1.k.b;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.c1.s;
+import c.a.p0.u1.h.d;
+import c.a.p0.u1.k.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -37,9 +37,9 @@ public class ValidateModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -127,9 +127,9 @@ public class ValidateModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {validateItemData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -140,7 +140,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.c1.k0
+            @Override // c.a.o0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
@@ -162,8 +162,8 @@ public class ValidateModel {
         }
         LinkedList linkedList = new LinkedList();
         int size = list.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            ValidateItemData validateItemData = list.get(i2);
+        for (int i = 0; i < size; i++) {
+            ValidateItemData validateItemData = list.get(i);
             if (validateItemData != null && !validateItemData.isShown()) {
                 validateItemData.setShown(true);
                 linkedList.add(new GroupNewsPojo(validateItemData));
@@ -181,9 +181,9 @@ public class ValidateModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {linkedList};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -218,9 +218,9 @@ public class ValidateModel {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -229,7 +229,7 @@ public class ValidateModel {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // c.a.q0.c1.k0
+                @Override // c.a.o0.c1.k0
                 public Integer doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -239,10 +239,10 @@ public class ValidateModel {
         }
     }
 
-    public static void requestValidateDataFromDB(int i2, int i3, s<LinkedList<GroupNewsPojo>> sVar) {
+    public static void requestValidateDataFromDB(int i, int i2, s<LinkedList<GroupNewsPojo>> sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65543, null, i2, i3, sVar) == null) {
-            n0.c(new k0<LinkedList<GroupNewsPojo>>(i2, i3) { // from class: com.baidu.tieba.im.model.ValidateModel.4
+        if (interceptable == null || interceptable.invokeIIL(65543, null, i, i2, sVar) == null) {
+            n0.c(new k0<LinkedList<GroupNewsPojo>>(i, i2) { // from class: com.baidu.tieba.im.model.ValidateModel.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ int val$count;
@@ -253,22 +253,22 @@ public class ValidateModel {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                        Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.val$count = i2;
-                    this.val$offset = i3;
+                    this.val$count = i;
+                    this.val$offset = i2;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // c.a.q0.c1.k0
+                @Override // c.a.o0.c1.k0
                 public LinkedList<GroupNewsPojo> doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -282,8 +282,8 @@ public class ValidateModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, validateItemData, str) == null) {
             if (!BdBaseApplication.getInst().isDebugMode() || n.B()) {
-                ImMessageCenterPojo i2 = b.o().i(str, 1);
-                validateItemData.setGroupName(i2 != null ? i2.getGroup_name() : "");
+                ImMessageCenterPojo i = b.o().i(str, 1);
+                validateItemData.setGroupName(i != null ? i.getGroup_name() : "");
             }
         }
     }
@@ -305,9 +305,9 @@ public class ValidateModel {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {validateItemData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -318,7 +318,7 @@ public class ValidateModel {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // c.a.q0.c1.k0
+            @Override // c.a.o0.c1.k0
             public Boolean doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;

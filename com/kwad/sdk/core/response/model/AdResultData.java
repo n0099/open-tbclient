@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b {
     public static final String TAG = "AdResultData";
     public static final long serialVersionUID = -818939163644825380L;
@@ -48,10 +48,10 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
         }
     }
 
-    private SceneImpl getAdScene(long j2) {
+    private SceneImpl getAdScene(long j) {
         Map<Long, SceneImpl> map = this.mRequestAdSceneMap;
-        SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j2)) : null;
-        return sceneImpl == null ? new SceneImpl(j2) : sceneImpl;
+        SceneImpl sceneImpl = map != null ? map.get(Long.valueOf(j)) : null;
+        return sceneImpl == null ? new SceneImpl(j) : sceneImpl;
     }
 
     public boolean isAdResultDataEmpty() {
@@ -102,8 +102,8 @@ public class AdResultData extends BaseResultData implements com.kwad.sdk.core.b 
                 if (!at.a(b2)) {
                     JSONArray jSONArray = new JSONArray(b2);
                     if (jSONArray.length() > 0) {
-                        for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                            JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                        for (int i = 0; i < jSONArray.length(); i++) {
+                            JSONObject optJSONObject = jSONArray.optJSONObject(i);
                             if (optJSONObject != null) {
                                 AdTemplate adTemplate = new AdTemplate();
                                 adTemplate.parseJson(optJSONObject);

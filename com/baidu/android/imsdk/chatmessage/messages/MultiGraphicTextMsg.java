@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -58,9 +57,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -79,10 +78,10 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public Article[] newArray(int i2) {
+                public Article[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Article[i2] : (Article[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Article[i] : (Article[]) invokeI.objValue;
                 }
             };
         }
@@ -92,9 +91,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -177,9 +176,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
                 parcel.writeString(this.mTitle);
                 parcel.writeString(this.mDigest);
                 parcel.writeString(this.mCover);
@@ -195,9 +194,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -233,9 +232,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -254,10 +253,10 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public MultiGraphicTextMsg[] newArray(int i2) {
+            public MultiGraphicTextMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new MultiGraphicTextMsg[i2] : (MultiGraphicTextMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MultiGraphicTextMsg[i] : (MultiGraphicTextMsg[]) invokeI.objValue;
             }
         };
     }
@@ -267,9 +266,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -330,14 +329,14 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 if (length > 0) {
                     this.mArticles = new Article[length];
                 }
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    JSONObject jSONObject = optJSONArray.getJSONObject(i2);
-                    this.mArticles[i2] = new Article();
-                    this.mArticles[i2].setTitle(jSONObject.getString("title"));
-                    this.mArticles[i2].setDigest(jSONObject.optString(LightappBusinessClient.MTD_DIGEST, ""));
-                    this.mArticles[i2].setCover(jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ""));
-                    this.mArticles[i2].setArticleUrl(jSONObject.getString("article_url"));
-                    this.mArticles[i2].setSchema(jSONObject.optString("schema"));
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject jSONObject = optJSONArray.getJSONObject(i);
+                    this.mArticles[i] = new Article();
+                    this.mArticles[i].setTitle(jSONObject.getString("title"));
+                    this.mArticles[i].setDigest(jSONObject.optString("digest", ""));
+                    this.mArticles[i].setCover(jSONObject.optString(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ""));
+                    this.mArticles[i].setArticleUrl(jSONObject.getString("article_url"));
+                    this.mArticles[i].setSchema(jSONObject.optString("schema"));
                 }
                 return true;
             } catch (JSONException e2) {
@@ -361,7 +360,7 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
                 for (Article article : articleArr) {
                     JSONObject jSONObject2 = new JSONObject();
                     jSONObject2.put("title", article.getTitle());
-                    jSONObject2.put(LightappBusinessClient.MTD_DIGEST, article.getDigest());
+                    jSONObject2.put("digest", article.getDigest());
                     jSONObject2.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, article.getCover());
                     jSONObject2.put("article_url", article.getArticleUrl());
                     jSONObject2.put("schema", article.getSchema());
@@ -378,15 +377,15 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             Article[] articleArr = this.mArticles;
             int length = articleArr != null ? articleArr.length : 0;
             parcel.writeInt(length);
             if (length > 0) {
-                parcel.writeTypedArray(this.mArticles, i2);
+                parcel.writeTypedArray(this.mArticles, i);
             }
         }
     }
@@ -400,9 +399,9 @@ public class MultiGraphicTextMsg extends NormalMsg implements Parcelable, NoProG
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

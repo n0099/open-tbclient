@@ -32,9 +32,9 @@ public class EmotionGroupData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -107,24 +107,24 @@ public class EmotionGroupData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.width : invokeV.intValue;
     }
 
-    public void setBytesLength(int i2) {
+    public void setBytesLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.bytesLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.bytesLength = i;
         }
     }
 
-    public void setBytesReceived(int i2) {
+    public void setBytesReceived(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.bytesReceived = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.bytesReceived = i;
         }
     }
 
-    public void setDownloadTime(long j2) {
+    public void setDownloadTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.downloadTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.downloadTime = j;
         }
     }
 
@@ -135,10 +135,10 @@ public class EmotionGroupData implements Serializable {
         }
     }
 
-    public void setEmotionsCount(int i2) {
+    public void setEmotionsCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.emotionsCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.emotionsCount = i;
         }
     }
 
@@ -163,24 +163,24 @@ public class EmotionGroupData implements Serializable {
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.height = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.height = i;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.status = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.width = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.width = i;
         }
     }
 }

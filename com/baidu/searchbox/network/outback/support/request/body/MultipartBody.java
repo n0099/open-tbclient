@@ -23,6 +23,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import kotlin.text.Typography;
 /* loaded from: classes4.dex */
 public final class MultipartBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
@@ -56,9 +57,9 @@ public final class MultipartBody extends RequestBody {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -114,9 +115,9 @@ public final class MultipartBody extends RequestBody {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -168,9 +169,9 @@ public final class MultipartBody extends RequestBody {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {headers, requestBody};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -272,9 +273,9 @@ public final class MultipartBody extends RequestBody {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, mediaType, list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -291,10 +292,10 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sb, str)) == null) {
-            sb.append('\"');
+            sb.append(Typography.quote);
             int length = str.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
                 if (charAt == '\n') {
                     sb.append("%0A");
                 } else if (charAt == '\r') {
@@ -305,7 +306,7 @@ public final class MultipartBody extends RequestBody {
                     sb.append("%22");
                 }
             }
-            sb.append('\"');
+            sb.append(Typography.quote);
             return sb;
         }
         return (StringBuilder) invokeLL.objValue;
@@ -320,9 +321,9 @@ public final class MultipartBody extends RequestBody {
             }
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream);
             int size = this.parts.size();
-            long j2 = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                Part part = this.parts.get(i2);
+            long j = 0;
+            for (int i = 0; i < size; i++) {
+                Part part = this.parts.get(i);
                 Headers headers = part.headers;
                 RequestBody requestBody = part.body;
                 bufferedOutputStream.write(DASHDASH);
@@ -330,10 +331,10 @@ public final class MultipartBody extends RequestBody {
                 bufferedOutputStream.write(CRLF);
                 if (headers != null) {
                     int size2 = headers.size();
-                    for (int i3 = 0; i3 < size2; i3++) {
-                        Util.writeUtf8(bufferedOutputStream, headers.name(i3));
+                    for (int i2 = 0; i2 < size2; i2++) {
+                        Util.writeUtf8(bufferedOutputStream, headers.name(i2));
                         bufferedOutputStream.write(COLONSPACE);
-                        Util.writeUtf8(bufferedOutputStream, headers.value(i3));
+                        Util.writeUtf8(bufferedOutputStream, headers.value(i2));
                         bufferedOutputStream.write(CRLF);
                     }
                 }
@@ -354,7 +355,7 @@ public final class MultipartBody extends RequestBody {
                 }
                 bufferedOutputStream.write(CRLF);
                 if (z) {
-                    j2 += contentLength;
+                    j += contentLength;
                 } else {
                     requestBody.writeTo(bufferedOutputStream);
                 }
@@ -366,11 +367,11 @@ public final class MultipartBody extends RequestBody {
             bufferedOutputStream.write(CRLF);
             bufferedOutputStream.flush();
             if (z) {
-                long size3 = j2 + ((ByteArrayOutputStream) outputStream).size();
+                long size3 = j + ((ByteArrayOutputStream) outputStream).size();
                 Util.closeQuietly(outputStream);
                 return size3;
             }
-            return j2;
+            return j;
         }
         return invokeLZ.longValue;
     }
@@ -386,9 +387,9 @@ public final class MultipartBody extends RequestBody {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long j2 = this.contentLength;
-            if (j2 != -1) {
-                return j2;
+            long j = this.contentLength;
+            if (j != -1) {
+                return j;
             }
             long writeOrCountBytes = writeOrCountBytes(null, true);
             this.contentLength = writeOrCountBytes;
@@ -404,10 +405,10 @@ public final class MultipartBody extends RequestBody {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.contentType : (MediaType) invokeV.objValue;
     }
 
-    public Part part(int i2) {
+    public Part part(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.parts.get(i2) : (Part) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.parts.get(i) : (Part) invokeI.objValue;
     }
 
     public List<Part> parts() {

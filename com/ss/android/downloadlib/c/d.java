@@ -10,7 +10,7 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
     @Override // com.ss.android.socialbase.downloader.depend.k
     public void a() {
@@ -65,7 +65,7 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
     }
 
     @WorkerThread
-    public void a(DownloadInfo downloadInfo, int i2, boolean z) {
+    public void a(DownloadInfo downloadInfo, int i, boolean z) {
         com.ss.android.downloadlib.addownload.b.f.a().b();
         com.ss.android.downloadad.api.a.b a = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
         if (a == null) {
@@ -85,16 +85,16 @@ public class d implements com.ss.android.socialbase.appdownloader.c.g, k {
             jSONObject.put("name", downloadInfo.getName());
             jSONObject.put("url", downloadInfo.getUrl());
             jSONObject.put("download_time", downloadInfo.getDownloadTime());
-            jSONObject.put("download_status", i2);
+            jSONObject.put("download_status", i);
             jSONObject.put("cur_bytes", downloadInfo.getCurBytes());
             jSONObject.put(DownloadDataConstants.Columns.COLUMN_TOTAL_BYTES, downloadInfo.getTotalBytes());
-            int i3 = 1;
+            int i2 = 1;
             jSONObject.put("only_wifi", downloadInfo.isOnlyWifi() ? 1 : 0);
             jSONObject.put("chunk_count", downloadInfo.getChunkCount());
             if (!z) {
-                i3 = 2;
+                i2 = 2;
             }
-            jSONObject.put("launch_resumed", i3);
+            jSONObject.put("launch_resumed", i2);
             jSONObject.put("failed_resume_count", downloadInfo.getFailedResumeCount());
             com.ss.android.downloadlib.d.a.a().a("embeded_ad", "download_uncompleted", jSONObject, a);
         } catch (Throwable th) {

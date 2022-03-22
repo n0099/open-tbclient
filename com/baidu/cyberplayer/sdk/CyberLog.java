@@ -1,5 +1,6 @@
 package com.baidu.cyberplayer.sdk;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CyberLog {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;
@@ -34,19 +35,19 @@ public class CyberLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(int i2) {
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i2) == null) {
-            a = i2;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
     }
 
@@ -56,7 +57,7 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || 7 - a > 3) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.i("duplayer-" + str, str2);
     }
 
     @Keep
@@ -65,7 +66,7 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) || 7 - a > 6) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.e("duplayer-" + str, str2);
     }
 
     @Keep
@@ -74,7 +75,7 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) || 7 - a > 6) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.e("duplayer-" + str, str2, th);
     }
 
     @Keep
@@ -90,7 +91,7 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) || 7 - a > 4) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.i("duplayer-" + str, str2);
     }
 
     @Keep
@@ -99,7 +100,7 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) || 7 - a > 2) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.v("duplayer-" + str, str2);
     }
 
     @Keep
@@ -108,6 +109,6 @@ public class CyberLog {
         if (!(interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) || 7 - a > 5) {
             return;
         }
-        String str3 = "duplayer-" + str;
+        Log.w("duplayer-" + str, str2);
     }
 }

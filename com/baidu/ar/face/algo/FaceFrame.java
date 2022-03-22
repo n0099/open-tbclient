@@ -32,9 +32,9 @@ public class FaceFrame {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -48,17 +48,17 @@ public class FaceFrame {
             if (this.animatePointsArray != null) {
                 this.animatePointsList = new ArrayList();
                 int length = this.animatePointsArray.length / 190;
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = i2 * 95 * 2;
+                for (int i = 0; i < length; i++) {
+                    int i2 = i * 95 * 2;
                     FAUPoint2D[] fAUPoint2DArr = new FAUPoint2D[95];
-                    for (int i4 = 0; i4 < 95; i4++) {
+                    for (int i3 = 0; i3 < 95; i3++) {
                         FAUPoint2D fAUPoint2D = new FAUPoint2D();
-                        FAUPoint2D fAUPoint2D2 = fAUPoint2DArr[i4];
+                        FAUPoint2D fAUPoint2D2 = fAUPoint2DArr[i3];
                         float[] fArr = this.animatePointsArray;
-                        int i5 = (i4 * 2) + i3;
-                        fAUPoint2D2.x = fArr[i5];
-                        fAUPoint2DArr[i4].y = fArr[i5 + 1];
-                        fAUPoint2DArr[i4] = fAUPoint2D;
+                        int i4 = (i3 * 2) + i2;
+                        fAUPoint2D2.x = fArr[i4];
+                        fAUPoint2DArr[i3].y = fArr[i4 + 1];
+                        fAUPoint2DArr[i3] = fAUPoint2D;
                     }
                     this.animatePointsList.add(fAUPoint2DArr);
                 }
@@ -82,10 +82,10 @@ public class FaceFrame {
             if (this.faceBoxesArray != null) {
                 this.faceBoxes = new ArrayList();
                 int length = this.faceBoxesArray.length / 5;
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     float[] fArr = this.faceBoxesArray;
-                    int i3 = i2 * 5;
-                    this.faceBoxes.add(new FAUFaceBox(fArr[i3], fArr[i3 + 1], fArr[i3 + 2], fArr[i3 + 3], fArr[i3 + 4]));
+                    int i2 = i * 5;
+                    this.faceBoxes.add(new FAUFaceBox(fArr[i2], fArr[i2 + 1], fArr[i2 + 2], fArr[i2 + 3], fArr[i2 + 4]));
                 }
                 this.faceBoxesArray = null;
             }
@@ -119,16 +119,16 @@ public class FaceFrame {
             if (this.trackedPointsArray != null) {
                 this.trackedPointsList = new ArrayList();
                 int length = this.trackedPointsArray.length / 380;
-                for (int i2 = 0; i2 < length; i2++) {
-                    int i3 = i2 * 190 * 2;
+                for (int i = 0; i < length; i++) {
+                    int i2 = i * 190 * 2;
                     FAUPoint2D[] fAUPoint2DArr = new FAUPoint2D[190];
-                    for (int i4 = 0; i4 < 190; i4++) {
+                    for (int i3 = 0; i3 < 190; i3++) {
                         FAUPoint2D fAUPoint2D = new FAUPoint2D();
                         float[] fArr = this.trackedPointsArray;
-                        int i5 = (i4 * 2) + i3;
-                        fAUPoint2D.x = fArr[i5];
-                        fAUPoint2D.y = fArr[i5 + 1];
-                        fAUPoint2DArr[i4] = fAUPoint2D;
+                        int i4 = (i3 * 2) + i2;
+                        fAUPoint2D.x = fArr[i4];
+                        fAUPoint2D.y = fArr[i4 + 1];
+                        fAUPoint2DArr[i3] = fAUPoint2D;
                     }
                     this.trackedPointsList.add(fAUPoint2DArr);
                 }

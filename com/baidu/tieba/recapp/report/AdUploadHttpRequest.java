@@ -2,7 +2,7 @@ package com.baidu.tieba.recapp.report;
 
 import android.os.Build;
 import c.a.d.f.p.l;
-import c.a.r0.j3.m0.c;
+import c.a.p0.l3.m0.c;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -18,7 +18,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class AdUploadHttpRequest extends HttpMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_AD = "ad";
@@ -39,9 +39,9 @@ public class AdUploadHttpRequest extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {arrayList};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -54,7 +54,7 @@ public class AdUploadHttpRequest extends HttpMessage {
         addParam("ad", toJSONString(this.dataArray));
         addParam("brand", Build.BRAND);
         addParam(KEY_OS_VERSION, Build.VERSION.SDK);
-        addParam("productId", 2);
+        addParam(KEY_PRODUCT_ID, 2);
         addParam("net_type", l.I());
         addParam(KEY_OS_TYPE, 2);
     }
@@ -110,9 +110,9 @@ public class AdUploadHttpRequest extends HttpMessage {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

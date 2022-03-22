@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.cg;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ca extends cc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class ca extends cc {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, strArr, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (String[]) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -34,32 +34,32 @@ public class ca extends cc {
         }
     }
 
-    public static ca a(Context context, String str, int i2) {
+    public static ca a(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, str, i)) == null) {
             com.xiaomi.channel.commonutils.logger.b.b("delete  messages when db size is too bigger");
-            String m277a = cg.a(context).m277a(str);
-            if (TextUtils.isEmpty(m277a)) {
+            String m256a = cg.a(context).m256a(str);
+            if (TextUtils.isEmpty(m256a)) {
                 return null;
             }
             StringBuilder sb = new StringBuilder();
             sb.append("rowDataId in (select ");
-            sb.append("rowDataId from " + m277a);
+            sb.append("rowDataId from " + m256a);
             sb.append(" order by createTimeStamp asc");
             sb.append(" limit ?)");
-            return new ca(str, sb.toString(), new String[]{String.valueOf(i2)}, "a job build to delete history message");
+            return new ca(str, sb.toString(), new String[]{String.valueOf(i)}, "a job build to delete history message");
         }
         return (ca) invokeLLI.objValue;
     }
 
-    private void a(long j2) {
+    private void a(long j) {
         String[] strArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65538, this, j2) == null) || (strArr = ((cg.d) this).f191a) == null || strArr.length <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(65538, this, j) == null) || (strArr = ((cg.d) this).f167a) == null || strArr.length <= 0) {
             return;
         }
-        strArr[0] = String.valueOf(j2);
+        strArr[0] = String.valueOf(j);
     }
 
     @Override // com.xiaomi.push.cg.a
@@ -67,16 +67,16 @@ public class ca extends cc {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, context, obj) == null) && (obj instanceof Long)) {
             long longValue = ((Long) obj).longValue();
-            long a = cm.a(m279a());
-            long j2 = by.f172a;
-            if (a <= j2) {
+            long a = cm.a(m258a());
+            long j = by.f148a;
+            if (a <= j) {
                 com.xiaomi.channel.commonutils.logger.b.b("db size is suitable");
                 return;
             }
-            long j3 = (long) ((((a - j2) * 1.2d) / j2) * longValue);
-            a(j3);
+            long j2 = (long) ((((a - j) * 1.2d) / j) * longValue);
+            a(j2);
             bu a2 = bu.a(context);
-            a2.a("begin delete " + j3 + "noUpload messages , because db size is " + a + "B");
+            a2.a("begin delete " + j2 + "noUpload messages , because db size is " + a + "B");
             super.a(context, obj);
         }
     }

@@ -24,9 +24,9 @@ public class WeaponA implements WeaponAI {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -89,32 +89,32 @@ public class WeaponA implements WeaponAI {
 
     @Override // com.kuaishou.weapon.i.WeaponAI
     public void sp(String str, boolean z) {
-        x i2;
+        x i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) || (i2 = x.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048579, this, str, z) == null) || (i = x.i()) == null) {
             return;
         }
-        i2.a(str, z ? 1 : 0);
+        i.a(str, z ? 1 : 0);
     }
 
     @Override // com.kuaishou.weapon.i.WeaponAI
-    public void ssb(int i2, boolean z) {
-        x i3;
+    public void ssb(int i, boolean z) {
+        x i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) || (i3 = x.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) || (i2 = x.i()) == null) {
             return;
         }
-        i3.a(i2, z ? 1 : 0);
+        i2.a(i, z ? 1 : 0);
     }
 
     @Override // com.kuaishou.weapon.i.WeaponAI
     public void u(String str) {
-        n i2;
+        n i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (i2 = n.i()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || (i = n.i()) == null) {
             return;
         }
-        i2.b(str);
+        i.b(str);
     }
 
     @Override // com.kuaishou.weapon.i.WeaponAI

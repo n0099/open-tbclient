@@ -64,9 +64,9 @@ public final class CalendarParsedResult extends ParsedResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, str5, str6, strArr, str7, Double.valueOf(d2), Double.valueOf(d3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ParsedResultType) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -166,17 +166,17 @@ public final class CalendarParsedResult extends ParsedResult {
             }
             Matcher matcher = RFC2445_DURATION.matcher(charSequence);
             if (matcher.matches()) {
-                long j2 = 0;
-                int i2 = 0;
-                while (i2 < RFC2445_DURATION_FIELD_UNITS.length) {
-                    int i3 = i2 + 1;
-                    String group = matcher.group(i3);
+                long j = 0;
+                int i = 0;
+                while (i < RFC2445_DURATION_FIELD_UNITS.length) {
+                    int i2 = i + 1;
+                    String group = matcher.group(i2);
                     if (group != null) {
-                        j2 += RFC2445_DURATION_FIELD_UNITS[i2] * Integer.parseInt(group);
+                        j += RFC2445_DURATION_FIELD_UNITS[i] * Integer.parseInt(group);
                     }
-                    i2 = i3;
+                    i = i2;
                 }
-                return j2;
+                return j;
             }
             return -1L;
         }

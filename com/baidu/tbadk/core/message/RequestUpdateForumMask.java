@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import protobuf.UpdateForumMask.DataReq;
 import protobuf.UpdateForumMask.UpdateForumMaskReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class RequestUpdateForumMask extends TbSocketMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_FORUM_BROADCAST = 1;
@@ -24,9 +24,9 @@ public class RequestUpdateForumMask extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -69,10 +69,10 @@ public class RequestUpdateForumMask extends TbSocketMessage {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.type = i;
         }
     }
 }

@@ -19,7 +19,7 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34292b;
+    public int f26514b;
 
     static {
         InterceptResult invokeClinit;
@@ -42,9 +42,9 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,16 +58,16 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = parcel.readString();
-        this.f34292b = parcel.readInt();
+        this.f26514b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -86,10 +86,10 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f34292b = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f26514b = i;
         }
     }
 
@@ -101,11 +101,11 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeString(this.a);
-            parcel.writeInt(this.f34292b);
+            parcel.writeInt(this.f26514b);
         }
     }
 }

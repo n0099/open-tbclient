@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GlUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public class GlUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,20 +51,20 @@ public class GlUtil {
         return (FloatBuffer) invokeL.objValue;
     }
 
-    public static int generateTexture(int i2) {
+    public static int generateTexture(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             int[] iArr = new int[1];
             GLES20.glGenTextures(1, iArr, 0);
-            int i3 = iArr[0];
-            GLES20.glBindTexture(i2, i3);
-            GLES20.glTexParameterf(i2, 10241, 9729.0f);
-            GLES20.glTexParameterf(i2, 10240, 9729.0f);
-            GLES20.glTexParameterf(i2, 10242, 33071.0f);
-            GLES20.glTexParameterf(i2, 10243, 33071.0f);
+            int i2 = iArr[0];
+            GLES20.glBindTexture(i, i2);
+            GLES20.glTexParameterf(i, 10241, 9729.0f);
+            GLES20.glTexParameterf(i, 10240, 9729.0f);
+            GLES20.glTexParameterf(i, 10242, 33071.0f);
+            GLES20.glTexParameterf(i, 10243, 33071.0f);
             checkNoGLES2Error("generateTexture");
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }

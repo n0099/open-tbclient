@@ -18,7 +18,7 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SecureRandom f4208b;
+    public static final SecureRandom f3791b;
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
@@ -35,7 +35,7 @@ public class c {
                 return;
             }
         }
-        f4208b = new SecureRandom();
+        f3791b = new SecureRandom();
     }
 
     public c() {
@@ -43,9 +43,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -77,10 +77,10 @@ public class c {
         return (byte[]) invokeLLL.objValue;
     }
 
-    public void a(int i2, byte[] bArr, byte[] bArr2) throws InvalidAlgorithmParameterException, InvalidKeyException {
+    public void a(int i, byte[] bArr, byte[] bArr2) throws InvalidAlgorithmParameterException, InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048576, this, i2, bArr, bArr2) == null) {
-            this.a.d(i2, bArr, bArr2, f4208b);
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
+            this.a.d(i, bArr, bArr2, f3791b);
         }
     }
 

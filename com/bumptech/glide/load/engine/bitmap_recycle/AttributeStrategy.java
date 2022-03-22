@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AttributeStrategy implements LruPoolStrategy {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,7 +18,7 @@ public class AttributeStrategy implements LruPoolStrategy {
     public final KeyPool keyPool;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Key implements Poolable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class AttributeStrategy implements LruPoolStrategy {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {keyPool};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,18 +62,18 @@ public class AttributeStrategy implements LruPoolStrategy {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = ((this.width * 31) + this.height) * 31;
+                int i = ((this.width * 31) + this.height) * 31;
                 Bitmap.Config config = this.config;
-                return i2 + (config != null ? config.hashCode() : 0);
+                return i + (config != null ? config.hashCode() : 0);
             }
             return invokeV.intValue;
         }
 
-        public void init(int i2, int i3, Bitmap.Config config) {
+        public void init(int i, int i2, Bitmap.Config config) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config) == null) {
-                this.width = i2;
-                this.height = i3;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config) == null) {
+                this.width = i;
+                this.height = i2;
                 this.config = config;
             }
         }
@@ -94,7 +94,7 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class KeyPool extends BaseKeyPool<Key> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -104,21 +104,21 @@ public class AttributeStrategy implements LruPoolStrategy {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public Key get(int i2, int i3, Bitmap.Config config) {
+        public Key get(int i, int i2, Bitmap.Config config) {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config)) == null) {
+            if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) {
                 Key key = get();
-                key.init(i2, i3, config);
+                key.init(i, i2, config);
                 return key;
             }
             return (Key) invokeIIL.objValue;
@@ -139,9 +139,9 @@ public class AttributeStrategy implements LruPoolStrategy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -158,10 +158,10 @@ public class AttributeStrategy implements LruPoolStrategy {
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public Bitmap get(int i2, int i3, Bitmap.Config config) {
+    public Bitmap get(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, config)) == null) ? this.groupedMap.get(this.keyPool.get(i2, i3, config)) : (Bitmap) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, config)) == null) ? this.groupedMap.get(this.keyPool.get(i, i2, config)) : (Bitmap) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
@@ -202,19 +202,19 @@ public class AttributeStrategy implements LruPoolStrategy {
         return (String) invokeV.objValue;
     }
 
-    public static String getBitmapString(int i2, int i3, Bitmap.Config config) {
+    public static String getBitmapString(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i2, i3, config)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + i2 + "x" + i3 + "], " + config;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65537, null, i, i2, config)) == null) {
+            return PreferencesUtil.LEFT_MOUNT + i + "x" + i2 + "], " + config;
         }
         return (String) invokeIIL.objValue;
     }
 
     @Override // com.bumptech.glide.load.engine.bitmap_recycle.LruPoolStrategy
-    public String logBitmap(int i2, int i3, Bitmap.Config config) {
+    public String logBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, config)) == null) ? getBitmapString(i2, i3, config) : (String) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, config)) == null) ? getBitmapString(i, i2, config) : (String) invokeIIL.objValue;
     }
 }

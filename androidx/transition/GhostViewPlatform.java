@@ -1,6 +1,7 @@
 package androidx.transition;
 
 import android.graphics.Matrix;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
@@ -35,9 +36,9 @@ public class GhostViewPlatform implements GhostView {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,7 +76,8 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("addGhost", View.class, ViewGroup.class, Matrix.class);
             sAddGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException unused) {
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve addGhost method", e2);
         }
         sAddGhostMethodFetched = true;
     }
@@ -87,7 +89,8 @@ public class GhostViewPlatform implements GhostView {
         }
         try {
             sGhostViewClass = Class.forName("android.view.GhostView");
-        } catch (ClassNotFoundException unused) {
+        } catch (ClassNotFoundException e2) {
+            Log.i(TAG, "Failed to retrieve GhostView class", e2);
         }
         sGhostViewClassFetched = true;
     }
@@ -102,7 +105,8 @@ public class GhostViewPlatform implements GhostView {
             Method declaredMethod = sGhostViewClass.getDeclaredMethod("removeGhost", View.class);
             sRemoveGhostMethod = declaredMethod;
             declaredMethod.setAccessible(true);
-        } catch (NoSuchMethodException unused) {
+        } catch (NoSuchMethodException e2) {
+            Log.i(TAG, "Failed to retrieve removeGhost method", e2);
         }
         sRemoveGhostMethodFetched = true;
     }
@@ -131,10 +135,10 @@ public class GhostViewPlatform implements GhostView {
     }
 
     @Override // androidx.transition.GhostView
-    public void setVisibility(int i2) {
+    public void setVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.mGhostView.setVisibility(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.mGhostView.setVisibility(i);
         }
     }
 }

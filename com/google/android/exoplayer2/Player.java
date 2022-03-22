@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.source.TrackGroupArray;
 import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Player {
     public static final int DISCONTINUITY_REASON_INTERNAL = 3;
     public static final int DISCONTINUITY_REASON_PERIOD_TRANSITION = 0;
@@ -25,7 +25,7 @@ public interface Player {
     public static final int STATE_IDLE = 1;
     public static final int STATE_READY = 3;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class DefaultEventListener implements EventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public interface Player {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -66,23 +66,23 @@ public interface Player {
         }
 
         @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPlayerStateChanged(boolean z, int i2) {
+        public void onPlayerStateChanged(boolean z, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             }
         }
 
         @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onPositionDiscontinuity(int i2) {
+        public void onPositionDiscontinuity(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             }
         }
 
         @Override // com.google.android.exoplayer2.Player.EventListener
-        public void onRepeatModeChanged(int i2) {
+        public void onRepeatModeChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             }
         }
 
@@ -116,11 +116,11 @@ public interface Player {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface DiscontinuityReason {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface EventListener {
         void onLoadingChanged(boolean z);
 
@@ -128,11 +128,11 @@ public interface Player {
 
         void onPlayerError(ExoPlaybackException exoPlaybackException);
 
-        void onPlayerStateChanged(boolean z, int i2);
+        void onPlayerStateChanged(boolean z, int i);
 
-        void onPositionDiscontinuity(int i2);
+        void onPositionDiscontinuity(int i);
 
-        void onRepeatModeChanged(int i2);
+        void onRepeatModeChanged(int i);
 
         void onSeekProcessed();
 
@@ -144,7 +144,7 @@ public interface Player {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface RepeatMode {
     }
 
@@ -189,7 +189,7 @@ public interface Player {
 
     int getRendererCount();
 
-    int getRendererType(int i2);
+    int getRendererType(int i);
 
     int getRepeatMode();
 
@@ -207,19 +207,19 @@ public interface Player {
 
     void removeListener(EventListener eventListener);
 
-    void seekTo(int i2, long j2);
+    void seekTo(int i, long j);
 
-    void seekTo(long j2);
+    void seekTo(long j);
 
     void seekToDefaultPosition();
 
-    void seekToDefaultPosition(int i2);
+    void seekToDefaultPosition(int i);
 
     void setPlayWhenReady(boolean z);
 
     void setPlaybackParameters(@Nullable PlaybackParameters playbackParameters);
 
-    void setRepeatMode(int i2);
+    void setRepeatMode(int i);
 
     void setShuffleModeEnabled(boolean z);
 

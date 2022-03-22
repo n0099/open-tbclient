@@ -55,9 +55,9 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainSubscriber, unicastProcessor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,9 +113,9 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {windowBoundaryMainSubscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -163,17 +163,17 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
         public final List<UnicastProcessor<T>> ws;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i2) {
+        public WindowBoundaryMainSubscriber(Subscriber<? super Flowable<T>> subscriber, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i) {
             super(subscriber, new MpscLinkedQueue());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, publisher, function, Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, publisher, function, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -185,7 +185,7 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
             this.windows = new AtomicLong();
             this.open = publisher;
             this.close = function;
-            this.bufferSize = i2;
+            this.bufferSize = i;
             this.resources = new CompositeDisposable();
             this.ws = new ArrayList();
             this.windows.lazySet(1L);
@@ -237,7 +237,7 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
             SimpleQueue simpleQueue = this.queue;
             Subscriber<? super V> subscriber = this.actual;
             List<UnicastProcessor<T>> list = this.ws;
-            int i2 = 1;
+            int i = 1;
             while (true) {
                 boolean z = this.done;
                 Object poll = simpleQueue.poll();
@@ -257,8 +257,8 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
                     list.clear();
                     return;
                 } else if (z2) {
-                    i2 = leave(-i2);
-                    if (i2 == 0) {
+                    i = leave(-i);
+                    if (i == 0) {
                         return;
                     }
                 } else if (poll instanceof WindowOperation) {
@@ -404,10 +404,10 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                requested(j2);
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                requested(j);
             }
         }
     }
@@ -426,9 +426,9 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {unicastProcessor, b2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -440,17 +440,17 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindowBoundarySelector(Flowable<T> flowable, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i2) {
+    public FlowableWindowBoundarySelector(Flowable<T> flowable, Publisher<B> publisher, Function<? super B, ? extends Publisher<V>> function, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, publisher, function, Integer.valueOf(i2)};
+            Object[] objArr = {flowable, publisher, function, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -459,7 +459,7 @@ public final class FlowableWindowBoundarySelector<T, B, V> extends AbstractFlowa
         }
         this.open = publisher;
         this.close = function;
-        this.bufferSize = i2;
+        this.bufferSize = i;
     }
 
     @Override // io.reactivex.Flowable

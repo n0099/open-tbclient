@@ -9,13 +9,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class HeightListView extends ListView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38084e;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HeightListView(Context context) {
@@ -26,34 +24,34 @@ public class HeightListView extends ListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38084e = -1;
+        this.a = -1;
     }
 
     @Override // android.widget.ListView, android.widget.AbsListView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            int i4 = this.f38084e;
-            if (i4 > -1) {
-                i3 = View.MeasureSpec.makeMeasureSpec(i4, Integer.MIN_VALUE);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            int i3 = this.a;
+            if (i3 > -1) {
+                i2 = View.MeasureSpec.makeMeasureSpec(i3, Integer.MIN_VALUE);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
-    public void setListViewHeight(int i2) {
+    public void setListViewHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f38084e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -66,9 +64,9 @@ public class HeightListView extends ListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -76,21 +74,21 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f38084e = -1;
+        this.a = -1;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HeightListView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public HeightListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -98,6 +96,6 @@ public class HeightListView extends ListView {
                 return;
             }
         }
-        this.f38084e = -1;
+        this.a = -1;
     }
 }

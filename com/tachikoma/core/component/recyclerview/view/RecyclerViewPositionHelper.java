@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RecyclerViewPositionHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class RecyclerViewPositionHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {recyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,17 +47,17 @@ public class RecyclerViewPositionHelper {
         return (RecyclerViewPositionHelper) invokeL.objValue;
     }
 
-    private View findOneVisibleChild(int i2, int i3, boolean z, boolean z2) {
+    private View findOneVisibleChild(int i, int i2, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             OrientationHelper createVerticalHelper = this.layoutManager.canScrollVertically() ? OrientationHelper.createVerticalHelper(this.layoutManager) : OrientationHelper.createHorizontalHelper(this.layoutManager);
             int startAfterPadding = createVerticalHelper.getStartAfterPadding();
             int endAfterPadding = createVerticalHelper.getEndAfterPadding();
-            int i4 = i3 > i2 ? 1 : -1;
+            int i3 = i2 > i ? 1 : -1;
             View view = null;
-            while (i2 != i3) {
-                View childAt = this.layoutManager.getChildAt(i2);
+            while (i != i2) {
+                View childAt = this.layoutManager.getChildAt(i);
                 int decoratedStart = createVerticalHelper.getDecoratedStart(childAt);
                 int decoratedEnd = createVerticalHelper.getDecoratedEnd(childAt);
                 if (decoratedStart < endAfterPadding && decoratedEnd > startAfterPadding) {
@@ -71,7 +71,7 @@ public class RecyclerViewPositionHelper {
                         view = childAt;
                     }
                 }
-                i2 += i4;
+                i += i3;
             }
             return view;
         }

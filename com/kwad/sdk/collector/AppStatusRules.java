@@ -135,10 +135,10 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             ArrayList<Strategy> arrayList = new ArrayList<>();
             if (jSONArray != null && jSONArray.length() != 0) {
                 int length = jSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     JSONObject jSONObject = null;
                     try {
-                        jSONObject = jSONArray.getJSONObject(i2);
+                        jSONObject = jSONArray.getJSONObject(i);
                     } catch (JSONException unused) {
                     }
                     if (jSONObject != null) {
@@ -220,24 +220,24 @@ public class AppStatusRules extends BaseResultData implements com.kwad.sdk.core.
             }
         }
 
-        public void setHistoryGranularity(long j2) {
-            this.historyGranularity = j2;
+        public void setHistoryGranularity(long j) {
+            this.historyGranularity = j;
         }
 
         public void setNeedLaunch(boolean z) {
             this.needLaunch = z;
         }
 
-        public void setNeedSaveLaunchTime(long j2) {
-            this.needSaveLaunchTime = j2;
+        public void setNeedSaveLaunchTime(long j) {
+            this.needSaveLaunchTime = j;
         }
 
-        public void setScanInterval(long j2) {
-            this.scanInterval = j2;
+        public void setScanInterval(long j) {
+            this.scanInterval = j;
         }
 
-        public void setStartTime(long j2) {
-            this.startTime = j2;
+        public void setStartTime(long j) {
+            this.startTime = j;
         }
 
         public void setTarget(ArrayList<com.kwad.sdk.collector.model.d> arrayList) {

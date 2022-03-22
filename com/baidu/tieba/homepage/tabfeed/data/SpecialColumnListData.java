@@ -3,10 +3,10 @@ package com.baidu.tieba.homepage.tabfeed.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.x0;
+import c.a.o0.r.r.v0;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +20,7 @@ import java.util.List;
 import tbclient.ActivityPage.SpecialColumn;
 import tbclient.ActivityPage.SpecialColumnList;
 /* loaded from: classes5.dex */
-public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
+public class SpecialColumnListData extends c.a.o0.r.r.a implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SpecialColumnListData> CREATOR;
     public static final int MAX_SIZE = 3;
@@ -40,9 +40,9 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,10 +61,10 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SpecialColumnListData[] newArray(int i2) {
+        public SpecialColumnListData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SpecialColumnListData[i2] : (SpecialColumnListData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SpecialColumnListData[i] : (SpecialColumnListData[]) invokeI.objValue;
         }
     }
 
@@ -90,9 +90,9 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -118,14 +118,14 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mListData : (List) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.r.a
-    public x0 getNegFeedBackData() {
+    @Override // c.a.o0.r.r.a
+    public v0 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (x0) invokeV.objValue;
+        return (v0) invokeV.objValue;
     }
 
     public List<SpecialColumnItemData> getResultData() {
@@ -134,14 +134,14 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mResultListData : (List) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.r.a
-    public e2 getThreadData() {
+    @Override // c.a.o0.r.r.a
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (e2) invokeV.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
     public String getTitle() {
@@ -175,9 +175,9 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048586, this, parcel, i) == null) {
             parcel.writeString(this.title);
             parcel.writeTypedList(this.mListData);
             parcel.writeTypedList(this.mResultListData);
@@ -191,9 +191,9 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -210,9 +210,9 @@ public class SpecialColumnListData extends c.a.q0.r.r.a implements Parcelable {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        for (int i2 = 0; i2 < list.size(); i2++) {
+        for (int i = 0; i < list.size(); i++) {
             SpecialColumnItemData specialColumnItemData = new SpecialColumnItemData();
-            specialColumnItemData.parserProtobuf(list.get(i2));
+            specialColumnItemData.parserProtobuf(list.get(i));
             arrayList.add(specialColumnItemData);
         }
         this.mResultListData.addAll(arrayList);

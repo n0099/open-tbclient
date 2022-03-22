@@ -1,12 +1,13 @@
 package okio;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SegmentPool {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long MAX_SIZE = 65536;
@@ -20,9 +21,9 @@ public final class SegmentPool {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,10 +38,10 @@ public final class SegmentPool {
                     return;
                 }
                 synchronized (SegmentPool.class) {
-                    if (byteCount + 8192 > 65536) {
+                    if (byteCount + PlaybackStateCompat.ACTION_PLAY_FROM_URI > 65536) {
                         return;
                     }
-                    byteCount += 8192;
+                    byteCount += PlaybackStateCompat.ACTION_PLAY_FROM_URI;
                     segment.next = next;
                     segment.limit = 0;
                     segment.pos = 0;
@@ -61,7 +62,7 @@ public final class SegmentPool {
                     Segment segment = next;
                     next = segment.next;
                     segment.next = null;
-                    byteCount -= 8192;
+                    byteCount -= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
                     return segment;
                 }
                 return new Segment();

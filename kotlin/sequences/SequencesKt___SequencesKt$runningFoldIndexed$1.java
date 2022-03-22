@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function3;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00030\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "T", "R", "Lkotlin/sequences/SequenceScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 5, 1})
 @DebugMetadata(c = "kotlin.sequences.SequencesKt___SequencesKt$runningFoldIndexed$1", f = "_Sequences.kt", i = {0}, l = {2143, 2148}, m = "invokeSuspend", n = {"$this$sequence"}, s = {"L$0"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SequencesKt___SequencesKt$runningFoldIndexed$1 extends RestrictedSuspendLambda implements Function2<SequenceScope<? super R>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Object $initial;
     public final /* synthetic */ Function3 $operation;
@@ -55,13 +55,13 @@ public final class SequencesKt___SequencesKt$runningFoldIndexed$1 extends Restri
     */
     public final Object invokeSuspend(Object obj) {
         SequenceScope sequenceScope;
-        int i2;
+        int i;
         SequenceScope sequenceScope2;
         Object obj2;
         Iterator it;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i3 = this.label;
-        if (i3 == 0) {
+        int i2 = this.label;
+        if (i2 == 0) {
             ResultKt.throwOnFailure(obj);
             sequenceScope = (SequenceScope) this.L$0;
             Object obj3 = this.$initial;
@@ -70,42 +70,42 @@ public final class SequencesKt___SequencesKt$runningFoldIndexed$1 extends Restri
             if (sequenceScope.yield(obj3, this) == coroutine_suspended) {
                 return coroutine_suspended;
             }
-        } else if (i3 != 1) {
-            if (i3 != 2) {
+        } else if (i2 != 1) {
+            if (i2 != 2) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             }
-            int i4 = this.I$0;
+            int i3 = this.I$0;
             it = (Iterator) this.L$2;
             Object obj4 = this.L$1;
             sequenceScope2 = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
-            i2 = i4;
+            i = i3;
             obj2 = obj4;
             while (it.hasNext()) {
                 Object next = it.next();
                 Function3 function3 = this.$operation;
-                int i5 = i2 + 1;
-                if (i2 < 0) {
+                int i4 = i + 1;
+                if (i < 0) {
                     CollectionsKt__CollectionsKt.throwIndexOverflow();
                 }
-                Object invoke = function3.invoke(Boxing.boxInt(i2), obj2, next);
+                Object invoke = function3.invoke(Boxing.boxInt(i), obj2, next);
                 this.L$0 = sequenceScope2;
                 this.L$1 = invoke;
                 this.L$2 = it;
-                this.I$0 = i5;
+                this.I$0 = i4;
                 this.label = 2;
                 if (sequenceScope2.yield(invoke, this) == coroutine_suspended) {
                     return coroutine_suspended;
                 }
                 obj2 = invoke;
-                i2 = i5;
+                i = i4;
             }
             return Unit.INSTANCE;
         } else {
             sequenceScope = (SequenceScope) this.L$0;
             ResultKt.throwOnFailure(obj);
         }
-        i2 = 0;
+        i = 0;
         sequenceScope2 = sequenceScope;
         obj2 = this.$initial;
         it = this.$this_runningFoldIndexed.iterator();

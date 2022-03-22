@@ -63,7 +63,7 @@ public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
-    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
+    void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep
@@ -71,5 +71,5 @@ public interface KsDrawAd {
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i2);
+    void setBidEcpm(int i);
 }

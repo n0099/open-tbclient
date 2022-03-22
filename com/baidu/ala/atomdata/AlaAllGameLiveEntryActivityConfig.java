@@ -18,24 +18,24 @@ public class AlaAllGameLiveEntryActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaAllGameLiveEntryActivityConfig(Context context, int i2, ArrayList<AlaSquareTabInfo> arrayList) {
+    public AlaAllGameLiveEntryActivityConfig(Context context, int i, ArrayList<AlaSquareTabInfo> arrayList) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), arrayList};
+            Object[] objArr = {context, Integer.valueOf(i), arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra(ALA_ALL_GAME_ENTRY_HAS_SEARCH, i2);
+        getIntent().putExtra(ALA_ALL_GAME_ENTRY_HAS_SEARCH, i);
         getIntent().putParcelableArrayListExtra(ALA_ALL_GAME_ENTRY_DATA, arrayList);
     }
 }

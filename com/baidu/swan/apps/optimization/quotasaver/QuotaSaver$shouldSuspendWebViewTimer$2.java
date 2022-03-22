@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Lambda;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000b\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class QuotaSaver$shouldSuspendWebViewTimer$2 extends Lambda implements Function0<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public static final QuotaSaver$shouldSuspendWebViewTimer$2 INSTANCE;
@@ -41,9 +41,9 @@ public final class QuotaSaver$shouldSuspendWebViewTimer$2 extends Lambda impleme
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -59,12 +59,12 @@ public final class QuotaSaver$shouldSuspendWebViewTimer$2 extends Lambda impleme
     }
 
     /* JADX DEBUG: Return type fixed from 'boolean' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Boolean, boolean] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [boolean, java.lang.Boolean] */
     @Override // kotlin.jvm.functions.Function0
     /* renamed from: invoke  reason: avoid collision after fix types in other method */
     public final Boolean invoke2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (QuotaSaver.p.e() || QuotaSaver.p.a().e("should_suspend_web_view_timer", false)) ? 1 : null : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (QuotaSaver.l.e() || QuotaSaver.l.a().e("should_suspend_web_view_timer", false)) ? 1 : null : invokeV.booleanValue;
     }
 }

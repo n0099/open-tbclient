@@ -42,9 +42,9 @@ public class HttpExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpExecutor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,10 +66,10 @@ public class HttpExecutor {
                     BIMRtcEvent bIMRtcEvent = BIMRtcManager.mBIMRtcEvent;
                     StringBuilder sb = new StringBuilder();
                     sb.append("req_time=");
-                    long j2 = currentTimeMillis2 - currentTimeMillis;
-                    sb.append(j2);
+                    long j = currentTimeMillis2 - currentTimeMillis;
+                    sb.append(j);
                     bIMRtcEvent.ext = sb.toString();
-                    LogUtils.d("HttpExecutor", ">>>>>request time=" + j2 + ", url=" + request.url().toString());
+                    LogUtils.d("HttpExecutor", ">>>>>request time=" + j + ", url=" + request.url().toString());
                     return proceed;
                 } catch (Exception e2) {
                     e2.printStackTrace();
@@ -97,7 +97,7 @@ public class HttpExecutor {
 
     /* loaded from: classes3.dex */
     public interface ResponseHandler {
-        void onFailure(int i2, String str);
+        void onFailure(int i, String str);
 
         void onSuccess(byte[] bArr);
     }
@@ -107,9 +107,9 @@ public class HttpExecutor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -118,13 +118,13 @@ public class HttpExecutor {
         this.okHttpClient = new OkHttpClient.Builder().addInterceptor(new HttpExecutorLogger()).connectTimeout(5L, TimeUnit.SECONDS).readTimeout(5L, TimeUnit.SECONDS).writeTimeout(5L, TimeUnit.SECONDS).build();
     }
 
-    public static void failedResponse(@NonNull ResponseHandler responseHandler, int i2, String str) {
+    public static void failedResponse(@NonNull ResponseHandler responseHandler, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, responseHandler, i2, str) == null) {
-            responseHandler.onFailure(i2, str);
+        if (interceptable == null || interceptable.invokeLIL(65537, null, responseHandler, i, str) == null) {
+            responseHandler.onFailure(i, str);
             BIMRtcEvent bIMRtcEvent = BIMRtcManager.mBIMRtcEvent;
-            bIMRtcEvent.ext = "fail_err=" + i2;
-            LogUtils.e("HttpExecutor", "failedResponse errorCode ：" + i2 + ", errorMsg :" + str);
+            bIMRtcEvent.ext = "fail_err=" + i;
+            LogUtils.e("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
         }
     }
 
@@ -161,9 +161,9 @@ public class HttpExecutor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, httpRequest, responseHandler};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

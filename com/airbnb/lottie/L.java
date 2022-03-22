@@ -16,28 +16,28 @@ public class L {
 
     public static void beginSection(String str) {
         if (traceEnabled) {
-            int i2 = traceDepth;
-            if (i2 == 20) {
+            int i = traceDepth;
+            if (i == 20) {
                 depthPastMaxDepth++;
                 return;
             }
-            sections[i2] = str;
-            startTimeNs[i2] = System.nanoTime();
+            sections[i] = str;
+            startTimeNs[i] = System.nanoTime();
             TraceCompat.beginSection(str);
             traceDepth++;
         }
     }
 
     public static float endSection(String str) {
-        int i2 = depthPastMaxDepth;
-        if (i2 > 0) {
-            depthPastMaxDepth = i2 - 1;
+        int i = depthPastMaxDepth;
+        if (i > 0) {
+            depthPastMaxDepth = i - 1;
             return 0.0f;
         } else if (traceEnabled) {
-            int i3 = traceDepth - 1;
-            traceDepth = i3;
-            if (i3 != -1) {
-                if (str.equals(sections[i3])) {
+            int i2 = traceDepth - 1;
+            traceDepth = i2;
+            if (i2 != -1) {
+                if (str.equals(sections[i2])) {
                     TraceCompat.endSection();
                     return ((float) (System.nanoTime() - startTimeNs[traceDepth])) / 1000000.0f;
                 }

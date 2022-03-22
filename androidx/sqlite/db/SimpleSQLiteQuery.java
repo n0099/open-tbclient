@@ -22,9 +22,9 @@ public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
             newInitContext.initArgs = r2;
             Object[] objArr2 = {str, objArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -40,11 +40,11 @@ public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
             return;
         }
         int length = objArr.length;
-        int i2 = 0;
-        while (i2 < length) {
-            Object obj = objArr[i2];
-            i2++;
-            bind(supportSQLiteProgram, i2, obj);
+        int i = 0;
+        while (i < length) {
+            Object obj = objArr[i];
+            i++;
+            bind(supportSQLiteProgram, i, obj);
         }
     }
 
@@ -86,9 +86,9 @@ public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Object[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -98,31 +98,31 @@ public final class SimpleSQLiteQuery implements SupportSQLiteQuery {
         }
     }
 
-    public static void bind(SupportSQLiteProgram supportSQLiteProgram, int i2, Object obj) {
+    public static void bind(SupportSQLiteProgram supportSQLiteProgram, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, supportSQLiteProgram, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65538, null, supportSQLiteProgram, i, obj) == null) {
             if (obj == null) {
-                supportSQLiteProgram.bindNull(i2);
+                supportSQLiteProgram.bindNull(i);
             } else if (obj instanceof byte[]) {
-                supportSQLiteProgram.bindBlob(i2, (byte[]) obj);
+                supportSQLiteProgram.bindBlob(i, (byte[]) obj);
             } else if (obj instanceof Float) {
-                supportSQLiteProgram.bindDouble(i2, ((Float) obj).floatValue());
+                supportSQLiteProgram.bindDouble(i, ((Float) obj).floatValue());
             } else if (obj instanceof Double) {
-                supportSQLiteProgram.bindDouble(i2, ((Double) obj).doubleValue());
+                supportSQLiteProgram.bindDouble(i, ((Double) obj).doubleValue());
             } else if (obj instanceof Long) {
-                supportSQLiteProgram.bindLong(i2, ((Long) obj).longValue());
+                supportSQLiteProgram.bindLong(i, ((Long) obj).longValue());
             } else if (obj instanceof Integer) {
-                supportSQLiteProgram.bindLong(i2, ((Integer) obj).intValue());
+                supportSQLiteProgram.bindLong(i, ((Integer) obj).intValue());
             } else if (obj instanceof Short) {
-                supportSQLiteProgram.bindLong(i2, ((Short) obj).shortValue());
+                supportSQLiteProgram.bindLong(i, ((Short) obj).shortValue());
             } else if (obj instanceof Byte) {
-                supportSQLiteProgram.bindLong(i2, ((Byte) obj).byteValue());
+                supportSQLiteProgram.bindLong(i, ((Byte) obj).byteValue());
             } else if (obj instanceof String) {
-                supportSQLiteProgram.bindString(i2, (String) obj);
+                supportSQLiteProgram.bindString(i, (String) obj);
             } else if (obj instanceof Boolean) {
-                supportSQLiteProgram.bindLong(i2, ((Boolean) obj).booleanValue() ? 1L : 0L);
+                supportSQLiteProgram.bindLong(i, ((Boolean) obj).booleanValue() ? 1L : 0L);
             } else {
-                throw new IllegalArgumentException("Cannot bind " + obj + " at index " + i2 + " Supported types: null, byte[], float, double, long, int, short, byte, string");
+                throw new IllegalArgumentException("Cannot bind " + obj + " at index " + i + " Supported types: null, byte[], float, double, long, int, short, byte, string");
             }
         }
     }

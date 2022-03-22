@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TrackGroupArray {
     public static /* synthetic */ Interceptable $ic;
     public static final TrackGroupArray EMPTY;
@@ -41,9 +41,9 @@ public final class TrackGroupArray {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackGroupArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,10 +69,10 @@ public final class TrackGroupArray {
         return invokeL.booleanValue;
     }
 
-    public TrackGroup get(int i2) {
+    public TrackGroup get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.trackGroups[i2] : (TrackGroup) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.trackGroups[i] : (TrackGroup) invokeI.objValue;
     }
 
     public int hashCode() {
@@ -91,9 +91,9 @@ public final class TrackGroupArray {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, trackGroup)) == null) {
-            for (int i2 = 0; i2 < this.length; i2++) {
-                if (this.trackGroups[i2] == trackGroup) {
-                    return i2;
+            for (int i = 0; i < this.length; i++) {
+                if (this.trackGroups[i] == trackGroup) {
+                    return i;
                 }
             }
             return -1;

@@ -33,9 +33,9 @@ public final class HtmlCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,12 +43,12 @@ public final class HtmlCompat {
     }
 
     @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i2) {
+    public static Spanned fromHtml(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return Html.fromHtml(str, i2);
+                return Html.fromHtml(str, i);
             }
             return Html.fromHtml(str);
         }
@@ -56,12 +56,12 @@ public final class HtmlCompat {
     }
 
     @NonNull
-    public static String toHtml(@NonNull Spanned spanned, int i2) {
+    public static String toHtml(@NonNull Spanned spanned, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, spanned, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, spanned, i)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return Html.toHtml(spanned, i2);
+                return Html.toHtml(spanned, i);
             }
             return Html.toHtml(spanned);
         }
@@ -69,12 +69,12 @@ public final class HtmlCompat {
     }
 
     @NonNull
-    public static Spanned fromHtml(@NonNull String str, int i2, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
+    public static Spanned fromHtml(@NonNull String str, int i, @Nullable Html.ImageGetter imageGetter, @Nullable Html.TagHandler tagHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i2, imageGetter, tagHandler)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65538, null, str, i, imageGetter, tagHandler)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return Html.fromHtml(str, i2, imageGetter, tagHandler);
+                return Html.fromHtml(str, i, imageGetter, tagHandler);
             }
             return Html.fromHtml(str, imageGetter, tagHandler);
         }

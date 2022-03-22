@@ -19,29 +19,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class BubbleLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static float DEFAULT_STROKE_WIDTH = -1.0f;
+    public static float j = -1.0f;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrowDirection a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public c.a.p0.q4.k.a f37022b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f37023c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f37024d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrowDirection f47866e;
+    public float f37025e;
 
     /* renamed from: f  reason: collision with root package name */
-    public c.a.r0.o4.j.a f47867f;
+    public float f37026f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f47868g;
+    public int f37027g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f47869h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public float f47870i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f47871j;
-    public int k;
-    public float l;
-    public int m;
+    public float f37028h;
+    public int i;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -107,9 +109,9 @@ public class BubbleLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -125,12 +127,12 @@ public class BubbleLayout extends FrameLayout {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f2), context})) == null) ? f2 * (context.getResources().getDisplayMetrics().densityDpi / 160.0f) : invokeCommon.floatValue;
     }
 
-    public final void b(int i2, int i3, int i4, int i5) {
+    public final void b(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048576, this, i2, i3, i4, i5) == null) || i3 < i2 || i5 < i4) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) || i2 < i || i4 < i3) {
             return;
         }
-        this.f47867f = new c.a.r0.o4.j.a(new RectF(i2, i4, i3, i5), this.f47868g, this.f47869h, this.f47870i, this.f47871j, this.l, this.m, this.k, this.f47866e);
+        this.f37022b = new c.a.p0.q4.k.a(new RectF(i, i3, i2, i4), this.f37023c, this.f37024d, this.f37025e, this.f37026f, this.f37028h, this.i, this.f37027g, this.a);
     }
 
     public final void c() {
@@ -140,17 +142,17 @@ public class BubbleLayout extends FrameLayout {
             int paddingRight = getPaddingRight();
             int paddingTop = getPaddingTop();
             int paddingBottom = getPaddingBottom();
-            int i2 = a.a[this.f47866e.ordinal()];
-            if (i2 == 1) {
-                paddingLeft = (int) (paddingLeft + this.f47868g);
-            } else if (i2 == 2) {
-                paddingRight = (int) (paddingRight + this.f47868g);
-            } else if (i2 == 3) {
-                paddingTop = (int) (paddingTop + this.f47870i);
-            } else if (i2 == 4) {
-                paddingBottom = (int) (paddingBottom + this.f47870i);
+            int i = a.a[this.a.ordinal()];
+            if (i == 1) {
+                paddingLeft = (int) (paddingLeft + this.f37023c);
+            } else if (i == 2) {
+                paddingRight = (int) (paddingRight + this.f37023c);
+            } else if (i == 3) {
+                paddingTop = (int) (paddingTop + this.f37025e);
+            } else if (i == 4) {
+                paddingBottom = (int) (paddingBottom + this.f37025e);
             }
-            float f2 = this.l;
+            float f2 = this.f37028h;
             if (f2 > 0.0f) {
                 paddingLeft = (int) (paddingLeft + f2);
                 paddingRight = (int) (paddingRight + f2);
@@ -161,39 +163,22 @@ public class BubbleLayout extends FrameLayout {
         }
     }
 
-    public final void d() {
+    public BubbleLayout d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int paddingLeft = getPaddingLeft();
-            int paddingRight = getPaddingRight();
-            int paddingTop = getPaddingTop();
-            int paddingBottom = getPaddingBottom();
-            int i2 = a.a[this.f47866e.ordinal()];
-            if (i2 == 1) {
-                paddingLeft = (int) (paddingLeft - this.f47868g);
-            } else if (i2 == 2) {
-                paddingRight = (int) (paddingRight - this.f47868g);
-            } else if (i2 == 3) {
-                paddingTop = (int) (paddingTop - this.f47870i);
-            } else if (i2 == 4) {
-                paddingBottom = (int) (paddingBottom - this.f47870i);
-            }
-            float f2 = this.l;
-            if (f2 > 0.0f) {
-                paddingLeft = (int) (paddingLeft - f2);
-                paddingRight = (int) (paddingRight - f2);
-                paddingTop = (int) (paddingTop - f2);
-                paddingBottom = (int) (paddingBottom - f2);
-            }
-            setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            this.f37027g = i;
+            requestLayout();
+            return this;
         }
+        return (BubbleLayout) invokeI.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            c.a.r0.o4.j.a aVar = this.f47867f;
+            c.a.p0.q4.k.a aVar = this.f37022b;
             if (aVar != null) {
                 aVar.draw(canvas);
             }
@@ -204,151 +189,58 @@ public class BubbleLayout extends FrameLayout {
     public ArrowDirection getArrowDirection() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f47866e : (ArrowDirection) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ArrowDirection) invokeV.objValue;
     }
 
     public float getArrowHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f47870i : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f37025e : invokeV.floatValue;
     }
 
     public float getArrowPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f47871j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f37026f : invokeV.floatValue;
     }
 
     public float getArrowWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f47868g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37023c : invokeV.floatValue;
     }
 
     public int getBubbleColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37027g : invokeV.intValue;
     }
 
     public float getCornersRadius() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f47869h : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f37024d : invokeV.floatValue;
     }
 
     public int getStrokeColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.m : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
     }
 
     public float getStrokeWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f37028h : invokeV.floatValue;
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             b(0, getWidth(), 0, getHeight());
         }
-    }
-
-    public BubbleLayout setArrowDirection(ArrowDirection arrowDirection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, arrowDirection)) == null) {
-            d();
-            this.f47866e = arrowDirection;
-            c();
-            return this;
-        }
-        return (BubbleLayout) invokeL.objValue;
-    }
-
-    public BubbleLayout setArrowHeight(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f2)) == null) {
-            d();
-            this.f47870i = f2;
-            c();
-            return this;
-        }
-        return (BubbleLayout) invokeF.objValue;
-    }
-
-    public BubbleLayout setArrowPosition(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048591, this, f2)) == null) {
-            d();
-            this.f47871j = f2;
-            c();
-            return this;
-        }
-        return (BubbleLayout) invokeF.objValue;
-    }
-
-    public BubbleLayout setArrowWidth(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048592, this, f2)) == null) {
-            d();
-            this.f47868g = f2;
-            c();
-            return this;
-        }
-        return (BubbleLayout) invokeF.objValue;
-    }
-
-    public BubbleLayout setBubbleColor(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            this.k = i2;
-            requestLayout();
-            return this;
-        }
-        return (BubbleLayout) invokeI.objValue;
-    }
-
-    public BubbleLayout setCornersRadius(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048594, this, f2)) == null) {
-            this.f47869h = f2;
-            requestLayout();
-            return this;
-        }
-        return (BubbleLayout) invokeF.objValue;
-    }
-
-    public BubbleLayout setStrokeColor(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            this.m = i2;
-            requestLayout();
-            return this;
-        }
-        return (BubbleLayout) invokeI.objValue;
-    }
-
-    public BubbleLayout setStrokeWidth(float f2) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048596, this, f2)) == null) {
-            d();
-            this.l = f2;
-            c();
-            return this;
-        }
-        return (BubbleLayout) invokeF.objValue;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -360,9 +252,9 @@ public class BubbleLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -373,17 +265,17 @@ public class BubbleLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BubbleLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BubbleLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -391,15 +283,15 @@ public class BubbleLayout extends FrameLayout {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.bl_arrowHeight, R.attr.bl_arrowPosition, R.attr.bl_arrowWidth, R.attr.bl_bubbleColor, R.attr.bl_cornersRadius, R.attr.bl_strokeColor, R.attr.bl_strokeWidth, R.attr.tb_bl_arrowDirection});
-        this.f47868g = obtainStyledAttributes.getDimension(2, a(8.0f, context));
-        this.f47870i = obtainStyledAttributes.getDimension(0, a(8.0f, context));
-        this.f47869h = obtainStyledAttributes.getDimension(4, 0.0f);
-        this.f47871j = obtainStyledAttributes.getDimension(1, a(12.0f, context));
-        this.k = obtainStyledAttributes.getColor(3, -1);
-        this.l = obtainStyledAttributes.getDimension(6, DEFAULT_STROKE_WIDTH);
-        this.m = obtainStyledAttributes.getColor(5, -7829368);
-        this.f47866e = ArrowDirection.fromInt(obtainStyledAttributes.getInt(7, ArrowDirection.LEFT.getValue()));
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0400d5, R.attr.obfuscated_res_0x7f0400d6, R.attr.obfuscated_res_0x7f0400d7, R.attr.obfuscated_res_0x7f0400d8, R.attr.obfuscated_res_0x7f0400d9, R.attr.obfuscated_res_0x7f0400da, R.attr.obfuscated_res_0x7f0400db, R.attr.obfuscated_res_0x7f0405d6});
+        this.f37023c = obtainStyledAttributes.getDimension(2, a(8.0f, context));
+        this.f37025e = obtainStyledAttributes.getDimension(0, a(8.0f, context));
+        this.f37024d = obtainStyledAttributes.getDimension(4, 0.0f);
+        this.f37026f = obtainStyledAttributes.getDimension(1, a(12.0f, context));
+        this.f37027g = obtainStyledAttributes.getColor(3, -1);
+        this.f37028h = obtainStyledAttributes.getDimension(6, j);
+        this.i = obtainStyledAttributes.getColor(5, -7829368);
+        this.a = ArrowDirection.fromInt(obtainStyledAttributes.getInt(7, ArrowDirection.LEFT.getValue()));
         obtainStyledAttributes.recycle();
         c();
     }

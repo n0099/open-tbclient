@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.Arrays;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes6.dex */
 public class DelayConfig implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
@@ -28,9 +27,9 @@ public class DelayConfig implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,32 +102,32 @@ public class DelayConfig implements Serializable {
         return (DelayConfig) invokeF.objValue;
     }
 
-    public DelayConfig setDelayInterval(int i2, int[] iArr) {
+    public DelayConfig setDelayInterval(int i, int[] iArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, iArr)) == null) {
-            this.pairTimeLength = i2;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, iArr)) == null) {
+            this.pairTimeLength = i;
             this.pairTimeArray = iArr;
             return this;
         }
         return (DelayConfig) invokeIL.objValue;
     }
 
-    public DelayConfig setDelayTime(int i2) {
+    public DelayConfig setDelayTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            this.delayTime = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            this.delayTime = i;
             return this;
         }
         return (DelayConfig) invokeI.objValue;
     }
 
-    public DelayConfig setNewPosition(int i2) {
+    public DelayConfig setNewPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.newPosition = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.newPosition = i;
             return this;
         }
         return (DelayConfig) invokeI.objValue;
@@ -138,7 +137,7 @@ public class DelayConfig implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "DelayConfig{delayMode=" + this.delayMode + ", delayTime=" + this.delayTime + ", decrease=" + this.decrease + ", pairTimeLength=" + this.pairTimeLength + ", pairTimeArray=" + Arrays.toString(this.pairTimeArray) + ", newPosition=" + this.newPosition + ExtendedMessageFormat.END_FE;
+            return "DelayConfig{delayMode=" + this.delayMode + ", delayTime=" + this.delayTime + ", decrease=" + this.decrease + ", pairTimeLength=" + this.pairTimeLength + ", pairTimeArray=" + Arrays.toString(this.pairTimeArray) + ", newPosition=" + this.newPosition + '}';
         }
         return (String) invokeV.objValue;
     }

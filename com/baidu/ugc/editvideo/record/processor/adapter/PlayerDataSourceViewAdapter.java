@@ -27,9 +27,9 @@ public class PlayerDataSourceViewAdapter implements IDataSourceView.IPlayerDataS
             newInitContext.initArgs = r2;
             Object[] objArr = {gLMediaPreviewView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,33 +66,33 @@ public class PlayerDataSourceViewAdapter implements IDataSourceView.IPlayerDataS
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onError(IPlayer iPlayer, int i2, int i3, Exception exc) {
+    public void onError(IPlayer iPlayer, int i, int i2, Exception exc) {
         IPlayer.OnPlayerErrorListener onPlayerErrorListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{iPlayer, Integer.valueOf(i2), Integer.valueOf(i3), exc}) == null) || (onPlayerErrorListener = this.mOnErrorListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{iPlayer, Integer.valueOf(i), Integer.valueOf(i2), exc}) == null) || (onPlayerErrorListener = this.mOnErrorListener) == null) {
             return;
         }
-        onPlayerErrorListener.onError(iPlayer, i2, i3, exc);
+        onPlayerErrorListener.onError(iPlayer, i, i2, exc);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onInfo(IPlayer iPlayer, int i2, int i3) {
+    public void onInfo(IPlayer iPlayer, int i, int i2) {
         IPlayer.OnPlayerInfoListener onPlayerInfoListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, iPlayer, i2, i3) == null) || (onPlayerInfoListener = this.mOnInfoListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, iPlayer, i, i2) == null) || (onPlayerInfoListener = this.mOnInfoListener) == null) {
             return;
         }
-        onPlayerInfoListener.onInfo(iPlayer, i2, i3);
+        onPlayerInfoListener.onInfo(iPlayer, i, i2);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onPlayStateListener(IPlayer iPlayer, int i2) {
+    public void onPlayStateListener(IPlayer iPlayer, int i) {
         IPlayer.OnPlayerPlayStateListener onPlayerPlayStateListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048580, this, iPlayer, i2) == null) || (onPlayerPlayStateListener = this.mOnPlayStateListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048580, this, iPlayer, i) == null) || (onPlayerPlayStateListener = this.mOnPlayStateListener) == null) {
             return;
         }
-        onPlayerPlayStateListener.onStateChange(iPlayer, i2);
+        onPlayerPlayStateListener.onStateChange(iPlayer, i);
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
@@ -106,13 +106,13 @@ public class PlayerDataSourceViewAdapter implements IDataSourceView.IPlayerDataS
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IDataSourceView.IPlayerDataSourceView
-    public void onVideoSizeChanged(int i2, int i3) {
+    public void onVideoSizeChanged(int i, int i2) {
         GLMediaPreviewView gLMediaPreviewView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) || (gLMediaPreviewView = this.mVideoView) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) || (gLMediaPreviewView = this.mVideoView) == null) {
             return;
         }
-        gLMediaPreviewView.onVideoSizeChanged(i2, i3);
+        gLMediaPreviewView.onVideoSizeChanged(i, i2);
     }
 
     public void setOnCompleteListener(IPlayer.OnPlayerCompletionListener onPlayerCompletionListener) {

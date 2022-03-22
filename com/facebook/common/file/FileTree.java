@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FileTree {
     public static /* synthetic */ Interceptable $ic;
     public static String sMaxLengthFileName;
@@ -35,9 +35,9 @@ public class FileTree {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -79,8 +79,8 @@ public class FileTree {
             String path = file.getPath();
             int length = strArr.length;
             File[] fileArr = new File[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                fileArr[i2] = new File(getSubFilePath(path, strArr[i2]));
+            for (int i = 0; i < length; i++) {
+                fileArr[i] = new File(getSubFilePath(path, strArr[i]));
             }
             return fileArr;
         }

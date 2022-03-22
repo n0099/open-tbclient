@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class OggPacket {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class OggPacket {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -39,26 +39,26 @@ public final class OggPacket {
         this.currentSegmentIndex = -1;
     }
 
-    private int calculatePacketSize(int i2) {
+    private int calculatePacketSize(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int i4 = 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int i3 = 0;
             this.segmentCount = 0;
             do {
-                int i5 = this.segmentCount;
-                int i6 = i2 + i5;
+                int i4 = this.segmentCount;
+                int i5 = i + i4;
                 OggPageHeader oggPageHeader = this.pageHeader;
-                if (i6 >= oggPageHeader.pageSegmentCount) {
+                if (i5 >= oggPageHeader.pageSegmentCount) {
                     break;
                 }
                 int[] iArr = oggPageHeader.laces;
-                this.segmentCount = i5 + 1;
-                i3 = iArr[i5 + i2];
-                i4 += i3;
-            } while (i3 == 255);
-            return i4;
+                this.segmentCount = i4 + 1;
+                i2 = iArr[i4 + i];
+                i3 += i2;
+            } while (i2 == 255);
+            return i3;
         }
         return invokeI.intValue;
     }
@@ -77,7 +77,7 @@ public final class OggPacket {
 
     public boolean populate(ExtractorInput extractorInput) throws IOException, InterruptedException {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, extractorInput)) == null) {
             Assertions.checkState(extractorInput != null);
@@ -91,18 +91,18 @@ public final class OggPacket {
                         return false;
                     }
                     OggPageHeader oggPageHeader = this.pageHeader;
-                    int i3 = oggPageHeader.headerSize;
+                    int i2 = oggPageHeader.headerSize;
                     if ((oggPageHeader.type & 1) == 1 && this.packetArray.limit() == 0) {
-                        i3 += calculatePacketSize(0);
-                        i2 = this.segmentCount + 0;
+                        i2 += calculatePacketSize(0);
+                        i = this.segmentCount + 0;
                     } else {
-                        i2 = 0;
+                        i = 0;
                     }
-                    extractorInput.skipFully(i3);
-                    this.currentSegmentIndex = i2;
+                    extractorInput.skipFully(i2);
+                    this.currentSegmentIndex = i;
                 }
                 int calculatePacketSize = calculatePacketSize(this.currentSegmentIndex);
-                int i4 = this.currentSegmentIndex + this.segmentCount;
+                int i3 = this.currentSegmentIndex + this.segmentCount;
                 if (calculatePacketSize > 0) {
                     if (this.packetArray.capacity() < this.packetArray.limit() + calculatePacketSize) {
                         ParsableByteArray parsableByteArray = this.packetArray;
@@ -112,12 +112,12 @@ public final class OggPacket {
                     extractorInput.readFully(parsableByteArray2.data, parsableByteArray2.limit(), calculatePacketSize);
                     ParsableByteArray parsableByteArray3 = this.packetArray;
                     parsableByteArray3.setLimit(parsableByteArray3.limit() + calculatePacketSize);
-                    this.populated = this.pageHeader.laces[i4 + (-1)] != 255;
+                    this.populated = this.pageHeader.laces[i3 + (-1)] != 255;
                 }
-                if (i4 == this.pageHeader.pageSegmentCount) {
-                    i4 = -1;
+                if (i3 == this.pageHeader.pageSegmentCount) {
+                    i3 = -1;
                 }
-                this.currentSegmentIndex = i4;
+                this.currentSegmentIndex = i3;
             }
             return true;
         }

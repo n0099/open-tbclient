@@ -40,9 +40,9 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {recyclerViewAccessibilityDelegate};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -147,22 +147,22 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public boolean performAccessibilityAction(View view, int i2, Bundle bundle) {
+        public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i2, bundle)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i, bundle)) == null) {
                 if (!this.mRecyclerViewDelegate.shouldIgnore() && this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager() != null) {
                     AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view);
                     if (accessibilityDelegateCompat != null) {
-                        if (accessibilityDelegateCompat.performAccessibilityAction(view, i2, bundle)) {
+                        if (accessibilityDelegateCompat.performAccessibilityAction(view, i, bundle)) {
                             return true;
                         }
-                    } else if (super.performAccessibilityAction(view, i2, bundle)) {
+                    } else if (super.performAccessibilityAction(view, i, bundle)) {
                         return true;
                     }
-                    return this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager().performAccessibilityActionForItem(view, i2, bundle);
+                    return this.mRecyclerViewDelegate.mRecyclerView.getLayoutManager().performAccessibilityActionForItem(view, i, bundle);
                 }
-                return super.performAccessibilityAction(view, i2, bundle);
+                return super.performAccessibilityAction(view, i, bundle);
             }
             return invokeLIL.booleanValue;
         }
@@ -177,14 +177,14 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
         }
 
         @Override // androidx.core.view.AccessibilityDelegateCompat
-        public void sendAccessibilityEvent(@NonNull View view, int i2) {
+        public void sendAccessibilityEvent(@NonNull View view, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, view, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048585, this, view, i) == null) {
                 AccessibilityDelegateCompat accessibilityDelegateCompat = this.mOriginalItemDelegates.get(view);
                 if (accessibilityDelegateCompat != null) {
-                    accessibilityDelegateCompat.sendAccessibilityEvent(view, i2);
+                    accessibilityDelegateCompat.sendAccessibilityEvent(view, i);
                 } else {
-                    super.sendAccessibilityEvent(view, i2);
+                    super.sendAccessibilityEvent(view, i);
                 }
             }
         }
@@ -210,9 +210,9 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
             newInitContext.initArgs = r2;
             Object[] objArr = {recyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -262,17 +262,17 @@ public class RecyclerViewAccessibilityDelegate extends AccessibilityDelegateComp
     }
 
     @Override // androidx.core.view.AccessibilityDelegateCompat
-    public boolean performAccessibilityAction(View view, int i2, Bundle bundle) {
+    public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, view, i2, bundle)) == null) {
-            if (super.performAccessibilityAction(view, i2, bundle)) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, view, i, bundle)) == null) {
+            if (super.performAccessibilityAction(view, i, bundle)) {
                 return true;
             }
             if (shouldIgnore() || this.mRecyclerView.getLayoutManager() == null) {
                 return false;
             }
-            return this.mRecyclerView.getLayoutManager().performAccessibilityAction(i2, bundle);
+            return this.mRecyclerView.getLayoutManager().performAccessibilityAction(i, bundle);
         }
         return invokeLIL.booleanValue;
     }

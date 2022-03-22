@@ -1,5 +1,6 @@
 package com.baidu.ueg.encrypt.entity;
 
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,21 +29,21 @@ public final class EncryptAlgorithm {
                 return;
             }
         }
-        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm("RSA", 0);
+        EncryptAlgorithm encryptAlgorithm = new EncryptAlgorithm(RSAUtil.ALGORITHM_RSA, 0);
         RSA = encryptAlgorithm;
         $VALUES = new EncryptAlgorithm[]{encryptAlgorithm};
     }
 
-    public EncryptAlgorithm(String str, int i2) {
+    public EncryptAlgorithm(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

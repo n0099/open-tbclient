@@ -13,13 +13,13 @@ import com.sdk.base.framework.c.f;
 import com.sdk.base.framework.f.i.e;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends com.sdk.base.framework.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String a = "com.sdk.base.framework.f.j.a";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f57830b;
+    public static boolean f42597b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public class a extends com.sdk.base.framework.f.a {
                 return;
             }
         }
-        f57830b = f.f57798b;
+        f42597b = f.f42567b;
     }
 
     public a() {
@@ -43,9 +43,9 @@ public class a extends com.sdk.base.framework.f.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -69,7 +69,7 @@ public class a extends com.sdk.base.framework.f.a {
                     String sb2 = sb.toString();
                     if (entry.getValue() != null && sb2.length() > 0 && !StringUtil.NULL_STRING.equals(sb2) && !"sign".equals(key) && !key.startsWith("_") && !"file".equals(key)) {
                         stringBuffer.append(key);
-                        stringBuffer.append(com.alipay.sdk.encrypt.a.f29503h);
+                        stringBuffer.append('=');
                         stringBuffer.append(entry.getValue());
                         stringBuffer.append('&');
                     }
@@ -79,7 +79,7 @@ public class a extends com.sdk.base.framework.f.a {
                 }
                 return e.a(stringBuffer.toString());
             } catch (Exception e2) {
-                c.b(a, e2.getMessage(), Boolean.valueOf(f57830b));
+                c.b(a, e2.getMessage(), Boolean.valueOf(f42597b));
                 return null;
             }
         }

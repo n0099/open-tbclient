@@ -65,9 +65,9 @@ public class ARPEngine implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -85,12 +85,12 @@ public class ARPEngine implements c {
         initEngine3DInstance();
     }
 
-    private boolean createApp(int i2, int i3, int i4, int i5, float f2, String str) {
+    private boolean createApp(int i, int i2, int i3, int i4, float f2, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), str})) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i2 + "*" + i3 + PreferencesUtil.RIGHT_MOUNT);
-            boolean nativeCreateApp = nativeCreateApp(i2, i3, i4, i5, f2, str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), str})) == null) {
+            com.baidu.ar.arplay.c.b.b(TAG, "createApp [width*height]: [" + i + "*" + i2 + PreferencesUtil.RIGHT_MOUNT);
+            boolean nativeCreateApp = nativeCreateApp(i, i2, i3, i4, f2, str);
             this.mIsEngineCreated = true;
             ARPContent aRPContent = this.mARPContent;
             if (aRPContent != null) {
@@ -151,13 +151,13 @@ public class ARPEngine implements c {
         }
     }
 
-    public void addAlgoType(int[] iArr, int i2) {
+    public void addAlgoType(int[] iArr, int i) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, iArr, i2) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, iArr, i) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
             return;
         }
-        aRPDataInteraction.addAlgoType(iArr, i2);
+        aRPDataInteraction.addAlgoType(iArr, i);
     }
 
     public String adjustFilterWithCasePathParam(String str) {
@@ -174,31 +174,31 @@ public class ARPEngine implements c {
         return (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j2) {
+    public void adjustFilterWithFloatArrayParam(String str, String str2, float[] fArr, long j) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, fArr, Long.valueOf(j2)}) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, fArr, Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.adjustFilterWithFloatArrayParam(str, str2, fArr, j2);
+        aRPFilter.adjustFilterWithFloatArrayParam(str, str2, fArr, j);
     }
 
-    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j2) {
+    public void adjustFilterWithFloatParam(String str, String str2, float f2, long j) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j2)}) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Float.valueOf(f2), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.adjustFilterWithFloatParam(str, str2, f2, j2);
+        aRPFilter.adjustFilterWithFloatParam(str, str2, f2, j);
     }
 
-    public void adjustFilterWithIntParam(String str, String str2, int i2, long j2) {
+    public void adjustFilterWithIntParam(String str, String str2, int i, long j) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.adjustFilterWithIntParam(str, str2, i2, j2);
+        aRPFilter.adjustFilterWithIntParam(str, str2, i, j);
     }
 
     public String adjustFilterWithJsonPathParam(String str) {
@@ -214,13 +214,13 @@ public class ARPEngine implements c {
         return (String) invokeL.objValue;
     }
 
-    public void adjustFilterWithStringParam(String str, String str2, String str3, long j2) {
+    public void adjustFilterWithStringParam(String str, String str2, String str3, long j) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Long.valueOf(j2)}) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, str3, Long.valueOf(j)}) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.adjustFilterWithStringParam(str, str2, str3, j2);
+        aRPFilter.adjustFilterWithStringParam(str, str2, str3, j);
     }
 
     public void clearARMemory() {
@@ -309,13 +309,13 @@ public class ARPEngine implements c {
         }
     }
 
-    public void destroyMockAlgoHandle(long j2) {
+    public void destroyMockAlgoHandle(long j) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048588, this, j) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
             return;
         }
-        aRPDataInteraction.destroyMockAlgoHandle(j2);
+        aRPDataInteraction.destroyMockAlgoHandle(j);
     }
 
     public void disableCaseLutTexture() {
@@ -327,13 +327,13 @@ public class ARPEngine implements c {
         aRPFilter.disableCaseLutTexture();
     }
 
-    public void disableFilterByAuthCode(int i2) {
+    public void disableFilterByAuthCode(int i) {
         ARPFilter aRPFilter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || (aRPFilter = this.mARPFilter) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || (aRPFilter = this.mARPFilter) == null) {
             return;
         }
-        aRPFilter.disableFilterByAuthCode(i2);
+        aRPFilter.disableFilterByAuthCode(i);
     }
 
     public IARPRenderer getARPRenderer() {
@@ -441,20 +441,20 @@ public class ARPEngine implements c {
         }
     }
 
-    public long mockFaceAlgoHandle(long j2, float[] fArr) {
+    public long mockFaceAlgoHandle(long j, float[] fArr) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048602, this, j2, fArr)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048602, this, j, fArr)) == null) {
             ARPDataInteraction aRPDataInteraction = this.mARPDataInteraction;
             if (aRPDataInteraction != null) {
-                return aRPDataInteraction.mockFaceAlgoHandle(j2, fArr);
+                return aRPDataInteraction.mockFaceAlgoHandle(j, fArr);
             }
             return -1L;
         }
         return invokeJL.longValue;
     }
 
-    public native boolean nativeCreateApp(int i2, int i3, int i4, int i5, float f2, String str);
+    public native boolean nativeCreateApp(int i, int i2, int i3, int i4, float f2, String str);
 
     public native void nativeDestroyEngine();
 
@@ -466,9 +466,9 @@ public class ARPEngine implements c {
 
     public native void nativeSetConfig(String str, String str2);
 
-    public native void nativeSetEngineBlendState(int i2);
+    public native void nativeSetEngineBlendState(int i);
 
-    public native void nativeSetLocalDeviceGrade(int i2);
+    public native void nativeSetLocalDeviceGrade(int i);
 
     public synchronized void onCaseLoadCompleted(Map map) {
         Interceptable interceptable = $ic;
@@ -499,19 +499,19 @@ public class ARPEngine implements c {
         aRPContent.onCaseUnloadCompleted();
     }
 
-    public void onGestureUpdate(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10) {
+    public void onGestureUpdate(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onGestureUpdate(i2, j2, i3, f2, f3, f4, f5, i4, f6, f7, f8, f9, i5, f10);
+        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onGestureUpdate(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10);
         }
     }
 
-    public void onGestureUpdateWithScaleFinish(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10, boolean z) {
+    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10), Boolean.valueOf(z)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onGestureUpdateWithScaleFinish(i2, j2, i3, f2, f3, f4, f5, i4, f6, f7, f8, f9, i5, f10, z);
+        if ((interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10), Boolean.valueOf(z)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onGestureUpdateWithScaleFinish(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, z);
         }
     }
 
@@ -532,11 +532,11 @@ public class ARPEngine implements c {
         }
     }
 
-    public void onTouchUpdate(int i2, float f2, float f3, float f4, float f5, long j2, int i3, float f6) {
+    public void onTouchUpdate(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f6)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-            aRPDataInteraction.onTouchUpdate(i2, f2, f3, f4, f5, j2, i3, f6);
+        if ((interceptable == null || interceptable.invokeCommon(1048616, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f6)}) == null) && isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
+            aRPDataInteraction.onTouchUpdate(i, f2, f3, f4, f5, j, i2, f6);
         }
     }
 
@@ -622,12 +622,12 @@ public class ARPEngine implements c {
         abstractARPEngine3D.sceneWorldPositionToOrigin();
     }
 
-    public synchronized void setAlgoDataHandle(long j2) {
+    public synchronized void setAlgoDataHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048624, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048624, this, j) == null) {
             synchronized (this) {
                 if (this.mARPDataInteraction != null) {
-                    this.mARPDataInteraction.setAlgoDataHandle(j2);
+                    this.mARPDataInteraction.setAlgoDataHandle(j);
                 }
             }
         }
@@ -659,20 +659,20 @@ public class ARPEngine implements c {
         aRPFilter.setContext(softReference);
     }
 
-    public void setEngineBlendState(int i2) {
+    public void setEngineBlendState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048628, this, i2) == null) {
-            nativeSetEngineBlendState(i2);
+        if (interceptable == null || interceptable.invokeI(1048628, this, i) == null) {
+            nativeSetEngineBlendState(i);
         }
     }
 
-    public void setFaceLandMarkFrameAcheMode(int i2) {
+    public void setFaceLandMarkFrameAcheMode(int i) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048629, this, i2) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048629, this, i) == null) || (aRPDataInteraction = this.mARPDataInteraction) == null) {
             return;
         }
-        aRPDataInteraction.setFaceLandMarkFrameAcheMode(i2);
+        aRPDataInteraction.setFaceLandMarkFrameAcheMode(i);
     }
 
     public synchronized void setHtmlUpdateCallback(ARPDataInteraction.a aVar) {
@@ -702,21 +702,21 @@ public class ARPEngine implements c {
         }
     }
 
-    public void setLocalDeviceGrade(int i2) {
+    public void setLocalDeviceGrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
-            com.baidu.ar.arplay.c.b.b(TAG, "setLocalDeviceGrade :" + i2);
-            nativeSetLocalDeviceGrade(i2);
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            com.baidu.ar.arplay.c.b.b(TAG, "setLocalDeviceGrade :" + i);
+            nativeSetLocalDeviceGrade(i);
         }
     }
 
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         ARPContent aRPContent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048634, this, i2, i3) == null) || (aRPContent = this.mARPContent) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048634, this, i, i2) == null) || (aRPContent = this.mARPContent) == null) {
             return;
         }
-        aRPContent.setPreviewSize(i2, i3);
+        aRPContent.setPreviewSize(i, i2);
     }
 
     public synchronized void setVideoUpdateCallback(ARPDataInteraction.c cVar) {
@@ -739,13 +739,13 @@ public class ARPEngine implements c {
         aRPFilter.setWatermark(str, bitmap, fArr);
     }
 
-    public void setWindowSize(int i2, int i3) {
+    public void setWindowSize(int i, int i2) {
         ARPContent aRPContent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048637, this, i2, i3) == null) || (aRPContent = this.mARPContent) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048637, this, i, i2) == null) || (aRPContent = this.mARPContent) == null) {
             return;
         }
-        aRPContent.setWindowSize(i2, i3);
+        aRPContent.setWindowSize(i, i2);
     }
 
     public synchronized void unloadCase() {
@@ -772,13 +772,13 @@ public class ARPEngine implements c {
         }
     }
 
-    public void updateAlgoDataToNode(int i2, int i3, byte[] bArr) {
+    public void updateAlgoDataToNode(int i, int i2, byte[] bArr) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048640, this, i2, i3, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048640, this, i, i2, bArr) == null) {
             com.baidu.ar.arplay.c.b.c(TAG, "updateAlgoDataToNode");
             if (isEngineCanAccess() && (aRPDataInteraction = this.mARPDataInteraction) != null) {
-                aRPDataInteraction.updateAlgoDataToNode(i2, i3, bArr);
+                aRPDataInteraction.updateAlgoDataToNode(i, i2, bArr);
             }
         }
     }

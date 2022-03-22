@@ -12,7 +12,7 @@ import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 @Keep
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u001c\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u000e\n\u0002\b\f\b\u0007\u0018\u00002\u00020\u0001B\u0007¢\u0006\u0004\b\u001a\u0010\u001bR(\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00030\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0004\u0010\u0005\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\"\u0010\n\u001a\u00020\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\n\u0010\u000b\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR$\u0010\u0011\u001a\u0004\u0018\u00010\u00108\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0011\u0010\u0012\u001a\u0004\b\u0013\u0010\u0014\"\u0004\b\u0015\u0010\u0016R\"\u0010\u0017\u001a\u00020\u00038\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0017\u0010\u000b\u001a\u0004\b\u0018\u0010\r\"\u0004\b\u0019\u0010\u000f¨\u0006\u001c"}, d2 = {"Lcom/yy/mobile/framework/revenuesdk/payapi/request/GetChargeCouponDiscountReqParams;", "Lcom/yy/mobile/framework/revenuesdk/payapi/request/RequestParams;", "", "", "chargeConfigIds", "Ljava/util/List;", "getChargeConfigIds", "()Ljava/util/List;", "setChargeConfigIds", "(Ljava/util/List;)V", "currencyType", "I", "getCurrencyType", "()I", "setCurrencyType", "(I)V", "", "payChannel", "Ljava/lang/String;", "getPayChannel", "()Ljava/lang/String;", "setPayChannel", "(Ljava/lang/String;)V", "userCouponId", "getUserCouponId", "setUserCouponId", "<init>", "()V", "paycore_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class GetChargeCouponDiscountReqParams extends RequestParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public final class GetChargeCouponDiscountReqParams extends RequestParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,10 +68,10 @@ public final class GetChargeCouponDiscountReqParams extends RequestParams {
         }
     }
 
-    public final void setCurrencyType(int i2) {
+    public final void setCurrencyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.currencyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.currencyType = i;
         }
     }
 
@@ -82,10 +82,10 @@ public final class GetChargeCouponDiscountReqParams extends RequestParams {
         }
     }
 
-    public final void setUserCouponId(int i2) {
+    public final void setUserCouponId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.userCouponId = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.userCouponId = i;
         }
     }
 }

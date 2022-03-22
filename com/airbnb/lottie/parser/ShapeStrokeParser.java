@@ -8,13 +8,12 @@ import com.airbnb.lottie.model.animatable.AnimatableIntegerValue;
 import com.airbnb.lottie.model.content.ShapeStroke;
 import com.airbnb.lottie.parser.moshi.JsonReader;
 import com.airbnb.lottie.value.Keyframe;
-import com.baidu.fsg.base.statistics.k;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 /* loaded from: classes3.dex */
 public class ShapeStrokeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", k.f32451h, "lj", "ml", "hd", "d");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "c", "w", "o", "lc", "lj", "ml", "hd", "d");
     public static final JsonReader.Options DASH_PATTERN_NAMES = JsonReader.Options.of("n", "v");
 
     public static ShapeStroke parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
@@ -30,9 +29,9 @@ public class ShapeStrokeParser {
         boolean z = false;
         AnimatableIntegerValue animatableIntegerValue = null;
         while (true) {
-            int i2 = 100;
+            int i = 100;
             if (jsonReader.hasNext()) {
-                int i3 = 1;
+                int i2 = 1;
                 switch (jsonReader.selectName(NAMES)) {
                     case 0:
                         str = jsonReader.nextString();
@@ -68,7 +67,7 @@ public class ShapeStrokeParser {
                                 int selectName = jsonReader.selectName(DASH_PATTERN_NAMES);
                                 if (selectName == 0) {
                                     str2 = jsonReader.nextString();
-                                } else if (selectName != i3) {
+                                } else if (selectName != i2) {
                                     jsonReader.skipName();
                                     jsonReader.skipValue();
                                 } else {
@@ -77,7 +76,7 @@ public class ShapeStrokeParser {
                             }
                             jsonReader.endObject();
                             int hashCode = str2.hashCode();
-                            if (hashCode == i2) {
+                            if (hashCode == i) {
                                 if (str2.equals("d")) {
                                     c2 = 1;
                                 }
@@ -99,8 +98,8 @@ public class ShapeStrokeParser {
                                 lottieComposition.setHasDashPattern(true);
                                 arrayList.add(animatableFloatValue3);
                             }
-                            i2 = 100;
-                            i3 = 1;
+                            i = 100;
+                            i2 = 1;
                         }
                         jsonReader.endArray();
                         if (arrayList.size() != 1) {

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAvailableListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static int back_id = -1;
@@ -49,9 +49,9 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -86,20 +86,20 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && cam_scanned == 0) {
             cam_scanned = 1;
             int numberOfCameras = Camera.getNumberOfCameras();
-            for (int i2 = 0; i2 < numberOfCameras; i2++) {
+            for (int i = 0; i < numberOfCameras; i++) {
                 Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i2, cameraInfo);
+                Camera.getCameraInfo(i, cameraInfo);
                 if (front_id < 0 && cameraInfo.facing == 1) {
-                    front_id = i2;
+                    front_id = i;
                 }
                 if (back_id < 0 && cameraInfo.facing == 0) {
-                    back_id = i2;
+                    back_id = i;
                 }
             }
         }
     }
 
-    public static native void sendresult(int i2, byte[] bArr, int i3, int i4);
+    public static native void sendresult(int i, byte[] bArr, int i2, int i3);
 
     public int callUpdateTexImage() {
         InterceptResult invokeV;
@@ -137,9 +137,9 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
                 }
                 this.mNeedUp = 0;
             }
-            int i2 = this.mCameraId;
+            int i = this.mCameraId;
             Camera.Size size = this.mMyCameraSize;
-            sendresult(i2, bArr, size.width, size.height);
+            sendresult(i, bArr, size.width, size.height);
         }
     }
 
@@ -151,13 +151,13 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
                 return 0;
             }
             int exposureCompensation = ((int) (d2 / this.mCompensationStep)) + this.mMyCamera.getParameters().getExposureCompensation();
-            int i2 = this.mMaxCompensationIndex;
-            if (exposureCompensation > i2) {
-                exposureCompensation = i2;
+            int i = this.mMaxCompensationIndex;
+            if (exposureCompensation > i) {
+                exposureCompensation = i;
             }
-            int i3 = this.mMinCompensationIndex;
-            if (exposureCompensation < i3) {
-                exposureCompensation = i3;
+            int i2 = this.mMinCompensationIndex;
+            if (exposureCompensation < i2) {
+                exposureCompensation = i2;
             }
             Camera.Parameters parameters = this.mMyCamera.getParameters();
             parameters.setExposureCompensation(exposureCompensation);
@@ -183,36 +183,36 @@ public class camera implements Camera.PreviewCallback, SurfaceTexture.OnFrameAva
         return invokeV.intValue;
     }
 
-    public int turn_on(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public int turn_on(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
             if (this.mMyCamera == null) {
-                this.mMyCamera = Camera.open(i2);
-                this.mCameraId = i2;
+                this.mMyCamera = Camera.open(i);
+                this.mCameraId = i;
             }
             if (this.mMyCamera == null) {
                 return 0;
             }
             try {
                 if (this.mSurfaceTexture == null) {
-                    this.mSurfaceTexture = new SurfaceTexture(i6);
+                    this.mSurfaceTexture = new SurfaceTexture(i5);
                 }
                 this.mMyCamera.setPreviewCallback(this);
                 this.mSurfaceTexture.setOnFrameAvailableListener(this);
                 this.mMyCamera.setPreviewTexture(this.mSurfaceTexture);
                 Camera.Parameters parameters = this.mMyCamera.getParameters();
                 parameters.setPreviewFormat(17);
-                if (i3 != 0 && i4 != 0) {
-                    parameters.setPreviewSize(i3, i4);
+                if (i2 != 0 && i3 != 0) {
+                    parameters.setPreviewSize(i2, i3);
                 }
-                if (i5 != 0) {
-                    parameters.setPreviewFrameRate(i5);
+                if (i4 != 0) {
+                    parameters.setPreviewFrameRate(i4);
                 }
                 this.mMyCamera.setParameters(parameters);
                 this.mMyCamera.startPreview();
                 this.mMyCameraSize = this.mMyCamera.getParameters().getPreviewSize();
-                this.mIsTexValid = i7;
+                this.mIsTexValid = i6;
                 this.mCompensationStep = this.mMyCamera.getParameters().getExposureCompensationStep();
                 this.mMinCompensationIndex = this.mMyCamera.getParameters().getMinExposureCompensation();
                 this.mMaxCompensationIndex = this.mMyCamera.getParameters().getMaxExposureCompensation();

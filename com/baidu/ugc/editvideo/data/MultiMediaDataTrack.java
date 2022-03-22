@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,9 +45,9 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -66,10 +66,10 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public MultiMediaDataTrack[] newArray(int i2) {
+            public MultiMediaDataTrack[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new MultiMediaDataTrack[i2] : (MultiMediaDataTrack[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MultiMediaDataTrack[i] : (MultiMediaDataTrack[]) invokeI.objValue;
             }
         };
     }
@@ -79,9 +79,9 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -95,9 +95,9 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -170,12 +170,12 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeTypedList(this.multiMediaDataList);
-            parcel.writeParcelable(this.multiMediaDataSuperpositionHeader, i2);
-            parcel.writeParcelable(this.multiMediaDataSuperpositionFooter, i2);
+            parcel.writeParcelable(this.multiMediaDataSuperpositionHeader, i);
+            parcel.writeParcelable(this.multiMediaDataSuperpositionFooter, i);
         }
     }
 }

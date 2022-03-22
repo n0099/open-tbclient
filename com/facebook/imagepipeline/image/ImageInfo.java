@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.image;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ImageInfo {
     int getHeight();
 

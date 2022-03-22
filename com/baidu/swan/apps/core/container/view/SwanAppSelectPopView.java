@@ -47,9 +47,9 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -123,10 +123,10 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onFinishInflate();
-            View findViewById = findViewById(R.id.btn_wv_copy);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090440);
             this.mCopyView = findViewById;
             findViewById.setOnClickListener(this);
-            View findViewById2 = findViewById(R.id.btn_wv_search);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090441);
             this.mSearchView = findViewById2;
             findViewById2.setOnClickListener(this);
         }
@@ -139,45 +139,45 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
         }
     }
 
-    public void setPopBottomY(int i2) {
+    public void setPopBottomY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mPopBottomY = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mPopBottomY = i;
         }
     }
 
-    public void setPopLeftX(int i2) {
+    public void setPopLeftX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mPopLeftX = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mPopLeftX = i;
         }
     }
 
-    public void setPopRightX(int i2) {
+    public void setPopRightX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mPopRightX = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mPopRightX = i;
         }
     }
 
-    public void setPopTopY(int i2) {
+    public void setPopTopY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mPopTopY = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mPopTopY = i;
         }
     }
 
-    public void setPopX(int i2) {
+    public void setPopX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mPopX = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mPopX = i;
         }
     }
 
-    public void setPopY(int i2) {
+    public void setPopY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mPopY = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mPopY = i;
         }
     }
 
@@ -197,9 +197,9 @@ public class SwanAppSelectPopView extends LinearLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

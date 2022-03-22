@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import c.a.p0.a.h2.d.b.a;
+import c.a.n0.a.h2.d.b.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,28 +19,26 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class MediaBrightness extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f29725b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f29726c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f29727d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f38649e;
+    public int f29728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f38650f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f38651g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f38652h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f38653i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public float f38654j;
+    public float f29729f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaBrightness(@NonNull Context context) {
@@ -51,9 +49,9 @@ public final class MediaBrightness extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,7 +64,7 @@ public final class MediaBrightness extends FrameLayout {
     public float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38654j : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f29729f : invokeV.floatValue;
     }
 
     public float b() {
@@ -81,30 +79,30 @@ public final class MediaBrightness extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.swanapp_video_slide_vertical, (ViewGroup) this, true);
-            this.f38649e = inflate;
-            this.f38650f = (ImageView) inflate.findViewById(R.id.icon_video_slide_vertical);
-            this.f38651g = (TextView) this.f38649e.findViewById(R.id.label_video_slide_vertical);
-            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.swanapp_video_brightness_width);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07ea, (ViewGroup) this, true);
+            this.a = inflate;
+            this.f29725b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e23);
+            this.f29726c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0911a4);
+            int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070689);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.f38649e.setBackgroundResource(R.drawable.swanapp_video_icon_background);
-            this.f38649e.setLayoutParams(layoutParams);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811a4);
+            this.a.setLayoutParams(layoutParams);
         }
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f38654j = a.c().a((Activity) getContext());
+            this.f29729f = a.c().a((Activity) getContext());
         }
     }
 
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f38650f.setImageResource(this.f38653i);
-            this.f38651g.setText(String.format("%d%%", Integer.valueOf(this.f38652h)));
+            this.f29725b.setImageResource(this.f29728e);
+            this.f29726c.setText(String.format("%d%%", Integer.valueOf(this.f29727d)));
             setVisibility(0);
         }
     }
@@ -121,22 +119,22 @@ public final class MediaBrightness extends FrameLayout {
         }
     }
 
-    public void g(int i2) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f38653i = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f29728e = i;
         }
     }
 
-    public void h(int i2) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            if (i2 < 0) {
-                i2 = 0;
-            } else if (i2 > 100) {
-                i2 = 100;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            if (i < 0) {
+                i = 0;
+            } else if (i > 100) {
+                i = 100;
             }
-            this.f38652h = i2;
+            this.f29727d = i;
         }
     }
 
@@ -149,9 +147,9 @@ public final class MediaBrightness extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -162,17 +160,17 @@ public final class MediaBrightness extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MediaBrightness(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

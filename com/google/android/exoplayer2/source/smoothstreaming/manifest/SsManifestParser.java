@@ -37,13 +37,13 @@ import java.util.UUID;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final XmlPullParserFactory xmlParserFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class ElementParser {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -59,9 +59,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementParser, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -103,8 +103,8 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                for (int i2 = 0; i2 < this.normalizedAttributes.size(); i2++) {
-                    Pair<String, Object> pair = this.normalizedAttributes.get(i2);
+                for (int i = 0; i < this.normalizedAttributes.size(); i++) {
+                    Pair<String, Object> pair = this.normalizedAttributes.get(i);
                     if (((String) pair.first).equals(str)) {
                         return pair.second;
                     }
@@ -134,7 +134,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 return invokeL.objValue;
             }
             boolean z = false;
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 int eventType = xmlPullParser.getEventType();
                 if (eventType == 1) {
@@ -146,27 +146,27 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                         parseStartTag(xmlPullParser);
                         z = true;
                     } else if (z) {
-                        if (i2 > 0) {
-                            i2++;
+                        if (i > 0) {
+                            i++;
                         } else if (handleChildInline(name)) {
                             parseStartTag(xmlPullParser);
                         } else {
                             ElementParser newChildParser = newChildParser(this, name, this.baseUri);
                             if (newChildParser == null) {
-                                i2 = 1;
+                                i = 1;
                             } else {
                                 addChild(newChildParser.parse(xmlPullParser));
                             }
                         }
                     }
                 } else if (eventType != 3) {
-                    if (eventType == 4 && z && i2 == 0) {
+                    if (eventType == 4 && z && i == 0) {
                         parseText(xmlPullParser);
                     }
                 } else if (!z) {
                     continue;
-                } else if (i2 > 0) {
-                    i2--;
+                } else if (i > 0) {
+                    i--;
                 } else {
                     String name2 = xmlPullParser.getName();
                     parseEndTag(xmlPullParser);
@@ -194,10 +194,10 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
             }
         }
 
-        public final int parseInt(XmlPullParser xmlPullParser, String str, int i2) throws ParserException {
+        public final int parseInt(XmlPullParser xmlPullParser, String str, int i) throws ParserException {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, xmlPullParser, str, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, xmlPullParser, str, i)) == null) {
                 String attributeValue = xmlPullParser.getAttributeValue(null, str);
                 if (attributeValue != null) {
                     try {
@@ -206,15 +206,15 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                         throw new ParserException(e2);
                     }
                 }
-                return i2;
+                return i;
             }
             return invokeLLI.intValue;
         }
 
-        public final long parseLong(XmlPullParser xmlPullParser, String str, long j2) throws ParserException {
+        public final long parseLong(XmlPullParser xmlPullParser, String str, long j) throws ParserException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{xmlPullParser, str, Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{xmlPullParser, str, Long.valueOf(j)})) == null) {
                 String attributeValue = xmlPullParser.getAttributeValue(null, str);
                 if (attributeValue != null) {
                     try {
@@ -223,7 +223,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                         throw new ParserException(e2);
                     }
                 }
-                return j2;
+                return j;
             }
             return invokeCommon.longValue;
         }
@@ -295,7 +295,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class MissingFieldException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -309,9 +309,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -321,7 +321,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ProtectionParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_SYSTEM_ID = "SystemID";
@@ -341,9 +341,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -403,7 +403,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class QualityLevelParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_BITRATE = "Bitrate";
@@ -429,9 +429,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -535,7 +535,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SmoothStreamingMediaParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DURATION = "Duration";
@@ -566,9 +566,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -605,14 +605,14 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 if (this.protectionElement != null) {
                     SsManifest.ProtectionElement protectionElement = this.protectionElement;
                     DrmInitData drmInitData = new DrmInitData(new DrmInitData.SchemeData(protectionElement.uuid, MimeTypes.VIDEO_MP4, protectionElement.data));
-                    for (int i2 = 0; i2 < size; i2++) {
-                        SsManifest.StreamElement streamElement = streamElementArr[i2];
-                        int i3 = 0;
+                    for (int i = 0; i < size; i++) {
+                        SsManifest.StreamElement streamElement = streamElementArr[i];
+                        int i2 = 0;
                         while (true) {
                             Format[] formatArr = streamElement.formats;
-                            if (i3 < formatArr.length) {
-                                formatArr[i3] = formatArr[i3].copyWithDrmInitData(drmInitData);
-                                i3++;
+                            if (i2 < formatArr.length) {
+                                formatArr[i2] = formatArr[i2].copyWithDrmInitData(drmInitData);
+                                i2++;
                             }
                         }
                     }
@@ -638,7 +638,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class StreamIndexParser extends ElementParser {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String KEY_DISPLAY_HEIGHT = "DisplayHeight";
@@ -684,9 +684,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {elementParser, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((ElementParser) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -734,7 +734,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
             }
             int size = this.startTimes.size();
             long parseLong = parseLong(xmlPullParser, "t", C.TIME_UNSET);
-            int i2 = 1;
+            int i = 1;
             if (parseLong == C.TIME_UNSET) {
                 if (size == 0) {
                     parseLong = 0;
@@ -751,12 +751,12 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
                 throw new ParserException("Repeated chunk with unspecified duration");
             }
             while (true) {
-                long j2 = i2;
-                if (j2 >= parseLong2) {
+                long j = i;
+                if (j >= parseLong2) {
                     return;
                 }
-                this.startTimes.add(Long.valueOf((this.lastChunkDuration * j2) + parseLong));
-                i2++;
+                this.startTimes.add(Long.valueOf((this.lastChunkDuration * j) + parseLong));
+                i++;
             }
         }
 
@@ -827,9 +827,9 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

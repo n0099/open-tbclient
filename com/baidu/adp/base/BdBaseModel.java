@@ -32,9 +32,9 @@ public abstract class BdBaseModel<T> extends OrmObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -111,10 +111,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
         MessageManager.getInstance().sendMessage(message);
     }
 
-    public void setErrorCode(int i2) {
+    public void setErrorCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mErrorCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mErrorCode = i;
         }
     }
 
@@ -150,14 +150,14 @@ public abstract class BdBaseModel<T> extends OrmObject {
         MessageManager.getInstance().sendMessage(netMessage);
     }
 
-    public void registerListener(int i2, MessageListener<?> messageListener) {
+    public void registerListener(int i, MessageListener<?> messageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, messageListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, messageListener) == null) {
             check();
             if (messageListener != null && messageListener.getTag() == null) {
                 messageListener.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i2, messageListener);
+            MessageManager.getInstance().registerListener(i, messageListener);
         }
     }
 
@@ -168,9 +168,9 @@ public abstract class BdBaseModel<T> extends OrmObject {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -198,14 +198,14 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void registerListener(int i2, a aVar) {
+    public void registerListener(int i, a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i2, aVar) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, aVar) == null) {
             check();
             if (aVar != null && aVar.getTag() == null) {
                 aVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i2, aVar);
+            MessageManager.getInstance().registerListener(i, aVar);
         }
     }
 }

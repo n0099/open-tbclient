@@ -47,17 +47,17 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
         public final AtomicLong requested;
         public Subscription s;
 
-        public BackpressureBufferSubscriber(Subscriber<? super T> subscriber, int i2, boolean z, boolean z2, Action action) {
+        public BackpressureBufferSubscriber(Subscriber<? super T> subscriber, int i, boolean z, boolean z2, Action action) {
             SimplePlainQueue<T> spscArrayQueue;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), action};
+                Object[] objArr = {subscriber, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -68,9 +68,9 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
             this.onOverflow = action;
             this.delayError = z2;
             if (z) {
-                spscArrayQueue = new SpscLinkedArrayQueue<>(i2);
+                spscArrayQueue = new SpscLinkedArrayQueue<>(i);
             } else {
-                spscArrayQueue = new SpscArrayQueue<>(i2);
+                spscArrayQueue = new SpscArrayQueue<>(i);
             }
             this.queue = spscArrayQueue;
         }
@@ -135,18 +135,18 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
         }
 
         public void drain() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getAndIncrement() == 0) {
                 SimplePlainQueue<T> simplePlainQueue = this.queue;
                 Subscriber<? super T> subscriber = this.actual;
-                int i3 = 1;
+                int i2 = 1;
                 while (!checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i == 0) {
                             break;
                         }
                         boolean z = this.done;
@@ -159,16 +159,16 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
                             break;
                         }
                         subscriber.onNext(obj);
-                        j3++;
+                        j2++;
                     }
-                    if (i2 == 0 && checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
+                    if (i == 0 && checkTerminated(this.done, simplePlainQueue.isEmpty(), subscriber)) {
                         return;
                     }
-                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j3);
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
                     }
-                    i3 = addAndGet(-i3);
-                    if (i3 == 0) {
+                    i2 = addAndGet(-i2);
+                    if (i2 == 0) {
                         return;
                     }
                 }
@@ -250,20 +250,20 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && !this.outputFused && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && !this.outputFused && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-                if ((i2 & 2) != 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+                if ((i & 2) != 0) {
                     this.outputFused = true;
                     return 2;
                 }
@@ -274,24 +274,24 @@ public final class FlowableOnBackpressureBuffer<T> extends AbstractFlowableWithU
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableOnBackpressureBuffer(Flowable<T> flowable, int i2, boolean z, boolean z2, Action action) {
+    public FlowableOnBackpressureBuffer(Flowable<T> flowable, int i, boolean z, boolean z2, Action action) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), action};
+            Object[] objArr = {flowable, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.unbounded = z;
         this.delayError = z2;
         this.onOverflow = action;

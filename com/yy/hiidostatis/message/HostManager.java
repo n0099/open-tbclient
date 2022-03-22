@@ -6,7 +6,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.List;
 import okhttp3.Call;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface HostManager {
     String getHost(Message message);
 

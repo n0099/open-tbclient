@@ -40,9 +40,9 @@ public class GroupNewsPojo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -155,10 +155,10 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    public void setContent_status(int i2) {
+    public void setContent_status(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.content_status = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.content_status = i;
         }
     }
 
@@ -197,10 +197,10 @@ public class GroupNewsPojo implements Serializable {
         }
     }
 
-    public void setTime(long j2) {
+    public void setTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.time = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.time = j;
         }
     }
 
@@ -212,9 +212,9 @@ public class GroupNewsPojo implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {chatMessage, str};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -232,7 +232,7 @@ public class GroupNewsPojo implements Serializable {
             str2 = "kick_out";
         } else if (str.equals("101")) {
             str2 = "group_name_change";
-        } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_NOTICE_MODIFY)) {
+        } else if (str.equals("102")) {
             str2 = "group_notice_change";
         } else if (str.equals(TbEnum.SystemMessage.EVENT_ID_INTRO_MODIFY)) {
             str2 = "group_intro_change";
@@ -262,12 +262,12 @@ public class GroupNewsPojo implements Serializable {
             str2 = "apply_add_friend";
         } else if (TbEnum.SystemMessage.EVENT_ID_APPLY_PASS_FRIEND.equals(str)) {
             str2 = "apply_pass_friend";
-        } else if ("501".equals(str)) {
+        } else if (TbEnum.SystemMessage.EVENT_ID_UPLOAD_STAT.equals(str)) {
             str2 = "upload_stat";
-        } else if ("502".equals(str)) {
+        } else if (TbEnum.SystemMessage.EVENT_ID_PLUGIN_CONFIG_SYNC.equals(str)) {
             str2 = "plugin_config_sync";
         } else {
-            str2 = "503".equals(str) ? "offline_debug" : "000";
+            str2 = TbEnum.SystemMessage.EVENT_ID_OFFLINE_DEBUG.equals(str) ? "offline_debug" : "000";
         }
         setCmd(str2);
         setContent(chatMessage.getContent());
@@ -298,9 +298,9 @@ public class GroupNewsPojo implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {validateItemData};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -316,9 +316,9 @@ public class GroupNewsPojo implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {updatesItemData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

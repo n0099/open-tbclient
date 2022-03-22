@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.ActionJsonData;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import com.meizu.cloud.pushsdk.handler.a.b.h;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public e(Context context, com.meizu.cloud.pushsdk.handler.a aVar) {
         super(context, aVar);
@@ -30,24 +30,24 @@ public class e extends com.meizu.cloud.pushsdk.handler.a.a<h> {
     public void a(h hVar, com.meizu.cloud.pushsdk.notification.c cVar) {
         NotificationManager notificationManager = (NotificationManager) c().getSystemService(ActionJsonData.TAG_NOTIFICATION);
         if (notificationManager != null) {
-            c.k.a.a.a.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
+            c.h.a.a.a.b("AbstractMessageHandler", "start cancel notification id " + hVar.b());
             notificationManager.cancel(hVar.b());
         }
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.c
     public boolean a(Intent intent) {
-        int i2;
-        c.k.a.a.a.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
+        int i;
+        c.h.a.a.a.d("AbstractMessageHandler", "start WithDrawMessageHandler match");
         String stringExtra = intent.getStringExtra(PushConstants.MZ_PUSH_CONTROL_MESSAGE);
         if (!TextUtils.isEmpty(stringExtra)) {
             com.meizu.cloud.pushsdk.handler.a.b.b a = com.meizu.cloud.pushsdk.handler.a.b.b.a(stringExtra);
             if (a.a() != null) {
-                i2 = a.a().a();
-                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "4".equals(String.valueOf(i2));
+                i = a.a().a();
+                return PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction()) && "4".equals(String.valueOf(i));
             }
         }
-        i2 = 0;
+        i = 0;
         if (PushConstants.MZ_PUSH_ON_MESSAGE_ACTION.equals(intent.getAction())) {
             return false;
         }

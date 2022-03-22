@@ -74,9 +74,9 @@ public class PrecomputedTextCompat implements Spannable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {params, charSequence};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -105,9 +105,9 @@ public class PrecomputedTextCompat implements Spannable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {params, charSequence};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Callable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -140,9 +140,9 @@ public class PrecomputedTextCompat implements Spannable {
             newInitContext.initArgs = r2;
             Object[] objArr = {charSequence, params, iArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -168,15 +168,15 @@ public class PrecomputedTextCompat implements Spannable {
                 }
                 ArrayList arrayList = new ArrayList();
                 int length = charSequence.length();
-                int i2 = 0;
-                while (i2 < length) {
-                    int indexOf = TextUtils.indexOf(charSequence, '\n', i2, length);
-                    i2 = indexOf < 0 ? length : indexOf + 1;
-                    arrayList.add(Integer.valueOf(i2));
+                int i = 0;
+                while (i < length) {
+                    int indexOf = TextUtils.indexOf(charSequence, '\n', i, length);
+                    i = indexOf < 0 ? length : indexOf + 1;
+                    arrayList.add(Integer.valueOf(i));
                 }
                 int[] iArr = new int[arrayList.size()];
-                for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    iArr[i3] = ((Integer) arrayList.get(i3)).intValue();
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    iArr[i2] = ((Integer) arrayList.get(i2)).intValue();
                 }
                 if (Build.VERSION.SDK_INT >= 23) {
                     StaticLayout.Builder.obtain(charSequence, 0, charSequence.length(), params.getTextPaint(), Integer.MAX_VALUE).setBreakStrategy(params.getBreakStrategy()).setHyphenationFrequency(params.getHyphenationFrequency()).setTextDirection(params.getTextDirection()).build();
@@ -212,10 +212,10 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // java.lang.CharSequence
-    public char charAt(int i2) {
+    public char charAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.mText.charAt(i2) : invokeI.charValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.mText.charAt(i) : invokeI.charValue;
     }
 
     @IntRange(from = 0)
@@ -234,33 +234,33 @@ public class PrecomputedTextCompat implements Spannable {
 
     @IntRange(from = 0)
     @SuppressLint({"NewApi"})
-    public int getParagraphEnd(@IntRange(from = 0) int i2) {
+    public int getParagraphEnd(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            Preconditions.checkArgumentInRange(i2, 0, getParagraphCount(), "paraIndex");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            Preconditions.checkArgumentInRange(i, 0, getParagraphCount(), "paraIndex");
             if (Build.VERSION.SDK_INT >= 29) {
-                return this.mWrapped.getParagraphEnd(i2);
+                return this.mWrapped.getParagraphEnd(i);
             }
-            return this.mParagraphEnds[i2];
+            return this.mParagraphEnds[i];
         }
         return invokeI.intValue;
     }
 
     @IntRange(from = 0)
     @SuppressLint({"NewApi"})
-    public int getParagraphStart(@IntRange(from = 0) int i2) {
+    public int getParagraphStart(@IntRange(from = 0) int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            Preconditions.checkArgumentInRange(i2, 0, getParagraphCount(), "paraIndex");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Preconditions.checkArgumentInRange(i, 0, getParagraphCount(), "paraIndex");
             if (Build.VERSION.SDK_INT >= 29) {
-                return this.mWrapped.getParagraphStart(i2);
+                return this.mWrapped.getParagraphStart(i);
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 return 0;
             }
-            return this.mParagraphEnds[i2 - 1];
+            return this.mParagraphEnds[i - 1];
         }
         return invokeI.intValue;
     }
@@ -311,14 +311,14 @@ public class PrecomputedTextCompat implements Spannable {
 
     @Override // android.text.Spanned
     @SuppressLint({"NewApi"})
-    public <T> T[] getSpans(int i2, int i3, Class<T> cls) {
+    public <T> T[] getSpans(int i, int i2, Class<T> cls) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i2, i3, cls)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048585, this, i, i2, cls)) == null) {
             if (Build.VERSION.SDK_INT >= 29) {
-                return (T[]) this.mWrapped.getSpans(i2, i3, cls);
+                return (T[]) this.mWrapped.getSpans(i, i2, cls);
             }
-            return (T[]) this.mText.getSpans(i2, i3, cls);
+            return (T[]) this.mText.getSpans(i, i2, cls);
         }
         return (T[]) ((Object[]) invokeIIL.objValue);
     }
@@ -331,10 +331,10 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // android.text.Spanned
-    public int nextSpanTransition(int i2, int i3, Class cls) {
+    public int nextSpanTransition(int i, int i2, Class cls) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048587, this, i2, i3, cls)) == null) ? this.mText.nextSpanTransition(i2, i3, cls) : invokeIIL.intValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048587, this, i, i2, cls)) == null) ? this.mText.nextSpanTransition(i, i2, cls) : invokeIIL.intValue;
     }
 
     @Override // android.text.Spannable
@@ -357,15 +357,15 @@ public class PrecomputedTextCompat implements Spannable {
 
     @Override // android.text.Spannable
     @SuppressLint({"NewApi"})
-    public void setSpan(Object obj, int i2, int i3, int i4) {
+    public void setSpan(Object obj, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048589, this, obj, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048589, this, obj, i, i2, i3) == null) {
             if (!(obj instanceof MetricAffectingSpan)) {
                 if (Build.VERSION.SDK_INT >= 29) {
-                    this.mWrapped.setSpan(obj, i2, i3, i4);
+                    this.mWrapped.setSpan(obj, i, i2, i3);
                     return;
                 } else {
-                    this.mText.setSpan(obj, i2, i3, i4);
+                    this.mText.setSpan(obj, i, i2, i3);
                     return;
                 }
             }
@@ -374,10 +374,10 @@ public class PrecomputedTextCompat implements Spannable {
     }
 
     @Override // java.lang.CharSequence
-    public CharSequence subSequence(int i2, int i3) {
+    public CharSequence subSequence(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i2, i3)) == null) ? this.mText.subSequence(i2, i3) : (CharSequence) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048590, this, i, i2)) == null) ? this.mText.subSequence(i, i2) : (CharSequence) invokeII.objValue;
     }
 
     @Override // java.lang.CharSequence
@@ -396,9 +396,9 @@ public class PrecomputedTextCompat implements Spannable {
             newInitContext.initArgs = r2;
             Object[] objArr = {precomputedText, params};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -439,9 +439,9 @@ public class PrecomputedTextCompat implements Spannable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {textPaint};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -470,22 +470,22 @@ public class PrecomputedTextCompat implements Spannable {
             }
 
             @RequiresApi(23)
-            public Builder setBreakStrategy(int i2) {
+            public Builder setBreakStrategy(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                    this.mBreakStrategy = i2;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                    this.mBreakStrategy = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
             }
 
             @RequiresApi(23)
-            public Builder setHyphenationFrequency(int i2) {
+            public Builder setHyphenationFrequency(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                    this.mHyphenationFrequency = i2;
+                if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                    this.mHyphenationFrequency = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
@@ -504,30 +504,30 @@ public class PrecomputedTextCompat implements Spannable {
         }
 
         @SuppressLint({"NewApi"})
-        public Params(@NonNull TextPaint textPaint, @NonNull TextDirectionHeuristic textDirectionHeuristic, int i2, int i3) {
+        public Params(@NonNull TextPaint textPaint, @NonNull TextDirectionHeuristic textDirectionHeuristic, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {textPaint, textDirectionHeuristic, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {textPaint, textDirectionHeuristic, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             if (Build.VERSION.SDK_INT >= 29) {
-                this.mWrapped = new PrecomputedText.Params.Builder(textPaint).setBreakStrategy(i2).setHyphenationFrequency(i3).setTextDirection(textDirectionHeuristic).build();
+                this.mWrapped = new PrecomputedText.Params.Builder(textPaint).setBreakStrategy(i).setHyphenationFrequency(i2).setTextDirection(textDirectionHeuristic).build();
             } else {
                 this.mWrapped = null;
             }
             this.mPaint = textPaint;
             this.mTextDir = textDirectionHeuristic;
-            this.mBreakStrategy = i2;
-            this.mHyphenationFrequency = i3;
+            this.mBreakStrategy = i;
+            this.mHyphenationFrequency = i2;
         }
 
         public boolean equals(@Nullable Object obj) {
@@ -556,12 +556,12 @@ public class PrecomputedTextCompat implements Spannable {
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, params)) == null) {
                 if ((Build.VERSION.SDK_INT < 23 || (this.mBreakStrategy == params.getBreakStrategy() && this.mHyphenationFrequency == params.getHyphenationFrequency())) && this.mPaint.getTextSize() == params.getTextPaint().getTextSize() && this.mPaint.getTextScaleX() == params.getTextPaint().getTextScaleX() && this.mPaint.getTextSkewX() == params.getTextPaint().getTextSkewX()) {
                     if ((Build.VERSION.SDK_INT < 21 || (this.mPaint.getLetterSpacing() == params.getTextPaint().getLetterSpacing() && TextUtils.equals(this.mPaint.getFontFeatureSettings(), params.getTextPaint().getFontFeatureSettings()))) && this.mPaint.getFlags() == params.getTextPaint().getFlags()) {
-                        int i2 = Build.VERSION.SDK_INT;
-                        if (i2 >= 24) {
+                        int i = Build.VERSION.SDK_INT;
+                        if (i >= 24) {
                             if (!this.mPaint.getTextLocales().equals(params.getTextPaint().getTextLocales())) {
                                 return false;
                             }
-                        } else if (i2 >= 17 && !this.mPaint.getTextLocale().equals(params.getTextPaint().getTextLocale())) {
+                        } else if (i >= 17 && !this.mPaint.getTextLocale().equals(params.getTextPaint().getTextLocale())) {
                             return false;
                         }
                         return this.mPaint.getTypeface() == null ? params.getTextPaint().getTypeface() == null : this.mPaint.getTypeface().equals(params.getTextPaint().getTypeface());
@@ -606,17 +606,17 @@ public class PrecomputedTextCompat implements Spannable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 24) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 24) {
                     return ObjectsCompat.hash(Float.valueOf(this.mPaint.getTextSize()), Float.valueOf(this.mPaint.getTextScaleX()), Float.valueOf(this.mPaint.getTextSkewX()), Float.valueOf(this.mPaint.getLetterSpacing()), Integer.valueOf(this.mPaint.getFlags()), this.mPaint.getTextLocales(), this.mPaint.getTypeface(), Boolean.valueOf(this.mPaint.isElegantTextHeight()), this.mTextDir, Integer.valueOf(this.mBreakStrategy), Integer.valueOf(this.mHyphenationFrequency));
                 }
-                if (i2 >= 21) {
+                if (i >= 21) {
                     return ObjectsCompat.hash(Float.valueOf(this.mPaint.getTextSize()), Float.valueOf(this.mPaint.getTextScaleX()), Float.valueOf(this.mPaint.getTextSkewX()), Float.valueOf(this.mPaint.getLetterSpacing()), Integer.valueOf(this.mPaint.getFlags()), this.mPaint.getTextLocale(), this.mPaint.getTypeface(), Boolean.valueOf(this.mPaint.isElegantTextHeight()), this.mTextDir, Integer.valueOf(this.mBreakStrategy), Integer.valueOf(this.mHyphenationFrequency));
                 }
-                if (i2 >= 18) {
+                if (i >= 18) {
                     return ObjectsCompat.hash(Float.valueOf(this.mPaint.getTextSize()), Float.valueOf(this.mPaint.getTextScaleX()), Float.valueOf(this.mPaint.getTextSkewX()), Integer.valueOf(this.mPaint.getFlags()), this.mPaint.getTextLocale(), this.mPaint.getTypeface(), this.mTextDir, Integer.valueOf(this.mBreakStrategy), Integer.valueOf(this.mHyphenationFrequency));
                 }
-                if (i2 >= 17) {
+                if (i >= 17) {
                     return ObjectsCompat.hash(Float.valueOf(this.mPaint.getTextSize()), Float.valueOf(this.mPaint.getTextScaleX()), Float.valueOf(this.mPaint.getTextSkewX()), Integer.valueOf(this.mPaint.getFlags()), this.mPaint.getTextLocale(), this.mPaint.getTypeface(), this.mTextDir, Integer.valueOf(this.mBreakStrategy), Integer.valueOf(this.mHyphenationFrequency));
                 }
                 return ObjectsCompat.hash(Float.valueOf(this.mPaint.getTextSize()), Float.valueOf(this.mPaint.getTextScaleX()), Float.valueOf(this.mPaint.getTextSkewX()), Integer.valueOf(this.mPaint.getFlags()), this.mPaint.getTypeface(), this.mTextDir, Integer.valueOf(this.mBreakStrategy), Integer.valueOf(this.mHyphenationFrequency));
@@ -636,10 +636,10 @@ public class PrecomputedTextCompat implements Spannable {
                     sb.append(", letterSpacing=" + this.mPaint.getLetterSpacing());
                     sb.append(", elegantTextHeight=" + this.mPaint.isElegantTextHeight());
                 }
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 24) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 24) {
                     sb.append(", textLocale=" + this.mPaint.getTextLocales());
-                } else if (i2 >= 17) {
+                } else if (i >= 17) {
                     sb.append(", textLocale=" + this.mPaint.getTextLocale());
                 }
                 sb.append(", typeface=" + this.mPaint.getTypeface());
@@ -663,9 +663,9 @@ public class PrecomputedTextCompat implements Spannable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {params};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

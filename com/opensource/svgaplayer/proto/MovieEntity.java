@@ -1,8 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
-import c.n.a.c;
-import c.n.a.d;
-import c.n.a.h.a;
+import c.k.a.c;
+import c.k.a.d;
+import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,8 +19,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import okio.ByteString;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<MovieEntity> ADAPTER;
@@ -38,7 +37,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +52,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,7 +128,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_MovieEntity extends ProtoAdapter<MovieEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -142,9 +141,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     super((FieldEncoding) objArr[0], (Class) objArr[1]);
                     newInitContext.thisArg = this;
@@ -268,9 +267,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, movieParams, map, list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (MovieParams) objArr2[1], (Map) objArr2[2], (List) objArr2[3], (List) objArr2[4], (ByteString) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -300,8 +299,8 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 == 0) {
+            int i = this.hashCode;
+            if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 String str = this.version;
                 int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 37;
@@ -310,7 +309,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                 this.hashCode = hashCode3;
                 return hashCode3;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -342,7 +341,7 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                 sb.append(this.audios);
             }
             StringBuilder replace = sb.replace(0, 2, "MovieEntity{");
-            replace.append(ExtendedMessageFormat.END_FE);
+            replace.append('}');
             return replace.toString();
         }
         return (String) invokeV.objValue;
@@ -357,9 +356,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, movieParams, map, list, list2, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;

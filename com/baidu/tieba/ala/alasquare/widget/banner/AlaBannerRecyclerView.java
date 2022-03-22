@@ -16,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class AlaBannerRecyclerView extends RecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f40695e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f40696f;
+    /* renamed from: b  reason: collision with root package name */
+    public int f31412b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaBannerRecyclerView(Context context) {
@@ -32,9 +30,9 @@ public class AlaBannerRecyclerView extends RecyclerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,14 +41,14 @@ public class AlaBannerRecyclerView extends RecyclerView {
         }
     }
 
-    public final int a(int i2) {
+    public final int b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 > 0) {
-                return Math.min(i2, 3000);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i > 0) {
+                return Math.min(i, 3000);
             }
-            return Math.max(i2, -3000);
+            return Math.max(i, -3000);
         }
         return invokeI.intValue;
     }
@@ -72,9 +70,9 @@ public class AlaBannerRecyclerView extends RecyclerView {
             if (action != 0) {
                 if (action != 1) {
                     if (action == 2) {
-                        int i2 = y - this.f40695e;
-                        int i3 = x - this.f40696f;
-                        if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
+                        int i = y - this.a;
+                        int i2 = x - this.f31412b;
+                        if (Math.abs(i) > ViewConfiguration.getTouchSlop() && Math.abs(i) > Math.abs(i2)) {
                             getParent().requestDisallowInterceptTouchEvent(false);
                         } else {
                             getParent().requestDisallowInterceptTouchEvent(true);
@@ -83,22 +81,22 @@ public class AlaBannerRecyclerView extends RecyclerView {
                 }
                 getParent().requestDisallowInterceptTouchEvent(false);
             } else {
-                this.f40695e = y;
-                this.f40696f = x;
+                this.a = y;
+                this.f31412b = x;
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-            this.f40695e = y;
-            this.f40696f = x;
+            this.a = y;
+            this.f31412b = x;
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
-    public boolean fling(int i2, int i3) {
+    public boolean fling(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3)) == null) ? super.fling(a(i2), a(i3)) : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) ? super.fling(b(i), b(i2)) : invokeII.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,9 +108,9 @@ public class AlaBannerRecyclerView extends RecyclerView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -123,17 +121,17 @@ public class AlaBannerRecyclerView extends RecyclerView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AlaBannerRecyclerView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

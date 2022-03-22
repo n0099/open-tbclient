@@ -43,10 +43,10 @@ public enum ImageLoaderProxy implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(@NonNull Context context, ImageView imageView, Object obj, int i2, int i3) {
+    public void load(@NonNull Context context, ImageView imageView, Object obj, int i, int i2) {
         IImageLoader iImageLoader = this.mDelegate;
         if (iImageLoader != null) {
-            iImageLoader.load(context, imageView, obj, i2, i3);
+            iImageLoader.load(context, imageView, obj, i, i2);
         }
     }
 

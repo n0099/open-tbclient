@@ -7,9 +7,9 @@ import com.ss.android.download.api.download.DownloadController;
 import com.ss.android.download.api.download.DownloadEventConfig;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.download.api.download.DownloadStatusChangeListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface f {
-    f a(long j2);
+    f a(long j);
 
     f a(IDownloadButtonClickListener iDownloadButtonClickListener);
 
@@ -19,9 +19,9 @@ public interface f {
 
     void a(boolean z);
 
-    boolean a(int i2);
+    boolean a(int i);
 
-    f b(int i2, DownloadStatusChangeListener downloadStatusChangeListener);
+    f b(int i, DownloadStatusChangeListener downloadStatusChangeListener);
 
     f b(Context context);
 
@@ -31,7 +31,7 @@ public interface f {
 
     f b(DownloadModel downloadModel);
 
-    void b(int i2);
+    void b(int i);
 
     boolean b();
 

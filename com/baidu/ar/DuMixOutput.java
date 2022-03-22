@@ -36,9 +36,9 @@ public class DuMixOutput {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,16 +54,16 @@ public class DuMixOutput {
         this.bt = 0;
     }
 
-    public DuMixOutput(int i2, int i3) {
+    public DuMixOutput(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -77,20 +77,20 @@ public class DuMixOutput {
         this.mRotationType = RotationType.ROTATE_0;
         this.bl = MirriorType.NO_MIRRIOR;
         this.bt = 0;
-        this.mOutputWidth = i2;
-        this.mOutputHeight = i3;
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
     }
 
-    public DuMixOutput(SurfaceTexture surfaceTexture, int i2, int i3) {
+    public DuMixOutput(SurfaceTexture surfaceTexture, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {surfaceTexture, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {surfaceTexture, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -105,20 +105,20 @@ public class DuMixOutput {
         this.bl = MirriorType.NO_MIRRIOR;
         this.bt = 0;
         this.bo = surfaceTexture;
-        this.mOutputWidth = i2;
-        this.mOutputHeight = i3;
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
     }
 
-    public DuMixOutput(Surface surface, int i2, int i3) {
+    public DuMixOutput(Surface surface, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {surface, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {surface, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -133,20 +133,20 @@ public class DuMixOutput {
         this.bl = MirriorType.NO_MIRRIOR;
         this.bt = 0;
         this.bo = surface;
-        this.mOutputWidth = i2;
-        this.mOutputHeight = i3;
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
     }
 
-    public DuMixOutput(SurfaceHolder surfaceHolder, int i2, int i3) {
+    public DuMixOutput(SurfaceHolder surfaceHolder, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {surfaceHolder, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {surfaceHolder, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -161,20 +161,20 @@ public class DuMixOutput {
         this.bl = MirriorType.NO_MIRRIOR;
         this.bt = 0;
         this.bo = surfaceHolder;
-        this.mOutputWidth = i2;
-        this.mOutputHeight = i3;
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
     }
 
-    public DuMixOutput(Texture texture, int i2, int i3) {
+    public DuMixOutput(Texture texture, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {texture, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {texture, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
@@ -189,8 +189,8 @@ public class DuMixOutput {
         this.bl = MirriorType.NO_MIRRIOR;
         this.bt = 0;
         this.bo = texture;
-        this.mOutputWidth = i2;
-        this.mOutputHeight = i3;
+        this.mOutputWidth = i;
+        this.mOutputHeight = i2;
     }
 
     public MirriorType getMirriorType() {
@@ -293,17 +293,17 @@ public class DuMixOutput {
         }
     }
 
-    public void setOutputFPS(int i2) {
+    public void setOutputFPS(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.bt = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.bt = i;
         }
     }
 
-    public void setOutputHeight(int i2) {
+    public void setOutputHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mOutputHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mOutputHeight = i;
         }
     }
 
@@ -335,10 +335,10 @@ public class DuMixOutput {
         }
     }
 
-    public void setOutputWidth(int i2) {
+    public void setOutputWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mOutputWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mOutputWidth = i;
         }
     }
 
@@ -356,10 +356,10 @@ public class DuMixOutput {
         }
     }
 
-    public void setScreenOrientation(int i2) {
+    public void setScreenOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.bs = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.bs = i;
         }
     }
 

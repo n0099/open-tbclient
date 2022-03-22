@@ -11,6 +11,7 @@ import com.baidu.android.pushservice.PushConstants;
 import com.baidu.android.pushservice.PushSettings;
 import com.baidu.android.pushservice.jni.BaiduAppSSOJni;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,26 +24,26 @@ public class e extends d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f30848e;
+    public int f24692e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f30849f;
+    public int f24693f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30850g;
+    public String f24694g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(i iVar, Context context, int i2, int i3) {
+    public e(i iVar, Context context, int i, int i2) {
         super(iVar, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iVar, context, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {iVar, context, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((i) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,26 +51,26 @@ public class e extends d {
                 return;
             }
         }
-        this.f30848e = 0;
-        this.f30848e = i2;
-        this.f30849f = i3;
-        if (i2 == 0) {
-            ((d) this).f30847d = true;
+        this.f24692e = 0;
+        this.f24692e = i;
+        this.f24693f = i2;
+        if (i == 0) {
+            ((d) this).f24691d = true;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e(i iVar, Context context, int i2, int i3, String str) {
+    public e(i iVar, Context context, int i, int i2, String str) {
         super(iVar, context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iVar, context, Integer.valueOf(i2), Integer.valueOf(i3), str};
+            Object[] objArr = {iVar, context, Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((i) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,12 +78,12 @@ public class e extends d {
                 return;
             }
         }
-        this.f30848e = 0;
-        this.f30848e = i2;
-        this.f30849f = i3;
-        this.f30850g = str;
-        if (i2 == 0) {
-            ((d) this).f30847d = true;
+        this.f24692e = 0;
+        this.f24692e = i;
+        this.f24693f = i2;
+        this.f24694g = str;
+        if (i == 0) {
+            ((d) this).f24691d = true;
         }
     }
 
@@ -90,7 +91,7 @@ public class e extends d {
     public void a(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-            intent.putExtra("bind_status", this.f30848e);
+            intent.putExtra("bind_status", this.f24692e);
         }
     }
 
@@ -113,10 +114,10 @@ public class e extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             String b2 = super.b(str);
-            if (!TextUtils.isEmpty(((a) this).f30844b.f30858d)) {
-                com.baidu.android.pushservice.a.b.a(((a) this).a).e(((a) this).f30844b.f30858d);
-                if (!TextUtils.isEmpty(((a) this).f30844b.f30861g)) {
-                    com.baidu.android.pushservice.a.b.a(((a) this).a).a(((a) this).f30844b.f30858d, new f(((a) this).f30844b.f30861g, b2));
+            if (!TextUtils.isEmpty(((a) this).f24688b.f24702d)) {
+                com.baidu.android.pushservice.a.b.a(((a) this).a).e(((a) this).f24688b.f24702d);
+                if (!TextUtils.isEmpty(((a) this).f24688b.f24705g)) {
+                    com.baidu.android.pushservice.a.b.a(((a) this).a).a(((a) this).f24688b.f24702d, new f(((a) this).f24688b.f24705g, b2));
                 }
             }
             return b2;
@@ -131,8 +132,8 @@ public class e extends d {
             super.b(hashMap);
             hashMap.put("method", "bind");
             hashMap.put("bind_name", Build.MODEL);
-            hashMap.put("bind_status", this.f30848e + "");
-            hashMap.put("push_sdk_version", this.f30849f + "");
+            hashMap.put("bind_status", this.f24692e + "");
+            hashMap.put("push_sdk_version", this.f24693f + "");
             if (com.baidu.android.pushservice.b.d.b(((a) this).a)) {
                 String cuid = DeviceId.getCUID(((a) this).a);
                 if (!TextUtils.isEmpty(cuid)) {
@@ -168,15 +169,15 @@ public class e extends d {
             if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(com.baidu.android.pushservice.c.c.d(((a) this).a, "bduss"))) {
                 hashMap.put("bd_action", a);
             }
-            if (!TextUtils.isEmpty(this.f30850g)) {
-                hashMap.put("bind_notify_status", this.f30850g);
+            if (!TextUtils.isEmpty(this.f24694g)) {
+                hashMap.put("bind_notify_status", this.f24694g);
             }
-            if (!TextUtils.isEmpty(((a) this).f30844b.f30863i) && com.baidu.android.pushservice.b.d.q(((a) this).a)) {
-                hashMap.put("push_proxy", ((a) this).f30844b.f30863i);
+            if (!TextUtils.isEmpty(((a) this).f24688b.i) && com.baidu.android.pushservice.b.d.q(((a) this).a)) {
+                hashMap.put("push_proxy", ((a) this).f24688b.i);
             }
             hashMap.put("manufacture", com.baidu.android.pushservice.i.m.a(false));
             if (com.baidu.android.pushservice.i.m.n()) {
-                hashMap.put("rom", com.baidu.android.pushservice.i.m.l(((a) this).a));
+                hashMap.put(Config.ROM, com.baidu.android.pushservice.i.m.l(((a) this).a));
             }
             if (com.baidu.android.pushservice.i.m.o(((a) this).a)) {
                 hashMap.put("connect_version", "3");
@@ -184,7 +185,7 @@ public class e extends d {
                 hashMap.put("connect_version", "2");
             }
             hashMap.put("sdk_int", Build.VERSION.SDK_INT + "");
-            String str = ((a) this).f30844b.f30858d;
+            String str = ((a) this).f24688b.f24702d;
             if (!TextUtils.isEmpty(str) && str.length() <= 128) {
                 hashMap.put("package_name", str);
             }
@@ -200,7 +201,7 @@ public class e extends d {
             hashMap.put(HttpConstants.DEVICE_TYPE, "3");
             hashMap.put("app_alone_conn", (com.baidu.android.pushservice.b.d.e(((a) this).a) ? 1 : 0) + "");
             hashMap.put("dual_channel", (com.baidu.android.pushservice.b.d.c(((a) this).a) ? 1 : 0) + "");
-            hashMap.put("ignore_token", (((a) this).f30844b.k ? 1 : 0) + "");
+            hashMap.put("ignore_token", (((a) this).f24688b.k ? 1 : 0) + "");
             if (PushSettings.e(((a) this).a)) {
                 return;
             }

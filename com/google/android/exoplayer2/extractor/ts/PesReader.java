@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.extractor.ts;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.google.android.exoplayer2.extractor.ts.TsPayloadReader;
 import com.google.android.exoplayer2.util.ParsableBitArray;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class PesReader implements TsPayloadReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int HEADER_SIZE = 9;
@@ -46,9 +47,9 @@ public final class PesReader implements TsPayloadReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {elementaryStreamReader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,11 +60,11 @@ public final class PesReader implements TsPayloadReader {
         this.state = 0;
     }
 
-    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i2) {
+    private boolean continueRead(ParsableByteArray parsableByteArray, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, parsableByteArray, bArr, i2)) == null) {
-            int min = Math.min(parsableByteArray.bytesLeft(), i2 - this.bytesRead);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, parsableByteArray, bArr, i)) == null) {
+            int min = Math.min(parsableByteArray.bytesLeft(), i - this.bytesRead);
             if (min <= 0) {
                 return true;
             }
@@ -72,9 +73,9 @@ public final class PesReader implements TsPayloadReader {
             } else {
                 parsableByteArray.readBytes(bArr, this.bytesRead, min);
             }
-            int i3 = this.bytesRead + min;
-            this.bytesRead = i3;
-            return i3 == i2;
+            int i2 = this.bytesRead + min;
+            this.bytesRead = i2;
+            return i2 == i;
         }
         return invokeLLI.booleanValue;
     }
@@ -86,7 +87,7 @@ public final class PesReader implements TsPayloadReader {
             this.pesScratch.setPosition(0);
             int readBits = this.pesScratch.readBits(24);
             if (readBits != 1) {
-                r0 = "Unexpected start code prefix: " + readBits;
+                Log.w(TAG, "Unexpected start code prefix: " + readBits);
                 this.payloadSize = -1;
                 return false;
             }
@@ -134,10 +135,10 @@ public final class PesReader implements TsPayloadReader {
         }
     }
 
-    private void setState(int i2) {
+    private void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            this.state = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            this.state = i;
             this.bytesRead = 0;
         }
     }
@@ -147,9 +148,12 @@ public final class PesReader implements TsPayloadReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048576, this, parsableByteArray, z) == null) {
             if (z) {
-                if (this.state == 3) {
+                int i = this.state;
+                if (i == 2) {
+                    Log.w(TAG, "Unexpected start indicator reading extended header");
+                } else if (i == 3) {
                     if (this.payloadSize != -1) {
-                        String str = "Unexpected start indicator: expected " + this.payloadSize + " more bytes";
+                        Log.w(TAG, "Unexpected start indicator: expected " + this.payloadSize + " more bytes");
                     }
                     this.reader.packetFinished();
                 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.manager.ConnectivityMonitor;
 import com.bumptech.glide.util.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ConnectivityMonitor";
@@ -35,9 +35,9 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, connectivityListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,9 +55,9 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -75,7 +75,7 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
                     defaultConnectivityMonitor.isConnected = defaultConnectivityMonitor.isConnected(context2);
                     if (z != this.this$0.isConnected) {
                         if (Log.isLoggable("ConnectivityMonitor", 3)) {
-                            String str = "connectivity changed, isConnected: " + this.this$0.isConnected;
+                            Log.d("ConnectivityMonitor", "connectivity changed, isConnected: " + this.this$0.isConnected);
                         }
                         DefaultConnectivityMonitor defaultConnectivityMonitor2 = this.this$0;
                         defaultConnectivityMonitor2.listener.onConnectivityChanged(defaultConnectivityMonitor2.isConnected);
@@ -96,8 +96,10 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
         try {
             this.context.registerReceiver(this.connectivityReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
             this.isRegistered = true;
-        } catch (SecurityException unused) {
-            Log.isLoggable("ConnectivityMonitor", 5);
+        } catch (SecurityException e2) {
+            if (Log.isLoggable("ConnectivityMonitor", 5)) {
+                Log.w("ConnectivityMonitor", "Failed to register", e2);
+            }
         }
     }
 
@@ -117,8 +119,10 @@ public final class DefaultConnectivityMonitor implements ConnectivityMonitor {
             try {
                 NetworkInfo activeNetworkInfo = ((ConnectivityManager) Preconditions.checkNotNull((ConnectivityManager) context.getSystemService("connectivity"))).getActiveNetworkInfo();
                 return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-            } catch (RuntimeException unused) {
-                Log.isLoggable("ConnectivityMonitor", 5);
+            } catch (RuntimeException e2) {
+                if (Log.isLoggable("ConnectivityMonitor", 5)) {
+                    Log.w("ConnectivityMonitor", "Failed to determine connectivity status when connectivity changed", e2);
+                }
                 return true;
             }
         }

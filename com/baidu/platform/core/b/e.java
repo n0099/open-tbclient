@@ -12,6 +12,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
 import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.baidu.mapsdkplatform.comapi.util.CoordTrans;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.searchbox.perfframe.ioc.Constant;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
@@ -36,9 +37,9 @@ public class e extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,7 +60,7 @@ public class e extends com.baidu.platform.base.d {
             parentPoiInfo.setParentPoiName(jSONObject.optString("name"));
             parentPoiInfo.setParentPoiTag(jSONObject.optString("tag"));
             parentPoiInfo.setParentPoiUid(jSONObject.optString("uid"));
-            parentPoiInfo.setParentPoiLocation(c(jSONObject, "point"));
+            parentPoiInfo.setParentPoiLocation(c(jSONObject, Config.EVENT_HEAT_POINT));
             return parentPoiInfo;
         }
         return (PoiInfo.ParentPoiInfo) invokeL.objValue;
@@ -99,8 +100,8 @@ public class e extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     PoiInfo poiInfo = new PoiInfo();
                     poiInfo.setAddress(optJSONObject.optString(DuPaBInfoMsg.B_ADDR));
@@ -108,7 +109,7 @@ public class e extends com.baidu.platform.base.d {
                     poiInfo.setUid(optJSONObject.optString("uid"));
                     poiInfo.setPostCode(optJSONObject.optString(StatConstants.VALUE_TYPE_ZIP));
                     poiInfo.setName(optJSONObject.optString("name"));
-                    poiInfo.setLocation(c(optJSONObject, "point"));
+                    poiInfo.setLocation(c(optJSONObject, Config.EVENT_HEAT_POINT));
                     poiInfo.setCity(str2);
                     poiInfo.setDirection(optJSONObject.optString("direction"));
                     poiInfo.setDistance(optJSONObject.optInt("distance"));
@@ -191,8 +192,8 @@ public class e extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     ReverseGeoCodeResult.PoiRegionsInfo poiRegionsInfo = new ReverseGeoCodeResult.PoiRegionsInfo();
                     poiRegionsInfo.setDirectionDesc(optJSONObject.optString("direction_desc"));

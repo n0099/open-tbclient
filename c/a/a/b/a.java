@@ -3,6 +3,7 @@ package c.a.a.b;
 import android.content.Context;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,10 +26,10 @@ public class a {
     public List<c> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f1054b;
+    public Context f1021b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map<String, Integer> f1055c;
+    public Map<String, Integer> f1022c;
 
     /* renamed from: c.a.a.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
@@ -38,19 +39,19 @@ public class a {
         public final /* synthetic */ c a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f1056b;
+        public final /* synthetic */ String f1023b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ File f1057c;
+        public final /* synthetic */ File f1024c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ File f1058d;
+        public final /* synthetic */ File f1025d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f1059e;
+        public final /* synthetic */ String f1026e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ a f1060f;
+        public final /* synthetic */ a f1027f;
 
         public C0006a(a aVar, c cVar, String str, File file, File file2, String str2) {
             Interceptable interceptable = $ic;
@@ -59,20 +60,20 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, cVar, str, file, file2, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f1060f = aVar;
+            this.f1027f = aVar;
             this.a = cVar;
-            this.f1056b = str;
-            this.f1057c = file;
-            this.f1058d = file2;
-            this.f1059e = str2;
+            this.f1023b = str;
+            this.f1024c = file;
+            this.f1025d = file2;
+            this.f1026e = str2;
         }
 
         @Override // c.a.a.c.c.a
@@ -80,23 +81,23 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
-                    this.f1057c.renameTo(this.f1058d);
+                    this.f1024c.renameTo(this.f1025d);
                     StringBuilder sb = new StringBuilder();
                     sb.append("unzip:");
-                    sb.append(this.f1058d);
+                    sb.append(this.f1025d);
                     sb.append("---");
-                    sb.append(this.f1059e);
-                    sb.toString();
-                    c.a.a.e.a.e(this.f1058d, this.f1059e);
-                    c.a.a.e.a.b(this.f1058d.getAbsolutePath());
-                    this.f1060f.h(this.a, this.f1056b, this.f1059e);
+                    sb.append(this.f1026e);
+                    Log.e("RtcDownSo", sb.toString());
+                    c.a.a.e.a.e(this.f1025d, this.f1026e);
+                    c.a.a.e.a.b(this.f1025d.getAbsolutePath());
+                    this.f1027f.h(this.a, this.f1023b, this.f1026e);
                 } catch (Exception e2) {
                     e2.printStackTrace();
-                    c.a.a.e.a.b(this.f1058d.getAbsolutePath());
-                    if (c.a.a.e.a.c(this.f1059e)) {
-                        c.a.a.e.a.a(new File(this.f1059e));
+                    c.a.a.e.a.b(this.f1025d.getAbsolutePath());
+                    if (c.a.a.e.a.c(this.f1026e)) {
+                        c.a.a.e.a.a(new File(this.f1026e));
                     }
-                    this.f1060f.e(this.a, this.f1056b, 108, "unzip exception");
+                    this.f1027f.e(this.a, this.f1023b, 108, "unzip exception");
                 }
             }
         }
@@ -106,16 +107,16 @@ public class a {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
                 downloadException.printStackTrace();
-                c.a.a.e.a.b(this.f1057c.getAbsolutePath());
-                this.f1060f.e(this.a, this.f1056b, downloadException.getErrorCode(), downloadException.getErrorMessage());
+                c.a.a.e.a.b(this.f1024c.getAbsolutePath());
+                this.f1027f.e(this.a, this.f1023b, downloadException.getErrorCode(), downloadException.getErrorMessage());
             }
         }
 
         @Override // c.a.a.c.c.a
-        public void g(long j2, long j3, int i2) {
+        public void g(long j, long j2, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)}) == null) {
-                this.f1060f.f(this.a, this.f1056b, i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+                this.f1027f.f(this.a, this.f1023b, i);
             }
         }
 
@@ -123,7 +124,7 @@ public class a {
         public void h() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f1060f.g(this.a, this.f1056b);
+                this.f1027f.g(this.a, this.f1023b);
             }
         }
     }
@@ -156,37 +157,37 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f1055c = new HashMap();
+        this.f1022c = new HashMap();
     }
 
     public static a k(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            b.a.f1054b = context.getApplicationContext();
+            b.a.f1021b = context.getApplicationContext();
             return b.a;
         }
         return (a) invokeL.objValue;
     }
 
-    public final void e(c cVar, String str, int i2, String str2) {
+    public final void e(c cVar, String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, cVar, str, i2, str2) == null) {
-            this.f1055c.put(str, 2);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, cVar, str, i, str2) == null) {
+            this.f1022c.put(str, 2);
             if (cVar != null) {
-                cVar.onDownloadFail(str, i2, str2);
+                cVar.onDownloadFail(str, i, str2);
             }
             if (this.a != null) {
-                for (int i3 = 0; i3 < this.a.size(); i3++) {
-                    this.a.get(i3).onDownloadFail(str, i2, str2);
+                for (int i2 = 0; i2 < this.a.size(); i2++) {
+                    this.a.get(i2).onDownloadFail(str, i, str2);
                 }
             }
         }
@@ -199,8 +200,8 @@ public class a {
                 cVar.onDownloadProgress(f2);
             }
             if (this.a != null) {
-                for (int i2 = 0; i2 < this.a.size(); i2++) {
-                    this.a.get(i2).onDownloadProgress(f2);
+                for (int i = 0; i < this.a.size(); i++) {
+                    this.a.get(i).onDownloadProgress(f2);
                 }
             }
         }
@@ -213,8 +214,8 @@ public class a {
                 cVar.onDownloadStart(str);
             }
             if (this.a != null) {
-                for (int i2 = 0; i2 < this.a.size(); i2++) {
-                    this.a.get(i2).onDownloadStart(str);
+                for (int i = 0; i < this.a.size(); i++) {
+                    this.a.get(i).onDownloadStart(str);
                 }
             }
         }
@@ -223,13 +224,13 @@ public class a {
     public final void h(c cVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, cVar, str, str2) == null) {
-            this.f1055c.put(str, 3);
+            this.f1022c.put(str, 3);
             if (cVar != null) {
                 cVar.onDownloadSuccess(str, str2);
             }
             if (this.a != null) {
-                for (int i2 = 0; i2 < this.a.size(); i2++) {
-                    this.a.get(i2).onDownloadSuccess(str, str2);
+                for (int i = 0; i < this.a.size(); i++) {
+                    this.a.get(i).onDownloadSuccess(str, str2);
                 }
             }
         }
@@ -245,30 +246,33 @@ public class a {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            this.f1055c.put(str, 1);
-            String d2 = c.a.a.b.b.d(this.f1054b, str, str2);
+            this.f1022c.put(str, 1);
+            String d2 = c.a.a.b.b.d(this.f1021b, str, str2);
             File file2 = new File(d2 + ".temp");
-            String str3 = "start down folder=" + str2 + "name=" + file2.getName();
-            c.a.a.c.a.i().h(str, str2, file2.getName(), looper, new C0006a(this, cVar, str, file2, new File(d2 + ".zip"), d2));
+            File file3 = new File(d2 + ".zip");
+            Log.d("RtcDownSo", "start down folder=" + str2 + "name=" + file2.getName());
+            c.a.a.c.a.i().h(str, str2, file2.getName(), looper, new C0006a(this, cVar, str, file2, file3, d2));
         }
     }
 
     public void j(@NonNull String str, boolean z, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Boolean.valueOf(z), cVar}) == null) {
-            String b2 = c.a.a.b.b.b(this.f1054b);
+            String b2 = c.a.a.b.b.b(this.f1021b);
             if (TextUtils.isEmpty(str)) {
                 cVar.onDownloadFail(str, 108, "download url is empty.");
             } else if (l(str, b2)) {
                 if (cVar != null) {
-                    cVar.onDownloadSuccess(str, c.a.a.b.b.d(this.f1054b, str, b2));
+                    cVar.onDownloadSuccess(str, c.a.a.b.b.d(this.f1021b, str, b2));
                 }
             } else if (z) {
                 if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    Log.d("RtcDownSo", "start down so main thread");
                     i(str, b2, Looper.getMainLooper(), cVar);
                     return;
                 }
                 Looper.prepare();
+                Log.d("RtcDownSo", "start down so sub thread");
                 i(str, b2, Looper.myLooper(), cVar);
                 Looper.loop();
             } else {
@@ -280,7 +284,7 @@ public class a {
     public boolean l(@NonNull String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) ? c.a.a.b.b.m(this.f1054b, str, str2) : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, str2)) == null) ? c.a.a.b.b.m(this.f1021b, str, str2) : invokeLL.booleanValue;
     }
 
     public final boolean m(String str) {
@@ -295,16 +299,16 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             File file = new File(str);
             if (file.exists()) {
-                Context context = this.f1054b;
+                Context context = this.f1021b;
                 if (context == null ? false : b.a.a.c.a.c.a().a(context, file)) {
                     return true;
                 }
                 try {
-                    b.a.a.c.a.c.a().b(this.f1054b, file);
+                    b.a.a.c.a.c.a().b(this.f1021b, file);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                Context context2 = this.f1054b;
+                Context context2 = this.f1021b;
                 if (context2 == null) {
                     return false;
                 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.chosen.posts.request;
 
-import c.a.r0.g0.a.d.b;
+import c.a.p0.i0.a.d.b;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,17 +15,17 @@ public class ChosenPostHttpResponse extends MvcProtobufHttpResponsedMessage<b, H
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChosenPostHttpResponse(int i2) {
+    public ChosenPostHttpResponse(int i) {
         super(CmdConfigHttp.CMD_GET_HOT_THREAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

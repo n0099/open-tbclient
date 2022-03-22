@@ -36,9 +36,9 @@ public class PackageFileStatisticManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -53,9 +53,9 @@ public class PackageFileStatisticManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,17 +80,17 @@ public class PackageFileStatisticManager {
         return (PackageFileStatisticManager) invokeV.objValue;
     }
 
-    public void addDownloadStatistic2(int i2, String str, String str2, String str3, long j2, String str4, String str5, int i3, int i4) {
+    public void addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, Long.valueOf(j2), str4, str5, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i2, str, str2, str3, j2, str4, str5, i3, i4)) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addDownloadStatistic2(i, str, str2, str3, j, str4, str5, i2, i3)) {
             return;
         }
         DebugUtils.log("Host Cannot Handle the addDownloadStatistic2 Callback");
     }
 
-    public void addFetchStatistic2(int i2, String str, String str2, JSONObject jSONObject) {
+    public void addFetchStatistic2(int i, String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, str2, jSONObject}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i2, str, str2, jSONObject)) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject}) == null) || StatisticCallbackManager.getInstance(this.mContext).getStatisticCallback().addFetchStatistic2InHost(i, str, str2, jSONObject)) {
             return;
         }
         DebugUtils.log("Host Cannot Handle the addFetchStatistic2 Callback");

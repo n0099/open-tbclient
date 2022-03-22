@@ -32,41 +32,43 @@ public class MercatorModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a.c f46806b;
+    public final a.c f36179b;
 
     /* loaded from: classes6.dex */
     public static class MercatorData extends OrmObject {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public String f36180b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public String f36181c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public int f36182d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f46807e;
+        public long f36183e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f46808f;
+        public String f36184f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f46809g;
+        public String f36185g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f46810h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public long f46811i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public String f46812j;
-        public String k;
-        public String l;
+        public String f36186h;
 
         public MercatorData() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -76,74 +78,74 @@ public class MercatorModel {
         public String A() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f46807e : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f36186h : (String) invokeV.objValue;
         }
 
         public String B() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f46812j : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f36180b : (String) invokeV.objValue;
         }
 
         public String C() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f46809g : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
         }
 
-        public long D() {
+        public String D() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f46811i : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f36184f : (String) invokeV.objValue;
         }
 
-        public int w() {
+        public String E() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f46810h : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f36181c : (String) invokeV.objValue;
         }
 
-        public String x() {
+        public long F() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.k : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f36183e : invokeV.longValue;
         }
 
-        public String y() {
+        public int y() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f36182d : invokeV.intValue;
         }
 
         public String z() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f46808f : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f36185g : (String) invokeV.objValue;
         }
 
-        public MercatorData(String str, String str2, String str3, int i2, long j2, String str4, String str5, String str6) {
+        public MercatorData(String str, String str2, String str3, int i, long j, String str4, String str5, String str6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, Integer.valueOf(i2), Long.valueOf(j2), str4, str5, str6};
+                Object[] objArr = {str, str2, str3, Integer.valueOf(i), Long.valueOf(j), str4, str5, str6};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f46807e = str;
-            this.f46808f = str2;
-            this.f46809g = str3;
-            this.f46810h = i2;
-            this.f46811i = j2;
-            this.f46812j = str4;
-            this.k = str5;
-            this.l = str6;
+            this.a = str;
+            this.f36180b = str2;
+            this.f36181c = str3;
+            this.f36182d = i;
+            this.f36183e = j;
+            this.f36184f = str4;
+            this.f36185g = str5;
+            this.f36186h = str6;
         }
     }
 
@@ -153,17 +155,17 @@ public class MercatorModel {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MercatorLocationResponseMessage(int i2) {
-            super(i2);
+        public MercatorLocationResponseMessage(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -173,10 +175,10 @@ public class MercatorModel {
         }
 
         @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-        public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+        public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-                super.decodeLogicInBackGround(i2, jSONObject);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+                super.decodeLogicInBackGround(i, jSONObject);
                 if (jSONObject == null) {
                     return;
                 }
@@ -192,17 +194,17 @@ public class MercatorModel {
         public boolean isFromHomePageTabFeedFragment;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MercatorRequestHttpMessage(int i2) {
-            super(i2);
+        public MercatorRequestHttpMessage(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -238,9 +240,9 @@ public class MercatorModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mercatorModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -250,11 +252,11 @@ public class MercatorModel {
         }
 
         @Override // c.a.d.f.i.a.c
-        public void onLocationGeted(int i2, String str, Address address) {
+        public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, address) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-                if (i2 == 0 && address != null && inst != null && !this.a.a) {
+                if (i == 0 && address != null && inst != null && !this.a.a) {
                     this.a.a = true;
                     String valueOf = String.valueOf(address.getLatitude());
                     String valueOf2 = String.valueOf(address.getLongitude());
@@ -262,9 +264,9 @@ public class MercatorModel {
                     String version = TbConfig.getVersion();
                     String cuid = TbadkCoreApplication.getInst().getCuid();
                     String clientIP = UtilHelper.getClientIP();
-                    c.a.r0.j3.k0.a.e().i(valueOf);
-                    c.a.r0.j3.k0.a.e().j(valueOf2);
-                    c.a.r0.j3.k0.a.e().k(System.currentTimeMillis());
+                    c.a.p0.l3.k0.a.e().i(valueOf);
+                    c.a.p0.l3.k0.a.e().j(valueOf2);
+                    c.a.p0.l3.k0.a.e().k(System.currentTimeMillis());
                     MercatorRequestHttpMessage mercatorRequestHttpMessage = new MercatorRequestHttpMessage(CmdConfigHttp.CMD_GET_MERCATOR);
                     mercatorRequestHttpMessage.addParam("cuid", cuid);
                     mercatorRequestHttpMessage.addParam("cip", clientIP);
@@ -338,7 +340,7 @@ public class MercatorModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65543, null, mercatorData) == null) {
             TbSingleton.getInstance().setMercatorData(mercatorData);
-            c.a.q0.r.j0.b.k().y("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
+            c.a.o0.r.j0.b.k().y("key_mercator_location", OrmObject.jsonStrWithObject(mercatorData));
         }
     }
 
@@ -347,7 +349,7 @@ public class MercatorModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             MercatorData mercatorData = TbSingleton.getInstance().getMercatorData();
-            return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(c.a.q0.r.j0.b.k().q("key_mercator_location", null), MercatorData.class) : mercatorData;
+            return mercatorData == null ? (MercatorData) OrmObject.objectWithJsonStr(c.a.o0.r.j0.b.k().q("key_mercator_location", null), MercatorData.class) : mercatorData;
         }
         return (MercatorData) invokeV.objValue;
     }
@@ -355,7 +357,7 @@ public class MercatorModel {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c.a.d.f.i.a.n().k(false, this.f46806b);
+            c.a.d.f.i.a.n().k(false, this.f36179b);
         }
     }
 
@@ -364,16 +366,16 @@ public class MercatorModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f46806b = new a(this);
+        this.f36179b = new a(this);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MERCATOR, TbConfig.SERVER_ADDRESS + TbConfig.MERCATOR_LOCATION_URL);
         tbHttpMessageTask.setResponsedClass(MercatorLocationResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);

@@ -7,6 +7,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
+import com.baidu.mobstat.Config;
 import com.baidu.tieba.video.VideoItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,15 +20,15 @@ public class f {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static f f2716d;
+    public static f f2243d;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, b> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashMap<String, c> f2717b;
+    public HashMap<String, c> f2244b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f2718c;
+    public Handler f2245c;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -43,9 +44,9 @@ public class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -78,10 +79,10 @@ public class f {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f2723b;
+        public int f2250b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2724c;
+        public int f2251c;
 
         public c(f fVar) {
             Interceptable interceptable = $ic;
@@ -90,9 +91,9 @@ public class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -108,33 +109,33 @@ public class f {
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2723b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2250b : invokeV.intValue;
         }
 
         public int c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2724c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2251c : invokeV.intValue;
         }
 
-        public void d(int i2) {
+        public void d(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.a = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.a = i;
             }
         }
 
-        public void e(int i2) {
+        public void e(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.f2723b = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.f2250b = i;
             }
         }
 
-        public void f(int i2) {
+        public void f(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.f2724c = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.f2251c = i;
             }
         }
 
@@ -148,54 +149,54 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new HashMap<>();
-        this.f2717b = new HashMap<>();
-        this.f2718c = new a(this, Looper.getMainLooper());
+        this.f2244b = new HashMap<>();
+        this.f2245c = new a(this, Looper.getMainLooper());
         c cVar = new c(this, null);
         cVar.d(3000);
         cVar.e(120000);
         cVar.f(500);
-        this.f2717b.put("net", cVar);
-        this.f2717b.put("op", cVar);
-        this.f2717b.put("stat", cVar);
-        this.f2717b.put("crash", cVar);
-        this.f2717b.put("pfmonitor", cVar);
+        this.f2244b.put("net", cVar);
+        this.f2244b.put(Config.OPERATOR, cVar);
+        this.f2244b.put("stat", cVar);
+        this.f2244b.put("crash", cVar);
+        this.f2244b.put("pfmonitor", cVar);
         c cVar2 = new c(this, null);
         cVar2.d(3000);
         cVar2.e(120000);
         cVar2.f(1500);
-        this.f2717b.put("file", cVar2);
-        this.f2717b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
-        this.f2717b.put("img", cVar2);
-        this.f2717b.put("voice", cVar2);
-        this.f2717b.put("error", cVar2);
+        this.f2244b.put("file", cVar2);
+        this.f2244b.put(IMTrackDatabase.DbEnum.TABLE_NAME, cVar2);
+        this.f2244b.put("img", cVar2);
+        this.f2244b.put("voice", cVar2);
+        this.f2244b.put("error", cVar2);
         c cVar3 = new c(this, null);
         cVar3.d(3000);
         cVar3.e(120000);
         cVar3.f(1500);
-        this.f2717b.put("dbg", cVar3);
+        this.f2244b.put("dbg", cVar3);
     }
 
     public static f c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f2716d == null) {
+            if (f2243d == null) {
                 synchronized (f.class) {
-                    if (f2716d == null) {
-                        f2716d = new f();
+                    if (f2243d == null) {
+                        f2243d = new f();
                     }
                 }
             }
-            return f2716d;
+            return f2243d;
         }
         return (f) invokeV.objValue;
     }
@@ -205,7 +206,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                c cVar = this.f2717b.get(str);
+                c cVar = this.f2244b.get(str);
                 if (cVar == null) {
                     return false;
                 }
@@ -251,11 +252,11 @@ public class f {
     public final void b(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            Message obtainMessage = this.f2718c.obtainMessage();
+            Message obtainMessage = this.f2245c.obtainMessage();
             obtainMessage.what = 5;
             obtainMessage.obj = bVar;
-            this.f2718c.removeMessages(5);
-            this.f2718c.sendMessageDelayed(obtainMessage, 300000L);
+            this.f2245c.removeMessages(5);
+            this.f2245c.sendMessageDelayed(obtainMessage, 300000L);
         }
     }
 
@@ -266,16 +267,16 @@ public class f {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2719b;
+        public boolean f2246b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2720c;
+        public int f2247c;
 
         /* renamed from: d  reason: collision with root package name */
-        public long f2721d;
+        public long f2248d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2722e;
+        public boolean f2249e;
 
         public b(f fVar) {
             Interceptable interceptable = $ic;
@@ -284,29 +285,29 @@ public class f {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2719b = false;
-            this.f2720c = 0;
-            this.f2722e = false;
+            this.f2246b = false;
+            this.f2247c = 0;
+            this.f2249e = false;
         }
 
         public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2721d : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2248d : invokeV.longValue;
         }
 
         public int b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2720c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2247c : invokeV.intValue;
         }
 
         public long c() {
@@ -318,47 +319,47 @@ public class f {
         public boolean d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2719b : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2246b : invokeV.booleanValue;
         }
 
         public boolean e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2722e : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2249e : invokeV.booleanValue;
         }
 
-        public void f(long j2) {
+        public void f(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.f2721d = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.f2248d = j;
             }
         }
 
-        public void g(int i2) {
+        public void g(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.f2720c = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.f2247c = i;
             }
         }
 
         public void h(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.f2719b = z;
+                this.f2246b = z;
             }
         }
 
         public void i(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-                this.f2722e = z;
+                this.f2249e = z;
             }
         }
 
-        public void j(long j2) {
+        public void j(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.a = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.a = j;
             }
         }
 

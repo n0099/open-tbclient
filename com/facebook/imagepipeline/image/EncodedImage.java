@@ -32,7 +32,7 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class EncodedImage implements Closeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SAMPLE_SIZE = 1;
@@ -64,9 +64,9 @@ public class EncodedImage implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {closeableReference};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -80,7 +80,7 @@ public class EncodedImage implements Closeable {
         this.mSampleSize = 1;
         this.mStreamSize = -1;
         Preconditions.checkArgument(CloseableReference.isValid(closeableReference));
-        this.mPooledByteBufferRef = closeableReference.m111clone();
+        this.mPooledByteBufferRef = closeableReference.m104clone();
         this.mInputStreamSupplier = null;
     }
 
@@ -231,15 +231,15 @@ public class EncodedImage implements Closeable {
         return invokeV.intValue;
     }
 
-    public String getFirstBytesAsHexString(int i2) {
+    public String getFirstBytesAsHexString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             CloseableReference<PooledByteBuffer> byteBufferRef = getByteBufferRef();
             if (byteBufferRef == null) {
                 return "";
             }
-            int min = Math.min(getSize(), i2);
+            int min = Math.min(getSize(), i);
             byte[] bArr = new byte[min];
             try {
                 PooledByteBuffer pooledByteBuffer = byteBufferRef.get();
@@ -249,8 +249,8 @@ public class EncodedImage implements Closeable {
                 pooledByteBuffer.read(0, bArr, 0, min);
                 byteBufferRef.close();
                 StringBuilder sb = new StringBuilder(min * 2);
-                for (int i3 = 0; i3 < min; i3++) {
-                    sb.append(String.format("%02X", Byte.valueOf(bArr[i3])));
+                for (int i2 = 0; i2 < min; i2++) {
+                    sb.append(String.format("%02X", Byte.valueOf(bArr[i2])));
                 }
                 return sb.toString();
             } finally {
@@ -356,14 +356,14 @@ public class EncodedImage implements Closeable {
         return invokeV.intValue;
     }
 
-    public boolean isCompleteAt(int i2) {
+    public boolean isCompleteAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
             if (this.mImageFormat == DefaultImageFormats.JPEG && this.mInputStreamSupplier == null) {
                 Preconditions.checkNotNull(this.mPooledByteBufferRef);
                 PooledByteBuffer pooledByteBuffer = this.mPooledByteBufferRef.get();
-                return pooledByteBuffer.read(i2 + (-2)) == -1 && pooledByteBuffer.read(i2 - 1) == -39;
+                return pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
             }
             return true;
         }
@@ -419,17 +419,17 @@ public class EncodedImage implements Closeable {
         }
     }
 
-    public void setExifOrientation(int i2) {
+    public void setExifOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mExifOrientation = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mExifOrientation = i;
         }
     }
 
-    public void setHeight(int i2) {
+    public void setHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mHeight = i;
         }
     }
 
@@ -440,31 +440,31 @@ public class EncodedImage implements Closeable {
         }
     }
 
-    public void setRotationAngle(int i2) {
+    public void setRotationAngle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mRotationAngle = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mRotationAngle = i;
         }
     }
 
-    public void setSampleSize(int i2) {
+    public void setSampleSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mSampleSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mSampleSize = i;
         }
     }
 
-    public void setStreamSize(int i2) {
+    public void setStreamSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mStreamSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mStreamSize = i;
         }
     }
 
-    public void setWidth(int i2) {
+    public void setWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mWidth = i;
         }
     }
 
@@ -510,9 +510,9 @@ public class EncodedImage implements Closeable {
             newInitContext.initArgs = r2;
             Object[] objArr = {supplier};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -531,23 +531,23 @@ public class EncodedImage implements Closeable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public EncodedImage(Supplier<FileInputStream> supplier, int i2) {
+    public EncodedImage(Supplier<FileInputStream> supplier, int i) {
         this(supplier);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {supplier, Integer.valueOf(i2)};
+            Object[] objArr = {supplier, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this((Supplier) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mStreamSize = i2;
+        this.mStreamSize = i;
     }
 }

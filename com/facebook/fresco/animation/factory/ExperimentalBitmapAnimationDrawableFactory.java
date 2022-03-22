@@ -39,7 +39,7 @@ import com.facebook.imagepipeline.image.CloseableAnimatedImage;
 import com.facebook.imagepipeline.image.CloseableImage;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHING_STRATEGY_FRESCO_CACHE = 1;
@@ -56,29 +56,29 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
     public final PlatformBitmapFactory mPlatformBitmapFactory;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class AnimationFrameCacheKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String URI_PREFIX = "anim://";
         public transient /* synthetic */ FieldHolder $fh;
         public final String mAnimationUriString;
 
-        public AnimationFrameCacheKey(int i2) {
+        public AnimationFrameCacheKey(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mAnimationUriString = URI_PREFIX + i2;
+            this.mAnimationUriString = URI_PREFIX + i;
         }
 
         @Override // com.facebook.cache.common.CacheKey
@@ -103,9 +103,9 @@ public class ExperimentalBitmapAnimationDrawableFactory implements DrawableFacto
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedDrawableBackendProvider, scheduledExecutorService, executorService, monotonicClock, platformBitmapFactory, countingMemoryCache, supplier, supplier2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

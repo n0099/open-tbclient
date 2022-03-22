@@ -5,15 +5,15 @@ import android.content.Context;
 import android.media.MediaMetadataRetriever;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.a.f.a;
-import c.a.a0.b.a.j;
-import c.a.y0.b;
-import c.a.y0.r.c;
-import c.a.y0.r.d;
-import c.a.y0.r.h;
-import c.a.y0.r.m;
-import c.a.y0.r.n;
-import c.a.y0.r.u;
+import c.a.v0.b;
+import c.a.v0.r.c;
+import c.a.v0.r.d;
+import c.a.v0.r.h;
+import c.a.v0.r.m;
+import c.a.v0.r.n;
+import c.a.v0.r.u;
+import c.a.z.a.f.a;
+import c.a.z.b.a.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -100,9 +100,9 @@ public class ComposeThemeVideoModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -124,9 +124,9 @@ public class ComposeThemeVideoModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -188,9 +188,9 @@ public class ComposeThemeVideoModel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, aREditProcessor};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -261,9 +261,9 @@ public class ComposeThemeVideoModel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -319,7 +319,7 @@ public class ComposeThemeVideoModel {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onMediaComplete() {
-        int i2;
+        int i;
         MediaMetadataRetriever mediaMetadataRetriever;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65554, this) == null) {
@@ -335,7 +335,7 @@ public class ComposeThemeVideoModel {
                             mediaMetadataRetriever = new MediaMetadataRetriever();
                             try {
                                 mediaMetadataRetriever.setDataSource(fileInputStream2.getFD());
-                                i2 = Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+                                i = Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
                                 try {
                                     fileInputStream2.close();
                                 } catch (IOException e2) {
@@ -357,14 +357,14 @@ public class ComposeThemeVideoModel {
                                     if (mediaMetadataRetriever != null) {
                                         mediaMetadataRetriever.release();
                                     }
-                                    i2 = -1;
+                                    i = -1;
                                     if (exists) {
                                     }
                                     StringBuilder sb = new StringBuilder("output file failed exist = " + exists);
                                     sb.append(" length : ");
                                     sb.append(file.length());
                                     sb.append(" duration : ");
-                                    sb.append(i2);
+                                    sb.append(i);
                                     sb.append(" isOnInterrupt : ");
                                     sb.append(this.mOnInterrupt);
                                     sb.append(" eMsg : ");
@@ -414,12 +414,12 @@ public class ComposeThemeVideoModel {
                         th = th4;
                         mediaMetadataRetriever = null;
                     }
-                    if (exists || file.length() <= 0 || i2 <= 0) {
+                    if (exists || file.length() <= 0 || i <= 0) {
                         StringBuilder sb2 = new StringBuilder("output file failed exist = " + exists);
                         sb2.append(" length : ");
                         sb2.append(file.length());
                         sb2.append(" duration : ");
-                        sb2.append(i2);
+                        sb2.append(i);
                         sb2.append(" isOnInterrupt : ");
                         sb2.append(this.mOnInterrupt);
                         sb2.append(" eMsg : ");
@@ -439,14 +439,14 @@ public class ComposeThemeVideoModel {
                         this.mListener.onGenFilterVideoSuccess(this.mOutputPath);
                     }
                 }
-                i2 = -1;
+                i = -1;
                 if (exists) {
                 }
                 StringBuilder sb22 = new StringBuilder("output file failed exist = " + exists);
                 sb22.append(" length : ");
                 sb22.append(file.length());
                 sb22.append(" duration : ");
-                sb22.append(i2);
+                sb22.append(i);
                 sb22.append(" isOnInterrupt : ");
                 sb22.append(this.mOnInterrupt);
                 sb22.append(" eMsg : ");
@@ -480,9 +480,9 @@ public class ComposeThemeVideoModel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r9, r10};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((InnerMuxerWrapper) objArr2[0], (OnGenFilterVideoListener) objArr2[1]);
                             newInitContext.thisArg = this;
@@ -511,9 +511,9 @@ public class ComposeThemeVideoModel {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -569,12 +569,12 @@ public class ComposeThemeVideoModel {
                 }
 
                 @Override // com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor
-                public void onProgress(int i2) {
+                public void onProgress(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) || this.mListener == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) || this.mListener == null) {
                         return;
                     }
-                    u.a().post(new Runnable(this, i2) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
+                    u.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 this$1;
@@ -585,18 +585,18 @@ public class ComposeThemeVideoModel {
                             if (interceptable3 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2)};
+                                Object[] objArr = {this, Integer.valueOf(i)};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$1 = this;
-                            this.val$percent = i2;
+                            this.val$percent = i;
                         }
 
                         @Override // java.lang.Runnable
@@ -652,9 +652,9 @@ public class ComposeThemeVideoModel {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r11, r12, r13, r14};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Context) objArr2[0], (String) objArr2[1], (InnerMuxerWrapper) objArr2[2], (OnGenFilterVideoListener) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -682,9 +682,9 @@ public class ComposeThemeVideoModel {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -731,12 +731,12 @@ public class ComposeThemeVideoModel {
                 }
 
                 @Override // com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor
-                public void onProgress(int i2) {
+                public void onProgress(int i) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.mListener == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.mListener == null) {
                         return;
                     }
-                    u.a().post(new Runnable(this, i2) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
+                    u.a().post(new Runnable(this, i) { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass4 this$1;
@@ -747,18 +747,18 @@ public class ComposeThemeVideoModel {
                             if (interceptable3 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2)};
+                                Object[] objArr = {this, Integer.valueOf(i)};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$1 = this;
-                            this.val$percent = i2;
+                            this.val$percent = i;
                         }
 
                         @Override // java.lang.Runnable
@@ -855,11 +855,11 @@ public class ComposeThemeVideoModel {
         }
     }
 
-    public void setClipRange(long j2, long j3) {
+    public void setClipRange(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.mClipPoint = j2;
-            this.mClipDuration = j3;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.mClipPoint = j;
+            this.mClipDuration = j2;
         }
     }
 
@@ -884,10 +884,10 @@ public class ComposeThemeVideoModel {
         }
     }
 
-    public void setFrameRate(int i2) {
+    public void setFrameRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mFrameRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mFrameRate = i;
         }
     }
 
@@ -919,26 +919,26 @@ public class ComposeThemeVideoModel {
         }
     }
 
-    public void setOutputVideoBitRate(int i2) {
+    public void setOutputVideoBitRate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mOutBitRate = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mOutBitRate = i;
         }
     }
 
-    public void setOutputVideoSize(int i2, int i3) {
+    public void setOutputVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048595, this, i2, i3) == null) {
-            this.mOutWidth = i2;
-            this.mOutHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048595, this, i, i2) == null) {
+            this.mOutWidth = i;
+            this.mOutHeight = i2;
         }
     }
 
-    public void setPreviewVideoSize(int i2, int i3) {
+    public void setPreviewVideoSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048596, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048596, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 
@@ -989,9 +989,9 @@ public class ComposeThemeVideoModel {
                     if (timeEffect.startTime < 0) {
                         timeEffect.startTime = 0;
                     }
-                    int i2 = duration - 100;
-                    if (timeEffect.endTime > i2) {
-                        timeEffect.endTime = i2;
+                    int i = duration - 100;
+                    if (timeEffect.endTime > i) {
+                        timeEffect.endTime = i;
                     }
                 }
                 if (timeEffect.startTime >= timeEffect.endTime) {
@@ -1076,9 +1076,9 @@ public class ComposeThemeVideoModel {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, r11, str, r13, r14};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         Object[] objArr2 = newInitContext.callArgs;
                                         super((Context) objArr2[0], (String) objArr2[1], (InnerMuxerWrapper) objArr2[2], (OnGenFilterVideoListener) objArr2[3]);
                                         newInitContext.thisArg = this;

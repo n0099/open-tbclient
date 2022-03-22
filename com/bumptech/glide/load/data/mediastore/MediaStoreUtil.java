@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.services.vod.VodClient;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaStoreUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINI_THUMB_HEIGHT = 384;
@@ -20,9 +20,9 @@ public final class MediaStoreUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,10 +47,10 @@ public final class MediaStoreUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) ? isMediaStoreUri(uri) && isVideoUri(uri) : invokeL.booleanValue;
     }
 
-    public static boolean isThumbnailSize(int i2, int i3) {
+    public static boolean isThumbnailSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) ? i2 != Integer.MIN_VALUE && i3 != Integer.MIN_VALUE && i2 <= 512 && i3 <= 384 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) ? i != Integer.MIN_VALUE && i2 != Integer.MIN_VALUE && i <= 512 && i2 <= 384 : invokeII.booleanValue;
     }
 
     public static boolean isVideoUri(Uri uri) {

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.faceunity.gles.GeneratedTexture;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GlTextureFrameBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,31 +18,31 @@ public class GlTextureFrameBuffer {
     public int textureId;
     public int width;
 
-    public GlTextureFrameBuffer(int i2) {
+    public GlTextureFrameBuffer(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        switch (i2) {
+        switch (i) {
             case 6407:
             case GeneratedTexture.FORMAT /* 6408 */:
             case 6409:
-                this.pixelFormat = i2;
+                this.pixelFormat = i;
                 this.width = 0;
                 this.height = 0;
                 return;
             default:
-                throw new IllegalArgumentException("Invalid pixel format: " + i2);
+                throw new IllegalArgumentException("Invalid pixel format: " + i);
         }
     }
 
@@ -82,15 +82,15 @@ public class GlTextureFrameBuffer {
         }
     }
 
-    public void setSize(int i2, int i3) {
+    public void setSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            if (i2 > 0 && i3 > 0) {
-                if (i2 == this.width && i3 == this.height) {
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            if (i > 0 && i2 > 0) {
+                if (i == this.width && i2 == this.height) {
                     return;
                 }
-                this.width = i2;
-                this.height = i3;
+                this.width = i;
+                this.height = i2;
                 if (this.textureId == 0) {
                     this.textureId = GlUtil.generateTexture(3553);
                 }
@@ -101,8 +101,8 @@ public class GlTextureFrameBuffer {
                 }
                 GLES20.glActiveTexture(33984);
                 GLES20.glBindTexture(3553, this.textureId);
-                int i4 = this.pixelFormat;
-                GLES20.glTexImage2D(3553, 0, i4, i2, i3, 0, i4, 5121, null);
+                int i3 = this.pixelFormat;
+                GLES20.glTexImage2D(3553, 0, i3, i, i2, 0, i3, 5121, null);
                 GLES20.glBindTexture(3553, 0);
                 GlUtil.checkNoGLES2Error("GlTextureFrameBuffer setSize");
                 GLES20.glBindFramebuffer(36160, this.frameBufferId);
@@ -114,7 +114,7 @@ public class GlTextureFrameBuffer {
                 }
                 throw new IllegalStateException("Framebuffer not complete, status: " + glCheckFramebufferStatus);
             }
-            throw new IllegalArgumentException("Invalid size: " + i2 + "x" + i3);
+            throw new IllegalArgumentException("Invalid size: " + i + "x" + i2);
         }
     }
 }

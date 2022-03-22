@@ -37,9 +37,9 @@ public final class LiveDataScopeImpl$emitSource$2 extends SuspendLambda implemen
             newInitContext.initArgs = r2;
             Object[] objArr = {liveDataScopeImpl, liveData, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,8 +77,8 @@ public final class LiveDataScopeImpl$emitSource$2 extends SuspendLambda implemen
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-            int i2 = this.label;
-            if (i2 == 0) {
+            int i = this.label;
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 CoroutineScope coroutineScope = this.p$;
                 CoroutineLiveData target$lifecycle_livedata_ktx_release = this.this$0.getTarget$lifecycle_livedata_ktx_release();
@@ -89,7 +89,7 @@ public final class LiveDataScopeImpl$emitSource$2 extends SuspendLambda implemen
                 if (obj == coroutine_suspended) {
                     return coroutine_suspended;
                 }
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 CoroutineScope coroutineScope2 = (CoroutineScope) this.L$0;

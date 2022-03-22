@@ -32,16 +32,16 @@ public final class TrampolineScheduler extends Scheduler {
         public final Runnable run;
         public final TrampolineWorker worker;
 
-        public SleepingRunnable(Runnable runnable, TrampolineWorker trampolineWorker, long j2) {
+        public SleepingRunnable(Runnable runnable, TrampolineWorker trampolineWorker, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, trampolineWorker, Long.valueOf(j2)};
+                Object[] objArr = {runnable, trampolineWorker, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,7 +49,7 @@ public final class TrampolineScheduler extends Scheduler {
             }
             this.run = runnable;
             this.worker = trampolineWorker;
-            this.execTime = j2;
+            this.execTime = j;
         }
 
         @Override // java.lang.Runnable
@@ -59,10 +59,10 @@ public final class TrampolineScheduler extends Scheduler {
                 return;
             }
             long now = this.worker.now(TimeUnit.MILLISECONDS);
-            long j2 = this.execTime;
-            if (j2 > now) {
+            long j = this.execTime;
+            if (j > now) {
                 try {
-                    Thread.sleep(j2 - now);
+                    Thread.sleep(j - now);
                 } catch (InterruptedException e2) {
                     Thread.currentThread().interrupt();
                     RxJavaPlugins.onError(e2);
@@ -85,16 +85,16 @@ public final class TrampolineScheduler extends Scheduler {
         public final long execTime;
         public final Runnable run;
 
-        public TimedRunnable(Runnable runnable, Long l, int i2) {
+        public TimedRunnable(Runnable runnable, Long l, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, l, Integer.valueOf(i2)};
+                Object[] objArr = {runnable, l, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -102,7 +102,7 @@ public final class TrampolineScheduler extends Scheduler {
             }
             this.run = runnable;
             this.execTime = l.longValue();
-            this.count = i2;
+            this.count = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -141,9 +141,9 @@ public final class TrampolineScheduler extends Scheduler {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {trampolineWorker, timedRunnable};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -168,9 +168,9 @@ public final class TrampolineScheduler extends Scheduler {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -189,22 +189,22 @@ public final class TrampolineScheduler extends Scheduler {
             }
         }
 
-        public Disposable enqueue(Runnable runnable, long j2) {
+        public Disposable enqueue(Runnable runnable, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, j)) == null) {
                 if (this.disposed) {
                     return EmptyDisposable.INSTANCE;
                 }
-                TimedRunnable timedRunnable = new TimedRunnable(runnable, Long.valueOf(j2), this.counter.incrementAndGet());
+                TimedRunnable timedRunnable = new TimedRunnable(runnable, Long.valueOf(j), this.counter.incrementAndGet());
                 this.queue.add(timedRunnable);
                 if (this.wip.getAndIncrement() == 0) {
-                    int i2 = 1;
+                    int i = 1;
                     while (!this.disposed) {
                         TimedRunnable poll = this.queue.poll();
                         if (poll == null) {
-                            i2 = this.wip.addAndGet(-i2);
-                            if (i2 == 0) {
+                            i = this.wip.addAndGet(-i);
+                            if (i == 0) {
                                 return EmptyDisposable.INSTANCE;
                             }
                         } else if (!poll.disposed) {
@@ -236,11 +236,11 @@ public final class TrampolineScheduler extends Scheduler {
 
         @Override // io.reactivex.Scheduler.Worker
         @NonNull
-        public Disposable schedule(@NonNull Runnable runnable, long j2, @NonNull TimeUnit timeUnit) {
+        public Disposable schedule(@NonNull Runnable runnable, long j, @NonNull TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
-                long now = now(TimeUnit.MILLISECONDS) + timeUnit.toMillis(j2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
+                long now = now(TimeUnit.MILLISECONDS) + timeUnit.toMillis(j);
                 return enqueue(new SleepingRunnable(runnable, this, now), now);
             }
             return (Disposable) invokeCommon.objValue;
@@ -268,9 +268,9 @@ public final class TrampolineScheduler extends Scheduler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -305,12 +305,12 @@ public final class TrampolineScheduler extends Scheduler {
 
     @Override // io.reactivex.Scheduler
     @NonNull
-    public Disposable scheduleDirect(@NonNull Runnable runnable, long j2, TimeUnit timeUnit) {
+    public Disposable scheduleDirect(@NonNull Runnable runnable, long j, TimeUnit timeUnit) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j2), timeUnit})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{runnable, Long.valueOf(j), timeUnit})) == null) {
             try {
-                timeUnit.sleep(j2);
+                timeUnit.sleep(j);
                 RxJavaPlugins.onSchedule(runnable).run();
             } catch (InterruptedException e2) {
                 Thread.currentThread().interrupt();

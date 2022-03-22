@@ -44,9 +44,9 @@ public final class UPCEReader extends UPCEANReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,14 +95,14 @@ public final class UPCEReader extends UPCEANReader {
         return (String) invokeL.objValue;
     }
 
-    public static void determineNumSysAndCheckDigit(StringBuilder sb, int i2) throws NotFoundException {
+    public static void determineNumSysAndCheckDigit(StringBuilder sb, int i) throws NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, sb, i2) == null) {
-            for (int i3 = 0; i3 <= 1; i3++) {
-                for (int i4 = 0; i4 < 10; i4++) {
-                    if (i2 == NUMSYS_AND_CHECK_DIGIT_PATTERNS[i3][i4]) {
-                        sb.insert(0, (char) (i3 + 48));
-                        sb.append((char) (i4 + 48));
+        if (interceptable == null || interceptable.invokeLI(65539, null, sb, i) == null) {
+            for (int i2 = 0; i2 <= 1; i2++) {
+                for (int i3 = 0; i3 < 10; i3++) {
+                    if (i == NUMSYS_AND_CHECK_DIGIT_PATTERNS[i2][i3]) {
+                        sb.insert(0, (char) (i2 + 48));
+                        sb.append((char) (i3 + 48));
                         return;
                     }
                 }
@@ -119,10 +119,10 @@ public final class UPCEReader extends UPCEANReader {
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
-    public int[] decodeEnd(BitArray bitArray, int i2) throws NotFoundException {
+    public int[] decodeEnd(BitArray bitArray, int i) throws NotFoundException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitArray, i2)) == null) ? UPCEANReader.findGuardPattern(bitArray, i2, true, MIDDLE_END_PATTERN) : (int[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitArray, i)) == null) ? UPCEANReader.findGuardPattern(bitArray, i, true, MIDDLE_END_PATTERN) : (int[]) invokeLI.objValue;
     }
 
     @Override // com.google.zxing.oned.UPCEANReader
@@ -136,20 +136,20 @@ public final class UPCEReader extends UPCEANReader {
             iArr2[2] = 0;
             iArr2[3] = 0;
             int size = bitArray.getSize();
-            int i2 = iArr[1];
-            int i3 = 0;
-            for (int i4 = 0; i4 < 6 && i2 < size; i4++) {
-                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i2, UPCEANReader.L_AND_G_PATTERNS);
+            int i = iArr[1];
+            int i2 = 0;
+            for (int i3 = 0; i3 < 6 && i < size; i3++) {
+                int decodeDigit = UPCEANReader.decodeDigit(bitArray, iArr2, i, UPCEANReader.L_AND_G_PATTERNS);
                 sb.append((char) ((decodeDigit % 10) + 48));
-                for (int i5 : iArr2) {
-                    i2 += i5;
+                for (int i4 : iArr2) {
+                    i += i4;
                 }
                 if (decodeDigit >= 10) {
-                    i3 |= 1 << (5 - i4);
+                    i2 |= 1 << (5 - i3);
                 }
             }
-            determineNumSysAndCheckDigit(sb, i3);
-            return i2;
+            determineNumSysAndCheckDigit(sb, i2);
+            return i;
         }
         return invokeLLL.intValue;
     }

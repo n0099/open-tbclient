@@ -1,7 +1,6 @@
 package okhttp3;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -42,7 +41,7 @@ import okhttp3.internal.platform.Platform;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.OkHostnameVerifier;
 import okhttp3.internal.ws.RealWebSocket;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory {
     public static /* synthetic */ Interceptable $ic;
     public static final List<ConnectionSpec> DEFAULT_CONNECTION_SPECS;
@@ -105,9 +104,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -226,9 +225,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((Builder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -446,9 +445,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -504,7 +503,7 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
         throw new IllegalStateException("Null interceptor: " + this.interceptors);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -546,9 +545,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -648,11 +647,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder connectTimeout(long j2, TimeUnit timeUnit) {
+        public Builder connectTimeout(long j, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j2, timeUnit)) == null) {
-                this.connectTimeout = Util.checkDuration(a.O, j2, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048582, this, j, timeUnit)) == null) {
+                this.connectTimeout = Util.checkDuration("timeout", j, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -791,11 +790,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.networkInterceptors : (List) invokeV.objValue;
         }
 
-        public Builder pingInterval(long j2, TimeUnit timeUnit) {
+        public Builder pingInterval(long j, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j2, timeUnit)) == null) {
-                this.pingInterval = Util.checkDuration("interval", j2, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j, timeUnit)) == null) {
+                this.pingInterval = Util.checkDuration("interval", j, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -857,11 +856,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder readTimeout(long j2, TimeUnit timeUnit) {
+        public Builder readTimeout(long j, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048600, this, j2, timeUnit)) == null) {
-                this.readTimeout = Util.checkDuration(a.O, j2, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048600, this, j, timeUnit)) == null) {
+                this.readTimeout = Util.checkDuration("timeout", j, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -912,11 +911,11 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
             return (Builder) invokeL.objValue;
         }
 
-        public Builder writeTimeout(long j2, TimeUnit timeUnit) {
+        public Builder writeTimeout(long j, TimeUnit timeUnit) {
             InterceptResult invokeJL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j2, timeUnit)) == null) {
-                this.writeTimeout = Util.checkDuration(a.O, j2, timeUnit);
+            if (interceptable == null || (invokeJL = interceptable.invokeJL(1048606, this, j, timeUnit)) == null) {
+                this.writeTimeout = Util.checkDuration("timeout", j, timeUnit);
                 return this;
             }
             return (Builder) invokeJL.objValue;
@@ -946,9 +945,9 @@ public class OkHttpClient implements Cloneable, Call.Factory, WebSocket.Factory 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {okHttpClient};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

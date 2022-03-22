@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.q0.f0.h;
-import c.a.q0.r.l0.f;
-import c.a.q0.r.l0.g;
-import c.a.r0.u0.k.c.f;
+import c.a.o0.f0.h;
+import c.a.o0.r.l0.f;
+import c.a.o0.r.l0.g;
+import c.a.p0.w0.m.c.f;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,38 +38,40 @@ import java.util.List;
 public class RecommendView extends FrameLayout implements ForumTestView.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbPageContext<?> f31956b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.p0.w0.m.a f31957c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public RecommendForumHeaderView f31958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f41319e;
+    public BdSwipeRefreshLayout f31959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f41320f;
+    public BdTypeRecyclerView f31960f;
 
     /* renamed from: g  reason: collision with root package name */
-    public c.a.r0.u0.k.a f41321g;
+    public c.a.p0.w0.m.b.a f31961g;
 
     /* renamed from: h  reason: collision with root package name */
-    public RecommendForumHeaderView f41322h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public BdSwipeRefreshLayout f41323i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public BdTypeRecyclerView f41324j;
-    public c.a.r0.u0.k.b.a k;
-    public g l;
-    public c.a.q0.f0.g m;
-    public h n;
-    public c.a.r0.u0.k.c.a o;
-    public c.a.r0.u0.h.c p;
-    public FrameLayout q;
-    public long r;
-    public int s;
-    public int t;
-    public List<f> u;
-    public CustomMessageListener v;
-    public CustomMessageListener w;
-    public RecyclerView.OnScrollListener x;
+    public g f31962h;
+    public c.a.o0.f0.g i;
+    public h j;
+    public c.a.p0.w0.m.c.a k;
+    public c.a.p0.w0.i.c l;
+    public FrameLayout m;
+    public long n;
+    public int o;
+    public int p;
+    public List<f> q;
+    public CustomMessageListener r;
+    public CustomMessageListener s;
+    public RecyclerView.OnScrollListener t;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -78,17 +80,17 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         public final /* synthetic */ RecommendView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(RecommendView recommendView, int i2) {
-            super(i2);
+        public a(RecommendView recommendView, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendView, Integer.valueOf(i2)};
+                Object[] objArr = {recommendView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -102,10 +104,10 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.p == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || this.a.l == null) {
                 return;
             }
-            this.a.p.O(TbSingleton.getInstance().getHotSearch());
+            this.a.l.S(TbSingleton.getInstance().getHotSearch());
         }
     }
 
@@ -116,17 +118,17 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         public final /* synthetic */ RecommendView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(RecommendView recommendView, int i2) {
-            super(i2);
+        public b(RecommendView recommendView, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {recommendView, Integer.valueOf(i2)};
+                Object[] objArr = {recommendView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -142,12 +144,12 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Long)) {
                 Long l = (Long) customResponsedMessage.getData();
-                if (this.a.o == null || l == null) {
+                if (this.a.k == null || l == null) {
                     return;
                 }
-                this.a.r = l.longValue();
-                if (this.a.f41321g != null) {
-                    this.a.f41321g.loadData();
+                this.a.n = l.longValue();
+                if (this.a.f31957c != null) {
+                    this.a.f31957c.loadData();
                 }
             }
         }
@@ -160,10 +162,10 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f41325b;
+        public int f31963b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ RecommendView f41326c;
+        public final /* synthetic */ RecommendView f31964c;
 
         public c(RecommendView recommendView) {
             Interceptable interceptable = $ic;
@@ -172,39 +174,39 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {recommendView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41326c = recommendView;
+            this.f31964c = recommendView;
             this.a = -1;
-            this.f41325b = 0;
+            this.f31963b = 0;
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i2) == null) || this.a == i2 || this.f41326c.p == null) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) || this.a == i || this.f31964c.l == null) {
                 return;
             }
-            this.a = i2;
-            if (i2 == 1) {
+            this.a = i;
+            if (i == 1) {
                 return;
             }
-            this.f41326c.recyclerViewIsAtTop(recyclerView);
-            this.f41326c.f41322h.destoryForumTip();
+            this.f31964c.o(recyclerView);
+            this.f31964c.f31958d.d();
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrolled(RecyclerView recyclerView, int i2, int i3) {
+        public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i2, i3) == null) {
-                super.onScrolled(recyclerView, i2, i3);
-                this.f41325b += i3;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i, i2) == null) {
+                super.onScrolled(recyclerView, i, i2);
+                this.f31963b += i2;
             }
         }
     }
@@ -213,9 +215,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendView f41327e;
+        public final /* synthetic */ RecommendView a;
 
         public d(RecommendView recommendView) {
             Interceptable interceptable = $ic;
@@ -224,22 +224,22 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {recommendView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41327e = recommendView;
+            this.a = recommendView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A() && this.f41327e.f41321g != null) {
-                this.f41327e.f41321g.loadData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A() && this.a.f31957c != null) {
+                this.a.f31957c.loadData();
             }
         }
     }
@@ -248,9 +248,7 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecommendView f41328e;
+        public final /* synthetic */ RecommendView a;
 
         public e(RecommendView recommendView) {
             Interceptable interceptable = $ic;
@@ -259,22 +257,22 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {recommendView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41328e = recommendView;
+            this.a = recommendView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A() && this.f41328e.f41321g != null) {
-                this.f41328e.f41321g.loadData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && l.A() && this.a.f31957c != null) {
+                this.a.f31957c.loadData();
             }
         }
     }
@@ -288,104 +286,100 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41319e = 3;
-        this.v = new a(this, 2921396);
-        this.w = new b(this, 2921383);
-        this.x = new c(this);
-        this.f41320f = tbPageContext;
-        this.s = UtilHelper.getStatusBarHeight() + n.f(tbPageContext.getPageActivity(), R.dimen.tbds240);
-        this.t = n.f(tbPageContext.getPageActivity(), R.dimen.tbds114);
-        f(tbPageContext.getPageActivity());
-        tbPageContext.registerListener(this.w);
-        tbPageContext.registerListener(this.v);
-        onChangeSkinType();
+        this.a = 3;
+        this.r = new a(this, 2921396);
+        this.s = new b(this, 2921383);
+        this.t = new c(this);
+        this.f31956b = tbPageContext;
+        this.o = UtilHelper.getStatusBarHeight() + n.f(tbPageContext.getPageActivity(), R.dimen.tbds240);
+        this.p = n.f(tbPageContext.getPageActivity(), R.dimen.tbds114);
+        j(tbPageContext.getPageActivity());
+        tbPageContext.registerListener(this.s);
+        tbPageContext.registerListener(this.r);
+        m();
     }
 
-    public final void f(Context context) {
+    @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.c
+    public void a() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.fragment_enter_recommend_layout, (ViewGroup) this, true);
-            setClipChildren(false);
-            this.f41323i = (BdSwipeRefreshLayout) findViewById(R.id.enter_recommend_refresh_layout);
-            g gVar = new g(this.f41320f);
-            this.l = gVar;
-            this.f41323i.setProgressView(gVar);
-            this.f41323i.setClipChildren(false);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.enter_recommend_list_view);
-            this.f41324j = bdTypeRecyclerView;
-            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
-            this.f41324j.setFadingEdgeLength(0);
-            this.f41324j.setOverScrollMode(2);
-            this.f41324j.setClipChildren(false);
-            this.f41324j.addOnScrollListener(this.x);
-            this.k = new c.a.r0.u0.k.b.a(this.f41320f, this.f41324j);
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f41323i.getLayoutParams();
-            marginLayoutParams.topMargin = this.s - getResources().getDimensionPixelSize(R.dimen.tbds24);
-            this.f41323i.setLayoutParams(marginLayoutParams);
-            RecommendForumHeaderView recommendForumHeaderView = new RecommendForumHeaderView(this.f41320f);
-            this.f41322h = recommendForumHeaderView;
-            recommendForumHeaderView.setOnSecectedListener(this);
-            FrameLayout frameLayout = new FrameLayout(this.f41320f.getPageActivity());
-            frameLayout.addView(new View(this.f41320f.getPageActivity()), new FrameLayout.LayoutParams(-1, this.t));
-            this.q = frameLayout;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdTypeRecyclerView = this.f31960f) != null && !ListUtils.isEmpty(bdTypeRecyclerView.getData()) && this.f31960f.getData().size() == 1 && (this.f31960f.getData().get(0) instanceof c.a.p0.w0.m.c.e)) {
+            u();
         }
     }
 
-    public final void g(List<f> list) {
+    @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.c
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.f41324j.removeHeaderView(this.q);
-            this.f41324j.removeHeaderView(this.f41322h);
-            this.f41324j.getHeaderViewsCount();
-            this.f41324j.addHeaderView(this.f41322h);
-            this.u = list;
-            this.f41322h.setData(list);
-            this.p.O(TbSingleton.getInstance().getHotSearch());
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            q(this.k, j);
         }
     }
 
-    public final void h(c.a.r0.u0.k.c.a aVar, long j2) {
+    public void h() {
+        c.a.o0.f0.g gVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, aVar, j2) == null) || aVar == null) {
-            return;
-        }
-        this.k.e(aVar.a(j2, !ListUtils.isEmpty(this.u)));
-    }
-
-    public void hideLoadingView() {
-        c.a.q0.f0.g gVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (gVar = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (gVar = this.i) == null) {
             return;
         }
         gVar.dettachView(this);
-        this.m = null;
+        this.i = null;
     }
 
-    public void hideNetRefreshView() {
+    public void i() {
         h hVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (hVar = this.n) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (hVar = this.j) == null) {
             return;
         }
         hVar.dettachView(this);
-        this.n = null;
+        this.j = null;
     }
 
-    public boolean isLoadingViewShowing() {
+    public final void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02dd, (ViewGroup) this, true);
+            setClipChildren(false);
+            this.f31959e = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f0908e3);
+            g gVar = new g(this.f31956b);
+            this.f31962h = gVar;
+            this.f31959e.setProgressView(gVar);
+            this.f31959e.setClipChildren(false);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f0908e2);
+            this.f31960f = bdTypeRecyclerView;
+            bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
+            this.f31960f.setFadingEdgeLength(0);
+            this.f31960f.setOverScrollMode(2);
+            this.f31960f.setClipChildren(false);
+            this.f31960f.addOnScrollListener(this.t);
+            this.f31961g = new c.a.p0.w0.m.b.a(this.f31956b, this.f31960f);
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f31959e.getLayoutParams();
+            marginLayoutParams.topMargin = this.o - getResources().getDimensionPixelSize(R.dimen.tbds24);
+            this.f31959e.setLayoutParams(marginLayoutParams);
+            RecommendForumHeaderView recommendForumHeaderView = new RecommendForumHeaderView(this.f31956b);
+            this.f31958d = recommendForumHeaderView;
+            recommendForumHeaderView.setOnSecectedListener(this);
+            FrameLayout frameLayout = new FrameLayout(this.f31956b.getPageActivity());
+            frameLayout.addView(new View(this.f31956b.getPageActivity()), new FrameLayout.LayoutParams(-1, this.p));
+            this.m = frameLayout;
+        }
+    }
+
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            c.a.q0.f0.g gVar = this.m;
+            c.a.o0.f0.g gVar = this.i;
             if (gVar != null) {
                 return gVar.isViewAttached();
             }
@@ -394,11 +388,11 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         return invokeV.booleanValue;
     }
 
-    public boolean isRefreshViewShowing() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            h hVar = this.n;
+            h hVar = this.j;
             if (hVar != null) {
                 return hVar.isViewAttached();
             }
@@ -407,224 +401,212 @@ public class RecommendView extends FrameLayout implements ForumTestView.c {
         return invokeV.booleanValue;
     }
 
-    public void onChangeSkinType() {
+    public void m() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f41319e) {
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        this.f41319e = skinType;
+        this.a = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        g gVar = this.l;
+        g gVar = this.f31962h;
         if (gVar != null) {
-            gVar.C(skinType);
+            gVar.H(skinType);
         }
-        c.a.q0.f0.g gVar2 = this.m;
+        c.a.o0.f0.g gVar2 = this.i;
         if (gVar2 != null) {
             gVar2.onChangeSkinType();
         }
-        h hVar = this.n;
+        h hVar = this.j;
         if (hVar != null) {
             hVar.onChangeSkinType();
         }
-        c.a.r0.u0.k.b.a aVar = this.k;
+        c.a.p0.w0.m.b.a aVar = this.f31961g;
         if (aVar != null) {
             aVar.d();
         }
-        RecommendForumHeaderView recommendForumHeaderView = this.f41322h;
+        RecommendForumHeaderView recommendForumHeaderView = this.f31958d;
         if (recommendForumHeaderView != null) {
-            recommendForumHeaderView.onChangeSkinType();
+            recommendForumHeaderView.f();
         }
-        SkinManager.setBackgroundColor(this.f41323i, R.color.CAM_X0205);
-        SkinManager.setBackgroundColor(this.f41324j, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f31959e, R.color.CAM_X0205);
+        SkinManager.setBackgroundColor(this.f31960f, R.color.CAM_X0205);
     }
 
-    public void onDestroy() {
+    public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.f41324j;
+            BdTypeRecyclerView bdTypeRecyclerView = this.f31960f;
             if (bdTypeRecyclerView != null) {
-                bdTypeRecyclerView.removeOnScrollListener(this.x);
+                bdTypeRecyclerView.removeOnScrollListener(this.t);
             }
-            stopPullRefresh();
-            hideLoadingView();
-            hideNetRefreshView();
-            RecommendForumHeaderView recommendForumHeaderView = this.f41322h;
+            v();
+            h();
+            i();
+            RecommendForumHeaderView recommendForumHeaderView = this.f31958d;
             if (recommendForumHeaderView != null) {
-                recommendForumHeaderView.unregisterDisappearTipListener();
+                recommendForumHeaderView.h();
             }
         }
+    }
+
+    public boolean o(RecyclerView recyclerView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, recyclerView)) == null) ? recyclerView == null || !recyclerView.canScrollVertically(-1) : invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            onDestroy();
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            n();
             super.onDetachedFromWindow();
         }
     }
 
-    @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.c
-    public void onListCleared() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public final void p(List<f> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (bdTypeRecyclerView = this.f41324j) != null && !ListUtils.isEmpty(bdTypeRecyclerView.getData()) && this.f41324j.getData().size() == 1 && (this.f41324j.getData().get(0) instanceof c.a.r0.u0.k.c.e)) {
-            showNoDataView();
+        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
+            this.f31960f.removeHeaderView(this.m);
+            this.f31960f.removeHeaderView(this.f31958d);
+            this.f31960f.getHeaderViewsCount();
+            this.f31960f.s(this.f31958d);
+            this.q = list;
+            this.f31958d.setData(list);
+            this.l.S(TbSingleton.getInstance().getHotSearch());
         }
     }
 
-    public void onNavigationbarHeightChange(View view, int i2) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public final void q(c.a.p0.w0.m.c.a aVar, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048587, this, view, i2) == null) || view == (bdTypeRecyclerView = this.f41324j)) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048588, this, aVar, j) == null) || aVar == null) {
             return;
         }
-        bdTypeRecyclerView.smoothScrollBy(-i2, 100);
+        this.f31961g.e(aVar.a(j, !ListUtils.isEmpty(this.q)));
     }
 
-    @Override // com.baidu.tieba.enterForum.recommend.view.ForumTestView.c
-    public void onSelected(long j2) {
+    public void r() {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            h(this.o, j2);
-        }
-    }
-
-    public boolean recyclerViewIsAtTop(RecyclerView recyclerView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, recyclerView)) == null) ? recyclerView == null || !recyclerView.canScrollVertically(-1) : invokeL.booleanValue;
-    }
-
-    public void setData(c.a.r0.u0.k.c.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048590, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (bdTypeRecyclerView = this.f31960f) == null) {
             return;
         }
-        this.o = aVar;
+        bdTypeRecyclerView.setVisibility(0);
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || k()) {
+            return;
+        }
+        if (this.i == null) {
+            this.i = new c.a.o0.f0.g(getContext());
+            this.i.i();
+            this.i.s((getHeight() - n.f(getContext(), R.dimen.tbds304)) / 2);
+            this.i.onChangeSkinType();
+        }
+        this.i.attachView(this, z);
+    }
+
+    public void setData(c.a.p0.w0.m.c.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) || aVar == null) {
+            return;
+        }
+        this.k = aVar;
         if (ListUtils.isEmpty(aVar.d()) && ListUtils.isEmpty(aVar.b(true))) {
-            showNoDataView();
+            u();
             return;
         }
-        showListView();
-        List<f> f2 = aVar.f(this.r);
-        this.r = 0L;
+        r();
+        List<f> f2 = aVar.f(this.n);
+        this.n = 0L;
         f fVar = (f) ListUtils.getItem(f2, 1);
         if (fVar == null) {
             fVar = (f) ListUtils.getItem(f2, 0);
         }
-        long j2 = fVar != null ? fVar.a : 0L;
-        g(f2);
-        h(aVar, j2);
+        long j = fVar != null ? fVar.a : 0L;
+        p(f2);
+        q(aVar, j);
     }
 
     public void setListPullRefreshListener(f.g gVar) {
         g gVar2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, gVar) == null) || (gVar2 = this.l) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048592, this, gVar) == null) || (gVar2 = this.f31962h) == null) {
             return;
         }
-        gVar2.a(gVar);
+        gVar2.f(gVar);
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bdUniqueId) == null) {
-            c.a.r0.u0.k.b.a aVar = this.k;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bdUniqueId) == null) {
+            c.a.p0.w0.m.b.a aVar = this.f31961g;
             if (aVar != null) {
                 aVar.f(bdUniqueId);
             }
-            g gVar = this.l;
+            g gVar = this.f31962h;
             if (gVar != null) {
-                gVar.V(bdUniqueId);
+                gVar.a0(bdUniqueId);
             }
-            RecommendForumHeaderView recommendForumHeaderView = this.f41322h;
+            RecommendForumHeaderView recommendForumHeaderView = this.f31958d;
             if (recommendForumHeaderView != null) {
                 recommendForumHeaderView.setPageId(bdUniqueId);
             }
         }
     }
 
-    public void setPresenter(c.a.r0.u0.k.a aVar) {
+    public void setPresenter(c.a.p0.w0.m.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, aVar) == null) {
-            this.f41321g = aVar;
+        if (interceptable == null || interceptable.invokeL(1048594, this, aVar) == null) {
+            this.f31957c = aVar;
         }
     }
 
-    public void setTabViewController(c.a.r0.u0.h.c cVar) {
+    public void setTabViewController(c.a.p0.w0.i.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, cVar) == null) {
-            this.p = cVar;
+        if (interceptable == null || interceptable.invokeL(1048595, this, cVar) == null) {
+            this.l = cVar;
         }
     }
 
-    public void showListView() {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public void t(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048595, this) == null) || (bdTypeRecyclerView = this.f41324j) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || l()) {
             return;
         }
-        bdTypeRecyclerView.setVisibility(0);
+        if (this.j == null) {
+            this.j = new h(getContext(), new d(this));
+            this.j.k(n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702a4));
+        }
+        this.j.n(this.f31956b.getString(R.string.obfuscated_res_0x7f0f0f65));
+        this.j.i(R.drawable.new_pic_emotion_08);
+        this.j.attachView(this, z);
+        this.j.p();
+        this.f31960f.setVisibility(8);
     }
 
-    public void showLoadingView(boolean z) {
+    public void u() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048596, this, z) == null) || isLoadingViewShowing()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (this.j == null) {
+                this.j = new h(getContext(), new e(this));
+                this.j.k(n.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702a4));
+            }
+            this.j.i(R.drawable.new_pic_emotion_08);
+            this.j.n(this.f31956b.getString(R.string.obfuscated_res_0x7f0f0f45));
+            this.j.attachView(this, false);
+            this.j.p();
+            this.f31960f.setVisibility(8);
         }
-        if (this.m == null) {
-            this.m = new c.a.q0.f0.g(getContext());
-            this.m.i();
-            this.m.s((getHeight() - n.f(getContext(), R.dimen.tbds304)) / 2);
-            this.m.onChangeSkinType();
-        }
-        this.m.attachView(this, z);
     }
 
-    public void showNetRefreshView(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048597, this, z) == null) || isRefreshViewShowing()) {
-            return;
-        }
-        if (this.n == null) {
-            this.n = new h(getContext(), new d(this));
-            this.n.k(n.f(TbadkCoreApplication.getInst(), R.dimen.ds364));
-        }
-        this.n.n(this.f41320f.getString(R.string.refresh_view_title_text));
-        this.n.i(R.drawable.new_pic_emotion_08);
-        this.n.attachView(this, z);
-        this.n.p();
-        this.f41324j.setVisibility(8);
-    }
-
-    public void showNoDataView() {
+    public void v() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            if (this.n == null) {
-                this.n = new h(getContext(), new e(this));
-                this.n.k(n.f(TbadkCoreApplication.getInst(), R.dimen.ds364));
-            }
-            this.n.i(R.drawable.new_pic_emotion_08);
-            this.n.n(this.f41320f.getString(R.string.recommend_forum_no_data));
-            this.n.attachView(this, false);
-            this.n.p();
-            this.f41324j.setVisibility(8);
-        }
-    }
-
-    public void startPullRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.f41323i.setRefreshing(true);
-        }
-    }
-
-    public void stopPullRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.f41323i.setRefreshing(false);
+            this.f31959e.setRefreshing(false);
         }
     }
 }

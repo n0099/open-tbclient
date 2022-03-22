@@ -19,17 +19,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class k extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.q0.r.r.a l;
-    public ForumEnterLayout m;
-    public final View.OnClickListener n;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c.a.o0.r.r.a f3435h;
+    public ForumEnterLayout i;
+    public final View.OnClickListener j;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ k f4035e;
+        public final /* synthetic */ k a;
 
         public a(k kVar) {
             Interceptable interceptable = $ic;
@@ -38,24 +38,24 @@ public class k extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f4035e = kVar;
+            this.a = kVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4035e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.d() == null) {
                 return;
             }
-            this.f4035e.c().a(view, this.f4035e.l);
+            this.a.d().a(view, this.a.f3435h);
         }
     }
 
@@ -68,81 +68,81 @@ public class k extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = new a(this);
+        this.j = new a(this);
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
         int f3 = c.a.d.f.p.n.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-        q(f2);
-        p(f3);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f13318e instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f13318e.getParent() == null) {
-            this.m = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f13318e;
+        r(f2);
+        q(f3);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().f10881d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().f10881d.getParent() == null) {
+            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().f10881d;
         } else {
-            this.m = new ForumEnterLayout(context);
+            this.i = new ForumEnterLayout(context);
         }
-        this.m.setOnAfterClickListener(this.n);
+        this.i.setOnAfterClickListener(this.j);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.m.onChangeSkinType(tbPageContext, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.n(tbPageContext, i);
         }
     }
 
-    public void s() {
+    public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (UbsABTestHelper.showNewUI()) {
-                int f2 = c.a.d.f.p.n.f(this.f4007f, R.dimen.M_H_X003);
-                int f3 = c.a.d.f.p.n.f(this.f4007f, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-                q(f2);
-                p(f3);
+                int f2 = c.a.d.f.p.n.f(this.f3392b, R.dimen.M_H_X003);
+                int f3 = c.a.d.f.p.n.f(this.f3392b, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
+                r(f2);
+                q(f3);
                 return;
             }
-            int f4 = c.a.d.f.p.n.f(this.f4007f, R.dimen.tbds10);
-            q(f4);
-            p(0);
-            u(this.m, f4, 0);
+            int f4 = c.a.d.f.p.n.f(this.f3392b, R.dimen.tbds10);
+            r(f4);
+            q(0);
+            v(this.i, f4, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: t */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: u */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.l = aVar;
-            this.m.setSourceForPb(this.f4006e.i());
-            this.m.setData(aVar);
+            this.f3435h = aVar;
+            this.i.setSourceForPb(this.a.i());
+            this.i.setData(aVar);
         }
     }
 
-    public void u(View view, int i2, int i3) {
+    public void v(View view, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048581, this, view, i2, i3) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeLII(1048581, this, view, i, i2) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
+            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
                 return;
             }
-            marginLayoutParams.topMargin = i2;
-            marginLayoutParams.bottomMargin = i3;
+            marginLayoutParams.topMargin = i;
+            marginLayoutParams.bottomMargin = i2;
             view.setLayoutParams(marginLayoutParams);
         }
     }

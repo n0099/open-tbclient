@@ -1,57 +1,56 @@
 package c.a.d.d;
 
-import android.os.Build;
 import com.baidu.adp.gif.NSGif;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class d {
+public class d implements a {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1529072749, "Lc/a/d/d/d;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-1529072749, "Lc/a/d/d/d;");
-                return;
+    public d() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new String[]{"ZTE-T U880", "U880"};
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @Override // c.a.d.d.a
+    public c.a.d.o.d.a a(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Build.VERSION.SDK_INT > 7 : invokeV.booleanValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            NSGif f2 = NSGif.f(bArr, i, i2);
+            if (f2 == null) {
+                return null;
+            }
+            return new c.a.d.o.d.a(f2);
+        }
+        return (c.a.d.o.d.a) invokeLII.objValue;
     }
 
-    public static boolean b(String str) {
+    @Override // c.a.d.d.a
+    public c.a.d.o.d.a get(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2.equals(str)) {
-                    return false;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            NSGif e2 = NSGif.e(str);
+            if (e2 == null) {
+                return null;
             }
-            return true;
+            return new c.a.d.o.d.a(e2);
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b(Build.MODEL) && a() && NSGif.f29796f : invokeV.booleanValue;
+        return (c.a.d.o.d.a) invokeL.objValue;
     }
 }

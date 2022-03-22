@@ -7,6 +7,7 @@ import com.baidu.mapapi.search.core.SearchResult;
 import com.baidu.mapapi.search.core.TaxiInfo;
 import com.baidu.mapapi.search.route.WalkingRouteLine;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +30,9 @@ public class o extends k {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,9 +45,9 @@ public class o extends k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, this, jSONArray, list)) == null) {
             if (jSONArray != null && (length = jSONArray.length()) > 0) {
-                for (int i2 = 0; i2 < length; i2++) {
-                    RouteNode a = a(jSONArray.optJSONObject(i2));
-                    if (i2 == length - 1) {
+                for (int i = 0; i < length; i++) {
+                    RouteNode a = a(jSONArray.optJSONObject(i));
+                    if (i == length - 1) {
                         return a;
                     }
                     if (list == null) {
@@ -73,7 +74,7 @@ public class o extends k {
             RouteNode routeNode = new RouteNode();
             routeNode.setTitle(jSONObject.optString(ActVideoSetting.WIFI_DISPLAY));
             routeNode.setUid(jSONObject.optString("uid"));
-            routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString("pt")));
+            routeNode.setLocation(CoordUtil.decodeLocation(jSONObject.optString(Config.PLATFORM_TYPE)));
             return routeNode;
         }
         return (RouteNode) invokeL.objValue;
@@ -88,8 +89,8 @@ public class o extends k {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     WalkingRouteLine.WalkingStep walkingStep = new WalkingRouteLine.WalkingStep();
                     walkingStep.setDirection(optJSONObject.optInt("direction") * 30);
@@ -180,11 +181,11 @@ public class o extends k {
                     RouteNode a = a(optJSONObject3.optJSONObject("start"));
                     RouteNode a2 = a(optJSONObject3.optJSONArray("end"), (List<RouteNode>) null);
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i2);
+                    for (int i = 0; i < optJSONArray2.length(); i++) {
+                        JSONObject optJSONObject4 = optJSONArray2.optJSONObject(i);
                         if (optJSONObject4 != null && (optJSONArray = optJSONObject4.optJSONArray("legs")) != null && optJSONArray.length() > 0) {
-                            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                                JSONObject optJSONObject5 = optJSONArray.optJSONObject(i2);
+                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                JSONObject optJSONObject5 = optJSONArray.optJSONObject(i);
                                 if (optJSONObject5 != null) {
                                     WalkingRouteLine walkingRouteLine = new WalkingRouteLine();
                                     walkingRouteLine.setStarting(a);

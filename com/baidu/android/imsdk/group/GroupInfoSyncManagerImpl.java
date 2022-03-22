@@ -56,9 +56,9 @@ public class GroupInfoSyncManagerImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -84,12 +84,12 @@ public class GroupInfoSyncManagerImpl {
         }
     }
 
-    public static void activeSyncAllMembers(Context context, String str, int i2) {
+    public static void activeSyncAllMembers(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             arrayList.add(str);
-            if (i2 == 3) {
+            if (i == 3) {
                 GroupManagerImpl.getInstance(context).getFansGroupMember(str, null, true, null);
                 GroupManagerImpl.getInstance(context).getFansGroupInfo(arrayList, true, null);
                 return;
@@ -207,9 +207,9 @@ public class GroupInfoSyncManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -221,9 +221,9 @@ public class GroupInfoSyncManagerImpl {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i2, String str2, ArrayList<GroupMember> arrayList2) {
+                public void onResult(int i, String str2, ArrayList<GroupMember> arrayList2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2, arrayList2) == null) || i2 == 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList2) == null) || i == 0) {
                         return;
                     }
                     GroupInfoSyncManagerImpl.addSyncGroupMemeber(this.val$groupid, this.val$uids);
@@ -238,10 +238,10 @@ public class GroupInfoSyncManagerImpl {
             return;
         }
         int size = arrayList.size() / 20;
-        for (int i2 = 0; i2 < size; i2++) {
-            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i2);
-            int i3 = i2 * 20;
-            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(i3, i3 + 20)), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
+        for (int i = 0; i < size; i++) {
+            LogUtils.d("GroupInfoSyncManagerImpl", "handleGetGroupinfos times = " + i);
+            int i2 = i * 20;
+            GroupManagerImpl.getInstance(context).getGroupsInfo(1, new ArrayList<>(arrayList.subList(i2, i2 + 20)), new BIMValueCallBack<ArrayList<GroupInfo>>(arrayList) { // from class: com.baidu.android.imsdk.group.GroupInfoSyncManagerImpl.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ArrayList val$groupids;
@@ -253,9 +253,9 @@ public class GroupInfoSyncManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -266,9 +266,9 @@ public class GroupInfoSyncManagerImpl {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i4, String str, ArrayList<GroupInfo> arrayList2) {
+                public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str, arrayList2) == null) || i4 == 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) || i3 == 0) {
                         return;
                     }
                     Iterator it = this.val$groupids.iterator();
@@ -292,9 +292,9 @@ public class GroupInfoSyncManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,9 +305,9 @@ public class GroupInfoSyncManagerImpl {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                public void onResult(int i4, String str, ArrayList<GroupInfo> arrayList2) {
+                public void onResult(int i3, String str, ArrayList<GroupInfo> arrayList2) {
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str, arrayList2) == null) || i4 == 0) {
+                    if (!(interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str, arrayList2) == null) || i3 == 0) {
                         return;
                     }
                     Iterator it = this.val$groupids.iterator();
@@ -349,9 +349,9 @@ public class GroupInfoSyncManagerImpl {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {starGroupList, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -414,9 +414,9 @@ public class GroupInfoSyncManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

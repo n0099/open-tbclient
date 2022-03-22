@@ -3,7 +3,7 @@ package com.baidu.swan.apps.swancore.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.p2.l0;
+import c.a.n0.a.p2.l0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,8 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanCoreVersion extends SwanAppIPCData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<SwanCoreVersion> CREATOR;
@@ -27,7 +26,7 @@ public class SwanCoreVersion extends SwanAppIPCData {
     public long swanCoreVersionCode;
     public String swanCoreVersionName;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<SwanCoreVersion> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +36,9 @@ public class SwanCoreVersion extends SwanAppIPCData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,10 +57,10 @@ public class SwanCoreVersion extends SwanAppIPCData {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public SwanCoreVersion[] newArray(int i2) {
+        public SwanCoreVersion[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new SwanCoreVersion[i2] : (SwanCoreVersion[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new SwanCoreVersion[i] : (SwanCoreVersion[]) invokeI.objValue;
         }
     }
 
@@ -85,10 +84,10 @@ public class SwanCoreVersion extends SwanAppIPCData {
         this(parcel);
     }
 
-    public static String getTypeString(int i2) {
+    public static String getTypeString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? "" : "debug" : "remote" : "preset" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? "" : "debug" : "remote" : "preset" : (String) invokeI.objValue;
     }
 
     @Override // android.os.Parcelable
@@ -111,15 +110,15 @@ public class SwanCoreVersion extends SwanAppIPCData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "SwanCoreVersion{swanCorePath='" + this.swanCorePath + ExtendedMessageFormat.QUOTE + ", swanCoreVersionName=" + this.swanCoreVersionName + ", swanCoreVersionCode=" + this.swanCoreVersionCode + ", swanCoreType=" + this.swanCoreType + ", isAvailable=" + isAvailable() + ExtendedMessageFormat.END_FE;
+            return "SwanCoreVersion{swanCorePath='" + this.swanCorePath + "', swanCoreVersionName=" + this.swanCoreVersionName + ", swanCoreVersionCode=" + this.swanCoreVersionCode + ", swanCoreType=" + this.swanCoreType + ", isAvailable=" + isAvailable() + '}';
         }
         return (String) invokeV.objValue;
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeInt(this.swanCoreType);
             parcel.writeLong(this.swanCoreVersionCode);
             parcel.writeString(this.swanCoreVersionName);
@@ -132,9 +131,9 @@ public class SwanCoreVersion extends SwanAppIPCData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -148,9 +147,9 @@ public class SwanCoreVersion extends SwanAppIPCData {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

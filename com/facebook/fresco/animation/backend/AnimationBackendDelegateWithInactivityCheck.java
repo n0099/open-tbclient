@@ -14,7 +14,7 @@ import com.facebook.fresco.animation.backend.AnimationBackend;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBackend> extends AnimationBackendDelegate<T> {
     public static /* synthetic */ Interceptable $ic = null;
     @VisibleForTesting
@@ -32,7 +32,7 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     public final MonotonicClock mMonotonicClock;
     public final ScheduledExecutorService mScheduledExecutorServiceForUiThread;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface InactivityListener {
         void onInactive();
     }
@@ -46,9 +46,9 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
             newInitContext.initArgs = r2;
             Object[] objArr = {t, inactivityListener, monotonicClock, scheduledExecutorService};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((AnimationBackend) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,9 +70,9 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -130,12 +130,12 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackendDelegate, com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i2) {
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, drawable, canvas, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, drawable, canvas, i)) == null) {
             this.mLastDrawnTimeMs = this.mMonotonicClock.now();
-            boolean drawFrame = super.drawFrame(drawable, canvas, i2);
+            boolean drawFrame = super.drawFrame(drawable, canvas, i);
             maybeScheduleInactivityCheck();
             return drawFrame;
         }
@@ -154,10 +154,10 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mInactivityThresholdMs : invokeV.longValue;
     }
 
-    public void setInactivityCheckPollingTimeMs(long j2) {
+    public void setInactivityCheckPollingTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.mInactivityCheckPollingTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.mInactivityCheckPollingTimeMs = j;
         }
     }
 
@@ -168,10 +168,10 @@ public class AnimationBackendDelegateWithInactivityCheck<T extends AnimationBack
         }
     }
 
-    public void setInactivityThresholdMs(long j2) {
+    public void setInactivityThresholdMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.mInactivityThresholdMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.mInactivityThresholdMs = j;
         }
     }
 

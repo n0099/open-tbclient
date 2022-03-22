@@ -27,21 +27,21 @@ import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt__SequenceBuilderKt;
 import kotlin.sequences.SequencesKt__SequencesKt;
 @Metadata(d1 = {"\u0000f\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\"\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\r\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010 \n\u0002\b\u0005\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u0000 02\u00060\u0001j\u0002`\u0002:\u000201B\u000f\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005B\u0017\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bB\u001d\b\u0016\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\f\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00070\n¢\u0006\u0002\u0010\u000bB\u000f\b\u0001\u0012\u0006\u0010\f\u001a\u00020\r¢\u0006\u0002\u0010\u000eJ\u000e\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017J\u001a\u0010\u0018\u001a\u0004\u0018\u00010\u00192\u0006\u0010\u0016\u001a\u00020\u00172\b\b\u0002\u0010\u001a\u001a\u00020\u001bJ\u001e\u0010\u001c\u001a\b\u0012\u0004\u0012\u00020\u00190\u001d2\u0006\u0010\u0016\u001a\u00020\u00172\b\b\u0002\u0010\u001a\u001a\u00020\u001bJ\u001a\u0010\u001e\u001a\u0004\u0018\u00010\u00192\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u001f\u001a\u00020\u001bH\u0007J\u0010\u0010 \u001a\u0004\u0018\u00010\u00192\u0006\u0010\u0016\u001a\u00020\u0017J\u0011\u0010!\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017H\u0086\u0004J\u0018\u0010\"\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u001f\u001a\u00020\u001bH\u0007J\"\u0010#\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u00172\u0012\u0010$\u001a\u000e\u0012\u0004\u0012\u00020\u0019\u0012\u0004\u0012\u00020\u00170%J\u0016\u0010#\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010&\u001a\u00020\u0004J\u0016\u0010'\u001a\u00020\u00042\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010&\u001a\u00020\u0004J\u001e\u0010(\u001a\b\u0012\u0004\u0012\u00020\u00040)2\u0006\u0010\u0016\u001a\u00020\u00172\b\b\u0002\u0010*\u001a\u00020\u001bJ \u0010+\u001a\b\u0012\u0004\u0012\u00020\u00040\u001d2\u0006\u0010\u0016\u001a\u00020\u00172\b\b\u0002\u0010*\u001a\u00020\u001bH\u0007J\u0006\u0010,\u001a\u00020\rJ\b\u0010-\u001a\u00020\u0004H\u0016J\b\u0010.\u001a\u00020/H\u0002R\u0016\u0010\u000f\u001a\n\u0012\u0004\u0012\u00020\u0007\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u0017\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00070\n8F¢\u0006\u0006\u001a\u0004\b\u0010\u0010\u0011R\u0011\u0010\u0003\u001a\u00020\u00048F¢\u0006\u0006\u001a\u0004\b\u0012\u0010\u0013¨\u00062"}, d2 = {"Lkotlin/text/Regex;", "Ljava/io/Serializable;", "Lkotlin/io/Serializable;", "pattern", "", "(Ljava/lang/String;)V", SpeedStatsUtils.UBC_KEY_OPTION, "Lkotlin/text/RegexOption;", "(Ljava/lang/String;Lkotlin/text/RegexOption;)V", "options", "", "(Ljava/lang/String;Ljava/util/Set;)V", "nativePattern", "Ljava/util/regex/Pattern;", "(Ljava/util/regex/Pattern;)V", "_options", "getOptions", "()Ljava/util/Set;", "getPattern", "()Ljava/lang/String;", "containsMatchIn", "", "input", "", "find", "Lkotlin/text/MatchResult;", "startIndex", "", "findAll", "Lkotlin/sequences/Sequence;", "matchAt", "index", "matchEntire", "matches", "matchesAt", StickerDataChangeType.REPLACE, AnimationProperty.TRANSFORM, "Lkotlin/Function1;", "replacement", "replaceFirst", "split", "", Constants.EXTRA_CONFIG_LIMIT, "splitToSequence", "toPattern", "toString", "writeReplace", "", "Companion", "Serialized", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Regex implements Serializable {
     public static final Companion Companion = new Companion(null);
     public Set<? extends RegexOption> _options;
     public final Pattern nativePattern;
 
     @Metadata(d1 = {"\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0004H\u0002J\u000e\u0010\u0006\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u0007J\u000e\u0010\t\u001a\u00020\u00072\u0006\u0010\b\u001a\u00020\u0007J\u000e\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\u0007¨\u0006\f"}, d2 = {"Lkotlin/text/Regex$Companion;", "", "()V", "ensureUnicodeCase", "", "flags", "escape", "", "literal", "escapeReplacement", "fromLiteral", "Lkotlin/text/Regex;", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Companion {
         public Companion() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public final int ensureUnicodeCase(int i2) {
-            return (i2 & 2) != 0 ? i2 | 64 : i2;
+        public final int ensureUnicodeCase(int i) {
+            return (i & 2) != 0 ? i | 64 : i;
         }
 
         public final String escape(String literal) {
@@ -69,7 +69,7 @@ public final class Regex implements Serializable {
     }
 
     @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0010\u0000\n\u0002\b\u0002\b\u0002\u0018\u0000 \u000e2\u00060\u0001j\u0002`\u0002:\u0001\u000eB\u0015\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\f\u001a\u00020\rH\u0002R\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000b¨\u0006\u000f"}, d2 = {"Lkotlin/text/Regex$Serialized;", "Ljava/io/Serializable;", "Lkotlin/io/Serializable;", "pattern", "", "flags", "", "(Ljava/lang/String;I)V", "getFlags", "()I", "getPattern", "()Ljava/lang/String;", "readResolve", "", "Companion", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Serialized implements Serializable {
         public static final Companion Companion = new Companion(null);
         public static final long serialVersionUID = 0;
@@ -77,7 +77,7 @@ public final class Regex implements Serializable {
         public final String pattern;
 
         @Metadata(d1 = {"\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\t\n\u0000\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000¨\u0006\u0005"}, d2 = {"Lkotlin/text/Regex$Serialized$Companion;", "", "()V", "serialVersionUID", "", "kotlin-stdlib"}, k = 1, mv = {1, 5, 1})
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static final class Companion {
             public Companion() {
             }
@@ -87,10 +87,10 @@ public final class Regex implements Serializable {
             }
         }
 
-        public Serialized(String pattern, int i2) {
+        public Serialized(String pattern, int i) {
             Intrinsics.checkNotNullParameter(pattern, "pattern");
             this.pattern = pattern;
-            this.flags = i2;
+            this.flags = i;
         }
 
         private final Object readResolve() {
@@ -114,32 +114,32 @@ public final class Regex implements Serializable {
         this.nativePattern = nativePattern;
     }
 
-    public static /* synthetic */ MatchResult find$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ MatchResult find$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return regex.find(charSequence, i2);
+        return regex.find(charSequence, i);
     }
 
-    public static /* synthetic */ Sequence findAll$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ Sequence findAll$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return regex.findAll(charSequence, i2);
+        return regex.findAll(charSequence, i);
     }
 
-    public static /* synthetic */ List split$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ List split$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return regex.split(charSequence, i2);
+        return regex.split(charSequence, i);
     }
 
-    public static /* synthetic */ Sequence splitToSequence$default(Regex regex, CharSequence charSequence, int i2, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ Sequence splitToSequence$default(Regex regex, CharSequence charSequence, int i, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
+            i = 0;
         }
-        return regex.splitToSequence(charSequence, i2);
+        return regex.splitToSequence(charSequence, i);
     }
 
     private final Object writeReplace() {
@@ -153,19 +153,19 @@ public final class Regex implements Serializable {
         return this.nativePattern.matcher(input).find();
     }
 
-    public final MatchResult find(CharSequence input, int i2) {
+    public final MatchResult find(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
         Matcher matcher = this.nativePattern.matcher(input);
         Intrinsics.checkNotNullExpressionValue(matcher, "nativePattern.matcher(input)");
-        return RegexKt.access$findNext(matcher, i2, input);
+        return RegexKt.access$findNext(matcher, i, input);
     }
 
-    public final Sequence<MatchResult> findAll(CharSequence input, int i2) {
+    public final Sequence<MatchResult> findAll(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
-        if (i2 >= 0 && i2 <= input.length()) {
-            return SequencesKt__SequencesKt.generateSequence((Function0) new Regex$findAll$1(this, input, i2), (Function1) Regex$findAll$2.INSTANCE);
+        if (i >= 0 && i <= input.length()) {
+            return SequencesKt__SequencesKt.generateSequence((Function0) new Regex$findAll$1(this, input, i), (Function1) Regex$findAll$2.INSTANCE);
         }
-        throw new IndexOutOfBoundsException("Start index out of bounds: " + i2 + ", input length: " + input.length());
+        throw new IndexOutOfBoundsException("Start index out of bounds: " + i + ", input length: " + input.length());
     }
 
     /* JADX DEBUG: Type inference failed for r0v0. Raw type applied. Possible types: java.util.Set<? extends kotlin.text.RegexOption>, java.util.Set<kotlin.text.RegexOption> */
@@ -191,9 +191,9 @@ public final class Regex implements Serializable {
 
     @SinceKotlin(version = "1.5")
     @ExperimentalStdlibApi
-    public final MatchResult matchAt(CharSequence input, int i2) {
+    public final MatchResult matchAt(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
-        Matcher region = this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i2, input.length());
+        Matcher region = this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i, input.length());
         if (region.lookingAt()) {
             Intrinsics.checkNotNullExpressionValue(region, "this");
             return new MatcherMatchResult(region, input);
@@ -215,9 +215,9 @@ public final class Regex implements Serializable {
 
     @SinceKotlin(version = "1.5")
     @ExperimentalStdlibApi
-    public final boolean matchesAt(CharSequence input, int i2) {
+    public final boolean matchesAt(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
-        return this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i2, input.length()).lookingAt();
+        return this.nativePattern.matcher(input).useAnchoringBounds(false).useTransparentBounds(true).region(i, input.length()).lookingAt();
     }
 
     public final String replace(CharSequence input, String replacement) {
@@ -236,22 +236,22 @@ public final class Regex implements Serializable {
         return replaceFirst;
     }
 
-    public final List<String> split(CharSequence input, int i2) {
+    public final List<String> split(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
-        StringsKt__StringsKt.requireNonNegativeLimit(i2);
+        StringsKt__StringsKt.requireNonNegativeLimit(i);
         Matcher matcher = this.nativePattern.matcher(input);
-        if (i2 != 1 && matcher.find()) {
-            ArrayList arrayList = new ArrayList(i2 > 0 ? RangesKt___RangesKt.coerceAtMost(i2, 10) : 10);
-            int i3 = 0;
-            int i4 = i2 - 1;
+        if (i != 1 && matcher.find()) {
+            ArrayList arrayList = new ArrayList(i > 0 ? RangesKt___RangesKt.coerceAtMost(i, 10) : 10);
+            int i2 = 0;
+            int i3 = i - 1;
             do {
-                arrayList.add(input.subSequence(i3, matcher.start()).toString());
-                i3 = matcher.end();
-                if (i4 >= 0 && arrayList.size() == i4) {
+                arrayList.add(input.subSequence(i2, matcher.start()).toString());
+                i2 = matcher.end();
+                if (i3 >= 0 && arrayList.size() == i3) {
                     break;
                 }
             } while (matcher.find());
-            arrayList.add(input.subSequence(i3, input.length()).toString());
+            arrayList.add(input.subSequence(i2, input.length()).toString());
             return arrayList;
         }
         return CollectionsKt__CollectionsJVMKt.listOf(input.toString());
@@ -259,10 +259,10 @@ public final class Regex implements Serializable {
 
     @SinceKotlin(version = "1.5")
     @ExperimentalStdlibApi
-    public final Sequence<String> splitToSequence(CharSequence input, int i2) {
+    public final Sequence<String> splitToSequence(CharSequence input, int i) {
         Intrinsics.checkNotNullParameter(input, "input");
-        StringsKt__StringsKt.requireNonNegativeLimit(i2);
-        return SequencesKt__SequenceBuilderKt.sequence(new Regex$splitToSequence$1(this, input, i2, null));
+        StringsKt__StringsKt.requireNonNegativeLimit(i);
+        return SequencesKt__SequenceBuilderKt.sequence(new Regex$splitToSequence$1(this, input, i, null));
     }
 
     public final Pattern toPattern() {
@@ -289,23 +289,23 @@ public final class Regex implements Serializable {
     public final String replace(CharSequence input, Function1<? super MatchResult, ? extends CharSequence> transform) {
         Intrinsics.checkNotNullParameter(input, "input");
         Intrinsics.checkNotNullParameter(transform, "transform");
-        int i2 = 0;
+        int i = 0;
         MatchResult find$default = find$default(this, input, 0, 2, null);
         if (find$default != null) {
             int length = input.length();
             StringBuilder sb = new StringBuilder(length);
             do {
                 Intrinsics.checkNotNull(find$default);
-                sb.append(input, i2, find$default.getRange().getStart().intValue());
+                sb.append(input, i, find$default.getRange().getStart().intValue());
                 sb.append(transform.invoke(find$default));
-                i2 = find$default.getRange().getEndInclusive().intValue() + 1;
+                i = find$default.getRange().getEndInclusive().intValue() + 1;
                 find$default = find$default.next();
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
                 }
             } while (find$default != null);
-            if (i2 < length) {
-                sb.append(input, i2, length);
+            if (i < length) {
+                sb.append(input, i, length);
             }
             String sb2 = sb.toString();
             Intrinsics.checkNotNullExpressionValue(sb2, "sb.toString()");

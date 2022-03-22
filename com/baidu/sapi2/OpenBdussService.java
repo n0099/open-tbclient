@@ -23,7 +23,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.core.beans.BeanConstants;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -45,9 +44,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             newInitContext.initArgs = r2;
             Object[] objArr = {sapiConfiguration, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((SapiConfiguration) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -127,8 +126,8 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                     list = getOpenBdussDTO.targetTplList;
                     if (list != null && list.size() > 0) {
                         String str = getOpenBdussDTO.targetTplList.get(0);
-                        for (int i2 = 1; i2 < getOpenBdussDTO.targetTplList.size(); i2++) {
-                            str = str + "|" + getOpenBdussDTO.targetTplList.get(i2);
+                        for (int i = 1; i < getOpenBdussDTO.targetTplList.size(); i++) {
+                            str = str + "|" + getOpenBdussDTO.targetTplList.get(i);
                         }
                         httpHashMapWrap.put("tpl_list", str);
                     }
@@ -150,9 +149,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, r8, getOpenBdussCallback, currentAccount, getOpenBdussDTO, fromJson};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     super((Looper) newInitContext.callArgs[0]);
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
@@ -167,11 +166,11 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         }
 
                         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                        public void onFailure(Throwable th, int i3, String str2) {
+                        public void onFailure(Throwable th, int i2, String str2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i3, str2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str2) == null) {
                                 OpenBdussResult openBdussResult2 = new OpenBdussResult();
-                                openBdussResult2.setResultCode(i3);
+                                openBdussResult2.setResultCode(i2);
                                 this.val$callback.onFailure(openBdussResult2);
                             }
                         }
@@ -193,9 +192,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         }
 
                         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                        public void onSuccess(int i3, String str2) {
+                        public void onSuccess(int i2, String str2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str2) == null) {
+                            if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i2, str2) == null) {
                                 try {
                                     JSONObject jSONObject = new JSONObject(str2);
                                     if (!TextUtils.isEmpty(jSONObject.optString("uid"))) {
@@ -238,7 +237,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
             list = getOpenBdussDTO.targetTplList;
             if (list != null) {
                 String str2 = getOpenBdussDTO.targetTplList.get(0);
-                while (i2 < getOpenBdussDTO.targetTplList.size()) {
+                while (i < getOpenBdussDTO.targetTplList.size()) {
                 }
                 httpHashMapWrap.put("tpl_list", str2);
             }
@@ -260,9 +259,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         newInitContext.initArgs = objArr;
                         Object[] objArr = {this, r8, getOpenBdussCallback, currentAccount, getOpenBdussDTO, fromJson};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             super((Looper) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -277,11 +276,11 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onFailure(Throwable th, int i3, String str22) {
+                public void onFailure(Throwable th, int i2, String str22) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i3, str22) == null) {
+                    if (interceptable2 == null || interceptable2.invokeLIL(1048576, this, th, i2, str22) == null) {
                         OpenBdussResult openBdussResult2 = new OpenBdussResult();
-                        openBdussResult2.setResultCode(i3);
+                        openBdussResult2.setResultCode(i2);
                         this.val$callback.onFailure(openBdussResult2);
                     }
                 }
@@ -303,9 +302,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                 }
 
                 @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
-                public void onSuccess(int i3, String str22) {
+                public void onSuccess(int i2, String str22) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i3, str22) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048579, this, i2, str22) == null) {
                         try {
                             JSONObject jSONObject = new JSONObject(str22);
                             if (!TextUtils.isEmpty(jSONObject.optString("uid"))) {
@@ -352,9 +351,9 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -371,7 +370,7 @@ public class OpenBdussService extends AbstractService implements NoProguard {
                         try {
                             ArrayList arrayList = new ArrayList();
                             for (String str : SapiContext.getInstance().getOpenBdussDomains()) {
-                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, BeanConstants.COOKIE_OPENBDUSS, "")));
+                                arrayList.add(new PassNameValuePair(SapiUtils.COOKIE_URL_PREFIX + str, SapiUtils.buildBDUSSCookie(str, "OPENBDUSS", "")));
                             }
                             SapiUtils.syncCookies(this.this$0.context, arrayList);
                         } catch (Throwable th) {

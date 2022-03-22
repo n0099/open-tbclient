@@ -8,10 +8,10 @@ import android.os.Looper;
 import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.z.a.c;
-import c.a.z.a.d;
-import c.a.z.a.e;
-import c.a.z.a.h;
+import c.a.y.a.c;
+import c.a.y.a.d;
+import c.a.y.a.e;
+import c.a.y.a.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.HttpConstants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
@@ -29,34 +29,32 @@ public class MediaTranscoder extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final c.a.z.a.f.a f34782f;
+    public static final c.a.y.a.f.a f26956f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile boolean f34783g;
+    public static volatile boolean f26957g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile boolean f34784h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static volatile boolean f34785i;
+    public static volatile boolean f26958h;
+    public static volatile boolean i;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f34786b;
+    public ArrayList<String> f26959b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f34787c;
+    public ArrayList<String> f26960c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f34788d;
+    public ArrayList<String> f26961d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ArrayList<String> f34789e;
+    public ArrayList<String> f26962e;
     public long mNativeTranscoder;
 
     /* loaded from: classes4.dex */
-    public static class a implements c.a.z.a.f.a {
+    public static class a implements c.a.y.a.f.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -65,16 +63,16 @@ public class MediaTranscoder extends d {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // c.a.z.a.f.a
+        @Override // c.a.y.a.f.a
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -98,9 +96,9 @@ public class MediaTranscoder extends d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaTranscoder, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -120,21 +118,21 @@ public class MediaTranscoder extends d {
                     return;
                 }
                 e.a("MediaTranscoder", "handleMessage() msg.what:" + message.what);
-                int i2 = message.what;
-                if (i2 != 0) {
-                    if (i2 == 1) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i == 1) {
                         e.c("MediaTranscoder", "MEDIA_PREPARED (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.b();
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         e.c("MediaTranscoder", "MEDIA_TRANSCODER_COMPLETE (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.c();
-                    } else if (i2 == 3) {
+                    } else if (i == 3) {
                         e.c("MediaTranscoder", "MEDIA_TRANSCODER_TERMINAL (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.d();
-                    } else if (i2 == 100) {
+                    } else if (i == 100) {
                         e.c("MediaTranscoder", "MEDIA_ERROR (" + message.arg1 + "," + message.arg2 + SmallTailInfo.EMOTION_SUFFIX);
                         mediaTranscoder.a(message.arg1, message.arg2);
-                    } else if (i2 != 200) {
+                    } else if (i != 200) {
                         e.e("MediaTranscoder", "Unknown message type " + message.what);
                     } else {
                         e.c("MediaTranscoder", "MEDIA_INFO (" + message.arg1 + "," + message.arg2 + message.obj + SmallTailInfo.EMOTION_SUFFIX);
@@ -158,12 +156,12 @@ public class MediaTranscoder extends d {
                 return;
             }
         }
-        f34782f = new a();
+        f26956f = new a();
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MediaTranscoder() {
-        this(f34782f);
+        this(f26956f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,7 +169,7 @@ public class MediaTranscoder extends d {
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
-                this((c.a.z.a.f.a) newInitContext.callArgs[0]);
+                this((c.a.y.a.f.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -180,7 +178,7 @@ public class MediaTranscoder extends d {
         e.c("MediaTranscoder", "Software decoder mode. SDK Version:" + getSDKVersion() + " Core Version:" + getCoreVersion());
     }
 
-    public MediaTranscoder(c.a.z.a.f.a aVar) {
+    public MediaTranscoder(c.a.y.a.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -195,10 +193,10 @@ public class MediaTranscoder extends d {
                 return;
             }
         }
-        this.f34786b = new ArrayList<>();
-        this.f34787c = new ArrayList<>();
-        this.f34788d = new ArrayList<>();
-        this.f34789e = new ArrayList<>();
+        this.f26959b = new ArrayList<>();
+        this.f26960c = new ArrayList<>();
+        this.f26961d = new ArrayList<>();
+        this.f26962e = new ArrayList<>();
         b(aVar);
     }
 
@@ -218,19 +216,19 @@ public class MediaTranscoder extends d {
 
     private native void _stop();
 
-    public static void a(c.a.z.a.f.a aVar) {
+    public static void a(c.a.y.a.f.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, aVar) == null) {
             synchronized (MediaTranscoder.class) {
-                if (!f34783g) {
+                if (!f26957g) {
                     if (aVar == null) {
-                        aVar = f34782f;
+                        aVar = f26956f;
                     }
                     e.c("MediaTranscoder", "loadLibrariesOnce ....");
                     aVar.a("cbffmpeg");
                     aVar.a("sdl");
                     aVar.a("transcoder");
-                    f34783g = true;
+                    f26957g = true;
                 }
             }
         }
@@ -252,7 +250,7 @@ public class MediaTranscoder extends d {
         return invokeLL.booleanValue;
     }
 
-    private void b(c.a.z.a.f.a aVar) {
+    private void b(c.a.y.a.f.a aVar) {
         b bVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, aVar) == null) {
@@ -279,12 +277,12 @@ public class MediaTranscoder extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
             synchronized (MediaTranscoder.class) {
-                if (!f34785i) {
+                if (!i) {
                     Context a2 = c.a();
                     PackageManager packageManager = a2.getPackageManager();
                     String packageName = a2.getPackageName();
                     String str = "0.0";
-                    String e2 = c.a.z.a.i.a.e(a2);
+                    String e2 = c.a.y.a.i.a.e(a2);
                     String c2 = c.c();
                     String c3 = h.c(a2);
                     if (packageManager != null) {
@@ -299,7 +297,7 @@ public class MediaTranscoder extends d {
                     nativeSetInfo("model", Build.MODEL);
                     nativeSetInfo(HttpConstants.OS_VERSION, Build.VERSION.RELEASE);
                     nativeSetInfo("os_type", "Android");
-                    f34785i = true;
+                    i = true;
                 }
             }
         }
@@ -309,9 +307,9 @@ public class MediaTranscoder extends d {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, null) == null) {
             synchronized (MediaTranscoder.class) {
-                if (!f34784h) {
+                if (!f26958h) {
                     native_init();
-                    f34784h = true;
+                    f26958h = true;
                 }
             }
         }
@@ -336,7 +334,7 @@ public class MediaTranscoder extends d {
     public static void onUploadStatData(Object obj, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(65565, null, obj, str, i2) == null) {
-            c.a.z.a.i.b.g().h(str, "sailor_monitor", i2);
+            c.a.y.a.i.b.g().h(str, "sailor_monitor", i2);
         }
     }
 
@@ -365,9 +363,9 @@ public class MediaTranscoder extends d {
     public void a(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.f34789e.clear();
+            this.f26962e.clear();
             if (arrayList != null) {
-                this.f34789e.addAll(arrayList);
+                this.f26962e.addAll(arrayList);
             }
         }
     }
@@ -376,7 +374,7 @@ public class MediaTranscoder extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (f34783g) {
+            if (f26957g) {
                 return "1.1.8.12";
             }
             return null;
@@ -434,21 +432,21 @@ public class MediaTranscoder extends d {
     public void prepareAsync() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.f34789e.size() == 0) {
-                for (int i2 = 0; i2 < this.f34786b.size(); i2++) {
-                    this.f34789e.add("-i");
-                    this.f34789e.add(this.f34786b.get(i2));
+            if (this.f26962e.size() == 0) {
+                for (int i2 = 0; i2 < this.f26959b.size(); i2++) {
+                    this.f26962e.add("-i");
+                    this.f26962e.add(this.f26959b.get(i2));
                 }
-                for (int i3 = 0; i3 < this.f34788d.size(); i3 += 2) {
-                    ArrayList<String> arrayList = this.f34789e;
-                    arrayList.add("-" + this.f34788d.get(i3));
-                    this.f34789e.add(this.f34788d.get(i3 + 1));
+                for (int i3 = 0; i3 < this.f26961d.size(); i3 += 2) {
+                    ArrayList<String> arrayList = this.f26962e;
+                    arrayList.add("-" + this.f26961d.get(i3));
+                    this.f26962e.add(this.f26961d.get(i3 + 1));
                 }
-                for (int i4 = 0; i4 < this.f34787c.size(); i4++) {
-                    this.f34789e.add(this.f34787c.get(i4));
+                for (int i4 = 0; i4 < this.f26960c.size(); i4++) {
+                    this.f26962e.add(this.f26960c.get(i4));
                 }
             }
-            ArrayList<String> arrayList2 = this.f34789e;
+            ArrayList<String> arrayList2 = this.f26962e;
             nativeSetSource((String[]) arrayList2.toArray(new String[arrayList2.size()]));
             _prepareAsync();
             nativeSetSwTransStat();
@@ -479,7 +477,7 @@ public class MediaTranscoder extends d {
     public void setDataSource(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.f34786b.add(str);
+            this.f26959b.add(str);
         }
     }
 
@@ -499,15 +497,15 @@ public class MediaTranscoder extends d {
     public void setOption(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
-            this.f34788d.add(str);
-            this.f34788d.add(str2);
+            this.f26961d.add(str);
+            this.f26961d.add(str2);
         }
     }
 
     public void setOutputFile(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.f34787c.add(str);
+            this.f26960c.add(str);
         }
     }
 

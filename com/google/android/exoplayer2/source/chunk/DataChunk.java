@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DataChunk extends Chunk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int READ_GRANULARITY = 16384;
@@ -23,17 +23,17 @@ public abstract class DataChunk extends Chunk {
     public volatile boolean loadCanceled;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataChunk(DataSource dataSource, DataSpec dataSpec, int i2, Format format, int i3, Object obj, byte[] bArr) {
-        super(dataSource, dataSpec, i2, format, i3, obj, C.TIME_UNSET, C.TIME_UNSET);
+    public DataChunk(DataSource dataSource, DataSpec dataSpec, int i, Format format, int i2, Object obj, byte[] bArr) {
+        super(dataSource, dataSpec, i, format, i2, obj, C.TIME_UNSET, C.TIME_UNSET);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {dataSource, dataSpec, Integer.valueOf(i2), format, Integer.valueOf(i3), obj, bArr};
+            Object[] objArr = {dataSource, dataSpec, Integer.valueOf(i), format, Integer.valueOf(i2), obj, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DataSource) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue(), (Format) objArr2[3], ((Integer) objArr2[4]).intValue(), objArr2[5], ((Long) objArr2[6]).longValue(), ((Long) objArr2[7]).longValue());
                 newInitContext.thisArg = this;
@@ -71,7 +71,7 @@ public abstract class DataChunk extends Chunk {
         }
     }
 
-    public abstract void consume(byte[] bArr, int i2) throws IOException;
+    public abstract void consume(byte[] bArr, int i) throws IOException;
 
     public byte[] getDataHolder() {
         InterceptResult invokeV;
@@ -92,13 +92,13 @@ public abstract class DataChunk extends Chunk {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             try {
                 this.dataSource.open(this.dataSpec);
-                int i2 = 0;
+                int i = 0;
                 this.limit = 0;
-                while (i2 != -1 && !this.loadCanceled) {
+                while (i != -1 && !this.loadCanceled) {
                     maybeExpandData();
-                    i2 = this.dataSource.read(this.data, this.limit, 16384);
-                    if (i2 != -1) {
-                        this.limit += i2;
+                    i = this.dataSource.read(this.data, this.limit, 16384);
+                    if (i != -1) {
+                        this.limit += i;
                     }
                 }
                 if (!this.loadCanceled) {

@@ -10,6 +10,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
 import android.widget.Button;
@@ -51,14 +52,14 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialButton extends AppCompatButton implements Checkable, Shapeable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] CHECKABLE_STATE_SET;
     public static final int[] CHECKED_STATE_SET;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_Button = 2131755880;
+    public static final int obfuscated_res_0x7f100346 = 2131755846;
     public static final int ICON_GRAVITY_END = 3;
     public static final int ICON_GRAVITY_START = 1;
     public static final int ICON_GRAVITY_TEXT_END = 4;
@@ -88,21 +89,21 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     public OnPressedChangeListener onPressedChangeListenerInternal;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface IconGravity {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnCheckedChangeListener {
         void onCheckedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnPressedChangeListener {
         void onPressedChanged(MaterialButton materialButton, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SavedState extends AbsSavedState {
         public static /* synthetic */ Interceptable $ic;
         public static final Parcelable.Creator<SavedState> CREATOR;
@@ -131,9 +132,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -143,10 +144,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
                 @NonNull
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -179,9 +180,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -198,10 +199,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(@NonNull Parcel parcel, int i2) {
+        public void writeToParcel(@NonNull Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeInt(this.checked ? 1 : 0);
             }
         }
@@ -215,9 +216,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -258,9 +259,9 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -320,20 +321,20 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
                 if (mode != null) {
                     DrawableCompat.setTintMode(this.icon, mode);
                 }
+                int i = this.iconSize;
+                if (i == 0) {
+                    i = this.icon.getIntrinsicWidth();
+                }
                 int i2 = this.iconSize;
                 if (i2 == 0) {
-                    i2 = this.icon.getIntrinsicWidth();
-                }
-                int i3 = this.iconSize;
-                if (i3 == 0) {
-                    i3 = this.icon.getIntrinsicHeight();
+                    i2 = this.icon.getIntrinsicHeight();
                 }
                 Drawable drawable2 = this.icon;
-                int i4 = this.iconLeft;
-                drawable2.setBounds(i4, 0, i2 + i4, i3);
+                int i3 = this.iconLeft;
+                drawable2.setBounds(i3, 0, i + i3, i2);
             }
-            int i5 = this.iconGravity;
-            boolean z3 = i5 == 1 || i5 == 2;
+            int i4 = this.iconGravity;
+            boolean z3 = i4 == 1 || i4 == 2;
             if (z) {
                 resetIconDrawable(z3);
                 return;
@@ -355,19 +356,19 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || this.icon == null || getLayout() == null) {
             return;
         }
-        int i2 = this.iconGravity;
-        if (i2 != 1 && i2 != 3) {
+        int i = this.iconGravity;
+        if (i != 1 && i != 3) {
             TextPaint paint = getPaint();
             String charSequence = getText().toString();
             if (getTransformationMethod() != null) {
                 charSequence = getTransformationMethod().getTransformation(charSequence, this).toString();
             }
             int min = Math.min((int) paint.measureText(charSequence), getLayout().getEllipsizedWidth());
-            int i3 = this.iconSize;
-            if (i3 == 0) {
-                i3 = this.icon.getIntrinsicWidth();
+            int i2 = this.iconSize;
+            if (i2 == 0) {
+                i2 = this.icon.getIntrinsicWidth();
             }
-            int measuredWidth = (((((getMeasuredWidth() - min) - ViewCompat.getPaddingEnd(this)) - i3) - this.iconPadding) - ViewCompat.getPaddingStart(this)) / 2;
+            int measuredWidth = (((((getMeasuredWidth() - min) - ViewCompat.getPaddingEnd(this)) - i2) - this.iconPadding) - ViewCompat.getPaddingStart(this)) / 2;
             if (isLayoutRTL() != (this.iconGravity == 4)) {
                 measuredWidth = -measuredWidth;
             }
@@ -574,11 +575,11 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.widget.TextView, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i + 2);
             if (isCheckable()) {
                 Button.mergeDrawableStates(onCreateDrawableState, CHECKABLE_STATE_SET);
             }
@@ -613,23 +614,23 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         MaterialButtonHelper materialButtonHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (Build.VERSION.SDK_INT != 21 || (materialButtonHelper = this.materialButtonHelper) == null) {
                 return;
             }
-            materialButtonHelper.updateMaskBounds(i5 - i3, i4 - i2);
+            materialButtonHelper.updateMaskBounds(i4 - i2, i3 - i);
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             updateIconPosition();
         }
     }
@@ -662,10 +663,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.widget.TextView
-    public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048603, this, charSequence, i2, i3, i4) == null) {
-            super.onTextChanged(charSequence, i2, i3, i4);
+        if (interceptable == null || interceptable.invokeLIII(1048603, this, charSequence, i, i2, i3) == null) {
+            super.onTextChanged(charSequence, i, i2, i3);
             updateIconPosition();
         }
     }
@@ -697,13 +698,13 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(@ColorInt int i2) {
+    public void setBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
             if (isUsingOriginalBackground()) {
-                this.materialButtonHelper.setBackgroundColor(i2);
+                this.materialButtonHelper.setBackgroundColor(i);
             } else {
-                super.setBackgroundColor(i2);
+                super.setBackgroundColor(i);
             }
         }
     }
@@ -714,6 +715,7 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         if (interceptable == null || interceptable.invokeL(1048608, this, drawable) == null) {
             if (isUsingOriginalBackground()) {
                 if (drawable != getBackground()) {
+                    Log.w(LOG_TAG, "Do not set the background; MaterialButton manages its own background drawable.");
                     this.materialButtonHelper.setBackgroundOverwritten();
                     super.setBackgroundDrawable(drawable);
                     return;
@@ -726,10 +728,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     @Override // androidx.appcompat.widget.AppCompatButton, android.view.View
-    public void setBackgroundResource(@DrawableRes int i2) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            setBackgroundDrawable(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            setBackgroundDrawable(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
         }
     }
 
@@ -774,17 +776,17 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setCornerRadius(@Px int i2) {
+    public void setCornerRadius(@Px int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048614, this, i2) == null) && isUsingOriginalBackground()) {
-            this.materialButtonHelper.setCornerRadius(i2);
+        if ((interceptable == null || interceptable.invokeI(1048614, this, i) == null) && isUsingOriginalBackground()) {
+            this.materialButtonHelper.setCornerRadius(i);
         }
     }
 
-    public void setCornerRadiusResource(@DimenRes int i2) {
+    public void setCornerRadiusResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048615, this, i2) == null) && isUsingOriginalBackground()) {
-            setCornerRadius(getResources().getDimensionPixelSize(i2));
+        if ((interceptable == null || interceptable.invokeI(1048615, this, i) == null) && isUsingOriginalBackground()) {
+            setCornerRadius(getResources().getDimensionPixelSize(i));
         }
     }
 
@@ -809,37 +811,37 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         updateIcon(true);
     }
 
-    public void setIconGravity(int i2) {
+    public void setIconGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048618, this, i2) == null) || this.iconGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048618, this, i) == null) || this.iconGravity == i) {
             return;
         }
-        this.iconGravity = i2;
+        this.iconGravity = i;
         updateIconPosition();
     }
 
-    public void setIconPadding(@Px int i2) {
+    public void setIconPadding(@Px int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048619, this, i2) == null) || this.iconPadding == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048619, this, i) == null) || this.iconPadding == i) {
             return;
         }
-        this.iconPadding = i2;
-        setCompoundDrawablePadding(i2);
+        this.iconPadding = i;
+        setCompoundDrawablePadding(i);
     }
 
-    public void setIconResource(@DrawableRes int i2) {
+    public void setIconResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            setIcon(i2 != 0 ? AppCompatResources.getDrawable(getContext(), i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            setIcon(i != 0 ? AppCompatResources.getDrawable(getContext(), i) : null);
         }
     }
 
-    public void setIconSize(@Px int i2) {
+    public void setIconSize(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            if (i2 >= 0) {
-                if (this.iconSize != i2) {
-                    this.iconSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            if (i >= 0) {
+                if (this.iconSize != i) {
+                    this.iconSize = i;
                     updateIcon(true);
                     return;
                 }
@@ -867,10 +869,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         updateIcon(false);
     }
 
-    public void setIconTintResource(@ColorRes int i2) {
+    public void setIconTintResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
-            setIconTint(AppCompatResources.getColorStateList(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            setIconTint(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
@@ -907,10 +909,10 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setRippleColorResource(@ColorRes int i2) {
+    public void setRippleColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048629, this, i2) == null) && isUsingOriginalBackground()) {
-            setRippleColor(AppCompatResources.getColorStateList(getContext(), i2));
+        if ((interceptable == null || interceptable.invokeI(1048629, this, i) == null) && isUsingOriginalBackground()) {
+            setRippleColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
@@ -940,24 +942,24 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         }
     }
 
-    public void setStrokeColorResource(@ColorRes int i2) {
+    public void setStrokeColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048633, this, i2) == null) && isUsingOriginalBackground()) {
-            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i2));
+        if ((interceptable == null || interceptable.invokeI(1048633, this, i) == null) && isUsingOriginalBackground()) {
+            setStrokeColor(AppCompatResources.getColorStateList(getContext(), i));
         }
     }
 
-    public void setStrokeWidth(@Px int i2) {
+    public void setStrokeWidth(@Px int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048634, this, i2) == null) && isUsingOriginalBackground()) {
-            this.materialButtonHelper.setStrokeWidth(i2);
+        if ((interceptable == null || interceptable.invokeI(1048634, this, i) == null) && isUsingOriginalBackground()) {
+            this.materialButtonHelper.setStrokeWidth(i);
         }
     }
 
-    public void setStrokeWidthResource(@DimenRes int i2) {
+    public void setStrokeWidthResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048635, this, i2) == null) && isUsingOriginalBackground()) {
-            setStrokeWidth(getResources().getDimensionPixelSize(i2));
+        if ((interceptable == null || interceptable.invokeI(1048635, this, i) == null) && isUsingOriginalBackground()) {
+            setStrokeWidth(getResources().getDimensionPixelSize(i));
         }
     }
 
@@ -997,16 +999,16 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.materialButtonStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040408);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1017,17 +1019,17 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_Button), attributeSet, i2);
+    public MaterialButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100346), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1039,14 +1041,14 @@ public class MaterialButton extends AppCompatButton implements Checkable, Shapea
         this.checked = false;
         this.broadcasting = false;
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.cornerRadius, R.attr.elevation, R.attr.icon, R.attr.iconGravity, R.attr.iconPadding, R.attr.iconSize, R.attr.iconTint, R.attr.iconTintMode, R.attr.rippleColor, R.attr.shapeAppearance, R.attr.shapeAppearanceOverlay, R.attr.strokeColor, R.attr.strokeWidth}, i2, Widget_MaterialComponents_Button, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, new int[]{16842964, 16843191, 16843192, 16843193, 16843194, 16843237, R.attr.backgroundTint, R.attr.backgroundTintMode, R.attr.obfuscated_res_0x7f04018b, R.attr.obfuscated_res_0x7f0401d6, R.attr.obfuscated_res_0x7f0402ab, R.attr.obfuscated_res_0x7f0402ad, R.attr.obfuscated_res_0x7f0402ae, R.attr.obfuscated_res_0x7f0402af, R.attr.obfuscated_res_0x7f0402b1, R.attr.obfuscated_res_0x7f0402b2, R.attr.obfuscated_res_0x7f040504, R.attr.obfuscated_res_0x7f04054b, R.attr.obfuscated_res_0x7f04054e, R.attr.obfuscated_res_0x7f040590, R.attr.obfuscated_res_0x7f040591}, i, obfuscated_res_0x7f100346, new int[0]);
         this.iconPadding = obtainStyledAttributes.getDimensionPixelSize(12, 0);
         this.iconTintMode = ViewUtils.parseTintMode(obtainStyledAttributes.getInt(15, -1), PorterDuff.Mode.SRC_IN);
         this.iconTint = MaterialResources.getColorStateList(getContext(), obtainStyledAttributes, 14);
         this.icon = MaterialResources.getDrawable(getContext(), obtainStyledAttributes, 10);
         this.iconGravity = obtainStyledAttributes.getInteger(11, 1);
         this.iconSize = obtainStyledAttributes.getDimensionPixelSize(13, 0);
-        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i2, Widget_MaterialComponents_Button).build());
+        MaterialButtonHelper materialButtonHelper = new MaterialButtonHelper(this, ShapeAppearanceModel.builder(context2, attributeSet, i, obfuscated_res_0x7f100346).build());
         this.materialButtonHelper = materialButtonHelper;
         materialButtonHelper.loadFromAttributes(obtainStyledAttributes);
         obtainStyledAttributes.recycle();

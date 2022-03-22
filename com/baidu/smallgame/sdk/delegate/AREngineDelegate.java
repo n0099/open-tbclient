@@ -1,8 +1,8 @@
 package com.baidu.smallgame.sdk.delegate;
 
 import android.opengl.GLSurfaceView;
-import c.a.l0.a.d.c;
-import c.a.x.c.a;
+import c.a.j0.a.d.c;
+import c.a.w.c.a;
 import com.baidu.searchbox.v8engine.NotProguard;
 import com.baidu.searchbox.v8engine.bean.PerformanceJsonBean;
 import com.baidu.searchbox.v8engine.console.DebugConsole;
@@ -50,7 +50,7 @@ public interface AREngineDelegate {
 
     void queueEvent(Runnable runnable);
 
-    void queueEvent(Runnable runnable, long j2);
+    void queueEvent(Runnable runnable, long j);
 
     void removeDebugConsole(DebugConsole debugConsole);
 
@@ -66,19 +66,19 @@ public interface AREngineDelegate {
 
     void setFirstFrameListener(ArBridge.FirstFrameListener firstFrameListener);
 
-    void setGameRecordCallback(c.a.x.c.c cVar);
+    void setGameRecordCallback(c.a.w.c.c cVar);
 
-    void setOnStuckScreenListener(c.a.l0.a.d.a aVar);
+    void setOnStuckScreenListener(c.a.j0.a.d.a aVar);
 
     void setPermissionProxy(PermissionProxy permissionProxy);
 
-    void setRenderMode(int i2);
+    void setRenderMode(int i);
 
     void setRenderer(GLSurfaceView.Renderer renderer);
 
     void setScreenShotStatus(boolean z);
 
-    void setStuckScreenLimitTime(long j2);
+    void setStuckScreenLimitTime(long j);
 
     void smallGameDestroy();
 
@@ -88,11 +88,11 @@ public interface AREngineDelegate {
 
     void startEngine();
 
-    void startRecord(boolean z, int i2, String str, boolean z2);
+    void startRecord(boolean z, int i, String str, boolean z2);
 
     void stopRecord();
 
-    void surfaceChanged(int i2, int i3);
+    void surfaceChanged(int i, int i2);
 
     void surfaceCreated();
 

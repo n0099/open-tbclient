@@ -1,5 +1,5 @@
 package c.a.c0.e;
 /* loaded from: classes.dex */
 public interface b {
-    void onResult(int i2);
+    void onPayResult(int i, String str);
 }

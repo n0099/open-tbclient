@@ -44,9 +44,9 @@ public class Dispatcher {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,24 +71,24 @@ public class Dispatcher {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : invokeV.intValue;
         }
 
-        public void setCategory(int i2) {
+        public void setCategory(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.category = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.category = i;
             }
         }
 
-        public void setContacter(long j2) {
+        public void setContacter(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-                this.contacter = j2;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                this.contacter = j;
             }
         }
 
-        public void setType(int i2) {
+        public void setType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.type = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.type = i;
             }
         }
     }
@@ -104,9 +104,9 @@ public class Dispatcher {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -115,9 +115,9 @@ public class Dispatcher {
             this.type = 0;
         }
 
-        public abstract void dealMessage(int i2, ChatMsg chatMsg);
+        public abstract void dealMessage(int i, ChatMsg chatMsg);
 
-        public abstract void dealMessage(int i2, ArrayList<ChatMsg> arrayList);
+        public abstract void dealMessage(int i, ArrayList<ChatMsg> arrayList);
 
         public int getType() {
             InterceptResult invokeV;
@@ -125,10 +125,10 @@ public class Dispatcher {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.type : invokeV.intValue;
         }
 
-        public void setType(int i2) {
+        public void setType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.type = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.type = i;
             }
         }
     }
@@ -156,18 +156,18 @@ public class Dispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void dispatchMesageToCentain(int i2, ArrayList<ChatMsg> arrayList) {
+    public static void dispatchMesageToCentain(int i, ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i2, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeIL(65538, null, i, arrayList) == null) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMesageToCentain");
@@ -190,15 +190,15 @@ public class Dispatcher {
                 }
             }
             for (Map.Entry entry : hashMap.entrySet()) {
-                dispatchMesageToCentainType(i2, listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
+                dispatchMesageToCentainType(i, listenerMap.get(entry.getKey()), (ArrayList) hashMap.get(entry.getKey()));
             }
         }
     }
 
-    public static void dispatchMesageToCentainType(int i2, ArrayList<MsgListener> arrayList, ArrayList<ChatMsg> arrayList2) {
+    public static void dispatchMesageToCentainType(int i, ArrayList<MsgListener> arrayList, ArrayList<ChatMsg> arrayList2) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i2, arrayList, arrayList2) == null) {
+        if (interceptable == null || interceptable.invokeILL(65539, null, i, arrayList, arrayList2) == null) {
             String str2 = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMesageToCentain");
@@ -223,20 +223,20 @@ public class Dispatcher {
                 while (it2.hasNext()) {
                     ChatMsg next2 = it2.next();
                     if (next2.getCategory() != 0 && next2.getCategory() != 1 && next2.getNotifyCmd() == next.getType()) {
-                        next.dealMessage(i2, next2);
+                        next.dealMessage(i, next2);
                     }
                 }
                 if (arrayList2.get(0).getCategory() == 0 || arrayList2.get(0).getCategory() == 1) {
-                    next.dealMessage(i2, arrayList2);
+                    next.dealMessage(i, arrayList2);
                 }
             }
         }
     }
 
-    public static void dispatchMessage(Context context, int i2, ArrayList<ChatMsg> arrayList) {
+    public static void dispatchMessage(Context context, int i, ArrayList<ChatMsg> arrayList) {
         List<MsgListener> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i2, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, arrayList) == null) {
             String str = TAG;
             StringBuilder sb = new StringBuilder();
             sb.append("start dispatchMessage ");
@@ -249,17 +249,17 @@ public class Dispatcher {
             if (list2 != null && list2.size() > 0) {
                 for (MsgListener msgListener : allMsgListeners) {
                     LogUtils.d(TAG, "deal allMsgListeners message");
-                    msgListener.dealMessage(i2, arrayList);
+                    msgListener.dealMessage(i, arrayList);
                 }
             }
             ArrayList<ChatMsg> arrayList2 = new ArrayList<>();
-            long j2 = 0;
+            long j = 0;
             Iterator<ChatMsg> it = arrayList.iterator();
             while (it.hasNext()) {
                 ChatMsg next = it.next();
                 if (next.getCategory() != 0 && next.getCategory() != 1) {
-                    if (next.getCategory() == 2 && j2 < next.getMsgId()) {
-                        j2 = next.getMsgId();
+                    if (next.getCategory() == 2 && j < next.getMsgId()) {
+                        j = next.getMsgId();
                     }
                 } else {
                     arrayList2.add(next);
@@ -269,10 +269,10 @@ public class Dispatcher {
             LogUtils.d(str2, "normalAll dispatcher : msgs2.size() : " + arrayList2.size());
             if (arrayList2.size() > 0 && (list = normalALL) != null && list.size() > 0) {
                 for (MsgListener msgListener2 : normalALL) {
-                    msgListener2.dealMessage(i2, arrayList2);
+                    msgListener2.dealMessage(i, arrayList2);
                 }
             }
-            dispatchMesageToCentain(i2, arrayList);
+            dispatchMesageToCentain(i, arrayList);
         }
     }
 

@@ -1,7 +1,6 @@
 package okhttp3.internal.http;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,7 +19,7 @@ import okhttp3.Response;
 import okhttp3.internal.Util;
 import okhttp3.internal.connection.RealConnection;
 import okhttp3.internal.connection.StreamAllocation;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class RealInterceptorChain implements Interceptor.Chain {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +36,16 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     public final StreamAllocation streamAllocation;
     public final int writeTimeout;
 
-    public RealInterceptorChain(List<Interceptor> list, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection, int i2, Request request, Call call, EventListener eventListener, int i3, int i4, int i5) {
+    public RealInterceptorChain(List<Interceptor> list, StreamAllocation streamAllocation, HttpCodec httpCodec, RealConnection realConnection, int i, Request request, Call call, EventListener eventListener, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {list, streamAllocation, httpCodec, realConnection, Integer.valueOf(i2), request, call, eventListener, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {list, streamAllocation, httpCodec, realConnection, Integer.valueOf(i), request, call, eventListener, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,13 +55,13 @@ public final class RealInterceptorChain implements Interceptor.Chain {
         this.connection = realConnection;
         this.streamAllocation = streamAllocation;
         this.httpCodec = httpCodec;
-        this.index = i2;
+        this.index = i;
         this.request = request;
         this.call = call;
         this.eventListener = eventListener;
-        this.connectTimeout = i3;
-        this.readTimeout = i4;
-        this.writeTimeout = i5;
+        this.connectTimeout = i2;
+        this.readTimeout = i3;
+        this.writeTimeout = i4;
     }
 
     @Override // okhttp3.Interceptor.Chain
@@ -126,24 +125,24 @@ public final class RealInterceptorChain implements Interceptor.Chain {
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withConnectTimeout(int i2, TimeUnit timeUnit) {
+    public Interceptor.Chain withConnectTimeout(int i, TimeUnit timeUnit) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration(a.O, i2, timeUnit), this.readTimeout, this.writeTimeout) : (Interceptor.Chain) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, Util.checkDuration("timeout", i, timeUnit), this.readTimeout, this.writeTimeout) : (Interceptor.Chain) invokeIL.objValue;
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withReadTimeout(int i2, TimeUnit timeUnit) {
+    public Interceptor.Chain withReadTimeout(int i, TimeUnit timeUnit) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i2, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration(a.O, i2, timeUnit), this.writeTimeout) : (Interceptor.Chain) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048587, this, i, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, Util.checkDuration("timeout", i, timeUnit), this.writeTimeout) : (Interceptor.Chain) invokeIL.objValue;
     }
 
     @Override // okhttp3.Interceptor.Chain
-    public Interceptor.Chain withWriteTimeout(int i2, TimeUnit timeUnit) {
+    public Interceptor.Chain withWriteTimeout(int i, TimeUnit timeUnit) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i2, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration(a.O, i2, timeUnit)) : (Interceptor.Chain) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048588, this, i, timeUnit)) == null) ? new RealInterceptorChain(this.interceptors, this.streamAllocation, this.httpCodec, this.connection, this.index, this.request, this.call, this.eventListener, this.connectTimeout, this.readTimeout, Util.checkDuration("timeout", i, timeUnit)) : (Interceptor.Chain) invokeIL.objValue;
     }
 
     @Override // okhttp3.Interceptor.Chain

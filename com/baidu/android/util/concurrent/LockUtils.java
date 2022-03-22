@@ -1,5 +1,6 @@
 package com.baidu.android.util.concurrent;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,15 +42,27 @@ public final class LockUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x001c, code lost:
+        if (com.baidu.android.util.concurrent.LockUtils.DEBUG == false) goto L12;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x001e, code lost:
+        android.util.Log.d(com.baidu.android.util.concurrent.LockUtils.TAG, "Utility.doWorkInLock [lock.unlock()] Exception.", r4);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0035, code lost:
+        if (com.baidu.android.util.concurrent.LockUtils.DEBUG == false) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public static Object doWorkInLock(Lock lock, WorkInLock workInLock) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -61,30 +74,41 @@ public final class LockUtils {
                     try {
                         try {
                             obj = workInLock.work();
-                        } catch (Exception unused) {
-                            boolean z = DEBUG;
+                            try {
+                                lock.unlock();
+                            } catch (Exception e2) {
+                                e = e2;
+                            }
+                        } catch (Throwable th) {
+                            try {
+                                lock.unlock();
+                            } catch (Exception e3) {
+                                if (DEBUG) {
+                                    Log.d(TAG, "Utility.doWorkInLock [lock.unlock()] Exception.", e3);
+                                }
+                            }
+                            throw th;
+                        }
+                    } catch (Exception e4) {
+                        if (DEBUG) {
+                            Log.d(TAG, "Utility.doWorkInLock [work.work()] Exception.", e4);
                         }
                         try {
                             lock.unlock();
-                        } catch (Exception unused2) {
-                            boolean z2 = DEBUG;
+                        } catch (Exception e5) {
+                            e = e5;
                         }
-                        return obj;
-                    } catch (Throwable th) {
-                        try {
-                            lock.unlock();
-                        } catch (Exception unused3) {
-                            boolean z3 = DEBUG;
-                        }
-                        throw th;
                     }
-                } catch (Exception unused4) {
-                    boolean z4 = DEBUG;
+                    return obj;
+                } catch (Exception e6) {
+                    if (DEBUG) {
+                        Log.d(TAG, "Utility.doWorkInLock [lock.lock()] Exception.", e6);
+                    }
                     return null;
                 }
             }
             if (DEBUG) {
-                String str = "Utility.doWorkInLock [parameters is null] :lock = " + lock + ", work = " + workInLock;
+                Log.d(TAG, "Utility.doWorkInLock [parameters is null] :lock = " + lock + ", work = " + workInLock);
             }
             return null;
         }

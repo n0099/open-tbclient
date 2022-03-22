@@ -30,9 +30,9 @@ public class BIMRtcClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -81,10 +81,10 @@ public class BIMRtcClient {
         }
     }
 
-    public static void generateToken(@NonNull Context context, String str, String str2, long j2, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
+    public static void generateToken(@NonNull Context context, String str, String str2, long j, @NonNull BIMRtcTokenListener bIMRtcTokenListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j2), bIMRtcTokenListener}) == null) {
-            BIMRtcManager.getInstance(context).generateToken(str, str2, j2, bIMRtcTokenListener);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, str, str2, Long.valueOf(j), bIMRtcTokenListener}) == null) {
+            BIMRtcManager.getInstance(context).generateToken(str, str2, j, bIMRtcTokenListener);
         }
     }
 

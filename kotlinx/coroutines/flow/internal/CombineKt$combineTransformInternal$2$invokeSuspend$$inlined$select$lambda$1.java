@@ -13,7 +13,7 @@ import kotlinx.coroutines.channels.ReceiveChannel;
 import kotlinx.coroutines.flow.FlowCollector;
 import kotlinx.coroutines.internal.Symbol;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\"\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\b\u0003\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u008a@¢\u0006\u0004\b\u0007\u0010\b¨\u0006\t"}, d2 = {"<anonymous>", "", "T1", "T2", "R", "value", "", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;", "kotlinx/coroutines/flow/internal/CombineKt$combineTransformInternal$2$1$2"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$select$lambda$1 extends SuspendLambda implements Function2<Object, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $firstChannel$inlined;
     public final /* synthetic */ Ref.BooleanRef $firstIsClosed$inlined;
@@ -55,8 +55,8 @@ public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$s
     @Override // kotlin.coroutines.jvm.internal.BaseContinuationImpl
     public final Object invokeSuspend(Object obj) {
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             ?? r9 = this.p$0;
             this.$firstValue$inlined.element = r9;
@@ -78,7 +78,7 @@ public final class CombineKt$combineTransformInternal$2$invokeSuspend$$inlined$s
                     return coroutine_suspended;
                 }
             }
-        } else if (i2 != 1) {
+        } else if (i != 1) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             ResultKt.throwOnFailure(obj);

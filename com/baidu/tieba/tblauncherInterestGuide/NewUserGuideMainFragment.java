@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import c.a.r0.b4.c;
+import c.a.p0.d4.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,67 +28,66 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 /* loaded from: classes6.dex */
 public class NewUserGuideMainFragment extends BaseFragment {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String NEWUSERINTERESTSELECT = "newUserInterestSelect";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Hashtable<Integer, TbImageView> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f36264b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f36265c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f36266d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Hashtable<Integer, TbImageView> f46944e;
+    public TbImageView f36267e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f46945f;
+    public TbImageView f36268f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f46946g;
+    public TbImageView f36269g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f46947h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TbImageView f46948i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TbImageView f46949j;
+    public TbImageView f36270h;
+    public TbImageView i;
+    public TbImageView j;
     public TbImageView k;
     public TbImageView l;
     public TbImageView m;
-    public TbImageView n;
-    public TbImageView o;
-    public TbImageView p;
-    public TbImageView q;
-    public NewUserGuideActivity r;
-    public NewUserGuideModel s;
-    public Button t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public final View.OnClickListener x;
+    public NewUserGuideActivity n;
+    public NewUserGuideModel o;
+    public Button p;
+    public boolean q;
+    public boolean r;
+    public boolean s;
+    public final View.OnClickListener t;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ NewUserGuideMainFragment f46950e;
+        public final /* synthetic */ NewUserGuideMainFragment a;
 
         /* renamed from: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1948a implements b {
+        public class C1892a implements b {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1948a(a aVar) {
+            public C1892a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -101,7 +100,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.f46950e.f46946g.setVisibility(8);
+                    this.a.a.f36265c.setVisibility(8);
                 }
             }
         }
@@ -113,15 +112,15 @@ public class NewUserGuideMainFragment extends BaseFragment {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {newUserGuideMainFragment};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46950e = newUserGuideMainFragment;
+            this.a = newUserGuideMainFragment;
         }
 
         @Override // android.view.View.OnClickListener
@@ -129,20 +128,20 @@ public class NewUserGuideMainFragment extends BaseFragment {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-                    if (view == this.f46950e.t) {
-                        if (this.f46950e.r.getIsChanged()) {
+                    if (view == this.a.p) {
+                        if (this.a.n.getIsChanged()) {
                             TbadkApplication.getInst().setLikeBarChanged(true);
                         }
-                        this.f46950e.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.f46950e.r.getPageContext().getPageActivity()).createNewUserCfg(1, this.f46950e.u)));
-                        this.f46950e.r.finish();
+                        this.a.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.a.n.getPageContext().getPageActivity()).createNewUserCfg(1, this.a.q)));
+                        this.a.n.finish();
                     }
-                } else if (this.f46950e.w) {
-                    this.f46950e.w = false;
+                } else if (this.a.s) {
+                    this.a.s = false;
                     TiebaStatic.log("newUserInterestSelect");
-                    c cVar = new c(this.f46950e.r, (InterestFrsData.Tag) view.getTag(), new C1948a(this));
-                    this.f46950e.f46946g.setVisibility(0);
-                    cVar.d();
-                    this.f46950e.w = true;
+                    f fVar = new f(this.a.n, (InterestFrsData.Tag) view.getTag(), new C1892a(this));
+                    this.a.f36265c.setVisibility(0);
+                    fVar.d();
+                    this.a.s = true;
                 }
             }
         }
@@ -158,59 +157,67 @@ public class NewUserGuideMainFragment extends BaseFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46944e = new Hashtable<>();
-        this.u = false;
-        this.v = false;
-        this.w = true;
-        this.x = new a(this);
+        this.a = new Hashtable<>();
+        this.q = false;
+        this.r = false;
+        this.s = true;
+        this.t = new a(this);
     }
 
-    public final void k(Bundle bundle) {
+    public final void I0(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.s == null || this.v) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) || this.o == null || this.r) {
             return;
         }
         if (bundle != null) {
-            this.u = bundle.getBoolean("is_new_user");
+            this.q = bundle.getBoolean("is_new_user");
         } else {
-            this.u = this.r.getIntent().getBooleanExtra("is_new_user", false);
+            this.q = this.n.getIntent().getBooleanExtra("is_new_user", false);
         }
-        l(this.s.y());
+        J0(this.o.A());
     }
 
-    public final void l(InterestFrsData interestFrsData) {
+    public final void J0(InterestFrsData interestFrsData) {
         ArrayList<InterestFrsData.Tag> tag_list;
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestFrsData) == null) || interestFrsData == null || (tag_list = interestFrsData.getTag_list()) == null || tag_list.size() == 0) {
             return;
         }
-        for (int i2 = 0; i2 < tag_list.size(); i2++) {
-            InterestFrsData.Tag tag = tag_list.get(i2);
-            if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.f46944e.get(Integer.valueOf(tag.getBid()))) != null) {
+        for (int i = 0; i < tag_list.size(); i++) {
+            InterestFrsData.Tag tag = tag_list.get(i);
+            if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.a.get(Integer.valueOf(tag.getBid()))) != null) {
                 tbImageView.setTag(tag);
-                tbImageView.startLoad(tag.getBicon(), 21, false);
+                tbImageView.J(tag.getBicon(), 21, false);
             }
+        }
+    }
+
+    public void K0(InterestFrsData interestFrsData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interestFrsData) == null) {
+            J0(interestFrsData);
+            this.r = true;
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             NewUserGuideActivity newUserGuideActivity = (NewUserGuideActivity) getBaseFragmentActivity();
-            this.r = newUserGuideActivity;
-            this.s = newUserGuideActivity.getNewUserGuideModel();
-            k(bundle);
+            this.n = newUserGuideActivity;
+            this.o = newUserGuideActivity.getNewUserGuideModel();
+            I0(bundle);
         }
     }
 
@@ -218,49 +225,49 @@ public class NewUserGuideMainFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
             try {
-                ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(R.layout.guide_main, (ViewGroup) null);
-                this.f46945f = viewGroup2;
-                this.f46946g = viewGroup2.findViewById(R.id.root_main_view_cover);
-                this.f46947h = (TbImageView) this.f46945f.findViewById(R.id.icon_1);
-                this.f46948i = (TbImageView) this.f46945f.findViewById(R.id.icon_2);
-                this.f46949j = (TbImageView) this.f46945f.findViewById(R.id.icon_3);
-                this.k = (TbImageView) this.f46945f.findViewById(R.id.icon_4);
-                this.l = (TbImageView) this.f46945f.findViewById(R.id.icon_5);
-                this.m = (TbImageView) this.f46945f.findViewById(R.id.icon_6);
-                this.n = (TbImageView) this.f46945f.findViewById(R.id.icon_7);
-                this.o = (TbImageView) this.f46945f.findViewById(R.id.icon_8);
-                this.p = (TbImageView) this.f46945f.findViewById(R.id.icon_9);
-                this.q = (TbImageView) this.f46945f.findViewById(R.id.icon_10);
-                this.t = (Button) this.f46945f.findViewById(R.id.btn_next);
-                this.f46944e.put(1, this.f46947h);
-                this.f46944e.put(2, this.f46948i);
-                this.f46944e.put(3, this.f46949j);
-                this.f46944e.put(4, this.k);
-                this.f46944e.put(5, this.l);
-                this.f46944e.put(6, this.m);
-                this.f46944e.put(7, this.n);
-                this.f46944e.put(8, this.o);
-                this.f46944e.put(9, this.p);
-                this.f46944e.put(10, this.q);
-                this.t.setOnClickListener(this.x);
-                this.f46947h.setOnClickListener(this.x);
-                this.f46948i.setOnClickListener(this.x);
-                this.f46949j.setOnClickListener(this.x);
-                this.k.setOnClickListener(this.x);
-                this.l.setOnClickListener(this.x);
-                this.m.setOnClickListener(this.x);
-                this.n.setOnClickListener(this.x);
-                this.o.setOnClickListener(this.x);
-                this.p.setOnClickListener(this.x);
-                this.p.setOnClickListener(this.x);
-                this.q.setOnClickListener(this.x);
-                return this.f46945f;
+                ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0393, (ViewGroup) null);
+                this.f36264b = viewGroup2;
+                this.f36265c = viewGroup2.findViewById(R.id.obfuscated_res_0x7f091ae8);
+                this.f36266d = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0a);
+                this.f36267e = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0c);
+                this.f36268f = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0d);
+                this.f36269g = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0e);
+                this.f36270h = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0f);
+                this.i = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e10);
+                this.j = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e11);
+                this.k = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e12);
+                this.l = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e13);
+                this.m = (TbImageView) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090e0b);
+                this.p = (Button) this.f36264b.findViewById(R.id.obfuscated_res_0x7f090427);
+                this.a.put(1, this.f36266d);
+                this.a.put(2, this.f36267e);
+                this.a.put(3, this.f36268f);
+                this.a.put(4, this.f36269g);
+                this.a.put(5, this.f36270h);
+                this.a.put(6, this.i);
+                this.a.put(7, this.j);
+                this.a.put(8, this.k);
+                this.a.put(9, this.l);
+                this.a.put(10, this.m);
+                this.p.setOnClickListener(this.t);
+                this.f36266d.setOnClickListener(this.t);
+                this.f36267e.setOnClickListener(this.t);
+                this.f36268f.setOnClickListener(this.t);
+                this.f36269g.setOnClickListener(this.t);
+                this.f36270h.setOnClickListener(this.t);
+                this.i.setOnClickListener(this.t);
+                this.j.setOnClickListener(this.t);
+                this.k.setOnClickListener(this.t);
+                this.l.setOnClickListener(this.t);
+                this.l.setOnClickListener(this.t);
+                this.m.setOnClickListener(this.t);
+                return this.f36264b;
             } catch (InflateException e2) {
                 if (!TbadkApplication.getInst().isDebugMode()) {
                     BdLog.e(e2);
-                    this.r.startMainTabEnterFourm();
+                    this.n.startMainTabEnterFourm();
                     TbadkApplication.getInst().onAppMemoryLow();
                     return new FrameLayout(layoutInflater.getContext());
                 }
@@ -268,13 +275,5 @@ public class NewUserGuideMainFragment extends BaseFragment {
             }
         }
         return (View) invokeLLL.objValue;
-    }
-
-    public void setData(InterestFrsData interestFrsData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, interestFrsData) == null) {
-            l(interestFrsData);
-            this.v = true;
-        }
     }
 }

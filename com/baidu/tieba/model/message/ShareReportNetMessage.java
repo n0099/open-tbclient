@@ -1,7 +1,7 @@
 package com.baidu.tieba.model.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.CommonReq;
 import tbclient.Share.DataReq;
 import tbclient.Share.ShareReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ShareReportNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f44580common;
+    public CommonReq f34546common;
     public long fid;
     public int from;
     public long tid;
@@ -32,9 +32,9 @@ public class ShareReportNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -50,7 +50,7 @@ public class ShareReportNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f61445common = getCommon();
+            builder.f45785common = getCommon();
             builder.fid = Long.valueOf(getFid());
             builder.tid = Long.valueOf(getTid());
             builder.from = Integer.valueOf(getFrom());
@@ -67,7 +67,7 @@ public class ShareReportNetMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f44580common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f34546common : (CommonReq) invokeV.objValue;
     }
 
     public long getFid() {
@@ -91,28 +91,28 @@ public class ShareReportNetMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, commonReq) == null) {
-            this.f44580common = commonReq;
+            this.f34546common = commonReq;
         }
     }
 
-    public void setFid(long j2) {
+    public void setFid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.fid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.fid = j;
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.from = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.from = i;
         }
     }
 
-    public void setTid(long j2) {
+    public void setTid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.tid = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.tid = j;
         }
     }
 }

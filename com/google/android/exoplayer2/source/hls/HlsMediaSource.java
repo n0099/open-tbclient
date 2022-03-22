@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.upstream.ParsingLoadable;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.PrimaryPlaylistListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MIN_LOADABLE_RETRY_COUNT = 3;
@@ -66,9 +66,9 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, factory, handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (DataSource.Factory) objArr2[1], ((Integer) objArr2[2]).intValue(), (Handler) objArr2[3], (AdaptiveMediaSourceEventListener) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -100,26 +100,26 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
     @Override // com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker.PrimaryPlaylistListener
     public void onPrimaryPlaylistRefreshed(HlsMediaPlaylist hlsMediaPlaylist) {
         SinglePeriodTimeline singlePeriodTimeline;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hlsMediaPlaylist) == null) {
-            long j3 = hlsMediaPlaylist.hasProgramDateTime ? 0L : -9223372036854775807L;
+            long j2 = hlsMediaPlaylist.hasProgramDateTime ? 0L : -9223372036854775807L;
             long usToMs = hlsMediaPlaylist.hasProgramDateTime ? C.usToMs(hlsMediaPlaylist.startTimeUs) : -9223372036854775807L;
-            long j4 = hlsMediaPlaylist.startOffsetUs;
+            long j3 = hlsMediaPlaylist.startOffsetUs;
             if (this.playlistTracker.isLive()) {
-                long j5 = hlsMediaPlaylist.hasEndTag ? hlsMediaPlaylist.startTimeUs + hlsMediaPlaylist.durationUs : -9223372036854775807L;
+                long j4 = hlsMediaPlaylist.hasEndTag ? hlsMediaPlaylist.startTimeUs + hlsMediaPlaylist.durationUs : -9223372036854775807L;
                 List<HlsMediaPlaylist.Segment> list = hlsMediaPlaylist.segments;
-                if (j4 == C.TIME_UNSET) {
-                    j2 = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).relativeStartTimeUs;
+                if (j3 == C.TIME_UNSET) {
+                    j = list.isEmpty() ? 0L : list.get(Math.max(0, list.size() - 3)).relativeStartTimeUs;
                 } else {
-                    j2 = j4;
+                    j = j3;
                 }
-                singlePeriodTimeline = new SinglePeriodTimeline(j3, usToMs, j5, hlsMediaPlaylist.durationUs, hlsMediaPlaylist.startTimeUs, j2, true, !hlsMediaPlaylist.hasEndTag);
+                singlePeriodTimeline = new SinglePeriodTimeline(j2, usToMs, j4, hlsMediaPlaylist.durationUs, hlsMediaPlaylist.startTimeUs, j, true, !hlsMediaPlaylist.hasEndTag);
             } else {
-                long j6 = j4 == C.TIME_UNSET ? 0L : j4;
-                long j7 = hlsMediaPlaylist.startTimeUs;
-                long j8 = hlsMediaPlaylist.durationUs;
-                singlePeriodTimeline = new SinglePeriodTimeline(j3, usToMs, j7 + j8, j8, j7, j6, true, false);
+                long j5 = j3 == C.TIME_UNSET ? 0L : j3;
+                long j6 = hlsMediaPlaylist.startTimeUs;
+                long j7 = hlsMediaPlaylist.durationUs;
+                singlePeriodTimeline = new SinglePeriodTimeline(j2, usToMs, j6 + j7, j7, j6, j5, true, false);
             }
             this.sourceListener.onSourceInfoRefreshed(this, singlePeriodTimeline, new HlsManifest(this.playlistTracker.getMasterPlaylist(), hlsMediaPlaylist));
         }
@@ -159,17 +159,17 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HlsMediaSource(Uri uri, DataSource.Factory factory, int i2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
-        this(uri, new DefaultHlsDataSourceFactory(factory), HlsExtractorFactory.DEFAULT, i2, handler, adaptiveMediaSourceEventListener, new HlsPlaylistParser());
+    public HlsMediaSource(Uri uri, DataSource.Factory factory, int i, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener) {
+        this(uri, new DefaultHlsDataSourceFactory(factory), HlsExtractorFactory.DEFAULT, i, handler, adaptiveMediaSourceEventListener, new HlsPlaylistParser());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, factory, Integer.valueOf(i2), handler, adaptiveMediaSourceEventListener};
+            Object[] objArr = {uri, factory, Integer.valueOf(i), handler, adaptiveMediaSourceEventListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (HlsDataSourceFactory) objArr2[1], (HlsExtractorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (Handler) objArr2[4], (AdaptiveMediaSourceEventListener) objArr2[5], (ParsingLoadable.Parser) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -179,16 +179,16 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
         }
     }
 
-    public HlsMediaSource(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, HlsExtractorFactory hlsExtractorFactory, int i2, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, ParsingLoadable.Parser<HlsPlaylist> parser) {
+    public HlsMediaSource(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, HlsExtractorFactory hlsExtractorFactory, int i, Handler handler, AdaptiveMediaSourceEventListener adaptiveMediaSourceEventListener, ParsingLoadable.Parser<HlsPlaylist> parser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, hlsDataSourceFactory, hlsExtractorFactory, Integer.valueOf(i2), handler, adaptiveMediaSourceEventListener, parser};
+            Object[] objArr = {uri, hlsDataSourceFactory, hlsExtractorFactory, Integer.valueOf(i), handler, adaptiveMediaSourceEventListener, parser};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -197,7 +197,7 @@ public final class HlsMediaSource implements MediaSource, HlsPlaylistTracker.Pri
         this.manifestUri = uri;
         this.dataSourceFactory = hlsDataSourceFactory;
         this.extractorFactory = hlsExtractorFactory;
-        this.minLoadableRetryCount = i2;
+        this.minLoadableRetryCount = i;
         this.playlistParser = parser;
         this.eventDispatcher = new AdaptiveMediaSourceEventListener.EventDispatcher(handler, adaptiveMediaSourceEventListener);
     }

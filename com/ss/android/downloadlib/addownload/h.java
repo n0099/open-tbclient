@@ -9,18 +9,18 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
-    public static boolean a(int i2) {
-        return i2 == 0 || i2 == 1;
+    public static boolean a(int i) {
+        return i == 0 || i == 1;
     }
 
     public static boolean a(DownloadModel downloadModel) {
         return downloadModel.isAd() && (downloadModel instanceof AdDownloadModel) && downloadModel.getModelType() == 1;
     }
 
-    public static boolean b(int i2) {
-        return i2 == 2 || i2 == 1;
+    public static boolean b(int i) {
+        return i == 2 || i == 1;
     }
 
     public static boolean b(DownloadModel downloadModel) {
@@ -28,18 +28,18 @@ public class h {
     }
 
     public static int a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar, boolean z, com.ss.android.socialbase.appdownloader.f fVar) {
-        int i2;
+        int i;
         if (fVar == null || TextUtils.isEmpty(fVar.a()) || fVar.getContext() == null) {
             return 0;
         }
         try {
-            i2 = a(fVar, fVar.a());
+            i = a(fVar, fVar.a());
         } catch (Throwable th) {
             j.s().a(th, "redirectSavePathIfPossible");
-            i2 = 4;
+            i = 4;
         }
-        fVar.a(i2);
-        if (i2 == 0) {
+        fVar.a(i);
+        if (i == 0) {
             fVar.a(new com.ss.android.downloadlib.c.a());
         }
         if (!fVar.Z()) {
@@ -52,25 +52,25 @@ public class h {
         a2.h(System.currentTimeMillis());
         a2.i(0L);
         com.ss.android.socialbase.downloader.g.a a3 = com.ss.android.socialbase.downloader.g.a.a(fVar.ad());
-        if (!a(fVar, a3, a) && eVar.f58026b.isShowToast()) {
-            String startToast = eVar.f58026b.getStartToast();
+        if (!a(fVar, a3, a) && eVar.f42774b.isShowToast()) {
+            String startToast = eVar.f42774b.getStartToast();
             if (TextUtils.isEmpty(startToast)) {
                 startToast = a3.c("download_start_toast_text");
             }
             if (TextUtils.isEmpty(startToast)) {
                 startToast = z ? "已开始下载，可在\"我的\"里查看管理" : "已开始下载";
             }
-            j.c().a(2, fVar.getContext(), eVar.f58026b, startToast, null, 0);
+            j.c().a(2, fVar.getContext(), eVar.f42774b, startToast, null, 0);
         }
         return a;
     }
 
-    public static com.ss.android.downloadad.api.a.b a(com.ss.android.downloadlib.addownload.b.e eVar, int i2) {
-        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f58026b, eVar.f58027c, eVar.f58028d, i2);
+    public static com.ss.android.downloadad.api.a.b a(com.ss.android.downloadlib.addownload.b.e eVar, int i) {
+        com.ss.android.downloadad.api.a.b bVar = new com.ss.android.downloadad.api.a.b(eVar.f42774b, eVar.f42775c, eVar.f42776d, i);
         boolean z = true;
-        if (com.ss.android.socialbase.downloader.g.a.a(i2).a("download_event_opt", 1) > 1) {
+        if (com.ss.android.socialbase.downloader.g.a.a(i).a("download_event_opt", 1) > 1) {
             try {
-                String packageName = eVar.f58026b.getPackageName();
+                String packageName = eVar.f42774b.getPackageName();
                 if (!TextUtils.isEmpty(packageName)) {
                     if (j.getContext().getPackageManager().getPackageInfo(packageName, 0) == null) {
                         z = false;
@@ -83,16 +83,16 @@ public class h {
         return bVar;
     }
 
-    public static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.g.a aVar, int i2) {
+    public static boolean a(com.ss.android.socialbase.appdownloader.f fVar, @NonNull com.ss.android.socialbase.downloader.g.a aVar, int i) {
         String optString;
         JSONArray e2 = aVar.e("ah_plans");
         if (e2 != null && e2.length() != 0) {
             int length = e2.length();
             JSONObject jSONObject = null;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 < length) {
-                    JSONObject optJSONObject = e2.optJSONObject(i3);
+                if (i2 < length) {
+                    JSONObject optJSONObject = e2.optJSONObject(i2);
                     if (optJSONObject != null && ((optString = optJSONObject.optString("type")) == "plan_c" || com.ss.android.socialbase.appdownloader.f.a.a(optJSONObject))) {
                         char c2 = 65535;
                         switch (optString.hashCode()) {
@@ -150,13 +150,13 @@ public class h {
                             case 1:
                             case 2:
                             case 3:
-                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f58262b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.a(optJSONObject, aVar).f43002b == 0) {
                                     break;
                                 } else {
                                     continue;
                                 }
                             case 6:
-                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f58262b == 0) {
+                                if (com.ss.android.socialbase.appdownloader.b.b(optJSONObject, aVar).f43002b == 0) {
                                     break;
                                 } else {
                                     continue;
@@ -166,12 +166,12 @@ public class h {
                                 continue;
                         }
                     }
-                    i3++;
+                    i2++;
                 }
             }
             if (jSONObject != null) {
                 if (jSONObject.optInt("show_unknown_source_on_startup") == 1) {
-                    return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.c.N(), (Intent) null, jSONObject, i2, new com.ss.android.socialbase.appdownloader.a());
+                    return com.ss.android.socialbase.appdownloader.b.a(com.ss.android.socialbase.downloader.downloader.c.N(), (Intent) null, jSONObject, i, new com.ss.android.socialbase.appdownloader.a());
                 }
             }
         }

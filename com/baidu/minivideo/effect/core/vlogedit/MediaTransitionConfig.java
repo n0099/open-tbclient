@@ -30,9 +30,9 @@ public class MediaTransitionConfig implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -51,10 +51,10 @@ public class MediaTransitionConfig implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaTransitionConfig[] newArray(int i2) {
+        public MediaTransitionConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new MediaTransitionConfig[i2] : (MediaTransitionConfig[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTransitionConfig[i] : (MediaTransitionConfig[]) invokeI.objValue;
         }
     }
 
@@ -79,9 +79,9 @@ public class MediaTransitionConfig implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -99,14 +99,14 @@ public class MediaTransitionConfig implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-            parcel.writeParcelable(this.mediaTransition, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+            parcel.writeParcelable(this.mediaTransition, i);
             parcel.writeInt(this.shaderConfigMap.size());
             for (Map.Entry<String, ShaderConfig> entry : this.shaderConfigMap.entrySet()) {
                 parcel.writeString(entry.getKey());
-                parcel.writeParcelable(entry.getValue(), i2);
+                parcel.writeParcelable(entry.getValue(), i);
             }
         }
     }
@@ -118,9 +118,9 @@ public class MediaTransitionConfig implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -129,7 +129,7 @@ public class MediaTransitionConfig implements Parcelable {
         this.mediaTransition = (MediaTransition) parcel.readParcelable(MediaTransition.class.getClassLoader());
         int readInt = parcel.readInt();
         this.shaderConfigMap = new HashMap(readInt);
-        for (int i4 = 0; i4 < readInt; i4++) {
+        for (int i3 = 0; i3 < readInt; i3++) {
             this.shaderConfigMap.put(parcel.readString(), (ShaderConfig) parcel.readParcelable(ShaderConfig.class.getClassLoader()));
         }
     }

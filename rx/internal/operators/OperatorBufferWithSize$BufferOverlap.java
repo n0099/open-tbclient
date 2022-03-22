@@ -4,28 +4,32 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
-import i.j;
-import i.o.a.a;
+import g.f;
+import g.j;
+import g.o.a.a;
 import java.util.ArrayDeque;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: i  reason: collision with root package name */
-    public final j<? super List<T>> f61053i;
+    /* renamed from: e  reason: collision with root package name */
+    public final j<? super List<T>> f45408e;
 
-    /* renamed from: j  reason: collision with root package name */
-    public final int f61054j;
-    public final int k;
-    public final ArrayDeque<List<T>> l;
-    public final AtomicLong m;
+    /* renamed from: f  reason: collision with root package name */
+    public final int f45409f;
 
-    /* loaded from: classes9.dex */
+    /* renamed from: g  reason: collision with root package name */
+    public final int f45410g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public final ArrayDeque<List<T>> f45411h;
+    public final AtomicLong i;
+
+    /* loaded from: classes8.dex */
     public final class BufferOverlapProducer extends AtomicBoolean implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4015894850868853147L;
@@ -39,9 +43,9 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {operatorBufferWithSize$BufferOverlap};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -50,18 +54,18 @@ public final class OperatorBufferWithSize$BufferOverlap<T> extends j<T> {
             this.this$0 = operatorBufferWithSize$BufferOverlap;
         }
 
-        @Override // i.f
-        public void request(long j2) {
+        @Override // g.f
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
                 OperatorBufferWithSize$BufferOverlap operatorBufferWithSize$BufferOverlap = this.this$0;
-                if (!a.e(operatorBufferWithSize$BufferOverlap.m, j2, operatorBufferWithSize$BufferOverlap.l, operatorBufferWithSize$BufferOverlap.f61053i) || j2 == 0) {
+                if (!a.e(operatorBufferWithSize$BufferOverlap.i, j, operatorBufferWithSize$BufferOverlap.f45411h, operatorBufferWithSize$BufferOverlap.f45408e) || j == 0) {
                     return;
                 }
                 if (get() || !compareAndSet(false, true)) {
-                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.k, j2));
+                    operatorBufferWithSize$BufferOverlap.e(a.c(operatorBufferWithSize$BufferOverlap.f45410g, j));
                 } else {
-                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.k, j2 - 1), operatorBufferWithSize$BufferOverlap.f61054j));
+                    operatorBufferWithSize$BufferOverlap.e(a.a(a.c(operatorBufferWithSize$BufferOverlap.f45410g, j - 1), operatorBufferWithSize$BufferOverlap.f45409f));
                 }
             }
         }

@@ -3,7 +3,7 @@ package com.baidu.searchbox.live.interfaces.upload;
 public interface UploadFileCallBack {
     void complete(String str, String str2);
 
-    void error(int i2, String str);
+    void error(int i, String str);
 
-    void process(int i2);
+    void process(int i);
 }

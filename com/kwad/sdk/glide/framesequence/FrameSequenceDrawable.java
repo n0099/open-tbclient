@@ -13,9 +13,10 @@ import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.SystemClock;
+import android.util.Log;
 import com.kwad.sdk.glide.framesequence.FrameSequence;
 import java.io.InputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FrameSequenceDrawable extends Drawable implements Animatable, Runnable {
     public static final long DEFAULT_DELAY_MS = 100;
     public static final int LOOP_DEFAULT = 3;
@@ -57,8 +58,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     public static final Object sLock = new Object();
     public static a sAllocatingBitmapProvider = new a() { // from class: com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.1
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
-        public Bitmap a(int i2, int i3) {
-            return Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+        public Bitmap a(int i, int i2) {
+            return Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
         }
 
         @Override // com.kwad.sdk.glide.framesequence.FrameSequenceDrawable.a
@@ -70,14 +71,14 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         }
     };
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
-        Bitmap a(int i2, int i3);
+        Bitmap a(int i, int i2);
 
         void a(Bitmap bitmap);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void a(FrameSequenceDrawable frameSequenceDrawable);
     }
@@ -101,23 +102,23 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                     if (FrameSequenceDrawable.this.mDestroyed) {
                         return;
                     }
-                    int i2 = FrameSequenceDrawable.this.mNextFrameToDecode;
-                    if (i2 < 0) {
+                    int i = FrameSequenceDrawable.this.mNextFrameToDecode;
+                    if (i < 0) {
                         return;
                     }
                     Bitmap bitmap2 = FrameSequenceDrawable.this.mBackBitmap;
                     FrameSequenceDrawable.this.mState = 2;
-                    long j2 = 0;
+                    long j = 0;
                     boolean z2 = true;
                     try {
-                        j2 = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i2, bitmap2, i2 - 2);
+                        j = FrameSequenceDrawable.this.mFrameSequenceState.getFrame(i, bitmap2, i - 2);
                         z = false;
                     } catch (Exception e2) {
-                        String str = "exception during decode: " + e2;
+                        Log.e(FrameSequenceDrawable.TAG, "exception during decode: " + e2);
                         z = true;
                     }
-                    if (j2 < 20) {
-                        j2 = 100;
+                    if (j < 20) {
+                        j = 100;
                     }
                     synchronized (FrameSequenceDrawable.this.mLock) {
                         bitmap = null;
@@ -126,7 +127,7 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                             FrameSequenceDrawable.this.mBackBitmap = null;
                             bitmap = bitmap3;
                         } else if (FrameSequenceDrawable.this.mNextFrameToDecode >= 0 && FrameSequenceDrawable.this.mState == 2) {
-                            FrameSequenceDrawable.this.mNextSwap = z ? Long.MAX_VALUE : j2 + FrameSequenceDrawable.this.mLastSwap;
+                            FrameSequenceDrawable.this.mNextSwap = z ? Long.MAX_VALUE : j + FrameSequenceDrawable.this.mLastSwap;
                             FrameSequenceDrawable.this.mState = 3;
                         }
                         z2 = false;
@@ -183,9 +184,9 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this(FrameSequence.decodeStream(inputStream));
     }
 
-    public static Bitmap acquireAndValidateBitmap(a aVar, int i2, int i3) {
-        Bitmap a2 = aVar.a(i2, i3);
-        if (a2.getWidth() < i2 || a2.getHeight() < i3 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
+    public static Bitmap acquireAndValidateBitmap(a aVar, int i, int i2) {
+        Bitmap a2 = aVar.a(i, i2);
+        if (a2.getWidth() < i || a2.getHeight() < i2 || a2.getConfig() != Bitmap.Config.ARGB_8888) {
             throw new IllegalArgumentException("Invalid bitmap provided");
         }
         return a2;
@@ -264,9 +265,9 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
                 this.mLastSwap = SystemClock.uptimeMillis();
                 boolean z = true;
                 if (this.mNextFrameToDecode == this.mFrameSequence.getFrameCount() - 1) {
-                    int i2 = this.mCurrentLoop + 1;
-                    this.mCurrentLoop = i2;
-                    if ((this.mLoopBehavior == 1 && i2 == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
+                    int i = this.mCurrentLoop + 1;
+                    this.mCurrentLoop = i;
+                    if ((this.mLoopBehavior == 1 && i == this.mLoopCount) || (this.mLoopBehavior == 3 && this.mCurrentLoop == this.mFrameSequence.getDefaultLoopCount())) {
                         z = false;
                     }
                 }
@@ -358,8 +359,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
-        this.mPaint.setAlpha(i2);
+    public void setAlpha(int i) {
+        this.mPaint.setAlpha(i);
     }
 
     public final void setCircleMaskEnabled(boolean z) {
@@ -380,8 +381,8 @@ public class FrameSequenceDrawable extends Drawable implements Animatable, Runna
         this.mPaint.setFilterBitmap(z);
     }
 
-    public void setLoopCount(int i2) {
-        this.mLoopCount = i2;
+    public void setLoopCount(int i) {
+        this.mLoopCount = i;
     }
 
     public void setOnFinishedListener(b bVar) {

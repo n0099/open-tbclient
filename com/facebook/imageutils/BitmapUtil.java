@@ -20,7 +20,7 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BitmapUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_8_BYTES_PER_PIXEL = 1;
@@ -35,7 +35,7 @@ public final class BitmapUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.facebook.imageutils.BitmapUtil$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config;
         public static /* synthetic */ Interceptable $ic;
@@ -100,9 +100,9 @@ public final class BitmapUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -142,13 +142,13 @@ public final class BitmapUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, config)) == null) {
-            int i2 = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 == 3 || i2 == 4) {
+            int i = AnonymousClass1.$SwitchMap$android$graphics$Bitmap$Config[config.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i == 3 || i == 4) {
                         return 2;
                     }
-                    if (i2 == 5) {
+                    if (i == 5) {
                         return 8;
                     }
                     throw new UnsupportedOperationException("The provided Bitmap.Config is not supported");
@@ -160,10 +160,10 @@ public final class BitmapUtil {
         return invokeL.intValue;
     }
 
-    public static int getSizeInByteForBitmap(int i2, int i3, Bitmap.Config config) {
+    public static int getSizeInByteForBitmap(int i, int i2, Bitmap.Config config) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65543, null, i2, i3, config)) == null) ? i2 * i3 * getPixelSizeForBitmapConfig(config) : invokeIIL.intValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65543, null, i, i2, config)) == null) ? i * i2 * getPixelSizeForBitmapConfig(config) : invokeIIL.intValue;
     }
 
     @SuppressLint({"NewApi"})

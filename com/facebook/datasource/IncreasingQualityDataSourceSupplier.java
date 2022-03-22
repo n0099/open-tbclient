@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSource<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,7 +26,7 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
     public final List<Supplier<DataSource<T>>> mDataSourceSuppliers;
 
     @ThreadSafe
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class IncreasingQualityDataSource extends AbstractDataSource<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,30 +41,30 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         public int mNumberOfDataSources;
         public final /* synthetic */ IncreasingQualityDataSourceSupplier this$0;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public class InternalDataSubscriber implements DataSubscriber<T> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public int mIndex;
             public final /* synthetic */ IncreasingQualityDataSource this$1;
 
-            public InternalDataSubscriber(IncreasingQualityDataSource increasingQualityDataSource, int i2) {
+            public InternalDataSubscriber(IncreasingQualityDataSource increasingQualityDataSource, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {increasingQualityDataSource, Integer.valueOf(i2)};
+                    Object[] objArr = {increasingQualityDataSource, Integer.valueOf(i)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$1 = increasingQualityDataSource;
-                this.mIndex = i2;
+                this.mIndex = i;
             }
 
             @Override // com.facebook.datasource.DataSubscriber
@@ -110,9 +110,9 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                 newInitContext.initArgs = r2;
                 Object[] objArr = {increasingQualityDataSourceSupplier};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -143,10 +143,10 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                         this.mNumberOfDataSources = size;
                         this.mIndexOfDataSourceWithResult = size;
                         this.mDataSources = new ArrayList<>(size);
-                        for (int i2 = 0; i2 < size; i2++) {
-                            DataSource<T> dataSource = (DataSource) ((Supplier) this.this$0.mDataSourceSuppliers.get(i2)).get();
+                        for (int i = 0; i < size; i++) {
+                            DataSource<T> dataSource = (DataSource) ((Supplier) this.this$0.mDataSourceSuppliers.get(i)).get();
                             this.mDataSources.add(dataSource);
-                            dataSource.subscribe(new InternalDataSubscriber(this, i2), CallerThreadExecutor.getInstance());
+                            dataSource.subscribe(new InternalDataSubscriber(this, i), CallerThreadExecutor.getInstance());
                             if (dataSource.hasResult()) {
                                 break;
                             }
@@ -157,15 +157,15 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         }
 
         @Nullable
-        private synchronized DataSource<T> getAndClearDataSource(int i2) {
+        private synchronized DataSource<T> getAndClearDataSource(int i) {
             InterceptResult invokeI;
             DataSource<T> dataSource;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
                 synchronized (this) {
                     dataSource = null;
-                    if (this.mDataSources != null && i2 < this.mDataSources.size()) {
-                        dataSource = this.mDataSources.set(i2, null);
+                    if (this.mDataSources != null && i < this.mDataSources.size()) {
+                        dataSource = this.mDataSources.set(i, null);
                     }
                 }
                 return dataSource;
@@ -174,13 +174,13 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         }
 
         @Nullable
-        private synchronized DataSource<T> getDataSource(int i2) {
+        private synchronized DataSource<T> getDataSource(int i) {
             InterceptResult invokeI;
             DataSource<T> dataSource;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
                 synchronized (this) {
-                    dataSource = (this.mDataSources == null || i2 >= this.mDataSources.size()) ? null : this.mDataSources.get(i2);
+                    dataSource = (this.mDataSources == null || i >= this.mDataSources.size()) ? null : this.mDataSources.get(i);
                 }
                 return dataSource;
             }
@@ -213,20 +213,20 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        private void maybeSetIndexOfDataSourceWithResult(int i2, DataSource<T> dataSource, boolean z) {
+        private void maybeSetIndexOfDataSourceWithResult(int i, DataSource<T> dataSource, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i2), dataSource, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), dataSource, Boolean.valueOf(z)}) == null) {
                 synchronized (this) {
-                    int i3 = this.mIndexOfDataSourceWithResult;
-                    if (dataSource == getDataSource(i2) && i2 != this.mIndexOfDataSourceWithResult) {
-                        if (getDataSourceWithResult() != null && (!z || i2 >= this.mIndexOfDataSourceWithResult)) {
-                            i2 = i3;
-                            for (int i4 = this.mIndexOfDataSourceWithResult; i4 > i2; i4--) {
-                                closeSafely(getAndClearDataSource(i4));
+                    int i2 = this.mIndexOfDataSourceWithResult;
+                    if (dataSource == getDataSource(i) && i != this.mIndexOfDataSourceWithResult) {
+                        if (getDataSourceWithResult() != null && (!z || i >= this.mIndexOfDataSourceWithResult)) {
+                            i = i2;
+                            for (int i3 = this.mIndexOfDataSourceWithResult; i3 > i; i3--) {
+                                closeSafely(getAndClearDataSource(i3));
                             }
                         }
-                        this.mIndexOfDataSourceWithResult = i2;
-                        while (i4 > i2) {
+                        this.mIndexOfDataSourceWithResult = i;
+                        while (i3 > i) {
                         }
                     }
                 }
@@ -234,11 +234,11 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceFailed(int i2, DataSource<T> dataSource) {
+        public void onDataSourceFailed(int i, DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65546, this, i2, dataSource) == null) {
-                closeSafely(tryGetAndClearDataSource(i2, dataSource));
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeIL(65546, this, i, dataSource) == null) {
+                closeSafely(tryGetAndClearDataSource(i, dataSource));
+                if (i == 0) {
                     this.mDelayedError = dataSource.getFailureCause();
                 }
                 maybeSetFailure();
@@ -246,27 +246,27 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void onDataSourceNewResult(int i2, DataSource<T> dataSource) {
+        public void onDataSourceNewResult(int i, DataSource<T> dataSource) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65547, this, i2, dataSource) == null) {
-                maybeSetIndexOfDataSourceWithResult(i2, dataSource, dataSource.isFinished());
+            if (interceptable == null || interceptable.invokeIL(65547, this, i, dataSource) == null) {
+                maybeSetIndexOfDataSourceWithResult(i, dataSource, dataSource.isFinished());
                 if (dataSource == getDataSourceWithResult()) {
-                    setResult(null, i2 == 0 && dataSource.isFinished());
+                    setResult(null, i == 0 && dataSource.isFinished());
                 }
                 maybeSetFailure();
             }
         }
 
         @Nullable
-        private synchronized DataSource<T> tryGetAndClearDataSource(int i2, DataSource<T> dataSource) {
+        private synchronized DataSource<T> tryGetAndClearDataSource(int i, DataSource<T> dataSource) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, this, i2, dataSource)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, this, i, dataSource)) == null) {
                 synchronized (this) {
                     if (dataSource == getDataSourceWithResult()) {
                         return null;
                     }
-                    return dataSource == getDataSource(i2) ? getAndClearDataSource(i2) : dataSource;
+                    return dataSource == getDataSource(i) ? getAndClearDataSource(i) : dataSource;
                 }
             }
             return (DataSource) invokeIL.objValue;
@@ -285,8 +285,8 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
                         ArrayList<DataSource<T>> arrayList = this.mDataSources;
                         this.mDataSources = null;
                         if (arrayList != null) {
-                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                                closeSafely(arrayList.get(i2));
+                            for (int i = 0; i < arrayList.size(); i++) {
+                                closeSafely(arrayList.get(i));
                             }
                             return true;
                         }
@@ -345,9 +345,9 @@ public class IncreasingQualityDataSourceSupplier<T> implements Supplier<DataSour
             newInitContext.initArgs = r2;
             Object[] objArr = {list, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

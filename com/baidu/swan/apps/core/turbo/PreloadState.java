@@ -42,16 +42,16 @@ public final class PreloadState {
         $VALUES = new PreloadState[]{UNKNOWN, LOADED, LOAD_FAILED, preloadState};
     }
 
-    public PreloadState(String str, int i2, int i3, int i4) {
+    public PreloadState(String str, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -60,8 +60,8 @@ public final class PreloadState {
                 return;
             }
         }
-        this.mStatsCodeForNormal = i3;
-        this.mStatsCodeForReload = i4;
+        this.mStatsCodeForNormal = i2;
+        this.mStatsCodeForReload = i3;
     }
 
     public static PreloadState valueOf(String str) {

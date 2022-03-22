@@ -30,7 +30,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.constant.WBConstants;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -72,9 +71,9 @@ public class OauthActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,7 +108,7 @@ public class OauthActivity extends BaseActivity {
             }
             String stringExtra = intent.getStringExtra(L);
             this.z = stringExtra;
-            if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.4.7.8.2") <= 0) {
+            if (TextUtils.isEmpty(stringExtra) || SapiUtils.versionCompareTo(this.z, "9.5.5") <= 0) {
                 return;
             }
             setResult(0, a(-208));
@@ -124,7 +123,7 @@ public class OauthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 if (b()) {
                     this.configuration = SapiAccountManager.getInstance().getConfignation();
                     init();
@@ -157,9 +156,9 @@ public class OauthActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -220,9 +219,9 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -254,9 +253,9 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -287,9 +286,9 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -299,9 +298,9 @@ public class OauthActivity extends BaseActivity {
                 }
 
                 @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-                public void onFailed(int i2, String str) {
+                public void onFailed(int i, String str) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                     }
                 }
 
@@ -326,9 +325,9 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -445,9 +444,9 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -490,16 +489,16 @@ public class OauthActivity extends BaseActivity {
                         hashMap.put("suppcheck", "1");
                         if (this.a.B == 0) {
                             if (SapiUtils.versionCompareTo(this.a.y, OauthActivity.N) >= 0) {
-                                hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_auth_code");
+                                hashMap.put("response_type", "sso_auth_code");
                                 hashMap.put("state", this.a.x);
                             } else {
-                                hashMap.put(WBConstants.AUTH_PARAMS_RESPONSE_TYPE, "sso_token");
+                                hashMap.put("response_type", "sso_token");
                             }
                             hashMap.put("display", "mobile");
                             hashMap.put("scope", this.a.w);
                             hashMap.put("sso_hash", ssoHashResult.ssoHash);
                             hashMap.put("client_id", this.a.u);
-                            hashMap.put(WBConstants.AUTH_PARAMS_REDIRECT_URL, this.a.v);
+                            hashMap.put("redirect_uri", this.a.v);
                             str = (SapiAccountManager.getInstance().getConfignation().environment.getDeviceUrl() + "/oauth/2.0/authorize") + SapiUtils.mapToUrlParams(hashMap, false);
                         } else {
                             hashMap.put("oauth_sso_hash", ssoHashResult.ssoHash);
@@ -536,7 +535,7 @@ public class OauthActivity extends BaseActivity {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ OauthActivity f36688b;
+                public final /* synthetic */ OauthActivity f28454b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -545,15 +544,15 @@ public class OauthActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36688b = this;
+                    this.f28454b = this;
                     this.a = z;
                 }
 
@@ -563,13 +562,13 @@ public class OauthActivity extends BaseActivity {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
                         if (webAuthResult.getResultCode() == -301) {
-                            OauthActivity oauthActivity = this.f36688b;
+                            OauthActivity oauthActivity = this.f28454b;
                             oauthActivity.setResult(0, oauthActivity.a(-205));
-                            this.f36688b.finish();
+                            this.f28454b.finish();
                         } else {
-                            OauthActivity oauthActivity2 = this.f36688b;
+                            OauthActivity oauthActivity2 = this.f28454b;
                             oauthActivity2.setResult(0, oauthActivity2.a(-201));
-                            this.f36688b.finish();
+                            this.f28454b.finish();
                         }
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
@@ -581,7 +580,7 @@ public class OauthActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        this.f36688b.c();
+                        this.f28454b.c();
                         SapiAccountManager.getGlobalCallback().onLoginStatusChange();
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
@@ -597,9 +596,9 @@ public class OauthActivity extends BaseActivity {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -612,7 +611,7 @@ public class OauthActivity extends BaseActivity {
                             public void run() {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeV(1048576, this) == null) {
-                                    SapiUtils.hideSoftInput(this.a.f36688b);
+                                    SapiUtils.hideSoftInput(this.a.f28454b);
                                 }
                             }
                         }, 300L);
@@ -632,8 +631,8 @@ public class OauthActivity extends BaseActivity {
             Uri parse = Uri.parse(str);
             parse.getHost();
             String[] strArr = {Uri.decode(parse.getQueryParameter("sign")), Uri.decode(parse.getQueryParameter("client_id")), Uri.decode(parse.getQueryParameter("cmd")), Uri.decode(parse.getQueryParameter("tpl"))};
-            for (int i2 = 0; i2 < 4; i2++) {
-                if (TextUtils.isEmpty(strArr[i2])) {
+            for (int i = 0; i < 4; i++) {
+                if (TextUtils.isEmpty(strArr[i])) {
                     return false;
                 }
             }
@@ -662,14 +661,14 @@ public class OauthActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent a(int i2, String str) {
+    public Intent a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, this, i, str)) == null) {
             Intent intent = new Intent();
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("code", i2);
+                jSONObject.put("code", i);
                 if (!TextUtils.isEmpty(str)) {
                     jSONObject.put("msg", str);
                 }
@@ -683,9 +682,9 @@ public class OauthActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Intent a(int i2) {
+    public Intent a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) ? a(i2, "") : (Intent) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) ? a(i, "") : (Intent) invokeI.objValue;
     }
 }

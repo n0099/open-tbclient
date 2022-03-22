@@ -16,7 +16,7 @@ import org.aspectj.lang.reflect.AdviceKind;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.PointcutExpression;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class AdviceImpl implements Advice {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AJC_INTERNAL = "org.aspectj.runtime.internal";
@@ -30,7 +30,7 @@ public class AdviceImpl implements Advice {
     public PointcutExpression pointcutExpression;
 
     /* renamed from: org.aspectj.internal.lang.reflect.AdviceImpl$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$aspectj$lang$reflect$AdviceKind;
         public static /* synthetic */ Interceptable $ic;
@@ -81,9 +81,9 @@ public class AdviceImpl implements Advice {
             newInitContext.initArgs = r2;
             Object[] objArr = {method, str, adviceKind};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,8 +110,8 @@ public class AdviceImpl implements Advice {
             if (this.exceptionTypes == null) {
                 Class<?>[] exceptionTypes = this.adviceMethod.getExceptionTypes();
                 this.exceptionTypes = new AjType[exceptionTypes.length];
-                for (int i2 = 0; i2 < exceptionTypes.length; i2++) {
-                    this.exceptionTypes[i2] = AjTypeSystem.getAjType(exceptionTypes[i2]);
+                for (int i = 0; i < exceptionTypes.length; i++) {
+                    this.exceptionTypes[i] = AjTypeSystem.getAjType(exceptionTypes[i]);
                 }
             }
             return this.exceptionTypes;
@@ -126,25 +126,25 @@ public class AdviceImpl implements Advice {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.genericParameterTypes == null) {
                 Type[] genericParameterTypes = this.adviceMethod.getGenericParameterTypes();
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 for (Type type : genericParameterTypes) {
                     if ((type instanceof Class) && ((Class) type).getPackage().getName().equals(AJC_INTERNAL)) {
-                        i3++;
+                        i2++;
                     }
                 }
-                this.genericParameterTypes = new Type[genericParameterTypes.length - i3];
+                this.genericParameterTypes = new Type[genericParameterTypes.length - i2];
                 while (true) {
                     Type[] typeArr = this.genericParameterTypes;
-                    if (i2 >= typeArr.length) {
+                    if (i >= typeArr.length) {
                         break;
                     }
-                    if (genericParameterTypes[i2] instanceof Class) {
-                        typeArr[i2] = AjTypeSystem.getAjType((Class) genericParameterTypes[i2]);
+                    if (genericParameterTypes[i] instanceof Class) {
+                        typeArr[i] = AjTypeSystem.getAjType((Class) genericParameterTypes[i]);
                     } else {
-                        typeArr[i2] = genericParameterTypes[i2];
+                        typeArr[i] = genericParameterTypes[i];
                     }
-                    i2++;
+                    i++;
                 }
             }
             return this.genericParameterTypes;
@@ -181,21 +181,21 @@ public class AdviceImpl implements Advice {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             if (this.parameterTypes == null) {
                 Class<?>[] parameterTypes = this.adviceMethod.getParameterTypes();
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 for (Class<?> cls : parameterTypes) {
                     if (cls.getPackage().getName().equals(AJC_INTERNAL)) {
-                        i3++;
+                        i2++;
                     }
                 }
-                this.parameterTypes = new AjType[parameterTypes.length - i3];
+                this.parameterTypes = new AjType[parameterTypes.length - i2];
                 while (true) {
                     AjType[] ajTypeArr = this.parameterTypes;
-                    if (i2 >= ajTypeArr.length) {
+                    if (i >= ajTypeArr.length) {
                         break;
                     }
-                    ajTypeArr[i2] = AjTypeSystem.getAjType(parameterTypes[i2]);
-                    i2++;
+                    ajTypeArr[i] = AjTypeSystem.getAjType(parameterTypes[i]);
+                    i++;
                 }
             }
             return this.parameterTypes;
@@ -230,16 +230,16 @@ public class AdviceImpl implements Advice {
                 stringBuffer.append(this.adviceMethod.getGenericReturnType().toString());
                 stringBuffer.append(" ");
             }
-            int i2 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
+            if (i == 1) {
                 stringBuffer.append("after(");
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 stringBuffer.append("after(");
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 stringBuffer.append("after(");
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 stringBuffer.append("around(");
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 stringBuffer.append("before(");
             }
             AjType<?>[] parameterTypes = getParameterTypes();
@@ -247,18 +247,18 @@ public class AdviceImpl implements Advice {
             if (this.hasExtraParam) {
                 length--;
             }
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i4 < length) {
-                stringBuffer.append(parameterTypes[i4].getName());
-                i4++;
-                if (i4 < length) {
+            while (i3 < length) {
+                stringBuffer.append(parameterTypes[i3].getName());
+                i3++;
+                if (i3 < length) {
                     stringBuffer.append(",");
                 }
             }
             stringBuffer.append(") ");
-            int i5 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
-            if (i5 == 2) {
+            int i4 = AnonymousClass1.$SwitchMap$org$aspectj$lang$reflect$AdviceKind[getKind().ordinal()];
+            if (i4 == 2) {
                 stringBuffer.append("returning");
                 if (this.hasExtraParam) {
                     stringBuffer.append("(");
@@ -275,10 +275,10 @@ public class AdviceImpl implements Advice {
             AjType<?>[] exceptionTypes = getExceptionTypes();
             if (exceptionTypes.length > 0) {
                 stringBuffer.append("throws ");
-                while (i3 < exceptionTypes.length) {
-                    stringBuffer.append(exceptionTypes[i3].getName());
-                    i3++;
-                    if (i3 < exceptionTypes.length) {
+                while (i2 < exceptionTypes.length) {
+                    stringBuffer.append(exceptionTypes[i2].getName());
+                    i2++;
+                    if (i2 < exceptionTypes.length) {
                         stringBuffer.append(",");
                     }
                 }
@@ -300,9 +300,9 @@ public class AdviceImpl implements Advice {
             newInitContext.initArgs = r2;
             Object[] objArr = {method, str, adviceKind, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Method) objArr2[0], (String) objArr2[1], (AdviceKind) objArr2[2]);
                 newInitContext.thisArg = this;

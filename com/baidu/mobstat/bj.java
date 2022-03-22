@@ -131,7 +131,7 @@ public class bj {
     public static String f(View view) {
         InterceptResult invokeL;
         int lastIndexOf;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, view)) == null) {
             String str = null;
@@ -141,8 +141,8 @@ public class bj {
                 }
             } catch (Exception unused) {
             }
-            if (!TextUtils.isEmpty(str) && str.contains(":id/") && (lastIndexOf = str.lastIndexOf(":id/")) != -1 && (i2 = lastIndexOf + 4) < str.length()) {
-                str = str.substring(i2);
+            if (!TextUtils.isEmpty(str) && str.contains(":id/") && (lastIndexOf = str.lastIndexOf(":id/")) != -1 && (i = lastIndexOf + 4) < str.length()) {
+                str = str.substring(i);
             }
             return str == null ? "" : str;
         }
@@ -185,8 +185,8 @@ public class bj {
                 ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
-                for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
-                    String h2 = h(viewGroup.getChildAt(i2));
+                for (int i = 0; i < childCount && sb.length() < 128; i++) {
+                    String h2 = h(viewGroup.getChildAt(i));
                     if (h2 != null && h2.length() > 0) {
                         if (z) {
                             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
@@ -245,8 +245,8 @@ public class bj {
                 ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
                 boolean z = false;
-                for (int i2 = 0; i2 < childCount && sb.length() < 128; i2++) {
-                    String k = k(viewGroup.getChildAt(i2));
+                for (int i = 0; i < childCount && sb.length() < 128; i++) {
+                    String k = k(viewGroup.getChildAt(i));
                     if (k != null && k.length() > 0) {
                         if (z) {
                             sb.append("| ");
@@ -414,16 +414,16 @@ public class bj {
                 return "";
             }
             ArrayList<Map.Entry> arrayList = new ArrayList(linkedHashMap.entrySet());
-            int i2 = 0;
+            int i = 0;
             for (Map.Entry entry : arrayList) {
                 int intValue = ((Integer) entry.getValue()).intValue();
-                if (intValue > i2) {
-                    i2 = intValue;
+                if (intValue > i) {
+                    i = intValue;
                 }
             }
             StringBuilder sb = new StringBuilder();
             for (Map.Entry entry2 : arrayList) {
-                if (((Integer) entry2.getValue()).intValue() >= i2 && (view2 = (View) entry2.getKey()) != null && (view2 instanceof TextView)) {
+                if (((Integer) entry2.getValue()).intValue() >= i && (view2 = (View) entry2.getKey()) != null && (view2 instanceof TextView)) {
                     CharSequence text = ((TextView) view2).getText();
                     String charSequence = text != null ? text.toString() : "";
                     if (!TextUtils.isEmpty(charSequence)) {
@@ -589,9 +589,9 @@ public class bj {
             }
             String h2 = h(activity);
             if (TextUtils.isEmpty(h2)) {
-                Uri i2 = i(activity);
-                if (i2 != null) {
-                    String host = i2.getHost();
+                Uri i = i(activity);
+                if (i != null) {
+                    String host = i.getHost();
                     return !TextUtils.isEmpty(host) ? host : "";
                 }
                 return "";
@@ -648,9 +648,9 @@ public class bj {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
                     String b2 = b(jSONObject.getString("p"));
                     String string = jSONObject.getString("i");
                     sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
@@ -691,15 +691,15 @@ public class bj {
                     ViewPager viewPager = (ViewPager) viewGroup;
                     ArrayList arrayList = new ArrayList();
                     int childCount = viewPager.getChildCount();
-                    int i2 = 0;
-                    for (int i3 = 0; i3 < childCount; i3++) {
-                        View childAt = viewPager.getChildAt(i3);
+                    int i = 0;
+                    for (int i2 = 0; i2 < childCount; i2++) {
+                        View childAt = viewPager.getChildAt(i2);
                         arrayList.add(childAt);
                         if (e(childAt) != null) {
-                            i2++;
+                            i++;
                         }
                     }
-                    if (arrayList.size() >= 2 && i2 >= 2) {
+                    if (arrayList.size() >= 2 && i >= 2) {
                         try {
                             Collections.sort(arrayList, new Comparator<View>() { // from class: com.baidu.mobstat.bj.1
                                 public static /* synthetic */ Interceptable $ic;
@@ -710,9 +710,9 @@ public class bj {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i4 = newInitContext.flag;
-                                        if ((i4 & 1) != 0) {
-                                            int i5 = i4 & 2;
+                                        int i3 = newInitContext.flag;
+                                        if ((i3 & 1) != 0) {
+                                            int i4 = i3 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                         }
@@ -773,9 +773,9 @@ public class bj {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
                     String string = jSONObject.getString("p");
                     String string2 = jSONObject.getString("i");
                     sb.append("/" + string + PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
@@ -839,18 +839,18 @@ public class bj {
                     return String.valueOf(0);
                 }
                 ViewGroup viewGroup = (ViewGroup) parent;
-                int i2 = 0;
-                for (int i3 = 0; i3 < viewGroup.getChildCount(); i3++) {
-                    View childAt = viewGroup.getChildAt(i3);
+                int i = 0;
+                for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
+                    View childAt = viewGroup.getChildAt(i2);
                     if (childAt != null) {
                         if (childAt == view) {
                             break;
                         } else if (childAt.getClass() != null && b2.equals(b(childAt.getClass()))) {
-                            i2++;
+                            i++;
                         }
                     }
                 }
-                return String.valueOf(i2);
+                return String.valueOf(i);
             }
             return String.valueOf(0);
         }
@@ -942,9 +942,9 @@ public class bj {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
                     String b2 = b(jSONObject.getString("p"));
                     String string = jSONObject.getString("i");
                     sb.append("/" + b2 + PreferencesUtil.LEFT_MOUNT + string + PreferencesUtil.RIGHT_MOUNT);
@@ -964,9 +964,9 @@ public class bj {
     */
     public static ArrayList<Integer> b(Activity activity, View view) {
         InterceptResult invokeLL;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, null, activity, view)) == null) {
             ArrayList<Integer> arrayList = new ArrayList<>();
@@ -978,55 +978,55 @@ public class bj {
             int width = view.getWidth();
             int height = view.getHeight();
             if (view instanceof WebView) {
-                i2 = view.getScrollX();
-                i3 = view.getScrollY();
+                i = view.getScrollX();
+                i2 = view.getScrollY();
             } else {
                 if (view instanceof ScrollView) {
                     ScrollView scrollView = (ScrollView) view;
                     if (scrollView.getChildCount() > 0) {
-                        i2 = scrollView.getScrollX();
-                        i3 = scrollView.getScrollY();
+                        i = scrollView.getScrollX();
+                        i2 = scrollView.getScrollY();
                     }
-                    i3 = 0;
+                    i2 = 0;
                 } else if (view instanceof ListView) {
-                    i3 = b((ListView) view);
+                    i2 = b((ListView) view);
                 } else if (view instanceof GridView) {
-                    i3 = b((GridView) view);
+                    i2 = b((GridView) view);
                 } else {
                     if (q(view)) {
                         try {
                             RecyclerView recyclerView = (RecyclerView) view;
-                            i2 = recyclerView.computeHorizontalScrollOffset();
+                            i = recyclerView.computeHorizontalScrollOffset();
                             try {
-                                i3 = recyclerView.computeVerticalScrollOffset();
+                                i2 = recyclerView.computeVerticalScrollOffset();
                             } catch (Exception unused) {
-                                i3 = 0;
-                                i4 = width + i2;
-                                int i5 = height + i3;
-                                if (i4 <= 0) {
+                                i2 = 0;
+                                i3 = width + i;
+                                int i4 = height + i2;
+                                if (i3 <= 0) {
                                 }
-                                if (i5 > 0) {
+                                if (i4 > 0) {
                                 }
-                                arrayList.add(Integer.valueOf(i4));
+                                arrayList.add(Integer.valueOf(i3));
                                 arrayList.add(Integer.valueOf(r0));
                                 return arrayList;
                             }
                         } catch (Exception unused2) {
-                            i2 = 0;
+                            i = 0;
                         }
                     }
-                    i3 = 0;
+                    i2 = 0;
                 }
-                i2 = 0;
+                i = 0;
             }
-            i4 = width + i2;
-            int i52 = height + i3;
-            if (i4 <= 0) {
-                i4 = 0;
+            i3 = width + i;
+            int i42 = height + i2;
+            if (i3 <= 0) {
+                i3 = 0;
             }
-            int i6 = i52 > 0 ? i52 : 0;
-            arrayList.add(Integer.valueOf(i4));
-            arrayList.add(Integer.valueOf(i6));
+            int i5 = i42 > 0 ? i42 : 0;
+            arrayList.add(Integer.valueOf(i3));
+            arrayList.add(Integer.valueOf(i5));
             return arrayList;
         }
         return (ArrayList) invokeLL.objValue;
@@ -1129,7 +1129,7 @@ public class bj {
         return invokeL.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:63:0x008b */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:64:0x008c */
     public static JSONArray a(Activity activity, View view) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -1194,11 +1194,11 @@ public class bj {
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, gridView)) == null) {
             if (gridView != null && gridView.getChildCount() > 0) {
                 View childAt = gridView.getChildAt(0);
-                int i2 = 1;
+                int i = 1;
                 if (Build.VERSION.SDK_INT >= 11 && (numColumns = gridView.getNumColumns()) != 0) {
-                    i2 = gridView.getFirstVisiblePosition() / numColumns;
+                    i = gridView.getFirstVisiblePosition() / numColumns;
                 }
-                return (-childAt.getTop()) + (i2 * childAt.getHeight());
+                return (-childAt.getTop()) + (i * childAt.getHeight());
             }
             return 0;
         }
@@ -1213,9 +1213,9 @@ public class bj {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject jSONObject = (JSONObject) jSONArray.get(i2);
+                    JSONObject jSONObject = (JSONObject) jSONArray.get(i);
                     String string = jSONObject.getString("p");
                     String string2 = jSONObject.getString("i");
                     sb.append("/" + string + PreferencesUtil.LEFT_MOUNT + string2 + PreferencesUtil.RIGHT_MOUNT);
@@ -1232,7 +1232,7 @@ public class bj {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            String a = au.a().a(str, au.a.f35100b);
+            String a = au.a().a(str, au.a.f27247b);
             return a == null ? "" : a;
         }
         return (String) invokeL.objValue;
@@ -1317,16 +1317,16 @@ public class bj {
                 return height;
             }
             int height2 = gridView.getChildAt(0).getHeight();
-            int i2 = 1;
+            int i = 1;
             if (Build.VERSION.SDK_INT >= 11) {
                 ListAdapter adapter = gridView.getAdapter();
                 int numColumns = gridView.getNumColumns();
                 if (adapter != null && numColumns != 0) {
-                    i2 = (int) Math.ceil(adapter.getCount() / numColumns);
+                    i = (int) Math.ceil(adapter.getCount() / numColumns);
                 }
             }
-            int i3 = height2 * i2;
-            return i3 >= height ? i3 : height;
+            int i2 = height2 * i;
+            return i2 >= height ? i2 : height;
         }
         return invokeL.intValue;
     }
@@ -1344,8 +1344,8 @@ public class bj {
         } else if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                a(viewGroup.getChildAt(i2), linkedHashMap);
+            for (int i = 0; i < childCount; i++) {
+                a(viewGroup.getChildAt(i), linkedHashMap);
             }
         }
     }

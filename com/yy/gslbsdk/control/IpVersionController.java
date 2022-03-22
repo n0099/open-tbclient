@@ -35,7 +35,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IpVersionController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IPV4_AND_V6 = "ipv4+v6";
@@ -70,9 +70,9 @@ public class IpVersionController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -89,8 +89,8 @@ public class IpVersionController {
             LinkedList linkedList2 = new LinkedList();
             LinkedList linkedList3 = new LinkedList();
             if (!list.isEmpty()) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    String str = list.get(i2);
+                for (int i = 0; i < list.size(); i++) {
+                    String str = list.get(i);
                     int tellIpVer = tellIpVer(str);
                     if (tellIpVer == 6) {
                         linkedList = linkedList3;
@@ -178,16 +178,16 @@ public class IpVersionController {
                 return 6;
             }
             if (7 <= str.length() && str.length() <= 15) {
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= str.length()) {
+                    if (i >= str.length()) {
                         z = true;
                         break;
-                    } else if (str.charAt(i2) != '.' && !Character.isDigit(str.charAt(i2))) {
+                    } else if (str.charAt(i) != '.' && !Character.isDigit(str.charAt(i))) {
                         z = false;
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
                 if (z) {
@@ -257,9 +257,9 @@ public class IpVersionController {
             if (networkStatus.canV6()) {
                 LinkedList<ServerIPInfo> bestServerIPCache = ServerIPV6Mgr.getInstance().getBestServerIPCache();
                 if (!bestServerIPCache.isEmpty()) {
-                    int i2 = networkStatus.canV4() ? 1 : 2;
-                    for (int i3 = 0; i3 < bestServerIPCache.size() && i3 < i2; i3++) {
-                        String ip = bestServerIPCache.get(i3).getIp();
+                    int i = networkStatus.canV4() ? 1 : 2;
+                    for (int i2 = 0; i2 < bestServerIPCache.size() && i2 < i; i2++) {
+                        String ip = bestServerIPCache.get(i2).getIp();
                         if (ip != null && ip.trim().length() >= 1) {
                             arrayList.add(ip);
                         }
@@ -269,8 +269,8 @@ public class IpVersionController {
             if (networkStatus.canV4()) {
                 LinkedList<ServerIPInfo> bestServerIPCache2 = ServerIPMgr.getInstance().getBestServerIPCache();
                 if (!bestServerIPCache2.isEmpty()) {
-                    for (int i4 = 0; i4 < bestServerIPCache2.size() && i4 < 2; i4++) {
-                        String ip2 = bestServerIPCache2.get(i4).getIp();
+                    for (int i3 = 0; i3 < bestServerIPCache2.size() && i3 < 2; i3++) {
+                        String ip2 = bestServerIPCache2.get(i3).getIp();
                         if (ip2 != null && ip2.trim().length() >= 1) {
                             arrayList.add(ip2);
                         }
@@ -341,14 +341,14 @@ public class IpVersionController {
         return invokeLL.intValue;
     }
 
-    public String getOneServerIPByKnownISP(Context context, int i2, NetworkStatus networkStatus) {
+    public String getOneServerIPByKnownISP(Context context, int i, NetworkStatus networkStatus) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, context, i2, networkStatus)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048586, this, context, i, networkStatus)) == null) {
             if (networkStatus.canV6()) {
-                return ServerIPV6Mgr.getInstance().getOneServerIPByKnownISP(context, i2);
+                return ServerIPV6Mgr.getInstance().getOneServerIPByKnownISP(context, i);
             }
-            return ServerIPMgr.getInstance().getOneServerIPByKnownISP(context, i2);
+            return ServerIPMgr.getInstance().getOneServerIPByKnownISP(context, i);
         }
         return (String) invokeLIL.objValue;
     }
@@ -375,16 +375,16 @@ public class IpVersionController {
         return (List) invokeLLL.objValue;
     }
 
-    public ArrayList<String> getServerIPByKnownISP(Context context, int i2, NetworkStatus networkStatus) {
+    public ArrayList<String> getServerIPByKnownISP(Context context, int i, NetworkStatus networkStatus) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048590, this, context, i2, networkStatus)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048590, this, context, i, networkStatus)) == null) {
             ArrayList<String> arrayList = new ArrayList<>();
             if (networkStatus.canV6()) {
-                arrayList.addAll(ServerIPV6Mgr.getInstance().getServerIPByKnownISP(context, i2));
+                arrayList.addAll(ServerIPV6Mgr.getInstance().getServerIPByKnownISP(context, i));
             }
             if (networkStatus.canV4()) {
-                arrayList.addAll(ServerIPMgr.getInstance().getServerIPByKnownISP(context, i2));
+                arrayList.addAll(ServerIPMgr.getInstance().getServerIPByKnownISP(context, i));
             }
             return arrayList;
         }
@@ -413,8 +413,8 @@ public class IpVersionController {
             List<String> currentIp = getCurrentIp();
             LogTools.printDebug(TAG, String.format(Locale.US, "judgeIpVersion listIp: %s", currentIp.toString()));
             this.mCurrIpVer = 0;
-            for (int i2 = 0; i2 < currentIp.size(); i2++) {
-                int tellIpVer = tellIpVer(currentIp.get(i2));
+            for (int i = 0; i < currentIp.size(); i++) {
+                int tellIpVer = tellIpVer(currentIp.get(i));
                 if (tellIpVer == 4) {
                     this.mCurrIpVer |= 1;
                 } else if (tellIpVer == 6) {
@@ -530,22 +530,22 @@ public class IpVersionController {
         }
     }
 
-    public void setNetworkStatus(int i2) {
+    public void setNetworkStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            NetworkStatus.updateStatus(i2);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            NetworkStatus.updateStatus(i);
             DataCacheMgr.INSTANCE.getCachedNetStatusInfo().setNetworkStatus(NetworkStatus.getInstanceClone());
         }
     }
 
-    public List<ResultTB> getResultByNetworkHost(String str, String str2, int i2) {
+    public List<ResultTB> getResultByNetworkHost(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048588, this, str, str2, i2)) == null) {
-            if (1 == i2) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048588, this, str, str2, i)) == null) {
+            if (1 == i) {
                 return DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT).getResultByNetworkHost(str, str2);
             }
-            if (2 == i2) {
+            if (2 == i) {
                 return DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT).getResultV6ByNetworkHost(str, str2);
             }
             return null;

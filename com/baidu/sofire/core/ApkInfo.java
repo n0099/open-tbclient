@@ -28,7 +28,7 @@ public class ApkInfo {
     public int duration;
     public Context hostContext;
     public int initStatus;
-    public List<g> intentFilters;
+    public List<PluginloaderIntentFilter> intentFilters;
     public boolean isMem;
     public boolean isNextLoad;
     public int isOnce;
@@ -47,9 +47,9 @@ public class ApkInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,16 +94,16 @@ public class ApkInfo {
         return invokeV.intValue;
     }
 
-    public ApkInfo(int i2, String str, String str2) {
+    public ApkInfo(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -112,7 +112,7 @@ public class ApkInfo {
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
-        this.key = i2;
+        this.key = i;
         this.versionName = str;
         this.pkgPath = str2;
     }
@@ -124,9 +124,9 @@ public class ApkInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -139,16 +139,16 @@ public class ApkInfo {
         this.pkgPath = str2;
     }
 
-    public ApkInfo(int i2, String str, String str2, String str3, String str4) {
+    public ApkInfo(int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, str3, str4};
+            Object[] objArr = {Integer.valueOf(i), str, str2, str3, str4};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -157,7 +157,7 @@ public class ApkInfo {
         this.priority = -1;
         this.isMem = false;
         this.isNextLoad = false;
-        this.key = i2;
+        this.key = i;
         this.packageName = str;
         this.versionName = str2;
         this.downloadURL = str3;
@@ -171,9 +171,9 @@ public class ApkInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {apkInfo};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

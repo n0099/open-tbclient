@@ -26,30 +26,30 @@ public class CommonFootViewHolder extends BaseRecyclerViewHolder<Boolean> {
             newInitContext.initArgs = r2;
             Object[] objArr = {view, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mFooterIc = view.findViewById(R.id.sapi_sdk_load_more_ic);
-        TextView textView = (TextView) view.findViewById(R.id.sapi_sdk_load_more_tip);
+        this.mFooterIc = view.findViewById(R.id.obfuscated_res_0x7f091ba4);
+        TextView textView = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091ba5);
         this.mFootTv = textView;
         this.isDarkMode = z;
         if (z) {
-            textView.setTextColor(view.getContext().getResources().getColor(R.color.sapi_sdk_addr_load_more_loading_text_dark_color));
+            textView.setTextColor(view.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06096a));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.pass.ecommerce.common.adapter.BaseRecyclerViewHolder
-    public void bindData2View(int i2, Boolean bool) {
+    public void bindData2View(int i, Boolean bool) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bool) == null) {
-            super.bindData2View(i2, (int) bool);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bool) == null) {
+            super.bindData2View(i, (int) bool);
             if (bool.booleanValue()) {
                 this.mFooterIc.setVisibility(0);
                 this.mFootTv.setText("正在加载...");

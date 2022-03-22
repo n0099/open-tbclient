@@ -9,7 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.f0.d.b;
+import c.a.e0.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,15 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TipView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f36485e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f28263b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36486f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public Animation f36487g;
+    /* renamed from: c  reason: collision with root package name */
+    public Animation f28264c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TipView(Context context) {
@@ -39,9 +37,9 @@ public class TipView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -51,56 +49,56 @@ public class TipView extends LinearLayout {
         }
     }
 
-    public final void a(Context context) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setVisibility(8);
+            this.a.clearAnimation();
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(context).inflate(R.layout.view_tip, (ViewGroup) this, true);
-            this.f36485e = (ImageView) findViewById(R.id.tip_loading_view);
-            this.f36486f = (TextView) findViewById(R.id.tip_text_view);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a6, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09201f);
+            this.f28263b = (TextView) findViewById(R.id.obfuscated_res_0x7f092023);
         }
     }
 
-    public void hideLoading() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setVisibility(8);
-            this.f36485e.clearAnimation();
-        }
-    }
-
-    public void showChannelLoading(String str) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             setVisibility(0);
-            if (this.f36487g == null) {
-                this.f36487g = AnimationUtils.loadAnimation(getContext(), R.anim.loading_rotate);
+            if (this.f28264c == null) {
+                this.f28264c = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01008f);
             }
-            this.f36486f.setText(str);
-            ViewGroup.LayoutParams layoutParams = this.f36485e.getLayoutParams();
+            this.f28263b.setText(str);
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.channel_loading_icon_size);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701c6);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            this.f36485e.startAnimation(this.f36487g);
+            this.a.startAnimation(this.f28264c);
         }
     }
 
-    public void showPayLoading(String str, String str2) {
+    public void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
             setVisibility(0);
-            this.f36485e.clearAnimation();
-            ViewGroup.LayoutParams layoutParams = this.f36485e.getLayoutParams();
+            this.a.clearAnimation();
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             if (layoutParams != null) {
-                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.pay_loading_icon_size);
+                int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070584);
                 layoutParams.width = dimensionPixelOffset;
                 layoutParams.height = dimensionPixelOffset;
             }
-            b.b().a(this.f36485e, str);
-            this.f36486f.setText(str2);
+            b.b().a(this.a, str);
+            this.f28263b.setText(str2);
         }
     }
 
@@ -113,9 +111,9 @@ public class TipView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -126,17 +124,17 @@ public class TipView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TipView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -144,6 +142,6 @@ public class TipView extends LinearLayout {
                 return;
             }
         }
-        a(context);
+        b(context);
     }
 }

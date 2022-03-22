@@ -18,37 +18,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MediaTipStateLayer implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SwanVideoView f29757b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f29758c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f29759d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38692e;
+    public View f29760e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SwanVideoView f38693f;
+    public TextView f29761f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f38694g;
+    public TextView f29762g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f38695h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f38696i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f38697j;
-    public TextView k;
-    public TipState l;
-    public ImageView m;
-    public TextView n;
-    public ImageView o;
-    public boolean p;
+    public TipState f29763h;
+    public ImageView i;
+    public TextView j;
+    public ImageView k;
+    public boolean l;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class TipState {
         public static final /* synthetic */ TipState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -81,16 +83,16 @@ public class MediaTipStateLayer implements View.OnClickListener {
             $VALUES = new TipState[]{NORMAL, ERROR, NO_WIFI, NO_NETWORK, tipState};
         }
 
-        public TipState(String str, int i2) {
+        public TipState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -120,15 +122,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38692e = context;
+        this.a = context;
         e();
         d();
     }
@@ -136,43 +138,43 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void a(SwanVideoView swanVideoView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, swanVideoView) == null) {
-            this.f38693f = swanVideoView;
+            this.f29757b = swanVideoView;
         }
     }
 
     public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38694g : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f29758c : (View) invokeV.objValue;
     }
 
     public TipState c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.l : (TipState) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29763h : (TipState) invokeV.objValue;
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f38697j.setOnClickListener(this);
-            this.f38695h.setOnClickListener(this);
-            this.o.setOnClickListener(this);
+            this.f29761f.setOnClickListener(this);
+            this.f29759d.setOnClickListener(this);
+            this.k.setOnClickListener(this);
         }
     }
 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            View inflate = LayoutInflater.from(this.f38692e).inflate(R.layout.swanapp_video_occur_error, (ViewGroup) null, false);
-            this.f38694g = inflate;
-            this.f38696i = inflate.findViewById(R.id.swanapp_video_no_wifi);
-            this.o = (ImageView) this.f38694g.findViewById(R.id.swanapp_video_full_screen_back);
-            this.f38697j = (TextView) this.f38694g.findViewById(R.id.swanapp_video_continue_play);
-            this.k = (TextView) this.f38694g.findViewById(R.id.swanapp_video_continue_play_text);
-            this.f38695h = this.f38694g.findViewById(R.id.swanapp_video_replay);
-            this.m = (ImageView) this.f38694g.findViewById(R.id.swanapp_video_relay_img);
-            this.n = (TextView) this.f38694g.findViewById(R.id.swanapp_video_replay_text);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07e6, (ViewGroup) null, false);
+            this.f29758c = inflate;
+            this.f29760e = inflate.findViewById(R.id.obfuscated_res_0x7f091e0e);
+            this.k = (ImageView) this.f29758c.findViewById(R.id.obfuscated_res_0x7f091e07);
+            this.f29761f = (TextView) this.f29758c.findViewById(R.id.obfuscated_res_0x7f091df6);
+            this.f29762g = (TextView) this.f29758c.findViewById(R.id.obfuscated_res_0x7f091df7);
+            this.f29759d = this.f29758c.findViewById(R.id.obfuscated_res_0x7f091e16);
+            this.i = (ImageView) this.f29758c.findViewById(R.id.obfuscated_res_0x7f091e15);
+            this.j = (TextView) this.f29758c.findViewById(R.id.obfuscated_res_0x7f091e17);
             h(TipState.NORMAL);
         }
     }
@@ -180,39 +182,39 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Resources resources = this.f38692e.getResources();
-            TipState tipState = this.l;
+            Resources resources = this.a.getResources();
+            TipState tipState = this.f29763h;
             if (tipState == TipState.ERROR) {
-                this.m.setImageResource(R.drawable.swanapp_video_refresh);
-                this.n.setText(this.f38692e.getText(R.string.swanapp_video_refresh));
-                this.f38694g.setVisibility(0);
-                this.f38695h.setVisibility(0);
-                this.f38696i.setVisibility(8);
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811a8);
+                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f12f7));
+                this.f29758c.setVisibility(0);
+                this.f29759d.setVisibility(0);
+                this.f29760e.setVisibility(8);
             } else if (tipState == TipState.NO_WIFI) {
-                this.f38694g.setVisibility(0);
-                this.f38695h.setVisibility(8);
-                this.f38696i.setVisibility(0);
-                this.k.setTextColor(resources.getColor(R.color.swanapp_video_no_wifi_text_color));
-                this.k.setText(R.string.swanapp_video_error_no_wifi);
-                this.f38697j.setBackgroundResource(R.drawable.swanapp_video_continue_play);
+                this.f29758c.setVisibility(0);
+                this.f29759d.setVisibility(8);
+                this.f29760e.setVisibility(0);
+                this.f29762g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a8e));
+                this.f29762g.setText(R.string.obfuscated_res_0x7f0f12ec);
+                this.f29761f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119f);
             } else if (tipState == TipState.NO_NETWORK) {
-                this.f38694g.setVisibility(0);
-                this.f38695h.setVisibility(8);
-                this.f38696i.setVisibility(0);
-                this.k.setTextColor(resources.getColor(R.color.swanapp_video_no_network_text_color));
-                this.k.setText(R.string.swanapp_video_network_error);
-                this.f38697j.setText(R.string.swanapp_video_click_retry);
-                this.f38697j.setBackgroundResource(R.drawable.swanapp_video_click_retry);
+                this.f29758c.setVisibility(0);
+                this.f29759d.setVisibility(8);
+                this.f29760e.setVisibility(0);
+                this.f29762g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a8d));
+                this.f29762g.setText(R.string.obfuscated_res_0x7f0f12ee);
+                this.f29761f.setText(R.string.obfuscated_res_0x7f0f12e9);
+                this.f29761f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08119e);
             } else if (tipState == TipState.END) {
-                this.m.setImageResource(R.drawable.swanapp_video_replay);
-                this.n.setText(this.f38692e.getText(R.string.swanapp_video_replay));
-                this.f38694g.setVisibility(0);
-                this.f38695h.setVisibility(0);
-                this.f38696i.setVisibility(8);
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811a9);
+                this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f12f8));
+                this.f29758c.setVisibility(0);
+                this.f29759d.setVisibility(0);
+                this.f29760e.setVisibility(8);
             } else if (tipState == TipState.NORMAL) {
-                this.f38694g.setVisibility(8);
-                this.f38696i.setVisibility(8);
-                this.f38695h.setVisibility(8);
+                this.f29758c.setVisibility(8);
+                this.f29760e.setVisibility(8);
+                this.f29759d.setVisibility(8);
             }
         }
     }
@@ -220,15 +222,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
     public void g(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.p = z;
-            this.o.setVisibility(z ? 0 : 8);
+            this.l = z;
+            this.k.setVisibility(z ? 0 : 8);
         }
     }
 
     public void h(TipState tipState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, tipState) == null) {
-            this.l = tipState;
+            this.f29763h = tipState;
             f();
         }
     }
@@ -239,15 +241,15 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
             int id = view.getId();
-            if (id == R.id.swanapp_video_continue_play || id == R.id.swanapp_video_replay) {
-                SwanVideoView swanVideoView2 = this.f38693f;
+            if (id == R.id.obfuscated_res_0x7f091df6 || id == R.id.obfuscated_res_0x7f091e16) {
+                SwanVideoView swanVideoView2 = this.f29757b;
                 if (swanVideoView2 != null) {
-                    swanVideoView2.startWithFocus();
+                    swanVideoView2.Y();
                 }
                 h(TipState.NORMAL);
-            } else if (id != R.id.swanapp_video_full_screen_back || (swanVideoView = this.f38693f) == null || swanVideoView.getVideoPlayerCallback() == null) {
+            } else if (id != R.id.obfuscated_res_0x7f091e07 || (swanVideoView = this.f29757b) == null || swanVideoView.getVideoPlayerCallback() == null) {
             } else {
-                this.f38693f.getVideoPlayerCallback().d(!this.p);
+                this.f29757b.getVideoPlayerCallback().d(!this.l);
             }
         }
     }

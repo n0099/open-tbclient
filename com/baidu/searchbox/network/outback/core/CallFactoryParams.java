@@ -40,9 +40,9 @@ public class CallFactoryParams {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -62,11 +62,11 @@ public class CallFactoryParams {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new CallFactoryParams(this) : (CallFactoryParams) invokeV.objValue;
         }
 
-        public Builder setConnectTimeoutMs(int i2) {
+        public Builder setConnectTimeoutMs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                this.mConnectTimeoutMs = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.mConnectTimeoutMs = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -82,12 +82,12 @@ public class CallFactoryParams {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setOkHttpConnectionPool(int i2, long j2, TimeUnit timeUnit) {
+        public Builder setOkHttpConnectionPool(int i, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), timeUnit})) == null) {
-                this.mConnectionPoolMaxIdleConnections = i2;
-                this.mConnectionPoolKeepAliveDurationNs = j2;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), timeUnit})) == null) {
+                this.mConnectionPoolMaxIdleConnections = i;
+                this.mConnectionPoolKeepAliveDurationNs = j;
                 this.mConnectionPoolTimeUnit = timeUnit;
                 return this;
             }
@@ -104,21 +104,21 @@ public class CallFactoryParams {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setReadTimeoutMs(int i2) {
+        public Builder setReadTimeoutMs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                this.mReadTimeoutMs = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                this.mReadTimeoutMs = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setWriteTimeoutMs(int i2) {
+        public Builder setWriteTimeoutMs(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-                this.mWriteTimeoutMs = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.mWriteTimeoutMs = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -132,9 +132,9 @@ public class CallFactoryParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

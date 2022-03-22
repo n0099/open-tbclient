@@ -33,9 +33,9 @@ public class PaymentConfirmRequestData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -120,17 +120,17 @@ public class PaymentConfirmRequestData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.terminal : (String) invokeV.objValue;
     }
 
-    public void setCurrency(int i2) {
+    public void setCurrency(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.currency = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.currency = i;
         }
     }
 
-    public void setGoods_duration(long j2) {
+    public void setGoods_duration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.goods_duration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.goods_duration = j;
         }
     }
 
@@ -141,10 +141,10 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setGoods_num(long j2) {
+    public void setGoods_num(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) {
-            this.goods_num = j2;
+        if (interceptable == null || interceptable.invokeJ(1048592, this, j) == null) {
+            this.goods_num = j;
         }
     }
 
@@ -162,17 +162,17 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setGoods_user_level(int i2) {
+    public void setGoods_user_level(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.goods_user_level = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.goods_user_level = i;
         }
     }
 
-    public void setOpen_id(long j2) {
+    public void setOpen_id(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.open_id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.open_id = j;
         }
     }
 
@@ -183,24 +183,24 @@ public class PaymentConfirmRequestData implements Serializable {
         }
     }
 
-    public void setPay_type(int i2) {
+    public void setPay_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.pay_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.pay_type = i;
         }
     }
 
-    public void setScene_id(long j2) {
+    public void setScene_id(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048599, this, j2) == null) {
-            this.scene_id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.scene_id = j;
         }
     }
 
-    public void setTdou_num(long j2) {
+    public void setTdou_num(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.tdou_num = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.tdou_num = j;
         }
     }
 

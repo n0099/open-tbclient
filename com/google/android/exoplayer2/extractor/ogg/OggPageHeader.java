@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class OggPageHeader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EMPTY_PAGE_HEADER_SIZE = 27;
@@ -56,9 +56,9 @@ public final class OggPageHeader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,9 +99,9 @@ public final class OggPageHeader {
                     this.headerSize = readUnsignedByte2 + 27;
                     this.scratch.reset();
                     extractorInput.peekFully(this.scratch.data, 0, this.pageSegmentCount);
-                    for (int i2 = 0; i2 < this.pageSegmentCount; i2++) {
-                        this.laces[i2] = this.scratch.readUnsignedByte();
-                        this.bodySize += this.laces[i2];
+                    for (int i = 0; i < this.pageSegmentCount; i++) {
+                        this.laces[i] = this.scratch.readUnsignedByte();
+                        this.bodySize += this.laces[i];
                     }
                     return true;
                 }

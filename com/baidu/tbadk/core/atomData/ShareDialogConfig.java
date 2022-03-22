@@ -7,7 +7,7 @@ import android.util.Pair;
 import android.util.SparseArray;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.t.j;
+import c.a.o0.r.t.l;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.TransmitForumData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
@@ -21,17 +21,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ShareDialogConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View.OnClickListener closeAdListener;
     public View.OnClickListener copyLinkListener;
     public int copyTitleId;
-    public j.d dialogAddToExpressionListener;
-    public j.d dialogDownloadOriginListener;
-    public j.d dialogRecognizePicListener;
-    public j.d dialogSaveToDiskListener;
+    public l.d dialogAddToExpressionListener;
+    public l.d dialogDownloadOriginListener;
+    public l.d dialogRecognizePicListener;
+    public l.d dialogSaveToDiskListener;
     public View.OnClickListener disLikeListener;
     public String experimentId;
     public boolean hasSpecialItem;
@@ -72,7 +72,7 @@ public class ShareDialogConfig extends IntentConfig {
     public DialogInterface.OnDismissListener onDismissListener;
     public View.OnClickListener onWeChatEmotionShareListener;
     public String originImgText;
-    public j.d qrCodeClickListener;
+    public l.d qrCodeClickListener;
     public ShareItem shareItem;
     public boolean showAddEmotion;
     public boolean showDisLike;
@@ -85,7 +85,7 @@ public class ShareDialogConfig extends IntentConfig {
     public String topicId;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class From {
         public static final /* synthetic */ From[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -128,16 +128,16 @@ public class ShareDialogConfig extends IntentConfig {
             $VALUES = new From[]{Default, Recommend, Concern, PB, FRS, PersonPolymeric, VideoMiddlePageHorizontal, VideoMiddlePageVertical, HomeVideoTab, from};
         }
 
-        public From(String str, int i2) {
+        public From(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -169,9 +169,9 @@ public class ShareDialogConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, shareItem, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -195,13 +195,13 @@ public class ShareDialogConfig extends IntentConfig {
         this.showLocation = z;
     }
 
-    public void addOutsideTextView(int i2, int i3, View.OnClickListener onClickListener) {
+    public void addOutsideTextView(int i, int i2, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, onClickListener) == null) {
             if (this.textViewList == null) {
                 this.textViewList = new ArrayList<>();
             }
-            this.textViewList.add(new Pair<>(Integer.valueOf(i2), new Pair(Integer.valueOf(i3), onClickListener)));
+            this.textViewList.add(new Pair<>(Integer.valueOf(i), new Pair(Integer.valueOf(i2), onClickListener)));
         }
     }
 
@@ -261,10 +261,10 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
-    public void setCustomCopyTitle(int i2) {
+    public void setCustomCopyTitle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.copyTitleId = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.copyTitleId = i;
         }
     }
 
@@ -282,10 +282,10 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
-    public void setHideMode(int i2) {
+    public void setHideMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.hideMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.hideMode = i;
         }
     }
 
@@ -346,10 +346,10 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
-    public void setPrivateThread(int i2) {
+    public void setPrivateThread(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mPrivateThread = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mPrivateThread = i;
         }
     }
 
@@ -360,13 +360,13 @@ public class ShareDialogConfig extends IntentConfig {
         }
     }
 
-    public void setSpecialShareItems(int i2, ShareItem shareItem) {
+    public void setSpecialShareItems(int i, ShareItem shareItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048600, this, i2, shareItem) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048600, this, i, shareItem) == null) {
             if (this.specialShareItems == null) {
                 this.specialShareItems = new ShareItem[9];
             }
-            this.specialShareItems[i2] = shareItem;
+            this.specialShareItems[i] = shareItem;
         }
     }
 
@@ -393,9 +393,9 @@ public class ShareDialogConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, shareItem, Boolean.valueOf(z), sparseArray};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -429,9 +429,9 @@ public class ShareDialogConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, shareItem, Boolean.valueOf(z), sparseArray, Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -470,9 +470,9 @@ public class ShareDialogConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, shareItem, Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);

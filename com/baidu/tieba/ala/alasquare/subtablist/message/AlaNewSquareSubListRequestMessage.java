@@ -6,6 +6,7 @@ import c.a.d.f.p.n;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.ecommerce.bean.SuggestAddrField;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -37,9 +38,9 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -65,13 +66,13 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int k = n.k(TbadkCoreApplication.getInst());
-            int i2 = n.i(TbadkCoreApplication.getInst());
+            int i = n.i(TbadkCoreApplication.getInst());
             float h2 = n.h(TbadkCoreApplication.getInst());
             addParam("entry_name", this.entryName);
-            addParam("pn", this.pn);
+            addParam(Config.PACKAGE_NAME, this.pn);
             addParam("ps", this.ps);
             addParam("scr_w", k);
-            addParam("scr_h", i2);
+            addParam("scr_h", i);
             addParam("q_type", 0);
             addParam("scr_dip", String.valueOf(h2));
             addParam("label_name", this.lableName);
@@ -91,7 +92,7 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
                 }
             }
             addParam("network", str);
-            addParam("ua_str", k + "_" + i2 + "_android_" + TbConfig.getVersion());
+            addParam("ua_str", k + "_" + i + "_android_" + TbConfig.getVersion());
             addParam("tab_id", this.tabId);
             addParam("refresh_type", this.refreshType);
             addParam("session_id", this.sessionId);
@@ -120,17 +121,17 @@ public class AlaNewSquareSubListRequestMessage extends HttpMessage {
         }
     }
 
-    public void setPn(int i2) {
+    public void setPn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.pn = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.pn = i;
         }
     }
 
-    public void setPs(int i2) {
+    public void setPs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.ps = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.ps = i;
         }
     }
 

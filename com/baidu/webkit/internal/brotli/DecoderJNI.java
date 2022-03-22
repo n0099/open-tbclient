@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.INoProGuard;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.dxmpay.wallet.utils.StatHelper;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
@@ -27,25 +26,25 @@ public class DecoderJNI implements INoProGuard {
         public final ByteBuffer inputBuffer;
         public a lastStatus;
 
-        public Wrapper(int i2) throws IOException {
+        public Wrapper(int i) throws IOException {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.context = r0;
-            this.lastStatus = a.f51398c;
+            this.lastStatus = a.f37855c;
             this.fresh = true;
-            long[] jArr = {0, i2};
+            long[] jArr = {0, i};
             this.inputBuffer = WebSettingsGlobalBlink.kernelBrotliCreate(jArr);
             if (this.context[0] == 0) {
                 throw new IOException("failed to initialize native brotli decoder");
@@ -55,8 +54,8 @@ public class DecoderJNI implements INoProGuard {
         private void parseStatus() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-                long j2 = this.context[1];
-                this.lastStatus = j2 == 1 ? a.f51397b : j2 == 2 ? a.f51398c : j2 == 3 ? a.f51399d : j2 == 4 ? a.f51400e : a.a;
+                long j = this.context[1];
+                this.lastStatus = j == 1 ? a.f37854b : j == 2 ? a.f37855c : j == 3 ? a.f37856d : j == 4 ? a.f37857e : a.a;
             }
         }
 
@@ -105,7 +104,7 @@ public class DecoderJNI implements INoProGuard {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 if (this.context[0] != 0) {
-                    if (this.lastStatus == a.f51399d || hasOutput()) {
+                    if (this.lastStatus == a.f37856d || hasOutput()) {
                         this.fresh = false;
                         ByteBuffer kernelBrotliPull = WebSettingsGlobalBlink.kernelBrotliPull(this.context);
                         parseStatus();
@@ -118,23 +117,23 @@ public class DecoderJNI implements INoProGuard {
             return (ByteBuffer) invokeV.objValue;
         }
 
-        public void push(int i2) throws IOException {
+        public void push(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                if (i2 < 0) {
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                if (i < 0) {
                     throw new IOException("negative block length");
                 }
                 if (this.context[0] == 0) {
                     throw new IOException("brotli decoder is already destroyed");
                 }
                 a aVar = this.lastStatus;
-                if (aVar != a.f51398c && aVar != a.f51400e) {
+                if (aVar != a.f37855c && aVar != a.f37857e) {
                     throw new IOException("pushing input to decoder in " + this.lastStatus + " state");
-                } else if (this.lastStatus == a.f51400e && i2 != 0) {
+                } else if (this.lastStatus == a.f37857e && i != 0) {
                     throw new IOException("pushing input to decoder in OK state");
                 } else {
                     this.fresh = false;
-                    WebSettingsGlobalBlink.kernelBrotliPush(this.context, i2);
+                    WebSettingsGlobalBlink.kernelBrotliPush(this.context, i);
                     parseStatus();
                 }
             }
@@ -148,19 +147,19 @@ public class DecoderJNI implements INoProGuard {
         public static final a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final a f51397b;
+        public static final a f37854b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final a f51398c;
+        public static final a f37855c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final a f51399d;
+        public static final a f37856d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final a f51400e;
+        public static final a f37857e;
 
         /* renamed from: f  reason: collision with root package name */
-        public static final /* synthetic */ a[] f51401f;
+        public static final /* synthetic */ a[] f37858f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -177,24 +176,24 @@ public class DecoderJNI implements INoProGuard {
                 }
             }
             a = new a("ERROR", 0);
-            f51397b = new a("DONE", 1);
-            f51398c = new a("NEEDS_MORE_INPUT", 2);
-            f51399d = new a("NEEDS_MORE_OUTPUT", 3);
-            a aVar = new a(StatHelper.SENSOR_OK, 4);
-            f51400e = aVar;
-            f51401f = new a[]{a, f51397b, f51398c, f51399d, aVar};
+            f37854b = new a("DONE", 1);
+            f37855c = new a("NEEDS_MORE_INPUT", 2);
+            f37856d = new a("NEEDS_MORE_OUTPUT", 3);
+            a aVar = new a("OK", 4);
+            f37857e = aVar;
+            f37858f = new a[]{a, f37854b, f37855c, f37856d, aVar};
         }
 
-        public a(String str, int i2) {
+        public a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -213,7 +212,7 @@ public class DecoderJNI implements INoProGuard {
         public static a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f51401f.clone() : (a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (a[]) f37858f.clone() : (a[]) invokeV.objValue;
         }
     }
 
@@ -222,9 +221,9 @@ public class DecoderJNI implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

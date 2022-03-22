@@ -4,7 +4,7 @@ import com.baidu.nps.pm.IBundleInfo;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface IPackageGetter {
-    void downloadBundle(IBundleInfo iBundleInfo, String str, int i2, IPackageDownloadCallback iPackageDownloadCallback);
+    void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback);
 
     void getBundleInfo(List<IBundleInfo> list, IPackageGetCallback iPackageGetCallback);
 }

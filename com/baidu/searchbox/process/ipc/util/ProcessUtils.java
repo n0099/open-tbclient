@@ -59,9 +59,9 @@ public final class ProcessUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -161,11 +161,11 @@ public final class ProcessUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return Process.is64Bit();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
                 if (strArr.length > 0) {
                     return Build.CPU_ABI.equals(strArr[0]);

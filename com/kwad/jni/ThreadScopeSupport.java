@@ -35,9 +35,9 @@ public class ThreadScopeSupport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -45,12 +45,12 @@ public class ThreadScopeSupport {
     }
 
     @Keep
-    public static void runStdFunction(long j2) {
+    public static void runStdFunction(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j2) == null) {
-            runStdFunctionImpl(j2);
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            runStdFunctionImpl(j);
         }
     }
 
-    public static native void runStdFunctionImpl(long j2);
+    public static native void runStdFunctionImpl(long j);
 }

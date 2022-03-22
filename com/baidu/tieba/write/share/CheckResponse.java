@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.share;
 
-import c.a.r0.q4.p.c;
+import c.a.p0.s4.p.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -25,9 +25,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -37,9 +37,9 @@ public class CheckResponse extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) && i2 == 1003417 && jSONObject != null) {
+        if ((interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) && i == 1003417 && jSONObject != null) {
             setError(jSONObject.optInt("error_code"));
             setErrorString(jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG));
             if (getError() != 0) {
@@ -48,11 +48,11 @@ public class CheckResponse extends JsonHttpResponsedMessage {
             c cVar = new c();
             this.mCheckResponseData = cVar;
             cVar.a = jSONObject.optString("tbopen_app_key");
-            this.mCheckResponseData.f21304c = jSONObject.optString("tbopen_app_name");
-            this.mCheckResponseData.f21305d = jSONObject.optString("tbopen_app_icon");
+            this.mCheckResponseData.f18403c = jSONObject.optString("tbopen_app_name");
+            this.mCheckResponseData.f18404d = jSONObject.optString("tbopen_app_icon");
             JSONObject optJSONObject = jSONObject.optJSONObject(UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME);
             if (optJSONObject != null) {
-                this.mCheckResponseData.f21311j = optJSONObject.optString("default_pic");
+                this.mCheckResponseData.j = optJSONObject.optString("default_pic");
             }
         }
     }

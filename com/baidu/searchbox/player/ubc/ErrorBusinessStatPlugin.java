@@ -31,9 +31,9 @@ public final class ErrorBusinessStatPlugin extends AbsPlugin {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,15 +43,15 @@ public final class ErrorBusinessStatPlugin extends AbsPlugin {
         this.ubcContent = new BDVideoPlayerUbcContent.Builder().buildEmpty();
     }
 
-    private final void uploadBusinessError(int i2) {
+    private final void uploadBusinessError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
             BDVideoPlayerUbcContent ubcContent = this.ubcContent;
             Intrinsics.checkNotNullExpressionValue(ubcContent, "ubcContent");
             JSONObject extStatisticsLogClone = ubcContent.getExtStatisticsLogClone();
             Intrinsics.checkNotNullExpressionValue(extStatisticsLogClone, "ubcContent.extStatisticsLogClone");
-            extStatisticsLogClone.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i2);
-            extStatisticsLogClone.put("sub_errorNo", i2);
+            extStatisticsLogClone.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
+            extStatisticsLogClone.put("sub_errorNo", i);
             String ubcContent2 = BDVideoPlayerUbcHelper.getUbcContent(extStatisticsLogClone, this.ubcContent, (JSONObject) null);
             Intrinsics.checkNotNullExpressionValue(ubcContent2, "BDVideoPlayerUbcHelper.g…extLog, ubcContent, null)");
             this.ubcService.onEvent(VideoPlayerUbcConstants.UBC_VIDEO_BUSINESS_ERROR, ubcContent2);

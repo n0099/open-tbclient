@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.e1.n.f;
-import c.a.r0.o4.h;
+import c.a.o0.e1.n.f;
+import c.a.p0.q4.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -31,49 +31,47 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes6.dex */
 public class ExpandableTextView extends RelativeLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int OFF_CONTENT_BACK = 1;
-    public static final int ON_CONTENT_BACK = 2;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SpannableStringBuilder f37062b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public SpannableStringBuilder f37063c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View.OnTouchListener f37064d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f47912e;
+    public View.OnTouchListener f37065e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SpannableStringBuilder f47913f;
+    public boolean f37066f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SpannableStringBuilder f47914g;
+    public boolean f37067g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnTouchListener f47915h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View.OnTouchListener f47916i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f47917j;
-    public boolean k;
-    public boolean l;
-    public SpannableClickTextView m;
-    public TextView n;
-    public int o;
-    public int p;
-    public int q;
-    public e r;
-    public boolean s;
-    public ViewTreeObserver.OnGlobalLayoutListener t;
-    public f u;
-    public f v;
-    public View.OnClickListener w;
+    public boolean f37068h;
+    public SpannableClickTextView i;
+    public TextView j;
+    public int k;
+    public int l;
+    public int m;
+    public e n;
+    public boolean o;
+    public ViewTreeObserver.OnGlobalLayoutListener p;
+    public f q;
+    public f r;
+    public View.OnClickListener s;
 
     /* loaded from: classes6.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExpandableTextView f47918e;
+        public final /* synthetic */ ExpandableTextView a;
 
         public a(ExpandableTextView expandableTextView) {
             Interceptable interceptable = $ic;
@@ -82,15 +80,15 @@ public class ExpandableTextView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {expandableTextView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47918e = expandableTextView;
+            this.a = expandableTextView;
         }
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
@@ -99,82 +97,82 @@ public class ExpandableTextView extends RelativeLayout {
             String substring;
             Object[] spans;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.f47918e.m == null || this.f47918e.f47913f == null || !this.f47918e.f47917j || (layout = this.f47918e.m.getLayout()) == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.i == null || this.a.f37062b == null || !this.a.f37066f || (layout = this.a.i.getLayout()) == null) {
                 return;
             }
-            if (!this.f47918e.k) {
-                if (layout.getLineCount() <= this.f47918e.o) {
+            if (!this.a.f37067g) {
+                if (layout.getLineCount() <= this.a.k) {
                     return;
                 }
-                if (this.f47918e.f47914g == null) {
-                    String spannableStringBuilder = this.f47918e.f47913f.toString();
-                    int lineStart = layout.getLineStart(this.f47918e.o - 1);
-                    int lineEnd = layout.getLineEnd(this.f47918e.o - 1);
+                if (this.a.f37063c == null) {
+                    String spannableStringBuilder = this.a.f37062b.toString();
+                    int lineStart = layout.getLineStart(this.a.k - 1);
+                    int lineEnd = layout.getLineEnd(this.a.k - 1);
                     String substring2 = spannableStringBuilder.substring(0, lineStart);
                     String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(spannableStringBuilder.substring(lineStart, lineEnd), StringHelper.getChineseAndEnglishLength(substring) - 6, "");
-                    this.f47918e.f47914g = new SpannableStringBuilder();
-                    this.f47918e.f47914g.append((CharSequence) substring2);
-                    this.f47918e.f47914g.append((CharSequence) cutChineseAndEnglishWithSuffix);
-                    int length = this.f47918e.f47914g.length();
-                    for (Object obj : this.f47918e.f47913f.getSpans(length, spannableStringBuilder.length(), Object.class)) {
-                        int spanStart = this.f47918e.f47913f.getSpanStart(obj);
-                        int spanEnd = this.f47918e.f47913f.getSpanEnd(obj);
+                    this.a.f37063c = new SpannableStringBuilder();
+                    this.a.f37063c.append((CharSequence) substring2);
+                    this.a.f37063c.append((CharSequence) cutChineseAndEnglishWithSuffix);
+                    int length = this.a.f37063c.length();
+                    for (Object obj : this.a.f37062b.getSpans(length, spannableStringBuilder.length(), Object.class)) {
+                        int spanStart = this.a.f37062b.getSpanStart(obj);
+                        int spanEnd = this.a.f37062b.getSpanEnd(obj);
                         if (spanStart < length && spanEnd >= length) {
                             break;
                         }
                         if (obj instanceof SpannableString) {
-                            this.f47918e.f47914g.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
+                            this.a.f37063c.setSpan(obj, spanStart, spanEnd, ((SpannableString) obj).getSpanFlags(obj));
                         }
                     }
-                    this.f47918e.f47914g.append((CharSequence) "...");
+                    this.a.f37063c.append((CharSequence) StringHelper.STRING_MORE);
                     SpannableString spannableString = new SpannableString("展开");
-                    spannableString.setSpan(this.f47918e.u, 0, spannableString.length(), 17);
-                    this.f47918e.f47914g.append((CharSequence) spannableString);
-                    ExpandableTextView expandableTextView = this.f47918e;
-                    expandableTextView.f47916i = new h(expandableTextView.f47914g);
-                    ((h) this.f47918e.f47916i).a(R.color.transparent);
+                    spannableString.setSpan(this.a.q, 0, spannableString.length(), 17);
+                    this.a.f37063c.append((CharSequence) spannableString);
+                    ExpandableTextView expandableTextView = this.a;
+                    expandableTextView.f37065e = new i(expandableTextView.f37063c);
+                    ((i) this.a.f37065e).a(R.color.transparent);
                 }
-                this.f47918e.n.setVisibility(8);
-                this.f47918e.m.setOnTouchListener(this.f47918e.f47916i);
-                this.f47918e.m.setText(this.f47918e.f47914g);
-                if (this.f47918e.s) {
-                    this.f47918e.t();
+                this.a.j.setVisibility(8);
+                this.a.i.setOnTouchListener(this.a.f37065e);
+                this.a.i.setText(this.a.f37063c);
+                if (this.a.o) {
+                    this.a.t();
                 }
-            } else if (!this.f47918e.l) {
-                this.f47918e.l = true;
-                if (this.f47918e.f47912e == 2) {
+            } else if (!this.a.f37068h) {
+                this.a.f37068h = true;
+                if (this.a.a == 2) {
                     int lineCount = layout.getLineCount();
                     int lineEnd2 = layout.getLineEnd(0);
-                    int i2 = lineCount - 1;
-                    int lineEnd3 = layout.getLineEnd(i2) - layout.getLineStart(i2);
+                    int i = lineCount - 1;
+                    int lineEnd3 = layout.getLineEnd(i) - layout.getLineStart(i);
                     SpannableString spannableString2 = new SpannableString("收起");
-                    spannableString2.setSpan(this.f47918e.v, 0, spannableString2.length(), 17);
-                    int i3 = lineEnd2 - lineEnd3;
-                    if (i3 > 2) {
-                        this.f47918e.f47913f.append((CharSequence) spannableString2);
+                    spannableString2.setSpan(this.a.r, 0, spannableString2.length(), 17);
+                    int i2 = lineEnd2 - lineEnd3;
+                    if (i2 > 2) {
+                        this.a.f37062b.append((CharSequence) spannableString2);
                     } else {
-                        int i4 = i3 + 1;
-                        for (int i5 = 0; i5 < i4; i5++) {
-                            this.f47918e.f47913f.append((CharSequence) GlideException.IndentedAppendable.INDENT);
+                        int i3 = i2 + 1;
+                        for (int i4 = 0; i4 < i3; i4++) {
+                            this.a.f37062b.append((CharSequence) GlideException.IndentedAppendable.INDENT);
                         }
-                        this.f47918e.f47913f.append((CharSequence) spannableString2);
+                        this.a.f37062b.append((CharSequence) spannableString2);
                     }
-                    ((h) this.f47918e.f47915h).a(R.color.transparent);
-                    this.f47918e.m.setOnTouchListener(this.f47918e.f47915h);
-                    this.f47918e.m.setText(this.f47918e.f47913f);
-                    this.f47918e.n.setVisibility(8);
+                    ((i) this.a.f37064d).a(R.color.transparent);
+                    this.a.i.setOnTouchListener(this.a.f37064d);
+                    this.a.i.setText(this.a.f37062b);
+                    this.a.j.setVisibility(8);
                     return;
                 }
                 int lineCount2 = layout.getLineCount();
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f47918e.n.getLayoutParams();
-                if (this.f47918e.n.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
-                    layoutParams.addRule(3, R.id.expandable_view_title);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.a.j.getLayoutParams();
+                if (this.a.j.getWidth() + layout.getLineWidth(lineCount2 - 1) > layout.getWidth()) {
+                    layoutParams.addRule(3, R.id.obfuscated_res_0x7f090938);
                     layoutParams.addRule(8, 0);
                 } else {
-                    layoutParams.addRule(8, R.id.expandable_view_title);
+                    layoutParams.addRule(8, R.id.obfuscated_res_0x7f090938);
                     layoutParams.addRule(3, 0);
                 }
-                this.f47918e.n.setLayoutParams(layoutParams);
+                this.a.j.setLayoutParams(layoutParams);
             }
         }
     }
@@ -183,20 +181,22 @@ public class ExpandableTextView extends RelativeLayout {
     public class b extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView l;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ ExpandableTextView f37069h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ExpandableTextView expandableTextView, int i2, String str) {
-            super(i2, str);
+        public b(ExpandableTextView expandableTextView, int i, String str) {
+            super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {expandableTextView, Integer.valueOf(i2), str};
+                Object[] objArr = {expandableTextView, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -204,14 +204,14 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.l = expandableTextView;
+            this.f37069h = expandableTextView;
         }
 
-        @Override // c.a.q0.e1.n.f, android.text.style.ClickableSpan
+        @Override // c.a.o0.e1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.l.t();
+                this.f37069h.t();
             }
         }
     }
@@ -220,20 +220,22 @@ public class ExpandableTextView extends RelativeLayout {
     public class c extends f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExpandableTextView l;
+
+        /* renamed from: h  reason: collision with root package name */
+        public final /* synthetic */ ExpandableTextView f37070h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ExpandableTextView expandableTextView, int i2, String str) {
-            super(i2, str);
+        public c(ExpandableTextView expandableTextView, int i, String str) {
+            super(i, str);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {expandableTextView, Integer.valueOf(i2), str};
+                Object[] objArr = {expandableTextView, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -241,14 +243,14 @@ public class ExpandableTextView extends RelativeLayout {
                     return;
                 }
             }
-            this.l = expandableTextView;
+            this.f37070h = expandableTextView;
         }
 
-        @Override // c.a.q0.e1.n.f, android.text.style.ClickableSpan
+        @Override // c.a.o0.e1.n.f, android.text.style.ClickableSpan
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.l.u();
+                this.f37070h.u();
             }
         }
     }
@@ -257,9 +259,7 @@ public class ExpandableTextView extends RelativeLayout {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ExpandableTextView f47919e;
+        public final /* synthetic */ ExpandableTextView a;
 
         public d(ExpandableTextView expandableTextView) {
             Interceptable interceptable = $ic;
@@ -268,22 +268,22 @@ public class ExpandableTextView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {expandableTextView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47919e = expandableTextView;
+            this.a = expandableTextView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f47919e.u();
+                this.a.u();
             }
         }
     }
@@ -302,199 +302,199 @@ public class ExpandableTextView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47912e = 1;
-        this.f47917j = true;
-        this.k = false;
-        this.l = false;
-        this.o = 2;
-        this.p = Integer.MAX_VALUE;
-        this.s = false;
-        this.t = new a(this);
-        this.u = new b(this, 2, null);
-        this.v = new c(this, 2, null);
-        this.w = new d(this);
+        this.a = 1;
+        this.f37066f = true;
+        this.f37067g = false;
+        this.f37068h = false;
+        this.k = 2;
+        this.l = Integer.MAX_VALUE;
+        this.o = false;
+        this.p = new a(this);
+        this.q = new b(this, 2, null);
+        this.r = new c(this, 2, null);
+        this.s = new d(this);
         v(context);
     }
 
     public TextView getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (TextView) invokeV.objValue;
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setViewTextColor(this.m, this.q, 1);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.i : (TextView) invokeV.objValue;
     }
 
     public void setData(CharSequence charSequence, boolean z, WorksInfoData worksInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Boolean.valueOf(z), worksInfoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Boolean.valueOf(z), worksInfoData}) == null) {
             if (charSequence == null) {
                 charSequence = "";
             }
-            this.s = z;
-            this.f47913f = new SpannableStringBuilder(charSequence);
+            this.o = z;
+            this.f37062b = new SpannableStringBuilder(charSequence);
             if (worksInfoData != null && worksInfoData.isWorks) {
                 if (TextUtils.isEmpty(charSequence)) {
-                    this.f47913f = new SpannableStringBuilder(" ");
+                    this.f37062b = new SpannableStringBuilder(" ");
                 }
-                ThreadCardUtils.setWorksPrefix(this.f47913f);
+                ThreadCardUtils.setWorksPrefix(this.f37062b);
             }
-            this.f47915h = new h(this.f47913f);
-            this.m.setText(this.f47913f);
-            this.m.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
-            this.m.setOnTouchListener(this.f47915h);
-            SkinManager.setViewTextColor(this.m, this.q, 1);
+            this.f37064d = new i(this.f37062b);
+            this.i.setText(this.f37062b);
+            this.i.setLinkTextColor(SkinManager.getColor(R.color.CAM_X0304));
+            this.i.setOnTouchListener(this.f37064d);
+            SkinManager.setViewTextColor(this.i, this.m, 1);
         }
     }
 
-    public void setExpandType(int i2) {
+    public void setExpandType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f47912e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
     public void setExpandable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f47917j = z;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f37066f = z;
             if (!z) {
                 if (Build.VERSION.SDK_INT < 16) {
-                    this.m.getViewTreeObserver().removeGlobalOnLayoutListener(this.t);
+                    this.i.getViewTreeObserver().removeGlobalOnLayoutListener(this.p);
                 } else {
-                    this.m.getViewTreeObserver().removeOnGlobalLayoutListener(this.t);
+                    this.i.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
                 }
-                this.m.setMaxLines(this.p);
-                this.m.setEllipsize(TextUtils.TruncateAt.END);
-                this.m.setText(this.f47913f);
-                this.m.setOnTouchListener(null);
-                this.n.setVisibility(8);
+                this.i.setMaxLines(this.l);
+                this.i.setEllipsize(TextUtils.TruncateAt.END);
+                this.i.setText(this.f37062b);
+                this.i.setOnTouchListener(null);
+                this.j.setVisibility(8);
                 return;
             }
-            this.m.getViewTreeObserver().addOnGlobalLayoutListener(this.t);
-            this.m.setMaxLines(Integer.MAX_VALUE);
-            this.m.setEllipsize(null);
+            this.i.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
+            this.i.setMaxLines(Integer.MAX_VALUE);
+            this.i.setEllipsize(null);
         }
     }
 
     public void setHasDown() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c.a.q0.r.v.c.d(this.m).y(R.array.S_O_X001);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c.a.o0.r.v.c.d(this.i).y(R.array.S_O_X001);
         }
     }
 
-    public void setLimitLine(int i2) {
+    public void setLimitLine(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.o = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.k = i;
         }
     }
 
-    public void setLineSpacingExtra(int i2) {
+    public void setLineSpacingExtra(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            float f2 = i2;
-            this.m.setLineSpacing(f2, 1.0f);
-            this.n.setLineSpacing(f2, 1.0f);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            float f2 = i;
+            this.i.setLineSpacing(f2, 1.0f);
+            this.j.setLineSpacing(f2, 1.0f);
         }
     }
 
     public void setOnStatusChangedListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar) == null) {
-            this.r = eVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, eVar) == null) {
+            this.n = eVar;
         }
     }
 
-    public void setTextColor(int i2) {
+    public void setTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.q = i2;
-            SkinManager.setViewTextColor(this.m, i2, 1);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.m = i;
+            SkinManager.setViewTextColor(this.i, i, 1);
         }
     }
 
-    public void setTextMaxLine(int i2) {
+    public void setTextMaxLine(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.p = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.l = i;
         }
     }
 
-    public void setTextSize(int i2) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            float f2 = i2;
-            this.m.setTextSize(0, f2);
-            this.n.setTextSize(0, f2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            float f2 = i;
+            this.i.setTextSize(0, f2);
+            this.j.setTextSize(0, f2);
         }
     }
 
-    public void setTitleUpViewPadding(int i2, int i3, int i4, int i5) {
+    public void setTitleUpViewPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048588, this, i2, i3, i4, i5) == null) {
-            this.n.setPadding(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
+            this.j.setPadding(i, i2, i3, i4);
         }
     }
 
     public final void t() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.k = true;
-            e eVar = this.r;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.f37067g = true;
+            e eVar = this.n;
             if (eVar != null) {
                 eVar.a(true);
             }
-            this.m.setOnTouchListener(this.f47915h);
-            this.m.setText(this.f47913f);
-            if (this.f47912e == 1) {
-                this.n.setVisibility(0);
+            this.i.setOnTouchListener(this.f37064d);
+            this.i.setText(this.f37062b);
+            if (this.a == 1) {
+                this.j.setVisibility(0);
             }
         }
     }
 
     public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.k = false;
-            e eVar = this.r;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.f37067g = false;
+            e eVar = this.n;
             if (eVar != null) {
                 eVar.a(false);
             }
-            this.m.setOnTouchListener(this.f47916i);
-            this.m.setText(this.f47914g);
-            this.n.setVisibility(8);
+            this.i.setOnTouchListener(this.f37065e);
+            this.i.setText(this.f37063c);
+            this.j.setVisibility(8);
         }
     }
 
     public final void v(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.widget_expandable_text_view, this);
-            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.expandable_view_title);
-            this.m = spannableClickTextView;
+        if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08c0, this);
+            SpannableClickTextView spannableClickTextView = (SpannableClickTextView) findViewById(R.id.obfuscated_res_0x7f090938);
+            this.i = spannableClickTextView;
             spannableClickTextView.setTextSize(0, TbConfig.getContentSize());
-            this.m.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
-            TextView textView = (TextView) findViewById(R.id.expandable_view_title_up);
-            this.n = textView;
-            textView.setOnClickListener(this.w);
+            this.i.setLineSpacing(TbConfig.getContentLineSpace(), 1.0f);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f090939);
+            this.j = textView;
+            textView.setOnClickListener(this.s);
             n.f(context, R.dimen.tbfontsize42);
-            this.q = R.color.CAM_X0101;
+            this.m = R.color.CAM_X0101;
             n.f(context, R.dimen.tbds6);
+        }
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            SkinManager.setViewTextColor(this.i, this.m, 1);
         }
     }
 
@@ -507,9 +507,9 @@ public class ExpandableTextView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -517,32 +517,32 @@ public class ExpandableTextView extends RelativeLayout {
                 return;
             }
         }
-        this.f47912e = 1;
-        this.f47917j = true;
-        this.k = false;
-        this.l = false;
-        this.o = 2;
-        this.p = Integer.MAX_VALUE;
-        this.s = false;
-        this.t = new a(this);
-        this.u = new b(this, 2, null);
-        this.v = new c(this, 2, null);
-        this.w = new d(this);
+        this.a = 1;
+        this.f37066f = true;
+        this.f37067g = false;
+        this.f37068h = false;
+        this.k = 2;
+        this.l = Integer.MAX_VALUE;
+        this.o = false;
+        this.p = new a(this);
+        this.q = new b(this, 2, null);
+        this.r = new c(this, 2, null);
+        this.s = new d(this);
         v(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExpandableTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ExpandableTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -550,17 +550,17 @@ public class ExpandableTextView extends RelativeLayout {
                 return;
             }
         }
-        this.f47912e = 1;
-        this.f47917j = true;
-        this.k = false;
-        this.l = false;
-        this.o = 2;
-        this.p = Integer.MAX_VALUE;
-        this.s = false;
-        this.t = new a(this);
-        this.u = new b(this, 2, null);
-        this.v = new c(this, 2, null);
-        this.w = new d(this);
+        this.a = 1;
+        this.f37066f = true;
+        this.f37067g = false;
+        this.f37068h = false;
+        this.k = 2;
+        this.l = Integer.MAX_VALUE;
+        this.o = false;
+        this.p = new a(this);
+        this.q = new b(this, 2, null);
+        this.r = new c(this, 2, null);
+        this.s = new d(this);
         v(context);
     }
 }

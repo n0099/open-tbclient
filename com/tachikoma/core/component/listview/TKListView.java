@@ -24,7 +24,7 @@ import com.tachikoma.core.component.view.TKView;
 import com.tachikoma.core.utility.V8Proxy;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKListView extends TKBase<ListView> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -40,9 +40,9 @@ public class TKListView extends TKBase<ListView> implements ILifeCycle {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -217,45 +217,45 @@ public class TKListView extends TKBase<ListView> implements ILifeCycle {
         }
     }
 
-    public void smoothScrollBy(int i2, int i3) {
+    public void smoothScrollBy(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            this.mList.smoothScrollBy(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+            this.mList.smoothScrollBy(i, i2);
         }
     }
 
-    public void smoothScrollByOffset(int i2) {
+    public void smoothScrollByOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.mList.smoothScrollByOffset(i2);
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.mList.smoothScrollByOffset(i);
         }
     }
 
-    public void smoothScrollToPosition(int i2) {
+    public void smoothScrollToPosition(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.mList.smoothScrollToPosition(i2);
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.mList.smoothScrollToPosition(i);
         }
     }
 
-    public void smoothScrollToPosition(int i2, int i3) {
+    public void smoothScrollToPosition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048602, this, i2, i3) == null) {
-            this.mList.smoothScrollToPosition(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048602, this, i, i2) == null) {
+            this.mList.smoothScrollToPosition(i, i2);
         }
     }
 
-    public void smoothScrollToPositionFromTop(int i2, int i3) {
+    public void smoothScrollToPositionFromTop(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) {
-            this.mList.smoothScrollToPositionFromTop(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            this.mList.smoothScrollToPositionFromTop(i, i2);
         }
     }
 
-    public void smoothScrollToPositionFromTop(int i2, int i3, int i4) {
+    public void smoothScrollToPositionFromTop(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048604, this, i2, i3, i4) == null) {
-            this.mList.smoothScrollToPositionFromTop(i2, i3, i4);
+        if (interceptable == null || interceptable.invokeIII(1048604, this, i, i2, i3) == null) {
+            this.mList.smoothScrollToPositionFromTop(i, i2, i3);
         }
     }
 }

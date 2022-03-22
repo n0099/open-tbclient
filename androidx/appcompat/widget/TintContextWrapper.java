@@ -52,9 +52,9 @@ public class TintContextWrapper extends ContextWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -144,14 +144,14 @@ public class TintContextWrapper extends ContextWrapper {
     }
 
     @Override // android.content.ContextWrapper, android.content.Context
-    public void setTheme(int i2) {
+    public void setTheme(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Resources.Theme theme = this.mTheme;
             if (theme == null) {
-                super.setTheme(i2);
+                super.setTheme(i);
             } else {
-                theme.applyStyle(i2, true);
+                theme.applyStyle(i, true);
             }
         }
     }

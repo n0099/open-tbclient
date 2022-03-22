@@ -16,25 +16,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ListViewPager extends ViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public float f31029b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f31030c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public float f31031d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f40230e;
+    public GestureDetector f31032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f40231f;
+    public boolean f31033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f40232g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public float f40233h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public GestureDetector f40234i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f40235j;
-    public SwipeBackLayout.c k;
+    public SwipeBackLayout.c f31034g;
 
     /* loaded from: classes5.dex */
     public static /* synthetic */ class a {
@@ -46,9 +46,7 @@ public class ListViewPager extends ViewPager {
     public class b extends GestureDetector.SimpleOnGestureListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ListViewPager f40236e;
+        public final /* synthetic */ ListViewPager a;
 
         public b(ListViewPager listViewPager) {
             Interceptable interceptable = $ic;
@@ -57,15 +55,15 @@ public class ListViewPager extends ViewPager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {listViewPager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40236e = listViewPager;
+            this.a = listViewPager;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -73,8 +71,8 @@ public class ListViewPager extends ViewPager {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-                if (this.f40236e.k != null) {
-                    this.f40236e.k.enableSwipeBack();
+                if (this.a.f31034g != null) {
+                    this.a.f31034g.enableSwipeBack();
                 }
                 return Math.abs(f2) > Math.abs(f3);
             }
@@ -95,23 +93,23 @@ public class ListViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40235j = false;
+        this.f31033f = false;
         b();
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40234i = new GestureDetector((Context) null, new b(this, null));
+            this.f31032e = new GestureDetector((Context) null, new b(this, null));
         }
     }
 
@@ -125,15 +123,23 @@ public class ListViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) || getParent() == null) {
+            return;
+        }
+        getParent().requestDisallowInterceptTouchEvent(z);
+    }
+
     @Override // androidx.viewpager.widget.ViewPager, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if (c(motionEvent)) {
                 return true;
             }
-            if (this.f40235j) {
+            if (this.f31033f) {
                 if (getParent() != null) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
@@ -143,8 +149,8 @@ public class ListViewPager extends ViewPager {
                     return false;
                 }
             }
-            if (getCurrentItem() != 0 && this.f40234i.onTouchEvent(motionEvent)) {
-                requestParentInterceptTouchEvent(true);
+            if (getCurrentItem() != 0 && this.f31032e.onTouchEvent(motionEvent)) {
+                d(true);
             }
             try {
                 return super.onInterceptTouchEvent(motionEvent);
@@ -167,10 +173,10 @@ public class ListViewPager extends ViewPager {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, motionEvent)) != null) {
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, motionEvent)) != null) {
             return invokeL.booleanValue;
         }
-        if (this.f40235j) {
+        if (this.f31033f) {
             if (getParent() != null) {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
@@ -184,16 +190,16 @@ public class ListViewPager extends ViewPager {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    SwipeBackLayout.c cVar = this.k;
+                    SwipeBackLayout.c cVar = this.f31034g;
                     if (cVar != null) {
                         cVar.enableSwipeBack();
                     }
-                    this.f40232g = motionEvent.getX() - this.f40230e;
-                    this.f40233h = motionEvent.getY() - this.f40231f;
-                    this.f40230e = motionEvent.getX();
-                    this.f40231f = motionEvent.getY();
-                    if (getCurrentItem() != 0 && Math.abs(this.f40232g) > Math.abs(this.f40233h)) {
-                        requestParentInterceptTouchEvent(true);
+                    this.f31030c = motionEvent.getX() - this.a;
+                    this.f31031d = motionEvent.getY() - this.f31029b;
+                    this.a = motionEvent.getX();
+                    this.f31029b = motionEvent.getY();
+                    if (getCurrentItem() != 0 && Math.abs(this.f31030c) > Math.abs(this.f31031d)) {
+                        d(true);
                     }
                 } else if (action != 3) {
                     if (action != 5) {
@@ -208,46 +214,38 @@ public class ListViewPager extends ViewPager {
                     return true;
                 }
             }
-            SwipeBackLayout.c cVar2 = this.k;
+            SwipeBackLayout.c cVar2 = this.f31034g;
             if (cVar2 != null) {
                 cVar2.enableSwipeBack();
             }
-            this.f40230e = 0.0f;
-            this.f40231f = 0.0f;
-            this.f40232g = 0.0f;
-            this.f40233h = 0.0f;
+            this.a = 0.0f;
+            this.f31029b = 0.0f;
+            this.f31030c = 0.0f;
+            this.f31031d = 0.0f;
             if (c(motionEvent)) {
             }
         }
-        SwipeBackLayout.c cVar3 = this.k;
+        SwipeBackLayout.c cVar3 = this.f31034g;
         if (cVar3 != null) {
             cVar3.enableSwipeBack();
         }
-        this.f40230e = motionEvent.getX();
-        this.f40231f = motionEvent.getY();
+        this.a = motionEvent.getX();
+        this.f31029b = motionEvent.getY();
         if (c(motionEvent)) {
         }
-    }
-
-    public final void requestParentInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048580, this, z) == null) || getParent() == null) {
-            return;
-        }
-        getParent().requestDisallowInterceptTouchEvent(z);
     }
 
     public void setDisableParentEvent(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.f40235j = z;
+            this.f31033f = z;
         }
     }
 
     public void setSwipeControlInterface(SwipeBackLayout.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
-            this.k = cVar;
+            this.f31034g = cVar;
         }
     }
 
@@ -260,9 +258,9 @@ public class ListViewPager extends ViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -270,7 +268,7 @@ public class ListViewPager extends ViewPager {
                 return;
             }
         }
-        this.f40235j = false;
+        this.f31033f = false;
         b();
     }
 }

@@ -6,7 +6,7 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.ShapeDrawable;
 import android.view.View;
 import android.view.ViewGroup;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class w {
     public static void a(com.kwad.sdk.widget.c cVar, Drawable drawable) {
         if (drawable instanceof ShapeDrawable) {
@@ -23,8 +23,8 @@ public class w {
             return;
         }
         int childCount = viewGroup.getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            View childAt = viewGroup.getChildAt(i2);
+        for (int i = 0; i < childCount; i++) {
+            View childAt = viewGroup.getChildAt(i);
             if (childAt instanceof com.kwad.sdk.widget.b) {
                 ((com.kwad.sdk.widget.b) childAt).a(cVar);
             } else if (childAt instanceof ViewGroup) {

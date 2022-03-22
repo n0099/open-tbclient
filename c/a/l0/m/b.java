@@ -1,0 +1,62 @@
+package c.a.l0.m;
+
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 60000;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static long f3693b;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1665040192, "Lc/a/l0/m/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1665040192, "Lc/a/l0/m/b;");
+                return;
+            }
+        }
+        f3693b = a * 60;
+    }
+
+    public static void a(Context context, long j) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLJ(65537, null, context, j) == null) || j <= 0) {
+            return;
+        }
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent("sso_action_t_m");
+            intent.setPackage(context.getPackageName());
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            alarmManager.cancel(broadcast);
+            long currentTimeMillis = System.currentTimeMillis() + j;
+            if (Build.VERSION.SDK_INT >= 23) {
+                alarmManager.setExactAndAllowWhileIdle(0, currentTimeMillis, broadcast);
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                alarmManager.setExact(0, currentTimeMillis, broadcast);
+            } else {
+                alarmManager.set(0, currentTimeMillis, broadcast);
+            }
+        } catch (Throwable th) {
+            c.d(th);
+        }
+    }
+}

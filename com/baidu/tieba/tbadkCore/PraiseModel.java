@@ -23,18 +23,16 @@ public class PraiseModel extends BdBaseModel {
     public static final int LIKE = 1;
     public static final int UN_LIKE = 0;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final String f46727g;
+    /* renamed from: c  reason: collision with root package name */
+    public static final String f36110c;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static TbHttpMessageTask f46728h;
+    /* renamed from: d  reason: collision with root package name */
+    public static TbHttpMessageTask f36111d;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f46729e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f46730f;
+    /* renamed from: b  reason: collision with root package name */
+    public final HttpMessageListener f36112b;
 
     /* loaded from: classes6.dex */
     public class a extends HttpMessageListener {
@@ -43,17 +41,17 @@ public class PraiseModel extends BdBaseModel {
         public final /* synthetic */ PraiseModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(PraiseModel praiseModel, int i2) {
-            super(i2);
+        public a(PraiseModel praiseModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {praiseModel, Integer.valueOf(i2)};
+                Object[] objArr = {praiseModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -70,17 +68,17 @@ public class PraiseModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                 int statusCode = httpResponsedMessage.getStatusCode();
                 if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                    if (this.a.f46729e != null) {
-                        this.a.f46729e.b(statusCode, null);
+                    if (this.a.a != null) {
+                        this.a.a.b(statusCode, null);
                         return;
                     }
                     return;
                 }
                 PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                 if (praiseResponseMessage.getError() == 0) {
-                    this.a.f46729e.a(praiseResponseMessage.getErrMsg());
-                } else if (this.a.f46729e != null) {
-                    this.a.f46729e.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                    this.a.a.a(praiseResponseMessage.getErrMsg());
+                } else if (this.a.a != null) {
+                    this.a.a.b(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                 }
             }
         }
@@ -90,7 +88,7 @@ public class PraiseModel extends BdBaseModel {
     public interface b {
         void a(String str);
 
-        void b(int i2, String str);
+        void b(int i, String str);
     }
 
     static {
@@ -107,11 +105,11 @@ public class PraiseModel extends BdBaseModel {
             }
         }
         String str = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
-        f46727g = str;
+        f36110c = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.COMMON_PRAISE_Y_OR_N, str);
-        f46728h = tbHttpMessageTask;
+        f36111d = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PraiseResponseMessage.class);
-        MessageManager.getInstance().registerTask(f46728h);
+        MessageManager.getInstance().registerTask(f36111d);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -123,18 +121,18 @@ public class PraiseModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f46729e = null;
-        this.f46730f = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
-        this.f46729e = bVar;
+        this.a = null;
+        this.f36112b = new a(this, CmdConfigHttp.COMMON_PRAISE_Y_OR_N);
+        this.a = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -160,9 +158,9 @@ public class PraiseModel extends BdBaseModel {
     public void registerListener() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f46730f.setSelfListener(true);
-            this.f46730f.setTag(getUniqueId());
-            registerListener(this.f46730f);
+            this.f36112b.setSelfListener(true);
+            this.f36112b.setTag(getUniqueId());
+            registerListener(this.f36112b);
         }
     }
 }

@@ -16,7 +16,7 @@ public abstract class d<T> implements k<T> {
     public final boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final e f2518b;
+    public final e f2073b;
 
     public d(e eVar, boolean z) {
         Interceptable interceptable = $ic;
@@ -25,15 +25,15 @@ public abstract class d<T> implements k<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2518b = eVar;
+        this.f2073b = eVar;
         this.a = z;
     }
 
@@ -46,7 +46,7 @@ public abstract class d<T> implements k<T> {
             if (k == null) {
                 return null;
             }
-            return k.f2521b;
+            return k.f2076b;
         }
         return (T) invokeLL.objValue;
     }
@@ -55,7 +55,7 @@ public abstract class d<T> implements k<T> {
     public e c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2518b : (e) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2073b : (e) invokeV.objValue;
     }
 
     @Override // c.a.d.f.d.k
@@ -77,25 +77,25 @@ public abstract class d<T> implements k<T> {
             }
             l.b<T> bVar = new l.b<>();
             bVar.a = str2;
-            bVar.f2536b = k.f2521b;
-            long j2 = k.f2525f;
-            bVar.f2537c = k.f2523d;
+            bVar.f2089b = k.f2076b;
+            long j = k.f2080f;
+            bVar.f2090c = k.f2078d;
             return bVar;
         }
         return (l.b) invokeLL.objValue;
     }
 
     @Override // c.a.d.f.d.k
-    public void f(String str, String str2, T t, long j2) {
+    public void f(String str, String str2, T t, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
             g<T> gVar = new g<>();
             gVar.a = h(str, str2);
-            gVar.f2522c = str;
-            gVar.f2525f = j2;
-            gVar.f2521b = t;
-            gVar.f2524e = System.currentTimeMillis();
-            gVar.f2523d = System.currentTimeMillis();
+            gVar.f2077c = str;
+            gVar.f2080f = j;
+            gVar.f2076b = t;
+            gVar.f2079e = System.currentTimeMillis();
+            gVar.f2078d = System.currentTimeMillis();
             j(gVar);
         }
     }
@@ -121,21 +121,21 @@ public abstract class d<T> implements k<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
             String h2 = h(str, str2);
-            g<T> i2 = i(h2);
-            if (i2 == null) {
+            g<T> i = i(h2);
+            if (i == null) {
                 BdLog.isDebugMode();
                 return null;
-            } else if (i2.f2525f < System.currentTimeMillis()) {
+            } else if (i.f2080f < System.currentTimeMillis()) {
                 m(h2);
                 BdLog.isDebugMode();
                 return null;
             } else {
-                if (this.f2518b.a()) {
-                    i2.f2524e = System.currentTimeMillis();
-                    j(i2);
+                if (this.f2073b.a()) {
+                    i.f2079e = System.currentTimeMillis();
+                    j(i);
                 }
                 BdLog.isDebugMode();
-                return i2;
+                return i;
             }
         }
         return (g) invokeLL.objValue;

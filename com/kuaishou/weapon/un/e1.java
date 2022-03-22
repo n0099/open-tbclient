@@ -22,9 +22,9 @@ public class e1 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -177,7 +177,7 @@ public class e1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             try {
-                JSONObject a2 = new d1(str, q0.f53776f).a(this.a);
+                JSONObject a2 = new d1(str, q0.f38953f).a(this.a);
                 if (a2 == null || (a = a()) == null) {
                     return null;
                 }

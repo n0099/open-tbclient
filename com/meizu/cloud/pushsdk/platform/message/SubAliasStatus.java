@@ -1,9 +1,8 @@
 package com.meizu.cloud.pushsdk.platform.message;
 
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SubAliasStatus extends BasicPushStatus {
     public String alias;
     public String pushId;
@@ -44,6 +43,6 @@ public class SubAliasStatus extends BasicPushStatus {
 
     @Override // com.meizu.cloud.pushsdk.platform.message.BasicPushStatus
     public String toString() {
-        return super.toString() + " SubAliasStatus{pushId='" + this.pushId + ExtendedMessageFormat.QUOTE + ", alias='" + this.alias + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return super.toString() + " SubAliasStatus{pushId='" + this.pushId + "', alias='" + this.alias + "'}";
     }
 }

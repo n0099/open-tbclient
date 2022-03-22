@@ -38,9 +38,9 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,8 +73,8 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
                 return;
             }
             int length = strArr2.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                this.mConnection.scanFile(this.mPaths[i2], this.mMimeTypes[i2]);
+            for (int i = 0; i < length; i++) {
+                this.mConnection.scanFile(this.mPaths[i], this.mMimeTypes[i]);
             }
         }
     }
@@ -94,9 +94,9 @@ public class MediaScannerClient implements MediaScannerConnection.MediaScannerCo
             } else {
                 String[] strArr2 = this.mPaths;
                 if (strArr2 != null && (strArr = this.mMimeTypes) != null && strArr2.length == strArr.length) {
-                    int i2 = this.length - 1;
-                    this.length = i2;
-                    if (i2 == 0) {
+                    int i = this.length - 1;
+                    this.length = i;
+                    if (i == 0) {
                         this.mConnection.disconnect();
                         this.mConnection = null;
                         this.mPaths = null;

@@ -93,28 +93,28 @@ public final class R$drawable {
     public static final int abc_textfield_search_default_mtrl_alpha = 2131230899;
     public static final int abc_textfield_search_material = 2131230900;
     public static final int abc_vector_test = 2131230901;
-    public static final int btn_checkbox_checked_mtrl = 2131231592;
-    public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131231593;
-    public static final int btn_checkbox_unchecked_mtrl = 2131231594;
-    public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131231595;
-    public static final int btn_radio_off_mtrl = 2131231715;
-    public static final int btn_radio_off_to_on_mtrl_animation = 2131231716;
-    public static final int btn_radio_on_mtrl = 2131231717;
-    public static final int btn_radio_on_to_off_mtrl_animation = 2131231718;
-    public static final int notification_action_background = 2131234467;
-    public static final int notification_bg = 2131234468;
-    public static final int notification_bg_low = 2131234469;
-    public static final int notification_bg_low_normal = 2131234470;
-    public static final int notification_bg_low_pressed = 2131234471;
-    public static final int notification_bg_normal = 2131234472;
-    public static final int notification_bg_normal_pressed = 2131234473;
-    public static final int notification_icon_background = 2131234474;
-    public static final int notification_template_icon_bg = 2131234475;
-    public static final int notification_template_icon_low_bg = 2131234476;
-    public static final int notification_tile_bg = 2131234477;
-    public static final int notify_panel_notification_icon_bg = 2131234479;
-    public static final int tooltip_frame_dark = 2131235498;
-    public static final int tooltip_frame_light = 2131235499;
+    public static final int btn_checkbox_checked_mtrl = 2131231591;
+    public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 2131231592;
+    public static final int btn_checkbox_unchecked_mtrl = 2131231593;
+    public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 2131231594;
+    public static final int btn_radio_off_mtrl = 2131231713;
+    public static final int btn_radio_off_to_on_mtrl_animation = 2131231714;
+    public static final int btn_radio_on_mtrl = 2131231715;
+    public static final int btn_radio_on_to_off_mtrl_animation = 2131231716;
+    public static final int notification_action_background = 2131234361;
+    public static final int notification_bg = 2131234362;
+    public static final int notification_bg_low = 2131234363;
+    public static final int notification_bg_low_normal = 2131234364;
+    public static final int notification_bg_low_pressed = 2131234365;
+    public static final int notification_bg_normal = 2131234366;
+    public static final int notification_bg_normal_pressed = 2131234367;
+    public static final int notification_icon_background = 2131234368;
+    public static final int notification_template_icon_bg = 2131234369;
+    public static final int notification_template_icon_low_bg = 2131234370;
+    public static final int notification_tile_bg = 2131234371;
+    public static final int notify_panel_notification_icon_bg = 2131234373;
+    public static final int tooltip_frame_dark = 2131235292;
+    public static final int tooltip_frame_light = 2131235293;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$drawable() {
@@ -122,9 +122,9 @@ public final class R$drawable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

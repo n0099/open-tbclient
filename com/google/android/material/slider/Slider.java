@@ -17,16 +17,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchListener> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnChangeListener extends BaseOnChangeListener<Slider> {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnSliderTouchListener extends BaseOnSliderTouchListener<Slider> {
     }
 
@@ -39,9 +39,9 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -202,13 +202,13 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyDown(int i2, @NonNull KeyEvent keyEvent) {
-        return super.onKeyDown(i2, keyEvent);
+    public /* bridge */ /* synthetic */ boolean onKeyDown(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyDown(i, keyEvent);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
-    public /* bridge */ /* synthetic */ boolean onKeyUp(int i2, @NonNull KeyEvent keyEvent) {
-        return super.onKeyUp(i2, keyEvent);
+    public /* bridge */ /* synthetic */ boolean onKeyUp(int i, @NonNull KeyEvent keyEvent) {
+        return super.onKeyUp(i, keyEvent);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View
@@ -236,18 +236,18 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setFocusedThumbIndex(int i2) {
-        super.setFocusedThumbIndex(i2);
+    public /* bridge */ /* synthetic */ void setFocusedThumbIndex(int i) {
+        super.setFocusedThumbIndex(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setHaloRadius(@IntRange(from = 0) @Dimension int i2) {
-        super.setHaloRadius(i2);
+    public /* bridge */ /* synthetic */ void setHaloRadius(@IntRange(from = 0) @Dimension int i) {
+        super.setHaloRadius(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setHaloRadiusResource(@DimenRes int i2) {
-        super.setHaloRadiusResource(i2);
+    public /* bridge */ /* synthetic */ void setHaloRadiusResource(@DimenRes int i) {
+        super.setHaloRadiusResource(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -256,8 +256,8 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setLabelBehavior(int i2) {
-        super.setLabelBehavior(i2);
+    public /* bridge */ /* synthetic */ void setLabelBehavior(int i) {
+        super.setLabelBehavior(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -276,18 +276,18 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbElevationResource(@DimenRes int i2) {
-        super.setThumbElevationResource(i2);
+    public /* bridge */ /* synthetic */ void setThumbElevationResource(@DimenRes int i) {
+        super.setThumbElevationResource(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbRadius(@IntRange(from = 0) @Dimension int i2) {
-        super.setThumbRadius(i2);
+    public /* bridge */ /* synthetic */ void setThumbRadius(@IntRange(from = 0) @Dimension int i) {
+        super.setThumbRadius(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setThumbRadiusResource(@DimenRes int i2) {
-        super.setThumbRadiusResource(i2);
+    public /* bridge */ /* synthetic */ void setThumbRadiusResource(@DimenRes int i) {
+        super.setThumbRadiusResource(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -316,8 +316,8 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     @Override // com.google.android.material.slider.BaseSlider
-    public /* bridge */ /* synthetic */ void setTrackHeight(@IntRange(from = 0) @Dimension int i2) {
-        super.setTrackHeight(i2);
+    public /* bridge */ /* synthetic */ void setTrackHeight(@IntRange(from = 0) @Dimension int i) {
+        super.setTrackHeight(i);
     }
 
     @Override // com.google.android.material.slider.BaseSlider
@@ -349,16 +349,16 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.sliderStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040567);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -369,17 +369,17 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

@@ -37,9 +37,9 @@ public interface IMediaDataSource extends IMediaLifeCycle {
 
         void reset();
 
-        void seekTo(long j2);
+        void seekTo(long j);
 
-        void seekToForce(long j2);
+        void seekToForce(long j);
 
         void setLooping(boolean z);
 

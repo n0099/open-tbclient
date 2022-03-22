@@ -49,12 +49,12 @@ public class SolidLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
+    public void drawLayer(Canvas canvas, Matrix matrix, int i) {
         int alpha = Color.alpha(this.layerModel.getSolidColor());
         if (alpha == 0) {
             return;
         }
-        int intValue = (int) ((i2 / 255.0f) * (((alpha / 255.0f) * (this.transform.getOpacity() == null ? 100 : this.transform.getOpacity().getValue().intValue())) / 100.0f) * 255.0f);
+        int intValue = (int) ((i / 255.0f) * (((alpha / 255.0f) * (this.transform.getOpacity() == null ? 100 : this.transform.getOpacity().getValue().intValue())) / 100.0f) * 255.0f);
         this.paint.setAlpha(intValue);
         BaseKeyframeAnimation<ColorFilter, ColorFilter> baseKeyframeAnimation = this.colorFilterAnimation;
         if (baseKeyframeAnimation != null) {

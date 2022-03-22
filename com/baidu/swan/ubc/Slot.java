@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class Slot implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<Slot> CREATOR;
@@ -26,7 +26,7 @@ public class Slot implements Parcelable {
     public JSONObject mOption;
     public long mStart;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<Slot> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class Slot implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -57,10 +57,10 @@ public class Slot implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public Slot[] newArray(int i2) {
+        public Slot[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new Slot[i2] : (Slot[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new Slot[i] : (Slot[]) invokeI.objValue;
         }
     }
 
@@ -80,16 +80,16 @@ public class Slot implements Parcelable {
         CREATOR = new a();
     }
 
-    public Slot(String str, long j2, JSONObject jSONObject) {
+    public Slot(String str, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), jSONObject};
+            Object[] objArr = {str, Long.valueOf(j), jSONObject};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -97,7 +97,7 @@ public class Slot implements Parcelable {
         }
         this.mStart = 0L;
         this.mEnd = 0L;
-        this.mStart = j2;
+        this.mStart = j;
         this.mCategory = str;
         this.mOption = jSONObject;
     }
@@ -174,15 +174,15 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void setEnd(long j2) {
+    public void setEnd(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048582, this, j) == null) || j <= 0) {
             return;
         }
-        long j3 = this.mStart;
-        if (j2 > j3) {
-            this.mEnd = j2;
-            this.mDuration += ((float) (j2 - j3)) / 1000.0f;
+        long j2 = this.mStart;
+        if (j > j2) {
+            this.mEnd = j;
+            this.mDuration += ((float) (j - j2)) / 1000.0f;
         }
     }
 
@@ -193,18 +193,18 @@ public class Slot implements Parcelable {
         }
     }
 
-    public void setStart(long j2) {
+    public void setStart(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mStart = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mStart = j;
             this.mEnd = 0L;
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             parcel.writeLong(this.mStart);
             parcel.writeLong(this.mEnd);
             parcel.writeString(this.mCategory);
@@ -219,9 +219,9 @@ public class Slot implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

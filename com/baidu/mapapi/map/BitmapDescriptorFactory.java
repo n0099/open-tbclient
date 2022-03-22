@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.mapapi.BMapManager;
@@ -25,7 +26,7 @@ public class BitmapDescriptorFactory {
     public static final /* synthetic */ boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f33868b;
+    public static final String f26137b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -42,7 +43,7 @@ public class BitmapDescriptorFactory {
             }
         }
         a = !BitmapDescriptorFactory.class.desiredAssertionStatus();
-        f33868b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
+        f26137b = "BaiduMapSDK-" + BitmapDescriptorFactory.class.getSimpleName();
     }
 
     public BitmapDescriptorFactory() {
@@ -50,9 +51,9 @@ public class BitmapDescriptorFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -148,6 +149,8 @@ public class BitmapDescriptorFactory {
     public static BitmapDescriptor fromFile(String str) {
         InterceptResult invokeL;
         Context context;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
             if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
@@ -162,18 +165,31 @@ public class BitmapDescriptorFactory {
                     decodeStream.recycle();
                     return fromBitmap;
                 }
-            } catch (FileNotFoundException | IOException unused) {
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                str2 = f26137b;
+                str3 = "FileNotFoundException happened";
+                Log.e(str2, str3, e);
+                return null;
+            } catch (IOException e3) {
+                e = e3;
+                str2 = f26137b;
+                str3 = "IOException happened";
+                Log.e(str2, str3, e);
+                return null;
             }
             return null;
         }
         return (BitmapDescriptor) invokeL.objValue;
     }
 
-    public static BitmapDescriptor fromFileWithDpi(String str, int i2) {
+    public static BitmapDescriptor fromFileWithDpi(String str, int i) {
         InterceptResult invokeLI;
         Context context;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
             if (str == null || str.equals("") || (context = BMapManager.getContext()) == null) {
                 return null;
             }
@@ -182,15 +198,26 @@ public class BitmapDescriptorFactory {
                 Bitmap decodeStream = BitmapFactory.decodeStream(openFileInput);
                 openFileInput.close();
                 if (decodeStream != null) {
-                    if (i2 <= 0) {
-                        i2 = SysOSUtil.getDensityDpi();
+                    if (i <= 0) {
+                        i = SysOSUtil.getDensityDpi();
                     }
-                    decodeStream.setDensity(i2);
+                    decodeStream.setDensity(i);
                     BitmapDescriptor fromBitmap = fromBitmap(decodeStream);
                     decodeStream.recycle();
                     return fromBitmap;
                 }
-            } catch (FileNotFoundException | IOException unused) {
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                str2 = f26137b;
+                str3 = "FileNotFoundException happened";
+                Log.e(str2, str3, e);
+                return null;
+            } catch (IOException e3) {
+                e = e3;
+                str2 = f26137b;
+                str3 = "IOException happened";
+                Log.e(str2, str3, e);
+                return null;
             }
             return null;
         }
@@ -212,18 +239,18 @@ public class BitmapDescriptorFactory {
         return (BitmapDescriptor) invokeL.objValue;
     }
 
-    public static BitmapDescriptor fromPathWithDpi(String str, int i2) {
+    public static BitmapDescriptor fromPathWithDpi(String str, int i) {
         InterceptResult invokeLI;
         Bitmap decodeFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
             if (TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
                 return null;
             }
-            if (i2 <= 0) {
-                i2 = SysOSUtil.getDensityDpi();
+            if (i <= 0) {
+                i = SysOSUtil.getDensityDpi();
             }
-            decodeFile.setDensity(i2);
+            decodeFile.setDensity(i);
             BitmapDescriptor fromBitmap = fromBitmap(decodeFile);
             decodeFile.recycle();
             return fromBitmap;
@@ -231,13 +258,13 @@ public class BitmapDescriptorFactory {
         return (BitmapDescriptor) invokeLI.objValue;
     }
 
-    public static BitmapDescriptor fromResource(int i2) {
+    public static BitmapDescriptor fromResource(int i) {
         InterceptResult invokeI;
         Bitmap decodeResource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
             Context context = BMapManager.getContext();
-            if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i2)) == null) {
+            if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i)) == null) {
                 return null;
             }
             BitmapDescriptor fromBitmap = fromBitmap(decodeResource);
@@ -247,19 +274,19 @@ public class BitmapDescriptorFactory {
         return (BitmapDescriptor) invokeI.objValue;
     }
 
-    public static BitmapDescriptor fromResourceWithDpi(int i2, int i3) {
+    public static BitmapDescriptor fromResourceWithDpi(int i, int i2) {
         InterceptResult invokeII;
         Bitmap decodeResource;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65546, null, i, i2)) == null) {
             Context context = BMapManager.getContext();
-            if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i2)) == null) {
+            if (context == null || (decodeResource = BitmapFactory.decodeResource(context.getResources(), i)) == null) {
                 return null;
             }
-            if (i3 <= 0) {
-                i3 = SysOSUtil.getDensityDpi();
+            if (i2 <= 0) {
+                i2 = SysOSUtil.getDensityDpi();
             }
-            decodeResource.setDensity(i3);
+            decodeResource.setDensity(i2);
             BitmapDescriptor fromBitmap = fromBitmap(decodeResource);
             decodeResource.recycle();
             return fromBitmap;
@@ -288,10 +315,10 @@ public class BitmapDescriptorFactory {
         return (BitmapDescriptor) invokeL.objValue;
     }
 
-    public static BitmapDescriptor fromViewWithDpi(View view, int i2) {
+    public static BitmapDescriptor fromViewWithDpi(View view, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, view, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, view, i)) == null) {
             if (view == null) {
                 return null;
             }
@@ -300,12 +327,13 @@ public class BitmapDescriptorFactory {
             view.buildDrawingCache();
             Bitmap drawingCache = view.getDrawingCache();
             if (drawingCache == null) {
+                Log.e(f26137b, "Get bitmap failed");
                 return null;
             }
-            if (i2 <= 0) {
-                i2 = SysOSUtil.getDensityDpi();
+            if (i <= 0) {
+                i = SysOSUtil.getDensityDpi();
             }
-            drawingCache.setDensity(i2);
+            drawingCache.setDensity(i);
             BitmapDescriptor fromBitmap = fromBitmap(drawingCache);
             if (drawingCache != null) {
                 drawingCache.recycle();

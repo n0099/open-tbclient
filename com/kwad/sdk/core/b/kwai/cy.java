@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.kwad.sdk.core.response.model.PhotoComment;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -12,7 +11,7 @@ public class cy implements com.kwad.sdk.core.d<PhotoComment> {
             return;
         }
         photoComment.subCommentCount = jSONObject.optLong("subCommentCount");
-        photoComment.hot = jSONObject.optBoolean(ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE);
+        photoComment.hot = jSONObject.optBoolean("hot");
         photoComment.likedCount = jSONObject.optLong("likedCount");
         photoComment.time = jSONObject.optString("time");
         if (jSONObject.opt("time") == JSONObject.NULL) {
@@ -48,7 +47,7 @@ public class cy implements com.kwad.sdk.core.d<PhotoComment> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "subCommentCount", photoComment.subCommentCount);
-        com.kwad.sdk.utils.t.a(jSONObject, ThreadAchievementShareDialogView.HOT_LIST_VIEW_TYPE, photoComment.hot);
+        com.kwad.sdk.utils.t.a(jSONObject, "hot", photoComment.hot);
         com.kwad.sdk.utils.t.a(jSONObject, "likedCount", photoComment.likedCount);
         com.kwad.sdk.utils.t.a(jSONObject, "time", photoComment.time);
         com.kwad.sdk.utils.t.a(jSONObject, "timestamp", photoComment.timestamp);

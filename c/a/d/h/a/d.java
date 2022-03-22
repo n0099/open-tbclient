@@ -14,25 +14,25 @@ public class d {
     public BitmapDrawable a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c.a.d.o.d.a f2931b;
+    public c.a.d.o.d.a f2442b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f2932c;
+    public volatile boolean f2443c;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2932c = true;
+        this.f2443c = true;
     }
 
     public int a() {
@@ -43,7 +43,7 @@ public class d {
                 return this.a.getIntrinsicHeight();
             }
             if (d()) {
-                return this.f2931b.m();
+                return this.f2442b.m();
             }
             return 0;
         }
@@ -58,7 +58,7 @@ public class d {
                 return this.a.getIntrinsicWidth();
             }
             if (d()) {
-                return this.f2931b.r();
+                return this.f2442b.r();
             }
             return 0;
         }
@@ -75,7 +75,7 @@ public class d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.d.o.d.a aVar = this.f2931b;
+            c.a.d.o.d.a aVar = this.f2442b;
             return aVar != null && aVar.w();
         }
         return invokeV.booleanValue;
@@ -94,7 +94,7 @@ public class d {
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f2931b = null;
+            this.f2442b = null;
             this.a = null;
         }
     }

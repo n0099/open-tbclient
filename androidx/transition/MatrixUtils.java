@@ -39,9 +39,9 @@ public class MatrixUtils {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -193,10 +193,10 @@ public class MatrixUtils {
             }
 
             @Override // android.graphics.Matrix
-            public boolean setPolyToPoly(float[] fArr, int i2, float[] fArr2, int i3, int i4) {
+            public boolean setPolyToPoly(float[] fArr, int i, float[] fArr2, int i2, int i3) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048596, this, new Object[]{fArr, Integer.valueOf(i2), fArr2, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048596, this, new Object[]{fArr, Integer.valueOf(i), fArr2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
                     oops();
                     return false;
                 }
@@ -367,9 +367,9 @@ public class MatrixUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

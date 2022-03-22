@@ -23,42 +23,38 @@ import com.ss.android.socialbase.downloader.h.g;
 import com.ss.android.socialbase.downloader.i.f;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadNotificationService extends Service {
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile long f58851f;
+    public static volatile long f43542f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile long f58852g;
+    public static volatile long f43543g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f58853h;
-
-    /* renamed from: j  reason: collision with root package name */
-    public g f58855j;
+    public static boolean f43544h;
+    public g j;
     public final SparseArray<Notification> k = new SparseArray<>(2);
     public static final String a = DownloadNotificationService.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f58847b = -1;
+    public static int f43538b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f58848c = -1;
+    public static int f43539c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f58849d = true;
+    public static boolean f43540d = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static boolean f58850e = false;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static long f58854i = 900;
+    public static boolean f43541e = false;
+    public static long i = 900;
 
     private void d() {
-        if (this.f58855j == null) {
+        if (this.j == null) {
             g gVar = new g("DownloaderNotifyThread");
-            this.f58855j = gVar;
+            this.j = gVar;
             gVar.a();
         }
     }
@@ -75,31 +71,31 @@ public class DownloadNotificationService extends Service {
         c.a(this);
         com.ss.android.socialbase.downloader.g.a c2 = com.ss.android.socialbase.downloader.g.a.c();
         int a2 = c2.a("download_service_foreground", 0);
-        if ((a2 == 1 || a2 == 3) && f58847b == -1) {
-            f58847b = 0;
+        if ((a2 == 1 || a2 == 3) && f43538b == -1) {
+            f43538b = 0;
         }
-        if ((a2 == 2 || a2 == 3) && f58848c == -1) {
-            f58848c = 0;
+        if ((a2 == 2 || a2 == 3) && f43539c == -1) {
+            f43539c = 0;
         }
-        f58850e = c2.b("non_going_notification_foreground", false);
-        f58853h = c2.b("notify_too_fast", false);
+        f43541e = c2.b("non_going_notification_foreground", false);
+        f43544h = c2.b("notify_too_fast", false);
         long a3 = c2.a("notification_time_window", 900L);
-        f58854i = a3;
+        i = a3;
         if (a3 < 0 || a3 > IMLikeRequest.TIME_INTERVAL) {
-            f58854i = 900L;
+            i = 900L;
         }
     }
 
     @Override // android.app.Service
     public void onDestroy() {
         super.onDestroy();
-        g gVar = this.f58855j;
+        g gVar = this.j;
         if (gVar != null) {
             try {
                 gVar.b();
             } catch (Throwable unused) {
             }
-            this.f58855j = null;
+            this.j = null;
         }
     }
 
@@ -111,7 +107,7 @@ public class DownloadNotificationService extends Service {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.f58847b == 0) goto L31;
+        if (com.ss.android.socialbase.downloader.notification.DownloadNotificationService.f43538b == 0) goto L31;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -123,7 +119,7 @@ public class DownloadNotificationService extends Service {
                 boolean z2 = d.a().a(i2) == 1 && !f.c();
                 if (!z2) {
                 }
-                if (z2 && f58848c == 0) {
+                if (z2 && f43539c == 0) {
                     z = true;
                 }
                 if (z) {
@@ -132,9 +128,9 @@ public class DownloadNotificationService extends Service {
                         String str = a;
                         com.ss.android.socialbase.downloader.c.a.c(str, "doNotify, startForeground, ======== id = " + i2 + ", isIndependentProcess = " + z2);
                         if (z2) {
-                            f58848c = i2;
+                            f43539c = i2;
                         } else {
-                            f58847b = i2;
+                            f43538b = i2;
                         }
                         c2.a(i2, notification);
                     } else {
@@ -145,13 +141,13 @@ public class DownloadNotificationService extends Service {
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-        } else if ((f58847b == i2 || f58848c == i2) && f58850e && (notification.flags & 2) == 0) {
+        } else if ((f43538b == i2 || f43539c == i2) && f43541e && (notification.flags & 2) == 0) {
             b(notificationManager, i2);
         }
         try {
             long currentTimeMillis = System.currentTimeMillis();
-            if (f58851f < currentTimeMillis) {
-                f58851f = currentTimeMillis;
+            if (f43542f < currentTimeMillis) {
+                f43542f = currentTimeMillis;
             }
             notificationManager.notify(i2, notification);
         } catch (Throwable unused) {
@@ -164,7 +160,7 @@ public class DownloadNotificationService extends Service {
             return;
         }
         final String action = intent.getAction();
-        if (TextUtils.isEmpty(action) || (gVar = this.f58855j) == null) {
+        if (TextUtils.isEmpty(action) || (gVar = this.j) == null) {
             return;
         }
         gVar.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1
@@ -182,9 +178,9 @@ public class DownloadNotificationService extends Service {
                     }
                     if (intExtra2 != 4) {
                         if (intExtra2 == -2 || intExtra2 == -3) {
-                            if (!DownloadNotificationService.f58853h) {
-                                if (DownloadNotificationService.this.f58855j != null) {
-                                    DownloadNotificationService.this.f58855j.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
+                            if (!DownloadNotificationService.f43544h) {
+                                if (DownloadNotificationService.this.j != null) {
+                                    DownloadNotificationService.this.j.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.1.1
                                         @Override // java.lang.Runnable
                                         public void run() {
                                             DownloadNotificationService.this.b(notificationManager, intExtra, notification);
@@ -195,15 +191,15 @@ public class DownloadNotificationService extends Service {
                                 return;
                             }
                             DownloadNotificationService.this.a(notificationManager, intExtra, notification);
-                        } else if (DownloadNotificationService.f58853h) {
+                        } else if (DownloadNotificationService.f43544h) {
                             DownloadNotificationService.this.a(notificationManager, intExtra, notification);
                         } else {
                             DownloadNotificationService.this.b(notificationManager, intExtra, notification);
                         }
                     } else if (Downloader.getInstance(c.N()).isDownloading(intExtra)) {
                         DownloadInfo downloadInfo = Downloader.getInstance(c.N()).getDownloadInfo(intExtra);
-                        if (DownloadNotificationService.f58853h) {
-                            if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.f58852g <= DownloadNotificationService.f58854i) {
+                        if (DownloadNotificationService.f43544h) {
+                            if (downloadInfo == null || !downloadInfo.canNotifyProgress() || System.currentTimeMillis() - DownloadNotificationService.f43543g <= DownloadNotificationService.i) {
                                 return;
                             }
                             DownloadNotificationService.this.b(notificationManager, intExtra, notification);
@@ -254,7 +250,7 @@ public class DownloadNotificationService extends Service {
                 this.k.setValueAt(indexOfKey, notification);
                 return;
             }
-            long currentTimeMillis = f58854i - (System.currentTimeMillis() - f58851f);
+            long currentTimeMillis = i - (System.currentTimeMillis() - f43542f);
             if (currentTimeMillis <= 0) {
                 currentTimeMillis = 0;
             }
@@ -262,15 +258,15 @@ public class DownloadNotificationService extends Service {
                 currentTimeMillis = 20000;
             }
             long currentTimeMillis2 = System.currentTimeMillis() + currentTimeMillis;
-            f58852g = currentTimeMillis2;
-            f58851f = currentTimeMillis2;
+            f43543g = currentTimeMillis2;
+            f43542f = currentTimeMillis2;
             if (currentTimeMillis <= 0) {
                 b(notificationManager, i2, notification);
-            } else if (this.f58855j != null) {
+            } else if (this.j != null) {
                 synchronized (this.k) {
                     this.k.put(i2, notification);
                 }
-                this.f58855j.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.2
+                this.j.a(new Runnable() { // from class: com.ss.android.socialbase.downloader.notification.DownloadNotificationService.2
                     @Override // java.lang.Runnable
                     public void run() {
                         DownloadNotificationService.this.a(notificationManager, i2);
@@ -297,7 +293,7 @@ public class DownloadNotificationService extends Service {
         boolean z;
         a aVar;
         int a2;
-        if (f58847b != i2 && f58848c != i2) {
+        if (f43538b != i2 && f43539c != i2) {
             try {
                 notificationManager.cancel(i2);
                 return;
@@ -306,17 +302,17 @@ public class DownloadNotificationService extends Service {
             }
         }
         boolean z2 = true;
-        if (f58847b == i2) {
-            f58847b = 0;
+        if (f43538b == i2) {
+            f43538b = 0;
             z = false;
         } else {
-            f58848c = 0;
+            f43539c = 0;
             z = true;
         }
         try {
             m c2 = d.a().c(i2);
             if (!c2.b()) {
-                f58849d = false;
+                f43540d = false;
                 com.ss.android.socialbase.downloader.c.a.d(a, "try to stopForeground when is not Foreground, id = " + i2 + ", isIndependentProcess = " + z);
             }
             com.ss.android.socialbase.downloader.c.a.c(a, "doCancel, ========== stopForeground id = " + i2 + ", isIndependentProcess = " + z);
@@ -328,13 +324,13 @@ public class DownloadNotificationService extends Service {
             notificationManager.cancel(i2);
         } catch (Throwable unused2) {
         }
-        if (f58849d) {
+        if (f43540d) {
             try {
                 SparseArray<a> b2 = b.a().b();
                 if (b2 != null) {
                     for (int size = b2.size() - 1; size >= 0; size--) {
                         aVar = b2.valueAt(size);
-                        if (aVar != null && (a2 = aVar.a()) != i2 && a2 != f58847b && a2 != f58848c && aVar.i()) {
+                        if (aVar != null && (a2 = aVar.a()) != i2 && a2 != f43538b && a2 != f43539c && aVar.i()) {
                             if ((d.a().a(aVar.a()) == 1 && !f.c()) == z) {
                                 break;
                             }
@@ -360,11 +356,11 @@ public class DownloadNotificationService extends Service {
     private boolean a(int i2, Notification notification) {
         int i3;
         int i4;
-        if (!f58849d || (i3 = f58847b) == i2 || (i4 = f58848c) == i2) {
+        if (!f43540d || (i3 = f43538b) == i2 || (i4 = f43539c) == i2) {
             return false;
         }
         if (i3 == 0 || i4 == 0) {
-            if (f58850e && (notification.flags & 2) == 0) {
+            if (f43541e && (notification.flags & 2) == 0) {
                 return false;
             }
             return Build.VERSION.SDK_INT < 26 || !TextUtils.isEmpty(notification.getChannelId());

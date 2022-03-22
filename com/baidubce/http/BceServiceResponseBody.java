@@ -17,7 +17,7 @@ import okio.BufferedSource;
 import okio.ForwardingSource;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BceServiceResponseBody<T extends AbstractBceRequest> extends ResponseBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
             newInitContext.initArgs = r2;
             Object[] objArr = {responseBody, t, bceProgressCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -91,9 +91,9 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, bufferedSource};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Source) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -107,11 +107,11 @@ public class BceServiceResponseBody<T extends AbstractBceRequest> extends Respon
             /* JADX DEBUG: Multi-variable search result rejected for r0v5, resolved type: com.baidubce.callback.BceProgressCallback */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // okio.ForwardingSource, okio.Source
-            public long read(Buffer buffer, long j2) throws IOException {
+            public long read(Buffer buffer, long j) throws IOException {
                 InterceptResult invokeLJ;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, buffer, j2)) == null) {
-                    long read = super.read(buffer, j2);
+                if (interceptable2 == null || (invokeLJ = interceptable2.invokeLJ(1048576, this, buffer, j)) == null) {
+                    long read = super.read(buffer, j);
                     this.totalBytesRead += read != -1 ? read : 0L;
                     if (this.this$0.bceProgressCallback != null && this.totalBytesRead > 0) {
                         this.this$0.bceProgressCallback.onProgress(this.this$0.request, this.totalBytesRead, this.this$0.bceResponseBody.contentLength());

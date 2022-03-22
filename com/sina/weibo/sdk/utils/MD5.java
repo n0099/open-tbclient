@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MD5 {
     public static /* synthetic */ Interceptable $ic;
     public static final char[] hexDigits;
@@ -36,9 +36,9 @@ public class MD5 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -75,13 +75,13 @@ public class MD5 {
                 messageDigest.update(bArr);
                 byte[] digest = messageDigest.digest();
                 char[] cArr = new char[32];
-                int i2 = 0;
-                for (int i3 = 0; i3 < 16; i3++) {
-                    byte b2 = digest[i3];
-                    int i4 = i2 + 1;
-                    cArr[i2] = hexDigits[(b2 >>> 4) & 15];
-                    i2 = i4 + 1;
-                    cArr[i4] = hexDigits[b2 & 15];
+                int i = 0;
+                for (int i2 = 0; i2 < 16; i2++) {
+                    byte b2 = digest[i2];
+                    int i3 = i + 1;
+                    cArr[i] = hexDigits[(b2 >>> 4) & 15];
+                    i = i3 + 1;
+                    cArr[i3] = hexDigits[b2 & 15];
                 }
                 return new String(cArr);
             } catch (Exception e2) {

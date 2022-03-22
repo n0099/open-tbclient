@@ -14,45 +14,43 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2639b;
+    public boolean f2178b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2640c;
+    public boolean f2179c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2641d;
+    public String f2180d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2642e;
+    public int f2181e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f2643f;
+    public String f2182f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2644g;
+    public int f2183g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f2645h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f2646i;
+    public long f2184h;
+    public int i;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2639b = false;
-        this.f2640c = false;
-        this.f2642e = 0;
+        this.f2178b = false;
+        this.f2179c = false;
+        this.f2181e = 0;
     }
 
     public String a() {
@@ -64,33 +62,33 @@ public class c {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2643f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2182f : (String) invokeV.objValue;
     }
 
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2640c : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f2179c : invokeV.booleanValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2641d = "";
+            this.f2180d = "";
         }
     }
 
     public void e(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f2640c = z;
+            this.f2179c = z;
         }
     }
 
-    public void f(long j2) {
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.f2645h = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.f2184h = j;
         }
     }
 
@@ -104,42 +102,42 @@ public class c {
     public void h(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f2641d = str;
+            this.f2180d = str;
         }
     }
 
     public void i(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f2639b = z;
+            this.f2178b = z;
         }
     }
 
-    public void j(int i2) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.f2646i = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.i = i;
         }
     }
 
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f2643f = str;
+            this.f2182f = str;
         }
     }
 
-    public void l(int i2) {
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.f2642e = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f2181e = i;
         }
     }
 
-    public void m(int i2) {
+    public void m(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.f2644g = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f2183g = i;
         }
     }
 
@@ -147,7 +145,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "isFromNet_" + this.f2639b + "-statType_" + this.f2644g + "-dnsErr_" + this.f2641d + "-hasRetry_" + this.f2642e + "-cost_" + this.f2645h + "-ipIndex_" + this.f2646i + "-ipResult_" + this.a;
+            return "isFromNet_" + this.f2178b + "-statType_" + this.f2183g + "-dnsErr_" + this.f2180d + "-hasRetry_" + this.f2181e + "-cost_" + this.f2184h + "-ipIndex_" + this.i + "-ipResult_" + this.a;
         }
         return (String) invokeV.objValue;
     }

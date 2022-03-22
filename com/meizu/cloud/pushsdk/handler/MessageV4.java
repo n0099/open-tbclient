@@ -4,10 +4,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageV4 extends MessageV3 {
     public static final Parcelable.Creator<MessageV3> CREATOR = new Parcelable.Creator<MessageV3>() { // from class: com.meizu.cloud.pushsdk.handler.MessageV4.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -20,8 +19,8 @@ public class MessageV4 extends MessageV3 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public MessageV4[] newArray(int i2) {
-            return new MessageV4[i2];
+        public MessageV4[] newArray(int i) {
+            return new MessageV4[i];
         }
     };
     public static final String TAG = "MessageV4";
@@ -47,10 +46,10 @@ public class MessageV4 extends MessageV3 {
                     }
                 }
             } catch (JSONException e2) {
-                c.k.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
+                c.h.a.a.a.b(TAG, "parse messageV4 error " + e2.getMessage());
             }
         }
-        c.k.a.a.a.d(TAG, "MessageV4 " + messageV4);
+        c.h.a.a.a.d(TAG, "MessageV4 " + messageV4);
         return messageV4;
     }
 
@@ -64,12 +63,12 @@ public class MessageV4 extends MessageV3 {
 
     @Override // com.meizu.cloud.pushsdk.handler.MessageV3
     public String toString() {
-        return "MessageV4{actVideoSetting=" + this.actVideoSetting + ExtendedMessageFormat.END_FE + super.toString();
+        return "MessageV4{actVideoSetting=" + this.actVideoSetting + '}' + super.toString();
     }
 
     @Override // com.meizu.cloud.pushsdk.handler.MessageV3, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
-        super.writeToParcel(parcel, i2);
-        parcel.writeParcelable(this.actVideoSetting, i2);
+    public void writeToParcel(Parcel parcel, int i) {
+        super.writeToParcel(parcel, i);
+        parcel.writeParcelable(this.actVideoSetting, i);
     }
 }

@@ -16,26 +16,26 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements com.kwai.filedownloader.kwai.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public URLConnection a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Proxy a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Integer f56861b;
+        public Integer f41725b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Integer f56862c;
+        public Integer f41726c;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements c.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -48,9 +48,9 @@ public class c implements com.kwai.filedownloader.kwai.b {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -66,9 +66,9 @@ public class c implements com.kwai.filedownloader.kwai.b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -94,9 +94,9 @@ public class c implements com.kwai.filedownloader.kwai.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((URL) objArr2[0], (a) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -113,9 +113,9 @@ public class c implements com.kwai.filedownloader.kwai.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {url, aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -124,11 +124,11 @@ public class c implements com.kwai.filedownloader.kwai.b {
         this.a = (aVar == null || aVar.a == null) ? url.openConnection() : url.openConnection(aVar.a);
         ((com.kwad.sdk.design.kwai.a) ServiceProvider.a(com.kwad.sdk.design.kwai.a.class)).a(this.a);
         if (aVar != null) {
-            if (aVar.f56861b != null) {
-                this.a.setReadTimeout(aVar.f56861b.intValue());
+            if (aVar.f41725b != null) {
+                this.a.setReadTimeout(aVar.f41725b.intValue());
             }
-            if (aVar.f56862c != null) {
-                this.a.setConnectTimeout(aVar.f56862c.intValue());
+            if (aVar.f41726c != null) {
+                this.a.setConnectTimeout(aVar.f41726c.intValue());
             }
         }
     }
@@ -156,10 +156,10 @@ public class c implements com.kwai.filedownloader.kwai.b {
     }
 
     @Override // com.kwai.filedownloader.kwai.b
-    public boolean a(String str, long j2) {
+    public boolean a(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
             return false;
         }
         return invokeLJ.booleanValue;

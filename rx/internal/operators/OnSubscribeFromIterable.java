@@ -5,21 +5,19 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.d;
-import i.f;
-import i.j;
-import i.m.a;
+import g.d;
+import g.f;
+import g.j;
+import g.m.a;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OnSubscribeFromIterable<T> implements d.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Iterable<? extends T> a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final Iterable<? extends T> f61025e;
-
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class IterableProducer<T> extends AtomicLong implements f {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -8730475647105475802L;
@@ -34,9 +32,9 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jVar, it};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,30 +76,30 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
             }
         }
 
-        @Override // i.f
-        public void request(long j2) {
+        @Override // g.f
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || get() == Long.MAX_VALUE) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || get() == Long.MAX_VALUE) {
                 return;
             }
-            if (j2 == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
+            if (j == Long.MAX_VALUE && compareAndSet(0L, Long.MAX_VALUE)) {
                 fastPath();
-            } else if (j2 <= 0 || i.o.a.a.b(this, j2) != 0) {
+            } else if (j <= 0 || g.o.a.a.b(this, j) != 0) {
             } else {
-                slowPath(j2);
+                slowPath(j);
             }
         }
 
         /* JADX DEBUG: Type inference failed for r6v3. Raw type applied. Possible types: T, ? super T */
-        public void slowPath(long j2) {
+        public void slowPath(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
                 j<? super T> jVar = this.o;
                 Iterator<? extends T> it = this.it;
                 do {
-                    long j3 = 0;
+                    long j2 = 0;
                     while (true) {
-                        if (j3 != j2) {
+                        if (j2 != j) {
                             if (jVar.isUnsubscribed()) {
                                 return;
                             }
@@ -118,7 +116,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
                                         jVar.onCompleted();
                                         return;
                                     }
-                                    j3++;
+                                    j2++;
                                 } catch (Throwable th) {
                                     a.f(th, jVar);
                                     return;
@@ -128,13 +126,13 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
                                 return;
                             }
                         } else {
-                            j2 = get();
-                            if (j3 == j2) {
-                                j2 = i.o.a.a.g(this, j3);
+                            j = get();
+                            if (j2 == j) {
+                                j = g.o.a.a.g(this, j2);
                             }
                         }
                     }
-                } while (j2 != 0);
+                } while (j != 0);
             }
         }
     }
@@ -146,22 +144,22 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         if (iterable != null) {
-            this.f61025e = iterable;
+            this.a = iterable;
             return;
         }
         throw new NullPointerException("iterable must not be null");
     }
 
-    @Override // i.d.a, i.n.b
+    @Override // g.d.a, g.n.b
     public /* bridge */ /* synthetic */ void call(Object obj) {
         call((j) ((j) obj));
     }
@@ -170,7 +168,7 @@ public final class OnSubscribeFromIterable<T> implements d.a<T> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, jVar) == null) {
             try {
-                Iterator<? extends T> it = this.f61025e.iterator();
+                Iterator<? extends T> it = this.a.iterator();
                 boolean hasNext = it.hasNext();
                 if (jVar.isUnsubscribed()) {
                     return;

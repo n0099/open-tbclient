@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.AbstractConfig;
 import com.yy.hiidostatis.message.log.TraceLog;
 import java.util.Hashtable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HdStatisConfig extends AbstractConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String META_DATA_KEY_APP_KEY = "HIIDO_APPKEY";
@@ -45,9 +45,9 @@ public class HdStatisConfig extends AbstractConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -4,8 +4,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.t.a;
-import c.a.q0.r.t.j;
+import c.a.o0.r.t.a;
+import c.a.o0.r.t.j;
+import c.a.o0.r.t.l;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -15,8 +16,6 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.dialog.BdProgressDialog1080;
-import com.baidu.tbadk.core.dialog.PopupDialog;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.util.ChatStatusManager;
@@ -36,67 +35,65 @@ import java.util.List;
 public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c.a.r0.s1.f.i.b IProcessImpl;
+    public final c.a.p0.u1.f.i.b IProcessImpl;
     public StrangerListActivity mActivity;
     public a.e mCancelClickListener;
-    public c.a.r0.s1.f.i.a mCompleteProcess;
+    public c.a.p0.u1.f.i.a mCompleteProcess;
     public a.e mDelAllClickListener;
-    public c.a.q0.r.t.a mDelAllDialog;
+    public c.a.o0.r.t.a mDelAllDialog;
     public final CustomMessageListener mMemoryListener;
     public StrangerListModel mModel;
-    public BdProgressDialog1080 mProgressDialog;
-    public c.a.r0.t1.a.e.b mView;
+    public c.a.o0.r.t.d mProgressDialog;
+    public c.a.p0.v1.a.e.b mView;
 
     /* loaded from: classes5.dex */
-    public class a implements j.e {
+    public class a implements l.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PopupDialog f43842e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f34025b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f43843f;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ ImMessageCenterShowItemData f34026c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ImMessageCenterShowItemData f43844g;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ StrangerListActivity f34027d;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f43845h;
-
-        public a(StrangerListActivity strangerListActivity, PopupDialog popupDialog, int i2, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+        public a(StrangerListActivity strangerListActivity, j jVar, int i, ImMessageCenterShowItemData imMessageCenterShowItemData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strangerListActivity, popupDialog, Integer.valueOf(i2), imMessageCenterShowItemData};
+                Object[] objArr = {strangerListActivity, jVar, Integer.valueOf(i), imMessageCenterShowItemData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43845h = strangerListActivity;
-            this.f43842e = popupDialog;
-            this.f43843f = i2;
-            this.f43844g = imMessageCenterShowItemData;
+            this.f34027d = strangerListActivity;
+            this.a = jVar;
+            this.f34025b = i;
+            this.f34026c = imMessageCenterShowItemData;
         }
 
-        @Override // c.a.q0.r.t.j.e
-        public void onItemClick(j jVar, int i2, View view) {
+        @Override // c.a.o0.r.t.l.e
+        public void onItemClick(l lVar, int i, View view) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, jVar, i2, view) == null) {
-                PopupDialog popupDialog = this.f43842e;
-                if (popupDialog != null && popupDialog.isShowing()) {
-                    this.f43842e.dismiss();
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, lVar, i, view) == null) {
+                j jVar = this.a;
+                if (jVar != null && jVar.isShowing()) {
+                    this.a.dismiss();
                 }
-                if (this.f43843f == 1) {
-                    this.f43845h.mModel.w(this.f43845h.IProcessImpl);
+                if (this.f34025b == 1) {
+                    this.f34027d.mModel.y(this.f34027d.IProcessImpl);
                 } else {
-                    this.f43845h.mModel.asyncDeleteItem(this.f43844g, this.f43845h.IProcessImpl);
+                    this.f34027d.mModel.asyncDeleteItem(this.f34026c, this.f34027d.IProcessImpl);
                 }
             }
         }
@@ -106,9 +103,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f43846e;
+        public final /* synthetic */ StrangerListActivity a;
 
         public b(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -117,23 +112,23 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {strangerListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43846e = strangerListActivity;
+            this.a = strangerListActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f43846e.mDelAllDialog.dismiss();
-                this.f43846e.mModel.w(this.f43846e.IProcessImpl);
+                this.a.mDelAllDialog.dismiss();
+                this.a.mModel.y(this.a.IProcessImpl);
             }
         }
     }
@@ -142,9 +137,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ StrangerListActivity f43847e;
+        public final /* synthetic */ StrangerListActivity a;
 
         public c(StrangerListActivity strangerListActivity) {
             Interceptable interceptable = $ic;
@@ -153,22 +146,22 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {strangerListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43847e = strangerListActivity;
+            this.a = strangerListActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f43847e.mDelAllDialog.dismiss();
+                this.a.mDelAllDialog.dismiss();
             }
         }
     }
@@ -180,17 +173,17 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         public final /* synthetic */ StrangerListActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(StrangerListActivity strangerListActivity, int i2) {
-            super(i2);
+        public d(StrangerListActivity strangerListActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strangerListActivity, Integer.valueOf(i2)};
+                Object[] objArr = {strangerListActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -223,7 +216,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class e implements c.a.r0.s1.f.i.a {
+    public class e implements c.a.p0.u1.f.i.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -235,9 +228,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {strangerListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -246,7 +239,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // c.a.r0.s1.f.i.a
+        @Override // c.a.p0.u1.f.i.a
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -256,7 +249,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class f implements c.a.r0.s1.f.i.b {
+    public class f implements c.a.p0.u1.f.i.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ StrangerListActivity a;
@@ -268,9 +261,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {strangerListActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -279,7 +272,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             this.a = strangerListActivity;
         }
 
-        @Override // c.a.r0.s1.f.i.b
+        @Override // c.a.p0.u1.f.i.b
         public void onCanceled() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -288,17 +281,17 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
         }
 
-        @Override // c.a.r0.s1.f.i.b
+        @Override // c.a.p0.u1.f.i.b
         public void onPostExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.a.dismissDialog();
-                this.a.showToast(R.string.delete_success, false);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f049c, false);
                 this.a.onCompleteProcess();
             }
         }
 
-        @Override // c.a.r0.s1.f.i.b
+        @Override // c.a.p0.u1.f.i.b
         public void onPreExecute() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -306,12 +299,12 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
             }
         }
 
-        @Override // c.a.r0.s1.f.i.b
-        public void onProgressUpdate(int i2, String str, int i3) {
+        @Override // c.a.p0.u1.f.i.b
+        public void onProgressUpdate(int i, String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                 if (this.a.mProgressDialog != null) {
-                    this.a.mProgressDialog.setPercent(i2);
+                    this.a.mProgressDialog.b(i);
                 }
                 this.a.notifyDataSetChanged();
             }
@@ -323,9 +316,9 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -342,8 +335,8 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     public void dismissDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
-            BdProgressDialog1080 bdProgressDialog1080 = this.mProgressDialog;
-            if (bdProgressDialog1080 != null && bdProgressDialog1080.isShowing()) {
+            c.a.o0.r.t.d dVar = this.mProgressDialog;
+            if (dVar != null && dVar.isShowing()) {
                 this.mProgressDialog.dismiss();
                 this.mProgressDialog = null;
             }
@@ -362,19 +355,19 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     private void initUI(StrangerListActivity strangerListActivity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65552, this, strangerListActivity) == null) {
-            this.mView = new c.a.r0.t1.a.e.b(strangerListActivity);
-            c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(strangerListActivity.getPageContext().getPageActivity());
+            this.mView = new c.a.p0.v1.a.e.b(strangerListActivity);
+            c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(strangerListActivity.getPageContext().getPageActivity());
             this.mDelAllDialog = aVar;
-            aVar.setMessageId(R.string.sure_to_delete_all_stranger_msg);
-            this.mDelAllDialog.setPositiveButton(R.string.confirm, this.mDelAllClickListener);
-            this.mDelAllDialog.setNegativeButton(R.string.cancel, this.mCancelClickListener);
+            aVar.setMessageId(R.string.obfuscated_res_0x7f0f11fa);
+            this.mDelAllDialog.setPositiveButton(R.string.obfuscated_res_0x7f0f041a, this.mDelAllClickListener);
+            this.mDelAllDialog.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, this.mCancelClickListener);
             this.mDelAllDialog.create(strangerListActivity.getPageContext());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void notifyDataSetChanged() {
-        c.a.r0.t1.a.e.b bVar;
+        c.a.p0.v1.a.e.b bVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65553, this) == null) || (bVar = this.mView) == null || bVar.c() == null) {
             return;
@@ -384,7 +377,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void onCompleteProcess() {
-        c.a.r0.t1.a.e.b bVar;
+        c.a.p0.v1.a.e.b bVar;
         StrangerListModel strangerListModel;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65554, this) == null) || (bVar = this.mView) == null || bVar.c() == null || (strangerListModel = this.mModel) == null) {
@@ -454,26 +447,26 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         if (interceptable == null || interceptable.invokeV(65559, this) == null) {
             dismissDialog();
             if (this.mProgressDialog == null) {
-                this.mProgressDialog = c.a.r0.s1.h.e.m().p(getPageContext().getPageActivity());
+                this.mProgressDialog = c.a.p0.u1.h.e.m().p(getPageContext().getPageActivity());
             }
             this.mProgressDialog.show();
-            this.mProgressDialog.setPercent(0);
+            this.mProgressDialog.b(0);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
-        c.a.r0.t1.a.e.b bVar;
+    public void onChangeSkinType(int i) {
+        c.a.p0.v1.a.e.b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || (bVar = this.mView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (bVar = this.mView) == null) {
             return;
         }
-        bVar.onChangeSkinType(i2);
+        bVar.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.q0.r.t.a aVar;
+        c.a.o0.r.t.a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
             super.onClick(view);
@@ -506,11 +499,11 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
-        c.a.r0.t1.a.e.b bVar;
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
+        c.a.p0.v1.a.e.b bVar;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (bVar = this.mView) == null || bVar.c() == null || (item = this.mView.c().getItem(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (bVar = this.mView) == null || bVar.c() == null || (item = this.mView.c().getItem(i)) == null) {
             return;
         }
         PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(this.mActivity.getPageContext().getContext(), c.a.d.f.m.b.g(item.getFriendId(), 0L), item.getFriendName(), item.getFriendNameShow(), item.getFriendPortrait(), 0, 0);
@@ -519,19 +512,19 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemLongClickListener
-    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long j) {
         InterceptResult invokeCommon;
         ImMessageCenterShowItemData item;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            c.a.r0.t1.a.e.b bVar = this.mView;
-            if (bVar == null || bVar.c() == null || (item = this.mView.c().getItem(i2)) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            c.a.p0.v1.a.e.b bVar = this.mView;
+            if (bVar == null || bVar.c() == null || (item = this.mView.c().getItem(i)) == null) {
                 return false;
             }
             int size = this.mModel.getData().size();
-            PopupDialog popupDialog = new PopupDialog(getPageContext());
-            popupDialog.setDefaultContentView(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.delete_user_chat)}, new a(this, popupDialog, size, item));
-            popupDialog.showDialog();
+            j jVar = new j(getPageContext());
+            jVar.j(null, new String[]{TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a8)}, new a(this, jVar, size, item));
+            jVar.m();
             return true;
         }
         return invokeCommon.booleanValue;
@@ -551,7 +544,7 @@ public class StrangerListActivity extends BaseActivity<StrangerListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
-            c.a.r0.t1.a.e.b bVar = this.mView;
+            c.a.p0.v1.a.e.b bVar = this.mView;
             if (bVar != null && bVar.c() != null) {
                 this.mView.c().notifyDataSetChanged();
             }

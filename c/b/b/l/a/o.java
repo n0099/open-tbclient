@@ -15,23 +15,23 @@ public class o {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f27186b;
+    public int f22439b;
 
     public o() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = 0;
-        this.f27186b = 0;
+        this.f22439b = 0;
     }
 
     public boolean a(MotionEvent motionEvent, z zVar) {
@@ -47,10 +47,10 @@ public class o {
                 if (action == 7) {
                     int x = (int) motionEvent.getX();
                     int y = (int) motionEvent.getY();
-                    if (x != this.a || y != this.f27186b) {
+                    if (x != this.a || y != this.f22439b) {
                         b(zVar, 4, x, y, 0, 0, nanoTime);
                         this.a = x;
-                        this.f27186b = y;
+                        this.f22439b = y;
                     }
                 } else if (action == 8) {
                     b(zVar, 3, 0, 0, (int) (-Math.signum(motionEvent.getAxisValue(10))), (int) (-Math.signum(motionEvent.getAxisValue(9))), nanoTime);
@@ -62,17 +62,17 @@ public class o {
         return invokeLL.booleanValue;
     }
 
-    public final void b(z zVar, int i2, int i3, int i4, int i5, int i6, long j2) {
+    public final void b(z zVar, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zVar, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Long.valueOf(j2)}) == null) {
-            z.f e2 = zVar.k.e();
-            e2.a = j2;
-            e2.f27212c = i3;
-            e2.f27213d = i4;
-            e2.f27211b = i2;
-            e2.f27214e = i5;
-            e2.f27215f = i6;
-            zVar.n.add(e2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{zVar, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            z.f e2 = zVar.f22455g.e();
+            e2.a = j;
+            e2.f22461c = i2;
+            e2.f22462d = i3;
+            e2.f22460b = i;
+            e2.f22463e = i4;
+            e2.f22464f = i5;
+            zVar.j.add(e2);
         }
     }
 }

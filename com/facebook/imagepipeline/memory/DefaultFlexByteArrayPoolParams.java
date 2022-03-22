@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultFlexByteArrayPoolParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_MAX_BYTE_ARRAY_SIZE = 4194304;
@@ -37,23 +37,23 @@ public class DefaultFlexByteArrayPoolParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static SparseIntArray generateBuckets(int i2, int i3, int i4) {
+    public static SparseIntArray generateBuckets(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) {
             SparseIntArray sparseIntArray = new SparseIntArray();
-            while (i2 <= i3) {
-                sparseIntArray.put(i2, i4);
-                i2 *= 2;
+            while (i <= i2) {
+                sparseIntArray.put(i, i3);
+                i *= 2;
             }
             return sparseIntArray;
         }
@@ -64,8 +64,8 @@ public class DefaultFlexByteArrayPoolParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i2 = DEFAULT_MAX_NUM_THREADS;
-            return new PoolParams(4194304, i2 * 4194304, generateBuckets(131072, 4194304, i2), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
+            int i = DEFAULT_MAX_NUM_THREADS;
+            return new PoolParams(4194304, i * 4194304, generateBuckets(131072, 4194304, i), 131072, 4194304, DEFAULT_MAX_NUM_THREADS);
         }
         return (PoolParams) invokeV.objValue;
     }

@@ -17,13 +17,13 @@ public class y implements h {
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f27203b;
+    public final String f22451b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AssetManager f27204c;
+    public final AssetManager f22452c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a0 f27205d;
+    public a0 f22453d;
 
     public y(AssetManager assetManager, ContextWrapper contextWrapper, boolean z) {
         Interceptable interceptable = $ic;
@@ -32,21 +32,21 @@ public class y implements h {
             newInitContext.initArgs = r2;
             Object[] objArr = {assetManager, contextWrapper, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27205d = null;
-        this.f27204c = assetManager;
+        this.f22453d = null;
+        this.f22452c = assetManager;
         String absolutePath = contextWrapper.getFilesDir().getAbsolutePath();
         if (!absolutePath.endsWith("/")) {
             absolutePath = absolutePath + "/";
         }
-        this.f27203b = absolutePath;
+        this.f22451b = absolutePath;
         if (z) {
             this.a = h(contextWrapper);
         } else {
@@ -59,8 +59,8 @@ public class y implements h {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            g gVar = new g(this.f27204c, str, Files.FileType.Internal);
-            return this.f27205d != null ? g(gVar, str) : gVar;
+            g gVar = new g(this.f22452c, str, Files.FileType.Internal);
+            return this.f22453d != null ? g(gVar, str) : gVar;
         }
         return (c.b.b.m.a) invokeL.objValue;
     }
@@ -69,14 +69,14 @@ public class y implements h {
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27203b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f22451b : (String) invokeV.objValue;
     }
 
     @Override // c.b.b.l.a.h
     public a0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27205d : (a0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22453d : (a0) invokeV.objValue;
     }
 
     @Override // com.badlogic.gdx.Files
@@ -84,8 +84,8 @@ public class y implements h {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, fileType)) == null) {
-            g gVar = new g(fileType == Files.FileType.Internal ? this.f27204c : null, str, fileType);
-            return (this.f27205d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
+            g gVar = new g(fileType == Files.FileType.Internal ? this.f22452c : null, str, fileType);
+            return (this.f22453d == null || fileType != Files.FileType.Internal) ? gVar : g(gVar, str);
         }
         return (c.b.b.m.a) invokeLL.objValue;
     }
@@ -109,7 +109,7 @@ public class y implements h {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, aVar, str)) == null) {
             try {
-                this.f27204c.open(str).close();
+                this.f22452c.open(str).close();
                 return aVar;
             } catch (Exception unused) {
                 w wVar = new w(str);

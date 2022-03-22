@@ -30,9 +30,9 @@ public final class TornadoGame {
             newInitContext.initArgs = r2;
             Object[] objArr = {id, name, ename, sort, tag, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,27 +51,27 @@ public final class TornadoGame {
         this.free = z;
     }
 
-    public static /* synthetic */ TornadoGame copy$default(TornadoGame tornadoGame, String str, String str2, String str3, String str4, String str5, boolean z, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ TornadoGame copy$default(TornadoGame tornadoGame, String str, String str2, String str3, String str4, String str5, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
             str = tornadoGame.id;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             str2 = tornadoGame.name;
         }
         String str6 = str2;
-        if ((i2 & 4) != 0) {
+        if ((i & 4) != 0) {
             str3 = tornadoGame.ename;
         }
         String str7 = str3;
-        if ((i2 & 8) != 0) {
+        if ((i & 8) != 0) {
             str4 = tornadoGame.sort;
         }
         String str8 = str4;
-        if ((i2 & 16) != 0) {
+        if ((i & 16) != 0) {
             str5 = tornadoGame.tag;
         }
         String str9 = str5;
-        if ((i2 & 32) != 0) {
+        if ((i & 32) != 0) {
             z = tornadoGame.free;
         }
         return tornadoGame.copy(str, str6, str7, str8, str9, z);
@@ -187,11 +187,11 @@ public final class TornadoGame {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             int hashCode = ((((((((this.id.hashCode() * 31) + this.name.hashCode()) * 31) + this.ename.hashCode()) * 31) + this.sort.hashCode()) * 31) + this.tag.hashCode()) * 31;
             boolean z = this.free;
-            int i2 = z;
+            int i = z;
             if (z != 0) {
-                i2 = 1;
+                i = 1;
             }
-            return hashCode + i2;
+            return hashCode + i;
         }
         return invokeV.intValue;
     }

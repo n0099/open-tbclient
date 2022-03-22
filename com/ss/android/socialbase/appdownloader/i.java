@@ -1,11 +1,14 @@
 package com.ss.android.socialbase.appdownloader;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.sina.weibo.sdk.utils.ResourceManager;
+/* loaded from: classes7.dex */
 public class i {
     public static int a(String str) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "layout", com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
+            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, TtmlNode.TAG_LAYOUT, com.ss.android.socialbase.downloader.downloader.c.N().getPackageName());
         } catch (Exception e2) {
             e2.printStackTrace();
             return 0;
@@ -63,7 +66,7 @@ public class i {
 
     public static int a(Context context, String str) {
         try {
-            return context.getResources().getIdentifier(str, "string", context.getPackageName());
+            return context.getResources().getIdentifier(str, EMABTest.TYPE_STRING, context.getPackageName());
         } catch (Exception e2) {
             e2.printStackTrace();
             return 0;
@@ -72,7 +75,7 @@ public class i {
 
     public static int a(String str, String str2) {
         try {
-            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, "drawable", str2);
+            return com.ss.android.socialbase.downloader.downloader.c.N().getResources().getIdentifier(str, ResourceManager.DRAWABLE, str2);
         } catch (Exception e2) {
             e2.printStackTrace();
             return 0;

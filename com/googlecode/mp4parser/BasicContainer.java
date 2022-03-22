@@ -63,9 +63,9 @@ public class BasicContainer implements Container, Iterator<Box> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r7};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((String) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -105,9 +105,9 @@ public class BasicContainer implements Container, Iterator<Box> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -143,13 +143,13 @@ public class BasicContainer implements Container, Iterator<Box> {
     }
 
     @Override // com.coremedia.iso.boxes.Container
-    public ByteBuffer getByteBuffer(long j2, long j3) throws IOException {
+    public ByteBuffer getByteBuffer(long j, long j2) throws IOException {
         InterceptResult invokeCommon;
         ByteBuffer map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this.dataSource) {
-                map = this.dataSource.map(this.startPosition + j2, j3);
+                map = this.dataSource.map(this.startPosition + j, j2);
             }
             return map;
         }
@@ -160,11 +160,11 @@ public class BasicContainer implements Container, Iterator<Box> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            long j2 = 0;
-            for (int i2 = 0; i2 < getBoxes().size(); i2++) {
-                j2 += this.boxes.get(i2).getSize();
+            long j = 0;
+            for (int i = 0; i < getBoxes().size(); i++) {
+                j += this.boxes.get(i).getSize();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -192,14 +192,14 @@ public class BasicContainer implements Container, Iterator<Box> {
         return invokeV.booleanValue;
     }
 
-    public void parseContainer(DataSource dataSource, long j2, BoxParser boxParser) throws IOException {
+    public void parseContainer(DataSource dataSource, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{dataSource, Long.valueOf(j), boxParser}) == null) {
             this.dataSource = dataSource;
             long position = dataSource.position();
             this.startPosition = position;
             this.parsePosition = position;
-            dataSource.position(dataSource.position() + j2);
+            dataSource.position(dataSource.position() + j);
             this.endPosition = dataSource.position();
             this.boxParser = boxParser;
         }
@@ -230,11 +230,11 @@ public class BasicContainer implements Container, Iterator<Box> {
             StringBuilder sb = new StringBuilder();
             sb.append(getClass().getSimpleName());
             sb.append(PreferencesUtil.LEFT_MOUNT);
-            for (int i2 = 0; i2 < this.boxes.size(); i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < this.boxes.size(); i++) {
+                if (i > 0) {
                     sb.append(";");
                 }
-                sb.append(this.boxes.get(i2).toString());
+                sb.append(this.boxes.get(i).toString());
             }
             sb.append(PreferencesUtil.RIGHT_MOUNT);
             return sb.toString();

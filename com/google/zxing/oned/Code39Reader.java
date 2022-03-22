@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.qrcodescanner.QRScanCodeActivity;
+import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.ar.core.InstallActivity;
 import com.google.zxing.BarcodeFormat;
@@ -50,7 +50,7 @@ public final class Code39Reader extends OneDReader {
                 return;
             }
         }
-        int[] iArr = {52, QRScanCodeActivity.DIALOG_TXT_COPY, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, 259, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, 145, 400, 208, 133, 388, 196, 148, w0.d0, 162, 138, 42};
+        int[] iArr = {52, 289, 97, 352, 49, 304, 112, 37, 292, 100, 265, 73, 328, 25, InstallActivity.BOX_SIZE_DP, 88, 13, w0.W, 76, 28, ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256, 67, 322, 19, 274, 82, 7, 262, 70, 22, 385, 193, FileUtils.S_IRWXU, 145, 400, 208, 133, 388, 196, w0.I, w0.d0, 162, 138, 42};
         CHARACTER_ENCODINGS = iArr;
         ASTERISK_ENCODING = iArr[39];
     }
@@ -62,9 +62,9 @@ public final class Code39Reader extends OneDReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -75,27 +75,27 @@ public final class Code39Reader extends OneDReader {
 
     public static String decodeExtended(CharSequence charSequence) throws FormatException {
         InterceptResult invokeL;
-        int i2;
+        int i;
         char c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, charSequence)) == null) {
             int length = charSequence.length();
             StringBuilder sb = new StringBuilder(length);
-            int i3 = 0;
-            while (i3 < length) {
-                char charAt = charSequence.charAt(i3);
+            int i2 = 0;
+            while (i2 < length) {
+                char charAt = charSequence.charAt(i2);
                 if (charAt != '+' && charAt != '$' && charAt != '%' && charAt != '/') {
                     sb.append(charAt);
                 } else {
-                    i3++;
-                    char charAt2 = charSequence.charAt(i3);
+                    i2++;
+                    char charAt2 = charSequence.charAt(i2);
                     if (charAt != '$') {
                         if (charAt != '%') {
                             if (charAt != '+') {
                                 if (charAt != '/') {
                                     c2 = 0;
                                 } else if (charAt2 >= 'A' && charAt2 <= 'O') {
-                                    i2 = charAt2 - ' ';
+                                    i = charAt2 - ' ';
                                 } else if (charAt2 != 'Z') {
                                     throw FormatException.getFormatInstance();
                                 } else {
@@ -105,24 +105,24 @@ public final class Code39Reader extends OneDReader {
                             } else if (charAt2 < 'A' || charAt2 > 'Z') {
                                 throw FormatException.getFormatInstance();
                             } else {
-                                i2 = charAt2 + WebvttCueParser.CHAR_SPACE;
+                                i = charAt2 + WebvttCueParser.CHAR_SPACE;
                             }
                         } else if (charAt2 >= 'A' && charAt2 <= 'E') {
-                            i2 = charAt2 - '&';
+                            i = charAt2 - '&';
                         } else if (charAt2 < 'F' || charAt2 > 'W') {
                             throw FormatException.getFormatInstance();
                         } else {
-                            i2 = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
+                            i = charAt2 + DecodedBitStreamParser.TWOSHIFTA;
                         }
                     } else if (charAt2 < 'A' || charAt2 > 'Z') {
                         throw FormatException.getFormatInstance();
                     } else {
-                        i2 = charAt2 - '@';
+                        i = charAt2 - '@';
                     }
-                    c2 = (char) i2;
+                    c2 = (char) i;
                     sb.append(c2);
                 }
-                i3++;
+                i2++;
             }
             return sb.toString();
         }
@@ -136,27 +136,27 @@ public final class Code39Reader extends OneDReader {
             int size = bitArray.getSize();
             int nextSet = bitArray.getNextSet(0);
             int length = iArr.length;
-            int i2 = nextSet;
+            int i = nextSet;
             boolean z = false;
-            int i3 = 0;
+            int i2 = 0;
             while (nextSet < size) {
                 if (bitArray.get(nextSet) ^ z) {
-                    iArr[i3] = iArr[i3] + 1;
+                    iArr[i2] = iArr[i2] + 1;
                 } else {
-                    int i4 = length - 1;
-                    if (i3 != i4) {
-                        i3++;
-                    } else if (toNarrowWidePattern(iArr) == ASTERISK_ENCODING && bitArray.isRange(Math.max(0, i2 - ((nextSet - i2) / 2)), i2, false)) {
-                        return new int[]{i2, nextSet};
+                    int i3 = length - 1;
+                    if (i2 != i3) {
+                        i2++;
+                    } else if (toNarrowWidePattern(iArr) == ASTERISK_ENCODING && bitArray.isRange(Math.max(0, i - ((nextSet - i) / 2)), i, false)) {
+                        return new int[]{i, nextSet};
                     } else {
-                        i2 += iArr[0] + iArr[1];
-                        int i5 = length - 2;
-                        System.arraycopy(iArr, 2, iArr, 0, i5);
-                        iArr[i5] = 0;
+                        i += iArr[0] + iArr[1];
+                        int i4 = length - 2;
+                        System.arraycopy(iArr, 2, iArr, 0, i4);
                         iArr[i4] = 0;
-                        i3--;
+                        iArr[i3] = 0;
+                        i2--;
                     }
-                    iArr[i3] = 1;
+                    iArr[i2] = 1;
                     z = !z;
                 }
                 nextSet++;
@@ -166,20 +166,20 @@ public final class Code39Reader extends OneDReader {
         return (int[]) invokeLL.objValue;
     }
 
-    public static char patternToChar(int i2) throws NotFoundException {
+    public static char patternToChar(int i) throws NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65542, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65542, null, i)) != null) {
             return invokeI.charValue;
         }
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
             int[] iArr = CHARACTER_ENCODINGS;
-            if (i3 < iArr.length) {
-                if (iArr[i3] == i2) {
-                    return ALPHABET_STRING.charAt(i3);
+            if (i2 < iArr.length) {
+                if (iArr[i2] == i) {
+                    return ALPHABET_STRING.charAt(i2);
                 }
-                i3++;
+                i2++;
             } else {
                 throw NotFoundException.getNotFoundInstance();
             }
@@ -193,51 +193,51 @@ public final class Code39Reader extends OneDReader {
             return invokeL.intValue;
         }
         int length = iArr.length;
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = Integer.MAX_VALUE;
-            for (int i4 : iArr) {
-                if (i4 < i3 && i4 > i2) {
-                    i3 = i4;
+            int i2 = Integer.MAX_VALUE;
+            for (int i3 : iArr) {
+                if (i3 < i2 && i3 > i) {
+                    i2 = i3;
                 }
             }
+            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
-            int i7 = 0;
-            for (int i8 = 0; i8 < length; i8++) {
-                int i9 = iArr[i8];
-                if (i9 > i3) {
-                    i6 |= 1 << ((length - 1) - i8);
-                    i5++;
-                    i7 += i9;
+            for (int i7 = 0; i7 < length; i7++) {
+                int i8 = iArr[i7];
+                if (i8 > i2) {
+                    i5 |= 1 << ((length - 1) - i7);
+                    i4++;
+                    i6 += i8;
                 }
             }
-            if (i5 == 3) {
-                for (int i10 = 0; i10 < length && i5 > 0; i10++) {
-                    int i11 = iArr[i10];
-                    if (i11 > i3) {
-                        i5--;
-                        if ((i11 << 1) >= i7) {
+            if (i4 == 3) {
+                for (int i9 = 0; i9 < length && i4 > 0; i9++) {
+                    int i10 = iArr[i9];
+                    if (i10 > i2) {
+                        i4--;
+                        if ((i10 << 1) >= i6) {
                             return -1;
                         }
                     }
                 }
-                return i6;
-            } else if (i5 <= 3) {
+                return i5;
+            } else if (i4 <= 3) {
                 return -1;
             } else {
-                i2 = i3;
+                i = i2;
             }
         }
     }
 
     @Override // com.google.zxing.oned.OneDReader
-    public Result decodeRow(int i2, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
+    public Result decodeRow(int i, BitArray bitArray, Map<DecodeHintType, ?> map) throws NotFoundException, ChecksumException, FormatException {
         InterceptResult invokeILL;
         int[] findAsteriskPattern;
         String sb;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i2, bitArray, map)) != null) {
+        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048576, this, i, bitArray, map)) != null) {
             return (Result) invokeILL.objValue;
         }
         int[] iArr = this.counters;
@@ -252,28 +252,28 @@ public final class Code39Reader extends OneDReader {
             if (narrowWidePattern >= 0) {
                 char patternToChar = patternToChar(narrowWidePattern);
                 sb2.append(patternToChar);
-                int i3 = nextSet;
-                for (int i4 : iArr) {
-                    i3 += i4;
+                int i2 = nextSet;
+                for (int i3 : iArr) {
+                    i2 += i3;
                 }
-                int nextSet2 = bitArray.getNextSet(i3);
+                int nextSet2 = bitArray.getNextSet(i2);
                 if (patternToChar == '*') {
                     sb2.setLength(sb2.length() - 1);
-                    int i5 = 0;
-                    for (int i6 : iArr) {
-                        i5 += i6;
+                    int i4 = 0;
+                    for (int i5 : iArr) {
+                        i4 += i5;
                     }
-                    int i7 = (nextSet2 - nextSet) - i5;
-                    if (nextSet2 != size && (i7 << 1) < i5) {
+                    int i6 = (nextSet2 - nextSet) - i4;
+                    if (nextSet2 != size && (i6 << 1) < i4) {
                         throw NotFoundException.getNotFoundInstance();
                     }
                     if (this.usingCheckDigit) {
                         int length = sb2.length() - 1;
-                        int i8 = 0;
-                        for (int i9 = 0; i9 < length; i9++) {
-                            i8 += CHECK_DIGIT_STRING.indexOf(this.decodeRowResult.charAt(i9));
+                        int i7 = 0;
+                        for (int i8 = 0; i8 < length; i8++) {
+                            i7 += CHECK_DIGIT_STRING.indexOf(this.decodeRowResult.charAt(i8));
                         }
-                        if (sb2.charAt(length) == CHECK_DIGIT_STRING.charAt(i8 % 43)) {
+                        if (sb2.charAt(length) == CHECK_DIGIT_STRING.charAt(i7 % 43)) {
                             sb2.setLength(length);
                         } else {
                             throw ChecksumException.getChecksumInstance();
@@ -285,8 +285,8 @@ public final class Code39Reader extends OneDReader {
                         } else {
                             sb = sb2.toString();
                         }
-                        float f2 = i2;
-                        return new Result(sb, null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i5 / 2.0f), f2)}, BarcodeFormat.CODE_39);
+                        float f2 = i;
+                        return new Result(sb, null, new ResultPoint[]{new ResultPoint((findAsteriskPattern[1] + findAsteriskPattern[0]) / 2.0f, f2), new ResultPoint(nextSet + (i4 / 2.0f), f2)}, BarcodeFormat.CODE_39);
                     }
                     throw NotFoundException.getNotFoundInstance();
                 }
@@ -306,9 +306,9 @@ public final class Code39Reader extends OneDReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
                 newInitContext.thisArg = this;
@@ -325,9 +325,9 @@ public final class Code39Reader extends OneDReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

@@ -25,9 +25,9 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {lazyStringList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,10 +45,10 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public ByteString getByteString(int i2) {
+    public ByteString getByteString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.list.getByteString(i2) : (ByteString) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.list.getByteString(i) : (ByteString) invokeI.objValue;
     }
 
     @Override // com.google.protobuf.LazyStringList
@@ -75,9 +75,9 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -113,10 +113,10 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public ListIterator<String> listIterator(int i2) {
+    public ListIterator<String> listIterator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? new ListIterator<String>(this, i2) { // from class: com.google.protobuf.UnmodifiableLazyStringList.1
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? new ListIterator<String>(this, i) { // from class: com.google.protobuf.UnmodifiableLazyStringList.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public ListIterator<String> iter;
@@ -128,18 +128,18 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2)};
+                    Object[] objArr = {this, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$index = i2;
+                this.val$index = i;
                 this.iter = this.this$0.list.listIterator(this.val$index);
             }
 
@@ -224,9 +224,9 @@ public class UnmodifiableLazyStringList extends AbstractList<String> implements 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String get(int i2) {
+    public String get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.list.get(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.list.get(i) : (String) invokeI.objValue;
     }
 }

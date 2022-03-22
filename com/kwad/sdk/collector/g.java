@@ -9,21 +9,21 @@ public class g {
     public static int a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f54053b = 1;
+    public static int f39202b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f54054c = 2;
+    public static int f39203c = 2;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f54055d;
+    public String f39204d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f54056e;
+    public int f39205e;
 
-    public g(String str, int i2) {
-        this.f54056e = a;
-        this.f54055d = str;
-        this.f54056e = i2;
+    public g(String str, int i) {
+        this.f39205e = a;
+        this.f39204d = str;
+        this.f39205e = i;
     }
 
     public static JSONArray a(List<g> list) {
@@ -39,15 +39,15 @@ public class g {
 
     private String b() {
         int lastIndexOf;
-        String str = this.f54055d;
-        return ((str.startsWith("com.android.") || this.f54055d.startsWith("android.permission")) && (lastIndexOf = this.f54055d.lastIndexOf(".")) < this.f54055d.length() + (-1)) ? this.f54055d.substring(lastIndexOf + 1) : str;
+        String str = this.f39204d;
+        return ((str.startsWith("com.android.") || this.f39204d.startsWith("android.permission")) && (lastIndexOf = this.f39204d.lastIndexOf(".")) < this.f39204d.length() + (-1)) ? this.f39204d.substring(lastIndexOf + 1) : str;
     }
 
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", b());
-            jSONObject.put("state", this.f54056e);
+            jSONObject.put("state", this.f39205e);
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }

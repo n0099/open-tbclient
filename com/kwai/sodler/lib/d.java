@@ -18,14 +18,14 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements com.kwai.sodler.lib.kwai.d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ConcurrentHashMap<String, com.kwai.sodler.lib.kwai.a> f56942b;
+    public final ConcurrentHashMap<String, com.kwai.sodler.lib.kwai.a> f41806b;
 
     public d(Context context) {
         Interceptable interceptable = $ic;
@@ -34,15 +34,15 @@ public class d implements com.kwai.sodler.lib.kwai.d {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f56942b = new ConcurrentHashMap<>();
+        this.f41806b = new ConcurrentHashMap<>();
         this.a = context.getApplicationContext();
     }
 
@@ -55,27 +55,27 @@ public class d implements com.kwai.sodler.lib.kwai.d {
             a.b("Sodler.loader", "Loading plugin, path = " + e2);
             com.kwai.sodler.lib.kwai.e b2 = fVar.b();
             if (file.exists()) {
-                String i2 = fVar.i();
+                String i = fVar.i();
                 String a = fVar.a();
-                aVar.b(i2);
+                aVar.b(i);
                 aVar.a(a);
-                if (b2.e().c(i2, a)) {
-                    String b3 = b2.e().b(i2, a);
+                if (b2.e().c(i, a)) {
+                    String b3 = b2.e().b(i, a);
                     if (com.kwai.sodler.lib.b.b.b(b3)) {
                         a.b("Sodler.loader", "The current version has been installed before.");
                         aVar.c(b3);
-                        com.kwai.sodler.lib.kwai.a a2 = a(i2);
+                        com.kwai.sodler.lib.kwai.a a2 = a(i);
                         if (a2 == null) {
                             a.a("Sodler.loader", "Load plugin from installed path.");
                             aVar.a(this.a, b3);
-                            a(i2, aVar);
+                            a(i, aVar);
                             return aVar;
                         }
                         a.b("Sodler.loader", "The current plugin has been loaded, id = " + a);
                         return a2;
                     }
                 }
-                com.kwai.sodler.lib.kwai.a a3 = a(i2);
+                com.kwai.sodler.lib.kwai.a a3 = a(i);
                 if (a3 != null) {
                     return a3;
                 }
@@ -84,7 +84,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
                 aVar.c(b4);
                 a.b("Sodler.loader", "installed ." + b4);
                 aVar.a(this.a, b4);
-                a(i2, aVar);
+                a(i, aVar);
                 if (e2.endsWith(b2.b().e())) {
                     com.kwai.sodler.lib.b.b.a(e2);
                 }
@@ -167,7 +167,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             synchronized (this) {
-                com.kwai.sodler.lib.kwai.a aVar = this.f56942b.get(str);
+                com.kwai.sodler.lib.kwai.a aVar = this.f41806b.get(str);
                 if (aVar != null) {
                     if (!aVar.b()) {
                         return null;
@@ -199,7 +199,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
             return fVar;
         }
         fVar.t();
-        com.kwai.sodler.lib.kwai.a aVar = this.f56942b.get(fVar.i());
+        com.kwai.sodler.lib.kwai.a aVar = this.f41806b.get(fVar.i());
         if (aVar != null && aVar.b()) {
             fVar.a((com.kwai.sodler.lib.kwai.f) aVar);
             a.b("Sodler.loader", "Load plugin success, path = " + aVar.e());
@@ -218,7 +218,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
         }
         if (r == null || r.isEmpty()) {
             a.b("Sodler.loader", "-------本地不存在，触发更新------------");
-            if (a.f56935g && !a(this.a)) {
+            if (a.f41799g && !a(this.a)) {
                 a(fVar, new PluginError.NotWifiDownloadError("It can be downloaded only on WiFi", 2007));
                 return fVar;
             }
@@ -231,17 +231,17 @@ public class d implements com.kwai.sodler.lib.kwai.d {
                     break;
                 }
                 com.kwai.sodler.lib.a.a next = it.next();
-                if (a.f56930b.equals(next.f56928b)) {
+                if (a.f41794b.equals(next.f41792b)) {
                     aVar2 = next;
                     break;
                 }
             }
             if (aVar2 != null) {
-                String b2 = fVar.b().e().b(aVar2.a, aVar2.f56928b);
+                String b2 = fVar.b().e().b(aVar2.a, aVar2.f41792b);
                 fVar.d(b2);
                 fVar.e(b2);
                 fVar.a(1);
-                fVar.b(aVar2.f56928b);
+                fVar.b(aVar2.f41792b);
                 a.b("Sodler.loader", "-------本地找到--------" + b2);
                 if (fVar.c() == 1) {
                     d(fVar);
@@ -256,7 +256,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
                 }
                 com.kwai.sodler.lib.kwai.a a2 = fVar.a(k).a(a);
                 fVar.b(fVar.b().b().a());
-                int i2 = 0;
+                int i = 0;
                 while (!fVar.f()) {
                     try {
                         fVar.a((com.kwai.sodler.lib.kwai.f) a(fVar, a2));
@@ -270,11 +270,11 @@ public class d implements com.kwai.sodler.lib.kwai.d {
                             fVar.h();
                             StringBuilder sb = new StringBuilder();
                             sb.append("Load fail, retry ");
-                            int i3 = i2 + 1;
-                            sb.append(i2);
+                            int i2 = i + 1;
+                            sb.append(i);
                             a.b("Sodler.loader", sb.toString());
-                            fVar.c("Retry load " + i3);
-                            i2 = i3;
+                            fVar.c("Retry load " + i2);
+                            i = i2;
                         } catch (PluginError.RetryError unused) {
                             a.b("Sodler.loader", "Load plugin fail, error = " + e2.toString());
                             a(fVar, e2);
@@ -286,7 +286,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
                 return fVar;
             }
             a.b("Sodler.loader", "-------本地需要升级--------");
-            if (a.f56935g && !a(this.a)) {
+            if (a.f41799g && !a(this.a)) {
                 a(fVar, new PluginError.NotWifiDownloadError("It can be downloaded only on WiFi", 2007));
                 return fVar;
             }
@@ -302,7 +302,7 @@ public class d implements com.kwai.sodler.lib.kwai.d {
             synchronized (this) {
                 if (aVar != null) {
                     if (aVar.b()) {
-                        this.f56942b.put(str, aVar);
+                        this.f41806b.put(str, aVar);
                     }
                 }
             }

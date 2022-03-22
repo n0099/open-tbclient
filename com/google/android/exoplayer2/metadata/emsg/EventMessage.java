@@ -10,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class EventMessage implements Metadata.Entry {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<EventMessage> CREATOR;
@@ -48,9 +47,9 @@ public final class EventMessage implements Metadata.Entry {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -69,24 +68,24 @@ public final class EventMessage implements Metadata.Entry {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public EventMessage[] newArray(int i2) {
+            public EventMessage[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new EventMessage[i2] : (EventMessage[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new EventMessage[i] : (EventMessage[]) invokeI.objValue;
             }
         };
     }
 
-    public EventMessage(String str, String str2, long j2, long j3, byte[] bArr) {
+    public EventMessage(String str, String str2, long j, long j2, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j2), Long.valueOf(j3), bArr};
+            Object[] objArr = {str, str2, Long.valueOf(j), Long.valueOf(j2), bArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -94,8 +93,8 @@ public final class EventMessage implements Metadata.Entry {
         }
         this.schemeIdUri = str;
         this.value = str2;
-        this.durationMs = j2;
-        this.id = j3;
+        this.durationMs = j;
+        this.id = j2;
         this.messageData = bArr;
     }
 
@@ -131,12 +130,12 @@ public final class EventMessage implements Metadata.Entry {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.hashCode == 0) {
                 String str = this.schemeIdUri;
-                int hashCode = (PayBeanFactory.BEAN_ID_WIDTHDRAW + (str != null ? str.hashCode() : 0)) * 31;
+                int hashCode = (527 + (str != null ? str.hashCode() : 0)) * 31;
                 String str2 = this.value;
                 int hashCode2 = str2 != null ? str2.hashCode() : 0;
-                long j2 = this.durationMs;
-                long j3 = this.id;
-                this.hashCode = ((((((hashCode + hashCode2) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + ((int) (j3 ^ (j3 >>> 32)))) * 31) + Arrays.hashCode(this.messageData);
+                long j = this.durationMs;
+                long j2 = this.id;
+                this.hashCode = ((((((hashCode + hashCode2) * 31) + ((int) (j ^ (j >>> 32)))) * 31) + ((int) (j2 ^ (j2 >>> 32)))) * 31) + Arrays.hashCode(this.messageData);
             }
             return this.hashCode;
         }
@@ -144,9 +143,9 @@ public final class EventMessage implements Metadata.Entry {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.schemeIdUri);
             parcel.writeString(this.value);
             parcel.writeLong(this.durationMs);
@@ -162,9 +161,9 @@ public final class EventMessage implements Metadata.Entry {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

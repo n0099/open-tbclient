@@ -34,12 +34,12 @@ public class MainClearCache extends BaseClearCache {
 
     /* loaded from: classes4.dex */
     public interface MainClearCacheCallback extends BaseClearCache.CacheClearCallback {
-        void onItemClearCacheResult(BaseClearCache baseClearCache, long j2, boolean z);
+        void onItemClearCacheResult(BaseClearCache baseClearCache, long j, boolean z);
     }
 
     /* loaded from: classes4.dex */
     public interface MainClearSizeCallback extends BaseClearCache.CacheSizeCallback {
-        void onItemCacheSizeResult(BaseClearCache baseClearCache, long j2);
+        void onItemCacheSizeResult(BaseClearCache baseClearCache, long j);
     }
 
     static {
@@ -65,9 +65,9 @@ public class MainClearCache extends BaseClearCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -78,14 +78,14 @@ public class MainClearCache extends BaseClearCache {
         for (BaseClearCache baseClearCache : sSubClearCacheList) {
             boolean z = false;
             if (forceList != null && forceList.length() > 0) {
-                int i4 = 0;
+                int i3 = 0;
                 while (true) {
-                    if (i4 >= forceList.length()) {
+                    if (i3 >= forceList.length()) {
                         break;
                     }
-                    JSONObject optJSONObject = forceList.optJSONObject(i4);
+                    JSONObject optJSONObject = forceList.optJSONObject(i3);
                     if (optJSONObject == null || !TextUtils.equals(optJSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_ID_KEY), baseClearCache.getUBCExtKey())) {
-                        i4++;
+                        i3++;
                     } else {
                         if ("1".equals(optJSONObject.optString(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY))) {
                             this.mShowClearCacheList.add(baseClearCache);
@@ -117,9 +117,9 @@ public class MainClearCache extends BaseClearCache {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, cacheSizeCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -150,9 +150,9 @@ public class MainClearCache extends BaseClearCache {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, baseClearCache, countDownLatch};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -164,11 +164,11 @@ public class MainClearCache extends BaseClearCache {
                                 }
 
                                 @Override // com.baidu.searchbox.download.center.clearcache.BaseClearCache.CacheSizeCallback
-                                public void onCacheSizeResult(long j2) {
+                                public void onCacheSizeResult(long j) {
                                     Interceptable interceptable3 = $ic;
-                                    if (interceptable3 == null || interceptable3.invokeJ(1048576, this, j2) == null) {
-                                        if (j2 >= 0) {
-                                            this.val$baseClearCache.setCacheSize(j2);
+                                    if (interceptable3 == null || interceptable3.invokeJ(1048576, this, j) == null) {
+                                        if (j >= 0) {
+                                            this.val$baseClearCache.setCacheSize(j);
                                         }
                                         BaseClearCache.CacheSizeCallback cacheSizeCallback2 = this.this$1.val$cacheSizeCallback;
                                         if (cacheSizeCallback2 instanceof MainClearSizeCallback) {
@@ -185,21 +185,21 @@ public class MainClearCache extends BaseClearCache {
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                         }
-                        long j2 = 0;
+                        long j = 0;
                         for (BaseClearCache baseClearCache2 : calculateCacheList) {
                             if (baseClearCache2.getCacheSize() >= 1024) {
-                                j2 += baseClearCache2.getCacheSize();
+                                j += baseClearCache2.getCacheSize();
                             }
                         }
-                        this.this$0.setCacheSize(j2);
+                        this.this$0.setCacheSize(j);
                         try {
-                            ClearCacheTips.notifyTips(j2);
+                            ClearCacheTips.notifyTips(j);
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }
                         BaseClearCache.CacheSizeCallback cacheSizeCallback2 = this.val$cacheSizeCallback;
                         if (cacheSizeCallback2 != null) {
-                            cacheSizeCallback2.onCacheSizeResult(j2);
+                            cacheSizeCallback2.onCacheSizeResult(j);
                         }
                     }
                 }
@@ -224,9 +224,9 @@ public class MainClearCache extends BaseClearCache {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, cacheClearCallback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -257,9 +257,9 @@ public class MainClearCache extends BaseClearCache {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, baseClearCache, countDownLatch};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -292,13 +292,13 @@ public class MainClearCache extends BaseClearCache {
                         } catch (InterruptedException e2) {
                             e2.printStackTrace();
                         }
-                        long j2 = 0;
+                        long j = 0;
                         for (BaseClearCache baseClearCache2 : this.this$0.getCalculateCacheList()) {
-                            j2 += baseClearCache2.getCacheSize();
+                            j += baseClearCache2.getCacheSize();
                         }
-                        this.this$0.setCacheSize(j2);
+                        this.this$0.setCacheSize(j);
                         try {
-                            ClearCacheTips.notifyTips(j2);
+                            ClearCacheTips.notifyTips(j);
                         } catch (Exception e3) {
                             e3.printStackTrace();
                         }
@@ -352,13 +352,13 @@ public class MainClearCache extends BaseClearCache {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (BaseClearCache baseClearCache : sSubClearCacheList) {
                 if (baseClearCache.isSelected() && baseClearCache.getCacheSize() >= 1024) {
-                    j2 += baseClearCache.getCacheSize();
+                    j += baseClearCache.getCacheSize();
                 }
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -383,13 +383,13 @@ public class MainClearCache extends BaseClearCache {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             List<BaseClearCache> selectedClearCacheList = getSelectedClearCacheList();
-            long j2 = 0;
+            long j = 0;
             if (selectedClearCacheList != null && selectedClearCacheList.size() > 0) {
                 for (BaseClearCache baseClearCache : selectedClearCacheList) {
-                    j2 += baseClearCache.getCacheSize();
+                    j += baseClearCache.getCacheSize();
                 }
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

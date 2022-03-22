@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AdaptationSet {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ID_UNSET = -1;
@@ -17,25 +17,25 @@ public class AdaptationSet {
     public final List<Descriptor> supplementalProperties;
     public final int type;
 
-    public AdaptationSet(int i2, int i3, List<Representation> list, List<Descriptor> list2, List<Descriptor> list3) {
+    public AdaptationSet(int i, int i2, List<Representation> list, List<Descriptor> list2, List<Descriptor> list3) {
         List<Descriptor> unmodifiableList;
         List<Descriptor> unmodifiableList2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), list, list2, list3};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), list, list2, list3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = i2;
-        this.type = i3;
+        this.id = i;
+        this.type = i2;
         this.representations = Collections.unmodifiableList(list);
         if (list2 == null) {
             unmodifiableList = Collections.emptyList();

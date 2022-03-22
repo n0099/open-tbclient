@@ -6,7 +6,6 @@ import com.airbnb.lottie.animation.content.Content;
 import com.airbnb.lottie.animation.content.MergePathsContent;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.Logger;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class MergePaths implements ContentModel {
     public final boolean hidden;
@@ -21,12 +20,12 @@ public class MergePaths implements ContentModel {
         INTERSECT,
         EXCLUDE_INTERSECTIONS;
 
-        public static MergePathsMode forId(int i2) {
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
+        public static MergePathsMode forId(int i) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
                                 return MERGE;
                             }
                             return EXCLUDE_INTERSECTIONS;
@@ -70,6 +69,6 @@ public class MergePaths implements ContentModel {
     }
 
     public String toString() {
-        return "MergePaths{mode=" + this.mode + ExtendedMessageFormat.END_FE;
+        return "MergePaths{mode=" + this.mode + '}';
     }
 }

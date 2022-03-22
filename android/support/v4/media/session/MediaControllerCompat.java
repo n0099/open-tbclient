@@ -23,6 +23,7 @@ import android.support.v4.media.session.MediaControllerCompatApi24;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.support.v4.media.session.PlaybackStateCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import androidx.annotation.GuardedBy;
 import androidx.annotation.NonNull;
@@ -102,9 +103,9 @@ public final class MediaControllerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {callback, looper};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Looper) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -181,9 +182,9 @@ public final class MediaControllerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {callback};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -193,13 +194,13 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.support.v4.media.session.MediaControllerCompatApi21.Callback
-            public void onAudioInfoChanged(int i2, int i3, int i4, int i5, int i6) {
+            public void onAudioInfoChanged(int i, int i2, int i3, int i4, int i5) {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) || (callback = this.mCallback.get()) == null) {
+                if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || (callback = this.mCallback.get()) == null) {
                     return;
                 }
-                callback.onAudioInfoChanged(new PlaybackInfo(i2, i3, i4, i5, i6));
+                callback.onAudioInfoChanged(new PlaybackInfo(i, i2, i3, i4, i5));
             }
 
             @Override // android.support.v4.media.session.MediaControllerCompatApi21.Callback
@@ -287,9 +288,9 @@ public final class MediaControllerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {callback};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -369,13 +370,13 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onRepeatModeChanged(int i2) throws RemoteException {
+            public void onRepeatModeChanged(int i) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (callback = this.mCallback.get()) == null) {
+                if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (callback = this.mCallback.get()) == null) {
                     return;
                 }
-                callback.postToHandler(9, Integer.valueOf(i2), null);
+                callback.postToHandler(9, Integer.valueOf(i), null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
@@ -399,13 +400,13 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
-            public void onShuffleModeChanged(int i2) throws RemoteException {
+            public void onShuffleModeChanged(int i) throws RemoteException {
                 Callback callback;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || (callback = this.mCallback.get()) == null) {
+                if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || (callback = this.mCallback.get()) == null) {
                     return;
                 }
-                callback.postToHandler(12, Integer.valueOf(i2), null);
+                callback.postToHandler(12, Integer.valueOf(i), null);
             }
 
             @Override // android.support.v4.media.session.IMediaControllerCallback
@@ -431,9 +432,9 @@ public final class MediaControllerCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -505,9 +506,9 @@ public final class MediaControllerCompat {
             }
         }
 
-        public void onRepeatModeChanged(int i2) {
+        public void onRepeatModeChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             }
         }
 
@@ -529,19 +530,19 @@ public final class MediaControllerCompat {
             }
         }
 
-        public void onShuffleModeChanged(int i2) {
+        public void onShuffleModeChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             }
         }
 
-        public void postToHandler(int i2, Object obj, Bundle bundle) {
+        public void postToHandler(int i, Object obj, Bundle bundle) {
             MessageHandler messageHandler;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeILL(1048590, this, i2, obj, bundle) == null) || (messageHandler = this.mHandler) == null) {
+            if (!(interceptable == null || interceptable.invokeILL(1048590, this, i, obj, bundle) == null) || (messageHandler = this.mHandler) == null) {
                 return;
             }
-            Message obtainMessage = messageHandler.obtainMessage(i2, obj);
+            Message obtainMessage = messageHandler.obtainMessage(i, obj);
             obtainMessage.setData(bundle);
             obtainMessage.sendToTarget();
         }
@@ -579,9 +580,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaControllerCompat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -601,9 +602,9 @@ public final class MediaControllerCompat {
     public interface MediaControllerImpl {
         void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat);
 
-        void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i2);
+        void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i);
 
-        void adjustVolume(int i2, int i3);
+        void adjustVolume(int i, int i2);
 
         boolean dispatchMediaButtonEvent(KeyEvent keyEvent);
 
@@ -645,7 +646,7 @@ public final class MediaControllerCompat {
 
         void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver);
 
-        void setVolumeTo(int i2, int i3);
+        void setVolumeTo(int i, int i2);
 
         void unregisterCallback(Callback callback);
     }
@@ -665,9 +666,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, token};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (MediaSessionCompat.Token) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -707,9 +708,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, token};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (MediaSessionCompat.Token) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -746,26 +747,26 @@ public final class MediaControllerCompat {
         public final int mPlaybackType;
         public final int mVolumeControl;
 
-        public PlaybackInfo(int i2, int i3, int i4, int i5, int i6) {
+        public PlaybackInfo(int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i7 = newInitContext.flag;
-                if ((i7 & 1) != 0) {
-                    int i8 = i7 & 2;
+                int i6 = newInitContext.flag;
+                if ((i6 & 1) != 0) {
+                    int i7 = i6 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mPlaybackType = i2;
-            this.mAudioStream = i3;
-            this.mVolumeControl = i4;
-            this.mMaxVolume = i5;
-            this.mCurrentVolume = i6;
+            this.mPlaybackType = i;
+            this.mAudioStream = i2;
+            this.mVolumeControl = i3;
+            this.mMaxVolume = i4;
+            this.mCurrentVolume = i5;
         }
 
         public int getAudioStream() {
@@ -810,9 +811,9 @@ public final class MediaControllerCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -841,7 +842,7 @@ public final class MediaControllerCompat {
 
         public abstract void rewind();
 
-        public abstract void seekTo(long j2);
+        public abstract void seekTo(long j);
 
         public abstract void sendCustomAction(PlaybackStateCompat.CustomAction customAction, Bundle bundle);
 
@@ -853,15 +854,15 @@ public final class MediaControllerCompat {
 
         public abstract void setRating(RatingCompat ratingCompat, Bundle bundle);
 
-        public abstract void setRepeatMode(int i2);
+        public abstract void setRepeatMode(int i);
 
-        public abstract void setShuffleMode(int i2);
+        public abstract void setShuffleMode(int i);
 
         public abstract void skipToNext();
 
         public abstract void skipToPrevious();
 
-        public abstract void skipToQueueItem(long j2);
+        public abstract void skipToQueueItem(long j);
 
         public abstract void stop();
     }
@@ -881,9 +882,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -916,9 +917,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -973,9 +974,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMediaSession};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -990,7 +991,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     this.mBinder.fastForward();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in fastForward.", e2);
                 }
             }
         }
@@ -1001,7 +1003,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 try {
                     this.mBinder.pause();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in pause.", e2);
                 }
             }
         }
@@ -1012,7 +1015,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
                     this.mBinder.play();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in play.", e2);
                 }
             }
         }
@@ -1023,7 +1027,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048579, this, str, bundle) == null) {
                 try {
                     this.mBinder.playFromMediaId(str, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in playFromMediaId.", e2);
                 }
             }
         }
@@ -1034,7 +1039,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048580, this, str, bundle) == null) {
                 try {
                     this.mBinder.playFromSearch(str, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in playFromSearch.", e2);
                 }
             }
         }
@@ -1045,7 +1051,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048581, this, uri, bundle) == null) {
                 try {
                     this.mBinder.playFromUri(uri, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in playFromUri.", e2);
                 }
             }
         }
@@ -1056,7 +1063,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 try {
                     this.mBinder.prepare();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in prepare.", e2);
                 }
             }
         }
@@ -1067,7 +1075,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048583, this, str, bundle) == null) {
                 try {
                     this.mBinder.prepareFromMediaId(str, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromMediaId.", e2);
                 }
             }
         }
@@ -1078,7 +1087,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, bundle) == null) {
                 try {
                     this.mBinder.prepareFromSearch(str, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromSearch.", e2);
                 }
             }
         }
@@ -1089,7 +1099,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048585, this, uri, bundle) == null) {
                 try {
                     this.mBinder.prepareFromUri(uri, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in prepareFromUri.", e2);
                 }
             }
         }
@@ -1100,18 +1111,20 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
                 try {
                     this.mBinder.rewind();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in rewind.", e2);
                 }
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void seekTo(long j2) {
+        public void seekTo(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
                 try {
-                    this.mBinder.seekTo(j2);
-                } catch (RemoteException unused) {
+                    this.mBinder.seekTo(j);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in seekTo.", e2);
                 }
             }
         }
@@ -1130,7 +1143,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
                 try {
                     this.mBinder.setCaptioningEnabled(z);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setCaptioningEnabled.", e2);
                 }
             }
         }
@@ -1141,29 +1155,32 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeL(1048591, this, ratingCompat) == null) {
                 try {
                     this.mBinder.rate(ratingCompat);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setRating.", e2);
                 }
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setRepeatMode(int i2) {
+        public void setRepeatMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
                 try {
-                    this.mBinder.setRepeatMode(i2);
-                } catch (RemoteException unused) {
+                    this.mBinder.setRepeatMode(i);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setRepeatMode.", e2);
                 }
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setShuffleMode(int i2) {
+        public void setShuffleMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
                 try {
-                    this.mBinder.setShuffleMode(i2);
-                } catch (RemoteException unused) {
+                    this.mBinder.setShuffleMode(i);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setShuffleMode.", e2);
                 }
             }
         }
@@ -1174,7 +1191,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
                 try {
                     this.mBinder.next();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in skipToNext.", e2);
                 }
             }
         }
@@ -1185,18 +1203,20 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
                 try {
                     this.mBinder.previous();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in skipToPrevious.", e2);
                 }
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void skipToQueueItem(long j2) {
+        public void skipToQueueItem(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
                 try {
-                    this.mBinder.skipToQueueItem(j2);
-                } catch (RemoteException unused) {
+                    this.mBinder.skipToQueueItem(j);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in skipToQueueItem.", e2);
                 }
             }
         }
@@ -1207,7 +1227,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
                 try {
                     this.mBinder.stop();
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in stop.", e2);
                 }
             }
         }
@@ -1219,7 +1240,8 @@ public final class MediaControllerCompat {
                 MediaControllerCompat.validateCustomAction(str, bundle);
                 try {
                     this.mBinder.sendCustomAction(str, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in sendCustomAction.", e2);
                 }
             }
         }
@@ -1230,7 +1252,8 @@ public final class MediaControllerCompat {
             if (interceptable == null || interceptable.invokeLL(1048592, this, ratingCompat, bundle) == null) {
                 try {
                     this.mBinder.rateWithExtras(ratingCompat, bundle);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setRating.", e2);
                 }
             }
         }
@@ -1244,9 +1267,9 @@ public final class MediaControllerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, mediaSessionCompat};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1257,6 +1280,10 @@ public final class MediaControllerCompat {
             MediaSessionCompat.Token sessionToken = mediaSessionCompat.getSessionToken();
             this.mToken = sessionToken;
             MediaControllerImplBase mediaControllerImplBase = null;
+            try {
+            } catch (RemoteException e2) {
+                Log.w(TAG, "Failed to create MediaControllerImpl.", e2);
+            }
             if (Build.VERSION.SDK_INT >= 24) {
                 mediaControllerImplApi21 = new MediaControllerImplApi24(context, sessionToken);
             } else if (Build.VERSION.SDK_INT >= 23) {
@@ -1291,7 +1318,8 @@ public final class MediaControllerCompat {
             } else {
                 try {
                     return new MediaControllerCompat(activity, MediaSessionCompat.Token.fromToken(MediaControllerCompatApi21.getSessionToken(mediaController)));
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(TAG, "Dead object in getMediaController.", e2);
                     return null;
                 }
             }
@@ -1339,10 +1367,10 @@ public final class MediaControllerCompat {
         }
     }
 
-    public void adjustVolume(int i2, int i3) {
+    public void adjustVolume(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            this.mImpl.adjustVolume(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.mImpl.adjustVolume(i, i2);
         }
     }
 
@@ -1477,11 +1505,11 @@ public final class MediaControllerCompat {
     }
 
     @Deprecated
-    public void removeQueueItemAt(int i2) {
+    public void removeQueueItemAt(int i) {
         List<MediaSessionCompat.QueueItem> queue;
         MediaSessionCompat.QueueItem queueItem;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048601, this, i2) == null) || (queue = getQueue()) == null || i2 < 0 || i2 >= queue.size() || (queueItem = queue.get(i2)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048601, this, i) == null) || (queue = getQueue()) == null || i < 0 || i >= queue.size() || (queueItem = queue.get(i)) == null) {
             return;
         }
         removeQueueItem(queueItem.getDescription());
@@ -1498,10 +1526,10 @@ public final class MediaControllerCompat {
         }
     }
 
-    public void setVolumeTo(int i2, int i3) {
+    public void setVolumeTo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) {
-            this.mImpl.setVolumeTo(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            this.mImpl.setVolumeTo(i, i2);
         }
     }
 
@@ -1521,10 +1549,10 @@ public final class MediaControllerCompat {
         }
     }
 
-    public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
+    public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i2) == null) {
-            this.mImpl.addQueueItem(mediaDescriptionCompat, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i) == null) {
+            this.mImpl.addQueueItem(mediaDescriptionCompat, i);
         }
     }
 
@@ -1545,380 +1573,6 @@ public final class MediaControllerCompat {
     }
 
     /* loaded from: classes.dex */
-    public static class MediaControllerImplBase implements MediaControllerImpl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public IMediaSession mBinder;
-        public TransportControls mTransportControls;
-
-        public MediaControllerImplBase(MediaSessionCompat.Token token) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {token};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.mBinder = IMediaSession.Stub.asInterface((IBinder) token.getToken());
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaDescriptionCompat) == null) {
-                try {
-                    if ((this.mBinder.getFlags() & 4) != 0) {
-                        this.mBinder.addQueueItem(mediaDescriptionCompat);
-                        return;
-                    }
-                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void adjustVolume(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                try {
-                    this.mBinder.adjustVolume(i2, i3, null);
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public boolean dispatchMediaButtonEvent(KeyEvent keyEvent) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keyEvent)) == null) {
-                if (keyEvent != null) {
-                    try {
-                        this.mBinder.sendMediaButton(keyEvent);
-                        return false;
-                    } catch (RemoteException unused) {
-                        return false;
-                    }
-                }
-                throw new IllegalArgumentException("event may not be null.");
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public Bundle getExtras() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                try {
-                    return this.mBinder.getExtras();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (Bundle) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public long getFlags() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                try {
-                    return this.mBinder.getFlags();
-                } catch (RemoteException unused) {
-                    return 0L;
-                }
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public Object getMediaController() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public MediaMetadataCompat getMetadata() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                try {
-                    return this.mBinder.getMetadata();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (MediaMetadataCompat) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public String getPackageName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                try {
-                    return this.mBinder.getPackageName();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public PlaybackInfo getPlaybackInfo() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                try {
-                    ParcelableVolumeInfo volumeAttributes = this.mBinder.getVolumeAttributes();
-                    return new PlaybackInfo(volumeAttributes.volumeType, volumeAttributes.audioStream, volumeAttributes.controlType, volumeAttributes.maxVolume, volumeAttributes.currentVolume);
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (PlaybackInfo) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public PlaybackStateCompat getPlaybackState() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                try {
-                    return this.mBinder.getPlaybackState();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (PlaybackStateCompat) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public List<MediaSessionCompat.QueueItem> getQueue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                try {
-                    return this.mBinder.getQueue();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (List) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public CharSequence getQueueTitle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                try {
-                    return this.mBinder.getQueueTitle();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (CharSequence) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public int getRatingType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                try {
-                    return this.mBinder.getRatingType();
-                } catch (RemoteException unused) {
-                    return 0;
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public int getRepeatMode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                try {
-                    return this.mBinder.getRepeatMode();
-                } catch (RemoteException unused) {
-                    return -1;
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public PendingIntent getSessionActivity() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                try {
-                    return this.mBinder.getLaunchPendingIntent();
-                } catch (RemoteException unused) {
-                    return null;
-                }
-            }
-            return (PendingIntent) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public int getShuffleMode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                try {
-                    return this.mBinder.getShuffleMode();
-                } catch (RemoteException unused) {
-                    return -1;
-                }
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public TransportControls getTransportControls() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                if (this.mTransportControls == null) {
-                    this.mTransportControls = new TransportControlsBase(this.mBinder);
-                }
-                return this.mTransportControls;
-            }
-            return (TransportControls) invokeV.objValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public boolean isCaptioningEnabled() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                try {
-                    return this.mBinder.isCaptioningEnabled();
-                } catch (RemoteException unused) {
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public boolean isSessionReady() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void registerCallback(Callback callback, Handler handler) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048596, this, callback, handler) == null) {
-                if (callback != null) {
-                    try {
-                        this.mBinder.asBinder().linkToDeath(callback, 0);
-                        this.mBinder.registerCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
-                        callback.postToHandler(13, null, null);
-                        return;
-                    } catch (RemoteException unused) {
-                        callback.postToHandler(8, null, null);
-                        return;
-                    }
-                }
-                throw new IllegalArgumentException("callback may not be null.");
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, mediaDescriptionCompat) == null) {
-                try {
-                    if ((this.mBinder.getFlags() & 4) != 0) {
-                        this.mBinder.removeQueueItem(mediaDescriptionCompat);
-                        return;
-                    }
-                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048598, this, str, bundle, resultReceiver) == null) {
-                try {
-                    this.mBinder.sendCommand(str, bundle, new MediaSessionCompat.ResultReceiverWrapper(resultReceiver));
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void setVolumeTo(int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-                try {
-                    this.mBinder.setVolumeTo(i2, i3, null);
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void unregisterCallback(Callback callback) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048600, this, callback) == null) {
-                if (callback != null) {
-                    try {
-                        this.mBinder.unregisterCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
-                        this.mBinder.asBinder().unlinkToDeath(callback, 0);
-                        return;
-                    } catch (RemoteException unused) {
-                        return;
-                    }
-                }
-                throw new IllegalArgumentException("callback may not be null.");
-            }
-        }
-
-        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i2) == null) {
-                try {
-                    if ((this.mBinder.getFlags() & 4) != 0) {
-                        this.mBinder.addQueueItemAt(mediaDescriptionCompat, i2);
-                        return;
-                    }
-                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
-                } catch (RemoteException unused) {
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes.dex */
     public static class TransportControlsApi21 extends TransportControls {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1931,9 +1585,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2047,10 +1701,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void seekTo(long j2) {
+        public void seekTo(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                MediaControllerCompatApi21.TransportControls.seekTo(this.mControlsObj, j2);
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                MediaControllerCompatApi21.TransportControls.seekTo(this.mControlsObj, j);
             }
         }
 
@@ -2082,21 +1736,21 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setRepeatMode(int i2) {
+        public void setRepeatMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
                 Bundle bundle = new Bundle();
-                bundle.putInt(MediaSessionCompat.ACTION_ARGUMENT_REPEAT_MODE, i2);
+                bundle.putInt(MediaSessionCompat.ACTION_ARGUMENT_REPEAT_MODE, i);
                 sendCustomAction(MediaSessionCompat.ACTION_SET_REPEAT_MODE, bundle);
             }
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void setShuffleMode(int i2) {
+        public void setShuffleMode(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
                 Bundle bundle = new Bundle();
-                bundle.putInt(MediaSessionCompat.ACTION_ARGUMENT_SHUFFLE_MODE, i2);
+                bundle.putInt(MediaSessionCompat.ACTION_ARGUMENT_SHUFFLE_MODE, i);
                 sendCustomAction(MediaSessionCompat.ACTION_SET_SHUFFLE_MODE, bundle);
             }
         }
@@ -2118,10 +1772,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.TransportControls
-        public void skipToQueueItem(long j2) {
+        public void skipToQueueItem(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-                MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.mControlsObj, j2);
+            if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+                MediaControllerCompatApi21.TransportControls.skipToQueueItem(this.mControlsObj, j);
             }
         }
 
@@ -2154,6 +1808,402 @@ public final class MediaControllerCompat {
         }
     }
 
+    /* loaded from: classes.dex */
+    public static class MediaControllerImplBase implements MediaControllerImpl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public IMediaSession mBinder;
+        public TransportControls mTransportControls;
+
+        public MediaControllerImplBase(MediaSessionCompat.Token token) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {token};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mBinder = IMediaSession.Stub.asInterface((IBinder) token.getToken());
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaDescriptionCompat) == null) {
+                try {
+                    if ((this.mBinder.getFlags() & 4) != 0) {
+                        this.mBinder.addQueueItem(mediaDescriptionCompat);
+                        return;
+                    }
+                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in addQueueItem.", e2);
+                }
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void adjustVolume(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                try {
+                    this.mBinder.adjustVolume(i, i2, null);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in adjustVolume.", e2);
+                }
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public boolean dispatchMediaButtonEvent(KeyEvent keyEvent) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, keyEvent)) == null) {
+                if (keyEvent != null) {
+                    try {
+                        this.mBinder.sendMediaButton(keyEvent);
+                        return false;
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in dispatchMediaButtonEvent.", e2);
+                        return false;
+                    }
+                }
+                throw new IllegalArgumentException("event may not be null.");
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public Bundle getExtras() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                try {
+                    return this.mBinder.getExtras();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getExtras.", e2);
+                    return null;
+                }
+            }
+            return (Bundle) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public long getFlags() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                try {
+                    return this.mBinder.getFlags();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getFlags.", e2);
+                    return 0L;
+                }
+            }
+            return invokeV.longValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public Object getMediaController() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return null;
+            }
+            return invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public MediaMetadataCompat getMetadata() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                try {
+                    return this.mBinder.getMetadata();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getMetadata.", e2);
+                    return null;
+                }
+            }
+            return (MediaMetadataCompat) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public String getPackageName() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                try {
+                    return this.mBinder.getPackageName();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getPackageName.", e2);
+                    return null;
+                }
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public PlaybackInfo getPlaybackInfo() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                try {
+                    ParcelableVolumeInfo volumeAttributes = this.mBinder.getVolumeAttributes();
+                    return new PlaybackInfo(volumeAttributes.volumeType, volumeAttributes.audioStream, volumeAttributes.controlType, volumeAttributes.maxVolume, volumeAttributes.currentVolume);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getPlaybackInfo.", e2);
+                    return null;
+                }
+            }
+            return (PlaybackInfo) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public PlaybackStateCompat getPlaybackState() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                try {
+                    return this.mBinder.getPlaybackState();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getPlaybackState.", e2);
+                    return null;
+                }
+            }
+            return (PlaybackStateCompat) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public List<MediaSessionCompat.QueueItem> getQueue() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                try {
+                    return this.mBinder.getQueue();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getQueue.", e2);
+                    return null;
+                }
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public CharSequence getQueueTitle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                try {
+                    return this.mBinder.getQueueTitle();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getQueueTitle.", e2);
+                    return null;
+                }
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public int getRatingType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                try {
+                    return this.mBinder.getRatingType();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getRatingType.", e2);
+                    return 0;
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public int getRepeatMode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                try {
+                    return this.mBinder.getRepeatMode();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getRepeatMode.", e2);
+                    return -1;
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public PendingIntent getSessionActivity() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                try {
+                    return this.mBinder.getLaunchPendingIntent();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getSessionActivity.", e2);
+                    return null;
+                }
+            }
+            return (PendingIntent) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public int getShuffleMode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                try {
+                    return this.mBinder.getShuffleMode();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in getShuffleMode.", e2);
+                    return -1;
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public TransportControls getTransportControls() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                if (this.mTransportControls == null) {
+                    this.mTransportControls = new TransportControlsBase(this.mBinder);
+                }
+                return this.mTransportControls;
+            }
+            return (TransportControls) invokeV.objValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public boolean isCaptioningEnabled() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                try {
+                    return this.mBinder.isCaptioningEnabled();
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in isCaptioningEnabled.", e2);
+                    return false;
+                }
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public boolean isSessionReady() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void registerCallback(Callback callback, Handler handler) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048596, this, callback, handler) == null) {
+                if (callback != null) {
+                    try {
+                        this.mBinder.asBinder().linkToDeath(callback, 0);
+                        this.mBinder.registerCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
+                        callback.postToHandler(13, null, null);
+                        return;
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in registerCallback.", e2);
+                        callback.postToHandler(8, null, null);
+                        return;
+                    }
+                }
+                throw new IllegalArgumentException("callback may not be null.");
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void removeQueueItem(MediaDescriptionCompat mediaDescriptionCompat) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048597, this, mediaDescriptionCompat) == null) {
+                try {
+                    if ((this.mBinder.getFlags() & 4) != 0) {
+                        this.mBinder.removeQueueItem(mediaDescriptionCompat);
+                        return;
+                    }
+                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in removeQueueItem.", e2);
+                }
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void sendCommand(String str, Bundle bundle, ResultReceiver resultReceiver) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048598, this, str, bundle, resultReceiver) == null) {
+                try {
+                    this.mBinder.sendCommand(str, bundle, new MediaSessionCompat.ResultReceiverWrapper(resultReceiver));
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in sendCommand.", e2);
+                }
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void setVolumeTo(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+                try {
+                    this.mBinder.setVolumeTo(i, i2, null);
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in setVolumeTo.", e2);
+                }
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void unregisterCallback(Callback callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048600, this, callback) == null) {
+                if (callback != null) {
+                    try {
+                        this.mBinder.unregisterCallbackListener((IMediaControllerCallback) callback.mCallbackObj);
+                        this.mBinder.asBinder().unlinkToDeath(callback, 0);
+                        return;
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in unregisterCallback.", e2);
+                        return;
+                    }
+                }
+                throw new IllegalArgumentException("callback may not be null.");
+            }
+        }
+
+        @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
+        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i) == null) {
+                try {
+                    if ((this.mBinder.getFlags() & 4) != 0) {
+                        this.mBinder.addQueueItemAt(mediaDescriptionCompat, i);
+                        return;
+                    }
+                    throw new UnsupportedOperationException("This session doesn't support queue management operations");
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in addQueueItemAt.", e2);
+                }
+            }
+        }
+    }
+
     @RequiresApi(21)
     /* loaded from: classes.dex */
     public static class MediaControllerImplApi21 implements MediaControllerImpl {
@@ -2181,9 +2231,9 @@ public final class MediaControllerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {mediaControllerImplApi21};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Handler) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -2194,10 +2244,10 @@ public final class MediaControllerCompat {
             }
 
             @Override // android.os.ResultReceiver
-            public void onReceiveResult(int i2, Bundle bundle) {
+            public void onReceiveResult(int i, Bundle bundle) {
                 MediaControllerImplApi21 mediaControllerImplApi21;
                 Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) || (mediaControllerImplApi21 = this.mMediaControllerImpl.get()) == null || bundle == null) {
+                if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) || (mediaControllerImplApi21 = this.mMediaControllerImpl.get()) == null || bundle == null) {
                     return;
                 }
                 synchronized (mediaControllerImplApi21.mLock) {
@@ -2222,9 +2272,9 @@ public final class MediaControllerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {callback};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Callback) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -2289,9 +2339,9 @@ public final class MediaControllerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, token};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2335,10 +2385,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void adjustVolume(int i2, int i3) {
+        public void adjustVolume(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                MediaControllerCompatApi21.adjustVolume(this.mControllerObj, i2, i3);
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                MediaControllerCompatApi21.adjustVolume(this.mControllerObj, i, i2);
             }
         }
 
@@ -2413,7 +2463,8 @@ public final class MediaControllerCompat {
                 if (this.mSessionToken.getExtraBinder() != null) {
                     try {
                         return this.mSessionToken.getExtraBinder().getPlaybackState();
-                    } catch (RemoteException unused) {
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in getPlaybackState.", e2);
                     }
                 }
                 Object playbackState = MediaControllerCompatApi21.getPlaybackState(this.mControllerObj);
@@ -2454,7 +2505,8 @@ public final class MediaControllerCompat {
                 if (Build.VERSION.SDK_INT < 22 && this.mSessionToken.getExtraBinder() != null) {
                     try {
                         return this.mSessionToken.getExtraBinder().getRatingType();
-                    } catch (RemoteException unused) {
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in getRatingType.", e2);
                     }
                 }
                 return MediaControllerCompatApi21.getRatingType(this.mControllerObj);
@@ -2470,7 +2522,8 @@ public final class MediaControllerCompat {
                 if (this.mSessionToken.getExtraBinder() != null) {
                     try {
                         return this.mSessionToken.getExtraBinder().getRepeatMode();
-                    } catch (RemoteException unused) {
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in getRepeatMode.", e2);
                         return -1;
                     }
                 }
@@ -2494,7 +2547,8 @@ public final class MediaControllerCompat {
                 if (this.mSessionToken.getExtraBinder() != null) {
                     try {
                         return this.mSessionToken.getExtraBinder().getShuffleMode();
-                    } catch (RemoteException unused) {
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in getShuffleMode.", e2);
                         return -1;
                     }
                 }
@@ -2525,7 +2579,8 @@ public final class MediaControllerCompat {
                 if (this.mSessionToken.getExtraBinder() != null) {
                     try {
                         return this.mSessionToken.getExtraBinder().isCaptioningEnabled();
-                    } catch (RemoteException unused) {
+                    } catch (RemoteException e2) {
+                        Log.e(MediaControllerCompat.TAG, "Dead object in isCaptioningEnabled.", e2);
                         return false;
                     }
                 }
@@ -2554,7 +2609,8 @@ public final class MediaControllerCompat {
                 try {
                     this.mSessionToken.getExtraBinder().registerCallbackListener(extraCallback);
                     callback.postToHandler(13, null, null);
-                } catch (RemoteException unused) {
+                } catch (RemoteException e2) {
+                    Log.e(MediaControllerCompat.TAG, "Dead object in registerCallback.", e2);
                 }
             }
             this.mPendingCallbacks.clear();
@@ -2573,7 +2629,8 @@ public final class MediaControllerCompat {
                         try {
                             this.mSessionToken.getExtraBinder().registerCallbackListener(extraCallback);
                             callback.postToHandler(13, null, null);
-                        } catch (RemoteException unused) {
+                        } catch (RemoteException e2) {
+                            Log.e(MediaControllerCompat.TAG, "Dead object in registerCallback.", e2);
                         }
                     } else {
                         callback.mIControllerCallback = null;
@@ -2606,10 +2663,10 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void setVolumeTo(int i2, int i3) {
+        public void setVolumeTo(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
-                MediaControllerCompatApi21.setVolumeTo(this.mControllerObj, i2, i3);
+            if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
+                MediaControllerCompatApi21.setVolumeTo(this.mControllerObj, i, i2);
             }
         }
 
@@ -2626,7 +2683,8 @@ public final class MediaControllerCompat {
                                 callback.mIControllerCallback = null;
                                 this.mSessionToken.getExtraBinder().unregisterCallbackListener(remove);
                             }
-                        } catch (RemoteException unused) {
+                        } catch (RemoteException e2) {
+                            Log.e(MediaControllerCompat.TAG, "Dead object in unregisterCallback.", e2);
                         }
                     } else {
                         this.mPendingCallbacks.remove(callback);
@@ -2636,13 +2694,13 @@ public final class MediaControllerCompat {
         }
 
         @Override // android.support.v4.media.session.MediaControllerCompat.MediaControllerImpl
-        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i2) {
+        public void addQueueItem(MediaDescriptionCompat mediaDescriptionCompat, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaDescriptionCompat, i) == null) {
                 if ((getFlags() & 4) != 0) {
                     Bundle bundle = new Bundle();
                     bundle.putParcelable(MediaControllerCompat.COMMAND_ARGUMENT_MEDIA_DESCRIPTION, mediaDescriptionCompat);
-                    bundle.putInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX, i2);
+                    bundle.putInt(MediaControllerCompat.COMMAND_ARGUMENT_INDEX, i);
                     sendCommand(MediaControllerCompat.COMMAND_ADD_QUEUE_ITEM_AT, bundle, null);
                     return;
                 }
@@ -2664,9 +2722,9 @@ public final class MediaControllerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, token};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -2675,14 +2733,14 @@ public final class MediaControllerCompat {
         this.mRegisteredCallbacks = new HashSet<>();
         if (token != null) {
             this.mToken = token;
-            int i4 = Build.VERSION.SDK_INT;
-            if (i4 >= 24) {
+            int i3 = Build.VERSION.SDK_INT;
+            if (i3 >= 24) {
                 this.mImpl = new MediaControllerImplApi24(context, token);
                 return;
-            } else if (i4 >= 23) {
+            } else if (i3 >= 23) {
                 this.mImpl = new MediaControllerImplApi23(context, token);
                 return;
-            } else if (i4 >= 21) {
+            } else if (i3 >= 21) {
                 this.mImpl = new MediaControllerImplApi21(context, token);
                 return;
             } else {

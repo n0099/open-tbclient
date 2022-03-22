@@ -1,5 +1,6 @@
 package com.baidu.searchbox.devicescore.dynamic;
 
+import android.util.Log;
 import com.baidu.searchbox.devicescore.IDeviceScore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -38,9 +39,9 @@ public class DynamicScoreFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,7 +61,7 @@ public class DynamicScoreFactory {
                 }
                 return iDynamicScoreManager;
             }
-            String str2 = "DynamicScoreFactory unKnow dynamic type:" + str;
+            Log.e(TAG, "DynamicScoreFactory unKnow dynamic type:" + str);
             return null;
         }
         return (IDynamicScoreManager) invokeL.objValue;

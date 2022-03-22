@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class EventInfo extends Info<EventElementInfo> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2909020670205500872L;
@@ -18,9 +18,9 @@ public class EventInfo extends Info<EventElementInfo> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,12 +46,12 @@ public class EventInfo extends Info<EventElementInfo> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Iterator<EventElementInfo> it = iterator();
-            int i2 = 0;
+            int i = 0;
             while (it.hasNext()) {
                 EventElementInfo next = it.next();
-                i2 = next.ctype == 1 ? (int) (i2 + parseAsInt(next.cvalue)) : i2 + 1;
+                i = next.ctype == 1 ? (int) (i + parseAsInt(next.cvalue)) : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }

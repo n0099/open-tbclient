@@ -27,9 +27,9 @@ public class DialogRecord {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,73 +81,73 @@ public class DialogRecord {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.updateTime : invokeV.longValue;
     }
 
-    public DialogRecord setCategory(int i2) {
+    public DialogRecord setCategory(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.category = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            this.category = i;
             return this;
         }
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setContacter(long j2) {
+    public DialogRecord setContacter(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) {
-            this.contacter = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.contacter = j;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;
     }
 
-    public DialogRecord setDialogueMsgid(long j2) {
+    public DialogRecord setDialogueMsgid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
-            this.dialogueMsgid = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            this.dialogueMsgid = j;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;
     }
 
-    public DialogRecord setJumpToRecent(int i2) {
+    public DialogRecord setJumpToRecent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            this.jumpToRecent = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            this.jumpToRecent = i;
             return this;
         }
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setMaxMsgid(long j2) {
+    public DialogRecord setMaxMsgid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j2)) == null) {
-            if (j2 > this.maxMsgid) {
-                this.maxMsgid = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            if (j > this.maxMsgid) {
+                this.maxMsgid = j;
             }
             return this;
         }
         return (DialogRecord) invokeJ.objValue;
     }
 
-    public DialogRecord setState(int i2) {
+    public DialogRecord setState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            this.state = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.state = i;
             return this;
         }
         return (DialogRecord) invokeI.objValue;
     }
 
-    public DialogRecord setUpdateTime(long j2) {
+    public DialogRecord setUpdateTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j2)) == null) {
-            this.updateTime = j2;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048589, this, j)) == null) {
+            this.updateTime = j;
             return this;
         }
         return (DialogRecord) invokeJ.objValue;

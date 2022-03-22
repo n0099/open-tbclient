@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoDecoder;
 import org.webrtc.VideoDecoderWrapper;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoDecoderWrapper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,9 +18,9 @@ public class VideoDecoderWrapper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,10 +28,10 @@ public class VideoDecoderWrapper {
     }
 
     @CalledByNative
-    public static VideoDecoder.Callback createDecoderCallback(final long j2) {
+    public static VideoDecoder.Callback createDecoderCallback(final long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? new VideoDecoder.Callback() { // from class: h.c.y
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? new VideoDecoder.Callback() { // from class: f.c.y
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -39,11 +39,11 @@ public class VideoDecoderWrapper {
             public final void onDecodedFrame(VideoFrame videoFrame, Integer num, Integer num2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, videoFrame, num, num2) == null) {
-                    VideoDecoderWrapper.nativeOnDecodedFrame(j2, videoFrame, num, num2);
+                    VideoDecoderWrapper.nativeOnDecodedFrame(j, videoFrame, num, num2);
                 }
             }
         } : (VideoDecoder.Callback) invokeJ.objValue;
     }
 
-    public static native void nativeOnDecodedFrame(long j2, VideoFrame videoFrame, Integer num, Integer num2);
+    public static native void nativeOnDecodedFrame(long j, VideoFrame videoFrame, Integer num, Integer num2);
 }

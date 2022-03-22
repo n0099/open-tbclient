@@ -15,62 +15,62 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.utils.z;
 import java.util.Arrays;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KSLinearLayout extends LinearLayout implements j {
     public final AtomicBoolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f56568b;
+    public h f41449b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f56569c;
+    public j f41450c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f56570d;
+    public i f41451d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f56571e;
+    public float f41452e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final z.a f56572f;
+    public final z.a f41453f;
 
     public KSLinearLayout(@NonNull Context context) {
         super(context);
         this.a = new AtomicBoolean(true);
-        this.f56571e = 0.0f;
-        this.f56572f = new z.a();
+        this.f41452e = 0.0f;
+        this.f41453f = new z.a();
         a(context, null);
     }
 
     public KSLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
         this.a = new AtomicBoolean(true);
-        this.f56571e = 0.0f;
-        this.f56572f = new z.a();
+        this.f41452e = 0.0f;
+        this.f41453f = new z.a();
         a(context, attributeSet);
     }
 
-    public KSLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KSLinearLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         this.a = new AtomicBoolean(true);
-        this.f56571e = 0.0f;
-        this.f56572f = new z.a();
+        this.f41452e = 0.0f;
+        this.f41453f = new z.a();
         a(context, attributeSet);
     }
 
     private void a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.ksad_ratio};
+            int[] iArr = {R.attr.obfuscated_res_0x7f040321};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.f56571e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.ksad_ratio), 0.0f);
+            this.f41452e = obtainStyledAttributes.getFloat(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040321), 0.0f);
             obtainStyledAttributes.recycle();
         }
         h hVar = new h(this, this);
-        this.f56568b = hVar;
+        this.f41449b = hVar;
         hVar.a(c());
         i iVar = new i();
-        this.f56570d = iVar;
+        this.f41451d = iVar;
         iVar.a(context, attributeSet);
     }
 
@@ -91,13 +91,13 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @CallSuper
     public void a() {
-        this.f56568b.b();
+        this.f41449b.b();
     }
 
     @Override // com.kwad.sdk.widget.j
     @CallSuper
     public void a(View view) {
-        j jVar = this.f56569c;
+        j jVar = this.f41450c;
         if (jVar != null) {
             jVar.a(view);
         }
@@ -105,7 +105,7 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @CallSuper
     public void b() {
-        this.f56568b.c();
+        this.f41449b.c();
     }
 
     public boolean c() {
@@ -114,37 +114,37 @@ public class KSLinearLayout extends LinearLayout implements j {
 
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
-        this.f56570d.c(canvas);
+        this.f41451d.c(canvas);
         super.dispatchDraw(canvas);
-        this.f56570d.d(canvas);
+        this.f41451d.d(canvas);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         int action = motionEvent.getAction();
         if (action == 0) {
-            this.f56572f.a(getWidth(), getHeight());
-            this.f56572f.a(motionEvent.getX(), motionEvent.getY());
+            this.f41453f.a(getWidth(), getHeight());
+            this.f41453f.a(motionEvent.getX(), motionEvent.getY());
         } else if (action == 1) {
-            this.f56572f.b(motionEvent.getX(), motionEvent.getY());
+            this.f41453f.b(motionEvent.getX(), motionEvent.getY());
         }
         return super.dispatchTouchEvent(motionEvent);
     }
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        this.f56570d.a(canvas);
+        this.f41451d.a(canvas);
         super.draw(canvas);
-        this.f56570d.b(canvas);
+        this.f41451d.b(canvas);
     }
 
     @MainThread
     public z.a getTouchCoords() {
-        return this.f56572f;
+        return this.f41453f;
     }
 
     public float getVisiblePercent() {
-        return this.f56568b.a();
+        return this.f41449b.a();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -168,19 +168,19 @@ public class KSLinearLayout extends LinearLayout implements j {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
-        if (this.f56571e != 0.0f) {
-            i3 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i2) * this.f56571e), 1073741824);
+    public void onMeasure(int i, int i2) {
+        if (this.f41452e != 0.0f) {
+            i2 = View.MeasureSpec.makeMeasureSpec((int) (View.MeasureSpec.getSize(i) * this.f41452e), 1073741824);
         }
-        super.onMeasure(i2, i3);
+        super.onMeasure(i, i2);
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
-        this.f56568b.a(i2, i3, i4, i5);
-        super.onSizeChanged(i2, i3, i4, i5);
-        this.f56568b.b(i2, i3, i4, i5);
-        this.f56570d.a(i2, i3);
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
+        this.f41449b.a(i, i2, i3, i4);
+        super.onSizeChanged(i, i2, i3, i4);
+        this.f41449b.b(i, i2, i3, i4);
+        this.f41451d.a(i, i2);
     }
 
     @Override // android.view.View
@@ -190,19 +190,19 @@ public class KSLinearLayout extends LinearLayout implements j {
     }
 
     public void setRadius(float f2) {
-        this.f56570d.a(f2);
+        this.f41451d.a(f2);
         postInvalidate();
     }
 
     public void setRatio(float f2) {
-        this.f56571e = f2;
+        this.f41452e = f2;
     }
 
     public void setViewVisibleListener(j jVar) {
-        this.f56569c = jVar;
+        this.f41450c = jVar;
     }
 
     public void setVisiblePercent(float f2) {
-        this.f56568b.a(f2);
+        this.f41449b.a(f2);
     }
 }

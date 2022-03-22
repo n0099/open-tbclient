@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.PointF;
 import android.text.TextUtils;
 import android.view.View;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.mobstat.bk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -26,9 +27,9 @@ public class be implements bk.b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -92,12 +93,12 @@ public class be implements bk.b {
             try {
                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
                 DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-                decimalFormatSymbols.setDecimalSeparator('.');
+                decimalFormatSymbols.setDecimalSeparator(IStringUtil.EXTENSION_SEPARATOR);
                 decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
                 jSONObject.put("x", decimalFormat.format(b2));
                 jSONObject.put("y", decimalFormat.format(b3));
-                jSONObject.put("xp", decimalFormat.format((b2 * 100.0f) / a));
-                jSONObject.put("yp", decimalFormat.format((b3 * 100.0f) / a2));
+                jSONObject.put(Config.EVENT_HEAT_XP, decimalFormat.format((b2 * 100.0f) / a));
+                jSONObject.put(Config.EVENT_HEAT_YP, decimalFormat.format((b3 * 100.0f) / a2));
             } catch (Exception unused) {
             }
             return jSONObject;

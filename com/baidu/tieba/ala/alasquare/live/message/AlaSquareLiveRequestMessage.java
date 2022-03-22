@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live.message;
 
 import c.a.d.f.p.l;
 import c.a.d.f.p.n;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.ala.AlaCmdConfigSocket;
@@ -23,17 +23,17 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
     public Integer mPn;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaSquareLiveRequestMessage(int i2, boolean z) {
+    public AlaSquareLiveRequestMessage(int i, boolean z) {
         super(AlaCmdConfigHttp.CMD_SQUARE_LIVE, AlaCmdConfigSocket.CMD_SQUARE_LIVE);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -42,7 +42,7 @@ public class AlaSquareLiveRequestMessage extends NetMessage {
             }
         }
         this.mPn = 0;
-        this.mPn = Integer.valueOf(i2);
+        this.mPn = Integer.valueOf(i);
     }
 
     @Override // com.baidu.adp.framework.message.NetMessage

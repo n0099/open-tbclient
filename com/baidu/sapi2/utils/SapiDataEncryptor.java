@@ -42,9 +42,9 @@ public class SapiDataEncryptor implements NoProguard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -57,9 +57,9 @@ public class SapiDataEncryptor implements NoProguard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +74,7 @@ public class SapiDataEncryptor implements NoProguard {
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             Random random = new Random();
             StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < 16; i2++) {
+            for (int i = 0; i < 16; i++) {
                 sb.append("abcdefghijklmnopqrstuvwxyz0123456789".charAt(random.nextInt(36)));
             }
             return sb.toString();
@@ -155,18 +155,18 @@ public class SapiDataEncryptor implements NoProguard {
             } else {
                 length = (bytes.length / 116) + 1;
             }
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 if (1 == length) {
                     jSONArray.put(SecurityUtil.base64Encode(encrypt(publicKey, bytes)));
-                } else if (i2 != length - 1) {
+                } else if (i != length - 1) {
                     byte[] bArr = new byte[116];
-                    System.arraycopy(bytes, i2 * 116, bArr, 0, 116);
+                    System.arraycopy(bytes, i * 116, bArr, 0, 116);
                     jSONArray.put(SecurityUtil.base64Encode(encrypt(publicKey, bArr)));
                 } else {
-                    int i3 = i2 * 116;
-                    int length2 = bytes.length - i3;
+                    int i2 = i * 116;
+                    int length2 = bytes.length - i2;
                     byte[] bArr2 = new byte[length2];
-                    System.arraycopy(bytes, i3, bArr2, 0, length2);
+                    System.arraycopy(bytes, i2, bArr2, 0, length2);
                     jSONArray.put(SecurityUtil.base64Encode(encrypt(publicKey, bArr2)));
                 }
             }

@@ -43,17 +43,17 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         public UnicastProcessor<T> window;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowExactSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, int i2) {
+        public WindowExactSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, int i) {
             super(1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Long.valueOf(j), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,9 +61,9 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
                 }
             }
             this.actual = subscriber;
-            this.size = j2;
+            this.size = j;
             this.once = new AtomicBoolean();
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -104,23 +104,23 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j2 = this.index;
+                long j = this.index;
                 UnicastProcessor<T> unicastProcessor = this.window;
-                if (j2 == 0) {
+                if (j == 0) {
                     getAndIncrement();
                     unicastProcessor = UnicastProcessor.create(this.bufferSize, this);
                     this.window = unicastProcessor;
                     this.actual.onNext(unicastProcessor);
                 }
-                long j3 = j2 + 1;
+                long j2 = j + 1;
                 unicastProcessor.onNext(t);
-                if (j3 == this.size) {
+                if (j2 == this.size) {
                     this.index = 0L;
                     this.window = null;
                     unicastProcessor.onComplete();
                     return;
                 }
-                this.index = j3;
+                this.index = j2;
             }
         }
 
@@ -134,10 +134,10 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                this.s.request(BackpressureHelper.multiplyCap(this.size, j2));
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
+                this.s.request(BackpressureHelper.multiplyCap(this.size, j));
             }
         }
 
@@ -173,17 +173,17 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowOverlapSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, long j3, int i2) {
+        public WindowOverlapSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, long j2, int i) {
             super(1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -191,15 +191,15 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
                 }
             }
             this.actual = subscriber;
-            this.size = j2;
-            this.skip = j3;
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.size = j;
+            this.skip = j2;
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.windows = new ArrayDeque<>();
             this.once = new AtomicBoolean();
             this.firstRequest = new AtomicBoolean();
             this.requested = new AtomicLong();
             this.wip = new AtomicInteger();
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -240,18 +240,18 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         }
 
         public void drain() {
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.wip.getAndIncrement() == 0) {
                 Subscriber<? super Flowable<T>> subscriber = this.actual;
                 SpscLinkedArrayQueue<UnicastProcessor<T>> spscLinkedArrayQueue = this.queue;
-                int i3 = 1;
+                int i2 = 1;
                 do {
-                    long j2 = this.requested.get();
-                    long j3 = 0;
+                    long j = this.requested.get();
+                    long j2 = 0;
                     while (true) {
-                        i2 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-                        if (i2 == 0) {
+                        i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                        if (i == 0) {
                             break;
                         }
                         boolean z = this.done;
@@ -264,16 +264,16 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
                             break;
                         }
                         subscriber.onNext(poll);
-                        j3++;
+                        j2++;
                     }
-                    if (i2 == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
+                    if (i == 0 && checkTerminated(this.done, spscLinkedArrayQueue.isEmpty(), subscriber, spscLinkedArrayQueue)) {
                         return;
                     }
-                    if (j3 != 0 && j2 != Long.MAX_VALUE) {
-                        this.requested.addAndGet(-j3);
+                    if (j2 != 0 && j != Long.MAX_VALUE) {
+                        this.requested.addAndGet(-j2);
                     }
-                    i3 = this.wip.addAndGet(-i3);
-                } while (i3 != 0);
+                    i2 = this.wip.addAndGet(-i2);
+                } while (i2 != 0);
             }
         }
 
@@ -317,33 +317,33 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
             if (!(interceptable == null || interceptable.invokeL(1048581, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.index;
-            if (j2 == 0 && !this.cancelled) {
+            long j = this.index;
+            if (j == 0 && !this.cancelled) {
                 getAndIncrement();
                 UnicastProcessor<T> create = UnicastProcessor.create(this.bufferSize, this);
                 this.windows.offer(create);
                 this.queue.offer(create);
                 drain();
             }
-            long j3 = j2 + 1;
+            long j2 = j + 1;
             Iterator<UnicastProcessor<T>> it = this.windows.iterator();
             while (it.hasNext()) {
                 it.next().onNext(t);
             }
-            long j4 = this.produced + 1;
-            if (j4 == this.size) {
-                this.produced = j4 - this.skip;
+            long j3 = this.produced + 1;
+            if (j3 == this.size) {
+                this.produced = j3 - this.skip;
                 UnicastProcessor<T> poll = this.windows.poll();
                 if (poll != null) {
                     poll.onComplete();
                 }
             } else {
-                this.produced = j4;
+                this.produced = j3;
             }
-            if (j3 == this.skip) {
+            if (j2 == this.skip) {
                 this.index = 0L;
             } else {
-                this.index = j3;
+                this.index = j2;
             }
         }
 
@@ -357,14 +357,14 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j2 - 1)));
+                    this.s.request(BackpressureHelper.addCap(this.size, BackpressureHelper.multiplyCap(this.skip, j - 1)));
                 } else {
-                    this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
+                    this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
                 }
                 drain();
             }
@@ -395,17 +395,17 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         public UnicastProcessor<T> window;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public WindowSkipSubscriber(Subscriber<? super Flowable<T>> subscriber, long j2, long j3, int i2) {
+        public WindowSkipSubscriber(Subscriber<? super Flowable<T>> subscriber, long j, long j2, int i) {
             super(1);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+                Object[] objArr = {subscriber, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -413,11 +413,11 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
                 }
             }
             this.actual = subscriber;
-            this.size = j2;
-            this.skip = j3;
+            this.size = j;
+            this.skip = j2;
             this.once = new AtomicBoolean();
             this.firstRequest = new AtomicBoolean();
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // org.reactivestreams.Subscription
@@ -458,26 +458,26 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                long j2 = this.index;
+                long j = this.index;
                 UnicastProcessor<T> unicastProcessor = this.window;
-                if (j2 == 0) {
+                if (j == 0) {
                     getAndIncrement();
                     unicastProcessor = UnicastProcessor.create(this.bufferSize, this);
                     this.window = unicastProcessor;
                     this.actual.onNext(unicastProcessor);
                 }
-                long j3 = j2 + 1;
+                long j2 = j + 1;
                 if (unicastProcessor != null) {
                     unicastProcessor.onNext(t);
                 }
-                if (j3 == this.size) {
+                if (j2 == this.size) {
                     this.window = null;
                     unicastProcessor.onComplete();
                 }
-                if (j3 == this.skip) {
+                if (j2 == this.skip) {
                     this.index = 0L;
                 } else {
-                    this.index = j3;
+                    this.index = j2;
                 }
             }
         }
@@ -492,14 +492,14 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) && SubscriptionHelper.validate(j2)) {
+            if ((interceptable == null || interceptable.invokeJ(1048581, this, j) == null) && SubscriptionHelper.validate(j)) {
                 if (!this.firstRequest.get() && this.firstRequest.compareAndSet(false, true)) {
-                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(this.size, j2), BackpressureHelper.multiplyCap(this.skip - this.size, j2 - 1)));
+                    this.s.request(BackpressureHelper.addCap(BackpressureHelper.multiplyCap(this.size, j), BackpressureHelper.multiplyCap(this.skip - this.size, j - 1)));
                     return;
                 }
-                this.s.request(BackpressureHelper.multiplyCap(this.skip, j2));
+                this.s.request(BackpressureHelper.multiplyCap(this.skip, j));
             }
         }
 
@@ -513,37 +513,37 @@ public final class FlowableWindow<T> extends AbstractFlowableWithUpstream<T, Flo
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableWindow(Flowable<T> flowable, long j2, long j3, int i2) {
+    public FlowableWindow(Flowable<T> flowable, long j, long j2, int i) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2)};
+            Object[] objArr = {flowable, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.size = j2;
-        this.skip = j3;
-        this.bufferSize = i2;
+        this.size = j;
+        this.skip = j2;
+        this.bufferSize = i;
     }
 
     @Override // io.reactivex.Flowable
     public void subscribeActual(Subscriber<? super Flowable<T>> subscriber) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, subscriber) == null) {
-            long j2 = this.skip;
-            long j3 = this.size;
-            if (j2 == j3) {
+            long j = this.skip;
+            long j2 = this.size;
+            if (j == j2) {
                 this.source.subscribe((FlowableSubscriber) new WindowExactSubscriber(subscriber, this.size, this.bufferSize));
-            } else if (j2 > j3) {
+            } else if (j > j2) {
                 this.source.subscribe((FlowableSubscriber) new WindowSkipSubscriber(subscriber, this.size, this.skip, this.bufferSize));
             } else {
                 this.source.subscribe((FlowableSubscriber) new WindowOverlapSubscriber(subscriber, this.size, this.skip, this.bufferSize));

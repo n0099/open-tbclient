@@ -2,8 +2,8 @@ package com.baidu.tieba.tbadkCore;
 
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.b;
-import c.a.r0.y3.e;
-import c.a.r0.y3.n;
+import c.a.p0.a4.e;
+import c.a.p0.a4.n;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.Message;
@@ -36,9 +36,9 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -83,8 +83,8 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
                     FrsRequestData frsRequestData = (FrsRequestData) mvcNetMessage.getRequestData();
                     this.updateType = frsRequestData.getUpdateType();
                     this.needCache = frsRequestData.isNeedCache();
-                    this.mCategoryId = frsRequestData.x();
-                    this.mIsGood = frsRequestData.y();
+                    this.mCategoryId = frsRequestData.z();
+                    this.mIsGood = frsRequestData.A();
                 }
             }
         }
@@ -97,24 +97,24 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
         }
     }
 
-    public void setUpdateType(int i2) {
+    public void setUpdateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.updateType = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.updateType = i;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         n nVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || hasError() || (nVar = this.responseData) == null || !this.needCache || nVar.getForum() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || hasError() || (nVar = this.responseData) == null || !this.needCache || nVar.getForum() == null) {
             return;
         }
         int sortType = this.responseData.getSortType();
-        e i3 = e.i();
-        String g2 = i3.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
+        e i2 = e.i();
+        String g2 = i2.g("1~" + this.responseData.getForum().getName(), sortType, this.mIsGood, this.mCategoryId);
         if (sortType == 3) {
             e.i().m(g2, bArr);
         } else {
@@ -124,12 +124,12 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void beforeDispatchInBackGround(int i2, byte[] bArr) {
+    public void beforeDispatchInBackGround(int i, byte[] bArr) {
         int e2;
         CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
-            super.beforeDispatchInBackGround(i2, (int) bArr);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
+            super.beforeDispatchInBackGround(i, (int) bArr);
             if (this.responseData.getBookInfo() == null || StringUtils.isNull(this.responseData.getBookInfo().a(), true) || this.responseData.getBookInfo().a().equals("0") || this.responseData.getBookInfo().b() != 3 || (e2 = b.e(this.responseData.getBookInfo().a(), -1)) <= 0 || (runTask = MessageManager.getInstance().runTask(2001423, Integer.class, Long.valueOf(e2))) == null) {
                 return;
             }
@@ -139,10 +139,10 @@ public class FrsPageHttpResponseMessage extends MvcProtobufHttpResponsedMessage<
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage, com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Error error;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bArr) == null) {
             n nVar = new n();
             this.responseData = nVar;
             FrsPageResIdl parserProtobuf = nVar.parserProtobuf(bArr, true);

@@ -1,6 +1,7 @@
 package com.baidu.tun2tornadolite.booster.tun.ip;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +18,7 @@ import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.KProperty;
-@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\n\b&\u0018\u0000 &2\u00020\u0001:\u0002&'B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J8\u0010\r\u001a\u001d\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020\u00100\u000f¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u00052\u0006\u0010\u0015\u001a\u00020\u0005H\u0000¢\u0006\u0002\b\u0016J\u008b\u0001\u0010\u0017\u001a\u0017\u0012\u0013\u0012\u0011H\u0018¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e\"\u0004\b\u0000\u0010\u00182\u0006\u0010\u0014\u001a\u00020\u00052!\u0010\u0019\u001a\u001d\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u001b\u0012\u0004\u0012\u0002H\u00180\u001a26\u0010\u001c\u001a2\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u001b\u0012\u0013\u0012\u0011H\u0018¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u0013\u0012\u0004\u0012\u00020\u001e0\u001dH\u0000¢\u0006\u0002\b\u001fJ*\u0010 \u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b!J*\u0010\"\u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b#J*\u0010$\u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b%R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006("}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;", "", "buffer", "", "offset", "", "([BI)V", "getBuffer", "()[B", "setBuffer", "([B)V", "getOffset", "()I", "byteArray", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "", "", "Lkotlin/ParameterName;", "name", "value", "position", "length", "byteArray$tun2tornadolite_release", "field", "T", "get", "Lkotlin/Function1;", "index", "set", "Lkotlin/Function2;", "", "field$tun2tornadolite_release", "int16", "int16$tun2tornadolite_release", "int4Left", "int4Left$tun2tornadolite_release", "int8", "int8$tun2tornadolite_release", "Companion", "Field", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u0012\n\u0000\n\u0002\u0010\b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\n\b&\u0018\u0000 &2\u00020\u0001:\u0002&'B\u0015\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005¢\u0006\u0002\u0010\u0006J8\u0010\r\u001a\u001d\u0012\u0019\u0012\u0017\u0012\u0004\u0012\u00020\u00100\u000f¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u00052\u0006\u0010\u0015\u001a\u00020\u0005H\u0000¢\u0006\u0002\b\u0016J\u008b\u0001\u0010\u0017\u001a\u0017\u0012\u0013\u0012\u0011H\u0018¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e\"\u0004\b\u0000\u0010\u00182\u0006\u0010\u0014\u001a\u00020\u00052!\u0010\u0019\u001a\u001d\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u001b\u0012\u0004\u0012\u0002H\u00180\u001a26\u0010\u001c\u001a2\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u001b\u0012\u0013\u0012\u0011H\u0018¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u0013\u0012\u0004\u0012\u00020\u001e0\u001dH\u0000¢\u0006\u0002\b\u001fJ*\u0010 \u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b!J*\u0010\"\u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b#J*\u0010$\u001a\u0017\u0012\u0013\u0012\u00110\u0005¢\u0006\f\b\u0011\u0012\b\b\u0012\u0012\u0004\b\b(\u00130\u000e2\u0006\u0010\u0014\u001a\u00020\u0005H\u0000¢\u0006\u0002\b%R\u001a\u0010\u0002\u001a\u00020\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\nR\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006("}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;", "", "buffer", "", "offset", "", "([BI)V", "getBuffer", "()[B", "setBuffer", "([B)V", "getOffset", "()I", "byteArray", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "", "", "Lkotlin/ParameterName;", "name", "value", "position", "length", "byteArray$tun2tornadolite_release", "field", "T", SharedPreferenceManager.OPERATION_GET_PERFIX, "Lkotlin/Function1;", "index", "set", "Lkotlin/Function2;", "", "field$tun2tornadolite_release", "int16", "int16$tun2tornadolite_release", "int4Left", "int4Left$tun2tornadolite_release", "int8", "int8$tun2tornadolite_release", "Companion", "Field", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 /* loaded from: classes6.dex */
 public abstract class DirectHeader {
     public static /* synthetic */ Interceptable $ic = null;
@@ -38,9 +39,9 @@ public abstract class DirectHeader {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,7 +53,7 @@ public abstract class DirectHeader {
         }
     }
 
-    @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0000\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B;\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u00000\u0006\u0012\u0018\u0010\u0007\u001a\u0014\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\t0\b¢\u0006\u0002\u0010\nJ\"\u0010\u0011\u001a\u00028\u00002\u0006\u0010\u0012\u001a\u00020\u00132\n\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0086\u0002¢\u0006\u0002\u0010\u0016J*\u0010\u0017\u001a\u00020\t2\u0006\u0010\u0012\u001a\u00020\u00132\n\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u00152\u0006\u0010\u0018\u001a\u00028\u0000H\u0086\u0002¢\u0006\u0002\u0010\u0019R\u001d\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u00000\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR#\u0010\u0007\u001a\u0014\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\t0\b¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010¨\u0006\u001a"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "T", "", "position", "", "get", "Lkotlin/Function1;", "set", "Lkotlin/Function2;", "", "(ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)V", "getGet", "()Lkotlin/jvm/functions/Function1;", "getPosition", "()I", "getSet", "()Lkotlin/jvm/functions/Function2;", "getValue", "thiz", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;", MessageStat.PROPERTY, "Lkotlin/reflect/KProperty;", "(Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;Lkotlin/reflect/KProperty;)Ljava/lang/Object;", "setValue", "value", "(Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
+    @Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\b\u0000\u0018\u0000*\u0004\b\u0000\u0010\u00012\u00020\u0002B;\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0012\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u00000\u0006\u0012\u0018\u0010\u0007\u001a\u0014\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\t0\b¢\u0006\u0002\u0010\nJ\"\u0010\u0011\u001a\u00028\u00002\u0006\u0010\u0012\u001a\u00020\u00132\n\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u0015H\u0086\u0002¢\u0006\u0002\u0010\u0016J*\u0010\u0017\u001a\u00020\t2\u0006\u0010\u0012\u001a\u00020\u00132\n\u0010\u0014\u001a\u0006\u0012\u0002\b\u00030\u00152\u0006\u0010\u0018\u001a\u00028\u0000H\u0086\u0002¢\u0006\u0002\u0010\u0019R\u001d\u0010\u0005\u001a\u000e\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u00000\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR#\u0010\u0007\u001a\u0014\u0012\u0004\u0012\u00020\u0004\u0012\u0004\u0012\u00028\u0000\u0012\u0004\u0012\u00020\t0\b¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u0010¨\u0006\u001a"}, d2 = {"Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader$Field;", "T", "", "position", "", SharedPreferenceManager.OPERATION_GET_PERFIX, "Lkotlin/Function1;", "set", "Lkotlin/Function2;", "", "(ILkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function2;)V", "getGet", "()Lkotlin/jvm/functions/Function1;", "getPosition", "()I", "getSet", "()Lkotlin/jvm/functions/Function2;", "getValue", "thiz", "Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;", MessageStat.PROPERTY, "Lkotlin/reflect/KProperty;", "(Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;Lkotlin/reflect/KProperty;)Ljava/lang/Object;", "setValue", "value", "(Lcom/baidu/tun2tornadolite/booster/tun/ip/DirectHeader;Lkotlin/reflect/KProperty;Ljava/lang/Object;)V", "tun2tornadolite_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
     /* loaded from: classes6.dex */
     public static final class Field<T> {
         public static /* synthetic */ Interceptable $ic;
@@ -61,16 +62,16 @@ public abstract class DirectHeader {
         public final int position;
         public final Function2<Integer, T, Unit> set;
 
-        public Field(int i2, Function1<? super Integer, ? extends T> get, Function2<? super Integer, ? super T, Unit> set) {
+        public Field(int i, Function1<? super Integer, ? extends T> get, Function2<? super Integer, ? super T, Unit> set) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), get, set};
+                Object[] objArr = {Integer.valueOf(i), get, set};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -78,7 +79,7 @@ public abstract class DirectHeader {
             }
             Intrinsics.checkNotNullParameter(get, "get");
             Intrinsics.checkNotNullParameter(set, "set");
-            this.position = i2;
+            this.position = i;
             this.get = get;
             this.set = set;
         }
@@ -138,16 +139,16 @@ public abstract class DirectHeader {
         Companion = new Companion(null);
     }
 
-    public DirectHeader(byte[] buffer, int i2) {
+    public DirectHeader(byte[] buffer, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {buffer, Integer.valueOf(i2)};
+            Object[] objArr = {buffer, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -155,22 +156,22 @@ public abstract class DirectHeader {
         }
         Intrinsics.checkNotNullParameter(buffer, "buffer");
         this.buffer = buffer;
-        this.offset = i2;
+        this.offset = i;
     }
 
-    public final Field<List<Byte>> byteArray$tun2tornadolite_release(int i2, int i3) {
+    public final Field<List<Byte>> byteArray$tun2tornadolite_release(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? field$tun2tornadolite_release(i2, new DirectHeader$byteArray$1(this, i3), new DirectHeader$byteArray$2(this)) : (Field) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? field$tun2tornadolite_release(i, new DirectHeader$byteArray$1(this, i2), new DirectHeader$byteArray$2(this)) : (Field) invokeII.objValue;
     }
 
-    public final <T> Field<T> field$tun2tornadolite_release(int i2, Function1<? super Integer, ? extends T> get, Function2<? super Integer, ? super T, Unit> set) {
+    public final <T> Field<T> field$tun2tornadolite_release(int i, Function1<? super Integer, ? extends T> get, Function2<? super Integer, ? super T, Unit> set) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, get, set)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, get, set)) == null) {
             Intrinsics.checkNotNullParameter(get, "get");
             Intrinsics.checkNotNullParameter(set, "set");
-            return new Field<>(this.offset + i2, get, set);
+            return new Field<>(this.offset + i, get, set);
         }
         return (Field) invokeILL.objValue;
     }
@@ -187,22 +188,22 @@ public abstract class DirectHeader {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.offset : invokeV.intValue;
     }
 
-    public final Field<Integer> int16$tun2tornadolite_release(int i2) {
+    public final Field<Integer> int16$tun2tornadolite_release(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? field$tun2tornadolite_release(i2, new DirectHeader$int16$1(this), new DirectHeader$int16$2(this)) : (Field) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? field$tun2tornadolite_release(i, new DirectHeader$int16$1(this), new DirectHeader$int16$2(this)) : (Field) invokeI.objValue;
     }
 
-    public final Field<Integer> int4Left$tun2tornadolite_release(int i2) {
+    public final Field<Integer> int4Left$tun2tornadolite_release(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? field$tun2tornadolite_release(i2, new DirectHeader$int4Left$1(this), new DirectHeader$int4Left$2(this)) : (Field) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? field$tun2tornadolite_release(i, new DirectHeader$int4Left$1(this), new DirectHeader$int4Left$2(this)) : (Field) invokeI.objValue;
     }
 
-    public final Field<Integer> int8$tun2tornadolite_release(int i2) {
+    public final Field<Integer> int8$tun2tornadolite_release(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? field$tun2tornadolite_release(i2, new DirectHeader$int8$1(this), new DirectHeader$int8$2(this)) : (Field) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? field$tun2tornadolite_release(i, new DirectHeader$int8$1(this), new DirectHeader$int8$2(this)) : (Field) invokeI.objValue;
     }
 
     public final void setBuffer(byte[] bArr) {

@@ -10,7 +10,7 @@ import com.tachikoma.annotation.TK_EXPORT_CLASS;
 import java.util.HashMap;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKBaseEvent implements IBaseEvent {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TK_CLICK_EVENT_NAME = "tap";
@@ -42,9 +42,9 @@ public class TKBaseEvent implements IBaseEvent {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,10 +63,10 @@ public class TKBaseEvent implements IBaseEvent {
     }
 
     @Override // com.tachikoma.core.event.base.IBaseEvent
-    public void setState(int i2) {
+    public void setState(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.state = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.state = i;
         }
     }
 

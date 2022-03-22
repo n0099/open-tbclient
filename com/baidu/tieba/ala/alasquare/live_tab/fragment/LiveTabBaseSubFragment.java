@@ -4,7 +4,7 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.f0.h;
+import c.a.o0.f0.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -18,22 +18,31 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public abstract class LiveTabBaseSubFragment extends BaseFragment {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String ARG_AFTER_LAZY_LOADED = "arg_after_lazy_loaded";
-    public static final String ARG_TAB_ID = "arg_tab_id";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String FRS_DYNAMIC_FRAGMENT_SHOW;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f31270b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public h f31271c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f31272d;
 
     /* renamed from: e  reason: collision with root package name */
-    public h f40534e;
-    public boolean isAfterLazyLoaded;
-    public boolean isHideTopHeader;
-    public Context mContext;
-    public String mFid;
-    public String mFname;
-    public LinearLayout mTopContainer;
-    public CustomMessageListener mTopHeaderListener;
-    public int tabId;
+    public boolean f31273e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f31274f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public String f31275g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public String f31276h;
+    public CustomMessageListener i;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -42,17 +51,17 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         public final /* synthetic */ LiveTabBaseSubFragment a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(LiveTabBaseSubFragment liveTabBaseSubFragment, int i2) {
-            super(i2);
+        public a(LiveTabBaseSubFragment liveTabBaseSubFragment, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {liveTabBaseSubFragment, Integer.valueOf(i2)};
+                Object[] objArr = {liveTabBaseSubFragment, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -68,7 +77,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
             Boolean bool;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (bool = (Boolean) customResponsedMessage.getData()) != null && bool.booleanValue()) {
-                this.a.isHideTopHeader = false;
+                this.a.f31273e = false;
             }
         }
     }
@@ -78,83 +87,82 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.FRS_DYNAMIC_FRAGMENT_SHOW = "c13008";
-        this.isAfterLazyLoaded = false;
-        this.isHideTopHeader = false;
-        this.mTopHeaderListener = new a(this, 2921442);
+        this.f31272d = false;
+        this.f31273e = false;
+        this.i = new a(this, 2921442);
     }
 
-    public void hideEmptyView() {
+    public void C0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mTopContainer.setVisibility(8);
+            this.f31270b.setVisibility(8);
         }
     }
 
-    public void hideTopHeader() {
+    public void D0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, Boolean.FALSE));
-            this.isHideTopHeader = true;
+            this.f31273e = true;
         }
     }
 
-    public boolean isFromFrs() {
+    public boolean E0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (m.isEmpty(this.mFid) || m.isEmpty(this.mFname)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (m.isEmpty(this.f31275g) || m.isEmpty(this.f31276h)) ? false : true : invokeV.booleanValue;
+    }
+
+    public abstract void F0();
+
+    public void G0(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.f31275g = str;
+            this.f31276h = str2;
+        }
+    }
+
+    public void H0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.f31270b.setVisibility(0);
+            if (this.f31271c == null) {
+                this.f31271c = new h(this.a, null);
+            }
+            this.f31271c.e();
+            this.f31271c.i(R.drawable.new_pic_emotion_03);
+            this.f31271c.o(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c2c));
+            this.f31271c.onChangeSkinType();
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            if (this.f31271c.b() == null || this.f31271c.b().getParent() != null) {
+                return;
+            }
+            this.f31270b.addView(this.f31271c.b(), layoutParams);
+        }
     }
 
     public abstract void loadData();
 
-    public abstract void notifyListViewChanged();
+    public abstract void n();
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            h hVar = this.f40534e;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            super.onChangeSkinType(i);
+            h hVar = this.f31271c;
             if (hVar != null) {
                 hVar.onChangeSkinType();
             }
-        }
-    }
-
-    public abstract void refreshPage();
-
-    public void setForumInfo(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            this.mFid = str;
-            this.mFname = str2;
-        }
-    }
-
-    public void showEmptyView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.mTopContainer.setVisibility(0);
-            if (this.f40534e == null) {
-                this.f40534e = new h(this.mContext, null);
-            }
-            this.f40534e.e();
-            this.f40534e.i(R.drawable.new_pic_emotion_03);
-            this.f40534e.o(this.mContext.getResources().getString(R.string.no_data_common_txt));
-            this.f40534e.onChangeSkinType();
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
-            if (this.f40534e.b() == null || this.f40534e.b().getParent() != null) {
-                return;
-            }
-            this.mTopContainer.addView(this.f40534e.b(), layoutParams);
         }
     }
 }

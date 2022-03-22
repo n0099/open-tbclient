@@ -12,7 +12,7 @@ import java.io.OutputStream;
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SegmentedByteString extends ByteString {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,63 +20,63 @@ public final class SegmentedByteString extends ByteString {
     public final transient byte[][] segments;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SegmentedByteString(Buffer buffer, int i2) {
+    public SegmentedByteString(Buffer buffer, int i) {
         super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {buffer, Integer.valueOf(i2)};
+            Object[] objArr = {buffer, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((byte[]) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Util.checkOffsetAndCount(buffer.size, 0L, i2);
+        Util.checkOffsetAndCount(buffer.size, 0L, i);
         Segment segment = buffer.head;
+        int i4 = 0;
         int i5 = 0;
         int i6 = 0;
-        int i7 = 0;
-        while (i6 < i2) {
-            int i8 = segment.limit;
-            int i9 = segment.pos;
-            if (i8 != i9) {
-                i6 += i8 - i9;
-                i7++;
+        while (i5 < i) {
+            int i7 = segment.limit;
+            int i8 = segment.pos;
+            if (i7 != i8) {
+                i5 += i7 - i8;
+                i6++;
                 segment = segment.next;
             } else {
                 throw new AssertionError("s.limit == s.pos");
             }
         }
-        this.segments = new byte[i7];
-        this.directory = new int[i7 * 2];
+        this.segments = new byte[i6];
+        this.directory = new int[i6 * 2];
         Segment segment2 = buffer.head;
-        int i10 = 0;
-        while (i5 < i2) {
-            this.segments[i10] = segment2.data;
-            i5 += segment2.limit - segment2.pos;
-            if (i5 > i2) {
-                i5 = i2;
+        int i9 = 0;
+        while (i4 < i) {
+            this.segments[i9] = segment2.data;
+            i4 += segment2.limit - segment2.pos;
+            if (i4 > i) {
+                i4 = i;
             }
             int[] iArr = this.directory;
-            iArr[i10] = i5;
-            iArr[this.segments.length + i10] = segment2.pos;
+            iArr[i9] = i4;
+            iArr[this.segments.length + i9] = segment2.pos;
             segment2.shared = true;
-            i10++;
+            i9++;
             segment2 = segment2.next;
         }
     }
 
-    private int segment(int i2) {
+    private int segment(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i2 + 1);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            int binarySearch = Arrays.binarySearch(this.directory, 0, this.segments.length, i + 1);
             return binarySearch >= 0 ? binarySearch : ~binarySearch;
         }
         return invokeI.intValue;
@@ -135,16 +135,16 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public byte getByte(int i2) {
+    public byte getByte(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            Util.checkOffsetAndCount(this.directory[this.segments.length - 1], i2, 1L);
-            int segment = segment(i2);
-            int i3 = segment == 0 ? 0 : this.directory[segment - 1];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            Util.checkOffsetAndCount(this.directory[this.segments.length - 1], i, 1L);
+            int segment = segment(i);
+            int i2 = segment == 0 ? 0 : this.directory[segment - 1];
             int[] iArr = this.directory;
             byte[][] bArr = this.segments;
-            return bArr[segment][(i2 - i3) + iArr[bArr.length + segment]];
+            return bArr[segment][(i - i2) + iArr[bArr.length + segment]];
         }
         return invokeI.byteValue;
     }
@@ -154,29 +154,29 @@ public final class SegmentedByteString extends ByteString {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 != 0) {
-                return i2;
+            int i = this.hashCode;
+            if (i != 0) {
+                return i;
             }
             int length = this.segments.length;
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            int i5 = 1;
-            while (i3 < length) {
-                byte[] bArr = this.segments[i3];
+            int i4 = 1;
+            while (i2 < length) {
+                byte[] bArr = this.segments[i2];
                 int[] iArr = this.directory;
-                int i6 = iArr[length + i3];
-                int i7 = iArr[i3];
-                int i8 = (i7 - i4) + i6;
-                while (i6 < i8) {
-                    i5 = (i5 * 31) + bArr[i6];
-                    i6++;
+                int i5 = iArr[length + i2];
+                int i6 = iArr[i2];
+                int i7 = (i6 - i3) + i5;
+                while (i5 < i7) {
+                    i4 = (i4 * 31) + bArr[i5];
+                    i5++;
                 }
-                i3++;
-                i4 = i7;
+                i2++;
+                i3 = i6;
             }
-            this.hashCode = i5;
-            return i5;
+            this.hashCode = i4;
+            return i4;
         }
         return invokeV.intValue;
     }
@@ -203,10 +203,10 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public int indexOf(byte[] bArr, int i2) {
+    public int indexOf(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bArr, i2)) == null) ? toByteString().indexOf(bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, bArr, i)) == null) ? toByteString().indexOf(bArr, i) : invokeLI.intValue;
     }
 
     @Override // okio.ByteString
@@ -217,10 +217,10 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public int lastIndexOf(byte[] bArr, int i2) {
+    public int lastIndexOf(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, bArr, i2)) == null) ? toByteString().lastIndexOf(bArr, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, bArr, i)) == null) ? toByteString().lastIndexOf(bArr, i) : invokeLI.intValue;
     }
 
     @Override // okio.ByteString
@@ -231,25 +231,25 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public boolean rangeEquals(int i2, ByteString byteString, int i3, int i4) {
+    public boolean rangeEquals(int i, ByteString byteString, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), byteString, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i2 < 0 || i2 > size() - i4) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), byteString, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > size() - i3) {
                 return false;
             }
-            int segment = segment(i2);
-            while (i4 > 0) {
-                int i5 = segment == 0 ? 0 : this.directory[segment - 1];
-                int min = Math.min(i4, ((this.directory[segment] - i5) + i5) - i2);
+            int segment = segment(i);
+            while (i3 > 0) {
+                int i4 = segment == 0 ? 0 : this.directory[segment - 1];
+                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
                 int[] iArr = this.directory;
                 byte[][] bArr = this.segments;
-                if (!byteString.rangeEquals(i3, bArr[segment], (i2 - i5) + iArr[bArr.length + segment], min)) {
+                if (!byteString.rangeEquals(i2, bArr[segment], (i - i4) + iArr[bArr.length + segment], min)) {
                     return false;
                 }
+                i += min;
                 i2 += min;
-                i3 += min;
-                i4 -= min;
+                i3 -= min;
                 segment++;
             }
             return true;
@@ -286,10 +286,10 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public ByteString substring(int i2) {
+    public ByteString substring(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) ? toByteString().substring(i2) : (ByteString) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) ? toByteString().substring(i) : (ByteString) invokeI.objValue;
     }
 
     @Override // okio.ByteString
@@ -315,15 +315,15 @@ public final class SegmentedByteString extends ByteString {
             byte[][] bArr = this.segments;
             byte[] bArr2 = new byte[iArr[bArr.length - 1]];
             int length = bArr.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
+            while (i < length) {
                 int[] iArr2 = this.directory;
-                int i4 = iArr2[length + i2];
-                int i5 = iArr2[i2];
-                System.arraycopy(this.segments[i2], i4, bArr2, i3, i5 - i3);
-                i2++;
-                i3 = i5;
+                int i3 = iArr2[length + i];
+                int i4 = iArr2[i];
+                System.arraycopy(this.segments[i], i3, bArr2, i2, i4 - i2);
+                i++;
+                i2 = i4;
             }
             return bArr2;
         }
@@ -350,15 +350,15 @@ public final class SegmentedByteString extends ByteString {
         if (interceptable == null || interceptable.invokeL(1048602, this, outputStream) == null) {
             if (outputStream != null) {
                 int length = this.segments.length;
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
-                while (i2 < length) {
+                while (i < length) {
                     int[] iArr = this.directory;
-                    int i4 = iArr[length + i2];
-                    int i5 = iArr[i2];
-                    outputStream.write(this.segments[i2], i4, i5 - i3);
-                    i2++;
-                    i3 = i5;
+                    int i3 = iArr[length + i];
+                    int i4 = iArr[i];
+                    outputStream.write(this.segments[i], i3, i4 - i2);
+                    i++;
+                    i2 = i4;
                 }
                 return;
             }
@@ -367,10 +367,10 @@ public final class SegmentedByteString extends ByteString {
     }
 
     @Override // okio.ByteString
-    public ByteString substring(int i2, int i3) {
+    public ByteString substring(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i2, i3)) == null) ? toByteString().substring(i2, i3) : (ByteString) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048596, this, i, i2)) == null) ? toByteString().substring(i, i2) : (ByteString) invokeII.objValue;
     }
 
     @Override // okio.ByteString
@@ -378,13 +378,13 @@ public final class SegmentedByteString extends ByteString {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048603, this, buffer) == null) {
             int length = this.segments.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
+            while (i < length) {
                 int[] iArr = this.directory;
-                int i4 = iArr[length + i2];
-                int i5 = iArr[i2];
-                Segment segment = new Segment(this.segments[i2], i4, (i4 + i5) - i3, true, false);
+                int i3 = iArr[length + i];
+                int i4 = iArr[i];
+                Segment segment = new Segment(this.segments[i], i3, (i3 + i4) - i2, true, false);
                 Segment segment2 = buffer.head;
                 if (segment2 == null) {
                     segment.prev = segment;
@@ -393,33 +393,33 @@ public final class SegmentedByteString extends ByteString {
                 } else {
                     segment2.prev.push(segment);
                 }
-                i2++;
-                i3 = i5;
+                i++;
+                i2 = i4;
             }
-            buffer.size += i3;
+            buffer.size += i2;
         }
     }
 
     @Override // okio.ByteString
-    public boolean rangeEquals(int i2, byte[] bArr, int i3, int i4) {
+    public boolean rangeEquals(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (i2 < 0 || i2 > size() - i4 || i3 < 0 || i3 > bArr.length - i4) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (i < 0 || i > size() - i3 || i2 < 0 || i2 > bArr.length - i3) {
                 return false;
             }
-            int segment = segment(i2);
-            while (i4 > 0) {
-                int i5 = segment == 0 ? 0 : this.directory[segment - 1];
-                int min = Math.min(i4, ((this.directory[segment] - i5) + i5) - i2);
+            int segment = segment(i);
+            while (i3 > 0) {
+                int i4 = segment == 0 ? 0 : this.directory[segment - 1];
+                int min = Math.min(i3, ((this.directory[segment] - i4) + i4) - i);
                 int[] iArr = this.directory;
                 byte[][] bArr2 = this.segments;
-                if (!Util.arrayRangeEquals(bArr2[segment], (i2 - i5) + iArr[bArr2.length + segment], bArr, i3, min)) {
+                if (!Util.arrayRangeEquals(bArr2[segment], (i - i4) + iArr[bArr2.length + segment], bArr, i2, min)) {
                     return false;
                 }
+                i += min;
                 i2 += min;
-                i3 += min;
-                i4 -= min;
+                i3 -= min;
                 segment++;
             }
             return true;

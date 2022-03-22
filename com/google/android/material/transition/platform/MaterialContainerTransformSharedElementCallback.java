@@ -30,7 +30,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 import java.util.Map;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialContainerTransformSharedElementCallback extends SharedElementCallback {
     public static /* synthetic */ Interceptable $ic;
     @Nullable
@@ -44,13 +44,13 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public boolean sharedElementReenterTransitionEnabled;
     public boolean transparentWindowBackgroundEnabled;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ShapeProvider {
         @Nullable
         ShapeAppearanceModel provideShape(@NonNull View view);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ShapeableViewShapeProvider implements ShapeProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +60,9 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -89,9 +89,9 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,9 +141,9 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, window};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -194,9 +194,9 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, activity};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -235,9 +235,9 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, window};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -309,7 +309,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, parcelable)) == null) {
             View onCreateSnapshotView = super.onCreateSnapshotView(context, parcelable);
             if (onCreateSnapshotView != null && (weakReference = capturedSharedElement) != null && this.shapeProvider != null && (view = weakReference.get()) != null && (provideShape = this.shapeProvider.provideShape(view)) != null) {
-                onCreateSnapshotView.setTag(R.id.mtrl_motion_snapshot_view, provideShape);
+                onCreateSnapshotView.setTag(R.id.obfuscated_res_0x7f09146c, provideShape);
             }
             return onCreateSnapshotView;
         }
@@ -336,8 +336,8 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
     public void onSharedElementEnd(@NonNull List<String> list, @NonNull List<View> list2, @NonNull List<View> list3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048582, this, list, list2, list3) == null) {
-            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.mtrl_motion_snapshot_view) instanceof View)) {
-                list2.get(0).setTag(R.id.mtrl_motion_snapshot_view, null);
+            if (!list2.isEmpty() && (list2.get(0).getTag(R.id.obfuscated_res_0x7f09146c) instanceof View)) {
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f09146c, null);
             }
             if (!this.entering && !list2.isEmpty()) {
                 this.returnEndBounds = TransitionUtils.getRelativeBoundsRect(list2.get(0));
@@ -351,7 +351,7 @@ public class MaterialContainerTransformSharedElementCallback extends SharedEleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048583, this, list, list2, list3) == null) {
             if (!list2.isEmpty() && !list3.isEmpty()) {
-                list2.get(0).setTag(R.id.mtrl_motion_snapshot_view, list3.get(0));
+                list2.get(0).setTag(R.id.obfuscated_res_0x7f09146c, list3.get(0));
             }
             if (this.entering || list2.isEmpty() || this.returnEndBounds == null) {
                 return;

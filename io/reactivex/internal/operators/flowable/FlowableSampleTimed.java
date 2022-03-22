@@ -38,17 +38,17 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(subscriber, j2, timeUnit, scheduler);
+        public SampleTimedEmitLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -89,17 +89,17 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(subscriber, j2, timeUnit, scheduler);
+        public SampleTimedNoLast(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(subscriber, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -139,16 +139,16 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
         public final SequentialDisposable timer;
         public final TimeUnit unit;
 
-        public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedSubscriber(Subscriber<? super T> subscriber, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {subscriber, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -157,7 +157,7 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
             this.requested = new AtomicLong();
             this.timer = new SequentialDisposable();
             this.actual = subscriber;
-            this.period = j2;
+            this.period = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -229,40 +229,40 @@ public final class FlowableSampleTimed<T> extends AbstractFlowableWithUpstream<T
                 this.actual.onSubscribe(this);
                 SequentialDisposable sequentialDisposable = this.timer;
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.period;
-                sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit));
+                long j = this.period;
+                sequentialDisposable.replace(scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
                 subscription.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableSampleTimed(Flowable<T> flowable, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public FlowableSampleTimed(Flowable<T> flowable, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {flowable, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.period = j2;
+        this.period = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.emitLast = z;

@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public /* synthetic */ class gu {
     public static /* synthetic */ Interceptable $ic;
     public static final /* synthetic */ int[] a;
@@ -32,11 +32,11 @@ public /* synthetic */ class gu {
         } catch (NoSuchFieldError unused) {
         }
         try {
-            a[av.c.f59991b.ordinal()] = 2;
+            a[av.c.f44556b.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            a[av.c.f59992c.ordinal()] = 3;
+            a[av.c.f44557c.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
     }

@@ -27,9 +27,9 @@ public class TiebaMainDatabaseHelper extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -115,80 +115,80 @@ public class TiebaMainDatabaseHelper extends c {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, c.a.d.a.k.a
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
+            if (i == 1) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chunk_upload_data(account varchar(30),md5,total_length,chunk_no,time)");
             }
-            if (i2 < 3) {
+            if (i < 3) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE mark_data ADD subPost int");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE mark_data ADD forumName varchar(30)");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE mark_data ADD forumId varchar(30)");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE mark_data ADD threadId varchar(30)");
             }
-            if (i2 < 4) {
+            if (i < 4) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD remind_tone");
             }
-            if (i2 < 5) {
+            if (i < 5) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists frs_image_forums(forum_name)");
             }
-            if (i2 < 6) {
+            if (i < 6) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists search_post_data(key, account, time)");
             }
-            if (i2 < 7) {
+            if (i < 7) {
                 prepareDBForV7(sQLiteDatabase);
             }
-            if (i2 < 8) {
+            if (i < 8) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD msg_chat_switch DEFAULT 1");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_switch");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_start_time varchar(30)");
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD nodisturb_end_time varchar(30)");
             }
-            if (i2 < 9) {
+            if (i < 9) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE account_data ADD portrait varchar(255)");
             }
-            if (i2 < 10) {
+            if (i < 10) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE account_data ADD personal_gid int");
             }
-            if (i2 < 11) {
+            if (i < 11) {
                 prepareDBForV11(sQLiteDatabase);
             }
-            if (i2 < 12) {
+            if (i < 12) {
                 prepareDBForV12(sQLiteDatabase);
             }
-            if (i2 < 13) {
+            if (i < 13) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE setting ADD stranger_chat_switch int");
                 prepareDBForV13(sQLiteDatabase);
             }
-            if (i2 < 14) {
+            if (i < 14) {
                 prepareDBForV14(sQLiteDatabase);
             }
-            if (i2 < 15) {
+            if (i < 15) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "ALTER TABLE account_data ADD stoken varchar(255)");
             }
-            if (i2 < 16) {
+            if (i < 16) {
                 prepareDBForV16(sQLiteDatabase);
             }
-            if (i2 < 17) {
+            if (i < 17) {
                 prepareDBForV17(sQLiteDatabase);
             }
-            if (i2 < 18) {
+            if (i < 18) {
                 prepareDBForV18(sQLiteDatabase);
             }
-            if (i2 < 21) {
+            if (i < 21) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS activity_mission_info");
                 prepareDBForV19V20V21(sQLiteDatabase);
             }
-            if (i2 < 22) {
+            if (i < 22) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS ad_follow_up_info_table");
                 prepareDBForV22(sQLiteDatabase);
             }
-            if (i2 < 23) {
+            if (i < 23) {
                 executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "DROP TABLE IF EXISTS download_info");
                 prepareDBForV23(sQLiteDatabase);
             }
-            if (i2 < 24) {
+            if (i < 24) {
                 prepareDBForV24(sQLiteDatabase);
             }
         }

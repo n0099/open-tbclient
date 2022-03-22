@@ -3,8 +3,9 @@ package com.baidu.swan.support.v4.app;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.p0.r.a.a.f;
-import c.a.p0.r.a.a.n;
+import android.util.Log;
+import c.a.n0.r.a.a.f;
+import c.a.n0.r.a.a.n;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class BackStackState implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BackStackState> CREATOR;
@@ -31,7 +32,7 @@ public final class BackStackState implements Parcelable {
     public final int mTransition;
     public final int mTransitionStyle;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<BackStackState> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +42,9 @@ public final class BackStackState implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,10 +63,10 @@ public final class BackStackState implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public BackStackState[] newArray(int i2) {
+        public BackStackState[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new BackStackState[i2] : (BackStackState[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new BackStackState[i] : (BackStackState[]) invokeI.objValue;
         }
     }
 
@@ -92,67 +93,67 @@ public final class BackStackState implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        int i4 = 0;
-        for (f.d dVar = fVar.f11110f; dVar != null; dVar = dVar.a) {
-            ArrayList<Fragment> arrayList = dVar.f11133i;
+        int i3 = 0;
+        for (f.d dVar = fVar.f9281b; dVar != null; dVar = dVar.a) {
+            ArrayList<Fragment> arrayList = dVar.i;
             if (arrayList != null) {
-                i4 += arrayList.size();
+                i3 += arrayList.size();
             }
         }
-        this.mOps = new int[(fVar.f11112h * 7) + i4];
-        if (fVar.o) {
-            int i5 = 0;
-            for (f.d dVar2 = fVar.f11110f; dVar2 != null; dVar2 = dVar2.a) {
+        this.mOps = new int[(fVar.f9283d * 7) + i3];
+        if (fVar.k) {
+            int i4 = 0;
+            for (f.d dVar2 = fVar.f9281b; dVar2 != null; dVar2 = dVar2.a) {
                 int[] iArr = this.mOps;
+                int i5 = i4 + 1;
+                iArr[i4] = dVar2.f9300c;
                 int i6 = i5 + 1;
-                iArr[i5] = dVar2.f11127c;
-                int i7 = i6 + 1;
-                Fragment fragment = dVar2.f11128d;
-                iArr[i6] = fragment != null ? fragment.f38615j : -1;
+                Fragment fragment = dVar2.f9301d;
+                iArr[i5] = fragment != null ? fragment.f29700f : -1;
                 int[] iArr2 = this.mOps;
+                int i7 = i6 + 1;
+                iArr2[i6] = dVar2.f9302e;
                 int i8 = i7 + 1;
-                iArr2[i7] = dVar2.f11129e;
+                iArr2[i7] = dVar2.f9303f;
                 int i9 = i8 + 1;
-                iArr2[i8] = dVar2.f11130f;
+                iArr2[i8] = dVar2.f9304g;
                 int i10 = i9 + 1;
-                iArr2[i9] = dVar2.f11131g;
-                int i11 = i10 + 1;
-                iArr2[i10] = dVar2.f11132h;
-                ArrayList<Fragment> arrayList2 = dVar2.f11133i;
+                iArr2[i9] = dVar2.f9305h;
+                ArrayList<Fragment> arrayList2 = dVar2.i;
                 if (arrayList2 != null) {
                     int size = arrayList2.size();
-                    int i12 = i11 + 1;
-                    this.mOps[i11] = size;
-                    int i13 = 0;
-                    while (i13 < size) {
-                        this.mOps[i12] = dVar2.f11133i.get(i13).f38615j;
-                        i13++;
+                    int i11 = i10 + 1;
+                    this.mOps[i10] = size;
+                    int i12 = 0;
+                    while (i12 < size) {
+                        this.mOps[i11] = dVar2.i.get(i12).f29700f;
                         i12++;
+                        i11++;
                     }
-                    i5 = i12;
+                    i4 = i11;
                 } else {
-                    iArr2[i11] = 0;
-                    i5 = i11 + 1;
+                    iArr2[i10] = 0;
+                    i4 = i10 + 1;
                 }
             }
-            this.mTransition = fVar.m;
-            this.mTransitionStyle = fVar.n;
-            this.mName = fVar.q;
-            this.mIndex = fVar.s;
-            this.mBreadCrumbTitleRes = fVar.t;
-            this.mBreadCrumbTitleText = fVar.u;
-            this.mBreadCrumbShortTitleRes = fVar.v;
-            this.mBreadCrumbShortTitleText = fVar.w;
-            this.mSharedElementSourceNames = fVar.x;
-            this.mSharedElementTargetNames = fVar.y;
+            this.mTransition = fVar.i;
+            this.mTransitionStyle = fVar.j;
+            this.mName = fVar.m;
+            this.mIndex = fVar.o;
+            this.mBreadCrumbTitleRes = fVar.p;
+            this.mBreadCrumbTitleText = fVar.q;
+            this.mBreadCrumbShortTitleRes = fVar.r;
+            this.mBreadCrumbShortTitleText = fVar.s;
+            this.mSharedElementSourceNames = fVar.t;
+            this.mSharedElementTargetNames = fVar.u;
             return;
         }
         throw new IllegalStateException("Not on back stack");
@@ -173,60 +174,60 @@ public final class BackStackState implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nVar)) == null) {
             f fVar = new f(nVar);
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < this.mOps.length) {
+            while (i < this.mOps.length) {
                 f.d dVar = new f.d();
-                int i4 = i2 + 1;
-                dVar.f11127c = this.mOps[i2];
+                int i3 = i + 1;
+                dVar.f9300c = this.mOps[i];
                 if (n.x) {
-                    String str = "Instantiate " + fVar + " op #" + i3 + " base fragment #" + this.mOps[i4];
+                    Log.v("FragmentManager", "Instantiate " + fVar + " op #" + i2 + " base fragment #" + this.mOps[i3]);
                 }
-                int i5 = i4 + 1;
-                int i6 = this.mOps[i4];
-                if (i6 >= 0) {
-                    dVar.f11128d = nVar.f11147d.get(i6);
+                int i4 = i3 + 1;
+                int i5 = this.mOps[i3];
+                if (i5 >= 0) {
+                    dVar.f9301d = nVar.f9318d.get(i5);
                 } else {
-                    dVar.f11128d = null;
+                    dVar.f9301d = null;
                 }
                 int[] iArr = this.mOps;
-                int i7 = i5 + 1;
-                dVar.f11129e = iArr[i5];
+                int i6 = i4 + 1;
+                dVar.f9302e = iArr[i4];
+                int i7 = i6 + 1;
+                dVar.f9303f = iArr[i6];
                 int i8 = i7 + 1;
-                dVar.f11130f = iArr[i7];
+                dVar.f9304g = iArr[i7];
                 int i9 = i8 + 1;
-                dVar.f11131g = iArr[i8];
+                dVar.f9305h = iArr[i8];
                 int i10 = i9 + 1;
-                dVar.f11132h = iArr[i9];
-                int i11 = i10 + 1;
-                int i12 = iArr[i10];
-                if (i12 > 0) {
-                    dVar.f11133i = new ArrayList<>(i12);
-                    int i13 = 0;
-                    while (i13 < i12) {
+                int i11 = iArr[i9];
+                if (i11 > 0) {
+                    dVar.i = new ArrayList<>(i11);
+                    int i12 = 0;
+                    while (i12 < i11) {
                         if (n.x) {
-                            String str2 = "Instantiate " + fVar + " set remove fragment #" + this.mOps[i11];
+                            Log.v("FragmentManager", "Instantiate " + fVar + " set remove fragment #" + this.mOps[i10]);
                         }
-                        dVar.f11133i.add(nVar.f11147d.get(this.mOps[i11]));
-                        i13++;
-                        i11++;
+                        dVar.i.add(nVar.f9318d.get(this.mOps[i10]));
+                        i12++;
+                        i10++;
                     }
                 }
-                i2 = i11;
+                i = i10;
                 fVar.o(dVar);
-                i3++;
+                i2++;
             }
-            fVar.m = this.mTransition;
-            fVar.n = this.mTransitionStyle;
-            fVar.q = this.mName;
-            fVar.s = this.mIndex;
-            fVar.o = true;
-            fVar.t = this.mBreadCrumbTitleRes;
-            fVar.u = this.mBreadCrumbTitleText;
-            fVar.v = this.mBreadCrumbShortTitleRes;
-            fVar.w = this.mBreadCrumbShortTitleText;
-            fVar.x = this.mSharedElementSourceNames;
-            fVar.y = this.mSharedElementTargetNames;
+            fVar.i = this.mTransition;
+            fVar.j = this.mTransitionStyle;
+            fVar.m = this.mName;
+            fVar.o = this.mIndex;
+            fVar.k = true;
+            fVar.p = this.mBreadCrumbTitleRes;
+            fVar.q = this.mBreadCrumbTitleText;
+            fVar.r = this.mBreadCrumbShortTitleRes;
+            fVar.s = this.mBreadCrumbShortTitleText;
+            fVar.t = this.mSharedElementSourceNames;
+            fVar.u = this.mSharedElementTargetNames;
             fVar.q(1);
             return fVar;
         }
@@ -234,9 +235,9 @@ public final class BackStackState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeIntArray(this.mOps);
             parcel.writeInt(this.mTransition);
             parcel.writeInt(this.mTransitionStyle);
@@ -258,9 +259,9 @@ public final class BackStackState implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.decoder.DecoderInputBuffer;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SampleMetadataQueue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SAMPLE_CAPACITY_INCREMENT = 1000;
@@ -37,7 +37,7 @@ public final class SampleMetadataQueue {
     public boolean upstreamKeyframeRequired;
     public int upstreamSourceId;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SampleExtrasHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public final class SampleMetadataQueue {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -65,9 +65,9 @@ public final class SampleMetadataQueue {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,67 +87,67 @@ public final class SampleMetadataQueue {
         this.upstreamKeyframeRequired = true;
     }
 
-    private long discardSamples(int i2) {
+    private long discardSamples(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) {
-            this.largestDiscardedTimestampUs = Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(i2));
-            this.length -= i2;
-            this.absoluteStartIndex += i2;
-            int i4 = this.relativeStartIndex + i2;
-            this.relativeStartIndex = i4;
-            int i5 = this.capacity;
-            if (i4 >= i5) {
-                this.relativeStartIndex = i4 - i5;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) {
+            this.largestDiscardedTimestampUs = Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(i));
+            this.length -= i;
+            this.absoluteStartIndex += i;
+            int i3 = this.relativeStartIndex + i;
+            this.relativeStartIndex = i3;
+            int i4 = this.capacity;
+            if (i3 >= i4) {
+                this.relativeStartIndex = i3 - i4;
             }
-            int i6 = this.readPosition - i2;
-            this.readPosition = i6;
-            if (i6 < 0) {
+            int i5 = this.readPosition - i;
+            this.readPosition = i5;
+            if (i5 < 0) {
                 this.readPosition = 0;
             }
             if (this.length == 0) {
-                int i7 = this.relativeStartIndex;
-                if (i7 == 0) {
-                    i7 = this.capacity;
+                int i6 = this.relativeStartIndex;
+                if (i6 == 0) {
+                    i6 = this.capacity;
                 }
-                return this.offsets[i7 - 1] + this.sizes[i3];
+                return this.offsets[i6 - 1] + this.sizes[i2];
             }
             return this.offsets[this.relativeStartIndex];
         }
         return invokeI.longValue;
     }
 
-    private int findSampleBefore(int i2, int i3, long j2, boolean z) {
+    private int findSampleBefore(int i, int i2, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            int i4 = -1;
-            for (int i5 = 0; i5 < i3 && this.timesUs[i2] <= j2; i5++) {
-                if (!z || (this.flags[i2] & 1) != 0) {
-                    i4 = i5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            int i3 = -1;
+            for (int i4 = 0; i4 < i2 && this.timesUs[i] <= j; i4++) {
+                if (!z || (this.flags[i] & 1) != 0) {
+                    i3 = i4;
                 }
-                i2++;
-                if (i2 == this.capacity) {
-                    i2 = 0;
+                i++;
+                if (i == this.capacity) {
+                    i = 0;
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeCommon.intValue;
     }
 
-    private long getLargestTimestamp(int i2) {
+    private long getLargestTimestamp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i2)) == null) {
-            long j2 = Long.MIN_VALUE;
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, this, i)) == null) {
+            long j = Long.MIN_VALUE;
+            if (i == 0) {
                 return Long.MIN_VALUE;
             }
-            int relativeIndex = getRelativeIndex(i2 - 1);
-            for (int i3 = 0; i3 < i2; i3++) {
-                j2 = Math.max(j2, this.timesUs[relativeIndex]);
+            int relativeIndex = getRelativeIndex(i - 1);
+            for (int i2 = 0; i2 < i; i2++) {
+                j = Math.max(j, this.timesUs[relativeIndex]);
                 if ((this.flags[relativeIndex] & 1) != 0) {
                     break;
                 }
@@ -156,30 +156,30 @@ public final class SampleMetadataQueue {
                     relativeIndex = this.capacity - 1;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeI.longValue;
     }
 
-    private int getRelativeIndex(int i2) {
+    private int getRelativeIndex(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-            int i3 = this.relativeStartIndex + i2;
-            int i4 = this.capacity;
-            return i3 < i4 ? i3 : i3 - i4;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
+            int i2 = this.relativeStartIndex + i;
+            int i3 = this.capacity;
+            return i2 < i3 ? i2 : i2 - i3;
         }
         return invokeI.intValue;
     }
 
-    public synchronized int advanceTo(long j2, boolean z, boolean z2) {
+    public synchronized int advanceTo(long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (this) {
                 int relativeIndex = getRelativeIndex(this.readPosition);
-                if (hasNextSample() && j2 >= this.timesUs[relativeIndex] && (j2 <= this.largestQueuedTimestampUs || z2)) {
-                    int findSampleBefore = findSampleBefore(relativeIndex, this.length - this.readPosition, j2, z);
+                if (hasNextSample() && j >= this.timesUs[relativeIndex] && (j <= this.largestQueuedTimestampUs || z2)) {
+                    int findSampleBefore = findSampleBefore(relativeIndex, this.length - this.readPosition, j, z);
                     if (findSampleBefore == -1) {
                         return -1;
                     }
@@ -194,38 +194,38 @@ public final class SampleMetadataQueue {
 
     public synchronized int advanceToEnd() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                i2 = this.length - this.readPosition;
+                i = this.length - this.readPosition;
                 this.readPosition = this.length;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public synchronized boolean attemptSplice(long j2) {
+    public synchronized boolean attemptSplice(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
             synchronized (this) {
                 if (this.length == 0) {
-                    return j2 > this.largestDiscardedTimestampUs;
-                } else if (Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(this.readPosition)) >= j2) {
+                    return j > this.largestDiscardedTimestampUs;
+                } else if (Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(this.readPosition)) >= j) {
                     return false;
                 } else {
-                    int i2 = this.length;
+                    int i = this.length;
                     int relativeIndex = getRelativeIndex(this.length - 1);
-                    while (i2 > this.readPosition && this.timesUs[relativeIndex] >= j2) {
-                        i2--;
+                    while (i > this.readPosition && this.timesUs[relativeIndex] >= j) {
+                        i--;
                         relativeIndex--;
                         if (relativeIndex == -1) {
                             relativeIndex = this.capacity - 1;
                         }
                     }
-                    discardUpstreamSamples(this.absoluteStartIndex + i2);
+                    discardUpstreamSamples(this.absoluteStartIndex + i);
                     return true;
                 }
             }
@@ -233,53 +233,53 @@ public final class SampleMetadataQueue {
         return invokeJ.booleanValue;
     }
 
-    public synchronized void commitSample(long j2, int i2, long j3, int i3, TrackOutput.CryptoData cryptoData) {
+    public synchronized void commitSample(long j, int i, long j2, int i2, TrackOutput.CryptoData cryptoData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Integer.valueOf(i3), cryptoData}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), Integer.valueOf(i2), cryptoData}) == null) {
             synchronized (this) {
                 if (this.upstreamKeyframeRequired) {
-                    if ((i2 & 1) == 0) {
+                    if ((i & 1) == 0) {
                         return;
                     }
                     this.upstreamKeyframeRequired = false;
                 }
                 Assertions.checkState(!this.upstreamFormatRequired);
-                commitSampleTimestamp(j2);
+                commitSampleTimestamp(j);
                 int relativeIndex = getRelativeIndex(this.length);
-                this.timesUs[relativeIndex] = j2;
-                this.offsets[relativeIndex] = j3;
-                this.sizes[relativeIndex] = i3;
-                this.flags[relativeIndex] = i2;
+                this.timesUs[relativeIndex] = j;
+                this.offsets[relativeIndex] = j2;
+                this.sizes[relativeIndex] = i2;
+                this.flags[relativeIndex] = i;
                 this.cryptoDatas[relativeIndex] = cryptoData;
                 this.formats[relativeIndex] = this.upstreamFormat;
                 this.sourceIds[relativeIndex] = this.upstreamSourceId;
-                int i4 = this.length + 1;
-                this.length = i4;
-                if (i4 == this.capacity) {
-                    int i5 = this.capacity + 1000;
-                    int[] iArr = new int[i5];
-                    long[] jArr = new long[i5];
-                    long[] jArr2 = new long[i5];
-                    int[] iArr2 = new int[i5];
-                    int[] iArr3 = new int[i5];
-                    TrackOutput.CryptoData[] cryptoDataArr = new TrackOutput.CryptoData[i5];
-                    Format[] formatArr = new Format[i5];
-                    int i6 = this.capacity - this.relativeStartIndex;
-                    System.arraycopy(this.offsets, this.relativeStartIndex, jArr, 0, i6);
-                    System.arraycopy(this.timesUs, this.relativeStartIndex, jArr2, 0, i6);
-                    System.arraycopy(this.flags, this.relativeStartIndex, iArr2, 0, i6);
-                    System.arraycopy(this.sizes, this.relativeStartIndex, iArr3, 0, i6);
-                    System.arraycopy(this.cryptoDatas, this.relativeStartIndex, cryptoDataArr, 0, i6);
-                    System.arraycopy(this.formats, this.relativeStartIndex, formatArr, 0, i6);
-                    System.arraycopy(this.sourceIds, this.relativeStartIndex, iArr, 0, i6);
-                    int i7 = this.relativeStartIndex;
-                    System.arraycopy(this.offsets, 0, jArr, i6, i7);
-                    System.arraycopy(this.timesUs, 0, jArr2, i6, i7);
-                    System.arraycopy(this.flags, 0, iArr2, i6, i7);
-                    System.arraycopy(this.sizes, 0, iArr3, i6, i7);
-                    System.arraycopy(this.cryptoDatas, 0, cryptoDataArr, i6, i7);
-                    System.arraycopy(this.formats, 0, formatArr, i6, i7);
-                    System.arraycopy(this.sourceIds, 0, iArr, i6, i7);
+                int i3 = this.length + 1;
+                this.length = i3;
+                if (i3 == this.capacity) {
+                    int i4 = this.capacity + 1000;
+                    int[] iArr = new int[i4];
+                    long[] jArr = new long[i4];
+                    long[] jArr2 = new long[i4];
+                    int[] iArr2 = new int[i4];
+                    int[] iArr3 = new int[i4];
+                    TrackOutput.CryptoData[] cryptoDataArr = new TrackOutput.CryptoData[i4];
+                    Format[] formatArr = new Format[i4];
+                    int i5 = this.capacity - this.relativeStartIndex;
+                    System.arraycopy(this.offsets, this.relativeStartIndex, jArr, 0, i5);
+                    System.arraycopy(this.timesUs, this.relativeStartIndex, jArr2, 0, i5);
+                    System.arraycopy(this.flags, this.relativeStartIndex, iArr2, 0, i5);
+                    System.arraycopy(this.sizes, this.relativeStartIndex, iArr3, 0, i5);
+                    System.arraycopy(this.cryptoDatas, this.relativeStartIndex, cryptoDataArr, 0, i5);
+                    System.arraycopy(this.formats, this.relativeStartIndex, formatArr, 0, i5);
+                    System.arraycopy(this.sourceIds, this.relativeStartIndex, iArr, 0, i5);
+                    int i6 = this.relativeStartIndex;
+                    System.arraycopy(this.offsets, 0, jArr, i5, i6);
+                    System.arraycopy(this.timesUs, 0, jArr2, i5, i6);
+                    System.arraycopy(this.flags, 0, iArr2, i5, i6);
+                    System.arraycopy(this.sizes, 0, iArr3, i5, i6);
+                    System.arraycopy(this.cryptoDatas, 0, cryptoDataArr, i5, i6);
+                    System.arraycopy(this.formats, 0, formatArr, i5, i6);
+                    System.arraycopy(this.sourceIds, 0, iArr, i5, i6);
                     this.offsets = jArr;
                     this.timesUs = jArr2;
                     this.flags = iArr2;
@@ -289,28 +289,28 @@ public final class SampleMetadataQueue {
                     this.sourceIds = iArr;
                     this.relativeStartIndex = 0;
                     this.length = this.capacity;
-                    this.capacity = i5;
+                    this.capacity = i4;
                 }
             }
         }
     }
 
-    public synchronized void commitSampleTimestamp(long j2) {
+    public synchronized void commitSampleTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             synchronized (this) {
-                this.largestQueuedTimestampUs = Math.max(this.largestQueuedTimestampUs, j2);
+                this.largestQueuedTimestampUs = Math.max(this.largestQueuedTimestampUs, j);
             }
         }
     }
 
-    public synchronized long discardTo(long j2, boolean z, boolean z2) {
+    public synchronized long discardTo(long j, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             synchronized (this) {
-                if (this.length != 0 && j2 >= this.timesUs[this.relativeStartIndex]) {
-                    int findSampleBefore = findSampleBefore(this.relativeStartIndex, (!z2 || this.readPosition == this.length) ? this.length : this.readPosition + 1, j2, z);
+                if (this.length != 0 && j >= this.timesUs[this.relativeStartIndex]) {
+                    int findSampleBefore = findSampleBefore(this.relativeStartIndex, (!z2 || this.readPosition == this.length) ? this.length : this.readPosition + 1, j, z);
                     if (findSampleBefore == -1) {
                         return -1L;
                     }
@@ -350,20 +350,20 @@ public final class SampleMetadataQueue {
         return invokeV.longValue;
     }
 
-    public long discardUpstreamSamples(int i2) {
+    public long discardUpstreamSamples(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            int writeIndex = getWriteIndex() - i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            int writeIndex = getWriteIndex() - i;
             Assertions.checkArgument(writeIndex >= 0 && writeIndex <= this.length - this.readPosition);
-            int i3 = this.length - writeIndex;
-            this.length = i3;
-            this.largestQueuedTimestampUs = Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(i3));
-            int i4 = this.length;
-            if (i4 == 0) {
+            int i2 = this.length - writeIndex;
+            this.length = i2;
+            this.largestQueuedTimestampUs = Math.max(this.largestDiscardedTimestampUs, getLargestTimestamp(i2));
+            int i3 = this.length;
+            if (i3 == 0) {
                 return 0L;
             }
-            int relativeIndex = getRelativeIndex(i4 - 1);
+            int relativeIndex = getRelativeIndex(i3 - 1);
             return this.offsets[relativeIndex] + this.sizes[relativeIndex];
         }
         return invokeI.longValue;
@@ -391,13 +391,13 @@ public final class SampleMetadataQueue {
 
     public synchronized long getLargestQueuedTimestampUs() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
-                j2 = this.largestQueuedTimestampUs;
+                j = this.largestQueuedTimestampUs;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -511,10 +511,10 @@ public final class SampleMetadataQueue {
         }
     }
 
-    public void sourceId(int i2) {
+    public void sourceId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.upstreamSourceId = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.upstreamSourceId = i;
         }
     }
 }

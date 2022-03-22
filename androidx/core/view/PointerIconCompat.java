@@ -47,9 +47,9 @@ public final class PointerIconCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -70,24 +70,24 @@ public final class PointerIconCompat {
         return (PointerIconCompat) invokeCommon.objValue;
     }
 
-    public static PointerIconCompat getSystemIcon(Context context, int i2) {
+    public static PointerIconCompat getSystemIcon(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return new PointerIconCompat(PointerIcon.getSystemIcon(context, i2));
+                return new PointerIconCompat(PointerIcon.getSystemIcon(context, i));
             }
             return new PointerIconCompat(null);
         }
         return (PointerIconCompat) invokeLI.objValue;
     }
 
-    public static PointerIconCompat load(Resources resources, int i2) {
+    public static PointerIconCompat load(Resources resources, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, resources, i)) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                return new PointerIconCompat(PointerIcon.load(resources, i2));
+                return new PointerIconCompat(PointerIcon.load(resources, i));
             }
             return new PointerIconCompat(null);
         }

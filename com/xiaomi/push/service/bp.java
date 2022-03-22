@@ -18,7 +18,7 @@ import com.xiaomi.push.im;
 import com.xiaomi.push.io;
 import com.xiaomi.push.ip;
 import com.xiaomi.push.iq;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bp {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,13 +27,13 @@ public class bp {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, ibVar)) == null) {
-            if (ibVar.m521b()) {
+            if (ibVar.m500b()) {
                 return null;
             }
-            byte[] m519a = ibVar.m519a();
-            iq a = a(ibVar.a(), ibVar.f644b);
+            byte[] m498a = ibVar.m498a();
+            iq a = a(ibVar.a(), ibVar.f620b);
             if (a != null) {
-                ip.a(a, m519a);
+                ip.a(a, m498a);
             }
             return a;
         }

@@ -9,7 +9,7 @@ import android.net.Uri;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.c;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -22,8 +22,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
 import java.util.Calendar;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbadkApplication extends TbadkCoreApplication {
     public static /* synthetic */ Interceptable $ic = null;
     public static String mForumName = "armcv";
@@ -53,9 +54,9 @@ public class TbadkApplication extends TbadkCoreApplication {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -231,11 +232,11 @@ public class TbadkApplication extends TbadkCoreApplication {
         }
     }
 
-    public void setSignAlertTime(int i2, int i3) {
+    public void setSignAlertTime(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) {
-            TbadkSettings.getInst().saveInt("alert_sign_hours", i2);
-            TbadkSettings.getInst().saveInt("alert_sign_mins", i3);
+        if (interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) {
+            TbadkSettings.getInst().saveInt("alert_sign_hours", i);
+            TbadkSettings.getInst().saveInt("alert_sign_mins", i2);
             updateSignAlarm();
         }
     }
@@ -255,21 +256,21 @@ public class TbadkApplication extends TbadkCoreApplication {
             if (isSignAlertOn()) {
                 Calendar calendar = Calendar.getInstance();
                 int signAlertHours = getSignAlertHours();
-                int i2 = calendar.get(11);
+                int i = calendar.get(11);
                 int signAlertMins = getSignAlertMins();
-                int i3 = calendar.get(12);
+                int i2 = calendar.get(12);
                 calendar.set(11, signAlertHours);
                 calendar.set(12, signAlertMins);
                 calendar.set(13, 0);
                 calendar.set(14, 0);
-                if (i2 >= signAlertHours && (i2 != signAlertHours || i3 >= signAlertMins)) {
+                if (i >= signAlertHours && (i != signAlertHours || i2 >= signAlertMins)) {
                     calendar.set(6, calendar.get(6) + 1);
                 }
                 alarmManager.set(1, calendar.getTimeInMillis(), PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 134217728));
                 BdLog.isDebugMode();
                 return;
             }
-            PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, 536870912);
+            PendingIntent broadcast = PendingIntent.getBroadcast(getInst().getContext(), 0, createIntentForSignAlarm, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH);
             if (broadcast != null) {
                 alarmManager.cancel(broadcast);
                 BdLog.isDebugMode();

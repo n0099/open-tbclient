@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.qq.e.ads.cfg.DownAPPConfirmPolicy;
 import com.qq.e.comm.adevent.ADListener;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseNativeUnifiedAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CALLBACK_CLICK = 3;
@@ -26,9 +26,9 @@ public abstract class BaseNativeUnifiedAd {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,11 +46,11 @@ public abstract class BaseNativeUnifiedAd {
 
     public abstract int getECPM();
 
-    public abstract void loadData(int i2);
+    public abstract void loadData(int i);
 
     public abstract void setAdListener(ADListener aDListener);
 
-    public abstract void setBrowserType(int i2);
+    public abstract void setBrowserType(int i);
 
     public abstract void setCategories(List<String> list);
 
@@ -58,7 +58,7 @@ public abstract class BaseNativeUnifiedAd {
 
     public abstract void setECPMLevel(String str);
 
-    public abstract void setMaxVideoDuration(int i2);
+    public abstract void setMaxVideoDuration(int i);
 
-    public abstract void setMinVideoDuration(int i2);
+    public abstract void setMinVideoDuration(int i);
 }

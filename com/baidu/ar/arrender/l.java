@@ -6,7 +6,7 @@ import com.baidu.ar.arplay.core.renderer.TakePictureCallback;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 /* loaded from: classes3.dex */
 public interface l extends IRenderer {
-    void a(long j2, String str);
+    void a(long j, String str);
 
     void a(PointF pointF, boolean z);
 
@@ -28,7 +28,7 @@ public interface l extends IRenderer {
 
     void aJ();
 
-    void b(int i2, boolean z);
+    void b(int i, boolean z);
 
     void bv();
 
@@ -50,7 +50,7 @@ public interface l extends IRenderer {
 
     void m(boolean z);
 
-    void q(int i2);
+    void q(int i);
 
     void sceneRotateToCamera();
 

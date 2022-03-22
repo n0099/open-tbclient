@@ -10,43 +10,43 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class w extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ib a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f985a;
+    public final /* synthetic */ XMPushService f961a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f986a;
+    public final /* synthetic */ String f962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f60029b;
+    public final /* synthetic */ String f44592b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w(int i2, XMPushService xMPushService, ib ibVar, String str, String str2) {
-        super(i2);
+    public w(int i, XMPushService xMPushService, ib ibVar, String str, String str2) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), xMPushService, ibVar, str, str2};
+            Object[] objArr = {Integer.valueOf(i), xMPushService, ibVar, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f985a = xMPushService;
+        this.f961a = xMPushService;
         this.a = ibVar;
-        this.f986a = str;
-        this.f60029b = str2;
+        this.f962a = str;
+        this.f44592b = str2;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -61,13 +61,13 @@ public final class w extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a = q.a((Context) this.f985a, this.a);
-                a.f637a.a("error", this.f986a);
-                a.f637a.a("reason", this.f60029b);
-                y.a(this.f985a, a);
+                ib a = q.a((Context) this.f961a, this.a);
+                a.f613a.a("error", this.f962a);
+                a.f613a.a("reason", this.f44592b);
+                y.a(this.f961a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f985a.a(10, e2);
+                this.f961a.a(10, e2);
             }
         }
     }

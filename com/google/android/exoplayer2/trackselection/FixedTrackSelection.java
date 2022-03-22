@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.TrackGroup;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FixedTrackSelection extends BaseTrackSelection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object data;
     public final int reason;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Factory implements TrackSelection.Factory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public final class FixedTrackSelection extends BaseTrackSelection {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,38 +52,38 @@ public final class FixedTrackSelection extends BaseTrackSelection {
             return (FixedTrackSelection) invokeLL.objValue;
         }
 
-        public Factory(int i2, Object obj) {
+        public Factory(int i, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), obj};
+                Object[] objArr = {Integer.valueOf(i), obj};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.reason = i2;
+            this.reason = i;
             this.data = obj;
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FixedTrackSelection(TrackGroup trackGroup, int i2) {
-        this(trackGroup, i2, 0, null);
+    public FixedTrackSelection(TrackGroup trackGroup, int i) {
+        this(trackGroup, i, 0, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {trackGroup, Integer.valueOf(i2)};
+            Object[] objArr = {trackGroup, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TrackGroup) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), objArr2[3]);
                 newInitContext.thisArg = this;
@@ -118,24 +118,24 @@ public final class FixedTrackSelection extends BaseTrackSelection {
     }
 
     @Override // com.google.android.exoplayer2.trackselection.TrackSelection
-    public void updateSelectedTrack(long j2, long j3, long j4) {
+    public void updateSelectedTrack(long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FixedTrackSelection(TrackGroup trackGroup, int i2, int i3, Object obj) {
-        super(trackGroup, i2);
+    public FixedTrackSelection(TrackGroup trackGroup, int i, int i2, Object obj) {
+        super(trackGroup, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {trackGroup, Integer.valueOf(i2), Integer.valueOf(i3), obj};
+            Object[] objArr = {trackGroup, Integer.valueOf(i), Integer.valueOf(i2), obj};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TrackGroup) objArr2[0], (int[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -143,7 +143,7 @@ public final class FixedTrackSelection extends BaseTrackSelection {
                 return;
             }
         }
-        this.reason = i3;
+        this.reason = i2;
         this.data = obj;
     }
 }

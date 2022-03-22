@@ -15,22 +15,22 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetBusLineSearchResultListener f36386b;
+    public OnGetBusLineSearchResultListener f28203b;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36386b = null;
+        this.f28203b = null;
     }
 
     @Override // com.baidu.platform.core.busline.IBusLineSearch
@@ -38,7 +38,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f36386b = null;
+            this.f28203b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +48,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetBusLineSearchResultListener) == null) {
             this.a.lock();
-            this.f36386b = onGetBusLineSearchResultListener;
+            this.f28203b = onGetBusLineSearchResultListener;
             this.a.unlock();
         }
     }
@@ -60,7 +60,7 @@ public class c extends com.baidu.platform.base.a implements IBusLineSearch {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, busLineSearchOption)) == null) {
             a aVar = new a();
             aVar.a(SearchType.o);
-            return a(new b(busLineSearchOption), this.f36386b, aVar);
+            return a(new b(busLineSearchOption), this.f28203b, aVar);
         }
         return invokeL.booleanValue;
     }

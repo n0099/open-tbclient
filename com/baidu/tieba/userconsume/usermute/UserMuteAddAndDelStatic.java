@@ -40,23 +40,23 @@ public class UserMuteAddAndDelStatic {
 
         /* renamed from: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C1949a extends HttpMessageListener {
+        public class C1893a extends HttpMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C1949a(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-                super(i2);
+            public C1893a(a aVar, int i, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+                super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i2), userMuteAddAndDelCustomMessage};
+                    Object[] objArr = {aVar, Integer.valueOf(i), userMuteAddAndDelCustomMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -74,10 +74,10 @@ public class UserMuteAddAndDelStatic {
                     UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) httpResponsedMessage;
                     if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016304));
-                        int i2 = this.a.from;
-                        if (i2 == 1) {
+                        int i = this.a.from;
+                        if (i == 1) {
                             TiebaStatic.log("c10034");
-                        } else if (i2 == 0) {
+                        } else if (i == 0) {
                             TiebaStatic.log("c10043");
                         }
                     }
@@ -95,17 +95,17 @@ public class UserMuteAddAndDelStatic {
             public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public b(a aVar, int i2, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
-                super(i2);
+            public b(a aVar, int i, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+                super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Integer.valueOf(i2), userMuteAddAndDelCustomMessage};
+                    Object[] objArr = {aVar, Integer.valueOf(i), userMuteAddAndDelCustomMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         super(((Integer) newInitContext.callArgs[0]).intValue());
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
@@ -136,9 +136,9 @@ public class UserMuteAddAndDelStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -154,13 +154,13 @@ public class UserMuteAddAndDelStatic {
                     return null;
                 }
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage;
-                C1949a c1949a = new C1949a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
+                C1893a c1893a = new C1893a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
                 b bVar = new b(this, CmdConfigHttp.CMD_USER_MUTE_DEL, userMuteAddAndDelCustomMessage);
-                c1949a.setSelfListener(true);
-                c1949a.setTag(userMuteAddAndDelCustomMessage.mId);
+                c1893a.setSelfListener(true);
+                c1893a.setTag(userMuteAddAndDelCustomMessage.mId);
                 bVar.setSelfListener(true);
                 bVar.setTag(userMuteAddAndDelCustomMessage.mId);
-                MessageManager.getInstance().registerListener(c1949a);
+                MessageManager.getInstance().registerListener(c1893a);
                 MessageManager.getInstance().registerListener(bVar);
                 return null;
             }
@@ -178,9 +178,9 @@ public class UserMuteAddAndDelStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -191,25 +191,25 @@ public class UserMuteAddAndDelStatic {
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage == null || !(customMessage instanceof UserMuteAddAndDelCustomMessage) || (i2 = (userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage).from) == -1) {
+                if (customMessage == null || !(customMessage instanceof UserMuteAddAndDelCustomMessage) || (i = (userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage).from) == -1) {
                     return null;
                 }
                 if (userMuteAddAndDelCustomMessage.isMute) {
-                    if (i2 == 1) {
+                    if (i == 1) {
                         TiebaStatic.log("c10024");
-                    } else if (i2 == 0) {
+                    } else if (i == 0) {
                         TiebaStatic.log("c10037");
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         TiebaStatic.log("c10047");
                     }
                     UserMuteAddAndDelStatic.k(userMuteAddAndDelCustomMessage.muteUserId, userMuteAddAndDelCustomMessage.mId);
                 } else {
-                    if (i2 == 1) {
+                    if (i == 1) {
                         TiebaStatic.log("c10012");
-                    } else if (i2 == 0) {
+                    } else if (i == 0) {
                         TiebaStatic.log("c10036");
                     }
                     UserMuteAddAndDelStatic.j(userMuteAddAndDelCustomMessage.muteUserId, userMuteAddAndDelCustomMessage.threadId, userMuteAddAndDelCustomMessage.postId, userMuteAddAndDelCustomMessage.mId);
@@ -230,9 +230,9 @@ public class UserMuteAddAndDelStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -272,17 +272,17 @@ public class UserMuteAddAndDelStatic {
             public final /* synthetic */ UserMuteCheckCustomMessage a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public a(d dVar, int i2, int i3, UserMuteCheckCustomMessage userMuteCheckCustomMessage) {
-                super(i2, i3);
+            public a(d dVar, int i, int i2, UserMuteCheckCustomMessage userMuteCheckCustomMessage) {
+                super(i, i2);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar, Integer.valueOf(i2), Integer.valueOf(i3), userMuteCheckCustomMessage};
+                    Object[] objArr = {dVar, Integer.valueOf(i), Integer.valueOf(i2), userMuteCheckCustomMessage};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                         newInitContext.thisArg = this;
@@ -297,12 +297,12 @@ public class UserMuteAddAndDelStatic {
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                    c.a.r0.i4.a aVar = new c.a.r0.i4.a();
+                    c.a.p0.k4.a aVar = new c.a.p0.k4.a();
                     if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                         UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
                         aVar.a = userMuteCheckSocketResponsedMessage.getResult();
-                        aVar.f18223c = userMuteCheckSocketResponsedMessage.getError();
-                        aVar.f18222b = userMuteCheckSocketResponsedMessage.getErrorString();
+                        aVar.f15970c = userMuteCheckSocketResponsedMessage.getError();
+                        aVar.f15969b = userMuteCheckSocketResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, aVar);
                         customResponsedMessage.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
@@ -310,8 +310,8 @@ public class UserMuteAddAndDelStatic {
                     if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                         UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
                         aVar.a = userMuteCheckHttpResponsedMessage.getResult();
-                        aVar.f18223c = userMuteCheckHttpResponsedMessage.getError();
-                        aVar.f18222b = userMuteCheckHttpResponsedMessage.getErrorString();
+                        aVar.f15970c = userMuteCheckHttpResponsedMessage.getError();
+                        aVar.f15969b = userMuteCheckHttpResponsedMessage.getErrorString();
                         CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, aVar);
                         customResponsedMessage2.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
@@ -325,9 +325,9 @@ public class UserMuteAddAndDelStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -381,9 +381,9 @@ public class UserMuteAddAndDelStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -430,8 +430,8 @@ public class UserMuteAddAndDelStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            c.a.r0.y3.g0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            c.a.r0.y3.g0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            c.a.p0.a4.g0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            c.a.p0.a4.g0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 

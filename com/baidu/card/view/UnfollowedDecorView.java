@@ -7,13 +7,13 @@ import android.view.View;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import c.a.q0.c1.q;
-import c.a.q0.r.r.e2;
-import c.a.r0.j0.i;
+import c.a.o0.c1.q;
+import c.a.p0.l0.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.WebPManager;
@@ -23,17 +23,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UnfollowedDecorView extends AppCompatImageView implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public i a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f31934e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f25205b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f31935f;
-    public i mViewController;
+    /* renamed from: c  reason: collision with root package name */
+    public int f25206c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public UnfollowedDecorView(Context context) {
@@ -44,9 +44,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -56,10 +56,22 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         }
     }
 
-    public final TbPageContext a(Activity activity) {
+    public void f(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
+            this.a.h(threadData);
+            if (!ThreadCardUtils.isSelf(threadData) && threadData.isFromConcern()) {
+                setVisibility(0);
+            } else {
+                setVisibility(8);
+            }
+        }
+    }
+
+    public final TbPageContext g(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
             if (activity instanceof BaseActivity) {
                 return ((BaseActivity) activity).getPageContext();
             }
@@ -71,22 +83,10 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         return (TbPageContext) invokeL.objValue;
     }
 
-    public void bindData(e2 e2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) {
-            this.mViewController.h(e2Var);
-            if (!ThreadCardUtils.isSelf(e2Var) && e2Var.b2()) {
-                setVisibility(0);
-            } else {
-                setVisibility(8);
-            }
-        }
-    }
-
-    public void onChangeSkinType() {
+    public void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            setImageDrawable(WebPManager.getPureDrawable(this.f31934e, SkinManager.getColor(this.f31935f), WebPManager.ResourceStateType.NORMAL_PRESS));
+            setImageDrawable(WebPManager.getPureDrawable(this.f25205b, SkinManager.getColor(this.f25206c), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -96,24 +96,15 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
         if (!(interceptable == null || interceptable.invokeL(1048579, this, view) == null) || q.a()) {
             return;
         }
-        this.mViewController.n();
+        this.a.n();
     }
 
-    public void resetWebPResId() {
+    public void setWebPResId(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f31934e = R.drawable.icon_pure_card_more22;
-            this.f31935f = R.color.CAM_X0111;
-            setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
-        }
-    }
-
-    public void setWebPResId(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            this.f31934e = i2;
-            this.f31935f = i3;
-            setImageDrawable(WebPManager.getPureDrawable(i2, SkinManager.getColor(i3), WebPManager.ResourceStateType.NORMAL_PRESS));
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.f25205b = i;
+            this.f25206c = i2;
+            setImageDrawable(WebPManager.getPureDrawable(i, SkinManager.getColor(i2), WebPManager.ResourceStateType.NORMAL_PRESS));
         }
     }
 
@@ -126,9 +117,9 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -139,17 +130,17 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public UnfollowedDecorView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -157,11 +148,11 @@ public class UnfollowedDecorView extends AppCompatImageView implements View.OnCl
                 return;
             }
         }
-        this.f31934e = R.drawable.icon_pure_card_more22;
-        this.f31935f = R.color.CAM_X0111;
-        this.mViewController = new i(a((Activity) context), this);
+        this.f25205b = R.drawable.obfuscated_res_0x7f0808ea;
+        this.f25206c = R.color.CAM_X0111;
+        this.a = new i(g((Activity) context), this);
         setOnClickListener(this);
         setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-        setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_card_more22, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
+        setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808ea, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL_PRESS));
     }
 }

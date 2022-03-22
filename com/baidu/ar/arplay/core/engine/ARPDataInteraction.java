@@ -1,6 +1,7 @@
 package com.baidu.ar.arplay.core.engine;
 
 import android.content.SharedPreferences;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.core.engine.ARPContent;
@@ -24,7 +25,7 @@ public class ARPDataInteraction implements ARPContent.a {
 
     /* loaded from: classes3.dex */
     public interface a {
-        boolean c(int i2, int i3);
+        boolean c(int i, int i2);
     }
 
     /* loaded from: classes3.dex */
@@ -34,7 +35,7 @@ public class ARPDataInteraction implements ARPContent.a {
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(String str, int i2, String str2, String str3);
+        void a(String str, int i, String str2, String str3);
     }
 
     public ARPDataInteraction() {
@@ -42,9 +43,9 @@ public class ARPDataInteraction implements ARPContent.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,12 +55,12 @@ public class ARPDataInteraction implements ARPContent.a {
         this.mIsCaseCreated = false;
     }
 
-    public static String getValue(Object obj, int i2, String str) {
+    public static String getValue(Object obj, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, obj, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, obj, i, str)) == null) {
             ARPDataInteraction aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get();
-            return aRPDataInteraction == null ? "" : aRPDataInteraction.getValue(i2, str);
+            return aRPDataInteraction == null ? "" : aRPDataInteraction.getValue(i, str);
         }
         return (String) invokeLIL.objValue;
     }
@@ -73,41 +74,41 @@ public class ARPDataInteraction implements ARPContent.a {
         aRPDataInteraction.onInteractionFinish(f2, f3, f4);
     }
 
-    public static void setValue(Object obj, int i2, String str, String str2) {
+    public static void setValue(Object obj, int i, String str, String str2) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLILL(65539, null, obj, i2, str, str2) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
+        if (!(interceptable == null || interceptable.invokeLILL(65539, null, obj, i, str, str2) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
             return;
         }
-        aRPDataInteraction.setValue(i2, str, str2);
+        aRPDataInteraction.setValue(i, str, str2);
     }
 
-    public static void updateVideoFrame(Object obj, String str, int i2, String str2, String str3) {
+    public static void updateVideoFrame(Object obj, String str, int i, String str2, String str3) {
         ARPDataInteraction aRPDataInteraction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Integer.valueOf(i2), str2, str3}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Integer.valueOf(i), str2, str3}) == null) || (aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get()) == null) {
             return;
         }
-        aRPDataInteraction.updateVideoFrame(str, i2, str2, str3);
+        aRPDataInteraction.updateVideoFrame(str, i, str2, str3);
     }
 
-    public static boolean updateWebViewFrame(Object obj, int i2, int i3) {
+    public static boolean updateWebViewFrame(Object obj, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, obj, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, obj, i, i2)) == null) {
             ARPDataInteraction aRPDataInteraction = (ARPDataInteraction) ((WeakReference) obj).get();
             if (aRPDataInteraction == null) {
                 return false;
             }
-            return aRPDataInteraction.updateWebViewFrame(i2, i3);
+            return aRPDataInteraction.updateWebViewFrame(i, i2);
         }
         return invokeLII.booleanValue;
     }
 
-    public void addAlgoType(int[] iArr, int i2) {
+    public void addAlgoType(int[] iArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, iArr, i2) == null) {
-            nativeAddAlgoType(iArr, i2);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, iArr, i) == null) {
+            nativeAddAlgoType(iArr, i);
         }
     }
 
@@ -134,19 +135,23 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public void destroyMockAlgoHandle(long j2) {
+    public void destroyMockAlgoHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            nativeDestoryMockFaceAlgoHandle(j2);
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            nativeDestoryMockFaceAlgoHandle(j);
         }
     }
 
-    public String getValue(int i2, String str) {
+    public String getValue(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, str)) == null) {
             com.baidu.ar.arplay.a.b bVar = this.mDataStore;
-            return bVar != null ? bVar.getValue(i2, str) : "";
+            if (bVar != null) {
+                return bVar.getValue(i, str);
+            }
+            Log.e("ARPDataInteraction", "get value error!");
+            return "";
         }
         return (String) invokeIL.objValue;
     }
@@ -160,35 +165,35 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public long mockFaceAlgoHandle(long j2, float[] fArr) {
+    public long mockFaceAlgoHandle(long j, float[] fArr) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j2, fArr)) == null) ? nativeMockFaceAlgoHandle(j2, fArr) : invokeJL.longValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(1048583, this, j, fArr)) == null) ? nativeMockFaceAlgoHandle(j, fArr) : invokeJL.longValue;
     }
 
-    public native void nativeAddAlgoType(int[] iArr, int i2);
+    public native void nativeAddAlgoType(int[] iArr, int i);
 
     public native void nativeClearAlgoCache();
 
-    public native void nativeDestoryMockFaceAlgoHandle(long j2);
+    public native void nativeDestoryMockFaceAlgoHandle(long j);
 
-    public native long nativeMockFaceAlgoHandle(long j2, float[] fArr);
+    public native long nativeMockFaceAlgoHandle(long j, float[] fArr);
 
     public native void nativeReleaseALgoCacheInstance();
 
     public native void nativeRemoveAlgoType(int[] iArr);
 
-    public native void nativeSetAlgoDataHandle(long j2);
+    public native void nativeSetAlgoDataHandle(long j);
 
-    public native void nativeSetAlgoHandle(long j2);
+    public native void nativeSetAlgoHandle(long j);
 
-    public native void nativeSetFaceLandMark(long j2, int i2);
+    public native void nativeSetFaceLandMark(long j, int i);
 
-    public native void nativeSetFaceLandMarkFrameAcheMode(int i2);
+    public native void nativeSetFaceLandMarkFrameAcheMode(int i);
 
     public native void nativeSetup(Object obj);
 
-    public native void nativeUpdateAlgoDataToNode(int i2, int i3, ByteBuffer byteBuffer);
+    public native void nativeUpdateAlgoDataToNode(int i, int i2, ByteBuffer byteBuffer);
 
     @Override // com.baidu.ar.arplay.core.engine.ARPContent.a
     public void onCaseLoaded(boolean z) {
@@ -198,19 +203,19 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public void onGestureUpdate(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10) {
+    public void onGestureUpdate(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10)}) == null) {
-            onGestureUpdateNative(i2, j2, i3, f2, f3, f4, f5, i4, f6, f7, f8, f9, i5, f10, false);
+        if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10)}) == null) {
+            onGestureUpdateNative(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, false);
         }
     }
 
-    public native void onGestureUpdateNative(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10, boolean z);
+    public native void onGestureUpdateNative(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z);
 
-    public void onGestureUpdateWithScaleFinish(int i2, long j2, int i3, float f2, float f3, float f4, float f5, int i4, float f6, float f7, float f8, float f9, int i5, float f10, boolean z) {
+    public void onGestureUpdateWithScaleFinish(int i, long j, int i2, float f2, float f3, float f4, float f5, int i3, float f6, float f7, float f8, float f9, int i4, float f10, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i4), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i5), Float.valueOf(f10), Boolean.valueOf(z)}) == null) {
-            onGestureUpdateNative(i2, j2, i3, f2, f3, f4, f5, i4, f6, f7, f8, f9, i5, f10, z);
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i3), Float.valueOf(f6), Float.valueOf(f7), Float.valueOf(f8), Float.valueOf(f9), Integer.valueOf(i4), Float.valueOf(f10), Boolean.valueOf(z)}) == null) {
+            onGestureUpdateNative(i, j, i2, f2, f3, f4, f5, i3, f6, f7, f8, f9, i4, f10, z);
         }
     }
 
@@ -223,14 +228,14 @@ public class ARPDataInteraction implements ARPContent.a {
         bVar.a(f2, f3, f4);
     }
 
-    public void onTouchUpdate(int i2, float f2, float f3, float f4, float f5, long j2, int i3, float f6) {
+    public void onTouchUpdate(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j2), Integer.valueOf(i3), Float.valueOf(f6)}) == null) {
-            onTouchUpdateNative(i2, f2, f3, f4, f5, j2, i3, f6);
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Integer.valueOf(i2), Float.valueOf(f6)}) == null) {
+            onTouchUpdateNative(i, f2, f3, f4, f5, j, i2, f6);
         }
     }
 
-    public native void onTouchUpdateNative(int i2, float f2, float f3, float f4, float f5, long j2, int i3, float f6);
+    public native void onTouchUpdateNative(int i, float f2, float f3, float f4, float f5, long j, int i2, float f6);
 
     public void removeAlgoType(int[] iArr) {
         Interceptable interceptable = $ic;
@@ -239,19 +244,19 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public synchronized void setAlgoDataHandle(long j2) {
+    public synchronized void setAlgoDataHandle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048604, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048604, this, j) == null) {
             synchronized (this) {
-                nativeSetAlgoHandle(j2);
+                nativeSetAlgoHandle(j);
             }
         }
     }
 
-    public void setFaceLandMarkFrameAcheMode(int i2) {
+    public void setFaceLandMarkFrameAcheMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            nativeSetFaceLandMarkFrameAcheMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            nativeSetFaceLandMarkFrameAcheMode(i);
         }
     }
 
@@ -271,13 +276,16 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public void setValue(int i2, String str, String str2) {
-        com.baidu.ar.arplay.a.b bVar;
+    public void setValue(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048608, this, i2, str, str2) == null) || (bVar = this.mDataStore) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeILL(1048608, this, i, str, str2) == null) {
+            com.baidu.ar.arplay.a.b bVar = this.mDataStore;
+            if (bVar != null) {
+                bVar.setValue(i, str, str2);
+            } else {
+                Log.e("ARPDataInteraction", "set value error!");
+            }
         }
-        bVar.setValue(i2, str, str2);
     }
 
     public synchronized void setVideoUpdateCallback(c cVar) {
@@ -296,33 +304,33 @@ public class ARPDataInteraction implements ARPContent.a {
         }
     }
 
-    public void updateAlgoDataToNode(int i2, int i3, byte[] bArr) {
+    public void updateAlgoDataToNode(int i, int i2, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048611, this, i2, i3, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048611, this, i, i2, bArr) == null) {
             ByteBuffer allocateDirect = ByteBuffer.allocateDirect(bArr.length);
             this.mMaskBuffer = allocateDirect;
             allocateDirect.put(bArr);
-            nativeUpdateAlgoDataToNode(i2, i3, this.mMaskBuffer);
+            nativeUpdateAlgoDataToNode(i, i2, this.mMaskBuffer);
         }
     }
 
-    public void updateVideoFrame(String str, int i2, String str2, String str3) {
+    public void updateVideoFrame(String str, int i, String str2, String str3) {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLILL(1048612, this, str, i2, str2, str3) == null) && (cVar = this.mVideoCallback) != null && this.mIsCaseCreated) {
-            cVar.a(str, i2, str2, str3);
+        if ((interceptable == null || interceptable.invokeLILL(1048612, this, str, i, str2, str3) == null) && (cVar = this.mVideoCallback) != null && this.mIsCaseCreated) {
+            cVar.a(str, i, str2, str3);
         }
     }
 
-    public boolean updateWebViewFrame(int i2, int i3) {
+    public boolean updateWebViewFrame(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048613, this, i, i2)) == null) {
             a aVar = this.mHtmlCallback;
             if (aVar == null || !this.mIsCaseCreated) {
                 return false;
             }
-            return aVar.c(i2, i3);
+            return aVar.c(i, i2);
         }
         return invokeII.booleanValue;
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -34,9 +34,9 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -82,10 +82,10 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         }
     }
 
-    public void setCallFrom(int i2) {
+    public void setCallFrom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.callFrom = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.callFrom = i;
         }
     }
 
@@ -96,23 +96,23 @@ public class RequestGetMyPostNetMessage extends NetMessage {
         }
     }
 
-    public void setParams(long j2, long j3, long j4, int i2, int i3, double d2, int i4) {
+    public void setParams(long j, long j2, long j3, int i, int i2, double d2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d2), Integer.valueOf(i4)}) == null) {
-            this.mPostId = j3;
-            this.mThreadId = j2;
-            this.mForumId = j4;
-            this.mScrW = i2;
-            this.mScrH = i3;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), Integer.valueOf(i2), Double.valueOf(d2), Integer.valueOf(i3)}) == null) {
+            this.mPostId = j2;
+            this.mThreadId = j;
+            this.mForumId = j3;
+            this.mScrW = i;
+            this.mScrH = i2;
             this.mScrDip = d2;
-            this.mQType = i4;
+            this.mQType = i3;
         }
     }
 
-    public void setProZone(int i2) {
+    public void setProZone(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.proZone = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.proZone = i;
         }
     }
 

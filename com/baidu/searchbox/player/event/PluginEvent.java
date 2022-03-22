@@ -18,9 +18,9 @@ public class PluginEvent extends VideoEvent {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -28,13 +28,13 @@ public class PluginEvent extends VideoEvent {
     }
 
     @PublicMethod(version = "12.8.0.0")
-    public static VideoEvent obtainEvent(@NonNull String str, int i2) {
+    public static VideoEvent obtainEvent(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
             VideoEvent obtain = VideoEvent.obtain(str, 7);
             obtain.setTargetType(1);
-            obtain.setPriority(i2);
+            obtain.setPriority(i);
             return obtain;
         }
         return (VideoEvent) invokeLI.objValue;

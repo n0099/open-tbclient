@@ -7,7 +7,7 @@ import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import androidx.core.content.ContextCompat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ad {
     public static boolean a(Context context) {
         ConnectivityManager connectivityManager;
@@ -42,7 +42,7 @@ public class ad {
 
     public static int d(Context context) {
         TelephonyManager telephonyManager;
-        int i2 = 0;
+        int i = 0;
         if (context == null) {
             return 0;
         }
@@ -126,24 +126,24 @@ public class ad {
                 case 1:
                 case 2:
                 case 3:
-                    i2 = 1;
+                    i = 1;
                     break;
                 case 4:
                 case 5:
                 case 6:
-                    i2 = 3;
+                    i = 3;
                     break;
                 case 7:
                 case '\b':
                 case '\t':
-                    i2 = 2;
+                    i = 2;
                     break;
             }
         }
-        if (i2 == 0) {
+        if (i == 0) {
             String h2 = av.h(context);
             if (TextUtils.isEmpty(h2)) {
-                return i2;
+                return i;
             }
             if (!h2.startsWith("46000") && !h2.startsWith("46002")) {
                 if (h2.startsWith("46001")) {
@@ -155,7 +155,7 @@ public class ad {
             }
             return 1;
         }
-        return i2;
+        return i;
     }
 
     public static byte e(Context context) {

@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.downloader;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface p {
-    void a(int i2);
+    void a(int i);
 }

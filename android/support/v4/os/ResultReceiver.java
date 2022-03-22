@@ -40,9 +40,9 @@ public class ResultReceiver implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resultReceiver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,15 +52,15 @@ public class ResultReceiver implements Parcelable {
         }
 
         @Override // android.support.v4.os.IResultReceiver
-        public void send(int i2, Bundle bundle) {
+        public void send(int i, Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bundle) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
                 ResultReceiver resultReceiver = this.this$0;
                 Handler handler = resultReceiver.mHandler;
                 if (handler != null) {
-                    handler.post(new MyRunnable(resultReceiver, i2, bundle));
+                    handler.post(new MyRunnable(resultReceiver, i, bundle));
                 } else {
-                    resultReceiver.onReceiveResult(i2, bundle);
+                    resultReceiver.onReceiveResult(i, bundle);
                 }
             }
         }
@@ -74,23 +74,23 @@ public class ResultReceiver implements Parcelable {
         public final Bundle mResultData;
         public final /* synthetic */ ResultReceiver this$0;
 
-        public MyRunnable(ResultReceiver resultReceiver, int i2, Bundle bundle) {
+        public MyRunnable(ResultReceiver resultReceiver, int i, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {resultReceiver, Integer.valueOf(i2), bundle};
+                Object[] objArr = {resultReceiver, Integer.valueOf(i), bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = resultReceiver;
-            this.mResultCode = i2;
+            this.mResultCode = i;
             this.mResultData = bundle;
         }
 
@@ -125,9 +125,9 @@ public class ResultReceiver implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -146,10 +146,10 @@ public class ResultReceiver implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public ResultReceiver[] newArray(int i2) {
+            public ResultReceiver[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new ResultReceiver[i2] : (ResultReceiver[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new ResultReceiver[i] : (ResultReceiver[]) invokeI.objValue;
             }
         };
     }
@@ -161,9 +161,9 @@ public class ResultReceiver implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {handler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -183,29 +183,29 @@ public class ResultReceiver implements Parcelable {
         return invokeV.intValue;
     }
 
-    public void onReceiveResult(int i2, Bundle bundle) {
+    public void onReceiveResult(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bundle) == null) {
         }
     }
 
-    public void send(int i2, Bundle bundle) {
+    public void send(int i, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bundle) == null) {
             if (this.mLocal) {
                 Handler handler = this.mHandler;
                 if (handler != null) {
-                    handler.post(new MyRunnable(this, i2, bundle));
+                    handler.post(new MyRunnable(this, i, bundle));
                     return;
                 } else {
-                    onReceiveResult(i2, bundle);
+                    onReceiveResult(i, bundle);
                     return;
                 }
             }
             IResultReceiver iResultReceiver = this.mReceiver;
             if (iResultReceiver != null) {
                 try {
-                    iResultReceiver.send(i2, bundle);
+                    iResultReceiver.send(i, bundle);
                 } catch (RemoteException unused) {
                 }
             }
@@ -213,9 +213,9 @@ public class ResultReceiver implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             synchronized (this) {
                 if (this.mReceiver == null) {
                     this.mReceiver = new MyResultReceiver(this);
@@ -232,9 +232,9 @@ public class ResultReceiver implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Files {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,26 +19,26 @@ public class Files {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static byte[] readFile(InputStream inputStream, long j2) throws IOException {
+    public static byte[] readFile(InputStream inputStream, long j) throws IOException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, inputStream, j2)) == null) {
-            if (j2 <= 2147483647L) {
-                if (j2 == 0) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, inputStream, j)) == null) {
+            if (j <= 2147483647L) {
+                if (j == 0) {
                     return ByteStreams.toByteArray(inputStream);
                 }
-                return ByteStreams.toByteArray(inputStream, (int) j2);
+                return ByteStreams.toByteArray(inputStream, (int) j);
             }
-            throw new OutOfMemoryError("file is too large to fit in a byte array: " + j2 + " bytes");
+            throw new OutOfMemoryError("file is too large to fit in a byte array: " + j + " bytes");
         }
         return (byte[]) invokeLJ.objValue;
     }

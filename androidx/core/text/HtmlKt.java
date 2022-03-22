@@ -14,48 +14,48 @@ public final class HtmlKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Spanned parseAsHtml(String str, int i2, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) {
+    public static final Spanned parseAsHtml(String str, int i, Html.ImageGetter imageGetter, Html.TagHandler tagHandler) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65536, null, str, i2, imageGetter, tagHandler)) == null) {
-            Spanned fromHtml = HtmlCompat.fromHtml(str, i2, imageGetter, tagHandler);
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(65536, null, str, i, imageGetter, tagHandler)) == null) {
+            Spanned fromHtml = HtmlCompat.fromHtml(str, i, imageGetter, tagHandler);
             Intrinsics.checkExpressionValueIsNotNull(fromHtml, "HtmlCompat.fromHtml(this… imageGetter, tagHandler)");
             return fromHtml;
         }
         return (Spanned) invokeLILL.objValue;
     }
 
-    public static /* synthetic */ Spanned parseAsHtml$default(String str, int i2, Html.ImageGetter imageGetter, Html.TagHandler tagHandler, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ Spanned parseAsHtml$default(String str, int i, Html.ImageGetter imageGetter, Html.TagHandler tagHandler, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 0;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             imageGetter = null;
         }
-        if ((i3 & 4) != 0) {
+        if ((i2 & 4) != 0) {
             tagHandler = null;
         }
-        Spanned fromHtml = HtmlCompat.fromHtml(str, i2, imageGetter, tagHandler);
+        Spanned fromHtml = HtmlCompat.fromHtml(str, i, imageGetter, tagHandler);
         Intrinsics.checkExpressionValueIsNotNull(fromHtml, "HtmlCompat.fromHtml(this… imageGetter, tagHandler)");
         return fromHtml;
     }
 
-    public static final String toHtml(Spanned spanned, int i2) {
+    public static final String toHtml(Spanned spanned, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, spanned, i2)) == null) {
-            String html = HtmlCompat.toHtml(spanned, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, spanned, i)) == null) {
+            String html = HtmlCompat.toHtml(spanned, i);
             Intrinsics.checkExpressionValueIsNotNull(html, "HtmlCompat.toHtml(this, option)");
             return html;
         }
         return (String) invokeLI.objValue;
     }
 
-    public static /* synthetic */ String toHtml$default(Spanned spanned, int i2, int i3, Object obj) {
-        if ((i3 & 1) != 0) {
-            i2 = 0;
+    public static /* synthetic */ String toHtml$default(Spanned spanned, int i, int i2, Object obj) {
+        if ((i2 & 1) != 0) {
+            i = 0;
         }
-        String html = HtmlCompat.toHtml(spanned, i2);
+        String html = HtmlCompat.toHtml(spanned, i);
         Intrinsics.checkExpressionValueIsNotNull(html, "HtmlCompat.toHtml(this, option)");
         return html;
     }

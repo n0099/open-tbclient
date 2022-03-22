@@ -15,42 +15,40 @@ import java.nio.ByteBuffer;
 public class a extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final int f2851e;
+    /* renamed from: b  reason: collision with root package name */
+    public final int f2368b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final int f2852f;
+    /* renamed from: c  reason: collision with root package name */
+    public ByteBuffer f2369c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f2853g;
-
-    public a(int i2, int i3) {
+    public a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2851e = i2;
-        this.f2852f = i3;
-        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i2);
-        this.f2853g = allocateDirect;
+        this.a = i;
+        this.f2368b = i2;
+        ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i);
+        this.f2369c = allocateDirect;
         allocateDirect.clear();
     }
 
     public Buffer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2853g.clear() : (Buffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f2369c.clear() : (Buffer) invokeV.objValue;
     }
 
     public synchronized void c() throws IOException {
@@ -63,18 +61,18 @@ public class a extends OutputStream {
         }
     }
 
-    public synchronized void d(int i2) {
+    public synchronized void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             synchronized (this) {
-                if (i2 > this.f2853g.capacity()) {
-                    ByteBuffer byteBuffer = this.f2853g;
-                    int position = this.f2853g.position();
-                    this.f2853g = ByteBuffer.allocateDirect(((i2 / this.f2852f) + 1) * this.f2852f);
+                if (i > this.f2369c.capacity()) {
+                    ByteBuffer byteBuffer = this.f2369c;
+                    int position = this.f2369c.position();
+                    this.f2369c = ByteBuffer.allocateDirect(((i / this.f2368b) + 1) * this.f2368b);
                     byteBuffer.clear();
-                    this.f2853g.clear();
-                    this.f2853g.put(byteBuffer);
-                    this.f2853g.position(position);
+                    this.f2369c.clear();
+                    this.f2369c.put(byteBuffer);
+                    this.f2369c.position(position);
                 }
             }
         }
@@ -83,19 +81,19 @@ public class a extends OutputStream {
     public Buffer e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2853g.flip() : (Buffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2369c.flip() : (Buffer) invokeV.objValue;
     }
 
     public ByteBuffer f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2853g : (ByteBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2369c : (ByteBuffer) invokeV.objValue;
     }
 
     public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2853g.remaining() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f2369c.remaining() : invokeV.intValue;
     }
 
     public synchronized void h(String str) throws IOException {
@@ -108,27 +106,27 @@ public class a extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public synchronized void write(int i2) throws IOException {
+    public synchronized void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             synchronized (this) {
-                if (this.f2853g.position() + 1 > this.f2853g.capacity()) {
-                    d(this.f2853g.capacity() + 1);
+                if (this.f2369c.position() + 1 > this.f2369c.capacity()) {
+                    d(this.f2369c.capacity() + 1);
                 }
-                this.f2853g.put((byte) i2);
+                this.f2369c.put((byte) i);
             }
         }
     }
 
     @Override // java.io.OutputStream
-    public synchronized void write(byte[] bArr, int i2, int i3) throws IOException {
+    public synchronized void write(byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048585, this, bArr, i, i2) == null) {
             synchronized (this) {
-                if (this.f2853g.position() + i3 > this.f2853g.capacity()) {
-                    d(this.f2853g.capacity() + i3);
+                if (this.f2369c.position() + i2 > this.f2369c.capacity()) {
+                    d(this.f2369c.capacity() + i2);
                 }
-                this.f2853g.put(bArr, i2, i3);
+                this.f2369c.put(bArr, i, i2);
             }
         }
     }

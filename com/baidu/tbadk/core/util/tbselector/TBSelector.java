@@ -46,9 +46,9 @@ public class TBSelector {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -85,10 +85,10 @@ public class TBSelector {
         return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? ColorSelector.make().textType(2) : (ColorSelector) invokeV.objValue;
     }
 
-    public static DrawableSelector selectorBackgroundColor(@ColorRes int i2, @ColorRes int i3, int i4) {
+    public static DrawableSelector selectorBackgroundColor(@ColorRes int i, @ColorRes int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65543, null, i2, i3, i4)) == null) ? DrawableSelector.make().setType(1).defaultColor(i2).pressedColor(i3).radius(i4) : (DrawableSelector) invokeIII.objValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65543, null, i, i2, i3)) == null) ? DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).radius(i3) : (DrawableSelector) invokeIII.objValue;
     }
 
     public static DrawableSelector selectorBackgroundDrawable(Drawable drawable, Drawable drawable2) {
@@ -97,45 +97,45 @@ public class TBSelector {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, drawable, drawable2)) == null) ? DrawableSelector.make().setType(1).defaultDrawable(drawable).pressedDrawable(drawable2) : (DrawableSelector) invokeLL.objValue;
     }
 
-    public static DrawableSelector selectorImageDrawable(@DrawableRes int i2, @DrawableRes int i3) {
+    public static DrawableSelector selectorImageDrawable(@DrawableRes int i, @DrawableRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i2, i3)) == null) ? DrawableSelector.make().setType(2).defaultDrawable(i2).pressedDrawable(i3) : (DrawableSelector) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65547, null, i, i2)) == null) ? DrawableSelector.make().setType(2).defaultDrawable(i).pressedDrawable(i2) : (DrawableSelector) invokeII.objValue;
     }
 
-    public static ColorSelector selectorTextColor(@ColorRes int i2, @ColorRes int i3) {
+    public static ColorSelector selectorTextColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i2, i3)) == null) ? ColorSelector.make().textType(1).pressedColor(i3).defaultColor(i2) : (ColorSelector) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65548, null, i, i2)) == null) ? ColorSelector.make().textType(1).pressedColor(i2).defaultColor(i) : (ColorSelector) invokeII.objValue;
     }
 
-    public static ColorSelector selectorTextHintColor(@ColorRes int i2, @ColorRes int i3) {
+    public static ColorSelector selectorTextHintColor(@ColorRes int i, @ColorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i2, i3)) == null) ? ColorSelector.make().textType(2).pressedColor(i3).defaultColor(i2) : (ColorSelector) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i, i2)) == null) ? ColorSelector.make().textType(2).pressedColor(i2).defaultColor(i) : (ColorSelector) invokeII.objValue;
     }
 
-    public static void setViewBackgroundColorWithDisabledState(View view, @ColorRes int i2) {
+    public static void setViewBackgroundColorWithDisabledState(View view, @ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65552, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65552, null, view, i) == null) || view == null) {
             return;
         }
-        Drawable colorDrawable = SelectorHelper.getColorDrawable(i2);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i2, RESOURCE_ALPHA_DISABLE)).into(view);
+        Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).disabledDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_DISABLE)).into(view);
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, int i2, int i3) {
+    public static void setViewBackgroundColorWithPressedState(View view, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(65554, null, view, i2, i3) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLII(65554, null, view, i, i2) == null) || view == null) {
             return;
         }
-        DrawableSelector.make().setType(1).defaultColor(i2).pressedColor(i3).into(view);
+        DrawableSelector.make().setType(1).defaultColor(i).pressedColor(i2).into(view);
     }
 
-    public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i2, @DrawableRes int i3) {
+    public static DrawableSelector selectorBackgroundDrawable(@DrawableRes int i, @DrawableRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65545, null, i2, i3)) == null) ? DrawableSelector.make().setType(1).defaultDrawable(i2).pressedDrawable(i3) : (DrawableSelector) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65545, null, i, i2)) == null) ? DrawableSelector.make().setType(1).defaultDrawable(i).pressedDrawable(i2) : (DrawableSelector) invokeII.objValue;
     }
 
     public static ColorSelector selectorTextColor(String str, String str2) {
@@ -150,18 +150,18 @@ public class TBSelector {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, str, str2)) == null) ? ColorSelector.make().textType(2).pressedColor(str2).defaultColor(str) : (ColorSelector) invokeLL.objValue;
     }
 
-    public static DrawableSelector selectorBackgroundColor(String str, String str2, int i2) {
+    public static DrawableSelector selectorBackgroundColor(String str, String str2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, str, str2, i2)) == null) ? DrawableSelector.make().setType(1).defaultColor(str).pressedColor(str2).radius(i2) : (DrawableSelector) invokeLLI.objValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, str, str2, i)) == null) ? DrawableSelector.make().setType(1).defaultColor(str).pressedColor(str2).radius(i) : (DrawableSelector) invokeLLI.objValue;
     }
 
-    public static void setViewBackgroundColorWithPressedState(View view, @ColorRes int i2) {
+    public static void setViewBackgroundColorWithPressedState(View view, @ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65553, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65553, null, view, i) == null) || view == null) {
             return;
         }
-        Drawable colorDrawable = SelectorHelper.getColorDrawable(i2);
-        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i2, RESOURCE_ALPHA_PRESS)).into(view);
+        Drawable colorDrawable = SelectorHelper.getColorDrawable(i);
+        DrawableSelector.make().setType(1).defaultDrawable(colorDrawable).pressedDrawable(SelectorHelper.getColorDrawable(i, RESOURCE_ALPHA_PRESS)).into(view);
     }
 }

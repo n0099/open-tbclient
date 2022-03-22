@@ -34,9 +34,9 @@ public class Snapshot {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constraintAnchor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -83,9 +83,9 @@ public class Snapshot {
             newInitContext.initArgs = r2;
             Object[] objArr = {constraintWidget};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,8 +98,8 @@ public class Snapshot {
         this.mHeight = constraintWidget.getHeight();
         ArrayList<ConstraintAnchor> anchors = constraintWidget.getAnchors();
         int size = anchors.size();
-        for (int i4 = 0; i4 < size; i4++) {
-            this.mConnections.add(new Connection(anchors.get(i4)));
+        for (int i3 = 0; i3 < size; i3++) {
+            this.mConnections.add(new Connection(anchors.get(i3)));
         }
     }
 
@@ -111,8 +111,8 @@ public class Snapshot {
             constraintWidget.setWidth(this.mWidth);
             constraintWidget.setHeight(this.mHeight);
             int size = this.mConnections.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mConnections.get(i2).applyTo(constraintWidget);
+            for (int i = 0; i < size; i++) {
+                this.mConnections.get(i).applyTo(constraintWidget);
             }
         }
     }
@@ -125,8 +125,8 @@ public class Snapshot {
             this.mWidth = constraintWidget.getWidth();
             this.mHeight = constraintWidget.getHeight();
             int size = this.mConnections.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mConnections.get(i2).updateFrom(constraintWidget);
+            for (int i = 0; i < size; i++) {
+                this.mConnections.get(i).updateFrom(constraintWidget);
             }
         }
     }

@@ -17,7 +17,7 @@ import com.google.android.exoplayer2.upstream.cache.CacheDataSink;
 import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.PriorityTaskManager;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DownloaderConstructorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public final class DownloaderConstructorHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {cache, factory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource.Factory) objArr2[1], (DataSource.Factory) objArr2[2], (DataSink.Factory) objArr2[3], (PriorityTaskManager) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -89,9 +89,9 @@ public final class DownloaderConstructorHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {cache, factory, factory2, factory3, priorityTaskManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

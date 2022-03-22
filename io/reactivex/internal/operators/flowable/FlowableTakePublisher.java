@@ -15,23 +15,23 @@ public final class FlowableTakePublisher<T> extends Flowable<T> {
     public final long limit;
     public final Publisher<T> source;
 
-    public FlowableTakePublisher(Publisher<T> publisher, long j2) {
+    public FlowableTakePublisher(Publisher<T> publisher, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, Long.valueOf(j2)};
+            Object[] objArr = {publisher, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = publisher;
-        this.limit = j2;
+        this.limit = j;
     }
 
     @Override // io.reactivex.Flowable

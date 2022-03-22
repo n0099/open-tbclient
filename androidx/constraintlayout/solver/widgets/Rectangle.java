@@ -20,22 +20,22 @@ public class Rectangle {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public boolean contains(int i2, int i3) {
+    public boolean contains(int i, int i2) {
         InterceptResult invokeII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
-            int i5 = this.x;
-            return i2 >= i5 && i2 < i5 + this.width && i3 >= (i4 = this.y) && i3 < i4 + this.height;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            int i4 = this.x;
+            return i >= i4 && i < i4 + this.width && i2 >= (i3 = this.y) && i2 < i3 + this.height;
         }
         return invokeII.booleanValue;
     }
@@ -52,36 +52,36 @@ public class Rectangle {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.y + this.height) / 2 : invokeV.intValue;
     }
 
-    public void grow(int i2, int i3) {
+    public void grow(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            this.x -= i2;
-            this.y -= i3;
-            this.width += i2 * 2;
-            this.height += i3 * 2;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.x -= i;
+            this.y -= i2;
+            this.width += i * 2;
+            this.height += i2 * 2;
         }
     }
 
     public boolean intersects(Rectangle rectangle) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rectangle)) == null) {
-            int i4 = this.x;
-            int i5 = rectangle.x;
-            return i4 >= i5 && i4 < i5 + rectangle.width && (i2 = this.y) >= (i3 = rectangle.y) && i2 < i3 + rectangle.height;
+            int i3 = this.x;
+            int i4 = rectangle.x;
+            return i3 >= i4 && i3 < i4 + rectangle.width && (i = this.y) >= (i2 = rectangle.y) && i < i2 + rectangle.height;
         }
         return invokeL.booleanValue;
     }
 
-    public void setBounds(int i2, int i3, int i4, int i5) {
+    public void setBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            this.x = i2;
-            this.y = i3;
-            this.width = i4;
-            this.height = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            this.x = i;
+            this.y = i2;
+            this.width = i3;
+            this.height = i4;
         }
     }
 }

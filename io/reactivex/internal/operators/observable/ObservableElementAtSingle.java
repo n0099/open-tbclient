@@ -35,23 +35,23 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(SingleObserver<? super T> singleObserver, long j2, T t) {
+        public ElementAtObserver(SingleObserver<? super T> singleObserver, long j, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {singleObserver, Long.valueOf(j2), t};
+                Object[] objArr = {singleObserver, Long.valueOf(j), t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = singleObserver;
-            this.index = j2;
+            this.index = j;
             this.defaultValue = t;
         }
 
@@ -104,14 +104,14 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.dispose();
                 this.actual.onSuccess(t);
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.Observer
@@ -124,23 +124,23 @@ public final class ObservableElementAtSingle<T> extends Single<T> implements Fus
         }
     }
 
-    public ObservableElementAtSingle(ObservableSource<T> observableSource, long j2, T t) {
+    public ObservableElementAtSingle(ObservableSource<T> observableSource, long j, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), t};
+            Object[] objArr = {observableSource, Long.valueOf(j), t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = observableSource;
-        this.index = j2;
+        this.index = j;
         this.defaultValue = t;
     }
 

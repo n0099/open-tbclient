@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class RtpSender {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,25 +20,25 @@ public class RtpSender {
     public boolean ownsTrack;
 
     @CalledByNative
-    public RtpSender(long j2) {
+    public RtpSender(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.ownsTrack = true;
-        this.nativeRtpSender = j2;
-        this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j2));
-        long nativeGetDtmfSender = nativeGetDtmfSender(j2);
+        this.nativeRtpSender = j;
+        this.cachedTrack = MediaStreamTrack.createMediaStreamTrack(nativeGetTrack(j));
+        long nativeGetDtmfSender = nativeGetDtmfSender(j);
         this.dtmfSender = nativeGetDtmfSender != 0 ? new DtmfSender(nativeGetDtmfSender) : null;
     }
 
@@ -49,19 +49,19 @@ public class RtpSender {
         }
     }
 
-    public static native long nativeGetDtmfSender(long j2);
+    public static native long nativeGetDtmfSender(long j);
 
-    public static native String nativeGetId(long j2);
+    public static native String nativeGetId(long j);
 
-    public static native RtpParameters nativeGetParameters(long j2);
+    public static native RtpParameters nativeGetParameters(long j);
 
-    public static native long nativeGetTrack(long j2);
+    public static native long nativeGetTrack(long j);
 
-    public static native void nativeSetFrameEncryptor(long j2, long j3);
+    public static native void nativeSetFrameEncryptor(long j, long j2);
 
-    public static native boolean nativeSetParameters(long j2, RtpParameters rtpParameters);
+    public static native boolean nativeSetParameters(long j, RtpParameters rtpParameters);
 
-    public static native boolean nativeSetTrack(long j2, long j3);
+    public static native boolean nativeSetTrack(long j, long j2);
 
     public void dispose() {
         Interceptable interceptable = $ic;

@@ -5,6 +5,7 @@ import android.os.HandlerThread;
 import android.os.Looper;
 import android.os.Message;
 import android.os.SystemClock;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
@@ -31,7 +32,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.StandaloneMediaClock;
 import com.google.android.exoplayer2.util.TraceUtil;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExoPlayerImplInternal implements Handler.Callback, MediaPeriod.Callback, TrackSelector.InvalidationListener, MediaSource.Listener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IDLE_INTERVAL_MS = 1000;
@@ -99,7 +100,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     public final TrackSelector trackSelector;
     public final Timeline.Window window;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaPeriodHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -121,16 +122,16 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         public TrackSelectorResult trackSelectorResult;
         public final Object uid;
 
-        public MediaPeriodHolder(Renderer[] rendererArr, RendererCapabilities[] rendererCapabilitiesArr, long j2, TrackSelector trackSelector, LoadControl loadControl, MediaSource mediaSource, Object obj, int i2, MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo) {
+        public MediaPeriodHolder(Renderer[] rendererArr, RendererCapabilities[] rendererCapabilitiesArr, long j, TrackSelector trackSelector, LoadControl loadControl, MediaSource mediaSource, Object obj, int i, MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rendererArr, rendererCapabilitiesArr, Long.valueOf(j2), trackSelector, loadControl, mediaSource, obj, Integer.valueOf(i2), mediaPeriodInfo};
+                Object[] objArr = {rendererArr, rendererCapabilitiesArr, Long.valueOf(j), trackSelector, loadControl, mediaSource, obj, Integer.valueOf(i), mediaPeriodInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -138,12 +139,12 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
             this.renderers = rendererArr;
             this.rendererCapabilities = rendererCapabilitiesArr;
-            this.rendererPositionOffsetUs = j2;
+            this.rendererPositionOffsetUs = j;
             this.trackSelector = trackSelector;
             this.loadControl = loadControl;
             this.mediaSource = mediaSource;
             this.uid = Assertions.checkNotNull(obj);
-            this.index = i2;
+            this.index = i;
             this.info = mediaPeriodInfo;
             this.sampleStreams = new SampleStream[rendererArr.length];
             this.mayRetainStreamFlags = new boolean[rendererArr.length];
@@ -161,16 +162,16 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             if (interceptable != null && interceptable.invokeL(65537, this, sampleStreamArr) != null) {
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
-                if (i2 >= rendererCapabilitiesArr.length) {
+                if (i >= rendererCapabilitiesArr.length) {
                     return;
                 }
-                if (rendererCapabilitiesArr[i2].getTrackType() == 5 && this.trackSelectorResult.renderersEnabled[i2]) {
-                    sampleStreamArr[i2] = new EmptySampleStream();
+                if (rendererCapabilitiesArr[i].getTrackType() == 5 && this.trackSelectorResult.renderersEnabled[i]) {
+                    sampleStreamArr[i] = new EmptySampleStream();
                 }
-                i2++;
+                i++;
             }
         }
 
@@ -179,23 +180,23 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             if (interceptable != null && interceptable.invokeL(65538, this, sampleStreamArr) != null) {
                 return;
             }
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 RendererCapabilities[] rendererCapabilitiesArr = this.rendererCapabilities;
-                if (i2 >= rendererCapabilitiesArr.length) {
+                if (i >= rendererCapabilitiesArr.length) {
                     return;
                 }
-                if (rendererCapabilitiesArr[i2].getTrackType() == 5) {
-                    sampleStreamArr[i2] = null;
+                if (rendererCapabilitiesArr[i].getTrackType() == 5) {
+                    sampleStreamArr[i] = null;
                 }
-                i2++;
+                i++;
             }
         }
 
-        public void continueLoading(long j2) {
+        public void continueLoading(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-                this.mediaPeriod.continueLoading(toPeriodTime(j2));
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.mediaPeriod.continueLoading(toPeriodTime(j));
             }
         }
 
@@ -214,10 +215,10 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
         }
 
-        public boolean haveSufficientBuffer(boolean z, long j2) {
+        public boolean haveSufficientBuffer(boolean z, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)})) == null) {
                 long bufferedPositionUs = !this.prepared ? this.info.startPositionUs : this.mediaPeriod.getBufferedPositionUs();
                 if (bufferedPositionUs == Long.MIN_VALUE) {
                     MediaPeriodInfoSequence.MediaPeriodInfo mediaPeriodInfo = this.info;
@@ -226,7 +227,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     }
                     bufferedPositionUs = mediaPeriodInfo.durationUs;
                 }
-                return this.loadControl.shouldStartPlayback(bufferedPositionUs - toPeriodTime(j2), z);
+                return this.loadControl.shouldStartPlayback(bufferedPositionUs - toPeriodTime(j), z);
             }
             return invokeCommon.booleanValue;
         }
@@ -246,7 +247,8 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     } else {
                         this.mediaSource.releasePeriod(this.mediaPeriod);
                     }
-                } catch (RuntimeException unused) {
+                } catch (RuntimeException e2) {
+                    Log.e(ExoPlayerImplInternal.TAG, "Period release failed.", e2);
                 }
             }
         }
@@ -265,75 +267,75 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             return invokeV.booleanValue;
         }
 
-        public boolean shouldContinueLoading(long j2) {
+        public boolean shouldContinueLoading(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
                 long nextLoadPositionUs = !this.prepared ? 0L : this.mediaPeriod.getNextLoadPositionUs();
                 if (nextLoadPositionUs == Long.MIN_VALUE) {
                     return false;
                 }
-                return this.loadControl.shouldContinueLoading(nextLoadPositionUs - toPeriodTime(j2));
+                return this.loadControl.shouldContinueLoading(nextLoadPositionUs - toPeriodTime(j));
             }
             return invokeJ.booleanValue;
         }
 
-        public long toPeriodTime(long j2) {
+        public long toPeriodTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2)) == null) ? j2 - getRendererOffset() : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) ? j - getRendererOffset() : invokeJ.longValue;
         }
 
-        public long toRendererTime(long j2) {
+        public long toRendererTime(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) ? j2 + getRendererOffset() : invokeJ.longValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) ? j + getRendererOffset() : invokeJ.longValue;
         }
 
-        public long updatePeriodTrackSelection(long j2, boolean z) {
+        public long updatePeriodTrackSelection(long j, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) ? updatePeriodTrackSelection(j2, z, new boolean[this.renderers.length]) : invokeCommon.longValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) ? updatePeriodTrackSelection(j, z, new boolean[this.renderers.length]) : invokeCommon.longValue;
         }
 
-        public long updatePeriodTrackSelection(long j2, boolean z, boolean[] zArr) {
+        public long updatePeriodTrackSelection(long j, boolean z, boolean[] zArr) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), zArr})) != null) {
+            if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), zArr})) != null) {
                 return invokeCommon.longValue;
             }
             TrackSelectionArray trackSelectionArray = this.trackSelectorResult.selections;
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 boolean z2 = true;
-                if (i2 >= trackSelectionArray.length) {
+                if (i >= trackSelectionArray.length) {
                     break;
                 }
                 boolean[] zArr2 = this.mayRetainStreamFlags;
-                if (z || !this.trackSelectorResult.isEquivalent(this.periodTrackSelectorResult, i2)) {
+                if (z || !this.trackSelectorResult.isEquivalent(this.periodTrackSelectorResult, i)) {
                     z2 = false;
                 }
-                zArr2[i2] = z2;
-                i2++;
+                zArr2[i] = z2;
+                i++;
             }
             disassociateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
-            long selectTracks = this.mediaPeriod.selectTracks(trackSelectionArray.getAll(), this.mayRetainStreamFlags, this.sampleStreams, zArr, j2);
+            long selectTracks = this.mediaPeriod.selectTracks(trackSelectionArray.getAll(), this.mayRetainStreamFlags, this.sampleStreams, zArr, j);
             associateNoSampleRenderersWithEmptySampleStream(this.sampleStreams);
             this.periodTrackSelectorResult = this.trackSelectorResult;
             this.hasEnabledTracks = false;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
                 SampleStream[] sampleStreamArr = this.sampleStreams;
-                if (i3 < sampleStreamArr.length) {
-                    if (sampleStreamArr[i3] != null) {
-                        Assertions.checkState(this.trackSelectorResult.renderersEnabled[i3]);
-                        if (this.rendererCapabilities[i3].getTrackType() != 5) {
+                if (i2 < sampleStreamArr.length) {
+                    if (sampleStreamArr[i2] != null) {
+                        Assertions.checkState(this.trackSelectorResult.renderersEnabled[i2]);
+                        if (this.rendererCapabilities[i2].getTrackType() != 5) {
                             this.hasEnabledTracks = true;
                         }
                     } else {
-                        Assertions.checkState(trackSelectionArray.get(i3) == null);
+                        Assertions.checkState(trackSelectionArray.get(i2) == null);
                     }
-                    i3++;
+                    i2++;
                 } else {
                     this.loadControl.onTracksSelected(this.renderers, this.trackSelectorResult.groups, trackSelectionArray);
                     return selectTracks;
@@ -342,7 +344,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaSourceRefreshInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -357,9 +359,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaSource, timeline, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -371,7 +373,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SeekPosition {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -379,37 +381,37 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         public final int windowIndex;
         public final long windowPositionUs;
 
-        public SeekPosition(Timeline timeline, int i2, long j2) {
+        public SeekPosition(Timeline timeline, int i, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {timeline, Integer.valueOf(i2), Long.valueOf(j2)};
+                Object[] objArr = {timeline, Integer.valueOf(i), Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.timeline = timeline;
-            this.windowIndex = i2;
-            this.windowPositionUs = j2;
+            this.windowIndex = i;
+            this.windowPositionUs = j;
         }
     }
 
-    public ExoPlayerImplInternal(Renderer[] rendererArr, TrackSelector trackSelector, LoadControl loadControl, boolean z, int i2, boolean z2, Handler handler, ExoPlayer exoPlayer) {
+    public ExoPlayerImplInternal(Renderer[] rendererArr, TrackSelector trackSelector, LoadControl loadControl, boolean z, int i, boolean z2, Handler handler, ExoPlayer exoPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rendererArr, trackSelector, loadControl, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), handler, exoPlayer};
+            Object[] objArr = {rendererArr, trackSelector, loadControl, Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), handler, exoPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -419,16 +421,16 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         this.trackSelector = trackSelector;
         this.loadControl = loadControl;
         this.playWhenReady = z;
-        this.repeatMode = i2;
+        this.repeatMode = i;
         this.shuffleModeEnabled = z2;
         this.eventHandler = handler;
         this.state = 1;
         this.player = exoPlayer;
         this.playbackInfo = new PlaybackInfo(null, null, 0, C.TIME_UNSET);
         this.rendererCapabilities = new RendererCapabilities[rendererArr.length];
-        for (int i5 = 0; i5 < rendererArr.length; i5++) {
-            rendererArr[i5].setIndex(i5);
-            this.rendererCapabilities[i5] = rendererArr[i5].getCapabilities();
+        for (int i4 = 0; i4 < rendererArr.length; i4++) {
+            rendererArr[i4].setIndex(i4);
+            this.rendererCapabilities[i4] = rendererArr[i4].getCapabilities();
         }
         this.standaloneMediaClock = new StandaloneMediaClock();
         this.enabledRenderers = new Renderer[0];
@@ -458,7 +460,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     private void doSomeWork() throws ExoPlaybackException, IOException {
         Renderer[] rendererArr;
         boolean isTimelineReady;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
@@ -494,17 +496,17 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     this.eventHandler.obtainMessage(6, playbackParameters).sendToTarget();
                 }
             }
-            long j2 = this.playingPeriodHolder.info.durationUs;
-            if (z2 && ((j2 == C.TIME_UNSET || j2 <= this.playbackInfo.positionUs) && this.playingPeriodHolder.info.isFinal)) {
+            long j = this.playingPeriodHolder.info.durationUs;
+            if (z2 && ((j == C.TIME_UNSET || j <= this.playbackInfo.positionUs) && this.playingPeriodHolder.info.isFinal)) {
                 setState(4);
                 stopRenderers();
             } else {
-                int i3 = this.state;
-                if (i3 == 2) {
+                int i2 = this.state;
+                if (i2 == 2) {
                     if (this.enabledRenderers.length > 0) {
                         isTimelineReady = z && this.loadingPeriodHolder.haveSufficientBuffer(this.rebuffering, this.rendererPositionUs);
                     } else {
-                        isTimelineReady = isTimelineReady(j2);
+                        isTimelineReady = isTimelineReady(j);
                     }
                     if (isTimelineReady) {
                         setState(3);
@@ -512,9 +514,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                             startRenderers();
                         }
                     }
-                } else if (i3 == 3) {
+                } else if (i2 == 3) {
                     if (this.enabledRenderers.length <= 0) {
-                        z = isTimelineReady(j2);
+                        z = isTimelineReady(j);
                     }
                     if (!z) {
                         this.rebuffering = this.playWhenReady;
@@ -528,9 +530,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     renderer2.maybeThrowStreamError();
                 }
             }
-            if ((this.playWhenReady && this.state == 3) || (i2 = this.state) == 2) {
+            if ((this.playWhenReady && this.state == 3) || (i = this.state) == 2) {
                 scheduleNextWork(elapsedRealtime, 10L);
-            } else if (this.enabledRenderers.length != 0 && i2 != 4) {
+            } else if (this.enabledRenderers.length != 0 && i != 4) {
                 scheduleNextWork(elapsedRealtime, 1000L);
             } else {
                 this.handler.removeMessages(2);
@@ -539,19 +541,19 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void enableRenderer(int i2, boolean z, int i3) throws ExoPlaybackException {
+    private void enableRenderer(int i, boolean z, int i2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) {
-            Renderer renderer = this.renderers[i2];
-            this.enabledRenderers[i3] = renderer;
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            Renderer renderer = this.renderers[i];
+            this.enabledRenderers[i2] = renderer;
             if (renderer.getState() == 0) {
                 TrackSelectorResult trackSelectorResult = this.playingPeriodHolder.trackSelectorResult;
-                RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i2];
-                Format[] formats = getFormats(trackSelectorResult.selections.get(i2));
+                RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i];
+                Format[] formats = getFormats(trackSelectorResult.selections.get(i));
                 boolean z2 = this.playWhenReady && this.state == 3;
                 boolean z3 = !z && z2;
                 MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
-                renderer.enable(rendererConfiguration, formats, mediaPeriodHolder.sampleStreams[i2], this.rendererPositionUs, z3, mediaPeriodHolder.getRendererOffset());
+                renderer.enable(rendererConfiguration, formats, mediaPeriodHolder.sampleStreams[i], this.rendererPositionUs, z3, mediaPeriodHolder.getRendererOffset());
                 MediaClock mediaClock = renderer.getMediaClock();
                 if (mediaClock != null) {
                     if (this.rendererMediaClock == null) {
@@ -569,15 +571,15 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void enableRenderers(boolean[] zArr, int i2) throws ExoPlaybackException {
+    private void enableRenderers(boolean[] zArr, int i) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, zArr, i2) == null) {
-            this.enabledRenderers = new Renderer[i2];
-            int i3 = 0;
-            for (int i4 = 0; i4 < this.renderers.length; i4++) {
-                if (this.playingPeriodHolder.trackSelectorResult.renderersEnabled[i4]) {
-                    enableRenderer(i4, zArr[i4], i3);
-                    i3++;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, zArr, i) == null) {
+            this.enabledRenderers = new Renderer[i];
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.renderers.length; i3++) {
+                if (this.playingPeriodHolder.trackSelectorResult.renderersEnabled[i3]) {
+                    enableRenderer(i3, zArr[i3], i2);
+                    i2++;
                 }
             }
         }
@@ -597,18 +599,18 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, trackSelection)) == null) {
             int length = trackSelection != null ? trackSelection.length() : 0;
             Format[] formatArr = new Format[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                formatArr[i2] = trackSelection.getFormat(i2);
+            for (int i = 0; i < length; i++) {
+                formatArr[i] = trackSelection.getFormat(i);
             }
             return formatArr;
         }
         return (Format[]) invokeL.objValue;
     }
 
-    private Pair<Integer, Long> getPeriodPosition(Timeline timeline, int i2, long j2) {
+    private Pair<Integer, Long> getPeriodPosition(Timeline timeline, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{timeline, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? timeline.getPeriodPosition(this.window, this.period, i2, j2) : (Pair) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)})) == null) ? timeline.getPeriodPosition(this.window, this.period, i, j) : (Pair) invokeCommon.objValue;
     }
 
     private void handleContinueLoadingRequested(MediaPeriod mediaPeriod) {
@@ -678,29 +680,29 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             this.mediaPeriodInfoSequence.setTimeline(timeline2);
             PlaybackInfo copyWithTimeline = this.playbackInfo.copyWithTimeline(timeline2, obj);
             this.playbackInfo = copyWithTimeline;
-            long j2 = C.TIME_UNSET;
+            long j = C.TIME_UNSET;
             boolean z = false;
             if (timeline == null) {
-                int i2 = this.pendingPrepareCount;
+                int i = this.pendingPrepareCount;
                 this.pendingPrepareCount = 0;
                 if (this.pendingInitialSeekCount > 0) {
                     Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(this.pendingSeekPosition);
-                    int i3 = this.pendingInitialSeekCount;
+                    int i2 = this.pendingInitialSeekCount;
                     this.pendingInitialSeekCount = 0;
                     this.pendingSeekPosition = null;
                     if (resolveSeekPosition == null) {
-                        handleSourceInfoRefreshEndedPlayback(i2, i3);
+                        handleSourceInfoRefreshEndedPlayback(i, i2);
                         return;
                     }
                     int intValue = ((Integer) resolveSeekPosition.first).intValue();
                     long longValue = ((Long) resolveSeekPosition.second).longValue();
                     MediaSource.MediaPeriodId resolvePeriodPositionForAds = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue, longValue);
                     this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, resolvePeriodPositionForAds.isAd() ? 0L : longValue, longValue);
-                    notifySourceInfoRefresh(i2, i3);
+                    notifySourceInfoRefresh(i, i2);
                     return;
                 } else if (copyWithTimeline.startPositionUs == C.TIME_UNSET) {
                     if (timeline2.isEmpty()) {
-                        handleSourceInfoRefreshEndedPlayback(i2, 0);
+                        handleSourceInfoRefreshEndedPlayback(i, 0);
                         return;
                     }
                     Pair<Integer, Long> periodPosition = getPeriodPosition(timeline2, timeline2.getFirstWindowIndex(this.shuffleModeEnabled), C.TIME_UNSET);
@@ -708,25 +710,25 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     long longValue2 = ((Long) periodPosition.second).longValue();
                     MediaSource.MediaPeriodId resolvePeriodPositionForAds2 = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue2, longValue2);
                     this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds2, resolvePeriodPositionForAds2.isAd() ? 0L : longValue2, longValue2);
-                    notifySourceInfoRefresh(i2, 0);
+                    notifySourceInfoRefresh(i, 0);
                     return;
                 } else {
-                    notifySourceInfoRefresh(i2, 0);
+                    notifySourceInfoRefresh(i, 0);
                     return;
                 }
             }
-            int i4 = copyWithTimeline.periodId.periodIndex;
+            int i3 = copyWithTimeline.periodId.periodIndex;
             MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
             if (mediaPeriodHolder == null) {
                 mediaPeriodHolder = this.loadingPeriodHolder;
             }
-            if (mediaPeriodHolder == null && i4 >= timeline.getPeriodCount()) {
+            if (mediaPeriodHolder == null && i3 >= timeline.getPeriodCount()) {
                 notifySourceInfoRefresh();
                 return;
             }
-            int indexOfPeriod = timeline2.getIndexOfPeriod(mediaPeriodHolder == null ? timeline.getPeriod(i4, this.period, true).uid : mediaPeriodHolder.uid);
+            int indexOfPeriod = timeline2.getIndexOfPeriod(mediaPeriodHolder == null ? timeline.getPeriod(i3, this.period, true).uid : mediaPeriodHolder.uid);
             if (indexOfPeriod == -1) {
-                int resolveSubsequentPeriod = resolveSubsequentPeriod(i4, timeline, timeline2);
+                int resolveSubsequentPeriod = resolveSubsequentPeriod(i3, timeline, timeline2);
                 if (resolveSubsequentPeriod == -1) {
                     handleSourceInfoRefreshEndedPlayback();
                     return;
@@ -754,7 +756,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 notifySourceInfoRefresh();
                 return;
             }
-            if (indexOfPeriod != i4) {
+            if (indexOfPeriod != i3) {
                 this.playbackInfo = this.playbackInfo.copyWithPeriodIndex(indexOfPeriod);
             }
             if (this.playbackInfo.periodId.isAd()) {
@@ -762,9 +764,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 if (!resolvePeriodPositionForAds3.isAd() || resolvePeriodPositionForAds3.adIndexInAdGroup != this.playbackInfo.periodId.adIndexInAdGroup) {
                     long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds3, this.playbackInfo.contentPositionUs);
                     if (resolvePeriodPositionForAds3.isAd()) {
-                        j2 = this.playbackInfo.contentPositionUs;
+                        j = this.playbackInfo.contentPositionUs;
                     }
-                    this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds3, seekToPeriodPosition, j2);
+                    this.playbackInfo = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds3, seekToPeriodPosition, j);
                     notifySourceInfoRefresh();
                     return;
                 }
@@ -774,27 +776,27 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 return;
             }
             MediaPeriodHolder updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder, indexOfPeriod);
-            int i5 = indexOfPeriod;
+            int i4 = indexOfPeriod;
             while (true) {
                 MediaPeriodHolder mediaPeriodHolder2 = updatePeriodInfo.next;
                 if (mediaPeriodHolder2 == null) {
                     break;
                 }
-                i5 = timeline2.getNextPeriodIndex(i5, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
-                if (i5 == -1 || !mediaPeriodHolder2.uid.equals(timeline2.getPeriod(i5, this.period, true).uid)) {
+                i4 = timeline2.getNextPeriodIndex(i4, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
+                if (i4 == -1 || !mediaPeriodHolder2.uid.equals(timeline2.getPeriod(i4, this.period, true).uid)) {
                     break;
                 }
-                updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder2, i5);
+                updatePeriodInfo = updatePeriodInfo(mediaPeriodHolder2, i4);
             }
             notifySourceInfoRefresh();
         }
     }
 
-    private boolean isTimelineReady(long j2) {
+    private boolean isTimelineReady(long j) {
         InterceptResult invokeJ;
         MediaPeriodHolder mediaPeriodHolder;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, this, j2)) == null) ? j2 == C.TIME_UNSET || this.playbackInfo.positionUs < j2 || ((mediaPeriodHolder = this.playingPeriodHolder.next) != null && (mediaPeriodHolder.prepared || mediaPeriodHolder.info.id.isAd())) : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65549, this, j)) == null) ? j == C.TIME_UNSET || this.playbackInfo.positionUs < j || ((mediaPeriodHolder = this.playingPeriodHolder.next) != null && (mediaPeriodHolder.prepared || mediaPeriodHolder.info.id.isAd())) : invokeJ.booleanValue;
     }
 
     private void maybeContinueLoading() {
@@ -951,30 +953,30 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                         resetRendererPosition(updatePeriodTrackSelection);
                     }
                     boolean[] zArr2 = new boolean[this.renderers.length];
+                    int i = 0;
                     int i2 = 0;
-                    int i3 = 0;
                     while (true) {
                         Renderer[] rendererArr = this.renderers;
-                        if (i2 >= rendererArr.length) {
+                        if (i >= rendererArr.length) {
                             break;
                         }
-                        Renderer renderer = rendererArr[i2];
-                        zArr2[i2] = renderer.getState() != 0;
-                        SampleStream sampleStream = this.playingPeriodHolder.sampleStreams[i2];
+                        Renderer renderer = rendererArr[i];
+                        zArr2[i] = renderer.getState() != 0;
+                        SampleStream sampleStream = this.playingPeriodHolder.sampleStreams[i];
                         if (sampleStream != null) {
-                            i3++;
+                            i2++;
                         }
-                        if (zArr2[i2]) {
+                        if (zArr2[i]) {
                             if (sampleStream != renderer.getStream()) {
                                 disableRenderer(renderer);
-                            } else if (zArr[i2]) {
+                            } else if (zArr[i]) {
                                 renderer.resetPosition(this.rendererPositionUs);
                             }
                         }
-                        i2++;
+                        i++;
                     }
                     this.eventHandler.obtainMessage(2, mediaPeriodHolder.trackSelectorResult).sendToTarget();
-                    enableRenderers(zArr2, i3);
+                    enableRenderers(zArr2, i2);
                 } else {
                     this.loadingPeriodHolder = mediaPeriodHolder;
                     for (MediaPeriodHolder mediaPeriodHolder3 = mediaPeriodHolder.next; mediaPeriodHolder3 != null; mediaPeriodHolder3 = mediaPeriodHolder3.next) {
@@ -1010,7 +1012,8 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             for (Renderer renderer : this.enabledRenderers) {
                 try {
                     disableRenderer(renderer);
-                } catch (ExoPlaybackException | RuntimeException unused) {
+                } catch (ExoPlaybackException | RuntimeException e2) {
+                    Log.e(TAG, "Stop failed.", e2);
                 }
             }
             this.enabledRenderers = new Renderer[0];
@@ -1035,11 +1038,11 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void resetRendererPosition(long j2) throws ExoPlaybackException {
+    private void resetRendererPosition(long j) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65562, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65562, this, j) == null) {
             MediaPeriodHolder mediaPeriodHolder = this.playingPeriodHolder;
-            long rendererTime = mediaPeriodHolder == null ? j2 + 60000000 : mediaPeriodHolder.toRendererTime(j2);
+            long rendererTime = mediaPeriodHolder == null ? j + 60000000 : mediaPeriodHolder.toRendererTime(j);
             this.rendererPositionUs = rendererTime;
             this.standaloneMediaClock.setPositionUs(rendererTime);
             for (Renderer renderer : this.enabledRenderers) {
@@ -1078,30 +1081,30 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         return (Pair) invokeL.objValue;
     }
 
-    private int resolveSubsequentPeriod(int i2, Timeline timeline, Timeline timeline2) {
+    private int resolveSubsequentPeriod(int i, Timeline timeline, Timeline timeline2) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65564, this, i2, timeline, timeline2)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65564, this, i, timeline, timeline2)) == null) {
             int periodCount = timeline.getPeriodCount();
-            int i3 = i2;
-            int i4 = -1;
-            for (int i5 = 0; i5 < periodCount && i4 == -1; i5++) {
-                i3 = timeline.getNextPeriodIndex(i3, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
-                if (i3 == -1) {
+            int i2 = i;
+            int i3 = -1;
+            for (int i4 = 0; i4 < periodCount && i3 == -1; i4++) {
+                i2 = timeline.getNextPeriodIndex(i2, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
+                if (i2 == -1) {
                     break;
                 }
-                i4 = timeline2.getIndexOfPeriod(timeline.getPeriod(i3, this.period, true).uid);
+                i3 = timeline2.getIndexOfPeriod(timeline.getPeriod(i2, this.period, true).uid);
             }
-            return i4;
+            return i3;
         }
         return invokeILL.intValue;
     }
 
-    private void scheduleNextWork(long j2, long j3) {
+    private void scheduleNextWork(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65565, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65565, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.handler.removeMessages(2);
-            long elapsedRealtime = (j2 + j3) - SystemClock.elapsedRealtime();
+            long elapsedRealtime = (j + j2) - SystemClock.elapsedRealtime();
             if (elapsedRealtime <= 0) {
                 this.handler.sendEmptyMessage(2);
             } else {
@@ -1111,8 +1114,8 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
     }
 
     private void seekToInternal(SeekPosition seekPosition) throws ExoPlaybackException {
-        int i2;
-        long j2;
+        int i;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65566, this, seekPosition) == null) {
             Timeline timeline = this.playbackInfo.timeline;
@@ -1123,46 +1126,46 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
             Pair<Integer, Long> resolveSeekPosition = resolveSeekPosition(seekPosition);
             if (resolveSeekPosition == null) {
-                int i3 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
-                this.playbackInfo = this.playbackInfo.fromNewPosition(i3, C.TIME_UNSET, C.TIME_UNSET);
+                int i2 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
+                this.playbackInfo = this.playbackInfo.fromNewPosition(i2, C.TIME_UNSET, C.TIME_UNSET);
                 setState(4);
-                this.eventHandler.obtainMessage(3, 1, 0, this.playbackInfo.fromNewPosition(i3, 0L, C.TIME_UNSET)).sendToTarget();
+                this.eventHandler.obtainMessage(3, 1, 0, this.playbackInfo.fromNewPosition(i2, 0L, C.TIME_UNSET)).sendToTarget();
                 resetInternal(false);
                 return;
             }
-            int i4 = seekPosition.windowPositionUs == C.TIME_UNSET ? 1 : 0;
+            int i3 = seekPosition.windowPositionUs == C.TIME_UNSET ? 1 : 0;
             int intValue = ((Integer) resolveSeekPosition.first).intValue();
             long longValue = ((Long) resolveSeekPosition.second).longValue();
             MediaSource.MediaPeriodId resolvePeriodPositionForAds = this.mediaPeriodInfoSequence.resolvePeriodPositionForAds(intValue, longValue);
             if (resolvePeriodPositionForAds.isAd()) {
-                j2 = 0;
-                i2 = 1;
+                j = 0;
+                i = 1;
             } else {
-                i2 = i4;
-                j2 = longValue;
+                i = i3;
+                j = longValue;
             }
             try {
-                if (resolvePeriodPositionForAds.equals(this.playbackInfo.periodId) && j2 / 1000 == this.playbackInfo.positionUs / 1000) {
+                if (resolvePeriodPositionForAds.equals(this.playbackInfo.periodId) && j / 1000 == this.playbackInfo.positionUs / 1000) {
                     return;
                 }
-                long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds, j2);
-                int i5 = i2 | (j2 != seekToPeriodPosition ? 1 : 0);
+                long seekToPeriodPosition = seekToPeriodPosition(resolvePeriodPositionForAds, j);
+                int i4 = i | (j != seekToPeriodPosition ? 1 : 0);
                 PlaybackInfo fromNewPosition = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, seekToPeriodPosition, longValue);
                 this.playbackInfo = fromNewPosition;
-                this.eventHandler.obtainMessage(3, i5, 0, fromNewPosition).sendToTarget();
+                this.eventHandler.obtainMessage(3, i4, 0, fromNewPosition).sendToTarget();
             } finally {
-                PlaybackInfo fromNewPosition2 = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, j2, longValue);
+                PlaybackInfo fromNewPosition2 = this.playbackInfo.fromNewPosition(resolvePeriodPositionForAds, j, longValue);
                 this.playbackInfo = fromNewPosition2;
-                this.eventHandler.obtainMessage(3, i2, 0, fromNewPosition2).sendToTarget();
+                this.eventHandler.obtainMessage(3, i, 0, fromNewPosition2).sendToTarget();
             }
         }
     }
 
-    private long seekToPeriodPosition(MediaSource.MediaPeriodId mediaPeriodId, long j2) throws ExoPlaybackException {
+    private long seekToPeriodPosition(MediaSource.MediaPeriodId mediaPeriodId, long j) throws ExoPlaybackException {
         InterceptResult invokeLJ;
         MediaPeriodHolder mediaPeriodHolder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65567, this, mediaPeriodId, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65567, this, mediaPeriodId, j)) == null) {
             stopRenderers();
             this.rebuffering = false;
             setState(2);
@@ -1176,7 +1179,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             } else {
                 mediaPeriodHolder = null;
                 while (mediaPeriodHolder2 != null) {
-                    if (mediaPeriodHolder == null && shouldKeepPeriodHolder(mediaPeriodId, j2, mediaPeriodHolder2)) {
+                    if (mediaPeriodHolder == null && shouldKeepPeriodHolder(mediaPeriodId, j, mediaPeriodHolder2)) {
                         mediaPeriodHolder = mediaPeriodHolder2;
                     } else {
                         mediaPeriodHolder2.release();
@@ -1199,18 +1202,18 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 setPlayingPeriodHolder(mediaPeriodHolder);
                 MediaPeriodHolder mediaPeriodHolder5 = this.playingPeriodHolder;
                 if (mediaPeriodHolder5.hasEnabledTracks) {
-                    j2 = mediaPeriodHolder5.mediaPeriod.seekToUs(j2);
+                    j = mediaPeriodHolder5.mediaPeriod.seekToUs(j);
                 }
-                resetRendererPosition(j2);
+                resetRendererPosition(j);
                 maybeContinueLoading();
             } else {
                 this.loadingPeriodHolder = null;
                 this.readingPeriodHolder = null;
                 this.playingPeriodHolder = null;
-                resetRendererPosition(j2);
+                resetRendererPosition(j);
             }
             this.handler.sendEmptyMessage(2);
-            return j2;
+            return j;
         }
         return invokeLJ.longValue;
     }
@@ -1259,11 +1262,11 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 updatePlaybackPositions();
                 return;
             }
-            int i2 = this.state;
-            if (i2 == 3) {
+            int i = this.state;
+            if (i == 3) {
                 startRenderers();
                 this.handler.sendEmptyMessage(2);
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 this.handler.sendEmptyMessage(2);
             }
         }
@@ -1288,34 +1291,34 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             return;
         }
         boolean[] zArr = new boolean[this.renderers.length];
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         while (true) {
             Renderer[] rendererArr = this.renderers;
-            if (i2 < rendererArr.length) {
-                Renderer renderer = rendererArr[i2];
-                zArr[i2] = renderer.getState() != 0;
-                if (mediaPeriodHolder.trackSelectorResult.renderersEnabled[i2]) {
-                    i3++;
+            if (i < rendererArr.length) {
+                Renderer renderer = rendererArr[i];
+                zArr[i] = renderer.getState() != 0;
+                if (mediaPeriodHolder.trackSelectorResult.renderersEnabled[i]) {
+                    i2++;
                 }
-                if (zArr[i2] && (!mediaPeriodHolder.trackSelectorResult.renderersEnabled[i2] || (renderer.isCurrentStreamFinal() && renderer.getStream() == this.playingPeriodHolder.sampleStreams[i2]))) {
+                if (zArr[i] && (!mediaPeriodHolder.trackSelectorResult.renderersEnabled[i] || (renderer.isCurrentStreamFinal() && renderer.getStream() == this.playingPeriodHolder.sampleStreams[i]))) {
                     disableRenderer(renderer);
                 }
-                i2++;
+                i++;
             } else {
                 this.playingPeriodHolder = mediaPeriodHolder;
                 this.eventHandler.obtainMessage(2, mediaPeriodHolder.trackSelectorResult).sendToTarget();
-                enableRenderers(zArr, i3);
+                enableRenderers(zArr, i2);
                 return;
             }
         }
     }
 
-    private void setRepeatModeInternal(int i2) throws ExoPlaybackException {
+    private void setRepeatModeInternal(int i) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65573, this, i2) == null) {
-            this.repeatMode = i2;
-            this.mediaPeriodInfoSequence.setRepeatMode(i2);
+        if (interceptable == null || interceptable.invokeI(65573, this, i) == null) {
+            this.repeatMode = i;
+            this.mediaPeriodInfoSequence.setRepeatMode(i);
             validateExistingPeriodHolders();
         }
     }
@@ -1329,22 +1332,22 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void setState(int i2) {
+    private void setState(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65575, this, i2) == null) || this.state == i2) {
+        if (!(interceptable == null || interceptable.invokeI(65575, this, i) == null) || this.state == i) {
             return;
         }
-        this.state = i2;
-        this.eventHandler.obtainMessage(0, i2, 0).sendToTarget();
+        this.state = i;
+        this.eventHandler.obtainMessage(0, i, 0).sendToTarget();
     }
 
-    private boolean shouldKeepPeriodHolder(MediaSource.MediaPeriodId mediaPeriodId, long j2, MediaPeriodHolder mediaPeriodHolder) {
+    private boolean shouldKeepPeriodHolder(MediaSource.MediaPeriodId mediaPeriodId, long j, MediaPeriodHolder mediaPeriodHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, this, new Object[]{mediaPeriodId, Long.valueOf(j2), mediaPeriodHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65576, this, new Object[]{mediaPeriodId, Long.valueOf(j), mediaPeriodHolder})) == null) {
             if (mediaPeriodId.equals(mediaPeriodHolder.info.id) && mediaPeriodHolder.prepared) {
                 this.playbackInfo.timeline.getPeriod(mediaPeriodHolder.info.id.periodIndex, this.period);
-                int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(j2);
+                int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(j);
                 return adGroupIndexAfterPositionUs == -1 || this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs) == mediaPeriodHolder.info.endPositionUs;
             }
             return false;
@@ -1382,13 +1385,13 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private MediaPeriodHolder updatePeriodInfo(MediaPeriodHolder mediaPeriodHolder, int i2) {
+    private MediaPeriodHolder updatePeriodInfo(MediaPeriodHolder mediaPeriodHolder, int i) {
         MediaPeriodHolder mediaPeriodHolder2;
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, this, mediaPeriodHolder, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, this, mediaPeriodHolder, i)) == null) {
             while (true) {
-                MediaPeriodInfoSequence.MediaPeriodInfo updatedMediaPeriodInfo = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, i2);
+                MediaPeriodInfoSequence.MediaPeriodInfo updatedMediaPeriodInfo = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder.info, i);
                 mediaPeriodHolder.info = updatedMediaPeriodInfo;
                 if (updatedMediaPeriodInfo.isLastInTimelinePeriod || (mediaPeriodHolder2 = mediaPeriodHolder.next) == null) {
                     break;
@@ -1412,7 +1415,7 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
         maybeUpdateLoadingPeriod();
         MediaPeriodHolder mediaPeriodHolder2 = this.loadingPeriodHolder;
-        int i2 = 0;
+        int i = 0;
         if (mediaPeriodHolder2 != null && !mediaPeriodHolder2.isFullyBuffered()) {
             if (this.loadingPeriodHolder != null && !this.isLoading) {
                 maybeContinueLoading();
@@ -1436,34 +1439,34 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         if (mediaPeriodHolder3.info.isFinal) {
             while (true) {
                 Renderer[] rendererArr = this.renderers;
-                if (i2 >= rendererArr.length) {
+                if (i >= rendererArr.length) {
                     return;
                 }
-                Renderer renderer = rendererArr[i2];
-                SampleStream sampleStream = this.readingPeriodHolder.sampleStreams[i2];
+                Renderer renderer = rendererArr[i];
+                SampleStream sampleStream = this.readingPeriodHolder.sampleStreams[i];
                 if (sampleStream != null && renderer.getStream() == sampleStream && renderer.hasReadStreamToEnd()) {
                     renderer.setCurrentStreamFinal();
                 }
-                i2++;
+                i++;
             }
         } else {
             MediaPeriodHolder mediaPeriodHolder4 = mediaPeriodHolder3.next;
             if (mediaPeriodHolder4 == null || !mediaPeriodHolder4.prepared) {
                 return;
             }
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
                 Renderer[] rendererArr2 = this.renderers;
-                if (i3 < rendererArr2.length) {
-                    Renderer renderer2 = rendererArr2[i3];
-                    SampleStream sampleStream2 = this.readingPeriodHolder.sampleStreams[i3];
+                if (i2 < rendererArr2.length) {
+                    Renderer renderer2 = rendererArr2[i2];
+                    SampleStream sampleStream2 = this.readingPeriodHolder.sampleStreams[i2];
                     if (renderer2.getStream() != sampleStream2) {
                         return;
                     }
                     if (sampleStream2 != null && !renderer2.hasReadStreamToEnd()) {
                         return;
                     }
-                    i3++;
+                    i2++;
                 } else {
                     MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
                     TrackSelectorResult trackSelectorResult = mediaPeriodHolder5.trackSelectorResult;
@@ -1471,32 +1474,32 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                     this.readingPeriodHolder = mediaPeriodHolder6;
                     TrackSelectorResult trackSelectorResult2 = mediaPeriodHolder6.trackSelectorResult;
                     boolean z = mediaPeriodHolder6.mediaPeriod.readDiscontinuity() != C.TIME_UNSET;
-                    int i4 = 0;
+                    int i3 = 0;
                     while (true) {
                         Renderer[] rendererArr3 = this.renderers;
-                        if (i4 >= rendererArr3.length) {
+                        if (i3 >= rendererArr3.length) {
                             return;
                         }
-                        Renderer renderer3 = rendererArr3[i4];
-                        if (trackSelectorResult.renderersEnabled[i4]) {
+                        Renderer renderer3 = rendererArr3[i3];
+                        if (trackSelectorResult.renderersEnabled[i3]) {
                             if (z) {
                                 renderer3.setCurrentStreamFinal();
                             } else if (!renderer3.isCurrentStreamFinal()) {
-                                TrackSelection trackSelection = trackSelectorResult2.selections.get(i4);
-                                boolean z2 = trackSelectorResult2.renderersEnabled[i4];
-                                boolean z3 = this.rendererCapabilities[i4].getTrackType() == 5;
-                                RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i4];
-                                RendererConfiguration rendererConfiguration2 = trackSelectorResult2.rendererConfigurations[i4];
+                                TrackSelection trackSelection = trackSelectorResult2.selections.get(i3);
+                                boolean z2 = trackSelectorResult2.renderersEnabled[i3];
+                                boolean z3 = this.rendererCapabilities[i3].getTrackType() == 5;
+                                RendererConfiguration rendererConfiguration = trackSelectorResult.rendererConfigurations[i3];
+                                RendererConfiguration rendererConfiguration2 = trackSelectorResult2.rendererConfigurations[i3];
                                 if (z2 && rendererConfiguration2.equals(rendererConfiguration) && !z3) {
                                     Format[] formats = getFormats(trackSelection);
                                     MediaPeriodHolder mediaPeriodHolder7 = this.readingPeriodHolder;
-                                    renderer3.replaceStream(formats, mediaPeriodHolder7.sampleStreams[i4], mediaPeriodHolder7.getRendererOffset());
+                                    renderer3.replaceStream(formats, mediaPeriodHolder7.sampleStreams[i3], mediaPeriodHolder7.getRendererOffset());
                                 } else {
                                     renderer3.setCurrentStreamFinal();
                                 }
                             }
                         }
-                        i4++;
+                        i3++;
                     }
                 }
             }
@@ -1563,9 +1566,9 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                 }
                 mediaPeriodHolder3 = mediaPeriodHolder2;
             }
-            int i2 = this.loadingPeriodHolder.index;
+            int i = this.loadingPeriodHolder.index;
             MediaPeriodHolder mediaPeriodHolder5 = this.readingPeriodHolder;
-            int i3 = mediaPeriodHolder5 != null ? mediaPeriodHolder5.index : -1;
+            int i2 = mediaPeriodHolder5 != null ? mediaPeriodHolder5.index : -1;
             MediaPeriodHolder mediaPeriodHolder6 = mediaPeriodHolder3.next;
             if (mediaPeriodHolder6 != null) {
                 releasePeriodHoldersFrom(mediaPeriodHolder6);
@@ -1573,10 +1576,10 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
             }
             mediaPeriodHolder3.info = this.mediaPeriodInfoSequence.getUpdatedMediaPeriodInfo(mediaPeriodHolder3.info);
             boolean z = true;
-            if (!(i2 <= mediaPeriodHolder3.index)) {
+            if (!(i <= mediaPeriodHolder3.index)) {
                 this.loadingPeriodHolder = mediaPeriodHolder3;
             }
-            if (((i3 == -1 || i3 > mediaPeriodHolder3.index) ? false : false) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
+            if (((i2 == -1 || i2 > mediaPeriodHolder3.index) ? false : false) || (mediaPeriodHolder = this.playingPeriodHolder) == null) {
                 return;
             }
             MediaSource.MediaPeriodId mediaPeriodId = mediaPeriodHolder.info.id;
@@ -1595,13 +1598,14 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         if (interceptable == null || interceptable.invokeL(1048576, this, exoPlayerMessageArr) == null) {
             synchronized (this) {
                 if (this.released) {
+                    Log.w(TAG, "Ignoring messages sent after release.");
                     return;
                 }
-                int i2 = this.customMessagesSent;
-                this.customMessagesSent = i2 + 1;
+                int i = this.customMessagesSent;
+                this.customMessagesSent = i + 1;
                 this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
                 boolean z = false;
-                while (this.customMessagesProcessed <= i2) {
+                while (this.customMessagesProcessed <= i) {
                     try {
                         wait();
                     } catch (InterruptedException unused) {
@@ -1674,14 +1678,17 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
                         return false;
                 }
             } catch (ExoPlaybackException e2) {
+                Log.e(TAG, "Renderer error.", e2);
                 this.eventHandler.obtainMessage(7, e2).sendToTarget();
                 stopInternal();
                 return true;
             } catch (IOException e3) {
+                Log.e(TAG, "Source error.", e3);
                 this.eventHandler.obtainMessage(7, ExoPlaybackException.createForSource(e3)).sendToTarget();
                 stopInternal();
                 return true;
             } catch (RuntimeException e4) {
+                Log.e(TAG, "Internal runtime error.", e4);
                 this.eventHandler.obtainMessage(7, ExoPlaybackException.createForUnexpected(e4)).sendToTarget();
                 stopInternal();
                 return true;
@@ -1744,20 +1751,23 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    public void seekTo(Timeline timeline, int i2, long j2) {
+    public void seekTo(Timeline timeline, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{timeline, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.handler.obtainMessage(3, new SeekPosition(timeline, i2, j2)).sendToTarget();
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{timeline, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.handler.obtainMessage(3, new SeekPosition(timeline, i, j)).sendToTarget();
         }
     }
 
     public void sendMessages(ExoPlayer.ExoPlayerMessage... exoPlayerMessageArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, exoPlayerMessageArr) == null) || this.released) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048587, this, exoPlayerMessageArr) == null) {
+            if (this.released) {
+                Log.w(TAG, "Ignoring messages sent after release.");
+                return;
+            }
+            this.customMessagesSent++;
+            this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
         }
-        this.customMessagesSent++;
-        this.handler.obtainMessage(11, exoPlayerMessageArr).sendToTarget();
     }
 
     public void setPlayWhenReady(boolean z) {
@@ -1774,10 +1784,10 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    public void setRepeatMode(int i2) {
+    public void setRepeatMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.handler.obtainMessage(12, i2, 0).sendToTarget();
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.handler.obtainMessage(12, i, 0).sendToTarget();
         }
     }
 
@@ -1795,22 +1805,22 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void handleSourceInfoRefreshEndedPlayback(int i2, int i3) {
+    private void handleSourceInfoRefreshEndedPlayback(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65547, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65547, this, i, i2) == null) {
             Timeline timeline = this.playbackInfo.timeline;
-            int i4 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
-            this.playbackInfo = this.playbackInfo.fromNewPosition(i4, C.TIME_UNSET, C.TIME_UNSET);
+            int i3 = timeline.isEmpty() ? 0 : timeline.getWindow(timeline.getFirstWindowIndex(this.shuffleModeEnabled), this.window).firstPeriodIndex;
+            this.playbackInfo = this.playbackInfo.fromNewPosition(i3, C.TIME_UNSET, C.TIME_UNSET);
             setState(4);
-            notifySourceInfoRefresh(i2, i3, this.playbackInfo.fromNewPosition(i4, 0L, C.TIME_UNSET));
+            notifySourceInfoRefresh(i, i2, this.playbackInfo.fromNewPosition(i3, 0L, C.TIME_UNSET));
             resetInternal(false);
         }
     }
 
-    private void notifySourceInfoRefresh(int i2, int i3) {
+    private void notifySourceInfoRefresh(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65554, this, i2, i3) == null) {
-            notifySourceInfoRefresh(i2, i3, this.playbackInfo);
+        if (interceptable == null || interceptable.invokeII(65554, this, i, i2) == null) {
+            notifySourceInfoRefresh(i, i2, this.playbackInfo);
         }
     }
 
@@ -1823,10 +1833,10 @@ public final class ExoPlayerImplInternal implements Handler.Callback, MediaPerio
         }
     }
 
-    private void notifySourceInfoRefresh(int i2, int i3, PlaybackInfo playbackInfo) {
+    private void notifySourceInfoRefresh(int i, int i2, PlaybackInfo playbackInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65555, this, i2, i3, playbackInfo) == null) {
-            this.eventHandler.obtainMessage(5, i2, i3, playbackInfo).sendToTarget();
+        if (interceptable == null || interceptable.invokeIIL(65555, this, i, i2, playbackInfo) == null) {
+            this.eventHandler.obtainMessage(5, i, i2, playbackInfo).sendToTarget();
         }
     }
 }

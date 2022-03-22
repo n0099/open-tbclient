@@ -6,7 +6,6 @@ import com.airbnb.lottie.animation.content.ContentGroup;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class ShapeGroup implements ContentModel {
     public final boolean hidden;
@@ -37,6 +36,6 @@ public class ShapeGroup implements ContentModel {
     }
 
     public String toString() {
-        return "ShapeGroup{name='" + this.name + "' Shapes: " + Arrays.toString(this.items.toArray()) + ExtendedMessageFormat.END_FE;
+        return "ShapeGroup{name='" + this.name + "' Shapes: " + Arrays.toString(this.items.toArray()) + '}';
     }
 }

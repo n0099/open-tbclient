@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte BORDER = 4;
@@ -51,7 +51,7 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     public YogaNodeJNIBase mOwner;
 
     /* renamed from: com.kwad.yoga.YogaNodeJNIBase$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$kwad$yoga$YogaEdge;
         public static /* synthetic */ Interceptable $ic;
@@ -106,9 +106,9 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -117,16 +117,16 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
         }
     }
 
-    public YogaNodeJNIBase(long j2) {
+    public YogaNodeJNIBase(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -135,10 +135,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
         this.arr = null;
         this.mLayoutDirection = 0;
         this.mHasNewLayout = true;
-        if (j2 == 0) {
+        if (j == 0) {
             throw new IllegalStateException("Failed to allocate native memory");
         }
-        this.mNativePointer = j2;
+        this.mNativePointer = j;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,9 +150,9 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {yogaConfig};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -170,14 +170,14 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @DoNotStrip
-    private final long replaceChild(YogaNodeJNIBase yogaNodeJNIBase, int i2) {
+    private final long replaceChild(YogaNodeJNIBase yogaNodeJNIBase, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, yogaNodeJNIBase, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, yogaNodeJNIBase, i)) == null) {
             List<YogaNodeJNIBase> list = this.mChildren;
             if (list != null) {
-                list.remove(i2);
-                this.mChildren.add(i2, yogaNodeJNIBase);
+                list.remove(i);
+                this.mChildren.add(i, yogaNodeJNIBase);
                 yogaNodeJNIBase.mOwner = this;
                 return yogaNodeJNIBase.mNativePointer;
             }
@@ -186,16 +186,16 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
         return invokeLI.longValue;
     }
 
-    public static YogaValue valueFromLong(long j2) {
+    public static YogaValue valueFromLong(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? new YogaValue(Float.intBitsToFloat((int) j2), (int) (j2 >> 32)) : (YogaValue) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? new YogaValue(Float.intBitsToFloat((int) j), (int) (j >> 32)) : (YogaValue) invokeJ.objValue;
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void addChildAt(YogaNode yogaNode, int i2) {
+    public void addChildAt(YogaNode yogaNode, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, yogaNode, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048576, this, yogaNode, i) == null) {
             YogaNodeJNIBase yogaNodeJNIBase = (YogaNodeJNIBase) yogaNode;
             if (yogaNodeJNIBase.mOwner != null) {
                 throw new IllegalStateException("Child already has a parent, it must be removed first.");
@@ -203,9 +203,9 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
             if (this.mChildren == null) {
                 this.mChildren = new ArrayList(4);
             }
-            this.mChildren.add(i2, yogaNodeJNIBase);
+            this.mChildren.add(i, yogaNodeJNIBase);
             yogaNodeJNIBase.mOwner = this;
-            YogaNative.jni_YGNodeInsertChild(this.mNativePointer, yogaNodeJNIBase.mNativePointer, i2);
+            YogaNative.jni_YGNodeInsertChild(this.mNativePointer, yogaNodeJNIBase.mNativePointer, i);
         }
     }
 
@@ -222,16 +222,16 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)}) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this);
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                List<YogaNodeJNIBase> list = ((YogaNodeJNIBase) arrayList.get(i2)).mChildren;
+            for (int i = 0; i < arrayList.size(); i++) {
+                List<YogaNodeJNIBase> list = ((YogaNodeJNIBase) arrayList.get(i)).mChildren;
                 if (list != null) {
                     arrayList.addAll(list);
                 }
             }
             YogaNodeJNIBase[] yogaNodeJNIBaseArr = (YogaNodeJNIBase[]) arrayList.toArray(new YogaNodeJNIBase[arrayList.size()]);
             long[] jArr = new long[yogaNodeJNIBaseArr.length];
-            for (int i3 = 0; i3 < yogaNodeJNIBaseArr.length; i3++) {
-                jArr[i3] = yogaNodeJNIBaseArr[i3].mNativePointer;
+            for (int i2 = 0; i2 < yogaNodeJNIBaseArr.length; i2++) {
+                jArr[i2] = yogaNodeJNIBaseArr[i2].mNativePointer;
             }
             YogaNative.jni_YGNodeCalculateLayout(this.mNativePointer, f2, f3, jArr, yogaNodeJNIBaseArr);
         }
@@ -317,13 +317,13 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.yoga.YogaNode
-    public YogaNodeJNIBase getChildAt(int i2) {
+    public YogaNodeJNIBase getChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
             List<YogaNodeJNIBase> list = this.mChildren;
             if (list != null) {
-                return list.get(i2);
+                return list.get(i);
             }
             throw new IllegalStateException("YogaNode does not have children");
         }
@@ -426,20 +426,20 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
             float[] fArr = this.arr;
             if (fArr != null) {
                 if ((((int) fArr[0]) & 4) == 4) {
-                    int i2 = (14 - ((((int) fArr[0]) & 1) == 1 ? 0 : 4)) - ((((int) this.arr[0]) & 2) != 2 ? 4 : 0);
+                    int i = (14 - ((((int) fArr[0]) & 1) == 1 ? 0 : 4)) - ((((int) this.arr[0]) & 2) != 2 ? 4 : 0);
                     switch (AnonymousClass1.$SwitchMap$com$kwad$yoga$YogaEdge[yogaEdge.ordinal()]) {
                         case 1:
-                            return this.arr[i2];
+                            return this.arr[i];
                         case 2:
-                            return this.arr[i2 + 1];
+                            return this.arr[i + 1];
                         case 3:
-                            return this.arr[i2 + 2];
+                            return this.arr[i + 2];
                         case 4:
-                            return this.arr[i2 + 3];
+                            return this.arr[i + 3];
                         case 5:
-                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i2 + 2] : this.arr[i2];
+                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i + 2] : this.arr[i];
                         case 6:
-                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i2] : this.arr[i2 + 2];
+                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i] : this.arr[i + 2];
                         default:
                             throw new IllegalArgumentException("Cannot get layout border of multi-edge shorthands");
                     }
@@ -513,20 +513,20 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
             float[] fArr = this.arr;
             if (fArr != null) {
                 if ((((int) fArr[0]) & 2) == 2) {
-                    int i2 = 10 - ((((int) fArr[0]) & 1) != 1 ? 4 : 0);
+                    int i = 10 - ((((int) fArr[0]) & 1) != 1 ? 4 : 0);
                     switch (AnonymousClass1.$SwitchMap$com$kwad$yoga$YogaEdge[yogaEdge.ordinal()]) {
                         case 1:
-                            return this.arr[i2];
+                            return this.arr[i];
                         case 2:
-                            return this.arr[i2 + 1];
+                            return this.arr[i + 1];
                         case 3:
-                            return this.arr[i2 + 2];
+                            return this.arr[i + 2];
                         case 4:
-                            return this.arr[i2 + 3];
+                            return this.arr[i + 3];
                         case 5:
-                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i2 + 2] : this.arr[i2];
+                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i + 2] : this.arr[i];
                         case 6:
-                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i2] : this.arr[i2 + 2];
+                            return getLayoutDirection() == YogaDirection.RTL ? this.arr[i] : this.arr[i + 2];
                         default:
                             throw new IllegalArgumentException("Cannot get layout paddings of multi-edge shorthands");
                     }
@@ -749,12 +749,12 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @DoNotStrip
-    public final long measure(float f2, int i2, float f3, int i3) {
+    public final long measure(float f2, int i, float f3, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Float.valueOf(f3), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048633, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Float.valueOf(f3), Integer.valueOf(i2)})) == null) {
             if (isMeasureDefined()) {
-                return this.mMeasureFunction.measure(this, f2, YogaMeasureMode.fromInt(i2), f3, YogaMeasureMode.fromInt(i3));
+                return this.mMeasureFunction.measure(this, f2, YogaMeasureMode.fromInt(i), f3, YogaMeasureMode.fromInt(i2));
             }
             throw new RuntimeException("Measure function isn't defined!");
         }
@@ -771,13 +771,13 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.yoga.YogaNode
-    public YogaNodeJNIBase removeChildAt(int i2) {
+    public YogaNodeJNIBase removeChildAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048636, this, i)) == null) {
             List<YogaNodeJNIBase> list = this.mChildren;
             if (list != null) {
-                YogaNodeJNIBase remove = list.remove(i2);
+                YogaNodeJNIBase remove = list.remove(i);
                 remove.mOwner = null;
                 YogaNative.jni_YGNodeRemoveChild(this.mNativePointer, remove.mNativePointer);
                 return remove;
@@ -1116,10 +1116,10 @@ public abstract class YogaNodeJNIBase extends YogaNode implements Cloneable {
     }
 
     @Override // com.kwad.yoga.YogaNode
-    public void setStyleInputs(float[] fArr, int i2) {
+    public void setStyleInputs(float[] fArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048677, this, fArr, i2) == null) {
-            YogaNative.jni_YGNodeSetStyleInputs(this.mNativePointer, fArr, i2);
+        if (interceptable == null || interceptable.invokeLI(1048677, this, fArr, i) == null) {
+            YogaNative.jni_YGNodeSetStyleInputs(this.mNativePointer, fArr, i);
         }
     }
 

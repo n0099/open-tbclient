@@ -29,16 +29,16 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     public int mDeviceType;
     public String mKey;
 
-    public IMGetTokenByCuidRequest(Context context, long j2, String str, String str2) {
+    public IMGetTokenByCuidRequest(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,7 +47,7 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
         this.mAccountType = 6;
         this.mDeviceType = 2;
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mCuid = str;
         this.mKey = str2;
     }
@@ -122,21 +122,21 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
             String str = new String(bArr);
-            LogUtils.e(TAG, "errorCode = " + i2 + ", result = " + str);
-            AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i2, str, null);
+            LogUtils.e(TAG, "errorCode = " + i + ", result = " + str);
+            AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i, str, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        int i3;
+    public void onSuccess(int i, byte[] bArr) {
+        int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, str2);
             String str3 = null;
@@ -145,25 +145,25 @@ public class IMGetTokenByCuidRequest extends BaseHttpRequest {
                 boolean has = jSONObject.has("error_code");
                 str = Constants.ERROR_MSG_SUCCESS;
                 if (has) {
-                    i3 = jSONObject.getInt("error_code");
+                    i2 = jSONObject.getInt("error_code");
                     if (jSONObject.has(GameCodeGetResponseMsg.PARAM_ERROR_MSG)) {
                         str = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                     }
-                    if (i3 == 0) {
+                    if (i2 == 0) {
                         str3 = jSONObject.getString("token");
                         if (!TextUtils.isEmpty(str3)) {
                             Utility.writeCuidAccessToken(this.mContext, str3);
                         }
                     }
                 } else {
-                    i3 = 0;
+                    i2 = 0;
                 }
             } catch (JSONException e2) {
                 LogUtils.e(TAG, e2.getMessage(), e2);
-                i3 = 1010;
+                i2 = 1010;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
-            AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i3, str, str3);
+            AccountManagerImpl.getInstance(this.mContext).onGetTokenByCuidResult(this.mKey, i2, str, str3);
         }
     }
 

@@ -16,9 +16,9 @@ public abstract class a<T> implements Runnable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,15 +44,15 @@ public abstract class a<T> implements Runnable {
         }
     }
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            if (i2 > 10) {
-                i2 = 10;
-            } else if (i2 < 1) {
-                i2 = 1;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i > 10) {
+                i = 10;
+            } else if (i < 1) {
+                i = 1;
             }
-            this.mPriority = i2;
+            this.mPriority = i;
         }
     }
 }

@@ -40,31 +40,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PushDialogLoopManager {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: g  reason: collision with root package name */
-    public static PushDialogLoopManager f46021g;
+    public static PushDialogLoopManager f35646g;
     public transient /* synthetic */ FieldHolder $fh;
     public Handler a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f46022b;
+    public String f35647b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f46023c;
+    public boolean f35648c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f46024d;
+    public boolean f35649d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f46025e;
+    public boolean f35650e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlarmManager f46026f;
+    public AlarmManager f35651f;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class PushAlarmReceiver extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public class PushDialogLoopManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -92,13 +92,11 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PushDialogLoopManager f46027e;
+        public final /* synthetic */ PushDialogLoopManager a;
 
         public a(PushDialogLoopManager pushDialogLoopManager) {
             Interceptable interceptable = $ic;
@@ -107,15 +105,15 @@ public class PushDialogLoopManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pushDialogLoopManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46027e = pushDialogLoopManager;
+            this.a = pushDialogLoopManager;
         }
 
         @Override // android.os.Handler.Callback
@@ -126,7 +124,7 @@ public class PushDialogLoopManager {
                 if (message.what != 1) {
                     return false;
                 }
-                this.f46027e.n();
+                this.a.n();
                 PushDialogLoopManager.i().l();
                 return true;
             }
@@ -134,24 +132,24 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends c.a.d.c.g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogLoopManager a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(PushDialogLoopManager pushDialogLoopManager, int i2, int i3) {
-            super(i2, i3);
+        public b(PushDialogLoopManager pushDialogLoopManager, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -172,12 +170,12 @@ public class PushDialogLoopManager {
                 } else {
                     tid = responsedMessage instanceof PullTidSocketResponseMessage ? ((PullTidSocketResponseMessage) responsedMessage).getTid() : "";
                 }
-                if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || this.a.f46022b.equals(tid) || "0".equals(tid)) {
+                if (StringUtils.isNull(tid) || responsedMessage.getError() != 0 || this.a.f35647b.equals(tid) || "0".equals(tid)) {
                     return;
                 }
-                this.a.f46022b = tid;
-                if (c.a.r0.l3.a.j().f18946d.c()) {
-                    this.a.f46023c = true;
+                this.a.f35647b = tid;
+                if (c.a.p0.n3.a.j().f16563d.c()) {
+                    this.a.f35648c = true;
                 } else {
                     this.a.p(tid);
                 }
@@ -185,24 +183,24 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends c.a.d.c.g.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogLoopManager a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(PushDialogLoopManager pushDialogLoopManager, int i2) {
-            super(i2);
+        public c(PushDialogLoopManager pushDialogLoopManager, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i2)};
+                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -222,24 +220,24 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogLoopManager a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(PushDialogLoopManager pushDialogLoopManager, int i2) {
-            super(i2);
+        public d(PushDialogLoopManager pushDialogLoopManager, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i2)};
+                Object[] objArr = {pushDialogLoopManager, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -259,7 +257,7 @@ public class PushDialogLoopManager {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class e extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -269,9 +267,9 @@ public class PushDialogLoopManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -296,35 +294,35 @@ public class PushDialogLoopManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f46022b = "";
-        this.f46023c = false;
-        this.f46024d = false;
-        this.f46025e = false;
+        this.f35647b = "";
+        this.f35648c = false;
+        this.f35649d = false;
+        this.f35650e = false;
         Handler handler = new Handler(Looper.getMainLooper(), new a(this));
         this.a = handler;
         handler.sendEmptyMessage(1);
         MessageManager.getInstance().registerListener(new b(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(this, 1003));
         MessageManager.getInstance().registerListener(new d(this, 2001371));
-        this.f46022b = c.a.q0.r.j0.b.k().q("key_push_dialog_last_show_tid", "0");
+        this.f35647b = c.a.o0.r.j0.b.k().q("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
-        this.f46026f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f35651f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
             if (Build.VERSION.SDK_INT >= 21) {
                 TbadkCoreApplication.getInst().startService(new Intent().setClass(TbadkCoreApplication.getInst(), PushDialogJobService.class));
-                this.f46025e = true;
+                this.f35650e = true;
             }
         } catch (Throwable th) {
             BdLog.e(th);
-            this.f46025e = false;
+            this.f35650e = false;
         }
     }
 
@@ -332,22 +330,22 @@ public class PushDialogLoopManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (f46021g == null) {
+            if (f35646g == null) {
                 synchronized (PushDialogLoopManager.class) {
-                    if (f46021g == null) {
-                        f46021g = new PushDialogLoopManager();
+                    if (f35646g == null) {
+                        f35646g = new PushDialogLoopManager();
                     }
                 }
             }
-            return f46021g;
+            return f35646g;
         }
         return (PushDialogLoopManager) invokeV.objValue;
     }
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f46023c && c.a.r0.l3.a.j().g() && !this.f46024d) {
-            if (Build.VERSION.SDK_INT >= 21 && this.f46025e) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f35648c && c.a.p0.n3.a.j().g() && !this.f35649d) {
+            if (Build.VERSION.SDK_INT >= 21 && this.f35650e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
                 } catch (Throwable th) {
@@ -357,15 +355,15 @@ public class PushDialogLoopManager {
             } else {
                 k();
             }
-            this.f46024d = true;
-            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f46022b));
+            this.f35649d = true;
+            TiebaStatic.log(new StatisticItem("c13196").param("obj_type", 1).param("obj_source", 2).param("tid", this.f35647b));
         }
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f46026f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
+            this.f35651f.set(0, System.currentTimeMillis() + TbSingleton.getInstance().getPushDialogShowTime(), PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 29467, new Intent(TbadkCoreApplication.getInst().getApp(), PushAlarmReceiver.class), 134217728));
         }
     }
 
@@ -401,14 +399,14 @@ public class PushDialogLoopManager {
     public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.f46024d = false;
-            p(this.f46022b);
+            this.f35649d = false;
+            p(this.f35647b);
         }
     }
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.r0.l3.a.j().f18946d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || c.a.p0.n3.a.j().f16563d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
         Activity b2 = c.a.d.a.b.g().b();
@@ -416,7 +414,7 @@ public class PushDialogLoopManager {
             b2.finish();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-        c.a.q0.r.j0.b.k().y("key_push_dialog_last_show_tid", str);
-        this.f46023c = false;
+        c.a.o0.r.j0.b.k().y("key_push_dialog_last_show_tid", str);
+        this.f35648c = false;
     }
 }

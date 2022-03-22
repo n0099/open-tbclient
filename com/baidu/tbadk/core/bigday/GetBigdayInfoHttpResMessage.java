@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.bigday;
 
 import c.a.d.f.d.l;
-import c.a.q0.r.o.a;
+import c.a.o0.r.o.a;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -15,7 +15,7 @@ import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
 import tbclient.GetBigday.DataRes;
 import tbclient.GetBigday.GetBigdayResIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,15 +41,15 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
-            super.afterDispatchInBackGround(i2, (int) bArr);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr == null) {
                 return;
             }
-            c.a.q0.r.s.a.f();
-            l<byte[]> d2 = c.a.q0.r.s.a.d("tb.bigday_datas");
+            c.a.o0.r.s.a.f();
+            l<byte[]> d2 = c.a.o0.r.s.a.d("tb.bigday_datas");
             d2.remove("tb.bigday_datas");
             d2.g("tb.bigday_datas", bArr);
         }
@@ -57,10 +57,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetBigdayResIdl getBigdayResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) || (getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) || (getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class)) == null) {
             return;
         }
         Error error = getBigdayResIdl.error;

@@ -14,7 +14,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.MulticastSocket;
 import java.net.SocketException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class UdpDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEAFULT_SOCKET_TIMEOUT_MILLIS = 8000;
@@ -32,7 +32,7 @@ public final class UdpDataSource implements DataSource {
     public final int socketTimeoutMillis;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UdpDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public final class UdpDataSource implements DataSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iOException};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -67,9 +67,9 @@ public final class UdpDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {transferListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TransferListener) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -157,11 +157,11 @@ public final class UdpDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws UdpDataSourceException {
+    public int read(byte[] bArr, int i, int i2) throws UdpDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
                 return 0;
             }
             if (this.packetRemaining == 0) {
@@ -178,9 +178,9 @@ public final class UdpDataSource implements DataSource {
                 }
             }
             int length2 = this.packet.getLength();
-            int i4 = this.packetRemaining;
-            int min = Math.min(i4, i3);
-            System.arraycopy(this.packetBuffer, length2 - i4, bArr, i2, min);
+            int i3 = this.packetRemaining;
+            int min = Math.min(i3, i2);
+            System.arraycopy(this.packetBuffer, length2 - i3, bArr, i, min);
             this.packetRemaining -= min;
             return min;
         }
@@ -188,17 +188,17 @@ public final class UdpDataSource implements DataSource {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i2) {
-        this(transferListener, i2, 8000);
+    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i) {
+        this(transferListener, i, 8000);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {transferListener, Integer.valueOf(i2)};
+            Object[] objArr = {transferListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TransferListener) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -208,24 +208,24 @@ public final class UdpDataSource implements DataSource {
         }
     }
 
-    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i2, int i3) {
+    public UdpDataSource(TransferListener<? super UdpDataSource> transferListener, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {transferListener, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {transferListener, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.listener = transferListener;
-        this.socketTimeoutMillis = i3;
-        this.packetBuffer = new byte[i2];
-        this.packet = new DatagramPacket(this.packetBuffer, 0, i2);
+        this.socketTimeoutMillis = i2;
+        this.packetBuffer = new byte[i];
+        this.packet = new DatagramPacket(this.packetBuffer, 0, i);
     }
 }

@@ -90,9 +90,9 @@ public class ChangeImageTransform extends Transition {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -123,9 +123,9 @@ public class ChangeImageTransform extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -162,9 +162,9 @@ public class ChangeImageTransform extends Transition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -216,11 +216,11 @@ public class ChangeImageTransform extends Transition {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, imageView)) == null) {
             Drawable drawable = imageView.getDrawable();
             if (drawable.getIntrinsicWidth() > 0 && drawable.getIntrinsicHeight() > 0) {
-                int i2 = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
-                if (i2 == 1) {
+                int i = AnonymousClass3.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()];
+                if (i == 1) {
                     return fitXYMatrix(imageView);
                 }
-                if (i2 == 2) {
+                if (i == 2) {
                     return centerCropMatrix(imageView);
                 }
             }
@@ -330,9 +330,9 @@ public class ChangeImageTransform extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

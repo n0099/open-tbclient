@@ -38,9 +38,9 @@ public class V8NativeInit {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -57,5 +57,5 @@ public class V8NativeInit {
         }
     }
 
-    public static native synchronized void initialize(long j2, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j3);
+    public static native synchronized void initialize(long j, AssetManager assetManager, AssetManager assetManager2, V8Timer v8Timer, Object obj, long j2);
 }

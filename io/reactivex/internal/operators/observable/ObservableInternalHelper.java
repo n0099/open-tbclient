@@ -37,23 +37,23 @@ public final class ObservableInternalHelper {
         public final int bufferSize;
         public final Observable<T> parent;
 
-        public BufferedReplayCallable(Observable<T> observable, int i2) {
+        public BufferedReplayCallable(Observable<T> observable, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Integer.valueOf(i2)};
+                Object[] objArr = {observable, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = observable;
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,24 +75,24 @@ public final class ObservableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public BufferedTimedReplayCallable(Observable<T> observable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public BufferedTimedReplayCallable(Observable<T> observable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observable, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = observable;
-            this.bufferSize = i2;
-            this.time = j2;
+            this.bufferSize = i;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -119,9 +119,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -159,9 +159,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {biFunction, t};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -194,9 +194,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {biFunction, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -234,9 +234,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -286,16 +286,16 @@ public final class ObservableInternalHelper {
             $VALUES = new MapToInt[]{mapToInt};
         }
 
-        public MapToInt(String str, int i2) {
+        public MapToInt(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -341,9 +341,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -374,9 +374,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -408,9 +408,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -441,9 +441,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -475,9 +475,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {function, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -512,9 +512,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -554,9 +554,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -592,23 +592,23 @@ public final class ObservableInternalHelper {
         public final long time;
         public final TimeUnit unit;
 
-        public TimedReplayCallable(Observable<T> observable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public TimedReplayCallable(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observable, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observable, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.parent = observable;
-            this.time = j2;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -635,9 +635,9 @@ public final class ObservableInternalHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -663,9 +663,9 @@ public final class ObservableInternalHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -740,21 +740,21 @@ public final class ObservableInternalHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, function)) == null) ? new ZipIterableFunction(function) : (Function) invokeL.objValue;
     }
 
-    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i2) {
+    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, observable, i2)) == null) ? new BufferedReplayCallable(observable, i2) : (Callable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, observable, i)) == null) ? new BufferedReplayCallable(observable, i) : (Callable) invokeLI.objValue;
     }
 
-    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{observable, Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler})) == null) ? new BufferedTimedReplayCallable(observable, i2, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{observable, Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler})) == null) ? new BufferedTimedReplayCallable(observable, i, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 
-    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> Callable<ConnectableObservable<T>> replayCallable(Observable<T> observable, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{observable, Long.valueOf(j2), timeUnit, scheduler})) == null) ? new TimedReplayCallable(observable, j2, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, null, new Object[]{observable, Long.valueOf(j), timeUnit, scheduler})) == null) ? new TimedReplayCallable(observable, j, timeUnit, scheduler) : (Callable) invokeCommon.objValue;
     }
 }

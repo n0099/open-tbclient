@@ -30,9 +30,9 @@ public class AccessibilityWindowInfoCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,10 +53,10 @@ public class AccessibilityWindowInfoCompat {
         return (AccessibilityWindowInfoCompat) invokeV.objValue;
     }
 
-    public static String typeToString(int i2) {
+    public static String typeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? "<UNKNOWN>" : "TYPE_ACCESSIBILITY_OVERLAY" : "TYPE_SYSTEM" : "TYPE_INPUT_METHOD" : "TYPE_APPLICATION" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "<UNKNOWN>" : "TYPE_ACCESSIBILITY_OVERLAY" : "TYPE_SYSTEM" : "TYPE_INPUT_METHOD" : "TYPE_APPLICATION" : (String) invokeI.objValue;
     }
 
     public static AccessibilityWindowInfoCompat wrapNonNullInstance(Object obj) {
@@ -115,12 +115,12 @@ public class AccessibilityWindowInfoCompat {
         ((AccessibilityWindowInfo) this.mInfo).getBoundsInScreen(rect);
     }
 
-    public AccessibilityWindowInfoCompat getChild(int i2) {
+    public AccessibilityWindowInfoCompat getChild(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (Build.VERSION.SDK_INT >= 21) {
-                return wrapNonNullInstance(((AccessibilityWindowInfo) this.mInfo).getChild(i2));
+                return wrapNonNullInstance(((AccessibilityWindowInfo) this.mInfo).getChild(i));
             }
             return null;
         }

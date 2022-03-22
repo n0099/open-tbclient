@@ -24,9 +24,9 @@ public class ViNotifyActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,16 +58,16 @@ public class ViNotifyActivity extends Activity {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f30967b;
+                    public final /* synthetic */ String f24801b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ String f30968c;
+                    public final /* synthetic */ String f24802c;
 
                     /* renamed from: d  reason: collision with root package name */
-                    public final /* synthetic */ String f30969d;
+                    public final /* synthetic */ String f24803d;
 
                     /* renamed from: e  reason: collision with root package name */
-                    public final /* synthetic */ ViNotifyActivity f30970e;
+                    public final /* synthetic */ ViNotifyActivity f24804e;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -76,19 +76,19 @@ public class ViNotifyActivity extends Activity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str5, str3, str2, str4};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f30970e = this;
+                        this.f24804e = this;
                         this.a = str5;
-                        this.f30967b = str3;
-                        this.f30968c = str2;
-                        this.f30969d = str4;
+                        this.f24801b = str3;
+                        this.f24802c = str2;
+                        this.f24803d = str4;
                     }
 
                     @Override // com.baidu.android.pushservice.g.c
@@ -99,11 +99,11 @@ public class ViNotifyActivity extends Activity {
                             if (!TextUtils.isEmpty(str6)) {
                                 str6 = m.a(Base64.decode(this.a.getBytes(), 2), "UTF-8");
                             }
-                            String str7 = this.f30967b;
+                            String str7 = this.f24801b;
                             if (!TextUtils.isEmpty(str7)) {
-                                str7 = m.a(Base64.decode(this.f30967b.getBytes(), 2), "UTF-8");
+                                str7 = m.a(Base64.decode(this.f24801b.getBytes(), 2), "UTF-8");
                             }
-                            this.f30970e.a(this.f30968c, str7, this.f30969d, str6);
+                            this.f24804e.a(this.f24802c, str7, this.f24803d, str6);
                         }
                     }
                 });

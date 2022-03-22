@@ -37,7 +37,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class Mp4TrackImpl extends AbstractTrack {
     public static /* synthetic */ Interceptable $ic;
@@ -55,25 +54,25 @@ public class Mp4TrackImpl extends AbstractTrack {
 
     public Mp4TrackImpl(TrackBox trackBox, IsoFile... isoFileArr) {
         Iterator it;
-        long j2;
+        long j;
         Iterator it2;
         SampleFlags defaultSampleFlags;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
             Object[] objArr = {trackBox, isoFileArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int i5 = 0;
+        int i4 = 0;
         this.syncSamples = new long[0];
         this.trackMetaData = new TrackMetaData();
         long trackId = trackBox.getTrackHeaderBox().getTrackId();
@@ -102,7 +101,7 @@ public class Mp4TrackImpl extends AbstractTrack {
                 for (TrackExtendsBox trackExtendsBox : movieExtendsBox.getBoxes(TrackExtendsBox.class)) {
                     if (trackExtendsBox.getTrackId() == trackId) {
                         LinkedList<Long> linkedList = new LinkedList();
-                        long j3 = 1;
+                        long j2 = 1;
                         for (MovieFragmentBox movieFragmentBox : ((Box) trackBox.getParent()).getParent().getBoxes(MovieFragmentBox.class)) {
                             Iterator it3 = movieFragmentBox.getBoxes(TrackFragmentBox.class).iterator();
                             while (it3.hasNext()) {
@@ -117,27 +116,27 @@ public class Mp4TrackImpl extends AbstractTrack {
                                     while (it4.hasNext()) {
                                         TrackRunBox trackRunBox = (TrackRunBox) it4.next();
                                         TrackFragmentHeaderBox trackFragmentHeaderBox = ((TrackFragmentBox) trackRunBox.getParent()).getTrackFragmentHeaderBox();
-                                        int i6 = 1;
+                                        int i5 = 1;
                                         boolean z = true;
                                         for (TrackRunBox.Entry entry : trackRunBox.getEntries()) {
                                             if (trackRunBox.isSampleDurationPresent()) {
                                                 if (arrayList.size() != 0) {
                                                     it = it3;
                                                     if (((TimeToSampleBox.Entry) arrayList.get(arrayList.size() - 1)).getDelta() == entry.getSampleDuration()) {
-                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i6);
-                                                        j2 = trackId;
+                                                        TimeToSampleBox.Entry entry2 = (TimeToSampleBox.Entry) arrayList.get(arrayList.size() - i5);
+                                                        j = trackId;
                                                         it2 = it4;
                                                         entry2.setCount(entry2.getCount() + 1);
                                                     }
                                                 } else {
                                                     it = it3;
                                                 }
-                                                j2 = trackId;
+                                                j = trackId;
                                                 it2 = it4;
                                                 arrayList.add(new TimeToSampleBox.Entry(1L, entry.getSampleDuration()));
                                             } else {
                                                 it = it3;
-                                                j2 = trackId;
+                                                j = trackId;
                                                 it2 = it4;
                                                 if (trackFragmentHeaderBox.hasDefaultSampleDuration()) {
                                                     arrayList.add(new TimeToSampleBox.Entry(1L, trackFragmentHeaderBox.getDefaultSampleDuration()));
@@ -148,16 +147,16 @@ public class Mp4TrackImpl extends AbstractTrack {
                                             if (trackRunBox.isSampleCompositionTimeOffsetPresent()) {
                                                 if (this.compositionTimeEntries.size() != 0) {
                                                     List<CompositionTimeToSample.Entry> list = this.compositionTimeEntries;
-                                                    i2 = 1;
+                                                    i = 1;
                                                     if (list.get(list.size() - 1).getOffset() == entry.getSampleCompositionTimeOffset()) {
                                                         List<CompositionTimeToSample.Entry> list2 = this.compositionTimeEntries;
                                                         CompositionTimeToSample.Entry entry3 = list2.get(list2.size() - 1);
                                                         entry3.setCount(entry3.getCount() + 1);
                                                     }
                                                 } else {
-                                                    i2 = 1;
+                                                    i = 1;
                                                 }
-                                                this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(i2, CastUtils.l2i(entry.getSampleCompositionTimeOffset())));
+                                                this.compositionTimeEntries.add(new CompositionTimeToSample.Entry(i, CastUtils.l2i(entry.getSampleCompositionTimeOffset())));
                                             }
                                             if (trackRunBox.isSampleFlagsPresent()) {
                                                 defaultSampleFlags = entry.getSampleFlags();
@@ -169,24 +168,24 @@ public class Mp4TrackImpl extends AbstractTrack {
                                                 defaultSampleFlags = trackExtendsBox.getDefaultSampleFlags();
                                             }
                                             if (defaultSampleFlags != null && !defaultSampleFlags.isSampleIsDifferenceSample()) {
-                                                linkedList.add(Long.valueOf(j3));
+                                                linkedList.add(Long.valueOf(j2));
                                             }
-                                            j3++;
+                                            j2++;
                                             it3 = it;
                                             it4 = it2;
-                                            trackId = j2;
-                                            i6 = 1;
+                                            trackId = j;
+                                            i5 = 1;
                                             z = false;
                                         }
                                     }
                                 }
                             }
-                            i5 = 0;
+                            i4 = 0;
                         }
                         long[] jArr = this.syncSamples;
                         long[] jArr2 = new long[jArr.length + linkedList.size()];
                         this.syncSamples = jArr2;
-                        System.arraycopy(jArr, i5, jArr2, i5, jArr.length);
+                        System.arraycopy(jArr, i4, jArr2, i4, jArr.length);
                         int length = jArr.length;
                         for (Long l : linkedList) {
                             this.syncSamples[length] = l.longValue();
@@ -294,7 +293,7 @@ public class Mp4TrackImpl extends AbstractTrack {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return "Mp4TrackImpl{handler='" + this.handler + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "Mp4TrackImpl{handler='" + this.handler + "'}";
         }
         return (String) invokeV.objValue;
     }

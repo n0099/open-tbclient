@@ -13,7 +13,7 @@ import com.tachikoma.core.component.TKBase;
 import com.tachikoma.core.utility.TKColorUtil;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKMarqueeText extends TKBase<MarqueeTextView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class TKMarqueeText extends TKBase<MarqueeTextView> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -74,10 +74,10 @@ public class TKMarqueeText extends TKBase<MarqueeTextView> {
         }
     }
 
-    public void setFontSize(int i2) {
+    public void setFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            getView().setTextSize(1, i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            getView().setTextSize(1, i);
         }
     }
 

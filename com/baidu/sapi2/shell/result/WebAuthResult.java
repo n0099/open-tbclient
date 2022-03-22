@@ -36,7 +36,7 @@ public class WebAuthResult extends SapiResult {
         public static final LoginType SHARE_V2_CHOICE;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final /* synthetic */ LoginType[] f36777b;
+        public static final /* synthetic */ LoginType[] f28531b;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
 
@@ -61,19 +61,19 @@ public class WebAuthResult extends SapiResult {
             SHARE_V1_CHOICE = new LoginType("SHARE_V1_CHOICE", 5, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE);
             LoginType loginType = new LoginType("SHARE_V2_CHOICE", 6, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE);
             SHARE_V2_CHOICE = loginType;
-            f36777b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
+            f28531b = new LoginType[]{PHONE_REG, LOGIN, LOGIN_PROTECT, FORCE_BIND, GUIDE_BIND, SHARE_V1_CHOICE, loginType};
         }
 
-        public LoginType(String str, int i2, String str2) {
+        public LoginType(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -94,7 +94,7 @@ public class WebAuthResult extends SapiResult {
         public static LoginType[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f36777b.clone() : (LoginType[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f28531b.clone() : (LoginType[]) invokeV.objValue;
         }
 
         public String getLoginType() {
@@ -109,9 +109,9 @@ public class WebAuthResult extends SapiResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

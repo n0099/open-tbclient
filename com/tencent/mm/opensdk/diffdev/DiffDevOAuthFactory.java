@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.diffdev.a.a;
 import com.tencent.mm.opensdk.utils.Log;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DiffDevOAuthFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_SUPPORTED_VERSION = 1;
@@ -38,9 +38,9 @@ public class DiffDevOAuthFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,15 +53,15 @@ public class DiffDevOAuthFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? getDiffDevOAuth(1) : (IDiffDevOAuth) invokeV.objValue;
     }
 
-    public static IDiffDevOAuth getDiffDevOAuth(int i2) {
+    public static IDiffDevOAuth getDiffDevOAuth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            Log.v(TAG, "getDiffDevOAuth, version = ".concat(String.valueOf(i2)));
-            if (i2 > 1) {
-                Log.e(TAG, "getDiffDevOAuth fail, unsupported version = ".concat(String.valueOf(i2)));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            Log.v(TAG, "getDiffDevOAuth, version = " + i);
+            if (i > 1) {
+                Log.e(TAG, "getDiffDevOAuth fail, unsupported version = " + i);
                 return null;
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 return null;
             } else {
                 if (v1Instance == null) {

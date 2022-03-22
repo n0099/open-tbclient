@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class AggregateException extends Exception {
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,9 +29,9 @@ public class AggregateException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, thArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -86,15 +85,15 @@ public class AggregateException extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, printStream) == null) {
             super.printStackTrace(printStream);
-            int i2 = -1;
+            int i = -1;
             for (Throwable th : this.innerThrowables) {
-                printStream.append(StringUtils.LF);
+                printStream.append("\n");
                 printStream.append("  Inner throwable #");
-                i2++;
-                printStream.append((CharSequence) Integer.toString(i2));
+                i++;
+                printStream.append((CharSequence) Integer.toString(i));
                 printStream.append(": ");
                 th.printStackTrace(printStream);
-                printStream.append(StringUtils.LF);
+                printStream.append("\n");
             }
         }
     }
@@ -108,9 +107,9 @@ public class AggregateException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Throwable) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -130,9 +129,9 @@ public class AggregateException extends Exception {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -147,15 +146,15 @@ public class AggregateException extends Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, printWriter) == null) {
             super.printStackTrace(printWriter);
-            int i2 = -1;
+            int i = -1;
             for (Throwable th : this.innerThrowables) {
-                printWriter.append(StringUtils.LF);
+                printWriter.append("\n");
                 printWriter.append("  Inner throwable #");
-                i2++;
-                printWriter.append((CharSequence) Integer.toString(i2));
+                i++;
+                printWriter.append((CharSequence) Integer.toString(i));
                 printWriter.append(": ");
                 th.printStackTrace(printWriter);
-                printWriter.append(StringUtils.LF);
+                printWriter.append("\n");
             }
         }
     }

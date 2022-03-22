@@ -41,9 +41,9 @@ public class BackupExecutors {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -81,17 +81,17 @@ public class BackupExecutors {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mThreadPoolExecutor : (Executor) invokeV.objValue;
     }
 
-    public void postSerialTask(Runnable runnable, long j2) {
+    public void postSerialTask(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j2) == null) {
-            this.mSerialExecutor.schedule(runnable, j2, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j) == null) {
+            this.mSerialExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
     }
 
-    public void postThreadPoolTask(Runnable runnable, long j2) {
+    public void postThreadPoolTask(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j2) == null) {
-            this.mThreadPoolExecutor.schedule(runnable, j2, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, runnable, j) == null) {
+            this.mThreadPoolExecutor.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
     }
 }

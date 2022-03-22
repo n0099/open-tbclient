@@ -2,6 +2,7 @@ package com.baidu.searchbox.download.center.clearcache;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.sp.PreferenceUtils;
 import com.baidu.searchbox.config.AppConfig;
@@ -31,9 +32,9 @@ public class DiskDirToolListener extends JSONObjectCommandListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,7 +67,7 @@ public class DiskDirToolListener extends JSONObjectCommandListener {
                 PreferenceUtils.setString(DISK_DIR_TOOL_VERSION, actionData.version);
                 PreferenceUtils.setString(DISK_DIR_TOOL_DATA, jSONObject.toString());
                 if (AppConfig.isDebug()) {
-                    String str3 = "target file data: " + jSONObject.toString();
+                    Log.d(TAG, "target file data: " + jSONObject.toString());
                     return true;
                 }
                 return true;

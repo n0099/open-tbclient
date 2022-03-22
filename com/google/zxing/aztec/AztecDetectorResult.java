@@ -18,17 +18,17 @@ public final class AztecDetectorResult extends DetectorResult {
     public final int nbLayers;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AztecDetectorResult(BitMatrix bitMatrix, ResultPoint[] resultPointArr, boolean z, int i2, int i3) {
+    public AztecDetectorResult(BitMatrix bitMatrix, ResultPoint[] resultPointArr, boolean z, int i, int i2) {
         super(bitMatrix, resultPointArr);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, resultPointArr, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {bitMatrix, resultPointArr, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BitMatrix) objArr2[0], (ResultPoint[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -37,8 +37,8 @@ public final class AztecDetectorResult extends DetectorResult {
             }
         }
         this.compact = z;
-        this.nbDatablocks = i2;
-        this.nbLayers = i3;
+        this.nbDatablocks = i;
+        this.nbLayers = i2;
     }
 
     public int getNbDatablocks() {

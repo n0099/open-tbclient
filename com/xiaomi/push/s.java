@@ -1,9 +1,10 @@
 package com.xiaomi.push;
 
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -13,9 +14,9 @@ public class s {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
             try {
-                return (String) t.a(null, "android.os.SystemProperties").getMethod("get", String.class, String.class).invoke(null, str, str2);
+                return (String) t.a(null, "android.os.SystemProperties").getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(null, str, str2);
             } catch (Exception e2) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("SystemProperties.get: " + e2);
+                com.xiaomi.channel.commonutils.logger.b.m112a("SystemProperties.get: " + e2);
                 return str2;
             }
         }

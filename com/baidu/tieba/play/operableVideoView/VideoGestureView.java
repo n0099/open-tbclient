@@ -20,35 +20,37 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class VideoGestureView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f35587b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ProgressBar f35588c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ViewGroup f35589d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f45941e;
+    public ImageView f35590e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f45942f;
+    public TextView f35591f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f45943g;
+    public AudioManager f35592g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ViewGroup f45944h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f45945i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f45946j;
-    public AudioManager k;
+    public int f35593h;
+    public int i;
+    public float j;
+    public int k;
     public int l;
     public int m;
-    public float n;
-    public int o;
-    public int p;
-    public int q;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoGestureView(Context context) {
@@ -59,128 +61,128 @@ public class VideoGestureView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.l = 100;
-        this.n = 1.0f;
-        this.q = 0;
-        a();
+        this.f35593h = 100;
+        this.j = 1.0f;
+        this.m = 0;
+        e();
     }
 
-    public final void a() {
+    public void a(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.operable_video_gesture, this);
-            this.f45941e = (ViewGroup) findViewById(R.id.video_gesture_progress_zone);
-            this.f45942f = (ImageView) findViewById(R.id.video_gesture_progress_icon);
-            this.f45943g = (ProgressBar) findViewById(R.id.video_gesture_progress_bar);
-            this.f45944h = (ViewGroup) findViewById(R.id.video_gesture_ffrew_zone);
-            this.f45945i = (ImageView) findViewById(R.id.video_gesture_ffrew_icon);
-            this.f45946j = (TextView) findViewById(R.id.video_gesture_ffrew_txt);
-            this.f45941e.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
-            AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
-            this.k = audioManager;
-            if (audioManager != null) {
-                this.l = audioManager.getStreamMaxVolume(3);
-                int streamVolume = this.k.getStreamVolume(3);
-                this.m = streamVolume;
-                int i2 = this.l;
-                this.n = 100 / i2;
-                this.o = (streamVolume * 100) / i2;
-            }
-        }
-    }
-
-    public void changeBright(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, z) == null) {
-            if (this.q != 2) {
-                this.f45944h.setVisibility(8);
-                this.f45941e.setVisibility(0);
-                this.f45943g.setMax(255);
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            if (this.m != 2) {
+                this.f35589d.setVisibility(8);
+                this.a.setVisibility(0);
+                this.f35588c.setMax(255);
                 setBackgroundDrawable(null);
-                this.p = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
-                this.q = 2;
+                this.l = Settings.System.getInt(context.getContentResolver(), "screen_brightness", 255);
+                this.m = 2;
             }
             if (z) {
-                this.p += 2;
+                this.l += 2;
             } else {
-                this.p -= 2;
+                this.l -= 2;
             }
-            int i2 = this.p;
-            if (i2 < 1) {
-                this.p = 1;
-            } else if (i2 > 255) {
-                this.p = 255;
+            int i = this.l;
+            if (i < 1) {
+                this.l = 1;
+            } else if (i > 255) {
+                this.l = 255;
             }
-            int i3 = this.p;
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45942f, i3 <= 43 ? R.drawable.ic_icon_pure_video_dark16_svg : i3 <= 128 ? R.drawable.ic_icon_pure_video_weaklight16_svg : R.drawable.ic_icon_pure_video_highlight16_svg, R.color.CAM_X0622, null);
+            int i2 = this.l;
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35587b, i2 <= 43 ? R.drawable.obfuscated_res_0x7f080628 : i2 <= 128 ? R.drawable.obfuscated_res_0x7f080638 : R.drawable.obfuscated_res_0x7f08062c, R.color.CAM_X0622, null);
             Window window = ((Activity) context).getWindow();
             WindowManager.LayoutParams attributes = window.getAttributes();
-            attributes.screenBrightness = this.p / 255.0f;
+            attributes.screenBrightness = this.l / 255.0f;
             window.setAttributes(attributes);
-            this.f45943g.setProgress(this.p);
+            this.f35588c.setProgress(this.l);
         }
     }
 
-    public void changeFFRew(boolean z, String str) {
+    public void b(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-            if (this.q != 3) {
-                this.f45944h.setVisibility(0);
-                this.f45941e.setVisibility(8);
+        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
+            if (this.m != 3) {
+                this.f35589d.setVisibility(0);
+                this.a.setVisibility(8);
                 setBackgroundResource(R.color.CAM_X0605);
-                this.q = 3;
+                this.m = 3;
             }
-            this.f45946j.setText(str);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45945i, z ? R.drawable.ic_icon_pure_video_rewind44_svg : R.drawable.ic_icon_pure_video_forward44_svg, R.color.CAM_X0622, null);
+            this.f35591f.setText(str);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35590e, z ? R.drawable.obfuscated_res_0x7f080630 : R.drawable.obfuscated_res_0x7f08062a, R.color.CAM_X0622, null);
         }
     }
 
-    public void changeVolume(Context context, boolean z) {
+    public void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, context, z) == null) {
-            changeVolume(context, z, 1);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, context, z) == null) {
+            d(context, z, 1);
         }
     }
 
-    public void changeVolume(Context context, boolean z, int i2) {
+    public void d(Context context, boolean z, int i) {
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            if (this.q != 1) {
-                this.f45944h.setVisibility(8);
-                this.f45941e.setVisibility(0);
-                this.f45943g.setMax(100);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            if (this.m != 1) {
+                this.f35589d.setVisibility(8);
+                this.a.setVisibility(0);
+                this.f35588c.setMax(100);
                 setBackgroundDrawable(null);
-                this.m = this.k.getStreamVolume(3);
-                this.q = 1;
+                this.i = this.f35592g.getStreamVolume(3);
+                this.m = 1;
             }
-            if (z && (i4 = this.o) < 100) {
-                this.o = i4 + i2;
+            if (z && (i3 = this.k) < 100) {
+                this.k = i3 + i;
             }
-            if (!z && (i3 = this.o) > 0) {
-                this.o = i3 - i2;
+            if (!z && (i2 = this.k) > 0) {
+                this.k = i2 - i;
             }
-            if (this.o > 100) {
-                this.o = 100;
+            if (this.k > 100) {
+                this.k = 100;
             }
-            if (this.o < 0) {
-                this.o = 0;
+            if (this.k < 0) {
+                this.k = 0;
             }
-            int i5 = this.o;
-            this.m = (int) (i5 / this.n);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f45942f, i5 == 0 ? R.drawable.ic_icon_pure_video_silent16_svg : i5 < 50 ? R.drawable.ic_icon_pure_video_sound_small16_svg : R.drawable.ic_icon_pure_video_sound_big16_svg, R.color.CAM_X0622, null);
-            this.k.setStreamVolume(3, this.m, 0);
-            this.f45943g.setProgress(this.o);
+            int i4 = this.k;
+            this.i = (int) (i4 / this.j);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f35587b, i4 == 0 ? R.drawable.obfuscated_res_0x7f080631 : i4 < 50 ? R.drawable.obfuscated_res_0x7f080636 : R.drawable.obfuscated_res_0x7f080635, R.color.CAM_X0622, null);
+            this.f35592g.setStreamVolume(3, this.i, 0);
+            this.f35588c.setProgress(this.k);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d064f, this);
+            this.a = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f092331);
+            this.f35587b = (ImageView) findViewById(R.id.obfuscated_res_0x7f092330);
+            this.f35588c = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09232f);
+            this.f35589d = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09232e);
+            this.f35590e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09232c);
+            this.f35591f = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
+            this.a.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(getResources().getDimensionPixelOffset(R.dimen.tbds37), getResources().getColor(R.color.CAM_X0605)));
+            AudioManager audioManager = (AudioManager) getContext().getSystemService("audio");
+            this.f35592g = audioManager;
+            if (audioManager != null) {
+                this.f35593h = audioManager.getStreamMaxVolume(3);
+                int streamVolume = this.f35592g.getStreamVolume(3);
+                this.i = streamVolume;
+                int i = this.f35593h;
+                this.j = 100 / i;
+                this.k = (streamVolume * 100) / i;
+            }
         }
     }
 
@@ -193,9 +195,9 @@ public class VideoGestureView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -203,24 +205,24 @@ public class VideoGestureView extends RelativeLayout {
                 return;
             }
         }
-        this.l = 100;
-        this.n = 1.0f;
-        this.q = 0;
-        a();
+        this.f35593h = 100;
+        this.j = 1.0f;
+        this.m = 0;
+        e();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoGestureView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public VideoGestureView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -228,9 +230,9 @@ public class VideoGestureView extends RelativeLayout {
                 return;
             }
         }
-        this.l = 100;
-        this.n = 1.0f;
-        this.q = 0;
-        a();
+        this.f35593h = 100;
+        this.j = 1.0f;
+        this.m = 0;
+        e();
     }
 }

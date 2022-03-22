@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TailAppendingInputStream extends FilterInputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class TailAppendingInputStream extends FilterInputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,22 +49,22 @@ public class TailAppendingInputStream extends FilterInputStream {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = this.mTailOffset;
+            int i = this.mTailOffset;
             byte[] bArr = this.mTail;
-            if (i2 >= bArr.length) {
+            if (i >= bArr.length) {
                 return -1;
             }
-            this.mTailOffset = i2 + 1;
-            return bArr[i2] & 255;
+            this.mTailOffset = i + 1;
+            return bArr[i] & 255;
         }
         return invokeV.intValue;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public void mark(int i2) {
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && ((FilterInputStream) this).in.markSupported()) {
-            super.mark(i2);
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && ((FilterInputStream) this).in.markSupported()) {
+            super.mark(i);
             this.mMarkedTailOffset = this.mTailOffset;
         }
     }
@@ -101,28 +101,28 @@ public class TailAppendingInputStream extends FilterInputStream {
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
-    public int read(byte[] bArr, int i2, int i3) throws IOException {
+    public int read(byte[] bArr, int i, int i2) throws IOException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            int read = ((FilterInputStream) this).in.read(bArr, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            int read = ((FilterInputStream) this).in.read(bArr, i, i2);
             if (read != -1) {
                 return read;
             }
-            int i4 = 0;
-            if (i3 == 0) {
+            int i3 = 0;
+            if (i2 == 0) {
                 return 0;
             }
-            while (i4 < i3) {
+            while (i3 < i2) {
                 int readNextTailByte = readNextTailByte();
                 if (readNextTailByte == -1) {
                     break;
                 }
-                bArr[i2 + i4] = (byte) readNextTailByte;
-                i4++;
+                bArr[i + i3] = (byte) readNextTailByte;
+                i3++;
             }
-            if (i4 > 0) {
-                return i4;
+            if (i3 > 0) {
+                return i3;
             }
             return -1;
         }

@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +22,9 @@ public class Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,8 +64,8 @@ public class Utils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, iArr)) == null) {
             StringBuilder sb = new StringBuilder();
-            for (int i2 : iArr) {
-                sb.append((char) i2);
+            for (int i : iArr) {
+                sb.append((char) i);
             }
             return sb.toString();
         }
@@ -77,7 +78,7 @@ public class Utils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+                return (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, str2);
             } catch (IllegalArgumentException e2) {
                 throw e2;
             } catch (Exception unused) {

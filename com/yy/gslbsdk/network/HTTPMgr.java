@@ -22,9 +22,8 @@ import java.util.HashMap;
 import java.util.Locale;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLSession;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HTTPMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HTTPMgr";
@@ -35,9 +34,9 @@ public class HTTPMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -113,7 +112,7 @@ public class HTTPMgr {
                             break;
                         }
                         stringBuffer.append(readLine);
-                        stringBuffer.append(StringUtils.LF);
+                        stringBuffer.append("\n");
                     }
                     bufferedReader.close();
                     String[] strArr = {String.valueOf(responseCode), stringBuffer.toString()};
@@ -204,9 +203,9 @@ public class HTTPMgr {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {httpsURLConnection};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     super((HttpsURLConnection) newInitContext.callArgs[0]);
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
@@ -249,7 +248,7 @@ public class HTTPMgr {
                                 break;
                             }
                             stringBuffer.append(readLine);
-                            stringBuffer.append(StringUtils.LF);
+                            stringBuffer.append("\n");
                         }
                         bufferedReader.close();
                         String[] strArr = {String.valueOf(responseCode), stringBuffer.toString()};

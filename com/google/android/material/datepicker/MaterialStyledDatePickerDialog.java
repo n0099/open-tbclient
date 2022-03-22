@@ -26,7 +26,7 @@ import com.google.android.material.dialog.MaterialDialogs;
 import com.google.android.material.resources.MaterialAttributes;
 import com.google.android.material.shape.MaterialShapeDrawable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP, RestrictTo.Scope.TESTS})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     public static /* synthetic */ Interceptable $ic = null;
     @AttrRes
@@ -34,7 +34,7 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     @StyleRes
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner = 2131755328;
+    public static final int obfuscated_res_0x7f100124 = 2131755300;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final Drawable background;
@@ -65,9 +65,9 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -88,17 +88,17 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(@NonNull Context context, int i2) {
-        this(context, i2, null, -1, -1, -1);
+    public MaterialStyledDatePickerDialog(@NonNull Context context, int i) {
+        this(context, i, null, -1, -1, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (DatePickerDialog.OnDateSetListener) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -109,17 +109,17 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(@NonNull Context context, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i2, int i3, int i4) {
-        this(context, 0, onDateSetListener, i2, i3, i4);
+    public MaterialStyledDatePickerDialog(@NonNull Context context, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i, int i2, int i3) {
+        this(context, 0, onDateSetListener, i, i2, i3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, onDateSetListener, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, onDateSetListener, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (DatePickerDialog.OnDateSetListener) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -130,17 +130,17 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialStyledDatePickerDialog(@NonNull Context context, int i2, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i3, int i4, int i5) {
-        super(context, i2, onDateSetListener, i3, i4, i5);
+    public MaterialStyledDatePickerDialog(@NonNull Context context, int i, @Nullable DatePickerDialog.OnDateSetListener onDateSetListener, int i2, int i3, int i4) {
+        super(context, i, onDateSetListener, i2, i3, i4);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r7;
-            Object[] objArr = {context, Integer.valueOf(i2), onDateSetListener, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            Object[] objArr = {context, Integer.valueOf(i), onDateSetListener, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (DatePickerDialog.OnDateSetListener) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -149,14 +149,14 @@ public class MaterialStyledDatePickerDialog extends DatePickerDialog {
             }
         }
         Context context2 = getContext();
-        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.colorSurface, MaterialStyledDatePickerDialog.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner);
+        int resolveOrThrow = MaterialAttributes.resolveOrThrow(getContext(), R.attr.obfuscated_res_0x7f04016b, MaterialStyledDatePickerDialog.class.getCanonicalName());
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context2, null, DEF_STYLE_ATTR, obfuscated_res_0x7f100124);
         if (Build.VERSION.SDK_INT >= 21) {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(resolveOrThrow));
         } else {
             materialShapeDrawable.setFillColor(ColorStateList.valueOf(0));
         }
-        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, MaterialAlertDialog_MaterialComponents_Picker_Date_Spinner);
+        Rect dialogBackgroundInsets = MaterialDialogs.getDialogBackgroundInsets(context2, DEF_STYLE_ATTR, obfuscated_res_0x7f100124);
         this.backgroundInsets = dialogBackgroundInsets;
         this.background = MaterialDialogs.insetDrawable(materialShapeDrawable, dialogBackgroundInsets);
     }

@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import c.a.d.f.p.n;
-import c.a.q0.m.f;
+import c.a.o0.m.f;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.widget.ListView.BdRecyclerView;
 import com.baidu.adp.widget.ListView.GridSpaceItemDecoration;
@@ -43,7 +43,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         public final /* synthetic */ List a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f43081b;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f33432b;
 
         public a(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity, List list) {
             Interceptable interceptable = $ic;
@@ -52,23 +52,23 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {homePageTabFeedCollegeSecondActivity, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43081b = homePageTabFeedCollegeSecondActivity;
+            this.f33432b = homePageTabFeedCollegeSecondActivity;
             this.a = list;
         }
 
         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-        public int getSpanSize(int i2) {
+        public int getSpanSize(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 == this.a.size() ? 2 : 1 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == this.a.size() ? 2 : 1 : invokeI.intValue;
         }
     }
 
@@ -76,9 +76,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     public class b implements f<SpecialColumnItemData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity f43082e;
+        public final /* synthetic */ HomePageTabFeedCollegeSecondActivity a;
 
         public b(HomePageTabFeedCollegeSecondActivity homePageTabFeedCollegeSecondActivity) {
             Interceptable interceptable = $ic;
@@ -87,46 +85,46 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {homePageTabFeedCollegeSecondActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43082e = homePageTabFeedCollegeSecondActivity;
+            this.a = homePageTabFeedCollegeSecondActivity;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: b */
-        public void c(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
+        public void c(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i2), Long.valueOf(j2)}) != null) || specialColumnItemData == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) != null) || specialColumnItemData == null) {
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.m.f
+        @Override // c.a.o0.m.f
         /* renamed from: d */
-        public void a(View view, SpecialColumnItemData specialColumnItemData, int i2, long j2) {
+        public void a(View view, SpecialColumnItemData specialColumnItemData, int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || specialColumnItemData == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, specialColumnItemData, Integer.valueOf(i), Long.valueOf(j)}) == null) || specialColumnItemData == null) {
                 return;
             }
-            int i3 = specialColumnItemData.specialType;
-            if (i3 != 1 && i3 != 2) {
-                if (i3 == 3) {
+            int i2 = specialColumnItemData.specialType;
+            if (i2 != 1 && i2 != 2) {
+                if (i2 == 3) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                     alaLiveInfoCoreData.liveID = specialColumnItemData.liveId;
-                    this.f43082e.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.f43082e, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
+                    this.a.sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(this.a, alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_ACTIVE_VIEW, "", false, "")));
                     return;
-                } else if (i3 != 4) {
+                } else if (i2 != 4) {
                     return;
                 }
             }
-            this.f43082e.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.f43082e).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
+            this.a.sendMessage(new CustomMessage(2004001, new PbActivityConfig(this.a).createNormalCfg(String.valueOf(specialColumnItemData.threadId), null, null)));
         }
     }
 
@@ -135,9 +133,9 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -147,11 +145,11 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void changeSkinType(int i2) {
+    public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             this.adapter.notifyDataSetChanged();
         }
     }
@@ -161,21 +159,21 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activtiy_homepage_tabfeed_colleagsecond_layout);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navi_college_petrol_station);
+            setContentView(R.layout.obfuscated_res_0x7f0d0061);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0914f9);
             this.mNavigationBar = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.showBottomLine();
-            this.bdRecyclerView = (BdRecyclerView) findViewById(R.id.listview_college_petrol_station);
+            this.bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f091287);
             SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
             if (specialColumnListData != null) {
                 this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
                 List<SpecialColumnItemData> resultData = specialColumnListData.getResultData();
                 if (resultData != null && resultData.size() > 0) {
-                    int i2 = resultData.get(0).specialType;
-                    if (i2 == 1 || i2 == 2) {
+                    int i = resultData.get(0).specialType;
+                    if (i == 1 || i == 2) {
                         this.bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-                    } else if (i2 == 3 || i2 == 4) {
+                    } else if (i == 3 || i == 4) {
                         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
                         gridLayoutManager.setSpanSizeLookup(new a(this, resultData));
                         this.bdRecyclerView.setLayoutManager(gridLayoutManager);
@@ -186,11 +184,11 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                 }
                 this.adapter = new HomePageTabFeedCollegeSecondListAdapter(this, resultData);
             }
-            this.adapter.setContentOnClickListener(this.mOnItemClickListener);
+            this.adapter.i(this.mOnItemClickListener);
             this.bdRecyclerView.setAdapter(this.adapter);
-            View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_homepage_tabfeed_footer_view_layout, (ViewGroup) null);
-            SkinManager.setViewTextColor(inflate.findViewById(R.id.tv_footer_content), R.color.CAM_X0109, 1);
-            this.bdRecyclerView.addFooterView(inflate);
+            View inflate = LayoutInflater.from(getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d03ff, (ViewGroup) null);
+            SkinManager.setViewTextColor(inflate.findViewById(R.id.obfuscated_res_0x7f0921ad), R.color.CAM_X0109, 1);
+            this.bdRecyclerView.r(inflate);
         }
     }
 }

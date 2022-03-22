@@ -27,9 +27,9 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             newInitContext.initArgs = r2;
             Object[] objArr = {roomDatabase};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((RoomDatabase) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -75,11 +75,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 long[] jArr = new long[collection.size()];
-                int i2 = 0;
+                int i = 0;
                 for (T t : collection) {
                     bind(acquire, t);
-                    jArr[i2] = acquire.executeInsert();
-                    i2++;
+                    jArr[i] = acquire.executeInsert();
+                    i++;
                 }
                 return jArr;
             } finally {
@@ -96,11 +96,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 Long[] lArr = new Long[collection.size()];
-                int i2 = 0;
+                int i = 0;
                 for (T t : collection) {
                     bind(acquire, t);
-                    lArr[i2] = Long.valueOf(acquire.executeInsert());
-                    i2++;
+                    lArr[i] = Long.valueOf(acquire.executeInsert());
+                    i++;
                 }
                 return lArr;
             } finally {
@@ -117,11 +117,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 ArrayList arrayList = new ArrayList(tArr.length);
-                int i2 = 0;
+                int i = 0;
                 for (T t : tArr) {
                     bind(acquire, t);
-                    arrayList.add(i2, Long.valueOf(acquire.executeInsert()));
-                    i2++;
+                    arrayList.add(i, Long.valueOf(acquire.executeInsert()));
+                    i++;
                 }
                 return arrayList;
             } finally {
@@ -153,11 +153,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 long[] jArr = new long[tArr.length];
-                int i2 = 0;
+                int i = 0;
                 for (T t : tArr) {
                     bind(acquire, t);
-                    jArr[i2] = acquire.executeInsert();
-                    i2++;
+                    jArr[i] = acquire.executeInsert();
+                    i++;
                 }
                 return jArr;
             } finally {
@@ -174,11 +174,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 Long[] lArr = new Long[tArr.length];
-                int i2 = 0;
+                int i = 0;
                 for (T t : tArr) {
                     bind(acquire, t);
-                    lArr[i2] = Long.valueOf(acquire.executeInsert());
-                    i2++;
+                    lArr[i] = Long.valueOf(acquire.executeInsert());
+                    i++;
                 }
                 return lArr;
             } finally {
@@ -195,11 +195,11 @@ public abstract class EntityInsertionAdapter<T> extends SharedSQLiteStatement {
             SupportSQLiteStatement acquire = acquire();
             try {
                 ArrayList arrayList = new ArrayList(collection.size());
-                int i2 = 0;
+                int i = 0;
                 for (T t : collection) {
                     bind(acquire, t);
-                    arrayList.add(i2, Long.valueOf(acquire.executeInsert()));
-                    i2++;
+                    arrayList.add(i, Long.valueOf(acquire.executeInsert()));
+                    i++;
                 }
                 return arrayList;
             } finally {

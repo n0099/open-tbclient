@@ -1,7 +1,7 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
-import c.a.i0.b.a.e;
-import c.a.i0.b.a.i.a;
+import c.a.g0.b.a.e;
+import c.a.g0.b.a.i.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,9 +20,9 @@ public class ServerProvider extends DispatchableContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,11 +50,11 @@ public class ServerProvider extends DispatchableContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<a> a = c.a.i0.b.a.k.a.a(getAuthority());
+            List<a> a = c.a.g0.b.a.k.a.a(getAuthority());
             if (a == null) {
                 a = new ArrayList<>();
             }
-            a.add(0, new c.a.i0.b.a.j.a());
+            a.add(0, new c.a.g0.b.a.j.a());
             return a;
         }
         return (List) invokeV.objValue;

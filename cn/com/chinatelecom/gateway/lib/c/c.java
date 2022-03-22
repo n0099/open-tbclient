@@ -20,7 +20,7 @@ public class c {
     public static final String a = "cn.com.chinatelecom.gateway.lib.c.c";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29263b = "";
+    public static String f23691b = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +43,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -71,16 +71,16 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (TextUtils.isEmpty(f29263b)) {
+            if (TextUtils.isEmpty(f23691b)) {
                 String b2 = b(context);
-                f29263b = b2;
+                f23691b = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String c2 = c(context);
-                    f29263b = c2;
+                    f23691b = c2;
                     a(context, c2);
                 }
             }
-            return f29263b;
+            return f23691b;
         }
         return (String) invokeL.objValue;
     }
@@ -96,12 +96,12 @@ public class c {
                 messageDigest.update(bytes);
                 byte[] digest = messageDigest.digest();
                 char[] cArr2 = new char[digest.length * 2];
-                int i2 = 0;
+                int i = 0;
                 for (byte b2 : digest) {
-                    int i3 = i2 + 1;
-                    cArr2[i2] = cArr[(b2 >>> 4) & 15];
-                    i2 = i3 + 1;
-                    cArr2[i3] = cArr[b2 & 15];
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b2 >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b2 & 15];
                 }
                 return new String(cArr2);
             } catch (Exception unused) {

@@ -40,9 +40,9 @@ public class d implements IPackageGetter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,10 +50,10 @@ public class d implements IPackageGetter {
     }
 
     @Override // com.baidu.nps.interfa.IPackageGetter
-    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i2, IPackageDownloadCallback iPackageDownloadCallback) {
+    public void downloadBundle(IBundleInfo iBundleInfo, String str, int i, IPackageDownloadCallback iPackageDownloadCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i2, iPackageDownloadCallback) == null) {
-            c.e().f().i(iBundleInfo, str, i2, iPackageDownloadCallback);
+        if (interceptable == null || interceptable.invokeLLIL(1048576, this, iBundleInfo, str, i, iPackageDownloadCallback) == null) {
+            c.e().f().i(iBundleInfo, str, i, iPackageDownloadCallback);
         }
     }
 

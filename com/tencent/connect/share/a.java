@@ -10,7 +10,6 @@ import android.os.Message;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,15 +25,15 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean b(String str, int i2, int i3) {
+    public static final boolean b(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, str, i, i2)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -45,18 +44,18 @@ public class a {
             } catch (OutOfMemoryError e2) {
                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "isBitMapNeedToCompress exception:", e2);
             }
-            int i4 = options.outWidth;
-            int i5 = options.outHeight;
-            if (options.mCancel || i4 == -1 || i5 == -1) {
+            int i3 = options.outWidth;
+            int i4 = options.outHeight;
+            if (options.mCancel || i3 == -1 || i4 == -1) {
                 return false;
             }
-            int i6 = i4 > i5 ? i4 : i5;
-            if (i4 >= i5) {
-                i4 = i5;
+            int i5 = i3 > i4 ? i3 : i4;
+            if (i3 >= i4) {
+                i3 = i4;
             }
-            SLog.d("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i6 + "shortSide=" + i4);
+            SLog.d("openSDK_LOG.AsynScaleCompressImage", "longSide=" + i5 + "shortSide=" + i3);
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            return i6 > i3 || i4 > i2;
+            return i5 > i2 || i3 > i;
         }
         return invokeLII.booleanValue;
     }
@@ -84,9 +83,9 @@ public class a {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {r7, dVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((Looper) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -100,10 +99,10 @@ public class a {
                     public void handleMessage(Message message) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) {
-                            int i2 = message.what;
-                            if (i2 == 101) {
+                            int i = message.what;
+                            if (i == 101) {
                                 this.a.a(0, (ArrayList) message.obj);
-                            } else if (i2 != 102) {
+                            } else if (i != 102) {
                                 super.handleMessage(message);
                             } else {
                                 this.a.a(message.arg1, (String) null);
@@ -116,10 +115,10 @@ public class a {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ Handler f59016b;
+                    public final /* synthetic */ Handler f43668b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ Context f59017c;
+                    public final /* synthetic */ Context f43669c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -128,17 +127,17 @@ public class a {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str, r7, context};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.a = str;
-                        this.f59016b = r7;
-                        this.f59017c = context;
+                        this.f43668b = r7;
+                        this.f43669c = context;
                     }
 
                     @Override // java.lang.Runnable
@@ -159,9 +158,9 @@ public class a {
                                         File d2 = f.d();
                                         if (d2 == null) {
                                             SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() getCacheDir = null,return error");
-                                            Message obtainMessage = this.f59016b.obtainMessage();
+                                            Message obtainMessage = this.f43668b.obtainMessage();
                                             obtainMessage.arg1 = 102;
-                                            this.f59016b.sendMessage(obtainMessage);
+                                            this.f43668b.sendMessage(obtainMessage);
                                             return;
                                         }
                                         String absolutePath = d2.getAbsolutePath();
@@ -170,7 +169,7 @@ public class a {
                                         str2 = absolutePath;
                                         str3 = str5;
                                     }
-                                    String str6 = "share2qq_temp" + l.f(this.a) + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX;
+                                    String str6 = "share2qq_temp" + l.f(this.a) + ".jpg";
                                     String str7 = this.a;
                                     if (!a.b(this.a, 840, 840)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() not out of bound,not compress!");
@@ -188,7 +187,7 @@ public class a {
                                         str4 = str7;
                                     } else if (TextUtils.isEmpty(str2)) {
                                         String str8 = str3 + str6;
-                                        boolean a4 = l.a(this.f59017c, str7, str8);
+                                        boolean a4 = l.a(this.f43669c, str7, str8);
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() sd permission not denied. copy to app sepcific:" + str8 + ",isSuccess=" + a4);
                                         if (a4) {
                                             str4 = str8;
@@ -198,9 +197,9 @@ public class a {
                                     arrayList.add(str4);
                                     if (arrayList.size() >= 2 && (arrayList.get(0) != null || arrayList.get(1) != null)) {
                                         SLog.i("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return success ! destFilePath=[" + ((String) arrayList.get(0)) + "," + ((String) arrayList.get(1)) + PreferencesUtil.RIGHT_MOUNT);
-                                        Message obtainMessage2 = this.f59016b.obtainMessage(101);
+                                        Message obtainMessage2 = this.f43668b.obtainMessage(101);
                                         obtainMessage2.obj = arrayList;
-                                        this.f59016b.sendMessage(obtainMessage2);
+                                        this.f43668b.sendMessage(obtainMessage2);
                                         return;
                                     }
                                 }
@@ -208,9 +207,9 @@ public class a {
                                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage runnable exception e:", e2);
                             }
                             SLog.d("openSDK_LOG.AsynScaleCompressImage", "scaleCompressImage() return failed!");
-                            Message obtainMessage3 = this.f59016b.obtainMessage(102);
+                            Message obtainMessage3 = this.f43668b.obtainMessage(102);
                             obtainMessage3.arg1 = 3;
-                            this.f59016b.sendMessage(obtainMessage3);
+                            this.f43668b.sendMessage(obtainMessage3);
                         }
                     }
                 }).start();
@@ -218,44 +217,44 @@ public class a {
         }
     }
 
-    public static Bitmap a(Bitmap bitmap, int i2) {
+    public static Bitmap a(Bitmap bitmap, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bitmap, i)) == null) {
             Matrix matrix = new Matrix();
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
             if (width <= height) {
                 width = height;
             }
-            float f2 = i2 / width;
+            float f2 = i / width;
             matrix.postScale(f2, f2);
             return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
         }
         return (Bitmap) invokeLI.objValue;
     }
 
-    public static int b(BitmapFactory.Options options, int i2, int i3) {
+    public static int b(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         int min;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, options, i, i2)) == null) {
             double d2 = options.outWidth;
             double d3 = options.outHeight;
-            int ceil = i3 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i3));
-            if (i2 == -1) {
+            int ceil = i2 == -1 ? 1 : (int) Math.ceil(Math.sqrt((d2 * d3) / i2));
+            if (i == -1) {
                 min = 128;
             } else {
-                double d4 = i2;
+                double d4 = i;
                 min = (int) Math.min(Math.floor(d2 / d4), Math.floor(d3 / d4));
             }
             if (min < ceil) {
                 return ceil;
             }
-            if (i3 == -1 && i2 == -1) {
+            if (i2 == -1 && i == -1) {
                 return 1;
             }
-            return i2 == -1 ? ceil : min;
+            return i == -1 ? ceil : min;
         }
         return invokeLII.intValue;
     }
@@ -301,11 +300,11 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static final Bitmap a(String str, int i2) {
+    public static final Bitmap a(String str, int i) {
         InterceptResult invokeLI;
         Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
@@ -316,17 +315,17 @@ public class a {
             } catch (OutOfMemoryError e2) {
                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap exception1:", e2);
             }
-            int i3 = options.outWidth;
-            int i4 = options.outHeight;
-            if (options.mCancel || i3 == -1 || i4 == -1) {
+            int i2 = options.outWidth;
+            int i3 = options.outHeight;
+            if (options.mCancel || i2 == -1 || i3 == -1) {
                 return null;
             }
-            if (i3 <= i4) {
-                i3 = i4;
+            if (i2 <= i3) {
+                i2 = i3;
             }
             options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (i3 > i2) {
-                options.inSampleSize = a(options, -1, i2 * i2);
+            if (i2 > i) {
+                options.inSampleSize = a(options, -1, i * i);
             }
             options.inJustDecodeBounds = false;
             try {
@@ -346,27 +345,27 @@ public class a {
                 SLog.e("openSDK_LOG.AsynScaleCompressImage", "scaleBitmap return null");
                 return null;
             }
-            int i5 = options.outWidth;
-            int i6 = options.outHeight;
-            if (i5 <= i6) {
-                i5 = i6;
+            int i4 = options.outWidth;
+            int i5 = options.outHeight;
+            if (i4 <= i5) {
+                i4 = i5;
             }
-            return i5 > i2 ? a(bitmap, i2) : bitmap;
+            return i4 > i ? a(bitmap, i) : bitmap;
         }
         return (Bitmap) invokeLI.objValue;
     }
 
-    public static final int a(BitmapFactory.Options options, int i2, int i3) {
+    public static final int a(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i2, i3)) == null) {
-            int b2 = b(options, i2, i3);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int b2 = b(options, i, i2);
             if (b2 <= 8) {
-                int i4 = 1;
-                while (i4 < b2) {
-                    i4 <<= 1;
+                int i3 = 1;
+                while (i3 < b2) {
+                    i3 <<= 1;
                 }
-                return i4;
+                return i3;
             }
             return ((b2 + 7) / 8) * 8;
         }

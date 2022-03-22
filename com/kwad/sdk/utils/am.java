@@ -3,14 +3,15 @@ package com.kwad.sdk.utils;
 import android.content.Context;
 import android.content.res.Resources;
 import com.kwad.sdk.api.core.ResContext;
-/* loaded from: classes8.dex */
+import com.sina.weibo.sdk.utils.ResourceManager;
+/* loaded from: classes7.dex */
 public class am {
     public static int a(Context context, String str) {
         Resources a = a(context);
         if (a == null) {
             a = context.getResources();
         }
-        return a.getIdentifier(str, "drawable", context.getPackageName());
+        return a.getIdentifier(str, ResourceManager.DRAWABLE, context.getPackageName());
     }
 
     public static Resources a(Context context) {

@@ -53,9 +53,9 @@ public final class DoRecordManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,12 +65,12 @@ public final class DoRecordManager {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void broadcast(int i2, NetworkStatRecord networkStatRecord) {
+    public void broadcast(int i, NetworkStatRecord networkStatRecord) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i2, networkStatRecord) == null) {
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, this, i, networkStatRecord) == null) {
             synchronized (this.mSynchronizedList) {
                 for (RecordObserver recordObserver : this.mSynchronizedList) {
-                    recordObserver.doRecord(networkStatRecord, i2);
+                    recordObserver.doRecord(networkStatRecord, i);
                 }
             }
         }
@@ -155,13 +155,13 @@ public final class DoRecordManager {
         this.mSynchronizedList.remove(recordObserver);
     }
 
-    public void doRecord(NetworkStatRecord networkStatRecord, int i2) {
+    public void doRecord(NetworkStatRecord networkStatRecord, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i2) == null) || networkStatRecord == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord, i) == null) || networkStatRecord == null) {
             return;
         }
         doAdditionalRecord(networkStatRecord);
-        ExecutorUtilsExt.postOnSerial(new Runnable(this, networkStatRecord, i2) { // from class: com.baidu.searchbox.network.outback.statistics.DoRecordManager.1
+        ExecutorUtilsExt.postOnSerial(new Runnable(this, networkStatRecord, i) { // from class: com.baidu.searchbox.network.outback.statistics.DoRecordManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DoRecordManager this$0;
@@ -173,11 +173,11 @@ public final class DoRecordManager {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, networkStatRecord, Integer.valueOf(i2)};
+                    Object[] objArr = {this, networkStatRecord, Integer.valueOf(i)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -185,7 +185,7 @@ public final class DoRecordManager {
                 }
                 this.this$0 = this;
                 this.val$record = networkStatRecord;
-                this.val$type = i2;
+                this.val$type = i;
             }
 
             @Override // java.lang.Runnable

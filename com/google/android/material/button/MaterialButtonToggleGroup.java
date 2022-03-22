@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.accessibility.AccessibilityNodeInfo;
@@ -41,7 +42,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.TreeMap;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialButtonToggleGroup extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public static final int DEF_STYLE_RES;
@@ -59,7 +60,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     public boolean singleSelection;
     public boolean skipCheckedStateTracker;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class CheckedStateTracker implements MaterialButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +73,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {materialButtonToggleGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,7 +100,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CornerData {
         public static /* synthetic */ Interceptable $ic;
         public static final CornerSize noCorner;
@@ -132,9 +133,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cornerSize, cornerSize2, cornerSize3, cornerSize4};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -202,12 +203,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnButtonCheckedListener {
-        void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i2, boolean z);
+        void onButtonChecked(MaterialButtonToggleGroup materialButtonToggleGroup, @IdRes int i, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PressedStateTracker implements MaterialButton.OnPressedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,9 +221,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {materialButtonToggleGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -254,7 +255,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         }
         LOG_TAG = MaterialButtonToggleGroup.class.getSimpleName();
-        DEF_STYLE_RES = 2131755906;
+        DEF_STYLE_RES = R.style.obfuscated_res_0x7f100360;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -266,9 +267,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -284,9 +285,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || (firstVisibleChildIndex = getFirstVisibleChildIndex()) == -1) {
             return;
         }
-        for (int i2 = firstVisibleChildIndex + 1; i2 < getChildCount(); i2++) {
-            MaterialButton childButton = getChildButton(i2);
-            int min = Math.min(childButton.getStrokeWidth(), getChildButton(i2 - 1).getStrokeWidth());
+        for (int i = firstVisibleChildIndex + 1; i < getChildCount(); i++) {
+            MaterialButton childButton = getChildButton(i);
+            int min = Math.min(childButton.getStrokeWidth(), getChildButton(i - 1).getStrokeWidth());
             LinearLayout.LayoutParams buildLayoutParams = buildLayoutParams(childButton);
             if (getOrientation() == 0) {
                 MarginLayoutParamsCompat.setMarginEnd(buildLayoutParams, 0);
@@ -314,30 +315,30 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         return (LinearLayout.LayoutParams) invokeL.objValue;
     }
 
-    private void checkForced(int i2) {
+    private void checkForced(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65548, this, i2) == null) {
-            setCheckedStateForView(i2, true);
-            updateCheckedStates(i2, true);
-            setCheckedId(i2);
+        if (interceptable == null || interceptable.invokeI(65548, this, i) == null) {
+            setCheckedStateForView(i, true);
+            updateCheckedStates(i, true);
+            setCheckedId(i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dispatchOnButtonChecked(@IdRes int i2, boolean z) {
+    public void dispatchOnButtonChecked(@IdRes int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             Iterator<OnButtonCheckedListener> it = this.onButtonCheckedListeners.iterator();
             while (it.hasNext()) {
-                it.next().onButtonChecked(this, i2, z);
+                it.next().onButtonChecked(this, i, z);
             }
         }
     }
 
-    private MaterialButton getChildButton(int i2) {
+    private MaterialButton getChildButton(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i2)) == null) ? (MaterialButton) getChildAt(i2) : (MaterialButton) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65550, this, i)) == null) ? (MaterialButton) getChildAt(i) : (MaterialButton) invokeI.objValue;
     }
 
     private int getFirstVisibleChildIndex() {
@@ -345,9 +346,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, this)) == null) {
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (isChildVisible(i2)) {
-                    return i2;
+            for (int i = 0; i < childCount; i++) {
+                if (isChildVisible(i)) {
+                    return i;
                 }
             }
             return -1;
@@ -361,13 +362,13 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, view)) == null) {
             if (view instanceof MaterialButton) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < getChildCount(); i3++) {
-                    if (getChildAt(i3) == view) {
-                        return i2;
+                int i = 0;
+                for (int i2 = 0; i2 < getChildCount(); i2++) {
+                    if (getChildAt(i2) == view) {
+                        return i;
                     }
-                    if ((getChildAt(i3) instanceof MaterialButton) && isChildVisible(i3)) {
-                        i2++;
+                    if ((getChildAt(i2) instanceof MaterialButton) && isChildVisible(i2)) {
+                        i++;
                     }
                 }
                 return -1;
@@ -392,18 +393,18 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Nullable
-    private CornerData getNewCornerData(int i2, int i3, int i4) {
+    private CornerData getNewCornerData(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65554, this, i2, i3, i4)) == null) {
-            CornerData cornerData = this.originalCornerData.get(i2);
-            if (i3 == i4) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65554, this, i, i2, i3)) == null) {
+            CornerData cornerData = this.originalCornerData.get(i);
+            if (i2 == i3) {
                 return cornerData;
             }
             boolean z = getOrientation() == 0;
-            if (i2 == i3) {
+            if (i == i2) {
                 return z ? CornerData.start(cornerData, this) : CornerData.top(cornerData);
-            } else if (i2 == i4) {
+            } else if (i == i3) {
                 return z ? CornerData.end(cornerData, this) : CornerData.bottom(cornerData);
             } else {
                 return null;
@@ -416,29 +417,29 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, this)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                if ((getChildAt(i3) instanceof MaterialButton) && isChildVisible(i3)) {
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                if ((getChildAt(i2) instanceof MaterialButton) && isChildVisible(i2)) {
+                    i++;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    private boolean isChildVisible(int i2) {
+    private boolean isChildVisible(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65556, this, i2)) == null) ? getChildAt(i2).getVisibility() != 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65556, this, i)) == null) ? getChildAt(i).getVisibility() != 8 : invokeI.booleanValue;
     }
 
-    private void resetChildMargins(int i2) {
+    private void resetChildMargins(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65557, this, i2) == null) || getChildCount() == 0 || i2 == -1) {
+        if (!(interceptable == null || interceptable.invokeI(65557, this, i) == null) || getChildCount() == 0 || i == -1) {
             return;
         }
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getChildButton(i2).getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getChildButton(i).getLayoutParams();
         if (getOrientation() == 1) {
             layoutParams.topMargin = 0;
             layoutParams.bottomMargin = 0;
@@ -450,18 +451,18 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         layoutParams.rightMargin = 0;
     }
 
-    private void setCheckedId(int i2) {
+    private void setCheckedId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65558, this, i2) == null) {
-            this.checkedId = i2;
-            dispatchOnButtonChecked(i2, true);
+        if (interceptable == null || interceptable.invokeI(65558, this, i) == null) {
+            this.checkedId = i;
+            dispatchOnButtonChecked(i, true);
         }
     }
 
-    private void setCheckedStateForView(@IdRes int i2, boolean z) {
+    private void setCheckedStateForView(@IdRes int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            View findViewById = findViewById(i2);
+        if (interceptable == null || interceptable.invokeCommon(65559, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            View findViewById = findViewById(i);
             if (findViewById instanceof MaterialButton) {
                 this.skipCheckedStateTracker = true;
                 ((MaterialButton) findViewById).setChecked(z);
@@ -501,18 +502,18 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean updateCheckedStates(int i2, boolean z) {
+    public boolean updateCheckedStates(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65563, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             List<Integer> checkedButtonIds = getCheckedButtonIds();
             if (this.selectionRequired && checkedButtonIds.isEmpty()) {
-                setCheckedStateForView(i2, true);
-                this.checkedId = i2;
+                setCheckedStateForView(i, true);
+                this.checkedId = i;
                 return false;
             }
             if (z && this.singleSelection) {
-                checkedButtonIds.remove(Integer.valueOf(i2));
+                checkedButtonIds.remove(Integer.valueOf(i));
                 for (Integer num : checkedButtonIds) {
                     int intValue = num.intValue();
                     setCheckedStateForView(intValue, false);
@@ -529,8 +530,8 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(65564, this) == null) {
             TreeMap treeMap = new TreeMap(this.childOrderComparator);
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                treeMap.put(getChildButton(i2), Integer.valueOf(i2));
+            for (int i = 0; i < childCount; i++) {
+                treeMap.put(getChildButton(i), Integer.valueOf(i));
             }
             this.childOrder = (Integer[]) treeMap.values().toArray(new Integer[0]);
         }
@@ -544,10 +545,14 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2, layoutParams) == null) && (view instanceof MaterialButton)) {
-            super.addView(view, i2, layoutParams);
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i, layoutParams) == null) {
+            if (!(view instanceof MaterialButton)) {
+                Log.e(LOG_TAG, "Child views must be of type MaterialButton.");
+                return;
+            }
+            super.addView(view, i, layoutParams);
             MaterialButton materialButton = (MaterialButton) view;
             setGeneratedIdIfNeeded(materialButton);
             setupButtonChild(materialButton);
@@ -569,9 +574,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -592,20 +597,20 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         }
     }
 
-    public void check(@IdRes int i2) {
+    public void check(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || i2 == this.checkedId) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i == this.checkedId) {
             return;
         }
-        checkForced(i2);
+        checkForced(i);
     }
 
     public void clearChecked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.skipCheckedStateTracker = true;
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                MaterialButton childButton = getChildButton(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                MaterialButton childButton = getChildButton(i);
                 childButton.setChecked(false);
                 dispatchOnButtonChecked(childButton.getId(), false);
             }
@@ -657,8 +662,8 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                MaterialButton childButton = getChildButton(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                MaterialButton childButton = getChildButton(i);
                 if (childButton.isChecked()) {
                     arrayList.add(Integer.valueOf(childButton.getId()));
                 }
@@ -669,12 +674,16 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Override // android.view.ViewGroup
-    public int getChildDrawingOrder(int i2, int i3) {
+    public int getChildDrawingOrder(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
             Integer[] numArr = this.childOrder;
-            return (numArr == null || i3 >= numArr.length) ? i3 : numArr[i3].intValue();
+            if (numArr != null && i2 < numArr.length) {
+                return numArr[i2].intValue();
+            }
+            Log.w(LOG_TAG, "Child order wasn't updated");
+            return i2;
         }
         return invokeII.intValue;
     }
@@ -696,9 +705,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onFinishInflate();
-            int i2 = this.checkedId;
-            if (i2 != -1) {
-                checkForced(i2);
+            int i = this.checkedId;
+            if (i != -1) {
+                checkForced(i);
             }
         }
     }
@@ -713,12 +722,12 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048590, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
             updateChildShapes();
             adjustChildMarginsAndUpdateLayout();
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
@@ -764,13 +773,13 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         clearChecked();
     }
 
-    public void uncheck(@IdRes int i2) {
+    public void uncheck(@IdRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            setCheckedStateForView(i2, false);
-            updateCheckedStates(i2, false);
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            setCheckedStateForView(i, false);
+            updateCheckedStates(i, false);
             this.checkedId = -1;
-            dispatchOnButtonChecked(i2, false);
+            dispatchOnButtonChecked(i, false);
         }
     }
 
@@ -781,11 +790,11 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             int childCount = getChildCount();
             int firstVisibleChildIndex = getFirstVisibleChildIndex();
             int lastVisibleChildIndex = getLastVisibleChildIndex();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                MaterialButton childButton = getChildButton(i2);
+            for (int i = 0; i < childCount; i++) {
+                MaterialButton childButton = getChildButton(i);
                 if (childButton.getVisibility() != 8) {
                     ShapeAppearanceModel.Builder builder = childButton.getShapeAppearanceModel().toBuilder();
-                    updateBuilderWithCornerData(builder, getNewCornerData(i2, firstVisibleChildIndex, lastVisibleChildIndex));
+                    updateBuilderWithCornerData(builder, getNewCornerData(i, firstVisibleChildIndex, lastVisibleChildIndex));
                     childButton.setShapeAppearanceModel(builder.build());
                 }
             }
@@ -794,16 +803,16 @@ public class MaterialButtonToggleGroup extends LinearLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.materialButtonToggleGroupStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040409);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -814,17 +823,17 @@ public class MaterialButtonToggleGroup extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, DEF_STYLE_RES), attributeSet, i2);
+    public MaterialButtonToggleGroup(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, DEF_STYLE_RES), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -848,9 +857,9 @@ public class MaterialButtonToggleGroup extends LinearLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -876,7 +885,7 @@ public class MaterialButtonToggleGroup extends LinearLayout {
             }
         };
         this.skipCheckedStateTracker = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.checkedButton, R.attr.selectionRequired, R.attr.singleSelection}, i2, DEF_STYLE_RES, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011d, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f040560}, i, DEF_STYLE_RES, new int[0]);
         setSingleSelection(obtainStyledAttributes.getBoolean(2, false));
         this.checkedId = obtainStyledAttributes.getResourceId(0, -1);
         this.selectionRequired = obtainStyledAttributes.getBoolean(1, false);
@@ -885,10 +894,10 @@ public class MaterialButtonToggleGroup extends LinearLayout {
         ViewCompat.setImportantForAccessibility(this, 1);
     }
 
-    public void setSingleSelection(@BoolRes int i2) {
+    public void setSingleSelection(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            setSingleSelection(getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            setSingleSelection(getResources().getBoolean(i));
         }
     }
 }

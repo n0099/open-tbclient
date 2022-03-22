@@ -23,7 +23,7 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
     }
 
     @KsAdSdkApi
@@ -33,7 +33,7 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
@@ -48,7 +48,7 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
@@ -57,7 +57,7 @@ public interface KsLoadManager {
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i2);
+        void onRequestResult(int i);
     }
 
     @KsAdSdkApi
@@ -67,7 +67,7 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
@@ -76,7 +76,7 @@ public interface KsLoadManager {
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i2);
+        void onRequestResult(int i);
     }
 
     @KsAdSdkApi
@@ -86,7 +86,7 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
@@ -101,11 +101,11 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i2);
+        void onRequestResult(int i);
 
         @KsAdSdkApi
         @Keep
@@ -120,11 +120,11 @@ public interface KsLoadManager {
         @KsAdSdkApi
         @Keep
         @MainThread
-        void onError(int i2, String str);
+        void onError(int i, String str);
 
         @KsAdSdkApi
         @Keep
-        void onRequestResult(int i2);
+        void onRequestResult(int i);
 
         @KsAdSdkApi
         @Keep

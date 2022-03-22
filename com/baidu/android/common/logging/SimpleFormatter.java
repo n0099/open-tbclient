@@ -14,7 +14,6 @@ import java.text.MessageFormat;
 import java.util.Date;
 import java.util.logging.Formatter;
 import java.util.logging.LogRecord;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class SimpleFormatter extends Formatter {
     public static /* synthetic */ Interceptable $ic = null;
@@ -44,9 +43,9 @@ public class SimpleFormatter extends Formatter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -61,32 +60,32 @@ public class SimpleFormatter extends Formatter {
         InterceptResult invokeL;
         String str;
         String str2;
-        int i2;
+        int i;
         String stringBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logRecord)) == null) {
             synchronized (this) {
                 StackTraceElement[] stackTrace = new Throwable().getStackTrace();
                 int length = stackTrace.length;
-                int i3 = 0;
+                int i2 = 0;
                 boolean z = false;
                 while (true) {
-                    if (i3 >= length) {
+                    if (i2 >= length) {
                         str = null;
                         str2 = null;
-                        i2 = 0;
+                        i = 0;
                         break;
                     }
-                    StackTraceElement stackTraceElement = stackTrace[i3];
+                    StackTraceElement stackTraceElement = stackTrace[i2];
                     if (stackTraceElement.getClassName().startsWith(Log.class.getName())) {
                         z = true;
                     } else if (z) {
                         str = stackTraceElement.getClassName();
                         str2 = stackTraceElement.getMethodName();
-                        i2 = stackTraceElement.getLineNumber();
+                        i = stackTraceElement.getLineNumber();
                         break;
                     }
-                    i3++;
+                    i2++;
                 }
                 logRecord.setSourceClassName(str);
                 logRecord.setSourceMethodName(str2);
@@ -111,13 +110,13 @@ public class SimpleFormatter extends Formatter {
                     stringBuffer2.append(logRecord.getSourceMethodName());
                 }
                 stringBuffer2.append(" ");
-                stringBuffer2.append(i2);
+                stringBuffer2.append(i);
                 stringBuffer2.append(" ");
                 String formatMessage = formatMessage(logRecord);
                 stringBuffer2.append(logRecord.getLevel().getLocalizedName());
                 stringBuffer2.append(": ");
                 stringBuffer2.append(formatMessage);
-                stringBuffer2.append(StringUtils.LF);
+                stringBuffer2.append("\n");
                 if (logRecord.getThrown() != null) {
                     try {
                         StringWriter stringWriter = new StringWriter();

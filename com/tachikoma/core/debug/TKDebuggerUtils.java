@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKDebuggerUtils {
     public static /* synthetic */ Interceptable $ic;
     public static Class<?> sDebuggerHelper;
@@ -30,9 +30,9 @@ public class TKDebuggerUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -159,17 +159,17 @@ public class TKDebuggerUtils {
         }
     }
 
-    public static void onExecuteScript(@NonNull String str, @NonNull String str2, @NonNull String str3, @Nullable String str4, int i2) {
+    public static void onExecuteScript(@NonNull String str, @NonNull String str2, @NonNull String str3, @Nullable String str4, int i) {
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i2)}) == null) || (cls = sDebuggerHelper) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, str2, str3, str4, Integer.valueOf(i)}) == null) || (cls = sDebuggerHelper) == null) {
             return;
         }
         try {
             if (sOnExecuteScript == null) {
                 sOnExecuteScript = cls.getDeclaredMethod("onExecuteScript", String.class, String.class, String.class, String.class, Integer.TYPE);
             }
-            sOnExecuteScript.invoke(null, str, str2, str3, str4, Integer.valueOf(i2));
+            sOnExecuteScript.invoke(null, str, str2, str3, str4, Integer.valueOf(i));
         } catch (Exception e2) {
             e2.printStackTrace();
         }

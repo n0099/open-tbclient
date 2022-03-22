@@ -32,23 +32,23 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
         public final long index;
         public Disposable s;
 
-        public ElementAtObserver(MaybeObserver<? super T> maybeObserver, long j2) {
+        public ElementAtObserver(MaybeObserver<? super T> maybeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, Long.valueOf(j2)};
+                Object[] objArr = {maybeObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = maybeObserver;
-            this.index = j2;
+            this.index = j;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -95,14 +95,14 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.dispose();
                 this.actual.onSuccess(t);
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.Observer
@@ -115,23 +115,23 @@ public final class ObservableElementAtMaybe<T> extends Maybe<T> implements FuseT
         }
     }
 
-    public ObservableElementAtMaybe(ObservableSource<T> observableSource, long j2) {
+    public ObservableElementAtMaybe(ObservableSource<T> observableSource, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2)};
+            Object[] objArr = {observableSource, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = observableSource;
-        this.index = j2;
+        this.index = j;
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToObservable

@@ -14,14 +14,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UiThreadExecutor {
     public static /* synthetic */ Interceptable $ic;
     public static final Handler HANDLER;
     public static final Map<String, Token> TOKENS;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Token {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class UiThreadExecutor {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -74,9 +74,9 @@ public class UiThreadExecutor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r7};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         super((Looper) newInitContext.callArgs[0]);
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
@@ -107,9 +107,9 @@ public class UiThreadExecutor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -136,9 +136,9 @@ public class UiThreadExecutor {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, token) == null) {
             synchronized (TOKENS) {
-                int i2 = token.runnablesCount - 1;
-                token.runnablesCount = i2;
-                if (i2 == 0 && (remove = TOKENS.remove((str = token.id))) != token) {
+                int i = token.runnablesCount - 1;
+                token.runnablesCount = i;
+                if (i == 0 && (remove = TOKENS.remove((str = token.id))) != token) {
                     TOKENS.put(str, remove);
                 }
             }
@@ -170,20 +170,20 @@ public class UiThreadExecutor {
         }
     }
 
-    public static void runTask(Runnable runnable, long j2) {
+    public static void runTask(Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65543, null, runnable, j2) == null) {
-            runTask("", runnable, j2);
+        if (interceptable == null || interceptable.invokeLJ(65543, null, runnable, j) == null) {
+            runTask("", runnable, j);
         }
     }
 
-    public static void runTask(String str, Runnable runnable, long j2) {
+    public static void runTask(String str, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, runnable, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{str, runnable, Long.valueOf(j)}) == null) {
             if ("".equals(str)) {
-                HANDLER.postDelayed(runnable, j2);
+                HANDLER.postDelayed(runnable, j);
             } else {
-                HANDLER.postAtTime(runnable, nextToken(str), SystemClock.uptimeMillis() + j2);
+                HANDLER.postAtTime(runnable, nextToken(str), SystemClock.uptimeMillis() + j);
             }
         }
     }

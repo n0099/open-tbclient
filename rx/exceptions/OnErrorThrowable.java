@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.m.a;
-import i.r.f;
+import g.m.a;
+import g.r.f;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class OnErrorThrowable extends RuntimeException {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -569558213262703934L;
@@ -22,14 +22,14 @@ public final class OnErrorThrowable extends RuntimeException {
     public final boolean hasValue;
     public final Object value;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class OnNextValue extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -3454462756050397899L;
         public transient /* synthetic */ FieldHolder $fh;
         public final Object value;
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes8.dex */
         public static final class a {
             public static /* synthetic */ Interceptable $ic;
             public static final Set<Class<?>> a;
@@ -79,9 +79,9 @@ public final class OnErrorThrowable extends RuntimeException {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -139,9 +139,9 @@ public final class OnErrorThrowable extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {th};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Throwable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -206,9 +206,9 @@ public final class OnErrorThrowable extends RuntimeException {
             newInitContext.initArgs = r2;
             Object[] objArr = {th, obj};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Throwable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

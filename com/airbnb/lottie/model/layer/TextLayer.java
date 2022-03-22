@@ -30,7 +30,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes3.dex */
 public class TextLayer extends BaseLayer {
     public final LongSparseArray<String> codePointCache;
@@ -143,18 +142,18 @@ public class TextLayer extends BaseLayer {
     }
 
     private void applyJustification(DocumentData.Justification justification, Canvas canvas, float f2) {
-        int i2 = AnonymousClass3.$SwitchMap$com$airbnb$lottie$model$DocumentData$Justification[justification.ordinal()];
-        if (i2 == 2) {
+        int i = AnonymousClass3.$SwitchMap$com$airbnb$lottie$model$DocumentData$Justification[justification.ordinal()];
+        if (i == 2) {
             canvas.translate(-f2, 0.0f);
-        } else if (i2 != 3) {
+        } else if (i != 3) {
         } else {
             canvas.translate((-f2) / 2.0f, 0.0f);
         }
     }
 
-    private String codePointToString(String str, int i2) {
-        int codePointAt = str.codePointAt(i2);
-        int charCount = Character.charCount(codePointAt) + i2;
+    private String codePointToString(String str, int i) {
+        int codePointAt = str.codePointAt(i);
+        int charCount = Character.charCount(codePointAt) + i;
         while (charCount < str.length()) {
             int codePointAt2 = str.codePointAt(charCount);
             if (!isModifier(codePointAt2)) {
@@ -163,18 +162,18 @@ public class TextLayer extends BaseLayer {
             charCount += Character.charCount(codePointAt2);
             codePointAt = (codePointAt * 31) + codePointAt2;
         }
-        long j2 = codePointAt;
-        if (this.codePointCache.containsKey(j2)) {
-            return this.codePointCache.get(j2);
+        long j = codePointAt;
+        if (this.codePointCache.containsKey(j)) {
+            return this.codePointCache.get(j);
         }
         this.stringBuilder.setLength(0);
-        while (i2 < charCount) {
-            int codePointAt3 = str.codePointAt(i2);
+        while (i < charCount) {
+            int codePointAt3 = str.codePointAt(i);
             this.stringBuilder.appendCodePoint(codePointAt3);
-            i2 += Character.charCount(codePointAt3);
+            i += Character.charCount(codePointAt3);
         }
         String sb = this.stringBuilder.toString();
-        this.codePointCache.put(j2, sb);
+        this.codePointCache.put(j, sb);
         return sb;
     }
 
@@ -190,8 +189,8 @@ public class TextLayer extends BaseLayer {
 
     private void drawCharacterAsGlyph(FontCharacter fontCharacter, Matrix matrix, float f2, DocumentData documentData, Canvas canvas) {
         List<ContentGroup> contentsForCharacter = getContentsForCharacter(fontCharacter);
-        for (int i2 = 0; i2 < contentsForCharacter.size(); i2++) {
-            Path path = contentsForCharacter.get(i2).getPath();
+        for (int i = 0; i < contentsForCharacter.size(); i++) {
+            Path path = contentsForCharacter.get(i).getPath();
             path.computeBounds(this.rectF, false);
             this.matrix.set(matrix);
             this.matrix.preTranslate(0.0f, (-documentData.baselineShift) * Utils.dpScale());
@@ -218,10 +217,10 @@ public class TextLayer extends BaseLayer {
     }
 
     private void drawFontTextLine(String str, DocumentData documentData, Canvas canvas, float f2) {
-        int i2 = 0;
-        while (i2 < str.length()) {
-            String codePointToString = codePointToString(str, i2);
-            i2 += codePointToString.length();
+        int i = 0;
+        while (i < str.length()) {
+            String codePointToString = codePointToString(str, i);
+            i += codePointToString.length();
             drawCharacterFromFont(codePointToString, documentData, canvas);
             canvas.translate(this.fillPaint.measureText(codePointToString) + f2, 0.0f);
         }
@@ -239,8 +238,8 @@ public class TextLayer extends BaseLayer {
 
     private void drawGlyphTextLine(String str, DocumentData documentData, Matrix matrix, Font font, Canvas canvas, float f2, float f3) {
         float floatValue;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i2), font.getFamily(), font.getStyle()));
+        for (int i = 0; i < str.length(); i++) {
+            FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i), font.getFamily(), font.getStyle()));
             if (fontCharacter != null) {
                 drawCharacterAsGlyph(fontCharacter, matrix, f3, documentData, canvas);
                 float width = ((float) fontCharacter.getWidth()) * f3 * Utils.dpScale() * f2;
@@ -280,12 +279,12 @@ public class TextLayer extends BaseLayer {
         float dpScale = documentData.lineHeight * Utils.dpScale();
         List<String> textLines = getTextLines(str);
         int size = textLines.size();
-        for (int i2 = 0; i2 < size; i2++) {
-            String str2 = textLines.get(i2);
+        for (int i = 0; i < size; i++) {
+            String str2 = textLines.get(i);
             float textLineWidthForGlyphs = getTextLineWidthForGlyphs(str2, font, f3, scale);
             canvas.save();
             applyJustification(documentData.justification, canvas, textLineWidthForGlyphs);
-            canvas.translate(0.0f, (i2 * dpScale) - (((size - 1) * dpScale) / 2.0f));
+            canvas.translate(0.0f, (i * dpScale) - (((size - 1) * dpScale) / 2.0f));
             drawGlyphTextLine(str2, documentData, matrix, font, canvas, scale, f3);
             canvas.restore();
         }
@@ -299,7 +298,7 @@ public class TextLayer extends BaseLayer {
         float f2;
         float floatValue;
         int size;
-        int i2;
+        int i;
         Utils.getScale(matrix);
         Typeface typeface = this.lottieDrawable.getTypeface(font.getFamily(), font.getStyle());
         if (typeface == null) {
@@ -338,12 +337,12 @@ public class TextLayer extends BaseLayer {
             float dpScale2 = ((f3 * Utils.dpScale()) * f2) / 100.0f;
             List<String> textLines = getTextLines(str);
             size = textLines.size();
-            for (i2 = 0; i2 < size; i2++) {
-                String str2 = textLines.get(i2);
+            for (i = 0; i < size; i++) {
+                String str2 = textLines.get(i);
                 float measureText = this.strokePaint.measureText(str2) + ((str2.length() - 1) * dpScale2);
                 canvas.save();
                 applyJustification(documentData.justification, canvas, measureText);
-                canvas.translate(0.0f, (i2 * dpScale) - (((size - 1) * dpScale) / 2.0f));
+                canvas.translate(0.0f, (i * dpScale) - (((size - 1) * dpScale) / 2.0f));
                 drawFontTextLine(str2, documentData, canvas, dpScale2);
                 canvas.restore();
             }
@@ -352,7 +351,7 @@ public class TextLayer extends BaseLayer {
         float dpScale22 = ((f3 * Utils.dpScale()) * f2) / 100.0f;
         List<String> textLines2 = getTextLines(str);
         size = textLines2.size();
-        while (i2 < size) {
+        while (i < size) {
         }
     }
 
@@ -363,8 +362,8 @@ public class TextLayer extends BaseLayer {
         List<ShapeGroup> shapes = fontCharacter.getShapes();
         int size = shapes.size();
         ArrayList arrayList = new ArrayList(size);
-        for (int i2 = 0; i2 < size; i2++) {
-            arrayList.add(new ContentGroup(this.lottieDrawable, this, shapes.get(i2)));
+        for (int i = 0; i < size; i++) {
+            arrayList.add(new ContentGroup(this.lottieDrawable, this, shapes.get(i)));
         }
         this.contentsForCharacter.put(fontCharacter, arrayList);
         return arrayList;
@@ -372,8 +371,8 @@ public class TextLayer extends BaseLayer {
 
     private float getTextLineWidthForGlyphs(String str, Font font, float f2, float f3) {
         float f4 = 0.0f;
-        for (int i2 = 0; i2 < str.length(); i2++) {
-            FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i2), font.getFamily(), font.getStyle()));
+        for (int i = 0; i < str.length(); i++) {
+            FontCharacter fontCharacter = this.composition.getCharacters().get(FontCharacter.hashFor(str.charAt(i), font.getFamily(), font.getStyle()));
             if (fontCharacter != null) {
                 f4 = (float) (f4 + (fontCharacter.getWidth() * f2 * Utils.dpScale() * f3));
             }
@@ -382,11 +381,11 @@ public class TextLayer extends BaseLayer {
     }
 
     private List<String> getTextLines(String str) {
-        return Arrays.asList(str.replaceAll("\r\n", StringUtils.CR).replaceAll(StringUtils.LF, StringUtils.CR).split(StringUtils.CR));
+        return Arrays.asList(str.replaceAll("\r\n", "\r").replaceAll("\n", "\r").split("\r"));
     }
 
-    private boolean isModifier(int i2) {
-        return Character.getType(i2) == 16 || Character.getType(i2) == 27 || Character.getType(i2) == 6 || Character.getType(i2) == 28 || Character.getType(i2) == 19;
+    private boolean isModifier(int i) {
+        return Character.getType(i) == 16 || Character.getType(i) == 27 || Character.getType(i) == 6 || Character.getType(i) == 28 || Character.getType(i) == 19;
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer, com.airbnb.lottie.model.KeyPathElement
@@ -461,7 +460,7 @@ public class TextLayer extends BaseLayer {
     }
 
     @Override // com.airbnb.lottie.model.layer.BaseLayer
-    public void drawLayer(Canvas canvas, Matrix matrix, int i2) {
+    public void drawLayer(Canvas canvas, Matrix matrix, int i) {
         canvas.save();
         if (!this.lottieDrawable.useTextGlyphs()) {
             canvas.concat(matrix);

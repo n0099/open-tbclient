@@ -21,9 +21,9 @@ public abstract class NativeRestore {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -105,10 +105,10 @@ public abstract class NativeRestore {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? getString("time_crash") : (String) invokeV.objValue;
     }
 
-    public int getInt(String str, int i2) {
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
             return 0;
         }
         return invokeLI.intValue;
@@ -169,10 +169,10 @@ public abstract class NativeRestore {
         return invokeLL.booleanValue;
     }
 
-    public boolean putInt(String str, int i2) {
+    public boolean putInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, str, i)) == null) {
             return false;
         }
         return invokeLI.booleanValue;

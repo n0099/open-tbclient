@@ -18,7 +18,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JobScheduler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String QUEUE_TIME_KEY = "queueTime";
@@ -45,7 +45,7 @@ public class JobScheduler {
     public final Runnable mSubmitJobRunnable;
 
     /* renamed from: com.facebook.imagepipeline.producers.JobScheduler$3  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass3 {
         public static final /* synthetic */ int[] $SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState;
         public static /* synthetic */ Interceptable $ic;
@@ -85,13 +85,13 @@ public class JobScheduler {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface JobRunnable {
-        void run(EncodedImage encodedImage, int i2);
+        void run(EncodedImage encodedImage, int i);
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class JobStartExecutorSupplier {
         public static /* synthetic */ Interceptable $ic;
         public static ScheduledExecutorService sJobStarterExecutor;
@@ -102,9 +102,9 @@ public class JobScheduler {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -126,7 +126,7 @@ public class JobScheduler {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class JobState {
         public static final /* synthetic */ JobState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -157,16 +157,16 @@ public class JobScheduler {
             $VALUES = new JobState[]{IDLE, QUEUED, RUNNING, jobState};
         }
 
-        public JobState(String str, int i2) {
+        public JobState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -189,16 +189,16 @@ public class JobScheduler {
         }
     }
 
-    public JobScheduler(Executor executor, JobRunnable jobRunnable, int i2) {
+    public JobScheduler(Executor executor, JobRunnable jobRunnable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, jobRunnable, Integer.valueOf(i2)};
+            Object[] objArr = {executor, jobRunnable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -206,7 +206,7 @@ public class JobScheduler {
         }
         this.mExecutor = executor;
         this.mJobRunnable = jobRunnable;
-        this.mMinimumJobIntervalMs = i2;
+        this.mMinimumJobIntervalMs = i;
         this.mDoJobRunnable = new Runnable(this) { // from class: com.facebook.imagepipeline.producers.JobScheduler.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -219,9 +219,9 @@ public class JobScheduler {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -250,9 +250,9 @@ public class JobScheduler {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -279,21 +279,21 @@ public class JobScheduler {
     /* JADX INFO: Access modifiers changed from: private */
     public void doJob() {
         EncodedImage encodedImage;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
             synchronized (this) {
                 encodedImage = this.mEncodedImage;
-                i2 = this.mStatus;
+                i = this.mStatus;
                 this.mEncodedImage = null;
                 this.mStatus = 0;
                 this.mJobState = JobState.RUNNING;
                 this.mJobStartTime = uptimeMillis;
             }
             try {
-                if (shouldProcess(encodedImage, i2)) {
-                    this.mJobRunnable.run(encodedImage, i2);
+                if (shouldProcess(encodedImage, i)) {
+                    this.mJobRunnable.run(encodedImage, i);
                 }
             } finally {
                 EncodedImage.closeSafely(encodedImage);
@@ -302,11 +302,11 @@ public class JobScheduler {
         }
     }
 
-    private void enqueueJob(long j2) {
+    private void enqueueJob(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j2) == null) {
-            if (j2 > 0) {
-                JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j2, TimeUnit.MILLISECONDS);
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, this, j) == null) {
+            if (j > 0) {
+                JobStartExecutorSupplier.get().schedule(this.mSubmitJobRunnable, j, TimeUnit.MILLISECONDS);
             } else {
                 this.mSubmitJobRunnable.run();
             }
@@ -314,33 +314,33 @@ public class JobScheduler {
     }
 
     private void onJobFinished() {
-        long j2;
+        long j;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             long uptimeMillis = SystemClock.uptimeMillis();
             synchronized (this) {
                 if (this.mJobState == JobState.RUNNING_AND_PENDING) {
-                    j2 = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
+                    j = Math.max(this.mJobStartTime + this.mMinimumJobIntervalMs, uptimeMillis);
                     z = true;
                     this.mJobSubmitTime = uptimeMillis;
                     this.mJobState = JobState.QUEUED;
                 } else {
                     this.mJobState = JobState.IDLE;
-                    j2 = 0;
+                    j = 0;
                     z = false;
                 }
             }
             if (z) {
-                enqueueJob(j2 - uptimeMillis);
+                enqueueJob(j - uptimeMillis);
             }
         }
     }
 
-    public static boolean shouldProcess(EncodedImage encodedImage, int i2) {
+    public static boolean shouldProcess(EncodedImage encodedImage, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, encodedImage, i2)) == null) ? BaseConsumer.isLast(i2) || BaseConsumer.statusHasFlag(i2, 4) || EncodedImage.isValid(encodedImage) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, encodedImage, i)) == null) ? BaseConsumer.isLast(i) || BaseConsumer.statusHasFlag(i, 4) || EncodedImage.isValid(encodedImage) : invokeLI.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -366,13 +366,13 @@ public class JobScheduler {
 
     public synchronized long getQueuedTime() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                j2 = this.mJobStartTime - this.mJobSubmitTime;
+                j = this.mJobStartTime - this.mJobSubmitTime;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -386,9 +386,9 @@ public class JobScheduler {
             synchronized (this) {
                 boolean z = false;
                 if (shouldProcess(this.mEncodedImage, this.mStatus)) {
-                    int i2 = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
-                    if (i2 != 1) {
-                        if (i2 == 3) {
+                    int i = AnonymousClass3.$SwitchMap$com$facebook$imagepipeline$producers$JobScheduler$JobState[this.mJobState.ordinal()];
+                    if (i != 1) {
+                        if (i == 3) {
                             this.mJobState = JobState.RUNNING_AND_PENDING;
                         }
                         max = 0;
@@ -409,16 +409,16 @@ public class JobScheduler {
         return invokeV.booleanValue;
     }
 
-    public boolean updateJob(EncodedImage encodedImage, int i2) {
+    public boolean updateJob(EncodedImage encodedImage, int i) {
         InterceptResult invokeLI;
         EncodedImage encodedImage2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, encodedImage, i2)) == null) {
-            if (shouldProcess(encodedImage, i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, encodedImage, i)) == null) {
+            if (shouldProcess(encodedImage, i)) {
                 synchronized (this) {
                     encodedImage2 = this.mEncodedImage;
                     this.mEncodedImage = EncodedImage.cloneOrNull(encodedImage);
-                    this.mStatus = i2;
+                    this.mStatus = i;
                 }
                 EncodedImage.closeSafely(encodedImage2);
                 return true;

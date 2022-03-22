@@ -49,16 +49,16 @@ public abstract class Visibility extends Transition {
         public final boolean mSuppressLayout;
         public final View mView;
 
-        public DisappearListener(View view, int i2, boolean z) {
+        public DisappearListener(View view, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {view, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -66,7 +66,7 @@ public abstract class Visibility extends Transition {
             }
             this.mCanceled = false;
             this.mView = view;
-            this.mFinalVisibility = i2;
+            this.mFinalVisibility = i;
             this.mParent = (ViewGroup) view.getParent();
             this.mSuppressLayout = z;
             suppressLayout(true);
@@ -207,9 +207,9 @@ public abstract class Visibility extends Transition {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -238,9 +238,9 @@ public abstract class Visibility extends Transition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -285,13 +285,13 @@ public abstract class Visibility extends Transition {
                 if (visibilityInfo.mStartVisibility == visibilityInfo.mEndVisibility && visibilityInfo.mStartParent == visibilityInfo.mEndParent) {
                     return visibilityInfo;
                 }
-                int i2 = visibilityInfo.mStartVisibility;
-                int i3 = visibilityInfo.mEndVisibility;
-                if (i2 != i3) {
-                    if (i2 == 0) {
+                int i = visibilityInfo.mStartVisibility;
+                int i2 = visibilityInfo.mEndVisibility;
+                if (i != i2) {
+                    if (i == 0) {
                         visibilityInfo.mFadeIn = false;
                         visibilityInfo.mVisibilityChange = true;
-                    } else if (i3 == 0) {
+                    } else if (i2 == 0) {
                         visibilityInfo.mFadeIn = true;
                         visibilityInfo.mVisibilityChange = true;
                     }
@@ -406,10 +406,10 @@ public abstract class Visibility extends Transition {
         return (Animator) invokeLLLL.objValue;
     }
 
-    public Animator onAppear(ViewGroup viewGroup, TransitionValues transitionValues, int i2, TransitionValues transitionValues2, int i3) {
+    public Animator onAppear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i2), transitionValues2, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i), transitionValues2, Integer.valueOf(i2)})) == null) {
             if ((this.mMode & 1) != 1 || transitionValues2 == null) {
                 return null;
             }
@@ -440,14 +440,14 @@ public abstract class Visibility extends Transition {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public Animator onDisappear(ViewGroup viewGroup, TransitionValues transitionValues, int i2, TransitionValues transitionValues2, int i3) {
+    public Animator onDisappear(ViewGroup viewGroup, TransitionValues transitionValues, int i, TransitionValues transitionValues2, int i2) {
         InterceptResult invokeCommon;
         View view;
         boolean z;
         boolean z2;
         View view2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i2), transitionValues2, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{viewGroup, transitionValues, Integer.valueOf(i), transitionValues2, Integer.valueOf(i2)})) == null) {
             if ((this.mMode & 2) == 2 && transitionValues != null) {
                 View view3 = transitionValues.view;
                 View view4 = transitionValues2 != null ? transitionValues2.view : null;
@@ -495,7 +495,7 @@ public abstract class Visibility extends Transition {
                     view5 = view4;
                     view2 = view72;
                 } else {
-                    if (i3 == 4 || view3 == view4) {
+                    if (i2 == 4 || view3 == view4) {
                         view = view4;
                         z = false;
                         view4 = null;
@@ -522,7 +522,7 @@ public abstract class Visibility extends Transition {
                         ViewUtils.setTransitionVisibility(view2, 0);
                         Animator onDisappear = onDisappear(viewGroup, view2, transitionValues, transitionValues2);
                         if (onDisappear != null) {
-                            DisappearListener disappearListener = new DisappearListener(view2, i3, true);
+                            DisappearListener disappearListener = new DisappearListener(view2, i2, true);
                             onDisappear.addListener(disappearListener);
                             AnimatorUtils.addPauseListener(onDisappear, disappearListener);
                             addListener(disappearListener);
@@ -535,12 +535,12 @@ public abstract class Visibility extends Transition {
                 }
                 if (!z2) {
                     int[] iArr = (int[]) transitionValues.values.get(PROPNAME_SCREEN_LOCATION);
-                    int i4 = iArr[0];
-                    int i5 = iArr[1];
+                    int i3 = iArr[0];
+                    int i4 = iArr[1];
                     int[] iArr2 = new int[2];
                     viewGroup.getLocationOnScreen(iArr2);
-                    view5.offsetLeftAndRight((i4 - iArr2[0]) - view5.getLeft());
-                    view5.offsetTopAndBottom((i5 - iArr2[1]) - view5.getTop());
+                    view5.offsetLeftAndRight((i3 - iArr2[0]) - view5.getLeft());
+                    view5.offsetTopAndBottom((i4 - iArr2[1]) - view5.getTop());
                     ViewGroupUtils.getOverlay(viewGroup).add(view5);
                 }
                 Animator onDisappear2 = onDisappear(viewGroup, view5, transitionValues, transitionValues2);
@@ -564,9 +564,9 @@ public abstract class Visibility extends Transition {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, viewGroup, view5, view3};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i6 = newInitContext.flag;
-                                    if ((i6 & 1) != 0) {
-                                        int i7 = i6 & 2;
+                                    int i5 = newInitContext.flag;
+                                    if ((i5 & 1) != 0) {
+                                        int i6 = i5 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -617,11 +617,11 @@ public abstract class Visibility extends Transition {
         return (Animator) invokeCommon.objValue;
     }
 
-    public void setMode(int i2) {
+    public void setMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            if ((i2 & (-4)) == 0) {
-                this.mMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if ((i & (-4)) == 0) {
+                this.mMode = i;
                 return;
             }
             throw new IllegalArgumentException("Only MODE_IN and MODE_OUT flags are allowed");
@@ -638,9 +638,9 @@ public abstract class Visibility extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

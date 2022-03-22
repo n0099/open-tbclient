@@ -14,7 +14,7 @@ import com.google.android.exoplayer2.upstream.Allocator;
 import com.google.android.exoplayer2.util.Assertions;
 import java.io.IOException;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ClippingMediaSource implements MediaSource, MediaSource.Listener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,7 +25,7 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
     public MediaSource.Listener sourceListener;
     public final long startUs;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ClippingTimeline extends ForwardingTimeline {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,17 +33,17 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
         public final long startUs;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public ClippingTimeline(Timeline timeline, long j2, long j3) {
+        public ClippingTimeline(Timeline timeline, long j, long j2) {
             super(timeline);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {timeline, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {timeline, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Timeline) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -54,62 +54,62 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
             Assertions.checkArgument(timeline.getPeriodCount() == 1);
             Timeline.Window window = timeline.getWindow(0, new Timeline.Window(), false);
             Assertions.checkArgument(!window.isDynamic);
-            j3 = j3 == Long.MIN_VALUE ? window.durationUs : j3;
-            long j4 = window.durationUs;
-            if (j4 != C.TIME_UNSET) {
-                j3 = j3 > j4 ? j4 : j3;
-                Assertions.checkArgument(j2 == 0 || window.isSeekable);
-                Assertions.checkArgument(j2 <= j3);
+            j2 = j2 == Long.MIN_VALUE ? window.durationUs : j2;
+            long j3 = window.durationUs;
+            if (j3 != C.TIME_UNSET) {
+                j2 = j2 > j3 ? j3 : j2;
+                Assertions.checkArgument(j == 0 || window.isSeekable);
+                Assertions.checkArgument(j <= j2);
             }
             Assertions.checkArgument(timeline.getPeriod(0, new Timeline.Period()).getPositionInWindowUs() == 0);
-            this.startUs = j2;
-            this.endUs = j3;
+            this.startUs = j;
+            this.endUs = j2;
         }
 
         @Override // com.google.android.exoplayer2.source.ForwardingTimeline, com.google.android.exoplayer2.Timeline
-        public Timeline.Period getPeriod(int i2, Timeline.Period period, boolean z) {
+        public Timeline.Period getPeriod(int i, Timeline.Period period, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), period, Boolean.valueOf(z)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), period, Boolean.valueOf(z)})) == null) {
                 Timeline.Period period2 = this.timeline.getPeriod(0, period, z);
-                long j2 = this.endUs;
-                long j3 = C.TIME_UNSET;
-                if (j2 != C.TIME_UNSET) {
-                    j3 = j2 - this.startUs;
+                long j = this.endUs;
+                long j2 = C.TIME_UNSET;
+                if (j != C.TIME_UNSET) {
+                    j2 = j - this.startUs;
                 }
-                period2.durationUs = j3;
+                period2.durationUs = j2;
                 return period2;
             }
             return (Timeline.Period) invokeCommon.objValue;
         }
 
         @Override // com.google.android.exoplayer2.source.ForwardingTimeline, com.google.android.exoplayer2.Timeline
-        public Timeline.Window getWindow(int i2, Timeline.Window window, boolean z, long j2) {
+        public Timeline.Window getWindow(int i, Timeline.Window window, boolean z, long j) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), window, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
-                Timeline.Window window2 = this.timeline.getWindow(0, window, z, j2);
-                long j3 = this.endUs;
-                window2.durationUs = j3 != C.TIME_UNSET ? j3 - this.startUs : -9223372036854775807L;
-                long j4 = window2.defaultPositionUs;
-                if (j4 != C.TIME_UNSET) {
-                    long max = Math.max(j4, this.startUs);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), window, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
+                Timeline.Window window2 = this.timeline.getWindow(0, window, z, j);
+                long j2 = this.endUs;
+                window2.durationUs = j2 != C.TIME_UNSET ? j2 - this.startUs : -9223372036854775807L;
+                long j3 = window2.defaultPositionUs;
+                if (j3 != C.TIME_UNSET) {
+                    long max = Math.max(j3, this.startUs);
                     window2.defaultPositionUs = max;
-                    long j5 = this.endUs;
-                    if (j5 != C.TIME_UNSET) {
-                        max = Math.min(max, j5);
+                    long j4 = this.endUs;
+                    if (j4 != C.TIME_UNSET) {
+                        max = Math.min(max, j4);
                     }
                     window2.defaultPositionUs = max;
                     window2.defaultPositionUs = max - this.startUs;
                 }
                 long usToMs = C.usToMs(this.startUs);
-                long j6 = window2.presentationStartTimeMs;
-                if (j6 != C.TIME_UNSET) {
-                    window2.presentationStartTimeMs = j6 + usToMs;
+                long j5 = window2.presentationStartTimeMs;
+                if (j5 != C.TIME_UNSET) {
+                    window2.presentationStartTimeMs = j5 + usToMs;
                 }
-                long j7 = window2.windowStartTimeMs;
-                if (j7 != C.TIME_UNSET) {
-                    window2.windowStartTimeMs = j7 + usToMs;
+                long j6 = window2.windowStartTimeMs;
+                if (j6 != C.TIME_UNSET) {
+                    window2.windowStartTimeMs = j6 + usToMs;
                 }
                 return window2;
             }
@@ -118,17 +118,17 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ClippingMediaSource(MediaSource mediaSource, long j2, long j3) {
-        this(mediaSource, j2, j3, true);
+    public ClippingMediaSource(MediaSource mediaSource, long j, long j2) {
+        this(mediaSource, j, j2, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r9;
-            Object[] objArr = {mediaSource, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {mediaSource, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((MediaSource) objArr2[0], ((Long) objArr2[1]).longValue(), ((Long) objArr2[2]).longValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -165,8 +165,8 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, mediaSource, timeline, obj) == null) {
             this.sourceListener.onSourceInfoRefreshed(this, new ClippingTimeline(timeline, this.startUs, this.endUs), obj);
             int size = this.mediaPeriods.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.mediaPeriods.get(i2).setClipping(this.startUs, this.endUs);
+            for (int i = 0; i < size; i++) {
+                this.mediaPeriods.get(i).setClipping(this.startUs, this.endUs);
             }
         }
     }
@@ -197,25 +197,25 @@ public final class ClippingMediaSource implements MediaSource, MediaSource.Liste
         }
     }
 
-    public ClippingMediaSource(MediaSource mediaSource, long j2, long j3, boolean z) {
+    public ClippingMediaSource(MediaSource mediaSource, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mediaSource, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)};
+            Object[] objArr = {mediaSource, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Assertions.checkArgument(j2 >= 0);
+        Assertions.checkArgument(j >= 0);
         this.mediaSource = (MediaSource) Assertions.checkNotNull(mediaSource);
-        this.startUs = j2;
-        this.endUs = j3;
+        this.startUs = j;
+        this.endUs = j2;
         this.enableInitialDiscontinuity = z;
         this.mediaPeriods = new ArrayList<>();
     }

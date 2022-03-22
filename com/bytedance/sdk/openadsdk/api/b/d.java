@@ -1,30 +1,32 @@
 package com.bytedance.sdk.openadsdk.api.b;
-/* loaded from: classes7.dex */
+
+import android.util.Log;
+/* loaded from: classes6.dex */
 public class d {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f51815b = 4;
+    public static int f38228b = 4;
 
-    public static void a(int i2) {
-        f51815b = i2;
+    public static void a(int i) {
+        f38228b = i;
     }
 
     public static void b(String str, String str2) {
-        if (a && str2 != null) {
-            int i2 = f51815b;
+        if (a && str2 != null && f38228b <= 4) {
+            Log.i(str, str2);
         }
     }
 
     public static void c(String str, String str2) {
-        if (a && str2 != null) {
-            int i2 = f51815b;
+        if (a && str2 != null && f38228b <= 5) {
+            Log.w(str, str2);
         }
     }
 
     public static void d(String str, String str2) {
-        if (a && str2 != null) {
-            int i2 = f51815b;
+        if (a && str2 != null && f38228b <= 6) {
+            Log.e(str, str2);
         }
     }
 
@@ -33,18 +35,17 @@ public class d {
         a(3);
     }
 
-    public static void b(String str, String str2, Throwable th) {
-        if (a) {
-            if (str2 == null && th == null) {
-                return;
-            }
-            int i2 = f51815b;
+    public static void a(String str, String str2) {
+        if (a && str2 != null && f38228b <= 3) {
+            Log.d(str, str2);
         }
     }
 
-    public static void a(String str, String str2) {
-        if (a && str2 != null) {
-            int i2 = f51815b;
+    public static void b(String str, String str2, Throwable th) {
+        if (a) {
+            if (!(str2 == null && th == null) && f38228b <= 6) {
+                Log.e(str, str2, th);
+            }
         }
     }
 
@@ -56,10 +57,9 @@ public class d {
 
     public static void a(String str, String str2, Throwable th) {
         if (a) {
-            if (str2 == null && th == null) {
-                return;
+            if (!(str2 == null && th == null) && f38228b <= 5) {
+                Log.w(str, str2, th);
             }
-            int i2 = f51815b;
         }
     }
 }

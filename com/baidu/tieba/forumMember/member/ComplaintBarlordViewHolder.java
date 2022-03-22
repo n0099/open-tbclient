@@ -14,11 +14,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView mArrowImg;
-    public View mLineView;
-    public RelativeLayout mRootLayout;
-    public int mSkinType;
-    public TextView mTitleView;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public RelativeLayout f32199b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f32200c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32201d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public ImageView f32202e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ComplaintBarlordViewHolder(View view) {
@@ -29,19 +37,19 @@ public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mSkinType = 3;
-        this.mRootLayout = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.mLineView = view.findViewById(R.id.info_complaint_diver_top);
-        this.mTitleView = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.mArrowImg = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.a = 3;
+        this.f32199b = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f090311);
+        this.f32200c = view.findViewById(R.id.obfuscated_res_0x7f090ef6);
+        this.f32201d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090312);
+        this.f32202e = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090310);
     }
 }

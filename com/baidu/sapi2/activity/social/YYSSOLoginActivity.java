@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.r.b.b;
-import c.r.b.c;
-import c.r.b.d;
+import c.n.b.b;
+import c.n.b.c;
+import c.n.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiConfiguration;
@@ -40,9 +40,9 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {yYSSOLoginActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,17 +51,17 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
             this.a = yYSSOLoginActivity;
         }
 
-        @Override // c.r.b.b
+        @Override // c.n.b.b
         public void onCancel() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Log.d(YYSSOLoginActivity.q, "YY授权登录 已取消");
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f36710g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f28475g, -1000, AbstractThirdPartyService.RESULT_AUTH_CANCEL_MSG);
             }
         }
 
-        @Override // c.r.b.b
+        @Override // c.n.b.b
         public void onComplete(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
@@ -79,17 +79,17 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f36710g, -1, "未知错误");
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f28475g, -1, "未知错误");
             }
         }
 
-        @Override // c.r.b.b
+        @Override // c.n.b.b
         public void onError(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-                Log.d(YYSSOLoginActivity.q, "onError " + cVar.a + " " + cVar.f29191b);
+                Log.d(YYSSOLoginActivity.q, "onError " + cVar.a + " " + cVar.f23625b);
                 YYSSOLoginActivity yYSSOLoginActivity = this.a;
-                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f36710g, cVar.a, cVar.f29191b);
+                yYSSOLoginActivity.a(((BaseSSOLoginActivity) yYSSOLoginActivity).f28475g, cVar.a, cVar.f23625b);
             }
         }
     }
@@ -99,9 +99,9 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,11 +119,11 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            this.n.c(i2, i3, intent, this.p);
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            this.n.c(i, i2, intent, this.p);
+            super.onActivityResult(i, i2, intent);
         }
     }
 
@@ -145,7 +145,7 @@ public class YYSSOLoginActivity extends BaseSSOLoginActivity {
                     return;
                 }
             }
-            a(((BaseSSOLoginActivity) this).f36710g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
+            a(((BaseSSOLoginActivity) this).f28475g, -10, AbstractThirdPartyService.RESULT_AUTH_UNSUPPORT_MSG);
         }
     }
 

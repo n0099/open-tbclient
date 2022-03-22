@@ -18,31 +18,27 @@ public class b {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f3615b;
+    public final long f3107b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f3616c;
+    public long f3108c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3617d;
+    public boolean f3109d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f3618e;
+    public boolean f3110e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f3619f;
+    public boolean f3111f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f3620g;
+    public boolean f3112g;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.a.j.e.c.a f3621h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f3622i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Handler f3623j;
+    public c.a.j.e.c.a f3113h;
+    public long i;
+    public Handler j;
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -59,9 +55,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -73,37 +69,37 @@ public class b {
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
                 synchronized (this.a) {
-                    if (!this.a.f3617d && !this.a.f3619f) {
-                        long j3 = this.a.f3622i;
-                        long elapsedRealtime = this.a.f3616c - SystemClock.elapsedRealtime();
-                        long j4 = 0;
+                    if (!this.a.f3109d && !this.a.f3111f) {
+                        long j2 = this.a.i;
+                        long elapsedRealtime = this.a.f3108c - SystemClock.elapsedRealtime();
+                        long j3 = 0;
                         if (elapsedRealtime <= 0) {
-                            this.a.f3620g = true;
-                            this.a.f3622i = this.a.a;
-                            this.a.f3621h.a(0L, Math.max(this.a.f3622i - j3, 0L));
-                            this.a.f3621h.onFinish();
+                            this.a.f3112g = true;
+                            this.a.i = this.a.a;
+                            this.a.f3113h.a(0L, Math.max(this.a.i - j2, 0L));
+                            this.a.f3113h.onFinish();
                         } else {
                             long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.f3622i = this.a.a - elapsedRealtime;
-                            this.a.f3621h.a(elapsedRealtime, Math.max(this.a.f3622i - j3, 0L));
+                            this.a.i = this.a.a - elapsedRealtime;
+                            this.a.f3113h.a(elapsedRealtime, Math.max(this.a.i - j2, 0L));
                             long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            if (elapsedRealtime < this.a.f3615b) {
-                                j2 = elapsedRealtime - elapsedRealtime3;
-                                if (j2 < 0) {
-                                    sendMessageDelayed(obtainMessage(1), j4);
+                            if (elapsedRealtime < this.a.f3107b) {
+                                j = elapsedRealtime - elapsedRealtime3;
+                                if (j < 0) {
+                                    sendMessageDelayed(obtainMessage(1), j3);
                                 }
                             } else {
-                                j2 = this.a.f3615b - elapsedRealtime3;
-                                while (j2 < 0) {
-                                    j2 += this.a.f3615b;
+                                j = this.a.f3107b - elapsedRealtime3;
+                                while (j < 0) {
+                                    j += this.a.f3107b;
                                 }
                             }
-                            j4 = j2;
-                            sendMessageDelayed(obtainMessage(1), j4);
+                            j3 = j;
+                            sendMessageDelayed(obtainMessage(1), j3);
                         }
                     }
                 }
@@ -111,31 +107,31 @@ public class b {
         }
     }
 
-    public b(long j2, long j3, c.a.j.e.c.a aVar) {
+    public b(long j, long j2, c.a.j.e.c.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), aVar};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3617d = false;
-        this.f3618e = false;
-        this.f3619f = false;
-        this.f3620g = false;
-        this.f3622i = 0L;
-        this.f3623j = new a(this, Looper.getMainLooper());
-        this.a = j2;
-        this.f3615b = j3;
-        this.f3622i = 0L;
-        this.f3621h = aVar;
+        this.f3109d = false;
+        this.f3110e = false;
+        this.f3111f = false;
+        this.f3112g = false;
+        this.i = 0L;
+        this.j = new a(this, Looper.getMainLooper());
+        this.a = j;
+        this.f3107b = j2;
+        this.i = 0L;
+        this.f3113h = aVar;
     }
 
     public final synchronized b b() {
@@ -143,19 +139,19 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             synchronized (this) {
-                this.f3617d = false;
-                this.f3620g = false;
-                this.f3619f = false;
-                this.f3618e = false;
+                this.f3109d = false;
+                this.f3112g = false;
+                this.f3111f = false;
+                this.f3110e = false;
                 if (this.a <= 0) {
-                    this.f3620g = true;
-                    this.f3621h.onFinish();
+                    this.f3112g = true;
+                    this.f3113h.onFinish();
                     return this;
                 }
-                this.f3616c = SystemClock.elapsedRealtime() + this.a;
-                this.f3623j.sendMessage(this.f3623j.obtainMessage(1));
-                this.f3621h.onStart();
-                this.f3618e = true;
+                this.f3108c = SystemClock.elapsedRealtime() + this.a;
+                this.j.sendMessage(this.j.obtainMessage(1));
+                this.f3113h.onStart();
+                this.f3110e = true;
                 return this;
             }
         }
@@ -166,13 +162,13 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
-                if (!this.f3619f && !this.f3617d && !this.f3620g && this.f3618e) {
+                if (!this.f3111f && !this.f3109d && !this.f3112g && this.f3110e) {
                     SystemClock.elapsedRealtime();
-                    this.f3619f = true;
-                    this.f3617d = false;
-                    this.f3620g = false;
-                    this.f3621h.onPause();
-                    this.f3623j.removeMessages(1);
+                    this.f3111f = true;
+                    this.f3109d = false;
+                    this.f3112g = false;
+                    this.f3113h.onPause();
+                    this.j.removeMessages(1);
                 }
             }
         }
@@ -182,12 +178,12 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             synchronized (this) {
-                this.f3617d = true;
-                this.f3619f = false;
-                this.f3620g = false;
-                this.f3618e = false;
-                this.f3623j.removeMessages(1);
-                this.f3621h.onCancel();
+                this.f3109d = true;
+                this.f3111f = false;
+                this.f3112g = false;
+                this.f3110e = false;
+                this.j.removeMessages(1);
+                this.f3113h.onCancel();
             }
         }
     }
@@ -196,7 +192,7 @@ public class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             synchronized (this) {
-                this.f3621h = new a.C0156a();
+                this.f3113h = new a.C0162a();
                 h();
             }
         }

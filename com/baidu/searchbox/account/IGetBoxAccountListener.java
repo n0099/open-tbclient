@@ -8,7 +8,7 @@ public interface IGetBoxAccountListener extends NoProGuard {
     public static final int ERROR_COMMON = -3;
     public static final int ERROR_NETWORK_FAILED = -2;
 
-    void onFailed(int i2);
+    void onFailed(int i);
 
     void onSuccess(BoxAccount boxAccount);
 }

@@ -15,33 +15,31 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DisplayInfoView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public double a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public double f28661b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f28662c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f28663d;
 
     /* renamed from: e  reason: collision with root package name */
-    public double f36928e;
+    public String f28664e;
 
     /* renamed from: f  reason: collision with root package name */
-    public double f36929f;
+    public final Context f28665f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f36930g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f36931h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f36932i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final Context f36933j;
-    public d k;
+    public d f28666g;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DisplayInfoView f36934e;
+        public final /* synthetic */ DisplayInfoView a;
 
         public a(DisplayInfoView displayInfoView) {
             Interceptable interceptable = $ic;
@@ -50,24 +48,24 @@ public class DisplayInfoView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {displayInfoView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36934e = displayInfoView;
+            this.a = displayInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f36934e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f28666g == null) {
                 return;
             }
-            this.f36934e.k.c();
+            this.a.f28666g.c();
         }
     }
 
@@ -75,9 +73,7 @@ public class DisplayInfoView extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DisplayInfoView f36935e;
+        public final /* synthetic */ DisplayInfoView a;
 
         public b(DisplayInfoView displayInfoView) {
             Interceptable interceptable = $ic;
@@ -86,24 +82,24 @@ public class DisplayInfoView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {displayInfoView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36935e = displayInfoView;
+            this.a = displayInfoView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f36935e.k == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f28666g == null) {
                 return;
             }
-            this.f36935e.k.a();
+            this.a.f28666g.a();
         }
     }
 
@@ -120,9 +116,9 @@ public class DisplayInfoView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,8 +135,8 @@ public class DisplayInfoView extends LinearLayout {
                 if (str.indexOf("版本") == -1) {
                     str = str3;
                 }
-                this.a.f36932i = str;
-                this.a.f36931h = str2;
+                this.a.f28664e = str;
+                this.a.f28663d = str2;
                 return this;
             }
             return (c) invokeLL.objValue;
@@ -150,17 +146,17 @@ public class DisplayInfoView extends LinearLayout {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar)) == null) {
-                this.a.k = dVar;
+                this.a.f28666g = dVar;
                 return this;
             }
             return (c) invokeL.objValue;
         }
 
-        public c c(int i2) {
+        public c c(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.a.f36930g = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.a.f28662c = i;
                 return this;
             }
             return (c) invokeI.objValue;
@@ -188,12 +184,12 @@ public class DisplayInfoView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            TextView textView = new TextView(this.f36933j);
+            TextView textView = new TextView(this.f28665f);
             DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
             textView.setText(str);
-            textView.setTextColor(this.f36930g);
-            textView.setTextSize(1, (int) ((this.f36928e * displayMetrics.widthPixels) / displayMetrics.density));
-            addView(textView, g(this.f36929f));
+            textView.setTextColor(this.f28662c);
+            textView.setTextSize(1, (int) ((this.a * displayMetrics.widthPixels) / displayMetrics.density));
+            addView(textView, g(this.f28661b));
             return textView;
         }
         return (TextView) invokeL.objValue;
@@ -203,9 +199,9 @@ public class DisplayInfoView extends LinearLayout {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d2)})) == null) {
-            int i2 = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
+            int i = (int) (d2 * getResources().getDisplayMetrics().widthPixels);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(i2, 0, i2, 0);
+            layoutParams.setMargins(i, 0, i, 0);
             layoutParams.gravity = 17;
             return layoutParams;
         }
@@ -215,8 +211,8 @@ public class DisplayInfoView extends LinearLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f(this.f36932i);
-            f(this.f36931h);
+            f(this.f28664e);
+            f(this.f28663d);
             f("隐私").setOnClickListener(new a(this));
             f("权限").setOnClickListener(new b(this));
         }
@@ -240,20 +236,20 @@ public class DisplayInfoView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36928e = 0.027777777777777776d;
-        this.f36929f = 0.0196078431372549d;
-        this.f36930g = -1728053248;
+        this.a = 0.027777777777777776d;
+        this.f28661b = 0.0196078431372549d;
+        this.f28662c = -1728053248;
         setOrientation(0);
-        this.f36933j = context;
+        this.f28665f = context;
         removeAllViews();
     }
 }

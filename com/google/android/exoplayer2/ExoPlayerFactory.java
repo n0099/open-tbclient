@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
 import com.google.android.exoplayer2.drm.FrameworkMediaCrypto;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExoPlayerFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,9 +21,9 @@ public final class ExoPlayerFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -57,17 +57,17 @@ public final class ExoPlayerFactory {
     }
 
     @Deprecated
-    public static SimpleExoPlayer newSimpleInstance(Context context, TrackSelector trackSelector, LoadControl loadControl, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i2) {
+    public static SimpleExoPlayer newSimpleInstance(Context context, TrackSelector trackSelector, LoadControl loadControl, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, trackSelector, loadControl, drmSessionManager, Integer.valueOf(i2)})) == null) ? newSimpleInstance(new DefaultRenderersFactory(context, drmSessionManager, i2), trackSelector, loadControl) : (SimpleExoPlayer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, trackSelector, loadControl, drmSessionManager, Integer.valueOf(i)})) == null) ? newSimpleInstance(new DefaultRenderersFactory(context, drmSessionManager, i), trackSelector, loadControl) : (SimpleExoPlayer) invokeCommon.objValue;
     }
 
     @Deprecated
-    public static SimpleExoPlayer newSimpleInstance(Context context, TrackSelector trackSelector, LoadControl loadControl, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i2, long j2) {
+    public static SimpleExoPlayer newSimpleInstance(Context context, TrackSelector trackSelector, LoadControl loadControl, @Nullable DrmSessionManager<FrameworkMediaCrypto> drmSessionManager, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, trackSelector, loadControl, drmSessionManager, Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? newSimpleInstance(new DefaultRenderersFactory(context, drmSessionManager, i2, j2), trackSelector, loadControl) : (SimpleExoPlayer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{context, trackSelector, loadControl, drmSessionManager, Integer.valueOf(i), Long.valueOf(j)})) == null) ? newSimpleInstance(new DefaultRenderersFactory(context, drmSessionManager, i, j), trackSelector, loadControl) : (SimpleExoPlayer) invokeCommon.objValue;
     }
 
     public static SimpleExoPlayer newSimpleInstance(Context context, TrackSelector trackSelector) {

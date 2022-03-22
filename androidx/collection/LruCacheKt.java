@@ -14,24 +14,24 @@ public final class LruCacheKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <K, V> LruCache<K, V> lruCache(int i2, Function2<? super K, ? super V, Integer> function2, Function1<? super K, ? extends V> function1, Function4<? super Boolean, ? super K, ? super V, ? super V, Unit> function4) {
+    public static final <K, V> LruCache<K, V> lruCache(int i, Function2<? super K, ? super V, Integer> function2, Function1<? super K, ? extends V> function1, Function4<? super Boolean, ? super K, ? super V, ? super V, Unit> function4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i2), function2, function1, function4})) == null) ? new LruCacheKt$lruCache$4(function2, function1, function4, i2, i2) : (LruCache) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), function2, function1, function4})) == null) ? new LruCacheKt$lruCache$4(function2, function1, function4, i, i) : (LruCache) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ LruCache lruCache$default(int i2, Function2 function2, Function1 function1, Function4 function4, int i3, Object obj) {
-        if ((i3 & 2) != 0) {
+    public static /* synthetic */ LruCache lruCache$default(int i, Function2 function2, Function1 function1, Function4 function4, int i2, Object obj) {
+        if ((i2 & 2) != 0) {
             function2 = LruCacheKt$lruCache$1.INSTANCE;
         }
         Function2 function22 = function2;
-        if ((i3 & 4) != 0) {
+        if ((i2 & 4) != 0) {
             function1 = LruCacheKt$lruCache$2.INSTANCE;
         }
         Function1 function12 = function1;
-        if ((i3 & 8) != 0) {
+        if ((i2 & 8) != 0) {
             function4 = LruCacheKt$lruCache$3.INSTANCE;
         }
-        return new LruCacheKt$lruCache$4(function22, function12, function4, i2, i2);
+        return new LruCacheKt$lruCache$4(function22, function12, function4, i, i);
     }
 }

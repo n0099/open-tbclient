@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.bitmap_recycle.ArrayPool;
 import java.io.IOException;
 import java.io.OutputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class BufferedOutputStream extends OutputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public final class BufferedOutputStream extends OutputStream {
             newInitContext.initArgs = r2;
             Object[] objArr = {outputStream, arrayPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((OutputStream) objArr2[0], (ArrayPool) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -43,12 +43,12 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     private void flushBuffer() throws IOException {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.index) <= 0) {
+        if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i = this.index) <= 0) {
             return;
         }
-        this.out.write(this.buffer, 0, i2);
+        this.out.write(this.buffer, 0, i);
         this.index = 0;
     }
 
@@ -94,28 +94,28 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(int i2) throws IOException {
+    public void write(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             byte[] bArr = this.buffer;
-            int i3 = this.index;
-            this.index = i3 + 1;
-            bArr[i3] = (byte) i2;
+            int i2 = this.index;
+            this.index = i2 + 1;
+            bArr[i2] = (byte) i;
             maybeFlushBuffer();
         }
     }
 
     @VisibleForTesting
-    public BufferedOutputStream(@NonNull OutputStream outputStream, ArrayPool arrayPool, int i2) {
+    public BufferedOutputStream(@NonNull OutputStream outputStream, ArrayPool arrayPool, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {outputStream, arrayPool, Integer.valueOf(i2)};
+            Object[] objArr = {outputStream, arrayPool, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -123,7 +123,7 @@ public final class BufferedOutputStream extends OutputStream {
         }
         this.out = outputStream;
         this.arrayPool = arrayPool;
-        this.buffer = (byte[]) arrayPool.get(i2, byte[].class);
+        this.buffer = (byte[]) arrayPool.get(i, byte[].class);
     }
 
     @Override // java.io.OutputStream
@@ -135,23 +135,23 @@ public final class BufferedOutputStream extends OutputStream {
     }
 
     @Override // java.io.OutputStream
-    public void write(@NonNull byte[] bArr, int i2, int i3) throws IOException {
+    public void write(@NonNull byte[] bArr, int i, int i2) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i2, i3) == null) {
-            int i4 = 0;
+        if (interceptable == null || interceptable.invokeLII(1048580, this, bArr, i, i2) == null) {
+            int i3 = 0;
             do {
-                int i5 = i3 - i4;
-                int i6 = i2 + i4;
-                if (this.index == 0 && i5 >= this.buffer.length) {
-                    this.out.write(bArr, i6, i5);
+                int i4 = i2 - i3;
+                int i5 = i + i3;
+                if (this.index == 0 && i4 >= this.buffer.length) {
+                    this.out.write(bArr, i5, i4);
                     return;
                 }
-                int min = Math.min(i5, this.buffer.length - this.index);
-                System.arraycopy(bArr, i6, this.buffer, this.index, min);
+                int min = Math.min(i4, this.buffer.length - this.index);
+                System.arraycopy(bArr, i5, this.buffer, this.index, min);
                 this.index += min;
-                i4 += min;
+                i3 += min;
                 maybeFlushBuffer();
-            } while (i4 < i3);
+            } while (i3 < i2);
         }
     }
 }

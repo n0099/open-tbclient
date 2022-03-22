@@ -63,9 +63,9 @@ public abstract class AbstractBox implements Box {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -99,15 +99,15 @@ public abstract class AbstractBox implements Box {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
-            int i2 = "uuid".equals(getType()) ? 24 : 8;
+            int i = "uuid".equals(getType()) ? 24 : 8;
             if (!this.isRead) {
-                return this.memMapSize + ((long) i2) < 4294967296L;
+                return this.memMapSize + ((long) i) < 4294967296L;
             } else if (!this.isParsed) {
-                return ((long) (this.content.limit() + i2)) < 4294967296L;
+                return ((long) (this.content.limit() + i)) < 4294967296L;
             } else {
                 long contentSize = getContentSize();
                 ByteBuffer byteBuffer = this.deadBytes;
-                return (contentSize + ((long) (byteBuffer != null ? byteBuffer.limit() : 0))) + ((long) i2) < 4294967296L;
+                return (contentSize + ((long) (byteBuffer != null ? byteBuffer.limit() : 0))) + ((long) i) < 4294967296L;
             }
         }
         return invokeV.booleanValue;
@@ -239,19 +239,19 @@ public abstract class AbstractBox implements Box {
     @Override // com.coremedia.iso.boxes.Box
     public long getSize() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (!this.isRead) {
-                j2 = this.memMapSize;
+                j = this.memMapSize;
             } else if (this.isParsed) {
-                j2 = getContentSize();
+                j = getContentSize();
             } else {
                 ByteBuffer byteBuffer2 = this.content;
-                j2 = byteBuffer2 != null ? byteBuffer2.limit() : 0;
+                j = byteBuffer2 != null ? byteBuffer2.limit() : 0;
             }
-            return j2 + (j2 >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
+            return j + (j >= 4294967288L ? 8 : 0) + 8 + ("uuid".equals(getType()) ? 16 : 0) + (this.deadBytes != null ? byteBuffer.limit() : 0);
         }
         return invokeV.longValue;
     }
@@ -279,15 +279,15 @@ public abstract class AbstractBox implements Box {
 
     @Override // com.coremedia.iso.boxes.Box
     @DoNotParseDetail
-    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j2, BoxParser boxParser) throws IOException {
+    public void parse(DataSource dataSource, ByteBuffer byteBuffer, long j, BoxParser boxParser) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j2), boxParser}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{dataSource, byteBuffer, Long.valueOf(j), boxParser}) == null) {
             long position = dataSource.position();
             this.contentStartPosition = position;
             this.offset = position - byteBuffer.remaining();
-            this.memMapSize = j2;
+            this.memMapSize = j;
             this.dataSource = dataSource;
-            dataSource.position(dataSource.position() + j2);
+            dataSource.position(dataSource.position() + j);
             this.isRead = false;
             this.isParsed = false;
         }
@@ -337,9 +337,9 @@ public abstract class AbstractBox implements Box {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, bArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

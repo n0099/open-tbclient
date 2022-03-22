@@ -17,35 +17,35 @@ public abstract class b {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3722b;
+    public int f3207b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = false;
-        this.f3722b = 0;
+        this.f3207b = 0;
     }
 
     public abstract String a();
 
-    public abstract void b(int i2);
+    public abstract void b(int i);
 
     public abstract void c(IOException iOException);
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f3722b = 0;
+            this.f3207b = 0;
             b.e.a().b(str, this);
         }
     }
@@ -74,11 +74,11 @@ public abstract class b {
                     if (!TextUtils.isEmpty(b2.a())) {
                         str = b2.a();
                     }
-                    this.f3722b = b2.d().intValue();
+                    this.f3207b = b2.d().intValue();
                 } else {
-                    this.f3722b = -1;
+                    this.f3207b = -1;
                 }
-                b.h.b().i().b(this.f3722b);
+                b.h.b().i().b(this.f3207b);
             }
             return str;
         }

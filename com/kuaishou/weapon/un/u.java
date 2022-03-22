@@ -12,31 +12,27 @@ public class u {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53822b = "plc001_cd_ie";
+    public static final String f38993b = "plc001_cd_ie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f53823c = "plc001_cd_ie_0";
+    public static final String f38994c = "plc001_cd_ie_0";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f53824d = "plc001_cd_ie_1";
+    public static final String f38995d = "plc001_cd_ie_1";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f53825e = "plc001_cd_is";
+    public static final String f38996e = "plc001_cd_is";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f53826f = "plc001_cd_is_1";
+    public static final String f38997f = "plc001_cd_is_1";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f53827g = "plc001_cd_is_2";
+    public static final String f38998g = "plc001_cd_is_2";
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f53828h = "plc001_cd_ic";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final String f53829i = "plc001_cd_ic_1";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f53830j = "plc001_cd_ic_2";
+    public static final String f38999h = "plc001_cd_ic";
+    public static final String i = "plc001_cd_ic_1";
+    public static final String j = "plc001_cd_ic_2";
     public static final String k = "plc001_cd_mc";
     public static final String l = "plc001_cd_ai";
     public transient /* synthetic */ FieldHolder $fh;

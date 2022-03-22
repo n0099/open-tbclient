@@ -33,22 +33,22 @@ public class BreakpointInfo {
     public final boolean taskOnlyProvidedParentPath;
     public final String url;
 
-    public BreakpointInfo(int i2, @NonNull String str, @NonNull File file, @Nullable String str2) {
+    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, file, str2};
+            Object[] objArr = {Integer.valueOf(i), str, file, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = i2;
+        this.id = i;
         this.url = str;
         this.parentFile = file;
         this.blockInfoList = new ArrayList();
@@ -83,11 +83,11 @@ public class BreakpointInfo {
         return (BreakpointInfo) invokeV.objValue;
     }
 
-    public BreakpointInfo copyWithReplaceId(int i2) {
+    public BreakpointInfo copyWithReplaceId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            BreakpointInfo breakpointInfo = new BreakpointInfo(i2, this.url, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            BreakpointInfo breakpointInfo = new BreakpointInfo(i, this.url, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
             breakpointInfo.chunked = this.chunked;
             for (BlockInfo blockInfo : this.blockInfoList) {
                 breakpointInfo.blockInfoList.add(blockInfo.copy());
@@ -97,11 +97,11 @@ public class BreakpointInfo {
         return (BreakpointInfo) invokeI.objValue;
     }
 
-    public BreakpointInfo copyWithReplaceIdAndUrl(int i2, String str) {
+    public BreakpointInfo copyWithReplaceIdAndUrl(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, str)) == null) {
-            BreakpointInfo breakpointInfo = new BreakpointInfo(i2, str, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+            BreakpointInfo breakpointInfo = new BreakpointInfo(i, str, this.parentFile, this.filenameHolder.get(), this.taskOnlyProvidedParentPath);
             breakpointInfo.chunked = this.chunked;
             for (BlockInfo blockInfo : this.blockInfoList) {
                 breakpointInfo.blockInfoList.add(blockInfo.copy());
@@ -111,10 +111,10 @@ public class BreakpointInfo {
         return (BreakpointInfo) invokeIL.objValue;
     }
 
-    public BlockInfo getBlock(int i2) {
+    public BlockInfo getBlock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.blockInfoList.get(i2) : (BlockInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.blockInfoList.get(i) : (BlockInfo) invokeI.objValue;
     }
 
     public int getBlockCount() {
@@ -193,12 +193,12 @@ public class BreakpointInfo {
             if (isChunked()) {
                 return getTotalOffset();
             }
-            long j2 = 0;
+            long j = 0;
             Iterator it = ((ArrayList) ((ArrayList) this.blockInfoList).clone()).iterator();
             while (it.hasNext()) {
-                j2 += ((BlockInfo) it.next()).getContentLength();
+                j += ((BlockInfo) it.next()).getContentLength();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -209,11 +209,11 @@ public class BreakpointInfo {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             ArrayList arrayList = (ArrayList) ((ArrayList) this.blockInfoList).clone();
             int size = arrayList.size();
-            long j2 = 0;
-            for (int i2 = 0; i2 < size; i2++) {
-                j2 += ((BlockInfo) arrayList.get(i2)).getCurrentOffset();
+            long j = 0;
+            for (int i = 0; i < size; i++) {
+                j += ((BlockInfo) arrayList.get(i)).getCurrentOffset();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -230,10 +230,10 @@ public class BreakpointInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.chunked : invokeV.booleanValue;
     }
 
-    public boolean isLastBlock(int i2) {
+    public boolean isLastBlock(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) ? i2 == this.blockInfoList.size() - 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? i == this.blockInfoList.size() - 1 : invokeI.booleanValue;
     }
 
     public boolean isSameFrom(DownloadTask downloadTask) {
@@ -320,22 +320,22 @@ public class BreakpointInfo {
         return (String) invokeV.objValue;
     }
 
-    public BreakpointInfo(int i2, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
+    public BreakpointInfo(int i, @NonNull String str, @NonNull File file, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, file, str2, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), str, file, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.id = i2;
+        this.id = i;
         this.url = str;
         this.parentFile = file;
         this.blockInfoList = new ArrayList();

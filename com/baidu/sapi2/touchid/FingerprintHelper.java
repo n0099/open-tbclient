@@ -9,6 +9,7 @@ import android.os.CancellationSignal;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.StatService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,9 +61,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
             newInitContext.initArgs = r2;
             Object[] objArr = {context, fingerprintDialogInterface};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -103,7 +104,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
-            this.fingerprintDialog.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
+            this.fingerprintDialog.setTitle("百度帐号 触控ID", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FingerprintHelper this$0;
@@ -115,9 +116,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -143,7 +144,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
             StatService.onEvent("fingerprint_try_again_dialog_show", null);
-            this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
+            this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(2).setNegativeBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FingerprintHelper this$0;
@@ -155,9 +156,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -186,9 +187,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -213,7 +214,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             dismissDialog((Activity) this.context, (Dialog) this.fingerprintDialog);
-            this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn("取消", new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
+            this.fingerprintDialog.setTitle("再试一次", "请验证已有手机指纹").setBtnCount(1).setPositiveBtn(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL, new View.OnClickListener(this) { // from class: com.baidu.sapi2.touchid.FingerprintHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ FingerprintHelper this$0;
@@ -225,9 +226,9 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -249,15 +250,15 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationError(int i2, CharSequence charSequence) {
+    public void onAuthenticationError(int i, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, charSequence) == null) {
-            super.onAuthenticationError(i2, charSequence);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, charSequence) == null) {
+            super.onAuthenticationError(i, charSequence);
             String str = TAG;
-            Log.i(str, "Authentication error:" + i2 + ((Object) charSequence));
+            Log.i(str, "Authentication error:" + i + ((Object) charSequence));
             stopAuthenticate();
             this.maxErrorCount = (char) 5;
-            if (i2 == 7) {
+            if (i == 7) {
                 FingerprintCallback fingerprintCallback = this.fingerprintCallback;
                 if (fingerprintCallback != null) {
                     fingerprintCallback.onCall(-8);
@@ -267,7 +268,7 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
             }
             FingerprintCallback fingerprintCallback2 = this.fingerprintCallback;
             if (fingerprintCallback2 != null) {
-                fingerprintCallback2.onCall(i2);
+                fingerprintCallback2.onCall(i);
             }
         }
     }
@@ -295,12 +296,12 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-    public void onAuthenticationHelp(int i2, CharSequence charSequence) {
+    public void onAuthenticationHelp(int i, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, charSequence) == null) {
-            super.onAuthenticationHelp(i2, charSequence);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, charSequence) == null) {
+            super.onAuthenticationHelp(i, charSequence);
             String str = TAG;
-            Log.i(str, "Authentication help:" + i2 + ((Object) charSequence));
+            Log.i(str, "Authentication help:" + i + ((Object) charSequence));
         }
     }
 
@@ -318,11 +319,11 @@ public class FingerprintHelper extends FingerprintManager.AuthenticationCallback
         }
     }
 
-    public void startAuthenticate(int i2, FingerprintCallback fingerprintCallback) {
+    public void startAuthenticate(int i, FingerprintCallback fingerprintCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, fingerprintCallback) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, fingerprintCallback) == null) {
             Log.i(TAG, "startAuthenticate");
-            this.authType = i2;
+            this.authType = i;
             this.fingerprintCallback = fingerprintCallback;
             if (Build.VERSION.SDK_INT >= 16 && this.cancellationSignal.isCanceled()) {
                 this.cancellationSignal = new CancellationSignal();

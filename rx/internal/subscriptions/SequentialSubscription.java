@@ -6,10 +6,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.k;
-import i.u.e;
+import g.k;
+import g.u.e;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class SequentialSubscription extends AtomicReference<k> implements k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 995205034283130269L;
@@ -20,9 +20,9 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,7 +39,7 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
         return (k) invokeV.objValue;
     }
 
-    @Override // i.k
+    @Override // g.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
         return invokeL.booleanValue;
     }
 
-    @Override // i.k
+    @Override // g.k
     public void unsubscribe() {
         k andSet;
         Interceptable interceptable = $ic;
@@ -156,9 +156,9 @@ public final class SequentialSubscription extends AtomicReference<k> implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {kVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

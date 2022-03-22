@@ -1,6 +1,7 @@
 package com.baidubce.util;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -46,13 +47,13 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class JsonUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: com.baidubce.util.JsonUtils$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$baidubce$services$bos$model$Permission;
         public static /* synthetic */ Interceptable $ic;
@@ -93,9 +94,9 @@ public class JsonUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -146,8 +147,8 @@ public class JsonUtils {
                 user.setId(jSONObject2.getString("id"));
                 JSONArray jSONArray = jSONObject.getJSONArray("buckets");
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
                     BucketSummary bucketSummary = new BucketSummary();
                     bucketSummary.setName(optJSONObject.getString("name"));
                     bucketSummary.setLocation(optJSONObject.getString("location"));
@@ -174,16 +175,16 @@ public class JsonUtils {
                     Method method = abstractBceResponse.getClass().getMethod("setCommonPrefixes", List.class);
                     JSONArray jSONArray2 = jSONObject.getJSONArray("commonPrefixes");
                     ArrayList arrayList2 = new ArrayList();
-                    for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        arrayList2.add(jSONArray2.optJSONObject(i3).getString("prefix"));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        arrayList2.add(jSONArray2.optJSONObject(i2).getString("prefix"));
                     }
                     method.invoke(abstractBceResponse, arrayList2);
                 }
                 JSONArray jSONArray3 = jSONObject.getJSONArray("contents");
                 if (jSONArray3.length() > 0) {
                     ArrayList arrayList3 = new ArrayList();
-                    for (int i4 = 0; i4 < jSONArray3.length(); i4++) {
-                        JSONObject optJSONObject2 = jSONArray3.optJSONObject(i4);
+                    for (int i3 = 0; i3 < jSONArray3.length(); i3++) {
+                        JSONObject optJSONObject2 = jSONArray3.optJSONObject(i3);
                         BosObjectSummary bosObjectSummary = new BosObjectSummary();
                         bosObjectSummary.setETag(optJSONObject2.getString("eTag"));
                         bosObjectSummary.setKey(optJSONObject2.getString("key"));
@@ -206,25 +207,25 @@ public class JsonUtils {
                 abstractBceResponse.getClass().getMethod("setOwner", Grantee.class).invoke(abstractBceResponse, grantee);
                 JSONArray jSONArray4 = jSONObject.getJSONArray("accessControlList");
                 ArrayList arrayList4 = new ArrayList();
-                for (int i5 = 0; i5 < jSONArray4.length(); i5++) {
+                for (int i4 = 0; i4 < jSONArray4.length(); i4++) {
                     ArrayList arrayList5 = new ArrayList();
                     ArrayList arrayList6 = new ArrayList();
-                    JSONObject jSONObject5 = new JSONObject(jSONArray4.optJSONObject(i5).toString());
+                    JSONObject jSONObject5 = new JSONObject(jSONArray4.optJSONObject(i4).toString());
                     JSONArray jSONArray5 = jSONObject5.getJSONArray("grantee");
-                    for (int i6 = 0; i6 < jSONArray5.length(); i6++) {
-                        JSONObject optJSONObject3 = jSONArray5.optJSONObject(i6);
+                    for (int i5 = 0; i5 < jSONArray5.length(); i5++) {
+                        JSONObject optJSONObject3 = jSONArray5.optJSONObject(i5);
                         Grantee grantee2 = new Grantee();
                         grantee2.setId(optJSONObject3.getString("id"));
                         arrayList5.add(grantee2);
                     }
-                    JSONArray jSONArray6 = jSONObject5.getJSONArray("permission");
-                    for (int i7 = 0; i7 < jSONArray6.length(); i7++) {
-                        int i8 = AnonymousClass1.$SwitchMap$com$baidubce$services$bos$model$Permission[Permission.valueOf(jSONArray6.get(i7).toString()).ordinal()];
-                        if (i8 == 1) {
+                    JSONArray jSONArray6 = jSONObject5.getJSONArray(ShareLoginStat.GetShareListStat.KEY_PERMISSION);
+                    for (int i6 = 0; i6 < jSONArray6.length(); i6++) {
+                        int i7 = AnonymousClass1.$SwitchMap$com$baidubce$services$bos$model$Permission[Permission.valueOf(jSONArray6.get(i6).toString()).ordinal()];
+                        if (i7 == 1) {
                             arrayList6.add(Permission.FULL_CONTROL);
-                        } else if (i8 == 2) {
+                        } else if (i7 == 2) {
                             arrayList6.add(Permission.READ);
-                        } else if (i8 == 3) {
+                        } else if (i7 == 3) {
                             arrayList6.add(Permission.WRITE);
                         }
                     }
@@ -264,15 +265,15 @@ public class JsonUtils {
                     Method method2 = abstractBceResponse.getClass().getMethod("setCommonPrefixes", List.class);
                     JSONArray jSONArray7 = jSONObject.getJSONArray("commonPrefixes");
                     ArrayList arrayList7 = new ArrayList();
-                    for (int i9 = 0; i9 < jSONArray7.length(); i9++) {
-                        arrayList7.add(jSONArray7.optJSONObject(i9).getString("prefix"));
+                    for (int i8 = 0; i8 < jSONArray7.length(); i8++) {
+                        arrayList7.add(jSONArray7.optJSONObject(i8).getString("prefix"));
                     }
                     method2.invoke(abstractBceResponse, arrayList7);
                 }
                 ArrayList arrayList8 = new ArrayList();
                 JSONArray jSONArray8 = jSONObject.getJSONArray("uploads");
-                for (int i10 = 0; i10 < jSONArray8.length(); i10++) {
-                    JSONObject optJSONObject4 = jSONArray8.optJSONObject(i10);
+                for (int i9 = 0; i9 < jSONArray8.length(); i9++) {
+                    JSONObject optJSONObject4 = jSONArray8.optJSONObject(i9);
                     MultipartUploadSummary multipartUploadSummary = new MultipartUploadSummary();
                     multipartUploadSummary.setUploadId(optJSONObject4.getString("uploadId"));
                     multipartUploadSummary.setKey(optJSONObject4.getString("key"));
@@ -303,8 +304,8 @@ public class JsonUtils {
                 abstractBceResponse.getClass().getMethod("setOwner", User.class).invoke(abstractBceResponse, user4);
                 ArrayList arrayList9 = new ArrayList();
                 JSONArray jSONArray9 = jSONObject.getJSONArray("parts");
-                for (int i11 = 0; i11 < jSONArray9.length(); i11++) {
-                    JSONObject optJSONObject5 = jSONArray9.optJSONObject(i11);
+                for (int i10 = 0; i10 < jSONArray9.length(); i10++) {
+                    JSONObject optJSONObject5 = jSONArray9.optJSONObject(i10);
                     PartSummary partSummary = new PartSummary();
                     partSummary.setPartNumber(optJSONObject5.getInt("partNumber"));
                     partSummary.setETag(optJSONObject5.getString("eTag"));
@@ -336,7 +337,7 @@ public class JsonUtils {
                 for (Permission permission : grant.getPermission()) {
                     jSONArray2.put(permission.toString());
                 }
-                jSONObject2.put("permission", jSONArray2);
+                jSONObject2.put(ShareLoginStat.GetShareListStat.KEY_PERMISSION, jSONArray2);
                 JSONArray jSONArray3 = new JSONArray();
                 for (Grantee grantee : grant.getGrantee()) {
                     JSONObject jSONObject3 = new JSONObject();

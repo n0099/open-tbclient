@@ -18,10 +18,10 @@ public class f extends n<e, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f27279b;
+    public a f22518b;
 
     /* renamed from: c  reason: collision with root package name */
-    public com.badlogic.gdx.math.a f27280c;
+    public com.badlogic.gdx.math.a f22519c;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<e> {
@@ -29,30 +29,30 @@ public class f extends n<e, a> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27281b;
+        public String f22520b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f27282c;
+        public int f22521c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String[] f27283d;
+        public String[] f22522d;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27281b = "i ";
-            this.f27282c = 1024;
-            this.f27283d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
+            this.f22520b = "i ";
+            this.f22521c = 1024;
+            this.f22522d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
         }
     }
 
@@ -65,17 +65,17 @@ public class f extends n<e, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((c.b.b.j.f.e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27279b = new a();
-        this.f27280c = new com.badlogic.gdx.math.a();
+        this.f22518b = new a();
+        this.f22519c = new com.badlogic.gdx.math.a();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,15 +88,15 @@ public class f extends n<e, a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, aVar, aVar2)) == null) {
             if (aVar2 == null) {
-                aVar2 = this.f27279b;
+                aVar2 = this.f22518b;
             }
             try {
-                BufferedReader q = aVar.q(aVar2.f27282c);
+                BufferedReader q = aVar.q(aVar2.f22521c);
                 while (true) {
                     String readLine = q.readLine();
                     if (readLine != null) {
-                        if (readLine.startsWith(aVar2.f27281b)) {
-                            str2 = readLine.substring(aVar2.f27281b.length());
+                        if (readLine.startsWith(aVar2.f22520b)) {
+                            str2 = readLine.substring(aVar2.f22520b.length());
                             break;
                         }
                     } else {
@@ -105,7 +105,7 @@ public class f extends n<e, a> {
                     }
                 }
                 q.close();
-                if (str2 == null && (strArr = aVar2.f27283d) != null) {
+                if (str2 == null && (strArr = aVar2.f22522d) != null) {
                     for (String str3 : strArr) {
                         c.b.b.m.a s = aVar.s(aVar.h().concat("." + str3));
                         if (s.c()) {
@@ -132,7 +132,7 @@ public class f extends n<e, a> {
     public e c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, eVar, str, aVar, aVar2)) == null) ? f(new i((Texture) eVar.i(eVar.n(str).first())), aVar) : (e) invokeLLLL.objValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, eVar, str, aVar, aVar2)) == null) ? f(new i((Texture) eVar.i(eVar.n(str).f())), aVar) : (e) invokeLLLL.objValue;
     }
 
     public e f(i iVar, c.b.b.m.a aVar) {
@@ -159,10 +159,10 @@ public class f extends n<e, a> {
             String[] split = readLine.substring(1).trim().split(",");
             int length = split.length;
             float[] fArr = new float[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                fArr[i2] = Float.parseFloat(split[i2]);
+            for (int i = 0; i < length; i++) {
+                fArr[i] = Float.parseFloat(split[i]);
             }
-            return new e(iVar, fArr, this.f27280c.c(fArr).f());
+            return new e(iVar, fArr, this.f22519c.c(fArr).f());
         }
         return (e) invokeLL.objValue;
     }

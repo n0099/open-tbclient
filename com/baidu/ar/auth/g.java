@@ -31,12 +31,12 @@ public class g {
             float f2 = Float.compare(measureText, measureText2) == 1 ? measureText : measureText2;
             float f3 = paint.getFontMetrics().top;
             float f4 = paint.getFontMetrics().bottom - f3;
-            int i2 = (int) (f2 + 40.0f);
-            int i3 = (int) ((f4 * 2.0f) + 40.0f);
-            Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+            int i = (int) (f2 + 40.0f);
+            int i2 = (int) ((f4 * 2.0f) + 40.0f);
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             Canvas canvas = new Canvas(createBitmap);
             Path path = new Path();
-            path.addRoundRect(new RectF(0.0f, 0.0f, i2, i3), new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, Path.Direction.CW);
+            path.addRoundRect(new RectF(0.0f, 0.0f, i, i2), new float[]{8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f, 8.0f}, Path.Direction.CW);
             canvas.clipPath(path);
             canvas.drawColor(Color.parseColor("#88333333"));
             float f5 = (-f3) + 20.0f;

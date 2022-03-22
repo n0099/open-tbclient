@@ -53,9 +53,9 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -105,9 +105,9 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -142,33 +142,33 @@ public final class QRCodeMultiReader extends QRCodeReader implements MultipleBar
                 }
                 Collections.sort(arrayList2, new SAComparator(null));
                 StringBuilder sb = new StringBuilder();
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 for (Result result2 : arrayList2) {
                     sb.append(result2.getText());
-                    i2 += result2.getRawBytes().length;
+                    i += result2.getRawBytes().length;
                     if (result2.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
                         for (byte[] bArr : (Iterable) result2.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
-                            i3 += bArr.length;
+                            i2 += bArr.length;
                         }
                     }
                 }
-                byte[] bArr2 = new byte[i2];
-                byte[] bArr3 = new byte[i3];
+                byte[] bArr2 = new byte[i];
+                byte[] bArr3 = new byte[i2];
+                int i3 = 0;
                 int i4 = 0;
-                int i5 = 0;
                 for (Result result3 : arrayList2) {
-                    System.arraycopy(result3.getRawBytes(), 0, bArr2, i4, result3.getRawBytes().length);
-                    i4 += result3.getRawBytes().length;
+                    System.arraycopy(result3.getRawBytes(), 0, bArr2, i3, result3.getRawBytes().length);
+                    i3 += result3.getRawBytes().length;
                     if (result3.getResultMetadata().containsKey(ResultMetadataType.BYTE_SEGMENTS)) {
                         for (byte[] bArr4 : (Iterable) result3.getResultMetadata().get(ResultMetadataType.BYTE_SEGMENTS)) {
-                            System.arraycopy(bArr4, 0, bArr3, i5, bArr4.length);
-                            i5 += bArr4.length;
+                            System.arraycopy(bArr4, 0, bArr3, i4, bArr4.length);
+                            i4 += bArr4.length;
                         }
                     }
                 }
                 Result result4 = new Result(sb.toString(), bArr2, NO_POINTS, BarcodeFormat.QR_CODE);
-                if (i3 > 0) {
+                if (i2 > 0) {
                     ArrayList arrayList3 = new ArrayList();
                     arrayList3.add(bArr3);
                     result4.putMetadata(ResultMetadataType.BYTE_SEGMENTS, arrayList3);

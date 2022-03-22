@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetUserYbDetailsRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,28 +22,28 @@ public class GetUserYbDetailsRequest implements IRequestProtocol {
     public long uid;
     public int usedChannel;
 
-    public GetUserYbDetailsRequest(long j2, int i2, int i3, int i4, String str, int i5) {
+    public GetUserYbDetailsRequest(long j, int i, int i2, int i3, String str, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, Integer.valueOf(i5)};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.pagesize = 20;
-        this.uid = j2;
-        this.appId = i2;
-        this.pagesize = i3;
-        this.page = i4;
+        this.uid = j;
+        this.appId = i;
+        this.pagesize = i2;
+        this.page = i3;
         this.seq = str;
-        this.usedChannel = i5;
+        this.usedChannel = i4;
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol

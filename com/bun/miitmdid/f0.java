@@ -3,7 +3,7 @@ package com.bun.miitmdid;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class f0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -14,28 +14,28 @@ public class f0 {
         if (interceptable != null && (invokeLL = interceptable.invokeLL(65536, null, str, cArr)) != null) {
             return invokeLL.booleanValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             boolean z = true;
-            if (i2 >= str.length()) {
+            if (i >= str.length()) {
                 return true;
             }
             int length = cArr.length;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= length) {
+                if (i2 >= length) {
                     z = false;
                     break;
-                } else if (cArr[i3] == str.charAt(i2)) {
+                } else if (cArr[i2] == str.charAt(i)) {
                     break;
                 } else {
-                    i3++;
+                    i2++;
                 }
             }
             if (!z) {
                 return false;
             }
-            i2++;
+            i++;
         }
     }
 }

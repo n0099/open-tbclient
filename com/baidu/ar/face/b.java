@@ -52,9 +52,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -75,68 +75,68 @@ public class b {
         this.nM = 4;
     }
 
-    public void A(int i2) {
+    public void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.needHeadPose = false;
             this.needSkeleton = false;
             this.needTriggers = false;
             this.needExpression = false;
             this.nE = false;
             this.nM = this.nL;
-            this.nF = i2 != 0;
+            this.nF = i != 0;
             this.nG = true;
         }
     }
 
-    public void B(int i2) {
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             boolean z = false;
             this.needHeadPose = this.needHeadPose;
             this.needSkeleton = this.needSkeleton;
             this.needTriggers = this.needTriggers;
             this.needExpression = this.needExpression;
             this.nE = this.nE;
-            this.nF = (this.nF || i2 != 0) ? true : true;
+            this.nF = (this.nF || i != 0) ? true : true;
             this.nG = true;
         }
     }
 
-    public a.C1756a a(a.b bVar) {
+    public a.C1717a a(a.b bVar) {
         InterceptResult invokeL;
-        a.C1756a c1756a;
+        a.C1717a c1717a;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar)) == null) {
-            int i2 = bVar.qg;
-            if (i2 == 0) {
+            int i = bVar.qg;
+            if (i == 0) {
                 this.nL = 1;
-                c1756a = bVar.qd;
-            } else if (i2 == 1) {
+                c1717a = bVar.qd;
+            } else if (i == 1) {
                 this.nL = 1;
-                c1756a = bVar.qe;
-            } else if (i2 != 2) {
+                c1717a = bVar.qe;
+            } else if (i != 2) {
                 com.baidu.ar.h.b.b(TAG, "createFaceParams() device not support!!!");
-                c1756a = null;
+                c1717a = null;
             } else {
                 this.nL = 4;
-                c1756a = bVar.qf;
+                c1717a = bVar.qf;
             }
             this.nM = this.nL;
-            return c1756a;
+            return c1717a;
         }
-        return (a.C1756a) invokeL.objValue;
+        return (a.C1717a) invokeL.objValue;
     }
 
-    public void b(String str, int i2) {
+    public void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
             this.needHeadPose = c.b(str, false);
             this.needSkeleton = c.c(str, false);
             this.needTriggers = c.d(str, false);
             this.needExpression = c.e(str, false);
             this.nE = c.f(str, false);
-            this.nF = c.g(str, i2 != 0);
+            this.nF = c.g(str, i != 0);
             int c2 = c.c(str, 1);
             this.nM = c2;
             if (c2 <= 1 || ARAuth.checkFeatureAuth(FeatureCodes.FACE_MULTI)) {
@@ -239,17 +239,17 @@ public class b {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.nH : invokeV.intValue;
     }
 
-    public void setAlgoImageHeight(int i2) {
+    public void setAlgoImageHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.nI = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.nI = i;
         }
     }
 
-    public void setAlgoImageWidth(int i2) {
+    public void setAlgoImageWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.nH = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.nH = i;
         }
     }
 
@@ -267,10 +267,10 @@ public class b {
         }
     }
 
-    public void z(int i2) {
+    public void z(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.nF = i2 != 0;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.nF = i != 0;
         }
     }
 }

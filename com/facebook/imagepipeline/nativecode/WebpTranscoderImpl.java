@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebpTranscoderImpl implements WebpTranscoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class WebpTranscoderImpl implements WebpTranscoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,7 +36,7 @@ public class WebpTranscoderImpl implements WebpTranscoder {
     }
 
     @DoNotStrip
-    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException;
+    public static native void nativeTranscodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException;
 
     @DoNotStrip
     public static native void nativeTranscodeWebpToPng(InputStream inputStream, OutputStream outputStream) throws IOException;
@@ -61,11 +61,11 @@ public class WebpTranscoderImpl implements WebpTranscoder {
     }
 
     @Override // com.facebook.imagepipeline.nativecode.WebpTranscoder
-    public void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i2) throws IOException {
+    public void transcodeWebpToJpeg(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, outputStream, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, outputStream, i) == null) {
             StaticWebpNativeLoader.ensure();
-            nativeTranscodeWebpToJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i2);
+            nativeTranscodeWebpToJpeg((InputStream) Preconditions.checkNotNull(inputStream), (OutputStream) Preconditions.checkNotNull(outputStream), i);
         }
     }
 

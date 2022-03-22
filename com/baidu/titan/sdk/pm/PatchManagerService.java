@@ -169,14 +169,14 @@ public class PatchManagerService {
             if (entry != null) {
                 extractDex(zipFile, entry, file);
             }
-            int i2 = 2;
+            int i = 2;
             while (true) {
-                ZipEntry entry2 = zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i2 + ".dex");
+                ZipEntry entry2 = zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex");
                 if (entry2 == null) {
                     return true;
                 }
                 extractDex(zipFile, entry2, file);
-                i2++;
+                i++;
             }
         } catch (IOException unused) {
             return false;
@@ -187,14 +187,14 @@ public class PatchManagerService {
         if (zipFile.getEntry("classes.dex") == null) {
             return 0;
         }
-        int i2 = 2;
-        int i3 = 1;
+        int i = 2;
+        int i2 = 1;
         while (true) {
-            if (zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i2 + ".dex") == null) {
-                return i3;
+            if (zipFile.getEntry(MultiDexExtractor.DEX_PREFIX + i + ".dex") == null) {
+                return i2;
             }
-            i3++;
             i2++;
+            i++;
         }
     }
 
@@ -287,26 +287,26 @@ public class PatchManagerService {
             }
         }
         File[] listFiles = TitanPaths.getPatchsDir().listFiles();
-        int i2 = 0;
+        int i = 0;
         if (listFiles != null) {
             int length = listFiles.length;
-            int i3 = 0;
-            while (i2 < length) {
-                PatchInstallInfo patchInstallInfo = new PatchInstallInfo(listFiles[i2]);
+            int i2 = 0;
+            while (i < length) {
+                PatchInstallInfo patchInstallInfo = new PatchInstallInfo(listFiles[i]);
                 if (TextUtils.isEmpty(str) || !patchInstallInfo.getId().equals(str)) {
                     if (patchInstallInfo.writeLock()) {
                         patchInstallInfo.cleanIfNeed();
                         patchInstallInfo.releaseWriteLock();
                     } else {
-                        i3 = 1;
+                        i2 = 1;
                     }
                 }
-                i2++;
+                i++;
             }
-            i2 = i3;
+            i = i2;
         }
         File pendingCleanFile = PatchManager.getPendingCleanFile();
-        if (i2 != 0) {
+        if (i != 0) {
             try {
                 pendingCleanFile.createNewFile();
                 return;
@@ -320,23 +320,26 @@ public class PatchManagerService {
     public int installSyncLocked(Uri uri, Bundle bundle, Bundle bundle2) {
         FileInputStream fileInputStream;
         try {
-            if ("file".equals(uri.getScheme())) {
-                String path = uri.getPath();
-                if (path.startsWith("/android_asset/")) {
-                    fileInputStream = this.mContext.getAssets().open(path.substring(15));
-                } else {
-                    fileInputStream = new FileInputStream(path);
+            try {
+                if ("file".equals(uri.getScheme())) {
+                    String path = uri.getPath();
+                    if (path.startsWith("/android_asset/")) {
+                        fileInputStream = this.mContext.getAssets().open(path.substring(15));
+                    } else {
+                        fileInputStream = new FileInputStream(path);
+                    }
+                    int installSyncLocked = installSyncLocked(fileInputStream, bundle, bundle2);
+                    Closes.closeQuiet(fileInputStream);
+                    doCleanPatchsLocked();
+                    return installSyncLocked;
                 }
-                int installSyncLocked = installSyncLocked(fileInputStream, bundle, bundle2);
-                Closes.closeQuiet(fileInputStream);
+                throw new IllegalArgumentException("unkown uri");
+            } catch (IOException e2) {
+                Log.d(TAG, "[install] ERROR", e2);
+                Closes.closeQuiet((InputStream) null);
                 doCleanPatchsLocked();
-                return installSyncLocked;
+                return -3;
             }
-            throw new IllegalArgumentException("unkown uri");
-        } catch (IOException unused) {
-            Closes.closeQuiet((InputStream) null);
-            doCleanPatchsLocked();
-            return -3;
         } catch (Throwable th) {
             Closes.closeQuiet((InputStream) null);
             doCleanPatchsLocked();

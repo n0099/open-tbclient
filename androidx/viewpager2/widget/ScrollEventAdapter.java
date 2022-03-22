@@ -54,9 +54,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,9 +80,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewPager2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,34 +96,34 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         resetState();
     }
 
-    private void dispatchScrolled(int i2, float f2, int i3) {
+    private void dispatchScrolled(int i, float f2, int i2) {
         ViewPager2.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageScrolled(i2, f2, i3);
+        onPageChangeCallback.onPageScrolled(i, f2, i2);
     }
 
-    private void dispatchSelected(int i2) {
+    private void dispatchSelected(int i) {
         ViewPager2.OnPageChangeCallback onPageChangeCallback;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i2) == null) || (onPageChangeCallback = this.mCallback) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || (onPageChangeCallback = this.mCallback) == null) {
             return;
         }
-        onPageChangeCallback.onPageSelected(i2);
+        onPageChangeCallback.onPageSelected(i);
     }
 
-    private void dispatchStateChanged(int i2) {
+    private void dispatchStateChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            if ((this.mAdapterState == 3 && this.mScrollState == 0) || this.mScrollState == i2) {
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
+            if ((this.mAdapterState == 3 && this.mScrollState == 0) || this.mScrollState == i) {
                 return;
             }
-            this.mScrollState = i2;
+            this.mScrollState = i;
             ViewPager2.OnPageChangeCallback onPageChangeCallback = this.mCallback;
             if (onPageChangeCallback != null) {
-                onPageChangeCallback.onPageScrollStateChanged(i2);
+                onPageChangeCallback.onPageScrollStateChanged(i);
             }
         }
     }
@@ -138,8 +138,8 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            int i2 = this.mAdapterState;
-            return i2 == 1 || i2 == 4;
+            int i = this.mAdapterState;
+            return i == 1 || i == 4;
         }
         return invokeV.booleanValue;
     }
@@ -164,9 +164,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         if (interceptable == null || interceptable.invokeZ(65543, this, z) == null) {
             this.mFakeDragging = z;
             this.mAdapterState = z ? 4 : 1;
-            int i2 = this.mTarget;
-            if (i2 != -1) {
-                this.mDragStartPosition = i2;
+            int i = this.mTarget;
+            if (i != -1) {
+                this.mDragStartPosition = i;
                 this.mTarget = -1;
             } else if (this.mDragStartPosition == -1) {
                 this.mDragStartPosition = getPosition();
@@ -214,15 +214,15 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
             } else {
                 top = (findViewByPosition.getTop() - topDecorationHeight) - this.mRecyclerView.getPaddingTop();
             }
-            int i2 = -top;
-            scrollEventValues.mOffsetPx = i2;
-            if (i2 < 0) {
+            int i = -top;
+            scrollEventValues.mOffsetPx = i;
+            if (i < 0) {
                 if (new AnimateLayoutChangeDetector(this.mLayoutManager).mayHaveInterferingAnimations()) {
                     throw new IllegalStateException("Page(s) contain a ViewGroup with a LayoutTransition (or animateLayoutChanges=\"true\"), which interferes with the scrolling animation. Make sure to call getLayoutTransition().setAnimateParentHierarchy(false) on all ViewGroups with a LayoutTransition before an animation is started.");
                 }
                 throw new IllegalStateException(String.format(Locale.US, "Page can only be offset by a positive amount, not by %d", Integer.valueOf(scrollEventValues.mOffsetPx)));
             }
-            scrollEventValues.mOffset = height == 0 ? 0.0f : i2 / height;
+            scrollEventValues.mOffset = height == 0 ? 0.0f : i / height;
         }
     }
 
@@ -284,9 +284,9 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
                 updateScrollEventValues();
                 ScrollEventValues scrollEventValues = this.mScrollValues;
                 if (scrollEventValues.mOffsetPx == 0) {
-                    int i2 = scrollEventValues.mPosition;
-                    if (i2 != this.mDragStartPosition) {
-                        dispatchSelected(i2);
+                    int i = scrollEventValues.mPosition;
+                    if (i != this.mDragStartPosition) {
+                        dispatchSelected(i);
                     }
                     dispatchStateChanged(0);
                     resetState();
@@ -297,47 +297,47 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
         }
     }
 
-    public void notifyProgrammaticScroll(int i2, boolean z) {
+    public void notifyProgrammaticScroll(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             this.mAdapterState = z ? 2 : 3;
             this.mFakeDragging = false;
-            boolean z2 = this.mTarget != i2;
-            this.mTarget = i2;
+            boolean z2 = this.mTarget != i;
+            this.mTarget = i;
             dispatchStateChanged(2);
             if (z2) {
-                dispatchSelected(i2);
+                dispatchSelected(i);
             }
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i2) {
+    public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, recyclerView, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, recyclerView, i) == null) {
             boolean z = true;
-            if ((this.mAdapterState != 1 || this.mScrollState != 1) && i2 == 1) {
+            if ((this.mAdapterState != 1 || this.mScrollState != 1) && i == 1) {
                 startDrag(false);
-            } else if (isInAnyDraggingState() && i2 == 2) {
+            } else if (isInAnyDraggingState() && i == 2) {
                 if (this.mScrollHappened) {
                     dispatchStateChanged(2);
                     this.mDispatchSelected = true;
                 }
             } else {
-                if (isInAnyDraggingState() && i2 == 0) {
+                if (isInAnyDraggingState() && i == 0) {
                     updateScrollEventValues();
                     if (!this.mScrollHappened) {
-                        int i3 = this.mScrollValues.mPosition;
-                        if (i3 != -1) {
-                            dispatchScrolled(i3, 0.0f, 0);
+                        int i2 = this.mScrollValues.mPosition;
+                        if (i2 != -1) {
+                            dispatchScrolled(i2, 0.0f, 0);
                         }
                     } else {
                         ScrollEventValues scrollEventValues = this.mScrollValues;
                         if (scrollEventValues.mOffsetPx == 0) {
-                            int i4 = this.mDragStartPosition;
-                            int i5 = scrollEventValues.mPosition;
-                            if (i4 != i5) {
-                                dispatchSelected(i5);
+                            int i3 = this.mDragStartPosition;
+                            int i4 = scrollEventValues.mPosition;
+                            if (i3 != i4) {
+                                dispatchSelected(i4);
                             }
                         } else {
                             z = false;
@@ -348,17 +348,17 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
                         resetState();
                     }
                 }
-                if (this.mAdapterState == 2 && i2 == 0 && this.mDataSetChangeHappened) {
+                if (this.mAdapterState == 2 && i == 0 && this.mDataSetChangeHappened) {
                     updateScrollEventValues();
                     ScrollEventValues scrollEventValues2 = this.mScrollValues;
                     if (scrollEventValues2.mOffsetPx == 0) {
-                        int i6 = this.mTarget;
-                        int i7 = scrollEventValues2.mPosition;
-                        if (i6 != i7) {
-                            if (i7 == -1) {
-                                i7 = 0;
+                        int i5 = this.mTarget;
+                        int i6 = scrollEventValues2.mPosition;
+                        if (i5 != i6) {
+                            if (i6 == -1) {
+                                i6 = 0;
                             }
-                            dispatchSelected(i7);
+                            dispatchSelected(i6);
                         }
                         dispatchStateChanged(0);
                         resetState();
@@ -377,57 +377,57 @@ public final class ScrollEventAdapter extends RecyclerView.OnScrollListener {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onScrolled(@NonNull RecyclerView recyclerView, int i2, int i3) {
+    public void onScrolled(@NonNull RecyclerView recyclerView, int i, int i2) {
         boolean z;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048586, this, recyclerView, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048586, this, recyclerView, i, i2) == null) {
             this.mScrollHappened = true;
             updateScrollEventValues();
             if (this.mDispatchSelected) {
                 this.mDispatchSelected = false;
-                if (i3 <= 0) {
-                    if (i3 == 0) {
+                if (i2 <= 0) {
+                    if (i2 == 0) {
                     }
                     z = false;
                     if (z) {
                         ScrollEventValues scrollEventValues = this.mScrollValues;
                         if (scrollEventValues.mOffsetPx != 0) {
-                            i4 = scrollEventValues.mPosition + 1;
-                            this.mTarget = i4;
-                            if (this.mDragStartPosition != i4) {
-                                dispatchSelected(i4);
+                            i3 = scrollEventValues.mPosition + 1;
+                            this.mTarget = i3;
+                            if (this.mDragStartPosition != i3) {
+                                dispatchSelected(i3);
                             }
                         }
                     }
-                    i4 = this.mScrollValues.mPosition;
-                    this.mTarget = i4;
-                    if (this.mDragStartPosition != i4) {
+                    i3 = this.mScrollValues.mPosition;
+                    this.mTarget = i3;
+                    if (this.mDragStartPosition != i3) {
                     }
                 }
                 z = true;
                 if (z) {
                 }
-                i4 = this.mScrollValues.mPosition;
-                this.mTarget = i4;
-                if (this.mDragStartPosition != i4) {
+                i3 = this.mScrollValues.mPosition;
+                this.mTarget = i3;
+                if (this.mDragStartPosition != i3) {
                 }
             } else if (this.mAdapterState == 0) {
-                int i5 = this.mScrollValues.mPosition;
-                if (i5 == -1) {
-                    i5 = 0;
+                int i4 = this.mScrollValues.mPosition;
+                if (i4 == -1) {
+                    i4 = 0;
                 }
-                dispatchSelected(i5);
+                dispatchSelected(i4);
             }
-            int i6 = this.mScrollValues.mPosition;
-            if (i6 == -1) {
-                i6 = 0;
+            int i5 = this.mScrollValues.mPosition;
+            if (i5 == -1) {
+                i5 = 0;
             }
             ScrollEventValues scrollEventValues2 = this.mScrollValues;
-            dispatchScrolled(i6, scrollEventValues2.mOffset, scrollEventValues2.mOffsetPx);
-            int i7 = this.mScrollValues.mPosition;
-            int i8 = this.mTarget;
-            if ((i7 == i8 || i8 == -1) && this.mScrollValues.mOffsetPx == 0 && this.mScrollState != 1) {
+            dispatchScrolled(i5, scrollEventValues2.mOffset, scrollEventValues2.mOffsetPx);
+            int i6 = this.mScrollValues.mPosition;
+            int i7 = this.mTarget;
+            if ((i6 == i7 || i7 == -1) && this.mScrollValues.mOffsetPx == 0 && this.mScrollState != 1) {
                 dispatchStateChanged(0);
                 resetState();
             }

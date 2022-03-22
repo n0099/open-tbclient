@@ -17,7 +17,7 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\n\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0011\b\u0086\b\u0018\u0000 (2\u00020\u0001:\u0001(B\u001f\u0012\u0006\u0010\t\u001a\u00020\u0002\u0012\u0006\u0010\n\u001a\u00020\u0005\u0012\u0006\u0010\u000b\u001a\u00020\u0005¢\u0006\u0004\b&\u0010'J\u0010\u0010\u0003\u001a\u00020\u0002HÆ\u0003¢\u0006\u0004\b\u0003\u0010\u0004J\u0010\u0010\u0006\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\u0006\u0010\u0007J\u0010\u0010\b\u001a\u00020\u0005HÆ\u0003¢\u0006\u0004\b\b\u0010\u0007J.\u0010\f\u001a\u00020\u00002\b\b\u0002\u0010\t\u001a\u00020\u00022\b\b\u0002\u0010\n\u001a\u00020\u00052\b\b\u0002\u0010\u000b\u001a\u00020\u0005HÆ\u0001¢\u0006\u0004\b\f\u0010\rJ\u000f\u0010\u000e\u001a\u00020\u0001H\u0016¢\u0006\u0004\b\u000e\u0010\u000fJ\u001a\u0010\u0013\u001a\u00020\u00122\b\u0010\u0011\u001a\u0004\u0018\u00010\u0010H\u0096\u0002¢\u0006\u0004\b\u0013\u0010\u0014J\u000f\u0010\u0016\u001a\u00020\u0015H\u0016¢\u0006\u0004\b\u0016\u0010\u0017J\u000f\u0010\u0019\u001a\u00020\u0018H\u0016¢\u0006\u0004\b\u0019\u0010\u001aJ\u0010\u0010\u001b\u001a\u00020\u0002HÖ\u0001¢\u0006\u0004\b\u001b\u0010\u0004R\"\u0010\t\u001a\u00020\u00028\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\t\u0010\u001c\u001a\u0004\b\u001d\u0010\u0004\"\u0004\b\u001e\u0010\u001fR\"\u0010\u000b\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u000b\u0010 \u001a\u0004\b!\u0010\u0007\"\u0004\b\"\u0010#R\"\u0010\n\u001a\u00020\u00058\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\n\u0010 \u001a\u0004\b$\u0010\u0007\"\u0004\b%\u0010#¨\u0006)"}, d2 = {"Lcom/baidu/bdtask/ctrl/model/TaskEnvTag;", "Lcom/baidu/bdtask/model/ITaskModelData;", "", "component1", "()Ljava/lang/String;", "", "component2", "()J", "component3", "tag", "value", "timestamp", "copy", "(Ljava/lang/String;JJ)Lcom/baidu/bdtask/ctrl/model/TaskEnvTag;", "deepCopy", "()Lcom/baidu/bdtask/model/ITaskModelData;", "", "other", "", "equals", "(Ljava/lang/Object;)Z", "", TTDownloadField.TT_HASHCODE, "()I", "Lorg/json/JSONObject;", "toJson", "()Lorg/json/JSONObject;", "toString", "Ljava/lang/String;", "getTag", "setTag", "(Ljava/lang/String;)V", "J", "getTimestamp", "setTimestamp", "(J)V", "getValue", "setValue", "<init>", "(Ljava/lang/String;JJ)V", "Companion", "lib-bdtask-business-build_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskEnvTag implements ITaskModelData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final a Companion;
@@ -30,7 +30,7 @@ public final class TaskEnvTag implements ITaskModelData {
     public long timestamp;
     public long value;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -40,20 +40,20 @@ public final class TaskEnvTag implements ITaskModelData {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static /* synthetic */ TaskEnvTag a(a aVar, String str, long j2, long j3, int i2, Object obj) {
-            if ((i2 & 4) != 0) {
-                j3 = System.currentTimeMillis();
+        public static /* synthetic */ TaskEnvTag a(a aVar, String str, long j, long j2, int i, Object obj) {
+            if ((i & 4) != 0) {
+                j2 = System.currentTimeMillis();
             }
-            return aVar.c(str, j2, j3);
+            return aVar.c(str, j, j2);
         }
 
         public final TaskEnvTag b(String str) {
@@ -63,10 +63,10 @@ public final class TaskEnvTag implements ITaskModelData {
                 try {
                     JSONObject jSONObject = new JSONObject(str);
                     String tempTag = jSONObject.getString("tag");
-                    long j2 = jSONObject.getLong("value");
-                    long j3 = jSONObject.getLong("timestamp");
+                    long j = jSONObject.getLong("value");
+                    long j2 = jSONObject.getLong("timestamp");
                     Intrinsics.checkExpressionValueIsNotNull(tempTag, "tempTag");
-                    return c(tempTag, j2, j3);
+                    return c(tempTag, j, j2);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                     return null;
@@ -75,15 +75,15 @@ public final class TaskEnvTag implements ITaskModelData {
             return (TaskEnvTag) invokeL.objValue;
         }
 
-        public final TaskEnvTag c(String str, long j2, long j3) {
+        public final TaskEnvTag c(String str, long j, long j2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
                 if (str.length() >= 128) {
                     str = str.substring(0, 128);
                     Intrinsics.checkExpressionValueIsNotNull(str, "(this as java.lang.Strin…ing(startIndex, endIndex)");
                 }
-                return new TaskEnvTag(str, j2, j3);
+                return new TaskEnvTag(str, j, j2);
             }
             return (TaskEnvTag) invokeCommon.objValue;
         }
@@ -109,38 +109,38 @@ public final class TaskEnvTag implements ITaskModelData {
         Companion = new a(null);
     }
 
-    public TaskEnvTag(String str, long j2, long j3) {
+    public TaskEnvTag(String str, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {str, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.tag = str;
-        this.value = j2;
-        this.timestamp = j3;
+        this.value = j;
+        this.timestamp = j2;
     }
 
-    public static /* synthetic */ TaskEnvTag copy$default(TaskEnvTag taskEnvTag, String str, long j2, long j3, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ TaskEnvTag copy$default(TaskEnvTag taskEnvTag, String str, long j, long j2, int i, Object obj) {
+        if ((i & 1) != 0) {
             str = taskEnvTag.tag;
         }
-        if ((i2 & 2) != 0) {
-            j2 = taskEnvTag.value;
+        if ((i & 2) != 0) {
+            j = taskEnvTag.value;
         }
-        long j4 = j2;
-        if ((i2 & 4) != 0) {
-            j3 = taskEnvTag.timestamp;
+        long j3 = j;
+        if ((i & 4) != 0) {
+            j2 = taskEnvTag.timestamp;
         }
-        return taskEnvTag.copy(str, j4, j3);
+        return taskEnvTag.copy(str, j3, j2);
     }
 
     public final String component1() {
@@ -161,10 +161,10 @@ public final class TaskEnvTag implements ITaskModelData {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.timestamp : invokeV.longValue;
     }
 
-    public final TaskEnvTag copy(String str, long j2, long j3) {
+    public final TaskEnvTag copy(String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new TaskEnvTag(str, j2, j3) : (TaskEnvTag) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new TaskEnvTag(str, j, j2) : (TaskEnvTag) invokeCommon.objValue;
     }
 
     @Override // com.baidu.bdtask.model.ITaskModelData
@@ -225,17 +225,17 @@ public final class TaskEnvTag implements ITaskModelData {
         }
     }
 
-    public final void setTimestamp(long j2) {
+    public final void setTimestamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.timestamp = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.timestamp = j;
         }
     }
 
-    public final void setValue(long j2) {
+    public final void setValue(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.value = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.value = j;
         }
     }
 

@@ -23,13 +23,13 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     public List<DrivingRouteLine> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<TaxiInfo> f34230b;
+    public List<TaxiInfo> f26459b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TaxiInfo f34231c;
+    public TaxiInfo f26460c;
 
     /* renamed from: d  reason: collision with root package name */
-    public SuggestAddrInfo f34232d;
+    public SuggestAddrInfo f26461d;
 
     static {
         InterceptResult invokeClinit;
@@ -52,9 +52,9 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -68,9 +68,9 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -80,9 +80,9 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
         this.a = arrayList;
         parcel.readTypedList(arrayList, DrivingRouteLine.CREATOR);
         ArrayList arrayList2 = new ArrayList();
-        this.f34230b = arrayList2;
+        this.f26459b = arrayList2;
         parcel.readTypedList(arrayList2, TaxiInfo.CREATOR);
-        this.f34232d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
+        this.f26461d = (SuggestAddrInfo) parcel.readParcelable(SuggestAddrInfo.class.getClassLoader());
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -104,20 +104,20 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     public SuggestAddrInfo getSuggestAddrInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34232d : (SuggestAddrInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26461d : (SuggestAddrInfo) invokeV.objValue;
     }
 
     @Deprecated
     public TaxiInfo getTaxiInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34231c : (TaxiInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26460c : (TaxiInfo) invokeV.objValue;
     }
 
     public List<TaxiInfo> getTaxiInfos() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f34230b : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f26459b : (List) invokeV.objValue;
     }
 
     public void setRouteLines(List<DrivingRouteLine> list) {
@@ -130,24 +130,24 @@ public final class DrivingRouteResult extends SearchResult implements Parcelable
     public void setSuggestAddrInfo(SuggestAddrInfo suggestAddrInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, suggestAddrInfo) == null) {
-            this.f34232d = suggestAddrInfo;
+            this.f26461d = suggestAddrInfo;
         }
     }
 
     public void setTaxiInfos(List<TaxiInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
-            this.f34230b = list;
+            this.f26459b = list;
         }
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
             parcel.writeTypedList(this.a);
-            parcel.writeTypedList(this.f34230b);
-            parcel.writeParcelable(this.f34232d, 1);
+            parcel.writeTypedList(this.f26459b);
+            parcel.writeParcelable(this.f26461d, 1);
         }
     }
 }

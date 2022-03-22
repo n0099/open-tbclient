@@ -14,7 +14,6 @@ import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.ar.statistic.StatisticApi;
 import com.baidu.ar.statistic.StatisticConstants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,9 +38,9 @@ public class e extends com.baidu.ar.e.a<String, String> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, aRCaseBundleInfo, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -101,8 +100,8 @@ public class e extends com.baidu.ar.e.a<String, String> {
             iError.onError(1, "资源不存在", null);
         } else if (TextUtils.isEmpty(aN.xL)) {
             iError.onError(1, "资源id不存在", null);
-        } else if (MainTabActivity.TAB_CODE_LOCAL.equals(aN.xL)) {
-            iCallbackWith.run(MainTabActivity.TAB_CODE_LOCAL);
+        } else if ("local".equals(aN.xL)) {
+            iCallbackWith.run("local");
         } else if (TextUtils.isEmpty(aN.xM)) {
             iError.onError(1, "编码不正确", null);
         } else {
@@ -124,9 +123,9 @@ public class e extends com.baidu.ar.e.a<String, String> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iCallbackWith, iError};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -156,7 +155,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
                 public void a(IHttpResponse iHttpResponse) {
-                    int i2;
+                    int i;
                     String message;
                     JSONException jSONException;
                     Exception exc;
@@ -172,7 +171,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                             } catch (JSONException e2) {
                                 JSONException jSONException2 = e2;
                                 jSONException2.printStackTrace();
-                                i2 = 3;
+                                i = 3;
                                 message = jSONException2.getMessage();
                                 jSONException = jSONException2;
                                 Exception exc2 = jSONException;
@@ -183,7 +182,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                             } catch (Exception e3) {
                                 Exception exc3 = e3;
                                 exc3.printStackTrace();
-                                i2 = 1;
+                                i = 1;
                                 message = exc3.getMessage();
                                 jSONException = exc3;
                                 Exception exc22 = jSONException;
@@ -193,7 +192,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                                 }
                             }
                         }
-                        i2 = 0;
+                        i = 0;
                         exc = null;
                         if (TextUtils.isEmpty(str3)) {
                             return;
@@ -201,7 +200,7 @@ public class e extends com.baidu.ar.e.a<String, String> {
                         StatisticApi.onEvent(StatisticConstants.LOAD_QUERY_FAILURE);
                         IError iError2 = this.xI;
                         if (iError2 != null) {
-                            iError2.onError(i2, str3, exc);
+                            iError2.onError(i, str3, exc);
                         }
                     }
                 }

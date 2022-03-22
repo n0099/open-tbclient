@@ -38,9 +38,9 @@ public class IMGetUserIpLocation extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -120,17 +120,17 @@ public class IMGetUserIpLocation extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i, str) == null) {
             if (getMsgType() == 1) {
-                if (i2 != 0) {
-                    int i3 = this.mReSendCount;
-                    if (i3 >= 3) {
+                if (i != 0) {
+                    int i2 = this.mReSendCount;
+                    if (i2 >= 3) {
                         setNeedReSend(false);
                         DBManager.getInstance(context).deleteCmdMsg(getUUID());
                     } else {
-                        this.mReSendCount = i3 + 1;
+                        this.mReSendCount = i2 + 1;
                         setNeedReSend(true);
                         return;
                     }
@@ -140,14 +140,14 @@ public class IMGetUserIpLocation extends Message {
                 }
             }
             ArrayList<IpInfo> arrayList = null;
-            if (i2 == 0) {
+            if (i == 0) {
                 try {
                     if (jSONObject.has("location")) {
                         ArrayList<IpInfo> arrayList2 = new ArrayList<>();
                         try {
                             JSONArray jSONArray = (JSONArray) jSONObject.opt("location");
-                            for (int i4 = 0; i4 < jSONArray.length(); i4++) {
-                                JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                            for (int i3 = 0; i3 < jSONArray.length(); i3++) {
+                                JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                                 IpInfo ipInfo = new IpInfo();
                                 ipInfo.setUid(jSONObject2.optLong("uid"));
                                 ipInfo.setIp(jSONObject2.optString("ip"));
@@ -164,23 +164,23 @@ public class IMGetUserIpLocation extends Message {
                             e = e2;
                             arrayList = arrayList2;
                             LogUtils.e(TAG, "IMGetUserIpLocation handleMessageResult :", e);
-                            super.handleMessageResult(context, jSONObject, i2, str);
-                            ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i2, str, this.mUids, arrayList);
+                            super.handleMessageResult(context, jSONObject, i, str);
+                            ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
                         }
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i2, str, this.mUids, arrayList);
+            super.handleMessageResult(context, jSONObject, i, str);
+            ChatUserManagerImpl.getInstance(context).onGetUserIpResult(context, getMsgType(), this.mListenerKey, i, str, this.mUids, arrayList);
         }
     }
 
-    public void setMsgtype(int i2) {
+    public void setMsgtype(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.msgtype = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.msgtype = i;
         }
     }
 }

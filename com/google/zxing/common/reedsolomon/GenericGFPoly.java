@@ -21,9 +21,9 @@ public final class GenericGFPoly {
             newInitContext.initArgs = r2;
             Object[] objArr = {genericGF, iArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,17 +33,17 @@ public final class GenericGFPoly {
             this.field = genericGF;
             int length = iArr.length;
             if (length > 1 && iArr[0] == 0) {
-                int i4 = 1;
-                while (i4 < length && iArr[i4] == 0) {
-                    i4++;
+                int i3 = 1;
+                while (i3 < length && iArr[i3] == 0) {
+                    i3++;
                 }
-                if (i4 == length) {
+                if (i3 == length) {
                     this.coefficients = new int[]{0};
                     return;
                 }
-                int[] iArr2 = new int[length - i4];
+                int[] iArr2 = new int[length - i3];
                 this.coefficients = iArr2;
-                System.arraycopy(iArr, i4, iArr2, 0, iArr2.length);
+                System.arraycopy(iArr, i3, iArr2, 0, iArr2.length);
                 return;
             }
             this.coefficients = iArr;
@@ -72,8 +72,8 @@ public final class GenericGFPoly {
                 int[] iArr3 = new int[iArr.length];
                 int length = iArr.length - iArr2.length;
                 System.arraycopy(iArr, 0, iArr3, 0, length);
-                for (int i2 = length; i2 < iArr.length; i2++) {
-                    iArr3[i2] = GenericGF.addOrSubtract(iArr2[i2 - length], iArr[i2]);
+                for (int i = length; i < iArr.length; i++) {
+                    iArr3[i] = GenericGF.addOrSubtract(iArr2[i - length], iArr[i]);
                 }
                 return new GenericGFPoly(this.field, iArr3);
             }
@@ -107,37 +107,37 @@ public final class GenericGFPoly {
         return (GenericGFPoly[]) invokeL.objValue;
     }
 
-    public int evaluateAt(int i2) {
+    public int evaluateAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i == 0) {
                 return getCoefficient(0);
             }
-            if (i2 == 1) {
-                int i3 = 0;
-                for (int i4 : this.coefficients) {
-                    i3 = GenericGF.addOrSubtract(i3, i4);
+            if (i == 1) {
+                int i2 = 0;
+                for (int i3 : this.coefficients) {
+                    i2 = GenericGF.addOrSubtract(i2, i3);
                 }
-                return i3;
+                return i2;
             }
             int[] iArr = this.coefficients;
-            int i5 = iArr[0];
+            int i4 = iArr[0];
             int length = iArr.length;
-            for (int i6 = 1; i6 < length; i6++) {
-                i5 = GenericGF.addOrSubtract(this.field.multiply(i2, i5), this.coefficients[i6]);
+            for (int i5 = 1; i5 < length; i5++) {
+                i4 = GenericGF.addOrSubtract(this.field.multiply(i, i4), this.coefficients[i5]);
             }
-            return i5;
+            return i4;
         }
         return invokeI.intValue;
     }
 
-    public int getCoefficient(int i2) {
+    public int getCoefficient(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             int[] iArr = this.coefficients;
-            return iArr[(iArr.length - 1) - i2];
+            return iArr[(iArr.length - 1) - i];
         }
         return invokeI.intValue;
     }
@@ -171,11 +171,11 @@ public final class GenericGFPoly {
                     int[] iArr2 = genericGFPoly.coefficients;
                     int length2 = iArr2.length;
                     int[] iArr3 = new int[(length + length2) - 1];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        int i3 = iArr[i2];
-                        for (int i4 = 0; i4 < length2; i4++) {
-                            int i5 = i2 + i4;
-                            iArr3[i5] = GenericGF.addOrSubtract(iArr3[i5], this.field.multiply(i3, iArr2[i4]));
+                    for (int i = 0; i < length; i++) {
+                        int i2 = iArr[i];
+                        for (int i3 = 0; i3 < length2; i3++) {
+                            int i4 = i + i3;
+                            iArr3[i4] = GenericGF.addOrSubtract(iArr3[i4], this.field.multiply(i2, iArr2[i3]));
                         }
                     }
                     return new GenericGFPoly(this.field, iArr3);
@@ -187,18 +187,18 @@ public final class GenericGFPoly {
         return (GenericGFPoly) invokeL.objValue;
     }
 
-    public GenericGFPoly multiplyByMonomial(int i2, int i3) {
+    public GenericGFPoly multiplyByMonomial(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) {
-            if (i2 >= 0) {
-                if (i3 == 0) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) {
+            if (i >= 0) {
+                if (i2 == 0) {
                     return this.field.getZero();
                 }
                 int length = this.coefficients.length;
-                int[] iArr = new int[i2 + length];
-                for (int i4 = 0; i4 < length; i4++) {
-                    iArr[i4] = this.field.multiply(this.coefficients[i4], i3);
+                int[] iArr = new int[i + length];
+                for (int i3 = 0; i3 < length; i3++) {
+                    iArr[i3] = this.field.multiply(this.coefficients[i3], i2);
                 }
                 return new GenericGFPoly(this.field, iArr);
             }
@@ -247,20 +247,20 @@ public final class GenericGFPoly {
         return (String) invokeV.objValue;
     }
 
-    public GenericGFPoly multiply(int i2) {
+    public GenericGFPoly multiply(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (i == 0) {
                 return this.field.getZero();
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return this;
             }
             int length = this.coefficients.length;
             int[] iArr = new int[length];
-            for (int i3 = 0; i3 < length; i3++) {
-                iArr[i3] = this.field.multiply(this.coefficients[i3], i2);
+            for (int i2 = 0; i2 < length; i2++) {
+                iArr[i2] = this.field.multiply(this.coefficients[i2], i);
             }
             return new GenericGFPoly(this.field, iArr);
         }

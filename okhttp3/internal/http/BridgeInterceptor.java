@@ -1,6 +1,5 @@
 package okhttp3.internal.http;
 
-import com.alipay.sdk.encrypt.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +19,7 @@ import okhttp3.internal.Version;
 import okio.GzipSource;
 import okio.Okio;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class BridgeInterceptor implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +32,9 @@ public final class BridgeInterceptor implements Interceptor {
             newInitContext.initArgs = r2;
             Object[] objArr = {cookieJar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,13 +49,13 @@ public final class BridgeInterceptor implements Interceptor {
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, list)) == null) {
             StringBuilder sb = new StringBuilder();
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
                     sb.append("; ");
                 }
-                Cookie cookie = list.get(i2);
+                Cookie cookie = list.get(i);
                 sb.append(cookie.name());
-                sb.append(a.f29503h);
+                sb.append('=');
                 sb.append(cookie.value());
             }
             return sb.toString();

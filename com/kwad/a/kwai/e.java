@@ -13,9 +13,7 @@ import java.nio.ByteOrder;
 public class e extends c.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final f f53917j;
+    public final f j;
 
     public e(boolean z, f fVar) {
         Interceptable interceptable = $ic;
@@ -24,46 +22,46 @@ public class e extends c.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z), fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = z;
-        this.f53917j = fVar;
+        this.j = fVar;
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(z ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        this.f53905b = fVar.d(allocate, 16L);
-        this.f53906c = fVar.b(allocate, 32L);
-        this.f53907d = fVar.b(allocate, 40L);
-        this.f53908e = fVar.d(allocate, 54L);
-        this.f53909f = fVar.d(allocate, 56L);
-        this.f53910g = fVar.d(allocate, 58L);
-        this.f53911h = fVar.d(allocate, 60L);
-        this.f53912i = fVar.d(allocate, 62L);
+        this.f39062b = fVar.d(allocate, 16L);
+        this.f39063c = fVar.b(allocate, 32L);
+        this.f39064d = fVar.b(allocate, 40L);
+        this.f39065e = fVar.d(allocate, 54L);
+        this.f39066f = fVar.d(allocate, 56L);
+        this.f39067g = fVar.d(allocate, 58L);
+        this.f39068h = fVar.d(allocate, 60L);
+        this.i = fVar.d(allocate, 62L);
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.a a(long j2, int i2) {
+    public c.a a(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? new b(this.f53917j, this, j2, i2) : (c.a) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? new b(this.j, this, j, i) : (c.a) invokeCommon.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.AbstractC2082c a(long j2) {
+    public c.AbstractC1943c a(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new h(this.f53917j, this, j2) : (c.AbstractC2082c) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new h(this.j, this, j) : (c.AbstractC1943c) invokeJ.objValue;
     }
 
     @Override // com.kwad.a.kwai.c.b
-    public c.d a(int i2) {
+    public c.d a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new j(this.f53917j, this, i2) : (c.d) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new j(this.j, this, i) : (c.d) invokeI.objValue;
     }
 }

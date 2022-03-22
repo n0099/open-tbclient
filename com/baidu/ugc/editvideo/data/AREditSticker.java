@@ -14,23 +14,23 @@ public class AREditSticker implements Serializable {
     public long startTime;
     public Sticker sticker;
 
-    public AREditSticker(Sticker sticker, long j2, long j3) {
+    public AREditSticker(Sticker sticker, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sticker, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {sticker, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.sticker = sticker;
-        this.startTime = j2;
-        this.endTime = j3;
+        this.startTime = j;
+        this.endTime = j2;
     }
 }

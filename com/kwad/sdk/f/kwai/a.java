@@ -1,7 +1,7 @@
 package com.kwad.sdk.f.kwai;
 
 import com.kwad.sdk.mvp.Presenter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends Presenter {
     public b a;
 

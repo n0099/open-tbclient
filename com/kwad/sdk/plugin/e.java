@@ -2,7 +2,7 @@ package com.kwad.sdk.plugin;
 
 import android.content.Context;
 import com.kwad.sdk.api.SdkConfig;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static void a(Context context, SdkConfig sdkConfig) {
         d dVar = (d) c.class.newInstance();

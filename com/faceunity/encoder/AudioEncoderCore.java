@@ -3,6 +3,7 @@ package com.faceunity.encoder;
 import android.media.MediaCodec;
 import android.media.MediaCrypto;
 import android.media.MediaFormat;
+import android.util.Log;
 import android.view.Surface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.record.EncoderParams;
@@ -11,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AudioEncoderCore {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String MIME_TYPE = "audio/mp4a-latm";
@@ -31,9 +32,9 @@ public class AudioEncoderCore {
             newInitContext.initArgs = r2;
             Object[] objArr = {mediaMuxerWrapper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,7 +73,7 @@ public class AudioEncoderCore {
             } else if (dequeueOutputBuffer == -2) {
                 if (!this.mMuxerStarted) {
                     MediaFormat outputFormat = this.mEncoder.getOutputFormat();
-                    String str = "encoder output format changed: " + outputFormat;
+                    Log.d(TAG, "encoder output format changed: " + outputFormat);
                     this.mTrackIndex = this.mMuxer.addTrack(outputFormat);
                     if (!this.mMuxer.start()) {
                         synchronized (this.mMuxer) {
@@ -90,7 +91,7 @@ public class AudioEncoderCore {
                     throw new RuntimeException("format changed twice");
                 }
             } else if (dequeueOutputBuffer < 0) {
-                String str2 = "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer;
+                Log.w(TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
             } else {
                 ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
                 if (byteBuffer != null) {
@@ -120,10 +121,10 @@ public class AudioEncoderCore {
         }
     }
 
-    public void encode(ByteBuffer byteBuffer, int i2, long j2) throws Exception {
+    public void encode(ByteBuffer byteBuffer, int i, long j) throws Exception {
         int dequeueInputBuffer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ByteBuffer[] inputBuffers = this.mEncoder.getInputBuffers();
             do {
                 dequeueInputBuffer = this.mEncoder.dequeueInputBuffer(10000L);
@@ -133,10 +134,10 @@ public class AudioEncoderCore {
             if (byteBuffer != null) {
                 byteBuffer2.put(byteBuffer);
             }
-            if (i2 <= 0) {
-                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j2, 4);
+            if (i <= 0) {
+                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, 0, j, 4);
             } else {
-                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, i2, j2, 0);
+                this.mEncoder.queueInputBuffer(dequeueInputBuffer, 0, i, j, 0);
             }
         }
     }

@@ -5,7 +5,7 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class az {
     public static /* synthetic */ Interceptable $ic = null;
     public static String A = "ext_pkg_name";
@@ -22,31 +22,27 @@ public abstract class az {
     public static String a = "1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59993b = "2";
+    public static String f44558b = "2";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59994c = "3";
+    public static String f44559c = "3";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59995d = "com.xiaomi.push.OPEN_CHANNEL";
+    public static String f44560d = "com.xiaomi.push.OPEN_CHANNEL";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f59996e = "com.xiaomi.push.SEND_MESSAGE";
+    public static String f44561e = "com.xiaomi.push.SEND_MESSAGE";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f59997f = "com.xiaomi.push.SEND_IQ";
+    public static String f44562f = "com.xiaomi.push.SEND_IQ";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f59998g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
+    public static String f44563g = "com.xiaomi.push.BATCH_SEND_MESSAGE";
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f59999h = "com.xiaomi.push.SEND_PRES";
-
-    /* renamed from: i  reason: collision with root package name */
-    public static String f60000i = "com.xiaomi.push.CLOSE_CHANNEL";
-
-    /* renamed from: j  reason: collision with root package name */
-    public static String f60001j = "com.xiaomi.push.FORCE_RECONN";
+    public static String f44564h = "com.xiaomi.push.SEND_PRES";
+    public static String i = "com.xiaomi.push.CLOSE_CHANNEL";
+    public static String j = "com.xiaomi.push.FORCE_RECONN";
     public static String k = "com.xiaomi.push.RESET_CONN";
     public static String l = "com.xiaomi.push.UPDATE_CHANNEL_INFO";
     public static String m = "com.xiaomi.push.SEND_STATS";

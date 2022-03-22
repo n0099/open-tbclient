@@ -117,9 +117,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {toolbar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -289,15 +289,15 @@ public class Toolbar extends ViewGroup {
             boolean z2 = false;
             if (menuBuilder != null) {
                 int size = menuBuilder.size();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= size) {
+                    if (i >= size) {
                         break;
-                    } else if (this.mMenu.getItem(i2) == this.mCurrentExpandedItem) {
+                    } else if (this.mMenu.getItem(i) == this.mCurrentExpandedItem) {
                         z2 = true;
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
             }
@@ -343,9 +343,9 @@ public class Toolbar extends ViewGroup {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -354,10 +354,10 @@ public class Toolbar extends ViewGroup {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -388,9 +388,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -401,10 +401,10 @@ public class Toolbar extends ViewGroup {
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeInt(this.expandedMenuItemId);
                 parcel.writeInt(this.isOverflowOpen ? 1 : 0);
             }
@@ -419,9 +419,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -442,9 +442,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -463,9 +463,9 @@ public class Toolbar extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -475,16 +475,16 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private void addCustomViewsWithGravity(List<View> list, int i2) {
+    private void addCustomViewsWithGravity(List<View> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, list, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65539, this, list, i) == null) {
             boolean z = ViewCompat.getLayoutDirection(this) == 1;
             int childCount = getChildCount();
-            int absoluteGravity = GravityCompat.getAbsoluteGravity(i2, ViewCompat.getLayoutDirection(this));
+            int absoluteGravity = GravityCompat.getAbsoluteGravity(i, ViewCompat.getLayoutDirection(this));
             list.clear();
             if (!z) {
-                for (int i3 = 0; i3 < childCount; i3++) {
-                    View childAt = getChildAt(i3);
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = getChildAt(i2);
                     LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
                     if (layoutParams.mViewType == 0 && shouldLayout(childAt) && getChildHorizontalGravity(layoutParams.gravity) == absoluteGravity) {
                         list.add(childAt);
@@ -492,8 +492,8 @@ public class Toolbar extends ViewGroup {
                 }
                 return;
             }
-            for (int i4 = childCount - 1; i4 >= 0; i4--) {
-                View childAt2 = getChildAt(i4);
+            for (int i3 = childCount - 1; i3 >= 0; i3--) {
+                View childAt2 = getChildAt(i3);
                 LayoutParams layoutParams2 = (LayoutParams) childAt2.getLayoutParams();
                 if (layoutParams2.mViewType == 0 && shouldLayout(childAt2) && getChildHorizontalGravity(layoutParams2.gravity) == absoluteGravity) {
                     list.add(childAt2);
@@ -578,56 +578,56 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    private int getChildHorizontalGravity(int i2) {
+    private int getChildHorizontalGravity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
             int layoutDirection = ViewCompat.getLayoutDirection(this);
-            int absoluteGravity = GravityCompat.getAbsoluteGravity(i2, layoutDirection) & 7;
+            int absoluteGravity = GravityCompat.getAbsoluteGravity(i, layoutDirection) & 7;
             return (absoluteGravity == 1 || absoluteGravity == 3 || absoluteGravity == 5) ? absoluteGravity : layoutDirection == 1 ? 5 : 3;
         }
         return invokeI.intValue;
     }
 
-    private int getChildTop(View view, int i2) {
+    private int getChildTop(View view, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, view, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, this, view, i)) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
             int measuredHeight = view.getMeasuredHeight();
-            int i3 = i2 > 0 ? (measuredHeight - i2) / 2 : 0;
+            int i2 = i > 0 ? (measuredHeight - i) / 2 : 0;
             int childVerticalGravity = getChildVerticalGravity(layoutParams.gravity);
             if (childVerticalGravity != 48) {
                 if (childVerticalGravity != 80) {
                     int paddingTop = getPaddingTop();
                     int paddingBottom = getPaddingBottom();
                     int height = getHeight();
-                    int i4 = (((height - paddingTop) - paddingBottom) - measuredHeight) / 2;
-                    int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
-                    if (i4 < i5) {
-                        i4 = i5;
+                    int i3 = (((height - paddingTop) - paddingBottom) - measuredHeight) / 2;
+                    int i4 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin;
+                    if (i3 < i4) {
+                        i3 = i4;
                     } else {
-                        int i6 = (((height - paddingBottom) - measuredHeight) - i4) - paddingTop;
-                        int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
-                        if (i6 < i7) {
-                            i4 = Math.max(0, i4 - (i7 - i6));
+                        int i5 = (((height - paddingBottom) - measuredHeight) - i3) - paddingTop;
+                        int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin;
+                        if (i5 < i6) {
+                            i3 = Math.max(0, i3 - (i6 - i5));
                         }
                     }
-                    return paddingTop + i4;
+                    return paddingTop + i3;
                 }
-                return (((getHeight() - getPaddingBottom()) - measuredHeight) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) - i3;
+                return (((getHeight() - getPaddingBottom()) - measuredHeight) - ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin) - i2;
             }
-            return getPaddingTop() - i3;
+            return getPaddingTop() - i2;
         }
         return invokeLI.intValue;
     }
 
-    private int getChildVerticalGravity(int i2) {
+    private int getChildVerticalGravity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i2)) == null) {
-            int i3 = i2 & 112;
-            return (i3 == 16 || i3 == 48 || i3 == 80) ? i3 : this.mGravity & 112;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, this, i)) == null) {
+            int i2 = i & 112;
+            return (i2 == 16 || i2 == 48 || i2 == 80) ? i2 : this.mGravity & 112;
         }
         return invokeI.intValue;
     }
@@ -662,26 +662,26 @@ public class Toolbar extends ViewGroup {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, this, list, iArr)) == null) {
-            int i2 = iArr[0];
-            int i3 = iArr[1];
+            int i = iArr[0];
+            int i2 = iArr[1];
             int size = list.size();
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < size) {
-                View view = list.get(i4);
+            while (i3 < size) {
+                View view = list.get(i3);
                 LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - i2;
-                int i7 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - i3;
-                int max = Math.max(0, i6);
-                int max2 = Math.max(0, i7);
-                int max3 = Math.max(0, -i6);
-                int max4 = Math.max(0, -i7);
-                i5 += max + view.getMeasuredWidth() + max2;
-                i4++;
-                i3 = max4;
-                i2 = max3;
+                int i5 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - i;
+                int i6 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - i2;
+                int max = Math.max(0, i5);
+                int max2 = Math.max(0, i6);
+                int max3 = Math.max(0, -i5);
+                int max4 = Math.max(0, -i6);
+                i4 += max + view.getMeasuredWidth() + max2;
+                i3++;
+                i2 = max4;
+                i = max3;
             }
-            return i5;
+            return i4;
         }
         return invokeLL.intValue;
     }
@@ -692,15 +692,15 @@ public class Toolbar extends ViewGroup {
         return (interceptable == null || (invokeL = interceptable.invokeL(65553, this, view)) == null) ? view.getParent() == this || this.mHiddenViews.contains(view) : invokeL.booleanValue;
     }
 
-    private int layoutChildLeft(View view, int i2, int[] iArr, int i3) {
+    private int layoutChildLeft(View view, int i, int[] iArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{view, Integer.valueOf(i2), iArr, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{view, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            int i4 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - iArr[0];
-            int max = i2 + Math.max(0, i4);
-            iArr[0] = Math.max(0, -i4);
-            int childTop = getChildTop(view, i3);
+            int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin - iArr[0];
+            int max = i + Math.max(0, i3);
+            iArr[0] = Math.max(0, -i3);
+            int childTop = getChildTop(view, i2);
             int measuredWidth = view.getMeasuredWidth();
             view.layout(max, childTop, max + measuredWidth, view.getMeasuredHeight() + childTop);
             return max + measuredWidth + ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin;
@@ -708,15 +708,15 @@ public class Toolbar extends ViewGroup {
         return invokeCommon.intValue;
     }
 
-    private int layoutChildRight(View view, int i2, int[] iArr, int i3) {
+    private int layoutChildRight(View view, int i, int[] iArr, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{view, Integer.valueOf(i2), iArr, Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{view, Integer.valueOf(i), iArr, Integer.valueOf(i2)})) == null) {
             LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-            int i4 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - iArr[1];
-            int max = i2 - Math.max(0, i4);
-            iArr[1] = Math.max(0, -i4);
-            int childTop = getChildTop(view, i3);
+            int i3 = ((ViewGroup.MarginLayoutParams) layoutParams).rightMargin - iArr[1];
+            int max = i - Math.max(0, i3);
+            iArr[1] = Math.max(0, -i3);
+            int childTop = getChildTop(view, i2);
             int measuredWidth = view.getMeasuredWidth();
             view.layout(max - measuredWidth, childTop, max, view.getMeasuredHeight() + childTop);
             return max - (measuredWidth + ((ViewGroup.MarginLayoutParams) layoutParams).leftMargin);
@@ -724,34 +724,34 @@ public class Toolbar extends ViewGroup {
         return invokeCommon.intValue;
     }
 
-    private int measureChildCollapseMargins(View view, int i2, int i3, int i4, int i5, int[] iArr) {
+    private int measureChildCollapseMargins(View view, int i, int i2, int i3, int i4, int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            int i6 = marginLayoutParams.leftMargin - iArr[0];
-            int i7 = marginLayoutParams.rightMargin - iArr[1];
-            int max = Math.max(0, i6) + Math.max(0, i7);
-            iArr[0] = Math.max(0, -i6);
-            iArr[1] = Math.max(0, -i7);
-            view.measure(ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight() + max + i3, marginLayoutParams.width), ViewGroup.getChildMeasureSpec(i4, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i5, marginLayoutParams.height));
+            int i5 = marginLayoutParams.leftMargin - iArr[0];
+            int i6 = marginLayoutParams.rightMargin - iArr[1];
+            int max = Math.max(0, i5) + Math.max(0, i6);
+            iArr[0] = Math.max(0, -i5);
+            iArr[1] = Math.max(0, -i6);
+            view.measure(ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + max + i2, marginLayoutParams.width), ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height));
             return view.getMeasuredWidth() + max;
         }
         return invokeCommon.intValue;
     }
 
-    private void measureChildConstrained(View view, int i2, int i3, int i4, int i5, int i6) {
+    private void measureChildConstrained(View view, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65557, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            int childMeasureSpec = ViewGroup.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i3, marginLayoutParams.width);
-            int childMeasureSpec2 = ViewGroup.getChildMeasureSpec(i4, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i5, marginLayoutParams.height);
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight() + marginLayoutParams.leftMargin + marginLayoutParams.rightMargin + i2, marginLayoutParams.width);
+            int childMeasureSpec2 = ViewGroup.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom() + marginLayoutParams.topMargin + marginLayoutParams.bottomMargin + i4, marginLayoutParams.height);
             int mode = View.MeasureSpec.getMode(childMeasureSpec2);
-            if (mode != 1073741824 && i6 >= 0) {
+            if (mode != 1073741824 && i5 >= 0) {
                 if (mode != 0) {
-                    i6 = Math.min(View.MeasureSpec.getSize(childMeasureSpec2), i6);
+                    i5 = Math.min(View.MeasureSpec.getSize(childMeasureSpec2), i5);
                 }
-                childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i6, 1073741824);
+                childMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(i5, 1073741824);
             }
             view.measure(childMeasureSpec, childMeasureSpec2);
         }
@@ -771,8 +771,8 @@ public class Toolbar extends ViewGroup {
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, this)) == null) {
             if (this.mCollapsible) {
                 int childCount = getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = getChildAt(i2);
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = getChildAt(i);
                     if (shouldLayout(childAt) && childAt.getMeasuredWidth() > 0 && childAt.getMeasuredHeight() > 0) {
                         return false;
                     }
@@ -858,9 +858,9 @@ public class Toolbar extends ViewGroup {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -925,8 +925,8 @@ public class Toolbar extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            int i2 = this.mContentInsetEndWithActions;
-            return i2 != Integer.MIN_VALUE ? i2 : getContentInsetEnd();
+            int i = this.mContentInsetEndWithActions;
+            return i != Integer.MIN_VALUE ? i : getContentInsetEnd();
         }
         return invokeV.intValue;
     }
@@ -974,8 +974,8 @@ public class Toolbar extends ViewGroup {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            int i2 = this.mContentInsetStartWithNavigation;
-            return i2 != Integer.MIN_VALUE ? i2 : getContentInsetStart();
+            int i = this.mContentInsetStartWithNavigation;
+            return i != Integer.MIN_VALUE ? i : getContentInsetStart();
         }
         return invokeV.intValue;
     }
@@ -1208,10 +1208,10 @@ public class Toolbar extends ViewGroup {
         return invokeV.booleanValue;
     }
 
-    public void inflateMenu(@MenuRes int i2) {
+    public void inflateMenu(@MenuRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            getMenuInflater().inflate(i2, getMenu());
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            getMenuInflater().inflate(i, getMenu());
         }
     }
 
@@ -1247,8 +1247,8 @@ public class Toolbar extends ViewGroup {
                 return false;
             }
             int lineCount = layout.getLineCount();
-            for (int i2 = 0; i2 < lineCount; i2++) {
-                if (layout.getEllipsisCount(i2) > 0) {
+            for (int i = 0; i < lineCount; i++) {
+                if (layout.getEllipsisCount(i) > 0) {
                     return true;
                 }
             }
@@ -1313,33 +1313,33 @@ public class Toolbar extends ViewGroup {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
         int i6;
-        int i7;
         boolean shouldLayout;
         boolean shouldLayout2;
+        int i7;
         int i8;
         int i9;
         int i10;
         int i11;
         int i12;
         int i13;
-        int i14;
         int paddingTop;
+        int i14;
         int i15;
         int i16;
         int i17;
         int i18;
         int i19;
-        int i20;
         int size;
-        int i21;
+        int i20;
         int size2;
+        int i21;
         int i22;
-        int i23;
         int size3;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) {
             return;
         }
         boolean z2 = ViewCompat.getLayoutDirection(this) == 1;
@@ -1349,37 +1349,37 @@ public class Toolbar extends ViewGroup {
         int paddingRight = getPaddingRight();
         int paddingTop2 = getPaddingTop();
         int paddingBottom = getPaddingBottom();
-        int i24 = width - paddingRight;
+        int i23 = width - paddingRight;
         int[] iArr = this.mTempMargins;
         iArr[1] = 0;
         iArr[0] = 0;
         int minimumHeight = ViewCompat.getMinimumHeight(this);
-        int min = minimumHeight >= 0 ? Math.min(minimumHeight, i5 - i3) : 0;
+        int min = minimumHeight >= 0 ? Math.min(minimumHeight, i4 - i2) : 0;
         if (!shouldLayout(this.mNavButtonView)) {
-            i6 = paddingLeft;
+            i5 = paddingLeft;
         } else if (z2) {
-            i7 = layoutChildRight(this.mNavButtonView, i24, iArr, min);
-            i6 = paddingLeft;
+            i6 = layoutChildRight(this.mNavButtonView, i23, iArr, min);
+            i5 = paddingLeft;
             if (shouldLayout(this.mCollapseButtonView)) {
                 if (z2) {
-                    i7 = layoutChildRight(this.mCollapseButtonView, i7, iArr, min);
+                    i6 = layoutChildRight(this.mCollapseButtonView, i6, iArr, min);
                 } else {
-                    i6 = layoutChildLeft(this.mCollapseButtonView, i6, iArr, min);
+                    i5 = layoutChildLeft(this.mCollapseButtonView, i5, iArr, min);
                 }
             }
             if (shouldLayout(this.mMenuView)) {
                 if (z2) {
-                    i6 = layoutChildLeft(this.mMenuView, i6, iArr, min);
+                    i5 = layoutChildLeft(this.mMenuView, i5, iArr, min);
                 } else {
-                    i7 = layoutChildRight(this.mMenuView, i7, iArr, min);
+                    i6 = layoutChildRight(this.mMenuView, i6, iArr, min);
                 }
             }
             int currentContentInsetLeft = getCurrentContentInsetLeft();
             int currentContentInsetRight = getCurrentContentInsetRight();
-            iArr[0] = Math.max(0, currentContentInsetLeft - i6);
-            iArr[1] = Math.max(0, currentContentInsetRight - (i24 - i7));
-            int max = Math.max(i6, currentContentInsetLeft);
-            int min2 = Math.min(i7, i24 - currentContentInsetRight);
+            iArr[0] = Math.max(0, currentContentInsetLeft - i5);
+            iArr[1] = Math.max(0, currentContentInsetRight - (i23 - i6));
+            int max = Math.max(i5, currentContentInsetLeft);
+            int min2 = Math.min(i6, i23 - currentContentInsetRight);
             if (shouldLayout(this.mExpandedActionView)) {
                 if (z2) {
                     min2 = layoutChildRight(this.mExpandedActionView, min2, iArr, min);
@@ -1397,19 +1397,19 @@ public class Toolbar extends ViewGroup {
             shouldLayout = shouldLayout(this.mTitleTextView);
             shouldLayout2 = shouldLayout(this.mSubtitleTextView);
             if (shouldLayout) {
-                i8 = paddingRight;
-                i9 = 0;
+                i7 = paddingRight;
+                i8 = 0;
             } else {
                 LayoutParams layoutParams = (LayoutParams) this.mTitleTextView.getLayoutParams();
-                i8 = paddingRight;
-                i9 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + this.mTitleTextView.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin + 0;
+                i7 = paddingRight;
+                i8 = ((ViewGroup.MarginLayoutParams) layoutParams).topMargin + this.mTitleTextView.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams).bottomMargin + 0;
             }
             if (shouldLayout2) {
-                i10 = width;
+                i9 = width;
             } else {
                 LayoutParams layoutParams2 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
-                i10 = width;
-                i9 += ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin + this.mSubtitleTextView.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin;
+                i9 = width;
+                i8 += ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin + this.mSubtitleTextView.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) layoutParams2).bottomMargin;
             }
             if (!shouldLayout || shouldLayout2) {
                 TextView textView = !shouldLayout ? this.mTitleTextView : this.mSubtitleTextView;
@@ -1417,158 +1417,158 @@ public class Toolbar extends ViewGroup {
                 LayoutParams layoutParams3 = (LayoutParams) textView.getLayoutParams();
                 LayoutParams layoutParams4 = (LayoutParams) textView2.getLayoutParams();
                 boolean z3 = (!shouldLayout && this.mTitleTextView.getMeasuredWidth() > 0) || (shouldLayout2 && this.mSubtitleTextView.getMeasuredWidth() > 0);
-                i11 = this.mGravity & 112;
-                i12 = paddingLeft;
-                if (i11 != 48) {
-                    i13 = max;
-                    i14 = min;
+                i10 = this.mGravity & 112;
+                i11 = paddingLeft;
+                if (i10 != 48) {
+                    i12 = max;
+                    i13 = min;
                     paddingTop = getPaddingTop() + ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin + this.mTitleMarginTop;
-                } else if (i11 != 80) {
-                    int i25 = (((height - paddingTop2) - paddingBottom) - i9) / 2;
-                    int i26 = ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin;
-                    i14 = min;
-                    int i27 = this.mTitleMarginTop;
-                    i13 = max;
-                    if (i25 < i26 + i27) {
-                        i25 = i26 + i27;
+                } else if (i10 != 80) {
+                    int i24 = (((height - paddingTop2) - paddingBottom) - i8) / 2;
+                    int i25 = ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin;
+                    i13 = min;
+                    int i26 = this.mTitleMarginTop;
+                    i12 = max;
+                    if (i24 < i25 + i26) {
+                        i24 = i25 + i26;
                     } else {
-                        int i28 = (((height - paddingBottom) - i9) - i25) - paddingTop2;
-                        int i29 = ((ViewGroup.MarginLayoutParams) layoutParams3).bottomMargin;
-                        int i30 = this.mTitleMarginBottom;
-                        if (i28 < i29 + i30) {
-                            i25 = Math.max(0, i25 - ((((ViewGroup.MarginLayoutParams) layoutParams4).bottomMargin + i30) - i28));
+                        int i27 = (((height - paddingBottom) - i8) - i24) - paddingTop2;
+                        int i28 = ((ViewGroup.MarginLayoutParams) layoutParams3).bottomMargin;
+                        int i29 = this.mTitleMarginBottom;
+                        if (i27 < i28 + i29) {
+                            i24 = Math.max(0, i24 - ((((ViewGroup.MarginLayoutParams) layoutParams4).bottomMargin + i29) - i27));
                         }
                     }
-                    paddingTop = paddingTop2 + i25;
+                    paddingTop = paddingTop2 + i24;
                 } else {
-                    i13 = max;
-                    i14 = min;
-                    paddingTop = (((height - paddingBottom) - ((ViewGroup.MarginLayoutParams) layoutParams4).bottomMargin) - this.mTitleMarginBottom) - i9;
+                    i12 = max;
+                    i13 = min;
+                    paddingTop = (((height - paddingBottom) - ((ViewGroup.MarginLayoutParams) layoutParams4).bottomMargin) - this.mTitleMarginBottom) - i8;
                 }
                 if (!z2) {
-                    int i31 = (z3 ? this.mTitleMarginStart : 0) - iArr[1];
-                    min2 -= Math.max(0, i31);
-                    iArr[1] = Math.max(0, -i31);
+                    int i30 = (z3 ? this.mTitleMarginStart : 0) - iArr[1];
+                    min2 -= Math.max(0, i30);
+                    iArr[1] = Math.max(0, -i30);
                     if (shouldLayout) {
                         int measuredWidth = min2 - this.mTitleTextView.getMeasuredWidth();
                         int measuredHeight = this.mTitleTextView.getMeasuredHeight() + paddingTop;
                         this.mTitleTextView.layout(measuredWidth, paddingTop, min2, measuredHeight);
-                        i19 = measuredWidth - this.mTitleMarginEnd;
+                        i18 = measuredWidth - this.mTitleMarginEnd;
                         paddingTop = measuredHeight + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.mTitleTextView.getLayoutParams())).bottomMargin;
                     } else {
-                        i19 = min2;
+                        i18 = min2;
                     }
                     if (shouldLayout2) {
                         LayoutParams layoutParams5 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
-                        int i32 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams5).topMargin;
-                        this.mSubtitleTextView.layout(min2 - this.mSubtitleTextView.getMeasuredWidth(), i32, min2, this.mSubtitleTextView.getMeasuredHeight() + i32);
-                        i20 = min2 - this.mTitleMarginEnd;
-                        int i33 = ((ViewGroup.MarginLayoutParams) layoutParams5).bottomMargin;
+                        int i31 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams5).topMargin;
+                        this.mSubtitleTextView.layout(min2 - this.mSubtitleTextView.getMeasuredWidth(), i31, min2, this.mSubtitleTextView.getMeasuredHeight() + i31);
+                        i19 = min2 - this.mTitleMarginEnd;
+                        int i32 = ((ViewGroup.MarginLayoutParams) layoutParams5).bottomMargin;
                     } else {
-                        i20 = min2;
+                        i19 = min2;
                     }
                     if (z3) {
-                        min2 = Math.min(i19, i20);
+                        min2 = Math.min(i18, i19);
                     }
-                    max = i13;
+                    max = i12;
                 } else {
                     if (z3) {
-                        i16 = this.mTitleMarginStart;
-                        i15 = 0;
+                        i15 = this.mTitleMarginStart;
+                        i14 = 0;
                     } else {
+                        i14 = 0;
                         i15 = 0;
-                        i16 = 0;
                     }
-                    int i34 = i16 - iArr[i15];
-                    max = i13 + Math.max(i15, i34);
-                    iArr[i15] = Math.max(i15, -i34);
+                    int i33 = i15 - iArr[i14];
+                    max = i12 + Math.max(i14, i33);
+                    iArr[i14] = Math.max(i14, -i33);
                     if (shouldLayout) {
                         int measuredWidth2 = this.mTitleTextView.getMeasuredWidth() + max;
                         int measuredHeight2 = this.mTitleTextView.getMeasuredHeight() + paddingTop;
                         this.mTitleTextView.layout(max, paddingTop, measuredWidth2, measuredHeight2);
-                        i17 = measuredWidth2 + this.mTitleMarginEnd;
+                        i16 = measuredWidth2 + this.mTitleMarginEnd;
                         paddingTop = measuredHeight2 + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.mTitleTextView.getLayoutParams())).bottomMargin;
                     } else {
-                        i17 = max;
+                        i16 = max;
                     }
                     if (shouldLayout2) {
                         LayoutParams layoutParams6 = (LayoutParams) this.mSubtitleTextView.getLayoutParams();
-                        int i35 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams6).topMargin;
+                        int i34 = paddingTop + ((ViewGroup.MarginLayoutParams) layoutParams6).topMargin;
                         int measuredWidth3 = this.mSubtitleTextView.getMeasuredWidth() + max;
-                        this.mSubtitleTextView.layout(max, i35, measuredWidth3, this.mSubtitleTextView.getMeasuredHeight() + i35);
-                        i18 = measuredWidth3 + this.mTitleMarginEnd;
-                        int i36 = ((ViewGroup.MarginLayoutParams) layoutParams6).bottomMargin;
+                        this.mSubtitleTextView.layout(max, i34, measuredWidth3, this.mSubtitleTextView.getMeasuredHeight() + i34);
+                        i17 = measuredWidth3 + this.mTitleMarginEnd;
+                        int i35 = ((ViewGroup.MarginLayoutParams) layoutParams6).bottomMargin;
                     } else {
-                        i18 = max;
+                        i17 = max;
                     }
                     if (z3) {
-                        max = Math.max(i17, i18);
+                        max = Math.max(i16, i17);
                     }
                     addCustomViewsWithGravity(this.mTempViews, 3);
                     size = this.mTempViews.size();
-                    for (i21 = 0; i21 < size; i21++) {
-                        max = layoutChildLeft(this.mTempViews.get(i21), max, iArr, i14);
+                    for (i20 = 0; i20 < size; i20++) {
+                        max = layoutChildLeft(this.mTempViews.get(i20), max, iArr, i13);
                     }
-                    int i37 = i14;
+                    int i36 = i13;
                     addCustomViewsWithGravity(this.mTempViews, 5);
                     size2 = this.mTempViews.size();
-                    for (i22 = 0; i22 < size2; i22++) {
-                        min2 = layoutChildRight(this.mTempViews.get(i22), min2, iArr, i37);
+                    for (i21 = 0; i21 < size2; i21++) {
+                        min2 = layoutChildRight(this.mTempViews.get(i21), min2, iArr, i36);
                     }
                     addCustomViewsWithGravity(this.mTempViews, 1);
                     int viewListMeasuredWidth = getViewListMeasuredWidth(this.mTempViews, iArr);
-                    i23 = (i12 + (((i10 - i12) - i8) / 2)) - (viewListMeasuredWidth / 2);
-                    int i38 = viewListMeasuredWidth + i23;
-                    if (i23 >= max) {
-                        max = i38 > min2 ? i23 - (i38 - min2) : i23;
+                    i22 = (i11 + (((i9 - i11) - i7) / 2)) - (viewListMeasuredWidth / 2);
+                    int i37 = viewListMeasuredWidth + i22;
+                    if (i22 >= max) {
+                        max = i37 > min2 ? i22 - (i37 - min2) : i22;
                     }
                     size3 = this.mTempViews.size();
-                    while (i15 < size3) {
-                        max = layoutChildLeft(this.mTempViews.get(i15), max, iArr, i37);
-                        i15++;
+                    while (i14 < size3) {
+                        max = layoutChildLeft(this.mTempViews.get(i14), max, iArr, i36);
+                        i14++;
                     }
                     this.mTempViews.clear();
                     return;
                 }
             } else {
-                i12 = paddingLeft;
-                i14 = min;
+                i11 = paddingLeft;
+                i13 = min;
             }
-            i15 = 0;
+            i14 = 0;
             addCustomViewsWithGravity(this.mTempViews, 3);
             size = this.mTempViews.size();
-            while (i21 < size) {
+            while (i20 < size) {
             }
-            int i372 = i14;
+            int i362 = i13;
             addCustomViewsWithGravity(this.mTempViews, 5);
             size2 = this.mTempViews.size();
-            while (i22 < size2) {
+            while (i21 < size2) {
             }
             addCustomViewsWithGravity(this.mTempViews, 1);
             int viewListMeasuredWidth2 = getViewListMeasuredWidth(this.mTempViews, iArr);
-            i23 = (i12 + (((i10 - i12) - i8) / 2)) - (viewListMeasuredWidth2 / 2);
-            int i382 = viewListMeasuredWidth2 + i23;
-            if (i23 >= max) {
+            i22 = (i11 + (((i9 - i11) - i7) / 2)) - (viewListMeasuredWidth2 / 2);
+            int i372 = viewListMeasuredWidth2 + i22;
+            if (i22 >= max) {
             }
             size3 = this.mTempViews.size();
-            while (i15 < size3) {
+            while (i14 < size3) {
             }
             this.mTempViews.clear();
             return;
         } else {
-            i6 = layoutChildLeft(this.mNavButtonView, paddingLeft, iArr, min);
+            i5 = layoutChildLeft(this.mNavButtonView, paddingLeft, iArr, min);
         }
-        i7 = i24;
+        i6 = i23;
         if (shouldLayout(this.mCollapseButtonView)) {
         }
         if (shouldLayout(this.mMenuView)) {
         }
         int currentContentInsetLeft2 = getCurrentContentInsetLeft();
         int currentContentInsetRight2 = getCurrentContentInsetRight();
-        iArr[0] = Math.max(0, currentContentInsetLeft2 - i6);
-        iArr[1] = Math.max(0, currentContentInsetRight2 - (i24 - i7));
-        int max2 = Math.max(i6, currentContentInsetLeft2);
-        int min22 = Math.min(i7, i24 - currentContentInsetRight2);
+        iArr[0] = Math.max(0, currentContentInsetLeft2 - i5);
+        iArr[1] = Math.max(0, currentContentInsetRight2 - (i23 - i6));
+        int max2 = Math.max(i5, currentContentInsetLeft2);
+        int min22 = Math.min(i6, i23 - currentContentInsetRight2);
         if (shouldLayout(this.mExpandedActionView)) {
         }
         if (shouldLayout(this.mLogoView)) {
@@ -1589,27 +1589,27 @@ public class Toolbar extends ViewGroup {
         LayoutParams layoutParams42 = (LayoutParams) textView2.getLayoutParams();
         if (shouldLayout) {
         }
-        i11 = this.mGravity & 112;
-        i12 = paddingLeft;
-        if (i11 != 48) {
+        i10 = this.mGravity & 112;
+        i11 = paddingLeft;
+        if (i10 != 48) {
         }
         if (!z2) {
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         char c2;
         char c3;
+        int i3;
         int i4;
         int i5;
         int i6;
         int i7;
         int i8;
         int i9;
-        int i10;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048627, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048627, this, i, i2) == null) {
             int[] iArr = this.mTempMargins;
             if (ViewUtils.isLayoutRtl(this)) {
                 c2 = 1;
@@ -1619,74 +1619,74 @@ public class Toolbar extends ViewGroup {
                 c3 = 1;
             }
             if (shouldLayout(this.mNavButtonView)) {
-                measureChildConstrained(this.mNavButtonView, i2, 0, i3, 0, this.mMaxButtonHeight);
-                i4 = this.mNavButtonView.getMeasuredWidth() + getHorizontalMargins(this.mNavButtonView);
-                i5 = Math.max(0, this.mNavButtonView.getMeasuredHeight() + getVerticalMargins(this.mNavButtonView));
-                i6 = View.combineMeasuredStates(0, this.mNavButtonView.getMeasuredState());
+                measureChildConstrained(this.mNavButtonView, i, 0, i2, 0, this.mMaxButtonHeight);
+                i3 = this.mNavButtonView.getMeasuredWidth() + getHorizontalMargins(this.mNavButtonView);
+                i4 = Math.max(0, this.mNavButtonView.getMeasuredHeight() + getVerticalMargins(this.mNavButtonView));
+                i5 = View.combineMeasuredStates(0, this.mNavButtonView.getMeasuredState());
             } else {
+                i3 = 0;
                 i4 = 0;
                 i5 = 0;
-                i6 = 0;
             }
             if (shouldLayout(this.mCollapseButtonView)) {
-                measureChildConstrained(this.mCollapseButtonView, i2, 0, i3, 0, this.mMaxButtonHeight);
-                i4 = this.mCollapseButtonView.getMeasuredWidth() + getHorizontalMargins(this.mCollapseButtonView);
-                i5 = Math.max(i5, this.mCollapseButtonView.getMeasuredHeight() + getVerticalMargins(this.mCollapseButtonView));
-                i6 = View.combineMeasuredStates(i6, this.mCollapseButtonView.getMeasuredState());
+                measureChildConstrained(this.mCollapseButtonView, i, 0, i2, 0, this.mMaxButtonHeight);
+                i3 = this.mCollapseButtonView.getMeasuredWidth() + getHorizontalMargins(this.mCollapseButtonView);
+                i4 = Math.max(i4, this.mCollapseButtonView.getMeasuredHeight() + getVerticalMargins(this.mCollapseButtonView));
+                i5 = View.combineMeasuredStates(i5, this.mCollapseButtonView.getMeasuredState());
             }
             int currentContentInsetStart = getCurrentContentInsetStart();
-            int max = 0 + Math.max(currentContentInsetStart, i4);
-            iArr[c2] = Math.max(0, currentContentInsetStart - i4);
+            int max = 0 + Math.max(currentContentInsetStart, i3);
+            iArr[c2] = Math.max(0, currentContentInsetStart - i3);
             if (shouldLayout(this.mMenuView)) {
-                measureChildConstrained(this.mMenuView, i2, max, i3, 0, this.mMaxButtonHeight);
-                i7 = this.mMenuView.getMeasuredWidth() + getHorizontalMargins(this.mMenuView);
-                i5 = Math.max(i5, this.mMenuView.getMeasuredHeight() + getVerticalMargins(this.mMenuView));
-                i6 = View.combineMeasuredStates(i6, this.mMenuView.getMeasuredState());
+                measureChildConstrained(this.mMenuView, i, max, i2, 0, this.mMaxButtonHeight);
+                i6 = this.mMenuView.getMeasuredWidth() + getHorizontalMargins(this.mMenuView);
+                i4 = Math.max(i4, this.mMenuView.getMeasuredHeight() + getVerticalMargins(this.mMenuView));
+                i5 = View.combineMeasuredStates(i5, this.mMenuView.getMeasuredState());
             } else {
-                i7 = 0;
+                i6 = 0;
             }
             int currentContentInsetEnd = getCurrentContentInsetEnd();
-            int max2 = max + Math.max(currentContentInsetEnd, i7);
-            iArr[c3] = Math.max(0, currentContentInsetEnd - i7);
+            int max2 = max + Math.max(currentContentInsetEnd, i6);
+            iArr[c3] = Math.max(0, currentContentInsetEnd - i6);
             if (shouldLayout(this.mExpandedActionView)) {
-                max2 += measureChildCollapseMargins(this.mExpandedActionView, i2, max2, i3, 0, iArr);
-                i5 = Math.max(i5, this.mExpandedActionView.getMeasuredHeight() + getVerticalMargins(this.mExpandedActionView));
-                i6 = View.combineMeasuredStates(i6, this.mExpandedActionView.getMeasuredState());
+                max2 += measureChildCollapseMargins(this.mExpandedActionView, i, max2, i2, 0, iArr);
+                i4 = Math.max(i4, this.mExpandedActionView.getMeasuredHeight() + getVerticalMargins(this.mExpandedActionView));
+                i5 = View.combineMeasuredStates(i5, this.mExpandedActionView.getMeasuredState());
             }
             if (shouldLayout(this.mLogoView)) {
-                max2 += measureChildCollapseMargins(this.mLogoView, i2, max2, i3, 0, iArr);
-                i5 = Math.max(i5, this.mLogoView.getMeasuredHeight() + getVerticalMargins(this.mLogoView));
-                i6 = View.combineMeasuredStates(i6, this.mLogoView.getMeasuredState());
+                max2 += measureChildCollapseMargins(this.mLogoView, i, max2, i2, 0, iArr);
+                i4 = Math.max(i4, this.mLogoView.getMeasuredHeight() + getVerticalMargins(this.mLogoView));
+                i5 = View.combineMeasuredStates(i5, this.mLogoView.getMeasuredState());
             }
             int childCount = getChildCount();
-            for (int i11 = 0; i11 < childCount; i11++) {
-                View childAt = getChildAt(i11);
+            for (int i10 = 0; i10 < childCount; i10++) {
+                View childAt = getChildAt(i10);
                 if (((LayoutParams) childAt.getLayoutParams()).mViewType == 0 && shouldLayout(childAt)) {
-                    max2 += measureChildCollapseMargins(childAt, i2, max2, i3, 0, iArr);
-                    i5 = Math.max(i5, childAt.getMeasuredHeight() + getVerticalMargins(childAt));
-                    i6 = View.combineMeasuredStates(i6, childAt.getMeasuredState());
+                    max2 += measureChildCollapseMargins(childAt, i, max2, i2, 0, iArr);
+                    i4 = Math.max(i4, childAt.getMeasuredHeight() + getVerticalMargins(childAt));
+                    i5 = View.combineMeasuredStates(i5, childAt.getMeasuredState());
                 }
             }
-            int i12 = this.mTitleMarginTop + this.mTitleMarginBottom;
-            int i13 = this.mTitleMarginStart + this.mTitleMarginEnd;
+            int i11 = this.mTitleMarginTop + this.mTitleMarginBottom;
+            int i12 = this.mTitleMarginStart + this.mTitleMarginEnd;
             if (shouldLayout(this.mTitleTextView)) {
-                measureChildCollapseMargins(this.mTitleTextView, i2, max2 + i13, i3, i12, iArr);
+                measureChildCollapseMargins(this.mTitleTextView, i, max2 + i12, i2, i11, iArr);
                 int measuredWidth = this.mTitleTextView.getMeasuredWidth() + getHorizontalMargins(this.mTitleTextView);
-                i10 = this.mTitleTextView.getMeasuredHeight() + getVerticalMargins(this.mTitleTextView);
-                i8 = View.combineMeasuredStates(i6, this.mTitleTextView.getMeasuredState());
-                i9 = measuredWidth;
+                i9 = this.mTitleTextView.getMeasuredHeight() + getVerticalMargins(this.mTitleTextView);
+                i7 = View.combineMeasuredStates(i5, this.mTitleTextView.getMeasuredState());
+                i8 = measuredWidth;
             } else {
-                i8 = i6;
+                i7 = i5;
+                i8 = 0;
                 i9 = 0;
-                i10 = 0;
             }
             if (shouldLayout(this.mSubtitleTextView)) {
-                i9 = Math.max(i9, measureChildCollapseMargins(this.mSubtitleTextView, i2, max2 + i13, i3, i10 + i12, iArr));
-                i10 += this.mSubtitleTextView.getMeasuredHeight() + getVerticalMargins(this.mSubtitleTextView);
-                i8 = View.combineMeasuredStates(i8, this.mSubtitleTextView.getMeasuredState());
+                i8 = Math.max(i8, measureChildCollapseMargins(this.mSubtitleTextView, i, max2 + i12, i2, i9 + i11, iArr));
+                i9 += this.mSubtitleTextView.getMeasuredHeight() + getVerticalMargins(this.mSubtitleTextView);
+                i7 = View.combineMeasuredStates(i7, this.mSubtitleTextView.getMeasuredState());
             }
-            int max3 = Math.max(i5, i10);
-            setMeasuredDimension(View.resolveSizeAndState(Math.max(max2 + i9 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i2, (-16777216) & i8), shouldCollapse() ? 0 : View.resolveSizeAndState(Math.max(max3 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i3, i8 << 16));
+            int max3 = Math.max(i4, i9);
+            setMeasuredDimension(View.resolveSizeAndState(Math.max(max2 + i8 + getPaddingLeft() + getPaddingRight(), getSuggestedMinimumWidth()), i, (-16777216) & i7), shouldCollapse() ? 0 : View.resolveSizeAndState(Math.max(max3 + getPaddingTop() + getPaddingBottom(), getSuggestedMinimumHeight()), i2, i7 << 16));
         }
     }
 
@@ -1703,8 +1703,8 @@ public class Toolbar extends ViewGroup {
             super.onRestoreInstanceState(savedState.getSuperState());
             ActionMenuView actionMenuView = this.mMenuView;
             MenuBuilder peekMenu = actionMenuView != null ? actionMenuView.peekMenu() : null;
-            int i2 = savedState.expandedMenuItemId;
-            if (i2 != 0 && this.mExpandedMenuPresenter != null && peekMenu != null && (findItem = peekMenu.findItem(i2)) != null) {
+            int i = savedState.expandedMenuItemId;
+            if (i != 0 && this.mExpandedMenuPresenter != null && peekMenu != null && (findItem = peekMenu.findItem(i)) != null) {
                 findItem.expandActionView();
             }
             if (savedState.isOverflowOpen) {
@@ -1714,14 +1714,14 @@ public class Toolbar extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onRtlPropertiesChanged(int i2) {
+    public void onRtlPropertiesChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                super.onRtlPropertiesChanged(i2);
+                super.onRtlPropertiesChanged(i);
             }
             ensureContentInsets();
-            this.mContentInsets.setDirection(i2 == 1);
+            this.mContentInsets.setDirection(i == 1);
         }
     }
 
@@ -1778,17 +1778,17 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setCollapseContentDescription(@StringRes int i2) {
+    public void setCollapseContentDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
-            setCollapseContentDescription(i2 != 0 ? getContext().getText(i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            setCollapseContentDescription(i != 0 ? getContext().getText(i) : null);
         }
     }
 
-    public void setCollapseIcon(@DrawableRes int i2) {
+    public void setCollapseIcon(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            setCollapseIcon(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            setCollapseIcon(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
@@ -1801,14 +1801,14 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setContentInsetEndWithActions(int i2) {
+    public void setContentInsetEndWithActions(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            if (i2 < 0) {
-                i2 = Integer.MIN_VALUE;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            if (i < 0) {
+                i = Integer.MIN_VALUE;
             }
-            if (i2 != this.mContentInsetEndWithActions) {
-                this.mContentInsetEndWithActions = i2;
+            if (i != this.mContentInsetEndWithActions) {
+                this.mContentInsetEndWithActions = i;
                 if (getNavigationIcon() != null) {
                     requestLayout();
                 }
@@ -1816,14 +1816,14 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setContentInsetStartWithNavigation(int i2) {
+    public void setContentInsetStartWithNavigation(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            if (i2 < 0) {
-                i2 = Integer.MIN_VALUE;
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            if (i < 0) {
+                i = Integer.MIN_VALUE;
             }
-            if (i2 != this.mContentInsetStartWithNavigation) {
-                this.mContentInsetStartWithNavigation = i2;
+            if (i != this.mContentInsetStartWithNavigation) {
+                this.mContentInsetStartWithNavigation = i;
                 if (getNavigationIcon() != null) {
                     requestLayout();
                 }
@@ -1831,33 +1831,33 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setContentInsetsAbsolute(int i2, int i3) {
+    public void setContentInsetsAbsolute(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048640, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048640, this, i, i2) == null) {
             ensureContentInsets();
-            this.mContentInsets.setAbsolute(i2, i3);
+            this.mContentInsets.setAbsolute(i, i2);
         }
     }
 
-    public void setContentInsetsRelative(int i2, int i3) {
+    public void setContentInsetsRelative(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048641, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048641, this, i, i2) == null) {
             ensureContentInsets();
-            this.mContentInsets.setRelative(i2, i3);
+            this.mContentInsets.setRelative(i, i2);
         }
     }
 
-    public void setLogo(@DrawableRes int i2) {
+    public void setLogo(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048642, this, i2) == null) {
-            setLogo(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048642, this, i) == null) {
+            setLogo(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
-    public void setLogoDescription(@StringRes int i2) {
+    public void setLogoDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048644, this, i2) == null) {
-            setLogoDescription(getContext().getText(i2));
+        if (interceptable == null || interceptable.invokeI(1048644, this, i) == null) {
+            setLogoDescription(getContext().getText(i));
         }
     }
 
@@ -1909,17 +1909,17 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setNavigationContentDescription(@StringRes int i2) {
+    public void setNavigationContentDescription(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            setNavigationContentDescription(i2 != 0 ? getContext().getText(i2) : null);
+        if (interceptable == null || interceptable.invokeI(1048648, this, i) == null) {
+            setNavigationContentDescription(i != 0 ? getContext().getText(i) : null);
         }
     }
 
-    public void setNavigationIcon(@DrawableRes int i2) {
+    public void setNavigationIcon(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
-            setNavigationIcon(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048650, this, i) == null) {
+            setNavigationIcon(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
@@ -1946,109 +1946,109 @@ public class Toolbar extends ViewGroup {
         }
     }
 
-    public void setPopupTheme(@StyleRes int i2) {
+    public void setPopupTheme(@StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048655, this, i2) == null) || this.mPopupTheme == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048655, this, i) == null) || this.mPopupTheme == i) {
             return;
         }
-        this.mPopupTheme = i2;
-        if (i2 == 0) {
+        this.mPopupTheme = i;
+        if (i == 0) {
             this.mPopupContext = getContext();
         } else {
-            this.mPopupContext = new ContextThemeWrapper(getContext(), i2);
+            this.mPopupContext = new ContextThemeWrapper(getContext(), i);
         }
     }
 
-    public void setSubtitle(@StringRes int i2) {
+    public void setSubtitle(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048656, this, i2) == null) {
-            setSubtitle(getContext().getText(i2));
+        if (interceptable == null || interceptable.invokeI(1048656, this, i) == null) {
+            setSubtitle(getContext().getText(i));
         }
     }
 
-    public void setSubtitleTextAppearance(Context context, @StyleRes int i2) {
+    public void setSubtitleTextAppearance(Context context, @StyleRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048658, this, context, i2) == null) {
-            this.mSubtitleTextAppearance = i2;
+        if (interceptable == null || interceptable.invokeLI(1048658, this, context, i) == null) {
+            this.mSubtitleTextAppearance = i;
             TextView textView = this.mSubtitleTextView;
             if (textView != null) {
-                textView.setTextAppearance(context, i2);
+                textView.setTextAppearance(context, i);
             }
         }
     }
 
-    public void setSubtitleTextColor(@ColorInt int i2) {
+    public void setSubtitleTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048659, this, i2) == null) {
-            setSubtitleTextColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048659, this, i) == null) {
+            setSubtitleTextColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setTitle(@StringRes int i2) {
+    public void setTitle(@StringRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            setTitle(getContext().getText(i2));
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
+            setTitle(getContext().getText(i));
         }
     }
 
-    public void setTitleMargin(int i2, int i3, int i4, int i5) {
+    public void setTitleMargin(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048663, this, i2, i3, i4, i5) == null) {
-            this.mTitleMarginStart = i2;
-            this.mTitleMarginTop = i3;
-            this.mTitleMarginEnd = i4;
-            this.mTitleMarginBottom = i5;
-            requestLayout();
-        }
-    }
-
-    public void setTitleMarginBottom(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048664, this, i2) == null) {
-            this.mTitleMarginBottom = i2;
-            requestLayout();
-        }
-    }
-
-    public void setTitleMarginEnd(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048665, this, i2) == null) {
-            this.mTitleMarginEnd = i2;
-            requestLayout();
-        }
-    }
-
-    public void setTitleMarginStart(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048666, this, i2) == null) {
-            this.mTitleMarginStart = i2;
-            requestLayout();
-        }
-    }
-
-    public void setTitleMarginTop(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048667, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048663, this, i, i2, i3, i4) == null) {
+            this.mTitleMarginStart = i;
             this.mTitleMarginTop = i2;
+            this.mTitleMarginEnd = i3;
+            this.mTitleMarginBottom = i4;
             requestLayout();
         }
     }
 
-    public void setTitleTextAppearance(Context context, @StyleRes int i2) {
+    public void setTitleMarginBottom(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048668, this, context, i2) == null) {
-            this.mTitleTextAppearance = i2;
+        if (interceptable == null || interceptable.invokeI(1048664, this, i) == null) {
+            this.mTitleMarginBottom = i;
+            requestLayout();
+        }
+    }
+
+    public void setTitleMarginEnd(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048665, this, i) == null) {
+            this.mTitleMarginEnd = i;
+            requestLayout();
+        }
+    }
+
+    public void setTitleMarginStart(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048666, this, i) == null) {
+            this.mTitleMarginStart = i;
+            requestLayout();
+        }
+    }
+
+    public void setTitleMarginTop(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048667, this, i) == null) {
+            this.mTitleMarginTop = i;
+            requestLayout();
+        }
+    }
+
+    public void setTitleTextAppearance(Context context, @StyleRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048668, this, context, i) == null) {
+            this.mTitleTextAppearance = i;
             TextView textView = this.mTitleTextView;
             if (textView != null) {
-                textView.setTextAppearance(context, i2);
+                textView.setTextAppearance(context, i);
             }
         }
     }
 
-    public void setTitleTextColor(@ColorInt int i2) {
+    public void setTitleTextColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048669, this, i2) == null) {
-            setTitleTextColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048669, this, i) == null) {
+            setTitleTextColor(ColorStateList.valueOf(i));
         }
     }
 
@@ -2080,9 +2080,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -2104,17 +2104,17 @@ public class Toolbar extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -2127,17 +2127,17 @@ public class Toolbar extends ViewGroup {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3, int i4) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2, int i3) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -2146,21 +2146,21 @@ public class Toolbar extends ViewGroup {
                 }
             }
             this.mViewType = 0;
-            this.gravity = i4;
+            this.gravity = i3;
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2) {
-            this(-2, -1, i2);
+        public LayoutParams(int i) {
+            this(-2, -1, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -2179,9 +2179,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65543, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ActionBar.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65543, newInitContext);
@@ -2201,9 +2201,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65542, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ActionBar.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65542, newInitContext);
@@ -2222,9 +2222,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
                 interceptable.invokeUnInit(65541, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65541, newInitContext);
@@ -2244,9 +2244,9 @@ public class Toolbar extends ViewGroup {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
@@ -2259,16 +2259,16 @@ public class Toolbar extends ViewGroup {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.toolbarStyle);
+        this(context, attributeSet, R$attr.obfuscated);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2394,9 +2394,9 @@ public class Toolbar extends ViewGroup {
                     this.mSubtitleTextView = appCompatTextView;
                     appCompatTextView.setSingleLine();
                     this.mSubtitleTextView.setEllipsize(TextUtils.TruncateAt.END);
-                    int i2 = this.mSubtitleTextAppearance;
-                    if (i2 != 0) {
-                        this.mSubtitleTextView.setTextAppearance(context, i2);
+                    int i = this.mSubtitleTextAppearance;
+                    if (i != 0) {
+                        this.mSubtitleTextView.setTextAppearance(context, i);
                     }
                     ColorStateList colorStateList = this.mSubtitleTextColor;
                     if (colorStateList != null) {
@@ -2442,9 +2442,9 @@ public class Toolbar extends ViewGroup {
                     this.mTitleTextView = appCompatTextView;
                     appCompatTextView.setSingleLine();
                     this.mTitleTextView.setEllipsize(TextUtils.TruncateAt.END);
-                    int i2 = this.mTitleTextAppearance;
-                    if (i2 != 0) {
-                        this.mTitleTextView.setTextAppearance(context, i2);
+                    int i = this.mTitleTextAppearance;
+                    if (i != 0) {
+                        this.mTitleTextView.setTextAppearance(context, i);
                     }
                     ColorStateList colorStateList = this.mTitleTextColor;
                     if (colorStateList != null) {
@@ -2481,17 +2481,17 @@ public class Toolbar extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public Toolbar(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2515,9 +2515,9 @@ public class Toolbar extends ViewGroup {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2552,9 +2552,9 @@ public class Toolbar extends ViewGroup {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2571,8 +2571,8 @@ public class Toolbar extends ViewGroup {
                 }
             }
         };
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.Toolbar, i2, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.Toolbar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getContext(), attributeSet, R$styleable.Toolbar, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.Toolbar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
         this.mTitleTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.Toolbar_titleTextAppearance, 0);
         this.mSubtitleTextAppearance = obtainStyledAttributes.getResourceId(R$styleable.Toolbar_subtitleTextAppearance, 0);
         this.mGravity = obtainStyledAttributes.getInteger(R$styleable.Toolbar_android_gravity, this.mGravity);

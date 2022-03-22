@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableValueAnimatorHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class AnimatedDrawableValueAnimatorHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,12 +43,12 @@ public class AnimatedDrawableValueAnimatorHelper {
     }
 
     @Nullable
-    public static ValueAnimator createValueAnimator(Drawable drawable, int i2) {
+    public static ValueAnimator createValueAnimator(Drawable drawable, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, drawable, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, drawable, i)) == null) {
             if (Build.VERSION.SDK_INT >= 11 && (drawable instanceof AnimatedDrawable2)) {
-                return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable, i2);
+                return AnimatedDrawable2ValueAnimatorHelper.createValueAnimator((AnimatedDrawable2) drawable, i);
             }
             return null;
         }

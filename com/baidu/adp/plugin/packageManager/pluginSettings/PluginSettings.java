@@ -29,9 +29,9 @@ public class PluginSettings implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,9 +45,9 @@ public class PluginSettings implements Serializable, Cloneable {
     private void insertPluginSettings(PluginSetting pluginSetting, List<PluginSetting> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, this, pluginSetting, list) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (pluginSetting.load_priority < list.get(i2).load_priority) {
-                    list.add(i2, pluginSetting);
+            for (int i = 0; i < list.size(); i++) {
+                if (pluginSetting.load_priority < list.get(i).load_priority) {
+                    list.add(i, pluginSetting);
                     return;
                 }
             }
@@ -67,13 +67,13 @@ public class PluginSettings implements Serializable, Cloneable {
         return (PluginSetting) invokeL.objValue;
     }
 
-    public PluginSetting findPluginSettingByCmd(int i2) {
+    public PluginSetting findPluginSettingByCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
                 PluginSetting value = entry.getValue();
-                if (value != null && value.isContainCmd(i2)) {
+                if (value != null && value.isContainCmd(i)) {
                     return value;
                 }
             }
@@ -220,7 +220,7 @@ public class PluginSettings implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSettings m29clone() {
+    public PluginSettings m27clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -230,7 +230,7 @@ public class PluginSettings implements Serializable, Cloneable {
             for (Map.Entry<String, PluginSetting> entry : this.mPlugins.entrySet()) {
                 PluginSetting value = entry.getValue();
                 if (value != null) {
-                    pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m28clone());
+                    pluginSettings.insertOrUpdatePluginSetting(value.packageName, value.m26clone());
                 }
             }
             return pluginSettings;

@@ -44,9 +44,9 @@ public final class c implements com.baidu.webkit.logsdk.b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -61,13 +61,13 @@ public final class c implements com.baidu.webkit.logsdk.b {
     }
 
     @Override // com.baidu.webkit.logsdk.b
-    public final String a(int i2) {
+    public final String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            if (i2 >= 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0) {
                 String[] strArr = a;
-                return i2 < strArr.length ? strArr[i2] : "";
+                return i < strArr.length ? strArr[i] : "";
             }
             return "";
         }

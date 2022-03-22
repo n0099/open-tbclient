@@ -23,18 +23,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MessageCardBottomView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TextView f43900e;
+    /* renamed from: b  reason: collision with root package name */
+    public ViewGroup f34073b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f43901f;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f34074c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f43902g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f43903h;
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34075d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MessageCardBottomView(Context context) {
@@ -45,9 +43,9 @@ public class MessageCardBottomView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,27 +58,27 @@ public class MessageCardBottomView extends LinearLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.message_card_bottom_layout, (ViewGroup) this, true);
-            this.f43900e = (TextView) inflate.findViewById(R.id.message_bottom_bar_name);
-            this.f43901f = (ViewGroup) inflate.findViewById(R.id.message_bottom_reply_container);
-            this.f43902g = (ImageView) inflate.findViewById(R.id.message_bottom_reply_img);
-            this.f43903h = (TextView) inflate.findViewById(R.id.message_bottom_reply);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0553, (ViewGroup) this, true);
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fd);
+            this.f34073b = (ViewGroup) inflate.findViewById(R.id.obfuscated_res_0x7f0913ff);
+            this.f34074c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091400);
+            this.f34075d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0913fe);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f34075d, (int) R.drawable.selector_comment_and_prise_item_text_color);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f34074c, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
         }
     }
 
     public View getReplyContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f43901f : (View) invokeV.objValue;
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.f43900e, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f43903h, (int) R.drawable.selector_comment_and_prise_item_text_color);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f43902g, R.drawable.icon_pure_pb_bottom_comment24_svg, R.color.CAM_X0107, null);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34073b : (View) invokeV.objValue;
     }
 
     public void setData(String str, boolean z) {
@@ -91,13 +89,13 @@ public class MessageCardBottomView extends LinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f43901f.setVisibility(z ? 0 : 8);
+            this.f34073b.setVisibility(z ? 0 : 8);
             if (m.isEmpty(str)) {
-                this.f43900e.setVisibility(8);
+                this.a.setVisibility(8);
                 return;
             }
-            this.f43900e.setText(UtilHelper.getForumNameWithBar(str, 5, true));
-            this.f43900e.setVisibility(0);
+            this.a.setText(UtilHelper.getForumNameWithBar(str, 5, true));
+            this.a.setVisibility(0);
         }
     }
 
@@ -110,9 +108,9 @@ public class MessageCardBottomView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

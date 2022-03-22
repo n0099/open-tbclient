@@ -14,20 +14,20 @@ import com.kwai.filedownloader.message.MessageSnapshot;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ArrayList<a.b> a;
 
     /* renamed from: com.kwai.filedownloader.h$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final h a;
@@ -55,9 +55,9 @@ public class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,21 +76,21 @@ public class h {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a.a : (h) invokeV.objValue;
     }
 
-    public int a(int i2) {
+    public int a(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             synchronized (this.a) {
                 Iterator<a.b> it = this.a.iterator();
-                i3 = 0;
+                i2 = 0;
                 while (it.hasNext()) {
-                    if (it.next().b(i2)) {
-                        i3++;
+                    if (it.next().b(i)) {
+                        i2++;
                     }
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeI.intValue;
     }
@@ -154,17 +154,17 @@ public class h {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 
-    public List<a.b> b(int i2) {
+    public List<a.b> b(int i) {
         InterceptResult invokeI;
         byte v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this.a) {
                 Iterator<a.b> it = this.a.iterator();
                 while (it.hasNext()) {
                     a.b next = it.next();
-                    if (next.b(i2) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
+                    if (next.b(i) && !next.H() && (v = next.F().v()) != 0 && v != 10) {
                         arrayList.add(next);
                     }
                 }
@@ -186,16 +186,16 @@ public class h {
         }
     }
 
-    public List<a.b> c(int i2) {
+    public List<a.b> c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             synchronized (this.a) {
                 Iterator<a.b> it = this.a.iterator();
                 while (it.hasNext()) {
                     a.b next = it.next();
-                    if (next.b(i2) && !next.H()) {
+                    if (next.b(i) && !next.H()) {
                         arrayList.add(next);
                     }
                 }

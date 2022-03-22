@@ -1,78 +1,332 @@
 package c.a.n0.q;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import c.a.n0.q.e.i;
+import c.a.n0.q.i.f;
+import c.a.n0.q.i.g;
+import c.a.n0.q.i.m.e;
+import c.a.n0.q.i.m.h;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes.dex */
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public b(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(110086334, "Lc/a/n0/q/b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(110086334, "Lc/a/n0/q/b;");
+        }
+    }
+
+    public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(int i2, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    public static void a(@NonNull JSONObject jSONObject, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, str)) == null) {
-            if (i2 != 0) {
-                if (i2 == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i2 != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
-                    }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
-            }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jSONObject, map) == null) || map == null) {
+            return;
         }
-        return (String) invokeIL.objValue;
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static boolean b(h hVar, i iVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, hVar, iVar)) == null) {
+            if (iVar == null) {
+                return true;
+            }
+            if (hVar == null) {
+                iVar.D(new c.a.n0.q.h.b(2100, "request对象为空"));
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static synchronized void c(c.a.n0.q.i.m.d dVar, i iVar) {
+        g M;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, dVar, iVar) == null) {
+            synchronized (b.class) {
+                if (b(dVar, iVar)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(dVar.g())) {
+                    iVar.D(new c.a.n0.q.h.b(2100, "bundleId为空"));
+                    return;
+                }
+                HashMap<String, String> i = c.a.n0.q.i.b.i(dVar);
+                if (iVar.C() != null) {
+                    i.putAll(iVar.C());
+                }
+                iVar.E();
+                if (dVar.n() == 1 && dVar.h() == 2101) {
+                    M = c.b().n();
+                } else {
+                    M = c.b().M();
+                }
+                M.j(f.e(), i, iVar.u(), new c.a.n0.q.i.k.c(dVar.g(), iVar, dVar));
+            }
+        }
+    }
+
+    public static synchronized void d(c.a.n0.q.i.m.a aVar, i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, aVar, iVar) == null) {
+            synchronized (b.class) {
+                if (b(aVar, iVar)) {
+                    return;
+                }
+                if (aVar.f() != null && !aVar.f().isEmpty()) {
+                    HashMap<String, String> f2 = c.a.n0.q.i.b.f(aVar);
+                    if (iVar.C() != null && f2 != null) {
+                        f2.putAll(iVar.C());
+                    }
+                    JSONObject d2 = c.a.n0.q.i.b.d(aVar);
+                    if (d2 == null) {
+                        iVar.D(new c.a.n0.q.h.b(2100, "构造请求body失败"));
+                        return;
+                    }
+                    a(d2, iVar.z());
+                    iVar.E();
+                    c.b().M().a(f.d(), f2, iVar.u(), d2, new c.a.n0.q.i.k.a(iVar, aVar));
+                    return;
+                }
+                iVar.D(new c.a.n0.q.h.b(2100, "pkg List为空"));
+            }
+        }
+    }
+
+    public static void e(List<String> list, @Nullable String str, @Nullable c.a.n0.q.e.c cVar) {
+        a b2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, list, str, cVar) == null) || (b2 = c.b()) == null) {
+            return;
+        }
+        if (PMSConstants.a(b2)) {
+            c.a.n0.q.j.j.b.e().f();
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("appkeys", new JSONArray((Collection) list));
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("src_app", str);
+        b2.M().a(f.c(), hashMap, null, jSONObject, new c.a.n0.q.e.d(cVar));
+    }
+
+    public static synchronized void f(c.a.n0.q.i.m.c cVar, i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, cVar, iVar) == null) {
+            synchronized (b.class) {
+                if (b(cVar, iVar)) {
+                    return;
+                }
+                if (cVar.f() != null && !cVar.f().isEmpty()) {
+                    HashMap<String, String> f2 = c.a.n0.q.i.b.f(cVar);
+                    if (iVar.C() != null && f2 != null) {
+                        f2.putAll(iVar.C());
+                    }
+                    JSONObject e2 = c.a.n0.q.i.b.e(cVar);
+                    if (e2 == null) {
+                        iVar.D(new c.a.n0.q.h.b(2100, "构造请求body失败"));
+                        return;
+                    }
+                    if (PMSConstants.a(c.b())) {
+                        c.a.n0.q.j.j.b.e().f();
+                    }
+                    a(e2, iVar.z());
+                    iVar.E();
+                    c.b().M().a(f.d(), f2, iVar.u(), e2, new c.a.n0.q.i.k.b(iVar, cVar));
+                    return;
+                }
+                iVar.D(new c.a.n0.q.h.b(2100, "pkg List为空"));
+            }
+        }
+    }
+
+    public static synchronized void g(e eVar, i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, eVar, iVar) == null) {
+            synchronized (b.class) {
+                if (b(eVar, iVar)) {
+                    return;
+                }
+                HashMap<String, String> j = c.a.n0.q.i.b.j(eVar);
+                if (iVar.C() != null) {
+                    j.putAll(iVar.C());
+                }
+                iVar.E();
+                c.b().M().j(f.f(), j, iVar.u(), new c.a.n0.q.i.k.d(iVar, eVar));
+            }
+        }
+    }
+
+    public static synchronized void h(c.a.n0.q.i.m.g gVar, i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, gVar, iVar) == null) {
+            synchronized (b.class) {
+                if (b(gVar, iVar)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(gVar.f())) {
+                    iVar.D(new c.a.n0.q.h.b(2100, "bundleId为空"));
+                } else if (TextUtils.isEmpty(gVar.k())) {
+                    iVar.D(new c.a.n0.q.h.b(2100, "分包名为空"));
+                } else {
+                    HashMap<String, String> k = c.a.n0.q.i.b.k(gVar);
+                    if (iVar.C() != null) {
+                        k.putAll(iVar.C());
+                    }
+                    iVar.E();
+                    c.b().M().j(f.e(), k, iVar.u(), new c.a.n0.q.i.k.e(gVar.f(), iVar, gVar));
+                }
+            }
+        }
+    }
+
+    public static JSONObject i(@Nullable c.a.n0.q.j.c<JSONArray> cVar, @Nullable c.a.n0.q.j.c<JSONObject> cVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, cVar, cVar2)) == null) ? c.a.n0.q.j.f.a(cVar, cVar2) : (JSONObject) invokeLL.objValue;
+    }
+
+    public static synchronized boolean j(String str) {
+        InterceptResult invokeL;
+        boolean c2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            synchronized (b.class) {
+                c2 = c.a.n0.q.i.i.g.d.b().c(str);
+            }
+            return c2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized boolean k(String str) {
+        InterceptResult invokeL;
+        boolean d2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            synchronized (b.class) {
+                d2 = c.a.n0.q.i.i.g.d.b().d(str);
+            }
+            return d2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized void l(c.a.n0.q.i.m.i iVar, i iVar2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, iVar, iVar2) == null) {
+            synchronized (b.class) {
+                m(iVar, iVar2, null);
+            }
+        }
+    }
+
+    public static synchronized void m(c.a.n0.q.i.m.i iVar, i iVar2, i iVar3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, iVar, iVar2, iVar3) == null) {
+            synchronized (b.class) {
+                n(iVar, iVar2, iVar3, null);
+            }
+        }
+    }
+
+    public static synchronized void n(c.a.n0.q.i.m.i iVar, i iVar2, i iVar3, @Nullable c.a.n0.q.k.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65551, null, iVar, iVar2, iVar3, aVar) == null) {
+            synchronized (b.class) {
+                if (b(iVar, iVar2)) {
+                    return;
+                }
+                if (PMSConstants.a(c.b())) {
+                    c.a.n0.q.j.j.b.e().f();
+                }
+                c.a.n0.q.j.c<JSONArray> g2 = aVar == null ? null : aVar.g();
+                i o = aVar == null ? null : aVar.o();
+                HashMap hashMap = new HashMap();
+                if (iVar2.C() != null) {
+                    hashMap.putAll(iVar2.C());
+                }
+                iVar2.E();
+                c.b().M().a(f.g(), hashMap, iVar2.u(), i(g2, null), new c.a.n0.q.i.k.f(iVar2, iVar, iVar3, o));
+            }
+        }
+    }
+
+    public static synchronized void o(c.a.n0.q.k.a.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, aVar) == null) {
+            synchronized (b.class) {
+                if (aVar == null) {
+                    return;
+                }
+                i o = aVar.o();
+                if (o == null) {
+                    return;
+                }
+                h request = aVar.getRequest();
+                if (request == null) {
+                    o.D(new c.a.n0.q.h.b(2100, "request对象为空"));
+                    return;
+                }
+                Map<String, String> C = o.C();
+                if (o.C() != null) {
+                    C = new HashMap(C);
+                }
+                o.E();
+                c.b().M().a(f.g(), C, o.u(), i(aVar.g(), null), new c.a.n0.q.i.k.f(o, request, null, o));
+            }
+        }
     }
 }

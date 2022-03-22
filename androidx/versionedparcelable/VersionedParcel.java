@@ -77,9 +77,9 @@ public abstract class VersionedParcel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {th};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -96,9 +96,9 @@ public abstract class VersionedParcel {
             newInitContext.initArgs = r2;
             Object[] objArr = {arrayMap, arrayMap2, arrayMap3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -109,16 +109,16 @@ public abstract class VersionedParcel {
         this.mParcelizerCache = arrayMap3;
     }
 
-    private Exception createException(int i2, String str) {
+    private Exception createException(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, str)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i, str)) == null) {
+            switch (i) {
                 case -9:
                     return (Exception) readParcelable();
                 case -8:
                 default:
-                    return new RuntimeException("Unknown exception code: " + i2 + " msg " + str);
+                    return new RuntimeException("Unknown exception code: " + i + " msg " + str);
                 case -7:
                     return new UnsupportedOperationException(str);
                 case -6:
@@ -280,10 +280,10 @@ public abstract class VersionedParcel {
         return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? readInt() : invokeV.intValue;
     }
 
-    private <T> void writeCollection(Collection<T> collection, int i2) {
+    private <T> void writeCollection(Collection<T> collection, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65547, this, collection, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(65547, this, collection, i) == null) {
+            setOutputField(i);
             writeCollection(collection);
         }
     }
@@ -314,60 +314,60 @@ public abstract class VersionedParcel {
         return invokeV.booleanValue;
     }
 
-    public <T> T[] readArray(T[] tArr, int i2) {
+    public <T> T[] readArray(T[] tArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tArr, i2)) == null) ? !readField(i2) ? tArr : (T[]) readArray(tArr) : (T[]) ((Object[]) invokeLI.objValue);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tArr, i)) == null) ? !readField(i) ? tArr : (T[]) readArray(tArr) : (T[]) ((Object[]) invokeLI.objValue);
     }
 
     public abstract boolean readBoolean();
 
-    public boolean readBoolean(boolean z, int i2) {
+    public boolean readBoolean(boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) ? !readField(i2) ? z : readBoolean() : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) ? !readField(i) ? z : readBoolean() : invokeCommon.booleanValue;
     }
 
-    public boolean[] readBooleanArray(boolean[] zArr, int i2) {
+    public boolean[] readBooleanArray(boolean[] zArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, zArr, i2)) == null) ? !readField(i2) ? zArr : readBooleanArray() : (boolean[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, zArr, i)) == null) ? !readField(i) ? zArr : readBooleanArray() : (boolean[]) invokeLI.objValue;
     }
 
     public abstract Bundle readBundle();
 
-    public Bundle readBundle(Bundle bundle, int i2) {
+    public Bundle readBundle(Bundle bundle, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, bundle, i2)) == null) ? !readField(i2) ? bundle : readBundle() : (Bundle) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, bundle, i)) == null) ? !readField(i) ? bundle : readBundle() : (Bundle) invokeLI.objValue;
     }
 
-    public byte readByte(byte b2, int i2) {
+    public byte readByte(byte b2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? b2 : (byte) (readInt() & 255) : invokeCommon.byteValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)})) == null) ? !readField(i) ? b2 : (byte) (readInt() & 255) : invokeCommon.byteValue;
     }
 
     public abstract byte[] readByteArray();
 
-    public byte[] readByteArray(byte[] bArr, int i2) {
+    public byte[] readByteArray(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, bArr, i2)) == null) ? !readField(i2) ? bArr : readByteArray() : (byte[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, bArr, i)) == null) ? !readField(i) ? bArr : readByteArray() : (byte[]) invokeLI.objValue;
     }
 
-    public char[] readCharArray(char[] cArr, int i2) {
+    public char[] readCharArray(char[] cArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, cArr, i2)) == null) {
-            if (readField(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, cArr, i)) == null) {
+            if (readField(i)) {
                 int readInt = readInt();
                 if (readInt < 0) {
                     return null;
                 }
                 char[] cArr2 = new char[readInt];
-                for (int i3 = 0; i3 < readInt; i3++) {
-                    cArr2[i3] = (char) readInt();
+                for (int i2 = 0; i2 < readInt; i2++) {
+                    cArr2[i2] = (char) readInt();
                 }
                 return cArr2;
             }
@@ -378,47 +378,47 @@ public abstract class VersionedParcel {
 
     public abstract CharSequence readCharSequence();
 
-    public CharSequence readCharSequence(CharSequence charSequence, int i2) {
+    public CharSequence readCharSequence(CharSequence charSequence, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, charSequence, i2)) == null) ? !readField(i2) ? charSequence : readCharSequence() : (CharSequence) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048592, this, charSequence, i)) == null) ? !readField(i) ? charSequence : readCharSequence() : (CharSequence) invokeLI.objValue;
     }
 
     public abstract double readDouble();
 
-    public double readDouble(double d2, int i2) {
+    public double readDouble(double d2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? d2 : readDouble() : invokeCommon.doubleValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)})) == null) ? !readField(i) ? d2 : readDouble() : invokeCommon.doubleValue;
     }
 
-    public double[] readDoubleArray(double[] dArr, int i2) {
+    public double[] readDoubleArray(double[] dArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, dArr, i2)) == null) ? !readField(i2) ? dArr : readDoubleArray() : (double[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, dArr, i)) == null) ? !readField(i) ? dArr : readDoubleArray() : (double[]) invokeLI.objValue;
     }
 
-    public Exception readException(Exception exc, int i2) {
+    public Exception readException(Exception exc, int i) {
         InterceptResult invokeLI;
         int readExceptionCode;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, exc, i2)) == null) ? (readField(i2) && (readExceptionCode = readExceptionCode()) != 0) ? readException(readExceptionCode, readString()) : exc : (Exception) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048597, this, exc, i)) == null) ? (readField(i) && (readExceptionCode = readExceptionCode()) != 0) ? readException(readExceptionCode, readString()) : exc : (Exception) invokeLI.objValue;
     }
 
-    public abstract boolean readField(int i2);
+    public abstract boolean readField(int i);
 
     public abstract float readFloat();
 
-    public float readFloat(float f2, int i2) {
+    public float readFloat(float f2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? f2 : readFloat() : invokeCommon.floatValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)})) == null) ? !readField(i) ? f2 : readFloat() : invokeCommon.floatValue;
     }
 
-    public float[] readFloatArray(float[] fArr, int i2) {
+    public float[] readFloatArray(float[] fArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, fArr, i2)) == null) ? !readField(i2) ? fArr : readFloatArray() : (float[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048602, this, fArr, i)) == null) ? !readField(i) ? fArr : readFloatArray() : (float[]) invokeLI.objValue;
     }
 
     public <T extends VersionedParcelable> T readFromParcel(String str, VersionedParcel versionedParcel) {
@@ -445,45 +445,45 @@ public abstract class VersionedParcel {
 
     public abstract int readInt();
 
-    public int readInt(int i2, int i3) {
+    public int readInt(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i2, i3)) == null) ? !readField(i3) ? i2 : readInt() : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i, i2)) == null) ? !readField(i2) ? i : readInt() : invokeII.intValue;
     }
 
-    public int[] readIntArray(int[] iArr, int i2) {
+    public int[] readIntArray(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048607, this, iArr, i2)) == null) ? !readField(i2) ? iArr : readIntArray() : (int[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048607, this, iArr, i)) == null) ? !readField(i) ? iArr : readIntArray() : (int[]) invokeLI.objValue;
     }
 
-    public <T> List<T> readList(List<T> list, int i2) {
+    public <T> List<T> readList(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048608, this, list, i2)) == null) ? !readField(i2) ? list : (List) readCollection(new ArrayList()) : (List) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048608, this, list, i)) == null) ? !readField(i) ? list : (List) readCollection(new ArrayList()) : (List) invokeLI.objValue;
     }
 
     public abstract long readLong();
 
-    public long readLong(long j2, int i2) {
+    public long readLong(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? !readField(i2) ? j2 : readLong() : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048610, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? !readField(i) ? j : readLong() : invokeCommon.longValue;
     }
 
-    public long[] readLongArray(long[] jArr, int i2) {
+    public long[] readLongArray(long[] jArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048612, this, jArr, i2)) == null) ? !readField(i2) ? jArr : readLongArray() : (long[]) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048612, this, jArr, i)) == null) ? !readField(i) ? jArr : readLongArray() : (long[]) invokeLI.objValue;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r7v2, resolved type: androidx.collection.ArrayMap */
     /* JADX WARN: Multi-variable type inference failed */
-    public <K, V> Map<K, V> readMap(Map<K, V> map, int i2) {
+    public <K, V> Map<K, V> readMap(Map<K, V> map, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048613, this, map, i2)) == null) {
-            if (readField(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048613, this, map, i)) == null) {
+            if (readField(i)) {
                 int readInt = readInt();
                 if (readInt < 0) {
                     return null;
@@ -496,8 +496,8 @@ public abstract class VersionedParcel {
                 ArrayList arrayList2 = new ArrayList();
                 readCollection(arrayList);
                 readCollection(arrayList2);
-                for (int i3 = 0; i3 < readInt; i3++) {
-                    arrayMap.put(arrayList.get(i3), arrayList2.get(i3));
+                for (int i2 = 0; i2 < readInt; i2++) {
+                    arrayMap.put(arrayList.get(i2), arrayList2.get(i2));
                 }
                 return arrayMap;
             }
@@ -508,10 +508,10 @@ public abstract class VersionedParcel {
 
     public abstract <T extends Parcelable> T readParcelable();
 
-    public <T extends Parcelable> T readParcelable(T t, int i2) {
+    public <T extends Parcelable> T readParcelable(T t, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048615, this, t, i2)) == null) ? !readField(i2) ? t : (T) readParcelable() : (T) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048615, this, t, i)) == null) ? !readField(i) ? t : (T) readParcelable() : (T) invokeLI.objValue;
     }
 
     public Serializable readSerializable() {
@@ -537,9 +537,9 @@ public abstract class VersionedParcel {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((InputStream) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -569,18 +569,18 @@ public abstract class VersionedParcel {
         return (Serializable) invokeV.objValue;
     }
 
-    public <T> Set<T> readSet(Set<T> set, int i2) {
+    public <T> Set<T> readSet(Set<T> set, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, set, i2)) == null) ? !readField(i2) ? set : (Set) readCollection(new ArraySet()) : (Set) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048617, this, set, i)) == null) ? !readField(i) ? set : (Set) readCollection(new ArraySet()) : (Set) invokeLI.objValue;
     }
 
     @RequiresApi(api = 21)
-    public Size readSize(Size size, int i2) {
+    public Size readSize(Size size, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048618, this, size, i2)) == null) {
-            if (readField(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048618, this, size, i)) == null) {
+            if (readField(i)) {
                 if (readBoolean()) {
                     return new Size(readInt(), readInt());
                 }
@@ -592,11 +592,11 @@ public abstract class VersionedParcel {
     }
 
     @RequiresApi(api = 21)
-    public SizeF readSizeF(SizeF sizeF, int i2) {
+    public SizeF readSizeF(SizeF sizeF, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, sizeF, i2)) == null) {
-            if (readField(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048619, this, sizeF, i)) == null) {
+            if (readField(i)) {
                 if (readBoolean()) {
                     return new SizeF(readFloat(), readFloat());
                 }
@@ -607,17 +607,17 @@ public abstract class VersionedParcel {
         return (SizeF) invokeLI.objValue;
     }
 
-    public SparseBooleanArray readSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i2) {
+    public SparseBooleanArray readSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048620, this, sparseBooleanArray, i2)) == null) {
-            if (readField(i2)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048620, this, sparseBooleanArray, i)) == null) {
+            if (readField(i)) {
                 int readInt = readInt();
                 if (readInt < 0) {
                     return null;
                 }
                 SparseBooleanArray sparseBooleanArray2 = new SparseBooleanArray(readInt);
-                for (int i3 = 0; i3 < readInt; i3++) {
+                for (int i2 = 0; i2 < readInt; i2++) {
                     sparseBooleanArray2.put(readInt(), readBoolean());
                 }
                 return sparseBooleanArray2;
@@ -629,27 +629,27 @@ public abstract class VersionedParcel {
 
     public abstract String readString();
 
-    public String readString(String str, int i2) {
+    public String readString(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048622, this, str, i2)) == null) ? !readField(i2) ? str : readString() : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048622, this, str, i)) == null) ? !readField(i) ? str : readString() : (String) invokeLI.objValue;
     }
 
     public abstract IBinder readStrongBinder();
 
-    public IBinder readStrongBinder(IBinder iBinder, int i2) {
+    public IBinder readStrongBinder(IBinder iBinder, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048624, this, iBinder, i2)) == null) ? !readField(i2) ? iBinder : readStrongBinder() : (IBinder) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048624, this, iBinder, i)) == null) ? !readField(i) ? iBinder : readStrongBinder() : (IBinder) invokeLI.objValue;
     }
 
-    public <T extends VersionedParcelable> T readVersionedParcelable(T t, int i2) {
+    public <T extends VersionedParcelable> T readVersionedParcelable(T t, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048626, this, t, i2)) == null) ? !readField(i2) ? t : (T) readVersionedParcelable() : (T) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048626, this, t, i)) == null) ? !readField(i) ? t : (T) readVersionedParcelable() : (T) invokeLI.objValue;
     }
 
-    public abstract void setOutputField(int i2);
+    public abstract void setOutputField(int i);
 
     public void setSerializationFlags(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
@@ -657,66 +657,66 @@ public abstract class VersionedParcel {
         }
     }
 
-    public <T> void writeArray(T[] tArr, int i2) {
+    public <T> void writeArray(T[] tArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048630, this, tArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048630, this, tArr, i) == null) {
+            setOutputField(i);
             writeArray(tArr);
         }
     }
 
     public abstract void writeBoolean(boolean z);
 
-    public void writeBoolean(boolean z, int i2) {
+    public void writeBoolean(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            setOutputField(i);
             writeBoolean(z);
         }
     }
 
-    public void writeBooleanArray(boolean[] zArr, int i2) {
+    public void writeBooleanArray(boolean[] zArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048634, this, zArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048634, this, zArr, i) == null) {
+            setOutputField(i);
             writeBooleanArray(zArr);
         }
     }
 
     public abstract void writeBundle(Bundle bundle);
 
-    public void writeBundle(Bundle bundle, int i2) {
+    public void writeBundle(Bundle bundle, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048636, this, bundle, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048636, this, bundle, i) == null) {
+            setOutputField(i);
             writeBundle(bundle);
         }
     }
 
-    public void writeByte(byte b2, int i2) {
+    public void writeByte(byte b2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i2)}) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)}) == null) {
+            setOutputField(i);
             writeInt(b2);
         }
     }
 
     public abstract void writeByteArray(byte[] bArr);
 
-    public void writeByteArray(byte[] bArr, int i2) {
+    public void writeByteArray(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048639, this, bArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048639, this, bArr, i) == null) {
+            setOutputField(i);
             writeByteArray(bArr);
         }
     }
 
-    public abstract void writeByteArray(byte[] bArr, int i2, int i3);
+    public abstract void writeByteArray(byte[] bArr, int i, int i2);
 
-    public void writeCharArray(char[] cArr, int i2) {
+    public void writeCharArray(char[] cArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048642, this, cArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048642, this, cArr, i) == null) {
+            setOutputField(i);
             if (cArr != null) {
                 writeInt(cArr.length);
                 for (char c2 : cArr) {
@@ -730,67 +730,67 @@ public abstract class VersionedParcel {
 
     public abstract void writeCharSequence(CharSequence charSequence);
 
-    public void writeCharSequence(CharSequence charSequence, int i2) {
+    public void writeCharSequence(CharSequence charSequence, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048644, this, charSequence, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048644, this, charSequence, i) == null) {
+            setOutputField(i);
             writeCharSequence(charSequence);
         }
     }
 
     public abstract void writeDouble(double d2);
 
-    public void writeDouble(double d2, int i2) {
+    public void writeDouble(double d2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i2)}) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048646, this, new Object[]{Double.valueOf(d2), Integer.valueOf(i)}) == null) {
+            setOutputField(i);
             writeDouble(d2);
         }
     }
 
-    public void writeDoubleArray(double[] dArr, int i2) {
+    public void writeDoubleArray(double[] dArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048648, this, dArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048648, this, dArr, i) == null) {
+            setOutputField(i);
             writeDoubleArray(dArr);
         }
     }
 
-    public void writeException(Exception exc, int i2) {
+    public void writeException(Exception exc, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048649, this, exc, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048649, this, exc, i) == null) {
+            setOutputField(i);
             if (exc == null) {
                 writeNoException();
                 return;
             }
-            int i3 = 0;
+            int i2 = 0;
             if ((exc instanceof Parcelable) && exc.getClass().getClassLoader() == Parcelable.class.getClassLoader()) {
-                i3 = -9;
+                i2 = -9;
             } else if (exc instanceof SecurityException) {
-                i3 = -1;
+                i2 = -1;
             } else if (exc instanceof BadParcelableException) {
-                i3 = -2;
+                i2 = -2;
             } else if (exc instanceof IllegalArgumentException) {
-                i3 = -3;
+                i2 = -3;
             } else if (exc instanceof NullPointerException) {
-                i3 = -4;
+                i2 = -4;
             } else if (exc instanceof IllegalStateException) {
-                i3 = -5;
+                i2 = -5;
             } else if (exc instanceof NetworkOnMainThreadException) {
-                i3 = -6;
+                i2 = -6;
             } else if (exc instanceof UnsupportedOperationException) {
-                i3 = -7;
+                i2 = -7;
             }
-            writeInt(i3);
-            if (i3 == 0) {
+            writeInt(i2);
+            if (i2 == 0) {
                 if (exc instanceof RuntimeException) {
                     throw ((RuntimeException) exc);
                 }
                 throw new RuntimeException(exc);
             }
             writeString(exc.getMessage());
-            if (i3 != -9) {
+            if (i2 != -9) {
                 return;
             }
             writeParcelable((Parcelable) exc);
@@ -799,69 +799,69 @@ public abstract class VersionedParcel {
 
     public abstract void writeFloat(float f2);
 
-    public void writeFloat(float f2, int i2) {
+    public void writeFloat(float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+            setOutputField(i);
             writeFloat(f2);
         }
     }
 
-    public void writeFloatArray(float[] fArr, int i2) {
+    public void writeFloatArray(float[] fArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048653, this, fArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048653, this, fArr, i) == null) {
+            setOutputField(i);
             writeFloatArray(fArr);
         }
     }
 
-    public abstract void writeInt(int i2);
+    public abstract void writeInt(int i);
 
-    public void writeInt(int i2, int i3) {
+    public void writeInt(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048655, this, i2, i3) == null) {
-            setOutputField(i3);
-            writeInt(i2);
+        if (interceptable == null || interceptable.invokeII(1048655, this, i, i2) == null) {
+            setOutputField(i2);
+            writeInt(i);
         }
     }
 
-    public void writeIntArray(int[] iArr, int i2) {
+    public void writeIntArray(int[] iArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048657, this, iArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048657, this, iArr, i) == null) {
+            setOutputField(i);
             writeIntArray(iArr);
         }
     }
 
-    public <T> void writeList(List<T> list, int i2) {
+    public <T> void writeList(List<T> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048658, this, list, i2) == null) {
-            writeCollection(list, i2);
+        if (interceptable == null || interceptable.invokeLI(1048658, this, list, i) == null) {
+            writeCollection(list, i);
         }
     }
 
-    public abstract void writeLong(long j2);
+    public abstract void writeLong(long j);
 
-    public void writeLong(long j2, int i2) {
+    public void writeLong(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
-            setOutputField(i2);
-            writeLong(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048660, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            setOutputField(i);
+            writeLong(j);
         }
     }
 
-    public void writeLongArray(long[] jArr, int i2) {
+    public void writeLongArray(long[] jArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048662, this, jArr, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048662, this, jArr, i) == null) {
+            setOutputField(i);
             writeLongArray(jArr);
         }
     }
 
-    public <K, V> void writeMap(Map<K, V> map, int i2) {
+    public <K, V> void writeMap(Map<K, V> map, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048663, this, map, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048663, this, map, i) == null) {
+            setOutputField(i);
             if (map == null) {
                 writeInt(-1);
                 return;
@@ -891,34 +891,34 @@ public abstract class VersionedParcel {
 
     public abstract void writeParcelable(Parcelable parcelable);
 
-    public void writeParcelable(Parcelable parcelable, int i2) {
+    public void writeParcelable(Parcelable parcelable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048666, this, parcelable, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048666, this, parcelable, i) == null) {
+            setOutputField(i);
             writeParcelable(parcelable);
         }
     }
 
-    public void writeSerializable(Serializable serializable, int i2) {
+    public void writeSerializable(Serializable serializable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048667, this, serializable, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048667, this, serializable, i) == null) {
+            setOutputField(i);
             writeSerializable(serializable);
         }
     }
 
-    public <T> void writeSet(Set<T> set, int i2) {
+    public <T> void writeSet(Set<T> set, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048668, this, set, i2) == null) {
-            writeCollection(set, i2);
+        if (interceptable == null || interceptable.invokeLI(1048668, this, set, i) == null) {
+            writeCollection(set, i);
         }
     }
 
     @RequiresApi(api = 21)
-    public void writeSize(Size size, int i2) {
+    public void writeSize(Size size, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048669, this, size, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048669, this, size, i) == null) {
+            setOutputField(i);
             writeBoolean(size != null);
             if (size != null) {
                 writeInt(size.getWidth());
@@ -928,10 +928,10 @@ public abstract class VersionedParcel {
     }
 
     @RequiresApi(api = 21)
-    public void writeSizeF(SizeF sizeF, int i2) {
+    public void writeSizeF(SizeF sizeF, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048670, this, sizeF, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048670, this, sizeF, i) == null) {
+            setOutputField(i);
             writeBoolean(sizeF != null);
             if (sizeF != null) {
                 writeFloat(sizeF.getWidth());
@@ -940,49 +940,49 @@ public abstract class VersionedParcel {
         }
     }
 
-    public void writeSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i2) {
+    public void writeSparseBooleanArray(SparseBooleanArray sparseBooleanArray, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048671, this, sparseBooleanArray, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048671, this, sparseBooleanArray, i) == null) {
+            setOutputField(i);
             if (sparseBooleanArray == null) {
                 writeInt(-1);
                 return;
             }
             int size = sparseBooleanArray.size();
             writeInt(size);
-            for (int i3 = 0; i3 < size; i3++) {
-                writeInt(sparseBooleanArray.keyAt(i3));
-                writeBoolean(sparseBooleanArray.valueAt(i3));
+            for (int i2 = 0; i2 < size; i2++) {
+                writeInt(sparseBooleanArray.keyAt(i2));
+                writeBoolean(sparseBooleanArray.valueAt(i2));
             }
         }
     }
 
     public abstract void writeString(String str);
 
-    public void writeString(String str, int i2) {
+    public void writeString(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048673, this, str, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048673, this, str, i) == null) {
+            setOutputField(i);
             writeString(str);
         }
     }
 
     public abstract void writeStrongBinder(IBinder iBinder);
 
-    public void writeStrongBinder(IBinder iBinder, int i2) {
+    public void writeStrongBinder(IBinder iBinder, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048675, this, iBinder, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048675, this, iBinder, i) == null) {
+            setOutputField(i);
             writeStrongBinder(iBinder);
         }
     }
 
     public abstract void writeStrongInterface(IInterface iInterface);
 
-    public void writeStrongInterface(IInterface iInterface, int i2) {
+    public void writeStrongInterface(IInterface iInterface, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048677, this, iInterface, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048677, this, iInterface, i) == null) {
+            setOutputField(i);
             writeStrongInterface(iInterface);
         }
     }
@@ -1007,10 +1007,10 @@ public abstract class VersionedParcel {
         }
     }
 
-    public void writeVersionedParcelable(VersionedParcelable versionedParcelable, int i2) {
+    public void writeVersionedParcelable(VersionedParcelable versionedParcelable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048680, this, versionedParcelable, i2) == null) {
-            setOutputField(i2);
+        if (interceptable == null || interceptable.invokeLI(1048680, this, versionedParcelable, i) == null) {
+            setOutputField(i);
             writeVersionedParcelable(versionedParcelable);
         }
     }
@@ -1147,8 +1147,8 @@ public abstract class VersionedParcel {
                 return null;
             }
             boolean[] zArr = new boolean[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                zArr[i2] = readInt() != 0;
+            for (int i = 0; i < readInt; i++) {
+                zArr[i] = readInt() != 0;
             }
             return zArr;
         }
@@ -1164,8 +1164,8 @@ public abstract class VersionedParcel {
                 return null;
             }
             double[] dArr = new double[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                dArr[i2] = readDouble();
+            for (int i = 0; i < readInt; i++) {
+                dArr[i] = readDouble();
             }
             return dArr;
         }
@@ -1181,8 +1181,8 @@ public abstract class VersionedParcel {
                 return null;
             }
             float[] fArr = new float[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                fArr[i2] = readFloat();
+            for (int i = 0; i < readInt; i++) {
+                fArr[i] = readFloat();
             }
             return fArr;
         }
@@ -1198,8 +1198,8 @@ public abstract class VersionedParcel {
                 return null;
             }
             int[] iArr = new int[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                iArr[i2] = readInt();
+            for (int i = 0; i < readInt; i++) {
+                iArr[i] = readInt();
             }
             return iArr;
         }
@@ -1215,8 +1215,8 @@ public abstract class VersionedParcel {
                 return null;
             }
             long[] jArr = new long[readInt];
-            for (int i2 = 0; i2 < readInt; i2++) {
-                jArr[i2] = readLong();
+            for (int i = 0; i < readInt; i++) {
+                jArr[i] = readLong();
             }
             return jArr;
         }
@@ -1246,34 +1246,34 @@ public abstract class VersionedParcel {
             int length = tArr.length;
             writeInt(length);
             if (length > 0) {
-                int i2 = 0;
+                int i = 0;
                 int type = getType(tArr[0]);
                 writeInt(type);
                 if (type == 1) {
-                    while (i2 < length) {
-                        writeVersionedParcelable((VersionedParcelable) tArr[i2]);
-                        i2++;
+                    while (i < length) {
+                        writeVersionedParcelable((VersionedParcelable) tArr[i]);
+                        i++;
                     }
                 } else if (type == 2) {
-                    while (i2 < length) {
-                        writeParcelable((Parcelable) tArr[i2]);
-                        i2++;
+                    while (i < length) {
+                        writeParcelable((Parcelable) tArr[i]);
+                        i++;
                     }
                 } else if (type == 3) {
-                    while (i2 < length) {
-                        writeSerializable((Serializable) tArr[i2]);
-                        i2++;
+                    while (i < length) {
+                        writeSerializable((Serializable) tArr[i]);
+                        i++;
                     }
                 } else if (type == 4) {
-                    while (i2 < length) {
-                        writeString((String) tArr[i2]);
-                        i2++;
+                    while (i < length) {
+                        writeString((String) tArr[i]);
+                        i++;
                     }
                 } else if (type != 5) {
                 } else {
-                    while (i2 < length) {
-                        writeStrongBinder((IBinder) tArr[i2]);
-                        i2++;
+                    while (i < length) {
+                        writeStrongBinder((IBinder) tArr[i]);
+                        i++;
                     }
                 }
             }
@@ -1294,11 +1294,11 @@ public abstract class VersionedParcel {
         }
     }
 
-    public void writeByteArray(byte[] bArr, int i2, int i3, int i4) {
+    public void writeByteArray(byte[] bArr, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048641, this, bArr, i2, i3, i4) == null) {
-            setOutputField(i4);
-            writeByteArray(bArr, i2, i3);
+        if (interceptable == null || interceptable.invokeLIII(1048641, this, bArr, i, i2, i3) == null) {
+            setOutputField(i3);
+            writeByteArray(bArr, i, i2);
         }
     }
 
@@ -1335,8 +1335,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048656, this, iArr) == null) {
             if (iArr != null) {
                 writeInt(iArr.length);
-                for (int i2 : iArr) {
-                    writeInt(i2);
+                for (int i : iArr) {
+                    writeInt(i);
                 }
                 return;
             }
@@ -1349,8 +1349,8 @@ public abstract class VersionedParcel {
         if (interceptable == null || interceptable.invokeL(1048661, this, jArr) == null) {
             if (jArr != null) {
                 writeInt(jArr.length);
-                for (long j2 : jArr) {
-                    writeLong(j2);
+                for (long j : jArr) {
+                    writeLong(j);
                 }
                 return;
             }
@@ -1372,9 +1372,9 @@ public abstract class VersionedParcel {
         }
     }
 
-    private Exception readException(int i2, String str) {
+    private Exception readException(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(65544, this, i2, str)) == null) ? createException(i2, str) : (Exception) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(65544, this, i, str)) == null) ? createException(i, str) : (Exception) invokeIL.objValue;
     }
 }

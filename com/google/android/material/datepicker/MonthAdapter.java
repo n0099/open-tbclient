@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Iterator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MonthAdapter extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public static final int MAXIMUM_WEEKS;
@@ -52,9 +52,9 @@ public class MonthAdapter extends BaseAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {month, dateSelector, calendarConstraints};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,10 +72,10 @@ public class MonthAdapter extends BaseAdapter {
         }
     }
 
-    public int dayToPosition(int i2) {
+    public int dayToPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? firstPositionInMonth() + (i2 - 1) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? firstPositionInMonth() + (i - 1) : invokeI.intValue;
     }
 
     public int firstPositionInMonth() {
@@ -92,10 +92,10 @@ public class MonthAdapter extends BaseAdapter {
     }
 
     @Override // android.widget.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? i2 / this.month.daysInWeek : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i / this.month.daysInWeek : invokeI.longValue;
     }
 
     @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -108,16 +108,16 @@ public class MonthAdapter extends BaseAdapter {
         return invokeV.booleanValue;
     }
 
-    public boolean isFirstInRow(int i2) {
+    public boolean isFirstInRow(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? i2 % this.month.daysInWeek == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i % this.month.daysInWeek == 0 : invokeI.booleanValue;
     }
 
-    public boolean isLastInRow(int i2) {
+    public boolean isLastInRow(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? (i2 + 1) % this.month.daysInWeek == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? (i + 1) % this.month.daysInWeek == 0 : invokeI.booleanValue;
     }
 
     public int lastPositionInMonth() {
@@ -126,29 +126,29 @@ public class MonthAdapter extends BaseAdapter {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? (this.month.daysFromStartOfWeekToFirstOfMonth() + this.month.daysInMonth) - 1 : invokeV.intValue;
     }
 
-    public int positionToDay(int i2) {
+    public int positionToDay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? (i2 - this.month.daysFromStartOfWeekToFirstOfMonth()) + 1 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? (i - this.month.daysFromStartOfWeekToFirstOfMonth()) + 1 : invokeI.intValue;
     }
 
-    public boolean withinMonth(int i2) {
+    public boolean withinMonth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) ? i2 >= firstPositionInMonth() && i2 <= lastPositionInMonth() : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) ? i >= firstPositionInMonth() && i <= lastPositionInMonth() : invokeI.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     @Nullable
-    public Long getItem(int i2) {
+    public Long getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (i2 < this.month.daysFromStartOfWeekToFirstOfMonth() || i2 > lastPositionInMonth()) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i < this.month.daysFromStartOfWeekToFirstOfMonth() || i > lastPositionInMonth()) {
                 return null;
             }
-            return Long.valueOf(this.month.getDay(positionToDay(i2)));
+            return Long.valueOf(this.month.getDay(positionToDay(i)));
         }
         return (Long) invokeI.objValue;
     }
@@ -161,26 +161,26 @@ public class MonthAdapter extends BaseAdapter {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public TextView getView(int i2, @Nullable View view, @NonNull ViewGroup viewGroup) {
+    public TextView getView(int i, @Nullable View view, @NonNull ViewGroup viewGroup) {
         InterceptResult invokeILL;
         Long item;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048583, this, i2, view, viewGroup)) != null) {
+        if (interceptable != null && (invokeILL = interceptable.invokeILL(1048583, this, i, view, viewGroup)) != null) {
             return (TextView) invokeILL.objValue;
         }
         initializeStyles(viewGroup.getContext());
         TextView textView = (TextView) view;
         if (view == null) {
-            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.mtrl_calendar_day, viewGroup, false);
+            textView = (TextView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0575, viewGroup, false);
         }
-        int firstPositionInMonth = i2 - firstPositionInMonth();
+        int firstPositionInMonth = i - firstPositionInMonth();
         if (firstPositionInMonth >= 0) {
             Month month = this.month;
             if (firstPositionInMonth < month.daysInMonth) {
-                int i3 = firstPositionInMonth + 1;
+                int i2 = firstPositionInMonth + 1;
                 textView.setTag(month);
-                textView.setText(String.valueOf(i3));
-                long day = this.month.getDay(i3);
+                textView.setText(String.valueOf(i2));
+                long day = this.month.getDay(i2);
                 if (this.month.year == Month.current().year) {
                     textView.setContentDescription(DateStrings.getMonthDayOfWeekDay(day));
                 } else {
@@ -188,7 +188,7 @@ public class MonthAdapter extends BaseAdapter {
                 }
                 textView.setVisibility(0);
                 textView.setEnabled(true);
-                item = getItem(i2);
+                item = getItem(i);
                 if (item != null) {
                     return textView;
                 }
@@ -215,7 +215,7 @@ public class MonthAdapter extends BaseAdapter {
         }
         textView.setVisibility(8);
         textView.setEnabled(false);
-        item = getItem(i2);
+        item = getItem(i);
         if (item != null) {
         }
     }

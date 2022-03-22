@@ -29,9 +29,9 @@ public class TwilightCalculator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -50,13 +50,13 @@ public class TwilightCalculator {
         return (TwilightCalculator) invokeV.objValue;
     }
 
-    public void calculateTwilight(long j2, double d2, double d3) {
+    public void calculateTwilight(long j, double d2, double d3) {
         float f2;
         float f3;
         double d4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
-            double d5 = (0.01720197f * (((float) (j2 - UTC_2000)) / 8.64E7f)) + 6.24006f;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Double.valueOf(d2), Double.valueOf(d3)}) == null) {
+            double d5 = (0.01720197f * (((float) (j - UTC_2000)) / 8.64E7f)) + 6.24006f;
             double sin = (Math.sin(d5) * 0.03341960161924362d) + d5 + (Math.sin(2.0f * f3) * 3.4906598739326E-4d) + (Math.sin(f3 * 3.0f) * 5.236000106378924E-6d) + 1.796593063d + 3.141592653589793d;
             double round = ((float) Math.round((f2 - 9.0E-4f) - d4)) + 9.0E-4f + ((-d3) / 360.0d) + (Math.sin(d5) * 0.0053d) + (Math.sin(2.0d * sin) * (-0.0069d));
             double asin = Math.asin(Math.sin(sin) * Math.sin(0.4092797040939331d));
@@ -75,7 +75,7 @@ public class TwilightCalculator {
                 this.sunset = Math.round((round + acos) * 8.64E7d) + UTC_2000;
                 long round2 = Math.round((round - acos) * 8.64E7d) + UTC_2000;
                 this.sunrise = round2;
-                if (round2 < j2 && this.sunset > j2) {
+                if (round2 < j && this.sunset > j) {
                     this.state = 0;
                 } else {
                     this.state = 1;

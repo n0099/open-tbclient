@@ -40,8 +40,8 @@ public class ComponentDestroyer {
             } else if (view instanceof ViewGroup) {
                 ViewGroup viewGroup = (ViewGroup) view;
                 int childCount = viewGroup.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    destroyWebViewInTree(viewGroup.getChildAt(i2));
+                for (int i = 0; i < childCount; i++) {
+                    destroyWebViewInTree(viewGroup.getChildAt(i));
                 }
             }
         }
@@ -53,9 +53,9 @@ public class ComponentDestroyer {
             return;
         }
         String[] strArr = {"mCurRootView", "mServedView", "mNextServedView"};
-        for (int i2 = 0; i2 < 3; i2++) {
+        for (int i = 0; i < 3; i++) {
             try {
-                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i2]);
+                Field declaredField = inputMethodManager.getClass().getDeclaredField(strArr[i]);
                 if (!declaredField.isAccessible()) {
                     declaredField.setAccessible(true);
                 }

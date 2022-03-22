@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.l.d;
 import c.a.d.f.p.m;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -63,9 +62,9 @@ public class ImageFileInfo extends MediaFileInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -366,9 +365,9 @@ public class ImageFileInfo extends MediaFileInfo {
             JSONArray optJSONArray = jSONObject.optJSONArray("actionsList");
             this.persistActionsList = new LinkedList<>();
             if (optJSONArray != null) {
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
                     ImageOperation imageOperation = new ImageOperation();
-                    imageOperation.parseJson(optJSONArray.optJSONObject(i2));
+                    imageOperation.parseJson(optJSONArray.optJSONObject(i));
                     this.persistActionsList.add(imageOperation);
                 }
             }
@@ -422,10 +421,10 @@ public class ImageFileInfo extends MediaFileInfo {
         }
     }
 
-    public void setImageType(int i2) {
+    public void setImageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.mImageType = i2;
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.mImageType = i;
         }
     }
 
@@ -523,7 +522,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next != null) {
                                 sb.append(':');
                                 sb.append(next.actionName);
-                                sb.append(a.f29503h);
+                                sb.append('=');
                                 sb.append(next.actionParam);
                             }
                         }
@@ -535,7 +534,7 @@ public class ImageFileInfo extends MediaFileInfo {
                             if (next2 != null) {
                                 sb.append(':');
                                 sb.append(next2.actionName);
-                                sb.append(a.f29503h);
+                                sb.append('=');
                                 sb.append(next2.actionParam);
                             }
                         }
@@ -549,11 +548,11 @@ public class ImageFileInfo extends MediaFileInfo {
                 sb2.append("page_");
                 sb2.append(this.filePath);
                 if (this.pageActionsList != null) {
-                    for (int i2 = 0; i2 < this.pageActionsList.size(); i2++) {
-                        ImageOperation imageOperation = this.pageActionsList.get(i2);
+                    for (int i = 0; i < this.pageActionsList.size(); i++) {
+                        ImageOperation imageOperation = this.pageActionsList.get(i);
                         sb2.append(':');
                         sb2.append(imageOperation.actionName);
-                        sb2.append(a.f29503h);
+                        sb2.append('=');
                         sb2.append(imageOperation.actionParam);
                     }
                 }
@@ -586,8 +585,8 @@ public class ImageFileInfo extends MediaFileInfo {
                 }
                 if (this.persistActionsList != null) {
                     JSONArray jSONArray = new JSONArray();
-                    for (int i2 = 0; i2 < this.persistActionsList.size(); i2++) {
-                        jSONArray.put(this.persistActionsList.get(i2).toJson());
+                    for (int i = 0; i < this.persistActionsList.size(); i++) {
+                        jSONArray.put(this.persistActionsList.get(i).toJson());
                     }
                     jSONObject.put("actionsList", jSONArray);
                 }

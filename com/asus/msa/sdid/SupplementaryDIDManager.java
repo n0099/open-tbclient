@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.util.Log;
 import androidx.annotation.Keep;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
 import com.baidu.android.imsdk.internal.Constants;
@@ -50,9 +51,9 @@ public class SupplementaryDIDManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -71,9 +72,9 @@ public class SupplementaryDIDManager {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -86,7 +87,9 @@ public class SupplementaryDIDManager {
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                    boolean unused = SupplementaryDIDManager.DEBUG;
+                    if (SupplementaryDIDManager.DEBUG) {
+                        Log.i(SupplementaryDIDManager.TAG, "did service binded");
+                    }
                     this.this$0.mDidService = IDidAidlInterface.Stub.asInterface(iBinder);
                     this.this$0.notifyAllListeners(true);
                 }
@@ -115,7 +118,7 @@ public class SupplementaryDIDManager {
                 }
             } catch (Exception e2) {
                 if (DEBUG) {
-                    String str = "notify did bind status error :" + e2.getMessage();
+                    Log.e(TAG, "notify did bind status error :" + e2.getMessage());
                 }
             }
         }
@@ -128,11 +131,13 @@ public class SupplementaryDIDManager {
                 if (!this.isBinded || this.mServiceConnection == null || this.mContext == null) {
                     return;
                 }
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.i(TAG, "start to unbind did service");
+                }
                 this.isBinded = false;
                 this.mContext.unbindService(this.mServiceConnection);
             } catch (Exception e2) {
-                e2.getMessage();
+                Log.w(TAG, e2.getMessage());
             }
         }
     }
@@ -146,7 +151,9 @@ public class SupplementaryDIDManager {
                 ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
                 Intent intent2 = new Intent(intent);
                 intent2.setComponent(componentName);
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.i(TAG, "start to bind did service.");
+                }
                 this.isBinded = this.mContext.bindService(intent2, this.mServiceConnection, 1);
             } catch (Exception unused) {
                 notifyAllListeners(false);

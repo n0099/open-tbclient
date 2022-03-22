@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SubscribeAppInfo {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int SUBSCIRBE = 1;
@@ -18,24 +18,24 @@ public class SubscribeAppInfo {
     public String mName;
     public int mTargetStatus;
 
-    public SubscribeAppInfo(String str, int i2, int i3) {
+    public SubscribeAppInfo(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mName = str;
-        this.mTargetStatus = i2;
-        this.mActualStatus = i3;
+        this.mTargetStatus = i;
+        this.mActualStatus = i2;
     }
 
     public boolean equals(Object obj) {
@@ -90,10 +90,10 @@ public class SubscribeAppInfo {
         return invokeV.intValue;
     }
 
-    public void setActualStatus(int i2) {
+    public void setActualStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mActualStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mActualStatus = i;
         }
     }
 
@@ -104,10 +104,10 @@ public class SubscribeAppInfo {
         }
     }
 
-    public void setTargetStatus(int i2) {
+    public void setTargetStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mTargetStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mTargetStatus = i;
         }
     }
 

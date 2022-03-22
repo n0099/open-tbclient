@@ -3,8 +3,7 @@ package com.ss.android.socialbase.downloader.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements Parcelable, Comparable {
     public static final Parcelable.Creator<c> CREATOR = new Parcelable.Creator<c>() { // from class: com.ss.android.socialbase.downloader.model.c.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -17,18 +16,18 @@ public class c implements Parcelable, Comparable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public c[] newArray(int i2) {
-            return new c[i2];
+        public c[] newArray(int i) {
+            return new c[i];
         }
     };
     public final String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f58790b;
+    public final String f43483b;
 
     public c(String str, String str2) {
         this.a = str;
-        this.f58790b = str2;
+        this.f43483b = str2;
     }
 
     public String a() {
@@ -36,7 +35,7 @@ public class c implements Parcelable, Comparable {
     }
 
     public String b() {
-        return this.f58790b;
+        return this.f43483b;
     }
 
     @Override // java.lang.Comparable
@@ -72,28 +71,28 @@ public class c implements Parcelable, Comparable {
             return false;
         }
         c cVar = (c) obj;
-        return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f58790b, cVar.f58790b);
+        return TextUtils.equals(this.a, cVar.a) && TextUtils.equals(this.f43483b, cVar.f43483b);
     }
 
     public int hashCode() {
         String str = this.a;
         int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-        String str2 = this.f58790b;
+        String str2 = this.f43483b;
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
     public String toString() {
-        return "HttpHeader{name='" + this.a + ExtendedMessageFormat.QUOTE + ", value='" + this.f58790b + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "HttpHeader{name='" + this.a + "', value='" + this.f43483b + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(this.a);
-        parcel.writeString(this.f58790b);
+        parcel.writeString(this.f43483b);
     }
 
     public c(Parcel parcel) {
         this.a = parcel.readString();
-        this.f58790b = parcel.readString();
+        this.f43483b = parcel.readString();
     }
 }

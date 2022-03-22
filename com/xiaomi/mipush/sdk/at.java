@@ -8,28 +8,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class at {
     public static /* synthetic */ Interceptable $ic;
     public static final at a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ at[] f82a;
+    public static final /* synthetic */ at[] f58a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final at f59448b;
+    public static final at f44067b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final at f59449c;
+    public static final at f44068c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final at f59450d;
+    public static final at f44069d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final at f59451e;
+    public static final at f44070e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final at f59452f;
+    public static final at f44071f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,25 +46,25 @@ public final class at {
             }
         }
         a = new at("DISABLE_PUSH", 0);
-        f59448b = new at("ENABLE_PUSH", 1);
-        f59449c = new at("UPLOAD_HUAWEI_TOKEN", 2);
-        f59450d = new at("UPLOAD_FCM_TOKEN", 3);
-        f59451e = new at("UPLOAD_COS_TOKEN", 4);
+        f44067b = new at("ENABLE_PUSH", 1);
+        f44068c = new at("UPLOAD_HUAWEI_TOKEN", 2);
+        f44069d = new at("UPLOAD_FCM_TOKEN", 3);
+        f44070e = new at("UPLOAD_COS_TOKEN", 4);
         at atVar = new at("UPLOAD_FTOS_TOKEN", 5);
-        f59452f = atVar;
-        f82a = new at[]{a, f59448b, f59449c, f59450d, f59451e, atVar};
+        f44071f = atVar;
+        f58a = new at[]{a, f44067b, f44068c, f44069d, f44070e, atVar};
     }
 
-    public at(String str, int i2) {
+    public at(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -83,6 +83,6 @@ public final class at {
     public static at[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (at[]) f82a.clone() : (at[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (at[]) f58a.clone() : (at[]) invokeV.objValue;
     }
 }

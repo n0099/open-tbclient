@@ -1,6 +1,7 @@
 package com.kwad.sdk.api.loader;
 
 import android.content.Context;
+import android.util.Log;
 import com.kwad.sdk.api.core.IKsAdSDK;
 import com.kwad.sdk.api.loader.k;
 /* loaded from: classes7.dex */
@@ -13,7 +14,7 @@ public class r {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.kwad.sdk.api.loader.k.c
             public void a(Boolean bool) {
-                String str = "checkAndUpdate result: " + bool;
+                Log.d("Updater", "checkAndUpdate result: " + bool);
             }
 
             @Override // com.kwad.sdk.api.loader.k.c

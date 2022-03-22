@@ -17,7 +17,7 @@ import java.util.Iterator;
 import java.util.LinkedHashSet;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedFrameCache {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,30 +28,30 @@ public class AnimatedFrameCache {
     public final CacheKey mImageCacheKey;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class FrameKey implements CacheKey {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final int mFrameIndex;
         public final CacheKey mImageCacheKey;
 
-        public FrameKey(CacheKey cacheKey, int i2) {
+        public FrameKey(CacheKey cacheKey, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cacheKey, Integer.valueOf(i2)};
+                Object[] objArr = {cacheKey, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mImageCacheKey = cacheKey;
-            this.mFrameIndex = i2;
+            this.mFrameIndex = i;
         }
 
         @Override // com.facebook.cache.common.CacheKey
@@ -111,9 +111,9 @@ public class AnimatedFrameCache {
             newInitContext.initArgs = r2;
             Object[] objArr = {cacheKey, countingMemoryCache};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,9 +134,9 @@ public class AnimatedFrameCache {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -156,10 +156,10 @@ public class AnimatedFrameCache {
         };
     }
 
-    private FrameKey keyFor(int i2) {
+    private FrameKey keyFor(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i2)) == null) ? new FrameKey(this.mImageCacheKey, i2) : (FrameKey) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, this, i)) == null) ? new FrameKey(this.mImageCacheKey, i) : (FrameKey) invokeI.objValue;
     }
 
     @Nullable
@@ -182,23 +182,23 @@ public class AnimatedFrameCache {
     }
 
     @Nullable
-    public CloseableReference<CloseableImage> cache(int i2, CloseableReference<CloseableImage> closeableReference) {
+    public CloseableReference<CloseableImage> cache(int i, CloseableReference<CloseableImage> closeableReference) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, closeableReference)) == null) ? this.mBackingCache.cache(keyFor(i2), closeableReference, this.mEntryStateObserver) : (CloseableReference) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, closeableReference)) == null) ? this.mBackingCache.cache(keyFor(i), closeableReference, this.mEntryStateObserver) : (CloseableReference) invokeIL.objValue;
     }
 
-    public boolean contains(int i2) {
+    public boolean contains(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mBackingCache.contains((CountingMemoryCache<CacheKey, CloseableImage>) keyFor(i)) : invokeI.booleanValue;
     }
 
     @Nullable
-    public CloseableReference<CloseableImage> get(int i2) {
+    public CloseableReference<CloseableImage> get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mBackingCache.get(keyFor(i2)) : (CloseableReference) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mBackingCache.get(keyFor(i)) : (CloseableReference) invokeI.objValue;
     }
 
     @Nullable

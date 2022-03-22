@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DataSpec;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SingleSampleMediaChunk extends BaseMediaChunk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,17 +24,17 @@ public final class SingleSampleMediaChunk extends BaseMediaChunk {
     public final int trackType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleSampleMediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i2, Object obj, long j2, long j3, int i3, int i4, Format format2) {
-        super(dataSource, dataSpec, format, i2, obj, j2, j3, i3);
+    public SingleSampleMediaChunk(DataSource dataSource, DataSpec dataSpec, Format format, int i, Object obj, long j, long j2, int i2, int i3, Format format2) {
+        super(dataSource, dataSpec, format, i, obj, j, j2, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), format2};
+            Object[] objArr = {dataSource, dataSpec, format, Integer.valueOf(i), obj, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), format2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DataSource) objArr2[0], (DataSpec) objArr2[1], (Format) objArr2[2], ((Integer) objArr2[3]).intValue(), objArr2[4], ((Long) objArr2[5]).longValue(), ((Long) objArr2[6]).longValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -42,7 +42,7 @@ public final class SingleSampleMediaChunk extends BaseMediaChunk {
                 return;
             }
         }
-        this.trackType = i4;
+        this.trackType = i3;
         this.sampleFormat = format2;
     }
 
@@ -89,8 +89,8 @@ public final class SingleSampleMediaChunk extends BaseMediaChunk {
                 output.setSampleOffsetUs(0L);
                 TrackOutput track = output.track(0, this.trackType);
                 track.format(this.sampleFormat);
-                for (int i2 = 0; i2 != -1; i2 = track.sampleData(defaultExtractorInput, Integer.MAX_VALUE, true)) {
-                    this.bytesLoaded += i2;
+                for (int i = 0; i != -1; i = track.sampleData(defaultExtractorInput, Integer.MAX_VALUE, true)) {
+                    this.bytesLoaded += i;
                 }
                 track.sampleMetadata(this.startTimeUs, 1, this.bytesLoaded, 0, null);
                 Util.closeQuietly(this.dataSource);

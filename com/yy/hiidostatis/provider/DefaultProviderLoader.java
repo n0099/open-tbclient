@@ -28,7 +28,7 @@ import com.yy.hiidostatis.message.provider.PackerProvider;
 import com.yy.hiidostatis.message.provider.SendDispatchTaskProvider;
 import com.yy.hiidostatis.message.provider.SessionReportProvider;
 import com.yy.hiidostatis.message.provider.SessionReportWrapperProvider;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DefaultProviderLoader {
     public static /* synthetic */ Interceptable $ic;
     public static boolean init;
@@ -54,9 +54,9 @@ public class DefaultProviderLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

@@ -3,6 +3,7 @@ package okhttp3.internal.http2;
 import android.net.http.Headers;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
 import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.home.datamodel.HomeCfgResponse;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import okio.BufferedSource;
 import okio.ByteString;
 import okio.Okio;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Hpack {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Map<ByteString, Integer> NAME_TO_FIRST_INDEX;
@@ -38,7 +38,7 @@ public final class Hpack {
     public static final Header[] STATIC_HEADER_TABLE;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Reader {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -52,17 +52,17 @@ public final class Hpack {
         public final BufferedSource source;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Reader(int i2, Source source) {
-            this(i2, i2, source);
+        public Reader(int i, Source source) {
+            this(i, i, source);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), source};
+                Object[] objArr = {Integer.valueOf(i), source};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), (Source) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -73,16 +73,16 @@ public final class Hpack {
         }
 
         private void adjustDynamicTableByteCount() {
+            int i;
             int i2;
-            int i3;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.maxDynamicTableByteCount) >= (i3 = this.dynamicTableByteCount)) {
+            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i = this.maxDynamicTableByteCount) >= (i2 = this.dynamicTableByteCount)) {
                 return;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 clearDynamicTable();
             } else {
-                evictToRecoverBytes(i3 - i2);
+                evictToRecoverBytes(i2 - i);
             }
         }
 
@@ -96,97 +96,97 @@ public final class Hpack {
             }
         }
 
-        private int dynamicTableIndex(int i2) {
+        private int dynamicTableIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) ? this.nextHeaderIndex + 1 + i2 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) ? this.nextHeaderIndex + 1 + i : invokeI.intValue;
         }
 
-        private int evictToRecoverBytes(int i2) {
+        private int evictToRecoverBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-                int i3 = 0;
-                if (i2 > 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+                int i2 = 0;
+                if (i > 0) {
                     int length = this.dynamicTable.length;
                     while (true) {
                         length--;
-                        if (length < this.nextHeaderIndex || i2 <= 0) {
+                        if (length < this.nextHeaderIndex || i <= 0) {
                             break;
                         }
                         Header[] headerArr = this.dynamicTable;
-                        i2 -= headerArr[length].hpackSize;
+                        i -= headerArr[length].hpackSize;
                         this.dynamicTableByteCount -= headerArr[length].hpackSize;
                         this.headerCount--;
-                        i3++;
+                        i2++;
                     }
                     Header[] headerArr2 = this.dynamicTable;
-                    int i4 = this.nextHeaderIndex;
-                    System.arraycopy(headerArr2, i4 + 1, headerArr2, i4 + 1 + i3, this.headerCount);
-                    this.nextHeaderIndex += i3;
+                    int i3 = this.nextHeaderIndex;
+                    System.arraycopy(headerArr2, i3 + 1, headerArr2, i3 + 1 + i2, this.headerCount);
+                    this.nextHeaderIndex += i2;
                 }
-                return i3;
+                return i2;
             }
             return invokeI.intValue;
         }
 
-        private ByteString getName(int i2) throws IOException {
+        private ByteString getName(int i) throws IOException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-                if (isStaticHeader(i2)) {
-                    return Hpack.STATIC_HEADER_TABLE[i2].name;
+            if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+                if (isStaticHeader(i)) {
+                    return Hpack.STATIC_HEADER_TABLE[i].name;
                 }
-                int dynamicTableIndex = dynamicTableIndex(i2 - Hpack.STATIC_HEADER_TABLE.length);
+                int dynamicTableIndex = dynamicTableIndex(i - Hpack.STATIC_HEADER_TABLE.length);
                 if (dynamicTableIndex >= 0) {
                     Header[] headerArr = this.dynamicTable;
                     if (dynamicTableIndex < headerArr.length) {
                         return headerArr[dynamicTableIndex].name;
                     }
                 }
-                throw new IOException("Header index too large " + (i2 + 1));
+                throw new IOException("Header index too large " + (i + 1));
             }
             return (ByteString) invokeI.objValue;
         }
 
-        private void insertIntoDynamicTable(int i2, Header header) {
+        private void insertIntoDynamicTable(int i, Header header) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65543, this, i2, header) == null) {
+            if (interceptable == null || interceptable.invokeIL(65543, this, i, header) == null) {
                 this.headerList.add(header);
-                int i3 = header.hpackSize;
-                if (i2 != -1) {
-                    i3 -= this.dynamicTable[dynamicTableIndex(i2)].hpackSize;
+                int i2 = header.hpackSize;
+                if (i != -1) {
+                    i2 -= this.dynamicTable[dynamicTableIndex(i)].hpackSize;
                 }
-                int i4 = this.maxDynamicTableByteCount;
-                if (i3 > i4) {
+                int i3 = this.maxDynamicTableByteCount;
+                if (i2 > i3) {
                     clearDynamicTable();
                     return;
                 }
-                int evictToRecoverBytes = evictToRecoverBytes((this.dynamicTableByteCount + i3) - i4);
-                if (i2 == -1) {
-                    int i5 = this.headerCount + 1;
+                int evictToRecoverBytes = evictToRecoverBytes((this.dynamicTableByteCount + i2) - i3);
+                if (i == -1) {
+                    int i4 = this.headerCount + 1;
                     Header[] headerArr = this.dynamicTable;
-                    if (i5 > headerArr.length) {
+                    if (i4 > headerArr.length) {
                         Header[] headerArr2 = new Header[headerArr.length * 2];
                         System.arraycopy(headerArr, 0, headerArr2, headerArr.length, headerArr.length);
                         this.nextHeaderIndex = this.dynamicTable.length - 1;
                         this.dynamicTable = headerArr2;
                     }
-                    int i6 = this.nextHeaderIndex;
-                    this.nextHeaderIndex = i6 - 1;
-                    this.dynamicTable[i6] = header;
+                    int i5 = this.nextHeaderIndex;
+                    this.nextHeaderIndex = i5 - 1;
+                    this.dynamicTable[i5] = header;
                     this.headerCount++;
                 } else {
-                    this.dynamicTable[i2 + dynamicTableIndex(i2) + evictToRecoverBytes] = header;
+                    this.dynamicTable[i + dynamicTableIndex(i) + evictToRecoverBytes] = header;
                 }
-                this.dynamicTableByteCount += i3;
+                this.dynamicTableByteCount += i2;
             }
         }
 
-        private boolean isStaticHeader(int i2) {
+        private boolean isStaticHeader(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) ? i2 >= 0 && i2 <= Hpack.STATIC_HEADER_TABLE.length - 1 : invokeI.booleanValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) ? i >= 0 && i <= Hpack.STATIC_HEADER_TABLE.length - 1 : invokeI.booleanValue;
         }
 
         private int readByte() throws IOException {
@@ -195,14 +195,14 @@ public final class Hpack {
             return (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) ? this.source.readByte() & 255 : invokeV.intValue;
         }
 
-        private void readIndexedHeader(int i2) throws IOException {
+        private void readIndexedHeader(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65546, this, i2) == null) {
-                if (isStaticHeader(i2)) {
-                    this.headerList.add(Hpack.STATIC_HEADER_TABLE[i2]);
+            if (interceptable == null || interceptable.invokeI(65546, this, i) == null) {
+                if (isStaticHeader(i)) {
+                    this.headerList.add(Hpack.STATIC_HEADER_TABLE[i]);
                     return;
                 }
-                int dynamicTableIndex = dynamicTableIndex(i2 - Hpack.STATIC_HEADER_TABLE.length);
+                int dynamicTableIndex = dynamicTableIndex(i - Hpack.STATIC_HEADER_TABLE.length);
                 if (dynamicTableIndex >= 0) {
                     Header[] headerArr = this.dynamicTable;
                     if (dynamicTableIndex < headerArr.length) {
@@ -210,14 +210,14 @@ public final class Hpack {
                         return;
                     }
                 }
-                throw new IOException("Header index too large " + (i2 + 1));
+                throw new IOException("Header index too large " + (i + 1));
             }
         }
 
-        private void readLiteralHeaderWithIncrementalIndexingIndexedName(int i2) throws IOException {
+        private void readLiteralHeaderWithIncrementalIndexingIndexedName(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65547, this, i2) == null) {
-                insertIntoDynamicTable(-1, new Header(getName(i2), readByteString()));
+            if (interceptable == null || interceptable.invokeI(65547, this, i) == null) {
+                insertIntoDynamicTable(-1, new Header(getName(i), readByteString()));
             }
         }
 
@@ -228,10 +228,10 @@ public final class Hpack {
             }
         }
 
-        private void readLiteralHeaderWithoutIndexingIndexedName(int i2) throws IOException {
+        private void readLiteralHeaderWithoutIndexingIndexedName(int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(65549, this, i2) == null) {
-                this.headerList.add(new Header(getName(i2), readByteString()));
+            if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
+                this.headerList.add(new Header(getName(i), readByteString()));
             }
         }
 
@@ -305,37 +305,37 @@ public final class Hpack {
             }
         }
 
-        public int readInt(int i2, int i3) throws IOException {
+        public int readInt(int i, int i2) throws IOException {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeII = interceptable.invokeII(1048580, this, i2, i3)) != null) {
+            if (interceptable != null && (invokeII = interceptable.invokeII(1048580, this, i, i2)) != null) {
                 return invokeII.intValue;
             }
-            int i4 = i2 & i3;
-            if (i4 < i3) {
-                return i4;
+            int i3 = i & i2;
+            if (i3 < i2) {
+                return i3;
             }
-            int i5 = 0;
+            int i4 = 0;
             while (true) {
                 int readByte = readByte();
                 if ((readByte & 128) == 0) {
-                    return i3 + (readByte << i5);
+                    return i2 + (readByte << i4);
                 }
-                i3 += (readByte & 127) << i5;
-                i5 += 7;
+                i2 += (readByte & 127) << i4;
+                i4 += 7;
             }
         }
 
-        public Reader(int i2, int i3, Source source) {
+        public Reader(int i, int i2, Source source) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), source};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), source};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -347,13 +347,13 @@ public final class Hpack {
             this.nextHeaderIndex = headerArr.length - 1;
             this.headerCount = 0;
             this.dynamicTableByteCount = 0;
-            this.headerTableSizeSetting = i2;
-            this.maxDynamicTableByteCount = i3;
+            this.headerTableSizeSetting = i;
+            this.maxDynamicTableByteCount = i2;
             this.source = Okio.buffer(source);
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Writer {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int SETTINGS_HEADER_TABLE_SIZE = 4096;
@@ -379,9 +379,9 @@ public final class Hpack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {buffer};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), (Buffer) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -392,16 +392,16 @@ public final class Hpack {
         }
 
         private void adjustDynamicTableByteCount() {
+            int i;
             int i2;
-            int i3;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i2 = this.maxDynamicTableByteCount) >= (i3 = this.dynamicTableByteCount)) {
+            if (!(interceptable == null || interceptable.invokeV(65538, this) == null) || (i = this.maxDynamicTableByteCount) >= (i2 = this.dynamicTableByteCount)) {
                 return;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 clearDynamicTable();
             } else {
-                evictToRecoverBytes(i3 - i2);
+                evictToRecoverBytes(i2 - i);
             }
         }
 
@@ -415,33 +415,33 @@ public final class Hpack {
             }
         }
 
-        private int evictToRecoverBytes(int i2) {
+        private int evictToRecoverBytes(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2)) == null) {
-                int i3 = 0;
-                if (i2 > 0) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i)) == null) {
+                int i2 = 0;
+                if (i > 0) {
                     int length = this.dynamicTable.length;
                     while (true) {
                         length--;
-                        if (length < this.nextHeaderIndex || i2 <= 0) {
+                        if (length < this.nextHeaderIndex || i <= 0) {
                             break;
                         }
                         Header[] headerArr = this.dynamicTable;
-                        i2 -= headerArr[length].hpackSize;
+                        i -= headerArr[length].hpackSize;
                         this.dynamicTableByteCount -= headerArr[length].hpackSize;
                         this.headerCount--;
-                        i3++;
+                        i2++;
                     }
                     Header[] headerArr2 = this.dynamicTable;
-                    int i4 = this.nextHeaderIndex;
-                    System.arraycopy(headerArr2, i4 + 1, headerArr2, i4 + 1 + i3, this.headerCount);
+                    int i3 = this.nextHeaderIndex;
+                    System.arraycopy(headerArr2, i3 + 1, headerArr2, i3 + 1 + i2, this.headerCount);
                     Header[] headerArr3 = this.dynamicTable;
-                    int i5 = this.nextHeaderIndex;
-                    Arrays.fill(headerArr3, i5 + 1, i5 + 1 + i3, (Object) null);
-                    this.nextHeaderIndex += i3;
+                    int i4 = this.nextHeaderIndex;
+                    Arrays.fill(headerArr3, i4 + 1, i4 + 1 + i2, (Object) null);
+                    this.nextHeaderIndex += i2;
                 }
-                return i3;
+                return i2;
             }
             return invokeI.intValue;
         }
@@ -449,39 +449,39 @@ public final class Hpack {
         private void insertIntoDynamicTable(Header header) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65541, this, header) == null) {
-                int i2 = header.hpackSize;
-                int i3 = this.maxDynamicTableByteCount;
-                if (i2 > i3) {
+                int i = header.hpackSize;
+                int i2 = this.maxDynamicTableByteCount;
+                if (i > i2) {
                     clearDynamicTable();
                     return;
                 }
-                evictToRecoverBytes((this.dynamicTableByteCount + i2) - i3);
-                int i4 = this.headerCount + 1;
+                evictToRecoverBytes((this.dynamicTableByteCount + i) - i2);
+                int i3 = this.headerCount + 1;
                 Header[] headerArr = this.dynamicTable;
-                if (i4 > headerArr.length) {
+                if (i3 > headerArr.length) {
                     Header[] headerArr2 = new Header[headerArr.length * 2];
                     System.arraycopy(headerArr, 0, headerArr2, headerArr.length, headerArr.length);
                     this.nextHeaderIndex = this.dynamicTable.length - 1;
                     this.dynamicTable = headerArr2;
                 }
-                int i5 = this.nextHeaderIndex;
-                this.nextHeaderIndex = i5 - 1;
-                this.dynamicTable[i5] = header;
+                int i4 = this.nextHeaderIndex;
+                this.nextHeaderIndex = i4 - 1;
+                this.dynamicTable[i4] = header;
                 this.headerCount++;
-                this.dynamicTableByteCount += i2;
+                this.dynamicTableByteCount += i;
             }
         }
 
-        public void setHeaderTableSizeSetting(int i2) {
+        public void setHeaderTableSizeSetting(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.headerTableSizeSetting = i2;
-                int min = Math.min(i2, 16384);
-                int i3 = this.maxDynamicTableByteCount;
-                if (i3 == min) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.headerTableSizeSetting = i;
+                int min = Math.min(i, 16384);
+                int i2 = this.maxDynamicTableByteCount;
+                if (i2 == min) {
                     return;
                 }
-                if (min < i3) {
+                if (min < i2) {
                     this.smallestHeaderTableSizeSetting = Math.min(this.smallestHeaderTableSizeSetting, min);
                 }
                 this.emitDynamicTableSizeUpdate = true;
@@ -507,71 +507,71 @@ public final class Hpack {
         }
 
         public void writeHeaders(List<Header> list) throws IOException {
+            int i;
             int i2;
-            int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
                 if (this.emitDynamicTableSizeUpdate) {
-                    int i4 = this.smallestHeaderTableSizeSetting;
-                    if (i4 < this.maxDynamicTableByteCount) {
-                        writeInt(i4, 31, 32);
+                    int i3 = this.smallestHeaderTableSizeSetting;
+                    if (i3 < this.maxDynamicTableByteCount) {
+                        writeInt(i3, 31, 32);
                     }
                     this.emitDynamicTableSizeUpdate = false;
                     this.smallestHeaderTableSizeSetting = Integer.MAX_VALUE;
                     writeInt(this.maxDynamicTableByteCount, 31, 32);
                 }
                 int size = list.size();
-                for (int i5 = 0; i5 < size; i5++) {
-                    Header header = list.get(i5);
+                for (int i4 = 0; i4 < size; i4++) {
+                    Header header = list.get(i4);
                     ByteString asciiLowercase = header.name.toAsciiLowercase();
                     ByteString byteString = header.value;
                     Integer num = Hpack.NAME_TO_FIRST_INDEX.get(asciiLowercase);
                     if (num != null) {
-                        i2 = num.intValue() + 1;
-                        if (i2 > 1 && i2 < 8) {
-                            if (Util.equal(Hpack.STATIC_HEADER_TABLE[i2 - 1].value, byteString)) {
-                                i3 = i2;
-                            } else if (Util.equal(Hpack.STATIC_HEADER_TABLE[i2].value, byteString)) {
-                                i3 = i2;
-                                i2++;
+                        i = num.intValue() + 1;
+                        if (i > 1 && i < 8) {
+                            if (Util.equal(Hpack.STATIC_HEADER_TABLE[i - 1].value, byteString)) {
+                                i2 = i;
+                            } else if (Util.equal(Hpack.STATIC_HEADER_TABLE[i].value, byteString)) {
+                                i2 = i;
+                                i++;
                             }
                         }
-                        i3 = i2;
-                        i2 = -1;
+                        i2 = i;
+                        i = -1;
                     } else {
+                        i = -1;
                         i2 = -1;
-                        i3 = -1;
                     }
-                    if (i2 == -1) {
-                        int i6 = this.nextHeaderIndex + 1;
+                    if (i == -1) {
+                        int i5 = this.nextHeaderIndex + 1;
                         int length = this.dynamicTable.length;
                         while (true) {
-                            if (i6 >= length) {
+                            if (i5 >= length) {
                                 break;
                             }
-                            if (Util.equal(this.dynamicTable[i6].name, asciiLowercase)) {
-                                if (Util.equal(this.dynamicTable[i6].value, byteString)) {
-                                    i2 = Hpack.STATIC_HEADER_TABLE.length + (i6 - this.nextHeaderIndex);
+                            if (Util.equal(this.dynamicTable[i5].name, asciiLowercase)) {
+                                if (Util.equal(this.dynamicTable[i5].value, byteString)) {
+                                    i = Hpack.STATIC_HEADER_TABLE.length + (i5 - this.nextHeaderIndex);
                                     break;
-                                } else if (i3 == -1) {
-                                    i3 = (i6 - this.nextHeaderIndex) + Hpack.STATIC_HEADER_TABLE.length;
+                                } else if (i2 == -1) {
+                                    i2 = (i5 - this.nextHeaderIndex) + Hpack.STATIC_HEADER_TABLE.length;
                                 }
                             }
-                            i6++;
+                            i5++;
                         }
                     }
-                    if (i2 != -1) {
-                        writeInt(i2, 127, 128);
-                    } else if (i3 == -1) {
+                    if (i != -1) {
+                        writeInt(i, 127, 128);
+                    } else if (i2 == -1) {
                         this.out.writeByte(64);
                         writeByteString(asciiLowercase);
                         writeByteString(byteString);
                         insertIntoDynamicTable(header);
                     } else if (asciiLowercase.startsWith(Header.PSEUDO_PREFIX) && !Header.TARGET_AUTHORITY.equals(asciiLowercase)) {
-                        writeInt(i3, 15, 0);
+                        writeInt(i2, 15, 0);
                         writeByteString(byteString);
                     } else {
-                        writeInt(i3, 63, 64);
+                        writeInt(i2, 63, 64);
                         writeByteString(byteString);
                         insertIntoDynamicTable(header);
                     }
@@ -579,33 +579,33 @@ public final class Hpack {
             }
         }
 
-        public void writeInt(int i2, int i3, int i4) {
+        public void writeInt(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048579, this, i2, i3, i4) == null) {
-                if (i2 < i3) {
-                    this.out.writeByte(i2 | i4);
+            if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
+                if (i < i2) {
+                    this.out.writeByte(i | i3);
                     return;
                 }
-                this.out.writeByte(i4 | i3);
-                int i5 = i2 - i3;
-                while (i5 >= 128) {
-                    this.out.writeByte(128 | (i5 & 127));
-                    i5 >>>= 7;
+                this.out.writeByte(i3 | i2);
+                int i4 = i - i2;
+                while (i4 >= 128) {
+                    this.out.writeByte(128 | (i4 & 127));
+                    i4 >>>= 7;
                 }
-                this.out.writeByte(i5);
+                this.out.writeByte(i4);
             }
         }
 
-        public Writer(int i2, boolean z, Buffer buffer) {
+        public Writer(int i, boolean z, Buffer buffer) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), buffer};
+                Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), buffer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -617,8 +617,8 @@ public final class Hpack {
             this.nextHeaderIndex = headerArr.length - 1;
             this.headerCount = 0;
             this.dynamicTableByteCount = 0;
-            this.headerTableSizeSetting = i2;
-            this.maxDynamicTableByteCount = i2;
+            this.headerTableSizeSetting = i;
+            this.maxDynamicTableByteCount = i;
             this.useCompression = z;
             this.out = buffer;
         }
@@ -637,7 +637,7 @@ public final class Hpack {
                 return;
             }
         }
-        STATIC_HEADER_TABLE = new Header[]{new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, "http"), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE204), new Header(Header.RESPONSE_STATUS, HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE206), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, FontParser.sFontWeightDefault), new Header(Header.RESPONSE_STATUS, "404"), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(BOSTokenRequest.ACCEPT, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header("allow", ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header("content-type", ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header("referer", ""), new Header("refresh", ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
+        STATIC_HEADER_TABLE = new Header[]{new Header(Header.TARGET_AUTHORITY, ""), new Header(Header.TARGET_METHOD, "GET"), new Header(Header.TARGET_METHOD, "POST"), new Header(Header.TARGET_PATH, "/"), new Header(Header.TARGET_PATH, "/index.html"), new Header(Header.TARGET_SCHEME, "http"), new Header(Header.TARGET_SCHEME, "https"), new Header(Header.RESPONSE_STATUS, BasicPushStatus.SUCCESS_CODE), new Header(Header.RESPONSE_STATUS, "204"), new Header(Header.RESPONSE_STATUS, "206"), new Header(Header.RESPONSE_STATUS, "304"), new Header(Header.RESPONSE_STATUS, FontParser.sFontWeightDefault), new Header(Header.RESPONSE_STATUS, "404"), new Header(Header.RESPONSE_STATUS, "500"), new Header("accept-charset", ""), new Header("accept-encoding", "gzip, deflate"), new Header("accept-language", ""), new Header(Headers.ACCEPT_RANGES, ""), new Header(BOSTokenRequest.ACCEPT, ""), new Header("access-control-allow-origin", ""), new Header("age", ""), new Header("allow", ""), new Header("authorization", ""), new Header(Headers.CACHE_CONTROL, ""), new Header(Headers.CONTENT_DISPOSITION, ""), new Header(Headers.CONTENT_ENCODING, ""), new Header("content-language", ""), new Header(Headers.CONTENT_LEN, ""), new Header("content-location", ""), new Header("content-range", ""), new Header(Headers.CONTENT_TYPE, ""), new Header("cookie", ""), new Header("date", ""), new Header("etag", ""), new Header("expect", ""), new Header("expires", ""), new Header("from", ""), new Header("host", ""), new Header("if-match", ""), new Header("if-modified-since", ""), new Header("if-none-match", ""), new Header("if-range", ""), new Header("if-unmodified-since", ""), new Header(Headers.LAST_MODIFIED, ""), new Header("link", ""), new Header("location", ""), new Header("max-forwards", ""), new Header(Headers.PROXY_AUTHENTICATE, ""), new Header("proxy-authorization", ""), new Header("range", ""), new Header(Config.LAUNCH_REFERER, ""), new Header(Headers.REFRESH, ""), new Header("retry-after", ""), new Header("server", ""), new Header(Headers.SET_COOKIE, ""), new Header("strict-transport-security", ""), new Header(Headers.TRANSFER_ENCODING, ""), new Header("user-agent", ""), new Header("vary", ""), new Header("via", ""), new Header(Headers.WWW_AUTHENTICATE, "")};
         NAME_TO_FIRST_INDEX = nameToFirstIndex();
     }
 
@@ -646,9 +646,9 @@ public final class Hpack {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -660,8 +660,8 @@ public final class Hpack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteString)) == null) {
             int size = byteString.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                byte b2 = byteString.getByte(i2);
+            for (int i = 0; i < size; i++) {
+                byte b2 = byteString.getByte(i);
                 if (b2 >= 65 && b2 <= 90) {
                     throw new IOException("PROTOCOL_ERROR response malformed: mixed case name: " + byteString.utf8());
                 }
@@ -678,14 +678,14 @@ public final class Hpack {
             return (Map) invokeV.objValue;
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap(STATIC_HEADER_TABLE.length);
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Header[] headerArr = STATIC_HEADER_TABLE;
-            if (i2 < headerArr.length) {
-                if (!linkedHashMap.containsKey(headerArr[i2].name)) {
-                    linkedHashMap.put(STATIC_HEADER_TABLE[i2].name, Integer.valueOf(i2));
+            if (i < headerArr.length) {
+                if (!linkedHashMap.containsKey(headerArr[i].name)) {
+                    linkedHashMap.put(STATIC_HEADER_TABLE[i].name, Integer.valueOf(i));
                 }
-                i2++;
+                i++;
             } else {
                 return Collections.unmodifiableMap(linkedHashMap);
             }

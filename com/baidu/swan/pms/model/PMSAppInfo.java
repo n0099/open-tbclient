@@ -4,8 +4,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.q.h.g;
-import c.a.p0.q.h.h;
+import c.a.n0.q.h.g;
+import c.a.n0.q.h.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PMSAppInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<PMSAppInfo> CREATOR;
@@ -70,7 +70,7 @@ public class PMSAppInfo implements Parcelable {
     public String webUrl;
     public String webViewDomains;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<PMSAppInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public class PMSAppInfo implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -101,10 +101,10 @@ public class PMSAppInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public PMSAppInfo[] newArray(int i2) {
+        public PMSAppInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new PMSAppInfo[i2] : (PMSAppInfo[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new PMSAppInfo[i] : (PMSAppInfo[]) invokeI.objValue;
         }
     }
 
@@ -129,9 +129,9 @@ public class PMSAppInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -171,9 +171,9 @@ public class PMSAppInfo implements Parcelable {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gVar) == null) || gVar == null) {
             return;
         }
-        this.appId = gVar.f10961g;
-        this.versionCode = gVar.f10963i;
-        this.versionName = gVar.f10964j;
+        this.appId = gVar.f9145g;
+        this.versionCode = gVar.i;
+        this.versionName = gVar.j;
         this.type = gVar.o;
         this.pkgSize = gVar.k;
     }
@@ -184,19 +184,19 @@ public class PMSAppInfo implements Parcelable {
             return;
         }
         this.appId = hVar.o;
-        this.versionCode = hVar.f10963i;
-        this.versionName = hVar.f10964j;
+        this.versionCode = hVar.i;
+        this.versionName = hVar.j;
         this.type = hVar.q;
         this.pkgSize = hVar.k;
     }
 
-    public void countLaunch(long j2) {
+    public void countLaunch(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            if (0 >= j2) {
-                j2 = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (0 >= j) {
+                j = System.currentTimeMillis();
             }
-            updateLastLaunchTime(j2);
+            updateLastLaunchTime(j);
             this.launchCount++;
         }
     }
@@ -263,12 +263,12 @@ public class PMSAppInfo implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? (System.currentTimeMillis() - this.createTime) / 1000 > this.maxAge : invokeV.booleanValue;
     }
 
-    public void setOrientation(int i2) {
+    public void setOrientation(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048590, this, i2) == null) || -1 >= i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048590, this, i) == null) || -1 >= i) {
             return;
         }
-        this.orientation = i2;
+        this.orientation = i;
     }
 
     public String toString() {
@@ -280,31 +280,31 @@ public class PMSAppInfo implements Parcelable {
         return (String) invokeV.objValue;
     }
 
-    public void updateInstallSrc(int i2) {
+    public void updateInstallSrc(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048592, this, i2) == null) && this.installSrc == 0 && i2 > 0) {
-            this.installSrc = i2;
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && this.installSrc == 0 && i > 0) {
+            this.installSrc = i;
         }
     }
 
-    public void updateLastLaunchTime(long j2) {
+    public void updateLastLaunchTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.lastLaunchTime = Math.max(j2, this.lastLaunchTime);
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.lastLaunchTime = Math.max(j, this.lastLaunchTime);
         }
     }
 
-    public void updateLaunchCount(int i2) {
+    public void updateLaunchCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.launchCount = Math.max(i2, this.launchCount);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.launchCount = Math.max(i, this.launchCount);
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048595, this, parcel, i) == null) {
             parcel.writeString(this.appId);
             parcel.writeString(this.appKey);
             parcel.writeLong(this.appSign);
@@ -357,9 +357,9 @@ public class PMSAppInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

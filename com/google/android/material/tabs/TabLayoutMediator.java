@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.tabs.TabLayout;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TabLayoutMediator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,7 +32,7 @@ public final class TabLayoutMediator {
     @NonNull
     public final ViewPager2 viewPager;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PagerAdapterObserver extends RecyclerView.AdapterDataObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public final class TabLayoutMediator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tabLayoutMediator};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,52 +65,52 @@ public final class TabLayoutMediator {
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeChanged(int i2, int i3) {
+        public void onItemRangeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeInserted(int i2, int i3) {
+        public void onItemRangeInserted(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeMoved(int i2, int i3, int i4) {
+        public void onItemRangeMoved(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048580, this, i2, i3, i4) == null) {
+            if (interceptable == null || interceptable.invokeIII(1048580, this, i, i2, i3) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeRemoved(int i2, int i3) {
+        public void onItemRangeRemoved(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeChanged(int i2, int i3, @Nullable Object obj) {
+        public void onItemRangeChanged(int i, int i2, @Nullable Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj) == null) {
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj) == null) {
                 this.this$0.populateTabsFromPagerAdapter();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface TabConfigurationStrategy {
-        void onConfigureTab(@NonNull TabLayout.Tab tab, int i2);
+        void onConfigureTab(@NonNull TabLayout.Tab tab, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class TabLayoutOnPageChangeCallback extends ViewPager2.OnPageChangeCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,9 +126,9 @@ public final class TabLayoutMediator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tabLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,34 +139,34 @@ public final class TabLayoutMediator {
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-        public void onPageScrollStateChanged(int i2) {
+        public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 this.previousScrollState = this.scrollState;
-                this.scrollState = i2;
+                this.scrollState = i;
             }
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-        public void onPageScrolled(int i2, float f2, int i3) {
+        public void onPageScrolled(int i, float f2, int i2) {
             TabLayout tabLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) || (tabLayout = this.tabLayoutRef.get()) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) || (tabLayout = this.tabLayoutRef.get()) == null) {
                 return;
             }
             boolean z = false;
-            tabLayout.setScrollPosition(i2, f2, this.scrollState != 2 || this.previousScrollState == 1, (this.scrollState == 2 && this.previousScrollState == 0) ? true : true);
+            tabLayout.setScrollPosition(i, f2, this.scrollState != 2 || this.previousScrollState == 1, (this.scrollState == 2 && this.previousScrollState == 0) ? true : true);
         }
 
         @Override // androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             TabLayout tabLayout;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (tabLayout = this.tabLayoutRef.get()) == null || tabLayout.getSelectedTabPosition() == i2 || i2 >= tabLayout.getTabCount()) {
+            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (tabLayout = this.tabLayoutRef.get()) == null || tabLayout.getSelectedTabPosition() == i || i >= tabLayout.getTabCount()) {
                 return;
             }
-            int i3 = this.scrollState;
-            tabLayout.selectTab(tabLayout.getTabAt(i2), i3 == 0 || (i3 == 2 && this.previousScrollState == 0));
+            int i2 = this.scrollState;
+            tabLayout.selectTab(tabLayout.getTabAt(i), i2 == 0 || (i2 == 2 && this.previousScrollState == 0));
         }
 
         public void reset() {
@@ -178,7 +178,7 @@ public final class TabLayoutMediator {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ViewPagerOnTabSelectedListener implements TabLayout.OnTabSelectedListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,9 +192,9 @@ public final class TabLayoutMediator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {viewPager2, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -236,9 +236,9 @@ public final class TabLayoutMediator {
             newInitContext.initArgs = r2;
             Object[] objArr = {tabLayout, viewPager2, tabConfigurationStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TabLayout) objArr2[0], (ViewPager2) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), (TabConfigurationStrategy) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -301,9 +301,9 @@ public final class TabLayoutMediator {
             RecyclerView.Adapter<?> adapter = this.adapter;
             if (adapter != null) {
                 int itemCount = adapter.getItemCount();
-                for (int i2 = 0; i2 < itemCount; i2++) {
+                for (int i = 0; i < itemCount; i++) {
                     TabLayout.Tab newTab = this.tabLayout.newTab();
-                    this.tabConfigurationStrategy.onConfigureTab(newTab, i2);
+                    this.tabConfigurationStrategy.onConfigureTab(newTab, i);
                     this.tabLayout.addTab(newTab, false);
                 }
                 if (itemCount > 0) {
@@ -326,9 +326,9 @@ public final class TabLayoutMediator {
             newInitContext.initArgs = r2;
             Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), tabConfigurationStrategy};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((TabLayout) objArr2[0], (ViewPager2) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), (TabConfigurationStrategy) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -345,9 +345,9 @@ public final class TabLayoutMediator {
             newInitContext.initArgs = r2;
             Object[] objArr = {tabLayout, viewPager2, Boolean.valueOf(z), Boolean.valueOf(z2), tabConfigurationStrategy};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DownloadState {
     public static final /* synthetic */ DownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -51,16 +51,16 @@ public final class DownloadState {
         $VALUES = new DownloadState[]{WAITING, DOWNLOADING, PAUSE, FAILED, CANCEL, FINISH, UNKNOWN, MEAGESTART, downloadState};
     }
 
-    public DownloadState(String str, int i2) {
+    public DownloadState(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -70,10 +70,10 @@ public final class DownloadState {
         }
     }
 
-    public static DownloadState getState(int i2) {
+    public static DownloadState getState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? i2 == 0 ? WAITING : i2 == 1 ? DOWNLOADING : i2 == 2 ? PAUSE : i2 == 3 ? FAILED : i2 == 4 ? CANCEL : i2 == 5 ? FINISH : i2 == 6 ? UNKNOWN : i2 == 7 ? MEAGESTART : i2 == 8 ? MEAGEEND : UNKNOWN : (DownloadState) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i == 0 ? WAITING : i == 1 ? DOWNLOADING : i == 2 ? PAUSE : i == 3 ? FAILED : i == 4 ? CANCEL : i == 5 ? FINISH : i == 6 ? UNKNOWN : i == 7 ? MEAGESTART : i == 8 ? MEAGEEND : UNKNOWN : (DownloadState) invokeI.objValue;
     }
 
     public static DownloadState valueOf(String str) {

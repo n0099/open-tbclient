@@ -1,5 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.map;
 
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,31 +15,27 @@ public final class h {
     public static final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final h f34508b;
+    public static final h f26710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final h f34509c;
+    public static final h f26711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final h f34510d;
+    public static final h f26712d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final h f34511e;
+    public static final h f26713e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final h f34512f;
+    public static final h f26714f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final h f34513g;
+    public static final h f26715g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final h f34514h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final h f34515i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final h f34516j;
+    public static final h f26716h;
+    public static final h i;
+    public static final h j;
     public static final /* synthetic */ h[] k;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -56,17 +53,17 @@ public final class h {
             }
         }
         a = new h("logo", 0);
-        f34508b = new h("popup", 1);
-        f34509c = new h("marker", 2);
-        f34510d = new h("ground", 3);
-        f34511e = new h("text", 4);
-        f34512f = new h("arc", 5);
-        f34513g = new h("dot", 6);
-        f34514h = new h("circle", 7);
-        f34515i = new h("polyline", 8);
+        f26710b = new h("popup", 1);
+        f26711c = new h("marker", 2);
+        f26712d = new h("ground", 3);
+        f26713e = new h("text", 4);
+        f26714f = new h("arc", 5);
+        f26715g = new h("dot", 6);
+        f26716h = new h(Config.TRACE_CIRCLE, 7);
+        i = new h("polyline", 8);
         h hVar = new h("polygon", 9);
-        f34516j = hVar;
-        k = new h[]{a, f34508b, f34509c, f34510d, f34511e, f34512f, f34513g, f34514h, f34515i, hVar};
+        j = hVar;
+        k = new h[]{a, f26710b, f26711c, f26712d, f26713e, f26714f, f26715g, f26716h, i, hVar};
     }
 
     public h(String str, int i2) {

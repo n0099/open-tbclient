@@ -2,7 +2,7 @@ package com.baidu.tieba.themeCenter.card.detail;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.q0.p0.d;
+import c.a.o0.p0.d;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.d4.a cardData;
+    public c.a.p0.f4.a cardData;
     public PersonalCardDetailModel.b mCallback;
     public long mCardId;
     public View.OnClickListener mClickListener;
     public PersonalCardDetailModel mModel;
     public SetPersonalCardModel.b mSetCardCallback;
     public SetPersonalCardModel mSetCardModel;
-    public c.a.r0.d4.g.b.a mView;
+    public c.a.p0.f4.g.b.a mView;
 
     /* loaded from: classes6.dex */
     public class a implements PersonalCardDetailModel.b {
@@ -43,9 +43,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalCardDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,16 +55,16 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
 
         @Override // com.baidu.tieba.themeCenter.card.detail.PersonalCardDetailModel.b
-        public void a(int i2, String str, c.a.r0.d4.a aVar) {
+        public void a(int i, String str, c.a.p0.f4.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, aVar) == null) {
                 PersonalCardDetailActivity personalCardDetailActivity = this.a;
                 personalCardDetailActivity.hideLoadingView(personalCardDetailActivity.mView.c());
-                if (i2 != 0) {
+                if (i != 0) {
                     this.a.showToast(str);
                 }
                 this.a.cardData = aVar;
-                this.a.mView.h(i2, aVar);
+                this.a.mView.h(i, aVar);
             }
         }
     }
@@ -82,9 +82,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalCardDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -94,28 +94,28 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         }
 
         @Override // com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel.b
-        public void a(boolean z, long j2, int i2, String str, int i3) {
+        public void a(boolean z, long j, int i, String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
                 if (z) {
-                    if (j2 != this.a.mCardId) {
-                        if (i2 == 1) {
+                    if (j != this.a.mCardId) {
+                        if (i == 1) {
                             this.a.cardData.s(0);
                             this.a.mView.i(this.a.cardData);
                             return;
                         }
                         return;
                     }
-                    if (i2 == 1) {
+                    if (i == 1) {
                         this.a.cardData.s(1);
-                    } else if (i2 == 2) {
+                    } else if (i == 2) {
                         this.a.cardData.s(0);
                     }
                     this.a.mView.i(this.a.cardData);
                     return;
                 }
                 PersonalCardDetailActivity personalCardDetailActivity = this.a;
-                personalCardDetailActivity.showErrorDialog(i3, str, personalCardDetailActivity.cardData);
+                personalCardDetailActivity.showErrorDialog(i2, str, personalCardDetailActivity.cardData);
             }
         }
     }
@@ -124,9 +124,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonalCardDetailActivity f47067e;
+        public final /* synthetic */ PersonalCardDetailActivity a;
 
         public c(PersonalCardDetailActivity personalCardDetailActivity) {
             Interceptable interceptable = $ic;
@@ -135,34 +133,34 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personalCardDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47067e = personalCardDetailActivity;
+            this.a = personalCardDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view == this.f47067e.mView.d()) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && view != null && view == this.a.mView.d()) {
                 if (TbadkCoreApplication.isLogin()) {
-                    if (this.f47067e.mSetCardModel == null) {
-                        this.f47067e.mSetCardModel = new SetPersonalCardModel();
+                    if (this.a.mSetCardModel == null) {
+                        this.a.mSetCardModel = new SetPersonalCardModel();
                     }
-                    if (this.f47067e.cardData.g() == 1) {
-                        this.f47067e.mSetCardModel.C(this.f47067e.mCardId, 2);
+                    if (this.a.cardData.g() == 1) {
+                        this.a.mSetCardModel.E(this.a.mCardId, 2);
                         return;
                     } else {
-                        this.f47067e.mSetCardModel.C(this.f47067e.mCardId, 1);
+                        this.a.mSetCardModel.E(this.a.mCardId, 1);
                         return;
                     }
                 }
-                ViewHelper.skipToLoginActivity(this.f47067e.getPageContext().getPageActivity());
+                ViewHelper.skipToLoginActivity(this.a.getPageContext().getPageActivity());
             }
         }
     }
@@ -172,9 +170,9 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -185,7 +183,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         this.mClickListener = new c(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -200,7 +198,7 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
             d pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
-                pageStayDurationItem.f12787i = String.valueOf(this.mCardId);
+                pageStayDurationItem.i = String.valueOf(this.mCardId);
             }
             return pageStayDurationItem;
         }
@@ -208,11 +206,11 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            c.a.r0.d4.g.b.a aVar = this.mView;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.onChangeSkinType(i);
+            c.a.p0.f4.g.b.a aVar = this.mView;
             if (aVar != null) {
                 aVar.a();
             }
@@ -225,15 +223,15 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
             this.mCardId = getIntent().getLongExtra(PersonalCardDetailActivityConfig.CARD_ID, 0L);
-            this.mView = new c.a.r0.d4.g.b.a(this, this.mClickListener);
+            this.mView = new c.a.p0.f4.g.b.a(this, this.mClickListener);
             PersonalCardDetailModel personalCardDetailModel = new PersonalCardDetailModel();
             this.mModel = personalCardDetailModel;
-            personalCardDetailModel.A(this.mCallback);
+            personalCardDetailModel.C(this.mCallback);
             SetPersonalCardModel setPersonalCardModel = new SetPersonalCardModel();
             this.mSetCardModel = setPersonalCardModel;
-            setPersonalCardModel.B(this.mSetCardCallback);
+            setPersonalCardModel.D(this.mSetCardCallback);
             showLoadingView(this.mView.c(), false);
-            this.mModel.z(this.mCardId);
+            this.mModel.B(this.mCardId);
         }
     }
 
@@ -255,13 +253,13 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        c.a.r0.d4.g.b.a aVar;
+        c.a.p0.f4.g.b.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || this.mModel == null || (aVar = this.mView) == null) {
             return;
         }
         showLoadingView(aVar.c(), false);
-        this.mModel.z(this.mCardId);
+        this.mModel.B(this.mCardId);
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -270,26 +268,26 @@ public class PersonalCardDetailActivity extends BaseActivity<PersonalCardDetailA
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             super.onUserChanged(z);
             if (z) {
-                c.a.q0.z.b.d().h();
+                c.a.o0.z.b.d().h();
                 showLoadingView(this.mView.c(), false);
-                this.mModel.z(this.mCardId);
+                this.mModel.B(this.mCardId);
             }
         }
     }
 
-    public void showErrorDialog(int i2, String str, c.a.r0.d4.a aVar) {
+    public void showErrorDialog(int i, String str, c.a.p0.f4.a aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(1048583, this, i2, str, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeILL(1048583, this, i, str, aVar) == null) || aVar == null) {
             return;
         }
-        int i3 = aVar.f() == 101 ? 9 : 0;
+        int i2 = aVar.f() == 101 ? 9 : 0;
         if (StringUtils.isNull(str)) {
             return;
         }
-        if (i2 == c.a.r0.d4.c.a) {
-            c.a.r0.d4.b.d(getPageContext(), 6, str, i3, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
-        } else if (i2 == c.a.r0.d4.c.f16899b) {
-            c.a.r0.d4.b.c(getPageContext(), 6, str, i3);
+        if (i == c.a.p0.f4.c.a) {
+            c.a.p0.f4.b.d(getPageContext(), 6, str, i2, MemberPayStatistic.REFER_PAGE_CARDS_TRY, MemberPayStatistic.CLICK_ZONE_BOTTOM_OPENDE_RENEWALFEE_BUTTON);
+        } else if (i == c.a.p0.f4.c.f14994b) {
+            c.a.p0.f4.b.c(getPageContext(), 6, str, i2);
         }
     }
 }

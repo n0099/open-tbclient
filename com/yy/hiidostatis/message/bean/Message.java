@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.cipher.TextUtils;
 import java.io.UnsupportedEncodingException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Message {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,16 +19,16 @@ public class Message {
     public String msgId;
     public String urlParams;
 
-    public Message(String str, int i2, String str2, byte[] bArr, int i3) {
+    public Message(String str, int i, String str2, byte[] bArr, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, bArr, Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), str2, bArr, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,8 +37,8 @@ public class Message {
         this.msgId = str;
         this.urlParams = str2;
         this.content = bArr;
-        this.length = i3;
-        this.count = i2;
+        this.length = i2;
+        this.count = i;
     }
 
     public byte[] getContent() {
@@ -78,10 +78,10 @@ public class Message {
         }
     }
 
-    public void setLength(int i2) {
+    public void setLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.length = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.length = i;
         }
     }
 

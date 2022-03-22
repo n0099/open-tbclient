@@ -47,9 +47,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -98,7 +98,7 @@ public class e {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        k.f35530b.a(System.currentTimeMillis(), str);
+        k.f27412b.a(System.currentTimeMillis(), str);
     }
 
     public synchronized void a(Context context, boolean z) {
@@ -111,21 +111,21 @@ public class e {
     }
 
     private void a(boolean z, String str, String str2, PackageInfo packageInfo, JSONArray jSONArray) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Boolean.valueOf(z), str, str2, packageInfo, jSONArray}) == null) {
             if (z && packageInfo.packageName.startsWith("com.android.")) {
                 return;
             }
-            long j3 = 0;
+            long j2 = 0;
             try {
-                j2 = packageInfo.firstInstallTime;
+                j = packageInfo.firstInstallTime;
             } catch (Throwable th) {
                 bb.c().b(th);
-                j2 = 0;
+                j = 0;
             }
             try {
-                j3 = packageInfo.lastUpdateTime;
+                j2 = packageInfo.lastUpdateTime;
             } catch (Throwable th2) {
                 bb.c().b(th2);
             }
@@ -135,8 +135,8 @@ public class e {
                 jSONObject.put("n", packageInfo.packageName);
                 jSONObject.put("a", str);
                 jSONObject.put("v", String.valueOf(packageInfo.versionName));
-                jSONObject.put("f", j2);
-                jSONObject.put("l", j3);
+                jSONObject.put("f", j);
+                jSONObject.put("l", j2);
                 jSONObject.put("m", a2);
                 jSONArray.put(jSONObject);
             } catch (JSONException e2) {

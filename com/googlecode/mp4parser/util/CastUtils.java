@@ -16,23 +16,23 @@ public class CastUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int l2i(long j2) {
+    public static int l2i(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j2)) == null) {
-            if (j2 > 2147483647L || j2 < -2147483648L) {
-                throw new RuntimeException("A cast to int has gone wrong. Please contact the mp4parser discussion group (" + j2 + SmallTailInfo.EMOTION_SUFFIX);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            if (j > 2147483647L || j < -2147483648L) {
+                throw new RuntimeException("A cast to int has gone wrong. Please contact the mp4parser discussion group (" + j + SmallTailInfo.EMOTION_SUFFIX);
             }
-            return (int) j2;
+            return (int) j;
         }
         return invokeJ.intValue;
     }

@@ -8,8 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OauthResultMode implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,53 +23,53 @@ public class OauthResultMode implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public OauthResultMode(int i2, String str, int i3) {
+    public OauthResultMode(int i, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.code = i2;
+        this.code = i;
         this.msg = str;
-        this.status = i3;
+        this.status = i2;
     }
 
-    public OauthResultMode(int i2, String str, int i3, Object obj, String str2) {
+    public OauthResultMode(int i, String str, int i2, Object obj, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, Integer.valueOf(i3), obj, str2};
+            Object[] objArr = {Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.code = i2;
+        this.code = i;
         this.msg = str;
-        this.status = i3;
+        this.status = i2;
         this.object = obj;
         this.seq = str2;
     }
@@ -105,10 +104,10 @@ public class OauthResultMode implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.status : invokeV.intValue;
     }
 
-    public void setCode(int i2) {
+    public void setCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.code = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.code = i;
         }
     }
 
@@ -133,10 +132,10 @@ public class OauthResultMode implements Serializable {
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.status = i;
         }
     }
 
@@ -144,7 +143,7 @@ public class OauthResultMode implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "OauthResultMode{code=" + this.code + ", msg='" + this.msg + ExtendedMessageFormat.QUOTE + ", status=" + this.status + ", object=" + this.object + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "OauthResultMode{code=" + this.code + ", msg='" + this.msg + "', status=" + this.status + ", object=" + this.object + ", seq='" + this.seq + "'}";
         }
         return (String) invokeV.objValue;
     }

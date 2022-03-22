@@ -65,9 +65,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, str2, str3, strArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -85,7 +85,7 @@ public class DBOperation {
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LogUtils.enter(this.mOperationId);
@@ -96,18 +96,18 @@ public class DBOperation {
                             if (this.mWhereArgs != null) {
                                 LogUtils.d(DBOperation.TAG, this.mTable + " delete : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + Arrays.asList(this.mWhereArgs));
                             }
-                            i2 = openDb.delete(this.mTable, this.mWhereClause, this.mWhereArgs);
+                            i = openDb.delete(this.mTable, this.mWhereClause, this.mWhereArgs);
                         } catch (SQLException e2) {
                             LogUtils.e(DBOperation.TAG, "delete", e2);
                             this.this$0.closeDbInternal();
-                            i2 = DBResponseCode.ERROR_SQLEXCEPTION;
+                            i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
                     } else {
-                        i2 = DBResponseCode.ERROR_DB_OPEN;
+                        i = DBResponseCode.ERROR_DB_OPEN;
                     }
-                    LogUtils.d(DBOperation.TAG, "ret : " + i2);
+                    LogUtils.d(DBOperation.TAG, "ret : " + i);
                     LogUtils.leave(this.mOperationId);
-                    return Integer.valueOf(i2);
+                    return Integer.valueOf(i);
                 } finally {
                     this.this$0.closeDbInternal();
                 }
@@ -135,9 +135,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -153,7 +153,7 @@ public class DBOperation {
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LogUtils.enter(this.mOperationId);
@@ -163,21 +163,21 @@ public class DBOperation {
                         try {
                             LogUtils.d(DBOperation.TAG, " execSQL: " + this.mSql);
                             openDb.execSQL(this.mSql);
-                            i2 = 0;
+                            i = 0;
                         } catch (SQLException e2) {
                             LogUtils.e(DBOperation.TAG, "execSQL", e2);
                             this.this$0.closeDbInternal();
-                            i2 = DBResponseCode.ERROR_SQLEXCEPTION;
+                            i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
                     } finally {
                         this.this$0.closeDbInternal();
                     }
                 } else {
-                    i2 = DBResponseCode.ERROR_DB_OPEN;
+                    i = DBResponseCode.ERROR_DB_OPEN;
                 }
-                LogUtils.d(DBOperation.TAG, "ret : " + i2);
+                LogUtils.d(DBOperation.TAG, "ret : " + i);
                 LogUtils.leave(this.mOperationId);
-                return Integer.valueOf(i2);
+                return Integer.valueOf(i);
             }
             return (Integer) invokeV.objValue;
         }
@@ -202,9 +202,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, iTransaction};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -220,7 +220,7 @@ public class DBOperation {
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LogUtils.enter(this.mOperationId);
@@ -231,23 +231,23 @@ public class DBOperation {
                             openDb.beginTransaction();
                             this.mTransaction.execTransaction(openDb);
                             openDb.setTransactionSuccessful();
-                            i2 = 0;
+                            i = 0;
                         } catch (SQLException e2) {
                             LogUtils.e(DBOperation.TAG, "transaction", e2);
                             openDb.endTransaction();
                             this.this$0.closeDbInternal();
-                            i2 = DBResponseCode.ERROR_SQLEXCEPTION;
+                            i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
                     } finally {
                         openDb.endTransaction();
                         this.this$0.closeDbInternal();
                     }
                 } else {
-                    i2 = DBResponseCode.ERROR_DB_OPEN;
+                    i = DBResponseCode.ERROR_DB_OPEN;
                 }
-                LogUtils.d(DBOperation.TAG, "ret : " + i2);
+                LogUtils.d(DBOperation.TAG, "ret : " + i);
                 LogUtils.leave(this.mOperationId);
-                return Integer.valueOf(i2);
+                return Integer.valueOf(i);
             }
             return (Integer) invokeV.objValue;
         }
@@ -273,9 +273,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, str2, list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -344,9 +344,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, str2, contentValues};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -417,9 +417,9 @@ public class DBOperation {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {dBOperation, str, iResultParse, str2, strArr, str3, strArr2, str4, str5, str6, str7};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -542,9 +542,9 @@ public class DBOperation {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBOperation, str, str2, contentValues, str3, strArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -563,7 +563,7 @@ public class DBOperation {
         @Override // java.util.concurrent.Callable
         public Integer call() throws Exception {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 LogUtils.enter(this.mOperationId);
@@ -572,21 +572,21 @@ public class DBOperation {
                     try {
                         try {
                             LogUtils.d(DBOperation.TAG, this.mTable + " update : mWhereClause" + this.mWhereClause + ",mWhereArgs : " + this.mWhereArgs + " ,mCv : " + this.mCv);
-                            i2 = openDb.update(this.mTable, this.mCv, this.mWhereClause, this.mWhereArgs);
+                            i = openDb.update(this.mTable, this.mCv, this.mWhereClause, this.mWhereArgs);
                         } catch (SQLException e2) {
                             LogUtils.e(DBOperation.TAG, "UpdateTask", e2);
                             this.this$0.closeDbInternal();
-                            i2 = DBResponseCode.ERROR_SQLEXCEPTION;
+                            i = DBResponseCode.ERROR_SQLEXCEPTION;
                         }
                     } finally {
                         this.this$0.closeDbInternal();
                     }
                 } else {
-                    i2 = DBResponseCode.ERROR_DB_OPEN;
+                    i = DBResponseCode.ERROR_DB_OPEN;
                 }
-                LogUtils.d(DBOperation.TAG, "ret : " + i2);
+                LogUtils.d(DBOperation.TAG, "ret : " + i);
                 LogUtils.leave(this.mOperationId);
-                return Integer.valueOf(i2);
+                return Integer.valueOf(i);
             }
             return (Integer) invokeV.objValue;
         }
@@ -615,9 +615,9 @@ public class DBOperation {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, dBConnection};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -14,10 +14,10 @@ public class Gradient {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f33886b;
+    public final int[] f26155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final float[] f33887c;
+    public final float[] f26156c;
 
     /* loaded from: classes4.dex */
     public class a {
@@ -26,37 +26,37 @@ public class Gradient {
         public final /* synthetic */ Gradient a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f33888b;
+        public final int f26157b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final int f33889c;
+        public final int f26158c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final float f33890d;
+        public final float f26159d;
 
-        public a(Gradient gradient, int i2, int i3, float f2) {
+        public a(Gradient gradient, int i, int i2, float f2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gradient, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)};
+                Object[] objArr = {gradient, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = gradient;
-            this.f33888b = i2;
-            this.f33889c = i3;
-            this.f33890d = f2;
+            this.f26157b = i;
+            this.f26158c = i2;
+            this.f26159d = f2;
         }
 
-        public /* synthetic */ a(Gradient gradient, int i2, int i3, float f2, i iVar) {
-            this(gradient, i2, i3, f2);
+        public /* synthetic */ a(Gradient gradient, int i, int i2, float f2, i iVar) {
+            this(gradient, i, i2, f2);
         }
     }
 
@@ -69,9 +69,9 @@ public class Gradient {
             newInitContext.initArgs = r2;
             Object[] objArr = {iArr, fArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((int[]) objArr2[0], (float[]) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -81,16 +81,16 @@ public class Gradient {
         }
     }
 
-    public Gradient(int[] iArr, float[] fArr, int i2) {
+    public Gradient(int[] iArr, float[] fArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iArr, fArr, Integer.valueOf(i2)};
+            Object[] objArr = {iArr, fArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -105,36 +105,36 @@ public class Gradient {
         if (iArr.length == 0) {
             throw new IllegalArgumentException("BDMapSDKException: No colors have been defined");
         }
-        for (int i5 = 1; i5 < fArr.length; i5++) {
-            if (fArr[i5] <= fArr[i5 - 1]) {
+        for (int i4 = 1; i4 < fArr.length; i4++) {
+            if (fArr[i4] <= fArr[i4 - 1]) {
                 throw new IllegalArgumentException("BDMapSDKException: startPoints should be in increasing order");
             }
         }
-        this.a = i2;
+        this.a = i;
         int[] iArr2 = new int[iArr.length];
-        this.f33886b = iArr2;
-        this.f33887c = new float[fArr.length];
+        this.f26155b = iArr2;
+        this.f26156c = new float[fArr.length];
         System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-        System.arraycopy(fArr, 0, this.f33887c, 0, fArr.length);
+        System.arraycopy(fArr, 0, this.f26156c, 0, fArr.length);
     }
 
-    public static int a(int i2, int i3, float f2) {
+    public static int a(int i, int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
-            int alpha = (int) (((Color.alpha(i3) - Color.alpha(i2)) * f2) + Color.alpha(i2));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
+            int alpha = (int) (((Color.alpha(i2) - Color.alpha(i)) * f2) + Color.alpha(i));
             float[] fArr = new float[3];
-            Color.RGBToHSV(Color.red(i2), Color.green(i2), Color.blue(i2), fArr);
+            Color.RGBToHSV(Color.red(i), Color.green(i), Color.blue(i), fArr);
             float[] fArr2 = new float[3];
-            Color.RGBToHSV(Color.red(i3), Color.green(i3), Color.blue(i3), fArr2);
+            Color.RGBToHSV(Color.red(i2), Color.green(i2), Color.blue(i2), fArr2);
             if (fArr[0] - fArr2[0] > 180.0f) {
                 fArr2[0] = fArr2[0] + 360.0f;
             } else if (fArr2[0] - fArr[0] > 180.0f) {
                 fArr[0] = fArr[0] + 360.0f;
             }
             float[] fArr3 = new float[3];
-            for (int i4 = 0; i4 < 3; i4++) {
-                fArr3[i4] = ((fArr2[i4] - fArr[i4]) * f2) + fArr[i4];
+            for (int i3 = 0; i3 < 3; i3++) {
+                fArr3[i3] = ((fArr2[i3] - fArr[i3]) * f2) + fArr[i3];
             }
             return Color.HSVToColor(alpha, fArr3);
         }
@@ -146,24 +146,24 @@ public class Gradient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             HashMap<Integer, a> hashMap = new HashMap<>();
-            if (this.f33887c[0] != 0.0f) {
-                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f33886b[0]), Color.green(this.f33886b[0]), Color.blue(this.f33886b[0])), this.f33886b[0], this.a * this.f33887c[0], null));
+            if (this.f26156c[0] != 0.0f) {
+                hashMap.put(0, new a(this, Color.argb(0, Color.red(this.f26155b[0]), Color.green(this.f26155b[0]), Color.blue(this.f26155b[0])), this.f26155b[0], this.a * this.f26156c[0], null));
             }
-            for (int i2 = 1; i2 < this.f33886b.length; i2++) {
-                int i3 = i2 - 1;
-                Integer valueOf = Integer.valueOf((int) (this.a * this.f33887c[i3]));
-                int[] iArr = this.f33886b;
-                int i4 = iArr[i3];
-                int i5 = iArr[i2];
-                float[] fArr = this.f33887c;
-                hashMap.put(valueOf, new a(this, i4, i5, (fArr[i2] - fArr[i3]) * this.a, null));
+            for (int i = 1; i < this.f26155b.length; i++) {
+                int i2 = i - 1;
+                Integer valueOf = Integer.valueOf((int) (this.a * this.f26156c[i2]));
+                int[] iArr = this.f26155b;
+                int i3 = iArr[i2];
+                int i4 = iArr[i];
+                float[] fArr = this.f26156c;
+                hashMap.put(valueOf, new a(this, i3, i4, (fArr[i] - fArr[i2]) * this.a, null));
             }
-            float[] fArr2 = this.f33887c;
+            float[] fArr2 = this.f26156c;
             if (fArr2[fArr2.length - 1] != 1.0f) {
                 int length = fArr2.length - 1;
                 Integer valueOf2 = Integer.valueOf((int) (this.a * fArr2[length]));
-                int[] iArr2 = this.f33886b;
-                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f33887c[length]), null));
+                int[] iArr2 = this.f26155b;
+                hashMap.put(valueOf2, new a(this, iArr2[length], iArr2[length], this.a * (1.0f - this.f26156c[length]), null));
             }
             return hashMap;
         }
@@ -177,18 +177,18 @@ public class Gradient {
             HashMap<Integer, a> a2 = a();
             int[] iArr = new int[this.a];
             a aVar = a2.get(0);
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.a; i3++) {
-                if (a2.containsKey(Integer.valueOf(i3))) {
-                    aVar = a2.get(Integer.valueOf(i3));
-                    i2 = i3;
+            int i = 0;
+            for (int i2 = 0; i2 < this.a; i2++) {
+                if (a2.containsKey(Integer.valueOf(i2))) {
+                    aVar = a2.get(Integer.valueOf(i2));
+                    i = i2;
                 }
-                iArr[i3] = a(aVar.f33888b, aVar.f33889c, (i3 - i2) / aVar.f33890d);
+                iArr[i2] = a(aVar.f26157b, aVar.f26158c, (i2 - i) / aVar.f26159d);
             }
             if (d2 != 1.0d) {
-                for (int i4 = 0; i4 < this.a; i4++) {
-                    int i5 = iArr[i4];
-                    iArr[i4] = Color.argb((int) (Color.alpha(i5) * d2), Color.red(i5), Color.green(i5), Color.blue(i5));
+                for (int i3 = 0; i3 < this.a; i3++) {
+                    int i4 = iArr[i3];
+                    iArr[i3] = Color.argb((int) (Color.alpha(i4) * d2), Color.red(i4), Color.green(i4), Color.blue(i4));
                 }
             }
             return iArr;

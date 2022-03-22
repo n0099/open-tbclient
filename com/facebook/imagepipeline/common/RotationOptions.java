@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.util.HashCodeUtil;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RotationOptions {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DISABLE_ROTATION = -2;
@@ -29,7 +29,7 @@ public class RotationOptions {
     public final int mRotation;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface RotationAngle {
     }
 
@@ -51,22 +51,22 @@ public class RotationOptions {
         ROTATION_OPTIONS_ROTATE_AT_RENDER_TIME = new RotationOptions(-1, true);
     }
 
-    public RotationOptions(int i2, boolean z) {
+    public RotationOptions(int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mRotation = i2;
+        this.mRotation = i;
         this.mDeferUntilRendered = z;
     }
 
@@ -88,10 +88,10 @@ public class RotationOptions {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ROTATION_OPTIONS_DISABLE_ROTATION : (RotationOptions) invokeV.objValue;
     }
 
-    public static RotationOptions forceRotation(int i2) {
+    public static RotationOptions forceRotation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) ? new RotationOptions(i2, false) : (RotationOptions) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? new RotationOptions(i, false) : (RotationOptions) invokeI.objValue;
     }
 
     public boolean canDeferUntilRendered() {

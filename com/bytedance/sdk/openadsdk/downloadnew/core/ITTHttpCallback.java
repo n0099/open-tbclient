@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk.downloadnew.core;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ITTHttpCallback {
     void onError(Throwable th);
 

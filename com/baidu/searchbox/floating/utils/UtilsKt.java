@@ -23,10 +23,10 @@ public final class UtilsKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final int dpToPxByScale(Context dpToPxByScale, int i2) {
+    public static final int dpToPxByScale(Context dpToPxByScale, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, dpToPxByScale, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, dpToPxByScale, i)) == null) {
             Intrinsics.checkNotNullParameter(dpToPxByScale, "$this$dpToPxByScale");
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager(dpToPxByScale).getDefaultDisplay().getMetrics(displayMetrics);
@@ -35,7 +35,7 @@ public final class UtilsKt {
             if (f2 <= 2.5f || f2 > 3.0f) {
                 f3 = displayMetrics.density;
             }
-            return (int) ((f3 * i2) + 0.5f);
+            return (int) ((f3 * i) + 0.5f);
         }
         return invokeLI.intValue;
     }

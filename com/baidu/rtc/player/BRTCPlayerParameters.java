@@ -2,6 +2,7 @@ package com.baidu.rtc.player;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,9 +35,9 @@ public class BRTCPlayerParameters {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,7 +48,7 @@ public class BRTCPlayerParameters {
         this.mEnableDebug = false;
         this.mPullUrl = "https://rtc2.exp.bcelive.com/brtc/v3/pullstream";
         this.mSoLaterLoadUrl = "";
-        this.mCpuType = "armeabi-v7a";
+        this.mCpuType = PassBiometricUtil.CPU_TYPE_ARMEABI_V7A;
         this.mIsEnableSoLaterLoad = false;
         this.mStreamingInterruptDetectIntervalMs = 6000;
         this.mStatsReportIntervalMs = 1000;
@@ -141,31 +142,31 @@ public class BRTCPlayerParameters {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mIsEnableSoLaterLoad : invokeV.booleanValue;
     }
 
-    public void setAudioBufferMaintainableLevel(int i2) {
+    public void setAudioBufferMaintainableLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mAudioBufferMaintainableLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mAudioBufferMaintainableLevel = i;
         }
     }
 
-    public void setAudioBufferUnderLoadLevel(int i2) {
+    public void setAudioBufferUnderLoadLevel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mAudioBufferUnderLoadLevel = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mAudioBufferUnderLoadLevel = i;
         }
     }
 
-    public void setAudioDecodeFormat(int i2) {
+    public void setAudioDecodeFormat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mAudioDecodeFormat = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mAudioDecodeFormat = i;
         }
     }
 
-    public void setBufferingDetectIntervalMs(int i2) {
+    public void setBufferingDetectIntervalMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mBufferingDetectIntervalMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mBufferingDetectIntervalMs = i;
         }
     }
 
@@ -197,24 +198,24 @@ public class BRTCPlayerParameters {
         }
     }
 
-    public void setStatsReportIntervalMs(int i2) {
+    public void setStatsReportIntervalMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.mStatsReportIntervalMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.mStatsReportIntervalMs = i;
         }
     }
 
-    public void setStreamingInterruptDetectIntervalMs(int i2) {
+    public void setStreamingInterruptDetectIntervalMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mStreamingInterruptDetectIntervalMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mStreamingInterruptDetectIntervalMs = i;
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.mUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.mUserId = j;
         }
     }
 

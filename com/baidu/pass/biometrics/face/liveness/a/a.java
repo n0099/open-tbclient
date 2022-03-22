@@ -13,10 +13,10 @@ public class a {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static a f36202b = null;
+    public static a f27964b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36203c = "request_data";
+    public static final String f27965c = "request_data";
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, PassBiometricDto> a;
 
@@ -25,9 +25,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,10 +40,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f36202b == null) {
-                f36202b = new a();
+            if (f27964b == null) {
+                f27964b = new a();
             }
-            return f36202b;
+            return f27964b;
         }
         return (a) invokeV.objValue;
     }

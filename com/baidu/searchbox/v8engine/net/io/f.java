@@ -1,5 +1,6 @@
 package com.baidu.searchbox.v8engine.net.io;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,7 +14,7 @@ public final class f {
     public static e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f36969b;
+    public static long f28697b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public f() {
@@ -21,9 +22,9 @@ public final class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,9 +38,9 @@ public final class f {
             synchronized (f.class) {
                 if (a != null) {
                     e eVar = a;
-                    a = eVar.f36967f;
-                    eVar.f36967f = null;
-                    f36969b -= 8192;
+                    a = eVar.f28695f;
+                    eVar.f28695f = null;
+                    f28697b -= PlaybackStateCompat.ACTION_PLAY_FROM_URI;
                     return eVar;
                 }
                 return new e();
@@ -51,18 +52,18 @@ public final class f {
     public static void a(e eVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, eVar) == null) {
-            if (eVar.f36967f == null && eVar.f36968g == null) {
-                if (eVar.f36965d) {
+            if (eVar.f28695f == null && eVar.f28696g == null) {
+                if (eVar.f28693d) {
                     return;
                 }
                 synchronized (f.class) {
-                    if (f36969b + 8192 > 65536) {
+                    if (f28697b + PlaybackStateCompat.ACTION_PLAY_FROM_URI > 65536) {
                         return;
                     }
-                    f36969b += 8192;
-                    eVar.f36967f = a;
-                    eVar.f36964c = 0;
-                    eVar.f36963b = 0;
+                    f28697b += PlaybackStateCompat.ACTION_PLAY_FROM_URI;
+                    eVar.f28695f = a;
+                    eVar.f28692c = 0;
+                    eVar.f28691b = 0;
                     a = eVar;
                     return;
                 }

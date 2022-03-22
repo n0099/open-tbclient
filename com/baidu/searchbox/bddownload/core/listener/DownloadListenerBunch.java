@@ -34,9 +34,9 @@ public class DownloadListenerBunch implements DownloadListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,9 +81,9 @@ public class DownloadListenerBunch implements DownloadListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadListenerArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,31 +93,31 @@ public class DownloadListenerBunch implements DownloadListener {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectEnd(@NonNull DownloadTask downloadTask, int i2, int i3, @NonNull Map<String, List<String>> map) {
+    public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i2), Integer.valueOf(i3), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectEnd(downloadTask, i2, i3, map);
+                downloadListener.connectEnd(downloadTask, i, i2, map);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectStart(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
+    public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i2, map) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i, map) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectStart(downloadTask, i2, map);
+                downloadListener.connectStart(downloadTask, i, map);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
+    public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i2, map) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.connectTrialEnd(downloadTask, i2, map);
+                downloadListener.connectTrialEnd(downloadTask, i, map);
             }
         }
     }
@@ -167,31 +167,31 @@ public class DownloadListenerBunch implements DownloadListener {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchEnd(downloadTask, i2, j2);
+                downloadListener.fetchEnd(downloadTask, i, j);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchProgress(downloadTask, i2, j2);
+                downloadListener.fetchProgress(downloadTask, i, j);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-    public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j2) {
+    public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             for (DownloadListener downloadListener : this.listenerList) {
-                downloadListener.fetchStart(downloadTask, i2, j2);
+                downloadListener.fetchStart(downloadTask, i, j);
             }
         }
     }
@@ -202,16 +202,16 @@ public class DownloadListenerBunch implements DownloadListener {
         if (interceptable != null && (invokeL = interceptable.invokeL(1048586, this, downloadListener)) != null) {
             return invokeL.intValue;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             DownloadListener[] downloadListenerArr = this.listenerList;
-            if (i2 >= downloadListenerArr.length) {
+            if (i >= downloadListenerArr.length) {
                 return -1;
             }
-            if (downloadListenerArr[i2] == downloadListener) {
-                return i2;
+            if (downloadListenerArr[i] == downloadListener) {
+                return i;
             }
-            i2++;
+            i++;
         }
     }
 

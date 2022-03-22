@@ -37,9 +37,9 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {abstractHttpManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((AbstractHttpManager) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -84,9 +84,9 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postStringRequest};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((PostStringRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -115,9 +115,9 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postStringRequest, abstractHttpManager};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((HttpRequest) objArr2[0], (AbstractHttpManager) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -155,9 +155,9 @@ public class PostStringRequest extends HttpRequest<PostStringRequestBuilder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {postStringRequestBuilder};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((HttpRequestBuilder) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

@@ -22,16 +22,16 @@ public class ChatObject {
     public long mPaid;
     public int mType;
 
-    public ChatObject(Context context, int i2, long j2, long j3, int i3) {
+    public ChatObject(Context context, int i, long j, long j2, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -40,10 +40,10 @@ public class ChatObject {
         this.mPaid = -1L;
         this.mType = -1;
         this.mContext = context;
-        this.mCategory = i2;
-        this.mContacter = j2;
-        this.mPaid = j3;
-        this.mType = i3;
+        this.mCategory = i;
+        this.mContacter = j;
+        this.mPaid = j2;
+        this.mType = i2;
     }
 
     public boolean equals(Object obj) {
@@ -101,18 +101,18 @@ public class ChatObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? ((((((this.mCategory + 31) * 31) + ((int) this.mContacter)) * 31) + ((int) this.mPaid)) * 31) + this.mType : invokeV.intValue;
     }
 
-    public void setPaid(long j2) {
+    public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.mPaid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.mPaid = j;
         }
     }
 
-    public ChatObject setType(int i2) {
+    public ChatObject setType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.mType = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.mType = i;
             return this;
         }
         return (ChatObject) invokeI.objValue;
@@ -124,16 +124,16 @@ public class ChatObject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? getToken() : (String) invokeV.objValue;
     }
 
-    public ChatObject(Context context, int i2, long j2) {
+    public ChatObject(Context context, int i, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -142,7 +142,7 @@ public class ChatObject {
         this.mPaid = -1L;
         this.mType = -1;
         this.mContext = context;
-        this.mCategory = i2;
-        this.mContacter = j2;
+        this.mCategory = i;
+        this.mContacter = j;
     }
 }

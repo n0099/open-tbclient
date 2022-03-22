@@ -60,9 +60,9 @@ public class FansGroupAtMsg extends NormalMsg {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -81,10 +81,10 @@ public class FansGroupAtMsg extends NormalMsg {
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public AtData[] newArray(int i2) {
+                public AtData[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new AtData[i2] : (AtData[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new AtData[i] : (AtData[]) invokeI.objValue;
                 }
             };
         }
@@ -94,9 +94,9 @@ public class FansGroupAtMsg extends NormalMsg {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -153,9 +153,9 @@ public class FansGroupAtMsg extends NormalMsg {
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
                 parcel.writeString(this.mAtType);
                 parcel.writeString(this.mAtUser);
                 parcel.writeString(this.mAtText);
@@ -169,9 +169,9 @@ public class FansGroupAtMsg extends NormalMsg {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -205,9 +205,9 @@ public class FansGroupAtMsg extends NormalMsg {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -226,10 +226,10 @@ public class FansGroupAtMsg extends NormalMsg {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public FansGroupAtMsg[] newArray(int i2) {
+            public FansGroupAtMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new FansGroupAtMsg[i2] : (FansGroupAtMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new FansGroupAtMsg[i] : (FansGroupAtMsg[]) invokeI.objValue;
             }
         };
     }
@@ -239,9 +239,9 @@ public class FansGroupAtMsg extends NormalMsg {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -313,8 +313,8 @@ public class FansGroupAtMsg extends NormalMsg {
                 int length = optJSONArray.length();
                 if (length > 0) {
                     this.mAtDataList = new ArrayList<>(length);
-                    for (int i2 = 0; i2 < length; i2++) {
-                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                    for (int i = 0; i < length; i++) {
+                        JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                         String optString = jSONObject2.optString("at_type", "");
                         String optString2 = jSONObject2.optString("at_user", "");
                         String optString3 = jSONObject2.optString("text", "");
@@ -323,7 +323,7 @@ public class FansGroupAtMsg extends NormalMsg {
                         atData.setUser(optString2);
                         atData.setText(optString3);
                         this.mAtDataList.add(atData);
-                        LogUtils.d(TAG, "at data " + i2 + " type: " + optString + ", user: " + optString2 + ", text: " + optString3);
+                        LogUtils.d(TAG, "at data " + i + " type: " + optString + ", user: " + optString2 + ", text: " + optString3);
                     }
                 }
                 return true;
@@ -382,10 +382,10 @@ public class FansGroupAtMsg extends NormalMsg {
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.mText);
             ArrayList<AtData> arrayList = this.mAtDataList;
             int size = arrayList != null ? arrayList.size() : 0;
@@ -405,9 +405,9 @@ public class FansGroupAtMsg extends NormalMsg {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

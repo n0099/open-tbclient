@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseMediaObject implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MEDIA_TYPE_IMAGE = 2;
@@ -33,9 +33,9 @@ public abstract class BaseMediaObject implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -150,9 +150,9 @@ public abstract class BaseMediaObject implements Parcelable {
     public abstract String toExtraMediaString();
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeString(this.actionUrl);
             parcel.writeString(this.schema);
             parcel.writeString(this.identify);
@@ -169,9 +169,9 @@ public abstract class BaseMediaObject implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

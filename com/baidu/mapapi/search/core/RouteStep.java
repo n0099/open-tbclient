@@ -22,10 +22,10 @@ public class RouteStep implements Parcelable {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34153b;
+    public int f26387b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f34154c;
+    public String f26388c;
     public List<LatLng> mWayPoints;
 
     static {
@@ -49,9 +49,9 @@ public class RouteStep implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -65,17 +65,17 @@ public class RouteStep implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.a = parcel.readInt();
-        this.f34153b = parcel.readInt();
-        this.f34154c = parcel.readString();
+        this.f26387b = parcel.readInt();
+        this.f26388c = parcel.readString();
         ArrayList arrayList = new ArrayList();
         this.mWayPoints = arrayList;
         parcel.readList(arrayList, LatLng.class.getClassLoader());
@@ -103,13 +103,13 @@ public class RouteStep implements Parcelable {
     public int getDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34153b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26387b : invokeV.intValue;
     }
 
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f34154c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26388c : (String) invokeV.objValue;
     }
 
     public List<LatLng> getWayPoints() {
@@ -118,24 +118,24 @@ public class RouteStep implements Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mWayPoints : (List) invokeV.objValue;
     }
 
-    public void setDistance(int i2) {
+    public void setDistance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.a = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void setDuration(int i2) {
+    public void setDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f34153b = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.f26387b = i;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f34154c = str;
+            this.f26388c = str;
         }
     }
 
@@ -147,12 +147,12 @@ public class RouteStep implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             parcel.writeInt(this.a);
-            parcel.writeInt(this.f34153b);
-            parcel.writeString(this.f34154c);
+            parcel.writeInt(this.f26387b);
+            parcel.writeString(this.f26388c);
             parcel.writeList(this.mWayPoints);
         }
     }

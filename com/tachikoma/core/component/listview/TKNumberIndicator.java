@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKNumberIndicator implements TKPagerIndicatorDecoration.IIndicatorRender {
     public static /* synthetic */ Interceptable $ic;
     public static final float DP;
@@ -38,16 +38,16 @@ public class TKNumberIndicator implements TKPagerIndicatorDecoration.IIndicatorR
         DP = Resources.getSystem().getDisplayMetrics().density;
     }
 
-    public TKNumberIndicator(int i2) {
+    public TKNumberIndicator(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -55,14 +55,14 @@ public class TKNumberIndicator implements TKPagerIndicatorDecoration.IIndicatorR
         }
         this.mTextSize = (int) getIndicatorHeight();
         this.mItemWidth = Resources.getSystem().getDisplayMetrics().widthPixels;
-        this.mActiveColor = i2;
+        this.mActiveColor = i;
     }
 
     @Override // com.tachikoma.core.component.listview.TKPagerIndicatorDecoration.IIndicatorRender
-    public void drawHighlights(float f2, float f3, float f4, float f5, int i2, int i3, Paint paint, Canvas canvas) {
+    public void drawHighlights(float f2, float f3, float f4, float f5, int i, int i2, Paint paint, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i2), Integer.valueOf(i3), paint, canvas}) == null) {
-            String str = (i3 + 1) + "/" + i2;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Integer.valueOf(i), Integer.valueOf(i2), paint, canvas}) == null) {
+            String str = (i2 + 1) + "/" + i;
             canvas.drawText(str, 0, str.length(), (this.mItemWidth - getIndicatorWidth()) / 2.0f, f3, paint);
         }
     }
@@ -119,18 +119,18 @@ public class TKNumberIndicator implements TKPagerIndicatorDecoration.IIndicatorR
     }
 
     @Override // com.tachikoma.core.component.listview.TKPagerIndicatorDecoration.IIndicatorRender
-    public void setItemWidth(int i2) {
+    public void setItemWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mItemWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mItemWidth = i;
         }
     }
 
     @Override // com.tachikoma.core.component.listview.TKPagerIndicatorDecoration.IIndicatorRender
-    public void setTextSize(int i2) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mTextSize = (int) (i2 * DP);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mTextSize = (int) (i * DP);
         }
     }
 }

@@ -68,9 +68,9 @@ public class ConversationManagerImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -92,9 +92,9 @@ public class ConversationManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -104,10 +104,10 @@ public class ConversationManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.chatmessage.IChatSessionChangeListener
-            public void onChatRecordDelete(int i4, long j2) {
+            public void onChatRecordDelete(int i3, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
-                    this.this$0.deleteConversationInternal(i4, j2);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                    this.this$0.deleteConversationInternal(i3, j);
                     this.this$0.notifyConversationChange();
                 }
             }
@@ -140,10 +140,10 @@ public class ConversationManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void deleteConversationInternal(int i2, long j2) {
+    public void deleteConversationInternal(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            String str = i2 + "_" + j2;
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            String str = i + "_" + j;
             BIMConversation bIMConversation = this.mConversationsMaps.get(str);
             if (bIMConversation != null) {
                 this.mConversationsMaps.remove(str);
@@ -153,21 +153,21 @@ public class ConversationManagerImpl {
         }
     }
 
-    public static BIMManager.CATEGORY getCategoryByProtocolCategory(int i2, int i3) {
+    public static BIMManager.CATEGORY getCategoryByProtocolCategory(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i2, i3)) == null) {
-            if (1 == i2) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) {
+            if (1 == i) {
                 return BIMManager.CATEGORY.GROUP;
             }
-            if (i2 == 0) {
-                if (1 == i3) {
+            if (i == 0) {
+                if (1 == i2) {
                     return BIMManager.CATEGORY.PA;
                 }
-                if (i3 == 0) {
+                if (i2 == 0) {
                     return BIMManager.CATEGORY.SINGLEPERSON;
                 }
-            } else if (2 == i2) {
+            } else if (2 == i) {
                 return BIMManager.CATEGORY.SYSTEM;
             }
             return BIMManager.CATEGORY.UNKOWN;
@@ -253,13 +253,13 @@ public class ConversationManagerImpl {
         }
     }
 
-    public boolean deleteConversation(int i2, String str) {
+    public boolean deleteConversation(int i, String str) {
         InterceptResult invokeIL;
         boolean deleteConversation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             synchronized (syncObject) {
-                deleteConversation = deleteConversation(this.mConversationsMaps.get(i2 + "_" + str));
+                deleteConversation = deleteConversation(this.mConversationsMaps.get(i + "_" + str));
             }
             return deleteConversation;
         }
@@ -322,9 +322,9 @@ public class ConversationManagerImpl {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, category, str};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -336,11 +336,11 @@ public class ConversationManagerImpl {
                             }
 
                             @Override // com.baidu.android.imsdk.chatuser.IGetUserListener
-                            public void onGetUserResult(int i2, long j2, ChatUser chatUser) {
+                            public void onGetUserResult(int i, long j, ChatUser chatUser) {
                                 BIMConversation conversation;
                                 ChatSession chatSession2;
                                 Interceptable interceptable2 = $ic;
-                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), chatUser}) == null) || i2 != 0 || chatUser == null || (conversation = this.this$0.getConversation(this.val$categoryenum, this.val$id)) == null || (chatSession2 = conversation.getChatSession()) == null) {
+                                if (!(interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), chatUser}) == null) || i != 0 || chatUser == null || (conversation = this.this$0.getConversation(this.val$categoryenum, this.val$id)) == null || (chatSession2 = conversation.getChatSession()) == null) {
                                     return;
                                 }
                                 chatSession2.setName(chatUser.getUserName());
@@ -440,11 +440,11 @@ public class ConversationManagerImpl {
         }
     }
 
-    public void updateConversationName(String str, int i2, String str2) {
+    public void updateConversationName(String str, int i, String str2) {
         ChatSession chatSession;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048585, this, str, i2, str2) == null) {
-            BIMConversation bIMConversation = this.mConversationsMaps.get(i2 + "_" + str2);
+        if (interceptable == null || interceptable.invokeLIL(1048585, this, str, i, str2) == null) {
+            BIMConversation bIMConversation = this.mConversationsMaps.get(i + "_" + str2);
             if (bIMConversation == null || (chatSession = bIMConversation.getChatSession()) == null) {
                 return;
             }

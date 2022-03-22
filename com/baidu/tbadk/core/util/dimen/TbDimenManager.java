@@ -32,9 +32,9 @@ public class TbDimenManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -91,24 +91,24 @@ public class TbDimenManager {
         return (DisplayMetrics) invokeL.objValue;
     }
 
-    private void setDensity(DisplayMetrics displayMetrics, float f2, int i2) {
+    private void setDensity(DisplayMetrics displayMetrics, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
-            TbDimenUtil.setDensity(displayMetrics, f2, i2);
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{displayMetrics, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
+            TbDimenUtil.setDensity(displayMetrics, f2, i);
         }
     }
 
-    public void adaptDimen(Context context, float f2, int i2) {
+    public void adaptDimen(Context context, float f2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Float.valueOf(f2), Integer.valueOf(i)}) == null) {
             DisplayMetrics metrics = getMetrics(context);
             DisplayMetrics metrics2 = getMetrics(this.mApplication);
-            setDensity(metrics, f2, i2);
-            setDensity(metrics2, f2, i2);
+            setDensity(metrics, f2, i);
+            setDensity(metrics2, f2, i);
             DisplayMetrics metricsOnMiui = getMetricsOnMiui(context);
             DisplayMetrics metricsOnMiui2 = getMetricsOnMiui(this.mApplication);
-            setDensity(metricsOnMiui, f2, i2);
-            setDensity(metricsOnMiui2, f2, i2);
+            setDensity(metricsOnMiui, f2, i);
+            setDensity(metricsOnMiui2, f2, i);
         }
     }
 

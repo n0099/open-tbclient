@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ForwardingRequestListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ForwardingRequestListener";
@@ -29,9 +29,9 @@ public class ForwardingRequestListener implements RequestListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {set};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,9 +64,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest, encodedImage, th, map) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
+                    this.mRequestListeners.get(i).onDecoderFinishWithFailure(imageRequest, encodedImage, th, map);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e2);
                 }
@@ -79,9 +79,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onProducerEvent(str, str2, str3);
+                    this.mRequestListeners.get(i).onProducerEvent(str, str2, str3);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onIntermediateChunkStart", e2);
                 }
@@ -94,9 +94,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onProducerFinishWithCancellation(str, str2, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithCancellation(str, str2, map);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerFinishWithCancellation", e2);
                 }
@@ -109,9 +109,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, th, map) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onProducerFinishWithFailure(str, str2, th, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithFailure(str, str2, th, map);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerFinishWithFailure", e2);
                 }
@@ -124,9 +124,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048581, this, str, str2, map) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onProducerFinishWithSuccess(str, str2, map);
+                    this.mRequestListeners.get(i).onProducerFinishWithSuccess(str, str2, map);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e2);
                 }
@@ -139,9 +139,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onProducerStart(str, str2);
+                    this.mRequestListeners.get(i).onProducerStart(str, str2);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerStart", e2);
                 }
@@ -154,9 +154,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onRequestCancellation(str);
+                    this.mRequestListeners.get(i).onRequestCancellation(str);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onRequestCancellation", e2);
                 }
@@ -169,9 +169,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onRequestFailure(imageRequest, str, th, z);
+                    this.mRequestListeners.get(i).onRequestFailure(imageRequest, str, th, z);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onRequestFailure", e2);
                 }
@@ -184,9 +184,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onRequestStart(imageRequest, obj, str, z);
+                    this.mRequestListeners.get(i).onRequestStart(imageRequest, obj, str, z);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onRequestStart", e2);
                 }
@@ -199,9 +199,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048586, this, imageRequest, str, z) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onRequestSuccess(imageRequest, str, z);
+                    this.mRequestListeners.get(i).onRequestSuccess(imageRequest, str, z);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onRequestSuccess", e2);
                 }
@@ -214,9 +214,9 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048587, this, str, str2, z) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    this.mRequestListeners.get(i2).onUltimateProducerReached(str, str2, z);
+                    this.mRequestListeners.get(i).onUltimateProducerReached(str, str2, z);
                 } catch (Exception e2) {
                     onException("InternalListener exception in onProducerFinishWithSuccess", e2);
                 }
@@ -230,8 +230,8 @@ public class ForwardingRequestListener implements RequestListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
             int size = this.mRequestListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (this.mRequestListeners.get(i2).requiresExtraMap(str)) {
+            for (int i = 0; i < size; i++) {
+                if (this.mRequestListeners.get(i).requiresExtraMap(str)) {
                     return true;
                 }
             }
@@ -247,9 +247,9 @@ public class ForwardingRequestListener implements RequestListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {requestListenerArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -11,7 +11,7 @@ import com.baidubce.model.User;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ListPartsResponse extends BosResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public class ListPartsResponse extends BosResponse {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -134,17 +134,17 @@ public class ListPartsResponse extends BosResponse {
         }
     }
 
-    public void setMaxParts(int i2) {
+    public void setMaxParts(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.maxParts = Integer.valueOf(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.maxParts = Integer.valueOf(i);
         }
     }
 
-    public void setNextPartNumberMarker(int i2) {
+    public void setNextPartNumberMarker(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.nextPartNumberMarker = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.nextPartNumberMarker = i;
         }
     }
 
@@ -155,10 +155,10 @@ public class ListPartsResponse extends BosResponse {
         }
     }
 
-    public void setPartNumberMarker(int i2) {
+    public void setPartNumberMarker(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.partNumberMarker = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.partNumberMarker = i;
         }
     }
 

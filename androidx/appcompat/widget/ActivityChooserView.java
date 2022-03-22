@@ -91,9 +91,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activityChooserView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -143,11 +143,11 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i2) {
+        public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                int itemViewType = getItemViewType(i2);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                int itemViewType = getItemViewType(i);
                 if (itemViewType != 0) {
                     if (itemViewType == 1) {
                         return null;
@@ -155,25 +155,25 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     throw new IllegalArgumentException();
                 }
                 if (!this.mShowDefaultActivity && this.mDataModel.getDefaultActivity() != null) {
-                    i2++;
+                    i++;
                 }
-                return this.mDataModel.getActivity(i2);
+                return this.mDataModel.getActivity(i);
             }
             return invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
-        public int getItemViewType(int i2) {
+        public int getItemViewType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? (this.mShowFooterView && i2 == getCount() - 1) ? 1 : 0 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? (this.mShowFooterView && i == getCount() - 1) ? 1 : 0 : invokeI.intValue;
         }
 
         public boolean getShowDefaultActivity() {
@@ -183,11 +183,11 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i2, view, viewGroup)) == null) {
-                int itemViewType = getItemViewType(i2);
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view, viewGroup)) == null) {
+                int itemViewType = getItemViewType(i);
                 if (itemViewType != 0) {
                     if (itemViewType == 1) {
                         if (view == null || view.getId() != 1) {
@@ -204,10 +204,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     view = LayoutInflater.from(this.this$0.getContext()).inflate(R$layout.abc_activity_chooser_view_list_item, viewGroup, false);
                 }
                 PackageManager packageManager = this.this$0.getContext().getPackageManager();
-                ResolveInfo resolveInfo = (ResolveInfo) getItem(i2);
+                ResolveInfo resolveInfo = (ResolveInfo) getItem(i);
                 ((ImageView) view.findViewById(R$id.icon)).setImageDrawable(resolveInfo.loadIcon(packageManager));
                 ((TextView) view.findViewById(R$id.title)).setText(resolveInfo.loadLabel(packageManager));
-                if (this.mShowDefaultActivity && i2 == 0 && this.mHighlightDefaultActivity) {
+                if (this.mShowDefaultActivity && i == 0 && this.mHighlightDefaultActivity) {
                     view.setActivated(true);
                 } else {
                     view.setActivated(false);
@@ -231,20 +231,20 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                int i2 = this.mMaxActivityCount;
+                int i = this.mMaxActivityCount;
                 this.mMaxActivityCount = Integer.MAX_VALUE;
                 int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
                 int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
                 int count = getCount();
                 View view = null;
-                int i3 = 0;
-                for (int i4 = 0; i4 < count; i4++) {
-                    view = getView(i4, view, null);
+                int i2 = 0;
+                for (int i3 = 0; i3 < count; i3++) {
+                    view = getView(i3, view, null);
                     view.measure(makeMeasureSpec, makeMeasureSpec2);
-                    i3 = Math.max(i3, view.getMeasuredWidth());
+                    i2 = Math.max(i2, view.getMeasuredWidth());
                 }
-                this.mMaxActivityCount = i2;
-                return i3;
+                this.mMaxActivityCount = i;
+                return i2;
             }
             return invokeV.intValue;
         }
@@ -264,12 +264,12 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         }
 
-        public void setMaxActivityCount(int i2) {
+        public void setMaxActivityCount(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048589, this, i2) == null) || this.mMaxActivityCount == i2) {
+            if (!(interceptable == null || interceptable.invokeI(1048589, this, i) == null) || this.mMaxActivityCount == i) {
                 return;
             }
-            this.mMaxActivityCount = i2;
+            this.mMaxActivityCount = i;
             notifyDataSetChanged();
         }
 
@@ -308,9 +308,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 newInitContext.initArgs = r2;
                 Object[] objArr = {activityChooserView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -362,10 +362,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
-        public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+        public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                int itemViewType = ((ActivityChooserViewAdapter) adapterView.getAdapter()).getItemViewType(i2);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                int itemViewType = ((ActivityChooserViewAdapter) adapterView.getAdapter()).getItemViewType(i);
                 if (itemViewType != 0) {
                     if (itemViewType == 1) {
                         this.this$0.showPopupUnchecked(Integer.MAX_VALUE);
@@ -376,16 +376,16 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 this.this$0.dismissPopup();
                 ActivityChooserView activityChooserView = this.this$0;
                 if (activityChooserView.mIsSelectingDefaultActivity) {
-                    if (i2 > 0) {
-                        activityChooserView.mAdapter.getDataModel().setDefaultActivity(i2);
+                    if (i > 0) {
+                        activityChooserView.mAdapter.getDataModel().setDefaultActivity(i);
                         return;
                     }
                     return;
                 }
                 if (!activityChooserView.mAdapter.getShowDefaultActivity()) {
-                    i2++;
+                    i++;
                 }
-                Intent chooseActivity = this.this$0.mAdapter.getDataModel().chooseActivity(i2);
+                Intent chooseActivity = this.this$0.mAdapter.getDataModel().chooseActivity(i);
                 if (chooseActivity != null) {
                     chooseActivity.addFlags(524288);
                     this.this$0.getContext().startActivity(chooseActivity);
@@ -445,9 +445,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -470,9 +470,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -564,10 +564,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.mActivityChooserContent.layout(0, 0, i4 - i2, i5 - i3);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.mActivityChooserContent.layout(0, 0, i3 - i, i4 - i2);
             if (isShowingPopup()) {
                 return;
             }
@@ -576,14 +576,14 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
             View view = this.mActivityChooserContent;
             if (this.mDefaultActivityButton.getVisibility() != 0) {
-                i3 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i3), 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(View.MeasureSpec.getSize(i2), 1073741824);
             }
-            measureChild(view, i2, i3);
+            measureChild(view, i, i2);
             setMeasuredDimension(view.getMeasuredWidth(), view.getMeasuredHeight());
         }
     }
@@ -600,17 +600,17 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public void setDefaultActionButtonContentDescription(int i2) {
+    public void setDefaultActionButtonContentDescription(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.mDefaultActionButtonContentDescription = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.mDefaultActionButtonContentDescription = i;
         }
     }
 
-    public void setExpandActivityOverflowButtonContentDescription(int i2) {
+    public void setExpandActivityOverflowButtonContentDescription(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i2));
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mExpandActivityOverflowButtonImage.setContentDescription(getContext().getString(i));
         }
     }
 
@@ -621,10 +621,10 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         }
     }
 
-    public void setInitialActivityCount(int i2) {
+    public void setInitialActivityCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mInitialActivityCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mInitialActivityCount = i;
         }
     }
 
@@ -662,19 +662,19 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     /* JADX WARN: Type inference failed for: r0v17 */
     /* JADX WARN: Type inference failed for: r0v8 */
     /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
-    public void showPopupUnchecked(int i2) {
+    public void showPopupUnchecked(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
             if (this.mAdapter.getDataModel() != null) {
                 getViewTreeObserver().addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
                 ?? r0 = this.mDefaultActivityButton.getVisibility() == 0 ? 1 : 0;
                 int activityCount = this.mAdapter.getActivityCount();
-                if (i2 != Integer.MAX_VALUE && activityCount > i2 + r0) {
+                if (i != Integer.MAX_VALUE && activityCount > i + r0) {
                     this.mAdapter.setShowFooterView(true);
-                    this.mAdapter.setMaxActivityCount(i2 - 1);
+                    this.mAdapter.setMaxActivityCount(i - 1);
                 } else {
                     this.mAdapter.setShowFooterView(false);
-                    this.mAdapter.setMaxActivityCount(i2);
+                    this.mAdapter.setMaxActivityCount(i);
                 }
                 ListPopupWindow listPopupWindow = getListPopupWindow();
                 if (listPopupWindow.isShowing()) {
@@ -737,9 +737,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -750,17 +750,17 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ActivityChooserView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -780,9 +780,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -821,9 +821,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -849,8 +849,8 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         };
         this.mInitialActivityCount = 4;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActivityChooserView, i2, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.ActivityChooserView, attributeSet, obtainStyledAttributes, i2, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.ActivityChooserView, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.ActivityChooserView, attributeSet, obtainStyledAttributes, i, 0);
         this.mInitialActivityCount = obtainStyledAttributes.getInt(R$styleable.ActivityChooserView_initialActivityCount, 4);
         Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.ActivityChooserView_expandActivityOverflowButtonDrawable);
         obtainStyledAttributes.recycle();
@@ -863,7 +863,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
         this.mDefaultActivityButton = frameLayout;
         frameLayout.setOnClickListener(this.mCallbacks);
         this.mDefaultActivityButton.setOnLongClickListener(this.mCallbacks);
-        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R$id.image);
+        this.mDefaultActivityButtonImage = (ImageView) this.mDefaultActivityButton.findViewById(R$id.obfuscated);
         FrameLayout frameLayout2 = (FrameLayout) findViewById(R$id.expand_activities_button);
         frameLayout2.setOnClickListener(this.mCallbacks);
         frameLayout2.setAccessibilityDelegate(new View.AccessibilityDelegate(this) { // from class: androidx.appcompat.widget.ActivityChooserView.3
@@ -878,9 +878,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -912,9 +912,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this, frameLayout2};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         super((View) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -954,7 +954,7 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
             }
         });
         this.mExpandActivityOverflowButton = frameLayout2;
-        ImageView imageView = (ImageView) frameLayout2.findViewById(R$id.image);
+        ImageView imageView = (ImageView) frameLayout2.findViewById(R$id.obfuscated);
         this.mExpandActivityOverflowButtonImage = imageView;
         imageView.setImageDrawable(drawable);
         ActivityChooserViewAdapter activityChooserViewAdapter = new ActivityChooserViewAdapter(this);
@@ -971,9 +971,9 @@ public class ActivityChooserView extends ViewGroup implements ActivityChooserMod
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

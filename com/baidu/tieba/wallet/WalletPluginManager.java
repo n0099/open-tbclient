@@ -3,7 +3,7 @@ package com.baidu.tieba.wallet;
 import android.app.Activity;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.e;
+import c.a.o0.r.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nps.main.install.IInstallCallback;
@@ -55,9 +55,9 @@ public class WalletPluginManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -96,9 +96,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -110,9 +110,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -151,9 +151,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -163,9 +163,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -207,9 +207,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, activity, map, str, bdUniqueId};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -223,9 +223,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -265,9 +265,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -279,9 +279,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -322,9 +322,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, str, bdUniqueId};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -337,9 +337,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -379,9 +379,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, map};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -393,9 +393,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str, Object obj) {
+                    public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -434,9 +434,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -446,9 +446,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str, Object obj) {
+                    public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -488,9 +488,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, iDxmProxyCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -502,9 +502,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -544,9 +544,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -558,9 +558,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -584,7 +584,7 @@ public class WalletPluginManager {
     public void invokePlugin(IInvokeCallback iInvokeCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, iInvokeCallback) == null) {
-            if ("Wallet".equals(e.c())) {
+            if (e.c().contains("Host") && e.c().contains("-Wallet")) {
                 if (NPSPackageManager.getInstance().getBundleStatus(PLUGIN_PKG_NAME) == 43) {
                     NPSManager.getInstance().loadClazz(PLUGIN_PKG_NAME, PLUGIN_IMPL_CLASS, IWalletPlugin.class, iInvokeCallback);
                     return;
@@ -602,9 +602,9 @@ public class WalletPluginManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, iInvokeCallback};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -615,16 +615,16 @@ public class WalletPluginManager {
                         }
 
                         @Override // com.baidu.nps.main.install.IInstallCallback
-                        public void onProgress(long j2, long j3) {
+                        public void onProgress(long j, long j2) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
                             }
                         }
 
                         @Override // com.baidu.nps.main.install.IInstallCallback
-                        public void onResult(int i2, String str) {
+                        public void onResult(int i, String str) {
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) && i2 == 13) {
+                            if ((interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && i == 13) {
                                 NPSManager.getInstance().loadClazz(WalletPluginManager.PLUGIN_PKG_NAME, WalletPluginManager.PLUGIN_IMPL_CLASS, IWalletPlugin.class, this.val$invokeCallback);
                             }
                         }
@@ -674,9 +674,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -688,9 +688,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -728,9 +728,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -740,9 +740,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str, Object obj) {
+                    public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -781,9 +781,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, context};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -794,9 +794,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str, Object obj) {
+                    public void onResult(int i, String str, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();
@@ -822,9 +822,9 @@ public class WalletPluginManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -851,9 +851,9 @@ public class WalletPluginManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, activity, str, bdUniqueId};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -866,9 +866,9 @@ public class WalletPluginManager {
                     }
 
                     @Override // com.baidu.nps.main.invoke.IInvokeCallback
-                    public void onResult(int i2, String str2, Object obj) {
+                    public void onResult(int i, String str2, Object obj) {
                         Interceptable interceptable2 = $ic;
-                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, obj) == null) && i2 == 14) {
+                        if ((interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str2, obj) == null) && i == 14) {
                             try {
                                 if (this.this$0.mIWalletPlugin == null) {
                                     this.this$0.mIWalletPlugin = (IWalletPlugin) ((Class) obj).newInstance();

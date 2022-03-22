@@ -33,9 +33,9 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,19 +50,19 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsDuration(String str, long j2) {
+    public void addStatsDuration(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j2) == null) {
-            super.addStatsDuration(str, j2);
-            this.mLaunchTaskDuration.put(str, Long.valueOf(j2));
+        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+            super.addStatsDuration(str, j);
+            this.mLaunchTaskDuration.put(str, Long.valueOf(j));
         }
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2) {
+    public void addStatsTimeStamp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            addStatsTimeStamp(i2, System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            addStatsTimeStamp(i, System.currentTimeMillis());
         }
     }
 
@@ -89,29 +89,29 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
             if (jSONObject == null) {
                 return true;
             }
-            long j2 = this.mAppCreateEndTimestamp;
-            long j3 = this.mCreateStartTimestamp;
-            long j4 = j2 - j3;
-            long j5 = this.mSuperEndTimeStamp;
-            long j6 = j5 - j3;
-            long j7 = this.mInitIdleTaskEndTimeStamp;
-            long j8 = j7 - j5;
-            long j9 = this.mInitLaunchTaskEndTimestamp;
-            long j10 = j9 - j7;
-            long j11 = j2 - j9;
+            long j = this.mAppCreateEndTimestamp;
+            long j2 = this.mCreateStartTimestamp;
+            long j3 = j - j2;
+            long j4 = this.mSuperEndTimeStamp;
+            long j5 = j4 - j2;
+            long j6 = this.mInitIdleTaskEndTimeStamp;
+            long j7 = j6 - j4;
+            long j8 = this.mInitLaunchTaskEndTimestamp;
+            long j9 = j8 - j6;
+            long j10 = j - j8;
             long activityStartTime = SpeedStatsManager.getInstance().getActivityStartTime() - this.mAppCreateEndTimestamp;
-            if (j4 < 0 || j4 > 60000 || j6 < 0 || j6 > 60000 || j8 < 0 || j8 > 60000 || j10 < 0 || j10 > 60000 || j11 < 0 || j11 > 60000 || activityStartTime < 0 || activityStartTime > 60000) {
+            if (j3 < 0 || j3 > 60000 || j5 < 0 || j5 > 60000 || j7 < 0 || j7 > 60000 || j9 < 0 || j9 > 60000 || j10 < 0 || j10 > 60000 || activityStartTime < 0 || activityStartTime > 60000) {
                 return false;
             }
             HashMap hashMap = new HashMap();
-            hashMap.put("superOnCreate", String.valueOf(j6));
-            hashMap.put(INIT_IDLE_TASK, String.valueOf(j8));
-            hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j10));
-            hashMap.put(INIT_SPEED_STATUS, String.valueOf(j11));
+            hashMap.put("superOnCreate", String.valueOf(j5));
+            hashMap.put(INIT_IDLE_TASK, String.valueOf(j7));
+            hashMap.put(INIT_LAUNCH_TASK, String.valueOf(j9));
+            hashMap.put(INIT_SPEED_STATUS, String.valueOf(j10));
             for (Map.Entry<String, Long> entry : this.mLaunchTaskDuration.entrySet()) {
                 hashMap.put(entry.getKey(), String.valueOf(entry.getValue()));
             }
-            JSONObject jsonData = SpeedStatsUtils.getJsonData(j4, hashMap);
+            JSONObject jsonData = SpeedStatsUtils.getJsonData(j3, hashMap);
             if (jsonData != null) {
                 try {
                     jSONObject.put(SpeedStatsMainTable.APP_CREATE_STAGE, jsonData);
@@ -152,25 +152,25 @@ public final class AppCreateSpeedStats extends AbstractSpeedStats {
     }
 
     @Override // com.baidu.searchbox.launch.stats.AbstractSpeedStats
-    public void addStatsTimeStamp(int i2, long j2) {
+    public void addStatsTimeStamp(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            super.addStatsTimeStamp(i2, j2);
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.addStatsTimeStamp(i, j);
+            switch (i) {
                 case 2000:
-                    this.mCreateStartTimestamp = j2;
+                    this.mCreateStartTimestamp = j;
                     return;
                 case 2001:
-                    this.mSuperEndTimeStamp = j2;
+                    this.mSuperEndTimeStamp = j;
                     return;
                 case 2002:
-                    this.mInitIdleTaskEndTimeStamp = j2;
+                    this.mInitIdleTaskEndTimeStamp = j;
                     return;
                 case 2003:
-                    this.mInitLaunchTaskEndTimestamp = j2;
+                    this.mInitLaunchTaskEndTimestamp = j;
                     return;
                 case 2004:
-                    this.mAppCreateEndTimestamp = j2;
+                    this.mAppCreateEndTimestamp = j;
                     return;
                 default:
                     return;

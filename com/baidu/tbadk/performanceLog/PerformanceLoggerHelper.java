@@ -1,12 +1,12 @@
 package com.baidu.tbadk.performanceLog;
 
 import android.os.Process;
-import c.a.q0.r.j0.b;
-import c.a.q0.r0.e;
-import c.a.q0.r0.i;
-import c.a.q0.r0.j;
-import c.a.q0.r0.k;
-import c.a.q0.r0.l;
+import c.a.o0.r.j0.b;
+import c.a.o0.r0.e;
+import c.a.o0.r0.i;
+import c.a.o0.r0.j;
+import c.a.o0.r0.k;
+import c.a.o0.r0.l;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
@@ -57,9 +57,9 @@ public class PerformanceLoggerHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -90,10 +90,10 @@ public class PerformanceLoggerHelper {
         return (PerformanceLoggerHelper) invokeV.objValue;
     }
 
-    public static String getNetStringWithType(int i2) {
+    public static String getNetStringWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? 1 == i2 ? "2G" : 2 == i2 ? "3G" : 3 == i2 ? "4G" : 4 == i2 ? "5G" : 5 == i2 ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "N" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : "N" : (String) invokeI.objValue;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:51:0x009b */
@@ -140,15 +140,15 @@ public class PerformanceLoggerHelper {
                                     break;
                                 }
                                 int length = split.length;
-                                int i2 = 0;
+                                int i = 0;
                                 while (true) {
-                                    if (i2 < length) {
-                                        String str3 = split[i2];
+                                    if (i < length) {
+                                        String str3 = split[i];
                                         if (str3 != null && str3.contains("%")) {
                                             process = str3.trim();
                                             break;
                                         }
-                                        i2++;
+                                        i++;
                                     } else {
                                         break;
                                     }
@@ -347,12 +347,12 @@ public class PerformanceLoggerHelper {
         return invokeV.longValue;
     }
 
-    public j getLoggerWithType(int i2) {
+    public j getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
-                switch (i2) {
+                switch (i) {
                     case 1000:
                         l lVar = new l();
                         lVar.a = "frs";
@@ -432,8 +432,8 @@ public class PerformanceLoggerHelper {
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (z) {
-                long j2 = this.startSmallFlowTime;
-                if (0 == j2 || currentTimeMillis - j2 >= this.smallFlowInterval) {
+                long j = this.startSmallFlowTime;
+                if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
                     b.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
@@ -451,12 +451,12 @@ public class PerformanceLoggerHelper {
         }
     }
 
-    public void setSmallFlowInterval(long j2) {
+    public void setSmallFlowInterval(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) || j2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048583, this, j) == null) || j <= 0) {
             return;
         }
-        this.smallFlowInterval = j2;
-        BdBaseApplication.getInst().setSmallFlowInterval(j2);
+        this.smallFlowInterval = j;
+        BdBaseApplication.getInst().setSmallFlowInterval(j);
     }
 }

@@ -37,9 +37,9 @@ public class ABTestSDK implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,9 +55,9 @@ public class ABTestSDK implements INoProGuard {
                 Log.v(LOG_TAG, "[zeus-abtest] ABTest is not ready, preinit_webview_enable default value: 0");
                 return 0;
             }
-            int i2 = iABTestInterface.getSwitch(ZEUS_PREINIT_WEBVIEW_ENABLE, 0);
-            Log.v(LOG_TAG, "[zeus-abtest] preinit_webview_enable current abtest value: ".concat(String.valueOf(i2)));
-            return i2;
+            int i = iABTestInterface.getSwitch(ZEUS_PREINIT_WEBVIEW_ENABLE, 0);
+            Log.v(LOG_TAG, "[zeus-abtest] preinit_webview_enable current abtest value: ".concat(String.valueOf(i)));
+            return i;
         }
         return invokeV.intValue;
     }
@@ -84,9 +84,9 @@ public class ABTestSDK implements INoProGuard {
                 Log.v(LOG_TAG, "[zeus-abtest] ABTest is not ready, zeus_init_opt default value: 0");
                 return 0;
             }
-            int i2 = iABTestInterface.getSwitch(ZEUS_INIT_OPT, 0);
-            Log.v(LOG_TAG, "[zeus-abtest] zeus_init_opt current abtest value: ".concat(String.valueOf(i2)));
-            return i2;
+            int i = iABTestInterface.getSwitch(ZEUS_INIT_OPT, 0);
+            Log.v(LOG_TAG, "[zeus-abtest] zeus_init_opt current abtest value: ".concat(String.valueOf(i)));
+            return i;
         }
         return invokeV.intValue;
     }
@@ -100,9 +100,9 @@ public class ABTestSDK implements INoProGuard {
                 Log.v(LOG_TAG, "[zeus-abtest] ABTest is not ready, zeus-long-task default value: 0");
                 return 0;
             }
-            int i2 = iABTestInterface.getSwitch(ZEUS_LONG_TASK, 0);
-            Log.v(LOG_TAG, "[zeus-abtest] zeus-long-task current abtest value: ".concat(String.valueOf(i2)));
-            return i2;
+            int i = iABTestInterface.getSwitch(ZEUS_LONG_TASK, 0);
+            Log.v(LOG_TAG, "[zeus-abtest] zeus-long-task current abtest value: ".concat(String.valueOf(i)));
+            return i;
         }
         return invokeV.intValue;
     }

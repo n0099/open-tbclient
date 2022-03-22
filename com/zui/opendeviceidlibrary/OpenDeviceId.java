@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.zui.deviceidservice.IDeviceidInterface;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OpenDeviceId {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean DBG = false;
@@ -26,7 +27,7 @@ public class OpenDeviceId {
     public Context mContext;
     public IDeviceidInterface mDeviceidInterface;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface CallBack<T> {
         void serviceConnected(T t, OpenDeviceId openDeviceId);
     }
@@ -51,9 +52,9 @@ public class OpenDeviceId {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -65,16 +66,16 @@ public class OpenDeviceId {
 
     private void logPrintE(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, this, str) == null) {
-            boolean z = DBG;
+        if ((interceptable == null || interceptable.invokeL(65541, this, str) == null) && DBG) {
+            Log.e(TAG, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void logPrintI(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, this, str) == null) {
-            boolean z = DBG;
+        if ((interceptable == null || interceptable.invokeL(65542, this, str) == null) && DBG) {
+            Log.i(TAG, str);
         }
     }
 
@@ -207,9 +208,9 @@ public class OpenDeviceId {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

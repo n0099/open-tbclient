@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class LoginType {
     public static /* synthetic */ Interceptable $ic;
     public static final LoginType QQ;
@@ -16,7 +16,7 @@ public final class LoginType {
     public static final LoginType WeiXin;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ LoginType[] f57621b;
+    public static final /* synthetic */ LoginType[] f42406b;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
@@ -37,19 +37,19 @@ public final class LoginType {
         WeiXin = new LoginType("WeiXin", 1, 1);
         LoginType loginType = new LoginType(com.tencent.connect.common.Constants.SOURCE_QQ, 2, 2);
         QQ = loginType;
-        f57621b = new LoginType[]{Unknow, WeiXin, loginType};
+        f42406b = new LoginType[]{Unknow, WeiXin, loginType};
     }
 
-    public LoginType(String str, int i2, int i3) {
+    public LoginType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -58,7 +58,7 @@ public final class LoginType {
                 return;
             }
         }
-        this.a = i3;
+        this.a = i2;
         ordinal();
     }
 
@@ -71,7 +71,7 @@ public final class LoginType {
     public static LoginType[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f57621b.clone() : (LoginType[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (LoginType[]) f42406b.clone() : (LoginType[]) invokeV.objValue;
     }
 
     public int getValue() {

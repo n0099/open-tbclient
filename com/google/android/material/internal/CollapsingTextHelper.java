@@ -14,6 +14,7 @@ import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
@@ -38,7 +39,7 @@ import com.google.android.material.internal.StaticLayoutBuilderCompat;
 import com.google.android.material.resources.CancelableFontCallback;
 import com.google.android.material.resources.TextAppearance;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CollapsingTextHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG_DRAW = false;
@@ -137,9 +138,9 @@ public final class CollapsingTextHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -158,12 +159,12 @@ public final class CollapsingTextHelper {
         this.currentBounds = new RectF();
     }
 
-    public static int blendColors(int i2, int i3, float f2) {
+    public static int blendColors(int i, int i2, float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
             float f3 = 1.0f - f2;
-            return Color.argb((int) ((Color.alpha(i2) * f3) + (Color.alpha(i3) * f2)), (int) ((Color.red(i2) * f3) + (Color.red(i3) * f2)), (int) ((Color.green(i2) * f3) + (Color.green(i3) * f2)), (int) ((Color.blue(i2) * f3) + (Color.blue(i3) * f2)));
+            return Color.argb((int) ((Color.alpha(i) * f3) + (Color.alpha(i2) * f2)), (int) ((Color.red(i) * f3) + (Color.red(i2) * f2)), (int) ((Color.green(i) * f3) + (Color.green(i2) * f2)), (int) ((Color.blue(i) * f3) + (Color.blue(i2) * f2)));
         }
         return invokeCommon.intValue;
     }
@@ -182,18 +183,18 @@ public final class CollapsingTextHelper {
             CharSequence charSequence2 = this.textToDrawCollapsed;
             float measureText = charSequence2 != null ? this.textPaint.measureText(charSequence2, 0, charSequence2.length()) : 0.0f;
             int absoluteGravity = GravityCompat.getAbsoluteGravity(this.collapsedTextGravity, this.isRtl ? 1 : 0);
-            int i2 = absoluteGravity & 112;
-            if (i2 == 48) {
+            int i = absoluteGravity & 112;
+            if (i == 48) {
                 this.collapsedDrawY = this.collapsedBounds.top;
-            } else if (i2 != 80) {
+            } else if (i != 80) {
                 this.collapsedDrawY = this.collapsedBounds.centerY() - ((this.textPaint.descent() - this.textPaint.ascent()) / 2.0f);
             } else {
                 this.collapsedDrawY = this.collapsedBounds.bottom + this.textPaint.ascent();
             }
-            int i3 = absoluteGravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
-            if (i3 == 1) {
+            int i2 = absoluteGravity & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
+            if (i2 == 1) {
                 this.collapsedDrawX = this.collapsedBounds.centerX() - (measureText / 2.0f);
-            } else if (i3 != 5) {
+            } else if (i2 != 5) {
                 this.collapsedDrawX = this.collapsedBounds.left;
             } else {
                 this.collapsedDrawX = this.collapsedBounds.right - measureText;
@@ -209,18 +210,18 @@ public final class CollapsingTextHelper {
             StaticLayout staticLayout4 = this.textLayout;
             this.expandedFirstLineDrawX = staticLayout4 != null ? staticLayout4.getLineLeft(0) : 0.0f;
             int absoluteGravity2 = GravityCompat.getAbsoluteGravity(this.expandedTextGravity, this.isRtl ? 1 : 0);
-            int i4 = absoluteGravity2 & 112;
-            if (i4 == 48) {
+            int i3 = absoluteGravity2 & 112;
+            if (i3 == 48) {
                 this.expandedDrawY = this.expandedBounds.top;
-            } else if (i4 != 80) {
+            } else if (i3 != 80) {
                 this.expandedDrawY = this.expandedBounds.centerY() - (height / 2.0f);
             } else {
                 this.expandedDrawY = (this.expandedBounds.bottom - height) + this.textPaint.descent();
             }
-            int i5 = absoluteGravity2 & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
-            if (i5 == 1) {
+            int i4 = absoluteGravity2 & GravityCompat.RELATIVE_HORIZONTAL_GRAVITY_MASK;
+            if (i4 == 1) {
                 this.expandedDrawX = this.expandedBounds.centerX() - (measureText2 / 2.0f);
-            } else if (i5 != 5) {
+            } else if (i4 != 5) {
                 this.expandedDrawX = this.expandedBounds.left;
             } else {
                 this.expandedDrawX = this.expandedBounds.right - measureText2;
@@ -332,15 +333,15 @@ public final class CollapsingTextHelper {
         this.expandedTitleTexture = null;
     }
 
-    private StaticLayout createStaticLayout(int i2, float f2, boolean z) {
+    private StaticLayout createStaticLayout(int i, float f2, boolean z) {
         StaticLayout staticLayout;
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
             try {
-                staticLayout = StaticLayoutBuilderCompat.obtain(this.text, this.textPaint, (int) f2).setEllipsize(TextUtils.TruncateAt.END).setIsRtl(z).setAlignment(Layout.Alignment.ALIGN_NORMAL).setIncludePad(false).setMaxLines(i2).build();
+                staticLayout = StaticLayoutBuilderCompat.obtain(this.text, this.textPaint, (int) f2).setEllipsize(TextUtils.TruncateAt.END).setIsRtl(z).setAlignment(Layout.Alignment.ALIGN_NORMAL).setIncludePad(false).setMaxLines(i).build();
             } catch (StaticLayoutBuilderCompat.StaticLayoutBuilderCompatException e2) {
-                e2.getCause().getMessage();
+                Log.e(TAG, e2.getCause().getMessage(), e2);
                 staticLayout = null;
             }
             return (StaticLayout) Preconditions.checkNotNull(staticLayout);
@@ -389,26 +390,26 @@ public final class CollapsingTextHelper {
         }
     }
 
-    private float getCollapsedTextLeftBound(int i2, int i3) {
+    private float getCollapsedTextLeftBound(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65548, this, i2, i3)) == null) {
-            if (i3 == 17 || (i3 & 7) == 1) {
-                return (i2 / 2.0f) - (calculateCollapsedTextWidth() / 2.0f);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65548, this, i, i2)) == null) {
+            if (i2 == 17 || (i2 & 7) == 1) {
+                return (i / 2.0f) - (calculateCollapsedTextWidth() / 2.0f);
             }
-            return ((i3 & 8388613) == 8388613 || (i3 & 5) == 5) ? this.isRtl ? this.collapsedBounds.left : this.collapsedBounds.right - calculateCollapsedTextWidth() : this.isRtl ? this.collapsedBounds.right - calculateCollapsedTextWidth() : this.collapsedBounds.left;
+            return ((i2 & 8388613) == 8388613 || (i2 & 5) == 5) ? this.isRtl ? this.collapsedBounds.left : this.collapsedBounds.right - calculateCollapsedTextWidth() : this.isRtl ? this.collapsedBounds.right - calculateCollapsedTextWidth() : this.collapsedBounds.left;
         }
         return invokeII.floatValue;
     }
 
-    private float getCollapsedTextRightBound(@NonNull RectF rectF, int i2, int i3) {
+    private float getCollapsedTextRightBound(@NonNull RectF rectF, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, this, rectF, i2, i3)) == null) {
-            if (i3 == 17 || (i3 & 7) == 1) {
-                return (i2 / 2.0f) + (calculateCollapsedTextWidth() / 2.0f);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, this, rectF, i, i2)) == null) {
+            if (i2 == 17 || (i2 & 7) == 1) {
+                return (i / 2.0f) + (calculateCollapsedTextWidth() / 2.0f);
             }
-            return ((i3 & 8388613) == 8388613 || (i3 & 5) == 5) ? this.isRtl ? rectF.left + calculateCollapsedTextWidth() : this.collapsedBounds.right : this.isRtl ? this.collapsedBounds.right : rectF.left + calculateCollapsedTextWidth();
+            return ((i2 & 8388613) == 8388613 || (i2 & 5) == 5) ? this.isRtl ? rectF.left + calculateCollapsedTextWidth() : this.collapsedBounds.right : this.isRtl ? this.collapsedBounds.right : rectF.left + calculateCollapsedTextWidth();
         }
         return invokeLII.floatValue;
     }
@@ -487,10 +488,10 @@ public final class CollapsingTextHelper {
         return invokeCommon.floatValue;
     }
 
-    public static boolean rectEquals(@NonNull Rect rect, int i2, int i3, int i4, int i5) {
+    public static boolean rectEquals(@NonNull Rect rect, int i, int i2, int i3, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{rect, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) ? rect.left == i2 && rect.top == i3 && rect.right == i4 && rect.bottom == i5 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65558, null, new Object[]{rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) ? rect.left == i && rect.top == i2 && rect.right == i3 && rect.bottom == i4 : invokeCommon.booleanValue;
     }
 
     private void setCollapsedTextBlend(float f2) {
@@ -611,13 +612,13 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public void getCollapsedTextActualBounds(@NonNull RectF rectF, int i2, int i3) {
+    public void getCollapsedTextActualBounds(@NonNull RectF rectF, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, rectF, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, rectF, i, i2) == null) {
             this.isRtl = calculateIsRtl(this.text);
-            rectF.left = getCollapsedTextLeftBound(i2, i3);
+            rectF.left = getCollapsedTextLeftBound(i, i2);
             rectF.top = this.collapsedBounds.top;
-            rectF.right = getCollapsedTextRightBound(rectF, i2, i3);
+            rectF.right = getCollapsedTextRightBound(rectF, i, i2);
             rectF.bottom = this.collapsedBounds.top + getCollapsedTextHeight();
         }
     }
@@ -751,20 +752,20 @@ public final class CollapsingTextHelper {
         calculateCurrentOffsets();
     }
 
-    public void setCollapsedBounds(int i2, int i3, int i4, int i5) {
+    public void setCollapsedBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048596, this, i2, i3, i4, i5) == null) || rectEquals(this.collapsedBounds, i2, i3, i4, i5)) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048596, this, i, i2, i3, i4) == null) || rectEquals(this.collapsedBounds, i, i2, i3, i4)) {
             return;
         }
-        this.collapsedBounds.set(i2, i3, i4, i5);
+        this.collapsedBounds.set(i, i2, i3, i4);
         this.boundsChanged = true;
         onBoundsChanged();
     }
 
-    public void setCollapsedTextAppearance(int i2) {
+    public void setCollapsedTextAppearance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.collapsedTextColor = colorStateList;
@@ -796,9 +797,9 @@ public final class CollapsingTextHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -829,12 +830,12 @@ public final class CollapsingTextHelper {
         recalculate();
     }
 
-    public void setCollapsedTextGravity(int i2) {
+    public void setCollapsedTextGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048600, this, i2) == null) || this.collapsedTextGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048600, this, i) == null) || this.collapsedTextGravity == i) {
             return;
         }
-        this.collapsedTextGravity = i2;
+        this.collapsedTextGravity = i;
         recalculate();
     }
 
@@ -854,20 +855,20 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public void setExpandedBounds(int i2, int i3, int i4, int i5) {
+    public void setExpandedBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048603, this, i2, i3, i4, i5) == null) || rectEquals(this.expandedBounds, i2, i3, i4, i5)) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048603, this, i, i2, i3, i4) == null) || rectEquals(this.expandedBounds, i, i2, i3, i4)) {
             return;
         }
-        this.expandedBounds.set(i2, i3, i4, i5);
+        this.expandedBounds.set(i, i2, i3, i4);
         this.boundsChanged = true;
         onBoundsChanged();
     }
 
-    public void setExpandedTextAppearance(int i2) {
+    public void setExpandedTextAppearance(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            TextAppearance textAppearance = new TextAppearance(this.view.getContext(), i);
             ColorStateList colorStateList = textAppearance.textColor;
             if (colorStateList != null) {
                 this.expandedTextColor = colorStateList;
@@ -899,9 +900,9 @@ public final class CollapsingTextHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -932,12 +933,12 @@ public final class CollapsingTextHelper {
         recalculate();
     }
 
-    public void setExpandedTextGravity(int i2) {
+    public void setExpandedTextGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || this.expandedTextGravity == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048607, this, i) == null) || this.expandedTextGravity == i) {
             return;
         }
-        this.expandedTextGravity = i2;
+        this.expandedTextGravity = i;
         recalculate();
     }
 
@@ -968,12 +969,12 @@ public final class CollapsingTextHelper {
         }
     }
 
-    public void setMaxLines(int i2) {
+    public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048611, this, i2) == null) || i2 == this.maxLines) {
+        if (!(interceptable == null || interceptable.invokeI(1048611, this, i) == null) || i == this.maxLines) {
             return;
         }
-        this.maxLines = i2;
+        this.maxLines = i;
         clearTexture();
         recalculate();
     }

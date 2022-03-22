@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Serializable {
     public static final long serialVersionUID = -5413539480595883024L;
     public int contentType;
@@ -96,8 +96,8 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
     }
 
     public int getServerPosition() {
-        int i2 = this.serverPosition;
-        return i2 != -1 ? i2 : getShowPosition();
+        int i = this.serverPosition;
+        return i != -1 ? i : getShowPosition();
     }
 
     public int getShowPosition() {
@@ -124,13 +124,13 @@ public class AdTemplate extends com.kwad.sdk.core.response.kwai.a implements Ser
         this.mCheatingFlow = z;
     }
 
-    public void setServerPosition(int i2) {
+    public void setServerPosition(int i) {
         if (this.serverPosition == -1) {
-            this.serverPosition = i2;
+            this.serverPosition = i;
         }
     }
 
-    public void setShowPosition(int i2) {
-        this.positionShow = i2;
+    public void setShowPosition(int i) {
+        this.positionShow = i;
     }
 }

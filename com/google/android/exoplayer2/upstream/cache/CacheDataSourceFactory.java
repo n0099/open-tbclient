@@ -10,7 +10,7 @@ import com.google.android.exoplayer2.upstream.DataSink;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.FileDataSourceFactory;
 import com.google.android.exoplayer2.upstream.cache.CacheDataSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CacheDataSourceFactory implements DataSource.Factory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
             newInitContext.initArgs = r2;
             Object[] objArr = {cache, factory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource.Factory) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -43,17 +43,17 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, int i2) {
-        this(cache, factory, i2, 2097152L);
+    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, int i) {
+        this(cache, factory, i, 2097152L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {cache, factory, Integer.valueOf(i2)};
+            Object[] objArr = {cache, factory, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource.Factory) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue());
                 newInitContext.thisArg = this;
@@ -79,17 +79,17 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, int i2, long j2) {
-        this(cache, factory, new FileDataSourceFactory(), new CacheDataSinkFactory(cache, j2), i2, null);
+    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, int i, long j) {
+        this(cache, factory, new FileDataSourceFactory(), new CacheDataSinkFactory(cache, j), i, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r4;
-            Object[] objArr = {cache, factory, Integer.valueOf(i2), Long.valueOf(j2)};
+            Object[] objArr = {cache, factory, Integer.valueOf(i), Long.valueOf(j)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Cache) objArr2[0], (DataSource.Factory) objArr2[1], (DataSource.Factory) objArr2[2], (DataSink.Factory) objArr2[3], ((Integer) objArr2[4]).intValue(), (CacheDataSource.EventListener) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -99,16 +99,16 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
         }
     }
 
-    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, DataSource.Factory factory2, DataSink.Factory factory3, int i2, CacheDataSource.EventListener eventListener) {
+    public CacheDataSourceFactory(Cache cache, DataSource.Factory factory, DataSource.Factory factory2, DataSink.Factory factory3, int i, CacheDataSource.EventListener eventListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cache, factory, factory2, factory3, Integer.valueOf(i2), eventListener};
+            Object[] objArr = {cache, factory, factory2, factory3, Integer.valueOf(i), eventListener};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -118,7 +118,7 @@ public final class CacheDataSourceFactory implements DataSource.Factory {
         this.upstreamFactory = factory;
         this.cacheReadDataSourceFactory = factory2;
         this.cacheWriteDataSinkFactory = factory3;
-        this.flags = i2;
+        this.flags = i;
         this.eventListener = eventListener;
     }
 }

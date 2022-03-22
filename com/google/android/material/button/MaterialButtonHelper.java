@@ -32,7 +32,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.Shapeable;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialButtonHelper {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean IS_LOLLIPOP;
@@ -85,9 +85,9 @@ public class MaterialButtonHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {materialButton, shapeAppearanceModel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -114,7 +114,7 @@ public class MaterialButtonHelper {
             materialShapeDrawable.setStroke(this.strokeWidth, this.strokeColor);
             MaterialShapeDrawable materialShapeDrawable2 = new MaterialShapeDrawable(this.shapeAppearanceModel);
             materialShapeDrawable2.setTint(0);
-            materialShapeDrawable2.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.colorSurface) : 0);
+            materialShapeDrawable2.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016b) : 0);
             if (IS_LOLLIPOP) {
                 MaterialShapeDrawable materialShapeDrawable3 = new MaterialShapeDrawable(this.shapeAppearanceModel);
                 this.maskDrawable = materialShapeDrawable3;
@@ -180,7 +180,7 @@ public class MaterialButtonHelper {
             if (materialShapeDrawable != null) {
                 materialShapeDrawable.setStroke(this.strokeWidth, this.strokeColor);
                 if (surfaceColorStrokeDrawable != null) {
-                    surfaceColorStrokeDrawable.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.colorSurface) : 0);
+                    surfaceColorStrokeDrawable.setStroke(this.strokeWidth, this.shouldDrawSurfaceColorStroke ? MaterialColors.getColor(this.materialButton, R.attr.obfuscated_res_0x7f04016b) : 0);
                 }
             }
         }
@@ -304,12 +304,12 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || getMaterialShapeDrawable() == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || getMaterialShapeDrawable() == null) {
             return;
         }
-        getMaterialShapeDrawable().setTint(i2);
+        getMaterialShapeDrawable().setTint(i);
     }
 
     public void setBackgroundOverwritten() {
@@ -328,15 +328,15 @@ public class MaterialButtonHelper {
         }
     }
 
-    public void setCornerRadius(int i2) {
+    public void setCornerRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            if (this.cornerRadiusSet && this.cornerRadius == i2) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            if (this.cornerRadiusSet && this.cornerRadius == i) {
                 return;
             }
-            this.cornerRadius = i2;
+            this.cornerRadius = i;
             this.cornerRadiusSet = true;
-            setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(i2));
+            setShapeAppearanceModel(this.shapeAppearanceModel.withCornerSize(i));
         }
     }
 
@@ -379,12 +379,12 @@ public class MaterialButtonHelper {
         updateStroke();
     }
 
-    public void setStrokeWidth(int i2) {
+    public void setStrokeWidth(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i2) == null) || this.strokeWidth == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || this.strokeWidth == i) {
             return;
         }
-        this.strokeWidth = i2;
+        this.strokeWidth = i;
         updateStroke();
     }
 
@@ -411,13 +411,13 @@ public class MaterialButtonHelper {
         DrawableCompat.setTintMode(getMaterialShapeDrawable(), this.backgroundTintMode);
     }
 
-    public void updateMaskBounds(int i2, int i3) {
+    public void updateMaskBounds(int i, int i2) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) || (drawable = this.maskDrawable) == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) || (drawable = this.maskDrawable) == null) {
             return;
         }
-        drawable.setBounds(this.insetLeft, this.insetTop, i3 - this.insetRight, i2 - this.insetBottom);
+        drawable.setBounds(this.insetLeft, this.insetTop, i2 - this.insetRight, i - this.insetBottom);
     }
 
     @Nullable

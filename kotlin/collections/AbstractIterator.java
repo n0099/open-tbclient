@@ -38,9 +38,9 @@ public abstract class AbstractIterator<T> implements Iterator<T>, KMappedMarker 
     @Override // java.util.Iterator
     public boolean hasNext() {
         if (this.state != State.Failed) {
-            int i2 = WhenMappings.$EnumSwitchMapping$0[this.state.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = WhenMappings.$EnumSwitchMapping$0[this.state.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return tryToComputeNext();
                 }
                 return true;

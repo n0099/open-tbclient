@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.wallet.base.iddetect.IdCardActivity;
 import com.ss.android.download.api.config.q;
 import com.ss.android.download.api.download.DownloadModel;
 import com.ss.android.downloadlib.activity.TTDelegateActivity;
@@ -17,22 +16,22 @@ import java.util.HashMap;
 import java.util.regex.Pattern;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public SoftReference<Activity> a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static b a = new b();
     }
 
-    public void b(long j2) {
-        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j2).f58026b.getDownloadUrl());
+    public void b(long j) {
+        com.ss.android.downloadlib.addownload.e a2 = f.a().a(com.ss.android.downloadlib.addownload.b.f.a().e(j).f42774b.getDownloadUrl());
         if (a2 != null) {
             a2.a(true, true);
             return;
         }
-        e.a(11, j2);
+        e.a(11, j);
         com.ss.android.downloadlib.e.c.a().b("startDownload handler null");
     }
 
@@ -43,8 +42,8 @@ public class b {
         return a.a;
     }
 
-    public void a(long j2) {
-        TTDelegateActivity.a(j2);
+    public void a(long j) {
+        TTDelegateActivity.a(j);
     }
 
     public boolean a(DownloadModel downloadModel) {
@@ -62,49 +61,49 @@ public class b {
     }
 
     public boolean a(@NonNull com.ss.android.downloadlib.addownload.b.e eVar) {
+        long j;
         long j2;
-        long j3;
-        if (!TextUtils.isEmpty(eVar.f58026b.getLogExtra())) {
+        if (!TextUtils.isEmpty(eVar.f42774b.getLogExtra())) {
             try {
-                j2 = l.a(new JSONObject(eVar.f58026b.getLogExtra()), "convert_id");
+                j = l.a(new JSONObject(eVar.f42774b.getLogExtra()), "convert_id");
             } catch (Exception e2) {
                 e2.printStackTrace();
-                j2 = 0;
+                j = 0;
             }
-            if (j2 <= 0) {
+            if (j <= 0) {
                 e.a(3, eVar);
             }
-            j3 = j2;
+            j2 = j;
         } else {
             e.a(9, eVar);
             com.ss.android.downloadlib.e.c.a().a("requestAppInfo getLogExtra null");
-            j3 = 0;
+            j2 = 0;
         }
-        final long j4 = eVar.a;
-        com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(j3, j4);
+        final long j3 = eVar.a;
+        com.ss.android.downloadlib.addownload.b.b a2 = c.a().a(j2, j3);
         if (a2 != null) {
-            d.a().a(a2.a(), j4, a2.f58005d);
+            d.a().a(a2.a(), j3, a2.f42755d);
             a(a2.a());
             e.a("lp_app_dialog_try_show", eVar);
             return true;
         }
         StringBuilder sb = new StringBuilder();
-        if (j3 > 0) {
+        if (j2 > 0) {
             sb.append("convert_id=");
-            sb.append(j3);
+            sb.append(j2);
         }
-        if (!TextUtils.isEmpty(eVar.f58026b.getPackageName())) {
+        if (!TextUtils.isEmpty(eVar.f42774b.getPackageName())) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append("package_name=");
-            sb.append(eVar.f58026b.getPackageName());
+            sb.append(eVar.f42774b.getPackageName());
         }
         if (sb.length() <= 0) {
             e.a(6, eVar);
             return false;
         }
-        final long j5 = j3;
+        final long j4 = j2;
         com.ss.android.downloadlib.g.c.a((c.a<String, R>) new c.a<String, Boolean>() { // from class: com.ss.android.downloadlib.addownload.compliance.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.ss.android.downloadlib.g.c.a
@@ -115,12 +114,12 @@ public class b {
                     public void a(String str2) {
                         boolean[] zArr2 = zArr;
                         AnonymousClass2 anonymousClass2 = AnonymousClass2.this;
-                        zArr2[0] = b.this.a(j5, j4, str2);
+                        zArr2[0] = b.this.a(j4, j3, str2);
                     }
 
                     @Override // com.ss.android.download.api.config.q
                     public void a(Throwable th) {
-                        e.a(2, j4);
+                        e.a(2, j3);
                         zArr[0] = false;
                     }
                 });
@@ -131,11 +130,11 @@ public class b {
             @Override // com.ss.android.downloadlib.g.c.a
             public Object a(Boolean bool) {
                 if (bool.booleanValue()) {
-                    b.this.a(com.ss.android.downloadlib.addownload.b.b.a(j5, j4));
-                    e.b("lp_app_dialog_try_show", j4);
+                    b.this.a(com.ss.android.downloadlib.addownload.b.b.a(j4, j3));
+                    e.b("lp_app_dialog_try_show", j3);
                     return null;
                 }
-                b.this.b(j4);
+                b.this.b(j3);
                 return null;
             }
         }).a();
@@ -143,35 +142,35 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean a(long j2, long j3, String str) {
+    public boolean a(long j, long j2, String str) {
         try {
             JSONObject optJSONObject = new JSONObject(str).optJSONObject("package");
             if (optJSONObject != null && optJSONObject.length() != 0) {
                 com.ss.android.downloadlib.addownload.b.b bVar = new com.ss.android.downloadlib.addownload.b.b();
-                bVar.a = j2;
-                bVar.f58003b = j3;
-                bVar.f58005d = optJSONObject.optString("icon_url");
-                bVar.f58006e = optJSONObject.optString("app_name");
-                bVar.f58004c = optJSONObject.optString("package_name");
-                bVar.f58007f = optJSONObject.optString("version_name");
-                bVar.f58008g = optJSONObject.optString("developer_name");
-                bVar.f58010i = optJSONObject.optString("policy_url");
+                bVar.a = j;
+                bVar.f42753b = j2;
+                bVar.f42755d = optJSONObject.optString("icon_url");
+                bVar.f42756e = optJSONObject.optString("app_name");
+                bVar.f42754c = optJSONObject.optString("package_name");
+                bVar.f42757f = optJSONObject.optString("version_name");
+                bVar.f42758g = optJSONObject.optString("developer_name");
+                bVar.i = optJSONObject.optString("policy_url");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("permissions");
                 if (optJSONArray != null) {
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i2);
-                        bVar.f58009h.add(new Pair<>(jSONObject.optString(IdCardActivity.RESULT_PERMISSION_KEY), jSONObject.optString("permission_desc")));
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject jSONObject = (JSONObject) optJSONArray.get(i);
+                        bVar.f42759h.add(new Pair<>(jSONObject.optString("permission_name"), jSONObject.optString("permission_desc")));
                     }
                 }
                 c.a().a(bVar);
-                d.a().a(bVar.a(), j3, bVar.f58005d);
+                d.a().a(bVar.a(), j2, bVar.f42755d);
                 return true;
             }
-            e.a(7, j3);
+            e.a(7, j2);
             return false;
         } catch (Exception e2) {
             com.ss.android.downloadlib.e.c.a().a(e2, "AdLpComplianceManager parseResponse");
-            e.a(7, j3);
+            e.a(7, j2);
             return false;
         }
     }

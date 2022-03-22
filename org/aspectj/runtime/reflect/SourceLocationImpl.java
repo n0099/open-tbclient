@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.aspectj.lang.reflect.SourceLocation;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SourceLocationImpl implements SourceLocation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -15,16 +15,16 @@ public class SourceLocationImpl implements SourceLocation {
     public int line;
     public Class withinType;
 
-    public SourceLocationImpl(Class cls, String str, int i2) {
+    public SourceLocationImpl(Class cls, String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, str, Integer.valueOf(i2)};
+            Object[] objArr = {cls, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,7 +32,7 @@ public class SourceLocationImpl implements SourceLocation {
         }
         this.withinType = cls;
         this.fileName = str;
-        this.line = i2;
+        this.line = i;
     }
 
     @Override // org.aspectj.lang.reflect.SourceLocation

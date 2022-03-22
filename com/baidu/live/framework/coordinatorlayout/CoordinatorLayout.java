@@ -16,6 +16,7 @@ import android.os.Parcelable;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,6 +47,7 @@ import androidx.core.view.OnApplyWindowInsetsListener;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.customview.view.AbsSavedState;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.framework.appbar.AppBarLayout;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -68,44 +70,46 @@ import java.util.Map;
 /* loaded from: classes4.dex */
 public class CoordinatorLayout extends ViewGroup implements NestedScrollingParent2, NestedScrollingParent3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Map<String, Constructor<Behavior>>> A;
-    public static final Comparator<View> B;
-    public static final Pools.Pool<Rect> C;
-    public static final String y;
-    public static final Class<?>[] z;
+    public static final String u;
+    public static final Class<?>[] v;
+    public static final ThreadLocal<Map<String, Constructor<Behavior>>> w;
+    public static final Comparator<View> x;
+    public static final Pools.Pool<Rect> y;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<View> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final c.a.v.f.b.a<View> f25827b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final List<View> f25828c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final List<View> f25829d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<View> f33507e;
+    public Paint f25830e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.w.f.b.a<View> f33508f;
+    public final int[] f25831f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final List<View> f33509g;
+    public final int[] f25832g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final List<View> f33510h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Paint f33511i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final int[] f33512j;
-    public final int[] k;
-    public boolean l;
-    public boolean m;
-    public int[] n;
-    public View o;
-    public View p;
-    public f q;
-    public boolean r;
-    public WindowInsetsCompat s;
-    public boolean t;
-    public Drawable u;
-    public ViewGroup.OnHierarchyChangeListener v;
-    public OnApplyWindowInsetsListener w;
-    public final NestedScrollingParentHelper x;
+    public boolean f25833h;
+    public boolean i;
+    public int[] j;
+    public View k;
+    public View l;
+    public f m;
+    public boolean n;
+    public WindowInsetsCompat o;
+    public boolean p;
+    public Drawable q;
+    public ViewGroup.OnHierarchyChangeListener r;
+    public OnApplyWindowInsetsListener s;
+    public final NestedScrollingParentHelper t;
 
     /* loaded from: classes4.dex */
     public static abstract class Behavior<V extends View> {
@@ -117,21 +121,21 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public boolean A(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i2, int i3) {
+        public boolean A(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-                if (i3 == 0) {
-                    return z(coordinatorLayout, v, view, view2, i2);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+                if (i2 == 0) {
+                    return z(coordinatorLayout, v, view, view2, i);
                 }
                 return false;
             }
@@ -145,9 +149,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
 
-        public void C(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2) {
+        public void C(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, v, view, i2) == null) && i2 == 0) {
+            if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, coordinatorLayout, v, view, i) == null) && i == 0) {
                 B(coordinatorLayout, v, view);
             }
         }
@@ -248,19 +252,19 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             return invokeLLL.booleanValue;
         }
 
-        public boolean l(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i2) {
+        public boolean l(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048591, this, coordinatorLayout, v, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048591, this, coordinatorLayout, v, i)) == null) {
                 return false;
             }
             return invokeLLI.booleanValue;
         }
 
-        public boolean m(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i2, int i3, int i4, int i5) {
+        public boolean m(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i, int i2, int i3, int i4) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{coordinatorLayout, v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
                 return false;
             }
             return invokeCommon.booleanValue;
@@ -285,54 +289,54 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
 
         @Deprecated
-        public void p(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, @NonNull int[] iArr) {
+        public void p(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i, int i2, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
             }
         }
 
-        public void q(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, @NonNull int[] iArr, int i4) {
+        public void q(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i, int i2, @NonNull int[] iArr, int i3) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) && i4 == 0) {
-                p(coordinatorLayout, v, view, i2, i3, iArr);
-            }
-        }
-
-        @Deprecated
-        public void r(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, int i4, int i5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if ((interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) && i3 == 0) {
+                p(coordinatorLayout, v, view, i, i2, iArr);
             }
         }
 
         @Deprecated
-        public void s(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, int i4, int i5, int i6) {
+        public void r(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) && i6 == 0) {
-                r(coordinatorLayout, v, view, i2, i3, i4, i5);
-            }
-        }
-
-        public void t(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i2, int i3, int i4, int i5, int i6, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), iArr}) == null) {
-                iArr[0] = iArr[0] + i4;
-                iArr[1] = iArr[1] + i5;
-                s(coordinatorLayout, v, view, i2, i3, i4, i5, i6);
+            if (interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             }
         }
 
         @Deprecated
-        public void u(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i2) {
+        public void s(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i, int i2, int i3, int i4, int i5) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i2)}) == null) {
+            if ((interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) && i5 == 0) {
+                r(coordinatorLayout, v, view, i, i2, i3, i4);
             }
         }
 
-        public void v(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i2, int i3) {
+        public void t(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) && i3 == 0) {
-                u(coordinatorLayout, v, view, view2, i2);
+            if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{coordinatorLayout, v, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
+                iArr[0] = iArr[0] + i3;
+                iArr[1] = iArr[1] + i4;
+                s(coordinatorLayout, v, view, i, i2, i3, i4, i5);
+            }
+        }
+
+        @Deprecated
+        public void u(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i)}) == null) {
+            }
+        }
+
+        public void v(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && i2 == 0) {
+                u(coordinatorLayout, v, view, view2, i);
             }
         }
 
@@ -359,10 +363,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
 
         @Deprecated
-        public boolean z(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i2) {
+        public boolean z(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, @NonNull View view, @NonNull View view2, int i) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048605, this, new Object[]{coordinatorLayout, v, view, view2, Integer.valueOf(i)})) == null) {
                 return false;
             }
             return invokeCommon.booleanValue;
@@ -375,9 +379,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -398,9 +402,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {coordinatorLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -414,7 +418,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, windowInsetsCompat)) == null) {
-                this.a.H(windowInsetsCompat);
+                this.a.Q(windowInsetsCompat);
                 return windowInsetsCompat;
             }
             return (WindowInsetsCompat) invokeLL.objValue;
@@ -437,9 +441,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public class d implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoordinatorLayout f33513e;
+        public final /* synthetic */ CoordinatorLayout a;
 
         public d(CoordinatorLayout coordinatorLayout) {
             Interceptable interceptable = $ic;
@@ -448,22 +450,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {coordinatorLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33513e = coordinatorLayout;
+            this.a = coordinatorLayout;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewAdded(View view, View view2) {
             ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) || (onHierarchyChangeListener = this.f33513e.v) == null) {
+            if (!(interceptable == null || interceptable.invokeLL(1048576, this, view, view2) == null) || (onHierarchyChangeListener = this.a.r) == null) {
                 return;
             }
             onHierarchyChangeListener.onChildViewAdded(view, view2);
@@ -473,8 +475,8 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) {
-                this.f33513e.u(2);
-                ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.f33513e.v;
+                this.a.B(2);
+                ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener = this.a.r;
                 if (onHierarchyChangeListener != null) {
                     onHierarchyChangeListener.onChildViewRemoved(view, view2);
                 }
@@ -486,9 +488,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public class f implements ViewTreeObserver.OnPreDrawListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ CoordinatorLayout f33523e;
+        public final /* synthetic */ CoordinatorLayout a;
 
         public f(CoordinatorLayout coordinatorLayout) {
             Interceptable interceptable = $ic;
@@ -497,15 +497,15 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {coordinatorLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33523e = coordinatorLayout;
+            this.a = coordinatorLayout;
         }
 
         @Override // android.view.ViewTreeObserver.OnPreDrawListener
@@ -513,7 +513,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.f33523e.u(0);
+                this.a.B(0);
                 return true;
             }
             return invokeV.booleanValue;
@@ -530,9 +530,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -571,15 +571,15 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
         Package r0 = CoordinatorLayout.class.getPackage();
-        y = r0 != null ? r0.getName() : null;
+        u = r0 != null ? r0.getName() : null;
         if (Build.VERSION.SDK_INT >= 21) {
-            B = new g();
+            x = new g();
         } else {
-            B = null;
+            x = null;
         }
-        z = new Class[]{Context.class, AttributeSet.class};
-        A = new ThreadLocal<>();
-        C = new Pools.SynchronizedPool(12);
+        v = new Class[]{Context.class, AttributeSet.class};
+        w = new ThreadLocal<>();
+        y = new Pools.SynchronizedPool(12);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -591,9 +591,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -603,76 +603,29 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    public static int C(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int D(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if ((i2 & 7) == 0) {
-                i2 |= GravityCompat.START;
-            }
-            return (i2 & 112) == 0 ? i2 | 48 : i2;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int E(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? i2 == 0 ? BadgeDrawable.TOP_END : i2 : invokeI.intValue;
-    }
-
-    @NonNull
-    public static Rect a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            Rect acquire = C.acquire();
-            return acquire == null ? new Rect() : acquire;
-        }
-        return (Rect) invokeV.objValue;
-    }
-
-    public static int c(int i2, int i3, int i4) {
-        InterceptResult invokeIII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65544, null, i2, i3, i4)) == null) ? i2 < i3 ? i3 : i2 > i4 ? i4 : i2 : invokeIII.intValue;
-    }
-
     /* JADX DEBUG: Multi-variable search result rejected for r2v8, resolved type: java.lang.Class<?> */
     /* JADX WARN: Multi-variable type inference failed */
-    public static Behavior v(Context context, AttributeSet attributeSet, String str) {
+    public static Behavior E(Context context, AttributeSet attributeSet, String str) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, context, attributeSet, str)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, attributeSet, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             if (str.startsWith(".")) {
                 str = context.getPackageName() + str;
-            } else if (str.indexOf(46) < 0 && !TextUtils.isEmpty(y)) {
-                str = y + '.' + str;
+            } else if (str.indexOf(46) < 0 && !TextUtils.isEmpty(u)) {
+                str = u + IStringUtil.EXTENSION_SEPARATOR + str;
             }
             try {
-                Map<String, Constructor<Behavior>> map = A.get();
+                Map<String, Constructor<Behavior>> map = w.get();
                 if (map == null) {
                     map = new HashMap<>();
-                    A.set(map);
+                    w.set(map);
                 }
                 Constructor<Behavior> constructor = map.get(str);
                 if (constructor == null) {
-                    constructor = Class.forName(str, false, context.getClassLoader()).getConstructor(z);
+                    constructor = Class.forName(str, false, context.getClassLoader()).getConstructor(v);
                     constructor.setAccessible(true);
                     map.put(str, constructor);
                 }
@@ -684,35 +637,302 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return (Behavior) invokeLLL.objValue;
     }
 
-    public static void z(@NonNull Rect rect) {
+    public static void I(@NonNull Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, rect) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, null, rect) == null) {
             rect.setEmpty();
-            C.release(rect);
+            y.release(rect);
         }
     }
 
-    public void A() {
+    public static int L(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.m && this.q != null) {
-                getViewTreeObserver().removeOnPreDrawListener(this.q);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 0) {
+                return 17;
             }
-            this.r = false;
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int M(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            if ((i & 7) == 0) {
+                i |= GravityCompat.START;
+            }
+            return (i & 112) == 0 ? i | 48 : i;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int N(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) ? i == 0 ? BadgeDrawable.TOP_END : i : invokeI.intValue;
+    }
+
+    @NonNull
+    public static Rect a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            Rect acquire = y.acquire();
+            return acquire == null ? new Rect() : acquire;
+        }
+        return (Rect) invokeV.objValue;
+    }
+
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65546, null, i, i2, i3)) == null) ? i < i2 ? i2 : i > i3 ? i3 : i : invokeIII.intValue;
+    }
+
+    public void A(View view, int i) {
+        Behavior e2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view, i) == null) {
+            e eVar = (e) view.getLayoutParams();
+            if (eVar.k != null) {
+                Rect a2 = a();
+                Rect a3 = a();
+                Rect a4 = a();
+                n(eVar.k, a2);
+                boolean z = false;
+                k(view, false, a3);
+                int measuredWidth = view.getMeasuredWidth();
+                int measuredHeight = view.getMeasuredHeight();
+                p(view, i, a2, a4, eVar, measuredWidth, measuredHeight);
+                z = (a4.left == a3.left && a4.top == a3.top) ? true : true;
+                d(eVar, a4, measuredWidth, measuredHeight);
+                int i2 = a4.left - a3.left;
+                int i3 = a4.top - a3.top;
+                if (i2 != 0) {
+                    ViewCompat.offsetLeftAndRight(view, i2);
+                }
+                if (i3 != 0) {
+                    ViewCompat.offsetTopAndBottom(view, i3);
+                }
+                if (z && (e2 = eVar.e()) != null) {
+                    e2.h(this, view, eVar.k);
+                }
+                I(a2);
+                I(a3);
+                I(a4);
+            }
         }
     }
 
-    public final void B(boolean z2) {
+    @SuppressLint({"SwitchIntDef"})
+    public final void B(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            int layoutDirection = ViewCompat.getLayoutDirection(this);
+            int size = this.a.size();
+            Rect a2 = a();
+            Rect a3 = a();
+            Rect a4 = a();
+            for (int i2 = 0; i2 < size; i2++) {
+                View view = this.a.get(i2);
+                e eVar = (e) view.getLayoutParams();
+                if (i != 0 || view.getVisibility() != 8) {
+                    for (int i3 = 0; i3 < i2; i3++) {
+                        if (eVar.l == this.a.get(i3)) {
+                            A(view, layoutDirection);
+                        }
+                    }
+                    k(view, true, a3);
+                    if (eVar.f25839g != 0 && !a3.isEmpty()) {
+                        int absoluteGravity = GravityCompat.getAbsoluteGravity(eVar.f25839g, layoutDirection);
+                        int i4 = absoluteGravity & 112;
+                        if (i4 == 48) {
+                            a2.top = Math.max(a2.top, a3.bottom);
+                        } else if (i4 == 80) {
+                            a2.bottom = Math.max(a2.bottom, getHeight() - a3.top);
+                        }
+                        int i5 = absoluteGravity & 7;
+                        if (i5 == 3) {
+                            a2.left = Math.max(a2.left, a3.right);
+                        } else if (i5 == 5) {
+                            a2.right = Math.max(a2.right, getWidth() - a3.left);
+                        }
+                    }
+                    if (eVar.f25840h != 0 && view.getVisibility() == 0) {
+                        z(view, a2, layoutDirection);
+                    }
+                    if (i != 2) {
+                        r(view, a4);
+                        if (!a4.equals(a3)) {
+                            H(view, a3);
+                        }
+                    }
+                    for (int i6 = i2 + 1; i6 < size; i6++) {
+                        View view2 = this.a.get(i6);
+                        e eVar2 = (e) view2.getLayoutParams();
+                        Behavior e2 = eVar2.e();
+                        if (e2 != null && e2.e(this, view2, view)) {
+                            if (i == 0 && eVar2.f()) {
+                                eVar2.j();
+                            } else {
+                                if (i != 2) {
+                                    z = e2.h(this, view2, view);
+                                } else {
+                                    e2.i(this, view2, view);
+                                    z = true;
+                                }
+                                if (i == 1) {
+                                    eVar2.o(z);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            I(a2);
+            I(a3);
+            I(a4);
+        }
+    }
+
+    public void C(@NonNull View view, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            e eVar = (e) view.getLayoutParams();
+            if (eVar.a()) {
+                return;
+            }
+            View view2 = eVar.k;
+            if (view2 != null) {
+                x(view, view2, i);
+                return;
+            }
+            int i2 = eVar.f25837e;
+            if (i2 >= 0) {
+                y(view, i2, i);
+            } else {
+                w(view, i);
+            }
+        }
+    }
+
+    public void D(View view, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            measureChildWithMargins(view, i, i2, i3, i4);
+        }
+    }
+
+    public final boolean F(MotionEvent motionEvent, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, motionEvent, i)) == null) {
+            int actionMasked = motionEvent.getActionMasked();
+            List<View> list = this.f25828c;
+            t(list);
+            int size = list.size();
+            MotionEvent motionEvent2 = null;
+            boolean z = false;
+            boolean z2 = false;
+            for (int i2 = 0; i2 < size; i2++) {
+                View view = list.get(i2);
+                e eVar = (e) view.getLayoutParams();
+                Behavior e2 = eVar.e();
+                if (!(z || z2) || actionMasked == 0) {
+                    if (!z && e2 != null) {
+                        if (i == 0) {
+                            z = e2.k(this, view, motionEvent);
+                        } else if (i == 1) {
+                            z = e2.D(this, view, motionEvent);
+                        }
+                        if (z) {
+                            this.k = view;
+                        }
+                    }
+                    boolean c2 = eVar.c();
+                    boolean h2 = eVar.h(this, view);
+                    z2 = h2 && !c2;
+                    if (h2 && !z2) {
+                        break;
+                    }
+                } else if (e2 != null) {
+                    if (motionEvent2 == null) {
+                        long uptimeMillis = SystemClock.uptimeMillis();
+                        motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
+                    }
+                    if (i == 0) {
+                        e2.k(this, view, motionEvent2);
+                    } else if (i == 1) {
+                        e2.D(this, view, motionEvent2);
+                    }
+                }
+            }
+            list.clear();
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public final void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.clear();
+            this.f25827b.c();
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
+                e s = s(childAt);
+                s.d(this, childAt);
+                this.f25827b.b(childAt);
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    if (i2 != i) {
+                        View childAt2 = getChildAt(i2);
+                        if (s.b(this, childAt, childAt2)) {
+                            if (!this.f25827b.d(childAt2)) {
+                                this.f25827b.b(childAt2);
+                            }
+                            this.f25827b.a(childAt2, childAt);
+                        }
+                    }
+                }
+            }
+            this.a.addAll(this.f25827b.i());
+            Collections.reverse(this.a);
+        }
+    }
+
+    public void H(View view, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, view, rect) == null) {
+            ((e) view.getLayoutParams()).p(rect);
+        }
+    }
+
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.i && this.m != null) {
+                getViewTreeObserver().removeOnPreDrawListener(this.m);
+            }
+            this.n = false;
+        }
+    }
+
+    public final void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 Behavior e2 = ((e) childAt.getLayoutParams()).e();
                 if (e2 != null) {
                     long uptimeMillis = SystemClock.uptimeMillis();
                     MotionEvent obtain = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                    if (z2) {
+                    if (z) {
                         e2.k(this, childAt, obtain);
                     } else {
                         e2.D(this, childAt, obtain);
@@ -720,46 +940,46 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     obtain.recycle();
                 }
             }
-            for (int i3 = 0; i3 < childCount; i3++) {
-                ((e) getChildAt(i3).getLayoutParams()).l();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                ((e) getChildAt(i2).getLayoutParams()).l();
             }
-            this.o = null;
-            this.l = false;
+            this.k = null;
+            this.f25833h = false;
         }
     }
 
-    public final void F(View view, int i2) {
+    public final void O(View view, int i) {
         e eVar;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) || (i3 = (eVar = (e) view.getLayoutParams()).f33521i) == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048585, this, view, i) == null) || (i2 = (eVar = (e) view.getLayoutParams()).i) == i) {
             return;
         }
-        ViewCompat.offsetLeftAndRight(view, i2 - i3);
-        eVar.f33521i = i2;
+        ViewCompat.offsetLeftAndRight(view, i - i2);
+        eVar.i = i;
     }
 
-    public final void G(View view, int i2) {
+    public final void P(View view, int i) {
         e eVar;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048579, this, view, i2) == null) || (i3 = (eVar = (e) view.getLayoutParams()).f33522j) == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, view, i) == null) || (i2 = (eVar = (e) view.getLayoutParams()).j) == i) {
             return;
         }
-        ViewCompat.offsetTopAndBottom(view, i2 - i3);
-        eVar.f33522j = i2;
+        ViewCompat.offsetTopAndBottom(view, i - i2);
+        eVar.j = i;
     }
 
-    public final WindowInsetsCompat H(WindowInsetsCompat windowInsetsCompat) {
+    public final WindowInsetsCompat Q(WindowInsetsCompat windowInsetsCompat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, windowInsetsCompat)) == null) {
-            if (!ObjectsCompat.equals(this.s, windowInsetsCompat)) {
-                this.s = windowInsetsCompat;
-                boolean z2 = true;
-                boolean z3 = windowInsetsCompat != null && windowInsetsCompat.getSystemWindowInsetTop() > 0;
-                this.t = z3;
-                setWillNotDraw((z3 || getBackground() != null) ? false : false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, windowInsetsCompat)) == null) {
+            if (!ObjectsCompat.equals(this.o, windowInsetsCompat)) {
+                this.o = windowInsetsCompat;
+                boolean z = true;
+                boolean z2 = windowInsetsCompat != null && windowInsetsCompat.getSystemWindowInsetTop() > 0;
+                this.p = z2;
+                setWillNotDraw((z2 || getBackground() != null) ? false : false);
                 e(windowInsetsCompat);
                 requestLayout();
             }
@@ -768,16 +988,16 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return (WindowInsetsCompat) invokeL.objValue;
     }
 
-    public final void I() {
+    public final void R() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
         if (ViewCompat.getFitsSystemWindows(this)) {
-            if (this.w == null) {
-                this.w = new a(this);
+            if (this.s == null) {
+                this.s = new a(this);
             }
-            ViewCompat.setOnApplyWindowInsetsListener(this, this.w);
+            ViewCompat.setOnApplyWindowInsetsListener(this, this.s);
             setSystemUiVisibility(1280);
             return;
         }
@@ -786,14 +1006,14 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.m) {
-                if (this.q == null) {
-                    this.q = new f(this);
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (this.i) {
+                if (this.m == null) {
+                    this.m = new f(this);
                 }
-                getViewTreeObserver().addOnPreDrawListener(this.q);
+                getViewTreeObserver().addOnPreDrawListener(this.m);
             }
-            this.r = true;
+            this.n = true;
         }
     }
 
@@ -801,86 +1021,44 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public boolean checkLayoutParams(ViewGroup.LayoutParams layoutParams) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, layoutParams)) == null) ? (layoutParams instanceof e) && super.checkLayoutParams(layoutParams) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, layoutParams)) == null) ? (layoutParams instanceof e) && super.checkLayoutParams(layoutParams) : invokeL.booleanValue;
     }
 
-    public final void d(e eVar, Rect rect, int i2, int i3) {
+    public final void d(e eVar, Rect rect, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, eVar, rect, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048591, this, eVar, rect, i, i2) == null) {
             int width = getWidth();
             int height = getHeight();
-            int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, Math.min(rect.left, ((width - getPaddingRight()) - i2) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin));
-            int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, Math.min(rect.top, ((height - getPaddingBottom()) - i3) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin));
-            rect.set(max, max2, i2 + max, i3 + max2);
+            int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, Math.min(rect.left, ((width - getPaddingRight()) - i) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin));
+            int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, Math.min(rect.top, ((height - getPaddingBottom()) - i2) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin));
+            rect.set(max, max2, i + max, i2 + max2);
         }
-    }
-
-    public void dispatchDependentViewsChanged(@NonNull View view) {
-        List g2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, view) == null) || (g2 = this.f33508f.g(view)) == null || g2.isEmpty()) {
-            return;
-        }
-        for (int i2 = 0; i2 < g2.size(); i2++) {
-            View view2 = (View) g2.get(i2);
-            Behavior e2 = ((e) view2.getLayoutParams()).e();
-            if (e2 != null) {
-                e2.h(this, view2, view);
-            }
-        }
-    }
-
-    public boolean doViewsOverlap(@NonNull View view, @NonNull View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view, view2)) == null) {
-            boolean z2 = false;
-            if (view.getVisibility() == 0 && view2.getVisibility() == 0) {
-                Rect a2 = a();
-                g(view, view.getParent() != this, a2);
-                Rect a3 = a();
-                g(view2, view2.getParent() != this, a3);
-                try {
-                    if (a2.left <= a3.right && a2.top <= a3.bottom && a2.right >= a3.left) {
-                        if (a2.bottom >= a3.top) {
-                            z2 = true;
-                        }
-                    }
-                    return z2;
-                } finally {
-                    z(a2);
-                    z(a3);
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 
     @Override // android.view.ViewGroup
-    public boolean drawChild(Canvas canvas, View view, long j2) {
+    public boolean drawChild(Canvas canvas, View view, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{canvas, view, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{canvas, view, Long.valueOf(j)})) == null) {
             e eVar = (e) view.getLayoutParams();
             Behavior behavior = eVar.a;
             if (behavior != null) {
                 float d2 = behavior.d(this, view);
                 if (d2 > 0.0f) {
-                    if (this.f33511i == null) {
-                        this.f33511i = new Paint();
+                    if (this.f25830e == null) {
+                        this.f25830e = new Paint();
                     }
-                    this.f33511i.setColor(eVar.a.c(this, view));
-                    this.f33511i.setAlpha(c(Math.round(d2 * 255.0f), 0, 255));
+                    this.f25830e.setColor(eVar.a.c(this, view));
+                    this.f25830e.setAlpha(c(Math.round(d2 * 255.0f), 0, 255));
                     int save = canvas.save();
                     if (view.isOpaque()) {
                         canvas.clipRect(view.getLeft(), view.getTop(), view.getRight(), view.getBottom(), Region.Op.DIFFERENCE);
                     }
-                    canvas.drawRect(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom(), this.f33511i);
+                    canvas.drawRect(getPaddingLeft(), getPaddingTop(), getWidth() - getPaddingRight(), getHeight() - getPaddingBottom(), this.f25830e);
                     canvas.restoreToCount(save);
                 }
             }
-            return super.drawChild(canvas, view, j2);
+            return super.drawChild(canvas, view, j);
         }
         return invokeCommon.booleanValue;
     }
@@ -888,15 +1066,15 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     @Override // android.view.ViewGroup, android.view.View
     public void drawableStateChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.drawableStateChanged();
             int[] drawableState = getDrawableState();
-            Drawable drawable = this.u;
-            boolean z2 = false;
+            Drawable drawable = this.q;
+            boolean z = false;
             if (drawable != null && drawable.isStateful()) {
-                z2 = false | drawable.setState(drawableState);
+                z = false | drawable.setState(drawableState);
             }
-            if (z2) {
+            if (z) {
                 invalidate();
             }
         }
@@ -906,13 +1084,13 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         InterceptResult invokeL;
         Behavior e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, windowInsetsCompat)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, windowInsetsCompat)) == null) {
             if (windowInsetsCompat.isConsumed()) {
                 return windowInsetsCompat;
             }
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 if (ViewCompat.getFitsSystemWindows(childAt) && (e2 = ((e) childAt.getLayoutParams()).e()) != null) {
                     e2.f(this, childAt, windowInsetsCompat);
                     if (windowInsetsCompat.isConsumed()) {
@@ -925,105 +1103,77 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return (WindowInsetsCompat) invokeL.objValue;
     }
 
-    public void f() {
+    public void f(@NonNull View view) {
+        List g2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048595, this, view) == null) || (g2 = this.f25827b.g(view)) == null || g2.isEmpty()) {
+            return;
+        }
+        for (int i = 0; i < g2.size(); i++) {
+            View view2 = (View) g2.get(i);
+            Behavior e2 = ((e) view2.getLayoutParams()).e();
+            if (e2 != null) {
+                e2.h(this, view2, view);
+            }
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             int childCount = getChildCount();
-            boolean z2 = false;
-            int i2 = 0;
+            boolean z = false;
+            int i = 0;
             while (true) {
-                if (i2 >= childCount) {
+                if (i >= childCount) {
                     break;
-                } else if (o(getChildAt(i2))) {
-                    z2 = true;
+                } else if (u(getChildAt(i))) {
+                    z = true;
                     break;
                 } else {
-                    i2++;
+                    i++;
                 }
             }
-            if (z2 != this.r) {
-                if (z2) {
+            if (z != this.n) {
+                if (z) {
                     b();
                 } else {
-                    A();
+                    J();
                 }
             }
         }
-    }
-
-    public void g(View view, boolean z2, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Boolean.valueOf(z2), rect}) == null) {
-            if (view.isLayoutRequested() || view.getVisibility() == 8) {
-                rect.setEmpty();
-            } else if (z2) {
-                h(view, rect);
-            } else {
-                rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
-            }
-        }
-    }
-
-    @NonNull
-    public List<View> getDependencies(@NonNull View view) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, view)) == null) {
-            List<View> h2 = this.f33508f.h(view);
-            this.f33510h.clear();
-            if (h2 != null) {
-                this.f33510h.addAll(h2);
-            }
-            return this.f33510h;
-        }
-        return (List) invokeL.objValue;
     }
 
     @VisibleForTesting
     public final List<View> getDependencySortedChildren() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            x();
-            return Collections.unmodifiableList(this.f33507e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            G();
+            return Collections.unmodifiableList(this.a);
         }
         return (List) invokeV.objValue;
-    }
-
-    @NonNull
-    public List<View> getDependents(@NonNull View view) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, view)) == null) {
-            List g2 = this.f33508f.g(view);
-            this.f33510h.clear();
-            if (g2 != null) {
-                this.f33510h.addAll(g2);
-            }
-            return this.f33510h;
-        }
-        return (List) invokeL.objValue;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
     public final WindowInsetsCompat getLastWindowInsets() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.s : (WindowInsetsCompat) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.o : (WindowInsetsCompat) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, androidx.core.view.NestedScrollingParent
     public int getNestedScrollAxes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.x.getNestedScrollAxes() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.t.getNestedScrollAxes() : invokeV.intValue;
     }
 
     @Nullable
     public Drawable getStatusBarBackground() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.u : (Drawable) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.q : (Drawable) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -1040,206 +1190,152 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? Math.max(super.getSuggestedMinimumWidth(), getPaddingLeft() + getPaddingRight()) : invokeV.intValue;
     }
 
-    public void h(View view, Rect rect) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.view.ViewGroup
+    /* renamed from: h */
+    public e generateDefaultLayoutParams() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, view, rect) == null) {
-            c.a.w.f.b.b.a(this, view, rect);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? new e(-2, -2) : (e) invokeV.objValue;
     }
 
-    public void i(View view, int i2, Rect rect, Rect rect2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048607, this, view, i2, rect, rect2) == null) {
-            e eVar = (e) view.getLayoutParams();
-            int measuredWidth = view.getMeasuredWidth();
-            int measuredHeight = view.getMeasuredHeight();
-            j(view, i2, rect, rect2, eVar, measuredWidth, measuredHeight);
-            d(eVar, rect2, measuredWidth, measuredHeight);
-        }
-    }
-
-    public boolean isPointInChildBounds(@NonNull View view, int i2, int i3) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048608, this, view, i2, i3)) == null) {
-            Rect a2 = a();
-            h(view, a2);
-            try {
-                return a2.contains(i2, i3);
-            } finally {
-                z(a2);
-            }
-        }
-        return invokeLII.booleanValue;
-    }
-
-    public final void j(View view, int i2, Rect rect, Rect rect2, e eVar, int i3, int i4) {
-        int width;
-        int height;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view, Integer.valueOf(i2), rect, rect2, eVar, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            int absoluteGravity = GravityCompat.getAbsoluteGravity(C(eVar.f33515c), i2);
-            int absoluteGravity2 = GravityCompat.getAbsoluteGravity(D(eVar.f33516d), i2);
-            int i5 = absoluteGravity & 7;
-            int i6 = absoluteGravity & 112;
-            int i7 = absoluteGravity2 & 7;
-            int i8 = absoluteGravity2 & 112;
-            if (i7 == 1) {
-                width = rect.left + (rect.width() / 2);
-            } else if (i7 != 5) {
-                width = rect.left;
-            } else {
-                width = rect.right;
-            }
-            if (i8 == 16) {
-                height = rect.top + (rect.height() / 2);
-            } else if (i8 != 80) {
-                height = rect.top;
-            } else {
-                height = rect.bottom;
-            }
-            if (i5 == 1) {
-                width -= i3 / 2;
-            } else if (i5 != 5) {
-                width -= i3;
-            }
-            if (i6 == 16) {
-                height -= i4 / 2;
-            } else if (i6 != 80) {
-                height -= i4;
-            }
-            rect2.set(width, height, i3 + width, i4 + height);
-        }
-    }
-
-    public final int k(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
-            int[] iArr = this.n;
-            if (iArr == null) {
-                String str = "No keylines defined for " + this + " - attempted index lookup " + i2;
-                return 0;
-            } else if (i2 >= 0 && i2 < iArr.length) {
-                return iArr[i2];
-            } else {
-                String str2 = "Keyline index " + i2 + " out of range for " + this;
-                return 0;
-            }
-        }
-        return invokeI.intValue;
-    }
-
-    public void l(View view, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048611, this, view, rect) == null) {
-            rect.set(((e) view.getLayoutParams()).g());
-        }
-    }
-
-    public e m(View view) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.view.ViewGroup
+    /* renamed from: i */
+    public e generateLayoutParams(AttributeSet attributeSet) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, view)) == null) {
-            e eVar = (e) view.getLayoutParams();
-            if (!eVar.f33514b) {
-                if (view instanceof b) {
-                    eVar.n(((b) view).getBehavior());
-                    eVar.f33514b = true;
-                } else {
-                    c cVar = null;
-                    for (Class<?> cls = view.getClass(); cls != null; cls = cls.getSuperclass()) {
-                        cVar = (c) cls.getAnnotation(c.class);
-                        if (cVar != null) {
-                            break;
-                        }
-                    }
-                    if (cVar != null) {
-                        try {
-                            eVar.n(cVar.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
-                        } catch (Exception unused) {
-                            String str = "Default behavior class " + cVar.value().getName() + " could not be instantiated. Did you forget a default constructor?";
-                        }
-                    }
-                    eVar.f33514b = true;
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, attributeSet)) == null) ? new e(getContext(), attributeSet) : (e) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.view.ViewGroup
+    /* renamed from: j */
+    public e generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, layoutParams)) == null) {
+            if (layoutParams instanceof e) {
+                return new e((e) layoutParams);
             }
-            return eVar;
+            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+                return new e((ViewGroup.MarginLayoutParams) layoutParams);
+            }
+            return new e(layoutParams);
         }
         return (e) invokeL.objValue;
     }
 
-    public final void n(List<View> list) {
+    public void k(View view, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, list) == null) {
-            list.clear();
-            boolean isChildrenDrawingOrderEnabled = isChildrenDrawingOrderEnabled();
-            int childCount = getChildCount();
-            for (int i2 = childCount - 1; i2 >= 0; i2--) {
-                list.add(getChildAt(isChildrenDrawingOrderEnabled ? getChildDrawingOrder(childCount, i2) : i2));
-            }
-            Comparator<View> comparator = B;
-            if (comparator != null) {
-                Collections.sort(list, comparator);
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{view, Boolean.valueOf(z), rect}) == null) {
+            if (view.isLayoutRequested() || view.getVisibility() == 8) {
+                rect.setEmpty();
+            } else if (z) {
+                n(view, rect);
+            } else {
+                rect.set(view.getLeft(), view.getTop(), view.getRight(), view.getBottom());
             }
         }
     }
 
-    public final boolean o(View view) {
+    @NonNull
+    public List<View> l(@NonNull View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, view)) == null) ? this.f33508f.j(view) : invokeL.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, view)) == null) {
+            List<View> h2 = this.f25827b.h(view);
+            this.f25829d.clear();
+            if (h2 != null) {
+                this.f25829d.addAll(h2);
+            }
+            return this.f25829d;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public List<View> m(@NonNull View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, view)) == null) {
+            List g2 = this.f25827b.g(view);
+            this.f25829d.clear();
+            if (g2 != null) {
+                this.f25829d.addAll(g2);
+            }
+            return this.f25829d;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void n(View view, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048612, this, view, rect) == null) {
+            c.a.v.f.b.b.a(this, view, rect);
+        }
+    }
+
+    public void o(View view, int i, Rect rect, Rect rect2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048613, this, view, i, rect, rect2) == null) {
+            e eVar = (e) view.getLayoutParams();
+            int measuredWidth = view.getMeasuredWidth();
+            int measuredHeight = view.getMeasuredHeight();
+            p(view, i, rect, rect2, eVar, measuredWidth, measuredHeight);
+            d(eVar, rect2, measuredWidth, measuredHeight);
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             super.onAttachedToWindow();
-            B(false);
-            if (this.r) {
-                if (this.q == null) {
-                    this.q = new f(this);
+            K(false);
+            if (this.n) {
+                if (this.m == null) {
+                    this.m = new f(this);
                 }
-                getViewTreeObserver().addOnPreDrawListener(this.q);
+                getViewTreeObserver().addOnPreDrawListener(this.m);
             }
-            if (this.s == null && ViewCompat.getFitsSystemWindows(this)) {
+            if (this.o == null && ViewCompat.getFitsSystemWindows(this)) {
                 ViewCompat.requestApplyInsets(this);
             }
-            this.m = true;
+            this.i = true;
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
             super.onDetachedFromWindow();
-            B(false);
-            if (this.r && this.q != null) {
-                getViewTreeObserver().removeOnPreDrawListener(this.q);
+            K(false);
+            if (this.n && this.m != null) {
+                getViewTreeObserver().removeOnPreDrawListener(this.m);
             }
-            View view = this.p;
+            View view = this.l;
             if (view != null) {
                 onStopNestedScroll(view);
             }
-            this.m = false;
+            this.i = false;
         }
     }
 
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048616, this, canvas) == null) {
             super.onDraw(canvas);
-            if (!this.t || this.u == null) {
+            if (!this.p || this.q == null) {
                 return;
             }
-            WindowInsetsCompat windowInsetsCompat = this.s;
+            WindowInsetsCompat windowInsetsCompat = this.o;
             int systemWindowInsetTop = windowInsetsCompat != null ? windowInsetsCompat.getSystemWindowInsetTop() : 0;
             if (systemWindowInsetTop > 0) {
-                this.u.setBounds(0, 0, getWidth(), systemWindowInsetTop);
-                this.u.draw(canvas);
+                this.q.setBounds(0, 0, getWidth(), systemWindowInsetTop);
+                this.q.draw(canvas);
             }
         }
     }
@@ -1248,53 +1344,32 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, motionEvent)) == null) {
             int actionMasked = motionEvent.getActionMasked();
             if (actionMasked == 0) {
-                B(true);
+                K(true);
             }
-            boolean w = w(motionEvent, 0);
+            boolean F = F(motionEvent, 0);
             if (actionMasked == 1 || actionMasked == 3) {
-                B(true);
+                K(true);
             }
-            return w;
+            return F;
         }
         return invokeL.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z2, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Behavior e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048619, this, new Object[]{Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int layoutDirection = ViewCompat.getLayoutDirection(this);
-            int size = this.f33507e.size();
-            for (int i6 = 0; i6 < size; i6++) {
-                View view = this.f33507e.get(i6);
+            int size = this.a.size();
+            for (int i5 = 0; i5 < size; i5++) {
+                View view = this.a.get(i5);
                 if (view.getVisibility() != 8 && ((e2 = ((e) view.getLayoutParams()).e()) == null || !e2.l(this, view, layoutDirection))) {
-                    onLayoutChild(view, layoutDirection);
+                    C(view, layoutDirection);
                 }
-            }
-        }
-    }
-
-    public void onLayoutChild(@NonNull View view, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048620, this, view, i2) == null) {
-            e eVar = (e) view.getLayoutParams();
-            if (eVar.a()) {
-                return;
-            }
-            View view2 = eVar.k;
-            if (view2 != null) {
-                q(view, view2, i2);
-                return;
-            }
-            int i3 = eVar.f33517e;
-            if (i3 >= 0) {
-                r(view, i3, i2);
-            } else {
-                p(view, i2);
             }
         }
     }
@@ -1308,149 +1383,142 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
         int i5;
         int i6;
-        int i7;
         Behavior e2;
         e eVar;
+        int i7;
         int i8;
         int i9;
         int i10;
         int i11;
         int i12;
-        int i13;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048621, this, i2, i3) == null) {
-            x();
-            f();
+        if (interceptable == null || interceptable.invokeII(1048619, this, i, i2) == null) {
+            G();
+            g();
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
             int paddingRight = getPaddingRight();
             int paddingBottom = getPaddingBottom();
             int layoutDirection = ViewCompat.getLayoutDirection(this);
-            boolean z2 = layoutDirection == 1;
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size2 = View.MeasureSpec.getSize(i3);
-            int i14 = paddingLeft + paddingRight;
-            int i15 = paddingTop + paddingBottom;
+            boolean z = layoutDirection == 1;
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
+            int i13 = paddingLeft + paddingRight;
+            int i14 = paddingTop + paddingBottom;
             int suggestedMinimumWidth = getSuggestedMinimumWidth();
             int suggestedMinimumHeight = getSuggestedMinimumHeight();
-            boolean z3 = this.s != null && ViewCompat.getFitsSystemWindows(this);
-            int size3 = this.f33507e.size();
-            int i16 = suggestedMinimumWidth;
-            int i17 = suggestedMinimumHeight;
+            boolean z2 = this.o != null && ViewCompat.getFitsSystemWindows(this);
+            int size3 = this.a.size();
+            int i15 = suggestedMinimumWidth;
+            int i16 = suggestedMinimumHeight;
+            int i17 = 0;
             int i18 = 0;
-            int i19 = 0;
-            while (i19 < size3) {
-                View view = this.f33507e.get(i19);
+            while (i18 < size3) {
+                View view = this.a.get(i18);
                 if (view.getVisibility() == 8) {
-                    i12 = i19;
-                    i9 = size3;
-                    i10 = paddingLeft;
+                    i11 = i18;
+                    i8 = size3;
+                    i9 = paddingLeft;
                 } else {
                     e eVar2 = (e) view.getLayoutParams();
-                    int i20 = eVar2.f33517e;
-                    if (i20 < 0 || mode == 0) {
-                        i4 = i18;
+                    int i19 = eVar2.f25837e;
+                    if (i19 < 0 || mode == 0) {
+                        i3 = i17;
                     } else {
-                        int k = k(i20);
-                        int absoluteGravity = GravityCompat.getAbsoluteGravity(E(eVar2.f33515c), layoutDirection) & 7;
-                        i4 = i18;
-                        if ((absoluteGravity == 3 && !z2) || (absoluteGravity == 5 && z2)) {
-                            i5 = Math.max(0, (size - paddingRight) - k);
-                        } else if ((absoluteGravity == 5 && !z2) || (absoluteGravity == 3 && z2)) {
-                            i5 = Math.max(0, k - paddingLeft);
+                        int q = q(i19);
+                        int absoluteGravity = GravityCompat.getAbsoluteGravity(N(eVar2.f25835c), layoutDirection) & 7;
+                        i3 = i17;
+                        if ((absoluteGravity == 3 && !z) || (absoluteGravity == 5 && z)) {
+                            i4 = Math.max(0, (size - paddingRight) - q);
+                        } else if ((absoluteGravity == 5 && !z) || (absoluteGravity == 3 && z)) {
+                            i4 = Math.max(0, q - paddingLeft);
                         }
-                        if (z3 || ViewCompat.getFitsSystemWindows(view)) {
+                        if (z2 || ViewCompat.getFitsSystemWindows(view)) {
+                            i5 = i;
                             i6 = i2;
-                            i7 = i3;
                         } else {
-                            i6 = View.MeasureSpec.makeMeasureSpec(size - (this.s.getSystemWindowInsetLeft() + this.s.getSystemWindowInsetRight()), mode);
-                            i7 = View.MeasureSpec.makeMeasureSpec(size2 - (this.s.getSystemWindowInsetTop() + this.s.getSystemWindowInsetBottom()), mode2);
+                            i5 = View.MeasureSpec.makeMeasureSpec(size - (this.o.getSystemWindowInsetLeft() + this.o.getSystemWindowInsetRight()), mode);
+                            i6 = View.MeasureSpec.makeMeasureSpec(size2 - (this.o.getSystemWindowInsetTop() + this.o.getSystemWindowInsetBottom()), mode2);
                         }
                         e2 = eVar2.e();
                         if (e2 == null) {
                             eVar = eVar2;
-                            i11 = i4;
-                            i12 = i19;
-                            i8 = i17;
-                            i10 = paddingLeft;
-                            i13 = i16;
-                            i9 = size3;
+                            i10 = i3;
+                            i11 = i18;
+                            i7 = i16;
+                            i9 = paddingLeft;
+                            i12 = i15;
+                            i8 = size3;
                         } else {
                             eVar = eVar2;
-                            i8 = i17;
-                            i9 = size3;
-                            i10 = paddingLeft;
-                            i11 = i4;
-                            i12 = i19;
-                            i13 = i16;
+                            i7 = i16;
+                            i8 = size3;
+                            i9 = paddingLeft;
+                            i10 = i3;
+                            i11 = i18;
+                            i12 = i15;
                         }
-                        onMeasureChild(view, i6, i5, i7, 0);
+                        D(view, i5, i4, i6, 0);
                         e eVar3 = eVar;
-                        int max = Math.max(i13, i14 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) eVar3).leftMargin + ((ViewGroup.MarginLayoutParams) eVar3).rightMargin);
-                        int max2 = Math.max(i8, i15 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) eVar3).topMargin + ((ViewGroup.MarginLayoutParams) eVar3).bottomMargin);
-                        i18 = View.combineMeasuredStates(i11, view.getMeasuredState());
-                        i16 = max;
-                        i17 = max2;
+                        int max = Math.max(i12, i13 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) eVar3).leftMargin + ((ViewGroup.MarginLayoutParams) eVar3).rightMargin);
+                        int max2 = Math.max(i7, i14 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) eVar3).topMargin + ((ViewGroup.MarginLayoutParams) eVar3).bottomMargin);
+                        i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                        i15 = max;
+                        i16 = max2;
                     }
-                    i5 = 0;
-                    if (z3) {
+                    i4 = 0;
+                    if (z2) {
                     }
+                    i5 = i;
                     i6 = i2;
-                    i7 = i3;
                     e2 = eVar2.e();
                     if (e2 == null) {
                     }
-                    onMeasureChild(view, i6, i5, i7, 0);
+                    D(view, i5, i4, i6, 0);
                     e eVar32 = eVar;
-                    int max3 = Math.max(i13, i14 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) eVar32).leftMargin + ((ViewGroup.MarginLayoutParams) eVar32).rightMargin);
-                    int max22 = Math.max(i8, i15 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) eVar32).topMargin + ((ViewGroup.MarginLayoutParams) eVar32).bottomMargin);
-                    i18 = View.combineMeasuredStates(i11, view.getMeasuredState());
-                    i16 = max3;
-                    i17 = max22;
+                    int max3 = Math.max(i12, i13 + view.getMeasuredWidth() + ((ViewGroup.MarginLayoutParams) eVar32).leftMargin + ((ViewGroup.MarginLayoutParams) eVar32).rightMargin);
+                    int max22 = Math.max(i7, i14 + view.getMeasuredHeight() + ((ViewGroup.MarginLayoutParams) eVar32).topMargin + ((ViewGroup.MarginLayoutParams) eVar32).bottomMargin);
+                    i17 = View.combineMeasuredStates(i10, view.getMeasuredState());
+                    i15 = max3;
+                    i16 = max22;
                 }
-                i19 = i12 + 1;
-                paddingLeft = i10;
-                size3 = i9;
+                i18 = i11 + 1;
+                paddingLeft = i9;
+                size3 = i8;
             }
-            int i21 = i18;
-            setMeasuredDimension(View.resolveSizeAndState(i16, i2, (-16777216) & i21), View.resolveSizeAndState(i17, i3, i21 << 16));
-        }
-    }
-
-    public void onMeasureChild(View view, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            measureChildWithMargins(view, i2, i3, i4, i5);
+            int i20 = i17;
+            setMeasuredDimension(View.resolveSizeAndState(i15, i, (-16777216) & i20), View.resolveSizeAndState(i16, i2, i20 << 16));
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onNestedFling(View view, float f2, float f3, boolean z2) {
+    public boolean onNestedFling(View view, float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Behavior e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048620, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) {
             int childCount = getChildCount();
-            boolean z3 = false;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            boolean z2 = false;
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 if (childAt.getVisibility() != 8) {
                     e eVar = (e) childAt.getLayoutParams();
                     if (eVar.i(0) && (e2 = eVar.e()) != null) {
-                        z3 |= e2.n(this, childAt, view, f2, f3, z2);
+                        z2 |= e2.n(this, childAt, view, f2, f3, z);
                     }
                 }
             }
-            if (z3) {
-                u(1);
+            if (z2) {
+                B(1);
             }
-            return z3;
+            return z2;
         }
         return invokeCommon.booleanValue;
     }
@@ -1460,44 +1528,44 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         InterceptResult invokeCommon;
         Behavior e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048624, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048621, this, new Object[]{view, Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             int childCount = getChildCount();
-            boolean z2 = false;
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            boolean z = false;
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 if (childAt.getVisibility() != 8) {
                     e eVar = (e) childAt.getLayoutParams();
                     if (eVar.i(0) && (e2 = eVar.e()) != null) {
-                        z2 |= e2.o(this, childAt, view, f2, f3);
+                        z |= e2.o(this, childAt, view, f2, f3);
                     }
                 }
             }
-            return z2;
+            return z;
         }
         return invokeCommon.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr) {
+    public void onNestedPreScroll(View view, int i, int i2, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr}) == null) {
-            onNestedPreScroll(view, i2, i3, iArr, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr}) == null) {
+            onNestedPreScroll(view, i, i2, iArr, 0);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScroll(View view, int i2, int i3, int i4, int i5) {
+    public void onNestedScroll(View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            onNestedScroll(view, i2, i3, i4, i5, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            onNestedScroll(view, i, i2, i3, i4, 0);
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public void onNestedScrollAccepted(View view, View view2, int i2) {
+    public void onNestedScrollAccepted(View view, View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048630, this, view, view2, i2) == null) {
-            onNestedScrollAccepted(view, view2, i2, 0);
+        if (interceptable == null || interceptable.invokeLLI(1048627, this, view, view2, i) == null) {
+            onNestedScrollAccepted(view, view2, i, 0);
         }
     }
 
@@ -1505,7 +1573,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     public void onRestoreInstanceState(Parcelable parcelable) {
         Parcelable parcelable2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048632, this, parcelable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048629, this, parcelable) == null) {
             if (!(parcelable instanceof SavedState)) {
                 super.onRestoreInstanceState(parcelable);
                 return;
@@ -1514,10 +1582,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             super.onRestoreInstanceState(savedState.getSuperState());
             SparseArray<Parcelable> sparseArray = savedState.behaviorStates;
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 int id = childAt.getId();
-                Behavior e2 = m(childAt).e();
+                Behavior e2 = s(childAt).e();
                 if (id != -1 && e2 != null && (parcelable2 = sparseArray.get(id)) != null) {
                     e2.x(this, childAt, parcelable2);
                 }
@@ -1530,12 +1598,12 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         InterceptResult invokeV;
         Parcelable y2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
             SavedState savedState = new SavedState(super.onSaveInstanceState());
             SparseArray<Parcelable> sparseArray = new SparseArray<>();
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = getChildAt(i);
                 int id = childAt.getId();
                 Behavior e2 = ((e) childAt.getLayoutParams()).e();
                 if (id != -1 && e2 != null && (y2 = e2.y(this, childAt)) != null) {
@@ -1549,16 +1617,16 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
-    public boolean onStartNestedScroll(View view, View view2, int i2) {
+    public boolean onStartNestedScroll(View view, View view2, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048634, this, view, view2, i2)) == null) ? onStartNestedScroll(view, view2, i2, 0) : invokeLLI.booleanValue;
+        return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048631, this, view, view2, i)) == null) ? onStartNestedScroll(view, view2, i, 0) : invokeLLI.booleanValue;
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent, androidx.core.view.NestedScrollingParent
     public void onStopNestedScroll(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, view) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, view) == null) {
             onStopNestedScroll(view, 0);
         }
     }
@@ -1575,25 +1643,25 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     */
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        boolean z2;
+        boolean z;
         Behavior e2;
         boolean D;
         MotionEvent motionEvent2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, motionEvent)) == null) {
             int actionMasked = motionEvent.getActionMasked();
-            if (this.o == null) {
-                z2 = w(motionEvent, 1);
+            if (this.k == null) {
+                z = F(motionEvent, 1);
             } else {
-                z2 = false;
+                z = false;
             }
-            View view = this.o;
+            View view = this.k;
             if (view != null && (e2 = ((e) view.getLayoutParams()).e()) != null) {
-                D = e2.D(this, this.o, motionEvent);
+                D = e2.D(this, this.k, motionEvent);
                 motionEvent2 = null;
-                if (this.o != null) {
+                if (this.k != null) {
                     D |= super.onTouchEvent(motionEvent);
-                } else if (z2) {
+                } else if (z) {
                     long uptimeMillis = SystemClock.uptimeMillis();
                     motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
                     super.onTouchEvent(motionEvent2);
@@ -1602,100 +1670,96 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     motionEvent2.recycle();
                 }
                 if (actionMasked != 1 || actionMasked == 3) {
-                    B(false);
+                    K(false);
                 }
                 return D;
             }
             D = false;
             motionEvent2 = null;
-            if (this.o != null) {
+            if (this.k != null) {
             }
             if (motionEvent2 != null) {
             }
             if (actionMasked != 1) {
             }
-            B(false);
+            K(false);
             return D;
         }
         return invokeL.booleanValue;
     }
 
-    public final void p(View view, int i2) {
+    public final void p(View view, int i, Rect rect, Rect rect2, e eVar, int i2, int i3) {
+        int width;
+        int height;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048639, this, view, i2) == null) {
-            e eVar = (e) view.getLayoutParams();
-            Rect a2 = a();
-            a2.set(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, (getWidth() - getPaddingRight()) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin, (getHeight() - getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin);
-            if (this.s != null && ViewCompat.getFitsSystemWindows(this) && !ViewCompat.getFitsSystemWindows(view)) {
-                a2.left += this.s.getSystemWindowInsetLeft();
-                a2.top += this.s.getSystemWindowInsetTop();
-                a2.right -= this.s.getSystemWindowInsetRight();
-                a2.bottom -= this.s.getSystemWindowInsetBottom();
-            }
-            Rect a3 = a();
-            GravityCompat.apply(D(eVar.f33515c), view.getMeasuredWidth(), view.getMeasuredHeight(), a2, a3, i2);
-            view.layout(a3.left, a3.top, a3.right, a3.bottom);
-            z(a2);
-            z(a3);
-        }
-    }
-
-    public final void q(View view, View view2, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048640, this, view, view2, i2) == null) {
-            Rect a2 = a();
-            Rect a3 = a();
-            try {
-                h(view2, a2);
-                i(view, i2, a2, a3);
-                view.layout(a3.left, a3.top, a3.right, a3.bottom);
-            } finally {
-                z(a2);
-                z(a3);
-            }
-        }
-    }
-
-    public final void r(View view, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048641, this, view, i2, i3) == null) {
-            e eVar = (e) view.getLayoutParams();
-            int absoluteGravity = GravityCompat.getAbsoluteGravity(E(eVar.f33515c), i3);
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{view, Integer.valueOf(i), rect, rect2, eVar, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            int absoluteGravity = GravityCompat.getAbsoluteGravity(L(eVar.f25835c), i);
+            int absoluteGravity2 = GravityCompat.getAbsoluteGravity(M(eVar.f25836d), i);
             int i4 = absoluteGravity & 7;
             int i5 = absoluteGravity & 112;
-            int width = getWidth();
-            int height = getHeight();
-            int measuredWidth = view.getMeasuredWidth();
-            int measuredHeight = view.getMeasuredHeight();
-            if (i3 == 1) {
-                i2 = width - i2;
+            int i6 = absoluteGravity2 & 7;
+            int i7 = absoluteGravity2 & 112;
+            if (i6 == 1) {
+                width = rect.left + (rect.width() / 2);
+            } else if (i6 != 5) {
+                width = rect.left;
+            } else {
+                width = rect.right;
             }
-            int k = k(i2) - measuredWidth;
-            int i6 = 0;
+            if (i7 == 16) {
+                height = rect.top + (rect.height() / 2);
+            } else if (i7 != 80) {
+                height = rect.top;
+            } else {
+                height = rect.bottom;
+            }
             if (i4 == 1) {
-                k += measuredWidth / 2;
-            } else if (i4 == 5) {
-                k += measuredWidth;
+                width -= i2 / 2;
+            } else if (i4 != 5) {
+                width -= i2;
             }
             if (i5 == 16) {
-                i6 = 0 + (measuredHeight / 2);
-            } else if (i5 == 80) {
-                i6 = measuredHeight + 0;
+                height -= i3 / 2;
+            } else if (i5 != 80) {
+                height -= i3;
             }
-            int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, Math.min(k, ((width - getPaddingRight()) - measuredWidth) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin));
-            int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, Math.min(i6, ((height - getPaddingBottom()) - measuredHeight) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin));
-            view.layout(max, max2, measuredWidth + max, measuredHeight + max2);
+            rect2.set(width, height, i2 + width, i3 + height);
+        }
+    }
+
+    public final int q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048637, this, i)) == null) {
+            int[] iArr = this.j;
+            if (iArr == null) {
+                Log.e(androidx.coordinatorlayout.widget.CoordinatorLayout.TAG, "No keylines defined for " + this + " - attempted index lookup " + i);
+                return 0;
+            } else if (i >= 0 && i < iArr.length) {
+                return iArr[i];
+            } else {
+                Log.e(androidx.coordinatorlayout.widget.CoordinatorLayout.TAG, "Keyline index " + i + " out of range for " + this);
+                return 0;
+            }
+        }
+        return invokeI.intValue;
+    }
+
+    public void r(View view, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048638, this, view, rect) == null) {
+            rect.set(((e) view.getLayoutParams()).g());
         }
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z2) {
+    public boolean requestChildRectangleOnScreen(View view, Rect rect, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048642, this, view, rect, z2)) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048639, this, view, rect, z)) == null) {
             Behavior e2 = ((e) view.getLayoutParams()).e();
-            if (e2 == null || !e2.w(this, view, rect, z2)) {
-                return super.requestChildRectangleOnScreen(view, rect, z2);
+            if (e2 == null || !e2.w(this, view, rect, z)) {
+                return super.requestChildRectangleOnScreen(view, rect, z);
             }
             return true;
         }
@@ -1703,31 +1767,246 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
     }
 
     @Override // android.view.ViewGroup, android.view.ViewParent
-    public void requestDisallowInterceptTouchEvent(boolean z2) {
+    public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048643, this, z2) == null) {
-            super.requestDisallowInterceptTouchEvent(z2);
-            if (!z2 || this.l) {
+        if (interceptable == null || interceptable.invokeZ(1048640, this, z) == null) {
+            super.requestDisallowInterceptTouchEvent(z);
+            if (!z || this.f25833h) {
                 return;
             }
-            B(false);
-            this.l = true;
+            K(false);
+            this.f25833h = true;
         }
     }
 
-    public final void s(View view, Rect rect, int i2) {
+    public e s(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, view)) == null) {
+            e eVar = (e) view.getLayoutParams();
+            if (!eVar.f25834b) {
+                if (view instanceof b) {
+                    Behavior behavior = ((b) view).getBehavior();
+                    if (behavior == null) {
+                        Log.e(androidx.coordinatorlayout.widget.CoordinatorLayout.TAG, "Attached behavior class is null");
+                    }
+                    eVar.n(behavior);
+                    eVar.f25834b = true;
+                } else {
+                    c cVar = null;
+                    for (Class<?> cls = view.getClass(); cls != null; cls = cls.getSuperclass()) {
+                        cVar = (c) cls.getAnnotation(c.class);
+                        if (cVar != null) {
+                            break;
+                        }
+                    }
+                    if (cVar != null) {
+                        try {
+                            eVar.n(cVar.value().getDeclaredConstructor(new Class[0]).newInstance(new Object[0]));
+                        } catch (Exception e2) {
+                            Log.e(androidx.coordinatorlayout.widget.CoordinatorLayout.TAG, "Default behavior class " + cVar.value().getName() + " could not be instantiated. Did you forget a default constructor?", e2);
+                        }
+                    }
+                    eVar.f25834b = true;
+                }
+            }
+            return eVar;
+        }
+        return (e) invokeL.objValue;
+    }
+
+    @Override // android.view.View
+    public void setFitsSystemWindows(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            super.setFitsSystemWindows(z);
+            R();
+        }
+    }
+
+    @Override // android.view.ViewGroup
+    public void setOnHierarchyChangeListener(ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048643, this, onHierarchyChangeListener) == null) {
+            this.r = onHierarchyChangeListener;
+        }
+    }
+
+    public void setStatusBarBackground(@Nullable Drawable drawable) {
+        Drawable drawable2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048644, this, drawable) == null) || (drawable2 = this.q) == drawable) {
+            return;
+        }
+        if (drawable2 != null) {
+            drawable2.setCallback(null);
+        }
+        Drawable mutate = drawable != null ? drawable.mutate() : null;
+        this.q = mutate;
+        if (mutate != null) {
+            if (mutate.isStateful()) {
+                this.q.setState(getDrawableState());
+            }
+            DrawableCompat.setLayoutDirection(this.q, ViewCompat.getLayoutDirection(this));
+            this.q.setVisible(getVisibility() == 0, false);
+            this.q.setCallback(this);
+        }
+        ViewCompat.postInvalidateOnAnimation(this);
+    }
+
+    public void setStatusBarBackgroundColor(@ColorInt int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048645, this, i) == null) {
+            setStatusBarBackground(new ColorDrawable(i));
+        }
+    }
+
+    public void setStatusBarBackgroundResource(@DrawableRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048646, this, i) == null) {
+            setStatusBarBackground(i != 0 ? ContextCompat.getDrawable(getContext(), i) : null);
+        }
+    }
+
+    @Override // android.view.View
+    public void setVisibility(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048647, this, i) == null) {
+            super.setVisibility(i);
+            boolean z = i == 0;
+            Drawable drawable = this.q;
+            if (drawable == null || drawable.isVisible() == z) {
+                return;
+            }
+            this.q.setVisible(z, false);
+        }
+    }
+
+    public final void t(List<View> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048648, this, list) == null) {
+            list.clear();
+            boolean isChildrenDrawingOrderEnabled = isChildrenDrawingOrderEnabled();
+            int childCount = getChildCount();
+            for (int i = childCount - 1; i >= 0; i--) {
+                list.add(getChildAt(isChildrenDrawingOrderEnabled ? getChildDrawingOrder(childCount, i) : i));
+            }
+            Comparator<View> comparator = x;
+            if (comparator != null) {
+                Collections.sort(list, comparator);
+            }
+        }
+    }
+
+    public final boolean u(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048649, this, view)) == null) ? this.f25827b.j(view) : invokeL.booleanValue;
+    }
+
+    public boolean v(@NonNull View view, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048650, this, view, i, i2)) == null) {
+            Rect a2 = a();
+            n(view, a2);
+            try {
+                return a2.contains(i, i2);
+            } finally {
+                I(a2);
+            }
+        }
+        return invokeLII.booleanValue;
+    }
+
+    @Override // android.view.View
+    public boolean verifyDrawable(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048651, this, drawable)) == null) ? super.verifyDrawable(drawable) || drawable == this.q : invokeL.booleanValue;
+    }
+
+    public final void w(View view, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048652, this, view, i) == null) {
+            e eVar = (e) view.getLayoutParams();
+            Rect a2 = a();
+            a2.set(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, (getWidth() - getPaddingRight()) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin, (getHeight() - getPaddingBottom()) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin);
+            if (this.o != null && ViewCompat.getFitsSystemWindows(this) && !ViewCompat.getFitsSystemWindows(view)) {
+                a2.left += this.o.getSystemWindowInsetLeft();
+                a2.top += this.o.getSystemWindowInsetTop();
+                a2.right -= this.o.getSystemWindowInsetRight();
+                a2.bottom -= this.o.getSystemWindowInsetBottom();
+            }
+            Rect a3 = a();
+            GravityCompat.apply(M(eVar.f25835c), view.getMeasuredWidth(), view.getMeasuredHeight(), a2, a3, i);
+            view.layout(a3.left, a3.top, a3.right, a3.bottom);
+            I(a2);
+            I(a3);
+        }
+    }
+
+    public final void x(View view, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048653, this, view, view2, i) == null) {
+            Rect a2 = a();
+            Rect a3 = a();
+            try {
+                n(view2, a2);
+                o(view, i, a2, a3);
+                view.layout(a3.left, a3.top, a3.right, a3.bottom);
+            } finally {
+                I(a2);
+                I(a3);
+            }
+        }
+    }
+
+    public final void y(View view, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048654, this, view, i, i2) == null) {
+            e eVar = (e) view.getLayoutParams();
+            int absoluteGravity = GravityCompat.getAbsoluteGravity(N(eVar.f25835c), i2);
+            int i3 = absoluteGravity & 7;
+            int i4 = absoluteGravity & 112;
+            int width = getWidth();
+            int height = getHeight();
+            int measuredWidth = view.getMeasuredWidth();
+            int measuredHeight = view.getMeasuredHeight();
+            if (i2 == 1) {
+                i = width - i;
+            }
+            int q = q(i) - measuredWidth;
+            int i5 = 0;
+            if (i3 == 1) {
+                q += measuredWidth / 2;
+            } else if (i3 == 5) {
+                q += measuredWidth;
+            }
+            if (i4 == 16) {
+                i5 = 0 + (measuredHeight / 2);
+            } else if (i4 == 80) {
+                i5 = measuredHeight + 0;
+            }
+            int max = Math.max(getPaddingLeft() + ((ViewGroup.MarginLayoutParams) eVar).leftMargin, Math.min(q, ((width - getPaddingRight()) - measuredWidth) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin));
+            int max2 = Math.max(getPaddingTop() + ((ViewGroup.MarginLayoutParams) eVar).topMargin, Math.min(i5, ((height - getPaddingBottom()) - measuredHeight) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin));
+            view.layout(max, max2, measuredWidth + max, measuredHeight + max2);
+        }
+    }
+
+    public final void z(View view, Rect rect, int i) {
+        boolean z;
         boolean z2;
-        boolean z3;
         int width;
+        int i2;
         int i3;
         int i4;
-        int i5;
         int height;
+        int i5;
         int i6;
         int i7;
-        int i8;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048644, this, view, rect, i2) == null) || !ViewCompat.isLaidOut(view) || view.getWidth() <= 0 || view.getHeight() <= 0) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048655, this, view, rect, i) == null) || !ViewCompat.isLaidOut(view) || view.getWidth() <= 0 || view.getHeight() <= 0) {
             return;
         }
         e eVar = (e) view.getLayoutParams();
@@ -1742,307 +2021,41 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         } else {
             a2.set(a3);
         }
-        z(a3);
+        I(a3);
         if (a2.isEmpty()) {
-            z(a2);
+            I(a2);
             return;
         }
-        int absoluteGravity = GravityCompat.getAbsoluteGravity(eVar.f33520h, i2);
-        boolean z4 = true;
-        if ((absoluteGravity & 48) != 48 || (i7 = (a2.top - ((ViewGroup.MarginLayoutParams) eVar).topMargin) - eVar.f33522j) >= (i8 = rect.top)) {
+        int absoluteGravity = GravityCompat.getAbsoluteGravity(eVar.f25840h, i);
+        boolean z3 = true;
+        if ((absoluteGravity & 48) != 48 || (i6 = (a2.top - ((ViewGroup.MarginLayoutParams) eVar).topMargin) - eVar.j) >= (i7 = rect.top)) {
+            z = false;
+        } else {
+            P(view, i7 - i6);
+            z = true;
+        }
+        if ((absoluteGravity & 80) == 80 && (height = ((getHeight() - a2.bottom) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin) + eVar.j) < (i5 = rect.bottom)) {
+            P(view, height - i5);
+            z = true;
+        }
+        if (!z) {
+            P(view, 0);
+        }
+        if ((absoluteGravity & 3) != 3 || (i3 = (a2.left - ((ViewGroup.MarginLayoutParams) eVar).leftMargin) - eVar.i) >= (i4 = rect.left)) {
             z2 = false;
         } else {
-            G(view, i8 - i7);
+            O(view, i4 - i3);
             z2 = true;
         }
-        if ((absoluteGravity & 80) == 80 && (height = ((getHeight() - a2.bottom) - ((ViewGroup.MarginLayoutParams) eVar).bottomMargin) + eVar.f33522j) < (i6 = rect.bottom)) {
-            G(view, height - i6);
-            z2 = true;
-        }
-        if (!z2) {
-            G(view, 0);
-        }
-        if ((absoluteGravity & 3) != 3 || (i4 = (a2.left - ((ViewGroup.MarginLayoutParams) eVar).leftMargin) - eVar.f33521i) >= (i5 = rect.left)) {
-            z3 = false;
+        if ((absoluteGravity & 5) != 5 || (width = ((getWidth() - a2.right) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin) + eVar.i) >= (i2 = rect.right)) {
+            z3 = z2;
         } else {
-            F(view, i5 - i4);
-            z3 = true;
+            O(view, width - i2);
         }
-        if ((absoluteGravity & 5) != 5 || (width = ((getWidth() - a2.right) - ((ViewGroup.MarginLayoutParams) eVar).rightMargin) + eVar.f33521i) >= (i3 = rect.right)) {
-            z4 = z3;
-        } else {
-            F(view, width - i3);
+        if (!z3) {
+            O(view, 0);
         }
-        if (!z4) {
-            F(view, 0);
-        }
-        z(a2);
-    }
-
-    @Override // android.view.View
-    public void setFitsSystemWindows(boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048645, this, z2) == null) {
-            super.setFitsSystemWindows(z2);
-            I();
-        }
-    }
-
-    @Override // android.view.ViewGroup
-    public void setOnHierarchyChangeListener(ViewGroup.OnHierarchyChangeListener onHierarchyChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048646, this, onHierarchyChangeListener) == null) {
-            this.v = onHierarchyChangeListener;
-        }
-    }
-
-    public void setStatusBarBackground(@Nullable Drawable drawable) {
-        Drawable drawable2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048647, this, drawable) == null) || (drawable2 = this.u) == drawable) {
-            return;
-        }
-        if (drawable2 != null) {
-            drawable2.setCallback(null);
-        }
-        Drawable mutate = drawable != null ? drawable.mutate() : null;
-        this.u = mutate;
-        if (mutate != null) {
-            if (mutate.isStateful()) {
-                this.u.setState(getDrawableState());
-            }
-            DrawableCompat.setLayoutDirection(this.u, ViewCompat.getLayoutDirection(this));
-            this.u.setVisible(getVisibility() == 0, false);
-            this.u.setCallback(this);
-        }
-        ViewCompat.postInvalidateOnAnimation(this);
-    }
-
-    public void setStatusBarBackgroundColor(@ColorInt int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
-            setStatusBarBackground(new ColorDrawable(i2));
-        }
-    }
-
-    public void setStatusBarBackgroundResource(@DrawableRes int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
-            setStatusBarBackground(i2 != 0 ? ContextCompat.getDrawable(getContext(), i2) : null);
-        }
-    }
-
-    @Override // android.view.View
-    public void setVisibility(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048650, this, i2) == null) {
-            super.setVisibility(i2);
-            boolean z2 = i2 == 0;
-            Drawable drawable = this.u;
-            if (drawable == null || drawable.isVisible() == z2) {
-                return;
-            }
-            this.u.setVisible(z2, false);
-        }
-    }
-
-    public void t(View view, int i2) {
-        Behavior e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048651, this, view, i2) == null) {
-            e eVar = (e) view.getLayoutParams();
-            if (eVar.k != null) {
-                Rect a2 = a();
-                Rect a3 = a();
-                Rect a4 = a();
-                h(eVar.k, a2);
-                boolean z2 = false;
-                g(view, false, a3);
-                int measuredWidth = view.getMeasuredWidth();
-                int measuredHeight = view.getMeasuredHeight();
-                j(view, i2, a2, a4, eVar, measuredWidth, measuredHeight);
-                z2 = (a4.left == a3.left && a4.top == a3.top) ? true : true;
-                d(eVar, a4, measuredWidth, measuredHeight);
-                int i3 = a4.left - a3.left;
-                int i4 = a4.top - a3.top;
-                if (i3 != 0) {
-                    ViewCompat.offsetLeftAndRight(view, i3);
-                }
-                if (i4 != 0) {
-                    ViewCompat.offsetTopAndBottom(view, i4);
-                }
-                if (z2 && (e2 = eVar.e()) != null) {
-                    e2.h(this, view, eVar.k);
-                }
-                z(a2);
-                z(a3);
-                z(a4);
-            }
-        }
-    }
-
-    @SuppressLint({"SwitchIntDef"})
-    public final void u(int i2) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048652, this, i2) == null) {
-            int layoutDirection = ViewCompat.getLayoutDirection(this);
-            int size = this.f33507e.size();
-            Rect a2 = a();
-            Rect a3 = a();
-            Rect a4 = a();
-            for (int i3 = 0; i3 < size; i3++) {
-                View view = this.f33507e.get(i3);
-                e eVar = (e) view.getLayoutParams();
-                if (i2 != 0 || view.getVisibility() != 8) {
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        if (eVar.l == this.f33507e.get(i4)) {
-                            t(view, layoutDirection);
-                        }
-                    }
-                    g(view, true, a3);
-                    if (eVar.f33519g != 0 && !a3.isEmpty()) {
-                        int absoluteGravity = GravityCompat.getAbsoluteGravity(eVar.f33519g, layoutDirection);
-                        int i5 = absoluteGravity & 112;
-                        if (i5 == 48) {
-                            a2.top = Math.max(a2.top, a3.bottom);
-                        } else if (i5 == 80) {
-                            a2.bottom = Math.max(a2.bottom, getHeight() - a3.top);
-                        }
-                        int i6 = absoluteGravity & 7;
-                        if (i6 == 3) {
-                            a2.left = Math.max(a2.left, a3.right);
-                        } else if (i6 == 5) {
-                            a2.right = Math.max(a2.right, getWidth() - a3.left);
-                        }
-                    }
-                    if (eVar.f33520h != 0 && view.getVisibility() == 0) {
-                        s(view, a2, layoutDirection);
-                    }
-                    if (i2 != 2) {
-                        l(view, a4);
-                        if (!a4.equals(a3)) {
-                            y(view, a3);
-                        }
-                    }
-                    for (int i7 = i3 + 1; i7 < size; i7++) {
-                        View view2 = this.f33507e.get(i7);
-                        e eVar2 = (e) view2.getLayoutParams();
-                        Behavior e2 = eVar2.e();
-                        if (e2 != null && e2.e(this, view2, view)) {
-                            if (i2 == 0 && eVar2.f()) {
-                                eVar2.j();
-                            } else {
-                                if (i2 != 2) {
-                                    z2 = e2.h(this, view2, view);
-                                } else {
-                                    e2.i(this, view2, view);
-                                    z2 = true;
-                                }
-                                if (i2 == 1) {
-                                    eVar2.o(z2);
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            z(a2);
-            z(a3);
-            z(a4);
-        }
-    }
-
-    @Override // android.view.View
-    public boolean verifyDrawable(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048653, this, drawable)) == null) ? super.verifyDrawable(drawable) || drawable == this.u : invokeL.booleanValue;
-    }
-
-    public final boolean w(MotionEvent motionEvent, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048654, this, motionEvent, i2)) == null) {
-            int actionMasked = motionEvent.getActionMasked();
-            List<View> list = this.f33509g;
-            n(list);
-            int size = list.size();
-            MotionEvent motionEvent2 = null;
-            boolean z2 = false;
-            boolean z3 = false;
-            for (int i3 = 0; i3 < size; i3++) {
-                View view = list.get(i3);
-                e eVar = (e) view.getLayoutParams();
-                Behavior e2 = eVar.e();
-                if (!(z2 || z3) || actionMasked == 0) {
-                    if (!z2 && e2 != null) {
-                        if (i2 == 0) {
-                            z2 = e2.k(this, view, motionEvent);
-                        } else if (i2 == 1) {
-                            z2 = e2.D(this, view, motionEvent);
-                        }
-                        if (z2) {
-                            this.o = view;
-                        }
-                    }
-                    boolean c2 = eVar.c();
-                    boolean h2 = eVar.h(this, view);
-                    z3 = h2 && !c2;
-                    if (h2 && !z3) {
-                        break;
-                    }
-                } else if (e2 != null) {
-                    if (motionEvent2 == null) {
-                        long uptimeMillis = SystemClock.uptimeMillis();
-                        motionEvent2 = MotionEvent.obtain(uptimeMillis, uptimeMillis, 3, 0.0f, 0.0f, 0);
-                    }
-                    if (i2 == 0) {
-                        e2.k(this, view, motionEvent2);
-                    } else if (i2 == 1) {
-                        e2.D(this, view, motionEvent2);
-                    }
-                }
-            }
-            list.clear();
-            return z2;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
-            this.f33507e.clear();
-            this.f33508f.c();
-            int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = getChildAt(i2);
-                e m = m(childAt);
-                m.d(this, childAt);
-                this.f33508f.b(childAt);
-                for (int i3 = 0; i3 < childCount; i3++) {
-                    if (i3 != i2) {
-                        View childAt2 = getChildAt(i3);
-                        if (m.b(this, childAt, childAt2)) {
-                            if (!this.f33508f.d(childAt2)) {
-                                this.f33508f.b(childAt2);
-                            }
-                            this.f33508f.a(childAt2, childAt);
-                        }
-                    }
-                }
-            }
-            this.f33507e.addAll(this.f33508f.i());
-            Collections.reverse(this.f33507e);
-        }
-    }
-
-    public void y(View view, Rect rect) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048656, this, view, rect) == null) {
-            ((e) view.getLayoutParams()).p(rect);
-        }
+        I(a2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -2054,9 +2067,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2066,145 +2079,137 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    public e generateDefaultLayoutParams() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? new e(-2, -2) : (e) invokeV.objValue;
-    }
-
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedPreScroll(View view, int i2, int i3, int[] iArr, int i4) {
+    public void onNestedPreScroll(View view, int i, int i2, int[] iArr, int i3) {
         Behavior e2;
         int min;
         int min2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
             int childCount = getChildCount();
-            boolean z2 = false;
+            boolean z = false;
+            int i4 = 0;
             int i5 = 0;
-            int i6 = 0;
-            for (int i7 = 0; i7 < childCount; i7++) {
-                View childAt = getChildAt(i7);
+            for (int i6 = 0; i6 < childCount; i6++) {
+                View childAt = getChildAt(i6);
                 if (childAt.getVisibility() != 8) {
                     e eVar = (e) childAt.getLayoutParams();
-                    if (eVar.i(i4) && (e2 = eVar.e()) != null) {
-                        int[] iArr2 = this.f33512j;
+                    if (eVar.i(i3) && (e2 = eVar.e()) != null) {
+                        int[] iArr2 = this.f25831f;
                         iArr2[0] = 0;
                         iArr2[1] = 0;
-                        e2.q(this, childAt, view, i2, i3, iArr2, i4);
+                        e2.q(this, childAt, view, i, i2, iArr2, i3);
+                        if (i > 0) {
+                            min = Math.max(i4, this.f25831f[0]);
+                        } else {
+                            min = Math.min(i4, this.f25831f[0]);
+                        }
+                        i4 = min;
                         if (i2 > 0) {
-                            min = Math.max(i5, this.f33512j[0]);
+                            min2 = Math.max(i5, this.f25831f[1]);
                         } else {
-                            min = Math.min(i5, this.f33512j[0]);
+                            min2 = Math.min(i5, this.f25831f[1]);
                         }
-                        i5 = min;
-                        if (i3 > 0) {
-                            min2 = Math.max(i6, this.f33512j[1]);
-                        } else {
-                            min2 = Math.min(i6, this.f33512j[1]);
-                        }
-                        i6 = min2;
-                        z2 = true;
+                        i5 = min2;
+                        z = true;
                     }
                 }
             }
-            iArr[0] = i5;
-            iArr[1] = i6;
-            if (z2) {
-                u(1);
+            iArr[0] = i4;
+            iArr[1] = i5;
+            if (z) {
+                B(1);
             }
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScroll(View view, int i2, int i3, int i4, int i5, int i6) {
+    public void onNestedScroll(View view, int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            onNestedScroll(view, i2, i3, i4, i5, 0, this.k);
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            onNestedScroll(view, i, i2, i3, i4, 0, this.f25832g);
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onNestedScrollAccepted(View view, View view2, int i2, int i3) {
+    public void onNestedScrollAccepted(View view, View view2, int i, int i2) {
         Behavior e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048631, this, view, view2, i2, i3) == null) {
-            this.x.onNestedScrollAccepted(view, view2, i2, i3);
-            this.p = view2;
+        if (interceptable == null || interceptable.invokeLLII(1048628, this, view, view2, i, i2) == null) {
+            this.t.onNestedScrollAccepted(view, view2, i, i2);
+            this.l = view2;
             int childCount = getChildCount();
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = getChildAt(i4);
+            for (int i3 = 0; i3 < childCount; i3++) {
+                View childAt = getChildAt(i3);
                 e eVar = (e) childAt.getLayoutParams();
-                if (eVar.i(i3) && (e2 = eVar.e()) != null) {
-                    e2.v(this, childAt, view, view2, i2, i3);
+                if (eVar.i(i2) && (e2 = eVar.e()) != null) {
+                    e2.v(this, childAt, view, view2, i, i2);
                 }
             }
         }
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public boolean onStartNestedScroll(View view, View view2, int i2, int i3) {
+    public boolean onStartNestedScroll(View view, View view2, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048635, this, view, view2, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048632, this, view, view2, i, i2)) == null) {
             int childCount = getChildCount();
-            boolean z2 = false;
-            for (int i4 = 0; i4 < childCount; i4++) {
-                View childAt = getChildAt(i4);
+            boolean z = false;
+            for (int i3 = 0; i3 < childCount; i3++) {
+                View childAt = getChildAt(i3);
                 if (childAt.getVisibility() != 8) {
                     e eVar = (e) childAt.getLayoutParams();
                     Behavior e2 = eVar.e();
                     if (e2 != null) {
-                        boolean A2 = e2.A(this, childAt, view, view2, i2, i3);
-                        z2 |= A2;
-                        eVar.q(i3, A2);
+                        boolean A = e2.A(this, childAt, view, view2, i, i2);
+                        z |= A;
+                        eVar.q(i2, A);
                     } else {
-                        eVar.q(i3, false);
+                        eVar.q(i2, false);
                     }
                 }
             }
-            return z2;
+            return z;
         }
         return invokeLLII.booleanValue;
     }
 
     @Override // androidx.core.view.NestedScrollingParent2
-    public void onStopNestedScroll(View view, int i2) {
+    public void onStopNestedScroll(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048637, this, view, i2) == null) {
-            this.x.onStopNestedScroll(view, i2);
+        if (interceptable == null || interceptable.invokeLI(1048634, this, view, i) == null) {
+            this.t.onStopNestedScroll(view, i);
             int childCount = getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = getChildAt(i3);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = getChildAt(i2);
                 e eVar = (e) childAt.getLayoutParams();
-                if (eVar.i(i2)) {
+                if (eVar.i(i)) {
                     Behavior e2 = eVar.e();
                     if (e2 != null) {
-                        e2.C(this, childAt, view, i2);
+                        e2.C(this, childAt, view, i);
                     }
-                    eVar.k(i2);
+                    eVar.k(i);
                     eVar.j();
                 }
             }
-            this.p = null;
+            this.l = null;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i2) {
-        super(context, attributeSet, i2);
+    public CoordinatorLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, @AttrRes int i) {
+        super(context, attributeSet, i);
         TypedArray obtainStyledAttributes;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -2212,112 +2217,87 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 return;
             }
         }
-        this.f33507e = new ArrayList();
-        this.f33508f = new c.a.w.f.b.a<>();
-        this.f33509g = new ArrayList();
-        this.f33510h = new ArrayList();
-        this.f33512j = new int[2];
-        this.k = new int[2];
-        this.x = new NestedScrollingParentHelper(this);
-        if (i2 == 0) {
+        this.a = new ArrayList();
+        this.f25827b = new c.a.v.f.b.a<>();
+        this.f25828c = new ArrayList();
+        this.f25829d = new ArrayList();
+        this.f25831f = new int[2];
+        this.f25832g = new int[2];
+        this.t = new NestedScrollingParentHelper(this);
+        if (i == 0) {
             obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, 0, R$style.Widget_Support_CoordinatorLayout);
         } else {
-            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, i2, 0);
+            obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout, i, 0);
         }
         if (Build.VERSION.SDK_INT >= 29) {
-            if (i2 == 0) {
+            if (i == 0) {
                 saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, 0, R$style.Widget_Support_CoordinatorLayout);
             } else {
-                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i2, 0);
+                saveAttributeDataForStyleable(context, R$styleable.CoordinatorLayout, attributeSet, obtainStyledAttributes, i, 0);
             }
         }
         int resourceId = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_keylines, 0);
         if (resourceId != 0) {
             Resources resources = context.getResources();
-            this.n = resources.getIntArray(resourceId);
+            this.j = resources.getIntArray(resourceId);
             float f2 = resources.getDisplayMetrics().density;
-            int length = this.n.length;
-            for (int i5 = 0; i5 < length; i5++) {
-                int[] iArr = this.n;
-                iArr[i5] = (int) (iArr[i5] * f2);
+            int length = this.j.length;
+            for (int i4 = 0; i4 < length; i4++) {
+                int[] iArr = this.j;
+                iArr[i4] = (int) (iArr[i4] * f2);
             }
         }
-        this.u = obtainStyledAttributes.getDrawable(R$styleable.CoordinatorLayout_statusBarBackground);
+        this.q = obtainStyledAttributes.getDrawable(R$styleable.CoordinatorLayout_statusBarBackground);
         obtainStyledAttributes.recycle();
-        I();
+        R();
         super.setOnHierarchyChangeListener(new d(this));
         if (ViewCompat.getImportantForAccessibility(this) == 0) {
             ViewCompat.setImportantForAccessibility(this, 1);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    public e generateLayoutParams(AttributeSet attributeSet) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, attributeSet)) == null) ? new e(getContext(), attributeSet) : (e) invokeL.objValue;
-    }
-
     @Override // androidx.core.view.NestedScrollingParent3
-    public void onNestedScroll(@NonNull View view, int i2, int i3, int i4, int i5, int i6, @NonNull int[] iArr) {
+    public void onNestedScroll(@NonNull View view, int i, int i2, int i3, int i4, int i5, @NonNull int[] iArr) {
         Behavior e2;
         int min;
         int min2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), iArr}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr}) == null) {
             int childCount = getChildCount();
-            boolean z2 = false;
+            boolean z = false;
+            int i6 = 0;
             int i7 = 0;
-            int i8 = 0;
-            for (int i9 = 0; i9 < childCount; i9++) {
-                View childAt = getChildAt(i9);
+            for (int i8 = 0; i8 < childCount; i8++) {
+                View childAt = getChildAt(i8);
                 if (childAt.getVisibility() != 8) {
                     e eVar = (e) childAt.getLayoutParams();
-                    if (eVar.i(i6) && (e2 = eVar.e()) != null) {
-                        int[] iArr2 = this.f33512j;
+                    if (eVar.i(i5) && (e2 = eVar.e()) != null) {
+                        int[] iArr2 = this.f25831f;
                         iArr2[0] = 0;
                         iArr2[1] = 0;
-                        e2.t(this, childAt, view, i2, i3, i4, i5, i6, iArr2);
+                        e2.t(this, childAt, view, i, i2, i3, i4, i5, iArr2);
+                        if (i3 > 0) {
+                            min = Math.max(i6, this.f25831f[0]);
+                        } else {
+                            min = Math.min(i6, this.f25831f[0]);
+                        }
+                        i6 = min;
                         if (i4 > 0) {
-                            min = Math.max(i7, this.f33512j[0]);
+                            min2 = Math.max(i7, this.f25831f[1]);
                         } else {
-                            min = Math.min(i7, this.f33512j[0]);
+                            min2 = Math.min(i7, this.f25831f[1]);
                         }
-                        i7 = min;
-                        if (i5 > 0) {
-                            min2 = Math.max(i8, this.f33512j[1]);
-                        } else {
-                            min2 = Math.min(i8, this.f33512j[1]);
-                        }
-                        i8 = min2;
-                        z2 = true;
+                        i7 = min2;
+                        z = true;
                     }
                 }
             }
-            iArr[0] = iArr[0] + i7;
-            iArr[1] = iArr[1] + i8;
-            if (z2) {
-                u(1);
+            iArr[0] = iArr[0] + i6;
+            iArr[1] = iArr[1] + i7;
+            if (z) {
+                B(1);
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.view.ViewGroup
-    public e generateLayoutParams(ViewGroup.LayoutParams layoutParams) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, layoutParams)) == null) {
-            if (layoutParams instanceof e) {
-                return new e((e) layoutParams);
-            }
-            if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                return new e((ViewGroup.MarginLayoutParams) layoutParams);
-            }
-            return new e(layoutParams);
-        }
-        return (e) invokeL.objValue;
     }
 
     /* loaded from: classes4.dex */
@@ -2337,9 +2317,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -2367,10 +2347,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             /* JADX DEBUG: Method merged with bridge method */
             @Override // android.os.Parcelable.Creator
             /* renamed from: c */
-            public SavedState[] newArray(int i2) {
+            public SavedState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
             }
         }
 
@@ -2399,9 +2379,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -2414,27 +2394,27 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             parcel.readIntArray(iArr);
             Parcelable[] readParcelableArray = parcel.readParcelableArray(classLoader);
             this.behaviorStates = new SparseArray<>(readInt);
-            for (int i4 = 0; i4 < readInt; i4++) {
-                this.behaviorStates.append(iArr[i4], readParcelableArray[i4]);
+            for (int i3 = 0; i3 < readInt; i3++) {
+                this.behaviorStates.append(iArr[i3], readParcelableArray[i3]);
             }
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 SparseArray<Parcelable> sparseArray = this.behaviorStates;
                 int size = sparseArray != null ? sparseArray.size() : 0;
                 parcel.writeInt(size);
                 int[] iArr = new int[size];
                 Parcelable[] parcelableArr = new Parcelable[size];
-                for (int i3 = 0; i3 < size; i3++) {
-                    iArr[i3] = this.behaviorStates.keyAt(i3);
-                    parcelableArr[i3] = this.behaviorStates.valueAt(i3);
+                for (int i2 = 0; i2 < size; i2++) {
+                    iArr[i2] = this.behaviorStates.keyAt(i2);
+                    parcelableArr[i2] = this.behaviorStates.valueAt(i2);
                 }
                 parcel.writeIntArray(iArr);
-                parcel.writeParcelableArray(parcelableArr, i2);
+                parcel.writeParcelableArray(parcelableArr, i);
             }
         }
 
@@ -2447,9 +2427,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -2466,31 +2446,27 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         public Behavior a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f33514b;
+        public boolean f25834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f33515c;
+        public int f25835c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f33516d;
+        public int f25836d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f33517e;
+        public int f25837e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f33518f;
+        public int f25838f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f33519g;
+        public int f25839g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f33520h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public int f33521i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f33522j;
+        public int f25840h;
+        public int i;
+        public int j;
         public View k;
         public View l;
         public boolean m;
@@ -2500,17 +2476,17 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         public final Rect q;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2, int i3) {
-            super(i2, i3);
+        public e(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -2518,20 +2494,20 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     return;
                 }
             }
-            this.f33514b = false;
-            this.f33515c = 0;
-            this.f33516d = 0;
-            this.f33517e = -1;
-            this.f33518f = -1;
-            this.f33519g = 0;
-            this.f33520h = 0;
+            this.f25834b = false;
+            this.f25835c = 0;
+            this.f25836d = 0;
+            this.f25837e = -1;
+            this.f25838f = -1;
+            this.f25839g = 0;
+            this.f25840h = 0;
             this.q = new Rect();
         }
 
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k == null && this.f33518f != -1 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k == null && this.f25838f != -1 : invokeV.booleanValue;
         }
 
         public boolean b(CoordinatorLayout coordinatorLayout, View view, View view2) {
@@ -2557,7 +2533,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, coordinatorLayout, view)) == null) {
-                if (this.f33518f == -1) {
+                if (this.f25838f == -1) {
                     this.l = null;
                     this.k = null;
                     return null;
@@ -2605,12 +2581,12 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             return invokeLL.booleanValue;
         }
 
-        public boolean i(int i2) {
+        public boolean i(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-                if (i2 != 0) {
-                    if (i2 != 1) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+                if (i != 0) {
+                    if (i != 1) {
                         return false;
                     }
                     return this.o;
@@ -2627,10 +2603,10 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
 
-        public void k(int i2) {
+        public void k(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                q(i2, false);
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                q(i, false);
             }
         }
 
@@ -2644,7 +2620,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
         public final void m(View view, CoordinatorLayout coordinatorLayout) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048588, this, view, coordinatorLayout) == null) {
-                View findViewById = coordinatorLayout.findViewById(this.f33518f);
+                View findViewById = coordinatorLayout.findViewById(this.f25838f);
                 this.k = findViewById;
                 if (findViewById == null) {
                     if (coordinatorLayout.isInEditMode()) {
@@ -2685,7 +2661,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 behavior2.j();
             }
             this.a = behavior;
-            this.f33514b = true;
+            this.f25834b = true;
             if (behavior != null) {
                 behavior.g(this);
             }
@@ -2705,24 +2681,24 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             }
         }
 
-        public void q(int i2, boolean z) {
+        public void q(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-                if (i2 == 0) {
+            if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                if (i == 0) {
                     this.n = z;
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                 } else {
                     this.o = z;
                 }
             }
         }
 
-        public final boolean r(View view, int i2) {
+        public final boolean r(View view, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, view, i2)) == null) {
-                int absoluteGravity = GravityCompat.getAbsoluteGravity(((e) view.getLayoutParams()).f33519g, i2);
-                return absoluteGravity != 0 && (GravityCompat.getAbsoluteGravity(this.f33520h, i2) & absoluteGravity) == absoluteGravity;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, view, i)) == null) {
+                int absoluteGravity = GravityCompat.getAbsoluteGravity(((e) view.getLayoutParams()).f25839g, i);
+                return absoluteGravity != 0 && (GravityCompat.getAbsoluteGravity(this.f25840h, i) & absoluteGravity) == absoluteGravity;
             }
             return invokeLI.booleanValue;
         }
@@ -2731,7 +2707,7 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, view, coordinatorLayout)) == null) {
-                if (this.k.getId() != this.f33518f) {
+                if (this.k.getId() != this.f25838f) {
                     return false;
                 }
                 View view2 = this.k;
@@ -2761,9 +2737,9 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -2771,25 +2747,25 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                     return;
                 }
             }
-            this.f33514b = false;
-            this.f33515c = 0;
-            this.f33516d = 0;
-            this.f33517e = -1;
-            this.f33518f = -1;
-            this.f33519g = 0;
-            this.f33520h = 0;
+            this.f25834b = false;
+            this.f25835c = 0;
+            this.f25836d = 0;
+            this.f25837e = -1;
+            this.f25838f = -1;
+            this.f25839g = 0;
+            this.f25840h = 0;
             this.q = new Rect();
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R$styleable.CoordinatorLayout_Layout);
-            this.f33515c = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
-            this.f33518f = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_Layout_layout_anchor, -1);
-            this.f33516d = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
-            this.f33517e = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_keyline, -1);
-            this.f33519g = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
-            this.f33520h = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
+            this.f25835c = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_android_layout_gravity, 0);
+            this.f25838f = obtainStyledAttributes.getResourceId(R$styleable.CoordinatorLayout_Layout_layout_anchor, -1);
+            this.f25836d = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_anchorGravity, 0);
+            this.f25837e = obtainStyledAttributes.getInteger(R$styleable.CoordinatorLayout_Layout_layout_keyline, -1);
+            this.f25839g = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_insetEdge, 0);
+            this.f25840h = obtainStyledAttributes.getInt(R$styleable.CoordinatorLayout_Layout_layout_dodgeInsetEdges, 0);
             boolean hasValue = obtainStyledAttributes.hasValue(R$styleable.CoordinatorLayout_Layout_layout_behavior);
-            this.f33514b = hasValue;
+            this.f25834b = hasValue;
             if (hasValue) {
-                this.a = CoordinatorLayout.v(context, attributeSet, AppBarLayout.ScrollingViewBehavior.class.getName());
+                this.a = CoordinatorLayout.E(context, attributeSet, AppBarLayout.ScrollingViewBehavior.class.getName());
             }
             obtainStyledAttributes.recycle();
             Behavior behavior = this.a;
@@ -2807,22 +2783,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {eVar};
                 interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                     return;
                 }
             }
-            this.f33514b = false;
-            this.f33515c = 0;
-            this.f33516d = 0;
-            this.f33517e = -1;
-            this.f33518f = -1;
-            this.f33519g = 0;
-            this.f33520h = 0;
+            this.f25834b = false;
+            this.f25835c = 0;
+            this.f25836d = 0;
+            this.f25837e = -1;
+            this.f25838f = -1;
+            this.f25839g = 0;
+            this.f25840h = 0;
             this.q = new Rect();
         }
 
@@ -2835,22 +2811,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;
                 }
             }
-            this.f33514b = false;
-            this.f33515c = 0;
-            this.f33516d = 0;
-            this.f33517e = -1;
-            this.f33518f = -1;
-            this.f33519g = 0;
-            this.f33520h = 0;
+            this.f25834b = false;
+            this.f25835c = 0;
+            this.f25836d = 0;
+            this.f25837e = -1;
+            this.f25838f = -1;
+            this.f25839g = 0;
+            this.f25840h = 0;
             this.q = new Rect();
         }
 
@@ -2863,22 +2839,22 @@ public class CoordinatorLayout extends ViewGroup implements NestedScrollingParen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
-            this.f33514b = false;
-            this.f33515c = 0;
-            this.f33516d = 0;
-            this.f33517e = -1;
-            this.f33518f = -1;
-            this.f33519g = 0;
-            this.f33520h = 0;
+            this.f25834b = false;
+            this.f25835c = 0;
+            this.f25836d = 0;
+            this.f25837e = -1;
+            this.f25838f = -1;
+            this.f25839g = 0;
+            this.f25840h = 0;
             this.q = new Rect();
         }
     }

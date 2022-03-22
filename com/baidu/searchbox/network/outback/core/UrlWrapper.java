@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.MalformedURLException;
 import java.net.URL;
+import kotlin.text.Typography;
 /* loaded from: classes4.dex */
 public class UrlWrapper {
     public static /* synthetic */ Interceptable $ic;
@@ -28,9 +29,9 @@ public class UrlWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -40,28 +41,28 @@ public class UrlWrapper {
         partParse(str);
     }
 
-    private int delimiterOffset(String str, int i2, int i3, String str2) {
+    private int delimiterOffset(String str, int i, int i2, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            while (i2 < i3) {
-                if (str2.indexOf(str.charAt(i2)) != -1) {
-                    return i2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
+            while (i < i2) {
+                if (str2.indexOf(str.charAt(i)) != -1) {
+                    return i;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeCommon.intValue;
     }
 
-    private int parsePort(String str, int i2, int i3) {
+    private int parsePort(String str, int i, int i2) {
         InterceptResult invokeLII;
         int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, this, str, i, i2)) == null) {
             try {
-                parseInt = Integer.parseInt(str.substring(i2, i3));
+                parseInt = Integer.parseInt(str.substring(i, i2));
             } catch (NumberFormatException unused) {
             }
             if (parseInt <= 0 || parseInt > 65535) {
@@ -72,46 +73,46 @@ public class UrlWrapper {
         return invokeLII.intValue;
     }
 
-    private int portColonOffset(String str, int i2, int i3) {
+    private int portColonOffset(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i2, i3)) == null) {
-            while (i2 < i3) {
-                char charAt = str.charAt(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
                 if (charAt == ':') {
-                    return i2;
+                    return i;
                 }
                 if (charAt == '[') {
                     return -1;
                 }
-                i2++;
+                i++;
             }
-            return i3;
+            return i2;
         }
         return invokeLII.intValue;
     }
 
-    private int schemeDelimiterOffset(String str, int i2, int i3) {
+    private int schemeDelimiterOffset(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i2, i3)) == null) {
-            if (i3 - i2 < 2) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, this, str, i, i2)) == null) {
+            if (i2 - i < 2) {
                 return -1;
             }
-            char charAt = str.charAt(i2);
+            char charAt = str.charAt(i);
             if ((charAt >= 'a' && charAt <= 'z') || (charAt >= 'A' && charAt <= 'Z')) {
                 while (true) {
-                    i2++;
-                    if (i2 >= i3) {
+                    i++;
+                    if (i >= i2) {
                         break;
                     }
-                    char charAt2 = str.charAt(i2);
+                    char charAt2 = str.charAt(i);
                     if (charAt2 < 'a' || charAt2 > 'z') {
                         if (charAt2 < 'A' || charAt2 > 'Z') {
                             if (charAt2 < '0' || charAt2 > '9') {
                                 if (charAt2 != '+' && charAt2 != '-' && charAt2 != '.') {
                                     if (charAt2 == ':') {
-                                        return i2;
+                                        return i;
                                     }
                                 }
                             }
@@ -135,20 +136,20 @@ public class UrlWrapper {
         }
     }
 
-    private int slashCount(String str, int i2, int i3) {
+    private int slashCount(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, this, str, i2, i3)) == null) {
-            int i4 = 0;
-            while (i2 < i3) {
-                char charAt = str.charAt(i2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, this, str, i, i2)) == null) {
+            int i3 = 0;
+            while (i < i2) {
+                char charAt = str.charAt(i);
                 if (charAt != '\\' && charAt != '/') {
                     break;
                 }
-                i4++;
-                i2++;
+                i3++;
+                i++;
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }
@@ -222,7 +223,7 @@ public class UrlWrapper {
     }
 
     public void partParse(String str) {
-        int i2;
+        int i;
         int delimiterOffset;
         char charAt;
         Interceptable interceptable = $ic;
@@ -234,40 +235,40 @@ public class UrlWrapper {
                 String substring = str.substring(skipLeadingAsciiWhitespace, schemeDelimiterOffset);
                 this.scheme = substring;
                 if (substring.equals("https")) {
-                    i2 = skipLeadingAsciiWhitespace + 6;
+                    i = skipLeadingAsciiWhitespace + 6;
                 } else if (!this.scheme.equals("http")) {
                     throw new IllegalArgumentException("Expected URL scheme 'http' or 'https' but was '" + str.substring(0, schemeDelimiterOffset) + "'");
                 } else {
-                    i2 = skipLeadingAsciiWhitespace + 5;
+                    i = skipLeadingAsciiWhitespace + 5;
                 }
-                int slashCount = slashCount(str, i2, skipTrailingAsciiWhitespace);
+                int slashCount = slashCount(str, i, skipTrailingAsciiWhitespace);
                 if (slashCount >= 2) {
-                    int i3 = i2 + slashCount;
+                    int i2 = i + slashCount;
                     do {
-                        delimiterOffset = delimiterOffset(str, i3, skipTrailingAsciiWhitespace, "/\\");
+                        delimiterOffset = delimiterOffset(str, i2, skipTrailingAsciiWhitespace, "/\\");
                         charAt = delimiterOffset != skipTrailingAsciiWhitespace ? str.charAt(delimiterOffset) : (char) 65535;
                         if (charAt == 65535 || charAt == '/') {
                             break;
                         }
                     } while (charAt != '\\');
-                    int portColonOffset = portColonOffset(str, i3, delimiterOffset);
+                    int portColonOffset = portColonOffset(str, i2, delimiterOffset);
                     if (portColonOffset == -1) {
                         setParams(HttpUrl.get(this.url));
                         return;
                     }
-                    int i4 = portColonOffset + 1;
-                    if (i4 < delimiterOffset) {
-                        this.host = str.substring(i3, portColonOffset);
-                        this.port = parsePort(str, i4, delimiterOffset);
+                    int i3 = portColonOffset + 1;
+                    if (i3 < delimiterOffset) {
+                        this.host = str.substring(i2, portColonOffset);
+                        this.port = parsePort(str, i3, delimiterOffset);
                     } else {
-                        this.host = str.substring(i3, portColonOffset);
+                        this.host = str.substring(i2, portColonOffset);
                         this.port = defaultPort(this.scheme);
                     }
                     String str2 = this.host;
                     if (str2 != null) {
                         int length = str2.length();
-                        for (int i5 = 0; i5 < length; i5++) {
-                            char charAt2 = this.host.charAt(i5);
+                        for (int i4 = 0; i4 < length; i4++) {
+                            char charAt2 = this.host.charAt(i4);
                             if ((charAt2 <= 31 && charAt2 != '\t') || charAt2 >= 127) {
                                 setParams(HttpUrl.get(this.url));
                                 return;
@@ -275,7 +276,7 @@ public class UrlWrapper {
                         }
                         return;
                     }
-                    throw new IllegalArgumentException("Invalid URL hos: \"" + str.substring(i3, portColonOffset) + '\"');
+                    throw new IllegalArgumentException("Invalid URL hos: \"" + str.substring(i2, portColonOffset) + Typography.quote);
                 }
                 return;
             }
@@ -287,9 +288,9 @@ public class UrlWrapper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = this.port;
-            if (i2 != -1) {
-                return i2;
+            int i = this.port;
+            if (i != -1) {
+                return i;
             }
             HttpUrl httpUrl = this.httpUrl;
             if (httpUrl != null) {
@@ -387,9 +388,9 @@ public class UrlWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpUrl};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

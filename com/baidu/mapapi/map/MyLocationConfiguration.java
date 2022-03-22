@@ -48,16 +48,16 @@ public class MyLocationConfiguration {
             a = new LocationMode[]{NORMAL, FOLLOWING, locationMode};
         }
 
-        public LocationMode(String str, int i2) {
+        public LocationMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -87,9 +87,9 @@ public class MyLocationConfiguration {
             newInitContext.initArgs = r2;
             Object[] objArr = {locationMode, Boolean.valueOf(z), bitmapDescriptor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,16 +104,16 @@ public class MyLocationConfiguration {
         this.accuracyCircleStrokeColor = a(this.accuracyCircleStrokeColor);
     }
 
-    public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor, int i2, int i3) {
+    public MyLocationConfiguration(LocationMode locationMode, boolean z, BitmapDescriptor bitmapDescriptor, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {locationMode, Boolean.valueOf(z), bitmapDescriptor, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {locationMode, Boolean.valueOf(z), bitmapDescriptor, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -124,15 +124,15 @@ public class MyLocationConfiguration {
         this.locationMode = locationMode == null ? LocationMode.NORMAL : locationMode;
         this.enableDirection = z;
         this.customMarker = bitmapDescriptor;
-        this.accuracyCircleFillColor = a(i2);
-        this.accuracyCircleStrokeColor = a(i3);
+        this.accuracyCircleFillColor = a(i);
+        this.accuracyCircleStrokeColor = a(i2);
     }
 
-    private int a(int i2) {
+    private int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
-            return Color.argb(((-16777216) & i2) >> 24, i2 & 255, (65280 & i2) >> 8, (16711680 & i2) >> 16);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
+            return Color.argb(((-16777216) & i) >> 24, i & 255, (65280 & i) >> 8, (16711680 & i) >> 16);
         }
         return invokeI.intValue;
     }

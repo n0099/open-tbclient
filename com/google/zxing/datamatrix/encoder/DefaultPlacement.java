@@ -17,137 +17,137 @@ public class DefaultPlacement {
     public final int numcols;
     public final int numrows;
 
-    public DefaultPlacement(CharSequence charSequence, int i2, int i3) {
+    public DefaultPlacement(CharSequence charSequence, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {charSequence, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {charSequence, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.codewords = charSequence;
-        this.numcols = i2;
-        this.numrows = i3;
-        byte[] bArr = new byte[i2 * i3];
+        this.numcols = i;
+        this.numrows = i2;
+        byte[] bArr = new byte[i * i2];
         this.bits = bArr;
         Arrays.fill(bArr, (byte) -1);
     }
 
-    private void corner1(int i2) {
+    private void corner1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, this, i2) == null) {
-            module(this.numrows - 1, 0, i2, 1);
-            module(this.numrows - 1, 1, i2, 2);
-            module(this.numrows - 1, 2, i2, 3);
-            module(0, this.numcols - 2, i2, 4);
-            module(0, this.numcols - 1, i2, 5);
-            module(1, this.numcols - 1, i2, 6);
-            module(2, this.numcols - 1, i2, 7);
-            module(3, this.numcols - 1, i2, 8);
+        if (interceptable == null || interceptable.invokeI(65537, this, i) == null) {
+            module(this.numrows - 1, 0, i, 1);
+            module(this.numrows - 1, 1, i, 2);
+            module(this.numrows - 1, 2, i, 3);
+            module(0, this.numcols - 2, i, 4);
+            module(0, this.numcols - 1, i, 5);
+            module(1, this.numcols - 1, i, 6);
+            module(2, this.numcols - 1, i, 7);
+            module(3, this.numcols - 1, i, 8);
         }
     }
 
-    private void corner2(int i2) {
+    private void corner2(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, this, i2) == null) {
-            module(this.numrows - 3, 0, i2, 1);
-            module(this.numrows - 2, 0, i2, 2);
-            module(this.numrows - 1, 0, i2, 3);
-            module(0, this.numcols - 4, i2, 4);
-            module(0, this.numcols - 3, i2, 5);
-            module(0, this.numcols - 2, i2, 6);
-            module(0, this.numcols - 1, i2, 7);
-            module(1, this.numcols - 1, i2, 8);
+        if (interceptable == null || interceptable.invokeI(65538, this, i) == null) {
+            module(this.numrows - 3, 0, i, 1);
+            module(this.numrows - 2, 0, i, 2);
+            module(this.numrows - 1, 0, i, 3);
+            module(0, this.numcols - 4, i, 4);
+            module(0, this.numcols - 3, i, 5);
+            module(0, this.numcols - 2, i, 6);
+            module(0, this.numcols - 1, i, 7);
+            module(1, this.numcols - 1, i, 8);
         }
     }
 
-    private void corner3(int i2) {
+    private void corner3(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            module(this.numrows - 3, 0, i2, 1);
-            module(this.numrows - 2, 0, i2, 2);
-            module(this.numrows - 1, 0, i2, 3);
-            module(0, this.numcols - 2, i2, 4);
-            module(0, this.numcols - 1, i2, 5);
-            module(1, this.numcols - 1, i2, 6);
-            module(2, this.numcols - 1, i2, 7);
-            module(3, this.numcols - 1, i2, 8);
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
+            module(this.numrows - 3, 0, i, 1);
+            module(this.numrows - 2, 0, i, 2);
+            module(this.numrows - 1, 0, i, 3);
+            module(0, this.numcols - 2, i, 4);
+            module(0, this.numcols - 1, i, 5);
+            module(1, this.numcols - 1, i, 6);
+            module(2, this.numcols - 1, i, 7);
+            module(3, this.numcols - 1, i, 8);
         }
     }
 
-    private void corner4(int i2) {
+    private void corner4(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i2) == null) {
-            module(this.numrows - 1, 0, i2, 1);
-            module(this.numrows - 1, this.numcols - 1, i2, 2);
-            module(0, this.numcols - 3, i2, 3);
-            module(0, this.numcols - 2, i2, 4);
-            module(0, this.numcols - 1, i2, 5);
-            module(1, this.numcols - 3, i2, 6);
-            module(1, this.numcols - 2, i2, 7);
-            module(1, this.numcols - 1, i2, 8);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+            module(this.numrows - 1, 0, i, 1);
+            module(this.numrows - 1, this.numcols - 1, i, 2);
+            module(0, this.numcols - 3, i, 3);
+            module(0, this.numcols - 2, i, 4);
+            module(0, this.numcols - 1, i, 5);
+            module(1, this.numcols - 3, i, 6);
+            module(1, this.numcols - 2, i, 7);
+            module(1, this.numcols - 1, i, 8);
         }
     }
 
-    private boolean hasBit(int i2, int i3) {
+    private boolean hasBit(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i2, i3)) == null) ? this.bits[(i3 * this.numcols) + i2] >= 0 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65541, this, i, i2)) == null) ? this.bits[(i2 * this.numcols) + i] >= 0 : invokeII.booleanValue;
     }
 
-    private void module(int i2, int i3, int i4, int i5) {
+    private void module(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(65542, this, i2, i3, i4, i5) == null) {
+        if (interceptable == null || interceptable.invokeIIII(65542, this, i, i2, i3, i4) == null) {
+            if (i < 0) {
+                int i5 = this.numrows;
+                i += i5;
+                i2 += 4 - ((i5 + 4) % 8);
+            }
             if (i2 < 0) {
-                int i6 = this.numrows;
+                int i6 = this.numcols;
                 i2 += i6;
-                i3 += 4 - ((i6 + 4) % 8);
+                i += 4 - ((i6 + 4) % 8);
             }
-            if (i3 < 0) {
-                int i7 = this.numcols;
-                i3 += i7;
-                i2 += 4 - ((i7 + 4) % 8);
-            }
-            setBit(i3, i2, (this.codewords.charAt(i4) & (1 << (8 - i5))) != 0);
+            setBit(i2, i, (this.codewords.charAt(i3) & (1 << (8 - i4))) != 0);
         }
     }
 
-    private void setBit(int i2, int i3, boolean z) {
+    private void setBit(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.bits[(i3 * this.numcols) + i2] = z ? (byte) 1 : (byte) 0;
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            this.bits[(i2 * this.numcols) + i] = z ? (byte) 1 : (byte) 0;
         }
     }
 
-    private void utah(int i2, int i3, int i4) {
+    private void utah(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65544, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(65544, this, i, i2, i3) == null) {
+            int i4 = i - 2;
             int i5 = i2 - 2;
-            int i6 = i3 - 2;
-            module(i5, i6, i4, 1);
-            int i7 = i3 - 1;
-            module(i5, i7, i4, 2);
-            int i8 = i2 - 1;
-            module(i8, i6, i4, 3);
-            module(i8, i7, i4, 4);
-            module(i8, i3, i4, 5);
-            module(i2, i6, i4, 6);
-            module(i2, i7, i4, 7);
-            module(i2, i3, i4, 8);
+            module(i4, i5, i3, 1);
+            int i6 = i2 - 1;
+            module(i4, i6, i3, 2);
+            int i7 = i - 1;
+            module(i7, i5, i3, 3);
+            module(i7, i6, i3, 4);
+            module(i7, i2, i3, 5);
+            module(i, i5, i3, 6);
+            module(i, i6, i3, 7);
+            module(i, i2, i3, 8);
         }
     }
 
-    public final boolean getBit(int i2, int i3) {
+    public final boolean getBit(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) ? this.bits[(i3 * this.numcols) + i2] == 1 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) ? this.bits[(i2 * this.numcols) + i] == 1 : invokeII.booleanValue;
     }
 
     public final byte[] getBits() {
@@ -169,62 +169,62 @@ public class DefaultPlacement {
     }
 
     public final void place() {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            int i6 = 4;
+            int i5 = 4;
             while (true) {
-                if (i6 == this.numrows && i4 == 0) {
-                    corner1(i5);
-                    i5++;
+                if (i5 == this.numrows && i3 == 0) {
+                    corner1(i4);
+                    i4++;
                 }
-                if (i6 == this.numrows - 2 && i4 == 0 && this.numcols % 4 != 0) {
-                    corner2(i5);
-                    i5++;
+                if (i5 == this.numrows - 2 && i3 == 0 && this.numcols % 4 != 0) {
+                    corner2(i4);
+                    i4++;
                 }
-                if (i6 == this.numrows - 2 && i4 == 0 && this.numcols % 8 == 4) {
-                    corner3(i5);
-                    i5++;
+                if (i5 == this.numrows - 2 && i3 == 0 && this.numcols % 8 == 4) {
+                    corner3(i4);
+                    i4++;
                 }
-                if (i6 == this.numrows + 4 && i4 == 2 && this.numcols % 8 == 0) {
-                    corner4(i5);
-                    i5++;
+                if (i5 == this.numrows + 4 && i3 == 2 && this.numcols % 8 == 0) {
+                    corner4(i4);
+                    i4++;
                 }
                 do {
-                    if (i6 < this.numrows && i4 >= 0 && !hasBit(i4, i6)) {
-                        utah(i6, i4, i5);
-                        i5++;
+                    if (i5 < this.numrows && i3 >= 0 && !hasBit(i3, i5)) {
+                        utah(i5, i3, i4);
+                        i4++;
                     }
-                    i6 -= 2;
-                    i4 += 2;
-                    if (i6 < 0) {
+                    i5 -= 2;
+                    i3 += 2;
+                    if (i5 < 0) {
                         break;
                     }
-                } while (i4 < this.numcols);
-                int i7 = i6 + 1;
-                int i8 = i4 + 3;
+                } while (i3 < this.numcols);
+                int i6 = i5 + 1;
+                int i7 = i3 + 3;
                 do {
-                    if (i7 >= 0 && i8 < this.numcols && !hasBit(i8, i7)) {
-                        utah(i7, i8, i5);
-                        i5++;
+                    if (i6 >= 0 && i7 < this.numcols && !hasBit(i7, i6)) {
+                        utah(i6, i7, i4);
+                        i4++;
                     }
-                    i7 += 2;
-                    i8 -= 2;
-                    if (i7 >= this.numrows) {
+                    i6 += 2;
+                    i7 -= 2;
+                    if (i6 >= this.numrows) {
                         break;
                     }
-                } while (i8 >= 0);
-                i6 = i7 + 3;
-                i4 = i8 + 1;
-                i2 = this.numrows;
-                if (i6 >= i2 && i4 >= (i3 = this.numcols)) {
+                } while (i7 >= 0);
+                i5 = i6 + 3;
+                i3 = i7 + 1;
+                i = this.numrows;
+                if (i5 >= i && i3 >= (i2 = this.numcols)) {
                     break;
                 }
             }
-            if (hasBit(i3 - 1, i2 - 1)) {
+            if (hasBit(i2 - 1, i - 1)) {
                 return;
             }
             setBit(this.numcols - 1, this.numrows - 1, true);

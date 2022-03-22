@@ -11,7 +11,7 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JsonArray extends JsonElement implements Iterable<JsonElement> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,10 +59,10 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) ? obj == this || ((obj instanceof JsonArray) && ((JsonArray) obj).elements.equals(this.elements)) : invokeL.booleanValue;
     }
 
-    public JsonElement get(int i2) {
+    public JsonElement get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? this.elements.get(i2) : (JsonElement) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.elements.get(i) : (JsonElement) invokeI.objValue;
     }
 
     @Override // com.google.gson.JsonElement
@@ -240,10 +240,10 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, jsonElement)) == null) ? this.elements.remove(jsonElement) : invokeL.booleanValue;
     }
 
-    public JsonElement set(int i2, JsonElement jsonElement) {
+    public JsonElement set(int i, JsonElement jsonElement) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i2, jsonElement)) == null) ? this.elements.set(i2, jsonElement) : (JsonElement) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, jsonElement)) == null) ? this.elements.set(i, jsonElement) : (JsonElement) invokeIL.objValue;
     }
 
     public int size() {
@@ -277,28 +277,28 @@ public final class JsonArray extends JsonElement implements Iterable<JsonElement
         return (JsonArray) invokeV.objValue;
     }
 
-    public JsonElement remove(int i2) {
+    public JsonElement remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.elements.remove(i2) : (JsonElement) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? this.elements.remove(i) : (JsonElement) invokeI.objValue;
     }
 
-    public JsonArray(int i2) {
+    public JsonArray(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.elements = new ArrayList(i2);
+        this.elements = new ArrayList(i);
     }
 
     public void add(Number number) {

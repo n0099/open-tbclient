@@ -8,7 +8,7 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.r0.e1.a;
+import c.a.p0.g1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -21,15 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FunImageView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewGroup a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ViewGroup f39473e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f30394b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f39474f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f39475g;
+    /* renamed from: c  reason: collision with root package name */
+    public String f30395c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunImageView(@NonNull Context context) {
@@ -40,9 +38,9 @@ public class FunImageView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -56,40 +54,22 @@ public class FunImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             removeAllViews();
-            ViewGroup h2 = a.i().h(context);
-            this.f39473e = h2;
-            if (h2 != null) {
-                SkinManager.setBackgroundColor(h2, R.color.CAM_X0101, 0);
+            ViewGroup i = b.j().i(context);
+            this.a = i;
+            if (i != null) {
+                SkinManager.setBackgroundColor(i, R.color.CAM_X0101, 0);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(n.k(context), -2);
                 layoutParams.addRule(14, -1);
                 layoutParams.addRule(15, -1);
-                addView(this.f39473e, layoutParams);
+                addView(this.a, layoutParams);
             }
         }
     }
 
-    public int getCurIndex() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39474f : invokeV.intValue;
-    }
-
-    public String getCurUrlTag() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f39475g : (String) invokeV.objValue;
-    }
-
-    public ViewGroup getFunAdView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f39473e : (ViewGroup) invokeV.objValue;
-    }
-
-    public void resetFunAdView() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ViewGroup viewGroup = this.f39473e;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ViewGroup viewGroup = this.a;
             if (viewGroup != null) {
                 viewGroup.removeAllViews();
             }
@@ -100,21 +80,39 @@ public class FunImageView extends RelativeLayout {
         }
     }
 
-    public void setCurUrlTagAndIndex(String str, int i2) {
+    public int getCurIndex() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i2) == null) {
-            this.f39475g = str;
-            this.f39474f = i2;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f30394b : invokeV.intValue;
+    }
+
+    public String getCurUrlTag() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30395c : (String) invokeV.objValue;
+    }
+
+    public ViewGroup getFunAdView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (ViewGroup) invokeV.objValue;
+    }
+
+    public void setCurUrlTagAndIndex(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            this.f30395c = str;
+            this.f30394b = i;
         }
     }
 
-    public void setFunAdViewVisible(int i2) {
+    public void setFunAdViewVisible(int i) {
         ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (viewGroup = this.f39473e) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (viewGroup = this.a) == null) {
             return;
         }
-        viewGroup.setVisibility(i2);
+        viewGroup.setVisibility(i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -126,9 +124,9 @@ public class FunImageView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -139,17 +137,17 @@ public class FunImageView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FunImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FunImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

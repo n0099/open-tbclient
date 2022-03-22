@@ -1,6 +1,7 @@
 package com.meizu.cloud.pushsdk.handler.a.a;
 
 import android.os.Environment;
+import com.baidu.mobstat.Config;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -12,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public File a;
 
@@ -32,8 +33,8 @@ public class b {
             }
             return;
         }
-        c.k.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
-        if (file.length() >= 10485760) {
+        c.h.a.a.a.d("ZipTask", "current file " + sb2 + "/" + file.getName() + " size is " + (file.length() / 1024) + "KB");
+        if (file.length() >= Config.FULL_TRACE_LOG_LIMIT) {
             return;
         }
         byte[] bArr = new byte[1048576];

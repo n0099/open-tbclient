@@ -39,9 +39,9 @@ public class MediaTrack implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -60,10 +60,10 @@ public class MediaTrack implements Parcelable, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public MediaTrack[] newArray(int i2) {
+        public MediaTrack[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new MediaTrack[i2] : (MediaTrack[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new MediaTrack[i] : (MediaTrack[]) invokeI.objValue;
         }
     }
 
@@ -88,9 +88,9 @@ public class MediaTrack implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -107,15 +107,15 @@ public class MediaTrack implements Parcelable, Cloneable {
             try {
                 MediaTrack mediaTrack = (MediaTrack) super.clone();
                 if (this.superpositionHeader != null) {
-                    mediaTrack.superpositionHeader = this.superpositionHeader.m37clone();
+                    mediaTrack.superpositionHeader = this.superpositionHeader.m35clone();
                 }
                 if (this.superpositionFooter != null) {
-                    mediaTrack.superpositionFooter = this.superpositionFooter.m37clone();
+                    mediaTrack.superpositionFooter = this.superpositionFooter.m35clone();
                 }
                 if (this.mediaSegments != null) {
                     ArrayList arrayList = new ArrayList();
                     for (MediaSegment mediaSegment : this.mediaSegments) {
-                        arrayList.add(mediaSegment.m37clone());
+                        arrayList.add(mediaSegment.m35clone());
                     }
                     mediaTrack.mediaSegments = arrayList;
                 }
@@ -141,7 +141,7 @@ public class MediaTrack implements Parcelable, Cloneable {
                 if (this.mediaAEffectKeyData != null) {
                     mediaTrack.mediaAEffectKeyData = new ArrayList();
                     for (MediaAEffectKeyData mediaAEffectKeyData : this.mediaAEffectKeyData) {
-                        mediaTrack.mediaAEffectKeyData.add(mediaAEffectKeyData.m36clone());
+                        mediaTrack.mediaAEffectKeyData.add(mediaAEffectKeyData.m34clone());
                     }
                 }
                 return mediaTrack;
@@ -164,14 +164,14 @@ public class MediaTrack implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeTypedList(this.mediaSegments);
             parcel.writeTypedList(this.mediaTransitions);
             parcel.writeString(this.trackType);
-            parcel.writeParcelable(this.superpositionHeader, i2);
-            parcel.writeParcelable(this.superpositionFooter, i2);
+            parcel.writeParcelable(this.superpositionHeader, i);
+            parcel.writeParcelable(this.superpositionFooter, i);
             parcel.writeString(this.headerTransitionName);
             parcel.writeString(this.footerTransitionName);
             parcel.writeString(this.transitionMode);
@@ -187,9 +187,9 @@ public class MediaTrack implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

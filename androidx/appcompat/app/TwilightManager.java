@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.VisibleForTesting;
@@ -14,7 +15,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.util.Calendar;
 /* loaded from: classes.dex */
 public class TwilightManager {
@@ -44,9 +44,9 @@ public class TwilightManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,9 +62,9 @@ public class TwilightManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, locationManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,14 +93,14 @@ public class TwilightManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
-            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, s.f53809h) == 0 ? getLastKnownLocationForProvider("network") : null;
-            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, s.f53808g) == 0 ? getLastKnownLocationForProvider("gps") : null;
+            Location lastKnownLocationForProvider = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_COARSE_LOCATION") == 0 ? getLastKnownLocationForProvider("network") : null;
+            Location lastKnownLocationForProvider2 = PermissionChecker.checkSelfPermission(this.mContext, "android.permission.ACCESS_FINE_LOCATION") == 0 ? getLastKnownLocationForProvider("gps") : null;
             return (lastKnownLocationForProvider2 == null || lastKnownLocationForProvider == null) ? lastKnownLocationForProvider2 != null ? lastKnownLocationForProvider2 : lastKnownLocationForProvider : lastKnownLocationForProvider2.getTime() > lastKnownLocationForProvider.getTime() ? lastKnownLocationForProvider2 : lastKnownLocationForProvider;
         }
         return (Location) invokeV.objValue;
     }
 
-    @RequiresPermission(anyOf = {s.f53809h, s.f53808g})
+    @RequiresPermission(anyOf = {"android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_FINE_LOCATION"})
     private Location getLastKnownLocationForProvider(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -110,7 +110,8 @@ public class TwilightManager {
                     return this.mLocationManager.getLastKnownLocation(str);
                 }
                 return null;
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.d(TAG, "Failed to get last known location", e2);
                 return null;
             }
         }
@@ -132,32 +133,32 @@ public class TwilightManager {
     }
 
     private void updateState(@NonNull Location location) {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, location) == null) {
             TwilightState twilightState = this.mTwilightState;
             long currentTimeMillis = System.currentTimeMillis();
             TwilightCalculator twilightCalculator = TwilightCalculator.getInstance();
             twilightCalculator.calculateTwilight(currentTimeMillis - 86400000, location.getLatitude(), location.getLongitude());
-            long j3 = twilightCalculator.sunset;
+            long j2 = twilightCalculator.sunset;
             twilightCalculator.calculateTwilight(currentTimeMillis, location.getLatitude(), location.getLongitude());
             boolean z = twilightCalculator.state == 1;
-            long j4 = twilightCalculator.sunrise;
-            long j5 = twilightCalculator.sunset;
+            long j3 = twilightCalculator.sunrise;
+            long j4 = twilightCalculator.sunset;
             boolean z2 = z;
             twilightCalculator.calculateTwilight(86400000 + currentTimeMillis, location.getLatitude(), location.getLongitude());
-            long j6 = twilightCalculator.sunrise;
-            if (j4 == -1 || j5 == -1) {
-                j2 = 43200000 + currentTimeMillis;
+            long j5 = twilightCalculator.sunrise;
+            if (j3 == -1 || j4 == -1) {
+                j = 43200000 + currentTimeMillis;
             } else {
-                j2 = (currentTimeMillis > j5 ? 0 + j6 : currentTimeMillis > j4 ? 0 + j5 : 0 + j4) + 60000;
+                j = (currentTimeMillis > j4 ? 0 + j5 : currentTimeMillis > j3 ? 0 + j4 : 0 + j3) + 60000;
             }
             twilightState.isNight = z2;
-            twilightState.yesterdaySunset = j3;
-            twilightState.todaySunrise = j4;
-            twilightState.todaySunset = j5;
-            twilightState.tomorrowSunrise = j6;
-            twilightState.nextUpdate = j2;
+            twilightState.yesterdaySunset = j2;
+            twilightState.todaySunrise = j3;
+            twilightState.todaySunset = j4;
+            twilightState.tomorrowSunrise = j5;
+            twilightState.nextUpdate = j;
         }
     }
 
@@ -174,8 +175,9 @@ public class TwilightManager {
                 updateState(lastKnownLocation);
                 return twilightState.isNight;
             }
-            int i2 = Calendar.getInstance().get(11);
-            return i2 < 6 || i2 >= 22;
+            Log.i(TAG, "Could not get last known location. This is probably because the app does not have any location permissions. Falling back to hardcoded sunrise/sunset values.");
+            int i = Calendar.getInstance().get(11);
+            return i < 6 || i >= 22;
         }
         return invokeV.booleanValue;
     }

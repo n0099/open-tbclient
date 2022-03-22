@@ -1,13 +1,13 @@
 package com.yy.gslbsdk.protocol;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.apollon.restnet.http.b;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.cache.disk.DefaultDiskStorage;
 import com.kuaishou.weapon.un.x;
 import com.yy.gslbsdk.cache.DataCacheMgr;
 import com.yy.gslbsdk.control.IpVersionController;
@@ -20,7 +20,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HttpDNSProtocolMgr {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HttpDNSProtocolMgr";
@@ -31,9 +31,9 @@ public class HttpDNSProtocolMgr {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,9 +45,9 @@ public class HttpDNSProtocolMgr {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, strArr, str, z)) == null) {
             String str2 = "http://" + str + "/dns_query_v3?";
-            for (int i2 = 0; i2 < strArr.length; i2++) {
-                str2 = str2 + "dns=" + strArr[i2];
-                if (i2 != strArr.length - 1) {
+            for (int i = 0; i < strArr.length; i++) {
+                str2 = str2 + "dns=" + strArr[i];
+                if (i != strArr.length - 1) {
                     str2 = str2 + "&";
                 }
             }
@@ -65,11 +65,11 @@ public class HttpDNSProtocolMgr {
         return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, strArr, str, z)) == null) ? requestHttpDnsV2(strArr, str, z, false, "") : (String[]) invokeLLZ.objValue;
     }
 
-    public static int responseProtocolV2(String str, ResInfo resInfo, int i2) {
+    public static int responseProtocolV2(String str, ResInfo resInfo, int i) {
         InterceptResult invokeLLI;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, resInfo, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, resInfo, i)) == null) {
             String str3 = "ips";
             try {
                 if (str != null && resInfo != null) {
@@ -78,10 +78,10 @@ public class HttpDNSProtocolMgr {
                     resInfo.setUserIp(jSONObject.getString("u"));
                     resInfo.setUserView(jSONObject.getString("v"));
                     LinkedHashMap<String, DnsInfo> linkedHashMap = new LinkedHashMap<>();
-                    JSONArray jSONArray = jSONObject.getJSONArray(b.c.f31217b);
-                    int i3 = 0;
-                    while (i3 < jSONArray.length()) {
-                        JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                    JSONArray jSONArray = jSONObject.getJSONArray("dns");
+                    int i2 = 0;
+                    while (i2 < jSONArray.length()) {
+                        JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                         DnsInfo dnsInfo = new DnsInfo();
                         dnsInfo.setView(jSONObject.getString("v"));
                         dnsInfo.setUip(jSONObject.getString("u"));
@@ -93,8 +93,8 @@ public class HttpDNSProtocolMgr {
                         } else {
                             JSONArray jSONArray2 = jSONObject2.getJSONArray(str3);
                             str2 = str3;
-                            for (int i4 = 0; i4 < jSONArray2.length(); i4++) {
-                                linkedList.add(jSONArray2.getString(i4));
+                            for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
+                                linkedList.add(jSONArray2.getString(i3));
                             }
                             dnsInfo.setIps(linkedList);
                         }
@@ -106,9 +106,9 @@ public class HttpDNSProtocolMgr {
                         if (resInfo.getNetInfo() != null) {
                             dnsInfo.setNt(resInfo.getNetInfo().getNetType());
                         }
-                        dnsInfo.setSource(i2);
+                        dnsInfo.setSource(i);
                         linkedHashMap.put(dnsInfo.getHost(), dnsInfo);
-                        i3++;
+                        i2++;
                         str3 = str2;
                     }
                     resInfo.setDns(linkedHashMap);
@@ -119,8 +119,8 @@ public class HttpDNSProtocolMgr {
                     resInfo.setHttpdns(httpDnsInfo);
                     JSONArray optJSONArray = jSONObject.optJSONArray("rd1");
                     if (optJSONArray != null) {
-                        for (int i5 = 0; i5 < optJSONArray.length(); i5++) {
-                            JSONObject optJSONObject = optJSONArray.optJSONObject(i5);
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i4);
                             HashMap hashMap = new HashMap();
                             hashMap.put(x.B, optJSONObject.optString(x.B, ""));
                             hashMap.put("ut", optJSONObject.optString("ut", "0"));
@@ -141,15 +141,15 @@ public class HttpDNSProtocolMgr {
         return invokeLLI.intValue;
     }
 
-    public static int translateErrCode(int i2) {
+    public static int translateErrCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 4) {
-                        if (i2 != 1002) {
-                            return i2 != 2002 ? 8 : 6;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 4) {
+                        if (i != 1002) {
+                            return i != 2002 ? 8 : 6;
                         }
                         return 5;
                     }
@@ -162,15 +162,15 @@ public class HttpDNSProtocolMgr {
         return invokeI.intValue;
     }
 
-    public static String udpRequestProtocolV2(String[] strArr, long j2, boolean z) {
+    public static String udpRequestProtocolV2(String[] strArr, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{strArr, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{strArr, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             if (strArr != null && strArr.length > 0) {
                 try {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("seq_id", j2);
-                    jSONObject.put("version", "v2");
+                    jSONObject.put("seq_id", j);
+                    jSONObject.put("version", DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX);
                     JSONArray jSONArray = new JSONArray();
                     for (String str : strArr) {
                         jSONArray.put(str);
@@ -199,9 +199,9 @@ public class HttpDNSProtocolMgr {
             StringBuilder sb = new StringBuilder();
             int length = strArr.length;
             sb.append("dns=");
-            for (int i2 = 0; i2 < length; i2++) {
-                sb.append(strArr[i2]);
-                if (i2 < length - 1) {
+            for (int i = 0; i < length; i++) {
+                sb.append(strArr[i]);
+                if (i < length - 1) {
                     sb.append(',');
                 }
             }

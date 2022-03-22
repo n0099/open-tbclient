@@ -47,9 +47,9 @@ public class AccessibilityDelegateCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {accessibilityDelegateCompat};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,8 +99,8 @@ public class AccessibilityDelegateCompat {
                 this.mCompat.onInitializeAccessibilityNodeInfo(view, wrap);
                 wrap.addSpansToExtras(accessibilityNodeInfo.getText(), view);
                 List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = AccessibilityDelegateCompat.getActionList(view);
-                for (int i2 = 0; i2 < actionList.size(); i2++) {
-                    wrap.addAction(actionList.get(i2));
+                for (int i = 0; i < actionList.size(); i++) {
+                    wrap.addAction(actionList.get(i));
                 }
             }
         }
@@ -121,17 +121,17 @@ public class AccessibilityDelegateCompat {
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public boolean performAccessibilityAction(View view, int i2, Bundle bundle) {
+        public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, view, i2, bundle)) == null) ? this.mCompat.performAccessibilityAction(view, i2, bundle) : invokeLIL.booleanValue;
+            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, view, i, bundle)) == null) ? this.mCompat.performAccessibilityAction(view, i, bundle) : invokeLIL.booleanValue;
         }
 
         @Override // android.view.View.AccessibilityDelegate
-        public void sendAccessibilityEvent(View view, int i2) {
+        public void sendAccessibilityEvent(View view, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, view, i2) == null) {
-                this.mCompat.sendAccessibilityEvent(view, i2);
+            if (interceptable == null || interceptable.invokeLI(1048583, this, view, i) == null) {
+                this.mCompat.sendAccessibilityEvent(view, i);
             }
         }
 
@@ -167,9 +167,9 @@ public class AccessibilityDelegateCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((View.AccessibilityDelegate) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -194,8 +194,8 @@ public class AccessibilityDelegateCompat {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, clickableSpan, view)) == null) {
             if (clickableSpan != null) {
                 ClickableSpan[] clickableSpans = AccessibilityNodeInfoCompat.getClickableSpans(view.createAccessibilityNodeInfo().getText());
-                for (int i2 = 0; clickableSpans != null && i2 < clickableSpans.length; i2++) {
-                    if (clickableSpan.equals(clickableSpans[i2])) {
+                for (int i = 0; clickableSpans != null && i < clickableSpans.length; i++) {
+                    if (clickableSpan.equals(clickableSpans[i])) {
                         return true;
                     }
                 }
@@ -205,13 +205,13 @@ public class AccessibilityDelegateCompat {
         return invokeLL.booleanValue;
     }
 
-    private boolean performClickableSpanAction(int i2, View view) {
+    private boolean performClickableSpanAction(int i, View view) {
         InterceptResult invokeIL;
         WeakReference weakReference;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i2, view)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65541, this, i, view)) == null) {
             SparseArray sparseArray = (SparseArray) view.getTag(R$id.tag_accessibility_clickable_spans);
-            if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i2)) == null) {
+            if (sparseArray == null || (weakReference = (WeakReference) sparseArray.get(i)) == null) {
                 return false;
             }
             ClickableSpan clickableSpan = (ClickableSpan) weakReference.get();
@@ -276,36 +276,36 @@ public class AccessibilityDelegateCompat {
         return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, viewGroup, view, accessibilityEvent)) == null) ? this.mOriginalDelegate.onRequestSendAccessibilityEvent(viewGroup, view, accessibilityEvent) : invokeLLL.booleanValue;
     }
 
-    public boolean performAccessibilityAction(View view, int i2, Bundle bundle) {
+    public boolean performAccessibilityAction(View view, int i, Bundle bundle) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i2, bundle)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, view, i, bundle)) == null) {
             List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> actionList = getActionList(view);
             boolean z = false;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= actionList.size()) {
+                if (i2 >= actionList.size()) {
                     break;
                 }
-                AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat = actionList.get(i3);
-                if (accessibilityActionCompat.getId() == i2) {
+                AccessibilityNodeInfoCompat.AccessibilityActionCompat accessibilityActionCompat = actionList.get(i2);
+                if (accessibilityActionCompat.getId() == i) {
                     z = accessibilityActionCompat.perform(view, bundle);
                     break;
                 }
-                i3++;
+                i2++;
             }
             if (!z && Build.VERSION.SDK_INT >= 16) {
-                z = this.mOriginalDelegate.performAccessibilityAction(view, i2, bundle);
+                z = this.mOriginalDelegate.performAccessibilityAction(view, i, bundle);
             }
-            return (z || i2 != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
+            return (z || i != R$id.accessibility_action_clickable_span) ? z : performClickableSpanAction(bundle.getInt(AccessibilityClickableSpanCompat.SPAN_ID, -1), view);
         }
         return invokeLIL.booleanValue;
     }
 
-    public void sendAccessibilityEvent(View view, int i2) {
+    public void sendAccessibilityEvent(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i2) == null) {
-            this.mOriginalDelegate.sendAccessibilityEvent(view, i2);
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view, i) == null) {
+            this.mOriginalDelegate.sendAccessibilityEvent(view, i);
         }
     }
 
@@ -324,9 +324,9 @@ public class AccessibilityDelegateCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {accessibilityDelegate};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

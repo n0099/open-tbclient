@@ -31,16 +31,16 @@ public class b {
             if (arrayList != null && cVar != null) {
                 Class<?> a5 = cVar.a();
                 Type[] b2 = cVar.b();
-                int i2 = 0;
+                int i = 0;
                 if (a5.isArray()) {
                     Object newInstance = Array.newInstance(a5.getComponentType(), arrayList.size());
                     Iterator<Object> it = arrayList.iterator();
                     while (it.hasNext()) {
                         Object a6 = g.a(it.next()).a(new c(a5.getComponentType()));
                         if (a6 != null) {
-                            Array.set(newInstance, i2, a6);
+                            Array.set(newInstance, i, a6);
                         }
-                        i2++;
+                        i++;
                     }
                     return newInstance;
                 } else if (c.a.d.f.b.a.a.e(a5, List.class)) {
@@ -91,23 +91,23 @@ public class b {
                                 a = a11.a(new c(String.class));
                             }
                             if (a != null) {
-                                b3.put(String.valueOf(i2), a);
+                                b3.put(String.valueOf(i), a);
                             }
-                            i2++;
+                            i++;
                         }
                     }
                     return b3;
                 } else if (a5 == SparseArray.class) {
                     SparseArray sparseArray = new SparseArray();
                     Iterator<Object> it6 = arrayList.iterator();
-                    int i3 = 0;
+                    int i2 = 0;
                     while (it6.hasNext()) {
                         Object next = it6.next();
                         h a12 = g.a(next);
                         if (b2 != null && b2.length >= 1 && a12.a(new c(b2[0])) != null) {
-                            sparseArray.put(i3, next);
+                            sparseArray.put(i2, next);
                         }
-                        i3++;
+                        i2++;
                     }
                     return sparseArray;
                 } else if (a5 == Bundle.class) {
@@ -127,8 +127,8 @@ public class b {
             }
             int length = Array.getLength(obj);
             ArrayList arrayList = new ArrayList(length);
-            for (int i2 = 0; i2 < length; i2++) {
-                Object obj2 = Array.get(obj, i2);
+            for (int i = 0; i < length; i++) {
+                Object obj2 = Array.get(obj, i);
                 if (obj2 != null) {
                     arrayList.add(obj2);
                 }
@@ -200,8 +200,8 @@ public class b {
                 return null;
             }
             ArrayList arrayList = new ArrayList(sparseArray.size());
-            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                Object obj = sparseArray.get(sparseArray.keyAt(i2));
+            for (int i = 0; i < sparseArray.size(); i++) {
+                Object obj = sparseArray.get(sparseArray.keyAt(i));
                 if (obj != null) {
                     arrayList.add(obj);
                 }

@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,9 +74,9 @@ public class FileProvider extends ContentProvider {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -183,9 +184,9 @@ public class FileProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -206,12 +207,12 @@ public class FileProvider extends ContentProvider {
         return (File) invokeLL.objValue;
     }
 
-    public static String[] copyOf(String[] strArr, int i2) {
+    public static String[] copyOf(String[] strArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, i2)) == null) {
-            String[] strArr2 = new String[i2];
-            System.arraycopy(strArr, 0, strArr2, 0, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr, i)) == null) {
+            String[] strArr2 = new String[i];
+            System.arraycopy(strArr, 0, strArr2, 0, i);
             return strArr2;
         }
         return (String[]) invokeLI.objValue;
@@ -251,7 +252,7 @@ public class FileProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             if ("r".equals(str)) {
-                return 268435456;
+                return LaunchTaskConstants.OTHER_PROCESS;
             }
             if ("w".equals(str) || "wt".equals(str)) {
                 return 738197504;
@@ -396,7 +397,7 @@ public class FileProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File fileForUri = this.mStrategy.getFileForUri(uri);
@@ -405,21 +406,21 @@ public class FileProvider extends ContentProvider {
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
-            int i3 = 0;
+            int i2 = 0;
             for (String str3 : strArr) {
                 if ("_display_name".equals(str3)) {
-                    strArr3[i3] = "_display_name";
-                    i2 = i3 + 1;
-                    objArr[i3] = fileForUri.getName();
+                    strArr3[i2] = "_display_name";
+                    i = i2 + 1;
+                    objArr[i2] = fileForUri.getName();
                 } else if ("_size".equals(str3)) {
-                    strArr3[i3] = "_size";
-                    i2 = i3 + 1;
-                    objArr[i3] = Long.valueOf(fileForUri.length());
+                    strArr3[i2] = "_size";
+                    i = i2 + 1;
+                    objArr[i2] = Long.valueOf(fileForUri.length());
                 }
-                i3 = i2;
+                i2 = i;
             }
-            String[] copyOf = copyOf(strArr3, i3);
-            Object[] copyOf2 = copyOf(objArr, i3);
+            String[] copyOf = copyOf(strArr3, i2);
+            Object[] copyOf2 = copyOf(objArr, i2);
             MatrixCursor matrixCursor = new MatrixCursor(copyOf, 1);
             matrixCursor.addRow(copyOf2);
             return matrixCursor;
@@ -437,12 +438,12 @@ public class FileProvider extends ContentProvider {
         return invokeLLLL.intValue;
     }
 
-    public static Object[] copyOf(Object[] objArr, int i2) {
+    public static Object[] copyOf(Object[] objArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, objArr, i2)) == null) {
-            Object[] objArr2 = new Object[i2];
-            System.arraycopy(objArr, 0, objArr2, 0, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, objArr, i)) == null) {
+            Object[] objArr2 = new Object[i];
+            System.arraycopy(objArr, 0, objArr2, 0, i);
             return objArr2;
         }
         return (Object[]) invokeLI.objValue;

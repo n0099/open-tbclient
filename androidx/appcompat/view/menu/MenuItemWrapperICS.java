@@ -6,6 +6,7 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.ActionProvider;
 import android.view.ContextMenu;
 import android.view.MenuItem;
@@ -50,9 +51,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {menuItemWrapperICS, context, actionProvider};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -110,9 +111,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {menuItemWrapperICS, context, actionProvider};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((MenuItemWrapperICS) objArr2[0], (Context) objArr2[1], (android.view.ActionProvider) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -187,9 +188,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -237,9 +238,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {menuItemWrapperICS, onActionExpandListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -278,9 +279,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {menuItemWrapperICS, onMenuItemClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -307,9 +308,9 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, supportMenuItem};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -621,7 +622,8 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
                     this.mSetExclusiveCheckableMethod = this.mWrappedObject.getClass().getDeclaredMethod("setExclusiveCheckable", Boolean.TYPE);
                 }
                 this.mSetExclusiveCheckableMethod.invoke(this.mWrappedObject, Boolean.valueOf(z));
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.w(LOG_TAG, "Error while calling setExclusiveCheckable", e2);
             }
         }
     }
@@ -715,19 +717,19 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public void setShowAsAction(int i2) {
+    public void setShowAsAction(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
-            this.mWrappedObject.setShowAsAction(i2);
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            this.mWrappedObject.setShowAsAction(i);
         }
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setShowAsActionFlags(int i2) {
+    public MenuItem setShowAsActionFlags(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i2)) == null) {
-            this.mWrappedObject.setShowAsActionFlags(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048625, this, i)) == null) {
+            this.mWrappedObject.setShowAsActionFlags(i);
             return this;
         }
         return (MenuItem) invokeI.objValue;
@@ -774,66 +776,66 @@ public class MenuItemWrapperICS extends BaseMenuWrapper implements MenuItem {
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setAlphabeticShortcut(char c2, int i2) {
+    public MenuItem setAlphabeticShortcut(char c2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i2)})) == null) {
-            this.mWrappedObject.setAlphabeticShortcut(c2, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+            this.mWrappedObject.setAlphabeticShortcut(c2, i);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setIcon(int i2) {
+    public MenuItem setIcon(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
-            this.mWrappedObject.setIcon(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
+            this.mWrappedObject.setIcon(i);
             return this;
         }
         return (MenuItem) invokeI.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setNumericShortcut(char c2, int i2) {
+    public MenuItem setNumericShortcut(char c2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i2)})) == null) {
-            this.mWrappedObject.setNumericShortcut(c2, i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048619, this, new Object[]{Character.valueOf(c2), Integer.valueOf(i)})) == null) {
+            this.mWrappedObject.setNumericShortcut(c2, i);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setShortcut(char c2, char c3, int i2, int i3) {
+    public MenuItem setShortcut(char c2, char c3, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            this.mWrappedObject.setShortcut(c2, c3, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048623, this, new Object[]{Character.valueOf(c2), Character.valueOf(c3), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            this.mWrappedObject.setShortcut(c2, c3, i, i2);
             return this;
         }
         return (MenuItem) invokeCommon.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setTitle(int i2) {
+    public MenuItem setTitle(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i2)) == null) {
-            this.mWrappedObject.setTitle(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048626, this, i)) == null) {
+            this.mWrappedObject.setTitle(i);
             return this;
         }
         return (MenuItem) invokeI.objValue;
     }
 
     @Override // android.view.MenuItem
-    public MenuItem setActionView(int i2) {
+    public MenuItem setActionView(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            this.mWrappedObject.setActionView(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            this.mWrappedObject.setActionView(i);
             View actionView = this.mWrappedObject.getActionView();
             if (actionView instanceof android.view.CollapsibleActionView) {
                 this.mWrappedObject.setActionView(new CollapsibleActionViewWrapper(actionView));

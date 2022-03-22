@@ -43,14 +43,14 @@ public class TypefaceCompat {
                 return;
             }
         }
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 >= 29) {
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 29) {
             sTypefaceCompatImpl = new TypefaceCompatApi29Impl();
-        } else if (i2 >= 28) {
+        } else if (i >= 28) {
             sTypefaceCompatImpl = new TypefaceCompatApi28Impl();
-        } else if (i2 >= 26) {
+        } else if (i >= 26) {
             sTypefaceCompatImpl = new TypefaceCompatApi26Impl();
-        } else if (i2 >= 24 && TypefaceCompatApi24Impl.isUsable()) {
+        } else if (i >= 24 && TypefaceCompatApi24Impl.isUsable()) {
             sTypefaceCompatImpl = new TypefaceCompatApi24Impl();
         } else if (Build.VERSION.SDK_INT >= 21) {
             sTypefaceCompatImpl = new TypefaceCompatApi21Impl();
@@ -65,9 +65,9 @@ public class TypefaceCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -75,13 +75,13 @@ public class TypefaceCompat {
     }
 
     @NonNull
-    public static Typeface create(@NonNull Context context, @Nullable Typeface typeface, int i2) {
+    public static Typeface create(@NonNull Context context, @Nullable Typeface typeface, int i) {
         InterceptResult invokeLLI;
         Typeface bestFontFromFamily;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, typeface, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, typeface, i)) == null) {
             if (context != null) {
-                return (Build.VERSION.SDK_INT >= 21 || (bestFontFromFamily = getBestFontFromFamily(context, typeface, i2)) == null) ? Typeface.create(typeface, i2) : bestFontFromFamily;
+                return (Build.VERSION.SDK_INT >= 21 || (bestFontFromFamily = getBestFontFromFamily(context, typeface, i)) == null) ? Typeface.create(typeface, i) : bestFontFromFamily;
             }
             throw new IllegalArgumentException("Context cannot be null");
         }
@@ -90,28 +90,28 @@ public class TypefaceCompat {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface createFromFontInfo(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i2) {
+    public static Typeface createFromFontInfo(@NonNull Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, context, cancellationSignal, fontInfoArr, i2)) == null) ? sTypefaceCompatImpl.createFromFontInfo(context, cancellationSignal, fontInfoArr, i2) : (Typeface) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65539, null, context, cancellationSignal, fontInfoArr, i)) == null) ? sTypefaceCompatImpl.createFromFontInfo(context, cancellationSignal, fontInfoArr, i) : (Typeface) invokeLLLI.objValue;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface createFromResourcesFamilyXml(@NonNull Context context, @NonNull FontResourcesParserCompat.FamilyResourceEntry familyResourceEntry, @NonNull Resources resources, int i2, int i3, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z) {
+    public static Typeface createFromResourcesFamilyXml(@NonNull Context context, @NonNull FontResourcesParserCompat.FamilyResourceEntry familyResourceEntry, @NonNull Resources resources, int i, int i2, @Nullable ResourcesCompat.FontCallback fontCallback, @Nullable Handler handler, boolean z) {
         InterceptResult invokeCommon;
         Typeface createFromFontFamilyFilesResourceEntry;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, familyResourceEntry, resources, Integer.valueOf(i2), Integer.valueOf(i3), fontCallback, handler, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, familyResourceEntry, resources, Integer.valueOf(i), Integer.valueOf(i2), fontCallback, handler, Boolean.valueOf(z)})) == null) {
             if (familyResourceEntry instanceof FontResourcesParserCompat.ProviderResourceEntry) {
                 FontResourcesParserCompat.ProviderResourceEntry providerResourceEntry = (FontResourcesParserCompat.ProviderResourceEntry) familyResourceEntry;
                 boolean z2 = false;
                 if (!z ? fontCallback == null : providerResourceEntry.getFetchStrategy() == 0) {
                     z2 = true;
                 }
-                createFromFontFamilyFilesResourceEntry = FontsContractCompat.getFontSync(context, providerResourceEntry.getRequest(), fontCallback, handler, z2, z ? providerResourceEntry.getTimeout() : -1, i3);
+                createFromFontFamilyFilesResourceEntry = FontsContractCompat.getFontSync(context, providerResourceEntry.getRequest(), fontCallback, handler, z2, z ? providerResourceEntry.getTimeout() : -1, i2);
             } else {
-                createFromFontFamilyFilesResourceEntry = sTypefaceCompatImpl.createFromFontFamilyFilesResourceEntry(context, (FontResourcesParserCompat.FontFamilyFilesResourceEntry) familyResourceEntry, resources, i3);
+                createFromFontFamilyFilesResourceEntry = sTypefaceCompatImpl.createFromFontFamilyFilesResourceEntry(context, (FontResourcesParserCompat.FontFamilyFilesResourceEntry) familyResourceEntry, resources, i2);
                 if (fontCallback != null) {
                     if (createFromFontFamilyFilesResourceEntry != null) {
                         fontCallback.callbackSuccessAsync(createFromFontFamilyFilesResourceEntry, handler);
@@ -121,7 +121,7 @@ public class TypefaceCompat {
                 }
             }
             if (createFromFontFamilyFilesResourceEntry != null) {
-                sTypefaceCache.put(createResourceUid(resources, i2, i3), createFromFontFamilyFilesResourceEntry);
+                sTypefaceCache.put(createResourceUid(resources, i, i2), createFromFontFamilyFilesResourceEntry);
             }
             return createFromFontFamilyFilesResourceEntry;
         }
@@ -130,46 +130,46 @@ public class TypefaceCompat {
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface createFromResourcesFontFile(@NonNull Context context, @NonNull Resources resources, int i2, String str, int i3) {
+    public static Typeface createFromResourcesFontFile(@NonNull Context context, @NonNull Resources resources, int i, String str, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, resources, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
-            Typeface createFromResourcesFontFile = sTypefaceCompatImpl.createFromResourcesFontFile(context, resources, i2, str, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, resources, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            Typeface createFromResourcesFontFile = sTypefaceCompatImpl.createFromResourcesFontFile(context, resources, i, str, i2);
             if (createFromResourcesFontFile != null) {
-                sTypefaceCache.put(createResourceUid(resources, i2, i3), createFromResourcesFontFile);
+                sTypefaceCache.put(createResourceUid(resources, i, i2), createFromResourcesFontFile);
             }
             return createFromResourcesFontFile;
         }
         return (Typeface) invokeCommon.objValue;
     }
 
-    public static String createResourceUid(Resources resources, int i2, int i3) {
+    public static String createResourceUid(Resources resources, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, resources, i2, i3)) == null) {
-            return resources.getResourcePackageName(i2) + "-" + i2 + "-" + i3;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, resources, i, i2)) == null) {
+            return resources.getResourcePackageName(i) + "-" + i + "-" + i2;
         }
         return (String) invokeLII.objValue;
     }
 
     @Nullable
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public static Typeface findFromCache(@NonNull Resources resources, int i2, int i3) {
+    public static Typeface findFromCache(@NonNull Resources resources, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, resources, i2, i3)) == null) ? sTypefaceCache.get(createResourceUid(resources, i2, i3)) : (Typeface) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, resources, i, i2)) == null) ? sTypefaceCache.get(createResourceUid(resources, i, i2)) : (Typeface) invokeLII.objValue;
     }
 
     @Nullable
-    public static Typeface getBestFontFromFamily(Context context, Typeface typeface, int i2) {
+    public static Typeface getBestFontFromFamily(Context context, Typeface typeface, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, typeface, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65544, null, context, typeface, i)) == null) {
             FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamily = sTypefaceCompatImpl.getFontFamily(typeface);
             if (fontFamily == null) {
                 return null;
             }
-            return sTypefaceCompatImpl.createFromFontFamilyFilesResourceEntry(context, fontFamily, context.getResources(), i2);
+            return sTypefaceCompatImpl.createFromFontFamilyFilesResourceEntry(context, fontFamily, context.getResources(), i);
         }
         return (Typeface) invokeLLI.objValue;
     }

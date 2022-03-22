@@ -20,7 +20,7 @@ public final class d implements ServiceConnection {
     public final /* synthetic */ Intent a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ PushManager f53514b;
+    public final /* synthetic */ PushManager f38725b;
 
     public d(PushManager pushManager, Intent intent) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public final class d implements ServiceConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {pushManager, intent};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f53514b = pushManager;
+        this.f38725b = pushManager;
         this.a = intent;
     }
 
@@ -53,7 +53,7 @@ public final class d implements ServiceConnection {
             } catch (Exception e2) {
                 LogUtil.d("bindMcsService exception:" + e2);
             }
-            context = this.f53514b.mContext;
+            context = this.f38725b.mContext;
             context.unbindService(this);
         }
     }

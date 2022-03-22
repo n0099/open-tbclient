@@ -10,13 +10,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sdk.base.framework.c.e;
 import com.sdk.base.framework.f.c.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseConfig implements e {
     public static /* synthetic */ Interceptable $ic = null;
     public static String apk = "com.cucc.sdk.api_key";
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f57833c = 36;
+    public static int f42600c = 36;
     public static String cm = "CUCC";
     public static String n = "SDKFactory";
     public static String v = "安卓3.9.1.3开放版K200113";
@@ -43,9 +43,9 @@ public class BaseConfig implements e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

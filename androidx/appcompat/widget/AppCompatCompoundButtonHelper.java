@@ -39,9 +39,9 @@ public class AppCompatCompoundButtonHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {compoundButton};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,11 +75,11 @@ public class AppCompatCompoundButtonHelper {
         }
     }
 
-    public int getCompoundPaddingLeft(int i2) {
+    public int getCompoundPaddingLeft(int i) {
         InterceptResult invokeI;
         Drawable buttonDrawable;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? (Build.VERSION.SDK_INT >= 17 || (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) == null) ? i2 : i2 + buttonDrawable.getIntrinsicWidth() : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? (Build.VERSION.SDK_INT >= 17 || (buttonDrawable = CompoundButtonCompat.getButtonDrawable(this.mView)) == null) ? i : i + buttonDrawable.getIntrinsicWidth() : invokeI.intValue;
     }
 
     public ColorStateList getSupportButtonTintList() {
@@ -99,15 +99,15 @@ public class AppCompatCompoundButtonHelper {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         boolean z;
         int resourceId;
         int resourceId2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.CompoundButton, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, attributeSet, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.CompoundButton, i, 0);
             CompoundButton compoundButton = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R$styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(compoundButton, compoundButton.getContext(), R$styleable.CompoundButton, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             try {
                 if (obtainStyledAttributes.hasValue(R$styleable.CompoundButton_buttonCompat) && (resourceId2 = obtainStyledAttributes.getResourceId(R$styleable.CompoundButton_buttonCompat, 0)) != 0) {
                     try {

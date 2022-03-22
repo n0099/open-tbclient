@@ -12,7 +12,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import javax.annotation.Nullable;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VolumeLogger {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "VolumeLogger";
@@ -23,7 +23,7 @@ public class VolumeLogger {
     @Nullable
     public Timer timer;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class LogVolumeTask extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,24 +31,24 @@ public class VolumeLogger {
         public final int maxVoiceCallVolume;
         public final /* synthetic */ VolumeLogger this$0;
 
-        public LogVolumeTask(VolumeLogger volumeLogger, int i2, int i3) {
+        public LogVolumeTask(VolumeLogger volumeLogger, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {volumeLogger, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {volumeLogger, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = volumeLogger;
-            this.maxRingVolume = i2;
-            this.maxVoiceCallVolume = i3;
+            this.maxRingVolume = i;
+            this.maxVoiceCallVolume = i2;
         }
 
         @Override // java.util.TimerTask, java.lang.Runnable
@@ -72,9 +72,9 @@ public class VolumeLogger {
             newInitContext.initArgs = r2;
             Object[] objArr = {audioManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

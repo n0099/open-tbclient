@@ -4,47 +4,47 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class g {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f58363b;
+        public String f43096b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Drawable f58364c;
+        public Drawable f43097c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f58365d;
+        public String f43098d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f58366e;
+        public String f43099e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f58367f;
+        public int f43100f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f58368g;
+        public boolean f43101g;
 
-        public a(String str, String str2, Drawable drawable, String str3, String str4, int i2, boolean z) {
+        public a(String str, String str2, Drawable drawable, String str3, String str4, int i, boolean z) {
             b(str2);
             a(drawable);
             a(str);
             c(str3);
             d(str4);
-            a(i2);
+            a(i);
             a(z);
         }
 
         public Drawable a() {
-            return this.f58364c;
+            return this.f43097c;
         }
 
         public boolean b() {
-            return this.f58368g;
+            return this.f43101g;
         }
 
         public String c() {
@@ -52,19 +52,19 @@ public final class g {
         }
 
         public String d() {
-            return this.f58363b;
+            return this.f43096b;
         }
 
         public String e() {
-            return this.f58365d;
+            return this.f43098d;
         }
 
         public int f() {
-            return this.f58367f;
+            return this.f43100f;
         }
 
         public String g() {
-            return this.f58366e;
+            return this.f43099e;
         }
 
         public String toString() {
@@ -72,31 +72,31 @@ public final class g {
         }
 
         public void a(Drawable drawable) {
-            this.f58364c = drawable;
+            this.f43097c = drawable;
         }
 
         public void b(String str) {
-            this.f58363b = str;
+            this.f43096b = str;
         }
 
         public void c(String str) {
-            this.f58365d = str;
+            this.f43098d = str;
         }
 
         public void d(String str) {
-            this.f58366e = str;
+            this.f43099e = str;
         }
 
         public void a(boolean z) {
-            this.f58368g = z;
+            this.f43101g = z;
         }
 
         public void a(String str) {
             this.a = str;
         }
 
-        public void a(int i2) {
-            this.f58367f = i2;
+        public void a(int i) {
+            this.f43100f = i;
         }
     }
 
@@ -134,8 +134,8 @@ public final class g {
             return true;
         }
         int length = str.length();
-        for (int i2 = 0; i2 < length; i2++) {
-            if (!Character.isWhitespace(str.charAt(i2))) {
+        for (int i = 0; i < length; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
                 return false;
             }
         }

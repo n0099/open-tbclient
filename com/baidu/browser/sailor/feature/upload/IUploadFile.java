@@ -6,7 +6,7 @@ import android.net.Uri;
 import android.webkit.ValueCallback;
 import com.baidu.browser.core.INoProGuard;
 import com.baidu.webkit.sdk.WebChromeClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IUploadFile extends INoProGuard {
     void cancelUpload(Activity activity);
 
@@ -14,7 +14,7 @@ public interface IUploadFile extends INoProGuard {
 
     void onOpenFileChooser(Activity activity, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams);
 
-    void onResult(Activity activity, int i2, Intent intent);
+    void onResult(Activity activity, int i, Intent intent);
 
     void onResult(Activity activity, Uri uri);
 

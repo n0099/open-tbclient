@@ -42,7 +42,7 @@ public class MultiColumnListView extends PLA_ListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ MultiColumnListView f53523b;
+        public final /* synthetic */ MultiColumnListView f38734b;
 
         public a(MultiColumnListView multiColumnListView) {
             Interceptable interceptable = $ic;
@@ -51,34 +51,34 @@ public class MultiColumnListView extends PLA_ListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {multiColumnListView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f53523b = multiColumnListView;
+            this.f38734b = multiColumnListView;
             this.a = 0;
         }
 
         @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
-        public void onScroll(PLA_AbsListView pLA_AbsListView, int i2, int i3, int i4) {
+        public void onScroll(PLA_AbsListView pLA_AbsListView, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIII(1048576, this, pLA_AbsListView, i2, i3, i4) == null) {
-                this.a = (i2 + i3) - 2;
+            if (interceptable == null || interceptable.invokeLIII(1048576, this, pLA_AbsListView, i, i2, i3) == null) {
+                this.a = (i + i2) - 2;
             }
         }
 
         @Override // com.huewu.pla.lib.internal.PLA_AbsListView.e
-        public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i2) {
+        public void onScrollStateChanged(PLA_AbsListView pLA_AbsListView, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i2) == null) {
-                int count = this.f53523b.getAdapter().getCount() - 2;
-                if (i2 == 0 && this.a == count && this.f53523b.loadingMoreComplete) {
-                    this.f53523b.loadMoreListener.a();
-                    this.f53523b.loadingMoreComplete = false;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pLA_AbsListView, i) == null) {
+                int count = this.f38734b.getAdapter().getCount() - 2;
+                if (i == 0 && this.a == count && this.f38734b.loadingMoreComplete) {
+                    this.f38734b.loadMoreListener.a();
+                    this.f38734b.loadingMoreComplete = false;
                 }
             }
         }
@@ -91,46 +91,46 @@ public class MultiColumnListView extends PLA_ListView {
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f53524b;
+        public int f38735b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f53525c;
+        public int f38736c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f53526d;
+        public int f38737d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f53527e;
+        public int f38738e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ MultiColumnListView f53528f;
+        public final /* synthetic */ MultiColumnListView f38739f;
 
-        public b(MultiColumnListView multiColumnListView, int i2) {
+        public b(MultiColumnListView multiColumnListView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {multiColumnListView, Integer.valueOf(i2)};
+                Object[] objArr = {multiColumnListView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f53528f = multiColumnListView;
-            this.f53526d = 0;
-            this.f53527e = 0;
-            this.a = i2;
+            this.f38739f = multiColumnListView;
+            this.f38737d = 0;
+            this.f38738e = 0;
+            this.a = i;
         }
 
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f53526d = 0;
-                this.f53527e = 0;
+                this.f38737d = 0;
+                this.f38738e = 0;
             }
         }
 
@@ -138,15 +138,15 @@ public class MultiColumnListView extends PLA_ListView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int childCount = this.f53528f.getChildCount();
-                int i2 = Integer.MIN_VALUE;
-                for (int i3 = 0; i3 < childCount; i3++) {
-                    View childAt = this.f53528f.getChildAt(i3);
-                    if ((childAt.getLeft() == this.f53525c || this.f53528f.isFixedView(childAt)) && i2 < childAt.getBottom()) {
-                        i2 = childAt.getBottom();
+                int childCount = this.f38739f.getChildCount();
+                int i = Integer.MIN_VALUE;
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = this.f38739f.getChildAt(i2);
+                    if ((childAt.getLeft() == this.f38736c || this.f38739f.isFixedView(childAt)) && i < childAt.getBottom()) {
+                        i = childAt.getBottom();
                     }
                 }
-                return i2 == Integer.MIN_VALUE ? this.f53527e : i2;
+                return i == Integer.MIN_VALUE ? this.f38738e : i;
             }
             return invokeV.intValue;
         }
@@ -154,13 +154,13 @@ public class MultiColumnListView extends PLA_ListView {
         public int e() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f53525c : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f38736c : invokeV.intValue;
         }
 
         public int f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f53524b : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38735b : invokeV.intValue;
         }
 
         public int g() {
@@ -173,29 +173,29 @@ public class MultiColumnListView extends PLA_ListView {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                int childCount = this.f53528f.getChildCount();
-                int i2 = Integer.MAX_VALUE;
-                for (int i3 = 0; i3 < childCount; i3++) {
-                    View childAt = this.f53528f.getChildAt(i3);
-                    if (childAt.getLeft() == this.f53525c || this.f53528f.isFixedView(childAt)) {
-                        i2 = Math.min(i2, childAt.getTop());
+                int childCount = this.f38739f.getChildCount();
+                int i = Integer.MAX_VALUE;
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = this.f38739f.getChildAt(i2);
+                    if (childAt.getLeft() == this.f38736c || this.f38739f.isFixedView(childAt)) {
+                        i = Math.min(i, childAt.getTop());
                     }
                 }
-                return i2 == Integer.MAX_VALUE ? this.f53526d : i2;
+                return i == Integer.MAX_VALUE ? this.f38737d : i;
             }
             return invokeV.intValue;
         }
 
-        public void i(int i2) {
+        public void i(int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == 0) {
+            if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || i == 0) {
                 return;
             }
-            int childCount = this.f53528f.getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = this.f53528f.getChildAt(i3);
-                if (childAt.getLeft() == this.f53525c || this.f53528f.isFixedView(childAt)) {
-                    childAt.offsetTopAndBottom(i2);
+            int childCount = this.f38739f.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.f38739f.getChildAt(i2);
+                if (childAt.getLeft() == this.f38736c || this.f38739f.isFixedView(childAt)) {
+                    childAt.offsetTopAndBottom(i);
                 }
             }
         }
@@ -203,8 +203,8 @@ public class MultiColumnListView extends PLA_ListView {
         public void j() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.f53526d = 0;
-                this.f53527e = h();
+                this.f38737d = 0;
+                this.f38738e = h();
             }
         }
     }
@@ -215,7 +215,7 @@ public class MultiColumnListView extends PLA_ListView {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ MultiColumnListView f53529g;
+        public final /* synthetic */ MultiColumnListView f38740g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(MultiColumnListView multiColumnListView) {
@@ -226,9 +226,9 @@ public class MultiColumnListView extends PLA_ListView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {multiColumnListView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((MultiColumnListView) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -236,21 +236,21 @@ public class MultiColumnListView extends PLA_ListView {
                     return;
                 }
             }
-            this.f53529g = multiColumnListView;
+            this.f38740g = multiColumnListView;
         }
 
         @Override // com.huewu.pla.lib.MultiColumnListView.b
         public int d() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f53529g.getScrollChildBottom() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38740g.getScrollChildBottom() : invokeV.intValue;
         }
 
         @Override // com.huewu.pla.lib.MultiColumnListView.b
         public int h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f53529g.getScrollChildTop() : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f38740g.getScrollChildTop() : invokeV.intValue;
         }
     }
 
@@ -268,9 +268,9 @@ public class MultiColumnListView extends PLA_ListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -290,41 +290,41 @@ public class MultiColumnListView extends PLA_ListView {
         init(null);
     }
 
-    private int getColumnLeft(int i2) {
+    private int getColumnLeft(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            int i3 = this.mItems.get(i2, -1);
-            if (i3 == -1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            int i2 = this.mItems.get(i, -1);
+            if (i2 == -1) {
                 return 0;
             }
-            return this.mColumns[i3].e();
+            return this.mColumns[i2].e();
         }
         return invokeI.intValue;
     }
 
-    private int getColumnWidth(int i2) {
+    private int getColumnWidth(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) {
-            int i3 = this.mItems.get(i2, -1);
-            if (i3 == -1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) {
+            int i2 = this.mItems.get(i, -1);
+            if (i2 == -1) {
                 return 0;
             }
-            return this.mColumns[i3].f();
+            return this.mColumns[i2].f();
         }
         return invokeI.intValue;
     }
 
-    private b getNextColumn(boolean z, int i2) {
+    private b getNextColumn(boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
-            int i3 = this.mItems.get(i2, -1);
-            if (i3 != -1) {
-                return this.mColumns[i3];
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            int i2 = this.mItems.get(i, -1);
+            if (i2 != -1) {
+                return this.mColumns[i2];
             }
-            int max = Math.max(0, Math.max(0, i2 - getHeaderViewsCount()));
+            int max = Math.max(0, Math.max(0, i - getHeaderViewsCount()));
             if (max < this.mColumnNumber) {
                 return this.mColumns[max];
             }
@@ -375,7 +375,7 @@ public class MultiColumnListView extends PLA_ListView {
             if (attributeSet == null) {
                 this.mColumnNumber = 2;
             } else {
-                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.plaColumnNumber, R.attr.plaColumnPaddingLeft, R.attr.plaColumnPaddingRight, R.attr.plaLandscapeColumnNumber});
+                TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04048e, R.attr.obfuscated_res_0x7f04048f, R.attr.obfuscated_res_0x7f040490, R.attr.obfuscated_res_0x7f040492});
                 int integer = obtainStyledAttributes.getInteger(3, -1);
                 int integer2 = obtainStyledAttributes.getInteger(0, -1);
                 if (this.mFrameRect.width() > this.mFrameRect.height() && integer != -1) {
@@ -390,17 +390,17 @@ public class MultiColumnListView extends PLA_ListView {
                 obtainStyledAttributes.recycle();
             }
             this.mColumns = new b[this.mColumnNumber];
-            for (int i2 = 0; i2 < this.mColumnNumber; i2++) {
-                this.mColumns[i2] = new b(this, i2);
+            for (int i = 0; i < this.mColumnNumber; i++) {
+                this.mColumns[i] = new b(this, i);
             }
             this.mFixedColumn = new c(this);
         }
     }
 
-    private boolean isHeaderOrFooterPosition(int i2) {
+    private boolean isHeaderOrFooterPosition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i2)) == null) ? this.mAdapter.getItemViewType(i2) == -2 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65547, this, i)) == null) ? this.mAdapter.getItemViewType(i) == -2 : invokeI.booleanValue;
     }
 
     public void clearItems() {
@@ -415,14 +415,14 @@ public class MultiColumnListView extends PLA_ListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = Integer.MAX_VALUE;
+            int i = Integer.MAX_VALUE;
             for (b bVar : this.mColumns) {
                 int d2 = bVar.d();
-                if (i2 > d2) {
-                    i2 = d2;
+                if (i > d2) {
+                    i = d2;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -432,58 +432,58 @@ public class MultiColumnListView extends PLA_ListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = Integer.MIN_VALUE;
+            int i = Integer.MIN_VALUE;
             for (b bVar : this.mColumns) {
-                i2 = Math.max(i2, bVar.h());
+                i = Math.max(i, bVar.h());
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public int getItemBottom(int i2) {
+    public int getItemBottom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            if (isHeaderOrFooterPosition(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (isHeaderOrFooterPosition(i)) {
                 return this.mFixedColumn.h();
             }
-            int i3 = this.mItems.get(i2, -1);
-            if (i3 == -1) {
+            int i2 = this.mItems.get(i, -1);
+            if (i2 == -1) {
                 return getFillChildTop();
             }
-            return this.mColumns[i3].h();
+            return this.mColumns[i2].h();
         }
         return invokeI.intValue;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public int getItemLeft(int i2) {
+    public int getItemLeft(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (isHeaderOrFooterPosition(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (isHeaderOrFooterPosition(i)) {
                 return this.mFixedColumn.e();
             }
-            return getColumnLeft(i2);
+            return getColumnLeft(i);
         }
         return invokeI.intValue;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public int getItemTop(int i2) {
+    public int getItemTop(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            if (isHeaderOrFooterPosition(i2)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (isHeaderOrFooterPosition(i)) {
                 return this.mFixedColumn.d();
             }
-            int i3 = this.mItems.get(i2, -1);
-            if (i3 == -1) {
+            int i2 = this.mItems.get(i, -1);
+            if (i2 == -1) {
                 return getFillChildBottom();
             }
-            return this.mColumns[i3].d();
+            return this.mColumns[i2].d();
         }
         return invokeI.intValue;
     }
@@ -493,14 +493,14 @@ public class MultiColumnListView extends PLA_ListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i2 = Integer.MIN_VALUE;
+            int i = Integer.MIN_VALUE;
             for (b bVar : this.mColumns) {
                 int d2 = bVar.d();
-                if (i2 < d2) {
-                    i2 = d2;
+                if (i < d2) {
+                    i = d2;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -510,23 +510,23 @@ public class MultiColumnListView extends PLA_ListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i2 = Integer.MAX_VALUE;
+            int i = Integer.MAX_VALUE;
             for (b bVar : this.mColumns) {
                 int h2 = bVar.h();
-                if (i2 > h2) {
-                    i2 = h2;
+                if (i > h2) {
+                    i = h2;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AbsListView
-    public int modifyFlingInitialVelocity(int i2) {
+    public int modifyFlingInitialVelocity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? i2 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.intValue;
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
@@ -546,29 +546,29 @@ public class MultiColumnListView extends PLA_ListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public void onItemAddedToList(int i2, boolean z) {
+    public void onItemAddedToList(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            super.onItemAddedToList(i2, z);
-            if (isHeaderOrFooterPosition(i2)) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.onItemAddedToList(i, z);
+            if (isHeaderOrFooterPosition(i)) {
                 return;
             }
-            this.mItems.append(i2, getNextColumn(z, i2).g());
+            this.mItems.append(i, getNextColumn(z, i).g());
         }
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AbsListView, com.huewu.pla.lib.internal.PLA_AdapterView, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
         }
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AbsListView
-    public void onLayoutSync(int i2) {
+    public void onLayoutSync(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             for (b bVar : this.mColumns) {
                 bVar.j();
             }
@@ -576,9 +576,9 @@ public class MultiColumnListView extends PLA_ListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_AbsListView
-    public void onLayoutSyncFinished(int i2) {
+    public void onLayoutSyncFinished(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             for (b bVar : this.mColumns) {
                 bVar.c();
             }
@@ -593,34 +593,34 @@ public class MultiColumnListView extends PLA_ListView {
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView, com.huewu.pla.lib.internal.PLA_AbsListView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048591, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048591, this, i, i2) == null) {
+            super.onMeasure(i, i2);
             int measuredWidth = getMeasuredWidth();
             Rect rect = this.mListPadding;
-            int i4 = (((((measuredWidth - rect.left) - rect.right) - this.mColumnPaddingLeft) - this.mColumnPaddingRight) - this.mColumnDiv) / this.mColumnNumber;
-            for (int i5 = 0; i5 < this.mColumnNumber; i5++) {
-                this.mColumns[i5].f53524b = i4;
-                if (i5 == 0) {
-                    this.mColumns[i5].f53525c = this.mListPadding.left + this.mColumnPaddingLeft + (i4 * i5);
+            int i3 = (((((measuredWidth - rect.left) - rect.right) - this.mColumnPaddingLeft) - this.mColumnPaddingRight) - this.mColumnDiv) / this.mColumnNumber;
+            for (int i4 = 0; i4 < this.mColumnNumber; i4++) {
+                this.mColumns[i4].f38735b = i3;
+                if (i4 == 0) {
+                    this.mColumns[i4].f38736c = this.mListPadding.left + this.mColumnPaddingLeft + (i3 * i4);
                 } else {
-                    this.mColumns[i5].f53525c = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (i4 * i5);
+                    this.mColumns[i4].f38736c = this.mListPadding.left + this.mColumnPaddingLeft + this.mColumnDiv + (i3 * i4);
                 }
             }
-            this.mFixedColumn.f53525c = this.mListPadding.left;
-            this.mFixedColumn.f53524b = getMeasuredWidth();
+            this.mFixedColumn.f38736c = this.mListPadding.left;
+            this.mFixedColumn.f38735b = getMeasuredWidth();
         }
     }
 
     @Override // com.huewu.pla.lib.internal.PLA_ListView
-    public void onMeasureChild(View view, int i2, int i3, int i4) {
+    public void onMeasureChild(View view, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048592, this, view, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeLIII(1048592, this, view, i, i2, i3) == null) {
             if (isFixedView(view)) {
-                view.measure(i3, i4);
+                view.measure(i2, i3);
             } else {
-                view.measure(getColumnWidth(i2) | 1073741824, i4);
+                view.measure(getColumnWidth(i) | 1073741824, i3);
             }
         }
     }
@@ -651,24 +651,24 @@ public class MultiColumnListView extends PLA_ListView {
         return (Parcelable) invokeV.objValue;
     }
 
-    public void setColumnDiv(int i2) {
+    public void setColumnDiv(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mColumnDiv = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mColumnDiv = i;
         }
     }
 
-    public void setColumnPaddingLeft(int i2) {
+    public void setColumnPaddingLeft(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.mColumnPaddingLeft = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mColumnPaddingLeft = i;
         }
     }
 
-    public void setColumnPaddingRight(int i2) {
+    public void setColumnPaddingRight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mColumnPaddingRight = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mColumnPaddingRight = i;
         }
     }
 
@@ -690,9 +690,9 @@ public class MultiColumnListView extends PLA_ListView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -714,17 +714,17 @@ public class MultiColumnListView extends PLA_ListView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MultiColumnListView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MultiColumnListView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

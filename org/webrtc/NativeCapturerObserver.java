@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoFrame;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NativeCapturerObserver implements CapturerObserver {
     public static /* synthetic */ Interceptable $ic;
     public static VideoSink myHookSink;
@@ -33,30 +33,30 @@ public class NativeCapturerObserver implements CapturerObserver {
     }
 
     @CalledByNative
-    public NativeCapturerObserver(long j2) {
+    public NativeCapturerObserver(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.nativeSource = j2;
+        this.nativeSource = j;
         this.surfaceTextureHelper = null;
     }
 
-    public static native void nativeCapturerStarted(long j2, boolean z);
+    public static native void nativeCapturerStarted(long j, boolean z);
 
-    public static native void nativeCapturerStopped(long j2);
+    public static native void nativeCapturerStopped(long j);
 
-    public static native void nativeOnFrameCaptured(long j2, int i2, int i3, int i4, long j3, VideoFrame.Buffer buffer);
+    public static native void nativeOnFrameCaptured(long j, int i, int i2, int i3, long j2, VideoFrame.Buffer buffer);
 
     public static void setMyHookSink(VideoSink videoSink) {
         Interceptable interceptable = $ic;
@@ -102,22 +102,22 @@ public class NativeCapturerObserver implements CapturerObserver {
         }
     }
 
-    public NativeCapturerObserver(long j2, SurfaceTextureHelper surfaceTextureHelper) {
+    public NativeCapturerObserver(long j, SurfaceTextureHelper surfaceTextureHelper) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), surfaceTextureHelper};
+            Object[] objArr = {Long.valueOf(j), surfaceTextureHelper};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.nativeSource = j2;
+        this.nativeSource = j;
         this.surfaceTextureHelper = surfaceTextureHelper;
     }
 }

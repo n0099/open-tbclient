@@ -22,12 +22,12 @@ import kotlin.jvm.JvmName;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000T\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0016\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u0003H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0004\u0010\u0005\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00060\u0001*\u00020\u0007H\u0007ø\u0001\u0000¢\u0006\u0004\b\b\u0010\t\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\n0\u0001*\u00020\u000bH\u0007ø\u0001\u0000¢\u0006\u0004\b\f\u0010\r\u001a\u001c\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u000e0\u0001*\u00020\u000fH\u0007ø\u0001\u0000¢\u0006\u0004\b\u0010\u0010\u0011\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00032\u0006\u0010\u0014\u001a\u00020\u00022\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0017\u0010\u0018\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u00072\u0006\u0010\u0014\u001a\u00020\u00062\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u0019\u0010\u001a\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000b2\u0006\u0010\u0014\u001a\u00020\n2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001b\u0010\u001c\u001a2\u0010\u0012\u001a\u00020\u0013*\u00020\u000f2\u0006\u0010\u0014\u001a\u00020\u000e2\b\b\u0002\u0010\u0015\u001a\u00020\u00132\b\b\u0002\u0010\u0016\u001a\u00020\u0013H\u0007ø\u0001\u0000¢\u0006\u0004\b\u001d\u0010\u001e\u001a\u001f\u0010\u001f\u001a\u00020\u0002*\u00020\u00032\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b!\u0010\"\u001a\u001f\u0010\u001f\u001a\u00020\u0006*\u00020\u00072\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b#\u0010$\u001a\u001f\u0010\u001f\u001a\u00020\n*\u00020\u000b2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b%\u0010&\u001a\u001f\u0010\u001f\u001a\u00020\u000e*\u00020\u000f2\u0006\u0010 \u001a\u00020\u0013H\u0087\bø\u0001\u0000¢\u0006\u0004\b'\u0010(\u001a.\u0010)\u001a\u00020**\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u0010.\u001a.\u0010)\u001a\u00020/*\u00020\u00032\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00101\u001a.\u0010)\u001a\u00020**\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00102\u001a.\u0010)\u001a\u00020/*\u00020\u00072\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u0006\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00103\u001a.\u0010)\u001a\u00020**\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00104\u001a.\u0010)\u001a\u00020/*\u00020\u000b2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\n\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00105\u001a.\u0010)\u001a\u00020**\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020*0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b-\u00106\u001a.\u0010)\u001a\u00020/*\u00020\u000f2\u0012\u0010+\u001a\u000e\u0012\u0004\u0012\u00020\u000e\u0012\u0004\u0012\u00020/0,H\u0087\bø\u0001\u0000ø\u0001\u0001¢\u0006\u0004\b0\u00107\u0082\u0002\u000b\n\u0002\b\u0019\n\u0005\b\u009920\u0001¨\u00068"}, d2 = {"asList", "", "Lkotlin/UByte;", "Lkotlin/UByteArray;", "asList-GBYM_sE", "([B)Ljava/util/List;", "Lkotlin/UInt;", "Lkotlin/UIntArray;", "asList--ajY-9A", "([I)Ljava/util/List;", "Lkotlin/ULong;", "Lkotlin/ULongArray;", "asList-QwZRm1k", "([J)Ljava/util/List;", "Lkotlin/UShort;", "Lkotlin/UShortArray;", "asList-rL5Bavg", "([S)Ljava/util/List;", "binarySearch", "", "element", "fromIndex", "toIndex", "binarySearch-WpHrYlw", "([BBII)I", "binarySearch-2fe2U9s", "([IIII)I", "binarySearch-K6DWlUc", "([JJII)I", "binarySearch-EtDCXyQ", "([SSII)I", "elementAt", "index", "elementAt-PpDY95g", "([BI)B", "elementAt-qFRl0hI", "([II)I", "elementAt-r7IrZao", "([JI)J", "elementAt-nggk6HY", "([SI)S", "sumOf", "Ljava/math/BigDecimal;", "selector", "Lkotlin/Function1;", "sumOfBigDecimal", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "Ljava/math/BigInteger;", "sumOfBigInteger", "([BLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([ILkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([JLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigDecimal;", "([SLkotlin/jvm/functions/Function1;)Ljava/math/BigInteger;", "kotlin-stdlib"}, k = 5, mv = {1, 5, 1}, pn = "kotlin.collections", xi = 1, xs = "kotlin/collections/unsigned/UArraysKt")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList--ajY-9A  reason: not valid java name */
-    public static final List<UInt> m1176asListajY9A(int[] asList) {
+    public static final List<UInt> m1155asListajY9A(int[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$1(asList);
     }
@@ -35,7 +35,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-GBYM_sE  reason: not valid java name */
-    public static final List<UByte> m1177asListGBYM_sE(byte[] asList) {
+    public static final List<UByte> m1156asListGBYM_sE(byte[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$3(asList);
     }
@@ -43,7 +43,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-QwZRm1k  reason: not valid java name */
-    public static final List<ULong> m1178asListQwZRm1k(long[] asList) {
+    public static final List<ULong> m1157asListQwZRm1k(long[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$2(asList);
     }
@@ -51,7 +51,7 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: asList-rL5Bavg  reason: not valid java name */
-    public static final List<UShort> m1179asListrL5Bavg(short[] asList) {
+    public static final List<UShort> m1158asListrL5Bavg(short[] asList) {
         Intrinsics.checkNotNullParameter(asList, "$this$asList");
         return new UArraysKt___UArraysJvmKt$asList$4(asList);
     }
@@ -59,81 +59,16 @@ public class UArraysKt___UArraysJvmKt {
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-2fe2U9s  reason: not valid java name */
-    public static final int m1180binarySearch2fe2U9s(int[] binarySearch, int i2, int i3, int i4) {
+    public static final int m1159binarySearch2fe2U9s(int[] binarySearch, int i, int i2, int i3) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i3, i4, UIntArray.m867getSizeimpl(binarySearch));
-        int i5 = i4 - 1;
-        while (i3 <= i5) {
-            int i6 = (i3 + i5) >>> 1;
-            int uintCompare = UnsignedKt.uintCompare(binarySearch[i6], i2);
-            if (uintCompare < 0) {
-                i3 = i6 + 1;
-            } else if (uintCompare <= 0) {
-                return i6;
-            } else {
-                i5 = i6 - 1;
-            }
-        }
-        return -(i3 + 1);
-    }
-
-    /* renamed from: binarySearch-2fe2U9s$default  reason: not valid java name */
-    public static /* synthetic */ int m1181binarySearch2fe2U9s$default(int[] iArr, int i2, int i3, int i4, int i5, Object obj) {
-        if ((i5 & 2) != 0) {
-            i3 = 0;
-        }
-        if ((i5 & 4) != 0) {
-            i4 = UIntArray.m867getSizeimpl(iArr);
-        }
-        return m1180binarySearch2fe2U9s(iArr, i2, i3, i4);
-    }
-
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
-    /* renamed from: binarySearch-EtDCXyQ  reason: not valid java name */
-    public static final int m1182binarySearchEtDCXyQ(short[] binarySearch, short s, int i2, int i3) {
-        Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UShortArray.m1049getSizeimpl(binarySearch));
-        int i4 = s & UShort.MAX_VALUE;
-        int i5 = i3 - 1;
-        while (i2 <= i5) {
-            int i6 = (i2 + i5) >>> 1;
-            int uintCompare = UnsignedKt.uintCompare(binarySearch[i6], i4);
-            if (uintCompare < 0) {
-                i2 = i6 + 1;
-            } else if (uintCompare <= 0) {
-                return i6;
-            } else {
-                i5 = i6 - 1;
-            }
-        }
-        return -(i2 + 1);
-    }
-
-    /* renamed from: binarySearch-EtDCXyQ$default  reason: not valid java name */
-    public static /* synthetic */ int m1183binarySearchEtDCXyQ$default(short[] sArr, short s, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
-        }
-        if ((i4 & 4) != 0) {
-            i3 = UShortArray.m1049getSizeimpl(sArr);
-        }
-        return m1182binarySearchEtDCXyQ(sArr, s, i2, i3);
-    }
-
-    @SinceKotlin(version = "1.3")
-    @ExperimentalUnsignedTypes
-    /* renamed from: binarySearch-K6DWlUc  reason: not valid java name */
-    public static final int m1184binarySearchK6DWlUc(long[] binarySearch, long j2, int i2, int i3) {
-        Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, ULongArray.m945getSizeimpl(binarySearch));
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UIntArray.m846getSizeimpl(binarySearch));
         int i4 = i3 - 1;
         while (i2 <= i4) {
             int i5 = (i2 + i4) >>> 1;
-            int ulongCompare = UnsignedKt.ulongCompare(binarySearch[i5], j2);
-            if (ulongCompare < 0) {
+            int uintCompare = UnsignedKt.uintCompare(binarySearch[i5], i);
+            if (uintCompare < 0) {
                 i2 = i5 + 1;
-            } else if (ulongCompare <= 0) {
+            } else if (uintCompare <= 0) {
                 return i5;
             } else {
                 i4 = i5 - 1;
@@ -142,80 +77,145 @@ public class UArraysKt___UArraysJvmKt {
         return -(i2 + 1);
     }
 
-    /* renamed from: binarySearch-K6DWlUc$default  reason: not valid java name */
-    public static /* synthetic */ int m1185binarySearchK6DWlUc$default(long[] jArr, long j2, int i2, int i3, int i4, Object obj) {
+    /* renamed from: binarySearch-2fe2U9s$default  reason: not valid java name */
+    public static /* synthetic */ int m1160binarySearch2fe2U9s$default(int[] iArr, int i, int i2, int i3, int i4, Object obj) {
         if ((i4 & 2) != 0) {
             i2 = 0;
         }
         if ((i4 & 4) != 0) {
-            i3 = ULongArray.m945getSizeimpl(jArr);
+            i3 = UIntArray.m846getSizeimpl(iArr);
         }
-        return m1184binarySearchK6DWlUc(jArr, j2, i2, i3);
+        return m1159binarySearch2fe2U9s(iArr, i, i2, i3);
+    }
+
+    @SinceKotlin(version = "1.3")
+    @ExperimentalUnsignedTypes
+    /* renamed from: binarySearch-EtDCXyQ  reason: not valid java name */
+    public static final int m1161binarySearchEtDCXyQ(short[] binarySearch, short s, int i, int i2) {
+        Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UShortArray.m1028getSizeimpl(binarySearch));
+        int i3 = s & UShort.MAX_VALUE;
+        int i4 = i2 - 1;
+        while (i <= i4) {
+            int i5 = (i + i4) >>> 1;
+            int uintCompare = UnsignedKt.uintCompare(binarySearch[i5], i3);
+            if (uintCompare < 0) {
+                i = i5 + 1;
+            } else if (uintCompare <= 0) {
+                return i5;
+            } else {
+                i4 = i5 - 1;
+            }
+        }
+        return -(i + 1);
+    }
+
+    /* renamed from: binarySearch-EtDCXyQ$default  reason: not valid java name */
+    public static /* synthetic */ int m1162binarySearchEtDCXyQ$default(short[] sArr, short s, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = UShortArray.m1028getSizeimpl(sArr);
+        }
+        return m1161binarySearchEtDCXyQ(sArr, s, i, i2);
+    }
+
+    @SinceKotlin(version = "1.3")
+    @ExperimentalUnsignedTypes
+    /* renamed from: binarySearch-K6DWlUc  reason: not valid java name */
+    public static final int m1163binarySearchK6DWlUc(long[] binarySearch, long j, int i, int i2) {
+        Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, ULongArray.m924getSizeimpl(binarySearch));
+        int i3 = i2 - 1;
+        while (i <= i3) {
+            int i4 = (i + i3) >>> 1;
+            int ulongCompare = UnsignedKt.ulongCompare(binarySearch[i4], j);
+            if (ulongCompare < 0) {
+                i = i4 + 1;
+            } else if (ulongCompare <= 0) {
+                return i4;
+            } else {
+                i3 = i4 - 1;
+            }
+        }
+        return -(i + 1);
+    }
+
+    /* renamed from: binarySearch-K6DWlUc$default  reason: not valid java name */
+    public static /* synthetic */ int m1164binarySearchK6DWlUc$default(long[] jArr, long j, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
+        }
+        if ((i3 & 4) != 0) {
+            i2 = ULongArray.m924getSizeimpl(jArr);
+        }
+        return m1163binarySearchK6DWlUc(jArr, j, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     /* renamed from: binarySearch-WpHrYlw  reason: not valid java name */
-    public static final int m1186binarySearchWpHrYlw(byte[] binarySearch, byte b2, int i2, int i3) {
+    public static final int m1165binarySearchWpHrYlw(byte[] binarySearch, byte b2, int i, int i2) {
         Intrinsics.checkNotNullParameter(binarySearch, "$this$binarySearch");
-        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i2, i3, UByteArray.m789getSizeimpl(binarySearch));
-        int i4 = b2 & 255;
-        int i5 = i3 - 1;
-        while (i2 <= i5) {
-            int i6 = (i2 + i5) >>> 1;
-            int uintCompare = UnsignedKt.uintCompare(binarySearch[i6], i4);
+        AbstractList.Companion.checkRangeIndexes$kotlin_stdlib(i, i2, UByteArray.m768getSizeimpl(binarySearch));
+        int i3 = b2 & 255;
+        int i4 = i2 - 1;
+        while (i <= i4) {
+            int i5 = (i + i4) >>> 1;
+            int uintCompare = UnsignedKt.uintCompare(binarySearch[i5], i3);
             if (uintCompare < 0) {
-                i2 = i6 + 1;
+                i = i5 + 1;
             } else if (uintCompare <= 0) {
-                return i6;
+                return i5;
             } else {
-                i5 = i6 - 1;
+                i4 = i5 - 1;
             }
         }
-        return -(i2 + 1);
+        return -(i + 1);
     }
 
     /* renamed from: binarySearch-WpHrYlw$default  reason: not valid java name */
-    public static /* synthetic */ int m1187binarySearchWpHrYlw$default(byte[] bArr, byte b2, int i2, int i3, int i4, Object obj) {
-        if ((i4 & 2) != 0) {
-            i2 = 0;
+    public static /* synthetic */ int m1166binarySearchWpHrYlw$default(byte[] bArr, byte b2, int i, int i2, int i3, Object obj) {
+        if ((i3 & 2) != 0) {
+            i = 0;
         }
-        if ((i4 & 4) != 0) {
-            i3 = UByteArray.m789getSizeimpl(bArr);
+        if ((i3 & 4) != 0) {
+            i2 = UByteArray.m768getSizeimpl(bArr);
         }
-        return m1186binarySearchWpHrYlw(bArr, b2, i2, i3);
+        return m1165binarySearchWpHrYlw(bArr, b2, i, i2);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-PpDY95g  reason: not valid java name */
-    public static final byte m1188elementAtPpDY95g(byte[] bArr, int i2) {
-        return UByteArray.m788getw2LRezQ(bArr, i2);
+    public static final byte m1167elementAtPpDY95g(byte[] bArr, int i) {
+        return UByteArray.m767getw2LRezQ(bArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-nggk6HY  reason: not valid java name */
-    public static final short m1189elementAtnggk6HY(short[] sArr, int i2) {
-        return UShortArray.m1048getMh2AYeg(sArr, i2);
+    public static final short m1168elementAtnggk6HY(short[] sArr, int i) {
+        return UShortArray.m1027getMh2AYeg(sArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-qFRl0hI  reason: not valid java name */
-    public static final int m1190elementAtqFRl0hI(int[] iArr, int i2) {
-        return UIntArray.m866getpVg5ArA(iArr, i2);
+    public static final int m1169elementAtqFRl0hI(int[] iArr, int i) {
+        return UIntArray.m845getpVg5ArA(iArr, i);
     }
 
     @SinceKotlin(version = "1.3")
     @ExperimentalUnsignedTypes
     @InlineOnly
     /* renamed from: elementAt-r7IrZao  reason: not valid java name */
-    public static final long m1191elementAtr7IrZao(long[] jArr, int i2) {
-        return ULongArray.m944getsVKNKU(jArr, i2);
+    public static final long m1170elementAtr7IrZao(long[] jArr, int i) {
+        return ULongArray.m923getsVKNKU(jArr, i);
     }
 
     @SinceKotlin(version = "1.4")
@@ -226,8 +226,8 @@ public class UArraysKt___UArraysJvmKt {
     public static final BigDecimal sumOfBigDecimal(int[] iArr, Function1<? super UInt, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (int i2 : iArr) {
-            valueOf = valueOf.add(function1.invoke(UInt.m801boximpl(i2)));
+        for (int i : iArr) {
+            valueOf = valueOf.add(function1.invoke(UInt.m780boximpl(i)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -241,8 +241,8 @@ public class UArraysKt___UArraysJvmKt {
     public static final BigInteger sumOfBigInteger(int[] iArr, Function1<? super UInt, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (int i2 : iArr) {
-            valueOf = valueOf.add(function1.invoke(UInt.m801boximpl(i2)));
+        for (int i : iArr) {
+            valueOf = valueOf.add(function1.invoke(UInt.m780boximpl(i)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -256,8 +256,8 @@ public class UArraysKt___UArraysJvmKt {
     public static final BigDecimal sumOfBigDecimal(long[] jArr, Function1<? super ULong, ? extends BigDecimal> function1) {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
-        for (long j2 : jArr) {
-            valueOf = valueOf.add(function1.invoke(ULong.m879boximpl(j2)));
+        for (long j : jArr) {
+            valueOf = valueOf.add(function1.invoke(ULong.m858boximpl(j)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -271,8 +271,8 @@ public class UArraysKt___UArraysJvmKt {
     public static final BigInteger sumOfBigInteger(long[] jArr, Function1<? super ULong, ? extends BigInteger> function1) {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
-        for (long j2 : jArr) {
-            valueOf = valueOf.add(function1.invoke(ULong.m879boximpl(j2)));
+        for (long j : jArr) {
+            valueOf = valueOf.add(function1.invoke(ULong.m858boximpl(j)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -287,7 +287,7 @@ public class UArraysKt___UArraysJvmKt {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
         for (byte b2 : bArr) {
-            valueOf = valueOf.add(function1.invoke(UByte.m725boximpl(b2)));
+            valueOf = valueOf.add(function1.invoke(UByte.m704boximpl(b2)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -302,7 +302,7 @@ public class UArraysKt___UArraysJvmKt {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
         for (byte b2 : bArr) {
-            valueOf = valueOf.add(function1.invoke(UByte.m725boximpl(b2)));
+            valueOf = valueOf.add(function1.invoke(UByte.m704boximpl(b2)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -317,7 +317,7 @@ public class UArraysKt___UArraysJvmKt {
         BigDecimal valueOf = BigDecimal.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
         for (short s : sArr) {
-            valueOf = valueOf.add(function1.invoke(UShort.m985boximpl(s)));
+            valueOf = valueOf.add(function1.invoke(UShort.m964boximpl(s)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;
@@ -332,7 +332,7 @@ public class UArraysKt___UArraysJvmKt {
         BigInteger valueOf = BigInteger.valueOf(0);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigInteger.valueOf(this.toLong())");
         for (short s : sArr) {
-            valueOf = valueOf.add(function1.invoke(UShort.m985boximpl(s)));
+            valueOf = valueOf.add(function1.invoke(UShort.m964boximpl(s)));
             Intrinsics.checkNotNullExpressionValue(valueOf, "this.add(other)");
         }
         return valueOf;

@@ -30,19 +30,19 @@ public final class h {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34732b;
+    public boolean f26910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f34733c;
+    public boolean f26911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<g> f34734d;
+    public final List<g> f26912d;
 
     /* renamed from: e  reason: collision with root package name */
-    public g f34735e;
+    public g f26913e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34736f;
+    public String f26914f;
 
     static {
         InterceptResult invokeClinit;
@@ -64,18 +64,18 @@ public final class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f34732b = false;
-        this.f34733c = true;
-        this.f34734d = new ArrayList();
-        this.f34735e = null;
+        this.f26910b = false;
+        this.f26911c = true;
+        this.f26912d = new ArrayList();
+        this.f26913e = null;
     }
 
     public static h a() {
@@ -126,7 +126,7 @@ public final class h {
             try {
                 StorageManager storageManager = (StorageManager) context.getSystemService("storage");
                 Method method = storageManager.getClass().getMethod("getVolumeList", new Class[0]);
-                int i2 = 1;
+                int i = 1;
                 Method method2 = storageManager.getClass().getMethod("getVolumeState", String.class);
                 Class<?> cls = Class.forName("android.os.storage.StorageVolume");
                 Method method3 = cls.getMethod("isRemovable", new Class[0]);
@@ -134,41 +134,41 @@ public final class h {
                 Object[] objArr2 = (Object[]) method.invoke(storageManager, new Object[0]);
                 if (objArr2 != null) {
                     int length = objArr2.length;
-                    int i3 = 0;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
                         }
-                        Object obj = objArr2[i3];
+                        Object obj = objArr2[i2];
                         String str = (String) method4.invoke(obj, new Object[0]);
                         if (str == null || str.length() <= 0) {
                             objArr = objArr2;
                         } else {
                             objArr = objArr2;
-                            Object[] objArr3 = new Object[i2];
+                            Object[] objArr3 = new Object[i];
                             objArr3[0] = str;
                             if ("mounted".equals(method2.invoke(storageManager, objArr3))) {
                                 boolean z2 = !((Boolean) method3.invoke(obj, new Object[0])).booleanValue();
                                 if (Build.VERSION.SDK_INT <= 19 && a(str)) {
-                                    this.f34734d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
+                                    this.f26912d.add(new g(str, !z2, z2 ? "内置存储卡" : "外置存储卡", context));
                                 } else if (Build.VERSION.SDK_INT >= 19) {
                                     if (new File(str + File.separator + "BaiduMapSDKNew").exists() && str.equals(context.getSharedPreferences("map_pref", 0).getString("PREFFERED_SD_CARD", ""))) {
-                                        this.f34736f = str + File.separator + "BaiduMapSDKNew";
+                                        this.f26914f = str + File.separator + "BaiduMapSDKNew";
                                     }
                                 }
                             }
                         }
-                        i3++;
+                        i2++;
                         objArr2 = objArr;
-                        i2 = 1;
+                        i = 1;
                     }
                     if (Build.VERSION.SDK_INT >= 19) {
                         File[] externalFilesDirs = context.getExternalFilesDirs(null);
                         ArrayList arrayList = new ArrayList();
-                        arrayList.addAll(this.f34734d);
-                        for (int i4 = 0; i4 < externalFilesDirs.length && externalFilesDirs[i4] != null; i4++) {
-                            String absolutePath = externalFilesDirs[i4].getAbsolutePath();
-                            Iterator<g> it = this.f34734d.iterator();
+                        arrayList.addAll(this.f26912d);
+                        for (int i3 = 0; i3 < externalFilesDirs.length && externalFilesDirs[i3] != null; i3++) {
+                            String absolutePath = externalFilesDirs[i3].getAbsolutePath();
+                            Iterator<g> it = this.f26912d.iterator();
                             while (true) {
                                 if (it.hasNext()) {
                                     if (absolutePath.startsWith(it.next().a())) {
@@ -185,8 +185,8 @@ public final class h {
                                 arrayList.add(new g(absolutePath, true, "外置存储卡", context));
                             }
                         }
-                        this.f34734d.clear();
-                        this.f34734d.addAll(arrayList);
+                        this.f26912d.clear();
+                        this.f26912d.addAll(arrayList);
                     }
                 }
             } catch (Exception e2) {
@@ -253,12 +253,12 @@ public final class h {
                     scanner.close();
                 }
                 String absolutePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-                this.f34734d.add(new g(absolutePath, false, "Auto", context));
+                this.f26912d.add(new g(absolutePath, false, "Auto", context));
                 for (String str2 : arrayList) {
                     if (arrayList2.contains(str2) && !str2.equals(absolutePath)) {
                         File file3 = new File(str2);
                         if (file3.exists() && file3.isDirectory() && file3.canWrite()) {
-                            this.f34734d.add(new g(str2, false, "Auto", context));
+                            this.f26912d.add(new g(str2, false, "Auto", context));
                         }
                     }
                 }
@@ -276,10 +276,10 @@ public final class h {
     */
     public void a(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f34732b) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || this.f26910b) {
             return;
         }
-        this.f34732b = true;
+        this.f26910b = true;
         try {
             if (Build.VERSION.SDK_INT >= 14) {
                 c(context);
@@ -293,54 +293,54 @@ public final class h {
         } catch (Exception e3) {
             e3.printStackTrace();
         }
-        if (this.f34734d.size() > 0) {
+        if (this.f26912d.size() > 0) {
             r2 = null;
-            int i2 = 0;
-            for (g gVar : this.f34734d) {
+            int i = 0;
+            for (g gVar : this.f26912d) {
                 if (new File(gVar.b()).exists()) {
-                    i2++;
+                    i++;
                     r2 = gVar;
                 }
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 g b2 = b(context);
-                this.f34735e = b2;
+                this.f26913e = b2;
                 if (b2 == null) {
-                    for (g gVar2 : this.f34734d) {
+                    for (g gVar2 : this.f26912d) {
                         if (a(context, gVar2)) {
-                            this.f34735e = gVar2;
+                            this.f26913e = gVar2;
                             break;
                         }
                     }
                 }
-                if (this.f34735e == null) {
-                    this.f34735e = this.f34734d.get(0);
+                if (this.f26913e == null) {
+                    this.f26913e = this.f26912d.get(0);
                 }
             } else {
-                if (i2 != 1) {
-                    this.f34735e = b(context);
+                if (i != 1) {
+                    this.f26913e = b(context);
                 } else if (a(context, gVar2)) {
-                    this.f34735e = gVar2;
+                    this.f26913e = gVar2;
                     break;
                 }
-                if (this.f34735e == null) {
+                if (this.f26913e == null) {
                 }
             }
             e3.printStackTrace();
         }
         try {
-            if (this.f34735e == null || !a(this.f34735e.a())) {
-                this.f34733c = false;
-                this.f34735e = new g(context);
-                this.f34734d.clear();
-                this.f34734d.add(this.f34735e);
+            if (this.f26913e == null || !a(this.f26913e.a())) {
+                this.f26911c = false;
+                this.f26913e = new g(context);
+                this.f26912d.clear();
+                this.f26912d.add(this.f26913e);
                 return;
             }
-            File file = new File(this.f34735e.b());
+            File file = new File(this.f26913e.b());
             if (!file.exists()) {
                 file.mkdirs();
             }
-            File file2 = new File(this.f34735e.c());
+            File file2 = new File(this.f26913e.c());
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -372,7 +372,7 @@ public final class h {
     public g b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f34735e : (g) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26913e : (g) invokeV.objValue;
     }
 
     public g b(Context context) {
@@ -383,7 +383,7 @@ public final class h {
             if (string == null || string.length() <= 0) {
                 return null;
             }
-            for (g gVar : this.f34734d) {
+            for (g gVar : this.f26912d) {
                 if (gVar.a().equals(string)) {
                     return gVar;
                 }

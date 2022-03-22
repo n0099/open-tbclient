@@ -8,7 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import c.a.d.f.p.m;
 import c.a.d.f.p.n;
-import c.a.q0.r.t.a;
+import c.a.o0.r.t.a;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.plugin.packageManager.PluginPackageManager;
@@ -39,8 +39,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
-public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, c.a.q0.k0.c.a {
+/* loaded from: classes5.dex */
+public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> implements AdapterView.OnItemClickListener, c.a.o0.k0.c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ITEM_TYPE_DESC = 1;
     public static final int ITEM_TYPE_FUNCTION = 0;
@@ -51,15 +51,15 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     public BdListView mListView;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
-    public c.a.q0.k0.f.b<Object, c.a.q0.k0.d.b, c.a.q0.k0.f.a<Object, c.a.q0.k0.d.b>> mPluginCenterAdapter;
+    public c.a.o0.k0.f.b<Object, c.a.o0.k0.d.b, c.a.o0.k0.f.a<Object, c.a.o0.k0.d.b>> mPluginCenterAdapter;
     public View mRootView;
     public List<Object> mShowList;
 
-    /* loaded from: classes6.dex */
-    public class a extends c.a.q0.k0.f.b<Object, c.a.q0.k0.d.b, c.a.q0.k0.f.a<Object, c.a.q0.k0.d.b>> {
+    /* loaded from: classes5.dex */
+    public class a extends c.a.o0.k0.f.b<Object, c.a.o0.k0.d.b, c.a.o0.k0.f.a<Object, c.a.o0.k0.d.b>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PluginCenterActivity t;
+        public final /* synthetic */ PluginCenterActivity p;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(PluginCenterActivity pluginCenterActivity, TbPageContext tbPageContext, Class[] clsArr, int[] iArr, ViewEventCenter viewEventCenter) {
@@ -70,9 +70,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenterActivity, tbPageContext, clsArr, iArr, viewEventCenter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((TbPageContext) objArr2[0], (Class[]) objArr2[1], (int[]) objArr2[2], (ViewEventCenter) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -80,27 +80,25 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                     return;
                 }
             }
-            this.t = pluginCenterActivity;
+            this.p = pluginCenterActivity;
         }
 
-        @Override // c.a.q0.k0.f.b
-        public int o(int i2) {
+        @Override // c.a.o0.k0.f.b
+        public int o(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? getItem(i2) instanceof String ? 1 : 0 : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? getItem(i) instanceof String ? 1 : 0 : invokeI.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PluginConfigWrapper a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginConfigWrapper f45950e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f45951f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ PluginCenterActivity f35596b;
 
         public b(PluginCenterActivity pluginCenterActivity, PluginConfigWrapper pluginConfigWrapper) {
             Interceptable interceptable = $ic;
@@ -109,42 +107,40 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenterActivity, pluginConfigWrapper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45951f = pluginCenterActivity;
-            this.f45950e = pluginConfigWrapper;
+            this.f35596b = pluginCenterActivity;
+            this.a = pluginConfigWrapper;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 if (n.C()) {
-                    PluginPackageManager.u().K(this.f45950e, this.f45951f.mDownLoadAndInstallCallback);
-                    this.f45950e.setDownLoadPercent(0);
-                    this.f45950e.setDownLoadStatus(3);
-                    this.f45951f.mPluginCenterAdapter.n(this.f45950e);
+                    PluginPackageManager.u().K(this.a, this.f35596b.mDownLoadAndInstallCallback);
+                    this.a.setDownLoadPercent(0);
+                    this.a.setDownLoadStatus(3);
+                    this.f35596b.mPluginCenterAdapter.n(this.a);
                 } else {
-                    this.f45951f.showToast(R.string.neterror);
+                    this.f35596b.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 }
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginCenterActivity f45952e;
+        public final /* synthetic */ PluginCenterActivity a;
 
         public c(PluginCenterActivity pluginCenterActivity) {
             Interceptable interceptable = $ic;
@@ -153,19 +149,19 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenterActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45952e = pluginCenterActivity;
+            this.a = pluginCenterActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -173,7 +169,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements c.a.d.j.j.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -186,9 +182,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginCenterActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -204,7 +200,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bdFileDownloadData) == null) || bdFileDownloadData == null || bdFileDownloadData.getId() == null || (findData = this.a.findData(bdFileDownloadData.getId())) == null) {
                 return;
             }
-            this.a.showToast(R.string.download_fail_tip);
+            this.a.showToast(R.string.obfuscated_res_0x7f0f04ee);
             findData.setDownLoadStatus(0);
             this.a.mPluginCenterAdapter.n(findData);
         }
@@ -215,9 +211,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -313,12 +309,12 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     private void initListView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
-            this.mRootView = findViewById(R.id.parent);
-            this.mListView = (BdListView) findViewById(R.id.list);
-            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.list_layout), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getActivity(), R.dimen.ds220)), NoDataViewFactory.e.a(R.string.plugin_no_plugins), null);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091647);
+            this.mListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f091277);
+            NoDataView a2 = NoDataViewFactory.a(getPageContext().getPageActivity(), findViewById(R.id.obfuscated_res_0x7f09127e), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, n.f(getActivity(), R.dimen.obfuscated_res_0x7f070271)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f0e6d), null);
             this.mNoDataView = a2;
             this.mListView.setEmptyView(a2);
-            a aVar = new a(this, getPageContext(), new Class[]{c.a.r0.b3.a.a.class, c.a.r0.b3.a.b.class}, new int[]{R.layout.plugin_center_list_function_item, R.layout.plugin_center_list_desc_item}, this.mEventCenter);
+            a aVar = new a(this, getPageContext(), new Class[]{c.a.p0.d3.a.a.class, c.a.p0.d3.a.b.class}, new int[]{R.layout.obfuscated_res_0x7f0d06ee, R.layout.obfuscated_res_0x7f0d06ed}, this.mEventCenter);
             this.mPluginCenterAdapter = aVar;
             this.mListView.setAdapter((ListAdapter) aVar);
             this.mListView.setOnItemClickListener(this);
@@ -331,9 +327,9 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
             if (getIntent() != null) {
                 this.mFromType = getIntent().getIntExtra("key_from_type", 0);
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.plugin_center));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e56));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
         }
     }
@@ -359,24 +355,24 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
         boolean z = pluginConfigWrapper.getDownLoadStatus() == 4;
         if (z) {
-            format = String.format(TbadkApplication.getInst().getString(R.string.plugin_update_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
+            format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e79), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
         } else {
-            format = String.format(TbadkApplication.getInst().getString(R.string.plugin_download_size_prompt), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
+            format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e5a), Float.valueOf(pluginConfigWrapper.newest.size / 1048576.0f));
         }
         if (z) {
-            string = TbadkCoreApplication.getInst().getString(R.string.download_update);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04f8);
         } else {
-            string = TbadkCoreApplication.getInst().getString(R.string.download);
+            string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04e3);
         }
-        c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getActivity());
+        c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getActivity());
         aVar.setMessage(format);
         aVar.setPositiveButton(string, new b(this, pluginConfigWrapper));
-        aVar.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.cancel), new c(this));
+        aVar.setNegativeButton(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f036c), new c(this));
         aVar.create(getPageContext());
         aVar.show();
     }
 
-    @Override // c.a.q0.k0.c.a
+    @Override // c.a.o0.k0.c.a
     public boolean isEventMustSelf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -387,16 +383,16 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             this.mPluginCenterAdapter.notifyDataSetChanged();
             getLayoutMode().j(findViewById(16908290));
             NoDataView noDataView = this.mNoDataView;
             if (noDataView != null) {
-                noDataView.onChangeSkinType(getPageContext(), i2);
+                noDataView.f(getPageContext(), i);
             }
         }
     }
@@ -406,7 +402,7 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.plugin_center_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d06ec);
             ViewEventCenter viewEventCenter = new ViewEventCenter();
             this.mEventCenter = viewEventCenter;
             viewEventCenter.addEventDelegate(this);
@@ -424,13 +420,13 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
         }
     }
 
-    @Override // c.a.q0.k0.c.a
-    public boolean onEventDispatch(c.a.q0.k0.c.b bVar) {
+    @Override // c.a.o0.k0.c.a
+    public boolean onEventDispatch(c.a.o0.k0.c.b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bVar)) == null) {
             int b2 = bVar.b();
-            c.a.q0.k0.b.a a2 = bVar.a();
+            c.a.o0.k0.b.a a2 = bVar.a();
             if (b2 == 1) {
                 if (a2 instanceof PluginConfigWrapper) {
                     PluginPackageManager.u().M(((PluginConfigWrapper) a2).package_name);
@@ -455,10 +451,10 @@ public class PluginCenterActivity extends BaseActivity<PluginCenterActivity> imp
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) && (this.mPluginCenterAdapter.getItem(i2) instanceof PluginConfigWrapper)) {
-            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginConfigWrapper) this.mPluginCenterAdapter.getItem(i2)).package_name)));
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) && (this.mPluginCenterAdapter.getItem(i) instanceof PluginConfigWrapper)) {
+            sendMessage(new CustomMessage(2002001, new PluginDetailActivityConfig(getPageContext().getPageActivity(), ((PluginConfigWrapper) this.mPluginCenterAdapter.getItem(i)).package_name)));
         }
     }
 

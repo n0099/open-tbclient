@@ -9,6 +9,7 @@ import c.b.b.q.a;
 import c.b.b.q.i;
 import com.badlogic.gdx.math.Quaternion;
 import com.badlogic.gdx.math.Vector3;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsMainTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -27,20 +28,20 @@ public class c extends g<b> {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f27345h;
+    public static boolean f22579h;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final i f27346d;
+    public final i f22580d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f27347e;
+    public final i f22581e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f27348f;
+    public final i f22582f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c.b.b.q.a<a> f27349g;
+    public final c.b.b.q.a<a> f22583g;
 
     /* loaded from: classes3.dex */
     public class a {
@@ -49,19 +50,19 @@ public class c extends g<b> {
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f27350b;
+        public String f22584b;
 
         /* renamed from: c  reason: collision with root package name */
-        public c.b.b.q.a<Integer> f27351c;
+        public c.b.b.q.a<Integer> f22585c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f27352d;
+        public int f22586d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f27353e;
+        public boolean f22587e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f27354f;
+        public boolean f22588f;
 
         public a(c cVar, String str) {
             Interceptable interceptable = $ic;
@@ -70,19 +71,19 @@ public class c extends g<b> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = str;
-            this.f27351c = new c.b.b.q.a<>(200);
-            this.f27352d = 0;
+            this.f22585c = new c.b.b.q.a<>(200);
+            this.f22586d = 0;
             new c.b.b.n.l.c("");
-            this.f27350b = "default";
+            this.f22584b = "default";
         }
     }
 
@@ -92,16 +93,16 @@ public class c extends g<b> {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f27355c;
+        public boolean f22589c;
 
         public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -133,30 +134,30 @@ public class c extends g<b> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27346d = new i(300);
-        this.f27347e = new i(300);
-        this.f27348f = new i(200);
-        this.f27349g = new c.b.b.q.a<>(10);
+        this.f22580d = new i(300);
+        this.f22581e = new i(300);
+        this.f22582f = new i(200);
+        this.f22583g = new c.b.b.q.a<>(10);
     }
 
-    public final int j(String str, int i2) {
+    public final int j(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
             if (str == null || str.length() == 0) {
                 return 0;
             }
             int parseInt = Integer.parseInt(str);
-            return parseInt < 0 ? i2 + parseInt : parseInt - 1;
+            return parseInt < 0 ? i + parseInt : parseInt - 1;
         }
         return invokeLI.intValue;
     }
@@ -168,24 +169,24 @@ public class c extends g<b> {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, bVar)) == null) {
-            return l(aVar, bVar != null && bVar.f27355c);
+            return l(aVar, bVar != null && bVar.f22589c);
         }
         return (c.b.b.n.l.g.g.b) invokeLL.objValue;
     }
 
     public c.b.b.n.l.g.g.b l(c.b.b.m.a aVar, boolean z) {
         InterceptResult invokeLZ;
+        int i;
         int i2;
-        int i3;
         char charAt;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, aVar, z)) == null) {
-            if (f27345h) {
+            if (f22579h) {
                 f.a.error("ObjLoader", "Wavefront (OBJ) is not fully supported, consult the documentation for more information");
             }
             c.b.b.n.l.f.b bVar = new c.b.b.n.l.f.b();
             a aVar2 = new a(this, "default");
-            this.f27349g.a(aVar2);
+            this.f22583g.a(aVar2);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(aVar.m()), 4096);
             while (true) {
                 try {
@@ -199,55 +200,55 @@ public class c extends g<b> {
                     } else if (split[0].length() != 0 && (charAt = split[0].toLowerCase().charAt(0)) != '#') {
                         if (charAt == 'v') {
                             if (split[0].length() == 1) {
-                                this.f27346d.a(Float.parseFloat(split[1]));
-                                this.f27346d.a(Float.parseFloat(split[2]));
-                                this.f27346d.a(Float.parseFloat(split[3]));
+                                this.f22580d.a(Float.parseFloat(split[1]));
+                                this.f22580d.a(Float.parseFloat(split[2]));
+                                this.f22580d.a(Float.parseFloat(split[3]));
                             } else if (split[0].charAt(1) == 'n') {
-                                this.f27347e.a(Float.parseFloat(split[1]));
-                                this.f27347e.a(Float.parseFloat(split[2]));
-                                this.f27347e.a(Float.parseFloat(split[3]));
+                                this.f22581e.a(Float.parseFloat(split[1]));
+                                this.f22581e.a(Float.parseFloat(split[2]));
+                                this.f22581e.a(Float.parseFloat(split[3]));
                             } else if (split[0].charAt(1) == 't') {
-                                this.f27348f.a(Float.parseFloat(split[1]));
-                                this.f27348f.a(z ? 1.0f - Float.parseFloat(split[2]) : Float.parseFloat(split[2]));
+                                this.f22582f.a(Float.parseFloat(split[1]));
+                                this.f22582f.a(z ? 1.0f - Float.parseFloat(split[2]) : Float.parseFloat(split[2]));
                             }
                         } else if (charAt == 'f') {
-                            c.b.b.q.a<Integer> aVar3 = aVar2.f27351c;
-                            int i4 = 1;
-                            while (i4 < split.length - 2) {
+                            c.b.b.q.a<Integer> aVar3 = aVar2.f22585c;
+                            int i3 = 1;
+                            while (i3 < split.length - 2) {
                                 String[] split2 = split[1].split("/");
-                                aVar3.a(Integer.valueOf(j(split2[0], this.f27346d.f27554b)));
+                                aVar3.a(Integer.valueOf(j(split2[0], this.f22580d.f22765b)));
                                 if (split2.length > 2) {
-                                    if (i4 == 1) {
-                                        aVar2.f27353e = true;
+                                    if (i3 == 1) {
+                                        aVar2.f22587e = true;
                                     }
-                                    aVar3.a(Integer.valueOf(j(split2[2], this.f27347e.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split2[2], this.f22581e.f22765b)));
                                 }
                                 if (split2.length > 1 && split2[1].length() > 0) {
-                                    if (i4 == 1) {
-                                        aVar2.f27354f = true;
+                                    if (i3 == 1) {
+                                        aVar2.f22588f = true;
                                     }
-                                    aVar3.a(Integer.valueOf(j(split2[1], this.f27348f.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split2[1], this.f22582f.f22765b)));
                                 }
-                                int i5 = i4 + 1;
-                                String[] split3 = split[i5].split("/");
-                                aVar3.a(Integer.valueOf(j(split3[0], this.f27346d.f27554b)));
+                                int i4 = i3 + 1;
+                                String[] split3 = split[i4].split("/");
+                                aVar3.a(Integer.valueOf(j(split3[0], this.f22580d.f22765b)));
                                 if (split3.length > 2) {
-                                    aVar3.a(Integer.valueOf(j(split3[2], this.f27347e.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split3[2], this.f22581e.f22765b)));
                                 }
                                 if (split3.length > 1 && split3[1].length() > 0) {
-                                    aVar3.a(Integer.valueOf(j(split3[1], this.f27348f.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split3[1], this.f22582f.f22765b)));
                                 }
-                                int i6 = i5 + 1;
-                                String[] split4 = split[i6].split("/");
-                                aVar3.a(Integer.valueOf(j(split4[0], this.f27346d.f27554b)));
+                                int i5 = i4 + 1;
+                                String[] split4 = split[i5].split("/");
+                                aVar3.a(Integer.valueOf(j(split4[0], this.f22580d.f22765b)));
                                 if (split4.length > 2) {
-                                    aVar3.a(Integer.valueOf(j(split4[2], this.f27347e.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split4[2], this.f22581e.f22765b)));
                                 }
                                 if (split4.length > 1 && split4[1].length() > 0) {
-                                    aVar3.a(Integer.valueOf(j(split4[1], this.f27348f.f27554b)));
+                                    aVar3.a(Integer.valueOf(j(split4[1], this.f22582f.f22765b)));
                                 }
-                                aVar2.f27352d++;
-                                i4 = i6 - 1;
+                                aVar2.f22586d++;
+                                i3 = i5 - 1;
                             }
                         } else {
                             if (charAt != 'o' && charAt != 'g') {
@@ -255,9 +256,9 @@ public class c extends g<b> {
                                     bVar.b(aVar.i().a(split[1]));
                                 } else if (split[0].equals("usemtl")) {
                                     if (split.length == 1) {
-                                        aVar2.f27350b = "default";
+                                        aVar2.f22584b = "default";
                                     } else {
-                                        aVar2.f27350b = split[1].replace('.', '_');
+                                        aVar2.f22584b = split[1].replace(IStringUtil.EXTENSION_SEPARATOR, '_');
                                     }
                                 }
                             }
@@ -273,88 +274,88 @@ public class c extends g<b> {
                 }
             }
             bufferedReader.close();
-            int i7 = 0;
+            int i6 = 0;
             while (true) {
-                c.b.b.q.a<a> aVar4 = this.f27349g;
-                i2 = aVar4.f27499f;
-                if (i7 >= i2) {
+                c.b.b.q.a<a> aVar4 = this.f22583g;
+                i = aVar4.f22717b;
+                if (i6 >= i) {
                     break;
                 }
-                if (aVar4.get(i7).f27352d < 1) {
-                    this.f27349g.h(i7);
-                    i7--;
+                if (aVar4.get(i6).f22586d < 1) {
+                    this.f22583g.i(i6);
+                    i6--;
                 }
-                i7++;
+                i6++;
             }
-            if (i2 < 1) {
+            if (i < 1) {
                 return null;
             }
             c.b.b.n.l.g.g.b bVar2 = new c.b.b.n.l.g.g.b();
+            int i7 = 0;
             int i8 = 0;
-            int i9 = 0;
-            while (i8 < i2) {
-                a aVar5 = this.f27349g.get(i8);
-                c.b.b.q.a<Integer> aVar6 = aVar5.f27351c;
-                int i10 = aVar6.f27499f;
-                int i11 = aVar5.f27352d;
-                boolean z2 = aVar5.f27353e;
-                boolean z3 = aVar5.f27354f;
-                int i12 = i11 * 3;
-                float[] fArr = new float[i12 * ((z2 ? 3 : 0) + 3 + (z3 ? 2 : 0))];
+            while (i7 < i) {
+                a aVar5 = this.f22583g.get(i7);
+                c.b.b.q.a<Integer> aVar6 = aVar5.f22585c;
+                int i9 = aVar6.f22717b;
+                int i10 = aVar5.f22586d;
+                boolean z2 = aVar5.f22587e;
+                boolean z3 = aVar5.f22588f;
+                int i11 = i10 * 3;
+                float[] fArr = new float[i11 * ((z2 ? 3 : 0) + 3 + (z3 ? 2 : 0))];
+                int i12 = 0;
                 int i13 = 0;
-                int i14 = 0;
-                while (i13 < i10) {
+                while (i12 < i9) {
+                    int i14 = i12 + 1;
+                    int intValue = aVar6.get(i12).intValue() * 3;
                     int i15 = i13 + 1;
-                    int intValue = aVar6.get(i13).intValue() * 3;
-                    int i16 = i14 + 1;
-                    int i17 = i2;
-                    int i18 = i10;
-                    int i19 = intValue + 1;
-                    fArr[i14] = this.f27346d.c(intValue);
-                    int i20 = i16 + 1;
-                    int i21 = i8;
-                    fArr[i16] = this.f27346d.c(i19);
-                    int i22 = i20 + 1;
-                    fArr[i20] = this.f27346d.c(i19 + 1);
+                    int i16 = i;
+                    int i17 = i9;
+                    int i18 = intValue + 1;
+                    fArr[i13] = this.f22580d.c(intValue);
+                    int i19 = i15 + 1;
+                    int i20 = i7;
+                    fArr[i15] = this.f22580d.c(i18);
+                    int i21 = i19 + 1;
+                    fArr[i19] = this.f22580d.c(i18 + 1);
                     if (z2) {
-                        int i23 = i15 + 1;
-                        int intValue2 = aVar6.get(i15).intValue() * 3;
-                        int i24 = i22 + 1;
-                        int i25 = intValue2 + 1;
-                        fArr[i22] = this.f27347e.c(intValue2);
-                        int i26 = i24 + 1;
-                        fArr[i24] = this.f27347e.c(i25);
-                        i22 = i26 + 1;
-                        fArr[i26] = this.f27347e.c(i25 + 1);
-                        i15 = i23;
+                        int i22 = i14 + 1;
+                        int intValue2 = aVar6.get(i14).intValue() * 3;
+                        int i23 = i21 + 1;
+                        int i24 = intValue2 + 1;
+                        fArr[i21] = this.f22581e.c(intValue2);
+                        int i25 = i23 + 1;
+                        fArr[i23] = this.f22581e.c(i24);
+                        i21 = i25 + 1;
+                        fArr[i25] = this.f22581e.c(i24 + 1);
+                        i14 = i22;
                     }
                     if (z3) {
-                        int i27 = i15 + 1;
-                        int intValue3 = aVar6.get(i15).intValue() * 2;
-                        int i28 = i22 + 1;
-                        int i29 = intValue3 + 1;
-                        fArr[i22] = this.f27348f.c(intValue3);
-                        i3 = i28 + 1;
-                        fArr[i28] = this.f27348f.c(i29);
-                        i13 = i27;
+                        int i26 = i14 + 1;
+                        int intValue3 = aVar6.get(i14).intValue() * 2;
+                        int i27 = i21 + 1;
+                        int i28 = intValue3 + 1;
+                        fArr[i21] = this.f22582f.c(intValue3);
+                        i2 = i27 + 1;
+                        fArr[i27] = this.f22582f.c(i28);
+                        i12 = i26;
                     } else {
-                        i3 = i22;
-                        i13 = i15;
+                        i2 = i21;
+                        i12 = i14;
                     }
-                    i10 = i18;
-                    i8 = i21;
-                    i14 = i3;
-                    i2 = i17;
+                    i9 = i17;
+                    i7 = i20;
+                    i13 = i2;
+                    i = i16;
                 }
-                int i30 = i8;
-                int i31 = i2;
-                if (i12 >= 32767) {
-                    i12 = 0;
+                int i29 = i7;
+                int i30 = i;
+                if (i11 >= 32767) {
+                    i11 = 0;
                 }
-                short[] sArr = new short[i12];
-                if (i12 > 0) {
-                    for (int i32 = 0; i32 < i12; i32++) {
-                        sArr[i32] = (short) i32;
+                short[] sArr = new short[i11];
+                if (i11 > 0) {
+                    for (int i31 = 0; i31 < i11; i31++) {
+                        sArr[i31] = (short) i31;
                     }
                 }
                 c.b.b.q.a aVar7 = new c.b.b.q.a();
@@ -365,8 +366,8 @@ public class c extends g<b> {
                 if (z3) {
                     aVar7.a(new c.b.b.n.i(16, 2, "a_texCoord0"));
                 }
-                i9++;
-                String num = Integer.toString(i9);
+                i8++;
+                String num = Integer.toString(i8);
                 String str = "default".equals(aVar5.a) ? NodeJS.NODE + num : aVar5.a;
                 if ("default".equals(aVar5.a)) {
                     String str2 = "mesh" + num;
@@ -376,41 +377,41 @@ public class c extends g<b> {
                 String str4 = "default".equals(aVar5.a) ? SpeedStatsMainTable.PART + num : aVar5.a;
                 c.b.b.n.l.g.g.e eVar = new c.b.b.n.l.g.g.e();
                 eVar.a = str;
-                eVar.f27387d = new Vector3(1.0f, 1.0f, 1.0f);
-                eVar.f27385b = new Vector3();
-                eVar.f27386c = new Quaternion();
+                eVar.f22619d = new Vector3(1.0f, 1.0f, 1.0f);
+                eVar.f22617b = new Vector3();
+                eVar.f22618c = new Quaternion();
                 h hVar = new h();
-                hVar.f27394b = str4;
-                hVar.a = aVar5.f27350b;
-                eVar.f27388e = new h[]{hVar};
+                hVar.f22626b = str4;
+                hVar.a = aVar5.f22584b;
+                eVar.f22620e = new h[]{hVar};
                 d dVar = new d();
                 dVar.a = str4;
-                dVar.f27383b = sArr;
-                dVar.f27384c = 4;
+                dVar.f22615b = sArr;
+                dVar.f22616c = 4;
                 c.b.b.n.l.g.g.c cVar = new c.b.b.n.l.g.g.c();
-                cVar.a = (c.b.b.n.i[]) aVar7.m(c.b.b.n.i.class);
-                cVar.f27381b = fArr;
-                cVar.f27382c = new d[]{dVar};
-                bVar2.f27379d.a(eVar);
-                bVar2.f27377b.a(cVar);
-                bVar2.f27378c.a(bVar.a(aVar5.f27350b));
-                i8 = i30 + 1;
-                i2 = i31;
+                cVar.a = (c.b.b.n.i[]) aVar7.n(c.b.b.n.i.class);
+                cVar.f22613b = fArr;
+                cVar.f22614c = new d[]{dVar};
+                bVar2.f22611d.a(eVar);
+                bVar2.f22609b.a(cVar);
+                bVar2.f22610c.a(bVar.a(aVar5.f22584b));
+                i7 = i29 + 1;
+                i = i30;
             }
-            i iVar = this.f27346d;
-            if (iVar.f27554b > 0) {
+            i iVar = this.f22580d;
+            if (iVar.f22765b > 0) {
                 iVar.b();
             }
-            i iVar2 = this.f27347e;
-            if (iVar2.f27554b > 0) {
+            i iVar2 = this.f22581e;
+            if (iVar2.f22765b > 0) {
                 iVar2.b();
             }
-            i iVar3 = this.f27348f;
-            if (iVar3.f27554b > 0) {
+            i iVar3 = this.f22582f;
+            if (iVar3.f22765b > 0) {
                 iVar3.b();
             }
-            c.b.b.q.a<a> aVar8 = this.f27349g;
-            if (aVar8.f27499f > 0) {
+            c.b.b.q.a<a> aVar8 = this.f22583g;
+            if (aVar8.f22717b > 0) {
                 aVar8.clear();
             }
             return bVar2;
@@ -422,7 +423,7 @@ public class c extends g<b> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            a.b<a> it = this.f27349g.iterator();
+            a.b<a> it = this.f22583g.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next.a.equals(str)) {
@@ -430,7 +431,7 @@ public class c extends g<b> {
                 }
             }
             a aVar = new a(this, str);
-            this.f27349g.a(aVar);
+            this.f22583g.a(aVar);
             return aVar;
         }
         return (a) invokeL.objValue;

@@ -28,18 +28,18 @@ public class cp implements com.kwad.sdk.core.d<NewsInfo> {
         newsInfo.imageInfo = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("imageInfo");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 NewsInfo.ImageInfo imageInfo = new NewsInfo.ImageInfo();
-                imageInfo.parseJson(optJSONArray.optJSONObject(i2));
+                imageInfo.parseJson(optJSONArray.optJSONObject(i));
                 newsInfo.imageInfo.add(imageInfo);
             }
         }
         newsInfo.thumbnailInfo = new ArrayList();
         JSONArray optJSONArray2 = jSONObject.optJSONArray("thumbnailInfo");
         if (optJSONArray2 != null) {
-            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+            for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
                 NewsInfo.ImageInfo imageInfo2 = new NewsInfo.ImageInfo();
-                imageInfo2.parseJson(optJSONArray2.optJSONObject(i3));
+                imageInfo2.parseJson(optJSONArray2.optJSONObject(i2));
                 newsInfo.thumbnailInfo.add(imageInfo2);
             }
         }

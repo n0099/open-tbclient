@@ -37,9 +37,9 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
                 newInitContext.initArgs = r2;
                 Object[] objArr = {publishSubject, atomicReference};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,7 +90,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public final Observer<? super R> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60730d;
+        public Disposable f45340d;
 
         public TargetObserver(Observer<? super R> observer) {
             Interceptable interceptable = $ic;
@@ -99,9 +99,9 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -114,7 +114,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60730d.dispose();
+                this.f45340d.dispose();
                 DisposableHelper.dispose(this);
             }
         }
@@ -123,7 +123,7 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60730d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45340d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.Observer
@@ -155,8 +155,8 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f60730d, disposable)) {
-                this.f60730d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, disposable) == null) && DisposableHelper.validate(this.f45340d, disposable)) {
+                this.f45340d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -171,9 +171,9 @@ public final class ObservablePublishSelector<T, R> extends AbstractObservableWit
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -10,7 +10,7 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.nativ.ADSize;
 import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseNativeExpressAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
@@ -27,9 +27,9 @@ public abstract class BaseNativeExpressAd {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, aDSize, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,19 +47,19 @@ public abstract class BaseNativeExpressAd {
 
     public abstract int getECPM();
 
-    public abstract void loadAD(int i2);
+    public abstract void loadAD(int i);
 
-    public abstract void loadAD(int i2, LoadAdParams loadAdParams);
+    public abstract void loadAD(int i, LoadAdParams loadAdParams);
 
     public abstract void setAdListener(ADListener aDListener);
 
     public abstract void setECPMLevel(String str);
 
-    public abstract void setMaxVideoDuration(int i2);
+    public abstract void setMaxVideoDuration(int i);
 
-    public abstract void setMinVideoDuration(int i2);
+    public abstract void setMinVideoDuration(int i);
 
     public abstract void setVideoOption(VideoOption videoOption);
 
-    public abstract void setVideoPlayPolicy(int i2);
+    public abstract void setVideoPlayPolicy(int i);
 }

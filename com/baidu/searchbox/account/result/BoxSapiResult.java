@@ -42,9 +42,9 @@ public class BoxSapiResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +74,7 @@ public class BoxSapiResult {
     public String getResultMsg() {
         InterceptResult invokeV;
         SparseArray<String> sparseArray;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             if (!TextUtils.isEmpty(this.resultMsg)) {
@@ -82,20 +82,20 @@ public class BoxSapiResult {
             }
             if (this.msgMap.get(this.resultCode) != null) {
                 sparseArray = this.msgMap;
-                i2 = this.resultCode;
+                i = this.resultCode;
             } else {
                 sparseArray = this.msgMap;
-                i2 = -202;
+                i = -202;
             }
-            return sparseArray.get(i2);
+            return sparseArray.get(i);
         }
         return (String) invokeV.objValue;
     }
 
-    public void setResultCode(int i2) {
+    public void setResultCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.resultCode = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.resultCode = i;
         }
     }
 

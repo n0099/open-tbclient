@@ -37,6 +37,7 @@ public interface SapiEnv {
     public static final String SOCIAL_FINISH_AUTH_URI = "/phoenix/account/finishbind";
     public static final String SOCIAL_START_URI = "/phoenix/account/startlogin";
     public static final String SSO_FINISH_URI = "/phoenix/account/ssologin";
+    public static final String SSO_SECONDCARD_URI = "/v6/secondcard";
     public static final String SSO_START_URI = "/phoenix/account/ssologin";
     public static final String SWITCH_ACCOUNT = "/v6/changeAccount";
     public static final String UPLOAD_CONTACTS_DATA = "/v3/ucenter/contacts/upload";

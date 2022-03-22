@@ -1,7 +1,7 @@
 package com.baidu.tieba.enterForum.home;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.s.a;
+import c.a.o0.r.s.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -45,9 +45,9 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -125,9 +125,9 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void afterDispatchInBackGround(int i2, byte[] bArr) {
+    public void afterDispatchInBackGround(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
+        if (!(interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) || bArr == null || bArr.length <= 0 || getError() != 0) {
             return;
         }
         a.f();
@@ -136,13 +136,13 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         ForumRecommendResIdl forumRecommendResIdl;
         DataRes dataRes;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) || (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) || (forumRecommendResIdl = (ForumRecommendResIdl) new Wire(new Class[0]).parseFrom(bArr, ForumRecommendResIdl.class)) == null) {
             return;
         }
         Error error = forumRecommendResIdl.error;
@@ -160,7 +160,7 @@ public class forumRecommendSocketResponseMessage extends SocketResponsedMessage 
             if (dataRes.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.hotSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.x(forumRecommendResIdl.data.hot_search);
+                hotSearchInfoData.z(forumRecommendResIdl.data.hot_search);
             }
             DataRes dataRes2 = forumRecommendResIdl.data;
             this.recommend_concern_forums = dataRes2.tag_recommend_forum;

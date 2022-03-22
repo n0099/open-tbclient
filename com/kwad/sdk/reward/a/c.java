@@ -1,16 +1,16 @@
 package com.kwad.sdk.reward.a;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c implements b {
     @Override // com.kwad.sdk.reward.a.b
     public void a() {
     }
 
     @Override // com.kwad.sdk.reward.a.b
-    public void a(int i2, int i3) {
+    public void a(int i, int i2) {
     }
 
     @Override // com.kwad.sdk.reward.a.b
-    public void a(long j2) {
+    public void a(long j) {
     }
 
     @Override // com.kwad.sdk.reward.a.b

@@ -1,6 +1,7 @@
 package com.google.zxing.oned;
 
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.down.manage.DownloadConstants;
 import com.baidu.sapi2.outsdk.OneKeyLoginSdkCall;
@@ -12,10 +13,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.baidu.wallet.paysdk.banksign.beans.BankSignFactory;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
-import com.baidu.wallet.paysdk.fingerprint.bean.FingerprintBeanFactory;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 import com.google.zxing.client.result.ExpandedProductParsedResult;
 import java.util.ArrayList;
@@ -32,9 +31,9 @@ public final class EANManufacturerOrgSupport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -87,7 +86,7 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{500, 509}, "GB");
                     add(new int[]{520}, "GR");
                     add(new int[]{528}, ExpandedProductParsedResult.POUND);
-                    add(new int[]{PayBeanFactory.BEAN_ID_CHECK_PWD}, "CY");
+                    add(new int[]{529}, "CY");
                     add(new int[]{531}, "MK");
                     add(new int[]{535}, "MT");
                     add(new int[]{539}, "IE");
@@ -96,10 +95,10 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{569}, "IS");
                     add(new int[]{570, 579}, "DK");
                     add(new int[]{590}, "PL");
-                    add(new int[]{PayBeanFactory.BEAN_ID_SCANCODE_PAY}, "RO");
+                    add(new int[]{594}, "RO");
                     add(new int[]{599}, "HU");
                     add(new int[]{600, 601}, "ZA");
-                    add(new int[]{603}, "GH");
+                    add(new int[]{ResponseCode.TFE_IMMGR_KVACCESS_NOT_EXIST}, "GH");
                     add(new int[]{608}, "BH");
                     add(new int[]{609}, "MU");
                     add(new int[]{611}, "MA");
@@ -130,9 +129,9 @@ public final class EANManufacturerOrgSupport {
                     add(new int[]{750}, "MX");
                     add(new int[]{754, 755}, "CA");
                     add(new int[]{759}, "VE");
-                    add(new int[]{AiAppGuideActivity.GIF_WIDTH, 769}, "CH");
-                    add(new int[]{BankSignFactory.BEAN_ID_QUERY}, "CO");
-                    add(new int[]{FingerprintBeanFactory.BEAN_ID_SYS_FINGERPRINT_CLOSE}, "UY");
+                    add(new int[]{AiAppGuideActivity.GIF_WIDTH, ApkSignatureSchemeV2Verifier.SIGNATURE_DSA_WITH_SHA256}, "CH");
+                    add(new int[]{770}, "CO");
+                    add(new int[]{773}, "UY");
                     add(new int[]{775}, "PE");
                     add(new int[]{777}, "BO");
                     add(new int[]{779}, "AR");
@@ -171,18 +170,18 @@ public final class EANManufacturerOrgSupport {
     public String lookupCountryIdentifier(String str) {
         InterceptResult invokeL;
         int[] iArr;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             initIfNeeded();
             int parseInt = Integer.parseInt(str.substring(0, 3));
             int size = this.ranges.size();
-            for (int i3 = 0; i3 < size && parseInt >= (i2 = (iArr = this.ranges.get(i3))[0]); i3++) {
+            for (int i2 = 0; i2 < size && parseInt >= (i = (iArr = this.ranges.get(i2))[0]); i2++) {
                 if (iArr.length != 1) {
-                    i2 = iArr[1];
+                    i = iArr[1];
                 }
-                if (parseInt <= i2) {
-                    return this.countryIdentifiers.get(i3);
+                if (parseInt <= i) {
+                    return this.countryIdentifiers.get(i2);
                 }
             }
             return null;

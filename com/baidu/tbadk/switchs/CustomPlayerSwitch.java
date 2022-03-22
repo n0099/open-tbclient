@@ -38,9 +38,9 @@ public class CustomPlayerSwitch extends a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -53,17 +53,17 @@ public class CustomPlayerSwitch extends a {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? mSwitchStatus : invokeV.intValue;
     }
 
-    public static void setSwitchStatus(int i2) {
+    public static void setSwitchStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            mSwitchStatus = i2;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            mSwitchStatus = i;
         }
     }
 
     @Override // c.a.d.f.f.a
-    public void changeSettingByType(int i2) {
+    public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 

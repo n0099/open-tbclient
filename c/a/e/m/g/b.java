@@ -18,9 +18,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,7 +30,7 @@ public class b {
     public final boolean a(@NonNull a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.f3246i == 1 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar.i == 1 : invokeL.booleanValue;
     }
 
     public void b(@NonNull a aVar) {
@@ -41,11 +41,11 @@ public class b {
         }
     }
 
-    public void c(@NonNull a aVar, int i2) {
+    public void c(@NonNull a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, aVar, i) == null) {
             aVar.a = 7;
-            c.a.e.m.b.b(aVar, i2);
+            c.a.e.m.b.b(aVar, i);
         }
     }
 
@@ -115,10 +115,10 @@ public class b {
         }
     }
 
-    public void l(@NonNull a aVar, int i2) {
+    public void l(@NonNull a aVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048587, this, aVar, i2) == null) {
-            c.a.e.m.b.g(aVar, i2);
+        if (interceptable == null || interceptable.invokeLI(1048587, this, aVar, i) == null) {
+            c.a.e.m.b.g(aVar, i);
         }
     }
 }

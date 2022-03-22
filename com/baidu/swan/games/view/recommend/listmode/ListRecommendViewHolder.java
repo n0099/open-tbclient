@@ -10,14 +10,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView detail;
-    public SimpleDraweeView icon;
-    public TextView name;
-    public Button play;
+    public SimpleDraweeView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f29598b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f29599c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Button f29600d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ListRecommendViewHolder(View view) {
@@ -28,18 +34,18 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.icon = (SimpleDraweeView) view.findViewById(R.id.swangame_recommend_item_icon);
-        this.name = (TextView) view.findViewById(R.id.swangame_recommend_item_name);
-        this.detail = (TextView) view.findViewById(R.id.swangame_recommend_item_detail);
-        this.play = (Button) view.findViewById(R.id.swangame_recommend_item_play);
+        this.a = (SimpleDraweeView) view.findViewById(R.id.obfuscated_res_0x7f091e24);
+        this.f29598b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091e25);
+        this.f29599c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091e23);
+        this.f29600d = (Button) view.findViewById(R.id.obfuscated_res_0x7f091e26);
     }
 }

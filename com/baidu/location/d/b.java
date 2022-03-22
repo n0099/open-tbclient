@@ -1,5 +1,6 @@
 package com.baidu.location.d;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +13,7 @@ public class b implements Runnable {
     public final /* synthetic */ WeakReference a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ a f33758b;
+    public final /* synthetic */ a f26041b;
 
     public b(a aVar, WeakReference weakReference) {
         Interceptable interceptable = $ic;
@@ -21,28 +22,29 @@ public class b implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, weakReference};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33758b = aVar;
+        this.f26041b = aVar;
         this.a = weakReference;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         a aVar;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = (a) this.a.get()) == null) {
             return;
         }
-        i2 = aVar.f33757h;
-        if (i2 == 3) {
+        i = aVar.f26040h;
+        if (i == 3) {
+            Log.d("baidu_location_service", "baidu location service force stopped ...");
             aVar.b();
         }
     }

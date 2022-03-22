@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
@@ -59,9 +60,9 @@ public final class BackStackState implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -80,10 +81,10 @@ public final class BackStackState implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public BackStackState[] newArray(int i2) {
+            public BackStackState[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BackStackState[i2] : (BackStackState[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BackStackState[i] : (BackStackState[]) invokeI.objValue;
             }
         };
     }
@@ -95,9 +96,9 @@ public final class BackStackState implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {backStackRecord};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -109,27 +110,27 @@ public final class BackStackState implements Parcelable {
             this.mFragmentWhos = new ArrayList<>(size);
             this.mOldMaxLifecycleStates = new int[size];
             this.mCurrentMaxLifecycleStates = new int[size];
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < size) {
-                FragmentTransaction.Op op = backStackRecord.mOps.get(i4);
-                int i6 = i5 + 1;
-                this.mOps[i5] = op.mCmd;
+            while (i3 < size) {
+                FragmentTransaction.Op op = backStackRecord.mOps.get(i3);
+                int i5 = i4 + 1;
+                this.mOps[i4] = op.mCmd;
                 ArrayList<String> arrayList = this.mFragmentWhos;
                 Fragment fragment = op.mFragment;
                 arrayList.add(fragment != null ? fragment.mWho : null);
                 int[] iArr = this.mOps;
+                int i6 = i5 + 1;
+                iArr[i5] = op.mEnterAnim;
                 int i7 = i6 + 1;
-                iArr[i6] = op.mEnterAnim;
+                iArr[i6] = op.mExitAnim;
                 int i8 = i7 + 1;
-                iArr[i7] = op.mExitAnim;
-                int i9 = i8 + 1;
-                iArr[i8] = op.mPopEnterAnim;
-                iArr[i9] = op.mPopExitAnim;
-                this.mOldMaxLifecycleStates[i4] = op.mOldMaxState.ordinal();
-                this.mCurrentMaxLifecycleStates[i4] = op.mCurrentMaxState.ordinal();
-                i4++;
-                i5 = i9 + 1;
+                iArr[i7] = op.mPopEnterAnim;
+                iArr[i8] = op.mPopExitAnim;
+                this.mOldMaxLifecycleStates[i3] = op.mOldMaxState.ordinal();
+                this.mCurrentMaxLifecycleStates[i3] = op.mCurrentMaxState.ordinal();
+                i3++;
+                i4 = i8 + 1;
             }
             this.mTransition = backStackRecord.mTransition;
             this.mName = backStackRecord.mName;
@@ -161,42 +162,42 @@ public final class BackStackState implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragmentManager)) == null) {
             BackStackRecord backStackRecord = new BackStackRecord(fragmentManager);
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i2 < this.mOps.length) {
+            while (i < this.mOps.length) {
                 FragmentTransaction.Op op = new FragmentTransaction.Op();
-                int i4 = i2 + 1;
-                op.mCmd = this.mOps[i2];
+                int i3 = i + 1;
+                op.mCmd = this.mOps[i];
                 if (FragmentManager.isLoggingEnabled(2)) {
-                    String str = "Instantiate " + backStackRecord + " op #" + i3 + " base fragment #" + this.mOps[i4];
+                    Log.v("FragmentManager", "Instantiate " + backStackRecord + " op #" + i2 + " base fragment #" + this.mOps[i3]);
                 }
-                String str2 = this.mFragmentWhos.get(i3);
-                if (str2 != null) {
-                    op.mFragment = fragmentManager.findActiveFragment(str2);
+                String str = this.mFragmentWhos.get(i2);
+                if (str != null) {
+                    op.mFragment = fragmentManager.findActiveFragment(str);
                 } else {
                     op.mFragment = null;
                 }
-                op.mOldMaxState = Lifecycle.State.values()[this.mOldMaxLifecycleStates[i3]];
-                op.mCurrentMaxState = Lifecycle.State.values()[this.mCurrentMaxLifecycleStates[i3]];
+                op.mOldMaxState = Lifecycle.State.values()[this.mOldMaxLifecycleStates[i2]];
+                op.mCurrentMaxState = Lifecycle.State.values()[this.mCurrentMaxLifecycleStates[i2]];
                 int[] iArr = this.mOps;
-                int i5 = i4 + 1;
-                int i6 = iArr[i4];
-                op.mEnterAnim = i6;
-                int i7 = i5 + 1;
-                int i8 = iArr[i5];
-                op.mExitAnim = i8;
-                int i9 = i7 + 1;
-                int i10 = iArr[i7];
-                op.mPopEnterAnim = i10;
-                int i11 = iArr[i9];
-                op.mPopExitAnim = i11;
-                backStackRecord.mEnterAnim = i6;
-                backStackRecord.mExitAnim = i8;
-                backStackRecord.mPopEnterAnim = i10;
-                backStackRecord.mPopExitAnim = i11;
+                int i4 = i3 + 1;
+                int i5 = iArr[i3];
+                op.mEnterAnim = i5;
+                int i6 = i4 + 1;
+                int i7 = iArr[i4];
+                op.mExitAnim = i7;
+                int i8 = i6 + 1;
+                int i9 = iArr[i6];
+                op.mPopEnterAnim = i9;
+                int i10 = iArr[i8];
+                op.mPopExitAnim = i10;
+                backStackRecord.mEnterAnim = i5;
+                backStackRecord.mExitAnim = i7;
+                backStackRecord.mPopEnterAnim = i9;
+                backStackRecord.mPopExitAnim = i10;
                 backStackRecord.addOp(op);
-                i3++;
-                i2 = i9 + 1;
+                i2++;
+                i = i8 + 1;
             }
             backStackRecord.mTransition = this.mTransition;
             backStackRecord.mName = this.mName;
@@ -216,9 +217,9 @@ public final class BackStackState implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, parcel, i) == null) {
             parcel.writeIntArray(this.mOps);
             parcel.writeStringList(this.mFragmentWhos);
             parcel.writeIntArray(this.mOldMaxLifecycleStates);
@@ -243,9 +244,9 @@ public final class BackStackState implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

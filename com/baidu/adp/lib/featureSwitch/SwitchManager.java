@@ -45,9 +45,9 @@ public class SwitchManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,8 +91,8 @@ public class SwitchManager {
         for (c cVar : this.mSwitchs.values()) {
             if (cVar != null) {
                 cVar.h(0);
-                edit.putInt(cVar.d() + c.f2560d, 0);
-                edit.putInt(cVar.d() + c.f2561e, cVar.c());
+                edit.putInt(cVar.d() + c.f2110d, 0);
+                edit.putInt(cVar.d() + c.f2111e, cVar.c());
             }
         }
         edit.commit();
@@ -165,13 +165,13 @@ public class SwitchManager {
         return (b) invokeL.objValue;
     }
 
-    public boolean turn(String str, int i2) {
+    public boolean turn(String str, int i) {
         InterceptResult invokeLI;
         c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2)) == null) {
-            if (i2 >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
-                return cVar.i(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
+            if (i >= 0 && (cVar = this.mSwitchs.get(str)) != null) {
+                return cVar.i(i);
             }
             return false;
         }

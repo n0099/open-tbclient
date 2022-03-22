@@ -1,6 +1,6 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.r0.l0.h.i.a;
+import c.a.p0.n0.h.i.a;
 import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,9 +28,9 @@ public final class BottomRetainer$BilibiliRetainer$layout$1 extends Lambda imple
             newInitContext.initArgs = r2;
             Object[] objArr = {bilibiliRetainer, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

@@ -1,9 +1,12 @@
 package c.a.r0;
 
-import android.content.SharedPreferences;
+import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.basic.upload.ContentUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,49 +14,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes2.dex */
-public class a {
+/* loaded from: classes3.dex */
+public abstract class a implements u {
     public static /* synthetic */ Interceptable $ic;
-    public static final a s;
-    public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-
-    /* renamed from: b  reason: collision with root package name */
-    public int f14139b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f14140c;
+    public static final boolean f21075c;
+    public transient /* synthetic */ FieldHolder $fh;
+    public h0 a;
 
-    /* renamed from: d  reason: collision with root package name */
-    public int f14141d;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f14142e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public long f14143f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f14144g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f14145h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f14146i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f14147j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
+    /* renamed from: b  reason: collision with root package name */
+    public String f21076b;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +47,7 @@ public class a {
                 return;
             }
         }
-        s = new a();
+        f21075c = b0.m();
     }
 
     public a() {
@@ -76,252 +55,229 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
+        this.a = new h0();
+        this.f21076b = "";
     }
 
-    public static a h() {
+    @Override // c.a.r0.u
+    public boolean a(JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? i(this.f21076b, jSONObject, z, z2) : invokeCommon.booleanValue;
+    }
+
+    @Override // c.a.r0.u
+    public boolean b(File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) ? h(this.f21076b, file, j, z, z2) : invokeCommon.booleanValue;
+    }
+
+    public final HashMap<String, String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? s : (a) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>(2);
+            hashMap.put("Content-type", "application/x-www-form-urlencoded");
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
     }
 
-    public boolean A() {
-        InterceptResult invokeV;
+    public final String d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.p == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            if (TextUtils.isEmpty(this.f21076b)) {
+                this.f21076b = b0.k(z);
+            }
+            return this.f21076b;
+        }
+        return (String) invokeZ.objValue;
     }
 
-    public boolean B() {
-        InterceptResult invokeV;
+    public final String e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        String c2;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f14144g == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            boolean isUBCDebug = this.a.isUBCDebug();
+            if (TextUtils.isEmpty(str)) {
+                str = d(isUBCDebug);
+            }
+            if (z2) {
+                c2 = b0.h(str);
+            } else {
+                c2 = b0.c(str);
+            }
+            if (isUBCDebug && !TextUtils.isEmpty(c2)) {
+                c2 = c.a.r0.q0.f.a(c2, "debug", "1");
+            }
+            if (z) {
+                c2 = c.a.r0.q0.f.a(c2, "reallog", "1");
+            }
+            return g.o().E() ? c.a.r0.q0.f.a(c2, "beta", "1") : c2;
+        }
+        return (String) invokeCommon.objValue;
     }
 
-    public boolean C() {
-        InterceptResult invokeV;
+    public final boolean f(e0 e0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.q == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, e0Var)) == null) {
+            if (e0Var == null) {
+                return false;
+            }
+            if (!e0Var.e()) {
+                if (f21075c) {
+                    Log.d("UploadManager", "postByteRequest, fail: " + e0Var.d());
+                } else {
+                    d0.a().i(e0Var.d(), null);
+                }
+                if (g.o().M()) {
+                    g(e0Var.c());
+                }
+                e0Var.a();
+                return false;
+            }
+            try {
+                int i = new JSONObject(e0Var.b()).getInt("error");
+                if (i != 0) {
+                    if (f21075c) {
+                        Log.d("UploadManager", "server error");
+                    }
+                    if (!f21075c) {
+                        d0.a().k(i);
+                    }
+                }
+            } catch (Exception e2) {
+                if (f21075c) {
+                    Log.d("UploadManager", "body tostring fail:" + e2.getMessage());
+                } else {
+                    d0.a().j(Log.getStackTraceString(e2));
+                }
+            }
+            e0Var.a();
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
-    public void D(JSONObject jSONObject) {
+    /* JADX WARN: Removed duplicated region for block: B:20:0x002a  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void g(int i) {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-            boolean z = this.a.get();
-            if (jSONObject == null || z) {
+        if (interceptable != null && interceptable.invokeI(1048582, this, i) != null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        boolean z = true;
+        if (i == 403 || i == 408 || i == 499) {
+            j = 60000;
+        } else if (i < 500 || i >= 600) {
+            z = false;
+            if (z) {
                 return;
             }
-            this.a.set(true);
-            this.f14139b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
-            this.f14140c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
-            this.f14141d = jSONObject.optInt("tieba_max_fake_progress", 50);
-            this.f14142e = jSONObject.optInt("tieba_max_fake_time", 60);
-            this.f14143f = jSONObject.optLong("tieba_max_fake_speed", 768000L);
-            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
-            edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
-            edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
-            edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 2));
-            edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 5));
-            edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
-            edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
-            edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
-            edit.commit();
-            this.r = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
-            this.n = jSONObject.optInt("tieba_12.4_download_path", 1);
-            jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.f14144g = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-            this.f14145h = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-            this.f14146i = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-            this.f14147j = jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-            this.k = jSONObject.optInt("tieba_follow_up_expire_time", 7);
-            this.l = jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-            this.m = jSONObject.optInt("tieba_follow_up_gap_time", 5);
-            this.o = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
-            this.p = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
-            this.q = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
-            SharedPreferences.Editor edit2 = sharedPreferences.edit();
-            edit2.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", -1));
-            edit2.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", -1));
-            int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
-            if (optInt != -1) {
-                edit2.putInt("ad_photo_browser_insert_mode", optInt);
-            }
-            int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
-            if (optInt2 != -1) {
-                edit2.putInt("tieba_pic_ad_req_num", optInt2);
-            }
-            edit2.commit();
+            g.o().Z(currentTimeMillis);
+            return;
+        } else {
+            j = 300000;
+        }
+        currentTimeMillis += j;
+        if (z) {
         }
     }
 
-    public boolean E() {
-        InterceptResult invokeV;
+    public final boolean h(String str, File file, long j, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f14146i == 1 : invokeV.booleanValue;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, file, Long.valueOf(j), Boolean.valueOf(z), Boolean.valueOf(z2)})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        if (file == null || !file.exists()) {
+            return false;
+        }
+        String e2 = e(str, z, z2);
+        HashMap<String, String> c2 = c();
+        if (i0.m().p() && j > 0) {
+            c2.put("Content-Length", String.valueOf(j));
+        }
+        InputStream inputStream2 = null;
+        try {
+            inputStream = new BufferedInputStream(new Base64InputStream(new FileInputStream(file), 2));
+            try {
+                try {
+                    boolean f2 = f(j(e2, inputStream, c2));
+                    c.a.r0.q0.a.b(inputStream);
+                    return f2;
+                } catch (Exception e3) {
+                    e = e3;
+                    if (f21075c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e);
+                    } else {
+                        d0.a().i(null, Log.getStackTraceString(e));
+                    }
+                    c.a.r0.q0.a.b(inputStream);
+                    return false;
+                }
+            } catch (Throwable th) {
+                th = th;
+                inputStream2 = inputStream;
+                c.a.r0.q0.a.b(inputStream2);
+                throw th;
+            }
+        } catch (Exception e4) {
+            e = e4;
+            inputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 
-    public boolean F() {
-        InterceptResult invokeV;
+    public boolean i(String str, JSONObject jSONObject, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        byte[] a;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f14145h == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, jSONObject, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (jSONObject != null && (a = c.a.r0.q0.c.a(jSONObject.toString().getBytes())) != null && a.length >= 2) {
+                a[0] = ContentUtil.GZIP_HEAD_1;
+                a[1] = ContentUtil.GZIP_HEAD_2;
+                String e2 = e(str, z, z2);
+                HashMap<String, String> c2 = c();
+                if (i0.m().p()) {
+                    c2.put("Content-Length", String.valueOf(a.length));
+                }
+                try {
+                    return f(k(e2, a, c2));
+                } catch (IOException e3) {
+                    if (f21075c) {
+                        Log.d("UploadManager", "postByteRequest, Exception: ", e3);
+                    } else {
+                        d0.a().i(null, Log.getStackTraceString(e3));
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f14143f : invokeV.longValue;
-    }
+    public abstract e0 j(String str, InputStream inputStream, Map<String, String> map) throws IOException;
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f14141d : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f14142e : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.m : invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.l : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f14147j : (String) invokeV.objValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f14140c : invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3) : invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_cache_time", 20) : invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_first_floor", 2) : invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_floor_interval", 5) : invokeV.intValue;
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_insert_mode", 2) : invokeV.intValue;
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_max_ad_num", 5) : invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_pre_load_num", 5) : invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_request_num", 5) : invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("pic_page_req_gap_time", 30) : invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", -1) : invokeV.intValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", -1) : invokeV.intValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.n == 1 : invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) == 1 : invokeV.booleanValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.f14139b == 1 : invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.r == 1 : invokeV.booleanValue;
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? c.a.r0.m.a.a().c("1453093728320", "tieba_ad_sdk_switch", 0) == 1 : invokeV.booleanValue;
-    }
-
-    public boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.o == 1 : invokeV.booleanValue;
-    }
+    public abstract e0 k(String str, byte[] bArr, Map<String, String> map) throws IOException;
 }

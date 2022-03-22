@@ -13,23 +13,23 @@ import com.facebook.imageutils.BitmapUtil;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ArtDecoder extends DefaultDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ArtDecoder(BitmapPool bitmapPool, int i2, Pools.SynchronizedPool synchronizedPool) {
-        super(bitmapPool, i2, synchronizedPool);
+    public ArtDecoder(BitmapPool bitmapPool, int i, Pools.SynchronizedPool synchronizedPool) {
+        super(bitmapPool, i, synchronizedPool);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmapPool, Integer.valueOf(i2), synchronizedPool};
+            Object[] objArr = {bitmapPool, Integer.valueOf(i), synchronizedPool};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BitmapPool) objArr2[0], ((Integer) objArr2[1]).intValue(), (Pools.SynchronizedPool) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -40,9 +40,9 @@ public class ArtDecoder extends DefaultDecoder {
     }
 
     @Override // com.facebook.imagepipeline.platform.DefaultDecoder
-    public int getBitmapSize(int i2, int i3, BitmapFactory.Options options) {
+    public int getBitmapSize(int i, int i2, BitmapFactory.Options options) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, options)) == null) ? BitmapUtil.getSizeInByteForBitmap(i2, i3, options.inPreferredConfig) : invokeIIL.intValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, options)) == null) ? BitmapUtil.getSizeInByteForBitmap(i, i2, options.inPreferredConfig) : invokeIIL.intValue;
     }
 }

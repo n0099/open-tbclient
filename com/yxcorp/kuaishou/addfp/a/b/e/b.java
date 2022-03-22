@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f60071b;
+    public Context f44634b;
 
     public b(Context context) {
         Interceptable interceptable = $ic;
@@ -24,16 +24,16 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f60071b = context;
+        this.f44634b = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -64,7 +64,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b2 = a.a(this.f60071b).b();
+            String b2 = a.a(this.f44634b).b();
             return TextUtils.isEmpty(b2) ? "" : b2;
         }
         return (String) invokeV.objValue;
@@ -74,7 +74,7 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
     public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f60071b).a() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a.a(this.f44634b).a() : invokeV.booleanValue;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

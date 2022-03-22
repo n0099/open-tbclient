@@ -18,9 +18,9 @@ public class Helper extends ConstraintWidget {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,15 +33,15 @@ public class Helper extends ConstraintWidget {
     public void add(ConstraintWidget constraintWidget) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, constraintWidget) == null) {
-            int i2 = this.mWidgetsCount + 1;
+            int i = this.mWidgetsCount + 1;
             ConstraintWidget[] constraintWidgetArr = this.mWidgets;
-            if (i2 > constraintWidgetArr.length) {
+            if (i > constraintWidgetArr.length) {
                 this.mWidgets = (ConstraintWidget[]) Arrays.copyOf(constraintWidgetArr, constraintWidgetArr.length * 2);
             }
             ConstraintWidget[] constraintWidgetArr2 = this.mWidgets;
-            int i3 = this.mWidgetsCount;
-            constraintWidgetArr2[i3] = constraintWidget;
-            this.mWidgetsCount = i3 + 1;
+            int i2 = this.mWidgetsCount;
+            constraintWidgetArr2[i2] = constraintWidget;
+            this.mWidgetsCount = i2 + 1;
         }
     }
 

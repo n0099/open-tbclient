@@ -38,9 +38,9 @@ public class AlaLiveUserNotifyModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,9 +60,9 @@ public class AlaLiveUserNotifyModel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -84,8 +84,8 @@ public class AlaLiveUserNotifyModel {
                             this.this$0.showNextNotifyDialog(0, alaLiveGetUserNotifyResponsedMessage.getDataList());
                             return;
                         }
-                        for (int i4 = 0; i4 < count; i4++) {
-                            this.this$0.addNotifyToImList(alaLiveGetUserNotifyResponsedMessage.getDataList().get(i4));
+                        for (int i3 = 0; i3 < count; i3++) {
+                            this.this$0.addNotifyToImList(alaLiveGetUserNotifyResponsedMessage.getDataList().get(i3));
                         }
                     }
                 }
@@ -110,35 +110,35 @@ public class AlaLiveUserNotifyModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void showNextNotifyDialog(int i2, ArrayList<AlaLiveUserNotifyData> arrayList) {
+    public void showNextNotifyDialog(int i, ArrayList<AlaLiveUserNotifyData> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65542, this, i2, arrayList) == null) || i2 >= ListUtils.getCount(arrayList)) {
+        if (!(interceptable == null || interceptable.invokeIL(65542, this, i, arrayList) == null) || i >= ListUtils.getCount(arrayList)) {
             return;
         }
-        int i3 = i2;
+        int i2 = i;
         while (true) {
-            if (i3 >= ListUtils.getCount(arrayList)) {
+            if (i2 >= ListUtils.getCount(arrayList)) {
                 break;
-            } else if (arrayList.get(i3).isSuperGuardian()) {
-                i2 = i3;
+            } else if (arrayList.get(i2).isSuperGuardian()) {
+                i = i2;
                 break;
             } else {
-                i3++;
+                i2++;
             }
         }
-        AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i2);
+        AlaLiveUserNotifyData alaLiveUserNotifyData = arrayList.get(i);
         if (alaLiveUserNotifyData.isSuperGuardian()) {
-            showNotifyDialog(i2, alaLiveUserNotifyData, arrayList);
+            showNotifyDialog(i, alaLiveUserNotifyData, arrayList);
         }
     }
 
-    private void showNotifyDialog(int i2, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList<AlaLiveUserNotifyData> arrayList) {
+    private void showNotifyDialog(int i, AlaLiveUserNotifyData alaLiveUserNotifyData, ArrayList<AlaLiveUserNotifyData> arrayList) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(65543, this, i2, alaLiveUserNotifyData, arrayList) == null) || this.mTbPageContext == null) {
+        if (!(interceptable == null || interceptable.invokeILL(65543, this, i, alaLiveUserNotifyData, arrayList) == null) || this.mTbPageContext == null) {
             return;
         }
         AlaLiveUserNotifyDialog alaLiveUserNotifyDialog = new AlaLiveUserNotifyDialog(this.mTbPageContext.getPageActivity());
-        alaLiveUserNotifyDialog.setOnDismissListener(new DialogInterface.OnDismissListener(this, i2, arrayList) { // from class: com.baidu.ala.notify.AlaLiveUserNotifyModel.2
+        alaLiveUserNotifyDialog.setOnDismissListener(new DialogInterface.OnDismissListener(this, i, arrayList) { // from class: com.baidu.ala.notify.AlaLiveUserNotifyModel.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AlaLiveUserNotifyModel this$0;
@@ -150,18 +150,18 @@ public class AlaLiveUserNotifyModel {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {this, Integer.valueOf(i2), arrayList};
+                    Object[] objArr = {this, Integer.valueOf(i), arrayList};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$0 = this;
-                this.val$index = i2;
+                this.val$index = i;
                 this.val$dataList = arrayList;
             }
 

@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Locale;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class NTLMEngineImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Charset DEFAULT_CHARSET;
@@ -47,7 +47,7 @@ public final class NTLMEngineImpl {
     public static final Charset UNICODE_LITTLE_UNMARKED;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class HMACMD5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,16 +81,16 @@ public final class NTLMEngineImpl {
                     bArr = this.md5.digest();
                     length = bArr.length;
                 }
-                int i4 = 0;
-                while (i4 < length) {
-                    this.ipad[i4] = (byte) (54 ^ bArr[i4]);
-                    this.opad[i4] = (byte) (92 ^ bArr[i4]);
-                    i4++;
+                int i3 = 0;
+                while (i3 < length) {
+                    this.ipad[i3] = (byte) (54 ^ bArr[i3]);
+                    this.opad[i3] = (byte) (92 ^ bArr[i3]);
+                    i3++;
                 }
-                while (i4 < 64) {
-                    this.ipad[i4] = 54;
-                    this.opad[i4] = 92;
-                    i4++;
+                while (i3 < 64) {
+                    this.ipad[i3] = 54;
+                    this.opad[i3] = 92;
+                    i3++;
                 }
                 this.md5.reset();
                 this.md5.update(this.ipad);
@@ -117,15 +117,15 @@ public final class NTLMEngineImpl {
             }
         }
 
-        public void update(byte[] bArr, int i2, int i3) {
+        public void update(byte[] bArr, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i2, i3) == null) {
-                this.md5.update(bArr, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2) == null) {
+                this.md5.update(bArr, i, i2);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class MD4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -141,9 +141,9 @@ public final class NTLMEngineImpl {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -161,12 +161,12 @@ public final class NTLMEngineImpl {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = (int) (this.count & 63);
-                int i3 = i2 < 56 ? 56 - i2 : 120 - i2;
-                byte[] bArr = new byte[i3 + 8];
+                int i = (int) (this.count & 63);
+                int i2 = i < 56 ? 56 - i : 120 - i;
+                byte[] bArr = new byte[i2 + 8];
                 bArr[0] = Byte.MIN_VALUE;
-                for (int i4 = 0; i4 < 8; i4++) {
-                    bArr[i3 + i4] = (byte) ((this.count * 8) >>> (i4 * 8));
+                for (int i3 = 0; i3 < 8; i3++) {
+                    bArr[i2 + i3] = (byte) ((this.count * 8) >>> (i3 * 8));
                 }
                 update(bArr);
                 byte[] bArr2 = new byte[16];
@@ -183,22 +183,22 @@ public final class NTLMEngineImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 int[] iArr = new int[16];
-                for (int i2 = 0; i2 < 16; i2++) {
+                for (int i = 0; i < 16; i++) {
                     byte[] bArr = this.dataBuffer;
-                    int i3 = i2 * 4;
-                    iArr[i2] = (bArr[i3] & 255) + ((bArr[i3 + 1] & 255) << 8) + ((bArr[i3 + 2] & 255) << 16) + ((bArr[i3 + 3] & 255) << 24);
+                    int i2 = i * 4;
+                    iArr[i] = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8) + ((bArr[i2 + 2] & 255) << 16) + ((bArr[i2 + 3] & 255) << 24);
                 }
-                int i4 = this.A;
-                int i5 = this.B;
-                int i6 = this.C;
-                int i7 = this.D;
+                int i3 = this.A;
+                int i4 = this.B;
+                int i5 = this.C;
+                int i6 = this.D;
                 round1(iArr);
                 round2(iArr);
                 round3(iArr);
-                this.A += i4;
-                this.B += i5;
-                this.C += i6;
-                this.D += i7;
+                this.A += i3;
+                this.B += i4;
+                this.C += i5;
+                this.D += i6;
             }
         }
 
@@ -317,31 +317,31 @@ public final class NTLMEngineImpl {
             byte[] bArr2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, bArr) == null) {
-                int i2 = (int) (this.count & 63);
-                int i3 = 0;
+                int i = (int) (this.count & 63);
+                int i2 = 0;
                 while (true) {
-                    int length = (bArr.length - i3) + i2;
+                    int length = (bArr.length - i2) + i;
                     bArr2 = this.dataBuffer;
                     if (length < bArr2.length) {
                         break;
                     }
-                    int length2 = bArr2.length - i2;
-                    System.arraycopy(bArr, i3, bArr2, i2, length2);
+                    int length2 = bArr2.length - i;
+                    System.arraycopy(bArr, i2, bArr2, i, length2);
                     this.count += length2;
-                    i3 += length2;
+                    i2 += length2;
                     processBuffer();
-                    i2 = 0;
+                    i = 0;
                 }
-                if (i3 < bArr.length) {
-                    int length3 = bArr.length - i3;
-                    System.arraycopy(bArr, i3, bArr2, i2, length3);
+                if (i2 < bArr.length) {
+                    int length3 = bArr.length - i2;
+                    System.arraycopy(bArr, i2, bArr2, i, length3);
                     this.count += length3;
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NTLMEngineException extends Exception {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -355,9 +355,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -375,9 +375,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, th};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (Throwable) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -388,7 +388,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Type2Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -406,9 +406,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -472,7 +472,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Type3Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -484,39 +484,39 @@ public final class NTLMEngineImpl {
         public int type2Flags;
         public byte[] userBytes;
 
-        public Type3Message(String str, String str2, String str3, String str4, byte[] bArr, int i2, String str5, byte[] bArr2) throws NTLMEngineException {
+        public Type3Message(String str, String str2, String str3, String str4, byte[] bArr, int i, String str5, byte[] bArr2) throws NTLMEngineException {
             byte[] lMUserSessionKey;
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, bArr, Integer.valueOf(i2), str5, bArr2};
+                Object[] objArr = {str, str2, str3, str4, bArr, Integer.valueOf(i), str5, bArr2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.type2Flags = i2;
+            this.type2Flags = i;
             String convertHost = NTLMEngineImpl.convertHost(str2);
             String convertDomain = NTLMEngineImpl.convertDomain(str);
             CipherGen cipherGen = new CipherGen(convertDomain, str3, str4, bArr, str5, bArr2);
             try {
-                if ((8388608 & i2) != 0 && bArr2 != null && str5 != null) {
+                if ((8388608 & i) != 0 && bArr2 != null && str5 != null) {
                     this.ntResp = cipherGen.getNTLMv2Response();
                     this.lmResp = cipherGen.getLMv2Response();
-                    if ((i2 & 128) != 0) {
+                    if ((i & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLMv2UserSessionKey();
                     }
-                } else if ((524288 & i2) != 0) {
+                } else if ((524288 & i) != 0) {
                     this.ntResp = cipherGen.getNTLM2SessionResponse();
                     this.lmResp = cipherGen.getLM2SessionResponse();
-                    if ((i2 & 128) != 0) {
+                    if ((i & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLM2SessionResponseUserSessionKey();
@@ -524,7 +524,7 @@ public final class NTLMEngineImpl {
                 } else {
                     this.ntResp = cipherGen.getNTLMResponse();
                     this.lmResp = cipherGen.getLMResponse();
-                    if ((i2 & 128) != 0) {
+                    if ((i & 128) != 0) {
                         lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                     } else {
                         lMUserSessionKey = cipherGen.getNTLMUserSessionKey();
@@ -533,15 +533,15 @@ public final class NTLMEngineImpl {
             } catch (NTLMEngineException unused) {
                 this.ntResp = new byte[0];
                 this.lmResp = cipherGen.getLMResponse();
-                if ((i2 & 128) != 0) {
+                if ((i & 128) != 0) {
                     lMUserSessionKey = cipherGen.getLanManagerSessionKey();
                 } else {
                     lMUserSessionKey = cipherGen.getLMUserSessionKey();
                 }
             }
-            if ((i2 & 16) == 0) {
+            if ((i & 16) == 0) {
                 this.sessionKey = null;
-            } else if ((i2 & 1073741824) != 0) {
+            } else if ((i & 1073741824) != 0) {
                 this.sessionKey = NTLMEngineImpl.RC4(cipherGen.getSecondaryKey(), lMUserSessionKey);
             } else {
                 this.sessionKey = lMUserSessionKey;
@@ -569,32 +569,32 @@ public final class NTLMEngineImpl {
                 int length5 = this.userBytes.length;
                 byte[] bArr3 = this.sessionKey;
                 int length6 = bArr3 != null ? bArr3.length : 0;
-                int i2 = length2 + 72;
-                int i3 = i2 + length;
-                int i4 = i3 + length3;
-                int i5 = i4 + length5;
-                int i6 = i5 + length4;
-                prepareResponse(i6 + length6, 3);
+                int i = length2 + 72;
+                int i2 = i + length;
+                int i3 = i2 + length3;
+                int i4 = i3 + length5;
+                int i5 = i4 + length4;
+                prepareResponse(i5 + length6, 3);
                 addUShort(length2);
                 addUShort(length2);
                 addULong(72);
                 addUShort(length);
                 addUShort(length);
+                addULong(i);
+                addUShort(length3);
+                addUShort(length3);
                 addULong(i2);
-                addUShort(length3);
-                addUShort(length3);
+                addUShort(length5);
+                addUShort(length5);
                 addULong(i3);
-                addUShort(length5);
-                addUShort(length5);
+                addUShort(length4);
+                addUShort(length4);
                 addULong(i4);
-                addUShort(length4);
-                addUShort(length4);
+                addUShort(length6);
+                addUShort(length6);
                 addULong(i5);
-                addUShort(length6);
-                addUShort(length6);
-                addULong(i6);
-                int i7 = this.type2Flags;
-                addULong((i7 & 4) | (i7 & 128) | (i7 & 512) | (524288 & i7) | 33554432 | (32768 & i7) | (i7 & 32) | (i7 & 16) | (536870912 & i7) | (Integer.MIN_VALUE & i7) | (1073741824 & i7) | (8388608 & i7) | (i7 & 1));
+                int i6 = this.type2Flags;
+                addULong((i6 & 4) | (i6 & 128) | (i6 & 512) | (524288 & i6) | 33554432 | (32768 & i6) | (i6 & 32) | (i6 & 16) | (536870912 & i6) | (Integer.MIN_VALUE & i6) | (1073741824 & i6) | (8388608 & i6) | (i6 & 1));
                 addUShort(w0.F);
                 addULong(2600);
                 addUShort(3840);
@@ -648,31 +648,31 @@ public final class NTLMEngineImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int F(int i2, int i3, int i4) {
+    public static int F(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i2, i3, i4)) == null) ? ((~i2) & i4) | (i3 & i2) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65538, null, i, i2, i3)) == null) ? ((~i) & i3) | (i2 & i) : invokeIII.intValue;
     }
 
-    public static int G(int i2, int i3, int i4) {
+    public static int G(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i2, i3, i4)) == null) ? (i2 & i4) | (i2 & i3) | (i3 & i4) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) ? (i & i3) | (i & i2) | (i2 & i3) : invokeIII.intValue;
     }
 
-    public static int H(int i2, int i3, int i4) {
+    public static int H(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) ? (i2 ^ i3) ^ i4 : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3)) == null) ? (i ^ i2) ^ i3 : invokeIII.intValue;
     }
 
     public static byte[] RC4(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
@@ -712,22 +712,22 @@ public final class NTLMEngineImpl {
             System.arraycopy(bArr3, 0, bArr4, 8, bArr3.length);
             int length = bArr3.length + 8;
             System.arraycopy(bArr, 0, bArr4, length, 8);
-            int i2 = length + 8;
-            System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i2, 4);
-            int i3 = i2 + 4;
-            System.arraycopy(bArr2, 0, bArr4, i3, bArr2.length);
-            System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i3 + bArr2.length, 4);
+            int i = length + 8;
+            System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i, 4);
+            int i2 = i + 4;
+            System.arraycopy(bArr2, 0, bArr4, i2, bArr2.length);
+            System.arraycopy(new byte[]{0, 0, 0, 0}, 0, bArr4, i2 + bArr2.length, 4);
             return bArr4;
         }
         return (byte[]) invokeLLL.objValue;
     }
 
-    public static Key createDESKey(byte[] bArr, int i2) {
+    public static Key createDESKey(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, bArr, i)) == null) {
             byte[] bArr2 = new byte[7];
-            System.arraycopy(bArr, i2, bArr2, 0, 7);
+            System.arraycopy(bArr, i, bArr2, 0, 7);
             byte[] bArr3 = {bArr2[0], (byte) ((bArr2[0] << 7) | ((bArr2[1] & 255) >>> 1)), (byte) ((bArr2[1] << 6) | ((bArr2[2] & 255) >>> 2)), (byte) ((bArr2[2] << 5) | ((bArr2[3] & 255) >>> 3)), (byte) ((bArr2[3] << 4) | ((bArr2[4] & 255) >>> 4)), (byte) ((bArr2[4] << 3) | ((bArr2[5] & 255) >>> 5)), (byte) ((bArr2[5] << 2) | ((bArr2[6] & 255) >>> 6)), (byte) (bArr2[6] << 1)};
             oddParity(bArr3);
             return new SecretKeySpec(bArr3, Coder.KEY_DES);
@@ -754,10 +754,10 @@ public final class NTLMEngineImpl {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65565, null, str, str2)) == null) ? TYPE_1_MESSAGE : (String) invokeLL.objValue;
     }
 
-    public static String getType3Message(String str, String str2, String str3, String str4, byte[] bArr, int i2, String str5, byte[] bArr2) throws NTLMEngineException {
+    public static String getType3Message(String str, String str2, String str3, String str4, byte[] bArr, int i, String str5, byte[] bArr2) throws NTLMEngineException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, null, new Object[]{str, str2, str3, str4, bArr, Integer.valueOf(i2), str5, bArr2})) == null) ? new Type3Message(str4, str3, str, str2, bArr, i2, str5, bArr2).getResponse() : (String) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, null, new Object[]{str, str2, str3, str4, bArr, Integer.valueOf(i), str5, bArr2})) == null) ? new Type3Message(str4, str3, str, str2, bArr, i, str5, bArr2).getResponse() : (String) invokeCommon.objValue;
     }
 
     public static byte[] hmacMD5(byte[] bArr, byte[] bArr2) throws NTLMEngineException {
@@ -952,23 +952,23 @@ public final class NTLMEngineImpl {
     public static void oddParity(byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65577, null, bArr) == null) {
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                byte b2 = bArr[i2];
+            for (int i = 0; i < bArr.length; i++) {
+                byte b2 = bArr[i];
                 if ((((b2 >>> 1) ^ ((((((b2 >>> 7) ^ (b2 >>> 6)) ^ (b2 >>> 5)) ^ (b2 >>> 4)) ^ (b2 >>> 3)) ^ (b2 >>> 2))) & 1) == 0) {
-                    bArr[i2] = (byte) (bArr[i2] | 1);
+                    bArr[i] = (byte) (bArr[i] | 1);
                 } else {
-                    bArr[i2] = (byte) (bArr[i2] & (-2));
+                    bArr[i] = (byte) (bArr[i] & (-2));
                 }
             }
         }
     }
 
-    public static byte[] readSecurityBuffer(byte[] bArr, int i2) throws NTLMEngineException {
+    public static byte[] readSecurityBuffer(byte[] bArr, int i) throws NTLMEngineException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65578, null, bArr, i2)) == null) {
-            int readUShort = readUShort(bArr, i2);
-            int readULong = readULong(bArr, i2 + 4);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65578, null, bArr, i)) == null) {
+            int readUShort = readUShort(bArr, i);
+            int readULong = readULong(bArr, i + 4);
             if (bArr.length >= readULong + readUShort) {
                 byte[] bArr2 = new byte[readUShort];
                 System.arraycopy(bArr, readULong, bArr2, 0, readUShort);
@@ -979,34 +979,34 @@ public final class NTLMEngineImpl {
         return (byte[]) invokeLI.objValue;
     }
 
-    public static int readULong(byte[] bArr, int i2) throws NTLMEngineException {
+    public static int readULong(byte[] bArr, int i) throws NTLMEngineException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, bArr, i2)) == null) {
-            if (bArr.length >= i2 + 4) {
-                return ((bArr[i2 + 3] & 255) << 24) | (bArr[i2] & 255) | ((bArr[i2 + 1] & 255) << 8) | ((bArr[i2 + 2] & 255) << 16);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65579, null, bArr, i)) == null) {
+            if (bArr.length >= i + 4) {
+                return ((bArr[i + 3] & 255) << 24) | (bArr[i] & 255) | ((bArr[i + 1] & 255) << 8) | ((bArr[i + 2] & 255) << 16);
             }
             throw new NTLMEngineException("NTLM authentication - buffer too small for DWORD");
         }
         return invokeLI.intValue;
     }
 
-    public static int readUShort(byte[] bArr, int i2) throws NTLMEngineException {
+    public static int readUShort(byte[] bArr, int i) throws NTLMEngineException {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, null, bArr, i2)) == null) {
-            if (bArr.length >= i2 + 2) {
-                return ((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65580, null, bArr, i)) == null) {
+            if (bArr.length >= i + 2) {
+                return ((bArr[i + 1] & 255) << 8) | (bArr[i] & 255);
             }
             throw new NTLMEngineException("NTLM authentication - buffer too small for WORD");
         }
         return invokeLI.intValue;
     }
 
-    public static int rotintlft(int i2, int i3) {
+    public static int rotintlft(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65581, null, i2, i3)) == null) ? (i2 >>> (32 - i3)) | (i2 << i3) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65581, null, i, i2)) == null) ? (i >>> (32 - i2)) | (i << i2) : invokeII.intValue;
     }
 
     public static String stripDotSuffix(String str) {
@@ -1022,13 +1022,13 @@ public final class NTLMEngineImpl {
         return (String) invokeL.objValue;
     }
 
-    public static void writeULong(byte[] bArr, int i2, int i3) {
+    public static void writeULong(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65583, null, bArr, i2, i3) == null) {
-            bArr[i3] = (byte) (i2 & 255);
-            bArr[i3 + 1] = (byte) ((i2 >> 8) & 255);
-            bArr[i3 + 2] = (byte) ((i2 >> 16) & 255);
-            bArr[i3 + 3] = (byte) ((i2 >> 24) & 255);
+        if (interceptable == null || interceptable.invokeLII(65583, null, bArr, i, i2) == null) {
+            bArr[i2] = (byte) (i & 255);
+            bArr[i2 + 1] = (byte) ((i >> 8) & 255);
+            bArr[i2 + 2] = (byte) ((i >> 16) & 255);
+            bArr[i2 + 3] = (byte) ((i >> 24) & 255);
         }
     }
 
@@ -1048,7 +1048,7 @@ public final class NTLMEngineImpl {
         return (String) invokeLLLLL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1060,9 +1060,9 @@ public final class NTLMEngineImpl {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1076,9 +1076,9 @@ public final class NTLMEngineImpl {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeB(1048576, this, b2) == null) {
                 byte[] bArr = this.messageContents;
-                int i2 = this.currentOutputPosition;
-                bArr[i2] = b2;
-                this.currentOutputPosition = i2 + 1;
+                int i = this.currentOutputPosition;
+                bArr[i] = b2;
+                this.currentOutputPosition = i + 1;
             }
         }
 
@@ -1089,27 +1089,27 @@ public final class NTLMEngineImpl {
             }
             for (byte b2 : bArr) {
                 byte[] bArr2 = this.messageContents;
-                int i2 = this.currentOutputPosition;
-                bArr2[i2] = b2;
-                this.currentOutputPosition = i2 + 1;
+                int i = this.currentOutputPosition;
+                bArr2[i] = b2;
+                this.currentOutputPosition = i + 1;
             }
         }
 
-        public void addULong(int i2) {
+        public void addULong(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                addByte((byte) (i2 & 255));
-                addByte((byte) ((i2 >> 8) & 255));
-                addByte((byte) ((i2 >> 16) & 255));
-                addByte((byte) ((i2 >> 24) & 255));
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                addByte((byte) (i & 255));
+                addByte((byte) ((i >> 8) & 255));
+                addByte((byte) ((i >> 16) & 255));
+                addByte((byte) ((i >> 24) & 255));
             }
         }
 
-        public void addUShort(int i2) {
+        public void addUShort(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                addByte((byte) (i2 & 255));
-                addByte((byte) ((i2 >> 8) & 255));
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                addByte((byte) (i & 255));
+                addByte((byte) ((i >> 8) & 255));
             }
         }
 
@@ -1131,10 +1131,10 @@ public final class NTLMEngineImpl {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 byte[] bArr = this.messageContents;
                 int length = bArr.length;
-                int i2 = this.currentOutputPosition;
-                if (length > i2) {
-                    byte[] bArr2 = new byte[i2];
-                    System.arraycopy(bArr, 0, bArr2, 0, i2);
+                int i = this.currentOutputPosition;
+                if (length > i) {
+                    byte[] bArr2 = new byte[i];
+                    System.arraycopy(bArr, 0, bArr2, 0, i);
                     bArr = bArr2;
                 }
                 return Base64.encodeToString(bArr, 2);
@@ -1142,69 +1142,69 @@ public final class NTLMEngineImpl {
             return (String) invokeV.objValue;
         }
 
-        public void prepareResponse(int i2, int i3) {
+        public void prepareResponse(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-                this.messageContents = new byte[i2];
+            if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+                this.messageContents = new byte[i];
                 this.currentOutputPosition = 0;
                 addBytes(NTLMEngineImpl.SIGNATURE);
-                addULong(i3);
+                addULong(i2);
             }
         }
 
-        public byte readByte(int i2) throws NTLMEngineException {
+        public byte readByte(int i) throws NTLMEngineException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
                 byte[] bArr = this.messageContents;
-                if (bArr.length >= i2 + 1) {
-                    return bArr[i2];
+                if (bArr.length >= i + 1) {
+                    return bArr[i];
                 }
                 throw new NTLMEngineException("NTLM: Message too short");
             }
             return invokeI.byteValue;
         }
 
-        public void readBytes(byte[] bArr, int i2) throws NTLMEngineException {
+        public void readBytes(byte[] bArr, int i) throws NTLMEngineException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, bArr, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048585, this, bArr, i) == null) {
                 byte[] bArr2 = this.messageContents;
-                if (bArr2.length >= bArr.length + i2) {
-                    System.arraycopy(bArr2, i2, bArr, 0, bArr.length);
+                if (bArr2.length >= bArr.length + i) {
+                    System.arraycopy(bArr2, i, bArr, 0, bArr.length);
                     return;
                 }
                 throw new NTLMEngineException("NTLM: Message too short");
             }
         }
 
-        public byte[] readSecurityBuffer(int i2) throws NTLMEngineException {
+        public byte[] readSecurityBuffer(int i) throws NTLMEngineException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) ? NTLMEngineImpl.readSecurityBuffer(this.messageContents, i2) : (byte[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? NTLMEngineImpl.readSecurityBuffer(this.messageContents, i) : (byte[]) invokeI.objValue;
         }
 
-        public int readULong(int i2) throws NTLMEngineException {
+        public int readULong(int i) throws NTLMEngineException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) ? NTLMEngineImpl.readULong(this.messageContents, i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? NTLMEngineImpl.readULong(this.messageContents, i) : invokeI.intValue;
         }
 
-        public int readUShort(int i2) throws NTLMEngineException {
+        public int readUShort(int i) throws NTLMEngineException {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? NTLMEngineImpl.readUShort(this.messageContents, i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? NTLMEngineImpl.readUShort(this.messageContents, i) : invokeI.intValue;
         }
 
-        public NTLMMessage(String str, int i2) throws NTLMEngineException {
+        public NTLMMessage(String str, int i) throws NTLMEngineException {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1215,23 +1215,23 @@ public final class NTLMEngineImpl {
             byte[] decode = Base64.decode(str.getBytes(NTLMEngineImpl.DEFAULT_CHARSET), 2);
             this.messageContents = decode;
             if (decode.length >= NTLMEngineImpl.SIGNATURE.length) {
-                for (int i5 = 0; i5 < NTLMEngineImpl.SIGNATURE.length; i5++) {
-                    if (this.messageContents[i5] != NTLMEngineImpl.SIGNATURE[i5]) {
+                for (int i4 = 0; i4 < NTLMEngineImpl.SIGNATURE.length; i4++) {
+                    if (this.messageContents[i4] != NTLMEngineImpl.SIGNATURE[i4]) {
                         throw new NTLMEngineException("NTLM message expected - instead got unrecognized bytes");
                     }
                 }
                 int readULong = readULong(NTLMEngineImpl.SIGNATURE.length);
-                if (readULong == i2) {
+                if (readULong == i) {
                     this.currentOutputPosition = this.messageContents.length;
                     return;
                 }
-                throw new NTLMEngineException("NTLM type " + Integer.toString(i2) + " message expected - instead got type " + Integer.toString(readULong));
+                throw new NTLMEngineException("NTLM type " + Integer.toString(i) + " message expected - instead got type " + Integer.toString(readULong));
             }
             throw new NTLMEngineException("NTLM message decoding error - packet too short");
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Type1Message extends NTLMMessage {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1245,9 +1245,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1297,9 +1297,9 @@ public final class NTLMEngineImpl {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1310,7 +1310,7 @@ public final class NTLMEngineImpl {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CipherGen {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -1348,9 +1348,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, bArr, str4, bArr2, bArr3, bArr4, bArr5, bArr6};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1656,8 +1656,8 @@ public final class NTLMEngineImpl {
                 if (this.timestamp == null) {
                     long currentTimeMillis = (System.currentTimeMillis() + 11644473600000L) * 10000;
                     this.timestamp = new byte[8];
-                    for (int i2 = 0; i2 < 8; i2++) {
-                        this.timestamp[i2] = (byte) currentTimeMillis;
+                    for (int i = 0; i < 8; i++) {
+                        this.timestamp[i] = (byte) currentTimeMillis;
                         currentTimeMillis >>>= 8;
                     }
                 }
@@ -1675,9 +1675,9 @@ public final class NTLMEngineImpl {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {str, str2, str3, bArr, str4, bArr2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((String) objArr2[0], (String) objArr2[1], (String) objArr2[2], (byte[]) objArr2[3], (String) objArr2[4], (byte[]) objArr2[5], (byte[]) objArr2[6], (byte[]) objArr2[7], (byte[]) objArr2[8], (byte[]) objArr2[9]);
                     newInitContext.thisArg = this;

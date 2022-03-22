@@ -56,17 +56,17 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         public final /* synthetic */ AddFriendActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(AddFriendActivity addFriendActivity, int i2) {
-            super(i2);
+        public a(AddFriendActivity addFriendActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {addFriendActivity, Integer.valueOf(i2)};
+                Object[] objArr = {addFriendActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -85,13 +85,13 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 int error = responseAddFriendMessage.getError();
                 String errorString = responseAddFriendMessage.getErrorString();
                 if (error == 0) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new c.a.r0.t1.a.a.a(this.a.userId, this.a.name)));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001193, new c.a.p0.v1.a.a.a(this.a.userId, this.a.name)));
                     if (this.a.isLower) {
                         AddFriendActivity addFriendActivity = this.a;
-                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
+                        addFriendActivity.showToast(addFriendActivity.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07d1), false);
                     } else {
                         AddFriendActivity addFriendActivity2 = this.a;
-                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.group_apply_succ), false);
+                        addFriendActivity2.showToast(addFriendActivity2.getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f07d1), false);
                     }
                     this.a.finish();
                 } else if (AntiHelper.m(error, errorString)) {
@@ -107,9 +107,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f43736e;
+        public final /* synthetic */ AddFriendActivity a;
 
         public b(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -118,23 +116,23 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43736e = addFriendActivity;
+            this.a = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AddFriendActivity addFriendActivity = this.f43736e;
-                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f43736e.mSayInput);
+                AddFriendActivity addFriendActivity = this.a;
+                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.a.mSayInput);
             }
         }
     }
@@ -143,9 +141,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f43737e;
+        public final /* synthetic */ AddFriendActivity a;
 
         public c(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -154,24 +150,24 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43737e = addFriendActivity;
+            this.a = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f43737e.mSayInput == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.mSayInput == null) {
                 return;
             }
-            this.f43737e.mSayInput.setText("");
+            this.a.mSayInput.setText("");
         }
     }
 
@@ -179,9 +175,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f43738e;
+        public final /* synthetic */ AddFriendActivity a;
 
         public d(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -190,28 +184,28 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43738e = addFriendActivity;
+            this.a = addFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AddFriendActivity addFriendActivity = this.f43738e;
-                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.f43738e.mSayInput);
+                AddFriendActivity addFriendActivity = this.a;
+                addFriendActivity.HidenSoftKeyPad(addFriendActivity.mInputMethodManager, this.a.mSayInput);
                 if (TbadkCoreApplication.getInst().appResponseToIntentClass(AddressListActivityConfig.class)) {
-                    this.f43738e.requestFriendData(this.f43738e.mSayInput.getText().toString());
+                    this.a.requestFriendData(this.a.mSayInput.getText().toString());
                     return;
                 }
-                this.f43738e.showToast(R.string.plugin_not_install);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0e70);
             }
         }
     }
@@ -220,9 +214,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public class e implements View.OnFocusChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f43739e;
+        public final /* synthetic */ AddFriendActivity a;
 
         public e(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -231,15 +223,15 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43739e = addFriendActivity;
+            this.a = addFriendActivity;
         }
 
         @Override // android.view.View.OnFocusChangeListener
@@ -247,12 +239,12 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, view, z) == null) {
                 if (z) {
-                    AddFriendActivity addFriendActivity = this.f43739e;
-                    addFriendActivity.ShowSoftKeyPad(addFriendActivity.mInputMethodManager, this.f43739e.mSayInput);
+                    AddFriendActivity addFriendActivity = this.a;
+                    addFriendActivity.ShowSoftKeyPad(addFriendActivity.mInputMethodManager, this.a.mSayInput);
                     return;
                 }
-                AddFriendActivity addFriendActivity2 = this.f43739e;
-                addFriendActivity2.HidenSoftKeyPad(addFriendActivity2.mInputMethodManager, this.f43739e.mSayInput);
+                AddFriendActivity addFriendActivity2 = this.a;
+                addFriendActivity2.HidenSoftKeyPad(addFriendActivity2.mInputMethodManager, this.a.mSayInput);
             }
         }
     }
@@ -261,9 +253,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     public class f implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AddFriendActivity f43740e;
+        public final /* synthetic */ AddFriendActivity a;
 
         public f(AddFriendActivity addFriendActivity) {
             Interceptable interceptable = $ic;
@@ -272,15 +262,15 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {addFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f43740e = addFriendActivity;
+            this.a = addFriendActivity;
         }
 
         @Override // android.view.View.OnTouchListener
@@ -288,8 +278,8 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view, motionEvent)) == null) {
-                if (this.f43740e.mSayInput.getParent() != null) {
-                    this.f43740e.mSayInput.getParent().requestDisallowInterceptTouchEvent(true);
+                if (this.a.mSayInput.getParent() != null) {
+                    this.a.mSayInput.getParent().requestDisallowInterceptTouchEvent(true);
                     return false;
                 }
                 return false;
@@ -303,9 +293,9 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -328,10 +318,10 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
                             String stringExtra2 = intent.getStringExtra("from");
                             if (StringUtils.isNull(stringExtra2)) {
                                 EditText editText = this.mSayInput;
-                                editText.setText(getPageContext().getString(R.string.my_name_is) + TbadkCoreApplication.getCurrentAccountName());
+                                editText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0b32) + TbadkCoreApplication.getCurrentAccountName());
                             } else {
                                 EditText editText2 = this.mSayInput;
-                                editText2.setText(getPageContext().getString(R.string.i_am_come_from) + stringExtra2 + getPageContext().getString(R.string.and_name_is) + TbadkCoreApplication.getCurrentAccountName());
+                                editText2.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0892) + stringExtra2 + getPageContext().getString(R.string.obfuscated_res_0x7f0f0275) + TbadkCoreApplication.getCurrentAccountName());
                             }
                         }
                         this.mSayInput.requestFocus();
@@ -374,26 +364,26 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            View findViewById = getPageContext().getPageActivity().findViewById(R.id.search_friend_parent);
+            View findViewById = getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2d);
             this.mParentView = findViewById;
             findViewById.setOnClickListener(new b(this));
-            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.cancle);
+            ImageView imageView = (ImageView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f090499);
             this.mCancel = imageView;
             imageView.setOnClickListener(new c(this));
-            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.search_friend_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2c);
             this.mNavigationBar = navigationBar;
-            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.apply_new_friends));
+            navigationBar.setTitleText(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0294));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.send_msg));
+            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f10e0));
             this.mSayBtn = addTextButton;
             if (addTextButton.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mSayBtn.getLayoutParams();
-                layoutParams.rightMargin = n.f(getPageContext().getPageActivity(), R.dimen.ds16);
+                layoutParams.rightMargin = n.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0701be);
                 this.mSayBtn.setLayoutParams(layoutParams);
             }
             this.mSayBtn.setOnClickListener(new d(this));
-            this.mSayTip = (TextView) getPageContext().getPageActivity().findViewById(R.id.search_friend_tip);
-            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.search_friend_input);
+            this.mSayTip = (TextView) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2e);
+            EditText editText = (EditText) getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091c2b);
             this.mSayInput = editText;
             editText.setOnFocusChangeListener(new e(this));
             this.mSayInput.setOnTouchListener(new f(this));
@@ -407,17 +397,17 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
             return;
         }
         if (TextUtils.isEmpty(str)) {
-            str = getPageContext().getPageActivity().getString(R.string.my_name_is) + TbadkCoreApplication.getCurrentAccountName();
+            str = getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0b32) + TbadkCoreApplication.getCurrentAccountName();
         }
         MessageManager.getInstance().dispatchResponsedMessageToUI(new RequestNewFriendActionLocalMessage(c.a.d.f.m.b.g(this.userId, 0L), this.name, this.portrait, str, this.st_type));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             getLayoutMode().j(this.mParentView);
             this.mSayTip.setTextColor(SkinManager.getColor(R.color.CAM_X0108));
             this.mSayBtn.setTextColor(SkinManager.getColor(R.color.CAM_X0101));
@@ -430,7 +420,7 @@ public class AddFriendActivity extends BaseActivity<AddFriendActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activity_add_friend);
+            setContentView(R.layout.obfuscated_res_0x7f0d0028);
             this.mInputMethodManager = (InputMethodManager) getPageContext().getPageActivity().getSystemService("input_method");
             initViews();
             initData(bundle);

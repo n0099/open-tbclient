@@ -9,7 +9,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.zip.Deflater;
-/* loaded from: classes9.dex */
+import org.codehaus.mojo.animal_sniffer.IgnoreJRERequirement;
+/* loaded from: classes8.dex */
 public final class DeflaterSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +27,9 @@ public final class DeflaterSink implements Sink {
             newInitContext.initArgs = r2;
             Object[] objArr = {sink, deflater};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((BufferedSink) objArr2[0], (Deflater) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -38,6 +39,7 @@ public final class DeflaterSink implements Sink {
         }
     }
 
+    @IgnoreJRERequirement
     private void deflate(boolean z) throws IOException {
         Segment writableSegment;
         int deflate;
@@ -49,13 +51,13 @@ public final class DeflaterSink implements Sink {
                 if (z) {
                     Deflater deflater = this.deflater;
                     byte[] bArr = writableSegment.data;
-                    int i2 = writableSegment.limit;
-                    deflate = deflater.deflate(bArr, i2, 8192 - i2, 2);
+                    int i = writableSegment.limit;
+                    deflate = deflater.deflate(bArr, i, 8192 - i, 2);
                 } else {
                     Deflater deflater2 = this.deflater;
                     byte[] bArr2 = writableSegment.data;
-                    int i3 = writableSegment.limit;
-                    deflate = deflater2.deflate(bArr2, i3, 8192 - i3);
+                    int i2 = writableSegment.limit;
+                    deflate = deflater2.deflate(bArr2, i2, 8192 - i2);
                 }
                 if (deflate > 0) {
                     writableSegment.limit += deflate;
@@ -138,24 +140,24 @@ public final class DeflaterSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j2) throws IOException {
+    public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j2) == null) {
-            Util.checkOffsetAndCount(buffer.size, 0L, j2);
-            while (j2 > 0) {
+        if (interceptable == null || interceptable.invokeLJ(1048581, this, buffer, j) == null) {
+            Util.checkOffsetAndCount(buffer.size, 0L, j);
+            while (j > 0) {
                 Segment segment = buffer.head;
-                int min = (int) Math.min(j2, segment.limit - segment.pos);
+                int min = (int) Math.min(j, segment.limit - segment.pos);
                 this.deflater.setInput(segment.data, segment.pos, min);
                 deflate(false);
-                long j3 = min;
-                buffer.size -= j3;
-                int i2 = segment.pos + min;
-                segment.pos = i2;
-                if (i2 == segment.limit) {
+                long j2 = min;
+                buffer.size -= j2;
+                int i = segment.pos + min;
+                segment.pos = i;
+                if (i == segment.limit) {
                     buffer.head = segment.pop();
                     SegmentPool.recycle(segment);
                 }
-                j2 -= j3;
+                j -= j2;
             }
         }
     }
@@ -167,9 +169,9 @@ public final class DeflaterSink implements Sink {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedSink, deflater};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

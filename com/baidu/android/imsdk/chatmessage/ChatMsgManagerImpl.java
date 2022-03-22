@@ -9,7 +9,7 @@ import android.util.LongSparseArray;
 import android.util.SparseArray;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.t.a;
+import c.a.s.a;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.IMListener;
@@ -141,9 +141,9 @@ public class ChatMsgManagerImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -168,9 +168,9 @@ public class ChatMsgManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -180,18 +180,18 @@ public class ChatMsgManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ChatMsg chatMsg) {
+            public void dealMessage(int i3, ChatMsg chatMsg) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) {
                 }
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ArrayList<ChatMsg> arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
                     String str = ChatMsgManagerImpl.TAG;
-                    LogUtils.d(str, "dealMessage triggerReason : " + i4);
+                    LogUtils.d(str, "dealMessage triggerReason : " + i3);
                     this.this$0.broadcastMessage(arrayList, true);
                 }
             }
@@ -208,9 +208,9 @@ public class ChatMsgManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -220,10 +220,10 @@ public class ChatMsgManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ChatMsg chatMsg) {
+            public void dealMessage(int i3, ChatMsg chatMsg) {
                 int msgRead;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) && (chatMsg instanceof MessageSyncMsg)) {
+                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) && (chatMsg instanceof MessageSyncMsg)) {
                     MessageSyncMsg messageSyncMsg = (MessageSyncMsg) chatMsg;
                     long changedMsgid = messageSyncMsg.getChangedMsgid();
                     int changedStatus = messageSyncMsg.getChangedStatus();
@@ -264,9 +264,9 @@ public class ChatMsgManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ArrayList<ChatMsg> arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
                 }
             }
         };
@@ -282,9 +282,9 @@ public class ChatMsgManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -294,17 +294,17 @@ public class ChatMsgManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ChatMsg chatMsg) {
+            public void dealMessage(int i3, ChatMsg chatMsg) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) && (chatMsg instanceof NotifyCustomerMsg)) {
+                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) && (chatMsg instanceof NotifyCustomerMsg)) {
                     this.this$0.sendNoticeBroadcast(ChatMsgManagerImpl.mContext, (NotifyCustomerMsg) chatMsg);
                 }
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ArrayList<ChatMsg> arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
                 }
             }
         };
@@ -320,9 +320,9 @@ public class ChatMsgManagerImpl {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -332,17 +332,17 @@ public class ChatMsgManagerImpl {
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ChatMsg chatMsg) {
+            public void dealMessage(int i3, ChatMsg chatMsg) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg) == null) && (chatMsg instanceof NotifyCustomerMsg)) {
+                if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg) == null) && (chatMsg instanceof NotifyCustomerMsg)) {
                     this.this$0.sendNoticeBroadcast(ChatMsgManagerImpl.mContext, (NotifyCustomerMsg) chatMsg);
                 }
             }
 
             @Override // com.baidu.android.imsdk.internal.Dispatcher.MsgListener
-            public void dealMessage(int i4, ArrayList<ChatMsg> arrayList) {
+            public void dealMessage(int i3, ArrayList<ChatMsg> arrayList) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, arrayList) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, arrayList) == null) {
                 }
             }
         };
@@ -365,29 +365,29 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    private ChatMsg buildChatMsg(int i2, int i3, long j2, int i4, String str) {
+    private ChatMsg buildChatMsg(int i, int i2, long j, int i3, String str) {
         InterceptResult invokeCommon;
         ChatMsg textMsg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4), str})) == null) {
-            if (i4 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str})) == null) {
+            if (i3 == 0) {
                 textMsg = new TextMsg();
-            } else if (i4 == 1) {
+            } else if (i3 == 1) {
                 textMsg = new ImageMsg();
-            } else if (i4 != 27) {
-                textMsg = i4 != 28 ? null : new PassSaveMsg();
+            } else if (i3 != 27) {
+                textMsg = i3 != 28 ? null : new PassSaveMsg();
             } else {
                 textMsg = new PassMsg();
             }
             if (textMsg != null) {
                 textMsg.setMsgContent(str);
-                textMsg.setContacter(j2);
+                textMsg.setContacter(j);
                 textMsg.setFromUser(AccountManager.getUK(mContext));
                 textMsg.setStatus(1);
-                textMsg.setPaid(j2);
+                textMsg.setPaid(j);
                 textMsg.setSenderUid(TextUtils.isEmpty(AccountManager.getUid(mContext)) ? "0" : AccountManager.getUid(mContext));
-                textMsg.setCategory(i3);
-                textMsg.setChatType(i2);
+                textMsg.setCategory(i2);
+                textMsg.setChatType(i);
                 textMsg.setMsgTime(System.currentTimeMillis() / 1000);
             }
             return textMsg;
@@ -396,9 +396,9 @@ public class ChatMsgManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void callBackNotificationMsgData(ArrayList<ChatMsg> arrayList, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+    public void callBackNotificationMsgData(ArrayList<ChatMsg> arrayList, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65548, this, arrayList, i2, iFetchNotificationDataListener) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65548, this, arrayList, i, iFetchNotificationDataListener) == null) {
             ArrayList arrayList2 = new ArrayList();
             if (arrayList != null && arrayList.size() > 0) {
                 HashSet hashSet = new HashSet();
@@ -421,7 +421,7 @@ public class ChatMsgManagerImpl {
                     List<Long> notExpiredChatUserByBduids = ChatUserDBManager.getInstance(mContext).getNotExpiredChatUserByBduids(arrayList3, System.currentTimeMillis() - 600000);
                     ArrayList arrayList4 = new ArrayList(arrayList3);
                     arrayList4.removeAll(notExpiredChatUserByBduids);
-                    ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList4, new IGetUserIdentityListener(this, arrayList3, arrayList2, iFetchNotificationDataListener, i2) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.9
+                    ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList4, new IGetUserIdentityListener(this, arrayList3, arrayList2, iFetchNotificationDataListener, i) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -435,11 +435,11 @@ public class ChatMsgManagerImpl {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, arrayList3, arrayList2, iFetchNotificationDataListener, Integer.valueOf(i2)};
+                                Object[] objArr = {this, arrayList3, arrayList2, iFetchNotificationDataListener, Integer.valueOf(i)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -449,14 +449,14 @@ public class ChatMsgManagerImpl {
                             this.val$bduids = arrayList3;
                             this.val$list = arrayList2;
                             this.val$listener = iFetchNotificationDataListener;
-                            this.val$count = i2;
+                            this.val$count = i;
                         }
 
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                        public void onGetUserIdentityResult(int i3, List<ChatUser> list) {
+                        public void onGetUserIdentityResult(int i2, List<ChatUser> list) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, list) == null) {
-                                if (i3 == 0 && list != null && list.size() > 0) {
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, list) == null) {
+                                if (i2 == 0 && list != null && list.size() > 0) {
                                     ChatUserDBManager.getInstance(ChatMsgManagerImpl.mContext).updateUserIdentity(list);
                                 }
                                 LongSparseArray<ChatUser> chatUserByBduids = ChatUserDBManager.getInstance(ChatMsgManagerImpl.mContext).getChatUserByBduids(this.val$bduids);
@@ -485,7 +485,7 @@ public class ChatMsgManagerImpl {
                     });
                     return;
                 }
-                iFetchNotificationDataListener.onFetchResult(arrayList2, arrayList2.size() >= i2);
+                iFetchNotificationDataListener.onFetchResult(arrayList2, arrayList2.size() >= i);
                 return;
             }
             iFetchNotificationDataListener.onFetchResult(arrayList2, false);
@@ -499,9 +499,9 @@ public class ChatMsgManagerImpl {
         }
         int size = arrayList.size();
         StringBuffer stringBuffer = new StringBuffer();
-        for (int i2 = 0; i2 < size; i2++) {
-            stringBuffer.append(arrayList.get(i2));
-            if (i2 < size - 1) {
+        for (int i = 0; i < size; i++) {
+            stringBuffer.append(arrayList.get(i));
+            if (i < size - 1) {
                 stringBuffer.append(",");
             }
         }
@@ -589,16 +589,16 @@ public class ChatMsgManagerImpl {
         return (interceptable == null || (invokeL = interceptable.invokeL(65554, this, chatMsg)) == null) ? chatMsg == null ? "" : String.format("send.user.msg.%d.%d", Long.valueOf(chatMsg.getRowId()), Integer.valueOf(chatMsg.getCategory())) : (String) invokeL.objValue;
     }
 
-    private boolean hitMcastSendMsgErrorCode(int i2) {
+    private boolean hitMcastSendMsgErrorCode(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, this, i2)) == null) ? i2 == 22 || i2 == 1 || i2 == 24 || i2 == 1000 || i2 == 1203 || i2 == 1204 || i2 == 1207 || i2 == 1306 || i2 == 1316 || i2 == 1314 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65555, this, i)) == null) ? i == 22 || i == 1 || i == 24 || i == 1000 || i == 1203 || i == 1204 || i == 1207 || i == 1306 || i == 1316 || i == 1314 : invokeI.booleanValue;
     }
 
-    private void mediaGetChatSessions(int i2, int i3, long j2, IGetNewMsgCountListener iGetNewMsgCountListener) {
+    private void mediaGetChatSessions(int i, int i2, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), iGetNewMsgCountListener}) == null) {
-            ChatSessionManagerImpl.getInstance(mContext).mediaGetChatSessions(j2, Utility.getBusinessType(i2, i3), j2, PaManagerImpl.getInstance(mContext).getPaThirdId(j2), 0L, 1, 0, new IMediaGetChatSessionListener(this, j2, iGetNewMsgCountListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.20
+        if (interceptable == null || interceptable.invokeCommon(65556, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), iGetNewMsgCountListener}) == null) {
+            ChatSessionManagerImpl.getInstance(mContext).mediaGetChatSessions(j, Utility.getBusinessType(i, i2), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), 0L, 1, 0, new IMediaGetChatSessionListener(this, j, iGetNewMsgCountListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.20
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -610,48 +610,48 @@ public class ChatMsgManagerImpl {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Long.valueOf(j2), iGetNewMsgCountListener};
+                        Object[] objArr = {this, Long.valueOf(j), iGetNewMsgCountListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$paid = j2;
+                    this.val$paid = j;
                     this.val$listener = iGetNewMsgCountListener;
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener
-                public void onMediaGetChatSessionResult(int i4, int i5, int i6, boolean z, List<ChatSession> list) {
-                    int i7;
+                public void onMediaGetChatSessionResult(int i3, int i4, int i5, boolean z, List<ChatSession> list) {
+                    int i6;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z), list}) == null) {
-                        if (i4 == 0 && list != null && list.size() > 0) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z), list}) == null) {
+                        if (i3 == 0 && list != null && list.size() > 0) {
                             for (ChatSession chatSession : list) {
                                 String str = ChatMsgManagerImpl.TAG;
                                 LogUtils.d(str, "b getPaNewMsgCount session = " + chatSession.toString());
                                 if (chatSession.getPaid() == this.val$paid) {
-                                    i7 = (int) chatSession.getNewMsgSum();
+                                    i6 = (int) chatSession.getNewMsgSum();
                                     break;
                                 }
                             }
                         }
-                        i7 = 0;
-                        this.val$listener.onGetNewMsgCount(i7);
+                        i6 = 0;
+                        this.val$listener.onGetNewMsgCount(i6);
                     }
                 }
             });
         }
     }
 
-    private boolean noSaveDB(int i2, int i3) {
+    private boolean noSaveDB(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65557, this, i2, i3)) == null) ? i2 == 7 || i2 == 4 || i3 == 27 : invokeII.booleanValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65557, this, i, i2)) == null) ? i == 7 || i == 4 || i2 == 27 : invokeII.booleanValue;
     }
 
     private void onDeliverMcastResponse(String str, JSONArray jSONArray, ILiveMsgReceiveListener iLiveMsgReceiveListener, List<Long> list) {
@@ -667,14 +667,14 @@ public class ChatMsgManagerImpl {
             LogUtils.d(str2, "deliverMcastMessage_size is " + jSONArray.length());
             JSONArray jSONArray3 = new JSONArray();
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 1; i2 <= jSONArray.length(); i2++) {
+            for (int i = 1; i <= jSONArray.length(); i++) {
                 try {
-                    jSONArray3.put(jSONArray.getJSONObject(i2 - 1));
+                    jSONArray3.put(jSONArray.getJSONObject(i - 1));
                 } catch (JSONException e3) {
                     jSONArray2 = jSONArray3;
                     e2 = e3;
                 }
-                if (i2 % 10 == 0) {
+                if (i % 10 == 0) {
                     onDeliverResponse(str, jSONArray3, iLiveMsgReceiveListener, arrayList);
                     jSONArray2 = new JSONArray();
                     try {
@@ -707,23 +707,23 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    private void onSendStudioMsgResult(int i2, ChatMsg chatMsg, long j2, String str) {
+    private void onSendStudioMsgResult(int i, ChatMsg chatMsg, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65560, this, new Object[]{Integer.valueOf(i2), chatMsg, Long.valueOf(j2), str}) == null) {
-            if (i2 != 0 && !hitMcastSendMsgErrorCode(i2) && useRequestSendMsg() && !this.mUseRequestSendMsg) {
+        if (interceptable == null || interceptable.invokeCommon(65560, this, new Object[]{Integer.valueOf(i), chatMsg, Long.valueOf(j), str}) == null) {
+            if (i != 0 && !hitMcastSendMsgErrorCode(i) && useRequestSendMsg() && !this.mUseRequestSendMsg) {
                 sendMessageRequest(chatMsg, str);
                 return;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
             if (removeListener != null && (removeListener instanceof ISendMessageListener)) {
-                ((ISendMessageListener) removeListener).onSendMessageResult(i2, chatMsg);
+                ((ISendMessageListener) removeListener).onSendMessageResult(i, chatMsg);
             } else {
                 LogUtils.d(TAG, "ISendMessageListener is null");
             }
-            updateChatMsgStatus(chatMsg, i2);
-            if (i2 != 0) {
+            updateChatMsgStatus(chatMsg, i);
+            if (i != 0) {
                 String str2 = TAG;
-                LogUtils.d(str2, "onSendStudioMsgResult----errorCode: " + i2);
+                LogUtils.d(str2, "onSendStudioMsgResult----errorCode: " + i);
             }
             if (chatMsg != null) {
                 ListenerManager.getInstance().removeListener(chatMsg.mListenerKey);
@@ -762,9 +762,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -799,9 +799,9 @@ public class ChatMsgManagerImpl {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -833,9 +833,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -855,23 +855,23 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    private String replaceInterActiveBottomBarStatus(String str, int i2, int i3) {
+    private String replaceInterActiveBottomBarStatus(String str, int i, int i2) {
         JSONObject optJSONObject;
         JSONObject optJSONObject2;
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, this, str, i, i2)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
                 JSONObject optJSONObject3 = jSONObject.optJSONObject("interact_ext");
                 if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("bottom_bars")) != null) {
-                    if (i2 == 0) {
+                    if (i == 0) {
                         JSONObject optJSONObject4 = optJSONObject.optJSONObject("reply");
                         if (optJSONObject4 != null) {
-                            optJSONObject4.put("click_status", i3);
+                            optJSONObject4.put("click_status", i2);
                         }
-                    } else if (i2 == 1 && (optJSONObject2 = optJSONObject.optJSONObject(FeedData.TYPE_ZAN)) != null) {
-                        optJSONObject2.put("click_status", i3);
+                    } else if (i == 1 && (optJSONObject2 = optJSONObject.optJSONObject(FeedData.TYPE_ZAN)) != null) {
+                        optJSONObject2.put("click_status", i2);
                     }
                 }
                 return jSONObject.toString();
@@ -916,10 +916,10 @@ public class ChatMsgManagerImpl {
         return invokeL.intValue;
     }
 
-    private int saveSingleMsg(ChatMsg chatMsg, int i2) {
+    private int saveSingleMsg(ChatMsg chatMsg, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, this, chatMsg, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65564, this, chatMsg, i)) == null) {
             chatMsg.setPaid(getPaid());
             long maxMsgid = ChatMessageDBManager.getInstance(mContext).getMaxMsgid() + 1;
             LogUtils.d(TAG, "saveSingleMsg msgid = " + maxMsgid);
@@ -945,7 +945,7 @@ public class ChatMsgManagerImpl {
                 }
                 return 1;
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -964,7 +964,7 @@ public class ChatMsgManagerImpl {
             }
             String addListener = ListenerManager.getInstance().addListener(iSendMessageListener);
             if (AccountManager.isLogin(mContext)) {
-                if (a.f25914e && chatMsg.getCategory() == 4) {
+                if (a.f21228e && chatMsg.getCategory() == 4) {
                     creatMethodIntent = Utility.createMcastMethodIntent(mContext, 55);
                 } else {
                     creatMethodIntent = Utility.creatMethodIntent(mContext, 55);
@@ -984,10 +984,10 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    private void sendMeidaPaChatMsg(int i2, int i3, long j2, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
+    private void sendMeidaPaChatMsg(int i, int i2, long j, ChatMsg chatMsg, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), chatMsg, iSendMessageListener}) == null) {
-            mediaSendChatMsg(j2, Utility.getBusinessType(i2, i3), j2, PaManagerImpl.getInstance(mContext).getPaThirdId(j2), chatMsg, new IMediaSendChatMsgListener(this, iSendMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.15
+        if (interceptable == null || interceptable.invokeCommon(65566, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), chatMsg, iSendMessageListener}) == null) {
+            mediaSendChatMsg(j, Utility.getBusinessType(i, i2), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), chatMsg, new IMediaSendChatMsgListener(this, iSendMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.15
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1000,9 +1000,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iSendMessageListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1013,10 +1013,10 @@ public class ChatMsgManagerImpl {
                 }
 
                 @Override // com.baidu.android.imsdk.chatmessage.IMediaSendChatMsgListener
-                public void onMediaSendChatMsgResult(int i4, ChatMsg chatMsg2) {
+                public void onMediaSendChatMsgResult(int i3, ChatMsg chatMsg2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, chatMsg2) == null) {
-                        if (i4 == 0) {
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, chatMsg2) == null) {
+                        if (i3 == 0) {
                             chatMsg2.setStatus(0);
                         } else {
                             chatMsg2.setStatus(2);
@@ -1024,7 +1024,7 @@ public class ChatMsgManagerImpl {
                         chatMsg2.setRowId(System.currentTimeMillis());
                         String str = ChatMsgManagerImpl.TAG;
                         LogUtils.d(str, "b sendmsg = " + chatMsg2.toJsonString());
-                        this.val$listener.onSendMessageResult(i4, chatMsg2);
+                        this.val$listener.onSendMessageResult(i3, chatMsg2);
                     }
                 }
             });
@@ -1084,17 +1084,17 @@ public class ChatMsgManagerImpl {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startUploadTask(int i2, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
+    public void startUploadTask(int i, String str, String str2, String str3, String str4, String str5, String str6, IUploadTransferListener iUploadTransferListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, str5, str6, iUploadTransferListener}) == null) {
-            new AsyncUploadTask(mContext, i2, str, str2, str3, str4, str5, str6, iUploadTransferListener).execute(new Void[0]);
+        if (interceptable == null || interceptable.invokeCommon(65570, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, str5, str6, iUploadTransferListener}) == null) {
+            new AsyncUploadTask(mContext, i, str, str2, str3, str4, str5, str6, iUploadTransferListener).execute(new Void[0]);
         }
     }
 
-    private void updateChatMsgStatus(ChatMsg chatMsg, int i2) {
+    private void updateChatMsgStatus(ChatMsg chatMsg, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65571, this, chatMsg, i2) == null) {
-            chatMsg.setStatus(i2 == 0 ? 0 : 2);
+        if (interceptable == null || interceptable.invokeLI(65571, this, chatMsg, i) == null) {
+            chatMsg.setStatus(i == 0 ? 0 : 2);
             ChatMessageDBManager.getInstance(mContext).updateMsgStatus(chatMsg);
         }
     }
@@ -1109,11 +1109,11 @@ public class ChatMsgManagerImpl {
         return invokeV.booleanValue;
     }
 
-    public void asyncUploadImgToBos(String str, String str2, int i2, int i3, int i4, IUploadTransferListener iUploadTransferListener) {
+    public void asyncUploadImgToBos(String str, String str2, int i, int i2, int i3, IUploadTransferListener iUploadTransferListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iUploadTransferListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iUploadTransferListener}) == null) {
             if (AccountManager.isLogin(mContext)) {
-                genBosObjectUrl(str, "image/jpeg", str2, i2, i3, i4, new IGenBosObjectUrlListener(this, str, iUploadTransferListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.10
+                genBosObjectUrl(str, "image/jpeg", str2, i, i2, i3, new IGenBosObjectUrlListener(this, str, iUploadTransferListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1127,9 +1127,9 @@ public class ChatMsgManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, str, iUploadTransferListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i5 = newInitContext.flag;
-                            if ((i5 & 1) != 0) {
-                                int i6 = i5 & 2;
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1141,12 +1141,12 @@ public class ChatMsgManagerImpl {
                     }
 
                     @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
-                    public void onGenBosObjectUrlListener(int i5, String str3, String str4, String str5, Map<String, String> map) {
+                    public void onGenBosObjectUrlListener(int i4, String str3, String str4, String str5, Map<String, String> map) {
                         String str6;
                         String str7;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i5), str3, str4, str5, map}) == null) {
-                            if (i5 == 0) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str3, str4, str5, map}) == null) {
+                            if (i4 == 0) {
                                 if (map != null) {
                                     str6 = map.get(AsyncChatTask.PUT_URL);
                                     str7 = map.get(AsyncChatTask.GET_URL);
@@ -1157,7 +1157,7 @@ public class ChatMsgManagerImpl {
                                 this.this$0.startUploadTask(1, str6, str7, this.val$filePath, "image/jpeg", str4, str5, this.val$listener);
                                 return;
                             }
-                            this.val$listener.onFailed(i5, 1, this.val$filePath);
+                            this.val$listener.onFailed(i4, 1, this.val$filePath);
                         }
                     }
                 });
@@ -1167,12 +1167,12 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void audioTrans(String str, String str2, String str3, int i2, BIMValueCallBack bIMValueCallBack) {
+    public void audioTrans(String str, String str2, String str3, int i, BIMValueCallBack bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Integer.valueOf(i2), bIMValueCallBack}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, Integer.valueOf(i), bIMValueCallBack}) == null) {
             String str4 = TAG;
             LogUtils.d(str4, "audioTrans filePath=" + str);
-            new IMAudioTransRequest(mContext, str, str2, str3, i2, ListenerManager.getInstance().addListener(bIMValueCallBack)).execute();
+            new IMAudioTransRequest(mContext, str, str2, str3, i, ListenerManager.getInstance().addListener(bIMValueCallBack)).execute();
         }
     }
 
@@ -1184,7 +1184,7 @@ public class ChatMsgManagerImpl {
     }
 
     public void broadcastMessage(ArrayList<ChatMsg> arrayList, boolean z) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048579, this, arrayList, z) == null) {
             synchronized (this.mReceiveListeners) {
@@ -1198,7 +1198,7 @@ public class ChatMsgManagerImpl {
                             LogUtils.d(str2, "you xiaoxi" + arrayList.size());
                             Iterator<IMessageReceiveListener> it = this.mReceiveListeners.iterator();
                             while (true) {
-                                i2 = 0;
+                                i = 0;
                                 if (!it.hasNext()) {
                                     break;
                                 }
@@ -1208,15 +1208,15 @@ public class ChatMsgManagerImpl {
                                 }
                             }
                             int size = filtMsgs.size();
-                            int i3 = size / 20;
-                            int i4 = size % 20;
-                            while (i2 < i3) {
-                                int i5 = 20 * i2;
-                                i2++;
-                                sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(i5, 20 * i2)));
+                            int i2 = size / 20;
+                            int i3 = size % 20;
+                            while (i < i2) {
+                                int i4 = 20 * i;
+                                i++;
+                                sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(i4, 20 * i)));
                             }
-                            if (i4 > 0) {
-                                sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(size - i4, size)));
+                            if (i3 > 0) {
+                                sendMessageBroadcast(mContext, new ArrayList<>(filtMsgs.subList(size - i3, size)));
                             }
                         }
                     }
@@ -1241,28 +1241,28 @@ public class ChatMsgManagerImpl {
             if (size <= 0 || arrayList.isEmpty()) {
                 return;
             }
-            long j2 = 0;
+            long j = 0;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
-            while (i3 < arrayList.size()) {
-                long msgId = arrayList.get(i3).getMsgId();
+            while (i2 < arrayList.size()) {
+                long msgId = arrayList.get(i2).getMsgId();
                 if (cachedConfigMsgIds.contains(Long.valueOf(msgId))) {
                     cachedConfigMsgIds.remove(Long.valueOf(msgId));
-                    arrayList.remove(i3);
-                    i3--;
-                }
-                if (msgId > j2) {
-                    j2 = msgId;
-                }
-                i3++;
-            }
-            while (i2 < cachedConfigMsgIds.size()) {
-                long longValue = cachedConfigMsgIds.get(i2).longValue();
-                if (longValue <= j2) {
-                    cachedConfigMsgIds.remove(Long.valueOf(longValue));
+                    arrayList.remove(i2);
                     i2--;
                 }
+                if (msgId > j) {
+                    j = msgId;
+                }
                 i2++;
+            }
+            while (i < cachedConfigMsgIds.size()) {
+                long longValue = cachedConfigMsgIds.get(i).longValue();
+                if (longValue <= j) {
+                    cachedConfigMsgIds.remove(Long.valueOf(longValue));
+                    i--;
+                }
+                i++;
             }
             if (size != cachedConfigMsgIds.size()) {
                 configMsgIdsPersiser(cachedConfigMsgIds);
@@ -1270,38 +1270,38 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public long deleteAllMsgs(int i2, long j2, boolean z) {
+    public long deleteAllMsgs(int i, long j, boolean z) {
         InterceptResult invokeCommon;
         ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            int i3 = 0;
-            LogUtils.d(TAG, String.format("delete all msg category=%d, contacter=%d", Integer.valueOf(i2), Long.valueOf(j2)));
-            if (i2 == 17 || i2 == 26) {
-                return deleteAllSmartMsgs(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            int i2 = 0;
+            LogUtils.d(TAG, String.format("delete all msg category=%d, contacter=%d", Integer.valueOf(i), Long.valueOf(j)));
+            if (i == 17 || i == 26) {
+                return deleteAllSmartMsgs(i);
             }
-            if (i2 < 0 || j2 < 0) {
+            if (i < 0 || j < 0) {
                 return -1005L;
             }
             if (getPaid() == -2) {
                 return -1017L;
             }
             if (AccountManager.isLogin(mContext)) {
-                ChatObject chatObject = getChatObject(i2, j2, getPaid());
-                if (i2 == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
-                    i3 = chatRecord.getChatType();
+                ChatObject chatObject = getChatObject(i, j, getPaid());
+                if (i == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
+                    i2 = chatRecord.getChatType();
                 }
                 long deleteAllMsg = ChatMessageDBManager.getInstance(mContext).deleteAllMsg(chatObject);
                 if (deleteAllMsg < 0) {
                     return -1009L;
                 }
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
-                creatMethodIntent.putExtra("category", i2);
-                creatMethodIntent.putExtra("contacter", j2);
+                creatMethodIntent.putExtra("category", i);
+                creatMethodIntent.putExtra("contacter", j);
                 creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, deleteAllMsg);
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
-                if (i3 > 0) {
-                    creatMethodIntent.putExtra("chat_type", i3);
+                if (i2 > 0) {
+                    creatMethodIntent.putExtra("chat_type", i2);
                 }
                 tryPutPaid(creatMethodIntent);
                 try {
@@ -1316,12 +1316,12 @@ public class ChatMsgManagerImpl {
         return invokeCommon.longValue;
     }
 
-    public long deleteAllSmartMsgs(int i2) {
+    public long deleteAllSmartMsgs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(i2);
-            long j2 = -1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(i);
+            long j = -1;
             if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
                 Iterator<Long> it = queryPaIdByPaType.iterator();
                 while (it.hasNext()) {
@@ -1340,46 +1340,46 @@ public class ChatMsgManagerImpl {
                     } catch (Exception e2) {
                         LogUtils.e(TAG, "Exception ", e2);
                     }
-                    j2 = 0;
+                    j = 0;
                 }
             }
-            return j2;
+            return j;
         }
         return invokeI.longValue;
     }
 
-    public int deleteDraftMsg(int i2, long j2) {
+    public int deleteDraftMsg(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? getPaid() == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).deleteDraftMsg(getChatObject(i2, j2, getPaid())) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? getPaid() == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).deleteDraftMsg(getChatObject(i, j, getPaid())) : invokeCommon.intValue;
     }
 
-    public int deleteMsgs(int i2, long j2, long[] jArr, boolean z) {
+    public int deleteMsgs(int i, long j, long[] jArr, boolean z) {
         InterceptResult invokeCommon;
         ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), jArr, Boolean.valueOf(z)})) == null) {
-            if (i2 < 0 || j2 < 0 || jArr == null || jArr.length <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), jArr, Boolean.valueOf(z)})) == null) {
+            if (i < 0 || j < 0 || jArr == null || jArr.length <= 0) {
                 return -1005;
             }
             if (getPaid() == -2) {
                 return DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL;
             }
             if (AccountManager.isLogin(mContext)) {
-                ChatObject chatObject = getChatObject(i2, j2, getPaid());
-                int i3 = 0;
-                if (i2 == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
-                    i3 = chatRecord.getChatType();
+                ChatObject chatObject = getChatObject(i, j, getPaid());
+                int i2 = 0;
+                if (i == 1 && (chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject)) != null) {
+                    i2 = chatRecord.getChatType();
                 }
-                int deleteMsgBatch = ChatMessageDBManager.getInstance(mContext).deleteMsgBatch(getChatObject(i2, j2, getPaid()), jArr);
+                int deleteMsgBatch = ChatMessageDBManager.getInstance(mContext).deleteMsgBatch(getChatObject(i, j, getPaid()), jArr);
                 if (deleteMsgBatch >= 0) {
                     Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 57);
-                    creatMethodIntent.putExtra("category", i2);
-                    creatMethodIntent.putExtra("contacter", j2);
+                    creatMethodIntent.putExtra("category", i);
+                    creatMethodIntent.putExtra("contacter", j);
                     creatMethodIntent.putExtra(Constants.EXTRA_DEL_MSG_IDS, jArr);
                     creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
-                    if (i3 > 0) {
-                        creatMethodIntent.putExtra("chat_type", i3);
+                    if (i2 > 0) {
+                        creatMethodIntent.putExtra("chat_type", i2);
                     }
                     tryPutPaid(creatMethodIntent);
                     try {
@@ -1432,9 +1432,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1501,9 +1501,9 @@ public class ChatMsgManagerImpl {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, arrayList};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1545,9 +1545,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, arrayList};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1569,14 +1569,14 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void fetchConfigMsg(Context context, long j2, long j3) {
+    public void fetchConfigMsg(Context context, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             String str = TAG;
-            LogUtils.i(str, " limit: " + j3 + " cursor: " + j2);
+            LogUtils.i(str, " limit: " + j2 + " cursor: " + j);
             Intent creatMethodIntent = Utility.creatMethodIntent(context, 193);
-            creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j2);
-            creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j3);
+            creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_CURSOR, j);
+            creatMethodIntent.putExtra(Constants.EXTRA_CONFIG_LIMIT, j2);
             try {
                 a.g(mContext).f(mContext, creatMethodIntent);
             } catch (Exception e2) {
@@ -1585,112 +1585,112 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public ArrayList<ChatMsg> fetchGroupNotifyMsgsSync(int i2, long j2, int i3, boolean z, ChatMsg chatMsg) {
+    public ArrayList<ChatMsg> fetchGroupNotifyMsgsSync(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Boolean.valueOf(z), chatMsg})) == null) {
-            if (1 == i2) {
-                return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, String.valueOf(j2), chatMsg, i3, z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z), chatMsg})) == null) {
+            if (1 == i) {
+                return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, String.valueOf(j), chatMsg, i2, z);
             }
-            return ChatMessageDBManager.getInstance(mContext).fetchSpecifyMsgsSync(getChatObject(i2, j2, getPaid()), 101, chatMsg == null ? 0L : chatMsg.getMsgId(), i3, chatMsg == null ? -1L : chatMsg.getRowId(), z);
+            return ChatMessageDBManager.getInstance(mContext).fetchSpecifyMsgsSync(getChatObject(i, j, getPaid()), 101, chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId(), z);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
     @Deprecated
-    public ArrayList<ChatMsg> fetchMessageSync(int i2, long j2, long j3, int i3) {
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, long j2, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
             if (getPaid() == -2) {
                 return null;
             }
-            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i2, j2, getPaid()), j3, i3, -1L);
+            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), j2, i2, -1L);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public ArrayList<ChatMsg> fetchMessageSyncExceptSystemMsg(int i2, long j2, int i3, boolean z, ChatMsg chatMsg) {
+    public ArrayList<ChatMsg> fetchMessageSyncExceptSystemMsg(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Boolean.valueOf(z), chatMsg})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z), chatMsg})) == null) {
             if (getPaid() == -2) {
                 return null;
             }
-            if (1 == i2) {
-                return GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(mContext, String.valueOf(j2), chatMsg, i3, z);
+            if (1 == i) {
+                return GroupMessageDAOImpl.fetchChatMsgExceptGroupSystem(mContext, String.valueOf(j), chatMsg, i2, z);
             }
-            return ChatMessageDBManager.getInstance(mContext).fetchMsgsExceptGroupSystemMsgSync(getChatObject(i2, j2, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i3, chatMsg == null ? -1L : chatMsg.getRowId(), z);
+            return ChatMessageDBManager.getInstance(mContext).fetchMsgsExceptGroupSystemMsgSync(getChatObject(i, j, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId(), z);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public void fetchMsgByHostRequst(long j2, int i2, long j3, long j4, long j5, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+    public void fetchMsgByHostRequst(long j, int i, long j2, long j3, long j4, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
             String str = TAG;
-            LogUtils.d(str, "fetchMsgByHostRequst ---> begin :" + j4 + ", end :" + j5);
-            IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j2, j3, i2, i3, j4, j5, z);
+            LogUtils.d(str, "fetchMsgByHostRequst ---> begin :" + j3 + ", end :" + j4);
+            IMFetchMsgByHostRequest iMFetchMsgByHostRequest = new IMFetchMsgByHostRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, i, i2, j3, j4, z);
             HttpHelper.executor(mContext, iMFetchMsgByHostRequest, iMFetchMsgByHostRequest);
         }
     }
 
-    public void fetchMsgRequst(long j2, long j3, int i2, long j4, long j5, long j6, int i3, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
+    public void fetchMsgRequst(long j, long j2, int i, long j3, long j4, long j5, int i2, IFetchMsgByIdListener iFetchMsgByIdListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Integer.valueOf(i3), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048601, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2), iFetchMsgByIdListener, Boolean.valueOf(z)}) == null) {
             String str = TAG;
-            LogUtils.d(str, "fetchMsgRequst ---> begin :" + j5 + ", end :" + j6);
-            IMFetchMsgRequest iMFetchMsgRequest = new IMFetchMsgRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j2, j3, j4, i2, i3, j5, j6, z);
+            LogUtils.d(str, "fetchMsgRequst ---> begin :" + j4 + ", end :" + j5);
+            IMFetchMsgRequest iMFetchMsgRequest = new IMFetchMsgRequest(mContext, ListenerManager.getInstance().addListener(iFetchMsgByIdListener), j, j2, j3, i, i2, j4, j5, z);
             HttpHelper.executor(mContext, iMFetchMsgRequest, iMFetchMsgRequest);
         }
     }
 
-    public void fetchMsgidByMsgid(Context context, int i2, long j2, long j3, long j4, int i3, int i4, int i5, IFetchMsgByIdListener iFetchMsgByIdListener, int i6) {
+    public void fetchMsgidByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener, int i5) {
         Intent creatMethodIntent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iFetchMsgByIdListener, Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048603, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener, Integer.valueOf(i5)}) == null) {
             String addListener = ListenerManager.getInstance().addListener(iFetchMsgByIdListener);
             String str = TAG;
-            LogUtils.i(str, " category: " + i2 + " contacter: " + j2 + " beginMsgid: " + j3 + " endMsgid: " + j4 + " count: " + i3 + " triggerReason: " + i4 + " jumpToRecentMsg: " + i5 + " key: " + addListener);
-            if (j3 >= 0 && j4 >= 0) {
+            LogUtils.i(str, " category: " + i + " contacter: " + j + " beginMsgid: " + j2 + " endMsgid: " + j3 + " count: " + i2 + " triggerReason: " + i3 + " jumpToRecentMsg: " + i4 + " key: " + addListener);
+            if (j2 >= 0 && j3 >= 0) {
                 if (AccountManager.isLogin(context)) {
-                    if (a.f25914e && i2 == 4) {
+                    if (a.f21228e && i == 4) {
                         creatMethodIntent = Utility.createMcastMethodIntent(context, 93);
                     } else {
                         creatMethodIntent = Utility.creatMethodIntent(context, 93);
                     }
-                    creatMethodIntent.putExtra("category", i2);
-                    creatMethodIntent.putExtra("contacter", j2);
-                    creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, j3);
-                    creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, j4);
-                    creatMethodIntent.putExtra("count", i3);
-                    creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, i4);
+                    creatMethodIntent.putExtra("category", i);
+                    creatMethodIntent.putExtra("contacter", j);
+                    creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, j2);
+                    creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, j3);
+                    creatMethodIntent.putExtra("count", i2);
+                    creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, i3);
                     creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-                    creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i5);
-                    creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i6);
+                    creatMethodIntent.putExtra(Constants.EXTRA_JUMP_MSG, i4);
+                    creatMethodIntent.putExtra(Constants.EXTRA_RETRY_TIME, i5);
                     try {
                         a.g(mContext).f(mContext, creatMethodIntent);
                         return;
                     } catch (Exception e2) {
-                        onFetchMsgByIdResult(context, 6, "start service exception", i2, j2, j3, j4, i3, -1, 0L, null, null, addListener);
+                        onFetchMsgByIdResult(context, 6, "start service exception", i, j, j2, j3, i2, -1, 0L, null, null, addListener);
                         LogUtils.e(TAG, "Exception ", e2);
                         return;
                     }
                 }
                 LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                onFetchMsgByIdResult(context, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, i2, j2, j3, j4, i3, -1, 0L, null, null, addListener);
+                onFetchMsgByIdResult(context, 1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
                 return;
             }
-            onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i2, j2, j3, j4, i3, -1, 0L, null, null, addListener);
+            onFetchMsgByIdResult(context, 1005, Constants.ERROR_MSG_PARAMETER_ERROR, i, j, j2, j3, i2, -1, 0L, null, null, addListener);
         }
     }
 
-    public void fetchPaChatMsgs(int i2, int i3, long j2, long j3, long j4, int i4, IFetchMessageListener iFetchMessageListener) {
+    public void fetchPaChatMsgs(int i, int i2, long j, long j2, long j3, int i3, IFetchMessageListener iFetchMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), iFetchMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), iFetchMessageListener}) == null) {
             if (AccountManager.isLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
-                    mediaFetchChatMsgs(mContext, j2, Utility.getBusinessType(i2, i3), j2, PaManagerImpl.getInstance(mContext).getPaThirdId(j2), 0L, j4 - 1, i4, new IMediaFetchChatMsgsListener(this, iFetchMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.16
+                    mediaFetchChatMsgs(mContext, j, Utility.getBusinessType(i, i2), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), 0L, j3 - 1, i3, new IMediaFetchChatMsgsListener(this, iFetchMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.16
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1703,9 +1703,9 @@ public class ChatMsgManagerImpl {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, iFetchMessageListener};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i5 = newInitContext.flag;
-                                if ((i5 & 1) != 0) {
-                                    int i6 = i5 & 2;
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -1716,23 +1716,23 @@ public class ChatMsgManagerImpl {
                         }
 
                         @Override // com.baidu.android.imsdk.chatmessage.IMediaFetchChatMsgsListener
-                        public void onMediaFetchChatMsgsResult(int i5, String str, boolean z, List<ChatMsg> list) {
+                        public void onMediaFetchChatMsgsResult(int i4, String str, boolean z, List<ChatMsg> list) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i5), str, Boolean.valueOf(z), list}) == null) {
-                                if (i5 == 0 && list != null && list.size() > 0) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), str, Boolean.valueOf(z), list}) == null) {
+                                if (i4 == 0 && list != null && list.size() > 0) {
                                     Iterator<ChatMsg> it = list.iterator();
                                     while (it.hasNext()) {
                                         String str2 = ChatMsgManagerImpl.TAG;
                                         LogUtils.d(str2, "b fetchPaChatMsgs msg = " + it.next().toJsonString());
                                     }
                                 }
-                                this.val$listener.onFetchMessageResult(i5, new ArrayList<>(list));
+                                this.val$listener.onFetchMessageResult(i4, new ArrayList<>(list));
                             }
                         }
                     });
                     return;
                 } else {
-                    TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, j2, j3, i4, iFetchMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.17
+                    TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, j, j2, i3, iFetchMessageListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.17
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1746,20 +1746,20 @@ public class ChatMsgManagerImpl {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i4), iFetchMessageListener};
+                                Object[] objArr = {this, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i3), iFetchMessageListener};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i5 = newInitContext.flag;
-                                if ((i5 & 1) != 0) {
-                                    int i6 = i5 & 2;
+                                int i4 = newInitContext.flag;
+                                if ((i4 & 1) != 0) {
+                                    int i5 = i4 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$0 = this;
-                            this.val$paid = j2;
-                            this.val$msgid = j3;
-                            this.val$count = i4;
+                            this.val$paid = j;
+                            this.val$msgid = j2;
+                            this.val$count = i3;
                             this.val$listener = iFetchMessageListener;
                         }
 
@@ -1789,12 +1789,12 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void genBosObjectUrl(String str, String str2, String str3, int i2, int i3, int i4, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
+    public void genBosObjectUrl(String str, String str2, String str3, int i, int i2, int i3, IGenBosObjectUrlListener iGenBosObjectUrlListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iGenBosObjectUrlListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iGenBosObjectUrlListener}) == null) {
             String str4 = TAG;
             LogUtils.d(str4, "filePath=" + str);
-            IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(mContext, str, str2, str3, i2, i3, i4, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
+            IMGenBosObjectUrlRequest iMGenBosObjectUrlRequest = new IMGenBosObjectUrlRequest(mContext, str, str2, str3, i, i2, i3, ListenerManager.getInstance().addListener(iGenBosObjectUrlListener));
             HttpHelper.executor(mContext, iMGenBosObjectUrlRequest, iMGenBosObjectUrlRequest);
         }
     }
@@ -1825,28 +1825,28 @@ public class ChatMsgManagerImpl {
         return (ArrayList) invokeV.objValue;
     }
 
-    public ChatObject getChatObject(int i2, long j2, long j3) {
+    public ChatObject getChatObject(int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) ? new ChatObject(mContext, i2, j2, j3, -1) : (ChatObject) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048607, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) ? new ChatObject(mContext, i, j, j2, -1) : (ChatObject) invokeCommon.objValue;
     }
 
-    public ChatMsg getDraftMsg(int i2, long j2) {
+    public ChatMsg getDraftMsg(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) ? ChatMessageDBManager.getInstance(mContext).getDraftMsg(i2, j2) : (ChatMsg) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) ? ChatMessageDBManager.getInstance(mContext).getDraftMsg(i, j) : (ChatMsg) invokeCommon.objValue;
     }
 
-    public long getMaxReliableMsgId(long j2) {
+    public long getMaxReliableMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j2)) == null) ? ChatMessageDBManager.getInstance(mContext).getMaxReliableMsgId(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048609, this, j)) == null) ? ChatMessageDBManager.getInstance(mContext).getMaxReliableMsgId(j) : invokeJ.longValue;
     }
 
-    public ChatMsg getMsgByMsgId(long j2) {
+    public ChatMsg getMsgByMsgId(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j2)) == null) ? ChatMessageDBManager.getInstance(mContext).getMsgByMsgId(j2) : (ChatMsg) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048610, this, j)) == null) ? ChatMessageDBManager.getInstance(mContext).getMsgByMsgId(j) : (ChatMsg) invokeJ.objValue;
     }
 
     public int getNewMsgCount() {
@@ -1855,32 +1855,32 @@ public class ChatMsgManagerImpl {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) ? getPaid() == -2 ? DlnaManager.DLNA_ERROR_CREATE_SSDP_THREAD_FIAL : ChatMessageDBManager.getInstance(mContext).getNewMsgCount(getPaid()) : invokeV.intValue;
     }
 
-    public int getNewMsgCountByPaid(long j2) {
+    public int getNewMsgCountByPaid(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048612, this, j2)) == null) ? ChatMessageDBManager.getInstance(mContext).getUnReadMsgCount(getChatObject(0, j2, j2)) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048612, this, j)) == null) ? ChatMessageDBManager.getInstance(mContext).getUnReadMsgCount(getChatObject(0, j, j)) : invokeJ.intValue;
     }
 
-    public long getNewMsgNum(int i2, long j2) {
+    public long getNewMsgNum(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048613, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (AccountManager.isLogin(mContext)) {
                 if (getPaid() == -2) {
                     return -1017L;
                 }
-                return ChatMessageDBManager.getInstance(mContext).getNewMsgNum(getChatObject(i2, j2, getPaid()));
+                return ChatMessageDBManager.getInstance(mContext).getNewMsgNum(getChatObject(i, j, getPaid()));
             }
             return -1L;
         }
         return invokeCommon.longValue;
     }
 
-    public void getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j2, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+    public void getNotificationMsgDataList(SparseArray<List<Integer>> sparseArray, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{sparseArray, Long.valueOf(j2), Integer.valueOf(i2), iFetchNotificationDataListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{sparseArray, Long.valueOf(j), Integer.valueOf(i), iFetchNotificationDataListener}) == null) {
             if (AccountManager.isLogin(mContext) && iFetchNotificationDataListener != null) {
-                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sparseArray, j2, Math.abs(i2) > 20 ? 20 : i2, iFetchNotificationDataListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.8
+                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, sparseArray, j, Math.abs(i) > 20 ? 20 : i, iFetchNotificationDataListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1894,11 +1894,11 @@ public class ChatMsgManagerImpl {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, sparseArray, Long.valueOf(j2), Integer.valueOf(r10), iFetchNotificationDataListener};
+                            Object[] objArr = {this, sparseArray, Long.valueOf(j), Integer.valueOf(r10), iFetchNotificationDataListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1906,7 +1906,7 @@ public class ChatMsgManagerImpl {
                         }
                         this.this$0 = this;
                         this.val$map = sparseArray;
-                        this.val$msgid = j2;
+                        this.val$msgid = j;
                         this.val$realCount = r10;
                         this.val$listener = iFetchNotificationDataListener;
                     }
@@ -1925,23 +1925,23 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public List<ChatMsg> getPaMsgByChatType(int i2, int i3) {
+    public List<ChatMsg> getPaMsgByChatType(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048615, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048615, this, i, i2)) == null) {
             if (AccountManager.isLogin(mContext)) {
-                return ChatMessageDBManager.getInstance(mContext).fetchPaMsgByChatType(i2, i3);
+                return ChatMessageDBManager.getInstance(mContext).fetchPaMsgByChatType(i, i2);
             }
             return null;
         }
         return (List) invokeII.objValue;
     }
 
-    public void getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j2, int i2, IFetchNotificationDataListener iFetchNotificationDataListener) {
+    public void getPaMsgByChatTypeAndPaidList(List<Integer> list, List<Long> list2, long j, int i, IFetchNotificationDataListener iFetchNotificationDataListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{list, list2, Long.valueOf(j2), Integer.valueOf(i2), iFetchNotificationDataListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{list, list2, Long.valueOf(j), Integer.valueOf(i), iFetchNotificationDataListener}) == null) {
             if (AccountManager.isLogin(mContext) && iFetchNotificationDataListener != null) {
-                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, list, list2, j2, Math.abs(i2) > 20 ? 20 : i2, iFetchNotificationDataListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.7
+                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, list, list2, j, Math.abs(i) > 20 ? 20 : i, iFetchNotificationDataListener) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -1956,11 +1956,11 @@ public class ChatMsgManagerImpl {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, list, list2, Long.valueOf(j2), Integer.valueOf(r11), iFetchNotificationDataListener};
+                            Object[] objArr = {this, list, list2, Long.valueOf(j), Integer.valueOf(r11), iFetchNotificationDataListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1969,7 +1969,7 @@ public class ChatMsgManagerImpl {
                         this.this$0 = this;
                         this.val$chatTypes = list;
                         this.val$paids = list2;
-                        this.val$msgid = j2;
+                        this.val$msgid = j;
                         this.val$realCount = r11;
                         this.val$listener = iFetchNotificationDataListener;
                     }
@@ -1988,16 +1988,16 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void getPaNewMsgCount(int i2, int i3, long j2, IGetNewMsgCountListener iGetNewMsgCountListener) {
+    public void getPaNewMsgCount(int i, int i2, long j, IGetNewMsgCountListener iGetNewMsgCountListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), iGetNewMsgCountListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), iGetNewMsgCountListener}) == null) {
             if (AccountManager.isLogin(mContext)) {
                 if (AccountManager.getMediaRole(mContext)) {
-                    mediaGetChatSessions(i2, i3, j2, iGetNewMsgCountListener);
+                    mediaGetChatSessions(i, i2, j, iGetNewMsgCountListener);
                     return;
                 }
                 LogUtils.d(TAG, "c getPaNewMsgCount");
-                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, iGetNewMsgCountListener, j2) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.19
+                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, iGetNewMsgCountListener, j) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.19
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ ChatMsgManagerImpl this$0;
@@ -2009,11 +2009,11 @@ public class ChatMsgManagerImpl {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, iGetNewMsgCountListener, Long.valueOf(j2)};
+                            Object[] objArr = {this, iGetNewMsgCountListener, Long.valueOf(j)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2021,7 +2021,7 @@ public class ChatMsgManagerImpl {
                         }
                         this.this$0 = this;
                         this.val$listener = iGetNewMsgCountListener;
-                        this.val$paid = j2;
+                        this.val$paid = j;
                     }
 
                     @Override // java.lang.Runnable
@@ -2077,9 +2077,9 @@ public class ChatMsgManagerImpl {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, jSONObject};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -2122,30 +2122,30 @@ public class ChatMsgManagerImpl {
         return invokeL.intValue;
     }
 
-    public void mediaDeleteChatMsg(long j2, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public void mediaDeleteChatMsg(long j, long j2, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), list, iMediaDeleteChatMsgListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048623, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, iMediaDeleteChatMsgListener}) == null) {
             String str = TAG;
-            LogUtils.d(str, "BC> contactor=" + j2 + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j3);
+            LogUtils.d(str, "BC> contactor=" + j + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j2);
             if (!AccountManager.getMediaRole(mContext)) {
                 iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(2000, null);
                 return;
             }
-            IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j2, j3, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
+            IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j, j2, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
             HttpHelper.executor(mContext, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
         }
     }
 
-    public void mediaFetchChatMsgs(Context context, long j2, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+    public void mediaFetchChatMsgs(Context context, long j, long j2, long j3, int i, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{context, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), iMediaFetchChatMsgsListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{context, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i), iMediaFetchChatMsgsListener}) == null) {
             String str = TAG;
-            LogUtils.d(str, "BC> contactor=" + j2 + ", beginMsgTime=" + j3 + ", endMsgTime=" + j4 + ", count=" + i2 + ", listener=" + iMediaFetchChatMsgsListener);
+            LogUtils.d(str, "BC> contactor=" + j + ", beginMsgTime=" + j2 + ", endMsgTime=" + j3 + ", count=" + i + ", listener=" + iMediaFetchChatMsgsListener);
             if (!AccountManager.getMediaRole(context)) {
                 iMediaFetchChatMsgsListener.onMediaFetchChatMsgsResult(2000, null, false, null);
                 return;
             }
-            IMMediaFetchMsgHttpRequest iMMediaFetchMsgHttpRequest = new IMMediaFetchMsgHttpRequest(mContext, j2, j3, j4, i2, ListenerManager.getInstance().addListener(iMediaFetchChatMsgsListener));
+            IMMediaFetchMsgHttpRequest iMMediaFetchMsgHttpRequest = new IMMediaFetchMsgHttpRequest(mContext, j, j2, j3, i, ListenerManager.getInstance().addListener(iMediaFetchChatMsgsListener));
             HttpHelper.executor(context, iMMediaFetchMsgHttpRequest, iMMediaFetchMsgHttpRequest);
         }
     }
@@ -2158,16 +2158,16 @@ public class ChatMsgManagerImpl {
         this.mMediaMsgChangedListeners.put(Integer.valueOf(iMediaChatMsgChangedListener.hashCode()), iMediaChatMsgChangedListener);
     }
 
-    public void mediaSendChatMsg(long j2, int i2, long j3, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public void mediaSendChatMsg(long j, int i, long j2, String str, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, chatMsg, iMediaSendChatMsgListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048627, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, chatMsg, iMediaSendChatMsgListener}) == null) {
             String str2 = TAG;
-            LogUtils.d(str2, "BC> contactor=" + j2 + ", contactorType" + i2 + ", contactorPauid" + j3 + ", contactorThirdid" + str + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
+            LogUtils.d(str2, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
             if (!AccountManager.getMediaRole(mContext)) {
                 iMediaSendChatMsgListener.onMediaSendChatMsgResult(2000, chatMsg);
                 return;
             }
-            IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j2, i2, j3, str, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
+            IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j, i, j2, str, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
             HttpHelper.executor(mContext, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
         }
     }
@@ -2180,29 +2180,29 @@ public class ChatMsgManagerImpl {
         this.mMediaMsgChangedListeners.remove(Integer.valueOf(iMediaChatMsgChangedListener.hashCode()));
     }
 
-    public void onAudioTransCallBack(String str, int i2, String str2, String str3) {
+    public void onAudioTransCallBack(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048630, this, str, i2, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048630, this, str, i, str2, str3) == null) {
             String str4 = TAG;
-            LogUtils.d(str4, "onAudioTransCallBack----errorCode: " + i2 + " msg: " + str2);
+            LogUtils.d(str4, "onAudioTransCallBack----errorCode: " + i + " msg: " + str2);
             BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) ListenerManager.getInstance().removeListener(str);
             if (bIMValueCallBack != null) {
-                bIMValueCallBack.onResult(i2, str2, str3);
+                bIMValueCallBack.onResult(i, str2, str3);
             } else {
                 LogUtils.d(TAG, "onAudioTransCallBack listener is null");
             }
         }
     }
 
-    public void onFetchMsgByIdResult(Context context, int i2, String str, int i3, long j2, long j3, long j4, int i4, int i5, long j5, String str2, ArrayList<ChatMsg> arrayList, String str3) {
+    public void onFetchMsgByIdResult(Context context, int i, String str, int i2, long j, long j2, long j3, int i3, int i4, long j4, String str2, ArrayList<ChatMsg> arrayList, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{context, Integer.valueOf(i2), str, Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j5), str2, arrayList, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{context, Integer.valueOf(i), str, Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j4), str2, arrayList, str3}) == null) {
             if (arrayList != null) {
                 String str4 = TAG;
-                LogUtils.d(str4, "onFetchMsgByIdResult----errorCode: " + i2 + " msg:" + str + ", contacter:" + j2 + ",fetchedMsgs size " + arrayList.size());
+                LogUtils.d(str4, "onFetchMsgByIdResult----errorCode: " + i + " msg:" + str + ", contacter:" + j + ",fetchedMsgs size " + arrayList.size());
             } else {
                 String str5 = TAG;
-                LogUtils.d(str5, "onFetchMsgByIdResult----errorCode: " + i2 + " msg:" + str + ", contacter:" + j2 + ",fetchedMsgs is null.");
+                LogUtils.d(str5, "onFetchMsgByIdResult----errorCode: " + i + " msg:" + str + ", contacter:" + j + ",fetchedMsgs is null.");
             }
             if (arrayList != null && arrayList.size() == 1) {
                 try {
@@ -2215,48 +2215,48 @@ public class ChatMsgManagerImpl {
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(str3);
             if (removeListener != null && (removeListener instanceof IFetchMsgByIdListener)) {
-                ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i2, str, str2, i3, j2, j3, j4, i4, i5, j5, arrayList);
+                ((IFetchMsgByIdListener) removeListener).onFetchMsgByIdResult(i, str, str2, i2, j, j2, j3, i3, i4, j4, arrayList);
             } else {
                 LogUtils.i(TAG, "onFetchMsgByIdResult listener is null or error!!");
             }
         }
     }
 
-    public void onGenBosObjectUrl(String str, int i2, String str2, String str3, String str4, Map<String, String> map) {
+    public void onGenBosObjectUrl(String str, int i, String str2, String str3, String str4, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{str, Integer.valueOf(i2), str2, str3, str4, map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, map}) == null) {
             String str5 = TAG;
-            LogUtils.d(str5, "onGenBosObjectUrl----errorCode: " + i2 + " msg: " + str2);
+            LogUtils.d(str5, "onGenBosObjectUrl----errorCode: " + i + " msg: " + str2);
             IGenBosObjectUrlListener iGenBosObjectUrlListener = (IGenBosObjectUrlListener) ListenerManager.getInstance().removeListener(str);
             if (iGenBosObjectUrlListener != null) {
-                iGenBosObjectUrlListener.onGenBosObjectUrlListener(i2, str2, str3, str4, map);
+                iGenBosObjectUrlListener.onGenBosObjectUrlListener(i, str2, str3, str4, map);
             } else {
                 LogUtils.d(TAG, "onGenBosObjectUrl is null");
             }
         }
     }
 
-    public void onMediaDeleteChatMsgResult(String str, int i2, String str2) {
+    public void onMediaDeleteChatMsgResult(String str, int i, String str2) {
         IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048633, this, str, i2, str2) == null) || (iMediaDeleteChatMsgListener = (IMediaDeleteChatMsgListener) ListenerManager.getInstance().removeListener(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048633, this, str, i, str2) == null) || (iMediaDeleteChatMsgListener = (IMediaDeleteChatMsgListener) ListenerManager.getInstance().removeListener(str)) == null) {
             return;
         }
         String str3 = TAG;
-        LogUtils.d(str3, "BC> responseCode=" + i2 + ", msg=" + str2);
-        iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(i2, str2);
+        LogUtils.d(str3, "BC> responseCode=" + i + ", msg=" + str2);
+        iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(i, str2);
     }
 
-    public void onMediaFetchChatMsgsResult(String str, int i2, String str2, boolean z, List<ChatMsg> list) {
+    public void onMediaFetchChatMsgsResult(String str, int i, String str2, boolean z, List<ChatMsg> list) {
         IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i2), str2, Boolean.valueOf(z), list}) == null) || (iMediaFetchChatMsgsListener = (IMediaFetchChatMsgsListener) ListenerManager.getInstance().removeListener(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), list}) == null) || (iMediaFetchChatMsgsListener = (IMediaFetchChatMsgsListener) ListenerManager.getInstance().removeListener(str)) == null) {
             return;
         }
         String str3 = TAG;
         StringBuilder sb = new StringBuilder();
         sb.append("BC> responseCode=");
-        sb.append(i2);
+        sb.append(i);
         sb.append(", strMsg=");
         sb.append(str2);
         sb.append(", hasMore=");
@@ -2264,37 +2264,37 @@ public class ChatMsgManagerImpl {
         sb.append(", msgs=");
         sb.append(list != null ? list.toString() : "");
         LogUtils.d(str3, sb.toString());
-        iMediaFetchChatMsgsListener.onMediaFetchChatMsgsResult(i2, str2, z, list);
+        iMediaFetchChatMsgsListener.onMediaFetchChatMsgsResult(i, str2, z, list);
     }
 
-    public void onMediaSendChatMsgResult(String str, int i2, ChatMsg chatMsg) {
+    public void onMediaSendChatMsgResult(String str, int i, ChatMsg chatMsg) {
         IMediaSendChatMsgListener iMediaSendChatMsgListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048635, this, str, i2, chatMsg) == null) || (iMediaSendChatMsgListener = (IMediaSendChatMsgListener) ListenerManager.getInstance().removeListener(str)) == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048635, this, str, i, chatMsg) == null) || (iMediaSendChatMsgListener = (IMediaSendChatMsgListener) ListenerManager.getInstance().removeListener(str)) == null) {
             return;
         }
         String str2 = TAG;
-        LogUtils.d(str2, "BC> responseCode=" + i2 + ", msg=" + chatMsg);
-        iMediaSendChatMsgListener.onMediaSendChatMsgResult(i2, chatMsg);
+        LogUtils.d(str2, "BC> responseCode=" + i + ", msg=" + chatMsg);
+        iMediaSendChatMsgListener.onMediaSendChatMsgResult(i, chatMsg);
     }
 
-    public void onSendMessageResult(int i2, ChatMsg chatMsg, long j2, String str) {
+    public void onSendMessageResult(int i, ChatMsg chatMsg, long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i2), chatMsg, Long.valueOf(j2), str}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), chatMsg, Long.valueOf(j), str}) == null) {
             try {
                 if (chatMsg == null) {
                     LogUtils.d(TAG, "onSendMessageResult----chatMsg is null");
                     IMListener removeListener = ListenerManager.getInstance().removeListener(str);
                     if (removeListener != null && (removeListener instanceof ISendMessageListener)) {
-                        ((ISendMessageListener) removeListener).onSendMessageResult(i2, null);
+                        ((ISendMessageListener) removeListener).onSendMessageResult(i, null);
                     } else {
                         LogUtils.d(TAG, "ISendMessageListener is null");
                     }
                 } else if (chatMsg.getCategory() == 4) {
-                    onSendStudioMsgResult(i2, chatMsg, j2, str);
+                    onSendStudioMsgResult(i, chatMsg, j, str);
                 } else {
                     String str2 = TAG;
-                    LogUtils.d(str2, "onSendMessageResult----errorCode: " + i2);
+                    LogUtils.d(str2, "onSendMessageResult----errorCode: " + i);
                     try {
                         Long.parseLong(str.substring(1, 14));
                         System.currentTimeMillis();
@@ -2302,15 +2302,15 @@ public class ChatMsgManagerImpl {
                         LogUtils.e(TAG, "get message receive time error", e2);
                         new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
                     }
-                    if (j2 != -1) {
-                        chatMsg.setMsgTime(j2);
+                    if (j != -1) {
+                        chatMsg.setMsgTime(j);
                     }
                     DBManager.getInstance(mContext).deleteCmdMsg(getMsgUUid(chatMsg));
-                    updateChatMsgStatus(chatMsg, i2);
+                    updateChatMsgStatus(chatMsg, i);
                     setMaxNotifyMsgid(chatMsg);
                     IMListener removeListener2 = ListenerManager.getInstance().removeListener(str);
                     if (removeListener2 != null && (removeListener2 instanceof ISendMessageListener)) {
-                        ((ISendMessageListener) removeListener2).onSendMessageResult(i2, chatMsg);
+                        ((ISendMessageListener) removeListener2).onSendMessageResult(i, chatMsg);
                     } else {
                         LogUtils.d(TAG, "ISendMessageListener is null");
                     }
@@ -2325,17 +2325,17 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void onUnRegisterNotifyResult(String str, int i2, String str2) {
+    public void onUnRegisterNotifyResult(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048637, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048637, this, str, i, str2) == null) {
             String str3 = TAG;
-            LogUtils.d(str3, "onUnRegisterNotifyResult----errorCode: " + i2 + " msg: " + str2);
-            if (i2 == 0) {
+            LogUtils.d(str3, "onUnRegisterNotifyResult----errorCode: " + i + " msg: " + str2);
+            if (i == 0) {
                 BindStateManager.setunBindPush(mContext);
             }
             IOnRegisterNotifyListener iOnRegisterNotifyListener = (IOnRegisterNotifyListener) ListenerManager.getInstance().removeListener(str);
             if (iOnRegisterNotifyListener != null) {
-                iOnRegisterNotifyListener.onUnRegisterNotifyResult(i2, str2);
+                iOnRegisterNotifyListener.onUnRegisterNotifyResult(i, str2);
             }
         }
     }
@@ -2434,9 +2434,9 @@ public class ChatMsgManagerImpl {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2457,12 +2457,12 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void resendMsg(String str, String str2, int i2, ISendMessageListener iSendMessageListener) {
+    public void resendMsg(String str, String str2, int i, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048647, this, str, str2, i2, iSendMessageListener) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048647, this, str, str2, i, iSendMessageListener) == null) {
             String str3 = TAG;
             LogUtils.d(str3, "resendMsg " + str + " " + str2 + " ---->");
-            if (i2 == 0) {
+            if (i == 0) {
                 ArrayList<ChatMsg> fetchMsg = ChatMessageDBManager.getInstance(mContext).fetchMsg(str2, str);
                 if (fetchMsg != null && fetchMsg.size() != 0) {
                     ChatMsg chatMsg = fetchMsg.get(0);
@@ -2583,11 +2583,11 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public void sendPaChatMsg(int i2, int i3, long j2, int i4, String str, ISendMessageListener iSendMessageListener) {
+    public void sendPaChatMsg(int i, int i2, long j, int i3, String str, ISendMessageListener iSendMessageListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Integer.valueOf(i4), str, iSendMessageListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048652, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), str, iSendMessageListener}) == null) {
             if (AccountManager.isLogin(mContext)) {
-                ChatMsg buildChatMsg = buildChatMsg(i2, 0, j2, i4, str);
+                ChatMsg buildChatMsg = buildChatMsg(i, 0, j, i3, str);
                 if (buildChatMsg == null) {
                     iSendMessageListener.onSendMessageResult(1005, null);
                     return;
@@ -2595,7 +2595,7 @@ public class ChatMsgManagerImpl {
                 String str2 = TAG;
                 LogUtils.d(str2, "buildChatMsg = " + buildChatMsg.toString());
                 if (AccountManager.getMediaRole(mContext)) {
-                    sendMeidaPaChatMsg(i2, i3, j2, buildChatMsg, iSendMessageListener);
+                    sendMeidaPaChatMsg(i, i2, j, buildChatMsg, iSendMessageListener);
                     return;
                 }
                 if (!noSaveDB(buildChatMsg.getCategory(), buildChatMsg.getMsgType())) {
@@ -2611,15 +2611,15 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public boolean setAllMsgRead(int i2, long j2, boolean z) {
+    public boolean setAllMsgRead(int i, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048653, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            if (i2 != 17 && i2 != 26) {
-                return setBeforeMsgRead(i2, j2, ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(i2, j2, getPaid())), z);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048653, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            if (i != 17 && i != 26) {
+                return setBeforeMsgRead(i, j, ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(i, j, getPaid())), z);
             }
             boolean z2 = false;
-            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(i2);
+            ArrayList<Long> queryPaIdByPaType = PaInfoDBManager.getInstance(mContext).queryPaIdByPaType(i);
             if (queryPaIdByPaType != null && !queryPaIdByPaType.isEmpty()) {
                 Iterator<Long> it = queryPaIdByPaType.iterator();
                 while (it.hasNext()) {
@@ -2632,32 +2632,32 @@ public class ChatMsgManagerImpl {
         return invokeCommon.booleanValue;
     }
 
-    public boolean setBeforeMsgRead(int i2, long j2, long j3, boolean z) {
+    public boolean setBeforeMsgRead(int i, long j, long j2, boolean z) {
         InterceptResult invokeCommon;
         ChatObject chatObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048654, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
             if (getPaid() != -2 && AccountManager.isLogin(mContext)) {
-                if ((Constants.PAFLAG & j2) != 0) {
-                    chatObject = getChatObject(i2, j2, j2);
+                if ((Constants.PAFLAG & j) != 0) {
+                    chatObject = getChatObject(i, j, j);
                 } else {
-                    chatObject = getChatObject(i2, j2, getPaid());
+                    chatObject = getChatObject(i, j, getPaid());
                 }
                 ChatSession chatRecord = ChatMessageDBManager.getInstance(mContext).getChatRecord(chatObject);
                 if (chatRecord != null) {
-                    int i3 = (chatRecord.getNewMsgSum() > 0L ? 1 : (chatRecord.getNewMsgSum() == 0L ? 0 : -1));
-                    if (i3 < 0) {
+                    int i2 = (chatRecord.getNewMsgSum() > 0L ? 1 : (chatRecord.getNewMsgSum() == 0L ? 0 : -1));
+                    if (i2 < 0) {
                         return false;
                     }
-                    if (i3 == 0) {
+                    if (i2 == 0) {
                         return true;
                     }
                 }
-                if (ChatMessageDBManager.getInstance(mContext).setAllMsgReadWithMsgid(chatObject, j3)) {
+                if (ChatMessageDBManager.getInstance(mContext).setAllMsgReadWithMsgid(chatObject, j2)) {
                     Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
-                    creatMethodIntent.putExtra("category", i2);
-                    creatMethodIntent.putExtra("contacter", j2);
-                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
+                    creatMethodIntent.putExtra("category", i);
+                    creatMethodIntent.putExtra("contacter", j);
+                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j2);
                     creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                     tryPutPaid(creatMethodIntent);
                     try {
@@ -2674,24 +2674,24 @@ public class ChatMsgManagerImpl {
         return invokeCommon.booleanValue;
     }
 
-    public void setInterActiveMsgStatus(long j2, long j3, int i2, int i3) {
+    public void setInterActiveMsgStatus(long j, long j2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
-            ChatMsg chatMsgByMsgId = ChatMessageDBManager.getInstance(mContext).getChatMsgByMsgId(j2);
+        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            ChatMsg chatMsgByMsgId = ChatMessageDBManager.getInstance(mContext).getChatMsgByMsgId(j);
             if (chatMsgByMsgId instanceof InterActiveMsg) {
                 String jsonContent = ((InterActiveMsg) chatMsgByMsgId).getJsonContent();
-                if (i2 == 0 || i2 == 1) {
-                    chatMsgByMsgId.setMsgContent(replaceInterActiveBottomBarStatus(jsonContent, i2, i3));
+                if (i == 0 || i == 1) {
+                    chatMsgByMsgId.setMsgContent(replaceInterActiveBottomBarStatus(jsonContent, i, i2));
                     ChatMessageDBManager.getInstance(mContext).updateMsgStatus(chatMsgByMsgId);
-                } else if (i2 == 2) {
-                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(j3);
+                } else if (i == 2) {
+                    ChatUser chatUserByBuid = ChatUserDBManager.getInstance(mContext).getChatUserByBuid(j2);
                     if (chatUserByBuid != null) {
-                        chatUserByBuid.setSubscribe(i3);
+                        chatUserByBuid.setSubscribe(i2);
                         ChatUserDBManager.getInstance(mContext).updateUserByBduid(chatUserByBuid);
                         return;
                     }
                     ArrayList arrayList = new ArrayList();
-                    arrayList.add(Long.valueOf(j3));
+                    arrayList.add(Long.valueOf(j2));
                     ChatUserManagerImpl.getInstance(mContext).updateUserIdentity(arrayList, new IGetUserIdentityListener(this) { // from class: com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl.13
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -2704,9 +2704,9 @@ public class ChatMsgManagerImpl {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -2716,9 +2716,9 @@ public class ChatMsgManagerImpl {
                         }
 
                         @Override // com.baidu.android.imsdk.chatuser.IGetUserIdentityListener
-                        public void onGetUserIdentityResult(int i4, List<ChatUser> list) {
+                        public void onGetUserIdentityResult(int i3, List<ChatUser> list) {
                             Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, list) == null) && i4 == 0) {
+                            if ((interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, list) == null) && i3 == 0) {
                                 ChatUserDBManager.getInstance(ChatMsgManagerImpl.mContext).updateUserIdentity(list);
                             }
                         }
@@ -2728,15 +2728,15 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public boolean setMsgRead(int i2, long j2, long j3, boolean z) {
+    public boolean setMsgRead(int i, long j, long j2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)})) == null) {
-            if (getPaid() != -2 && AccountManager.isLogin(mContext) && ChatMessageDBManager.getInstance(mContext).setMsgRead(getChatObject(i2, j2, getPaid()), j3) >= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048656, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            if (getPaid() != -2 && AccountManager.isLogin(mContext) && ChatMessageDBManager.getInstance(mContext).setMsgRead(getChatObject(i, j, getPaid()), j2) >= 0) {
                 Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
-                creatMethodIntent.putExtra("category", i2);
-                creatMethodIntent.putExtra("contacter", j2);
-                creatMethodIntent.putExtra("msgid", j3);
+                creatMethodIntent.putExtra("category", i);
+                creatMethodIntent.putExtra("contacter", j);
+                creatMethodIntent.putExtra("msgid", j2);
                 creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, z);
                 tryPutPaid(creatMethodIntent);
                 try {
@@ -2752,11 +2752,11 @@ public class ChatMsgManagerImpl {
         return invokeCommon.booleanValue;
     }
 
-    public boolean setMsgReadByChatTpyes(List<Integer> list, long j2) {
+    public boolean setMsgReadByChatTpyes(List<Integer> list, long j) {
         InterceptResult invokeLJ;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048657, this, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048657, this, list, j)) == null) {
             if (AccountManager.isLogin(mContext)) {
                 LogUtils.e(TAG, "setMsgReadByChatTpyes start");
                 if (list == null || list.size() == 0) {
@@ -2782,22 +2782,22 @@ public class ChatMsgManagerImpl {
                                 next.setNewFansAtMsgSum(0);
                             }
                         } else {
-                            setBeforeMsgRead(1, next.getContacter(), j2 <= 0 ? ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(1, next.getContacter(), getPaid())) : j2, false);
+                            setBeforeMsgRead(1, next.getContacter(), j <= 0 ? ChatMessageDBManager.getInstance(mContext).getMaxMsgid(getChatObject(1, next.getContacter(), getPaid())) : j, false);
                         }
                     }
                 }
-                if (j2 <= 0) {
+                if (j <= 0) {
                     ArrayList<ChatMsg> maxMsgidByChatTypes = ChatMessageDBManager.getInstance(mContext).getMaxMsgidByChatTypes(arrayList2, 0L, 1);
                     if (maxMsgidByChatTypes == null || maxMsgidByChatTypes.size() <= 0) {
                         return false;
                     }
-                    j3 = maxMsgidByChatTypes.get(0).getMsgId();
+                    j2 = maxMsgidByChatTypes.get(0).getMsgId();
                 } else {
-                    j3 = j2;
+                    j2 = j;
                 }
                 String str = TAG;
-                LogUtils.e(str, "setMsgReadByChatTpyes msgid = " + j3);
-                List<Long> msgReadByChatTypes = ChatMessageDBManager.getInstance(mContext).setMsgReadByChatTypes(arrayList2, j3);
+                LogUtils.e(str, "setMsgReadByChatTpyes msgid = " + j2);
+                List<Long> msgReadByChatTypes = ChatMessageDBManager.getInstance(mContext).setMsgReadByChatTypes(arrayList2, j2);
                 if (msgReadByChatTypes == null) {
                     return false;
                 }
@@ -2808,7 +2808,7 @@ public class ChatMsgManagerImpl {
                     Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
                     creatMethodIntent.putExtra("category", 0);
                     creatMethodIntent.putExtra("contacter", longValue);
-                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j3);
+                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j2);
                     creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                     tryPutPaid(creatMethodIntent);
                     try {
@@ -2824,22 +2824,22 @@ public class ChatMsgManagerImpl {
         return invokeLJ.booleanValue;
     }
 
-    public boolean setMsgReadByChatTypeAndSubType(SparseArray<List<Integer>> sparseArray, long j2, ISetMessageReadListener iSetMessageReadListener) {
+    public boolean setMsgReadByChatTypeAndSubType(SparseArray<List<Integer>> sparseArray, long j, ISetMessageReadListener iSetMessageReadListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{sparseArray, Long.valueOf(j2), iSetMessageReadListener})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048658, this, new Object[]{sparseArray, Long.valueOf(j), iSetMessageReadListener})) == null) {
             if (AccountManager.isLogin(mContext)) {
                 LogUtils.e(TAG, "setMsgReadByChatTypeAndSubType start");
-                if (j2 <= 0) {
+                if (j <= 0) {
                     ArrayList<ChatMsg> notificationMsgDataList = ChatMessageDBManager.getInstance(mContext).getNotificationMsgDataList(sparseArray, 0L, 1);
                     if (notificationMsgDataList == null || notificationMsgDataList.size() <= 0) {
                         return false;
                     }
-                    j2 = notificationMsgDataList.get(0).getMsgId();
+                    j = notificationMsgDataList.get(0).getMsgId();
                 }
                 String str = TAG;
-                LogUtils.d(str, "setMsgReadByChatTypeAndSubType msgid = " + j2);
-                List<Long> paMsgReadByChatTypeAndSubType = ChatMessageDBManager.getInstance(mContext).setPaMsgReadByChatTypeAndSubType(sparseArray, j2);
+                LogUtils.d(str, "setMsgReadByChatTypeAndSubType msgid = " + j);
+                List<Long> paMsgReadByChatTypeAndSubType = ChatMessageDBManager.getInstance(mContext).setPaMsgReadByChatTypeAndSubType(sparseArray, j);
                 iSetMessageReadListener.onFinish();
                 if (paMsgReadByChatTypeAndSubType == null || paMsgReadByChatTypeAndSubType.size() <= 0) {
                     return false;
@@ -2851,7 +2851,7 @@ public class ChatMsgManagerImpl {
                     Intent creatMethodIntent = Utility.creatMethodIntent(mContext, 67);
                     creatMethodIntent.putExtra("category", 0);
                     creatMethodIntent.putExtra("contacter", longValue);
-                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j2);
+                    creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, j);
                     creatMethodIntent.putExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
                     tryPutPaid(creatMethodIntent);
                     try {
@@ -2868,13 +2868,13 @@ public class ChatMsgManagerImpl {
         return invokeCommon.booleanValue;
     }
 
-    public void setPaMsgsRead(int i2, int i3, long j2, long j3, long j4) {
+    public void setPaMsgsRead(int i, int i2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) && AccountManager.isLogin(mContext)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) && AccountManager.isLogin(mContext)) {
             if (AccountManager.getMediaRole(mContext)) {
-                ChatSessionManagerImpl.getInstance(mContext).mediaSetSessionRead(j2, Utility.getBusinessType(i2, i3), j2, PaManagerImpl.getInstance(mContext).getPaThirdId(j2), j4, null);
+                ChatSessionManagerImpl.getInstance(mContext).mediaSetSessionRead(j, Utility.getBusinessType(i, i2), j, PaManagerImpl.getInstance(mContext).getPaThirdId(j), j3, null);
             } else {
-                setBeforeMsgRead(0, j2, j3, false);
+                setBeforeMsgRead(0, j, j2, false);
             }
         }
     }
@@ -2989,78 +2989,78 @@ public class ChatMsgManagerImpl {
         }
     }
 
-    public ArrayList<ChatMsg> fetchMessageSync(int i2, long j2, int i3, ChatMsg chatMsg) {
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), chatMsg})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), chatMsg})) == null) {
             if (getPaid() == -2) {
                 return null;
             }
             boolean z = true;
-            if (1 == i2) {
+            if (1 == i) {
                 ArrayList arrayList = new ArrayList();
-                arrayList.add(String.valueOf(j2));
+                arrayList.add(String.valueOf(j));
                 ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
                 if ((groupInfo == null || groupInfo.size() <= 0 || groupInfo.get(0).getType() != 2) ? false : false) {
-                    return GroupMessageDAOImpl.fetchLastChatMsg(mContext, String.valueOf(j2), chatMsg, i3, true);
+                    return GroupMessageDAOImpl.fetchLastChatMsg(mContext, String.valueOf(j), chatMsg, i2, true);
                 }
-                return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j2), chatMsg, i3, true);
+                return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, true);
             }
-            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i2, j2, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i3, chatMsg == null ? -1L : chatMsg.getRowId());
+            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), chatMsg == null ? 0L : chatMsg.getMsgId(), i2, chatMsg == null ? -1L : chatMsg.getRowId());
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public List<ChatMsg> getPaMsgByChatType(List<Integer> list, int i2) {
+    public List<ChatMsg> getPaMsgByChatType(List<Integer> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048616, this, list, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048616, this, list, i)) == null) {
             if (AccountManager.isLogin(mContext)) {
-                return ChatMessageDBManager.getInstance(mContext).getPaMsgByChatTypeAndPaidList(list, null, 0L, i2);
+                return ChatMessageDBManager.getInstance(mContext).getPaMsgByChatTypeAndPaidList(list, null, 0L, i);
             }
             return null;
         }
         return (List) invokeLI.objValue;
     }
 
-    public void mediaDeleteChatMsg(long j2, int i2, long j3, String str, long j4, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
+    public void mediaDeleteChatMsg(long j, int i, long j2, String str, long j3, List<Long> list, IMediaDeleteChatMsgListener iMediaDeleteChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), list, iMediaDeleteChatMsgListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), list, iMediaDeleteChatMsgListener}) == null) {
             String str2 = TAG;
-            LogUtils.d(str2, "BC> contactor=" + j2 + ", contactorType" + i2 + ", contactorPauid" + j3 + ", contactorThirdid" + str + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j4);
+            LogUtils.d(str2, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", listener=" + iMediaDeleteChatMsgListener + ", needDeleteMsgIds=" + list + ", maxDeleteMsgId=" + j3);
             if (!AccountManager.getMediaRole(mContext)) {
                 iMediaDeleteChatMsgListener.onMediaDeleteChatMsgResult(2000, null);
                 return;
             }
-            IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j2, i2, j3, str, j4, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
+            IMMediaDeleteMsgHttpRequest iMMediaDeleteMsgHttpRequest = new IMMediaDeleteMsgHttpRequest(mContext, j, i, j2, str, j3, list, ListenerManager.getInstance().addListener(iMediaDeleteChatMsgListener));
             HttpHelper.executor(mContext, iMMediaDeleteMsgHttpRequest, iMMediaDeleteMsgHttpRequest);
         }
     }
 
-    public void mediaFetchChatMsgs(Context context, long j2, int i2, long j3, String str, long j4, long j5, int i3, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
+    public void mediaFetchChatMsgs(Context context, long j, int i, long j2, String str, long j3, long j4, int i2, IMediaFetchChatMsgsListener iMediaFetchChatMsgsListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i3), iMediaFetchChatMsgsListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2), iMediaFetchChatMsgsListener}) == null) {
             String str2 = TAG;
-            LogUtils.d(str2, "BC> contactor=" + j2 + ", contactorType" + i2 + ", contactorPauid" + j3 + ", contactorThirdid" + str + ", beginMsgTime=" + j4 + ", endMsgTime=" + j5 + ", count=" + i3 + ", listener=" + iMediaFetchChatMsgsListener);
+            LogUtils.d(str2, "BC> contactor=" + j + ", contactorType" + i + ", contactorPauid" + j2 + ", contactorThirdid" + str + ", beginMsgTime=" + j3 + ", endMsgTime=" + j4 + ", count=" + i2 + ", listener=" + iMediaFetchChatMsgsListener);
             if (!AccountManager.getMediaRole(context)) {
                 iMediaFetchChatMsgsListener.onMediaFetchChatMsgsResult(2000, null, false, null);
                 return;
             }
-            IMMediaFetchMsgHttpRequest iMMediaFetchMsgHttpRequest = new IMMediaFetchMsgHttpRequest(mContext, j2, i2, j3, str, j4, j5, i3, ListenerManager.getInstance().addListener(iMediaFetchChatMsgsListener));
+            IMMediaFetchMsgHttpRequest iMMediaFetchMsgHttpRequest = new IMMediaFetchMsgHttpRequest(mContext, j, i, j2, str, j3, j4, i2, ListenerManager.getInstance().addListener(iMediaFetchChatMsgsListener));
             HttpHelper.executor(context, iMMediaFetchMsgHttpRequest, iMMediaFetchMsgHttpRequest);
         }
     }
 
-    public void mediaSendChatMsg(long j2, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
+    public void mediaSendChatMsg(long j, ChatMsg chatMsg, IMediaSendChatMsgListener iMediaSendChatMsgListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Long.valueOf(j2), chatMsg, iMediaSendChatMsgListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Long.valueOf(j), chatMsg, iMediaSendChatMsgListener}) == null) {
             String str = TAG;
-            LogUtils.d(str, "BC> contactor=" + j2 + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
+            LogUtils.d(str, "BC> contactor=" + j + ", listener=" + iMediaSendChatMsgListener + ", sendMsg=" + chatMsg);
             if (!AccountManager.getMediaRole(mContext)) {
                 iMediaSendChatMsgListener.onMediaSendChatMsgResult(2000, chatMsg);
                 return;
             }
-            IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j2, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
+            IMMediaSendMsgHttpRequest iMMediaSendMsgHttpRequest = new IMMediaSendMsgHttpRequest(mContext, j, chatMsg, ListenerManager.getInstance().addListener(iMediaSendChatMsgListener));
             HttpHelper.executor(mContext, iMMediaSendMsgHttpRequest, iMMediaSendMsgHttpRequest);
         }
     }
@@ -3081,36 +3081,36 @@ public class ChatMsgManagerImpl {
         return invokeL.intValue;
     }
 
-    public ArrayList<ChatMsg> fetchMessageSync(int i2, long j2, int i3, ChatMsg chatMsg, long[] jArr) {
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, ChatMsg chatMsg, long[] jArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), chatMsg, jArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), chatMsg, jArr})) == null) {
             if (getPaid() == -2) {
                 return null;
             }
-            return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j2), chatMsg, i3, true, jArr);
+            return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, true, jArr);
         }
         return (ArrayList) invokeCommon.objValue;
     }
 
-    public void fetchMsgidByMsgid(Context context, int i2, long j2, long j3, long j4, int i3, int i4, int i5, IFetchMsgByIdListener iFetchMsgByIdListener) {
+    public void fetchMsgidByMsgid(Context context, int i, long j, long j2, long j3, int i2, int i3, int i4, IFetchMsgByIdListener iFetchMsgByIdListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{context, Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iFetchMsgByIdListener}) == null) {
-            fetchMsgidByMsgid(context, i2, j2, j3, j4, i3, i4, i5, iFetchMsgByIdListener, 0);
+        if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iFetchMsgByIdListener}) == null) {
+            fetchMsgidByMsgid(context, i, j, j2, j3, i2, i3, i4, iFetchMsgByIdListener, 0);
         }
     }
 
-    public ArrayList<ChatMsg> fetchMessageSync(int i2, long j2, int i3, boolean z, ChatMsg chatMsg) {
+    public ArrayList<ChatMsg> fetchMessageSync(int i, long j, int i2, boolean z, ChatMsg chatMsg) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), Boolean.valueOf(z), chatMsg})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), Boolean.valueOf(z), chatMsg})) == null) {
             if (getPaid() == -2) {
                 return null;
             }
-            if (1 == i2) {
-                return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j2), chatMsg, i3, z);
+            if (1 == i) {
+                return GroupMessageDAOImpl.fetchAllChatMsg(mContext, String.valueOf(j), chatMsg, i2, z);
             }
-            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i2, j2, getPaid()), chatMsg, i3, z);
+            return ChatMessageDBManager.getInstance(mContext).fetchMsg(getChatObject(i, j, getPaid()), chatMsg, i2, z);
         }
         return (ArrayList) invokeCommon.objValue;
     }

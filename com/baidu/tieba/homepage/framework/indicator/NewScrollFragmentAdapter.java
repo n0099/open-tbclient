@@ -9,12 +9,12 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import c.a.d.f.d.l;
-import c.a.q0.c1.k0;
-import c.a.q0.c1.n0;
-import c.a.q0.s.c.z;
-import c.a.r0.d1.o0;
-import c.a.r0.o1.e.c;
-import c.a.r0.o1.e.e;
+import c.a.o0.c1.k0;
+import c.a.o0.c1.n0;
+import c.a.o0.s.c.z;
+import c.a.p0.f1.o0;
+import c.a.p0.q1.e.c;
+import c.a.p0.q1.e.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -52,19 +52,15 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f42860f;
+    public Context f33260f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ConcernFragment f42861g;
+    public ConcernFragment f33261g;
 
     /* renamed from: h  reason: collision with root package name */
-    public PersonalizeFragment f42862h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HotTopicTabFragment f42863i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public BaseFragment f42864j;
+    public PersonalizeFragment f33262h;
+    public HotTopicTabFragment i;
+    public BaseFragment j;
     public GameVideoFragment k;
     public VideoTabFragment l;
     public o0 m;
@@ -73,7 +69,7 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
     public boolean p;
     public int q;
     public int r;
-    public c.a.r0.o1.e.g.a s;
+    public c.a.p0.q1.e.g.a s;
     public List<b> t;
     public List<b> u;
 
@@ -84,36 +80,36 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         public final /* synthetic */ int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ NewScrollFragmentAdapter f42865b;
+        public final /* synthetic */ NewScrollFragmentAdapter f33263b;
 
-        public a(NewScrollFragmentAdapter newScrollFragmentAdapter, int i2) {
+        public a(NewScrollFragmentAdapter newScrollFragmentAdapter, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newScrollFragmentAdapter, Integer.valueOf(i2)};
+                Object[] objArr = {newScrollFragmentAdapter, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42865b = newScrollFragmentAdapter;
-            this.a = i2;
+            this.f33263b = newScrollFragmentAdapter;
+            this.a = i;
         }
 
-        @Override // c.a.q0.c1.k0
+        @Override // c.a.o0.c1.k0
         public Object doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                c.a.q0.r.s.a.f();
-                l<String> h2 = c.a.q0.r.s.a.h(this.f42865b.n, TbadkCoreApplication.getCurrentAccount());
+                c.a.o0.r.s.a.f();
+                l<String> h2 = c.a.o0.r.s.a.h(this.f33263b.n, TbadkCoreApplication.getCurrentAccount());
                 if (h2 != null) {
-                    h2.e(this.f42865b.o, Integer.toString(this.a), 43200000L);
+                    h2.e(this.f33263b.o, Integer.toString(this.a), 43200000L);
                     return null;
                 }
                 return null;
@@ -131,9 +127,9 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, fragmentManager, cVar, lVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((FragmentManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -147,458 +143,41 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         this.r = -1;
         this.t = new ArrayList();
         this.u = new ArrayList();
-        this.f42860f = context;
+        this.f33260f = context;
         if (this.s == null) {
-            this.s = new c.a.r0.o1.e.g.a();
+            this.s = new c.a.p0.q1.e.g.a();
         }
         List<z> g2 = this.s.g();
         this.u.clear();
-        f(context, cVar, lVar);
-        g(context, g2);
-        d();
-        updateFragmentTabItems();
+        j(context, cVar, lVar);
+        k(context, g2);
+        f();
+        M();
         notifyDataSetChanged();
     }
 
-    public final void c(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LIVE_TAB_SHOW);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("obj_type", i2);
-            TiebaStaticHelper.addYYParam(statisticItem);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void d() {
-        List<b> list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.u) == null) {
-            return;
-        }
-        for (b bVar : list) {
-            if (bVar != null) {
-                Fragment fragment = bVar.a;
-                if (fragment instanceof BaseFragment) {
-                    ((BaseFragment) fragment).setTbPageExtraPageTabName(bVar.f42868d);
-                }
-            }
-        }
-    }
-
-    public boolean diffCache() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c.a.r0.o1.e.g.a aVar = this.s;
-            if (aVar == null) {
-                return false;
-            }
-            return aVar.c();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            PersonalizeFragment personalizeFragment = this.f42862h;
-            if (personalizeFragment != null && this.m == personalizeFragment) {
-                personalizeFragment.completePullRefresh();
-            }
-            ConcernFragment concernFragment = this.f42861g;
-            if (concernFragment == null || this.m != concernFragment) {
-                return;
-            }
-            concernFragment.completePullRefresh();
-        }
-    }
-
-    public final void f(Context context, c cVar, ConcernPageView.l lVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, cVar, lVar) == null) {
-            if (this.f42861g == null) {
-                this.f42861g = new ConcernFragment(context);
-                c(2);
-            }
-            this.f42861g.setCallback(lVar);
-            if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && c.a.q0.r.j0.b.k().l("key_home_concern_all_status", 0) == 1) {
-                this.u.add(newFragmentItem(this.f42861g, 0, h(R.string.attention_person)));
-            } else {
-                this.u.add(newFragmentItem(this.f42861g, 0, h(R.string.tab_name_concern)));
-            }
-            if (this.f42862h == null) {
-                this.f42862h = new PersonalizeFragment(context);
-                c(1);
-            }
-            this.f42862h.setCallback(cVar);
-            this.u.add(newFragmentItem(this.f42862h, 1, h(R.string.tab_name_recommend)));
-        }
-    }
-
-    public void forceRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Fragment item = getItem(this.r);
-            if (item instanceof o0) {
-                ((o0) item).refreshPage();
-            }
-        }
-    }
-
-    public final void g(Context context, List<z> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, list) == null) {
-            for (z zVar : list) {
-                int i2 = zVar.a;
-                String str = zVar.f13729b;
-                String str2 = zVar.f13730c;
-                boolean z = zVar.f13733f;
-                if (!zVar.c()) {
-                    if (i2 == 101 || i2 == 201) {
-                        this.u.add(newFragmentItem(new HomePageTabFeedFragment(), zVar));
-                    } else if (i2 == 5) {
-                        if (this.f42863i == null) {
-                            c(3);
-                            HotTopicTabFragment hotTopicTabFragment = new HotTopicTabFragment(context);
-                            this.f42863i = hotTopicTabFragment;
-                            this.u.add(newFragmentItem(hotTopicTabFragment, i2, str, str2, z));
-                        }
-                    } else if (i2 == 8) {
-                        if (this.l == null) {
-                            this.l = new VideoTabFragment();
-                            c(5);
-                            this.u.add(newFragmentItem(this.l, zVar));
-                        }
-                    } else if (i2 == 6) {
-                        if (this.f42864j == null) {
-                            c(4);
-                            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921399, BaseFragment.class);
-                            if (runTask != null && runTask.getData() != null) {
-                                BaseFragment baseFragment = (BaseFragment) runTask.getData();
-                                this.f42864j = baseFragment;
-                                this.u.add(newFragmentItem(baseFragment, zVar));
-                            }
-                        }
-                    } else if (i2 == 7) {
-                        if (this.k == null) {
-                            GameVideoFragment gameVideoFragment = new GameVideoFragment();
-                            this.k = gameVideoFragment;
-                            this.u.add(newFragmentItem(gameVideoFragment, zVar));
-                            TiebaStatic.log(new StatisticItem("c13483").param("obj_type", "2"));
-                        }
-                    } else if (i2 == 202 && !TextUtils.isEmpty(zVar.f13731d)) {
-                        Fragment tabWebFragment = new TabWebFragment();
-                        Bundle bundle = new Bundle();
-                        bundle.putString("tab_code", str2);
-                        bundle.putString("tab_name", str);
-                        bundle.putString(TabWebFragment.TAB_URL, zVar.f13731d);
-                        bundle.putInt("tab_type", i2);
-                        tabWebFragment.setArguments(bundle);
-                        this.u.add(newFragmentItem(tabWebFragment, zVar));
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            List<b> list = this.t;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public o0 getCurrentFragment() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.m : (o0) invokeV.objValue;
-    }
-
-    public String getCurrentPageKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            o0 o0Var = this.m;
-            if (o0Var instanceof BaseFragment) {
-                return ((BaseFragment) o0Var).getCurrentPageKey();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int getDefaultPageType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.s.e() : invokeV.intValue;
-    }
-
-    public int getHotTopicIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            for (int i2 = 0; i2 < this.t.size(); i2++) {
-                if (this.t.get(i2).f42870f == 5) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter
-    public Fragment getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
-            List<b> list = this.t;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.t.get(i2) == null) {
-                return null;
-            }
-            return this.t.get(i2).a;
-        }
-        return (Fragment) invokeI.objValue;
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getItemPosition(@NonNull Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) ? (getAllFragments() == null || !getAllFragments().contains(obj)) ? -2 : -1 : invokeL.intValue;
-    }
-
-    public boolean getItemShowRedDot(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            b bVar = (b) ListUtils.getItem(this.t, i2);
-            return bVar != null && bVar.f42867c;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public String getItemTabCode(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            b bVar = (b) ListUtils.getItem(this.t, i2);
-            return bVar != null ? bVar.f42869e : "";
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String getItemTabName(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) {
-            b bVar = (b) ListUtils.getItem(this.t, i2);
-            return bVar != null ? bVar.f42868d : h(R.string.tab_name_recommend);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public int getItemType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) {
-            b bVar = (b) ListUtils.getItem(this.t, i2);
-            if (bVar != null) {
-                return bVar.f42870f;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void getLastBrowseTabByCache(e eVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048595, this, eVar) == null) || this.p) {
-            return;
-        }
-        this.p = true;
-        eVar.a(1);
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public CharSequence getPageTitle(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i2)) == null) {
-            List<b> list = this.t;
-            if (list == null || i2 < 0 || i2 >= list.size() || this.t.get(i2) == null) {
-                return null;
-            }
-            return this.t.get(i2).f42866b;
-        }
-        return (CharSequence) invokeI.objValue;
-    }
-
-    public int getPositionByTabCode(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            for (int i2 = 0; i2 < this.t.size(); i2++) {
-                b bVar = this.t.get(i2);
-                if (!TextUtils.isEmpty(str) && str.equals(bVar.f42869e)) {
-                    return i2;
-                }
-            }
-            return getRecommendIndex();
-        }
-        return invokeL.intValue;
-    }
-
-    public int getPositionByTabName(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
-            for (int i2 = 0; i2 < this.t.size(); i2++) {
-                b bVar = this.t.get(i2);
-                if (!TextUtils.isEmpty(str) && str.equals(bVar.f42868d)) {
-                    return i2;
-                }
-            }
-            return getRecommendIndex();
-        }
-        return invokeL.intValue;
-    }
-
-    public int getRecommendIndex() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            for (int i2 = 0; i2 < this.t.size(); i2++) {
-                if (this.t.get(i2).f42870f == 1) {
-                    return i2;
-                }
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public final String h(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? TbadkCoreApplication.getInst().getString(i2) : (String) invokeI.objValue;
-    }
-
-    public boolean isConcernFragmentCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.f42861g != null : invokeV.booleanValue;
-    }
-
-    public boolean isHotTopicFragmentCreate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.f42863i != null : invokeV.booleanValue;
-    }
-
-    public b newFragmentItem(Fragment fragment, z zVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, fragment, zVar)) == null) {
-            Bundle arguments = fragment.getArguments();
-            if (arguments == null) {
-                arguments = new Bundle();
-            }
-            arguments.putString("tab_code", zVar.f13730c);
-            arguments.putString("tab_name", zVar.f13729b);
-            arguments.putInt("tab_type", zVar.a);
-            fragment.setArguments(arguments);
-            return new b(fragment, zVar.a, zVar.b(), zVar.f13729b, zVar.f13730c);
-        }
-        return (b) invokeLL.objValue;
-    }
-
-    public void notifyJumpToLastReadPosition(int i2) {
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048606, this, i2) == null) && i2 == 1 && (personalizeFragment = this.f42862h) != null) {
-            personalizeFragment.notifyJumpToLastReadPosition();
-        }
-    }
-
-    public void onChangeSkin(int i2) {
+    public void A(int i) {
         o0 o0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048607, this, i2) == null) || (o0Var = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (o0Var = this.m) == null) {
             return;
         }
-        o0Var.changeSkinType();
+        o0Var.C();
     }
 
-    public void onPageScrolled(int i2, float f2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
-            int i4 = this.q;
-            if (i4 == -1 || (i2 == i4 && f2 == 0.0f)) {
-                Fragment fragment = (Fragment) ListUtils.getItem(getAllFragments(), i2 - 1);
-                Fragment fragment2 = (Fragment) ListUtils.getItem(getAllFragments(), i2);
-                Fragment fragment3 = (Fragment) ListUtils.getItem(getAllFragments(), i2 + 1);
-                this.q = -1;
-                if (f2 == 0.0f) {
-                    if (fragment instanceof o0) {
-                        ((o0) fragment).onPageOutEnd();
-                    }
-                    if (fragment3 instanceof o0) {
-                        ((o0) fragment3).onPageOutEnd();
-                    }
-                    if (fragment2 != null) {
-                        fragment2.setMenuVisibility(true);
-                        fragment2.setUserVisibleHint(true);
-                        return;
-                    }
-                    return;
-                }
-                if (fragment instanceof o0) {
-                    ((o0) fragment).onPageStartIn();
-                }
-                if (fragment2 instanceof o0) {
-                    ((o0) fragment2).onPageStartIn();
-                }
-                if (fragment3 instanceof o0) {
-                    ((o0) fragment3).onPageStartIn();
-                }
-            }
-        }
-    }
-
-    public void reloadCurrentTab() {
+    public void B() {
         o0 o0Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048609, this) == null) || (o0Var = this.m) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (o0Var = this.m) == null) {
             return;
         }
-        o0Var.refreshPage();
+        o0Var.n();
     }
 
-    public void reloadTab(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            Fragment fragment = (Fragment) ListUtils.getItem(getAllFragments(), getItemPosition(i2));
-            if (fragment == null || !(fragment instanceof o0)) {
-                return;
-            }
-            ((o0) fragment).refreshPage();
-        }
-    }
-
-    public void resetAllSyncTabFragments() {
+    public void C() {
         List<b> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048611, this) == null) || (list = this.u) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (list = this.u) == null) {
             return;
         }
         Iterator<b> it = list.iterator();
@@ -608,63 +187,492 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
                 it.remove();
             }
         }
-        this.f42863i = null;
-        this.f42864j = null;
+        this.i = null;
+        this.j = null;
         this.k = null;
         this.l = null;
-        c.a.r0.o1.e.g.a aVar = this.s;
+        c.a.p0.q1.e.g.a aVar = this.s;
         if (aVar == null) {
-            this.s = new c.a.r0.o1.e.g.a();
+            this.s = new c.a.p0.q1.e.g.a();
         } else {
             aVar.j();
         }
-        g(this.f42860f, this.s.g());
-        d();
-        updateFragmentTabItems();
+        k(this.f33260f, this.s.g());
+        f();
+        M();
     }
 
-    public void saveLastBrowseTabCache(int i2) {
+    public void D(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            n0.b(new a(this, i2), null);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            n0.b(new a(this, i), null);
         }
     }
 
-    public void setPrimary(boolean z) {
+    public void E(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048613, this, z) == null) && (this.m instanceof BaseFragment)) {
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (this.m instanceof BaseFragment)) {
             if (!z) {
-                int position = ListUtils.getPosition(getAllFragments(), (BaseFragment) this.m);
+                int position = ListUtils.getPosition(b(), (BaseFragment) this.m);
                 if (position < 0) {
-                    position = getItemPosition(1);
+                    position = n(1);
                 }
-                saveLastBrowseTabCache(position);
-                e();
+                D(position);
+                g();
             }
             ((BaseFragment) this.m).setPrimary(z);
         }
     }
 
-    @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(ViewGroup viewGroup, int i2, Object obj) {
+    public void F(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048614, this, viewGroup, i2, obj) == null) {
-            super.setPrimaryItem(viewGroup, i2, obj);
-            if (obj != null && this.r != i2) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, scrollFragmentTabHost) == null) {
+            PersonalizeFragment personalizeFragment = this.f33262h;
+            if (personalizeFragment != null) {
+                personalizeFragment.K0(scrollFragmentTabHost);
+            }
+            HotTopicTabFragment hotTopicTabFragment = this.i;
+            if (hotTopicTabFragment != null) {
+                hotTopicTabFragment.K0(scrollFragmentTabHost);
+            }
+            ConcernFragment concernFragment = this.f33261g;
+            if (concernFragment != null) {
+                concernFragment.J0(scrollFragmentTabHost);
+            }
+        }
+    }
+
+    public void G(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (this.r == i) {
+                this.q = -1;
+            } else {
+                this.q = i;
+            }
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+        }
+    }
+
+    public void I() {
+        PersonalizeFragment personalizeFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (personalizeFragment = this.f33262h) == null) {
+            return;
+        }
+        personalizeFragment.M0();
+    }
+
+    public void J() {
+        ConcernFragment concernFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (concernFragment = this.f33261g) == null) {
+            return;
+        }
+        concernFragment.K0();
+    }
+
+    public void K(DataRes dataRes, boolean z) {
+        ConcernFragment concernFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(1048586, this, dataRes, z) == null) || (concernFragment = this.f33261g) == null) {
+            return;
+        }
+        concernFragment.L0(dataRes, z);
+    }
+
+    public void L(String str, int i, int i2) {
+        ConcernFragment concernFragment;
+        PersonalizeFragment personalizeFragment;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048587, this, str, i, i2) == null) {
+            if (i2 == 1 && (personalizeFragment = this.f33262h) != null && this.m == personalizeFragment) {
+                personalizeFragment.O0(str, i);
+            }
+            if (i2 != 0 || (concernFragment = this.f33261g) == null) {
+                return;
+            }
+            concernFragment.M0(str, i);
+        }
+    }
+
+    public void M() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.t.clear();
+            for (b bVar : this.u) {
+                this.t.add(bVar);
+            }
+        }
+    }
+
+    public void N(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
+        PersonalizeFragment personalizeFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (personalizeFragment = this.f33262h) == null) {
+            return;
+        }
+        personalizeFragment.N0(dataRes, z, z2);
+    }
+
+    public void O() {
+        PersonalizeFragment personalizeFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (personalizeFragment = this.f33262h) == null) {
+            return;
+        }
+        personalizeFragment.H0();
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_LIVE_TAB_SHOW);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_type", i);
+            TiebaStaticHelper.addYYParam(statisticItem);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void f() {
+        List<b> list;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (list = this.u) == null) {
+            return;
+        }
+        for (b bVar : list) {
+            if (bVar != null) {
+                Fragment fragment = bVar.a;
+                if (fragment instanceof BaseFragment) {
+                    ((BaseFragment) fragment).setTbPageExtraPageTabName(bVar.f33265c);
+                }
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            PersonalizeFragment personalizeFragment = this.f33262h;
+            if (personalizeFragment != null && this.m == personalizeFragment) {
+                personalizeFragment.G0();
+            }
+            ConcernFragment concernFragment = this.f33261g;
+            if (concernFragment == null || this.m != concernFragment) {
+                return;
+            }
+            concernFragment.F0();
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            List<b> list = this.t;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter
+    public Fragment getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            List<b> list = this.t;
+            if (list == null || i < 0 || i >= list.size() || this.t.get(i) == null) {
+                return null;
+            }
+            return this.t.get(i).a;
+        }
+        return (Fragment) invokeI.objValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getItemPosition(@NonNull Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, obj)) == null) ? (b() == null || !b().contains(obj)) ? -2 : -1 : invokeL.intValue;
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public CharSequence getPageTitle(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            List<b> list = this.t;
+            if (list == null || i < 0 || i >= list.size() || this.t.get(i) == null) {
+                return null;
+            }
+            return this.t.get(i).f33264b;
+        }
+        return (CharSequence) invokeI.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            c.a.p0.q1.e.g.a aVar = this.s;
+            if (aVar == null) {
+                return false;
+            }
+            return aVar.c();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            Fragment item = getItem(this.r);
+            if (item instanceof o0) {
+                ((o0) item).n();
+            }
+        }
+    }
+
+    public final void j(Context context, c cVar, ConcernPageView.l lVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048600, this, context, cVar, lVar) == null) {
+            if (this.f33261g == null) {
+                this.f33261g = new ConcernFragment(context);
+                e(2);
+            }
+            this.f33261g.I0(lVar);
+            if (UbsABTestHelper.isConcernForumCardShow() && TbadkCoreApplication.isLogin() && c.a.o0.r.j0.b.k().l("key_home_concern_all_status", 0) == 1) {
+                this.u.add(w(this.f33261g, 0, u(R.string.obfuscated_res_0x7f0f02a8)));
+            } else {
+                this.u.add(w(this.f33261g, 0, u(R.string.obfuscated_res_0x7f0f131c)));
+            }
+            if (this.f33262h == null) {
+                this.f33262h = new PersonalizeFragment(context);
+                e(1);
+            }
+            this.f33262h.J0(cVar);
+            this.u.add(w(this.f33262h, 1, u(R.string.obfuscated_res_0x7f0f1323)));
+        }
+    }
+
+    public final void k(Context context, List<z> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048601, this, context, list) == null) {
+            for (z zVar : list) {
+                int i = zVar.a;
+                String str = zVar.f11280b;
+                String str2 = zVar.f11281c;
+                boolean z = zVar.f11284f;
+                if (!zVar.c()) {
+                    if (i == 101 || i == 201) {
+                        this.u.add(y(new HomePageTabFeedFragment(), zVar));
+                    } else if (i == 5) {
+                        if (this.i == null) {
+                            e(3);
+                            HotTopicTabFragment hotTopicTabFragment = new HotTopicTabFragment(context);
+                            this.i = hotTopicTabFragment;
+                            this.u.add(x(hotTopicTabFragment, i, str, str2, z));
+                        }
+                    } else if (i == 8) {
+                        if (this.l == null) {
+                            this.l = new VideoTabFragment();
+                            e(5);
+                            this.u.add(y(this.l, zVar));
+                        }
+                    } else if (i == 6) {
+                        if (this.j == null) {
+                            e(4);
+                            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921399, BaseFragment.class);
+                            if (runTask != null && runTask.getData() != null) {
+                                BaseFragment baseFragment = (BaseFragment) runTask.getData();
+                                this.j = baseFragment;
+                                this.u.add(y(baseFragment, zVar));
+                            }
+                        }
+                    } else if (i == 7) {
+                        if (this.k == null) {
+                            GameVideoFragment gameVideoFragment = new GameVideoFragment();
+                            this.k = gameVideoFragment;
+                            this.u.add(y(gameVideoFragment, zVar));
+                            TiebaStatic.log(new StatisticItem("c13483").param("obj_type", "2"));
+                        }
+                    } else if (i == 202 && !TextUtils.isEmpty(zVar.f11282d)) {
+                        Fragment tabWebFragment = new TabWebFragment();
+                        Bundle bundle = new Bundle();
+                        bundle.putString("tab_code", str2);
+                        bundle.putString("tab_name", str);
+                        bundle.putString("tab_url", zVar.f11282d);
+                        bundle.putInt("tab_type", i);
+                        tabWebFragment.setArguments(bundle);
+                        this.u.add(y(tabWebFragment, zVar));
+                    }
+                }
+            }
+        }
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            o0 o0Var = this.m;
+            if (o0Var instanceof BaseFragment) {
+                return ((BaseFragment) o0Var).getCurrentPageKey();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.s.e() : invokeV.intValue;
+    }
+
+    @Deprecated
+    public int n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            for (int i2 = 0; i2 < this.t.size(); i2++) {
+                if (this.t.get(i2).f33267e == i) {
+                    return i2;
+                }
+            }
+            return t();
+        }
+        return invokeI.intValue;
+    }
+
+    public String o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) {
+            b bVar = (b) ListUtils.getItem(this.t, i);
+            return bVar != null ? bVar.f33266d : "";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public void onPageScrolled(int i, float f2, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
+            int i3 = this.q;
+            if (i3 == -1 || (i == i3 && f2 == 0.0f)) {
+                Fragment fragment = (Fragment) ListUtils.getItem(b(), i - 1);
+                Fragment fragment2 = (Fragment) ListUtils.getItem(b(), i);
+                Fragment fragment3 = (Fragment) ListUtils.getItem(b(), i + 1);
+                this.q = -1;
+                if (f2 == 0.0f) {
+                    if (fragment instanceof o0) {
+                        ((o0) fragment).A();
+                    }
+                    if (fragment3 instanceof o0) {
+                        ((o0) fragment3).A();
+                    }
+                    if (fragment2 != null) {
+                        fragment2.setMenuVisibility(true);
+                        fragment2.setUserVisibleHint(true);
+                        return;
+                    }
+                    return;
+                }
+                if (fragment instanceof o0) {
+                    ((o0) fragment).r();
+                }
+                if (fragment2 instanceof o0) {
+                    ((o0) fragment2).r();
+                }
+                if (fragment3 instanceof o0) {
+                    ((o0) fragment3).r();
+                }
+            }
+        }
+    }
+
+    public int p(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+            b bVar = (b) ListUtils.getItem(this.t, i);
+            if (bVar != null) {
+                return bVar.f33267e;
+            }
+            return 1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void q(e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048608, this, eVar) == null) || this.p) {
+            return;
+        }
+        this.p = true;
+        eVar.a(1);
+    }
+
+    public int r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+            for (int i = 0; i < this.t.size(); i++) {
+                b bVar = this.t.get(i);
+                if (!TextUtils.isEmpty(str) && str.equals(bVar.f33266d)) {
+                    return i;
+                }
+            }
+            return t();
+        }
+        return invokeL.intValue;
+    }
+
+    public int s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
+            for (int i = 0; i < this.t.size(); i++) {
+                b bVar = this.t.get(i);
+                if (!TextUtils.isEmpty(str) && str.equals(bVar.f33265c)) {
+                    return i;
+                }
+            }
+            return t();
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tbadk.core.view.viewpager.AbsFragmentStatePagerAdapter, androidx.viewpager.widget.PagerAdapter
+    public void setPrimaryItem(ViewGroup viewGroup, int i, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048611, this, viewGroup, i, obj) == null) {
+            super.setPrimaryItem(viewGroup, i, obj);
+            if (obj != null && this.r != i) {
                 o0 o0Var = this.m;
                 if (o0Var instanceof BaseFragment) {
                     ((BaseFragment) o0Var).setPrimary(false);
                 }
-                this.r = i2;
-                VoiceManager a2 = c.a.r0.y3.s0.b.a(this.f42860f);
+                this.r = i;
+                VoiceManager a2 = c.a.p0.a4.s0.b.a(this.f33260f);
                 if (a2 != null) {
                     a2.stopPlay();
                 }
                 if (obj instanceof BaseFragment) {
                     ((BaseFragment) obj).setPrimary(true);
                 }
-                if ((obj instanceof PersonalizeFragment) && i2 == 0) {
-                    ((PersonalizeFragment) obj).forceRefresh();
+                if ((obj instanceof PersonalizeFragment) && i == 0) {
+                    ((PersonalizeFragment) obj).q();
                 }
             }
             if (obj instanceof o0) {
@@ -673,141 +681,75 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         }
     }
 
-    public void setScrollFragmentTabHost(ScrollFragmentTabHost scrollFragmentTabHost) {
+    public int t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, scrollFragmentTabHost) == null) {
-            PersonalizeFragment personalizeFragment = this.f42862h;
-            if (personalizeFragment != null) {
-                personalizeFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
-            }
-            HotTopicTabFragment hotTopicTabFragment = this.f42863i;
-            if (hotTopicTabFragment != null) {
-                hotTopicTabFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
-            }
-            ConcernFragment concernFragment = this.f42861g;
-            if (concernFragment != null) {
-                concernFragment.setScrollFragmentTabHost(scrollFragmentTabHost);
-            }
-        }
-    }
-
-    public void setTargetItemIndex(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            if (this.r == i2) {
-                this.q = -1;
-            } else {
-                this.q = i2;
-            }
-        }
-    }
-
-    public void setVideoThreadId(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, str) == null) {
-        }
-    }
-
-    public void showLoadingView() {
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048618, this) == null) || (personalizeFragment = this.f42862h) == null) {
-            return;
-        }
-        personalizeFragment.showLoadingView();
-    }
-
-    public void startFirstLoad() {
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048619, this) == null) || (personalizeFragment = this.f42862h) == null) {
-            return;
-        }
-        personalizeFragment.startFirstLoad();
-    }
-
-    public void startRedDotConcernLoad() {
-        ConcernFragment concernFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048620, this) == null) || (concernFragment = this.f42861g) == null) {
-            return;
-        }
-        concernFragment.startRedDotLoad();
-    }
-
-    public void updateConcernData(DataRes dataRes, boolean z) {
-        ConcernFragment concernFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048621, this, dataRes, z) == null) || (concernFragment = this.f42861g) == null) {
-            return;
-        }
-        concernFragment.updateData(dataRes, z);
-    }
-
-    public void updateError(String str, int i2, int i3) {
-        ConcernFragment concernFragment;
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048622, this, str, i2, i3) == null) {
-            if (i3 == 1 && (personalizeFragment = this.f42862h) != null && this.m == personalizeFragment) {
-                personalizeFragment.updateError(str, i2);
-            }
-            if (i3 != 0 || (concernFragment = this.f42861g) == null) {
-                return;
-            }
-            concernFragment.updateError(str, i2);
-        }
-    }
-
-    public void updateFragmentTabItems() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            this.t.clear();
-            boolean d2 = c.a.q0.f1.b.c.d();
-            for (b bVar : this.u) {
-                if (d2) {
-                    Fragment fragment = bVar.a;
-                    if (fragment == this.f42861g || fragment == this.f42862h) {
-                        this.t.add(bVar);
-                    }
-                } else {
-                    this.t.add(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+            for (int i = 0; i < this.t.size(); i++) {
+                if (this.t.get(i).f33267e == 1) {
+                    return i;
                 }
             }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public void updatePersonalizeData(tbclient.Personalized.DataRes dataRes, boolean z, boolean z2) {
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048624, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || (personalizeFragment = this.f42862h) == null) {
-            return;
-        }
-        personalizeFragment.updateData(dataRes, z, z2);
-    }
-
-    public void updatePersonalizePage() {
-        PersonalizeFragment personalizeFragment;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048625, this) == null) || (personalizeFragment = this.f42862h) == null) {
-            return;
-        }
-        personalizeFragment.forceReloadData();
-    }
-
-    @Deprecated
-    public int getItemPosition(int i2) {
+    public final String u(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            for (int i3 = 0; i3 < this.t.size(); i3++) {
-                if (this.t.get(i3).f42870f == i2) {
-                    return i3;
-                }
-            }
-            return getRecommendIndex();
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? TbadkCoreApplication.getInst().getString(i) : (String) invokeI.objValue;
+    }
+
+    public boolean v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? this.f33261g != null : invokeV.booleanValue;
+    }
+
+    public b w(Fragment fragment, int i, String str) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048615, this, fragment, i, str)) == null) ? new b(fragment, i, str) : (b) invokeLIL.objValue;
+    }
+
+    public b x(Fragment fragment, int i, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048616, this, new Object[]{fragment, Integer.valueOf(i), str, str2, Boolean.valueOf(z)})) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("tab_code", str2);
+            bundle.putString("tab_name", str);
+            bundle.putInt("tab_type", i);
+            fragment.setArguments(bundle);
+            return new b(fragment, i, str, str2, z);
         }
-        return invokeI.intValue;
+        return (b) invokeCommon.objValue;
+    }
+
+    public b y(Fragment fragment, z zVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, fragment, zVar)) == null) {
+            Bundle arguments = fragment.getArguments();
+            if (arguments == null) {
+                arguments = new Bundle();
+            }
+            arguments.putString("tab_code", zVar.f11281c);
+            arguments.putString("tab_name", zVar.f11280b);
+            arguments.putInt("tab_type", zVar.a);
+            fragment.setArguments(arguments);
+            return new b(fragment, zVar.a, zVar.b(), zVar.f11280b, zVar.f11281c);
+        }
+        return (b) invokeLL.objValue;
+    }
+
+    public void z(int i) {
+        PersonalizeFragment personalizeFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048618, this, i) == null) && i == 1 && (personalizeFragment = this.f33262h) != null) {
+            personalizeFragment.I0();
+        }
     }
 
     /* loaded from: classes5.dex */
@@ -817,105 +759,81 @@ public class NewScrollFragmentAdapter extends AbsFragmentStatePagerAdapter {
         public Fragment a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f42866b;
+        public String f33264b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f42867c;
+        public String f33265c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f42868d;
+        public String f33266d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f42869e;
+        public int f33267e;
 
-        /* renamed from: f  reason: collision with root package name */
-        public int f42870f;
-
-        public b(Fragment fragment, int i2, String str) {
+        public b(Fragment fragment, int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fragment, Integer.valueOf(i2), str};
+                Object[] objArr = {fragment, Integer.valueOf(i), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = fragment;
-            this.f42870f = i2;
-            this.f42866b = str;
-            this.f42868d = str;
+            this.f33267e = i;
+            this.f33264b = str;
+            this.f33265c = str;
         }
 
-        public b(Fragment fragment, int i2, String str, String str2, String str3) {
+        public b(Fragment fragment, int i, String str, String str2, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fragment, Integer.valueOf(i2), str, str2, str3};
+                Object[] objArr = {fragment, Integer.valueOf(i), str, str2, str3};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.a = fragment;
-            this.f42870f = i2;
-            this.f42866b = str2;
-            this.f42866b = str;
-            this.f42868d = str2;
-            this.f42869e = str3;
+            this.f33267e = i;
+            this.f33264b = str2;
+            this.f33264b = str;
+            this.f33265c = str2;
+            this.f33266d = str3;
         }
 
-        public b(Fragment fragment, int i2, String str, String str2, boolean z) {
+        public b(Fragment fragment, int i, String str, String str2, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fragment, Integer.valueOf(i2), str, str2, Boolean.valueOf(z)};
+                Object[] objArr = {fragment, Integer.valueOf(i), str, str2, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
             this.a = fragment;
-            this.f42870f = i2;
-            this.f42866b = str;
-            this.f42868d = str;
-            this.f42869e = str2;
-            this.f42867c = z;
+            this.f33267e = i;
+            this.f33264b = str;
+            this.f33265c = str;
+            this.f33266d = str2;
         }
-    }
-
-    public b newFragmentItem(Fragment fragment, int i2, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048603, this, fragment, i2, str)) == null) ? new b(fragment, i2, str) : (b) invokeLIL.objValue;
-    }
-
-    public b newFragmentItem(Fragment fragment, int i2, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{fragment, Integer.valueOf(i2), str, str2, Boolean.valueOf(z)})) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("tab_code", str2);
-            bundle.putString("tab_name", str);
-            bundle.putInt("tab_type", i2);
-            fragment.setArguments(bundle);
-            return new b(fragment, i2, str, str2, z);
-        }
-        return (b) invokeCommon.objValue;
     }
 }

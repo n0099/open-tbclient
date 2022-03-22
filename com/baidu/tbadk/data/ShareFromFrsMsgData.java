@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,9 +27,9 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -81,10 +80,10 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
         }
     }
 
-    public void setMemberNum(int i2) {
+    public void setMemberNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.memberNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.memberNum = i;
         }
     }
 
@@ -95,10 +94,10 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
         }
     }
 
-    public void setPostNum(int i2) {
+    public void setPostNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.postNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.postNum = i;
         }
     }
 
@@ -112,7 +111,7 @@ public class ShareFromFrsMsgData extends ShareBaseMsgData {
                 jSONObject.put("forumName", this.name);
                 jSONObject.put("memberNum", this.memberNum);
                 jSONObject.put("postNum", this.postNum);
-                jSONObject.put("themeContent", this.name + StringUtils.LF + "关注：" + this.memberNum + " 帖子：" + this.postNum);
+                jSONObject.put("themeContent", this.name + "\n关注：" + this.memberNum + " 帖子：" + this.postNum);
                 jSONObject.put("themeImageUrl", this.imageUrl == null ? "" : this.imageUrl);
                 JSONArray jSONArray = new JSONArray();
                 jSONArray.put("【" + this.name + "吧】 " + this.content + " " + TbConfig.HTTPS_FRS_PREFIX + this.name);

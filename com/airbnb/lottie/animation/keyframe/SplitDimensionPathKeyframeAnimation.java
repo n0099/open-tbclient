@@ -22,8 +22,8 @@ public class SplitDimensionPathKeyframeAnimation extends BaseKeyframeAnimation<P
         this.xAnimation.setProgress(f2);
         this.yAnimation.setProgress(f2);
         this.point.set(this.xAnimation.getValue().floatValue(), this.yAnimation.getValue().floatValue());
-        for (int i2 = 0; i2 < this.listeners.size(); i2++) {
-            this.listeners.get(i2).onValueChanged();
+        for (int i = 0; i < this.listeners.size(); i++) {
+            this.listeners.get(i).onValueChanged();
         }
     }
 

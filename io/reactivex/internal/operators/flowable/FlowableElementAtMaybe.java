@@ -15,14 +15,14 @@ import io.reactivex.internal.fuseable.FuseToFlowable;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.plugins.RxJavaPlugins;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToFlowable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long index;
     public final Flowable<T> source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ElementAtSubscriber<T> implements FlowableSubscriber<T>, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,23 +32,23 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
         public final long index;
         public Subscription s;
 
-        public ElementAtSubscriber(MaybeObserver<? super T> maybeObserver, long j2) {
+        public ElementAtSubscriber(MaybeObserver<? super T> maybeObserver, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {maybeObserver, Long.valueOf(j2)};
+                Object[] objArr = {maybeObserver, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = maybeObserver;
-            this.index = j2;
+            this.index = j;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -100,15 +100,15 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
             if (!(interceptable == null || interceptable.invokeL(1048580, this, t) == null) || this.done) {
                 return;
             }
-            long j2 = this.count;
-            if (j2 == this.index) {
+            long j = this.count;
+            if (j == this.index) {
                 this.done = true;
                 this.s.cancel();
                 this.s = SubscriptionHelper.CANCELLED;
                 this.actual.onSuccess(t);
                 return;
             }
-            this.count = j2 + 1;
+            this.count = j + 1;
         }
 
         @Override // io.reactivex.FlowableSubscriber, org.reactivestreams.Subscriber
@@ -122,23 +122,23 @@ public final class FlowableElementAtMaybe<T> extends Maybe<T> implements FuseToF
         }
     }
 
-    public FlowableElementAtMaybe(Flowable<T> flowable, long j2) {
+    public FlowableElementAtMaybe(Flowable<T> flowable, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, Long.valueOf(j2)};
+            Object[] objArr = {flowable, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = flowable;
-        this.index = j2;
+        this.index = j;
     }
 
     @Override // io.reactivex.internal.fuseable.FuseToFlowable

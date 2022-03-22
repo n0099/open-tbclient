@@ -7,48 +7,48 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements Comparable<b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f56930b;
+    public String f41794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56931c;
+    public String f41795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f56932d;
+    public long f41796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f56933e;
+    public boolean f41797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f56934f;
+    public String f41798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f56935g;
+    public boolean f41799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public HashMap<String, String> f56936h;
+    public HashMap<String, String> f41800h;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f56935g = false;
-        this.f56936h = new HashMap<>(10);
+        this.f41799g = false;
+        this.f41800h = new HashMap<>(10);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -57,6 +57,6 @@ public class b implements Comparable<b> {
     public int compareTo(@NonNull b bVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f56930b.compareTo(bVar.f56930b) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) ? -this.f41794b.compareTo(bVar.f41794b) : invokeL.intValue;
     }
 }

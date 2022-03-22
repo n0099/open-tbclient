@@ -12,16 +12,16 @@ public class f {
     public c.b.b.q.b<c, Matrix4> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Matrix4[] f27375b;
+    public Matrix4[] f22607b;
 
     public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

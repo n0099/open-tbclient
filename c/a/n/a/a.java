@@ -2,6 +2,7 @@ package c.a.n.a;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -23,18 +24,18 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static boolean f4258d;
+    public static boolean f3835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static a f4259e;
+    public static a f3836e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4260b;
+    public String f3837b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f4261c;
+    public SharedPreferences f3838c;
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +50,7 @@ public class a {
                 return;
             }
         }
-        f4258d = AppConfig.isDebug();
+        f3835d = AppConfig.isDebug();
     }
 
     public a() {
@@ -57,9 +58,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,14 +73,14 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f4259e == null) {
+            if (f3836e == null) {
                 synchronized (a.class) {
-                    if (f4259e == null) {
-                        f4259e = new a();
+                    if (f3836e == null) {
+                        f3836e = new a();
                     }
                 }
             }
-            return f4259e;
+            return f3836e;
         }
         return (a) invokeV.objValue;
     }
@@ -87,7 +88,7 @@ public class a {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4260b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3837b : (String) invokeV.objValue;
     }
 
     public String c() {
@@ -99,7 +100,7 @@ public class a {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f4261c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
+            this.f3838c = AppRuntime.getAppContext().getSharedPreferences(ChannelManager.PREFS_NAME, 0);
             f();
             e();
         }
@@ -109,11 +110,11 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             String g2 = g();
-            this.f4260b = g2;
+            this.f3837b = g2;
             if (!TextUtils.isEmpty(g2) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            this.f4260b = this.a;
+            this.f3837b = this.a;
             j();
         }
     }
@@ -121,9 +122,9 @@ public class a {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String i2 = i();
-            this.a = i2;
-            if (TextUtils.isEmpty(i2)) {
+            String i = i();
+            this.a = i;
+            if (TextUtils.isEmpty(i)) {
                 this.a = h();
             }
         }
@@ -132,14 +133,20 @@ public class a {
     public final String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f4261c.getString("channel", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f3838c.getString("channel", null) : (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0048, code lost:
-        if (r2 == null) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x003a, code lost:
+        if (c.a.n.a.a.f3835d == false) goto L21;
      */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x0057 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x004f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x003c, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromAssets", r2);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0070, code lost:
+        if (c.a.n.a.a.f3835d == false) goto L21;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:76:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x0085 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -153,99 +160,139 @@ public class a {
             String str = null;
             try {
                 inputStream = AppRuntime.getAppContext().getAssets().open("channel");
+            } catch (Exception e2) {
+                e = e2;
+                inputStream = null;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                bufferedReader = null;
+                th = th2;
+                inputStream = null;
+            }
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
                     try {
-                        try {
-                            str = bufferedReader.readLine();
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception unused) {
-                                    boolean z = f4258d;
-                                }
-                            }
-                        } catch (Exception unused2) {
-                            boolean z2 = f4258d;
-                            if (inputStream != null) {
-                                try {
-                                    inputStream.close();
-                                } catch (Exception unused3) {
-                                    boolean z3 = f4258d;
-                                }
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
+                        str = bufferedReader.readLine();
                         if (inputStream != null) {
                             try {
                                 inputStream.close();
-                            } catch (Exception unused4) {
-                                boolean z4 = f4258d;
+                            } catch (Exception e3) {
+                                if (f3835d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e3);
+                                }
+                            }
+                        }
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e4) {
+                            e = e4;
+                        }
+                    } catch (Exception e5) {
+                        e = e5;
+                        if (f3835d) {
+                            Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e);
+                        }
+                        if (inputStream != null) {
+                            try {
+                                inputStream.close();
+                            } catch (Exception e6) {
+                                if (f3835d) {
+                                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e6);
+                                }
                             }
                         }
                         if (bufferedReader != null) {
                             try {
                                 bufferedReader.close();
-                            } catch (Exception unused5) {
-                                boolean z5 = f4258d;
+                            } catch (Exception e7) {
+                                e = e7;
                             }
                         }
-                        throw th;
+                        return str;
                     }
-                } catch (Exception unused6) {
-                    bufferedReader = null;
                 } catch (Throwable th3) {
-                    bufferedReader = null;
                     th = th3;
                     if (inputStream != null) {
+                        try {
+                            inputStream.close();
+                        } catch (Exception e8) {
+                            if (f3835d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e8);
+                            }
+                        }
                     }
                     if (bufferedReader != null) {
+                        try {
+                            bufferedReader.close();
+                        } catch (Exception e9) {
+                            if (f3835d) {
+                                Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e9);
+                            }
+                        }
                     }
                     throw th;
                 }
-            } catch (Exception unused7) {
-                inputStream = null;
+            } catch (Exception e10) {
+                e = e10;
                 bufferedReader = null;
             } catch (Throwable th4) {
                 bufferedReader = null;
                 th = th4;
-                inputStream = null;
-            }
-            try {
-                bufferedReader.close();
-            } catch (Exception unused8) {
-                boolean z6 = f4258d;
+                if (inputStream != null) {
+                }
+                if (bufferedReader != null) {
+                }
+                throw th;
             }
             return str;
         }
         return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:9:0x0029 -> B:28:0x0044). Please submit an issue!!! */
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0030, code lost:
+        if (c.a.n.a.a.f3835d == false) goto L10;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x0032, code lost:
+        android.util.Log.e(com.baidu.searchbox.logsystem.basic.upload.identity.ChannelManager.TAG, "readLastChannelFromRaw", r3);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x004a, code lost:
+        if (c.a.n.a.a.f3835d == false) goto L10;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public final String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = null;
             try {
-                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.tnconfig);
+                InputStream openRawResource = AppRuntime.getAppContext().getResources().openRawResource(R.raw.obfuscated_res_0x7f110051);
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(openRawResource));
                 try {
+                    str = bufferedReader.readLine();
                     try {
-                        str = bufferedReader.readLine();
                         openRawResource.close();
                         bufferedReader.close();
-                    } catch (Exception unused) {
-                        boolean z = f4258d;
-                        openRawResource.close();
-                        bufferedReader.close();
+                    } catch (Exception e2) {
+                        e = e2;
                     }
-                } catch (Exception unused2) {
-                    boolean z2 = f4258d;
+                } catch (Exception e3) {
+                    if (f3835d) {
+                        Log.e(ChannelManager.TAG, "readLastChannelFromRaw", e3);
+                    }
+                    try {
+                        openRawResource.close();
+                        bufferedReader.close();
+                    } catch (Exception e4) {
+                        e = e4;
+                    }
                 }
-            } catch (Exception unused3) {
-                boolean z3 = f4258d;
+            } catch (Exception e5) {
+                if (f3835d) {
+                    Log.e(ChannelManager.TAG, "readLastChannelFromAssets", e5);
+                }
             }
             return str;
         }
@@ -255,7 +302,7 @@ public class a {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.f4261c.edit().putString("channel", this.f4260b).apply();
+            this.f3838c.edit().putString("channel", this.f3837b).apply();
         }
     }
 }

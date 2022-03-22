@@ -43,9 +43,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,17 +55,17 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
                 this.this$0.createDb(sQLiteDatabase);
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 this.this$0.createDb(sQLiteDatabase);
             }
         }
@@ -84,9 +84,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -96,16 +96,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN msg_key TEXT DEFAULT '' ");
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN sendid TEXT DEFAULT '' ");
@@ -137,9 +137,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,16 +149,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN disturb INTEGER DEFAULT 0");
                 } catch (Exception e2) {
@@ -182,9 +182,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -194,16 +194,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN disturb INTEGER DEFAULT 0");
                 } catch (Exception e2) {
@@ -227,9 +227,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -239,16 +239,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
             }
         }
     }
@@ -266,9 +266,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -278,16 +278,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN pasubtype INTEGER DEFAULT -1 ");
                 } catch (Exception e2) {
@@ -311,9 +311,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -323,16 +323,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 LogUtils.d(LogUtils.TAG, "onUpgrade:25->26");
             }
         }
@@ -351,9 +351,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -363,16 +363,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN classtype INTEGER DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN classshow INTEGER DEFAULT 0 ");
@@ -403,9 +403,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -415,16 +415,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version28And29Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN status INTEGER DEFAULT 0");
@@ -450,9 +450,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -462,16 +462,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version29And30Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN marktop INTEGER DEFAULT 0 ");
@@ -499,9 +499,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -511,16 +511,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version30And31Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN nickname TEXT ");
@@ -545,9 +545,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -557,16 +557,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version31And32Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN replies TEXT ");
@@ -592,9 +592,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -604,16 +604,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version32And33Handler---");
                 } catch (Exception e2) {
@@ -637,9 +637,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -649,16 +649,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version33And34Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN subset_type  INTEGER DEFAULT 0  ");
@@ -684,9 +684,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -696,16 +696,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version34And35Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN expires_time  LONG DEFAULT 0  ");
@@ -731,9 +731,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -743,16 +743,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version35And36Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_RELIABLE_MESSAGE);
@@ -777,9 +777,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -789,16 +789,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version36And37Handler---");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN extra TEXT ");
@@ -823,9 +823,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -835,16 +835,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_INDEX);
                     LogUtils.d(DBVersionManager.TAG, "Version37And38Handler create msg index ok");
@@ -869,9 +869,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -881,16 +881,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
@@ -916,9 +916,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -928,16 +928,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN pa_ext  TEXT ");
                     LogUtils.d(DBVersionManager.TAG, "Version39And40Handler add pa_ext");
@@ -962,9 +962,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -974,16 +974,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version40And41Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_DUPLICATE_MESSAGE);
@@ -1008,9 +1008,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1020,9 +1020,9 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
@@ -1046,9 +1046,9 @@ public class DBVersionManager {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) != null) {
+            if (interceptable != null && interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) != null) {
                 return;
             }
             try {
@@ -1099,9 +1099,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1111,16 +1111,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN service_type TEXT ");
                 } catch (Exception e2) {
@@ -1144,9 +1144,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1156,16 +1156,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN tips_code INTEGER ");
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN tips TEXT ");
@@ -1190,9 +1190,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1202,16 +1202,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE userinfo ADD COLUMN user_ext TEXT ");
                 } catch (Exception e2) {
@@ -1235,9 +1235,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1247,16 +1247,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN template_type INTEGER DEFAULT 0 ");
                     if (AccountManager.getAppid(this.this$0.mContext) == 405384) {
@@ -1297,9 +1297,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1309,16 +1309,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     LogUtils.d(DBVersionManager.TAG, "---Version46And47Handler---");
                     sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
@@ -1343,9 +1343,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1355,16 +1355,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE paSubscribe ADD COLUMN has_reject_menu INTEGER DEFAULT 0 ");
                 } catch (Exception e2) {
@@ -1388,9 +1388,9 @@ public class DBVersionManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dBVersionManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1400,16 +1400,16 @@ public class DBVersionManager {
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
             }
         }
 
         @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
                 try {
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_bduid LONG DEFAULT 0 ");
                     sQLiteDatabase.execSQL("ALTER TABLE chatrecord ADD COLUMN last_msg_name TEXT ");
@@ -1423,9 +1423,9 @@ public class DBVersionManager {
 
     /* loaded from: classes3.dex */
     public interface VersionHandler {
-        void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3);
+        void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 
-        void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3);
+        void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
     }
 
     static {
@@ -1450,9 +1450,9 @@ public class DBVersionManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1489,7 +1489,7 @@ public class DBVersionManager {
         if (interceptable != null && (invokeL = interceptable.invokeL(65541, this, sQLiteDatabase)) != null) {
             return invokeL.intValue;
         }
-        int i2 = -1;
+        int i = -1;
         try {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -1510,7 +1510,7 @@ public class DBVersionManager {
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGID_ISEXIST_INDEX);
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX);
                 sQLiteDatabase.execSQL(TableDefine.SQL_CREATE_STUDIO_USE_PA_MESSAGE);
-                i2 = 0;
+                i = 0;
                 sQLiteDatabase.setTransactionSuccessful();
                 LogUtils.d(TAG, "create table ok");
             } catch (Exception e2) {
@@ -1539,7 +1539,7 @@ public class DBVersionManager {
         if (interceptable != null && (invokeL = interceptable.invokeL(65542, this, sQLiteDatabase)) != null) {
             return invokeL.intValue;
         }
-        int i2 = -1;
+        int i = -1;
         try {
             try {
                 sQLiteDatabase.beginTransaction();
@@ -1563,7 +1563,7 @@ public class DBVersionManager {
                 Utility.writeIntData(this.mContext, Utility.getJumpToRecentKey(this.mContext), 1);
                 Context context = this.mContext;
                 Utility.writeLongData(context, Constants.KEY_PA_SUBSCRIBE_SYNC_TIME + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
-                i2 = 0;
+                i = 0;
                 sQLiteDatabase.setTransactionSuccessful();
                 LogUtils.d(TAG, "drop table ok");
             } catch (Exception e2) {
@@ -1598,134 +1598,134 @@ public class DBVersionManager {
         }
     }
 
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) || i == i2) {
             return;
         }
-        if (i2 == 22 && i3 <= 21) {
-            new Version21And22Handler(this).onDowngrade(sQLiteDatabase, i2, i3);
-            i2 = 21;
+        if (i == 22 && i2 <= 21) {
+            new Version21And22Handler(this).onDowngrade(sQLiteDatabase, i, i2);
+            i = 21;
         }
-        if (i2 != 21 || i3 > 20) {
+        if (i != 21 || i2 > 20) {
             return;
         }
-        new DefaultHandler(this).onDowngrade(sQLiteDatabase, i2, i3);
+        new DefaultHandler(this).onDowngrade(sQLiteDatabase, i, i2);
     }
 
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         IMTrack.CrashBuilder crashBuilder;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) || i2 == i3) {
+        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) || i == i2) {
             return;
         }
-        if (i3 >= 21 && i2 > 12) {
-            if (i2 == 21 && i3 >= 22) {
-                new Version21And22Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 22;
+        if (i2 >= 21 && i > 12) {
+            if (i == 21 && i2 >= 22) {
+                new Version21And22Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 22;
             }
-            if (i2 == 22 && i3 >= 23) {
-                new Version22And223Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 23;
+            if (i == 22 && i2 >= 23) {
+                new Version22And223Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 23;
             }
-            if (i2 == 23 && i3 >= 24) {
-                new Version23And24Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 24;
+            if (i == 23 && i2 >= 24) {
+                new Version23And24Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 24;
             }
-            if (i2 == 24 && i3 >= 25) {
-                new Version24And25Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 25;
+            if (i == 24 && i2 >= 25) {
+                new Version24And25Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 25;
             }
-            if (i2 == 25 && i3 >= 26) {
-                new Version25And26Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 26;
+            if (i == 25 && i2 >= 26) {
+                new Version25And26Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 26;
             }
-            if (i2 == 26 && i3 >= 27) {
-                new Version26And27Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 27;
+            if (i == 26 && i2 >= 27) {
+                new Version26And27Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 27;
             }
-            if (i2 == 28 && i3 >= 29) {
-                new Version28And29Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 29;
+            if (i == 28 && i2 >= 29) {
+                new Version28And29Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 29;
             }
-            if (i2 == 29 && i3 >= 30) {
-                new Version29And30Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 30;
+            if (i == 29 && i2 >= 30) {
+                new Version29And30Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 30;
             }
-            if (i2 == 30 && i3 >= 31) {
-                new Version30And31Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 31;
+            if (i == 30 && i2 >= 31) {
+                new Version30And31Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 31;
             }
-            if (i2 == 31 && i3 >= 32) {
-                new Version31And32Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 32;
+            if (i == 31 && i2 >= 32) {
+                new Version31And32Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 32;
             }
-            if (i2 == 32 && i3 >= 33) {
-                new Version32And33Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 33;
+            if (i == 32 && i2 >= 33) {
+                new Version32And33Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 33;
             }
-            if (i2 == 33 && i3 >= 34) {
-                new Version33And34Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 34;
+            if (i == 33 && i2 >= 34) {
+                new Version33And34Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 34;
             }
-            if (i2 == 34 && i3 >= 35) {
-                new Version34And35Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 35;
+            if (i == 34 && i2 >= 35) {
+                new Version34And35Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 35;
             }
-            if (i2 == 35 && i3 >= 36) {
-                new Version35And36Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 36;
+            if (i == 35 && i2 >= 36) {
+                new Version35And36Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 36;
             }
-            if (i2 == 36 && i3 >= 37) {
-                new Version36And37Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 37;
+            if (i == 36 && i2 >= 37) {
+                new Version36And37Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 37;
             }
-            if (i2 == 37 && i3 >= 38) {
-                new Version37And38Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 38;
+            if (i == 37 && i2 >= 38) {
+                new Version37And38Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 38;
             }
-            if (i2 == 38 && i3 >= 39) {
-                new Version38And39Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 39;
+            if (i == 38 && i2 >= 39) {
+                new Version38And39Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 39;
             }
-            if (i2 == 39 && i3 >= 40) {
-                new Version39And40Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 40;
+            if (i == 39 && i2 >= 40) {
+                new Version39And40Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 40;
             }
-            if (i2 == 40 && i3 >= 41) {
-                new Version40And41Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 41;
+            if (i == 40 && i2 >= 41) {
+                new Version40And41Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 41;
             }
-            if (i2 == 41 && i3 >= 42) {
-                new Version41And42Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 42;
+            if (i == 41 && i2 >= 42) {
+                new Version41And42Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 42;
             }
-            if (i2 == 42 && i3 >= 43) {
-                new Version42And43Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 43;
+            if (i == 42 && i2 >= 43) {
+                new Version42And43Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 43;
             }
-            if (i2 == 43 && i3 >= 44) {
-                new Version43And44Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 44;
+            if (i == 43 && i2 >= 44) {
+                new Version43And44Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 44;
             }
-            if (i2 == 44 && i3 >= 45) {
-                new Version44And45Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 45;
+            if (i == 44 && i2 >= 45) {
+                new Version44And45Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 45;
             }
-            if (i2 == 45 && i3 >= 46) {
-                new Version45And46Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 46;
+            if (i == 45 && i2 >= 46) {
+                new Version45And46Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 46;
             }
-            if (i2 == 46 && i3 >= 47) {
-                new Version46And47Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 47;
+            if (i == 46 && i2 >= 47) {
+                new Version46And47Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 47;
             }
-            if (i2 <= 48 && i3 >= 49) {
-                new Version48And49Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
-                i2 = 49;
+            if (i <= 48 && i2 >= 49) {
+                new Version48And49Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 49;
             }
-            if (i2 <= 49 && i3 >= 50) {
-                new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i2, i3);
+            if (i <= 49 && i2 >= 50) {
+                new Version49And50Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
             Cursor cursor = null;
             try {
@@ -1776,6 +1776,6 @@ public class DBVersionManager {
                 throw th;
             }
         }
-        new DefaultHandler(this).onUpgrade(sQLiteDatabase, i2, i3);
+        new DefaultHandler(this).onUpgrade(sQLiteDatabase, i, i2);
     }
 }

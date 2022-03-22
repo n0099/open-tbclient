@@ -45,16 +45,16 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     public int mOriWidth;
     public int mReqSource;
 
-    public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i2, int i3, int i4, String str4) {
+    public IMGenBosObjectUrlRequest(Context context, String str, String str2, String str3, int i, int i2, int i3, String str4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str4};
+            Object[] objArr = {context, str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,9 +65,9 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         this.mFilePath = str;
         this.mContentType = str2;
         this.mFormat = str3;
-        this.mReqSource = i2;
-        this.mOriWidth = i3;
-        this.mOriHeight = i4;
+        this.mReqSource = i;
+        this.mOriWidth = i2;
+        this.mOriHeight = i3;
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -157,19 +157,19 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
             sb.append("&appid=" + appid);
             sb.append("&uk=");
             sb.append(AccountManager.getUK(this.mContext));
-            long j2 = 0;
+            long j = 0;
             if (Utility.isMediaUri(this.mFilePath)) {
                 try {
                     InputStream openInputStream = this.mContext.getContentResolver().openInputStream(Uri.parse(this.mFilePath));
                     if (openInputStream != null) {
-                        j2 = openInputStream.available();
+                        j = openInputStream.available();
                     }
                 } catch (Exception unused) {
                 }
             } else {
-                j2 = new File(this.mFilePath).length();
+                j = new File(this.mFilePath).length();
             }
-            sb.append("&content_length=" + j2);
+            sb.append("&content_length=" + j);
             if (!TextUtils.isEmpty(this.mContentType)) {
                 try {
                     sb.append("&content_type=" + URLEncoder.encode(this.mContentType, "UTF-8"));
@@ -210,29 +210,29 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d("", "IMGenBosObjectUrlRequest onFailure " + transErrorCode.first);
             ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null, null, null);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
         String str2;
         String str3;
         HashMap hashMap;
         String str4;
         String str5;
+        int i2;
         int i3;
-        int i4;
         String string;
         HashMap hashMap2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, bArr) == null) {
             String str6 = new String(bArr);
             LogUtils.d("IMGenBosObjectUrlRequest", str6);
             String str7 = null;
@@ -240,7 +240,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 JSONObject jSONObject = new JSONObject(str6);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i4 = jSONObject2.getInt("error_code");
+                    i3 = jSONObject2.getInt("error_code");
                     str = jSONObject2.getString("authorization");
                     try {
                         str2 = jSONObject2.getString("date");
@@ -267,21 +267,21 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                             hashMap = null;
                             str4 = str;
                             str5 = str2;
-                            i3 = 1010;
-                            ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i3, str3, str4, str5, hashMap);
+                            i2 = 1010;
+                            ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
                         }
                     } catch (JSONException e3) {
                         e = e3;
                         str2 = null;
                     }
                 } else {
-                    i4 = jSONObject.getInt("error_code");
+                    i3 = jSONObject.getInt("error_code");
                     string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                     str2 = null;
                     hashMap2 = null;
                 }
                 str3 = string;
-                i3 = i4;
+                i2 = i3;
                 str4 = str7;
                 str5 = str2;
                 hashMap = hashMap2;
@@ -290,7 +290,7 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
                 str = null;
                 str2 = null;
             }
-            ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i3, str3, str4, str5, hashMap);
+            ChatMsgManagerImpl.getInstance(this.mContext).onGenBosObjectUrl(this.mKey, i2, str3, str4, str5, hashMap);
         }
     }
 
@@ -304,21 +304,21 @@ public class IMGenBosObjectUrlRequest implements HttpHelper.Request, HttpHelper.
         return invokeV.booleanValue;
     }
 
-    public Pair<Integer, String> transErrorCode(int i2, byte[] bArr, Throwable th) {
+    public Pair<Integer, String> transErrorCode(int i, byte[] bArr, Throwable th) {
         InterceptResult invokeILL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i2, bArr, th)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, bArr, th)) == null) {
             if (th != null) {
-                i2 = 1012;
+                i = 1012;
                 str = Constants.ERROR_MSG_HTTP_IOEXCEPTION_ERROR;
-            } else if (i2 == 1005) {
+            } else if (i == 1005) {
                 str = new String(bArr);
             } else {
-                str = "http response is error! response code:" + i2;
-                i2 = 1011;
+                str = "http response is error! response code:" + i;
+                i = 1011;
             }
-            return new Pair<>(Integer.valueOf(i2), str);
+            return new Pair<>(Integer.valueOf(i), str);
         }
         return (Pair) invokeILL.objValue;
     }

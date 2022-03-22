@@ -7,7 +7,6 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.devices.IDevices;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,19 +35,19 @@ public class j {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2808b;
+        public String f2330b;
 
         /* renamed from: c  reason: collision with root package name */
-        public StringBuilder f2809c;
+        public StringBuilder f2331c;
 
         /* renamed from: d  reason: collision with root package name */
-        public k f2810d;
+        public k f2332d;
 
         /* renamed from: e  reason: collision with root package name */
-        public boolean f2811e;
+        public boolean f2333e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f2812f;
+        public final /* synthetic */ j f2334f;
 
         public a(j jVar, String str, String str2, StringBuilder sb, k kVar) {
             Interceptable interceptable = $ic;
@@ -57,20 +56,20 @@ public class j {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jVar, str, str2, sb, kVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2812f = jVar;
+            this.f2334f = jVar;
             this.a = str;
-            this.f2808b = str2;
-            this.f2809c = sb;
-            this.f2810d = kVar;
-            this.f2811e = false;
+            this.f2330b = str2;
+            this.f2331c = sb;
+            this.f2332d = kVar;
+            this.f2333e = false;
         }
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -78,12 +77,12 @@ public class j {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                boolean g2 = this.f2812f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f2809c);
-                this.f2811e = g2;
+                boolean g2 = this.f2334f.g(BdBaseApplication.getInst().getApp().getApplicationInfo().sourceDir, this.a, this.f2331c);
+                this.f2333e = g2;
                 if (g2) {
                     return null;
                 }
-                this.f2812f.c(this.f2808b, "".getBytes(), this.f2809c);
+                this.f2334f.c(this.f2330b, "".getBytes(), this.f2331c);
                 return null;
             }
             return invokeL.objValue;
@@ -94,13 +93,13 @@ public class j {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
                 super.onPostExecute(obj);
-                if (this.f2809c.length() > 0) {
+                if (this.f2331c.length() > 0) {
                     BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f2809c.toString(), new Object[0]);
+                    bdStatisticsManager.error("so", "load_" + this.a + ".so", "", -9101, this.f2331c.toString(), new Object[0]);
                 }
-                k kVar = this.f2810d;
+                k kVar = this.f2332d;
                 if (kVar != null) {
-                    kVar.a(this.f2811e);
+                    kVar.a(this.f2333e);
                 }
             }
         }
@@ -126,9 +125,9 @@ public class j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -201,7 +200,7 @@ public class j {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + com.baidu.fsg.face.base.b.c.f32638g + File.separator + "lib" + str + ".so";
+            return BdBaseApplication.getInst().getApp().getApplicationInfo().dataDir + File.separator + "files" + File.separator + "lib" + str + ".so";
         }
         return (String) invokeL.objValue;
     }
@@ -231,7 +230,7 @@ public class j {
             ?? r4 = ".so";
             sb2.append(".so");
             arrayList.add(sb2.toString());
-            arrayList.add("lib" + File.separator + IDevices.ABI_MIPS + File.separator + "lib" + str2 + ".so");
+            arrayList.add("lib" + File.separator + "mips" + File.separator + "lib" + str2 + ".so");
             arrayList.add("lib" + File.separator + "armeabi" + File.separator + "lib" + str2 + ".so");
             File file = new File(str);
             boolean z = false;
@@ -310,16 +309,16 @@ public class j {
         return invokeLLL.booleanValue;
     }
 
-    public boolean h(String str, int i2) {
+    public boolean h(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
             StringBuilder sb = new StringBuilder();
             if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
                 return false;
             }
             boolean z = false;
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 z = j(str, sb);
                 if (z) {
                     break;
@@ -350,16 +349,16 @@ public class j {
         return invokeLI.booleanValue;
     }
 
-    public boolean i(String str, int i2, k kVar) {
+    public boolean i(String str, int i, k kVar) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i2, kVar)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048581, this, str, i, kVar)) == null) {
             StringBuilder sb = new StringBuilder();
             if (BdBaseApplication.getInst().getApp() == null || BdBaseApplication.getInst().getApp().getApplicationInfo() == null) {
                 return false;
             }
             boolean z = false;
-            for (int i3 = 0; i3 < i2; i3++) {
+            for (int i2 = 0; i2 < i; i2++) {
                 z = j(str, sb);
                 if (z) {
                     break;

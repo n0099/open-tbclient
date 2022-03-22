@@ -14,9 +14,9 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
         if (jSONObject.opt("imei") == JSONObject.NULL) {
             aVar.a = "";
         }
-        aVar.f54208b = jSONObject.optString("oaid");
+        aVar.f39343b = jSONObject.optString("oaid");
         if (jSONObject.opt("oaid") == JSONObject.NULL) {
-            aVar.f54208b = "";
+            aVar.f39343b = "";
         }
     }
 
@@ -27,7 +27,7 @@ public class bx implements com.kwad.sdk.core.d<h.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "imei", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f54208b);
+        com.kwad.sdk.utils.t.a(jSONObject, "oaid", aVar.f39343b);
         return jSONObject;
     }
 }

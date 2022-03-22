@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestLoggingListener implements RequestListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "RequestLoggingListener";
@@ -31,9 +31,9 @@ public class RequestLoggingListener implements RequestListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,12 +43,12 @@ public class RequestLoggingListener implements RequestListener {
         this.mRequestStartTimeMap = new HashMap();
     }
 
-    public static long getElapsedTime(@Nullable Long l, long j2) {
+    public static long getElapsedTime(@Nullable Long l, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, l, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, l, j)) == null) {
             if (l != null) {
-                return j2 - l.longValue();
+                return j - l.longValue();
             }
             return -1L;
         }

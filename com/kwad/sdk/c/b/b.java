@@ -7,26 +7,26 @@ import com.kwad.sdk.core.report.f;
 import java.util.Random;
 /* loaded from: classes7.dex */
 public class b {
-    public static void a(d dVar, int i2) {
+    public static void a(d dVar, int i) {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f54032e;
-            reportAction.bB = dVar.f54034g;
-            reportAction.bC = i2;
+            reportAction.bA = dVar.f39182e;
+            reportAction.bB = dVar.f39184g;
+            reportAction.bC = i;
             reportAction.bD = System.currentTimeMillis();
             f.a(reportAction);
         }
     }
 
-    public static void a(d dVar, int i2, String str) {
+    public static void a(d dVar, int i, String str) {
         if (a()) {
             ReportAction reportAction = new ReportAction(230L);
             reportAction.bz = dVar.a;
-            reportAction.bA = dVar.f54032e;
-            reportAction.bB = dVar.f54034g;
+            reportAction.bA = dVar.f39182e;
+            reportAction.bB = dVar.f39184g;
             reportAction.bC = 0;
-            reportAction.bE = i2;
+            reportAction.bE = i;
             reportAction.bD = System.currentTimeMillis();
             reportAction.bF = str;
             f.a(reportAction);

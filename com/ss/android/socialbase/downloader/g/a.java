@@ -11,36 +11,32 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static final h<Integer, a> a = new h<>(16, 16);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f58623b = new a(null);
+    public static final a f43333b = new a(null);
 
     /* renamed from: c  reason: collision with root package name */
-    public static JSONObject f58624c;
+    public static JSONObject f43334c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static JSONObject f58625d;
+    public static JSONObject f43335d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Boolean f58626e;
+    public static Boolean f43336e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f58627f;
+    public static boolean f43337f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static a f58628g;
+    public static a f43338g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final JSONObject f58629h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final JSONObject f58630i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final Boolean f58631j;
+    public final JSONObject f43339h;
+    public final JSONObject i;
+    public final Boolean j;
     public int k;
 
     static {
@@ -49,7 +45,7 @@ public class a {
 
     public a(JSONObject jSONObject) {
         Boolean bool;
-        this.f58629h = jSONObject;
+        this.f43339h = jSONObject;
         JSONObject jSONObject2 = null;
         r0 = null;
         r0 = null;
@@ -65,21 +61,21 @@ public class a {
             jSONObject2 = optJSONObject;
             bool = bool3;
         }
-        this.f58630i = jSONObject2;
-        this.f58631j = bool;
+        this.i = jSONObject2;
+        this.j = bool;
     }
 
     public static void a() {
         JSONObject E = c.E();
-        f58627f = E.optInt("disable_task_setting", 0) == 1;
-        f58624c = E.optJSONObject("disabled_task_keys");
+        f43337f = E.optInt("disable_task_setting", 0) == 1;
+        f43334c = E.optJSONObject("disabled_task_keys");
         JSONObject optJSONObject = E.optJSONObject("bugfix");
         Boolean bool = null;
         if (optJSONObject != null && optJSONObject.has("default")) {
             bool = Boolean.valueOf(optJSONObject.optInt("default", 0) == 1);
         }
-        f58625d = optJSONObject;
-        f58626e = bool;
+        f43335d = optJSONObject;
+        f43336e = bool;
     }
 
     @NonNull
@@ -89,46 +85,46 @@ public class a {
 
     @NonNull
     public static a c() {
-        return f58623b;
+        return f43333b;
     }
 
     public static boolean f(String str) {
-        JSONObject jSONObject = f58624c;
+        JSONObject jSONObject = f43334c;
         return jSONObject != null && jSONObject.optInt(str, 0) == 1;
     }
 
     public JSONObject d(String str) {
-        JSONObject jSONObject = this.f58629h;
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optJSONObject(str);
+            return this.f43339h.optJSONObject(str);
         }
         return b().optJSONObject(str);
     }
 
     public JSONArray e(String str) {
-        JSONObject jSONObject = this.f58629h;
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optJSONArray(str);
+            return this.f43339h.optJSONArray(str);
         }
         return b().optJSONArray(str);
     }
 
     public boolean b(String str, boolean z) {
-        if (this.f58630i != null && !f(str)) {
-            if (this.f58630i.has(str)) {
-                return this.f58630i.optInt(str, z ? 1 : 0) == 1;
+        if (this.i != null && !f(str)) {
+            if (this.i.has(str)) {
+                return this.i.optInt(str, z ? 1 : 0) == 1;
             }
-            Boolean bool = this.f58631j;
+            Boolean bool = this.j;
             if (bool != null) {
                 return bool.booleanValue();
             }
         }
-        JSONObject jSONObject = f58625d;
+        JSONObject jSONObject = f43335d;
         if (jSONObject != null) {
             if (jSONObject.has(str)) {
-                return f58625d.optInt(str, z ? 1 : 0) == 1;
+                return f43335d.optInt(str, z ? 1 : 0) == 1;
             }
-            Boolean bool2 = f58626e;
+            Boolean bool2 = f43336e;
             if (bool2 != null) {
                 return bool2.booleanValue();
             }
@@ -140,31 +136,31 @@ public class a {
         return a(str, "");
     }
 
-    public static a c(int i2) {
+    public static a c(int i) {
         DownloadInfo downloadInfo;
-        if (f58627f) {
-            return f58623b;
+        if (f43337f) {
+            return f43333b;
         }
         Context N = c.N();
-        if (N != null && (downloadInfo = Downloader.getInstance(N).getDownloadInfo(i2)) != null) {
+        if (N != null && (downloadInfo = Downloader.getInstance(N).getDownloadInfo(i)) != null) {
             return b(downloadInfo);
         }
-        return f58623b;
+        return f43333b;
     }
 
     public static void a(String str, boolean z) {
         try {
-            if (f58625d == null) {
-                f58625d = new JSONObject();
+            if (f43335d == null) {
+                f43335d = new JSONObject();
             }
-            f58625d.put(str, z ? 1 : 0);
+            f43335d.put(str, z ? 1 : 0);
         } catch (JSONException unused) {
         }
     }
 
     @NonNull
-    public static a a(int i2) {
-        return a(i2, (DownloadInfo) null);
+    public static a a(int i) {
+        return a(i, (DownloadInfo) null);
     }
 
     public int b(String str) {
@@ -174,44 +170,44 @@ public class a {
     @NonNull
     public static a a(DownloadInfo downloadInfo) {
         if (downloadInfo == null) {
-            return f58623b;
+            return f43333b;
         }
         return a(downloadInfo.getId(), downloadInfo);
     }
 
-    public static void b(int i2) {
-        a aVar = f58628g;
-        if (aVar != null && aVar.k == i2) {
-            f58628g = null;
+    public static void b(int i) {
+        a aVar = f43338g;
+        if (aVar != null && aVar.k == i) {
+            f43338g = null;
         }
         synchronized (a) {
-            a.remove(Integer.valueOf(i2));
+            a.remove(Integer.valueOf(i));
         }
     }
 
-    public static a a(int i2, DownloadInfo downloadInfo) {
+    public static a a(int i, DownloadInfo downloadInfo) {
         a aVar;
-        a aVar2 = f58628g;
-        if (aVar2 == null || aVar2.k != i2) {
+        a aVar2 = f43338g;
+        if (aVar2 == null || aVar2.k != i) {
             synchronized (a) {
-                aVar = a.get(Integer.valueOf(i2));
+                aVar = a.get(Integer.valueOf(i));
             }
             if (aVar == null) {
-                aVar = downloadInfo == null ? c(i2) : b(downloadInfo);
+                aVar = downloadInfo == null ? c(i) : b(downloadInfo);
                 synchronized (a) {
-                    a.put(Integer.valueOf(i2), aVar);
+                    a.put(Integer.valueOf(i), aVar);
                 }
             }
-            aVar.k = i2;
-            f58628g = aVar;
+            aVar.k = i;
+            f43338g = aVar;
             return aVar;
         }
         return aVar2;
     }
 
     public static a b(DownloadInfo downloadInfo) {
-        if (f58627f) {
-            return f58623b;
+        if (f43337f) {
+            return f43333b;
         }
         try {
             String downloadSettingString = downloadInfo.getDownloadSettingString();
@@ -221,75 +217,75 @@ public class a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        return f58623b;
+        return f43333b;
     }
 
     public boolean a(String str) {
         return b(str, false);
     }
 
-    public int a(String str, int i2) {
-        JSONObject jSONObject = this.f58629h;
+    public int a(String str, int i) {
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optInt(str, i2);
+            return this.f43339h.optInt(str, i);
         }
-        return b().optInt(str, i2);
+        return b().optInt(str, i);
     }
 
-    public long a(String str, long j2) {
-        JSONObject jSONObject = this.f58629h;
+    public long a(String str, long j) {
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optLong(str, j2);
+            return this.f43339h.optLong(str, j);
         }
-        return b().optLong(str, j2);
+        return b().optLong(str, j);
     }
 
     public double a(String str, double d2) {
-        JSONObject jSONObject = this.f58629h;
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optDouble(str, d2);
+            return this.f43339h.optDouble(str, d2);
         }
         return b().optDouble(str, d2);
     }
 
     public String a(String str, String str2) {
-        JSONObject jSONObject = this.f58629h;
+        JSONObject jSONObject = this.f43339h;
         if (jSONObject != null && jSONObject.has(str) && !f(str)) {
-            return this.f58629h.optString(str, str2);
+            return this.f43339h.optString(str, str2);
         }
         return b().optString(str, str2);
     }
 
     @NonNull
     public static a a(JSONObject jSONObject) {
-        if (jSONObject != null && jSONObject != b() && !f58627f) {
-            a aVar = f58628g;
-            if (aVar == null || aVar.f58629h != jSONObject) {
+        if (jSONObject != null && jSONObject != b() && !f43337f) {
+            a aVar = f43338g;
+            if (aVar == null || aVar.f43339h != jSONObject) {
                 synchronized (a) {
                     for (a aVar2 : a.values()) {
-                        if (aVar2.f58629h == jSONObject) {
-                            f58628g = aVar2;
+                        if (aVar2.f43339h == jSONObject) {
+                            f43338g = aVar2;
                             return aVar2;
                         }
                     }
                     a aVar3 = new a(jSONObject);
-                    f58628g = aVar3;
+                    f43338g = aVar3;
                     return aVar3;
                 }
             }
             return aVar;
         }
-        return f58623b;
+        return f43333b;
     }
 
-    public static void a(int i2, JSONObject jSONObject) {
-        if (jSONObject == null || jSONObject == b() || f58627f) {
+    public static void a(int i, JSONObject jSONObject) {
+        if (jSONObject == null || jSONObject == b() || f43337f) {
             return;
         }
         synchronized (a) {
-            a aVar = f58628g;
-            if (aVar != null && aVar.f58629h == jSONObject) {
-                aVar.k = i2;
+            a aVar = f43338g;
+            if (aVar != null && aVar.f43339h == jSONObject) {
+                aVar.k = i;
             } else {
                 aVar = null;
                 Iterator<a> it = a.values().iterator();
@@ -298,19 +294,19 @@ public class a {
                         break;
                     }
                     a next = it.next();
-                    if (next.f58629h == jSONObject) {
-                        next.k = i2;
+                    if (next.f43339h == jSONObject) {
+                        next.k = i;
                         aVar = next;
                         break;
                     }
                 }
                 if (aVar == null) {
                     aVar = new a(jSONObject);
-                    aVar.k = i2;
+                    aVar.k = i;
                 }
-                f58628g = aVar;
+                f43338g = aVar;
             }
-            a.put(Integer.valueOf(i2), aVar);
+            a.put(Integer.valueOf(i), aVar);
         }
     }
 }

@@ -16,9 +16,9 @@ public class BundleKeySet {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -35,10 +35,10 @@ public class BundleKeySet {
             }
             if (!bundle.isEmpty()) {
                 strArr = new String[bundle.size()];
-                int i2 = 0;
+                int i = 0;
                 for (String str : bundle.keySet()) {
-                    strArr[i2] = str.toString();
-                    i2++;
+                    strArr[i] = str.toString();
+                    i++;
                 }
             }
             return strArr;

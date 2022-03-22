@@ -7,13 +7,13 @@ public interface IVideoPlayerCallback {
 
     void onBufferStart();
 
-    void onEnd(int i2);
+    void onEnd(int i);
 
-    void onError(int i2, int i3, String str);
+    void onError(int i, int i2, String str);
 
-    void onInfo(int i2, int i3);
+    void onInfo(int i, int i2);
 
-    void onNetworkSpeedUpdate(int i2);
+    void onNetworkSpeedUpdate(int i);
 
     void onPause();
 
@@ -25,7 +25,7 @@ public interface IVideoPlayerCallback {
 
     void onStart();
 
-    void onUpdateProgress(int i2, int i3, int i4);
+    void onUpdateProgress(int i, int i2, int i3);
 
-    void onVideoSizeChanged(int i2, int i3);
+    void onVideoSizeChanged(int i, int i2);
 }

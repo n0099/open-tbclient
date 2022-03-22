@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.listview.TKRecyclerAdapter;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKViewPagerAdapterExtra extends TKRecyclerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class TKViewPagerAdapterExtra extends TKRecyclerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -39,11 +39,11 @@ public class TKViewPagerAdapterExtra extends TKRecyclerAdapter {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.tachikoma.core.component.listview.TKRecyclerAdapter, androidx.recyclerview.widget.RecyclerView.Adapter
-    public TKRecyclerAdapter.TKViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i2) {
+    public TKRecyclerAdapter.TKViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i2)) == null) {
-            TKRecyclerAdapter.TKViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup, i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, i)) == null) {
+            TKRecyclerAdapter.TKViewHolder onCreateViewHolder = super.onCreateViewHolder(viewGroup, i);
             onCreateViewHolder.itemView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
             return onCreateViewHolder;
         }

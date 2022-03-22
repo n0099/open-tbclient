@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.shape.ShapeAppearancePathProvider;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BorderDrawable extends Drawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float DRAW_STROKE_WIDTH_MULTIPLE = 1.3333f;
@@ -60,13 +60,13 @@ public class BorderDrawable extends Drawable {
     public int topOuterStrokeColor;
 
     /* renamed from: com.google.android.material.floatingactionbutton.BorderDrawable$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class BorderState extends Drawable.ConstantState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -79,9 +79,9 @@ public class BorderDrawable extends Drawable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {borderDrawable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -120,9 +120,9 @@ public class BorderDrawable extends Drawable {
             newInitContext.initArgs = r2;
             Object[] objArr = {shapeAppearanceModel};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -277,10 +277,10 @@ public class BorderDrawable extends Drawable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.paint.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.paint.setAlpha(i);
             invalidateSelf();
         }
     }
@@ -317,13 +317,13 @@ public class BorderDrawable extends Drawable {
         }
     }
 
-    public void setGradientColors(@ColorInt int i2, @ColorInt int i3, @ColorInt int i4, @ColorInt int i5) {
+    public void setGradientColors(@ColorInt int i, @ColorInt int i2, @ColorInt int i3, @ColorInt int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
-            this.topOuterStrokeColor = i2;
-            this.topInnerStrokeColor = i3;
-            this.bottomOuterStrokeColor = i4;
-            this.bottomInnerStrokeColor = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            this.topOuterStrokeColor = i;
+            this.topInnerStrokeColor = i2;
+            this.bottomOuterStrokeColor = i3;
+            this.bottomInnerStrokeColor = i4;
         }
     }
 

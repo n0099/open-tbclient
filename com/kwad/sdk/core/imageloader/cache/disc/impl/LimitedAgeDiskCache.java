@@ -14,18 +14,18 @@ public class LimitedAgeDiskCache extends BaseDiskCache {
     public final Map<File, Long> loadingDates;
     public final long maxFileAge;
 
-    public LimitedAgeDiskCache(File file, long j2) {
-        this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j2);
+    public LimitedAgeDiskCache(File file, long j) {
+        this(file, null, DefaultConfigurationFactory.createFileNameGenerator(), j);
     }
 
-    public LimitedAgeDiskCache(File file, File file2, long j2) {
-        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator(), j2);
+    public LimitedAgeDiskCache(File file, File file2, long j) {
+        this(file, file2, DefaultConfigurationFactory.createFileNameGenerator(), j);
     }
 
-    public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j2) {
+    public LimitedAgeDiskCache(File file, File file2, FileNameGenerator fileNameGenerator, long j) {
         super(file, file2, fileNameGenerator);
         this.loadingDates = Collections.synchronizedMap(new HashMap());
-        this.maxFileAge = j2 * 1000;
+        this.maxFileAge = j * 1000;
     }
 
     private void rememberUsage(String str) {

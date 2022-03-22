@@ -1,9 +1,9 @@
 package com.yy.mobile.framework.revenuesdk.payservice.revenueservice.protocol;
 
-import com.alipay.sdk.sys.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalBackgroundPreviewActivityConfig;
+import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,11 +22,10 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.PropsInfo;
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServerConst;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +48,9 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,8 +71,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     CurrencyInfo currencyInfo = new CurrencyInfo();
                     currencyInfo.offers_currency_type = optJSONObject.optInt("offers_currency_type");
@@ -96,8 +95,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     PropsInfo propsInfo = new PropsInfo();
                     propsInfo.propid = optJSONObject.optInt(PersonalBackgroundPreviewActivityConfig.PROPID);
@@ -120,8 +119,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     GiftBagItemInfo giftBagItemInfo = new GiftBagItemInfo();
                     giftBagItemInfo.type = optJSONObject.optString("type");
@@ -148,8 +147,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
                     giftBagTagInfo.tag = optJSONObject.optString("tag", "");
@@ -171,8 +170,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     GiftBagsInfo giftBagsInfo = new GiftBagsInfo();
                     giftBagsInfo.giftbagTitle = optJSONObject.optString("giftbagTitle", "");
@@ -200,8 +199,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     PayWayInfo payWayInfo = new PayWayInfo();
                     payWayInfo.id = optJSONObject.optString("id");
@@ -227,8 +226,8 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                 return arrayList;
             }
             int length = jSONArray.length();
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     ProductInfo productInfo = new ProductInfo();
                     productInfo.cid = optJSONObject.optInt("cid");
@@ -257,7 +256,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                     productInfo.propsSum = optJSONObject.optInt("propsSum");
                     productInfo.props.addAll(optProps(optJSONObject.optJSONArray("props")));
                     productInfo.chargeRate = Double.valueOf(optJSONObject.optDouble("chargeRate"));
-                    productInfo.productId = optJSONObject.optString("productId");
+                    productInfo.productId = optJSONObject.optString(AdUploadHttpRequest.KEY_PRODUCT_ID);
                     productInfo.expand = optJSONObject.optString("expand");
                     productInfo.currencyCode = optJSONObject.optString("currencyCode");
                     productInfo.otherPrice = optJSONObject.optString("otherPrice");
@@ -292,7 +291,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
                         this.currencyType = jSONObject.optInt("currencyType");
                         this.currencyName = jSONObject.optString("currencyName");
                         this.paysSettingInfo = new PaysSettingInfo();
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString(a.s));
+                        JSONObject jSONObject2 = new JSONObject(jSONObject.optString("setting"));
                         this.paysSettingInfo.customerServiceHotline = jSONObject2.optString("payChargeAmountLimit");
                         this.paysSettingInfo.customerServiceMsg = jSONObject2.optString("customerServiceMsg");
                         this.paysSettingInfo.payChargeAmountLimit = jSONObject2.optInt("payChargeAmountLimit");
@@ -320,7 +319,7 @@ public class GetChargeCurrencyConfigResponse implements IBaseJsonResponse {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", seq='" + this.seq + ExtendedMessageFormat.QUOTE + ", expand='" + this.expend + ExtendedMessageFormat.QUOTE + ", currencyType=" + this.currencyType + ", confList=" + this.confList + ExtendedMessageFormat.END_FE;
+            return "GetChargeCurrencyConfigResponse{cmd=" + this.cmd + ", seq='" + this.seq + "', expand='" + this.expend + "', currencyType=" + this.currencyType + ", confList=" + this.confList + '}';
         }
         return (String) invokeV.objValue;
     }

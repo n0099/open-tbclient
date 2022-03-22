@@ -15,22 +15,22 @@ public class d extends com.baidu.platform.base.a implements e {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public OnGetDistricSearchResultListener f36382b;
+    public OnGetDistricSearchResultListener f28199b;
 
     public d() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36382b = null;
+        this.f28199b = null;
     }
 
     @Override // com.baidu.platform.core.a.e
@@ -38,7 +38,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a.lock();
-            this.f36382b = null;
+            this.f28199b = null;
             this.a.unlock();
         }
     }
@@ -48,7 +48,7 @@ public class d extends com.baidu.platform.base.a implements e {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onGetDistricSearchResultListener) == null) {
             this.a.lock();
-            this.f36382b = onGetDistricSearchResultListener;
+            this.f28199b = onGetDistricSearchResultListener;
             this.a.unlock();
         }
     }
@@ -60,7 +60,7 @@ public class d extends com.baidu.platform.base.a implements e {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, districtSearchOption)) == null) {
             b bVar = new b();
             bVar.a(SearchType.p);
-            return a(new a(districtSearchOption), this.f36382b, bVar);
+            return a(new a(districtSearchOption), this.f28199b, bVar);
         }
         return invokeL.booleanValue;
     }

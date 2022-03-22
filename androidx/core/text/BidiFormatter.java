@@ -11,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import io.flutter.plugin.common.StandardMessageCodec;
 import java.util.Locale;
 /* loaded from: classes.dex */
 public final class BidiFormatter {
@@ -63,8 +62,8 @@ public final class BidiFormatter {
                 }
             }
             DIR_TYPE_CACHE = new byte[1792];
-            for (int i2 = 0; i2 < 1792; i2++) {
-                DIR_TYPE_CACHE[i2] = Character.getDirectionality(i2);
+            for (int i = 0; i < 1792; i++) {
+                DIR_TYPE_CACHE[i] = Character.getDirectionality(i);
             }
         }
 
@@ -75,9 +74,9 @@ public final class BidiFormatter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {charSequence, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -99,22 +98,22 @@ public final class BidiFormatter {
             char charAt;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-                int i2 = this.charIndex;
+                int i = this.charIndex;
                 do {
-                    int i3 = this.charIndex;
-                    if (i3 <= 0) {
+                    int i2 = this.charIndex;
+                    if (i2 <= 0) {
                         break;
                     }
                     CharSequence charSequence = this.text;
-                    int i4 = i3 - 1;
-                    this.charIndex = i4;
-                    charAt = charSequence.charAt(i4);
+                    int i3 = i2 - 1;
+                    this.charIndex = i3;
+                    charAt = charSequence.charAt(i3);
                     this.lastChar = charAt;
                     if (charAt == '&') {
-                        return StandardMessageCodec.LIST;
+                        return (byte) 12;
                     }
                 } while (charAt != ';');
-                this.charIndex = i2;
+                this.charIndex = i;
                 this.lastChar = WebvttCueParser.CHAR_SEMI_COLON;
                 return (byte) 13;
             }
@@ -127,16 +126,16 @@ public final class BidiFormatter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
                 do {
-                    int i2 = this.charIndex;
-                    if (i2 >= this.length) {
-                        return StandardMessageCodec.LIST;
+                    int i = this.charIndex;
+                    if (i >= this.length) {
+                        return (byte) 12;
                     }
                     CharSequence charSequence = this.text;
-                    this.charIndex = i2 + 1;
-                    charAt = charSequence.charAt(i2);
+                    this.charIndex = i + 1;
+                    charAt = charSequence.charAt(i);
                     this.lastChar = charAt;
                 } while (charAt != ';');
-                return StandardMessageCodec.LIST;
+                return (byte) 12;
             }
             return invokeV.byteValue;
         }
@@ -146,37 +145,37 @@ public final class BidiFormatter {
             char charAt;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-                int i2 = this.charIndex;
+                int i = this.charIndex;
                 while (true) {
-                    int i3 = this.charIndex;
-                    if (i3 <= 0) {
+                    int i2 = this.charIndex;
+                    if (i2 <= 0) {
                         break;
                     }
                     CharSequence charSequence = this.text;
-                    int i4 = i3 - 1;
-                    this.charIndex = i4;
-                    char charAt2 = charSequence.charAt(i4);
+                    int i3 = i2 - 1;
+                    this.charIndex = i3;
+                    char charAt2 = charSequence.charAt(i3);
                     this.lastChar = charAt2;
                     if (charAt2 == '<') {
-                        return StandardMessageCodec.LIST;
+                        return (byte) 12;
                     }
                     if (charAt2 == '>') {
                         break;
                     } else if (charAt2 == '\"' || charAt2 == '\'') {
                         char c2 = this.lastChar;
                         do {
-                            int i5 = this.charIndex;
-                            if (i5 > 0) {
+                            int i4 = this.charIndex;
+                            if (i4 > 0) {
                                 CharSequence charSequence2 = this.text;
-                                int i6 = i5 - 1;
-                                this.charIndex = i6;
-                                charAt = charSequence2.charAt(i6);
+                                int i5 = i4 - 1;
+                                this.charIndex = i5;
+                                charAt = charSequence2.charAt(i5);
                                 this.lastChar = charAt;
                             }
                         } while (charAt != c2);
                     }
                 }
-                this.charIndex = i2;
+                this.charIndex = i;
                 this.lastChar = '>';
                 return (byte) 13;
             }
@@ -190,31 +189,31 @@ public final class BidiFormatter {
             if (interceptable != null && (invokeV = interceptable.invokeV(65542, this)) != null) {
                 return invokeV.byteValue;
             }
-            int i2 = this.charIndex;
+            int i = this.charIndex;
             while (true) {
-                int i3 = this.charIndex;
-                if (i3 < this.length) {
+                int i2 = this.charIndex;
+                if (i2 < this.length) {
                     CharSequence charSequence = this.text;
-                    this.charIndex = i3 + 1;
-                    char charAt2 = charSequence.charAt(i3);
+                    this.charIndex = i2 + 1;
+                    char charAt2 = charSequence.charAt(i2);
                     this.lastChar = charAt2;
                     if (charAt2 == '>') {
-                        return StandardMessageCodec.LIST;
+                        return (byte) 12;
                     }
                     if (charAt2 == '\"' || charAt2 == '\'') {
                         char c2 = this.lastChar;
                         do {
-                            int i4 = this.charIndex;
-                            if (i4 < this.length) {
+                            int i3 = this.charIndex;
+                            if (i3 < this.length) {
                                 CharSequence charSequence2 = this.text;
-                                this.charIndex = i4 + 1;
-                                charAt = charSequence2.charAt(i4);
+                                this.charIndex = i3 + 1;
+                                charAt = charSequence2.charAt(i3);
                                 this.lastChar = charAt;
                             }
                         } while (charAt != c2);
                     }
                 } else {
-                    this.charIndex = i2;
+                    this.charIndex = i;
                     this.lastChar = '<';
                     return (byte) 13;
                 }
@@ -276,64 +275,64 @@ public final class BidiFormatter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 this.charIndex = 0;
+                int i = 0;
                 int i2 = 0;
                 int i3 = 0;
-                int i4 = 0;
-                while (this.charIndex < this.length && i2 == 0) {
+                while (this.charIndex < this.length && i == 0) {
                     byte dirTypeForward = dirTypeForward();
                     if (dirTypeForward != 0) {
                         if (dirTypeForward == 1 || dirTypeForward == 2) {
-                            if (i4 == 0) {
+                            if (i3 == 0) {
                                 return 1;
                             }
                         } else if (dirTypeForward != 9) {
                             switch (dirTypeForward) {
                                 case 14:
                                 case 15:
-                                    i4++;
-                                    i3 = -1;
+                                    i3++;
+                                    i2 = -1;
                                     break;
                                 case 16:
                                 case 17:
-                                    i4++;
-                                    i3 = 1;
+                                    i3++;
+                                    i2 = 1;
                                     break;
                                 case 18:
-                                    i4--;
-                                    i3 = 0;
+                                    i3--;
+                                    i2 = 0;
                                     break;
                             }
                         }
-                    } else if (i4 == 0) {
+                    } else if (i3 == 0) {
                         return -1;
                     }
-                    i2 = i4;
+                    i = i3;
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return 0;
                 }
-                if (i3 != 0) {
-                    return i3;
+                if (i2 != 0) {
+                    return i2;
                 }
                 while (this.charIndex > 0) {
                     switch (dirTypeBackward()) {
                         case 14:
                         case 15:
-                            if (i2 == i4) {
+                            if (i == i3) {
                                 return -1;
                             }
                             break;
                         case 16:
                         case 17:
-                            if (i2 == i4) {
+                            if (i == i3) {
                                 return 1;
                             }
                             break;
                         case 18:
-                            i4++;
+                            i3++;
                             continue;
                     }
-                    i4--;
+                    i3--;
                 }
                 return 0;
             }
@@ -345,53 +344,53 @@ public final class BidiFormatter {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 this.charIndex = this.length;
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
                 while (this.charIndex > 0) {
                     byte dirTypeBackward = dirTypeBackward();
                     if (dirTypeBackward != 0) {
                         if (dirTypeBackward == 1 || dirTypeBackward == 2) {
-                            if (i2 == 0) {
+                            if (i == 0) {
                                 return 1;
                             }
-                            if (i3 == 0) {
-                                i3 = i2;
+                            if (i2 == 0) {
+                                i2 = i;
                             }
                         } else if (dirTypeBackward != 9) {
                             switch (dirTypeBackward) {
                                 case 14:
                                 case 15:
-                                    if (i3 == i2) {
+                                    if (i2 == i) {
                                         return -1;
                                     }
-                                    i2--;
+                                    i--;
                                     break;
                                 case 16:
                                 case 17:
-                                    if (i3 == i2) {
+                                    if (i2 == i) {
                                         return 1;
                                     }
-                                    i2--;
+                                    i--;
                                     break;
                                 case 18:
-                                    i2++;
+                                    i++;
                                     break;
                                 default:
-                                    if (i3 != 0) {
+                                    if (i2 != 0) {
                                         break;
                                     } else {
-                                        i3 = i2;
+                                        i2 = i;
                                         break;
                                     }
                             }
                         } else {
                             continue;
                         }
-                    } else if (i2 == 0) {
+                    } else if (i == 0) {
                         return -1;
                     } else {
-                        if (i3 == 0) {
-                            i3 = i2;
+                        if (i2 == 0) {
+                            i2 = i;
                         }
                     }
                 }
@@ -421,23 +420,23 @@ public final class BidiFormatter {
         DEFAULT_RTL_INSTANCE = new BidiFormatter(true, 2, DEFAULT_TEXT_DIRECTION_HEURISTIC);
     }
 
-    public BidiFormatter(boolean z, int i2, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
+    public BidiFormatter(boolean z, int i, TextDirectionHeuristicCompat textDirectionHeuristicCompat) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), textDirectionHeuristicCompat};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), textDirectionHeuristicCompat};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mIsRtlContext = z;
-        this.mFlags = i2;
+        this.mFlags = i;
         this.mDefaultTextDirectionHeuristicCompat = textDirectionHeuristicCompat;
     }
 
@@ -534,9 +533,9 @@ public final class BidiFormatter {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -603,9 +602,9 @@ public final class BidiFormatter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -621,9 +620,9 @@ public final class BidiFormatter {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {locale};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

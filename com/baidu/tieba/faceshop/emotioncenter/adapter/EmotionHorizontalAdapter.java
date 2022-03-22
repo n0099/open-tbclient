@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.o.e.a;
-import c.a.r0.y0.x.c.b;
+import c.a.p0.a1.y.c.b;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext m;
+    public TbPageContext i;
 
     /* loaded from: classes5.dex */
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
@@ -37,9 +37,9 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -49,13 +49,13 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             this.a = (EmotionHorizontalView) view;
         }
 
-        public void setData(b bVar) {
+        public void c(b bVar) {
             EmotionHorizontalView emotionHorizontalView;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || (emotionHorizontalView = this.a) == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f24853e);
+            emotionHorizontalView.setData(bVar.a);
         }
     }
 
@@ -68,9 +68,9 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -78,7 +78,7 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
                 return;
             }
         }
-        this.m = tbPageContext;
+        this.i = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -88,9 +88,9 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.m);
+            EmotionHorizontalView emotionHorizontalView = new EmotionHorizontalView(this.i);
             EmotionGridViewHolder emotionGridViewHolder = new EmotionGridViewHolder(emotionHorizontalView);
-            emotionHorizontalView.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+            emotionHorizontalView.f(TbadkCoreApplication.getInst().getSkinType());
             return emotionGridViewHolder;
         }
         return (EmotionGridViewHolder) invokeL.objValue;
@@ -99,12 +99,12 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.d.o.e.a
     /* renamed from: a0 */
-    public View S(int i2, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
+    public View S(int i, View view, ViewGroup viewGroup, b bVar, EmotionGridViewHolder emotionGridViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), view, viewGroup, bVar, emotionGridViewHolder})) == null) {
-            emotionGridViewHolder.setData(bVar);
-            return emotionGridViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view, viewGroup, bVar, emotionGridViewHolder})) == null) {
+            emotionGridViewHolder.c(bVar);
+            return emotionGridViewHolder.b();
         }
         return (View) invokeCommon.objValue;
     }

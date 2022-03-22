@@ -64,9 +64,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -76,16 +76,16 @@ public class a {
         this.ca = false;
     }
 
-    public a(int i2, int i3) {
+    public a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -93,26 +93,26 @@ public class a {
         }
         this.scale = 1.0f;
         this.ca = false;
-        this.width = i2;
-        this.height = i3;
-        this.scale = i2 > 640 ? 0.5f : 1.0f;
+        this.width = i;
+        this.height = i2;
+        this.scale = i > 640 ? 0.5f : 1.0f;
     }
 
-    public static a a(int i2, int i3, boolean z) {
+    public static a a(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (z) {
-                a aVar2 = new a(i2, i3);
-                float f2 = i2;
+                a aVar2 = new a(i, i2);
+                float f2 = i;
                 a aVar3 = bX;
-                if (Math.abs((f2 / i3) - (aVar3.width / aVar3.height)) < 0.03d) {
+                if (Math.abs((f2 / i2) - (aVar3.width / aVar3.height)) < 0.03d) {
                     aVar2.a(bX, f2 / aVar.width);
                 }
                 return aVar2;
             }
-            return b(i2, i3);
+            return b(i, i2);
         }
         return (a) invokeCommon.objValue;
     }
@@ -123,23 +123,23 @@ public class a {
             this.bY = new float[9];
             this.bZ = new float[5];
             this.ca = true;
-            for (int i2 = 0; i2 < 8; i2++) {
-                this.bY[i2] = aVar.bY[i2] * f2;
+            for (int i = 0; i < 8; i++) {
+                this.bY[i] = aVar.bY[i] * f2;
             }
-            for (int i3 = 0; i3 < 5; i3++) {
-                this.bZ[i3] = aVar.bZ[i3];
+            for (int i2 = 0; i2 < 5; i2++) {
+                this.bZ[i2] = aVar.bZ[i2];
             }
         }
     }
 
-    public static a b(int i2, int i3) {
+    public static a b(int i, int i2) {
         InterceptResult invokeII;
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
-            a aVar2 = new a(i2, i3);
-            float f2 = i2;
-            float f3 = f2 / i3;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            a aVar2 = new a(i, i2);
+            float f2 = i;
+            float f3 = f2 / i2;
             a aVar3 = bV;
             if (Math.abs(f3 - (aVar3.width / aVar3.height)) < 0.03d) {
                 aVar = bV;

@@ -32,9 +32,9 @@ public class TrackMetaData implements Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -147,10 +147,10 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setGroup(int i2) {
+    public void setGroup(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.group = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.group = i;
         }
     }
 
@@ -168,10 +168,10 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setLayer(int i2) {
+    public void setLayer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.layer = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.layer = i;
         }
     }
 
@@ -189,17 +189,17 @@ public class TrackMetaData implements Cloneable {
         }
     }
 
-    public void setTimescale(long j2) {
+    public void setTimescale(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.timescale = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.timescale = j;
         }
     }
 
-    public void setTrackId(long j2) {
+    public void setTrackId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.trackId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.trackId = j;
         }
     }
 

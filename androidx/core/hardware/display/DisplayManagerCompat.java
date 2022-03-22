@@ -47,9 +47,9 @@ public final class DisplayManagerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -77,15 +77,15 @@ public final class DisplayManagerCompat {
     }
 
     @Nullable
-    public Display getDisplay(int i2) {
+    public Display getDisplay(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             if (Build.VERSION.SDK_INT >= 17) {
-                return ((DisplayManager) this.mContext.getSystemService("display")).getDisplay(i2);
+                return ((DisplayManager) this.mContext.getSystemService("display")).getDisplay(i);
             }
             Display defaultDisplay = ((WindowManager) this.mContext.getSystemService("window")).getDefaultDisplay();
-            if (defaultDisplay.getDisplayId() == i2) {
+            if (defaultDisplay.getDisplayId() == i) {
                 return defaultDisplay;
             }
             return null;

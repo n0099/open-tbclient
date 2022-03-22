@@ -16,22 +16,22 @@ public final class FloatingViewClickUtilKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends View> void click(T click, long j2, Function1<? super T, Unit> block) {
+    public static final <T extends View> void click(T click, long j, Function1<? super T, Unit> block) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{click, Long.valueOf(j2), block}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{click, Long.valueOf(j), block}) == null) {
             Intrinsics.checkNotNullParameter(click, "$this$click");
             Intrinsics.checkNotNullParameter(block, "block");
-            click.setOnClickListener(new FloatingViewClickUtilKt$click$1(click, j2, block));
+            click.setOnClickListener(new FloatingViewClickUtilKt$click$1(click, j, block));
         }
     }
 
-    public static /* synthetic */ void click$default(View click, long j2, Function1 block, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
-            j2 = 800;
+    public static /* synthetic */ void click$default(View click, long j, Function1 block, int i, Object obj) {
+        if ((i & 1) != 0) {
+            j = 800;
         }
         Intrinsics.checkNotNullParameter(click, "$this$click");
         Intrinsics.checkNotNullParameter(block, "block");
-        click.setOnClickListener(new FloatingViewClickUtilKt$click$1(click, j2, block));
+        click.setOnClickListener(new FloatingViewClickUtilKt$click$1(click, j, block));
     }
 
     public static final <T extends View> long getLastClickTime(T lastClickTime) {
@@ -39,7 +39,7 @@ public final class FloatingViewClickUtilKt {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, lastClickTime)) == null) {
             Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-            Object tag = lastClickTime.getTag(R.id.floating_click_view_tag);
+            Object tag = lastClickTime.getTag(R.id.obfuscated_res_0x7f0909d6);
             if (!(tag instanceof Long)) {
                 tag = null;
             }
@@ -52,11 +52,11 @@ public final class FloatingViewClickUtilKt {
         return invokeL.longValue;
     }
 
-    public static final <T extends View> void setLastClickTime(T lastClickTime, long j2) {
+    public static final <T extends View> void setLastClickTime(T lastClickTime, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, lastClickTime, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65539, null, lastClickTime, j) == null) {
             Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-            lastClickTime.setTag(R.id.floating_click_view_tag, Long.valueOf(j2));
+            lastClickTime.setTag(R.id.obfuscated_res_0x7f0909d6, Long.valueOf(j));
         }
     }
 }

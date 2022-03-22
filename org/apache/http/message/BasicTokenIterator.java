@@ -12,7 +12,7 @@ import org.apache.http.HeaderIterator;
 import org.apache.http.ParseException;
 import org.apache.http.TokenIterator;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicTokenIterator implements TokenIterator {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String HTTP_SEPARATORS = " ,;=()<>@:\\\"/[]?{}\t";
@@ -29,9 +29,9 @@ public class BasicTokenIterator implements TokenIterator {
             newInitContext.initArgs = r2;
             Object[] objArr = {headerIterator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,46 +40,46 @@ public class BasicTokenIterator implements TokenIterator {
         throw new RuntimeException("Stub!");
     }
 
-    public String createToken(String str, int i2, int i3) {
+    public String createToken(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (String) invokeLII.objValue;
     }
 
-    public int findNext(int i2) throws ParseException {
+    public int findNext(int i) throws ParseException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.intValue;
     }
 
-    public int findTokenEnd(int i2) {
+    public int findTokenEnd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.intValue;
     }
 
-    public int findTokenSeparator(int i2) {
+    public int findTokenSeparator(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.intValue;
     }
 
-    public int findTokenStart(int i2) {
+    public int findTokenStart(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.intValue;

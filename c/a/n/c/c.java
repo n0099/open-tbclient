@@ -15,22 +15,22 @@ public class c {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4263b;
+    public String f3840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f4264c;
+    public String f3841c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f4265d;
+    public String f3842d;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,7 +42,7 @@ public class c {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4265d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3842d : (String) invokeV.objValue;
     }
 
     public final void b() {
@@ -56,20 +56,20 @@ public class c {
                 this.a = this.a.replace("_", "-");
             }
             String str2 = Build.MANUFACTURER;
-            this.f4263b = str2;
+            this.f3840b = str2;
             if (TextUtils.isEmpty(str2)) {
-                this.f4263b = "NUL";
+                this.f3840b = "NUL";
             } else {
-                this.f4263b = this.f4263b.replace("_", "-");
+                this.f3840b = this.f3840b.replace("_", "-");
             }
             String str3 = Build.VERSION.RELEASE;
-            this.f4264c = str3;
+            this.f3841c = str3;
             if (TextUtils.isEmpty(str3)) {
-                this.f4264c = "0.0";
+                this.f3841c = "0.0";
             } else {
-                this.f4264c = this.f4264c.replace("_", "-");
+                this.f3841c = this.f3841c.replace("_", "-");
             }
-            this.f4265d = c();
+            this.f3842d = c();
         }
     }
 
@@ -78,10 +78,10 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String str = this.a;
-            String str2 = this.f4264c;
-            int i2 = Build.VERSION.SDK_INT;
-            String str3 = this.f4263b;
-            return str + "_" + str2 + "_" + i2 + "_" + str3;
+            String str2 = this.f3841c;
+            int i = Build.VERSION.SDK_INT;
+            String str3 = this.f3840b;
+            return str + "_" + str2 + "_" + i + "_" + str3;
         }
         return (String) invokeV.objValue;
     }

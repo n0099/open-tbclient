@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class RtcStatus {
     public static final /* synthetic */ RtcStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -100,16 +100,16 @@ public final class RtcStatus {
         $VALUES = new RtcStatus[]{UNKNOWN, LOCAL_JOIN, REMOTE_USER_JOIN, REMOTE_USER_LEAVE, REMOTE_USER_KICKOUT, REMOTE_STREAM_ADD, REMOTE_STREAM_REMOVE, ACTIVITY_IS_NULL, INIT_RTC_SDK_FAIL, SO_DOWNLOAD_FAILED, SO_LOADING_FAILED, LOGIN_ERROR, LOGIN_TIMEOUT, ROOM_ALREADY_EXIST, DEVICE_IS_NOT_SUPPORTED, ROOM_CONNECTION_LOST, MEDIA_CONNECTION_LOST, INIT_CAPTURE_FAIL, SET_REMOTE_SURFACE_ERROR, PUBLISH_FAILED, AUTHORIZE_ERR_INTERNAL_ERROR, AUTHORIZE_ERR_NETWORK_ERROR, AUTHORIZE_ERR_USER_DENY, AUTHORIZE_ERR_USER_NOT_LOGIN, AUTHORIZE_ERR_NO_DATA, AUTHORIZE_ERR_SYSTEM_DENY, AUTHORIZE_TYPE_CAMERA_DENY, AUTHORIZE_TYPE_RECORD_DENY, AUTHORIZE_TYPE_CAMERA_RECORD_DENY, AUTHORIZE_TYPE_IGNORE, rtcStatus};
     }
 
-    public RtcStatus(String str, int i2, int i3, String str2) {
+    public RtcStatus(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -118,7 +118,7 @@ public final class RtcStatus {
                 return;
             }
         }
-        this.mCode = i3;
+        this.mCode = i2;
         this.mMsg = str2;
     }
 

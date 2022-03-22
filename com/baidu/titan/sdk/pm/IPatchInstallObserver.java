@@ -32,11 +32,11 @@ public interface IPatchInstallObserver extends IInterface {
             }
 
             @Override // com.baidu.titan.sdk.pm.IPatchInstallObserver
-            public void onPatchInstalled(int i2, Bundle bundle) throws RemoteException {
+            public void onPatchInstalled(int i, Bundle bundle) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                    obtain.writeInt(i2);
+                    obtain.writeInt(i);
                     if (bundle != null) {
                         obtain.writeInt(1);
                         bundle.writeToParcel(obtain, 0);
@@ -71,13 +71,13 @@ public interface IPatchInstallObserver extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface(DESCRIPTOR);
                 onPatchInstalled(parcel.readInt(), parcel.readInt() != 0 ? (Bundle) Bundle.CREATOR.createFromParcel(parcel) : null);
                 return true;
-            } else if (i2 != 1598968902) {
-                return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 1598968902) {
+                return super.onTransact(i, parcel, parcel2, i2);
             } else {
                 parcel2.writeString(DESCRIPTOR);
                 return true;
@@ -85,5 +85,5 @@ public interface IPatchInstallObserver extends IInterface {
         }
     }
 
-    void onPatchInstalled(int i2, Bundle bundle) throws RemoteException;
+    void onPatchInstalled(int i, Bundle bundle) throws RemoteException;
 }

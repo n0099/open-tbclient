@@ -5,19 +5,19 @@ import android.graphics.Matrix;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bitmap a(Bitmap bitmap, int i2, int i3) {
+    public static Bitmap a(Bitmap bitmap, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, bitmap, i, i2)) == null) {
             int width = bitmap.getWidth();
             int height = bitmap.getHeight();
-            float f2 = i2 / width;
-            float f3 = i3 / height;
+            float f2 = i / width;
+            float f3 = i2 / height;
             try {
                 Matrix matrix = new Matrix();
                 matrix.postScale(f2, f3);

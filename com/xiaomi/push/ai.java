@@ -14,25 +14,25 @@ import java.util.Map;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ai {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ai a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public SharedPreferences f111a;
+    public SharedPreferences f87a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Object f112a;
+    public Object f88a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, ScheduledFuture> f113a;
+    public Map<String, ScheduledFuture> f89a;
 
     /* renamed from: a  reason: collision with other field name */
-    public ScheduledThreadPoolExecutor f114a;
+    public ScheduledThreadPoolExecutor f90a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class ai {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -52,10 +52,10 @@ public class ai {
         }
 
         /* renamed from: a */
-        public abstract String mo247a();
+        public abstract String mo226a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class ai {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -109,18 +109,18 @@ public class ai {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f114a = new ScheduledThreadPoolExecutor(1);
-        this.f113a = new HashMap();
-        this.f112a = new Object();
-        this.f111a = context.getSharedPreferences("mipush_extra", 0);
+        this.f90a = new ScheduledThreadPoolExecutor(1);
+        this.f89a = new HashMap();
+        this.f88a = new Object();
+        this.f87a = context.getSharedPreferences("mipush_extra", 0);
     }
 
     public static ai a(Context context) {
@@ -153,8 +153,8 @@ public class ai {
         ScheduledFuture scheduledFuture;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, aVar)) == null) {
-            synchronized (this.f112a) {
-                scheduledFuture = this.f113a.get(aVar.mo247a());
+            synchronized (this.f88a) {
+                scheduledFuture = this.f89a.get(aVar.mo226a());
             }
             return scheduledFuture;
         }
@@ -168,51 +168,51 @@ public class ai {
         }
     }
 
-    public void a(Runnable runnable, int i2) {
+    public void a(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, i2) == null) {
-            this.f114a.schedule(runnable, i2, TimeUnit.SECONDS);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, i) == null) {
+            this.f90a.schedule(runnable, i, TimeUnit.SECONDS);
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m205a(a aVar) {
+    public boolean m184a(a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) ? b(aVar, 0) : invokeL.booleanValue;
     }
 
-    public boolean a(a aVar, int i2) {
+    public boolean a(a aVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, aVar, i2)) == null) ? a(aVar, i2, 0) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, aVar, i)) == null) ? a(aVar, i, 0) : invokeLI.booleanValue;
     }
 
-    public boolean a(a aVar, int i2, int i3) {
+    public boolean a(a aVar, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, aVar, i2, i3)) == null) ? a(aVar, i2, i3, false) : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, aVar, i, i2)) == null) ? a(aVar, i, i2, false) : invokeLII.booleanValue;
     }
 
-    public boolean a(a aVar, int i2, int i3, boolean z) {
+    public boolean a(a aVar, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{aVar, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{aVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            String a2 = a(aVar.mo247a());
+            String a2 = a(aVar.mo226a());
             aj ajVar = new aj(this, aVar, z, a2);
             if (!z) {
-                long abs = Math.abs(System.currentTimeMillis() - this.f111a.getLong(a2, 0L)) / 1000;
-                if (abs < i2 - i3) {
-                    i3 = (int) (i2 - abs);
+                long abs = Math.abs(System.currentTimeMillis() - this.f87a.getLong(a2, 0L)) / 1000;
+                if (abs < i - i2) {
+                    i2 = (int) (i - abs);
                 }
             }
             try {
-                ScheduledFuture<?> scheduleAtFixedRate = this.f114a.scheduleAtFixedRate(ajVar, i3, i2, TimeUnit.SECONDS);
-                synchronized (this.f112a) {
-                    this.f113a.put(aVar.mo247a(), scheduleAtFixedRate);
+                ScheduledFuture<?> scheduleAtFixedRate = this.f90a.scheduleAtFixedRate(ajVar, i2, i, TimeUnit.SECONDS);
+                synchronized (this.f88a) {
+                    this.f89a.put(aVar.mo226a(), scheduleAtFixedRate);
                 }
                 return true;
             } catch (Exception e2) {
@@ -224,32 +224,32 @@ public class ai {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m206a(String str) {
+    public boolean m185a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.f112a) {
-                ScheduledFuture scheduledFuture = this.f113a.get(str);
+            synchronized (this.f88a) {
+                ScheduledFuture scheduledFuture = this.f89a.get(str);
                 if (scheduledFuture == null) {
                     return false;
                 }
-                this.f113a.remove(str);
+                this.f89a.remove(str);
                 return scheduledFuture.cancel(false);
             }
         }
         return invokeL.booleanValue;
     }
 
-    public boolean b(a aVar, int i2) {
+    public boolean b(a aVar, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, aVar, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, aVar, i)) == null) {
             if (aVar == null || a(aVar) != null) {
                 return false;
             }
-            ScheduledFuture<?> schedule = this.f114a.schedule(new ak(this, aVar), i2, TimeUnit.SECONDS);
-            synchronized (this.f112a) {
-                this.f113a.put(aVar.mo247a(), schedule);
+            ScheduledFuture<?> schedule = this.f90a.schedule(new ak(this, aVar), i, TimeUnit.SECONDS);
+            synchronized (this.f88a) {
+                this.f89a.put(aVar.mo226a(), schedule);
             }
             return true;
         }

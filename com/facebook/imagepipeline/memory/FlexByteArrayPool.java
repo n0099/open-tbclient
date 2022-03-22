@@ -14,7 +14,7 @@ import com.facebook.common.references.ResourceReleaser;
 import java.util.Map;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlexByteArrayPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public class FlexByteArrayPool {
     public final ResourceReleaser<byte[]> mResourceReleaser;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class SoftRefByteArrayPool extends GenericByteArrayPool {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public class FlexByteArrayPool {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {memoryTrimmableRegistry, poolParams, poolStatsTracker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((MemoryTrimmableRegistry) objArr2[0], (PoolParams) objArr2[1], (PoolStatsTracker) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -50,10 +50,10 @@ public class FlexByteArrayPool {
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        public Bucket<byte[]> newBucket(int i2) {
+        public Bucket<byte[]> newBucket(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new OOMSoftReferenceBucket(getSizeInBytes(i2), this.mPoolParams.maxNumThreads, 0) : (Bucket) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? new OOMSoftReferenceBucket(getSizeInBytes(i), this.mPoolParams.maxNumThreads, 0) : (Bucket) invokeI.objValue;
         }
     }
 
@@ -64,9 +64,9 @@ public class FlexByteArrayPool {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryTrimmableRegistry, poolParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,9 +86,9 @@ public class FlexByteArrayPool {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -108,10 +108,10 @@ public class FlexByteArrayPool {
         };
     }
 
-    public CloseableReference<byte[]> get(int i2) {
+    public CloseableReference<byte[]> get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? CloseableReference.of(this.mDelegatePool.get(i2), this.mResourceReleaser) : (CloseableReference) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? CloseableReference.of(this.mDelegatePool.get(i), this.mResourceReleaser) : (CloseableReference) invokeI.objValue;
     }
 
     public int getMinBufferSize() {

@@ -67,9 +67,9 @@ public class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -88,33 +88,33 @@ public class Util {
         return (int[]) invokeLL.objValue;
     }
 
-    public static Object createArray(DataType dataType, int i2, Object obj) {
+    public static Object createArray(DataType dataType, int i, Object obj) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, dataType, i2, obj)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65543, null, dataType, i, obj)) == null) {
             switch (AnonymousClass1.$SwitchMap$com$baidu$searchbox$ai$DataType[dataType.ordinal()]) {
                 case 1:
-                    int[] iArr = new int[i2];
+                    int[] iArr = new int[i];
                     iArr[0] = ((Integer) obj).intValue();
                     return iArr;
                 case 2:
-                    long[] jArr = new long[i2];
+                    long[] jArr = new long[i];
                     jArr[0] = ((Long) obj).longValue();
                     return jArr;
                 case 3:
-                    float[] fArr = new float[i2];
+                    float[] fArr = new float[i];
                     fArr[0] = ((Float) obj).floatValue();
                     return fArr;
                 case 4:
-                    double[] dArr = new double[i2];
+                    double[] dArr = new double[i];
                     dArr[0] = ((Double) obj).doubleValue();
                     return dArr;
                 case 5:
-                    String[] strArr = new String[i2];
+                    String[] strArr = new String[i];
                     strArr[0] = (String) obj;
                     return strArr;
                 case 6:
-                    byte[] bArr = new byte[i2];
+                    byte[] bArr = new byte[i];
                     bArr[0] = ((Byte) obj).byteValue();
                     return bArr;
                 default:
@@ -154,96 +154,96 @@ public class Util {
         return invokeLLL.objValue;
     }
 
-    public static byte[] flatByteArray(Object obj, int i2) {
+    public static byte[] flatByteArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, obj, i)) == null) {
+            if (i == 1) {
                 return (byte[]) obj;
             }
             byte[] bArr = new byte[0];
             for (Object obj2 : (Object[]) obj) {
-                bArr = concat(bArr, flatByteArray(obj2, i2 - 1));
+                bArr = concat(bArr, flatByteArray(obj2, i - 1));
             }
             return bArr;
         }
         return (byte[]) invokeLI.objValue;
     }
 
-    public static double[] flatDoubleArray(Object obj, int i2) {
+    public static double[] flatDoubleArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, obj, i)) == null) {
+            if (i == 1) {
                 return (double[]) obj;
             }
             double[] dArr = new double[0];
             for (Object obj2 : (Object[]) obj) {
-                dArr = concat(dArr, flatDoubleArray(obj2, i2 - 1));
+                dArr = concat(dArr, flatDoubleArray(obj2, i - 1));
             }
             return dArr;
         }
         return (double[]) invokeLI.objValue;
     }
 
-    public static float[] flatFloatArray(Object obj, int i2) {
+    public static float[] flatFloatArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, obj, i)) == null) {
+            if (i == 1) {
                 return (float[]) obj;
             }
             float[] fArr = new float[0];
             for (Object obj2 : (Object[]) obj) {
-                fArr = concat(fArr, flatFloatArray(obj2, i2 - 1));
+                fArr = concat(fArr, flatFloatArray(obj2, i - 1));
             }
             return fArr;
         }
         return (float[]) invokeLI.objValue;
     }
 
-    public static int[] flatIntArray(Object obj, int i2) {
+    public static int[] flatIntArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, obj, i)) == null) {
+            if (i == 1) {
                 return (int[]) obj;
             }
             int[] iArr = new int[0];
             for (Object obj2 : (Object[]) obj) {
-                iArr = concat(iArr, flatIntArray(obj2, i2 - 1));
+                iArr = concat(iArr, flatIntArray(obj2, i - 1));
             }
             return iArr;
         }
         return (int[]) invokeLI.objValue;
     }
 
-    public static long[] flatLongArray(Object obj, int i2) {
+    public static long[] flatLongArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65549, null, obj, i)) == null) {
+            if (i == 1) {
                 return (long[]) obj;
             }
             long[] jArr = new long[0];
             for (Object obj2 : (Object[]) obj) {
-                jArr = concat(jArr, flatLongArray(obj2, i2 - 1));
+                jArr = concat(jArr, flatLongArray(obj2, i - 1));
             }
             return jArr;
         }
         return (long[]) invokeLI.objValue;
     }
 
-    public static String[] flatStringArray(Object obj, int i2) {
+    public static String[] flatStringArray(Object obj, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, obj, i2)) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, obj, i)) == null) {
+            if (i == 1) {
                 return (String[]) obj;
             }
             String[] strArr = new String[0];
             for (Object obj2 : (Object[]) obj) {
-                strArr = concat(strArr, flatStringArray(obj2, i2 - 1));
+                strArr = concat(strArr, flatStringArray(obj2, i - 1));
             }
             return strArr;
         }

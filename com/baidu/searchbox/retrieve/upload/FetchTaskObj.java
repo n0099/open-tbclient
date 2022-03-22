@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class FetchTaskObj {
     public static /* synthetic */ Interceptable $ic = null;
@@ -49,9 +48,9 @@ public class FetchTaskObj {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, str5, str6, str7};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -174,7 +173,7 @@ public class FetchTaskObj {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return "FetchTaskObj{mType='" + this.mType + ExtendedMessageFormat.QUOTE + ", mValue='" + this.mValue + ExtendedMessageFormat.QUOTE + ", mJobID='" + this.mJobID + ExtendedMessageFormat.QUOTE + ", mVersion='" + this.mVersion + ExtendedMessageFormat.QUOTE + ", mStatus='" + this.mStatus + ExtendedMessageFormat.QUOTE + ", mOrigin='" + this.mOrigin + ExtendedMessageFormat.QUOTE + ", mFileMeta='" + this.mFileMeta + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "FetchTaskObj{mType='" + this.mType + "', mValue='" + this.mValue + "', mJobID='" + this.mJobID + "', mVersion='" + this.mVersion + "', mStatus='" + this.mStatus + "', mOrigin='" + this.mOrigin + "', mFileMeta='" + this.mFileMeta + "'}";
         }
         return (String) invokeV.objValue;
     }

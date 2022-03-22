@@ -24,7 +24,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ServiceManagerNative {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ServiceManagerNative sInstance;
@@ -38,9 +38,9 @@ public class ServiceManagerNative {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -67,13 +67,13 @@ public class ServiceManagerNative {
         return (ServiceManagerNative) invokeV.objValue;
     }
 
-    public boolean bindServiceNative(Context context, Intent intent, ServiceConnection serviceConnection, int i2, String str) {
+    public boolean bindServiceNative(Context context, Intent intent, ServiceConnection serviceConnection, int i, String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, intent, serviceConnection, Integer.valueOf(i2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, intent, serviceConnection, Integer.valueOf(i), str})) == null) {
             ServiceInfo queryServiceFromPlugin = queryServiceFromPlugin(intent, str);
             if (queryServiceFromPlugin == null) {
-                return context.bindService(intent, serviceConnection, i2);
+                return context.bindService(intent, serviceConnection, i);
             }
             if (!this.serviceConn2ServiceConn.containsKey(serviceConnection)) {
                 this.serviceConn2ServiceConn.put(serviceConnection, new f.a(this, serviceConnection) { // from class: com.bytedance.pangle.service.client.ServiceManagerNative.1
@@ -82,7 +82,7 @@ public class ServiceManagerNative {
                     public final /* synthetic */ ServiceConnection a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ ServiceManagerNative f51760b;
+                    public final /* synthetic */ ServiceManagerNative f38181b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -91,15 +91,15 @@ public class ServiceManagerNative {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, serviceConnection};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f51760b = this;
+                        this.f38181b = this;
                         this.a = serviceConnection;
                     }
 
@@ -137,7 +137,7 @@ public class ServiceManagerNative {
             }
             hashSet.add(intent.getComponent());
             try {
-                return a.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i2, str);
+                return a.a(intent, this.serviceConn2ServiceConn.get(serviceConnection), i, str);
             } catch (RemoteException e2) {
                 e2.printStackTrace();
                 ZeusLogger.e(ZeusLogger.TAG_SERVICE, "bindService failed!", e2);

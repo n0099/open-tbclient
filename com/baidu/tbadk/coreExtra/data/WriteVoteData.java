@@ -29,9 +29,9 @@ public class WriteVoteData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,10 +75,10 @@ public class WriteVoteData extends OrmObject implements Serializable {
         this.is_multi = jSONObject.optInt("is_multi");
         JSONArray optJSONArray = jSONObject.optJSONArray("options");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
                 try {
-                    writeVoteItemData.parseJson(optJSONArray.getJSONObject(i2));
+                    writeVoteItemData.parseJson(optJSONArray.getJSONObject(i));
                     this.options.add(writeVoteItemData);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -87,17 +87,17 @@ public class WriteVoteData extends OrmObject implements Serializable {
         }
     }
 
-    public void setExpire_type(int i2) {
+    public void setExpire_type(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.expire_type = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.expire_type = i;
         }
     }
 
-    public void setIs_multi(int i2) {
+    public void setIs_multi(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.is_multi = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.is_multi = i;
         }
     }
 

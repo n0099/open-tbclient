@@ -18,9 +18,9 @@ public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,15 +30,15 @@ public abstract class CookieResponseCallback<T> extends ResponseCallback<T> {
     public abstract void handleCookies(List<String> list) throws Exception;
 
     @Override // com.baidu.searchbox.http.callback.ResponseCallback
-    public T parseResponse(Response response, int i2) throws Exception {
+    public T parseResponse(Response response, int i) throws Exception {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
             handleCookies(response.headers("Set-Cookie"));
-            return parseResponseAfterHandleCookie(response, i2);
+            return parseResponseAfterHandleCookie(response, i);
         }
         return (T) invokeLI.objValue;
     }
 
-    public abstract T parseResponseAfterHandleCookie(Response response, int i2) throws Exception;
+    public abstract T parseResponseAfterHandleCookie(Response response, int i) throws Exception;
 }

@@ -53,26 +53,26 @@ public interface IMediaPlayer extends IPlayer {
 
     /* loaded from: classes6.dex */
     public interface Listener {
-        void onBufferingUpdate(int i2);
+        void onBufferingUpdate(int i);
 
         int onCompletion();
 
-        boolean onError(int i2, int i3, Exception exc);
+        boolean onError(int i, int i2, Exception exc);
 
-        boolean onInfo(int i2, int i3);
+        boolean onInfo(int i, int i2);
 
         void onPrepared();
 
         void onSeekComplete();
 
-        void onStateChanged(int i2);
+        void onStateChanged(int i);
 
-        void onVideoSizeChanged(int i2, int i3, int i4, float f2);
+        void onVideoSizeChanged(int i, int i2, int i3, float f2);
     }
 
     /* loaded from: classes6.dex */
     public interface OnBufferingUpdateListener {
-        void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i2);
+        void onBufferingUpdate(IMediaPlayer iMediaPlayer, int i);
     }
 
     /* loaded from: classes6.dex */
@@ -82,12 +82,12 @@ public interface IMediaPlayer extends IPlayer {
 
     /* loaded from: classes6.dex */
     public interface OnErrorListener {
-        boolean onError(IMediaPlayer iMediaPlayer, int i2, int i3);
+        boolean onError(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
     /* loaded from: classes6.dex */
     public interface OnInfoListener {
-        boolean onInfo(IMediaPlayer iMediaPlayer, int i2, int i3);
+        boolean onInfo(IMediaPlayer iMediaPlayer, int i, int i2);
     }
 
     /* loaded from: classes6.dex */
@@ -117,7 +117,7 @@ public interface IMediaPlayer extends IPlayer {
 
     /* loaded from: classes6.dex */
     public interface OnVideoSizeChangedListener {
-        void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i2, int i3, int i4, int i5);
+        void onVideoSizeChanged(IMediaPlayer iMediaPlayer, int i, int i2, int i3, int i4);
     }
 
     int getAudioSessionId();
@@ -172,9 +172,9 @@ public interface IMediaPlayer extends IPlayer {
     void reset();
 
     @Override // com.baidu.ugc.editvideo.player.IPlayer
-    void seekTo(long j2) throws IllegalStateException;
+    void seekTo(long j) throws IllegalStateException;
 
-    void setAudioStreamType(int i2);
+    void setAudioStreamType(int i);
 
     void setDataSource(Context context, Uri uri) throws IOException, IllegalArgumentException, SecurityException, IllegalStateException;
 

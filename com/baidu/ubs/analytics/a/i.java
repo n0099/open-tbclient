@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes6.dex */
 public final class i implements Serializable {
     public static /* synthetic */ Interceptable $ic;
@@ -25,9 +24,9 @@ public final class i implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,10 +69,10 @@ public final class i implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
-    public final void setId(int i2) {
+    public final void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -102,7 +101,7 @@ public final class i implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "NetLogEntity{id=" + this.id + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ", timeStamp='" + this.I + ExtendedMessageFormat.QUOTE + ", parameters='" + this.T + ExtendedMessageFormat.QUOTE + ", type='" + this.type + ExtendedMessageFormat.QUOTE + ", sessionId='" + this.H + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "NetLogEntity{id=" + this.id + ", url='" + this.url + "', timeStamp='" + this.I + "', parameters='" + this.T + "', type='" + this.type + "', sessionId='" + this.H + "'}";
         }
         return (String) invokeV.objValue;
     }

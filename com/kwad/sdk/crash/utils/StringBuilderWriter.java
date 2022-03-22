@@ -2,7 +2,7 @@ package com.kwad.sdk.crash.utils;
 
 import java.io.Serializable;
 import java.io.Writer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class StringBuilderWriter extends Writer implements Serializable {
     public static final long serialVersionUID = 4424285024471074820L;
     public final StringBuilder builder;
@@ -11,8 +11,8 @@ public class StringBuilderWriter extends Writer implements Serializable {
         this.builder = new StringBuilder();
     }
 
-    public StringBuilderWriter(int i2) {
-        this.builder = new StringBuilder(i2);
+    public StringBuilderWriter(int i) {
+        this.builder = new StringBuilder(i);
     }
 
     public StringBuilderWriter(StringBuilder sb) {
@@ -35,8 +35,8 @@ public class StringBuilderWriter extends Writer implements Serializable {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.io.Writer, java.lang.Appendable
-    public Writer append(CharSequence charSequence, int i2, int i3) {
-        this.builder.append(charSequence, i2, i3);
+    public Writer append(CharSequence charSequence, int i, int i2) {
+        this.builder.append(charSequence, i, i2);
         return this;
     }
 
@@ -64,9 +64,9 @@ public class StringBuilderWriter extends Writer implements Serializable {
     }
 
     @Override // java.io.Writer
-    public void write(char[] cArr, int i2, int i3) {
+    public void write(char[] cArr, int i, int i2) {
         if (cArr != null) {
-            this.builder.append(cArr, i2, i3);
+            this.builder.append(cArr, i, i2);
         }
     }
 }

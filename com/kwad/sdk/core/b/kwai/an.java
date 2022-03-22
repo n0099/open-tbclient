@@ -12,19 +12,19 @@ public class an implements com.kwad.sdk.core.d<TKConfigResultData.a> {
             return;
         }
         aVar.a = jSONObject.optLong("interval");
-        aVar.f56670b = jSONObject.optString("jsVersion");
+        aVar.f41546b = jSONObject.optString("jsVersion");
         if (jSONObject.opt("jsVersion") == JSONObject.NULL) {
-            aVar.f56670b = "";
+            aVar.f41546b = "";
         }
-        aVar.f56671c = jSONObject.optString("dynamicUrl");
+        aVar.f41547c = jSONObject.optString("dynamicUrl");
         if (jSONObject.opt("dynamicUrl") == JSONObject.NULL) {
-            aVar.f56671c = "";
+            aVar.f41547c = "";
         }
-        aVar.f56672d = jSONObject.optString(PackageTable.MD5);
+        aVar.f41548d = jSONObject.optString(PackageTable.MD5);
         if (jSONObject.opt(PackageTable.MD5) == JSONObject.NULL) {
-            aVar.f56672d = "";
+            aVar.f41548d = "";
         }
-        aVar.f56673e = jSONObject.optInt("dynamicType");
+        aVar.f41549e = jSONObject.optInt("dynamicType");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -34,10 +34,10 @@ public class an implements com.kwad.sdk.core.d<TKConfigResultData.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "interval", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "jsVersion", aVar.f56670b);
-        com.kwad.sdk.utils.t.a(jSONObject, "dynamicUrl", aVar.f56671c);
-        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, aVar.f56672d);
-        com.kwad.sdk.utils.t.a(jSONObject, "dynamicType", aVar.f56673e);
+        com.kwad.sdk.utils.t.a(jSONObject, "jsVersion", aVar.f41546b);
+        com.kwad.sdk.utils.t.a(jSONObject, "dynamicUrl", aVar.f41547c);
+        com.kwad.sdk.utils.t.a(jSONObject, PackageTable.MD5, aVar.f41548d);
+        com.kwad.sdk.utils.t.a(jSONObject, "dynamicType", aVar.f41549e);
         return jSONObject;
     }
 }

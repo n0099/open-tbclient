@@ -12,9 +12,9 @@ public interface a {
 
     /* renamed from: c.a.j.h.b.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0169a {
+    public static final class C0175a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ C0169a a;
+        public static final /* synthetic */ C0175a a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -30,17 +30,17 @@ public interface a {
                     return;
                 }
             }
-            a = new C0169a();
+            a = new C0175a();
         }
 
-        public C0169a() {
+        public C0175a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -49,8 +49,8 @@ public interface a {
     }
 
     static {
-        C0169a c0169a = C0169a.a;
+        C0175a c0175a = C0175a.a;
     }
 
-    void a(String str, int i2);
+    void a(String str, int i);
 }

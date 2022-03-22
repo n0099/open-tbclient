@@ -51,9 +51,9 @@ public class CallbackDispatcher {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -63,12 +63,12 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectEnd(@NonNull DownloadTask downloadTask, int i2, int i3, @NonNull Map<String, List<String>> map) {
+        public void connectEnd(@NonNull DownloadTask downloadTask, int i, int i2, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i2), Integer.valueOf(i3), map}) == null) {
-                Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i2 + ") code[" + i3 + PreferencesUtil.RIGHT_MOUNT + map);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map}) == null) {
+                Util.d(CallbackDispatcher.TAG, "<----- finish connection task(" + downloadTask.getId() + ") block(" + i + ") code[" + i2 + PreferencesUtil.RIGHT_MOUNT + map);
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, i3, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.7
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, i2, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -82,11 +82,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), Integer.valueOf(i3), map};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), Integer.valueOf(i2), map};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -94,8 +94,8 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$blockIndex = i2;
-                            this.val$responseCode = i3;
+                            this.val$blockIndex = i;
+                            this.val$responseCode = i2;
                             this.val$requestHeaderFields = map;
                         }
 
@@ -108,18 +108,18 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().connectEnd(downloadTask, i2, i3, map);
+                    downloadTask.getListener().connectEnd(downloadTask, i, i2, map);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectStart(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
+        public void connectStart(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i2, map) == null) {
-                Util.d(CallbackDispatcher.TAG, "-----> start connection task(" + downloadTask.getId() + ") block(" + i2 + ") " + map);
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadTask, i, map) == null) {
+                Util.d(CallbackDispatcher.TAG, "-----> start connection task(" + downloadTask.getId() + ") block(" + i + ") " + map);
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.6
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.6
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -132,11 +132,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), map};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), map};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -144,7 +144,7 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$blockIndex = i2;
+                            this.val$blockIndex = i;
                             this.val$requestHeaderFields = map;
                         }
 
@@ -157,18 +157,18 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().connectStart(downloadTask, i2, map);
+                    downloadTask.getListener().connectStart(downloadTask, i, map);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i2, @NonNull Map<String, List<String>> map) {
+        public void connectTrialEnd(@NonNull DownloadTask downloadTask, int i, @NonNull Map<String, List<String>> map) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i2, map) == null) {
-                Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i2 + PreferencesUtil.RIGHT_MOUNT + map);
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, downloadTask, i, map) == null) {
+                Util.d(CallbackDispatcher.TAG, "<----- finish trial task(" + downloadTask.getId() + ") code[" + i + PreferencesUtil.RIGHT_MOUNT + map);
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.3
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, map) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -181,11 +181,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), map};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), map};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -193,7 +193,7 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$responseCode = i2;
+                            this.val$responseCode = i;
                             this.val$headerFields = map;
                         }
 
@@ -206,7 +206,7 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().connectTrialEnd(downloadTask, i2, map);
+                    downloadTask.getListener().connectTrialEnd(downloadTask, i, map);
                 }
             }
         }
@@ -231,9 +231,9 @@ public class CallbackDispatcher {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, downloadTask, map};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -280,9 +280,9 @@ public class CallbackDispatcher {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, downloadTask, breakpointInfo, resumeFailedCause};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -329,9 +329,9 @@ public class CallbackDispatcher {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, downloadTask, breakpointInfo};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -365,12 +365,12 @@ public class CallbackDispatcher {
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchEnd(@NonNull DownloadTask downloadTask, int i2, long j2) {
+        public void fetchEnd(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 Util.d(CallbackDispatcher.TAG, "fetchEnd: " + downloadTask.getId());
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, j2) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.10
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, j) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.10
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -383,11 +383,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), Long.valueOf(j2)};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -395,8 +395,8 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$blockIndex = i2;
-                            this.val$contentLength = j2;
+                            this.val$blockIndex = i;
+                            this.val$contentLength = j;
                         }
 
                         @Override // java.lang.Runnable
@@ -408,21 +408,21 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().fetchEnd(downloadTask, i2, j2);
+                    downloadTask.getListener().fetchEnd(downloadTask, i, j);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchProgress(@NonNull DownloadTask downloadTask, int i2, long j2) {
+        public void fetchProgress(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 if (downloadTask.getMinIntervalMillisCallbackProcess() > 0) {
                     DownloadTask.TaskHideWrapper.setLastCallbackProcessTs(downloadTask, SystemClock.uptimeMillis());
-                    DownloadTask.TaskHideWrapper.setSpeedIncreaseBytes(downloadTask, j2);
+                    DownloadTask.TaskHideWrapper.setSpeedIncreaseBytes(downloadTask, j);
                 }
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, j2) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.9
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, j) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.9
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -435,11 +435,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), Long.valueOf(j2)};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -447,8 +447,8 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$blockIndex = i2;
-                            this.val$increaseBytes = j2;
+                            this.val$blockIndex = i;
+                            this.val$increaseBytes = j;
                         }
 
                         @Override // java.lang.Runnable
@@ -460,18 +460,18 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().fetchProgress(downloadTask, i2, j2);
+                    downloadTask.getListener().fetchProgress(downloadTask, i, j);
                 }
             }
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.DownloadListener
-        public void fetchStart(@NonNull DownloadTask downloadTask, int i2, long j2) {
+        public void fetchStart(@NonNull DownloadTask downloadTask, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{downloadTask, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 Util.d(CallbackDispatcher.TAG, "fetchStart: " + downloadTask.getId());
                 if (downloadTask.isAutoCallbackToUIThread()) {
-                    this.uiHandler.post(new Runnable(this, downloadTask, i2, j2) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.8
+                    this.uiHandler.post(new Runnable(this, downloadTask, i, j) { // from class: com.baidu.searchbox.bddownload.core.dispatcher.CallbackDispatcher.DefaultTransmitListener.8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ DefaultTransmitListener this$0;
@@ -484,11 +484,11 @@ public class CallbackDispatcher {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, downloadTask, Integer.valueOf(i2), Long.valueOf(j2)};
+                                Object[] objArr = {this, downloadTask, Integer.valueOf(i), Long.valueOf(j)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -496,8 +496,8 @@ public class CallbackDispatcher {
                             }
                             this.this$0 = this;
                             this.val$task = downloadTask;
-                            this.val$blockIndex = i2;
-                            this.val$contentLength = j2;
+                            this.val$blockIndex = i;
+                            this.val$contentLength = j;
                         }
 
                         @Override // java.lang.Runnable
@@ -509,7 +509,7 @@ public class CallbackDispatcher {
                         }
                     });
                 } else {
-                    downloadTask.getListener().fetchStart(downloadTask, i2, j2);
+                    downloadTask.getListener().fetchStart(downloadTask, i, j);
                 }
             }
         }
@@ -574,9 +574,9 @@ public class CallbackDispatcher {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, downloadTask, endCause, exc};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -642,9 +642,9 @@ public class CallbackDispatcher {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, downloadTask};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -684,9 +684,9 @@ public class CallbackDispatcher {
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, downloadListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -757,9 +757,9 @@ public class CallbackDispatcher {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, collection, collection2, collection3};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -817,9 +817,9 @@ public class CallbackDispatcher {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, collection};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -869,9 +869,9 @@ public class CallbackDispatcher {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, collection, exc};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -909,9 +909,9 @@ public class CallbackDispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

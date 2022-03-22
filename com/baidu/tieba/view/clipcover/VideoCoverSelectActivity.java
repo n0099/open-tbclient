@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.tbadk.core.atomData.VideoCoverSelectActivityConfig;
 import com.baidu.tbadk.core.util.FileHelper;
@@ -35,9 +34,9 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -45,13 +44,13 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     }
 
     private void generateUriAndReturn() {
-        Bitmap clip;
+        Bitmap c2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (clip = this.mCoverSelsctLayout.clip()) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65537, this) == null) || (c2 = this.mCoverSelsctLayout.c()) == null) {
             return;
         }
         String str = getIntent().getBooleanExtra(AlbumActivityConfig.KEY_DIRECT_TO_WORK_PUBLISH_PAGE, false) ? "tbNewVideo/temp/" : "tbVideo/temp/";
-        String saveBitmapByRelativelyPath = FileHelper.saveBitmapByRelativelyPath(str, System.currentTimeMillis() + ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX, clip, 90);
+        String saveBitmapByRelativelyPath = FileHelper.saveBitmapByRelativelyPath(str, System.currentTimeMillis() + ".jpg", c2, 90);
         Intent intent = new Intent();
         intent.putExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH, saveBitmapByRelativelyPath);
         setResult(-1, intent);
@@ -61,16 +60,16 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
     public void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mCoverSelsctLayout = (CoverSelectLayout) findViewById(R.id.cover_select_layout);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_cover_nagivation_bar);
+            this.mCoverSelsctLayout = (CoverSelectLayout) findViewById(R.id.obfuscated_res_0x7f090712);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923b9);
             this.mNavigationBar = navigationBar;
-            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.pick_cover_activity_title));
+            TextView centerTextTitle = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e3e));
             this.mTitle = centerTextTitle;
             centerTextTitle.setTextColor(getResources().getColor(R.color.CAM_X0101));
             View addSystemImageButton = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mBack = addSystemImageButton;
-            ((ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button)).setImageDrawable(getResources().getDrawable(R.drawable.icon_pure_topbar_return44));
-            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.next_step));
+            ((ImageView) addSystemImageButton.findViewById(R.id.obfuscated_res_0x7f09246f)).setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809be));
+            TextView addTextButton = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getResources().getString(R.string.obfuscated_res_0x7f0f0c20));
             this.mSave = addTextButton;
             addTextButton.setTextColor(getResources().getColor(R.color.CAM_X0101));
             this.mBack.setOnClickListener(this);
@@ -99,7 +98,7 @@ public class VideoCoverSelectActivity extends BaseActivity<VideoCoverSelectActiv
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
-            setContentView(R.layout.activity_clip_image);
+            setContentView(R.layout.obfuscated_res_0x7f0d002f);
             if (getIntent() != null) {
                 this.mType = getIntent().getIntExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_TYPE, 1);
                 this.mImagePath = getIntent().getStringExtra(VideoCoverSelectActivityConfig.KEY_VIDEO_COVER_IMAGE_PATH);

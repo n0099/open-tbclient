@@ -24,9 +24,9 @@ public class AccountManager extends BaseManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -227,26 +227,26 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static boolean setAppid(Context context, long j2) {
+    public static boolean setAppid(Context context, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, context, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, context, j)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
-            return AccountManagerImpl.getInstance(context).setAppid(j2);
+            return AccountManagerImpl.getInstance(context).setAppid(j);
         }
         return invokeLJ.booleanValue;
     }
 
-    public static boolean setEnv(Context context, int i2) {
+    public static boolean setEnv(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65558, null, context, i)) == null) {
             if (BaseManager.isNullContext(context)) {
                 return false;
             }
-            return AccountManagerImpl.getInstance(context).setEnv(context, i2);
+            return AccountManagerImpl.getInstance(context).setEnv(context, i);
         }
         return invokeLI.booleanValue;
     }
@@ -265,29 +265,29 @@ public class AccountManager extends BaseManager {
         }
     }
 
-    public static void setMsgSettingSwitchStatus(Context context, int i2, int i3, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
+    public static void setMsgSettingSwitchStatus(Context context, int i, int i2, ISetMsgSettingSwitchListener iSetMsgSettingSwitchListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), iSetMsgSettingSwitchListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65561, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), iSetMsgSettingSwitchListener}) == null) {
             if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i2, i3, iSetMsgSettingSwitchListener);
+                AccountManagerImpl.getInstance(context).setMsgSettingSwitchStatus(i, i2, iSetMsgSettingSwitchListener);
             } else if (iSetMsgSettingSwitchListener != null) {
                 iSetMsgSettingSwitchListener.onSetMsgSettingSwitch(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
             }
         }
     }
 
-    public static void setNofityPaid(Context context, long j2) {
+    public static void setNofityPaid(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65562, null, context, j2) == null) {
-            AccountManagerImpl.getInstance(context).setNotifyPaid(j2);
+        if (interceptable == null || interceptable.invokeLJ(65562, null, context, j) == null) {
+            AccountManagerImpl.getInstance(context).setNotifyPaid(j);
         }
     }
 
-    public static void setNotificationPrivacy(Context context, int i2, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
+    public static void setNotificationPrivacy(Context context, int i, ISetNotificationPrivacyListener iSetNotificationPrivacyListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65563, null, context, i2, iSetNotificationPrivacyListener) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65563, null, context, i, iSetNotificationPrivacyListener) == null) {
             if (!BaseManager.isNullContext(context)) {
-                AccountManagerImpl.getInstance(context).setNotificationPrivacy(i2, iSetNotificationPrivacyListener);
+                AccountManagerImpl.getInstance(context).setNotificationPrivacy(i, iSetNotificationPrivacyListener);
             } else if (iSetNotificationPrivacyListener != null) {
                 iSetNotificationPrivacyListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
             }
@@ -306,18 +306,18 @@ public class AccountManager extends BaseManager {
         return invokeLL.booleanValue;
     }
 
-    public static void setUpdateSwitch(Context context, int i2) {
+    public static void setUpdateSwitch(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65565, null, context, i2) == null) {
-            AccountManagerImpl.getInstance(context).setUpdateSwitch(i2);
+        if (interceptable == null || interceptable.invokeLI(65565, null, context, i) == null) {
+            AccountManagerImpl.getInstance(context).setUpdateSwitch(i);
         }
     }
 
-    public static void setZhidaAppid(Context context, long j2, String str, ISwitchZhidaListener iSwitchZhidaListener) {
+    public static void setZhidaAppid(Context context, long j, String str, ISwitchZhidaListener iSwitchZhidaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Long.valueOf(j2), str, iSwitchZhidaListener}) == null) {
-            if (!BaseManager.isNullContext(context) && j2 >= 0) {
-                AccountManagerImpl.getInstance(context).setZhidaAppid(j2, str, iSwitchZhidaListener);
+        if (interceptable == null || interceptable.invokeCommon(65566, null, new Object[]{context, Long.valueOf(j), str, iSwitchZhidaListener}) == null) {
+            if (!BaseManager.isNullContext(context) && j >= 0) {
+                AccountManagerImpl.getInstance(context).setZhidaAppid(j, str, iSwitchZhidaListener);
             } else if (iSwitchZhidaListener != null) {
                 iSwitchZhidaListener.onSwitchZhidaResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR);
             }

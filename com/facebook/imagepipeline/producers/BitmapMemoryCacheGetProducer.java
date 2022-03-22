@@ -11,7 +11,7 @@ import com.facebook.common.references.CloseableReference;
 import com.facebook.imagepipeline.cache.CacheKeyFactory;
 import com.facebook.imagepipeline.cache.MemoryCache;
 import com.facebook.imagepipeline.image.CloseableImage;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BitmapMemoryCacheGetProducer extends BitmapMemoryCacheProducer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRODUCER_NAME = "BitmapMemoryCacheGetProducer";
@@ -26,9 +26,9 @@ public class BitmapMemoryCacheGetProducer extends BitmapMemoryCacheProducer {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryCache, cacheKeyFactory, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((MemoryCache) objArr2[0], (CacheKeyFactory) objArr2[1], (Producer) objArr2[2]);
                 newInitContext.thisArg = this;

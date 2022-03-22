@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.data.DBItemModel;
@@ -51,9 +52,9 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -79,7 +80,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, launchTimeItemModel) == null) {
             if (DEBUG) {
-                String str = "delete item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp;
+                String str = TAG;
+                Log.d(str, "delete item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp);
             }
             delete("app_launch_time", "app_launch_time=? AND event_time=?", new String[]{String.valueOf(launchTimeItemModel.launchTime), String.valueOf(launchTimeItemModel.timeStamp)});
         }
@@ -132,13 +134,14 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
         sQLiteDatabase.execSQL(DBTableConfig.LaunchTimeDBTable.CREATE_TABLE_SQL);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0090 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x00a2 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public List<DBItemModel.LaunchTimeItemModel> query(DBItemModel.LaunchTimeItemModel launchTimeItemModel) {
         InterceptResult invokeL;
         Cursor cursor;
+        Cursor query;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, launchTimeItemModel)) == null) {
@@ -146,57 +149,65 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             try {
                 try {
                     if (launchTimeItemModel == null) {
-                        cursor = query("app_launch_time", null, null, null, null, null, null);
+                        query = query("app_launch_time", null, null, null, null, null, null);
                     } else {
-                        cursor = query("app_launch_time", "app_launch_time=" + launchTimeItemModel.launchTime + " AND event_time=" + launchTimeItemModel.timeStamp);
+                        query = query("app_launch_time", "app_launch_time=" + launchTimeItemModel.launchTime + " AND event_time=" + launchTimeItemModel.timeStamp);
                     }
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+                try {
+                    arrayList = new ArrayList();
+                } catch (Exception e3) {
+                    cursor = query;
+                    e = e3;
                     try {
-                        try {
-                            arrayList = new ArrayList();
-                        } catch (Exception unused) {
-                            boolean z = DEBUG;
-                            if (cursor != null) {
-                                cursor.close();
-                            }
-                            return null;
+                        if (DEBUG) {
+                            Log.w(TAG, "", e);
                         }
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return null;
                     } catch (Throwable th) {
-                        cursor2 = cursor;
                         th = th;
+                        cursor2 = cursor;
                         if (cursor2 != null) {
                             try {
                                 cursor2.close();
-                            } catch (Exception e2) {
-                                e2.printStackTrace();
+                            } catch (Exception e4) {
+                                e4.printStackTrace();
                             }
                         }
                         throw th;
                     }
-                } catch (Exception e3) {
-                    e3.printStackTrace();
+                } catch (Throwable th2) {
+                    cursor2 = query;
+                    th = th2;
+                    if (cursor2 != null) {
+                    }
+                    throw th;
                 }
-            } catch (Exception unused2) {
+            } catch (Exception e5) {
+                e = e5;
                 cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                if (cursor2 != null) {
-                }
-                throw th;
+            } catch (Throwable th3) {
+                th = th3;
             }
-            if (cursor == null) {
-                if (cursor != null) {
-                    cursor.close();
+            if (query == null) {
+                if (query != null) {
+                    query.close();
                 }
                 return null;
             }
-            while (cursor.moveToNext()) {
-                arrayList.add(new DBItemModel.LaunchTimeItemModel(cursor.getLong(cursor.getColumnIndex("app_launch_time")), cursor.getLong(cursor.getColumnIndex("event_time"))));
+            while (query.moveToNext()) {
+                arrayList.add(new DBItemModel.LaunchTimeItemModel(query.getLong(query.getColumnIndex("app_launch_time")), query.getLong(query.getColumnIndex("event_time"))));
             }
-            if (cursor != null) {
+            if (query != null) {
                 try {
-                    cursor.close();
-                } catch (Exception e4) {
-                    e4.printStackTrace();
+                    query.close();
+                } catch (Exception e6) {
+                    e6.printStackTrace();
                 }
             }
             return arrayList;
@@ -211,16 +222,16 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    public List<DBItemModel.LaunchTimeItemModel> queryLast(int i2) {
+    public List<DBItemModel.LaunchTimeItemModel> queryLast(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             ArrayList arrayList = new ArrayList();
             Cursor cursor = null;
             try {
                 try {
                     try {
-                        cursor = query("app_launch_time", null, null, null, null, null, "ROWID DESC", String.valueOf(i2));
+                        cursor = query("app_launch_time", null, null, null, null, null, "ROWID DESC", String.valueOf(i));
                     } finally {
                         if (cursor != null) {
                             try {
@@ -230,14 +241,16 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
                             }
                         }
                     }
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e3) {
+                    if (DEBUG) {
+                        Log.w(TAG, "", e3);
+                    }
                     if (cursor != null) {
                         cursor.close();
                     }
                 }
-            } catch (Exception e3) {
-                e3.printStackTrace();
+            } catch (Exception e4) {
+                e4.printStackTrace();
             }
             if (cursor != null) {
                 while (cursor.moveToNext()) {
@@ -260,7 +273,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             contentValues.put("app_launch_time", Long.valueOf(launchTimeItemModel2.launchTime));
             contentValues.put("event_time", Long.valueOf(launchTimeItemModel2.timeStamp));
             if (DEBUG) {
-                String str = "update origin item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp + " change item : " + launchTimeItemModel2.launchTime + " " + launchTimeItemModel2.timeStamp;
+                String str = TAG;
+                Log.d(str, "update origin item: " + launchTimeItemModel.launchTime + " " + launchTimeItemModel.timeStamp + " change item : " + launchTimeItemModel2.launchTime + " " + launchTimeItemModel2.timeStamp);
             }
             update("app_launch_time", contentValues, "app_launch_time=? AND event_time=?", new String[]{String.valueOf(launchTimeItemModel.launchTime), String.valueOf(launchTimeItemModel.timeStamp)});
         }
@@ -273,7 +287,8 @@ public class LaunchTimeSQLiteOpenHelper extends DataBaseOpenHelper {
             contentValues.put("app_launch_time", Long.valueOf(launchTimeItemModel.launchTime));
             contentValues.put("event_time", Long.valueOf(launchTimeItemModel.timeStamp));
             if (DEBUG) {
-                String str = "insert item launchTime: " + launchTimeItemModel.launchTime + " timeStamp: " + launchTimeItemModel.timeStamp;
+                String str = TAG;
+                Log.d(str, "insert item launchTime: " + launchTimeItemModel.launchTime + " timeStamp: " + launchTimeItemModel.timeStamp);
             }
             insert(contentValues);
         }

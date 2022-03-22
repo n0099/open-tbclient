@@ -91,9 +91,9 @@ public final class SavedStateHandle {
             newInitContext.initArgs = r2;
             Object[] objArr = {map};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -112,9 +112,9 @@ public final class SavedStateHandle {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -166,8 +166,8 @@ public final class SavedStateHandle {
             ArrayList parcelableArrayList = bundle.getParcelableArrayList(KEYS);
             ArrayList parcelableArrayList2 = bundle.getParcelableArrayList(VALUES);
             if (parcelableArrayList != null && parcelableArrayList2 != null && parcelableArrayList.size() == parcelableArrayList2.size()) {
-                for (int i2 = 0; i2 < parcelableArrayList.size(); i2++) {
-                    hashMap.put((String) parcelableArrayList.get(i2), parcelableArrayList2.get(i2));
+                for (int i = 0; i < parcelableArrayList.size(); i++) {
+                    hashMap.put((String) parcelableArrayList.get(i), parcelableArrayList2.get(i));
                 }
                 return new SavedStateHandle(hashMap);
             }
@@ -304,9 +304,9 @@ public final class SavedStateHandle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {savedStateHandle, str, t};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -343,9 +343,9 @@ public final class SavedStateHandle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {savedStateHandle, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -361,9 +361,9 @@ public final class SavedStateHandle {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -382,9 +382,9 @@ public final class SavedStateHandle {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

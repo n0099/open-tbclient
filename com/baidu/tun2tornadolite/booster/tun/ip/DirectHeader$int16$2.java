@@ -25,9 +25,9 @@ public final class DirectHeader$int16$2 extends Lambda implements Function2<Inte
             newInitContext.initArgs = r2;
             Object[] objArr = {directHeader};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,11 +45,11 @@ public final class DirectHeader$int16$2 extends Lambda implements Function2<Inte
         return Unit.INSTANCE;
     }
 
-    public final void invoke(int i2, int i3) {
+    public final void invoke(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-            this.this$0.getBuffer()[i2] = (byte) ((i3 >> 8) & 255);
-            this.this$0.getBuffer()[i2 + 1] = (byte) (i3 & 255);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.this$0.getBuffer()[i] = (byte) ((i2 >> 8) & 255);
+            this.this$0.getBuffer()[i + 1] = (byte) (i2 & 255);
         }
     }
 }

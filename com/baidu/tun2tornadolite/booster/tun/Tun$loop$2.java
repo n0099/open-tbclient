@@ -37,9 +37,9 @@ public final class Tun$loop$2 extends SuspendLambda implements Function2<Corouti
             newInitContext.initArgs = r2;
             Object[] objArr = {continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -77,7 +77,7 @@ public final class Tun$loop$2 extends SuspendLambda implements Function2<Corouti
                 ResultKt.throwOnFailure(obj);
                 z = Tun.inited;
                 if (z) {
-                    long j2 = 0;
+                    long j = 0;
                     Tun tun = Tun.INSTANCE;
                     Tun.looping = true;
                     do {
@@ -90,8 +90,8 @@ public final class Tun$loop$2 extends SuspendLambda implements Function2<Corouti
                             }
                             int read = fileInputStream.read(DirectIPv4Header.Companion.getBuffer().array(), 0, 1500);
                             if (read >= 20) {
-                                Tun.INSTANCE.processPacket(j2, DirectIPv4Header.Companion.getBuffer(), read);
-                                j2++;
+                                Tun.INSTANCE.processPacket(j, DirectIPv4Header.Companion.getBuffer(), read);
+                                j++;
                             }
                             z2 = Tun.looping;
                         } catch (IOException e2) {

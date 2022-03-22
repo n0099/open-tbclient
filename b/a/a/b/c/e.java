@@ -11,46 +11,46 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f1021b;
+    public long f996b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f1022c;
+    public long f997c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f1023d;
+    public long f998d;
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public e(int i2, String str, String str2, long j2, long j3, long j4) {
+    public e(int i, String str, String str2, long j, long j2, long j3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = str2;
-        this.f1021b = j2;
-        this.f1022c = j3;
-        this.f1023d = j4;
+        this.f996b = j;
+        this.f997c = j2;
+        this.f998d = j3;
     }
 }

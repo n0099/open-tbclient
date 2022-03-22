@@ -12,17 +12,17 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class i implements Executor {
     public static /* synthetic */ Interceptable $ic;
     public static final ThreadFactory a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public final BlockingQueue<Runnable> f57730b;
+    public final BlockingQueue<Runnable> f42504b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final ThreadPoolExecutor f57731c;
+    public final ThreadPoolExecutor f42505c;
 
     static {
         InterceptResult invokeClinit;
@@ -47,9 +47,9 @@ public final class i implements Executor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -58,30 +58,30 @@ public final class i implements Executor {
         }
     }
 
-    public i(int i2) {
+    public i(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f57730b = new l();
-        this.f57731c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f57730b, a);
+        this.f42504b = new l();
+        this.f42505c = new ThreadPoolExecutor(5, 256, 1L, TimeUnit.SECONDS, this.f42504b, a);
     }
 
     @Override // java.util.concurrent.Executor
     public final void execute(Runnable runnable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.f57731c.execute(runnable);
+            this.f42505c.execute(runnable);
         }
     }
 }

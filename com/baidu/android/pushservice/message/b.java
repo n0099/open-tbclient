@@ -26,9 +26,9 @@ public class b extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,7 +45,7 @@ public class b extends c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, eVar)) == null) {
             g gVar = new g();
             try {
-                jSONObject = new JSONObject(new String(eVar.f30930b));
+                jSONObject = new JSONObject(new String(eVar.f24769b));
             } catch (JSONException e2) {
                 new b.c(this.a).a(Log.getStackTraceString(e2)).a();
                 jSONObject = null;
@@ -55,7 +55,7 @@ public class b extends c {
                 com.baidu.android.pushservice.j.a(this.a).a(null, null, null, null);
                 m.c(this.a);
             }
-            new b.C1729b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
+            new b.C1697b(this.a).a(System.currentTimeMillis()).a(optInt + "").d(401102L).a();
             gVar.a(optInt);
             return gVar;
         }

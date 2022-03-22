@@ -17,49 +17,49 @@ import com.bytedance.pangle.util.FieldUtils;
 import java.util.Collections;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile g f51711d;
+    public static volatile g f38132d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ZeusParam f51712b;
+    public ZeusParam f38133b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<ZeusPluginStateListener> f51713c;
+    public List<ZeusPluginStateListener> f38134c;
 
     public g() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51713c = Collections.emptyList();
+        this.f38134c = Collections.emptyList();
     }
 
     public static g a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f51711d == null) {
+            if (f38132d == null) {
                 synchronized (g.class) {
-                    if (f51711d == null) {
-                        f51711d = new g();
+                    if (f38132d == null) {
+                        f38132d = new g();
                     }
                 }
             }
-            return f51711d;
+            return f38132d;
         }
         return (g) invokeV.objValue;
     }
@@ -99,10 +99,10 @@ public class g {
                         zeusParam = new ZeusParam.Builder().build();
                         ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, use default ZeusParam");
                     }
-                    this.f51712b = zeusParam;
+                    this.f38133b = zeusParam;
                     ZeusLogger.setDebug(zeusParam.isDebug());
-                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f51712b);
-                    if (!this.f51712b.isCloseDefaultReport()) {
+                    ZeusLogger.i(ZeusLogger.TAG_INIT, "ZeusManager init, context = " + application + ", hParam = " + this.f38133b);
+                    if (!this.f38133b.isCloseDefaultReport()) {
                         com.bytedance.pangle.helper.d.a(application, String.valueOf(zeusParam.getAppId()), zeusParam.getChannel(), String.valueOf(zeusParam.getDid().get()));
                     }
                     com.bytedance.pangle.b.b a = com.bytedance.pangle.b.b.a();
@@ -118,9 +118,9 @@ public class g {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -140,7 +140,7 @@ public class g {
                     synchronized (a.a) {
                         a.a.add(aVar);
                     }
-                    if (this.f51712b.isEnable()) {
+                    if (this.f38133b.isEnable()) {
                         b.a();
                         if (com.bytedance.pangle.util.g.e()) {
                             com.bytedance.pangle.helper.e.a.execute(new Runnable(this) { // from class: com.bytedance.pangle.g.2
@@ -155,9 +155,9 @@ public class g {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -189,7 +189,7 @@ public class g {
                         b();
                         ContentProviderManager.getInstance().initSystemContentProviderInfo();
                         if (com.bytedance.pangle.helper.c.b(application)) {
-                            if (this.f51712b.autoFetch()) {
+                            if (this.f38133b.autoFetch()) {
                                 com.bytedance.pangle.download.f.a();
                                 com.bytedance.pangle.download.f.b();
                             }

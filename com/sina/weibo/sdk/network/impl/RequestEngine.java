@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.http.Headers;
 import com.sina.weibo.sdk.net.NetStateManager;
 import com.sina.weibo.sdk.network.IRequestParam;
 import com.sina.weibo.sdk.network.base.RequestBodyHelper;
@@ -25,7 +26,7 @@ import java.net.Proxy;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestEngine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +36,9 @@ public class RequestEngine {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -104,7 +105,7 @@ public class RequestEngine {
                         WbResponseBody wbResponseBody = new WbResponseBody(httpURLConnection.getErrorStream(), httpURLConnection.getContentLength());
                         throw new RequestException("服务器异常" + wbResponseBody.string());
                     }
-                    iRequestParam.setUrl(httpURLConnection.getHeaderField("Location"));
+                    iRequestParam.setUrl(httpURLConnection.getHeaderField(Headers.LOCATION));
                     return request(iRequestParam);
                 } catch (MalformedURLException e2) {
                     LogUtil.v("weibosdk", e2.toString());

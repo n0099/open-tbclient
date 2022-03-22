@@ -39,9 +39,9 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((FragmentManager) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -51,19 +51,19 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         }
     }
 
-    public static String makeFragmentName(int i2, long j2) {
+    public static String makeFragmentName(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            return "android:switcher:" + i2 + ":" + j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            return "android:switcher:" + i + ":" + j;
         }
         return (String) invokeCommon.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+    public void destroyItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) {
             Fragment fragment = (Fragment) obj;
             if (this.mCurTransaction == null) {
                 this.mCurTransaction = this.mFragmentManager.beginTransaction();
@@ -94,29 +94,29 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @NonNull
-    public abstract Fragment getItem(int i2);
+    public abstract Fragment getItem(int i);
 
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? i2 : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     @NonNull
-    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(@NonNull ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             if (this.mCurTransaction == null) {
                 this.mCurTransaction = this.mFragmentManager.beginTransaction();
             }
-            long itemId = getItemId(i2);
+            long itemId = getItemId(i);
             Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(makeFragmentName(viewGroup.getId(), itemId));
             if (findFragmentByTag != null) {
                 this.mCurTransaction.attach(findFragmentByTag);
             } else {
-                findFragmentByTag = getItem(i2);
+                findFragmentByTag = getItem(i);
                 this.mCurTransaction.add(viewGroup.getId(), findFragmentByTag, makeFragmentName(viewGroup.getId(), itemId));
             }
             if (findFragmentByTag != this.mCurrentPrimaryItem) {
@@ -158,11 +158,11 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i2, @NonNull Object obj) {
+    public void setPrimaryItem(@NonNull ViewGroup viewGroup, int i, @NonNull Object obj) {
         Fragment fragment;
         Fragment fragment2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i2, obj) == null) || (fragment = (Fragment) obj) == (fragment2 = this.mCurrentPrimaryItem)) {
+        if (!(interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i, obj) == null) || (fragment = (Fragment) obj) == (fragment2 = this.mCurrentPrimaryItem)) {
             return;
         }
         if (fragment2 != null) {
@@ -196,16 +196,16 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         }
     }
 
-    public FragmentPagerAdapter(@NonNull FragmentManager fragmentManager, int i2) {
+    public FragmentPagerAdapter(@NonNull FragmentManager fragmentManager, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fragmentManager, Integer.valueOf(i2)};
+            Object[] objArr = {fragmentManager, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -214,6 +214,6 @@ public abstract class FragmentPagerAdapter extends PagerAdapter {
         this.mCurTransaction = null;
         this.mCurrentPrimaryItem = null;
         this.mFragmentManager = fragmentManager;
-        this.mBehavior = i2;
+        this.mBehavior = i;
     }
 }

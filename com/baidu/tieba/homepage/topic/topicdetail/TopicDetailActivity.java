@@ -8,7 +8,7 @@ import c.a.d.f.m.b;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
 import c.a.d.o.e.n;
-import c.a.q0.a.v;
+import c.a.o0.a.w;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
@@ -40,7 +40,7 @@ import java.util.regex.Pattern;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.r0.o1.l.b.a {
+public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> implements c.a.p0.q1.l.b.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_TOPIC_DETAIL = "tbtopicdetail://";
     public static final String TOPIC_ID_PREFFIX = "topic_id=";
@@ -65,9 +65,9 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                 newInitContext.initArgs = r2;
                 Object[] objArr = {topicDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,7 +77,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
 
         @Override // com.baidu.tbadk.BdToken.BdUniDispatchSchemeController.b
-        public void onCallBack(HashMap<String, Object> hashMap) {
+        public void a(HashMap<String, Object> hashMap) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) && hashMap != null && (hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID) instanceof String)) {
                 String str = (String) hashMap.get(BdUniDispatchSchemeController.PARAM_TOPIC_ID);
@@ -94,9 +94,9 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -115,7 +115,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                v.b(statisticItem, paramPair);
+                w.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -165,16 +165,16 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, c.a.q0.p0.a
+    @Override // com.baidu.tbadk.BaseActivity, c.a.o0.p0.a
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a024" : (String) invokeV.objValue;
     }
 
-    @Override // c.a.r0.o1.l.b.a
+    @Override // c.a.p0.q1.l.b.a
     public void loadData() {
-        int i2;
+        int i;
         String substring;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -200,10 +200,10 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
                         substring = matcher.group(2);
                     } else {
                         int indexOf = decode.indexOf("topic_id=");
-                        if (indexOf < 0 || (i2 = indexOf + 9) > decode.length()) {
+                        if (indexOf < 0 || (i = indexOf + 9) > decode.length()) {
                             return;
                         }
-                        substring = decode.substring(i2);
+                        substring = decode.substring(i);
                     }
                     if (!StringUtils.isNull(substring)) {
                         this.topicID = b.g(substring, -1L);
@@ -215,61 +215,61 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             if (this.topicID < 0) {
                 finish();
             } else if (!l.A()) {
-                this.mTopicDetailView.hideLoadingView();
-                this.mTopicDetailView.showNetRefreshView(true);
+                this.mTopicDetailView.r();
+                this.mTopicDetailView.B(true);
             } else {
-                this.mTopicDetailView.hideNetRefreshView();
-                this.mTopicDetailView.showLoadingView(false);
+                this.mTopicDetailView.s();
+                this.mTopicDetailView.A(false);
                 TopicDetailView topicDetailView = this.mTopicDetailView;
                 if (topicDetailView != null && topicDetailView.getEditor() != null) {
                     this.mTopicDetailView.getEditor().I(this.topicID);
                 }
-                this.mTopicDetailModel.B(this.topicID);
+                this.mTopicDetailModel.D(this.topicID);
             }
         }
     }
 
-    @Override // c.a.r0.o1.l.b.a
-    public void netCallback(int i2, c.a.r0.o1.l.b.c.a aVar) {
+    @Override // c.a.p0.q1.l.b.a
+    public void netCallback(int i, c.a.p0.q1.l.b.c.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, aVar) == null) {
-            this.mTopicDetailView.hideLoadingView();
-            if (i2 == 0 && aVar != null && !ListUtils.isEmpty(aVar.f20216f)) {
-                this.mTopicDetailView.hideNetRefreshView();
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, aVar) == null) {
+            this.mTopicDetailView.r();
+            if (i == 0 && aVar != null && !ListUtils.isEmpty(aVar.f17550f)) {
+                this.mTopicDetailView.s();
                 this.mTopicDetailView.setData(aVar);
                 return;
             }
-            this.mTopicDetailView.showNetRefreshView(true);
+            this.mTopicDetailView.B(true);
         }
     }
 
-    @Override // c.a.r0.o1.l.b.a
-    public void netThreadCallback(int i2, boolean z, List<n> list) {
+    @Override // c.a.p0.q1.l.b.a
+    public void netThreadCallback(int i, boolean z, List<n> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), list}) == null) {
-            this.mTopicDetailView.setNextData(i2, z, list);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), list}) == null) {
+            this.mTopicDetailView.setNextData(i, z, list);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             TopicDetailView topicDetailView = this.mTopicDetailView;
             if (topicDetailView == null || topicDetailView.getEditor() == null) {
                 return;
             }
-            this.mTopicDetailView.getEditor().v(i2, i3, intent);
+            this.mTopicDetailView.getEditor().v(i, i2, intent);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mTopicDetailView.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mTopicDetailView.x();
         }
     }
 
@@ -284,7 +284,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             setContentView(topicDetailView);
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
-            this.mTopicDetailModel.D(this);
+            this.mTopicDetailModel.F(this);
             loadData();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !c.a.d.a.b.g().i("MainTabActivity")) {
                 this.mIsFromSchema = true;
@@ -318,13 +318,13 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         }
     }
 
-    public void requestNextPageThreadData(long j2) {
+    public void requestNextPageThreadData(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            long j3 = this.mCurPageNum + 1;
-            this.mCurPageNum = j3;
-            this.mLastThreadId = j2;
-            this.mTopicDetailModel.C(this.topicID, j3, j2);
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            long j2 = this.mCurPageNum + 1;
+            this.mCurPageNum = j2;
+            this.mLastThreadId = j;
+            this.mTopicDetailModel.E(this.topicID, j2, j);
         }
     }
 }

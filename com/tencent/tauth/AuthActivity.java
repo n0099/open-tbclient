@@ -20,7 +20,7 @@ import com.tencent.connect.common.UIListenerManager;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AuthActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACTION_KEY = "action";
@@ -48,9 +48,9 @@ public class AuthActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -161,9 +161,9 @@ public class AuthActivity extends Activity {
                         }
                     } else {
                         if (string.equals("shareToQzone") && i.a((Context) this, "com.tencent.mobileqq") != null && i.c(this, "5.2.0") < 0) {
-                            int i2 = a + 1;
-                            a = i2;
-                            if (i2 == 2) {
+                            int i = a + 1;
+                            a = i;
+                            if (i == 2) {
                                 a = 0;
                                 finish();
                                 return;

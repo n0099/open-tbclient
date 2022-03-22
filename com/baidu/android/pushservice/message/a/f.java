@@ -57,9 +57,9 @@ public class f extends c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -76,7 +76,7 @@ public class f extends c {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, kVar, bArr)) == null) {
             String e2 = kVar.e();
             String h2 = kVar.h();
-            int i2 = kVar.i();
+            int i = kVar.i();
             byte[] k = kVar.k();
             String f2 = kVar.f();
             int b2 = kVar.b();
@@ -85,7 +85,7 @@ public class f extends c {
             if (TextUtils.isEmpty(f2) || !m.b(this.a, f2)) {
                 f2 = a2.a() == com.baidu.android.pushservice.a.c.a ? a2.a.b() : null;
             }
-            int i3 = 7;
+            int i2 = 7;
             if (AnonymousClass1.a[a2.a().ordinal()] == 1) {
                 String a3 = a(f2);
                 try {
@@ -96,7 +96,7 @@ public class f extends c {
                     intent.putExtra("message", bArr);
                     intent.putExtra("message_string", str);
                     intent.putExtra("message_id", h2);
-                    intent.putExtra("baidu_message_type", i2);
+                    intent.putExtra("baidu_message_type", i);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", k);
                     intent.putExtra("notify_id", b2);
@@ -107,14 +107,14 @@ public class f extends c {
                     } else {
                         a = new d(this.a).a(kVar, bArr).a();
                     }
-                    i3 = a;
+                    i2 = a;
                 } catch (PackageManager.NameNotFoundException e3) {
                     String str3 = ">>> NOT deliver to app: " + a2.a.b() + ", package has been uninstalled.";
                     new b.c(this.a).a(Log.getStackTraceString(e3)).a();
                 }
             }
             com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-            gVar.a(i3);
+            gVar.a(i2);
             return gVar;
         }
         return (com.baidu.android.pushservice.message.g) invokeLL.objValue;

@@ -19,19 +19,19 @@ public class d {
     public static String a = "11446";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2945b = "type";
+    public static String f2454b = "type";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f2946c = "value";
+    public static String f2455c = "value";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f2947d = "ext";
+    public static String f2456d = "ext";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f2948e = "suc";
+    public static String f2457e = "suc";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f2949f = "fail";
+    public static String f2458f = "fail";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,18 +60,18 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65538, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2945b, f2949f);
-                jSONObject.put(f2946c, str);
+                jSONObject.put(f2454b, f2458f);
+                jSONObject.put(f2455c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
-                    for (int i2 = 0; i2 < list.size(); i2++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i2);
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
                         if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
                             jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
                         }
                     }
                 }
-                jSONObject.put(f2947d, jSONObject2);
+                jSONObject.put(f2456d, jSONObject2);
                 d(a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();
@@ -84,18 +84,18 @@ public class d {
         if (interceptable == null || interceptable.invokeLL(65539, null, str, list) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put(f2945b, f2948e);
-                jSONObject.put(f2946c, str);
+                jSONObject.put(f2454b, f2457e);
+                jSONObject.put(f2455c, str);
                 JSONObject jSONObject2 = new JSONObject();
                 if (list != null && !list.isEmpty()) {
-                    for (int i2 = 0; i2 < list.size(); i2++) {
-                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i2);
+                    for (int i = 0; i < list.size(); i++) {
+                        AbstractMap.SimpleEntry<String, String> simpleEntry = list.get(i);
                         if (simpleEntry != null && !TextUtils.isEmpty(simpleEntry.getKey())) {
                             jSONObject2.put(simpleEntry.getKey(), a(simpleEntry.getValue()));
                         }
                     }
                 }
-                jSONObject.put(f2947d, jSONObject2);
+                jSONObject.put(f2456d, jSONObject2);
                 d(a, jSONObject);
             } catch (JSONException e2) {
                 e2.printStackTrace();

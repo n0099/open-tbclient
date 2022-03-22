@@ -4,13 +4,13 @@ import android.text.TextUtils;
 import c.a.d.c.e.c.h;
 import c.a.d.c.e.c.j.d;
 import c.a.d.c.e.c.k.c;
-import c.a.q0.c1.p;
-import c.a.q0.r0.k;
-import c.a.q0.s.j.a;
-import c.a.q0.s.j.e;
-import c.a.q0.s.j.g;
-import c.a.q0.s.j.i;
-import c.a.q0.z0.b;
+import c.a.o0.c1.p;
+import c.a.o0.r0.k;
+import c.a.o0.s.j.a;
+import c.a.o0.s.j.e;
+import c.a.o0.s.j.g;
+import c.a.o0.s.j.i;
+import c.a.o0.z0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.client.socket.link.BdSocketDaemonService;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
@@ -41,9 +41,9 @@ public class InitWebsocketBaseTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,9 +83,9 @@ public class InitWebsocketBaseTask extends LaunchTask {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -108,9 +108,9 @@ public class InitWebsocketBaseTask extends LaunchTask {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -119,13 +119,13 @@ public class InitWebsocketBaseTask extends LaunchTask {
                                 this.this$0 = this;
                             }
 
-                            @Override // c.a.q0.c1.p.b
+                            @Override // c.a.o0.c1.p.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (!(interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) || z) {
                                     return;
                                 }
-                                c.a.q0.e0.a.b(0, 0, 0, 1, 8);
+                                c.a.o0.e0.a.b(0, 0, 0, 1, 8);
                                 BdSocketLinkService.startService(false, "restart");
                             }
                         });
@@ -133,7 +133,7 @@ public class InitWebsocketBaseTask extends LaunchTask {
                 }
             });
             BdSocketLinkService.init();
-            c.a.q0.e0.a.b(0, 0, 0, 1, 9);
+            c.a.o0.e0.a.b(0, 0, 0, 1, 9);
             if (PermissionUtil.isAgreePrivacyPolicy()) {
                 BdSocketLinkService.startService(false, "TiebaImApplication init");
             }
@@ -157,9 +157,9 @@ public class InitWebsocketBaseTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -191,18 +191,18 @@ public class InitWebsocketBaseTask extends LaunchTask {
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
-            c.a.q0.s.j.h.j().k();
+            c.a.o0.s.j.h.j().k();
             g.y().z();
             initSocket();
             k.b().s(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
-    public static b registerImScoketTask(int i2, Class<? extends SocketResponsedMessage> cls, boolean z) {
+    public static b registerImScoketTask(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), cls, Boolean.valueOf(z)})) == null) {
-            b bVar = new b(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            b bVar = new b(i);
             bVar.setResponsedClass(cls);
             bVar.h(z);
             bVar.setParallel(TiebaIMConfig.getParallel());

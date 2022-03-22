@@ -41,9 +41,9 @@ public final class PingEchoPacketBuilder {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -54,21 +54,21 @@ public final class PingEchoPacketBuilder {
             this();
         }
 
-        public final short checksum(byte[] data, int i2) {
+        public final short checksum(byte[] data, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, data, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, data, i)) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
-                int i3 = 0;
-                for (int i4 = 0; i4 < i2; i4 += 2) {
-                    int i5 = i3 + ((data[i4] & 255) << 8);
-                    i3 = (i5 >> 16) + (65535 & i5);
+                int i2 = 0;
+                for (int i3 = 0; i3 < i; i3 += 2) {
+                    int i4 = i2 + ((data[i3] & 255) << 8);
+                    i2 = (i4 >> 16) + (65535 & i4);
                 }
-                for (int i6 = 1; i6 < i2; i6 += 2) {
-                    int i7 = i3 + (data[i6] & 255);
-                    i3 = (i7 >> 16) + (i7 & 65535);
+                for (int i5 = 1; i5 < i; i5 += 2) {
+                    int i6 = i2 + (data[i5] & 255);
+                    i2 = (i6 >> 16) + (i6 & 65535);
                 }
-                return (short) (((i3 & 65535) + (i3 >> 16)) ^ 65535);
+                return (short) (((i2 & 65535) + (i2 >> 16)) ^ 65535);
             }
             return invokeLI.shortValue;
         }
@@ -98,9 +98,9 @@ public final class PingEchoPacketBuilder {
             newInitContext.initArgs = r2;
             Object[] objArr = {Byte.valueOf(b2), bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

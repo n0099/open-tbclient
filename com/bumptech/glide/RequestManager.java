@@ -38,7 +38,7 @@ import com.bumptech.glide.request.transition.Transition;
 import com.bumptech.glide.util.Util;
 import java.io.File;
 import java.net.URL;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RequestManager implements LifecycleListener, ModelTypes<RequestBuilder<Drawable>> {
     public static /* synthetic */ Interceptable $ic;
     public static final RequestOptions DECODE_TYPE_BITMAP;
@@ -56,7 +56,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public final TargetTracker targetTracker;
     public final RequestManagerTreeNode treeNode;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class ClearTarget extends ViewTarget<View, Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -70,9 +70,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -89,7 +89,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class RequestManagerConnectivityListener implements ConnectivityMonitor.ConnectivityListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +102,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
                 newInitContext.initArgs = r2;
                 Object[] objArr = {requestTracker};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,9 +149,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {glide, lifecycle, requestManagerTreeNode, context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Glide) objArr2[0], (Lifecycle) objArr2[1], (RequestManagerTreeNode) objArr2[2], (RequestTracker) objArr2[3], (ConnectivityMonitorFactory) objArr2[4], (Context) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -370,7 +370,7 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
     public void setRequestOptions(@NonNull RequestOptions requestOptions) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, requestOptions) == null) {
-            this.requestOptions = requestOptions.m110clone().autoClone();
+            this.requestOptions = requestOptions.m103clone().autoClone();
         }
     }
 
@@ -430,9 +430,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, target};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -460,9 +460,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
             newInitContext.initArgs = r2;
             Object[] objArr = {glide, lifecycle, requestManagerTreeNode, requestTracker, connectivityMonitorFactory, context};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -481,9 +481,9 @@ public class RequestManager implements LifecycleListener, ModelTypes<RequestBuil
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

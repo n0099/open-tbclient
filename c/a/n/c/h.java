@@ -17,16 +17,16 @@ public class h {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4269b;
+    public String f3846b;
 
     public h() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,7 +38,7 @@ public class h {
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f4269b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3846b : (String) invokeV.objValue;
     }
 
     public final String b(Context context) {
@@ -86,7 +86,7 @@ public class h {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             Context appContext = AppRuntime.getAppContext();
             this.a = c(appContext);
-            this.f4269b = b(appContext);
+            this.f3846b = b(appContext);
         }
     }
 }

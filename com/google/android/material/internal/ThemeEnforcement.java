@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ThemeEnforcement {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] APPCOMPAT_CHECK_ATTRS;
@@ -43,8 +43,8 @@ public final class ThemeEnforcement {
                 return;
             }
         }
-        APPCOMPAT_CHECK_ATTRS = new int[]{R.attr.colorPrimary};
-        MATERIAL_CHECK_ATTRS = new int[]{R.attr.colorPrimaryVariant};
+        APPCOMPAT_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f040165};
+        MATERIAL_CHECK_ATTRS = new int[]{R.attr.obfuscated_res_0x7f040168};
     }
 
     public ThemeEnforcement() {
@@ -52,9 +52,9 @@ public final class ThemeEnforcement {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -68,15 +68,15 @@ public final class ThemeEnforcement {
         }
     }
 
-    public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i2, @StyleRes int i3) {
+    public static void checkCompatibleTheme(@NonNull Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i2, i3) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.enforceMaterialTheme, R.attr.enforceTextAppearance}, i2, i3);
+        if (interceptable == null || interceptable.invokeLLII(65539, null, context, attributeSet, i, i2) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2}, i, i2);
             boolean z = obtainStyledAttributes.getBoolean(1, false);
             obtainStyledAttributes.recycle();
             if (z) {
                 TypedValue typedValue = new TypedValue();
-                if (!context.getTheme().resolveAttribute(R.attr.isMaterialTheme, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+                if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f0402c8, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                     checkMaterialTheme(context);
                 }
             }
@@ -91,17 +91,17 @@ public final class ThemeEnforcement {
         }
     }
 
-    public static void checkTextAppearance(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i2, @StyleRes int i3, @Nullable @StyleableRes int... iArr2) {
+    public static void checkTextAppearance(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @Nullable @StyleableRes int... iArr2) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2}) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.enforceMaterialTheme, R.attr.enforceTextAppearance}, i2, i3);
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2}) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{16842804, R.attr.obfuscated_res_0x7f0401e1, R.attr.obfuscated_res_0x7f0401e2}, i, i2);
             if (!obtainStyledAttributes.getBoolean(2, false)) {
                 obtainStyledAttributes.recycle();
                 return;
             }
             if (iArr2 != null && iArr2.length != 0) {
-                z = isCustomTextAppearanceValid(context, attributeSet, iArr, i2, i3, iArr2);
+                z = isCustomTextAppearanceValid(context, attributeSet, iArr, i, i2, iArr2);
             } else {
                 z = obtainStyledAttributes.getResourceId(0, -1) != -1;
             }
@@ -126,13 +126,13 @@ public final class ThemeEnforcement {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) ? isTheme(context, APPCOMPAT_CHECK_ATTRS) : invokeL.booleanValue;
     }
 
-    public static boolean isCustomTextAppearanceValid(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i2, @StyleRes int i3, @NonNull @StyleableRes int... iArr2) {
+    public static boolean isCustomTextAppearanceValid(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @NonNull @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2})) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr, i2, i3);
-            for (int i4 : iArr2) {
-                if (obtainStyledAttributes.getResourceId(i4, -1) == -1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65544, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr, i, i2);
+            for (int i3 : iArr2) {
+                if (obtainStyledAttributes.getResourceId(i3, -1) == -1) {
                     obtainStyledAttributes.recycle();
                     return false;
                 }
@@ -154,8 +154,8 @@ public final class ThemeEnforcement {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, context, iArr)) == null) {
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(iArr);
-            for (int i2 = 0; i2 < iArr.length; i2++) {
-                if (!obtainStyledAttributes.hasValue(i2)) {
+            for (int i = 0; i < iArr.length; i++) {
+                if (!obtainStyledAttributes.hasValue(i)) {
                     obtainStyledAttributes.recycle();
                     return false;
                 }
@@ -167,24 +167,24 @@ public final class ThemeEnforcement {
     }
 
     @NonNull
-    public static TypedArray obtainStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i2, @StyleRes int i3, @StyleableRes int... iArr2) {
+    public static TypedArray obtainStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2})) == null) {
-            checkCompatibleTheme(context, attributeSet, i2, i3);
-            checkTextAppearance(context, attributeSet, iArr, i2, i3, iArr2);
-            return context.obtainStyledAttributes(attributeSet, iArr, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {
+            checkCompatibleTheme(context, attributeSet, i, i2);
+            checkTextAppearance(context, attributeSet, iArr, i, i2, iArr2);
+            return context.obtainStyledAttributes(attributeSet, iArr, i, i2);
         }
         return (TypedArray) invokeCommon.objValue;
     }
 
-    public static TintTypedArray obtainTintedStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i2, @StyleRes int i3, @StyleableRes int... iArr2) {
+    public static TintTypedArray obtainTintedStyledAttributes(@NonNull Context context, AttributeSet attributeSet, @NonNull @StyleableRes int[] iArr, @AttrRes int i, @StyleRes int i2, @StyleableRes int... iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i2), Integer.valueOf(i3), iArr2})) == null) {
-            checkCompatibleTheme(context, attributeSet, i2, i3);
-            checkTextAppearance(context, attributeSet, iArr, i2, i3, iArr2);
-            return TintTypedArray.obtainStyledAttributes(context, attributeSet, iArr, i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{context, attributeSet, iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2})) == null) {
+            checkCompatibleTheme(context, attributeSet, i, i2);
+            checkTextAppearance(context, attributeSet, iArr, i, i2, iArr2);
+            return TintTypedArray.obtainStyledAttributes(context, attributeSet, iArr, i, i2);
         }
         return (TintTypedArray) invokeCommon.objValue;
     }

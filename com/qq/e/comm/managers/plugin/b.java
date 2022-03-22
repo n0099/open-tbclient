@@ -15,7 +15,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.nio.charset.Charset;
 import java.util.Arrays;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -45,8 +45,8 @@ public class b {
             byte[] bytes = CustomPkgConstants.getAssetPluginXorKey().getBytes(Charset.forName("UTF-8"));
             byte[] bArr = new byte[1024];
             int length = bytes.length;
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             while (true) {
                 int read = open.read(bArr);
                 if (read <= 0) {
@@ -54,15 +54,15 @@ public class b {
                     fileOutputStream.close();
                     return true;
                 }
-                int i4 = 0;
-                while (i4 < read) {
-                    int i5 = i3 + 1;
-                    if (i3 >= 64) {
-                        bArr[i4] = (byte) (bytes[i2 % length] ^ bArr[i4]);
-                        i2++;
+                int i3 = 0;
+                while (i3 < read) {
+                    int i4 = i2 + 1;
+                    if (i2 >= 64) {
+                        bArr[i3] = (byte) (bytes[i % length] ^ bArr[i3]);
+                        i++;
                     }
-                    i4++;
-                    i3 = i5;
+                    i3++;
+                    i2 = i4;
                 }
                 fileOutputStream.write(bArr, 0, read);
             }

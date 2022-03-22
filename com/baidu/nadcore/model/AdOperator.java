@@ -17,13 +17,13 @@ public class AdOperator {
     public final TYPE a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final a f35666b;
+    public final a f27546b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f35667c;
+    public final String f27547c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35668d;
+    public String f27548d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -54,16 +54,16 @@ public class AdOperator {
             $VALUES = new TYPE[]{CHECK, type};
         }
 
-        public TYPE(String str, int i2, String str2) {
+        public TYPE(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -116,9 +116,9 @@ public class AdOperator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -145,9 +145,9 @@ public class AdOperator {
             newInitContext.initArgs = r2;
             Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -160,11 +160,11 @@ public class AdOperator {
         }
         if (type != null) {
             this.a = type;
-            this.f35666b = a.a(jSONObject.optJSONObject("desc"));
+            this.f27546b = a.a(jSONObject.optJSONObject("desc"));
             JSONObject optJSONObject = jSONObject.optJSONObject("button");
             optJSONObject = optJSONObject == null ? new JSONObject() : optJSONObject;
-            this.f35667c = optJSONObject.optString("text");
-            this.f35668d = optJSONObject.optString("scheme");
+            this.f27547c = optJSONObject.optString("text");
+            this.f27548d = optJSONObject.optString("scheme");
             return;
         }
         throw ParseError.contentError(12, "operator type:" + jSONObject.optString("type"));

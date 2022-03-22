@@ -21,17 +21,17 @@ public class ElasticExecutor extends ExecutorProxy {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ElasticExecutor(String str, int i2) {
-        super(str, i2);
+    public ElasticExecutor(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -58,10 +58,10 @@ public class ElasticExecutor extends ExecutorProxy {
     }
 
     @Override // com.baidu.searchbox.elasticthread.ExecutorProxy
-    public void execute(@NonNull Runnable runnable, @NonNull String str, int i2) {
+    public void execute(@NonNull Runnable runnable, @NonNull String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i2) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, i2);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, str, i);
         }
     }
 }

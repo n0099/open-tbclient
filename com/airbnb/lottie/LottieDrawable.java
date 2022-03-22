@@ -31,7 +31,6 @@ import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieFrameInfo;
 import com.airbnb.lottie.value.LottieValueCallback;
 import com.airbnb.lottie.value.SimpleLottieValueCallback;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
@@ -105,7 +104,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
 
         public int hashCode() {
             String str = this.layerName;
-            int hashCode = str != null ? PayBeanFactory.BEAN_ID_WIDTHDRAW * str.hashCode() : 17;
+            int hashCode = str != null ? 527 * str.hashCode() : 17;
             String str2 = this.contentName;
             return str2 != null ? hashCode * 31 * str2.hashCode() : hashCode;
         }
@@ -154,7 +153,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         if (this.compositionLayer == null) {
             return;
         }
-        int i2 = -1;
+        int i = -1;
         Rect bounds = getBounds();
         float width = bounds.width() / this.composition.getBounds().width();
         float height = bounds.height() / this.composition.getBounds().height();
@@ -168,7 +167,7 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
                 f2 = 1.0f;
             }
             if (f2 > 1.0f) {
-                i2 = canvas.save();
+                i = canvas.save();
                 float width2 = bounds.width() / 2.0f;
                 float height2 = bounds.height() / 2.0f;
                 float f3 = width2 * min;
@@ -180,8 +179,8 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         this.matrix.reset();
         this.matrix.preScale(width, height);
         this.compositionLayer.draw(canvas, this.matrix, this.alpha);
-        if (i2 > 0) {
-            canvas.restoreToCount(i2);
+        if (i > 0) {
+            canvas.restoreToCount(i);
         }
     }
 
@@ -198,9 +197,9 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
             maxScale = f3;
             f2 = 1.0f;
         }
-        int i2 = -1;
+        int i = -1;
         if (f2 > 1.0f) {
-            i2 = canvas.save();
+            i = canvas.save();
             float width = this.composition.getBounds().width() / 2.0f;
             float height = this.composition.getBounds().height() / 2.0f;
             float f4 = width * maxScale;
@@ -211,8 +210,8 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         this.matrix.reset();
         this.matrix.preScale(maxScale, maxScale);
         this.compositionLayer.draw(canvas, this.matrix, this.alpha);
-        if (i2 > 0) {
-            canvas.restoreToCount(i2);
+        if (i > 0) {
+            canvas.restoreToCount(i);
         }
     }
 
@@ -287,8 +286,8 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
             keyPath.getResolvedElement().addValueCallback(t, lottieValueCallback);
         } else {
             List<KeyPath> resolveKeyPath = resolveKeyPath(keyPath);
-            for (int i2 = 0; i2 < resolveKeyPath.size(); i2++) {
-                resolveKeyPath.get(i2).getResolvedElement().addValueCallback(t, lottieValueCallback);
+            for (int i = 0; i < resolveKeyPath.size(); i++) {
+                resolveKeyPath.get(i).getResolvedElement().addValueCallback(t, lottieValueCallback);
             }
             z = true ^ resolveKeyPath.isEmpty();
         }
@@ -588,17 +587,17 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j2) {
+    public void scheduleDrawable(@NonNull Drawable drawable, @NonNull Runnable runnable, long j) {
         Drawable.Callback callback = getCallback();
         if (callback == null) {
             return;
         }
-        callback.scheduleDrawable(this, runnable, j2);
+        callback.scheduleDrawable(this, runnable, j);
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
-        this.alpha = i2;
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
+        this.alpha = i;
         invalidateSelf();
     }
 
@@ -648,16 +647,16 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
     }
 
-    public void setFrame(final int i2) {
+    public void setFrame(final int i) {
         if (this.composition == null) {
             this.lazyCompositionTasks.add(new LazyCompositionTask() { // from class: com.airbnb.lottie.LottieDrawable.14
                 @Override // com.airbnb.lottie.LottieDrawable.LazyCompositionTask
                 public void run(LottieComposition lottieComposition) {
-                    LottieDrawable.this.setFrame(i2);
+                    LottieDrawable.this.setFrame(i);
                 }
             });
         } else {
-            this.animator.setFrame(i2);
+            this.animator.setFrame(i);
         }
     }
 
@@ -673,16 +672,16 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         this.imageAssetsFolder = str;
     }
 
-    public void setMaxFrame(final int i2) {
+    public void setMaxFrame(final int i) {
         if (this.composition == null) {
             this.lazyCompositionTasks.add(new LazyCompositionTask() { // from class: com.airbnb.lottie.LottieDrawable.6
                 @Override // com.airbnb.lottie.LottieDrawable.LazyCompositionTask
                 public void run(LottieComposition lottieComposition) {
-                    LottieDrawable.this.setMaxFrame(i2);
+                    LottieDrawable.this.setMaxFrame(i);
                 }
             });
         } else {
-            this.animator.setMaxFrame(i2 + 0.99f);
+            this.animator.setMaxFrame(i + 0.99f);
         }
     }
 
@@ -713,8 +712,8 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
         Marker marker = lottieComposition.getMarker(str);
         if (marker != null) {
-            int i2 = (int) marker.startFrame;
-            setMinAndMaxFrame(i2, ((int) marker.durationFrames) + i2);
+            int i = (int) marker.startFrame;
+            setMinAndMaxFrame(i, ((int) marker.durationFrames) + i);
             return;
         }
         throw new IllegalArgumentException("Cannot find marker with name " + str + ".");
@@ -734,16 +733,16 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
     }
 
-    public void setMinFrame(final int i2) {
+    public void setMinFrame(final int i) {
         if (this.composition == null) {
             this.lazyCompositionTasks.add(new LazyCompositionTask() { // from class: com.airbnb.lottie.LottieDrawable.4
                 @Override // com.airbnb.lottie.LottieDrawable.LazyCompositionTask
                 public void run(LottieComposition lottieComposition) {
-                    LottieDrawable.this.setMinFrame(i2);
+                    LottieDrawable.this.setMinFrame(i);
                 }
             });
         } else {
-            this.animator.setMinFrame(i2);
+            this.animator.setMinFrame(i);
         }
     }
 
@@ -784,12 +783,12 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         L.endSection("Drawable#setProgress");
     }
 
-    public void setRepeatCount(int i2) {
-        this.animator.setRepeatCount(i2);
+    public void setRepeatCount(int i) {
+        this.animator.setRepeatCount(i);
     }
 
-    public void setRepeatMode(int i2) {
-        this.animator.setRepeatMode(i2);
+    public void setRepeatMode(int i) {
+        this.animator.setRepeatMode(i);
     }
 
     public void setSafeMode(boolean z) {
@@ -923,10 +922,10 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         }
         Marker marker = lottieComposition.getMarker(str);
         if (marker != null) {
-            int i2 = (int) marker.startFrame;
+            int i = (int) marker.startFrame;
             Marker marker2 = this.composition.getMarker(str2);
             if (str2 != null) {
-                setMinAndMaxFrame(i2, (int) (marker2.startFrame + (z ? 1.0f : 0.0f)));
+                setMinAndMaxFrame(i, (int) (marker2.startFrame + (z ? 1.0f : 0.0f)));
                 return;
             }
             throw new IllegalArgumentException("Cannot find marker with name " + str2 + ".");
@@ -944,16 +943,16 @@ public class LottieDrawable extends Drawable implements Drawable.Callback, Anima
         });
     }
 
-    public void setMinAndMaxFrame(final int i2, final int i3) {
+    public void setMinAndMaxFrame(final int i, final int i2) {
         if (this.composition == null) {
             this.lazyCompositionTasks.add(new LazyCompositionTask() { // from class: com.airbnb.lottie.LottieDrawable.12
                 @Override // com.airbnb.lottie.LottieDrawable.LazyCompositionTask
                 public void run(LottieComposition lottieComposition) {
-                    LottieDrawable.this.setMinAndMaxFrame(i2, i3);
+                    LottieDrawable.this.setMinAndMaxFrame(i, i2);
                 }
             });
         } else {
-            this.animator.setMinAndMaxFrames(i2, i3 + 0.99f);
+            this.animator.setMinAndMaxFrames(i, i2 + 0.99f);
         }
     }
 }

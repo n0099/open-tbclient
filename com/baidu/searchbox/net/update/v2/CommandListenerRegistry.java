@@ -2,6 +2,7 @@ package com.baidu.searchbox.net.update.v2;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
@@ -30,9 +31,9 @@ public final class CommandListenerRegistry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,7 +65,7 @@ public final class CommandListenerRegistry {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (AppConfig.isDebug()) {
-                            String str = "addPostData error " + e2.getMessage();
+                            Log.e(TAG, "addPostData error " + e2.getMessage());
                         }
                     }
                 }

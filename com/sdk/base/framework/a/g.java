@@ -9,25 +9,25 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: $VALUES field not found */
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final g a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f57755b;
+    public static final g f42527b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final g f57756c;
+    public static final g f42528c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final g f57757d;
+    public static final g f42529d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final g f57758e;
+    public static final g f42530e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final g f57759f;
+    public static final g f42531f;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -44,23 +44,23 @@ public final class g {
             }
         }
         a = new g("WAITING", 0, 0);
-        f57755b = new g("STARTED", 1, 1);
-        f57756c = new g("LOADING", 2, 2);
-        f57757d = new g("FAILURE", 3, 3);
-        f57758e = new g("CANCELLED", 4, 4);
-        f57759f = new g(com.alipay.security.mobile.module.http.model.c.p, 5, 5);
+        f42527b = new g("STARTED", 1, 1);
+        f42528c = new g("LOADING", 2, 2);
+        f42529d = new g("FAILURE", 3, 3);
+        f42530e = new g("CANCELLED", 4, 4);
+        f42531f = new g("SUCCESS", 5, 5);
     }
 
-    public g(String str, int i2, int i3) {
+    public g(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

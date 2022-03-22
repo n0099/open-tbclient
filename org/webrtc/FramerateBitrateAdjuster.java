@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INITIAL_FPS = 30;
@@ -17,9 +17,9 @@ public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,13 +37,13 @@ public class FramerateBitrateAdjuster extends BaseBitrateAdjuster {
     }
 
     @Override // org.webrtc.BaseBitrateAdjuster, org.webrtc.BitrateAdjuster
-    public void setTargets(int i2, int i3) {
+    public void setTargets(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
             if (this.targetFps == 0) {
-                i3 = 30;
+                i2 = 30;
             }
-            super.setTargets(i2, i3);
+            super.setTargets(i, i2);
             this.targetBitrateBps = (this.targetBitrateBps * 30) / this.targetFps;
         }
     }

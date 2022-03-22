@@ -27,7 +27,7 @@ public interface KsSplashScreenAd {
 
         @KsAdSdkApi
         @Keep
-        void onAdShowError(int i2, String str);
+        void onAdShowError(int i, String str);
 
         @KsAdSdkApi
         @Keep
@@ -82,11 +82,11 @@ public interface KsSplashScreenAd {
 
     @KsAdSdkApi
     @Keep
-    void reportAdExposureFailed(int i2, AdExposureFailedReason adExposureFailedReason);
+    void reportAdExposureFailed(int i, AdExposureFailedReason adExposureFailedReason);
 
     @KsAdSdkApi
     @Keep
-    void setBidEcpm(int i2);
+    void setBidEcpm(int i);
 
     boolean showSplashMiniWindowIfNeeded(Context context, SplashScreenAdInteractionListener splashScreenAdInteractionListener, Rect rect);
 }

@@ -21,7 +21,7 @@ import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TimestampAdjuster;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AAC_FILE_EXTENSION = ".aac";
@@ -39,9 +39,9 @@ public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,22 +63,22 @@ public final class DefaultHlsExtractorFactory implements HlsExtractorFactory {
                         extractor = new Mp3Extractor(0, 0L);
                     } else if (extractor == null) {
                         if (!lastPathSegment.endsWith(MP4_FILE_EXTENSION) && !lastPathSegment.startsWith(M4_FILE_EXTENSION_PREFIX, lastPathSegment.length() - 4)) {
-                            int i2 = 16;
+                            int i = 16;
                             if (list != null) {
-                                i2 = 48;
+                                i = 48;
                             } else {
                                 list = Collections.emptyList();
                             }
                             String str = format.codecs;
                             if (!TextUtils.isEmpty(str)) {
                                 if (!"audio/mp4a-latm".equals(MimeTypes.getAudioMediaMimeType(str))) {
-                                    i2 |= 2;
+                                    i |= 2;
                                 }
                                 if (!"video/avc".equals(MimeTypes.getVideoMediaMimeType(str))) {
-                                    i2 |= 4;
+                                    i |= 4;
                                 }
                             }
-                            extractor = new TsExtractor(2, timestampAdjuster, new DefaultTsPayloadReaderFactory(i2, list));
+                            extractor = new TsExtractor(2, timestampAdjuster, new DefaultTsPayloadReaderFactory(i, list));
                         } else {
                             extractor = new FragmentedMp4Extractor(0, timestampAdjuster, null, drmInitData);
                         }

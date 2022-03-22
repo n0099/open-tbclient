@@ -9,7 +9,6 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.BufferedSource;
 import okio.ByteString;
-import org.apache.commons.lang3.CharUtils;
 import org.apache.http.message.BasicHeaderValueFormatter;
 /* loaded from: classes3.dex */
 public final class JsonUtf8Reader extends JsonReader {
@@ -72,11 +71,11 @@ public final class JsonUtf8Reader extends JsonReader {
 
     private int doPeek() throws IOException {
         int[] iArr = this.scopes;
-        int i2 = this.stackSize;
-        int i3 = iArr[i2 - 1];
-        if (i3 == 1) {
-            iArr[i2 - 1] = 2;
-        } else if (i3 == 2) {
+        int i = this.stackSize;
+        int i2 = iArr[i - 1];
+        if (i2 == 1) {
+            iArr[i - 1] = 2;
+        } else if (i2 == 2) {
             int nextNonWhitespace = nextNonWhitespace(true);
             this.buffer.readByte();
             if (nextNonWhitespace != 44) {
@@ -89,9 +88,9 @@ public final class JsonUtf8Reader extends JsonReader {
                 }
                 checkLenient();
             }
-        } else if (i3 == 3 || i3 == 5) {
+        } else if (i2 == 3 || i2 == 5) {
             this.scopes[this.stackSize - 1] = 4;
-            if (i3 == 5) {
+            if (i2 == 5) {
                 int nextNonWhitespace2 = nextNonWhitespace(true);
                 this.buffer.readByte();
                 if (nextNonWhitespace2 != 44) {
@@ -122,15 +121,15 @@ public final class JsonUtf8Reader extends JsonReader {
                     return 14;
                 }
                 throw syntaxError("Expected name");
-            } else if (i3 != 5) {
+            } else if (i2 != 5) {
                 this.buffer.readByte();
                 this.peeked = 2;
                 return 2;
             } else {
                 throw syntaxError("Expected name");
             }
-        } else if (i3 == 4) {
-            iArr[i2 - 1] = 5;
+        } else if (i2 == 4) {
+            iArr[i - 1] = 5;
             int nextNonWhitespace4 = nextNonWhitespace(true);
             this.buffer.readByte();
             if (nextNonWhitespace4 != 58) {
@@ -143,15 +142,15 @@ public final class JsonUtf8Reader extends JsonReader {
                     throw syntaxError("Expected ':'");
                 }
             }
-        } else if (i3 == 6) {
-            iArr[i2 - 1] = 7;
-        } else if (i3 == 7) {
+        } else if (i2 == 6) {
+            iArr[i - 1] = 7;
+        } else if (i2 == 7) {
             if (nextNonWhitespace(false) == -1) {
                 this.peeked = 18;
                 return 18;
             }
             checkLenient();
-        } else if (i3 == 8) {
+        } else if (i2 == 8) {
             throw new IllegalStateException("JsonReader is closed");
         }
         int nextNonWhitespace5 = nextNonWhitespace(true);
@@ -190,13 +189,13 @@ public final class JsonUtf8Reader extends JsonReader {
                     this.buffer.readByte();
                     this.peeked = 1;
                     return 1;
-                } else if (i3 == 1) {
+                } else if (i2 == 1) {
                     this.buffer.readByte();
                     this.peeked = 4;
                     return 4;
                 }
             }
-            if (i3 != 1 && i3 != 2) {
+            if (i2 != 1 && i2 != 2) {
                 throw syntaxError("Unexpected value");
             }
             checkLenient();
@@ -207,11 +206,11 @@ public final class JsonUtf8Reader extends JsonReader {
 
     private int findName(String str, JsonReader.Options options) {
         int length = options.strings.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (str.equals(options.strings[i2])) {
+        for (int i = 0; i < length; i++) {
+            if (str.equals(options.strings[i])) {
                 this.peeked = 0;
                 this.pathNames[this.stackSize - 1] = str;
-                return i2;
+                return i;
             }
         }
         return -1;
@@ -219,32 +218,32 @@ public final class JsonUtf8Reader extends JsonReader {
 
     private int findString(String str, JsonReader.Options options) {
         int length = options.strings.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (str.equals(options.strings[i2])) {
+        for (int i = 0; i < length; i++) {
+            if (str.equals(options.strings[i])) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i3 = this.stackSize - 1;
-                iArr[i3] = iArr[i3] + 1;
-                return i2;
+                int i2 = this.stackSize - 1;
+                iArr[i2] = iArr[i2] + 1;
+                return i;
             }
         }
         return -1;
     }
 
-    private boolean isLiteral(int i2) throws IOException {
-        if (i2 == 9 || i2 == 10 || i2 == 12 || i2 == 13 || i2 == 32) {
+    private boolean isLiteral(int i) throws IOException {
+        if (i == 9 || i == 10 || i == 12 || i == 13 || i == 32) {
             return false;
         }
-        if (i2 != 35) {
-            if (i2 == 44) {
+        if (i != 35) {
+            if (i == 44) {
                 return false;
             }
-            if (i2 != 47 && i2 != 61) {
-                if (i2 == 123 || i2 == 125 || i2 == 58) {
+            if (i != 47 && i != 61) {
+                if (i == 123 || i == 125 || i == 58) {
                     return false;
                 }
-                if (i2 != 59) {
-                    switch (i2) {
+                if (i != 59) {
+                    switch (i) {
                         case 91:
                         case 93:
                             return false;
@@ -315,20 +314,20 @@ public final class JsonUtf8Reader extends JsonReader {
     */
     private int nextNonWhitespace(boolean z) throws IOException {
         while (true) {
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                int i3 = i2 + 1;
-                if (!this.source.request(i3)) {
+                int i2 = i + 1;
+                if (!this.source.request(i2)) {
                     if (z) {
                         throw new EOFException("End of input");
                     }
                     return -1;
                 }
-                byte b2 = this.buffer.getByte(i2);
+                byte b2 = this.buffer.getByte(i);
                 if (b2 != 10 && b2 != 32 && b2 != 13 && b2 != 9) {
                     break;
                 }
-                i2 = i3;
+                i = i2;
             }
         }
     }
@@ -366,44 +365,44 @@ public final class JsonUtf8Reader extends JsonReader {
     }
 
     private int peekKeyword() throws IOException {
-        int i2;
+        int i;
         String str;
         String str2;
         byte b2 = this.buffer.getByte(0L);
         if (b2 == 116 || b2 == 84) {
-            i2 = 5;
+            i = 5;
             str = "true";
             str2 = "TRUE";
         } else if (b2 == 102 || b2 == 70) {
-            i2 = 6;
+            i = 6;
             str = "false";
             str2 = "FALSE";
         } else if (b2 != 110 && b2 != 78) {
             return 0;
         } else {
-            i2 = 7;
+            i = 7;
             str = StringUtil.NULL_STRING;
             str2 = "NULL";
         }
         int length = str.length();
-        int i3 = 1;
-        while (i3 < length) {
-            int i4 = i3 + 1;
-            if (!this.source.request(i4)) {
+        int i2 = 1;
+        while (i2 < length) {
+            int i3 = i2 + 1;
+            if (!this.source.request(i3)) {
                 return 0;
             }
-            byte b3 = this.buffer.getByte(i3);
-            if (b3 != str.charAt(i3) && b3 != str2.charAt(i3)) {
+            byte b3 = this.buffer.getByte(i2);
+            if (b3 != str.charAt(i2) && b3 != str2.charAt(i2)) {
                 return 0;
             }
-            i3 = i4;
+            i2 = i3;
         }
         if (this.source.request(length + 1) && isLiteral(this.buffer.getByte(length))) {
             return 0;
         }
         this.buffer.skip(length);
-        this.peeked = i2;
-        return i2;
+        this.peeked = i;
+        return i;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:48:0x0087, code lost:
@@ -468,22 +467,22 @@ public final class JsonUtf8Reader extends JsonReader {
     */
     private int peekNumber() throws IOException {
         char c2 = 1;
+        int i = 0;
+        long j = 0;
         int i2 = 0;
-        long j2 = 0;
-        int i3 = 0;
         char c3 = 0;
         boolean z = true;
         boolean z2 = false;
         while (true) {
-            int i4 = i3 + 1;
-            if (!this.source.request(i4)) {
+            int i3 = i2 + 1;
+            if (!this.source.request(i3)) {
                 break;
             }
-            byte b2 = this.buffer.getByte(i3);
+            byte b2 = this.buffer.getByte(i2);
             if (b2 != 43) {
                 if (b2 == 69 || b2 == 101) {
                     if (c3 != 2 && c3 != 4) {
-                        return i2;
+                        return i;
                     }
                     c3 = 5;
                 } else if (b2 != 45) {
@@ -491,29 +490,29 @@ public final class JsonUtf8Reader extends JsonReader {
                         if (b2 < 48 || b2 > 57) {
                             break;
                         } else if (c3 == c2 || c3 == 0) {
-                            j2 = -(b2 - 48);
-                            i2 = 0;
+                            j = -(b2 - 48);
+                            i = 0;
                             c3 = 2;
                         } else {
                             if (c3 == 2) {
-                                if (j2 == 0) {
-                                    return i2;
+                                if (j == 0) {
+                                    return i;
                                 }
-                                long j3 = (10 * j2) - (b2 - 48);
-                                int i5 = (j2 > (-922337203685477580L) ? 1 : (j2 == (-922337203685477580L) ? 0 : -1));
-                                z &= i5 > 0 || (i5 == 0 && j3 < j2);
-                                j2 = j3;
+                                long j2 = (10 * j) - (b2 - 48);
+                                int i4 = (j > (-922337203685477580L) ? 1 : (j == (-922337203685477580L) ? 0 : -1));
+                                z &= i4 > 0 || (i4 == 0 && j2 < j);
+                                j = j2;
                             } else if (c3 == 3) {
-                                i2 = 0;
+                                i = 0;
                                 c3 = 4;
                             } else if (c3 == 5 || c3 == 6) {
-                                i2 = 0;
+                                i = 0;
                                 c3 = 7;
                             }
-                            i2 = 0;
+                            i = 0;
                         }
                     } else if (c3 != 2) {
-                        return i2;
+                        return i;
                     } else {
                         c3 = 3;
                     }
@@ -521,22 +520,22 @@ public final class JsonUtf8Reader extends JsonReader {
                     c3 = 1;
                     z2 = true;
                 } else if (c3 != 5) {
-                    return i2;
+                    return i;
                 }
-                i3 = i4;
+                i2 = i3;
                 c2 = 1;
             } else if (c3 != 5) {
-                return i2;
+                return i;
             }
             c3 = 6;
-            i3 = i4;
+            i2 = i3;
             c2 = 1;
         }
     }
 
     private char readEscapeCharacter() throws IOException {
+        int i;
         int i2;
-        int i3;
         if (this.source.request(1L)) {
             byte readByte = this.buffer.readByte();
             if (readByte == 10 || readByte == 34 || readByte == 39 || readByte == 47 || readByte == 92) {
@@ -554,22 +553,22 @@ public final class JsonUtf8Reader extends JsonReader {
                                     throw syntaxError("Invalid escape sequence: \\" + ((char) readByte));
                                 } else if (this.source.request(4L)) {
                                     char c2 = 0;
-                                    for (int i4 = 0; i4 < 4; i4++) {
-                                        byte b2 = this.buffer.getByte(i4);
+                                    for (int i3 = 0; i3 < 4; i3++) {
+                                        byte b2 = this.buffer.getByte(i3);
                                         char c3 = (char) (c2 << 4);
                                         if (b2 < 48 || b2 > 57) {
                                             if (b2 >= 97 && b2 <= 102) {
-                                                i2 = b2 - 97;
+                                                i = b2 - 97;
                                             } else if (b2 < 65 || b2 > 70) {
                                                 throw syntaxError("\\u" + this.buffer.readUtf8(4L));
                                             } else {
-                                                i2 = b2 - 65;
+                                                i = b2 - 65;
                                             }
-                                            i3 = i2 + 10;
+                                            i2 = i + 10;
                                         } else {
-                                            i3 = b2 - 48;
+                                            i2 = b2 - 48;
                                         }
-                                        c2 = (char) (c3 + i3);
+                                        c2 = (char) (c3 + i2);
                                     }
                                     this.buffer.skip(4L);
                                     return c2;
@@ -579,7 +578,7 @@ public final class JsonUtf8Reader extends JsonReader {
                             }
                             return '\t';
                         }
-                        return CharUtils.CR;
+                        return '\r';
                     }
                     return '\n';
                 }
@@ -632,11 +631,11 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void beginArray() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 3) {
+        if (i == 3) {
             pushScope(1);
             this.pathIndices[this.stackSize - 1] = 0;
             this.peeked = 0;
@@ -647,11 +646,11 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void beginObject() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 1) {
+        if (i == 1) {
             pushScope(3);
             this.peeked = 0;
             return;
@@ -670,16 +669,16 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void endArray() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 4) {
-            int i3 = this.stackSize - 1;
-            this.stackSize = i3;
+        if (i == 4) {
+            int i2 = this.stackSize - 1;
+            this.stackSize = i2;
             int[] iArr = this.pathIndices;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
+            int i3 = i2 - 1;
+            iArr[i3] = iArr[i3] + 1;
             this.peeked = 0;
             return;
         }
@@ -688,17 +687,17 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void endObject() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 2) {
-            int i3 = this.stackSize - 1;
-            this.stackSize = i3;
-            this.pathNames[i3] = null;
+        if (i == 2) {
+            int i2 = this.stackSize - 1;
+            this.stackSize = i2;
+            this.pathNames[i2] = null;
             int[] iArr = this.pathIndices;
-            int i4 = i3 - 1;
-            iArr[i4] = iArr[i4] + 1;
+            int i3 = i2 - 1;
+            iArr[i3] = iArr[i3] + 1;
             this.peeked = 0;
             return;
         }
@@ -707,30 +706,30 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public boolean hasNext() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        return (i2 == 2 || i2 == 4 || i2 == 18) ? false : true;
+        return (i == 2 || i == 4 || i == 18) ? false : true;
     }
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public boolean nextBoolean() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 5) {
+        if (i == 5) {
             this.peeked = 0;
             int[] iArr = this.pathIndices;
-            int i3 = this.stackSize - 1;
-            iArr[i3] = iArr[i3] + 1;
+            int i2 = this.stackSize - 1;
+            iArr[i2] = iArr[i2] + 1;
             return true;
-        } else if (i2 == 6) {
+        } else if (i == 6) {
             this.peeked = 0;
             int[] iArr2 = this.pathIndices;
-            int i4 = this.stackSize - 1;
-            iArr2[i4] = iArr2[i4] + 1;
+            int i3 = this.stackSize - 1;
+            iArr2[i3] = iArr2[i3] + 1;
             return false;
         } else {
             throw new JsonDataException("Expected a boolean but was " + peek() + " at path " + getPath());
@@ -739,26 +738,26 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public double nextDouble() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 16) {
+        if (i == 16) {
             this.peeked = 0;
             int[] iArr = this.pathIndices;
-            int i3 = this.stackSize - 1;
-            iArr[i3] = iArr[i3] + 1;
+            int i2 = this.stackSize - 1;
+            iArr[i2] = iArr[i2] + 1;
             return this.peekedLong;
         }
-        if (i2 == 17) {
+        if (i == 17) {
             this.peekedString = this.buffer.readUtf8(this.peekedNumberLength);
-        } else if (i2 == 9) {
+        } else if (i == 9) {
             this.peekedString = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-        } else if (i2 == 8) {
+        } else if (i == 8) {
             this.peekedString = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
-        } else if (i2 == 10) {
+        } else if (i == 10) {
             this.peekedString = nextUnquotedValue();
-        } else if (i2 != 11) {
+        } else if (i != 11) {
             throw new JsonDataException("Expected a double but was " + peek() + " at path " + getPath());
         }
         this.peeked = 11;
@@ -770,8 +769,8 @@ public final class JsonUtf8Reader extends JsonReader {
             this.peekedString = null;
             this.peeked = 0;
             int[] iArr2 = this.pathIndices;
-            int i4 = this.stackSize - 1;
-            iArr2[i4] = iArr2[i4] + 1;
+            int i3 = this.stackSize - 1;
+            iArr2[i3] = iArr2[i3] + 1;
             return parseDouble;
         } catch (NumberFormatException unused) {
             throw new JsonDataException("Expected a double but was " + this.peekedString + " at path " + getPath());
@@ -781,26 +780,26 @@ public final class JsonUtf8Reader extends JsonReader {
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public int nextInt() throws IOException {
         String nextQuotedValue;
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 16) {
-            long j2 = this.peekedLong;
-            int i3 = (int) j2;
-            if (j2 == i3) {
+        if (i == 16) {
+            long j = this.peekedLong;
+            int i2 = (int) j;
+            if (j == i2) {
                 this.peeked = 0;
                 int[] iArr = this.pathIndices;
-                int i4 = this.stackSize - 1;
-                iArr[i4] = iArr[i4] + 1;
-                return i3;
+                int i3 = this.stackSize - 1;
+                iArr[i3] = iArr[i3] + 1;
+                return i2;
             }
             throw new JsonDataException("Expected an int but was " + this.peekedLong + " at path " + getPath());
         }
-        if (i2 == 17) {
+        if (i == 17) {
             this.peekedString = this.buffer.readUtf8(this.peekedNumberLength);
-        } else if (i2 == 9 || i2 == 8) {
-            if (i2 == 9) {
+        } else if (i == 9 || i == 8) {
+            if (i == 9) {
                 nextQuotedValue = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
             } else {
                 nextQuotedValue = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
@@ -810,25 +809,25 @@ public final class JsonUtf8Reader extends JsonReader {
                 int parseInt = Integer.parseInt(nextQuotedValue);
                 this.peeked = 0;
                 int[] iArr2 = this.pathIndices;
-                int i5 = this.stackSize - 1;
-                iArr2[i5] = iArr2[i5] + 1;
+                int i4 = this.stackSize - 1;
+                iArr2[i4] = iArr2[i4] + 1;
                 return parseInt;
             } catch (NumberFormatException unused) {
             }
-        } else if (i2 != 11) {
+        } else if (i != 11) {
             throw new JsonDataException("Expected an int but was " + peek() + " at path " + getPath());
         }
         this.peeked = 11;
         try {
             double parseDouble = Double.parseDouble(this.peekedString);
-            int i6 = (int) parseDouble;
-            if (i6 == parseDouble) {
+            int i5 = (int) parseDouble;
+            if (i5 == parseDouble) {
                 this.peekedString = null;
                 this.peeked = 0;
                 int[] iArr3 = this.pathIndices;
-                int i7 = this.stackSize - 1;
-                iArr3[i7] = iArr3[i7] + 1;
-                return i6;
+                int i6 = this.stackSize - 1;
+                iArr3[i6] = iArr3[i6] + 1;
+                return i5;
             }
             throw new JsonDataException("Expected an int but was " + this.peekedString + " at path " + getPath());
         } catch (NumberFormatException unused2) {
@@ -839,17 +838,17 @@ public final class JsonUtf8Reader extends JsonReader {
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public String nextName() throws IOException {
         String str;
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 14) {
+        if (i == 14) {
             str = nextUnquotedValue();
-        } else if (i2 == 13) {
+        } else if (i == 13) {
             str = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-        } else if (i2 == 12) {
+        } else if (i == 12) {
             str = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
-        } else if (i2 == 15) {
+        } else if (i == 15) {
             str = this.peekedString;
         } else {
             throw new JsonDataException("Expected a name but was " + peek() + " at path " + getPath());
@@ -862,40 +861,40 @@ public final class JsonUtf8Reader extends JsonReader {
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public String nextString() throws IOException {
         String readUtf8;
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 == 10) {
+        if (i == 10) {
             readUtf8 = nextUnquotedValue();
-        } else if (i2 == 9) {
+        } else if (i == 9) {
             readUtf8 = nextQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-        } else if (i2 == 8) {
+        } else if (i == 8) {
             readUtf8 = nextQuotedValue(SINGLE_QUOTE_OR_SLASH);
-        } else if (i2 == 11) {
+        } else if (i == 11) {
             readUtf8 = this.peekedString;
             this.peekedString = null;
-        } else if (i2 == 16) {
+        } else if (i == 16) {
             readUtf8 = Long.toString(this.peekedLong);
-        } else if (i2 == 17) {
+        } else if (i == 17) {
             readUtf8 = this.buffer.readUtf8(this.peekedNumberLength);
         } else {
             throw new JsonDataException("Expected a string but was " + peek() + " at path " + getPath());
         }
         this.peeked = 0;
         int[] iArr = this.pathIndices;
-        int i3 = this.stackSize - 1;
-        iArr[i3] = iArr[i3] + 1;
+        int i2 = this.stackSize - 1;
+        iArr[i2] = iArr[i2] + 1;
         return readUtf8;
     }
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public JsonReader.Token peek() throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        switch (i2) {
+        switch (i) {
             case 1:
                 return JsonReader.Token.BEGIN_OBJECT;
             case 2:
@@ -931,14 +930,14 @@ public final class JsonUtf8Reader extends JsonReader {
 
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public int selectName(JsonReader.Options options) throws IOException {
-        int i2 = this.peeked;
-        if (i2 == 0) {
-            i2 = doPeek();
+        int i = this.peeked;
+        if (i == 0) {
+            i = doPeek();
         }
-        if (i2 < 12 || i2 > 15) {
+        if (i < 12 || i > 15) {
             return -1;
         }
-        if (i2 == 15) {
+        if (i == 15) {
             return findName(this.peekedString, options);
         }
         int select = this.source.select(options.doubleQuoteSuffix);
@@ -961,17 +960,17 @@ public final class JsonUtf8Reader extends JsonReader {
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void skipName() throws IOException {
         if (!this.failOnUnknown) {
-            int i2 = this.peeked;
-            if (i2 == 0) {
-                i2 = doPeek();
+            int i = this.peeked;
+            if (i == 0) {
+                i = doPeek();
             }
-            if (i2 == 14) {
+            if (i == 14) {
                 skipUnquotedValue();
-            } else if (i2 == 13) {
+            } else if (i == 13) {
                 skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-            } else if (i2 == 12) {
+            } else if (i == 12) {
                 skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
-            } else if (i2 != 15) {
+            } else if (i != 15) {
                 throw new JsonDataException("Expected a name but was " + peek() + " at path " + getPath());
             }
             this.peeked = 0;
@@ -984,52 +983,52 @@ public final class JsonUtf8Reader extends JsonReader {
     @Override // com.airbnb.lottie.parser.moshi.JsonReader
     public void skipValue() throws IOException {
         if (!this.failOnUnknown) {
-            int i2 = 0;
+            int i = 0;
             do {
-                int i3 = this.peeked;
-                if (i3 == 0) {
-                    i3 = doPeek();
+                int i2 = this.peeked;
+                if (i2 == 0) {
+                    i2 = doPeek();
                 }
-                if (i3 == 3) {
+                if (i2 == 3) {
                     pushScope(1);
-                } else if (i3 == 1) {
+                } else if (i2 == 1) {
                     pushScope(3);
                 } else {
-                    if (i3 == 4) {
-                        i2--;
-                        if (i2 >= 0) {
+                    if (i2 == 4) {
+                        i--;
+                        if (i >= 0) {
                             this.stackSize--;
                         } else {
                             throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
                         }
-                    } else if (i3 == 2) {
-                        i2--;
-                        if (i2 >= 0) {
+                    } else if (i2 == 2) {
+                        i--;
+                        if (i >= 0) {
                             this.stackSize--;
                         } else {
                             throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
                         }
-                    } else if (i3 == 14 || i3 == 10) {
+                    } else if (i2 == 14 || i2 == 10) {
                         skipUnquotedValue();
-                    } else if (i3 == 9 || i3 == 13) {
+                    } else if (i2 == 9 || i2 == 13) {
                         skipQuotedValue(DOUBLE_QUOTE_OR_SLASH);
-                    } else if (i3 == 8 || i3 == 12) {
+                    } else if (i2 == 8 || i2 == 12) {
                         skipQuotedValue(SINGLE_QUOTE_OR_SLASH);
-                    } else if (i3 == 17) {
+                    } else if (i2 == 17) {
                         this.buffer.skip(this.peekedNumberLength);
-                    } else if (i3 == 18) {
+                    } else if (i2 == 18) {
                         throw new JsonDataException("Expected a value but was " + peek() + " at path " + getPath());
                     }
                     this.peeked = 0;
                 }
-                i2++;
+                i++;
                 this.peeked = 0;
-            } while (i2 != 0);
+            } while (i != 0);
             int[] iArr = this.pathIndices;
-            int i4 = this.stackSize;
-            int i5 = i4 - 1;
-            iArr[i5] = iArr[i5] + 1;
-            this.pathNames[i4 - 1] = StringUtil.NULL_STRING;
+            int i3 = this.stackSize;
+            int i4 = i3 - 1;
+            iArr[i4] = iArr[i4] + 1;
+            this.pathNames[i3 - 1] = StringUtil.NULL_STRING;
             return;
         }
         throw new JsonDataException("Cannot skip unexpected " + peek() + " at " + getPath());

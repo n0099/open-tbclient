@@ -38,9 +38,9 @@ public final class ObservableInterval extends Observable<Long> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,9 +71,9 @@ public final class ObservableInterval extends Observable<Long> {
                 return;
             }
             Observer<? super Long> observer = this.actual;
-            long j2 = this.count;
-            this.count = 1 + j2;
-            observer.onNext(Long.valueOf(j2));
+            long j = this.count;
+            this.count = 1 + j;
+            observer.onNext(Long.valueOf(j));
         }
 
         public void setResource(Disposable disposable) {
@@ -84,23 +84,23 @@ public final class ObservableInterval extends Observable<Long> {
         }
     }
 
-    public ObservableInterval(long j2, long j3, TimeUnit timeUnit, Scheduler scheduler) {
+    public ObservableInterval(long j, long j2, TimeUnit timeUnit, Scheduler scheduler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeUnit, scheduler};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.initialDelay = j2;
-        this.period = j3;
+        this.initialDelay = j;
+        this.period = j2;
         this.unit = timeUnit;
         this.scheduler = scheduler;
     }

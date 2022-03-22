@@ -2,15 +2,15 @@ package com.bytedance.sdk.openadsdk;
 
 import android.os.Bundle;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface TTAdBridge {
-    String call(int i2, Bundle bundle);
+    String call(int i, Bundle bundle);
 
-    <T> T callMethod(Class<T> cls, int i2, Map<String, Object> map);
+    <T> T callMethod(Class<T> cls, int i, Map<String, Object> map);
 
     <T> T getObj(Class<T> cls);
 
-    <T> T getObj(Class<T> cls, int i2, Map<String, Object> map);
+    <T> T getObj(Class<T> cls, int i, Map<String, Object> map);
 
     void init(Bundle bundle);
 

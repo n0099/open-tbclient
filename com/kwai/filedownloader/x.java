@@ -2,10 +2,10 @@ package com.kwai.filedownloader;
 
 import com.kwai.filedownloader.message.MessageSnapshot;
 import com.kwai.filedownloader.s;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface x extends s.a {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         MessageSnapshot a(Throwable th);
 
@@ -20,7 +20,7 @@ public interface x extends s.a {
         boolean d(MessageSnapshot messageSnapshot);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface b {
         void p();
     }

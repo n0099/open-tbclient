@@ -1,12 +1,13 @@
 package com.yxcorp.kuaishou.addfp.a.a;
 
 import android.text.TextUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +20,9 @@ public class d implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,7 +38,7 @@ public class d implements a {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str3 = (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+                str3 = (String) cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class, String.class).invoke(cls, str, str2);
             } catch (Exception unused) {
                 str3 = null;
             }
@@ -65,7 +66,7 @@ public class d implements a {
                         th.printStackTrace();
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar2 = this.a.f60035g;
+                                eVar2 = this.a.f44598g;
                                 eVar2.b(b.a);
                             }
                             if (aVar != null) {
@@ -79,7 +80,7 @@ public class d implements a {
                     } finally {
                         try {
                             if (!TextUtils.isEmpty(b.a) && !b.a.startsWith("KWE")) {
-                                eVar = this.a.f60035g;
+                                eVar = this.a.f44598g;
                                 eVar.b(b.a);
                             }
                             if (aVar != null) {

@@ -30,7 +30,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchState> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_USER_AGENT = "Mozilla/5.0 (Linux; Android 4.4.2; Nexus 5 Build/KOT49H) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36";
@@ -45,7 +45,7 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
     public volatile Executor mCancellationExecutor;
     public Context mContext;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class OkHttpNetworkFetchState extends FetchState {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -62,9 +62,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer, producerContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Consumer) objArr2[0], (ProducerContext) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -82,9 +82,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -140,9 +140,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, newCall};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -169,9 +169,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -208,9 +208,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, okHttpNetworkFetchState, callback};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -304,15 +304,15 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i2) {
+    public Map<String, String> getExtraMap(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, okHttpNetworkFetchState, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, okHttpNetworkFetchState, i)) == null) {
             HashMap hashMap = new HashMap(4);
             hashMap.put(QUEUE_TIME, Long.toString(okHttpNetworkFetchState.responseTime - okHttpNetworkFetchState.submitTime));
             hashMap.put(FETCH_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.responseTime));
             hashMap.put(TOTAL_TIME, Long.toString(okHttpNetworkFetchState.fetchCompleteTime - okHttpNetworkFetchState.submitTime));
-            hashMap.put(IMAGE_SIZE, Integer.toString(i2));
+            hashMap.put(IMAGE_SIZE, Integer.toString(i));
             return hashMap;
         }
         return (Map) invokeLI.objValue;
@@ -320,9 +320,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.producers.BaseNetworkFetcher, com.facebook.imagepipeline.producers.NetworkFetcher
-    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i2) {
+    public void onFetchCompletion(OkHttpNetworkFetchState okHttpNetworkFetchState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, okHttpNetworkFetchState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, okHttpNetworkFetchState, i) == null) {
             okHttpNetworkFetchState.fetchCompleteTime = SystemClock.elapsedRealtime();
         }
     }
@@ -336,9 +336,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
             newInitContext.initArgs = r2;
             Object[] objArr = {okHttpClient};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Call.Factory) objArr2[0], (Executor) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -355,9 +355,9 @@ public class OkHttpNetworkFetcher extends BaseNetworkFetcher<OkHttpNetworkFetchS
             newInitContext.initArgs = r2;
             Object[] objArr = {factory, executor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

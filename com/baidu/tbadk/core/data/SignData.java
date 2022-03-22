@@ -1,6 +1,6 @@
 package com.baidu.tbadk.core.data;
 
-import c.a.q0.r.r.z1;
+import c.a.o0.r.r.w1;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SignData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7905612002845096083L;
@@ -29,7 +29,7 @@ public class SignData implements Serializable {
     public int is_signed;
     public int levelup_score;
     public ContriInfo mContriInfo;
-    public z1 mSignStampInfoData;
+    public w1 mSignStampInfoData;
     public int miss_sign_num;
     public int sign_bonus_point;
     public int sign_count;
@@ -41,9 +41,9 @@ public class SignData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,7 +60,7 @@ public class SignData implements Serializable {
         this.errorCode = 0;
         this.errorMsg = "";
         this.mContriInfo = new ContriInfo();
-        this.mSignStampInfoData = new z1();
+        this.mSignStampInfoData = new w1();
     }
 
     public void parserJson(String str) {

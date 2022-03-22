@@ -6,6 +6,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,9 +42,9 @@ public class PkgUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -59,7 +60,7 @@ public class PkgUtils {
                 return context.getPackageManager().getPackageInfo(str, 64);
             } catch (PackageManager.NameNotFoundException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.w(TAG, e2.getMessage());
                     return null;
                 }
                 return null;
@@ -110,8 +111,11 @@ public class PkgUtils {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
                 return (packageInfo == null || packageInfo.signatures.length <= 0) ? "" : packageInfo.signatures[0].toCharsString();
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.e(TAG, "get sign error!!!", e2);
+                    return "";
+                }
                 return "";
             }
         }
@@ -125,8 +129,10 @@ public class PkgUtils {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
             try {
                 str2 = context.getPackageManager().getPermissionInfo(str, 128).packageName;
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.e(TAG, "get packageName error!!!", e2);
+                }
                 str2 = "";
             }
             return TextUtils.isEmpty(str2) ? str2 : getSign(context, str2);

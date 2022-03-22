@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class CyberMediaExtProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,16 @@ public abstract class CyberMediaExtProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public abstract CaptureManagerProvider createCaptureManagerProvider(Context context, int i2, int i3, int i4, int i5, int i6);
+    public abstract CaptureManagerProvider createCaptureManagerProvider(Context context, int i, int i2, int i3, int i4, int i5);
 
     public abstract RTCVideoViewProvider createRTCVideoView(Context context, AttributeSet attributeSet);
 

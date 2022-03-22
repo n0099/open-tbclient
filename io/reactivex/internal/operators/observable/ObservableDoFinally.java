@@ -33,7 +33,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public final Observer<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60721d;
+        public Disposable f45331d;
         public final Action onFinally;
         public QueueDisposable<T> qd;
         public boolean syncFused;
@@ -45,9 +45,9 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,7 +69,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f60721d.dispose();
+                this.f45331d.dispose();
                 runFinally();
             }
         }
@@ -78,7 +78,7 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f60721d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f45331d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.internal.fuseable.SimpleQueue
@@ -117,8 +117,8 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f60721d, disposable)) {
-                this.f60721d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048583, this, disposable) == null) && DisposableHelper.validate(this.f45331d, disposable)) {
+                this.f45331d = disposable;
                 if (disposable instanceof QueueDisposable) {
                     this.qd = (QueueDisposable) disposable;
                 }
@@ -142,15 +142,15 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
                 QueueDisposable<T> queueDisposable = this.qd;
-                if (queueDisposable == null || (i2 & 4) != 0) {
+                if (queueDisposable == null || (i & 4) != 0) {
                     return 0;
                 }
-                int requestFusion = queueDisposable.requestFusion(i2);
+                int requestFusion = queueDisposable.requestFusion(i);
                 if (requestFusion != 0) {
                     this.syncFused = requestFusion == 1;
                 }
@@ -181,9 +181,9 @@ public final class ObservableDoFinally<T> extends AbstractObservableWithUpstream
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

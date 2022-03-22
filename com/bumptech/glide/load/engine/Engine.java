@@ -34,7 +34,7 @@ import com.bumptech.glide.util.pool.FactoryPools;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedListener, EngineResource.ResourceListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JOB_POOL_SIZE = 150;
@@ -51,7 +51,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
     public final ResourceRecycler resourceRecycler;
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class DecodeJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +66,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {diskCacheProvider};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,9 +86,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -113,21 +113,21 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
             this.diskCacheProvider = diskCacheProvider;
         }
 
-        public <R> DecodeJob<R> build(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i2, int i3, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, DecodeJob.Callback<R> callback) {
+        public <R> DecodeJob<R> build(GlideContext glideContext, Object obj, EngineKey engineKey, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, boolean z3, Options options, DecodeJob.Callback<R> callback) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i2), Integer.valueOf(i3), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{glideContext, obj, engineKey, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), options, callback})) == null) {
                 DecodeJob decodeJob = (DecodeJob) Preconditions.checkNotNull(this.pool.acquire());
-                int i4 = this.creationOrder;
-                this.creationOrder = i4 + 1;
-                return decodeJob.init(glideContext, obj, engineKey, key, i2, i3, cls, cls2, priority, diskCacheStrategy, map, z, z2, z3, options, callback, i4);
+                int i3 = this.creationOrder;
+                this.creationOrder = i3 + 1;
+                return decodeJob.init(glideContext, obj, engineKey, key, i, i2, cls, cls2, priority, diskCacheStrategy, map, z, z2, z3, options, callback, i3);
             }
             return (DecodeJob) invokeCommon.objValue;
         }
     }
 
     @VisibleForTesting
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class EngineJobFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -145,9 +145,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, engineJobListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -165,9 +165,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -233,7 +233,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LazyDiskCacheProvider implements DecodeJob.DiskCacheProvider {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -247,9 +247,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {factory};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -292,7 +292,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LoadStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -306,9 +306,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                 newInitContext.initArgs = r2;
                 Object[] objArr = {resourceCallback, engineJob};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -351,9 +351,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
             newInitContext.initArgs = r3;
             Object[] objArr = {memoryCache, factory, glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((MemoryCache) objArr2[0], (DiskCache.Factory) objArr2[1], (GlideExecutor) objArr2[2], (GlideExecutor) objArr2[3], (GlideExecutor) objArr2[4], (GlideExecutor) objArr2[5], (Jobs) objArr2[6], (EngineKeyFactory) objArr2[7], (ActiveResources) objArr2[8], (EngineJobFactory) objArr2[9], (DecodeJobFactory) objArr2[10], (ResourceRecycler) objArr2[11], ((Boolean) objArr2[12]).booleanValue());
                 newInitContext.thisArg = this;
@@ -413,10 +413,10 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         return (EngineResource) invokeLZ.objValue;
     }
 
-    public static void logWithTimeAndKey(String str, long j2, Key key) {
+    public static void logWithTimeAndKey(String str, long j, Key key) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j2), key}) == null) {
-            String str2 = str + " in " + LogTime.getElapsedMillis(j2) + "ms, key: " + key;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Long.valueOf(j), key}) == null) {
+            Log.v(TAG, str + " in " + LogTime.getElapsedMillis(j) + "ms, key: " + key);
         }
     }
 
@@ -427,13 +427,13 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
         }
     }
 
-    public <R> LoadStatus load(GlideContext glideContext, Object obj, Key key, int i2, int i3, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, Options options, boolean z3, boolean z4, boolean z5, boolean z6, ResourceCallback resourceCallback) {
+    public <R> LoadStatus load(GlideContext glideContext, Object obj, Key key, int i, int i2, Class<?> cls, Class<R> cls2, Priority priority, DiskCacheStrategy diskCacheStrategy, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, Options options, boolean z3, boolean z4, boolean z5, boolean z6, ResourceCallback resourceCallback) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glideContext, obj, key, Integer.valueOf(i2), Integer.valueOf(i3), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), options, Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), resourceCallback})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{glideContext, obj, key, Integer.valueOf(i), Integer.valueOf(i2), cls, cls2, priority, diskCacheStrategy, map, Boolean.valueOf(z), Boolean.valueOf(z2), options, Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), resourceCallback})) == null) {
             Util.assertMainThread();
             long logTime = VERBOSE_IS_LOGGABLE ? LogTime.getLogTime() : 0L;
-            EngineKey buildKey = this.keyFactory.buildKey(obj, key, i2, i3, map, cls, cls2, options);
+            EngineKey buildKey = this.keyFactory.buildKey(obj, key, i, i2, map, cls, cls2, options);
             EngineResource<?> loadFromActiveResources = loadFromActiveResources(buildKey, z3);
             if (loadFromActiveResources != null) {
                 resourceCallback.onResourceReady(loadFromActiveResources, DataSource.MEMORY_CACHE);
@@ -459,7 +459,7 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
                 return new LoadStatus(resourceCallback, engineJob);
             }
             EngineJob<R> build = this.engineJobFactory.build(buildKey, z3, z4, z5, z6);
-            DecodeJob<R> build2 = this.decodeJobFactory.build(glideContext, obj, buildKey, key, i2, i3, cls, cls2, priority, diskCacheStrategy, map, z, z2, z6, options, build);
+            DecodeJob<R> build2 = this.decodeJobFactory.build(glideContext, obj, buildKey, key, i, i2, cls, cls2, priority, diskCacheStrategy, map, z, z2, z6, options, build);
             this.jobs.put(buildKey, build);
             build.addCallback(resourceCallback);
             build.start(build2);
@@ -548,9 +548,9 @@ public class Engine implements EngineJobListener, MemoryCache.ResourceRemovedLis
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryCache, factory, glideExecutor, glideExecutor2, glideExecutor3, glideExecutor4, jobs, engineKeyFactory, activeResources, engineJobFactory, decodeJobFactory, resourceRecycler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

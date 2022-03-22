@@ -45,9 +45,9 @@ public class a {
                 while (it.hasNext()) {
                     c.a.d.f.n.j.d next = it.next();
                     if (next != null) {
-                        long j2 = next.f2746c;
-                        if (j2 != 0 && j2 + 604800000 < currentTimeMillis) {
-                            arrayList3.add(next.f2745b);
+                        long j = next.f2270c;
+                        if (j != 0 && j + 604800000 < currentTimeMillis) {
+                            arrayList3.add(next.f2269b);
                         } else {
                             arrayList2.add(next);
                         }
@@ -75,15 +75,15 @@ public class a {
                 }
                 ArrayList arrayList = new ArrayList();
                 int size = a.size();
-                long j2 = 0;
-                for (int i2 = 0; i2 < size; i2++) {
-                    c.a.d.f.n.j.d dVar = a.get(i2);
-                    j2 += dVar.a;
+                long j = 0;
+                for (int i = 0; i < size; i++) {
+                    c.a.d.f.n.j.d dVar = a.get(i);
+                    j += dVar.a;
                     arrayList.add(dVar);
-                    if (j2 >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                    if (j >= ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                         bdUploadingLogInfo.add(arrayList);
                         arrayList = new ArrayList();
-                        j2 = 0;
+                        j = 0;
                     }
                 }
                 if (arrayList.size() > 0) {

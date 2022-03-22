@@ -36,16 +36,16 @@ public class FaceJniClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static native FaceAlgoData animateFace(long j2, FaceAlgoData faceAlgoData, long j3);
+    public static native FaceAlgoData animateFace(long j, FaceAlgoData faceAlgoData, long j2);
 
     public static native long createAnimateCore(String[] strArr);
 
@@ -61,19 +61,19 @@ public class FaceJniClient {
 
     public static native long createTrackCoreFromAssetDir(String[] strArr);
 
-    public static native boolean destoryFrame(long j2);
+    public static native boolean destoryFrame(long j);
 
-    public static native FaceAlgoData detectFace(long j2, FaceAlgoData faceAlgoData, long j3);
+    public static native FaceAlgoData detectFace(long j, FaceAlgoData faceAlgoData, long j2);
 
     public static native String getFaceAlgoVersion();
 
-    public static native boolean releaseAnimateCore(long j2);
+    public static native boolean releaseAnimateCore(long j);
 
-    public static native boolean releaseDetectCore(long j2);
+    public static native boolean releaseDetectCore(long j);
 
-    public static native boolean releaseTrackCore(long j2);
+    public static native boolean releaseTrackCore(long j);
 
     public static native int setAssetManager(AssetManager assetManager);
 
-    public static native FaceAlgoData trackFace(long j2, FaceAlgoData faceAlgoData, long j3);
+    public static native FaceAlgoData trackFace(long j, FaceAlgoData faceAlgoData, long j2);
 }

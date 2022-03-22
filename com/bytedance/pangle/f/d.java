@@ -11,7 +11,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.security.cert.Certificate;
 @RequiresApi(api = 21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,16 +21,16 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, certificateArr)) == null) {
             Signature[] signatureArr = new Signature[certificateArr.length];
-            for (int i2 = 0; i2 < certificateArr.length; i2++) {
-                int i3 = Build.VERSION.SDK_INT;
-                if (i3 >= 21 && i3 <= 28) {
+            for (int i = 0; i < certificateArr.length; i++) {
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 >= 21 && i2 <= 28) {
                     Constructor a = com.bytedance.pangle.a.b.a.a(Signature.class, Certificate[].class);
                     if (a != null) {
                         a.setAccessible(true);
                     }
                     if (a != null && a.isAccessible()) {
                         try {
-                            signatureArr[i2] = (Signature) a.newInstance(certificateArr[i2]);
+                            signatureArr[i] = (Signature) a.newInstance(certificateArr[i]);
                         } catch (IllegalAccessException e2) {
                             e2.printStackTrace();
                         } catch (InstantiationException e3) {
@@ -40,7 +40,7 @@ public final class d {
                         }
                     }
                 } else {
-                    signatureArr[i2] = new Signature(certificateArr[i2][0].getEncoded());
+                    signatureArr[i] = new Signature(certificateArr[i][0].getEncoded());
                 }
             }
             return signatureArr;
@@ -55,16 +55,16 @@ public final class d {
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
             try {
                 try {
-                    c.C2033c a = c.a(str);
+                    c.C1920c a = c.a(str);
                     Signature[] a2 = a(new Certificate[][]{a.a});
                     Signature[] signatureArr = null;
-                    if (a.f51691b != null) {
-                        int size = a.f51691b.a.size();
+                    if (a.f38112b != null) {
+                        int size = a.f38112b.a.size();
                         signatureArr = new Signature[size];
-                        iArr = new int[a.f51691b.f51690b.size()];
-                        for (int i2 = 0; i2 < size; i2++) {
-                            signatureArr[i2] = new Signature(a.f51691b.a.get(i2).getEncoded());
-                            iArr[i2] = a.f51691b.f51690b.get(i2).intValue();
+                        iArr = new int[a.f38112b.f38111b.size()];
+                        for (int i = 0; i < size; i++) {
+                            signatureArr[i] = new Signature(a.f38112b.a.get(i).getEncoded());
+                            iArr[i] = a.f38112b.f38111b.get(i).intValue();
                         }
                     } else {
                         iArr = null;

@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SVProgressDefaultView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -39,19 +39,19 @@ public class SVProgressDefaultView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.resBigLoading = R.drawable.ic_svstatus_loading;
-        this.resInfo = R.drawable.ic_svstatus_info;
-        this.resSuccess = R.drawable.ic_svstatus_success;
-        this.resError = R.drawable.ic_svstatus_error;
+        this.resBigLoading = R.drawable.obfuscated_res_0x7f08065f;
+        this.resInfo = R.drawable.obfuscated_res_0x7f08065e;
+        this.resSuccess = R.drawable.obfuscated_res_0x7f080660;
+        this.resError = R.drawable.obfuscated_res_0x7f08065d;
         initViews();
         init();
     }
@@ -79,11 +79,11 @@ public class SVProgressDefaultView extends LinearLayout {
     private void initViews() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_svprogressdefault, (ViewGroup) this, true);
-            this.ivBigLoading = (ImageView) findViewById(R.id.ivBigLoading);
-            this.ivSmallLoading = (ImageView) findViewById(R.id.ivSmallLoading);
-            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.circleProgressBar);
-            this.tvMsg = (TextView) findViewById(R.id.tvMsg);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a5, (ViewGroup) this, true);
+            this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbc);
+            this.ivSmallLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fbd);
+            this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.obfuscated_res_0x7f09064b);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f09216d);
         }
     }
 
@@ -120,11 +120,11 @@ public class SVProgressDefaultView extends LinearLayout {
         }
     }
 
-    public void showBaseStatus(int i2, String str) {
+    public void showBaseStatus(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
             clearAnimations();
-            this.ivSmallLoading.setImageResource(i2);
+            this.ivSmallLoading.setImageResource(i);
             this.tvMsg.setText(str);
             this.ivBigLoading.setVisibility(8);
             this.circleProgressBar.setVisibility(8);

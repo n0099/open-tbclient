@@ -9,8 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ThreadAchievementShareInfo implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,7 +19,7 @@ public class ThreadAchievementShareInfo implements Serializable {
     public ParamBean params;
     public String title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ContentBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +34,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -95,10 +94,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setType(int i2) {
+        public void setType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.type = i2;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.type = i;
             }
         }
 
@@ -110,7 +109,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ParamBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,9 +135,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -241,10 +240,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.video_info : (VideoInfoBean) invokeV.objValue;
         }
 
-        public void setAgree_num(int i2) {
+        public void setAgree_num(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-                this.agree_num = i2;
+            if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+                this.agree_num = i;
             }
         }
 
@@ -262,10 +261,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setInteract(int i2) {
+        public void setInteract(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-                this.interact = i2;
+            if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+                this.interact = i;
             }
         }
 
@@ -276,17 +275,17 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setPost_num(int i2) {
+        public void setPost_num(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-                this.post_num = i2;
+            if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+                this.post_num = i;
             }
         }
 
-        public void setRank(int i2) {
+        public void setRank(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-                this.rank = i2;
+            if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+                this.rank = i;
             }
         }
 
@@ -357,13 +356,13 @@ public class ThreadAchievementShareInfo implements Serializable {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-                return "ParamBean{user=" + this.user + ", rank=" + this.rank + ", title='" + this.title + ExtendedMessageFormat.QUOTE + ", date='" + this.date + ExtendedMessageFormat.QUOTE + ", tid='" + this.tid + ExtendedMessageFormat.QUOTE + ", uid='" + this.uid + ExtendedMessageFormat.QUOTE + ", url='" + this.url + ExtendedMessageFormat.QUOTE + ", pageType='" + this.pageType + ExtendedMessageFormat.QUOTE + ", thread_list=" + this.thread_list + ", thread_type='" + this.thread_type + ExtendedMessageFormat.QUOTE + ", thread_title='" + this.thread_title + ExtendedMessageFormat.QUOTE + ", interact=" + this.interact + ", agree_num=" + this.agree_num + ", post_num=" + this.post_num + ", content=" + this.content + ", video_info=" + this.video_info + ExtendedMessageFormat.END_FE;
+                return "ParamBean{user=" + this.user + ", rank=" + this.rank + ", title='" + this.title + "', date='" + this.date + "', tid='" + this.tid + "', uid='" + this.uid + "', url='" + this.url + "', pageType='" + this.pageType + "', thread_list=" + this.thread_list + ", thread_type='" + this.thread_type + "', thread_title='" + this.thread_title + "', interact=" + this.interact + ", agree_num=" + this.agree_num + ", post_num=" + this.post_num + ", content=" + this.content + ", video_info=" + this.video_info + '}';
             }
             return (String) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ThreadListBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -380,9 +379,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -431,10 +430,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.user_img : (String) invokeV.objValue;
         }
 
-        public void setDuration(int i2) {
+        public void setDuration(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.duration = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.duration = i;
             }
         }
 
@@ -452,17 +451,17 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setIndex(int i2) {
+        public void setIndex(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.index = i2;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.index = i;
             }
         }
 
-        public void setTid(long j2) {
+        public void setTid(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                this.tid = j2;
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                this.tid = j;
             }
         }
 
@@ -481,7 +480,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class UserBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -494,9 +493,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -543,7 +542,7 @@ public class ThreadAchievementShareInfo implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoDescBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -558,9 +557,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -597,24 +596,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.video_width : invokeV.intValue;
         }
 
-        public void setVideo_height(int i2) {
+        public void setVideo_height(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.video_height = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.video_height = i;
             }
         }
 
-        public void setVideo_id(int i2) {
+        public void setVideo_id(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.video_id = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.video_id = i;
             }
         }
 
-        public void setVideo_size(int i2) {
+        public void setVideo_size(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.video_size = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.video_size = i;
             }
         }
 
@@ -625,15 +624,15 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_width(int i2) {
+        public void setVideo_width(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.video_width = i2;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.video_width = i;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoDescCaeBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -648,9 +647,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -687,24 +686,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.video_width : invokeV.intValue;
         }
 
-        public void setVideo_height(int i2) {
+        public void setVideo_height(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.video_height = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.video_height = i;
             }
         }
 
-        public void setVideo_id(int i2) {
+        public void setVideo_id(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.video_id = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.video_id = i;
             }
         }
 
-        public void setVideo_size(int i2) {
+        public void setVideo_size(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.video_size = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.video_size = i;
             }
         }
 
@@ -715,15 +714,15 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_width(int i2) {
+        public void setVideo_width(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.video_width = i2;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.video_width = i;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoDescH265Bean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -738,9 +737,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -777,24 +776,24 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.video_width : invokeV.intValue;
         }
 
-        public void setVideo_height(int i2) {
+        public void setVideo_height(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.video_height = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.video_height = i;
             }
         }
 
-        public void setVideo_id(int i2) {
+        public void setVideo_id(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-                this.video_id = i2;
+            if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+                this.video_id = i;
             }
         }
 
-        public void setVideo_size(int i2) {
+        public void setVideo_size(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-                this.video_size = i2;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.video_size = i;
             }
         }
 
@@ -805,15 +804,15 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_width(int i2) {
+        public void setVideo_width(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-                this.video_width = i2;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.video_width = i;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class VideoInfoBean implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -841,9 +840,9 @@ public class ThreadAchievementShareInfo implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -958,17 +957,17 @@ public class ThreadAchievementShareInfo implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.video_width : (String) invokeV.objValue;
         }
 
-        public void setAuditing(int i2) {
+        public void setAuditing(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-                this.auditing = i2;
+            if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+                this.auditing = i;
             }
         }
 
-        public void setFormat_matched(int i2) {
+        public void setFormat_matched(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-                this.format_matched = i2;
+            if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+                this.format_matched = i;
             }
         }
 
@@ -1000,10 +999,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVersion_h265(int i2) {
+        public void setVersion_h265(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-                this.version_h265 = i2;
+            if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+                this.version_h265 = i;
             }
         }
 
@@ -1049,10 +1048,10 @@ public class ThreadAchievementShareInfo implements Serializable {
             }
         }
 
-        public void setVideo_log_id(long j2) {
+        public void setVideo_log_id(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048607, this, j2) == null) {
-                this.video_log_id = j2;
+            if (interceptable == null || interceptable.invokeJ(1048607, this, j) == null) {
+                this.video_log_id = j;
             }
         }
 
@@ -1090,9 +1089,9 @@ public class ThreadAchievementShareInfo implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

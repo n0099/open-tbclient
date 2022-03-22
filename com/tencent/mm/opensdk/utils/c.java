@@ -7,22 +7,22 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static Object a(int i2, String str) {
+        public static Object a(int i, String str) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i2, str)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
                 try {
-                    switch (i2) {
+                    switch (i) {
                         case 1:
                             return Integer.valueOf(str);
                         case 2:
@@ -48,7 +48,7 @@ public final class c {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class b implements BaseColumns {
         public static /* synthetic */ Interceptable $ic;
         public static final Uri CONTENT_URI;

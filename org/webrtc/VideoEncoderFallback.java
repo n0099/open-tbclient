@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.VideoEncoder;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {videoEncoder, videoEncoder2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +74,7 @@ public class VideoEncoderFallback extends WrappedNativeVideoEncoder {
     }
 
     @Override // org.webrtc.WrappedNativeVideoEncoder, org.webrtc.VideoEncoder
-    public /* bridge */ /* synthetic */ VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i2) {
-        return super.setRateAllocation(bitrateAllocation, i2);
+    public /* bridge */ /* synthetic */ VideoCodecStatus setRateAllocation(VideoEncoder.BitrateAllocation bitrateAllocation, int i) {
+        return super.setRateAllocation(bitrateAllocation, i);
     }
 }

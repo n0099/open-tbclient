@@ -58,16 +58,16 @@ public final class HotTopicStat {
             $VALUES = new Locate[]{UNDEFINED, HOT_RANK, TOPIC_RANK, VIDEO_MIDDLE, THREAD_CARD, locate};
         }
 
-        public Locate(String str, @NonNull int i2, int i3, String str2) {
+        public Locate(String str, @NonNull int i, int i2, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -76,7 +76,7 @@ public final class HotTopicStat {
                     return;
                 }
             }
-            this.statValue = i3;
+            this.statValue = i2;
             this.desc = str2;
         }
 

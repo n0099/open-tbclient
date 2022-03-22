@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ public final class bo {
     public static final Proxy a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Proxy f35194b;
+    public static final Proxy f27331b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -46,7 +47,7 @@ public final class bo {
             }
         }
         a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
-        f35194b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+        f27331b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
     }
 
     public static String a() {
@@ -64,41 +65,40 @@ public final class bo {
 
     public static String b(String str) {
         InterceptResult invokeL;
-        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            File a2 = a(str);
-            if (a2 == null || !a2.exists()) {
-                return "";
-            }
-            FileInputStream fileInputStream2 = null;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65544, null, str)) != null) {
+            return (String) invokeL.objValue;
+        }
+        File a2 = a(str);
+        if (a2 == null || !a2.exists()) {
+            return "";
+        }
+        FileInputStream fileInputStream = null;
+        try {
+            FileInputStream fileInputStream2 = new FileInputStream(a2);
             try {
-                fileInputStream = new FileInputStream(a2);
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                byte[] a3 = a(fileInputStream);
+                byte[] a3 = a(fileInputStream2);
                 if (a3 == null) {
-                    bu.a(fileInputStream);
+                    bu.a(fileInputStream2);
                     return "";
                 }
-                String str2 = new String(a3, "utf-8");
-                bu.a(fileInputStream);
+                String str2 = new String(a3, IMAudioTransRequest.CHARSET);
+                bu.a(fileInputStream2);
                 return str2;
-            } catch (Exception unused2) {
-                fileInputStream2 = fileInputStream;
-                bu.a(fileInputStream2);
+            } catch (Exception unused) {
+                fileInputStream = fileInputStream2;
+                bu.a(fileInputStream);
                 return "";
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                bu.a(fileInputStream2);
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream = fileInputStream2;
+                bu.a(fileInputStream);
                 throw th;
             }
+        } catch (Exception unused2) {
+        } catch (Throwable th2) {
+            th = th2;
         }
-        return (String) invokeL.objValue;
     }
 
     public static boolean c(String str) {
@@ -175,7 +175,7 @@ public final class bo {
         FileOutputStream fileOutputStream = null;
         try {
             fileOutputStream = context.openFileOutput(str, z ? 32768 : 0);
-            bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream);
+            bu.a(new ByteArrayInputStream(str2.getBytes(IMAudioTransRequest.CHARSET)), fileOutputStream);
         } catch (Exception unused) {
             bu.a(fileOutputStream);
         } catch (Throwable th) {
@@ -203,7 +203,7 @@ public final class bo {
                     }
                     FileOutputStream fileOutputStream2 = new FileOutputStream(a2, z);
                     try {
-                        bu.a(new ByteArrayInputStream(str2.getBytes("utf-8")), fileOutputStream2);
+                        bu.a(new ByteArrayInputStream(str2.getBytes(IMAudioTransRequest.CHARSET)), fileOutputStream2);
                     } catch (Exception unused) {
                     } catch (Throwable th) {
                         th = th;
@@ -230,7 +230,7 @@ public final class bo {
                 fileInputStream = context.openFileInput(str);
                 byte[] a2 = a(fileInputStream);
                 if (a2 != null) {
-                    String str2 = new String(a2, "utf-8");
+                    String str2 = new String(a2, IMAudioTransRequest.CHARSET);
                     bu.a(fileInputStream);
                     return str2;
                 }
@@ -259,11 +259,11 @@ public final class bo {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public static HttpURLConnection a(Context context, String str, int i2, int i3) throws IOException {
+    public static HttpURLConnection a(Context context, String str, int i, int i2) throws IOException {
         InterceptResult invokeLLII;
         HttpURLConnection httpURLConnection;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, i, i2)) == null) {
             URL url = new URL(str);
             ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
             NetworkInfo networkInfo = connectivityManager.getNetworkInfo(0);
@@ -276,7 +276,7 @@ public final class bo {
                     String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                     if (!lowerCase.startsWith(ConectivityUtils.APN_CMWAP) && !lowerCase.startsWith(ConectivityUtils.APN_UNIWAP) && !lowerCase.startsWith(ConectivityUtils.APN_3GWAP)) {
                         if (lowerCase.startsWith(ConectivityUtils.APN_CTWAP)) {
-                            httpURLConnection = (HttpURLConnection) url.openConnection(f35194b);
+                            httpURLConnection = (HttpURLConnection) url.openConnection(f27331b);
                         }
                     } else {
                         httpURLConnection = (HttpURLConnection) url.openConnection(a);
@@ -287,8 +287,8 @@ public final class bo {
             if (httpURLConnection == null) {
                 httpURLConnection = (HttpURLConnection) url.openConnection();
             }
-            httpURLConnection.setConnectTimeout(i2);
-            httpURLConnection.setReadTimeout(i3);
+            httpURLConnection.setConnectTimeout(i);
+            httpURLConnection.setReadTimeout(i2);
             return httpURLConnection;
         }
         return (HttpURLConnection) invokeLLII.objValue;

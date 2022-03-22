@@ -17,7 +17,7 @@ import java.nio.ByteBuffer;
 import javax.annotation.concurrent.ThreadSafe;
 @DoNotStrip
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int LOOP_COUNT_FOREVER = 0;
@@ -33,9 +33,9 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,20 +68,20 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         }
     }
 
-    public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i2) {
+    public static AnimatedDrawableFrameInfo.DisposalMethod fromGifDisposalMethod(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i == 0) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
             }
-            if (i2 == 2) {
+            if (i == 2) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_BACKGROUND;
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_TO_PREVIOUS;
             }
             return AnimatedDrawableFrameInfo.DisposalMethod.DISPOSE_DO_NOT;
@@ -93,7 +93,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     public static native GifImage nativeCreateFromDirectByteBuffer(ByteBuffer byteBuffer);
 
     @DoNotStrip
-    public static native GifImage nativeCreateFromNativeMemory(long j2, int i2);
+    public static native GifImage nativeCreateFromNativeMemory(long j, int i);
 
     @DoNotStrip
     private native void nativeDispose();
@@ -105,7 +105,7 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetDuration();
 
     @DoNotStrip
-    private native GifFrame nativeGetFrame(int i2);
+    private native GifFrame nativeGetFrame(int i);
 
     @DoNotStrip
     private native int nativeGetFrameCount();
@@ -126,10 +126,10 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     private native int nativeGetWidth();
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
-    public AnimatedImage decode(long j2, int i2) {
+    public AnimatedImage decode(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) ? create(j2, i2) : (AnimatedImage) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? create(j, i) : (AnimatedImage) invokeCommon.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
@@ -179,13 +179,13 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            GifFrame frame = getFrame(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            GifFrame frame = getFrame(i);
             try {
-                return new AnimatedDrawableFrameInfo(i2, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, fromGifDisposalMethod(frame.getDisposalMode()));
+                return new AnimatedDrawableFrameInfo(i, frame.getXOffset(), frame.getYOffset(), frame.getWidth(), frame.getHeight(), AnimatedDrawableFrameInfo.BlendOperation.BLEND_WITH_PREVIOUS, fromGifDisposalMethod(frame.getDisposalMode()));
             } finally {
                 frame.dispose();
             }
@@ -232,22 +232,22 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
     }
 
     @DoNotStrip
-    public GifImage(long j2) {
+    public GifImage(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2)};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.mNativeContext = j2;
+        this.mNativeContext = j;
     }
 
     @Override // com.facebook.imagepipeline.animated.factory.AnimatedImageDecoder
@@ -259,10 +259,10 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.imagepipeline.animated.base.AnimatedImage
-    public GifFrame getFrame(int i2) {
+    public GifFrame getFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? nativeGetFrame(i2) : (GifFrame) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? nativeGetFrame(i) : (GifFrame) invokeI.objValue;
     }
 
     public static GifImage create(ByteBuffer byteBuffer) {
@@ -276,13 +276,13 @@ public class GifImage implements AnimatedImage, AnimatedImageDecoder {
         return (GifImage) invokeL.objValue;
     }
 
-    public static GifImage create(long j2, int i2) {
+    public static GifImage create(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             ensure();
-            Preconditions.checkArgument(j2 != 0);
-            return nativeCreateFromNativeMemory(j2, i2);
+            Preconditions.checkArgument(j != 0);
+            return nativeCreateFromNativeMemory(j, i);
         }
         return (GifImage) invokeCommon.objValue;
     }

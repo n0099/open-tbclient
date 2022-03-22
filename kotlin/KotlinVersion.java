@@ -1,5 +1,6 @@
 package kotlin;
 
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import kotlin.jvm.JvmField;
@@ -29,18 +30,18 @@ public final class KotlinVersion implements Comparable<KotlinVersion> {
         }
     }
 
-    public KotlinVersion(int i2, int i3, int i4) {
-        this.major = i2;
-        this.minor = i3;
-        this.patch = i4;
-        this.version = versionOf(i2, i3, i4);
+    public KotlinVersion(int i, int i2, int i3) {
+        this.major = i;
+        this.minor = i2;
+        this.patch = i3;
+        this.version = versionOf(i, i2, i3);
     }
 
-    private final int versionOf(int i2, int i3, int i4) {
-        if (i2 >= 0 && 255 >= i2 && i3 >= 0 && 255 >= i3 && i4 >= 0 && 255 >= i4) {
-            return (i2 << 16) + (i3 << 8) + i4;
+    private final int versionOf(int i, int i2, int i3) {
+        if (i >= 0 && 255 >= i && i2 >= 0 && 255 >= i2 && i3 >= 0 && 255 >= i3) {
+            return (i << 16) + (i2 << 8) + i3;
         }
-        throw new IllegalArgumentException(("Version components are out of range: " + i2 + '.' + i3 + '.' + i4).toString());
+        throw new IllegalArgumentException(("Version components are out of range: " + i + IStringUtil.EXTENSION_SEPARATOR + i2 + IStringUtil.EXTENSION_SEPARATOR + i3).toString());
     }
 
     public boolean equals(Object obj) {
@@ -70,18 +71,18 @@ public final class KotlinVersion implements Comparable<KotlinVersion> {
         return this.version;
     }
 
-    public final boolean isAtLeast(int i2, int i3) {
-        int i4 = this.major;
-        return i4 > i2 || (i4 == i2 && this.minor >= i3);
+    public final boolean isAtLeast(int i, int i2) {
+        int i3 = this.major;
+        return i3 > i || (i3 == i && this.minor >= i2);
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0005: IGET  (r1v0 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.major int), ('.' char), (wrap: int : 0x000f: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.minor int), ('.' char), (wrap: int : 0x0017: IGET  (r1v2 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.patch int)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0005: IGET  (r1v0 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.major int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char), (wrap: int : 0x000f: IGET  (r2v0 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.minor int), (wrap: char : ?: SGET   com.baidu.android.common.others.IStringUtil.EXTENSION_SEPARATOR char), (wrap: int : 0x0017: IGET  (r1v2 int A[REMOVE]) = (r3v0 'this' kotlin.KotlinVersion A[IMMUTABLE_TYPE, THIS]) kotlin.KotlinVersion.patch int)] */
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(this.major);
-        sb.append('.');
+        sb.append(IStringUtil.EXTENSION_SEPARATOR);
         sb.append(this.minor);
-        sb.append('.');
+        sb.append(IStringUtil.EXTENSION_SEPARATOR);
         sb.append(this.patch);
         return sb.toString();
     }
@@ -93,13 +94,13 @@ public final class KotlinVersion implements Comparable<KotlinVersion> {
         return this.version - other.version;
     }
 
-    public final boolean isAtLeast(int i2, int i3, int i4) {
-        int i5;
-        int i6 = this.major;
-        return i6 > i2 || (i6 == i2 && ((i5 = this.minor) > i3 || (i5 == i3 && this.patch >= i4)));
+    public final boolean isAtLeast(int i, int i2, int i3) {
+        int i4;
+        int i5 = this.major;
+        return i5 > i || (i5 == i && ((i4 = this.minor) > i2 || (i4 == i2 && this.patch >= i3)));
     }
 
-    public KotlinVersion(int i2, int i3) {
-        this(i2, i3, 0);
+    public KotlinVersion(int i, int i2) {
+        this(i, i2, 0);
     }
 }

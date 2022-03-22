@@ -12,7 +12,7 @@ import com.tencent.connect.auth.AuthAgent;
 import com.tencent.open.log.SLog;
 import com.tencent.open.utils.f;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class JniInterface {
     public static /* synthetic */ Interceptable $ic;
     public static boolean isJniOk;
@@ -38,16 +38,16 @@ public class JniInterface {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static native boolean BackSpaceChar(boolean z, int i2);
+    public static native boolean BackSpaceChar(boolean z, int i);
 
     public static native boolean clearAllPWD();
 
@@ -57,7 +57,7 @@ public class JniInterface {
 
     public static native String getPWDKeyToMD5(String str);
 
-    public static native boolean insetTextToArray(int i2, String str, int i3);
+    public static native boolean insetTextToArray(int i, String str, int i2);
 
     public static void loadSo() {
         Interceptable interceptable = $ic;

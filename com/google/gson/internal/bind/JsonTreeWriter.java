@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class JsonTreeWriter extends JsonWriter {
     public static /* synthetic */ Interceptable $ic;
     public static final JsonPrimitive SENTINEL_CLOSED;
@@ -51,9 +51,9 @@ public final class JsonTreeWriter extends JsonWriter {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -77,9 +77,9 @@ public final class JsonTreeWriter extends JsonWriter {
             }
 
             @Override // java.io.Writer
-            public void write(char[] cArr, int i2, int i3) {
+            public void write(char[] cArr, int i, int i2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i2, i3) == null) {
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_SEND_USER_MSG, this, cArr, i, i2) == null) {
                     throw new AssertionError();
                 }
             }
@@ -94,9 +94,9 @@ public final class JsonTreeWriter extends JsonWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Writer) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -313,11 +313,11 @@ public final class JsonTreeWriter extends JsonWriter {
     }
 
     @Override // com.google.gson.stream.JsonWriter
-    public JsonWriter value(long j2) throws IOException {
+    public JsonWriter value(long j) throws IOException {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j2)) == null) {
-            put(new JsonPrimitive((Number) Long.valueOf(j2)));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048586, this, j)) == null) {
+            put(new JsonPrimitive((Number) Long.valueOf(j)));
             return this;
         }
         return (JsonWriter) invokeJ.objValue;

@@ -1,5 +1,6 @@
 package com.baidu.tbadk.core.util;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -26,9 +27,9 @@ public class PvThread extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,28 +52,30 @@ public class PvThread extends Thread {
             if (TbadkCoreApplication.getInst().checkInterrupt()) {
                 return;
             }
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + (this.mIsInpv ? TbConfig.IN_PV_ADDRESS : TbConfig.LOAD_REG_PV_ADDRESS));
+            String str = this.mIsInpv ? TbConfig.IN_PV_ADDRESS : TbConfig.LOAD_REG_PV_ADDRESS;
+            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + str);
             netWork.addPostData("st_type", this.mType);
-            String str = this.mParam;
-            if (str != null) {
-                netWork.addPostData("st_param", str);
-            }
-            String str2 = this.mObj;
+            String str2 = this.mParam;
             if (str2 != null) {
-                netWork.addPostData("obj", str2);
+                netWork.addPostData("st_param", str2);
             }
-            String str3 = this.mObjTp;
+            String str3 = this.mObj;
             if (str3 != null) {
-                netWork.addPostData("obj_tp", str3);
+                netWork.addPostData("obj", str3);
+            }
+            String str4 = this.mObjTp;
+            if (str4 != null) {
+                netWork.addPostData("obj_tp", str4);
             }
             String postNetData = netWork.postNetData();
             System.out.println("pv_test !!!");
             if (postNetData != null) {
+                Log.i("USEINTERVAL", postNetData);
                 try {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("use_duration")) {
                         long optLong = jSONObject.optLong("use_duration");
-                        String str4 = "duration " + optLong;
+                        Log.i("USEINTERVAL", "duration " + optLong);
                         if (optLong < 0 || optLong == TbadkCoreApplication.getInst().getUseTimeInterval()) {
                             return;
                         }
@@ -92,9 +95,9 @@ public class PvThread extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -116,9 +119,9 @@ public class PvThread extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -140,9 +143,9 @@ public class PvThread extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -165,9 +168,9 @@ public class PvThread extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

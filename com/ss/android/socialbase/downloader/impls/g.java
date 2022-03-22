@@ -13,7 +13,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class g implements IDownloadHttpService {
     public final com.ss.android.socialbase.downloader.i.h<String, OkHttpClient> a = new com.ss.android.socialbase.downloader.i.h<>(4, 8);
 
@@ -44,7 +44,7 @@ public class g implements IDownloadHttpService {
     }
 
     @Override // com.ss.android.socialbase.downloader.network.IDownloadHttpService
-    public com.ss.android.socialbase.downloader.network.i downloadWithConnection(int i2, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
+    public com.ss.android.socialbase.downloader.network.i downloadWithConnection(int i, String str, List<com.ss.android.socialbase.downloader.model.c> list) throws IOException {
         String str2;
         OkHttpClient s;
         Request.Builder url = new Request.Builder().url(str);

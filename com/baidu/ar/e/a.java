@@ -26,9 +26,9 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,11 +36,11 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(int i2, String str) {
+    public void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65538, this, i, str) == null) {
             this.tH = true;
-            this.tI = i2;
+            this.tI = i;
             this.tJ = str;
         }
     }
@@ -72,22 +72,22 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
         return (b) invokeL.objValue;
     }
 
-    public void a(int i2, String str, IError iError) {
+    public void a(int i, String str, IError iError) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str, iError) == null) || iError == null) {
+        if (!(interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iError) == null) || iError == null) {
             return;
         }
-        iError.onError(i2, str, null);
+        iError.onError(i, str, null);
     }
 
     public abstract void a(InT r1, ICallbackWith<OutT> iCallbackWith, IError iError);
 
-    public final void b(int i2, String str) {
+    public final void b(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
             this.tF = true;
             this.tG = true;
-            a(i2, str, new IError(this) { // from class: com.baidu.ar.e.a.3
+            a(i, str, new IError(this) { // from class: com.baidu.ar.e.a.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a tK;
@@ -99,9 +99,9 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -111,14 +111,14 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
                 }
 
                 @Override // com.baidu.ar.callback.IError
-                public void onError(int i3, String str2, Exception exc) {
+                public void onError(int i2, String str2, Exception exc) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i3, str2, exc) == null) {
-                        this.tK.a(i3, str2);
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str2, exc) == null) {
+                        this.tK.a(i2, str2);
                         if (this.tK.qH || this.tK.tD == null) {
                             return;
                         }
-                        this.tK.tD.b(i3, str2);
+                        this.tK.tD.b(i2, str2);
                     }
                 }
             });
@@ -153,9 +153,9 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -188,9 +188,9 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -200,10 +200,10 @@ public abstract class a<InT, OutT> implements b<InT, OutT> {
             }
 
             @Override // com.baidu.ar.callback.IError
-            public void onError(int i2, String str, Exception exc) {
+            public void onError(int i, String str, Exception exc) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, exc) == null) {
-                    this.tK.b(i2, str);
+                if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, exc) == null) {
+                    this.tK.b(i, str);
                 }
             }
         });

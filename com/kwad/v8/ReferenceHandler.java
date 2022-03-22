@@ -1,5 +1,5 @@
 package com.kwad.v8;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ReferenceHandler {
     void v8HandleCreated(V8Value v8Value);
 

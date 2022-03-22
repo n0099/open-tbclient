@@ -24,10 +24,10 @@ public abstract class a {
     public WebKitFactory.WebkitInstallListener a;
 
     /* renamed from: b  reason: collision with root package name */
-    public EngineManager f51383b;
+    public EngineManager f37840b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f51384c;
+    public int f37841c;
 
     public a(EngineManager engineManager, WebKitFactory.WebkitInstallListener webkitInstallListener) {
         Interceptable interceptable = $ic;
@@ -36,17 +36,17 @@ public abstract class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {engineManager, webkitInstallListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f51383b = engineManager;
+        this.f37840b = engineManager;
         this.a = webkitInstallListener;
-        this.f51384c = 13;
+        this.f37841c = 13;
     }
 
     private boolean e() {
@@ -74,7 +74,7 @@ public abstract class a {
             if (!unZip) {
                 WebKitFactory.getLoadErrorCode().addDownloadInfo(1017);
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install unzip failed");
-                this.f51384c = 6;
+                this.f37841c = 6;
             }
             return unZip;
         }
@@ -93,7 +93,7 @@ public abstract class a {
                 Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installSync file not exist");
                 return false;
             }
-            EngineManager engineManager = this.f51383b;
+            EngineManager engineManager = this.f37840b;
             if (engineManager != null) {
                 engineManager.onInstallStart(d2);
             }
@@ -107,21 +107,21 @@ public abstract class a {
             boolean e2 = e();
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.install result=".concat(String.valueOf(e2)));
             if (e2) {
-                this.f51384c = 0;
+                this.f37841c = 0;
                 ZeusWebViewPreloadClass.getInstance().deleteSavingClassesFile();
             }
             WebKitFactory.WebkitInstallListener webkitInstallListener2 = this.a;
             if (webkitInstallListener2 != null) {
-                int i2 = this.f51384c;
-                if (i2 == 0) {
-                    this.a.onInstallFinish(this.f51384c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
+                int i = this.f37841c;
+                if (i == 0) {
+                    this.a.onInstallFinish(this.f37841c, UtilsBlink.getDownloadLibPath(WebKitFactory.getContext()));
                 } else {
-                    webkitInstallListener2.onInstallFinish(i2, null);
+                    webkitInstallListener2.onInstallFinish(i, null);
                 }
             }
-            EngineManager engineManager2 = this.f51383b;
+            EngineManager engineManager2 = this.f37840b;
             if (engineManager2 != null) {
-                engineManager2.onInstallFinish(this.f51384c == 0);
+                engineManager2.onInstallFinish(this.f37841c == 0);
             }
             ZeusPerformanceTiming.setZeusDownloadInfo(WebKitFactory.getLoadErrorCode().getDownloadInfo());
             ZeusPerformanceTiming.recordDownloadInitStatistics();
@@ -134,7 +134,7 @@ public abstract class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             Log.i(EngineManager.LOG_TAG, "BlinkEngineInstaller.installAsync");
-            if (this.f51383b == null || WebKitFactory.getContext() == null) {
+            if (this.f37840b == null || WebKitFactory.getContext() == null) {
                 WebKitFactory.getLoadErrorCode().addDownloadInfo(1012);
                 WebKitFactory.WebkitInstallListener webkitInstallListener = this.a;
                 if (webkitInstallListener != null) {
@@ -158,7 +158,7 @@ public abstract class a {
                     public final /* synthetic */ HandlerThread a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ a f51385b;
+                    public final /* synthetic */ a f37842b;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -167,15 +167,15 @@ public abstract class a {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, handlerThread};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
-                        this.f51385b = this;
+                        this.f37842b = this;
                         this.a = handlerThread;
                     }
 
@@ -183,7 +183,7 @@ public abstract class a {
                     public final void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            this.f51385b.a();
+                            this.f37842b.a();
                             this.a.quit();
                         }
                     }

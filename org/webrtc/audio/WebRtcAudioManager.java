@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.webrtc.CalledByNative;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class WebRtcAudioManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_SAMPLE = 16;
@@ -27,9 +27,9 @@ public class WebRtcAudioManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,14 +44,14 @@ public class WebRtcAudioManager {
     }
 
     @CalledByNative
-    public static int getInputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
+    public static int getInputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, context, audioManager, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, context, audioManager, i, i2)) == null) {
             if (isLowLatencyInputSupported(context)) {
                 return getLowLatencyFramesPerBuffer(audioManager);
             }
-            return getMinInputFrameSize(i2, i3);
+            return getMinInputFrameSize(i, i2);
         }
         return invokeLLII.intValue;
     }
@@ -69,33 +69,33 @@ public class WebRtcAudioManager {
         return invokeL.intValue;
     }
 
-    public static int getMinInputFrameSize(int i2, int i3) {
+    public static int getMinInputFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3)) == null) {
-            return AudioRecord.getMinBufferSize(i2, i3 == 1 ? 16 : 12, 2) / (i3 * 2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            return AudioRecord.getMinBufferSize(i, i2 == 1 ? 16 : 12, 2) / (i2 * 2);
         }
         return invokeII.intValue;
     }
 
-    public static int getMinOutputFrameSize(int i2, int i3) {
+    public static int getMinOutputFrameSize(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
-            return AudioTrack.getMinBufferSize(i2, i3 == 1 ? 4 : 12, 2) / (i3 * 2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            return AudioTrack.getMinBufferSize(i, i2 == 1 ? 4 : 12, 2) / (i2 * 2);
         }
         return invokeII.intValue;
     }
 
     @CalledByNative
-    public static int getOutputBufferSize(Context context, AudioManager audioManager, int i2, int i3) {
+    public static int getOutputBufferSize(Context context, AudioManager audioManager, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, context, audioManager, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65542, null, context, audioManager, i, i2)) == null) {
             if (isLowLatencyOutputSupported(context)) {
                 return getLowLatencyFramesPerBuffer(audioManager);
             }
-            return getMinOutputFrameSize(i2, i3);
+            return getMinOutputFrameSize(i, i2);
         }
         return invokeLLII.intValue;
     }

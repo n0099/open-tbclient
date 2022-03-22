@@ -22,16 +22,16 @@ public class CustomAlertDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomAlertDialog(Context context) {
-        super(context, R.style.SapiSdkBeautyDialog);
+        super(context, R.style.obfuscated_res_0x7f10017f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -45,12 +45,12 @@ public class CustomAlertDialog extends Dialog {
     private void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            setContentView(R.layout.layout_sapi_sdk_dialog_alert);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d0);
             setCanceledOnTouchOutside(true);
-            this.titleTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_title);
-            this.contentTv = (TextView) findViewById(R.id.sapi_sdk_common_dialog_content);
-            this.positiveBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_positive_btn);
-            this.negativeBtn = (TextView) findViewById(R.id.sapi_sdk_common_dialog_negative_btn);
+            this.titleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b83);
+            this.contentTv = (TextView) findViewById(R.id.obfuscated_res_0x7f091b80);
+            this.positiveBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b82);
+            this.negativeBtn = (TextView) findViewById(R.id.obfuscated_res_0x7f091b81);
         }
     }
 
@@ -77,10 +77,10 @@ public class CustomAlertDialog extends Dialog {
         }
     }
 
-    public void setPositiveTvColor(int i2) {
+    public void setPositiveTvColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.positiveBtn.setTextColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.positiveBtn.setTextColor(i);
         }
     }
 
@@ -92,17 +92,17 @@ public class CustomAlertDialog extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomAlertDialog(Context context, int i2) {
-        super(context, i2);
+    public CustomAlertDialog(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -122,9 +122,9 @@ public class CustomAlertDialog extends Dialog {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), onCancelListener};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (DialogInterface.OnCancelListener) objArr2[2]);
                 newInitContext.thisArg = this;

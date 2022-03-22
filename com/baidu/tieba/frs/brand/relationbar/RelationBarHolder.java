@@ -22,9 +22,9 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,7 +34,7 @@ public class RelationBarHolder<T extends View> extends RecyclerView.ViewHolder {
         this.a = t;
     }
 
-    public T getRelationBarCellView() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;

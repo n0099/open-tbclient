@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.Arrays;
 import org.webrtc.Logging;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class WebRtcAudioUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "WebRtcAudioUtilsExternal";
@@ -28,20 +28,20 @@ public final class WebRtcAudioUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String deviceTypeToString(int i2) {
+    public static String deviceTypeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
                 case 1:
                     return "TYPE_BUILTIN_EARPIECE";
                 case 2:
@@ -176,15 +176,15 @@ public final class WebRtcAudioUtils {
             if (z) {
                 return;
             }
-            for (int i2 = 0; i2 < 6; i2++) {
-                int i3 = iArr[i2];
+            for (int i = 0; i < 6; i++) {
+                int i2 = iArr[i];
                 StringBuilder sb = new StringBuilder();
-                sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i3) + ": ");
+                sb.append(GlideException.IndentedAppendable.INDENT + streamTypeToString(i2) + ": ");
                 sb.append("volume=");
-                sb.append(audioManager.getStreamVolume(i3));
+                sb.append(audioManager.getStreamVolume(i2));
                 sb.append(", max=");
-                sb.append(audioManager.getStreamMaxVolume(i3));
-                logIsStreamMute(str, audioManager, i3, sb);
+                sb.append(audioManager.getStreamMaxVolume(i2));
+                logIsStreamMute(str, audioManager, i2, sb);
                 Logging.d(str, sb.toString());
             }
         }
@@ -198,18 +198,18 @@ public final class WebRtcAudioUtils {
     }
 
     @TargetApi(23)
-    public static void logIsStreamMute(String str, AudioManager audioManager, int i2, StringBuilder sb) {
+    public static void logIsStreamMute(String str, AudioManager audioManager, int i, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(65545, null, str, audioManager, i2, sb) == null) && runningOnMarshmallowOrHigher()) {
+        if ((interceptable == null || interceptable.invokeLLIL(65545, null, str, audioManager, i, sb) == null) && runningOnMarshmallowOrHigher()) {
             sb.append(", muted=");
-            sb.append(audioManager.isStreamMute(i2));
+            sb.append(audioManager.isStreamMute(i));
         }
     }
 
-    public static String modeToString(int i2) {
+    public static String modeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? "MODE_INVALID" : "MODE_IN_COMMUNICATION" : "MODE_IN_CALL" : "MODE_RINGTONE" : "MODE_NORMAL" : (String) invokeI.objValue;
     }
 
     public static boolean runningOnEmulator() {
@@ -260,9 +260,9 @@ public final class WebRtcAudioUtils {
         return (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) ? Build.VERSION.SDK_INT >= 26 : invokeV.booleanValue;
     }
 
-    public static String streamTypeToString(int i2) {
+    public static String streamTypeToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? i2 != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "STREAM_INVALID" : "STREAM_NOTIFICATION" : "STREAM_ALARM" : "STREAM_MUSIC" : "STREAM_RING" : "STREAM_SYSTEM" : "STREAM_VOICE_CALL" : (String) invokeI.objValue;
     }
 }

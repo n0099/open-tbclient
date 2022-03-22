@@ -37,16 +37,16 @@ public final class b {
         rG = new b[]{rD, bVar};
     }
 
-    public b(String str, int i2, int i3) {
+    public b(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -55,16 +55,16 @@ public final class b {
                 return;
             }
         }
-        this.rF = i3;
+        this.rF = i2;
     }
 
-    public static b L(int i2) {
+    public static b L(int i) {
         InterceptResult invokeI;
         b[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
             for (b bVar : values()) {
-                if (bVar.getTypeValue() == i2) {
+                if (bVar.getTypeValue() == i) {
                     return bVar;
                 }
             }

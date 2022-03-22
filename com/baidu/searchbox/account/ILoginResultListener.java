@@ -7,5 +7,5 @@ public interface ILoginResultListener extends NoProGuard {
     public static final int FAILED = -1;
     public static final int SUCCESS = 0;
 
-    void onResult(int i2);
+    void onResult(int i);
 }

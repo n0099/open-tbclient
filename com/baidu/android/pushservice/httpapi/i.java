@@ -16,31 +16,27 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30856b;
+    public String f24700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30857c;
+    public String f24701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30858d;
+    public String f24702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30859e;
+    public String f24703e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30860f;
+    public String f24704f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30861g;
+    public String f24705g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f30862h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f30863i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f30864j;
+    public boolean f24706h;
+    public String i;
+    public boolean j;
     public boolean k;
 
     public i() {
@@ -48,24 +44,24 @@ public class i {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f30856b = "";
-        this.f30857c = "";
-        this.f30858d = "";
-        this.f30859e = "";
-        this.f30860f = "";
-        this.f30861g = "";
-        this.f30862h = false;
-        this.f30863i = "";
-        this.f30864j = true;
+        this.f24700b = "";
+        this.f24701c = "";
+        this.f24702d = "";
+        this.f24703e = "";
+        this.f24704f = "";
+        this.f24705g = "";
+        this.f24706h = false;
+        this.i = "";
+        this.j = true;
     }
 
     public i(Intent intent) {
@@ -75,39 +71,39 @@ public class i {
             newInitContext.initArgs = r2;
             Object[] objArr = {intent};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = "";
-        this.f30856b = "";
-        this.f30857c = "";
-        this.f30858d = "";
-        this.f30859e = "";
-        this.f30860f = "";
-        this.f30861g = "";
-        this.f30862h = false;
-        this.f30863i = "";
-        this.f30864j = true;
+        this.f24700b = "";
+        this.f24701c = "";
+        this.f24702d = "";
+        this.f24703e = "";
+        this.f24704f = "";
+        this.f24705g = "";
+        this.f24706h = false;
+        this.i = "";
+        this.j = true;
         PendingIntent pendingIntent = (PendingIntent) intent.getParcelableExtra("app");
         if (pendingIntent != null) {
-            this.f30858d = pendingIntent.getTargetPackage();
+            this.f24702d = pendingIntent.getTargetPackage();
         }
-        if (TextUtils.isEmpty(this.f30858d)) {
-            this.f30858d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        if (TextUtils.isEmpty(this.f24702d)) {
+            this.f24702d = intent.getStringExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME);
         }
-        this.f30857c = intent.getStringExtra("access_token");
-        this.f30861g = intent.getStringExtra("secret_key");
+        this.f24701c = intent.getStringExtra("access_token");
+        this.f24705g = intent.getStringExtra("secret_key");
         this.a = intent.getStringExtra("method");
-        this.f30856b = intent.getStringExtra("method_type");
-        this.f30859e = intent.getStringExtra("appid");
-        this.f30862h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
-        this.f30863i = intent.getStringExtra("push_proxy");
-        this.f30864j = intent.getBooleanExtra("should_notify_user", true);
+        this.f24700b = intent.getStringExtra("method_type");
+        this.f24703e = intent.getStringExtra("appid");
+        this.f24706h = intent.getBooleanExtra("bd_push_extra_is_baidu_app", false);
+        this.i = intent.getStringExtra("push_proxy");
+        this.j = intent.getBooleanExtra("should_notify_user", true);
         this.k = intent.getBooleanExtra("ignore_token", false);
     }
 
@@ -115,7 +111,7 @@ public class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "method=" + this.a + ", accessToken=" + this.f30857c + ", packageName=" + this.f30858d + ", appId=" + this.f30859e + ", userId=" + this.f30860f;
+            return "method=" + this.a + ", accessToken=" + this.f24701c + ", packageName=" + this.f24702d + ", appId=" + this.f24703e + ", userId=" + this.f24704f;
         }
         return (String) invokeV.objValue;
     }

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.s1.w.c;
+import c.a.p0.u1.w.c;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,9 +33,9 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -57,10 +57,10 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] getDialogOperationItems(int i2, boolean z) {
+    public String[] getDialogOperationItems(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? super.getDialogOperationItems(i2, true) : (String[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? super.getDialogOperationItems(i, true) : (String[]) invokeCommon.objValue;
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
@@ -93,14 +93,14 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void onItemViewClick(View view, int i2, int i3, long j2) {
+    public void onItemViewClick(View view, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j2)}) == null) {
-            super.onItemViewClick(view, i2, i3, j2);
-            if (i2 == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i3)) != null && c.q(msg) && content != null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
+            super.onItemViewClick(view, i, i2, j);
+            if (i == 7 && isExStorageOk() && (msglistModel = this.mListModel) != null && (msg = msglistModel.getMsg(i2)) != null && c.q(msg) && content != null) {
                 JSONObject jSONObject = null;
                 try {
                     try {

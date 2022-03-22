@@ -18,7 +18,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BannerEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BannerEntity> CREATOR;
@@ -31,7 +31,7 @@ public class BannerEntity implements Parcelable {
     public String mLogExt;
     public int mSelected;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a implements Parcelable.Creator<BannerEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class BannerEntity implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,10 +62,10 @@ public class BannerEntity implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public BannerEntity[] newArray(int i2) {
+        public BannerEntity[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new BannerEntity[i2] : (BannerEntity[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new BannerEntity[i] : (BannerEntity[]) invokeI.objValue;
         }
     }
 
@@ -90,9 +90,9 @@ public class BannerEntity implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -117,8 +117,8 @@ public class BannerEntity implements Parcelable {
                 e2.printStackTrace();
             }
             JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                 LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                 liveBannerEntity.parserJson(jSONObject2);
                 bannerEntity.mBannerList.add(liveBannerEntity);
@@ -144,8 +144,8 @@ public class BannerEntity implements Parcelable {
                 e2.printStackTrace();
             }
             JSONArray jSONArray = jSONObject.getJSONArray("banner_list");
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject2 = jSONArray.getJSONObject(i);
                 LiveBannerEntity liveBannerEntity = new LiveBannerEntity();
                 liveBannerEntity.parserJson(jSONObject2);
                 bannerEntity.mBannerList.add(liveBannerEntity);
@@ -168,9 +168,9 @@ public class BannerEntity implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
             parcel.writeInt(this.mSelected);
             parcel.writeList(this.mBannerList);
             parcel.writeInt(this.mBroadcastInterval);
@@ -187,9 +187,9 @@ public class BannerEntity implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

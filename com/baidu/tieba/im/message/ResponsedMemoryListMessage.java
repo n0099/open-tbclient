@@ -16,17 +16,17 @@ public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMe
     public int type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i2) {
+    public ResponsedMemoryListMessage(List<ImMessageCenterPojo> list, int i) {
         super(2016007, list);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i2)};
+            Object[] objArr = {list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), objArr2[1]);
                 newInitContext.thisArg = this;
@@ -34,7 +34,7 @@ public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMe
                 return;
             }
         }
-        this.type = i2;
+        this.type = i;
     }
 
     public int getType() {
@@ -43,10 +43,10 @@ public class ResponsedMemoryListMessage extends CustomResponsedMessage<List<ImMe
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.type : invokeV.intValue;
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.type = i;
         }
     }
 }

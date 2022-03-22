@@ -43,9 +43,9 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, flowableProcessor, subscription};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], (FlowableProcessor) objArr2[1], (Subscription) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -90,9 +90,9 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
                 newInitContext.initArgs = r2;
                 Object[] objArr = {publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -151,10 +151,10 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                SubscriptionHelper.deferredRequest(this.subscription, this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                SubscriptionHelper.deferredRequest(this.subscription, this.requested, j);
             }
         }
     }
@@ -176,9 +176,9 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, flowableProcessor, subscription};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -192,10 +192,10 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
         public final void again(U u) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, u) == null) {
-                long j2 = this.produced;
-                if (j2 != 0) {
+                long j = this.produced;
+                if (j != 0) {
                     this.produced = 0L;
-                    produced(j2);
+                    produced(j);
                 }
                 this.receiver.request(1L);
                 this.processor.onNext(u);
@@ -238,9 +238,9 @@ public final class FlowableRepeatWhen<T> extends AbstractFlowableWithUpstream<T,
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

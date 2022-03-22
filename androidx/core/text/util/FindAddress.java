@@ -3,6 +3,7 @@ package androidx.core.text.util;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.d.D;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,25 +51,25 @@ public class FindAddress {
         public int mHigh;
         public int mLow;
 
-        public ZipRange(int i2, int i3, int i4, int i5) {
+        public ZipRange(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mLow = i2;
-            this.mHigh = i3;
-            this.mException1 = i4;
-            this.mException2 = i5;
+            this.mLow = i;
+            this.mHigh = i2;
+            this.mException1 = i3;
+            this.mException2 = i4;
         }
 
         public boolean matches(String str) {
@@ -109,9 +110,9 @@ public class FindAddress {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -150,12 +151,12 @@ public class FindAddress {
         int end = matchResult.end();
         Matcher matcher = sWordRe.matcher(str);
         String str2 = "";
+        int i = 1;
         int i2 = 1;
-        int i3 = 1;
         boolean z = true;
         boolean z2 = false;
+        int i3 = -1;
         int i4 = -1;
-        int i5 = -1;
         while (true) {
             if (end < str.length()) {
                 if (!matcher.find(end)) {
@@ -166,22 +167,22 @@ public class FindAddress {
                     break;
                 } else {
                     while (end < matcher.start()) {
-                        int i6 = end + 1;
+                        int i5 = end + 1;
                         if (NL.indexOf(str.charAt(end)) != -1) {
-                            i2++;
+                            i++;
                         }
-                        end = i6;
+                        end = i5;
                     }
-                    if (i2 > 5 || (i3 = i3 + 1) > 14) {
+                    if (i > 5 || (i2 = i2 + 1) > 14) {
                         break;
                     }
                     if (matchHouseNumber(str, end) == null) {
                         if (!isValidLocationName(matcher.group(0))) {
-                            if (i3 == 5 && !z2) {
+                            if (i2 == 5 && !z2) {
                                 end = matcher.end();
                                 break;
                             }
-                            if (z2 && i3 > 4 && (matchState = matchState(str, end)) != null) {
+                            if (z2 && i2 > 4 && (matchState = matchState(str, end)) != null) {
                                 if (str2.equals("et") && matchState.group(0).equals("al")) {
                                     end = matchState.end();
                                     break;
@@ -192,7 +193,7 @@ public class FindAddress {
                                         return matcher2.end();
                                     }
                                 } else {
-                                    i5 = matchState.end();
+                                    i4 = matchState.end();
                                 }
                             }
                             z = false;
@@ -200,11 +201,11 @@ public class FindAddress {
                             z = false;
                             z2 = true;
                         }
-                    } else if (z && i2 > 1) {
+                    } else if (z && i > 1) {
                         return -end;
                     } else {
-                        if (i4 == -1) {
-                            i4 = end;
+                        if (i3 == -1) {
+                            i3 = end;
                         }
                     }
                     str2 = matcher.group(0);
@@ -220,13 +221,13 @@ public class FindAddress {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                if (Character.isDigit(str.charAt(i3))) {
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (Character.isDigit(str.charAt(i2))) {
+                    i++;
                 }
             }
-            if (i2 > 5) {
+            if (i > 5) {
                 return false;
             }
             Matcher matcher = sSuffixedNumberRe.matcher(str);
@@ -236,15 +237,25 @@ public class FindAddress {
                     return false;
                 }
                 String lowerCase = matcher.group(2).toLowerCase(Locale.getDefault());
-                int i4 = parseInt % 10;
-                if (i4 == 1) {
-                    return lowerCase.equals(parseInt % 100 != 11 ? "st" : "th");
-                } else if (i4 == 2) {
-                    return lowerCase.equals(parseInt % 100 != 12 ? "nd" : "th");
-                } else if (i4 != 3) {
-                    return lowerCase.equals("th");
+                int i3 = parseInt % 10;
+                String str2 = D.COLUMU_PLUGIN_APPLICATION_THEME;
+                if (i3 == 1) {
+                    if (parseInt % 100 != 11) {
+                        str2 = "st";
+                    }
+                    return lowerCase.equals(str2);
+                } else if (i3 == 2) {
+                    if (parseInt % 100 != 12) {
+                        str2 = "nd";
+                    }
+                    return lowerCase.equals(str2);
+                } else if (i3 != 3) {
+                    return lowerCase.equals(D.COLUMU_PLUGIN_APPLICATION_THEME);
                 } else {
-                    return lowerCase.equals(parseInt % 100 != 13 ? "rd" : "th");
+                    if (parseInt % 100 != 13) {
+                        str2 = "rd";
+                    }
+                    return lowerCase.equals(str2);
                 }
             }
             return true;
@@ -257,17 +268,17 @@ public class FindAddress {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
             Matcher matcher = sHouseNumberRe.matcher(str);
-            int i2 = 0;
-            while (matcher.find(i2)) {
+            int i = 0;
+            while (matcher.find(i)) {
                 if (checkHouseNumber(matcher.group(0))) {
                     int start = matcher.start();
                     int attemptMatch = attemptMatch(str, matcher);
                     if (attemptMatch > 0) {
                         return str.substring(start, attemptMatch);
                     }
-                    i2 = -attemptMatch;
+                    i = -attemptMatch;
                 } else {
-                    i2 = matcher.end();
+                    i = matcher.end();
                 }
             }
             return null;
@@ -294,12 +305,12 @@ public class FindAddress {
                 if (groupCount <= 0) {
                     break;
                 }
-                int i2 = groupCount - 1;
+                int i = groupCount - 1;
                 if (matchResult.group(groupCount) != null) {
-                    groupCount = i2;
+                    groupCount = i;
                     break;
                 }
-                groupCount = i2;
+                groupCount = i;
             }
             return sZipCodeRe.matcher(str).matches() && sStateZipCodeRanges[groupCount].matches(str);
         }
@@ -307,12 +318,12 @@ public class FindAddress {
     }
 
     @VisibleForTesting
-    public static MatchResult matchHouseNumber(String str, int i2) {
+    public static MatchResult matchHouseNumber(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) {
-            if (i2 <= 0 || HOUSE_PRE_DELIM.indexOf(str.charAt(i2 - 1)) != -1) {
-                Matcher region = sHouseNumberRe.matcher(str).region(i2, str.length());
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
+            if (i <= 0 || HOUSE_PRE_DELIM.indexOf(str.charAt(i - 1)) != -1) {
+                Matcher region = sHouseNumberRe.matcher(str).region(i, str.length());
                 if (region.lookingAt()) {
                     MatchResult matchResult = region.toMatchResult();
                     if (checkHouseNumber(matchResult.group(0))) {
@@ -327,12 +338,12 @@ public class FindAddress {
     }
 
     @VisibleForTesting
-    public static MatchResult matchState(String str, int i2) {
+    public static MatchResult matchState(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i2)) == null) {
-            if (i2 <= 0 || WORD_DELIM.indexOf(str.charAt(i2 - 1)) != -1) {
-                Matcher region = sStateRe.matcher(str).region(i2, str.length());
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, str, i)) == null) {
+            if (i <= 0 || WORD_DELIM.indexOf(str.charAt(i - 1)) != -1) {
+                Matcher region = sStateRe.matcher(str).region(i, str.length());
                 if (region.lookingAt()) {
                     return region.toMatchResult();
                 }

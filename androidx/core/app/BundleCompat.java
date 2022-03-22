@@ -3,6 +3,7 @@ package androidx.core.app;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,9 +33,9 @@ public final class BundleCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -50,7 +51,8 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("getIBinder", String.class);
                         sGetIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException unused) {
+                    } catch (NoSuchMethodException e2) {
+                        Log.i(TAG, "Failed to retrieve getIBinder method", e2);
                     }
                     sGetIBinderMethodFetched = true;
                 }
@@ -58,7 +60,8 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         return (IBinder) method2.invoke(bundle, str);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException unused2) {
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
+                        Log.i(TAG, "Failed to invoke getIBinder via reflection", e3);
                         sGetIBinderMethod = null;
                     }
                 }
@@ -75,7 +78,8 @@ public final class BundleCompat {
                         Method method = Bundle.class.getMethod("putIBinder", String.class, IBinder.class);
                         sPutIBinderMethod = method;
                         method.setAccessible(true);
-                    } catch (NoSuchMethodException unused) {
+                    } catch (NoSuchMethodException e2) {
+                        Log.i(TAG, "Failed to retrieve putIBinder method", e2);
                     }
                     sPutIBinderMethodFetched = true;
                 }
@@ -83,7 +87,8 @@ public final class BundleCompat {
                 if (method2 != null) {
                     try {
                         method2.invoke(bundle, str, iBinder);
-                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException unused2) {
+                    } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e3) {
+                        Log.i(TAG, "Failed to invoke putIBinder via reflection", e3);
                         sPutIBinderMethod = null;
                     }
                 }
@@ -96,9 +101,9 @@ public final class BundleCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

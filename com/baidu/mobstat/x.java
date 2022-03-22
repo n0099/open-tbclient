@@ -14,7 +14,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.connect.common.Constants;
 import dalvik.system.DexClassLoader;
-import java.io.Closeable;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -28,7 +27,7 @@ public class x {
     public static volatile DexClassLoader a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f35548b;
+    public static volatile boolean f27430b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
@@ -38,7 +37,7 @@ public class x {
         public Context a;
 
         /* renamed from: b  reason: collision with root package name */
-        public com.baidu.mobstat.a f35549b;
+        public com.baidu.mobstat.a f27431b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
             Interceptable interceptable = $ic;
@@ -47,22 +46,22 @@ public class x {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = context;
-            this.f35549b = aVar;
+            this.f27431b = aVar;
         }
 
         private void a(Context context) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65538, this, context) == null) {
-                this.f35549b.a(context, System.currentTimeMillis());
+                this.f27431b.a(context, System.currentTimeMillis());
             }
         }
 
@@ -108,7 +107,7 @@ public class x {
                     } catch (Exception unused) {
                     }
                 }
-                return aa.f35000c + "?" + sb.toString();
+                return aa.f27155c + "?" + sb.toString();
             }
             return (String) invokeL.objValue;
         }
@@ -118,31 +117,21 @@ public class x {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    int i2 = aa.a ? 3 : 10;
+                    int i = aa.a ? 3 : 10;
                     bb c2 = bb.c();
-                    c2.a("start version check in " + i2 + "s");
-                    Thread.sleep((long) (i2 * 1000));
+                    c2.a("start version check in " + i + "s");
+                    Thread.sleep((long) (i * 1000));
                     a();
                     a(this.a);
                 } catch (Exception e2) {
                     bb.c().a(e2);
                 }
-                boolean unused = x.f35548b = false;
+                boolean unused = x.f27430b = false;
             }
         }
 
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x00ce */
-        /* JADX DEBUG: Failed to insert an additional move for type inference into block B:46:0x00ae */
-        /* JADX WARN: Multi-variable type inference failed */
-        /* JADX WARN: Removed duplicated region for block: B:30:0x00ee A[Catch: all -> 0x0108, TryCatch #5 {, blocks: (B:5:0x0005, B:34:0x00fa, B:6:0x0032, B:14:0x00ca, B:26:0x00de, B:27:0x00e1, B:28:0x00e2, B:30:0x00ee, B:31:0x00f1, B:33:0x00f7), top: B:50:0x0005 }] */
-        /* JADX WARN: Removed duplicated region for block: B:33:0x00f7 A[Catch: all -> 0x0108, TRY_LEAVE, TryCatch #5 {, blocks: (B:5:0x0005, B:34:0x00fa, B:6:0x0032, B:14:0x00ca, B:26:0x00de, B:27:0x00e1, B:28:0x00e2, B:30:0x00ee, B:31:0x00f1, B:33:0x00f7), top: B:50:0x0005 }] */
-        /* JADX WARN: Type inference failed for: r5v12 */
-        /* JADX WARN: Type inference failed for: r5v13 */
-        /* JADX WARN: Type inference failed for: r5v14 */
-        /* JADX WARN: Type inference failed for: r5v4, types: [int] */
-        /* JADX WARN: Type inference failed for: r5v5 */
-        /* JADX WARN: Type inference failed for: r5v8, types: [java.io.Closeable] */
-        /* JADX WARN: Type inference failed for: r7v1, types: [java.lang.StringBuilder] */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x00f1 A[Catch: all -> 0x010b, TryCatch #5 {, blocks: (B:5:0x0005, B:34:0x00fd, B:6:0x0033, B:14:0x00cd, B:26:0x00e1, B:27:0x00e4, B:28:0x00e5, B:30:0x00f1, B:31:0x00f4, B:33:0x00fa), top: B:51:0x0005 }] */
+        /* JADX WARN: Removed duplicated region for block: B:33:0x00fa A[Catch: all -> 0x010b, TRY_LEAVE, TryCatch #5 {, blocks: (B:5:0x0005, B:34:0x00fd, B:6:0x0033, B:14:0x00cd, B:26:0x00e1, B:27:0x00e4, B:28:0x00e5, B:30:0x00f1, B:31:0x00f4, B:33:0x00fa), top: B:51:0x0005 }] */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
@@ -153,7 +142,7 @@ public class x {
                 synchronized (this) {
                     bb.c().a("start get config and download jar");
                     Context context = this.a;
-                    com.baidu.mobstat.a aVar = this.f35549b;
+                    com.baidu.mobstat.a aVar = this.f27431b;
                     String b2 = b(context);
                     bb.c().c("update req url is:" + b2);
                     HttpURLConnection d2 = bo.d(context, b2);
@@ -162,51 +151,47 @@ public class x {
                     bb.c().a("config is: " + headerField);
                     String headerField2 = d2.getHeaderField("X-SIGN");
                     bb.c().a("sign is: " + headerField2);
-                    ?? responseCode = d2.getResponseCode();
+                    int responseCode = d2.getResponseCode();
                     bb.c().a("update response code is: " + responseCode);
                     int contentLength = d2.getContentLength();
                     bb.c().a("update response content length is: " + contentLength);
-                    Closeable closeable = null;
-                    if (responseCode == 200) {
+                    FileOutputStream fileOutputStream2 = null;
+                    if (responseCode == 200 && contentLength > 0) {
                         try {
-                            if (contentLength > 0) {
+                            fileOutputStream = context.openFileOutput(".remote.jar", 0);
+                            try {
                                 try {
-                                    fileOutputStream = context.openFileOutput(".remote.jar", 0);
-                                    try {
-                                        boolean a = bu.a(d2.getInputStream(), fileOutputStream);
-                                        responseCode = fileOutputStream;
-                                        if (a) {
-                                            bb.c().a("save remote jar success");
-                                            responseCode = fileOutputStream;
-                                        }
-                                    } catch (IOException e2) {
-                                        e = e2;
-                                        bb.c().b(e);
-                                        responseCode = fileOutputStream;
-                                        bu.a(responseCode);
-                                        DexClassLoader unused = x.a = null;
-                                        u.a();
-                                        if (!TextUtils.isEmpty(headerField)) {
-                                        }
-                                        if (!TextUtils.isEmpty(headerField2)) {
-                                        }
-                                        d2.disconnect();
-                                        bb.c().a("finish get config and download jar");
+                                    if (bu.a(d2.getInputStream(), fileOutputStream)) {
+                                        bb.c().a("save remote jar success");
                                     }
-                                } catch (IOException e3) {
-                                    e = e3;
-                                    fileOutputStream = null;
-                                } catch (Throwable th) {
-                                    th = th;
-                                    bu.a(closeable);
-                                    throw th;
+                                } catch (IOException e2) {
+                                    e = e2;
+                                    bb.c().b(e);
+                                    bu.a(fileOutputStream);
+                                    DexClassLoader unused = x.a = null;
+                                    u.a();
+                                    if (!TextUtils.isEmpty(headerField)) {
+                                    }
+                                    if (!TextUtils.isEmpty(headerField2)) {
+                                    }
+                                    d2.disconnect();
+                                    bb.c().a("finish get config and download jar");
                                 }
-                                bu.a(responseCode);
+                            } catch (Throwable th) {
+                                th = th;
+                                fileOutputStream2 = fileOutputStream;
+                                bu.a(fileOutputStream2);
+                                throw th;
                             }
+                        } catch (IOException e3) {
+                            e = e3;
+                            fileOutputStream = null;
                         } catch (Throwable th2) {
                             th = th2;
-                            closeable = responseCode;
+                            bu.a(fileOutputStream2);
+                            throw th;
                         }
+                        bu.a(fileOutputStream);
                     }
                     DexClassLoader unused2 = x.a = null;
                     u.a();
@@ -240,7 +225,7 @@ public class x {
 
     public static boolean b(Context context, String str) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, context, str)) == null) {
             String b2 = b(str);
@@ -248,12 +233,12 @@ public class x {
                 return false;
             }
             try {
-                i2 = Integer.valueOf(b2).intValue();
+                i = Integer.valueOf(b2).intValue();
             } catch (Exception e2) {
                 bb.c().b(e2);
-                i2 = 0;
+                i = 0;
             }
-            return i2 >= 4;
+            return i >= 4;
         }
         return invokeLL.booleanValue;
     }
@@ -404,7 +389,7 @@ public class x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, aVar) == null) {
             synchronized (x.class) {
-                if (f35548b) {
+                if (f27430b) {
                     return;
                 }
                 if (!bw.q(context)) {
@@ -414,7 +399,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f35548b = true;
+                    f27430b = true;
                 }
             }
         }

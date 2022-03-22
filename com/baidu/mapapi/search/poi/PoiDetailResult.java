@@ -63,9 +63,9 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -81,9 +81,9 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -124,9 +124,9 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {errorno};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SearchResult.ERRORNO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -290,17 +290,17 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setCheckinNum(int i2) {
+    public void setCheckinNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.checkinNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.checkinNum = i;
         }
     }
 
-    public void setCommentNum(int i2) {
+    public void setCommentNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.commentNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.commentNum = i;
         }
     }
 
@@ -311,10 +311,10 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setDiscountNum(int i2) {
+    public void setDiscountNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.discountNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.discountNum = i;
         }
     }
 
@@ -332,17 +332,17 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setFavoriteNum(int i2) {
+    public void setFavoriteNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.favoriteNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.favoriteNum = i;
         }
     }
 
-    public void setGrouponNum(int i2) {
+    public void setGrouponNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.grouponNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.grouponNum = i;
         }
     }
 
@@ -353,10 +353,10 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
         }
     }
 
-    public void setImageNum(int i2) {
+    public void setImageNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.imageNum = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.imageNum = i;
         }
     }
 
@@ -445,12 +445,12 @@ public class PoiDetailResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048623, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048623, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeString(this.name);
-            parcel.writeParcelable(this.location, i2);
+            parcel.writeParcelable(this.location, i);
             parcel.writeString(this.address);
             parcel.writeString(this.telephone);
             parcel.writeString(this.uid);

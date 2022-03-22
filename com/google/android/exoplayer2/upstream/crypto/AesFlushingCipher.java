@@ -17,7 +17,7 @@ import javax.crypto.NoSuchPaddingException;
 import javax.crypto.ShortBufferException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AesFlushingCipher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,16 +27,16 @@ public final class AesFlushingCipher {
     public int pendingXorBytes;
     public final byte[] zerosBlock;
 
-    public AesFlushingCipher(int i2, byte[] bArr, long j2, long j3) {
+    public AesFlushingCipher(int i, byte[] bArr, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Integer.valueOf(i), bArr, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,28 +49,28 @@ public final class AesFlushingCipher {
             this.blockSize = blockSize;
             this.zerosBlock = new byte[blockSize];
             this.flushedBlock = new byte[blockSize];
-            int i5 = (int) (j3 % blockSize);
-            this.cipher.init(i2, new SecretKeySpec(bArr, this.cipher.getAlgorithm().split("/")[0]), new IvParameterSpec(getInitializationVector(j2, j3 / blockSize)));
-            if (i5 != 0) {
-                updateInPlace(new byte[i5], 0, i5);
+            int i4 = (int) (j2 % blockSize);
+            this.cipher.init(i, new SecretKeySpec(bArr, this.cipher.getAlgorithm().split("/")[0]), new IvParameterSpec(getInitializationVector(j, j2 / blockSize)));
+            if (i4 != 0) {
+                updateInPlace(new byte[i4], 0, i4);
             }
         } catch (InvalidAlgorithmParameterException | InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException e2) {
             throw new RuntimeException(e2);
         }
     }
 
-    private byte[] getInitializationVector(long j2, long j3) {
+    private byte[] getInitializationVector(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? ByteBuffer.allocate(16).putLong(j2).putLong(j3).array() : (byte[]) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? ByteBuffer.allocate(16).putLong(j).putLong(j2).array() : (byte[]) invokeCommon.objValue;
     }
 
-    private int nonFlushingUpdate(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
+    private int nonFlushingUpdate(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)})) == null) {
             try {
-                return this.cipher.update(bArr, i2, i3, bArr2, i4);
+                return this.cipher.update(bArr, i, i2, bArr2, i3);
             } catch (ShortBufferException e2) {
                 throw new RuntimeException(e2);
             }
@@ -78,45 +78,45 @@ public final class AesFlushingCipher {
         return invokeCommon.intValue;
     }
 
-    public void update(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
+    public void update(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
-            int i5 = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i4 = i;
             do {
-                int i6 = this.pendingXorBytes;
-                if (i6 > 0) {
-                    bArr2[i4] = (byte) (bArr[i5] ^ this.flushedBlock[this.blockSize - i6]);
+                int i5 = this.pendingXorBytes;
+                if (i5 > 0) {
+                    bArr2[i3] = (byte) (bArr[i4] ^ this.flushedBlock[this.blockSize - i5]);
+                    i3++;
                     i4++;
-                    i5++;
-                    this.pendingXorBytes = i6 - 1;
-                    i3--;
+                    this.pendingXorBytes = i5 - 1;
+                    i2--;
                 } else {
-                    int nonFlushingUpdate = nonFlushingUpdate(bArr, i5, i3, bArr2, i4);
-                    if (i3 == nonFlushingUpdate) {
+                    int nonFlushingUpdate = nonFlushingUpdate(bArr, i4, i2, bArr2, i3);
+                    if (i2 == nonFlushingUpdate) {
                         return;
                     }
-                    int i7 = i3 - nonFlushingUpdate;
-                    int i8 = 0;
-                    Assertions.checkState(i7 < this.blockSize);
-                    int i9 = i4 + nonFlushingUpdate;
-                    int i10 = this.blockSize - i7;
-                    this.pendingXorBytes = i10;
-                    Assertions.checkState(nonFlushingUpdate(this.zerosBlock, 0, i10, this.flushedBlock, 0) == this.blockSize);
-                    while (i8 < i7) {
-                        bArr2[i9] = this.flushedBlock[i8];
+                    int i6 = i2 - nonFlushingUpdate;
+                    int i7 = 0;
+                    Assertions.checkState(i6 < this.blockSize);
+                    int i8 = i3 + nonFlushingUpdate;
+                    int i9 = this.blockSize - i6;
+                    this.pendingXorBytes = i9;
+                    Assertions.checkState(nonFlushingUpdate(this.zerosBlock, 0, i9, this.flushedBlock, 0) == this.blockSize);
+                    while (i7 < i6) {
+                        bArr2[i8] = this.flushedBlock[i7];
+                        i7++;
                         i8++;
-                        i9++;
                     }
                     return;
                 }
-            } while (i3 != 0);
+            } while (i2 != 0);
         }
     }
 
-    public void updateInPlace(byte[] bArr, int i2, int i3) {
+    public void updateInPlace(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i2, i3) == null) {
-            update(bArr, i2, i3, bArr, i2);
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) {
+            update(bArr, i, i2, bArr, i);
         }
     }
 }

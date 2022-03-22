@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public class SptDataMessage extends Message {
     public static /* synthetic */ Interceptable $ic;
@@ -22,9 +21,9 @@ public class SptDataMessage extends Message {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -97,7 +96,7 @@ public class SptDataMessage extends Message {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "SptDataMessage{mGlobalID='" + this.mGlobalID + ExtendedMessageFormat.QUOTE + ", mContent='" + this.mContent + ExtendedMessageFormat.QUOTE + ", mDescription='" + this.mDescription + ExtendedMessageFormat.QUOTE + ", mAppID='" + this.mAppID + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "SptDataMessage{mGlobalID='" + this.mGlobalID + "', mContent='" + this.mContent + "', mDescription='" + this.mDescription + "', mAppID='" + this.mAppID + "'}";
         }
         return (String) invokeV.objValue;
     }

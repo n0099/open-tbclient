@@ -6,6 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import javax.crypto.BadPaddingException;
@@ -21,9 +22,9 @@ public class g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +42,7 @@ public class g {
                         System.arraycopy(c.a.m.j.c.b.a(), 0, bArr, 0, 16);
                         c cVar = new c();
                         cVar.a(2, bArr, bArr);
-                        a = cVar.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
+                        a = cVar.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, -31, -46, -56, 1, 25, -127, -99, -107, -54, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
                     }
                 }
             }

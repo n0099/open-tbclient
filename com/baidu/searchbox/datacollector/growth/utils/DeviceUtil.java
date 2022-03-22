@@ -6,8 +6,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import c.a.q.b;
-import c.a.q.d;
+import c.a.p.b;
+import c.a.p.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +17,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 /* loaded from: classes4.dex */
 public class DeviceUtil {
     public static /* synthetic */ Interceptable $ic;
@@ -45,9 +44,9 @@ public class DeviceUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -57,9 +56,9 @@ public class DeviceUtil {
     public static void generateOaid(Context context, IDeviceCallback iDeviceCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, context, iDeviceCallback) == null) {
-            b f2 = b.f(context);
-            if (f2 != null) {
-                f2.o(new d<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
+            b e2 = b.e(context);
+            if (e2 != null) {
+                e2.l(new d<String>(iDeviceCallback) { // from class: com.baidu.searchbox.datacollector.growth.utils.DeviceUtil.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ IDeviceCallback val$callback;
@@ -71,9 +70,9 @@ public class DeviceUtil {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {iDeviceCallback};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -82,18 +81,18 @@ public class DeviceUtil {
                         this.val$callback = iDeviceCallback;
                     }
 
-                    @Override // c.a.q.d
-                    public void onError(int i2, Throwable th, Bundle bundle) {
+                    @Override // c.a.p.d
+                    public void onError(int i, Throwable th, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, th, bundle) == null) || (iDeviceCallback2 = this.val$callback) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeILL(1048576, this, i, th, bundle) == null) || (iDeviceCallback2 = this.val$callback) == null) {
                             return;
                         }
                         iDeviceCallback2.onFail();
                     }
 
                     /* JADX DEBUG: Method merged with bridge method */
-                    @Override // c.a.q.d
+                    @Override // c.a.p.d
                     public void onResult(String str, Bundle bundle) {
                         IDeviceCallback iDeviceCallback2;
                         Interceptable interceptable2 = $ic;
@@ -114,11 +113,11 @@ public class DeviceUtil {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 29) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
                 return "";
             }
-            if (i2 < 23 || context.checkSelfPermission(s.f53804c) == 0) {
+            if (i < 23 || context.checkSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
                 String str = null;
                 try {
                     TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");

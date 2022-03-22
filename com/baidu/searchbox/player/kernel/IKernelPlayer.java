@@ -1,19 +1,19 @@
 package com.baidu.searchbox.player.kernel;
 /* loaded from: classes4.dex */
 public interface IKernelPlayer {
-    void onBufferingUpdate(int i2);
+    void onBufferingUpdate(int i);
 
     void onCompletion();
 
-    boolean onError(int i2, int i3, Object obj);
+    boolean onError(int i, int i2, Object obj);
 
-    boolean onInfo(int i2, int i3, Object obj);
+    boolean onInfo(int i, int i2, Object obj);
 
-    boolean onMediaSourceChanged(int i2, int i3, Object obj);
+    boolean onMediaSourceChanged(int i, int i2, Object obj);
 
     void onPrepared();
 
     void onSeekComplete();
 
-    void onVideoSizeChanged(int i2, int i3, int i4, int i5);
+    void onVideoSizeChanged(int i, int i2, int i3, int i4);
 }

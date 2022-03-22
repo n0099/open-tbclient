@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.f.m.e;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -22,35 +22,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TitleTipView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f37384b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f37385c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f37386d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48333e;
+    public TextView f37387e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f48334f;
+    public View f37388f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f48335g;
+    public View.OnClickListener f37389g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f48336h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f48337i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public TextView f48338j;
-    public View k;
-    public View.OnClickListener l;
-    public Runnable m;
+    public Runnable f37390h;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f48339e;
+        public final /* synthetic */ TitleTipView a;
 
         public a(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -59,22 +58,22 @@ public class TitleTipView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {titleTipView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48339e = titleTipView;
+            this.a = titleTipView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48339e.dismiss();
+                this.a.a();
             }
         }
     }
@@ -83,9 +82,7 @@ public class TitleTipView extends RelativeLayout {
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitleTipView f48340e;
+        public final /* synthetic */ TitleTipView a;
 
         public b(TitleTipView titleTipView) {
             Interceptable interceptable = $ic;
@@ -94,22 +91,22 @@ public class TitleTipView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {titleTipView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48340e = titleTipView;
+            this.a = titleTipView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48340e.dismiss();
+                this.a.a();
             }
         }
     }
@@ -123,77 +120,61 @@ public class TitleTipView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48333e = 3;
-        this.f48334f = 5000;
-        this.l = new a(this);
-        this.m = new b(this);
-        a();
+        this.a = 3;
+        this.f37389g = new a(this);
+        this.f37390h = new b(this);
+        b();
     }
 
-    public final void a() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View.inflate(getContext(), R.layout.title_tip_layout, this);
-            this.f48335g = (LinearLayout) findViewById(R.id.tip_bg);
-            this.f48336h = (ImageView) findViewById(R.id.img_icon);
-            this.f48337i = (ImageView) findViewById(R.id.img_close);
-            this.f48338j = (TextView) findViewById(R.id.tv_tip);
-            this.k = findViewById(R.id.tv_line);
-            this.f48338j.setText(R.string.add_title_tip);
-            this.f48337i.setOnClickListener(this.l);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            setVisibility(8);
+            e.a().removeCallbacks(this.f37390h);
         }
     }
 
-    public void dismiss() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setVisibility(8);
-            e.a().removeCallbacks(this.m);
+            View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0842, this);
+            this.f37384b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09200b);
+            this.f37385c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eb8);
+            this.f37386d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090eab);
+            this.f37387e = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
+            this.f37388f = findViewById(R.id.obfuscated_res_0x7f0921cc);
+            this.f37387e.setText(R.string.obfuscated_res_0x7f0f00cf);
+            this.f37386d.setOnClickListener(this.f37389g);
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    public void onChangeSkinType(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.f48333e != i2) {
-                c d2 = c.d(this.f48335g);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.a != i) {
+                c d2 = c.d(this.f37384b);
                 d2.n(R.string.J_X05);
                 d2.l(R.dimen.L_X01);
                 d2.k(R.color.CAM_X0602);
                 d2.f(R.color.CAM_X0206);
-                c.d(this.k).f(R.color.CAM_X0203);
-                c.d(this.f48338j).v(R.color.CAM_X0107);
-                this.f48337i.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_home_delete16, SkinManager.getColor(R.color.CAM_X0107), null));
-                if (this.f48336h != null) {
-                    this.f48336h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.pic_post_fatiemijue, SkinManager.getColor(R.color.CAM_X0302), null));
+                c.d(this.f37388f).f(R.color.CAM_X0203);
+                c.d(this.f37387e).v(R.color.CAM_X0107);
+                this.f37386d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08090e, SkinManager.getColor(R.color.CAM_X0107), null));
+                if (this.f37385c != null) {
+                    this.f37385c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080f47, SkinManager.getColor(R.color.CAM_X0302), null));
                 }
             }
-            this.f48333e = i2;
-        }
-    }
-
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setVisibility(0);
-        }
-    }
-
-    public void showAndAutoDissmiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setVisibility(0);
-            e.a().postDelayed(this.m, this.f48334f);
+            this.a = i;
         }
     }
 
@@ -206,9 +187,9 @@ public class TitleTipView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -216,25 +197,24 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f48333e = 3;
-        this.f48334f = 5000;
-        this.l = new a(this);
-        this.m = new b(this);
-        a();
+        this.a = 3;
+        this.f37389g = new a(this);
+        this.f37390h = new b(this);
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TitleTipView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TitleTipView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -242,10 +222,9 @@ public class TitleTipView extends RelativeLayout {
                 return;
             }
         }
-        this.f48333e = 3;
-        this.f48334f = 5000;
-        this.l = new a(this);
-        this.m = new b(this);
-        a();
+        this.a = 3;
+        this.f37389g = new a(this);
+        this.f37390h = new b(this);
+        b();
     }
 }

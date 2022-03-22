@@ -37,9 +37,9 @@ public interface IVideoConvertListener extends IInterface {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -96,14 +96,14 @@ public interface IVideoConvertListener extends IInterface {
             }
 
             @Override // com.baidu.tieba.video.convert.IVideoConvertListener
-            public void onConvertProgress(int i2) throws RemoteException {
+            public void onConvertProgress(int i) throws RemoteException {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+                if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
                     Parcel obtain = Parcel.obtain();
                     Parcel obtain2 = Parcel.obtain();
                     try {
                         obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeInt(i2);
+                        obtain.writeInt(i);
                         this.mRemote.transact(3, obtain, obtain2, 0);
                         obtain2.readException();
                     } finally {
@@ -136,9 +136,9 @@ public interface IVideoConvertListener extends IInterface {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -171,28 +171,28 @@ public interface IVideoConvertListener extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), parcel, parcel2, Integer.valueOf(i3)})) == null) {
-                if (i2 == 1) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
+                if (i == 1) {
                     parcel.enforceInterface(DESCRIPTOR);
                     onConvertSuccess();
                     parcel2.writeNoException();
                     return true;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     parcel.enforceInterface(DESCRIPTOR);
                     onConvertFailed();
                     parcel2.writeNoException();
                     return true;
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     parcel.enforceInterface(DESCRIPTOR);
                     onConvertProgress(parcel.readInt());
                     parcel2.writeNoException();
                     return true;
-                } else if (i2 != 4) {
-                    if (i2 != 1598968902) {
-                        return super.onTransact(i2, parcel, parcel2, i3);
+                } else if (i != 4) {
+                    if (i != 1598968902) {
+                        return super.onTransact(i, parcel, parcel2, i2);
                     }
                     parcel2.writeString(DESCRIPTOR);
                     return true;
@@ -211,7 +211,7 @@ public interface IVideoConvertListener extends IInterface {
 
     void onConvertFailed() throws RemoteException;
 
-    void onConvertProgress(int i2) throws RemoteException;
+    void onConvertProgress(int i) throws RemoteException;
 
     void onConvertSuccess() throws RemoteException;
 }

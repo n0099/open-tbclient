@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.push.util.aa;
 import com.vivo.push.util.p;
 import java.lang.reflect.Method;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f59247b;
+    public d f43882b;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,7 +52,7 @@ public final class b {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            d dVar = this.f59247b;
+            d dVar = this.f43882b;
             if (dVar != null) {
                 return dVar;
             }
@@ -61,7 +61,7 @@ public final class b {
                 Method method = Class.forName(str).getMethod("getInstance", Context.class);
                 p.d("ConfigManagerFactory", "createConfig success is ".concat(str));
                 d dVar2 = (d) method.invoke(null, context);
-                this.f59247b = dVar2;
+                this.f43882b = dVar2;
                 return dVar2;
             } catch (Exception e2) {
                 e2.printStackTrace();

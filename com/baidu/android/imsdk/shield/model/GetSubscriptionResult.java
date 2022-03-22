@@ -47,9 +47,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -68,10 +68,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public GetSubscriptionResult[] newArray(int i2) {
+            public GetSubscriptionResult[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new GetSubscriptionResult[i2] : (GetSubscriptionResult[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GetSubscriptionResult[i] : (GetSubscriptionResult[]) invokeI.objValue;
             }
         };
     }
@@ -81,9 +81,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -140,10 +140,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
     }
 
-    public void setPauid(long j2) {
+    public void setPauid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.mPauid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.mPauid = j;
         }
     }
 
@@ -156,9 +156,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
             parcel.writeInt(this.mErrorCode);
             parcel.writeString(this.mErrorMsg);
             parcel.writeList(this.mSubscriptionList);
@@ -175,9 +175,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -227,9 +227,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -248,24 +248,24 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public SubscriptionInfo[] newArray(int i2) {
+                public SubscriptionInfo[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SubscriptionInfo[i2] : (SubscriptionInfo[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SubscriptionInfo[i] : (SubscriptionInfo[]) invokeI.objValue;
                 }
             };
         }
 
-        public SubscriptionInfo(long j2, String str, String str2, int i2) {
+        public SubscriptionInfo(long j, String str, String str2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), str, str2, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), str, str2, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -273,10 +273,10 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
             this.mTopicName = "";
             this.mDescription = "";
-            this.mTopicId = j2;
+            this.mTopicId = j;
             this.mTopicName = str;
             this.mDescription = str2;
-            this.mStatus = i2;
+            this.mStatus = i;
         }
 
         @Override // android.os.Parcelable
@@ -333,17 +333,17 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             }
         }
 
-        public void setStatus(int i2) {
+        public void setStatus(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.mStatus = i2;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.mStatus = i;
             }
         }
 
-        public void setTopicId(long j2) {
+        public void setTopicId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-                this.mTopicId = j2;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.mTopicId = j;
             }
         }
 
@@ -355,9 +355,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
         }
 
         @Override // android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i2) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048587, this, parcel, i) == null) {
                 parcel.writeLong(this.mTopicId);
                 parcel.writeString(this.mMiNiTopicId);
                 parcel.writeString(this.mTopicName);
@@ -371,9 +371,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -390,9 +390,9 @@ public class GetSubscriptionResult extends HttpHelper.ResponseResult implements 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;

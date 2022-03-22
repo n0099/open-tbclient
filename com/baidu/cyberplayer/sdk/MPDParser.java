@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class MPDParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class MPDInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class MPDParser {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -46,9 +46,9 @@ public class MPDParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -93,17 +93,17 @@ public class MPDParser {
                 uri2 = uri;
             }
             if (jSONArray.length() >= 1) {
-                int i2 = 0;
+                int i = 0;
                 if (jSONArray.get(0) instanceof JSONObject) {
                     JSONArray jSONArray2 = ((JSONObject) jSONArray.get(0)).getJSONArray("representation_list");
                     new ArrayList();
                     uri2 = uri;
                     while (true) {
                         try {
-                            if (i2 >= jSONArray2.length()) {
+                            if (i >= jSONArray2.length()) {
                                 break;
                             }
-                            Object obj = jSONArray2.get(i2);
+                            Object obj = jSONArray2.get(i);
                             if (obj instanceof JSONObject) {
                                 JSONObject jSONObject = (JSONObject) obj;
                                 if (jSONObject.getInt("rank") == parseInt) {
@@ -111,7 +111,7 @@ public class MPDParser {
                                 }
                                 uri2 = Uri.parse(jSONObject.getString("url"));
                             }
-                            i2++;
+                            i++;
                         } catch (Exception e3) {
                             e = e3;
                             CyberLog.d("sdk_MPDParser", "mpd urlWithMPDURL parse exception " + e.getMessage());

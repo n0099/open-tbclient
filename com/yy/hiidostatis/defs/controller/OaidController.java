@@ -2,6 +2,7 @@ package com.yy.hiidostatis.defs.controller;
 
 import android.content.Context;
 import android.os.Build;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -22,7 +23,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class OaidController {
     public static final /* synthetic */ OaidController[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -31,13 +32,13 @@ public final class OaidController {
     public OaidHelper oaidHelper;
 
     /* renamed from: com.yy.hiidostatis.defs.controller.OaidController$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OaidInitListener {
         void initFinish(boolean z, String str, String str2);
     }
@@ -60,16 +61,16 @@ public final class OaidController {
         $VALUES = new OaidController[]{oaidController};
     }
 
-    public OaidController(String str, int i2) {
+    public OaidController(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -105,7 +106,8 @@ public final class OaidController {
                     return;
                 }
                 JLibrary.InitEntry(context);
-            } catch (Throwable unused) {
+            } catch (Throwable th) {
+                Log.e("OaidController", "JLibrary.InitEntry(context)", th);
             }
         }
     }
@@ -148,7 +150,7 @@ public final class OaidController {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.oaidHelper.getOaid() : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class OaidHelper {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long TIME_OUT = 20000;
@@ -166,9 +168,9 @@ public final class OaidController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {oaidController};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -194,9 +196,9 @@ public final class OaidController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -273,8 +275,8 @@ public final class OaidController {
                         noticeListener(z2, str, str2);
                         return;
                     }
-                    if (str2 != null) {
-                        str2.isEmpty();
+                    if (str2 != null && !str2.isEmpty()) {
+                        Log.e("OAID", str2);
                     }
                     this.init = true;
                     this.oaid = str;
@@ -314,9 +316,9 @@ public final class OaidController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -337,7 +339,7 @@ public final class OaidController {
                                 this.this$1.initFinish(false, "", "获取OAID超时");
                                 return;
                             }
-                            String str = "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime);
+                            Log.e("OAID", "定时器时间错误:" + this.this$1.beginTime + "-" + currentTimeMillis + "-" + (currentTimeMillis - this.this$1.beginTime));
                             this.this$1.timeOut();
                         }
                     }

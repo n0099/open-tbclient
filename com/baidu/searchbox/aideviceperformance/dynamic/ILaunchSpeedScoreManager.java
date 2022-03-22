@@ -5,5 +5,5 @@ import android.content.Context;
 public interface ILaunchSpeedScoreManager {
     float getLaunchSpeedScore();
 
-    void putLaunchSpeedData(Context context, long j2, long j3);
+    void putLaunchSpeedData(Context context, long j, long j2);
 }

@@ -5,6 +5,8 @@ import android.graphics.Color;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -67,9 +69,9 @@ public class m {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -81,8 +83,8 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (str != null && str.length() >= 1) {
-                for (int i2 = 0; i2 < str.length(); i2++) {
-                    if (isChinese(str.charAt(i2))) {
+                for (int i = 0; i < str.length(); i++) {
+                    if (isChinese(str.charAt(i))) {
                         return true;
                     }
                 }
@@ -137,11 +139,11 @@ public class m {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                i2 = Integer.toHexString(str.charAt(i3)).length() == 4 ? i2 + 2 : i2 + 1;
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = Integer.toHexString(str.charAt(i2)).length() == 4 ? i + 2 : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -170,42 +172,42 @@ public class m {
             }
             long[] parseVersion = parseVersion(str);
             long[] parseVersion2 = parseVersion(str2);
+            long j = 0;
             long j2 = 0;
-            long j3 = 0;
+            for (int i = 0; i < 3; i++) {
+                j2 += parseVersion[i] << (24 - (i * 8));
+            }
             for (int i2 = 0; i2 < 3; i2++) {
-                j3 += parseVersion[i2] << (24 - (i2 * 8));
+                j += parseVersion2[i2] << (24 - (i2 * 8));
             }
-            for (int i3 = 0; i3 < 3; i3++) {
-                j2 += parseVersion2[i3] << (24 - (i3 * 8));
-            }
-            int i4 = (j3 > j2 ? 1 : (j3 == j2 ? 0 : -1));
-            if (i4 > 0) {
+            int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+            if (i3 > 0) {
                 return 1;
             }
-            return i4 == 0 ? 0 : -1;
+            return i3 == 0 ? 0 : -1;
         }
         return invokeLL.intValue;
     }
 
-    public static String cutString(String str, int i2) {
+    public static String cutString(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) {
-            if (str == null || i2 <= 0) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
+            if (str == null || i <= 0) {
                 return "";
             }
             int length = str.length();
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < length) {
-                i4 = isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
-                if (i4 >= i2) {
+            while (i2 < length) {
+                i3 = isChinese(str.charAt(i2)) ? i3 + 2 : i3 + 1;
+                if (i3 >= i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            if (i3 < length - 1) {
-                return str.substring(0, i3 + 1) + "...";
+            if (i2 < length - 1) {
+                return str.substring(0, i2 + 1) + StringHelper.STRING_MORE;
             }
             return str;
         }
@@ -310,71 +312,71 @@ public class m {
         return (String) invokeLL.objValue;
     }
 
-    public static String getHourShow(int i2) {
+    public static String getHourShow(int i) {
         InterceptResult invokeI;
         String valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i2)) == null) {
-            if (i2 < 10) {
-                valueOf = "0" + i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65553, null, i)) == null) {
+            if (i < 10) {
+                valueOf = "0" + i;
             } else {
-                valueOf = String.valueOf(i2);
+                valueOf = String.valueOf(i);
             }
-            return ((i2 < 0 || i2 >= 6) ? (i2 < 6 || i2 >= 9) ? (i2 < 9 || i2 >= 12) ? (i2 < 12 || i2 >= 14) ? (i2 < 14 || i2 >= 18) ? (i2 < 18 || i2 >= 24) ? "" : "晚上" : "下午" : "中午" : "上午" : "早晨" : "凌晨") + valueOf;
+            return ((i < 0 || i >= 6) ? (i < 6 || i >= 9) ? (i < 9 || i >= 12) ? (i < 12 || i >= 14) ? (i < 14 || i >= 18) ? (i < 18 || i >= 24) ? "" : "晚上" : "下午" : "中午" : "上午" : "早晨" : "凌晨") + valueOf;
         }
         return (String) invokeI.objValue;
     }
 
-    public static String getMicroMsgTime(long j2, long j3) {
+    public static String getMicroMsgTime(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            long currentTimeMillis = j3 == 0 ? System.currentTimeMillis() / 1000 : j3;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long currentTimeMillis = j2 == 0 ? System.currentTimeMillis() / 1000 : j2;
             Calendar gregorianCalendar = GregorianCalendar.getInstance();
-            gregorianCalendar.setTimeInMillis(j2 * 1000);
-            int i2 = gregorianCalendar.get(1);
-            int i3 = gregorianCalendar.get(2) + 1;
-            int i4 = gregorianCalendar.get(5);
-            int i5 = gregorianCalendar.get(11);
-            int i6 = gregorianCalendar.get(12);
-            int i7 = gregorianCalendar.get(3);
-            int i8 = gregorianCalendar.get(7);
+            gregorianCalendar.setTimeInMillis(j * 1000);
+            int i = gregorianCalendar.get(1);
+            int i2 = gregorianCalendar.get(2) + 1;
+            int i3 = gregorianCalendar.get(5);
+            int i4 = gregorianCalendar.get(11);
+            int i5 = gregorianCalendar.get(12);
+            int i6 = gregorianCalendar.get(3);
+            int i7 = gregorianCalendar.get(7);
             gregorianCalendar.setTimeInMillis(1000 * currentTimeMillis);
-            int i9 = gregorianCalendar.get(1);
-            int i10 = gregorianCalendar.get(2) + 1;
-            int i11 = gregorianCalendar.get(5);
-            int i12 = gregorianCalendar.get(3);
-            String hourShow = getHourShow(i5);
-            String minuteShow = getMinuteShow(i6);
-            if (j2 > currentTimeMillis) {
-                if (i4 == i11) {
+            int i8 = gregorianCalendar.get(1);
+            int i9 = gregorianCalendar.get(2) + 1;
+            int i10 = gregorianCalendar.get(5);
+            int i11 = gregorianCalendar.get(3);
+            String hourShow = getHourShow(i4);
+            String minuteShow = getMinuteShow(i5);
+            if (j > currentTimeMillis) {
+                if (i3 == i10) {
                     return hourShow + ":" + minuteShow;
                 }
-                return i3 + "月" + i4 + "日 " + hourShow + ":" + minuteShow;
+                return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
+            } else if (i < i8) {
+                return i + "年" + i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
             } else if (i2 < i9) {
-                return i2 + "年" + i3 + "月" + i4 + "日 " + hourShow + ":" + minuteShow;
-            } else if (i3 < i10) {
-                return i3 + "月" + i4 + "日 " + hourShow + ":" + minuteShow;
-            } else if (i4 >= i11) {
+                return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
+            } else if (i3 >= i10) {
                 return hourShow + ":" + minuteShow;
-            } else if (i7 < i12) {
-                return i3 + "月" + i4 + "日 " + hourShow + ":" + minuteShow;
+            } else if (i6 < i11) {
+                return i2 + "月" + i3 + "日 " + hourShow + ":" + minuteShow;
             } else {
-                String weekShow = getWeekShow(i8);
+                String weekShow = getWeekShow(i7);
                 return weekShow + " " + hourShow + ":" + minuteShow;
             }
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static String getMinuteShow(int i2) {
+    public static String getMinuteShow(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i2)) == null) {
-            if (i2 < 10) {
-                return "0" + i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65555, null, i)) == null) {
+            if (i < 10) {
+                return "0" + i;
             }
-            return String.valueOf(i2);
+            return String.valueOf(i);
         }
         return (String) invokeI.objValue;
     }
@@ -401,12 +403,12 @@ public class m {
         return (String) invokeL.objValue;
     }
 
-    public static String getTimeString(long j2) {
+    public static String getTimeString(long j) {
         InterceptResult invokeJ;
         String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j2)) == null) {
-            Date date = new Date(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65557, null, j)) == null) {
+            Date date = new Date(j);
             synchronized (FORMATE_DATE_ALL) {
                 format = FORMATE_DATE_ALL.format(date);
             }
@@ -482,7 +484,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
             try {
-                return URLDecoder.decode(str, "utf-8");
+                return URLDecoder.decode(str, IMAudioTransRequest.CHARSET);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return null;
@@ -499,7 +501,7 @@ public class m {
                 return null;
             }
             try {
-                return URLEncoder.encode(str, "utf-8");
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -508,11 +510,11 @@ public class m {
         return (String) invokeL.objValue;
     }
 
-    public static String getWeekShow(int i2) {
+    public static String getWeekShow(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i)) == null) {
+            switch (i) {
                 case 1:
                     return "周日";
                 case 2:
@@ -539,11 +541,11 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, str)) == null) {
             if (Pattern.compile("^[\\u4E00-\\u9FA5\\uF900-\\uFA2D\\w]+$").matcher(str).matches()) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < str.length(); i3++) {
-                    i2 = String.valueOf(str.charAt(i3)).getBytes().length == 1 ? i2 + 1 : i2 + 2;
+                int i = 0;
+                for (int i2 = 0; i2 < str.length(); i2++) {
+                    i = String.valueOf(str.charAt(i2)).getBytes().length == 1 ? i + 1 : i + 2;
                 }
-                return i2 > 0 && i2 <= 14;
+                return i > 0 && i <= 14;
             }
             return false;
         }

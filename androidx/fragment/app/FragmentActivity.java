@@ -8,6 +8,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,9 +78,9 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fragmentActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FragmentActivity) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -131,10 +132,10 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
         @Override // androidx.fragment.app.FragmentHostCallback, androidx.fragment.app.FragmentContainer
         @Nullable
-        public View onFindViewById(int i2) {
+        public View onFindViewById(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.this$0.findViewById(i2) : (View) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.this$0.findViewById(i) : (View) invokeI.objValue;
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
@@ -178,10 +179,10 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onRequestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i2) {
+        public void onRequestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048588, this, fragment, strArr, i2) == null) {
-                this.this$0.requestPermissionsFromFragment(fragment, strArr, i2);
+            if (interceptable == null || interceptable.invokeLLI(1048588, this, fragment, strArr, i) == null) {
+                this.this$0.requestPermissionsFromFragment(fragment, strArr, i);
             }
         }
 
@@ -200,18 +201,18 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2) {
+        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048591, this, fragment, intent, i2) == null) {
-                this.this$0.startActivityFromFragment(fragment, intent, i2);
+            if (interceptable == null || interceptable.invokeLLI(1048591, this, fragment, intent, i) == null) {
+                this.this$0.startActivityFromFragment(fragment, intent, i);
             }
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartIntentSenderFromFragment(@NonNull Fragment fragment, IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, Bundle bundle) throws IntentSender.SendIntentException {
+        public void onStartIntentSenderFromFragment(@NonNull Fragment fragment, IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, Bundle bundle) throws IntentSender.SendIntentException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{fragment, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-                this.this$0.startIntentSenderFromFragment(fragment, intentSender, i2, intent, i3, i4, i5, bundle);
+            if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{fragment, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+                this.this$0.startIntentSenderFromFragment(fragment, intentSender, i, intent, i2, i3, i4, bundle);
             }
         }
 
@@ -233,10 +234,10 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
 
         @Override // androidx.fragment.app.FragmentHostCallback
-        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i2, @Nullable Bundle bundle) {
+        public void onStartActivityFromFragment(@NonNull Fragment fragment, Intent intent, int i, @Nullable Bundle bundle) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLIL(1048592, this, fragment, intent, i2, bundle) == null) {
-                this.this$0.startActivityFromFragment(fragment, intent, i2, bundle);
+            if (interceptable == null || interceptable.invokeLLIL(1048592, this, fragment, intent, i, bundle) == null) {
+                this.this$0.startActivityFromFragment(fragment, intent, i, bundle);
             }
         }
     }
@@ -246,9 +247,9 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -267,19 +268,19 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 while (this.mPendingFragmentActivityResults.indexOfKey(this.mNextCandidateRequestIndex) >= 0) {
                     this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % 65534;
                 }
-                int i2 = this.mNextCandidateRequestIndex;
-                this.mPendingFragmentActivityResults.put(i2, fragment.mWho);
+                int i = this.mNextCandidateRequestIndex;
+                this.mPendingFragmentActivityResults.put(i, fragment.mWho);
                 this.mNextCandidateRequestIndex = (this.mNextCandidateRequestIndex + 1) % 65534;
-                return i2;
+                return i;
             }
             throw new IllegalStateException("Too many pending Fragment activity results.");
         }
         return invokeL.intValue;
     }
 
-    public static void checkForValidRequestCode(int i2) {
+    public static void checkForValidRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65539, null, i2) == null) && (i2 & SupportMenu.CATEGORY_MASK) != 0) {
+        if ((interceptable == null || interceptable.invokeI(65539, null, i) == null) && (i & SupportMenu.CATEGORY_MASK) != 0) {
             throw new IllegalArgumentException("Can only use lower 16 bits for requestCode");
         }
     }
@@ -366,29 +367,30 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
 
     @Override // android.app.Activity
     @CallSuper
-    public void onActivityResult(int i2, int i3, @Nullable Intent intent) {
+    public void onActivityResult(int i, int i2, @Nullable Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
             this.mFragments.noteStateNotSaved();
-            int i4 = i2 >> 16;
-            if (i4 != 0) {
-                int i5 = i4 - 1;
-                String str = this.mPendingFragmentActivityResults.get(i5);
-                this.mPendingFragmentActivityResults.remove(i5);
+            int i3 = i >> 16;
+            if (i3 != 0) {
+                int i4 = i3 - 1;
+                String str = this.mPendingFragmentActivityResults.get(i4);
+                this.mPendingFragmentActivityResults.remove(i4);
                 if (str == null) {
+                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    String str2 = "Activity result no fragment exists for who: " + str;
+                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
                     return;
                 }
-                findFragmentByWho.onActivityResult(i2 & 65535, i3, intent);
+                findFragmentByWho.onActivityResult(i & 65535, i2, intent);
                 return;
             }
             ActivityCompat.PermissionCompatDelegate permissionCompatDelegate = ActivityCompat.getPermissionCompatDelegate();
-            if (permissionCompatDelegate == null || !permissionCompatDelegate.onActivityResult(this, i2, i3, intent)) {
-                super.onActivityResult(i2, i3, intent);
+            if (permissionCompatDelegate == null || !permissionCompatDelegate.onActivityResult(this, i, i2, intent)) {
+                super.onActivityResult(i, i2, intent);
             }
         }
     }
@@ -422,9 +424,11 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                     String[] stringArray = bundle.getStringArray(REQUEST_FRAGMENT_WHO_TAG);
                     if (intArray != null && stringArray != null && intArray.length == stringArray.length) {
                         this.mPendingFragmentActivityResults = new SparseArrayCompat<>(intArray.length);
-                        for (int i2 = 0; i2 < intArray.length; i2++) {
-                            this.mPendingFragmentActivityResults.put(intArray[i2], stringArray[i2]);
+                        for (int i = 0; i < intArray.length; i++) {
+                            this.mPendingFragmentActivityResults.put(intArray[i], stringArray[i]);
                         }
+                    } else {
+                        Log.w("FragmentActivity", "Invalid requestCode mapping in savedInstanceState.");
                     }
                 }
             }
@@ -439,14 +443,14 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onCreatePanelMenu(int i2, @NonNull Menu menu) {
+    public boolean onCreatePanelMenu(int i, @NonNull Menu menu) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, menu)) == null) {
-            if (i2 == 0) {
-                return super.onCreatePanelMenu(i2, menu) | this.mFragments.dispatchCreateOptionsMenu(menu, getMenuInflater());
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, menu)) == null) {
+            if (i == 0) {
+                return super.onCreatePanelMenu(i, menu) | this.mFragments.dispatchCreateOptionsMenu(menu, getMenuInflater());
             }
-            return super.onCreatePanelMenu(i2, menu);
+            return super.onCreatePanelMenu(i, menu);
         }
         return invokeIL.booleanValue;
     }
@@ -483,15 +487,15 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onMenuItemSelected(int i2, @NonNull MenuItem menuItem) {
+    public boolean onMenuItemSelected(int i, @NonNull MenuItem menuItem) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i2, menuItem)) == null) {
-            if (super.onMenuItemSelected(i2, menuItem)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, menuItem)) == null) {
+            if (super.onMenuItemSelected(i, menuItem)) {
                 return true;
             }
-            if (i2 != 0) {
-                if (i2 != 6) {
+            if (i != 0) {
+                if (i != 6) {
                     return false;
                 }
                 return this.mFragments.dispatchContextItemSelected(menuItem);
@@ -521,13 +525,13 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public void onPanelClosed(int i2, @NonNull Menu menu) {
+    public void onPanelClosed(int i, @NonNull Menu menu) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048592, this, i2, menu) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, menu) == null) {
+            if (i == 0) {
                 this.mFragments.dispatchOptionsMenuClosed(menu);
             }
-            super.onPanelClosed(i2, menu);
+            super.onPanelClosed(i, menu);
         }
     }
 
@@ -569,37 +573,38 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity, android.view.Window.Callback
-    public boolean onPreparePanel(int i2, @Nullable View view, @NonNull Menu menu) {
+    public boolean onPreparePanel(int i, @Nullable View view, @NonNull Menu menu) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i2, view, menu)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048597, this, i, view, menu)) == null) {
+            if (i == 0) {
                 return onPrepareOptionsPanel(view, menu) | this.mFragments.dispatchPrepareOptionsMenu(menu);
             }
-            return super.onPreparePanel(i2, view, menu);
+            return super.onPreparePanel(i, view, menu);
         }
         return invokeILL.booleanValue;
     }
 
     @Override // android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
-    public void onRequestPermissionsResult(int i2, @NonNull String[] strArr, @NonNull int[] iArr) {
+    public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048598, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048598, this, i, strArr, iArr) == null) {
             this.mFragments.noteStateNotSaved();
-            int i3 = (i2 >> 16) & 65535;
-            if (i3 != 0) {
-                int i4 = i3 - 1;
-                String str = this.mPendingFragmentActivityResults.get(i4);
-                this.mPendingFragmentActivityResults.remove(i4);
+            int i2 = (i >> 16) & 65535;
+            if (i2 != 0) {
+                int i3 = i2 - 1;
+                String str = this.mPendingFragmentActivityResults.get(i3);
+                this.mPendingFragmentActivityResults.remove(i3);
                 if (str == null) {
+                    Log.w("FragmentActivity", "Activity result delivered for unknown Fragment.");
                     return;
                 }
                 Fragment findFragmentByWho = this.mFragments.findFragmentByWho(str);
                 if (findFragmentByWho == null) {
-                    String str2 = "Activity result no fragment exists for who: " + str;
+                    Log.w("FragmentActivity", "Activity result no fragment exists for who: " + str);
                     return;
                 }
-                findFragmentByWho.onRequestPermissionsResult(i2 & 65535, strArr, iArr);
+                findFragmentByWho.onRequestPermissionsResult(i & 65535, strArr, iArr);
             }
         }
     }
@@ -638,9 +643,9 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
                 bundle.putInt(NEXT_CANDIDATE_REQUEST_INDEX_TAG, this.mNextCandidateRequestIndex);
                 int[] iArr = new int[this.mPendingFragmentActivityResults.size()];
                 String[] strArr = new String[this.mPendingFragmentActivityResults.size()];
-                for (int i2 = 0; i2 < this.mPendingFragmentActivityResults.size(); i2++) {
-                    iArr[i2] = this.mPendingFragmentActivityResults.keyAt(i2);
-                    strArr[i2] = this.mPendingFragmentActivityResults.valueAt(i2);
+                for (int i = 0; i < this.mPendingFragmentActivityResults.size(); i++) {
+                    iArr[i] = this.mPendingFragmentActivityResults.keyAt(i);
+                    strArr[i] = this.mPendingFragmentActivityResults.valueAt(i);
                 }
                 bundle.putIntArray(ALLOCATED_REQUEST_INDICIES_TAG, iArr);
                 bundle.putStringArray(REQUEST_FRAGMENT_WHO_TAG, strArr);
@@ -685,17 +690,17 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
         }
     }
 
-    public void requestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i2) {
+    public void requestPermissionsFromFragment(@NonNull Fragment fragment, @NonNull String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048605, this, fragment, strArr, i2) == null) {
-            if (i2 == -1) {
-                ActivityCompat.requestPermissions(this, strArr, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048605, this, fragment, strArr, i) == null) {
+            if (i == -1) {
+                ActivityCompat.requestPermissions(this, strArr, i);
                 return;
             }
-            checkForValidRequestCode(i2);
+            checkForValidRequestCode(i);
             try {
                 this.mRequestedPermissionsFromFragment = true;
-                ActivityCompat.requestPermissions(this, strArr, ((allocateRequestIndex(fragment) + 1) << 16) + (i2 & 65535));
+                ActivityCompat.requestPermissions(this, strArr, ((allocateRequestIndex(fragment) + 1) << 16) + (i & 65535));
             } finally {
                 this.mRequestedPermissionsFromFragment = false;
             }
@@ -717,45 +722,45 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i2) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048608, this, intent, i2) == null) {
-            if (!this.mStartedActivityFromFragment && i2 != -1) {
-                checkForValidRequestCode(i2);
+        if (interceptable == null || interceptable.invokeLI(1048608, this, intent, i) == null) {
+            if (!this.mStartedActivityFromFragment && i != -1) {
+                checkForValidRequestCode(i);
             }
-            super.startActivityForResult(intent, i2);
+            super.startActivityForResult(intent, i);
         }
     }
 
-    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i2) {
+    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048610, this, fragment, intent, i2) == null) {
-            startActivityFromFragment(fragment, intent, i2, (Bundle) null);
+        if (interceptable == null || interceptable.invokeLLI(1048610, this, fragment, intent, i) == null) {
+            startActivityFromFragment(fragment, intent, i, (Bundle) null);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            if (!this.mStartedIntentSenderFromFragment && i2 != -1) {
-                checkForValidRequestCode(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            if (!this.mStartedIntentSenderFromFragment && i != -1) {
+                checkForValidRequestCode(i);
             }
-            super.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5);
+            super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4);
         }
     }
 
-    public void startIntentSenderFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{fragment, intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048614, this, new Object[]{fragment, intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
             this.mStartedIntentSenderFromFragment = true;
             try {
-                if (i2 == -1) {
-                    ActivityCompat.startIntentSenderForResult(this, intentSender, i2, intent, i3, i4, i5, bundle);
+                if (i == -1) {
+                    ActivityCompat.startIntentSenderForResult(this, intentSender, i, intent, i2, i3, i4, bundle);
                     return;
                 }
-                checkForValidRequestCode(i2);
-                ActivityCompat.startIntentSenderForResult(this, intentSender, ((allocateRequestIndex(fragment) + 1) << 16) + (i2 & 65535), intent, i3, i4, i5, bundle);
+                checkForValidRequestCode(i);
+                ActivityCompat.startIntentSenderForResult(this, intentSender, ((allocateRequestIndex(fragment) + 1) << 16) + (i & 65535), intent, i2, i3, i4, bundle);
             } finally {
                 this.mStartedIntentSenderFromFragment = false;
             }
@@ -792,25 +797,25 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // androidx.core.app.ActivityCompat.RequestPermissionsRequestCodeValidator
-    public final void validateRequestPermissionsRequestCode(int i2) {
+    public final void validateRequestPermissionsRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048619, this, i2) == null) || this.mRequestedPermissionsFromFragment || i2 == -1) {
+        if (!(interceptable == null || interceptable.invokeI(1048619, this, i) == null) || this.mRequestedPermissionsFromFragment || i == -1) {
             return;
         }
-        checkForValidRequestCode(i2);
+        checkForValidRequestCode(i);
     }
 
-    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i2, @Nullable Bundle bundle) {
+    public void startActivityFromFragment(@NonNull Fragment fragment, @SuppressLint({"UnknownNullness"}) Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048611, this, fragment, intent, i2, bundle) == null) {
+        if (interceptable == null || interceptable.invokeLLIL(1048611, this, fragment, intent, i, bundle) == null) {
             this.mStartedActivityFromFragment = true;
             try {
-                if (i2 == -1) {
+                if (i == -1) {
                     ActivityCompat.startActivityForResult(this, intent, -1, bundle);
                     return;
                 }
-                checkForValidRequestCode(i2);
-                ActivityCompat.startActivityForResult(this, intent, ((allocateRequestIndex(fragment) + 1) << 16) + (i2 & 65535), bundle);
+                checkForValidRequestCode(i);
+                ActivityCompat.startActivityForResult(this, intent, ((allocateRequestIndex(fragment) + 1) << 16) + (i & 65535), bundle);
             } finally {
                 this.mStartedActivityFromFragment = false;
             }
@@ -830,40 +835,40 @@ public class FragmentActivity extends ComponentActivity implements ActivityCompa
     }
 
     @Override // android.app.Activity
-    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i2, @Nullable Bundle bundle) {
+    public void startActivityForResult(@SuppressLint({"UnknownNullness"}) Intent intent, int i, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048609, this, intent, i2, bundle) == null) {
-            if (!this.mStartedActivityFromFragment && i2 != -1) {
-                checkForValidRequestCode(i2);
+        if (interceptable == null || interceptable.invokeLIL(1048609, this, intent, i, bundle) == null) {
+            if (!this.mStartedActivityFromFragment && i != -1) {
+                checkForValidRequestCode(i);
             }
-            super.startActivityForResult(intent, i2, bundle);
+            super.startActivityForResult(intent, i, bundle);
         }
     }
 
     @Override // android.app.Activity
-    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i2, @Nullable Intent intent, int i3, int i4, int i5, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
+    public void startIntentSenderForResult(@SuppressLint({"UnknownNullness"}) IntentSender intentSender, int i, @Nullable Intent intent, int i2, int i3, int i4, @Nullable Bundle bundle) throws IntentSender.SendIntentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{intentSender, Integer.valueOf(i2), intent, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), bundle}) == null) {
-            if (!this.mStartedIntentSenderFromFragment && i2 != -1) {
-                checkForValidRequestCode(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{intentSender, Integer.valueOf(i), intent, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), bundle}) == null) {
+            if (!this.mStartedIntentSenderFromFragment && i != -1) {
+                checkForValidRequestCode(i);
             }
-            super.startIntentSenderForResult(intentSender, i2, intent, i3, i4, i5, bundle);
+            super.startIntentSenderForResult(intentSender, i, intent, i2, i3, i4, bundle);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @ContentView
-    public FragmentActivity(@LayoutRes int i2) {
-        super(i2);
+    public FragmentActivity(@LayoutRes int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

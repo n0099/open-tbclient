@@ -1,6 +1,7 @@
 package androidx.core.widget;
 
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.widget.PopupWindow;
 import androidx.annotation.NonNull;
@@ -31,9 +32,9 @@ public final class PopupWindowCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -44,17 +45,18 @@ public final class PopupWindowCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, popupWindow)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return popupWindow.getOverlapAnchor();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 if (!sOverlapAnchorFieldAttempted) {
                     try {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException unused) {
+                    } catch (NoSuchFieldException e2) {
+                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -62,7 +64,8 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         return ((Boolean) field.get(popupWindow)).booleanValue();
-                    } catch (IllegalAccessException unused2) {
+                    } catch (IllegalAccessException e3) {
+                        Log.i(TAG, "Could not get overlap anchor field in PopupWindow", e3);
                         return false;
                     }
                 }
@@ -104,16 +107,17 @@ public final class PopupWindowCompat {
     public static void setOverlapAnchor(@NonNull PopupWindow popupWindow, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, popupWindow, z) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 popupWindow.setOverlapAnchor(z);
-            } else if (i2 >= 21) {
+            } else if (i >= 21) {
                 if (!sOverlapAnchorFieldAttempted) {
                     try {
                         Field declaredField = PopupWindow.class.getDeclaredField("mOverlapAnchor");
                         sOverlapAnchorField = declaredField;
                         declaredField.setAccessible(true);
-                    } catch (NoSuchFieldException unused) {
+                    } catch (NoSuchFieldException e2) {
+                        Log.i(TAG, "Could not fetch mOverlapAnchor field from PopupWindow", e2);
                     }
                     sOverlapAnchorFieldAttempted = true;
                 }
@@ -121,18 +125,19 @@ public final class PopupWindowCompat {
                 if (field != null) {
                     try {
                         field.set(popupWindow, Boolean.valueOf(z));
-                    } catch (IllegalAccessException unused2) {
+                    } catch (IllegalAccessException e3) {
+                        Log.i(TAG, "Could not set overlap anchor field in PopupWindow", e3);
                     }
                 }
             }
         }
     }
 
-    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i2) {
+    public static void setWindowLayoutType(@NonNull PopupWindow popupWindow, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, popupWindow, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, popupWindow, i) == null) {
             if (Build.VERSION.SDK_INT >= 23) {
-                popupWindow.setWindowLayoutType(i2);
+                popupWindow.setWindowLayoutType(i);
                 return;
             }
             if (!sSetWindowLayoutTypeMethodAttempted) {
@@ -147,24 +152,24 @@ public final class PopupWindowCompat {
             Method method = sSetWindowLayoutTypeMethod;
             if (method != null) {
                 try {
-                    method.invoke(popupWindow, Integer.valueOf(i2));
+                    method.invoke(popupWindow, Integer.valueOf(i));
                 } catch (Exception unused2) {
                 }
             }
         }
     }
 
-    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i2, int i3, int i4) {
+    public static void showAsDropDown(@NonNull PopupWindow popupWindow, @NonNull View view, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{popupWindow, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
             if (Build.VERSION.SDK_INT >= 19) {
-                popupWindow.showAsDropDown(view, i2, i3, i4);
+                popupWindow.showAsDropDown(view, i, i2, i3);
                 return;
             }
-            if ((GravityCompat.getAbsoluteGravity(i4, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
-                i2 -= popupWindow.getWidth() - view.getWidth();
+            if ((GravityCompat.getAbsoluteGravity(i3, ViewCompat.getLayoutDirection(view)) & 7) == 5) {
+                i -= popupWindow.getWidth() - view.getWidth();
             }
-            popupWindow.showAsDropDown(view, i2, i3);
+            popupWindow.showAsDropDown(view, i, i2);
         }
     }
 }

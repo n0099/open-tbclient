@@ -13,17 +13,17 @@ public final class m extends i {
     public long wQ;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m(d dVar, int i2, e eVar, boolean z) {
-        super(dVar, i2, eVar, z);
+    public m(d dVar, int i, e eVar, boolean z) {
+        super(dVar, i, eVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dVar, Integer.valueOf(i2), eVar, Boolean.valueOf(z)};
+            Object[] objArr = {dVar, Integer.valueOf(i), eVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((d) objArr2[0], ((Integer) objArr2[1]).intValue(), (e) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;

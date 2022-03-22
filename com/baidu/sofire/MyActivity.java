@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
-import com.baidu.sofire.utility.z;
+import com.baidu.sofire.utility.CommonMethods;
+import com.baidu.sofire.utility.LocalConstant;
+import com.baidu.sofire.utility.ThreadPoolManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,16 +28,16 @@ public class MyActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String a(Activity activity) {
+    public static String getAwakeSource(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
@@ -53,12 +55,66 @@ public class MyActivity extends Activity {
                 Method method3 = invoke2.getClass().getMethod("getLaunchedFromUid", IBinder.class);
                 method3.setAccessible(true);
                 return activity.getPackageManager().getNameForUid(((Integer) method3.invoke(invoke2, invoke)).intValue());
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
                 return "";
             }
         }
         return (String) invokeL.objValue;
+    }
+
+    public static void performActive(Context context, Intent intent, WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, intent, weakReference) == null) {
+            ThreadPoolManager.getInstance(context).execute(new Runnable(intent, weakReference, context) { // from class: com.baidu.sofire.MyActivity.1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ Context val$context;
+                public final /* synthetic */ Intent val$srcIntent;
+                public final /* synthetic */ WeakReference val$weakReference;
+
+                {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {intent, weakReference, context};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.val$srcIntent = intent;
+                    this.val$weakReference = weakReference;
+                    this.val$context = context;
+                }
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        try {
+                            String stringExtra = this.val$srcIntent.getStringExtra("c");
+                            Intent intent2 = new Intent();
+                            intent2.putExtra("t", "a");
+                            intent2.putExtra("c", stringExtra);
+                            String awakeSource = MyActivity.getAwakeSource((Activity) this.val$weakReference.get());
+                            if (awakeSource == null) {
+                                awakeSource = "";
+                            }
+                            intent2.putExtra("source", awakeSource);
+                            AwakeReceiver.onReceiveAwakeMessage(this.val$context.getApplicationContext(), intent2);
+                        } catch (Throwable th) {
+                            CommonMethods.handleNuLException(th);
+                        }
+                    }
+                }
+            });
+        }
     }
 
     @Override // android.app.Activity, android.view.ContextThemeWrapper, android.content.ContextWrapper
@@ -75,71 +131,18 @@ public class MyActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             try {
                 Intent intent = getIntent();
-                if ("teac".equals(intent.getAction())) {
+                if (LocalConstant.Ac_Action.equals(intent.getAction())) {
                     Intent intent2 = new Intent(intent);
-                    intent2.setAction("teac");
+                    intent2.setAction(LocalConstant.Ac_Action);
                     intent2.setComponent(new ComponentName(getApplicationContext().getPackageName(), MyService.class.getCanonicalName()));
                     startService(intent2);
                 }
                 if ("a".equals(intent.getStringExtra("t"))) {
-                    WeakReference weakReference = new WeakReference(this);
-                    Context applicationContext = getApplicationContext();
-                    z.a(applicationContext).a(new Runnable(intent, weakReference, applicationContext) { // from class: com.baidu.sofire.MyActivity.1
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ Intent a;
-
-                        /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ WeakReference f36977b;
-
-                        /* renamed from: c  reason: collision with root package name */
-                        public final /* synthetic */ Context f36978c;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {intent, weakReference, applicationContext};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.a = intent;
-                            this.f36977b = weakReference;
-                            this.f36978c = applicationContext;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public final void run() {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                try {
-                                    String stringExtra = this.a.getStringExtra("c");
-                                    Intent intent3 = new Intent();
-                                    intent3.putExtra("t", "a");
-                                    intent3.putExtra("c", stringExtra);
-                                    String a = MyActivity.a((Activity) this.f36977b.get());
-                                    if (a == null) {
-                                        a = "";
-                                    }
-                                    intent3.putExtra("source", a);
-                                    a.a(this.f36978c.getApplicationContext(), intent3);
-                                } catch (Throwable unused) {
-                                    com.baidu.sofire.utility.c.a();
-                                }
-                            }
-                        }
-                    });
+                    performActive(getApplicationContext(), intent, new WeakReference(this));
                 }
                 super.onCreate(bundle);
-            } catch (Throwable unused) {
-                com.baidu.sofire.utility.c.a();
+            } catch (Throwable th) {
+                CommonMethods.handleNuLException(th);
             }
             finish();
             LogUtil.logActivity(this, "onCreate");

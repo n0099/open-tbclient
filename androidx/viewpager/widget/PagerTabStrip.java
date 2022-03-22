@@ -60,9 +60,9 @@ public class PagerTabStrip extends PagerTitleStrip {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -142,14 +142,14 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundColor(@ColorInt int i2) {
+    public void setBackgroundColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            super.setBackgroundColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.setBackgroundColor(i);
             if (this.mDrawFullUnderlineSet) {
                 return;
             }
-            this.mDrawFullUnderline = (i2 & (-16777216)) == 0;
+            this.mDrawFullUnderline = (i & (-16777216)) == 0;
         }
     }
 
@@ -166,14 +166,14 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setBackgroundResource(@DrawableRes int i2) {
+    public void setBackgroundResource(@DrawableRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            super.setBackgroundResource(i2);
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            super.setBackgroundResource(i);
             if (this.mDrawFullUnderlineSet) {
                 return;
             }
-            this.mDrawFullUnderline = i2 == 0;
+            this.mDrawFullUnderline = i == 0;
         }
     }
 
@@ -187,58 +187,58 @@ public class PagerTabStrip extends PagerTitleStrip {
     }
 
     @Override // android.view.View
-    public void setPadding(int i2, int i3, int i4, int i5) {
+    public void setPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048585, this, i2, i3, i4, i5) == null) {
-            int i6 = this.mMinPaddingBottom;
-            if (i5 < i6) {
-                i5 = i6;
+        if (interceptable == null || interceptable.invokeIIII(1048585, this, i, i2, i3, i4) == null) {
+            int i5 = this.mMinPaddingBottom;
+            if (i4 < i5) {
+                i4 = i5;
             }
-            super.setPadding(i2, i3, i4, i5);
+            super.setPadding(i, i2, i3, i4);
         }
     }
 
-    public void setTabIndicatorColor(@ColorInt int i2) {
+    public void setTabIndicatorColor(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.mIndicatorColor = i2;
-            this.mTabPaint.setColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.mIndicatorColor = i;
+            this.mTabPaint.setColor(i);
             invalidate();
         }
     }
 
-    public void setTabIndicatorColorResource(@ColorRes int i2) {
+    public void setTabIndicatorColorResource(@ColorRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            setTabIndicatorColor(ContextCompat.getColor(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            setTabIndicatorColor(ContextCompat.getColor(getContext(), i));
         }
     }
 
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void setTextSpacing(int i2) {
+    public void setTextSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            int i3 = this.mMinTextSpacing;
-            if (i2 < i3) {
-                i2 = i3;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            int i2 = this.mMinTextSpacing;
+            if (i < i2) {
+                i = i2;
             }
-            super.setTextSpacing(i2);
+            super.setTextSpacing(i);
         }
     }
 
     @Override // androidx.viewpager.widget.PagerTitleStrip
-    public void updateTextPositions(int i2, float f2, boolean z) {
+    public void updateTextPositions(int i, float f2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Boolean.valueOf(z)}) == null) {
             Rect rect = this.mTempRect;
             int height = getHeight();
             int left = this.mCurrText.getLeft() - this.mTabPadding;
             int right = this.mCurrText.getRight() + this.mTabPadding;
-            int i3 = height - this.mIndicatorHeight;
-            rect.set(left, i3, right, height);
-            super.updateTextPositions(i2, f2, z);
+            int i2 = height - this.mIndicatorHeight;
+            rect.set(left, i2, right, height);
+            super.updateTextPositions(i, f2, z);
             this.mTabAlpha = (int) (Math.abs(f2 - 0.5f) * 2.0f * 255.0f);
-            rect.union(this.mCurrText.getLeft() - this.mTabPadding, i3, this.mCurrText.getRight() + this.mTabPadding, height);
+            rect.union(this.mCurrText.getLeft() - this.mTabPadding, i2, this.mCurrText.getRight() + this.mTabPadding, height);
             invalidate(rect);
         }
     }
@@ -252,9 +252,9 @@ public class PagerTabStrip extends PagerTitleStrip {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -267,9 +267,9 @@ public class PagerTabStrip extends PagerTitleStrip {
         this.mTabAlpha = 255;
         this.mDrawFullUnderline = false;
         this.mDrawFullUnderlineSet = false;
-        int i4 = this.mTextColor;
-        this.mIndicatorColor = i4;
-        this.mTabPaint.setColor(i4);
+        int i3 = this.mTextColor;
+        this.mIndicatorColor = i3;
+        this.mTabPaint.setColor(i3);
         float f2 = context.getResources().getDisplayMetrics().density;
         this.mIndicatorHeight = (int) ((3.0f * f2) + 0.5f);
         this.mMinPaddingBottom = (int) ((6.0f * f2) + 0.5f);
@@ -294,9 +294,9 @@ public class PagerTabStrip extends PagerTitleStrip {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -327,9 +327,9 @@ public class PagerTabStrip extends PagerTitleStrip {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

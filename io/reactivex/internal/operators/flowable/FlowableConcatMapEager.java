@@ -26,7 +26,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpstream<T, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
     public final int maxConcurrency;
     public final int prefetch;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ConcatMapEagerDelayErrorSubscriber<T, R> extends AtomicInteger implements FlowableSubscriber<T>, Subscription, InnerQueuedSubscriberSupport<R> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4255299542215038287L;
@@ -53,16 +53,16 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         public Subscription s;
         public final SpscLinkedArrayQueue<InnerQueuedSubscriber<R>> subscribers;
 
-        public ConcatMapEagerDelayErrorSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3, ErrorMode errorMode) {
+        public ConcatMapEagerDelayErrorSubscriber(Subscriber<? super R> subscriber, Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2, ErrorMode errorMode) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {subscriber, function, Integer.valueOf(i2), Integer.valueOf(i3), errorMode};
+                Object[] objArr = {subscriber, function, Integer.valueOf(i), Integer.valueOf(i2), errorMode};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,10 +70,10 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             }
             this.actual = subscriber;
             this.mapper = function;
-            this.maxConcurrency = i2;
-            this.prefetch = i3;
+            this.maxConcurrency = i;
+            this.prefetch = i2;
             this.errorMode = errorMode;
-            this.subscribers = new SpscLinkedArrayQueue<>(Math.min(i3, i2));
+            this.subscribers = new SpscLinkedArrayQueue<>(Math.min(i2, i));
             this.errors = new AtomicThrowable();
             this.requested = new AtomicLong();
         }
@@ -106,11 +106,11 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
         @Override // io.reactivex.internal.subscribers.InnerQueuedSubscriberSupport
         public void drain() {
             InnerQueuedSubscriber<R> innerQueuedSubscriber;
-            int i2;
-            long j2;
+            int i;
+            long j;
             boolean z;
             SimpleQueue<R> queue;
-            int i3;
+            int i2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || getAndIncrement() != 0) {
                 return;
@@ -118,9 +118,9 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             InnerQueuedSubscriber<R> innerQueuedSubscriber2 = this.current;
             Subscriber<? super R> subscriber = this.actual;
             ErrorMode errorMode = this.errorMode;
-            int i4 = 1;
+            int i3 = 1;
             while (true) {
-                long j3 = this.requested.get();
+                long j2 = this.requested.get();
                 if (innerQueuedSubscriber2 != null) {
                     innerQueuedSubscriber = innerQueuedSubscriber2;
                 } else if (errorMode != ErrorMode.END && this.errors.get() != null) {
@@ -144,15 +144,15 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                     }
                 }
                 if (innerQueuedSubscriber == null || (queue = innerQueuedSubscriber.queue()) == null) {
-                    i2 = i4;
-                    j2 = 0;
+                    i = i3;
+                    j = 0;
                     z = false;
                 } else {
-                    i2 = i4;
-                    j2 = 0;
+                    i = i3;
+                    j = 0;
                     while (true) {
-                        i3 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                        if (i3 == 0) {
+                        i2 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                        if (i2 == 0) {
                             break;
                         } else if (this.cancelled) {
                             cancelAll();
@@ -178,7 +178,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                                     break;
                                 } else {
                                     subscriber.onNext(poll);
-                                    j2++;
+                                    j++;
                                     innerQueuedSubscriber.requestOne();
                                 }
                             } catch (Throwable th) {
@@ -192,7 +192,7 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                         }
                     }
                     z = false;
-                    if (i3 == 0) {
+                    if (i2 == 0) {
                         if (this.cancelled) {
                             cancelAll();
                             return;
@@ -214,15 +214,15 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
                         }
                     }
                 }
-                if (j2 != 0 && j3 != Long.MAX_VALUE) {
-                    this.requested.addAndGet(-j2);
+                if (j != 0 && j2 != Long.MAX_VALUE) {
+                    this.requested.addAndGet(-j);
                 }
                 if (z) {
                     innerQueuedSubscriber2 = innerQueuedSubscriber;
-                    i4 = i2;
+                    i3 = i;
                 } else {
-                    i4 = addAndGet(-i2);
-                    if (i4 == 0) {
+                    i3 = addAndGet(-i);
+                    if (i3 == 0) {
                         return;
                     }
                     innerQueuedSubscriber2 = innerQueuedSubscriber;
@@ -329,33 +329,33 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             if ((interceptable == null || interceptable.invokeL(1048586, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
                 this.actual.onSubscribe(this);
-                int i2 = this.maxConcurrency;
-                subscription.request(i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2);
+                int i = this.maxConcurrency;
+                subscription.request(i == Integer.MAX_VALUE ? Long.MAX_VALUE : i);
             }
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048587, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowableConcatMapEager(Flowable<T> flowable, Function<? super T, ? extends Publisher<? extends R>> function, int i2, int i3, ErrorMode errorMode) {
+    public FlowableConcatMapEager(Flowable<T> flowable, Function<? super T, ? extends Publisher<? extends R>> function, int i, int i2, ErrorMode errorMode) {
         super(flowable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {flowable, function, Integer.valueOf(i2), Integer.valueOf(i3), errorMode};
+            Object[] objArr = {flowable, function, Integer.valueOf(i), Integer.valueOf(i2), errorMode};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -363,8 +363,8 @@ public final class FlowableConcatMapEager<T, R> extends AbstractFlowableWithUpst
             }
         }
         this.mapper = function;
-        this.maxConcurrency = i2;
-        this.prefetch = i3;
+        this.maxConcurrency = i;
+        this.prefetch = i2;
         this.errorMode = errorMode;
     }
 

@@ -34,8 +34,8 @@ public class AnimatableValueParser {
         return parseFloat(jsonReader, lottieComposition, true);
     }
 
-    public static AnimatableGradientColorValue parseGradientColor(JsonReader jsonReader, LottieComposition lottieComposition, int i2) throws IOException {
-        return new AnimatableGradientColorValue(parse(jsonReader, lottieComposition, new GradientColorParser(i2)));
+    public static AnimatableGradientColorValue parseGradientColor(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
+        return new AnimatableGradientColorValue(parse(jsonReader, lottieComposition, new GradientColorParser(i)));
     }
 
     public static AnimatableIntegerValue parseInteger(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

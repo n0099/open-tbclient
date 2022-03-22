@@ -37,9 +37,9 @@ public final class MaybeAmb<T> extends Maybe<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -111,9 +111,9 @@ public final class MaybeAmb<T> extends Maybe<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSourceArr, iterable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -143,9 +143,9 @@ public final class MaybeAmb<T> extends Maybe<T> {
                             System.arraycopy(maybeSourceArr, 0, maybeSourceArr2, 0, length);
                             maybeSourceArr = maybeSourceArr2;
                         }
-                        int i2 = length + 1;
+                        int i = length + 1;
                         maybeSourceArr[length] = maybeSource;
-                        length = i2;
+                        length = i;
                     }
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
@@ -157,8 +157,8 @@ public final class MaybeAmb<T> extends Maybe<T> {
             }
             AmbMaybeObserver ambMaybeObserver = new AmbMaybeObserver(maybeObserver);
             maybeObserver.onSubscribe(ambMaybeObserver);
-            for (int i3 = 0; i3 < length; i3++) {
-                MaybeSource<? extends T> maybeSource2 = maybeSourceArr[i3];
+            for (int i2 = 0; i2 < length; i2++) {
+                MaybeSource<? extends T> maybeSource2 = maybeSourceArr[i2];
                 if (ambMaybeObserver.isDisposed()) {
                     return;
                 }

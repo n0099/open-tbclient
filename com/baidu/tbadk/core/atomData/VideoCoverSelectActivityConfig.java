@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoCoverSelectActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_VIDEO_COVER_IMAGE_PATH = "key_video_cover_image_path";
@@ -27,9 +27,9 @@ public class VideoCoverSelectActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,12 +49,12 @@ public class VideoCoverSelectActivityConfig extends IntentConfig {
         intent.putExtra(KEY_VIDEO_COVER_IMAGE_PATH, str);
     }
 
-    public void setVideoType(int i2) {
+    public void setVideoType(int i) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || (intent = getIntent()) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (intent = getIntent()) == null) {
             return;
         }
-        intent.putExtra(KEY_VIDEO_COVER_TYPE, i2);
+        intent.putExtra(KEY_VIDEO_COVER_TYPE, i);
     }
 }

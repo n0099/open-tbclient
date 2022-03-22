@@ -15,17 +15,17 @@ public class CustomMessage<T> extends Message<T> {
     public T mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessage(int i2) {
-        super(i2);
+    public CustomMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -36,10 +36,10 @@ public class CustomMessage<T> extends Message<T> {
     }
 
     @Override // com.baidu.adp.framework.message.Message
-    public boolean checkCmd(int i2) {
+    public boolean checkCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? FrameHelper.a(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? FrameHelper.a(i) : invokeI.booleanValue;
     }
 
     @Override // com.baidu.adp.framework.message.Message
@@ -63,17 +63,17 @@ public class CustomMessage<T> extends Message<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessage(int i2, T t) {
-        super(i2);
+    public CustomMessage(int i, T t) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), t};
+            Object[] objArr = {Integer.valueOf(i), t};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -85,17 +85,17 @@ public class CustomMessage<T> extends Message<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomMessage(int i2, BdUniqueId bdUniqueId) {
-        super(i2, bdUniqueId);
+    public CustomMessage(int i, BdUniqueId bdUniqueId) {
+        super(i, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bdUniqueId};
+            Object[] objArr = {Integer.valueOf(i), bdUniqueId};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;

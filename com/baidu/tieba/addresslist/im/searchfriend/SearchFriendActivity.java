@@ -3,7 +3,7 @@ package com.baidu.tieba.addresslist.im.searchfriend;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
-import c.a.r0.x.e.b.a;
+import c.a.p0.z.e.b.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -43,7 +43,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public View mParentView;
     public final HttpMessageListener mRequestSearchFriendListener;
     public NavigationBar navigationBar;
-    public c.a.r0.x.e.b.a searchBar;
+    public c.a.p0.z.e.b.a searchBar;
     public a.c searchBarCallback;
     public View searchView;
 
@@ -60,9 +60,9 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,7 +71,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
             this.a = searchFriendActivity;
         }
 
-        @Override // c.a.r0.x.e.b.a.c
+        @Override // c.a.p0.z.e.b.a.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -89,17 +89,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public final /* synthetic */ SearchFriendActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(SearchFriendActivity searchFriendActivity, int i2) {
-            super(i2);
+        public b(SearchFriendActivity searchFriendActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {searchFriendActivity, Integer.valueOf(i2)};
+                Object[] objArr = {searchFriendActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -122,7 +122,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                         Iterator it = arrayList.iterator();
                         while (it.hasNext()) {
                             Object next = it.next();
-                            if ((next instanceof c.a.q0.s.f.a) && userInfo.getUserId() == ((c.a.q0.s.f.a) next).e()) {
+                            if ((next instanceof c.a.o0.s.f.a) && userInfo.getUserId() == ((c.a.o0.s.f.a) next).e()) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.getPageContext().getPageActivity(), userInfo.getUserId(), userInfo.getUserName(), userInfo.getPortrait(), 0, 4)));
                                 return;
                             }
@@ -143,17 +143,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         public final /* synthetic */ SearchFriendActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(SearchFriendActivity searchFriendActivity, int i2) {
-            super(i2);
+        public c(SearchFriendActivity searchFriendActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {searchFriendActivity, Integer.valueOf(i2)};
+                Object[] objArr = {searchFriendActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -180,17 +180,17 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                             SearchFriendResult.UserInfo userInfo2 = userInfo.get(0);
                             if (userInfo2 == null) {
                                 SearchFriendActivity searchFriendActivity = this.a;
-                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.neterror));
+                                searchFriendActivity.showToast(searchFriendActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                                 return;
                             }
                             this.a.sendMessage(new CustomMessage(2001265, userInfo2));
                             return;
                         }
                         SearchFriendActivity searchFriendActivity2 = this.a;
-                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.neterror));
+                        searchFriendActivity2.showToast(searchFriendActivity2.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     } else if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
                         SearchFriendActivity searchFriendActivity3 = this.a;
-                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.neterror));
+                        searchFriendActivity3.showToast(searchFriendActivity3.getPageContext().getString(R.string.obfuscated_res_0x7f0f0c15));
                     } else {
                         this.a.showToast(httpResponsedMessage.getErrorString());
                     }
@@ -203,9 +203,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f40458e;
+        public final /* synthetic */ SearchFriendActivity a;
 
         public d(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -214,22 +212,22 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40458e = searchFriendActivity;
+            this.a = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40458e.searchBar.g();
+                this.a.searchBar.g();
             }
         }
     }
@@ -238,9 +236,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public class e implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SearchFriendActivity f40459e;
+        public final /* synthetic */ SearchFriendActivity a;
 
         public e(SearchFriendActivity searchFriendActivity) {
             Interceptable interceptable = $ic;
@@ -249,22 +245,22 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
                 newInitContext.initArgs = r2;
                 Object[] objArr = {searchFriendActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f40459e = searchFriendActivity;
+            this.a = searchFriendActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f40459e.finish();
+                this.a.finish();
             }
         }
     }
@@ -274,9 +270,9 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -312,7 +308,7 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     public c.a.d.f.k.b<TbImageView> getUserIconPool() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UserIconBox.createUserIconPool(getPageContext().getPageActivity(), 8) : (c.a.d.f.k.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? UserIconBox.c(getPageContext().getPageActivity(), 8) : (c.a.d.f.k.b) invokeV.objValue;
     }
 
     public int getUserIconViewId() {
@@ -325,12 +321,12 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.navigationBar.onChangeSkinType(getPageContext(), i2);
-            this.searchBar.f(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.navigationBar.onChangeSkinType(getPageContext(), i);
+            this.searchBar.f(i);
             getLayoutMode().j(this.searchView);
             getLayoutMode().j(this.mParentView);
         }
@@ -341,16 +337,16 @@ public class SearchFriendActivity extends BaseActivity<SearchFriendActivity> imp
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activity_search_friend);
-            this.mParentView = findViewById(R.id.new_search_friend_root_view);
+            setContentView(R.layout.obfuscated_res_0x7f0d0050);
+            this.mParentView = findViewById(R.id.obfuscated_res_0x7f091559);
             d dVar = new d(this);
             this.mParentView.setOnClickListener(dVar);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.new_search_friend_navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091558);
             this.navigationBar = navigationBar;
-            navigationBar.setTitleText(R.string.find_new_friend);
+            navigationBar.setTitleText(R.string.obfuscated_res_0x7f0f0610);
             this.navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new e(this));
-            this.searchView = findViewById(R.id.new_search_friend_search_container);
-            this.searchBar = new c.a.r0.x.e.b.a(getPageContext(), this.searchView);
+            this.searchView = findViewById(R.id.obfuscated_res_0x7f09155b);
+            this.searchBar = new c.a.p0.z.e.b.a(getPageContext(), this.searchView);
             this.searchView.setOnClickListener(dVar);
             this.searchBar.l(this.searchBarCallback);
             TiebaStatic.log("add_new");

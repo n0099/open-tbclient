@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PersonIntroductionActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PERSON_INTRODUCTION = "person_introduction";
@@ -27,13 +27,11 @@ public class PersonIntroductionActivity extends BaseActivity {
     public NavigationBar mNavigationBar;
     public View mRootView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PersonIntroductionActivity f45803e;
+        public final /* synthetic */ PersonIntroductionActivity a;
 
         public a(PersonIntroductionActivity personIntroductionActivity) {
             Interceptable interceptable = $ic;
@@ -42,22 +40,22 @@ public class PersonIntroductionActivity extends BaseActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personIntroductionActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45803e = personIntroductionActivity;
+            this.a = personIntroductionActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45803e.finish();
+                this.a.finish();
             }
         }
     }
@@ -67,9 +65,9 @@ public class PersonIntroductionActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,13 +88,13 @@ public class PersonIntroductionActivity extends BaseActivity {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-            SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i2);
-            SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+            SkinManager.setViewTextColor(this.mIntroView, R.color.CAM_X0105, 1, i);
+            SkinManager.setBackgroundResource(this.mRootView, R.color.CAM_X0201, i);
         }
     }
 
@@ -105,16 +103,16 @@ public class PersonIntroductionActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.person_introduction_layout);
-            this.mRootView = findViewById(R.id.person_intro_root_view);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
+            setContentView(R.layout.obfuscated_res_0x7f0d06c8);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f0917ed);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.person_introduction_title));
-            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.view_topbar_icon, (View.OnClickListener) null);
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e1a));
+            ImageView imageView = (ImageView) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08a8, (View.OnClickListener) null);
             this.mBackImg = imageView;
             imageView.setOnClickListener(this.mClickListener);
             SkinManager.setImageResource(this.mBackImg, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.person_intro);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0917ec);
             this.mIntroView = textView;
             textView.setText(getIntent().getStringExtra(PERSON_INTRODUCTION));
         }

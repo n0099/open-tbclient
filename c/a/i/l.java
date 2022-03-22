@@ -14,7 +14,7 @@ public final class l {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile l f3561b;
+    public static volatile l f3006b;
     public transient /* synthetic */ FieldHolder $fh;
     public final Executor a;
 
@@ -23,9 +23,9 @@ public final class l {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,14 +38,14 @@ public final class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f3561b == null) {
+            if (f3006b == null) {
                 synchronized (l.class) {
-                    if (f3561b == null) {
-                        f3561b = new l();
+                    if (f3006b == null) {
+                        f3006b = new l();
                     }
                 }
             }
-            return f3561b;
+            return f3006b;
         }
         return (l) invokeV.objValue;
     }

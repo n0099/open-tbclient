@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ac {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public class ac {
         return invokeL.intValue;
     }
 
-    public static byte[] a(int i2) {
+    public static byte[] a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) ? new byte[]{(byte) (i2 >> 24), (byte) (i2 >> 16), (byte) (i2 >> 8), (byte) i2} : (byte[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? new byte[]{(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8), (byte) i} : (byte[]) invokeI.objValue;
     }
 }

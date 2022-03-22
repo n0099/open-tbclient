@@ -30,23 +30,23 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     public String mDeviceId;
     public Long mUk;
 
-    public IMUnBindPushRequest(Context context, long j2, String str, String str2, Long l) {
+    public IMUnBindPushRequest(Context context, long j, String str, String str2, Long l) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2, l};
+            Object[] objArr = {context, Long.valueOf(j), str, str2, l};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = Long.valueOf(j2);
+        this.mAppid = Long.valueOf(j);
         this.mBduss = str;
         this.mDeviceId = str2;
         this.mUk = l;
@@ -100,38 +100,38 @@ public class IMUnBindPushRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d("IMUnBindPushRequest", "  errorCode: " + transErrorCode.first);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d("IMUnBindPushRequest", str2);
-            long j2 = 0;
+            long j = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                j2 = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
-                i3 = jSONObject.optInt("error_code", 0);
-                str = i3 != 0 ? jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG) : Constants.ERROR_MSG_SUCCESS;
-                if (i3 == 0) {
+                j = jSONObject.optLong(BaseJsonData.TAG_REQUESTID);
+                i2 = jSONObject.optInt("error_code", 0);
+                str = i2 != 0 ? jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG) : Constants.ERROR_MSG_SUCCESS;
+                if (i2 == 0) {
                     BindStateManager.clearUnBindInfo(this.mContext);
                 }
             } catch (JSONException e2) {
                 LogUtils.e("IMUnBindPushRequest", e2.getMessage(), e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
+                i2 = 1010;
             }
-            LogUtils.d("IMUnBindPushRequest", "requestid : " + j2 + " , resultCode: " + i3 + " , resultMsg : " + str);
+            LogUtils.d("IMUnBindPushRequest", "requestid : " + j + " , resultCode: " + i2 + " , resultMsg : " + str);
         }
     }
 

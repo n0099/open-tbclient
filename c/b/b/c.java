@@ -1,7 +1,7 @@
 package c.b.b;
 /* loaded from: classes3.dex */
 public interface c {
-    void a(int i2, int i3);
+    void a(int i, int i2);
 
     void create();
 

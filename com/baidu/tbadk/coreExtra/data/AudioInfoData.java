@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.data;
 
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
@@ -26,9 +26,9 @@ public class AudioInfoData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -59,7 +59,7 @@ public class AudioInfoData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.voiceId : (String) invokeV.objValue;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(String str) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || str == null) {
@@ -72,7 +72,7 @@ public class AudioInfoData extends p implements Serializable {
         }
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) || jSONObject == null) {

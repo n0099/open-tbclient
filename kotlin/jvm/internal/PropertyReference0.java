@@ -3,7 +3,7 @@ package kotlin.jvm.internal;
 import kotlin.SinceKotlin;
 import kotlin.reflect.KCallable;
 import kotlin.reflect.KProperty0;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class PropertyReference0 extends PropertyReference implements KProperty0 {
     public PropertyReference0() {
     }
@@ -36,7 +36,7 @@ public abstract class PropertyReference0 extends PropertyReference implements KP
     }
 
     @SinceKotlin(version = "1.4")
-    public PropertyReference0(Object obj, Class cls, String str, String str2, int i2) {
-        super(obj, cls, str, str2, i2);
+    public PropertyReference0(Object obj, Class cls, String str, String str2, int i) {
+        super(obj, cls, str, str2, i);
     }
 }

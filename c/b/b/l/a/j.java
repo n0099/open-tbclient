@@ -20,9 +20,9 @@ public class j extends i implements c.b.b.n.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -30,38 +30,38 @@ public class j extends i implements c.b.b.n.d {
     }
 
     @Override // c.b.b.n.d
-    public void A(int i2, IntBuffer intBuffer) {
+    public void A(int i, IntBuffer intBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, intBuffer) == null) {
-            GLES30.glDeleteVertexArrays(i2, intBuffer);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intBuffer) == null) {
+            GLES30.glDeleteVertexArrays(i, intBuffer);
         }
     }
 
     @Override // c.b.b.n.d
-    public void O(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, Buffer buffer) {
+    public void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), buffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), buffer}) == null) {
             if (buffer == null) {
-                GLES30.glTexImage3D(i2, i3, i4, i5, i6, i7, i8, i9, i10, 0);
+                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, 0);
             } else {
-                GLES30.glTexImage3D(i2, i3, i4, i5, i6, i7, i8, i9, i10, buffer);
+                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, buffer);
             }
         }
     }
 
     @Override // c.b.b.n.d
-    public void c(int i2, IntBuffer intBuffer) {
+    public void c(int i, IntBuffer intBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, intBuffer) == null) {
-            GLES30.glDrawBuffers(i2, intBuffer);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, intBuffer) == null) {
+            GLES30.glDrawBuffers(i, intBuffer);
         }
     }
 
     @Override // c.b.b.n.d
-    public void v(int i2, IntBuffer intBuffer) {
+    public void v(int i, IntBuffer intBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, intBuffer) == null) {
-            GLES30.glGenVertexArrays(i2, intBuffer);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, intBuffer) == null) {
+            GLES30.glGenVertexArrays(i, intBuffer);
         }
     }
 }

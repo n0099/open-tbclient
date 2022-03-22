@@ -15,7 +15,7 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Sets {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public final class Sets {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,10 +46,10 @@ public final class Sets {
         return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new HashSet<>() : (HashSet) invokeV.objValue;
     }
 
-    public static <E> HashSet<E> newHashSetWithCapacity(int i2) {
+    public static <E> HashSet<E> newHashSetWithCapacity(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? new HashSet<>(i2) : (HashSet) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? new HashSet<>(i) : (HashSet) invokeI.objValue;
     }
 
     public static <E> Set<E> newIdentityHashSet() {

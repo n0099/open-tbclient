@@ -15,7 +15,7 @@ public final class a {
     public final Class<? extends c.a.j.h.c.b.b<? extends c.a.j.h.c.b.a<?>>> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<? extends c.a.j.h.c.b.a<?>> f3734b;
+    public final Class<? extends c.a.j.h.c.b.a<?>> f3216b;
 
     public a(Class<? extends c.a.j.h.c.b.b<? extends c.a.j.h.c.b.a<?>>> cls, Class<? extends c.a.j.h.c.b.a<?>> cls2) {
         Interceptable interceptable = $ic;
@@ -24,16 +24,16 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, cls2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = cls;
-        this.f3734b = cls2;
+        this.f3216b = cls2;
     }
 
     public final Class<? extends c.a.j.h.c.b.b<? extends c.a.j.h.c.b.a<?>>> a() {
@@ -45,7 +45,7 @@ public final class a {
     public final Class<? extends c.a.j.h.c.b.a<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3734b : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3216b : (Class) invokeV.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -55,7 +55,7 @@ public final class a {
             if (this != obj) {
                 if (obj instanceof a) {
                     a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f3734b, aVar.f3734b);
+                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.f3216b, aVar.f3216b);
                 }
                 return false;
             }
@@ -70,7 +70,7 @@ public final class a {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             Class<? extends c.a.j.h.c.b.b<? extends c.a.j.h.c.b.a<?>>> cls = this.a;
             int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
-            Class<? extends c.a.j.h.c.b.a<?>> cls2 = this.f3734b;
+            Class<? extends c.a.j.h.c.b.a<?>> cls2 = this.f3216b;
             return hashCode + (cls2 != null ? cls2.hashCode() : 0);
         }
         return invokeV.intValue;
@@ -80,7 +80,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "DialogPlugin(viewClass=" + this.a + ", viewModelClass=" + this.f3734b + SmallTailInfo.EMOTION_SUFFIX;
+            return "DialogPlugin(viewClass=" + this.a + ", viewModelClass=" + this.f3216b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }

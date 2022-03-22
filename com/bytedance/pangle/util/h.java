@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
@@ -94,10 +95,10 @@ public final class h {
                     }
                 } else {
                     int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
-                    int i2 = 0;
-                    while (i2 < intValue) {
-                        i2++;
-                        String str = (String) MethodUtils.invokeMethod(assetManager, "getCookieName", Integer.valueOf(i2));
+                    int i = 0;
+                    while (i < intValue) {
+                        i++;
+                        String str = (String) MethodUtils.invokeMethod(assetManager, "getCookieName", Integer.valueOf(i));
                         if (!TextUtils.isEmpty(str)) {
                             arrayList.add(str);
                         }
@@ -121,7 +122,7 @@ public final class h {
             if (g.b()) {
                 try {
                     Resources resources = Zeus.getAppApplication().getResources();
-                    arrayList.add(Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", "string", "android")), 0).getApplicationInfo().sourceDir);
+                    arrayList.add(Zeus.getAppApplication().createPackageContext(resources.getString(resources.getIdentifier("android:string/config_webViewPackageName", EMABTest.TYPE_STRING, "android")), 0).getApplicationInfo().sourceDir);
                 } catch (Exception e2) {
                     ZeusLogger.e(ZeusLogger.TAG_LOAD, "getWebViewPaths1 failed.", e2);
                 }
@@ -161,10 +162,10 @@ public final class h {
                     }
                 } else {
                     int intValue = ((Integer) MethodUtils.invokeMethod(assetManager, "getStringBlockCount", new Object[0])).intValue();
-                    int i2 = 0;
-                    while (i2 < intValue) {
-                        i2++;
-                        if (TextUtils.equals((String) MethodUtils.invokeMethod(assetManager, "getCookieName", Integer.valueOf(i2)), str)) {
+                    int i = 0;
+                    while (i < intValue) {
+                        i++;
+                        if (TextUtils.equals((String) MethodUtils.invokeMethod(assetManager, "getCookieName", Integer.valueOf(i)), str)) {
                             return true;
                         }
                     }
@@ -195,8 +196,8 @@ public final class h {
             if (str != null) {
                 arrayList.add(str);
             }
-            for (int i2 = 0; i2 < 3; i2++) {
-                String[] strArr3 = strArr2[i2];
+            for (int i = 0; i < 3; i++) {
+                String[] strArr3 = strArr2[i];
                 if (strArr3 != null) {
                     arrayList.addAll(Arrays.asList(strArr3));
                 }

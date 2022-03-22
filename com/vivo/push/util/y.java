@@ -10,17 +10,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class y implements d {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "SpCache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59339b = "com.vivo.push.cache";
+    public static String f43970b = "com.vivo.push.cache";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public SharedPreferences f59340c;
+    public SharedPreferences f43971c;
 
     static {
         InterceptResult invokeClinit;
@@ -42,9 +42,9 @@ public final class y implements d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -56,8 +56,8 @@ public final class y implements d {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.f59340c == null) {
-                this.f59340c = context.getSharedPreferences(f59339b, 0);
+            if (this.f43971c == null) {
+                this.f43971c = context.getSharedPreferences(f43970b, 0);
                 return true;
             }
             return true;
@@ -69,7 +69,7 @@ public final class y implements d {
     public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            SharedPreferences.Editor edit = this.f59340c.edit();
+            SharedPreferences.Editor edit = this.f43971c.edit();
             if (edit != null) {
                 edit.putString(str, str2);
                 b.a(edit);
@@ -85,7 +85,7 @@ public final class y implements d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String string = this.f59340c.getString(str, str2);
+            String string = this.f43971c.getString(str, str2);
             String str3 = a;
             p.d(str3, "getString " + str + " is " + string);
             return string;
@@ -96,7 +96,7 @@ public final class y implements d {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPreferences.Editor edit = this.f59340c.edit();
+            SharedPreferences.Editor edit = this.f43971c.edit();
             if (edit != null) {
                 edit.clear();
                 b.a(edit);

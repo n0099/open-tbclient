@@ -10,18 +10,20 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Window;
 import androidx.core.view.InputDeviceCompat;
-import c.a.f0.b;
-import c.a.f0.g.f;
-import c.a.f0.i.g;
-import c.a.f0.i.h;
-import c.a.f0.i.k;
+import c.a.e0.b;
+import c.a.e0.g.f;
+import c.a.e0.i.g;
+import c.a.e0.i.h;
+import c.a.e0.i.k;
+import c.a.e0.k.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
 import com.baidu.poly.wallet.paychannel.IChannelPay;
 import com.baidu.poly.widget.ChannelListView;
-import com.baidu.poly.widget.CommonDialog;
+import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.activity.AuthWidgetForCashierActivity;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +33,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.protobuf.CodedInputStream;
 /* loaded from: classes4.dex */
-public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.j.f.a {
+public class PolyActivity extends Activity implements ChannelListView.m, c.a.e0.j.f.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int AUTH_WIDGET_REQUEST_CODE = 100;
     public static final String CHOSEN_CHANNEL_KEY = "chosenChannel";
@@ -51,35 +53,35 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
     public static Activity invokerActivity;
     public static boolean isCashing;
     public static b.c listener;
-    public static c.a.f0.j.g.c wechatSignAutoRenew;
+    public static c.a.e0.j.g.c wechatSignAutoRenew;
     public transient /* synthetic */ FieldHolder $fh;
     public Bundle arguments;
     public ChannelListView mChannelListView;
-    public c.a.f0.j.a mLaunchPaymentParamsCache;
+    public c.a.e0.j.a mLaunchPaymentParamsCache;
 
     /* loaded from: classes4.dex */
-    public class a extends CommonDialog.e {
+    public class a extends b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* renamed from: com.baidu.poly.widget.PolyActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C1827a implements CommonDialog.f {
+        public class C1780a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C1827a(a aVar) {
+            public C1780a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -88,14 +90,14 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 this.a = aVar;
             }
 
-            @Override // com.baidu.poly.widget.CommonDialog.f
+            @Override // c.a.e0.k.b.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     dialog.dismiss();
                     if (this.a.a.mChannelListView != null) {
-                        this.a.a.mChannelListView.resetPayStatus();
-                        this.a.a.mChannelListView.onBackPressed();
+                        this.a.a.mChannelListView.j0();
+                        this.a.a.mChannelListView.X();
                     }
                 }
             }
@@ -108,9 +110,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {polyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -119,29 +121,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
+        @Override // c.a.e0.k.b.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "我知道了" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
-        public CommonDialog.f b() {
+        @Override // c.a.e0.k.b.e
+        public b.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1827a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new C1780a(this) : (b.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends CommonDialog.e {
+    public class b extends b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements CommonDialog.f {
+        public class a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -153,9 +155,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                     newInitContext.initArgs = r2;
                     Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -164,14 +166,14 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 this.a = bVar;
             }
 
-            @Override // com.baidu.poly.widget.CommonDialog.f
+            @Override // c.a.e0.k.b.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     dialog.dismiss();
                     if (this.a.a.mChannelListView != null) {
-                        this.a.a.mChannelListView.resetPayStatus();
-                        this.a.a.mChannelListView.onBackPressed();
+                        this.a.a.mChannelListView.j0();
+                        this.a.a.mChannelListView.X();
                     }
                 }
             }
@@ -184,9 +186,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {polyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -195,32 +197,32 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
+        @Override // c.a.e0.k.b.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "取消" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
-        public CommonDialog.f b() {
+        @Override // c.a.e0.k.b.e
+        public b.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (b.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends CommonDialog.e {
+    public class c extends b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c.a.f0.j.a a;
+        public final /* synthetic */ c.a.e0.j.a a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ PolyActivity f36462b;
+        public final /* synthetic */ PolyActivity f28244b;
 
         /* loaded from: classes4.dex */
-        public class a implements CommonDialog.f {
+        public class a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c a;
@@ -232,9 +234,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                     newInitContext.initArgs = r2;
                     Object[] objArr = {cVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -243,59 +245,59 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 this.a = cVar;
             }
 
-            @Override // com.baidu.poly.widget.CommonDialog.f
+            @Override // c.a.e0.k.b.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     c cVar = this.a;
-                    cVar.f36462b.jumpToPassAuthWidget(cVar.a);
+                    cVar.f28244b.jumpToPassAuthWidget(cVar.a);
                     dialog.dismiss();
                 }
             }
         }
 
-        public c(PolyActivity polyActivity, c.a.f0.j.a aVar) {
+        public c(PolyActivity polyActivity, c.a.e0.j.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {polyActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36462b = polyActivity;
+            this.f28244b = polyActivity;
             this.a = aVar;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
+        @Override // c.a.e0.k.b.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
-        public CommonDialog.f b() {
+        @Override // c.a.e0.k.b.e
+        public b.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (b.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends CommonDialog.e {
+    public class d extends b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements CommonDialog.f {
+        public class a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -307,9 +309,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                     newInitContext.initArgs = r2;
                     Object[] objArr = {dVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -318,14 +320,14 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 this.a = dVar;
             }
 
-            @Override // com.baidu.poly.widget.CommonDialog.f
+            @Override // c.a.e0.k.b.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
                     dialog.dismiss();
                     if (this.a.a.mChannelListView != null) {
-                        this.a.a.mChannelListView.resetPayStatus();
-                        this.a.a.mChannelListView.onBackPressed();
+                        this.a.a.mChannelListView.j0();
+                        this.a.a.mChannelListView.X();
                     }
                 }
             }
@@ -338,9 +340,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {polyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -349,29 +351,29 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
+        @Override // c.a.e0.k.b.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "取消" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
-        public CommonDialog.f b() {
+        @Override // c.a.e0.k.b.e
+        public b.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (b.f) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends CommonDialog.e {
+    public class e extends b.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PolyActivity a;
 
         /* loaded from: classes4.dex */
-        public class a implements CommonDialog.f {
+        public class a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ e a;
@@ -383,9 +385,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                     newInitContext.initArgs = r2;
                     Object[] objArr = {eVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -394,7 +396,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 this.a = eVar;
             }
 
-            @Override // com.baidu.poly.widget.CommonDialog.f
+            @Override // c.a.e0.k.b.f
             public void a(Dialog dialog) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, dialog) == null) {
@@ -412,9 +414,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {polyActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -423,18 +425,18 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             this.a = polyActivity;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
+        @Override // c.a.e0.k.b.e
         public String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "去验证" : (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.poly.widget.CommonDialog.e
-        public CommonDialog.f b() {
+        @Override // c.a.e0.k.b.e
+        public b.f b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (CommonDialog.f) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this) : (b.f) invokeV.objValue;
         }
     }
 
@@ -458,9 +460,9 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -499,7 +501,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             return;
         }
         if (listener != null) {
-            String a2 = c.a.f0.i.e.a(2, null, MSG_REPEAT_PAY);
+            String a2 = c.a.e0.i.e.a(2, null, MSG_REPEAT_PAY);
             listener.a(2, a2);
             f.j(2, a2, "0");
         }
@@ -507,7 +509,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void jumpToPassAuthWidget(c.a.f0.j.a aVar) {
+    public void jumpToPassAuthWidget(c.a.e0.j.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, aVar) == null) {
             Intent a2 = g.a(this);
@@ -518,7 +520,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             }
             ChannelListView channelListView = this.mChannelListView;
             if (channelListView != null) {
-                channelListView.callPay(aVar);
+                channelListView.L(aVar);
             }
         }
     }
@@ -554,7 +556,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             intent.putExtra(PAY_ARGUEMENTS, bundle);
             if (!(context instanceof Activity)) {
                 h.g("!context instanceof Activity");
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             context.startActivity(intent);
         }
@@ -572,12 +574,12 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 != 200) {
-                if (i2 == 100) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i != 200) {
+                if (i == 100) {
                     int intExtra = intent.getIntExtra(AuthWidgetForCashierActivity.w, -1);
                     intent.getStringExtra(AuthWidgetForCashierActivity.x);
                     if (intExtra != 0) {
@@ -586,7 +588,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                     }
                     ChannelListView channelListView = this.mChannelListView;
                     if (channelListView != null) {
-                        channelListView.callPay(this.mLaunchPaymentParamsCache);
+                        channelListView.L(this.mLaunchPaymentParamsCache);
                         return;
                     }
                     return;
@@ -605,13 +607,13 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             if (z) {
                 return;
             }
-            if (i3 == -1) {
-                c.a.f0.j.b.h().i(this, intent.getExtras(), this.mChannelListView, true);
+            if (i2 == -1) {
+                c.a.e0.j.b.h().i(this, intent.getExtras(), this.mChannelListView, true);
                 return;
             }
             ChannelListView channelListView2 = this.mChannelListView;
             if (channelListView2 != null) {
-                channelListView2.payEnd(3, "pay canceled , back from H5. ", "1");
+                channelListView2.a0(3, "pay canceled , back from H5. ", "1");
             }
         }
     }
@@ -625,7 +627,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
                 super.onBackPressed();
                 return;
             }
-            if (!channelListView.onBackPressed()) {
+            if (!channelListView.X()) {
                 super.onBackPressed();
             }
             h.g("PolyActivity onBackPressed");
@@ -703,7 +705,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             this.mChannelListView.setResultListener(listener);
             this.mChannelListView.setCloseListener(this);
             this.mChannelListView.setChannelAuth(channelAuth);
-            c.a.f0.j.d dVar = new c.a.f0.j.d(new c.a.f0.j.c(this, channelPay), this);
+            c.a.e0.j.d dVar = new c.a.e0.j.d(new c.a.e0.j.c(this, channelPay), this);
             dVar.s(wechatSignAutoRenew);
             this.mChannelListView.setWalletList(dVar);
             String string = this.arguments.getString(CHOSEN_CHANNEL_KEY);
@@ -711,13 +713,13 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             String string3 = this.arguments.getString(TRADE_TYPE);
             h.g("onWindowFocusChanged panelType=" + string2 + ", tradeType=" + string3);
             if (TextUtils.equals(string2, "NONE") && TextUtils.equals(string3, DIRECT_PAY_TRADE_TYPE)) {
-                c.a.f0.i.d.e(this.arguments);
-                this.mChannelListView.directPay(k.b(this, this.arguments), string);
+                c.a.e0.i.d.e(this.arguments);
+                this.mChannelListView.Q(k.b(this, this.arguments), string);
             } else if (TextUtils.equals(string2, "NONE") && !TextUtils.isEmpty(string)) {
-                this.mChannelListView.startFastPay(k.b(this, this.arguments), string);
+                this.mChannelListView.p0(k.b(this, this.arguments), string);
             } else {
-                this.mChannelListView.requestChannelList(k.b(this, this.arguments));
-                this.mChannelListView.showChannelBoard();
+                this.mChannelListView.i0(k.b(this, this.arguments));
+                this.mChannelListView.k0();
             }
         }
     }
@@ -727,53 +729,53 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
         if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.mLaunchPaymentParamsCache == null) {
             return;
         }
-        CommonDialog.d dVar = new CommonDialog.d();
+        b.d dVar = new b.d();
         dVar.e("验证失败提示");
         dVar.c("身份证验证未通过，请通过验证后再继续支付");
         dVar.b(new d(this), new e(this));
-        CommonDialog a2 = dVar.a(this);
+        c.a.e0.k.b a2 = dVar.a(this);
         a2.setCancelable(false);
         a2.show();
     }
 
-    @Override // c.a.f0.j.f.a
+    @Override // c.a.e0.j.f.a
     public void showBlockDialog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            CommonDialog.d dVar = new CommonDialog.d();
+            b.d dVar = new b.d();
             dVar.e("账号风险提示");
             dVar.c("当前帐号存在比较高的风险，无法完成本次支付");
             dVar.d(new a(this));
-            CommonDialog a2 = dVar.a(this);
+            c.a.e0.k.b a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
     }
 
-    @Override // c.a.f0.j.f.a
-    public void showNeedAuthDialog(c.a.f0.j.a aVar) {
-        c.a.f0.c.c cVar;
+    @Override // c.a.e0.j.f.a
+    public void showNeedAuthDialog(c.a.e0.j.a aVar) {
+        c.a.e0.c.c cVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) || this.mChannelListView == null || aVar == null || (cVar = aVar.a) == null) {
             return;
         }
         if (TextUtils.isEmpty(cVar.a("authId"))) {
-            this.mChannelListView.callPay(aVar);
+            this.mChannelListView.L(aVar);
         } else if (g.a(this) == null) {
-            this.mChannelListView.callPay(aVar);
+            this.mChannelListView.L(aVar);
         } else {
             this.mLaunchPaymentParamsCache = aVar;
-            CommonDialog.d dVar = new CommonDialog.d();
+            b.d dVar = new b.d();
             dVar.e("账号风险提示");
             dVar.c("当前账号存在风险，请完成本人身份验证后继续支付");
             dVar.b(new b(this), new c(this, aVar));
-            CommonDialog a2 = dVar.a(this);
+            c.a.e0.k.b a2 = dVar.a(this);
             a2.setCancelable(false);
             a2.show();
         }
     }
 
-    public static void startPay(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, c.a.f0.j.g.c cVar, b.c cVar2, Bundle bundle) {
+    public static void startPay(Context context, IChannelPay iChannelPay, IChannelAuth iChannelAuth, c.a.e0.j.g.c cVar, b.c cVar2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{context, iChannelPay, iChannelAuth, cVar, cVar2, bundle}) == null) {
             wechatSignAutoRenew = cVar;
@@ -788,7 +790,7 @@ public class PolyActivity extends Activity implements ChannelListView.m, c.a.f0.
             if (context instanceof Activity) {
                 invokerActivity = (Activity) context;
             }
-            c.a.f0.e.a.a().c((Activity) context);
+            c.a.e0.e.a.a().c((Activity) context);
             startPay(context, iChannelPay, cVar, bundle);
         }
     }

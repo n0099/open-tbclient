@@ -6,15 +6,15 @@ import android.os.IBinder;
 import com.ss.android.socialbase.downloader.downloader.DownloadService;
 import com.ss.android.socialbase.downloader.model.DownloadTask;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface o<T extends DownloadService> {
     IBinder a(Intent intent);
 
-    void a(int i2);
+    void a(int i);
 
-    void a(int i2, Notification notification);
+    void a(int i, Notification notification);
 
-    void a(Intent intent, int i2, int i3);
+    void a(Intent intent, int i, int i2);
 
     void a(n nVar);
 

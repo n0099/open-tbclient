@@ -7,8 +7,8 @@ import android.text.TextUtils;
 import android.widget.PopupWindow;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.p0.a.e2.g.h;
-import c.a.q0.j0.i;
+import c.a.o0.a.h;
+import c.a.o0.j0.i;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
@@ -57,7 +57,7 @@ public class SwanAppAbTestStatic {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static i f40483b;
+    public static i f31228b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
@@ -70,9 +70,9 @@ public class SwanAppAbTestStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,7 +80,7 @@ public class SwanAppAbTestStatic {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // c.a.q0.j0.b
+        @Override // c.a.o0.j0.b
         /* renamed from: a */
         public boolean onEvent(PrivacyPolicyEvent privacyPolicyEvent) {
             InterceptResult invokeL;
@@ -89,9 +89,9 @@ public class SwanAppAbTestStatic {
                 if (privacyPolicyEvent == null) {
                     return true;
                 }
-                c.a.r0.z.b.a.a();
+                c.a.p0.b0.b.a.a();
                 if (!TextUtils.isEmpty(SwanAppAbTestStatic.a) && TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    c.a.p0.g.h.b.a(SwanAppAbTestStatic.a);
+                    c.a.n0.g.h.b.a(SwanAppAbTestStatic.a);
                     SwanAppAbTestStatic.a = null;
                 }
                 return true;
@@ -110,9 +110,9 @@ public class SwanAppAbTestStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -126,12 +126,12 @@ public class SwanAppAbTestStatic {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && !StringUtils.isNull(customMessage.getData())) {
                     if (Build.VERSION.SDK_INT <= 21) {
-                        n.M(TbadkCoreApplication.getInst(), R.string.ai_apps_not_support);
+                        n.M(TbadkCoreApplication.getInst(), R.string.obfuscated_res_0x7f0f00e1);
                         return null;
                     }
                     String data = customMessage.getData();
                     if (PermissionUtil.isAgreePrivacyPolicy()) {
-                        c.a.r0.z.b.a.a();
+                        c.a.p0.b0.b.a.a();
                         SwanAppAbTestStatic.b(data);
                     }
                 }
@@ -147,17 +147,17 @@ public class SwanAppAbTestStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -177,7 +177,7 @@ public class SwanAppAbTestStatic {
             PopupWindow a;
             Activity b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof c.a.q0.a.g) && (a = c.a.r0.z.b.b.a((c.a.q0.a.g) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.g().b()) != null && b2.getWindow() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof h) && (a = c.a.p0.b0.b.b.a((h) customResponsedMessage.getData())) != null && (b2 = c.a.d.a.b.g().b()) != null && b2.getWindow() != null) {
                 try {
                     a.showAtLocation(b2.getWindow().getDecorView(), 17, 0, 0);
                 } catch (Exception unused) {
@@ -196,9 +196,9 @@ public class SwanAppAbTestStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -265,9 +265,9 @@ public class SwanAppAbTestStatic {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {eVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
@@ -309,28 +309,28 @@ public class SwanAppAbTestStatic {
             public void onSuccess(GetUserInfoResult getUserInfoResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048582, this, getUserInfoResult) == null) {
-                    h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
-                    h.a().putString("bd_box_uid", getUserInfoResult.uid);
-                    h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
-                    h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
-                    h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
-                    c.a.r0.z.b.c.a.l().y(getUserInfoResult);
+                    c.a.n0.a.e2.g.h.a().putString("bd_box_display_name", getUserInfoResult.displayname);
+                    c.a.n0.a.e2.g.h.a().putString("bd_box_uid", getUserInfoResult.uid);
+                    c.a.n0.a.e2.g.h.a().putString("bd_box_avatar_url", getUserInfoResult.portraitHttps);
+                    c.a.n0.a.e2.g.h.a().putString("bd_box_bduss", SapiAccountManager.getInstance().getSession().bduss);
+                    c.a.n0.a.e2.g.h.a().putString("bd_box_ptoken", SapiAccountManager.getInstance().getSession().getPtoken());
+                    c.a.p0.b0.b.c.a.l().y(getUserInfoResult);
                 }
             }
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(int i2) {
-            super(i2);
+        public e(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -350,7 +350,7 @@ public class SwanAppAbTestStatic {
                     MessageManager.getInstance().sendMessage(new CustomMessage(2921328, TbadkCoreApplication.getInst().getApp()));
                 }
                 if (!SapiAccountManager.getInstance().isLogin()) {
-                    c.a.r0.z.b.c.a.l().y(null);
+                    c.a.p0.b0.b.c.a.l().y(null);
                 }
                 SapiAccountManager.getInstance().getAccountService().getUserInfo(new a(this), SapiAccountManager.getInstance().getSession().bduss);
             }
@@ -367,9 +367,9 @@ public class SwanAppAbTestStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -381,9 +381,9 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                String a = c.a.p0.a.b.a();
-                long f2 = c.a.p0.a.g2.b.f(0);
-                long f3 = c.a.p0.a.g2.b.f(1);
+                String a = c.a.n0.a.b.a();
+                long f2 = c.a.n0.a.g2.b.f(0);
+                long f3 = c.a.n0.a.g2.b.f(1);
                 TbadkCoreApplication.getInst().setSdk_ver(a);
                 TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                 TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
@@ -403,9 +403,9 @@ public class SwanAppAbTestStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -417,10 +417,10 @@ public class SwanAppAbTestStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                String a = c.a.p0.a.b.a();
+                String a = c.a.n0.a.b.a();
                 if (TbadkCoreApplication.getInst().getSwan_game_ver() == null) {
-                    long f2 = c.a.p0.a.g2.b.f(0);
-                    long f3 = c.a.p0.a.g2.b.f(1);
+                    long f2 = c.a.n0.a.g2.b.f(0);
+                    long f3 = c.a.n0.a.g2.b.f(1);
                     TbadkCoreApplication.getInst().setSdk_ver(a);
                     TbadkCoreApplication.getInst().setFramework_ver(Long.toString(f2));
                     TbadkCoreApplication.getInst().setSwan_game_ver(Long.toString(f3));
@@ -445,7 +445,7 @@ public class SwanAppAbTestStatic {
                 return;
             }
         }
-        f40483b = new a();
+        f31228b = new a();
         d();
         CustomMessageTask customMessageTask = new CustomMessageTask(2921361, new b());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
@@ -468,9 +468,9 @@ public class SwanAppAbTestStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -512,10 +512,10 @@ public class SwanAppAbTestStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                c.a.q0.j0.h.f().m(PrivacyPolicyEvent.class, f40483b, BdUniqueId.gen());
+                c.a.o0.j0.h.f().m(PrivacyPolicyEvent.class, f31228b, BdUniqueId.gen());
             } else if (AiAppsLazyInitSwitch.getIsOn()) {
             } else {
-                c.a.r0.z.b.a.a();
+                c.a.p0.b0.b.a.a();
             }
         }
     }

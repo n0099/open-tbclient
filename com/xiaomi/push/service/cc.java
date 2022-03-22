@@ -9,33 +9,33 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fm;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cc extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ String f952a;
+    public final /* synthetic */ String f928a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ byte[] f953a;
+    public final /* synthetic */ byte[] f929a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f60009b;
+    public final /* synthetic */ int f44572b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc(XMPushService xMPushService, int i2, int i3, byte[] bArr, String str) {
-        super(i2);
+    public cc(XMPushService xMPushService, int i, int i2, byte[] bArr, String str) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xMPushService, Integer.valueOf(i2), Integer.valueOf(i3), bArr, str};
+            Object[] objArr = {xMPushService, Integer.valueOf(i), Integer.valueOf(i2), bArr, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,9 +43,9 @@ public class cc extends XMPushService.i {
             }
         }
         this.a = xMPushService;
-        this.f60009b = i3;
-        this.f953a = bArr;
-        this.f952a = str;
+        this.f44572b = i2;
+        this.f929a = bArr;
+        this.f928a = str;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.i
@@ -60,12 +60,12 @@ public class cc extends XMPushService.i {
         fm fmVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            m.m694a((Context) this.a);
-            av.a().m667a("5");
-            com.xiaomi.push.ab.a(this.f60009b);
-            fmVar = this.a.f849a;
+            m.m673a((Context) this.a);
+            av.a().m646a("5");
+            com.xiaomi.push.ab.a(this.f44572b);
+            fmVar = this.a.f825a;
             fmVar.c(fm.a());
-            this.a.a(this.f953a, this.f952a);
+            this.a.a(this.f929a, this.f928a);
         }
     }
 }

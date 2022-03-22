@@ -8,7 +8,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class ImageBitmapBean {
     public static /* synthetic */ Interceptable $ic = null;
@@ -27,9 +26,9 @@ public class ImageBitmapBean {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, bitmap};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,7 +105,7 @@ public class ImageBitmapBean {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "ImageBitmapBean{mSrc='" + this.mSrc + ExtendedMessageFormat.QUOTE + ", mRefCount=" + this.mRefCount + ", mBitmap=" + this.mBitmap + ", byteCount=" + this.byteCount + ExtendedMessageFormat.END_FE;
+            return "ImageBitmapBean{mSrc='" + this.mSrc + "', mRefCount=" + this.mRefCount + ", mBitmap=" + this.mBitmap + ", byteCount=" + this.byteCount + '}';
         }
         return (String) invokeV.objValue;
     }

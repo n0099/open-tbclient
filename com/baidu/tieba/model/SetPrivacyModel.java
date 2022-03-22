@@ -16,38 +16,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class SetPrivacyModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId UNIQUE_ID_SET_PRIVACY_TASK;
 
-    /* renamed from: j  reason: collision with root package name */
-    public static final String f44567j;
+    /* renamed from: f  reason: collision with root package name */
+    public static final String f34536f;
     public transient /* synthetic */ FieldHolder $fh;
+    public CardPersonDynamicThreadData a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public b f34537b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f34538c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public NetWork f34539d;
 
     /* renamed from: e  reason: collision with root package name */
-    public CardPersonDynamicThreadData f44568e;
+    public a f34540e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public b f44569f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f44570g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public NetWork f44571h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public a f44572i;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void onError(String str);
 
         void onSuccess();
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends BdAsyncTask<CardPersonDynamicThreadData, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -60,9 +58,9 @@ public class SetPrivacyModel extends BdBaseModel {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {setPrivacyModel};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,15 +85,15 @@ public class SetPrivacyModel extends BdBaseModel {
                     return null;
                 }
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                this.a.f44571h = new NetWork(SetPrivacyModel.f44567j);
-                this.a.f44571h.getNetContext().getRequest().mIsNeedTbs = true;
-                this.a.f44571h.addPostData("user_id", currentAccount);
-                this.a.f44571h.addPostData("forum_id", cardPersonDynamicThreadData.f41018e);
-                this.a.f44571h.addPostData("thread_id", cardPersonDynamicThreadData.f41019f);
-                this.a.f44571h.addPostData("post_id", cardPersonDynamicThreadData.f41022i);
-                this.a.f44571h.addPostData("is_hide", String.valueOf(!cardPersonDynamicThreadData.s ? 1 : 0));
-                this.a.f44571h.postNetData();
-                return Integer.valueOf(this.a.f44571h.getNetContext().getResponse().isRequestSuccess() ? 1 : 0);
+                this.a.f34539d = new NetWork(SetPrivacyModel.f34536f);
+                this.a.f34539d.getNetContext().getRequest().mIsNeedTbs = true;
+                this.a.f34539d.addPostData("user_id", currentAccount);
+                this.a.f34539d.addPostData("forum_id", cardPersonDynamicThreadData.a);
+                this.a.f34539d.addPostData("thread_id", cardPersonDynamicThreadData.f31670b);
+                this.a.f34539d.addPostData("post_id", cardPersonDynamicThreadData.f31673e);
+                this.a.f34539d.addPostData("is_hide", String.valueOf(!cardPersonDynamicThreadData.o ? 1 : 0));
+                this.a.f34539d.postNetData();
+                return Integer.valueOf(this.a.f34539d.getNetContext().getResponse().isRequestSuccess() ? 1 : 0);
             }
             return (Integer) invokeL.objValue;
         }
@@ -105,11 +103,11 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 super.cancel();
-                if (this.a.f44571h != null) {
-                    this.a.f44571h.cancelNetConnect();
+                if (this.a.f34539d != null) {
+                    this.a.f34539d.cancelNetConnect();
                 }
-                this.a.f44570g = false;
-                this.a.f44569f = null;
+                this.a.f34538c = false;
+                this.a.f34537b = null;
             }
         }
 
@@ -118,7 +116,7 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 super.onPreExecute();
-                this.a.f44570g = true;
+                this.a.f34538c = true;
             }
         }
 
@@ -128,15 +126,15 @@ public class SetPrivacyModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, num) == null) {
                 super.onPostExecute((b) num);
-                this.a.f44570g = false;
-                this.a.f44569f = null;
-                if (this.a.f44572i == null || this.a.f44571h == null) {
+                this.a.f34538c = false;
+                this.a.f34537b = null;
+                if (this.a.f34540e == null || this.a.f34539d == null) {
                     return;
                 }
                 if (num.intValue() == 1) {
-                    this.a.f44572i.onSuccess();
+                    this.a.f34540e.onSuccess();
                 } else if (num.intValue() == 0) {
-                    this.a.f44572i.onError(this.a.f44571h.getErrorString());
+                    this.a.f34540e.onError(this.a.f34539d.getErrorString());
                 }
             }
         }
@@ -156,7 +154,7 @@ public class SetPrivacyModel extends BdBaseModel {
             }
         }
         UNIQUE_ID_SET_PRIVACY_TASK = BdUniqueId.gen();
-        f44567j = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
+        f34536f = TbConfig.SERVER_ADDRESS + TbConfig.URL_SET_PRIVACY;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -168,28 +166,28 @@ public class SetPrivacyModel extends BdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, cardPersonDynamicThreadData};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f44568e = cardPersonDynamicThreadData;
+        this.a = cardPersonDynamicThreadData;
     }
 
-    public boolean C() {
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f44570g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f34538c : invokeV.booleanValue;
     }
 
-    public void D(a aVar) {
+    public void F(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f44572i = aVar;
+            this.f34540e = aVar;
         }
     }
 
@@ -198,7 +196,7 @@ public class SetPrivacyModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            b bVar = this.f44569f;
+            b bVar = this.f34537b;
             if (bVar != null) {
                 bVar.cancel();
                 return true;
@@ -213,13 +211,13 @@ public class SetPrivacyModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.f44569f != null) {
+            if (this.f34537b != null) {
                 return false;
             }
             b bVar = new b(this);
-            this.f44569f = bVar;
+            this.f34537b = bVar;
             bVar.setTag(UNIQUE_ID_SET_PRIVACY_TASK);
-            this.f44569f.execute(this.f44568e);
+            this.f34537b.execute(this.a);
             return true;
         }
         return invokeV.booleanValue;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.SurfaceTexture;
 import android.net.Uri;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.arplay.a.a.c;
@@ -15,6 +16,7 @@ import com.baidu.ar.arplay.core.message.ARPMessage;
 import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.d.a;
 import com.baidu.ar.arplay.d.b;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -35,9 +37,9 @@ public class a implements ARPMessage.MessageHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,9 +57,9 @@ public class a implements ARPMessage.MessageHandler {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -67,19 +69,19 @@ public class a implements ARPMessage.MessageHandler {
             }
 
             @Override // com.baidu.ar.arplay.core.engine.ARPDataInteraction.c
-            public void a(String str, int i4, String str2, String str3) {
+            public void a(String str, int i3, String str2, String str3) {
                 SurfaceTexture E;
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeLILL(1048576, this, str, i4, str2, str3) == null) || (E = e.aL().E(str)) == null) {
+                if (!(interceptable2 == null || interceptable2.invokeLILL(1048576, this, str, i3, str2, str3) == null) || (E = e.aL().E(str)) == null) {
                     return;
                 }
                 try {
-                    if (e.aL().D(str) != i4) {
-                        e.aL().a(str, i4);
+                    if (e.aL().D(str) != i3) {
+                        e.aL().a(str, i3);
                     }
                     E.updateTexImage();
                 } catch (RuntimeException unused) {
-                    e.aL().a(str, i4);
+                    e.aL().a(str, i3);
                 }
             }
         };
@@ -103,7 +105,7 @@ public class a implements ARPMessage.MessageHandler {
         if (interceptable == null || interceptable.invokeL(65538, this, cVar) == null) {
             I("phone_call");
             Intent intent = new Intent("android.intent.action.DIAL");
-            intent.setFlags(268435456);
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.setData(Uri.parse("tel:" + cVar.getNumber()));
             if (intent.resolveActivity(this.mContext.getPackageManager()) != null) {
                 this.mContext.startActivity(intent);
@@ -124,9 +126,9 @@ public class a implements ARPMessage.MessageHandler {
                 if (split != null && split.length > 0) {
                     int length = split.length;
                     jArr = new long[length];
-                    for (int i2 = 0; i2 < length; i2++) {
+                    for (int i = 0; i < length; i++) {
                         try {
-                            jArr[i2] = Long.parseLong(split[i2]);
+                            jArr[i] = Long.parseLong(split[i]);
                         } catch (NumberFormatException e2) {
                             e2.printStackTrace();
                         }
@@ -137,9 +139,9 @@ public class a implements ARPMessage.MessageHandler {
         }
     }
 
-    private void a(HashMap<String, Object> hashMap, int i2) {
+    private void a(HashMap<String, Object> hashMap, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, hashMap, i2) == null) || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, hashMap, i) == null) || hashMap == null) {
             return;
         }
         com.baidu.ar.arplay.a.a.a aVar = new com.baidu.ar.arplay.a.a.a();
@@ -165,23 +167,23 @@ public class a implements ARPMessage.MessageHandler {
         if (hashMap.get("from_time") != null) {
             aVar.d(com.baidu.ar.arplay.c.c.a(hashMap.get("from_time"), 0));
         }
-        if (i2 == 1001) {
+        if (i == 1001) {
             com.baidu.ar.arplay.a.a.aA().a(aVar, hashMap);
-        } else if (i2 == 1003) {
+        } else if (i == 1003) {
             com.baidu.ar.arplay.a.a.aA().b(aVar, hashMap);
-        } else if (i2 == 1005) {
+        } else if (i == 1005) {
             com.baidu.ar.arplay.a.a.aA().c(aVar, hashMap);
-        } else if (i2 == 1007) {
+        } else if (i == 1007) {
             com.baidu.ar.arplay.a.a.aA().d(aVar, hashMap);
-        } else if (i2 != 1012) {
+        } else if (i != 1012) {
         } else {
             com.baidu.ar.arplay.a.a.aA().e(aVar, hashMap);
         }
     }
 
-    private void b(HashMap<String, Object> hashMap, int i2) {
+    private void b(HashMap<String, Object> hashMap, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, this, hashMap, i2) == null) || hashMap == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, this, hashMap, i) == null) || hashMap == null) {
             return;
         }
         com.baidu.ar.arplay.a.a.e eVar = new com.baidu.ar.arplay.a.a.e();
@@ -206,15 +208,15 @@ public class a implements ARPMessage.MessageHandler {
         }
         if (hashMap.get("from_time") != null) {
             eVar.d(com.baidu.ar.arplay.c.c.a(hashMap.get("from_time"), 0));
-            String str = "bean fromTime: " + eVar.aO();
+            Log.e("VideoTest", "bean fromTime: " + eVar.aO());
         }
-        if (i2 == 1021) {
+        if (i == 1021) {
             e.aL().a(eVar, hashMap);
-        } else if (i2 == 1023) {
+        } else if (i == 1023) {
             e.aL().b(eVar, hashMap);
-        } else if (i2 == 1025) {
+        } else if (i == 1025) {
             e.aL().c(eVar, hashMap);
-        } else if (i2 != 1027) {
+        } else if (i != 1027) {
         } else {
             e.aL().d(eVar, hashMap);
         }
@@ -233,22 +235,22 @@ public class a implements ARPMessage.MessageHandler {
             return;
         }
         String a = com.baidu.ar.arplay.c.c.a(hashMap.get("event_name"), "");
-        a.C1748a c1748a = new a.C1748a();
+        a.C1709a c1709a = new a.C1709a();
         if ("load_webview".equals(a)) {
-            c1748a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c1748a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
-            c1748a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
-            c1748a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c1748a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().c(c1748a);
+            c1709a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1709a.width = com.baidu.ar.arplay.c.c.a(hashMap.get("width"), 0);
+            c1709a.height = com.baidu.ar.arplay.c.c.a(hashMap.get("height"), 0);
+            c1709a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1709a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().c(c1709a);
         } else if ("update_webview_js".equals(a)) {
-            c1748a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
-            c1748a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
-            b.bm().e(c1748a);
+            c1709a.dM = com.baidu.ar.arplay.c.c.a(hashMap.get("texture_id"), 0);
+            c1709a.ge = com.baidu.ar.arplay.c.c.a(hashMap.get("js_code"), (String) null);
+            b.bm().e(c1709a);
         } else if ("load_native_webview".equals(a)) {
-            c1748a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
-            c1748a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
-            b.bm().d(c1748a);
+            c1709a.url = com.baidu.ar.arplay.c.c.a(hashMap.get("url"), (String) null);
+            c1709a.gd = com.baidu.ar.arplay.c.c.a(hashMap.get("is_remote"), 0) == 1;
+            b.bm().d(c1709a);
         }
     }
 
@@ -292,12 +294,12 @@ public class a implements ARPMessage.MessageHandler {
     }
 
     @Override // com.baidu.ar.arplay.core.message.ARPMessage.MessageHandler
-    public void handleMessage(int i2, int i3, HashMap<String, Object> hashMap) {
+    public void handleMessage(int i, int i2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, hashMap) == null) {
-            switch (i2) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, hashMap) == null) {
+            switch (i) {
                 case 0:
-                    if (i3 == -2) {
+                    if (i2 == -2) {
                         e.aL().aB();
                         com.baidu.ar.arplay.a.a.aA().aB();
                         return;
@@ -317,13 +319,13 @@ public class a implements ARPMessage.MessageHandler {
                 case 1005:
                 case 1007:
                 case 1012:
-                    a(hashMap, i2);
+                    a(hashMap, i);
                     return;
                 case 1021:
                 case 1023:
                 case 1025:
                 case ARPMessageType.MSG_TYPE_VIDEO_STOP /* 1027 */:
-                    b(hashMap, i2);
+                    b(hashMap, i);
                     return;
                 case 1401:
                     g(hashMap);

@@ -108,9 +108,9 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
             newInitContext.initArgs = r2;
             Object[] objArr = {context, looper, bVar, eGLContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (com.baidu.ar.lua.b) objArr2[1], (EGLContext) objArr2[2], (String) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -126,13 +126,13 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         this.hd = new com.baidu.ar.arplay.core.engine.a(Looper.getMainLooper());
         com.baidu.ar.f.c cVar = new com.baidu.ar.f.c(context);
         this.hf = cVar;
-        cVar.b(this.f31451f);
+        cVar.b(this.f24815f);
         com.baidu.ar.lua.a aVar = new com.baidu.ar.lua.a();
         this.hh = aVar;
-        aVar.b(this.f31451f);
+        aVar.b(this.f24815f);
         com.baidu.ar.steploading.d dVar = new com.baidu.ar.steploading.d(context);
         this.hg = dVar;
-        dVar.b(this.f31451f);
+        dVar.b(this.f24815f);
         this.hi = new ConcurrentHashMap<>();
         boolean A = com.baidu.ar.h.p.A(this.mContext);
         this.hl = A;
@@ -187,17 +187,17 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
             Point startPoint = watermark.getStartPoint();
             float width = watermark.getBitmap().getWidth() * watermark.getScale();
             float height = watermark.getBitmap().getHeight() * watermark.getScale();
-            int i2 = AnonymousClass2.hs[watermark.getCoordinateType().ordinal()];
-            if (i2 == 1) {
+            int i = AnonymousClass2.hs[watermark.getCoordinateType().ordinal()];
+            if (i == 1) {
                 fArr[0] = (startPoint.x + f4) / f2;
                 fArr[1] = (startPoint.y + f5) / f3;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 fArr[0] = (startPoint.x + f4) / f2;
                 fArr[1] = (((f3 - f5) - startPoint.y) - height) / f3;
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 fArr[0] = (((f2 - f4) - startPoint.x) - width) / f2;
                 fArr[1] = (startPoint.y + f5) / f3;
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 fArr[0] = (((f2 - f4) - startPoint.x) - width) / f2;
                 fArr[1] = (((f3 - f5) - startPoint.y) - height) / f3;
             }
@@ -209,7 +209,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     }
 
     private void b(DuMixInput duMixInput, DuMixOutput duMixOutput) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, duMixInput, duMixOutput) == null) {
             Watermark watermark = duMixOutput.getWatermark();
@@ -222,7 +222,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 outputHeight = outputWidth;
                 outputWidth = outputHeight;
             }
-            int i3 = 0;
+            int i2 = 0;
             if (duMixOutput.getScaleType() == ScaleType.CENTER_CROP && duMixInput != null) {
                 int inputWidth = duMixInput.getInputWidth();
                 int inputHeight = duMixInput.getInputHeight();
@@ -233,14 +233,14 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                 new Size(outputWidth, outputHeight);
                 Size b2 = b.b(inputWidth, inputHeight, outputWidth, outputHeight);
                 if (b2.getWidth() != inputWidth) {
-                    i3 = (outputWidth - b2.getWidth()) / 2;
+                    i2 = (outputWidth - b2.getWidth()) / 2;
                 } else if (b2.getHeight() != inputHeight) {
-                    i2 = (outputHeight - b2.getHeight()) / 2;
-                    watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i3, i2));
+                    i = (outputHeight - b2.getHeight()) / 2;
+                    watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i2, i));
                 }
             }
-            i2 = 0;
-            watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i3, i2));
+            i = 0;
+            watermark.setRenderRect(a(watermark, outputWidth, outputHeight, i2, i));
         }
     }
 
@@ -251,7 +251,7 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
             if (aRPEngine != null && aRPEngine.getARPRenderer() != null) {
                 this.hx.getARPRenderer().setIsRender(false);
             }
-            for (int i2 = 0; i2 < 5; i2++) {
+            for (int i = 0; i < 5; i++) {
                 ARPEngine aRPEngine2 = this.hx;
                 if (aRPEngine2 != null && aRPEngine2.getARPRenderer() != null) {
                     this.hx.getARPRenderer().render(System.currentTimeMillis());
@@ -325,10 +325,10 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     }
 
     @Override // com.baidu.ar.arrender.f
-    public void b(Object obj, int i2, int i3) {
+    public void b(Object obj, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, obj, i2, i3) == null) {
-            super.b(obj, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(1048580, this, obj, i, i2) == null) {
+            super.b(obj, i, i2);
             this.he = false;
         }
     }
@@ -405,10 +405,10 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
     }
 
     @Override // com.baidu.ar.arrender.f
-    public void changeOutputSize(int i2, int i3) {
+    public void changeOutputSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
-            super.changeOutputSize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
+            super.changeOutputSize(i, i2);
             this.he = false;
         }
     }
@@ -434,9 +434,9 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -462,25 +462,25 @@ public abstract class e extends f implements View.OnTouchListener, OnRenderFinis
         }
     }
 
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         List<FrameRenderListener> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) || (list = this.hj) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(1048589, this, j) == null) || (list = this.hj) == null) {
             return;
         }
         for (FrameRenderListener frameRenderListener : list) {
-            frameRenderListener.onRenderFinished(j2);
+            frameRenderListener.onRenderFinished(j);
         }
     }
 
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         ARPEngine aRPEngine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             List<FrameRenderListener> list = this.hj;
             if (list != null) {
                 for (FrameRenderListener frameRenderListener : list) {
-                    frameRenderListener.onRenderStarted(j2);
+                    frameRenderListener.onRenderStarted(j);
                 }
             }
             DuMixInput duMixInput = this.V;

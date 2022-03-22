@@ -14,7 +14,7 @@ import com.xiaomi.push.hs;
 import com.xiaomi.push.hx;
 import com.xiaomi.push.ie;
 import com.xiaomi.push.ip;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ad extends ai.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class ad extends ai.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,7 +40,7 @@ public class ad extends ai.a {
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public String mo247a() {
+    public String mo226a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "2" : (String) invokeV.objValue;
@@ -53,11 +53,11 @@ public class ad extends ai.a {
             com.xiaomi.push.service.aq a = com.xiaomi.push.service.aq.a(this.a);
             hx hxVar = new hx();
             hxVar.a(com.xiaomi.push.service.ar.a(a, hl.a));
-            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f59758b));
+            hxVar.b(com.xiaomi.push.service.ar.a(a, hl.f44351b));
             ie ieVar = new ie("-1", false);
-            ieVar.c(hp.p.f514a);
+            ieVar.c(hp.p.f490a);
             ieVar.a(ip.a(hxVar));
-            an.a(this.a).a((an) ieVar, hf.f59728i, (hs) null);
+            an.a(this.a).a((an) ieVar, hf.i, (hs) null);
         }
     }
 }

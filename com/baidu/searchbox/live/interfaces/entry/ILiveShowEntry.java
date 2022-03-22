@@ -18,9 +18,9 @@ public interface ILiveShowEntry {
 
     void enterPayPage(Context context, String str);
 
-    void openFansListPage(Context context, String str, int i2);
+    void openFansListPage(Context context, String str, int i);
 
     void openGuardianListPage(Context context, String str, String str2);
 
-    void openLiveExpPage(Context context, long j2, int i2);
+    void openLiveExpPage(Context context, long j, int i);
 }

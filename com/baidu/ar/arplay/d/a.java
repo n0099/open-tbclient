@@ -3,6 +3,7 @@ package com.baidu.ar.arplay.d;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -16,12 +17,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public C1748a fZ;
+    public C1709a fZ;
     public boolean ga;
 
     /* renamed from: com.baidu.ar.arplay.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C1748a {
+    public static class C1709a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int dM;
@@ -31,14 +32,14 @@ public class a extends WebView {
         public String url;
         public int width;
 
-        public C1748a() {
+        public C1709a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -55,9 +56,9 @@ public class a extends WebView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -75,7 +76,7 @@ public class a extends WebView {
         }
         c p = d.bp().p(this.fZ.dM);
         if (p == null) {
-            String str = "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM;
+            Log.e("GLWebView", "HtmlTextureHolder is null: mTextureId: " + this.fZ.dM);
             return;
         }
         Canvas lockCanvas = p.lockCanvas();
@@ -100,9 +101,9 @@ public class a extends WebView {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, p};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -125,10 +126,10 @@ public class a extends WebView {
         });
     }
 
-    public C1748a getWebViewData() {
+    public C1709a getWebViewData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C1748a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fZ : (C1709a) invokeV.objValue;
     }
 
     @Override // android.webkit.WebView, android.view.View
@@ -145,10 +146,10 @@ public class a extends WebView {
         }
     }
 
-    public void setWebViewData(C1748a c1748a) {
+    public void setWebViewData(C1709a c1709a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c1748a) == null) {
-            this.fZ = c1748a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, c1709a) == null) {
+            this.fZ = c1709a;
         }
     }
 }

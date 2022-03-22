@@ -1,101 +1,101 @@
 package com.ss.android.socialbase.downloader.i;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f58660b;
+    public a f43364b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f58661c;
+    public int f43365c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f58662d = 10;
+    public int f43366d = 10;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f58663b;
+        public long f43367b;
 
         /* renamed from: c  reason: collision with root package name */
-        public a f58664c;
+        public a f43368c;
 
         /* renamed from: d  reason: collision with root package name */
-        public a f58665d;
+        public a f43369d;
 
         public a() {
         }
     }
 
-    public boolean a(long j2, long j3) {
+    public boolean a(long j, long j2) {
         synchronized (this) {
             a aVar = this.a;
             if (aVar != null) {
-                if (j2 >= aVar.a && j3 >= aVar.f58663b) {
-                    a aVar2 = aVar.f58664c;
-                    if (aVar2 != null && j3 - aVar2.f58663b < 1000) {
-                        aVar.a = j2;
-                        aVar.f58663b = j3;
+                if (j >= aVar.a && j2 >= aVar.f43367b) {
+                    a aVar2 = aVar.f43368c;
+                    if (aVar2 != null && j2 - aVar2.f43367b < 1000) {
+                        aVar.a = j;
+                        aVar.f43367b = j2;
                         return true;
                     }
                 }
                 return false;
             }
             a a2 = a();
-            a2.a = j2;
-            a2.f58663b = j3;
+            a2.a = j;
+            a2.f43367b = j2;
             if (aVar != null) {
-                a2.f58664c = aVar;
-                aVar.f58665d = a2;
+                a2.f43368c = aVar;
+                aVar.f43369d = a2;
             }
             this.a = a2;
             return true;
         }
     }
 
-    public long b(long j2, long j3) {
+    public long b(long j, long j2) {
         synchronized (this) {
             a aVar = this.a;
             if (aVar == null) {
                 return -1L;
             }
-            a a2 = a(j2);
+            a a2 = a(j);
             if (a2 == null) {
                 return -1L;
             }
-            long j4 = aVar.a - a2.a;
-            long j5 = j3 - a2.f58663b;
-            if (j4 < 0 || j5 <= 0) {
+            long j3 = aVar.a - a2.a;
+            long j4 = j2 - a2.f43367b;
+            if (j3 < 0 || j4 <= 0) {
                 return -1L;
             }
-            return j4 / j5;
+            return j3 / j4;
         }
     }
 
     private a a() {
         a aVar;
-        if (this.f58661c >= this.f58662d && (aVar = this.f58660b) != null) {
-            a aVar2 = aVar.f58665d;
-            aVar.f58665d = null;
-            this.f58660b = aVar2;
+        if (this.f43365c >= this.f43366d && (aVar = this.f43364b) != null) {
+            a aVar2 = aVar.f43369d;
+            aVar.f43369d = null;
+            this.f43364b = aVar2;
             if (aVar2 != null) {
-                aVar2.f58664c = null;
+                aVar2.f43368c = null;
             }
             return aVar;
         }
-        this.f58661c++;
+        this.f43365c++;
         return new a();
     }
 
-    private a a(long j2) {
+    private a a(long j) {
         a aVar = this.a;
         a aVar2 = null;
-        while (aVar != null && aVar.f58663b > j2) {
+        while (aVar != null && aVar.f43367b > j) {
             aVar2 = aVar;
-            aVar = aVar.f58664c;
+            aVar = aVar.f43368c;
         }
-        return (aVar == null || aVar2 == null || aVar == aVar2 || j2 - aVar.f58663b >= aVar2.f58663b - j2) ? aVar2 : aVar;
+        return (aVar == null || aVar2 == null || aVar == aVar2 || j - aVar.f43367b >= aVar2.f43367b - j) ? aVar2 : aVar;
     }
 }

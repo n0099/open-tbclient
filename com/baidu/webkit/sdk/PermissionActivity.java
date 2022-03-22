@@ -25,9 +25,9 @@ public class PermissionActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,18 +65,18 @@ public class PermissionActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onRequestPermissionsResult(int i2, String[] strArr, int[] iArr) {
+    public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, strArr, iArr) == null) {
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, strArr, iArr) == null) {
             PermissionRequest permissionRequest = WebViewFactory.getProvider().getPermissionRequest(getIntent().getStringExtra("PermissionRequest"));
-            if (permissionRequest == null || i2 != 1003) {
+            if (permissionRequest == null || i != 1003) {
                 finish();
                 return;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < strArr.length; i3++) {
-                if (iArr[i3] == 0) {
-                    arrayList.add(strArr[i3]);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                if (iArr[i2] == 0) {
+                    arrayList.add(strArr[i2]);
                 }
             }
             if (arrayList.size() <= 0 || arrayList.size() != strArr.length) {

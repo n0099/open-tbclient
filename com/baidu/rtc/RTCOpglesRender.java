@@ -1,5 +1,6 @@
 package com.baidu.rtc;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,9 +36,9 @@ public class RTCOpglesRender {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,9 +51,9 @@ public class RTCOpglesRender {
         }
     }
 
-    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i2, int i3) {
+    public void drawFrame(byte[] bArr, byte[] bArr2, byte[] bArr3, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, bArr2, bArr3, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, bArr2, bArr3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
         }
     }
 
@@ -71,7 +72,7 @@ public class RTCOpglesRender {
     public void setupRender() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            String str = "testing " + stringFromJNI();
+            Log.d(TAG, "testing " + stringFromJNI());
         }
     }
 

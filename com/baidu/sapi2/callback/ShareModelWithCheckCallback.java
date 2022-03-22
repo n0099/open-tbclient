@@ -4,5 +4,7 @@ import com.baidu.sapi2.share.ShareStorage;
 import java.util.List;
 /* loaded from: classes4.dex */
 public interface ShareModelWithCheckCallback {
-    void onReceiveShareModels(List<ShareStorage.StorageModel> list, String str);
+    void onFailure(int i, String str, String str2);
+
+    void onSuccess(List<ShareStorage.StorageModel> list, String str);
 }

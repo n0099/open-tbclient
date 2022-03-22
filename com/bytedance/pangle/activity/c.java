@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.appcompat.app.AppCompatViewInflater;
@@ -17,7 +18,7 @@ import com.bytedance.pangle.plugin.Plugin;
 import com.bytedance.pangle.plugin.PluginManager;
 import com.bytedance.pangle.transform.ZeusTransformUtils;
 import com.bytedance.pangle.util.FieldUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,6 +27,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, bVar, bundle) == null) {
             if (!Zeus.hasInit()) {
+                Log.e(ZeusLogger.TAG_INIT, "ProxyActivityUtils.onCreate finish. AppApplication == null.");
                 bVar.zeusSuperOnCreate(bundle);
                 bVar.finish();
                 return;
@@ -67,6 +69,7 @@ public final class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, bVar, context) == null) {
             if (!Zeus.hasInit()) {
+                Log.e(ZeusLogger.TAG_INIT, "ProxyActivityUtils.attachBaseContext. AppApplication == null.");
                 bVar.zeusSuperAttachBaseContext(context);
                 return;
             }
@@ -106,14 +109,14 @@ public final class c {
         if (!(view instanceof ViewGroup)) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
             ViewGroup viewGroup = (ViewGroup) view;
-            if (i2 >= viewGroup.getChildCount()) {
+            if (i >= viewGroup.getChildCount()) {
                 return;
             }
-            a(activity, viewGroup.getChildAt(i2));
-            i2++;
+            a(activity, viewGroup.getChildAt(i));
+            i++;
         }
     }
 }

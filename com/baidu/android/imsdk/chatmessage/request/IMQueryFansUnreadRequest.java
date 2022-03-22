@@ -33,9 +33,9 @@ public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,10 +93,10 @@ public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure result = " + new String(bArr));
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
@@ -106,28 +106,28 @@ public class IMQueryFansUnreadRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "json is " + str2);
-            int i4 = 0;
+            int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str2);
-                i3 = jSONObject.getInt("error_code");
+                i2 = jSONObject.getInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                i4 = jSONObject.optInt("unread_num", 0);
+                i3 = jSONObject.optInt("unread_num", 0);
             } catch (JSONException e2) {
                 LogUtils.e(LogUtils.TAG, "IMQueryFansUnreadRequest JSONException", e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
+                i2 = 1010;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
-                ((BIMValueCallBack) removeListener).onResult(i3, str, Integer.valueOf(i4));
+                ((BIMValueCallBack) removeListener).onResult(i2, str, Integer.valueOf(i3));
             }
         }
     }

@@ -29,10 +29,10 @@ public class b {
     public SQLiteDatabase a;
 
     /* renamed from: b  reason: collision with root package name */
-    public a.InterfaceC0099a f2383b;
+    public a.InterfaceC0088a f1955b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f2384c;
+    public a f1956c;
 
     public b(a aVar) {
         Interceptable interceptable = $ic;
@@ -41,17 +41,17 @@ public class b {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2383b = null;
-        this.f2384c = aVar;
+        this.f1955b = null;
+        this.f1956c = aVar;
     }
 
     public void a() {
@@ -76,7 +76,7 @@ public class b {
             synchronized (b.class) {
                 a();
                 try {
-                    dropDatabase = this.f2384c.dropDatabase(BdBaseApplication.getInst().getContext());
+                    dropDatabase = this.f1956c.dropDatabase(BdBaseApplication.getInst().getContext());
                 } catch (Exception e2) {
                     BdLog.e("deleteDatabase：" + e2.getMessage());
                     this.a = null;
@@ -94,8 +94,8 @@ public class b {
             synchronized (b.class) {
                 if (this.a == null || !this.a.isOpen()) {
                     try {
-                        this.f2384c.setOnCreateCallback(this.f2383b);
-                        this.a = this.f2384c.getWritableDatabase();
+                        this.f1956c.setOnCreateCallback(this.f1955b);
+                        this.a = this.f1956c.getWritableDatabase();
                     } catch (RuntimeException e2) {
                         if (z) {
                             i(e2, "ensureDatabaseReady");
@@ -162,11 +162,11 @@ public class b {
         return (SQLiteDatabase) invokeZ.objValue;
     }
 
-    public void h(String str, int i2, String str2, Object... objArr) {
+    public void h(String str, int i, String str2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048583, this, str, i2, str2, objArr) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048583, this, str, i, str2, objArr) == null) {
             try {
-                BdStatisticsManager.getInstance().db(str, "", i2, str2, objArr);
+                BdStatisticsManager.getInstance().db(str, "", i, str2, objArr);
             } catch (Exception e2) {
                 BdLog.detailException(e2);
             }
@@ -176,7 +176,7 @@ public class b {
     public void i(Throwable th, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, str) == null) && th != null && (th instanceof SQLiteException)) {
-            int i2 = -17;
+            int i = -17;
             if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
                 BdLog.w("database corrupted. recreate!");
                 try {
@@ -184,25 +184,25 @@ public class b {
                 } catch (Throwable th2) {
                     BdLog.detailException("failed to drop database. msg:", th2);
                 }
-                i2 = -14;
+                i = -14;
                 this.a = null;
             } else if (th instanceof SQLiteAbortException) {
-                i2 = -11;
+                i = -11;
             } else if (th instanceof SQLiteConstraintException) {
-                i2 = -12;
+                i = -12;
             } else if (th instanceof SQLiteDiskIOException) {
-                i2 = -15;
+                i = -15;
                 this.a = null;
             } else if (th instanceof SQLiteFullException) {
-                i2 = -16;
+                i = -16;
                 this.a = null;
             } else if (th instanceof SQLiteDoneException) {
-                i2 = -19;
+                i = -19;
                 this.a = null;
             } else if (!(th instanceof SQLiteMisuseException)) {
                 this.a = null;
             }
-            h(str, i2, th.getMessage(), new Object[0]);
+            h(str, i, th.getMessage(), new Object[0]);
         }
     }
 
@@ -219,10 +219,10 @@ public class b {
         return (Cursor) invokeLL.objValue;
     }
 
-    public void k(a.InterfaceC0099a interfaceC0099a) {
+    public void k(a.InterfaceC0088a interfaceC0088a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0099a) == null) {
-            this.f2383b = interfaceC0099a;
+        if (interceptable == null || interceptable.invokeL(1048586, this, interfaceC0088a) == null) {
+            this.f1955b = interfaceC0088a;
         }
     }
 }

@@ -17,13 +17,13 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.JSONStringer;
 import org.json.JSONTokener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AddCardToWXCardPackage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.AddCardToWXCardPackage";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Req extends BaseReq {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +34,9 @@ public class AddCardToWXCardPackage {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -102,7 +102,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Resp extends BaseResp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,9 +113,9 @@ public class AddCardToWXCardPackage {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -129,9 +129,9 @@ public class AddCardToWXCardPackage {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bundle};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -165,8 +165,8 @@ public class AddCardToWXCardPackage {
                 }
                 try {
                     JSONArray jSONArray = ((JSONObject) new JSONTokener(string).nextValue()).getJSONArray("card_list");
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
                         WXCardItem wXCardItem = new WXCardItem();
                         wXCardItem.cardId = jSONObject.optString(PersonalCardDetailActivityConfig.CARD_ID);
                         wXCardItem.cardExtMsg = jSONObject.optString("card_ext");
@@ -218,7 +218,7 @@ public class AddCardToWXCardPackage {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class WXCardItem {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -231,9 +231,9 @@ public class AddCardToWXCardPackage {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -246,9 +246,9 @@ public class AddCardToWXCardPackage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

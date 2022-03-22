@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tachikoma.core.component.TKBase;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CustomViewPropertyAnimator {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -18,16 +18,16 @@ public class CustomViewPropertyAnimator {
     public final String mProperty;
     public final float mStart;
 
-    public CustomViewPropertyAnimator(TKBase<?> tKBase, String str, long j2, float f2, float f3) {
+    public CustomViewPropertyAnimator(TKBase<?> tKBase, String str, long j, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tKBase, str, Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3)};
+            Object[] objArr = {tKBase, str, Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public class CustomViewPropertyAnimator {
         }
         this.mBase = tKBase;
         this.mProperty = str;
-        this.mDuration = j2;
+        this.mDuration = j;
         this.mStart = f2;
         this.mEnd = f3;
     }
@@ -64,9 +64,9 @@ public class CustomViewPropertyAnimator {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

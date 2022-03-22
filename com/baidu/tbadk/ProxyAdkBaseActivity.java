@@ -20,11 +20,11 @@ import android.widget.ProgressBar;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
 import c.a.d.o.e.q;
-import c.a.q0.f0.g;
-import c.a.q0.f0.h;
-import c.a.q0.r.a;
-import c.a.q0.r.c;
-import c.a.q0.r.l0.d;
+import c.a.o0.f0.g;
+import c.a.o0.f0.h;
+import c.a.o0.r.a;
+import c.a.o0.r.c;
+import c.a.o0.r.l0.d;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -56,7 +56,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IVideoNeedPreload {
     public static /* synthetic */ Interceptable $ic = null;
     public static final byte KEYBOARD_STATE_HIDE = -2;
@@ -89,7 +89,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public h refreshView;
     public final CustomMessageListener skinTypeChangeListener;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class DelayRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -103,9 +103,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {proxyAdkBaseActivity, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -126,7 +126,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public abstract class LoadDataCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -139,9 +139,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {proxyAdkBaseActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -159,7 +159,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class NetRefreshListener implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +172,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {proxyAdkBaseActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -197,9 +197,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -221,9 +221,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -259,9 +259,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -318,10 +318,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void ShowSoftKeyPadDelay(View view, int i2) {
+    public void ShowSoftKeyPadDelay(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i2) == null) {
-            new Handler().postDelayed(new DelayRunnable(this, view), i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, view, i) == null) {
+            new Handler().postDelayed(new DelayRunnable(this, view), i);
         }
     }
 
@@ -340,9 +340,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -366,10 +366,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                                 this.this$0.mMaxHeight = this.this$0.mMaxHeight < height ? height : this.this$0.mMaxHeight;
                             }
                             if (this.this$0.mLayoutHasInit && this.this$0.mMaxHeight > height && height != this.this$0.mPreHeight) {
-                                int i2 = this.this$0.mMaxHeight - height;
-                                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i2) && i2 < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i2) {
-                                    TbadkCoreApplication.getInst().setKeyboardHeight(i2);
-                                    this.this$0.onKeyboardHeightChanged(i2);
+                                int i = this.this$0.mMaxHeight - height;
+                                if (TbadkCoreApplication.getInst().isKeyboardHeightCanSet(i) && i < (height2 * 2) / 3 && TbadkCoreApplication.getInst().getKeyboardHeight() != i) {
+                                    TbadkCoreApplication.getInst().setKeyboardHeight(i);
+                                    this.this$0.onKeyboardHeightChanged(i);
                                 }
                             }
                             this.this$0.mPreHeight = height;
@@ -388,12 +388,12 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void changeSkinType(int i2) {
+    public void changeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || i2 == this.mSkinType) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || i == this.mSkinType) {
             return;
         }
-        this.mSkinType = i2;
+        this.mSkinType = i;
         try {
             if (this.mUseStyleImmersiveSticky) {
                 this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
@@ -418,8 +418,8 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
         try {
             synchronized (list) {
-                for (int i2 = 0; i2 < this.animatableList.size(); i2++) {
-                    Animatable animatable = this.animatableList.get(i2);
+                for (int i = 0; i < this.animatableList.size(); i++) {
+                    Animatable animatable = this.animatableList.get(i);
                     if (animatable != null && animatable.isRunning()) {
                         animatable.stop();
                     }
@@ -439,9 +439,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             return;
         }
         synchronized (list) {
-            for (int i2 = 0; i2 < this.animationList.size(); i2++) {
+            for (int i = 0; i < this.animationList.size(); i++) {
                 try {
-                    WeakReference<View> weakReference = this.animationList.get(i2);
+                    WeakReference<View> weakReference = this.animationList.get(i);
                     if (weakReference != null && (view = weakReference.get()) != null) {
                         view.clearAnimation();
                     }
@@ -705,7 +705,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048614, this, strArr, onClickListener)) == null) {
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.operation));
+            builder.setTitle(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0cd8));
             builder.setItems(strArr, onClickListener);
             AlertDialog create = builder.create();
             this.mListMenu = create;
@@ -715,9 +715,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return (AlertDialog) invokeLL.objValue;
     }
 
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
             g gVar = this.loadingView;
             if (gVar != null) {
                 gVar.onChangeSkinType();
@@ -728,7 +728,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             }
             SwipeBackLayout swipeBackLayout = this.mSwipeBackLayout;
             if (swipeBackLayout != null) {
-                swipeBackLayout.onChangeSkinType(i2);
+                swipeBackLayout.onChangeSkinType(i);
             }
         }
     }
@@ -763,7 +763,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                 this.mUseStyleImmersiveSticky = UtilHelper.useNavigationBarStyleImmersiveSticky(getPageContext().getPageActivity());
             }
             TbadkCoreApplication.setIsAppRunning(true);
-            TiebaStaticHelper.setCurrentActivity(getClass().getName());
+            TiebaStaticHelper.setCurrentActivity(ProxyAdkBaseActivity.class.getName());
             registerListener(this.skinTypeChangeListener);
             enterExitAnimation();
             this.mIsLogin = TbadkCoreApplication.isLogin();
@@ -777,7 +777,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             closeLoadingDialog();
             GuidPageView guidPageView = this.mGuidPage;
             if (guidPageView != null) {
-                guidPageView.recycleBitmap();
+                guidPageView.b();
             }
             c cVar = this.mLayoutMode;
             if (cVar != null) {
@@ -796,37 +796,37 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048618, this, i2, keyEvent)) == null) {
-            if (i2 == 82) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048618, this, i, keyEvent)) == null) {
+            if (i == 82) {
                 try {
                     if (keyEvent.isLongPress()) {
                         return true;
                     }
                 } catch (IllegalStateException unused) {
-                    if (i2 == 4) {
+                    if (i == 4) {
                         finish();
                         return true;
                     }
                     return false;
                 }
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
     @Override // com.baidu.adp.plugin.pluginBase.PluginBaseActivity, android.view.KeyEvent.Callback
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048619, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048619, this, i, keyEvent)) == null) {
             try {
-                return super.onKeyUp(i2, keyEvent);
+                return super.onKeyUp(i, keyEvent);
             } catch (IllegalStateException unused) {
-                if (i2 == 4) {
+                if (i == 4) {
                     finish();
                     return true;
                 }
@@ -836,9 +836,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return invokeIL.booleanValue;
     }
 
-    public void onKeyboardHeightChanged(int i2) {
+    public void onKeyboardHeightChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
         }
     }
 
@@ -884,7 +884,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             this.customToast.onResume();
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
             TbadkCoreApplication.getInst().AddResumeNum();
-            TiebaStaticHelper.setCurrentActivity(getClass().getName());
+            TiebaStaticHelper.setCurrentActivity(ProxyAdkBaseActivity.class.getName());
             TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());
             boolean isLogin = TbadkCoreApplication.isLogin();
             if (this.mIsLogin != isLogin) {
@@ -958,10 +958,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void setSkinType(int i2) {
+    public void setSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            this.mSkinType = i2;
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+            this.mSkinType = i;
         }
     }
 
@@ -1052,11 +1052,11 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         return invokeLL.booleanValue;
     }
 
-    public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i2, int i3, int i4) {
+    public boolean showPopupWindowAtLocation(PopupWindow popupWindow, View view, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-            if (c.a.d.f.m.g.m(popupWindow, view, i2, i3, i4)) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048649, this, new Object[]{popupWindow, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            if (c.a.d.f.m.g.m(popupWindow, view, i, i2, i3)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1079,10 +1079,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showProgressBarWithOffset(int i2, int i3) {
+    public void showProgressBarWithOffset(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048652, this, i2, i3) == null) {
-            showProgressBar(false, i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048652, this, i, i2) == null) {
+            showProgressBar(false, i, i2);
         }
     }
 
@@ -1090,7 +1090,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
     public void showToast(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048656, this, str) == null) {
-            String name = getClass().getName();
+            String name = ProxyAdkBaseActivity.class.getName();
             String str2 = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str2)) {
                 n.N(getActivity(), str);
@@ -1100,10 +1100,10 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i2) {
+    public void showToastWithDefauIcDuration(String str, BdToast.DefaultIcon defaultIcon, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048659, this, str, defaultIcon, i2) == null) {
-            BdToast.g(getActivity(), str, defaultIcon, i2).q();
+        if (interceptable == null || interceptable.invokeLLI(1048659, this, str, defaultIcon, i) == null) {
+            BdToast.g(getActivity(), str, defaultIcon, i).q();
         }
     }
 
@@ -1114,17 +1114,17 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showToastWithIcon(String str, int i2) {
+    public void showToastWithIcon(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048661, this, str, i2) == null) {
-            BdToast.i(getActivity(), str, i2, false).q();
+        if (interceptable == null || interceptable.invokeLI(1048661, this, str, i) == null) {
+            BdToast.i(getActivity(), str, i, false).q();
         }
     }
 
-    public void showToastWithIconDuration(String str, int i2, int i3) {
+    public void showToastWithIconDuration(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048662, this, str, i2, i3) == null) {
-            BdToast.h(getActivity(), str, i2, i3, false).q();
+        if (interceptable == null || interceptable.invokeLII(1048662, this, str, i, i2) == null) {
+            BdToast.h(getActivity(), str, i, i2, false).q();
         }
     }
 
@@ -1165,9 +1165,9 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, animationListener, weakReference};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -1252,7 +1252,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048641, this, str, onCancelListener) == null) && !isFinishing() && c.a.d.f.m.g.e(getActivity())) {
             if (str == null) {
-                str = TbadkCoreApplication.getInst().getResources().getString(R.string.Waiting);
+                str = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0037);
             }
             String str2 = str;
             if (onCancelListener != null) {
@@ -1263,36 +1263,36 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showLoadingView(View view, boolean z, int i2) {
+    public void showLoadingView(View view, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{view, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.loadingRootView = view;
             if (this.loadingView == null) {
-                if (i2 < 0) {
+                if (i < 0) {
                     this.loadingView = new g(getPageContext().getContext());
                 } else {
-                    this.loadingView = new g(getPageContext().getContext(), i2);
+                    this.loadingView = new g(getPageContext().getContext(), i);
                 }
             }
             this.loadingView.attachView(view, z);
         }
     }
 
-    public void adjustResizeForSoftInput(int i2, boolean z) {
+    public void adjustResizeForSoftInput(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) && this.mUseStyleImmersiveSticky) {
-            d.d(getPageContext().getPageActivity(), i2, z);
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && this.mUseStyleImmersiveSticky) {
+            d.d(getPageContext().getPageActivity(), i, z);
         }
     }
 
-    public void showProgressBar(boolean z, int i2, int i3) {
+    public void showProgressBar(boolean z, int i, int i2) {
         ProgressBar progressBar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048651, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (this.mProgressBar == null) {
                 ProgressBar progressBar2 = new ProgressBar(getActivity());
                 this.mProgressBar = progressBar2;
-                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.progressbar));
+                progressBar2.setIndeterminateDrawable(TbadkCoreApplication.getInst().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f90));
                 FrameLayout frameLayout = (FrameLayout) findViewById(16908290);
                 frameLayout.addView(this.mProgressBar, frameLayout.getChildCount(), new FrameLayout.LayoutParams(-2, -2, 17));
             }
@@ -1301,7 +1301,7 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
             }
             ProgressBar progressBar3 = this.mProgressBar;
             if (progressBar3 != null) {
-                progressBar3.setPadding(n.d(getActivity(), i2), n.d(getActivity(), i3), 0, 0);
+                progressBar3.setPadding(n.d(getActivity(), i), n.d(getActivity(), i2), 0, 0);
                 this.mProgressBar.setVisibility(0);
             }
         }
@@ -1314,11 +1314,11 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i2, int i3) {
+    public boolean showPopupWindowAsDropDown(PopupWindow popupWindow, View view, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048648, this, popupWindow, view, i2, i3)) == null) {
-            if (c.a.d.f.m.g.l(popupWindow, view, i2, i3)) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048648, this, popupWindow, view, i, i2)) == null) {
+            if (c.a.d.f.m.g.l(popupWindow, view, i, i2)) {
                 if (this.popupWindowList == null) {
                     this.popupWindowList = new LinkedList();
                 }
@@ -1337,29 +1337,29 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showToast(String str, int i2) {
+    public void showToast(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048657, this, str, i2) == null) {
-            this.customToast.showToast(str, 2000, i2);
+        if (interceptable == null || interceptable.invokeLI(1048657, this, str, i) == null) {
+            this.customToast.showToast(str, 2000, i);
         }
     }
 
-    public void showToast(int i2, int i3) {
+    public void showToast(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048654, this, i2, i3) == null) {
-            this.customToast.showToast(i2, 2000, i3);
+        if (interceptable == null || interceptable.invokeII(1048654, this, i, i2) == null) {
+            this.customToast.showToast(i, 2000, i2);
         }
     }
 
-    public void showToast(int i2) {
+    public void showToast(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048653, this, i2) == null) {
-            String name = getClass().getName();
+        if (interceptable == null || interceptable.invokeI(1048653, this, i) == null) {
+            String name = ProxyAdkBaseActivity.class.getName();
             String str = getApplicationContext().getPackageName() + ".chat";
             if (!name.startsWith(getApplicationContext().getPackageName() + ".im") && !name.startsWith(str)) {
-                n.M(getActivity(), i2);
+                n.M(getActivity(), i);
             } else {
-                this.customToast.showToast(i2, 2000);
+                this.customToast.showToast(i, 2000);
             }
         }
     }
@@ -1375,13 +1375,13 @@ public class ProxyAdkBaseActivity<T> extends PluginAdpBaseActivity implements IV
         }
     }
 
-    public void showToast(int i2, boolean z) {
+    public void showToast(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048655, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z) {
-                showToast(i2);
+                showToast(i);
             } else {
-                n.M(getActivity(), i2);
+                n.M(getActivity(), i);
             }
         }
     }

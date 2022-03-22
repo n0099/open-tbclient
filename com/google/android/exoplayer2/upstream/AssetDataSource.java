@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AssetDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,7 +23,7 @@ public final class AssetDataSource implements DataSource {
     public boolean opened;
     public Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AssetDataSourceException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +37,9 @@ public final class AssetDataSource implements DataSource {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iOException};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Throwable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -58,9 +58,9 @@ public final class AssetDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (TransferListener) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -145,34 +145,34 @@ public final class AssetDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) throws AssetDataSourceException {
+    public int read(byte[] bArr, int i, int i2) throws AssetDataSourceException {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
                 return 0;
             }
-            long j2 = this.bytesRemaining;
-            if (j2 == 0) {
+            long j = this.bytesRemaining;
+            if (j == 0) {
                 return -1;
             }
-            if (j2 != -1) {
+            if (j != -1) {
                 try {
-                    i3 = (int) Math.min(j2, i3);
+                    i2 = (int) Math.min(j, i2);
                 } catch (IOException e2) {
                     throw new AssetDataSourceException(e2);
                 }
             }
-            int read = this.inputStream.read(bArr, i2, i3);
+            int read = this.inputStream.read(bArr, i, i2);
             if (read == -1) {
                 if (this.bytesRemaining == -1) {
                     return -1;
                 }
                 throw new AssetDataSourceException(new EOFException());
             }
-            long j3 = this.bytesRemaining;
-            if (j3 != -1) {
-                this.bytesRemaining = j3 - read;
+            long j2 = this.bytesRemaining;
+            if (j2 != -1) {
+                this.bytesRemaining = j2 - read;
             }
             TransferListener<? super AssetDataSource> transferListener = this.listener;
             if (transferListener != null) {
@@ -190,9 +190,9 @@ public final class AssetDataSource implements DataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, transferListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

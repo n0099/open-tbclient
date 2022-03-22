@@ -3,8 +3,8 @@ package com.baidu.tieba.im.model;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.a.f;
-import c.a.r0.s1.f.i.b;
-import c.a.r0.s1.t.d;
+import c.a.p0.u1.f.i.b;
+import c.a.p0.u1.t.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -35,9 +35,9 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -146,8 +146,8 @@ public class OfficialBarTipModel extends ImBaseMessageCenterModel {
     public void updateEditStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            for (int i2 = 0; i2 != this.mList.size(); i2++) {
-                this.mList.get(i2).setSelected(z);
+            for (int i = 0; i != this.mList.size(); i++) {
+                this.mList.get(i).setSelected(z);
             }
         }
     }

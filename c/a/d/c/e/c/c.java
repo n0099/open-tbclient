@@ -49,19 +49,19 @@ public class c {
         }
     }
 
-    public static boolean c(LinkedList<e> linkedList, int i2, BdUniqueId bdUniqueId) {
+    public static boolean c(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeLIL;
         SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, linkedList, i2, bdUniqueId)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, linkedList, i, bdUniqueId)) == null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
                 if (next != null && (m = next.m()) != null) {
-                    if (i2 != 0 && m.getTag() == bdUniqueId && i2 == m.getCmd()) {
+                    if (i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) {
                         return true;
                     }
-                    if (i2 == 0 && bdUniqueId != null && m.getTag() == bdUniqueId) {
+                    if (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId) {
                         return true;
                     }
                 }
@@ -71,18 +71,18 @@ public class c {
         return invokeLIL.booleanValue;
     }
 
-    public static boolean d(LinkedList<e> linkedList, a aVar, int i2) {
+    public static boolean d(LinkedList<e> linkedList, a aVar, int i) {
         InterceptResult invokeLLI;
         SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, linkedList, aVar, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, linkedList, aVar, i)) == null) {
             if (aVar == null) {
                 return false;
             }
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i2 && aVar.onFindMessage(m)) {
+                if (next != null && (m = next.m()) != null && m.getCmd() == i && aVar.onFindMessage(m)) {
                     return true;
                 }
             }
@@ -91,15 +91,15 @@ public class c {
         return invokeLLI.booleanValue;
     }
 
-    public static boolean e(LinkedList<e> linkedList, int i2) {
+    public static boolean e(LinkedList<e> linkedList, int i) {
         InterceptResult invokeLI;
         SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedList, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, linkedList, i)) == null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i2) {
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
                     return true;
                 }
             }
@@ -128,11 +128,11 @@ public class c {
                 return -1;
             }
             int size = linkedList.size();
-            int i2 = 0;
-            while (i2 < size && linkedList.get(i2).n() <= eVar.n()) {
-                i2++;
+            int i = 0;
+            while (i < size && linkedList.get(i).n() <= eVar.n()) {
+                i++;
             }
-            return i2;
+            return i;
         }
         return invokeLL.intValue;
     }
@@ -214,16 +214,16 @@ public class c {
         return (e) invokeL.objValue;
     }
 
-    public static void m(LinkedList<e> linkedList, int i2, BdUniqueId bdUniqueId) {
+    public static void m(LinkedList<e> linkedList, int i, BdUniqueId bdUniqueId) {
         SocketMessage m;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65548, null, linkedList, i2, bdUniqueId) == null) || linkedList == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65548, null, linkedList, i, bdUniqueId) == null) || linkedList == null) {
             return;
         }
         Iterator<e> it = linkedList.iterator();
         while (it.hasNext()) {
             e next = it.next();
-            if (next != null && (m = next.m()) != null && ((i2 != 0 && m.getTag() == bdUniqueId && i2 == m.getCmd()) || (i2 == 0 && bdUniqueId != null && m.getTag() == bdUniqueId))) {
+            if (next != null && (m = next.m()) != null && ((i != 0 && m.getTag() == bdUniqueId && i == m.getCmd()) || (i == 0 && bdUniqueId != null && m.getTag() == bdUniqueId))) {
                 it.remove();
                 next.w();
             }
@@ -242,31 +242,31 @@ public class c {
         return invokeLL.booleanValue;
     }
 
-    public static void o(LinkedList<e> linkedList, int i2) {
+    public static void o(LinkedList<e> linkedList, int i) {
         SocketMessage m;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, null, linkedList, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65550, null, linkedList, i) == null) {
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && (m = next.m()) != null && m.getCmd() == i2) {
+                if (next != null && (m = next.m()) != null && m.getCmd() == i) {
                     it.remove();
                 }
             }
         }
     }
 
-    public static e p(int i2, LinkedList<e> linkedList) {
+    public static e p(int i, LinkedList<e> linkedList) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i2, linkedList)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65551, null, i, linkedList)) == null) {
             if (linkedList == null) {
                 return null;
             }
             Iterator<e> it = linkedList.iterator();
             while (it.hasNext()) {
                 e next = it.next();
-                if (next != null && next.q() == i2) {
+                if (next != null && next.q() == i) {
                     it.remove();
                     next.w();
                     return next;

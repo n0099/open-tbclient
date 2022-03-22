@@ -11,7 +11,7 @@ import com.sdk.base.framework.c.f;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class d {
     public static /* synthetic */ Interceptable $ic;
     public static final Boolean a;
@@ -30,7 +30,7 @@ public final class d {
                 return;
             }
         }
-        a = Boolean.valueOf(f.f57798b);
+        a = Boolean.valueOf(f.f42567b);
     }
 
     public d() {
@@ -38,9 +38,9 @@ public final class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,7 +58,7 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, httpURLConnection, cVar, str)) == null) {
             if (httpURLConnection != null) {
-                long j2 = 0;
+                long j = 0;
                 try {
                     long contentLength = httpURLConnection.getContentLength();
                     if (cVar != null && !cVar.a(contentLength, 0L, true)) {
@@ -74,14 +74,14 @@ public final class d {
                             }
                             sb.append(readLine);
                             sb.append('\n');
-                            j2 += com.sdk.base.framework.a.a.c.a(readLine, str);
-                            if (cVar != null && !cVar.a(contentLength, j2, false)) {
+                            j += com.sdk.base.framework.a.a.c.a(readLine, str);
+                            if (cVar != null && !cVar.a(contentLength, j, false)) {
                                 break;
                             }
                         }
-                        long j3 = j2;
+                        long j2 = j;
                         if (cVar != null) {
-                            cVar.a(contentLength, j3, true);
+                            cVar.a(contentLength, j2, true);
                         }
                     } catch (Exception e2) {
                         e = e2;

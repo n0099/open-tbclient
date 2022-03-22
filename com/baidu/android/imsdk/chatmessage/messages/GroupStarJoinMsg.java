@@ -47,9 +47,9 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -68,10 +68,10 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public GroupStarJoinMsg[] newArray(int i2) {
+            public GroupStarJoinMsg[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new GroupStarJoinMsg[i2] : (GroupStarJoinMsg[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new GroupStarJoinMsg[i] : (GroupStarJoinMsg[]) invokeI.objValue;
             }
         };
     }
@@ -81,9 +81,9 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -127,14 +127,14 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
                 this.groupnum = jSONObject.optInt("group_num");
                 JSONArray jSONArray = jSONObject.getJSONArray("member");
                 this.memberbuid = new ArrayList<>();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    this.memberbuid.add(String.valueOf(jSONArray.getLong(i2)));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    this.memberbuid.add(String.valueOf(jSONArray.getLong(i)));
                 }
                 if (jSONObject.has("del_member")) {
                     this.memPushoutBuids = new ArrayList<>();
                     JSONArray jSONArray2 = jSONObject.getJSONArray("del_member");
-                    for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i3)));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        this.memPushoutBuids.add(String.valueOf(jSONArray2.getLong(i2)));
                     }
                 }
                 return true;
@@ -147,10 +147,10 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048581, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeInt(this.groupnum);
             parcel.writeList(this.memberbuid);
             parcel.writeList(this.memPushoutBuids);
@@ -166,9 +166,9 @@ public class GroupStarJoinMsg extends NotifyMsg implements Parcelable, NoProGuar
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

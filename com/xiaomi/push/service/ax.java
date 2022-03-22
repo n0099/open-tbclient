@@ -8,24 +8,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ax extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ av.b.c a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(av.b.c cVar, int i2) {
-        super(i2);
+    public ax(av.b.c cVar, int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Integer.valueOf(i2)};
+            Object[] objArr = {cVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,9 +47,9 @@ public class ax extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             av.b.c cVar = this.a;
-            if (cVar.a == cVar.f923a.f910a) {
-                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f923a.f59985g);
-                this.a.f923a.f910a = null;
+            if (cVar.a == cVar.f899a.f886a) {
+                com.xiaomi.channel.commonutils.logger.b.b("clean peer, chid = " + this.a.f899a.f44551g);
+                this.a.f899a.f886a = null;
             }
         }
     }

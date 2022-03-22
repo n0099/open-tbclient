@@ -1,7 +1,6 @@
 package okhttp3.internal.http2;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.data.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -22,7 +21,7 @@ import okio.BufferedSource;
 import okio.Sink;
 import okio.Source;
 import okio.Timeout;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Http2Stream {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -40,7 +39,7 @@ public final class Http2Stream {
     public long unacknowledgedBytesRead;
     public final StreamTimeout writeTimeout;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class FramingSink implements Sink {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic = null;
@@ -73,9 +72,9 @@ public final class Http2Stream {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {http2Stream};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -157,10 +156,10 @@ public final class Http2Stream {
         }
 
         @Override // okio.Sink
-        public void write(Buffer buffer, long j2) throws IOException {
+        public void write(Buffer buffer, long j) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
-                this.sendBuffer.write(buffer, j2);
+            if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
+                this.sendBuffer.write(buffer, j);
                 while (this.sendBuffer.size() >= 16384) {
                     emitFrame(false);
                 }
@@ -168,7 +167,7 @@ public final class Http2Stream {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class FramingSource implements Source {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
         public static /* synthetic */ Interceptable $ic;
@@ -195,16 +194,16 @@ public final class Http2Stream {
             }
         }
 
-        public FramingSource(Http2Stream http2Stream, long j2) {
+        public FramingSource(Http2Stream http2Stream, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {http2Stream, Long.valueOf(j2)};
+                Object[] objArr = {http2Stream, Long.valueOf(j)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -213,13 +212,13 @@ public final class Http2Stream {
             this.this$0 = http2Stream;
             this.receiveBuffer = new Buffer();
             this.readBuffer = new Buffer();
-            this.maxByteCount = j2;
+            this.maxByteCount = j;
         }
 
-        private void updateConnectionFlowControl(long j2) {
+        private void updateConnectionFlowControl(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(65538, this, j2) == null) {
-                this.this$0.connection.updateConnectionFlowControl(j2);
+            if (interceptable == null || interceptable.invokeJ(65538, this, j) == null) {
+                this.this$0.connection.updateConnectionFlowControl(j);
             }
         }
 
@@ -256,22 +255,22 @@ public final class Http2Stream {
         }
 
         @Override // okio.Source
-        public long read(Buffer buffer, long j2) throws IOException {
+        public long read(Buffer buffer, long j) throws IOException {
             InterceptResult invokeLJ;
             ErrorCode errorCode;
-            long j3;
+            long j2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j2)) == null) {
-                if (j2 >= 0) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, buffer, j)) == null) {
+                if (j >= 0) {
                     synchronized (this.this$0) {
                         waitUntilReadable();
                         if (!this.closed) {
                             errorCode = this.this$0.errorCode;
                             if (this.readBuffer.size() > 0) {
-                                j3 = this.readBuffer.read(buffer, Math.min(j2, this.readBuffer.size()));
-                                this.this$0.unacknowledgedBytesRead += j3;
+                                j2 = this.readBuffer.read(buffer, Math.min(j, this.readBuffer.size()));
+                                this.this$0.unacknowledgedBytesRead += j2;
                             } else {
-                                j3 = -1;
+                                j2 = -1;
                             }
                             if (errorCode == null && this.this$0.unacknowledgedBytesRead >= this.this$0.connection.okHttpSettings.getInitialWindowSize() / 2) {
                                 this.this$0.connection.writeWindowUpdateLater(this.this$0.id, this.this$0.unacknowledgedBytesRead);
@@ -281,43 +280,43 @@ public final class Http2Stream {
                             throw new IOException("stream closed");
                         }
                     }
-                    if (j3 != -1) {
-                        updateConnectionFlowControl(j3);
-                        return j3;
+                    if (j2 != -1) {
+                        updateConnectionFlowControl(j2);
+                        return j2;
                     } else if (errorCode == null) {
                         return -1L;
                     } else {
                         throw new StreamResetException(errorCode);
                     }
                 }
-                throw new IllegalArgumentException("byteCount < 0: " + j2);
+                throw new IllegalArgumentException("byteCount < 0: " + j);
             }
             return invokeLJ.longValue;
         }
 
-        public void receive(BufferedSource bufferedSource, long j2) throws IOException {
+        public void receive(BufferedSource bufferedSource, long j) throws IOException {
             boolean z;
             boolean z2;
             boolean z3;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferedSource, j2) == null) {
-                while (j2 > 0) {
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, bufferedSource, j) == null) {
+                while (j > 0) {
                     synchronized (this.this$0) {
                         z = this.finished;
                         z2 = true;
-                        z3 = this.readBuffer.size() + j2 > this.maxByteCount;
+                        z3 = this.readBuffer.size() + j > this.maxByteCount;
                     }
                     if (z3) {
-                        bufferedSource.skip(j2);
+                        bufferedSource.skip(j);
                         this.this$0.closeLater(ErrorCode.FLOW_CONTROL_ERROR);
                         return;
                     } else if (z) {
-                        bufferedSource.skip(j2);
+                        bufferedSource.skip(j);
                         return;
                     } else {
-                        long read = bufferedSource.read(this.receiveBuffer, j2);
+                        long read = bufferedSource.read(this.receiveBuffer, j);
                         if (read != -1) {
-                            j2 -= read;
+                            j -= read;
                             synchronized (this.this$0) {
                                 if (this.readBuffer.size() != 0) {
                                     z2 = false;
@@ -343,7 +342,7 @@ public final class Http2Stream {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class StreamTimeout extends AsyncTimeout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -356,9 +355,9 @@ public final class Http2Stream {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {http2Stream};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -379,7 +378,7 @@ public final class Http2Stream {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException)) == null) {
-                SocketTimeoutException socketTimeoutException = new SocketTimeoutException(a.O);
+                SocketTimeoutException socketTimeoutException = new SocketTimeoutException("timeout");
                 if (iOException != null) {
                     socketTimeoutException.initCause(iOException);
                 }
@@ -412,16 +411,16 @@ public final class Http2Stream {
         }
     }
 
-    public Http2Stream(int i2, Http2Connection http2Connection, boolean z, boolean z2, List<Header> list) {
+    public Http2Stream(int i, Http2Connection http2Connection, boolean z, boolean z2, List<Header> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), http2Connection, Boolean.valueOf(z), Boolean.valueOf(z2), list};
+            Object[] objArr = {Integer.valueOf(i), http2Connection, Boolean.valueOf(z), Boolean.valueOf(z2), list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -435,7 +434,7 @@ public final class Http2Stream {
             throw new NullPointerException("connection == null");
         }
         if (list != null) {
-            this.id = i2;
+            this.id = i;
             this.connection = http2Connection;
             this.bytesLeftInWriteWindow = http2Connection.peerSettings.getInitialWindowSize();
             this.source = new FramingSource(this, http2Connection.okHttpSettings.getInitialWindowSize());
@@ -469,11 +468,11 @@ public final class Http2Stream {
         return invokeL.booleanValue;
     }
 
-    public void addBytesToWriteWindow(long j2) {
+    public void addBytesToWriteWindow(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.bytesLeftInWriteWindow += j2;
-            if (j2 > 0) {
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.bytesLeftInWriteWindow += j;
+            if (j > 0) {
                 notifyAll();
             }
         }
@@ -613,10 +612,10 @@ public final class Http2Stream {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.readTimeout : (Timeout) invokeV.objValue;
     }
 
-    public void receiveData(BufferedSource bufferedSource, int i2) throws IOException {
+    public void receiveData(BufferedSource bufferedSource, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, bufferedSource, i2) == null) {
-            this.source.receive(bufferedSource, i2);
+        if (interceptable == null || interceptable.invokeLI(1048590, this, bufferedSource, i) == null) {
+            this.source.receive(bufferedSource, i);
         }
     }
 

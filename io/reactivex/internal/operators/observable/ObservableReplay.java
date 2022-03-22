@@ -56,9 +56,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -170,13 +170,13 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
             }
         }
 
-        public final void removeSome(int i2) {
+        public final void removeSome(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
                 Node node = get();
-                while (i2 > 0) {
+                while (i > 0) {
                     node = node.get();
-                    i2--;
+                    i--;
                     this.size--;
                 }
                 setFirst(node);
@@ -187,7 +187,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public final void replay(InnerDisposable<T> innerDisposable) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048588, this, innerDisposable) == null) && innerDisposable.getAndIncrement() == 0) {
-                int i2 = 1;
+                int i = 1;
                 do {
                     Node node = (Node) innerDisposable.index();
                     if (node == null) {
@@ -204,11 +204,11 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                             node = node2;
                         } else {
                             innerDisposable.index = node;
-                            i2 = innerDisposable.addAndGet(-i2);
+                            i = innerDisposable.addAndGet(-i);
                         }
                     }
                     return;
-                } while (i2 != 0);
+                } while (i != 0);
             }
         }
 
@@ -259,9 +259,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observerResourceWrapper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -297,9 +297,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {replayObserver, observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -347,9 +347,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {callable, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -391,9 +391,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -417,9 +417,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {connectableObservable, observable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -463,22 +463,22 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public transient /* synthetic */ FieldHolder $fh;
         public final int bufferSize;
 
-        public ReplayBufferSupplier(int i2) {
+        public ReplayBufferSupplier(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.bufferSize = i2;
+            this.bufferSize = i;
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BufferSupplier
@@ -525,9 +525,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {replayBuffer};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -629,27 +629,27 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                     if (length == 0) {
                         return;
                     }
-                    int i2 = -1;
-                    int i3 = 0;
+                    int i = -1;
+                    int i2 = 0;
                     while (true) {
-                        if (i3 >= length) {
+                        if (i2 >= length) {
                             break;
-                        } else if (innerDisposableArr[i3].equals(innerDisposable)) {
-                            i2 = i3;
+                        } else if (innerDisposableArr[i2].equals(innerDisposable)) {
+                            i = i2;
                             break;
                         } else {
-                            i3++;
+                            i2++;
                         }
                     }
-                    if (i2 < 0) {
+                    if (i < 0) {
                         return;
                     }
                     if (length == 1) {
                         innerDisposableArr2 = EMPTY;
                     } else {
                         InnerDisposable[] innerDisposableArr3 = new InnerDisposable[length - 1];
-                        System.arraycopy(innerDisposableArr, 0, innerDisposableArr3, 0, i2);
-                        System.arraycopy(innerDisposableArr, i2 + 1, innerDisposableArr3, i2, (length - i2) - 1);
+                        System.arraycopy(innerDisposableArr, 0, innerDisposableArr3, 0, i);
+                        System.arraycopy(innerDisposableArr, i + 1, innerDisposableArr3, i, (length - i) - 1);
                         innerDisposableArr2 = innerDisposableArr3;
                     }
                 } while (!this.observers.compareAndSet(innerDisposableArr, innerDisposableArr2));
@@ -689,9 +689,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 newInitContext.initArgs = r2;
                 Object[] objArr = {atomicReference, bufferSupplier};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -738,23 +738,23 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public ScheduledReplaySupplier(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public ScheduledReplaySupplier(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.bufferSize = i2;
-            this.maxAge = j2;
+            this.bufferSize = i;
+            this.maxAge = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -777,24 +777,24 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public final Scheduler scheduler;
         public final TimeUnit unit;
 
-        public SizeAndTimeBoundReplayBuffer(int i2, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SizeAndTimeBoundReplayBuffer(int i, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.scheduler = scheduler;
-            this.limit = i2;
-            this.maxAge = j2;
+            this.limit = i;
+            this.maxAge = j;
             this.unit = timeUnit;
         }
 
@@ -848,21 +848,21 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 long now = this.scheduler.now(this.unit) - this.maxAge;
                 Node node2 = get();
                 Node node3 = node2.get();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     Node node4 = node3;
                     node = node2;
                     node2 = node4;
                     if (node2 != null) {
-                        int i3 = this.size;
-                        if (i3 > this.limit) {
-                            i2++;
-                            this.size = i3 - 1;
+                        int i2 = this.size;
+                        if (i2 > this.limit) {
+                            i++;
+                            this.size = i2 - 1;
                             node3 = node2.get();
                         } else if (((Timed) node2.value).time() > now) {
                             break;
                         } else {
-                            i2++;
+                            i++;
                             this.size--;
                             node3 = node2.get();
                         }
@@ -870,7 +870,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                         break;
                     }
                 }
-                if (i2 != 0) {
+                if (i != 0) {
                     setFirst(node);
                 }
             }
@@ -892,7 +892,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                 long now = this.scheduler.now(this.unit) - this.maxAge;
                 Node node = get();
                 Node node2 = node.get();
-                int i2 = 0;
+                int i = 0;
                 while (true) {
                     Node node3 = node2;
                     Node node4 = node;
@@ -900,7 +900,7 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
                     if (node == null || this.size <= 1 || ((Timed) node.value).time() > now) {
                         break;
                     }
-                    i2++;
+                    i++;
                     this.size--;
                     node2 = node.get();
                 }
@@ -915,22 +915,22 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public transient /* synthetic */ FieldHolder $fh;
         public final int limit;
 
-        public SizeBoundReplayBuffer(int i2) {
+        public SizeBoundReplayBuffer(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.limit = i2;
+            this.limit = i;
         }
 
         @Override // io.reactivex.internal.operators.observable.ObservableReplay.BoundedReplayBuffer
@@ -953,9 +953,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -978,17 +978,17 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         public volatile int size;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public UnboundedReplayBuffer(int i2) {
-            super(i2);
+        public UnboundedReplayBuffer(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -1029,20 +1029,20 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048579, this, innerDisposable) == null) && innerDisposable.getAndIncrement() == 0) {
                 Observer<? super T> observer = innerDisposable.child;
-                int i2 = 1;
+                int i = 1;
                 while (!innerDisposable.isDisposed()) {
-                    int i3 = this.size;
+                    int i2 = this.size;
                     Integer num = (Integer) innerDisposable.index();
                     int intValue = num != null ? num.intValue() : 0;
-                    while (intValue < i3) {
+                    while (intValue < i2) {
                         if (NotificationLite.accept(get(intValue), observer) || innerDisposable.isDisposed()) {
                             return;
                         }
                         intValue++;
                     }
                     innerDisposable.index = Integer.valueOf(intValue);
-                    i2 = innerDisposable.addAndGet(-i2);
-                    if (i2 == 0) {
+                    i = innerDisposable.addAndGet(-i);
+                    if (i == 0) {
                         return;
                     }
                 }
@@ -1073,9 +1073,9 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, observableSource2, atomicReference, bufferSupplier};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -1087,14 +1087,14 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         this.bufferFactory = bufferSupplier;
     }
 
-    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, int i2) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observableSource, i2)) == null) {
-            if (i2 == Integer.MAX_VALUE) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, observableSource, i)) == null) {
+            if (i == Integer.MAX_VALUE) {
                 return createFrom(observableSource);
             }
-            return create(observableSource, new ReplayBufferSupplier(i2));
+            return create(observableSource, new ReplayBufferSupplier(i));
         }
         return (ConnectableObservable) invokeLI.objValue;
     }
@@ -1183,16 +1183,16 @@ public final class ObservableReplay<T> extends ConnectableObservable<T> implemen
         }
     }
 
-    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{observableSource, Long.valueOf(j2), timeUnit, scheduler})) == null) ? create(observableSource, j2, timeUnit, scheduler, Integer.MAX_VALUE) : (ConnectableObservable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{observableSource, Long.valueOf(j), timeUnit, scheduler})) == null) ? create(observableSource, j, timeUnit, scheduler, Integer.MAX_VALUE) : (ConnectableObservable) invokeCommon.objValue;
     }
 
-    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2) {
+    public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{observableSource, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2)})) == null) ? create(observableSource, new ScheduledReplaySupplier(i2, j2, timeUnit, scheduler)) : (ConnectableObservable) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{observableSource, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i)})) == null) ? create(observableSource, new ScheduledReplaySupplier(i, j, timeUnit, scheduler)) : (ConnectableObservable) invokeCommon.objValue;
     }
 
     public static <T> ConnectableObservable<T> create(ObservableSource<T> observableSource, BufferSupplier<T> bufferSupplier) {

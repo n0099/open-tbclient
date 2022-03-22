@@ -8,7 +8,7 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.InlineMarker;
 import kotlinx.coroutines.internal.Symbol;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000,\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u000e\u001a\u0017\u0010\u0003\u001a\u00020\u00022\b\b\u0002\u0010\u0001\u001a\u00020\u0000¢\u0006\u0004\b\u0003\u0010\u0004\u001a7\u0010\n\u001a\u00028\u0000\"\u0004\b\u0000\u0010\u0005*\u00020\u00022\n\b\u0002\u0010\u0007\u001a\u0004\u0018\u00010\u00062\f\u0010\t\u001a\b\u0012\u0004\u0012\u00028\u00000\bH\u0086Hø\u0001\u0000¢\u0006\u0004\b\n\u0010\u000b\"\u001c\u0010\r\u001a\u00020\f8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\r\u0010\u000e\u0012\u0004\b\u000f\u0010\u0010\"\u001c\u0010\u0011\u001a\u00020\f8\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0011\u0010\u000e\u0012\u0004\b\u0012\u0010\u0010\"\u001c\u0010\u0014\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u0012\u0004\b\u0016\u0010\u0010\"\u001c\u0010\u0017\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0017\u0010\u0015\u0012\u0004\b\u0018\u0010\u0010\"\u001c\u0010\u0019\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u0019\u0010\u0015\u0012\u0004\b\u001a\u0010\u0010\"\u001c\u0010\u001b\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001b\u0010\u0015\u0012\u0004\b\u001c\u0010\u0010\"\u001c\u0010\u001d\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001d\u0010\u0015\u0012\u0004\b\u001e\u0010\u0010\"\u001c\u0010\u001f\u001a\u00020\u00138\u0002@\u0003X\u0083\u0004¢\u0006\f\n\u0004\b\u001f\u0010\u0015\u0012\u0004\b \u0010\u0010\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006!"}, d2 = {"", "locked", "Lkotlinx/coroutines/sync/Mutex;", "Mutex", "(Z)Lkotlinx/coroutines/sync/Mutex;", "T", "", "owner", "Lkotlin/Function0;", "action", "withLock", "(Lkotlinx/coroutines/sync/Mutex;Ljava/lang/Object;Lkotlin/jvm/functions/Function0;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "Lkotlinx/coroutines/sync/Empty;", "EMPTY_LOCKED", "Lkotlinx/coroutines/sync/Empty;", "EMPTY_LOCKED$annotations", "()V", "EMPTY_UNLOCKED", "EMPTY_UNLOCKED$annotations", "Lkotlinx/coroutines/internal/Symbol;", "ENQUEUE_FAIL", "Lkotlinx/coroutines/internal/Symbol;", "ENQUEUE_FAIL$annotations", "LOCKED", "LOCKED$annotations", "LOCK_FAIL", "LOCK_FAIL$annotations", "SELECT_SUCCESS", "SELECT_SUCCESS$annotations", "UNLOCKED", "UNLOCKED$annotations", "UNLOCK_FAIL", "UNLOCK_FAIL$annotations", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class MutexKt {
     public static final Symbol LOCK_FAIL = new Symbol("LOCK_FAIL");
     public static final Symbol ENQUEUE_FAIL = new Symbol("ENQUEUE_FAIL");
@@ -38,8 +38,8 @@ public final class MutexKt {
         return new MutexImpl(z);
     }
 
-    public static /* synthetic */ Mutex Mutex$default(boolean z, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Mutex Mutex$default(boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
             z = false;
         }
         return Mutex(z);
@@ -61,17 +61,17 @@ public final class MutexKt {
     */
     public static final <T> Object withLock(Mutex mutex, Object obj, Function0<? extends T> function0, Continuation<? super T> continuation) {
         MutexKt$withLock$1 mutexKt$withLock$1;
-        int i2;
+        int i;
         try {
             if (continuation instanceof MutexKt$withLock$1) {
                 mutexKt$withLock$1 = (MutexKt$withLock$1) continuation;
-                int i3 = mutexKt$withLock$1.label;
-                if ((i3 & Integer.MIN_VALUE) != 0) {
-                    mutexKt$withLock$1.label = i3 - Integer.MIN_VALUE;
+                int i2 = mutexKt$withLock$1.label;
+                if ((i2 & Integer.MIN_VALUE) != 0) {
+                    mutexKt$withLock$1.label = i2 - Integer.MIN_VALUE;
                     Object obj2 = mutexKt$withLock$1.result;
                     Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-                    i2 = mutexKt$withLock$1.label;
-                    if (i2 != 0) {
+                    i = mutexKt$withLock$1.label;
+                    if (i != 0) {
                         ResultKt.throwOnFailure(obj2);
                         mutexKt$withLock$1.L$0 = mutex;
                         mutexKt$withLock$1.L$1 = obj;
@@ -80,7 +80,7 @@ public final class MutexKt {
                         if (mutex.lock(obj, mutexKt$withLock$1) == coroutine_suspended) {
                             return coroutine_suspended;
                         }
-                    } else if (i2 != 1) {
+                    } else if (i != 1) {
                         throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                     } else {
                         function0 = (Function0) mutexKt$withLock$1.L$2;
@@ -100,8 +100,8 @@ public final class MutexKt {
         mutexKt$withLock$1 = new MutexKt$withLock$1(continuation);
         Object obj22 = mutexKt$withLock$1.result;
         Object coroutine_suspended2 = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        i2 = mutexKt$withLock$1.label;
-        if (i2 != 0) {
+        i = mutexKt$withLock$1.label;
+        if (i != 0) {
         }
     }
 
@@ -119,8 +119,8 @@ public final class MutexKt {
         }
     }
 
-    public static /* synthetic */ Object withLock$default(Mutex mutex, Object obj, Function0 function0, Continuation continuation, int i2, Object obj2) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Object withLock$default(Mutex mutex, Object obj, Function0 function0, Continuation continuation, int i, Object obj2) {
+        if ((i & 1) != 0) {
             obj = null;
         }
         InlineMarker.mark(0);

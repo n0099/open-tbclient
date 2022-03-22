@@ -70,7 +70,7 @@ public class PatchManager {
 
     /* loaded from: classes6.dex */
     public interface PatchInstallObserver {
-        void onPatchInstalled(int i2, Bundle bundle);
+        void onPatchInstalled(int i, Bundle bundle);
     }
 
     /* loaded from: classes6.dex */
@@ -88,9 +88,9 @@ public class PatchManager {
             }
 
             @Override // com.baidu.titan.sdk.pm.IPatchInstallObserver
-            public void onPatchInstalled(int i2, Bundle bundle) throws RemoteException {
+            public void onPatchInstalled(int i, Bundle bundle) throws RemoteException {
                 Message obtainMessage = PatchInstallWrapper.this.mUiHandler.obtainMessage(1);
-                obtainMessage.arg1 = i2;
+                obtainMessage.arg1 = i;
                 obtainMessage.arg2 = 1;
                 obtainMessage.obj = bundle;
                 obtainMessage.sendToTarget();

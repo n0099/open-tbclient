@@ -16,12 +16,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MaxHeightFrameLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public float f42046e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public float f42047f;
+    /* renamed from: b  reason: collision with root package name */
+    public float f32563b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MaxHeightFrameLayout(Context context) {
@@ -32,28 +30,28 @@ public class MaxHeightFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f42046e = 0.6f;
-        this.f42047f = 0.0f;
+        this.a = 0.6f;
+        this.f32563b = 0.0f;
         a();
     }
 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            float f2 = this.f42047f;
+            float f2 = this.f32563b;
             if (f2 <= 0.0f) {
-                this.f42047f = this.f42046e * n.i(getContext());
+                this.f32563b = this.a * n.i(getContext());
             } else {
-                this.f42047f = Math.min(f2, this.f42046e * n.i(getContext()));
+                this.f32563b = Math.min(f2, this.a * n.i(getContext()));
             }
         }
     }
@@ -61,14 +59,14 @@ public class MaxHeightFrameLayout extends FrameLayout {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.mhf_HeightDimen, R.attr.mhf_HeightRatio});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040428, R.attr.obfuscated_res_0x7f040429});
             int indexCount = obtainStyledAttributes.getIndexCount();
-            for (int i2 = 0; i2 < indexCount; i2++) {
-                int index = obtainStyledAttributes.getIndex(i2);
+            for (int i = 0; i < indexCount; i++) {
+                int index = obtainStyledAttributes.getIndex(i);
                 if (index == 1) {
-                    this.f42046e = obtainStyledAttributes.getFloat(index, 0.6f);
+                    this.a = obtainStyledAttributes.getFloat(index, 0.6f);
                 } else if (index == 0) {
-                    this.f42047f = obtainStyledAttributes.getDimension(index, 0.0f);
+                    this.f32563b = obtainStyledAttributes.getDimension(index, 0.0f);
                 }
             }
             obtainStyledAttributes.recycle();
@@ -76,37 +74,37 @@ public class MaxHeightFrameLayout extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int mode = View.MeasureSpec.getMode(i3);
-            int size = View.MeasureSpec.getSize(i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i2);
+            int size = View.MeasureSpec.getSize(i2);
             if (mode == 1073741824) {
-                float f2 = this.f42047f;
+                float f2 = this.f32563b;
                 if (size > f2) {
                     size = (int) f2;
                 }
             }
             if (mode == 0) {
-                float f3 = this.f42047f;
+                float f3 = this.f32563b;
                 if (size > f3) {
                     size = (int) f3;
                 }
             }
             if (mode == Integer.MIN_VALUE) {
-                float f4 = this.f42047f;
+                float f4 = this.f32563b;
                 if (size > f4) {
                     size = (int) f4;
                 }
             }
-            super.onMeasure(i2, View.MeasureSpec.makeMeasureSpec(size, mode));
+            super.onMeasure(i, View.MeasureSpec.makeMeasureSpec(size, mode));
         }
     }
 
-    public void setMaxHeight(int i2) {
+    public void setMaxHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.f42047f = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f32563b = i;
         }
     }
 
@@ -119,9 +117,9 @@ public class MaxHeightFrameLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -129,24 +127,24 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f42046e = 0.6f;
-        this.f42047f = 0.0f;
+        this.a = 0.6f;
+        this.f32563b = 0.0f;
         b(context, attributeSet);
         a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MaxHeightFrameLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public MaxHeightFrameLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -154,8 +152,8 @@ public class MaxHeightFrameLayout extends FrameLayout {
                 return;
             }
         }
-        this.f42046e = 0.6f;
-        this.f42047f = 0.0f;
+        this.a = 0.6f;
+        this.f32563b = 0.0f;
         b(context, attributeSet);
         a();
     }

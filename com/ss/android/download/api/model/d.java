@@ -1,17 +1,17 @@
 package com.ss.android.download.api.model;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57922b;
+    public String f42677b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57923b;
+        public String f42678b;
 
         public a a(String str) {
             this.a = str;
@@ -25,7 +25,7 @@ public class d {
 
     public d(a aVar) {
         this.a = aVar.a;
-        this.f57922b = aVar.f57923b;
+        this.f42677b = aVar.f42678b;
     }
 
     public String a() {

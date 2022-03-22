@@ -37,23 +37,23 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         public Disposable s;
         public int size;
 
-        public BufferExactObserver(Observer<? super U> observer, int i2, Callable<U> callable) {
+        public BufferExactObserver(Observer<? super U> observer, int i, Callable<U> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Integer.valueOf(i2), callable};
+                Object[] objArr = {observer, Integer.valueOf(i), callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.count = i2;
+            this.count = i;
             this.bufferSupplier = callable;
         }
 
@@ -126,9 +126,9 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
                 return;
             }
             u.add(t);
-            int i2 = this.size + 1;
-            this.size = i2;
-            if (i2 >= this.count) {
+            int i = this.size + 1;
+            this.size = i;
+            if (i >= this.count) {
                 this.actual.onNext(u);
                 this.size = 0;
                 createBuffer();
@@ -158,24 +158,24 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         public Disposable s;
         public final int skip;
 
-        public BufferSkipObserver(Observer<? super U> observer, int i2, int i3, Callable<U> callable) {
+        public BufferSkipObserver(Observer<? super U> observer, int i, int i2, Callable<U> callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Integer.valueOf(i2), Integer.valueOf(i3), callable};
+                Object[] objArr = {observer, Integer.valueOf(i), Integer.valueOf(i2), callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.count = i2;
-            this.skip = i3;
+            this.count = i;
+            this.skip = i2;
             this.bufferSupplier = callable;
             this.buffers = new ArrayDeque<>();
         }
@@ -221,9 +221,9 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
         public void onNext(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-                long j2 = this.index;
-                this.index = 1 + j2;
-                if (j2 % this.skip == 0) {
+                long j = this.index;
+                this.index = 1 + j;
+                if (j % this.skip == 0) {
                     try {
                         this.buffers.offer((Collection) ObjectHelper.requireNonNull(this.bufferSupplier.call(), "The bufferSupplier returned a null collection. Null values are generally not allowed in 2.x operators and sources."));
                     } catch (Throwable th) {
@@ -256,25 +256,25 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableBuffer(ObservableSource<T> observableSource, int i2, int i3, Callable<U> callable) {
+    public ObservableBuffer(ObservableSource<T> observableSource, int i, int i2, Callable<U> callable) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Integer.valueOf(i2), Integer.valueOf(i3), callable};
+            Object[] objArr = {observableSource, Integer.valueOf(i), Integer.valueOf(i2), callable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.count = i2;
-        this.skip = i3;
+        this.count = i;
+        this.skip = i2;
         this.bufferSupplier = callable;
     }
 
@@ -282,10 +282,10 @@ public final class ObservableBuffer<T, U extends Collection<? super T>> extends 
     public void subscribeActual(Observer<? super U> observer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, observer) == null) {
-            int i2 = this.skip;
-            int i3 = this.count;
-            if (i2 == i3) {
-                BufferExactObserver bufferExactObserver = new BufferExactObserver(observer, i3, this.bufferSupplier);
+            int i = this.skip;
+            int i2 = this.count;
+            if (i == i2) {
+                BufferExactObserver bufferExactObserver = new BufferExactObserver(observer, i2, this.bufferSupplier);
                 if (bufferExactObserver.createBuffer()) {
                     this.source.subscribe(bufferExactObserver);
                     return;

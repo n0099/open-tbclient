@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.StatFs;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -70,9 +71,9 @@ public class Util {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -140,9 +141,9 @@ public class Util {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -176,21 +177,21 @@ public class Util {
         }
     }
 
-    public static void assembleBlock(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j2, boolean z) {
+    public static void assembleBlock(@NonNull DownloadTask downloadTask, @NonNull BreakpointInfo breakpointInfo, long j, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            int determineBlockCount = BdDownload.with().downloadStrategy().isUseMultiBlock(z) ? BdDownload.with().downloadStrategy().determineBlockCount(downloadTask, j2) : 1;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{downloadTask, breakpointInfo, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            int determineBlockCount = BdDownload.with().downloadStrategy().isUseMultiBlock(z) ? BdDownload.with().downloadStrategy().determineBlockCount(downloadTask, j) : 1;
             breakpointInfo.resetBlockInfos();
-            long j3 = determineBlockCount;
-            long j4 = j2 / j3;
-            int i2 = 0;
+            long j2 = determineBlockCount;
+            long j3 = j / j2;
+            int i = 0;
+            long j4 = 0;
             long j5 = 0;
-            long j6 = 0;
-            while (i2 < determineBlockCount) {
-                j5 += j6;
-                j6 = i2 == 0 ? (j2 % j3) + j4 : j4;
-                breakpointInfo.addBlock(new BlockInfo(j5, j6));
-                i2++;
+            while (i < determineBlockCount) {
+                j4 += j5;
+                j5 = i == 0 ? (j % j2) + j3 : j3;
+                breakpointInfo.addBlock(new BlockInfo(j4, j5));
+                i++;
             }
         }
     }
@@ -261,21 +262,27 @@ public class Util {
     }
 
     public static void d(String str, String str2) {
-        Logger logger2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) || (logger2 = logger) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
+            Logger logger2 = logger;
+            if (logger2 != null) {
+                logger2.d(str, str2);
+            } else {
+                Log.d(str, str2);
+            }
         }
-        logger2.d(str, str2);
     }
 
     public static void e(String str, String str2, Exception exc) {
-        Logger logger2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65547, null, str, str2, exc) == null) || (logger2 = logger) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, str, str2, exc) == null) {
+            Logger logger2 = logger;
+            if (logger2 != null) {
+                logger2.e(str, str2, exc);
+            } else {
+                Log.e(str, str2, exc);
+            }
         }
-        logger2.e(str, str2, exc);
     }
 
     public static void enableConsoleLog() {
@@ -351,16 +358,16 @@ public class Util {
         return invokeL.longValue;
     }
 
-    public static String humanReadableBytes(long j2, boolean z) {
+    public static String humanReadableBytes(long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
-            int i2 = z ? 1000 : 1024;
-            if (j2 < i2) {
-                return j2 + " B";
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{Long.valueOf(j), Boolean.valueOf(z)})) == null) {
+            int i = z ? 1000 : 1024;
+            if (j < i) {
+                return j + " B";
             }
-            double d2 = j2;
-            double d3 = i2;
+            double d2 = j;
+            double d3 = i;
             int log = (int) (Math.log(d2) / Math.log(d3));
             StringBuilder sb = new StringBuilder();
             sb.append((z ? "kMGTPE" : "KMGTPE").charAt(log - 1));
@@ -371,12 +378,15 @@ public class Util {
     }
 
     public static void i(String str, String str2) {
-        Logger logger2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) || (logger2 = logger) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65555, null, str, str2) == null) {
+            Logger logger2 = logger;
+            if (logger2 != null) {
+                logger2.i(str, str2);
+            } else {
+                Log.i(str, str2);
+            }
         }
-        logger2.i(str, str2);
     }
 
     public static void inspectUserHeader(@NonNull Map<String, List<String>> map) throws IOException {
@@ -388,10 +398,10 @@ public class Util {
         }
     }
 
-    public static boolean isCorrectFull(long j2, long j3) {
+    public static boolean isCorrectFull(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 == j3 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j == j2 : invokeCommon.booleanValue;
     }
 
     public static boolean isEmpty(@Nullable CharSequence charSequence) {
@@ -460,11 +470,11 @@ public class Util {
             if (bArr != null) {
                 StringBuilder sb = new StringBuilder(bArr.length * 2);
                 for (byte b2 : bArr) {
-                    int i2 = b2 & 255;
-                    if (i2 < 16) {
+                    int i = b2 & 255;
+                    if (i < 16) {
                         sb.append('0');
                     }
-                    sb.append(Integer.toHexString(i2));
+                    sb.append(Integer.toHexString(i));
                 }
                 return sb.toString();
             }
@@ -546,9 +556,9 @@ public class Util {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {str, Boolean.valueOf(z)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -573,11 +583,14 @@ public class Util {
     }
 
     public static void w(String str, String str2) {
-        Logger logger2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65570, null, str, str2) == null) || (logger2 = logger) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65570, null, str, str2) == null) {
+            Logger logger2 = logger;
+            if (logger2 != null) {
+                logger2.w(str, str2);
+            } else {
+                Log.w(str, str2);
+            }
         }
-        logger2.w(str, str2);
     }
 }

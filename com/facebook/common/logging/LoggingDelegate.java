@@ -1,5 +1,5 @@
 package com.facebook.common.logging;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface LoggingDelegate {
     void d(String str, String str2);
 
@@ -15,11 +15,11 @@ public interface LoggingDelegate {
 
     void i(String str, String str2, Throwable th);
 
-    boolean isLoggable(int i2);
+    boolean isLoggable(int i);
 
-    void log(int i2, String str, String str2);
+    void log(int i, String str, String str2);
 
-    void setMinimumLoggingLevel(int i2);
+    void setMinimumLoggingLevel(int i);
 
     void v(String str, String str2);
 

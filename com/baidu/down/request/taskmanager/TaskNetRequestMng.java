@@ -27,7 +27,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class TaskNetRequestMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -56,9 +56,9 @@ public final class TaskNetRequestMng {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -69,9 +69,9 @@ public final class TaskNetRequestMng {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
-            long j3 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
-            if (mIsRequestConfig || Math.abs(j2 - currentTimeMillis) <= j3 * 1000) {
+            long j = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_TIME, 0L);
+            long j2 = DownPrefUtils.getLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 86400L);
+            if (mIsRequestConfig || Math.abs(j - currentTimeMillis) <= j2 * 1000) {
                 return;
             }
             mIsRequestConfig = true;
@@ -87,9 +87,9 @@ public final class TaskNetRequestMng {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -259,9 +259,9 @@ public final class TaskNetRequestMng {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

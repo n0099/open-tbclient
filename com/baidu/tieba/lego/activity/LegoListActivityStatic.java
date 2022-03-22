@@ -1,10 +1,10 @@
 package com.baidu.tieba.lego.activity;
 
-import c.a.r0.z1.l;
-import c.a.r0.z1.m.c;
-import c.a.r0.z1.m.e;
-import c.a.r0.z1.o.d;
-import c.a.r0.z1.r.b;
+import c.a.p0.b2.l;
+import c.a.p0.b2.m.c;
+import c.a.p0.b2.m.e;
+import c.a.p0.b2.o.d;
+import c.a.p0.b2.r.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -33,9 +33,9 @@ public class LegoListActivityStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,17 +71,17 @@ public class LegoListActivityStatic {
         }
         b.a.set(new l());
         TbConfig.setLegoLibVersion("3.0.0");
-        c.a.r0.z1.o.b.h().g(d.f());
+        c.a.p0.b2.o.b.h().g(d.f());
         CustomMessageTask customMessageTask = new CustomMessageTask(2016447, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
         MessageManager.getInstance().registerStickyMode(2016470);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016470, Boolean.TRUE));
-        c.a.r0.z1.m.b.a().b(new e());
-        c.a.r0.z1.m.a.a().b(new c());
-        c.a.r0.z1.m.a.a().b(new c.a.r0.z1.m.d());
-        c.a.q0.b.c.a.set(c.a.r0.z1.m.b.a());
-        c.a.q0.b.b.a.set(c.a.r0.z1.m.a.a());
+        c.a.p0.b2.m.b.a().b(new e());
+        c.a.p0.b2.m.a.a().b(new c());
+        c.a.p0.b2.m.a.a().b(new c.a.p0.b2.m.d());
+        c.a.o0.b.c.a.set(c.a.p0.b2.m.b.a());
+        c.a.o0.b.b.a.set(c.a.p0.b2.m.a.a());
     }
 
     public LegoListActivityStatic() {
@@ -89,9 +89,9 @@ public class LegoListActivityStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

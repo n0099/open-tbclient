@@ -14,17 +14,17 @@ public final class Pair extends DataCharacter {
     public final FinderPattern finderPattern;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Pair(int i2, int i3, FinderPattern finderPattern) {
-        super(i2, i3);
+    public Pair(int i, int i2, FinderPattern finderPattern) {
+        super(i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), finderPattern};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), finderPattern};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

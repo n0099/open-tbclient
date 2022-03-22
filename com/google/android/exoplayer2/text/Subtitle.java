@@ -1,13 +1,13 @@
 package com.google.android.exoplayer2.text;
 
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Subtitle {
-    List<Cue> getCues(long j2);
+    List<Cue> getCues(long j);
 
-    long getEventTime(int i2);
+    long getEventTime(int i);
 
     int getEventTimeCount();
 
-    int getNextEventTimeIndex(long j2);
+    int getNextEventTimeIndex(long j);
 }

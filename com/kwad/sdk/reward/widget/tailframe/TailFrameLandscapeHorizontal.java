@@ -21,36 +21,32 @@ import com.kwad.sdk.widget.KsLogoView;
 import com.kwad.sdk.widget.d;
 import com.kwad.sdk.widget.f;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
     public ImageView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TailFrameBarAppLandscape f56226b;
+    public TailFrameBarAppLandscape f41150b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TailFrameBarH5Landscape f56227c;
+    public TailFrameBarH5Landscape f41151c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f56228d;
+    public a f41152d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdTemplate f56229e;
+    public AdTemplate f41153e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AdInfo f56230f;
+    public AdInfo f41154f;
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f56231g;
+    public JSONObject f41155g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f56232h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextProgressBar f56233i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public KsLogoView f56234j;
+    public b f41156h;
+    public TextProgressBar i;
+    public KsLogoView j;
     public com.kwad.sdk.reward.a k;
 
     public TailFrameLandscapeHorizontal(Context context) {
@@ -61,21 +57,21 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
         this(context, attributeSet, 0);
     }
 
-    public TailFrameLandscapeHorizontal(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TailFrameLandscapeHorizontal(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         b();
     }
 
     private void a(View view, final boolean z) {
-        int i2 = z ? 1 : 153;
-        if (com.kwad.sdk.core.response.a.d.v(this.f56229e)) {
-            this.k.a(getContext(), i2, 1);
+        int i = z ? 1 : 153;
+        if (com.kwad.sdk.core.response.a.d.v(this.f41153e)) {
+            this.k.a(getContext(), i, 1);
         } else {
-            com.kwad.sdk.core.download.a.a.a(new a.C2095a(view.getContext()).a(this.f56229e).a(this.f56232h).a(view == this.f56233i).a(view == this.f56233i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
+            com.kwad.sdk.core.download.a.a.a(new a.C1956a(view.getContext()).a(this.f41153e).a(this.f41156h).a(view == this.i).a(view == this.i ? 1 : 2).a(new a.b() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
                 @Override // com.kwad.sdk.core.download.a.a.b
                 public void a() {
-                    if (TailFrameLandscapeHorizontal.this.f56228d != null) {
-                        TailFrameLandscapeHorizontal.this.f56228d.a(z);
+                    if (TailFrameLandscapeHorizontal.this.f41152d != null) {
+                        TailFrameLandscapeHorizontal.this.f41152d.a(z);
                     }
                 }
             }));
@@ -83,97 +79,97 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
     }
 
     private void b() {
-        LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_view_landscape_horizontal, this);
-        this.a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
-        this.f56234j = (KsLogoView) findViewById(R.id.ksad_video_tf_logo);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0484, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091183);
+        this.j = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091180);
     }
 
     private void c() {
-        if (!com.kwad.sdk.core.response.a.a.B(this.f56230f) && !com.kwad.sdk.core.response.a.d.v(this.f56229e)) {
-            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.ksad_video_h5_tail_frame);
-            this.f56227c = tailFrameBarH5Landscape;
-            tailFrameBarH5Landscape.setModel(this.f56229e);
-            this.f56227c.setVisibility(0);
+        if (!com.kwad.sdk.core.response.a.a.B(this.f41154f) && !com.kwad.sdk.core.response.a.d.v(this.f41153e)) {
+            TailFrameBarH5Landscape tailFrameBarH5Landscape = (TailFrameBarH5Landscape) findViewById(R.id.obfuscated_res_0x7f09116f);
+            this.f41151c = tailFrameBarH5Landscape;
+            tailFrameBarH5Landscape.setModel(this.f41153e);
+            this.f41151c.setVisibility(0);
             return;
         }
-        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.ksad_video_app_tail_frame);
-        this.f56226b = tailFrameBarAppLandscape;
-        tailFrameBarAppLandscape.setModel(this.f56229e);
-        this.f56226b.setVisibility(0);
-        this.f56233i = this.f56226b.getTextProgressBar();
-        if (!com.kwad.sdk.core.response.a.d.v(this.f56229e)) {
+        TailFrameBarAppLandscape tailFrameBarAppLandscape = (TailFrameBarAppLandscape) findViewById(R.id.obfuscated_res_0x7f091159);
+        this.f41150b = tailFrameBarAppLandscape;
+        tailFrameBarAppLandscape.setModel(this.f41153e);
+        this.f41150b.setVisibility(0);
+        this.i = this.f41150b.getTextProgressBar();
+        if (!com.kwad.sdk.core.response.a.d.v(this.f41153e)) {
             d();
         }
-        new f(this.f56233i, this);
+        new f(this.i, this);
     }
 
     private void d() {
-        this.f56232h = new b(this.f56229e, this.f56231g, new c() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.1
+        this.f41156h = new b(this.f41153e, this.f41155g, new c() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.1
             @Override // com.kwad.sdk.core.download.a.c
-            public void a(int i2) {
-                super.a(i2);
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.b(i2), i2);
+            public void a(int i) {
+                super.a(i);
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.b(i), i);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.A(TailFrameLandscapeHorizontal.this.f56230f), 0);
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.A(TailFrameLandscapeHorizontal.this.f41154f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.a(TailFrameLandscapeHorizontal.this.f56229e), 0);
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.a(TailFrameLandscapeHorizontal.this.f41153e), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.A(TailFrameLandscapeHorizontal.this.f56230f), 0);
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.A(TailFrameLandscapeHorizontal.this.f41154f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.m(TailFrameLandscapeHorizontal.this.f56230f), 0);
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.m(TailFrameLandscapeHorizontal.this.f41154f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
-            public void onProgressUpdate(int i2) {
-                TailFrameLandscapeHorizontal.this.f56226b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f56229e));
-                TailFrameLandscapeHorizontal.this.f56233i.a(com.kwad.sdk.core.response.a.a.a(i2), i2);
+            public void onProgressUpdate(int i) {
+                TailFrameLandscapeHorizontal.this.f41150b.a(com.kwad.sdk.core.response.a.d.j(TailFrameLandscapeHorizontal.this.f41153e));
+                TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.a.a.a(i), i);
             }
         });
     }
 
     private void e() {
         setOnClickListener(null);
-        this.f56232h = null;
+        this.f41156h = null;
     }
 
     public void a() {
-        TailFrameBarAppLandscape tailFrameBarAppLandscape = this.f56226b;
+        TailFrameBarAppLandscape tailFrameBarAppLandscape = this.f41150b;
         if (tailFrameBarAppLandscape != null) {
             tailFrameBarAppLandscape.b();
-            this.f56226b.setVisibility(8);
+            this.f41150b.setVisibility(8);
         }
-        TailFrameBarH5Landscape tailFrameBarH5Landscape = this.f56227c;
+        TailFrameBarH5Landscape tailFrameBarH5Landscape = this.f41151c;
         if (tailFrameBarH5Landscape != null) {
             tailFrameBarH5Landscape.a();
-            this.f56227c.setVisibility(8);
+            this.f41151c.setVisibility(8);
         }
         e();
     }
 
     public void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, a aVar) {
-        this.f56229e = adTemplate;
-        this.f56230f = com.kwad.sdk.core.response.a.d.j(adTemplate);
-        this.f56231g = jSONObject;
-        this.f56228d = aVar;
-        this.f56234j.a(this.f56229e);
-        KSImageLoader.loadImage(this.a, com.kwad.sdk.core.response.a.a.h(this.f56230f), this.f56229e);
+        this.f41153e = adTemplate;
+        this.f41154f = com.kwad.sdk.core.response.a.d.j(adTemplate);
+        this.f41155g = jSONObject;
+        this.f41152d = aVar;
+        this.j.a(this.f41153e);
+        KSImageLoader.loadImage(this.a, com.kwad.sdk.core.response.a.a.h(this.f41154f), this.f41153e);
         c();
         setClickable(true);
         new f(this, this);
@@ -186,7 +182,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements d {
 
     @Override // com.kwad.sdk.widget.d
     public void b(View view) {
-        if (com.kwad.sdk.core.response.a.c.g(this.f56229e)) {
+        if (com.kwad.sdk.core.response.a.c.g(this.f41153e)) {
             a(view, false);
         }
     }

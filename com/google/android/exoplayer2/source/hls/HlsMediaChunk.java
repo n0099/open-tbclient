@@ -29,7 +29,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsMediaChunk extends MediaChunk {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PRIV_TIMESTAMP_FRAME_OWNER = "com.apple.streaming.transportStreamTimestamp";
@@ -74,19 +74,19 @@ public final class HlsMediaChunk extends MediaChunk {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HlsMediaChunk(HlsExtractorFactory hlsExtractorFactory, DataSource dataSource, DataSpec dataSpec, DataSpec dataSpec2, HlsMasterPlaylist.HlsUrl hlsUrl, List<Format> list, int i2, Object obj, long j2, long j3, int i3, int i4, boolean z, TimestampAdjuster timestampAdjuster, HlsMediaChunk hlsMediaChunk, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
-        super(buildDataSource(dataSource, bArr, bArr2), dataSpec, hlsUrl.format, i2, obj, j2, j3, i3);
+    public HlsMediaChunk(HlsExtractorFactory hlsExtractorFactory, DataSource dataSource, DataSpec dataSpec, DataSpec dataSpec2, HlsMasterPlaylist.HlsUrl hlsUrl, List<Format> list, int i, Object obj, long j, long j2, int i2, int i3, boolean z, TimestampAdjuster timestampAdjuster, HlsMediaChunk hlsMediaChunk, DrmInitData drmInitData, byte[] bArr, byte[] bArr2) {
+        super(buildDataSource(dataSource, bArr, bArr2), dataSpec, hlsUrl.format, i, obj, j, j2, i2);
         DataSpec dataSpec3;
         Extractor extractor;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {hlsExtractorFactory, dataSource, dataSpec, dataSpec2, hlsUrl, list, Integer.valueOf(i2), obj, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z), timestampAdjuster, hlsMediaChunk, drmInitData, bArr, bArr2};
+            Object[] objArr = {hlsExtractorFactory, dataSource, dataSpec, dataSpec2, hlsUrl, list, Integer.valueOf(i), obj, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), timestampAdjuster, hlsMediaChunk, drmInitData, bArr, bArr2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DataSource) objArr2[0], (DataSpec) objArr2[1], (Format) objArr2[2], ((Integer) objArr2[3]).intValue(), objArr2[4], ((Long) objArr2[5]).longValue(), ((Long) objArr2[6]).longValue(), ((Integer) objArr2[7]).intValue());
                 newInitContext.thisArg = this;
@@ -94,7 +94,7 @@ public final class HlsMediaChunk extends MediaChunk {
                 return;
             }
         }
-        this.discontinuitySequenceNumber = i4;
+        this.discontinuitySequenceNumber = i3;
         this.initDataSpec = dataSpec2;
         this.hlsUrl = hlsUrl;
         this.isMasterTimestampSource = z;
@@ -104,7 +104,7 @@ public final class HlsMediaChunk extends MediaChunk {
         if (hlsMediaChunk != null) {
             boolean z3 = hlsMediaChunk.hlsUrl != hlsUrl;
             this.shouldSpliceIn = z3;
-            extractor = (hlsMediaChunk.discontinuitySequenceNumber != i4 || z3) ? null : hlsMediaChunk.extractor;
+            extractor = (hlsMediaChunk.discontinuitySequenceNumber != i3 || z3) ? null : hlsMediaChunk.extractor;
             dataSpec3 = dataSpec;
         } else {
             this.shouldSpliceIn = false;
@@ -150,7 +150,7 @@ public final class HlsMediaChunk extends MediaChunk {
         if (interceptable != null && interceptable.invokeV(65539, this) != null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         try {
             if (this.isEncrypted) {
                 subrange = this.dataSpec;
@@ -170,8 +170,8 @@ public final class HlsMediaChunk extends MediaChunk {
                     if (z) {
                         defaultExtractorInput.skipFully(this.bytesLoaded);
                     }
-                    while (i2 == 0 && !this.loadCanceled) {
-                        i2 = this.extractor.read(defaultExtractorInput, null);
+                    while (i == 0 && !this.loadCanceled) {
+                        i = this.extractor.read(defaultExtractorInput, null);
                     }
                     this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
                     Util.closeQuietly(this.dataSource);
@@ -189,8 +189,8 @@ public final class HlsMediaChunk extends MediaChunk {
             }
             if (z) {
             }
-            while (i2 == 0) {
-                i2 = this.extractor.read(defaultExtractorInput, null);
+            while (i == 0) {
+                i = this.extractor.read(defaultExtractorInput, null);
             }
             this.bytesLoaded = (int) (defaultExtractorInput.getPosition() - this.dataSpec.absoluteStreamPosition);
             Util.closeQuietly(this.dataSource);
@@ -214,9 +214,9 @@ public final class HlsMediaChunk extends MediaChunk {
         DataSpec subrange = dataSpec.subrange(this.initSegmentBytesLoaded);
         try {
             DefaultExtractorInput defaultExtractorInput = new DefaultExtractorInput(this.initDataSource, subrange.absoluteStreamPosition, this.initDataSource.open(subrange));
-            int i2 = 0;
-            while (i2 == 0 && !this.loadCanceled) {
-                i2 = this.extractor.read(defaultExtractorInput, null);
+            int i = 0;
+            while (i == 0 && !this.loadCanceled) {
+                i = this.extractor.read(defaultExtractorInput, null);
             }
             this.initSegmentBytesLoaded = (int) (defaultExtractorInput.getPosition() - this.initDataSpec.absoluteStreamPosition);
             Util.closeQuietly(this.dataSource);
@@ -240,17 +240,17 @@ public final class HlsMediaChunk extends MediaChunk {
                 }
                 this.id3Data.skipBytes(3);
                 int readSynchSafeInt = this.id3Data.readSynchSafeInt();
-                int i2 = readSynchSafeInt + 10;
-                if (i2 > this.id3Data.capacity()) {
+                int i = readSynchSafeInt + 10;
+                if (i > this.id3Data.capacity()) {
                     ParsableByteArray parsableByteArray = this.id3Data;
                     byte[] bArr = parsableByteArray.data;
-                    parsableByteArray.reset(i2);
+                    parsableByteArray.reset(i);
                     System.arraycopy(bArr, 0, this.id3Data.data, 0, 10);
                 }
                 if (extractorInput.peekFully(this.id3Data.data, 10, readSynchSafeInt, true) && (decode = this.id3Decoder.decode(this.id3Data.data, readSynchSafeInt)) != null) {
                     int length = decode.length();
-                    for (int i3 = 0; i3 < length; i3++) {
-                        Metadata.Entry entry = decode.get(i3);
+                    for (int i2 = 0; i2 < length; i2++) {
+                        Metadata.Entry entry = decode.get(i2);
                         if (entry instanceof PrivFrame) {
                             PrivFrame privFrame = (PrivFrame) entry;
                             if (PRIV_TIMESTAMP_FRAME_OWNER.equals(privFrame.owner)) {

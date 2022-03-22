@@ -24,7 +24,7 @@ import com.sina.weibo.sdk.utils.LogUtil;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,13 +34,13 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
     public Target<R> target;
 
     /* renamed from: com.sina.weibo.sdk.network.impl.FixRequestTask$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class RequestCallback implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fixRequestTask};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,9 +99,9 @@ public class FixRequestTask<T, R> implements Runnable, RequestCancelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {iRequestParam, target};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

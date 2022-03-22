@@ -28,9 +28,9 @@ public class MediaMetadataCompatApi21 {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -56,10 +56,10 @@ public class MediaMetadataCompatApi21 {
             }
         }
 
-        public static void putLong(Object obj, String str, long j2) {
+        public static void putLong(Object obj, String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j2)}) == null) {
-                ((MediaMetadata.Builder) obj).putLong(str, j2);
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{obj, str, Long.valueOf(j)}) == null) {
+                ((MediaMetadata.Builder) obj).putLong(str, j);
             }
         }
 
@@ -90,9 +90,9 @@ public class MediaMetadataCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -135,10 +135,10 @@ public class MediaMetadataCompatApi21 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) ? ((MediaMetadata) obj).keySet() : (Set) invokeL.objValue;
     }
 
-    public static void writeToParcel(Object obj, Parcel parcel, int i2) {
+    public static void writeToParcel(Object obj, Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65543, null, obj, parcel, i2) == null) {
-            ((MediaMetadata) obj).writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLLI(65543, null, obj, parcel, i) == null) {
+            ((MediaMetadata) obj).writeToParcel(parcel, i);
         }
     }
 }

@@ -9,6 +9,7 @@ import android.os.Parcelable;
 import android.support.v4.media.MediaDescriptionCompat;
 import android.support.v4.media.session.MediaSessionCompat;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.RestrictTo;
 import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
@@ -154,9 +155,9 @@ public final class MediaMetadataCompat implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -175,10 +176,10 @@ public final class MediaMetadataCompat implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public MediaMetadataCompat[] newArray(int i2) {
+            public MediaMetadataCompat[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new MediaMetadataCompat[i2] : (MediaMetadataCompat[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new MediaMetadataCompat[i] : (MediaMetadataCompat[]) invokeI.objValue;
             }
         };
     }
@@ -190,9 +191,9 @@ public final class MediaMetadataCompat implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {bundle};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -243,7 +244,8 @@ public final class MediaMetadataCompat implements Parcelable {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             try {
                 return (Bitmap) this.mBundle.getParcelable(str);
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve a key as Bitmap.", e2);
                 return null;
             }
         }
@@ -270,52 +272,52 @@ public final class MediaMetadataCompat implements Parcelable {
             CharSequence[] charSequenceArr = new CharSequence[3];
             CharSequence text = getText(METADATA_KEY_DISPLAY_TITLE);
             if (TextUtils.isEmpty(text)) {
+                int i = 0;
                 int i2 = 0;
-                int i3 = 0;
-                while (i2 < 3) {
+                while (i < 3) {
                     String[] strArr = PREFERRED_DESCRIPTION_ORDER;
-                    if (i3 >= strArr.length) {
+                    if (i2 >= strArr.length) {
                         break;
                     }
-                    int i4 = i3 + 1;
-                    CharSequence text2 = getText(strArr[i3]);
+                    int i3 = i2 + 1;
+                    CharSequence text2 = getText(strArr[i2]);
                     if (!TextUtils.isEmpty(text2)) {
-                        charSequenceArr[i2] = text2;
-                        i2++;
+                        charSequenceArr[i] = text2;
+                        i++;
                     }
-                    i3 = i4;
+                    i2 = i3;
                 }
             } else {
                 charSequenceArr[0] = text;
                 charSequenceArr[1] = getText(METADATA_KEY_DISPLAY_SUBTITLE);
                 charSequenceArr[2] = getText(METADATA_KEY_DISPLAY_DESCRIPTION);
             }
-            int i5 = 0;
+            int i4 = 0;
             while (true) {
                 String[] strArr2 = PREFERRED_BITMAP_ORDER;
-                if (i5 >= strArr2.length) {
+                if (i4 >= strArr2.length) {
                     bitmap = null;
                     break;
                 }
-                bitmap = getBitmap(strArr2[i5]);
+                bitmap = getBitmap(strArr2[i4]);
                 if (bitmap != null) {
                     break;
                 }
-                i5++;
+                i4++;
             }
-            int i6 = 0;
+            int i5 = 0;
             while (true) {
                 String[] strArr3 = PREFERRED_URI_ORDER;
-                if (i6 >= strArr3.length) {
+                if (i5 >= strArr3.length) {
                     uri = null;
                     break;
                 }
-                String string2 = getString(strArr3[i6]);
+                String string2 = getString(strArr3[i5]);
                 if (!TextUtils.isEmpty(string2)) {
                     uri = Uri.parse(string2);
                     break;
                 }
-                i6++;
+                i5++;
             }
             String string3 = getString(METADATA_KEY_MEDIA_URI);
             Uri parse = TextUtils.isEmpty(string3) ? null : Uri.parse(string3);
@@ -375,7 +377,8 @@ public final class MediaMetadataCompat implements Parcelable {
                     return RatingCompat.fromRating(this.mBundle.getParcelable(str));
                 }
                 return (RatingCompat) this.mBundle.getParcelable(str);
-            } catch (Exception unused) {
+            } catch (Exception e2) {
+                Log.w(TAG, "Failed to retrieve a key as Rating.", e2);
                 return null;
             }
         }
@@ -414,9 +417,9 @@ public final class MediaMetadataCompat implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
             parcel.writeBundle(this.mBundle);
         }
     }
@@ -432,9 +435,9 @@ public final class MediaMetadataCompat implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -443,11 +446,11 @@ public final class MediaMetadataCompat implements Parcelable {
             this.mBundle = new Bundle();
         }
 
-        private Bitmap scaleBitmap(Bitmap bitmap, int i2) {
+        private Bitmap scaleBitmap(Bitmap bitmap, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bitmap, i2)) == null) {
-                float f2 = i2;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, this, bitmap, i)) == null) {
+                float f2 = i;
                 float min = Math.min(f2 / bitmap.getWidth(), f2 / bitmap.getHeight());
                 return Bitmap.createScaledBitmap(bitmap, (int) (bitmap.getWidth() * min), (int) (bitmap.getHeight() * min), true);
             }
@@ -473,14 +476,14 @@ public final class MediaMetadataCompat implements Parcelable {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder putLong(String str, long j2) {
+        public Builder putLong(String str, long j) {
             InterceptResult invokeLJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j2)) == null) {
+            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j)) == null) {
                 if (MediaMetadataCompat.METADATA_KEYS_TYPE.containsKey(str) && MediaMetadataCompat.METADATA_KEYS_TYPE.get(str).intValue() != 0) {
                     throw new IllegalArgumentException("The " + str + " key cannot be used to put a long");
                 }
-                this.mBundle.putLong(str, j2);
+                this.mBundle.putLong(str, j);
                 return this;
             }
             return (Builder) invokeLJ.objValue;
@@ -536,9 +539,9 @@ public final class MediaMetadataCompat implements Parcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mediaMetadataCompat};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -551,17 +554,17 @@ public final class MediaMetadataCompat implements Parcelable {
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        public Builder(MediaMetadataCompat mediaMetadataCompat, int i2) {
+        public Builder(MediaMetadataCompat mediaMetadataCompat, int i) {
             this(mediaMetadataCompat);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mediaMetadataCompat, Integer.valueOf(i2)};
+                Object[] objArr = {mediaMetadataCompat, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     this((MediaMetadataCompat) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -572,8 +575,8 @@ public final class MediaMetadataCompat implements Parcelable {
                 Object obj = this.mBundle.get(str);
                 if (obj instanceof Bitmap) {
                     Bitmap bitmap = (Bitmap) obj;
-                    if (bitmap.getHeight() > i2 || bitmap.getWidth() > i2) {
-                        putBitmap(str, scaleBitmap(bitmap, i2));
+                    if (bitmap.getHeight() > i || bitmap.getWidth() > i) {
+                        putBitmap(str, scaleBitmap(bitmap, i));
                     }
                 }
             }
@@ -587,9 +590,9 @@ public final class MediaMetadataCompat implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

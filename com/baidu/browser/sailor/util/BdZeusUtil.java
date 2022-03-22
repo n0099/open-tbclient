@@ -25,7 +25,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Stack;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BdZeusUtil implements INoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ARCH_ARM = "armv";
@@ -67,9 +67,9 @@ public final class BdZeusUtil implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -187,12 +187,12 @@ public final class BdZeusUtil implements INoProGuard {
         return invokeV.booleanValue;
     }
 
-    public static String formatdetailTime(long j2) {
+    public static String formatdetailTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65545, null, j)) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j2);
+            calendar.setTimeInMillis(j);
             return calendar.get(1) + "-" + (calendar.get(2) + 1) + "-" + calendar.get(5) + " " + calendar.get(11) + ":" + calendar.get(12) + ":" + calendar.get(13);
         }
         return (String) invokeJ.objValue;
@@ -204,14 +204,14 @@ public final class BdZeusUtil implements INoProGuard {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             String str = Build.MODEL;
             String str2 = Build.VERSION.RELEASE;
-            int i2 = Build.VERSION.SDK_INT;
+            int i = Build.VERSION.SDK_INT;
             String str3 = Build.MANUFACTURER;
             StringBuffer stringBuffer = new StringBuffer();
             stringBuffer.append(str.replace("_", "-"));
             stringBuffer.append("_");
             stringBuffer.append(str2);
             stringBuffer.append("_");
-            stringBuffer.append(i2);
+            stringBuffer.append(i);
             stringBuffer.append("_");
             stringBuffer.append(str3.replace("_", "-"));
             return stringBuffer.toString().replace(" ", "-");

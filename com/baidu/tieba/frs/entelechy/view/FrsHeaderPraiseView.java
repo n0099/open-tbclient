@@ -29,32 +29,28 @@ import tbclient.SimpleUser;
 public class FrsHeaderPraiseView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f32469b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32470c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public FrameLayout f32471d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f41953e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View f41954f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f41955g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f41956h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public ImageView f41957i;
+    public ImageView f32472e;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AgreeBanner a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f41958e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ FrsHeaderPraiseView f41959f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ FrsHeaderPraiseView f32473b;
 
         public a(FrsHeaderPraiseView frsHeaderPraiseView, AgreeBanner agreeBanner) {
             Interceptable interceptable = $ic;
@@ -63,25 +59,25 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsHeaderPraiseView, agreeBanner};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f41959f = frsHeaderPraiseView;
-            this.f41958e = agreeBanner;
+            this.f32473b = frsHeaderPraiseView;
+            this.a = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.f41958e.url)) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || TextUtils.isEmpty(this.a.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f41959f.getContext(), null, this.f41958e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.f32473b.getContext(), null, this.a.url, true)));
         }
     }
 
@@ -94,9 +90,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -109,61 +105,50 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f41953e = findViewById(R.id.divider_top);
-            this.f41954f = findViewById(R.id.divider_bottom);
-            this.f41955g = (TextView) findViewById(R.id.frs_praise_title);
-            this.f41956h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
-            ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
-            this.f41957i = imageView;
+            this.a = findViewById(R.id.obfuscated_res_0x7f090804);
+            this.f32469b = findViewById(R.id.obfuscated_res_0x7f0907eb);
+            this.f32470c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ba7);
+            this.f32471d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ba6);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ba4);
+            this.f32472e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
-        }
-    }
-
-    public void changeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            SkinManager.setBackgroundResource(this, R.drawable.home_thread_card_item_bg);
-            SkinManager.setBackgroundColor(this.f41953e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.f41954f, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.f41955g, (int) R.color.CAM_X0105);
-            SkinManager.setImageResource(this.f41957i, R.drawable.icon_arrow_more_gray_n);
         }
     }
 
     public void setData(AgreeBanner agreeBanner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, agreeBanner) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, agreeBanner) == null) {
             if (agreeBanner == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            this.f41955g.setText(agreeBanner.text);
+            this.f32470c.setText(agreeBanner.text);
             List<SimpleUser> list = agreeBanner.top_agree_user;
-            this.f41956h.removeAllViews();
+            this.f32471d.removeAllViews();
             if (list != null) {
                 ArrayList arrayList = new ArrayList();
                 if (list.size() > 5) {
-                    for (int i2 = 0; i2 < list.size() && i2 != 5; i2++) {
-                        arrayList.add(list.get(i2));
+                    for (int i = 0; i < list.size() && i != 5; i++) {
+                        arrayList.add(list.get(i));
                     }
                 } else {
                     arrayList.addAll(list);
                 }
-                for (int size = arrayList.size() - 1; size >= 0 && this.f41956h.getChildCount() != 5; size--) {
-                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
+                for (int size = arrayList.size() - 1; size >= 0 && this.f32471d.getChildCount() != 5; size--) {
+                    FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225), getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225));
                     HeadImageView headImageView = new HeadImageView(getContext());
                     headImageView.setDefaultResource(17170445);
                     headImageView.setDefaultBgResource(R.color.CAM_X0205);
                     headImageView.setIsRound(true);
                     headImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0201));
-                    headImageView.setBorderWidth(n.f(getContext(), R.dimen.ds2));
-                    headImageView.startLoad(((SimpleUser) arrayList.get(size)).portrait, 12, false);
+                    headImageView.setBorderWidth(n.f(getContext(), R.dimen.obfuscated_res_0x7f0701d4));
+                    headImageView.J(((SimpleUser) arrayList.get(size)).portrait, 12, false);
                     if (size != arrayList.size() - 1) {
-                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
+                        layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070225)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fb));
                     }
                     layoutParams.gravity = 5;
-                    this.f41956h.addView(headImageView, layoutParams);
+                    this.f32471d.addView(headImageView, layoutParams);
                 }
             }
             setOnClickListener(new a(this, agreeBanner));
@@ -179,9 +164,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -192,17 +177,17 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FrsHeaderPraiseView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FrsHeaderPraiseView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -210,7 +195,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.frs_header_extra_praise_layout, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0322, this);
         a();
     }
 }

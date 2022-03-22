@@ -20,7 +20,7 @@ import com.google.android.material.animation.AnimatorSetCompat;
 import com.google.android.material.transition.platform.VisibilityAnimatorProvider;
 import java.util.ArrayList;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> extends Visibility {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public abstract class MaterialVisibility<P extends VisibilityAnimatorProvider> e
             newInitContext.initArgs = r2;
             Object[] objArr = {p, visibilityAnimatorProvider};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

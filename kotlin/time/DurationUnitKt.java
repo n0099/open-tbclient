@@ -3,11 +3,11 @@ package kotlin.time;
 import java.util.concurrent.TimeUnit;
 import kotlin.Metadata;
 @Metadata(d1 = {"kotlin/time/DurationUnitKt__DurationUnitJvmKt", "kotlin/time/DurationUnitKt__DurationUnitKt"}, k = 4, mv = {1, 5, 1}, xi = 1)
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class DurationUnitKt extends DurationUnitKt__DurationUnitKt {
 
     @Metadata(k = 3, mv = {1, 5, 1})
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 

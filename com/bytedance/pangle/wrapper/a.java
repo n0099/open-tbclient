@@ -1,5 +1,5 @@
 package com.bytedance.pangle.wrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface a {
-    void setWrapperActivityTheme(int i2);
+    void setWrapperActivityTheme(int i);
 }

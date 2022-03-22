@@ -20,29 +20,29 @@ import androidx.core.view.animation.PathInterpolatorCompat;
 import com.baidu.tieba.R;
 import com.kwad.sdk.core.page.widget.webview.KsAdWebView;
 import com.kwad.sdk.reflux.KsRefluxContentView;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsRefluxView extends FrameLayout implements View.OnClickListener, KsRefluxContentView.a {
     public KsAdWebView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsRefluxNativeView f55724b;
+    public KsRefluxNativeView f40707b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f55725c;
+    public View f40708c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f55726d;
+    public ImageView f40709d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55727e;
+    public View f40710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f55728f;
+    public a f40711f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f55729g;
+    public volatile boolean f40712g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void d();
 
@@ -51,27 +51,27 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
 
     public KsRefluxView(@NonNull Context context) {
         super(context);
-        this.f55729g = false;
+        this.f40712g = false;
         a(context, null, 0);
     }
 
     public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f55729g = false;
+        this.f40712g = false;
         a(context, attributeSet, 0);
     }
 
-    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        this.f55729g = false;
-        a(context, attributeSet, i2);
+    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f40712g = false;
+        a(context, attributeSet, i);
     }
 
     @RequiresApi(api = 21)
-    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        this.f55729g = false;
-        a(context, attributeSet, i2);
+    public KsRefluxView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
+        this.f40712g = false;
+        a(context, attributeSet, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -80,7 +80,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         if (measuredHeight == 0) {
             return null;
         }
-        ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.ksad_reflux_back_height));
+        ValueAnimator ofInt = ValueAnimator.ofInt(measuredHeight, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070363));
         ofInt.setDuration(300L);
         ofInt.setInterpolator(PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f));
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reflux.KsRefluxView.3
@@ -117,7 +117,7 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
                     }
                 }
             });
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.ksad_reflux_title_bar_corner), 0.0f);
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(getResources().getDimension(R.dimen.obfuscated_res_0x7f070369), 0.0f);
             ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reflux.KsRefluxView.5
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -136,27 +136,27 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
         return null;
     }
 
-    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        FrameLayout.inflate(context, R.layout.ksad_reflux, this);
-        this.f55725c = findViewById(R.id.ksad_reflux_title_bar);
-        this.f55726d = (ImageView) findViewById(R.id.ksad_reflux_back);
-        this.a = (KsAdWebView) findViewById(R.id.ksad_reflux_webview);
-        this.f55724b = (KsRefluxNativeView) findViewById(R.id.ksad_reflux_native);
-        View findViewById = findViewById(R.id.ksad_reflux_close);
-        this.f55727e = findViewById;
+    private void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0458, this);
+        this.f40708c = findViewById(R.id.obfuscated_res_0x7f0910df);
+        this.f40709d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d2);
+        this.a = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0910e0);
+        this.f40707b = (KsRefluxNativeView) findViewById(R.id.obfuscated_res_0x7f0910db);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0910d9);
+        this.f40710e = findViewById;
         findViewById.setOnClickListener(this);
-        this.f55726d.setOnClickListener(this);
-        ((KsRefluxContentView) findViewById(R.id.ksad_reflux_content)).setContentViewListener(this);
+        this.f40709d.setOnClickListener(this);
+        ((KsRefluxContentView) findViewById(R.id.obfuscated_res_0x7f0910da)).setContentViewListener(this);
     }
 
     private boolean e() {
-        ImageView imageView = this.f55726d;
+        ImageView imageView = this.f40709d;
         return imageView != null && imageView.getMeasuredHeight() == 0;
     }
 
     public void a(boolean z) {
         this.a.setVisibility(z ? 0 : 4);
-        this.f55724b.setVisibility(z ? 8 : 0);
+        this.f40707b.setVisibility(z ? 8 : 0);
     }
 
     @Override // com.kwad.sdk.reflux.KsRefluxContentView.a
@@ -175,16 +175,16 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
 
     public void c() {
         setVisibility(0);
-        this.f55726d.post(new Runnable() { // from class: com.kwad.sdk.reflux.KsRefluxView.1
+        this.f40709d.post(new Runnable() { // from class: com.kwad.sdk.reflux.KsRefluxView.1
             @Override // java.lang.Runnable
             public void run() {
                 KsRefluxView ksRefluxView = KsRefluxView.this;
-                Animator a2 = ksRefluxView.a(ksRefluxView.f55726d);
+                Animator a2 = ksRefluxView.a(ksRefluxView.f40709d);
                 if (a2 != null) {
                     a2.start();
                 }
-                if (KsRefluxView.this.f55728f != null) {
-                    KsRefluxView.this.f55728f.e();
+                if (KsRefluxView.this.f40711f != null) {
+                    KsRefluxView.this.f40711f.e();
                 }
             }
         });
@@ -192,28 +192,28 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
 
     @MainThread
     public void d() {
-        if (e() || this.f55729g) {
+        if (e() || this.f40712g) {
             return;
         }
-        Animator a2 = a(this.f55726d, this.f55725c);
+        Animator a2 = a(this.f40709d, this.f40708c);
         a2.addListener(new AnimatorListenerAdapter() { // from class: com.kwad.sdk.reflux.KsRefluxView.2
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 super.onAnimationEnd(animator);
-                KsRefluxView.this.f55729g = false;
+                KsRefluxView.this.f40712g = false;
             }
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
                 super.onAnimationStart(animator);
-                KsRefluxView.this.f55729g = true;
+                KsRefluxView.this.f40712g = true;
             }
         });
         a2.start();
     }
 
     public KsRefluxNativeView getNativeView() {
-        return this.f55724b;
+        return this.f40707b;
     }
 
     public KsAdWebView getWebView() {
@@ -222,17 +222,17 @@ public class KsRefluxView extends FrameLayout implements View.OnClickListener, K
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f55728f == null) {
+        if (this.f40711f == null) {
             return;
         }
-        if (view.equals(this.f55727e)) {
-            this.f55728f.d();
-        } else if (view.equals(this.f55726d)) {
+        if (view.equals(this.f40710e)) {
+            this.f40711f.d();
+        } else if (view.equals(this.f40709d)) {
             d();
         }
     }
 
     public void setViewListener(a aVar) {
-        this.f55728f = aVar;
+        this.f40711f = aVar;
     }
 }

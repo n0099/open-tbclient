@@ -14,7 +14,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.message.LineParser;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class DefaultResponseParser extends AbstractMessageParser {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class DefaultResponseParser extends AbstractMessageParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionInputBuffer, lineParser, httpResponseFactory, httpParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((SessionInputBuffer) objArr2[0], (LineParser) objArr2[1], (HttpParams) objArr2[2]);
                 newInitContext.thisArg = this;

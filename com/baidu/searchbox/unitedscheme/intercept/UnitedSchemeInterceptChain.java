@@ -1,6 +1,7 @@
 package com.baidu.searchbox.unitedscheme.intercept;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.SchemeConfig;
@@ -25,9 +26,9 @@ public final class UnitedSchemeInterceptChain {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -64,7 +65,7 @@ public final class UnitedSchemeInterceptChain {
                 return false;
             } catch (Exception e2) {
                 if (SchemeConfig.DEBUG) {
-                    String str = "error:" + e2.getMessage();
+                    Log.e(TAG, "error:" + e2.getMessage());
                     return false;
                 }
                 return false;

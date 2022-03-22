@@ -40,7 +40,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.RoundedCornerTreatment;
 import com.google.android.material.shape.ShapeAppearanceModel;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MaterialCardViewHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float CARD_VIEW_SHADOW_MULTIPLIER = 1.5f;
@@ -103,16 +103,16 @@ public class MaterialCardViewHelper {
         COS_45 = Math.cos(Math.toRadians(45.0d));
     }
 
-    public MaterialCardViewHelper(@NonNull MaterialCardView materialCardView, AttributeSet attributeSet, int i2, @StyleRes int i3) {
+    public MaterialCardViewHelper(@NonNull MaterialCardView materialCardView, AttributeSet attributeSet, int i, @StyleRes int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {materialCardView, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {materialCardView, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -121,20 +121,20 @@ public class MaterialCardViewHelper {
         this.userContentPadding = new Rect();
         this.isBackgroundOverwritten = false;
         this.materialCardView = materialCardView;
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(materialCardView.getContext(), attributeSet, i2, i3);
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(materialCardView.getContext(), attributeSet, i, i2);
         this.bgDrawable = materialShapeDrawable;
         materialShapeDrawable.initializeElevationOverlay(materialCardView.getContext());
         this.bgDrawable.setShadowColor(-12303292);
         ShapeAppearanceModel.Builder builder = this.bgDrawable.getShapeAppearanceModel().toBuilder();
-        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i2, R.style.CardView);
+        TypedArray obtainStyledAttributes = materialCardView.getContext().obtainStyledAttributes(attributeSet, new int[]{16843071, 16843072, R.attr.cardBackgroundColor, R.attr.cardCornerRadius, R.attr.cardElevation, R.attr.cardMaxElevation, R.attr.cardPreventCornerOverlap, R.attr.cardUseCompatPadding, R.attr.contentPadding, R.attr.contentPaddingBottom, R.attr.contentPaddingLeft, R.attr.contentPaddingRight, R.attr.contentPaddingTop}, i, R.style.obfuscated_res_0x7f1000fa);
         if (obtainStyledAttributes.hasValue(3)) {
             builder.setAllCornerSizes(obtainStyledAttributes.getDimension(3, 0.0f));
         }
         this.foregroundContentDrawable = new MaterialShapeDrawable();
         setShapeAppearanceModel(builder.build());
         Resources resources = materialCardView.getResources();
-        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.mtrl_card_checked_icon_margin);
-        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.mtrl_card_checked_icon_size);
+        this.checkedIconMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070426);
+        this.checkedIconSize = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070427);
         obtainStyledAttributes.recycle();
     }
 
@@ -245,7 +245,7 @@ public class MaterialCardViewHelper {
             if (this.clickableForegroundDrawable == null) {
                 LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{this.rippleDrawable, this.foregroundContentDrawable, createCheckedIconLayer()});
                 this.clickableForegroundDrawable = layerDrawable;
-                layerDrawable.setId(2, R.id.mtrl_card_checked_layer_id);
+                layerDrawable.setId(2, R.id.obfuscated_res_0x7f091469);
             }
             return this.clickableForegroundDrawable;
         }
@@ -271,34 +271,34 @@ public class MaterialCardViewHelper {
     private Drawable insetDrawable(Drawable drawable) {
         InterceptResult invokeL;
         int ceil;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, drawable)) == null) {
             if ((Build.VERSION.SDK_INT < 21) || this.materialCardView.getUseCompatPadding()) {
                 int ceil2 = (int) Math.ceil(calculateVerticalBackgroundPadding());
                 ceil = (int) Math.ceil(calculateHorizontalBackgroundPadding());
-                i2 = ceil2;
+                i = ceil2;
             } else {
                 ceil = 0;
-                i2 = 0;
+                i = 0;
             }
-            return new InsetDrawable(this, drawable, ceil, i2, ceil, i2) { // from class: com.google.android.material.card.MaterialCardViewHelper.1
+            return new InsetDrawable(this, drawable, ceil, i, ceil, i) { // from class: com.google.android.material.card.MaterialCardViewHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MaterialCardViewHelper this$0;
 
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
-                    super(drawable, ceil, i2, ceil, i2);
+                    super(drawable, ceil, i, ceil, i);
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, drawable, Integer.valueOf(ceil), Integer.valueOf(i2), Integer.valueOf(ceil), Integer.valueOf(i2)};
+                        Object[] objArr = {this, drawable, Integer.valueOf(ceil), Integer.valueOf(i), Integer.valueOf(ceil), Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                             newInitContext.thisArg = this;
@@ -389,9 +389,9 @@ public class MaterialCardViewHelper {
             return;
         }
         Rect bounds = drawable.getBounds();
-        int i2 = bounds.bottom;
-        this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i2 - 1);
-        this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i2);
+        int i = bounds.bottom;
+        this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i - 1);
+        this.rippleDrawable.setBounds(bounds.left, bounds.top, bounds.right, i);
     }
 
     @NonNull
@@ -530,31 +530,31 @@ public class MaterialCardViewHelper {
         }
     }
 
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048593, this, i2, i3) == null) || this.clickableForegroundDrawable == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) || this.clickableForegroundDrawable == null) {
             return;
         }
-        int i6 = this.checkedIconMargin;
-        int i7 = this.checkedIconSize;
-        int i8 = (i2 - i6) - i7;
-        int i9 = (i3 - i6) - i7;
+        int i5 = this.checkedIconMargin;
+        int i6 = this.checkedIconSize;
+        int i7 = (i - i5) - i6;
+        int i8 = (i2 - i5) - i6;
         if ((Build.VERSION.SDK_INT < 21) || this.materialCardView.getUseCompatPadding()) {
-            i9 -= (int) Math.ceil(calculateVerticalBackgroundPadding() * 2.0f);
-            i8 -= (int) Math.ceil(calculateHorizontalBackgroundPadding() * 2.0f);
+            i8 -= (int) Math.ceil(calculateVerticalBackgroundPadding() * 2.0f);
+            i7 -= (int) Math.ceil(calculateHorizontalBackgroundPadding() * 2.0f);
         }
-        int i10 = i9;
-        int i11 = this.checkedIconMargin;
+        int i9 = i8;
+        int i10 = this.checkedIconMargin;
         if (ViewCompat.getLayoutDirection(this.materialCardView) == 1) {
-            i5 = i8;
-            i4 = i11;
+            i4 = i7;
+            i3 = i10;
         } else {
-            i4 = i8;
-            i5 = i11;
+            i3 = i7;
+            i4 = i10;
         }
-        this.clickableForegroundDrawable.setLayerInset(2, i4, this.checkedIconMargin, i5, i10);
+        this.clickableForegroundDrawable.setLayerInset(2, i3, this.checkedIconMargin, i4, i9);
     }
 
     public void setBackgroundOverwritten(boolean z) {
@@ -599,7 +599,7 @@ public class MaterialCardViewHelper {
                 DrawableCompat.setTintList(wrap, this.checkedIconTint);
             }
             if (this.clickableForegroundDrawable != null) {
-                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.mtrl_card_checked_layer_id, createCheckedIconLayer());
+                this.clickableForegroundDrawable.setDrawableByLayerId(R.id.obfuscated_res_0x7f091469, createCheckedIconLayer());
             }
         }
     }
@@ -683,19 +683,19 @@ public class MaterialCardViewHelper {
         updateStroke();
     }
 
-    public void setStrokeWidth(@Dimension int i2) {
+    public void setStrokeWidth(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048605, this, i2) == null) || i2 == this.strokeWidth) {
+        if (!(interceptable == null || interceptable.invokeI(1048605, this, i) == null) || i == this.strokeWidth) {
             return;
         }
-        this.strokeWidth = i2;
+        this.strokeWidth = i;
         updateStroke();
     }
 
-    public void setUserContentPadding(int i2, int i3, int i4, int i5) {
+    public void setUserContentPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048606, this, i2, i3, i4, i5) == null) {
-            this.userContentPadding.set(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048606, this, i, i2, i3, i4) == null) {
+            this.userContentPadding.set(i, i2, i3, i4);
             updateContentPadding();
         }
     }

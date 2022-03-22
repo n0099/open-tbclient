@@ -2,12 +2,12 @@ package com.baidu.tieba.InjectPlugin.FrsBannerAd;
 
 import android.view.View;
 import c.a.d.o.e.p;
-import c.a.r0.h.a.a;
-import c.a.r0.h.d;
-import c.a.r0.h.e.b;
-import c.a.r0.h.e.c;
-import c.a.r0.h.e.e;
-import c.a.r0.h.e.h;
+import c.a.p0.h.a.a;
+import c.a.p0.h.d;
+import c.a.p0.h.e.b;
+import c.a.p0.h.e.c;
+import c.a.p0.h.e.e;
+import c.a.p0.h.e.h;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,27 +32,27 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C1893a implements a.InterfaceC1111a {
+        public class C1836a implements a.InterfaceC1148a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C1893a(a aVar) {
+            public C1836a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
 
-            @Override // c.a.r0.h.a.a.InterfaceC1111a
+            @Override // c.a.p0.h.a.a.InterfaceC1148a
             public void a(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -65,7 +65,7 @@ public class FrsBannerAdStatic {
                 a.dispatchInjectPluginMessage(dVar);
             }
 
-            @Override // c.a.r0.h.a.a.InterfaceC1111a
+            @Override // c.a.p0.h.a.a.InterfaceC1148a
             public void b(c cVar, View view) {
                 b a;
                 Interceptable interceptable = $ic;
@@ -86,9 +86,9 @@ public class FrsBannerAdStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -100,27 +100,27 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            c.a.r0.h.f.a aVar;
+            c.a.p0.h.f.a aVar;
             TbPageContext b2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.r0.h.f.a) && (b2 = (aVar = (c.a.r0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof c.a.p0.h.f.a) && (b2 = (aVar = (c.a.p0.h.f.a) customResponsedMessage.getData()).b()) != null && (b2.getPageActivity() instanceof b)) {
                 b bVar = (b) b2.getPageActivity();
-                c.a.r0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
+                c.a.p0.h.e.a injectPlugin = bVar.getInjectPlugin(2);
                 if (injectPlugin == null) {
-                    c.a.r0.h.e.d a = e.b().a(2);
+                    c.a.p0.h.e.d a = e.b().a(2);
                     if (a == null) {
                         return;
                     }
                     injectPlugin = a.a();
                     bVar.setInjectPlugin(2, injectPlugin);
                     injectPlugin.n(new c(b2));
-                    if (!(injectPlugin instanceof c.a.r0.h.a.a)) {
+                    if (!(injectPlugin instanceof c.a.p0.h.a.a)) {
                         return;
                     }
-                    ((c.a.r0.h.a.a) injectPlugin).f(new C1893a(this));
+                    ((c.a.p0.h.a.a) injectPlugin).f(new C1836a(this));
                 }
-                if (injectPlugin instanceof c.a.r0.h.a.a) {
-                    c.a.r0.h.a.a aVar2 = (c.a.r0.h.a.a) injectPlugin;
+                if (injectPlugin instanceof c.a.p0.h.a.a) {
+                    c.a.p0.h.a.a aVar2 = (c.a.p0.h.a.a) injectPlugin;
                     if (aVar.a() == 1) {
                         aVar2.setParams(aVar.g());
                         aVar2.b(aVar.d());
@@ -162,9 +162,9 @@ public class FrsBannerAdStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

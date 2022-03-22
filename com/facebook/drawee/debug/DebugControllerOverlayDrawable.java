@@ -18,7 +18,7 @@ import com.facebook.common.internal.VisibleForTesting;
 import com.facebook.drawee.debug.listener.ImageLoadingTimeListener;
 import com.facebook.drawee.drawable.ScalingUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DebugControllerOverlayDrawable extends Drawable implements ImageLoadingTimeListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float IMAGE_SIZE_THRESHOLD_NOT_OK = 0.5f;
@@ -67,9 +67,9 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,15 +95,15 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
-    private void prepareDebugTextParameters(Rect rect, int i2, int i3) {
+    private void prepareDebugTextParameters(Rect rect, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65538, this, rect, i2, i3) == null) {
-            int min = Math.min(40, Math.max(10, Math.min(rect.width() / i3, rect.height() / i2)));
+        if (interceptable == null || interceptable.invokeLII(65538, this, rect, i, i2) == null) {
+            int min = Math.min(40, Math.max(10, Math.min(rect.width() / i2, rect.height() / i)));
             this.mPaint.setTextSize(min);
-            int i4 = min + 8;
-            this.mLineIncrementPx = i4;
+            int i3 = min + 8;
+            this.mLineIncrementPx = i3;
             if (this.mTextGravity == 80) {
-                this.mLineIncrementPx = i4 * (-1);
+                this.mLineIncrementPx = i3 * (-1);
             }
             this.mStartTextXPx = rect.left + 10;
             this.mStartTextYPx = this.mTextGravity == 80 ? rect.bottom - 10 : rect.top + 10 + 10;
@@ -111,13 +111,13 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     }
 
     @VisibleForTesting
-    public int determineOverlayColor(int i2, int i3, @Nullable ScalingUtils.ScaleType scaleType) {
+    public int determineOverlayColor(int i, int i2, @Nullable ScalingUtils.ScaleType scaleType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, scaleType)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, scaleType)) == null) {
             int width = getBounds().width();
             int height = getBounds().height();
-            if (width > 0 && height > 0 && i2 > 0 && i3 > 0) {
+            if (width > 0 && height > 0 && i > 0 && i2 > 0) {
                 if (scaleType != null) {
                     Rect rect = this.mRect;
                     rect.top = 0;
@@ -125,12 +125,12 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                     rect.right = width;
                     rect.bottom = height;
                     this.mMatrix.reset();
-                    scaleType.getTransform(this.mMatrix, this.mRect, i2, i3, 0.0f, 0.0f);
+                    scaleType.getTransform(this.mMatrix, this.mRect, i, i2, 0.0f, 0.0f);
                     RectF rectF = this.mRectF;
                     rectF.top = 0.0f;
                     rectF.left = 0.0f;
-                    rectF.right = i2;
-                    rectF.bottom = i3;
+                    rectF.right = i;
+                    rectF.bottom = i2;
                     this.mMatrix.mapRect(rectF);
                     width = Math.min(width, (int) this.mRectF.width());
                     height = Math.min(height, (int) this.mRectF.height());
@@ -141,8 +141,8 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
                 float f5 = height;
                 float f6 = 0.1f * f5;
                 float f7 = f5 * 0.5f;
-                int abs = Math.abs(i2 - width);
-                int abs2 = Math.abs(i3 - height);
+                int abs = Math.abs(i - width);
+                int abs2 = Math.abs(i2 - height);
                 float f8 = abs;
                 if (f8 < f3 && abs2 < f6) {
                     return OVERLAY_COLOR_IMAGE_OK;
@@ -186,17 +186,17 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
             if (str2 != null) {
                 addDebugText(canvas, "i format: %s", str2);
             }
-            int i2 = this.mFrameCount;
-            if (i2 > 0) {
-                addDebugText(canvas, "anim: f %d, l %d", Integer.valueOf(i2), Integer.valueOf(this.mLoopCount));
+            int i = this.mFrameCount;
+            if (i > 0) {
+                addDebugText(canvas, "anim: f %d, l %d", Integer.valueOf(i), Integer.valueOf(this.mLoopCount));
             }
             ScalingUtils.ScaleType scaleType = this.mScaleType;
             if (scaleType != null) {
                 addDebugText(canvas, "scale: %s", scaleType);
             }
-            long j2 = this.mFinalImageTimeMs;
-            if (j2 >= 0) {
-                addDebugText(canvas, "t: %d ms", Long.valueOf(j2));
+            long j = this.mFinalImageTimeMs;
+            if (j >= 0) {
+                addDebugText(canvas, "t: %d ms", Long.valueOf(j));
             }
             String str3 = this.mOrigin;
             if (str3 != null) {
@@ -225,10 +225,10 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     }
 
     @Override // com.facebook.drawee.debug.listener.ImageLoadingTimeListener
-    public void onFinalImageSet(long j2) {
+    public void onFinalImageSet(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.mFinalImageTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.mFinalImageTimeMs = j;
             invalidateSelf();
         }
     }
@@ -250,17 +250,17 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    public void setAnimationInfo(int i2, int i3) {
+    public void setAnimationInfo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.mFrameCount = i2;
-            this.mLoopCount = i3;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.mFrameCount = i;
+            this.mLoopCount = i2;
             invalidateSelf();
         }
     }
@@ -283,19 +283,19 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
-    public void setDimensions(int i2, int i3) {
+    public void setDimensions(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            this.mWidthPx = i2;
-            this.mHeightPx = i3;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            this.mWidthPx = i;
+            this.mHeightPx = i2;
             invalidateSelf();
         }
     }
 
-    public void setFinalImageTimeMs(long j2) {
+    public void setFinalImageTimeMs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mFinalImageTimeMs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mFinalImageTimeMs = j;
         }
     }
 
@@ -314,10 +314,10 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
-    public void setImageSize(int i2) {
+    public void setImageSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mImageSizeBytes = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mImageSizeBytes = i;
         }
     }
 
@@ -336,10 +336,10 @@ public class DebugControllerOverlayDrawable extends Drawable implements ImageLoa
         }
     }
 
-    public void setTextGravity(int i2) {
+    public void setTextGravity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mTextGravity = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mTextGravity = i;
             invalidateSelf();
         }
     }

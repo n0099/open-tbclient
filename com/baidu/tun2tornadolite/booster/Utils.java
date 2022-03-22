@@ -45,9 +45,9 @@ public final class Utils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,7 +55,7 @@ public final class Utils {
     }
 
     /* renamed from: amb$lambda-1$cancelAll  reason: not valid java name */
-    public static final <T> void m89amb$lambda1$cancelAll(List<? extends Deferred<? extends T>> list) {
+    public static final <T> void m83amb$lambda1$cancelAll(List<? extends Deferred<? extends T>> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, list) == null) {
             Iterator<T> it = list.iterator();

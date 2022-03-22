@@ -2,11 +2,11 @@ package com.google.android.exoplayer2.source.chunk;
 
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface ChunkSource {
-    void getNextChunk(MediaChunk mediaChunk, long j2, long j3, ChunkHolder chunkHolder);
+    void getNextChunk(MediaChunk mediaChunk, long j, long j2, ChunkHolder chunkHolder);
 
-    int getPreferredQueueSize(long j2, List<? extends MediaChunk> list);
+    int getPreferredQueueSize(long j, List<? extends MediaChunk> list);
 
     void maybeThrowError() throws IOException;
 

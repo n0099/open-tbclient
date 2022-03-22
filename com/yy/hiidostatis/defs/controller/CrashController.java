@@ -33,7 +33,7 @@ import java.io.FilenameFilter;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CrashController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXPIRES_DAY = 5;
@@ -47,7 +47,7 @@ public class CrashController {
     public Preference mPreference;
     public IStatisAPI mStatisAPI;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface OnCrashListener {
         void handler(JSONObject jSONObject);
     }
@@ -59,9 +59,9 @@ public class CrashController {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, iStatisAPI, iOnStatisListener, onCrashListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -156,40 +156,40 @@ public class CrashController {
         }
     }
 
-    private boolean doReport(String str, Map<String, String> map, Map<String, String> map2, int i2) {
+    private boolean doReport(String str, Map<String, String> map, Map<String, String> map2, int i) {
         InterceptResult invokeLLLI;
         HttpUtil.HttpResp postFileByUrlConn;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65544, this, str, map, map2, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65544, this, str, map, map2, i)) == null) {
             boolean z = false;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                int i4 = i3 + 1;
-                if (i3 >= i2) {
+                int i3 = i2 + 1;
+                if (i2 >= i) {
                     break;
                 }
                 try {
                     postFileByUrlConn = HttpUtil.postFileByUrlConn(str, map, map2);
                 } catch (Throwable th) {
                     Object[] objArr = new Object[2];
-                    objArr[z ? 1 : 0] = Integer.valueOf(i4);
+                    objArr[z ? 1 : 0] = Integer.valueOf(i3);
                     objArr[1] = th;
                     L.debug(this, "doReport exception. tryTimes=%d exception=%s", objArr);
                 }
                 if (postFileByUrlConn.isSucceed) {
                     Object[] objArr2 = new Object[2];
-                    objArr2[z ? 1 : 0] = Integer.valueOf(i4);
+                    objArr2[z ? 1 : 0] = Integer.valueOf(i3);
                     objArr2[1] = Integer.valueOf(postFileByUrlConn.statusCode);
                     L.debug(this, "doReport succeed.tryTimes:%d,statusCode:%d,", objArr2);
                     z = postFileByUrlConn.isSucceed;
                     break;
                 }
                 Object[] objArr3 = new Object[3];
-                objArr3[z ? 1 : 0] = Integer.valueOf(i4);
+                objArr3[z ? 1 : 0] = Integer.valueOf(i3);
                 objArr3[1] = Integer.valueOf(postFileByUrlConn.statusCode);
                 objArr3[2] = postFileByUrlConn.reason + "";
                 L.warn(this, "doReport failed.tryTimes:%d,statusCode:%d,reason:%s", objArr3);
-                i3 = i4;
+                i2 = i3;
             }
             return z;
         }
@@ -213,9 +213,9 @@ public class CrashController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -247,10 +247,10 @@ public class CrashController {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public JSONObject fillInfo(int i2, String str, String str2, String str3) {
+    public JSONObject fillInfo(int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i2), str, str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{Integer.valueOf(i), str, str2, str3})) == null) {
             JSONObject jSONObject = new JSONObject();
             if (str == null) {
                 try {
@@ -265,7 +265,7 @@ public class CrashController {
             jSONObject.put("lpath", str3);
             jSONObject.put("dpath", str2);
             jSONObject.put("crashid", parseCrashId(str2));
-            jSONObject.put("ctyp", i2);
+            jSONObject.put("ctyp", i);
             jSONObject.put("uid", this.mOnStatisListener.getCurrentUid());
             jSONObject.put("app", this.mStatisAPI.getOption().getAppId());
             jSONObject.put("appkey", this.mStatisAPI.getOption().getAppkey());
@@ -380,9 +380,9 @@ public class CrashController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -392,10 +392,10 @@ public class CrashController {
                 }
 
                 @Override // com.yy.hiidostatis.defs.handler.CrashHandler.OnHandlerListener
-                public void handler(int i2, String str, String str2) {
+                public void handler(int i, String str, String str2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i2, str, str2) == null) {
-                        JSONObject fillInfo = this.this$0.fillInfo(i2, null, str, str2);
+                    if (interceptable2 == null || interceptable2.invokeILL(1048576, this, i, str, str2) == null) {
+                        JSONObject fillInfo = this.this$0.fillInfo(i, null, str, str2);
                         this.this$0.saveInfo(fillInfo);
                         this.this$0.flushCache();
                         if (this.this$0.mOnCrashListener != null) {

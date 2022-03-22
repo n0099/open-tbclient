@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.sina.weibo.sdk.auth.AuthInfo;
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class BaseWebViewRequestData implements Parcelable, Serializable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<BaseWebViewRequestData> CREATOR;
@@ -47,9 +47,9 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -68,10 +68,10 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public BaseWebViewRequestData[] newArray(int i2) {
+            public BaseWebViewRequestData[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new BaseWebViewRequestData[i2] : (BaseWebViewRequestData[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new BaseWebViewRequestData[i] : (BaseWebViewRequestData[]) invokeI.objValue;
             }
         };
     }
@@ -85,9 +85,9 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {authInfo, webRequestType, str, str2, str3};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((AuthInfo) objArr2[0], (WebRequestType) objArr2[1], (String) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -157,10 +157,10 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         }
     }
 
-    public void setCallbackType(int i2) {
+    public void setCallbackType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.callbackType = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.callbackType = i;
         }
     }
 
@@ -186,11 +186,11 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeString(this.url);
-            parcel.writeParcelable(this.authInfo, i2);
+            parcel.writeParcelable(this.authInfo, i);
             WebRequestType webRequestType = this.type;
             parcel.writeInt(webRequestType == null ? -1 : webRequestType.ordinal());
             parcel.writeString(this.callback);
@@ -199,16 +199,16 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         }
     }
 
-    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i2, String str2, String str3) {
+    public BaseWebViewRequestData(AuthInfo authInfo, WebRequestType webRequestType, String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i2), str2, str3};
+            Object[] objArr = {authInfo, webRequestType, str, Integer.valueOf(i), str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -220,7 +220,7 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
         this.type = webRequestType;
         this.specifyTitle = str2;
         this.url = str3;
-        this.callbackType = i2;
+        this.callbackType = i;
     }
 
     public BaseWebViewRequestData(Parcel parcel) {
@@ -230,9 +230,9 @@ public class BaseWebViewRequestData implements Parcelable, Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

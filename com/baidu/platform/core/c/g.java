@@ -1,5 +1,6 @@
 package com.baidu.platform.core.c;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
@@ -32,14 +33,14 @@ public class g extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36390b = "g";
+    public static final String f28207b = "g";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f36391c;
+    public int f28208c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f36392d;
+    public int f28209d;
 
     static {
         InterceptResult invokeClinit;
@@ -56,23 +57,23 @@ public class g extends com.baidu.platform.base.d {
         }
     }
 
-    public g(int i2, int i3) {
+    public g(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36391c = i2;
-        this.f36392d = i3;
+        this.f28208c = i;
+        this.f28209d = i2;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -102,7 +103,8 @@ public class g extends com.baidu.platform.base.d {
                     }
                     poiResult.error = optInt != 1 ? optInt != 2 ? SearchResult.ERRORNO.RESULT_NOT_FOUND : SearchResult.ERRORNO.SEARCH_OPTION_ERROR : SearchResult.ERRORNO.SEARCH_SERVER_INTERNAL_ERROR;
                     return false;
-                } catch (JSONException unused) {
+                } catch (JSONException e2) {
+                    Log.e(f28207b, "Parse poi search failed", e2);
                     poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                 }
             }
@@ -123,14 +125,14 @@ public class g extends com.baidu.platform.base.d {
                     poiResult.setTotalPoiNum(optInt);
                     int length = optJSONArray.length();
                     poiResult.setCurrentPageCapacity(length);
-                    poiResult.setCurrentPageNum(this.f36391c);
+                    poiResult.setCurrentPageNum(this.f28208c);
                     if (length != 0) {
-                        int i2 = this.f36392d;
-                        poiResult.setTotalPageNum((optInt / i2) + (optInt % i2 > 0 ? 1 : 0));
+                        int i = this.f28209d;
+                        poiResult.setTotalPageNum((optInt / i) + (optInt % i > 0 ? 1 : 0));
                     }
                     ArrayList arrayList = new ArrayList();
-                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i3);
+                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                        JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
                         if (jSONObject2 != null && jSONObject2.length() != 0) {
                             PoiInfo poiInfo = new PoiInfo();
                             poiInfo.setName(jSONObject2.optString("name"));
@@ -191,11 +193,12 @@ public class g extends com.baidu.platform.base.d {
                 poiDetailInfo.setShopHours(jSONObject.optString("shop_hours"));
                 poiDetailInfo.naviLocation = a(jSONObject.optJSONObject("navi_location"));
                 SearchType a = a();
-                if (SearchType.f36352b == a || SearchType.a == a) {
+                if (SearchType.f28171b == a || SearchType.a == a) {
                     poiDetailInfo.setPoiChildrenInfoList(b(jSONObject));
                 }
                 return poiDetailInfo;
-            } catch (JSONException unused) {
+            } catch (JSONException e2) {
+                Log.e(f28207b, "Parse poi search detail info failed", e2);
                 return null;
             }
         }
@@ -211,8 +214,8 @@ public class g extends com.baidu.platform.base.d {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null && optJSONObject.length() != 0) {
                     PoiChildrenInfo poiChildrenInfo = new PoiChildrenInfo();
                     poiChildrenInfo.setUid(optJSONObject.optString("uid"));
@@ -248,7 +251,8 @@ public class g extends com.baidu.platform.base.d {
                 try {
                     jSONObject = new JSONObject(str);
                     c2 = 0;
-                } catch (JSONException unused) {
+                } catch (JSONException e2) {
+                    Log.e(f28207b, "Parse poi search error", e2);
                 }
                 if (jSONObject.has("SDK_InnerError")) {
                     JSONObject optJSONObject = jSONObject.optJSONObject("SDK_InnerError");
@@ -286,8 +290,8 @@ public class g extends com.baidu.platform.base.d {
     public void a(SearchResult searchResult, Object obj) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
-            int i2 = h.a[a().ordinal()];
-            if (i2 == 1 || i2 == 2 || i2 == 3) {
+            int i = h.a[a().ordinal()];
+            if (i == 1 || i == 2 || i == 3) {
                 ((OnGetPoiSearchResultListener) obj).onGetPoiResult((PoiResult) searchResult);
             }
         }

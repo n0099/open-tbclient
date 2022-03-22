@@ -6,5 +6,5 @@ import java.nio.ByteBuffer;
 public interface d extends Closeable {
     int a(ByteBuffer byteBuffer);
 
-    void a(long j2);
+    void a(long j);
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.open.utils.l;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static d a;
@@ -19,9 +19,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,26 +65,26 @@ public class d {
         }
     }
 
-    public void a(int i2, String str, String str2, String str3, String str4, Long l, int i3, int i4, String str5) {
+    public void a(int i, String str, String str2, String str3, String str4, Long l, int i2, int i3, String str5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, str3, str4, l, Integer.valueOf(i3), Integer.valueOf(i4), str5}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4, l, Integer.valueOf(i2), Integer.valueOf(i3), str5}) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime() - l.longValue();
             if (l.longValue() == 0 || elapsedRealtime < 0) {
                 elapsedRealtime = 0;
             }
             StringBuffer stringBuffer = new StringBuffer("https://huatuocode.huatuo.qq.com");
             stringBuffer.append("?domain=mobile.opensdk.com&cgi=opensdk&type=");
-            stringBuffer.append(i2);
+            stringBuffer.append(i);
             stringBuffer.append("&code=");
-            stringBuffer.append(i3);
+            stringBuffer.append(i2);
             stringBuffer.append("&time=");
             stringBuffer.append(elapsedRealtime);
             stringBuffer.append("&rate=");
-            stringBuffer.append(i4);
+            stringBuffer.append(i3);
             stringBuffer.append("&uin=");
             stringBuffer.append(str2);
             stringBuffer.append("&data=");
-            g.a().a(stringBuffer.toString(), "GET", l.a(String.valueOf(i2), String.valueOf(i3), String.valueOf(elapsedRealtime), String.valueOf(i4), str, str2, str3, str4, str5), true);
+            g.a().a(stringBuffer.toString(), "GET", l.a(String.valueOf(i), String.valueOf(i2), String.valueOf(elapsedRealtime), String.valueOf(i3), str, str2, str3, str4, str5), true);
         }
     }
 }

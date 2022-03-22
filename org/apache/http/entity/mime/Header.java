@@ -14,7 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Header implements Iterable<MinimalField> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +26,9 @@ public class Header implements Iterable<MinimalField> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,19 +108,19 @@ public class Header implements Iterable<MinimalField> {
         if (list != null && !list.isEmpty()) {
             list.clear();
             list.add(minimalField);
-            int i2 = 0;
+            int i = 0;
             Iterator<MinimalField> it = this.fields.iterator();
-            int i3 = -1;
+            int i2 = -1;
             while (it.hasNext()) {
                 if (it.next().getName().equalsIgnoreCase(minimalField.getName())) {
                     it.remove();
-                    if (i3 == -1) {
-                        i3 = i2;
+                    if (i2 == -1) {
+                        i2 = i;
                     }
                 }
-                i2++;
+                i++;
             }
-            this.fields.add(i3, minimalField);
+            this.fields.add(i2, minimalField);
             return;
         }
         addField(minimalField);

@@ -20,15 +20,15 @@ public interface EventHandler {
 
     void certificate(SslCertificate sslCertificate);
 
-    void data(byte[] bArr, int i2);
+    void data(byte[] bArr, int i);
 
     void endData();
 
-    void error(int i2, String str);
+    void error(int i, String str);
 
     boolean handleSslErrorRequest(SslError sslError);
 
     void headers(Headers headers);
 
-    void status(int i2, int i3, int i4, String str);
+    void status(int i, int i2, int i3, String str);
 }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ActivityPendingTransitionFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean IS_CUSTOM_FROM_THIRD_PARTY = false;
@@ -20,10 +20,10 @@ public class ActivityPendingTransitionFactory {
     public static int RES_CUSTOM_OUT_TO_RIGHT = 0;
     public static int RES_FADE_OUT = 2130772068;
     public static int RES_NFADE_IN = 2130772067;
-    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772125;
-    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772126;
-    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772162;
-    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772164;
+    public static int RES_NORMAL_IN_FROM_BOTTOM = 2130772105;
+    public static int RES_NORMAL_IN_FROM_RIGHT = 2130772106;
+    public static int RES_NORMAL_OUT_TO_BOTTOM = 2130772144;
+    public static int RES_NORMAL_OUT_TO_RIGHT = 2130772146;
     public static final int TYPE_BIG_IMAGE = 2;
     public static final int TYPE_BOTTOM = 4;
     public static final int TYPE_CUSTOM_FROM_THIRD_PARTY = 3;
@@ -51,57 +51,57 @@ public class ActivityPendingTransitionFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void closeAnimation(TbPageContext<?> tbPageContext, int i2) {
+    public static void closeAnimation(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65538, null, tbPageContext, i2) == null) || tbPageContext == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65538, null, tbPageContext, i) == null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
         if (IS_CUSTOM_FROM_THIRD_PARTY) {
-            i2 = 3;
+            i = 3;
         }
-        if (i2 == 0) {
+        if (i == 0) {
             pageActivity.overridePendingTransition(0, 0);
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             pageActivity.overridePendingTransition(RES_NFADE_IN, RES_BIG_IMAGE_OUT_TO_RIGHT);
-        } else if (i2 == 3) {
+        } else if (i == 3) {
             pageActivity.overridePendingTransition(RES_CUSTOM_FADE_IN, RES_CUSTOM_OUT_TO_RIGHT);
-        } else if (i2 != 4) {
+        } else if (i != 4) {
             pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_RIGHT);
         } else {
             pageActivity.overridePendingTransition(RES_NFADE_IN, RES_NORMAL_OUT_TO_BOTTOM);
         }
     }
 
-    public static void enterExitAnimation(TbPageContext<?> tbPageContext, int i2) {
+    public static void enterExitAnimation(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65539, null, tbPageContext, i2) == null) || tbPageContext == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65539, null, tbPageContext, i) == null) || tbPageContext == null) {
             return;
         }
         Activity pageActivity = tbPageContext.getPageActivity();
         if (IS_CUSTOM_FROM_THIRD_PARTY) {
-            i2 = 3;
+            i = 3;
         }
-        if (i2 == 0) {
+        if (i == 0) {
             pageActivity.overridePendingTransition(0, 0);
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             pageActivity.overridePendingTransition(RES_BIG_IMAGE_IN_FROM_RIGHT, RES_FADE_OUT);
-        } else if (i2 == 3) {
+        } else if (i == 3) {
             pageActivity.overridePendingTransition(RES_CUSTOM_IN_FROM_RIGHT, RES_CUSTOM_FADE_OUT);
-        } else if (i2 != 4) {
+        } else if (i != 4) {
             pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_RIGHT, RES_FADE_OUT);
         } else {
             pageActivity.overridePendingTransition(RES_NORMAL_IN_FROM_BOTTOM, RES_FADE_OUT);

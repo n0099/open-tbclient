@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import org.aspectj.lang.reflect.AjType;
 import org.aspectj.lang.reflect.AjTypeSystem;
 import org.aspectj.lang.reflect.InterTypeFieldDeclaration;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl implements InterTypeFieldDeclaration {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,17 +21,17 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
     public AjType<?> type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public InterTypeFieldDeclarationImpl(AjType<?> ajType, String str, int i2, String str2, AjType<?> ajType2, Type type) {
-        super(ajType, str, i2);
+    public InterTypeFieldDeclarationImpl(AjType<?> ajType, String str, int i, String str2, AjType<?> ajType2, Type type) {
+        super(ajType, str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ajType, str, Integer.valueOf(i2), str2, ajType2, type};
+            Object[] objArr = {ajType, str, Integer.valueOf(i), str2, ajType2, type};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AjType) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -91,9 +91,9 @@ public class InterTypeFieldDeclarationImpl extends InterTypeDeclarationImpl impl
             newInitContext.initArgs = r2;
             Object[] objArr = {ajType, ajType2, field};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AjType) objArr2[0], (AjType) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

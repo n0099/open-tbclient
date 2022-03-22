@@ -1,0 +1,17 @@
+package c.a.p0.e0.e;
+
+import android.content.res.Resources;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes2.dex */
+public class b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) (i * Resources.getSystem().getDisplayMetrics().density) : invokeI.intValue;
+    }
+}

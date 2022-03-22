@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
@@ -55,9 +56,9 @@ public final class FragmentManagerViewModel extends ViewModel {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -81,9 +82,9 @@ public final class FragmentManagerViewModel extends ViewModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -121,7 +122,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fragment) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                String str = "Clearing non-config state for " + fragment;
+                Log.d("FragmentManager", "Clearing non-config state for " + fragment);
             }
             FragmentManagerViewModel fragmentManagerViewModel = this.mChildNonConfigs.get(fragment.mWho);
             if (fragmentManagerViewModel != null) {
@@ -240,7 +241,7 @@ public final class FragmentManagerViewModel extends ViewModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             if (FragmentManager.isLoggingEnabled(3)) {
-                String str = "onCleared called for " + this;
+                Log.d("FragmentManager", "onCleared called for " + this);
             }
             this.mHasBeenCleared = true;
         }

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MiPushMessage implements PushMessageHandler.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_ALIAS = "alias";
@@ -55,9 +55,9 @@ public class MiPushMessage implements PushMessageHandler.a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -233,10 +233,10 @@ public class MiPushMessage implements PushMessageHandler.a {
         }
     }
 
-    public void setMessageType(int i2) {
+    public void setMessageType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.messageType = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.messageType = i;
         }
     }
 
@@ -247,24 +247,24 @@ public class MiPushMessage implements PushMessageHandler.a {
         }
     }
 
-    public void setNotifyId(int i2) {
+    public void setNotifyId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.notifyId = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.notifyId = i;
         }
     }
 
-    public void setNotifyType(int i2) {
+    public void setNotifyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.notifyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.notifyType = i;
         }
     }
 
-    public void setPassThrough(int i2) {
+    public void setPassThrough(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.passThrough = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.passThrough = i;
         }
     }
 

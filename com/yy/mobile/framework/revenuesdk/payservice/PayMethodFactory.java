@@ -15,7 +15,7 @@ import com.yy.mobile.framework.revenuesdk.payapi.payservice.H5PayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod;
 import com.yy.mobile.framework.revenuesdk.payapi.payservice.PayMethodProxyFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PayMethodFactory {
     public static final /* synthetic */ PayMethodFactory[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -28,7 +28,7 @@ public final class PayMethodFactory {
     public IPayMethod method;
 
     /* renamed from: com.yy.mobile.framework.revenuesdk.payservice.PayMethodFactory$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$com$yy$mobile$framework$revenuesdk$payapi$PayType;
         public static /* synthetic */ Interceptable $ic;
@@ -105,16 +105,16 @@ public final class PayMethodFactory {
         $VALUES = new PayMethodFactory[]{WECHAT_PAY, ALIPAY_PAY, DXM_PAY, payMethodFactory};
     }
 
-    public PayMethodFactory(String str, int i2, String str2) {
+    public PayMethodFactory(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

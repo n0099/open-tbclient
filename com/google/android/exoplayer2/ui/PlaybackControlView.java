@@ -35,7 +35,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.util.Arrays;
 import java.util.Formatter;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PlaybackControlView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic = null;
     @Deprecated
@@ -89,7 +89,7 @@ public class PlaybackControlView extends FrameLayout {
     public VisibilityListener visibilityListener;
     public final Timeline.Window window;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ComponentListener extends Player.DefaultEventListener implements TimeBar.OnScrubListener, View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -102,9 +102,9 @@ public class PlaybackControlView extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {playbackControlView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -143,45 +143,45 @@ public class PlaybackControlView extends FrameLayout {
         }
 
         @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-        public void onPlayerStateChanged(boolean z, int i2) {
+        public void onPlayerStateChanged(boolean z, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
                 this.this$0.updatePlayPauseButton();
                 this.this$0.updateProgress();
             }
         }
 
         @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-        public void onPositionDiscontinuity(int i2) {
+        public void onPositionDiscontinuity(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 this.this$0.updateNavigation();
                 this.this$0.updateProgress();
             }
         }
 
         @Override // com.google.android.exoplayer2.Player.DefaultEventListener, com.google.android.exoplayer2.Player.EventListener
-        public void onRepeatModeChanged(int i2) {
+        public void onRepeatModeChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
                 this.this$0.updateRepeatModeButton();
                 this.this$0.updateNavigation();
             }
         }
 
         @Override // com.google.android.exoplayer2.ui.TimeBar.OnScrubListener
-        public void onScrubMove(TimeBar timeBar, long j2) {
+        public void onScrubMove(TimeBar timeBar, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLJ(1048580, this, timeBar, j2) == null) || this.this$0.positionView == null) {
+            if (!(interceptable == null || interceptable.invokeLJ(1048580, this, timeBar, j) == null) || this.this$0.positionView == null) {
                 return;
             }
-            this.this$0.positionView.setText(Util.getStringForTime(this.this$0.formatBuilder, this.this$0.formatter, j2));
+            this.this$0.positionView.setText(Util.getStringForTime(this.this$0.formatBuilder, this.this$0.formatter, j));
         }
 
         @Override // com.google.android.exoplayer2.ui.TimeBar.OnScrubListener
-        public void onScrubStart(TimeBar timeBar, long j2) {
+        public void onScrubStart(TimeBar timeBar, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048581, this, timeBar, j2) == null) {
+            if (interceptable == null || interceptable.invokeLJ(1048581, this, timeBar, j) == null) {
                 PlaybackControlView playbackControlView = this.this$0;
                 playbackControlView.removeCallbacks(playbackControlView.hideAction);
                 this.this$0.scrubbing = true;
@@ -189,12 +189,12 @@ public class PlaybackControlView extends FrameLayout {
         }
 
         @Override // com.google.android.exoplayer2.ui.TimeBar.OnScrubListener
-        public void onScrubStop(TimeBar timeBar, long j2, boolean z) {
+        public void onScrubStop(TimeBar timeBar, long j, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{timeBar, Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{timeBar, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
                 this.this$0.scrubbing = false;
                 if (!z && this.this$0.player != null) {
-                    this.this$0.seekToTimeBarPosition(j2);
+                    this.this$0.seekToTimeBarPosition(j);
                 }
                 this.this$0.hideAfterTimeout();
             }
@@ -221,11 +221,11 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     @Deprecated
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface ControlDispatcher extends com.google.android.exoplayer2.ControlDispatcher {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class DefaultControlDispatcher extends com.google.android.exoplayer2.DefaultControlDispatcher implements ControlDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -235,9 +235,9 @@ public class PlaybackControlView extends FrameLayout {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -245,9 +245,9 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface VisibilityListener {
-        void onVisibilityChange(int i2);
+        void onVisibilityChange(int i);
     }
 
     static {
@@ -276,9 +276,9 @@ public class PlaybackControlView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -296,8 +296,8 @@ public class PlaybackControlView extends FrameLayout {
                 return false;
             }
             int windowCount = timeline.getWindowCount();
-            for (int i2 = 0; i2 < windowCount; i2++) {
-                if (timeline.getWindow(i2, window).durationUs == C.TIME_UNSET) {
+            for (int i = 0; i < windowCount; i++) {
+                if (timeline.getWindow(i, window).durationUs == C.TIME_UNSET) {
                     return false;
                 }
             }
@@ -320,10 +320,10 @@ public class PlaybackControlView extends FrameLayout {
         seekTo(currentPosition);
     }
 
-    public static int getRepeatToggleModes(TypedArray typedArray, int i2) {
+    public static int getRepeatToggleModes(TypedArray typedArray, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, typedArray, i2)) == null) ? typedArray.getInt(2, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65571, null, typedArray, i)) == null) ? typedArray.getInt(2, i) : invokeLI.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -333,10 +333,10 @@ public class PlaybackControlView extends FrameLayout {
             removeCallbacks(this.hideAction);
             if (this.showTimeoutMs > 0) {
                 long uptimeMillis = SystemClock.uptimeMillis();
-                int i2 = this.showTimeoutMs;
-                this.hideAtMs = uptimeMillis + i2;
+                int i = this.showTimeoutMs;
+                this.hideAtMs = uptimeMillis + i;
                 if (this.isAttachedToWindow) {
-                    postDelayed(this.hideAction, i2);
+                    postDelayed(this.hideAction, i);
                     return;
                 }
                 return;
@@ -346,10 +346,10 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     @SuppressLint({"InlinedApi"})
-    public static boolean isHandledMediaKey(int i2) {
+    public static boolean isHandledMediaKey(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65573, null, i2)) == null) ? i2 == 90 || i2 == 89 || i2 == 85 || i2 == 126 || i2 == 127 || i2 == 87 || i2 == 88 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65573, null, i)) == null) ? i == 90 || i == 89 || i == 85 || i == 126 || i == 127 || i == 87 || i == 88 : invokeI.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -424,38 +424,38 @@ public class PlaybackControlView extends FrameLayout {
         seekTo(Math.max(this.player.getCurrentPosition() - this.rewindMs, 0L));
     }
 
-    private void seekTo(long j2) {
+    private void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65579, this, j2) == null) {
-            seekTo(this.player.getCurrentWindowIndex(), j2);
+        if (interceptable == null || interceptable.invokeJ(65579, this, j) == null) {
+            seekTo(this.player.getCurrentWindowIndex(), j);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void seekToTimeBarPosition(long j2) {
+    public void seekToTimeBarPosition(long j) {
         int currentWindowIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65580, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(65580, this, j) == null) {
             Timeline currentTimeline = this.player.getCurrentTimeline();
             if (this.multiWindowTimeBar && !currentTimeline.isEmpty()) {
                 int windowCount = currentTimeline.getWindowCount();
                 currentWindowIndex = 0;
                 while (true) {
                     long durationMs = currentTimeline.getWindow(currentWindowIndex, this.window).getDurationMs();
-                    if (j2 < durationMs) {
+                    if (j < durationMs) {
                         break;
                     } else if (currentWindowIndex == windowCount - 1) {
-                        j2 = durationMs;
+                        j = durationMs;
                         break;
                     } else {
-                        j2 -= durationMs;
+                        j -= durationMs;
                         currentWindowIndex++;
                     }
                 }
             } else {
                 currentWindowIndex = this.player.getCurrentWindowIndex();
             }
-            seekTo(currentWindowIndex, j2);
+            seekTo(currentWindowIndex, j);
         }
     }
 
@@ -558,129 +558,129 @@ public class PlaybackControlView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void updateProgress() {
+        long j;
         long j2;
         long j3;
-        long j4;
-        int i2;
+        int i;
         Timeline.Window window;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65585, this) == null) && isVisible() && this.isAttachedToWindow) {
             Player player = this.player;
-            long j5 = 0;
+            long j4 = 0;
             boolean z = true;
             if (player != null) {
                 Timeline currentTimeline = player.getCurrentTimeline();
                 if (currentTimeline.isEmpty()) {
-                    j4 = 0;
-                    i2 = 0;
+                    j3 = 0;
+                    i = 0;
                 } else {
                     int currentWindowIndex = this.player.getCurrentWindowIndex();
-                    int i4 = this.multiWindowTimeBar ? 0 : currentWindowIndex;
+                    int i3 = this.multiWindowTimeBar ? 0 : currentWindowIndex;
                     int windowCount = this.multiWindowTimeBar ? currentTimeline.getWindowCount() - 1 : currentWindowIndex;
-                    long j6 = 0;
-                    j4 = 0;
-                    i2 = 0;
+                    long j5 = 0;
+                    j3 = 0;
+                    i = 0;
                     while (true) {
-                        if (i4 > windowCount) {
+                        if (i3 > windowCount) {
                             break;
                         }
-                        if (i4 == currentWindowIndex) {
-                            j4 = j6;
+                        if (i3 == currentWindowIndex) {
+                            j3 = j5;
                         }
-                        currentTimeline.getWindow(i4, this.window);
+                        currentTimeline.getWindow(i3, this.window);
                         Timeline.Window window2 = this.window;
-                        int i5 = i4;
+                        int i4 = i3;
                         if (window2.durationUs == C.TIME_UNSET) {
                             Assertions.checkState(this.multiWindowTimeBar ^ z);
                             break;
                         }
-                        int i6 = window2.firstPeriodIndex;
+                        int i5 = window2.firstPeriodIndex;
                         while (true) {
                             window = this.window;
-                            if (i6 <= window.lastPeriodIndex) {
-                                currentTimeline.getPeriod(i6, this.period);
+                            if (i5 <= window.lastPeriodIndex) {
+                                currentTimeline.getPeriod(i5, this.period);
                                 int adGroupCount = this.period.getAdGroupCount();
-                                int i7 = 0;
-                                while (i7 < adGroupCount) {
-                                    long adGroupTimeUs = this.period.getAdGroupTimeUs(i7);
+                                int i6 = 0;
+                                while (i6 < adGroupCount) {
+                                    long adGroupTimeUs = this.period.getAdGroupTimeUs(i6);
                                     if (adGroupTimeUs == Long.MIN_VALUE) {
-                                        i3 = currentWindowIndex;
-                                        long j7 = this.period.durationUs;
-                                        if (j7 == C.TIME_UNSET) {
-                                            i7++;
-                                            currentWindowIndex = i3;
+                                        i2 = currentWindowIndex;
+                                        long j6 = this.period.durationUs;
+                                        if (j6 == C.TIME_UNSET) {
+                                            i6++;
+                                            currentWindowIndex = i2;
                                         } else {
-                                            adGroupTimeUs = j7;
+                                            adGroupTimeUs = j6;
                                         }
                                     } else {
-                                        i3 = currentWindowIndex;
+                                        i2 = currentWindowIndex;
                                     }
                                     long positionInWindowUs = adGroupTimeUs + this.period.getPositionInWindowUs();
                                     if (positionInWindowUs >= 0 && positionInWindowUs <= this.window.durationUs) {
                                         long[] jArr = this.adGroupTimesMs;
-                                        if (i2 == jArr.length) {
+                                        if (i == jArr.length) {
                                             int length = jArr.length == 0 ? 1 : jArr.length * 2;
                                             this.adGroupTimesMs = Arrays.copyOf(this.adGroupTimesMs, length);
                                             this.playedAdGroups = Arrays.copyOf(this.playedAdGroups, length);
                                         }
-                                        this.adGroupTimesMs[i2] = C.usToMs(j6 + positionInWindowUs);
-                                        this.playedAdGroups[i2] = this.period.hasPlayedAdGroup(i7);
-                                        i2++;
+                                        this.adGroupTimesMs[i] = C.usToMs(j5 + positionInWindowUs);
+                                        this.playedAdGroups[i] = this.period.hasPlayedAdGroup(i6);
+                                        i++;
                                     }
-                                    i7++;
-                                    currentWindowIndex = i3;
+                                    i6++;
+                                    currentWindowIndex = i2;
                                 }
-                                i6++;
+                                i5++;
                             }
                         }
-                        j6 += window.durationUs;
-                        i4 = i5 + 1;
+                        j5 += window.durationUs;
+                        i3 = i4 + 1;
                         currentWindowIndex = currentWindowIndex;
                         z = true;
                     }
-                    j5 = j6;
+                    j4 = j5;
                 }
-                j5 = C.usToMs(j5);
-                long usToMs = C.usToMs(j4);
+                j4 = C.usToMs(j4);
+                long usToMs = C.usToMs(j3);
                 if (this.player.isPlayingAd()) {
-                    j2 = usToMs + this.player.getContentPosition();
-                    j3 = j2;
+                    j = usToMs + this.player.getContentPosition();
+                    j2 = j;
                 } else {
                     long currentPosition = this.player.getCurrentPosition() + usToMs;
                     long bufferedPosition = usToMs + this.player.getBufferedPosition();
-                    j2 = currentPosition;
-                    j3 = bufferedPosition;
+                    j = currentPosition;
+                    j2 = bufferedPosition;
                 }
                 if (this.timeBar != null) {
                     int length2 = this.extraAdGroupTimesMs.length;
-                    int i8 = i2 + length2;
+                    int i7 = i + length2;
                     long[] jArr2 = this.adGroupTimesMs;
-                    if (i8 > jArr2.length) {
-                        this.adGroupTimesMs = Arrays.copyOf(jArr2, i8);
-                        this.playedAdGroups = Arrays.copyOf(this.playedAdGroups, i8);
+                    if (i7 > jArr2.length) {
+                        this.adGroupTimesMs = Arrays.copyOf(jArr2, i7);
+                        this.playedAdGroups = Arrays.copyOf(this.playedAdGroups, i7);
                     }
-                    System.arraycopy(this.extraAdGroupTimesMs, 0, this.adGroupTimesMs, i2, length2);
-                    System.arraycopy(this.extraPlayedAdGroups, 0, this.playedAdGroups, i2, length2);
-                    this.timeBar.setAdGroupTimesMs(this.adGroupTimesMs, this.playedAdGroups, i8);
+                    System.arraycopy(this.extraAdGroupTimesMs, 0, this.adGroupTimesMs, i, length2);
+                    System.arraycopy(this.extraPlayedAdGroups, 0, this.playedAdGroups, i, length2);
+                    this.timeBar.setAdGroupTimesMs(this.adGroupTimesMs, this.playedAdGroups, i7);
                 }
             } else {
+                j = 0;
                 j2 = 0;
-                j3 = 0;
             }
             TextView textView = this.durationView;
             if (textView != null) {
-                textView.setText(Util.getStringForTime(this.formatBuilder, this.formatter, j5));
+                textView.setText(Util.getStringForTime(this.formatBuilder, this.formatter, j4));
             }
             TextView textView2 = this.positionView;
             if (textView2 != null && !this.scrubbing) {
-                textView2.setText(Util.getStringForTime(this.formatBuilder, this.formatter, j2));
+                textView2.setText(Util.getStringForTime(this.formatBuilder, this.formatter, j));
             }
             TimeBar timeBar = this.timeBar;
             if (timeBar != null) {
-                timeBar.setPosition(j2);
-                this.timeBar.setBufferedPosition(j3);
-                this.timeBar.setDuration(j5);
+                timeBar.setPosition(j);
+                this.timeBar.setBufferedPosition(j2);
+                this.timeBar.setDuration(j4);
             }
             removeCallbacks(this.updateProgressAction);
             Player player2 = this.player;
@@ -688,26 +688,26 @@ public class PlaybackControlView extends FrameLayout {
             if (playbackState == 1 || playbackState == 4) {
                 return;
             }
-            long j8 = 1000;
+            long j7 = 1000;
             if (this.player.getPlayWhenReady() && playbackState == 3) {
                 float f2 = this.player.getPlaybackParameters().speed;
                 if (f2 > 0.1f) {
                     if (f2 <= 5.0f) {
                         long max = 1000 / Math.max(1, Math.round(1.0f / f2));
-                        long j9 = max - (j2 % max);
-                        if (j9 < max / 5) {
-                            j9 += max;
+                        long j8 = max - (j % max);
+                        if (j8 < max / 5) {
+                            j8 += max;
                         }
                         if (f2 != 1.0f) {
-                            j9 = ((float) j9) / f2;
+                            j8 = ((float) j8) / f2;
                         }
-                        j8 = j9;
+                        j7 = j8;
                     } else {
-                        j8 = 200;
+                        j7 = 200;
                     }
                 }
             }
-            postDelayed(this.updateProgressAction, j8);
+            postDelayed(this.updateProgressAction, j7);
         }
     }
 
@@ -853,9 +853,9 @@ public class PlaybackControlView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onAttachedToWindow();
             this.isAttachedToWindow = true;
-            long j2 = this.hideAtMs;
-            if (j2 != C.TIME_UNSET) {
-                long uptimeMillis = j2 - SystemClock.uptimeMillis();
+            long j = this.hideAtMs;
+            if (j != C.TIME_UNSET) {
+                long uptimeMillis = j - SystemClock.uptimeMillis();
                 if (uptimeMillis <= 0) {
                     hide();
                 } else {
@@ -902,10 +902,10 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    public void setFastForwardIncrementMs(int i2) {
+    public void setFastForwardIncrementMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.fastForwardMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.fastForwardMs = i;
             updateNavigation();
         }
     }
@@ -926,28 +926,28 @@ public class PlaybackControlView extends FrameLayout {
         updateAll();
     }
 
-    public void setRepeatToggleModes(int i2) {
+    public void setRepeatToggleModes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.repeatToggleModes = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.repeatToggleModes = i;
             Player player = this.player;
             if (player != null) {
                 int repeatMode = player.getRepeatMode();
-                if (i2 == 0 && repeatMode != 0) {
+                if (i == 0 && repeatMode != 0) {
                     this.controlDispatcher.dispatchSetRepeatMode(this.player, 0);
-                } else if (i2 == 1 && repeatMode == 2) {
+                } else if (i == 1 && repeatMode == 2) {
                     this.controlDispatcher.dispatchSetRepeatMode(this.player, 1);
-                } else if (i2 == 2 && repeatMode == 1) {
+                } else if (i == 2 && repeatMode == 1) {
                     this.controlDispatcher.dispatchSetRepeatMode(this.player, 2);
                 }
             }
         }
     }
 
-    public void setRewindIncrementMs(int i2) {
+    public void setRewindIncrementMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.rewindMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.rewindMs = i;
             updateNavigation();
         }
     }
@@ -968,10 +968,10 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    public void setShowTimeoutMs(int i2) {
+    public void setShowTimeoutMs(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.showTimeoutMs = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.showTimeoutMs = i;
         }
     }
 
@@ -1007,9 +1007,9 @@ public class PlaybackControlView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1019,9 +1019,9 @@ public class PlaybackControlView extends FrameLayout {
         }
     }
 
-    private void seekTo(int i2, long j2) {
+    private void seekTo(int i, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65578, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.controlDispatcher.dispatchSeekTo(this.player, i2, j2)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65578, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || this.controlDispatcher.dispatchSeekTo(this.player, i, j)) {
             return;
         }
         updateProgress();
@@ -1034,17 +1034,17 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public PlaybackControlView(Context context, AttributeSet attributeSet, int i2) {
-        this(context, attributeSet, i2, attributeSet);
+    public PlaybackControlView(Context context, AttributeSet attributeSet, int i) {
+        this(context, attributeSet, i, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), (AttributeSet) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -1055,17 +1055,17 @@ public class PlaybackControlView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PlaybackControlView(Context context, AttributeSet attributeSet, int i2, AttributeSet attributeSet2) {
-        super(context, attributeSet, i2);
+    public PlaybackControlView(Context context, AttributeSet attributeSet, int i, AttributeSet attributeSet2) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), attributeSet2};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), attributeSet2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1085,9 +1085,9 @@ public class PlaybackControlView extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1116,9 +1116,9 @@ public class PlaybackControlView extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1140,14 +1140,14 @@ public class PlaybackControlView extends FrameLayout {
         this.showTimeoutMs = 5000;
         this.repeatToggleModes = 0;
         this.showShuffleButton = false;
-        int i5 = R.layout.exo_playback_control_view;
+        int i4 = R.layout.obfuscated_res_0x7f0d0283;
         if (attributeSet2 != null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.controller_layout_id, R.attr.fastforward_increment, R.attr.repeat_toggle_modes, R.attr.rewind_increment, R.attr.show_shuffle_button, R.attr.show_timeout}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet2, new int[]{R.attr.obfuscated_res_0x7f04017f, R.attr.obfuscated_res_0x7f04020d, R.attr.obfuscated_res_0x7f0404f5, R.attr.obfuscated_res_0x7f0404fa, R.attr.obfuscated_res_0x7f040559, R.attr.obfuscated_res_0x7f04055a}, 0, 0);
             try {
                 this.rewindMs = obtainStyledAttributes.getInt(3, this.rewindMs);
                 this.fastForwardMs = obtainStyledAttributes.getInt(1, this.fastForwardMs);
                 this.showTimeoutMs = obtainStyledAttributes.getInt(5, this.showTimeoutMs);
-                i5 = obtainStyledAttributes.getResourceId(0, R.layout.exo_playback_control_view);
+                i4 = obtainStyledAttributes.getResourceId(0, R.layout.obfuscated_res_0x7f0d0283);
                 this.repeatToggleModes = getRepeatToggleModes(obtainStyledAttributes, this.repeatToggleModes);
                 this.showShuffleButton = obtainStyledAttributes.getBoolean(4, this.showShuffleButton);
             } finally {
@@ -1164,61 +1164,61 @@ public class PlaybackControlView extends FrameLayout {
         this.extraPlayedAdGroups = new boolean[0];
         this.componentListener = new ComponentListener();
         this.controlDispatcher = new com.google.android.exoplayer2.DefaultControlDispatcher();
-        LayoutInflater.from(context).inflate(i5, this);
+        LayoutInflater.from(context).inflate(i4, this);
         setDescendantFocusability(262144);
-        this.durationView = (TextView) findViewById(R.id.exo_duration);
-        this.positionView = (TextView) findViewById(R.id.exo_position);
-        TimeBar timeBar = (TimeBar) findViewById(R.id.exo_progress);
+        this.durationView = (TextView) findViewById(R.id.obfuscated_res_0x7f090920);
+        this.positionView = (TextView) findViewById(R.id.obfuscated_res_0x7f090926);
+        TimeBar timeBar = (TimeBar) findViewById(R.id.obfuscated_res_0x7f090928);
         this.timeBar = timeBar;
         if (timeBar != null) {
             timeBar.addListener(this.componentListener);
         }
-        View findViewById = findViewById(R.id.exo_play);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090925);
         this.playButton = findViewById;
         if (findViewById != null) {
             findViewById.setOnClickListener(this.componentListener);
         }
-        View findViewById2 = findViewById(R.id.exo_pause);
+        View findViewById2 = findViewById(R.id.obfuscated_res_0x7f090924);
         this.pauseButton = findViewById2;
         if (findViewById2 != null) {
             findViewById2.setOnClickListener(this.componentListener);
         }
-        View findViewById3 = findViewById(R.id.exo_prev);
+        View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090927);
         this.previousButton = findViewById3;
         if (findViewById3 != null) {
             findViewById3.setOnClickListener(this.componentListener);
         }
-        View findViewById4 = findViewById(R.id.exo_next);
+        View findViewById4 = findViewById(R.id.obfuscated_res_0x7f090922);
         this.nextButton = findViewById4;
         if (findViewById4 != null) {
             findViewById4.setOnClickListener(this.componentListener);
         }
-        View findViewById5 = findViewById(R.id.exo_rew);
+        View findViewById5 = findViewById(R.id.obfuscated_res_0x7f09092a);
         this.rewindButton = findViewById5;
         if (findViewById5 != null) {
             findViewById5.setOnClickListener(this.componentListener);
         }
-        View findViewById6 = findViewById(R.id.exo_ffwd);
+        View findViewById6 = findViewById(R.id.obfuscated_res_0x7f090921);
         this.fastForwardButton = findViewById6;
         if (findViewById6 != null) {
             findViewById6.setOnClickListener(this.componentListener);
         }
-        ImageView imageView = (ImageView) findViewById(R.id.exo_repeat_toggle);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090929);
         this.repeatToggleButton = imageView;
         if (imageView != null) {
             imageView.setOnClickListener(this.componentListener);
         }
-        View findViewById7 = findViewById(R.id.exo_shuffle);
+        View findViewById7 = findViewById(R.id.obfuscated_res_0x7f09092b);
         this.shuffleButton = findViewById7;
         if (findViewById7 != null) {
             findViewById7.setOnClickListener(this.componentListener);
         }
         Resources resources = context.getResources();
-        this.repeatOffButtonDrawable = resources.getDrawable(R.drawable.exo_controls_repeat_off);
-        this.repeatOneButtonDrawable = resources.getDrawable(R.drawable.exo_controls_repeat_one);
-        this.repeatAllButtonDrawable = resources.getDrawable(R.drawable.exo_controls_repeat_all);
-        this.repeatOffButtonContentDescription = resources.getString(R.string.exo_controls_repeat_off_description);
-        this.repeatOneButtonContentDescription = resources.getString(R.string.exo_controls_repeat_one_description);
-        this.repeatAllButtonContentDescription = resources.getString(R.string.exo_controls_repeat_all_description);
+        this.repeatOffButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e3);
+        this.repeatOneButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e4);
+        this.repeatAllButtonDrawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f0804e2);
+        this.repeatOffButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b5);
+        this.repeatOneButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b6);
+        this.repeatAllButtonContentDescription = resources.getString(R.string.obfuscated_res_0x7f0f05b4);
     }
 }

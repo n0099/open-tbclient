@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static Map<String, String> a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final List<String> f57375b = new ArrayList(a.keySet());
+    public static final List<String> f42200b = new ArrayList(a.keySet());
 
     public static String a(String str) {
         String str2;
@@ -25,20 +25,20 @@ public class a {
                     str2 = str.substring(3, str.length());
                     try {
                         char[] cArr = new char[str2.length() / 2];
+                        int i = 0;
                         int i2 = 0;
-                        int i3 = 0;
-                        while (i2 < str2.length() / 2) {
-                            if (i3 == str3.length()) {
-                                i3 = 0;
+                        while (i < str2.length() / 2) {
+                            if (i2 == str3.length()) {
+                                i2 = 0;
                             }
-                            int i4 = i2 * 2;
-                            cArr[i2] = (char) (((char) Integer.valueOf(str2.substring(i4, i4 + 2), 16).intValue()) ^ str3.charAt(i3));
+                            int i3 = i * 2;
+                            cArr[i] = (char) (((char) Integer.valueOf(str2.substring(i3, i3 + 2), 16).intValue()) ^ str3.charAt(i2));
+                            i++;
                             i2++;
-                            i3++;
                         }
                         return new String(String.valueOf(cArr).getBytes("iso-8859-1"), "UTF-8");
                     } catch (Exception unused) {
-                        c.k.a.a.a.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
+                        c.h.a.a.a.b("PushIdEncryptUtils", "invalid pushId encryption " + str2);
                         return str;
                     }
                 }

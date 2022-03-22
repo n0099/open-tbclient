@@ -1,10 +1,10 @@
 package com.kwad.sdk.core.report;
 
 import java.io.Serializable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class CommercialAction {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKDownloadMsg extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final int FAIL = 2;
         public static final int START = 0;
@@ -17,13 +17,13 @@ public class CommercialAction {
         public String templateId;
         public String versionCode;
 
-        public TKDownloadMsg setDownloadState(int i2) {
-            this.downloadState = i2;
+        public TKDownloadMsg setDownloadState(int i) {
+            this.downloadState = i;
             return this;
         }
 
-        public TKDownloadMsg setDownloadTime(long j2) {
-            this.downloadTime = j2;
+        public TKDownloadMsg setDownloadTime(long j) {
+            this.downloadTime = j;
             return this;
         }
 
@@ -32,8 +32,8 @@ public class CommercialAction {
             return this;
         }
 
-        public TKDownloadMsg setPreload(int i2) {
-            this.preload = i2;
+        public TKDownloadMsg setPreload(int i) {
+            this.preload = i;
             return this;
         }
 
@@ -48,7 +48,7 @@ public class CommercialAction {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class TKPerformMsg extends com.kwad.sdk.core.response.kwai.a implements Serializable {
         public static final int OTHER_FAIL = 3;
         public static final int PAGE_STATUS_FAIL = 2;
@@ -71,18 +71,18 @@ public class CommercialAction {
             return this;
         }
 
-        public TKPerformMsg setRenderState(int i2) {
-            this.renderState = i2;
+        public TKPerformMsg setRenderState(int i) {
+            this.renderState = i;
             return this;
         }
 
-        public TKPerformMsg setRenderTime(long j2) {
-            this.renderTime = j2;
+        public TKPerformMsg setRenderTime(long j) {
+            this.renderTime = j;
             return this;
         }
 
-        public TKPerformMsg setSource(int i2) {
-            this.source = i2;
+        public TKPerformMsg setSource(int i) {
+            this.source = i;
             return this;
         }
 

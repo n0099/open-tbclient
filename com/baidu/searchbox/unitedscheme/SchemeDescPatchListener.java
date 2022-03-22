@@ -3,6 +3,7 @@ package com.baidu.searchbox.unitedscheme;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.util.android.VersionUtils;
@@ -64,9 +65,9 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -117,26 +118,26 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
                 if (str != null || str2 == null) {
                     String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
                     String[] split2 = str2.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    int i2 = 0;
-                    while (i2 < split.length && i2 < split2.length) {
+                    int i = 0;
+                    while (i < split.length && i < split2.length) {
                         try {
-                            int parseInt = Integer.parseInt(split[i2]);
-                            int parseInt2 = Integer.parseInt(split2[i2]);
+                            int parseInt = Integer.parseInt(split[i]);
+                            int parseInt2 = Integer.parseInt(split2[i]);
                             if (parseInt < parseInt2) {
                                 return -1;
                             }
                             if (parseInt > parseInt2) {
                                 return 1;
                             }
-                            i2++;
+                            i++;
                         } catch (NumberFormatException unused) {
                             return str.compareTo(str2);
                         }
                     }
-                    if (split.length > i2) {
+                    if (split.length > i) {
                         return 1;
                     }
-                    return split2.length > i2 ? -1 : 0;
+                    return split2.length > i ? -1 : 0;
                 }
                 return -1;
             }
@@ -164,7 +165,8 @@ public class SchemeDescPatchListener extends JSONObjectCommandListener {
             }
             if (!TextUtils.equals(actionData.version, getLocalVersion(context, str, str2)) && actionData.data != null) {
                 if (DEBUG) {
-                    String str3 = "value.data " + actionData.data;
+                    String str3 = TAG;
+                    Log.d(str3, "value.data " + actionData.data);
                 }
                 if (SavePatchToFile(actionData.data.toString())) {
                     PreferenceManager.getDefaultSharedPreferences(SchemeConfig.getAppContext()).edit().putString(DESC_PATCH_VERSION, actionData.version).apply();

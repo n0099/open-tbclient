@@ -9,7 +9,7 @@ public interface IGlRenderer {
 
     void onPreProcess();
 
-    void onSizeChange(int i2, int i3);
+    void onSizeChange(int i, int i2);
 
     void releaseProgram();
 }

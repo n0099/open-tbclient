@@ -11,14 +11,14 @@ public class c implements com.kwad.sdk.collector.model.d {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<String> f54099b = new ArrayList();
+    public List<String> f39248b = new ArrayList();
 
     public String a() {
         return this.a;
     }
 
     public List<String> b() {
-        return this.f54099b;
+        return this.f39248b;
     }
 
     @Override // com.kwad.sdk.core.b
@@ -30,10 +30,10 @@ public class c implements com.kwad.sdk.collector.model.d {
             this.a = jSONObject.optString("packageName");
             JSONArray optJSONArray = jSONObject.optJSONArray("paths");
             if (optJSONArray != null) {
-                this.f54099b.clear();
+                this.f39248b.clear();
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    this.f54099b.add(optJSONArray.getString(i2));
+                for (int i = 0; i < length; i++) {
+                    this.f39248b.add(optJSONArray.getString(i));
                 }
             }
         } catch (Exception e2) {
@@ -46,7 +46,7 @@ public class c implements com.kwad.sdk.collector.model.d {
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
         t.a(jSONObject, "packageName", this.a);
-        t.a(jSONObject, "paths", this.f54099b);
+        t.a(jSONObject, "paths", this.f39248b);
         return jSONObject;
     }
 }

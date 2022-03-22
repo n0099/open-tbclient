@@ -39,7 +39,7 @@ import java.util.TreeSet;
 import javax.net.ssl.SSLException;
 import javax.security.cert.CertificateException;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AsyncHttpRequest implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -66,7 +66,7 @@ public class AsyncHttpRequest implements Runnable {
     public HashSet<String> redirectUrls;
     public BinaryHttpResponseHandler responseHandler;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class HandlerCdnRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -5562528406378234456L;
@@ -77,9 +77,9 @@ public class AsyncHttpRequest implements Runnable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -87,7 +87,7 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class HandlerRedirectException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -4422626752285372402L;
@@ -102,9 +102,9 @@ public class AsyncHttpRequest implements Runnable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -121,9 +121,9 @@ public class AsyncHttpRequest implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {asyncHttpResponseHandler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -348,9 +348,9 @@ public class AsyncHttpRequest implements Runnable {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
+                                            int i = newInitContext.flag;
+                                            if ((i & 1) != 0) {
+                                                int i2 = i & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -387,11 +387,11 @@ public class AsyncHttpRequest implements Runnable {
                             this.mICommonRequestHandler.restoreRequest();
                             this.mIsWaitingForRetry = true;
                             ICommonRequestHandler iCommonRequestHandler2 = this.mICommonRequestHandler;
-                            int i2 = this.executionCount + 1;
-                            this.executionCount = i2;
-                            int i3 = this.executionMaxCount + 1;
-                            this.executionMaxCount = i3;
-                            z = iCommonRequestHandler2.onRetryRequest(e2, i2, i3);
+                            int i = this.executionCount + 1;
+                            this.executionCount = i;
+                            int i2 = this.executionMaxCount + 1;
+                            this.executionMaxCount = i2;
+                            z = iCommonRequestHandler2.onRetryRequest(e2, i, i2);
                             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
                             if (threadSpeedStat != null) {
                                 threadSpeedStat.drnum++;
@@ -422,9 +422,9 @@ public class AsyncHttpRequest implements Runnable {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this};
                                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                                    int i4 = newInitContext.flag;
-                                                    if ((i4 & 1) != 0) {
-                                                        int i5 = i4 & 2;
+                                                    int i3 = newInitContext.flag;
+                                                    if ((i3 & 1) != 0) {
+                                                        int i4 = i3 & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable2.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -488,11 +488,11 @@ public class AsyncHttpRequest implements Runnable {
                         } else {
                             this.mIsWaitingForRetry = true;
                             ICommonRequestHandler iCommonRequestHandler3 = this.mICommonRequestHandler;
-                            int i4 = this.executionCount + 1;
-                            this.executionCount = i4;
-                            int i5 = this.executionMaxCount + 1;
-                            this.executionMaxCount = i5;
-                            z = iCommonRequestHandler3.onRetryRequest(iOException, i4, i5);
+                            int i3 = this.executionCount + 1;
+                            this.executionCount = i3;
+                            int i4 = this.executionMaxCount + 1;
+                            this.executionMaxCount = i4;
+                            z = iCommonRequestHandler3.onRetryRequest(iOException, i3, i4);
                             ThreadSpeedStat threadSpeedStat2 = this.mThreadSpeedStat;
                             if (threadSpeedStat2 != null) {
                                 threadSpeedStat2.drnum++;
@@ -518,15 +518,15 @@ public class AsyncHttpRequest implements Runnable {
     private boolean processRange(boolean z) {
         InterceptResult invokeZ;
         AbstractTask abstractTask;
-        int i2;
+        int i;
         String onGetRequestHeader;
         String str;
         String str2;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65545, this, z)) == null) {
             BinaryHttpResponseHandler binaryHttpResponseHandler = this.responseHandler;
-            if (!(binaryHttpResponseHandler instanceof BinaryHttpResponseHandler) || (i2 = (abstractTask = binaryHttpResponseHandler.mtask).mStatus) == 1004 || i2 == 1006 || (onGetRequestHeader = this.mICommonRequestHandler.onGetRequestHeader("Range")) == null) {
+            if (!(binaryHttpResponseHandler instanceof BinaryHttpResponseHandler) || (i = (abstractTask = binaryHttpResponseHandler.mtask).mStatus) == 1004 || i == 1006 || (onGetRequestHeader = this.mICommonRequestHandler.onGetRequestHeader("Range")) == null) {
                 return false;
             }
             String[] split = onGetRequestHeader.trim().split("[=-]");
@@ -542,35 +542,35 @@ public class AsyncHttpRequest implements Runnable {
                 str = split[1].trim();
                 str2 = "";
             }
-            long j3 = 0;
+            long j2 = 0;
             try {
-                j3 = Long.valueOf(str).longValue();
+                j2 = Long.valueOf(str).longValue();
                 Long.valueOf(str2).longValue();
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
             }
             if (z) {
-                j2 = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
             } else {
-                j2 = this.curPos;
-                if (j2 <= j3) {
-                    j2 = j3;
+                j = this.curPos;
+                if (j <= j2) {
+                    j = j2;
                 }
             }
-            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j3);
-            int i3 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
-            if (i3 == 0) {
-                j2 = abstractTask.mProgressInfo.getSegCurrentByPos(j3);
+            long segEndByPos = abstractTask.mProgressInfo.getSegEndByPos(j2);
+            int i2 = (segEndByPos > Long.MAX_VALUE ? 1 : (segEndByPos == Long.MAX_VALUE ? 0 : -1));
+            if (i2 == 0) {
+                j = abstractTask.mProgressInfo.getSegCurrentByPos(j2);
             } else {
                 str3 = str2;
             }
-            if (j2 < segEndByPos) {
-                if (i3 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
-                    long j4 = 307200 + j2;
-                    str3 = String.valueOf(j4 - 1 < segEndByPos ? j4 - 2 : segEndByPos - 1);
+            if (j < segEndByPos) {
+                if (i2 != 0 && TaskFacade.getInstance(null).getBinaryTaskMng().getHttpClient().isWap()) {
+                    long j3 = 307200 + j;
+                    str3 = String.valueOf(j3 - 1 < segEndByPos ? j3 - 2 : segEndByPos - 1);
                 }
                 ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
-                iCommonRequestHandler.onSetRequestHeader("Range", "bytes=" + j2 + "-" + str3);
+                iCommonRequestHandler.onSetRequestHeader("Range", "bytes=" + j + "-" + str3);
                 return true;
             }
             return false;
@@ -587,9 +587,9 @@ public class AsyncHttpRequest implements Runnable {
             }
             ICommonRequestHandler iCommonRequestHandler = this.mICommonRequestHandler;
             List<RetryRequestInfo> retryRequestInfoList = this.mHttpRetryStrategyHandler.getRetryRequestInfoList();
-            int i2 = this.mRetryFrequency;
-            this.mRetryFrequency = i2 + 1;
-            iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i2));
+            int i = this.mRetryFrequency;
+            this.mRetryFrequency = i + 1;
+            iCommonRequestHandler.replaceRequest(retryRequestInfoList.get(i));
             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
             if (threadSpeedStat != null) {
                 threadSpeedStat.drnum++;
@@ -650,17 +650,17 @@ public class AsyncHttpRequest implements Runnable {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Process.setThreadPriority(10);
             this.mCurrentThread = Thread.currentThread();
-            int i2 = TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mTrafficStatsTag;
+            int i = TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mTrafficStatsTag;
             try {
-                if (i2 != 0) {
+                if (i != 0) {
                     try {
                         try {
-                            TrafficStatsUtils.setThreadStatsTag(i2);
+                            TrafficStatsUtils.setThreadStatsTag(i);
                         } catch (HandlerCdnRedirectException unused) {
                             if (isMultiSrcStageBeforeOrExe()) {
                                 ((MultiSrcBinaryTaskHandler) this.responseHandler).multiSrcToNormal();
                             }
-                            if (i2 == 0) {
+                            if (i == 0) {
                                 return;
                             }
                         }
@@ -677,7 +677,7 @@ public class AsyncHttpRequest implements Runnable {
                                 this.responseHandler.sendFailureMessage(e2, null);
                             }
                         }
-                        if (i2 == 0) {
+                        if (i == 0) {
                             return;
                         }
                     }
@@ -697,12 +697,12 @@ public class AsyncHttpRequest implements Runnable {
                     }
                     this.mThreadSpeedStat.downEndTime = SystemClock.elapsedRealtime();
                 }
-                if (i2 == 0) {
+                if (i == 0) {
                     return;
                 }
                 TrafficStatsUtils.clearThreadStatsTag();
             } catch (Throwable th) {
-                if (i2 != 0) {
+                if (i != 0) {
                     TrafficStatsUtils.clearThreadStatsTag();
                 }
                 throw th;
@@ -710,12 +710,12 @@ public class AsyncHttpRequest implements Runnable {
         }
     }
 
-    public void setDownStartPos(long j2) {
+    public void setDownStartPos(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             ThreadSpeedStat threadSpeedStat = this.mThreadSpeedStat;
             if (threadSpeedStat.dstart == -1) {
-                threadSpeedStat.dstart = j2;
+                threadSpeedStat.dstart = j;
             }
         }
     }
@@ -729,9 +729,9 @@ public class AsyncHttpRequest implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {iCommonRequestHandler, asyncHttpResponseHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((AsyncHttpResponseHandler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

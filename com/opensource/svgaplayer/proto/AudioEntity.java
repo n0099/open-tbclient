@@ -1,8 +1,8 @@
 package com.opensource.svgaplayer.proto;
 
-import c.n.a.c;
-import c.n.a.d;
-import c.n.a.h.a;
+import c.k.a.c;
+import c.k.a.d;
+import c.k.a.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,8 +17,7 @@ import com.squareup.wire2.ProtoAdapter;
 import com.squareup.wire2.WireField;
 import java.io.IOException;
 import okio.ByteString;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ProtoAdapter<AudioEntity> ADAPTER;
@@ -40,7 +39,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#INT32", tag = 5)
     public final Integer totalTime;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<AudioEntity, Builder> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +54,9 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -124,7 +123,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -136,9 +135,9 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr = newInitContext.callArgs;
                     super((FieldEncoding) objArr[0], (Class) objArr[1]);
                     newInitContext.thisArg = this;
@@ -273,9 +272,9 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, num, num2, num3, num4};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Integer) objArr2[1], (Integer) objArr2[2], (Integer) objArr2[3], (Integer) objArr2[4], (ByteString) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -305,8 +304,8 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i2 = this.hashCode;
-            if (i2 == 0) {
+            int i = this.hashCode;
+            if (i == 0) {
                 int hashCode = unknownFields().hashCode() * 37;
                 String str = this.audioKey;
                 int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 37;
@@ -321,7 +320,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
                 this.hashCode = hashCode6;
                 return hashCode6;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -353,7 +352,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
                 sb.append(this.totalTime);
             }
             StringBuilder replace = sb.replace(0, 2, "AudioEntity{");
-            replace.append(ExtendedMessageFormat.END_FE);
+            replace.append('}');
             return replace.toString();
         }
         return (String) invokeV.objValue;
@@ -368,9 +367,9 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, num, num2, num3, num4, byteString};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((ProtoAdapter) objArr2[0], (ByteString) objArr2[1]);
                 newInitContext.thisArg = this;

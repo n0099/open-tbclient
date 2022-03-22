@@ -126,9 +126,9 @@ public final class WebViewFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -137,23 +137,23 @@ public final class WebViewFactory {
 
     public static void checkNativeLibraryIntegrity() throws Throwable {
         c.a aVar;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65543, null) == null) && Build.VERSION.SDK_INT == 19) {
             if (c.a(mContext).a.a()) {
-                String str = aVar.f51393d + "libzeuswebviewchromium.so";
+                String str = aVar.f37850d + "libzeuswebviewchromium.so";
                 try {
-                    j2 = new File(str).length();
+                    j = new File(str).length();
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    j2 = 0;
+                    j = 0;
                 }
-                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
+                Log.i(TAG, "checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
                 String GetCloudSettingsValue = WebSettingsGlobalBlink.GetCloudSettingsValue("enable_sosize_check");
                 if (GetCloudSettingsValue == null || !GetCloudSettingsValue.toLowerCase().equals("false")) {
-                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j2 || j2 == 0) {
+                    if (GlobalConstants.FILE_SIZE_LIB_ZEUS_WEBVIEW_CHROMIUM != j || j == 0) {
                         mProvider = null;
-                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j2);
+                        throw new Exception("checkNativeLibraryIntegrity: " + str + ", 27057988, " + j);
                     }
                 }
             }
@@ -172,8 +172,8 @@ public final class WebViewFactory {
                 if (isVersionMatched(str, zeusNativeLibraryVersion, true) && isVersionMatched(str, zeusJarVersion, true) && isVersionMatched(sdkVersionCode, str, false)) {
                     return;
                 }
-                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f51393d);
-                LoadErrorCode.getInstance().trace(522);
+                SevenZipUtils.getInstance().clearTimestamp(c.a(mContext).a.f37850d);
+                LoadErrorCode.getInstance().trace(LoadErrorCode.MSG_SDK_LIB_DISMATCH);
                 throw new Exception("sdk and native library dismatch " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusJarVersion + StringUtil.ARRAY_ELEMENT_SEPARATOR + zeusNativeLibraryVersion);
             } catch (Exception e2) {
                 e2.printStackTrace();
@@ -289,11 +289,11 @@ public final class WebViewFactory {
             return;
         }
         mPackageInfo = null;
-        int i2 = Build.VERSION.SDK_INT;
-        if (i2 > 20) {
+        int i = Build.VERSION.SDK_INT;
+        if (i > 20) {
             if (mPackageInfo == null) {
                 try {
-                    if (i2 > 23) {
+                    if (i > 23) {
                         Method declaredMethod = Class.forName("android.webkit.WebViewFactory").getDeclaredMethod("getWebViewContextAndSetProvider", null);
                         boolean isAccessible = declaredMethod.isAccessible();
                         declaredMethod.setAccessible(true);
@@ -487,10 +487,10 @@ public final class WebViewFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) ? mPMSObject : (IPMSDownloadInterface) invokeV.objValue;
     }
 
-    public static void getPackageInfoAsync(Context context, int i2) {
+    public static void getPackageInfoAsync(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65563, null, context, i2) == null) {
-            ZeusThreadPoolUtil.execute(new Runnable(context, i2) { // from class: com.baidu.webkit.sdk.WebViewFactory.1
+        if (interceptable == null || interceptable.invokeLI(65563, null, context, i) == null) {
+            ZeusThreadPoolUtil.execute(new Runnable(context, i) { // from class: com.baidu.webkit.sdk.WebViewFactory.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Context val$context;
@@ -501,18 +501,18 @@ public final class WebViewFactory {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {context, Integer.valueOf(i2)};
+                        Object[] objArr = {context, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.val$context = context;
-                    this.val$type = i2;
+                    this.val$type = i;
                 }
 
                 /* JADX WARN: Removed duplicated region for block: B:27:0x007e A[Catch: Exception -> 0x0082, all -> 0x0088, TRY_LEAVE, TryCatch #1 {Exception -> 0x0082, blocks: (B:15:0x0018, B:27:0x007e, B:22:0x0025, B:23:0x0041, B:24:0x0044, B:25:0x0055), top: B:40:0x0018, outer: #0 }] */
@@ -521,7 +521,7 @@ public final class WebViewFactory {
                     Code decompiled incorrectly, please refer to instructions dump.
                 */
                 public void run() {
-                    int i3;
+                    int i2;
                     ApplicationInfo applicationInfo;
                     String str;
                     Interceptable interceptable2 = $ic;
@@ -535,14 +535,14 @@ public final class WebViewFactory {
                             }
                             PackageInfo packageInfo = null;
                             try {
-                                i3 = this.val$type;
+                                i2 = this.val$type;
                             } catch (Exception e2) {
                                 e2.printStackTrace();
                             }
-                            if (i3 != 1) {
-                                if (i3 == 2) {
+                            if (i2 != 1) {
+                                if (i2 == 2) {
                                     packageInfo = this.val$context.getPackageManager().getPackageInfo(this.val$context.getPackageName(), 0);
-                                } else if (i3 == 3) {
+                                } else if (i2 == 3) {
                                     packageInfo = this.val$context.getPackageManager().getPackageArchiveInfo(WebViewFactory.sZeusSourceDir, 0);
                                     packageInfo.applicationInfo.sourceDir = WebViewFactory.sZeusSourceDir;
                                     applicationInfo = packageInfo.applicationInfo;
@@ -605,7 +605,7 @@ public final class WebViewFactory {
                             applicationInfo.nativeLibraryDir = str;
                         }
                         applicationInfo = packageInfo.applicationInfo;
-                        str = aVar.f51393d + ":" + applicationInfo2.nativeLibraryDir;
+                        str = aVar.f37850d + ":" + applicationInfo2.nativeLibraryDir;
                         applicationInfo.nativeLibraryDir = str;
                     } catch (Throwable th2) {
                         th = th2;
@@ -637,16 +637,16 @@ public final class WebViewFactory {
         return (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) ? getProcessName(mContext, Process.myPid()) : (String) invokeV.objValue;
     }
 
-    public static String getProcessName(Context context, int i2) {
+    public static String getProcessName(Context context, int i) {
         InterceptResult invokeLI;
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65566, null, context, i)) == null) {
             if (context == null || (runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) == null) {
                 return null;
             }
             for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
-                if (runningAppProcessInfo.pid == i2) {
+                if (runningAppProcessInfo.pid == i) {
                     return runningAppProcessInfo.processName;
                 }
             }
@@ -663,7 +663,7 @@ public final class WebViewFactory {
                 return sProcessSuffix;
             }
             String processName = getProcessName(context, Process.myPid());
-            String str = "context=" + context + ", processName=" + processName;
+            android.util.Log.d(TAG, "context=" + context + ", processName=" + processName);
             if (processName == null) {
                 return null;
             }
@@ -721,16 +721,16 @@ public final class WebViewFactory {
         return (WebViewFactoryProvider) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:105:0x0227  */
-    /* JADX WARN: Removed duplicated region for block: B:110:0x023c  */
-    /* JADX WARN: Removed duplicated region for block: B:131:0x0287 A[Catch: all -> 0x0347, TryCatch #1 {all -> 0x0347, blocks: (B:129:0x0281, B:131:0x0287, B:133:0x02a0, B:135:0x02bb, B:137:0x02ca, B:138:0x02d3, B:140:0x02d9, B:142:0x02df, B:145:0x02e6, B:146:0x02f7, B:147:0x02f8, B:149:0x0313, B:151:0x0319, B:134:0x02a5, B:152:0x0327, B:153:0x0346), top: B:208:0x0281 }] */
-    /* JADX WARN: Removed duplicated region for block: B:152:0x0327 A[Catch: all -> 0x0347, TryCatch #1 {all -> 0x0347, blocks: (B:129:0x0281, B:131:0x0287, B:133:0x02a0, B:135:0x02bb, B:137:0x02ca, B:138:0x02d3, B:140:0x02d9, B:142:0x02df, B:145:0x02e6, B:146:0x02f7, B:147:0x02f8, B:149:0x0313, B:151:0x0319, B:134:0x02a5, B:152:0x0327, B:153:0x0346), top: B:208:0x0281 }] */
-    /* JADX WARN: Removed duplicated region for block: B:158:0x0360  */
-    /* JADX WARN: Removed duplicated region for block: B:188:0x03d5  */
-    /* JADX WARN: Removed duplicated region for block: B:193:0x0402  */
-    /* JADX WARN: Removed duplicated region for block: B:196:0x0413  */
-    /* JADX WARN: Removed duplicated region for block: B:199:0x0442  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01ba  */
+    /* JADX WARN: Removed duplicated region for block: B:104:0x0232  */
+    /* JADX WARN: Removed duplicated region for block: B:109:0x0247  */
+    /* JADX WARN: Removed duplicated region for block: B:130:0x0292 A[Catch: all -> 0x0352, TryCatch #1 {all -> 0x0352, blocks: (B:128:0x028c, B:130:0x0292, B:132:0x02ab, B:134:0x02c6, B:136:0x02d5, B:137:0x02de, B:139:0x02e4, B:141:0x02ea, B:144:0x02f1, B:145:0x0302, B:146:0x0303, B:148:0x031e, B:150:0x0324, B:133:0x02b0, B:151:0x0332, B:152:0x0351), top: B:207:0x028c }] */
+    /* JADX WARN: Removed duplicated region for block: B:151:0x0332 A[Catch: all -> 0x0352, TryCatch #1 {all -> 0x0352, blocks: (B:128:0x028c, B:130:0x0292, B:132:0x02ab, B:134:0x02c6, B:136:0x02d5, B:137:0x02de, B:139:0x02e4, B:141:0x02ea, B:144:0x02f1, B:145:0x0302, B:146:0x0303, B:148:0x031e, B:150:0x0324, B:133:0x02b0, B:151:0x0332, B:152:0x0351), top: B:207:0x028c }] */
+    /* JADX WARN: Removed duplicated region for block: B:157:0x036b  */
+    /* JADX WARN: Removed duplicated region for block: B:187:0x03e0  */
+    /* JADX WARN: Removed duplicated region for block: B:192:0x040d  */
+    /* JADX WARN: Removed duplicated region for block: B:195:0x041e  */
+    /* JADX WARN: Removed duplicated region for block: B:198:0x044d  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x01c5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -745,11 +745,10 @@ public final class WebViewFactory {
         String str;
         boolean z5;
         boolean z6;
-        int i2;
+        int i;
         WebViewFactoryProvider webViewFactoryProvider2;
         WebViewFactoryProvider webViewFactoryProvider3;
         ClassLoader zeusClassLoader;
-        StringBuilder sb;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
             if (!sUsingSystemWebView) {
@@ -762,14 +761,11 @@ public final class WebViewFactory {
             if (getDataDirectorySuffix() == null) {
                 String processSuffix = getProcessSuffix(mContext);
                 if (processSuffix == null) {
-                    sb = new StringBuilder("process suffix is null, context=");
-                    sb.append(mContext);
+                    android.util.Log.w(TAG, "process suffix is null, context=" + mContext);
                 } else {
                     setDataDirectorySuffix(processSuffix);
-                    sb = new StringBuilder("set default suffix: ");
-                    sb.append(getDataDirectorySuffix());
+                    android.util.Log.i(TAG, "set default suffix: " + getDataDirectorySuffix());
                 }
-                sb.toString();
             }
             boolean isZeusOptimizedPackageInfoEnabled = ABTestSDK.isZeusOptimizedPackageInfoEnabled();
             sOptimizedPackageInfoEnabled = isZeusOptimizedPackageInfoEnabled;
@@ -863,7 +859,7 @@ public final class WebViewFactory {
                                 if (!z6) {
                                 }
                                 if (mEngineType.get() == 1) {
-                                    getPackageInfoAsync(mContext, i2);
+                                    getPackageInfoAsync(mContext, i);
                                 }
                                 Log.i(TAG, "**** getProvider end, sys = " + shouldUseSystemWebView + "  mProvider = " + mProvider);
                                 if (!isRendererProcess()) {
@@ -916,8 +912,8 @@ public final class WebViewFactory {
                 } else if (mIsInstallUpdate) {
                     EngineManager.getInstance().setNeedKillProcess(false);
                 }
-                if (mEngineType.get() == 1 && (i2 = sPackageInfoType) > 0 && i2 <= 3) {
-                    getPackageInfoAsync(mContext, i2);
+                if (mEngineType.get() == 1 && (i = sPackageInfoType) > 0 && i <= 3) {
+                    getPackageInfoAsync(mContext, i);
                 }
             } else {
                 if (mPackageInfo == null && !shouldUseSystemWebView) {
@@ -974,35 +970,35 @@ public final class WebViewFactory {
                             }
                             if (LoadErrorCode.getInstance().getInt() == 0) {
                                 LoadErrorCode loadErrorCode = LoadErrorCode.getInstance();
-                                StringBuilder sb2 = new StringBuilder("6:");
-                                sb2.append(shouldUseSystemWebView);
-                                sb2.append(",");
+                                StringBuilder sb = new StringBuilder("6:");
+                                sb.append(shouldUseSystemWebView);
+                                sb.append(",");
                                 if (mPackageInfo == null) {
                                     z2 = false;
                                 }
-                                sb2.append(z2);
-                                loadErrorCode.set(6, sb2.toString());
+                                sb.append(z2);
+                                loadErrorCode.set(6, sb.toString());
                             }
                             fetchSystemPackageInfo();
                             try {
                                 webViewFactoryProvider = null;
-                                try {
-                                    WebViewFactoryProvider webViewFactoryProvider5 = (WebViewFactoryProvider) Class.forName(SYSTEM_WEBVIEW_FACTORY).getMethod("getInstance", null).invoke(null, null);
-                                    mProvider = webViewFactoryProvider5;
-                                    if (webViewFactoryProvider5 != null) {
-                                        mEngineType.set(0);
-                                    }
-                                } catch (Exception e4) {
-                                    e = e4;
-                                    mProvider = webViewFactoryProvider;
-                                    if (!isRendererProcess()) {
-                                        LoadErrorCode.Statistics.record();
-                                    }
-                                    throw new AndroidRuntimeException(e);
+                            } catch (Exception e4) {
+                                e = e4;
+                                webViewFactoryProvider = null;
+                            }
+                            try {
+                                WebViewFactoryProvider webViewFactoryProvider5 = (WebViewFactoryProvider) Class.forName(SYSTEM_WEBVIEW_FACTORY).getMethod("getInstance", null).invoke(null, null);
+                                mProvider = webViewFactoryProvider5;
+                                if (webViewFactoryProvider5 != null) {
+                                    mEngineType.set(0);
                                 }
                             } catch (Exception e5) {
                                 e = e5;
-                                webViewFactoryProvider = null;
+                                mProvider = webViewFactoryProvider;
+                                if (!isRendererProcess()) {
+                                    LoadErrorCode.Statistics.record();
+                                }
+                                throw new AndroidRuntimeException(e);
                             }
                         } else if (mIsInstallUpdate) {
                             EngineManager.getInstance().setNeedKillProcess(false);
@@ -1239,9 +1235,9 @@ public final class WebViewFactory {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                 }
@@ -1311,9 +1307,9 @@ public final class WebViewFactory {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                     }
@@ -1321,9 +1317,9 @@ public final class WebViewFactory {
                             }
 
                             @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                            public void onInstallFinish(int i2, String str2) {
+                            public void onInstallFinish(int i, String str2) {
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str2) == null) {
+                                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str2) == null) {
                                 }
                             }
 
@@ -1481,7 +1477,7 @@ public final class WebViewFactory {
                         sPackageInfoType = 1;
                         z = true;
                     }
-                    str = aVar.f51393d + ":" + applicationInfo.nativeLibraryDir;
+                    str = aVar.f37850d + ":" + applicationInfo.nativeLibraryDir;
                     sZeusNativeLibraryDir = str;
                     sPackageInfoType = 1;
                     z = true;
@@ -1806,9 +1802,9 @@ public final class WebViewFactory {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }

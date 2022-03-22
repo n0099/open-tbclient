@@ -72,9 +72,9 @@ public class f {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -82,9 +82,9 @@ public class f {
     }
 
     public static void a(List<LivenessTypeEnum> list, List<Integer> list2) {
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, list, list2) == null) {
             if (list == null) {
@@ -99,8 +99,8 @@ public class f {
                 Integer num = list2.get(size);
                 if (num != null) {
                     if ((num.intValue() == HeadPose.EYES_BLINK.value || num.intValue() == HeadPose.DOWN.value || num.intValue() == HeadPose.UP.value || num.intValue() == HeadPose.TURN_LEFT.value || num.intValue() == HeadPose.TURN_RIGHT.value || num.intValue() == HeadPose.MOUTH_OPEN.value) ? true : true) {
-                        int i5 = size - 1;
-                        if (list2.get(i5) != null && num.equals(list2.get(i5))) {
+                        int i4 = size - 1;
+                        if (list2.get(i4) != null && num.equals(list2.get(i4))) {
                             list2.remove(num);
                         }
                     }
@@ -111,18 +111,18 @@ public class f {
             Boolean[] boolArr = new Boolean[size2];
             int size3 = list2.size();
             LivenessTypeEnum[] livenessTypeEnumArr = new LivenessTypeEnum[size3];
-            for (int i6 = 0; i6 < list2.size(); i6++) {
-                Integer num2 = list2.get(i6);
+            for (int i5 = 0; i5 < list2.size(); i5++) {
+                Integer num2 = list2.get(i5);
                 if (num2 != null) {
-                    boolArr[i6] = Boolean.valueOf(num2.intValue() == HeadPose.EYES_BLINK.value || num2.intValue() == HeadPose.DOWN.value || num2.intValue() == HeadPose.UP.value || num2.intValue() == HeadPose.TURN_LEFT.value || num2.intValue() == HeadPose.TURN_RIGHT.value || num2.intValue() == HeadPose.MOUTH_OPEN.value);
-                    if (boolArr[i6].booleanValue()) {
-                        livenessTypeEnumArr[i6] = a(HeadPose.getHeadPoseByValues(num2));
+                    boolArr[i5] = Boolean.valueOf(num2.intValue() == HeadPose.EYES_BLINK.value || num2.intValue() == HeadPose.DOWN.value || num2.intValue() == HeadPose.UP.value || num2.intValue() == HeadPose.TURN_LEFT.value || num2.intValue() == HeadPose.TURN_RIGHT.value || num2.intValue() == HeadPose.MOUTH_OPEN.value);
+                    if (boolArr[i5].booleanValue()) {
+                        livenessTypeEnumArr[i5] = a(HeadPose.getHeadPoseByValues(num2));
                     }
                 }
             }
-            for (int i7 = 0; i7 < size2; i7++) {
-                if (!boolArr[i7].booleanValue()) {
-                    Integer num3 = list2.get(i7);
+            for (int i6 = 0; i6 < size2; i6++) {
+                if (!boolArr[i6].booleanValue()) {
+                    Integer num3 = list2.get(i6);
                     ArrayList arrayList = new ArrayList();
                     a(arrayList, num3, HeadPose.EYES_BLINK);
                     a(arrayList, num3, HeadPose.DOWN);
@@ -132,29 +132,29 @@ public class f {
                     a(arrayList, num3, HeadPose.MOUTH_OPEN);
                     if (!arrayList.isEmpty()) {
                         if (a(list2)) {
-                            for (int i8 = 0; i8 < size3; i8++) {
-                                arrayList.remove(livenessTypeEnumArr[i8]);
+                            for (int i7 = 0; i7 < size3; i7++) {
+                                arrayList.remove(livenessTypeEnumArr[i7]);
                             }
-                        } else if (i7 != 0 || (i4 = i7 + 1) >= size2) {
-                            if (i7 != size2 - 1 || i7 - 1 <= 0) {
-                                int i9 = i7 + 1;
-                                if (i9 < size2 && i7 - 1 > 0) {
-                                    if (boolArr[i9].booleanValue()) {
-                                        arrayList.remove(livenessTypeEnumArr[i9]);
+                        } else if (i6 != 0 || (i3 = i6 + 1) >= size2) {
+                            if (i6 != size2 - 1 || i6 - 1 <= 0) {
+                                int i8 = i6 + 1;
+                                if (i8 < size2 && i6 - 1 > 0) {
+                                    if (boolArr[i8].booleanValue()) {
+                                        arrayList.remove(livenessTypeEnumArr[i8]);
                                     }
-                                    if (boolArr[i2].booleanValue()) {
-                                        arrayList.remove(livenessTypeEnumArr[i2]);
+                                    if (boolArr[i].booleanValue()) {
+                                        arrayList.remove(livenessTypeEnumArr[i]);
                                     }
                                 }
-                            } else if (boolArr[i3].booleanValue()) {
-                                arrayList.remove(livenessTypeEnumArr[i3]);
+                            } else if (boolArr[i2].booleanValue()) {
+                                arrayList.remove(livenessTypeEnumArr[i2]);
                             }
-                        } else if (boolArr[i4].booleanValue()) {
-                            arrayList.remove(livenessTypeEnumArr[i4]);
+                        } else if (boolArr[i3].booleanValue()) {
+                            arrayList.remove(livenessTypeEnumArr[i3]);
                         }
                         if (!arrayList.isEmpty()) {
-                            livenessTypeEnumArr[i7] = (LivenessTypeEnum) arrayList.get(new Random().nextInt(arrayList.size()));
-                            boolArr[i7] = Boolean.TRUE;
+                            livenessTypeEnumArr[i6] = (LivenessTypeEnum) arrayList.get(new Random().nextInt(arrayList.size()));
+                            boolArr[i6] = Boolean.TRUE;
                         }
                     }
                 }
@@ -187,16 +187,16 @@ public class f {
                 list.clear();
             }
             for (HeadPose headPose : list2) {
-                int i2 = a.a[headPose.ordinal()];
-                if (i2 == 1) {
+                int i = a.a[headPose.ordinal()];
+                if (i == 1) {
                     list.add(LivenessTypeEnum.HeadUp);
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     list.add(LivenessTypeEnum.HeadDown);
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     list.add(LivenessTypeEnum.Mouth);
-                } else if (i2 == 4) {
+                } else if (i == 4) {
                     list.add(LivenessTypeEnum.HeadLeft);
-                } else if (i2 != 5) {
+                } else if (i != 5) {
                     list.add(LivenessTypeEnum.Eye);
                 } else {
                     list.add(LivenessTypeEnum.HeadRight);
@@ -230,8 +230,8 @@ public class f {
             return;
         }
         int intValue = num.intValue();
-        int i2 = headPose.value;
-        if ((intValue & i2) == i2) {
+        int i = headPose.value;
+        if ((intValue & i) == i) {
             list.add(a(headPose));
         }
     }
@@ -240,12 +240,12 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, headPose)) == null) {
-            int i2 = a.a[headPose.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
+            int i = a.a[headPose.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
                                 return LivenessTypeEnum.Eye;
                             }
                             return LivenessTypeEnum.HeadRight;

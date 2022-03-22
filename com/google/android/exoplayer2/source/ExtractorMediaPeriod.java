@@ -35,7 +35,7 @@ import com.google.android.exoplayer2.util.Util;
 import java.io.EOFException;
 import java.io.IOException;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput, Loader.Callback<ExtractingLoadable>, Loader.ReleaseCallback, SampleQueue.UpstreamFormatChangedListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long DEFAULT_LAST_SAMPLE_DURATION_US = 10000;
@@ -77,7 +77,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     public TrackGroupArray tracks;
     public final Uri uri;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class ExtractingLoadable implements Loader.Loadable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -99,9 +99,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extractorMediaPeriod, uri, dataSource, extractorHolder, conditionVariable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -136,34 +136,34 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         public void load() throws IOException, InterruptedException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i2 = 0;
-                while (i2 == 0 && !this.loadCanceled) {
+                int i = 0;
+                while (i == 0 && !this.loadCanceled) {
                     DefaultExtractorInput defaultExtractorInput = null;
                     try {
-                        long j2 = this.positionHolder.position;
-                        long open = this.dataSource.open(new DataSpec(this.uri, j2, -1L, this.this$0.customCacheKey));
+                        long j = this.positionHolder.position;
+                        long open = this.dataSource.open(new DataSpec(this.uri, j, -1L, this.this$0.customCacheKey));
                         this.length = open;
                         if (open != -1) {
-                            this.length = open + j2;
+                            this.length = open + j;
                         }
-                        DefaultExtractorInput defaultExtractorInput2 = new DefaultExtractorInput(this.dataSource, j2, this.length);
+                        DefaultExtractorInput defaultExtractorInput2 = new DefaultExtractorInput(this.dataSource, j, this.length);
                         try {
                             Extractor selectExtractor = this.extractorHolder.selectExtractor(defaultExtractorInput2, this.dataSource.getUri());
                             if (this.pendingExtractorSeek) {
-                                selectExtractor.seek(j2, this.seekTimeUs);
+                                selectExtractor.seek(j, this.seekTimeUs);
                                 this.pendingExtractorSeek = false;
                             }
-                            while (i2 == 0 && !this.loadCanceled) {
+                            while (i == 0 && !this.loadCanceled) {
                                 this.loadCondition.block();
-                                i2 = selectExtractor.read(defaultExtractorInput2, this.positionHolder);
-                                if (defaultExtractorInput2.getPosition() > this.this$0.continueLoadingCheckIntervalBytes + j2) {
-                                    j2 = defaultExtractorInput2.getPosition();
+                                i = selectExtractor.read(defaultExtractorInput2, this.positionHolder);
+                                if (defaultExtractorInput2.getPosition() > this.this$0.continueLoadingCheckIntervalBytes + j) {
+                                    j = defaultExtractorInput2.getPosition();
                                     this.loadCondition.close();
                                     this.this$0.handler.post(this.this$0.onContinueLoadingRequestedRunnable);
                                 }
                             }
-                            if (i2 == 1) {
-                                i2 = 0;
+                            if (i == 1) {
+                                i = 0;
                             } else {
                                 this.positionHolder.position = defaultExtractorInput2.getPosition();
                             }
@@ -171,7 +171,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                         } catch (Throwable th) {
                             th = th;
                             defaultExtractorInput = defaultExtractorInput2;
-                            if (i2 != 1 && defaultExtractorInput != null) {
+                            if (i != 1 && defaultExtractorInput != null) {
                                 this.positionHolder.position = defaultExtractorInput.getPosition();
                             }
                             Util.closeQuietly(this.dataSource);
@@ -184,17 +184,17 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             }
         }
 
-        public void setLoadPosition(long j2, long j3) {
+        public void setLoadPosition(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.positionHolder.position = j2;
-                this.seekTimeUs = j3;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                this.positionHolder.position = j;
+                this.seekTimeUs = j2;
                 this.pendingExtractorSeek = true;
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class ExtractorHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,9 +209,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                 newInitContext.initArgs = r2;
                 Object[] objArr = {extractorArr, extractorOutput};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -241,12 +241,12 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                 }
                 Extractor[] extractorArr = this.extractors;
                 int length = extractorArr.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         break;
                     }
-                    Extractor extractor2 = extractorArr[i2];
+                    Extractor extractor2 = extractorArr[i];
                     try {
                     } catch (EOFException unused) {
                     } catch (Throwable th) {
@@ -260,7 +260,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     }
                     continue;
                     extractorInput.resetPeekPosition();
-                    i2++;
+                    i++;
                 }
                 Extractor extractor3 = this.extractor;
                 if (extractor3 != null) {
@@ -273,35 +273,35 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Listener {
-        void onSourceInfoRefreshed(long j2, boolean z);
+        void onSourceInfoRefreshed(long j, boolean z);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class SampleStreamImpl implements SampleStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ExtractorMediaPeriod this$0;
         public final int track;
 
-        public SampleStreamImpl(ExtractorMediaPeriod extractorMediaPeriod, int i2) {
+        public SampleStreamImpl(ExtractorMediaPeriod extractorMediaPeriod, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {extractorMediaPeriod, Integer.valueOf(i2)};
+                Object[] objArr = {extractorMediaPeriod, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.this$0 = extractorMediaPeriod;
-            this.track = i2;
+            this.track = i;
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
@@ -327,23 +327,23 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
 
         @Override // com.google.android.exoplayer2.source.SampleStream
-        public int skipData(long j2) {
+        public int skipData(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) ? this.this$0.skipData(this.track, j2) : invokeJ.intValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) ? this.this$0.skipData(this.track, j) : invokeJ.intValue;
         }
     }
 
-    public ExtractorMediaPeriod(Uri uri, DataSource dataSource, Extractor[] extractorArr, int i2, Handler handler, ExtractorMediaSource.EventListener eventListener, Listener listener, Allocator allocator, String str, int i3) {
+    public ExtractorMediaPeriod(Uri uri, DataSource dataSource, Extractor[] extractorArr, int i, Handler handler, ExtractorMediaSource.EventListener eventListener, Listener listener, Allocator allocator, String str, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, dataSource, extractorArr, Integer.valueOf(i2), handler, eventListener, listener, allocator, str, Integer.valueOf(i3)};
+            Object[] objArr = {uri, dataSource, extractorArr, Integer.valueOf(i), handler, eventListener, listener, allocator, str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -351,13 +351,13 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         }
         this.uri = uri;
         this.dataSource = dataSource;
-        this.minLoadableRetryCount = i2;
+        this.minLoadableRetryCount = i;
         this.eventHandler = handler;
         this.eventListener = eventListener;
         this.listener = listener;
         this.allocator = allocator;
         this.customCacheKey = str;
-        this.continueLoadingCheckIntervalBytes = i3;
+        this.continueLoadingCheckIntervalBytes = i2;
         this.loader = new Loader("Loader:ExtractorMediaPeriod");
         this.extractorHolder = new ExtractorHolder(extractorArr, this);
         this.loadCondition = new ConditionVariable();
@@ -373,9 +373,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -404,9 +404,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i6 = newInitContext2.flag;
-                    if ((i6 & 1) != 0) {
-                        int i7 = i6 & 2;
+                    int i5 = newInitContext2.flag;
+                    if ((i5 & 1) != 0) {
+                        int i6 = i5 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -429,7 +429,7 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         this.sampleQueues = new SampleQueue[0];
         this.pendingResetPositionUs = C.TIME_UNSET;
         this.length = -1L;
-        this.actualMinLoadableRetryCount = i2 == -1 ? 3 : i2;
+        this.actualMinLoadableRetryCount = i == -1 ? 3 : i;
     }
 
     private void configureRetry(ExtractingLoadable extractingLoadable) {
@@ -458,11 +458,11 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (SampleQueue sampleQueue : this.sampleQueues) {
-                i2 += sampleQueue.getWriteIndex();
+                i += sampleQueue.getWriteIndex();
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -471,11 +471,11 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            long j2 = Long.MIN_VALUE;
+            long j = Long.MIN_VALUE;
             for (SampleQueue sampleQueue : this.sampleQueues) {
-                j2 = Math.max(j2, sampleQueue.getLargestQueuedTimestampUs());
+                j = Math.max(j, sampleQueue.getLargestQueuedTimestampUs());
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -509,21 +509,21 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         this.trackIsAudioVideoFlags = new boolean[length];
         this.trackEnabledStates = new boolean[length];
         this.durationUs = this.seekMap.getDurationUs();
-        int i2 = 0;
+        int i = 0;
         while (true) {
             boolean z = true;
-            if (i2 >= length) {
+            if (i >= length) {
                 break;
             }
-            Format upstreamFormat = this.sampleQueues[i2].getUpstreamFormat();
-            trackGroupArr[i2] = new TrackGroup(upstreamFormat);
+            Format upstreamFormat = this.sampleQueues[i].getUpstreamFormat();
+            trackGroupArr[i] = new TrackGroup(upstreamFormat);
             String str = upstreamFormat.sampleMimeType;
             if (!MimeTypes.isVideo(str) && !MimeTypes.isAudio(str)) {
                 z = false;
             }
-            this.trackIsAudioVideoFlags[i2] = z;
+            this.trackIsAudioVideoFlags[i] = z;
             this.haveAudioVideoTracks = z | this.haveAudioVideoTracks;
-            i2++;
+            i++;
         }
         this.tracks = new TrackGroupArray(trackGroupArr);
         if (this.minLoadableRetryCount == -1 && this.length == -1 && this.seekMap.getDurationUs() == C.TIME_UNSET) {
@@ -553,9 +553,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iOException};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -581,23 +581,23 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean seekInsideBufferUs(long j2) {
+    private boolean seekInsideBufferUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeJ = interceptable.invokeJ(65553, this, j2)) != null) {
+        if (interceptable != null && (invokeJ = interceptable.invokeJ(65553, this, j)) != null) {
             return invokeJ.booleanValue;
         }
         int length = this.sampleQueues.length;
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= length) {
+            if (i >= length) {
                 return true;
             }
-            SampleQueue sampleQueue = this.sampleQueues[i2];
+            SampleQueue sampleQueue = this.sampleQueues[i];
             sampleQueue.rewind();
-            if ((sampleQueue.advanceTo(j2, true, false) != -1) || (!this.trackIsAudioVideoFlags[i2] && this.haveAudioVideoTracks)) {
+            if ((sampleQueue.advanceTo(j, true, false) != -1) || (!this.trackIsAudioVideoFlags[i] && this.haveAudioVideoTracks)) {
                 sampleQueue.discardToRead();
-                i2++;
+                i++;
             }
         }
     }
@@ -608,8 +608,8 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             ExtractingLoadable extractingLoadable = new ExtractingLoadable(this, this.uri, this.dataSource, this.extractorHolder, this.loadCondition);
             if (this.prepared) {
                 Assertions.checkState(isPendingReset());
-                long j2 = this.durationUs;
-                if (j2 != C.TIME_UNSET && this.pendingResetPositionUs >= j2) {
+                long j = this.durationUs;
+                if (j != C.TIME_UNSET && this.pendingResetPositionUs >= j) {
                     this.loadingFinished = true;
                     this.pendingResetPositionUs = C.TIME_UNSET;
                     return;
@@ -629,10 +629,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod, com.google.android.exoplayer2.source.SequenceableLoader
-    public boolean continueLoading(long j2) {
+    public boolean continueLoading(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             if (this.loadingFinished) {
                 return false;
             }
@@ -650,12 +650,12 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void discardBuffer(long j2) {
+    public void discardBuffer(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
             int length = this.sampleQueues.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                this.sampleQueues[i2].discardTo(j2, false, this.trackEnabledStates[i2]);
+            for (int i = 0; i < length; i++) {
+                this.sampleQueues[i].discardTo(j, false, this.trackEnabledStates[i]);
             }
         }
     }
@@ -684,9 +684,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
             if (this.haveAudioVideoTracks) {
                 largestQueuedTimestampUs = Long.MAX_VALUE;
                 int length = this.sampleQueues.length;
-                for (int i2 = 0; i2 < length; i2++) {
-                    if (this.trackIsAudioVideoFlags[i2]) {
-                        largestQueuedTimestampUs = Math.min(largestQueuedTimestampUs, this.sampleQueues[i2].getLargestQueuedTimestampUs());
+                for (int i = 0; i < length; i++) {
+                    if (this.trackIsAudioVideoFlags[i]) {
+                        largestQueuedTimestampUs = Math.min(largestQueuedTimestampUs, this.sampleQueues[i].getLargestQueuedTimestampUs());
                     }
                 }
             } else {
@@ -717,10 +717,10 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.tracks : (TrackGroupArray) invokeV.objValue;
     }
 
-    public boolean isReady(int i2) {
+    public boolean isReady(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? !suppressRead() && (this.loadingFinished || this.sampleQueues[i2].hasNextSample()) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? !suppressRead() && (this.loadingFinished || this.sampleQueues[i].hasNextSample()) : invokeI.booleanValue;
     }
 
     public void maybeThrowError() throws IOException {
@@ -758,23 +758,23 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public void prepare(MediaPeriod.Callback callback, long j2) {
+    public void prepare(MediaPeriod.Callback callback, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048593, this, callback, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048593, this, callback, j) == null) {
             this.callback = callback;
             this.loadCondition.open();
             startLoading();
         }
     }
 
-    public int readData(int i2, FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
+    public int readData(int i, FormatHolder formatHolder, DecoderInputBuffer decoderInputBuffer, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i2), formatHolder, decoderInputBuffer, Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{Integer.valueOf(i), formatHolder, decoderInputBuffer, Boolean.valueOf(z)})) == null) {
             if (suppressRead()) {
                 return -3;
             }
-            return this.sampleQueues[i2].read(formatHolder, decoderInputBuffer, z, this.loadingFinished, this.lastSeekPositionUs);
+            return this.sampleQueues[i].read(formatHolder, decoderInputBuffer, z, this.loadingFinished, this.lastSeekPositionUs);
         }
         return invokeCommon.intValue;
     }
@@ -817,17 +817,17 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long seekToUs(long j2) {
+    public long seekToUs(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048598, this, j)) == null) {
             if (!this.seekMap.isSeekable()) {
-                j2 = 0;
+                j = 0;
             }
-            this.lastSeekPositionUs = j2;
+            this.lastSeekPositionUs = j;
             this.notifyDiscontinuity = false;
-            if (isPendingReset() || !seekInsideBufferUs(j2)) {
-                this.pendingResetPositionUs = j2;
+            if (isPendingReset() || !seekInsideBufferUs(j)) {
+                this.pendingResetPositionUs = j;
                 this.loadingFinished = false;
                 if (this.loader.isLoading()) {
                     this.loader.cancelLoading();
@@ -836,46 +836,46 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                         sampleQueue.reset();
                     }
                 }
-                return j2;
+                return j;
             }
-            return j2;
+            return j;
         }
         return invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.source.MediaPeriod
-    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j2) {
+    public long selectTracks(TrackSelection[] trackSelectionArr, boolean[] zArr, SampleStream[] sampleStreamArr, boolean[] zArr2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{trackSelectionArr, zArr, sampleStreamArr, zArr2, Long.valueOf(j)})) == null) {
             Assertions.checkState(this.prepared);
-            int i2 = this.enabledTrackCount;
-            int i3 = 0;
-            for (int i4 = 0; i4 < trackSelectionArr.length; i4++) {
-                if (sampleStreamArr[i4] != null && (trackSelectionArr[i4] == null || !zArr[i4])) {
-                    int i5 = ((SampleStreamImpl) sampleStreamArr[i4]).track;
-                    Assertions.checkState(this.trackEnabledStates[i5]);
+            int i = this.enabledTrackCount;
+            int i2 = 0;
+            for (int i3 = 0; i3 < trackSelectionArr.length; i3++) {
+                if (sampleStreamArr[i3] != null && (trackSelectionArr[i3] == null || !zArr[i3])) {
+                    int i4 = ((SampleStreamImpl) sampleStreamArr[i3]).track;
+                    Assertions.checkState(this.trackEnabledStates[i4]);
                     this.enabledTrackCount--;
-                    this.trackEnabledStates[i5] = false;
-                    sampleStreamArr[i4] = null;
+                    this.trackEnabledStates[i4] = false;
+                    sampleStreamArr[i3] = null;
                 }
             }
-            boolean z = !this.seenFirstTrackSelection ? j2 == 0 : i2 != 0;
-            for (int i6 = 0; i6 < trackSelectionArr.length; i6++) {
-                if (sampleStreamArr[i6] == null && trackSelectionArr[i6] != null) {
-                    TrackSelection trackSelection = trackSelectionArr[i6];
+            boolean z = !this.seenFirstTrackSelection ? j == 0 : i != 0;
+            for (int i5 = 0; i5 < trackSelectionArr.length; i5++) {
+                if (sampleStreamArr[i5] == null && trackSelectionArr[i5] != null) {
+                    TrackSelection trackSelection = trackSelectionArr[i5];
                     Assertions.checkState(trackSelection.length() == 1);
                     Assertions.checkState(trackSelection.getIndexInTrackGroup(0) == 0);
                     int indexOf = this.tracks.indexOf(trackSelection.getTrackGroup());
                     Assertions.checkState(!this.trackEnabledStates[indexOf]);
                     this.enabledTrackCount++;
                     this.trackEnabledStates[indexOf] = true;
-                    sampleStreamArr[i6] = new SampleStreamImpl(this, indexOf);
-                    zArr2[i6] = true;
+                    sampleStreamArr[i5] = new SampleStreamImpl(this, indexOf);
+                    zArr2[i5] = true;
                     if (!z) {
                         SampleQueue sampleQueue = this.sampleQueues[indexOf];
                         sampleQueue.rewind();
-                        z = sampleQueue.advanceTo(j2, true, true) == -1 && sampleQueue.getReadIndex() != 0;
+                        z = sampleQueue.advanceTo(j, true, true) == -1 && sampleQueue.getReadIndex() != 0;
                     }
                 }
             }
@@ -884,46 +884,46 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
                 if (this.loader.isLoading()) {
                     SampleQueue[] sampleQueueArr = this.sampleQueues;
                     int length = sampleQueueArr.length;
-                    while (i3 < length) {
-                        sampleQueueArr[i3].discardToEnd();
-                        i3++;
+                    while (i2 < length) {
+                        sampleQueueArr[i2].discardToEnd();
+                        i2++;
                     }
                     this.loader.cancelLoading();
                 } else {
                     SampleQueue[] sampleQueueArr2 = this.sampleQueues;
                     int length2 = sampleQueueArr2.length;
-                    while (i3 < length2) {
-                        sampleQueueArr2[i3].reset();
-                        i3++;
+                    while (i2 < length2) {
+                        sampleQueueArr2[i2].reset();
+                        i2++;
                     }
                 }
             } else if (z) {
-                j2 = seekToUs(j2);
-                while (i3 < sampleStreamArr.length) {
-                    if (sampleStreamArr[i3] != null) {
-                        zArr2[i3] = true;
+                j = seekToUs(j);
+                while (i2 < sampleStreamArr.length) {
+                    if (sampleStreamArr[i2] != null) {
+                        zArr2[i2] = true;
                     }
-                    i3++;
+                    i2++;
                 }
             }
             this.seenFirstTrackSelection = true;
-            return j2;
+            return j;
         }
         return invokeCommon.longValue;
     }
 
-    public int skipData(int i2, long j2) {
+    public int skipData(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (suppressRead()) {
                 return 0;
             }
-            SampleQueue sampleQueue = this.sampleQueues[i2];
-            if (this.loadingFinished && j2 > sampleQueue.getLargestQueuedTimestampUs()) {
+            SampleQueue sampleQueue = this.sampleQueues[i];
+            if (this.loadingFinished && j > sampleQueue.getLargestQueuedTimestampUs()) {
                 return sampleQueue.advanceToEnd();
             }
-            int advanceTo = sampleQueue.advanceTo(j2, true, true);
+            int advanceTo = sampleQueue.advanceTo(j, true, true);
             if (advanceTo == -1) {
                 return 0;
             }
@@ -933,23 +933,23 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
     }
 
     @Override // com.google.android.exoplayer2.extractor.ExtractorOutput
-    public TrackOutput track(int i2, int i3) {
+    public TrackOutput track(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048601, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048601, this, i, i2)) == null) {
             int length = this.sampleQueues.length;
-            for (int i4 = 0; i4 < length; i4++) {
-                if (this.sampleQueueTrackIds[i4] == i2) {
-                    return this.sampleQueues[i4];
+            for (int i3 = 0; i3 < length; i3++) {
+                if (this.sampleQueueTrackIds[i3] == i) {
+                    return this.sampleQueues[i3];
                 }
             }
             SampleQueue sampleQueue = new SampleQueue(this.allocator);
             sampleQueue.setUpstreamFormatChangeListener(this);
-            int i5 = length + 1;
-            int[] copyOf = Arrays.copyOf(this.sampleQueueTrackIds, i5);
+            int i4 = length + 1;
+            int[] copyOf = Arrays.copyOf(this.sampleQueueTrackIds, i4);
             this.sampleQueueTrackIds = copyOf;
-            copyOf[length] = i2;
-            SampleQueue[] sampleQueueArr = (SampleQueue[]) Arrays.copyOf(this.sampleQueues, i5);
+            copyOf[length] = i;
+            SampleQueue[] sampleQueueArr = (SampleQueue[]) Arrays.copyOf(this.sampleQueues, i4);
             this.sampleQueues = sampleQueueArr;
             sampleQueueArr[length] = sampleQueue;
             return sampleQueue;
@@ -959,9 +959,9 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(ExtractingLoadable extractingLoadable, long j2, long j3, boolean z) {
+    public void onLoadCanceled(ExtractingLoadable extractingLoadable, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{extractingLoadable, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) || z) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) || z) {
             return;
         }
         copyLengthFromLoader(extractingLoadable);
@@ -975,16 +975,16 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(ExtractingLoadable extractingLoadable, long j2, long j3) {
+    public void onLoadCompleted(ExtractingLoadable extractingLoadable, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{extractingLoadable, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             copyLengthFromLoader(extractingLoadable);
             this.loadingFinished = true;
             if (this.durationUs == C.TIME_UNSET) {
                 long largestQueuedTimestampUs = getLargestQueuedTimestampUs();
-                long j4 = largestQueuedTimestampUs == Long.MIN_VALUE ? 0L : largestQueuedTimestampUs + 10000;
-                this.durationUs = j4;
-                this.listener.onSourceInfoRefreshed(j4, this.seekMap.isSeekable());
+                long j3 = largestQueuedTimestampUs == Long.MIN_VALUE ? 0L : largestQueuedTimestampUs + 10000;
+                this.durationUs = j3;
+                this.listener.onSourceInfoRefreshed(j3, this.seekMap.isSeekable());
             }
             this.callback.onContinueLoadingRequested(this);
         }
@@ -992,19 +992,19 @@ public final class ExtractorMediaPeriod implements MediaPeriod, ExtractorOutput,
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(ExtractingLoadable extractingLoadable, long j2, long j3, IOException iOException) {
+    public int onLoadError(ExtractingLoadable extractingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{extractingLoadable, Long.valueOf(j2), Long.valueOf(j3), iOException})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{extractingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
             copyLengthFromLoader(extractingLoadable);
             notifyLoadError(iOException);
             if (isLoadableExceptionFatal(iOException)) {
                 return 3;
             }
-            int i2 = getExtractedSamplesCount() > this.extractedSamplesCountAtStartOfLoad ? 1 : 0;
+            int i = getExtractedSamplesCount() > this.extractedSamplesCountAtStartOfLoad ? 1 : 0;
             configureRetry(extractingLoadable);
             this.extractedSamplesCountAtStartOfLoad = getExtractedSamplesCount();
-            return i2;
+            return i;
         }
         return invokeCommon.intValue;
     }

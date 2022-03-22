@@ -168,24 +168,24 @@ public abstract class AppleDataBox extends AbstractBox {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AppleDataBox(String str, int i2) {
+    public AppleDataBox(String str, int i) {
         super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.dataType = i2;
+        this.dataType = i;
     }
 
     public static /* synthetic */ void ajc$preClinit() {
@@ -282,7 +282,7 @@ public abstract class AppleDataBox extends AbstractBox {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, byteBuffer)) == null) {
-            int i2 = byteBuffer.getInt();
+            int i = byteBuffer.getInt();
             byteBuffer.getInt();
             this.dataType = byteBuffer.getInt();
             short s = byteBuffer.getShort();
@@ -295,27 +295,27 @@ public abstract class AppleDataBox extends AbstractBox {
             if (s2 < 0) {
                 this.dataLanguage = s2 + 65536;
             }
-            int i3 = i2 - 16;
-            ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i3);
-            byteBuffer.position(i3 + byteBuffer.position());
+            int i2 = i - 16;
+            ByteBuffer byteBuffer2 = (ByteBuffer) byteBuffer.duplicate().slice().limit(i2);
+            byteBuffer.position(i2 + byteBuffer.position());
             return byteBuffer2;
         }
         return (ByteBuffer) invokeL.objValue;
     }
 
-    public void setDataCountry(int i2) {
+    public void setDataCountry(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.dataCountry = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.dataCountry = i;
         }
     }
 
-    public void setDataLanguage(int i2) {
+    public void setDataLanguage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i2)));
-            this.dataLanguage = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_5, this, this, Conversions.intObject(i)));
+            this.dataLanguage = i;
         }
     }
 

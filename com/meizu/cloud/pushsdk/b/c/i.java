@@ -2,47 +2,46 @@ package com.meizu.cloud.pushsdk.b.c;
 
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.meizu.cloud.pushsdk.b.c.c;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpPut;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
     public final f a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f57127b;
+    public final String f41966b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final c f57128c;
+    public final c f41967c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final j f57129d;
+    public final j f41968d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Object f57130e;
+    public final Object f41969e;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public f a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f57131b = "GET";
+        public String f41970b = "GET";
 
         /* renamed from: c  reason: collision with root package name */
-        public c.a f57132c = new c.a();
+        public c.a f41971c = new c.a();
 
         /* renamed from: d  reason: collision with root package name */
-        public j f57133d;
+        public j f41972d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Object f57134e;
+        public Object f41973e;
 
         public a a() {
             return a("GET", (j) null);
         }
 
         public a a(c cVar) {
-            this.f57132c = cVar.c();
+            this.f41971c = cVar.c();
             return this;
         }
 
@@ -65,7 +64,7 @@ public class i {
         */
         public a a(String str) {
             StringBuilder sb;
-            int i2;
+            int i;
             f c2;
             if (str == null) {
                 throw new IllegalArgumentException("url == null");
@@ -74,7 +73,7 @@ public class i {
                 if (str.regionMatches(true, 0, "wss:", 0, 4)) {
                     sb = new StringBuilder();
                     sb.append(UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
-                    i2 = 4;
+                    i = 4;
                 }
                 c2 = f.c(str);
                 if (c2 == null) {
@@ -84,8 +83,8 @@ public class i {
             }
             sb = new StringBuilder();
             sb.append(UrlSchemaHelper.SCHEMA_TYPE_HTTP);
-            i2 = 3;
-            sb.append(str.substring(i2));
+            i = 3;
+            sb.append(str.substring(i));
             str = sb.toString();
             c2 = f.c(str);
             if (c2 == null) {
@@ -99,8 +98,8 @@ public class i {
             if (jVar != null && !d.b(str)) {
                 throw new IllegalArgumentException("method " + str + " must not have a request body.");
             } else if (jVar != null || !d.a(str)) {
-                this.f57131b = str;
-                this.f57133d = jVar;
+                this.f41970b = str;
+                this.f41972d = jVar;
                 return this;
             } else {
                 throw new IllegalArgumentException("method " + str + " must have a request body.");
@@ -108,7 +107,7 @@ public class i {
         }
 
         public a a(String str, String str2) {
-            this.f57132c.a(str, str2);
+            this.f41971c.a(str, str2);
             return this;
         }
 
@@ -138,10 +137,10 @@ public class i {
 
     public i(a aVar) {
         this.a = aVar.a;
-        this.f57127b = aVar.f57131b;
-        this.f57128c = aVar.f57132c.a();
-        this.f57129d = aVar.f57133d;
-        this.f57130e = aVar.f57134e != null ? aVar.f57134e : this;
+        this.f41966b = aVar.f41970b;
+        this.f41967c = aVar.f41971c.a();
+        this.f41968d = aVar.f41972d;
+        this.f41969e = aVar.f41973e != null ? aVar.f41973e : this;
     }
 
     public f a() {
@@ -149,11 +148,11 @@ public class i {
     }
 
     public String a(String str) {
-        return this.f57128c.a(str);
+        return this.f41967c.a(str);
     }
 
     public String b() {
-        return this.f57127b;
+        return this.f41966b;
     }
 
     public int c() {
@@ -176,11 +175,11 @@ public class i {
     }
 
     public c d() {
-        return this.f57128c;
+        return this.f41967c;
     }
 
     public j e() {
-        return this.f57129d;
+        return this.f41968d;
     }
 
     public boolean f() {
@@ -190,16 +189,16 @@ public class i {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Request{method=");
-        sb.append(this.f57127b);
+        sb.append(this.f41966b);
         sb.append(", url=");
         sb.append(this.a);
         sb.append(", tag=");
-        Object obj = this.f57130e;
+        Object obj = this.f41969e;
         if (obj == this) {
             obj = null;
         }
         sb.append(obj);
-        sb.append(ExtendedMessageFormat.END_FE);
+        sb.append('}');
         return sb.toString();
     }
 }

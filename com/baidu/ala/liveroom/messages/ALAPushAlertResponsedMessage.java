@@ -10,12 +10,13 @@ import android.os.Looper;
 import android.text.TextUtils;
 import c.a.d.f.l.d;
 import c.a.d.o.d.a;
-import c.a.q0.b0.c;
+import c.a.o0.b0.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.AlaCmdConfigSocket;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -39,9 +40,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -53,11 +54,11 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         String str;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             AlaPushAlertResIdl alaPushAlertResIdl = (AlaPushAlertResIdl) new Wire(new Class[0]).parseFrom(bArr, AlaPushAlertResIdl.class);
             DataRes dataRes = alaPushAlertResIdl.data;
             if (dataRes == null || dataRes.msgInfo == null || dataRes.ext == null) {
@@ -84,7 +85,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     intent.putExtra("is_live", 1);
                     intent.putExtra("is_live_lcs", 1);
                 }
-                intent.putExtra("jump_url", optString);
+                intent.putExtra(BigdayActivityConfig.JUMP_URL, optString);
                 PendingIntent service = PendingIntent.getService(TbadkCoreApplication.getInst().getApplicationContext(), 0, intent, 134217728);
                 if (optInt == 126) {
                     String optString2 = jSONObject.optString("title");
@@ -123,9 +124,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, optString4, Long.valueOf(optLong), str, str2, service};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -155,9 +156,9 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -168,10 +169,10 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
 
                                         /* JADX DEBUG: Method merged with bridge method */
                                         @Override // c.a.d.f.l.c
-                                        public void onLoaded(a aVar, String str3, int i3) {
+                                        public void onLoaded(a aVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i3) == null) {
-                                                super.onLoaded((C16981) aVar, str3, i3);
+                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, aVar, str3, i2) == null) {
+                                                super.onLoaded((C16661) aVar, str3, i2);
                                                 if (aVar != null && aVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();

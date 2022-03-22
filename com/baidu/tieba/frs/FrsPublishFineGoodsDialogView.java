@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.q0.r.x.b.d;
-import c.a.r0.d1.h;
+import c.a.o0.r.x.b.d;
+import c.a.p0.f1.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
@@ -21,25 +21,25 @@ import java.util.ArrayList;
 public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f32305b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32306c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32307d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LinearLayout f41764e;
+    public TextView f32308e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f41765f;
+    public LocalBannerLayout f32309f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f41766g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f41767h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f41768i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public LocalBannerLayout f41769j;
-    public d k;
+    public d f32310g;
 
     /* loaded from: classes5.dex */
     public class a implements d {
@@ -54,9 +54,9 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {frsPublishFineGoodsDialogView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -65,18 +65,18 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // c.a.q0.r.x.b.d
-        public void a(int i2, c.a.q0.r.x.b.a aVar) {
+        @Override // c.a.o0.r.x.b.d
+        public void a(int i, c.a.o0.r.x.b.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, aVar) == null) {
-                this.a.c(i2);
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, aVar) == null) {
+                this.a.c(i);
             }
         }
 
-        @Override // c.a.q0.r.x.b.d
-        public void b(int i2, String str) {
+        @Override // c.a.o0.r.x.b.d
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             }
         }
     }
@@ -90,57 +90,57 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new a(this);
-        this.f41765f = context;
+        this.f32310g = new a(this);
+        this.f32305b = context;
         b(context);
     }
 
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.frs_publish_major_fine_goods_dialog, this);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.frs_broadcast_guide_main);
-            this.f41764e = linearLayout;
-            this.f41766g = (TextView) linearLayout.findViewById(R.id.frs_shop_guide_title);
-            this.f41767h = (TextView) this.f41764e.findViewById(R.id.frs_shop_guide_content);
-            this.f41769j = (LocalBannerLayout) this.f41764e.findViewById(R.id.banner_layout);
-            TextView textView = (TextView) this.f41764e.findViewById(R.id.to_next_tv);
-            this.f41768i = textView;
-            textView.setText(R.string.forum_broadcast_major_history_known);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d034b, this);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090ad2);
+            this.a = linearLayout;
+            this.f32306c = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090bcc);
+            this.f32307d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090bcb);
+            this.f32309f = (LocalBannerLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090300);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092082);
+            this.f32308e = textView;
+            textView.setText(R.string.obfuscated_res_0x7f0f0645);
             ArrayList arrayList = new ArrayList();
             arrayList.add(new h(String.valueOf((int) R.drawable.pic_good_guide1)));
             arrayList.add(new h(String.valueOf((int) R.drawable.pic_good_guide2)));
             arrayList.add(new h(String.valueOf((int) R.drawable.pic_good_guide3)));
-            this.f41769j.setData(arrayList);
-            this.f41769j.setOnCoverViewCallback(this.k);
-            SkinManager.setViewTextColor(this.f41766g, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.f41767h, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(this.f41768i, (int) R.color.CAM_X0302);
-            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f41765f, R.dimen.tbds30)).brRadius(n.f(this.f41765f, R.dimen.tbds30)).tlRadius(n.f(this.f41765f, R.dimen.tbds32)).trRadius(n.f(this.f41765f, R.dimen.tbds32)).into(this.f41764e);
+            this.f32309f.setData(arrayList);
+            this.f32309f.setOnCoverViewCallback(this.f32310g);
+            SkinManager.setViewTextColor(this.f32306c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.f32307d, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.f32308e, (int) R.color.CAM_X0302);
+            TBSelector.makeDrawableSelector().setShape(0).defaultColor(R.color.CAM_X0211).blRadius(n.f(this.f32305b, R.dimen.tbds30)).brRadius(n.f(this.f32305b, R.dimen.tbds30)).tlRadius(n.f(this.f32305b, R.dimen.tbds32)).trRadius(n.f(this.f32305b, R.dimen.tbds32)).into(this.a);
         }
     }
 
-    public final void c(int i2) {
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            if (i2 == 0 || i2 == 3) {
-                this.f41766g.setText(getResources().getString(R.string.frs_goods_dialog_first_title));
-                this.f41767h.setText(getResources().getString(R.string.frs_goods_dialog_first_content));
-            } else if (i2 == 1) {
-                this.f41766g.setText(getResources().getString(R.string.frs_goods_dialog_second_title));
-                this.f41767h.setText(getResources().getString(R.string.frs_goods_dialog_second_content));
-            } else if (i2 == 2) {
-                this.f41766g.setText(getResources().getString(R.string.frs_goods_dialog_third_title));
-                this.f41767h.setText(getResources().getString(R.string.frs_goods_dialog_third_content));
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i == 0 || i == 3) {
+                this.f32306c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e4));
+                this.f32307d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e3));
+            } else if (i == 1) {
+                this.f32306c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e6));
+                this.f32307d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e5));
+            } else if (i == 2) {
+                this.f32306c.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e8));
+                this.f32307d.setText(getResources().getString(R.string.obfuscated_res_0x7f0f06e7));
             }
         }
     }
@@ -150,6 +150,6 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) || onClickListener == null) {
             return;
         }
-        this.f41768i.setOnClickListener(onClickListener);
+        this.f32308e.setOnClickListener(onClickListener);
     }
 }

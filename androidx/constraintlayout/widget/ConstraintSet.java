@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.content.res.XmlResourceParser;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseIntArray;
 import android.util.Xml;
 import android.view.LayoutInflater;
@@ -22,6 +23,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -224,9 +227,9 @@ public class ConstraintSet {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -304,10 +307,10 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFrom(int i2, ConstraintLayout.LayoutParams layoutParams) {
+        public void fillFrom(int i, ConstraintLayout.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65541, this, i2, layoutParams) == null) {
-                this.mViewId = i2;
+            if (interceptable == null || interceptable.invokeIL(65541, this, i, layoutParams) == null) {
+                this.mViewId = i;
                 this.leftToLeft = layoutParams.leftToLeft;
                 this.leftToRight = layoutParams.leftToRight;
                 this.rightToLeft = layoutParams.rightToLeft;
@@ -363,10 +366,10 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFromConstraints(ConstraintHelper constraintHelper, int i2, Constraints.LayoutParams layoutParams) {
+        public void fillFromConstraints(ConstraintHelper constraintHelper, int i, Constraints.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(65543, this, constraintHelper, i2, layoutParams) == null) {
-                fillFromConstraints(i2, layoutParams);
+            if (interceptable == null || interceptable.invokeLIL(65543, this, constraintHelper, i, layoutParams) == null) {
+                fillFromConstraints(i, layoutParams);
                 if (constraintHelper instanceof Barrier) {
                     this.mHelperType = 1;
                     Barrier barrier = (Barrier) constraintHelper;
@@ -527,10 +530,10 @@ public class ConstraintSet {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void fillFromConstraints(int i2, Constraints.LayoutParams layoutParams) {
+        public void fillFromConstraints(int i, Constraints.LayoutParams layoutParams) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(65542, this, i2, layoutParams) == null) {
-                fillFrom(i2, layoutParams);
+            if (interceptable == null || interceptable.invokeIL(65542, this, i, layoutParams) == null) {
+                fillFrom(i, layoutParams);
                 this.alpha = layoutParams.alpha;
                 this.rotation = layoutParams.rotation;
                 this.rotationX = layoutParams.rotationX;
@@ -649,9 +652,9 @@ public class ConstraintSet {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -662,33 +665,33 @@ public class ConstraintSet {
 
     private int[] convertReferenceString(View view, String str) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Object designInformation;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, view, str)) == null) {
             String[] split = str.split(",");
             Context context = view.getContext();
             int[] iArr = new int[split.length];
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            while (i3 < split.length) {
-                String trim = split[i3].trim();
+            while (i2 < split.length) {
+                String trim = split[i2].trim();
                 try {
-                    i2 = R$id.class.getField(trim).getInt(null);
+                    i = R$id.class.getField(trim).getInt(null);
                 } catch (Exception unused) {
-                    i2 = 0;
+                    i = 0;
                 }
-                if (i2 == 0) {
-                    i2 = context.getResources().getIdentifier(trim, "id", context.getPackageName());
+                if (i == 0) {
+                    i = context.getResources().getIdentifier(trim, "id", context.getPackageName());
                 }
-                if (i2 == 0 && view.isInEditMode() && (view.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
-                    i2 = ((Integer) designInformation).intValue();
+                if (i == 0 && view.isInEditMode() && (view.getParent() instanceof ConstraintLayout) && (designInformation = ((ConstraintLayout) view.getParent()).getDesignInformation(0, trim)) != null && (designInformation instanceof Integer)) {
+                    i = ((Integer) designInformation).intValue();
                 }
-                iArr[i4] = i2;
+                iArr[i3] = i;
+                i2++;
                 i3++;
-                i4++;
             }
-            return i4 != split.length ? Arrays.copyOf(iArr, i4) : iArr;
+            return i3 != split.length ? Arrays.copyOf(iArr, i3) : iArr;
         }
         return (int[]) invokeLL.objValue;
     }
@@ -706,24 +709,24 @@ public class ConstraintSet {
         return (Constraint) invokeLL.objValue;
     }
 
-    private Constraint get(int i2) {
+    private Constraint get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i2)) == null) {
-            if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
-                this.mConstraints.put(Integer.valueOf(i2), new Constraint(null));
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, this, i)) == null) {
+            if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
+                this.mConstraints.put(Integer.valueOf(i), new Constraint(null));
             }
-            return this.mConstraints.get(Integer.valueOf(i2));
+            return this.mConstraints.get(Integer.valueOf(i));
         }
         return (Constraint) invokeI.objValue;
     }
 
-    public static int lookupID(TypedArray typedArray, int i2, int i3) {
+    public static int lookupID(TypedArray typedArray, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, typedArray, i2, i3)) == null) {
-            int resourceId = typedArray.getResourceId(i2, i3);
-            return resourceId == -1 ? typedArray.getInt(i2, -1) : resourceId;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, typedArray, i, i2)) == null) {
+            int resourceId = typedArray.getResourceId(i, i2);
+            return resourceId == -1 ? typedArray.getInt(i, -1) : resourceId;
         }
         return invokeLII.intValue;
     }
@@ -732,10 +735,10 @@ public class ConstraintSet {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, this, constraint, typedArray) == null) {
             int indexCount = typedArray.getIndexCount();
-            for (int i2 = 0; i2 < indexCount; i2++) {
-                int index = typedArray.getIndex(i2);
-                int i3 = mapToConstant.get(index);
-                switch (i3) {
+            for (int i = 0; i < indexCount; i++) {
+                int index = typedArray.getIndex(i);
+                int i2 = mapToConstant.get(index);
+                switch (i2) {
                     case 1:
                         constraint.baselineToBaseline = lookupID(typedArray, index, constraint.baselineToBaseline);
                         break;
@@ -800,9 +803,9 @@ public class ConstraintSet {
                         constraint.mHeight = typedArray.getLayoutDimension(index, constraint.mHeight);
                         break;
                     case 22:
-                        int i4 = typedArray.getInt(index, constraint.visibility);
-                        constraint.visibility = i4;
-                        constraint.visibility = VISIBILITY_FLAGS[i4];
+                        int i3 = typedArray.getInt(index, constraint.visibility);
+                        constraint.visibility = i3;
+                        constraint.visibility = VISIBILITY_FLAGS[i3];
                         break;
                     case 23:
                         constraint.mWidth = typedArray.getLayoutDimension(index, constraint.mWidth);
@@ -899,7 +902,7 @@ public class ConstraintSet {
                         constraint.translationZ = typedArray.getDimension(index, constraint.translationZ);
                         break;
                     default:
-                        switch (i3) {
+                        switch (i2) {
                             case 60:
                                 constraint.rotation = typedArray.getFloat(index, constraint.rotation);
                                 continue;
@@ -913,7 +916,7 @@ public class ConstraintSet {
                                 constraint.circleAngle = typedArray.getFloat(index, constraint.circleAngle);
                                 continue;
                             default:
-                                switch (i3) {
+                                switch (i2) {
                                     case 69:
                                         constraint.widthPercent = typedArray.getFloat(index, 1.0f);
                                         continue;
@@ -921,6 +924,7 @@ public class ConstraintSet {
                                         constraint.heightPercent = typedArray.getFloat(index, 1.0f);
                                         continue;
                                     case 71:
+                                        Log.e(TAG, "CURRENTLY UNSUPPORTED");
                                         continue;
                                     case 72:
                                         constraint.mBarrierDirection = typedArray.getInt(index, constraint.mBarrierDirection);
@@ -932,10 +936,11 @@ public class ConstraintSet {
                                         constraint.mBarrierAllowsGoneWidgets = typedArray.getBoolean(index, constraint.mBarrierAllowsGoneWidgets);
                                         continue;
                                     case 75:
-                                        String str = "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index);
+                                        Log.w(TAG, "unused attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
                                         continue;
                                     default:
-                                        String str2 = "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index);
+                                        Log.w(TAG, "Unknown attribute 0x" + Integer.toHexString(index) + "   " + mapToConstant.get(index));
+                                        continue;
                                         continue;
                                 }
                         }
@@ -944,19 +949,19 @@ public class ConstraintSet {
         }
     }
 
-    private String sideToString(int i2) {
+    private String sideToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
+            switch (i) {
                 case 1:
                     return "left";
                 case 2:
                     return "right";
                 case 3:
-                    return "top";
+                    return AnimationProperty.TOP;
                 case 4:
-                    return "bottom";
+                    return TipsConfigItem.TipConfigData.BOTTOM;
                 case 5:
                     return "baseline";
                 case 6:
@@ -970,44 +975,44 @@ public class ConstraintSet {
         return (String) invokeI.objValue;
     }
 
-    public void addToHorizontalChain(int i2, int i3, int i4) {
+    public void addToHorizontalChain(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048576, this, i2, i3, i4) == null) {
-            connect(i2, 1, i3, i3 == 0 ? 1 : 2, 0);
-            connect(i2, 2, i4, i4 == 0 ? 2 : 1, 0);
-            if (i3 != 0) {
-                connect(i3, 2, i2, 1, 0);
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+            connect(i, 1, i2, i2 == 0 ? 1 : 2, 0);
+            connect(i, 2, i3, i3 == 0 ? 2 : 1, 0);
+            if (i2 != 0) {
+                connect(i2, 2, i, 1, 0);
             }
-            if (i4 != 0) {
-                connect(i4, 1, i2, 2, 0);
+            if (i3 != 0) {
+                connect(i3, 1, i, 2, 0);
             }
         }
     }
 
-    public void addToHorizontalChainRTL(int i2, int i3, int i4) {
+    public void addToHorizontalChainRTL(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4) == null) {
-            connect(i2, 6, i3, i3 == 0 ? 6 : 7, 0);
-            connect(i2, 7, i4, i4 == 0 ? 7 : 6, 0);
-            if (i3 != 0) {
-                connect(i3, 7, i2, 6, 0);
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            connect(i, 6, i2, i2 == 0 ? 6 : 7, 0);
+            connect(i, 7, i3, i3 == 0 ? 7 : 6, 0);
+            if (i2 != 0) {
+                connect(i2, 7, i, 6, 0);
             }
-            if (i4 != 0) {
-                connect(i4, 6, i2, 7, 0);
+            if (i3 != 0) {
+                connect(i3, 6, i, 7, 0);
             }
         }
     }
 
-    public void addToVerticalChain(int i2, int i3, int i4) {
+    public void addToVerticalChain(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4) == null) {
-            connect(i2, 3, i3, i3 == 0 ? 3 : 4, 0);
-            connect(i2, 4, i4, i4 == 0 ? 4 : 3, 0);
-            if (i3 != 0) {
-                connect(i3, 4, i2, 3, 0);
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3) == null) {
+            connect(i, 3, i2, i2 == 0 ? 3 : 4, 0);
+            connect(i, 4, i3, i3 == 0 ? 4 : 3, 0);
+            if (i2 != 0) {
+                connect(i2, 4, i, 3, 0);
             }
-            if (i3 != 0) {
-                connect(i4, 3, i2, 4, 0);
+            if (i2 != 0) {
+                connect(i3, 3, i, 4, 0);
             }
         }
     }
@@ -1025,8 +1030,8 @@ public class ConstraintSet {
         if (interceptable == null || interceptable.invokeL(1048580, this, constraintLayout) == null) {
             int childCount = constraintLayout.getChildCount();
             HashSet hashSet = new HashSet(this.mConstraints.keySet());
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = constraintLayout.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraintLayout.getChildAt(i);
                 int id = childAt.getId();
                 if (id != -1) {
                     if (this.mConstraints.containsKey(Integer.valueOf(id))) {
@@ -1035,8 +1040,8 @@ public class ConstraintSet {
                         if (childAt instanceof Barrier) {
                             constraint.mHelperType = 1;
                         }
-                        int i3 = constraint.mHelperType;
-                        if (i3 != -1 && i3 == 1) {
+                        int i2 = constraint.mHelperType;
+                        if (i2 != -1 && i2 == 1) {
                             Barrier barrier = (Barrier) childAt;
                             barrier.setId(id);
                             barrier.setType(constraint.mBarrierDirection);
@@ -1088,8 +1093,8 @@ public class ConstraintSet {
             while (it.hasNext()) {
                 Integer num = (Integer) it.next();
                 Constraint constraint2 = this.mConstraints.get(num);
-                int i4 = constraint2.mHelperType;
-                if (i4 != -1 && i4 == 1) {
+                int i3 = constraint2.mHelperType;
+                if (i3 != -1 && i3 == 1) {
                     Barrier barrier2 = new Barrier(constraintLayout.getContext());
                     barrier2.setId(num.intValue());
                     int[] iArr2 = constraint2.mReferenceIds;
@@ -1120,292 +1125,292 @@ public class ConstraintSet {
         }
     }
 
-    public void center(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+    public void center(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f2)}) == null) {
-            if (i5 < 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+            if (i4 < 0) {
                 throw new IllegalArgumentException("margin must be > 0");
             }
-            if (i8 < 0) {
+            if (i7 < 0) {
                 throw new IllegalArgumentException("margin must be > 0");
             }
             if (f2 <= 0.0f || f2 > 1.0f) {
                 throw new IllegalArgumentException("bias must be between 0 and 1 inclusive");
             }
-            if (i4 == 1 || i4 == 2) {
-                connect(i2, 1, i3, i4, i5);
-                connect(i2, 2, i6, i7, i8);
-                this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
-            } else if (i4 != 6 && i4 != 7) {
-                connect(i2, 3, i3, i4, i5);
-                connect(i2, 4, i6, i7, i8);
-                this.mConstraints.get(Integer.valueOf(i2)).verticalBias = f2;
+            if (i3 == 1 || i3 == 2) {
+                connect(i, 1, i2, i3, i4);
+                connect(i, 2, i5, i6, i7);
+                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
+            } else if (i3 != 6 && i3 != 7) {
+                connect(i, 3, i2, i3, i4);
+                connect(i, 4, i5, i6, i7);
+                this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
             } else {
-                connect(i2, 6, i3, i4, i5);
-                connect(i2, 7, i6, i7, i8);
-                this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
+                connect(i, 6, i2, i3, i4);
+                connect(i, 7, i5, i6, i7);
+                this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
             }
         }
     }
 
-    public void centerHorizontally(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+    public void centerHorizontally(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f2)}) == null) {
-            connect(i2, 1, i3, i4, i5);
-            connect(i2, 2, i6, i7, i8);
-            this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+            connect(i, 1, i2, i3, i4);
+            connect(i, 2, i5, i6, i7);
+            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
         }
     }
 
-    public void centerHorizontallyRtl(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+    public void centerHorizontallyRtl(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f2)}) == null) {
-            connect(i2, 6, i3, i4, i5);
-            connect(i2, 7, i6, i7, i8);
-            this.mConstraints.get(Integer.valueOf(i2)).horizontalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+            connect(i, 6, i2, i3, i4);
+            connect(i, 7, i5, i6, i7);
+            this.mConstraints.get(Integer.valueOf(i)).horizontalBias = f2;
         }
     }
 
-    public void centerVertically(int i2, int i3, int i4, int i5, int i6, int i7, int i8, float f2) {
+    public void centerVertically(int i, int i2, int i3, int i4, int i5, int i6, int i7, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Float.valueOf(f2)}) == null) {
-            connect(i2, 3, i3, i4, i5);
-            connect(i2, 4, i6, i7, i8);
-            this.mConstraints.get(Integer.valueOf(i2)).verticalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Float.valueOf(f2)}) == null) {
+            connect(i, 3, i2, i3, i4);
+            connect(i, 4, i5, i6, i7);
+            this.mConstraints.get(Integer.valueOf(i)).verticalBias = f2;
         }
     }
 
-    public void clear(int i2) {
+    public void clear(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mConstraints.remove(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mConstraints.remove(Integer.valueOf(i));
         }
     }
 
-    public void clone(Context context, int i2) {
+    public void clone(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, context, i2) == null) {
-            clone((ConstraintLayout) LayoutInflater.from(context).inflate(i2, (ViewGroup) null));
+        if (interceptable == null || interceptable.invokeLI(1048590, this, context, i) == null) {
+            clone((ConstraintLayout) LayoutInflater.from(context).inflate(i, (ViewGroup) null));
         }
     }
 
-    public void connect(int i2, int i3, int i4, int i5, int i6) {
+    public void connect(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
-                this.mConstraints.put(Integer.valueOf(i2), new Constraint(null));
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
+                this.mConstraints.put(Integer.valueOf(i), new Constraint(null));
             }
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
-            switch (i3) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            switch (i2) {
                 case 1:
-                    if (i5 == 1) {
-                        constraint.leftToLeft = i4;
+                    if (i4 == 1) {
+                        constraint.leftToLeft = i3;
                         constraint.leftToRight = -1;
-                    } else if (i5 == 2) {
-                        constraint.leftToRight = i4;
+                    } else if (i4 == 2) {
+                        constraint.leftToRight = i3;
                         constraint.leftToLeft = -1;
                     } else {
-                        throw new IllegalArgumentException("Left to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("Left to " + sideToString(i4) + " undefined");
                     }
-                    constraint.leftMargin = i6;
+                    constraint.leftMargin = i5;
                     return;
                 case 2:
-                    if (i5 == 1) {
-                        constraint.rightToLeft = i4;
+                    if (i4 == 1) {
+                        constraint.rightToLeft = i3;
                         constraint.rightToRight = -1;
-                    } else if (i5 == 2) {
-                        constraint.rightToRight = i4;
+                    } else if (i4 == 2) {
+                        constraint.rightToRight = i3;
                         constraint.rightToLeft = -1;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
-                    constraint.rightMargin = i6;
+                    constraint.rightMargin = i5;
                     return;
                 case 3:
-                    if (i5 == 3) {
-                        constraint.topToTop = i4;
+                    if (i4 == 3) {
+                        constraint.topToTop = i3;
                         constraint.topToBottom = -1;
                         constraint.baselineToBaseline = -1;
-                    } else if (i5 == 4) {
-                        constraint.topToBottom = i4;
+                    } else if (i4 == 4) {
+                        constraint.topToBottom = i3;
                         constraint.topToTop = -1;
                         constraint.baselineToBaseline = -1;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
-                    constraint.topMargin = i6;
+                    constraint.topMargin = i5;
                     return;
                 case 4:
-                    if (i5 == 4) {
-                        constraint.bottomToBottom = i4;
+                    if (i4 == 4) {
+                        constraint.bottomToBottom = i3;
                         constraint.bottomToTop = -1;
                         constraint.baselineToBaseline = -1;
-                    } else if (i5 == 3) {
-                        constraint.bottomToTop = i4;
+                    } else if (i4 == 3) {
+                        constraint.bottomToTop = i3;
                         constraint.bottomToBottom = -1;
                         constraint.baselineToBaseline = -1;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
-                    constraint.bottomMargin = i6;
+                    constraint.bottomMargin = i5;
                     return;
                 case 5:
-                    if (i5 == 5) {
-                        constraint.baselineToBaseline = i4;
+                    if (i4 == 5) {
+                        constraint.baselineToBaseline = i3;
                         constraint.bottomToBottom = -1;
                         constraint.bottomToTop = -1;
                         constraint.topToTop = -1;
                         constraint.topToBottom = -1;
                         return;
                     }
-                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                 case 6:
-                    if (i5 == 6) {
-                        constraint.startToStart = i4;
+                    if (i4 == 6) {
+                        constraint.startToStart = i3;
                         constraint.startToEnd = -1;
-                    } else if (i5 == 7) {
-                        constraint.startToEnd = i4;
+                    } else if (i4 == 7) {
+                        constraint.startToEnd = i3;
                         constraint.startToStart = -1;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
-                    constraint.startMargin = i6;
+                    constraint.startMargin = i5;
                     return;
                 case 7:
-                    if (i5 == 7) {
-                        constraint.endToEnd = i4;
+                    if (i4 == 7) {
+                        constraint.endToEnd = i3;
                         constraint.endToStart = -1;
-                    } else if (i5 == 6) {
-                        constraint.endToStart = i4;
+                    } else if (i4 == 6) {
+                        constraint.endToStart = i3;
                         constraint.endToEnd = -1;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
-                    constraint.endMargin = i6;
+                    constraint.endMargin = i5;
                     return;
                 default:
-                    throw new IllegalArgumentException(sideToString(i3) + " to " + sideToString(i5) + " unknown");
+                    throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
             }
         }
     }
 
-    public void constrainCircle(int i2, int i3, int i4, float f2) {
+    public void constrainCircle(int i, int i2, int i3, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) {
-            Constraint constraint = get(i2);
-            constraint.circleConstraint = i3;
-            constraint.circleRadius = i4;
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) {
+            Constraint constraint = get(i);
+            constraint.circleConstraint = i2;
+            constraint.circleRadius = i3;
             constraint.circleAngle = f2;
         }
     }
 
-    public void constrainDefaultHeight(int i2, int i3) {
+    public void constrainDefaultHeight(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048597, this, i2, i3) == null) {
-            get(i2).heightDefault = i3;
+        if (interceptable == null || interceptable.invokeII(1048597, this, i, i2) == null) {
+            get(i).heightDefault = i2;
         }
     }
 
-    public void constrainDefaultWidth(int i2, int i3) {
+    public void constrainDefaultWidth(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048598, this, i2, i3) == null) {
-            get(i2).widthDefault = i3;
+        if (interceptable == null || interceptable.invokeII(1048598, this, i, i2) == null) {
+            get(i).widthDefault = i2;
         }
     }
 
-    public void constrainHeight(int i2, int i3) {
+    public void constrainHeight(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
-            get(i2).mHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
+            get(i).mHeight = i2;
         }
     }
 
-    public void constrainMaxHeight(int i2, int i3) {
+    public void constrainMaxHeight(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
-            get(i2).heightMax = i3;
+        if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
+            get(i).heightMax = i2;
         }
     }
 
-    public void constrainMaxWidth(int i2, int i3) {
+    public void constrainMaxWidth(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048601, this, i2, i3) == null) {
-            get(i2).widthMax = i3;
+        if (interceptable == null || interceptable.invokeII(1048601, this, i, i2) == null) {
+            get(i).widthMax = i2;
         }
     }
 
-    public void constrainMinHeight(int i2, int i3) {
+    public void constrainMinHeight(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048602, this, i2, i3) == null) {
-            get(i2).heightMin = i3;
+        if (interceptable == null || interceptable.invokeII(1048602, this, i, i2) == null) {
+            get(i).heightMin = i2;
         }
     }
 
-    public void constrainMinWidth(int i2, int i3) {
+    public void constrainMinWidth(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048603, this, i2, i3) == null) {
-            get(i2).widthMin = i3;
+        if (interceptable == null || interceptable.invokeII(1048603, this, i, i2) == null) {
+            get(i).widthMin = i2;
         }
     }
 
-    public void constrainPercentHeight(int i2, float f2) {
+    public void constrainPercentHeight(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).heightPercent = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).heightPercent = f2;
         }
     }
 
-    public void constrainPercentWidth(int i2, float f2) {
+    public void constrainPercentWidth(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).widthPercent = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).widthPercent = f2;
         }
     }
 
-    public void constrainWidth(int i2, int i3) {
+    public void constrainWidth(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048606, this, i2, i3) == null) {
-            get(i2).mWidth = i3;
+        if (interceptable == null || interceptable.invokeII(1048606, this, i, i2) == null) {
+            get(i).mWidth = i2;
         }
     }
 
-    public void create(int i2, int i3) {
+    public void create(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048607, this, i2, i3) == null) {
-            Constraint constraint = get(i2);
+        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
+            Constraint constraint = get(i);
             constraint.mIsGuideline = true;
-            constraint.orientation = i3;
+            constraint.orientation = i2;
         }
     }
 
-    public void createBarrier(int i2, int i3, int... iArr) {
+    public void createBarrier(int i, int i2, int... iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048608, this, i2, i3, iArr) == null) {
-            Constraint constraint = get(i2);
+        if (interceptable == null || interceptable.invokeIIL(1048608, this, i, i2, iArr) == null) {
+            Constraint constraint = get(i);
             constraint.mHelperType = 1;
-            constraint.mBarrierDirection = i3;
+            constraint.mBarrierDirection = i2;
             constraint.mIsGuideline = false;
             constraint.mReferenceIds = iArr;
         }
     }
 
-    public void createHorizontalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
+    public void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, fArr, Integer.valueOf(i6)}) == null) {
-            createHorizontalChain(i2, i3, i4, i5, iArr, fArr, i6, 1, 2);
+        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5)}) == null) {
+            createHorizontalChain(i, i2, i3, i4, iArr, fArr, i5, 1, 2);
         }
     }
 
-    public void createHorizontalChainRtl(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
+    public void createHorizontalChainRtl(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, fArr, Integer.valueOf(i6)}) == null) {
-            createHorizontalChain(i2, i3, i4, i5, iArr, fArr, i6, 6, 7);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5)}) == null) {
+            createHorizontalChain(i, i2, i3, i4, iArr, fArr, i5, 6, 7);
         }
     }
 
-    public void createVerticalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6) {
+    public void createVerticalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, fArr, Integer.valueOf(i6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5)}) == null) {
             if (iArr.length >= 2) {
                 if (fArr != null && fArr.length != iArr.length) {
                     throw new IllegalArgumentException("must have 2 or more widgets in a chain");
@@ -1413,40 +1418,40 @@ public class ConstraintSet {
                 if (fArr != null) {
                     get(iArr[0]).verticalWeight = fArr[0];
                 }
-                get(iArr[0]).verticalChainStyle = i6;
-                connect(iArr[0], 3, i2, i3, 0);
-                for (int i7 = 1; i7 < iArr.length; i7++) {
-                    int i8 = iArr[i7];
-                    int i9 = i7 - 1;
-                    connect(iArr[i7], 3, iArr[i9], 4, 0);
-                    connect(iArr[i9], 4, iArr[i7], 3, 0);
+                get(iArr[0]).verticalChainStyle = i5;
+                connect(iArr[0], 3, i, i2, 0);
+                for (int i6 = 1; i6 < iArr.length; i6++) {
+                    int i7 = iArr[i6];
+                    int i8 = i6 - 1;
+                    connect(iArr[i6], 3, iArr[i8], 4, 0);
+                    connect(iArr[i8], 4, iArr[i6], 3, 0);
                     if (fArr != null) {
-                        get(iArr[i7]).verticalWeight = fArr[i7];
+                        get(iArr[i6]).verticalWeight = fArr[i6];
                     }
                 }
-                connect(iArr[iArr.length - 1], 4, i4, i5, 0);
+                connect(iArr[iArr.length - 1], 4, i3, i4, 0);
                 return;
             }
             throw new IllegalArgumentException("must have 2 or more widgets in a chain");
         }
     }
 
-    public boolean getApplyElevation(int i2) {
+    public boolean getApplyElevation(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) ? get(i2).applyElevation : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) ? get(i).applyElevation : invokeI.booleanValue;
     }
 
-    public Constraint getParameters(int i2) {
+    public Constraint getParameters(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? get(i2) : (Constraint) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? get(i) : (Constraint) invokeI.objValue;
     }
 
-    public void load(Context context, int i2) {
+    public void load(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048614, this, context, i2) == null) {
-            XmlResourceParser xml = context.getResources().getXml(i2);
+        if (interceptable == null || interceptable.invokeLI(1048614, this, context, i) == null) {
+            XmlResourceParser xml = context.getResources().getXml(i);
             try {
                 for (int eventType = xml.getEventType(); eventType != 1; eventType = xml.next()) {
                     if (eventType == 0) {
@@ -1472,142 +1477,142 @@ public class ConstraintSet {
         }
     }
 
-    public void removeFromHorizontalChain(int i2) {
+    public void removeFromHorizontalChain(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048615, this, i2) == null) && this.mConstraints.containsKey(Integer.valueOf(i2))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
-            int i3 = constraint.leftToRight;
-            int i4 = constraint.rightToLeft;
-            if (i3 == -1 && i4 == -1) {
-                int i5 = constraint.startToEnd;
-                int i6 = constraint.endToStart;
-                if (i5 != -1 || i6 != -1) {
-                    if (i5 != -1 && i6 != -1) {
-                        connect(i5, 7, i6, 6, 0);
-                        connect(i6, 6, i3, 7, 0);
-                    } else if (i3 != -1 || i6 != -1) {
-                        int i7 = constraint.rightToRight;
-                        if (i7 != -1) {
-                            connect(i3, 7, i7, 7, 0);
+        if ((interceptable == null || interceptable.invokeI(1048615, this, i) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            int i2 = constraint.leftToRight;
+            int i3 = constraint.rightToLeft;
+            if (i2 == -1 && i3 == -1) {
+                int i4 = constraint.startToEnd;
+                int i5 = constraint.endToStart;
+                if (i4 != -1 || i5 != -1) {
+                    if (i4 != -1 && i5 != -1) {
+                        connect(i4, 7, i5, 6, 0);
+                        connect(i5, 6, i2, 7, 0);
+                    } else if (i2 != -1 || i5 != -1) {
+                        int i6 = constraint.rightToRight;
+                        if (i6 != -1) {
+                            connect(i2, 7, i6, 7, 0);
                         } else {
-                            int i8 = constraint.leftToLeft;
-                            if (i8 != -1) {
-                                connect(i6, 6, i8, 6, 0);
+                            int i7 = constraint.leftToLeft;
+                            if (i7 != -1) {
+                                connect(i5, 6, i7, 6, 0);
                             }
                         }
                     }
                 }
-                clear(i2, 6);
-                clear(i2, 7);
+                clear(i, 6);
+                clear(i, 7);
                 return;
             }
-            if (i3 != -1 && i4 != -1) {
-                connect(i3, 2, i4, 1, 0);
-                connect(i4, 1, i3, 2, 0);
-            } else if (i3 != -1 || i4 != -1) {
-                int i9 = constraint.rightToRight;
-                if (i9 != -1) {
-                    connect(i3, 2, i9, 2, 0);
+            if (i2 != -1 && i3 != -1) {
+                connect(i2, 2, i3, 1, 0);
+                connect(i3, 1, i2, 2, 0);
+            } else if (i2 != -1 || i3 != -1) {
+                int i8 = constraint.rightToRight;
+                if (i8 != -1) {
+                    connect(i2, 2, i8, 2, 0);
                 } else {
-                    int i10 = constraint.leftToLeft;
-                    if (i10 != -1) {
-                        connect(i4, 1, i10, 1, 0);
+                    int i9 = constraint.leftToLeft;
+                    if (i9 != -1) {
+                        connect(i3, 1, i9, 1, 0);
                     }
                 }
             }
-            clear(i2, 1);
-            clear(i2, 2);
+            clear(i, 1);
+            clear(i, 2);
         }
     }
 
-    public void removeFromVerticalChain(int i2) {
+    public void removeFromVerticalChain(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            if (this.mConstraints.containsKey(Integer.valueOf(i2))) {
-                Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
-                int i3 = constraint.topToBottom;
-                int i4 = constraint.bottomToTop;
-                if (i3 != -1 || i4 != -1) {
-                    if (i3 != -1 && i4 != -1) {
-                        connect(i3, 4, i4, 3, 0);
-                        connect(i4, 3, i3, 4, 0);
-                    } else if (i3 != -1 || i4 != -1) {
-                        int i5 = constraint.bottomToBottom;
-                        if (i5 != -1) {
-                            connect(i3, 4, i5, 4, 0);
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            if (this.mConstraints.containsKey(Integer.valueOf(i))) {
+                Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+                int i2 = constraint.topToBottom;
+                int i3 = constraint.bottomToTop;
+                if (i2 != -1 || i3 != -1) {
+                    if (i2 != -1 && i3 != -1) {
+                        connect(i2, 4, i3, 3, 0);
+                        connect(i3, 3, i2, 4, 0);
+                    } else if (i2 != -1 || i3 != -1) {
+                        int i4 = constraint.bottomToBottom;
+                        if (i4 != -1) {
+                            connect(i2, 4, i4, 4, 0);
                         } else {
-                            int i6 = constraint.topToTop;
-                            if (i6 != -1) {
-                                connect(i4, 3, i6, 3, 0);
+                            int i5 = constraint.topToTop;
+                            if (i5 != -1) {
+                                connect(i3, 3, i5, 3, 0);
                             }
                         }
                     }
                 }
             }
-            clear(i2, 3);
-            clear(i2, 4);
+            clear(i, 3);
+            clear(i, 4);
         }
     }
 
-    public void setAlpha(int i2, float f2) {
+    public void setAlpha(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).alpha = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048617, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).alpha = f2;
         }
     }
 
-    public void setApplyElevation(int i2, boolean z) {
+    public void setApplyElevation(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            get(i2).applyElevation = z;
+        if (interceptable == null || interceptable.invokeCommon(1048618, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            get(i).applyElevation = z;
         }
     }
 
-    public void setBarrierType(int i2, int i3) {
+    public void setBarrierType(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048619, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048619, this, i, i2) == null) {
         }
     }
 
-    public void setDimensionRatio(int i2, String str) {
+    public void setDimensionRatio(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048620, this, i2, str) == null) {
-            get(i2).dimensionRatio = str;
+        if (interceptable == null || interceptable.invokeIL(1048620, this, i, str) == null) {
+            get(i).dimensionRatio = str;
         }
     }
 
-    public void setElevation(int i2, float f2) {
+    public void setElevation(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).elevation = f2;
-            get(i2).applyElevation = true;
+        if (interceptable == null || interceptable.invokeCommon(1048621, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).elevation = f2;
+            get(i).applyElevation = true;
         }
     }
 
-    public void setGoneMargin(int i2, int i3, int i4) {
+    public void setGoneMargin(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048622, this, i2, i3, i4) == null) {
-            Constraint constraint = get(i2);
-            switch (i3) {
+        if (interceptable == null || interceptable.invokeIII(1048622, this, i, i2, i3) == null) {
+            Constraint constraint = get(i);
+            switch (i2) {
                 case 1:
-                    constraint.goneLeftMargin = i4;
+                    constraint.goneLeftMargin = i3;
                     return;
                 case 2:
-                    constraint.goneRightMargin = i4;
+                    constraint.goneRightMargin = i3;
                     return;
                 case 3:
-                    constraint.goneTopMargin = i4;
+                    constraint.goneTopMargin = i3;
                     return;
                 case 4:
-                    constraint.goneBottomMargin = i4;
+                    constraint.goneBottomMargin = i3;
                     return;
                 case 5:
                     throw new IllegalArgumentException("baseline does not support margins");
                 case 6:
-                    constraint.goneStartMargin = i4;
+                    constraint.goneStartMargin = i3;
                     return;
                 case 7:
-                    constraint.goneEndMargin = i4;
+                    constraint.goneEndMargin = i3;
                     return;
                 default:
                     throw new IllegalArgumentException("unknown constraint");
@@ -1615,78 +1620,78 @@ public class ConstraintSet {
         }
     }
 
-    public void setGuidelineBegin(int i2, int i3) {
+    public void setGuidelineBegin(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048623, this, i2, i3) == null) {
-            get(i2).guideBegin = i3;
-            get(i2).guideEnd = -1;
-            get(i2).guidePercent = -1.0f;
+        if (interceptable == null || interceptable.invokeII(1048623, this, i, i2) == null) {
+            get(i).guideBegin = i2;
+            get(i).guideEnd = -1;
+            get(i).guidePercent = -1.0f;
         }
     }
 
-    public void setGuidelineEnd(int i2, int i3) {
+    public void setGuidelineEnd(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048624, this, i2, i3) == null) {
-            get(i2).guideEnd = i3;
-            get(i2).guideBegin = -1;
-            get(i2).guidePercent = -1.0f;
+        if (interceptable == null || interceptable.invokeII(1048624, this, i, i2) == null) {
+            get(i).guideEnd = i2;
+            get(i).guideBegin = -1;
+            get(i).guidePercent = -1.0f;
         }
     }
 
-    public void setGuidelinePercent(int i2, float f2) {
+    public void setGuidelinePercent(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).guidePercent = f2;
-            get(i2).guideEnd = -1;
-            get(i2).guideBegin = -1;
+        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).guidePercent = f2;
+            get(i).guideEnd = -1;
+            get(i).guideBegin = -1;
         }
     }
 
-    public void setHorizontalBias(int i2, float f2) {
+    public void setHorizontalBias(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).horizontalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).horizontalBias = f2;
         }
     }
 
-    public void setHorizontalChainStyle(int i2, int i3) {
+    public void setHorizontalChainStyle(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048627, this, i2, i3) == null) {
-            get(i2).horizontalChainStyle = i3;
+        if (interceptable == null || interceptable.invokeII(1048627, this, i, i2) == null) {
+            get(i).horizontalChainStyle = i2;
         }
     }
 
-    public void setHorizontalWeight(int i2, float f2) {
+    public void setHorizontalWeight(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).horizontalWeight = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048628, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).horizontalWeight = f2;
         }
     }
 
-    public void setMargin(int i2, int i3, int i4) {
+    public void setMargin(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048629, this, i2, i3, i4) == null) {
-            Constraint constraint = get(i2);
-            switch (i3) {
+        if (interceptable == null || interceptable.invokeIII(1048629, this, i, i2, i3) == null) {
+            Constraint constraint = get(i);
+            switch (i2) {
                 case 1:
-                    constraint.leftMargin = i4;
+                    constraint.leftMargin = i3;
                     return;
                 case 2:
-                    constraint.rightMargin = i4;
+                    constraint.rightMargin = i3;
                     return;
                 case 3:
-                    constraint.topMargin = i4;
+                    constraint.topMargin = i3;
                     return;
                 case 4:
-                    constraint.bottomMargin = i4;
+                    constraint.bottomMargin = i3;
                     return;
                 case 5:
                     throw new IllegalArgumentException("baseline does not support margins");
                 case 6:
-                    constraint.startMargin = i4;
+                    constraint.startMargin = i3;
                     return;
                 case 7:
-                    constraint.endMargin = i4;
+                    constraint.endMargin = i3;
                     return;
                 default:
                     throw new IllegalArgumentException("unknown constraint");
@@ -1694,125 +1699,125 @@ public class ConstraintSet {
         }
     }
 
-    public void setRotation(int i2, float f2) {
+    public void setRotation(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).rotation = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).rotation = f2;
         }
     }
 
-    public void setRotationX(int i2, float f2) {
+    public void setRotationX(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).rotationX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).rotationX = f2;
         }
     }
 
-    public void setRotationY(int i2, float f2) {
+    public void setRotationY(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).rotationY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048632, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).rotationY = f2;
         }
     }
 
-    public void setScaleX(int i2, float f2) {
+    public void setScaleX(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).scaleX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048633, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).scaleX = f2;
         }
     }
 
-    public void setScaleY(int i2, float f2) {
+    public void setScaleY(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).scaleY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048634, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).scaleY = f2;
         }
     }
 
-    public void setTransformPivot(int i2, float f2, float f3) {
+    public void setTransformPivot(int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            Constraint constraint = get(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            Constraint constraint = get(i);
             constraint.transformPivotY = f3;
             constraint.transformPivotX = f2;
         }
     }
 
-    public void setTransformPivotX(int i2, float f2) {
+    public void setTransformPivotX(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).transformPivotX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048636, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).transformPivotX = f2;
         }
     }
 
-    public void setTransformPivotY(int i2, float f2) {
+    public void setTransformPivotY(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).transformPivotY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048637, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).transformPivotY = f2;
         }
     }
 
-    public void setTranslation(int i2, float f2, float f3) {
+    public void setTranslation(int i, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            Constraint constraint = get(i2);
+        if (interceptable == null || interceptable.invokeCommon(1048638, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            Constraint constraint = get(i);
             constraint.translationX = f2;
             constraint.translationY = f3;
         }
     }
 
-    public void setTranslationX(int i2, float f2) {
+    public void setTranslationX(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).translationX = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048639, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).translationX = f2;
         }
     }
 
-    public void setTranslationY(int i2, float f2) {
+    public void setTranslationY(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).translationY = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048640, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).translationY = f2;
         }
     }
 
-    public void setTranslationZ(int i2, float f2) {
+    public void setTranslationZ(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).translationZ = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048641, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).translationZ = f2;
         }
     }
 
-    public void setVerticalBias(int i2, float f2) {
+    public void setVerticalBias(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).verticalBias = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048642, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).verticalBias = f2;
         }
     }
 
-    public void setVerticalChainStyle(int i2, int i3) {
+    public void setVerticalChainStyle(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048643, this, i2, i3) == null) {
-            get(i2).verticalChainStyle = i3;
+        if (interceptable == null || interceptable.invokeII(1048643, this, i, i2) == null) {
+            get(i).verticalChainStyle = i2;
         }
     }
 
-    public void setVerticalWeight(int i2, float f2) {
+    public void setVerticalWeight(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            get(i2).verticalWeight = f2;
+        if (interceptable == null || interceptable.invokeCommon(1048644, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            get(i).verticalWeight = f2;
         }
     }
 
-    public void setVisibility(int i2, int i3) {
+    public void setVisibility(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048645, this, i2, i3) == null) {
-            get(i2).visibility = i3;
+        if (interceptable == null || interceptable.invokeII(1048645, this, i, i2) == null) {
+            get(i).visibility = i2;
         }
     }
 
-    private void createHorizontalChain(int i2, int i3, int i4, int i5, int[] iArr, float[] fArr, int i6, int i7, int i8) {
+    private void createHorizontalChain(int i, int i2, int i3, int i4, int[] iArr, float[] fArr, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr, fArr, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr, fArr, Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
             if (iArr.length >= 2) {
                 if (fArr != null && fArr.length != iArr.length) {
                     throw new IllegalArgumentException("must have 2 or more widgets in a chain");
@@ -1820,29 +1825,29 @@ public class ConstraintSet {
                 if (fArr != null) {
                     get(iArr[0]).horizontalWeight = fArr[0];
                 }
-                get(iArr[0]).horizontalChainStyle = i6;
-                connect(iArr[0], i7, i2, i3, -1);
-                for (int i9 = 1; i9 < iArr.length; i9++) {
-                    int i10 = iArr[i9];
-                    int i11 = i9 - 1;
-                    connect(iArr[i9], i7, iArr[i11], i8, -1);
-                    connect(iArr[i11], i8, iArr[i9], i7, -1);
+                get(iArr[0]).horizontalChainStyle = i5;
+                connect(iArr[0], i6, i, i2, -1);
+                for (int i8 = 1; i8 < iArr.length; i8++) {
+                    int i9 = iArr[i8];
+                    int i10 = i8 - 1;
+                    connect(iArr[i8], i6, iArr[i10], i7, -1);
+                    connect(iArr[i10], i7, iArr[i8], i6, -1);
                     if (fArr != null) {
-                        get(iArr[i9]).horizontalWeight = fArr[i9];
+                        get(iArr[i8]).horizontalWeight = fArr[i8];
                     }
                 }
-                connect(iArr[iArr.length - 1], i8, i4, i5, -1);
+                connect(iArr[iArr.length - 1], i7, i3, i4, -1);
                 return;
             }
             throw new IllegalArgumentException("must have 2 or more widgets in a chain");
         }
     }
 
-    public void clear(int i2, int i3) {
+    public void clear(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048589, this, i2, i3) == null) && this.mConstraints.containsKey(Integer.valueOf(i2))) {
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
-            switch (i3) {
+        if ((interceptable == null || interceptable.invokeII(1048589, this, i, i2) == null) && this.mConstraints.containsKey(Integer.valueOf(i))) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            switch (i2) {
                 case 1:
                     constraint.leftToRight = -1;
                     constraint.leftToLeft = -1;
@@ -1898,35 +1903,35 @@ public class ConstraintSet {
         }
     }
 
-    public void centerHorizontally(int i2, int i3) {
+    public void centerHorizontally(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            if (i3 == 0) {
-                center(i2, 0, 1, 0, 0, 2, 0, 0.5f);
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 1, 0, 0, 2, 0, 0.5f);
             } else {
-                center(i2, i3, 2, 0, i3, 1, 0, 0.5f);
+                center(i, i2, 2, 0, i2, 1, 0, 0.5f);
             }
         }
     }
 
-    public void centerHorizontallyRtl(int i2, int i3) {
+    public void centerHorizontallyRtl(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            if (i3 == 0) {
-                center(i2, 0, 6, 0, 0, 7, 0, 0.5f);
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 6, 0, 0, 7, 0, 0.5f);
             } else {
-                center(i2, i3, 7, 0, i3, 6, 0, 0.5f);
+                center(i, i2, 7, 0, i2, 6, 0, 0.5f);
             }
         }
     }
 
-    public void centerVertically(int i2, int i3) {
+    public void centerVertically(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            if (i3 == 0) {
-                center(i2, 0, 3, 0, 0, 4, 0, 0.5f);
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            if (i2 == 0) {
+                center(i, 0, 3, 0, 0, 4, 0, 0.5f);
             } else {
-                center(i2, i3, 4, 0, i3, 3, 0, 0.5f);
+                center(i, i2, 4, 0, i2, 3, 0, 0.5f);
             }
         }
     }
@@ -1936,8 +1941,8 @@ public class ConstraintSet {
         if (interceptable == null || interceptable.invokeL(1048591, this, constraintLayout) == null) {
             int childCount = constraintLayout.getChildCount();
             this.mConstraints.clear();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = constraintLayout.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraintLayout.getChildAt(i);
                 ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) childAt.getLayoutParams();
                 int id = childAt.getId();
                 if (id != -1) {
@@ -1987,8 +1992,8 @@ public class ConstraintSet {
         if (interceptable == null || interceptable.invokeL(1048593, this, constraints) == null) {
             int childCount = constraints.getChildCount();
             this.mConstraints.clear();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = constraints.getChildAt(i2);
+            for (int i = 0; i < childCount; i++) {
+                View childAt = constraints.getChildAt(i);
                 Constraints.LayoutParams layoutParams = (Constraints.LayoutParams) childAt.getLayoutParams();
                 int id = childAt.getId();
                 if (id != -1) {
@@ -2007,102 +2012,102 @@ public class ConstraintSet {
         }
     }
 
-    public void connect(int i2, int i3, int i4, int i5) {
+    public void connect(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048594, this, i2, i3, i4, i5) == null) {
-            if (!this.mConstraints.containsKey(Integer.valueOf(i2))) {
-                this.mConstraints.put(Integer.valueOf(i2), new Constraint(null));
+        if (interceptable == null || interceptable.invokeIIII(1048594, this, i, i2, i3, i4) == null) {
+            if (!this.mConstraints.containsKey(Integer.valueOf(i))) {
+                this.mConstraints.put(Integer.valueOf(i), new Constraint(null));
             }
-            Constraint constraint = this.mConstraints.get(Integer.valueOf(i2));
-            switch (i3) {
+            Constraint constraint = this.mConstraints.get(Integer.valueOf(i));
+            switch (i2) {
                 case 1:
-                    if (i5 == 1) {
-                        constraint.leftToLeft = i4;
+                    if (i4 == 1) {
+                        constraint.leftToLeft = i3;
                         constraint.leftToRight = -1;
                         return;
-                    } else if (i5 == 2) {
-                        constraint.leftToRight = i4;
+                    } else if (i4 == 2) {
+                        constraint.leftToRight = i3;
                         constraint.leftToLeft = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("left to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("left to " + sideToString(i4) + " undefined");
                     }
                 case 2:
-                    if (i5 == 1) {
-                        constraint.rightToLeft = i4;
+                    if (i4 == 1) {
+                        constraint.rightToLeft = i3;
                         constraint.rightToRight = -1;
                         return;
-                    } else if (i5 == 2) {
-                        constraint.rightToRight = i4;
+                    } else if (i4 == 2) {
+                        constraint.rightToRight = i3;
                         constraint.rightToLeft = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
                 case 3:
-                    if (i5 == 3) {
-                        constraint.topToTop = i4;
+                    if (i4 == 3) {
+                        constraint.topToTop = i3;
                         constraint.topToBottom = -1;
                         constraint.baselineToBaseline = -1;
                         return;
-                    } else if (i5 == 4) {
-                        constraint.topToBottom = i4;
+                    } else if (i4 == 4) {
+                        constraint.topToBottom = i3;
                         constraint.topToTop = -1;
                         constraint.baselineToBaseline = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
                 case 4:
-                    if (i5 == 4) {
-                        constraint.bottomToBottom = i4;
+                    if (i4 == 4) {
+                        constraint.bottomToBottom = i3;
                         constraint.bottomToTop = -1;
                         constraint.baselineToBaseline = -1;
                         return;
-                    } else if (i5 == 3) {
-                        constraint.bottomToTop = i4;
+                    } else if (i4 == 3) {
+                        constraint.bottomToTop = i3;
                         constraint.bottomToBottom = -1;
                         constraint.baselineToBaseline = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
                 case 5:
-                    if (i5 == 5) {
-                        constraint.baselineToBaseline = i4;
+                    if (i4 == 5) {
+                        constraint.baselineToBaseline = i3;
                         constraint.bottomToBottom = -1;
                         constraint.bottomToTop = -1;
                         constraint.topToTop = -1;
                         constraint.topToBottom = -1;
                         return;
                     }
-                    throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                    throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                 case 6:
-                    if (i5 == 6) {
-                        constraint.startToStart = i4;
+                    if (i4 == 6) {
+                        constraint.startToStart = i3;
                         constraint.startToEnd = -1;
                         return;
-                    } else if (i5 == 7) {
-                        constraint.startToEnd = i4;
+                    } else if (i4 == 7) {
+                        constraint.startToEnd = i3;
                         constraint.startToStart = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
                 case 7:
-                    if (i5 == 7) {
-                        constraint.endToEnd = i4;
+                    if (i4 == 7) {
+                        constraint.endToEnd = i3;
                         constraint.endToStart = -1;
                         return;
-                    } else if (i5 == 6) {
-                        constraint.endToStart = i4;
+                    } else if (i4 == 6) {
+                        constraint.endToStart = i3;
                         constraint.endToEnd = -1;
                         return;
                     } else {
-                        throw new IllegalArgumentException("right to " + sideToString(i5) + " undefined");
+                        throw new IllegalArgumentException("right to " + sideToString(i4) + " undefined");
                     }
                 default:
-                    throw new IllegalArgumentException(sideToString(i3) + " to " + sideToString(i5) + " unknown");
+                    throw new IllegalArgumentException(sideToString(i2) + " to " + sideToString(i4) + " unknown");
             }
         }
     }

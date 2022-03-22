@@ -49,29 +49,29 @@ public class PopupEmotionManager {
         public Object extra;
         public int taskType;
 
-        public DelayedTask(int i2, Object obj) {
+        public DelayedTask(int i, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), obj};
+                Object[] objArr = {Integer.valueOf(i), obj};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.taskType = i2;
+            this.taskType = i;
             this.extra = obj;
         }
     }
 
     /* loaded from: classes4.dex */
     public interface IShowListener {
-        void show(int i2, String str, int i3, int i4);
+        void show(int i, String str, int i2, int i3);
     }
 
     /* loaded from: classes4.dex */
@@ -93,9 +93,9 @@ public class PopupEmotionManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -125,9 +125,9 @@ public class PopupEmotionManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -165,9 +165,9 @@ public class PopupEmotionManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -200,14 +200,14 @@ public class PopupEmotionManager {
             return;
         }
         DelayedTask poll = this.mDelayedTaskQueue.poll();
-        int i2 = poll.taskType;
-        if (i2 == 0) {
+        int i = poll.taskType;
+        if (i == 0) {
             show((ShowParam) poll.extra);
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             show((ShowParam) poll.extra);
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             dismiss();
-        } else if (i2 == 3) {
+        } else if (i == 3) {
             dismissWithoutAnim();
         }
     }
@@ -236,9 +236,9 @@ public class PopupEmotionManager {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -333,8 +333,8 @@ public class PopupEmotionManager {
             this.mLastShowParam = showParam;
             if (this.mPopupEmotionView == null) {
                 this.mPopupEmotionView = new PopupEmotionView(this.mCtx);
-                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_entry);
-                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.emotion_long_pressed_exit);
+                this.mEnterAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010061);
+                this.mExitAnimation = AnimationUtils.loadAnimation(this.mCtx, R.anim.obfuscated_res_0x7f010062);
             }
             this.mPopupEmotionView.configView(showParam.exprName, showParam.exprBitmap);
             calculatePos(showParam);
@@ -356,9 +356,9 @@ public class PopupEmotionManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -385,9 +385,9 @@ public class PopupEmotionManager {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -439,9 +439,9 @@ public class PopupEmotionManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

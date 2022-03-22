@@ -1,7 +1,6 @@
 package com.baidu.sapi2.result;
 
 import android.text.TextUtils;
-import com.baidu.fsg.base.BaiduRimConstants;
 import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,9 +23,9 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,7 +73,7 @@ public class ExtendSysWebViewMethodResult extends SapiResult {
                 }
                 jSONObject2.put("result", jSONObject);
                 if (this.recogResult != null) {
-                    jSONObject2.put(BaiduRimConstants.RETCODE_KEY, this.recogResult.getResultCode());
+                    jSONObject2.put("retCode", this.recogResult.getResultCode());
                     jSONObject2.put("retMsg", this.recogResult.getResultMsg());
                 }
             } catch (JSONException unused) {

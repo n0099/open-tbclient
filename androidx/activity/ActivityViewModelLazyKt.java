@@ -26,8 +26,8 @@ public final class ActivityViewModelLazyKt {
         return new ViewModelLazy(Reflection.getOrCreateKotlinClass(ViewModel.class), new ActivityViewModelLazyKt$viewModels$1(componentActivity), function0);
     }
 
-    public static /* synthetic */ Lazy viewModels$default(ComponentActivity componentActivity, Function0 function0, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Lazy viewModels$default(ComponentActivity componentActivity, Function0 function0, int i, Object obj) {
+        if ((i & 1) != 0) {
             function0 = null;
         }
         if (function0 == null) {

@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.ParsableByteArray;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class TagPayloadReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TrackOutput output;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UnsupportedFormatException extends ParserException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public abstract class TagPayloadReader {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -46,9 +46,9 @@ public abstract class TagPayloadReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackOutput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,16 +57,16 @@ public abstract class TagPayloadReader {
         this.output = trackOutput;
     }
 
-    public final void consume(ParsableByteArray parsableByteArray, long j2) throws ParserException {
+    public final void consume(ParsableByteArray parsableByteArray, long j) throws ParserException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048576, this, parsableByteArray, j2) == null) && parseHeader(parsableByteArray)) {
-            parsePayload(parsableByteArray, j2);
+        if ((interceptable == null || interceptable.invokeLJ(1048576, this, parsableByteArray, j) == null) && parseHeader(parsableByteArray)) {
+            parsePayload(parsableByteArray, j);
         }
     }
 
     public abstract boolean parseHeader(ParsableByteArray parsableByteArray) throws ParserException;
 
-    public abstract void parsePayload(ParsableByteArray parsableByteArray, long j2) throws ParserException;
+    public abstract void parsePayload(ParsableByteArray parsableByteArray, long j) throws ParserException;
 
     public abstract void seek();
 }

@@ -32,22 +32,22 @@ public final class TransitionKt {
         return (Transition.TransitionListener) invokeCommon.objValue;
     }
 
-    public static /* synthetic */ Transition.TransitionListener addListener$default(Transition transition, Function1 function1, Function1 function12, Function1 function13, Function1 function14, Function1 function15, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ Transition.TransitionListener addListener$default(Transition transition, Function1 function1, Function1 function12, Function1 function13, Function1 function14, Function1 function15, int i, Object obj) {
+        if ((i & 1) != 0) {
             function1 = TransitionKt$addListener$1.INSTANCE;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             function12 = TransitionKt$addListener$2.INSTANCE;
         }
         Function1 function16 = function12;
-        if ((i2 & 4) != 0) {
+        if ((i & 4) != 0) {
             function13 = TransitionKt$addListener$3.INSTANCE;
         }
         Function1 function17 = function13;
-        if ((i2 & 8) != 0) {
+        if ((i & 8) != 0) {
             function14 = TransitionKt$addListener$4.INSTANCE;
         }
-        if ((i2 & 16) != 0) {
+        if ((i & 16) != 0) {
             function15 = TransitionKt$addListener$5.INSTANCE;
         }
         TransitionKt$addListener$listener$1 transitionKt$addListener$listener$1 = new TransitionKt$addListener$listener$1(function1, function14, function15, function17, function16);
@@ -72,9 +72,9 @@ public final class TransitionKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -142,9 +142,9 @@ public final class TransitionKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -212,9 +212,9 @@ public final class TransitionKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -282,9 +282,9 @@ public final class TransitionKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -352,9 +352,9 @@ public final class TransitionKt {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {function1};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

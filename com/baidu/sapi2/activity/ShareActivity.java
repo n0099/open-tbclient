@@ -23,7 +23,6 @@ import com.baidu.sapi2.stat.ShareLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.StatService;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,9 +55,9 @@ public class ShareActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,7 +82,7 @@ public class ShareActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             try {
-                setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 if (!PassSdkModel.getInstance().checkPassSdkInit()) {
                     Log.e(B, "pass sdk没有初始化");
                     this.u.setResultCode(ShareResult.ERROR_CODE_REASON_SDK_NOT_INIT);
@@ -100,7 +99,7 @@ public class ShareActivity extends BaseActivity {
                 init();
                 setupViews();
                 Map<String, String> a = a();
-                a.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+                a.put("is_login", this.t.equals("1") ? "0" : "1");
                 StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_INVOKED, a);
             } catch (Throwable th) {
                 reportWebviewError(th);
@@ -136,9 +135,9 @@ public class ShareActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -203,9 +202,9 @@ public class ShareActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -252,7 +251,7 @@ public class ShareActivity extends BaseActivity {
             }
             currentAccount.app = SapiUtils.getAppName(this);
             Map<String, String> a = a();
-            a.put(ImageViewerConfig.IS_LOGIN, this.t.equals("1") ? "0" : "1");
+            a.put("is_login", this.t.equals("1") ? "0" : "1");
             StatService.onEventAutoStat(ShareStatKey.SHARE_LOGIN_AUTH_SUCCESS, a);
             Intent intent = new Intent();
             Bundle bundle = new Bundle();
@@ -292,7 +291,7 @@ public class ShareActivity extends BaseActivity {
                 public final /* synthetic */ boolean a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public final /* synthetic */ ShareActivity f36695b;
+                public final /* synthetic */ ShareActivity f28461b;
 
                 {
                     Interceptable interceptable2 = $ic;
@@ -301,15 +300,15 @@ public class ShareActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
-                    this.f36695b = this;
+                    this.f28461b = this;
                     this.a = z;
                 }
 
@@ -318,14 +317,14 @@ public class ShareActivity extends BaseActivity {
                 public void onFailure(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                        Map a = this.f36695b.a();
+                        Map a = this.f28461b.a();
                         a.put("code", "" + webAuthResult.getResultCode());
                         StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_FAIL, a);
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
-                        this.f36695b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
-                        this.f36695b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f36695b.w));
-                        this.f36695b.a(true);
+                        this.f28461b.u.setResultCode(ShareResult.ERROR_CODE_EXPIRED_LOGIN_FAIL);
+                        this.f28461b.u.setResultMsg(String.format(ShareResult.ERROR_MSG_EXPIRED_LOGIN_FAIL, this.f28461b.w));
+                        this.f28461b.a(true);
                     }
                 }
 
@@ -334,10 +333,10 @@ public class ShareActivity extends BaseActivity {
                 public void onSuccess(WebAuthResult webAuthResult) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048579, this, webAuthResult) == null) {
-                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f36695b.a());
+                        StatService.onEventAutoStat(ShareStatKey.SHARE_AUTH_EXPIRED_LOGIN_SUCCESS, this.f28461b.a());
                         LoginActivity.supportShareLogin = true;
                         SapiAccountManager.getInstance().getConfignation().supportFaceLogin = this.a;
-                        SapiWebView sapiWebView = this.f36695b.sapiWebView;
+                        SapiWebView sapiWebView = this.f28461b.sapiWebView;
                         if (sapiWebView != null) {
                             sapiWebView.reload();
                         }

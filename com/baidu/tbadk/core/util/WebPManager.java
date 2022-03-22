@@ -10,7 +10,7 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.DrawableRes;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.r0.y3.c;
+import c.a.p0.a4.c;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -60,16 +60,16 @@ public class WebPManager {
             $VALUES = new ResourceStateType[]{NORMAL, NORMAL_PRESS, NORMAL_PRESS_DISABLE, resourceStateType};
         }
 
-        public ResourceStateType(String str, int i2, boolean z, boolean z2, int i3) {
+        public ResourceStateType(String str, int i, boolean z, boolean z2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -80,7 +80,7 @@ public class WebPManager {
             }
             this.canPress = z;
             this.canDisable = z2;
-            this.stateCount = i3;
+            this.stateCount = i2;
         }
 
         public static ResourceStateType valueOf(String str) {
@@ -101,69 +101,69 @@ public class WebPManager {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ColorStateList getColorListByResourceType(@ColorInt int i2, ResourceStateType resourceStateType) {
+    public static ColorStateList getColorListByResourceType(@ColorInt int i, ResourceStateType resourceStateType) {
         InterceptResult invokeIL;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, resourceStateType)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, resourceStateType)) == null) {
             if (resourceStateType == null) {
                 resourceStateType = ResourceStateType.NORMAL;
             }
             int[] iArr = new int[resourceStateType.stateCount];
             int[][] iArr2 = new int[resourceStateType.stateCount];
             if (resourceStateType.canPress) {
-                iArr[0] = c.a(i2, SkinManager.RESOURCE_ALPHA_PRESS);
+                iArr[0] = c.a(i, SkinManager.RESOURCE_ALPHA_PRESS);
                 iArr2[0] = new int[]{16842919, 16842910};
-                i3 = 1;
+                i2 = 1;
             } else {
-                i3 = 0;
+                i2 = 0;
             }
             if (resourceStateType.canDisable) {
-                iArr[i3] = i2;
+                iArr[i2] = i;
                 int[] iArr3 = new int[1];
                 iArr3[0] = 16842910;
-                iArr2[i3] = iArr3;
-                int i4 = i3 + 1;
-                iArr[i4] = c.a(i2, SkinManager.RESOURCE_ALPHA_DISABLE);
-                iArr2[i4] = new int[0];
-            } else {
-                iArr[i3] = i2;
+                iArr2[i2] = iArr3;
+                int i3 = i2 + 1;
+                iArr[i3] = c.a(i, SkinManager.RESOURCE_ALPHA_DISABLE);
                 iArr2[i3] = new int[0];
+            } else {
+                iArr[i2] = i;
+                iArr2[i2] = new int[0];
             }
             return new ColorStateList(iArr2, iArr);
         }
         return (ColorStateList) invokeIL.objValue;
     }
 
-    public static Drawable getMaskDrawable(int i2, @Nullable ResourceStateType resourceStateType) {
+    public static Drawable getMaskDrawable(int i, @Nullable ResourceStateType resourceStateType) {
         InterceptResult invokeIL;
         Drawable maskedDrawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i2, resourceStateType)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, resourceStateType)) == null) {
+            if (i <= 0) {
                 return null;
             }
             if (resourceStateType == null) {
                 resourceStateType = ResourceStateType.NORMAL;
             }
             StateListDrawable stateListDrawable = new StateListDrawable();
-            if (resourceStateType.canPress && (maskedDrawable = getMaskedDrawable(i2)) != null) {
+            if (resourceStateType.canPress && (maskedDrawable = getMaskedDrawable(i)) != null) {
                 maskedDrawable.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
                 stateListDrawable.addState(new int[]{16842919}, maskedDrawable);
             }
-            Drawable maskedDrawable2 = getMaskedDrawable(i2);
+            Drawable maskedDrawable2 = getMaskedDrawable(i);
             if (resourceStateType.canDisable) {
                 stateListDrawable.addState(new int[0], maskedDrawable2);
-                Drawable maskedDrawable3 = getMaskedDrawable(i2);
+                Drawable maskedDrawable3 = getMaskedDrawable(i);
                 maskedDrawable3.setAlpha((int) (SkinManager.RESOURCE_ALPHA_DISABLE * 255.0f));
                 stateListDrawable.addState(new int[0], maskedDrawable3);
             } else {
@@ -174,11 +174,11 @@ public class WebPManager {
         return (Drawable) invokeIL.objValue;
     }
 
-    public static Drawable getMaskedDrawable(int i2) {
+    public static Drawable getMaskedDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) {
-            Drawable drawable = SkinManager.getDrawable(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            Drawable drawable = SkinManager.getDrawable(i);
             if (drawable == null) {
                 return null;
             }
@@ -191,125 +191,125 @@ public class WebPManager {
         return (Drawable) invokeI.objValue;
     }
 
-    public static Drawable getPureDrawable(int i2, @ColorInt int i3, @Nullable ResourceStateType resourceStateType) {
+    public static Drawable getPureDrawable(int i, @ColorInt int i2, @Nullable ResourceStateType resourceStateType) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i2, i3, resourceStateType)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65541, null, i, i2, resourceStateType)) == null) {
+            if (i <= 0) {
                 return null;
             }
             if (resourceStateType == null) {
                 resourceStateType = ResourceStateType.NORMAL;
             }
-            Drawable drawable = SkinManager.getDrawable(i2);
+            Drawable drawable = SkinManager.getDrawable(i);
             if (drawable == null) {
                 return null;
             }
             Drawable mutate = drawable.mutate();
-            mutate.setTintList(getColorListByResourceType(i3, resourceStateType));
+            mutate.setTintList(getColorListByResourceType(i2, resourceStateType));
             return mutate;
         }
         return (Drawable) invokeIIL.objValue;
     }
 
     @Deprecated
-    public static Drawable getSeletableDrawableForEditorTools(int i2, int i3, int i4) {
+    public static Drawable getSeletableDrawableForEditorTools(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i2, i3, i4)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65542, null, i, i2, i3)) == null) {
+            if (i <= 0) {
                 return null;
             }
             StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable drawable2 = SkinManager.getDrawable(i2);
+            Drawable drawable2 = SkinManager.getDrawable(i);
             if (drawable2 == null) {
                 return null;
             }
-            Drawable mutate = SkinManager.getDrawable(i2).mutate();
-            mutate.setTint(c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
+            Drawable mutate = SkinManager.getDrawable(i).mutate();
+            mutate.setTint(c.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
-            if (i3 > 0 && (drawable = SkinManager.getDrawable(i3)) != null) {
-                Drawable mutate2 = SkinManager.getDrawable(i3).mutate();
+            if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
+                Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
                 mutate2.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
                 stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
-            Drawable mutate3 = SkinManager.getDrawable(i2).mutate();
-            mutate3.setTint(c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
+            Drawable mutate3 = SkinManager.getDrawable(i).mutate();
+            mutate3.setTint(c.a(SkinManager.getColor(i3, (int) R.color.CAM_X0105), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
-            drawable2.mutate().setTint(SkinManager.getColor(i4, (int) R.color.CAM_X0105));
+            drawable2.mutate().setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0105));
             stateListDrawable.addState(new int[0], drawable2);
             return stateListDrawable;
         }
         return (Drawable) invokeIII.objValue;
     }
 
-    public static Drawable getSeletableDrawableForEditorToolsEM(int i2, int i3, int i4) {
+    public static Drawable getSeletableDrawableForEditorToolsEM(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(65543, null, i2, i3, i4)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65543, null, i, i2, i3)) == null) {
+            if (i <= 0) {
                 return null;
             }
             StateListDrawable stateListDrawable = new StateListDrawable();
-            Drawable drawable2 = SkinManager.getDrawable(i2);
+            Drawable drawable2 = SkinManager.getDrawable(i);
             if (drawable2 == null) {
                 return null;
             }
-            Drawable mutate = SkinManager.getDrawable(i2).mutate();
-            mutate.setTint(c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
+            Drawable mutate = SkinManager.getDrawable(i).mutate();
+            mutate.setTint(c.a(SkinManager.getColor(i3, (int) R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_DISABLE));
             stateListDrawable.addState(new int[]{-16842910}, mutate);
-            if (i3 > 0 && (drawable = SkinManager.getDrawable(i3)) != null) {
-                Drawable mutate2 = SkinManager.getDrawable(i3).mutate();
+            if (i2 > 0 && (drawable = SkinManager.getDrawable(i2)) != null) {
+                Drawable mutate2 = SkinManager.getDrawable(i2).mutate();
                 mutate2.setAlpha((int) (SkinManager.RESOURCE_ALPHA_PRESS * 255.0f));
-                mutate2.setTint(SkinManager.getColor(i4, (int) R.color.CAM_X0302));
+                mutate2.setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0302));
                 stateListDrawable.addState(new int[]{16842913, 16842919}, mutate2);
-                drawable.mutate().setTint(SkinManager.getColor(i4, (int) R.color.CAM_X0302));
+                drawable.mutate().setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0302));
                 stateListDrawable.addState(new int[]{16842913}, drawable);
             }
-            Drawable mutate3 = SkinManager.getDrawable(i2).mutate();
-            mutate3.setTint(c.a(SkinManager.getColor(i4, (int) R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_PRESS));
+            Drawable mutate3 = SkinManager.getDrawable(i).mutate();
+            mutate3.setTint(c.a(SkinManager.getColor(i3, (int) R.color.CAM_X0107), SkinManager.RESOURCE_ALPHA_PRESS));
             stateListDrawable.addState(new int[]{16842919}, mutate3);
-            drawable2.mutate().setTint(SkinManager.getColor(i4, (int) R.color.CAM_X0107));
+            drawable2.mutate().setTint(SkinManager.getColor(i3, (int) R.color.CAM_X0107));
             stateListDrawable.addState(new int[0], drawable2);
             return stateListDrawable;
         }
         return (Drawable) invokeIII.objValue;
     }
 
-    public static void setMaskDrawable(ImageView imageView, @DrawableRes int i2, ResourceStateType resourceStateType) {
+    public static void setMaskDrawable(ImageView imageView, @DrawableRes int i, ResourceStateType resourceStateType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(65544, null, imageView, i2, resourceStateType) == null) || i2 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeLIL(65544, null, imageView, i, resourceStateType) == null) || i == 0 || imageView == null) {
             return;
         }
         if (resourceStateType == null) {
             resourceStateType = ResourceStateType.NORMAL;
         }
-        imageView.setImageDrawable(getMaskDrawable(i2, resourceStateType));
+        imageView.setImageDrawable(getMaskDrawable(i, resourceStateType));
     }
 
-    public static void setPureDrawable(ImageView imageView, @DrawableRes int i2, @ColorRes int i3, ResourceStateType resourceStateType) {
+    public static void setPureDrawable(ImageView imageView, @DrawableRes int i, @ColorRes int i2, ResourceStateType resourceStateType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{imageView, Integer.valueOf(i2), Integer.valueOf(i3), resourceStateType}) == null) || i2 == 0 || imageView == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{imageView, Integer.valueOf(i), Integer.valueOf(i2), resourceStateType}) == null) || i == 0 || imageView == null) {
             return;
         }
         if (resourceStateType == null) {
             resourceStateType = ResourceStateType.NORMAL;
         }
-        imageView.setImageDrawable(getPureDrawable(i2, SkinManager.getColor(i3), resourceStateType));
+        imageView.setImageDrawable(getPureDrawable(i, SkinManager.getColor(i2), resourceStateType));
     }
 
-    public static Drawable getMaskDrawable(int i2, boolean z) {
+    public static Drawable getMaskDrawable(int i, boolean z) {
         InterceptResult invokeCommon;
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (z) {
-                drawable = SkinManager.getDrawable(i2);
+                drawable = SkinManager.getDrawable(i);
             } else {
-                drawable = SkinManager.getDrawable(0, i2);
+                drawable = SkinManager.getDrawable(0, i);
             }
             if (drawable == null) {
                 return null;

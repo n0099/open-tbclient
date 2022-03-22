@@ -27,9 +27,9 @@ public class b extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -55,8 +55,8 @@ public class b extends com.baidu.platform.base.d {
                             poiIndoorResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
                         } else {
                             ArrayList arrayList = new ArrayList();
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i2);
+                            for (int i = 0; i < optJSONArray.length(); i++) {
+                                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
                                 if (jSONObject2 != null) {
                                     PoiIndoorInfo poiIndoorInfo = new PoiIndoorInfo();
                                     poiIndoorInfo.address = jSONObject2.optString("address");

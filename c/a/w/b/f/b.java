@@ -1,25 +1,24 @@
 package c.a.w.b.f;
 
-import c.a.w.f.g.j;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.FloatBuffer;
 /* loaded from: classes3.dex */
-public class b {
+public class b extends a {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, c.a.w.b.d.c.f> a;
 
-    /* renamed from: b  reason: collision with root package name */
-    public static List<String> f26329b;
+    /* renamed from: g  reason: collision with root package name */
+    public static final float[] f21870g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static final float[] f21871h;
+    public static final FloatBuffer i;
+    public static final FloatBuffer j;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,68 +34,31 @@ public class b {
                 return;
             }
         }
-        a = new HashMap();
-        f26329b = new ArrayList();
+        float[] fArr = {-1.0f, -1.0f, 1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f};
+        f21870g = fArr;
+        f21871h = new float[]{0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f};
+        i = c.a.w.b.h.a.b(fArr);
+        j = c.a.w.b.h.a.b(f21871h);
     }
 
-    public static void a(List<String> list) {
+    public b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, list) == null) || a.isEmpty() || c.a.w.f.g.d.c(list)) {
-            return;
-        }
-        Iterator<Map.Entry<String, c.a.w.b.d.c.f>> it = a.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry<String, c.a.w.b.d.c.f> next = it.next();
-            if (next != null && list.contains(next.getKey())) {
-                it.remove();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        JSONObject a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a.isEmpty()) {
-                return "";
-            }
-            JSONArray jSONArray = new JSONArray();
-            for (Map.Entry<String, c.a.w.b.d.c.f> entry : a.entrySet()) {
-                if (entry != null) {
-                    String key = entry.getKey();
-                    c.a.w.b.d.c.f value = entry.getValue();
-                    if (value != null && (a2 = value.a()) != null) {
-                        jSONArray.put(a2);
-                        f26329b.add(key);
-                    }
-                }
-            }
-            return jSONArray.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void c(String str, boolean z, boolean z2) {
-        c.a.w.b.d.c.f fVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || j.a(str)) {
-            return;
-        }
-        if (a.containsKey(str)) {
-            fVar = a.get(str);
-        } else {
-            fVar = new c.a.w.b.d.c.f();
-            a.put(str, fVar);
-        }
-        fVar.a = str;
-        if (z2) {
-            fVar.f26303c = 1;
-            fVar.f26305e = System.currentTimeMillis() / 1000;
-        }
-        if (z) {
-            fVar.f26302b = 1;
-            fVar.f26304d = System.currentTimeMillis() / 1000;
-        }
+        this.a = i;
+        this.f21865b = j;
+        this.f21867d = 2;
+        this.f21868e = 2 * 4;
+        this.f21866c = f21870g.length / 2;
+        this.f21869f = 8;
     }
 }

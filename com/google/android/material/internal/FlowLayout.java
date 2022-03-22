@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class FlowLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,9 +38,9 @@ public class FlowLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -50,14 +50,14 @@ public class FlowLayout extends ViewGroup {
         }
     }
 
-    public static int getMeasuredDimension(int i2, int i3, int i4) {
+    public static int getMeasuredDimension(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, i3, i4)) == null) {
-            if (i3 != Integer.MIN_VALUE) {
-                return i3 != 1073741824 ? i4 : i2;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2, i3)) == null) {
+            if (i2 != Integer.MIN_VALUE) {
+                return i2 != 1073741824 ? i3 : i;
             }
-            return Math.min(i4, i2);
+            return Math.min(i3, i);
         }
         return invokeIII.intValue;
     }
@@ -65,7 +65,7 @@ public class FlowLayout extends ViewGroup {
     private void loadFromAttributes(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.debugDraw, R.attr.horizontalSpacing, R.attr.itemSpacing, R.attr.lineSpacing, R.attr.orientation, R.attr.verticalSpacing}, 0, 0);
+            TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0401a5, R.attr.obfuscated_res_0x7f0402a9, R.attr.obfuscated_res_0x7f0402ea, R.attr.obfuscated_res_0x7f0403a6, R.attr.obfuscated_res_0x7f040457, R.attr.obfuscated_res_0x7f040682}, 0, 0);
             this.lineSpacing = obtainStyledAttributes.getDimensionPixelSize(3, 0);
             this.itemSpacing = obtainStyledAttributes.getDimensionPixelSize(2, 0);
             obtainStyledAttributes.recycle();
@@ -94,7 +94,7 @@ public class FlowLayout extends ViewGroup {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view)) == null) {
-            Object tag = view.getTag(R.id.row_index_key);
+            Object tag = view.getTag(R.id.obfuscated_res_0x7f091afd);
             if (tag instanceof Integer) {
                 return ((Integer) tag).intValue();
             }
@@ -110,11 +110,11 @@ public class FlowLayout extends ViewGroup {
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (getChildCount() == 0) {
                 this.rowCount = 0;
                 return;
@@ -124,39 +124,39 @@ public class FlowLayout extends ViewGroup {
             int paddingRight = z2 ? getPaddingRight() : getPaddingLeft();
             int paddingLeft = z2 ? getPaddingLeft() : getPaddingRight();
             int paddingTop = getPaddingTop();
-            int i8 = (i4 - i2) - paddingLeft;
-            int i9 = paddingRight;
-            int i10 = paddingTop;
-            for (int i11 = 0; i11 < getChildCount(); i11++) {
-                View childAt = getChildAt(i11);
+            int i7 = (i3 - i) - paddingLeft;
+            int i8 = paddingRight;
+            int i9 = paddingTop;
+            for (int i10 = 0; i10 < getChildCount(); i10++) {
+                View childAt = getChildAt(i10);
                 if (childAt.getVisibility() == 8) {
-                    childAt.setTag(R.id.row_index_key, -1);
+                    childAt.setTag(R.id.obfuscated_res_0x7f091afd, -1);
                 } else {
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        i7 = MarginLayoutParamsCompat.getMarginStart(marginLayoutParams);
-                        i6 = MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
+                        i6 = MarginLayoutParamsCompat.getMarginStart(marginLayoutParams);
+                        i5 = MarginLayoutParamsCompat.getMarginEnd(marginLayoutParams);
                     } else {
+                        i5 = 0;
                         i6 = 0;
-                        i7 = 0;
                     }
-                    int measuredWidth = i9 + i7 + childAt.getMeasuredWidth();
-                    if (!this.singleLine && measuredWidth > i8) {
-                        i10 = this.lineSpacing + paddingTop;
+                    int measuredWidth = i8 + i6 + childAt.getMeasuredWidth();
+                    if (!this.singleLine && measuredWidth > i7) {
+                        i9 = this.lineSpacing + paddingTop;
                         this.rowCount++;
-                        i9 = paddingRight;
+                        i8 = paddingRight;
                     }
-                    childAt.setTag(R.id.row_index_key, Integer.valueOf(this.rowCount - 1));
-                    int i12 = i9 + i7;
-                    int measuredWidth2 = childAt.getMeasuredWidth() + i12;
-                    int measuredHeight = childAt.getMeasuredHeight() + i10;
+                    childAt.setTag(R.id.obfuscated_res_0x7f091afd, Integer.valueOf(this.rowCount - 1));
+                    int i11 = i8 + i6;
+                    int measuredWidth2 = childAt.getMeasuredWidth() + i11;
+                    int measuredHeight = childAt.getMeasuredHeight() + i9;
                     if (z2) {
-                        childAt.layout(i8 - measuredWidth2, i10, (i8 - i9) - i7, measuredHeight);
+                        childAt.layout(i7 - measuredWidth2, i9, (i7 - i8) - i6, measuredHeight);
                     } else {
-                        childAt.layout(i12, i10, measuredWidth2, measuredHeight);
+                        childAt.layout(i11, i9, measuredWidth2, measuredHeight);
                     }
-                    i9 += i7 + i6 + childAt.getMeasuredWidth() + this.itemSpacing;
+                    i8 += i6 + i5 + childAt.getMeasuredWidth() + this.itemSpacing;
                     paddingTop = measuredHeight;
                 }
             }
@@ -164,69 +164,69 @@ public class FlowLayout extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i2);
-            int mode = View.MeasureSpec.getMode(i2);
-            int size2 = View.MeasureSpec.getSize(i3);
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int i7 = (mode == Integer.MIN_VALUE || mode == 1073741824) ? size : Integer.MAX_VALUE;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
+            int mode = View.MeasureSpec.getMode(i);
+            int size2 = View.MeasureSpec.getSize(i2);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int i6 = (mode == Integer.MIN_VALUE || mode == 1073741824) ? size : Integer.MAX_VALUE;
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int paddingRight = i7 - getPaddingRight();
-            int i8 = paddingTop;
-            int i9 = 0;
-            for (int i10 = 0; i10 < getChildCount(); i10++) {
-                View childAt = getChildAt(i10);
+            int paddingRight = i6 - getPaddingRight();
+            int i7 = paddingTop;
+            int i8 = 0;
+            for (int i9 = 0; i9 < getChildCount(); i9++) {
+                View childAt = getChildAt(i9);
                 if (childAt.getVisibility() != 8) {
-                    measureChild(childAt, i2, i3);
+                    measureChild(childAt, i, i2);
                     ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
                     if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
                         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                        i4 = marginLayoutParams.leftMargin + 0;
-                        i5 = marginLayoutParams.rightMargin + 0;
+                        i3 = marginLayoutParams.leftMargin + 0;
+                        i4 = marginLayoutParams.rightMargin + 0;
                     } else {
+                        i3 = 0;
                         i4 = 0;
-                        i5 = 0;
                     }
-                    int i11 = paddingLeft;
-                    if (paddingLeft + i4 + childAt.getMeasuredWidth() <= paddingRight || isSingleLine()) {
-                        i6 = i11;
+                    int i10 = paddingLeft;
+                    if (paddingLeft + i3 + childAt.getMeasuredWidth() <= paddingRight || isSingleLine()) {
+                        i5 = i10;
                     } else {
-                        i6 = getPaddingLeft();
-                        i8 = this.lineSpacing + paddingTop;
+                        i5 = getPaddingLeft();
+                        i7 = this.lineSpacing + paddingTop;
                     }
-                    int measuredWidth = i6 + i4 + childAt.getMeasuredWidth();
-                    int measuredHeight = i8 + childAt.getMeasuredHeight();
-                    if (measuredWidth > i9) {
-                        i9 = measuredWidth;
+                    int measuredWidth = i5 + i3 + childAt.getMeasuredWidth();
+                    int measuredHeight = i7 + childAt.getMeasuredHeight();
+                    if (measuredWidth > i8) {
+                        i8 = measuredWidth;
                     }
-                    paddingLeft = i6 + i4 + i5 + childAt.getMeasuredWidth() + this.itemSpacing;
-                    if (i10 == getChildCount() - 1) {
-                        i9 += i5;
+                    paddingLeft = i5 + i3 + i4 + childAt.getMeasuredWidth() + this.itemSpacing;
+                    if (i9 == getChildCount() - 1) {
+                        i8 += i4;
                     }
                     paddingTop = measuredHeight;
                 }
             }
-            setMeasuredDimension(getMeasuredDimension(size, mode, i9 + getPaddingRight()), getMeasuredDimension(size2, mode2, paddingTop + getPaddingBottom()));
+            setMeasuredDimension(getMeasuredDimension(size, mode, i8 + getPaddingRight()), getMeasuredDimension(size2, mode2, paddingTop + getPaddingBottom()));
         }
     }
 
-    public void setItemSpacing(int i2) {
+    public void setItemSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.itemSpacing = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.itemSpacing = i;
         }
     }
 
-    public void setLineSpacing(int i2) {
+    public void setLineSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.lineSpacing = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.lineSpacing = i;
         }
     }
 
@@ -246,9 +246,9 @@ public class FlowLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -259,17 +259,17 @@ public class FlowLayout extends ViewGroup {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -283,17 +283,17 @@ public class FlowLayout extends ViewGroup {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     @TargetApi(21)
-    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
+    public FlowLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i, int i2) {
+        super(context, attributeSet, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;

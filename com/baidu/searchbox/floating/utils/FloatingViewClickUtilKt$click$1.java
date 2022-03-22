@@ -17,23 +17,23 @@ public final class FloatingViewClickUtilKt$click$1 implements View.OnClickListen
     public final /* synthetic */ View $this_click;
     public final /* synthetic */ long $time;
 
-    public FloatingViewClickUtilKt$click$1(View view, long j2, Function1 function1) {
+    public FloatingViewClickUtilKt$click$1(View view, long j, Function1 function1) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view, Long.valueOf(j2), function1};
+            Object[] objArr = {view, Long.valueOf(j), function1};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.$this_click = view;
-        this.$time = j2;
+        this.$time = j;
         this.$block = function1;
     }
 

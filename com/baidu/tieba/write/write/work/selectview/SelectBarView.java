@@ -11,7 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,17 +34,29 @@ import kotlin.jvm.internal.Intrinsics;
 public class SelectBarView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f37527b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f37528c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f37529d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f48596e;
-    public View mBottomLine;
-    public TextView mCenterContent;
-    public TextView mCenterContentPos;
-    public TextView mCenterContentTips;
-    public Drawable mIconDrawable;
-    public TextView mLeftTitle;
-    public Drawable mPosDrawable;
-    public ImageView mRightArrow;
+    public ImageView f37530e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f37531f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public Drawable f37532g;
+
+    /* renamed from: h  reason: collision with root package name */
+    public Drawable f37533h;
+    public boolean i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SelectBarView(Context context) {
@@ -55,20 +67,20 @@ public class SelectBarView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48596e = true;
-        init();
+        this.i = true;
+        b();
     }
 
-    public static final void a(SelectBarView this$0, View view) {
+    public static final void c(SelectBarView this$0, View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, view) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -80,7 +92,7 @@ public class SelectBarView extends LinearLayout {
         }
     }
 
-    public final void bindData(SelectForumData selectForumData) {
+    public final void a(SelectForumData selectForumData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, selectForumData) == null) {
             if (selectForumData != null) {
@@ -94,7 +106,7 @@ public class SelectBarView extends LinearLayout {
                     if (!z) {
                         getMCenterContent().setVisibility(0);
                         getMCenterContentTips().setVisibility(8);
-                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.forum)));
+                        getMCenterContent().setText(Intrinsics.stringPlus(selectForumData.forumName, getContext().getString(R.string.obfuscated_res_0x7f0f063c)));
                         return;
                     }
                 }
@@ -104,151 +116,33 @@ public class SelectBarView extends LinearLayout {
         }
     }
 
-    public final View getMBottomLine() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view = this.mBottomLine;
-            if (view != null) {
-                return view;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
-            return null;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final boolean getMCanChangeBarName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f48596e : invokeV.booleanValue;
-    }
-
-    public final TextView getMCenterContent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            TextView textView = this.mCenterContent;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final TextView getMCenterContentPos() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.mCenterContentPos;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mCenterContentPos");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final TextView getMCenterContentTips() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TextView textView = this.mCenterContentTips;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final Drawable getMIconDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Drawable drawable = this.mIconDrawable;
-            if (drawable != null) {
-                return drawable;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mIconDrawable");
-            return null;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public final TextView getMLeftTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            TextView textView = this.mLeftTitle;
-            if (textView != null) {
-                return textView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final Drawable getMPosDrawable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Drawable drawable = this.mPosDrawable;
-            if (drawable != null) {
-                return drawable;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mPosDrawable");
-            return null;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    public final ImageView getMRightArrow() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ImageView imageView = this.mRightArrow;
-            if (imageView != null) {
-                return imageView;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
-            return null;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    public final void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.view_select_bar, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.left_title);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a0, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091229);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById);
-            View findViewById2 = findViewById(R.id.center_content_tips);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0905d3);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.center_content);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f0905d1);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content)");
             setMCenterContent((TextView) findViewById3);
             getMCenterContent().setCompoundDrawablePadding(n.f(getContext(), R.dimen.M_W_X002));
-            View findViewById4 = findViewById(R.id.center_content_pos);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0905d2);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.center_content_pos)");
             setMCenterContentPos((TextView) findViewById4);
             getMCenterContentPos().setCompoundDrawablePadding(n.f(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.right_arrow);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091aa5);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
-            View findViewById6 = findViewById(R.id.bottom_line);
+            View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ca);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
-            onChangeSkin();
-            setOnClickListener(new View.OnClickListener() { // from class: c.a.r0.q4.u.p.z.c
+            d();
+            setOnClickListener(new View.OnClickListener() { // from class: c.a.p0.s4.u.p.z.c
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -256,19 +150,19 @@ public class SelectBarView extends LinearLayout {
                 public final void onClick(View view) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view) == null) {
-                        SelectBarView.a(SelectBarView.this, view);
+                        SelectBarView.c(SelectBarView.this, view);
                     }
                 }
             });
-            bindData(null);
+            a(null);
         }
     }
 
-    public void onChangeSkin() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(getMLeftTitle(), (int) R.color.CAM_X0105);
-            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f08079c, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
             c d2 = c.d(getMCenterContent());
@@ -280,7 +174,7 @@ public class SelectBarView extends LinearLayout {
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0204);
             d2.f(R.color.CAM_X0204);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0808db, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
             int f2 = n.f(getContext(), R.dimen.tbds32);
@@ -297,7 +191,7 @@ public class SelectBarView extends LinearLayout {
             d3.l(R.dimen.L_X02);
             d3.k(R.color.CAM_X0204);
             d3.f(R.color.CAM_X0204);
-            Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.ic_icon_pure_post_location12, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL);
+            Drawable pureDrawable2 = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080610, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL);
             Intrinsics.checkNotNullExpressionValue(pureDrawable2, "getPureDrawable(R.drawab…ResourceStateType.NORMAL)");
             setMPosDrawable(pureDrawable2);
             getMPosDrawable().setBounds(0, 0, f2, f2);
@@ -307,18 +201,136 @@ public class SelectBarView extends LinearLayout {
         }
     }
 
+    public final View getMBottomLine() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            View view = this.f37531f;
+            if (view != null) {
+                return view;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mBottomLine");
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public final boolean getMCanChangeBarName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public final TextView getMCenterContent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            TextView textView = this.f37528c;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mCenterContent");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final TextView getMCenterContentPos() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            TextView textView = this.f37529d;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mCenterContentPos");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final TextView getMCenterContentTips() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = this.f37527b;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mCenterContentTips");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final Drawable getMIconDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            Drawable drawable = this.f37532g;
+            if (drawable != null) {
+                return drawable;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mIconDrawable");
+            return null;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public final TextView getMLeftTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            TextView textView = this.a;
+            if (textView != null) {
+                return textView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mLeftTitle");
+            return null;
+        }
+        return (TextView) invokeV.objValue;
+    }
+
+    public final Drawable getMPosDrawable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            Drawable drawable = this.f37533h;
+            if (drawable != null) {
+                return drawable;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mPosDrawable");
+            return null;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    public final ImageView getMRightArrow() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            ImageView imageView = this.f37530e;
+            if (imageView != null) {
+                return imageView;
+            }
+            Intrinsics.throwUninitializedPropertyAccessException("mRightArrow");
+            return null;
+        }
+        return (ImageView) invokeV.objValue;
+    }
+
     public final void setMBottomLine(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, view) == null) {
             Intrinsics.checkNotNullParameter(view, "<set-?>");
-            this.mBottomLine = view;
+            this.f37531f = view;
         }
     }
 
     public final void setMCanChangeBarName(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.f48596e = z;
+            this.i = z;
         }
     }
 
@@ -326,7 +338,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContent = textView;
+            this.f37528c = textView;
         }
     }
 
@@ -334,7 +346,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContentPos = textView;
+            this.f37529d = textView;
         }
     }
 
@@ -342,7 +354,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mCenterContentTips = textView;
+            this.f37527b = textView;
         }
     }
 
@@ -350,7 +362,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, drawable) == null) {
             Intrinsics.checkNotNullParameter(drawable, "<set-?>");
-            this.mIconDrawable = drawable;
+            this.f37532g = drawable;
         }
     }
 
@@ -358,7 +370,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, textView) == null) {
             Intrinsics.checkNotNullParameter(textView, "<set-?>");
-            this.mLeftTitle = textView;
+            this.a = textView;
         }
     }
 
@@ -366,7 +378,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, drawable) == null) {
             Intrinsics.checkNotNullParameter(drawable, "<set-?>");
-            this.mPosDrawable = drawable;
+            this.f37533h = drawable;
         }
     }
 
@@ -374,7 +386,7 @@ public class SelectBarView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, imageView) == null) {
             Intrinsics.checkNotNullParameter(imageView, "<set-?>");
-            this.mRightArrow = imageView;
+            this.f37530e = imageView;
         }
     }
 
@@ -387,9 +399,9 @@ public class SelectBarView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -397,22 +409,22 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f48596e = true;
-        init();
+        this.i = true;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectBarView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectBarView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -420,7 +432,7 @@ public class SelectBarView extends LinearLayout {
                 return;
             }
         }
-        this.f48596e = true;
-        init();
+        this.i = true;
+        b();
     }
 }

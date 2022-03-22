@@ -8,11 +8,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,9 +43,9 @@ public final class TaskStackBuilder implements Iterable<Intent> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -119,17 +121,17 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Nullable
-    public Intent editIntentAt(int i2) {
+    public Intent editIntentAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.mIntents.get(i2) : (Intent) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.mIntents.get(i) : (Intent) invokeI.objValue;
     }
 
     @Deprecated
-    public Intent getIntent(int i2) {
+    public Intent getIntent(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? editIntentAt(i2) : (Intent) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? editIntentAt(i) : (Intent) invokeI.objValue;
     }
 
     public int getIntentCount() {
@@ -149,8 +151,8 @@ public final class TaskStackBuilder implements Iterable<Intent> {
                 return intentArr;
             }
             intentArr[0] = new Intent(this.mIntents.get(0)).addFlags(268484608);
-            for (int i2 = 1; i2 < size; i2++) {
-                intentArr[i2] = new Intent(this.mIntents.get(i2));
+            for (int i = 1; i < size; i++) {
+                intentArr[i] = new Intent(this.mIntents.get(i));
             }
             return intentArr;
         }
@@ -158,10 +160,10 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Nullable
-    public PendingIntent getPendingIntent(int i2, int i3) {
+    public PendingIntent getPendingIntent(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i2, i3)) == null) ? getPendingIntent(i2, i3, null) : (PendingIntent) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048585, this, i, i2)) == null) ? getPendingIntent(i, i2, null) : (PendingIntent) invokeII.objValue;
     }
 
     @Override // java.lang.Iterable
@@ -180,18 +182,18 @@ public final class TaskStackBuilder implements Iterable<Intent> {
     }
 
     @Nullable
-    public PendingIntent getPendingIntent(int i2, int i3, @Nullable Bundle bundle) {
+    public PendingIntent getPendingIntent(int i, int i2, @Nullable Bundle bundle) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i2, i3, bundle)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048586, this, i, i2, bundle)) == null) {
             if (!this.mIntents.isEmpty()) {
                 ArrayList<Intent> arrayList = this.mIntents;
                 Intent[] intentArr = (Intent[]) arrayList.toArray(new Intent[arrayList.size()]);
                 intentArr[0] = new Intent(intentArr[0]).addFlags(268484608);
                 if (Build.VERSION.SDK_INT >= 16) {
-                    return PendingIntent.getActivities(this.mSourceContext, i2, intentArr, i3, bundle);
+                    return PendingIntent.getActivities(this.mSourceContext, i, intentArr, i2, bundle);
                 }
-                return PendingIntent.getActivities(this.mSourceContext, i2, intentArr, i3);
+                return PendingIntent.getActivities(this.mSourceContext, i, intentArr, i2);
             }
             throw new IllegalStateException("No intents added to TaskStackBuilder; cannot getPendingIntent");
         }
@@ -209,7 +211,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
                     return;
                 }
                 Intent intent = new Intent(intentArr[intentArr.length - 1]);
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 this.mSourceContext.startActivity(intent);
                 return;
             }
@@ -237,6 +239,7 @@ public final class TaskStackBuilder implements Iterable<Intent> {
                 }
                 return this;
             } catch (PackageManager.NameNotFoundException e2) {
+                Log.e(TAG, "Bad ComponentName while traversing activity parent metadata");
                 throw new IllegalArgumentException(e2);
             }
         }

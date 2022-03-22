@@ -1,8 +1,8 @@
 package com.baidu.ugc.editvideo.record.processor.glrender;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,9 +30,9 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,14 +60,14 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         }
     }
 
-    public int onPreProcess(int i2, long j2) {
+    public int onPreProcess(int i, long j) {
         InterceptResult invokeCommon;
         MultiMediaData multiMediaData;
         OnDrawUpdateTextureListener onDrawUpdateTextureListener;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
             List<MultiMediaDataTrack> multiMediaDataTrack = this.iMultiMediaDataSource.getMultiMediaDataTrack();
-            if ((!h.e(multiMediaDataTrack) && h.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i2) || (multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.get(0).multiMediaDataList, i2)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
+            if ((!h.e(multiMediaDataTrack) && h.b(multiMediaDataTrack.get(0).multiMediaDataList) <= i) || (multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.get(0).multiMediaDataList, i)) == null || (onDrawUpdateTextureListener = this.mUpdateTextureListener) == null || onDrawUpdateTextureListener.getFullFrameRect2D() == null || this.mUpdateTextureListener.getFullFrameRectEXT() == null) {
                 return -1;
             }
             MultiMediaPreProcessor multiMediaPreProcessor = this.mPreProcessor;
@@ -79,7 +79,7 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
             this.mPreProcessor.setShaderConfigMap(this.iMultiMediaDataSource.getShaderConfigMap());
             this.mPreProcessor.setUpdateMediaTracks(this.iMultiMediaDataSource.getUpdateMediaTracks());
             this.mPreProcessor.setMediaTrackConfig(this.iMultiMediaDataSource.getMediaTrackConfig());
-            int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i2, j2, this.mUpdateTextureListener);
+            int preProcess = this.mPreProcessor.preProcess(multiMediaDataTrack, i, j, this.mUpdateTextureListener);
             this.mUpdateTextureListener.setUpdateTexture(preProcess, GlUtil.IDENTITY_MATRIX, multiMediaData.textureMode);
             return preProcess;
         }
@@ -98,14 +98,14 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.glrender.BaseGlRenderer, com.baidu.ugc.editvideo.record.processor.glrender.IGlRenderer
-    public void onSizeChange(int i2, int i3) {
+    public void onSizeChange(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            super.onSizeChange(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            super.onSizeChange(i, i2);
             c.b("check ar size ：width = " + this.mOutWidth + " , height = " + this.mOutHeight);
             OnDrawUpdateTextureListener onDrawUpdateTextureListener = this.mUpdateTextureListener;
             if (onDrawUpdateTextureListener != null) {
-                onDrawUpdateTextureListener.onSizeChange(i2, i3);
+                onDrawUpdateTextureListener.onSizeChange(i, i2);
             }
         }
     }
@@ -146,10 +146,10 @@ public class MultiMediaPreGlRenderer extends BaseGlRenderer {
         }
     }
 
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            this.mPreProcessor.setPreviewSize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            this.mPreProcessor.setPreviewSize(i, i2);
         }
     }
 }

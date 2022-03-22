@@ -7,8 +7,8 @@ import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.q0.e;
-import c.a.r0.h2.f.f;
+import c.a.o0.q0.e;
+import c.a.p0.j2.f.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -27,7 +27,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.pay.PayConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.PageDialogHelper;
+import com.baidu.tbadk.util.PageDialogHelper$PayForm;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -36,7 +36,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class CardBoxMemberPayActivity extends BaseActivity implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static String MEMBER_AGREEMENT_JUMP_URL = "https://tieba.baidu.com/tb/vip_eula_mobile.html";
@@ -48,9 +48,9 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     public String mPackedId;
     public String mReferPage;
     public HttpMessageListener mRequestMemberPayInfoListener;
-    public c.a.r0.h2.f.a mView;
+    public c.a.p0.j2.f.a mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -63,9 +63,9 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cardBoxMemberPayActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -98,24 +98,24 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardBoxMemberPayActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
-            super(i2);
+        public b(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i2)};
+                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -138,12 +138,12 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
                             this.a.mView.m(responseCardBoxMemberPayMessage.getMemberPayResult());
                             return;
                         }
-                        this.a.showToast(R.string.neterror);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                         return;
                     }
                     String errorString = responseCardBoxMemberPayMessage.getErrorString();
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.getResources().getString(R.string.neterror);
+                        errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0c15);
                     }
                     this.a.showToast(errorString);
                 }
@@ -151,24 +151,24 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardBoxMemberPayActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i2) {
-            super(i2);
+        public c(CardBoxMemberPayActivity cardBoxMemberPayActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i2)};
+                Object[] objArr = {cardBoxMemberPayActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -209,9 +209,9 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -232,7 +232,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             alphaAnimation.setDuration(300L);
             alphaAnimation.setFillAfter(true);
             this.mView.e().startAnimation(alphaAnimation);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010041);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new a(this));
@@ -262,7 +262,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     private void initUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mView = new c.a.r0.h2.f.a(this);
+            this.mView = new c.a.p0.j2.f.a(this);
         }
     }
 
@@ -292,7 +292,7 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
             alphaAnimation.setDuration(300L);
             this.mView.e().startAnimation(alphaAnimation);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010042);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             this.mView.g().startAnimation(loadAnimation);
@@ -300,22 +300,22 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
         }
     }
 
-    private void startDealIntentService(long j2, long j3, long j4, int i2) {
+    private void startDealIntentService(long j, long j2, long j3, int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Integer.valueOf(i2)}) == null) {
-            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j2), String.valueOf(j3), String.valueOf(j4), true, false, PageDialogHelper.PayForm.NOT_SET, this.mReferPage, this.mClickZone);
+        if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
+            PayConfig payConfig = new PayConfig(1, "0", String.valueOf(j), String.valueOf(j2), String.valueOf(j3), true, false, PageDialogHelper$PayForm.NOT_SET, this.mReferPage, this.mClickZone);
             payConfig.setFrom(4);
-            c.a.r0.h2.f.a aVar = this.mView;
+            c.a.p0.j2.f.a aVar = this.mView;
             if (aVar == null || aVar.i() == null) {
                 str = "";
             } else {
                 payConfig.setTitle(this.mView.i());
                 str = this.mView.r;
             }
-            payConfig.setOrderName(getPageContext().getPageActivity().getString(R.string.member_month, new Object[]{String.valueOf(j4)}));
-            payConfig.setAutoPay(i2);
-            payConfig.setPropsMon(String.valueOf(j4));
+            payConfig.setOrderName(getPageContext().getPageActivity().getString(R.string.obfuscated_res_0x7f0f0aa4, new Object[]{String.valueOf(j3)}));
+            payConfig.setAutoPay(i);
+            payConfig.setPropsMon(String.valueOf(j3));
             payConfig.paymentPosKey = str;
             e.c().a(payConfig, getPageContext().getPageActivity());
         }
@@ -355,24 +355,24 @@ public class CardBoxMemberPayActivity extends BaseActivity implements View.OnCli
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mView.j(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mView.j(i);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        c.a.r0.h2.f.a aVar;
+        c.a.p0.j2.f.a aVar;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048581, this, view) == null) || (aVar = this.mView) == null) {
             return;
         }
         if (view == aVar.h() && this.mView.d() != null) {
             f.d d2 = this.mView.d();
-            startDealIntentService(d2.f17973i, d2.f17974j / 100, d2.l, d2.n);
+            startDealIntentService(d2.i, d2.j / 100, d2.l, d2.n);
         } else if (view == this.mView.f()) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{MEMBER_AGREEMENT_JUMP_URL});
         } else if (view == this.mView.e()) {

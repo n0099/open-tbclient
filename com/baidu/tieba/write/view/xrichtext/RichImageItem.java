@@ -28,29 +28,25 @@ import java.io.File;
 public class RichImageItem extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f37398b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public f f37399c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageFileInfo f37400d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TbImageView f48348e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f48349f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public f f48350g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageFileInfo f48351h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f48352i;
+    public int f37401e;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f48353e;
+        public final /* synthetic */ RichImageItem a;
 
         public a(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -59,22 +55,22 @@ public class RichImageItem extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {richImageItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48353e = richImageItem;
+            this.a = richImageItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                ImageFileInfo imageFileInfo = this.f48353e.f48351h;
+                ImageFileInfo imageFileInfo = this.a.f37400d;
                 if (imageFileInfo.isFromMoreForum) {
                     return;
                 }
@@ -83,13 +79,13 @@ public class RichImageItem extends FrameLayout {
                     z = true;
                 }
                 if (z) {
-                    if (this.f48353e.f48350g != null) {
-                        this.f48353e.f48350g.b(imageFileInfo, this.f48353e);
+                    if (this.a.f37399c != null) {
+                        this.a.f37399c.b(imageFileInfo, this.a);
                         return;
                     }
                     return;
                 }
-                n.J(this.f48353e.getContext(), R.string.editor_mutiiamge_image_error);
+                n.J(this.a.getContext(), R.string.obfuscated_res_0x7f0f051f);
             }
         }
     }
@@ -98,9 +94,7 @@ public class RichImageItem extends FrameLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f48354e;
+        public final /* synthetic */ RichImageItem a;
 
         public b(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -109,34 +103,32 @@ public class RichImageItem extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {richImageItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48354e = richImageItem;
+            this.a = richImageItem;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f48354e.f48350g == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.f37399c == null) {
                 return;
             }
-            this.f48354e.f48350g.a(this.f48354e.f48351h, this.f48354e);
+            this.a.f37399c.a(this.a.f37400d, this.a);
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements c.a.q0.b0.b {
+    public class c implements c.a.o0.b0.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f48355e;
+        public final /* synthetic */ RichImageItem a;
 
         public c(RichImageItem richImageItem) {
             Interceptable interceptable = $ic;
@@ -145,25 +137,25 @@ public class RichImageItem extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {richImageItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48355e = richImageItem;
+            this.a = richImageItem;
         }
 
-        @Override // c.a.q0.b0.b
-        public void imageLoaded(c.a.d.o.d.a aVar, String str, boolean z) {
+        @Override // c.a.o0.b0.b
+        public void a(c.a.d.o.d.a aVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, aVar, str, z) == null) || aVar == null) {
                 return;
             }
-            this.f48355e.h(aVar);
-            this.f48355e.f48348e.invalidate();
+            this.a.i(aVar);
+            this.a.a.invalidate();
         }
     }
 
@@ -171,12 +163,10 @@ public class RichImageItem extends FrameLayout {
     public class d implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.d.o.d.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.d.o.d.a f48356e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ RichImageItem f48357f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ RichImageItem f37402b;
 
         public d(RichImageItem richImageItem, c.a.d.o.d.a aVar) {
             Interceptable interceptable = $ic;
@@ -185,24 +175,24 @@ public class RichImageItem extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {richImageItem, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48357f = richImageItem;
-            this.f48356e = aVar;
+            this.f37402b = richImageItem;
+            this.a = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f48357f.h(this.f48356e);
-                this.f48357f.f48348e.invalidate();
+                this.f37402b.i(this.a);
+                this.f37402b.a.invalidate();
             }
         }
     }
@@ -220,9 +210,9 @@ public class RichImageItem extends FrameLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {richImageItem};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -233,13 +223,13 @@ public class RichImageItem extends FrameLayout {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // c.a.d.f.l.c
-        public void onLoaded(c.a.d.o.d.a aVar, String str, int i2) {
+        public void onLoaded(c.a.d.o.d.a aVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i2) == null) || aVar == null) {
+            if (!(interceptable == null || interceptable.invokeLLI(1048576, this, aVar, str, i) == null) || aVar == null) {
                 return;
             }
-            this.a.h(aVar);
-            this.a.f48348e.invalidate();
+            this.a.i(aVar);
+            this.a.a.invalidate();
         }
     }
 
@@ -259,9 +249,9 @@ public class RichImageItem extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -274,117 +264,117 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.rich_text_editor_image_item, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.iv);
-            this.f48348e = tbImageView;
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d073d, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090fb8);
+            this.a = tbImageView;
             tbImageView.setTagTextSize(n.f(getContext(), R.dimen.T_X10));
-            this.f48348e.setDrawBorder(true);
-            this.f48348e.setDrawCorner(true);
-            this.f48348e.setAutoChangeStyle(true);
-            this.f48348e.setConrers(15);
-            this.f48348e.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.delete_info);
-            this.f48349f = (ImageView) findViewById(R.id.delete);
-            this.f48348e.setVisibility(0);
+            this.a.setDrawBorder(true);
+            this.a.setDrawCorner(true);
+            this.a.setAutoChangeStyle(true);
+            this.a.setConrers(15);
+            this.a.setRadiusById(R.string.J_X05);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090772);
+            this.f37398b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09076d);
+            this.a.setVisibility(0);
             findViewById.setVisibility(0);
-            this.f48348e.setGifIconSupport(true);
-            this.f48348e.setLongIconSupport(true);
-            this.f48348e.setTagStr(getContext().getString(R.string.edit));
+            this.a.setGifIconSupport(true);
+            this.a.setLongIconSupport(true);
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f050c));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
-            onSkinChange();
-            this.f48352i = n.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
+            f();
+            this.f37401e = n.k(getContext()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X007) * 2);
         }
     }
 
-    public final void f() {
+    public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48348e.setIsLongPic(this.f48351h.isLong());
-            int i2 = this.f48352i;
-            ImageOperation g2 = c.a.q0.c0.i.d.g(i2, i2 * 2);
-            this.f48351h.clearPageActions();
-            this.f48351h.addPageAction(g2);
-            if (this.f48351h.getImageType() == 0) {
-                this.f48348e.setTag(this.f48351h.toCachedKey(true));
-                c.a.d.o.d.a d2 = new c.a.q0.c0.b().d(this.f48351h, new c(this), true);
-                if (d2 != null && d2.r() > 0 && d2.m() > 0) {
-                    post(new d(this, d2));
-                }
-                this.f48348e.setTagStr(getContext().getString(R.string.edit));
-            } else if (this.f48351h.getImageType() == 1) {
-                String filePath = this.f48351h.getFilePath();
-                if (!m.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
-                    this.f48348e.setTag(c.a.d.f.l.d.h().g(filePath, 20));
-                    c.a.d.f.l.d.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
-                }
-                this.f48348e.setTagStr("");
+            this.f37398b.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08080f, WebPManager.ResourceStateType.NORMAL));
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                this.a.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
+            } else {
+                this.a.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
             }
         }
     }
 
-    public final void g(int i2, int i3) {
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            float width = getWidth() != 0 ? getWidth() : this.f48352i;
-            float f2 = i3 > i2 * 2 ? width * 2.0f : (width / i2) * i3;
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.f48348e.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = f2 > 0.0f ? (int) f2 : -2;
-            this.f48348e.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.setIsLongPic(this.f37400d.isLong());
+            int i = this.f37401e;
+            ImageOperation g2 = c.a.o0.c0.i.d.g(i, i * 2);
+            this.f37400d.clearPageActions();
+            this.f37400d.addPageAction(g2);
+            if (this.f37400d.getImageType() == 0) {
+                this.a.setTag(this.f37400d.toCachedKey(true));
+                c.a.d.o.d.a d2 = new c.a.o0.c0.b().d(this.f37400d, new c(this), true);
+                if (d2 != null && d2.r() > 0 && d2.m() > 0) {
+                    post(new d(this, d2));
+                }
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f050c));
+            } else if (this.f37400d.getImageType() == 1) {
+                String filePath = this.f37400d.getFilePath();
+                if (!m.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {
+                    this.a.setTag(c.a.d.f.l.d.h().g(filePath, 20));
+                    c.a.d.f.l.d.h().k(filePath, 20, new e(this), 0, 0, null, null, filePath, Boolean.FALSE, null);
+                }
+                this.a.setTagStr("");
+            }
         }
     }
 
     public ImageFileInfo getImageFileInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f48351h : (ImageFileInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f37400d : (ImageFileInfo) invokeV.objValue;
     }
 
-    public final void h(c.a.d.o.d.a aVar) {
+    public final void h(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || aVar == null || aVar.r() <= 0 || aVar.m() <= 0) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            float width = getWidth() != 0 ? getWidth() : this.f37401e;
+            float f2 = i2 > i * 2 ? width * 2.0f : (width / i) * i2;
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.a.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = f2 > 0.0f ? (int) f2 : -2;
+            this.a.setLayoutParams(layoutParams);
+        }
+    }
+
+    public final void i(c.a.d.o.d.a aVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) || aVar == null || aVar.r() <= 0 || aVar.m() <= 0) {
             return;
         }
-        g(aVar.r(), aVar.m());
+        h(aVar.r(), aVar.m());
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            if (i4 == 0 || i2 == 0 || i2 == i4) {
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            if (i3 == 0 || i == 0 || i == i3) {
                 return;
             }
-            g(i4, i5);
-        }
-    }
-
-    public void onSkinChange() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f48349f.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_post_image_delete16, WebPManager.ResourceStateType.NORMAL));
-            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-                this.f48348e.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
-            } else {
-                this.f48348e.setTagColor(getContext().getResources().getColor(R.color.CAM_X0101));
-            }
+            h(i3, i4);
         }
     }
 
     public void setImageFileInfo(@NonNull ImageFileInfo imageFileInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, imageFileInfo) == null) {
-            this.f48351h = imageFileInfo;
-            f();
+            this.f37400d = imageFileInfo;
+            g();
         }
     }
 
     public void setItemOperateListener(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, fVar) == null) {
-            this.f48350g = fVar;
+            this.f37399c = fVar;
         }
     }
 
@@ -397,9 +387,9 @@ public class RichImageItem extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -410,17 +400,17 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RichImageItem(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RichImageItem(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

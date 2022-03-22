@@ -34,9 +34,9 @@ public class GhostViewHolder extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -62,18 +62,18 @@ public class GhostViewHolder extends FrameLayout {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, arrayList)) == null) {
             ArrayList arrayList2 = new ArrayList();
             int childCount = getChildCount() - 1;
-            int i2 = 0;
-            while (i2 <= childCount) {
-                int i3 = (i2 + childCount) / 2;
-                getParents(((GhostViewPort) getChildAt(i3)).mView, arrayList2);
+            int i = 0;
+            while (i <= childCount) {
+                int i2 = (i + childCount) / 2;
+                getParents(((GhostViewPort) getChildAt(i2)).mView, arrayList2);
                 if (isOnTop(arrayList, arrayList2)) {
-                    i2 = i3 + 1;
+                    i = i2 + 1;
                 } else {
-                    childCount = i3 - 1;
+                    childCount = i2 - 1;
                 }
                 arrayList2.clear();
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -97,9 +97,9 @@ public class GhostViewHolder extends FrameLayout {
                 return true;
             }
             int min = Math.min(arrayList.size(), arrayList2.size());
-            for (int i2 = 1; i2 < min; i2++) {
-                View view = arrayList.get(i2);
-                View view2 = arrayList2.get(i2);
+            for (int i = 1; i < min; i++) {
+                View view = arrayList.get(i);
+                View view2 = arrayList2.get(i);
                 if (view != view2) {
                     return isOnTop(view, view2);
                 }
@@ -169,8 +169,8 @@ public class GhostViewHolder extends FrameLayout {
             if (Build.VERSION.SDK_INT >= 21 && view.getZ() != view2.getZ()) {
                 return view.getZ() > view2.getZ();
             }
-            for (int i2 = 0; i2 < childCount; i2++) {
-                View childAt = viewGroup.getChildAt(ViewGroupUtils.getChildDrawingOrder(viewGroup, i2));
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(ViewGroupUtils.getChildDrawingOrder(viewGroup, i));
                 if (childAt == view) {
                     return false;
                 }

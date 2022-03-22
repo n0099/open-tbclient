@@ -5,7 +5,7 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,9 +35,9 @@ public class InnerMuxerWrapper {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -148,12 +148,12 @@ public class InnerMuxerWrapper {
         }
     }
 
-    public synchronized void writeSampleData(int i2, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public synchronized void writeSampleData(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048583, this, i2, byteBuffer, bufferInfo) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048583, this, i, byteBuffer, bufferInfo) == null) {
             synchronized (this) {
                 if (this.mIsStarted) {
-                    this.mMediaMuxer.writeSampleData(i2, byteBuffer, bufferInfo);
+                    this.mMediaMuxer.writeSampleData(i, byteBuffer, bufferInfo);
                 }
             }
         }

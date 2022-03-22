@@ -39,33 +39,33 @@ public class ContainerHelpers {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int binarySearch(int[] iArr, int i2, int i3) {
+    public static int binarySearch(int[] iArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i2, i3)) == null) {
-            int i4 = i2 - 1;
-            int i5 = 0;
-            while (i5 <= i4) {
-                int i6 = (i5 + i4) >>> 1;
-                int i7 = iArr[i6];
-                if (i7 < i3) {
-                    i5 = i6 + 1;
-                } else if (i7 <= i3) {
-                    return i6;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
+            int i3 = i - 1;
+            int i4 = 0;
+            while (i4 <= i3) {
+                int i5 = (i4 + i3) >>> 1;
+                int i6 = iArr[i5];
+                if (i6 < i2) {
+                    i4 = i5 + 1;
+                } else if (i6 <= i2) {
+                    return i5;
                 } else {
-                    i4 = i6 - 1;
+                    i3 = i5 - 1;
                 }
             }
-            return ~i5;
+            return ~i4;
         }
         return invokeLII.intValue;
     }
@@ -76,51 +76,51 @@ public class ContainerHelpers {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2)) == null) ? obj == obj2 || (obj != null && obj.equals(obj2)) : invokeLL.booleanValue;
     }
 
-    public static int idealByteArraySize(int i2) {
+    public static int idealByteArraySize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            for (int i3 = 4; i3 < 32; i3++) {
-                int i4 = (1 << i3) - 12;
-                if (i2 <= i4) {
-                    return i4;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            for (int i2 = 4; i2 < 32; i2++) {
+                int i3 = (1 << i2) - 12;
+                if (i <= i3) {
+                    return i3;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeI.intValue;
     }
 
-    public static int idealIntArraySize(int i2) {
+    public static int idealIntArraySize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i2)) == null) ? idealByteArraySize(i2 * 4) / 4 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) ? idealByteArraySize(i * 4) / 4 : invokeI.intValue;
     }
 
-    public static int idealLongArraySize(int i2) {
+    public static int idealLongArraySize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? idealByteArraySize(i2 * 8) / 8 : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? idealByteArraySize(i * 8) / 8 : invokeI.intValue;
     }
 
-    public static int binarySearch(long[] jArr, int i2, long j2) {
+    public static int binarySearch(long[] jArr, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            int i3 = i2 - 1;
-            int i4 = 0;
-            while (i4 <= i3) {
-                int i5 = (i4 + i3) >>> 1;
-                int i6 = (jArr[i5] > j2 ? 1 : (jArr[i5] == j2 ? 0 : -1));
-                if (i6 < 0) {
-                    i4 = i5 + 1;
-                } else if (i6 <= 0) {
-                    return i5;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{jArr, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            int i2 = i - 1;
+            int i3 = 0;
+            while (i3 <= i2) {
+                int i4 = (i3 + i2) >>> 1;
+                int i5 = (jArr[i4] > j ? 1 : (jArr[i4] == j ? 0 : -1));
+                if (i5 < 0) {
+                    i3 = i4 + 1;
+                } else if (i5 <= 0) {
+                    return i4;
                 } else {
-                    i3 = i5 - 1;
+                    i2 = i4 - 1;
                 }
             }
-            return ~i4;
+            return ~i3;
         }
         return invokeCommon.intValue;
     }

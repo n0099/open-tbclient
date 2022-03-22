@@ -67,9 +67,9 @@ public class AppendTrack extends AbstractTrack {
             newInitContext.initArgs = r2;
             Object[] objArr = {trackArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -339,12 +339,12 @@ public class AppendTrack extends AbstractTrack {
             }
             LinkedList linkedList2 = new LinkedList();
             for (int[] iArr : linkedList) {
-                for (int i2 : iArr) {
-                    if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i2) {
+                for (int i : iArr) {
+                    if (!linkedList2.isEmpty() && ((CompositionTimeToSample.Entry) linkedList2.getLast()).getOffset() == i) {
                         CompositionTimeToSample.Entry entry = (CompositionTimeToSample.Entry) linkedList2.getLast();
                         entry.setCount(entry.getCount() + 1);
                     } else {
-                        linkedList2.add(new CompositionTimeToSample.Entry(1, i2));
+                        linkedList2.add(new CompositionTimeToSample.Entry(1, i));
                     }
                 }
             }
@@ -398,20 +398,20 @@ public class AppendTrack extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                int i2 = 0;
+                int i = 0;
                 for (Track track : this.tracks) {
-                    i2 += track.getSampleDurations().length;
+                    i += track.getSampleDurations().length;
                 }
-                jArr = new long[i2];
-                int i3 = 0;
+                jArr = new long[i];
+                int i2 = 0;
                 for (Track track2 : this.tracks) {
                     long[] sampleDurations = track2.getSampleDurations();
                     int length = sampleDurations.length;
-                    int i4 = 0;
-                    while (i4 < length) {
-                        jArr[i3] = sampleDurations[i4];
-                        i4++;
+                    int i3 = 0;
+                    while (i3 < length) {
+                        jArr[i2] = sampleDurations[i3];
                         i3++;
+                        i2++;
                     }
                 }
             }
@@ -449,23 +449,23 @@ public class AppendTrack extends AbstractTrack {
             if (this.tracks[0].getSyncSamples() == null || this.tracks[0].getSyncSamples().length <= 0) {
                 return null;
             }
-            int i2 = 0;
+            int i = 0;
             for (Track track : this.tracks) {
-                i2 += track.getSyncSamples().length;
+                i += track.getSyncSamples().length;
             }
-            long[] jArr = new long[i2];
-            long j2 = 0;
-            int i3 = 0;
+            long[] jArr = new long[i];
+            long j = 0;
+            int i2 = 0;
             for (Track track2 : this.tracks) {
                 long[] syncSamples = track2.getSyncSamples();
                 int length = syncSamples.length;
-                int i4 = 0;
-                while (i4 < length) {
-                    jArr[i3] = syncSamples[i4] + j2;
-                    i4++;
+                int i3 = 0;
+                while (i3 < length) {
+                    jArr[i2] = syncSamples[i3] + j;
                     i3++;
+                    i2++;
                 }
-                j2 += track2.getSamples().size();
+                j += track2.getSamples().size();
             }
             return jArr;
         }

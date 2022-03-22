@@ -26,22 +26,22 @@ public class FetchDataInterceptor implements Interceptor.Fetch {
     public final byte[] readBuffer;
     public final DownloadTask task;
 
-    public FetchDataInterceptor(int i2, @NonNull InputStream inputStream, @NonNull MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
+    public FetchDataInterceptor(int i, @NonNull InputStream inputStream, @NonNull MultiPointOutputStream multiPointOutputStream, DownloadTask downloadTask) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), inputStream, multiPointOutputStream, downloadTask};
+            Object[] objArr = {Integer.valueOf(i), inputStream, multiPointOutputStream, downloadTask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.blockIndex = i2;
+        this.blockIndex = i;
         this.inputStream = inputStream;
         this.readBuffer = new byte[downloadTask.getReadBufferSize()];
         this.outputStream = multiPointOutputStream;
@@ -61,12 +61,12 @@ public class FetchDataInterceptor implements Interceptor.Fetch {
                     return read;
                 }
                 this.outputStream.write(this.blockIndex, this.readBuffer, read);
-                long j2 = read;
-                downloadChain.increaseCallbackBytes(j2);
+                long j = read;
+                downloadChain.increaseCallbackBytes(j);
                 if (this.dispatcher.isFetchProcessMoment(this.task)) {
                     downloadChain.flushNoCallbackIncreaseBytes();
                 }
-                return j2;
+                return j;
             }
             throw InterruptException.SIGNAL;
         }

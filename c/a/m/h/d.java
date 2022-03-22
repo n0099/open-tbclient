@@ -13,10 +13,10 @@ public class d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f4153b = 5;
+    public static int f3739b = 5;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f4154c = 40;
+    public static int f3740c = 40;
     public transient /* synthetic */ FieldHolder $fh;
     public com.baidu.cesium.i.b a;
 
@@ -40,34 +40,34 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        com.baidu.cesium.i.b bVar = new com.baidu.cesium.i.b(f4154c);
+        com.baidu.cesium.i.b bVar = new com.baidu.cesium.i.b(f3740c);
         this.a = bVar;
-        bVar.a(0, f4154c, true);
+        bVar.a(0, f3740c, true);
     }
 
-    public void a(com.baidu.cesium.i.b bVar, int i2, int i3, int i4) {
+    public void a(com.baidu.cesium.i.b bVar, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i2, i3, i4) == null) {
-            com.baidu.cesium.i.b d2 = this.a.d(i2, i2 + i3);
-            if (i4 == 0) {
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i, i2, i3) == null) {
+            com.baidu.cesium.i.b d2 = this.a.d(i, i + i2);
+            if (i3 == 0) {
                 d2.a(bVar);
-            } else if (i4 == 2) {
+            } else if (i3 == 2) {
                 d2.b(bVar);
-            } else if (i4 != 3) {
+            } else if (i3 != 3) {
                 d2.e(bVar);
             } else {
                 d2.d(bVar);
             }
-            for (int i5 = 0; i5 < i3; i5++) {
-                this.a.a(i2 + i5, d2.e(i5));
+            for (int i4 = 0; i4 < i2; i4++) {
+                this.a.a(i + i4, d2.e(i4));
             }
         }
     }

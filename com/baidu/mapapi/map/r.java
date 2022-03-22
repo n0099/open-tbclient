@@ -14,7 +14,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f34110b;
+    public final /* synthetic */ SwipeDismissTouchListener f26346b;
 
     public r(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
@@ -23,15 +23,15 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {swipeDismissTouchListener, layoutParams};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34110b = swipeDismissTouchListener;
+        this.f26346b = swipeDismissTouchListener;
         this.a = layoutParams;
     }
 
@@ -41,7 +41,7 @@ public class r implements ValueAnimator.AnimatorUpdateListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
             this.a.height = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-            view = this.f34110b.f34031e;
+            view = this.f26346b.f26279e;
             view.setLayoutParams(this.a);
         }
     }

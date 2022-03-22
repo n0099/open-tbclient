@@ -43,9 +43,9 @@ public class ResolutionAnchor extends ResolutionNode {
             newInitContext.initArgs = r2;
             Object[] objArr = {constraintAnchor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -72,12 +72,12 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void dependsOn(int i2, ResolutionAnchor resolutionAnchor, int i3) {
+    public void dependsOn(int i, ResolutionAnchor resolutionAnchor, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), resolutionAnchor, Integer.valueOf(i3)}) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), resolutionAnchor, Integer.valueOf(i2)}) == null) {
+            this.type = i;
             this.target = resolutionAnchor;
-            this.offset = i3;
+            this.offset = i2;
             resolutionAnchor.addDependent(this);
         }
     }
@@ -138,10 +138,10 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public String sType(int i2) {
+    public String sType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? i2 == 1 ? VideoFreeFlowConfigManager.DIRECT : i2 == 2 ? "CENTER" : i2 == 3 ? "MATCH" : i2 == 4 ? "CHAIN" : i2 == 5 ? "BARRIER" : "UNCONNECTED" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? i == 1 ? VideoFreeFlowConfigManager.DIRECT : i == 2 ? "CENTER" : i == 3 ? "MATCH" : i == 4 ? "CHAIN" : i == 5 ? "BARRIER" : "UNCONNECTED" : (String) invokeI.objValue;
     }
 
     public void setOpposite(ResolutionAnchor resolutionAnchor, float f2) {
@@ -152,10 +152,10 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.type = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.type = i;
         }
     }
 
@@ -192,20 +192,20 @@ public class ResolutionAnchor extends ResolutionNode {
         dependsOn(target.getResolutionNode(), margin);
     }
 
-    public void setOpposite(ResolutionAnchor resolutionAnchor, int i2, ResolutionDimension resolutionDimension) {
+    public void setOpposite(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048587, this, resolutionAnchor, i2, resolutionDimension) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, resolutionAnchor, i, resolutionDimension) == null) {
             this.opposite = resolutionAnchor;
             this.oppositeDimension = resolutionDimension;
-            this.oppositeDimensionMultiplier = i2;
+            this.oppositeDimensionMultiplier = i;
         }
     }
 
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i2) {
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, resolutionAnchor, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, resolutionAnchor, i) == null) {
             this.target = resolutionAnchor;
-            this.offset = i2;
+            this.offset = i;
             resolutionAnchor.addDependent(this);
         }
     }
@@ -262,7 +262,7 @@ public class ResolutionAnchor extends ResolutionNode {
                 ResolutionAnchor resolutionAnchor9 = this.opposite;
                 resolutionAnchor9.resolvedTarget = resolutionAnchor9.target.resolvedTarget;
                 ConstraintAnchor.Type type = this.myAnchor.mType;
-                int i2 = 0;
+                int i = 0;
                 if (type != ConstraintAnchor.Type.RIGHT && type != ConstraintAnchor.Type.BOTTOM) {
                     z = false;
                 }
@@ -288,9 +288,9 @@ public class ResolutionAnchor extends ResolutionNode {
                     f4 = 0.5f;
                     margin2 = 0;
                 } else {
-                    i2 = margin;
+                    i = margin;
                 }
-                float f6 = i2;
+                float f6 = i;
                 float f7 = margin2;
                 float f8 = (width - f6) - f7;
                 if (z) {
@@ -323,13 +323,13 @@ public class ResolutionAnchor extends ResolutionNode {
         }
     }
 
-    public void dependsOn(ResolutionAnchor resolutionAnchor, int i2, ResolutionDimension resolutionDimension) {
+    public void dependsOn(ResolutionAnchor resolutionAnchor, int i, ResolutionDimension resolutionDimension) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, resolutionAnchor, i2, resolutionDimension) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, resolutionAnchor, i, resolutionDimension) == null) {
             this.target = resolutionAnchor;
             resolutionAnchor.addDependent(this);
             this.dimension = resolutionDimension;
-            this.dimensionMultiplier = i2;
+            this.dimensionMultiplier = i;
             resolutionDimension.addDependent(this);
         }
     }

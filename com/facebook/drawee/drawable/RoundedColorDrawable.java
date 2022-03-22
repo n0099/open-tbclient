@@ -20,7 +20,7 @@ import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
 import java.util.Arrays;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class RoundedColorDrawable extends Drawable implements Rounded {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -46,16 +46,16 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     public boolean mScaleDownInsideBorders;
     public final RectF mTempRect;
 
-    public RoundedColorDrawable(int i2) {
+    public RoundedColorDrawable(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -75,7 +75,7 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         this.mColor = 0;
         this.mTempRect = new RectF();
         this.mAlpha = 255;
-        setColor(i2);
+        setColor(i);
     }
 
     @TargetApi(11)
@@ -96,18 +96,18 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
             RectF rectF = this.mTempRect;
             float f2 = this.mBorderWidth;
             rectF.inset(f2 / 2.0f, f2 / 2.0f);
-            int i2 = 0;
+            int i = 0;
             if (this.mIsCircle) {
                 this.mBorderPath.addCircle(this.mTempRect.centerX(), this.mTempRect.centerY(), Math.min(this.mTempRect.width(), this.mTempRect.height()) / 2.0f, Path.Direction.CW);
             } else {
-                int i3 = 0;
+                int i2 = 0;
                 while (true) {
                     fArr = this.mBorderRadii;
-                    if (i3 >= fArr.length) {
+                    if (i2 >= fArr.length) {
                         break;
                     }
-                    fArr[i3] = (this.mRadii[i3] + this.mPadding) - (this.mBorderWidth / 2.0f);
-                    i3++;
+                    fArr[i2] = (this.mRadii[i2] + this.mPadding) - (this.mBorderWidth / 2.0f);
+                    i2++;
                 }
                 this.mBorderPath.addRoundRect(this.mTempRect, fArr, Path.Direction.CW);
             }
@@ -124,11 +124,11 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
                 }
                 while (true) {
                     fArr2 = this.mInsideBorderRadii;
-                    if (i2 >= fArr2.length) {
+                    if (i >= fArr2.length) {
                         break;
                     }
-                    fArr2[i2] = this.mRadii[i2] - this.mBorderWidth;
-                    i2++;
+                    fArr2[i] = this.mRadii[i] - this.mBorderWidth;
+                    i++;
                 }
                 this.mPath.addRoundRect(this.mTempRect, fArr2, Path.Direction.CW);
             } else {
@@ -235,21 +235,21 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048588, this, i2) == null) || i2 == this.mAlpha) {
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.mAlpha) {
             return;
         }
-        this.mAlpha = i2;
+        this.mAlpha = i;
         invalidateSelf();
     }
 
     @Override // com.facebook.drawee.drawable.Rounded
-    public void setBorder(int i2, float f2) {
+    public void setBorder(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            if (this.mBorderColor != i2) {
-                this.mBorderColor = i2;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            if (this.mBorderColor != i) {
+                this.mBorderColor = i;
                 invalidateSelf();
             }
             if (this.mBorderWidth != f2) {
@@ -278,12 +278,12 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
         }
     }
 
-    public void setColor(int i2) {
+    public void setColor(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i2) == null) || this.mColor == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || this.mColor == i) {
             return;
         }
-        this.mColor = i2;
+        this.mColor = i;
         invalidateSelf();
     }
 
@@ -354,17 +354,17 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoundedColorDrawable(float[] fArr, int i2) {
-        this(i2);
+    public RoundedColorDrawable(float[] fArr, int i) {
+        this(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fArr, Integer.valueOf(i2)};
+            Object[] objArr = {fArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -375,17 +375,17 @@ public class RoundedColorDrawable extends Drawable implements Rounded {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public RoundedColorDrawable(float f2, int i2) {
-        this(i2);
+    public RoundedColorDrawable(float f2, int i) {
+        this(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f2), Integer.valueOf(i2)};
+            Object[] objArr = {Float.valueOf(f2), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

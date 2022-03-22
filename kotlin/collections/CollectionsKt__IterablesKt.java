@@ -22,9 +22,9 @@ public class CollectionsKt__IterablesKt extends CollectionsKt__CollectionsKt {
     }
 
     @PublishedApi
-    public static final <T> int collectionSizeOrDefault(Iterable<? extends T> collectionSizeOrDefault, int i2) {
+    public static final <T> int collectionSizeOrDefault(Iterable<? extends T> collectionSizeOrDefault, int i) {
         Intrinsics.checkNotNullParameter(collectionSizeOrDefault, "$this$collectionSizeOrDefault");
-        return collectionSizeOrDefault instanceof Collection ? ((Collection) collectionSizeOrDefault).size() : i2;
+        return collectionSizeOrDefault instanceof Collection ? ((Collection) collectionSizeOrDefault).size() : i;
     }
 
     @PublishedApi

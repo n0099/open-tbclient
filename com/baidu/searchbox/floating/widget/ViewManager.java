@@ -57,9 +57,9 @@ public final class ViewManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, config};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -113,9 +113,9 @@ public final class ViewManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -150,9 +150,9 @@ public final class ViewManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -183,7 +183,7 @@ public final class ViewManager {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                 floatViewListener.onViewCreate(true, this.config.getFloatingView(), this.config.getScaleMode().getSecond(), position);
             }
-            final View findViewById = getMContainer().findViewById(R.id.floating_click_view_id);
+            final View findViewById = getMContainer().findViewById(R.id.obfuscated_res_0x7f0909d5);
             if (findViewById != null) {
                 findViewById.setOnClickListener(new View.OnClickListener(findViewById, 800L, this) { // from class: com.baidu.searchbox.floating.widget.ViewManager$bindContentView$$inlined$click$1
                     public static /* synthetic */ Interceptable $ic;
@@ -199,9 +199,9 @@ public final class ViewManager {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {findViewById, Long.valueOf(r7), this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -268,9 +268,9 @@ public final class ViewManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -322,7 +322,7 @@ public final class ViewManager {
     private final Pair<Integer, Integer> getLocation() {
         InterceptResult invokeV;
         int dpToPxByScale;
-        int i2;
+        int i;
         int dpToPxByScale2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
@@ -335,7 +335,7 @@ public final class ViewManager {
                     if (layoutParams == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mParam");
                     }
-                    i2 = screenHeight - layoutParams.height;
+                    i = screenHeight - layoutParams.height;
                     dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getLocation().getSecond().intValue());
                 } else {
                     dpToPxByScale = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().left);
@@ -344,10 +344,10 @@ public final class ViewManager {
                     if (layoutParams2 == null) {
                         Intrinsics.throwUninitializedPropertyAccessException("mParam");
                     }
-                    i2 = screenHeight2 - layoutParams2.height;
+                    i = screenHeight2 - layoutParams2.height;
                     dpToPxByScale2 = UtilsKt.dpToPxByScale(this.context, this.config.getBlockOffset().bottom);
                 }
-                return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i2 - dpToPxByScale2));
+                return new Pair<>(Integer.valueOf(dpToPxByScale), Integer.valueOf(i - dpToPxByScale2));
             }
             return location;
         }
@@ -377,12 +377,12 @@ public final class ViewManager {
             if (layoutParams == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            int i2 = layoutParams.x;
+            int i = layoutParams.x;
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            return new Point(i2, layoutParams2.y);
+            return new Point(i, layoutParams2.y);
         }
         return (Point) invokeV.objValue;
     }
@@ -494,9 +494,9 @@ public final class ViewManager {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -596,14 +596,14 @@ public final class ViewManager {
         }
     }
 
-    public final void setVisible(int i2) {
+    public final void setVisible(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || this.config.getFloatingView() == null || getMContainer().getVisibility() == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || this.config.getFloatingView() == null || getMContainer().getVisibility() == i) {
             return;
         }
-        getMContainer().setVisibility(i2);
+        getMContainer().setVisibility(i);
         Point position = getPosition();
-        if (i2 == 0) {
+        if (i == 0) {
             for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                 floatViewListener.onViewShow(getContentView(), this.config.getScaleMode().getSecond(), position);
             }
@@ -622,7 +622,7 @@ public final class ViewManager {
             if (layoutParams == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            int i2 = layoutParams.width;
+            int i = layoutParams.width;
             WindowManager.LayoutParams layoutParams2 = this.mParam;
             if (layoutParams2 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
@@ -650,13 +650,13 @@ public final class ViewManager {
             if (layoutParams4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mParam");
             }
-            int i3 = layoutParams4.width;
+            int i2 = layoutParams4.width;
             Point position = getPosition();
-            if (i2 < i3) {
+            if (i < i2) {
                 for (FloatViewListener floatViewListener : this.config.getFloatViewListeners()) {
                     floatViewListener.onScale(true, this.config.getScaleMode().getSecond(), position);
                 }
-            } else if (i2 > i3) {
+            } else if (i > i2) {
                 for (FloatViewListener floatViewListener2 : this.config.getFloatViewListeners()) {
                     floatViewListener2.onScale(false, this.config.getScaleMode().getSecond(), position);
                 }

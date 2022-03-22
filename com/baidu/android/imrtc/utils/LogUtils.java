@@ -1,5 +1,6 @@
 package com.baidu.android.imrtc.utils;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -35,9 +36,9 @@ public class LogUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -47,42 +48,48 @@ public class LogUtils {
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
     public static void v(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
     }
 
     public static void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, th) == null) && RtcConstants.LOG_DEBUG) {
-            String str3 = str + ZeusCrashHandler.NAME_SEPERATOR + str2;
+            String str3 = TAG;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
         }
     }
 }

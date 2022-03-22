@@ -36,7 +36,6 @@ import kotlin.Metadata;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.text.StringsKt__StringsJVMKt;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Metadata(d1 = {"\u0000Z\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0002\u0006\u001e\bÁ\u0002\u0018\u00002\u00020\u0001:\u0001;B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010#\u001a\u00020\t2\u0006\u0010\u0013\u001a\u00020\u0014H\u0002J(\u0010$\u001a\u0004\u0018\u00010%2\u0006\u0010&\u001a\u00020\u00122\u0006\u0010'\u001a\u00020\u00162\u0006\u0010\u0015\u001a\u00020\u00162\u0006\u0010(\u001a\u00020\tJ\u001e\u0010)\u001a\b\u0012\u0004\u0012\u00020%0*2\u0006\u0010&\u001a\u00020\u00122\u0006\u0010'\u001a\u00020\u0016H\u0002J\u0010\u0010+\u001a\u00020\t2\u0006\u0010\u0013\u001a\u00020\u0014H\u0002J\u001e\u0010,\u001a\u00020-2\u0006\u0010.\u001a\u00020\u00142\u0006\u0010&\u001a\u00020\u00122\u0006\u0010/\u001a\u00020\tJ\u000e\u00100\u001a\u00020-2\u0006\u0010/\u001a\u00020\tJ\u0006\u00101\u001a\u00020\tJ\u0006\u00102\u001a\u00020\tJ\u0006\u00103\u001a\u00020-J\u0018\u00104\u001a\u00020-2\u0006\u00105\u001a\u0002062\u0006\u00107\u001a\u00020\u0016H\u0002J\u0006\u00108\u001a\u00020-J\u0010\u00109\u001a\u00020-2\u0006\u00105\u001a\u000206H\u0002J\u0010\u0010:\u001a\u00020-2\u0006\u0010&\u001a\u00020\u0012H\u0002R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082T¢\u0006\u0002\n\u0000R\u0010\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0007R\u001a\u0010\b\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\n\u0010\u000b\"\u0004\b\f\u0010\rR\u001a\u0010\u000e\u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u000b\"\u0004\b\u0010\u0010\rR\u000e\u0010\u0011\u001a\u00020\u0012X\u0082.¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082.¢\u0006\u0002\n\u0000R\u001a\u0010\u0015\u001a\u00020\u0016X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0018\"\u0004\b\u0019\u0010\u001aR\u000e\u0010\u001b\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u00020\u001eX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u001fR\u001a\u0010 \u001a\u00020\tX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b!\u0010\u000b\"\u0004\b\"\u0010\r¨\u0006<"}, d2 = {"Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork;", "", "()V", "TAG", "", "cellCallback", "com/baidu/yunjiasu/tornadosdk/TornadoNetwork$cellCallback$1", "Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork$cellCallback$1;", "cellNetworkStatus", "", "getCellNetworkStatus", "()Z", "setCellNetworkStatus", "(Z)V", "cellStatus", "getCellStatus", "setCellStatus", "connectivityManager", "Landroid/net/ConnectivityManager;", "context", "Landroid/content/Context;", "ipVersion", "", "getIpVersion", "()I", "setIpVersion", "(I)V", "mobileDataStatus", "simStatus", "wifiCallback", "com/baidu/yunjiasu/tornadosdk/TornadoNetwork$wifiCallback$1", "Lcom/baidu/yunjiasu/tornadosdk/TornadoNetwork$wifiCallback$1;", "wifiStatus", "getWifiStatus", "setWifiStatus", "getMobileDataStatus", "getNetworkFromAll", "Landroid/net/Network;", "cm", "transportType", "checkIP", "getNetworkListByType", "", "getSIMStatus", "init", "", "ctx", "enableIPv6", "initOnIPv6", "isCellActive", "isWifiActive", MiPushClient.COMMAND_REGISTER, "registerNetCallback", "cb", "Landroid/net/ConnectivityManager$NetworkCallback;", "cap", MiPushClient.COMMAND_UNREGISTER, "unregisterNetCallback", "updateStatus", "COMMON", "tornadosdk_release"}, k = 1, mv = {1, 5, 1}, xi = 48)
 @SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
@@ -84,19 +83,19 @@ public final class TornadoNetwork {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
 
-        public final RouteInfo getDefaultRouteOfNetwork(ConnectivityManager cm, Network network, int i2) {
+        public final RouteInfo getDefaultRouteOfNetwork(ConnectivityManager cm, Network network, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, cm, network, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, cm, network, i)) == null) {
                 Intrinsics.checkNotNullParameter(cm, "cm");
                 Intrinsics.checkNotNullParameter(network, "network");
                 LinkProperties linkProperties = cm.getLinkProperties(network);
@@ -114,13 +113,13 @@ public final class TornadoNetwork {
                                 }
                                 if (z) {
                                     continue;
-                                } else if (i2 == 4 && (routeInfo.getGateway() instanceof Inet4Address)) {
+                                } else if (i == 4 && (routeInfo.getGateway() instanceof Inet4Address)) {
                                     return routeInfo;
                                 } else {
-                                    if (i2 == 6 && (routeInfo.getGateway() instanceof Inet6Address)) {
+                                    if (i == 6 && (routeInfo.getGateway() instanceof Inet6Address)) {
                                         return routeInfo;
                                     }
-                                    if (i2 == 6 && (routeInfo.getGateway() instanceof Inet4Address)) {
+                                    if (i == 6 && (routeInfo.getGateway() instanceof Inet4Address)) {
                                         return routeInfo;
                                     }
                                 }
@@ -143,10 +142,10 @@ public final class TornadoNetwork {
                 ArrayList<Network> arrayList = new ArrayList();
                 Intrinsics.checkNotNullExpressionValue(networks, "networks");
                 int length = networks.length;
-                int i2 = 0;
-                while (i2 < length) {
-                    Network nw = networks[i2];
-                    i2++;
+                int i = 0;
+                while (i < length) {
+                    Network nw = networks[i];
+                    i++;
                     Intrinsics.checkNotNullExpressionValue(nw, "nw");
                     if (getDefaultRouteOfNetwork(cm, nw, 4) != null) {
                         arrayList.add(nw);
@@ -186,10 +185,10 @@ public final class TornadoNetwork {
             return (String) invokeL.objValue;
         }
 
-        public final LinkAddress getLinkAddressByProperties(ConnectivityManager cm, Network network, int i2) {
+        public final LinkAddress getLinkAddressByProperties(ConnectivityManager cm, Network network, int i) {
             InterceptResult invokeLLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, cm, network, i2)) == null) {
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048579, this, cm, network, i)) == null) {
                 Intrinsics.checkNotNullParameter(cm, "cm");
                 Intrinsics.checkNotNullParameter(network, "network");
                 LinkProperties linkProperties = cm.getLinkProperties(network);
@@ -205,10 +204,10 @@ public final class TornadoNetwork {
                                 Intrinsics.checkNotNullExpressionValue(hostAddress2, "la.address.hostAddress");
                                 if (StringsKt__StringsJVMKt.startsWith$default(hostAddress2, "0.", false, 2, null)) {
                                     continue;
-                                } else if (i2 == 4 && (linkAddress.getAddress() instanceof Inet4Address)) {
+                                } else if (i == 4 && (linkAddress.getAddress() instanceof Inet4Address)) {
                                     return linkAddress;
                                 } else {
-                                    if (i2 == 6 && (linkAddress.getAddress() instanceof Inet6Address)) {
+                                    if (i == 6 && (linkAddress.getAddress() instanceof Inet6Address)) {
                                         return linkAddress;
                                     }
                                 }
@@ -248,9 +247,9 @@ public final class TornadoNetwork {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -288,9 +287,9 @@ public final class TornadoNetwork {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -342,9 +341,9 @@ public final class TornadoNetwork {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -377,20 +376,20 @@ public final class TornadoNetwork {
         return invokeL.booleanValue;
     }
 
-    private final List<Network> getNetworkListByType(ConnectivityManager connectivityManager2, int i2) {
+    private final List<Network> getNetworkListByType(ConnectivityManager connectivityManager2, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, connectivityManager2, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, connectivityManager2, i)) == null) {
             ArrayList arrayList = new ArrayList();
             Network[] networks = connectivityManager2.getAllNetworks();
             Intrinsics.checkNotNullExpressionValue(networks, "networks");
             int length = networks.length;
-            int i3 = 0;
-            while (i3 < length) {
-                Network nw = networks[i3];
-                i3++;
+            int i2 = 0;
+            while (i2 < length) {
+                Network nw = networks[i2];
+                i2++;
                 NetworkCapabilities networkCapabilities = connectivityManager2.getNetworkCapabilities(nw);
-                if (networkCapabilities != null && networkCapabilities.hasTransport(i2)) {
+                if (networkCapabilities != null && networkCapabilities.hasTransport(i)) {
                     Intrinsics.checkNotNullExpressionValue(nw, "nw");
                     arrayList.add(nw);
                 }
@@ -413,11 +412,11 @@ public final class TornadoNetwork {
         return invokeL.booleanValue;
     }
 
-    private final void registerNetCallback(ConnectivityManager.NetworkCallback networkCallback, int i2) {
+    private final void registerNetCallback(ConnectivityManager.NetworkCallback networkCallback, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65542, this, networkCallback, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65542, this, networkCallback, i) == null) {
             NetworkRequest.Builder builder = new NetworkRequest.Builder();
-            builder.addTransportType(i2);
+            builder.addTransportType(i);
             NetworkRequest build = builder.build();
             try {
                 ConnectivityManager connectivityManager2 = connectivityManager;
@@ -481,16 +480,16 @@ public final class TornadoNetwork {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final Network getNetworkFromAll(ConnectivityManager cm, int i2, int i3, boolean z) {
+    public final Network getNetworkFromAll(ConnectivityManager cm, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{cm, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{cm, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             Intrinsics.checkNotNullParameter(cm, "cm");
-            Iterator<Network> it = getNetworkListByType(cm, i2).iterator();
+            Iterator<Network> it = getNetworkListByType(cm, i).iterator();
             while (it.hasNext()) {
                 Network next = it.next();
                 LinkProperties linkProperties = cm.getLinkProperties(next);
-                if (i2 != 4 && linkProperties != null && linkProperties.getInterfaceName() != null) {
+                if (i != 4 && linkProperties != null && linkProperties.getInterfaceName() != null) {
                     String interfaceName = linkProperties.getInterfaceName();
                     Intrinsics.checkNotNull(interfaceName);
                     Intrinsics.checkNotNullExpressionValue(interfaceName, "lp.interfaceName!!");
@@ -498,8 +497,8 @@ public final class TornadoNetwork {
                         continue;
                     }
                 }
-                LinkAddress linkAddressByProperties = COMMON.INSTANCE.getLinkAddressByProperties(cm, next, i3);
-                RouteInfo defaultRouteOfNetwork = COMMON.INSTANCE.getDefaultRouteOfNetwork(cm, next, i3);
+                LinkAddress linkAddressByProperties = COMMON.INSTANCE.getLinkAddressByProperties(cm, next, i2);
+                RouteInfo defaultRouteOfNetwork = COMMON.INSTANCE.getDefaultRouteOfNetwork(cm, next, i2);
                 if (linkAddressByProperties != null && defaultRouteOfNetwork != null) {
                     return next;
                 }
@@ -573,7 +572,7 @@ public final class TornadoNetwork {
             }
             mobileDataStatus = getMobileDataStatus(context2);
             LogTo logTo = LogTo.INSTANCE;
-            logTo.i(TAG, "sim=" + simStatus + ", mobileData=" + mobileDataStatus + ", {" + cellStatus + StringUtil.ARRAY_ELEMENT_SEPARATOR + cellNetworkStatus + ExtendedMessageFormat.END_FE);
+            logTo.i(TAG, "sim=" + simStatus + ", mobileData=" + mobileDataStatus + ", {" + cellStatus + StringUtil.ARRAY_ELEMENT_SEPARATOR + cellNetworkStatus + '}');
             if (simStatus && mobileDataStatus && cellStatus) {
                 return true;
             }
@@ -614,10 +613,10 @@ public final class TornadoNetwork {
         }
     }
 
-    public final void setIpVersion(int i2) {
+    public final void setIpVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            ipVersion = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            ipVersion = i;
         }
     }
 

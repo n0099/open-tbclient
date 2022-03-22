@@ -16,7 +16,7 @@ import org.apache.http.RequestLine;
 import org.apache.http.StatusLine;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class BasicLineParser implements LineParser {
     public static /* synthetic */ Interceptable $ic;
     public static final BasicLineParser DEFAULT = null;
@@ -45,9 +45,9 @@ public class BasicLineParser implements LineParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {protocolVersion};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -92,10 +92,10 @@ public class BasicLineParser implements LineParser {
         return (StatusLine) invokeLL.objValue;
     }
 
-    public ProtocolVersion createProtocolVersion(int i2, int i3) {
+    public ProtocolVersion createProtocolVersion(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i2, i3)) == null) {
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (ProtocolVersion) invokeII.objValue;
@@ -110,10 +110,10 @@ public class BasicLineParser implements LineParser {
         return (RequestLine) invokeLLL.objValue;
     }
 
-    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i2, String str) {
+    public StatusLine createStatusLine(ProtocolVersion protocolVersion, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, protocolVersion, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, protocolVersion, i, str)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (StatusLine) invokeLIL.objValue;
@@ -141,9 +141,9 @@ public class BasicLineParser implements LineParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

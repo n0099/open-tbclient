@@ -14,6 +14,7 @@ import java.util.List;
 public final class FaceEnvironment {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OS = "android";
+    public static final String SDK_SEC_DECOUPLING_VERSION = "4.1.1";
     public static final String SDK_VERSION = "4.1.1";
     public static final String TAG = "Baidu-IDL-FaceSDK";
     public static final long TIME_DETECT_MODULE = 15000;
@@ -79,15 +80,15 @@ public final class FaceEnvironment {
         livenessTypeDefaultList.add(LivenessTypeEnum.HeadRight);
         mSoundIds = new int[FaceStatusNewEnum.values().length];
         mTipsTextIds = new int[FaceStatusNewEnum.values().length];
-        int i2 = 0;
+        int i = 0;
         while (true) {
             int[] iArr = mSoundIds;
-            if (i2 >= iArr.length) {
+            if (i >= iArr.length) {
                 return;
             }
-            iArr[i2] = 0;
-            mTipsTextIds[i2] = 0;
-            i2++;
+            iArr[i] = 0;
+            mTipsTextIds[i] = 0;
+            i++;
         }
     }
 
@@ -96,9 +97,9 @@ public final class FaceEnvironment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -117,27 +118,27 @@ public final class FaceEnvironment {
         return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, faceStatusNewEnum)) == null) ? mTipsTextIds[faceStatusNewEnum.ordinal()] : invokeL.intValue;
     }
 
-    public static void setSoundId(FaceStatusNewEnum faceStatusNewEnum, int i2) {
+    public static void setSoundId(FaceStatusNewEnum faceStatusNewEnum, int i) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, faceStatusNewEnum, i2) == null) || (iArr = mSoundIds) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, faceStatusNewEnum, i) == null) || (iArr = mSoundIds) == null) {
             return;
         }
         try {
-            iArr[faceStatusNewEnum.ordinal()] = i2;
+            iArr[faceStatusNewEnum.ordinal()] = i;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
     }
 
-    public static void setTipsId(FaceStatusNewEnum faceStatusNewEnum, int i2) {
+    public static void setTipsId(FaceStatusNewEnum faceStatusNewEnum, int i) {
         int[] iArr;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, faceStatusNewEnum, i2) == null) || (iArr = mTipsTextIds) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, faceStatusNewEnum, i) == null) || (iArr = mTipsTextIds) == null) {
             return;
         }
         try {
-            iArr[faceStatusNewEnum.ordinal()] = i2;
+            iArr[faceStatusNewEnum.ordinal()] = i;
         } catch (Exception e2) {
             e2.printStackTrace();
         }

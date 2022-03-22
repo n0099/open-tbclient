@@ -6,35 +6,31 @@ import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f55744b;
+    public int f40727b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f55745c;
+    public AdTemplate f40728c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f55746d;
+    public int f40729d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f55747e;
+    public String f40730e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f55748f;
+    public String f40731f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f55749g;
+    public String f40732g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f55750h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f55751i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f55752j;
+    public String f40733h;
+    public String i;
+    public String j;
     public boolean k = false;
     public int l = -1;
     public com.kwad.sdk.core.download.a.b m;
@@ -42,37 +38,37 @@ public class b extends c {
     public int o;
     public a p;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(b bVar);
     }
 
     public static b a(AdTemplate adTemplate) {
         String h2;
-        AdInfo j2 = d.j(adTemplate);
+        AdInfo j = d.j(adTemplate);
         b bVar = new b();
         bVar.b(0);
-        bVar.k = com.kwad.sdk.core.response.a.a.B(j2);
-        bVar.f55746d = adTemplate.type;
-        bVar.f55745c = adTemplate;
-        bVar.f55747e = com.kwad.sdk.core.response.a.a.s(j2);
-        List<String> O = com.kwad.sdk.core.response.a.a.O(j2);
+        bVar.k = com.kwad.sdk.core.response.a.a.B(j);
+        bVar.f40729d = adTemplate.type;
+        bVar.f40728c = adTemplate;
+        bVar.f40730e = com.kwad.sdk.core.response.a.a.s(j);
+        List<String> O = com.kwad.sdk.core.response.a.a.O(j);
         if (O.size() <= 0) {
-            if (com.kwad.sdk.core.response.a.a.P(j2)) {
-                h2 = com.kwad.sdk.core.response.a.a.h(j2);
+            if (com.kwad.sdk.core.response.a.a.P(j)) {
+                h2 = com.kwad.sdk.core.response.a.a.h(j);
             }
-            bVar.f55752j = com.kwad.sdk.core.response.a.a.A(j2);
-            bVar.f55751i = com.kwad.sdk.core.response.a.a.s(j2);
-            bVar.f55750h = com.kwad.sdk.core.response.a.a.at(j2);
-            bVar.f55748f = com.kwad.sdk.core.response.a.a.au(j2);
+            bVar.j = com.kwad.sdk.core.response.a.a.A(j);
+            bVar.i = com.kwad.sdk.core.response.a.a.s(j);
+            bVar.f40733h = com.kwad.sdk.core.response.a.a.at(j);
+            bVar.f40731f = com.kwad.sdk.core.response.a.a.au(j);
             return bVar;
         }
         h2 = O.get(0);
-        bVar.f55749g = h2;
-        bVar.f55752j = com.kwad.sdk.core.response.a.a.A(j2);
-        bVar.f55751i = com.kwad.sdk.core.response.a.a.s(j2);
-        bVar.f55750h = com.kwad.sdk.core.response.a.a.at(j2);
-        bVar.f55748f = com.kwad.sdk.core.response.a.a.au(j2);
+        bVar.f40732g = h2;
+        bVar.j = com.kwad.sdk.core.response.a.a.A(j);
+        bVar.i = com.kwad.sdk.core.response.a.a.s(j);
+        bVar.f40733h = com.kwad.sdk.core.response.a.a.at(j);
+        bVar.f40731f = com.kwad.sdk.core.response.a.a.au(j);
         return bVar;
     }
 
@@ -83,13 +79,13 @@ public class b extends c {
                 return null;
             }
             arrayList = new ArrayList();
-            int i2 = 0;
+            int i = 0;
             for (AdTemplate adTemplate : list) {
                 b a2 = a(adTemplate);
-                a2.a(list2.get(i2));
-                a2.l = i2;
+                a2.a(list2.get(i));
+                a2.l = i;
                 arrayList.add(a2);
-                i2++;
+                i++;
             }
         }
         return arrayList;
@@ -118,32 +114,32 @@ public class b extends c {
         bVar.a(this);
     }
 
-    public void b(int i2) {
-        this.f55744b = i2;
+    public void b(int i) {
+        this.f40727b = i;
     }
 
     public AdTemplate c() {
-        return this.f55745c;
+        return this.f40728c;
     }
 
     public String d() {
-        return this.f55747e;
+        return this.f40730e;
     }
 
     public String e() {
-        return this.f55748f;
+        return this.f40731f;
     }
 
     public String f() {
-        return this.f55750h;
+        return this.f40733h;
     }
 
     public String g() {
-        return this.f55751i;
+        return this.i;
     }
 
     public String h() {
-        return this.f55749g;
+        return this.f40732g;
     }
 
     public boolean i() {
@@ -155,8 +151,8 @@ public class b extends c {
     }
 
     public int k() {
-        int i2 = this.f55744b;
-        return i2 == 0 ? this.f55746d : i2;
+        int i = this.f40727b;
+        return i == 0 ? this.f40729d : i;
     }
 
     public int l() {
@@ -197,9 +193,9 @@ public class b extends c {
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i2) {
+    public void onProgressUpdate(int i) {
         this.n = 2;
-        this.o = i2;
+        this.o = i;
         o();
     }
 }

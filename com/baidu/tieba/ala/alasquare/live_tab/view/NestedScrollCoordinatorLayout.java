@@ -21,16 +21,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements NestedScrollingChild {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int PASS_MODE_BOTH = 0;
-    public static final int PASS_MODE_PARENT_FIRST = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NestedScrollingChildHelper a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public NestedScrollingChildHelper f40595e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public a f40596f;
+    /* renamed from: b  reason: collision with root package name */
+    public a f31311b;
 
     /* loaded from: classes5.dex */
     public static class a<DummyView extends View> extends CoordinatorLayout.Behavior<DummyView> {
@@ -39,29 +35,29 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         public int a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final int[] f40597b;
+        public final int[] f31312b;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = 1;
-            this.f40597b = new int[2];
+            this.f31312b = new int[2];
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a = i2;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a = i;
             }
         }
 
@@ -80,33 +76,33 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, int i2, int i3, @NonNull int[] iArr, int i4) {
+        public void onNestedPreScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, int i, int i2, @NonNull int[] iArr, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, dummyview, view, Integer.valueOf(i2), Integer.valueOf(i3), iArr, Integer.valueOf(i4)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{coordinatorLayout, dummyview, view, Integer.valueOf(i), Integer.valueOf(i2), iArr, Integer.valueOf(i3)}) == null) {
                 NestedScrollCoordinatorLayout nestedScrollCoordinatorLayout = (NestedScrollCoordinatorLayout) coordinatorLayout;
-                int i5 = this.a;
-                if (i5 == 1) {
-                    nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr, null);
-                } else if (i5 == 0) {
-                    int[] iArr2 = this.f40597b;
+                int i4 = this.a;
+                if (i4 == 1) {
+                    nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i, i2, iArr, null);
+                } else if (i4 == 0) {
+                    int[] iArr2 = this.f31312b;
                     iArr2[0] = iArr[0];
                     iArr2[1] = iArr[1];
-                    nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i2, i3, iArr2, null);
+                    nestedScrollCoordinatorLayout.dispatchNestedPreScroll(i, i2, iArr2, null);
                 }
             }
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, @NonNull View view2, int i2, int i3) {
+        public boolean onStartNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, @NonNull View view2, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, dummyview, view, view2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? ((NestedScrollCoordinatorLayout) coordinatorLayout).startNestedScroll(i2) : invokeCommon.booleanValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{coordinatorLayout, dummyview, view, view2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? ((NestedScrollCoordinatorLayout) coordinatorLayout).startNestedScroll(i) : invokeCommon.booleanValue;
         }
 
         @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-        public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, int i2) {
+        public void onStopNestedScroll(@NonNull CoordinatorLayout coordinatorLayout, @NonNull DummyView dummyview, @NonNull View view, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLI(1048580, this, coordinatorLayout, dummyview, view, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLLI(1048580, this, coordinatorLayout, dummyview, view, i) == null) {
                 ((NestedScrollCoordinatorLayout) coordinatorLayout).stopNestedScroll();
             }
         }
@@ -135,9 +131,9 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -150,14 +146,14 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f40595e = new NestedScrollingChildHelper(this);
+            this.a = new NestedScrollingChildHelper(this);
             setNestedScrollingEnabled(true);
             View view = new View(getContext());
-            this.f40596f = new a();
+            this.f31311b = new a();
             ViewCompat.setElevation(view, ViewCompat.getElevation(this));
             view.setFitsSystemWindows(false);
             CoordinatorLayout.LayoutParams layoutParams = new CoordinatorLayout.LayoutParams(-1, -1);
-            layoutParams.setBehavior(this.f40596f);
+            layoutParams.setBehavior(this.f31311b);
             addView(view, layoutParams);
         }
     }
@@ -166,73 +162,73 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     public boolean dispatchNestedFling(float f2, float f3, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.f40595e.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)})) == null) ? this.a.dispatchNestedFling(f2, f3, z) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean dispatchNestedPreFling(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.f40595e.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? this.a.dispatchNestedPreFling(f2, f3) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedPreScroll(int i2, int i3, @Nullable @Size(2) int[] iArr, @Nullable @Size(2) int[] iArr2) {
+    public boolean dispatchNestedPreScroll(int i, int i2, @Nullable @Size(2) int[] iArr, @Nullable @Size(2) int[] iArr2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), iArr, iArr2})) == null) ? this.f40595e.dispatchNestedPreScroll(i2, i3, iArr, iArr2) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), iArr, iArr2})) == null) ? this.a.dispatchNestedPreScroll(i, i2, iArr, iArr2) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean dispatchNestedScroll(int i2, int i3, int i4, int i5, @Nullable @Size(2) int[] iArr) {
+    public boolean dispatchNestedScroll(int i, int i2, int i3, int i4, @Nullable @Size(2) int[] iArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), iArr})) == null) ? this.f40595e.dispatchNestedScroll(i2, i3, i4, i5, iArr) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), iArr})) == null) ? this.a.dispatchNestedScroll(i, i2, i3, i4, iArr) : invokeCommon.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean hasNestedScrollingParent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f40595e.hasNestedScrollingParent() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.hasNestedScrollingParent() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public boolean isNestedScrollingEnabled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f40595e.isNestedScrollingEnabled() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.isNestedScrollingEnabled() : invokeV.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void setNestedScrollingEnabled(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f40595e.setNestedScrollingEnabled(z);
+            this.a.setNestedScrollingEnabled(z);
         }
     }
 
-    public void setPassMode(int i2) {
+    public void setPassMode(int i) {
         a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || (aVar = this.f40596f) == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || (aVar = this.f31311b) == null) {
             return;
         }
-        aVar.a(i2);
+        aVar.a(i);
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
-    public boolean startNestedScroll(int i2) {
+    public boolean startNestedScroll(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f40595e.startNestedScroll(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.a.startNestedScroll(i) : invokeI.booleanValue;
     }
 
     @Override // android.view.View, androidx.core.view.NestedScrollingChild
     public void stopNestedScroll() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f40595e.stopNestedScroll();
+            this.a.stopNestedScroll();
         }
     }
 
@@ -245,9 +241,9 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -259,17 +255,17 @@ public class NestedScrollCoordinatorLayout extends CoordinatorLayout implements 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NestedScrollCoordinatorLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public NestedScrollCoordinatorLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

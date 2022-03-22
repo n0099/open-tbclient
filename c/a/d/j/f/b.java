@@ -9,5 +9,5 @@ public interface b extends a {
 
     void proxyOnAttachFragment(Fragment fragment);
 
-    void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i2);
+    void proxyStartActivityFromFragment(Fragment fragment, Intent intent, int i);
 }

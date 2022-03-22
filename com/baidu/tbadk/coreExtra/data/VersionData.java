@@ -47,9 +47,9 @@ public class VersionData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -219,17 +219,17 @@ public class VersionData implements Serializable {
         }
     }
 
-    public void setForceUpdate(int i2) {
+    public void setForceUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.forceUpdate = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.forceUpdate = i;
         }
     }
 
-    public void setHasNewVer(int i2) {
+    public void setHasNewVer(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.hasNewVer = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.hasNewVer = i;
         }
     }
 
@@ -247,10 +247,10 @@ public class VersionData implements Serializable {
         }
     }
 
-    public void setNewVersionCode(int i2) {
+    public void setNewVersionCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.newVersionCode = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.newVersionCode = i;
         }
     }
 
@@ -282,10 +282,10 @@ public class VersionData implements Serializable {
         }
     }
 
-    public void setStrategy(int i2) {
+    public void setStrategy(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.strategy = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.strategy = i;
         }
     }
 

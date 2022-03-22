@@ -9,55 +9,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.vivo.push.o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f59197b;
+    public String f43832b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f59198c;
+    public long f43833c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f59199d;
+    public int f43834d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f59200e;
+    public int f43835e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f59201f;
+    public String f43836f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(int i2, String str) {
-        super(i2);
+    public c(int i, String str) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f59198c = -1L;
-        this.f59199d = -1;
+        this.f43833c = -1L;
+        this.f43834d = -1;
         this.a = null;
-        this.f59197b = str;
+        this.f43832b = str;
     }
 
-    public final void a(int i2) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            this.f59200e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.f43835e = i;
         }
     }
 
@@ -73,13 +73,13 @@ public class c extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
             aVar.a("req_id", this.a);
-            aVar.a("package_name", this.f59197b);
+            aVar.a("package_name", this.f43832b);
             aVar.a("sdk_version", 800L);
-            aVar.a("PUSH_APP_STATUS", this.f59199d);
-            if (TextUtils.isEmpty(this.f59201f)) {
+            aVar.a("PUSH_APP_STATUS", this.f43834d);
+            if (TextUtils.isEmpty(this.f43836f)) {
                 return;
             }
-            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f59201f);
+            aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION", this.f43836f);
         }
     }
 
@@ -88,23 +88,23 @@ public class c extends com.vivo.push.o {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.a = aVar.a("req_id");
-            this.f59197b = aVar.a("package_name");
-            this.f59198c = aVar.b("sdk_version", 0L);
-            this.f59199d = aVar.b("PUSH_APP_STATUS", 0);
-            this.f59201f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
+            this.f43832b = aVar.a("package_name");
+            this.f43833c = aVar.b("sdk_version", 0L);
+            this.f43834d = aVar.b("PUSH_APP_STATUS", 0);
+            this.f43836f = aVar.a("BaseAppCommand.EXTRA__HYBRIDVERSION");
         }
     }
 
     public final int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f59200e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f43835e : invokeV.intValue;
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f59201f = null;
+            this.f43836f = null;
         }
     }
 
@@ -125,8 +125,8 @@ public class c extends com.vivo.push.o {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (this.f59199d == -1) {
-                String str = this.f59197b;
+            if (this.f43834d == -1) {
+                String str = this.f43832b;
                 if (TextUtils.isEmpty(str)) {
                     com.vivo.push.util.p.a("BaseAppCommand", "pkg name is null");
                     String a = a();
@@ -136,12 +136,12 @@ public class c extends com.vivo.push.o {
                     }
                     str = a;
                 }
-                this.f59199d = com.vivo.push.util.t.b(context, str);
-                if (!TextUtils.isEmpty(this.f59201f)) {
-                    this.f59199d = 2;
+                this.f43834d = com.vivo.push.util.t.b(context, str);
+                if (!TextUtils.isEmpty(this.f43836f)) {
+                    this.f43834d = 2;
                 }
             }
-            return this.f59199d;
+            return this.f43834d;
         }
         return invokeL.intValue;
     }

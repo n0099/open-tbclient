@@ -10,7 +10,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes7.dex */
 public class SrtParser {
     public static /* synthetic */ Interceptable $ic;
@@ -21,9 +20,9 @@ public class SrtParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -42,7 +41,7 @@ public class SrtParser {
                 while (true) {
                     String readLine2 = lineNumberReader.readLine();
                     if (readLine2 != null && !readLine2.trim().equals("")) {
-                        str = String.valueOf(str) + readLine2 + StringUtils.LF;
+                        str = String.valueOf(str) + readLine2 + "\n";
                     }
                 }
                 textTrackImpl.getSubs().add(new TextTrackImpl.Line(parse(readLine.split("-->")[0]), parse(readLine.split("-->")[1]), str));

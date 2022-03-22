@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.async.privacy;
 
 import c.a.d.b.a.b;
-import c.a.q0.r0.k;
+import c.a.o0.r0.k;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -30,9 +30,9 @@ public class LogoTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -75,7 +75,7 @@ public class LogoTask extends LaunchTask {
             if (this.mIsFirstUse) {
                 TbadkSettings.getInst().saveBoolean("first_sync_image_quality", true);
                 TbadkCoreApplication.getInst().setIsAbstractOn(0);
-                c.a.q0.r.j0.b.k().u("frs_first_in", true);
+                c.a.o0.r.j0.b.k().u("frs_first_in", true);
             }
             NASLib.onAppStart(TbadkCoreApplication.getInst());
             k.b().A(this.mIsFirstUse);

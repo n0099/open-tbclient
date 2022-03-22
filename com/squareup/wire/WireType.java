@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class WireType {
     public static /* synthetic */ Interceptable $ic = null;
     public static final WireType END_GROUP;
@@ -49,16 +49,16 @@ public final class WireType {
         ENUM$VALUES = new WireType[]{VARINT, FIXED64, LENGTH_DELIMITED, START_GROUP, END_GROUP, wireType};
     }
 
-    public WireType(String str, int i2, int i3) {
+    public WireType(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -67,7 +67,7 @@ public final class WireType {
                 return;
             }
         }
-        this.value = i3;
+        this.value = i2;
     }
 
     public static WireType valueOf(String str) {
@@ -95,20 +95,20 @@ public final class WireType {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.value : invokeV.intValue;
     }
 
-    public static WireType valueOf(int i2) {
+    public static WireType valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            int i3 = i2 & 7;
-            if (i3 != 0) {
-                if (i3 != 1) {
-                    if (i3 != 2) {
-                        if (i3 != 3) {
-                            if (i3 != 4) {
-                                if (i3 == 5) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i & 7;
+            if (i2 != 0) {
+                if (i2 != 1) {
+                    if (i2 != 2) {
+                        if (i2 != 3) {
+                            if (i2 != 4) {
+                                if (i2 == 5) {
                                     return FIXED32;
                                 }
-                                throw new IllegalArgumentException("No WireType for value " + i2);
+                                throw new IllegalArgumentException("No WireType for value " + i);
                             }
                             return END_GROUP;
                         }

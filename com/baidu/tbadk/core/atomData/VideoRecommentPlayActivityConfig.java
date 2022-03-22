@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.module.hottopic.VideoHotTopicParams;
@@ -21,20 +22,24 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
     public static final String FROM_AGREE_PAGE = "from_agree_page";
     public static final String FROM_AT_PAGE = "from_at_page";
+    public static final String FROM_COLLECTION = "from_collection";
     public static final String FROM_CREATE_CENTER = "from_create_center";
     public static final String FROM_DEFAULT = "from_default";
     public static final String FROM_FRS = "frs";
+    public static final String FROM_FRS_TOP = "from_frs_top";
+    public static final String FROM_HISTORY = "from_history";
     public static final String FROM_LINK_PAGE = "from_link_page";
     public static final String FROM_MAINTAB_CONCERN = "concern_tab";
     public static final String FROM_MAINTAB_DAILY = "daily_tab";
     public static final String FROM_MAINTAB_RECOMMEND = "index";
     public static final String FROM_MAINTAB_VIDEO = "video_tab";
+    public static final String FROM_MY_THREADS = "from_my_threads";
     public static final String FROM_NANI_VIDEO = "from_nani_video";
     public static final String FROM_OFFICAL_VIDEO = "from_offical_video";
     public static final String FROM_PB_VIDEO_SCHEME = "from_pb_video_scheme";
@@ -67,13 +72,13 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     public static VideoHotTopicParams bigVideoHotTopicParams;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PersonalPageParams implements Serializable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String IDENTIFER_FROM_THREAD_TAB = "15";
         public static final String IDENTIFER_FROM_VIDEO_TAB = "14";
         public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("pn")
+        @SerializedName(Config.PACKAGE_NAME)
         public int currentPn;
         @SerializedName("data")
         public List<Map<String, Object>> dataList;
@@ -99,9 +104,9 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -172,26 +177,26 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.isVideoTab : invokeV.booleanValue;
         }
 
-        public void setCurrentPn(int i2) {
+        public void setCurrentPn(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-                this.currentPn = i2;
+            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+                this.currentPn = i;
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i2) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2)};
+            Object[] objArr = {context, list, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -199,7 +204,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
     }
 
     public void setIsFromBjhPb(boolean z) {
@@ -234,25 +239,25 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
         intent.putExtra(IntentConfig.KEY_URI, uri);
     }
 
-    public void setVideoShowIndex(int i2) {
+    public void setVideoShowIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            getIntent().putExtra("video_show_index", i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            getIntent().putExtra("video_show_index", i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -260,7 +265,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("from", str);
         getIntent().setSourceBounds(rect);
     }
@@ -274,9 +279,9 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65542, newInitContext);
@@ -298,9 +303,9 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, str, str2};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
@@ -313,17 +318,17 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str, str2, str3, str4};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -331,7 +336,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
@@ -340,17 +345,17 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i2, Rect rect, String str, String str2, String str3, String str4, String str5) {
+    public VideoRecommentPlayActivityConfig(Context context, List<VideoItemData> list, int i, Rect rect, String str, String str2, String str3, String str4, String str5) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, Integer.valueOf(i2), rect, str, str2, str3, str4, str5};
+            Object[] objArr = {context, list, Integer.valueOf(i), rect, str, str2, str3, str4, str5};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
@@ -358,7 +363,7 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
             }
         }
         getIntent().putExtra("video_list", (Serializable) list);
-        getIntent().putExtra("video_index", i2);
+        getIntent().putExtra("video_index", i);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("st_type", str2);
         getIntent().putExtra("yuelaou_locate", str3);
@@ -368,24 +373,24 @@ public class VideoRecommentPlayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i2, String str) {
+    public VideoRecommentPlayActivityConfig(@NonNull Context context, int i, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str};
+            Object[] objArr = {context, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("video_show_index", i2);
+        getIntent().putExtra("video_show_index", i);
         getIntent().putExtra("page_from", str);
         getIntent().putExtra("from", str);
     }

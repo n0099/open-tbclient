@@ -37,9 +37,9 @@ public class LiveIMController implements LiveIM {
             newInitContext.initArgs = r2;
             Object[] objArr = {iMConversation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,15 +49,15 @@ public class LiveIMController implements LiveIM {
     }
 
     @Override // com.baidu.livesdk.api.im.live.LiveIM
-    public void enterRoom(String str, String str2, int i2, IMCastSetListener iMCastSetListener, boolean z) {
+    public void enterRoom(String str, String str2, int i, IMCastSetListener iMCastSetListener, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i2), iMCastSetListener, Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), iMCastSetListener, Boolean.valueOf(z)}) == null) {
             this.mCastId = str;
             this.mUrl = str2;
-            this.mPullInterval = i2;
+            this.mPullInterval = i;
             this.mCastSetListener = iMCastSetListener;
             this.mNecessary = z;
-            this.mConversation.setPullInterval(i2);
+            this.mConversation.setPullInterval(i);
             this.mConversation.beginWithCompletion(new IMCastSetListener(this, iMCastSetListener) { // from class: com.baidu.livesdk.sdk.im.live.LiveIMController.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -71,9 +71,9 @@ public class LiveIMController implements LiveIM {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, iMCastSetListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -84,12 +84,12 @@ public class LiveIMController implements LiveIM {
                 }
 
                 @Override // com.baidu.livesdk.api.im.IMCastSetListener
-                public void onResult(int i3, long j2, long j3) {
+                public void onResult(int i2, long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j), Long.valueOf(j2)}) == null) {
                         IMCastSetListener iMCastSetListener2 = this.val$listener;
                         if (iMCastSetListener2 != null) {
-                            iMCastSetListener2.onResult(i3, j2, j3);
+                            iMCastSetListener2.onResult(i2, j, j2);
                         }
                         this.this$0.mIsConnect = true;
                     }
@@ -118,9 +118,9 @@ public class LiveIMController implements LiveIM {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -130,9 +130,9 @@ public class LiveIMController implements LiveIM {
             }
 
             @Override // com.baidu.livesdk.api.im.IMCastSetListener
-            public void onResult(int i2, long j2, long j3) {
+            public void onResult(int i, long j, long j2) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
                     this.this$0.mIsConnect = false;
                 }
             }
@@ -176,9 +176,9 @@ public class LiveIMController implements LiveIM {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, liveMsgReceiverListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -189,14 +189,14 @@ public class LiveIMController implements LiveIM {
                 }
 
                 @Override // com.baidu.livesdk.api.im.MsgReceiveListener
-                public void onReceiveMessage(int i2, Object obj) {
+                public void onReceiveMessage(int i, Object obj) {
                     LiveMsgReceiverListener liveMsgReceiverListener2;
                     Interceptable interceptable2 = $ic;
-                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, obj) == null) || (liveMsgReceiverListener2 = this.val$listener) == null) {
+                    if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, obj) == null) || (liveMsgReceiverListener2 = this.val$listener) == null) {
                         return;
                     }
                     try {
-                        liveMsgReceiverListener2.onReceiveMessage(i2, (List) obj);
+                        liveMsgReceiverListener2.onReceiveMessage(i, (List) obj);
                     } catch (Exception unused) {
                     }
                 }
@@ -224,9 +224,9 @@ public class LiveIMController implements LiveIM {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, liveSendMessageListener, str};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -238,14 +238,14 @@ public class LiveIMController implements LiveIM {
                     }
 
                     @Override // com.baidu.livesdk.api.im.SendMessageListener
-                    public void onSendMessageResult(int i2, Object obj) {
+                    public void onSendMessageResult(int i, Object obj) {
                         LiveSendMessageListener liveSendMessageListener2;
                         Interceptable interceptable2 = $ic;
-                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, obj) == null) || (liveSendMessageListener2 = this.val$listener) == null) {
+                        if (!(interceptable2 == null || interceptable2.invokeIL(1048576, this, i, obj) == null) || (liveSendMessageListener2 = this.val$listener) == null) {
                             return;
                         }
                         try {
-                            liveSendMessageListener2.onSendSuccess(this.val$castId, i2, obj != null ? (List) obj : null);
+                            liveSendMessageListener2.onSendSuccess(this.val$castId, i, obj != null ? (List) obj : null);
                         } catch (Exception unused) {
                         }
                     }
@@ -279,9 +279,9 @@ public class LiveIMController implements LiveIM {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -291,11 +291,11 @@ public class LiveIMController implements LiveIM {
                 }
 
                 @Override // com.baidu.livesdk.api.im.IMCastSetListener
-                public void onResult(int i2, long j2, long j3) {
+                public void onResult(int i, long j, long j2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
                         if (this.this$0.mCastSetListener != null) {
-                            this.this$0.mCastSetListener.onResult(i2, j2, j3);
+                            this.this$0.mCastSetListener.onResult(i, j, j2);
                         }
                         this.this$0.mIsConnect = true;
                     }

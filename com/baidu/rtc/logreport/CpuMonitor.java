@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.SystemClock;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,24 +58,24 @@ public class CpuMonitor {
         public final int size;
         public double sum;
 
-        public MovingAverage(int i2) {
+        public MovingAverage(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (i2 > 0) {
-                this.size = i2;
-                this.circBuffer = new double[i2];
+            if (i > 0) {
+                this.size = i;
+                this.circBuffer = new double[i];
                 return;
             }
             throw new AssertionError("Size value in MovingAverage ctor should be positive.");
@@ -85,15 +86,15 @@ public class CpuMonitor {
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d2)}) == null) {
                 double d3 = this.sum;
                 double[] dArr = this.circBuffer;
-                int i2 = this.circBufferIndex;
-                double d4 = d3 - dArr[i2];
+                int i = this.circBufferIndex;
+                double d4 = d3 - dArr[i];
                 this.sum = d4;
-                int i3 = i2 + 1;
-                this.circBufferIndex = i3;
-                dArr[i2] = d2;
+                int i2 = i + 1;
+                this.circBufferIndex = i2;
+                dArr[i] = d2;
                 this.currentValue = d2;
                 this.sum = d4 + d2;
-                if (i3 >= this.size) {
+                if (i2 >= this.size) {
                     this.circBufferIndex = 0;
                 }
             }
@@ -130,24 +131,24 @@ public class CpuMonitor {
         public final long systemTime;
         public final long userTime;
 
-        public ProcStat(long j2, long j3, long j4) {
+        public ProcStat(long j, long j2, long j3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.userTime = j2;
-            this.systemTime = j3;
-            this.idleTime = j4;
+            this.userTime = j;
+            this.systemTime = j2;
+            this.idleTime = j3;
         }
     }
 
@@ -158,14 +159,15 @@ public class CpuMonitor {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Log.d(TAG, "CpuMonitor ctor.");
         this.appContext = context.getApplicationContext();
         this.userCpuUsage = new MovingAverage(5);
         this.systemCpuUsage = new MovingAverage(5);
@@ -180,7 +182,7 @@ public class CpuMonitor {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, this) == null) && sampleCpuUtilization() && SystemClock.elapsedRealtime() - this.lastStatLogTimeMs >= 6000) {
             this.lastStatLogTimeMs = SystemClock.elapsedRealtime();
-            getStatString();
+            Log.d(TAG, getStatString());
         }
     }
 
@@ -230,8 +232,8 @@ public class CpuMonitor {
                 sb2.append(". Cores: ");
                 sb2.append(this.actualCpusPresent);
                 sb2.append("( ");
-                for (int i2 = 0; i2 < this.cpusPresent; i2++) {
-                    sb2.append(doubleToPercent(this.curFreqScales[i2]));
+                for (int i = 0; i < this.cpusPresent; i++) {
+                    sb2.append(doubleToPercent(this.curFreqScales[i]));
                     sb2.append(" ");
                 }
                 sb2.append("). Battery: ");
@@ -252,27 +254,34 @@ public class CpuMonitor {
             try {
                 FileReader fileReader = new FileReader("/sys/devices/system/cpu/present");
                 try {
-                    Scanner useDelimiter = new Scanner(new BufferedReader(fileReader)).useDelimiter("[-\n]");
-                    useDelimiter.nextInt();
-                    this.cpusPresent = useDelimiter.nextInt() + 1;
-                    useDelimiter.close();
-                } catch (Exception unused) {
+                    try {
+                        Scanner useDelimiter = new Scanner(new BufferedReader(fileReader)).useDelimiter("[-\n]");
+                        useDelimiter.nextInt();
+                        this.cpusPresent = useDelimiter.nextInt() + 1;
+                        useDelimiter.close();
+                    } catch (Exception unused) {
+                        Log.e(TAG, "Cannot do CPU stats due to /sys/devices/system/cpu/present parsing problem");
+                    }
+                } finally {
+                    fileReader.close();
                 }
-                fileReader.close();
-            } catch (FileNotFoundException | IOException unused2) {
+            } catch (FileNotFoundException unused2) {
+                Log.e(TAG, "Cannot do CPU stats since /sys/devices/system/cpu/present is missing");
+            } catch (IOException unused3) {
+                Log.e(TAG, "Error closing file");
             }
-            int i2 = this.cpusPresent;
-            this.cpuFreqMax = new long[i2];
-            this.maxPath = new String[i2];
-            this.curPath = new String[i2];
-            this.curFreqScales = new double[i2];
-            for (int i3 = 0; i3 < this.cpusPresent; i3++) {
-                this.cpuFreqMax[i3] = 0;
-                this.curFreqScales[i3] = 0.0d;
+            int i = this.cpusPresent;
+            this.cpuFreqMax = new long[i];
+            this.maxPath = new String[i];
+            this.curPath = new String[i];
+            this.curFreqScales = new double[i];
+            for (int i2 = 0; i2 < this.cpusPresent; i2++) {
+                this.cpuFreqMax[i2] = 0;
+                this.curFreqScales[i2] = 0.0d;
                 String[] strArr = this.maxPath;
-                strArr[i3] = "/sys/devices/system/cpu/cpu" + i3 + "/cpufreq/cpuinfo_max_freq";
+                strArr[i2] = "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/cpuinfo_max_freq";
                 String[] strArr2 = this.curPath;
-                strArr2[i3] = "/sys/devices/system/cpu/cpu" + i3 + "/cpufreq/scaling_cur_freq";
+                strArr2[i2] = "/sys/devices/system/cpu/cpu" + i2 + "/cpufreq/scaling_cur_freq";
             }
             this.lastProcStat = new ProcStat(0L, 0L, 0L);
             resetStat();
@@ -286,7 +295,8 @@ public class CpuMonitor {
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             try {
                 return Long.parseLong(str);
-            } catch (NumberFormatException unused) {
+            } catch (NumberFormatException e2) {
+                Log.e(TAG, "parseLong error.", e2);
                 return 0L;
             }
         }
@@ -297,22 +307,22 @@ public class CpuMonitor {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, this, str)) == null) {
-            long j2 = 0;
+            long j = 0;
             try {
                 BufferedReader bufferedReader = new BufferedReader(new FileReader(str));
-                j2 = parseLong(bufferedReader.readLine());
+                j = parseLong(bufferedReader.readLine());
                 bufferedReader.close();
             } catch (FileNotFoundException | IOException unused) {
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
 
     private ProcStat readProcStat() {
         InterceptResult invokeV;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, this)) == null) {
             try {
@@ -320,28 +330,31 @@ public class CpuMonitor {
                 try {
                     String[] split = bufferedReader.readLine().split("\\s+");
                     int length = split.length;
-                    long j4 = 0;
+                    long j3 = 0;
                     if (length >= 5) {
-                        j4 = parseLong(split[1]) + parseLong(split[2]);
-                        j2 = parseLong(split[3]);
-                        j3 = parseLong(split[4]);
+                        j3 = parseLong(split[1]) + parseLong(split[2]);
+                        j = parseLong(split[3]);
+                        j2 = parseLong(split[4]);
                     } else {
+                        j = 0;
                         j2 = 0;
-                        j3 = 0;
                     }
                     if (length >= 8) {
-                        j4 += parseLong(split[5]);
-                        j2 = j2 + parseLong(split[6]) + parseLong(split[7]);
+                        j3 += parseLong(split[5]);
+                        j = j + parseLong(split[6]) + parseLong(split[7]);
                     }
-                    long j5 = j4;
-                    long j6 = j2;
-                    bufferedReader.close();
-                    return new ProcStat(j5, j6, j3);
-                } catch (Exception unused) {
-                    bufferedReader.close();
+                    return new ProcStat(j3, j, j2);
+                } catch (Exception e2) {
+                    Log.e(TAG, "Problems parsing /proc/stat", e2);
                     return null;
+                } finally {
+                    bufferedReader.close();
                 }
-            } catch (FileNotFoundException | IOException unused2) {
+            } catch (FileNotFoundException e3) {
+                Log.e(TAG, "Cannot open /proc/stat for reading", e3);
+                return null;
+            } catch (IOException e4) {
+                Log.e(TAG, "Problems reading /proc/stat", e4);
                 return null;
             }
         }
@@ -373,37 +386,37 @@ public class CpuMonitor {
                     return false;
                 }
                 this.actualCpusPresent = 0;
+                long j = 0;
                 long j2 = 0;
                 long j3 = 0;
-                long j4 = 0;
-                for (int i2 = 0; i2 < this.cpusPresent; i2++) {
-                    this.curFreqScales[i2] = 0.0d;
-                    if (this.cpuFreqMax[i2] == 0) {
-                        long readFreqFromFile = readFreqFromFile(this.maxPath[i2]);
+                for (int i = 0; i < this.cpusPresent; i++) {
+                    this.curFreqScales[i] = 0.0d;
+                    if (this.cpuFreqMax[i] == 0) {
+                        long readFreqFromFile = readFreqFromFile(this.maxPath[i]);
                         if (readFreqFromFile > 0) {
-                            String str = "Core " + i2 + ". Max frequency: " + readFreqFromFile;
-                            this.cpuFreqMax[i2] = readFreqFromFile;
-                            this.maxPath[i2] = null;
-                            j4 = readFreqFromFile;
+                            Log.d(TAG, "Core " + i + ". Max frequency: " + readFreqFromFile);
+                            this.cpuFreqMax[i] = readFreqFromFile;
+                            this.maxPath[i] = null;
+                            j3 = readFreqFromFile;
                         }
                     } else {
-                        j4 = this.cpuFreqMax[i2];
+                        j3 = this.cpuFreqMax[i];
                     }
-                    long readFreqFromFile2 = readFreqFromFile(this.curPath[i2]);
-                    int i3 = (readFreqFromFile2 > 0L ? 1 : (readFreqFromFile2 == 0L ? 0 : -1));
-                    if (i3 != 0 || j4 != 0) {
-                        if (i3 > 0) {
+                    long readFreqFromFile2 = readFreqFromFile(this.curPath[i]);
+                    int i2 = (readFreqFromFile2 > 0L ? 1 : (readFreqFromFile2 == 0L ? 0 : -1));
+                    if (i2 != 0 || j3 != 0) {
+                        if (i2 > 0) {
                             this.actualCpusPresent++;
                         }
-                        j2 += readFreqFromFile2;
-                        j3 += j4;
-                        if (j4 > 0) {
-                            this.curFreqScales[i2] = readFreqFromFile2 / j4;
+                        j += readFreqFromFile2;
+                        j2 += j3;
+                        if (j3 > 0) {
+                            this.curFreqScales[i] = readFreqFromFile2 / j3;
                         }
                     }
                 }
-                if (j2 != 0 && j3 != 0) {
-                    double d2 = j2 / j3;
+                if (j != 0 && j2 != 0) {
+                    double d2 = j / j2;
                     if (this.frequencyScale.getCurrent() > 0.0d) {
                         d2 = 0.5d * (this.frequencyScale.getCurrent() + d2);
                     }
@@ -413,14 +426,14 @@ public class CpuMonitor {
                         if (readProcStat == null) {
                             return false;
                         }
-                        long j5 = readProcStat.userTime - this.lastProcStat.userTime;
-                        long j6 = readProcStat.systemTime - this.lastProcStat.systemTime;
-                        long j7 = j5 + j6 + (readProcStat.idleTime - this.lastProcStat.idleTime);
-                        if (d2 != 0.0d && j7 != 0) {
-                            double d3 = j7;
-                            double d4 = j5 / d3;
+                        long j4 = readProcStat.userTime - this.lastProcStat.userTime;
+                        long j5 = readProcStat.systemTime - this.lastProcStat.systemTime;
+                        long j6 = j4 + j5 + (readProcStat.idleTime - this.lastProcStat.idleTime);
+                        if (d2 != 0.0d && j6 != 0) {
+                            double d3 = j6;
+                            double d4 = j4 / d3;
                             this.userCpuUsage.addValue(d4);
-                            double d5 = j6 / d3;
+                            double d5 = j5 / d3;
                             this.systemCpuUsage.addValue(d5);
                             this.totalCpuUsage.addValue((d4 + d5) * d2);
                             this.lastProcStat = readProcStat;
@@ -430,6 +443,7 @@ public class CpuMonitor {
                     }
                     return true;
                 }
+                Log.e(TAG, "Could not read max or current frequency for any CPU");
                 return false;
             }
         }
@@ -458,9 +472,9 @@ public class CpuMonitor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -526,6 +540,7 @@ public class CpuMonitor {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.executor == null) {
             return;
         }
+        Log.d(TAG, "pause");
         this.executor.shutdownNow();
         this.executor = null;
     }
@@ -535,6 +550,7 @@ public class CpuMonitor {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             synchronized (this) {
                 if (this.executor != null) {
+                    Log.d(TAG, "reset");
                     resetStat();
                     this.cpuOveruse = false;
                 }
@@ -545,6 +561,7 @@ public class CpuMonitor {
     public void resume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Log.d(TAG, "resume");
             resetStat();
             scheduleCpuUtilizationTask();
         }

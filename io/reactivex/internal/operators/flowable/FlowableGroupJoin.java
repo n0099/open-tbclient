@@ -33,7 +33,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AbstractFlowableWithUpstream<TLeft, R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
     public final BiFunction<? super TLeft, ? super Flowable<TRight>, ? extends R> resultSelector;
     public final Function<? super TRight, ? extends Publisher<TRightEnd>> rightEnd;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class GroupJoinSubscription<TLeft, TRight, TLeftEnd, TRightEnd, R> extends AtomicInteger implements Subscription, JoinSupport {
         public static /* synthetic */ Interceptable $ic = null;
         public static final Integer LEFT_CLOSE;
@@ -92,9 +92,9 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, function, function2, biFunction};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -140,7 +140,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getAndIncrement() == 0) {
                 SpscLinkedArrayQueue<Object> spscLinkedArrayQueue = this.queue;
                 Subscriber<? super R> subscriber = this.actual;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (this.error.get() != null) {
                         spscLinkedArrayQueue.clear();
@@ -161,20 +161,20 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                         subscriber.onComplete();
                         return;
                     } else if (z2) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
                         Object poll = spscLinkedArrayQueue.poll();
                         if (num == LEFT_VALUE) {
                             UnicastProcessor<TRight> create = UnicastProcessor.create();
-                            int i3 = this.leftIndex;
-                            this.leftIndex = i3 + 1;
-                            this.lefts.put(Integer.valueOf(i3), create);
+                            int i2 = this.leftIndex;
+                            this.leftIndex = i2 + 1;
+                            this.lefts.put(Integer.valueOf(i2), create);
                             try {
                                 Publisher publisher = (Publisher) ObjectHelper.requireNonNull(this.leftEnd.apply(poll), "The leftEnd returned a null Publisher");
-                                LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i3);
+                                LeftRightEndSubscriber leftRightEndSubscriber = new LeftRightEndSubscriber(this, true, i2);
                                 this.disposables.add(leftRightEndSubscriber);
                                 publisher.subscribe(leftRightEndSubscriber);
                                 if (this.error.get() != null) {
@@ -204,12 +204,12 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                                 return;
                             }
                         } else if (num == RIGHT_VALUE) {
-                            int i4 = this.rightIndex;
-                            this.rightIndex = i4 + 1;
-                            this.rights.put(Integer.valueOf(i4), poll);
+                            int i3 = this.rightIndex;
+                            this.rightIndex = i3 + 1;
+                            this.rights.put(Integer.valueOf(i3), poll);
                             try {
                                 Publisher publisher2 = (Publisher) ObjectHelper.requireNonNull(this.rightEnd.apply(poll), "The rightEnd returned a null Publisher");
-                                LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i4);
+                                LeftRightEndSubscriber leftRightEndSubscriber2 = new LeftRightEndSubscriber(this, false, i3);
                                 this.disposables.add(leftRightEndSubscriber2);
                                 publisher2.subscribe(leftRightEndSubscriber2);
                                 if (this.error.get() != null) {
@@ -325,15 +325,15 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) && SubscriptionHelper.validate(j2)) {
-                BackpressureHelper.add(this.requested, j2);
+            if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && SubscriptionHelper.validate(j)) {
+                BackpressureHelper.add(this.requested, j);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface JoinSupport {
         void innerClose(boolean z, LeftRightEndSubscriber leftRightEndSubscriber);
 
@@ -346,7 +346,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         void innerValue(boolean z, Object obj);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class LeftRightEndSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1883890389173668373L;
@@ -355,16 +355,16 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         public final boolean isLeft;
         public final JoinSupport parent;
 
-        public LeftRightEndSubscriber(JoinSupport joinSupport, boolean z, int i2) {
+        public LeftRightEndSubscriber(JoinSupport joinSupport, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {joinSupport, Boolean.valueOf(z), Integer.valueOf(i2)};
+                Object[] objArr = {joinSupport, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -372,7 +372,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             }
             this.parent = joinSupport;
             this.isLeft = z;
-            this.index = i2;
+            this.index = i;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -423,7 +423,7 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class LeftRightSubscriber extends AtomicReference<Subscription> implements FlowableSubscriber<Object>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 1883890389173668373L;
@@ -438,9 +438,9 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
                 newInitContext.initArgs = r2;
                 Object[] objArr = {joinSupport, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -507,9 +507,9 @@ public final class FlowableGroupJoin<TLeft, TRight, TLeftEnd, TRightEnd, R> exte
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, publisher, function, function2, biFunction};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

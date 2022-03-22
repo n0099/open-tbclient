@@ -34,11 +34,11 @@ public final class d {
                 }
             }
             a = new float[16384];
-            for (int i2 = 0; i2 < 16384; i2++) {
-                a[i2] = (float) Math.sin(((i2 + 0.5f) / 16384.0f) * 6.2831855f);
+            for (int i = 0; i < 16384; i++) {
+                a[i] = (float) Math.sin(((i + 0.5f) / 16384.0f) * 6.2831855f);
             }
-            for (int i3 = 0; i3 < 360; i3 += 90) {
-                a[((int) (45.511112f * i3)) & 16383] = (float) Math.sin(f2 * 0.017453292f);
+            for (int i2 = 0; i2 < 360; i2 += 90) {
+                a[((int) (45.511112f * i2)) & 16383] = (float) Math.sin(f2 * 0.017453292f);
             }
         }
     }
@@ -64,11 +64,11 @@ public final class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
             if (f3 == 0.0f) {
-                int i2 = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
-                if (i2 > 0) {
+                int i = (f2 > 0.0f ? 1 : (f2 == 0.0f ? 0 : -1));
+                if (i > 0) {
                     return 1.5707964f;
                 }
-                return i2 == 0 ? 0.0f : -1.5707964f;
+                return i == 0 ? 0.0f : -1.5707964f;
             }
             float f4 = f2 / f3;
             if (Math.abs(f4) >= 1.0f) {
@@ -114,10 +114,10 @@ public final class d {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? Math.abs(f2 - f3) <= f4 : invokeCommon.booleanValue;
     }
 
-    public static boolean g(int i2) {
+    public static boolean g(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 && (i2 & (i2 + (-1))) == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i != 0 && (i & (i + (-1))) == 0 : invokeI.booleanValue;
     }
 
     public static boolean h(float f2) {
@@ -132,19 +132,19 @@ public final class d {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? Math.abs(f2) <= f3 : invokeCommon.booleanValue;
     }
 
-    public static int j(int i2) {
+    public static int j(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i2)) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            if (i == 0) {
                 return 1;
             }
-            int i3 = i2 - 1;
-            int i4 = i3 | (i3 >> 1);
-            int i5 = i4 | (i4 >> 2);
-            int i6 = i5 | (i5 >> 4);
-            int i7 = i6 | (i6 >> 8);
-            return (i7 | (i7 >> 16)) + 1;
+            int i2 = i - 1;
+            int i3 = i2 | (i2 >> 1);
+            int i4 = i3 | (i3 >> 2);
+            int i5 = i4 | (i4 >> 4);
+            int i6 = i5 | (i5 >> 8);
+            return (i6 | (i6 >> 16)) + 1;
         }
         return invokeI.intValue;
     }
@@ -167,10 +167,10 @@ public final class d {
         return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) ? f2 + (a.nextFloat() * (f3 - f2)) : invokeCommon.floatValue;
     }
 
-    public static int n(int i2, int i3) {
+    public static int n(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i2, i3)) == null) ? i2 + a.nextInt((i3 - i2) + 1) : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65550, null, i, i2)) == null) ? i + a.nextInt((i2 - i) + 1) : invokeII.intValue;
     }
 
     public static float o(float f2) {

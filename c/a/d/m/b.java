@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: c.a.d.m.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0120b {
+    public static final class C0109b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -154,12 +154,12 @@ public class b {
             synchronized (b.class) {
                 if (classLoader != null && file != null) {
                     if (file.exists()) {
-                        int i2 = Build.VERSION.SDK_INT;
-                        if ((i2 == 25 && b() != 0) || i2 > 25) {
+                        int i = Build.VERSION.SDK_INT;
+                        if ((i == 25 && b() != 0) || i > 25) {
                             c.b(classLoader, file);
-                        } else if (i2 >= 23) {
-                            C0120b.b(classLoader, file);
-                        } else if (i2 >= 14) {
+                        } else if (i >= 23) {
+                            C0109b.b(classLoader, file);
+                        } else if (i >= 14) {
                             a.b(classLoader, file);
                         }
                         a = file;

@@ -20,31 +20,27 @@ public class i {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30944b;
+    public String f24782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30945c;
+    public String f24783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30946d;
+    public String f24784d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30947e;
+    public String f24785e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30948f;
+    public String f24786f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30949g;
+    public String f24787g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30950h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f30951i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f30952j;
+    public String f24788h;
+    public String i;
+    public String j;
     public int k;
     public String l;
     public String m;
@@ -54,9 +50,9 @@ public class i {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,18 +66,18 @@ public class i {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             PublicMsg publicMsg = new PublicMsg();
             try {
-                publicMsg.mMsgId = this.f30952j;
-                publicMsg.mAppId = this.f30951i;
-                if (TextUtils.isEmpty(this.f30949g) && TextUtils.isEmpty(this.f30950h)) {
-                    publicMsg.mTitle = this.f30947e;
-                    publicMsg.mDescription = this.f30948f;
+                publicMsg.mMsgId = this.j;
+                publicMsg.mAppId = this.i;
+                if (TextUtils.isEmpty(this.f24787g) && TextUtils.isEmpty(this.f24788h)) {
+                    publicMsg.mTitle = this.f24785e;
+                    publicMsg.mDescription = this.f24786f;
                     publicMsg.mUrl = this.a;
-                    str = this.f30945c;
+                    str = this.f24783c;
                 } else {
-                    publicMsg.mTitle = this.f30949g;
-                    publicMsg.mDescription = this.f30950h;
-                    publicMsg.mUrl = this.f30944b;
-                    str = this.f30946d;
+                    publicMsg.mTitle = this.f24787g;
+                    publicMsg.mDescription = this.f24788h;
+                    publicMsg.mUrl = this.f24782b;
+                    str = this.f24784d;
                 }
                 publicMsg.mPkgContent = str;
                 return publicMsg;
@@ -128,14 +124,14 @@ public class i {
     public void a(Context context, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray) == null) {
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+            for (int i = 0; i < jSONArray.length(); i++) {
                 try {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                    JSONObject jSONObject = jSONArray.getJSONObject(i);
                     if (!jSONObject.isNull("Appid")) {
-                        this.f30951i = jSONObject.getString("Appid");
+                        this.i = jSONObject.getString("Appid");
                     }
                     if (!jSONObject.isNull("Msgid")) {
-                        this.f30952j = jSONObject.getString("Msgid");
+                        this.j = jSONObject.getString("Msgid");
                     }
                     if (!jSONObject.isNull("Type")) {
                         this.k = jSONObject.getInt("Type");

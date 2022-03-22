@@ -2,7 +2,7 @@ package com.kwai.sodler.lib.b;
 
 import android.os.Build;
 import android.os.Process;
-import com.baidu.android.util.devices.IDevices;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56937b;
+    public static String f41801b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<String, String> f56938c;
+    public static final Map<String, String> f41802c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,23 +37,23 @@ public class a {
             }
         }
         HashMap hashMap = new HashMap();
-        f56938c = hashMap;
-        hashMap.put(IDevices.ABI_MIPS, IDevices.ABI_MIPS);
-        f56938c.put("mips64", "mips64");
-        f56938c.put("x86", "x86");
-        f56938c.put("x86_64", "x86_64");
-        f56938c.put("arm64", "arm64-v8a");
+        f41802c = hashMap;
+        hashMap.put("mips", "mips");
+        f41802c.put("mips64", "mips64");
+        f41802c.put("x86", "x86");
+        f41802c.put("x86_64", "x86_64");
+        f41802c.put("arm64", "arm64-v8a");
     }
 
     public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return Process.is64Bit();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 Boolean bool = null;
                 try {
                     Class<?> cls = Class.forName("dalvik.system.VMRuntime");
@@ -79,6 +79,6 @@ public class a {
     public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a() ? "arm64-v8a" : "armeabi-v7a" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a() ? "arm64-v8a" : PassBiometricUtil.CPU_TYPE_ARMEABI_V7A : (String) invokeV.objValue;
     }
 }

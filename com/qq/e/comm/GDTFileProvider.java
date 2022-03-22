@@ -16,6 +16,7 @@ import android.webkit.MimeTypeMap;
 import androidx.core.content.FileProvider;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,36 +31,36 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.xmlpull.v1.XmlPullParserException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GDTFileProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f57605b;
+    public static final String[] f42390b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final File f57606c;
+    public static final File f42391c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static HashMap<String, a> f57607d;
+    public static HashMap<String, a> f42392d;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         Uri a(File file);
 
         File a(Uri uri);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final HashMap<String, File> f57608b;
+        public final HashMap<String, File> f42393b;
 
         public b(String str) {
             Interceptable interceptable = $ic;
@@ -68,15 +69,15 @@ public class GDTFileProvider extends ContentProvider {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f57608b = new HashMap<>();
+            this.f42393b = new HashMap<>();
             this.a = str;
         }
 
@@ -88,7 +89,7 @@ public class GDTFileProvider extends ContentProvider {
                 try {
                     String canonicalPath = file.getCanonicalPath();
                     Map.Entry<String, File> entry = null;
-                    for (Map.Entry<String, File> entry2 : this.f57608b.entrySet()) {
+                    for (Map.Entry<String, File> entry2 : this.f42393b.entrySet()) {
                         String path = entry2.getValue().getPath();
                         if (canonicalPath.startsWith(path) && (entry == null || path.length() > entry.getValue().getPath().length())) {
                             entry = entry2;
@@ -121,7 +122,7 @@ public class GDTFileProvider extends ContentProvider {
                 int indexOf = encodedPath.indexOf(47, 1);
                 String decode = Uri.decode(encodedPath.substring(1, indexOf));
                 String decode2 = Uri.decode(encodedPath.substring(indexOf + 1));
-                File file = this.f57608b.get(decode);
+                File file = this.f42393b.get(decode);
                 if (file == null) {
                     throw new IllegalArgumentException("Unable to find configured root for " + uri);
                 }
@@ -146,7 +147,7 @@ public class GDTFileProvider extends ContentProvider {
                     throw new IllegalArgumentException("Name must not be empty");
                 }
                 try {
-                    this.f57608b.put(str, file.getCanonicalFile());
+                    this.f42393b.put(str, file.getCanonicalFile());
                 } catch (IOException e2) {
                     throw new IllegalArgumentException("Failed to resolve canonical path for " + file, e2);
                 }
@@ -167,9 +168,9 @@ public class GDTFileProvider extends ContentProvider {
                 return;
             }
         }
-        f57605b = new String[]{"_display_name", "_size"};
-        f57606c = new File("/");
-        f57607d = new HashMap<>();
+        f42390b = new String[]{"_display_name", "_size"};
+        f42391c = new File("/");
+        f42392d = new HashMap<>();
     }
 
     public GDTFileProvider() {
@@ -177,9 +178,9 @@ public class GDTFileProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -191,12 +192,12 @@ public class GDTFileProvider extends ContentProvider {
         a aVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            synchronized (f57607d) {
-                aVar = f57607d.get(str);
+            synchronized (f42392d) {
+                aVar = f42392d.get(str);
                 if (aVar == null) {
                     try {
                         aVar = b(context, str);
-                        f57607d.put(str, aVar);
+                        f42392d.put(str, aVar);
                     } catch (IOException e2) {
                         throw new IllegalArgumentException("Failed to parse android.support.FILE_PROVIDER_PATHS meta-data", e2);
                     } catch (XmlPullParserException e3) {
@@ -231,7 +232,7 @@ public class GDTFileProvider extends ContentProvider {
                 String attributeValue = loadXmlMetaData.getAttributeValue(null, "name");
                 String attributeValue2 = loadXmlMetaData.getAttributeValue(null, "path");
                 if ("root-path".equals(name)) {
-                    file = f57606c;
+                    file = f42391c;
                 } else if ("files-path".equals(name)) {
                     file = context.getFilesDir();
                 } else if ("cache-path".equals(name)) {
@@ -256,8 +257,8 @@ public class GDTFileProvider extends ContentProvider {
                 }
                 if (file != null) {
                     String[] strArr = {attributeValue2};
-                    for (int i2 = 0; i2 < 1; i2++) {
-                        String str2 = strArr[i2];
+                    for (int i = 0; i < 1; i++) {
+                        String str2 = strArr[i];
                         if (str2 != null) {
                             file = new File(file, str2);
                         }
@@ -349,24 +350,24 @@ public class GDTFileProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public ParcelFileDescriptor openFile(Uri uri, String str) throws FileNotFoundException {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, uri, str)) == null) {
             File a2 = this.a.a(uri);
             if ("r".equals(str)) {
-                i2 = 268435456;
+                i = LaunchTaskConstants.OTHER_PROCESS;
             } else if ("w".equals(str) || "wt".equals(str)) {
-                i2 = 738197504;
+                i = 738197504;
             } else if ("wa".equals(str)) {
-                i2 = 704643072;
+                i = 704643072;
             } else if ("rw".equals(str)) {
-                i2 = 939524096;
+                i = 939524096;
             } else if (!"rwt".equals(str)) {
                 throw new IllegalArgumentException("Invalid mode: " + str);
             } else {
-                i2 = 1006632960;
+                i = 1006632960;
             }
-            return ParcelFileDescriptor.open(a2, i2);
+            return ParcelFileDescriptor.open(a2, i);
         }
         return (ParcelFileDescriptor) invokeLL.objValue;
     }
@@ -374,32 +375,32 @@ public class GDTFileProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         InterceptResult invokeLLLLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
             File a2 = this.a.a(uri);
             if (strArr == null) {
-                strArr = f57605b;
+                strArr = f42390b;
             }
             String[] strArr3 = new String[strArr.length];
             Object[] objArr = new Object[strArr.length];
-            int i3 = 0;
+            int i2 = 0;
             for (String str3 : strArr) {
                 if ("_display_name".equals(str3)) {
-                    strArr3[i3] = "_display_name";
-                    i2 = i3 + 1;
-                    objArr[i3] = a2.getName();
+                    strArr3[i2] = "_display_name";
+                    i = i2 + 1;
+                    objArr[i2] = a2.getName();
                 } else if ("_size".equals(str3)) {
-                    strArr3[i3] = "_size";
-                    i2 = i3 + 1;
-                    objArr[i3] = Long.valueOf(a2.length());
+                    strArr3[i2] = "_size";
+                    i = i2 + 1;
+                    objArr[i2] = Long.valueOf(a2.length());
                 }
-                i3 = i2;
+                i2 = i;
             }
-            String[] strArr4 = new String[i3];
-            System.arraycopy(strArr3, 0, strArr4, 0, i3);
-            Object[] objArr2 = new Object[i3];
-            System.arraycopy(objArr, 0, objArr2, 0, i3);
+            String[] strArr4 = new String[i2];
+            System.arraycopy(strArr3, 0, strArr4, 0, i2);
+            Object[] objArr2 = new Object[i2];
+            System.arraycopy(objArr, 0, objArr2, 0, i2);
             MatrixCursor matrixCursor = new MatrixCursor(strArr4, 1);
             matrixCursor.addRow(objArr2);
             return matrixCursor;

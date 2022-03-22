@@ -22,7 +22,7 @@ import java.lang.ref.WeakReference;
 @KsAdSdkDynamicImpl(FileDownloadService.class)
 @Keep
 @SuppressLint({"Registered"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "filedownloader";
@@ -32,7 +32,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SeparateProcessService.class)
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SeparateProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -90,7 +90,7 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
 
     @KsAdSdkDynamicImpl(FileDownloadService.SharedMainProcessService.class)
     @Keep
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SharedMainProcessServiceProxy extends FileDownloadServiceProxy {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,9 +100,9 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -123,9 +123,9 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -149,12 +149,12 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
         com.kwai.filedownloader.e.c.a(service);
         try {
             com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().a);
-            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f56835b);
+            com.kwai.filedownloader.e.f.a(com.kwai.filedownloader.e.e.a().f41699b);
         } catch (IllegalAccessException e2) {
             e2.printStackTrace();
         }
         g gVar = new g();
-        this.handler = com.kwai.filedownloader.e.e.a().f56837d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
+        this.handler = com.kwai.filedownloader.e.e.a().f41701d ? new e(new WeakReference(this), gVar) : new d(new WeakReference(this), gVar);
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
@@ -166,11 +166,11 @@ public class FileDownloadServiceProxy extends com.kwad.sdk.h.c {
     }
 
     @Override // com.kwad.sdk.h.c, com.kwad.sdk.api.proxy.IServiceProxy
-    public int onStartCommand(Service service, Intent intent, int i2, int i3) {
+    public int onStartCommand(Service service, Intent intent, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, service, intent, i2, i3)) == null) {
-            this.handler.a(intent, i2, i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, service, intent, i, i2)) == null) {
+            this.handler.a(intent, i, i2);
             return 1;
         }
         return invokeLLII.intValue;

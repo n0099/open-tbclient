@@ -16,28 +16,24 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class SelectRuleView extends LinearLayout {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int TYPE_TEXT = 0;
-    public static final int TYPE_TEXT_AND_IMAGE = 1;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f30730b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f30731c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public List<String> f30732d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39894e;
+    public List<String> f30733e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39895f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f39896g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public List<String> f39897h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public List<String> f39898i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public List<String> f39899j;
+    public List<String> f30734f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SelectRuleView(Context context) {
@@ -48,9 +44,9 @@ public class SelectRuleView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,18 +56,18 @@ public class SelectRuleView extends LinearLayout {
         }
     }
 
-    public final List<String> a(List<String> list, int i2, int i3) {
+    public final List<String> a(List<String> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, list, i2, i3)) == null) {
-            if (ListUtils.isEmpty(list) || i2 > list.size() || i2 < 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, list, i, i2)) == null) {
+            if (ListUtils.isEmpty(list) || i > list.size() || i < 0) {
                 return null;
             }
-            if (list.size() >= i3) {
-                return list.subList(i2, i3);
+            if (list.size() >= i2) {
+                return list.subList(i, i2);
             }
-            ArrayList arrayList = new ArrayList(list.subList(i2, list.size()));
-            for (int i4 = 0; i4 < i3 - list.size(); i4++) {
+            ArrayList arrayList = new ArrayList(list.subList(i, list.size()));
+            for (int i3 = 0; i3 < i2 - list.size(); i3++) {
                 arrayList.add("");
             }
             return arrayList;
@@ -95,23 +91,23 @@ public class SelectRuleView extends LinearLayout {
         }
     }
 
-    public void onSkinTypeChange(int i2) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i2) == null) || this.f39896g == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.f30731c == i) {
             return;
         }
-        int i3 = this.f39894e;
-        if (i3 == 0) {
-            setData(this.f39897h, this.f39898i);
-        } else if (i3 == 1) {
-            setData(this.f39899j, this.f39897h, this.f39898i);
+        int i2 = this.a;
+        if (i2 == 0) {
+            setData(this.f30732d, this.f30733e);
+        } else if (i2 == 1) {
+            setData(this.f30734f, this.f30732d, this.f30733e);
         }
     }
 
-    public void setColumn(int i2) {
+    public void setColumn(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f39895f = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f30730b = i;
         }
     }
 
@@ -124,8 +120,8 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f39897h = list;
-        this.f39898i = list2;
+        this.f30732d = list;
+        this.f30733e = list2;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list);
         List<String> arrayList2 = new ArrayList<>();
@@ -137,27 +133,27 @@ public class SelectRuleView extends LinearLayout {
         while (arrayList.size() < size) {
             arrayList.add("");
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = this.f39895f;
-            if (i2 >= ((size + i3) - 1) / i3) {
+            int i2 = this.f30730b;
+            if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f39894e);
-            int i4 = this.f39895f;
-            int i5 = i2 * i4;
-            i2++;
-            int i6 = i4 * i2;
-            selectRuleRowItem.setData(a(arrayList, i5, i6), a(arrayList2, i5, i6));
+            selectRuleRowItem.setType(this.a);
+            int i3 = this.f30730b;
+            int i4 = i * i3;
+            i++;
+            int i5 = i3 * i;
+            selectRuleRowItem.setData(a(arrayList, i4, i5), a(arrayList2, i4, i5));
             addView(selectRuleRowItem);
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.f39894e = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -170,9 +166,9 @@ public class SelectRuleView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -183,17 +179,17 @@ public class SelectRuleView extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectRuleView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -201,9 +197,9 @@ public class SelectRuleView extends LinearLayout {
                 return;
             }
         }
-        this.f39894e = 0;
-        this.f39895f = 2;
-        this.f39896g = 3;
+        this.a = 0;
+        this.f30730b = 2;
+        this.f30731c = 3;
         c();
     }
 
@@ -216,9 +212,9 @@ public class SelectRuleView extends LinearLayout {
             return;
         }
         b();
-        this.f39897h = list2;
-        this.f39898i = list3;
-        this.f39899j = list;
+        this.f30732d = list2;
+        this.f30733e = list3;
+        this.f30734f = list;
         List<String> arrayList = new ArrayList<>();
         arrayList.addAll(list2);
         List<String> arrayList2 = new ArrayList<>();
@@ -238,19 +234,19 @@ public class SelectRuleView extends LinearLayout {
         while (arrayList3.size() < size) {
             arrayList3.add("");
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            int i3 = this.f39895f;
-            if (i2 >= ((size + i3) - 1) / i3) {
+            int i2 = this.f30730b;
+            if (i >= ((size + i2) - 1) / i2) {
                 return;
             }
             SelectRuleRowItem selectRuleRowItem = new SelectRuleRowItem(getContext());
-            selectRuleRowItem.setType(this.f39894e);
-            int i4 = this.f39895f;
-            int i5 = i2 * i4;
-            i2++;
-            int i6 = i4 * i2;
-            selectRuleRowItem.setData(a(arrayList3, i5, i6), a(arrayList, i5, i6), a(arrayList2, i5, i6));
+            selectRuleRowItem.setType(this.a);
+            int i3 = this.f30730b;
+            int i4 = i * i3;
+            i++;
+            int i5 = i3 * i;
+            selectRuleRowItem.setData(a(arrayList3, i4, i5), a(arrayList, i4, i5), a(arrayList2, i4, i5));
             addView(selectRuleRowItem);
         }
     }

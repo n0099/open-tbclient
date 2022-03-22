@@ -1,6 +1,7 @@
 package com.google.zxing.maxicode.decoder;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,6 @@ import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.zxing.common.DecoderResult;
 import com.kwad.yoga.YogaNodeJNIBase;
-import io.flutter.plugin.common.StandardMessageCodec;
 import java.text.DecimalFormat;
 /* loaded from: classes7.dex */
 public final class DecodedBitStreamParser {
@@ -58,23 +58,23 @@ public final class DecodedBitStreamParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static DecoderResult decode(byte[] bArr, int i2) {
+    public static DecoderResult decode(byte[] bArr, int i) {
         InterceptResult invokeLI;
         String postCode3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, bArr, i)) == null) {
             StringBuilder sb = new StringBuilder((int) Cea708Decoder.COMMAND_SPA);
-            if (i2 == 2 || i2 == 3) {
-                if (i2 == 2) {
+            if (i == 2 || i == 3) {
+                if (i == 2) {
                     postCode3 = new DecimalFormat("0000000000".substring(0, getPostCode2Length(bArr))).format(getPostCode2(bArr));
                 } else {
                     postCode3 = getPostCode3(bArr);
@@ -88,22 +88,22 @@ public final class DecodedBitStreamParser {
                 } else {
                     sb.insert(0, postCode3 + GS + format + GS + format2 + GS);
                 }
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 sb.append(getMessage(bArr, 1, 93));
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 sb.append(getMessage(bArr, 1, 77));
             }
-            return new DecoderResult(bArr, sb.toString(), null, String.valueOf(i2));
+            return new DecoderResult(bArr, sb.toString(), null, String.valueOf(i));
         }
         return (DecoderResult) invokeLI.objValue;
     }
 
-    public static int getBit(int i2, byte[] bArr) {
+    public static int getBit(int i, byte[] bArr) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, bArr)) == null) {
-            int i3 = i2 - 1;
-            return ((1 << (5 - (i3 % 6))) & bArr[i3 / 6]) == 0 ? 0 : 1;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, bArr)) == null) {
+            int i2 = i - 1;
+            return ((1 << (5 - (i2 % 6))) & bArr[i2 / 6]) == 0 ? 0 : 1;
         }
         return invokeIL.intValue;
     }
@@ -119,11 +119,11 @@ public final class DecodedBitStreamParser {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, bArr2)) == null) {
             if (bArr2.length != 0) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < bArr2.length; i3++) {
-                    i2 += getBit(bArr2[i3], bArr) << ((bArr2.length - i3) - 1);
+                int i = 0;
+                for (int i2 = 0; i2 < bArr2.length; i2++) {
+                    i += getBit(bArr2[i2], bArr) << ((bArr2.length - i2) - 1);
                 }
-                return i2;
+                return i;
             }
             throw new IllegalArgumentException();
         }
@@ -131,67 +131,67 @@ public final class DecodedBitStreamParser {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String getMessage(byte[] bArr, int i2, int i3) {
+    public static String getMessage(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
+        int i3;
         int i4;
         int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, bArr, i, i2)) == null) {
             StringBuilder sb = new StringBuilder();
-            int i8 = i2;
-            int i9 = 0;
-            int i10 = -1;
-            int i11 = 0;
-            while (i8 < i2 + i3) {
-                char charAt = SETS[i9].charAt(bArr[i8]);
+            int i7 = i;
+            int i8 = 0;
+            int i9 = -1;
+            int i10 = 0;
+            while (i7 < i + i2) {
+                char charAt = SETS[i8].charAt(bArr[i7]);
                 switch (charAt) {
                     case 65520:
                     case 65521:
                     case 65522:
                     case 65523:
                     case 65524:
-                        i11 = i9;
-                        i9 = charAt - SHIFTA;
-                        i10 = 1;
+                        i10 = i8;
+                        i8 = charAt - SHIFTA;
+                        i9 = 1;
                         break;
                     case 65525:
-                        i10 = 2;
-                        i11 = i9;
-                        i9 = 0;
+                        i9 = 2;
+                        i10 = i8;
+                        i8 = 0;
                         break;
                     case 65526:
-                        i10 = 3;
-                        i11 = i9;
-                        i9 = 0;
+                        i9 = 3;
+                        i10 = i8;
+                        i8 = 0;
                         break;
                     case 65527:
-                        i9 = 0;
-                        i10 = -1;
+                        i8 = 0;
+                        i9 = -1;
                         break;
                     case 65528:
-                        i9 = 1;
-                        i10 = -1;
+                        i8 = 1;
+                        i9 = -1;
                         break;
                     case 65529:
-                        i10 = -1;
+                        i9 = -1;
                         break;
                     case 65530:
                     default:
                         sb.append(charAt);
                         break;
                     case 65531:
-                        i8 = i8 + 1 + 1 + 1 + 1 + 1;
-                        sb.append(new DecimalFormat("000000000").format((bArr[i4] << 24) + (bArr[i5] << 18) + (bArr[i6] << StandardMessageCodec.LIST) + (bArr[i7] << 6) + bArr[i8]));
+                        i7 = i7 + 1 + 1 + 1 + 1 + 1;
+                        sb.append(new DecimalFormat("000000000").format((bArr[i3] << 24) + (bArr[i4] << 18) + (bArr[i5] << 12) + (bArr[i6] << 6) + bArr[i7]));
                         break;
                 }
-                int i12 = i10 - 1;
-                if (i10 == 0) {
-                    i9 = i11;
+                int i11 = i9 - 1;
+                if (i9 == 0) {
+                    i8 = i10;
                 }
-                i8++;
-                i10 = i12;
+                i7++;
+                i9 = i11;
             }
             while (sb.length() > 0 && sb.charAt(sb.length() - 1) == 65532) {
                 sb.setLength(sb.length() - 1);
@@ -204,7 +204,7 @@ public final class DecodedBitStreamParser {
     public static int getPostCode2(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 1, 2}) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26, 27, 28, 29, 30, 19, 20, 21, 22, 23, 24, 13, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}) : invokeL.intValue;
     }
 
     public static int getPostCode2Length(byte[] bArr) {
@@ -216,7 +216,7 @@ public final class DecodedBitStreamParser {
     public static String getPostCode3(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, 14})), SETS[0].charAt(getInt(bArr, new byte[]{15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, 11, StandardMessageCodec.LIST, 1, 2}))}) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, bArr)) == null) ? String.valueOf(new char[]{SETS[0].charAt(getInt(bArr, new byte[]{Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 31, 32})), SETS[0].charAt(getInt(bArr, new byte[]{33, 34, Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, 25, 26})), SETS[0].charAt(getInt(bArr, new byte[]{27, 28, 29, 30, 19, 20})), SETS[0].charAt(getInt(bArr, new byte[]{21, 22, 23, 24, 13, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX})), SETS[0].charAt(getInt(bArr, new byte[]{15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 7, 8})), SETS[0].charAt(getInt(bArr, new byte[]{9, 10, Constants.GZIP_CAST_TYPE, 12, 1, 2}))}) : (String) invokeL.objValue;
     }
 
     public static int getServiceClass(byte[] bArr) {

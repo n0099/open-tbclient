@@ -11,7 +11,7 @@ public interface WeaponAI {
 
     void sp(String str, boolean z);
 
-    void ssb(int i2, boolean z);
+    void ssb(int i, boolean z);
 
     void u(String str);
 

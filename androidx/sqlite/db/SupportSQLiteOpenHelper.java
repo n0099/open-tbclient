@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Build;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,22 +28,22 @@ public interface SupportSQLiteOpenHelper {
         public transient /* synthetic */ FieldHolder $fh;
         public final int version;
 
-        public Callback(int i2) {
+        public Callback(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.version = i2;
+            this.version = i;
         }
 
         private void deleteDatabaseFile(String str) {
@@ -50,14 +51,21 @@ public interface SupportSQLiteOpenHelper {
             if (!(interceptable == null || interceptable.invokeL(65537, this, str) == null) || str.equalsIgnoreCase(":memory:") || str.trim().length() == 0) {
                 return;
             }
-            String str2 = "deleting the database file: " + str;
+            Log.w(TAG, "deleting the database file: " + str);
             try {
                 if (Build.VERSION.SDK_INT >= 16) {
                     SQLiteDatabase.deleteDatabase(new File(str));
-                } else if (!new File(str).delete()) {
-                    String str3 = "Could not delete the database file " + str;
+                } else {
+                    try {
+                        if (!new File(str).delete()) {
+                            Log.e(TAG, "Could not delete the database file " + str);
+                        }
+                    } catch (Exception e2) {
+                        Log.e(TAG, "error while deleting corrupted database file", e2);
+                    }
                 }
-            } catch (Exception unused) {
+            } catch (Exception e3) {
+                Log.w(TAG, "delete failed: ", e3);
             }
         }
 
@@ -70,7 +78,7 @@ public interface SupportSQLiteOpenHelper {
         public void onCorruption(SupportSQLiteDatabase supportSQLiteDatabase) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, supportSQLiteDatabase) == null) {
-                String str = "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath();
+                Log.e(TAG, "Corruption reported by sqlite on database: " + supportSQLiteDatabase.getPath());
                 if (!supportSQLiteDatabase.isOpen()) {
                     deleteDatabaseFile(supportSQLiteDatabase.getPath());
                     return;
@@ -99,10 +107,10 @@ public interface SupportSQLiteOpenHelper {
 
         public abstract void onCreate(SupportSQLiteDatabase supportSQLiteDatabase);
 
-        public void onDowngrade(SupportSQLiteDatabase supportSQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048579, this, supportSQLiteDatabase, i2, i3) == null) {
-                throw new SQLiteException("Can't downgrade database from version " + i2 + " to " + i3);
+            if (interceptable == null || interceptable.invokeLII(1048579, this, supportSQLiteDatabase, i, i2) == null) {
+                throw new SQLiteException("Can't downgrade database from version " + i + " to " + i2);
             }
         }
 
@@ -112,7 +120,7 @@ public interface SupportSQLiteOpenHelper {
             }
         }
 
-        public abstract void onUpgrade(SupportSQLiteDatabase supportSQLiteDatabase, int i2, int i3);
+        public abstract void onUpgrade(SupportSQLiteDatabase supportSQLiteDatabase, int i, int i2);
     }
 
     /* loaded from: classes.dex */
@@ -141,9 +149,9 @@ public interface SupportSQLiteOpenHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -197,9 +205,9 @@ public interface SupportSQLiteOpenHelper {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, str, callback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

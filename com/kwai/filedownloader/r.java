@@ -15,22 +15,22 @@ import com.kwai.filedownloader.a;
 import com.kwai.filedownloader.services.c;
 import java.io.File;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class r {
     public static /* synthetic */ Interceptable $ic;
     public static final Object a;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Object f56898c;
+    public static final Object f41762c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public w f56899b;
+    public w f41763b;
 
     /* renamed from: d  reason: collision with root package name */
-    public v f56900d;
+    public v f41764d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public static final r a;
@@ -67,7 +67,7 @@ public class r {
             }
         }
         a = new Object();
-        f56898c = new Object();
+        f41762c = new Object();
     }
 
     public r() {
@@ -75,9 +75,9 @@ public class r {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -111,13 +111,13 @@ public class r {
         }
     }
 
-    public int a(int i2) {
+    public int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            List<a.b> c2 = h.a().c(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<a.b> c2 = h.a().c(i);
             if (c2 == null || c2.isEmpty()) {
-                com.kwai.filedownloader.e.d.d(this, "request pause but not exist %d", Integer.valueOf(i2));
+                com.kwai.filedownloader.e.d.d(this, "request pause but not exist %d", Integer.valueOf(i));
                 return 0;
             }
             for (a.b bVar : c2) {
@@ -141,12 +141,12 @@ public class r {
         }
     }
 
-    public boolean a(int i2, String str) {
+    public boolean a(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, str)) == null) {
-            a(i2);
-            if (n.a().c(i2)) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
+            a(i);
+            if (n.a().c(i)) {
                 if (TextUtils.isEmpty(str)) {
                     return true;
                 }
@@ -183,14 +183,14 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.f56899b == null) {
+            if (this.f41763b == null) {
                 synchronized (a) {
-                    if (this.f56899b == null) {
-                        this.f56899b = new ab();
+                    if (this.f41763b == null) {
+                        this.f41763b = new ab();
                     }
                 }
             }
-            return this.f56899b;
+            return this.f41763b;
         }
         return (w) invokeV.objValue;
     }
@@ -199,16 +199,16 @@ public class r {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.f56900d == null) {
-                synchronized (f56898c) {
-                    if (this.f56900d == null) {
+            if (this.f41764d == null) {
+                synchronized (f41762c) {
+                    if (this.f41764d == null) {
                         z zVar = new z();
-                        this.f56900d = zVar;
+                        this.f41764d = zVar;
                         a(zVar);
                     }
                 }
             }
-            return this.f56900d;
+            return this.f41764d;
         }
         return (v) invokeV.objValue;
     }

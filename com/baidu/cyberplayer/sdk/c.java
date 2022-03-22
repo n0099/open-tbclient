@@ -10,53 +10,53 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic;
     public static c a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f32066b;
+    public boolean f25320b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f32067c;
+    public String f25321c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f32068d;
+    public String f25322d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f32069e;
+    public boolean f25323e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32070f;
+    public boolean f25324f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f32071g;
+    public String f25325g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f32072h;
+    public boolean f25326h;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32066b = true;
-        this.f32067c = null;
-        this.f32068d = null;
-        this.f32069e = true;
-        this.f32070f = true;
-        this.f32071g = null;
-        this.f32072h = false;
+        this.f25320b = true;
+        this.f25321c = null;
+        this.f25322d = null;
+        this.f25323e = true;
+        this.f25324f = true;
+        this.f25325g = null;
+        this.f25326h = false;
     }
 
     public static synchronized c a() {
@@ -80,11 +80,11 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                if (TextUtils.isEmpty(this.f32071g)) {
+                if (TextUtils.isEmpty(this.f25325g)) {
                     String cfgValue = CyberCfgManager.getInstance().getCfgValue("update_core_server", "");
                     return !TextUtils.isEmpty(cfgValue) ? cfgValue : "https://b.bdstatic.com/searchbox/androidvideo";
                 }
-                return this.f32071g;
+                return this.f25325g;
             }
             return str;
         }
@@ -94,7 +94,7 @@ public class c {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f32072h = z;
+            this.f25326h = z;
         }
     }
 
@@ -102,7 +102,7 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.f32066b) {
+            if (!this.f25320b) {
                 CyberLog.i("CyberGlobalSetting", "isStatisticsUploadEnable closed");
                 return false;
             } else if (i()) {
@@ -130,11 +130,11 @@ public class c {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (TextUtils.isEmpty(this.f32067c)) {
+            if (TextUtils.isEmpty(this.f25321c)) {
                 String cfgValue = CyberCfgManager.getInstance().getCfgValue("upload_session_server", "");
                 return TextUtils.isEmpty(cfgValue) ? WebSettingsGlobalBlink.SESSION_UPLOAD_URL : cfgValue;
             }
-            return this.f32067c;
+            return this.f25321c;
         }
         return (String) invokeV.objValue;
     }
@@ -142,7 +142,7 @@ public class c {
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.f32068d) ? this.f32068d : CyberCfgManager.getInstance().a(CyberCfgManager.getInstance().getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video")) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? !TextUtils.isEmpty(this.f25322d) ? this.f25322d : CyberCfgManager.getInstance().a(CyberCfgManager.getInstance().getCfgValue("update_cloud_cfg_server", "https://browserkernel.baidu.com/video")) : (String) invokeV.objValue;
     }
 
     public boolean g() {
@@ -152,7 +152,7 @@ public class c {
             if (i()) {
                 return false;
             }
-            return this.f32069e;
+            return this.f25323e;
         }
         return invokeV.booleanValue;
     }
@@ -160,7 +160,7 @@ public class c {
     public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f32070f && !i() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f25324f && !i() : invokeV.booleanValue;
     }
 
     public synchronized boolean i() {
@@ -169,8 +169,8 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                CyberLog.d("CyberGlobalSetting", "isSFSwitchEnabled:" + this.f32072h);
-                z = this.f32072h;
+                CyberLog.d("CyberGlobalSetting", "isSFSwitchEnabled:" + this.f25326h);
+                z = this.f25326h;
             }
             return z;
         }

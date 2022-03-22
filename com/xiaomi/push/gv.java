@@ -7,28 +7,28 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class gv {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public ew a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f460a;
+        public String f436a;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -40,7 +40,7 @@ public final class gv {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, exc)) == null) {
-            m424a(exc);
+            m403a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -64,7 +64,7 @@ public final class gv {
                 aVar.a = ew.t;
             }
             if (aVar.a == ew.t) {
-                aVar.f460a = str;
+                aVar.f436a = str;
             }
             return aVar;
         }
@@ -72,7 +72,7 @@ public final class gv {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m424a(Exception exc) {
+    public static void m403a(Exception exc) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, exc) == null) && exc == null) {
             throw null;
@@ -86,7 +86,7 @@ public final class gv {
         Throwable cause;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, exc)) == null) {
-            m424a(exc);
+            m403a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -111,7 +111,7 @@ public final class gv {
                 }
                 ewVar2 = aVar.a;
                 if (ewVar2 != ew.D || ewVar2 == ew.E || ewVar2 == ew.G) {
-                    aVar.f460a = str;
+                    aVar.f436a = str;
                 }
                 return aVar;
             }
@@ -120,7 +120,7 @@ public final class gv {
             ewVar2 = aVar.a;
             if (ewVar2 != ew.D) {
             }
-            aVar.f460a = str;
+            aVar.f436a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -132,7 +132,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, exc)) == null) {
-            m424a(exc);
+            m403a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -160,7 +160,7 @@ public final class gv {
                 }
                 ewVar2 = aVar.a;
                 if (ewVar2 != ew.O || ewVar2 == ew.P || ewVar2 == ew.R) {
-                    aVar.f460a = str;
+                    aVar.f436a = str;
                 }
                 return aVar;
             } else {
@@ -170,7 +170,7 @@ public final class gv {
             ewVar2 = aVar.a;
             if (ewVar2 != ew.O) {
             }
-            aVar.f460a = str;
+            aVar.f436a = str;
             return aVar;
         }
         return (a) invokeL.objValue;
@@ -182,7 +182,7 @@ public final class gv {
         ew ewVar2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, exc)) == null) {
-            m424a(exc);
+            m403a(exc);
             boolean z = exc instanceof fw;
             Exception exc2 = exc;
             if (z) {
@@ -207,7 +207,7 @@ public final class gv {
                 }
                 ewVar2 = aVar.a;
                 if (ewVar2 != ew.aa || ewVar2 == ew.ab || ewVar2 == ew.ad) {
-                    aVar.f460a = str;
+                    aVar.f436a = str;
                 }
                 return aVar;
             } else {
@@ -217,7 +217,7 @@ public final class gv {
             ewVar2 = aVar.a;
             if (ewVar2 != ew.aa) {
             }
-            aVar.f460a = str;
+            aVar.f436a = str;
             return aVar;
         }
         return (a) invokeL.objValue;

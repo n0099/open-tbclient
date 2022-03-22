@@ -13,7 +13,6 @@ import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes7.dex */
 public abstract class ProtectionSpecificHeader {
     public static /* synthetic */ Interceptable $ic;
@@ -41,9 +40,9 @@ public abstract class ProtectionSpecificHeader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -103,7 +102,7 @@ public abstract class ProtectionSpecificHeader {
             byte[] bArr = new byte[duplicate.limit()];
             duplicate.get(bArr);
             sb.append(Hex.encodeHex(bArr));
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

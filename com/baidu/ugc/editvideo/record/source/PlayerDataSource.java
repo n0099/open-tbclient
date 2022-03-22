@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.c;
-import c.a.y0.r.h;
-import c.a.y0.r.w;
+import c.a.v0.r.c;
+import c.a.v0.r.h;
+import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -59,9 +59,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             newInitContext.initArgs = r2;
             Object[] objArr = {iPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -105,8 +105,8 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 this.mPathList = null;
                 this.mCurrentState = 0;
                 this.mTargetState = 0;
-                for (int i2 = 0; i2 < this.mSourceViewList.size(); i2++) {
-                    this.mSourceViewList.get(i2).onError(null, -1, -1, e2);
+                for (int i = 0; i < this.mSourceViewList.size(); i++) {
+                    this.mSourceViewList.get(i).onError(null, -1, -1, e2);
                 }
             }
         }
@@ -122,8 +122,8 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
             long currentPosition = getCurrentPosition();
             for (VideoPlayData videoPlayData : this.mPathList) {
                 if (videoPlayData != null) {
-                    int i2 = videoPlayData.offset;
-                    if (i2 <= currentPosition && (i2 + videoPlayData.end) - videoPlayData.start >= currentPosition) {
+                    int i = videoPlayData.offset;
+                    if (i <= currentPosition && (i + videoPlayData.end) - videoPlayData.start >= currentPosition) {
                         return videoPlayData;
                     }
                 }
@@ -148,9 +148,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -170,8 +170,8 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                             playerDataSource.seekToForce(playerDataSource.mSeekWhenPrepared);
                         }
                         this.this$0.mMediaPlayer.setSurface(this.this$0.mSurface);
-                        for (int i2 = 0; i2 < this.this$0.mSourceViewList.size(); i2++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i2)).onPrepared(iPlayer);
+                        for (int i = 0; i < this.this$0.mSourceViewList.size(); i++) {
+                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i)).onPrepared(iPlayer);
                         }
                         if (this.this$0.mTargetState == 3) {
                             this.this$0.start();
@@ -191,9 +191,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -203,13 +203,13 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
 
                 @Override // com.baidu.ugc.editvideo.player.IPlayer.OnPlayerVideoSizeChangedListener
-                public void onVideoSizeChanged(int i2, int i3) {
+                public void onVideoSizeChanged(int i, int i2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i2, i3) == null) {
-                        this.this$0.mVideoWidth = i2;
-                        this.this$0.mVideoHeight = i3;
-                        for (int i4 = 0; i4 < this.this$0.mSourceViewList.size(); i4++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i4)).onVideoSizeChanged(i2, i3);
+                    if (interceptable2 == null || interceptable2.invokeII(1048576, this, i, i2) == null) {
+                        this.this$0.mVideoWidth = i;
+                        this.this$0.mVideoHeight = i2;
+                        for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
+                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onVideoSizeChanged(i, i2);
                         }
                     }
                 }
@@ -226,9 +226,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -241,8 +241,8 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 public void onCompletion(IPlayer iPlayer) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, iPlayer) == null) {
-                        for (int i2 = 0; i2 < this.this$0.mSourceViewList.size(); i2++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i2)).onCompletion(iPlayer);
+                        for (int i = 0; i < this.this$0.mSourceViewList.size(); i++) {
+                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i)).onCompletion(iPlayer);
                         }
                         this.this$0.mCurrentState = 5;
                     }
@@ -260,9 +260,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -272,11 +272,11 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
 
                 @Override // com.baidu.ugc.editvideo.player.IPlayer.OnPlayerPlayStateListener
-                public void onStateChange(IPlayer iPlayer, int i2) {
+                public void onStateChange(IPlayer iPlayer, int i) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iPlayer, i2) == null) {
-                        for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onPlayStateListener(iPlayer, i2);
+                    if (interceptable2 == null || interceptable2.invokeLI(1048576, this, iPlayer, i) == null) {
+                        for (int i2 = 0; i2 < this.this$0.mSourceViewList.size(); i2++) {
+                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i2)).onPlayStateListener(iPlayer, i);
                         }
                     }
                 }
@@ -293,9 +293,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -305,12 +305,12 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
 
                 @Override // com.baidu.ugc.editvideo.player.IPlayer.OnPlayerInfoListener
-                public boolean onInfo(IPlayer iPlayer, int i2, int i3) {
+                public boolean onInfo(IPlayer iPlayer, int i, int i2) {
                     InterceptResult invokeLII;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iPlayer, i2, i3)) == null) {
-                        for (int i4 = 0; i4 < this.this$0.mSourceViewList.size(); i4++) {
-                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i4)).onInfo(iPlayer, i2, i3);
+                    if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, iPlayer, i, i2)) == null) {
+                        for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
+                            ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onInfo(iPlayer, i, i2);
                         }
                         return false;
                     }
@@ -329,9 +329,9 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -341,13 +341,13 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
                 }
 
                 @Override // com.baidu.ugc.editvideo.player.IPlayer.OnPlayerErrorListener
-                public boolean onError(IPlayer iPlayer, int i2, int i3, Exception exc) {
+                public boolean onError(IPlayer iPlayer, int i, int i2, Exception exc) {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{iPlayer, Integer.valueOf(i2), Integer.valueOf(i3), exc})) == null) {
+                    if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{iPlayer, Integer.valueOf(i), Integer.valueOf(i2), exc})) == null) {
                         if (!this.this$0.isReportError) {
-                            for (int i4 = 0; i4 < this.this$0.mSourceViewList.size(); i4++) {
-                                ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i4)).onError(iPlayer, i2, i3, exc);
+                            for (int i3 = 0; i3 < this.this$0.mSourceViewList.size(); i3++) {
+                                ((IDataSourceView.IPlayerDataSourceView) this.this$0.mSourceViewList.get(i3)).onError(iPlayer, i, i2, exc);
                             }
                             this.this$0.isReportError = true;
                         }
@@ -594,28 +594,28 @@ public class PlayerDataSource implements IMediaDataSource.IPlayerDataSource {
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekTo(long j2) {
+    public void seekTo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
             if (isInPlaybackState()) {
-                this.mMediaPlayer.seekTo(j2);
+                this.mMediaPlayer.seekTo(j);
                 this.mSeekWhenPrepared = 0L;
                 return;
             }
-            this.mSeekWhenPrepared = j2;
+            this.mSeekWhenPrepared = j;
         }
     }
 
     @Override // com.baidu.ugc.editvideo.record.source.IMediaDataSource.IPlayerDataSource
-    public void seekToForce(long j2) {
+    public void seekToForce(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
             if (isInPlaybackState()) {
-                this.mMediaPlayer.seekToForce(j2);
+                this.mMediaPlayer.seekToForce(j);
                 this.mSeekWhenPrepared = 0L;
                 return;
             }
-            this.mSeekWhenPrepared = j2;
+            this.mSeekWhenPrepared = j;
         }
     }
 

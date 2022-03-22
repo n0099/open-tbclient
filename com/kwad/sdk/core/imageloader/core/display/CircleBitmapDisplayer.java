@@ -84,8 +84,8 @@ public class CircleBitmapDisplayer implements BitmapDisplayer {
         }
 
         @Override // android.graphics.drawable.Drawable
-        public void setAlpha(int i2) {
-            this.paint.setAlpha(i2);
+        public void setAlpha(int i) {
+            this.paint.setAlpha(i);
         }
 
         @Override // android.graphics.drawable.Drawable

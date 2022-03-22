@@ -5,5 +5,5 @@ public interface f {
 
     void onFrameOut();
 
-    void recordAlgoTimeCost(String str, String str2, long j2, int i2);
+    void recordAlgoTimeCost(String str, String str2, long j, int i);
 }

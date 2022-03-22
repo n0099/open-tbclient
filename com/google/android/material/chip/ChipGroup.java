@@ -32,12 +32,12 @@ import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChipGroup extends FlowLayout {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: DEF_STYLE_RES */
-    public static final int Widget_MaterialComponents_ChipGroup = 2131755898;
+    public static final int obfuscated_res_0x7f100358 = 2131755864;
     public transient /* synthetic */ FieldHolder $fh;
     @IdRes
     public int checkedId;
@@ -55,13 +55,13 @@ public class ChipGroup extends FlowLayout {
     public boolean singleSelection;
 
     /* renamed from: com.google.android.material.chip.ChipGroup$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class CheckedStateTracker implements CompoundButton.OnCheckedChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public class ChipGroup extends FlowLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {chipGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -113,7 +113,7 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class LayoutParams extends ViewGroup.MarginLayoutParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,9 +127,9 @@ public class ChipGroup extends FlowLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -148,9 +148,9 @@ public class ChipGroup extends FlowLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {layoutParams};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.LayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -160,17 +160,17 @@ public class ChipGroup extends FlowLayout {
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public LayoutParams(int i2, int i3) {
-            super(i2, i3);
+        public LayoutParams(int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
@@ -189,9 +189,9 @@ public class ChipGroup extends FlowLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {marginLayoutParams};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ViewGroup.MarginLayoutParams) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
@@ -201,12 +201,12 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface OnCheckedChangeListener {
-        void onCheckedChanged(ChipGroup chipGroup, @IdRes int i2);
+        void onCheckedChanged(ChipGroup chipGroup, @IdRes int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class PassThroughHierarchyChangeListener implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -220,9 +220,9 @@ public class ChipGroup extends FlowLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {chipGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -297,9 +297,9 @@ public class ChipGroup extends FlowLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -313,30 +313,30 @@ public class ChipGroup extends FlowLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < getChildCount(); i3++) {
-                if (getChildAt(i3) instanceof Chip) {
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < getChildCount(); i2++) {
+                if (getChildAt(i2) instanceof Chip) {
+                    i++;
                 }
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCheckedId(int i2) {
+    public void setCheckedId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, this, i2) == null) {
-            setCheckedId(i2, true);
+        if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
+            setCheckedId(i, true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCheckedStateForView(@IdRes int i2, boolean z) {
+    public void setCheckedStateForView(@IdRes int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            View findViewById = findViewById(i2);
+        if (interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            View findViewById = findViewById(i);
             if (findViewById instanceof Chip) {
                 this.protectFromCheckedChange = true;
                 ((Chip) findViewById).setChecked(z);
@@ -346,36 +346,36 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, view, i, layoutParams) == null) {
             if (view instanceof Chip) {
                 Chip chip = (Chip) view;
                 if (chip.isChecked()) {
-                    int i3 = this.checkedId;
-                    if (i3 != -1 && this.singleSelection) {
-                        setCheckedStateForView(i3, false);
+                    int i2 = this.checkedId;
+                    if (i2 != -1 && this.singleSelection) {
+                        setCheckedStateForView(i2, false);
                     }
                     setCheckedId(chip.getId());
                 }
             }
-            super.addView(view, i2, layoutParams);
+            super.addView(view, i, layoutParams);
         }
     }
 
-    public void check(@IdRes int i2) {
-        int i3;
+    public void check(@IdRes int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == (i3 = this.checkedId)) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i == (i2 = this.checkedId)) {
             return;
         }
-        if (i3 != -1 && this.singleSelection) {
-            setCheckedStateForView(i3, false);
+        if (i2 != -1 && this.singleSelection) {
+            setCheckedStateForView(i2, false);
         }
-        if (i2 != -1) {
-            setCheckedStateForView(i2, true);
+        if (i != -1) {
+            setCheckedStateForView(i, true);
         }
-        setCheckedId(i2);
+        setCheckedId(i);
     }
 
     @Override // android.view.ViewGroup
@@ -389,8 +389,8 @@ public class ChipGroup extends FlowLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.protectFromCheckedChange = true;
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
                 if (childAt instanceof Chip) {
                     ((Chip) childAt).setChecked(false);
                 }
@@ -435,8 +435,8 @@ public class ChipGroup extends FlowLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < getChildCount(); i2++) {
-                View childAt = getChildAt(i2);
+            for (int i = 0; i < getChildCount(); i++) {
+                View childAt = getChildAt(i);
                 if ((childAt instanceof Chip) && ((Chip) childAt).isChecked()) {
                     arrayList.add(Integer.valueOf(childAt.getId()));
                     if (this.singleSelection) {
@@ -468,13 +468,13 @@ public class ChipGroup extends FlowLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, view)) == null) {
             if (view instanceof Chip) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < getChildCount(); i3++) {
-                    if (getChildAt(i3) instanceof Chip) {
-                        if (((Chip) getChildAt(i3)) == view) {
-                            return i2;
+                int i = 0;
+                for (int i2 = 0; i2 < getChildCount(); i2++) {
+                    if (getChildAt(i2) instanceof Chip) {
+                        if (((Chip) getChildAt(i2)) == view) {
+                            return i;
                         }
-                        i2++;
+                        i++;
                     }
                 }
                 return -1;
@@ -508,9 +508,9 @@ public class ChipGroup extends FlowLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             super.onFinishInflate();
-            int i2 = this.checkedId;
-            if (i2 != -1) {
-                setCheckedStateForView(i2, true);
+            int i = this.checkedId;
+            if (i != -1) {
+                setCheckedStateForView(i, true);
                 setCheckedId(this.checkedId);
             }
         }
@@ -525,52 +525,52 @@ public class ChipGroup extends FlowLayout {
         }
     }
 
-    public void setChipSpacing(@Dimension int i2) {
+    public void setChipSpacing(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            setChipSpacingHorizontal(i2);
-            setChipSpacingVertical(i2);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            setChipSpacingHorizontal(i);
+            setChipSpacingVertical(i);
         }
     }
 
-    public void setChipSpacingHorizontal(@Dimension int i2) {
+    public void setChipSpacingHorizontal(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || this.chipSpacingHorizontal == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || this.chipSpacingHorizontal == i) {
             return;
         }
-        this.chipSpacingHorizontal = i2;
-        setItemSpacing(i2);
+        this.chipSpacingHorizontal = i;
+        setItemSpacing(i);
         requestLayout();
     }
 
-    public void setChipSpacingHorizontalResource(@DimenRes int i2) {
+    public void setChipSpacingHorizontalResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            setChipSpacingHorizontal(getResources().getDimensionPixelOffset(i2));
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            setChipSpacingHorizontal(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingResource(@DimenRes int i2) {
+    public void setChipSpacingResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            setChipSpacing(getResources().getDimensionPixelOffset(i2));
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            setChipSpacing(getResources().getDimensionPixelOffset(i));
         }
     }
 
-    public void setChipSpacingVertical(@Dimension int i2) {
+    public void setChipSpacingVertical(@Dimension int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048597, this, i2) == null) || this.chipSpacingVertical == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048597, this, i) == null) || this.chipSpacingVertical == i) {
             return;
         }
-        this.chipSpacingVertical = i2;
-        setLineSpacing(i2);
+        this.chipSpacingVertical = i;
+        setLineSpacing(i);
         requestLayout();
     }
 
-    public void setChipSpacingVerticalResource(@DimenRes int i2) {
+    public void setChipSpacingVerticalResource(@DimenRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            setChipSpacingVertical(getResources().getDimensionPixelOffset(i2));
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            setChipSpacingVertical(getResources().getDimensionPixelOffset(i));
         }
     }
 
@@ -591,9 +591,9 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Deprecated
-    public void setFlexWrap(int i2) {
+    public void setFlexWrap(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             throw new UnsupportedOperationException("Changing flex wrap not allowed. ChipGroup exposes a singleLine attribute instead.");
         }
     }
@@ -621,17 +621,17 @@ public class ChipGroup extends FlowLayout {
     }
 
     @Deprecated
-    public void setShowDividerHorizontal(int i2) {
+    public void setShowDividerHorizontal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             throw new UnsupportedOperationException("Changing divider modes has no effect. ChipGroup do not use divider drawables as spacing.");
         }
     }
 
     @Deprecated
-    public void setShowDividerVertical(int i2) {
+    public void setShowDividerVertical(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
             throw new UnsupportedOperationException("Changing divider modes has no effect. ChipGroup do not use divider drawables as spacing.");
         }
     }
@@ -655,16 +655,16 @@ public class ChipGroup extends FlowLayout {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ChipGroup(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.chipGroupStyle);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04012d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -675,13 +675,13 @@ public class ChipGroup extends FlowLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCheckedId(int i2, boolean z) {
+    public void setCheckedId(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.checkedId = i2;
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.checkedId = i;
             OnCheckedChangeListener onCheckedChangeListener = this.onCheckedChangeListener;
             if (onCheckedChangeListener != null && this.singleSelection && z) {
-                onCheckedChangeListener.onCheckedChanged(this, i2);
+                onCheckedChangeListener.onCheckedChanged(this, i);
             }
         }
     }
@@ -694,25 +694,25 @@ public class ChipGroup extends FlowLayout {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutParams)) == null) ? new LayoutParams(layoutParams) : (ViewGroup.LayoutParams) invokeL.objValue;
     }
 
-    public void setSingleLine(@BoolRes int i2) {
+    public void setSingleLine(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            setSingleLine(getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            setSingleLine(getResources().getBoolean(i));
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChipGroup(Context context, AttributeSet attributeSet, int i2) {
-        super(MaterialThemeOverlay.wrap(context, attributeSet, i2, Widget_MaterialComponents_ChipGroup), attributeSet, i2);
+    public ChipGroup(Context context, AttributeSet attributeSet, int i) {
+        super(MaterialThemeOverlay.wrap(context, attributeSet, i, obfuscated_res_0x7f100358), attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -724,7 +724,7 @@ public class ChipGroup extends FlowLayout {
         this.passThroughListener = new PassThroughHierarchyChangeListener(this, null);
         this.checkedId = -1;
         this.protectFromCheckedChange = false;
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.checkedChip, R.attr.chipSpacing, R.attr.chipSpacingHorizontal, R.attr.chipSpacingVertical, R.attr.selectionRequired, R.attr.singleLine, R.attr.singleSelection}, i2, Widget_MaterialComponents_ChipGroup, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(getContext(), attributeSet, new int[]{R.attr.obfuscated_res_0x7f04011e, R.attr.obfuscated_res_0x7f040135, R.attr.obfuscated_res_0x7f040136, R.attr.obfuscated_res_0x7f040137, R.attr.obfuscated_res_0x7f040541, R.attr.obfuscated_res_0x7f04055f, R.attr.obfuscated_res_0x7f040560}, i, obfuscated_res_0x7f100358, new int[0]);
         int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(1, 0);
         setChipSpacingHorizontal(obtainStyledAttributes.getDimensionPixelOffset(2, dimensionPixelOffset));
         setChipSpacingVertical(obtainStyledAttributes.getDimensionPixelOffset(3, dimensionPixelOffset));
@@ -740,10 +740,10 @@ public class ChipGroup extends FlowLayout {
         ViewCompat.setImportantForAccessibility(this, 1);
     }
 
-    public void setSingleSelection(@BoolRes int i2) {
+    public void setSingleSelection(@BoolRes int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            setSingleSelection(getResources().getBoolean(i2));
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            setSingleSelection(getResources().getBoolean(i));
         }
     }
 }

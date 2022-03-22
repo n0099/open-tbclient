@@ -12,14 +12,14 @@ public class g {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final LinkedBlockingQueue<IBinder> f54399b = new LinkedBlockingQueue<>(1);
+    public final LinkedBlockingQueue<IBinder> f39523b = new LinkedBlockingQueue<>(1);
 
     /* renamed from: c  reason: collision with root package name */
-    public ServiceConnection f54400c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
+    public ServiceConnection f39524c = new ServiceConnection() { // from class: com.kwad.sdk.core.f.kwai.g.1
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                g.this.f54399b.put(iBinder);
+                g.this.f39523b.put(iBinder);
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
@@ -41,16 +41,16 @@ public class g {
         try {
             Intent intent = new Intent();
             intent.setClassName("com.samsung.android.deviceidservice", "com.samsung.android.deviceidservice.DeviceIdService");
-            if (this.a.bindService(intent, this.f54400c, 1)) {
+            if (this.a.bindService(intent, this.f39524c, 1)) {
                 try {
-                    str = new e.a(this.f54399b.take()).a();
+                    str = new e.a(this.f39523b.take()).a();
                     com.kwad.sdk.core.d.a.c("SamsungDeviceIDHelper", "getOAID oaid:" + str);
                     context = this.a;
-                    serviceConnection = this.f54400c;
+                    serviceConnection = this.f39524c;
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.a(e2);
                     context = this.a;
-                    serviceConnection = this.f54400c;
+                    serviceConnection = this.f39524c;
                 }
                 context.unbindService(serviceConnection);
             }

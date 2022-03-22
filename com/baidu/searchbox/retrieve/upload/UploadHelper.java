@@ -1,11 +1,12 @@
 package com.baidu.searchbox.retrieve.upload;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a1.a.d.a;
-import c.a.a1.b.c;
-import c.a.a1.b.d;
-import c.a.a1.c.b;
+import c.a.x0.a.d.a;
+import c.a.x0.b.c;
+import c.a.x0.b.d;
+import c.a.x0.c.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
@@ -76,9 +77,9 @@ public class UploadHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -90,19 +91,19 @@ public class UploadHelper {
         }
     }
 
-    private boolean checkValid(String str, long j2, long j3) {
+    private boolean checkValid(String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? !TextUtils.isEmpty(str) && str.endsWith(".log") && j2 < j3 && j2 <= System.currentTimeMillis() : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65546, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? !TextUtils.isEmpty(str) && str.endsWith(".log") && j < j2 && j <= System.currentTimeMillis() : invokeCommon.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public HashSet<String> getFetchDirSet(long j2, long j3, List<String> list) {
+    public HashSet<String> getFetchDirSet(long j, long j2, List<String> list) {
         InterceptResult invokeCommon;
         File[] listFiles;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list})) == null) {
             String baseDir = LoggerManager.getBaseDir();
             HashSet<String> hashSet = new HashSet<>();
             if (list != null && list.size() > 0) {
@@ -118,7 +119,7 @@ public class UploadHelper {
                             substring = next.substring(indexOf + 1);
                             next = substring2;
                         }
-                        List<String> queryLogFiles = LoggerManager.queryLogFiles(j2 / 1000, j3 / 1000, TextUtils.isEmpty(next) ? "*" : next, TextUtils.isEmpty(substring) ? "*" : substring);
+                        List<String> queryLogFiles = LoggerManager.queryLogFiles(j / 1000, j2 / 1000, TextUtils.isEmpty(next) ? "*" : next, TextUtils.isEmpty(substring) ? "*" : substring);
                         if (queryLogFiles != null && queryLogFiles.size() != 0) {
                             Iterator<String> it2 = queryLogFiles.iterator();
                             while (it2.hasNext()) {
@@ -138,8 +139,8 @@ public class UploadHelper {
                 }
             }
             if (DEBUG) {
-                String str = "fetchDirList size is: " + hashSet.size();
-                String str2 = "fetchDirList: " + Arrays.asList(hashSet);
+                Log.d(TAG, "fetchDirList size is: " + hashSet.size());
+                Log.d(TAG, "fetchDirList: " + Arrays.asList(hashSet));
             }
             return hashSet;
         }
@@ -163,20 +164,23 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startUploadActiveFile(String str, String str2, List<String> list, long j2, IActiveUploadListener iActiveUploadListener) {
+    public void startUploadActiveFile(String str, String str2, List<String> list, long j, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{str, str2, list, Long.valueOf(j2), iActiveUploadListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65549, this, new Object[]{str, str2, list, Long.valueOf(j), iActiveUploadListener}) == null) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
                 d dVar = (d) ServiceManager.getService(d.a);
                 if (dVar == null) {
-                    boolean z = DEBUG;
+                    if (DEBUG) {
+                        Log.d(TAG, "loss voyager impl component");
+                        return;
+                    }
                     return;
                 }
                 ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, null);
                 activeUpObj.setFileType("2");
-                dVar.e(list, "acupload", j2 * 1024, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
+                dVar.e(list, "acupload", j * 1024, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ UploadHelper this$0;
@@ -190,9 +194,9 @@ public class UploadHelper {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, activeUpObj, iActiveUploadListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -203,12 +207,12 @@ public class UploadHelper {
                         this.val$activeUploadListener = iActiveUploadListener;
                     }
 
-                    @Override // c.a.a1.b.c
+                    @Override // c.a.x0.b.c
                     public void onFailure(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str3, jSONObject) == null) {
                             if (UploadHelper.DEBUG) {
-                                String str4 = "Active upload normal file failed, errMsg: " + str3;
+                                Log.d(UploadHelper.TAG, "Active upload normal file failed, errMsg: " + str3);
                             }
                             this.this$0.statMultiActiveFileData(false, this.val$activeObj.getDataId(), this.val$activeObj.getType(), str3);
                             if (this.val$activeUploadListener != null) {
@@ -221,7 +225,7 @@ public class UploadHelper {
                         }
                     }
 
-                    @Override // c.a.a1.b.c
+                    @Override // c.a.x0.b.c
                     public void onSuccess(String str3, JSONObject jSONObject) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str3, jSONObject) == null) {
@@ -234,7 +238,9 @@ public class UploadHelper {
                 });
                 return;
             }
-            boolean z2 = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "type, dataId can not null");
+            }
             statActiveFileData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
         }
     }
@@ -290,17 +296,17 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public File zipFetchFile(HashSet<String> hashSet, String str, String str2, String str3, String str4, long j2, long j3, long j4, JSONObject jSONObject) {
+    public File zipFetchFile(HashSet<String> hashSet, String str, String str2, String str3, String str4, long j, long j2, long j3, JSONObject jSONObject) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{hashSet, str, str2, str3, str4, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), jSONObject})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{hashSet, str, str2, str3, str4, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), jSONObject})) == null) {
             if (hashSet == null || hashSet.size() == 0 || TextUtils.isEmpty(str)) {
                 return null;
             }
-            long j5 = 1000 * j2;
+            long j4 = 1000 * j;
             if (hashSet.size() > 0) {
                 Iterator<String> it = hashSet.iterator();
-                long j6 = 0;
+                long j5 = 0;
                 while (true) {
                     if (!it.hasNext()) {
                         break;
@@ -312,15 +318,15 @@ public class UploadHelper {
                         if (lastIndexOf > -1) {
                             next = next.substring(lastIndexOf + 1);
                         }
-                        if (checkValid(next, j3, j4)) {
-                            j6 += file.length();
-                            if (j6 > j5) {
+                        if (checkValid(next, j2, j3)) {
+                            j5 += file.length();
+                            if (j5 > j4) {
                                 a.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                                 break;
                             }
                             String substring = file.getAbsolutePath().substring(str.length());
                             if (DEBUG) {
-                                String str5 = "new Path:" + substring;
+                                Log.d(TAG, "new Path:" + substring);
                             }
                             a.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
                         } else {
@@ -328,21 +334,21 @@ public class UploadHelper {
                         }
                     }
                 }
-                String str6 = AppRuntime.getAppContext().getApplicationInfo().dataDir + LOG_FILE_FETCH_ZIP_PATH + File.separator;
-                String str7 = UUID.randomUUID().toString().replace("-", "") + ".zip";
-                File file2 = new File(str6);
+                String str5 = AppRuntime.getAppContext().getApplicationInfo().dataDir + LOG_FILE_FETCH_ZIP_PATH + File.separator;
+                String str6 = UUID.randomUUID().toString().replace("-", "") + ".zip";
+                File file2 = new File(str5);
                 if (!file2.exists()) {
                     file2.mkdirs();
                 }
-                String str8 = str6 + str7;
+                String str7 = str5 + str6;
                 if (DEBUG) {
-                    String str9 = "zipPath: " + str8;
+                    Log.d(TAG, "zipPath: " + str7);
                 }
-                File file3 = new File(str8);
-                if (c.a.a1.c.c.i(new ArrayList(hashSet), str8, str)) {
+                File file3 = new File(str7);
+                if (c.a.x0.c.c.i(new ArrayList(hashSet), str7, str)) {
                     if (file3.length() > 0) {
                         if (DEBUG) {
-                            String str10 = "zip directory is succeed, zip length is: " + file3.length();
+                            Log.d(TAG, "zip directory is succeed, zip length is: " + file3.length());
                         }
                         return file3;
                     }
@@ -356,10 +362,10 @@ public class UploadHelper {
         return (File) invokeCommon.objValue;
     }
 
-    public void activeUpload(String str, String str2, List<String> list, String str3, long j2, long j3, long j4, JSONObject jSONObject) {
+    public void activeUpload(String str, String str2, List<String> list, String str3, long j, long j2, long j3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, list, str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), jSONObject}) == null) {
-            mExecutorService.execute(new Runnable(this, str2, str, j3, j4, list, j2, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.2
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, list, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), jSONObject}) == null) {
+            mExecutorService.execute(new Runnable(this, str2, str, j2, j3, list, j, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -377,11 +383,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r3;
-                        Object[] objArr = {this, str2, str, Long.valueOf(j3), Long.valueOf(j4), list, Long.valueOf(j2), str3, jSONObject};
+                        Object[] objArr = {this, str2, str, Long.valueOf(j2), Long.valueOf(j3), list, Long.valueOf(j), str3, jSONObject};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -390,10 +396,10 @@ public class UploadHelper {
                     this.this$0 = this;
                     this.val$dataId = str2;
                     this.val$type = str;
-                    this.val$startTime = j3;
-                    this.val$endTime = j4;
+                    this.val$startTime = j2;
+                    this.val$endTime = j3;
                     this.val$spaces = list;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                     this.val$source = str3;
                     this.val$extInfo = jSONObject;
                 }
@@ -404,14 +410,18 @@ public class UploadHelper {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_RECEIVE, this.val$dataId, this.val$type);
                         if (TextUtils.isEmpty(this.val$type) || TextUtils.isEmpty(this.val$dataId)) {
-                            boolean unused = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "type, dataId can not null");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                             return;
                         }
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                         HashSet fetchDirSet = this.this$0.getFetchDirSet(this.val$startTime, this.val$endTime, this.val$spaces);
                         if (fetchDirSet == null || fetchDirSet.size() == 0) {
-                            boolean unused2 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "not get upload dir");
+                            }
                             this.this$0.statActiveData(false, "query", this.val$dataId, this.val$type);
                             return;
                         }
@@ -419,7 +429,9 @@ public class UploadHelper {
                         JSONObject jSONObject2 = new JSONObject();
                         File zipFetchFile = this.this$0.zipFetchFile(fetchDirSet, LoggerManager.getBaseDir(), this.val$type, this.val$dataId, "", this.val$maxSizeLimit, this.val$startTime, this.val$endTime, jSONObject2);
                         if (zipFetchFile == null || zipFetchFile.length() == 0) {
-                            boolean unused3 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "zip file is null, and not upload");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, this.val$dataId, this.val$type);
                             return;
                         }
@@ -431,10 +443,10 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadFile(String str, String str2, List<String> list, long j2, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadFile(String str, String str2, List<String> list, long j, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, list, Long.valueOf(j2), iActiveUploadListener}) == null) {
-            mExecutorService.execute(new Runnable(this, str, str2, list, j2, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.6
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, list, Long.valueOf(j), iActiveUploadListener}) == null) {
+            mExecutorService.execute(new Runnable(this, str, str2, list, j, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.6
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -449,11 +461,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, list, Long.valueOf(j2), iActiveUploadListener};
+                        Object[] objArr = {this, str, str2, list, Long.valueOf(j), iActiveUploadListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -463,7 +475,7 @@ public class UploadHelper {
                     this.val$type = str;
                     this.val$dataId = str2;
                     this.val$filePathList = list;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                     this.val$activeUploadListener = iActiveUploadListener;
                 }
 
@@ -478,10 +490,10 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadSnapShot(String str, String str2, List<String> list, long j2, long j3, long j4, boolean z, IActiveUploadListener iActiveUploadListener) {
+    public void activeUploadSnapShot(String str, String str2, List<String> list, long j, long j2, long j3, boolean z, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, list, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), iActiveUploadListener}) == null) {
-            mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j3, j4, list, z, j2) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.4
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, list, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), iActiveUploadListener}) == null) {
+            mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j2, j3, list, z, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -499,11 +511,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r4;
-                        Object[] objArr = {this, str2, str, iActiveUploadListener, Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z), Long.valueOf(j2)};
+                        Object[] objArr = {this, str2, str, iActiveUploadListener, Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -513,11 +525,11 @@ public class UploadHelper {
                     this.val$dataId = str2;
                     this.val$type = str;
                     this.val$activeUploadListener = iActiveUploadListener;
-                    this.val$startTime = j3;
-                    this.val$endTime = j4;
+                    this.val$startTime = j2;
+                    this.val$endTime = j3;
                     this.val$spaces = list;
                     this.val$removeLogFile = z;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -526,7 +538,9 @@ public class UploadHelper {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_RECEIVE, this.val$dataId, this.val$type);
                         if (TextUtils.isEmpty(this.val$type) || TextUtils.isEmpty(this.val$dataId)) {
-                            boolean unused = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "type, dataId can not null");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener2 = this.val$activeUploadListener;
                             if (iActiveUploadListener2 != null) {
@@ -538,11 +552,13 @@ public class UploadHelper {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                         String str3 = AppRuntime.getAppContext().getApplicationInfo().dataDir + UploadHelper.LOG_FILE_SNAP_PATH + File.separator + this.val$dataId + "_" + new SimpleDateFormat("yyMMddhhmmss").format(new Date());
                         if (UploadHelper.DEBUG) {
-                            String str4 = "snap short dir: " + str3;
+                            Log.d(UploadHelper.TAG, "snap short dir: " + str3);
                         }
                         HashSet<String> snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str3);
                         if (snapShotSet == null || snapShotSet.size() == 0) {
-                            boolean unused2 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "not get upload dir");
+                            }
                             this.this$0.statActiveData(false, "query", this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener3 = this.val$activeUploadListener;
                             if (iActiveUploadListener3 != null) {
@@ -555,7 +571,9 @@ public class UploadHelper {
                         JSONObject jSONObject = new JSONObject();
                         File zipFetchFile = this.this$0.zipFetchFile(snapShotSet, str3, this.val$type, this.val$dataId, "", this.val$maxSizeLimit, this.val$startTime, this.val$endTime, jSONObject);
                         if (zipFetchFile == null || zipFetchFile.length() == 0) {
-                            boolean unused3 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "zip file is null, and not upload");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener4 = this.val$activeUploadListener;
                             if (iActiveUploadListener4 != null) {
@@ -582,14 +600,16 @@ public class UploadHelper {
         activeUpObj.setFileType("1");
         d dVar = this.mVoyager;
         if (dVar == null) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "voyager component fail");
+            }
             if (iActiveUploadListener != null) {
                 iActiveUploadListener.onFailure("voyager component fail");
                 return;
             }
             return;
         }
-        dVar.a(file.getAbsolutePath(), "acupload", c.a.a1.a.c.a.l, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+        dVar.a(file.getAbsolutePath(), "acupload", c.a.x0.a.c.a.l, new c(this, activeUpObj, iActiveUploadListener) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UploadHelper this$0;
@@ -603,9 +623,9 @@ public class UploadHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, activeUpObj, iActiveUploadListener};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -616,11 +636,13 @@ public class UploadHelper {
                 this.val$activeUploadListener = iActiveUploadListener;
             }
 
-            @Override // c.a.a1.b.c
+            @Override // c.a.x0.b.c
             public void onFailure(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject) == null) {
-                    boolean unused = UploadHelper.DEBUG;
+                    if (UploadHelper.DEBUG) {
+                        Log.d(UploadHelper.TAG, "Active upload yalog file failed");
+                    }
                     this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_UPLOAD, this.val$activeObj.getDataId(), this.val$activeObj.getType());
                     if (this.val$activeUploadListener != null) {
                         if (!TextUtils.isEmpty(str4)) {
@@ -632,7 +654,7 @@ public class UploadHelper {
                 }
             }
 
-            @Override // c.a.a1.b.c
+            @Override // c.a.x0.b.c
             public void onSuccess(String str4, JSONObject jSONObject) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject) == null) {
@@ -644,10 +666,10 @@ public class UploadHelper {
         });
     }
 
-    public void fetchUpload(String str, String str2, String str3, long j2, long j3, long j4, List<String> list) {
+    public void fetchUpload(String str, String str2, String str3, long j, long j2, long j3, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), list}) == null) {
-            mExecutorService.execute(new Runnable(this, str, str2, str3, j3, j4, list, j2) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.1
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), list}) == null) {
+            mExecutorService.execute(new Runnable(this, str, str2, str3, j2, j3, list, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -664,11 +686,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, str3, Long.valueOf(j3), Long.valueOf(j4), list, Long.valueOf(j2)};
+                        Object[] objArr = {this, str, str2, str3, Long.valueOf(j2), Long.valueOf(j3), list, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -678,10 +700,10 @@ public class UploadHelper {
                     this.val$type = str;
                     this.val$jobId = str2;
                     this.val$version = str3;
-                    this.val$startTime = j3;
-                    this.val$endTime = j4;
+                    this.val$startTime = j2;
+                    this.val$endTime = j3;
                     this.val$spaces = list;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -689,7 +711,9 @@ public class UploadHelper {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         if (TextUtils.isEmpty(this.val$type) || TextUtils.isEmpty(this.val$jobId) || TextUtils.isEmpty(this.val$version)) {
-                            boolean unused = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "日志回捞命令校验失败");
+                            }
                             this.this$0.statFetchData(StatConstants.VALUE_TYPE_CHECK_PARAM, false, this.val$jobId, this.val$type, this.val$version, StatConstants.ERR_MSG_CHECK_PARAM_FAIL, "", null);
                             return;
                         }
@@ -706,9 +730,9 @@ public class UploadHelper {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -731,7 +755,9 @@ public class UploadHelper {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fetchResult) == null) {
                                     if (fetchResult != null && TextUtils.equals("1", fetchResult.getValid())) {
-                                        boolean unused2 = UploadHelper.DEBUG;
+                                        if (UploadHelper.DEBUG) {
+                                            Log.d(UploadHelper.TAG, "日志回捞命开始上传");
+                                        }
                                         AnonymousClass1 anonymousClass1 = this.this$1;
                                         anonymousClass1.this$0.statFetchData("start", true, anonymousClass1.val$jobId, anonymousClass1.val$type, anonymousClass1.val$version, "", "", null);
                                         AnonymousClass1 anonymousClass12 = this.this$1;
@@ -744,7 +770,9 @@ public class UploadHelper {
                                             AnonymousClass1 anonymousClass14 = this.this$1;
                                             File zipFetchFile = anonymousClass14.this$0.zipFetchFile(fetchDirSet, baseDir, anonymousClass14.val$type, anonymousClass14.val$jobId, anonymousClass14.val$version, anonymousClass14.val$maxSizeLimit, anonymousClass14.val$startTime, anonymousClass14.val$endTime, jSONObject);
                                             if (zipFetchFile == null || zipFetchFile.length() <= 0) {
-                                                boolean unused3 = UploadHelper.DEBUG;
+                                                if (UploadHelper.DEBUG) {
+                                                    Log.d(UploadHelper.TAG, "zip file is null, and not upload");
+                                                }
                                                 AnonymousClass1 anonymousClass15 = this.this$1;
                                                 anonymousClass15.this$0.reportTaskDone(anonymousClass15.val$type, anonymousClass15.val$jobId, anonymousClass15.val$version, "", "1", jSONObject);
                                                 AnonymousClass1 anonymousClass16 = this.this$1;
@@ -774,11 +802,11 @@ public class UploadHelper {
         }
     }
 
-    public HashSet<String> getSnapShotSet(long j2, long j3, List<String> list, boolean z, boolean z2, String str) {
+    public HashSet<String> getSnapShotSet(long j, long j2, List<String> list, boolean z, boolean z2, String str) {
         InterceptResult invokeCommon;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), list, Boolean.valueOf(z), Boolean.valueOf(z2), str})) == null) {
             HashSet<String> hashSet = new HashSet<>();
             if (list != null && list.size() > 0) {
                 StringBuilder sb = new StringBuilder();
@@ -794,7 +822,7 @@ public class UploadHelper {
                             substring = next.substring(indexOf + 1);
                             next = substring2;
                         }
-                        List<String> createLogSnapShot = LoggerManager.createLogSnapShot(j2 / 1000, j3 / 1000, TextUtils.isEmpty(next) ? "*" : next, TextUtils.isEmpty(substring) ? "*" : substring, z, z2, str);
+                        List<String> createLogSnapShot = LoggerManager.createLogSnapShot(j / 1000, j2 / 1000, TextUtils.isEmpty(next) ? "*" : next, TextUtils.isEmpty(substring) ? "*" : substring, z, z2, str);
                         if (createLogSnapShot != null) {
                             if (createLogSnapShot.size() != 0) {
                                 for (String str2 : createLogSnapShot) {
@@ -810,8 +838,8 @@ public class UploadHelper {
                 }
             }
             if (DEBUG) {
-                String str3 = "snapShotDirList size is: " + hashSet.size();
-                String str4 = "snapShotDirList: " + Arrays.asList(hashSet);
+                Log.d(TAG, "snapShotDirList size is: " + hashSet.size());
+                Log.d(TAG, "snapShotDirList: " + Arrays.asList(hashSet));
             }
             return hashSet;
         }
@@ -835,7 +863,7 @@ public class UploadHelper {
                 sb.append(str5);
                 sb.append(", fileMeta: ");
                 sb.append(jSONObject == null ? "" : jSONObject.toString());
-                sb.toString();
+                Log.d(TAG, sb.toString());
             }
             if (!"2".equals(str5)) {
                 FetchTaskManager.getInstance().clearOriginData();
@@ -868,9 +896,9 @@ public class UploadHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, str2, str, str3, jSONObject, file};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -884,7 +912,7 @@ public class UploadHelper {
                 this.val$zipFile = file;
             }
 
-            @Override // c.a.a1.b.c
+            @Override // c.a.x0.b.c
             public void onFailure(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, str4, jSONObject2) == null) {
@@ -898,7 +926,7 @@ public class UploadHelper {
                 }
             }
 
-            @Override // c.a.a1.b.c
+            @Override // c.a.x0.b.c
             public void onSuccess(String str4, JSONObject jSONObject2) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str4, jSONObject2) == null) {
@@ -906,17 +934,19 @@ public class UploadHelper {
                     if (this.val$zipFile.exists()) {
                         this.val$zipFile.delete();
                     }
-                    boolean unused = UploadHelper.DEBUG;
+                    if (UploadHelper.DEBUG) {
+                        Log.d(UploadHelper.TAG, "fetch upload success");
+                    }
                     this.this$0.reportTaskDone(this.val$type, this.val$jobId, this.val$version, str4, "0", this.val$metaJson);
                 }
             }
         });
     }
 
-    public void activeUpload(String str, String str2, List<String> list, long j2, long j3, long j4, IActiveUploadListener iActiveUploadListener) {
+    public void activeUpload(String str, String str2, List<String> list, long j, long j2, long j3, IActiveUploadListener iActiveUploadListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, list, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), iActiveUploadListener}) == null) {
-            mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j3, j4, list, j2) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.3
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, list, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), iActiveUploadListener}) == null) {
+            mExecutorService.execute(new Runnable(this, str2, str, iActiveUploadListener, j2, j3, list, j) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -933,11 +963,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str2, str, iActiveUploadListener, Long.valueOf(j3), Long.valueOf(j4), list, Long.valueOf(j2)};
+                        Object[] objArr = {this, str2, str, iActiveUploadListener, Long.valueOf(j2), Long.valueOf(j3), list, Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -947,10 +977,10 @@ public class UploadHelper {
                     this.val$dataId = str2;
                     this.val$type = str;
                     this.val$activeUploadListener = iActiveUploadListener;
-                    this.val$startTime = j3;
-                    this.val$endTime = j4;
+                    this.val$startTime = j2;
+                    this.val$endTime = j3;
                     this.val$spaces = list;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -959,7 +989,9 @@ public class UploadHelper {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_RECEIVE, this.val$dataId, this.val$type);
                         if (TextUtils.isEmpty(this.val$type) || TextUtils.isEmpty(this.val$dataId)) {
-                            boolean unused = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "type, dataId can not null");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener2 = this.val$activeUploadListener;
                             if (iActiveUploadListener2 != null) {
@@ -971,7 +1003,9 @@ public class UploadHelper {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                         HashSet fetchDirSet = this.this$0.getFetchDirSet(this.val$startTime, this.val$endTime, this.val$spaces);
                         if (fetchDirSet == null || fetchDirSet.size() == 0) {
-                            boolean unused2 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "not get upload dir");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener3 = this.val$activeUploadListener;
                             if (iActiveUploadListener3 != null) {
@@ -984,7 +1018,9 @@ public class UploadHelper {
                         JSONObject jSONObject = new JSONObject();
                         File zipFetchFile = this.this$0.zipFetchFile(fetchDirSet, LoggerManager.getBaseDir(), this.val$type, this.val$dataId, "", this.val$maxSizeLimit, this.val$startTime, this.val$endTime, jSONObject);
                         if (zipFetchFile == null || zipFetchFile.length() == 0) {
-                            boolean unused3 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "zip file is null, and not upload");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, this.val$dataId, this.val$type);
                             IActiveUploadListener iActiveUploadListener4 = this.val$activeUploadListener;
                             if (iActiveUploadListener4 != null) {
@@ -1001,10 +1037,10 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadFile(String str, String str2, List<String> list, String str3, long j2, JSONObject jSONObject) {
+    public void activeUploadFile(String str, String str2, List<String> list, String str3, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, list, str3, Long.valueOf(j2), jSONObject}) == null) {
-            mExecutorService.execute(new Runnable(this, str, str2, list, str3, j2, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.7
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, list, str3, Long.valueOf(j), jSONObject}) == null) {
+            mExecutorService.execute(new Runnable(this, str, str2, list, str3, j, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -1020,11 +1056,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, str2, list, str3, Long.valueOf(j2), jSONObject};
+                        Object[] objArr = {this, str, str2, list, str3, Long.valueOf(j), jSONObject};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1035,7 +1071,7 @@ public class UploadHelper {
                     this.val$dataId = str2;
                     this.val$filePathList = list;
                     this.val$source = str3;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                     this.val$extInfo = jSONObject;
                 }
 
@@ -1050,10 +1086,10 @@ public class UploadHelper {
         }
     }
 
-    public void activeUploadSnapShot(String str, String str2, List<String> list, String str3, long j2, long j3, long j4, boolean z, JSONObject jSONObject) {
+    public void activeUploadSnapShot(String str, String str2, List<String> list, String str3, long j, long j2, long j3, boolean z, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, list, str3, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), jSONObject}) == null) {
-            mExecutorService.execute(new Runnable(this, str2, str, j3, j4, list, z, j2, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.5
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, list, str3, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), jSONObject}) == null) {
+            mExecutorService.execute(new Runnable(this, str2, str, j2, j3, list, z, j, str3, jSONObject) { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ UploadHelper this$0;
@@ -1072,11 +1108,11 @@ public class UploadHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r4;
-                        Object[] objArr = {this, str2, str, Long.valueOf(j3), Long.valueOf(j4), list, Boolean.valueOf(z), Long.valueOf(j2), str3, jSONObject};
+                        Object[] objArr = {this, str2, str, Long.valueOf(j2), Long.valueOf(j3), list, Boolean.valueOf(z), Long.valueOf(j), str3, jSONObject};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -1085,11 +1121,11 @@ public class UploadHelper {
                     this.this$0 = this;
                     this.val$dataId = str2;
                     this.val$type = str;
-                    this.val$startTime = j3;
-                    this.val$endTime = j4;
+                    this.val$startTime = j2;
+                    this.val$endTime = j3;
                     this.val$spaces = list;
                     this.val$removeLogFile = z;
-                    this.val$maxSizeLimit = j2;
+                    this.val$maxSizeLimit = j;
                     this.val$source = str3;
                     this.val$extInfo = jSONObject;
                 }
@@ -1100,18 +1136,22 @@ public class UploadHelper {
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_RECEIVE, this.val$dataId, this.val$type);
                         if (TextUtils.isEmpty(this.val$type) || TextUtils.isEmpty(this.val$dataId)) {
-                            boolean unused = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "type, dataId can not null");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                             return;
                         }
                         this.this$0.statActiveData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, this.val$dataId, this.val$type);
                         String str4 = AppRuntime.getAppContext().getApplicationInfo().dataDir + UploadHelper.LOG_FILE_SNAP_PATH + File.separator + this.val$dataId + "_" + new SimpleDateFormat("yyMMddhhmmss").format(new Date());
                         if (UploadHelper.DEBUG) {
-                            String str5 = "snap short dir: " + str4;
+                            Log.d(UploadHelper.TAG, "snap short dir: " + str4);
                         }
                         HashSet<String> snapShotSet = this.this$0.getSnapShotSet(this.val$startTime, this.val$endTime, this.val$spaces, this.val$removeLogFile, true, str4);
                         if (snapShotSet == null || snapShotSet.size() == 0) {
-                            boolean unused2 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "not get upload dir");
+                            }
                             this.this$0.statActiveData(false, "query", this.val$dataId, this.val$type);
                             return;
                         }
@@ -1119,7 +1159,9 @@ public class UploadHelper {
                         JSONObject jSONObject2 = new JSONObject();
                         File zipFetchFile = this.this$0.zipFetchFile(snapShotSet, str4, this.val$type, this.val$dataId, "", this.val$maxSizeLimit, this.val$startTime, this.val$endTime, jSONObject2);
                         if (zipFetchFile == null || zipFetchFile.length() == 0) {
-                            boolean unused3 = UploadHelper.DEBUG;
+                            if (UploadHelper.DEBUG) {
+                                Log.d(UploadHelper.TAG, "zip file is null, and not upload");
+                            }
                             this.this$0.statActiveData(false, StatConstants.VALUE_TYPE_ZIP, this.val$dataId, this.val$type);
                             return;
                         }
@@ -1138,7 +1180,10 @@ public class UploadHelper {
             return;
         }
         if (this.mVoyager == null) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "voyager component fail");
+                return;
+            }
             return;
         }
         if (jSONObject == null) {
@@ -1160,22 +1205,22 @@ public class UploadHelper {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void startUploadActiveFile(String str, String str2, List<String> list, String str3, long j2, JSONObject jSONObject) {
+    public void startUploadActiveFile(String str, String str2, List<String> list, String str3, long j, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, str2, list, str3, Long.valueOf(j2), jSONObject}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65550, this, new Object[]{str, str2, list, str3, Long.valueOf(j), jSONObject}) == null) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
                 statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
                 d dVar = (d) ServiceManager.getService(d.a);
                 if (dVar == null) {
-                    boolean z = DEBUG;
+                    if (DEBUG) {
+                        Log.d(TAG, "loss voyager impl component");
+                        return;
+                    }
                     return;
                 }
-                long j3 = j2 * 1024;
-                if (jSONObject == null) {
-                    jSONObject = new JSONObject();
-                }
-                JSONObject jSONObject2 = jSONObject;
+                long j2 = j * 1024;
+                JSONObject jSONObject2 = jSONObject == null ? new JSONObject() : jSONObject;
                 try {
                     jSONObject2.put("type", str);
                     jSONObject2.put("dataId", str2);
@@ -1187,10 +1232,12 @@ public class UploadHelper {
                         e2.printStackTrace();
                     }
                 }
-                dVar.b(list, "acupload", j3, jSONObject2);
+                dVar.b(list, "acupload", j2, jSONObject2);
                 return;
             }
-            boolean z2 = DEBUG;
+            if (DEBUG) {
+                Log.d(TAG, "type, dataId can not null");
+            }
             statActiveFileData(false, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
         }
     }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.newfaceshop.facemake;
 
 import android.text.TextUtils;
-import c.a.r0.p2.g.e;
+import c.a.p0.r2.g.e;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.HttpMessageListener;
@@ -26,32 +26,30 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class UploadFaceGroupModel extends FaceBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HttpMessageListener a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public final HttpMessageListener f44779e;
-
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UploadFaceGroupModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(UploadFaceGroupModel uploadFaceGroupModel, int i2) {
-            super(i2);
+        public a(UploadFaceGroupModel uploadFaceGroupModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uploadFaceGroupModel, Integer.valueOf(i2)};
+                Object[] objArr = {uploadFaceGroupModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -90,16 +88,16 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 if (obj3 != null && (obj3 instanceof Boolean)) {
                     z = ((Boolean) obj3).booleanValue();
                     if (arrayList != null) {
-                        this.a.x(lVar, null);
+                        this.a.z(lVar, null);
                         BdLog.e("msg extra empty");
                         return;
                     } else if (httpResponsedMessage.getError() != 0) {
-                        this.a.x(lVar, httpResponsedMessage.getErrorString());
+                        this.a.z(lVar, httpResponsedMessage.getErrorString());
                         return;
                     } else {
                         String groupId = ((UploadFaceGroupResponseMessage) httpResponsedMessage).getGroupId();
                         if (TextUtils.isEmpty(groupId)) {
-                            this.a.x(lVar, httpResponsedMessage.getErrorString());
+                            this.a.z(lVar, httpResponsedMessage.getErrorString());
                             return;
                         }
                         if (lVar != null) {
@@ -128,73 +126,32 @@ public class UploadFaceGroupModel extends FaceBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f44779e = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+        this.a = new a(this, CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f44779e.setTag(getUniqueId());
-        this.f44779e.setSelfListener(true);
-        registerListener(this.f44779e);
+        this.a.setTag(getUniqueId());
+        this.a.setSelfListener(true);
+        registerListener(this.a);
     }
 
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean cancelLoadData() {
-        InterceptResult invokeV;
+    public void A(String str, List<FaceData> list, e.l lVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f44779e);
-            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.adp.base.BdBaseModel
-    public boolean loadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void registerTask() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/addPackage");
-            tbHttpMessageTask.setResponsedClass(UploadFaceGroupResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void x(e.l lVar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, lVar, str) == null) {
-            if (lVar != null) {
-                lVar.onFail(str);
-            }
-            e.l().u(false, str);
-        }
-    }
-
-    public void y(String str, List<FaceData> list, e.l lVar, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048580, this, str, list, lVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048576, this, str, list, lVar, i) == null) {
             if (list != null && !list.isEmpty()) {
                 StringBuilder sb = new StringBuilder();
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    FaceData faceData = list.get(i3);
+                for (int i2 = 0; i2 < list.size(); i2++) {
+                    FaceData faceData = list.get(i2);
                     if (faceData != null) {
                         sb.append(faceData.pid);
-                        if (i3 < list.size() - 1) {
+                        if (i2 < list.size() - 1) {
                             sb.append("_");
                         }
                     }
@@ -206,16 +163,57 @@ public class UploadFaceGroupModel extends FaceBaseModel {
                 httpMessage.addParam("name", str);
                 httpMessage.addParam(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, ((FaceData) arrayList.get(0)).pid);
                 httpMessage.addParam("memes", sb.toString());
-                httpMessage.addParam("forum_id", i2);
+                httpMessage.addParam("forum_id", i);
                 HashMap hashMap = new HashMap();
                 hashMap.put(WebChromeClient.KEY_ARG_CALLBACK, lVar);
                 hashMap.put("list", arrayList);
-                hashMap.put("autoInstall", Boolean.valueOf(i2 == 0));
+                hashMap.put("autoInstall", Boolean.valueOf(i == 0));
                 httpMessage.setExtra(hashMap);
                 sendMessage(httpMessage);
                 return;
             }
-            x(lVar, "empty list");
+            z(lVar, "empty list");
+        }
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean cancelLoadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            MessageManager.getInstance().unRegisterListener(this.a);
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.adp.base.BdBaseModel
+    public boolean loadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void registerTask() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_UPLOAD_FACE_GROUP, TbConfig.SERVER_ADDRESS + "c/e/meme/addPackage");
+            tbHttpMessageTask.setResponsedClass(UploadFaceGroupResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void z(e.l lVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, lVar, str) == null) {
+            if (lVar != null) {
+                lVar.onFail(str);
+            }
+            e.l().u(false, str);
         }
     }
 }

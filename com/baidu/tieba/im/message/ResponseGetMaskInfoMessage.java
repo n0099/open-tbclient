@@ -30,9 +30,9 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -67,9 +67,9 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             GetMaskInfoResIdl getMaskInfoResIdl = (GetMaskInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, GetMaskInfoResIdl.class);
             setError(getMaskInfoResIdl.error.errorno.intValue());
             setErrorString(getMaskInfoResIdl.error.usermsg);
@@ -84,12 +84,12 @@ public class ResponseGetMaskInfoMessage extends SocketResponsedMessage {
                 this.list = dataRes2.list;
                 List<UserInfo> list = dataRes2.users;
                 int size = list != null ? list.size() : 0;
-                for (int i3 = 0; i3 < size; i3++) {
+                for (int i2 = 0; i2 < size; i2++) {
                     BlackListItemData blackListItemData = new BlackListItemData();
-                    blackListItemData.y(list.get(i3).portrait);
-                    blackListItemData.setUserId(list.get(i3).uid.longValue());
-                    blackListItemData.setUserName(list.get(i3).name);
-                    blackListItemData.z(list.get(i3).nameShow);
+                    blackListItemData.A(list.get(i2).portrait);
+                    blackListItemData.setUserId(list.get(i2).uid.longValue());
+                    blackListItemData.setUserName(list.get(i2).name);
+                    blackListItemData.B(list.get(i2).nameShow);
                     this.blackList.add(blackListItemData);
                 }
             }

@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Orange {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int JNI_CONTROL_COMMAND_DIR_DETECT = 1114128;
@@ -41,9 +41,9 @@ public class Orange {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -52,7 +52,7 @@ public class Orange {
         loadSoLib();
     }
 
-    public static native String getClock(Context context, byte[] bArr, int i2);
+    public static native String getClock(Context context, byte[] bArr, int i);
 
     public static Orange getInstance() {
         InterceptResult invokeV;
@@ -70,7 +70,7 @@ public class Orange {
         return (Orange) invokeV.objValue;
     }
 
-    public static native byte[] getMagic(Context context, byte[] bArr, int i2);
+    public static native byte[] getMagic(Context context, byte[] bArr, int i);
 
     private boolean isReject() {
         InterceptResult invokeV;
@@ -78,7 +78,7 @@ public class Orange {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) ? sLibLoadFail : invokeV.booleanValue;
     }
 
-    public static native Object jniCommand(int i2, Object obj, Object obj2, Object obj3);
+    public static native Object jniCommand(int i, Object obj, Object obj2, Object obj3);
 
     private void loadSoLib() {
         Interceptable interceptable = $ic;
@@ -163,26 +163,26 @@ public class Orange {
         return (String) invokeV.objValue;
     }
 
-    public synchronized String getClockWrapper(Context context, byte[] bArr, int i2) {
+    public synchronized String getClockWrapper(Context context, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, context, bArr, i)) == null) {
             synchronized (this) {
-                return isReject() ? "" : getClock(context, bArr, i2);
+                return isReject() ? "" : getClock(context, bArr, i);
             }
         }
         return (String) invokeLLI.objValue;
     }
 
-    public synchronized byte[] getMagicWrapper(Context context, byte[] bArr, int i2) {
+    public synchronized byte[] getMagicWrapper(Context context, byte[] bArr, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, context, bArr, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, context, bArr, i)) == null) {
             synchronized (this) {
                 if (isReject()) {
                     return null;
                 }
-                return getMagic(context, bArr, i2);
+                return getMagic(context, bArr, i);
             }
         }
         return (byte[]) invokeLLI.objValue;

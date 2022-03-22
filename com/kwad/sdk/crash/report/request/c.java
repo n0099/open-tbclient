@@ -7,7 +7,7 @@ import com.kwad.sdk.crash.report.ReportEvent;
 import com.kwad.sdk.crash.utils.d;
 import java.util.Calendar;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static ReportEvent a(@NonNull ExceptionMessage exceptionMessage) {
         ReportEvent reportEvent = new ReportEvent();
@@ -27,7 +27,7 @@ public class c {
     public static String a(String str) {
         if (!TextUtils.isEmpty(str) && !"Unknown".equals(str)) {
             try {
-                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f55099g);
+                String optString = new JSONObject(str).optString(com.kwad.sdk.crash.c.f40176g);
                 if (!TextUtils.isEmpty(optString)) {
                     return optString;
                 }

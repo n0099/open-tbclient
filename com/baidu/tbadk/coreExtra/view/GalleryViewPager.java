@@ -17,8 +17,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GalleryViewPager extends BaseViewPager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PointF m;
-    public DragImageView n;
+    public PointF i;
+    public DragImageView j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GalleryViewPager(Context context) {
@@ -29,9 +29,9 @@ public class GalleryViewPager extends BaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,18 +40,18 @@ public class GalleryViewPager extends BaseViewPager {
         }
     }
 
-    public final float[] d(MotionEvent motionEvent) {
+    public final float[] e(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             int action = motionEvent.getAction() & CompatibleUtile.getActionMask();
             if (action == 0) {
-                this.m = new PointF(motionEvent.getX(), motionEvent.getY());
+                this.i = new PointF(motionEvent.getX(), motionEvent.getY());
                 return null;
             } else if (action == 1 || action == 2) {
                 PointF pointF = new PointF(motionEvent.getX(), motionEvent.getY());
                 float f2 = pointF.x;
-                PointF pointF2 = this.m;
+                PointF pointF2 = this.i;
                 return new float[]{f2 - pointF2.x, pointF.y - pointF2.y};
             } else {
                 return null;
@@ -63,7 +63,7 @@ public class GalleryViewPager extends BaseViewPager {
     public DragImageView getCurrentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.n : (DragImageView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.j : (DragImageView) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.widget.TbViewPager, androidx.viewpager.widget.ViewPager, android.view.ViewGroup
@@ -74,21 +74,21 @@ public class GalleryViewPager extends BaseViewPager {
             if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
                 super.onInterceptTouchEvent(motionEvent);
             }
-            float[] d2 = d(motionEvent);
-            DragImageView dragImageView = this.n;
+            float[] e2 = e(motionEvent);
+            DragImageView dragImageView = this.j;
             if (dragImageView == null) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (dragImageView.pagerCantScroll()) {
+            if (dragImageView.f0()) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (d2 != null && this.n.onRightSide() && d2[0] < 0.0f) {
+            if (e2 != null && this.j.e0() && e2[0] < 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (d2 != null && this.n.onLeftSide() && d2[0] > 0.0f) {
+            if (e2 != null && this.j.d0() && e2[0] > 0.0f) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
-            if (d2 == null && (this.n.onLeftSide() || this.n.onRightSide())) {
+            if (e2 == null && (this.j.d0() || this.j.e0())) {
                 return super.onInterceptTouchEvent(motionEvent);
             }
             return false;
@@ -103,25 +103,25 @@ public class GalleryViewPager extends BaseViewPager {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
             if ((motionEvent.getAction() & CompatibleUtile.getActionMask()) == 1) {
                 super.onTouchEvent(motionEvent);
-                DragImageView dragImageView = this.n;
+                DragImageView dragImageView = this.j;
                 if (dragImageView != null) {
-                    dragImageView.actionUp();
+                    dragImageView.N();
                 }
             }
-            if (this.n == null) {
+            if (this.j == null) {
                 return super.onTouchEvent(motionEvent);
             }
-            float[] d2 = d(motionEvent);
-            if (this.n.pagerCantScroll()) {
+            float[] e2 = e(motionEvent);
+            if (this.j.f0()) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (d2 != null && this.n.onRightSide() && d2[0] < 0.0f) {
+            if (e2 != null && this.j.e0() && e2[0] < 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (d2 != null && this.n.onLeftSide() && d2[0] > 0.0f) {
+            if (e2 != null && this.j.d0() && e2[0] > 0.0f) {
                 return super.onTouchEvent(motionEvent);
             }
-            if (d2 == null && (this.n.onLeftSide() || this.n.onRightSide())) {
+            if (e2 == null && (this.j.d0() || this.j.e0())) {
                 return super.onTouchEvent(motionEvent);
             }
             return false;
@@ -132,7 +132,7 @@ public class GalleryViewPager extends BaseViewPager {
     public void setCurrentView(DragImageView dragImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, dragImageView) == null) {
-            this.n = dragImageView;
+            this.j = dragImageView;
         }
     }
 
@@ -145,9 +145,9 @@ public class GalleryViewPager extends BaseViewPager {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

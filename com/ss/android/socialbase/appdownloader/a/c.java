@@ -5,17 +5,18 @@ import android.content.Intent;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends a {
 
     /* renamed from: d  reason: collision with root package name */
-    public final JSONObject f58268d;
+    public final JSONObject f43008d;
 
     public c(Context context, com.ss.android.socialbase.downloader.g.a aVar, String str, JSONObject jSONObject) {
         super(context, aVar, str);
-        this.f58268d = jSONObject;
+        this.f43008d = jSONObject;
     }
 
     public static void a(@NonNull Intent intent, JSONObject jSONObject, JSONObject jSONObject2) {
@@ -34,13 +35,13 @@ public class c extends a {
 
     @Override // com.ss.android.socialbase.appdownloader.a.e
     public Intent b() {
-        String optString = this.f58268d.optString("action");
-        String optString2 = this.f58268d.optString("category");
-        int optInt = this.f58268d.optInt("flags", 1342210048);
-        String optString3 = this.f58268d.optString("path_extra_key");
-        String optString4 = this.f58268d.optString("path_data_key");
-        JSONObject optJSONObject = this.f58268d.optJSONObject("extra");
-        JSONObject optJSONObject2 = this.f58268d.optJSONObject("extra_type");
+        String optString = this.f43008d.optString("action");
+        String optString2 = this.f43008d.optString("category");
+        int optInt = this.f43008d.optInt("flags", 1342210048);
+        String optString3 = this.f43008d.optString("path_extra_key");
+        String optString4 = this.f43008d.optString("path_data_key");
+        JSONObject optJSONObject = this.f43008d.optJSONObject("extra");
+        JSONObject optJSONObject2 = this.f43008d.optJSONObject("extra_type");
         if (TextUtils.isEmpty(optString)) {
             return null;
         }
@@ -50,13 +51,13 @@ public class c extends a {
         }
         if (!TextUtils.isEmpty(optString4)) {
             try {
-                intent.setData(Uri.parse(String.format(optString4, this.f58267c)));
+                intent.setData(Uri.parse(String.format(optString4, this.f43007c)));
             } catch (Throwable unused) {
             }
         }
         intent.setFlags(optInt);
         if (!TextUtils.isEmpty(optString3)) {
-            intent.putExtra(optString3, this.f58267c);
+            intent.putExtra(optString3, this.f43007c);
         }
         a(intent, optJSONObject, optJSONObject2);
         return intent;
@@ -74,7 +75,7 @@ public class c extends a {
                 c2 = 65535;
                 break;
             case -891985903:
-                if (str2.equals("string")) {
+                if (str2.equals(EMABTest.TYPE_STRING)) {
                     c2 = 4;
                     break;
                 }

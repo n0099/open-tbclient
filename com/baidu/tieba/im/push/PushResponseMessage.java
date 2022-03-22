@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.push;
 
-import c.a.q0.r.r.z0;
+import c.a.o0.r.r.x0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -21,7 +21,7 @@ import protobuf.PushMsgInfo;
 public class PushResponseMessage extends ResponsePullMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z0 notificationData;
+    public x0 notificationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PushResponseMessage() {
@@ -30,9 +30,9 @@ public class PushResponseMessage extends ResponsePullMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,10 +41,10 @@ public class PushResponseMessage extends ResponsePullMessage {
         }
     }
 
-    public z0 getNotificationData() {
+    public x0 getNotificationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (z0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.notificationData : (x0) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.im.message.ResponsePullMessage
@@ -59,13 +59,13 @@ public class PushResponseMessage extends ResponsePullMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.im.message.ResponsePullMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         PushMessageResIdl pushMessageResIdl;
         DataRes dataRes;
         PushMsg pushMsg;
         PushMsgInfo pushMsgInfo;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (dataRes = (pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class)).data) == null || (pushMsg = dataRes.msgs) == null || (pushMsgInfo = pushMsg.data) == null || pushMsgInfo.msgInfo == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (dataRes = (pushMessageResIdl = (PushMessageResIdl) new Wire(new Class[0]).parseFrom(bArr, PushMessageResIdl.class)).data) == null || (pushMsg = dataRes.msgs) == null || (pushMsgInfo = pushMsg.data) == null || pushMsgInfo.msgInfo == null) {
             return;
         }
         TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_content_receive", null);

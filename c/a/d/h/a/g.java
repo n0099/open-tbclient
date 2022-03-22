@@ -27,9 +27,9 @@ public class g extends j {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,7 +49,7 @@ public class g extends j {
     public void h(Canvas canvas, d dVar, ImageView imageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dVar, imageView) == null) {
-            Matrix matrix = this.f2923e;
+            Matrix matrix = this.f2436e;
             if (matrix != null) {
                 canvas.concat(matrix);
             }
@@ -60,17 +60,17 @@ public class g extends j {
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2931b.g(canvas, this.y, this.f2924f, this.f2920b);
+                dVar.f2442b.g(canvas, this.y, this.f2437f, this.f2433b);
             } else if (dVar.d()) {
                 if (this.u) {
-                    v(canvas, dVar.f2931b.p());
+                    v(canvas, dVar.f2442b.p());
                     return;
                 }
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2931b.g(canvas, this.y, this.f2924f, this.f2920b);
+                dVar.f2442b.g(canvas, this.y, this.f2437f, this.f2433b);
             } else {
                 this.y.set(0, 0, dVar.b(), dVar.a());
-                dVar.f2931b.g(canvas, this.y, this.f2924f, this.f2920b);
+                dVar.f2442b.g(canvas, this.y, this.f2437f, this.f2433b);
             }
         }
     }
@@ -79,11 +79,11 @@ public class g extends j {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, bitmap) == null) {
             this.y.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            this.x.set(0, 0, (int) this.f2924f.width(), (int) this.f2924f.height());
+            this.x.set(0, 0, (int) this.f2437f.width(), (int) this.f2437f.height());
             canvas.save();
             canvas.drawARGB(0, 0, 0, 0);
             canvas.drawPath(this.r, this.v);
-            canvas.drawBitmap(bitmap, this.y, this.f2924f, this.w);
+            canvas.drawBitmap(bitmap, this.y, this.f2437f, this.w);
             canvas.restore();
         }
     }

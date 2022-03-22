@@ -25,14 +25,14 @@ import java.util.concurrent.Callable;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FlowableBufferExactBoundary<T, U extends Collection<? super T>, B> extends AbstractFlowableWithUpstream<T, U> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Publisher<B> boundary;
     public final Callable<U> bufferSupplier;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BufferBoundarySubscriber<T, U extends Collection<? super T>, B> extends DisposableSubscriber<B> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public final class FlowableBufferExactBoundary<T, U extends Collection<? super T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bufferExactBoundarySubscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,7 +81,7 @@ public final class FlowableBufferExactBoundary<T, U extends Collection<? super T
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class BufferExactBoundarySubscriber<T, U extends Collection<? super T>, B> extends QueueDrainSubscriber<T, U, U> implements FlowableSubscriber<T>, Subscription, Disposable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,9 +100,9 @@ public final class FlowableBufferExactBoundary<T, U extends Collection<? super T
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, callable, publisher};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Subscriber) objArr2[0], (SimplePlainQueue) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -238,10 +238,10 @@ public final class FlowableBufferExactBoundary<T, U extends Collection<? super T
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-                requested(j2);
+            if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+                requested(j);
             }
         }
 
@@ -265,9 +265,9 @@ public final class FlowableBufferExactBoundary<T, U extends Collection<? super T
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, publisher, callable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

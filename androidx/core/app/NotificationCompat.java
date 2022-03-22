@@ -56,7 +56,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class NotificationCompat {
     public static /* synthetic */ Interceptable $ic = null;
@@ -204,9 +203,9 @@ public class NotificationCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iconCompat, charSequence, pendingIntent};
                     interceptable.invokeUnInit(65538, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), ((Boolean) objArr2[7]).booleanValue(), ((Boolean) objArr2[8]).booleanValue());
                         newInitContext.thisArg = this;
@@ -309,11 +308,11 @@ public class NotificationCompat {
                 return (Builder) invokeZ.objValue;
             }
 
-            public Builder setSemanticAction(int i2) {
+            public Builder setSemanticAction(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-                    this.mSemanticAction = i2;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+                    this.mSemanticAction = i;
                     return this;
                 }
                 return (Builder) invokeI.objValue;
@@ -330,17 +329,17 @@ public class NotificationCompat {
             }
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-            public Builder(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
-                this(i2 != 0 ? IconCompat.createWithResource(null, "", i2) : null, charSequence, pendingIntent, new Bundle(), null, true, 0, true, false);
+            public Builder(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+                this(i != 0 ? IconCompat.createWithResource(null, "", i) : null, charSequence, pendingIntent, new Bundle(), null, true, 0, true, false);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r3;
-                    Object[] objArr = {Integer.valueOf(i2), charSequence, pendingIntent};
+                    Object[] objArr = {Integer.valueOf(i), charSequence, pendingIntent};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), ((Boolean) objArr2[7]).booleanValue(), ((Boolean) objArr2[8]).booleanValue());
                         newInitContext.thisArg = this;
@@ -359,9 +358,9 @@ public class NotificationCompat {
                     newInitContext.initArgs = r3;
                     Object[] objArr = {action};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], ((Boolean) objArr2[5]).booleanValue(), ((Integer) objArr2[6]).intValue(), ((Boolean) objArr2[7]).booleanValue(), ((Boolean) objArr2[8]).booleanValue());
                         newInitContext.thisArg = this;
@@ -371,16 +370,16 @@ public class NotificationCompat {
                 }
             }
 
-            public Builder(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, boolean z, int i2, boolean z2, boolean z3) {
+            public Builder(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, boolean z, int i, boolean z2, boolean z3) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {iconCompat, charSequence, pendingIntent, bundle, remoteInputArr, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                    Object[] objArr = {iconCompat, charSequence, pendingIntent, bundle, remoteInputArr, Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                     interceptable.invokeUnInit(65539, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65539, newInitContext);
                         return;
@@ -394,7 +393,7 @@ public class NotificationCompat {
                 this.mExtras = bundle;
                 this.mRemoteInputs = remoteInputArr == null ? null : new ArrayList<>(Arrays.asList(remoteInputArr));
                 this.mAllowGeneratedReplies = z;
-                this.mSemanticAction = i2;
+                this.mSemanticAction = i;
                 this.mShowsUserInterface = z2;
                 this.mIsContextual = z3;
             }
@@ -433,9 +432,9 @@ public class NotificationCompat {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -444,13 +443,13 @@ public class NotificationCompat {
                 this.mFlags = 1;
             }
 
-            private void setFlag(int i2, boolean z) {
+            private void setFlag(int i, boolean z) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+                if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                     if (z) {
-                        this.mFlags = i2 | this.mFlags;
+                        this.mFlags = i | this.mFlags;
                     } else {
-                        this.mFlags = (~i2) & this.mFlags;
+                        this.mFlags = (~i) & this.mFlags;
                     }
                 }
             }
@@ -461,9 +460,9 @@ public class NotificationCompat {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, builder)) == null) {
                     Bundle bundle = new Bundle();
-                    int i2 = this.mFlags;
-                    if (i2 != 1) {
-                        bundle.putInt("flags", i2);
+                    int i = this.mFlags;
+                    if (i != 1) {
+                        bundle.putInt("flags", i);
                     }
                     CharSequence charSequence = this.mInProgressLabel;
                     if (charSequence != null) {
@@ -608,9 +607,9 @@ public class NotificationCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {action};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65537, newInitContext);
                         return;
@@ -628,17 +627,17 @@ public class NotificationCompat {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Action(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
-            this(i2 != 0 ? IconCompat.createWithResource(null, "", i2) : null, charSequence, pendingIntent);
+        public Action(int i, CharSequence charSequence, PendingIntent pendingIntent) {
+            this(i != 0 ? IconCompat.createWithResource(null, "", i) : null, charSequence, pendingIntent);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), charSequence, pendingIntent};
+                Object[] objArr = {Integer.valueOf(i), charSequence, pendingIntent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2]);
                     newInitContext.thisArg = this;
@@ -682,11 +681,11 @@ public class NotificationCompat {
         @Nullable
         public IconCompat getIconCompat() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                if (this.mIcon == null && (i2 = this.icon) != 0) {
-                    this.mIcon = IconCompat.createWithResource(null, "", i2);
+                if (this.mIcon == null && (i = this.icon) != 0) {
+                    this.mIcon = IconCompat.createWithResource(null, "", i);
                 }
                 return this.mIcon;
             }
@@ -732,9 +731,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r3;
                 Object[] objArr = {iconCompat, charSequence, pendingIntent};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], (RemoteInput[]) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue(), ((Boolean) objArr2[8]).booleanValue(), ((Boolean) objArr2[9]).booleanValue());
                     newInitContext.thisArg = this;
@@ -745,17 +744,17 @@ public class NotificationCompat {
         }
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public Action(int i2, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i3, boolean z2, boolean z3) {
-            this(i2 != 0 ? IconCompat.createWithResource(null, "", i2) : null, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, i3, z2, z3);
+        public Action(int i, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i2, boolean z2, boolean z3) {
+            this(i != 0 ? IconCompat.createWithResource(null, "", i) : null, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, z, i2, z2, z3);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {Integer.valueOf(i2), charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, Boolean.valueOf(z), Integer.valueOf(i3), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                Object[] objArr = {Integer.valueOf(i), charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((IconCompat) objArr2[0], (CharSequence) objArr2[1], (PendingIntent) objArr2[2], (Bundle) objArr2[3], (RemoteInput[]) objArr2[4], (RemoteInput[]) objArr2[5], ((Boolean) objArr2[6]).booleanValue(), ((Integer) objArr2[7]).intValue(), ((Boolean) objArr2[8]).booleanValue(), ((Boolean) objArr2[9]).booleanValue());
                     newInitContext.thisArg = this;
@@ -765,16 +764,16 @@ public class NotificationCompat {
             }
         }
 
-        public Action(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i2, boolean z2, boolean z3) {
+        public Action(@Nullable IconCompat iconCompat, CharSequence charSequence, PendingIntent pendingIntent, Bundle bundle, RemoteInput[] remoteInputArr, RemoteInput[] remoteInputArr2, boolean z, int i, boolean z2, boolean z3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iconCompat, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2), Boolean.valueOf(z3)};
+                Object[] objArr = {iconCompat, charSequence, pendingIntent, bundle, remoteInputArr, remoteInputArr2, Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2), Boolean.valueOf(z3)};
                 interceptable.invokeUnInit(65539, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65539, newInitContext);
                     return;
@@ -791,7 +790,7 @@ public class NotificationCompat {
             this.mRemoteInputs = remoteInputArr;
             this.mDataOnlyRemoteInputs = remoteInputArr2;
             this.mAllowGeneratedReplies = z;
-            this.mSemanticAction = i2;
+            this.mSemanticAction = i;
             this.mShowsUserInterface = z2;
             this.mIsContextual = z3;
         }
@@ -816,9 +815,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -890,9 +889,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -913,9 +912,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -973,9 +972,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1016,23 +1015,23 @@ public class NotificationCompat {
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                     }
                 }
             }
 
-            private Builder setFlag(int i2, boolean z) {
+            private Builder setFlag(int i, boolean z) {
                 InterceptResult invokeCommon;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
                     if (z) {
-                        this.mFlags = i2 | this.mFlags;
+                        this.mFlags = i | this.mFlags;
                     } else {
-                        this.mFlags = (~i2) & this.mFlags;
+                        this.mFlags = (~i) & this.mFlags;
                     }
                     return this;
                 }
@@ -1081,11 +1080,11 @@ public class NotificationCompat {
             }
 
             @NonNull
-            public Builder setDesiredHeight(@Dimension(unit = 0) int i2) {
+            public Builder setDesiredHeight(@Dimension(unit = 0) int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                    this.mDesiredHeight = Math.max(i2, 0);
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                    this.mDesiredHeight = Math.max(i, 0);
                     this.mDesiredHeightResId = 0;
                     return this;
                 }
@@ -1093,11 +1092,11 @@ public class NotificationCompat {
             }
 
             @NonNull
-            public Builder setDesiredHeightResId(@DimenRes int i2) {
+            public Builder setDesiredHeightResId(@DimenRes int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                    this.mDesiredHeightResId = i2;
+                if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                    this.mDesiredHeightResId = i;
                     this.mDesiredHeight = 0;
                     return this;
                 }
@@ -1147,8 +1146,8 @@ public class NotificationCompat {
             }
         }
 
-        public /* synthetic */ BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i2, int i3, int i4, AnonymousClass1 anonymousClass1) {
-            this(pendingIntent, pendingIntent2, iconCompat, i2, i3, i4);
+        public /* synthetic */ BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, int i2, int i3, AnonymousClass1 anonymousClass1) {
+            this(pendingIntent, pendingIntent2, iconCompat, i, i2, i3);
         }
 
         @Nullable
@@ -1240,16 +1239,16 @@ public class NotificationCompat {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (this.mFlags & 2) != 0 : invokeV.booleanValue;
         }
 
-        public BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i2, @DimenRes int i3, int i4) {
+        public BubbleMetadata(PendingIntent pendingIntent, PendingIntent pendingIntent2, IconCompat iconCompat, int i, @DimenRes int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pendingIntent, pendingIntent2, iconCompat, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {pendingIntent, pendingIntent2, iconCompat, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -1257,10 +1256,10 @@ public class NotificationCompat {
             }
             this.mPendingIntent = pendingIntent;
             this.mIcon = iconCompat;
-            this.mDesiredHeight = i2;
-            this.mDesiredHeightResId = i3;
+            this.mDesiredHeight = i;
+            this.mDesiredHeightResId = i2;
             this.mDeleteIntent = pendingIntent2;
-            this.mFlags = i4;
+            this.mFlags = i3;
         }
     }
 
@@ -1325,9 +1324,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -1377,24 +1376,24 @@ public class NotificationCompat {
             return (Bitmap) invokeL.objValue;
         }
 
-        private void setFlag(int i2, boolean z) {
+        private void setFlag(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (z) {
                     Notification notification = this.mNotification;
-                    notification.flags = i2 | notification.flags;
+                    notification.flags = i | notification.flags;
                     return;
                 }
                 Notification notification2 = this.mNotification;
-                notification2.flags = (~i2) & notification2.flags;
+                notification2.flags = (~i) & notification2.flags;
             }
         }
 
-        public Builder addAction(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
+        public Builder addAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i2, charSequence, pendingIntent)) == null) {
-                this.mActions.add(new Action(i2, charSequence, pendingIntent));
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, charSequence, pendingIntent)) == null) {
+                this.mActions.add(new Action(i, charSequence, pendingIntent));
                 return this;
             }
             return (Builder) invokeILL.objValue;
@@ -1418,10 +1417,10 @@ public class NotificationCompat {
         }
 
         @RequiresApi(21)
-        public Builder addInvisibleAction(int i2, CharSequence charSequence, PendingIntent pendingIntent) {
+        public Builder addInvisibleAction(int i, CharSequence charSequence, PendingIntent pendingIntent) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, charSequence, pendingIntent)) == null) ? addInvisibleAction(new Action(i2, charSequence, pendingIntent)) : (Builder) invokeILL.objValue;
+            return (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, charSequence, pendingIntent)) == null) ? addInvisibleAction(new Action(i, charSequence, pendingIntent)) : (Builder) invokeILL.objValue;
         }
 
         public Builder addPerson(String str) {
@@ -1546,11 +1545,11 @@ public class NotificationCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setBadgeIconType(int i2) {
+        public Builder setBadgeIconType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-                this.mBadgeIcon = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+                this.mBadgeIcon = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -1600,11 +1599,11 @@ public class NotificationCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setColor(@ColorInt int i2) {
+        public Builder setColor(@ColorInt int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
-                this.mColor = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
+                this.mColor = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -1701,13 +1700,13 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setDefaults(int i2) {
+        public Builder setDefaults(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048610, this, i)) == null) {
                 Notification notification = this.mNotification;
-                notification.defaults = i2;
-                if ((i2 & 4) != 0) {
+                notification.defaults = i;
+                if ((i & 4) != 0) {
                     notification.flags |= 1;
                 }
                 return this;
@@ -1756,11 +1755,11 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setGroupAlertBehavior(int i2) {
+        public Builder setGroupAlertBehavior(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) {
-                this.mGroupAlertBehavior = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) {
+                this.mGroupAlertBehavior = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -1786,17 +1785,17 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setLights(@ColorInt int i2, int i3, int i4) {
+        public Builder setLights(@ColorInt int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(1048618, this, i2, i3, i4)) == null) {
+            if (interceptable == null || (invokeIII = interceptable.invokeIII(1048618, this, i, i2, i3)) == null) {
                 Notification notification = this.mNotification;
-                notification.ledARGB = i2;
-                notification.ledOnMS = i3;
-                notification.ledOffMS = i4;
-                int i5 = (i3 == 0 || i4 == 0) ? 0 : 1;
+                notification.ledARGB = i;
+                notification.ledOnMS = i2;
+                notification.ledOffMS = i3;
+                int i4 = (i2 == 0 || i3 == 0) ? 0 : 1;
                 Notification notification2 = this.mNotification;
-                notification2.flags = i5 | (notification2.flags & (-2));
+                notification2.flags = i4 | (notification2.flags & (-2));
                 return this;
             }
             return (Builder) invokeIII.objValue;
@@ -1823,11 +1822,11 @@ public class NotificationCompat {
             return (Builder) invokeV.objValue;
         }
 
-        public Builder setNumber(int i2) {
+        public Builder setNumber(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i2)) == null) {
-                this.mNumber = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048621, this, i)) == null) {
+                this.mNumber = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -1853,22 +1852,22 @@ public class NotificationCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setPriority(int i2) {
+        public Builder setPriority(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i2)) == null) {
-                this.mPriority = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
+                this.mPriority = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setProgress(int i2, int i3, boolean z) {
+        public Builder setProgress(int i, int i2, boolean z) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-                this.mProgressMax = i2;
-                this.mProgress = i3;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048625, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+                this.mProgressMax = i;
+                this.mProgress = i2;
                 this.mProgressIndeterminate = z;
                 return this;
             }
@@ -1915,11 +1914,11 @@ public class NotificationCompat {
             return (Builder) invokeZ.objValue;
         }
 
-        public Builder setSmallIcon(int i2) {
+        public Builder setSmallIcon(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i2)) == null) {
-                this.mNotification.icon = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048630, this, i)) == null) {
+                this.mNotification.icon = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
@@ -1985,11 +1984,11 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setTimeoutAfter(long j2) {
+        public Builder setTimeoutAfter(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j2)) == null) {
-                this.mTimeout = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048639, this, j)) == null) {
+                this.mTimeout = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -2015,21 +2014,21 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setVisibility(int i2) {
+        public Builder setVisibility(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048642, this, i2)) == null) {
-                this.mVisibility = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048642, this, i)) == null) {
+                this.mVisibility = i;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setWhen(long j2) {
+        public Builder setWhen(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j2)) == null) {
-                this.mNotification.when = j2;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048643, this, j)) == null) {
+                this.mNotification.when = j;
                 return this;
             }
             return (Builder) invokeJ.objValue;
@@ -2056,13 +2055,13 @@ public class NotificationCompat {
             return (Builder) invokeL.objValue;
         }
 
-        public Builder setSmallIcon(int i2, int i3) {
+        public Builder setSmallIcon(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(1048631, this, i2, i3)) == null) {
+            if (interceptable == null || (invokeII = interceptable.invokeII(1048631, this, i, i2)) == null) {
                 Notification notification = this.mNotification;
-                notification.icon = i2;
-                notification.iconLevel = i3;
+                notification.icon = i;
+                notification.iconLevel = i2;
                 return this;
             }
             return (Builder) invokeII.objValue;
@@ -2079,15 +2078,15 @@ public class NotificationCompat {
             return (Builder) invokeLL.objValue;
         }
 
-        public Builder setSound(Uri uri, int i2) {
+        public Builder setSound(Uri uri, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048634, this, uri, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048634, this, uri, i)) == null) {
                 Notification notification = this.mNotification;
                 notification.sound = uri;
-                notification.audioStreamType = i2;
+                notification.audioStreamType = i;
                 if (Build.VERSION.SDK_INT >= 21) {
-                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setLegacyStreamType(i2).build();
+                    notification.audioAttributes = new AudioAttributes.Builder().setContentType(4).setLegacyStreamType(i).build();
                 }
                 return this;
             }
@@ -2104,9 +2103,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Context) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -2128,9 +2127,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -2149,13 +2148,13 @@ public class NotificationCompat {
                 if (!z || nonContextualActions == null || (min = Math.min(nonContextualActions.size(), 3)) <= 0) {
                     z2 = false;
                 } else {
-                    for (int i2 = 0; i2 < min; i2++) {
-                        applyStandardTemplate.addView(R$id.actions, generateActionButton(nonContextualActions.get(i2)));
+                    for (int i = 0; i < min; i++) {
+                        applyStandardTemplate.addView(R$id.actions, generateActionButton(nonContextualActions.get(i)));
                     }
                 }
-                int i3 = z2 ? 0 : 8;
-                applyStandardTemplate.setViewVisibility(R$id.actions, i3);
-                applyStandardTemplate.setViewVisibility(R$id.action_divider, i3);
+                int i2 = z2 ? 0 : 8;
+                applyStandardTemplate.setViewVisibility(R$id.actions, i2);
+                applyStandardTemplate.setViewVisibility(R$id.action_divider, i2);
                 buildIntoRemoteViews(applyStandardTemplate, remoteViews);
                 return applyStandardTemplate;
             }
@@ -2164,17 +2163,17 @@ public class NotificationCompat {
 
         private RemoteViews generateActionButton(Action action) {
             InterceptResult invokeL;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, action)) == null) {
                 boolean z = action.actionIntent == null;
                 String packageName = this.mBuilder.mContext.getPackageName();
                 if (z) {
-                    i2 = R$layout.notification_action_tombstone;
+                    i = R$layout.notification_action_tombstone;
                 } else {
-                    i2 = R$layout.notification_action;
+                    i = R$layout.notification_action;
                 }
-                RemoteViews remoteViews = new RemoteViews(packageName, i2);
+                RemoteViews remoteViews = new RemoteViews(packageName, i);
                 remoteViews.setImageViewBitmap(R$id.action_image, createColoredBitmap(action.getIconCompat(), this.mBuilder.mContext.getResources().getColor(R$color.notification_action_color_filter)));
                 remoteViews.setTextViewText(R$id.action_text, action.title);
                 if (!z) {
@@ -2309,9 +2308,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2339,21 +2338,21 @@ public class NotificationCompat {
             return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) ? f2 < f3 ? f3 : f2 > f4 ? f4 : f2 : invokeCommon.floatValue;
         }
 
-        private Bitmap createIconWithBackground(int i2, int i3, int i4, int i5) {
+        private Bitmap createIconWithBackground(int i, int i2, int i3, int i4) {
             InterceptResult invokeIIII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i2, i3, i4, i5)) == null) {
-                int i6 = R$drawable.notification_icon_background;
-                if (i5 == 0) {
-                    i5 = 0;
+            if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, this, i, i2, i3, i4)) == null) {
+                int i5 = R$drawable.notification_icon_background;
+                if (i4 == 0) {
+                    i4 = 0;
                 }
-                Bitmap createColoredBitmap = createColoredBitmap(i6, i5, i3);
+                Bitmap createColoredBitmap = createColoredBitmap(i5, i4, i2);
                 Canvas canvas = new Canvas(createColoredBitmap);
-                Drawable mutate = this.mBuilder.mContext.getResources().getDrawable(i2).mutate();
+                Drawable mutate = this.mBuilder.mContext.getResources().getDrawable(i).mutate();
                 mutate.setFilterBitmap(true);
-                int i7 = (i3 - i4) / 2;
-                int i8 = i4 + i7;
-                mutate.setBounds(i7, i7, i8, i8);
+                int i6 = (i2 - i3) / 2;
+                int i7 = i3 + i6;
+                mutate.setBounds(i6, i6, i7, i7);
                 mutate.setColorFilter(new PorterDuffColorFilter(-1, PorterDuff.Mode.SRC_ATOP));
                 mutate.draw(canvas);
                 return createColoredBitmap;
@@ -2397,20 +2396,20 @@ public class NotificationCompat {
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public RemoteViews applyStandardTemplate(boolean z, int i2, boolean z2) {
+        public RemoteViews applyStandardTemplate(boolean z, int i, boolean z2) {
             InterceptResult invokeCommon;
             boolean z3;
             CharSequence charSequence;
             boolean z4;
             CharSequence charSequence2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)})) == null) {
                 Resources resources = this.mBuilder.mContext.getResources();
-                RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), i2);
+                RemoteViews remoteViews = new RemoteViews(this.mBuilder.mContext.getPackageName(), i);
                 boolean z5 = true;
                 boolean z6 = this.mBuilder.getPriority() < -1;
-                int i3 = Build.VERSION.SDK_INT;
-                if (i3 >= 16 && i3 < 21) {
+                int i2 = Build.VERSION.SDK_INT;
+                if (i2 >= 16 && i2 < 21) {
                     if (z6) {
                         remoteViews.setInt(R$id.notification_background, "setBackgroundResource", R$drawable.notification_bg_low);
                         remoteViews.setInt(R$id.icon, "setBackgroundResource", R$drawable.notification_template_icon_low_bg);
@@ -2570,10 +2569,10 @@ public class NotificationCompat {
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-        public Bitmap createColoredBitmap(int i2, int i3) {
+        public Bitmap createColoredBitmap(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i2, i3)) == null) ? createColoredBitmap(i2, i3, 0) : (Bitmap) invokeII.objValue;
+            return (interceptable == null || (invokeII = interceptable.invokeII(1048581, this, i, i2)) == null) ? createColoredBitmap(i, i2, 0) : (Bitmap) invokeII.objValue;
         }
 
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
@@ -2624,31 +2623,31 @@ public class NotificationCompat {
             }
         }
 
-        public Bitmap createColoredBitmap(IconCompat iconCompat, int i2) {
+        public Bitmap createColoredBitmap(IconCompat iconCompat, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iconCompat, i2)) == null) ? createColoredBitmap(iconCompat, i2, 0) : (Bitmap) invokeLI.objValue;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iconCompat, i)) == null) ? createColoredBitmap(iconCompat, i, 0) : (Bitmap) invokeLI.objValue;
         }
 
-        private Bitmap createColoredBitmap(int i2, int i3, int i4) {
+        private Bitmap createColoredBitmap(int i, int i2, int i3) {
             InterceptResult invokeIII;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i2, i3, i4)) == null) ? createColoredBitmap(IconCompat.createWithResource(this.mBuilder.mContext, i2), i3, i4) : (Bitmap) invokeIII.objValue;
+            return (interceptable == null || (invokeIII = interceptable.invokeIII(65539, this, i, i2, i3)) == null) ? createColoredBitmap(IconCompat.createWithResource(this.mBuilder.mContext, i), i2, i3) : (Bitmap) invokeIII.objValue;
         }
 
-        private Bitmap createColoredBitmap(IconCompat iconCompat, int i2, int i3) {
+        private Bitmap createColoredBitmap(IconCompat iconCompat, int i, int i2) {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iconCompat, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iconCompat, i, i2)) == null) {
                 Drawable loadDrawable = iconCompat.loadDrawable(this.mBuilder.mContext);
-                int intrinsicWidth = i3 == 0 ? loadDrawable.getIntrinsicWidth() : i3;
-                if (i3 == 0) {
-                    i3 = loadDrawable.getIntrinsicHeight();
+                int intrinsicWidth = i2 == 0 ? loadDrawable.getIntrinsicWidth() : i2;
+                if (i2 == 0) {
+                    i2 = loadDrawable.getIntrinsicHeight();
                 }
-                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, i3, Bitmap.Config.ARGB_8888);
-                loadDrawable.setBounds(0, 0, intrinsicWidth, i3);
-                if (i2 != 0) {
-                    loadDrawable.mutate().setColorFilter(new PorterDuffColorFilter(i2, PorterDuff.Mode.SRC_IN));
+                Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, i2, Bitmap.Config.ARGB_8888);
+                loadDrawable.setBounds(0, 0, intrinsicWidth, i2);
+                if (i != 0) {
+                    loadDrawable.mutate().setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
                 }
                 loadDrawable.draw(new Canvas(createBitmap));
                 return createBitmap;
@@ -2723,9 +2722,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -2775,13 +2774,13 @@ public class NotificationCompat {
             return (Notification.Action) invokeL.objValue;
         }
 
-        private void setFlag(int i2, boolean z) {
+        private void setFlag(int i, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
                 if (z) {
-                    this.mFlags = i2 | this.mFlags;
+                    this.mFlags = i | this.mFlags;
                 } else {
-                    this.mFlags = (~i2) & this.mFlags;
+                    this.mFlags = (~i) & this.mFlags;
                 }
             }
         }
@@ -2861,10 +2860,10 @@ public class NotificationCompat {
                         Iterator<Action> it = this.mActions.iterator();
                         while (it.hasNext()) {
                             Action next = it.next();
-                            int i2 = Build.VERSION.SDK_INT;
-                            if (i2 >= 20) {
+                            int i = Build.VERSION.SDK_INT;
+                            if (i >= 20) {
                                 arrayList.add(getActionFromActionCompat(next));
-                            } else if (i2 >= 16) {
+                            } else if (i >= 16) {
                                 arrayList.add(NotificationCompatJellybean.getBundleForAction(next));
                             }
                         }
@@ -2873,9 +2872,9 @@ public class NotificationCompat {
                         bundle.putParcelableArrayList(KEY_ACTIONS, null);
                     }
                 }
-                int i3 = this.mFlags;
-                if (i3 != 1) {
-                    bundle.putInt("flags", i3);
+                int i2 = this.mFlags;
+                if (i2 != 1) {
+                    bundle.putInt("flags", i2);
                 }
                 PendingIntent pendingIntent = this.mDisplayIntent;
                 if (pendingIntent != null) {
@@ -2889,33 +2888,33 @@ public class NotificationCompat {
                 if (bitmap != null) {
                     bundle.putParcelable(KEY_BACKGROUND, bitmap);
                 }
-                int i4 = this.mContentIcon;
-                if (i4 != 0) {
-                    bundle.putInt(KEY_CONTENT_ICON, i4);
+                int i3 = this.mContentIcon;
+                if (i3 != 0) {
+                    bundle.putInt(KEY_CONTENT_ICON, i3);
                 }
-                int i5 = this.mContentIconGravity;
-                if (i5 != 8388613) {
-                    bundle.putInt(KEY_CONTENT_ICON_GRAVITY, i5);
+                int i4 = this.mContentIconGravity;
+                if (i4 != 8388613) {
+                    bundle.putInt(KEY_CONTENT_ICON_GRAVITY, i4);
                 }
-                int i6 = this.mContentActionIndex;
-                if (i6 != -1) {
-                    bundle.putInt(KEY_CONTENT_ACTION_INDEX, i6);
+                int i5 = this.mContentActionIndex;
+                if (i5 != -1) {
+                    bundle.putInt(KEY_CONTENT_ACTION_INDEX, i5);
                 }
-                int i7 = this.mCustomSizePreset;
+                int i6 = this.mCustomSizePreset;
+                if (i6 != 0) {
+                    bundle.putInt(KEY_CUSTOM_SIZE_PRESET, i6);
+                }
+                int i7 = this.mCustomContentHeight;
                 if (i7 != 0) {
-                    bundle.putInt(KEY_CUSTOM_SIZE_PRESET, i7);
+                    bundle.putInt(KEY_CUSTOM_CONTENT_HEIGHT, i7);
                 }
-                int i8 = this.mCustomContentHeight;
-                if (i8 != 0) {
-                    bundle.putInt(KEY_CUSTOM_CONTENT_HEIGHT, i8);
+                int i8 = this.mGravity;
+                if (i8 != 80) {
+                    bundle.putInt(KEY_GRAVITY, i8);
                 }
-                int i9 = this.mGravity;
-                if (i9 != 80) {
-                    bundle.putInt(KEY_GRAVITY, i9);
-                }
-                int i10 = this.mHintScreenTimeout;
-                if (i10 != 0) {
-                    bundle.putInt(KEY_HINT_SCREEN_TIMEOUT, i10);
+                int i9 = this.mHintScreenTimeout;
+                if (i9 != 0) {
+                    bundle.putInt(KEY_HINT_SCREEN_TIMEOUT, i9);
                 }
                 String str = this.mDismissalId;
                 if (str != null) {
@@ -3085,33 +3084,33 @@ public class NotificationCompat {
             return (WearableExtender) invokeL.objValue;
         }
 
-        public WearableExtender setContentAction(int i2) {
+        public WearableExtender setContentAction(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) {
-                this.mContentActionIndex = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+                this.mContentActionIndex = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
         }
 
         @Deprecated
-        public WearableExtender setContentIcon(int i2) {
+        public WearableExtender setContentIcon(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i2)) == null) {
-                this.mContentIcon = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048608, this, i)) == null) {
+                this.mContentIcon = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
         }
 
         @Deprecated
-        public WearableExtender setContentIconGravity(int i2) {
+        public WearableExtender setContentIconGravity(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i2)) == null) {
-                this.mContentIconGravity = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048609, this, i)) == null) {
+                this.mContentIconGravity = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
@@ -3128,22 +3127,22 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public WearableExtender setCustomContentHeight(int i2) {
+        public WearableExtender setCustomContentHeight(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) {
-                this.mCustomContentHeight = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) {
+                this.mCustomContentHeight = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
         }
 
         @Deprecated
-        public WearableExtender setCustomSizePreset(int i2) {
+        public WearableExtender setCustomSizePreset(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i2)) == null) {
-                this.mCustomSizePreset = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048612, this, i)) == null) {
+                this.mCustomSizePreset = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
@@ -3171,11 +3170,11 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public WearableExtender setGravity(int i2) {
+        public WearableExtender setGravity(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i2)) == null) {
-                this.mGravity = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048615, this, i)) == null) {
+                this.mGravity = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
@@ -3225,11 +3224,11 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public WearableExtender setHintScreenTimeout(int i2) {
+        public WearableExtender setHintScreenTimeout(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i2)) == null) {
-                this.mHintScreenTimeout = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
+                this.mHintScreenTimeout = i;
                 return this;
             }
             return (WearableExtender) invokeI.objValue;
@@ -3289,9 +3288,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {notification};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -3311,12 +3310,12 @@ public class NotificationCompat {
                 if (Build.VERSION.SDK_INT >= 16 && parcelableArrayList != null) {
                     int size = parcelableArrayList.size();
                     Action[] actionArr = new Action[size];
-                    for (int i4 = 0; i4 < size; i4++) {
-                        int i5 = Build.VERSION.SDK_INT;
-                        if (i5 >= 20) {
-                            actionArr[i4] = NotificationCompat.getActionCompatFromAction((Notification.Action) parcelableArrayList.get(i4));
-                        } else if (i5 >= 16) {
-                            actionArr[i4] = NotificationCompatJellybean.getActionFromBundle((Bundle) parcelableArrayList.get(i4));
+                    for (int i3 = 0; i3 < size; i3++) {
+                        int i4 = Build.VERSION.SDK_INT;
+                        if (i4 >= 20) {
+                            actionArr[i3] = NotificationCompat.getActionCompatFromAction((Notification.Action) parcelableArrayList.get(i3));
+                        } else if (i4 >= 16) {
+                            actionArr[i3] = NotificationCompatJellybean.getActionFromBundle((Bundle) parcelableArrayList.get(i3));
                         }
                     }
                     Collections.addAll(this.mActions, actionArr);
@@ -3347,29 +3346,29 @@ public class NotificationCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Action getAction(Notification notification, int i2) {
+    public static Action getAction(Notification notification, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, notification, i2)) == null) {
-            int i3 = Build.VERSION.SDK_INT;
-            if (i3 >= 20) {
-                return getActionCompatFromAction(notification.actions[i2]);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, notification, i)) == null) {
+            int i2 = Build.VERSION.SDK_INT;
+            if (i2 >= 20) {
+                return getActionCompatFromAction(notification.actions[i]);
             }
-            if (i3 >= 19) {
-                Notification.Action action = notification.actions[i2];
+            if (i2 >= 19) {
+                Notification.Action action = notification.actions[i];
                 SparseArray sparseParcelableArray = notification.extras.getSparseParcelableArray(NotificationCompatExtras.EXTRA_ACTION_EXTRAS);
-                return NotificationCompatJellybean.readAction(action.icon, action.title, action.actionIntent, sparseParcelableArray != null ? (Bundle) sparseParcelableArray.get(i2) : null);
-            } else if (i3 >= 16) {
-                return NotificationCompatJellybean.getAction(notification, i2);
+                return NotificationCompatJellybean.readAction(action.icon, action.title, action.actionIntent, sparseParcelableArray != null ? (Bundle) sparseParcelableArray.get(i) : null);
+            } else if (i2 >= 16) {
+                return NotificationCompatJellybean.getAction(notification, i);
             } else {
                 return null;
             }
@@ -3382,8 +3381,8 @@ public class NotificationCompat {
         InterceptResult invokeL;
         RemoteInput[] remoteInputArr;
         boolean z;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, action)) == null) {
             android.app.RemoteInput[] remoteInputs = action.getRemoteInputs();
@@ -3391,9 +3390,9 @@ public class NotificationCompat {
                 remoteInputArr = null;
             } else {
                 RemoteInput[] remoteInputArr2 = new RemoteInput[remoteInputs.length];
-                for (int i4 = 0; i4 < remoteInputs.length; i4++) {
-                    android.app.RemoteInput remoteInput = remoteInputs[i4];
-                    remoteInputArr2[i4] = new RemoteInput(remoteInput.getResultKey(), remoteInput.getLabel(), remoteInput.getChoices(), remoteInput.getAllowFreeFormInput(), Build.VERSION.SDK_INT >= 29 ? remoteInput.getEditChoicesBeforeSending() : 0, remoteInput.getExtras(), null);
+                for (int i3 = 0; i3 < remoteInputs.length; i3++) {
+                    android.app.RemoteInput remoteInput = remoteInputs[i3];
+                    remoteInputArr2[i3] = new RemoteInput(remoteInput.getResultKey(), remoteInput.getLabel(), remoteInput.getChoices(), remoteInput.getAllowFreeFormInput(), Build.VERSION.SDK_INT >= 29 ? remoteInput.getEditChoicesBeforeSending() : 0, remoteInput.getExtras(), null);
                 }
                 remoteInputArr = remoteInputArr2;
             }
@@ -3405,19 +3404,19 @@ public class NotificationCompat {
             boolean z2 = z;
             boolean z3 = action.getExtras().getBoolean(Action.EXTRA_SHOWS_USER_INTERFACE, true);
             if (Build.VERSION.SDK_INT >= 28) {
-                i2 = action.getSemanticAction();
+                i = action.getSemanticAction();
             } else {
-                i2 = action.getExtras().getInt(Action.EXTRA_SEMANTIC_ACTION, 0);
+                i = action.getExtras().getInt(Action.EXTRA_SEMANTIC_ACTION, 0);
             }
-            int i5 = i2;
+            int i4 = i;
             boolean isContextual = Build.VERSION.SDK_INT >= 29 ? action.isContextual() : false;
             if (Build.VERSION.SDK_INT >= 23) {
-                if (action.getIcon() == null && (i3 = action.icon) != 0) {
-                    return new Action(i3, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i5, z3, isContextual);
+                if (action.getIcon() == null && (i2 = action.icon) != 0) {
+                    return new Action(i2, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
                 }
-                return new Action(action.getIcon() != null ? IconCompat.createFromIconOrNullIfZeroResId(action.getIcon()) : null, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i5, z3, isContextual);
+                return new Action(action.getIcon() != null ? IconCompat.createFromIconOrNullIfZeroResId(action.getIcon()) : null, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
             }
-            return new Action(action.icon, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i5, z3, isContextual);
+            return new Action(action.icon, action.title, action.actionIntent, action.getExtras(), remoteInputArr, (RemoteInput[]) null, z2, i4, z3, isContextual);
         }
         return (Action) invokeL.objValue;
     }
@@ -3426,9 +3425,9 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 19) {
-                if (i2 >= 16) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 19) {
+                if (i >= 16) {
                     return NotificationCompatJellybean.getActionCount(notification);
                 }
                 return 0;
@@ -3515,11 +3514,11 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 19) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 19) {
                 return notification.extras;
             }
-            if (i2 >= 16) {
+            if (i >= 16) {
                 return NotificationCompatJellybean.getExtras(notification);
             }
             return null;
@@ -3531,14 +3530,14 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 20) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
                 return notification.getGroup();
             }
-            if (i2 >= 19) {
+            if (i >= 19) {
                 return notification.extras.getString(NotificationCompatExtras.EXTRA_GROUP_KEY);
             }
-            if (i2 >= 16) {
+            if (i >= 16) {
                 return NotificationCompatJellybean.getExtras(notification).getString(NotificationCompatExtras.EXTRA_GROUP_KEY);
             }
             return null;
@@ -3567,8 +3566,8 @@ public class NotificationCompat {
             ArrayList arrayList = new ArrayList();
             Bundle bundle2 = notification.extras.getBundle(CarExtender.EXTRA_CAR_EXTENDER);
             if (bundle2 != null && (bundle = bundle2.getBundle(CarExtender.EXTRA_INVISIBLE_ACTIONS)) != null) {
-                for (int i2 = 0; i2 < bundle.size(); i2++) {
-                    arrayList.add(NotificationCompatJellybean.getActionFromBundle(bundle.getBundle(Integer.toString(i2))));
+                for (int i = 0; i < bundle.size(); i++) {
+                    arrayList.add(NotificationCompatJellybean.getActionFromBundle(bundle.getBundle(Integer.toString(i))));
                 }
             }
             return arrayList;
@@ -3580,13 +3579,13 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 20) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
                 return (notification.flags & 256) != 0;
-            } else if (i2 >= 19) {
+            } else if (i >= 19) {
                 return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
             } else {
-                if (i2 >= 16) {
+                if (i >= 16) {
                     return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_LOCAL_ONLY);
                 }
                 return false;
@@ -3602,8 +3601,8 @@ public class NotificationCompat {
             Parcelable[] parcelableArray = bundle.getParcelableArray(str);
             if (!(parcelableArray instanceof Notification[]) && parcelableArray != null) {
                 Notification[] notificationArr = new Notification[parcelableArray.length];
-                for (int i2 = 0; i2 < parcelableArray.length; i2++) {
-                    notificationArr[i2] = (Notification) parcelableArray[i2];
+                for (int i = 0; i < parcelableArray.length; i++) {
+                    notificationArr[i] = (Notification) parcelableArray[i];
                 }
                 bundle.putParcelableArray(str, notificationArr);
                 return notificationArr;
@@ -3629,14 +3628,14 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 20) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
                 return notification.getSortKey();
             }
-            if (i2 >= 19) {
+            if (i >= 19) {
                 return notification.extras.getString(NotificationCompatExtras.EXTRA_SORT_KEY);
             }
-            if (i2 >= 16) {
+            if (i >= 16) {
                 return NotificationCompatJellybean.getExtras(notification).getString(NotificationCompatExtras.EXTRA_SORT_KEY);
             }
             return null;
@@ -3660,13 +3659,13 @@ public class NotificationCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, notification)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 20) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 20) {
                 return (notification.flags & 512) != 0;
-            } else if (i2 >= 19) {
+            } else if (i >= 19) {
                 return notification.extras.getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
             } else {
-                if (i2 >= 16) {
+                if (i >= 16) {
                     return NotificationCompatJellybean.getExtras(notification).getBoolean(NotificationCompatExtras.EXTRA_GROUP_SUMMARY);
                 }
                 return false;
@@ -3728,9 +3727,9 @@ public class NotificationCompat {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {str};
                         interceptable.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable.invokeInitBody(65536, newInitContext);
                             return;
@@ -3760,11 +3759,11 @@ public class NotificationCompat {
                     return (UnreadConversation) invokeV.objValue;
                 }
 
-                public Builder setLatestTimestamp(long j2) {
+                public Builder setLatestTimestamp(long j) {
                     InterceptResult invokeJ;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2)) == null) {
-                        this.mLatestTimestamp = j2;
+                    if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                        this.mLatestTimestamp = j;
                         return this;
                     }
                     return (Builder) invokeJ.objValue;
@@ -3792,16 +3791,16 @@ public class NotificationCompat {
                 }
             }
 
-            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j2) {
+            public UnreadConversation(String[] strArr, RemoteInput remoteInput, PendingIntent pendingIntent, PendingIntent pendingIntent2, String[] strArr2, long j) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j2)};
+                    Object[] objArr = {strArr, remoteInput, pendingIntent, pendingIntent2, strArr2, Long.valueOf(j)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -3812,7 +3811,7 @@ public class NotificationCompat {
                 this.mReadPendingIntent = pendingIntent2;
                 this.mReplyPendingIntent = pendingIntent;
                 this.mParticipants = strArr2;
-                this.mLatestTimestamp = j2;
+                this.mLatestTimestamp = j;
             }
 
             public long getLatestTimestamp() {
@@ -3870,9 +3869,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -3890,11 +3889,11 @@ public class NotificationCompat {
                 String str = (unreadConversation.getParticipants() == null || unreadConversation.getParticipants().length <= 1) ? null : unreadConversation.getParticipants()[0];
                 int length = unreadConversation.getMessages().length;
                 Parcelable[] parcelableArr = new Parcelable[length];
-                for (int i2 = 0; i2 < length; i2++) {
+                for (int i = 0; i < length; i++) {
                     Bundle bundle2 = new Bundle();
-                    bundle2.putString("text", unreadConversation.getMessages()[i2]);
+                    bundle2.putString("text", unreadConversation.getMessages()[i]);
                     bundle2.putString(KEY_AUTHOR, str);
-                    parcelableArr[i2] = bundle2;
+                    parcelableArr[i] = bundle2;
                 }
                 bundle.putParcelableArray(KEY_MESSAGES, parcelableArr);
                 RemoteInput remoteInput = unreadConversation.getRemoteInput();
@@ -3925,10 +3924,10 @@ public class NotificationCompat {
                 if (parcelableArray != null) {
                     int length = parcelableArray.length;
                     String[] strArr2 = new String[length];
-                    for (int i2 = 0; i2 < length; i2++) {
-                        if (parcelableArray[i2] instanceof Bundle) {
-                            strArr2[i2] = ((Bundle) parcelableArray[i2]).getString("text");
-                            if (strArr2[i2] != null) {
+                    for (int i = 0; i < length; i++) {
+                        if (parcelableArray[i] instanceof Bundle) {
+                            strArr2[i] = ((Bundle) parcelableArray[i]).getString("text");
+                            if (strArr2[i] != null) {
                             }
                         }
                         z = false;
@@ -3970,9 +3969,9 @@ public class NotificationCompat {
                 if (bitmap != null) {
                     bundle.putParcelable(EXTRA_LARGE_ICON, bitmap);
                 }
-                int i2 = this.mColor;
-                if (i2 != 0) {
-                    bundle.putInt(EXTRA_COLOR, i2);
+                int i = this.mColor;
+                if (i != 0) {
+                    bundle.putInt(EXTRA_COLOR, i);
                 }
                 UnreadConversation unreadConversation = this.mUnreadConversation;
                 if (unreadConversation != null) {
@@ -4004,11 +4003,11 @@ public class NotificationCompat {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mUnreadConversation : (UnreadConversation) invokeV.objValue;
         }
 
-        public CarExtender setColor(@ColorInt int i2) {
+        public CarExtender setColor(@ColorInt int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                this.mColor = i2;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.mColor = i;
                 return this;
             }
             return (CarExtender) invokeI.objValue;
@@ -4042,9 +4041,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {notification};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -4074,9 +4073,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -4140,9 +4139,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {builder};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -4170,9 +4169,9 @@ public class NotificationCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -4237,10 +4236,10 @@ public class NotificationCompat {
         }
 
         @NonNull
-        private TextAppearanceSpan makeFontColorSpan(int i2) {
+        private TextAppearanceSpan makeFontColorSpan(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i2)) == null) ? new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i2), null) : (TextAppearanceSpan) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(65542, this, i)) == null) ? new TextAppearanceSpan(null, 0, 0, ColorStateList.valueOf(i), null) : (TextAppearanceSpan) invokeI.objValue;
         }
 
         private CharSequence makeMessageLine(Message message) {
@@ -4250,17 +4249,17 @@ public class NotificationCompat {
                 BidiFormatter bidiFormatter = BidiFormatter.getInstance();
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 boolean z = Build.VERSION.SDK_INT >= 21;
-                int i2 = z ? -16777216 : -1;
+                int i = z ? -16777216 : -1;
                 String name = message.getPerson() == null ? "" : message.getPerson().getName();
                 if (TextUtils.isEmpty(name)) {
                     name = this.mUser.getName();
                     if (z && this.mBuilder.getColor() != 0) {
-                        i2 = this.mBuilder.getColor();
+                        i = this.mBuilder.getColor();
                     }
                 }
                 CharSequence unicodeWrap = bidiFormatter.unicodeWrap(name);
                 spannableStringBuilder.append(unicodeWrap);
-                spannableStringBuilder.setSpan(makeFontColorSpan(i2), spannableStringBuilder.length() - unicodeWrap.length(), spannableStringBuilder.length(), 33);
+                spannableStringBuilder.setSpan(makeFontColorSpan(i), spannableStringBuilder.length() - unicodeWrap.length(), spannableStringBuilder.length(), 33);
                 spannableStringBuilder.append((CharSequence) GlideException.IndentedAppendable.INDENT).append(bidiFormatter.unicodeWrap(message.getText() != null ? message.getText() : ""));
                 return spannableStringBuilder;
             }
@@ -4289,11 +4288,11 @@ public class NotificationCompat {
         }
 
         @Deprecated
-        public MessagingStyle addMessage(CharSequence charSequence, long j2, CharSequence charSequence2) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j, CharSequence charSequence2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j2), charSequence2})) == null) {
-                this.mMessages.add(new Message(charSequence, j2, new Person.Builder().setName(charSequence2).build()));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{charSequence, Long.valueOf(j), charSequence2})) == null) {
+                this.mMessages.add(new Message(charSequence, j, new Person.Builder().setName(charSequence2).build()));
                 if (this.mMessages.size() > 25) {
                     this.mMessages.remove(0);
                 }
@@ -4311,9 +4310,9 @@ public class NotificationCompat {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, notificationBuilderWithBuilderAccessor) == null) {
                 setGroupConversation(isGroupConversation());
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 24) {
-                    if (i2 >= 28) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 24) {
+                    if (i >= 28) {
                         messagingStyle = new Notification.MessagingStyle(this.mUser.toAndroidPerson());
                     } else {
                         messagingStyle = new Notification.MessagingStyle(this.mUser.getName());
@@ -4364,7 +4363,7 @@ public class NotificationCompat {
                         Message message3 = this.mMessages.get(size);
                         CharSequence makeMessageLine = z ? makeMessageLine(message3) : message3.getText();
                         if (size != this.mMessages.size() - 1) {
-                            spannableStringBuilder.insert(0, (CharSequence) StringUtils.LF);
+                            spannableStringBuilder.insert(0, (CharSequence) "\n");
                         }
                         spannableStringBuilder.insert(0, makeMessageLine);
                     }
@@ -4470,9 +4469,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {charSequence};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -4504,16 +4503,16 @@ public class NotificationCompat {
             public final CharSequence mText;
             public final long mTimestamp;
 
-            public Message(CharSequence charSequence, long j2, @Nullable Person person) {
+            public Message(CharSequence charSequence, long j, @Nullable Person person) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j2), person};
+                    Object[] objArr = {charSequence, Long.valueOf(j), person};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -4521,7 +4520,7 @@ public class NotificationCompat {
                 }
                 this.mExtras = new Bundle();
                 this.mText = charSequence;
-                this.mTimestamp = j2;
+                this.mTimestamp = j;
                 this.mPerson = person;
             }
 
@@ -4532,8 +4531,8 @@ public class NotificationCompat {
                 if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
                     Bundle[] bundleArr = new Bundle[list.size()];
                     int size = list.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        bundleArr[i2] = list.get(i2).toBundle();
+                    for (int i = 0; i < size; i++) {
+                        bundleArr[i] = list.get(i).toBundle();
                     }
                     return bundleArr;
                 }
@@ -4578,8 +4577,8 @@ public class NotificationCompat {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcelableArr)) == null) {
                     ArrayList arrayList = new ArrayList(parcelableArr.length);
-                    for (int i2 = 0; i2 < parcelableArr.length; i2++) {
-                        if ((parcelableArr[i2] instanceof Bundle) && (messageFromBundle = getMessageFromBundle((Bundle) parcelableArr[i2])) != null) {
+                    for (int i = 0; i < parcelableArr.length; i++) {
+                        if ((parcelableArr[i] instanceof Bundle) && (messageFromBundle = getMessageFromBundle((Bundle) parcelableArr[i])) != null) {
                             arrayList.add(messageFromBundle);
                         }
                     }
@@ -4693,17 +4692,17 @@ public class NotificationCompat {
 
             /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
             @Deprecated
-            public Message(CharSequence charSequence, long j2, CharSequence charSequence2) {
-                this(charSequence, j2, new Person.Builder().setName(charSequence2).build());
+            public Message(CharSequence charSequence, long j, CharSequence charSequence2) {
+                this(charSequence, j, new Person.Builder().setName(charSequence2).build());
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {charSequence, Long.valueOf(j2), charSequence2};
+                    Object[] objArr = {charSequence, Long.valueOf(j), charSequence2};
                     interceptable.invokeUnInit(65537, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         this((CharSequence) objArr2[0], ((Long) objArr2[1]).longValue(), (Person) objArr2[2]);
                         newInitContext.thisArg = this;
@@ -4721,9 +4720,9 @@ public class NotificationCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {person};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -4737,11 +4736,11 @@ public class NotificationCompat {
             throw new IllegalArgumentException("User's name must not be empty.");
         }
 
-        public MessagingStyle addMessage(CharSequence charSequence, long j2, Person person) {
+        public MessagingStyle addMessage(CharSequence charSequence, long j, Person person) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j2), person})) == null) {
-                addMessage(new Message(charSequence, j2, person));
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{charSequence, Long.valueOf(j), person})) == null) {
+                addMessage(new Message(charSequence, j, person));
                 return this;
             }
             return (MessagingStyle) invokeCommon.objValue;

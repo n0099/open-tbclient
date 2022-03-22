@@ -24,15 +24,13 @@ import tbclient.OriForumInfo;
 public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f41912e;
+    /* renamed from: b  reason: collision with root package name */
+    public RecyclerView f32431b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f41913f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public RelationBarAdapter f41914g;
+    /* renamed from: c  reason: collision with root package name */
+    public RelationBarAdapter f32432c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RelationBarView(Context context) {
@@ -43,45 +41,45 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41912e = 3;
+        this.a = 3;
         a(context);
     }
 
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.frs_brand_relation_bar_layout, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0308, (ViewGroup) this, true);
             setOrientation(1);
-            this.f41913f = (RecyclerView) findViewById(R.id.frs_brand_bar_list);
+            this.f32431b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090ad0);
             RelationBarAdapter relationBarAdapter = new RelationBarAdapter(context);
-            this.f41914g = relationBarAdapter;
-            this.f41913f.setAdapter(relationBarAdapter);
-            this.f41913f.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            this.f41913f.setItemAnimator(new DefaultItemAnimator());
+            this.f32432c = relationBarAdapter;
+            this.f32431b.setAdapter(relationBarAdapter);
+            this.f32431b.setLayoutManager(new LinearLayoutManager(context, 0, false));
+            this.f32431b.setItemAnimator(new DefaultItemAnimator());
             int f2 = n.f(context, R.dimen.tbds44);
-            this.f41913f.addItemDecoration(new RelationSpaceItemDecoration(f2, n.f(context, R.dimen.tbds26), f2));
-            onChangeSkinType();
+            this.f32431b.addItemDecoration(new RelationSpaceItemDecoration(f2, n.f(context, R.dimen.tbds26), f2));
+            b();
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f41912e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        this.f41912e = skinType;
+        this.a = skinType;
         SkinManager.setBackgroundColor(this, R.color.CAM_X0205);
-        this.f41914g.notifyDataSetChanged();
+        this.f32432c.notifyDataSetChanged();
     }
 
     public void setData(List<OriForumInfo> list) {
@@ -92,8 +90,8 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
             setVisibility(0);
-            this.f41914g.setData(list);
-            this.f41914g.notifyDataSetChanged();
+            this.f32432c.setData(list);
+            this.f32432c.notifyDataSetChanged();
         }
     }
 
@@ -106,9 +104,9 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,22 +114,22 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f41912e = 3;
+        this.a = 3;
         a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RelationBarView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public RelationBarView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -139,7 +137,7 @@ public class RelationBarView extends ForbidParentSwipeBackLinearLayout {
                 return;
             }
         }
-        this.f41912e = 3;
+        this.a = 3;
         a(context);
     }
 }

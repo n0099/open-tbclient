@@ -26,7 +26,7 @@ public class OrientationHelper extends OrientationEventListener {
 
     /* loaded from: classes4.dex */
     public interface IOrientationChange {
-        void onOrientationChanged(int i2);
+        void onOrientationChanged(int i);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -38,9 +38,9 @@ public class OrientationHelper extends OrientationEventListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -50,22 +50,22 @@ public class OrientationHelper extends OrientationEventListener {
         }
     }
 
-    public static boolean isLandscape(int i2) {
+    public static boolean isLandscape(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? Math.abs(i2 + (-90)) <= 23 || Math.abs(i2 + (-270)) <= 23 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? Math.abs(i + (-90)) <= 23 || Math.abs(i + (-270)) <= 23 : invokeI.booleanValue;
     }
 
-    public static boolean isPortrait(int i2) {
+    public static boolean isPortrait(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? (i2 >= 0 && i2 <= 23) || (337 <= i2 && i2 < 360) || Math.abs(i2 + (-180)) <= 23 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i >= 0 && i <= 23) || (337 <= i && i < 360) || Math.abs(i + (-180)) <= 23 : invokeI.booleanValue;
     }
 
-    public static boolean isReverseLandscape(int i2) {
+    public static boolean isReverseLandscape(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? Math.abs(i2 + (-90)) <= 23 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? Math.abs(i + (-90)) <= 23 : invokeI.booleanValue;
     }
 
     public static boolean isSystemOrientationLocked(Context context) {
@@ -96,15 +96,15 @@ public class OrientationHelper extends OrientationEventListener {
     }
 
     @Override // android.view.OrientationEventListener
-    public void onOrientationChanged(int i2) {
+    public void onOrientationChanged(int i) {
         IOrientationChange iOrientationChange;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.mLastOrientation = i2;
-            if (i2 == -1 || (iOrientationChange = this.mListener) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mLastOrientation = i;
+            if (i == -1 || (iOrientationChange = this.mListener) == null) {
                 return;
             }
-            iOrientationChange.onOrientationChanged(i2);
+            iOrientationChange.onOrientationChanged(i);
         }
     }
 
@@ -116,17 +116,17 @@ public class OrientationHelper extends OrientationEventListener {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public OrientationHelper(Context context, int i2) {
-        super(context, i2);
+    public OrientationHelper(Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;

@@ -1,6 +1,6 @@
 package org.apache.http.params;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HttpParams {
     HttpParams copy();
 
@@ -8,9 +8,9 @@ public interface HttpParams {
 
     double getDoubleParameter(String str, double d2);
 
-    int getIntParameter(String str, int i2);
+    int getIntParameter(String str, int i);
 
-    long getLongParameter(String str, long j2);
+    long getLongParameter(String str, long j);
 
     Object getParameter(String str);
 
@@ -24,9 +24,9 @@ public interface HttpParams {
 
     HttpParams setDoubleParameter(String str, double d2);
 
-    HttpParams setIntParameter(String str, int i2);
+    HttpParams setIntParameter(String str, int i);
 
-    HttpParams setLongParameter(String str, long j2);
+    HttpParams setLongParameter(String str, long j);
 
     HttpParams setParameter(String str, Object obj);
 }

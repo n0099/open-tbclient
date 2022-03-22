@@ -10,18 +10,18 @@ public interface a {
 
     /* renamed from: c.a.j.e.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0156a implements a {
+    public static class C0162a implements a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0156a() {
+        public C0162a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -29,9 +29,9 @@ public interface a {
         }
 
         @Override // c.a.j.e.c.a
-        public void a(long j2, long j3) {
+        public void a(long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             }
         }
 
@@ -71,7 +71,7 @@ public interface a {
         }
     }
 
-    void a(long j2, long j3);
+    void a(long j, long j2);
 
     void onCancel();
 

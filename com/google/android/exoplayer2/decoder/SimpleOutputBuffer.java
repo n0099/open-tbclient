@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SimpleOutputBuffer extends OutputBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public class SimpleOutputBuffer extends OutputBuffer {
             newInitContext.initArgs = r2;
             Object[] objArr = {simpleDecoder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,17 +45,17 @@ public class SimpleOutputBuffer extends OutputBuffer {
         }
     }
 
-    public ByteBuffer init(long j2, int i2) {
+    public ByteBuffer init(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)})) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            this.timeUs = j;
             ByteBuffer byteBuffer = this.data;
-            if (byteBuffer == null || byteBuffer.capacity() < i2) {
-                this.data = ByteBuffer.allocateDirect(i2).order(ByteOrder.nativeOrder());
+            if (byteBuffer == null || byteBuffer.capacity() < i) {
+                this.data = ByteBuffer.allocateDirect(i).order(ByteOrder.nativeOrder());
             }
             this.data.position(0);
-            this.data.limit(i2);
+            this.data.limit(i);
             return this.data;
         }
         return (ByteBuffer) invokeCommon.objValue;

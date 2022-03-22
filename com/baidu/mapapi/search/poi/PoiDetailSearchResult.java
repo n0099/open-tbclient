@@ -42,9 +42,9 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -60,9 +60,9 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Parcel) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -81,9 +81,9 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {errorno};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((SearchResult.ERRORNO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
@@ -124,11 +124,11 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
                 return "PoiDetailSearchResult is null";
             }
             StringBuffer stringBuffer = new StringBuffer("PoiDetailSearchResult:");
-            for (int i2 = 0; i2 < this.a.size(); i2++) {
+            for (int i = 0; i < this.a.size(); i++) {
                 stringBuffer.append(" ");
-                stringBuffer.append(i2);
+                stringBuffer.append(i);
                 stringBuffer.append(" ");
-                PoiDetailInfo poiDetailInfo = this.a.get(i2);
+                PoiDetailInfo poiDetailInfo = this.a.get(i);
                 stringBuffer.append(poiDetailInfo != null ? poiDetailInfo.toString() : StringUtil.NULL_STRING);
             }
             return stringBuffer.toString();
@@ -137,10 +137,10 @@ public class PoiDetailSearchResult extends SearchResult implements Parcelable {
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
-            super.writeToParcel(parcel, i2);
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
+            super.writeToParcel(parcel, i);
             parcel.writeTypedList(this.a);
         }
     }

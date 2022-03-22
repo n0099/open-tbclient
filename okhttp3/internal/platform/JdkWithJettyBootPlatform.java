@@ -3,6 +3,7 @@ package okhttp3.internal.platform;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.ecommerce.activity.InvoiceBuildActivity;
 import com.baidu.searchbox.websocket.WebSocketRequest;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +18,7 @@ import javax.annotation.Nullable;
 import javax.net.ssl.SSLSocket;
 import okhttp3.Protocol;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class JdkWithJettyBootPlatform extends Platform {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,7 +28,7 @@ public class JdkWithJettyBootPlatform extends Platform {
     public final Method removeMethod;
     public final Class<?> serverProviderClass;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class JettyNegoProvider implements InvocationHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +43,9 @@ public class JdkWithJettyBootPlatform extends Platform {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,9 +76,9 @@ public class JdkWithJettyBootPlatform extends Platform {
                     if ((name.equals("selectProtocol") || name.equals(InvoiceBuildActivity.EXTRA_PARAMS_TYPE)) && String.class == returnType && objArr.length == 1 && (objArr[0] instanceof List)) {
                         List list = (List) objArr[0];
                         int size = list.size();
-                        for (int i2 = 0; i2 < size; i2++) {
-                            if (this.protocols.contains(list.get(i2))) {
-                                String str = (String) list.get(i2);
+                        for (int i = 0; i < size; i++) {
+                            if (this.protocols.contains(list.get(i))) {
+                                String str = (String) list.get(i);
                                 this.selected = str;
                                 return str;
                             }
@@ -104,9 +105,9 @@ public class JdkWithJettyBootPlatform extends Platform {
             newInitContext.initArgs = r2;
             Object[] objArr = {method, method2, method3, cls, cls2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -127,7 +128,7 @@ public class JdkWithJettyBootPlatform extends Platform {
                 Class<?> cls = Class.forName("org.eclipse.jetty.alpn.ALPN");
                 Class<?> cls2 = Class.forName("org.eclipse.jetty.alpn.ALPN$Provider");
                 Class<?> cls3 = Class.forName("org.eclipse.jetty.alpn.ALPN$ClientProvider");
-                return new JdkWithJettyBootPlatform(cls.getMethod("put", SSLSocket.class, cls2), cls.getMethod("get", SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
+                return new JdkWithJettyBootPlatform(cls.getMethod(SharedPreferenceManager.OPERATION_PUT_PERFIX, SSLSocket.class, cls2), cls.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, SSLSocket.class), cls.getMethod("remove", SSLSocket.class), cls3, Class.forName("org.eclipse.jetty.alpn.ALPN$ServerProvider"));
             } catch (ClassNotFoundException | NoSuchMethodException unused) {
                 return null;
             }

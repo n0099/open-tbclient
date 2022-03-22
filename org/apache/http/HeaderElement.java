@@ -1,10 +1,10 @@
 package org.apache.http;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HeaderElement {
     String getName();
 
-    NameValuePair getParameter(int i2);
+    NameValuePair getParameter(int i);
 
     NameValuePair getParameterByName(String str);
 

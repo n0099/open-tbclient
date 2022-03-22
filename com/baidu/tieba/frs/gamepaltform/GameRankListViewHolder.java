@@ -12,8 +12,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView mCloseBtn;
-    public GameRankHorizontalLayout mGameRankHorizontalLayout;
+    public GameRankHorizontalLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f32567b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GameRankListViewHolder(View view) {
@@ -24,16 +26,16 @@ public class GameRankListViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mGameRankHorizontalLayout = (GameRankHorizontalLayout) view.findViewById(R.id.game_rank_list_viewpager);
-        this.mCloseBtn = (TextView) view.findViewById(R.id.close_game_rank_btn);
+        this.a = (GameRankHorizontalLayout) view.findViewById(R.id.obfuscated_res_0x7f090c43);
+        this.f32567b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09066d);
     }
 }

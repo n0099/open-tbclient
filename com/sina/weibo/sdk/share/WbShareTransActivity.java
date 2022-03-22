@@ -29,7 +29,7 @@ import com.sina.weibo.sdk.utils.MD5;
 import com.sina.weibo.sdk.utils.Utility;
 import com.sina.weibo.sdk.utils.WbSdkVersion;
 import com.sina.weibo.sdk.web.view.WbSdkProgressBar;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WbShareTransActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class WbShareTransActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -66,9 +66,9 @@ public class WbShareTransActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -175,9 +175,9 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendCallback(int i2) {
+    public void sendCallback(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65543, this, i) == null) {
             FrameLayout frameLayout = this.rootLayout;
             if (frameLayout != null) {
                 frameLayout.setVisibility(8);
@@ -185,7 +185,7 @@ public class WbShareTransActivity extends BaseActivity {
             try {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putInt(WBConstants.Response.ERRCODE, i2);
+                bundle.putInt(WBConstants.Response.ERRCODE, i);
                 intent.putExtras(bundle);
                 setResult(-1, intent);
             } catch (Exception e2) {
@@ -224,9 +224,9 @@ public class WbShareTransActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -261,10 +261,10 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             Handler handler = this.handler;
             if (handler != null) {
                 handler.sendEmptyMessageDelayed(0, 100L);
@@ -291,14 +291,14 @@ public class WbShareTransActivity extends BaseActivity {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

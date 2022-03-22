@@ -7,8 +7,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.http.X509TrustManagerExtensions;
 import android.os.Build;
+import android.util.Log;
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,31 +51,27 @@ public class X509Util {
     public static CertificateFactory a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f48902b;
+    public static d f37794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static b f48903c;
+    public static b f37795c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static d f48904d;
+    public static d f37796d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static KeyStore f48905e;
+    public static KeyStore f37797e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static KeyStore f48906f;
+    public static KeyStore f37798f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static File f48907g;
+    public static File f37799g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Set<Pair<X500Principal, PublicKey>> f48908h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static boolean f48909i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final Object f48910j;
+    public static Set<Pair<X500Principal, PublicKey>> f37800h;
+    public static boolean i;
+    public static final Object j;
     public static boolean k;
     public static final char[] l;
     public transient /* synthetic */ FieldHolder $fh;
@@ -94,9 +92,9 @@ public class X509Util {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -109,7 +107,12 @@ public class X509Util {
             if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && intent.getAction().equals("android.security.STORAGE_CHANGED")) {
                 try {
                     X509Util.k();
-                } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException unused) {
+                } catch (KeyStoreException e2) {
+                    Log.e("X509Util", "Unable to reload the default TrustManager", e2);
+                } catch (NoSuchAlgorithmException e3) {
+                    Log.e("X509Util", "Unable to reload the default TrustManager", e3);
+                } catch (CertificateException e4) {
+                    Log.e("X509Util", "Unable to reload the default TrustManager", e4);
                 }
             }
         }
@@ -132,9 +135,9 @@ public class X509Util {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {x509TrustManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -174,9 +177,9 @@ public class X509Util {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {x509TrustManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -206,7 +209,7 @@ public class X509Util {
                 return;
             }
         }
-        f48910j = new Object();
+        j = new Object();
         l = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
     }
 
@@ -229,9 +232,9 @@ public class X509Util {
         if (interceptable == null || interceptable.invokeL(65539, null, bArr) == null) {
             f();
             X509Certificate d2 = d(bArr);
-            synchronized (f48910j) {
-                KeyStore keyStore = f48905e;
-                keyStore.setCertificateEntry("root_cert_" + Integer.toString(f48905e.size()), d2);
+            synchronized (j) {
+                KeyStore keyStore = f37797e;
+                keyStore.setCertificateEntry("root_cert_" + Integer.toString(f37797e.size()), d2);
                 l();
             }
         }
@@ -241,9 +244,9 @@ public class X509Util {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
             f();
-            synchronized (f48910j) {
+            synchronized (j) {
                 try {
-                    f48905e.load(null);
+                    f37797e.load(null);
                     l();
                 } catch (IOException unused) {
                 }
@@ -276,10 +279,11 @@ public class X509Util {
                         }
                         return new c((X509TrustManager) trustManager);
                     } catch (IllegalArgumentException e2) {
-                        String str = "Error creating trust manager (" + trustManager.getClass().getName() + "): " + e2;
+                        Log.e("X509Util", "Error creating trust manager (" + trustManager.getClass().getName() + "): " + e2);
                     }
                 }
             }
+            Log.e("X509Util", "Could not find suitable trust manager");
             return null;
         }
         return (d) invokeL.objValue;
@@ -288,7 +292,7 @@ public class X509Util {
     public static void f() throws CertificateException, KeyStoreException, NoSuchAlgorithmException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            synchronized (f48910j) {
+            synchronized (j) {
                 g();
             }
         }
@@ -300,44 +304,44 @@ public class X509Util {
             if (a == null) {
                 a = CertificateFactory.getInstance("X.509");
             }
-            if (f48902b == null) {
-                f48902b = e(null);
+            if (f37794b == null) {
+                f37794b = e(null);
             }
-            if (!f48909i) {
+            if (!i) {
                 try {
                     KeyStore keyStore = KeyStore.getInstance("AndroidCAStore");
-                    f48906f = keyStore;
+                    f37798f = keyStore;
                     try {
                         keyStore.load(null);
                     } catch (IOException unused) {
                     }
-                    f48907g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
+                    f37799g = new File(System.getenv("ANDROID_ROOT") + "/etc/security/cacerts");
                 } catch (KeyStoreException unused2) {
                 }
                 if (!k) {
-                    nativeRecordCertVerifyCapabilitiesHistogram(f48906f != null);
+                    nativeRecordCertVerifyCapabilitiesHistogram(f37798f != null);
                 }
-                f48909i = true;
+                i = true;
             }
-            if (f48908h == null) {
-                f48908h = new HashSet();
+            if (f37800h == null) {
+                f37800h = new HashSet();
             }
-            if (f48905e == null) {
+            if (f37797e == null) {
                 KeyStore keyStore2 = KeyStore.getInstance(KeyStore.getDefaultType());
-                f48905e = keyStore2;
+                f37797e = keyStore2;
                 try {
                     keyStore2.load(null);
                 } catch (IOException unused3) {
                 }
             }
-            if (f48904d == null) {
-                f48904d = e(f48905e);
+            if (f37796d == null) {
+                f37796d = e(f37797e);
             }
-            if (k || f48903c != null) {
+            if (k || f37795c != null) {
                 return;
             }
-            f48903c = new b(null);
-            ContextUtils.a().registerReceiver(f48903c, new IntentFilter("android.security.STORAGE_CHANGED"));
+            f37795c = new b(null);
+            ContextUtils.a().registerReceiver(f37795c, new IntentFilter("android.security.STORAGE_CHANGED"));
         }
     }
 
@@ -365,28 +369,28 @@ public class X509Util {
         if (interceptable != null && (invokeL = interceptable.invokeL(65546, null, x509Certificate)) != null) {
             return invokeL.booleanValue;
         }
-        if (f48906f == null) {
+        if (f37798f == null) {
             return false;
         }
         Pair<X500Principal, PublicKey> pair = new Pair<>(x509Certificate.getSubjectX500Principal(), x509Certificate.getPublicKey());
-        if (f48908h.contains(pair)) {
+        if (f37800h.contains(pair)) {
             return true;
         }
         String h2 = h(x509Certificate.getSubjectX500Principal());
         int i2 = 0;
         while (true) {
-            String str = h2 + '.' + i2;
-            if (!new File(f48907g, str).exists()) {
+            String str = h2 + IStringUtil.EXTENSION_SEPARATOR + i2;
+            if (!new File(f37799g, str).exists()) {
                 return false;
             }
-            Certificate certificate = f48906f.getCertificate("system:" + str);
+            Certificate certificate = f37798f.getCertificate("system:" + str);
             if (certificate != null) {
                 if (!(certificate instanceof X509Certificate)) {
-                    String str2 = "Anchor " + str + " not an X509Certificate: " + certificate.getClass().getName();
+                    Log.e("X509Util", "Anchor " + str + " not an X509Certificate: " + certificate.getClass().getName());
                 } else {
                     X509Certificate x509Certificate2 = (X509Certificate) certificate;
                     if (x509Certificate.getSubjectX500Principal().equals(x509Certificate2.getSubjectX500Principal()) && x509Certificate.getPublicKey().equals(x509Certificate2.getPublicKey())) {
-                        f48908h.add(pair);
+                        f37800h.add(pair);
                         return true;
                     }
                 }
@@ -413,9 +417,9 @@ public class X509Util {
     public static void k() throws KeyStoreException, NoSuchAlgorithmException, CertificateException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            synchronized (f48910j) {
-                f48902b = null;
-                f48908h = null;
+            synchronized (j) {
+                f37794b = null;
+                f37800h = null;
                 g();
             }
             nativeNotifyKeyChainChanged();
@@ -425,7 +429,7 @@ public class X509Util {
     public static void l() throws KeyStoreException, NoSuchAlgorithmException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
-            f48904d = e(f48905e);
+            f37796d = e(f37797e);
         }
     }
 
@@ -461,7 +465,6 @@ public class X509Util {
         InterceptResult invokeLLLI;
         List<X509Certificate> emptyList;
         boolean z;
-        Date date;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65551, null, bArr, str, str2, i2)) == null) {
             if (bArr != null && bArr.length != 0 && bArr[0] != null) {
@@ -479,17 +482,17 @@ public class X509Util {
                         if (!m(x509CertificateArr[0])) {
                             return new AndroidCertVerifyResult(-6);
                         }
-                        synchronized (f48910j) {
-                            if (f48902b == null) {
+                        synchronized (j) {
+                            if (f37794b == null) {
                                 return new AndroidCertVerifyResult(-1);
                             }
                             try {
-                                emptyList = f48902b.a(x509CertificateArr, str, str2);
+                                emptyList = f37794b.a(x509CertificateArr, str, str2);
                             } catch (CertificateException e2) {
                                 try {
-                                    emptyList = f48904d.a(x509CertificateArr, str, str2);
+                                    emptyList = f37796d.a(x509CertificateArr, str, str2);
                                 } catch (CertificateException unused2) {
-                                    String str3 = "Failed to validate the certificate chain, error: " + e2.getMessage();
+                                    Log.i("X509Util", "Failed to validate the certificate chain, error: " + e2.getMessage());
                                     if (j(e2)) {
                                         emptyList = Collections.emptyList();
                                         z = true;
@@ -501,8 +504,9 @@ public class X509Util {
                             z = false;
                             if (z) {
                                 try {
-                                    String str4 = "recheck cert date,serverDatre = " + date.toString();
-                                    x509CertificateArr[0].checkValidity(new Date(System.currentTimeMillis() + (i2 * 1000)));
+                                    Date date = new Date(System.currentTimeMillis() + (i2 * 1000));
+                                    Log.d("X509Util", "recheck cert date,serverDatre = " + date.toString());
+                                    x509CertificateArr[0].checkValidity(date);
                                 } catch (CertificateExpiredException unused3) {
                                     return new AndroidCertVerifyResult(-3);
                                 } catch (CertificateNotYetValidException unused4) {

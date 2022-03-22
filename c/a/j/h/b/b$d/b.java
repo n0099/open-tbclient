@@ -29,16 +29,16 @@ public class b {
                 wrap.get();
                 kVar.a(wrap.get());
                 kVar.f(wrap.get());
-                int i2 = wrap.getShort();
-                kVar.c(i2);
-                int i3 = wrap.getInt();
-                kVar.b(i3);
-                byte[] bArr2 = new byte[i2];
-                wrap.get(bArr2, 0, i2);
+                int i = wrap.getShort();
+                kVar.c(i);
+                int i2 = wrap.getInt();
+                kVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
                 kVar.j(bArr2);
-                if (i3 > 0) {
-                    byte[] bArr3 = new byte[i3];
-                    wrap.get(bArr3, 0, i3);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
                     kVar.l(bArr3);
                 }
             }

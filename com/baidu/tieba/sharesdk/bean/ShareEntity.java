@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ShareEntity implements Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<ShareEntity> CREATOR;
@@ -40,7 +40,7 @@ public class ShareEntity implements Parcelable {
     public int typeShareToSmallApp;
     public String videoUrl;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Parcelable.Creator<ShareEntity> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class ShareEntity implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -98,10 +98,10 @@ public class ShareEntity implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ShareEntity[] newArray(int i2) {
+        public ShareEntity[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ShareEntity[i2] : (ShareEntity[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ShareEntity[i] : (ShareEntity[]) invokeI.objValue;
         }
     }
 
@@ -126,9 +126,9 @@ public class ShareEntity implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -295,8 +295,8 @@ public class ShareEntity implements Parcelable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.shareType != 0) {
-                int i2 = this.shareTo;
-                return i2 == 8 || i2 == 4 || i2 == 3 || i2 == 2;
+                int i = this.shareTo;
+                return i == 8 || i == 4 || i == 3 || i == 2;
             }
             return false;
         }
@@ -352,24 +352,24 @@ public class ShareEntity implements Parcelable {
         }
     }
 
-    public void setPreferImageToLink(int i2) {
+    public void setPreferImageToLink(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.shareType = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.shareType = i;
         }
     }
 
-    public void setReadCount(long j2) {
+    public void setReadCount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048606, this, j2) == null) {
-            this.readCount = j2;
+        if (interceptable == null || interceptable.invokeJ(1048606, this, j) == null) {
+            this.readCount = j;
         }
     }
 
-    public void setShareTo(int i2) {
+    public void setShareTo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.shareTo = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.shareTo = i;
         }
     }
 
@@ -394,10 +394,10 @@ public class ShareEntity implements Parcelable {
         }
     }
 
-    public void setTypeShareToSmallApp(int i2) {
+    public void setTypeShareToSmallApp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.typeShareToSmallApp = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.typeShareToSmallApp = i;
         }
     }
 
@@ -416,17 +416,17 @@ public class ShareEntity implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048614, this, parcel, i) == null) {
             parcel.writeString(this.title);
             parcel.writeString(this.content);
             parcel.writeString(this.linkUrl);
             parcel.writeString(this.localFile);
             parcel.writeInt(this.shareTo);
             parcel.writeString(this.videoUrl);
-            parcel.writeParcelable(this.imageUri, i2);
-            parcel.writeParcelable(this.location, i2);
+            parcel.writeParcelable(this.imageUri, i);
+            parcel.writeParcelable(this.location, i);
             parcel.writeBundle(this.stats);
             parcel.writeInt(this.shareType);
             parcel.writeString(this.tid);

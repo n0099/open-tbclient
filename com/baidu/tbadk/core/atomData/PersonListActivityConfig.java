@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class PersonListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FOLLOW = "follow";
@@ -16,17 +16,17 @@ public class PersonListActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PersonListActivityConfig(Context context, boolean z, String str, int i2) {
+    public PersonListActivityConfig(Context context, boolean z, String str, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), str, Integer.valueOf(i2)};
+            Object[] objArr = {context, Boolean.valueOf(z), str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,7 +35,7 @@ public class PersonListActivityConfig extends IntentConfig {
         }
         getIntent().putExtra("follow", z);
         getIntent().putExtra("user_id", str);
-        getIntent().putExtra("user_sex", i2);
+        getIntent().putExtra("user_sex", i);
     }
 
     public PersonListActivityConfig updateBjhUser(boolean z) {
@@ -50,12 +50,12 @@ public class PersonListActivityConfig extends IntentConfig {
         return (PersonListActivityConfig) invokeZ.objValue;
     }
 
-    public PersonListActivityConfig updateFollowNum(int i2, String str) {
+    public PersonListActivityConfig updateFollowNum(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
             if (getIntent() != null) {
-                getIntent().putExtra("total_follow_num", i2);
+                getIntent().putExtra("total_follow_num", i);
                 getIntent().putExtra("portrait", str);
             }
             return this;

@@ -17,9 +17,7 @@ import java.util.LinkedList;
 public class b extends c<HttpMessage, HttpMessageTask, c.a.d.c.f.d, HttpResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public HttpClient f2445i;
+    public HttpClient i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(MessageManager messageManager) {
@@ -30,32 +28,32 @@ public class b extends c<HttpMessage, HttpMessageTask, c.a.d.c.f.d, HttpResponse
             newInitContext.initArgs = r2;
             Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2445i = null;
-        this.f2445i = new HttpClient(messageManager);
-        this.f2450e = c.a.d.c.j.b.d();
+        this.i = null;
+        this.i = new HttpClient(messageManager);
+        this.f2011e = c.a.d.c.j.b.d();
     }
 
     @Override // c.a.d.c.b
-    public LinkedList<HttpMessage> e(int i2, BdUniqueId bdUniqueId) {
+    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, bdUniqueId)) == null) ? this.f2445i.e(i2, bdUniqueId) : (LinkedList) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) ? this.i.e(i, bdUniqueId) : (LinkedList) invokeIL.objValue;
     }
 
     @Override // c.a.d.c.b
-    public void h(int i2, BdUniqueId bdUniqueId) {
+    public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bdUniqueId) == null) {
-            this.f2445i.h(i2, bdUniqueId);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
         }
     }
 
@@ -71,7 +69,7 @@ public class b extends c<HttpMessage, HttpMessageTask, c.a.d.c.f.d, HttpResponse
     public LinkedList<HttpMessage> w(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.f2445i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bdUniqueId)) == null) ? this.i.i(bdUniqueId) : (LinkedList) invokeL.objValue;
     }
 
     public HttpMessage x(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
@@ -83,7 +81,7 @@ public class b extends c<HttpMessage, HttpMessageTask, c.a.d.c.f.d, HttpResponse
     public void y(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bdUniqueId) == null) {
-            this.f2445i.k(bdUniqueId);
+            this.i.k(bdUniqueId);
         }
     }
 
@@ -94,9 +92,9 @@ public class b extends c<HttpMessage, HttpMessageTask, c.a.d.c.f.d, HttpResponse
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask) == null) {
             if (httpMessageTask.getConnectTimeOut() == null) {
-                httpMessageTask.setConnectTimeOut(((c.a.d.c.j.b) this.f2450e).c());
+                httpMessageTask.setConnectTimeOut(((c.a.d.c.j.b) this.f2011e).c());
             }
-            this.f2445i.f(httpMessage, httpMessageTask);
+            this.i.f(httpMessage, httpMessageTask);
         }
     }
 }

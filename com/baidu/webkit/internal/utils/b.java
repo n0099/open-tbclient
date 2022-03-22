@@ -15,7 +15,7 @@ public final class b {
     public static boolean a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f51425b = -1;
+    public static int f37882b = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -57,7 +57,7 @@ public final class b {
                     StringBuilder sb = new StringBuilder();
                     sb.append(WebKitFactory.getProcessTypeString());
                     sb.append("zeus_init_model_opt");
-                    f51425b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
+                    f37882b = new File(filesDir, sb.toString()).exists() ? 1 : -1;
                     a = true;
                 }
             }

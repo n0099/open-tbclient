@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class BannerRollAnimation {
     public static /* synthetic */ Interceptable $ic;
     public static final BannerRollAnimation Default;
     public static final BannerRollAnimation NoAnimation;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ BannerRollAnimation[] f57508b;
+    public static final /* synthetic */ BannerRollAnimation[] f42313b;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
 
@@ -35,19 +35,19 @@ public final class BannerRollAnimation {
         Default = new BannerRollAnimation("Default", 0, 0);
         BannerRollAnimation bannerRollAnimation = new BannerRollAnimation("NoAnimation", 1, -1);
         NoAnimation = bannerRollAnimation;
-        f57508b = new BannerRollAnimation[]{Default, bannerRollAnimation};
+        f42313b = new BannerRollAnimation[]{Default, bannerRollAnimation};
     }
 
-    public BannerRollAnimation(String str, int i2, int i3) {
+    public BannerRollAnimation(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -56,7 +56,7 @@ public final class BannerRollAnimation {
                 return;
             }
         }
-        this.a = i3;
+        this.a = i2;
     }
 
     public static BannerRollAnimation valueOf(String str) {
@@ -68,7 +68,7 @@ public final class BannerRollAnimation {
     public static BannerRollAnimation[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f57508b.clone() : (BannerRollAnimation[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (BannerRollAnimation[]) f42313b.clone() : (BannerRollAnimation[]) invokeV.objValue;
     }
 
     public int value() {

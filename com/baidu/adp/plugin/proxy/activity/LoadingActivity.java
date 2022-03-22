@@ -33,30 +33,30 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
 
         /* renamed from: com.baidu.adp.plugin.proxy.activity.LoadingActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C1697a implements c {
+        public class C1665a implements c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Plugin a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ a f29883b;
+            public final /* synthetic */ a f23884b;
 
-            public C1697a(a aVar, Plugin plugin2) {
+            public C1665a(a aVar, Plugin plugin2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, plugin2};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f29883b = aVar;
+                this.f23884b = aVar;
                 this.a = plugin2;
             }
 
@@ -64,10 +64,10 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             public void a(Plugin.c cVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, cVar, str) == null) {
-                    Intent intent = new Intent(this.f29883b.a.getIntent());
-                    intent.setComponent(new ComponentName(str, this.f29883b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
-                    this.a.launchIntent(this.f29883b.a.getPageContext().getContext(), intent);
-                    this.f29883b.a.finish();
+                    Intent intent = new Intent(this.f23884b.a.getIntent());
+                    intent.setComponent(new ComponentName(str, this.f23884b.a.getIntent().getStringExtra(Plugin.INTENT_EXTRA_REDIRECT_ACTIVITY)));
+                    this.a.launchIntent(this.f23884b.a.getPageContext().getContext(), intent);
+                    this.f23884b.a.finish();
                 }
             }
         }
@@ -79,9 +79,9 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loadingActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,7 +97,7 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (plugin2 = PluginCenter.getInstance().getPlugin(str)) == null) {
                 return;
             }
-            plugin2.asyncInit(str, new C1697a(this, plugin2));
+            plugin2.asyncInit(str, new C1665a(this, plugin2));
         }
 
         @Override // c.a.d.j.g.b
@@ -114,9 +114,9 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -166,14 +166,14 @@ public class LoadingActivity extends BdBaseActivity<LoadingActivity> {
     }
 
     @Override // android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, keyEvent)) == null) {
             if (keyEvent.getKeyCode() == 4) {
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }

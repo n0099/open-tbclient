@@ -1,7 +1,7 @@
 package com.baidu.tieba.hottopic.message;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -21,7 +21,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public String call_from;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f43336common;
+    public CommonReq f33646common;
     public long fid;
     public String list_type;
     public String need_tab_list;
@@ -33,9 +33,9 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -52,7 +52,7 @@ public class RequestHotRanklistMessage extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.f61459common = getCommon();
+                builder.f45799common = getCommon();
                 builder.call_from = getCallFrom();
                 builder.list_type = getListType();
                 builder.need_tab_list = getNeedTabList();
@@ -79,7 +79,7 @@ public class RequestHotRanklistMessage extends NetMessage {
     public CommonReq getCommon() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43336common : (CommonReq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33646common : (CommonReq) invokeV.objValue;
     }
 
     public String getListType() {
@@ -104,14 +104,14 @@ public class RequestHotRanklistMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, commonReq) == null) {
-            this.f43336common = commonReq;
+            this.f33646common = commonReq;
         }
     }
 
-    public void setFid(long j2) {
+    public void setFid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.fid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.fid = j;
         }
     }
 

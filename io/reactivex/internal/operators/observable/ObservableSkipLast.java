@@ -27,17 +27,17 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
         public final int skip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SkipLastObserver(Observer<? super T> observer, int i2) {
-            super(i2);
+        public SkipLastObserver(Observer<? super T> observer, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Integer.valueOf(i2)};
+                Object[] objArr = {observer, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -45,7 +45,7 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
                 }
             }
             this.actual = observer;
-            this.skip = i2;
+            this.skip = i;
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -102,24 +102,24 @@ public final class ObservableSkipLast<T> extends AbstractObservableWithUpstream<
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipLast(ObservableSource<T> observableSource, int i2) {
+    public ObservableSkipLast(ObservableSource<T> observableSource, int i) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Integer.valueOf(i2)};
+            Object[] objArr = {observableSource, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.skip = i2;
+        this.skip = i;
     }
 
     @Override // io.reactivex.Observable

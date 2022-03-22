@@ -35,113 +35,113 @@ public final class ULong implements Comparable<ULong> {
     /* JADX DEBUG: Marked for inline */
     /* JADX DEBUG: Method not inlined, still used in: [kotlin.ULong.box-impl(long):kotlin.ULong] */
     @PublishedApi
-    public /* synthetic */ ULong(long j2) {
-        this.data = j2;
+    public /* synthetic */ ULong(long j) {
+        this.data = j;
     }
 
     @InlineOnly
     /* renamed from: and-VKZWuLQ  reason: not valid java name */
-    public static final long m878andVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 & j3);
+    public static final long m857andVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j & j2);
     }
 
     /* renamed from: box-impl  reason: not valid java name */
-    public static final /* synthetic */ ULong m879boximpl(long j2) {
-        return new ULong(j2);
+    public static final /* synthetic */ ULong m858boximpl(long j) {
+        return new ULong(j);
     }
 
     @InlineOnly
     /* renamed from: compareTo-7apg3OU  reason: not valid java name */
-    public static final int m880compareTo7apg3OU(long j2, byte b2) {
-        return UnsignedKt.ulongCompare(j2, m885constructorimpl(b2 & 255));
+    public static final int m859compareTo7apg3OU(long j, byte b2) {
+        return UnsignedKt.ulongCompare(j, m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: compareTo-VKZWuLQ  reason: not valid java name */
-    private int m881compareToVKZWuLQ(long j2) {
-        return m882compareToVKZWuLQ(this.data, j2);
+    private int m860compareToVKZWuLQ(long j) {
+        return m861compareToVKZWuLQ(this.data, j);
     }
 
     @InlineOnly
     /* renamed from: compareTo-WZ4Q5Ns  reason: not valid java name */
-    public static final int m883compareToWZ4Q5Ns(long j2, int i2) {
-        return UnsignedKt.ulongCompare(j2, m885constructorimpl(i2 & 4294967295L));
+    public static final int m862compareToWZ4Q5Ns(long j, int i) {
+        return UnsignedKt.ulongCompare(j, m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: compareTo-xj2QHRw  reason: not valid java name */
-    public static final int m884compareToxj2QHRw(long j2, short s) {
-        return UnsignedKt.ulongCompare(j2, m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final int m863compareToxj2QHRw(long j, short s) {
+        return UnsignedKt.ulongCompare(j, m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @PublishedApi
     /* renamed from: constructor-impl  reason: not valid java name */
-    public static long m885constructorimpl(long j2) {
-        return j2;
+    public static long m864constructorimpl(long j) {
+        return j;
     }
 
     @InlineOnly
     /* renamed from: dec-s-VKNKU  reason: not valid java name */
-    public static final long m886decsVKNKU(long j2) {
-        return m885constructorimpl(j2 - 1);
+    public static final long m865decsVKNKU(long j) {
+        return m864constructorimpl(j - 1);
     }
 
     @InlineOnly
     /* renamed from: div-7apg3OU  reason: not valid java name */
-    public static final long m887div7apg3OU(long j2, byte b2) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(b2 & 255));
+    public static final long m866div7apg3OU(long j, byte b2) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: div-VKZWuLQ  reason: not valid java name */
-    public static final long m888divVKZWuLQ(long j2, long j3) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, j3);
+    public static final long m867divVKZWuLQ(long j, long j2) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, j2);
     }
 
     @InlineOnly
     /* renamed from: div-WZ4Q5Ns  reason: not valid java name */
-    public static final long m889divWZ4Q5Ns(long j2, int i2) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(i2 & 4294967295L));
+    public static final long m868divWZ4Q5Ns(long j, int i) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: div-xj2QHRw  reason: not valid java name */
-    public static final long m890divxj2QHRw(long j2, short s) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m869divxj2QHRw(long j, short s) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     /* renamed from: equals-impl  reason: not valid java name */
-    public static boolean m891equalsimpl(long j2, Object obj) {
-        return (obj instanceof ULong) && j2 == ((ULong) obj).m936unboximpl();
+    public static boolean m870equalsimpl(long j, Object obj) {
+        return (obj instanceof ULong) && j == ((ULong) obj).m915unboximpl();
     }
 
     /* renamed from: equals-impl0  reason: not valid java name */
-    public static final boolean m892equalsimpl0(long j2, long j3) {
-        return j2 == j3;
+    public static final boolean m871equalsimpl0(long j, long j2) {
+        return j == j2;
     }
 
     @InlineOnly
     /* renamed from: floorDiv-7apg3OU  reason: not valid java name */
-    public static final long m893floorDiv7apg3OU(long j2, byte b2) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(b2 & 255));
+    public static final long m872floorDiv7apg3OU(long j, byte b2) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: floorDiv-VKZWuLQ  reason: not valid java name */
-    public static final long m894floorDivVKZWuLQ(long j2, long j3) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, j3);
+    public static final long m873floorDivVKZWuLQ(long j, long j2) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, j2);
     }
 
     @InlineOnly
     /* renamed from: floorDiv-WZ4Q5Ns  reason: not valid java name */
-    public static final long m895floorDivWZ4Q5Ns(long j2, int i2) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(i2 & 4294967295L));
+    public static final long m874floorDivWZ4Q5Ns(long j, int i) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: floorDiv-xj2QHRw  reason: not valid java name */
-    public static final long m896floorDivxj2QHRw(long j2, short s) {
-        return UnsignedKt.m1062ulongDivideeb3DHEI(j2, m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m875floorDivxj2QHRw(long j, short s) {
+        return UnsignedKt.m1041ulongDivideeb3DHEI(j, m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @PublishedApi
@@ -149,263 +149,263 @@ public final class ULong implements Comparable<ULong> {
     }
 
     /* renamed from: hashCode-impl  reason: not valid java name */
-    public static int m897hashCodeimpl(long j2) {
-        return (int) (j2 ^ (j2 >>> 32));
+    public static int m876hashCodeimpl(long j) {
+        return (int) (j ^ (j >>> 32));
     }
 
     @InlineOnly
     /* renamed from: inc-s-VKNKU  reason: not valid java name */
-    public static final long m898incsVKNKU(long j2) {
-        return m885constructorimpl(j2 + 1);
+    public static final long m877incsVKNKU(long j) {
+        return m864constructorimpl(j + 1);
     }
 
     @InlineOnly
     /* renamed from: inv-s-VKNKU  reason: not valid java name */
-    public static final long m899invsVKNKU(long j2) {
-        return m885constructorimpl(~j2);
+    public static final long m878invsVKNKU(long j) {
+        return m864constructorimpl(~j);
     }
 
     @InlineOnly
     /* renamed from: minus-7apg3OU  reason: not valid java name */
-    public static final long m900minus7apg3OU(long j2, byte b2) {
-        return m885constructorimpl(j2 - m885constructorimpl(b2 & 255));
+    public static final long m879minus7apg3OU(long j, byte b2) {
+        return m864constructorimpl(j - m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: minus-VKZWuLQ  reason: not valid java name */
-    public static final long m901minusVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 - j3);
+    public static final long m880minusVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j - j2);
     }
 
     @InlineOnly
     /* renamed from: minus-WZ4Q5Ns  reason: not valid java name */
-    public static final long m902minusWZ4Q5Ns(long j2, int i2) {
-        return m885constructorimpl(j2 - m885constructorimpl(i2 & 4294967295L));
+    public static final long m881minusWZ4Q5Ns(long j, int i) {
+        return m864constructorimpl(j - m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: minus-xj2QHRw  reason: not valid java name */
-    public static final long m903minusxj2QHRw(long j2, short s) {
-        return m885constructorimpl(j2 - m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m882minusxj2QHRw(long j, short s) {
+        return m864constructorimpl(j - m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @InlineOnly
     /* renamed from: mod-7apg3OU  reason: not valid java name */
-    public static final byte m904mod7apg3OU(long j2, byte b2) {
-        return UByte.m731constructorimpl((byte) UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(b2 & 255)));
+    public static final byte m883mod7apg3OU(long j, byte b2) {
+        return UByte.m710constructorimpl((byte) UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(b2 & 255)));
     }
 
     @InlineOnly
     /* renamed from: mod-VKZWuLQ  reason: not valid java name */
-    public static final long m905modVKZWuLQ(long j2, long j3) {
-        return UnsignedKt.m1063ulongRemaindereb3DHEI(j2, j3);
+    public static final long m884modVKZWuLQ(long j, long j2) {
+        return UnsignedKt.m1042ulongRemaindereb3DHEI(j, j2);
     }
 
     @InlineOnly
     /* renamed from: mod-WZ4Q5Ns  reason: not valid java name */
-    public static final int m906modWZ4Q5Ns(long j2, int i2) {
-        return UInt.m807constructorimpl((int) UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(i2 & 4294967295L)));
+    public static final int m885modWZ4Q5Ns(long j, int i) {
+        return UInt.m786constructorimpl((int) UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(i & 4294967295L)));
     }
 
     @InlineOnly
     /* renamed from: mod-xj2QHRw  reason: not valid java name */
-    public static final short m907modxj2QHRw(long j2, short s) {
-        return UShort.m991constructorimpl((short) UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX)));
+    public static final short m886modxj2QHRw(long j, short s) {
+        return UShort.m970constructorimpl((short) UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX)));
     }
 
     @InlineOnly
     /* renamed from: or-VKZWuLQ  reason: not valid java name */
-    public static final long m908orVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 | j3);
+    public static final long m887orVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j | j2);
     }
 
     @InlineOnly
     /* renamed from: plus-7apg3OU  reason: not valid java name */
-    public static final long m909plus7apg3OU(long j2, byte b2) {
-        return m885constructorimpl(j2 + m885constructorimpl(b2 & 255));
+    public static final long m888plus7apg3OU(long j, byte b2) {
+        return m864constructorimpl(j + m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: plus-VKZWuLQ  reason: not valid java name */
-    public static final long m910plusVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 + j3);
+    public static final long m889plusVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j + j2);
     }
 
     @InlineOnly
     /* renamed from: plus-WZ4Q5Ns  reason: not valid java name */
-    public static final long m911plusWZ4Q5Ns(long j2, int i2) {
-        return m885constructorimpl(j2 + m885constructorimpl(i2 & 4294967295L));
+    public static final long m890plusWZ4Q5Ns(long j, int i) {
+        return m864constructorimpl(j + m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: plus-xj2QHRw  reason: not valid java name */
-    public static final long m912plusxj2QHRw(long j2, short s) {
-        return m885constructorimpl(j2 + m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m891plusxj2QHRw(long j, short s) {
+        return m864constructorimpl(j + m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @InlineOnly
     /* renamed from: rangeTo-VKZWuLQ  reason: not valid java name */
-    public static final ULongRange m913rangeToVKZWuLQ(long j2, long j3) {
-        return new ULongRange(j2, j3, null);
+    public static final ULongRange m892rangeToVKZWuLQ(long j, long j2) {
+        return new ULongRange(j, j2, null);
     }
 
     @InlineOnly
     /* renamed from: rem-7apg3OU  reason: not valid java name */
-    public static final long m914rem7apg3OU(long j2, byte b2) {
-        return UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(b2 & 255));
+    public static final long m893rem7apg3OU(long j, byte b2) {
+        return UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: rem-VKZWuLQ  reason: not valid java name */
-    public static final long m915remVKZWuLQ(long j2, long j3) {
-        return UnsignedKt.m1063ulongRemaindereb3DHEI(j2, j3);
+    public static final long m894remVKZWuLQ(long j, long j2) {
+        return UnsignedKt.m1042ulongRemaindereb3DHEI(j, j2);
     }
 
     @InlineOnly
     /* renamed from: rem-WZ4Q5Ns  reason: not valid java name */
-    public static final long m916remWZ4Q5Ns(long j2, int i2) {
-        return UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(i2 & 4294967295L));
+    public static final long m895remWZ4Q5Ns(long j, int i) {
+        return UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: rem-xj2QHRw  reason: not valid java name */
-    public static final long m917remxj2QHRw(long j2, short s) {
-        return UnsignedKt.m1063ulongRemaindereb3DHEI(j2, m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m896remxj2QHRw(long j, short s) {
+        return UnsignedKt.m1042ulongRemaindereb3DHEI(j, m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @InlineOnly
     /* renamed from: shl-s-VKNKU  reason: not valid java name */
-    public static final long m918shlsVKNKU(long j2, int i2) {
-        return m885constructorimpl(j2 << i2);
+    public static final long m897shlsVKNKU(long j, int i) {
+        return m864constructorimpl(j << i);
     }
 
     @InlineOnly
     /* renamed from: shr-s-VKNKU  reason: not valid java name */
-    public static final long m919shrsVKNKU(long j2, int i2) {
-        return m885constructorimpl(j2 >>> i2);
+    public static final long m898shrsVKNKU(long j, int i) {
+        return m864constructorimpl(j >>> i);
     }
 
     @InlineOnly
     /* renamed from: times-7apg3OU  reason: not valid java name */
-    public static final long m920times7apg3OU(long j2, byte b2) {
-        return m885constructorimpl(j2 * m885constructorimpl(b2 & 255));
+    public static final long m899times7apg3OU(long j, byte b2) {
+        return m864constructorimpl(j * m864constructorimpl(b2 & 255));
     }
 
     @InlineOnly
     /* renamed from: times-VKZWuLQ  reason: not valid java name */
-    public static final long m921timesVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 * j3);
+    public static final long m900timesVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j * j2);
     }
 
     @InlineOnly
     /* renamed from: times-WZ4Q5Ns  reason: not valid java name */
-    public static final long m922timesWZ4Q5Ns(long j2, int i2) {
-        return m885constructorimpl(j2 * m885constructorimpl(i2 & 4294967295L));
+    public static final long m901timesWZ4Q5Ns(long j, int i) {
+        return m864constructorimpl(j * m864constructorimpl(i & 4294967295L));
     }
 
     @InlineOnly
     /* renamed from: times-xj2QHRw  reason: not valid java name */
-    public static final long m923timesxj2QHRw(long j2, short s) {
-        return m885constructorimpl(j2 * m885constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
+    public static final long m902timesxj2QHRw(long j, short s) {
+        return m864constructorimpl(j * m864constructorimpl(s & WebSocketProtocol.PAYLOAD_SHORT_MAX));
     }
 
     @InlineOnly
     /* renamed from: toByte-impl  reason: not valid java name */
-    public static final byte m924toByteimpl(long j2) {
-        return (byte) j2;
+    public static final byte m903toByteimpl(long j) {
+        return (byte) j;
     }
 
     @InlineOnly
     /* renamed from: toDouble-impl  reason: not valid java name */
-    public static final double m925toDoubleimpl(long j2) {
-        return UnsignedKt.ulongToDouble(j2);
+    public static final double m904toDoubleimpl(long j) {
+        return UnsignedKt.ulongToDouble(j);
     }
 
     @InlineOnly
     /* renamed from: toFloat-impl  reason: not valid java name */
-    public static final float m926toFloatimpl(long j2) {
-        return (float) UnsignedKt.ulongToDouble(j2);
+    public static final float m905toFloatimpl(long j) {
+        return (float) UnsignedKt.ulongToDouble(j);
     }
 
     @InlineOnly
     /* renamed from: toInt-impl  reason: not valid java name */
-    public static final int m927toIntimpl(long j2) {
-        return (int) j2;
+    public static final int m906toIntimpl(long j) {
+        return (int) j;
     }
 
     @InlineOnly
     /* renamed from: toLong-impl  reason: not valid java name */
-    public static final long m928toLongimpl(long j2) {
-        return j2;
+    public static final long m907toLongimpl(long j) {
+        return j;
     }
 
     @InlineOnly
     /* renamed from: toShort-impl  reason: not valid java name */
-    public static final short m929toShortimpl(long j2) {
-        return (short) j2;
+    public static final short m908toShortimpl(long j) {
+        return (short) j;
     }
 
     /* renamed from: toString-impl  reason: not valid java name */
-    public static String m930toStringimpl(long j2) {
-        return UnsignedKt.ulongToString(j2);
+    public static String m909toStringimpl(long j) {
+        return UnsignedKt.ulongToString(j);
     }
 
     @InlineOnly
     /* renamed from: toUByte-w2LRezQ  reason: not valid java name */
-    public static final byte m931toUBytew2LRezQ(long j2) {
-        return UByte.m731constructorimpl((byte) j2);
+    public static final byte m910toUBytew2LRezQ(long j) {
+        return UByte.m710constructorimpl((byte) j);
     }
 
     @InlineOnly
     /* renamed from: toUInt-pVg5ArA  reason: not valid java name */
-    public static final int m932toUIntpVg5ArA(long j2) {
-        return UInt.m807constructorimpl((int) j2);
+    public static final int m911toUIntpVg5ArA(long j) {
+        return UInt.m786constructorimpl((int) j);
     }
 
     @InlineOnly
     /* renamed from: toULong-s-VKNKU  reason: not valid java name */
-    public static final long m933toULongsVKNKU(long j2) {
-        return j2;
+    public static final long m912toULongsVKNKU(long j) {
+        return j;
     }
 
     @InlineOnly
     /* renamed from: toUShort-Mh2AYeg  reason: not valid java name */
-    public static final short m934toUShortMh2AYeg(long j2) {
-        return UShort.m991constructorimpl((short) j2);
+    public static final short m913toUShortMh2AYeg(long j) {
+        return UShort.m970constructorimpl((short) j);
     }
 
     @InlineOnly
     /* renamed from: xor-VKZWuLQ  reason: not valid java name */
-    public static final long m935xorVKZWuLQ(long j2, long j3) {
-        return m885constructorimpl(j2 ^ j3);
+    public static final long m914xorVKZWuLQ(long j, long j2) {
+        return m864constructorimpl(j ^ j2);
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     @Override // java.lang.Comparable
     public /* bridge */ /* synthetic */ int compareTo(ULong uLong) {
-        return m881compareToVKZWuLQ(uLong.m936unboximpl());
+        return m860compareToVKZWuLQ(uLong.m915unboximpl());
     }
 
     public boolean equals(Object obj) {
-        return m891equalsimpl(this.data, obj);
+        return m870equalsimpl(this.data, obj);
     }
 
     public int hashCode() {
-        return m897hashCodeimpl(this.data);
+        return m876hashCodeimpl(this.data);
     }
 
     public String toString() {
-        return m930toStringimpl(this.data);
+        return m909toStringimpl(this.data);
     }
 
     /* renamed from: unbox-impl  reason: not valid java name */
-    public final /* synthetic */ long m936unboximpl() {
+    public final /* synthetic */ long m915unboximpl() {
         return this.data;
     }
 
     @InlineOnly
     /* renamed from: compareTo-VKZWuLQ  reason: not valid java name */
-    public static int m882compareToVKZWuLQ(long j2, long j3) {
-        return UnsignedKt.ulongCompare(j2, j3);
+    public static int m861compareToVKZWuLQ(long j, long j2) {
+        return UnsignedKt.ulongCompare(j, j2);
     }
 }

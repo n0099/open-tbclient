@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultControlDispatcher implements ControlDispatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,9 @@ public class DefaultControlDispatcher implements ControlDispatcher {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -26,11 +26,11 @@ public class DefaultControlDispatcher implements ControlDispatcher {
     }
 
     @Override // com.google.android.exoplayer2.ControlDispatcher
-    public boolean dispatchSeekTo(Player player, int i2, long j2) {
+    public boolean dispatchSeekTo(Player player, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{player, Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            player.seekTo(i2, j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{player, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            player.seekTo(i, j);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -48,11 +48,11 @@ public class DefaultControlDispatcher implements ControlDispatcher {
     }
 
     @Override // com.google.android.exoplayer2.ControlDispatcher
-    public boolean dispatchSetRepeatMode(Player player, int i2) {
+    public boolean dispatchSetRepeatMode(Player player, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, player, i2)) == null) {
-            player.setRepeatMode(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, player, i)) == null) {
+            player.setRepeatMode(i);
             return true;
         }
         return invokeLI.booleanValue;

@@ -26,7 +26,7 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60694d;
+        public Disposable f45304d;
         public final BiConsumer<? super T, ? super Throwable> onEvent;
 
         public DoOnEventMaybeObserver(MaybeObserver<? super T> maybeObserver, BiConsumer<? super T, ? super Throwable> biConsumer) {
@@ -36,9 +36,9 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {maybeObserver, biConsumer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,8 +52,8 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f60694d.dispose();
-                this.f60694d = DisposableHelper.DISPOSED;
+                this.f45304d.dispose();
+                this.f45304d = DisposableHelper.DISPOSED;
             }
         }
 
@@ -61,14 +61,14 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60694d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45304d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f60694d = DisposableHelper.DISPOSED;
+                this.f45304d = DisposableHelper.DISPOSED;
                 try {
                     this.onEvent.accept(null, null);
                     this.actual.onComplete();
@@ -83,7 +83,7 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         public void onError(Throwable th) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, th) == null) {
-                this.f60694d = DisposableHelper.DISPOSED;
+                this.f45304d = DisposableHelper.DISPOSED;
                 try {
                     this.onEvent.accept(null, th);
                 } catch (Throwable th2) {
@@ -97,8 +97,8 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f60694d, disposable)) {
-                this.f60694d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048580, this, disposable) == null) && DisposableHelper.validate(this.f45304d, disposable)) {
+                this.f45304d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -107,7 +107,7 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
         public void onSuccess(T t) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
-                this.f60694d = DisposableHelper.DISPOSED;
+                this.f45304d = DisposableHelper.DISPOSED;
                 try {
                     this.onEvent.accept(t, null);
                     this.actual.onSuccess(t);
@@ -128,9 +128,9 @@ public final class MaybeDoOnEvent<T> extends AbstractMaybeWithUpstream<T, T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource, biConsumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MaybeSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

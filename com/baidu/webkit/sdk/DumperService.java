@@ -42,9 +42,9 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -93,11 +93,11 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void onFinished(String str, int i2, String str2) {
+    public final void onFinished(String str, int i, String str2) {
         Object obj;
         ZeusLogUploader zeusLogUploader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i2, str2) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
             Context applicationContext = getApplicationContext();
             String str3 = this.mCallback;
             if (str3 != null && !str3.isEmpty()) {
@@ -106,13 +106,13 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
                 } catch (Throwable th) {
                     th.printStackTrace();
                 }
-                if (this.mCrashLogFailedEncrypt && i2 == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
+                if (this.mCrashLogFailedEncrypt && i == 3 && (zeusLogUploader = this.mLogUploader) != null && zeusLogUploader.encryptUploadFailedFile(str, true) != 6) {
                     str2 = "Failed to encrypt file.";
                 }
                 if (obj != null) {
-                    ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i2, str2);
+                    ((CrashCallback) obj).onCrash(applicationContext, this.mCrashImei, this.mCrashSignal, this.mCrashTime, str, i, str2);
                 }
-                Log.d(TAG, "DumperService::onFinished  status=" + i2 + ", msg=" + str2);
+                Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
                 stopSelf();
             }
             obj = null;
@@ -121,16 +121,16 @@ public final class DumperService extends Service implements ZeusLogUploader.OnFi
             }
             if (obj != null) {
             }
-            Log.d(TAG, "DumperService::onFinished  status=" + i2 + ", msg=" + str2);
+            Log.d(TAG, "DumperService::onFinished  status=" + i + ", msg=" + str2);
             stopSelf();
         }
     }
 
     @Override // android.app.Service
-    public final int onStartCommand(Intent intent, int i2, int i3) {
+    public final int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, intent, i, i2)) == null) {
             if (intent == null) {
                 stopSelf();
             }

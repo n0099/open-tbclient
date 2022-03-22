@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.apache.http.util.ByteArrayBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class HttpMultipart {
     public static /* synthetic */ Interceptable $ic;
     public static final ByteArrayBuffer CR_LF;
@@ -33,7 +33,7 @@ public class HttpMultipart {
     public final String subType;
 
     /* renamed from: org.apache.http.entity.mime.HttpMultipart$1  reason: invalid class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static final /* synthetic */ int[] $SwitchMap$org$apache$http$entity$mime$HttpMultipartMode;
         public static /* synthetic */ Interceptable $ic;
@@ -90,9 +90,9 @@ public class HttpMultipart {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, charset, str2, httpMultipartMode};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -121,13 +121,13 @@ public class HttpMultipart {
                 writeBytes(encode, outputStream);
                 writeBytes(CR_LF, outputStream);
                 Header header = formBodyPart.getHeader();
-                int i2 = AnonymousClass1.$SwitchMap$org$apache$http$entity$mime$HttpMultipartMode[httpMultipartMode.ordinal()];
-                if (i2 == 1) {
+                int i = AnonymousClass1.$SwitchMap$org$apache$http$entity$mime$HttpMultipartMode[httpMultipartMode.ordinal()];
+                if (i == 1) {
                     Iterator<MinimalField> it = header.iterator();
                     while (it.hasNext()) {
                         writeField(it.next(), outputStream);
                     }
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     writeField(formBodyPart.getHeader().getField("Content-Disposition"), this.charset, outputStream);
                     if (formBodyPart.getBody().getFilename() != null) {
                         writeField(formBodyPart.getHeader().getField("Content-Type"), this.charset, outputStream);
@@ -218,17 +218,17 @@ public class HttpMultipart {
         ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (FormBodyPart formBodyPart : this.parts) {
                 long contentLength = formBodyPart.getBody().getContentLength();
                 if (contentLength < 0) {
                     return -1L;
                 }
-                j2 += contentLength;
+                j += contentLength;
             }
             try {
                 doWriteTo(this.mode, new ByteArrayOutputStream(), false);
-                return j2 + byteArrayOutputStream.toByteArray().length;
+                return j + byteArrayOutputStream.toByteArray().length;
             } catch (IOException unused) {
                 return -1L;
             }
@@ -276,9 +276,9 @@ public class HttpMultipart {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, charset, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2], (HttpMultipartMode) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -297,9 +297,9 @@ public class HttpMultipart {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (Charset) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;

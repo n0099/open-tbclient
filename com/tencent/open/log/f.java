@@ -11,32 +11,32 @@ import java.io.Writer;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class f implements Iterable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcurrentLinkedQueue<String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f59138b;
+    public AtomicInteger f43775b;
 
     public f() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f59138b = null;
+        this.f43775b = null;
         this.a = new ConcurrentLinkedQueue<>();
-        this.f59138b = new AtomicInteger(0);
+        this.f43775b = new AtomicInteger(0);
     }
 
     public int a(String str) {
@@ -45,7 +45,7 @@ public class f implements Iterable<String> {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             int length = str.length();
             this.a.add(str);
-            return this.f59138b.addAndGet(length);
+            return this.f43775b.addAndGet(length);
         }
         return invokeL.intValue;
     }
@@ -54,7 +54,7 @@ public class f implements Iterable<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.clear();
-            this.f59138b.set(0);
+            this.f43775b.set(0);
         }
     }
 
@@ -74,20 +74,20 @@ public class f implements Iterable<String> {
         Writer writer2 = writerArr[1];
         int length = cArr.length;
         Iterator<String> it = iterator();
-        int i2 = length;
-        int i3 = 0;
+        int i = length;
+        int i2 = 0;
         while (it.hasNext()) {
             String next = it.next();
             int length2 = next.length();
-            int i4 = 0;
+            int i3 = 0;
             while (length2 > 0) {
-                int i5 = i2 > length2 ? length2 : i2;
-                int i6 = i4 + i5;
-                next.getChars(i4, i6, cArr, i3);
-                i2 -= i5;
-                i3 += i5;
-                length2 -= i5;
-                if (i2 == 0) {
+                int i4 = i > length2 ? length2 : i;
+                int i5 = i3 + i4;
+                next.getChars(i3, i5, cArr, i2);
+                i -= i4;
+                i2 += i4;
+                length2 -= i4;
+                if (i == 0) {
                     if (writer != null) {
                         try {
                             writer.write(cArr, 0, length);
@@ -100,24 +100,24 @@ public class f implements Iterable<String> {
                         } catch (Exception unused2) {
                         }
                     }
-                    i2 = length;
-                    i4 = i6;
-                    i3 = 0;
+                    i = length;
+                    i3 = i5;
+                    i2 = 0;
                 } else {
-                    i4 = i6;
+                    i3 = i5;
                 }
             }
         }
-        if (i3 > 0) {
+        if (i2 > 0) {
             if (writer != null) {
                 try {
-                    writer.write(cArr, 0, i3);
+                    writer.write(cArr, 0, i2);
                 } catch (Exception unused3) {
                 }
             }
             if (writer2 != null) {
                 try {
-                    writer2.write(cArr, 0, i3);
+                    writer2.write(cArr, 0, i2);
                 } catch (Exception unused4) {
                 }
             }
@@ -139,6 +139,6 @@ public class f implements Iterable<String> {
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f59138b.get() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f43775b.get() : invokeV.intValue;
     }
 }

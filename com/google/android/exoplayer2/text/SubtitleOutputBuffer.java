@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.decoder.OutputBuffer;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +20,9 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -39,17 +39,17 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j2) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.subtitle.getCues(j2 - this.subsampleOffsetUs) : (List) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.subtitle.getCues(j - this.subsampleOffsetUs) : (List) invokeJ.objValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public long getEventTime(int i2) {
+    public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.subtitle.getEventTime(i2) + this.subsampleOffsetUs : invokeI.longValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.subtitle.getEventTime(i) + this.subsampleOffsetUs : invokeI.longValue;
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
@@ -60,24 +60,24 @@ public abstract class SubtitleOutputBuffer extends OutputBuffer implements Subti
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getNextEventTimeIndex(long j2) {
+    public int getNextEventTimeIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? this.subtitle.getNextEventTimeIndex(j2 - this.subsampleOffsetUs) : invokeJ.intValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? this.subtitle.getNextEventTimeIndex(j - this.subsampleOffsetUs) : invokeJ.intValue;
     }
 
     @Override // com.google.android.exoplayer2.decoder.OutputBuffer
     public abstract void release();
 
-    public void setContent(long j2, Subtitle subtitle, long j3) {
+    public void setContent(long j, Subtitle subtitle, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), subtitle, Long.valueOf(j3)}) == null) {
-            this.timeUs = j2;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), subtitle, Long.valueOf(j2)}) == null) {
+            this.timeUs = j;
             this.subtitle = subtitle;
-            if (j3 != Long.MAX_VALUE) {
-                j2 = j3;
+            if (j2 != Long.MAX_VALUE) {
+                j = j2;
             }
-            this.subsampleOffsetUs = j2;
+            this.subsampleOffsetUs = j;
         }
     }
 }

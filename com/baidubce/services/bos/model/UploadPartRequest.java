@@ -11,7 +11,7 @@ import com.baidubce.auth.BceCredentials;
 import com.baidubce.services.bos.callback.BosProgressCallback;
 import com.baidubce.util.CheckUtils;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class UploadPartRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public class UploadPartRequest extends GenericUploadRequest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,19 +96,19 @@ public class UploadPartRequest extends GenericUploadRequest {
         }
     }
 
-    public void setPartNumber(int i2) {
+    public void setPartNumber(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            CheckUtils.checkArgument(i2 > 0, "partNumber should be positive, but is %s", Integer.valueOf(i2));
-            this.partNumber = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            CheckUtils.checkArgument(i > 0, "partNumber should be positive, but is %s", Integer.valueOf(i));
+            this.partNumber = i;
         }
     }
 
-    public void setPartSize(long j2) {
+    public void setPartSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            CheckUtils.checkArgument(j2 >= 0, "partSize should not be negative.");
-            this.partSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            CheckUtils.checkArgument(j >= 0, "partSize should not be negative.");
+            this.partSize = j;
         }
     }
 
@@ -149,21 +149,21 @@ public class UploadPartRequest extends GenericUploadRequest {
         return (UploadPartRequest) invokeL.objValue;
     }
 
-    public UploadPartRequest withPartNumber(int i2) {
+    public UploadPartRequest withPartNumber(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            setPartNumber(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            setPartNumber(i);
             return this;
         }
         return (UploadPartRequest) invokeI.objValue;
     }
 
-    public UploadPartRequest withPartSize(long j2) {
+    public UploadPartRequest withPartSize(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j2)) == null) {
-            setPartSize(j2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
+            setPartSize(j);
             return this;
         }
         return (UploadPartRequest) invokeJ.objValue;
@@ -228,17 +228,17 @@ public class UploadPartRequest extends GenericUploadRequest {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UploadPartRequest(String str, String str2, String str3, int i2, long j2, InputStream inputStream) {
+    public UploadPartRequest(String str, String str2, String str3, int i, long j, InputStream inputStream) {
         super(str, str2, str3);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, Integer.valueOf(i2), Long.valueOf(j2), inputStream};
+            Object[] objArr = {str, str2, str3, Integer.valueOf(i), Long.valueOf(j), inputStream};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -247,8 +247,8 @@ public class UploadPartRequest extends GenericUploadRequest {
             }
         }
         this.progressCallback = null;
-        setPartNumber(i2);
-        setPartSize(j2);
+        setPartNumber(i);
+        setPartSize(j);
         setInputStream(inputStream);
     }
 }

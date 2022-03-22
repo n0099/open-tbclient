@@ -14,7 +14,7 @@ import tbclient.ActiveCenter;
 import tbclient.ActiveCenterMission;
 import tbclient.ActiveCenterStatus;
 import tbclient.ActiveConfig.DataRes;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ActiveCenterData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_KEY_ACTIVE_DIALOG_DAY_NUM = "pref_key_active_dialog_day_num";
@@ -27,7 +27,7 @@ public class ActiveCenterData implements Serializable {
     public int win_jump_time;
     public String win_title;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ActiveCenterMissionData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +46,9 @@ public class ActiveCenterData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -71,7 +71,7 @@ public class ActiveCenterData implements Serializable {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class ActiveCenterStatusData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +86,9 @@ public class ActiveCenterData implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -112,9 +112,9 @@ public class ActiveCenterData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

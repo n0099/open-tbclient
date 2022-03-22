@@ -9,13 +9,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.HeadItem;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ItemStarData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<SingleItemStar> list;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class SingleItemStar implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class ItemStarData implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {itemStarData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,9 +58,9 @@ public class ItemStarData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

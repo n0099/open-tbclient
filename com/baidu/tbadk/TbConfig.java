@@ -5,9 +5,8 @@ import android.graphics.Bitmap;
 import android.webkit.URLUtil;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.n;
-import c.a.q0.b0.c;
+import c.a.o0.b0.c;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
@@ -21,7 +20,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashSet;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class TbConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
@@ -721,7 +720,7 @@ public class TbConfig {
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class DownFlowCmd {
         public static /* synthetic */ Interceptable $ic;
         public static HashSet<Integer> sInterruptCMDs;
@@ -750,9 +749,9 @@ public class TbConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -795,7 +794,7 @@ public class TbConfig {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class PassConfig {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String APP_ID = "1";
@@ -812,9 +811,9 @@ public class TbConfig {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -859,7 +858,7 @@ public class TbConfig {
         BIG_IMAGE_SIZE = 10240;
         BIG_IMAGE_MAX_USED_MEMORY = 1048576;
         PHOTO_SMALL_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
-        PHOTO_BIG_ADDRESS = ThreadAchievementShareDialogView.THREAD_IMG_HOST;
+        PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
         FRIEND_PHOTO_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
         IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
         UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";
@@ -927,9 +926,9 @@ public class TbConfig {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -1123,10 +1122,10 @@ public class TbConfig {
         return (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) ? BdBaseApplication.getInst().isDebugMode() : invokeV.booleanValue;
     }
 
-    public static final int getDimens(int i2) {
+    public static final int getDimens(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i2)) == null) ? n.f(TbadkCoreApplication.getInst().getContext(), i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) ? n.f(TbadkCoreApplication.getInst().getContext(), i) : invokeI.intValue;
     }
 
     public static int getEmotionContentSize() {
@@ -1407,9 +1406,9 @@ public class TbConfig {
             if (d2 > 640) {
                 d2 = 640;
             }
-            int i2 = (int) (d2 * d2 * 1.6f * 2.0f);
-            BIG_IMAGE_SIZE = i2;
-            return i2;
+            int i = (int) (d2 * d2 * 1.6f * 2.0f);
+            BIG_IMAGE_SIZE = i;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -1421,10 +1420,10 @@ public class TbConfig {
         }
     }
 
-    public static void setBigImageMaxUsedMemory(int i2) {
+    public static void setBigImageMaxUsedMemory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65586, null, i2) == null) {
-            BIG_IMAGE_MAX_USED_MEMORY = i2;
+        if (interceptable == null || interceptable.invokeI(65586, null, i) == null) {
+            BIG_IMAGE_MAX_USED_MEMORY = i;
         }
     }
 
@@ -1467,16 +1466,16 @@ public class TbConfig {
         }
     }
 
-    public static void setMaxPhotoMemoryCache(int i2) {
+    public static void setMaxPhotoMemoryCache(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65592, null, i2) == null) {
-            if (i2 < 60) {
-                i2 = 60;
+        if (interceptable == null || interceptable.invokeI(65592, null, i) == null) {
+            if (i < 60) {
+                i = 60;
             }
-            if (MAX_PHOTO_MEMORY_CACHE != i2) {
-                c.k().t(i2);
+            if (MAX_PHOTO_MEMORY_CACHE != i) {
+                c.k().t(i);
             }
-            MAX_PHOTO_MEMORY_CACHE = i2;
+            MAX_PHOTO_MEMORY_CACHE = i;
         }
     }
 
@@ -1538,10 +1537,10 @@ public class TbConfig {
         }
     }
 
-    public static void setVersionType(int i2) {
+    public static void setVersionType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65601, null, i2) == null) {
-            VERSION_TYPE = i2;
+        if (interceptable == null || interceptable.invokeI(65601, null, i) == null) {
+            VERSION_TYPE = i;
         }
     }
 }

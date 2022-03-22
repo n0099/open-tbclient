@@ -11,13 +11,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.audio.b;
 import com.facebook.imageutils.WebpUtil;
 import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.UnsupportedEncodingException;
 import javax.annotation.Nullable;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebpSupportStatus {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EXTENDED_WEBP_HEADER_LENGTH = 21;
@@ -54,7 +53,7 @@ public class WebpSupportStatus {
         sIsExtendedWebpSupported = isExtendedWebpSupported();
         sWebpBitmapFactory = null;
         sWebpLibraryChecked = false;
-        WEBP_RIFF_BYTES = asciiBytes(b.f49100e);
+        WEBP_RIFF_BYTES = asciiBytes("RIFF");
         WEBP_NAME_BYTES = asciiBytes("WEBP");
         WEBP_VP8_BYTES = asciiBytes(WebpUtil.VP8_HEADER);
         WEBP_VP8L_BYTES = asciiBytes(WebpUtil.VP8L_HEADER);
@@ -66,9 +65,9 @@ public class WebpSupportStatus {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -88,26 +87,26 @@ public class WebpSupportStatus {
         return (byte[]) invokeL.objValue;
     }
 
-    public static boolean isAnimatedWebpHeader(byte[] bArr, int i2) {
+    public static boolean isAnimatedWebpHeader(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i2)) == null) {
-            return matchBytePattern(bArr, i2 + 12, WEBP_VP8X_BYTES) && ((bArr[i2 + 20] & 2) == 2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, bArr, i)) == null) {
+            return matchBytePattern(bArr, i + 12, WEBP_VP8X_BYTES) && ((bArr[i + 20] & 2) == 2);
         }
         return invokeLI.booleanValue;
     }
 
-    public static boolean isExtendedWebpHeader(byte[] bArr, int i2, int i3) {
+    public static boolean isExtendedWebpHeader(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i2, i3)) == null) ? i3 >= 21 && matchBytePattern(bArr, i2 + 12, WEBP_VP8X_BYTES) : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) ? i2 >= 21 && matchBytePattern(bArr, i + 12, WEBP_VP8X_BYTES) : invokeLII.booleanValue;
     }
 
-    public static boolean isExtendedWebpHeaderWithAlpha(byte[] bArr, int i2) {
+    public static boolean isExtendedWebpHeaderWithAlpha(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i2)) == null) {
-            return matchBytePattern(bArr, i2 + 12, WEBP_VP8X_BYTES) && ((bArr[i2 + 20] & YogaNodeJNIBase.HAS_NEW_LAYOUT) == 16);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, bArr, i)) == null) {
+            return matchBytePattern(bArr, i + 12, WEBP_VP8X_BYTES) && ((bArr[i + 20] & YogaNodeJNIBase.HAS_NEW_LAYOUT) == 16);
         }
         return invokeLI.booleanValue;
     }
@@ -116,11 +115,11 @@ public class WebpSupportStatus {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 17) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 17) {
                 return false;
             }
-            if (i2 == 17) {
+            if (i == 17) {
                 byte[] decode = Base64.decode(VP8X_WEBP_BASE64, 0);
                 BitmapFactory.Options options = new BitmapFactory.Options();
                 options.inJustDecodeBounds = true;
@@ -134,35 +133,35 @@ public class WebpSupportStatus {
         return invokeV.booleanValue;
     }
 
-    public static boolean isLosslessWebpHeader(byte[] bArr, int i2) {
+    public static boolean isLosslessWebpHeader(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i2)) == null) ? matchBytePattern(bArr, i2 + 12, WEBP_VP8L_BYTES) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, bArr, i)) == null) ? matchBytePattern(bArr, i + 12, WEBP_VP8L_BYTES) : invokeLI.booleanValue;
     }
 
-    public static boolean isSimpleWebpHeader(byte[] bArr, int i2) {
+    public static boolean isSimpleWebpHeader(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i2)) == null) ? matchBytePattern(bArr, i2 + 12, WEBP_VP8_BYTES) : invokeLI.booleanValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) ? matchBytePattern(bArr, i + 12, WEBP_VP8_BYTES) : invokeLI.booleanValue;
     }
 
-    public static boolean isWebpHeader(byte[] bArr, int i2, int i3) {
+    public static boolean isWebpHeader(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i2, i3)) == null) ? i3 >= 20 && matchBytePattern(bArr, i2, WEBP_RIFF_BYTES) && matchBytePattern(bArr, i2 + 8, WEBP_NAME_BYTES) : invokeLII.booleanValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65545, null, bArr, i, i2)) == null) ? i2 >= 20 && matchBytePattern(bArr, i, WEBP_RIFF_BYTES) && matchBytePattern(bArr, i + 8, WEBP_NAME_BYTES) : invokeLII.booleanValue;
     }
 
-    public static boolean isWebpSupportedByPlatform(byte[] bArr, int i2, int i3) {
+    public static boolean isWebpSupportedByPlatform(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, bArr, i2, i3)) == null) {
-            if (isSimpleWebpHeader(bArr, i2)) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, null, bArr, i, i2)) == null) {
+            if (isSimpleWebpHeader(bArr, i)) {
                 return sIsSimpleWebpSupported;
             }
-            if (isLosslessWebpHeader(bArr, i2)) {
+            if (isLosslessWebpHeader(bArr, i)) {
                 return sIsExtendedWebpSupported;
             }
-            if (!isExtendedWebpHeader(bArr, i2, i3) || isAnimatedWebpHeader(bArr, i2)) {
+            if (!isExtendedWebpHeader(bArr, i, i2) || isAnimatedWebpHeader(bArr, i)) {
                 return false;
             }
             return sIsExtendedWebpSupported;
@@ -189,15 +188,15 @@ public class WebpSupportStatus {
         return (WebpBitmapFactory) invokeV.objValue;
     }
 
-    public static boolean matchBytePattern(byte[] bArr, int i2, byte[] bArr2) {
+    public static boolean matchBytePattern(byte[] bArr, int i, byte[] bArr2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, bArr, i2, bArr2)) == null) {
-            if (bArr2 == null || bArr == null || bArr2.length + i2 > bArr.length) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65548, null, bArr, i, bArr2)) == null) {
+            if (bArr2 == null || bArr == null || bArr2.length + i > bArr.length) {
                 return false;
             }
-            for (int i3 = 0; i3 < bArr2.length; i3++) {
-                if (bArr[i3 + i2] != bArr2[i3]) {
+            for (int i2 = 0; i2 < bArr2.length; i2++) {
+                if (bArr[i2 + i] != bArr2[i2]) {
                     return false;
                 }
             }

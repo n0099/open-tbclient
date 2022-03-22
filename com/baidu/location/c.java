@@ -18,9 +18,9 @@ public class c extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {locationClient};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,8 +41,8 @@ public class c extends Thread {
             cVar = this.a.C;
             if (cVar == null) {
                 LocationClient locationClient = this.a;
-                context = this.a.f33565f;
-                locationClientOption = this.a.f33563d;
+                context = this.a.f25875f;
+                locationClientOption = this.a.f25873d;
                 locationClient.C = new com.baidu.location.b.c(context, locationClientOption, this.a);
             }
             cVar2 = this.a.C;

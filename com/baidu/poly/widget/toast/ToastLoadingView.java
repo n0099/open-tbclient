@@ -20,18 +20,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ToastLoadingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public ImageView f36537e;
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f28304b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f36538f;
+    /* renamed from: c  reason: collision with root package name */
+    public Animation f28305c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public Animation f36539g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f36540h;
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f28306d;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ToastLoadingView(Context context) {
@@ -42,9 +40,9 @@ public class ToastLoadingView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -57,10 +55,10 @@ public class ToastLoadingView extends FrameLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.view_toast_loading, (ViewGroup) this, true);
-            this.f36537e = (ImageView) findViewById(R.id.toast_loading_view);
-            this.f36538f = (TextView) findViewById(R.id.toast_text_view);
-            this.f36539g = AnimationUtils.loadAnimation(context, R.anim.loading_rotate);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08a7, (ViewGroup) this, true);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09208d);
+            this.f28304b = (TextView) findViewById(R.id.obfuscated_res_0x7f092090);
+            this.f28305c = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01008f);
             setClickable(true);
         }
     }
@@ -81,20 +79,20 @@ public class ToastLoadingView extends FrameLayout {
     public boolean getIsLoading() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f36540h : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f28306d : invokeV.booleanValue;
     }
 
     public void setLoading(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             b();
-            this.f36540h = z;
+            this.f28306d = z;
             if (z) {
                 setVisibility(0);
-                this.f36537e.startAnimation(this.f36539g);
+                this.a.startAnimation(this.f28305c);
                 return;
             }
-            this.f36537e.clearAnimation();
+            this.a.clearAnimation();
             setVisibility(8);
         }
     }
@@ -102,7 +100,7 @@ public class ToastLoadingView extends FrameLayout {
     public void setText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f36538f.setText(str);
+            this.f28304b.setText(str);
         }
     }
 
@@ -115,9 +113,9 @@ public class ToastLoadingView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -128,17 +126,17 @@ public class ToastLoadingView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ToastLoadingView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ToastLoadingView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

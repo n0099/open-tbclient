@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import androidx.core.view.InputDeviceCompat;
@@ -30,16 +31,16 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36320b = "Set-Cookie";
+    public static final String f28141b = "Set-Cookie";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36321c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
+    public static final String f28142c = "EEE, dd-MMM-yyyy HH:mm:ss 'GMT'";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36322d = "Cookie";
+    public static final String f28143d = "Cookie";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36323e = "https://";
+    public static final String f28144e = "https://";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -62,21 +63,21 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String a(String str, String str2, String str3, long j2, boolean z) {
+    public static String a(String str, String str2, String str3, long j, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
             Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(j2);
+            calendar.setTimeInMillis(j);
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
             StringBuilder sb = new StringBuilder();
@@ -198,15 +199,17 @@ public class d {
                                 if (!parse.isEmpty()) {
                                     HttpCookie httpCookie = parse.get(0);
                                     if (a(passHttpParamDTO.url, httpCookie)) {
+                                        String str3 = a;
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("httpcookie:");
                                         sb2.append(httpCookie.toString());
-                                        sb2.toString();
+                                        Log.e(str3, sb2.toString());
                                         String a2 = a(httpCookie.getDomain(), httpCookie.getName(), httpCookie.getValue(), (httpCookie.getMaxAge() * 1000) + System.currentTimeMillis(), httpCookie.getSecure());
+                                        String str4 = a;
                                         StringBuilder sb3 = new StringBuilder();
                                         sb3.append("httpcookie build:");
                                         sb3.append(a2);
-                                        sb3.toString();
+                                        Log.e(str4, sb3.toString());
                                         StringBuilder sb4 = new StringBuilder();
                                         sb4.append("https://");
                                         sb4.append(httpCookie.getDomain());
@@ -223,8 +226,8 @@ public class d {
                     }
                 }
             } catch (Exception e2) {
-                String str3 = a;
-                e.a(str3, "asyncNaCookie2Webview:" + e2.toString());
+                String str5 = a;
+                e.a(str5, "asyncNaCookie2Webview:" + e2.toString());
             }
         }
     }

@@ -14,7 +14,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetChargeCurrencyConfigChannelsRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,17 +26,17 @@ public class GetChargeCurrencyConfigChannelsRequest implements IRequestProtocol 
     public List<Integer> usedChannelList;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GetChargeCurrencyConfigChannelsRequest(int i2, int i3, String str) {
-        this(0L, i2, i3, str);
+    public GetChargeCurrencyConfigChannelsRequest(int i, int i2, String str) {
+        this(0L, i, i2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r8;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), str};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -77,17 +77,17 @@ public class GetChargeCurrencyConfigChannelsRequest implements IRequestProtocol 
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public GetChargeCurrencyConfigChannelsRequest(long j2, int i2, int i3, String str) {
-        this(j2, i2, new ArrayList(), i3, str, "", "");
+    public GetChargeCurrencyConfigChannelsRequest(long j, int i, int i2, String str) {
+        this(j, i, new ArrayList(), i2, str, "", "");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), str};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Long) objArr2[0]).longValue(), ((Integer) objArr2[1]).intValue(), (List) objArr2[2], ((Integer) objArr2[3]).intValue(), (String) objArr2[4], (String) objArr2[5], (String) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -97,26 +97,26 @@ public class GetChargeCurrencyConfigChannelsRequest implements IRequestProtocol 
         }
     }
 
-    public GetChargeCurrencyConfigChannelsRequest(long j2, int i2, List<Integer> list, int i3, String str, String str2, String str3) {
+    public GetChargeCurrencyConfigChannelsRequest(long j, int i, List<Integer> list, int i2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Integer.valueOf(i2), list, Integer.valueOf(i3), str, str2, str3};
+            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i), list, Integer.valueOf(i2), str, str2, str3};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.expand = "";
-        this.uid = j2;
-        this.appId = i2;
+        this.uid = j;
+        this.appId = i;
         this.usedChannelList = list;
-        this.currencyType = i3;
+        this.currencyType = i2;
         this.seq = str;
         this.expand = str3;
     }

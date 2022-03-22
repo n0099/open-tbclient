@@ -10,6 +10,7 @@ import android.os.Process;
 import android.provider.Settings;
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.location.BDLocation;
 import com.baidu.location.Jni;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -17,7 +18,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -96,31 +96,27 @@ public class k {
     public static String az = "http://loc.map.baidu.com/user_err.php";
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f33802b = false;
+    public static boolean f26078b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f33803c = false;
+    public static boolean f26079c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f33804d = 0;
+    public static int f26080d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f33805e = "http://loc.map.baidu.com/sdk_ep.php";
+    public static String f26081e = "http://loc.map.baidu.com/sdk_ep.php";
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f33806f = "https://loc.map.baidu.com/sdk.php";
+    public static String f26082f = "https://loc.map.baidu.com/sdk.php";
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f33807g = "no";
+    public static String f26083g = "no";
 
     /* renamed from: h  reason: collision with root package name */
-    public static boolean f33808h = false;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static boolean f33809i = false;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static boolean f33810j = false;
+    public static boolean f26084h = false;
+    public static boolean i = false;
+    public static boolean j = false;
     public static boolean k = false;
     public static boolean l = false;
     public static boolean m = false;
@@ -240,7 +236,7 @@ public class k {
                 }
             }
             if (location != null) {
-                String b4 = (f33804d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
+                String b4 = (f26080d == 0 || i2 == 0) ? com.baidu.location.c.e.b(location) : com.baidu.location.c.e.c(location);
                 if (b4 != null) {
                     stringBuffer.append(b4);
                 }
@@ -259,7 +255,7 @@ public class k {
             if (location != null && hVar != null) {
                 try {
                     float speed = location.getSpeed();
-                    int i3 = f33804d;
+                    int i3 = f26080d;
                     int h2 = hVar.h();
                     int a4 = hVar.a();
                     boolean i4 = hVar.i();
@@ -355,7 +351,7 @@ public class k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65548, null, str, str2, str3)) == null) {
             try {
-                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes(), 0)));
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str3.getBytes(), 0)));
                 Signature signature = Signature.getInstance("SHA1WithRSA");
                 signature.initVerify(generatePublic);
                 signature.update(str.getBytes());
@@ -404,9 +400,9 @@ public class k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
-            int a2 = a(context, s.f53809h);
-            int a3 = a(context, s.f53808g);
-            int a4 = a(context, s.f53804c);
+            int a2 = a(context, "android.permission.ACCESS_COARSE_LOCATION");
+            int a3 = a(context, "android.permission.ACCESS_FINE_LOCATION");
+            int a4 = a(context, "android.permission.READ_PHONE_STATE");
             return "&per=" + a2 + "|" + a3 + "|" + a4;
         }
         return (String) invokeL.objValue;

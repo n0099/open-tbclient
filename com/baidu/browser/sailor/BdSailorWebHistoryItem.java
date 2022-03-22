@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebHistoryItem;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorWebHistoryItem implements INoProGuard {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class BdSailorWebHistoryItem implements INoProGuard {
             newInitContext.initArgs = r2;
             Object[] objArr = {webHistoryItem};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -80,10 +80,10 @@ public class BdSailorWebHistoryItem implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.mItem.getUrl() : (String) invokeV.objValue;
     }
 
-    public Object getUserData(int i2) {
+    public Object getUserData(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             return null;
         }
         return invokeI.objValue;
@@ -96,9 +96,9 @@ public class BdSailorWebHistoryItem implements INoProGuard {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mItem.getVisibleTitleHeight() : invokeV.intValue;
     }
 
-    public void setUserData(int i2, Object obj) {
+    public void setUserData(int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, obj) == null) {
         }
     }
 

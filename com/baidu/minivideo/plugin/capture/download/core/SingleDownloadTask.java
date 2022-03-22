@@ -25,9 +25,9 @@ public class SingleDownloadTask extends DownloadTaskImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadInfo, threadRecord, onDownloadListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DownloadInfo) objArr2[0], (ThreadRecord) objArr2[1], (DownloadTask.OnDownloadListener) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -38,10 +38,10 @@ public class SingleDownloadTask extends DownloadTaskImpl {
     }
 
     @Override // com.baidu.minivideo.plugin.capture.download.core.DownloadTaskImpl
-    public RandomAccessFile getFile(File file, String str, long j2) throws IOException {
+    public RandomAccessFile getFile(File file, String str, long j) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{file, str, Long.valueOf(j)})) == null) {
             RandomAccessFile randomAccessFile = new RandomAccessFile(new File(file, str), "rwd");
             randomAccessFile.seek(0L);
             return randomAccessFile;

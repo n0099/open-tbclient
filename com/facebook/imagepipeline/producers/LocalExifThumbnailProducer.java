@@ -30,7 +30,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int COMMON_EXIF_THUMBNAIL_MAX_DIMENSION = 512;
@@ -49,9 +49,9 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
             newInitContext.initArgs = r2;
             Object[] objArr = {executor, pooledByteBufferFactory, contentResolver};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -156,9 +156,9 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, consumer, r12, r13, r14, r15};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((Consumer) objArr2[0], (ProducerListener) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -219,9 +219,9 @@ public class LocalExifThumbnailProducer implements ThumbnailProducer<EncodedImag
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, statefulProducerRunnable};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

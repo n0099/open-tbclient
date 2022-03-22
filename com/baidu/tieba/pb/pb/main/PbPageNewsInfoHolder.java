@@ -8,8 +8,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import c.a.d.a.j;
 import c.a.d.f.p.n;
-import c.a.q0.r.r.e1;
-import c.a.r0.u2.k.f.i0;
+import c.a.o0.r.r.c1;
+import c.a.p0.w2.m.f.o0;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,54 +25,52 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e1 a;
+    public LinearLayout a;
 
     /* renamed from: b  reason: collision with root package name */
-    public e1 f45181b;
+    public View f34978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public e1 f45182c;
+    public RelativeLayout f34979c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TbPageContext f45183d;
+    public TbImageView f34980d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f45184e;
+    public TextView f34981e;
 
     /* renamed from: f  reason: collision with root package name */
-    public i0 f45185f;
+    public TextView f34982f;
 
     /* renamed from: g  reason: collision with root package name */
-    public b f45186g;
-    public LinearLayout game_info;
-    public ImageView game_info_img;
-    public TextView game_info_text;
+    public TextView f34983g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View.OnClickListener f45187h;
-    public LinearLayout news_info;
-    public ImageView news_info_img;
-    public TextView news_info_text;
-    public View pb_list_item_top_line;
-    public View pb_news_info_divider;
-    public LinearLayout pb_news_info_layout;
-    public RelativeLayout pb_top_code;
-    public TextView top_code_detail_subtitle_text;
-    public TextView top_code_detail_summary_text;
-    public TextView top_code_get_btn;
-    public TbImageView top_code_img;
+    public LinearLayout f34984h;
+    public ImageView i;
+    public TextView j;
+    public LinearLayout k;
+    public ImageView l;
+    public TextView m;
+    public View n;
+    public c1 o;
+    public c1 p;
+    public c1 q;
+    public TbPageContext r;
+    public int s;
+    public o0 t;
+    public b u;
+    public View.OnClickListener v;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PbPageNewsInfoHolder f45188e;
+        public final /* synthetic */ PbPageNewsInfoHolder a;
 
         public a(PbPageNewsInfoHolder pbPageNewsInfoHolder) {
             Interceptable interceptable = $ic;
@@ -81,50 +79,50 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pbPageNewsInfoHolder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45188e = pbPageNewsInfoHolder;
+            this.a = pbPageNewsInfoHolder;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.f45188e.f45183d.getPageActivity()) && n.C()) {
-                if (this.f45188e.f45186g != null) {
-                    this.f45188e.f45186g.a(this.f45188e.f45185f);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view) == null) && ViewHelper.checkUpIsLogin(this.a.r.getPageActivity()) && n.C()) {
+                if (this.a.u != null) {
+                    this.a.u.a(this.a.t);
                 }
-                PbPageNewsInfoHolder pbPageNewsInfoHolder = this.f45188e;
-                if (view == pbPageNewsInfoHolder.pb_top_code) {
-                    if (pbPageNewsInfoHolder.a == null || TextUtils.isEmpty(this.f45188e.a.a)) {
+                PbPageNewsInfoHolder pbPageNewsInfoHolder = this.a;
+                if (view == pbPageNewsInfoHolder.f34979c) {
+                    if (pbPageNewsInfoHolder.o == null || TextUtils.isEmpty(this.a.o.a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f45188e.f45183d.getPageActivity()), new String[]{this.f45188e.a.a});
-                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.f45188e.a.a));
-                } else if (view == pbPageNewsInfoHolder.news_info) {
-                    BdLog.e("link: " + this.f45188e.f45181b.a);
-                    if (this.f45188e.f45181b == null || TextUtils.isEmpty(this.f45188e.f45181b.a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.r.getPageActivity()), new String[]{this.a.o.a});
+                    TiebaStatic.log(new StatisticItem("c11410").param("obj_source", this.a.o.a));
+                } else if (view == pbPageNewsInfoHolder.f34984h) {
+                    BdLog.e("link: " + this.a.p.a);
+                    if (this.a.p == null || TextUtils.isEmpty(this.a.p.a)) {
                         return;
                     }
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f45188e.f45183d.getPageActivity()), new String[]{this.f45188e.f45181b.a});
-                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.f45188e.f45181b.a));
-                } else if (view != pbPageNewsInfoHolder.game_info || pbPageNewsInfoHolder.f45182c == null || TextUtils.isEmpty(this.f45188e.f45182c.a)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.r.getPageActivity()), new String[]{this.a.p.a});
+                    TiebaStatic.log(new StatisticItem("c11409").param("obj_source", this.a.p.a));
+                } else if (view != pbPageNewsInfoHolder.k || pbPageNewsInfoHolder.q == null || TextUtils.isEmpty(this.a.q.a)) {
                 } else {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.f45188e.f45183d.getPageActivity()), new String[]{this.f45188e.f45182c.a});
-                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.f45188e.f45182c.a));
+                    UrlManager.getInstance().dealOneLink((TbPageContext) j.a(this.a.r.getPageActivity()), new String[]{this.a.q.a});
+                    TiebaStatic.log(new StatisticItem("c11408").param("obj_source", this.a.q.a));
                 }
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface b {
-        void a(i0 i0Var);
+        void a(o0 o0Var);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -136,93 +134,93 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, view, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f45184e = 3;
-        this.f45187h = new a(this);
-        this.f45183d = tbPageContext;
-        this.f45186g = bVar;
-        this.pb_news_info_layout = (LinearLayout) view.findViewById(R.id.pb_news_info_layout);
-        this.pb_list_item_top_line = view.findViewById(R.id.pb_list_item_top_line);
-        this.pb_top_code = (RelativeLayout) view.findViewById(R.id.pb_top_code);
-        this.top_code_img = (TbImageView) view.findViewById(R.id.top_code_img);
-        this.top_code_get_btn = (TextView) view.findViewById(R.id.top_code_get_btn);
-        this.top_code_detail_summary_text = (TextView) view.findViewById(R.id.top_code_detail_summary_text);
-        this.top_code_detail_subtitle_text = (TextView) view.findViewById(R.id.top_code_detail_subtitle_text);
-        this.news_info = (LinearLayout) view.findViewById(R.id.news_info);
-        this.news_info_img = (ImageView) view.findViewById(R.id.news_info_img);
-        this.news_info_text = (TextView) view.findViewById(R.id.news_info_text);
-        this.game_info = (LinearLayout) view.findViewById(R.id.game_info);
-        this.game_info_img = (ImageView) view.findViewById(R.id.game_info_img);
-        this.game_info_text = (TextView) view.findViewById(R.id.game_info_text);
-        this.pb_news_info_divider = view.findViewById(R.id.pb_news_info_divider);
-        setOnClickListener(this.f45187h);
+        this.s = 3;
+        this.v = new a(this);
+        this.r = tbPageContext;
+        this.u = bVar;
+        this.a = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f091704);
+        this.f34978b = view.findViewById(R.id.obfuscated_res_0x7f0916e5);
+        this.f34979c = (RelativeLayout) view.findViewById(R.id.obfuscated_res_0x7f091730);
+        this.f34980d = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f0920ac);
+        this.f34981e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920aa);
+        this.f34982f = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920a8);
+        this.f34983g = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0920a7);
+        this.f34984h = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f09156b);
+        this.i = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f09156c);
+        this.j = (TextView) view.findViewById(R.id.obfuscated_res_0x7f09156d);
+        this.k = (LinearLayout) view.findViewById(R.id.obfuscated_res_0x7f090c3f);
+        this.l = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090c40);
+        this.m = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090c41);
+        this.n = view.findViewById(R.id.obfuscated_res_0x7f091703);
+        k(this.v);
     }
 
-    public void bindDataToView(i0 i0Var) {
+    public void i(o0 o0Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, i0Var) == null) || i0Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, o0Var) == null) || o0Var == null) {
             return;
         }
-        this.f45185f = i0Var;
-        e1 e1Var = i0Var.I0;
-        this.a = e1Var;
-        this.f45181b = i0Var.J0;
-        this.f45182c = i0Var.K0;
-        if (e1Var != null) {
-            this.top_code_img.startLoad(e1Var.f13248d, 10, false);
-            this.top_code_detail_summary_text.setText(this.a.f13246b);
-            this.top_code_detail_subtitle_text.setText(this.a.f13249e);
-            this.top_code_get_btn.setText(this.a.f13250f);
-            SkinManager.setBackgroundResource(this.top_code_get_btn, R.drawable.selector_star_btn_like);
-            SkinManager.setViewTextColor(this.top_code_get_btn, (int) R.drawable.news_text_color_selector);
+        this.t = o0Var;
+        c1 c1Var = o0Var.E0;
+        this.o = c1Var;
+        this.p = o0Var.F0;
+        this.q = o0Var.G0;
+        if (c1Var != null) {
+            this.f34980d.J(c1Var.f10826d, 10, false);
+            this.f34982f.setText(this.o.f10824b);
+            this.f34983g.setText(this.o.f10827e);
+            this.f34981e.setText(this.o.f10828f);
+            SkinManager.setBackgroundResource(this.f34981e, R.drawable.obfuscated_res_0x7f081094);
+            SkinManager.setViewTextColor(this.f34981e, (int) R.drawable.obfuscated_res_0x7f080e28);
         } else {
-            this.pb_top_code.setVisibility(8);
+            this.f34979c.setVisibility(8);
         }
-        e1 e1Var2 = this.f45181b;
-        if (e1Var2 != null) {
-            this.news_info_text.setText(e1Var2.f13246b);
-            SkinManager.setBackgroundResource(this.news_info_img, R.drawable.icon_frs_news);
+        c1 c1Var2 = this.p;
+        if (c1Var2 != null) {
+            this.j.setText(c1Var2.f10824b);
+            SkinManager.setBackgroundResource(this.i, R.drawable.icon_frs_news);
         } else {
-            this.news_info.setVisibility(8);
-            this.news_info_text.setVisibility(8);
-            this.news_info_img.setVisibility(8);
+            this.f34984h.setVisibility(8);
+            this.j.setVisibility(8);
+            this.i.setVisibility(8);
         }
-        e1 e1Var3 = this.f45182c;
-        if (e1Var3 != null) {
-            this.game_info_text.setText(e1Var3.f13246b);
-            SkinManager.setBackgroundResource(this.game_info_img, R.drawable.icon_frs_game);
+        c1 c1Var3 = this.q;
+        if (c1Var3 != null) {
+            this.m.setText(c1Var3.f10824b);
+            SkinManager.setBackgroundResource(this.l, R.drawable.icon_frs_game);
         } else {
-            this.game_info.setVisibility(8);
-            this.game_info_text.setVisibility(8);
-            this.game_info_text.setVisibility(8);
+            this.k.setVisibility(8);
+            this.m.setVisibility(8);
+            this.m.setVisibility(8);
         }
-        this.pb_news_info_layout.setTag(i0Var);
+        this.a.setTag(o0Var);
     }
 
-    public void onChangeSkinType(int i2) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || this.f45184e == i2) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.s == i) {
             return;
         }
-        this.f45183d.getLayoutMode().k(i2 == 1);
-        this.f45183d.getLayoutMode().j(getView());
-        this.f45184e = i2;
+        this.r.getLayoutMode().k(i == 1);
+        this.r.getLayoutMode().j(b());
+        this.s = i;
     }
 
-    public void setOnClickListener(View.OnClickListener onClickListener) {
+    public void k(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.pb_top_code.setOnClickListener(onClickListener);
-            this.news_info.setOnClickListener(onClickListener);
-            this.game_info.setOnClickListener(onClickListener);
+            this.f34979c.setOnClickListener(onClickListener);
+            this.f34984h.setOnClickListener(onClickListener);
+            this.k.setOnClickListener(onClickListener);
         }
     }
 }

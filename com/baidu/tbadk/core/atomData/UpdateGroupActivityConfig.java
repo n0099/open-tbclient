@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class UpdateGroupActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EDIT_TYPE = "edit_type";
@@ -15,27 +15,27 @@ public class UpdateGroupActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public UpdateGroupActivityConfig(Context context, int i2, long j2, int i3, String str) {
+    public UpdateGroupActivityConfig(Context context, int i, long j, int i2, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3), str};
+            Object[] objArr = {context, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("group_id", j2);
-        getIntent().putExtra("edit_type", i3);
+        getIntent().putExtra("group_id", j);
+        getIntent().putExtra("edit_type", i2);
         getIntent().putExtra(GROUP_TEXT, str);
-        setRequestCode(i2);
+        setRequestCode(i);
         setIntentAction(IntentAction.ActivityForResult);
     }
 }

@@ -45,9 +45,9 @@ public class ImageViewUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -57,8 +57,8 @@ public class ImageViewUtils {
     public static void animateTransform(@NonNull ImageView imageView, @Nullable Matrix matrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, imageView, matrix) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 29) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
                 imageView.animateTransform(matrix);
             } else if (matrix == null) {
                 Drawable drawable = imageView.getDrawable();
@@ -66,7 +66,7 @@ public class ImageViewUtils {
                     drawable.setBounds(0, 0, (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight(), (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom());
                     imageView.invalidate();
                 }
-            } else if (i2 >= 21) {
+            } else if (i >= 21) {
                 hiddenAnimateTransform(imageView, matrix);
             } else {
                 Drawable drawable2 = imageView.getDrawable();

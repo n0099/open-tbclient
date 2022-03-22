@@ -109,9 +109,9 @@ public class LoginActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -130,9 +130,9 @@ public class LoginActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -172,9 +172,9 @@ public class LoginActivity extends BaseActivity {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -196,14 +196,14 @@ public class LoginActivity extends BaseActivity {
             }
 
             @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
-            public void onFailed(int i4, String str) {
+            public void onFailed(int i3, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, str) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, str) == null) {
                     if (this.a.w == 2003) {
                         this.a.setResult(0);
                         return;
                     }
-                    this.a.webAuthResult.setResultCode(i4);
+                    this.a.webAuthResult.setResultCode(i3);
                     this.a.webAuthResult.setResultMsg(str);
                     LoginActivity loginActivity = this.a;
                     loginActivity.loginFail(loginActivity.webAuthResult);
@@ -281,12 +281,12 @@ public class LoginActivity extends BaseActivity {
     }
 
     @Override // com.baidu.sapi2.activity.BaseActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         String str;
         int intExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048580, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             new ShareCallPacking().onLoginActivityActivityResult(new ShareCallPacking.ShareLoginCallBack(this) { // from class: com.baidu.sapi2.activity.LoginActivity.10
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -299,9 +299,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i4 = newInitContext.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -317,12 +317,12 @@ public class LoginActivity extends BaseActivity {
                         this.a.a(AccountType.NORMAL, false);
                     }
                 }
-            }, i2, i3, intent, this.C, "pass");
-            if ((i2 == 2001 && i3 == 1001) || this.t) {
+            }, i, i2, intent, this.C, "pass");
+            if ((i == 2001 && i2 == 1001) || this.t) {
                 a((AccountType) null, true);
                 this.t = false;
-            } else if (i2 == 2005) {
-                if (i3 == -1) {
+            } else if (i == 2005) {
+                if (i2 == -1) {
                     String str2 = "";
                     if (intent != null) {
                         str2 = intent.getStringExtra(LoadExternalWebViewActivity.EXTRA_BUSINESS_TYPE);
@@ -343,9 +343,9 @@ public class LoginActivity extends BaseActivity {
                         a(AccountType.getAccountType(intExtra), false);
                     }
                 }
-            } else if (i2 == 2020) {
+            } else if (i == 2020) {
                 a(AccountType.NORMAL, false);
-            } else if (i2 == 100004) {
+            } else if (i == 100004) {
                 ShareLoginModel.getInstance().processShareResult(this, intent, new ShareResultCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.11
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -358,9 +358,9 @@ public class LoginActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -393,7 +393,7 @@ public class LoginActivity extends BaseActivity {
                     }
                 });
             }
-            if (i2 == 2001 && i3 == 3001) {
+            if (i == 2001 && i2 == 3001) {
                 a(intent);
             }
         }
@@ -426,7 +426,7 @@ public class LoginActivity extends BaseActivity {
             super.onCreate(bundle);
             try {
                 if (this.mNeedSetContentView) {
-                    setContentView(R.layout.layout_sapi_sdk_webview_with_title_bar);
+                    setContentView(R.layout.obfuscated_res_0x7f0d04e4);
                 }
                 init();
                 setupViews();
@@ -465,8 +465,12 @@ public class LoginActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, intent) == null) {
             super.onNewIntent(intent);
-            this.sapiWebView.mExcludeTypes = LoginTypes.SHARE;
-            setTitleText(R.string.sapi_sdk_title_sms_login);
+            SapiWebView sapiWebView = this.sapiWebView;
+            if (sapiWebView == null) {
+                return;
+            }
+            sapiWebView.mExcludeTypes = LoginTypes.SHARE;
+            setTitleText(R.string.obfuscated_res_0x7f0f105a);
             this.sapiWebView.loadLogin(1, this.C);
         }
     }
@@ -492,7 +496,7 @@ public class LoginActivity extends BaseActivity {
             this.z = getIntent().getStringExtra(EXTRA_LOGIN_TYPE);
             this.A = getIntent().getStringExtra(EXTRA_PARAM_ENCRYPTED_UID);
             this.B = getIntent().getStringExtra("extraJson");
-            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.sapi_webview);
+            SapiWebView sapiWebView = (SapiWebView) findViewById(R.id.obfuscated_res_0x7f091be8);
             this.sapiWebView = sapiWebView;
             sapiWebView.setOnFinishCallback(new SapiWebView.OnFinishCallback(this) { // from class: com.baidu.sapi2.activity.LoginActivity.4
                 public static /* synthetic */ Interceptable $ic;
@@ -506,9 +510,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -538,9 +542,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -570,9 +574,9 @@ public class LoginActivity extends BaseActivity {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -582,9 +586,9 @@ public class LoginActivity extends BaseActivity {
                                 }
 
                                 @Override // com.baidu.sapi2.social.WXInvokeCallback
-                                public void onResult(int i2, Intent intent) {
+                                public void onResult(int i, Intent intent) {
                                     Interceptable interceptable3 = $ic;
-                                    if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i2, intent) == null) && i2 == 1001) {
+                                    if ((interceptable3 == null || interceptable3.invokeIL(1048576, this, i, intent) == null) && i == 1001) {
                                         this.a.a.t = true;
                                     }
                                 }
@@ -605,9 +609,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -639,9 +643,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -671,9 +675,9 @@ public class LoginActivity extends BaseActivity {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -714,9 +718,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -789,7 +793,7 @@ public class LoginActivity extends BaseActivity {
             setNewLoginTitleAndSetStyleChangeCallBack();
             if (!WebLoginDTO.EXTRA_JOIN_LOGIN_WITH_THIRD_ACCOUNT.equals(this.z) && !WebLoginDTO.EXTRA_JOIN_LOGIN_WITHOUT_THIRD_ACCOUNT.equals(this.z)) {
                 if (WebLoginDTO.EXTRA_LOGIN_WITH_SMS.equals(this.z)) {
-                    setTitleText(R.string.sapi_sdk_title_sms_login);
+                    setTitleText(R.string.obfuscated_res_0x7f0f105a);
                     this.sapiWebView.loadLogin(1, this.C);
                     return;
                 } else if (WebLoginDTO.EXTRA_LOGIN_WITH_NAME_PHONE_EMAIL.equals(this.z)) {
@@ -805,7 +809,7 @@ public class LoginActivity extends BaseActivity {
                     if (!TextUtils.isEmpty(this.x)) {
                         this.C.add(new PassNameValuePair(SapiWebView.PARAMS_LOGIN_WITH_USER_NAME, this.x));
                     }
-                    setTitleText(R.string.sapi_sdk_title_login);
+                    setTitleText(R.string.obfuscated_res_0x7f0f1049);
                     this.sapiWebView.loadLogin(this.C);
                     return;
                 }
@@ -841,9 +845,9 @@ public class LoginActivity extends BaseActivity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

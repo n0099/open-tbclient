@@ -14,20 +14,20 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.h.e;
 import com.kwad.sdk.reward.kwai.a;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b extends e implements a.b {
     public com.kwad.sdk.reward.kwai.a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int[] f55878b;
+    public int[] f40845b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AdTemplate f55879c;
+    public AdTemplate f40846c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f55880d;
+    public a f40847d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void b();
     }
@@ -49,7 +49,7 @@ public class b extends e implements a.b {
     @Override // com.kwad.sdk.h.e
     public View a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, Bundle bundle) {
         getDialog().requestWindowFeature(1);
-        com.kwad.sdk.reward.kwai.a aVar = new com.kwad.sdk.reward.kwai.a(layoutInflater.getContext(), viewGroup, this.f55878b);
+        com.kwad.sdk.reward.kwai.a aVar = new com.kwad.sdk.reward.kwai.a(layoutInflater.getContext(), viewGroup, this.f40845b);
         this.a = aVar;
         aVar.a(this);
         Window window = getDialog().getWindow();
@@ -60,11 +60,11 @@ public class b extends e implements a.b {
             window.setDimAmount(0.0f);
             window.setBackgroundDrawable(new ColorDrawable(0));
         }
-        this.a.a(this.f55879c);
+        this.a.a(this.f40846c);
         getDialog().setOnKeyListener(new DialogInterface.OnKeyListener() { // from class: com.kwad.sdk.reward.kwai.b.1
             @Override // android.content.DialogInterface.OnKeyListener
-            public boolean onKey(DialogInterface dialogInterface, int i2, KeyEvent keyEvent) {
-                return i2 == 4 && keyEvent.getAction() == 0;
+            public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+                return i == 4 && keyEvent.getAction() == 0;
             }
         });
         return this.a.a();
@@ -73,14 +73,14 @@ public class b extends e implements a.b {
     @Override // com.kwad.sdk.reward.kwai.a.b
     public void a() {
         dismiss();
-        a aVar = this.f55880d;
+        a aVar = this.f40847d;
         if (aVar != null) {
             aVar.b();
         }
     }
 
     public void a(a aVar) {
-        this.f55880d = aVar;
+        this.f40847d = aVar;
     }
 
     @Override // com.kwad.sdk.reward.kwai.a.b
@@ -97,14 +97,14 @@ public class b extends e implements a.b {
                 try {
                     String string = arguments.getString("key_template_json");
                     AdTemplate adTemplate = new AdTemplate();
-                    this.f55879c = adTemplate;
+                    this.f40846c = adTemplate;
                     adTemplate.parseJson(new JSONObject(string));
                 } catch (Exception e2) {
                     com.kwad.sdk.core.d.a.b(e2);
                 }
             }
             if (arguments.containsKey("key_end_location")) {
-                this.f55878b = arguments.getIntArray("key_end_location");
+                this.f40845b = arguments.getIntArray("key_end_location");
             }
         }
     }

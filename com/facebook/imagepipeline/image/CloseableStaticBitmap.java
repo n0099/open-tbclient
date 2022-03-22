@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CloseableStaticBitmap extends CloseableBitmap {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,17 +28,17 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     public final int mRotationAngle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i2) {
-        this(bitmap, resourceReleaser, qualityInfo, i2, 0);
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i) {
+        this(bitmap, resourceReleaser, qualityInfo, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, resourceReleaser, qualityInfo, Integer.valueOf(i2)};
+            Object[] objArr = {bitmap, resourceReleaser, qualityInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Bitmap) objArr2[0], (ResourceReleaser) objArr2[1], (QualityInfo) objArr2[2], ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -134,10 +134,10 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     @Override // com.facebook.imagepipeline.image.ImageInfo
     public int getHeight() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.mRotationAngle % 180 == 0 && (i2 = this.mExifOrientation) != 5 && i2 != 7) {
+            if (this.mRotationAngle % 180 == 0 && (i = this.mExifOrientation) != 5 && i != 7) {
                 return getBitmapHeight(this.mBitmap);
             }
             return getBitmapWidth(this.mBitmap);
@@ -175,10 +175,10 @@ public class CloseableStaticBitmap extends CloseableBitmap {
     @Override // com.facebook.imagepipeline.image.ImageInfo
     public int getWidth() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.mRotationAngle % 180 == 0 && (i2 = this.mExifOrientation) != 5 && i2 != 7) {
+            if (this.mRotationAngle % 180 == 0 && (i = this.mExifOrientation) != 5 && i != 7) {
                 return getBitmapWidth(this.mBitmap);
             }
             return getBitmapHeight(this.mBitmap);
@@ -200,16 +200,16 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         return invokeV.booleanValue;
     }
 
-    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i2, int i3) {
+    public CloseableStaticBitmap(Bitmap bitmap, ResourceReleaser<Bitmap> resourceReleaser, QualityInfo qualityInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, resourceReleaser, qualityInfo, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {bitmap, resourceReleaser, qualityInfo, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -218,22 +218,22 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         this.mBitmap = (Bitmap) Preconditions.checkNotNull(bitmap);
         this.mBitmapReference = CloseableReference.of(this.mBitmap, (ResourceReleaser) Preconditions.checkNotNull(resourceReleaser));
         this.mQualityInfo = qualityInfo;
-        this.mRotationAngle = i2;
-        this.mExifOrientation = i3;
+        this.mRotationAngle = i;
+        this.mExifOrientation = i2;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i2) {
-        this(closeableReference, qualityInfo, i2, 0);
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i) {
+        this(closeableReference, qualityInfo, i, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeableReference, qualityInfo, Integer.valueOf(i2)};
+            Object[] objArr = {closeableReference, qualityInfo, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((CloseableReference) objArr2[0], (QualityInfo) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -243,16 +243,16 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         }
     }
 
-    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i2, int i3) {
+    public CloseableStaticBitmap(CloseableReference<Bitmap> closeableReference, QualityInfo qualityInfo, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeableReference, qualityInfo, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {closeableReference, qualityInfo, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -262,7 +262,7 @@ public class CloseableStaticBitmap extends CloseableBitmap {
         this.mBitmapReference = closeableReference2;
         this.mBitmap = closeableReference2.get();
         this.mQualityInfo = qualityInfo;
-        this.mRotationAngle = i2;
-        this.mExifOrientation = i3;
+        this.mRotationAngle = i;
+        this.mExifOrientation = i2;
     }
 }

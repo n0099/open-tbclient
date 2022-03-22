@@ -2,7 +2,6 @@ package com.baidu.tieba.frs.videomiddlepagelight;
 
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -25,9 +24,9 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
             newInitContext.initArgs = r2;
             Object[] objArr = {pageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,11 +48,5 @@ public final class VideoMiddlePageViewModelFactory implements ViewModelProvider.
             throw new RuntimeException(Intrinsics.stringPlus("ViewModel create fail!:", modelClass.getName()));
         }
         return (T) invokeL.objValue;
-    }
-
-    public final TbPageContext<?> getPageContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (TbPageContext) invokeV.objValue;
     }
 }

@@ -11,10 +11,10 @@ import c.a.d.f.l.d;
 import c.a.d.f.m.e;
 import c.a.d.f.p.n;
 import c.a.d.o.d.a;
-import c.a.q0.r.l0.l;
-import c.a.q0.r.r.e2;
+import c.a.o0.r.l0.l;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,9 +55,9 @@ public class SpecHotTopicHelper {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -66,12 +66,12 @@ public class SpecHotTopicHelper {
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // c.a.d.f.l.c
-            public void onLoaded(a aVar, String str, int i2) {
+            public void onLoaded(a aVar, String str, int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, aVar, str, i2) == null) {
-                    super.onLoaded((AnonymousClass2) aVar, str, i2);
+                if (interceptable2 == null || interceptable2.invokeLLI(1048576, this, aVar, str, i) == null) {
+                    super.onLoaded((AnonymousClass2) aVar, str, i);
                     if (aVar != null) {
-                        c.a.q0.b0.c.k().a(str, aVar.p());
+                        c.a.o0.b0.c.k().a(str, aVar.p());
                     }
                 }
             }
@@ -83,67 +83,67 @@ public class SpecHotTopicHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void addSpecTopic(e2 e2Var, SpannableString spannableString, String str, int i2) {
+    public static void addSpecTopic(ThreadData threadData, SpannableString spannableString, String str, int i) {
         a loadBdImageFromLocal;
         a loadBdImageFromLocal2;
         BitmapDrawable bitmapDrawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65539, null, e2Var, spannableString, str, i2) == null) || e2Var == null || spannableString == null || StringUtils.isNull(str)) {
+        if (!(interceptable == null || interceptable.invokeLLLI(65539, null, threadData, spannableString, str, i) == null) || threadData == null || spannableString == null || StringUtils.isNull(str)) {
             return;
         }
-        String z0 = e2Var.z0();
-        String a1 = e2Var.a1();
-        if (StringUtils.isNull(z0) || StringUtils.isNull(a1)) {
+        String leftHotIconUrl = threadData.getLeftHotIconUrl();
+        String rightHotIconUrl = threadData.getRightHotIconUrl();
+        if (StringUtils.isNull(leftHotIconUrl) || StringUtils.isNull(rightHotIconUrl)) {
             return;
         }
-        Bitmap j2 = c.a.q0.b0.c.k().j(z0);
-        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(z0, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(z0, 10)) != null) {
-            j2 = loadBdImageFromLocal.p();
-            c.a.q0.b0.c.k().a(z0, j2);
+        Bitmap j = c.a.o0.b0.c.k().j(leftHotIconUrl);
+        if ((j == null || !AbstractImageLoaderProc.isImageFileExist(leftHotIconUrl, 10)) && (loadBdImageFromLocal = AbstractImageLoaderProc.loadBdImageFromLocal(leftHotIconUrl, 10)) != null) {
+            j = loadBdImageFromLocal.p();
+            c.a.o0.b0.c.k().a(leftHotIconUrl, j);
         }
-        Bitmap j3 = c.a.q0.b0.c.k().j(a1);
-        if ((j3 == null || !AbstractImageLoaderProc.isImageFileExist(a1, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(a1, 10)) != null) {
-            j3 = loadBdImageFromLocal2.p();
-            c.a.q0.b0.c.k().a(a1, j3);
+        Bitmap j2 = c.a.o0.b0.c.k().j(rightHotIconUrl);
+        if ((j2 == null || !AbstractImageLoaderProc.isImageFileExist(rightHotIconUrl, 10)) && (loadBdImageFromLocal2 = AbstractImageLoaderProc.loadBdImageFromLocal(rightHotIconUrl, 10)) != null) {
+            j2 = loadBdImageFromLocal2.p();
+            c.a.o0.b0.c.k().a(rightHotIconUrl, j2);
         }
-        if (j2 != null && !j2.isRecycled() && j3 != null && !j3.isRecycled()) {
-            int i3 = 0;
-            for (int i4 = 0; i4 < str.length(); i4++) {
-                if (str.charAt(i4) == '#') {
-                    if (i3 % 2 == 0) {
+        if (j != null && !j.isRecycled() && j2 != null && !j2.isRecycled()) {
+            int i2 = 0;
+            for (int i3 = 0; i3 < str.length(); i3++) {
+                if (str.charAt(i3) == '#') {
+                    if (i2 % 2 == 0) {
+                        bitmapDrawable = new BitmapDrawable(j);
+                        bitmapDrawable.setBounds(0, 0, j.getWidth(), j.getHeight());
+                    } else {
                         bitmapDrawable = new BitmapDrawable(j2);
                         bitmapDrawable.setBounds(0, 0, j2.getWidth(), j2.getHeight());
-                    } else {
-                        bitmapDrawable = new BitmapDrawable(j3);
-                        bitmapDrawable.setBounds(0, 0, j3.getWidth(), j3.getHeight());
                     }
                     l lVar = new l(bitmapDrawable);
-                    lVar.b(n.d(TbadkCoreApplication.getInst(), e2Var.q));
-                    int i5 = i2 + i4;
-                    spannableString.setSpan(lVar, i5, i5 + 1, 33);
-                    i3++;
+                    lVar.b(n.d(TbadkCoreApplication.getInst(), threadData.threadTitleSpanOffset));
+                    int i4 = i + i3;
+                    spannableString.setSpan(lVar, i4, i4 + 1, 33);
+                    i2++;
                 }
             }
             return;
         }
-        loadSpecTopicIconIfNeed(z0, a1);
+        loadSpecTopicIconIfNeed(leftHotIconUrl, rightHotIconUrl);
     }
 
     public static void loadSpecTopicIconIfNeed(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Bitmap j2 = c.a.q0.b0.c.k().j(str);
-            Bitmap j3 = c.a.q0.b0.c.k().j(str2);
-            if (j2 == null || j3 == null) {
+            Bitmap j = c.a.o0.b0.c.k().j(str);
+            Bitmap j2 = c.a.o0.b0.c.k().j(str2);
+            if (j == null || j2 == null) {
                 if (!n.B()) {
                     e.a().post(new Runnable(str, str2) { // from class: com.baidu.tbadk.core.util.SpecHotTopicHelper.1
                         public static /* synthetic */ Interceptable $ic;
@@ -158,9 +158,9 @@ public class SpecHotTopicHelper {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {str, str2};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -204,13 +204,13 @@ public class SpecHotTopicHelper {
         mMap.remove(l);
     }
 
-    public static void setSpecTopicIcon(long j2, e2 e2Var) {
+    public static void setSpecTopicIcon(long j, ThreadData threadData) {
         Pair<String, String> pair;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJL(65543, null, j2, e2Var) == null) || (pair = mMap.get(Long.valueOf(j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeJL(65543, null, j, threadData) == null) || (pair = mMap.get(Long.valueOf(j))) == null) {
             return;
         }
-        e2Var.J3(j2);
-        e2Var.B4((String) pair.first, (String) pair.second);
+        threadData.setFid(j);
+        threadData.setSpecUrl((String) pair.first, (String) pair.second);
     }
 }

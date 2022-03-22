@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
+import com.baidu.titan.sdk.verifier.ApkSignatureSchemeV2Verifier;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import com.googlecode.mp4parser.AbstractFullBox;
@@ -19,11 +19,10 @@ import com.kuaishou.weapon.un.w0;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class TrackRunBox extends AbstractFullBox {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE = "trun";
@@ -52,7 +51,7 @@ public class TrackRunBox extends AbstractFullBox {
     public List<Entry> entries;
     public SampleFlags firstSampleFlags;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,9 +65,9 @@ public class TrackRunBox extends AbstractFullBox {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -99,17 +98,17 @@ public class TrackRunBox extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.sampleSize : invokeV.longValue;
         }
 
-        public void setSampleCompositionTimeOffset(int i2) {
+        public void setSampleCompositionTimeOffset(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.sampleCompositionTimeOffset = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.sampleCompositionTimeOffset = i;
             }
         }
 
-        public void setSampleDuration(long j2) {
+        public void setSampleDuration(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-                this.sampleDuration = j2;
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+                this.sampleDuration = j;
             }
         }
 
@@ -120,10 +119,10 @@ public class TrackRunBox extends AbstractFullBox {
             }
         }
 
-        public void setSampleSize(long j2) {
+        public void setSampleSize(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-                this.sampleSize = j2;
+            if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+                this.sampleSize = j;
             }
         }
 
@@ -131,30 +130,30 @@ public class TrackRunBox extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return "Entry{sampleDuration=" + this.sampleDuration + ", sampleSize=" + this.sampleSize + ", sampleFlags=" + this.sampleFlags + ", sampleCompositionTimeOffset=" + this.sampleCompositionTimeOffset + ExtendedMessageFormat.END_FE;
+                return "Entry{sampleDuration=" + this.sampleDuration + ", sampleSize=" + this.sampleSize + ", sampleFlags=" + this.sampleFlags + ", sampleCompositionTimeOffset=" + this.sampleCompositionTimeOffset + '}';
             }
             return (String) invokeV.objValue;
         }
 
-        public Entry(long j2, long j3, SampleFlags sampleFlags, int i2) {
+        public Entry(long j, long j2, SampleFlags sampleFlags, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), sampleFlags, Integer.valueOf(i2)};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), sampleFlags, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.sampleDuration = j2;
-            this.sampleSize = j3;
+            this.sampleDuration = j;
+            this.sampleSize = j2;
             this.sampleFlags = sampleFlags;
-            this.sampleCompositionTimeOffset = i2;
+            this.sampleCompositionTimeOffset = i;
         }
     }
 
@@ -181,9 +180,9 @@ public class TrackRunBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -208,12 +207,12 @@ public class TrackRunBox extends AbstractFullBox {
         ajc$tjp_18 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "java.lang.String"), 331);
         ajc$tjp_19 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setEntries", "com.coremedia.iso.boxes.fragment.TrackRunBox", "java.util.List", "entries", "", "void"), 346);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleCompositionTimeOffsets", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "[J"), 129);
-        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), 242);
+        ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getSampleCount", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "long"), w0.i0);
         ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isDataOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 246);
         ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isFirstSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 250);
         ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleSizePresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 255);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 259);
-        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), PayBeanFactory.BEAN_ID_CREDIT_PAY);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleDurationPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), ApkSignatureSchemeV2Verifier.SIGNATURE_RSA_PKCS1_V1_5_WITH_SHA256);
+        ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleFlagsPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), 263);
         ajc$tjp_9 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "isSampleCompositionTimeOffsetPresent", "com.coremedia.iso.boxes.fragment.TrackRunBox", "", "", "", "boolean"), w0.g0);
     }
 
@@ -231,7 +230,7 @@ public class TrackRunBox extends AbstractFullBox {
             if ((getFlags() & 4) == 4) {
                 this.firstSampleFlags = new SampleFlags(byteBuffer);
             }
-            for (int i2 = 0; i2 < readUInt32; i2++) {
+            for (int i = 0; i < readUInt32; i++) {
                 Entry entry = new Entry();
                 if ((getFlags() & 256) == 256) {
                     entry.sampleDuration = IsoTypeReader.readUInt32(byteBuffer);
@@ -294,21 +293,21 @@ public class TrackRunBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             int flags = getFlags();
-            long j2 = (flags & 1) == 1 ? 12L : 8L;
+            long j = (flags & 1) == 1 ? 12L : 8L;
             if ((flags & 4) == 4) {
+                j += 4;
+            }
+            long j2 = (flags & 256) == 256 ? 4L : 0L;
+            if ((flags & 512) == 512) {
                 j2 += 4;
             }
-            long j3 = (flags & 256) == 256 ? 4L : 0L;
-            if ((flags & 512) == 512) {
-                j3 += 4;
-            }
             if ((flags & 1024) == 1024) {
-                j3 += 4;
+                j2 += 4;
             }
             if ((flags & 2048) == 2048) {
-                j3 += 4;
+                j2 += 4;
             }
-            return j2 + (j3 * this.entries.size());
+            return j + (j2 * this.entries.size());
         }
         return invokeV.longValue;
     }
@@ -351,8 +350,8 @@ public class TrackRunBox extends AbstractFullBox {
             if (isSampleCompositionTimeOffsetPresent()) {
                 int size = this.entries.size();
                 long[] jArr = new long[size];
-                for (int i2 = 0; i2 < size; i2++) {
-                    jArr[i2] = this.entries.get(i2).getSampleCompositionTimeOffset();
+                for (int i = 0; i < size; i++) {
+                    jArr[i] = this.entries.get(i).getSampleCompositionTimeOffset();
                 }
                 return jArr;
             }
@@ -431,16 +430,16 @@ public class TrackRunBox extends AbstractFullBox {
         return invokeV.booleanValue;
     }
 
-    public void setDataOffset(int i2) {
+    public void setDataOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i2)));
-            if (i2 == -1) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_1, this, this, Conversions.intObject(i)));
+            if (i == -1) {
                 setFlags(getFlags() & 16777214);
             } else {
                 setFlags(getFlags() | 1);
             }
-            this.dataOffset = i2;
+            this.dataOffset = i;
         }
     }
 
@@ -530,7 +529,7 @@ public class TrackRunBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_18, this, this));
-            return "TrackRunBox{sampleCount=" + this.entries.size() + ", dataOffset=" + this.dataOffset + ", dataOffsetPresent=" + isDataOffsetPresent() + ", sampleSizePresent=" + isSampleSizePresent() + ", sampleDurationPresent=" + isSampleDurationPresent() + ", sampleFlagsPresentPresent=" + isSampleFlagsPresent() + ", sampleCompositionTimeOffsetPresent=" + isSampleCompositionTimeOffsetPresent() + ", firstSampleFlags=" + this.firstSampleFlags + ExtendedMessageFormat.END_FE;
+            return "TrackRunBox{sampleCount=" + this.entries.size() + ", dataOffset=" + this.dataOffset + ", dataOffsetPresent=" + isDataOffsetPresent() + ", sampleSizePresent=" + isSampleSizePresent() + ", sampleDurationPresent=" + isSampleDurationPresent() + ", sampleFlagsPresentPresent=" + isSampleFlagsPresent() + ", sampleCompositionTimeOffsetPresent=" + isSampleCompositionTimeOffsetPresent() + ", firstSampleFlags=" + this.firstSampleFlags + '}';
         }
         return (String) invokeV.objValue;
     }

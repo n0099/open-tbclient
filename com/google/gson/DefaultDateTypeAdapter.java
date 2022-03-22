@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SIMPLE_NAME = "DefaultDateTypeAdapter";
@@ -39,9 +39,9 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -152,9 +152,9 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls, str};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -169,16 +169,16 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         this.dateFormats.add(new SimpleDateFormat(str));
     }
 
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2) {
+    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, Integer.valueOf(i2)};
+            Object[] objArr = {cls, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -186,27 +186,27 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
-        this.dateFormats.add(DateFormat.getDateInstance(i2, Locale.US));
+        this.dateFormats.add(DateFormat.getDateInstance(i, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.dateFormats.add(DateFormat.getDateInstance(i2));
+            this.dateFormats.add(DateFormat.getDateInstance(i));
         }
         if (JavaVersion.isJava9OrLater()) {
-            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateFormat(i2));
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateFormat(i));
         }
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public DefaultDateTypeAdapter(int i2, int i3) {
-        this(Date.class, i2, i3);
+    public DefaultDateTypeAdapter(int i, int i2) {
+        this(Date.class, i, i2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Class) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -216,16 +216,16 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
     }
 
-    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i2, int i3) {
+    public DefaultDateTypeAdapter(Class<? extends Date> cls, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {cls, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -233,12 +233,12 @@ public final class DefaultDateTypeAdapter extends TypeAdapter<Date> {
         }
         this.dateFormats = new ArrayList();
         this.dateType = verifyDateType(cls);
-        this.dateFormats.add(DateFormat.getDateTimeInstance(i2, i3, Locale.US));
+        this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2, Locale.US));
         if (!Locale.getDefault().equals(Locale.US)) {
-            this.dateFormats.add(DateFormat.getDateTimeInstance(i2, i3));
+            this.dateFormats.add(DateFormat.getDateTimeInstance(i, i2));
         }
         if (JavaVersion.isJava9OrLater()) {
-            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(i2, i3));
+            this.dateFormats.add(PreJava9DateFormatProvider.getUSDateTimeFormat(i, i2));
         }
     }
 }

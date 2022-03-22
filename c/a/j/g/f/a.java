@@ -16,26 +16,26 @@ public final class a extends c.a.j.g.a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final UniqueId f3667b;
+    public static final UniqueId f3155b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final C0163a f3668c;
+    public static final C0169a f3156c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.j.g.f.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0163a {
+    public static final class C0169a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0163a() {
+        public C0169a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -45,10 +45,10 @@ public final class a extends c.a.j.g.a {
         public final UniqueId a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f3667b : (UniqueId) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a.f3155b : (UniqueId) invokeV.objValue;
         }
 
-        public /* synthetic */ C0163a(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ C0169a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
     }
@@ -66,10 +66,10 @@ public final class a extends c.a.j.g.a {
                 return;
             }
         }
-        f3668c = new C0163a(null);
+        f3156c = new C0169a(null);
         UniqueId gen = UniqueId.gen("TaskBackFlowCancelEvent");
         Intrinsics.checkExpressionValueIsNotNull(gen, "UniqueId.gen(\"TaskBackFlowCancelEvent\")");
-        f3667b = gen;
+        f3155b = gen;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -81,9 +81,9 @@ public final class a extends c.a.j.g.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {taskInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((TaskInfo) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -96,7 +96,7 @@ public final class a extends c.a.j.g.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "" + f3668c.a().getAlias() + ':' + a().toJson();
+            return "" + f3156c.a().getAlias() + ':' + a().toJson();
         }
         return (String) invokeV.objValue;
     }

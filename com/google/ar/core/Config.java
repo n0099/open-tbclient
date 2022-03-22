@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Config {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class AugmentedFaceMode {
         public static final /* synthetic */ AugmentedFaceMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -44,16 +44,16 @@ public class Config {
             $VALUES = new AugmentedFaceMode[]{DISABLED, augmentedFaceMode};
         }
 
-        public AugmentedFaceMode(String str, int i2, int i3) {
+        public AugmentedFaceMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -62,22 +62,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static AugmentedFaceMode forNumber(int i2) {
+        public static AugmentedFaceMode forNumber(int i) {
             InterceptResult invokeI;
             AugmentedFaceMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (AugmentedFaceMode augmentedFaceMode : values()) {
-                    if (augmentedFaceMode.nativeCode == i2) {
+                    if (augmentedFaceMode.nativeCode == i) {
                         return augmentedFaceMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(64);
                 sb.append("Unexpected value for native AugmentedFaceMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (AugmentedFaceMode) invokeI.objValue;
@@ -97,7 +97,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class CloudAnchorMode {
         public static final /* synthetic */ CloudAnchorMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -125,16 +125,16 @@ public class Config {
             $VALUES = new CloudAnchorMode[]{DISABLED, cloudAnchorMode};
         }
 
-        public CloudAnchorMode(String str, int i2, int i3) {
+        public CloudAnchorMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -143,22 +143,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static CloudAnchorMode forNumber(int i2) {
+        public static CloudAnchorMode forNumber(int i) {
             InterceptResult invokeI;
             CloudAnchorMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (CloudAnchorMode cloudAnchorMode : values()) {
-                    if (cloudAnchorMode.nativeCode == i2) {
+                    if (cloudAnchorMode.nativeCode == i) {
                         return cloudAnchorMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(64);
                 sb.append("Unexpected value for native AnchorHostingMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (CloudAnchorMode) invokeI.objValue;
@@ -178,7 +178,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class FocusMode {
         public static final /* synthetic */ FocusMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -206,16 +206,16 @@ public class Config {
             $VALUES = new FocusMode[]{FIXED, focusMode};
         }
 
-        public FocusMode(String str, int i2, int i3) {
+        public FocusMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -224,22 +224,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static FocusMode forNumber(int i2) {
+        public static FocusMode forNumber(int i) {
             InterceptResult invokeI;
             FocusMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (FocusMode focusMode : values()) {
-                    if (focusMode.nativeCode == i2) {
+                    if (focusMode.nativeCode == i) {
                         return focusMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(56);
                 sb.append("Unexpected value for native FocusMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (FocusMode) invokeI.objValue;
@@ -259,7 +259,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class LightEstimationMode {
         public static final /* synthetic */ LightEstimationMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -287,16 +287,16 @@ public class Config {
             $VALUES = new LightEstimationMode[]{DISABLED, lightEstimationMode};
         }
 
-        public LightEstimationMode(String str, int i2, int i3) {
+        public LightEstimationMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -305,22 +305,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static LightEstimationMode forNumber(int i2) {
+        public static LightEstimationMode forNumber(int i) {
             InterceptResult invokeI;
             LightEstimationMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (LightEstimationMode lightEstimationMode : values()) {
-                    if (lightEstimationMode.nativeCode == i2) {
+                    if (lightEstimationMode.nativeCode == i) {
                         return lightEstimationMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(66);
                 sb.append("Unexpected value for native LightEstimationMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (LightEstimationMode) invokeI.objValue;
@@ -340,7 +340,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PlaneFindingMode {
         public static final /* synthetic */ PlaneFindingMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -372,16 +372,16 @@ public class Config {
             $VALUES = new PlaneFindingMode[]{DISABLED, HORIZONTAL, VERTICAL, planeFindingMode};
         }
 
-        public PlaneFindingMode(String str, int i2, int i3) {
+        public PlaneFindingMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -390,22 +390,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static PlaneFindingMode forNumber(int i2) {
+        public static PlaneFindingMode forNumber(int i) {
             InterceptResult invokeI;
             PlaneFindingMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (PlaneFindingMode planeFindingMode : values()) {
-                    if (planeFindingMode.nativeCode == i2) {
+                    if (planeFindingMode.nativeCode == i) {
                         return planeFindingMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(63);
                 sb.append("Unexpected value for native PlaneFindingMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (PlaneFindingMode) invokeI.objValue;
@@ -425,7 +425,7 @@ public class Config {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UpdateMode {
         public static final /* synthetic */ UpdateMode[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -453,16 +453,16 @@ public class Config {
             $VALUES = new UpdateMode[]{BLOCKING, updateMode};
         }
 
-        public UpdateMode(String str, int i2, int i3) {
+        public UpdateMode(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -471,22 +471,22 @@ public class Config {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static UpdateMode forNumber(int i2) {
+        public static UpdateMode forNumber(int i) {
             InterceptResult invokeI;
             UpdateMode[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (UpdateMode updateMode : values()) {
-                    if (updateMode.nativeCode == i2) {
+                    if (updateMode.nativeCode == i) {
                         return updateMode;
                     }
                 }
                 StringBuilder sb = new StringBuilder(57);
                 sb.append("Unexpected value for native UpdateMode, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (UpdateMode) invokeI.objValue;
@@ -510,9 +510,9 @@ public class Config {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -521,44 +521,44 @@ public class Config {
         this.a = 0L;
     }
 
-    public static native long nativeCreate(long j2);
+    public static native long nativeCreate(long j);
 
-    public static native void nativeDestroy(long j2);
+    public static native void nativeDestroy(long j);
 
-    private native int nativeGetAugmentedFaceMode(long j2, long j3);
+    private native int nativeGetAugmentedFaceMode(long j, long j2);
 
-    private native long nativeGetAugmentedImageDatabase(long j2, long j3);
+    private native long nativeGetAugmentedImageDatabase(long j, long j2);
 
-    private native int nativeGetCloudAnchorMode(long j2, long j3);
+    private native int nativeGetCloudAnchorMode(long j, long j2);
 
-    private native int nativeGetFocusMode(long j2, long j3);
+    private native int nativeGetFocusMode(long j, long j2);
 
-    private native int nativeGetLightEstimationMode(long j2, long j3);
+    private native int nativeGetLightEstimationMode(long j, long j2);
 
-    private native int nativeGetPlaneFindingMode(long j2, long j3);
+    private native int nativeGetPlaneFindingMode(long j, long j2);
 
-    private native int nativeGetUpdateMode(long j2, long j3);
+    private native int nativeGetUpdateMode(long j, long j2);
 
-    private native void nativeSetAugmentedFaceMode(long j2, long j3, int i2);
+    private native void nativeSetAugmentedFaceMode(long j, long j2, int i);
 
-    private native void nativeSetAugmentedImageDatabase(long j2, long j3, long j4);
+    private native void nativeSetAugmentedImageDatabase(long j, long j2, long j3);
 
-    private native void nativeSetCloudAnchorMode(long j2, long j3, int i2);
+    private native void nativeSetCloudAnchorMode(long j, long j2, int i);
 
-    private native void nativeSetFocusMode(long j2, long j3, int i2);
+    private native void nativeSetFocusMode(long j, long j2, int i);
 
-    private native void nativeSetLightEstimationMode(long j2, long j3, int i2);
+    private native void nativeSetLightEstimationMode(long j, long j2, int i);
 
-    private native void nativeSetPlaneFindingMode(long j2, long j3, int i2);
+    private native void nativeSetPlaneFindingMode(long j, long j2, int i);
 
-    private native void nativeSetUpdateMode(long j2, long j3, int i2);
+    private native void nativeSetUpdateMode(long j, long j2, int i);
 
     public void finalize() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j2 = this.a;
-            if (j2 != 0) {
-                nativeDestroy(j2);
+            long j = this.a;
+            if (j != 0) {
+                nativeDestroy(j);
             }
             super.finalize();
         }

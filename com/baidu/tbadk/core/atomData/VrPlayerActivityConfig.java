@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VrPlayerActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IS_LOGO = "is_logo";
@@ -21,17 +21,17 @@ public class VrPlayerActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VrPlayerActivityConfig(Context context, int i2, boolean z, String str) {
+    public VrPlayerActivityConfig(Context context, int i, boolean z, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z), str};
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,19 +39,19 @@ public class VrPlayerActivityConfig extends IntentConfig {
             }
         }
         if (getIntent() != null) {
-            getIntent().putExtra("type", i2);
+            getIntent().putExtra("type", i);
             getIntent().putExtra(IS_LOGO, z);
             getIntent().putExtra(RES_PATH, str);
         }
     }
 
-    public void addPicParam(int i2, int i3) {
+    public void addPicParam(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(PIC_WIDTH, i2);
-        getIntent().putExtra(PIC_HEIGHT, i3);
+        getIntent().putExtra(PIC_WIDTH, i);
+        getIntent().putExtra(PIC_HEIGHT, i2);
     }
 
     public void addTitle(String str) {

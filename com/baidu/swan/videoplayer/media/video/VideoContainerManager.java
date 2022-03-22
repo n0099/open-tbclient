@@ -10,10 +10,10 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.s.b.a;
-import c.a.p0.a.s.b.b;
-import c.a.p0.a.u.d;
-import c.a.p0.a.z0.g.c;
+import c.a.n0.a.s.b.a;
+import c.a.n0.a.s.b.b;
+import c.a.n0.a.u.d;
+import c.a.n0.a.z0.g.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
@@ -29,34 +29,28 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Context f38643i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public SwanAppComponentContainerView f38644j;
+    public Context i;
+    public SwanAppComponentContainerView j;
     public VideoHolderWrapper k;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public class VideoHolderWrapper extends FrameLayout {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public FrameLayout a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public FrameLayout f38645e;
+        /* renamed from: b  reason: collision with root package name */
+        public ImageView f29722b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public ImageView f38646f;
+        /* renamed from: c  reason: collision with root package name */
+        public SimpleDraweeView f29723c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public SimpleDraweeView f38647g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ VideoContainerManager f38648h;
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ VideoContainerManager f29724d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public VideoHolderWrapper(@NonNull VideoContainerManager videoContainerManager, Context context) {
@@ -67,68 +61,30 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {videoContainerManager, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38648h = videoContainerManager;
+            this.f29724d = videoContainerManager;
+            e();
+            d();
             c();
-            b();
-            a();
         }
 
-        public final void a() {
+        public void a(String str, SimpleDraweeView simpleDraweeView) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ImageView imageView = new ImageView(this.f38648h.f38643i);
-                this.f38646f = imageView;
-                imageView.setImageResource(R.drawable.swanapp_video_btn_play);
-                this.f38646f.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-                this.f38646f.setBackgroundResource(R.drawable.swanapp_video_background_circle);
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 17;
-                addView(this.f38646f, layoutParams);
-            }
-        }
-
-        public final void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f38647g = new SimpleDraweeView(getContext());
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-                this.f38647g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-                addView(this.f38647g, layoutParams);
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.f38645e = new FrameLayout(getContext());
-                addView(this.f38645e, new FrameLayout.LayoutParams(-1, -1));
-            }
-        }
-
-        public View getPlayerIcon() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38646f : (View) invokeV.objValue;
-        }
-
-        public void getPoster(String str, SimpleDraweeView simpleDraweeView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, str, simpleDraweeView) == null) {
-                Uri uri = getUri(str);
-                if (uri == null) {
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, simpleDraweeView) == null) {
+                Uri b2 = b(str);
+                if (b2 == null) {
                     simpleDraweeView.setController(null);
                     return;
                 }
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(uri);
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(b2);
                 int measuredWidth = simpleDraweeView.getMeasuredWidth() / 2;
                 int measuredHeight = simpleDraweeView.getMeasuredHeight() / 2;
                 if (measuredWidth > 0 && measuredHeight > 0) {
@@ -138,10 +94,10 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             }
         }
 
-        public Uri getUri(String str) {
+        public Uri b(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
                 if (TextUtils.isEmpty(str)) {
                     return null;
                 }
@@ -156,16 +112,54 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             return (Uri) invokeL.objValue;
         }
 
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                ImageView imageView = new ImageView(this.f29724d.i);
+                this.f29722b = imageView;
+                imageView.setImageResource(R.drawable.obfuscated_res_0x7f08119b);
+                this.f29722b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                this.f29722b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081191);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+                layoutParams.gravity = 17;
+                addView(this.f29722b, layoutParams);
+            }
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f29723c = new SimpleDraweeView(getContext());
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
+                this.f29723c.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+                addView(this.f29723c, layoutParams);
+            }
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.a = new FrameLayout(getContext());
+                addView(this.a, new FrameLayout.LayoutParams(-1, -1));
+            }
+        }
+
+        public View getPlayerIcon() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f29722b : (View) invokeV.objValue;
+        }
+
         public FrameLayout getVideoHolder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f38645e : (FrameLayout) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (FrameLayout) invokeV.objValue;
         }
 
         public SimpleDraweeView getVideoPoster() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f38647g : (SimpleDraweeView) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f29723c : (SimpleDraweeView) invokeV.objValue;
         }
 
         public void setPoster(String str) {
@@ -204,8 +198,8 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             } else if (c2 == 2) {
                 ScalingUtils.ScaleType scaleType4 = ScalingUtils.ScaleType.FIT_XY;
             }
-            this.f38647g.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
-            getPoster(str, this.f38647g);
+            this.f29723c.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.CENTER_CROP);
+            a(str, this.f29723c);
         }
     }
 
@@ -218,9 +212,9 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (b) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -228,9 +222,9 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 return;
             }
         }
-        this.f38643i = context;
-        SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.f38643i);
-        this.f38644j = swanAppComponentContainerView;
+        this.i = context;
+        SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.i);
+        this.j = swanAppComponentContainerView;
         swanAppComponentContainerView.setBackgroundColor(Color.parseColor("#666666"));
         g(1);
     }
@@ -238,7 +232,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     public SwanAppComponentContainerView G() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f38644j : (SwanAppComponentContainerView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (SwanAppComponentContainerView) invokeV.objValue;
     }
 
     public FrameLayout H() {
@@ -252,7 +246,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             if (this.k == null) {
-                this.k = new VideoHolderWrapper(this, this.f38643i);
+                this.k = new VideoHolderWrapper(this, this.i);
             }
             return this.k;
         }
@@ -274,7 +268,7 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // c.a.p0.a.s.b.a
+    @Override // c.a.n0.a.s.b.a
     @NonNull
     /* renamed from: L */
     public VideoHolderWrapper v(@NonNull Context context) {
@@ -318,31 +312,31 @@ public class VideoContainerManager extends a<VideoHolderWrapper, c> {
                 ((ViewGroup) I().getParent()).removeView(I());
             }
             G().setDescendantFocusability(393216);
-            c.a.p0.a.s.b.c insert = insert();
-            d.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + cVar.l);
+            c.a.n0.a.s.b.c insert = insert();
+            d.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + cVar.f6102h);
             return;
         }
         c n = n();
-        if (!TextUtils.equals(cVar.f7283f, n.f7283f) || !TextUtils.equals(cVar.f7284g, n.f7284g) || !TextUtils.equals(cVar.f7285h, n.f7285h)) {
-            c.a.p0.a.s.g.a.a("video", "updateCoverContainerPosition with different id");
+        if (!TextUtils.equals(cVar.f6096b, n.f6096b) || !TextUtils.equals(cVar.f6097c, n.f6097c) || !TextUtils.equals(cVar.f6098d, n.f6098d)) {
+            c.a.n0.a.s.g.a.a("video", "updateCoverContainerPosition with different id");
         }
-        c.a.p0.a.s.b.c update = update((VideoContainerManager) cVar);
-        d.b("video", "Update CoverContainerWrapper " + update.a() + " position " + cVar.l);
+        c.a.n0.a.s.b.c update = update((VideoContainerManager) cVar);
+        d.b("video", "Update CoverContainerWrapper " + update.a() + " position " + cVar.f6102h);
     }
 
-    public final void Q(View view, int i2) {
+    public final void Q(View view, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048586, this, view, i2) == null) || view == null || view.getVisibility() == i2) {
+        if (!(interceptable == null || interceptable.invokeLI(1048586, this, view, i) == null) || view == null || view.getVisibility() == i) {
             return;
         }
-        view.setVisibility(i2);
+        view.setVisibility(i);
     }
 
-    @Override // c.a.p0.a.s.b.a
+    @Override // c.a.n0.a.s.b.a
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) ? this.f38644j : (SwanAppComponentContainerView) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) ? this.j : (SwanAppComponentContainerView) invokeL.objValue;
     }
 }

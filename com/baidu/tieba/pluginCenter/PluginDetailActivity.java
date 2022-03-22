@@ -9,7 +9,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import c.a.d.f.p.l;
 import c.a.d.f.p.m;
-import c.a.q0.r.t.a;
+import c.a.o0.r.t.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float M_BYTE = 1048576.0f;
@@ -60,13 +60,11 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public ShadowLayout mStatusContainer;
     public TextView mStatusText;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f45953e;
+        public final /* synthetic */ PluginDetailActivity a;
 
         public a(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -75,33 +73,31 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45953e = pluginDetailActivity;
+            this.a = pluginDetailActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f45953e.closeActivity();
+                this.a.closeActivity();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f45954e;
+        public final /* synthetic */ PluginDetailActivity a;
 
         public b(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -110,36 +106,34 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45954e = pluginDetailActivity;
+            this.a = pluginDetailActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                SkinManager.setViewTextColor(this.f45954e.mEnableText, R.color.CAM_X0109, 1);
-                this.f45954e.mEnableText.setEnabled(false);
-                PluginPackageManager.u().K(this.f45954e.mPluginConfig, this.f45954e.mDownLoadAndInstallCallback);
+                SkinManager.setViewTextColor(this.a.mEnableText, R.color.CAM_X0109, 1);
+                this.a.mEnableText.setEnabled(false);
+                PluginPackageManager.u().K(this.a.mPluginConfig, this.a.mDownLoadAndInstallCallback);
                 aVar.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PluginDetailActivity f45955e;
+        public final /* synthetic */ PluginDetailActivity a;
 
         public c(PluginDetailActivity pluginDetailActivity) {
             Interceptable interceptable = $ic;
@@ -148,19 +142,19 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f45955e = pluginDetailActivity;
+            this.a = pluginDetailActivity;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
                 aVar.dismiss();
@@ -168,7 +162,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class d implements c.a.d.j.j.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,9 +175,9 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {pluginDetailActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -204,24 +198,24 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PluginDetailActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(PluginDetailActivity pluginDetailActivity, int i2) {
-            super(i2);
+        public e(PluginDetailActivity pluginDetailActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pluginDetailActivity, Integer.valueOf(i2)};
+                Object[] objArr = {pluginDetailActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -246,9 +240,9 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -289,9 +283,9 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001303));
             if (PluginPackageManager.u().x(this.mPluginName) && PluginPackageManager.u().l(this.mPluginName)) {
-                this.mStatusText.setText(R.string.plugin_enabled);
+                this.mStatusText.setText(R.string.obfuscated_res_0x7f0f0e5d);
                 this.mEnableText.setVisibility(0);
-                this.mEnableText.setText(R.string.download_update);
+                this.mEnableText.setText(R.string.obfuscated_res_0x7f0f04f8);
                 this.mEnableText.setEnabled(true);
                 SkinManager.setBackgroundResource(this.mEnableText, R.drawable.selector_blue_gradient_button);
                 this.mStatusContainer.setShadowColor(R.color.plugin_button_shadow_blue);
@@ -306,15 +300,15 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.mDownloadProgressBar.setVisibility(8);
                 this.mDownloadText.setVisibility(8);
                 if (PluginPackageManager.u().A(this.mPluginName)) {
-                    this.mStatusText.setText(R.string.plugin_unenabled);
-                    this.mEnableText.setText(R.string.plugin_enable);
+                    this.mStatusText.setText(R.string.obfuscated_res_0x7f0f0e78);
+                    this.mEnableText.setText(R.string.obfuscated_res_0x7f0f0e5c);
                     SkinManager.setBackgroundResource(this.mEnableText, R.drawable.selector_blue_gradient_button);
                     this.mStatusContainer.setShadowColor(R.color.plugin_button_shadow_blue);
                     this.mStatus = 2;
                     return;
                 }
-                this.mStatusText.setText(R.string.plugin_enabled);
-                this.mEnableText.setText(R.string.plugin_unenable);
+                this.mStatusText.setText(R.string.obfuscated_res_0x7f0f0e5d);
+                this.mEnableText.setText(R.string.obfuscated_res_0x7f0f0e77);
                 this.mStatus = 3;
                 PluginNetConfigInfos.PluginConfig pluginConfig = this.mPluginConfig;
                 if (pluginConfig != null && pluginConfig.can_forbidden == 1) {
@@ -329,8 +323,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                 this.mStatusContainer.setShadowColor(R.color.plugin_button_shadow_red);
             } else {
                 this.mEnableText.setVisibility(0);
-                this.mStatusText.setText(R.string.plugin_disabled);
-                this.mEnableText.setText(R.string.install_app);
+                this.mStatusText.setText(R.string.obfuscated_res_0x7f0f0e58);
+                this.mEnableText.setText(R.string.obfuscated_res_0x7f0f08e8);
                 this.mEnableText.setEnabled(true);
                 SkinManager.setBackgroundResource(this.mEnableText, R.drawable.selector_blue_gradient_button);
                 this.mStatusContainer.setShadowColor(R.color.plugin_button_shadow_blue);
@@ -350,19 +344,19 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (!(interceptable == null || interceptable.invokeV(65548, this) == null) || (pluginConfig = this.mPluginConfig) == null || pluginConfig.newest == null) {
             return;
         }
-        c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getPageContext().getPageActivity());
+        c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getPageContext().getPageActivity());
         boolean z = this.mStatus == 1;
         float f2 = this.mPluginConfig.newest.size / 1048576.0f;
         if (z) {
-            string = getResources().getString(R.string.plugin_update_size_prompt, Float.valueOf(f2));
-            string2 = getResources().getString(R.string.download_update);
+            string = getResources().getString(R.string.obfuscated_res_0x7f0f0e79, Float.valueOf(f2));
+            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f04f8);
         } else {
-            string = getResources().getString(R.string.plugin_download_size_prompt, Float.valueOf(f2));
-            string2 = getResources().getString(R.string.download);
+            string = getResources().getString(R.string.obfuscated_res_0x7f0f0e5a, Float.valueOf(f2));
+            string2 = getResources().getString(R.string.obfuscated_res_0x7f0f04e3);
         }
         aVar.setMessage(string);
         aVar.setPositiveButton(string2, new b(this));
-        aVar.setNegativeButton(R.string.cancel, new c(this));
+        aVar.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new c(this));
         aVar.create(getPageContext());
         aVar.show();
     }
@@ -371,7 +365,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             if (!l.z()) {
-                showToast(R.string.neterror);
+                showToast(R.string.obfuscated_res_0x7f0f0c15);
             } else if (l.x()) {
                 showMobileNetDownloadDialog();
             } else {
@@ -396,14 +390,14 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mNavigationBar.onChangeSkinType(getPageContext(), i);
             this.mDownloadProgressBar.setProgressDrawable(SkinManager.getDrawable(R.drawable.download_progressbar));
             this.mDownloadProgressBar.setIndeterminateDrawable(SkinManager.getDrawable(R.drawable.download_progressbar));
-            getLayoutMode().k(i2 == 1);
+            getLayoutMode().k(i == 1);
             getLayoutMode().j(findViewById(16908290));
         }
     }
@@ -412,13 +406,13 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) && view == this.mEnableText) {
-            int i2 = this.mStatus;
-            if (i2 == 0 || i2 == 1) {
+            int i = this.mStatus;
+            if (i == 0 || i == 1) {
                 startLoadPlugin();
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 PluginPackageManager.u().s(this.mPluginName);
                 setStatus();
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 PluginPackageManager.u().M(this.mPluginName);
                 setStatus();
             }
@@ -430,22 +424,22 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.plugin_detail_activity);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f0);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
             this.mNavigationBar = navigationBar;
-            navigationBar.setCenterTextTitle(getString(R.string.plugin_center));
+            navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0e56));
             this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.mIcon = (HeadImageView) findViewById(R.id.icon);
-            this.mName = (TextView) findViewById(R.id.name);
-            this.mStatusText = (TextView) findViewById(R.id.status);
-            this.mDownloadProgressBar = (ProgressBar) findViewById(R.id.plugin_download_progress);
-            this.mDownloadText = (TextView) findViewById(R.id.plugin_download_text);
-            this.mChangelogText = (TextView) findViewById(R.id.changelog);
-            this.mSizeText = (TextView) findViewById(R.id.size);
-            TextView textView = (TextView) findViewById(R.id.enable);
+            this.mIcon = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090e06);
+            this.mName = (TextView) findViewById(R.id.obfuscated_res_0x7f0914e9);
+            this.mStatusText = (TextView) findViewById(R.id.obfuscated_res_0x7f091da7);
+            this.mDownloadProgressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091864);
+            this.mDownloadText = (TextView) findViewById(R.id.obfuscated_res_0x7f091865);
+            this.mChangelogText = (TextView) findViewById(R.id.obfuscated_res_0x7f0905e4);
+            this.mSizeText = (TextView) findViewById(R.id.obfuscated_res_0x7f091d2b);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0908cf);
             this.mEnableText = textView;
             textView.setOnClickListener(this);
-            this.mStatusContainer = (ShadowLayout) findViewById(R.id.plugin_status_container);
+            this.mStatusContainer = (ShadowLayout) findViewById(R.id.obfuscated_res_0x7f09186f);
             this.mPluginName = getIntent().getStringExtra("name");
             if (c.a.d.j.j.e.d.a().b() != null) {
                 this.mPluginConfig = c.a.d.j.j.e.d.a().b().getPluginConfig(this.mPluginName);
@@ -460,15 +454,15 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
-            if (i2 == 4) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, keyEvent)) == null) {
+            if (i == 4) {
                 closeActivity();
                 return true;
             }
-            return super.onKeyDown(i2, keyEvent);
+            return super.onKeyDown(i, keyEvent);
         }
         return invokeIL.booleanValue;
     }
@@ -508,7 +502,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
             super.onStart();
             PluginNetConfigInfos.PluginConfig pluginConfig = this.mPluginConfig;
             if (pluginConfig != null) {
-                this.mIcon.startLoad(pluginConfig.icon, 10, false);
+                this.mIcon.J(pluginConfig.icon, 10, false);
                 PluginNetConfigInfos.PluginConfig pluginConfig2 = this.mPluginConfig;
                 if (pluginConfig2.display_name == null) {
                     pluginConfig2.display_name = "";
@@ -525,7 +519,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
                     if (this.mPluginConfig.newest.size <= 0) {
                         this.mSizeText.setText("");
                     } else {
-                        this.mSizeText.setText(getPageContext().getString(R.string.plugin_size) + String.valueOf(this.mPluginConfig.newest.size / 1024) + "KB");
+                        this.mSizeText.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0e75) + String.valueOf(this.mPluginConfig.newest.size / 1024) + "KB");
                     }
                 }
                 this.mEnableText.setOnClickListener(this);

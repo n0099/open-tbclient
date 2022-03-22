@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SlidingPercentile {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<Sample> INDEX_COMPARATOR;
@@ -29,7 +29,7 @@ public class SlidingPercentile {
     public final ArrayList<Sample> samples;
     public int totalWeight;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Sample {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class SlidingPercentile {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -74,9 +74,9 @@ public class SlidingPercentile {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -100,9 +100,9 @@ public class SlidingPercentile {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -127,22 +127,22 @@ public class SlidingPercentile {
         };
     }
 
-    public SlidingPercentile(int i2) {
+    public SlidingPercentile(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.maxWeight = i2;
+        this.maxWeight = i;
         this.recycledSamples = new Sample[5];
         this.samples = new ArrayList<>();
         this.currentSortOrder = -1;
@@ -166,50 +166,50 @@ public class SlidingPercentile {
         this.currentSortOrder = 0;
     }
 
-    public void addSample(int i2, float f2) {
+    public void addSample(int i, float f2) {
         Sample sample;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) != null) {
             return;
         }
         ensureSortedByIndex();
-        int i3 = this.recycledSampleCount;
-        if (i3 > 0) {
+        int i2 = this.recycledSampleCount;
+        if (i2 > 0) {
             Sample[] sampleArr = this.recycledSamples;
-            int i4 = i3 - 1;
-            this.recycledSampleCount = i4;
-            sample = sampleArr[i4];
+            int i3 = i2 - 1;
+            this.recycledSampleCount = i3;
+            sample = sampleArr[i3];
         } else {
             sample = new Sample();
         }
-        int i5 = this.nextSampleIndex;
-        this.nextSampleIndex = i5 + 1;
-        sample.index = i5;
-        sample.weight = i2;
+        int i4 = this.nextSampleIndex;
+        this.nextSampleIndex = i4 + 1;
+        sample.index = i4;
+        sample.weight = i;
         sample.value = f2;
         this.samples.add(sample);
-        this.totalWeight += i2;
+        this.totalWeight += i;
         while (true) {
-            int i6 = this.totalWeight;
-            int i7 = this.maxWeight;
-            if (i6 <= i7) {
+            int i5 = this.totalWeight;
+            int i6 = this.maxWeight;
+            if (i5 <= i6) {
                 return;
             }
-            int i8 = i6 - i7;
+            int i7 = i5 - i6;
             Sample sample2 = this.samples.get(0);
-            int i9 = sample2.weight;
-            if (i9 <= i8) {
-                this.totalWeight -= i9;
+            int i8 = sample2.weight;
+            if (i8 <= i7) {
+                this.totalWeight -= i8;
                 this.samples.remove(0);
-                int i10 = this.recycledSampleCount;
-                if (i10 < 5) {
+                int i9 = this.recycledSampleCount;
+                if (i9 < 5) {
                     Sample[] sampleArr2 = this.recycledSamples;
-                    this.recycledSampleCount = i10 + 1;
-                    sampleArr2[i10] = sample2;
+                    this.recycledSampleCount = i9 + 1;
+                    sampleArr2[i9] = sample2;
                 }
             } else {
-                sample2.weight = i9 - i8;
-                this.totalWeight -= i8;
+                sample2.weight = i8 - i7;
+                this.totalWeight -= i7;
             }
         }
     }
@@ -220,11 +220,11 @@ public class SlidingPercentile {
         if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
             ensureSortedByValue();
             float f3 = f2 * this.totalWeight;
-            int i2 = 0;
-            for (int i3 = 0; i3 < this.samples.size(); i3++) {
-                Sample sample = this.samples.get(i3);
-                i2 += sample.weight;
-                if (i2 >= f3) {
+            int i = 0;
+            for (int i2 = 0; i2 < this.samples.size(); i2++) {
+                Sample sample = this.samples.get(i2);
+                i += sample.weight;
+                if (i >= f3) {
                     return sample.value;
                 }
             }

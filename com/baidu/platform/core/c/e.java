@@ -1,5 +1,6 @@
 package com.baidu.platform.core.c;
 
+import android.util.Log;
 import com.baidu.mapapi.search.poi.PoiDetailSearchOption;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,9 +19,9 @@ public class e extends com.baidu.platform.base.e {
             newInitContext.initArgs = r2;
             Object[] objArr = {poiDetailSearchOption};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,15 +32,18 @@ public class e extends com.baidu.platform.base.e {
 
     private void a(PoiDetailSearchOption poiDetailSearchOption) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, poiDetailSearchOption) == null) || poiDetailSearchOption == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65537, this, poiDetailSearchOption) == null) {
+            if (poiDetailSearchOption == null) {
+                Log.e(e.class.getSimpleName(), "Option is null");
+                return;
+            }
+            if (!poiDetailSearchOption.isSearchByUids()) {
+                poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
+            }
+            this.a.a("uids", poiDetailSearchOption.getUids());
+            this.a.a("output", "json");
+            this.a.a("scope", "2");
         }
-        if (!poiDetailSearchOption.isSearchByUids()) {
-            poiDetailSearchOption.poiUids(poiDetailSearchOption.getUid());
-        }
-        this.a.a("uids", poiDetailSearchOption.getUids());
-        this.a.a("output", "json");
-        this.a.a("scope", "2");
     }
 
     @Override // com.baidu.platform.base.e

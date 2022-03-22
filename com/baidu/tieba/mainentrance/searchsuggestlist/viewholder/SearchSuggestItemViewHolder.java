@@ -14,13 +14,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SearchSuggestItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View mRootView;
-    public TbImageView mSearchItemcardBarIcon;
-    public TextView mSearchItemcardScore;
-    public TextView mSearchItemcardTags;
-    public TextView mSearchItemcardTitle;
-    public View mSearchSuggetLine;
-    public RankStarView mStarView;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f34362b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f34363c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f34364d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public TextView f34365e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public RankStarView f34366f;
+
+    /* renamed from: g  reason: collision with root package name */
+    public View f34367g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchSuggestItemViewHolder(View view) {
@@ -31,21 +43,21 @@ public class SearchSuggestItemViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mRootView = view.findViewById(R.id.rootview);
-        this.mSearchItemcardBarIcon = (TbImageView) view.findViewById(R.id.search_itemcard_bar_icon);
-        this.mSearchItemcardTitle = (TextView) view.findViewById(R.id.search_itemcard_title);
-        this.mSearchItemcardScore = (TextView) view.findViewById(R.id.search_itemcard_score);
-        this.mSearchItemcardTags = (TextView) view.findViewById(R.id.search_itemcard_tags);
-        this.mStarView = (RankStarView) view.findViewById(R.id.search_itemcard_score_star);
-        this.mSearchSuggetLine = view.findViewById(R.id.search_sugget_line);
+        this.a = view.findViewById(R.id.obfuscated_res_0x7f091aef);
+        this.f34362b = (TbImageView) view.findViewById(R.id.obfuscated_res_0x7f091c36);
+        this.f34363c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c3a);
+        this.f34364d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c37);
+        this.f34365e = (TextView) view.findViewById(R.id.obfuscated_res_0x7f091c39);
+        this.f34366f = (RankStarView) view.findViewById(R.id.obfuscated_res_0x7f091c38);
+        this.f34367g = view.findViewById(R.id.obfuscated_res_0x7f091c49);
     }
 }

@@ -27,7 +27,7 @@ import com.facebook.imageutils.BitmapUtil;
 import java.util.Locale;
 import javax.annotation.Nullable;
 @DoNotStrip
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] EOI;
@@ -56,9 +56,9 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -68,27 +68,27 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
     }
 
     @VisibleForTesting
-    public static boolean endsWithEOI(CloseableReference<PooledByteBuffer> closeableReference, int i2) {
+    public static boolean endsWithEOI(CloseableReference<PooledByteBuffer> closeableReference, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, closeableReference, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, closeableReference, i)) == null) {
             PooledByteBuffer pooledByteBuffer = closeableReference.get();
-            return i2 >= 2 && pooledByteBuffer.read(i2 + (-2)) == -1 && pooledByteBuffer.read(i2 - 1) == -39;
+            return i >= 2 && pooledByteBuffer.read(i + (-2)) == -1 && pooledByteBuffer.read(i - 1) == -39;
         }
         return invokeLI.booleanValue;
     }
 
     @VisibleForTesting
-    public static BitmapFactory.Options getBitmapFactoryOptions(int i2, Bitmap.Config config) {
+    public static BitmapFactory.Options getBitmapFactoryOptions(int i, Bitmap.Config config) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i2, config)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, config)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inDither = true;
             options.inPreferredConfig = config;
             options.inPurgeable = true;
             options.inInputShareable = true;
-            options.inSampleSize = i2;
+            options.inSampleSize = i;
             if (Build.VERSION.SDK_INT >= 11) {
                 options.inMutable = true;
             }
@@ -126,25 +126,25 @@ public abstract class DalvikPurgeableDecoder implements PlatformDecoder {
         return (CloseableReference) invokeCommon.objValue;
     }
 
-    public abstract Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i2, BitmapFactory.Options options);
+    public abstract Bitmap decodeJPEGByteArrayAsPurgeable(CloseableReference<PooledByteBuffer> closeableReference, int i, BitmapFactory.Options options);
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImage(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048580, this, encodedImage, config, rect, i2)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i2, false) : (CloseableReference) invokeLLLI.objValue;
+        return (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048580, this, encodedImage, config, rect, i)) == null) ? decodeJPEGFromEncodedImageWithColorSpace(encodedImage, config, rect, i, false) : (CloseableReference) invokeLLLI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.platform.PlatformDecoder
-    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i2, boolean z) {
+    public CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace(EncodedImage encodedImage, Bitmap.Config config, @Nullable Rect rect, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{encodedImage, config, rect, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             BitmapFactory.Options bitmapFactoryOptions = getBitmapFactoryOptions(encodedImage.getSampleSize(), config);
             CloseableReference<PooledByteBuffer> byteBufferRef = encodedImage.getByteBufferRef();
             Preconditions.checkNotNull(byteBufferRef);
             try {
-                return pinBitmap(decodeJPEGByteArrayAsPurgeable(byteBufferRef, i2, bitmapFactoryOptions));
+                return pinBitmap(decodeJPEGByteArrayAsPurgeable(byteBufferRef, i, bitmapFactoryOptions));
             } finally {
                 CloseableReference.closeSafely(byteBufferRef);
             }

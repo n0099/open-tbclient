@@ -14,7 +14,7 @@ import java.net.UnknownHostException;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BaseRetryHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -53,9 +53,9 @@ public class BaseRetryHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {jArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

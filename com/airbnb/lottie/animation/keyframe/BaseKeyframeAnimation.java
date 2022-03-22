@@ -270,8 +270,8 @@ public abstract class BaseKeyframeAnimation<K, A> {
     public abstract A getValue(Keyframe<K> keyframe, float f2);
 
     public void notifyListeners() {
-        for (int i2 = 0; i2 < this.listeners.size(); i2++) {
-            this.listeners.get(i2).onValueChanged();
+        for (int i = 0; i < this.listeners.size(); i++) {
+            this.listeners.get(i).onValueChanged();
         }
     }
 

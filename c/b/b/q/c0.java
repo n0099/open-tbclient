@@ -14,38 +14,34 @@ import java.util.NoSuchElementException;
 public class c0<T> implements Iterable<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public T[] a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f22734b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f22735c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f22736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public T[] f27520e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f27521f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f27522g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f27523h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public transient a f27524i;
+    public transient a f22737e;
 
     /* loaded from: classes3.dex */
     public static class a<T> implements Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final c0<T> a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final c0<T> f27525e;
+        /* renamed from: b  reason: collision with root package name */
+        public final boolean f22738b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final boolean f27526f;
+        /* renamed from: c  reason: collision with root package name */
+        public b f22739c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public b f27527g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public b f27528h;
+        /* renamed from: d  reason: collision with root package name */
+        public b f22740d;
 
         /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
         public a(c0<T> c0Var) {
@@ -56,9 +52,9 @@ public class c0<T> implements Iterable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {c0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((c0) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
                     newInitContext.thisArg = this;
@@ -74,23 +70,23 @@ public class c0<T> implements Iterable<T> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (f.a) {
-                    return new b(this.f27525e, this.f27526f);
+                    return new b(this.a, this.f22738b);
                 }
-                if (this.f27527g == null) {
-                    this.f27527g = new b(this.f27525e, this.f27526f);
-                    this.f27528h = new b(this.f27525e, this.f27526f);
+                if (this.f22739c == null) {
+                    this.f22739c = new b(this.a, this.f22738b);
+                    this.f22740d = new b(this.a, this.f22738b);
                 }
-                b bVar = this.f27527g;
-                if (!bVar.f27532h) {
-                    bVar.f27531g = 0;
-                    bVar.f27532h = true;
-                    this.f27528h.f27532h = false;
+                b bVar = this.f22739c;
+                if (!bVar.f22743d) {
+                    bVar.f22742c = 0;
+                    bVar.f22743d = true;
+                    this.f22740d.f22743d = false;
                     return bVar;
                 }
-                b bVar2 = this.f27528h;
-                bVar2.f27531g = 0;
-                bVar2.f27532h = true;
-                bVar.f27532h = false;
+                b bVar2 = this.f22740d;
+                bVar2.f22742c = 0;
+                bVar2.f22743d = true;
+                bVar.f22743d = false;
                 return bVar2;
             }
             return (Iterator) invokeV.objValue;
@@ -103,16 +99,16 @@ public class c0<T> implements Iterable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {c0Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.f27525e = c0Var;
-            this.f27526f = z;
+            this.a = c0Var;
+            this.f22738b = z;
         }
     }
 
@@ -120,18 +116,16 @@ public class c0<T> implements Iterable<T> {
     public static class b<T> implements Iterator<T>, Iterable<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final c0<T> a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final c0<T> f27529e;
+        /* renamed from: b  reason: collision with root package name */
+        public final boolean f22741b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final boolean f27530f;
+        /* renamed from: c  reason: collision with root package name */
+        public int f22742c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public int f27531g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public boolean f27532h;
+        /* renamed from: d  reason: collision with root package name */
+        public boolean f22743d;
 
         public b(c0<T> c0Var, boolean z) {
             Interceptable interceptable = $ic;
@@ -140,17 +134,17 @@ public class c0<T> implements Iterable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {c0Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f27532h = true;
-            this.f27529e = c0Var;
-            this.f27530f = z;
+            this.f22743d = true;
+            this.a = c0Var;
+            this.f22741b = z;
         }
 
         @Override // java.util.Iterator
@@ -158,8 +152,8 @@ public class c0<T> implements Iterable<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f27532h) {
-                    return this.f27531g < this.f27529e.f27523h;
+                if (this.f22743d) {
+                    return this.f22742c < this.a.f22736d;
                 }
                 throw new GdxRuntimeException("#iterator() cannot be used nested.");
             }
@@ -178,16 +172,16 @@ public class c0<T> implements Iterable<T> {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i2 = this.f27531g;
-                c0<T> c0Var = this.f27529e;
-                if (i2 < c0Var.f27523h) {
-                    if (this.f27532h) {
-                        this.f27531g = i2 + 1;
-                        return c0Var.get(i2);
+                int i = this.f22742c;
+                c0<T> c0Var = this.a;
+                if (i < c0Var.f22736d) {
+                    if (this.f22743d) {
+                        this.f22742c = i + 1;
+                        return c0Var.get(i);
                     }
                     throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
-                throw new NoSuchElementException(String.valueOf(this.f27531g));
+                throw new NoSuchElementException(String.valueOf(this.f22742c));
             }
             return (T) invokeV.objValue;
         }
@@ -196,10 +190,10 @@ public class c0<T> implements Iterable<T> {
         public void remove() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                if (this.f27530f) {
-                    int i2 = this.f27531g - 1;
-                    this.f27531g = i2;
-                    this.f27529e.a(i2);
+                if (this.f22741b) {
+                    int i = this.f22742c - 1;
+                    this.f22742c = i;
+                    this.a.a(i);
                     return;
                 }
                 throw new GdxRuntimeException("Remove not allowed.");
@@ -214,9 +208,9 @@ public class c0<T> implements Iterable<T> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -225,44 +219,44 @@ public class c0<T> implements Iterable<T> {
         }
     }
 
-    public T a(int i2) {
+    public T a(int i) {
         InterceptResult invokeI;
         T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 >= 0) {
-                if (i2 < this.f27523h) {
-                    T[] tArr = this.f27520e;
-                    int i3 = this.f27521f;
-                    int i4 = this.f27522g;
-                    int i5 = i2 + i3;
-                    if (i3 < i4) {
-                        t = tArr[i5];
-                        System.arraycopy(tArr, i5 + 1, tArr, i5, i4 - i5);
-                        tArr[i4] = null;
-                        this.f27522g--;
-                    } else if (i5 >= tArr.length) {
-                        int length = i5 - tArr.length;
-                        t = tArr[length];
-                        System.arraycopy(tArr, length + 1, tArr, length, i4 - length);
-                        this.f27522g--;
-                    } else {
-                        T t2 = tArr[i5];
-                        System.arraycopy(tArr, i3, tArr, i3 + 1, i5 - i3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0) {
+                if (i < this.f22736d) {
+                    T[] tArr = this.a;
+                    int i2 = this.f22734b;
+                    int i3 = this.f22735c;
+                    int i4 = i + i2;
+                    if (i2 < i3) {
+                        t = tArr[i4];
+                        System.arraycopy(tArr, i4 + 1, tArr, i4, i3 - i4);
                         tArr[i3] = null;
-                        int i6 = this.f27521f + 1;
-                        this.f27521f = i6;
-                        if (i6 == tArr.length) {
-                            this.f27521f = 0;
+                        this.f22735c--;
+                    } else if (i4 >= tArr.length) {
+                        int length = i4 - tArr.length;
+                        t = tArr[length];
+                        System.arraycopy(tArr, length + 1, tArr, length, i3 - length);
+                        this.f22735c--;
+                    } else {
+                        T t2 = tArr[i4];
+                        System.arraycopy(tArr, i2, tArr, i2 + 1, i4 - i2);
+                        tArr[i2] = null;
+                        int i5 = this.f22734b + 1;
+                        this.f22734b = i5;
+                        if (i5 == tArr.length) {
+                            this.f22734b = 0;
                         }
                         t = t2;
                     }
-                    this.f27523h--;
+                    this.f22736d--;
                     return t;
                 }
-                throw new IndexOutOfBoundsException("index can't be >= size: " + i2 + " >= " + this.f27523h);
+                throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.f22736d);
             }
-            throw new IndexOutOfBoundsException("index can't be < 0: " + i2);
+            throw new IndexOutOfBoundsException("index can't be < 0: " + i);
         }
         return (T) invokeI.objValue;
     }
@@ -270,39 +264,39 @@ public class c0<T> implements Iterable<T> {
     public void addLast(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            T[] tArr = this.f27520e;
-            if (this.f27523h == tArr.length) {
+            T[] tArr = this.a;
+            if (this.f22736d == tArr.length) {
                 b(tArr.length << 1);
-                tArr = this.f27520e;
+                tArr = this.a;
             }
-            int i2 = this.f27522g;
-            int i3 = i2 + 1;
-            this.f27522g = i3;
-            tArr[i2] = t;
-            if (i3 == tArr.length) {
-                this.f27522g = 0;
+            int i = this.f22735c;
+            int i2 = i + 1;
+            this.f22735c = i2;
+            tArr[i] = t;
+            if (i2 == tArr.length) {
+                this.f22735c = 0;
             }
-            this.f27523h++;
+            this.f22736d++;
         }
     }
 
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            T[] tArr = this.f27520e;
-            int i3 = this.f27521f;
-            int i4 = this.f27522g;
-            T[] tArr2 = (T[]) ((Object[]) c.b.b.q.p0.a.a(tArr.getClass().getComponentType(), i2));
-            if (i3 < i4) {
-                System.arraycopy(tArr, i3, tArr2, 0, i4 - i3);
-            } else if (this.f27523h > 0) {
-                int length = tArr.length - i3;
-                System.arraycopy(tArr, i3, tArr2, 0, length);
-                System.arraycopy(tArr, 0, tArr2, length, i4);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            T[] tArr = this.a;
+            int i2 = this.f22734b;
+            int i3 = this.f22735c;
+            T[] tArr2 = (T[]) ((Object[]) c.b.b.q.p0.a.a(tArr.getClass().getComponentType(), i));
+            if (i2 < i3) {
+                System.arraycopy(tArr, i2, tArr2, 0, i3 - i2);
+            } else if (this.f22736d > 0) {
+                int length = tArr.length - i2;
+                System.arraycopy(tArr, i2, tArr2, 0, length);
+                System.arraycopy(tArr, 0, tArr2, length, i3);
             }
-            this.f27520e = tArr2;
-            this.f27521f = 0;
-            this.f27522g = this.f27523h;
+            this.a = tArr2;
+            this.f22734b = 0;
+            this.f22735c = this.f22736d;
         }
     }
 
@@ -323,40 +317,40 @@ public class c0<T> implements Iterable<T> {
                 return false;
             }
             c0 c0Var = (c0) obj;
-            int i2 = this.f27523h;
-            if (c0Var.f27523h != i2) {
+            int i = this.f22736d;
+            if (c0Var.f22736d != i) {
                 return false;
             }
-            T[] tArr = this.f27520e;
+            T[] tArr = this.a;
             int length = tArr.length;
-            T[] tArr2 = c0Var.f27520e;
+            T[] tArr2 = c0Var.a;
             int length2 = tArr2.length;
-            int i3 = this.f27521f;
-            int i4 = c0Var.f27521f;
-            for (int i5 = 0; i5 < i2; i5++) {
-                T t = tArr[i3];
-                T t2 = tArr2[i4];
+            int i2 = this.f22734b;
+            int i3 = c0Var.f22734b;
+            for (int i4 = 0; i4 < i; i4++) {
+                T t = tArr[i2];
+                T t2 = tArr2[i3];
                 if (t == null) {
                     if (t2 != null) {
                         return false;
                     }
+                    i2++;
                     i3++;
-                    i4++;
-                    if (i3 == length) {
-                        i3 = 0;
+                    if (i2 == length) {
+                        i2 = 0;
                     }
-                    if (i4 != length2) {
-                        i4 = 0;
+                    if (i3 != length2) {
+                        i3 = 0;
                     }
                 } else {
                     if (!t.equals(t2)) {
                         return false;
                     }
+                    i2++;
                     i3++;
-                    i4++;
-                    if (i3 == length) {
+                    if (i2 == length) {
                     }
-                    if (i4 != length2) {
+                    if (i3 != length2) {
                     }
                 }
             }
@@ -365,22 +359,22 @@ public class c0<T> implements Iterable<T> {
         return invokeL.booleanValue;
     }
 
-    public T get(int i2) {
+    public T get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 >= 0) {
-                if (i2 < this.f27523h) {
-                    T[] tArr = this.f27520e;
-                    int i3 = this.f27521f + i2;
-                    if (i3 >= tArr.length) {
-                        i3 -= tArr.length;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i >= 0) {
+                if (i < this.f22736d) {
+                    T[] tArr = this.a;
+                    int i2 = this.f22734b + i;
+                    if (i2 >= tArr.length) {
+                        i2 -= tArr.length;
                     }
-                    return tArr[i3];
+                    return tArr[i2];
                 }
-                throw new IndexOutOfBoundsException("index can't be >= size: " + i2 + " >= " + this.f27523h);
+                throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.f22736d);
             }
-            throw new IndexOutOfBoundsException("index can't be < 0: " + i2);
+            throw new IndexOutOfBoundsException("index can't be < 0: " + i);
         }
         return (T) invokeI.objValue;
     }
@@ -389,23 +383,23 @@ public class c0<T> implements Iterable<T> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.f27523h;
-            T[] tArr = this.f27520e;
+            int i = this.f22736d;
+            T[] tArr = this.a;
             int length = tArr.length;
-            int i3 = this.f27521f;
-            int i4 = i2 + 1;
-            for (int i5 = 0; i5 < i2; i5++) {
-                T t = tArr[i3];
-                i4 *= 31;
+            int i2 = this.f22734b;
+            int i3 = i + 1;
+            for (int i4 = 0; i4 < i; i4++) {
+                T t = tArr[i2];
+                i3 *= 31;
                 if (t != null) {
-                    i4 += t.hashCode();
+                    i3 += t.hashCode();
                 }
-                i3++;
-                if (i3 == length) {
-                    i3 = 0;
+                i2++;
+                if (i2 == length) {
+                    i2 = 0;
                 }
             }
-            return i4;
+            return i3;
         }
         return invokeV.intValue;
     }
@@ -418,10 +412,10 @@ public class c0<T> implements Iterable<T> {
             if (f.a) {
                 return new b(this, true);
             }
-            if (this.f27524i == null) {
-                this.f27524i = new a(this);
+            if (this.f22737e == null) {
+                this.f22737e = new a(this);
             }
-            return this.f27524i.iterator();
+            return this.f22737e.iterator();
         }
         return (Iterator) invokeV.objValue;
     }
@@ -432,20 +426,20 @@ public class c0<T> implements Iterable<T> {
         if (interceptable != null && (invokeV = interceptable.invokeV(1048583, this)) != null) {
             return (String) invokeV.objValue;
         }
-        if (this.f27523h == 0) {
+        if (this.f22736d == 0) {
             return "[]";
         }
-        T[] tArr = this.f27520e;
-        int i2 = this.f27521f;
-        int i3 = this.f27522g;
+        T[] tArr = this.a;
+        int i = this.f22734b;
+        int i2 = this.f22735c;
         j0 j0Var = new j0(64);
         j0Var.a('[');
-        j0Var.m(tArr[i2]);
+        j0Var.m(tArr[i]);
         while (true) {
-            i2 = (i2 + 1) % tArr.length;
-            if (i2 != i3) {
+            i = (i + 1) % tArr.length;
+            if (i != i2) {
                 j0Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                j0Var.m(tArr[i2]);
+                j0Var.m(tArr[i]);
             } else {
                 j0Var.a(']');
                 return j0Var.toString();
@@ -453,24 +447,24 @@ public class c0<T> implements Iterable<T> {
         }
     }
 
-    public c0(int i2) {
+    public c0(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27521f = 0;
-        this.f27522g = 0;
-        this.f27523h = 0;
-        this.f27520e = (T[]) new Object[i2];
+        this.f22734b = 0;
+        this.f22735c = 0;
+        this.f22736d = 0;
+        this.a = (T[]) new Object[i];
     }
 }

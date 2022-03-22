@@ -20,9 +20,9 @@ public class ProgressHelper extends AbsHandlerTask {
             newInitContext.initArgs = r2;
             Object[] objArr = {bDVideoPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,12 +31,12 @@ public class ProgressHelper extends AbsHandlerTask {
         this.mPlayer = bDVideoPlayer;
     }
 
-    private void callPlayerBack(int i2, int i3, int i4) {
+    private void callPlayerBack(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIII(65537, this, i2, i3, i4) == null) || i3 <= 0) {
+        if (!(interceptable == null || interceptable.invokeIII(65537, this, i, i2, i3) == null) || i2 <= 0) {
             return;
         }
-        this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i2, (i4 * 100) / i3, i3);
+        this.mPlayer.getPlayerCallbackManager().onUpdateProgress(i, (i3 * 100) / i2, i2);
     }
 
     @Override // com.baidu.searchbox.player.helper.ITimerTask

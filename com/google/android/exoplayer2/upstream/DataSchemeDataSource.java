@@ -12,7 +12,7 @@ import com.bumptech.glide.load.model.DataUrlLoader;
 import com.google.android.exoplayer2.ParserException;
 import java.io.IOException;
 import java.net.URLDecoder;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DataSchemeDataSource implements DataSource {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SCHEME_DATA = "data";
@@ -26,9 +26,9 @@ public final class DataSchemeDataSource implements DataSource {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -89,19 +89,19 @@ public final class DataSchemeDataSource implements DataSource {
     }
 
     @Override // com.google.android.exoplayer2.upstream.DataSource
-    public int read(byte[] bArr, int i2, int i3) {
+    public int read(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i2, i3)) == null) {
-            if (i3 == 0) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) {
+            if (i2 == 0) {
                 return 0;
             }
             int length = this.data.length - this.bytesRead;
             if (length == 0) {
                 return -1;
             }
-            int min = Math.min(i3, length);
-            System.arraycopy(this.data, this.bytesRead, bArr, i2, min);
+            int min = Math.min(i2, length);
+            System.arraycopy(this.data, this.bytesRead, bArr, i, min);
             this.bytesRead += min;
             return min;
         }

@@ -35,23 +35,23 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         public Boolean isStarted;
         public long totalLength;
 
-        public Listener1Model(int i2) {
+        public Listener1Model(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.currentOffset = new AtomicLong();
-            this.id = i2;
+            this.id = i;
         }
 
         @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ListenerModel
@@ -89,9 +89,9 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
 
     /* loaded from: classes4.dex */
     public interface TaskProgressListenerCallback {
-        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i2, @IntRange(from = 0) long j2, @IntRange(from = 0) long j3);
+        void connected(@NonNull DownloadTask downloadTask, @IntRange(from = 0) int i, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
-        void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j2, @IntRange(from = 0) long j3);
+        void progress(@NonNull DownloadTask downloadTask, @IntRange(from = 0) long j, @IntRange(from = 0) long j2);
 
         void retry(@NonNull DownloadTask downloadTask, @NonNull ResumeFailedCause resumeFailedCause);
 
@@ -105,9 +105,9 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -166,13 +166,13 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
         orRecoverModel.isFirstConnect = bool;
     }
 
-    public void fetchProgress(DownloadTask downloadTask, long j2) {
+    public void fetchProgress(DownloadTask downloadTask, long j) {
         Listener1Model orRecoverModel;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLJ(1048581, this, downloadTask, j2) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
+        if (!(interceptable == null || interceptable.invokeLJ(1048581, this, downloadTask, j) == null) || (orRecoverModel = this.modelHandler.getOrRecoverModel(downloadTask, downloadTask.getInfo())) == null) {
             return;
         }
-        orRecoverModel.currentOffset.addAndGet(j2);
+        orRecoverModel.currentOffset.addAndGet(j);
         TaskProgressListenerCallback taskProgressListenerCallback = this.callback;
         if (taskProgressListenerCallback != null) {
             taskProgressListenerCallback.progress(downloadTask, orRecoverModel.currentOffset.get(), orRecoverModel.totalLength);
@@ -233,10 +233,10 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.searchbox.bddownload.core.listener.assist.ListenerModelHandler.ModelCreator
-    public Listener1Model create(int i2) {
+    public Listener1Model create(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new Listener1Model(i2) : (Listener1Model) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new Listener1Model(i) : (Listener1Model) invokeI.objValue;
     }
 
     public TaskProgressListenerAssist(ListenerModelHandler<Listener1Model> listenerModelHandler) {
@@ -246,9 +246,9 @@ public class TaskProgressListenerAssist implements ListenerAssist, ListenerModel
             newInitContext.initArgs = r2;
             Object[] objArr = {listenerModelHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

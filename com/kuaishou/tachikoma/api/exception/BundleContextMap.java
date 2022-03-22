@@ -38,32 +38,32 @@ public class BundleContextMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static TKBundle get(int i2) {
+    public static TKBundle get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) ? sMap.get(Integer.valueOf(i2)) : (TKBundle) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? sMap.get(Integer.valueOf(i)) : (TKBundle) invokeI.objValue;
     }
 
-    public static void remove(int i2) {
+    public static void remove(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i2) == null) {
-            sMap.remove(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            sMap.remove(Integer.valueOf(i));
         }
     }
 
-    public static void setData(int i2, TKBundle tKBundle) {
+    public static void setData(int i, TKBundle tKBundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i2, tKBundle) == null) {
-            sMap.put(Integer.valueOf(i2), tKBundle);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, tKBundle) == null) {
+            sMap.put(Integer.valueOf(i), tKBundle);
         }
     }
 }

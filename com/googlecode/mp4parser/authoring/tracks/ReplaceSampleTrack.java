@@ -49,9 +49,9 @@ public class ReplaceSampleTrack extends AbstractTrack {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {replaceSampleTrack};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,36 +73,36 @@ public class ReplaceSampleTrack extends AbstractTrack {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.AbstractList, java.util.List
-        public Sample get(int i2) {
+        public Sample get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-                if (this.this$0.sampleNumber == i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (this.this$0.sampleNumber == i) {
                     return this.this$0.sampleContent;
                 }
-                return this.this$0.origTrack.getSamples().get(i2);
+                return this.this$0.origTrack.getSamples().get(i);
             }
             return (Sample) invokeI.objValue;
         }
     }
 
-    public ReplaceSampleTrack(Track track, long j2, ByteBuffer byteBuffer) {
+    public ReplaceSampleTrack(Track track, long j, ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {track, Long.valueOf(j2), byteBuffer};
+            Object[] objArr = {track, Long.valueOf(j), byteBuffer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.origTrack = track;
-        this.sampleNumber = j2;
+        this.sampleNumber = j;
         this.sampleContent = new SampleImpl(byteBuffer);
         this.samples = new ReplaceASingleEntryList(this, null);
     }

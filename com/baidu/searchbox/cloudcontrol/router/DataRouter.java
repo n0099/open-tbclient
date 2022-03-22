@@ -1,5 +1,6 @@
 package com.baidu.searchbox.cloudcontrol.router;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
@@ -36,9 +37,9 @@ public class DataRouter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -88,9 +89,9 @@ public class DataRouter {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, serviceData, r8, optionsData, r10, r11, cloudControlData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -137,9 +138,9 @@ public class DataRouter {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, key, countDownLatch};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -159,7 +160,7 @@ public class DataRouter {
                                                         this.this$1.this$0.mServiceInfo.put(this.val$serviceName, jSONObject3);
                                                     } catch (JSONException e2) {
                                                         if (AppConfig.isDebug()) {
-                                                            String str = "routeServiceData back json is error" + e2.toString();
+                                                            Log.d(DataRouter.TAG, "routeServiceData back json is error" + e2.toString());
                                                         }
                                                     }
                                                 }
@@ -191,9 +192,9 @@ public class DataRouter {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -222,9 +223,9 @@ public class DataRouter {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this};
                                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable3.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -251,7 +252,7 @@ public class DataRouter {
                         countDownLatch.await(15L, TimeUnit.SECONDS);
                     } catch (InterruptedException e4) {
                         if (AppConfig.isDebug()) {
-                            String str = "processServiceData method need call  cloudControlUBCCallBack " + e4.toString();
+                            Log.d(DataRouter.TAG, "processServiceData method need call  cloudControlUBCCallBack " + e4.toString());
                             e4.printStackTrace();
                         }
                     }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.al;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class am extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class am extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {alVar, looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,11 +40,11 @@ public class am extends Handler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
             al.b bVar = (al.b) message.obj;
-            int i2 = message.what;
-            if (i2 == 0) {
+            int i = message.what;
+            if (i == 0) {
                 bVar.a();
-            } else if (i2 == 1) {
-                bVar.mo305c();
+            } else if (i == 1) {
+                bVar.mo284c();
             }
             super.handleMessage(message);
         }

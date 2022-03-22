@@ -19,9 +19,9 @@ public class YYPayActMainProxy extends ProcessDelegateBaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -29,11 +29,11 @@ public class YYPayActMainProxy extends ProcessDelegateBaseActivity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
-            if (i2 == 100) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i == 100) {
                 if (this.mDelegation != null && intent != null && !TextUtils.isEmpty(intent.getStringExtra(EXTRA_RESULT))) {
                     this.mDelegation.mResult.putString(EXTRA_RESULT, intent.getStringExtra(EXTRA_RESULT));
                 }

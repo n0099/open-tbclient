@@ -21,7 +21,7 @@ public abstract class o1 {
     public static final int a = 2048;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53754b = ".gz";
+    public static final String f38934b = ".gz";
     public transient /* synthetic */ FieldHolder $fh;
 
     public o1() {
@@ -29,9 +29,9 @@ public abstract class o1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,7 +49,7 @@ public abstract class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65538, null, file, z) == null) {
             FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath() + f53754b);
+            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath() + f38934b);
             a(fileInputStream, fileOutputStream);
             fileInputStream.close();
             fileOutputStream.flush();
@@ -212,7 +212,7 @@ public abstract class o1 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65544, null, file, z) == null) {
             FileInputStream fileInputStream = new FileInputStream(file);
-            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath().replace(f53754b, ""));
+            FileOutputStream fileOutputStream = new FileOutputStream(file.getPath().replace(f38934b, ""));
             b(fileInputStream, fileOutputStream);
             fileInputStream.close();
             fileOutputStream.flush();

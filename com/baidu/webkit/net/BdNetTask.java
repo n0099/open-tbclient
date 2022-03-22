@@ -61,9 +61,9 @@ public class BdNetTask implements INoProGuard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -110,16 +110,16 @@ public class BdNetTask implements INoProGuard {
         public static final b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final b f51491b;
+        public static final b f37943b;
 
         /* renamed from: c  reason: collision with root package name */
-        public static final b f51492c;
+        public static final b f37944c;
 
         /* renamed from: d  reason: collision with root package name */
-        public static final b f51493d;
+        public static final b f37945d;
 
         /* renamed from: e  reason: collision with root package name */
-        public static final /* synthetic */ b[] f51494e;
+        public static final /* synthetic */ b[] f37946e;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -136,23 +136,23 @@ public class BdNetTask implements INoProGuard {
                 }
             }
             a = new b("PRIORITY_HIGHER", 0);
-            f51491b = new b("PRIORITY_NORMAL", 1);
-            f51492c = new b("PRIORITY_LOWER", 2);
+            f37943b = new b("PRIORITY_NORMAL", 1);
+            f37944c = new b("PRIORITY_LOWER", 2);
             b bVar = new b("PRIORITY_IDLE", 3);
-            f51493d = bVar;
-            f51494e = new b[]{a, f51491b, f51492c, bVar};
+            f37945d = bVar;
+            f37946e = new b[]{a, f37943b, f37944c, bVar};
         }
 
-        public b(String str, int i2) {
+        public b(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -171,7 +171,7 @@ public class BdNetTask implements INoProGuard {
         public static b[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f51494e.clone() : (b[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (b[]) f37946e.clone() : (b[]) invokeV.objValue;
         }
     }
 
@@ -197,9 +197,9 @@ public class BdNetTask implements INoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -214,7 +214,7 @@ public class BdNetTask implements INoProGuard {
         this.mConnectionTimeOut = 0;
         this.mFollowRedirects = true;
         this.isUseCorenet = true;
-        this.mTaskPriority = b.f51491b;
+        this.mTaskPriority = b.f37943b;
     }
 
     private void clearForRecycle() {
@@ -504,10 +504,10 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    public void setConnectionTimeOut(int i2) {
+    public void setConnectionTimeOut(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            this.mConnectionTimeOut = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            this.mConnectionTimeOut = i;
         }
     }
 
@@ -563,10 +563,10 @@ public class BdNetTask implements INoProGuard {
         }
     }
 
-    public void setReadTimeOut(int i2) {
+    public void setReadTimeOut(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.mReadTimeOut = i2;
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.mReadTimeOut = i;
         }
     }
 

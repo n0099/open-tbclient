@@ -40,26 +40,26 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
         public final long time;
         public final TimeUnit unit;
 
-        public SkipLastTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+        public SkipLastTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = observer;
-            this.time = j2;
+            this.time = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
-            this.queue = new SpscLinkedArrayQueue<>(i2);
+            this.queue = new SpscLinkedArrayQueue<>(i);
             this.delayError = z;
         }
 
@@ -84,14 +84,14 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                 boolean z = this.delayError;
                 TimeUnit timeUnit = this.unit;
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.time;
-                int i2 = 1;
+                long j = this.time;
+                int i = 1;
                 while (!this.cancelled) {
                     boolean z2 = this.done;
                     Long l = (Long) spscLinkedArrayQueue.peek();
                     boolean z3 = l == null;
                     long now = scheduler.now(timeUnit);
-                    if (!z3 && l.longValue() > now - j2) {
+                    if (!z3 && l.longValue() > now - j) {
                         z3 = true;
                     }
                     if (z2) {
@@ -117,8 +117,8 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
                         }
                     }
                     if (z3) {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     } else {
@@ -176,27 +176,27 @@ public final class ObservableSkipLastTimed<T> extends AbstractObservableWithUpst
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSkipLastTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, int i2, boolean z) {
+    public ObservableSkipLastTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, int i, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.time = j2;
+        this.time = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
-        this.bufferSize = i2;
+        this.bufferSize = i;
         this.delayError = z;
     }
 

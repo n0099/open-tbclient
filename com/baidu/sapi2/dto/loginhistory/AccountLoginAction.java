@@ -24,9 +24,9 @@ public class AccountLoginAction {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -61,8 +61,8 @@ public class AccountLoginAction {
                 return "";
             }
             JSONArray jSONArray = new JSONArray();
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                JSONObject convertAction2Json = convertAction2Json(list.get(i2));
+            for (int i = 0; i < list.size(); i++) {
+                JSONObject convertAction2Json = convertAction2Json(list.get(i));
                 if (convertAction2Json != null) {
                     jSONArray.put(convertAction2Json);
                 }
@@ -95,10 +95,10 @@ public class AccountLoginAction {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONArray)) == null) {
             if (jSONArray != null && jSONArray.length() != 0) {
                 ArrayList arrayList = new ArrayList();
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                for (int i = 0; i < jSONArray.length(); i++) {
                     AccountLoginAction accountLoginAction = null;
                     try {
-                        accountLoginAction = convertJson2Action(jSONArray.getJSONObject(i2));
+                        accountLoginAction = convertJson2Action(jSONArray.getJSONObject(i));
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }
@@ -113,22 +113,22 @@ public class AccountLoginAction {
         return (List) invokeL.objValue;
     }
 
-    public AccountLoginAction(long j2, SapiAccount sapiAccount) {
+    public AccountLoginAction(long j, SapiAccount sapiAccount) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), sapiAccount};
+            Object[] objArr = {Long.valueOf(j), sapiAccount};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.loginTimeSecond = j2;
+        this.loginTimeSecond = j;
         this.sapiAccount = sapiAccount;
     }
 }

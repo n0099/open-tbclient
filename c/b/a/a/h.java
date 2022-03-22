@@ -17,22 +17,22 @@ public class h {
     public c.b.a.c.b<d> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public w<g, c.b.b.q.a<d>> f27050b;
+    public w<g, c.b.b.q.a<d>> f22311b;
 
     /* renamed from: c  reason: collision with root package name */
-    public w<g, c.b.a.c.b<d>> f27051c;
+    public w<g, c.b.a.c.b<d>> f22312c;
 
     /* renamed from: d  reason: collision with root package name */
-    public g0<c> f27052d;
+    public g0<c> f22313d;
 
     /* renamed from: e  reason: collision with root package name */
-    public w<g, c.b.b.q.d> f27053e;
+    public w<g, c.b.b.q.d> f22314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f27054f;
+    public b f22315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f27055g;
+    public boolean f22316g;
 
     /* loaded from: classes3.dex */
     public static /* synthetic */ class a {
@@ -50,9 +50,9 @@ public class h {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -80,16 +80,16 @@ public class h {
         public e a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f27056b;
+        public int f22317b;
 
         public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -108,53 +108,53 @@ public class h {
             newInitContext.initArgs = r2;
             Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27050b = new w<>();
-        this.f27051c = new w<>();
-        this.f27052d = new g0<>(true, 16);
-        this.f27053e = new w<>();
-        this.f27054f = new b(null);
-        this.f27055g = false;
+        this.f22311b = new w<>();
+        this.f22312c = new w<>();
+        this.f22313d = new g0<>(true, 16);
+        this.f22314e = new w<>();
+        this.f22315f = new b(null);
+        this.f22316g = false;
         this.a = bVar;
     }
 
-    public void a(g gVar, int i2, e eVar) {
+    public void a(g gVar, int i, e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, gVar, i2, eVar) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, gVar, i, eVar) == null) {
             d(gVar);
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                g0<c> g0Var = this.f27052d;
-                if (i3 >= g0Var.f27499f || g0Var.get(i3).f27056b > i2) {
+                g0<c> g0Var = this.f22313d;
+                if (i2 >= g0Var.f22717b || g0Var.get(i2).f22317b > i) {
                     break;
                 }
-                i3++;
+                i2++;
             }
-            w.e<c.b.b.q.d> n = this.f27053e.n();
+            w.e<c.b.b.q.d> n = this.f22314e.n();
             n.d();
             while (n.hasNext()) {
                 c.b.b.q.d next = n.next();
-                for (int h2 = next.h(); h2 > i3; h2--) {
+                for (int h2 = next.h(); h2 > i2; h2--) {
                     if (next.e(h2 - 1)) {
                         next.k(h2);
                     } else {
                         next.c(h2);
                     }
                 }
-                next.c(i3);
+                next.c(i2);
             }
-            this.f27053e.c(gVar).k(i3);
+            this.f22314e.c(gVar).k(i2);
             c cVar = new c(null);
             cVar.a = eVar;
-            cVar.f27056b = i2;
-            this.f27052d.insert(i3, cVar);
+            cVar.f22317b = i;
+            this.f22313d.insert(i2, cVar);
         }
     }
 
@@ -167,20 +167,20 @@ public class h {
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f27055g : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f22316g : invokeV.booleanValue;
     }
 
     public final c.b.a.c.b<d> d(g gVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gVar)) == null) {
-            c.b.a.c.b<d> c2 = this.f27051c.c(gVar);
+            c.b.a.c.b<d> c2 = this.f22312c.c(gVar);
             if (c2 == null) {
                 c.b.b.q.a<d> aVar = new c.b.b.q.a<>(false, 16);
                 c.b.a.c.b<d> bVar = new c.b.a.c.b<>(aVar);
-                this.f27050b.i(gVar, aVar);
-                this.f27051c.i(gVar, bVar);
-                this.f27053e.i(gVar, new c.b.b.q.d());
+                this.f22311b.i(gVar, aVar);
+                this.f22312c.i(gVar, bVar);
+                this.f22314e.i(gVar, new c.b.b.q.d());
                 Iterator<d> it = this.a.iterator();
                 while (it.hasNext()) {
                     f(it.next());
@@ -197,42 +197,42 @@ public class h {
         if (interceptable != null && interceptable.invokeL(1048580, this, eVar) != null) {
             return;
         }
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            g0<c> g0Var = this.f27052d;
-            if (i2 >= g0Var.f27499f) {
+            g0<c> g0Var = this.f22313d;
+            if (i >= g0Var.f22717b) {
                 return;
             }
-            if (g0Var.get(i2).a == eVar) {
-                w.e<c.b.b.q.d> n = this.f27053e.n();
+            if (g0Var.get(i).a == eVar) {
+                w.e<c.b.b.q.d> n = this.f22314e.n();
                 n.d();
                 while (n.hasNext()) {
                     c.b.b.q.d next = n.next();
                     int h2 = next.h();
-                    int i3 = i2;
-                    while (i3 < h2) {
-                        int i4 = i3 + 1;
-                        if (next.e(i4)) {
-                            next.k(i3);
+                    int i2 = i;
+                    while (i2 < h2) {
+                        int i3 = i2 + 1;
+                        if (next.e(i3)) {
+                            next.k(i2);
                         } else {
-                            next.c(i3);
+                            next.c(i2);
                         }
-                        i3 = i4;
+                        i2 = i3;
                     }
                 }
-                this.f27052d.h(i2);
-                i2--;
+                this.f22313d.i(i);
+                i--;
             }
-            i2++;
+            i++;
         }
     }
 
     public void f(d dVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, dVar) == null) {
-            c.b.b.q.d e2 = this.f27054f.e();
-            c.b.b.q.d e3 = this.f27054f.e();
-            w.c<g> f2 = this.f27053e.f();
+            c.b.b.q.d e2 = this.f22315f.e();
+            c.b.b.q.d e3 = this.f22315f.e();
+            w.c<g> f2 = this.f22314e.f();
             f2.d();
             while (true) {
                 boolean z = false;
@@ -243,39 +243,39 @@ public class h {
                 int g2 = next.g();
                 c.b.b.q.d f3 = dVar.f();
                 boolean e4 = f3.e(g2);
-                if (next.h(dVar) && !dVar.f27032d) {
+                if (next.h(dVar) && !dVar.f22295d) {
                     z = true;
                 }
                 if (e4 != z) {
-                    c.b.b.q.d c2 = this.f27053e.c(next);
-                    c.b.b.q.a<d> c3 = this.f27050b.c(next);
+                    c.b.b.q.d c2 = this.f22314e.c(next);
+                    c.b.b.q.a<d> c3 = this.f22311b.c(next);
                     if (z) {
                         e2.j(c2);
                         c3.a(dVar);
                         f3.k(g2);
                     } else {
                         e3.j(c2);
-                        c3.i(dVar, true);
+                        c3.j(dVar, true);
                         f3.c(g2);
                     }
                 }
             }
-            this.f27055g = true;
-            c[] o = this.f27052d.o();
+            this.f22316g = true;
+            c[] p = this.f22313d.p();
             try {
-                for (int i2 = e3.i(0); i2 >= 0; i2 = e3.i(i2 + 1)) {
-                    o[i2].a.a(dVar);
+                for (int i = e3.i(0); i >= 0; i = e3.i(i + 1)) {
+                    p[i].a.a(dVar);
                 }
-                for (int i3 = e2.i(0); i3 >= 0; i3 = e2.i(i3 + 1)) {
-                    o[i3].a.b(dVar);
+                for (int i2 = e2.i(0); i2 >= 0; i2 = e2.i(i2 + 1)) {
+                    p[i2].a.b(dVar);
                 }
             } finally {
                 e2.b();
                 e3.b();
-                this.f27054f.c(e2);
-                this.f27054f.c(e3);
-                this.f27052d.p();
-                this.f27055g = false;
+                this.f22315f.c(e2);
+                this.f22315f.c(e3);
+                this.f22313d.q();
+                this.f22316g = false;
             }
         }
     }

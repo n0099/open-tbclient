@@ -19,17 +19,17 @@ public abstract class ResponseCommitMessage extends SocketResponsedMessage {
     public long recordId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ResponseCommitMessage(int i2) {
-        super(i2);
+    public ResponseCommitMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,7 +39,7 @@ public abstract class ResponseCommitMessage extends SocketResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
     public BlockPopInfoData getBlockPopInfoData() {
         InterceptResult invokeV;
@@ -79,17 +79,17 @@ public abstract class ResponseCommitMessage extends SocketResponsedMessage {
         }
     }
 
-    public void setMsgId(long j2) {
+    public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.msgId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.msgId = j;
         }
     }
 
-    public void setRecordId(long j2) {
+    public void setRecordId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.recordId = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.recordId = j;
         }
     }
 }

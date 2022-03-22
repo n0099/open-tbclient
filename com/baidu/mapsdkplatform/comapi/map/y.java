@@ -15,17 +15,17 @@ public final class y {
     public static final y a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final y f34558b;
+    public static final y f26754b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final y f34559c;
+    public static final y f26755c;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final /* synthetic */ y[] f34560e;
+    public static final /* synthetic */ y[] f26756e;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final int f34561d;
+    public final int f26757d;
 
     static {
         InterceptResult invokeClinit;
@@ -41,22 +41,22 @@ public final class y {
             }
         }
         a = new y(EngineName.DEFAULT_ENGINE, 0, 1);
-        f34558b = new y("INDOOR", 1, 2);
+        f26754b = new y("INDOOR", 1, 2);
         y yVar = new y("STREET", 2, 3);
-        f34559c = yVar;
-        f34560e = new y[]{a, f34558b, yVar};
+        f26755c = yVar;
+        f26756e = new y[]{a, f26754b, yVar};
     }
 
-    public y(String str, int i2, int i3) {
+    public y(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -65,7 +65,7 @@ public final class y {
                 return;
             }
         }
-        this.f34561d = i3;
+        this.f26757d = i2;
     }
 
     public static y valueOf(String str) {
@@ -77,6 +77,6 @@ public final class y {
     public static y[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f34560e.clone() : (y[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (y[]) f26756e.clone() : (y[]) invokeV.objValue;
     }
 }

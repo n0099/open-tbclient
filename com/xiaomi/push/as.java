@@ -16,74 +16,74 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class as implements ar, InvocationHandler {
     public static /* synthetic */ Interceptable $ic;
     public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile int f129a;
+    public volatile int f105a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile long f130a;
+    public volatile long f106a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f131a;
+    public Context f107a;
 
     /* renamed from: a  reason: collision with other field name */
-    public volatile a f132a;
+    public volatile a f108a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Class f133a;
+    public Class f109a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Object f134a;
+    public final Object f110a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Method f135a;
+    public Method f111a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Class f59473b;
+    public Class f44092b;
 
     /* renamed from: b  reason: collision with other field name */
-    public Method f136b;
+    public Method f112b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Method f59474c;
+    public Method f44093c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Method f59475d;
+    public Method f44094d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Method f59476e;
+    public Method f44095e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Method f59477f;
+    public Method f44096f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Method f59478g;
+    public Method f44097g;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ as a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Boolean f137a;
+        public Boolean f113a;
 
         /* renamed from: a  reason: collision with other field name */
-        public String f138a;
+        public String f114a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f59479b;
+        public String f44098b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f59480c;
+        public String f44099c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f59481d;
+        public String f44100d;
 
         public a(as asVar) {
             Interceptable interceptable = $ic;
@@ -92,20 +92,20 @@ public class as implements ar, InvocationHandler {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {asVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = asVar;
-            this.f137a = null;
-            this.f138a = null;
-            this.f59479b = null;
-            this.f59480c = null;
-            this.f59481d = null;
+            this.f113a = null;
+            this.f114a = null;
+            this.f44098b = null;
+            this.f44099c = null;
+            this.f44100d = null;
         }
 
         public /* synthetic */ a(as asVar, at atVar) {
@@ -116,10 +116,10 @@ public class as implements ar, InvocationHandler {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (!TextUtils.isEmpty(this.f138a) || !TextUtils.isEmpty(this.f59479b) || !TextUtils.isEmpty(this.f59480c) || !TextUtils.isEmpty(this.f59481d)) {
-                    this.f137a = Boolean.TRUE;
+                if (!TextUtils.isEmpty(this.f114a) || !TextUtils.isEmpty(this.f44098b) || !TextUtils.isEmpty(this.f44099c) || !TextUtils.isEmpty(this.f44100d)) {
+                    this.f113a = Boolean.TRUE;
                 }
-                return this.f137a != null;
+                return this.f113a != null;
             }
             return invokeV.booleanValue;
         }
@@ -148,28 +148,28 @@ public class as implements ar, InvocationHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f133a = null;
-        this.f59473b = null;
-        this.f135a = null;
-        this.f136b = null;
-        this.f59474c = null;
-        this.f59475d = null;
-        this.f59476e = null;
-        this.f59477f = null;
-        this.f59478g = null;
-        this.f134a = new Object();
-        this.f129a = 0;
-        this.f130a = 0L;
-        this.f132a = null;
-        this.f131a = context.getApplicationContext();
+        this.f109a = null;
+        this.f44092b = null;
+        this.f111a = null;
+        this.f112b = null;
+        this.f44093c = null;
+        this.f44094d = null;
+        this.f44095e = null;
+        this.f44096f = null;
+        this.f44097g = null;
+        this.f110a = new Object();
+        this.f105a = 0;
+        this.f106a = 0L;
+        this.f108a = null;
+        this.f107a = context.getApplicationContext();
         a(context);
         b(context);
     }
@@ -226,9 +226,9 @@ public class as implements ar, InvocationHandler {
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            synchronized (this.f134a) {
+            synchronized (this.f110a) {
                 try {
-                    this.f134a.notifyAll();
+                    this.f110a.notifyAll();
                 } catch (Exception unused) {
                 }
             }
@@ -241,62 +241,62 @@ public class as implements ar, InvocationHandler {
             Class<?> a2 = a(context, "com.bun.miitmdid.core.MdidSdk");
             Class<?> cls = null;
             Class<?> cls2 = null;
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 String[][] strArr = a;
-                if (i2 >= strArr.length) {
+                if (i >= strArr.length) {
                     break;
                 }
-                String[] strArr2 = strArr[i2];
+                String[] strArr2 = strArr[i];
                 Class<?> a3 = a(context, strArr2[0]);
                 Class<?> a4 = a(context, strArr2[1]);
                 if (a3 != null && a4 != null) {
-                    b("found class in index " + i2);
+                    b("found class in index " + i);
                     cls2 = a4;
                     cls = a3;
                     break;
                 }
-                i2++;
+                i++;
                 cls2 = a4;
                 cls = a3;
             }
-            this.f133a = a2;
-            this.f135a = a(a2, "InitSdk", Context.class, cls);
-            this.f59473b = cls;
-            this.f136b = a(cls2, "getUDID", new Class[0]);
-            this.f59474c = a(cls2, "getOAID", new Class[0]);
-            this.f59475d = a(cls2, "getVAID", new Class[0]);
-            this.f59476e = a(cls2, "getAAID", new Class[0]);
-            this.f59477f = a(cls2, "isSupported", new Class[0]);
-            this.f59478g = a(cls2, "shutDown", new Class[0]);
+            this.f109a = a2;
+            this.f111a = a(a2, "InitSdk", Context.class, cls);
+            this.f44092b = cls;
+            this.f112b = a(cls2, "getUDID", new Class[0]);
+            this.f44093c = a(cls2, "getOAID", new Class[0]);
+            this.f44094d = a(cls2, "getVAID", new Class[0]);
+            this.f44095e = a(cls2, "getAAID", new Class[0]);
+            this.f44096f = a(cls2, "isSupported", new Class[0]);
+            this.f44097g = a(cls2, "shutDown", new Class[0]);
         }
     }
 
     private void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f132a == null) {
-            long j2 = this.f130a;
-            long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j2);
-            int i2 = this.f129a;
-            if (elapsedRealtime > 3000 && i2 < 3) {
-                synchronized (this.f134a) {
-                    if (this.f130a == j2 && this.f129a == i2) {
-                        b("retry, current count is " + i2);
-                        this.f129a = this.f129a + 1;
-                        b(this.f131a);
-                        j2 = this.f130a;
-                        elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j2);
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && this.f108a == null) {
+            long j = this.f106a;
+            long elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
+            int i = this.f105a;
+            if (elapsedRealtime > 3000 && i < 3) {
+                synchronized (this.f110a) {
+                    if (this.f106a == j && this.f105a == i) {
+                        b("retry, current count is " + i);
+                        this.f105a = this.f105a + 1;
+                        b(this.f107a);
+                        j = this.f106a;
+                        elapsedRealtime = SystemClock.elapsedRealtime() - Math.abs(j);
                     }
                 }
             }
-            if (this.f132a != null || j2 < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
+            if (this.f108a != null || j < 0 || elapsedRealtime > 3000 || Looper.myLooper() == Looper.getMainLooper()) {
                 return;
             }
-            synchronized (this.f134a) {
-                if (this.f132a == null) {
+            synchronized (this.f110a) {
+                if (this.f108a == null) {
                     try {
                         b(str + " wait...");
-                        this.f134a.wait(3000L);
+                        this.f110a.wait(3000L);
                     } catch (Exception unused) {
                     }
                 }
@@ -314,29 +314,29 @@ public class as implements ar, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j2 = -elapsedRealtime;
-            Class cls = this.f59473b;
+            long j = -elapsedRealtime;
+            Class cls = this.f44092b;
             if (cls != null) {
                 try {
                     ClassLoader classLoader = cls.getClassLoader();
                     if (classLoader == null) {
                         classLoader = context.getClassLoader();
                     }
-                    a(this.f135a, this.f133a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f59473b}, this));
+                    a(this.f111a, this.f109a.newInstance(), context, Proxy.newProxyInstance(classLoader, new Class[]{this.f44092b}, this));
                 } catch (Throwable th) {
                     b("call init sdk error:" + th);
                 }
-                this.f130a = elapsedRealtime;
+                this.f106a = elapsedRealtime;
             }
-            elapsedRealtime = j2;
-            this.f130a = elapsedRealtime;
+            elapsedRealtime = j;
+            this.f106a = elapsedRealtime;
         }
     }
 
     public static void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("mdid:" + str);
+            com.xiaomi.channel.commonutils.logger.b.m112a("mdid:" + str);
         }
     }
 
@@ -346,10 +346,10 @@ public class as implements ar, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             a("getUDID");
-            if (this.f132a == null) {
+            if (this.f108a == null) {
                 return null;
             }
-            return this.f132a.f138a;
+            return this.f108a.f114a;
         }
         return (String) invokeV.objValue;
     }
@@ -360,22 +360,22 @@ public class as implements ar, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             a("isSupported");
-            return this.f132a != null && Boolean.TRUE.equals(this.f132a.f137a);
+            return this.f108a != null && Boolean.TRUE.equals(this.f108a.f113a);
         }
         return invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo212b() {
+    public String mo191b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             a("getOAID");
-            if (this.f132a == null) {
+            if (this.f108a == null) {
                 return null;
             }
-            return this.f132a.f59479b;
+            return this.f108a.f44098b;
         }
         return (String) invokeV.objValue;
     }
@@ -386,10 +386,10 @@ public class as implements ar, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             a("getVAID");
-            if (this.f132a == null) {
+            if (this.f108a == null) {
                 return null;
             }
-            return this.f132a.f59480c;
+            return this.f108a.f44099c;
         }
         return (String) invokeV.objValue;
     }
@@ -400,10 +400,10 @@ public class as implements ar, InvocationHandler {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             a("getAAID");
-            if (this.f132a == null) {
+            if (this.f108a == null) {
                 return null;
             }
-            return this.f132a.f59481d;
+            return this.f108a.f44100d;
         }
         return (String) invokeV.objValue;
     }
@@ -413,36 +413,36 @@ public class as implements ar, InvocationHandler {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, obj, method, objArr)) == null) {
-            this.f130a = SystemClock.elapsedRealtime();
+            this.f106a = SystemClock.elapsedRealtime();
             if (objArr != null) {
                 a aVar = new a(this, null);
                 int length = objArr.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         break;
                     }
-                    Object obj2 = objArr[i2];
+                    Object obj2 = objArr[i];
                     if (obj2 != null && !a(obj2)) {
-                        aVar.f138a = (String) a(this.f136b, obj2, new Object[0]);
-                        aVar.f59479b = (String) a(this.f59474c, obj2, new Object[0]);
-                        aVar.f59480c = (String) a(this.f59475d, obj2, new Object[0]);
-                        aVar.f59481d = (String) a(this.f59476e, obj2, new Object[0]);
-                        aVar.f137a = (Boolean) a(this.f59477f, obj2, new Object[0]);
-                        a(this.f59478g, obj2, new Object[0]);
+                        aVar.f114a = (String) a(this.f112b, obj2, new Object[0]);
+                        aVar.f44098b = (String) a(this.f44093c, obj2, new Object[0]);
+                        aVar.f44099c = (String) a(this.f44094d, obj2, new Object[0]);
+                        aVar.f44100d = (String) a(this.f44095e, obj2, new Object[0]);
+                        aVar.f113a = (Boolean) a(this.f44096f, obj2, new Object[0]);
+                        a(this.f44097g, obj2, new Object[0]);
                         if (aVar.a()) {
                             StringBuilder sb = new StringBuilder();
                             sb.append("has get succ, check duplicate:");
-                            sb.append(this.f132a != null);
+                            sb.append(this.f108a != null);
                             b(sb.toString());
                             synchronized (as.class) {
-                                if (this.f132a == null) {
-                                    this.f132a = aVar;
+                                if (this.f108a == null) {
+                                    this.f108a = aVar;
                                 }
                             }
                         }
                     }
-                    i2++;
+                    i++;
                 }
             }
             a();

@@ -10,7 +10,7 @@ import com.kuaishou.weapon.un.w0;
 import java.io.IOException;
 import java.util.zip.CRC32;
 import java.util.zip.Deflater;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class GzipSink implements Sink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,9 +27,9 @@ public final class GzipSink implements Sink {
             newInitContext.initArgs = r2;
             Object[] objArr = {sink};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,14 +47,14 @@ public final class GzipSink implements Sink {
         throw new IllegalArgumentException("sink == null");
     }
 
-    private void updateCrc(Buffer buffer, long j2) {
+    private void updateCrc(Buffer buffer, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, this, buffer, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65537, this, buffer, j) == null) {
             Segment segment = buffer.head;
-            while (j2 > 0) {
-                int min = (int) Math.min(j2, segment.limit - segment.pos);
+            while (j > 0) {
+                int min = (int) Math.min(j, segment.limit - segment.pos);
                 this.crc.update(segment.data, segment.pos, min);
-                j2 -= min;
+                j -= min;
                 segment = segment.next;
             }
         }
@@ -114,7 +114,7 @@ public final class GzipSink implements Sink {
         }
     }
 
-    public final Deflater deflater() {
+    public Deflater deflater() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.deflater : (Deflater) invokeV.objValue;
@@ -136,16 +136,16 @@ public final class GzipSink implements Sink {
     }
 
     @Override // okio.Sink
-    public void write(Buffer buffer, long j2) throws IOException {
+    public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j2) == null) {
-            int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-            if (i2 < 0) {
-                throw new IllegalArgumentException("byteCount < 0: " + j2);
-            } else if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLJ(1048580, this, buffer, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i < 0) {
+                throw new IllegalArgumentException("byteCount < 0: " + j);
+            } else if (i == 0) {
             } else {
-                updateCrc(buffer, j2);
-                this.deflaterSink.write(buffer, j2);
+                updateCrc(buffer, j);
+                this.deflaterSink.write(buffer, j);
             }
         }
     }

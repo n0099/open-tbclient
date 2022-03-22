@@ -10,24 +10,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SmoothCalendarLayoutManager extends LinearLayoutManager {
     public static /* synthetic */ Interceptable $ic = null;
     public static final float MILLISECONDS_PER_INCH = 100.0f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SmoothCalendarLayoutManager(Context context, int i2, boolean z) {
-        super(context, i2, z);
+    public SmoothCalendarLayoutManager(Context context, int i, boolean z) {
+        super(context, i, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -38,9 +38,9 @@ public class SmoothCalendarLayoutManager extends LinearLayoutManager {
     }
 
     @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i2) {
+    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, recyclerView, state, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, recyclerView, state, i) == null) {
             LinearSmoothScroller linearSmoothScroller = new LinearSmoothScroller(this, recyclerView.getContext()) { // from class: com.google.android.material.datepicker.SmoothCalendarLayoutManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public class SmoothCalendarLayoutManager extends LinearLayoutManager {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r8};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             super((Context) newInitContext.callArgs[0]);
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
@@ -74,7 +74,7 @@ public class SmoothCalendarLayoutManager extends LinearLayoutManager {
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, displayMetrics)) == null) ? 100.0f / displayMetrics.densityDpi : invokeL.floatValue;
                 }
             };
-            linearSmoothScroller.setTargetPosition(i2);
+            linearSmoothScroller.setTargetPosition(i);
             startSmoothScroll(linearSmoothScroller);
         }
     }

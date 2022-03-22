@@ -3,7 +3,6 @@ package com.xiaomi.push;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +25,7 @@ import java.util.Date;
 import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class y {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;
@@ -45,7 +44,7 @@ public class y {
                 return;
             }
         }
-        a = new String[]{"jpg", "png", "bmp", "gif", OvalActionButton.WEBP};
+        a = new String[]{"jpg", "png", "bmp", "gif", "webp"};
     }
 
     /* JADX WARN: Not initialized variable reg: 2, insn: 0x0066: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:24:0x0066 */
@@ -111,12 +110,12 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static void m705a(File file) {
+    public static void m684a(File file) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
             if (file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
-                    m705a(file2);
+                    m684a(file2);
                 }
             } else if (!file.exists()) {
                 return;
@@ -150,7 +149,7 @@ public class y {
             } catch (IOException e3) {
                 e = e3;
                 zipOutputStream2 = zipOutputStream;
-                com.xiaomi.channel.commonutils.logger.b.m133a("zip file failure + " + e.getMessage());
+                com.xiaomi.channel.commonutils.logger.b.m112a("zip file failure + " + e.getMessage());
                 a(zipOutputStream2);
             } catch (Throwable th2) {
                 th = th2;
@@ -213,8 +212,8 @@ public class y {
                         if (!TextUtils.isEmpty(str)) {
                             str2 = str + File.separator;
                         }
-                        for (int i2 = 0; i2 < listFiles.length; i2++) {
-                            a(zipOutputStream, listFiles[i2], str2 + listFiles[i2].getName(), null);
+                        for (int i = 0; i < listFiles.length; i++) {
+                            a(zipOutputStream, listFiles[i], str2 + listFiles[i].getName(), null);
                         }
                         File[] listFiles2 = file.listFiles(new z());
                         if (listFiles2 != null) {
@@ -264,7 +263,7 @@ public class y {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m706a(File file) {
+    public static boolean m685a(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {

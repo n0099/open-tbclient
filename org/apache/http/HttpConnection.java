@@ -2,7 +2,7 @@ package org.apache.http;
 
 import java.io.IOException;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface HttpConnection {
     void close() throws IOException;
 
@@ -14,7 +14,7 @@ public interface HttpConnection {
 
     boolean isStale();
 
-    void setSocketTimeout(int i2);
+    void setSocketTimeout(int i);
 
     void shutdown() throws IOException;
 }

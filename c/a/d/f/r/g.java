@@ -5,7 +5,7 @@ import java.util.Map;
 public interface g {
     void a(String str);
 
-    void b(int i2, String str);
+    void b(int i, String str);
 
     void c(c cVar);
 
@@ -15,7 +15,7 @@ public interface g {
 
     void f(k kVar);
 
-    void g(int i2, c cVar);
+    void g(int i, c cVar);
 
     void h(c cVar);
 

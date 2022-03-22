@@ -62,9 +62,9 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {switchMapMaybeMainObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -137,9 +137,9 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, function, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -180,7 +180,7 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
                 Observer<? super R> observer = this.downstream;
                 AtomicThrowable atomicThrowable = this.errors;
                 AtomicReference<SwitchMapMaybeObserver<R>> atomicReference = this.inner;
-                int i2 = 1;
+                int i = 1;
                 while (!this.cancelled) {
                     if (atomicThrowable.get() != null && !this.delayErrors) {
                         observer.onError(atomicThrowable.terminate());
@@ -202,8 +202,8 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
                         atomicReference.compareAndSet(switchMapMaybeObserver, null);
                         observer.onNext((R) switchMapMaybeObserver.item);
                     } else {
-                        i2 = addAndGet(-i2);
-                        if (i2 == 0) {
+                        i = addAndGet(-i);
+                        if (i == 0) {
                             return;
                         }
                     }
@@ -312,9 +312,9 @@ public final class ObservableSwitchMapMaybe<T, R> extends Observable<R> {
             newInitContext.initArgs = r2;
             Object[] objArr = {observable, function, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

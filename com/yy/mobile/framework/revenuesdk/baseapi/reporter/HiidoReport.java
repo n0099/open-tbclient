@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Random;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class HiidoReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "hiidoReport";
@@ -17,7 +17,7 @@ public class HiidoReport {
     public transient /* synthetic */ FieldHolder $fh;
     public Random random;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CReportConfig {
         public static /* synthetic */ Interceptable $ic;
         public static String mAppName;
@@ -46,9 +46,9 @@ public class HiidoReport {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -56,7 +56,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CReportParam {
         public static /* synthetic */ Interceptable $ic = null;
         public static String ACT = "revenuepay";
@@ -85,9 +85,9 @@ public class HiidoReport {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -95,7 +95,7 @@ public class HiidoReport {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CReportResponse {
         public static /* synthetic */ Interceptable $ic = null;
         public static String mAppId = "";
@@ -149,9 +149,9 @@ public class HiidoReport {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -203,9 +203,9 @@ public class HiidoReport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -230,11 +230,11 @@ public class HiidoReport {
         return (HiidoReport) invokeV.objValue;
     }
 
-    public String getRevenueUri(int i2, int i3, String str) {
+    public String getRevenueUri(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i2, i3, str)) == null) {
-            return "paysdk/android/cmd_" + str + "/" + i2 + "/" + i3;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, str)) == null) {
+            return "paysdk/android/cmd_" + str + "/" + i + "/" + i2;
         }
         return (String) invokeIIL.objValue;
     }

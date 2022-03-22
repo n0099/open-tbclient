@@ -11,20 +11,20 @@ public class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     public int a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<Float> f54090b = new ArrayList();
+    public List<Float> f39239b = new ArrayList();
 
     /* renamed from: c  reason: collision with root package name */
-    public long f54091c = 0;
+    public long f39240c = 0;
 
-    public static e a(SensorEvent sensorEvent, long j2) {
+    public static e a(SensorEvent sensorEvent, long j) {
         if (sensorEvent == null) {
             return null;
         }
         e eVar = new e();
         eVar.a = sensorEvent.sensor.getType();
-        eVar.f54091c = j2 / 1000;
+        eVar.f39240c = j / 1000;
         for (float f2 : sensorEvent.values) {
-            eVar.f54090b.add(Float.valueOf(f2));
+            eVar.f39239b.add(Float.valueOf(f2));
         }
         return eVar;
     }
@@ -32,6 +32,6 @@ public class e extends com.kwad.sdk.core.response.kwai.a implements com.kwad.sdk
     @Override // com.kwad.sdk.core.response.kwai.a
     public void afterToJson(JSONObject jSONObject) {
         super.afterToJson(jSONObject);
-        t.a(jSONObject, SavedStateHandle.VALUES, this.f54090b);
+        t.a(jSONObject, SavedStateHandle.VALUES, this.f39239b);
     }
 }

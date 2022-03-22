@@ -15,13 +15,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class DownloadTaskType {
         public static final /* synthetic */ DownloadTaskType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -48,16 +48,16 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
             $VALUES = new DownloadTaskType[]{ZEUS, downloadTaskType};
         }
 
-        public DownloadTaskType(String str, int i2) {
+        public DownloadTaskType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -80,19 +80,19 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface IDownloadTaskListener extends INoProGuard {
-        void onDownloadCancel(String str, long j2, long j3, String str2);
+        void onDownloadCancel(String str, long j, long j2, String str2);
 
-        void onDownloadFail(String str, long j2, String str2, String str3);
+        void onDownloadFail(String str, long j, String str2, String str3);
 
-        void onDownloadPause(String str, long j2, long j3, String str2);
+        void onDownloadPause(String str, long j, long j2, String str2);
 
-        void onDownloadStart(String str, long j2, String str2);
+        void onDownloadStart(String str, long j, String str2);
 
-        void onDownloadSuccess(String str, String str2, long j2);
+        void onDownloadSuccess(String str, String str2, long j);
 
-        void onDownloading(String str, long j2, long j3);
+        void onDownloading(String str, long j, long j2);
     }
 
     public BdSailorClient() {
@@ -100,9 +100,9 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -121,10 +121,10 @@ public class BdSailorClient extends WebKitClient implements INoProGuard, ISailor
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public String getErrorPageInfo(Context context, int i2, String str, String str2, String str3) {
+    public String getErrorPageInfo(Context context, int i, String str, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i2), str, str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), str, str2, str3})) == null) {
             return null;
         }
         return (String) invokeCommon.objValue;

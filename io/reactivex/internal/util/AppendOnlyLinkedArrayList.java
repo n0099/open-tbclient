@@ -25,23 +25,23 @@ public class AppendOnlyLinkedArrayList<T> {
         boolean test(T t);
     }
 
-    public AppendOnlyLinkedArrayList(int i2) {
+    public AppendOnlyLinkedArrayList(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.capacity = i2;
-        Object[] objArr2 = new Object[i2 + 1];
+        this.capacity = i;
+        Object[] objArr2 = new Object[i + 1];
         this.head = objArr2;
         this.tail = objArr2;
     }
@@ -59,48 +59,48 @@ public class AppendOnlyLinkedArrayList<T> {
             return invokeL.booleanValue;
         }
         Object[] objArr = this.head;
-        int i2 = this.capacity;
+        int i = this.capacity;
         while (true) {
             if (objArr == null) {
                 return false;
             }
-            for (int i3 = 0; i3 < i2; i3++) {
-                Object[] objArr2 = objArr[i3];
+            for (int i2 = 0; i2 < i; i2++) {
+                Object[] objArr2 = objArr[i2];
                 if (objArr2 == null) {
                     break;
                 } else if (NotificationLite.acceptFull(objArr2, subscriber)) {
                     return true;
                 }
             }
-            objArr = objArr[i2];
+            objArr = objArr[i];
         }
     }
 
     public void add(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            int i2 = this.capacity;
-            int i3 = this.offset;
-            if (i3 == i2) {
-                Object[] objArr = new Object[i2 + 1];
-                this.tail[i2] = objArr;
+            int i = this.capacity;
+            int i2 = this.offset;
+            if (i2 == i) {
+                Object[] objArr = new Object[i + 1];
+                this.tail[i] = objArr;
                 this.tail = objArr;
-                i3 = 0;
+                i2 = 0;
             }
-            this.tail[i3] = t;
-            this.offset = i3 + 1;
+            this.tail[i2] = t;
+            this.offset = i2 + 1;
         }
     }
 
     public void forEachWhile(NonThrowingPredicate<? super T> nonThrowingPredicate) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, nonThrowingPredicate) == null) {
-            int i3 = this.capacity;
-            for (Object[] objArr = this.head; objArr != null; objArr = objArr[i3]) {
-                while (i2 < i3) {
-                    Object obj = objArr[i2];
-                    i2 = (obj == null || nonThrowingPredicate.test(obj)) ? 0 : i2 + 1;
+            int i2 = this.capacity;
+            for (Object[] objArr = this.head; objArr != null; objArr = objArr[i2]) {
+                while (i < i2) {
+                    Object obj = objArr[i];
+                    i = (obj == null || nonThrowingPredicate.test(obj)) ? 0 : i + 1;
                 }
             }
         }
@@ -126,20 +126,20 @@ public class AppendOnlyLinkedArrayList<T> {
             return invokeL.booleanValue;
         }
         Object[] objArr = this.head;
-        int i2 = this.capacity;
+        int i = this.capacity;
         while (true) {
             if (objArr == null) {
                 return false;
             }
-            for (int i3 = 0; i3 < i2; i3++) {
-                Object[] objArr2 = objArr[i3];
+            for (int i2 = 0; i2 < i; i2++) {
+                Object[] objArr2 = objArr[i2];
                 if (objArr2 == null) {
                     break;
                 } else if (NotificationLite.acceptFull(objArr2, observer)) {
                     return true;
                 }
             }
-            objArr = objArr[i2];
+            objArr = objArr[i];
         }
     }
 
@@ -149,15 +149,15 @@ public class AppendOnlyLinkedArrayList<T> {
             return;
         }
         Object[] objArr = this.head;
-        int i2 = this.capacity;
+        int i = this.capacity;
         while (true) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                Object obj = objArr[i3];
+            for (int i2 = 0; i2 < i; i2++) {
+                Object obj = objArr[i2];
                 if (obj == null || biPredicate.test(s, obj)) {
                     return;
                 }
             }
-            objArr = objArr[i2];
+            objArr = objArr[i];
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidubce;
 
+import android.support.v4.media.session.PlaybackStateCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -81,9 +82,9 @@ public class BceClientConfiguration {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -252,11 +253,11 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setConnectionTimeoutInMillis(int i2) {
+    public void setConnectionTimeoutInMillis(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            CheckUtils.checkArgument(i2 >= 0, "connectionTimeoutInMillis should not be negative.");
-            this.connectionTimeoutInMillis = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            CheckUtils.checkArgument(i >= 0, "connectionTimeoutInMillis should not be negative.");
+            this.connectionTimeoutInMillis = i;
         }
     }
 
@@ -276,10 +277,10 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setKeepAliveDuration(long j2) {
+    public void setKeepAliveDuration(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048601, this, j2) == null) {
-            this.keepAliveDuration = j2;
+        if (interceptable == null || interceptable.invokeJ(1048601, this, j) == null) {
+            this.keepAliveDuration = j;
         }
     }
 
@@ -290,11 +291,11 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setMaxConnections(int i2) {
+    public void setMaxConnections(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
-            CheckUtils.checkArgument(i2 >= 0, "maxConnections should not be negative.");
-            this.maxConnections = i2;
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+            CheckUtils.checkArgument(i >= 0, "maxConnections should not be negative.");
+            this.maxConnections = i;
         }
     }
 
@@ -329,10 +330,10 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setProxyPort(int i2) {
+    public void setProxyPort(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.proxyPort = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.proxyPort = i;
         }
     }
 
@@ -377,25 +378,25 @@ public class BceClientConfiguration {
         }
     }
 
-    public void setSocketBufferSizeInBytes(int i2) {
+    public void setSocketBufferSizeInBytes(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.socketBufferSizeInBytes = i2;
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.socketBufferSizeInBytes = i;
         }
     }
 
-    public void setSocketTimeoutInMillis(int i2) {
+    public void setSocketTimeoutInMillis(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            CheckUtils.checkArgument(i2 >= 0, "socketTimeoutInMillis should not be negative.");
-            this.socketTimeoutInMillis = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            CheckUtils.checkArgument(i >= 0, "socketTimeoutInMillis should not be negative.");
+            this.socketTimeoutInMillis = i;
         }
     }
 
-    public void setUploadSegmentPart(long j2) {
+    public void setUploadSegmentPart(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048616, this, j2) == null) {
-            this.uploadSegmentPart = (j2 < 1 || j2 > 8192) ? 2048L : 2048L;
+        if (interceptable == null || interceptable.invokeJ(1048616, this, j) == null) {
+            this.uploadSegmentPart = (j < 1 || j > PlaybackStateCompat.ACTION_PLAY_FROM_URI) ? 2048L : 2048L;
         }
     }
 
@@ -421,11 +422,11 @@ public class BceClientConfiguration {
         return (String) invokeV.objValue;
     }
 
-    public BceClientConfiguration withConnectionTimeoutInMillis(int i2) {
+    public BceClientConfiguration withConnectionTimeoutInMillis(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i2)) == null) {
-            setConnectionTimeoutInMillis(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048619, this, i)) == null) {
+            setConnectionTimeoutInMillis(i);
             return this;
         }
         return (BceClientConfiguration) invokeI.objValue;
@@ -461,11 +462,11 @@ public class BceClientConfiguration {
         return (BceClientConfiguration) invokeL.objValue;
     }
 
-    public BceClientConfiguration withMaxConnections(int i2) {
+    public BceClientConfiguration withMaxConnections(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i2)) == null) {
-            setMaxConnections(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048623, this, i)) == null) {
+            setMaxConnections(i);
             return this;
         }
         return (BceClientConfiguration) invokeI.objValue;
@@ -511,11 +512,11 @@ public class BceClientConfiguration {
         return (BceClientConfiguration) invokeL.objValue;
     }
 
-    public BceClientConfiguration withProxyPort(int i2) {
+    public BceClientConfiguration withProxyPort(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i2)) == null) {
-            setProxyPort(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
+            setProxyPort(i);
             return this;
         }
         return (BceClientConfiguration) invokeI.objValue;
@@ -571,21 +572,21 @@ public class BceClientConfiguration {
         return (BceClientConfiguration) invokeL.objValue;
     }
 
-    public BceClientConfiguration withSocketBufferSizeInBytes(int i2) {
+    public BceClientConfiguration withSocketBufferSizeInBytes(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i2)) == null) {
-            setSocketBufferSizeInBytes(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i)) == null) {
+            setSocketBufferSizeInBytes(i);
             return this;
         }
         return (BceClientConfiguration) invokeI.objValue;
     }
 
-    public BceClientConfiguration withSocketTimeoutInMillis(int i2) {
+    public BceClientConfiguration withSocketTimeoutInMillis(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i2)) == null) {
-            setSocketTimeoutInMillis(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048635, this, i)) == null) {
+            setSocketTimeoutInMillis(i);
             return this;
         }
         return (BceClientConfiguration) invokeI.objValue;
@@ -618,9 +619,9 @@ public class BceClientConfiguration {
             newInitContext.initArgs = r2;
             Object[] objArr = {bceClientConfiguration};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

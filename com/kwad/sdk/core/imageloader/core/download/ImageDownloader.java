@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.imageloader.core.download;
 
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.io.InputStream;
 import java.util.Locale;
 /* loaded from: classes7.dex */
@@ -12,7 +13,7 @@ public interface ImageDownloader {
         FILE("file"),
         CONTENT("content"),
         ASSETS("assets"),
-        DRAWABLE("drawable"),
+        DRAWABLE(ResourceManager.DRAWABLE),
         UNKNOWN("");
         
         public String scheme;

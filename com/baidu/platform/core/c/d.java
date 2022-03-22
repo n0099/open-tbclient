@@ -1,5 +1,6 @@
 package com.baidu.platform.core.c;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mapapi.CoordType;
@@ -29,11 +30,11 @@ public class d extends com.baidu.platform.base.d {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36387b = "d";
+    public static final String f28204b = "d";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f36388c;
+    public boolean f28205c;
 
     static {
         InterceptResult invokeClinit;
@@ -55,15 +56,15 @@ public class d extends com.baidu.platform.base.d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f36388c = false;
+        this.f28205c = false;
     }
 
     private LatLng a(JSONObject jSONObject) {
@@ -87,12 +88,14 @@ public class d extends com.baidu.platform.base.d {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, searchResult)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.length() != 0 && jSONObject.optInt("status") == 0 && (optJSONArray = jSONObject.optJSONArray("result")) != null && optJSONArray.length() != 0) {
-                    return this.f36388c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+                if (jSONObject.length() == 0 || jSONObject.optInt("status") != 0 || (optJSONArray = jSONObject.optJSONArray("result")) == null || optJSONArray.length() == 0) {
+                    return false;
                 }
-            } catch (JSONException unused) {
+                return this.f28205c ? a(optJSONArray, (PoiDetailSearchResult) searchResult) : a(optJSONArray, (PoiDetailResult) searchResult);
+            } catch (JSONException e2) {
+                Log.e(f28204b, "Parse detail search result error", e2);
+                return false;
             }
-            return false;
         }
         return invokeLL.booleanValue;
     }
@@ -142,8 +145,8 @@ public class d extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, this, jSONArray, poiDetailSearchResult)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject jSONObject = (JSONObject) jSONArray.opt(i2);
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject jSONObject = (JSONObject) jSONArray.opt(i);
                 if (jSONObject != null && jSONObject.length() != 0) {
                     PoiDetailInfo poiDetailInfo = new PoiDetailInfo();
                     poiDetailInfo.setName(jSONObject.optString("name"));
@@ -195,11 +198,12 @@ public class d extends com.baidu.platform.base.d {
         JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SearchResult poiDetailSearchResult = this.f36388c ? new PoiDetailSearchResult() : new PoiDetailResult();
+            SearchResult poiDetailSearchResult = this.f28205c ? new PoiDetailSearchResult() : new PoiDetailResult();
             if (str != null && !str.isEmpty()) {
                 try {
                     jSONObject = new JSONObject(str);
-                } catch (JSONException unused) {
+                } catch (JSONException e2) {
+                    Log.e(f28204b, "Parse detail search result failed", e2);
                 }
                 if (jSONObject.length() == 0) {
                     poiDetailSearchResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
@@ -246,7 +250,7 @@ public class d extends com.baidu.platform.base.d {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, searchResult, obj) == null) && obj != null && (obj instanceof OnGetPoiSearchResultListener)) {
             OnGetPoiSearchResultListener onGetPoiSearchResultListener = (OnGetPoiSearchResultListener) obj;
-            if (this.f36388c) {
+            if (this.f28205c) {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailSearchResult) searchResult);
             } else {
                 onGetPoiSearchResultListener.onGetPoiDetailResult((PoiDetailResult) searchResult);
@@ -257,7 +261,7 @@ public class d extends com.baidu.platform.base.d {
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.f36388c = z;
+            this.f28205c = z;
         }
     }
 }

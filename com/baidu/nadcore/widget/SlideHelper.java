@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.l0.i;
-import c.a.b0.l0.j;
+import c.a.a0.l0.j;
+import c.a.a0.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.widget.SlidingPaneLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,9 +34,9 @@ public class SlideHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -49,7 +49,7 @@ public class SlideHelper {
         SlidingPaneLayout slidingPaneLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && (slidingPaneLayout = this.mSlideLayout) != null && (slidingPaneLayout instanceof CustomSlidingPanelLayout)) {
-            slidingPaneLayout.attachActivity(activity);
+            slidingPaneLayout.m(activity);
         }
     }
 
@@ -76,7 +76,7 @@ public class SlideHelper {
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(j.e(context, "sliding_layout_shadow.9.png"));
+            customSlidingPanelLayout.setShadowDrawable(k.e(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams2);
             this.mSlideLayout.addView(view, layoutParams2);
             this.mSlideLayout.setSliderFadeColor(0);
@@ -97,14 +97,14 @@ public class SlideHelper {
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (slidingPaneLayout = this.mSlideLayout) == null) {
             return;
         }
-        slidingPaneLayout.closePane();
+        slidingPaneLayout.o();
     }
 
     public void forceActivityTransparent(boolean z) {
         SlidingPaneLayout slidingPaneLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (slidingPaneLayout = this.mSlideLayout) != null && (slidingPaneLayout instanceof CustomSlidingPanelLayout)) {
-            slidingPaneLayout.forceActivityTransparent(z);
+            slidingPaneLayout.w(z);
         }
     }
 
@@ -119,9 +119,9 @@ public class SlideHelper {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (slidingPaneLayout = this.mSlideLayout) != null && (slidingPaneLayout instanceof CustomSlidingPanelLayout)) {
             if (z) {
-                slidingPaneLayout.convertActivityToTranslucent();
+                slidingPaneLayout.r();
             } else {
-                slidingPaneLayout.convertActivityFromTranslucent();
+                slidingPaneLayout.q();
             }
         }
     }
@@ -152,13 +152,13 @@ public class SlideHelper {
         slidingPaneLayout.setEnableReleaseWhenNoTranslucent(z);
     }
 
-    public void setFadeColor(int i2) {
+    public void setFadeColor(int i) {
         SlidingPaneLayout slidingPaneLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i2) == null) || (slidingPaneLayout = this.mSlideLayout) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (slidingPaneLayout = this.mSlideLayout) == null) {
             return;
         }
-        slidingPaneLayout.setSliderFadeColor(i2);
+        slidingPaneLayout.setSliderFadeColor(i);
     }
 
     public void setNightMode(boolean z) {
@@ -169,13 +169,13 @@ public class SlideHelper {
         }
     }
 
-    public void setOnTransparentListener(i iVar) {
+    public void setOnTransparentListener(j jVar) {
         SlidingPaneLayout slidingPaneLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, iVar) == null) || (slidingPaneLayout = this.mSlideLayout) == null || !(slidingPaneLayout instanceof CustomSlidingPanelLayout) || iVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, jVar) == null) || (slidingPaneLayout = this.mSlideLayout) == null || !(slidingPaneLayout instanceof CustomSlidingPanelLayout) || jVar == null) {
             return;
         }
-        ((CustomSlidingPanelLayout) slidingPaneLayout).setOnTransparentListener(iVar);
+        ((CustomSlidingPanelLayout) slidingPaneLayout).setOnTransparentListener(jVar);
     }
 
     public void setRegionFactor(double d2) {
@@ -220,7 +220,7 @@ public class SlideHelper {
         if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (slidingPaneLayout = this.mSlideLayout) == null) {
             return;
         }
-        slidingPaneLayout.isShowShadow(z);
+        slidingPaneLayout.A(z);
     }
 
     public View wrapSlideView(Context context, View view, SlideInterceptor slideInterceptor) {
@@ -242,7 +242,7 @@ public class SlideHelper {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             CustomSlidingPanelLayout customSlidingPanelLayout = new CustomSlidingPanelLayout(context);
             this.mSlideLayout = customSlidingPanelLayout;
-            customSlidingPanelLayout.setShadowDrawable(j.e(context, "sliding_layout_shadow.9.png"));
+            customSlidingPanelLayout.setShadowDrawable(k.e(context, "sliding_layout_shadow.9.png"));
             this.mSlideLayout.addView(this.mMaskView, layoutParams);
             this.mSlideLayout.addView(view, layoutParams);
             if (slideInterceptor != null) {
@@ -260,9 +260,9 @@ public class SlideHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

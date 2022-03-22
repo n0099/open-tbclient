@@ -27,9 +27,9 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -69,13 +69,13 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
         if (response == null || response.body() == null) {
             if (response != null) {
                 ResponseCallback responseCallback = this.mCallback;
-                int i2 = response.isSuccessful() ? -1 : 4;
+                int i = response.isSuccessful() ? -1 : 4;
                 if (response.isSuccessful()) {
                     exc = new Exception("http error code=" + response.code());
                 } else {
                     exc = new Exception("response body is null");
                 }
-                responseCallback.onFail(i2, exc);
+                responseCallback.onFail(i, exc);
                 return;
             }
             this.mCallback.onFail(-1, new Exception(ADConfigError.REASON_NULL_RESPONSE));
@@ -96,16 +96,16 @@ public class OkHttpDownloader extends OkHttpRequest implements Downloader {
                         fileOutputStream = new FileOutputStream(new File(((DownloadEntity) getHttpRequestEntity()).getLocalPath()));
                         try {
                             byte[] bArr = new byte[1024];
-                            int i3 = 0;
+                            int i2 = 0;
                             while (true) {
                                 int read = byteStream.read(bArr);
                                 if (read == -1) {
                                     break;
                                 }
                                 fileOutputStream.write(bArr, 0, read);
-                                i3 += read;
+                                i2 += read;
                                 if (downloadCallback != null) {
-                                    downloadCallback.onFileUpdateProgress(i3, contentLength);
+                                    downloadCallback.onFileUpdateProgress(i2, contentLength);
                                 }
                             }
                             fileOutputStream.flush();

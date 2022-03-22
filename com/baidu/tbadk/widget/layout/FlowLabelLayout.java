@@ -17,12 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FlowLabelLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f39985e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f39986f;
+    /* renamed from: b  reason: collision with root package name */
+    public int f30812b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FlowLabelLayout(Context context) {
@@ -33,51 +31,51 @@ public class FlowLabelLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f30812b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     public int getHorizontalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f39986f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30812b : invokeV.intValue;
     }
 
     public int getVerticalSpacing() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f39985e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            int i6 = i4 - i2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            int i5 = i3 - i;
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
             int paddingRight = getPaddingRight();
             int childCount = getChildCount();
-            int i7 = paddingLeft;
-            for (int i8 = 0; i8 < childCount; i8++) {
-                View childAt = getChildAt(i8);
+            int i6 = paddingLeft;
+            for (int i7 = 0; i7 < childCount; i7++) {
+                View childAt = getChildAt(i7);
                 if (childAt.getVisibility() != 8) {
-                    if (childAt.getMeasuredWidth() + i7 + paddingRight > i6) {
-                        paddingTop += childAt.getMeasuredHeight() + this.f39985e;
-                        i7 = paddingLeft;
+                    if (childAt.getMeasuredWidth() + i6 + paddingRight > i5) {
+                        paddingTop += childAt.getMeasuredHeight() + this.a;
+                        i6 = paddingLeft;
                     }
                     if (childAt.getVisibility() != 8) {
-                        childAt.layout(i7, paddingTop, childAt.getMeasuredWidth() + i7, childAt.getMeasuredHeight() + paddingTop);
-                        i7 += childAt.getMeasuredWidth() + this.f39986f;
+                        childAt.layout(i6, paddingTop, childAt.getMeasuredWidth() + i6, childAt.getMeasuredHeight() + paddingTop);
+                        i6 += childAt.getMeasuredWidth() + this.f30812b;
                     }
                 }
             }
@@ -85,42 +83,42 @@ public class FlowLabelLayout extends ViewGroup {
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            measureChildren(i2, i3);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            measureChildren(i, i2);
+            int size = View.MeasureSpec.getSize(i);
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
             int paddingRight = getPaddingRight();
             int paddingBottom = getPaddingBottom();
             int childCount = getChildCount();
-            int i4 = paddingLeft;
-            int i5 = paddingTop;
-            for (int i6 = 0; i6 < childCount; i6++) {
-                View childAt = getChildAt(i6);
-                i5 = Math.max(childAt.getMeasuredHeight() + paddingTop, i5);
-                if (childAt.getMeasuredWidth() + i4 + paddingRight > size) {
-                    i5 += childAt.getMeasuredHeight() + this.f39985e;
-                    i4 = paddingLeft;
+            int i3 = paddingLeft;
+            int i4 = paddingTop;
+            for (int i5 = 0; i5 < childCount; i5++) {
+                View childAt = getChildAt(i5);
+                i4 = Math.max(childAt.getMeasuredHeight() + paddingTop, i4);
+                if (childAt.getMeasuredWidth() + i3 + paddingRight > size) {
+                    i4 += childAt.getMeasuredHeight() + this.a;
+                    i3 = paddingLeft;
                 }
-                i4 += childAt.getMeasuredWidth() + this.f39986f;
+                i3 += childAt.getMeasuredWidth() + this.f30812b;
             }
-            setMeasuredDimension(size, i5 + paddingBottom);
+            setMeasuredDimension(size, i4 + paddingBottom);
         }
     }
 
-    public void setHorizontalSpacing(int i2) {
+    public void setHorizontalSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f39986f = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f30812b = i;
         }
     }
 
-    public void setVerticalSpacing(int i2) {
+    public void setVerticalSpacing(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f39985e = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -133,9 +131,9 @@ public class FlowLabelLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -143,22 +141,22 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f30812b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FlowLabelLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FlowLabelLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -166,7 +164,7 @@ public class FlowLabelLayout extends ViewGroup {
                 return;
             }
         }
-        this.f39985e = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
-        this.f39986f = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
+        this.a = n.f(TbadkCoreApplication.getInst(), R.dimen.M_W_X008);
+        this.f30812b = n.f(TbadkCoreApplication.getInst(), R.dimen.M_H_X002);
     }
 }

@@ -1,5 +1,6 @@
 package com.vivo.identifier;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class IdentifierIdLog {
     public static /* synthetic */ Interceptable $ic;
     public static volatile boolean mDebug;
@@ -34,9 +35,9 @@ public class IdentifierIdLog {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -45,22 +46,22 @@ public class IdentifierIdLog {
 
     public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            boolean z = mDebug;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && mDebug) {
+            Log.d(str, str2);
         }
     }
 
     public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            boolean z = mDebug;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && mDebug) {
+            Log.e(str, str2);
         }
     }
 
     public static void i(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            boolean z = mDebug;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && mDebug) {
+            Log.i(str, str2);
         }
     }
 
@@ -76,8 +77,8 @@ public class IdentifierIdLog {
 
     public static void w(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            boolean z = mDebug;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && mDebug) {
+            Log.w(str, str2);
         }
     }
 }

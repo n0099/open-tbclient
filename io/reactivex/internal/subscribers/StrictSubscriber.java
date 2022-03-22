@@ -34,9 +34,9 @@ public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscr
             newInitContext.initArgs = r2;
             Object[] objArr = {subscriber};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -100,15 +100,15 @@ public class StrictSubscriber<T> extends AtomicInteger implements FlowableSubscr
     }
 
     @Override // org.reactivestreams.Subscription
-    public void request(long j2) {
+    public void request(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            if (j2 <= 0) {
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            if (j <= 0) {
                 cancel();
-                onError(new IllegalArgumentException("§3.9 violated: positive request amount required but it was " + j2));
+                onError(new IllegalArgumentException("§3.9 violated: positive request amount required but it was " + j));
                 return;
             }
-            SubscriptionHelper.deferredRequest(this.s, this.requested, j2);
+            SubscriptionHelper.deferredRequest(this.s, this.requested, j);
         }
     }
 }

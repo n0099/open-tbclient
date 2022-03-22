@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttSubtitle implements Subtitle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +31,9 @@ public final class WebvttSubtitle implements Subtitle {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,12 +43,12 @@ public final class WebvttSubtitle implements Subtitle {
         int size = list.size();
         this.numCues = size;
         this.cueTimesUs = new long[size * 2];
-        for (int i4 = 0; i4 < this.numCues; i4++) {
-            WebvttCue webvttCue = list.get(i4);
-            int i5 = i4 * 2;
+        for (int i3 = 0; i3 < this.numCues; i3++) {
+            WebvttCue webvttCue = list.get(i3);
+            int i4 = i3 * 2;
             long[] jArr = this.cueTimesUs;
-            jArr[i5] = webvttCue.startTime;
-            jArr[i5 + 1] = webvttCue.endTime;
+            jArr[i4] = webvttCue.startTime;
+            jArr[i4 + 1] = webvttCue.endTime;
         }
         long[] jArr2 = this.cueTimesUs;
         long[] copyOf = Arrays.copyOf(jArr2, jArr2.length);
@@ -58,30 +57,30 @@ public final class WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public List<Cue> getCues(long j2) {
+    public List<Cue> getCues(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
             SpannableStringBuilder spannableStringBuilder = null;
             WebvttCue webvttCue = null;
             ArrayList arrayList = null;
-            for (int i2 = 0; i2 < this.numCues; i2++) {
+            for (int i = 0; i < this.numCues; i++) {
                 long[] jArr = this.cueTimesUs;
-                int i3 = i2 * 2;
-                if (jArr[i3] <= j2 && j2 < jArr[i3 + 1]) {
+                int i2 = i * 2;
+                if (jArr[i2] <= j && j < jArr[i2 + 1]) {
                     if (arrayList == null) {
                         arrayList = new ArrayList();
                     }
-                    WebvttCue webvttCue2 = this.cues.get(i2);
+                    WebvttCue webvttCue2 = this.cues.get(i);
                     if (!webvttCue2.isNormalCue()) {
                         arrayList.add(webvttCue2);
                     } else if (webvttCue == null) {
                         webvttCue = webvttCue2;
                     } else if (spannableStringBuilder == null) {
                         spannableStringBuilder = new SpannableStringBuilder();
-                        spannableStringBuilder.append(webvttCue.text).append((CharSequence) StringUtils.LF).append(webvttCue2.text);
+                        spannableStringBuilder.append(webvttCue.text).append((CharSequence) "\n").append(webvttCue2.text);
                     } else {
-                        spannableStringBuilder.append((CharSequence) StringUtils.LF).append(webvttCue2.text);
+                        spannableStringBuilder.append((CharSequence) "\n").append(webvttCue2.text);
                     }
                 }
             }
@@ -96,13 +95,13 @@ public final class WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public long getEventTime(int i2) {
+    public long getEventTime(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            Assertions.checkArgument(i2 >= 0);
-            Assertions.checkArgument(i2 < this.sortedCueTimesUs.length);
-            return this.sortedCueTimesUs[i2];
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Assertions.checkArgument(i >= 0);
+            Assertions.checkArgument(i < this.sortedCueTimesUs.length);
+            return this.sortedCueTimesUs[i];
         }
         return invokeI.longValue;
     }
@@ -115,11 +114,11 @@ public final class WebvttSubtitle implements Subtitle {
     }
 
     @Override // com.google.android.exoplayer2.text.Subtitle
-    public int getNextEventTimeIndex(long j2) {
+    public int getNextEventTimeIndex(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j2)) == null) {
-            int binarySearchCeil = Util.binarySearchCeil(this.sortedCueTimesUs, j2, false, false);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            int binarySearchCeil = Util.binarySearchCeil(this.sortedCueTimesUs, j, false, false);
             if (binarySearchCeil < this.sortedCueTimesUs.length) {
                 return binarySearchCeil;
             }

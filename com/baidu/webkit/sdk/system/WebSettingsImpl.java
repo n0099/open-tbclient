@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,9 +30,9 @@ public final class WebSettingsImpl extends WebSettings {
             newInitContext.initArgs = r2;
             Object[] objArr = {webSettings};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -454,8 +455,8 @@ public final class WebSettingsImpl extends WebSettings {
             setDatabaseEnabled(true);
             setDomStorageEnabled(true);
             setAppCacheEnabled(true);
-            String path = context.getDir("databases", 0).getPath();
-            setGeolocationDatabasePath(context.getDir("geolocation", 0).getPath());
+            String path = context.getDir(NgWebView.APP_DATABASE_PATH, 0).getPath();
+            setGeolocationDatabasePath(context.getDir(NgWebView.APP_GEO_PATH, 0).getPath());
             setDatabasePath(path);
             setAppCachePath(context.getDir("appcache_sys", 0).getPath());
             setSupportMultipleWindows(true);
@@ -540,10 +541,10 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setAppCacheMaxSize(long j2) {
+    public final void setAppCacheMaxSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
-            this.mSettings.setAppCacheMaxSize(j2);
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
+            this.mSettings.setAppCacheMaxSize(j);
         }
     }
 
@@ -580,10 +581,10 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setCacheMode(int i2) {
+    public final void setCacheMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048634, this, i2) == null) {
-            this.mSettings.setCacheMode(i2);
+        if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
+            this.mSettings.setCacheMode(i);
         }
     }
 
@@ -612,18 +613,18 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setDefaultFixedFontSize(int i2) {
+    public final void setDefaultFixedFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            this.mSettings.setDefaultFixedFontSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            this.mSettings.setDefaultFixedFontSize(i);
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setDefaultFontSize(int i2) {
+    public final void setDefaultFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.mSettings.setDefaultFontSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.mSettings.setDefaultFontSize(i);
         }
     }
 
@@ -645,12 +646,12 @@ public final class WebSettingsImpl extends WebSettings {
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(24)
-    public final void setDisabledActionModeMenuItems(int i2) {
+    public final void setDisabledActionModeMenuItems(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048642, this, i2) == null) || Build.VERSION.SDK_INT < 24) {
+        if (!(interceptable == null || interceptable.invokeI(1048642, this, i) == null) || Build.VERSION.SDK_INT < 24) {
             return;
         }
-        this.mSettings.setDisabledActionModeMenuItems(i2);
+        this.mSettings.setDisabledActionModeMenuItems(i);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
@@ -802,29 +803,29 @@ public final class WebSettingsImpl extends WebSettings {
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setMinimumFontSize(int i2) {
+    public final void setMinimumFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048661, this, i2) == null) {
-            this.mSettings.setMinimumFontSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048661, this, i) == null) {
+            this.mSettings.setMinimumFontSize(i);
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
-    public final void setMinimumLogicalFontSize(int i2) {
+    public final void setMinimumLogicalFontSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048662, this, i2) == null) {
-            this.mSettings.setMinimumLogicalFontSize(i2);
+        if (interceptable == null || interceptable.invokeI(1048662, this, i) == null) {
+            this.mSettings.setMinimumLogicalFontSize(i);
         }
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(21)
-    public final void setMixedContentMode(int i2) {
+    public final void setMixedContentMode(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048663, this, i2) == null) || Build.VERSION.SDK_INT < 21) {
+        if (!(interceptable == null || interceptable.invokeI(1048663, this, i) == null) || Build.VERSION.SDK_INT < 21) {
             return;
         }
-        this.mSettings.setMixedContentMode(i2);
+        this.mSettings.setMixedContentMode(i);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings
@@ -919,12 +920,12 @@ public final class WebSettingsImpl extends WebSettings {
 
     @Override // com.baidu.webkit.sdk.WebSettings
     @TargetApi(14)
-    public final void setTextZoom(int i2) {
+    public final void setTextZoom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048675, this, i2) == null) || Build.VERSION.SDK_INT < 14) {
+        if (!(interceptable == null || interceptable.invokeI(1048675, this, i) == null) || Build.VERSION.SDK_INT < 14) {
             return;
         }
-        this.mSettings.setTextZoom(i2);
+        this.mSettings.setTextZoom(i);
     }
 
     @Override // com.baidu.webkit.sdk.WebSettings

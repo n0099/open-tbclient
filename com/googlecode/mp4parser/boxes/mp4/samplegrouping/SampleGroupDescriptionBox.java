@@ -12,13 +12,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
+import com.google.android.exoplayer2.extractor.ts.H262Reader;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.googlecode.mp4parser.AbstractFullBox;
 import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import com.googlecode.mp4parser.util.CastUtils;
 import java.nio.ByteBuffer;
 import java.util.LinkedList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.internal.Conversions;
 import org.aspectj.runtime.reflect.Factory;
@@ -64,9 +65,9 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -82,10 +83,10 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         ajc$tjp_1 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setGroupingType", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.String", "groupingType", "", "void"), 139);
         ajc$tjp_2 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 143);
         ajc$tjp_3 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setDefaultLength", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "int", "defaultLength", "", "void"), 147);
-        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.util.List"), 151);
+        ajc$tjp_4 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "getGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.util.List"), Cea708Decoder.COMMAND_SWA);
         ajc$tjp_5 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "setGroupEntries", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.util.List", "groupEntries", "", "void"), 155);
         ajc$tjp_6 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "equals", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "java.lang.Object", "o", "", "boolean"), 160);
-        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", TTDownloadField.TT_HASHCODE, "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), 184);
+        ajc$tjp_7 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", TTDownloadField.TT_HASHCODE, "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "int"), H262Reader.START_GROUP);
         ajc$tjp_8 = factory.makeSJP(JoinPoint.METHOD_EXECUTION, factory.makeMethodSig("1", "toString", "com.googlecode.mp4parser.boxes.mp4.samplegrouping.SampleGroupDescriptionBox", "", "", "", "java.lang.String"), 192);
     }
 
@@ -127,22 +128,22 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
             }
             long readUInt32 = IsoTypeReader.readUInt32(byteBuffer);
             while (true) {
-                long j2 = readUInt32 - 1;
+                long j = readUInt32 - 1;
                 if (readUInt32 <= 0) {
                     return;
                 }
-                int i2 = this.defaultLength;
+                int i = this.defaultLength;
                 if (getVersion() == 1) {
                     if (this.defaultLength == 0) {
-                        i2 = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
-                        this.descriptionLength = i2;
+                        i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
+                        this.descriptionLength = i;
                     }
-                    int position = byteBuffer.position() + i2;
+                    int position = byteBuffer.position() + i;
                     ByteBuffer slice = byteBuffer.slice();
-                    slice.limit(i2);
+                    slice.limit(i);
                     this.groupEntries.add(parseGroupEntry(slice, this.groupingType));
                     byteBuffer.position(position);
-                    readUInt32 = j2;
+                    readUInt32 = j;
                 } else {
                     throw new RuntimeException("This should be implemented");
                 }
@@ -202,14 +203,14 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j2 = (getVersion() == 1 ? 12L : 8L) + 4;
+            long j = (getVersion() == 1 ? 12L : 8L) + 4;
             for (GroupEntry groupEntry : this.groupEntries) {
                 if (getVersion() == 1 && this.defaultLength == 0) {
-                    j2 += 4;
+                    j += 4;
                 }
-                j2 += groupEntry.size();
+                j += groupEntry.size();
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -257,11 +258,11 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         return invokeV.intValue;
     }
 
-    public void setDefaultLength(int i2) {
+    public void setDefaultLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i2)));
-            this.defaultLength = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_3, this, this, Conversions.intObject(i)));
+            this.defaultLength = i;
         }
     }
 
@@ -286,7 +287,7 @@ public class SampleGroupDescriptionBox extends AbstractFullBox {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             RequiresParseDetailAspect.aspectOf().before(Factory.makeJP(ajc$tjp_8, this, this));
-            return "SampleGroupDescriptionBox{groupingType='" + this.groupingType + ExtendedMessageFormat.QUOTE + ", defaultLength=" + this.defaultLength + ", groupEntries=" + this.groupEntries + ExtendedMessageFormat.END_FE;
+            return "SampleGroupDescriptionBox{groupingType='" + this.groupingType + "', defaultLength=" + this.defaultLength + ", groupEntries=" + this.groupEntries + '}';
         }
         return (String) invokeV.objValue;
     }

@@ -17,7 +17,7 @@ import com.yy.hiidostatis.inner.util.Util;
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class OnLineConfigController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String PREF_KEY_ONLINE_CONFIG_DATA = "PREF_KEY_ONLINE_CONFIG_DATA";
@@ -50,9 +50,9 @@ public class OnLineConfigController {
             newInitContext.initArgs = r2;
             Object[] objArr = {iConfigAPI};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -126,9 +126,9 @@ public class OnLineConfigController {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

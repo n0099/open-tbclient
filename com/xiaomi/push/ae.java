@@ -5,13 +5,13 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ae {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "10.237.14.141";
 
     /* renamed from: a  reason: collision with other field name */
-    public static boolean f110a;
+    public static boolean f86a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {

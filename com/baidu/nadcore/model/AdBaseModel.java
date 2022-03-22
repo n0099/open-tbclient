@@ -4,19 +4,18 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import c.a.b0.s.b;
-import c.a.b0.s.c;
-import c.a.b0.s.e;
-import c.a.b0.s.g;
-import c.a.b0.s.i;
-import c.a.b0.s.k;
-import c.a.b0.s.p;
-import c.a.b0.s.s;
-import c.a.b0.s.t;
-import c.a.b0.x.a;
+import c.a.a0.f.a;
+import c.a.a0.s.b;
+import c.a.a0.s.c;
+import c.a.a0.s.e;
+import c.a.a0.s.g;
+import c.a.a0.s.i;
+import c.a.a0.s.k;
+import c.a.a0.s.p;
+import c.a.a0.s.s;
+import c.a.a0.s.t;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -39,50 +38,45 @@ public class AdBaseModel {
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f35657b;
+    public boolean f27539b;
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final ParseError f35658c;
+    public final ParseError f27540c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final boolean f35659d;
+    public final boolean f27541d;
     @NonNull
 
     /* renamed from: e  reason: collision with root package name */
-    public final List<MonitorUrl> f35660e;
+    public final List<MonitorUrl> f27542e;
     @NonNull
 
     /* renamed from: f  reason: collision with root package name */
-    public final i f35661f;
+    public final i f27543f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public final b f35662g;
+    public final b f27544g;
     @Nullable
 
     /* renamed from: h  reason: collision with root package name */
-    public final AdOperator f35663h;
+    public final AdOperator f27545h;
     @Nullable
-
-    /* renamed from: i  reason: collision with root package name */
-    public final t f35664i;
+    public final t i;
     @Nullable
-
-    /* renamed from: j  reason: collision with root package name */
-    public final p f35665j;
+    public final p j;
     @Nullable
     public final List<k> k;
     @Nullable
     public final c l;
     @Nullable
     public g m;
-    @Nullable
-    public e n;
-    public int o;
+    public int n;
     @NonNull
-    public List<String> p;
-    public s q;
+    public List<String> o;
+    public s p;
+    public a q;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes4.dex */
@@ -129,16 +123,16 @@ public class AdBaseModel {
             $VALUES = new STYLE[]{BIG_IMAGE, SMALL_IMAGE, THREE_IMAGE, VIDEO, PORTRAIT_VIDEO, FLOAT, REWARD_VIDEO_LP, REWARD_VIDEO_LP_IMPL, MAX, style};
         }
 
-        public STYLE(String str, int i2, String str2) {
+        public STYLE(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -191,71 +185,71 @@ public class AdBaseModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {iVar, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f35660e = new ArrayList();
-        this.p = new ArrayList();
-        String str = iVar.f1921b;
+        this.f27542e = new ArrayList();
+        this.o = new ArrayList();
+        String str = iVar.f1547b;
         JSONObject optJSONObject = jSONObject.optJSONObject(GameGuideConfigInfo.KEY_CLOSE_INFO);
-        this.f35662g = optJSONObject == null ? null : b.a(optJSONObject);
-        this.f35661f = iVar;
-        this.f35665j = p.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+        this.f27544g = optJSONObject == null ? null : b.a(optJSONObject);
+        this.f27543f = iVar;
+        this.j = p.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
         this.k = k.a(jSONObject.optJSONArray("prefetch_video"));
         this.l = c.b(jSONObject.optJSONObject(TiebaMainDatabaseHelper.TABLE_NAME_DOWNLOAD_INFO));
         this.m = g.a(jSONObject.optJSONObject("enhance"));
-        this.n = e.a(jSONObject.optJSONObject(ThreadAchievementShareDialogView.THREAD_INTERACTION_VIEW_TYPE));
+        e.a(jSONObject.optJSONObject("interaction"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("operate");
         AdOperator a = optJSONObject2 == null ? null : AdOperator.a(optJSONObject2);
-        this.f35663h = a;
-        this.f35659d = a != null;
+        this.f27545h = a;
+        this.f27541d = a != null;
         JSONObject optJSONObject3 = jSONObject.optJSONObject("app_info");
         t c2 = optJSONObject3 == null ? null : t.c(optJSONObject3);
-        this.f35664i = (c2 == null || !c2.k) ? null : c2;
+        this.i = (c2 == null || !c2.k) ? null : c2;
         JSONArray optJSONArray = jSONObject.optJSONArray("ad_monitor_url");
         int length = optJSONArray == null ? 0 : optJSONArray.length();
-        for (int i4 = 0; i4 < length; i4++) {
-            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i4);
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject optJSONObject4 = optJSONArray.optJSONObject(i3);
             if (optJSONObject4 != null) {
                 String optString = optJSONObject4.optString("show_url");
                 String optString2 = optJSONObject4.optString("click_url");
                 if (!TextUtils.isEmpty(optString) || !TextUtils.isEmpty(optString2)) {
-                    a.b(this.f35660e, new MonitorUrl(optString, optString2));
+                    c.a.a0.x.a.b(this.f27542e, new MonitorUrl(optString, optString2));
                 }
             }
         }
         JSONArray optJSONArray2 = jSONObject.optJSONArray("tag_list");
         int length2 = optJSONArray2 == null ? 0 : optJSONArray2.length();
-        for (int i5 = 0; i5 < length2; i5++) {
-            JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i5);
+        for (int i4 = 0; i4 < length2; i4++) {
+            JSONObject optJSONObject5 = optJSONArray2.optJSONObject(i4);
             if (optJSONObject5 != null) {
                 String optString3 = optJSONObject5.optString("word");
                 if (!TextUtils.isEmpty(optString3)) {
-                    a.b(this.p, optString3);
+                    c.a.a0.x.a.b(this.o, optString3);
                 }
             }
         }
-        p pVar = this.f35665j;
+        p pVar = this.j;
         if (pVar != null) {
             pVar.b(this);
         }
-        this.f35658c = null;
+        this.f27540c = null;
     }
 
     public void a(@Nullable s sVar) {
         List<k> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sVar) == null) {
-            this.q = sVar;
-            if (sVar == null || sVar.f1949c) {
-                this.f35661f.b();
+            this.p = sVar;
+            if (sVar == null || sVar.f1571c) {
+                this.f27543f.b();
             }
-            if ((sVar == null || sVar.f1950d) && (list = this.k) != null && list.size() > 0) {
+            if ((sVar == null || sVar.f1572d) && (list = this.k) != null && list.size() > 0) {
                 for (k kVar : this.k) {
                     kVar.b();
                 }

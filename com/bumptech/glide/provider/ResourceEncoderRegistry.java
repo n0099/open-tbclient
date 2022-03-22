@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bumptech.glide.load.ResourceEncoder;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ResourceEncoderRegistry {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final List<Entry<?>> encoders;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Entry<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class ResourceEncoderRegistry {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cls, resourceEncoder};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,9 +55,9 @@ public class ResourceEncoderRegistry {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,8 +82,8 @@ public class ResourceEncoderRegistry {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
             synchronized (this) {
                 int size = this.encoders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    Entry<?> entry = this.encoders.get(i2);
+                for (int i = 0; i < size; i++) {
+                    Entry<?> entry = this.encoders.get(i);
                     if (entry.handles(cls)) {
                         return (ResourceEncoder<Z>) entry.encoder;
                     }

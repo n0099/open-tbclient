@@ -10,9 +10,7 @@ import android.text.style.UnderlineSpan;
 import androidx.core.internal.view.SupportMenu;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.lbspay.channelpay.IChannelPay;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
-import com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment;
 import com.baidu.tieba.write.write.WriteActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -21,7 +19,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
 import com.google.android.exoplayer2.extractor.ts.PsExtractor;
 import com.google.android.exoplayer2.text.Cue;
@@ -36,7 +33,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Cea608Decoder extends CeaDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] BASIC_CHARACTER_SET;
@@ -83,7 +80,7 @@ public final class Cea608Decoder extends CeaDecoder {
     public boolean repeatableControlSet;
     public final int selectedField;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class CueBuilder {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int BASE_ROW = 15;
@@ -101,7 +98,7 @@ public final class Cea608Decoder extends CeaDecoder {
         public int tabOffset;
         public int underlineStartPosition;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes6.dex */
         public static class CueStyle {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -109,37 +106,37 @@ public final class Cea608Decoder extends CeaDecoder {
             public final int start;
             public final CharacterStyle style;
 
-            public CueStyle(CharacterStyle characterStyle, int i2, int i3) {
+            public CueStyle(CharacterStyle characterStyle, int i, int i2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {characterStyle, Integer.valueOf(i2), Integer.valueOf(i3)};
+                    Object[] objArr = {characterStyle, Integer.valueOf(i), Integer.valueOf(i2)};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i4 = newInitContext.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.style = characterStyle;
-                this.start = i2;
-                this.nextStyleIncrement = i3;
+                this.start = i;
+                this.nextStyleIncrement = i2;
             }
         }
 
-        public CueBuilder(int i2, int i3) {
+        public CueBuilder(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,7 +146,7 @@ public final class Cea608Decoder extends CeaDecoder {
             this.midrowStyles = new ArrayList();
             this.rolledUpCaptions = new LinkedList();
             this.captionStringBuilder = new SpannableStringBuilder();
-            reset(i2, i3);
+            reset(i, i2);
         }
 
         public void append(char c2) {
@@ -172,39 +169,39 @@ public final class Cea608Decoder extends CeaDecoder {
             InterceptResult invokeV;
             int length;
             float f2;
+            int i;
             int i2;
             int i3;
-            int i4;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                for (int i5 = 0; i5 < this.rolledUpCaptions.size(); i5++) {
-                    spannableStringBuilder.append((CharSequence) this.rolledUpCaptions.get(i5));
+                for (int i4 = 0; i4 < this.rolledUpCaptions.size(); i4++) {
+                    spannableStringBuilder.append((CharSequence) this.rolledUpCaptions.get(i4));
                     spannableStringBuilder.append('\n');
                 }
                 spannableStringBuilder.append((CharSequence) buildSpannableString());
                 if (spannableStringBuilder.length() == 0) {
                     return null;
                 }
-                int i6 = this.indent + this.tabOffset;
-                int length2 = i6 - ((32 - i6) - spannableStringBuilder.length());
+                int i5 = this.indent + this.tabOffset;
+                int length2 = i5 - ((32 - i5) - spannableStringBuilder.length());
                 if (this.captionMode == 2 && Math.abs(length2) < 3) {
                     f2 = 0.5f;
-                    i2 = 1;
+                    i = 1;
                 } else if (this.captionMode != 2 || length2 <= 0) {
-                    f2 = ((i6 / 32.0f) * 0.8f) + 0.1f;
-                    i2 = 0;
+                    f2 = ((i5 / 32.0f) * 0.8f) + 0.1f;
+                    i = 0;
                 } else {
                     f2 = (((32 - length) / 32.0f) * 0.8f) + 0.1f;
-                    i2 = 2;
+                    i = 2;
                 }
-                if (this.captionMode == 1 || (i3 = this.row) > 7) {
-                    i3 = (this.row - 15) - 2;
-                    i4 = 2;
+                if (this.captionMode == 1 || (i2 = this.row) > 7) {
+                    i2 = (this.row - 15) - 2;
+                    i3 = 2;
                 } else {
-                    i4 = 0;
+                    i3 = 0;
                 }
-                return new Cue(spannableStringBuilder, Layout.Alignment.ALIGN_NORMAL, i3, 1, i4, f2, i2, Float.MIN_VALUE);
+                return new Cue(spannableStringBuilder, Layout.Alignment.ALIGN_NORMAL, i2, 1, i3, f2, i, Float.MIN_VALUE);
             }
             return (Cue) invokeV.objValue;
         }
@@ -214,16 +211,16 @@ public final class Cea608Decoder extends CeaDecoder {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 int length = this.captionStringBuilder.length();
-                int i2 = 0;
-                for (int i3 = 0; i3 < this.preambleStyles.size(); i3++) {
-                    this.captionStringBuilder.setSpan(this.preambleStyles.get(i3), 0, length, 33);
+                int i = 0;
+                for (int i2 = 0; i2 < this.preambleStyles.size(); i2++) {
+                    this.captionStringBuilder.setSpan(this.preambleStyles.get(i2), 0, length, 33);
                 }
-                while (i2 < this.midrowStyles.size()) {
-                    CueStyle cueStyle = this.midrowStyles.get(i2);
+                while (i < this.midrowStyles.size()) {
+                    CueStyle cueStyle = this.midrowStyles.get(i);
                     int size = this.midrowStyles.size();
-                    int i4 = cueStyle.nextStyleIncrement;
-                    this.captionStringBuilder.setSpan(cueStyle.style, cueStyle.start, i2 < size - i4 ? this.midrowStyles.get(i4 + i2).start : length, 33);
-                    i2++;
+                    int i3 = cueStyle.nextStyleIncrement;
+                    this.captionStringBuilder.setSpan(cueStyle.style, cueStyle.start, i < size - i3 ? this.midrowStyles.get(i3 + i).start : length, 33);
+                    i++;
                 }
                 if (this.underlineStartPosition != -1) {
                     this.captionStringBuilder.setSpan(new UnderlineSpan(), this.underlineStartPosition, length, 33);
@@ -245,9 +242,9 @@ public final class Cea608Decoder extends CeaDecoder {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.preambleStyles.isEmpty() && this.midrowStyles.isEmpty() && this.rolledUpCaptions.isEmpty() && this.captionStringBuilder.length() == 0 : invokeV.booleanValue;
         }
 
-        public void reset(int i2, int i3) {
+        public void reset(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048582, this, i2, i3) == null) {
+            if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
                 this.preambleStyles.clear();
                 this.midrowStyles.clear();
                 this.rolledUpCaptions.clear();
@@ -255,8 +252,8 @@ public final class Cea608Decoder extends CeaDecoder {
                 this.row = 15;
                 this.indent = 0;
                 this.tabOffset = 0;
-                this.captionMode = i2;
-                this.captionRowCount = i3;
+                this.captionMode = i;
+                this.captionRowCount = i2;
                 this.underlineStartPosition = -1;
             }
         }
@@ -276,17 +273,17 @@ public final class Cea608Decoder extends CeaDecoder {
             }
         }
 
-        public void setIndent(int i2) {
+        public void setIndent(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.indent = i2;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.indent = i;
             }
         }
 
-        public void setMidrowStyle(CharacterStyle characterStyle, int i2) {
+        public void setMidrowStyle(CharacterStyle characterStyle, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048585, this, characterStyle, i2) == null) {
-                this.midrowStyles.add(new CueStyle(characterStyle, this.captionStringBuilder.length(), i2));
+            if (interceptable == null || interceptable.invokeLI(1048585, this, characterStyle, i) == null) {
+                this.midrowStyles.add(new CueStyle(characterStyle, this.captionStringBuilder.length(), i));
             }
         }
 
@@ -297,17 +294,17 @@ public final class Cea608Decoder extends CeaDecoder {
             }
         }
 
-        public void setRow(int i2) {
+        public void setRow(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-                this.row = i2;
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+                this.row = i;
             }
         }
 
-        public void setTab(int i2) {
+        public void setTab(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-                this.tabOffset = i2;
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                this.tabOffset = i;
             }
         }
 
@@ -346,22 +343,22 @@ public final class Cea608Decoder extends CeaDecoder {
         ROW_INDICES = new int[]{11, 1, 3, 12, 14, 5, 7, 9};
         COLUMN_INDICES = new int[]{0, 4, 8, 12, 16, 20, 24, 28};
         COLORS = new int[]{-1, -16711936, -16776961, -16711681, SupportMenu.CATEGORY_MASK, -256, -65281};
-        BASIC_CHARACTER_SET = new int[]{32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 225, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, WriteActivity.CONTENT_MAX_COUNT, 93, 237, LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK, 250, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 231, GDiffPatcher.DATA_USHORT, 209, 241, 9632};
-        SPECIAL_CHARACTER_SET = new int[]{MatroskaExtractor.ID_TRACK_ENTRY, 176, PsExtractor.PRIVATE_STREAM_1, w0.M, 8482, 162, 163, 9834, 224, 32, w0.c1, Constants.METHOD_MEDIA_NOTIFY, 234, 238, 244, 251};
-        SPECIAL_ES_FR_CHARACTER_SET = new int[]{193, 201, w0.A, 218, 220, 252, 8216, 161, 42, 39, 8212, 169, 8480, 8226, 8220, 8221, 192, 194, 199, 200, 202, 203, w0.k0, 206, 207, 239, w0.f53859h, 217, 249, 219, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, 187};
-        SPECIAL_PT_DE_CHARACTER_SET = new int[]{195, w0.z, 205, 204, 236, 210, 242, 213, 245, 123, 125, 92, 94, 95, 124, 126, 196, 228, w0.c0, 246, 223, 165, IChannelPay.ID_IPAY_PAY_GAME, 9474, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 229, 216, 248, ChatAggregationFragment.EVENT_TO_PB, ChatAggregationFragment.EVENT_ITEM_DISPLAY, 9492, 9496};
+        BASIC_CHARACTER_SET = new int[]{32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 225, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, WriteActivity.CONTENT_MAX_COUNT, 93, 237, 243, 250, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 231, GDiffPatcher.DATA_USHORT, 209, 241, 9632};
+        SPECIAL_CHARACTER_SET = new int[]{MatroskaExtractor.ID_TRACK_ENTRY, MatroskaExtractor.ID_PIXEL_WIDTH, PsExtractor.PRIVATE_STREAM_1, w0.M, 8482, 162, MatroskaExtractor.ID_SIMPLE_BLOCK, 9834, 224, 32, w0.c1, Constants.METHOD_MEDIA_NOTIFY, 234, 238, GDiffPatcher.COPY_UBYTE_UBYTE, 251};
+        SPECIAL_ES_FR_CHARACTER_SET = new int[]{193, 201, w0.A, 218, 220, 252, 8216, 161, 42, 39, 8212, w0.w, 8480, 8226, 8220, 8221, 192, 194, w0.b1, 200, 202, 203, w0.k0, 206, 207, 239, w0.f39024h, 217, 249, 219, Constants.METHOD_IM_GET_USERS_PROFILE_BATCH_BY_BAIDU_UID, MatroskaExtractor.ID_CUE_POINT};
+        SPECIAL_PT_DE_CHARACTER_SET = new int[]{195, w0.z, 205, 204, 236, 210, w0.i0, 213, 245, 123, 125, 92, 94, 95, 124, 126, 196, 228, w0.c0, 246, 223, w0.n0, 164, 9474, Constants.METHOD_IM_DELIVER_CONFIG_MSG, 229, 216, 248, 9484, 9488, 9492, 9496};
     }
 
-    public Cea608Decoder(String str, int i2) {
+    public Cea608Decoder(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -371,7 +368,7 @@ public final class Cea608Decoder extends CeaDecoder {
         this.cueBuilders = new LinkedList<>();
         this.currentCueBuilder = new CueBuilder(0, 4);
         this.packetLength = MimeTypes.APPLICATION_MP4CEA608.equals(str) ? 2 : 3;
-        if (i2 != 3 && i2 != 4) {
+        if (i != 3 && i != 4) {
             this.selectedField = 1;
         } else {
             this.selectedField = 2;
@@ -391,8 +388,8 @@ public final class Cea608Decoder extends CeaDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < this.cueBuilders.size(); i2++) {
-                Cue build = this.cueBuilders.get(i2).build();
+            for (int i = 0; i < this.cueBuilders.size(); i++) {
+                Cue build = this.cueBuilders.get(i).build();
                 if (build != null) {
                     arrayList.add(build);
                 }
@@ -452,13 +449,13 @@ public final class Cea608Decoder extends CeaDecoder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeB(65544, this, b2) == null) {
             this.currentCueBuilder.setUnderline((b2 & 1) == 1);
-            int i2 = (b2 >> 1) & 15;
-            if (i2 == 7) {
+            int i = (b2 >> 1) & 15;
+            if (i == 7) {
                 this.currentCueBuilder.setMidrowStyle(new StyleSpan(2), 2);
                 this.currentCueBuilder.setMidrowStyle(new ForegroundColorSpan(-1), 1);
                 return;
             }
-            this.currentCueBuilder.setMidrowStyle(new ForegroundColorSpan(COLORS[i2]), 1);
+            this.currentCueBuilder.setMidrowStyle(new ForegroundColorSpan(COLORS[i]), 1);
         }
     }
 
@@ -482,21 +479,21 @@ public final class Cea608Decoder extends CeaDecoder {
                         setCaptionMode(1);
                         return;
                     default:
-                        int i2 = this.captionMode;
-                        if (i2 == 0) {
+                        int i = this.captionMode;
+                        if (i == 0) {
                             return;
                         }
                         if (b2 != 33) {
                             switch (b2) {
                                 case 44:
                                     this.cues = null;
-                                    if (i2 == 1 || i2 == 3) {
+                                    if (i == 1 || i == 3) {
                                         resetCueBuilders();
                                         return;
                                     }
                                     return;
                                 case 45:
-                                    if (i2 != 1 || this.currentCueBuilder.isEmpty()) {
+                                    if (i != 1 || this.currentCueBuilder.isEmpty()) {
                                         return;
                                     }
                                     this.currentCueBuilder.rollUp();
@@ -524,29 +521,29 @@ public final class Cea608Decoder extends CeaDecoder {
     private void handlePreambleAddressCode(byte b2, byte b3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65546, this, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)}) == null) {
-            int i2 = ROW_INDICES[b2 & 7];
+            int i = ROW_INDICES[b2 & 7];
             if ((b3 & 32) != 0) {
-                i2++;
+                i++;
             }
-            if (i2 != this.currentCueBuilder.getRow()) {
+            if (i != this.currentCueBuilder.getRow()) {
                 if (this.captionMode != 1 && !this.currentCueBuilder.isEmpty()) {
                     CueBuilder cueBuilder = new CueBuilder(this.captionMode, this.captionRowCount);
                     this.currentCueBuilder = cueBuilder;
                     this.cueBuilders.add(cueBuilder);
                 }
-                this.currentCueBuilder.setRow(i2);
+                this.currentCueBuilder.setRow(i);
             }
             if ((b3 & 1) == 1) {
                 this.currentCueBuilder.setPreambleStyle(new UnderlineSpan());
             }
-            int i3 = (b3 >> 1) & 15;
-            if (i3 > 7) {
-                this.currentCueBuilder.setIndent(COLUMN_INDICES[i3 & 7]);
-            } else if (i3 == 7) {
+            int i2 = (b3 >> 1) & 15;
+            if (i2 > 7) {
+                this.currentCueBuilder.setIndent(COLUMN_INDICES[i2 & 7]);
+            } else if (i2 == 7) {
                 this.currentCueBuilder.setPreambleStyle(new StyleSpan(2));
                 this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(-1));
             } else {
-                this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(COLORS[i3]));
+                this.currentCueBuilder.setPreambleStyle(new ForegroundColorSpan(COLORS[i2]));
             }
         }
     }
@@ -590,15 +587,15 @@ public final class Cea608Decoder extends CeaDecoder {
         }
     }
 
-    private void setCaptionMode(int i2) {
-        int i3;
+    private void setCaptionMode(int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65553, this, i2) == null) || (i3 = this.captionMode) == i2) {
+        if (!(interceptable == null || interceptable.invokeI(65553, this, i) == null) || (i2 = this.captionMode) == i) {
             return;
         }
-        this.captionMode = i2;
+        this.captionMode = i;
         resetCueBuilders();
-        if (i3 == 3 || i2 == 1 || i2 == 0) {
+        if (i2 == 3 || i == 1 || i == 0) {
             this.cues = null;
         }
     }
@@ -624,11 +621,11 @@ public final class Cea608Decoder extends CeaDecoder {
             boolean z2 = false;
             while (true) {
                 int bytesLeft = this.ccData.bytesLeft();
-                int i2 = this.packetLength;
-                if (bytesLeft < i2) {
+                int i = this.packetLength;
+                if (bytesLeft < i) {
                     break;
                 }
-                byte readUnsignedByte = i2 == 2 ? (byte) -4 : (byte) this.ccData.readUnsignedByte();
+                byte readUnsignedByte = i == 2 ? (byte) -4 : (byte) this.ccData.readUnsignedByte();
                 byte readUnsignedByte2 = (byte) (this.ccData.readUnsignedByte() & 127);
                 byte readUnsignedByte3 = (byte) (this.ccData.readUnsignedByte() & 127);
                 if ((readUnsignedByte & 6) == 4 && (this.selectedField != 1 || (readUnsignedByte & 1) == 0)) {
@@ -660,8 +657,8 @@ public final class Cea608Decoder extends CeaDecoder {
                 if (!z2) {
                     this.repeatableControlSet = false;
                 }
-                int i3 = this.captionMode;
-                if (i3 == 1 || i3 == 3) {
+                int i2 = this.captionMode;
+                if (i2 == 1 || i2 == 3) {
                     this.cues = getDisplayCues();
                 }
             }
@@ -721,7 +718,7 @@ public final class Cea608Decoder extends CeaDecoder {
     }
 
     @Override // com.google.android.exoplayer2.text.cea.CeaDecoder, com.google.android.exoplayer2.text.SubtitleDecoder
-    public /* bridge */ /* synthetic */ void setPositionUs(long j2) {
-        super.setPositionUs(j2);
+    public /* bridge */ /* synthetic */ void setPositionUs(long j) {
+        super.setPositionUs(j);
     }
 }

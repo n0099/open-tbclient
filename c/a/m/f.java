@@ -8,15 +8,16 @@ import android.os.Process;
 import android.provider.Settings;
 import android.system.Os;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.util.DeviceId;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -33,20 +34,20 @@ public class f {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f4136b;
+    public c f3724b;
 
     /* loaded from: classes.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static boolean a(String str, int i2) {
+        public static boolean a(String str, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i2)) == null) {
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
                 if (Build.VERSION.SDK_INT >= 21) {
                     try {
-                        Os.chmod(str, i2);
+                        Os.chmod(str, i);
                         return true;
                     } catch (Exception e2) {
                         c.a.m.m.c.c(e2);
@@ -66,16 +67,16 @@ public class f {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f4136b = cVar;
+        this.f3724b = cVar;
     }
 
     public static void d(String str, String str2) {
@@ -100,7 +101,7 @@ public class f {
             file2.mkdirs();
             FileWriter fileWriter = new FileWriter(file3, false);
             byte[] a2 = c.a.m.j.a.g.a();
-            fileWriter.write(c.a.m.k.a.a(c.a.m.j.a.c.d(a2, a2, (str + "=" + str2).getBytes()), "utf-8"));
+            fileWriter.write(c.a.m.k.a.a(c.a.m.j.a.c.d(a2, a2, (str + "=" + str2).getBytes()), IMAudioTransRequest.CHARSET));
             fileWriter.flush();
             fileWriter.close();
         } catch (IOException | Exception unused) {
@@ -144,17 +145,17 @@ public class f {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            List<b> h2 = this.f4136b.h(context);
+            List<b> h2 = this.f3724b.h(context);
             e eVar = null;
             if (h2 != null) {
-                String str = com.baidu.fsg.face.base.b.c.f32638g;
+                String str = "files";
                 File filesDir = context.getFilesDir();
-                if (!com.baidu.fsg.face.base.b.c.f32638g.equals(filesDir.getName())) {
-                    String str2 = "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath();
+                if (!"files".equals(filesDir.getName())) {
+                    Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                     str = filesDir.getName();
                 }
                 for (b bVar : h2) {
-                    if (!bVar.f4131d) {
+                    if (!bVar.f3719d) {
                         File file = new File(new File(bVar.a.dataDir, str), "libcuid.so");
                         if (file.exists() && (eVar = e.a(c.a.m.m.c.a(file))) != null) {
                             break;
@@ -183,14 +184,14 @@ public class f {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void c(e eVar) {
-        boolean j2;
+        boolean j;
         boolean e2;
         e k;
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar) == null) {
             File file = new File(this.a.getFilesDir(), "libcuid.so");
-            String j3 = eVar.j();
+            String j2 = eVar.j();
             if (file.exists()) {
                 e a2 = e.a(c.a.m.m.c.a(file));
                 if (a2 != null) {
@@ -198,8 +199,8 @@ public class f {
                         n(a2.j());
                     }
                 }
-                j2 = j();
-                if (j2) {
+                j = j();
+                if (j) {
                     String l = l("com.baidu.deviceid.v2");
                     if (!TextUtils.isEmpty(l)) {
                         e a3 = e.a(l);
@@ -209,7 +210,7 @@ public class f {
                             }
                         }
                     }
-                    h("com.baidu.deviceid.v2", j3);
+                    h("com.baidu.deviceid.v2", j2);
                 }
                 e2 = e("android.permission.WRITE_EXTERNAL_STORAGE");
                 if (e2) {
@@ -217,13 +218,13 @@ public class f {
                         e f2 = f();
                         if (f2 != null) {
                             if (f2.c()) {
-                                j3 = f2.j();
+                                j2 = f2.j();
                             }
                         }
                     }
-                    m(j3);
+                    m(j2);
                 }
-                if (j2) {
+                if (j) {
                     String l2 = l("bd_setting_i");
                     if (e.d(TextUtils.isEmpty(l2) ? 0 : l2.length())) {
                         str = "O";
@@ -235,17 +236,17 @@ public class f {
                 if (e2 || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (k = k(i(""))) == null || !k.c()) {
                     return;
                 }
-                d(k.f4133b, k.a);
+                d(k.f3721b, k.a);
                 return;
             }
-            n(j3);
-            j2 = j();
-            if (j2) {
+            n(j2);
+            j = j();
+            if (j) {
             }
             e2 = e("android.permission.WRITE_EXTERNAL_STORAGE");
             if (e2) {
             }
-            if (j2) {
+            if (j) {
             }
             if (e2) {
             }
@@ -279,7 +280,7 @@ public class f {
             if (b2 == null) {
                 b2 = e.a(l("com.baidu.deviceid.v2"));
             }
-            boolean e2 = e(s.f53810i);
+            boolean e2 = e("android.permission.READ_EXTERNAL_STORAGE");
             if (b2 == null && e2) {
                 b2 = f();
             }
@@ -388,14 +389,14 @@ public class f {
     public final boolean n(String str) {
         InterceptResult invokeL;
         String absolutePath;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            int i3 = (!DeviceId.sDataCuidInfoShable || Build.VERSION.SDK_INT >= 24) ? 0 : 1;
+            int i2 = (!DeviceId.sDataCuidInfoShable || Build.VERSION.SDK_INT >= 24) ? 0 : 1;
             FileOutputStream fileOutputStream = null;
             try {
                 try {
-                    fileOutputStream = this.a.openFileOutput("libcuid.so", i3);
+                    fileOutputStream = this.a.openFileOutput("libcuid.so", i2);
                     fileOutputStream.write(str.getBytes());
                     fileOutputStream.flush();
                     if (fileOutputStream != null) {
@@ -406,14 +407,14 @@ public class f {
                         }
                     }
                     if (Build.VERSION.SDK_INT >= 21) {
-                        if (i3 == 0 && DeviceId.sDataCuidInfoShable) {
+                        if (i2 == 0 && DeviceId.sDataCuidInfoShable) {
                             absolutePath = new File(this.a.getFilesDir(), "libcuid.so").getAbsolutePath();
-                            i2 = 436;
+                            i = 436;
                         } else if (!DeviceId.sDataCuidInfoShable) {
                             absolutePath = new File(this.a.getFilesDir(), "libcuid.so").getAbsolutePath();
-                            i2 = 432;
+                            i = 432;
                         }
-                        return a.a(absolutePath, i2);
+                        return a.a(absolutePath, i);
                     }
                     return true;
                 } catch (Exception e3) {

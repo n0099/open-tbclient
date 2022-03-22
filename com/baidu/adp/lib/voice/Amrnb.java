@@ -28,9 +28,9 @@ public class Amrnb {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -67,9 +67,9 @@ public class Amrnb {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -96,17 +96,17 @@ public class Amrnb {
         return (Amrnb) invokeV.objValue;
     }
 
-    public void decoderDecode(long j2, byte[] bArr, short[] sArr) {
+    public void decoderDecode(long j, byte[] bArr, short[] sArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), bArr, sArr}) == null) && bLoadLibrary) {
-            AmrDecoder.decode(j2, bArr, sArr);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), bArr, sArr}) == null) && bLoadLibrary) {
+            AmrDecoder.decode(j, bArr, sArr);
         }
     }
 
-    public void decoderDeinit(long j2) {
+    public void decoderDeinit(long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) && bLoadLibrary) {
-            AmrDecoder.exit(j2);
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) && bLoadLibrary) {
+            AmrDecoder.exit(j);
         }
     }
 
@@ -129,10 +129,10 @@ public class Amrnb {
         }
     }
 
-    public int encoderEncode(int i2, short[] sArr, byte[] bArr) {
+    public int encoderEncode(int i, short[] sArr, byte[] bArr) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, sArr, bArr)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, sArr, bArr)) == null) {
             if (bLoadLibrary) {
                 return AmrEncoder.encode(AmrEncoder.Mode.MR59.ordinal(), sArr, bArr);
             }

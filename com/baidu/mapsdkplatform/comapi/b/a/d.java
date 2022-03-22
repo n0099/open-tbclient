@@ -21,9 +21,9 @@ public class d implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,11 +54,11 @@ public class d implements Runnable {
         if (length > 10) {
             length = 10;
         }
-        for (int i2 = 0; i2 < length; i2++) {
-            File file2 = listFiles[i2];
+        for (int i = 0; i < length; i++) {
+            File file2 = listFiles[i];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f34417b;
+                str2 = c.f26630b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
                     this.a.a(file2);
                 }

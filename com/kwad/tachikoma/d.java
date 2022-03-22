@@ -19,26 +19,26 @@ import com.kuaishou.tachikoma.api.TachikomaApi;
 import com.kuaishou.tachikoma.api.app.IRenderListener;
 import com.kwad.sdk.plugin.h;
 import com.tachikoma.core.layout.TKLayout;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d extends FrameLayout implements h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TKLayout f56681b;
+    public TKLayout f41557b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TKContext f56682c;
+    public TKContext f41558c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f56683d;
+    public TextView f41559d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f56684e;
+    public String f41560e;
 
     /* renamed from: f  reason: collision with root package name */
-    public IRenderListener f56685f;
+    public IRenderListener f41561f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d(Context context) {
@@ -49,16 +49,16 @@ public class d extends FrameLayout implements h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f56685f = new IRenderListener(this) { // from class: com.kwad.tachikoma.d.1
+        this.f41561f = new IRenderListener(this) { // from class: com.kwad.tachikoma.d.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ d a;
@@ -70,9 +70,9 @@ public class d extends FrameLayout implements h {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -103,18 +103,18 @@ public class d extends FrameLayout implements h {
     private void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            TKContext newTKJSContext = TachikomaApi.getInstance().newTKJSContext(this.f56681b);
-            this.f56682c = newTKJSContext;
-            this.a = new a(newTKJSContext, this.f56684e);
-            this.f56682c.buildJsBridge().addJavascriptInterface(this.a, "KwaiAd");
+            TKContext newTKJSContext = TachikomaApi.getInstance().newTKJSContext(this.f41557b);
+            this.f41558c = newTKJSContext;
+            this.a = new a(newTKJSContext, this.f41560e);
+            this.f41558c.buildJsBridge().addJavascriptInterface(this.a, "KwaiAd");
         }
     }
 
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.ksad_tachkoma_view, this);
-            this.f56681b = (TKLayout) findViewById(R.id.ksad_tachikoma_layout);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0477, this);
+            this.f41557b = (TKLayout) findViewById(R.id.obfuscated_res_0x7f09114f);
             b();
         }
     }
@@ -122,16 +122,16 @@ public class d extends FrameLayout implements h {
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && com.kwad.sdk.b.f54002c.booleanValue()) {
-            if (this.f56683d == null) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && com.kwad.sdk.b.f39154c.booleanValue()) {
+            if (this.f41559d == null) {
                 TextView textView = new TextView(getContext());
-                this.f56683d = textView;
+                this.f41559d = textView;
                 textView.setTextSize(12.0f);
-                this.f56683d.setTextColor(SupportMenu.CATEGORY_MASK);
-                addView(this.f56683d);
+                this.f41559d.setTextColor(SupportMenu.CATEGORY_MASK);
+                addView(this.f41559d);
             }
-            this.f56683d.setText("Tachikoma");
-            this.f56683d.setVisibility(0);
+            this.f41559d.setText("Tachikoma");
+            this.f41559d.setVisibility(0);
         }
     }
 
@@ -139,8 +139,8 @@ public class d extends FrameLayout implements h {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f56682c.onDestroy();
-            this.f56682c = null;
+            this.f41558c.onDestroy();
+            this.f41558c = null;
         }
     }
 
@@ -156,10 +156,10 @@ public class d extends FrameLayout implements h {
     public void a(String str, String str2) {
         TKContext tKContext;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (tKContext = this.f56682c) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) || (tKContext = this.f41558c) == null) {
             return;
         }
-        tKContext.evaluateScript(str, "jsURL", str2, this.f56685f);
+        tKContext.evaluateScript(str, "jsURL", str2, this.f41561f);
     }
 
     @Override // com.kwad.sdk.plugin.h
@@ -172,7 +172,7 @@ public class d extends FrameLayout implements h {
     public void setJsFileName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f56684e = str;
+            this.f41560e = str;
         }
     }
 }

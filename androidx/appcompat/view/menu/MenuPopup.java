@@ -30,45 +30,45 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int measureIndividualMenuWidth(ListAdapter listAdapter, ViewGroup viewGroup, Context context, int i2) {
+    public static int measureIndividualMenuWidth(ListAdapter listAdapter, ViewGroup viewGroup, Context context, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, listAdapter, viewGroup, context, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(65537, null, listAdapter, viewGroup, context, i)) == null) {
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
             int makeMeasureSpec2 = View.MeasureSpec.makeMeasureSpec(0, 0);
             int count = listAdapter.getCount();
             View view = null;
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < count; i5++) {
-                int itemViewType = listAdapter.getItemViewType(i5);
-                if (itemViewType != i4) {
+            for (int i4 = 0; i4 < count; i4++) {
+                int itemViewType = listAdapter.getItemViewType(i4);
+                if (itemViewType != i3) {
                     view = null;
-                    i4 = itemViewType;
+                    i3 = itemViewType;
                 }
                 if (viewGroup == null) {
                     viewGroup = new FrameLayout(context);
                 }
-                view = listAdapter.getView(i5, view, viewGroup);
+                view = listAdapter.getView(i4, view, viewGroup);
                 view.measure(makeMeasureSpec, makeMeasureSpec2);
                 int measuredWidth = view.getMeasuredWidth();
-                if (measuredWidth >= i2) {
-                    return i2;
+                if (measuredWidth >= i) {
+                    return i;
                 }
-                if (measuredWidth > i3) {
-                    i3 = measuredWidth;
+                if (measuredWidth > i2) {
+                    i2 = measuredWidth;
                 }
             }
-            return i3;
+            return i2;
         }
         return invokeLLLI.intValue;
     }
@@ -78,8 +78,8 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, menuBuilder)) == null) {
             int size = menuBuilder.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                MenuItem item = menuBuilder.getItem(i2);
+            for (int i = 0; i < size; i++) {
+                MenuItem item = menuBuilder.getItem(i);
                 if (item.isVisible() && item.getIcon() != null) {
                     return true;
                 }
@@ -166,11 +166,11 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
     }
 
     @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ListAdapter listAdapter = (ListAdapter) adapterView.getAdapter();
-            toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i2), this, closeMenuOnSubMenuOpened() ? 0 : 4);
+            toMenuAdapter(listAdapter).mAdapterMenu.performItemAction((MenuItem) listAdapter.getItem(i), this, closeMenuOnSubMenuOpened() ? 0 : 4);
         }
     }
 
@@ -185,13 +185,13 @@ public abstract class MenuPopup implements ShowableListMenu, MenuPresenter, Adap
 
     public abstract void setForceShowIcon(boolean z);
 
-    public abstract void setGravity(int i2);
+    public abstract void setGravity(int i);
 
-    public abstract void setHorizontalOffset(int i2);
+    public abstract void setHorizontalOffset(int i);
 
     public abstract void setOnDismissListener(PopupWindow.OnDismissListener onDismissListener);
 
     public abstract void setShowTitle(boolean z);
 
-    public abstract void setVerticalOffset(int i2);
+    public abstract void setVerticalOffset(int i);
 }

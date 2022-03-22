@@ -15,8 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MotionTiming {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -27,16 +26,16 @@ public class MotionTiming {
     public int repeatCount;
     public int repeatMode;
 
-    public MotionTiming(long j2, long j3) {
+    public MotionTiming(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -47,8 +46,8 @@ public class MotionTiming {
         this.interpolator = null;
         this.repeatCount = 0;
         this.repeatMode = 1;
-        this.delay = j2;
-        this.duration = j3;
+        this.delay = j;
+        this.duration = j2;
     }
 
     @NonNull
@@ -159,21 +158,21 @@ public class MotionTiming {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return '\n' + MotionTiming.class.getName() + ExtendedMessageFormat.START_FE + Integer.toHexString(System.identityHashCode(this)) + " delay: " + getDelay() + " duration: " + getDuration() + " interpolator: " + getInterpolator().getClass() + " repeatCount: " + getRepeatCount() + " repeatMode: " + getRepeatMode() + "}\n";
+            return '\n' + MotionTiming.class.getName() + '{' + Integer.toHexString(System.identityHashCode(this)) + " delay: " + getDelay() + " duration: " + getDuration() + " interpolator: " + getInterpolator().getClass() + " repeatCount: " + getRepeatCount() + " repeatMode: " + getRepeatMode() + "}\n";
         }
         return (String) invokeV.objValue;
     }
 
-    public MotionTiming(long j2, long j3, @NonNull TimeInterpolator timeInterpolator) {
+    public MotionTiming(long j, long j2, @NonNull TimeInterpolator timeInterpolator) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), timeInterpolator};
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), timeInterpolator};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -184,8 +183,8 @@ public class MotionTiming {
         this.interpolator = null;
         this.repeatCount = 0;
         this.repeatMode = 1;
-        this.delay = j2;
-        this.duration = j3;
+        this.delay = j;
+        this.duration = j2;
         this.interpolator = timeInterpolator;
     }
 }

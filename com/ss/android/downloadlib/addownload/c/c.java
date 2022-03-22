@@ -8,15 +8,15 @@ import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static void a() {
         List<DownloadInfo> a = com.ss.android.socialbase.appdownloader.d.j().a(j.getContext());
         if (a == null || a.size() <= 0) {
             return;
         }
-        for (int i2 = 0; i2 < a.size(); i2++) {
-            DownloadInfo downloadInfo = a.get(i2);
+        for (int i = 0; i < a.size(); i++) {
+            DownloadInfo downloadInfo = a.get(i);
             File file = new File(downloadInfo.getTempPath(), downloadInfo.getTempName());
             long lastModified = file.lastModified();
             long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_file_expire_hours", 0) * 3600000;
@@ -36,8 +36,8 @@ public class c {
         if (successedDownloadInfosWithMimeType == null || successedDownloadInfosWithMimeType.isEmpty()) {
             return;
         }
-        for (int i2 = 0; i2 < successedDownloadInfosWithMimeType.size(); i2++) {
-            if (((DownloadInfo) successedDownloadInfosWithMimeType.get(i2)) != null) {
+        for (int i = 0; i < successedDownloadInfosWithMimeType.size(); i++) {
+            if (((DownloadInfo) successedDownloadInfosWithMimeType.get(i)) != null) {
                 String str = downloadInfo.getSavePath() + File.separator + downloadInfo.getName();
                 File file = new File(str);
                 if (file.exists()) {

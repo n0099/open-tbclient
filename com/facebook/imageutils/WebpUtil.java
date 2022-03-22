@@ -7,12 +7,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.audio.b;
 import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class WebpUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String VP8L_HEADER = "VP8L";
@@ -25,9 +24,9 @@ public class WebpUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,8 +40,8 @@ public class WebpUtil {
             if (bArr.length != str.length()) {
                 return false;
             }
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (str.charAt(i2) != bArr[i2]) {
+            for (int i = 0; i < bArr.length; i++) {
+                if (str.charAt(i) != bArr[i]) {
                     return false;
                 }
             }
@@ -108,7 +107,7 @@ public class WebpUtil {
                         inputStream.close();
                     }
                 }
-                if (compare(bArr, b.f49100e)) {
+                if (compare(bArr, "RIFF")) {
                     getInt(inputStream);
                     inputStream.read(bArr);
                     if (!compare(bArr, "WEBP")) {
@@ -216,10 +215,10 @@ public class WebpUtil {
         return (Pair) invokeL.objValue;
     }
 
-    public static boolean isBitOne(byte b2, int i2) {
+    public static boolean isBitOne(byte b2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i2)})) == null) ? ((b2 >> (i2 % 8)) & 1) == 1 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{Byte.valueOf(b2), Integer.valueOf(i)})) == null) ? ((b2 >> (i % 8)) & 1) == 1 : invokeCommon.booleanValue;
     }
 
     public static int read3Bytes(InputStream inputStream) throws IOException {

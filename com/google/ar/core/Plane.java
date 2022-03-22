@@ -9,13 +9,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class Plane extends TrackableBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class Type {
         public static final /* synthetic */ Type[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -45,16 +45,16 @@ public class Plane extends TrackableBase {
             $VALUES = new Type[]{HORIZONTAL_UPWARD_FACING, HORIZONTAL_DOWNWARD_FACING, type};
         }
 
-        public Type(String str, int i2, int i3) {
+        public Type(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -63,22 +63,22 @@ public class Plane extends TrackableBase {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static Type forNumber(int i2) {
+        public static Type forNumber(int i) {
             InterceptResult invokeI;
             Type[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (Type type : values()) {
-                    if (type.nativeCode == i2) {
+                    if (type.nativeCode == i) {
                         return type;
                     }
                 }
                 StringBuilder sb = new StringBuilder(57);
                 sb.append("Unexpected value for native Plane.Type, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (Type) invokeI.objValue;
@@ -98,17 +98,17 @@ public class Plane extends TrackableBase {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Plane(long j2, Session session) {
-        super(j2, session);
+    public Plane(long j, Session session) {
+        super(j, session);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), session};
+            Object[] objArr = {Long.valueOf(j), session};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Long) objArr2[0]).longValue(), (Session) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -118,26 +118,26 @@ public class Plane extends TrackableBase {
         }
     }
 
-    private native long nativeAcquireSubsumedBy(long j2, long j3);
+    private native long nativeAcquireSubsumedBy(long j, long j2);
 
-    private native Pose nativeGetCenterPose(long j2, long j3);
+    private native Pose nativeGetCenterPose(long j, long j2);
 
-    private native float nativeGetExtentX(long j2, long j3);
+    private native float nativeGetExtentX(long j, long j2);
 
-    private native float nativeGetExtentZ(long j2, long j3);
+    private native float nativeGetExtentZ(long j, long j2);
 
-    private native float[] nativeGetPolygon(long j2, long j3);
+    private native float[] nativeGetPolygon(long j, long j2);
 
-    private native int nativeGetType(long j2, long j3);
+    private native int nativeGetType(long j, long j2);
 
-    private native boolean nativeIsPoseInExtents(long j2, long j3, Pose pose);
+    private native boolean nativeIsPoseInExtents(long j, long j2, Pose pose);
 
-    private native boolean nativeIsPoseInPolygon(long j2, long j3, Pose pose);
+    private native boolean nativeIsPoseInPolygon(long j, long j2, Pose pose);
 
     public Type getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Type.forNumber(nativeGetType(this.f52963b.a, this.a)) : (Type) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Type.forNumber(nativeGetType(this.f38709b.a, this.a)) : (Type) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -147,9 +147,9 @@ public class Plane extends TrackableBase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Long) objArr[0]).longValue(), (Session) objArr[1]);
                 newInitContext.thisArg = this;

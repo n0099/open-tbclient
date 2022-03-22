@@ -11,14 +11,14 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class bo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hj f947a;
+    public final /* synthetic */ hj f923a;
 
     public bo(Context context, hj hjVar) {
         Interceptable interceptable = $ic;
@@ -27,16 +27,16 @@ public final class bo implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, hjVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = context;
-        this.f947a = hjVar;
+        this.f923a = hjVar;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0042 */
@@ -79,11 +79,11 @@ public final class bo implements Runnable {
                 try {
                     try {
                         File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                        com.xiaomi.push.y.m706a(file);
+                        com.xiaomi.push.y.m685a(file);
                         randomAccessFile = new RandomAccessFile(file, "rw");
                         try {
                             fileLock2 = randomAccessFile.getChannel().lock();
-                            bn.c(this.a, this.f947a);
+                            bn.c(this.a, this.f923a);
                             fileLock = fileLock2;
                             r3 = randomAccessFile;
                             if (fileLock2 != null) {

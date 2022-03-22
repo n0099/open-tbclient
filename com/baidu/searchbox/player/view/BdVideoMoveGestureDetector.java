@@ -46,9 +46,9 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -79,9 +79,9 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             newInitContext.initArgs = r2;
             Object[] objArr = {view, onMoveGestureListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -152,9 +152,9 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
             }
             float f2 = 0.0f;
             float f3 = 0.0f;
-            for (int i2 = 0; i2 < pointerCount; i2++) {
-                f2 += event.getX(i2);
-                f3 += event.getY(i2);
+            for (int i = 0; i < pointerCount; i++) {
+                f2 += event.getX(i);
+                f3 += event.getY(i);
             }
             float f4 = pointerCount;
             float f5 = f2 / f4;
@@ -228,7 +228,7 @@ public final class BdVideoMoveGestureDetector implements IKernelGestureDetector 
         }
     }
 
-    public /* synthetic */ BdVideoMoveGestureDetector(View view, OnMoveGestureListener onMoveGestureListener, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(view, (i2 & 2) != 0 ? null : onMoveGestureListener);
+    public /* synthetic */ BdVideoMoveGestureDetector(View view, OnMoveGestureListener onMoveGestureListener, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(view, (i & 2) != 0 ? null : onMoveGestureListener);
     }
 }

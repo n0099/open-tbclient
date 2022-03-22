@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.DeviceUtils;
 import com.baidu.android.util.devices.IDevices;
+import com.baidu.pass.biometrics.base.utils.PassBiometricUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -41,9 +42,9 @@ public class DeviceUtil implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -133,9 +134,9 @@ public class DeviceUtil implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -254,7 +255,7 @@ public class DeviceUtil implements IDevices {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-                return (supportABI("armeabi-v7a") || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getMyCpuArch());
+                return (supportABI(PassBiometricUtil.CPU_TYPE_ARMEABI_V7A) || supportABI("armeabi")) && IDevices.ARCH.ARM.equals(getMyCpuArch());
             }
             return invokeV.booleanValue;
         }
@@ -284,7 +285,7 @@ public class DeviceUtil implements IDevices {
         public static boolean supportMips() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? supportABI(IDevices.ABI_MIPS) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) ? supportABI("mips") : invokeV.booleanValue;
         }
 
         public static boolean supportX86() {
@@ -310,9 +311,9 @@ public class DeviceUtil implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -486,9 +487,9 @@ public class DeviceUtil implements IDevices {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -678,9 +679,9 @@ public class DeviceUtil implements IDevices {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -733,8 +734,8 @@ public class DeviceUtil implements IDevices {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String[] strArr = {"RLI-AN00", "RLI-N29", "TAH-AN00", "TAH-N29", "TAH-AN00m", "RHA-AN00m", "TET-AN00"};
             if ("HUAWEI".equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i2 = 0; i2 < 7; i2++) {
-                    if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
+                for (int i = 0; i < 7; i++) {
+                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
                         return true;
                     }
                 }
@@ -761,9 +762,9 @@ public class DeviceUtil implements IDevices {
                 return false;
             }
             String[] strArr = {"SM-F9000", "SM-F9160"};
-            if (g.f53624j.equalsIgnoreCase(Build.MANUFACTURER)) {
-                for (int i2 = 0; i2 < 2; i2++) {
-                    if (strArr[i2].equalsIgnoreCase(Build.MODEL)) {
+            if (g.j.equalsIgnoreCase(Build.MANUFACTURER)) {
+                for (int i = 0; i < 2; i++) {
+                    if (strArr[i].equalsIgnoreCase(Build.MODEL)) {
                         return true;
                     }
                 }

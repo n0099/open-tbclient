@@ -43,9 +43,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -58,12 +58,12 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (e) invokeV.objValue;
     }
 
-    public synchronized void a(int i2) {
+    public synchronized void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             synchronized (this) {
                 if (this.a != null) {
-                    this.a.a(i2);
+                    this.a.a(i);
                 }
             }
         }

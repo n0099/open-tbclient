@@ -7,27 +7,27 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v3, resolved type: com.baidu.clientupdate.appinfo.ClientUpdateInfo */
     /* JADX WARN: Multi-variable type inference failed */
-    public static AppInfo a(JSONObject jSONObject, int i2) {
+    public static AppInfo a(JSONObject jSONObject, int i) {
         InterceptResult invokeLI;
         RuleInfo ruleInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, jSONObject, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, jSONObject, i)) == null) {
             if (jSONObject == null) {
                 return null;
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
                 clientUpdateInfo.mIsForceUpdate = jSONObject.optString("isforce");
                 clientUpdateInfo.mContentUrl = jSONObject.optString("content_url");
                 ruleInfo = clientUpdateInfo;
-            } else if (3 != i2) {
+            } else if (3 != i) {
                 return null;
             } else {
                 RuleInfo ruleInfo2 = new RuleInfo();

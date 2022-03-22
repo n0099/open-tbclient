@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class b extends ConnectivityManager.NetworkCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public /* synthetic */ URL a;
 
     /* renamed from: b  reason: collision with root package name */
-    public /* synthetic */ a f57711b;
+    public /* synthetic */ a f42485b;
 
     public b(a aVar, URL url) {
         Interceptable interceptable = $ic;
@@ -25,15 +25,15 @@ public final class b extends ConnectivityManager.NetworkCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, url};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f57711b = aVar;
+        this.f42485b = aVar;
         this.a = url;
     }
 
@@ -43,7 +43,7 @@ public final class b extends ConnectivityManager.NetworkCallback {
         if (interceptable == null || interceptable.invokeL(1048576, this, network) == null) {
             super.onAvailable(network);
             try {
-                this.f57711b.f57706c = (HttpURLConnection) network.openConnection(this.a);
+                this.f42485b.f42480c = (HttpURLConnection) network.openConnection(this.a);
             } catch (IOException unused) {
             }
         }

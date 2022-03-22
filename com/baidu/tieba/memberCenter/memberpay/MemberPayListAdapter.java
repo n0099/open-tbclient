@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MemberPayListAdapter extends FragmentPagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((FragmentManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -35,11 +35,33 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
         }
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.fragment.app.FragmentPagerAdapter
+    /* renamed from: b */
+    public MemberPayFragment getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (this.a.size() > i) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (MemberPayFragment) invokeI.objValue;
+    }
+
+    public void c(List<MemberPayFragment> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+        }
+    }
+
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             List<MemberPayFragment> list = this.a;
             if (list != null) {
                 return list.size();
@@ -47,26 +69,5 @@ public class MemberPayListAdapter extends FragmentPagerAdapter {
             return 0;
         }
         return invokeV.intValue;
-    }
-
-    public void setFragments(List<MemberPayFragment> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // androidx.fragment.app.FragmentPagerAdapter
-    public MemberPayFragment getItem(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            if (this.a.size() > i2) {
-                return this.a.get(i2);
-            }
-            return null;
-        }
-        return (MemberPayFragment) invokeI.objValue;
     }
 }

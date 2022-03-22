@@ -5,10 +5,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.v.c;
-import com.baidu.adp.BdUniqueId;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -20,26 +19,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class FakeVideoContainer extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbImageView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public TbImageView f45924e;
+    /* renamed from: b  reason: collision with root package name */
+    public View f35573b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public View f45925f;
+    /* renamed from: c  reason: collision with root package name */
+    public ImageView f35574c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ImageView f45926g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public EMTextView f45927h;
-    public View.OnClickListener mAfterClickListener;
-    public Context mContext;
-    public View.OnClickListener mJumpToPbListener;
-    public BdUniqueId mUniqueId;
+    /* renamed from: d  reason: collision with root package name */
+    public EMTextView f35575d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FakeVideoContainer(Context context) {
@@ -50,35 +43,33 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mAfterClickListener = null;
-        this.mJumpToPbListener = null;
-        init();
+        a();
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RelativeLayout.inflate(getContext(), R.layout.fake_video_container, this);
-            this.f45924e = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.f45925f = findViewById(R.id.black_mask);
-            this.f45926g = (ImageView) findViewById(R.id.video_play);
-            this.f45927h = (EMTextView) findViewById(R.id.fake_video_info);
-            this.f45926g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            c d2 = c.d(this.f45927h);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0291, this);
+            this.a = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092392);
+            this.f35573b = findViewById(R.id.obfuscated_res_0x7f090382);
+            this.f35574c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092361);
+            this.f35575d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090969);
+            this.f35574c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            c d2 = c.d(this.f35575d);
             d2.v(R.color.CAM_X0101);
             d2.A(R.string.F_X01);
-            this.f45924e.clearCornerFlag();
-            this.f45924e.setDrawCorner(false);
-            this.f45924e.setPlaceHolder(3);
+            this.a.s();
+            this.a.setDrawCorner(false);
+            this.a.setPlaceHolder(3);
             setOnClickListener(this);
         }
     }
@@ -87,21 +78,21 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            BdToast.i(getContext(), getContext().getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).q();
+            BdToast.i(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f14d0), R.drawable.obfuscated_res_0x7f08099f, true).q();
         }
     }
 
-    public void setData(e2 e2Var) {
+    public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e2Var) == null) || e2Var == null || e2Var.u1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) || threadData == null || threadData.getThreadVideoInfo() == null) {
             return;
         }
-        e2Var.u1().is_vertical.intValue();
-        this.f45924e.setPlaceHolder(3);
-        if (!e2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !e2Var.u1().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-            this.f45924e.startLoad(e2Var.u1().thumbnail_url, 32, false);
+        threadData.getThreadVideoInfo().is_vertical.intValue();
+        this.a.setPlaceHolder(3);
+        if (!threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
+            this.a.J(threadData.getThreadVideoInfo().thumbnail_url, 32, false);
         } else {
-            this.f45924e.startLoad(e2Var.u1().thumbnail_url, 10, false);
+            this.a.J(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
         }
     }
 
@@ -114,9 +105,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -124,23 +115,21 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        this.mAfterClickListener = null;
-        this.mJumpToPbListener = null;
-        init();
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FakeVideoContainer(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FakeVideoContainer(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -148,32 +137,6 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
                 return;
             }
         }
-        this.mAfterClickListener = null;
-        this.mJumpToPbListener = null;
-        init();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FakeVideoContainer(Context context, AttributeSet attributeSet, int i2, int i3) {
-        super(context, attributeSet, i2, i3);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2), Integer.valueOf(i3)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.mAfterClickListener = null;
-        this.mJumpToPbListener = null;
-        init();
+        a();
     }
 }

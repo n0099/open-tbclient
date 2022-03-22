@@ -16,7 +16,7 @@ public class w {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public v f34557b;
+    public v f26753b;
 
     static {
         InterceptResult invokeClinit;
@@ -38,9 +38,9 @@ public class w {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,9 +50,9 @@ public class w {
     public void a(Message message) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 65289) {
-            int i2 = message.arg1;
-            if (i2 != 12 && i2 != 101 && i2 != 102) {
-                switch (i2) {
+            int i = message.arg1;
+            if (i != 12 && i != 101 && i != 102) {
+                switch (i) {
                     case -1:
                     case 0:
                     case 1:
@@ -70,7 +70,7 @@ public class w {
                         return;
                 }
             }
-            v vVar = this.f34557b;
+            v vVar = this.f26753b;
             if (vVar != null) {
                 vVar.a(message.arg1, message.arg2);
             }
@@ -80,14 +80,14 @@ public class w {
     public void a(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vVar) == null) {
-            this.f34557b = vVar;
+            this.f26753b = vVar;
         }
     }
 
     public void b(v vVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vVar) == null) {
-            this.f34557b = null;
+            this.f26753b = null;
         }
     }
 }

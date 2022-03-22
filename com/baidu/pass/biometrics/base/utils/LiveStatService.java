@@ -5,6 +5,7 @@ import android.os.Build;
 import android.os.Looper;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.pass.biometrics.base.PassBiometricDefaultFactory;
 import com.baidu.pass.biometrics.base.restnet.beans.business.BeanConstants;
 import com.baidu.pass.http.HttpResponseHandler;
@@ -32,19 +33,19 @@ public final class LiveStatService {
     public static final Map<String, String> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f36159b = "4854";
+    public static final String f27923b = "4854";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f36160c = "page";
+    public static final String f27924c = "page";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f36161d = "source";
+    public static final String f27925d = "source";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f36162e = "ext";
+    public static final String f27926e = "ext";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f36163f = "living_recog";
+    public static final String f27927f = "living_recog";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -64,7 +65,7 @@ public final class LiveStatService {
         a = hashMap;
         hashMap.put("pid", "111");
         a.put("type", SmartLaunchStats.UBC_START_LAUNCH_ID);
-        a.put("device", "android");
+        a.put(Config.DEVICE_PART, "android");
     }
 
     public LiveStatService() {
@@ -72,9 +73,9 @@ public final class LiveStatService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -123,9 +124,9 @@ public final class LiveStatService {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {r7};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((Looper) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
@@ -142,9 +143,9 @@ public final class LiveStatService {
                     }
 
                     @Override // com.baidu.pass.http.HttpResponseHandler
-                    public void onSuccess(int i2, String str2) {
+                    public void onSuccess(int i, String str2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2) == null) {
                         }
                     }
                 });
@@ -153,7 +154,7 @@ public final class LiveStatService {
                 jSONObject.put("page", "living_recog");
                 jSONObject.put("source", BeanConstants.tpl);
                 jSONObject.put("ext", jSONObject2);
-                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f36159b, jSONObject);
+                ServiceManager.getInstance().getIsAccountManager().getUbcUploadImplCallback().onEvent(f27923b, jSONObject);
             }
         } catch (Throwable unused) {
         }

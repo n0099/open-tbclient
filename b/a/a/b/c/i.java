@@ -25,24 +25,22 @@ import java.util.Map;
 public abstract class i implements b.a.a.b.a.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final c f1007b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final e f1008c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public final b.a f1009d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f1036e;
+    public volatile int f1010e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c f1037f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final e f1038g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public final b.a f1039h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public volatile int f1040i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public volatile int f1041j;
+    public volatile int f1011f;
 
     public i(c cVar, e eVar, b.a aVar) {
         Interceptable interceptable = $ic;
@@ -51,26 +49,26 @@ public abstract class i implements b.a.a.b.a.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, eVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f1041j = 0;
-        this.f1037f = cVar;
-        this.f1038g = eVar;
-        this.f1039h = aVar;
+        this.f1011f = 0;
+        this.f1007b = cVar;
+        this.f1008c = eVar;
+        this.f1009d = aVar;
         String k = k();
-        this.f1036e = k;
+        this.a = k;
         if (TextUtils.isEmpty(k)) {
-            this.f1036e = getClass().getSimpleName();
+            this.a = getClass().getSimpleName();
         }
     }
 
-    public abstract RandomAccessFile a(File file, String str, long j2);
+    public abstract RandomAccessFile a(File file, String str, long j);
 
     public abstract Map<String, String> b(e eVar);
 
@@ -92,7 +90,7 @@ public abstract class i implements b.a.a.b.a.b {
             return;
         }
         try {
-            URL url = new URL(this.f1038g.a);
+            URL url = new URL(this.f1008c.a);
             ?? r2 = 0;
             try {
                 try {
@@ -101,7 +99,7 @@ public abstract class i implements b.a.a.b.a.b {
                         httpURLConnection.setConnectTimeout(4000);
                         httpURLConnection.setReadTimeout(4000);
                         httpURLConnection.setRequestMethod("GET");
-                        h(b(this.f1038g), httpURLConnection);
+                        h(b(this.f1008c), httpURLConnection);
                         int responseCode = httpURLConnection.getResponseCode();
                         if (responseCode == i()) {
                             g(httpURLConnection);
@@ -147,21 +145,21 @@ public abstract class i implements b.a.a.b.a.b {
         if (interceptable == null || interceptable.invokeL(1048579, this, downloadException) == null) {
             switch (downloadException.getErrorCode()) {
                 case 106:
-                    synchronized (this.f1039h) {
-                        this.f1040i = 106;
-                        ((g) this.f1039h).h();
+                    synchronized (this.f1009d) {
+                        this.f1010e = 106;
+                        ((g) this.f1009d).h();
                     }
                     return;
                 case 107:
-                    synchronized (this.f1039h) {
-                        this.f1040i = 107;
-                        ((g) this.f1039h).g();
+                    synchronized (this.f1009d) {
+                        this.f1010e = 107;
+                        ((g) this.f1009d).g();
                     }
                     return;
                 case 108:
-                    synchronized (this.f1039h) {
-                        this.f1040i = 108;
-                        ((g) this.f1039h).f(downloadException);
+                    synchronized (this.f1009d) {
+                        this.f1010e = 108;
+                        ((g) this.f1009d).f(downloadException);
                     }
                     return;
                 default:
@@ -184,26 +182,26 @@ public abstract class i implements b.a.a.b.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, randomAccessFile) == null) {
             byte[] bArr = new byte[8192];
-            while (this.f1041j != 107) {
-                if (this.f1041j != 106) {
+            while (this.f1011f != 107) {
+                if (this.f1011f != 106) {
                     try {
                         int read = inputStream.read(bArr);
                         if (read == -1) {
                             return;
                         }
                         randomAccessFile.write(bArr, 0, read);
-                        long j2 = read;
-                        this.f1038g.f1023d += j2;
-                        synchronized (this.f1039h) {
-                            this.f1037f.f1020d += j2;
-                            ((g) this.f1039h).b(this.f1037f.f1020d, this.f1037f.f1019c);
+                        long j = read;
+                        this.f1008c.f998d += j;
+                        synchronized (this.f1009d) {
+                            this.f1007b.f995d += j;
+                            ((g) this.f1009d).b(this.f1007b.f995d, this.f1007b.f994c);
                         }
                     } catch (IOException e2) {
-                        l(this.f1038g);
+                        l(this.f1008c);
                         throw new DownloadException(108, e2);
                     }
                 } else {
-                    l(this.f1038g);
+                    l(this.f1008c);
                     throw new DownloadException(106, "Download paused!");
                 }
             }
@@ -222,13 +220,13 @@ public abstract class i implements b.a.a.b.a.b {
             try {
                 inputStream = httpURLConnection.getInputStream();
                 try {
-                    long j2 = this.f1038g.f1021b + this.f1038g.f1023d;
+                    long j = this.f1008c.f996b + this.f1008c.f998d;
                     try {
-                        File file = this.f1037f.f1018b;
+                        File file = this.f1007b.f993b;
                         if (!file.exists()) {
                             file.mkdirs();
                         }
-                        RandomAccessFile a = a(file, this.f1037f.a, j2);
+                        RandomAccessFile a = a(file, this.f1007b.a, j);
                         f(inputStream, a);
                         try {
                             e(inputStream);
@@ -281,7 +279,7 @@ public abstract class i implements b.a.a.b.a.b {
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1040i == 104 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f1010e == 104 : invokeV.booleanValue;
     }
 
     @Override // java.lang.Runnable
@@ -289,14 +287,14 @@ public abstract class i implements b.a.a.b.a.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             Process.setThreadPriority(10);
-            j(this.f1038g);
+            j(this.f1008c);
             try {
-                this.f1040i = 104;
+                this.f1010e = 104;
                 c();
-                synchronized (this.f1039h) {
-                    this.f1040i = 105;
-                    b.a aVar = this.f1039h;
-                    ((g) aVar).d(this.f1037f.f1018b.getAbsolutePath() + File.separator + this.f1037f.a);
+                synchronized (this.f1009d) {
+                    this.f1010e = 105;
+                    b.a aVar = this.f1009d;
+                    ((g) aVar).d(this.f1007b.f993b.getAbsolutePath() + File.separator + this.f1007b.a);
                 }
             } catch (DownloadException e2) {
                 d(e2);

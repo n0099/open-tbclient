@@ -8,19 +8,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class p {
     public static /* synthetic */ Interceptable $ic;
     public static final p a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final p f52964b;
+    public static final p f38710b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final p f52965c;
+    public static final p f38711c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final /* synthetic */ p[] f52966d;
+    public static final /* synthetic */ p[] f38712d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -37,22 +37,22 @@ public final class p {
             }
         }
         a = new p("ACCEPTED", 0);
-        f52964b = new p("CANCELLED", 1);
+        f38710b = new p("CANCELLED", 1);
         p pVar = new p("COMPLETED", 2);
-        f52965c = pVar;
-        f52966d = new p[]{a, f52964b, pVar};
+        f38711c = pVar;
+        f38712d = new p[]{a, f38710b, pVar};
     }
 
-    public p(String str, int i2) {
+    public p(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -65,6 +65,6 @@ public final class p {
     public static p[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (p[]) f52966d.clone() : (p[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (p[]) f38712d.clone() : (p[]) invokeV.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.ss.android.socialbase.downloader.depend;
 
 import androidx.annotation.Nullable;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ag {
     void a(@Nullable DownloadInfo downloadInfo, @Nullable String str);
 }

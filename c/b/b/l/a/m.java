@@ -4,15 +4,15 @@ import android.view.View;
 import com.badlogic.gdx.Input;
 /* loaded from: classes3.dex */
 public interface m extends Input, View.OnTouchListener, View.OnKeyListener, View.OnGenericMotionListener {
-    void c(boolean z);
+    void a0();
 
-    void g();
+    void g0();
 
-    void h();
-
-    void m();
+    void i(boolean z);
 
     void onPause();
 
     void onResume();
+
+    void y();
 }

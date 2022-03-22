@@ -8,20 +8,20 @@ import com.kwad.a.kwai.c;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 /* loaded from: classes7.dex */
-public class h extends c.AbstractC2082c {
+public class h extends c.AbstractC1943c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public h(f fVar, c.b bVar, long j2) {
+    public h(f fVar, c.b bVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fVar, bVar, Long.valueOf(j2)};
+            Object[] objArr = {fVar, bVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -29,10 +29,10 @@ public class h extends c.AbstractC2082c {
         }
         ByteBuffer allocate = ByteBuffer.allocate(8);
         allocate.order(bVar.a ? ByteOrder.BIG_ENDIAN : ByteOrder.LITTLE_ENDIAN);
-        long j3 = bVar.f53906c + (j2 * bVar.f53908e);
-        this.a = fVar.c(allocate, j3);
-        this.f53913b = fVar.b(allocate, 8 + j3);
-        this.f53914c = fVar.b(allocate, 16 + j3);
-        this.f53915d = fVar.b(allocate, j3 + 40);
+        long j2 = bVar.f39063c + (j * bVar.f39065e);
+        this.a = fVar.c(allocate, j2);
+        this.f39069b = fVar.b(allocate, 8 + j2);
+        this.f39070c = fVar.b(allocate, 16 + j2);
+        this.f39071d = fVar.b(allocate, j2 + 40);
     }
 }

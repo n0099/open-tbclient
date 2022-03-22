@@ -92,8 +92,8 @@ public class ImageLoadImpl implements IImageLoader {
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader
-    public void load(@NonNull Context context, ImageView imageView, Object obj, int i2, int i3) {
-        ImageLoader.getInstance().displayImage(parseModel(obj), imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(i3).showImageForEmptyUri(i2).showImageOnFail(i2).build());
+    public void load(@NonNull Context context, ImageView imageView, Object obj, int i, int i2) {
+        ImageLoader.getInstance().displayImage(parseModel(obj), imageView, new DisplayImageOptions.Builder().bitmapConfig(Bitmap.Config.ARGB_8888).cacheOnDisk(true).cacheInMemory(true).showImageOnLoading(i2).showImageForEmptyUri(i).showImageOnFail(i).build());
     }
 
     @Override // com.kwad.sdk.core.imageloader.IImageLoader

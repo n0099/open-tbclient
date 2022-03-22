@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.AbstractExecutorService;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CallerThreadExecutor extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final CallerThreadExecutor sInstance;
@@ -39,9 +39,9 @@ public class CallerThreadExecutor extends AbstractExecutorService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -55,10 +55,10 @@ public class CallerThreadExecutor extends AbstractExecutorService {
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
             return true;
         }
         return invokeJL.booleanValue;

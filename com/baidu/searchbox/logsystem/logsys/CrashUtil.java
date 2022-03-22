@@ -31,9 +31,9 @@ public class CrashUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,9 +62,9 @@ public class CrashUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -90,44 +90,44 @@ public class CrashUtil {
         public String mCrashProcessUUID;
         public long mTimeStamp;
 
-        public CrashTAG(@NonNull String str, long j2) {
+        public CrashTAG(@NonNull String str, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Long.valueOf(j2)};
+                Object[] objArr = {str, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.mCrashProcessUUID = str;
-            this.mTimeStamp = j2;
+            this.mTimeStamp = j;
         }
 
         public static CrashTAG getCrashTAG(@NonNull String str) {
             InterceptResult invokeL;
             String[] split;
-            long j2;
+            long j;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
                 if (str == null || TextUtils.isEmpty(str) || (split = str.split("#")) == null || split.length != 2 || TextUtils.isEmpty(split[0])) {
                     return null;
                 }
                 try {
-                    j2 = Long.valueOf(split[1]).longValue();
+                    j = Long.valueOf(split[1]).longValue();
                 } catch (NumberFormatException e2) {
                     e2.printStackTrace();
-                    j2 = 0;
+                    j = 0;
                 }
-                if (j2 <= 0) {
+                if (j <= 0) {
                     return null;
                 }
-                return new CrashTAG(split[0], j2);
+                return new CrashTAG(split[0], j);
             }
             return (CrashTAG) invokeL.objValue;
         }

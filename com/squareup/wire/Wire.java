@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class Wire {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public final class Wire {
             newInitContext.initArgs = r2;
             Object[] objArr = {clsArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this((List) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -119,9 +119,9 @@ public final class Wire {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -144,16 +144,16 @@ public final class Wire {
         }
     }
 
-    public <M extends Message> M parseFrom(byte[] bArr, int i2, int i3, Class<M> cls) throws IOException {
+    public <M extends Message> M parseFrom(byte[] bArr, int i, int i2, Class<M> cls) throws IOException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), cls})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), cls})) == null) {
             Preconditions.checkNotNull(bArr, "bytes");
-            Preconditions.checkArgument(i2 >= 0, "offset < 0");
-            Preconditions.checkArgument(i3 >= 0, "count < 0");
-            Preconditions.checkArgument(i2 + i3 <= bArr.length, "offset + count > bytes");
+            Preconditions.checkArgument(i >= 0, "offset < 0");
+            Preconditions.checkArgument(i2 >= 0, "count < 0");
+            Preconditions.checkArgument(i + i2 <= bArr.length, "offset + count > bytes");
             Preconditions.checkNotNull(cls, "messageClass");
-            return (M) parseFrom(WireInput.newInstance(bArr, i2, i3), cls);
+            return (M) parseFrom(WireInput.newInstance(bArr, i, i2), cls);
         }
         return (M) invokeCommon.objValue;
     }

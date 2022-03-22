@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.gz;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class ah implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ List a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ boolean f892a;
+    public final /* synthetic */ boolean f868a;
 
     public ah(List list, boolean z) {
         Interceptable interceptable = $ic;
@@ -23,16 +23,16 @@ public final class ah implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = list;
-        this.f892a = z;
+        this.f868a = z;
     }
 
     @Override // java.lang.Runnable
@@ -52,7 +52,7 @@ public final class ah implements Runnable {
                     b3 = ag.b(str);
                     if (!b3) {
                         b2 = false;
-                        if (!b2 && !this.f892a) {
+                        if (!b2 && !this.f868a) {
                             break;
                         }
                     }

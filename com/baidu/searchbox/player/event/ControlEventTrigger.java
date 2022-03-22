@@ -17,9 +17,9 @@ public class ControlEventTrigger extends SingleTargetTrigger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -63,12 +63,12 @@ public class ControlEventTrigger extends SingleTargetTrigger {
     }
 
     @PublicMethod
-    public void seekToMs(int i2, int i3) {
+    public void seekToMs(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SEEK_MS);
-            obtainEvent.putExtra(5, Integer.valueOf(i2));
-            obtainEvent.putExtra(12, Integer.valueOf(i3));
+            obtainEvent.putExtra(5, Integer.valueOf(i));
+            obtainEvent.putExtra(12, Integer.valueOf(i2));
             triggerEvent(obtainEvent);
         }
     }
@@ -138,25 +138,25 @@ public class ControlEventTrigger extends SingleTargetTrigger {
     }
 
     @PublicMethod
-    public void syncPos(int i2, int i3, int i4) {
+    public void syncPos(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048589, this, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
             VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_SYNC_PROGRESS);
-            obtainEvent.putExtra(1, Integer.valueOf(i2));
-            obtainEvent.putExtra(2, Integer.valueOf(i3));
-            obtainEvent.putExtra(3, Integer.valueOf(i4));
+            obtainEvent.putExtra(1, Integer.valueOf(i));
+            obtainEvent.putExtra(2, Integer.valueOf(i2));
+            obtainEvent.putExtra(3, Integer.valueOf(i3));
             obtainEvent.setLogLevel(1);
             triggerEvent(obtainEvent);
         }
     }
 
     @PublicMethod
-    public void pause(int i2) {
+    public void pause(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             VideoEvent obtainEvent = ControlEvent.obtainEvent(ControlEvent.ACTION_PAUSE);
-            obtainEvent.putExtra(11, Integer.valueOf(i2));
-            obtainEvent.putExtra(7, Boolean.valueOf(i2 == 1));
+            obtainEvent.putExtra(11, Integer.valueOf(i));
+            obtainEvent.putExtra(7, Boolean.valueOf(i == 1));
             triggerEvent(obtainEvent);
         }
     }

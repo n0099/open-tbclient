@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class GameCenterDownloadState {
     public static final /* synthetic */ GameCenterDownloadState[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -47,16 +47,16 @@ public final class GameCenterDownloadState {
         $VALUES = new GameCenterDownloadState[]{WAITING, DOWNLOADING, PAUSE, FAILED, CANCEL, FINISH, gameCenterDownloadState};
     }
 
-    public GameCenterDownloadState(String str, int i2) {
+    public GameCenterDownloadState(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -66,15 +66,15 @@ public final class GameCenterDownloadState {
         }
     }
 
-    public static GameCenterDownloadState getState(int i2) {
+    public static GameCenterDownloadState getState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
                                 return UNKNOWN;
                             }
                             return FAILED;

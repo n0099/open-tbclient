@@ -14,12 +14,12 @@ import com.vivo.push.cache.ClientConfigManagerImpl;
 import com.vivo.push.model.InsideNotificationItem;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class r extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
@@ -35,9 +35,9 @@ public final class r extends z {
             newInitContext.initArgs = r2;
             Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

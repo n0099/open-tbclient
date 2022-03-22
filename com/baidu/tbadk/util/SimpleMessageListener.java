@@ -20,12 +20,10 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
+    public CustomMessageListener a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public CustomMessageListener f39777e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f39778f;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f30635b;
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -34,17 +32,17 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         public final /* synthetic */ b a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(SimpleMessageListener simpleMessageListener, int i2, b bVar) {
-            super(i2);
+        public a(SimpleMessageListener simpleMessageListener, int i, b bVar) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {simpleMessageListener, Integer.valueOf(i2), bVar};
+                Object[] objArr = {simpleMessageListener, Integer.valueOf(i), bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -70,84 +68,84 @@ public abstract class SimpleMessageListener implements LifecycleObserver {
         void call(@Nullable T t);
     }
 
-    public SimpleMessageListener(int i2, boolean z, @NonNull b bVar) {
+    public SimpleMessageListener(int i, boolean z, @NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Boolean.valueOf(z), bVar};
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39778f = z;
-        this.f39777e = new a(this, i2, bVar);
+        this.f30635b = z;
+        this.a = new a(this, i, bVar);
     }
 
-    public static <T> void sendMessage(int i2, @Nullable T t) {
+    public static <T> void b(int i, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65538, null, i2, t) == null) {
-            sendMessage(i2, null, t);
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, tbPageContext, t) == null) {
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i, t);
+            if (tbPageContext != null) {
+                CustomMessage customMessage = new CustomMessage(i, tbPageContext.getUniqueId());
+                customMessage.setData(t);
+                customResponsedMessage.setOrginalMessage(customMessage);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
         }
     }
 
-    public void bindPage(@NonNull TbPageContext<?> tbPageContext) {
+    public static <T> void c(int i, @Nullable T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65538, null, i, t) == null) {
+            b(i, null, t);
+        }
+    }
+
+    public void a(@NonNull TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.f39777e.setSelfListener(true);
-            this.f39777e.setTag(tbPageContext.getUniqueId());
+            this.a.setSelfListener(true);
+            this.a.setTag(tbPageContext.getUniqueId());
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
     public void onCreate() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f39778f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f30635b) {
             return;
         }
-        MessageManager.getInstance().registerListener(this.f39777e);
+        MessageManager.getInstance().registerListener(this.a);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f39778f) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.f30635b) {
             return;
         }
-        MessageManager.getInstance().unRegisterListener(this.f39777e);
+        MessageManager.getInstance().unRegisterListener(this.a);
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f39778f) {
-            MessageManager.getInstance().unRegisterListener(this.f39777e);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f30635b) {
+            MessageManager.getInstance().unRegisterListener(this.a);
         }
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f39778f) {
-            MessageManager.getInstance().registerListener(this.f39777e);
-        }
-    }
-
-    public static <T> void sendMessage(int i2, @Nullable TbPageContext<?> tbPageContext, @Nullable T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i2, tbPageContext, t) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(i2, t);
-            if (tbPageContext != null) {
-                CustomMessage customMessage = new CustomMessage(i2, tbPageContext.getUniqueId());
-                customMessage.setData(t);
-                customResponsedMessage.setOrginalMessage(customMessage);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f30635b) {
+            MessageManager.getInstance().registerListener(this.a);
         }
     }
 }

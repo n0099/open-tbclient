@@ -8,8 +8,8 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import c.a.d.f.p.n;
-import c.a.q0.r.v.b;
-import c.a.q0.r.v.c;
+import c.a.o0.r.v.b;
+import c.a.o0.r.v.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -27,21 +27,19 @@ import com.qq.e.comm.managers.setting.GlobalSetting;
 public class AdInfoButton extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RelativeLayout a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f36773b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EMTextView f36774c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public AdType f36775d;
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout f47576e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f47577f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public EMTextView f47578g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public AdType f47579h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public AdChannel f47580i;
+    public AdChannel f36776e;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -73,16 +71,16 @@ public class AdInfoButton extends RelativeLayout {
             $VALUES = new AdChannel[]{GDT, KS, adChannel};
         }
 
-        public AdChannel(String str, int i2) {
+        public AdChannel(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -133,16 +131,16 @@ public class AdInfoButton extends RelativeLayout {
             $VALUES = new AdType[]{DOWNLOAD, adType};
         }
 
-        public AdType(String str, int i2) {
+        public AdType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -169,9 +167,7 @@ public class AdInfoButton extends RelativeLayout {
     public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AdInfoButton f47581e;
+        public final /* synthetic */ AdInfoButton a;
 
         public a(AdInfoButton adInfoButton) {
             Interceptable interceptable = $ic;
@@ -180,15 +176,15 @@ public class AdInfoButton extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {adInfoButton};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f47581e = adInfoButton;
+            this.a = adInfoButton;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -196,9 +192,9 @@ public class AdInfoButton extends RelativeLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
                 int[] iArr = {((Integer) valueAnimator.getAnimatedValue()).intValue()};
-                if (this.f47581e.f47576e.getBackground() instanceof b) {
-                    ((b) this.f47581e.f47576e.getBackground()).D(iArr);
-                    this.f47581e.f47576e.invalidate();
+                if (this.a.a.getBackground() instanceof b) {
+                    ((b) this.a.a.getBackground()).C(iArr);
+                    this.a.a.invalidate();
                 }
             }
         }
@@ -213,9 +209,9 @@ public class AdInfoButton extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -228,59 +224,59 @@ public class AdInfoButton extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.f47576e = new RelativeLayout(context);
+            this.a = new RelativeLayout(context);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, n.f(context, R.dimen.tbds86));
             layoutParams.bottomMargin = n.f(context, R.dimen.M_H_X006);
-            this.f47576e.setLayoutParams(layoutParams);
-            this.f47576e.setGravity(17);
+            this.a.setLayoutParams(layoutParams);
+            this.a.setGravity(17);
             RelativeLayout relativeLayout = new RelativeLayout(context);
             relativeLayout.setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
             ImageView imageView = new ImageView(context);
-            this.f47577f = imageView;
-            imageView.setId(R.id.ad_icon);
+            this.f36773b = imageView;
+            imageView.setId(R.id.obfuscated_res_0x7f0900a5);
             int f2 = n.f(context, R.dimen.tbds42);
-            this.f47577f.setLayoutParams(new RelativeLayout.LayoutParams(f2, f2));
-            relativeLayout.addView(this.f47577f);
-            this.f47578g = new EMTextView(context);
+            this.f36773b.setLayoutParams(new RelativeLayout.LayoutParams(f2, f2));
+            relativeLayout.addView(this.f36773b);
+            this.f36774c = new EMTextView(context);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(1, R.id.ad_icon);
+            layoutParams2.addRule(1, R.id.obfuscated_res_0x7f0900a5);
             layoutParams2.addRule(15);
             layoutParams2.leftMargin = n.f(context, R.dimen.M_W_X002);
-            this.f47578g.setLayoutParams(layoutParams2);
-            relativeLayout.addView(this.f47578g);
-            this.f47576e.addView(relativeLayout);
-            addView(this.f47576e);
-            onChangeSkinType();
+            this.f36774c.setLayoutParams(layoutParams2);
+            relativeLayout.addView(this.f36774c);
+            this.a.addView(relativeLayout);
+            addView(this.a);
+            c();
         }
     }
 
-    public void onChangeSkinType() {
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.f47580i == AdChannel.CSJ) {
-                c d2 = c.d(this.f47576e);
+            if (this.f36776e == AdChannel.CSJ) {
+                c d2 = c.d(this.a);
                 d2.n(R.string.J_X05);
                 d2.m(0);
                 d2.f(R.color.CAM_X0614);
             } else {
-                c d3 = c.d(this.f47576e);
+                c d3 = c.d(this.a);
                 d3.n(R.string.J_X05);
                 d3.m(0);
                 d3.f(R.color.CAM_X0302);
             }
-            AdType adType = this.f47579h;
+            AdType adType = this.f36775d;
             if (adType == AdType.DOWNLOAD) {
-                WebPManager.setPureDrawable(this.f47577f, R.drawable.icon_download16, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.f36773b, R.drawable.obfuscated_res_0x7f0806ec, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             } else if (adType == AdType.INFO) {
-                WebPManager.setPureDrawable(this.f47577f, R.drawable.icon_link16, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
+                WebPManager.setPureDrawable(this.f36773b, R.drawable.obfuscated_res_0x7f08079a, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL);
             }
-            c d4 = c.d(this.f47578g);
+            c d4 = c.d(this.f36774c);
             d4.z(R.dimen.T_X08);
             d4.v(R.color.CAM_X0101);
         }
     }
 
-    public void playStressAnimation() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ValueAnimator ofInt = ObjectAnimator.ofInt(SkinManager.getColor(R.color.CAM_X0614), SkinManager.getColor(R.color.CAM_X0302));
@@ -294,21 +290,21 @@ public class AdInfoButton extends RelativeLayout {
     public void setChannel(AdChannel adChannel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, adChannel) == null) {
-            this.f47580i = adChannel;
+            this.f36776e = adChannel;
         }
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
-            this.f47578g.setText(charSequence);
+            this.f36774c.setText(charSequence);
         }
     }
 
     public void setType(AdType adType) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, adType) == null) {
-            this.f47579h = adType;
+            this.f36775d = adType;
         }
     }
 
@@ -321,9 +317,9 @@ public class AdInfoButton extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -334,17 +330,17 @@ public class AdInfoButton extends RelativeLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdInfoButton(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AdInfoButton(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

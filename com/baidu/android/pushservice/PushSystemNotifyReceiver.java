@@ -20,9 +20,9 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,7 +43,7 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                         public final /* synthetic */ Context a;
 
                         /* renamed from: b  reason: collision with root package name */
-                        public final /* synthetic */ PushSystemNotifyReceiver f30267b;
+                        public final /* synthetic */ PushSystemNotifyReceiver f24169b;
 
                         {
                             Interceptable interceptable2 = $ic;
@@ -52,15 +52,15 @@ public class PushSystemNotifyReceiver extends BroadcastReceiver {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
-                            this.f30267b = this;
+                            this.f24169b = this;
                             this.a = context;
                         }
 

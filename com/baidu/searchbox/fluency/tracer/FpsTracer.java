@@ -83,9 +83,9 @@ public final class FpsTracer extends Tracer {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -119,9 +119,9 @@ public final class FpsTracer extends Tracer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fpsTracer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -146,9 +146,9 @@ public final class FpsTracer extends Tracer {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -171,9 +171,9 @@ public final class FpsTracer extends Tracer {
 
         /* JADX WARN: Type inference failed for: r8v2, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
         /* JADX WARN: Type inference failed for: r8v9, types: [com.baidu.searchbox.fluency.tracer.FpsTracer$FrameCollectItem, T] */
-        private final void doReplayInner(String str, long j2, long j3, int i2, boolean z, long j4, long j5, long j6) {
+        private final void doReplayInner(String str, long j, long j2, int i, boolean z, long j3, long j4, long j5) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) && !TextUtils.isEmpty(str) && z) {
+            if ((interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) && !TextUtils.isEmpty(str) && z) {
                 Ref.ObjectRef objectRef = new Ref.ObjectRef();
                 FrameCollectItem frameCollectItem = this.collectMap.get(this.scene);
                 objectRef.element = frameCollectItem;
@@ -182,7 +182,7 @@ public final class FpsTracer extends Tracer {
                     objectRef.element = frameCollectItem2;
                     this.collectMap.put(this.scene, (FrameCollectItem) frameCollectItem2);
                 }
-                ((FrameCollectItem) objectRef.element).collect(i2);
+                ((FrameCollectItem) objectRef.element).collect(i);
                 if (((FrameCollectItem) objectRef.element).getSumFrameCost() >= this.this$0.timeSliceMs) {
                     this.collectMap.remove(this.scene);
                     if (AppConfig.isDebug()) {
@@ -261,9 +261,9 @@ public final class FpsTracer extends Tracer {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fpsTracer, from, page, type, scene, topPage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -323,7 +323,7 @@ public final class FpsTracer extends Tracer {
                 if (network != null) {
                     jSONObject3.put("network", network);
                 }
-                jSONObject3.put("nettype", NetWorkUtils.getNetworkClass());
+                jSONObject3.put(FpsTracer.UBC_KEY_NET_TYPE, NetWorkUtils.getNetworkClass());
                 jSONObject3.put(FpsTracer.UBC_KEY_TOP_VIEW, str4);
                 jSONObject3.put(FpsTracer.UBC_KEY_FLUENCY, jSONObject);
                 jSONObject2.put("ext", jSONObject3);
@@ -331,46 +331,46 @@ public final class FpsTracer extends Tracer {
             }
         }
 
-        public final void collect(int i2) {
+        public final void collect(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.sumFrameCost += (i2 + 1) * this.frameIntervalCost;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.sumFrameCost += (i + 1) * this.frameIntervalCost;
                 this.sumFrames++;
-                if (i2 >= 40) {
+                if (i >= 40) {
                     int[] iArr = this.dropLevel;
                     int index = DropLevel.DROPPED_FROZEN.getIndex();
                     iArr[index] = iArr[index] + 1;
                     int[] iArr2 = this.dropSum;
                     int index2 = DropLevel.DROPPED_FROZEN.getIndex();
-                    iArr2[index2] = iArr2[index2] + i2;
-                } else if (i2 >= 25) {
+                    iArr2[index2] = iArr2[index2] + i;
+                } else if (i >= 25) {
                     int[] iArr3 = this.dropLevel;
                     int index3 = DropLevel.DROPPED_HIGH.getIndex();
                     iArr3[index3] = iArr3[index3] + 1;
                     int[] iArr4 = this.dropSum;
                     int index4 = DropLevel.DROPPED_HIGH.getIndex();
-                    iArr4[index4] = iArr4[index4] + i2;
-                } else if (i2 >= 10) {
+                    iArr4[index4] = iArr4[index4] + i;
+                } else if (i >= 10) {
                     int[] iArr5 = this.dropLevel;
                     int index5 = DropLevel.DROPPED_MIDDLE.getIndex();
                     iArr5[index5] = iArr5[index5] + 1;
                     int[] iArr6 = this.dropSum;
                     int index6 = DropLevel.DROPPED_MIDDLE.getIndex();
-                    iArr6[index6] = iArr6[index6] + i2;
-                } else if (i2 >= 3) {
+                    iArr6[index6] = iArr6[index6] + i;
+                } else if (i >= 3) {
                     int[] iArr7 = this.dropLevel;
                     int index7 = DropLevel.DROPPED_NORMAL.getIndex();
                     iArr7[index7] = iArr7[index7] + 1;
                     int[] iArr8 = this.dropSum;
                     int index8 = DropLevel.DROPPED_NORMAL.getIndex();
-                    iArr8[index8] = iArr8[index8] + i2;
+                    iArr8[index8] = iArr8[index8] + i;
                 } else {
                     int[] iArr9 = this.dropLevel;
                     int index9 = DropLevel.DROPPED_BEST.getIndex();
                     iArr9[index9] = iArr9[index9] + 1;
                     int[] iArr10 = this.dropSum;
                     int index10 = DropLevel.DROPPED_BEST.getIndex();
-                    iArr10[index10] = iArr10[index10] + Math.max(i2, 0);
+                    iArr10[index10] = iArr10[index10] + Math.max(i, 0);
                 }
             }
         }
@@ -481,9 +481,9 @@ public final class FpsTracer extends Tracer {
             newInitContext.initArgs = r2;
             Object[] objArr = {config};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -545,23 +545,23 @@ public final class FpsTracer extends Tracer {
         return (File) invokeV.objValue;
     }
 
-    private final void notifyListener(final String str, final long j2, final long j3, final boolean z, final long j4, final long j5, final long j6) {
+    private final void notifyListener(final String str, final long j, final long j2, final boolean z, final long j3, final long j4, final long j5) {
         FpsTracer fpsTracer;
         long currentTimeMillis;
         HashSet<FrameRateListener> hashSet;
         Iterator<FrameRateListener> it;
-        final int i2;
+        final int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) != null) {
+        if (interceptable != null && interceptable.invokeCommon(65545, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) != null) {
             return;
         }
         FpsTracer fpsTracer2 = this;
         long currentTimeMillis2 = System.currentTimeMillis();
-        long j7 = j3 - j2;
+        long j6 = j2 - j;
         try {
-            int i3 = (int) (j7 / fpsTracer2.frameIntervalNs);
-            fpsTracer2.droppedSum += i3;
-            fpsTracer2.durationSum += Math.max(j7, fpsTracer2.frameIntervalNs);
+            int i2 = (int) (j6 / fpsTracer2.frameIntervalNs);
+            fpsTracer2.droppedSum += i2;
+            fpsTracer2.durationSum += Math.max(j6, fpsTracer2.frameIntervalNs);
             HashSet<FrameRateListener> hashSet2 = fpsTracer2.listeners;
             synchronized (hashSet2) {
                 try {
@@ -571,10 +571,10 @@ public final class FpsTracer extends Tracer {
                             final FrameRateListener next = it2.next();
                             if (next.getExecutor() != null) {
                                 if (next.getIntervalFrameReplay() > 0) {
-                                    i2 = i3;
+                                    i = i2;
                                     hashSet = hashSet2;
                                     try {
-                                        next.collect(str, j2, j3, i3, z, j4, j5, j6);
+                                        next.collect(str, j, j2, i2, z, j3, j4, j5);
                                         it = it2;
                                     } catch (Throwable th) {
                                         th = th;
@@ -591,13 +591,13 @@ public final class FpsTracer extends Tracer {
                                         }
                                     }
                                 } else {
-                                    i2 = i3;
+                                    i = i2;
                                     hashSet = hashSet2;
                                     try {
                                         Executor executor = next.getExecutor();
                                         Intrinsics.checkNotNull(executor);
                                         it = it2;
-                                        executor.execute(new Runnable(next, this, str, j2, j3, i2, z, j4, j5, j6) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
+                                        executor.execute(new Runnable(next, this, str, j, j2, i, z, j3, j4, j5) { // from class: com.baidu.searchbox.fluency.tracer.FpsTracer$notifyListener$$inlined$synchronized$lambda$1
                                             public static /* synthetic */ Interceptable $ic;
                                             public final /* synthetic */ long $animationCostNs$inlined;
                                             public final /* synthetic */ int $dropFrame$inlined;
@@ -616,11 +616,11 @@ public final class FpsTracer extends Tracer {
                                                 if (interceptable2 != null) {
                                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                                     newInitContext.initArgs = r4;
-                                                    Object[] objArr = {next, this, str, Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+                                                    Object[] objArr = {next, this, str, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)};
                                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                                    int i4 = newInitContext.flag;
-                                                    if ((i4 & 1) != 0) {
-                                                        int i5 = i4 & 2;
+                                                    int i3 = newInitContext.flag;
+                                                    if ((i3 & 1) != 0) {
+                                                        int i4 = i3 & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable2.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -629,13 +629,13 @@ public final class FpsTracer extends Tracer {
                                                 this.$listener = next;
                                                 this.this$0 = this;
                                                 this.$scene$inlined = str;
-                                                this.$startNs$inlined = j2;
-                                                this.$endNs$inlined = j3;
-                                                this.$dropFrame$inlined = i2;
+                                                this.$startNs$inlined = j;
+                                                this.$endNs$inlined = j2;
+                                                this.$dropFrame$inlined = i;
                                                 this.$isVsyncFrame$inlined = z;
-                                                this.$inputCostNs$inlined = j4;
-                                                this.$animationCostNs$inlined = j5;
-                                                this.$traversalCostNs$inlined = j6;
+                                                this.$inputCostNs$inlined = j3;
+                                                this.$animationCostNs$inlined = j4;
+                                                this.$traversalCostNs$inlined = j5;
                                             }
 
                                             @Override // java.lang.Runnable
@@ -654,12 +654,12 @@ public final class FpsTracer extends Tracer {
                                 }
                             } else {
                                 it = it2;
-                                i2 = i3;
+                                i = i2;
                                 hashSet = hashSet2;
-                                next.doFrameSync(str, j2, j3, i2, z, j4, j5, j6);
+                                next.doFrameSync(str, j, j2, i, z, j3, j4, j5);
                             }
                             fpsTracer2 = this;
-                            i3 = i2;
+                            i2 = i;
                             hashSet2 = hashSet;
                             it2 = it;
                         } catch (Throwable th4) {
@@ -735,12 +735,12 @@ public final class FpsTracer extends Tracer {
     }
 
     @Override // com.baidu.searchbox.fluency.core.FrameRefreshMonitor.FrameRefreshObserver
-    public void doFrame(String scene, long j2, long j3, boolean z, long j4, long j5, long j6) {
+    public void doFrame(String scene, long j, long j2, boolean z, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{scene, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{scene, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             if (BdBoxActivityManager.isForeground()) {
-                notifyListener(scene, j2, j3, z, j4, j5, j6);
+                notifyListener(scene, j, j2, z, j3, j4, j5);
             }
         }
     }

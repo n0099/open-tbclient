@@ -3,6 +3,7 @@ package com.baidu.titan.sdk.loader;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.common.TitanConstant;
 import com.baidu.titan.sdk.initer.TitanIniter;
 import com.baidu.titan.sdk.internal.util.Closes;
@@ -154,7 +155,8 @@ public class LoaderManager {
             }
             loaderTimeStat.apply = System.currentTimeMillis() - currentTimeMillis7;
             return 0;
-        } catch (Throwable unused) {
+        } catch (Throwable th) {
+            Log.e("LoaderManager", "[load] uncatched exception", th);
             return -5;
         }
     }
@@ -162,7 +164,7 @@ public class LoaderManager {
     private void setInterceptorDelegate(final PatchClassInfo patchClassInfo) {
         ClassClinitInterceptorStorage.$ic = new ClassClinitInterceptorDelegate() { // from class: com.baidu.titan.sdk.loader.LoaderManager.2
             @Override // com.baidu.titan.sdk.runtime.ClassClinitInterceptorDelegate
-            public boolean waitLoad(int i2, String str) {
+            public boolean waitLoad(int i, String str) {
                 if (patchClassInfo.lazyClassNames.contains(str)) {
                     LoaderManager.this.waitLoad();
                     return false;

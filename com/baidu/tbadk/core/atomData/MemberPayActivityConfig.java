@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MemberPayActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FROM = "from";
@@ -52,24 +52,24 @@ public class MemberPayActivityConfig extends IntentConfig {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2) {
+    public MemberPayActivityConfig(Context context, int i) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra("member_type", i);
     }
 
     public void setClose(boolean z) {
@@ -79,18 +79,18 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
     }
 
-    public void setFrom(int i2) {
+    public void setFrom(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || i <= 0) {
             return;
         }
-        getIntent().putExtra("from", i2);
+        getIntent().putExtra("from", i);
     }
 
-    public void setFromScence(int i2) {
+    public void setFromScence(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            getIntent().putExtra("from_scene", i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            getIntent().putExtra(FROM_SCENE, i);
         }
     }
 
@@ -122,112 +122,112 @@ public class MemberPayActivityConfig extends IntentConfig {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2, boolean z, int i3) {
+    public MemberPayActivityConfig(Context context, int i, boolean z, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(IntentConfig.CLOSE, z);
-        getIntent().putExtra("from", i3);
+        getIntent().putExtra("from", i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2, boolean z, int i3, int i4) {
+    public MemberPayActivityConfig(Context context, int i, boolean z, int i2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65541, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra(IntentConfig.CLOSE, z);
-        getIntent().putExtra("from", i3);
-        getIntent().putExtra("from_scene", i4);
+        getIntent().putExtra("from", i2);
+        getIntent().putExtra(FROM_SCENE, i3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2, String str, int i3) {
+    public MemberPayActivityConfig(Context context, int i, String str, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, Integer.valueOf(i3)};
+            Object[] objArr = {context, Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i3);
+        getIntent().putExtra("from", i2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2, String str, int i3, int i4, String str2) {
+    public MemberPayActivityConfig(Context context, int i, String str, int i2, int i3, String str2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), str, Integer.valueOf(i3), Integer.valueOf(i4), str2};
+            Object[] objArr = {context, Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
+        getIntent().putExtra("member_type", i);
         getIntent().putExtra("st_type", str);
-        getIntent().putExtra("from", i3);
+        getIntent().putExtra("from", i2);
         getIntent().putExtra("scene_id", str2);
-        getIntent().putExtra("pay_type", i4);
+        getIntent().putExtra("pay_type", i3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, boolean z, int i2, String str) {
+    public MemberPayActivityConfig(Context context, boolean z, int i, String str) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2), str};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), str};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65542, newInitContext);
@@ -239,22 +239,22 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
         if (z) {
             setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(i2);
+            setRequestCode(i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, boolean z, int i2, String str, int i3) {
+    public MemberPayActivityConfig(Context context, boolean z, int i, String str, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2), str, Integer.valueOf(i3)};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), str, Integer.valueOf(i2)};
             interceptable.invokeUnInit(65543, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65543, newInitContext);
@@ -266,33 +266,33 @@ public class MemberPayActivityConfig extends IntentConfig {
         }
         if (z) {
             setIntentAction(IntentAction.ActivityForResult);
-            setRequestCode(i2);
+            setRequestCode(i);
         }
-        if (i3 > 0) {
-            getIntent().putExtra("from", i3);
+        if (i2 > 0) {
+            getIntent().putExtra("from", i2);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MemberPayActivityConfig(Context context, int i2, int i3, int i4) {
+    public MemberPayActivityConfig(Context context, int i, int i2, int i3) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        getIntent().putExtra("member_type", i2);
-        getIntent().putExtra(IS_WRITE, i4);
-        getIntent().putExtra("from", i3);
+        getIntent().putExtra("member_type", i);
+        getIntent().putExtra(IS_WRITE, i3);
+        getIntent().putExtra("from", i2);
     }
 }

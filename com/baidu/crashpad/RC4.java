@@ -1,12 +1,13 @@
 package com.baidu.crashpad;
 
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RC4 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOGTAG = "RC4 CRASHPAD";
@@ -24,9 +25,9 @@ public class RC4 {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,25 +36,25 @@ public class RC4 {
         this.workingKey = str.getBytes();
     }
 
-    private void processBytes(byte[] bArr, int i2, int i3, byte[] bArr2, int i4) {
+    private void processBytes(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2, Integer.valueOf(i4)}) == null) {
-            int i5 = i2 + i3;
-            if (i5 > bArr.length) {
-                String str = "input buffer too short, buffer length=" + bArr.length + ", input length=" + i5;
-            } else if (i4 + i3 > bArr2.length) {
-                String str2 = "output buffer too short, buffer length=" + bArr.length + ", output length=" + i5;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i4 = i + i2;
+            if (i4 > bArr.length) {
+                Log.e(LOGTAG, "input buffer too short, buffer length=" + bArr.length + ", input length=" + i4);
+            } else if (i3 + i2 > bArr2.length) {
+                Log.e(LOGTAG, "output buffer too short, buffer length=" + bArr.length + ", output length=" + i4);
             } else {
-                for (int i6 = 0; i6 < i3; i6++) {
-                    int i7 = (this.x + 1) & 255;
-                    this.x = i7;
+                for (int i5 = 0; i5 < i2; i5++) {
+                    int i6 = (this.x + 1) & 255;
+                    this.x = i6;
                     byte[] bArr3 = this.engineState;
-                    int i8 = (bArr3[i7] + this.y) & 255;
-                    this.y = i8;
-                    byte b2 = bArr3[i7];
-                    bArr3[i7] = bArr3[i8];
-                    bArr3[i8] = b2;
-                    bArr2[i6 + i4] = (byte) (bArr3[(bArr3[i7] + bArr3[i8]) & 255] ^ bArr[i6 + i2]);
+                    int i7 = (bArr3[i6] + this.y) & 255;
+                    this.y = i7;
+                    byte b2 = bArr3[i6];
+                    bArr3[i6] = bArr3[i7];
+                    bArr3[i7] = b2;
+                    bArr2[i5 + i3] = (byte) (bArr3[(bArr3[i6] + bArr3[i7]) & 255] ^ bArr[i5 + i]);
                 }
             }
         }
@@ -74,18 +75,18 @@ public class RC4 {
             if (this.engineState == null) {
                 this.engineState = new byte[256];
             }
-            for (int i2 = 0; i2 < 256; i2++) {
-                this.engineState[i2] = (byte) i2;
+            for (int i = 0; i < 256; i++) {
+                this.engineState[i] = (byte) i;
             }
+            int i2 = 0;
             int i3 = 0;
-            int i4 = 0;
-            for (int i5 = 0; i5 < 256; i5++) {
+            for (int i4 = 0; i4 < 256; i4++) {
                 byte[] bArr2 = this.engineState;
-                i4 = ((bArr[i3] & 255) + bArr2[i5] + i4) & 255;
-                byte b2 = bArr2[i5];
-                bArr2[i5] = bArr2[i4];
-                bArr2[i4] = b2;
-                i3 = (i3 + 1) % bArr.length;
+                i3 = ((bArr[i2] & 255) + bArr2[i4] + i3) & 255;
+                byte b2 = bArr2[i4];
+                bArr2[i4] = bArr2[i3];
+                bArr2[i3] = b2;
+                i2 = (i2 + 1) % bArr.length;
             }
         }
     }

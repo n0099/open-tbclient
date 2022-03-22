@@ -2,6 +2,7 @@ package com.google.android.exoplayer2.text.subrip;
 
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,7 +18,7 @@ import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SubripDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SUBRIP_TIMECODE = "(?:(\\d+):)?(\\d+):(\\d+),(\\d+)";
@@ -49,9 +50,9 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -61,21 +62,21 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
         this.textBuilder = new StringBuilder();
     }
 
-    public static long parseTimecode(Matcher matcher, int i2) {
+    public static long parseTimecode(Matcher matcher, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i2)) == null) ? ((Long.parseLong(matcher.group(i2 + 1)) * 60 * 60 * 1000) + (Long.parseLong(matcher.group(i2 + 2)) * 60 * 1000) + (Long.parseLong(matcher.group(i2 + 3)) * 1000) + Long.parseLong(matcher.group(i2 + 4))) * 1000 : invokeLI.longValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) ? ((Long.parseLong(matcher.group(i + 1)) * 60 * 60 * 1000) + (Long.parseLong(matcher.group(i + 2)) * 60 * 1000) + (Long.parseLong(matcher.group(i + 3)) * 1000) + Long.parseLong(matcher.group(i + 4))) * 1000 : invokeLI.longValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
-    public SubripSubtitle decode(byte[] bArr, int i2, boolean z) {
+    public SubripSubtitle decode(byte[] bArr, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             ArrayList arrayList = new ArrayList();
             LongArray longArray = new LongArray();
-            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i2);
+            ParsableByteArray parsableByteArray = new ParsableByteArray(bArr, i);
             while (true) {
                 String readLine = parsableByteArray.readLine();
                 if (readLine == null) {
@@ -85,6 +86,7 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
                         Integer.parseInt(readLine);
                         String readLine2 = parsableByteArray.readLine();
                         if (readLine2 == null) {
+                            Log.w(TAG, "Unexpected end");
                             break;
                         }
                         Matcher matcher = SUBRIP_TIMING_LINE.matcher(readLine2);
@@ -112,10 +114,10 @@ public final class SubripDecoder extends SimpleSubtitleDecoder {
                                 arrayList.add(null);
                             }
                         } else {
-                            String str = "Skipping invalid timing: " + readLine2;
+                            Log.w(TAG, "Skipping invalid timing: " + readLine2);
                         }
                     } catch (NumberFormatException unused) {
-                        String str2 = "Skipping invalid index: " + readLine;
+                        Log.w(TAG, "Skipping invalid index: " + readLine);
                     }
                 }
             }

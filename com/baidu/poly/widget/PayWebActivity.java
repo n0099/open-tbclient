@@ -19,8 +19,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.lbspay.view.PayChannelController;
 import com.baidu.mytransformapp.util.LogUtil;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.R;
@@ -49,9 +49,7 @@ public class PayWebActivity extends Activity {
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PayWebActivity f36448e;
+        public final /* synthetic */ PayWebActivity a;
 
         public a(PayWebActivity payWebActivity) {
             Interceptable interceptable = $ic;
@@ -60,23 +58,23 @@ public class PayWebActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payWebActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f36448e = payWebActivity;
+            this.a = payWebActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f36448e.setResult(0);
-                this.f36448e.finish();
+                this.a.setResult(0);
+                this.a.finish();
             }
         }
     }
@@ -86,9 +84,9 @@ public class PayWebActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -104,7 +102,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith(URL_CLOSE_WINDOW)) {
-                c.a.f0.g.b.g(119102, "3", PayChannelController.WXPAY_PAYCHANNEL, "-105", "调起微信H5支付失败");
+                c.a.e0.g.b.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -135,10 +133,10 @@ public class PayWebActivity extends Activity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.iv_pay_back);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fe9);
             this.ivBack = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.webView);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092445);
             this.webView = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.webView.setHorizontalScrollBarEnabled(false);
@@ -155,7 +153,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c.a.f0.g.b.g(119103, "4", PayChannelController.WXPAY_PAYCHANNEL, "-106", "取消微信H5支付");
+            c.a.e0.g.b.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -167,7 +165,7 @@ public class PayWebActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activity_pay_web);
+            setContentView(R.layout.obfuscated_res_0x7f0d0048);
             this.jumpedWX = false;
             initLoadUrl();
             initView();
@@ -181,7 +179,7 @@ public class PayWebActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WebView webView = this.webView;
             if (webView != null) {
-                webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, "utf-8", null);
+                webView.loadDataWithBaseURL(null, "", SapiWebView.DATA_MIME_TYPE, IMAudioTransRequest.CHARSET, null);
                 this.webView.clearHistory();
                 ((ViewGroup) this.webView.getParent()).removeView(this.webView);
                 this.webView.destroy();
@@ -218,9 +216,9 @@ public class PayWebActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payWebActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;

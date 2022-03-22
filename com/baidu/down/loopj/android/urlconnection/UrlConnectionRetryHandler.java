@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class UrlConnectionRetryHandler extends BaseRetryHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class UrlConnectionRetryHandler extends BaseRetryHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {jArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((long[]) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -40,35 +40,35 @@ public class UrlConnectionRetryHandler extends BaseRetryHandler {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public boolean retryRequest(IOException iOException, int i2, String str, int i3) {
+    public boolean retryRequest(IOException iOException, int i, String str, int i2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{iOException, Integer.valueOf(i2), str, Integer.valueOf(i3)})) == null) {
-            if (i2 >= 1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{iOException, Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
+            if (i >= 1) {
                 long[] jArr = this.retryIntervals;
-                if (i2 <= jArr.length && i3 <= jArr.length * 3 && !isInList(BaseRetryHandler.exceptionBlacklist, iOException)) {
+                if (i <= jArr.length && i2 <= jArr.length * 3 && !isInList(BaseRetryHandler.exceptionBlacklist, iOException)) {
                     isInList(BaseRetryHandler.exceptionWhitelist, iOException);
                     z = true;
                     if ((iOException instanceof HttpResponseException) || ((HttpResponseException) iOException).getStatusCode() != 412) {
                         if (!z) {
                             try {
-                                long j2 = this.retryIntervals[i2 - 1];
-                                if (j2 > 0) {
+                                long j = this.retryIntervals[i - 1];
+                                if (j > 0) {
                                     if (NetWorkDetector.getInstance().sNeedDetect && !TextUtils.isEmpty(str) && !NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
                                         while (true) {
-                                            long j3 = j2 - 5000;
-                                            if (j3 <= 0) {
+                                            long j2 = j - 5000;
+                                            if (j2 <= 0) {
                                                 break;
                                             }
                                             Thread.sleep(5000L);
                                             if (NetWorkDetector.getInstance().isHostReachableCached(str, 5000L)) {
                                                 return z;
                                             }
-                                            j2 = j3;
+                                            j = j2;
                                         }
                                     }
-                                    Thread.sleep(j2);
+                                    Thread.sleep(j);
                                 }
                             } catch (InterruptedException unused) {
                             }

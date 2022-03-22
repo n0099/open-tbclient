@@ -24,6 +24,6 @@ public class e implements KsAppDownloadListener {
     }
 
     @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i2) {
+    public void onProgressUpdate(int i) {
     }
 }

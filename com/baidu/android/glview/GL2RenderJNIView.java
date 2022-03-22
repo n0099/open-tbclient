@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
@@ -80,34 +81,34 @@ public class GL2RenderJNIView extends GLSurfaceView {
             s_configAttribs2 = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 4, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 4, 12322, 4, 12352, 4, 12344};
         }
 
-        public ConfigChooser(int i2, int i3, int i4, int i5, int i6, int i7) {
+        public ConfigChooser(int i, int i2, int i3, int i4, int i5, int i6) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i8 = newInitContext.flag;
-                if ((i8 & 1) != 0) {
-                    int i9 = i8 & 2;
+                int i7 = newInitContext.flag;
+                if ((i7 & 1) != 0) {
+                    int i8 = i7 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.mValue = new int[1];
-            this.mRedSize = i2;
-            this.mGreenSize = i3;
-            this.mBlueSize = i4;
-            this.mAlphaSize = i5;
-            this.mDepthSize = i6;
-            this.mStencilSize = i7;
+            this.mRedSize = i;
+            this.mGreenSize = i2;
+            this.mBlueSize = i3;
+            this.mAlphaSize = i4;
+            this.mDepthSize = i5;
+            this.mStencilSize = i6;
         }
 
-        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i2, int i3) {
+        private int findConfigAttrib(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig, int i, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, this.mValue) ? this.mValue[0] : i3 : invokeCommon.intValue;
+            return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{egl10, eGLDisplay, eGLConfig, Integer.valueOf(i), Integer.valueOf(i2)})) == null) ? egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i, this.mValue) ? this.mValue[0] : i2 : invokeCommon.intValue;
         }
 
         private void printConfig(EGL10 egl10, EGLDisplay eGLDisplay, EGLConfig eGLConfig) {
@@ -116,12 +117,11 @@ public class GL2RenderJNIView extends GLSurfaceView {
                 int[] iArr = {MonitorType.MONITOR_TYPE_ADD_JAVA_SCRIPT, 12321, 12322, MonitorType.MONITOR_TYPE_INIT_WEBKIT, MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 12325, 12326, 12327, 12328, 12329, 12330, 12331, 12332, 12333, 12334, MonitorType.MONITOR_TYPE_SEARCH_FPS, 12336, 12337, 12338, 12339, 12340, 12343, 12342, 12341, 12345, 12346, 12347, 12348, 12349, 12350, 12351, 12352, 12354};
                 String[] strArr = {"EGL_BUFFER_SIZE", "EGL_ALPHA_SIZE", "EGL_BLUE_SIZE", "EGL_GREEN_SIZE", "EGL_RED_SIZE", "EGL_DEPTH_SIZE", "EGL_STENCIL_SIZE", "EGL_CONFIG_CAVEAT", "EGL_CONFIG_ID", "EGL_LEVEL", "EGL_MAX_PBUFFER_HEIGHT", "EGL_MAX_PBUFFER_PIXELS", "EGL_MAX_PBUFFER_WIDTH", "EGL_NATIVE_RENDERABLE", "EGL_NATIVE_VISUAL_ID", "EGL_NATIVE_VISUAL_TYPE", "EGL_PRESERVED_RESOURCES", "EGL_SAMPLES", "EGL_SAMPLE_BUFFERS", "EGL_SURFACE_TYPE", "EGL_TRANSPARENT_TYPE", "EGL_TRANSPARENT_RED_VALUE", "EGL_TRANSPARENT_GREEN_VALUE", "EGL_TRANSPARENT_BLUE_VALUE", "EGL_BIND_TO_TEXTURE_RGB", "EGL_BIND_TO_TEXTURE_RGBA", "EGL_MIN_SWAP_INTERVAL", "EGL_MAX_SWAP_INTERVAL", "EGL_LUMINANCE_SIZE", "EGL_ALPHA_MASK_SIZE", "EGL_COLOR_BUFFER_TYPE", "EGL_RENDERABLE_TYPE", "EGL_CONFORMANT"};
                 int[] iArr2 = new int[1];
-                for (int i2 = 0; i2 < 33; i2++) {
-                    int i3 = iArr[i2];
-                    String str = strArr[i2];
-                    if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i3, iArr2)) {
-                        String unused = GL2RenderJNIView.TAG;
-                        String.format("  %s: %d\n", str, Integer.valueOf(iArr2[0]));
+                for (int i = 0; i < 33; i++) {
+                    int i2 = iArr[i];
+                    String str = strArr[i];
+                    if (egl10.eglGetConfigAttrib(eGLDisplay, eGLConfig, i2, iArr2)) {
+                        Log.w(GL2RenderJNIView.TAG, String.format("  %s: %d\n", str, Integer.valueOf(iArr2[0])));
                     } else {
                         do {
                         } while (egl10.eglGetError() != 12288);
@@ -134,12 +134,10 @@ public class GL2RenderJNIView extends GLSurfaceView {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, this, egl10, eGLDisplay, eGLConfigArr) == null) {
                 int length = eGLConfigArr.length;
-                String unused = GL2RenderJNIView.TAG;
-                String.format("%d configurations", Integer.valueOf(length));
-                for (int i2 = 0; i2 < length; i2++) {
-                    String unused2 = GL2RenderJNIView.TAG;
-                    String.format("Configuration %d:\n", Integer.valueOf(i2));
-                    printConfig(egl10, eGLDisplay, eGLConfigArr[i2]);
+                Log.w(GL2RenderJNIView.TAG, String.format("%d configurations", Integer.valueOf(length)));
+                for (int i = 0; i < length; i++) {
+                    Log.w(GL2RenderJNIView.TAG, String.format("Configuration %d:\n", Integer.valueOf(i)));
+                    printConfig(egl10, eGLDisplay, eGLConfigArr[i]);
                 }
             }
         }
@@ -151,10 +149,10 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, egl10, eGLDisplay)) == null) {
                 int[] iArr = new int[1];
                 egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, null, 0, iArr);
-                int i2 = iArr[0];
-                if (i2 > 0) {
-                    EGLConfig[] eGLConfigArr = new EGLConfig[i2];
-                    egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, eGLConfigArr, i2, iArr);
+                int i = iArr[0];
+                if (i > 0) {
+                    EGLConfig[] eGLConfigArr = new EGLConfig[i];
+                    egl10.eglChooseConfig(eGLDisplay, s_configAttribs2, eGLConfigArr, i, iArr);
                     return chooseConfig(egl10, eGLDisplay, eGLConfigArr);
                 }
                 throw new IllegalArgumentException("No configs match configSpec");
@@ -211,9 +209,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -229,7 +227,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
             InterceptResult invokeLLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, egl10, eGLDisplay, eGLConfig)) == null) {
-                String unused = GL2RenderJNIView.TAG;
+                Log.w(GL2RenderJNIView.TAG, "creating OpenGL ES 2.0 context");
                 GL2RenderJNIView.checkEglError("Before eglCreateContext", egl10);
                 EGLContext eglCreateContext = egl10.eglCreateContext(eGLDisplay, eGLConfig, EGL10.EGL_NO_CONTEXT, new int[]{EGL_CONTEXT_CLIENT_VERSION, 2, 12344});
                 GL2RenderJNIView.checkEglError("After eglCreateContext", egl10);
@@ -265,9 +263,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {gL2RenderJNIView, gL2RenderJNIView2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -291,8 +289,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
                     gL2RenderJNIView.mSurfaceTexture.updateTexImage();
                     this.this$0.mSurfaceTexture.getTransformMatrix(this.mSTMatrix);
                     GLES20.glUniformMatrix4fv(GL2JNILib.getSTMatrixHandle(this.m_hRender), 1, false, this.mSTMatrix, 0);
-                    String unused = GL2RenderJNIView.TAG;
-                    String.format("%s%d\n", "start ondraw frame", Integer.valueOf(this.this$0.mSurfaceTexID));
+                    Log.w(GL2RenderJNIView.TAG, String.format("%s%d\n", "start ondraw frame", Integer.valueOf(this.this$0.mSurfaceTexID)));
                 }
                 GL2JNILib.render(this.m_hRender);
             }
@@ -302,18 +299,17 @@ public class GL2RenderJNIView extends GLSurfaceView {
         public void onFrameAvailable(SurfaceTexture surfaceTexture) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture) == null) {
-                String unused = GL2RenderJNIView.TAG;
-                String.format("onFrameAvailable:=======\n", new Object[0]);
+                Log.i(GL2RenderJNIView.TAG, String.format("onFrameAvailable:=======\n", new Object[0]));
                 this.mUpdateSurfaceTex = true;
                 this.m_SurfaceView.requestRender();
             }
         }
 
         @Override // android.opengl.GLSurfaceView.Renderer
-        public void onSurfaceChanged(GL10 gl10, int i2, int i3) {
+        public void onSurfaceChanged(GL10 gl10, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, gl10, i2, i3) == null) {
-                GL2JNILib.setviewport(this.m_hRender, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, gl10, i, i2) == null) {
+                GL2JNILib.setviewport(this.m_hRender, i, i2);
                 GL2JNILib.ratio(this.m_hRender, this.this$0.mAspectRatio);
                 GL2JNILib.stretch(this.m_hRender, this.this$0.mScaleMode);
             }
@@ -328,10 +324,10 @@ public class GL2RenderJNIView extends GLSurfaceView {
             }
         }
 
-        public void setSurfaceTexture(Surface surface, int i2) {
+        public void setSurfaceTexture(Surface surface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, surface, i2) == null) {
-                GL2JNILib.setSurfaceTex(this.m_hRender, surface, i2);
+            if (interceptable == null || interceptable.invokeLI(1048580, this, surface, i) == null) {
+                GL2JNILib.setSurfaceTex(this.m_hRender, surface, i);
             }
         }
     }
@@ -360,9 +356,9 @@ public class GL2RenderJNIView extends GLSurfaceView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -377,17 +373,17 @@ public class GL2RenderJNIView extends GLSurfaceView {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public GL2RenderJNIView(Context context, boolean z, int i2, int i3) {
+    public GL2RenderJNIView(Context context, boolean z, int i, int i2) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
@@ -398,7 +394,7 @@ public class GL2RenderJNIView extends GLSurfaceView {
         this.mScaleMode = 1;
         this.mfixed = false;
         this.mloaded = false;
-        init(z, i2, i3);
+        init(z, i, i2);
     }
 
     public static void checkEglError(String str, EGL10 egl10) {
@@ -411,18 +407,18 @@ public class GL2RenderJNIView extends GLSurfaceView {
             if (eglGetError == 12288) {
                 return;
             }
-            String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError));
+            Log.e(TAG, String.format("%s: EGL error: 0x%x", str, Integer.valueOf(eglGetError)));
         }
     }
 
-    private void init(boolean z, int i2, int i3) {
+    private void init(boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             if (z) {
                 getHolder().setFormat(-3);
             }
             setEGLContextFactory(new ContextFactory(null));
-            setEGLConfigChooser(!z ? new ConfigChooser(8, 8, 8, 8, i2, i3) : new ConfigChooser(5, 6, 5, 0, i2, i3));
+            setEGLConfigChooser(!z ? new ConfigChooser(8, 8, 8, 8, i, i2) : new ConfigChooser(5, 6, 5, 0, i, i2));
             Renderer renderer = new Renderer(this, this);
             this.mRender = renderer;
             setRenderer(renderer);
@@ -464,10 +460,10 @@ public class GL2RenderJNIView extends GLSurfaceView {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mScaleMode : invokeV.intValue;
     }
 
-    public void initSurfaceTex(int i2) {
+    public void initSurfaceTex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mSurfaceTexID = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mSurfaceTexID = i;
             SurfaceTexture surfaceTexture = new SurfaceTexture(this.mSurfaceTexID);
             this.mSurfaceTexture = surfaceTexture;
             surfaceTexture.setOnFrameAvailableListener(this.mRender);
@@ -525,25 +521,25 @@ public class GL2RenderJNIView extends GLSurfaceView {
         }
     }
 
-    public void setRatio(int i2) {
+    public void setRatio(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048585, this, i2) == null) || this.mAspectRatio == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || this.mAspectRatio == i) {
             return;
         }
-        this.mAspectRatio = i2;
+        this.mAspectRatio = i;
         if (this.mloaded) {
-            GL2JNILib.ratio(this.mRender.m_hRender, i2);
+            GL2JNILib.ratio(this.mRender.m_hRender, i);
         }
     }
 
-    public void setStretch(int i2) {
+    public void setStretch(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048586, this, i2) == null) || this.mScaleMode == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048586, this, i) == null) || this.mScaleMode == i) {
             return;
         }
-        this.mScaleMode = i2;
+        this.mScaleMode = i;
         if (this.mloaded) {
-            GL2JNILib.stretch(this.mRender.m_hRender, i2);
+            GL2JNILib.stretch(this.mRender.m_hRender, i);
         }
     }
 }

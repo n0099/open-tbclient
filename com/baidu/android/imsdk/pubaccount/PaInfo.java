@@ -75,9 +75,9 @@ public class PaInfo implements Parcelable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -96,10 +96,10 @@ public class PaInfo implements Parcelable {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
-            public PaInfo[] newArray(int i2) {
+            public PaInfo[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new PaInfo[i2] : (PaInfo[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new PaInfo[i] : (PaInfo[]) invokeI.objValue;
             }
         };
     }
@@ -109,9 +109,9 @@ public class PaInfo implements Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -434,17 +434,17 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setClassType(int i2) {
+    public void setClassType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.classtype = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.classtype = i;
         }
     }
 
-    public void setClassshow(int i2) {
+    public void setClassshow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.classshow = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.classshow = i;
         }
     }
 
@@ -469,17 +469,17 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setDisturb(int i2) {
+    public void setDisturb(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048620, this, i2) == null) {
-            this.disturb = i2;
+        if (interceptable == null || interceptable.invokeI(1048620, this, i) == null) {
+            this.disturb = i;
         }
     }
 
-    public void setHasIdentity(int i2) {
+    public void setHasIdentity(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            this.mHasIdentity = i2;
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            this.mHasIdentity = i;
         }
     }
 
@@ -490,24 +490,24 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setLastRefreshTime(long j2) {
+    public void setLastRefreshTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048623, this, j2) == null) {
-            this.mLastRefreshTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048623, this, j) == null) {
+            this.mLastRefreshTime = j;
         }
     }
 
-    public void setMarkTop(int i2) {
+    public void setMarkTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048624, this, i2) == null) {
-            this.markTop = i2;
+        if (interceptable == null || interceptable.invokeI(1048624, this, i) == null) {
+            this.markTop = i;
         }
     }
 
-    public void setMarkTopTime(long j2) {
+    public void setMarkTopTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048625, this, j2) == null) {
-            this.markTopTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048625, this, j) == null) {
+            this.markTopTime = j;
         }
     }
 
@@ -532,17 +532,17 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setPaId(long j2) {
+    public void setPaId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048629, this, j2) == null) {
-            this.paId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048629, this, j) == null) {
+            this.paId = j;
         }
     }
 
-    public void setRejectMenu(int i2) {
+    public void setRejectMenu(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.mRejectMenu = i2;
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            this.mRejectMenu = i;
         }
     }
 
@@ -560,59 +560,59 @@ public class PaInfo implements Parcelable {
         }
     }
 
-    public void setShield(int i2) {
+    public void setShield(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048633, this, i2) == null) {
-            this.mShield = i2;
+        if (interceptable == null || interceptable.invokeI(1048633, this, i) == null) {
+            this.mShield = i;
         }
     }
 
-    public void setShieldTime(long j2) {
+    public void setShieldTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048634, this, j2) == null) {
-            this.mShieldTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048634, this, j) == null) {
+            this.mShieldTime = j;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            this.status = i;
         }
     }
 
-    public void setSubcribeTime(long j2) {
+    public void setSubcribeTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048636, this, j2) == null) {
-            this.subcribeTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048636, this, j) == null) {
+            this.subcribeTime = j;
         }
     }
 
-    public void setSubscribe(int i2) {
+    public void setSubscribe(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            this.mSubscribe = i2;
+        if (interceptable == null || interceptable.invokeI(1048637, this, i) == null) {
+            this.mSubscribe = i;
         }
     }
 
-    public void setSubsetType(int i2) {
+    public void setSubsetType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048638, this, i2) == null) {
-            this.subsetType = i2;
+        if (interceptable == null || interceptable.invokeI(1048638, this, i) == null) {
+            this.subsetType = i;
         }
     }
 
-    public void setSubtype(int i2) {
+    public void setSubtype(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048639, this, i2) == null) {
-            this.subtype = i2;
+        if (interceptable == null || interceptable.invokeI(1048639, this, i) == null) {
+            this.subtype = i;
         }
     }
 
-    public void setTPL(long j2) {
+    public void setTPL(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048640, this, j2) == null) {
-            this.tpl = j2;
+        if (interceptable == null || interceptable.invokeJ(1048640, this, j) == null) {
+            this.tpl = j;
         }
     }
 
@@ -669,9 +669,9 @@ public class PaInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048647, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048647, this, parcel, i) == null) {
             parcel.writeLong(this.paId);
             parcel.writeString(this.nickName);
             parcel.writeString(this.avatar);

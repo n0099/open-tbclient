@@ -13,6 +13,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kuaishou.weapon.un.w0;
 import com.xiaomi.mipush.sdk.PushMessageHandler;
 import com.xiaomi.push.el;
 import com.xiaomi.push.ev;
@@ -21,23 +22,23 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MessageHandleService extends BaseService {
     public static /* synthetic */ Interceptable $ic;
     public static ConcurrentLinkedQueue<a> a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ExecutorService f51a;
+    public static ExecutorService f27a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public Intent a;
 
         /* renamed from: a  reason: collision with other field name */
-        public PushMessageReceiver f52a;
+        public PushMessageReceiver f28a;
 
         public a(Intent intent, PushMessageReceiver pushMessageReceiver) {
             Interceptable interceptable = $ic;
@@ -46,15 +47,15 @@ public class MessageHandleService extends BaseService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {intent, pushMessageReceiver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f52a = pushMessageReceiver;
+            this.f28a = pushMessageReceiver;
             this.a = intent;
         }
 
@@ -65,10 +66,10 @@ public class MessageHandleService extends BaseService {
         }
 
         /* renamed from: a  reason: collision with other method in class */
-        public PushMessageReceiver m146a() {
+        public PushMessageReceiver m125a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f52a : (PushMessageReceiver) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f28a : (PushMessageReceiver) invokeV.objValue;
         }
     }
 
@@ -86,7 +87,7 @@ public class MessageHandleService extends BaseService {
             }
         }
         a = new ConcurrentLinkedQueue<>();
-        f51a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
+        f27a = new ThreadPoolExecutor(1, 1, 15L, TimeUnit.SECONDS, new LinkedBlockingQueue());
     }
 
     public MessageHandleService() {
@@ -94,9 +95,9 @@ public class MessageHandleService extends BaseService {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -118,7 +119,7 @@ public class MessageHandleService extends BaseService {
             return;
         }
         try {
-            PushMessageReceiver m146a = aVar.m146a();
+            PushMessageReceiver m125a = aVar.m125a();
             Intent a2 = aVar.a();
             int intExtra = a2.getIntExtra(PushMessageHelper.MESSAGE_TYPE, 1);
             if (intExtra == 1) {
@@ -130,25 +131,25 @@ public class MessageHandleService extends BaseService {
                 if (a3 instanceof MiPushMessage) {
                     MiPushMessage miPushMessage = (MiPushMessage) a3;
                     if (!miPushMessage.isArrivedMessage()) {
-                        m146a.onReceiveMessage(context, miPushMessage);
+                        m125a.onReceiveMessage(context, miPushMessage);
                     }
                     if (miPushMessage.getPassThrough() == 1) {
                         el.a(context.getApplicationContext()).a(context.getPackageName(), a2, 2004, (String) null);
                         com.xiaomi.channel.commonutils.logger.b.e("begin execute onReceivePassThroughMessage from " + miPushMessage.getMessageId());
-                        m146a.onReceivePassThroughMessage(context, miPushMessage);
+                        m125a.onReceivePassThroughMessage(context, miPushMessage);
                         return;
                     } else if (!miPushMessage.isNotified()) {
                         com.xiaomi.channel.commonutils.logger.b.e("begin execute onNotificationMessageArrived from " + miPushMessage.getMessageId());
-                        m146a.onNotificationMessageArrived(context, miPushMessage);
+                        m125a.onNotificationMessageArrived(context, miPushMessage);
                         return;
                     } else {
                         if (intExtra2 == 1000) {
                             el.a(context.getApplicationContext()).a(context.getPackageName(), a2, 1007, (String) null);
                         } else {
-                            el.a(context.getApplicationContext()).a(context.getPackageName(), a2, 3007, (String) null);
+                            el.a(context.getApplicationContext()).a(context.getPackageName(), a2, w0.d3, (String) null);
                         }
                         com.xiaomi.channel.commonutils.logger.b.e("begin execute onNotificationMessageClicked from\u3000" + miPushMessage.getMessageId());
-                        m146a.onNotificationMessageClicked(context, miPushMessage);
+                        m125a.onNotificationMessageClicked(context, miPushMessage);
                         return;
                     }
                 } else if (!(a3 instanceof MiPushCommandMessage)) {
@@ -156,11 +157,11 @@ public class MessageHandleService extends BaseService {
                 } else {
                     MiPushCommandMessage miPushCommandMessage = (MiPushCommandMessage) a3;
                     com.xiaomi.channel.commonutils.logger.b.e("begin execute onCommandResult, command=" + miPushCommandMessage.getCommand() + ", resultCode=" + miPushCommandMessage.getResultCode() + ", reason=" + miPushCommandMessage.getReason());
-                    m146a.onCommandResult(context, miPushCommandMessage);
-                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ev.a.f345a)) {
+                    m125a.onCommandResult(context, miPushCommandMessage);
+                    if (!TextUtils.equals(miPushCommandMessage.getCommand(), ev.a.f321a)) {
                         return;
                     }
-                    m146a.onReceiveRegisterResult(context, miPushCommandMessage);
+                    m125a.onReceiveRegisterResult(context, miPushCommandMessage);
                     PushMessageHandler.a(context, miPushCommandMessage);
                     if (miPushCommandMessage.getResultCode() != 0) {
                         return;
@@ -169,18 +170,18 @@ public class MessageHandleService extends BaseService {
             } else if (intExtra != 3) {
                 if (intExtra == 5 && PushMessageHelper.ERROR_TYPE_NEED_PERMISSION.equals(a2.getStringExtra(PushMessageHelper.ERROR_TYPE)) && (stringArrayExtra = a2.getStringArrayExtra("error_message")) != null) {
                     com.xiaomi.channel.commonutils.logger.b.e("begin execute onRequirePermissions, lack of necessary permissions");
-                    m146a.onRequirePermissions(context, stringArrayExtra);
+                    m125a.onRequirePermissions(context, stringArrayExtra);
                     return;
                 }
                 return;
             } else {
                 MiPushCommandMessage miPushCommandMessage2 = (MiPushCommandMessage) a2.getSerializableExtra(PushMessageHelper.KEY_COMMAND);
                 com.xiaomi.channel.commonutils.logger.b.e("(Local) begin execute onCommandResult, command=" + miPushCommandMessage2.getCommand() + ", resultCode=" + miPushCommandMessage2.getResultCode() + ", reason=" + miPushCommandMessage2.getReason());
-                m146a.onCommandResult(context, miPushCommandMessage2);
-                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ev.a.f345a)) {
+                m125a.onCommandResult(context, miPushCommandMessage2);
+                if (!TextUtils.equals(miPushCommandMessage2.getCommand(), ev.a.f321a)) {
                     return;
                 }
-                m146a.onReceiveRegisterResult(context, miPushCommandMessage2);
+                m125a.onReceiveRegisterResult(context, miPushCommandMessage2);
                 PushMessageHandler.a(context, miPushCommandMessage2);
                 if (miPushCommandMessage2.getResultCode() != 0) {
                     return;
@@ -204,10 +205,10 @@ public class MessageHandleService extends BaseService {
 
     public static void b(Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65542, null, context) == null) || f51a.isShutdown()) {
+        if (!(interceptable == null || interceptable.invokeL(65542, null, context) == null) || f27a.isShutdown()) {
             return;
         }
-        f51a.execute(new y(context));
+        f27a.execute(new y(context));
     }
 
     public static void c(Context context) {
@@ -232,7 +233,7 @@ public class MessageHandleService extends BaseService {
 
     @Override // com.xiaomi.mipush.sdk.BaseService
     /* renamed from: a */
-    public boolean mo152a() {
+    public boolean mo131a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -253,10 +254,10 @@ public class MessageHandleService extends BaseService {
     }
 
     @Override // com.xiaomi.mipush.sdk.BaseService, android.app.Service
-    public void onStart(Intent intent, int i2) {
+    public void onStart(Intent intent, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, i2) == null) {
-            super.onStart(intent, i2);
+        if (interceptable == null || interceptable.invokeLI(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, intent, i) == null) {
+            super.onStart(intent, i);
         }
     }
 }

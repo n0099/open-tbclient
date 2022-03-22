@@ -25,16 +25,16 @@ public final class AlignmentPatternFinder {
     public final int startY;
     public final int width;
 
-    public AlignmentPatternFinder(BitMatrix bitMatrix, int i2, int i3, int i4, int i5, float f2, ResultPointCallback resultPointCallback) {
+    public AlignmentPatternFinder(BitMatrix bitMatrix, int i, int i2, int i3, int i4, float f2, ResultPointCallback resultPointCallback) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitMatrix, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Float.valueOf(f2), resultPointCallback};
+            Object[] objArr = {bitMatrix, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2), resultPointCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,19 +42,19 @@ public final class AlignmentPatternFinder {
         }
         this.image = bitMatrix;
         this.possibleCenters = new ArrayList(5);
-        this.startX = i2;
-        this.startY = i3;
-        this.width = i4;
-        this.height = i5;
+        this.startX = i;
+        this.startY = i2;
+        this.width = i3;
+        this.height = i4;
         this.moduleSize = f2;
         this.crossCheckStateCount = new int[3];
         this.resultPointCallback = resultPointCallback;
     }
 
-    public static float centerFromEnd(int[] iArr, int i2) {
+    public static float centerFromEnd(int[] iArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i2)) == null) ? (i2 - iArr[2]) - (iArr[1] / 2.0f) : invokeLI.floatValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, iArr, i)) == null) ? (i - iArr[2]) - (iArr[1] / 2.0f) : invokeLI.floatValue;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x0066, code lost:
@@ -94,33 +94,33 @@ public final class AlignmentPatternFinder {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private float crossCheckVertical(int i2, int i3, int i4, int i5) {
+    private float crossCheckVertical(int i, int i2, int i3, int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i2, i3, i4, i5)) == null) {
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, this, i, i2, i3, i4)) == null) {
             BitMatrix bitMatrix = this.image;
             int height = bitMatrix.getHeight();
             int[] iArr = this.crossCheckStateCount;
             iArr[0] = 0;
             iArr[1] = 0;
             iArr[2] = 0;
-            int i6 = i2;
-            while (i6 >= 0 && bitMatrix.get(i3, i6) && iArr[1] <= i4) {
+            int i5 = i;
+            while (i5 >= 0 && bitMatrix.get(i2, i5) && iArr[1] <= i3) {
                 iArr[1] = iArr[1] + 1;
-                i6--;
+                i5--;
             }
-            if (i6 >= 0 && iArr[1] <= i4) {
-                while (i6 >= 0 && !bitMatrix.get(i3, i6) && iArr[0] <= i4) {
+            if (i5 >= 0 && iArr[1] <= i3) {
+                while (i5 >= 0 && !bitMatrix.get(i2, i5) && iArr[0] <= i3) {
                     iArr[0] = iArr[0] + 1;
-                    i6--;
+                    i5--;
                 }
-                if (iArr[0] > i4) {
+                if (iArr[0] > i3) {
                     return Float.NaN;
                 }
-                int i7 = i2 + 1;
-                while (i7 < height && bitMatrix.get(i3, i7) && iArr[1] <= i4) {
+                int i6 = i + 1;
+                while (i6 < height && bitMatrix.get(i2, i6) && iArr[1] <= i3) {
                     iArr[1] = iArr[1] + 1;
-                    i7++;
+                    i6++;
                 }
             }
             return Float.NaN;
@@ -134,8 +134,8 @@ public final class AlignmentPatternFinder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, iArr)) == null) {
             float f2 = this.moduleSize;
             float f3 = f2 / 2.0f;
-            for (int i2 = 0; i2 < 3; i2++) {
-                if (Math.abs(f2 - iArr[i2]) >= f3) {
+            for (int i = 0; i < 3; i++) {
+                if (Math.abs(f2 - iArr[i]) >= f3) {
                     return false;
                 }
             }
@@ -144,13 +144,13 @@ public final class AlignmentPatternFinder {
         return invokeL.booleanValue;
     }
 
-    private AlignmentPattern handlePossibleCenter(int[] iArr, int i2, int i3) {
+    private AlignmentPattern handlePossibleCenter(int[] iArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iArr, i2, i3)) == null) {
-            int i4 = iArr[0] + iArr[1] + iArr[2];
-            float centerFromEnd = centerFromEnd(iArr, i3);
-            float crossCheckVertical = crossCheckVertical(i2, (int) centerFromEnd, iArr[1] * 2, i4);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, this, iArr, i, i2)) == null) {
+            int i3 = iArr[0] + iArr[1] + iArr[2];
+            float centerFromEnd = centerFromEnd(iArr, i2);
+            float crossCheckVertical = crossCheckVertical(i, (int) centerFromEnd, iArr[1] * 2, i3);
             if (Float.isNaN(crossCheckVertical)) {
                 return null;
             }
@@ -178,44 +178,44 @@ public final class AlignmentPatternFinder {
         AlignmentPattern handlePossibleCenter2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i2 = this.startX;
-            int i3 = this.height;
-            int i4 = this.width + i2;
-            int i5 = this.startY + (i3 / 2);
+            int i = this.startX;
+            int i2 = this.height;
+            int i3 = this.width + i;
+            int i4 = this.startY + (i2 / 2);
             int[] iArr = new int[3];
-            for (int i6 = 0; i6 < i3; i6++) {
-                int i7 = ((i6 & 1) == 0 ? (i6 + 1) / 2 : -((i6 + 1) / 2)) + i5;
+            for (int i5 = 0; i5 < i2; i5++) {
+                int i6 = ((i5 & 1) == 0 ? (i5 + 1) / 2 : -((i5 + 1) / 2)) + i4;
                 iArr[0] = 0;
                 iArr[1] = 0;
                 iArr[2] = 0;
-                int i8 = i2;
-                while (i8 < i4 && !this.image.get(i8, i7)) {
-                    i8++;
+                int i7 = i;
+                while (i7 < i3 && !this.image.get(i7, i6)) {
+                    i7++;
                 }
-                int i9 = 0;
-                while (i8 < i4) {
-                    if (!this.image.get(i8, i7)) {
-                        if (i9 == 1) {
-                            i9++;
+                int i8 = 0;
+                while (i7 < i3) {
+                    if (!this.image.get(i7, i6)) {
+                        if (i8 == 1) {
+                            i8++;
                         }
-                        iArr[i9] = iArr[i9] + 1;
-                    } else if (i9 == 1) {
+                        iArr[i8] = iArr[i8] + 1;
+                    } else if (i8 == 1) {
                         iArr[1] = iArr[1] + 1;
-                    } else if (i9 == 2) {
-                        if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i7, i8)) != null) {
+                    } else if (i8 == 2) {
+                        if (foundPatternCross(iArr) && (handlePossibleCenter2 = handlePossibleCenter(iArr, i6, i7)) != null) {
                             return handlePossibleCenter2;
                         }
                         iArr[0] = iArr[2];
                         iArr[1] = 1;
                         iArr[2] = 0;
-                        i9 = 1;
+                        i8 = 1;
                     } else {
-                        i9++;
-                        iArr[i9] = iArr[i9] + 1;
+                        i8++;
+                        iArr[i8] = iArr[i8] + 1;
                     }
-                    i8++;
+                    i7++;
                 }
-                if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i7, i4)) != null) {
+                if (foundPatternCross(iArr) && (handlePossibleCenter = handlePossibleCenter(iArr, i6, i3)) != null) {
                     return handlePossibleCenter;
                 }
             }

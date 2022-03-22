@@ -11,7 +11,7 @@ import com.tencent.connect.common.BaseApi;
 import com.tencent.open.utils.HttpUtils;
 import com.tencent.open.utils.f;
 import com.tencent.tauth.IUiListener;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UnionInfo extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_GET_UNION_ID = "https://openmobile.qq.com/oauth2.0/me";
@@ -26,9 +26,9 @@ public class UnionInfo extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, qQToken};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,7 +42,7 @@ public class UnionInfo extends BaseApi {
         if (interceptable == null || interceptable.invokeL(1048576, this, iUiListener) == null) {
             Bundle a = a();
             a.putString("unionid", "1");
-            HttpUtils.requestAsync(this.f58993c, f.a(), URL_GET_UNION_ID, a, "GET", new BaseApi.TempRequestListener(this, iUiListener));
+            HttpUtils.requestAsync(this.f43645c, f.a(), URL_GET_UNION_ID, a, "GET", new BaseApi.TempRequestListener(this, iUiListener));
         }
     }
 }

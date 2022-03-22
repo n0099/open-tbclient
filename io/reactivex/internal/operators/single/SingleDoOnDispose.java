@@ -30,7 +30,7 @@ public final class SingleDoOnDispose<T> extends Single<T> {
         public final SingleObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60744d;
+        public Disposable f45353d;
 
         public DoOnDisposeObserver(SingleObserver<? super T> singleObserver, Action action) {
             Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public final class SingleDoOnDispose<T> extends Single<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleObserver, action};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,14 +64,14 @@ public final class SingleDoOnDispose<T> extends Single<T> {
                 Exceptions.throwIfFatal(th);
                 RxJavaPlugins.onError(th);
             }
-            this.f60744d.dispose();
+            this.f45353d.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f60744d.isDisposed() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45353d.isDisposed() : invokeV.booleanValue;
         }
 
         @Override // io.reactivex.SingleObserver
@@ -85,8 +85,8 @@ public final class SingleDoOnDispose<T> extends Single<T> {
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f60744d, disposable)) {
-                this.f60744d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f45353d, disposable)) {
+                this.f45353d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -107,9 +107,9 @@ public final class SingleDoOnDispose<T> extends Single<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {singleSource, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

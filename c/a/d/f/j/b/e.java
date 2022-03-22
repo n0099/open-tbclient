@@ -12,31 +12,27 @@ public class e {
     public long a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f2604b;
+    public long f2146b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2605c;
+    public long f2147c;
 
     /* renamed from: d  reason: collision with root package name */
-    public long f2606d;
+    public long f2148d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2607e;
+    public int f2149e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f2608f;
+    public long f2150f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f2609g;
+    public long f2151g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2610h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f2611i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f2612j;
+    public String f2152h;
+    public int i;
+    public int j;
     public String k;
     public String l;
     public BDHttpDnsResult.ResolveType m;
@@ -58,24 +54,24 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = -1L;
-        this.f2604b = -1L;
-        this.f2605c = -1L;
-        this.f2606d = -1L;
-        this.f2607e = 0;
-        this.f2608f = -1L;
-        this.f2609g = -1L;
-        this.f2610h = "";
-        this.f2611i = -1;
-        this.f2612j = 0;
+        this.f2146b = -1L;
+        this.f2147c = -1L;
+        this.f2148d = -1L;
+        this.f2149e = 0;
+        this.f2150f = -1L;
+        this.f2151g = -1L;
+        this.f2152h = "";
+        this.i = -1;
+        this.j = 0;
         this.k = null;
         this.l = null;
         this.m = null;

@@ -13,20 +13,20 @@ import com.xiaomi.push.du;
 import com.xiaomi.push.fl;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.av;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class fh extends fs {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public fc a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fd f386a;
+    public fd f362a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Thread f387a;
+    public Thread f363a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f388a;
+    public byte[] f364a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public fh(XMPushService xMPushService, fm fmVar) {
@@ -37,9 +37,9 @@ public class fh extends fs {
             newInitContext.initArgs = r2;
             Object[] objArr = {xMPushService, fmVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((XMPushService) objArr2[0], (fm) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -57,11 +57,11 @@ public class fh extends fs {
             if (z) {
                 fgVar.a("1");
             }
-            byte[] m432a = gz.m432a();
-            if (m432a != null) {
+            byte[] m411a = gz.m411a();
+            if (m411a != null) {
                 du.j jVar = new du.j();
-                jVar.a(a.a(m432a));
-                fgVar.a(jVar.m344a(), (String) null);
+                jVar.a(a.a(m411a));
+                fgVar.a(jVar.m323a(), (String) null);
             }
             return fgVar;
         }
@@ -72,10 +72,10 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             try {
-                this.a = new fc(((fs) this).f416a.getInputStream(), this);
-                this.f386a = new fd(((fs) this).f416a.getOutputStream(), this);
-                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f59640b + SmallTailInfo.EMOTION_SUFFIX);
-                this.f387a = fiVar;
+                this.a = new fc(((fs) this).f392a.getInputStream(), this);
+                this.f362a = new fd(((fs) this).f392a.getOutputStream(), this);
+                fi fiVar = new fi(this, "Blob Reader (" + ((fl) this).f44246b + SmallTailInfo.EMOTION_SUFFIX);
+                this.f363a = fiVar;
                 fiVar.start();
             } catch (Exception e2) {
                 throw new fw("Error to init reader and writer", e2);
@@ -89,30 +89,30 @@ public class fh extends fs {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             synchronized (this) {
                 h();
-                this.f386a.a();
+                this.f362a.a();
             }
         }
     }
 
     @Override // com.xiaomi.push.fs
-    public synchronized void a(int i2, Exception exc) {
+    public synchronized void a(int i, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, exc) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, exc) == null) {
             synchronized (this) {
                 if (this.a != null) {
                     this.a.b();
                     this.a = null;
                 }
-                if (this.f386a != null) {
+                if (this.f362a != null) {
                     try {
-                        this.f386a.b();
+                        this.f362a.b();
                     } catch (Exception e2) {
                         com.xiaomi.channel.commonutils.logger.b.a(e2);
                     }
-                    this.f386a = null;
+                    this.f362a = null;
                 }
-                this.f388a = null;
-                super.a(i2, exc);
+                this.f364a = null;
+                super.a(i, exc);
             }
         }
     }
@@ -122,18 +122,18 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, faVar) == null) || faVar == null) {
             return;
         }
-        if (faVar.m368a()) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m372c());
+        if (faVar.m347a()) {
+            com.xiaomi.channel.commonutils.logger.b.m112a("[Slim] RCV blob chid=" + faVar.a() + "; id=" + faVar.e() + "; errCode=" + faVar.b() + "; err=" + faVar.m351c());
         }
         if (faVar.a() == 0) {
-            if ("PING".equals(faVar.m365a())) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] RCV ping id=" + faVar.e());
+            if ("PING".equals(faVar.m344a())) {
+                com.xiaomi.channel.commonutils.logger.b.m112a("[Slim] RCV ping id=" + faVar.e());
                 g();
-            } else if ("CLOSE".equals(faVar.m365a())) {
+            } else if ("CLOSE".equals(faVar.m344a())) {
                 c(13, null);
             }
         }
-        for (fl.a aVar : ((fl) this).f405a.values()) {
+        for (fl.a aVar : ((fl) this).f381a.values()) {
             aVar.a(faVar);
         }
     }
@@ -169,14 +169,14 @@ public class fh extends fs {
 
     @Override // com.xiaomi.push.fs
     /* renamed from: a  reason: collision with other method in class */
-    public void mo378a(boolean z) {
+    public void mo357a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (this.f386a == null) {
+            if (this.f362a == null) {
                 throw new fw("The BlobWriter is null.");
             }
             fa a = a(z);
-            com.xiaomi.channel.commonutils.logger.b.m133a("[Slim] SND ping id=" + a.e());
+            com.xiaomi.channel.commonutils.logger.b.m112a("[Slim] SND ping id=" + a.e());
             b(a);
             f();
         }
@@ -209,11 +209,11 @@ public class fh extends fs {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             synchronized (this) {
-                if (this.f388a == null && !TextUtils.isEmpty(((fl) this).f402a)) {
-                    String m675a = com.xiaomi.push.service.bi.m675a();
-                    this.f388a = com.xiaomi.push.service.be.a(((fl) this).f402a.getBytes(), (((fl) this).f402a.substring(((fl) this).f402a.length() / 2) + m675a.substring(m675a.length() / 2)).getBytes());
+                if (this.f364a == null && !TextUtils.isEmpty(((fl) this).f378a)) {
+                    String m654a = com.xiaomi.push.service.bi.m654a();
+                    this.f364a = com.xiaomi.push.service.be.a(((fl) this).f378a.getBytes(), (((fl) this).f378a.substring(((fl) this).f378a.length() / 2) + m654a.substring(m654a.length() / 2)).getBytes());
                 }
-                bArr = this.f388a;
+                bArr = this.f364a;
             }
             return bArr;
         }
@@ -224,18 +224,18 @@ public class fh extends fs {
     public void b(fa faVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, faVar) == null) {
-            fd fdVar = this.f386a;
+            fd fdVar = this.f362a;
             if (fdVar == null) {
                 throw new fw("the writer is null.");
             }
             try {
                 int a = fdVar.a(faVar);
-                ((fl) this).f59642d = System.currentTimeMillis();
+                ((fl) this).f44248d = System.currentTimeMillis();
                 String f2 = faVar.f();
                 if (!TextUtils.isEmpty(f2)) {
-                    gq.a(((fl) this).f401a, f2, a, false, true, System.currentTimeMillis());
+                    gq.a(((fl) this).f377a, f2, a, false, true, System.currentTimeMillis());
                 }
-                for (fl.a aVar : ((fl) this).f408b.values()) {
+                for (fl.a aVar : ((fl) this).f384b.values()) {
                     aVar.a(faVar);
                 }
             } catch (Exception e2) {
@@ -249,7 +249,7 @@ public class fh extends fs {
         if (!(interceptable == null || interceptable.invokeL(1048587, this, gcVar) == null) || gcVar == null) {
             return;
         }
-        for (fl.a aVar : ((fl) this).f405a.values()) {
+        for (fl.a aVar : ((fl) this).f381a.values()) {
             aVar.a(gcVar);
         }
     }

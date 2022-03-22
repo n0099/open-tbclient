@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class CyberRTCSetting {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class CyberRTCSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class CyberRTCSettingType {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCSettingType CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP;
@@ -90,16 +90,16 @@ public class CyberRTCSetting {
             a = new CyberRTCSettingType[]{CYBER_RTC_AUDIO_PARAM_SETTINGS_ONLY_AUDIO, CYBER_RTC_AUDIO_PARAM_SETTINGS_AEC_DUMP, CYBER_RTC_AUDIO_PARAM_SETTINGS_LEVEL_CONTROL, CYBER_RTC_AUDIO_PARAM_SETTINGS_MANUAL_CONFIG, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_PLAYOUT, CYBER_RTC_AUDIO_PARAM_SETTINGS_EXPORT_RECORD_PLAYOUT_MIX, CYBER_RTC_VIDEO_PARAM_SETTINGS_FPS, CYBER_RTC_VIDEO_PARAM_SETTINGS_RESOLUTION, CYBER_RTC_VIDEO_PARAM_SETTINGS_BITRATE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CODECTYPE, CYBER_RTC_VIDEO_PARAM_SETTINGS_SESSION_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_CAPTURE_MODE, CYBER_RTC_VIDEO_PARAM_SETTINGS_RENDER_MODE, CYBER_RTC_PARAM_SETTINGS_ALL, cyberRTCSettingType};
         }
 
-        public CyberRTCSettingType(String str, int i2) {
+        public CyberRTCSettingType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -124,7 +124,7 @@ public class CyberRTCSetting {
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     @Keep
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static final class CyberRTCVideoRenderMode {
         public static /* synthetic */ Interceptable $ic;
         public static final CyberRTCVideoRenderMode CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL;
@@ -151,16 +151,16 @@ public class CyberRTCSetting {
             a = new CyberRTCVideoRenderMode[]{CYBER_RTC_VIDEO_RENDER_MODE_EXTERNAL, cyberRTCVideoRenderMode};
         }
 
-        public CyberRTCVideoRenderMode(String str, int i2) {
+        public CyberRTCVideoRenderMode(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -188,9 +188,9 @@ public class CyberRTCSetting {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

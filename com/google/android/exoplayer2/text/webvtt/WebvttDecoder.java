@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.text.webvtt.WebvttCue;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WebvttDecoder extends SimpleSubtitleDecoder {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String COMMENT_START = "NOTE";
@@ -37,9 +37,9 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -57,21 +57,21 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, parsableByteArray)) == null) {
-            int i2 = -1;
-            int i3 = 0;
-            while (i2 == -1) {
-                i3 = parsableByteArray.getPosition();
+            int i = -1;
+            int i2 = 0;
+            while (i == -1) {
+                i2 = parsableByteArray.getPosition();
                 String readLine = parsableByteArray.readLine();
                 if (readLine == null) {
-                    i2 = 0;
+                    i = 0;
                 } else if (STYLE_START.equals(readLine)) {
-                    i2 = 2;
+                    i = 2;
                 } else {
-                    i2 = COMMENT_START.startsWith(readLine) ? 1 : 3;
+                    i = COMMENT_START.startsWith(readLine) ? 1 : 3;
                 }
             }
-            parsableByteArray.setPosition(i3);
-            return i2;
+            parsableByteArray.setPosition(i2);
+            return i;
         }
         return invokeL.intValue;
     }
@@ -86,13 +86,13 @@ public final class WebvttDecoder extends SimpleSubtitleDecoder {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.text.SimpleSubtitleDecoder
-    public WebvttSubtitle decode(byte[] bArr, int i2, boolean z) throws SubtitleDecoderException {
+    public WebvttSubtitle decode(byte[] bArr, int i, boolean z) throws SubtitleDecoderException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) != null) {
             return (WebvttSubtitle) invokeCommon.objValue;
         }
-        this.parsableWebvttData.reset(bArr, i2);
+        this.parsableWebvttData.reset(bArr, i);
         this.webvttCueBuilder.reset();
         this.definedStyles.clear();
         WebvttParserUtil.validateWebvttHeaderLine(this.parsableWebvttData);

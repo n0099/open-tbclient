@@ -22,9 +22,9 @@ public class AcceleratorActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,9 +32,9 @@ public class AcceleratorActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
@@ -43,13 +43,13 @@ public class AcceleratorActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.activity_accelerator);
+            setContentView(R.layout.obfuscated_res_0x7f0d0026);
             UtilHelper.changeStatusBarIconAndTextColor(false, this);
             if (getIntent() != null) {
                 Intent intent = getIntent();
                 AcceleratorFragment acceleratorFragment = new AcceleratorFragment();
-                acceleratorFragment.setIntentConfig(intent);
-                getSupportFragmentManager().beginTransaction().add(R.id.main_container, acceleratorFragment).commit();
+                acceleratorFragment.m1(intent);
+                getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f091371, acceleratorFragment).commit();
                 return;
             }
             finish();

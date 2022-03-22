@@ -39,9 +39,9 @@ public final class FloatPrefs {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -69,14 +69,14 @@ public final class FloatPrefs {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i2 = FloatPrefs.Companion.getPrefs().getInt(FloatPrefs.FLOATING_SCALE_MODE, ScaleMode.S.ordinal());
-                if (i2 == ScaleMode.S.ordinal()) {
+                int i = FloatPrefs.Companion.getPrefs().getInt(FloatPrefs.FLOATING_SCALE_MODE, ScaleMode.S.ordinal());
+                if (i == ScaleMode.S.ordinal()) {
                     ScaleMode scaleMode = ScaleMode.S;
                     return new Pair<>(scaleMode, scaleMode);
-                } else if (i2 == ScaleMode.M.ordinal()) {
+                } else if (i == ScaleMode.M.ordinal()) {
                     return new Pair<>(ScaleMode.S, ScaleMode.M);
                 } else {
-                    if (i2 == ScaleMode.L.ordinal()) {
+                    if (i == ScaleMode.L.ordinal()) {
                         return new Pair<>(ScaleMode.M, ScaleMode.L);
                     }
                     ScaleMode scaleMode2 = ScaleMode.S;
@@ -130,9 +130,9 @@ public final class FloatPrefs {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

@@ -23,9 +23,9 @@ public class InternalKernelCallback extends SimpleDuMediaCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {iMessenger};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,10 +37,10 @@ public class InternalKernelCallback extends SimpleDuMediaCallback {
     }
 
     @Override // com.baidu.searchbox.player.callback.SimpleDuMediaCallback, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onBufferingUpdate(int i2) {
+    public void onBufferingUpdate(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mTrigger.onBufferingUpdate(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mTrigger.onBufferingUpdate(i);
         }
     }
 
@@ -53,33 +53,33 @@ public class InternalKernelCallback extends SimpleDuMediaCallback {
     }
 
     @Override // com.baidu.searchbox.player.callback.SimpleDuMediaCallback, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onError(int i2, int i3, @Nullable Object obj) {
+    public boolean onError(int i, int i2, @Nullable Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i2, i3, obj)) == null) {
-            this.mTrigger.onError(i2, i3, obj);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+            this.mTrigger.onError(i, i2, obj);
             return true;
         }
         return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.callback.SimpleDuMediaCallback, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onInfo(int i2, int i3, @Nullable Object obj) {
+    public boolean onInfo(int i, int i2, @Nullable Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i2, i3, obj)) == null) {
-            this.mTrigger.onInfo(i2, i3, obj);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
+            this.mTrigger.onInfo(i, i2, obj);
             return false;
         }
         return invokeIIL.booleanValue;
     }
 
     @Override // com.baidu.searchbox.player.callback.SimpleDuMediaCallback, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public boolean onMediaSourceChanged(int i2, int i3, Object obj) {
+    public boolean onMediaSourceChanged(int i, int i2, Object obj) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i2, i3, obj)) == null) {
-            this.mTrigger.onMediaSourceChanged(i2, i3, obj);
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048580, this, i, i2, obj)) == null) {
+            this.mTrigger.onMediaSourceChanged(i, i2, obj);
             return true;
         }
         return invokeIIL.booleanValue;
@@ -102,10 +102,10 @@ public class InternalKernelCallback extends SimpleDuMediaCallback {
     }
 
     @Override // com.baidu.searchbox.player.callback.SimpleDuMediaCallback, com.baidu.searchbox.player.kernel.IKernelPlayer
-    public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onVideoSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048583, this, i2, i3, i4, i5) == null) {
-            this.mTrigger.onVideoSizeChanged(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
+            this.mTrigger.onVideoSizeChanged(i, i2, i3, i4);
         }
     }
 }

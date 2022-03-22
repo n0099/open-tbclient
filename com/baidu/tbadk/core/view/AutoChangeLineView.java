@@ -30,53 +30,55 @@ import java.util.List;
 public class AutoChangeLineView extends ViewGroup implements View.OnClickListener, View.OnLongClickListener {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: H */
-    public static final int tag_key_data = 2131304906;
+    /* renamed from: D */
+    public static final int obfuscated = 2131304067;
 
-    /* renamed from: I */
-    public static final int tag_key_position = 2131304907;
+    /* renamed from: E */
+    public static final int obfuscated = 2131304068;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> A;
-    public ArrayList<Integer> B;
-    public int C;
-    public c D;
-    public d E;
-    public e F;
-    public f G;
+    public d A;
+    public e B;
+    public f C;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ColorStateList f29958b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public float f29959c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public Drawable f29960d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f38961e;
+    public int f29961e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ColorStateList f38962f;
+    public int f29962f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f38963g;
+    public int f29963g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Drawable f38964h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f38965i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f38966j;
+    public int f29964h;
+    public int i;
+    public int j;
     public int k;
     public int l;
     public int m;
-    public int n;
+    public SelectType n;
     public int o;
     public int p;
     public int q;
-    public SelectType r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public boolean w;
-    public boolean x;
-    public boolean y;
-    public ArrayList<Object> z;
+    public int r;
+    public boolean s;
+    public boolean t;
+    public boolean u;
+    public ArrayList<Object> v;
+    public ArrayList<Integer> w;
+    public ArrayList<Integer> x;
+    public int y;
+    public c z;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes5.dex */
@@ -111,16 +113,16 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             $VALUES = new SelectType[]{NONE, SINGLE, SINGLE_IRREVOCABLY, selectType};
         }
 
-        public SelectType(String str, int i2, int i3) {
+        public SelectType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -129,17 +131,17 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                     return;
                 }
             }
-            this.value = i3;
+            this.value = i2;
         }
 
-        public static SelectType get(int i2) {
+        public static SelectType get(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3) {
-                            if (i2 != 4) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
                                 return NONE;
                             }
                             return MULTI;
@@ -179,9 +181,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 newInitContext.initArgs = r2;
                 Object[] objArr = {autoChangeLineView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -193,36 +195,36 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tbadk.core.view.AutoChangeLineView.b
         /* renamed from: b */
-        public CharSequence a(TextView textView, int i2, String str) {
+        public CharSequence a(TextView textView, int i, String str) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i2, str)) == null) ? str.trim() : (CharSequence) invokeLIL.objValue;
+            return (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, i, str)) == null) ? str.trim() : (CharSequence) invokeLIL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
     public interface b<T> {
-        CharSequence a(TextView textView, int i2, T t);
+        CharSequence a(TextView textView, int i, T t);
     }
 
     /* loaded from: classes5.dex */
     public interface c {
-        void onLabelClick(TextView textView, Object obj, int i2);
+        void a(TextView textView, Object obj, int i);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        boolean a(TextView textView, Object obj, int i2);
+        boolean a(TextView textView, Object obj, int i);
     }
 
     /* loaded from: classes5.dex */
     public interface e {
-        void a(TextView textView, Object obj, boolean z, int i2);
+        void a(TextView textView, Object obj, boolean z, int i);
     }
 
     /* loaded from: classes5.dex */
     public interface f {
-        boolean a(TextView textView, Object obj, boolean z, boolean z2, int i2);
+        boolean a(TextView textView, Object obj, boolean z, boolean z2, int i);
     }
 
     static {
@@ -249,288 +251,276 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f38965i = -2;
-        this.f38966j = -2;
-        this.k = 0;
-        this.w = false;
-        this.x = false;
-        this.z = new ArrayList<>();
-        this.A = new ArrayList<>();
-        this.B = new ArrayList<>();
-        this.f38961e = context;
+        this.f29961e = -2;
+        this.f29962f = -2;
+        this.f29963g = 0;
+        this.s = false;
+        this.t = false;
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
+        this.a = context;
     }
 
-    public final <T> void a(T t, int i2, b<T> bVar) {
+    public final <T> void a(T t, int i, b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, t, i2, bVar) == null) {
-            EMTextView eMTextView = new EMTextView(this.f38961e);
-            eMTextView.setPadding(this.l, this.m, this.n, this.o);
-            eMTextView.setTextSize(0, this.f38963g);
-            eMTextView.setGravity(this.k);
-            eMTextView.setTextColor(this.f38962f);
-            eMTextView.setBackgroundDrawable(this.f38964h.getConstantState().newDrawable());
-            eMTextView.setTag(tag_key_data, t);
-            eMTextView.setTag(tag_key_position, Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, t, i, bVar) == null) {
+            EMTextView eMTextView = new EMTextView(this.a);
+            eMTextView.setPadding(this.f29964h, this.i, this.j, this.k);
+            eMTextView.setTextSize(0, this.f29959c);
+            eMTextView.setGravity(this.f29963g);
+            eMTextView.setTextColor(this.f29958b);
+            eMTextView.setBackgroundDrawable(this.f29960d.getConstantState().newDrawable());
+            eMTextView.setTag(obfuscated, t);
+            eMTextView.setTag(obfuscated, Integer.valueOf(i));
             eMTextView.setOnClickListener(this);
             eMTextView.setOnLongClickListener(this);
-            eMTextView.getPaint().setFakeBoldText(this.x);
-            addView(eMTextView, this.f38965i, this.f38966j);
-            eMTextView.setText(bVar.a(eMTextView, i2, t));
+            eMTextView.getPaint().setFakeBoldText(this.t);
+            addView(eMTextView, this.f29961e, this.f29962f);
+            eMTextView.setText(bVar.a(eMTextView, i, t));
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int childCount = getChildCount();
-            ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                if (!this.B.contains(Integer.valueOf(i2))) {
-                    k((TextView) getChildAt(i2), false);
-                    arrayList.add(Integer.valueOf(i2));
-                }
-            }
-            this.A.removeAll(arrayList);
-        }
-    }
-
-    public final int c(float f2) {
+    public final int b(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f2)) == null) ? (int) TypedValue.applyDimension(1, f2, getResources().getDisplayMetrics()) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) ? (int) TypedValue.applyDimension(1, f2, getResources().getDisplayMetrics()) : invokeF.intValue;
     }
 
-    public void clearAllSelect() {
-        SelectType selectType;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (selectType = this.r) == SelectType.SINGLE_IRREVOCABLY) {
-            return;
-        }
-        if (selectType == SelectType.MULTI && !this.B.isEmpty()) {
-            b();
-        } else {
-            f();
-        }
-    }
-
-    public void clearCompulsorys() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.r == SelectType.MULTI && !this.B.isEmpty()) {
-            this.B.clear();
-            f();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                ((TextView) getChildAt(i2)).setClickable((this.D == null && this.E == null && this.r == SelectType.NONE) ? false : true);
+            for (int i = 0; i < childCount; i++) {
+                ((TextView) getChildAt(i)).setClickable((this.z == null && this.A == null && this.n == SelectType.NONE) ? false : true);
             }
         }
     }
 
     @SuppressLint({"UseCompatLoadingForDrawables"})
-    public final void e(Context context, AttributeSet attributeSet) {
+    public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) || attributeSet == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.isIndicator, R.attr.isTextBold, R.attr.labelBackground, R.attr.labelGravity, R.attr.labelTextColor, R.attr.labelTextHeight, R.attr.labelTextPadding, R.attr.labelTextPaddingBottom, R.attr.labelTextPaddingLeft, R.attr.labelTextPaddingRight, R.attr.labelTextPaddingTop, R.attr.labelTextSize, R.attr.labelTextWidth, R.attr.lineMargin, R.attr.maxColumns, R.attr.maxLines, R.attr.maxSelect, R.attr.minSelect, R.attr.selectType, R.attr.singleLine, R.attr.wordMargin});
-        this.r = SelectType.get(obtainStyledAttributes.getInt(18, 1));
-        this.s = obtainStyledAttributes.getInteger(16, 0);
-        this.t = obtainStyledAttributes.getInteger(17, 0);
-        this.u = obtainStyledAttributes.getInteger(15, 0);
-        this.v = obtainStyledAttributes.getInteger(14, 0);
-        this.y = obtainStyledAttributes.getBoolean(0, false);
-        this.k = obtainStyledAttributes.getInt(3, this.k);
-        this.f38965i = obtainStyledAttributes.getLayoutDimension(12, this.f38965i);
-        this.f38966j = obtainStyledAttributes.getLayoutDimension(5, this.f38966j);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f0402c4, R.attr.obfuscated_res_0x7f0402ce, R.attr.obfuscated_res_0x7f040370, R.attr.obfuscated_res_0x7f040372, R.attr.obfuscated_res_0x7f040374, R.attr.obfuscated_res_0x7f040375, R.attr.obfuscated_res_0x7f040376, R.attr.obfuscated_res_0x7f040377, R.attr.obfuscated_res_0x7f040378, R.attr.obfuscated_res_0x7f040379, R.attr.obfuscated_res_0x7f04037a, R.attr.obfuscated_res_0x7f04037b, R.attr.obfuscated_res_0x7f04037c, R.attr.obfuscated_res_0x7f0403a5, R.attr.obfuscated_res_0x7f04041a, R.attr.obfuscated_res_0x7f040420, R.attr.obfuscated_res_0x7f040421, R.attr.obfuscated_res_0x7f04042d, R.attr.obfuscated_res_0x7f04053d, R.attr.obfuscated_res_0x7f04055f, R.attr.obfuscated_res_0x7f04069d});
+        this.n = SelectType.get(obtainStyledAttributes.getInt(18, 1));
+        this.o = obtainStyledAttributes.getInteger(16, 0);
+        this.p = obtainStyledAttributes.getInteger(17, 0);
+        this.q = obtainStyledAttributes.getInteger(15, 0);
+        this.r = obtainStyledAttributes.getInteger(14, 0);
+        this.u = obtainStyledAttributes.getBoolean(0, false);
+        this.f29963g = obtainStyledAttributes.getInt(3, this.f29963g);
+        this.f29961e = obtainStyledAttributes.getLayoutDimension(12, this.f29961e);
+        this.f29962f = obtainStyledAttributes.getLayoutDimension(5, this.f29962f);
         if (obtainStyledAttributes.hasValue(4)) {
-            this.f38962f = obtainStyledAttributes.getColorStateList(4);
+            this.f29958b = obtainStyledAttributes.getColorStateList(4);
         } else {
-            this.f38962f = ColorStateList.valueOf(-16777216);
+            this.f29958b = ColorStateList.valueOf(-16777216);
         }
-        this.f38963g = obtainStyledAttributes.getDimension(11, l(14.0f));
+        this.f29959c = obtainStyledAttributes.getDimension(11, k(14.0f));
         if (obtainStyledAttributes.hasValue(6)) {
             int dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(6, 0);
-            this.o = dimensionPixelOffset;
-            this.n = dimensionPixelOffset;
-            this.m = dimensionPixelOffset;
-            this.l = dimensionPixelOffset;
+            this.k = dimensionPixelOffset;
+            this.j = dimensionPixelOffset;
+            this.i = dimensionPixelOffset;
+            this.f29964h = dimensionPixelOffset;
         } else {
-            this.l = obtainStyledAttributes.getDimensionPixelOffset(8, c(10.0f));
-            this.m = obtainStyledAttributes.getDimensionPixelOffset(10, c(0.0f));
-            this.n = obtainStyledAttributes.getDimensionPixelOffset(9, c(10.0f));
-            this.o = obtainStyledAttributes.getDimensionPixelOffset(7, c(0.0f));
+            this.f29964h = obtainStyledAttributes.getDimensionPixelOffset(8, b(10.0f));
+            this.i = obtainStyledAttributes.getDimensionPixelOffset(10, b(0.0f));
+            this.j = obtainStyledAttributes.getDimensionPixelOffset(9, b(10.0f));
+            this.k = obtainStyledAttributes.getDimensionPixelOffset(7, b(0.0f));
         }
-        this.q = obtainStyledAttributes.getDimensionPixelOffset(13, c(5.0f));
-        this.p = obtainStyledAttributes.getDimensionPixelOffset(20, c(5.0f));
+        this.m = obtainStyledAttributes.getDimensionPixelOffset(13, b(5.0f));
+        this.l = obtainStyledAttributes.getDimensionPixelOffset(20, b(5.0f));
         if (obtainStyledAttributes.hasValue(2)) {
             int resourceId = obtainStyledAttributes.getResourceId(2, 0);
             if (resourceId != 0) {
-                this.f38964h = getResources().getDrawable(resourceId);
+                this.f29960d = getResources().getDrawable(resourceId);
             } else {
-                this.f38964h = new ColorDrawable(obtainStyledAttributes.getColor(2, 0));
+                this.f29960d = new ColorDrawable(obtainStyledAttributes.getColor(2, 0));
             }
         } else {
-            this.f38964h = getResources().getDrawable(R.drawable.bg_default_tag);
+            this.f29960d = getResources().getDrawable(R.drawable.obfuscated_res_0x7f08026a);
         }
-        this.w = obtainStyledAttributes.getBoolean(19, false);
-        this.x = obtainStyledAttributes.getBoolean(1, false);
+        this.s = obtainStyledAttributes.getBoolean(19, false);
+        this.t = obtainStyledAttributes.getBoolean(1, false);
         obtainStyledAttributes.recycle();
     }
 
-    public final void f() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                k((TextView) getChildAt(i2), false);
+            for (int i = 0; i < childCount; i++) {
+                j((TextView) getChildAt(i), false);
             }
-            this.A.clear();
+            this.w.clear();
         }
     }
 
-    public final void g(int i2, int i3) {
-        int i4;
+    public final void f(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
             int childCount = getChildCount();
-            int size = (View.MeasureSpec.getSize(i2) - getPaddingLeft()) - getPaddingRight();
+            int size = (View.MeasureSpec.getSize(i) - getPaddingLeft()) - getPaddingRight();
+            int i4 = 0;
             int i5 = 0;
             int i6 = 0;
             int i7 = 0;
             int i8 = 0;
-            int i9 = 0;
-            int i10 = 1;
-            for (int i11 = 0; i11 < childCount; i11++) {
-                View childAt = getChildAt(i11);
-                measureChild(childAt, i2, i3);
-                if (childAt.getMeasuredWidth() + i5 > size || ((i4 = this.v) > 0 && i6 == i4)) {
-                    i10++;
-                    int i12 = this.u;
-                    if (i12 > 0 && i10 > i12) {
-                        i10--;
+            int i9 = 1;
+            for (int i10 = 0; i10 < childCount; i10++) {
+                View childAt = getChildAt(i10);
+                measureChild(childAt, i, i2);
+                if (childAt.getMeasuredWidth() + i4 > size || ((i3 = this.r) > 0 && i5 == i3)) {
+                    i9++;
+                    int i11 = this.q;
+                    if (i11 > 0 && i9 > i11) {
+                        i9--;
                         break;
                     }
-                    i8 = i8 + this.q + i7;
-                    i9 = Math.max(i9, i5);
+                    i7 = i7 + this.m + i6;
+                    i8 = Math.max(i8, i4);
+                    i4 = 0;
                     i5 = 0;
                     i6 = 0;
-                    i7 = 0;
                 }
-                i5 += childAt.getMeasuredWidth();
-                i6++;
-                i7 = Math.max(i7, childAt.getMeasuredHeight());
-                if (i11 != childCount - 1) {
-                    int i13 = this.p;
-                    if (i5 + i13 > size) {
-                        i10++;
-                        int i14 = this.u;
-                        if (i14 > 0 && i10 > i14) {
-                            i10--;
+                i4 += childAt.getMeasuredWidth();
+                i5++;
+                i6 = Math.max(i6, childAt.getMeasuredHeight());
+                if (i10 != childCount - 1) {
+                    int i12 = this.l;
+                    if (i4 + i12 > size) {
+                        i9++;
+                        int i13 = this.q;
+                        if (i13 > 0 && i9 > i13) {
+                            i9--;
                             break;
                         }
-                        i8 = i8 + this.q + i7;
-                        i9 = Math.max(i9, i5);
+                        i7 = i7 + this.m + i6;
+                        i8 = Math.max(i8, i4);
+                        i4 = 0;
                         i5 = 0;
                         i6 = 0;
-                        i7 = 0;
                     } else {
-                        i5 += i13;
+                        i4 += i12;
                     }
                 }
             }
-            setMeasuredDimension(i(i2, Math.max(i9, i5) + getPaddingLeft() + getPaddingRight()), i(i3, i8 + i7 + getPaddingTop() + getPaddingBottom()));
-            this.C = childCount > 0 ? i10 : 0;
+            setMeasuredDimension(h(i, Math.max(i8, i4) + getPaddingLeft() + getPaddingRight()), h(i2, i7 + i6 + getPaddingTop() + getPaddingBottom()));
+            this.y = childCount > 0 ? i9 : 0;
+        }
+    }
+
+    public final void g(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            int childCount = getChildCount();
+            int i3 = 0;
+            int i4 = 0;
+            for (int i5 = 0; i5 < childCount; i5++) {
+                int i6 = this.r;
+                if (i6 > 0 && i5 == i6) {
+                    break;
+                }
+                View childAt = getChildAt(i5);
+                measureChild(childAt, i, i2);
+                i3 += childAt.getMeasuredWidth();
+                if (i5 != childCount - 1) {
+                    i3 += this.l;
+                }
+                i4 = Math.max(i4, childAt.getMeasuredHeight());
+            }
+            setMeasuredDimension(h(i, i3 + getPaddingLeft() + getPaddingRight()), h(i2, i4 + getPaddingTop() + getPaddingBottom()));
+            this.y = childCount > 0 ? 1 : 0;
         }
     }
 
     public List<Integer> getCompulsorys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.B : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.x : (List) invokeV.objValue;
     }
 
     public int getLabelGravity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.k : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f29963g : invokeV.intValue;
     }
 
     public ColorStateList getLabelTextColor() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f38962f : (ColorStateList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.f29958b : (ColorStateList) invokeV.objValue;
     }
 
     public float getLabelTextSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f38963g : invokeV.floatValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f29959c : invokeV.floatValue;
     }
 
     public <T> List<T> getLabels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.z : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.v : (List) invokeV.objValue;
     }
 
     public int getLineMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.q : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.m : invokeV.intValue;
     }
 
     public int getLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.C : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.y : invokeV.intValue;
     }
 
     public int getMaxColumns() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.v : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.r : invokeV.intValue;
     }
 
     public int getMaxLines() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.u : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.q : invokeV.intValue;
     }
 
     public int getMaxSelect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.s : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.o : invokeV.intValue;
     }
 
     public int getMinSelect() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.t : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.p : invokeV.intValue;
     }
 
     public <T> List<T> getSelectLabelDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            int size = this.A.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Object tag = getChildAt(this.A.get(i2).intValue()).getTag(tag_key_data);
+            int size = this.w.size();
+            for (int i = 0; i < size; i++) {
+                Object tag = getChildAt(this.w.get(i).intValue()).getTag(obfuscated);
                 if (tag != null) {
                     arrayList.add(tag);
                 }
@@ -543,9 +533,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public List<Integer> getSelectLabels() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.A);
+            arrayList.addAll(this.w);
             return arrayList;
         }
         return (List) invokeV.objValue;
@@ -554,197 +544,155 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public SelectType getSelectType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.r : (SelectType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? this.n : (SelectType) invokeV.objValue;
     }
 
     public int getTextPaddingBottom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.o : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.k : invokeV.intValue;
     }
 
     public int getTextPaddingLeft() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.l : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.f29964h : invokeV.intValue;
     }
 
     public int getTextPaddingRight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.n : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.j : invokeV.intValue;
     }
 
     public int getTextPaddingTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.m : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.i : invokeV.intValue;
     }
 
     public int getWordMargin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.p : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.l : invokeV.intValue;
     }
 
-    public final void h(int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048604, this, i2, i3) == null) {
-            int childCount = getChildCount();
-            int i4 = 0;
-            int i5 = 0;
-            for (int i6 = 0; i6 < childCount; i6++) {
-                int i7 = this.v;
-                if (i7 > 0 && i6 == i7) {
-                    break;
-                }
-                View childAt = getChildAt(i6);
-                measureChild(childAt, i2, i3);
-                i4 += childAt.getMeasuredWidth();
-                if (i6 != childCount - 1) {
-                    i4 += this.p;
-                }
-                i5 = Math.max(i5, childAt.getMeasuredHeight());
-            }
-            setMeasuredDimension(i(i2, i4 + getPaddingLeft() + getPaddingRight()), i(i3, i5 + getPaddingTop() + getPaddingBottom()));
-            this.C = childCount > 0 ? 1 : 0;
-        }
-    }
-
-    public final int i(int i2, int i3) {
+    public final int h(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048605, this, i2, i3)) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048602, this, i, i2)) == null) {
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             if (mode == 1073741824) {
-                i3 = size;
+                i2 = size;
             } else if (mode == Integer.MIN_VALUE) {
-                i3 = Math.min(i3, size);
+                i2 = Math.min(i2, size);
             }
-            return ViewGroup.resolveSizeAndState(Math.max(i3, getSuggestedMinimumWidth()), i2, 0);
+            return ViewGroup.resolveSizeAndState(Math.max(i2, getSuggestedMinimumWidth()), i, 0);
         }
         return invokeII.intValue;
     }
 
-    public boolean isIndicator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.y : invokeV.booleanValue;
-    }
-
-    public boolean isSingleLine() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? this.w : invokeV.booleanValue;
-    }
-
-    public boolean isTextBold() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? this.x : invokeV.booleanValue;
-    }
-
-    public final boolean j(TextView textView) {
+    public final boolean i(TextView textView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, textView)) == null) {
-            f fVar = this.G;
-            return fVar != null && fVar.a(textView, textView.getTag(tag_key_data), textView.isSelected(), textView.isSelected() ^ true, ((Integer) textView.getTag(tag_key_position)).intValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, textView)) == null) {
+            f fVar = this.C;
+            return fVar != null && fVar.a(textView, textView.getTag(obfuscated), textView.isSelected(), textView.isSelected() ^ true, ((Integer) textView.getTag(obfuscated)).intValue());
         }
         return invokeL.booleanValue;
     }
 
-    public final void k(TextView textView, boolean z) {
+    public final void j(TextView textView, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048610, this, textView, z) == null) || textView.isSelected() == z) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048604, this, textView, z) == null) || textView.isSelected() == z) {
             return;
         }
         textView.setSelected(z);
         if (z) {
-            this.A.add((Integer) textView.getTag(tag_key_position));
+            this.w.add((Integer) textView.getTag(obfuscated));
         } else {
-            this.A.remove((Integer) textView.getTag(tag_key_position));
+            this.w.remove((Integer) textView.getTag(obfuscated));
         }
-        e eVar = this.F;
+        e eVar = this.B;
         if (eVar != null) {
-            eVar.a(textView, textView.getTag(tag_key_data), z, ((Integer) textView.getTag(tag_key_position)).intValue());
+            eVar.a(textView, textView.getTag(obfuscated), z, ((Integer) textView.getTag(obfuscated)).intValue());
         }
     }
 
-    public final int l(float f2) {
+    public final int k(float f2) {
         InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeF = interceptable.invokeF(1048611, this, f2)) == null) ? (int) TypedValue.applyDimension(2, f2, getResources().getDisplayMetrics()) : invokeF.intValue;
+        return (interceptable == null || (invokeF = interceptable.invokeF(1048605, this, f2)) == null) ? (int) TypedValue.applyDimension(2, f2, getResources().getDisplayMetrics()) : invokeF.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048612, this, view) == null) && (view instanceof TextView)) {
+        if ((interceptable == null || interceptable.invokeL(1048606, this, view) == null) && (view instanceof TextView)) {
             TextView textView = (TextView) view;
-            if (!this.y && this.r != SelectType.NONE) {
+            if (!this.u && this.n != SelectType.NONE) {
                 boolean z = true;
                 if (textView.isSelected()) {
-                    if (!((this.r == SelectType.MULTI && this.B.contains((Integer) textView.getTag(tag_key_position))) || (this.r == SelectType.MULTI && this.A.size() <= this.t)) && this.r != SelectType.SINGLE_IRREVOCABLY) {
+                    if (!((this.n == SelectType.MULTI && this.x.contains((Integer) textView.getTag(obfuscated))) || (this.n == SelectType.MULTI && this.w.size() <= this.p)) && this.n != SelectType.SINGLE_IRREVOCABLY) {
                         z = false;
                     }
-                    if (!z && !j(textView)) {
-                        k(textView, false);
+                    if (!z && !i(textView)) {
+                        j(textView, false);
                     }
                 } else {
-                    SelectType selectType = this.r;
+                    SelectType selectType = this.n;
                     if (selectType != SelectType.SINGLE && selectType != SelectType.SINGLE_IRREVOCABLY) {
-                        if (selectType == SelectType.MULTI && (((i2 = this.s) <= 0 || i2 > this.A.size()) && !j(textView))) {
-                            k(textView, true);
+                        if (selectType == SelectType.MULTI && (((i = this.o) <= 0 || i > this.w.size()) && !i(textView))) {
+                            j(textView, true);
                         }
-                    } else if (!j(textView)) {
-                        f();
-                        k(textView, true);
+                    } else if (!i(textView)) {
+                        e();
+                        j(textView, true);
                     }
                 }
             }
-            c cVar = this.D;
+            c cVar = this.z;
             if (cVar != null) {
-                cVar.onLabelClick(textView, textView.getTag(tag_key_data), ((Integer) textView.getTag(tag_key_position)).intValue());
+                cVar.a(textView, textView.getTag(obfuscated), ((Integer) textView.getTag(obfuscated)).intValue());
             }
         }
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
         int i6;
-        int i7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048607, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             int paddingLeft = getPaddingLeft();
             int paddingTop = getPaddingTop();
-            int i8 = i4 - i2;
+            int i7 = i3 - i;
             int childCount = getChildCount();
-            int i9 = 1;
+            int i8 = 1;
+            int i9 = 0;
             int i10 = 0;
-            int i11 = 0;
-            for (int i12 = 0; i12 < childCount; i12++) {
-                View childAt = getChildAt(i12);
-                if (!this.w && (i8 < childAt.getMeasuredWidth() + paddingLeft + getPaddingRight() || ((i7 = this.v) > 0 && i10 == i7))) {
-                    i9++;
-                    int i13 = this.u;
-                    if (i13 > 0 && i9 > i13) {
+            for (int i11 = 0; i11 < childCount; i11++) {
+                View childAt = getChildAt(i11);
+                if (!this.s && (i7 < childAt.getMeasuredWidth() + paddingLeft + getPaddingRight() || ((i6 = this.r) > 0 && i9 == i6))) {
+                    i8++;
+                    int i12 = this.q;
+                    if (i12 > 0 && i8 > i12) {
                         return;
                     }
                     paddingLeft = getPaddingLeft();
-                    paddingTop = paddingTop + this.q + i11;
+                    paddingTop = paddingTop + this.m + i10;
+                    i9 = 0;
                     i10 = 0;
-                    i11 = 0;
                 }
-                if (this.w && (i6 = this.v) > 0 && i10 == i6) {
+                if (this.s && (i5 = this.r) > 0 && i9 == i5) {
                     return;
                 }
                 childAt.layout(paddingLeft, paddingTop, childAt.getMeasuredWidth() + paddingLeft, childAt.getMeasuredHeight() + paddingTop);
-                paddingLeft = paddingLeft + childAt.getMeasuredWidth() + this.p;
-                i11 = Math.max(i11, childAt.getMeasuredHeight());
-                i10++;
+                paddingLeft = paddingLeft + childAt.getMeasuredWidth() + this.l;
+                i10 = Math.max(i10, childAt.getMeasuredHeight());
+                i9++;
             }
         }
     }
@@ -753,12 +701,12 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public boolean onLongClick(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, view)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048608, this, view)) == null) {
             if (view instanceof TextView) {
                 TextView textView = (TextView) view;
-                d dVar = this.E;
+                d dVar = this.A;
                 if (dVar != null) {
-                    return dVar.a(textView, textView.getTag(tag_key_data), ((Integer) textView.getTag(tag_key_position)).intValue());
+                    return dVar.a(textView, textView.getTag(obfuscated), ((Integer) textView.getTag(obfuscated)).intValue());
                 }
                 return false;
             }
@@ -768,13 +716,13 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048615, this, i2, i3) == null) {
-            if (this.w) {
-                h(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048609, this, i, i2) == null) {
+            if (this.s) {
+                g(i, i2);
             } else {
-                g(i2, i3);
+                f(i, i2);
             }
         }
     }
@@ -782,7 +730,7 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     @Override // android.view.View
     public void onRestoreInstanceState(Parcelable parcelable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, parcelable) == null) {
+        if (interceptable == null || interceptable.invokeL(1048610, this, parcelable) == null) {
             if (parcelable instanceof Bundle) {
                 Bundle bundle = (Bundle) parcelable;
                 super.onRestoreInstanceState(bundle.getParcelable("key_super_state"));
@@ -790,24 +738,24 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 if (colorStateList != null) {
                     setLabelTextColor(colorStateList);
                 }
-                setLabelTextSize(bundle.getFloat("key_text_size_state", this.f38963g));
-                this.f38965i = bundle.getInt("key_label_width_state", this.f38965i);
-                this.f38966j = bundle.getInt("key_label_height_state", this.f38966j);
-                setLabelGravity(bundle.getInt("key_label_gravity_state", this.k));
+                setLabelTextSize(bundle.getFloat("key_text_size_state", this.f29959c));
+                this.f29961e = bundle.getInt("key_label_width_state", this.f29961e);
+                this.f29962f = bundle.getInt("key_label_height_state", this.f29962f);
+                setLabelGravity(bundle.getInt("key_label_gravity_state", this.f29963g));
                 int[] intArray = bundle.getIntArray("key_padding_state");
                 if (intArray != null && intArray.length == 4) {
                     setLabelTextPadding(intArray[0], intArray[1], intArray[2], intArray[3]);
                 }
-                setWordMargin(bundle.getInt("key_word_margin_state", this.p));
-                setLineMargin(bundle.getInt("key_line_margin_state", this.q));
-                setSelectType(SelectType.get(bundle.getInt("key_select_type_state", this.r.value)));
-                setMaxSelect(bundle.getInt("key_max_select_state", this.s));
-                setMinSelect(bundle.getInt("key_min_select_state", this.t));
-                setMaxLines(bundle.getInt("key_max_lines_state", this.u));
-                setMaxLines(bundle.getInt("key_max_columns_state", this.v));
-                setIndicator(bundle.getBoolean("key_indicator_state", this.y));
-                setSingleLine(bundle.getBoolean("key_single_line_state", this.w));
-                setTextBold(bundle.getBoolean("key_text_style_state", this.x));
+                setWordMargin(bundle.getInt("key_word_margin_state", this.l));
+                setLineMargin(bundle.getInt("key_line_margin_state", this.m));
+                setSelectType(SelectType.get(bundle.getInt("key_select_type_state", this.n.value)));
+                setMaxSelect(bundle.getInt("key_max_select_state", this.o));
+                setMinSelect(bundle.getInt("key_min_select_state", this.p));
+                setMaxLines(bundle.getInt("key_max_lines_state", this.q));
+                setMaxLines(bundle.getInt("key_max_columns_state", this.r));
+                setIndicator(bundle.getBoolean("key_indicator_state", this.u));
+                setSingleLine(bundle.getBoolean("key_single_line_state", this.s));
+                setTextBold(bundle.getBoolean("key_text_style_state", this.t));
                 ArrayList<Integer> integerArrayList = bundle.getIntegerArrayList("key_select_compulsory_state");
                 if (integerArrayList != null && !integerArrayList.isEmpty()) {
                     setCompulsorys(integerArrayList);
@@ -818,8 +766,8 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 }
                 int size = integerArrayList2.size();
                 int[] iArr = new int[size];
-                for (int i2 = 0; i2 < size; i2++) {
-                    iArr[i2] = integerArrayList2.get(i2).intValue();
+                for (int i = 0; i < size; i++) {
+                    iArr[i] = integerArrayList2.get(i).intValue();
                 }
                 setSelects(iArr);
                 return;
@@ -832,34 +780,34 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
     public Parcelable onSaveInstanceState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putParcelable("key_super_state", super.onSaveInstanceState());
-            ColorStateList colorStateList = this.f38962f;
+            ColorStateList colorStateList = this.f29958b;
             if (colorStateList != null) {
                 bundle.putParcelable("key_text_color_state", colorStateList);
             }
-            bundle.putFloat("key_text_size_state", this.f38963g);
-            bundle.putInt("key_label_width_state", this.f38965i);
-            bundle.putInt("key_label_height_state", this.f38966j);
-            bundle.putInt("key_label_gravity_state", this.k);
-            bundle.putIntArray("key_padding_state", new int[]{this.l, this.m, this.n, this.o});
-            bundle.putInt("key_word_margin_state", this.p);
-            bundle.putInt("key_line_margin_state", this.q);
-            bundle.putInt("key_select_type_state", this.r.value);
-            bundle.putInt("key_max_select_state", this.s);
-            bundle.putInt("key_min_select_state", this.t);
-            bundle.putInt("key_max_lines_state", this.u);
-            bundle.putInt("key_max_columns_state", this.v);
-            bundle.putBoolean("key_indicator_state", this.y);
-            if (!this.A.isEmpty()) {
-                bundle.putIntegerArrayList("key_select_labels_state", this.A);
+            bundle.putFloat("key_text_size_state", this.f29959c);
+            bundle.putInt("key_label_width_state", this.f29961e);
+            bundle.putInt("key_label_height_state", this.f29962f);
+            bundle.putInt("key_label_gravity_state", this.f29963g);
+            bundle.putIntArray("key_padding_state", new int[]{this.f29964h, this.i, this.j, this.k});
+            bundle.putInt("key_word_margin_state", this.l);
+            bundle.putInt("key_line_margin_state", this.m);
+            bundle.putInt("key_select_type_state", this.n.value);
+            bundle.putInt("key_max_select_state", this.o);
+            bundle.putInt("key_min_select_state", this.p);
+            bundle.putInt("key_max_lines_state", this.q);
+            bundle.putInt("key_max_columns_state", this.r);
+            bundle.putBoolean("key_indicator_state", this.u);
+            if (!this.w.isEmpty()) {
+                bundle.putIntegerArrayList("key_select_labels_state", this.w);
             }
-            if (!this.B.isEmpty()) {
-                bundle.putIntegerArrayList("key_select_compulsory_state", this.B);
+            if (!this.x.isEmpty()) {
+                bundle.putIntegerArrayList("key_select_compulsory_state", this.x);
             }
-            bundle.putBoolean("key_single_line_state", this.w);
-            bundle.putBoolean("key_text_style_state", this.x);
+            bundle.putBoolean("key_single_line_state", this.s);
+            bundle.putBoolean("key_text_style_state", this.t);
             return bundle;
         }
         return (Parcelable) invokeV.objValue;
@@ -867,315 +815,315 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
 
     public void setCompulsorys(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048618, this, list) == null) && this.r == SelectType.MULTI && list != null) {
-            this.B.clear();
-            this.B.addAll(list);
-            f();
+        if ((interceptable == null || interceptable.invokeL(1048612, this, list) == null) && this.n == SelectType.MULTI && list != null) {
+            this.x.clear();
+            this.x.addAll(list);
+            e();
             setSelects(list);
         }
     }
 
     public void setIndicator(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
-            this.y = z;
+        if (interceptable == null || interceptable.invokeZ(1048614, this, z) == null) {
+            this.u = z;
         }
     }
 
-    public void setLabelBackgroundColor(int i2) {
+    public void setLabelBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            setLabelBackgroundDrawable(new ColorDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            setLabelBackgroundDrawable(new ColorDrawable(i));
         }
     }
 
     public void setLabelBackgroundDrawable(Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048622, this, drawable) == null) {
-            this.f38964h = drawable;
+        if (interceptable == null || interceptable.invokeL(1048616, this, drawable) == null) {
+            this.f29960d = drawable;
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                ((TextView) getChildAt(i2)).setBackgroundDrawable(this.f38964h.getConstantState().newDrawable());
+            for (int i = 0; i < childCount; i++) {
+                ((TextView) getChildAt(i)).setBackgroundDrawable(this.f29960d.getConstantState().newDrawable());
             }
         }
     }
 
-    public void setLabelBackgroundResource(int i2) {
+    public void setLabelBackgroundResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048623, this, i2) == null) {
-            setLabelBackgroundDrawable(getResources().getDrawable(i2));
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            setLabelBackgroundDrawable(getResources().getDrawable(i));
         }
     }
 
-    public void setLabelGravity(int i2) {
+    public void setLabelGravity(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048624, this, i2) == null) || this.k == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048618, this, i) == null) || this.f29963g == i) {
             return;
         }
-        this.k = i2;
+        this.f29963g = i;
         int childCount = getChildCount();
-        for (int i3 = 0; i3 < childCount; i3++) {
-            ((TextView) getChildAt(i3)).setGravity(i2);
+        for (int i2 = 0; i2 < childCount; i2++) {
+            ((TextView) getChildAt(i2)).setGravity(i);
         }
     }
 
-    public void setLabelTextColor(int i2) {
+    public void setLabelTextColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048625, this, i2) == null) {
-            setLabelTextColor(ColorStateList.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048619, this, i) == null) {
+            setLabelTextColor(ColorStateList.valueOf(i));
         }
     }
 
-    public void setLabelTextPadding(int i2, int i3, int i4, int i5) {
+    public void setLabelTextPadding(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048627, this, i2, i3, i4, i5) == null) {
-            if (this.l == i2 && this.m == i3 && this.n == i4 && this.o == i5) {
+        if (interceptable == null || interceptable.invokeIIII(1048621, this, i, i2, i3, i4) == null) {
+            if (this.f29964h == i && this.i == i2 && this.j == i3 && this.k == i4) {
                 return;
             }
-            this.l = i2;
-            this.m = i3;
-            this.n = i4;
-            this.o = i5;
+            this.f29964h = i;
+            this.i = i2;
+            this.j = i3;
+            this.k = i4;
             int childCount = getChildCount();
-            for (int i6 = 0; i6 < childCount; i6++) {
-                ((TextView) getChildAt(i6)).setPadding(i2, i3, i4, i5);
+            for (int i5 = 0; i5 < childCount; i5++) {
+                ((TextView) getChildAt(i5)).setPadding(i, i2, i3, i4);
             }
         }
     }
 
     public void setLabelTextSize(float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048628, this, f2) == null) || this.f38963g == f2) {
+        if (!(interceptable == null || interceptable.invokeF(1048622, this, f2) == null) || this.f29959c == f2) {
             return;
         }
-        this.f38963g = f2;
+        this.f29959c = f2;
         int childCount = getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            ((TextView) getChildAt(i2)).setTextSize(0, f2);
+        for (int i = 0; i < childCount; i++) {
+            ((TextView) getChildAt(i)).setTextSize(0, f2);
         }
     }
 
     public void setLabels(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048623, this, list) == null) {
             setLabels(list, new a(this));
         }
     }
 
-    public void setLineMargin(int i2) {
+    public void setLineMargin(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048631, this, i2) == null) || this.q == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048625, this, i) == null) || this.m == i) {
             return;
         }
-        this.q = i2;
+        this.m = i;
         requestLayout();
     }
 
-    public void setMaxColumns(int i2) {
+    public void setMaxColumns(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048632, this, i2) == null) || this.v == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048626, this, i) == null) || this.r == i) {
             return;
         }
-        this.v = i2;
+        this.r = i;
         requestLayout();
     }
 
-    public void setMaxLines(int i2) {
+    public void setMaxLines(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048633, this, i2) == null) || this.u == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048627, this, i) == null) || this.q == i) {
             return;
         }
-        this.u = i2;
+        this.q = i;
         requestLayout();
     }
 
-    public void setMaxSelect(int i2) {
+    public void setMaxSelect(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048634, this, i2) == null) || this.s == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048628, this, i) == null) || this.o == i) {
             return;
         }
-        this.s = i2;
-        if (this.r == SelectType.MULTI) {
-            f();
+        this.o = i;
+        if (this.n == SelectType.MULTI) {
+            e();
         }
     }
 
-    public void setMinSelect(int i2) {
+    public void setMinSelect(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048635, this, i2) == null) {
-            this.t = i2;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.p = i;
         }
     }
 
     public void setOnLabelClickListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048636, this, cVar) == null) {
-            this.D = cVar;
-            d();
+        if (interceptable == null || interceptable.invokeL(1048630, this, cVar) == null) {
+            this.z = cVar;
+            c();
         }
     }
 
     public void setOnLabelLongClickListener(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048637, this, dVar) == null) {
-            this.E = dVar;
-            d();
+        if (interceptable == null || interceptable.invokeL(1048631, this, dVar) == null) {
+            this.A = dVar;
+            c();
         }
     }
 
     public void setOnLabelSelectChangeListener(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048638, this, eVar) == null) {
-            this.F = eVar;
+        if (interceptable == null || interceptable.invokeL(1048632, this, eVar) == null) {
+            this.B = eVar;
         }
     }
 
     public void setOnSelectChangeIntercept(f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, fVar) == null) {
-            this.G = fVar;
+        if (interceptable == null || interceptable.invokeL(1048633, this, fVar) == null) {
+            this.C = fVar;
         }
     }
 
     public void setOppositeSelects(int... iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048640, this, iArr) == null) || this.r == SelectType.NONE) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, iArr) == null) || this.n == SelectType.NONE) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
-        SelectType selectType = this.r;
-        int i2 = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.s;
-        for (int i3 : iArr) {
-            if (i3 < childCount) {
-                TextView textView = (TextView) getChildAt(i3);
+        SelectType selectType = this.n;
+        int i = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.o;
+        for (int i2 : iArr) {
+            if (i2 < childCount) {
+                TextView textView = (TextView) getChildAt(i2);
                 if (!arrayList.contains(textView)) {
-                    k(textView, false);
+                    j(textView, false);
                     arrayList.add(textView);
                 }
-                if (i2 > 0 && arrayList.size() == i2) {
+                if (i > 0 && arrayList.size() == i) {
                     break;
                 }
             }
         }
-        for (int i4 = 0; i4 < childCount; i4++) {
-            TextView textView2 = (TextView) getChildAt(i4);
+        for (int i3 = 0; i3 < childCount; i3++) {
+            TextView textView2 = (TextView) getChildAt(i3);
             if (!arrayList.contains(textView2)) {
-                k(textView2, false);
+                j(textView2, false);
             }
         }
     }
 
     public void setSelectType(SelectType selectType) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048641, this, selectType) == null) || this.r == selectType) {
+        if (!(interceptable == null || interceptable.invokeL(1048635, this, selectType) == null) || this.n == selectType) {
             return;
         }
-        this.r = selectType;
-        f();
-        if (this.r == SelectType.SINGLE_IRREVOCABLY) {
+        this.n = selectType;
+        e();
+        if (this.n == SelectType.SINGLE_IRREVOCABLY) {
             setSelects(0);
         }
-        if (this.r != SelectType.MULTI) {
-            this.B.clear();
+        if (this.n != SelectType.MULTI) {
+            this.x.clear();
         }
-        d();
+        c();
     }
 
     public void setSelects(List<Integer> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048642, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048636, this, list) == null) || list == null) {
             return;
         }
         int size = list.size();
         int[] iArr = new int[size];
-        for (int i2 = 0; i2 < size; i2++) {
-            iArr[i2] = list.get(i2).intValue();
+        for (int i = 0; i < size; i++) {
+            iArr[i] = list.get(i).intValue();
         }
         setSelects(iArr);
     }
 
     public void setSingleLine(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048644, this, z) == null) || this.w == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048638, this, z) == null) || this.s == z) {
             return;
         }
-        this.w = z;
+        this.s = z;
         requestLayout();
     }
 
     public void setTextBold(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048645, this, z) == null) || this.x == z) {
+        if (!(interceptable == null || interceptable.invokeZ(1048639, this, z) == null) || this.t == z) {
             return;
         }
-        this.x = z;
+        this.t = z;
         int childCount = getChildCount();
-        for (int i2 = 0; i2 < childCount; i2++) {
-            TextView textView = (TextView) getChildAt(i2);
-            textView.getPaint().setFakeBoldText(this.x);
+        for (int i = 0; i < childCount; i++) {
+            TextView textView = (TextView) getChildAt(i);
+            textView.getPaint().setFakeBoldText(this.t);
             textView.invalidate();
         }
     }
 
     public void setUnSelects(int... iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048646, this, iArr) == null) || this.r == SelectType.NONE) {
+        if (!(interceptable == null || interceptable.invokeL(1048640, this, iArr) == null) || this.n == SelectType.NONE) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
-        SelectType selectType = this.r;
-        int i2 = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.s;
-        for (int i3 : iArr) {
-            if (i3 < childCount) {
-                TextView textView = (TextView) getChildAt(i3);
+        SelectType selectType = this.n;
+        int i = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.o;
+        for (int i2 : iArr) {
+            if (i2 < childCount) {
+                TextView textView = (TextView) getChildAt(i2);
                 if (!arrayList.contains(textView)) {
-                    k(textView, true);
+                    j(textView, true);
                     arrayList.add(textView);
                 }
-                if (i2 > 0 && arrayList.size() == i2) {
+                if (i > 0 && arrayList.size() == i) {
                     return;
                 }
             }
         }
     }
 
-    public void setWordMargin(int i2) {
+    public void setWordMargin(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048647, this, i2) == null) || this.p == i2) {
+        if (!(interceptable == null || interceptable.invokeI(1048641, this, i) == null) || this.l == i) {
             return;
         }
-        this.p = i2;
+        this.l = i;
         requestLayout();
     }
 
     public void setLabelTextColor(ColorStateList colorStateList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, colorStateList) == null) {
-            this.f38962f = colorStateList;
+        if (interceptable == null || interceptable.invokeL(1048620, this, colorStateList) == null) {
+            this.f29958b = colorStateList;
             int childCount = getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                ((TextView) getChildAt(i2)).setTextColor(this.f38962f);
+            for (int i = 0; i < childCount; i++) {
+                ((TextView) getChildAt(i)).setTextColor(this.f29958b);
             }
         }
     }
 
     public <T> void setLabels(List<T> list, b<T> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048630, this, list, bVar) == null) {
-            f();
+        if (interceptable == null || interceptable.invokeLL(1048624, this, list, bVar) == null) {
+            e();
             removeAllViews();
-            this.z.clear();
+            this.v.clear();
             if (list != null) {
-                this.z.addAll(list);
+                this.v.addAll(list);
                 int size = list.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    a(list.get(i2), i2, bVar);
+                for (int i = 0; i < size; i++) {
+                    a(list.get(i), i, bVar);
                 }
-                d();
+                c();
             }
-            if (this.r == SelectType.SINGLE_IRREVOCABLY) {
+            if (this.n == SelectType.SINGLE_IRREVOCABLY) {
                 setSelects(0);
             }
         }
@@ -1183,21 +1131,21 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
 
     public void setSelects(int... iArr) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048643, this, iArr) == null) || this.r == SelectType.NONE) {
+        if (!(interceptable == null || interceptable.invokeL(1048637, this, iArr) == null) || this.n == SelectType.NONE) {
             return;
         }
         ArrayList arrayList = new ArrayList();
         int childCount = getChildCount();
-        SelectType selectType = this.r;
-        int i2 = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.s;
-        for (int i3 : iArr) {
-            if (i3 < childCount) {
-                TextView textView = (TextView) getChildAt(i3);
+        SelectType selectType = this.n;
+        int i = (selectType == SelectType.SINGLE || selectType == SelectType.SINGLE_IRREVOCABLY) ? 1 : this.o;
+        for (int i2 : iArr) {
+            if (i2 < childCount) {
+                TextView textView = (TextView) getChildAt(i2);
                 if (!arrayList.contains(textView)) {
-                    k(textView, false);
+                    j(textView, false);
                     arrayList.add(textView);
                 }
-                if (i2 > 0 && arrayList.size() == i2) {
+                if (i > 0 && arrayList.size() == i) {
                     return;
                 }
             }
@@ -1206,10 +1154,10 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
 
     public void setCompulsorys(int... iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048619, this, iArr) == null) && this.r == SelectType.MULTI && iArr != null) {
+        if ((interceptable == null || interceptable.invokeL(1048613, this, iArr) == null) && this.n == SelectType.MULTI && iArr != null) {
             ArrayList arrayList = new ArrayList(iArr.length);
-            for (int i2 : iArr) {
-                arrayList.add(Integer.valueOf(i2));
+            for (int i : iArr) {
+                arrayList.add(Integer.valueOf(i));
             }
             setCompulsorys(arrayList);
         }
@@ -1224,9 +1172,9 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -1234,30 +1182,30 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 return;
             }
         }
-        this.f38965i = -2;
-        this.f38966j = -2;
-        this.k = 0;
-        this.w = false;
-        this.x = false;
-        this.z = new ArrayList<>();
-        this.A = new ArrayList<>();
-        this.B = new ArrayList<>();
-        this.f38961e = context;
-        e(context, attributeSet);
+        this.f29961e = -2;
+        this.f29962f = -2;
+        this.f29963g = 0;
+        this.s = false;
+        this.t = false;
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
+        this.a = context;
+        d(context, attributeSet);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AutoChangeLineView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AutoChangeLineView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1265,15 +1213,15 @@ public class AutoChangeLineView extends ViewGroup implements View.OnClickListene
                 return;
             }
         }
-        this.f38965i = -2;
-        this.f38966j = -2;
-        this.k = 0;
-        this.w = false;
-        this.x = false;
-        this.z = new ArrayList<>();
-        this.A = new ArrayList<>();
-        this.B = new ArrayList<>();
-        this.f38961e = context;
-        e(context, attributeSet);
+        this.f29961e = -2;
+        this.f29962f = -2;
+        this.f29963g = 0;
+        this.s = false;
+        this.t = false;
+        this.v = new ArrayList<>();
+        this.w = new ArrayList<>();
+        this.x = new ArrayList<>();
+        this.a = context;
+        d(context, attributeSet);
     }
 }

@@ -27,9 +27,9 @@ public final class SubPluginBundleInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, num, num2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,14 +40,14 @@ public final class SubPluginBundleInfo {
         this.maxVersion = num2;
     }
 
-    public static /* synthetic */ SubPluginBundleInfo copy$default(SubPluginBundleInfo subPluginBundleInfo, String str, Integer num, Integer num2, int i2, Object obj) {
-        if ((i2 & 1) != 0) {
+    public static /* synthetic */ SubPluginBundleInfo copy$default(SubPluginBundleInfo subPluginBundleInfo, String str, Integer num, Integer num2, int i, Object obj) {
+        if ((i & 1) != 0) {
             str = subPluginBundleInfo.packageName;
         }
-        if ((i2 & 2) != 0) {
+        if ((i & 2) != 0) {
             num = subPluginBundleInfo.minVersion;
         }
-        if ((i2 & 4) != 0) {
+        if ((i & 4) != 0) {
             num2 = subPluginBundleInfo.maxVersion;
         }
         return subPluginBundleInfo.copy(str, num, num2);
@@ -134,7 +134,7 @@ public final class SubPluginBundleInfo {
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ SubPluginBundleInfo(String str, Integer num, Integer num2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, (i2 & 2) != 0 ? 0 : num, (i2 & 4) != 0 ? 0 : num2);
+    public /* synthetic */ SubPluginBundleInfo(String str, Integer num, Integer num2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, (i & 2) != 0 ? 0 : num, (i & 4) != 0 ? 0 : num2);
     }
 }

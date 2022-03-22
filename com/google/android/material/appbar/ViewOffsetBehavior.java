@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,32 +83,32 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         return invokeV.booleanValue;
     }
 
-    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i2) {
+    public void layoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, v, i2) == null) {
-            coordinatorLayout.onLayoutChild(v, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048580, this, coordinatorLayout, v, i) == null) {
+            coordinatorLayout.onLayoutChild(v, i);
         }
     }
 
     @Override // androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior
-    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i2) {
+    public boolean onLayoutChild(@NonNull CoordinatorLayout coordinatorLayout, @NonNull V v, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, v, i2)) == null) {
-            layoutChild(coordinatorLayout, v, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, coordinatorLayout, v, i)) == null) {
+            layoutChild(coordinatorLayout, v, i);
             if (this.viewOffsetHelper == null) {
                 this.viewOffsetHelper = new ViewOffsetHelper(v);
             }
             this.viewOffsetHelper.onViewLayout();
             this.viewOffsetHelper.applyOffsets();
-            int i3 = this.tempTopBottomOffset;
-            if (i3 != 0) {
-                this.viewOffsetHelper.setTopAndBottomOffset(i3);
+            int i2 = this.tempTopBottomOffset;
+            if (i2 != 0) {
+                this.viewOffsetHelper.setTopAndBottomOffset(i2);
                 this.tempTopBottomOffset = 0;
             }
-            int i4 = this.tempLeftRightOffset;
-            if (i4 != 0) {
-                this.viewOffsetHelper.setLeftAndRightOffset(i4);
+            int i3 = this.tempLeftRightOffset;
+            if (i3 != 0) {
+                this.viewOffsetHelper.setLeftAndRightOffset(i3);
                 this.tempLeftRightOffset = 0;
                 return true;
             }
@@ -126,29 +126,29 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
         viewOffsetHelper.setHorizontalOffsetEnabled(z);
     }
 
-    public boolean setLeftAndRightOffset(int i2) {
+    public boolean setLeftAndRightOffset(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
             ViewOffsetHelper viewOffsetHelper = this.viewOffsetHelper;
             if (viewOffsetHelper != null) {
-                return viewOffsetHelper.setLeftAndRightOffset(i2);
+                return viewOffsetHelper.setLeftAndRightOffset(i);
             }
-            this.tempLeftRightOffset = i2;
+            this.tempLeftRightOffset = i;
             return false;
         }
         return invokeI.booleanValue;
     }
 
-    public boolean setTopAndBottomOffset(int i2) {
+    public boolean setTopAndBottomOffset(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
             ViewOffsetHelper viewOffsetHelper = this.viewOffsetHelper;
             if (viewOffsetHelper != null) {
-                return viewOffsetHelper.setTopAndBottomOffset(i2);
+                return viewOffsetHelper.setTopAndBottomOffset(i);
             }
-            this.tempTopBottomOffset = i2;
+            this.tempTopBottomOffset = i;
             return false;
         }
         return invokeI.booleanValue;
@@ -172,9 +172,9 @@ public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavi
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -3,7 +3,6 @@ package c.a.j.j.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.pass.face.platform.common.ConstantHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +10,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.core.RemoteViewBuilder;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public final class b {
@@ -40,17 +38,17 @@ public final class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static /* synthetic */ JSONObject b(b bVar, String str, String str2, String str3, int i2, Object obj) {
-        if ((i2 & 4) != 0) {
+    public static /* synthetic */ JSONObject b(b bVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
             str3 = null;
         }
         return bVar.a(str, str2, str3);
@@ -61,7 +59,7 @@ public final class b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put(RemoteViewBuilder.ProgressRemoteViewImpl.KEY_TASKID, str);
+            jSONObject.put("taskId", str);
             jSONObject.put(TaskInfo.keyActTaskId, str2);
             if (str3 != null) {
                 jSONObject.put("phase", str3);
@@ -74,7 +72,7 @@ public final class b {
     public final String c(TaskStatus taskStatus) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) ? taskStatus.isFinished() ? ConstantHelper.LOG_FINISH : taskStatus.isRegistered() ? "guide" : "doing" : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) ? taskStatus.isFinished() ? "finish" : taskStatus.isRegistered() ? "guide" : "doing" : (String) invokeL.objValue;
     }
 
     public final String d(TaskStatus taskStatus) {

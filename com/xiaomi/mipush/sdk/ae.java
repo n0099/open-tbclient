@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ae {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ae a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f64a;
+    public Context f40a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<w> f65a;
+    public List<w> f41a;
 
     static {
         InterceptResult invokeClinit;
@@ -46,19 +46,19 @@ public class ae {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f65a = new ArrayList();
+        this.f41a = new ArrayList();
         Context applicationContext = context.getApplicationContext();
-        this.f64a = applicationContext;
+        this.f40a = applicationContext;
         if (applicationContext == null) {
-            this.f64a = context;
+            this.f40a = context;
         }
     }
 
@@ -82,11 +82,11 @@ public class ae {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            synchronized (this.f65a) {
+            synchronized (this.f41a) {
                 w wVar = new w();
-                wVar.f103a = str;
-                if (this.f65a.contains(wVar)) {
-                    for (w wVar2 : this.f65a) {
+                wVar.f79a = str;
+                if (this.f41a.contains(wVar)) {
+                    for (w wVar2 : this.f41a) {
                         if (wVar2.equals(wVar)) {
                             return wVar2.a;
                         }
@@ -104,7 +104,7 @@ public class ae {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, atVar)) == null) {
             synchronized (this) {
-                string = this.f64a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
+                string = this.f40a.getSharedPreferences("mipush_extra", 0).getString(atVar.name(), "");
             }
             return string;
         }
@@ -115,37 +115,37 @@ public class ae {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, atVar, str) == null) {
             synchronized (this) {
-                SharedPreferences sharedPreferences = this.f64a.getSharedPreferences("mipush_extra", 0);
+                SharedPreferences sharedPreferences = this.f40a.getSharedPreferences("mipush_extra", 0);
                 sharedPreferences.edit().putString(atVar.name(), str).commit();
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m153a(String str) {
+    public void m132a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            synchronized (this.f65a) {
+            synchronized (this.f41a) {
                 w wVar = new w();
                 wVar.a = 0;
-                wVar.f103a = str;
-                if (this.f65a.contains(wVar)) {
-                    this.f65a.remove(wVar);
+                wVar.f79a = str;
+                if (this.f41a.contains(wVar)) {
+                    this.f41a.remove(wVar);
                 }
-                this.f65a.add(wVar);
+                this.f41a.add(wVar);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m154a(String str) {
+    public boolean m133a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this.f65a) {
+            synchronized (this.f41a) {
                 w wVar = new w();
-                wVar.f103a = str;
-                return this.f65a.contains(wVar);
+                wVar.f79a = str;
+                return this.f41a.contains(wVar);
             }
         }
         return invokeL.booleanValue;
@@ -154,11 +154,11 @@ public class ae {
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this.f65a) {
+            synchronized (this.f41a) {
                 w wVar = new w();
-                wVar.f103a = str;
-                if (this.f65a.contains(wVar)) {
-                    Iterator<w> it = this.f65a.iterator();
+                wVar.f79a = str;
+                if (this.f41a.contains(wVar)) {
+                    Iterator<w> it = this.f41a.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
@@ -171,8 +171,8 @@ public class ae {
                     }
                 }
                 wVar.a++;
-                this.f65a.remove(wVar);
-                this.f65a.add(wVar);
+                this.f41a.remove(wVar);
+                this.f41a.add(wVar);
             }
         }
     }
@@ -180,11 +180,11 @@ public class ae {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            synchronized (this.f65a) {
+            synchronized (this.f41a) {
                 w wVar = new w();
-                wVar.f103a = str;
-                if (this.f65a.contains(wVar)) {
-                    this.f65a.remove(wVar);
+                wVar.f79a = str;
+                if (this.f41a.contains(wVar)) {
+                    this.f41a.remove(wVar);
                 }
             }
         }

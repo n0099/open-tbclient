@@ -8,26 +8,26 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public static final e a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ e[] f92a;
+    public static final /* synthetic */ e[] f68a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final e f59460b;
+    public static final e f44079b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final e f59461c;
+    public static final e f44080c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final e f59462d;
+    public static final e f44081d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f93a;
+    public int f69a;
 
     static {
         InterceptResult invokeClinit;
@@ -43,23 +43,23 @@ public final class e {
             }
         }
         a = new e("ASSEMBLE_PUSH_HUAWEI", 0, 1);
-        f59460b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
-        f59461c = new e("ASSEMBLE_PUSH_COS", 2, 3);
+        f44079b = new e("ASSEMBLE_PUSH_FCM", 1, 2);
+        f44080c = new e("ASSEMBLE_PUSH_COS", 2, 3);
         e eVar = new e("ASSEMBLE_PUSH_FTOS", 3, 4);
-        f59462d = eVar;
-        f92a = new e[]{a, f59460b, f59461c, eVar};
+        f44081d = eVar;
+        f68a = new e[]{a, f44079b, f44080c, eVar};
     }
 
-    public e(String str, int i2, int i3) {
+    public e(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -68,7 +68,7 @@ public final class e {
                 return;
             }
         }
-        this.f93a = i3;
+        this.f69a = i2;
     }
 
     public static e valueOf(String str) {
@@ -80,6 +80,6 @@ public final class e {
     public static e[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f92a.clone() : (e[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (e[]) f68a.clone() : (e[]) invokeV.objValue;
     }
 }

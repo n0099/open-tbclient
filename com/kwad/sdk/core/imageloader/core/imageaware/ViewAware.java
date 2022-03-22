@@ -31,13 +31,13 @@ public abstract class ViewAware implements ImageAware {
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getHeight() {
         View view = this.viewRef.get();
-        int i2 = 0;
+        int i = 0;
         if (view != null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (this.checkActualViewSize && layoutParams != null && layoutParams.height != -2) {
-                i2 = view.getHeight();
+                i = view.getHeight();
             }
-            return (i2 > 0 || layoutParams == null) ? i2 : layoutParams.height;
+            return (i > 0 || layoutParams == null) ? i : layoutParams.height;
         }
         return 0;
     }
@@ -56,13 +56,13 @@ public abstract class ViewAware implements ImageAware {
     @Override // com.kwad.sdk.core.imageloader.core.imageaware.ImageAware
     public int getWidth() {
         View view = this.viewRef.get();
-        int i2 = 0;
+        int i = 0;
         if (view != null) {
             ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
             if (this.checkActualViewSize && layoutParams != null && layoutParams.width != -2) {
-                i2 = view.getWidth();
+                i = view.getWidth();
             }
-            return (i2 > 0 || layoutParams == null) ? i2 : layoutParams.width;
+            return (i > 0 || layoutParams == null) ? i : layoutParams.width;
         }
         return 0;
     }

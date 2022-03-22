@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class l extends h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.q0.r.r.a l;
-    public ForumGoodsEnterLayout m;
-    public int n;
-    public final View.OnClickListener o;
+
+    /* renamed from: h  reason: collision with root package name */
+    public c.a.o0.r.r.a f3440h;
+    public ForumGoodsEnterLayout i;
+    public int j;
+    public final View.OnClickListener k;
 
     /* loaded from: classes.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ l f4040e;
+        public final /* synthetic */ l a;
 
         public a(l lVar) {
             Interceptable interceptable = $ic;
@@ -37,24 +37,24 @@ public class l extends h {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f4040e = lVar;
+            this.a = lVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f4040e.c() == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.a.d() == null) {
                 return;
             }
-            this.f4040e.c().a(view, this.f4040e.l);
+            this.a.d().a(view, this.a.f3440h);
         }
     }
 
@@ -67,79 +67,79 @@ public class l extends h {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.o = new a(this);
+        this.k = new a(this);
         int f2 = c.a.d.f.p.n.f(context, R.dimen.M_H_X003);
         int f3 = c.a.d.f.p.n.f(context, HomeGroupUbsUIHelper.handleDimen(R.dimen.tbds21, R.dimen.tbds0));
-        q(f2);
-        p(f3);
+        r(f2);
+        q(f3);
         ForumGoodsEnterLayout forumGoodsEnterLayout = new ForumGoodsEnterLayout(context);
-        this.m = forumGoodsEnterLayout;
-        forumGoodsEnterLayout.setOnAfterClickListener(this.o);
+        this.i = forumGoodsEnterLayout;
+        forumGoodsEnterLayout.setOnAfterClickListener(this.k);
     }
 
     @Override // c.a.l.a
-    public View f() {
+    public View g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.m : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (View) invokeV.objValue;
     }
 
     @Override // c.a.l.q
-    public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i2) == null) {
-            this.m.onChangeSkinType(tbPageContext, i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.i.d(tbPageContext, i);
         }
     }
 
-    public void s() {
+    public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int f2 = c.a.d.f.p.n.f(this.f4007f, R.dimen.M_H_X003);
-            q(f2);
-            p(0);
-            v(this.m, f2, 0);
+            int f2 = c.a.d.f.p.n.f(this.f3392b, R.dimen.M_H_X003);
+            r(f2);
+            q(0);
+            w(this.i, f2, 0);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // c.a.l.p
-    /* renamed from: t */
-    public void onBindDataToView(c.a.q0.r.r.a aVar) {
+    /* renamed from: u */
+    public void a(c.a.o0.r.r.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.l = aVar;
-            this.m.setSourceForPb(this.f4006e.i());
-            this.m.setFrstype(this.n);
-            this.m.setData(aVar);
+            this.f3440h = aVar;
+            this.i.setSourceForPb(this.a.i());
+            this.i.setFrstype(this.j);
+            this.i.setData(aVar);
         }
     }
 
-    public void u(int i2) {
+    public void v(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.n = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.j = i;
         }
     }
 
-    public void v(View view, int i2, int i3) {
+    public void w(View view, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048582, this, view, i2, i3) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if ((interceptable == null || interceptable.invokeLII(1048582, this, view, i, i2) == null) && view != null && (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-            if (marginLayoutParams.topMargin == i2 && marginLayoutParams.bottomMargin == i3) {
+            if (marginLayoutParams.topMargin == i && marginLayoutParams.bottomMargin == i2) {
                 return;
             }
-            marginLayoutParams.topMargin = i2;
-            marginLayoutParams.bottomMargin = i3;
+            marginLayoutParams.topMargin = i;
+            marginLayoutParams.bottomMargin = i2;
             view.setLayoutParams(marginLayoutParams);
         }
     }

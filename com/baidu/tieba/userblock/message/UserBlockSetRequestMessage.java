@@ -1,6 +1,6 @@
 package com.baidu.tieba.userblock.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -29,9 +29,9 @@ public class UserBlockSetRequestMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -69,31 +69,31 @@ public class UserBlockSetRequestMessage extends NetMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mBlockUserId : invokeV.longValue;
     }
 
-    public void setBlockUserId(long j2) {
+    public void setBlockUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.mBlockUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.mBlockUserId = j;
         }
     }
 
-    public void setChat(int i2) {
+    public void setChat(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.chat = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.chat = i;
         }
     }
 
-    public void setFollow(int i2) {
+    public void setFollow(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.follow = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.follow = i;
         }
     }
 
-    public void setInteract(int i2) {
+    public void setInteract(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.interact = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.interact = i;
         }
     }
 }

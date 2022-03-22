@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.references.CloseableReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawableBackend {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
             newInitContext.initArgs = r2;
             Object[] objArr = {animatedDrawableBackend};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -63,10 +63,10 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getDurationMsForFrame(int i2) {
+    public int getDurationMsForFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.mAnimatedDrawableBackend.getDurationMsForFrame(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.mAnimatedDrawableBackend.getDurationMsForFrame(i) : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -84,17 +84,17 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getFrameForTimestampMs(int i2) {
+    public int getFrameForTimestampMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.mAnimatedDrawableBackend.getFrameForTimestampMs(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mAnimatedDrawableBackend.getFrameForTimestampMs(i) : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public AnimatedDrawableFrameInfo getFrameInfo(int i2) {
+    public AnimatedDrawableFrameInfo getFrameInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? this.mAnimatedDrawableBackend.getFrameInfo(i2) : (AnimatedDrawableFrameInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? this.mAnimatedDrawableBackend.getFrameInfo(i) : (AnimatedDrawableFrameInfo) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -119,10 +119,10 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public CloseableReference<Bitmap> getPreDecodedFrame(int i2) {
+    public CloseableReference<Bitmap> getPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) ? this.mAnimatedDrawableBackend.getPreDecodedFrame(i2) : (CloseableReference) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.mAnimatedDrawableBackend.getPreDecodedFrame(i) : (CloseableReference) invokeI.objValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -140,10 +140,10 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public int getTimestampMsForFrame(int i2) {
+    public int getTimestampMsForFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) ? this.mAnimatedDrawableBackend.getTimestampMsForFrame(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? this.mAnimatedDrawableBackend.getTimestampMsForFrame(i) : invokeI.intValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
@@ -154,17 +154,17 @@ public abstract class DelegatingAnimatedDrawableBackend implements AnimatedDrawa
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public boolean hasPreDecodedFrame(int i2) {
+    public boolean hasPreDecodedFrame(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.mAnimatedDrawableBackend.hasPreDecodedFrame(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mAnimatedDrawableBackend.hasPreDecodedFrame(i) : invokeI.booleanValue;
     }
 
     @Override // com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend
-    public void renderFrame(int i2, Canvas canvas) {
+    public void renderFrame(int i, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048594, this, i2, canvas) == null) {
-            this.mAnimatedDrawableBackend.renderFrame(i2, canvas);
+        if (interceptable == null || interceptable.invokeIL(1048594, this, i, canvas) == null) {
+            this.mAnimatedDrawableBackend.renderFrame(i, canvas);
         }
     }
 }

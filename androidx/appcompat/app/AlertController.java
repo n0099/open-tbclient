@@ -156,9 +156,9 @@ public class AlertController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -175,7 +175,7 @@ public class AlertController {
         }
 
         private void createListView(AlertController alertController) {
-            int i2;
+            int i;
             ListAdapter listAdapter;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, this, alertController) == null) {
@@ -197,9 +197,9 @@ public class AlertController {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, r11, Integer.valueOf(r12), Integer.valueOf(r13), r14, recycleListView};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         Object[] objArr2 = newInitContext.callArgs;
                                         super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (Object[]) objArr2[3]);
                                         newInitContext.thisArg = this;
@@ -212,14 +212,14 @@ public class AlertController {
                             }
 
                             @Override // android.widget.ArrayAdapter, android.widget.Adapter
-                            public View getView(int i3, View view, ViewGroup viewGroup) {
+                            public View getView(int i2, View view, ViewGroup viewGroup) {
                                 InterceptResult invokeILL;
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeILL = interceptable2.invokeILL(1048576, this, i3, view, viewGroup)) == null) {
-                                    View view2 = super.getView(i3, view, viewGroup);
+                                if (interceptable2 == null || (invokeILL = interceptable2.invokeILL(1048576, this, i2, view, viewGroup)) == null) {
+                                    View view2 = super.getView(i2, view, viewGroup);
                                     boolean[] zArr = this.this$0.mCheckedItems;
-                                    if (zArr != null && zArr[i3]) {
-                                        this.val$listView.setItemChecked(i3, true);
+                                    if (zArr != null && zArr[i2]) {
+                                        this.val$listView.setItemChecked(i2, true);
                                     }
                                     return view2;
                                 }
@@ -245,9 +245,9 @@ public class AlertController {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, r10, r11, Boolean.valueOf(r12), recycleListView, alertController};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i3 = newInitContext.flag;
-                                    if ((i3 & 1) != 0) {
-                                        int i4 = i3 & 2;
+                                    int i2 = newInitContext.flag;
+                                    if ((i2 & 1) != 0) {
+                                        int i3 = i2 & 2;
                                         Object[] objArr2 = newInitContext.callArgs;
                                         super((Context) objArr2[0], (Cursor) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                                         newInitContext.thisArg = this;
@@ -282,17 +282,17 @@ public class AlertController {
                     }
                 } else {
                     if (this.mIsSingleChoice) {
-                        i2 = alertController.mSingleChoiceItemLayout;
+                        i = alertController.mSingleChoiceItemLayout;
                     } else {
-                        i2 = alertController.mListItemLayout;
+                        i = alertController.mListItemLayout;
                     }
-                    int i3 = i2;
+                    int i2 = i;
                     if (this.mCursor != null) {
-                        listAdapter = new SimpleCursorAdapter(this.mContext, i3, this.mCursor, new String[]{this.mLabelColumn}, new int[]{16908308});
+                        listAdapter = new SimpleCursorAdapter(this.mContext, i2, this.mCursor, new String[]{this.mLabelColumn}, new int[]{16908308});
                     } else {
                         listAdapter = this.mAdapter;
                         if (listAdapter == null) {
-                            listAdapter = new CheckedItemAdapter(this.mContext, i3, 16908308, this.mItems);
+                            listAdapter = new CheckedItemAdapter(this.mContext, i2, 16908308, this.mItems);
                         }
                     }
                 }
@@ -316,9 +316,9 @@ public class AlertController {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, alertController};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -329,10 +329,10 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
-                                this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i4);
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
+                                this.this$0.mOnClickListener.onClick(this.val$dialog.mDialog, i3);
                                 if (this.this$0.mIsSingleChoice) {
                                     return;
                                 }
@@ -355,9 +355,9 @@ public class AlertController {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, recycleListView, alertController};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -369,14 +369,14 @@ public class AlertController {
                         }
 
                         @Override // android.widget.AdapterView.OnItemClickListener
-                        public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j2) {
+                        public void onItemClick(AdapterView<?> adapterView, View view, int i3, long j) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j2)}) == null) {
+                            if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i3), Long.valueOf(j)}) == null) {
                                 boolean[] zArr = this.this$0.mCheckedItems;
                                 if (zArr != null) {
-                                    zArr[i4] = this.val$listView.isItemChecked(i4);
+                                    zArr[i3] = this.val$listView.isItemChecked(i3);
                                 }
-                                this.this$0.mOnCheckboxClickListener.onClick(this.val$dialog.mDialog, i4, this.val$listView.isItemChecked(i4));
+                                this.this$0.mOnCheckboxClickListener.onClick(this.val$dialog.mDialog, i3, this.val$listView.isItemChecked(i3));
                             }
                         }
                     });
@@ -409,13 +409,13 @@ public class AlertController {
                     if (drawable != null) {
                         alertController.setIcon(drawable);
                     }
-                    int i2 = this.mIconId;
-                    if (i2 != 0) {
-                        alertController.setIcon(i2);
+                    int i = this.mIconId;
+                    if (i != 0) {
+                        alertController.setIcon(i);
                     }
-                    int i3 = this.mIconAttrId;
-                    if (i3 != 0) {
-                        alertController.setIcon(alertController.getIconAttributeResId(i3));
+                    int i2 = this.mIconAttrId;
+                    if (i2 != 0) {
+                        alertController.setIcon(alertController.getIconAttributeResId(i2));
                     }
                 }
                 CharSequence charSequence2 = this.mMessage;
@@ -444,9 +444,9 @@ public class AlertController {
                         return;
                     }
                 }
-                int i4 = this.mViewLayoutResId;
-                if (i4 != 0) {
-                    alertController.setView(i4);
+                int i3 = this.mViewLayoutResId;
+                if (i3 != 0) {
+                    alertController.setView(i3);
                 }
             }
         }
@@ -466,9 +466,9 @@ public class AlertController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {dialogInterface};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -481,10 +481,10 @@ public class AlertController {
         public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i2 = message.what;
-                if (i2 == -3 || i2 == -2 || i2 == -1) {
+                int i = message.what;
+                if (i == -3 || i == -2 || i == -1) {
                     ((DialogInterface.OnClickListener) message.obj).onClick(this.mDialog.get(), message.what);
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                 } else {
                     ((DialogInterface) message.obj).dismiss();
                 }
@@ -498,17 +498,17 @@ public class AlertController {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public CheckedItemAdapter(Context context, int i2, int i3, CharSequence[] charSequenceArr) {
-            super(context, i2, i3, charSequenceArr);
+        public CheckedItemAdapter(Context context, int i, int i2, CharSequence[] charSequenceArr) {
+            super(context, i, i2, charSequenceArr);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, Integer.valueOf(i2), Integer.valueOf(i3), charSequenceArr};
+                Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2), charSequenceArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), (Object[]) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -519,10 +519,10 @@ public class AlertController {
         }
 
         @Override // android.widget.ArrayAdapter, android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.BaseAdapter, android.widget.Adapter
@@ -552,9 +552,9 @@ public class AlertController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -583,9 +583,9 @@ public class AlertController {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -606,9 +606,9 @@ public class AlertController {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, appCompatDialog, window};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -630,9 +630,9 @@ public class AlertController {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -760,22 +760,22 @@ public class AlertController {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
-            int i2 = this.mButtonPanelSideLayout;
-            if (i2 == 0) {
+            int i = this.mButtonPanelSideLayout;
+            if (i == 0) {
                 return this.mAlertDialogLayout;
             }
-            return this.mButtonPanelLayoutHint == 1 ? i2 : this.mAlertDialogLayout;
+            return this.mButtonPanelLayoutHint == 1 ? i : this.mAlertDialogLayout;
         }
         return invokeV.intValue;
     }
 
-    private void setScrollIndicators(ViewGroup viewGroup, View view, int i2, int i3) {
+    private void setScrollIndicators(ViewGroup viewGroup, View view, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65542, this, viewGroup, view, i, i2) == null) {
             View findViewById = this.mWindow.findViewById(R$id.scrollIndicatorUp);
             View findViewById2 = this.mWindow.findViewById(R$id.scrollIndicatorDown);
             if (Build.VERSION.SDK_INT >= 23) {
-                ViewCompat.setScrollIndicators(view, i2, i3);
+                ViewCompat.setScrollIndicators(view, i, i2);
                 if (findViewById != null) {
                     viewGroup.removeView(findViewById);
                 }
@@ -785,11 +785,11 @@ public class AlertController {
                 }
                 return;
             }
-            if (findViewById != null && (i2 & 1) == 0) {
+            if (findViewById != null && (i & 1) == 0) {
                 viewGroup.removeView(findViewById);
                 findViewById = null;
             }
-            if (findViewById2 != null && (i2 & 2) == 0) {
+            if (findViewById2 != null && (i & 2) == 0) {
                 viewGroup.removeView(findViewById2);
                 findViewById2 = null;
             }
@@ -811,9 +811,9 @@ public class AlertController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, findViewById, findViewById2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -825,9 +825,9 @@ public class AlertController {
                     }
 
                     @Override // androidx.core.widget.NestedScrollView.OnScrollChangeListener
-                    public void onScrollChange(NestedScrollView nestedScrollView, int i4, int i5, int i6, int i7) {
+                    public void onScrollChange(NestedScrollView nestedScrollView, int i3, int i4, int i5, int i6) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{nestedScrollView, Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{nestedScrollView, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
                             AlertController.manageScrollIndicators(nestedScrollView, this.val$top, this.val$bottom);
                         }
                     }
@@ -846,9 +846,9 @@ public class AlertController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, findViewById, findViewById2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -885,9 +885,9 @@ public class AlertController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, findViewById, findViewById2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -899,17 +899,17 @@ public class AlertController {
                     }
 
                     @Override // android.widget.AbsListView.OnScrollListener
-                    public void onScroll(AbsListView absListView, int i4, int i5, int i6) {
+                    public void onScroll(AbsListView absListView, int i3, int i4, int i5) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i4, i5, i6) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLIII(1048576, this, absListView, i3, i4, i5) == null) {
                             AlertController.manageScrollIndicators(absListView, this.val$top, this.val$bottom);
                         }
                     }
 
                     @Override // android.widget.AbsListView.OnScrollListener
-                    public void onScrollStateChanged(AbsListView absListView, int i4) {
+                    public void onScrollStateChanged(AbsListView absListView, int i3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i4) == null) {
+                        if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i3) == null) {
                         }
                     }
                 });
@@ -927,9 +927,9 @@ public class AlertController {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, findViewById, findViewById2};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i4 = newInitContext.flag;
-                            if ((i4 & 1) != 0) {
-                                int i5 = i4 & 2;
+                            int i3 = newInitContext.flag;
+                            if ((i3 & 1) != 0) {
+                                int i4 = i3 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -973,8 +973,8 @@ public class AlertController {
                 this.mButtonPositive.setText(this.mButtonPositiveText);
                 Drawable drawable = this.mButtonPositiveIcon;
                 if (drawable != null) {
-                    int i2 = this.mButtonIconDimen;
-                    drawable.setBounds(0, 0, i2, i2);
+                    int i = this.mButtonIconDimen;
+                    drawable.setBounds(0, 0, i, i);
                     this.mButtonPositive.setCompoundDrawables(this.mButtonPositiveIcon, null, null, null);
                 }
                 this.mButtonPositive.setVisibility(0);
@@ -989,8 +989,8 @@ public class AlertController {
                 this.mButtonNegative.setText(this.mButtonNegativeText);
                 Drawable drawable2 = this.mButtonNegativeIcon;
                 if (drawable2 != null) {
-                    int i3 = this.mButtonIconDimen;
-                    drawable2.setBounds(0, 0, i3, i3);
+                    int i2 = this.mButtonIconDimen;
+                    drawable2.setBounds(0, 0, i2, i2);
                     this.mButtonNegative.setCompoundDrawables(this.mButtonNegativeIcon, null, null, null);
                 }
                 this.mButtonNegative.setVisibility(0);
@@ -1005,8 +1005,8 @@ public class AlertController {
                 this.mButtonNeutral.setText(this.mButtonNeutralText);
                 Drawable drawable3 = this.mButtonNeutralIcon;
                 if (drawable3 != null) {
-                    int i4 = this.mButtonIconDimen;
-                    drawable3.setBounds(0, 0, i4, i4);
+                    int i3 = this.mButtonIconDimen;
+                    drawable3.setBounds(0, 0, i3, i3);
                     this.mButtonNeutral.setCompoundDrawables(this.mButtonNeutralIcon, null, null, null);
                 }
                 this.mButtonNeutral.setVisibility(0);
@@ -1031,7 +1031,7 @@ public class AlertController {
     private void setupContent(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, viewGroup) == null) {
-            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R$id.scrollView);
+            NestedScrollView nestedScrollView = (NestedScrollView) this.mWindow.findViewById(R$id.obfuscated);
             this.mScrollView = nestedScrollView;
             nestedScrollView.setFocusable(false);
             this.mScrollView.setNestedScrollingEnabled(false);
@@ -1070,7 +1070,7 @@ public class AlertController {
                 this.mWindow.setFlags(131072, 131072);
             }
             if (z) {
-                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.custom);
+                FrameLayout frameLayout = (FrameLayout) this.mWindow.findViewById(R$id.obfuscated);
                 frameLayout.addView(view, new ViewGroup.LayoutParams(-1, -1));
                 if (this.mViewSpacingSpecified) {
                     frameLayout.setPadding(this.mViewSpacingLeft, this.mViewSpacingTop, this.mViewSpacingRight, this.mViewSpacingBottom);
@@ -1095,12 +1095,12 @@ public class AlertController {
             }
             this.mIconView = (ImageView) this.mWindow.findViewById(16908294);
             if ((!TextUtils.isEmpty(this.mTitle)) && this.mShowTitle) {
-                TextView textView = (TextView) this.mWindow.findViewById(R$id.alertTitle);
+                TextView textView = (TextView) this.mWindow.findViewById(R$id.obfuscated);
                 this.mTitleView = textView;
                 textView.setText(this.mTitle);
-                int i2 = this.mIconId;
-                if (i2 != 0) {
-                    this.mIconView.setImageResource(i2);
+                int i = this.mIconId;
+                if (i != 0) {
+                    this.mIconView.setImageResource(i);
                     return;
                 }
                 Drawable drawable = this.mIcon;
@@ -1128,15 +1128,15 @@ public class AlertController {
         View findViewById2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
-            View findViewById3 = this.mWindow.findViewById(R$id.parentPanel);
-            View findViewById4 = findViewById3.findViewById(R$id.topPanel);
-            View findViewById5 = findViewById3.findViewById(R$id.contentPanel);
-            View findViewById6 = findViewById3.findViewById(R$id.buttonPanel);
+            View findViewById3 = this.mWindow.findViewById(R$id.obfuscated);
+            View findViewById4 = findViewById3.findViewById(R$id.obfuscated);
+            View findViewById5 = findViewById3.findViewById(R$id.obfuscated);
+            View findViewById6 = findViewById3.findViewById(R$id.obfuscated);
             ViewGroup viewGroup = (ViewGroup) findViewById3.findViewById(R$id.customPanel);
             setupCustomContent(viewGroup);
-            View findViewById7 = viewGroup.findViewById(R$id.topPanel);
-            View findViewById8 = viewGroup.findViewById(R$id.contentPanel);
-            View findViewById9 = viewGroup.findViewById(R$id.buttonPanel);
+            View findViewById7 = viewGroup.findViewById(R$id.obfuscated);
+            View findViewById8 = viewGroup.findViewById(R$id.obfuscated);
+            View findViewById9 = viewGroup.findViewById(R$id.obfuscated);
             ViewGroup resolvePanel = resolvePanel(findViewById7, findViewById4);
             ViewGroup resolvePanel2 = resolvePanel(findViewById8, findViewById5);
             ViewGroup resolvePanel3 = resolvePanel(findViewById9, findViewById6);
@@ -1182,10 +1182,10 @@ public class AlertController {
                 return;
             }
             listView2.setAdapter(listAdapter);
-            int i2 = this.mCheckedItem;
-            if (i2 > -1) {
-                listView2.setItemChecked(i2, true);
-                listView2.setSelection(i2);
+            int i = this.mCheckedItem;
+            if (i > -1) {
+                listView2.setItemChecked(i, true);
+                listView2.setSelection(i);
             }
         }
     }
@@ -1201,13 +1201,13 @@ public class AlertController {
         return invokeL.booleanValue;
     }
 
-    public Button getButton(int i2) {
+    public Button getButton(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 != -3) {
-                if (i2 != -2) {
-                    if (i2 != -1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i != -3) {
+                if (i != -2) {
+                    if (i != -1) {
                         return null;
                     }
                     return this.mButtonPositive;
@@ -1219,12 +1219,12 @@ public class AlertController {
         return (Button) invokeI.objValue;
     }
 
-    public int getIconAttributeResId(int i2) {
+    public int getIconAttributeResId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             TypedValue typedValue = new TypedValue();
-            this.mContext.getTheme().resolveAttribute(i2, typedValue, true);
+            this.mContext.getTheme().resolveAttribute(i, typedValue, true);
             return typedValue.resourceId;
         }
         return invokeI.intValue;
@@ -1244,41 +1244,41 @@ public class AlertController {
         }
     }
 
-    public boolean onKeyDown(int i2, KeyEvent keyEvent) {
+    public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, keyEvent)) == null) {
             NestedScrollView nestedScrollView = this.mScrollView;
             return nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
-    public boolean onKeyUp(int i2, KeyEvent keyEvent) {
+    public boolean onKeyUp(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             NestedScrollView nestedScrollView = this.mScrollView;
             return nestedScrollView != null && nestedScrollView.executeKeyEvent(keyEvent);
         }
         return invokeIL.booleanValue;
     }
 
-    public void setButton(int i2, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message, Drawable drawable) {
+    public void setButton(int i, CharSequence charSequence, DialogInterface.OnClickListener onClickListener, Message message, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), charSequence, onClickListener, message, drawable}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), charSequence, onClickListener, message, drawable}) == null) {
             if (message == null && onClickListener != null) {
-                message = this.mHandler.obtainMessage(i2, onClickListener);
+                message = this.mHandler.obtainMessage(i, onClickListener);
             }
-            if (i2 == -3) {
+            if (i == -3) {
                 this.mButtonNeutralText = charSequence;
                 this.mButtonNeutralMessage = message;
                 this.mButtonNeutralIcon = drawable;
-            } else if (i2 == -2) {
+            } else if (i == -2) {
                 this.mButtonNegativeText = charSequence;
                 this.mButtonNegativeMessage = message;
                 this.mButtonNegativeIcon = drawable;
-            } else if (i2 == -1) {
+            } else if (i == -1) {
                 this.mButtonPositiveText = charSequence;
                 this.mButtonPositiveMessage = message;
                 this.mButtonPositiveIcon = drawable;
@@ -1288,10 +1288,10 @@ public class AlertController {
         }
     }
 
-    public void setButtonPanelLayoutHint(int i2) {
+    public void setButtonPanelLayoutHint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mButtonPanelLayoutHint = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mButtonPanelLayoutHint = i;
         }
     }
 
@@ -1302,14 +1302,14 @@ public class AlertController {
         }
     }
 
-    public void setIcon(int i2) {
+    public void setIcon(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             this.mIcon = null;
-            this.mIconId = i2;
+            this.mIconId = i;
             ImageView imageView = this.mIconView;
             if (imageView != null) {
-                if (i2 != 0) {
+                if (i != 0) {
                     imageView.setVisibility(0);
                     this.mIconView.setImageResource(this.mIconId);
                     return;
@@ -1341,11 +1341,11 @@ public class AlertController {
         }
     }
 
-    public void setView(int i2) {
+    public void setView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             this.mView = null;
-            this.mViewLayoutResId = i2;
+            this.mViewLayoutResId = i;
             this.mViewSpacingSpecified = false;
         }
     }
@@ -1376,16 +1376,16 @@ public class AlertController {
         }
     }
 
-    public void setView(View view, int i2, int i3, int i4, int i5) {
+    public void setView(View view, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             this.mView = view;
             this.mViewLayoutResId = 0;
             this.mViewSpacingSpecified = true;
-            this.mViewSpacingLeft = i2;
-            this.mViewSpacingTop = i3;
-            this.mViewSpacingRight = i4;
-            this.mViewSpacingBottom = i5;
+            this.mViewSpacingLeft = i;
+            this.mViewSpacingTop = i2;
+            this.mViewSpacingRight = i3;
+            this.mViewSpacingBottom = i4;
         }
     }
 }

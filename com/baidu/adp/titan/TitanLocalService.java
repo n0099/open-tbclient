@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
+import android.util.Log;
 import android.widget.Toast;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -28,9 +29,7 @@ public class TitanLocalService extends Service {
     public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitanLocalService f29889e;
+        public final /* synthetic */ TitanLocalService a;
 
         public a(TitanLocalService titanLocalService) {
             Interceptable interceptable = $ic;
@@ -39,21 +38,22 @@ public class TitanLocalService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {titanLocalService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29889e = titanLocalService;
+            this.a = titanLocalService;
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                Log.e("LocalService", "connected with TitanLocalService");
             }
         }
 
@@ -61,10 +61,10 @@ public class TitanLocalService extends Service {
         public void onServiceDisconnected(ComponentName componentName) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                Toast.makeText(this.f29889e, "链接断开，重新启动 RemoteService", 1).show();
-                String unused = TitanLocalService.TAG;
-                this.f29889e.startService(new Intent(this.f29889e, TitanDownloadService.class));
-                this.f29889e.bindService(new Intent(this.f29889e, TitanDownloadService.class), this.f29889e.connection, 64);
+                Toast.makeText(this.a, "链接断开，重新启动 RemoteService", 1).show();
+                Log.e(TitanLocalService.TAG, "onServiceDisconnected: 链接断开，重新启动 RemoteService");
+                this.a.startService(new Intent(this.a, TitanDownloadService.class));
+                this.a.bindService(new Intent(this.a, TitanDownloadService.class), this.a.connection, 64);
             }
         }
     }
@@ -73,9 +73,7 @@ public class TitanLocalService extends Service {
     public class b extends Binder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TitanLocalService f29890e;
+        public final /* synthetic */ TitanLocalService a;
 
         public b(TitanLocalService titanLocalService) {
             Interceptable interceptable = $ic;
@@ -84,15 +82,15 @@ public class TitanLocalService extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {titanLocalService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29890e = titanLocalService;
+            this.a = titanLocalService;
         }
     }
 
@@ -117,9 +115,9 @@ public class TitanLocalService extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -150,10 +148,11 @@ public class TitanLocalService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, intent, i, i2)) == null) {
+            Log.e(TAG, "onStartCommand: LocalService 启动");
             Toast.makeText(this, "LocalService 启动", 1).show();
             startService(new Intent(this, TitanDownloadService.class));
             bindService(new Intent(this, TitanDownloadService.class), this.connection, 64);

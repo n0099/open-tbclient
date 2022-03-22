@@ -17,8 +17,7 @@ import com.bumptech.glide.util.LruCache;
 import com.bumptech.glide.util.Util;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ResourceCacheKey implements Key {
     public static /* synthetic */ Interceptable $ic;
     public static final LruCache<Class<?>, byte[]> RESOURCE_CLASS_BYTES;
@@ -48,16 +47,16 @@ public final class ResourceCacheKey implements Key {
         RESOURCE_CLASS_BYTES = new LruCache<>(50L);
     }
 
-    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i2, int i3, Transformation<?> transformation, Class<?> cls, Options options) {
+    public ResourceCacheKey(ArrayPool arrayPool, Key key, Key key2, int i, int i2, Transformation<?> transformation, Class<?> cls, Options options) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {arrayPool, key, key2, Integer.valueOf(i2), Integer.valueOf(i3), transformation, cls, options};
+            Object[] objArr = {arrayPool, key, key2, Integer.valueOf(i), Integer.valueOf(i2), transformation, cls, options};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -66,8 +65,8 @@ public final class ResourceCacheKey implements Key {
         this.arrayPool = arrayPool;
         this.sourceKey = key;
         this.signature = key2;
-        this.width = i2;
-        this.height = i3;
+        this.width = i;
+        this.height = i2;
         this.transformation = transformation;
         this.decodedResourceClass = cls;
         this.options = options;
@@ -121,7 +120,7 @@ public final class ResourceCacheKey implements Key {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + ExtendedMessageFormat.QUOTE + ", options=" + this.options + ExtendedMessageFormat.END_FE;
+            return "ResourceCacheKey{sourceKey=" + this.sourceKey + ", signature=" + this.signature + ", width=" + this.width + ", height=" + this.height + ", decodedResourceClass=" + this.decodedResourceClass + ", transformation='" + this.transformation + "', options=" + this.options + '}';
         }
         return (String) invokeV.objValue;
     }

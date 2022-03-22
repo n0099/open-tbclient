@@ -21,10 +21,10 @@ public class bg {
     public static volatile boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile boolean f35169b;
+    public static volatile boolean f27306b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f35170c;
+    public static volatile boolean f27307c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public static String a() {
@@ -33,40 +33,40 @@ public class bg {
         return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? "https://dxp.baidu.com/vizParser" : (String) invokeV.objValue;
     }
 
-    public static boolean a(int i2) {
+    public static boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
                         return false;
                     }
-                    return f35170c;
+                    return f27307c;
                 }
-                return f35169b;
+                return f27306b;
             }
             return a;
         }
         return invokeI.booleanValue;
     }
 
-    public static String b(int i2) {
+    public static String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) ? i2 != 0 ? i2 != 1 ? i2 != 2 ? "" : "mtj_auto.config" : "mtj_autoTracker.js" : "mtj_vizParser.js" : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? "" : "mtj_auto.config" : "mtj_autoTracker.js" : "mtj_vizParser.js" : (String) invokeI.objValue;
     }
 
-    public static void a(int i2, boolean z) {
+    public static void a(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i == 0) {
                 a = z;
-            } else if (i2 == 1) {
-                f35169b = z;
-            } else if (i2 != 2) {
+            } else if (i == 1) {
+                f27306b = z;
+            } else if (i != 2) {
             } else {
-                f35170c = z;
+                f27307c = z;
             }
         }
     }
@@ -86,21 +86,21 @@ public class bg {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static synchronized boolean a(Context context, String str, int i2, boolean z) {
+    public static synchronized boolean a(Context context, String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)})) != null) {
             return invokeCommon.booleanValue;
         }
         synchronized (bg.class) {
             boolean z2 = true;
-            if (a(i2)) {
+            if (a(i)) {
                 return true;
             }
             if (context == null) {
                 return false;
             }
-            String a2 = a(context, str, i2);
+            String a2 = a(context, str, i);
             if (TextUtils.isEmpty(a2)) {
                 return false;
             }
@@ -112,7 +112,7 @@ public class bg {
                 bh c3 = bh.c();
                 c3.a("requestUrl:" + a2);
             }
-            String b2 = b(i2);
+            String b2 = b(i);
             if (TextUtils.isEmpty(b2)) {
                 return false;
             }
@@ -120,10 +120,10 @@ public class bg {
             try {
                 httpURLConnection = bo.d(context, a2);
                 httpURLConnection.connect();
-                long j2 = 0;
-                if (i2 == 1) {
+                long j = 0;
+                if (i == 1) {
                     try {
-                        j2 = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
+                        j = Long.valueOf(httpURLConnection.getHeaderField("X-INTERVAL")).longValue();
                     } catch (Exception unused) {
                     }
                 }
@@ -138,10 +138,10 @@ public class bg {
                     c5.a("contentLength:" + contentLength + " fileName:" + b2);
                 }
                 if (responseCode == 200) {
-                    if (i2 == 1) {
+                    if (i == 1) {
                         bq.a().a(context, System.currentTimeMillis());
-                        bq.a().b(context, j2);
-                    } else if (i2 == 2) {
+                        bq.a().b(context, j);
+                    } else if (i == 2) {
                         bq.a().c(context, System.currentTimeMillis());
                     }
                     if (contentLength > 0) {
@@ -154,7 +154,7 @@ public class bg {
                         }
                     }
                     try {
-                        a(i2, true);
+                        a(i, true);
                     } catch (Exception unused3) {
                     }
                 } else {
@@ -166,13 +166,13 @@ public class bg {
         }
     }
 
-    public static String a(Context context, String str, int i2) {
+    public static String a(Context context, String str, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    return i2 != 2 ? "" : a(context, str);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, context, str, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return i != 2 ? "" : a(context, str);
                 }
                 return a(context);
             }

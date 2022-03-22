@@ -12,7 +12,7 @@ public class a extends d {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: c  reason: collision with root package name */
-    public static a f2463c;
+    public static a f2021c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,9 +35,9 @@ public class a extends d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -48,14 +48,14 @@ public class a extends d {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2463c == null) {
+            if (f2021c == null) {
                 synchronized (a.class) {
-                    if (f2463c == null) {
-                        f2463c = new a();
+                    if (f2021c == null) {
+                        f2021c = new a();
                     }
                 }
             }
-            return f2463c;
+            return f2021c;
         }
         return (a) invokeV.objValue;
     }

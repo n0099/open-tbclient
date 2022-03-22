@@ -25,23 +25,23 @@ public class LruCache<K, V> {
     public int putCount;
     public int size;
 
-    public LruCache(int i2) {
+    public LruCache(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (i2 > 0) {
-            this.maxSize = i2;
+        if (i > 0) {
+            this.maxSize = i;
             this.map = new LinkedHashMap<>(0, 0.75f, true);
             return;
         }
@@ -73,13 +73,13 @@ public class LruCache<K, V> {
 
     public final synchronized int createCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             synchronized (this) {
-                i2 = this.createCount;
+                i = this.createCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -99,13 +99,13 @@ public class LruCache<K, V> {
 
     public final synchronized int evictionCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             synchronized (this) {
-                i2 = this.evictionCount;
+                i = this.evictionCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -152,39 +152,39 @@ public class LruCache<K, V> {
 
     public final synchronized int hitCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                i2 = this.hitCount;
+                i = this.hitCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public final synchronized int maxSize() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
-                i2 = this.maxSize;
+                i = this.maxSize;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public final synchronized int missCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             synchronized (this) {
-                i2 = this.missCount;
+                i = this.missCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -217,13 +217,13 @@ public class LruCache<K, V> {
 
     public final synchronized int putCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
-                i2 = this.putCount;
+                i = this.putCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -251,14 +251,14 @@ public class LruCache<K, V> {
         return (V) invokeL.objValue;
     }
 
-    public void resize(int i2) {
+    public void resize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            if (i2 > 0) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            if (i > 0) {
                 synchronized (this) {
-                    this.maxSize = i2;
+                    this.maxSize = i;
                 }
-                trimToSize(i2);
+                trimToSize(i);
                 return;
             }
             throw new IllegalArgumentException("maxSize <= 0");
@@ -267,13 +267,13 @@ public class LruCache<K, V> {
 
     public final synchronized int size() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             synchronized (this) {
-                i2 = this.size;
+                i = this.size;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -306,8 +306,8 @@ public class LruCache<K, V> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             synchronized (this) {
-                int i2 = this.hitCount + this.missCount;
-                format = String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i2 != 0 ? (this.hitCount * 100) / i2 : 0));
+                int i = this.hitCount + this.missCount;
+                format = String.format(Locale.US, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]", Integer.valueOf(this.maxSize), Integer.valueOf(this.hitCount), Integer.valueOf(this.missCount), Integer.valueOf(i != 0 ? (this.hitCount * 100) / i : 0));
             }
             return format;
         }
@@ -320,15 +320,15 @@ public class LruCache<K, V> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void trimToSize(int i2) {
+    public void trimToSize(int i) {
         K key;
         V value;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             while (true) {
                 synchronized (this) {
                     if (this.size >= 0 && (!this.map.isEmpty() || this.size == 0)) {
-                        if (this.size <= i2 || this.map.isEmpty()) {
+                        if (this.size <= i || this.map.isEmpty()) {
                             break;
                         }
                         Map.Entry<K, V> next = this.map.entrySet().iterator().next();

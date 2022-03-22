@@ -25,13 +25,13 @@ public class ak {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public a f35021b;
+    public a f27176b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Activity f35022c;
+    public Activity f27177c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f35023d;
+    public Handler f27178d;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -60,15 +60,15 @@ public class ak {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f35023d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
+        this.f27178d = new Handler(this, Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ak a;
@@ -82,9 +82,9 @@ public class ak {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r8};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((Looper) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -97,12 +97,12 @@ public class ak {
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.f35021b != null) {
-                    this.a.f35021b.a();
+                if ((interceptable2 == null || interceptable2.invokeL(1048576, this, message) == null) && message.what == 100 && this.a.f27176b != null) {
+                    this.a.f27176b.a();
                 }
             }
         };
-        this.f35021b = aVar;
+        this.f27176b = aVar;
     }
 
     private void c(Activity activity) {
@@ -133,9 +133,9 @@ public class ak {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -159,16 +159,16 @@ public class ak {
                     int actionMasked = motionEvent.getActionMasked();
                     if (actionMasked != 5) {
                         if (actionMasked == 6 && motionEvent.getEventTime() - motionEvent.getDownTime() < TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
-                            this.a.f35023d.removeMessages(100);
+                            this.a.f27178d.removeMessages(100);
                             return;
                         }
                         return;
                     }
                     int pointerCount = motionEvent.getPointerCount();
                     if (pointerCount == 3 && motionEvent.getEventTime() - motionEvent.getDownTime() <= 50) {
-                        this.a.f35023d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
+                        this.a.f27178d.sendEmptyMessageDelayed(100, TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS);
                     } else if (pointerCount > 3) {
-                        this.a.f35023d.removeMessages(100);
+                        this.a.f27178d.removeMessages(100);
                     }
                 }
             }
@@ -188,8 +188,8 @@ public class ak {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(this.f35022c);
-            this.f35022c = null;
+            c(this.f27177c);
+            this.f27177c = null;
         }
     }
 
@@ -211,7 +211,7 @@ public class ak {
         if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || activity == null) {
             return;
         }
-        this.f35022c = activity;
+        this.f27177c = activity;
         b(activity);
     }
 

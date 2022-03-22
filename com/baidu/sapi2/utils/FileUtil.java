@@ -25,9 +25,9 @@ public final class FileUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +41,7 @@ public final class FileUtil {
             byte[] bArr = new byte[2048];
             BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream, 2048);
             BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(outputStream, 2048);
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 try {
                     int read = bufferedInputStream.read(bArr, 0, 2048);
@@ -49,7 +49,7 @@ public final class FileUtil {
                         break;
                     }
                     bufferedOutputStream.write(bArr, 0, read);
-                    i2 += read;
+                    i += read;
                 } finally {
                     try {
                         bufferedOutputStream.close();
@@ -64,7 +64,7 @@ public final class FileUtil {
                 }
             }
             bufferedOutputStream.flush();
-            return i2;
+            return i;
         }
         return invokeLL.intValue;
     }

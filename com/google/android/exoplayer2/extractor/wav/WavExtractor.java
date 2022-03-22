@@ -19,7 +19,7 @@ import com.google.android.exoplayer2.extractor.SeekMap;
 import com.google.android.exoplayer2.extractor.TrackOutput;
 import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class WavExtractor implements Extractor, SeekMap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExtractorsFactory FACTORY;
@@ -53,9 +53,9 @@ public final class WavExtractor implements Extractor, SeekMap {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -76,9 +76,9 @@ public final class WavExtractor implements Extractor, SeekMap {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -93,10 +93,10 @@ public final class WavExtractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.SeekMap
-    public long getPosition(long j2) {
+    public long getPosition(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? this.wavHeader.getPosition(j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? this.wavHeader.getPosition(j) : invokeJ.longValue;
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
@@ -143,13 +143,13 @@ public final class WavExtractor implements Extractor, SeekMap {
             if (sampleData != -1) {
                 this.pendingBytes += sampleData;
             }
-            int i2 = this.pendingBytes / this.bytesPerFrame;
-            if (i2 > 0) {
+            int i = this.pendingBytes / this.bytesPerFrame;
+            if (i > 0) {
                 long timeUs = this.wavHeader.getTimeUs(extractorInput.getPosition() - this.pendingBytes);
-                int i3 = i2 * this.bytesPerFrame;
-                int i4 = this.pendingBytes - i3;
-                this.pendingBytes = i4;
-                this.trackOutput.sampleMetadata(timeUs, 1, i3, i4, null);
+                int i2 = i * this.bytesPerFrame;
+                int i3 = this.pendingBytes - i2;
+                this.pendingBytes = i3;
+                this.trackOutput.sampleMetadata(timeUs, 1, i2, i3, null);
             }
             return sampleData == -1 ? -1 : 0;
         }
@@ -164,9 +164,9 @@ public final class WavExtractor implements Extractor, SeekMap {
     }
 
     @Override // com.google.android.exoplayer2.extractor.Extractor
-    public void seek(long j2, long j3) {
+    public void seek(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.pendingBytes = 0;
         }
     }

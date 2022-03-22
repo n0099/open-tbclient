@@ -21,7 +21,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class RequestParams {
     public static /* synthetic */ Interceptable $ic = null;
     public static String ENCODING = "UTF-8";
@@ -30,7 +30,7 @@ public class RequestParams {
     public ConcurrentHashMap<String, String> urlParams;
     public ConcurrentHashMap<String, ArrayList<String>> urlParamsWithArray;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public static class FileWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +45,9 @@ public class RequestParams {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {inputStream, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,9 +89,9 @@ public class RequestParams {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -177,13 +177,13 @@ public class RequestParams {
                     sb.append("&");
                 }
                 ArrayList<String> value = entry3.getValue();
-                for (int i2 = 0; i2 < value.size(); i2++) {
-                    if (i2 != 0) {
+                for (int i = 0; i < value.size(); i++) {
+                    if (i != 0) {
                         sb.append("&");
                     }
                     sb.append(entry3.getKey());
                     sb.append("=");
-                    sb.append(value.get(i2));
+                    sb.append(value.get(i));
                 }
             }
             return sb.toString();
@@ -205,9 +205,9 @@ public class RequestParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {map};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -256,9 +256,9 @@ public class RequestParams {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -275,9 +275,9 @@ public class RequestParams {
             newInitContext.initArgs = r2;
             Object[] objArr2 = {objArr};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -288,8 +288,8 @@ public class RequestParams {
         if (length % 2 != 0) {
             throw new IllegalArgumentException("Supplied arguments must be even");
         }
-        for (int i4 = 0; i4 < length; i4 += 2) {
-            put(String.valueOf(objArr[i4]), String.valueOf(objArr[i4 + 1]));
+        for (int i3 = 0; i3 < length; i3 += 2) {
+            put(String.valueOf(objArr[i3]), String.valueOf(objArr[i3 + 1]));
         }
     }
 }

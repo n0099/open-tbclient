@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.SparseArray;
 import c.a.d.f.p.m;
-import c.a.q0.r.r.g;
+import c.a.o0.r.r.g;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
@@ -22,7 +22,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import tbclient.AlaLiveInfo;
 import tbclient.AlaStageDislikeInfo;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AlaInfoData implements Serializable, Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AlaInfoData> CREATOR;
@@ -77,7 +77,7 @@ public class AlaInfoData implements Serializable, Parcelable {
     public long thread_id;
     public transient AlaUserInfoData user_info;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AlaInfoData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,9 +87,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -108,10 +108,10 @@ public class AlaInfoData implements Serializable, Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AlaInfoData[] newArray(int i2) {
+        public AlaInfoData[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new AlaInfoData[i2] : (AlaInfoData[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AlaInfoData[i] : (AlaInfoData[]) invokeI.objValue;
         }
     }
 
@@ -136,9 +136,9 @@ public class AlaInfoData implements Serializable, Parcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -204,7 +204,7 @@ public class AlaInfoData implements Serializable, Parcelable {
             alaUserInfoData.parserProtobuf(alaLiveInfo.user_info);
             AlaShareInfoData alaShareInfoData = new AlaShareInfoData();
             this.share_info = alaShareInfoData;
-            alaShareInfoData.w(alaLiveInfo.share_info);
+            alaShareInfoData.y(alaLiveInfo.share_info);
             this.live_status = alaLiveInfo.live_status.intValue();
             this.duration = alaLiveInfo.duration.intValue();
             this.audience_count = alaLiveInfo.audience_count.intValue();
@@ -219,8 +219,8 @@ public class AlaInfoData implements Serializable, Parcelable {
                     this.dislikeInfo = new SparseArray<>();
                 }
                 this.dislikeInfo.clear();
-                for (int i2 = 0; i2 < alaLiveInfo.stage_dislike_info.size(); i2++) {
-                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i2);
+                for (int i = 0; i < alaLiveInfo.stage_dislike_info.size(); i++) {
+                    AlaStageDislikeInfo alaStageDislikeInfo = alaLiveInfo.stage_dislike_info.get(i);
                     if (alaStageDislikeInfo != null) {
                         this.dislikeInfo.put(alaStageDislikeInfo.dislike_id.intValue(), alaStageDislikeInfo.dislike_reason);
                     }
@@ -257,12 +257,12 @@ public class AlaInfoData implements Serializable, Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeLong(this.live_id);
             parcel.writeInt(this.live_status);
-            parcel.writeParcelable(this.mYyExtData, i2);
+            parcel.writeParcelable(this.mYyExtData, i);
         }
     }
 
@@ -273,9 +273,9 @@ public class AlaInfoData implements Serializable, Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -330,8 +330,8 @@ public class AlaInfoData implements Serializable, Parcelable {
                     this.dislikeInfo = new SparseArray<>();
                 }
                 this.dislikeInfo.clear();
-                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                    if (optJSONArray.optJSONObject(i2) != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    if (optJSONArray.optJSONObject(i) != null) {
                         this.dislikeInfo.put(jSONObject.optInt("dislike_id"), jSONObject.optString("dislike_reason"));
                     }
                 }

@@ -14,23 +14,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class NotificationClickedActivity extends Activity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BroadcastReceiver a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Handler f62a;
+    public Handler f38a;
 
     public NotificationClickedActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -66,7 +66,7 @@ public final class NotificationClickedActivity extends Activity {
             attributes.gravity = BadgeDrawable.TOP_START;
             window.setAttributes(attributes);
             Handler handler = new Handler();
-            this.f62a = handler;
+            this.f38a = handler;
             handler.postDelayed(new ab(this), 3000L);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("action_clicked_activity_finish");
@@ -86,7 +86,7 @@ public final class NotificationClickedActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            this.f62a.removeCallbacksAndMessages(null);
+            this.f38a.removeCallbacksAndMessages(null);
             try {
                 unregisterReceiver(this.a);
             } catch (Exception unused) {

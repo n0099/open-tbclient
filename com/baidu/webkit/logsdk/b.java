@@ -3,7 +3,7 @@ package com.baidu.webkit.logsdk;
 public interface b {
     String a();
 
-    String a(int i2);
+    String a(int i);
 
     String a(String str);
 

@@ -49,9 +49,9 @@ public class PluginSetting implements Serializable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -77,19 +77,19 @@ public class PluginSetting implements Serializable, Cloneable {
             }
             int length = split.length;
             int[] iArr = new int[length * 2];
-            for (int i2 = 0; i2 < length; i2++) {
-                if (TextUtils.isEmpty(split[i2])) {
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.isEmpty(split[i])) {
                     BdLog.e("cmdRange2Int is null");
                     return null;
                 }
-                String[] split2 = split[i2].split("-");
+                String[] split2 = split[i].split("-");
                 if (split2 != null && split2.length == 2) {
                     int e2 = b.e(split2[0], -1);
                     int e3 = b.e(split2[1], -1);
                     if (e2 >= 0 && e3 >= 0 && e2 <= e3) {
-                        int i3 = i2 * 2;
-                        iArr[i3] = e2;
-                        iArr[i3 + 1] = e3;
+                        int i2 = i * 2;
+                        iArr[i2] = e2;
+                        iArr[i2 + 1] = e3;
                     } else {
                         BdLog.e("cmdRange2Int split  toInt error");
                         return null;
@@ -113,10 +113,10 @@ public class PluginSetting implements Serializable, Cloneable {
             }
             int length = iArr.length;
             StringBuilder sb = new StringBuilder(50);
-            for (int i2 = 0; i2 < length; i2++) {
-                sb.append(iArr[i2]);
-                if (i2 != length - 1) {
-                    if (i2 % 2 == 0) {
+            for (int i = 0; i < length; i++) {
+                sb.append(iArr[i]);
+                if (i != length - 1) {
+                    if (i % 2 == 0) {
                         sb.append("-");
                     } else {
                         sb.append(",");
@@ -152,10 +152,10 @@ public class PluginSetting implements Serializable, Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.cmdRangeStr : (String) invokeV.objValue;
     }
 
-    public boolean isContainCmd(int i2) {
+    public boolean isContainCmd(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             int[] iArr = this.cmdRangeInt;
             if (iArr == null) {
                 return false;
@@ -164,9 +164,9 @@ public class PluginSetting implements Serializable, Cloneable {
             if (length % 2 != 0) {
                 return false;
             }
-            for (int i3 = 0; i3 < length - 1; i3 += 2) {
+            for (int i2 = 0; i2 < length - 1; i2 += 2) {
                 int[] iArr2 = this.cmdRangeInt;
-                if (i2 >= iArr2[i3] && i2 <= iArr2[i3 + 1]) {
+                if (i >= iArr2[i2] && i <= iArr2[i2 + 1]) {
                     return true;
                 }
             }
@@ -209,7 +209,7 @@ public class PluginSetting implements Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public PluginSetting m28clone() {
+    public PluginSetting m26clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

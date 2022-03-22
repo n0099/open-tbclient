@@ -38,9 +38,9 @@ public final class MessageCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -52,11 +52,11 @@ public final class MessageCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, message)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 22) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 22) {
                 return message.isAsynchronous();
             }
-            if (sTryIsAsynchronous && i2 >= 16) {
+            if (sTryIsAsynchronous && i >= 16) {
                 try {
                     return message.isAsynchronous();
                 } catch (NoSuchMethodError unused) {
@@ -72,10 +72,10 @@ public final class MessageCompat {
     public static void setAsynchronous(@NonNull Message message, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, null, message, z) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 22) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 22) {
                 message.setAsynchronous(z);
-            } else if (!sTrySetAsynchronous || i2 < 16) {
+            } else if (!sTrySetAsynchronous || i < 16) {
             } else {
                 try {
                     message.setAsynchronous(z);

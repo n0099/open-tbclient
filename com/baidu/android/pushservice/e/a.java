@@ -21,9 +21,9 @@ public class a implements b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,13 +41,13 @@ public class a implements b {
     }
 
     @Override // com.baidu.android.pushservice.e.b
-    public void a(Context context, ComponentName componentName, int i2) {
+    public void a(Context context, ComponentName componentName, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, componentName, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, componentName, i) == null) {
             Bundle bundle = new Bundle();
             bundle.putString("package", context.getPackageName());
             bundle.putString(DealIntentService.KEY_CLASS, componentName.getClassName());
-            bundle.putInt("badgenumber", i2);
+            bundle.putInt("badgenumber", i);
             try {
                 context.getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
             } catch (Exception unused) {

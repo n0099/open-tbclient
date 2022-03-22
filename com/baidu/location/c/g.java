@@ -20,9 +20,9 @@ public class g extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,16 +38,16 @@ public class g extends Handler {
         String str;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && com.baidu.location.f.isServing) {
-            int i2 = message.what;
-            if (i2 == 1) {
+            int i = message.what;
+            if (i == 1) {
                 this.a.e((Location) message.obj);
                 return;
             }
-            if (i2 == 3) {
+            if (i == 3) {
                 eVar = this.a;
                 location = (Location) message.obj;
                 str = "&og=1";
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 return;
             } else {
                 eVar = this.a;

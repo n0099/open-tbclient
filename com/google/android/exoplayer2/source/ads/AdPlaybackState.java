@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.C;
 import java.util.Arrays;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AdPlaybackState {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class AdPlaybackState {
             newInitContext.initArgs = r2;
             Object[] objArr = {jArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,15 +51,15 @@ public final class AdPlaybackState {
         this.contentDurationUs = C.TIME_UNSET;
     }
 
-    public void addAdUri(int i2, Uri uri) {
+    public void addAdUri(int i, Uri uri) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, uri) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, uri) == null) {
             Uri[][] uriArr = this.adUris;
-            int length = uriArr[i2].length;
-            uriArr[i2] = (Uri[]) Arrays.copyOf(uriArr[i2], length + 1);
-            this.adUris[i2][length] = uri;
+            int length = uriArr[i].length;
+            uriArr[i] = (Uri[]) Arrays.copyOf(uriArr[i], length + 1);
+            this.adUris[i][length] = uri;
             int[] iArr = this.adsLoadedCounts;
-            iArr[i2] = iArr[i2] + 1;
+            iArr[i] = iArr[i] + 1;
         }
     }
 
@@ -70,63 +70,63 @@ public final class AdPlaybackState {
             return (AdPlaybackState) invokeV.objValue;
         }
         Uri[][] uriArr = new Uri[this.adGroupTimesUs.length];
-        int i2 = 0;
+        int i = 0;
         while (true) {
             Uri[][] uriArr2 = this.adUris;
-            if (i2 < uriArr2.length) {
-                uriArr[i2] = (Uri[]) Arrays.copyOf(uriArr2[i2], uriArr2[i2].length);
-                i2++;
+            if (i < uriArr2.length) {
+                uriArr[i] = (Uri[]) Arrays.copyOf(uriArr2[i], uriArr2[i].length);
+                i++;
             } else {
                 return new AdPlaybackState(Arrays.copyOf(this.adGroupTimesUs, this.adGroupCount), Arrays.copyOf(this.adCounts, this.adGroupCount), Arrays.copyOf(this.adsLoadedCounts, this.adGroupCount), Arrays.copyOf(this.adsPlayedCounts, this.adGroupCount), uriArr, this.contentDurationUs, this.adResumePositionUs);
             }
         }
     }
 
-    public void playedAd(int i2) {
+    public void playedAd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.adResumePositionUs = 0L;
             int[] iArr = this.adsPlayedCounts;
-            iArr[i2] = iArr[i2] + 1;
+            iArr[i] = iArr[i] + 1;
         }
     }
 
-    public void playedAdGroup(int i2) {
+    public void playedAdGroup(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.adResumePositionUs = 0L;
             int[] iArr = this.adCounts;
-            if (iArr[i2] == -1) {
-                iArr[i2] = 0;
+            if (iArr[i] == -1) {
+                iArr[i] = 0;
             }
-            this.adsPlayedCounts[i2] = this.adCounts[i2];
+            this.adsPlayedCounts[i] = this.adCounts[i];
         }
     }
 
-    public void setAdCount(int i2, int i3) {
+    public void setAdCount(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            this.adCounts[i2] = i3;
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            this.adCounts[i] = i2;
         }
     }
 
-    public void setAdResumePositionUs(long j2) {
+    public void setAdResumePositionUs(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.adResumePositionUs = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.adResumePositionUs = j;
         }
     }
 
-    public AdPlaybackState(long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, Uri[][] uriArr, long j2, long j3) {
+    public AdPlaybackState(long[] jArr, int[] iArr, int[] iArr2, int[] iArr3, Uri[][] uriArr, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jArr, iArr, iArr2, iArr3, uriArr, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {jArr, iArr, iArr2, iArr3, uriArr, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -137,8 +137,8 @@ public final class AdPlaybackState {
         this.adsLoadedCounts = iArr2;
         this.adsPlayedCounts = iArr3;
         this.adUris = uriArr;
-        this.contentDurationUs = j2;
-        this.adResumePositionUs = j3;
+        this.contentDurationUs = j;
+        this.adResumePositionUs = j2;
         this.adGroupCount = jArr.length;
     }
 }

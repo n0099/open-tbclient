@@ -3,7 +3,7 @@ package com.kwad.sdk.crash.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.annotation.WorkerThread;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static Context a;
 
@@ -19,10 +19,10 @@ public class d {
     }
 
     @WorkerThread
-    public static boolean a(Context context, long j2) {
+    public static boolean a(Context context, long j) {
         if (context != null) {
             SharedPreferences.Editor edit = context.getSharedPreferences("ksadsdk_crashseq", 0).edit();
-            edit.putLong("crashseq", j2);
+            edit.putLong("crashseq", j);
             return edit.commit();
         }
         return false;

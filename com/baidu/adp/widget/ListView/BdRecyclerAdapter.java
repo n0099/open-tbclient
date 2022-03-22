@@ -21,25 +21,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements o {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public d f23965b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public RecyclerView.Adapter f23966c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public RecyclerView.AdapterDataObserver f23967d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f29976e;
+    public RecyclerView.AdapterDataObserver f23968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f29977f;
+    public BdRecyclerView.i f23969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public RecyclerView.Adapter f29978g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public RecyclerView.AdapterDataObserver f29979h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public RecyclerView.AdapterDataObserver f29980i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public BdRecyclerView.i f29981j;
-    public BdRecyclerView.j k;
+    public BdRecyclerView.j f23970g;
 
     /* loaded from: classes3.dex */
     public class a extends RecyclerView.AdapterDataObserver {
@@ -54,9 +54,9 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdRecyclerAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,60 +70,60 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.onChanged();
-                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f29979h;
+                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f23967d;
                 if (adapterDataObserver != null) {
                     adapterDataObserver.onChanged();
                 }
-                if (this.a.f29977f.f3090c != null) {
-                    this.a.f29977f.f3090c.onPreLoad();
+                if (this.a.f23965b.f2581c != null) {
+                    this.a.f23965b.f2581c.onPreLoad();
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeChanged(int i2, int i3) {
+        public void onItemRangeChanged(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3) == null) {
-                super.onItemRangeChanged(i2, i3);
-                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f29979h;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+                super.onItemRangeChanged(i, i2);
+                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f23967d;
                 if (adapterDataObserver != null) {
-                    adapterDataObserver.onItemRangeChanged(i2, i3);
+                    adapterDataObserver.onItemRangeChanged(i, i2);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeInserted(int i2, int i3) {
+        public void onItemRangeInserted(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-                super.onItemRangeInserted(i2, i3);
-                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f29979h;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                super.onItemRangeInserted(i, i2);
+                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f23967d;
                 if (adapterDataObserver != null) {
-                    adapterDataObserver.onItemRangeInserted(i2, i3);
+                    adapterDataObserver.onItemRangeInserted(i, i2);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeMoved(int i2, int i3, int i4) {
+        public void onItemRangeMoved(int i, int i2, int i3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048579, this, i2, i3, i4) == null) {
-                super.onItemRangeMoved(i2, i3, i4);
-                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f29979h;
+            if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
+                super.onItemRangeMoved(i, i2, i3);
+                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f23967d;
                 if (adapterDataObserver != null) {
-                    adapterDataObserver.onItemRangeMoved(i2, i3, i4);
+                    adapterDataObserver.onItemRangeMoved(i, i2, i3);
                 }
             }
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.AdapterDataObserver
-        public void onItemRangeRemoved(int i2, int i3) {
+        public void onItemRangeRemoved(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-                super.onItemRangeRemoved(i2, i3);
-                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f29979h;
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+                super.onItemRangeRemoved(i, i2);
+                RecyclerView.AdapterDataObserver adapterDataObserver = this.a.f23967d;
                 if (adapterDataObserver != null) {
-                    adapterDataObserver.onItemRangeRemoved(i2, i3);
+                    adapterDataObserver.onItemRangeRemoved(i, i2);
                 }
             }
         }
@@ -133,15 +133,13 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RecyclerView.ViewHolder a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecyclerView.ViewHolder f29982e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ViewGroup f23971b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f29983f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerAdapter f29984g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ BdRecyclerAdapter f23972c;
 
         public b(BdRecyclerAdapter bdRecyclerAdapter, RecyclerView.ViewHolder viewHolder, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -150,27 +148,27 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdRecyclerAdapter, viewHolder, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29984g = bdRecyclerAdapter;
-            this.f29982e = viewHolder;
-            this.f29983f = viewGroup;
+            this.f23972c = bdRecyclerAdapter;
+            this.a = viewHolder;
+            this.f23971b = viewGroup;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f29984g.f29981j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f23972c.f23969f == null) {
                 return;
             }
-            int adapterPosition = this.f29982e.getAdapterPosition();
-            this.f29984g.f29981j.b(this.f29983f, this.f29982e.itemView, this.f29984g.getItem(adapterPosition), adapterPosition, this.f29984g.getItemId(adapterPosition));
+            int adapterPosition = this.a.getAdapterPosition();
+            this.f23972c.f23969f.b(this.f23971b, this.a.itemView, this.f23972c.getItem(adapterPosition), adapterPosition, this.f23972c.getItemId(adapterPosition));
         }
     }
 
@@ -178,15 +176,13 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public class c implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RecyclerView.ViewHolder a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ RecyclerView.ViewHolder f29985e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ ViewGroup f23973b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ ViewGroup f29986f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BdRecyclerAdapter f29987g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ BdRecyclerAdapter f23974c;
 
         public c(BdRecyclerAdapter bdRecyclerAdapter, RecyclerView.ViewHolder viewHolder, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -195,17 +191,17 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdRecyclerAdapter, viewHolder, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29987g = bdRecyclerAdapter;
-            this.f29985e = viewHolder;
-            this.f29986f = viewGroup;
+            this.f23974c = bdRecyclerAdapter;
+            this.a = viewHolder;
+            this.f23973b = viewGroup;
         }
 
         @Override // android.view.View.OnLongClickListener
@@ -213,9 +209,9 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view)) == null) {
-                if (this.f29987g.k != null) {
-                    int adapterPosition = this.f29985e.getAdapterPosition();
-                    return this.f29987g.k.a(this.f29986f, this.f29985e.itemView, this.f29987g.getItem(adapterPosition), adapterPosition, this.f29987g.getItemId(adapterPosition));
+                if (this.f23974c.f23970g != null) {
+                    int adapterPosition = this.a.getAdapterPosition();
+                    return this.f23974c.f23970g.a(this.f23973b, this.a.itemView, this.f23974c.getItem(adapterPosition), adapterPosition, this.f23974c.getItemId(adapterPosition));
                 }
                 return false;
             }
@@ -230,111 +226,72 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f29976e = null;
-        this.f29981j = null;
-        this.k = null;
-        this.f29976e = context;
-        this.f29977f = new d();
-        this.f29980i = new a(this);
+        this.a = null;
+        this.f23969f = null;
+        this.f23970g = null;
+        this.a = context;
+        this.f23965b = new d();
+        this.f23968e = new a(this);
     }
 
     public void addFooterView(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            addFooterView(view, null, true, -1);
+            g(view, null, true, -1);
         }
     }
 
-    public void addHeaderView(View view) {
+    public void g(View view, Object obj, boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            addHeaderView(view, null, true, true, -1);
-        }
-    }
-
-    public final void d(ViewGroup viewGroup, RecyclerView.ViewHolder viewHolder) {
-        View view;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, viewGroup, viewHolder) == null) || viewGroup == null || viewHolder == null || (view = viewHolder.itemView) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i)}) == null) || view == null) {
             return;
         }
-        view.setOnClickListener(new b(this, viewHolder, viewGroup));
-        viewHolder.itemView.setOnLongClickListener(new c(this, viewHolder, viewGroup));
-    }
-
-    public d.c findFooterViewByType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.f29977f.e(i2) : (d.c) invokeI.objValue;
-    }
-
-    @Nullable
-    public View findHeaderViewByTagData(@NonNull Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) ? this.f29977f.g(obj) : (View) invokeL.objValue;
-    }
-
-    public d.c findHeaderViewByType(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.f29977f.h(i2) : (d.c) invokeI.objValue;
+        this.f23965b.a(view, obj, z, true, i);
+        notifyDataSetChanged();
     }
 
     @Override // c.a.d.o.e.o
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? getItemCount() : invokeV.intValue;
-    }
-
-    public int getFootersCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f29977f.i() : invokeV.intValue;
-    }
-
-    public int getHeadersCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.f29977f.j() : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? getItemCount() : invokeV.intValue;
     }
 
     @Override // c.a.d.o.e.o
-    public Object getItem(int i2) {
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i2)) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i < 0) {
                 return null;
             }
-            int headersCount = getHeadersCount();
-            if (i2 < headersCount) {
-                return this.f29977f.a.get(i2).f3093d;
+            int o = o();
+            if (i < o) {
+                return this.f23965b.a.get(i).f2584d;
             }
-            int i3 = i2 - headersCount;
-            int i4 = 0;
-            RecyclerView.Adapter adapter = this.f29978g;
-            if (adapter != null && i3 < (i4 = adapter.getItemCount())) {
-                RecyclerView.Adapter adapter2 = this.f29978g;
+            int i2 = i - o;
+            int i3 = 0;
+            RecyclerView.Adapter adapter = this.f23966c;
+            if (adapter != null && i2 < (i3 = adapter.getItemCount())) {
+                RecyclerView.Adapter adapter2 = this.f23966c;
                 if (adapter2 instanceof o) {
-                    return ((o) adapter2).getItem(i3);
+                    return ((o) adapter2).getItem(i2);
                 }
             }
-            int footersCount = getFootersCount();
-            int i5 = i3 - i4;
-            if (i5 < 0 || i5 >= footersCount) {
+            int n = n();
+            int i4 = i2 - i3;
+            if (i4 < 0 || i4 >= n) {
                 return null;
             }
-            return this.f29977f.f3089b.get(i5).f3093d;
+            return this.f23965b.f2580b.get(i4).f2584d;
         }
         return invokeI.objValue;
     }
@@ -342,93 +299,144 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         InterceptResult invokeV;
-        int footersCount;
-        int headersCount;
+        int n;
+        int o;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            if (this.f29978g != null) {
-                footersCount = getFootersCount() + getHeadersCount();
-                headersCount = this.f29978g.getItemCount();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f23966c != null) {
+                n = n() + o();
+                o = this.f23966c.getItemCount();
             } else {
-                footersCount = getFootersCount();
-                headersCount = getHeadersCount();
+                n = n();
+                o = o();
             }
-            return footersCount + headersCount;
+            return n + o;
         }
         return invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public long getItemId(int i2) {
+    public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (i < 0) {
                 return -1L;
             }
-            int headersCount = getHeadersCount();
-            if (i2 < headersCount) {
-                return this.f29977f.a.get(i2).a;
+            int o = o();
+            if (i < o) {
+                return this.f23965b.a.get(i).a;
             }
-            int i3 = 0;
-            RecyclerView.Adapter adapter = this.f29978g;
-            if (adapter != null && i2 >= headersCount) {
-                int i4 = i2 - headersCount;
+            int i2 = 0;
+            RecyclerView.Adapter adapter = this.f23966c;
+            if (adapter != null && i >= o) {
+                int i3 = i - o;
                 int itemCount = adapter.getItemCount();
-                if (i4 < itemCount) {
-                    return this.f29978g.getItemId(i4);
+                if (i3 < itemCount) {
+                    return this.f23966c.getItemId(i3);
                 }
-                i3 = itemCount;
+                i2 = itemCount;
             }
-            int i5 = (i2 - headersCount) - i3;
-            if (i5 <= -1 || i5 >= getFootersCount()) {
+            int i4 = (i - o) - i2;
+            if (i4 <= -1 || i4 >= n()) {
                 return -1L;
             }
-            return this.f29977f.f3089b.get(i5).a;
+            return this.f23965b.f2580b.get(i4).a;
         }
         return invokeI.longValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemViewType(int i2) {
+    public int getItemViewType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) {
-            if (i2 < 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i < 0) {
                 return -1;
             }
-            int headersCount = getHeadersCount();
-            if (i2 < headersCount) {
-                return this.f29977f.a.get(i2).f3091b;
+            int o = o();
+            if (i < o) {
+                return this.f23965b.a.get(i).f2582b;
             }
-            int i3 = i2 - headersCount;
-            int i4 = 0;
-            RecyclerView.Adapter adapter = this.f29978g;
-            if (adapter != null && i3 < (i4 = adapter.getItemCount())) {
-                return this.f29978g.getItemViewType(i3);
+            int i2 = i - o;
+            int i3 = 0;
+            RecyclerView.Adapter adapter = this.f23966c;
+            if (adapter != null && i2 < (i3 = adapter.getItemCount())) {
+                return this.f23966c.getItemViewType(i2);
             }
-            int footersCount = getFootersCount();
-            int i5 = i3 - i4;
-            if (i5 < 0 || i5 >= footersCount) {
+            int n = n();
+            int i4 = i2 - i3;
+            if (i4 < 0 || i4 >= n) {
                 return -1;
             }
-            return this.f29977f.f3089b.get(i5).f3091b;
+            return this.f23965b.f2580b.get(i4).f2582b;
         }
         return invokeI.intValue;
     }
 
-    public RecyclerView.Adapter getWrappedAdapter() {
+    public void h(View view, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, view, i) == null) {
+            i(view, null, true, true, i);
+        }
+    }
+
+    public void i(View view, Object obj, boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view == null) {
+            return;
+        }
+        this.f23965b.b(view, obj, z, z2, i);
+        notifyDataSetChanged();
+    }
+
+    public final void j(ViewGroup viewGroup, RecyclerView.ViewHolder viewHolder) {
+        View view;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, viewGroup, viewHolder) == null) || viewGroup == null || viewHolder == null || (view = viewHolder.itemView) == null) {
+            return;
+        }
+        view.setOnClickListener(new b(this, viewHolder, viewGroup));
+        viewHolder.itemView.setOnLongClickListener(new c(this, viewHolder, viewGroup));
+    }
+
+    public d.c k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.f23965b.e(i) : (d.c) invokeI.objValue;
+    }
+
+    @Nullable
+    public View l(@NonNull Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) ? this.f23965b.g(obj) : (View) invokeL.objValue;
+    }
+
+    public d.c m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this.f23965b.h(i) : (d.c) invokeI.objValue;
+    }
+
+    public int n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.f29978g : (RecyclerView.Adapter) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f23965b.i() : invokeV.intValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.f23965b.j() : invokeV.intValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, recyclerView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, recyclerView) == null) {
             super.onAttachedToRecyclerView(recyclerView);
-            RecyclerView.Adapter adapter = this.f29978g;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.onAttachedToRecyclerView(recyclerView);
             }
@@ -436,54 +444,54 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i2) {
-        int i3;
+    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048595, this, viewHolder, i2) == null) || i2 < 0 || getItemViewType(i2) == -1 || (viewHolder instanceof d.b)) {
+        if (!(interceptable == null || interceptable.invokeLI(1048592, this, viewHolder, i) == null) || i < 0 || getItemViewType(i) == -1 || (viewHolder instanceof d.b)) {
             return;
         }
-        int headersCount = getHeadersCount();
-        RecyclerView.Adapter adapter = this.f29978g;
-        if (adapter == null || i2 < headersCount || (i3 = i2 - headersCount) >= adapter.getItemCount()) {
+        int o = o();
+        RecyclerView.Adapter adapter = this.f23966c;
+        if (adapter == null || i < o || (i2 = i - o) >= adapter.getItemCount()) {
             return;
         }
-        this.f29978g.onBindViewHolder(viewHolder, i3);
+        this.f23966c.onBindViewHolder(viewHolder, i2);
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i2) {
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         TypeAdapter.ViewHolder viewHolder;
         boolean z;
         RecyclerView.Adapter adapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048596, this, viewGroup, i2)) == null) {
-            d.c findHeaderViewByType = findHeaderViewByType(i2);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, viewGroup, i)) == null) {
+            d.c m = m(i);
             boolean z2 = true;
-            if (findHeaderViewByType != null) {
-                viewHolder = findHeaderViewByType.f3092c;
-                z = findHeaderViewByType.f3094e;
+            if (m != null) {
+                viewHolder = m.f2583c;
+                z = m.f2585e;
             } else {
                 viewHolder = null;
                 z = true;
             }
             if (viewHolder == null) {
-                d.c findFooterViewByType = findFooterViewByType(i2);
-                TypeAdapter.ViewHolder viewHolder2 = findFooterViewByType != null ? findFooterViewByType.f3092c : null;
-                if (findFooterViewByType != null && !findFooterViewByType.f3094e) {
+                d.c k = k(i);
+                TypeAdapter.ViewHolder viewHolder2 = k != null ? k.f2583c : null;
+                if (k != null && !k.f2585e) {
                     z2 = false;
                 }
                 z = z2;
                 viewHolder = viewHolder2;
             }
-            if (viewHolder == null && (adapter = this.f29978g) != null) {
-                viewHolder = adapter.onCreateViewHolder(viewGroup, i2);
+            if (viewHolder == null && (adapter = this.f23966c) != null) {
+                viewHolder = adapter.onCreateViewHolder(viewGroup, i);
             }
             if (viewHolder == null) {
-                viewHolder = this.f29977f.c(this.f29976e);
+                viewHolder = this.f23965b.c(this.a);
             }
             if (z) {
-                d(viewGroup, viewHolder);
+                j(viewGroup, viewHolder);
             }
             return viewHolder;
         }
@@ -493,9 +501,9 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, recyclerView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, recyclerView) == null) {
             super.onDetachedFromRecyclerView(recyclerView);
-            RecyclerView.Adapter adapter = this.f29978g;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.onDetachedFromRecyclerView(recyclerView);
             }
@@ -506,8 +514,8 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public boolean onFailedToRecycleView(RecyclerView.ViewHolder viewHolder) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, viewHolder)) == null) {
-            RecyclerView.Adapter adapter = this.f29978g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, viewHolder)) == null) {
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 return adapter.onFailedToRecycleView(viewHolder);
             }
@@ -519,9 +527,9 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewAttachedToWindow(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, viewHolder) == null) {
             super.onViewAttachedToWindow(viewHolder);
-            RecyclerView.Adapter adapter = this.f29978g;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.onViewAttachedToWindow(viewHolder);
             }
@@ -531,9 +539,9 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewDetachedFromWindow(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, viewHolder) == null) {
             super.onViewDetachedFromWindow(viewHolder);
-            RecyclerView.Adapter adapter = this.f29978g;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.onViewDetachedFromWindow(viewHolder);
             }
@@ -543,13 +551,45 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void onViewRecycled(RecyclerView.ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, viewHolder) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, viewHolder) == null) {
             super.onViewRecycled(viewHolder);
-            RecyclerView.Adapter adapter = this.f29978g;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.onViewRecycled(viewHolder);
             }
         }
+    }
+
+    public RecyclerView.Adapter p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.f23966c : (RecyclerView.Adapter) invokeV.objValue;
+    }
+
+    public boolean q(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, view)) == null) {
+            if (this.f23965b.k(view)) {
+                notifyDataSetChanged();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean r(View view) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, view)) == null) {
+            if (this.f23965b.l(view)) {
+                notifyDataSetChanged();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -557,60 +597,18 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, adapterDataObserver) == null) {
             super.registerAdapterDataObserver(adapterDataObserver);
-            this.f29979h = adapterDataObserver;
-            RecyclerView.Adapter adapter = this.f29978g;
+            this.f23967d = adapterDataObserver;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
-                adapter.registerAdapterDataObserver(this.f29980i);
+                adapter.registerAdapterDataObserver(this.f23968e);
             }
         }
     }
 
-    public boolean removeFooter(View view) {
-        InterceptResult invokeL;
+    public void s(RecyclerView.Adapter adapter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, view)) == null) {
-            if (this.f29977f.k(view)) {
-                notifyDataSetChanged();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean removeHeader(View view) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, view)) == null) {
-            if (this.f29977f.l(view)) {
-                notifyDataSetChanged();
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void setAdapter(RecyclerView.Adapter adapter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, adapter) == null) {
-            this.f29978g = adapter;
-            notifyDataSetChanged();
-        }
-    }
-
-    public void setFooterView(View view, Object obj, boolean z, boolean z2, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || view == null) {
-            return;
-        }
-        int d2 = this.f29977f.d(view);
-        if (d2 < 0) {
-            this.f29977f.a(view, obj, z, z2, i2);
-            notifyDataSetChanged();
-        } else if (d2 != i2) {
-            this.f29977f.k(view);
-            this.f29977f.a(view, obj, z, z2, i2);
+        if (interceptable == null || interceptable.invokeL(1048603, this, adapter) == null) {
+            this.f23966c = adapter;
             notifyDataSetChanged();
         }
     }
@@ -618,8 +616,8 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void setHasStableIds(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            RecyclerView.Adapter adapter = this.f29978g;
+        if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
                 adapter.setHasStableIds(z);
             }
@@ -627,85 +625,69 @@ public class BdRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
-    public void setHeaderView(View view, Object obj, boolean z, boolean z2, int i2) {
+    public void t(View view, Object obj, boolean z, boolean z2, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048605, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view == null) {
             return;
         }
-        int f2 = this.f29977f.f(view);
+        int d2 = this.f23965b.d(view);
+        if (d2 < 0) {
+            this.f23965b.a(view, obj, z, z2, i);
+            notifyDataSetChanged();
+        } else if (d2 != i) {
+            this.f23965b.k(view);
+            this.f23965b.a(view, obj, z, z2, i);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void u(View view, Object obj, boolean z, boolean z2, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) || view == null) {
+            return;
+        }
+        int f2 = this.f23965b.f(view);
         if (f2 < 0) {
-            this.f29977f.b(view, obj, z, z2, i2);
+            this.f23965b.b(view, obj, z, z2, i);
             notifyDataSetChanged();
-        } else if (f2 != i2) {
-            this.f29977f.l(view);
-            this.f29977f.b(view, obj, z, z2, i2);
+        } else if (f2 != i) {
+            this.f23965b.l(view);
+            this.f23965b.b(view, obj, z, z2, i);
             notifyDataSetChanged();
-        }
-    }
-
-    public void setListPreLoad(d.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, aVar) == null) {
-            this.f29977f.m(aVar);
-        }
-    }
-
-    public void setOnItemClickListener(BdRecyclerView.i iVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, iVar) == null) {
-            this.f29981j = iVar;
-        }
-    }
-
-    public void setOnItemLongClickListener(BdRecyclerView.j jVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, jVar) == null) {
-            this.k = jVar;
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public void unregisterAdapterDataObserver(RecyclerView.AdapterDataObserver adapterDataObserver) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048612, this, adapterDataObserver) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, adapterDataObserver) == null) {
             super.unregisterAdapterDataObserver(adapterDataObserver);
-            this.f29979h = adapterDataObserver;
-            RecyclerView.Adapter adapter = this.f29978g;
+            this.f23967d = adapterDataObserver;
+            RecyclerView.Adapter adapter = this.f23966c;
             if (adapter != null) {
-                adapter.unregisterAdapterDataObserver(this.f29980i);
+                adapter.unregisterAdapterDataObserver(this.f23968e);
             }
         }
     }
 
-    public void addFooterView(View view, int i2) {
+    public void v(d.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, i2) == null) {
-            addFooterView(view, null, true, i2);
+        if (interceptable == null || interceptable.invokeL(1048608, this, aVar) == null) {
+            this.f23965b.m(aVar);
         }
     }
 
-    public void addHeaderView(View view, int i2) {
+    public void w(BdRecyclerView.i iVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, view, i2) == null) {
-            addHeaderView(view, null, true, true, i2);
+        if (interceptable == null || interceptable.invokeL(1048609, this, iVar) == null) {
+            this.f23969f = iVar;
         }
     }
 
-    public void addFooterView(View view, Object obj, boolean z, int i2) {
+    public void x(BdRecyclerView.j jVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{view, obj, Boolean.valueOf(z), Integer.valueOf(i2)}) == null) || view == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048610, this, jVar) == null) {
+            this.f23970g = jVar;
         }
-        this.f29977f.a(view, obj, z, true, i2);
-        notifyDataSetChanged();
-    }
-
-    public void addHeaderView(View view, Object obj, boolean z, boolean z2, int i2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view, obj, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) || view == null) {
-            return;
-        }
-        this.f29977f.b(view, obj, z, z2, i2);
-        notifyDataSetChanged();
     }
 }

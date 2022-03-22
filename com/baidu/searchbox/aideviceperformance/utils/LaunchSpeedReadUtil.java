@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.utils;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.searchbox.aideviceperformance.data.DBItemModel;
 import com.baidu.searchbox.aideviceperformance.data.LaunchTimeSQLiteOpenHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -42,9 +43,9 @@ public class LaunchSpeedReadUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -56,24 +57,24 @@ public class LaunchSpeedReadUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, list)) == null) {
             if (list != null && list.size() >= 8) {
-                long j2 = list.get(0).launchTime;
-                long j3 = 0;
-                long j4 = j2;
+                long j = list.get(0).launchTime;
+                long j2 = 0;
+                long j3 = j;
                 for (DBItemModel.LaunchTimeItemModel launchTimeItemModel : list) {
                     if (DEBUG) {
-                        String str = "Launch Time: " + launchTimeItemModel.launchTime;
+                        Log.d(TAG, "Launch Time: " + launchTimeItemModel.launchTime);
+                    }
+                    long j4 = launchTimeItemModel.launchTime;
+                    if (j4 > j) {
+                        j = j4;
                     }
                     long j5 = launchTimeItemModel.launchTime;
-                    if (j5 > j2) {
-                        j2 = j5;
+                    if (j5 < j3) {
+                        j3 = j5;
                     }
-                    long j6 = launchTimeItemModel.launchTime;
-                    if (j6 < j4) {
-                        j4 = j6;
-                    }
-                    j3 += launchTimeItemModel.launchTime;
+                    j2 += launchTimeItemModel.launchTime;
                 }
-                return ((((float) j3) - ((float) j2)) - ((float) j4)) / (list.size() - 2);
+                return ((((float) j2) - ((float) j)) - ((float) j3)) / (list.size() - 2);
             }
             return -1.0f;
         }
@@ -86,11 +87,13 @@ public class LaunchSpeedReadUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             List<DBItemModel.LaunchTimeItemModel> queryLast = LaunchTimeSQLiteOpenHelper.getInstance(context).queryLast(50);
             if (queryLast == null) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.d(TAG, "launchTimeItems null");
+                }
                 return -1.0f;
             } else if (queryLast.size() < 8) {
                 if (DEBUG) {
-                    String str = "launchTimeItems not enough : " + queryLast.size();
+                    Log.d(TAG, "launchTimeItems not enough : " + queryLast.size());
                 }
                 return -1.0f;
             } else {

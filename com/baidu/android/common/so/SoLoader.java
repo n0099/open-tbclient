@@ -7,7 +7,7 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.e;
+import c.a.o0.r.e;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,9 +64,9 @@ public final class SoLoader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -83,9 +83,9 @@ public final class SoLoader {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new File(getNativeLibraryDir(context)));
             arrayList.add(new File(context.getFilesDir(), "lib"));
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (!soSources.contains(arrayList.get(i2))) {
-                    soSources.add(arrayList.get(i2));
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (!soSources.contains(arrayList.get(i))) {
+                    soSources.add(arrayList.get(i));
                 }
             }
         }
@@ -272,8 +272,11 @@ public final class SoLoader {
                         return entry.getSize();
                     }
                     return 0L;
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e2) {
+                    if (DEBUG) {
+                        Log.e("SoLoader", "SoLoader getSoSize exception.", e2);
+                        return 0L;
+                    }
                     return 0L;
                 }
             }
@@ -285,7 +288,9 @@ public final class SoLoader {
     private void initSoSource(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
-            boolean z = DEBUG;
+            if (DEBUG) {
+                Log.d("SoLoader", "initSoSource is called");
+            }
             addSysSoLibraryDirectory();
             addLocalSoLibraryDirectory(context);
         }
@@ -341,8 +346,8 @@ public final class SoLoader {
                     SoUtils.sendLog(this.sb.toString());
                     return false;
                 }
-                int i2 = !SoUtils.is64Bit() ? 1 : 0;
-                String str2 = SoUtils.uris[i2] + File.separator + fullName;
+                int i = !SoUtils.is64Bit() ? 1 : 0;
+                String str2 = SoUtils.uris[i] + File.separator + fullName;
                 File file = new File(getNativeLibraryDir(context), fullName);
                 if (file.exists()) {
                     if (file.length() == getSoSize(zipFile, str2) && load(iCallingSoLoader, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD")) {
@@ -369,8 +374,8 @@ public final class SoLoader {
                         return true;
                     }
                 }
-                while (i2 < SoUtils.uris.length) {
-                    if (executeRelease(context, zipFile, fullName, SoUtils.uris[i2]) && load(iCallingSoLoader, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
+                while (i < SoUtils.uris.length) {
+                    if (executeRelease(context, zipFile, fullName, SoUtils.uris[i]) && load(iCallingSoLoader, file2.getAbsolutePath(), "SO_RELEASE_EXECUTE_LOAD")) {
                         if (zipFile != null) {
                             try {
                                 zipFile.close();
@@ -380,7 +385,7 @@ public final class SoLoader {
                         }
                         return true;
                     }
-                    i2++;
+                    i++;
                 }
                 SoUtils.sendLog(this.sb.toString());
                 if (zipFile != null) {
@@ -413,7 +418,9 @@ public final class SoLoader {
                 iCallingSoLoader.loadLibrary(simpleName);
                 return true;
             } catch (Throwable th) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.e("SoLoader", "SoLoader load exception.", th);
+                }
                 StringBuilder sb = this.sb;
                 sb.append(str2 + ":::" + simpleName + ":" + Log.getStackTraceString(th));
                 return false;
@@ -422,8 +429,8 @@ public final class SoLoader {
         return invokeLLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:78:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x007f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x008c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:85:0x0082 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -458,15 +465,18 @@ public final class SoLoader {
                                     return renameTo;
                                 }
                                 inputStream = inputStream2;
-                            } catch (Exception unused) {
+                            } catch (Exception e4) {
+                                e = e4;
                                 inputStream = inputStream2;
                                 try {
-                                    boolean z = DEBUG;
+                                    if (DEBUG) {
+                                        Log.e("SoLoader", "SoLoader releaseFileFromApk exception.", e);
+                                    }
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e4) {
-                                            e4.printStackTrace();
+                                        } catch (Exception e5) {
+                                            e5.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
@@ -479,15 +489,15 @@ public final class SoLoader {
                                     if (inputStream != null) {
                                         try {
                                             inputStream.close();
-                                        } catch (Exception e5) {
-                                            e5.printStackTrace();
+                                        } catch (Exception e6) {
+                                            e6.printStackTrace();
                                         }
                                     }
                                     if (fileOutputStream != null) {
                                         try {
                                             fileOutputStream.close();
-                                        } catch (Exception e6) {
-                                            e6.printStackTrace();
+                                        } catch (Exception e7) {
+                                            e7.printStackTrace();
                                         }
                                     }
                                     throw th;
@@ -501,13 +511,15 @@ public final class SoLoader {
                                 }
                                 throw th;
                             }
-                        } catch (Exception unused2) {
+                        } catch (Exception e8) {
+                            e = e8;
                             fileOutputStream = null;
                         } catch (Throwable th3) {
                             th = th3;
                             fileOutputStream = null;
                         }
-                    } catch (Exception unused3) {
+                    } catch (Exception e9) {
+                        e = e9;
                         fileOutputStream = null;
                     } catch (Throwable th4) {
                         th = th4;
@@ -519,8 +531,8 @@ public final class SoLoader {
                 if (inputStream != null) {
                     try {
                         inputStream.close();
-                    } catch (Exception e7) {
-                        e7.printStackTrace();
+                    } catch (Exception e10) {
+                        e10.printStackTrace();
                     }
                 }
                 if (fileOutputStream != null) {
@@ -528,8 +540,8 @@ public final class SoLoader {
                     return false;
                 }
                 return false;
-            } catch (Exception e8) {
-                e8.printStackTrace();
+            } catch (Exception e11) {
+                e11.printStackTrace();
                 return false;
             }
         }
@@ -541,7 +553,7 @@ public final class SoLoader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
             if (DEBUG) {
-                String str2 = "unpackLibDep is called, shortName=" + str;
+                Log.d("SoLoader", "unpackLibDep is called, shortName=" + str);
             }
             String fullName = SoUtils.getFullName(str);
             try {
@@ -550,7 +562,7 @@ public final class SoLoader {
                 }
                 File file = new File(soSources.get(0), fullName);
                 if (DEBUG) {
-                    String str3 = "unpackLibDep soFile path is: " + file.getAbsolutePath();
+                    Log.d("SoLoader", "unpackLibDep soFile path is: " + file.getAbsolutePath());
                 }
                 return file;
             } catch (Exception e2) {
@@ -601,7 +613,9 @@ public final class SoLoader {
                 iCallingSoLoader.load(str);
                 return true;
             } catch (Throwable th) {
-                boolean z = DEBUG;
+                if (DEBUG) {
+                    Log.e("SoLoader", "SoLoader load exception.", th);
+                }
                 StringBuilder sb = this.sb;
                 sb.append(str2 + ":::" + str + ":" + Log.getStackTraceString(th));
                 return false;

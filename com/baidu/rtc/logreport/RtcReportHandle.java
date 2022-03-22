@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.rtc.PeerConnectionClient;
 import com.baidu.rtc.config.Constraints;
 import com.baidu.rtc.utils.CommonUtils;
@@ -78,9 +80,9 @@ public class RtcReportHandle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {rtcReportHandle};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -90,12 +92,12 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j2, long j3) {
+        public void onStuckData(long j, long j2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && RtcReportHandle.mIsEnablePullQualityMonitor) {
                 for (Map.Entry entry : this.this$0.mHUDStatisticsMap.entrySet()) {
                     if (entry.getKey() != this.this$0.mPublisherHandle && entry.getValue() != null) {
-                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j2, j3);
+                        ((HUDStatistics) entry.getValue()).addAudioStuckData(j, j2);
                     }
                 }
             }
@@ -116,9 +118,9 @@ public class RtcReportHandle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {rtcReportHandle, bigInteger};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,13 +131,13 @@ public class RtcReportHandle {
         }
 
         @Override // com.baidu.rtc.logreport.SLIReportInterface
-        public void onStuckData(long j2, long j3) {
+        public void onStuckData(long j, long j2) {
             HUDStatistics hUDStatistics;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || !RtcReportHandle.mIsEnablePullQualityMonitor || this.handleId == null || (hUDStatistics = (HUDStatistics) this.this$0.mHUDStatisticsMap.get(this.handleId)) == null) {
                 return;
             }
-            hUDStatistics.addVideoStuckData(j2, j3);
+            hUDStatistics.addVideoStuckData(j, j2);
         }
     }
 
@@ -161,9 +163,9 @@ public class RtcReportHandle {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -187,9 +189,9 @@ public class RtcReportHandle {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -321,19 +323,19 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject6);
             } catch (JSONException e2) {
-                String str = "Caught error on reportCommunicationQualityInfo: " + e2;
+                Log.e(TAG, "Caught error on reportCommunicationQualityInfo: " + e2);
             }
             reportData(jSONObject.toString(), 2);
         }
     }
 
-    private void reportData(String str, int i2) {
+    private void reportData(String str, int i) {
         RtcLogReport rtcLogReport;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65549, this, str, i2) == null) || (rtcLogReport = this.mRtcLogReport) == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65549, this, str, i) == null) || (rtcLogReport = this.mRtcLogReport) == null) {
             return;
         }
-        rtcLogReport.report(str, i2);
+        rtcLogReport.report(str, i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -345,7 +347,7 @@ public class RtcReportHandle {
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put(CommandMessage.SDK_VERSION, Constraints.sdkVersion());
                 jSONObject2.put("networkType", RtcLogReport.getNetworkType(this.mContext.get()));
-                jSONObject2.put("device", RtcLogReport.getDeviceModel());
+                jSONObject2.put(Config.DEVICE_PART, RtcLogReport.getDeviceModel());
                 JSONObject jSONObject3 = new JSONObject();
                 jSONObject3.put(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);
@@ -355,7 +357,7 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
             } catch (JSONException e2) {
-                String str = "Caught error on reportDeviceInfo: " + e2;
+                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
             }
             reportData(jSONObject.toString(), 0);
         }
@@ -380,16 +382,16 @@ public class RtcReportHandle {
                         if (arrayList.size() == 0) {
                             jSONArray.put(0);
                         } else {
-                            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                                jSONArray.put(arrayList.get(i2));
+                            for (int i = 0; i < arrayList.size(); i++) {
+                                jSONArray.put(arrayList.get(i));
                             }
                         }
                         ArrayList<Long> arrayList2 = hashMap.get("vStuck");
                         if (arrayList2.size() == 0) {
                             jSONArray2.put(0);
                         } else {
-                            for (int i3 = 0; i3 < arrayList2.size(); i3++) {
-                                jSONArray2.put(arrayList2.get(i3));
+                            for (int i2 = 0; i2 < arrayList2.size(); i2++) {
+                                jSONArray2.put(arrayList2.get(i2));
                             }
                         }
                         JSONObject jSONObject4 = new JSONObject();
@@ -412,7 +414,7 @@ public class RtcReportHandle {
                         jSONObject.put("userId", this.mUserId);
                         jSONObject.put("message", jSONObject2);
                     } catch (JSONException e2) {
-                        String str = "Caught error on reportDeviceInfo: " + e2;
+                        Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
                     }
                     reportData(jSONObject.toString(), 3);
                 }
@@ -420,11 +422,11 @@ public class RtcReportHandle {
         }
     }
 
-    public String getStreamingStatesInfo(BigInteger bigInteger, int i2) {
+    public String getStreamingStatesInfo(BigInteger bigInteger, int i) {
         InterceptResult invokeLI;
         HUDStatistics hUDStatistics;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bigInteger, i2)) == null) ? (bigInteger == null || (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) == null) ? StringUtil.NULL_STRING : hUDStatistics.statsString(i2) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bigInteger, i)) == null) ? (bigInteger == null || (hUDStatistics = this.mHUDStatisticsMap.get(bigInteger)) == null) ? StringUtil.NULL_STRING : hUDStatistics.statsString(i) : (String) invokeLI.objValue;
     }
 
     public HUDStatistics getStreamingStats(BigInteger bigInteger) {
@@ -474,25 +476,25 @@ public class RtcReportHandle {
         }
     }
 
-    public void reportError(int i2, String str) {
+    public void reportError(int i, String str) {
         ErrorInfoReport errorInfoReport;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i2, str) == null) || (errorInfoReport = this.mErrorInfoReport) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) || (errorInfoReport = this.mErrorInfoReport) == null) {
             return;
         }
-        errorInfoReport.reportErrorInfo(i2, str, CommonUtils.strToLong(this.mFeedId), CommonUtils.strToLong(this.mHandleId));
+        errorInfoReport.reportErrorInfo(i, str, CommonUtils.strToLong(this.mFeedId), CommonUtils.strToLong(this.mHandleId));
     }
 
-    public void reportSLIFfDelay(long j2, long j3) {
+    public void reportSLIFfDelay(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 JSONObject jSONObject2 = new JSONObject();
                 JSONObject jSONObject3 = new JSONObject();
                 JSONObject jSONObject4 = new JSONObject();
-                jSONObject2.put("feedId", j2);
-                jSONObject4.put("duration", j3);
+                jSONObject2.put("feedId", j);
+                jSONObject4.put("duration", j2);
                 jSONObject2.put("ffDelay", jSONObject4);
                 jSONObject3.put("sli", jSONObject2);
                 jSONObject.put("env", this.mQualityMonitorEnv);
@@ -502,16 +504,16 @@ public class RtcReportHandle {
                 jSONObject.put("userId", this.mUserId);
                 jSONObject.put("message", jSONObject3);
             } catch (JSONException e2) {
-                String str = "Caught error on reportDeviceInfo: " + e2;
+                Log.e(TAG, "Caught error on reportDeviceInfo: " + e2);
             }
             reportData(jSONObject.toString(), 3);
         }
     }
 
-    public void setUserId(long j2) {
+    public void setUserId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.mUserId = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.mUserId = j;
         }
     }
 

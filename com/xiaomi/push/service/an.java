@@ -22,56 +22,27 @@ import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.SocketTimeoutException;
 import java.net.URL;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class an {
     public static /* synthetic */ Interceptable $ic;
     public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public byte[] f896a;
+        public byte[] f872a;
 
-        public a(byte[] bArr, int i2) {
+        public a(byte[] bArr, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bArr, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f896a = bArr;
-            this.a = i2;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-
-        /* renamed from: a  reason: collision with other field name */
-        public Bitmap f897a;
-
-        public b(Bitmap bitmap, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bitmap, Long.valueOf(j2)};
+                Object[] objArr = {bArr, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -81,29 +52,58 @@ public class an {
                     return;
                 }
             }
-            this.f897a = bitmap;
-            this.a = j2;
+            this.f872a = bArr;
+            this.a = i;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+
+        /* renamed from: a  reason: collision with other field name */
+        public Bitmap f873a;
+
+        public b(Bitmap bitmap, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bitmap, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f873a = bitmap;
+            this.a = j;
         }
     }
 
     public static int a(Context context, InputStream inputStream) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, inputStream)) == null) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, options);
             if (options.outWidth == -1 || options.outHeight == -1) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("decode dimension failed for bitmap.");
+                com.xiaomi.channel.commonutils.logger.b.m112a("decode dimension failed for bitmap.");
                 return 1;
             }
             int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
-            int i3 = options.outWidth;
-            if (i3 <= round || (i2 = options.outHeight) <= round) {
+            int i2 = options.outWidth;
+            if (i2 <= round || (i = options.outHeight) <= round) {
                 return 1;
             }
-            return Math.min(i3 / round, i2 / round);
+            return Math.min(i2 / round, i / round);
         }
         return invokeLL.intValue;
     }
@@ -226,7 +226,7 @@ public class an {
             httpURLConnection.connect();
             int contentLength = httpURLConnection.getContentLength();
             if (z && contentLength > 102400) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                com.xiaomi.channel.commonutils.logger.b.m112a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -235,7 +235,7 @@ public class an {
             }
             int responseCode = httpURLConnection.getResponseCode();
             if (responseCode != 200) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("Invalid Http Response Code " + responseCode + " received");
+                com.xiaomi.channel.commonutils.logger.b.m112a("Invalid Http Response Code " + responseCode + " received");
                 com.xiaomi.push.y.a((Closeable) null);
                 if (httpURLConnection != null) {
                     httpURLConnection.disconnect();
@@ -245,18 +245,18 @@ public class an {
             inputStream = httpURLConnection.getInputStream();
             try {
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                int i2 = z ? 102400 : 2048000;
+                int i = z ? 102400 : 2048000;
                 byte[] bArr = new byte[1024];
-                while (i2 > 0) {
+                while (i > 0) {
                     int read = inputStream.read(bArr, 0, 1024);
                     if (read == -1) {
                         break;
                     }
-                    i2 -= read;
+                    i -= read;
                     byteArrayOutputStream.write(bArr, 0, read);
                 }
-                if (i2 <= 0) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("length 102400 exhausted.");
+                if (i <= 0) {
+                    com.xiaomi.channel.commonutils.logger.b.m112a("length 102400 exhausted.");
                     a aVar = new a(null, 102400);
                     com.xiaomi.push.y.a(inputStream);
                     if (httpURLConnection != null) {
@@ -305,7 +305,7 @@ public class an {
         b bVar = new b(null, 0L);
         Bitmap b2 = b(context, str);
         if (b2 != null) {
-            bVar.f897a = b2;
+            bVar.f873a = b2;
             return bVar;
         }
         try {
@@ -319,7 +319,7 @@ public class an {
                 return bVar;
             }
             bVar.a = a2.a;
-            byte[] bArr = a2.f896a;
+            byte[] bArr = a2.f872a;
             if (bArr != null) {
                 if (z) {
                     ByteArrayInputStream byteArrayInputStream2 = new ByteArrayInputStream(bArr);
@@ -327,7 +327,7 @@ public class an {
                         int a3 = a(context, byteArrayInputStream2);
                         BitmapFactory.Options options = new BitmapFactory.Options();
                         options.inSampleSize = a3;
-                        bVar.f897a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                        bVar.f873a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
                         byteArrayInputStream = byteArrayInputStream2;
                     } catch (Exception e3) {
                         e = e3;
@@ -342,10 +342,10 @@ public class an {
                         throw th;
                     }
                 } else {
-                    bVar.f897a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                    bVar.f873a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                 }
             }
-            a(context, a2.f896a, str);
+            a(context, a2.f872a, str);
             com.xiaomi.push.y.a(byteArrayInputStream);
             return bVar;
         } catch (Throwable th2) {
@@ -364,9 +364,9 @@ public class an {
                 if (a > 15728640) {
                     try {
                         File[] listFiles = file.listFiles();
-                        for (int i2 = 0; i2 < listFiles.length; i2++) {
-                            if (!listFiles[i2].isDirectory() && Math.abs(System.currentTimeMillis() - listFiles[i2].lastModified()) > 1209600) {
-                                listFiles[i2].delete();
+                        for (int i = 0; i < listFiles.length; i++) {
+                            if (!listFiles[i].isDirectory() && Math.abs(System.currentTimeMillis() - listFiles[i].lastModified()) > 1209600) {
+                                listFiles[i].delete();
                             }
                         }
                     } catch (Exception e2) {
@@ -389,7 +389,7 @@ public class an {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65541, null, context, bArr, str) == null) {
             if (bArr == null) {
-                com.xiaomi.channel.commonutils.logger.b.m133a("cannot save small icon cause bitmap is null");
+                com.xiaomi.channel.commonutils.logger.b.m112a("cannot save small icon cause bitmap is null");
                 return;
             }
             a(context);

@@ -10,6 +10,8 @@ import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +33,7 @@ public class c {
     public c.a.m.j.d.d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f4132b;
+    public List<b> f3720b;
 
     /* loaded from: classes.dex */
     public class a implements Comparator<b> {
@@ -45,9 +47,9 @@ public class c {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -61,19 +63,19 @@ public class c {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
-                int i2 = bVar2.f4129b - bVar.f4129b;
-                if (i2 == 0) {
-                    if (bVar.f4131d && bVar2.f4131d) {
+                int i = bVar2.f3717b - bVar.f3717b;
+                if (i == 0) {
+                    if (bVar.f3719d && bVar2.f3719d) {
                         return 0;
                     }
-                    if (bVar.f4131d) {
+                    if (bVar.f3719d) {
                         return -1;
                     }
-                    if (bVar2.f4131d) {
+                    if (bVar2.f3719d) {
                         return 1;
                     }
                 }
-                return i2;
+                return i;
             }
             return invokeLL.intValue;
         }
@@ -84,9 +86,9 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -149,13 +151,13 @@ public class c {
                             if (bundle != null) {
                                 String string = bundle.getString("galaxy_data");
                                 if (!TextUtils.isEmpty(string)) {
-                                    byte[] b2 = c.a.m.k.a.b(string.getBytes("utf-8"));
+                                    byte[] b2 = c.a.m.k.a.b(string.getBytes(IMAudioTransRequest.CHARSET));
                                     JSONObject jSONObject = new JSONObject(new String(b2));
                                     b bVar = new b();
-                                    bVar.f4129b = jSONObject.getInt("priority");
+                                    bVar.f3717b = jSONObject.getInt("priority");
                                     bVar.a = resolveInfo.activityInfo.applicationInfo;
                                     if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        bVar.f4131d = true;
+                                        bVar.f3719d = true;
                                     }
                                     if (z) {
                                         String string2 = bundle.getString("galaxy_sf");
@@ -164,13 +166,13 @@ public class c {
                                             JSONArray jSONArray = jSONObject.getJSONArray("sigs");
                                             int length = jSONArray.length();
                                             String[] strArr = new String[length];
-                                            for (int i2 = 0; i2 < length; i2++) {
-                                                strArr[i2] = jSONArray.getString(i2);
+                                            for (int i = 0; i < length; i++) {
+                                                strArr[i] = jSONArray.getString(i);
                                             }
                                             if (e(strArr, g(packageInfo.signatures))) {
                                                 byte[] f2 = f(c.a.m.k.a.b(string2.getBytes()), this.a);
                                                 if (f2 != null && Arrays.equals(f2, c.a.m.k.c.a(b2))) {
-                                                    bVar.f4130c = true;
+                                                    bVar.f3718c = true;
                                                 }
                                             }
                                         }
@@ -202,13 +204,15 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             List<b> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
             if (b2 == null || b2.size() == 0) {
-                for (int i2 = 0; i2 < 3; i2++) {
+                for (int i = 0; i < 3; i++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
                 }
                 return false;
             }
-            boolean z = b2.get(0).f4130c;
+            boolean z = b2.get(0).f3718c;
             if (!z) {
-                for (int i3 = 0; i3 < 3; i3++) {
+                for (int i2 = 0; i2 < 3; i2++) {
+                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
                 }
             }
             return z;
@@ -242,8 +246,8 @@ public class c {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
             int length = signatureArr.length;
             String[] strArr = new String[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                strArr[i2] = a(c.a.m.k.c.a(signatureArr[i2].toByteArray()));
+            for (int i = 0; i < length; i++) {
+                strArr[i] = a(c.a.m.k.c.a(signatureArr[i].toByteArray()));
             }
             return strArr;
         }
@@ -254,13 +258,13 @@ public class c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<b> list = this.f4132b;
+            List<b> list = this.f3720b;
             if (list != null) {
                 return list;
             }
             d(context);
             List<b> b2 = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.f4132b = b2;
+            this.f3720b = b2;
             return b2;
         }
         return (List) invokeL.objValue;

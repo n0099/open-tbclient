@@ -49,9 +49,9 @@ public class IMUnBindPushMsg extends Message {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -89,15 +89,15 @@ public class IMUnBindPushMsg extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void handleMessageResult(Context context, JSONObject jSONObject, int i2, String str) {
+    public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i2, str) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
+            if (i == 0) {
                 Utility.updateBindPushCUIDStatus(this.mContext, 1);
                 BindStateManager.clearUnBindInfo(context);
             }
-            super.handleMessageResult(context, jSONObject, i2, str);
-            ChatMsgManagerImpl.getInstance(context).onUnRegisterNotifyResult(getListenerKey(), i2, str);
+            super.handleMessageResult(context, jSONObject, i, str);
+            ChatMsgManagerImpl.getInstance(context).onUnRegisterNotifyResult(getListenerKey(), i, str);
         }
     }
 }

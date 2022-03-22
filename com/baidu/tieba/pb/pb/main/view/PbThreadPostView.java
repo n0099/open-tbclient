@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import c.a.r0.u2.h.f;
+import c.a.p0.w2.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -16,19 +16,23 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbThreadPostView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f35063b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f35064c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f35065d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f45283e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public View.OnClickListener f45284f;
-    public View mThreadPostContainer;
-    public TextView mVoteThreadPostButton;
-    public TextView mVoteThreadPostContent;
+    public View.OnClickListener f35066e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbThreadPostView(Context context) {
@@ -39,9 +43,9 @@ public class PbThreadPostView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -54,46 +58,46 @@ public class PbThreadPostView extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.mThreadPostContainer = findViewById(R.id.pb_thread_post_container);
-            this.mVoteThreadPostContent = (TextView) findViewById(R.id.pb_thread_post_content);
-            this.mVoteThreadPostButton = (TextView) findViewById(R.id.pb_thread_post_button);
+            this.f35063b = findViewById(R.id.obfuscated_res_0x7f091729);
+            this.f35064c = (TextView) findViewById(R.id.obfuscated_res_0x7f09172a);
+            this.f35065d = (TextView) findViewById(R.id.obfuscated_res_0x7f091728);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f45283e = getContext();
+            this.a = getContext();
             setClipChildren(false);
             setClipToPadding(false);
             setOrientation(1);
             setGravity(17);
-            LayoutInflater.from(getContext()).inflate(R.layout.pb_thread_post_view, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d06a3, (ViewGroup) this, true);
             a();
         }
     }
 
-    public void onSkinChange(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            SkinManager.setBackgroundColor(this.mThreadPostContainer, R.color.CAM_X0205, i2);
-            SkinManager.setViewTextColor(this.mVoteThreadPostContent, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.mVoteThreadPostButton, (int) R.color.CAM_X0302);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            SkinManager.setBackgroundColor(this.f35063b, R.color.CAM_X0205, i);
+            SkinManager.setViewTextColor(this.f35064c, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(this.f35065d, (int) R.color.CAM_X0302);
         }
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f45284f == null) {
-            this.f45284f = onClickListener;
-            this.mVoteThreadPostButton.setOnClickListener(onClickListener);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) && this.f35066e == null) {
+            this.f35066e = onClickListener;
+            this.f35065d.setOnClickListener(onClickListener);
         }
     }
 
     public void setData(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, fVar) == null) {
-            onSkinChange(TbadkCoreApplication.getInst().getSkinType());
+            c(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
@@ -106,9 +110,9 @@ public class PbThreadPostView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

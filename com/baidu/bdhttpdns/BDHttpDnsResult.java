@@ -16,13 +16,13 @@ public class BDHttpDnsResult {
     public ResolveType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ResolveStatus f31532b;
+    public final ResolveStatus f24880b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ArrayList<String> f31533c;
+    public ArrayList<String> f24881c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ArrayList<String> f31534d;
+    public ArrayList<String> f24882d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -56,16 +56,16 @@ public class BDHttpDnsResult {
             $VALUES = new ResolveStatus[]{BDHttpDnsResolveOK, BDHttpDnsInputError, BDHttpDnsResolveErrorCacheMiss, resolveStatus};
         }
 
-        public ResolveStatus(String str, int i2) {
+        public ResolveStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -124,16 +124,16 @@ public class BDHttpDnsResult {
             $VALUES = new ResolveType[]{RESOLVE_NONE, RESOLVE_NONEED, RESOLVE_FROM_HTTPDNS_CACHE, RESOLVE_FROM_HTTPDNS_EXPIRED_CACHE, RESOLVE_FROM_DNS_CACHE, resolveType};
         }
 
-        public ResolveType(String str, int i2) {
+        public ResolveType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -163,16 +163,16 @@ public class BDHttpDnsResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {resolveStatus};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = ResolveType.RESOLVE_NONE;
-        this.f31532b = resolveStatus;
+        this.f24880b = resolveStatus;
     }
 
     public BDHttpDnsResult(ResolveType resolveType, ResolveStatus resolveStatus, ArrayList<String> arrayList, ArrayList<String> arrayList2) {
@@ -182,9 +182,9 @@ public class BDHttpDnsResult {
             newInitContext.initArgs = r2;
             Object[] objArr = {resolveType, resolveStatus, arrayList, arrayList2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -192,27 +192,27 @@ public class BDHttpDnsResult {
         }
         this.a = ResolveType.RESOLVE_NONE;
         this.a = resolveType;
-        this.f31532b = resolveStatus;
-        this.f31533c = arrayList;
-        this.f31534d = arrayList2;
+        this.f24880b = resolveStatus;
+        this.f24881c = arrayList;
+        this.f24882d = arrayList2;
     }
 
     public ArrayList<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f31533c : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f24881c : (ArrayList) invokeV.objValue;
     }
 
     public ArrayList<String> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f31534d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f24882d : (ArrayList) invokeV.objValue;
     }
 
     public ResolveStatus c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f31532b : (ResolveStatus) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f24880b : (ResolveStatus) invokeV.objValue;
     }
 
     public ResolveType d() {

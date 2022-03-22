@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 @Deprecated
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PushChannelRegion {
     public static final /* synthetic */ PushChannelRegion[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -42,16 +42,16 @@ public final class PushChannelRegion {
         $VALUES = new PushChannelRegion[]{China, Global, Europe, Russia, pushChannelRegion};
     }
 
-    public PushChannelRegion(String str, int i2) {
+    public PushChannelRegion(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

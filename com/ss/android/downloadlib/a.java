@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.down.request.db.DownloadDataConstants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.kuaishou.weapon.un.w0;
@@ -35,29 +34,29 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192a, ag {
+/* loaded from: classes7.dex */
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2053a, ag {
     public static String a = "a";
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile a f57933d;
+    public static volatile a f42686d;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f57934b;
+    public long f42687b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f57935c;
+    public b f42688c;
 
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
-    /* loaded from: classes8.dex */
-    public class RunnableC2175a implements Runnable {
+    /* loaded from: classes7.dex */
+    public class RunnableC2036a implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final int f57943b;
+        public final int f42696b;
 
-        public RunnableC2175a(int i2) {
-            this.f57943b = i2;
+        public RunnableC2036a(int i) {
+            this.f42696b = i;
         }
 
         @Override // java.lang.Runnable
@@ -68,50 +67,50 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 if (c2 == null || c2.isEmpty()) {
                     return;
                 }
-                a.this.a(c2, this.f57943b);
+                a.this.a(c2, this.f42696b);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b implements Runnable {
         public long a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f57944b;
+        public int f42697b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f57945c;
+        public long f42698c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f57946d;
+        public int f42699d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f57947e;
+        public long f42700e;
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            this.f57947e = System.currentTimeMillis();
+            this.f42700e = System.currentTimeMillis();
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 if (a()) {
-                    a.a().a(this.a, this.f57944b);
+                    a.a().a(this.a, this.f42697b);
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
         }
 
-        public b(long j2, int i2, long j3, int i3) {
-            this.a = j2;
-            this.f57944b = i2;
-            this.f57945c = j3;
-            this.f57946d = i3;
+        public b(long j, int i, long j2, int i2) {
+            this.a = j;
+            this.f42697b = i;
+            this.f42698c = j2;
+            this.f42699d = i2;
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:17:0x0064, code lost:
@@ -126,7 +125,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
             JSONObject jSONObject;
             com.ss.android.downloadad.api.a.b d3 = com.ss.android.downloadlib.addownload.b.f.a().d(this.a);
             boolean z = false;
-            if (d3 == null || l.b(d3) || d3.f57925c.get() || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(d3.s())) == null) {
+            if (d3 == null || l.b(d3) || d3.f42680c.get() || (downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(d3.s())) == null) {
                 return false;
             }
             long M = d3.M();
@@ -144,7 +143,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
             boolean a2 = com.ss.android.socialbase.appdownloader.b.a(j.getContext());
             JSONObject jSONObject2 = new JSONObject();
             int a3 = a(z, d3, downloadInfo, a2, jSONObject2);
-            this.f57946d = a3;
+            this.f42699d = a3;
             try {
                 jSONObject = jSONObject2;
             } catch (Exception e2) {
@@ -155,12 +154,12 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 jSONObject.putOpt("fail_status", Integer.valueOf(a3));
                 jSONObject.putOpt("available_space", Long.valueOf(M / 1048576));
                 jSONObject.putOpt("total_space", Long.valueOf(a / 1048576));
-                int i2 = (totalBytes > 0L ? 1 : (totalBytes == 0L ? 0 : -1));
-                if (i2 > 0) {
+                int i = (totalBytes > 0L ? 1 : (totalBytes == 0L ? 0 : -1));
+                if (i > 0) {
                     jSONObject.putOpt("package_size", Long.valueOf(totalBytes / 1048576));
                 }
                 jSONObject.putOpt("space_enough", Integer.valueOf(z ? 1 : 2));
-                if (M > 0 && i2 > 0) {
+                if (M > 0 && i > 0) {
                     jSONObject.put("available_space_ratio", M / d2);
                 }
                 jSONObject.putOpt("permission_unknown_source_install", Integer.valueOf(a2 ? 1 : 2));
@@ -177,7 +176,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
 
         private int a(boolean z, com.ss.android.downloadad.api.a.b bVar, DownloadInfo downloadInfo, boolean z2, JSONObject jSONObject) {
             com.ss.android.socialbase.downloader.g.a a = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId());
-            int i2 = 1;
+            int i = 1;
             if (a.a("install_failed_check_ttmd5", 1) == 1) {
                 int checkMd5Status = downloadInfo.checkMd5Status();
                 try {
@@ -188,9 +187,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                     return 2005;
                 }
             }
-            int i3 = this.f57946d;
-            if (i3 != 2000) {
-                return i3;
+            int i2 = this.f42699d;
+            if (i2 != 2000) {
+                return i2;
             }
             if (a.a("install_failed_check_signature", 1) == 1 && l.d(j.getContext(), bVar.e())) {
                 if (!l.a(l.h(j.getContext(), downloadInfo.getTargetFilePath()), l.g(j.getContext(), bVar.e()))) {
@@ -198,15 +197,15 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 }
             }
             if (z) {
-                long j2 = this.f57947e;
-                long j3 = this.f57945c;
-                if (j2 > j3) {
+                long j = this.f42700e;
+                long j2 = this.f42698c;
+                if (j > j2) {
                     try {
-                        jSONObject.put("install_time", j2 - j3);
-                        if (bVar.C() <= this.f57945c) {
-                            i2 = 0;
+                        jSONObject.put("install_time", j - j2);
+                        if (bVar.C() <= this.f42698c) {
+                            i = 0;
                         }
-                        jSONObject.put("install_again", i2);
+                        jSONObject.put("install_again", i);
                     } catch (Throwable unused2) {
                     }
                     return !z2 ? 2003 : 2004;
@@ -217,27 +216,27 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.ss.android.downloadad.api.a.b f57962b;
+        public final com.ss.android.downloadad.api.a.b f42713b;
 
         public c(com.ss.android.downloadad.api.a.b bVar) {
-            this.f57962b = bVar;
+            this.f42713b = bVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 try {
-                    this.f57962b.j(true);
-                    a.this.c(this.f57962b);
+                    this.f42713b.j(true);
+                    a.this.c(this.f42713b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } finally {
-                this.f57962b.j(false);
+                this.f42713b.j(false);
             }
         }
     }
@@ -271,14 +270,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
     @WorkerThread
     public void c(com.ss.android.downloadad.api.a.b bVar) {
         SystemClock.sleep(20000L);
-        int i2 = 15;
-        while (i2 > 0) {
+        int i = 15;
+        while (i > 0) {
             if (l.b(bVar)) {
                 a(bVar.e());
                 return;
             }
-            i2--;
-            if (i2 == 0) {
+            i--;
+            if (i == 0) {
                 return;
             }
             SystemClock.sleep(20000L);
@@ -286,22 +285,22 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
     }
 
     public synchronized void d() {
-        b bVar = this.f57935c;
+        b bVar = this.f42688c;
         if (bVar != null) {
             bVar.b();
-            this.f57935c = null;
+            this.f42688c = null;
         }
     }
 
     public static a a() {
-        if (f57933d == null) {
+        if (f42686d == null) {
             synchronized (a.class) {
-                if (f57933d == null) {
-                    f57933d = new a();
+                if (f42686d == null) {
+                    f42686d = new a();
                 }
             }
         }
-        return f57933d;
+        return f42686d;
     }
 
     public static String c(@NonNull DownloadInfo downloadInfo, @NonNull com.ss.android.downloadad.api.a.b bVar) {
@@ -340,14 +339,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         if (System.currentTimeMillis() - bVar.H() < a2 * 60.0d * 60.0d * 1000.0d) {
             return 1;
         }
-        if (bVar.f57926d.get()) {
+        if (bVar.f42681d.get()) {
             return 0;
         }
         DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(bVar.s());
         if (downloadInfo == null || (realStatus = downloadInfo.getRealStatus()) == -3 || realStatus == -4) {
             return -1;
         }
-        if (!DownloadStatus.isDownloading(realStatus) && bVar.f57926d.compareAndSet(false, true)) {
+        if (!DownloadStatus.isDownloading(realStatus) && bVar.f42681d.compareAndSet(false, true)) {
             try {
                 JSONObject jSONObject = new JSONObject();
                 a(jSONObject, downloadInfo);
@@ -430,7 +429,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         bVar.l("");
         i.a().a(bVar);
         JSONObject a2 = a(new JSONObject(), downloadInfo);
-        int i2 = 1;
+        int i = 1;
         try {
             a2.putOpt("finish_reason", P);
             a2.putOpt("finish_from_reserve_wifi", Integer.valueOf(downloadInfo.isDownloadFromReserveWifi() ? 1 : 0));
@@ -446,11 +445,11 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 a2.put("file_length_gap", downloadInfo.getExpectFileLength() - downloadInfo.getTotalBytes());
             }
             a2.put("ttmd5_status", downloadInfo.getTTMd5CheckStatus());
-            a2.put("has_send_download_failed_finally", a3.f57926d.get() ? 1 : 2);
+            a2.put("has_send_download_failed_finally", a3.f42681d.get() ? 1 : 2);
             if (!a3.V()) {
-                i2 = 2;
+                i = 2;
             }
-            a2.put("is_update_download", i2);
+            a2.put("is_update_download", i);
             com.ss.android.downloadlib.g.f.a(a3, a2);
         } catch (Throwable th) {
             th.printStackTrace();
@@ -458,13 +457,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         com.ss.android.downloadlib.d.a.a().b("download_finish", a2, bVar);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2192a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2192a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC2053a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
@@ -486,7 +485,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
             if (a3 != null) {
                 a3.f();
             }
-            if (a2.f57925c.get()) {
+            if (a2.f42680c.get()) {
                 return;
             }
             if (com.ss.android.socialbase.downloader.g.a.a(a2.s()).b("notification_opt_2") == 1) {
@@ -543,7 +542,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         return jSONObject;
     }
 
-    public void a(DownloadInfo downloadInfo, com.ss.android.downloadad.api.a.b bVar, int i2) {
+    public void a(DownloadInfo downloadInfo, com.ss.android.downloadad.api.a.b bVar, int i) {
         long max;
         if (downloadInfo == null || bVar == null) {
             return;
@@ -552,7 +551,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         long currentTimeMillis = System.currentTimeMillis();
         bVar.b(currentTimeMillis);
         bVar.g(l.a(Environment.getDataDirectory(), -1L));
-        if (i2 != 2000) {
+        if (i != 2000) {
             max = 2000;
         } else {
             long a2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("check_install_failed_delay_time", AppConfig.TIMESTAMP_AVAILABLE_DURATION);
@@ -561,49 +560,49 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
             }
             max = Math.max(a2, 30000L);
         }
-        long j2 = max;
-        b bVar2 = new b(bVar.b(), downloadInfo.getId(), currentTimeMillis, i2);
-        d.a().a(bVar2, j2);
-        this.f57935c = bVar2;
+        long j = max;
+        b bVar2 = new b(bVar.b(), downloadInfo.getId(), currentTimeMillis, i);
+        d.a().a(bVar2, j);
+        this.f42688c = bVar2;
         i.a().a(bVar);
     }
 
-    public void a(final long j2, int i2) {
-        long a2 = com.ss.android.socialbase.downloader.g.a.a(i2).a("check_install_finish_hijack_delay_time", 900000L);
+    public void a(final long j, int i) {
+        long a2 = com.ss.android.socialbase.downloader.g.a.a(i).a("check_install_finish_hijack_delay_time", 900000L);
         if (a2 < 0) {
             return;
         }
         d.a().a(new Runnable() { // from class: com.ss.android.downloadlib.a.2
             @Override // java.lang.Runnable
             public void run() {
-                a.a().a(j2);
+                a.a().a(j);
             }
         }, Math.max(a2, 300000L));
     }
 
-    public void a(long j2) {
+    public void a(long j) {
         d.a a2;
-        int i2;
+        int i;
         try {
-            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j2);
-            if (d2 != null && !l.b(d2) && !d2.f57925c.get()) {
+            com.ss.android.downloadad.api.a.b d2 = com.ss.android.downloadlib.addownload.b.f.a().d(j);
+            if (d2 != null && !l.b(d2) && !d2.f42680c.get()) {
                 Pair<d.a, Integer> b2 = com.ss.android.downloadlib.addownload.b.d.a().b(d2);
                 if (b2 != null) {
                     a2 = (d.a) b2.first;
-                    i2 = ((Integer) b2.second).intValue();
+                    i = ((Integer) b2.second).intValue();
                 } else {
                     a2 = com.ss.android.downloadlib.addownload.b.d.a().a(d2);
-                    i2 = -1;
+                    i = -1;
                 }
                 if (a2 == null) {
                     return;
                 }
                 com.ss.android.downloadlib.addownload.b.d.a().b(a2.a);
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("installed_app_name", a2.f58024d);
+                jSONObject.put("installed_app_name", a2.f42772d);
                 jSONObject.put("installed_pkg_name", a2.a);
-                if (i2 != -1) {
-                    jSONObject.put("error_code", i2);
+                if (i != -1) {
+                    jSONObject.put("error_code", i);
                     com.ss.android.downloadlib.g.f.a(jSONObject, d2.s());
                     com.ss.android.downloadlib.d.a.a().b("install_finish_hijack", jSONObject, d2);
                     return;
@@ -616,7 +615,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
     }
 
     public void a(String str, com.ss.android.downloadad.api.a.b bVar) {
-        if (bVar != null && l.b(bVar) && bVar.f57925c.compareAndSet(false, true)) {
+        if (bVar != null && l.b(bVar) && bVar.f42680c.compareAndSet(false, true)) {
             com.ss.android.downloadlib.d.a.a().a(bVar.j(), "install_finish", a(bVar, str, bVar.K() != 4 ? 3 : 4), bVar);
             i.a().a(bVar);
         }
@@ -640,7 +639,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
 
     public static JSONObject a(JSONObject jSONObject, DownloadInfo downloadInfo) {
         if (jSONObject != null && downloadInfo != null) {
-            int i2 = 1;
+            int i = 1;
             if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("download_event_opt", 1) == 0) {
                 return jSONObject;
             }
@@ -699,9 +698,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 jSONObject.put("clear_space_restart_times", com.ss.android.downloadlib.addownload.c.d.a().b(downloadInfo.getUrl()));
                 jSONObject.put("mime_type", downloadInfo.getMimeType());
                 if (!com.ss.android.socialbase.downloader.i.f.c(j.getContext())) {
-                    i2 = 2;
+                    i = 2;
                 }
-                jSONObject.put("network_available", i2);
+                jSONObject.put("network_available", i);
                 jSONObject.put("status_code", downloadInfo.getHttpStatusCode());
                 b(jSONObject, downloadInfo);
             } catch (Throwable th) {
@@ -715,7 +714,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         int b2 = com.ss.android.socialbase.appdownloader.c.b(j.getContext(), downloadInfo);
         int b3 = l.b(j.getContext(), str);
         if (b2 > 0 && b3 > 0 && b2 != b3) {
-            return b3 > b2 ? SpeedStatsStampTable.NEW_LOGO_ACTIVITY_END_STAMP_KEY : SpeedStatsStampTable.NEW_LOGO_ACTIVITY_ON_DESTROY_END_STAMP_KEY;
+            return b3 > b2 ? 3011 : 3010;
         } else if (com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("install_finish_check_ttmd5", 1) == 1) {
             String string = j.getContext().getSharedPreferences("sp_ttdownloader_md5", 0).getString(String.valueOf(bVar.b()), null);
             if (TextUtils.isEmpty(string) && downloadInfo != null) {
@@ -736,22 +735,22 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
     }
 
     @Override // com.ss.android.downloadad.api.a
-    public void a(int i2) {
+    public void a(int i) {
         long currentTimeMillis = System.currentTimeMillis();
-        if (currentTimeMillis - this.f57934b < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
+        if (currentTimeMillis - this.f42687b < AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
             return;
         }
-        d.a().a(new RunnableC2175a(i2), this.f57934b > 0 ? 2000L : 8000L);
-        this.f57934b = currentTimeMillis;
+        d.a().a(new RunnableC2036a(i), this.f42687b > 0 ? 2000L : 8000L);
+        this.f42687b = currentTimeMillis;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @WorkerThread
-    public void a(@NonNull ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> concurrentHashMap, int i2) {
+    public void a(@NonNull ConcurrentHashMap<Long, com.ss.android.downloadad.api.a.b> concurrentHashMap, int i) {
         ArrayList arrayList = new ArrayList();
         long currentTimeMillis = System.currentTimeMillis();
         for (com.ss.android.downloadad.api.a.b bVar : concurrentHashMap.values()) {
-            if (bVar.f57925c.get()) {
+            if (bVar.f42680c.get()) {
                 if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("start_event_expire_hours", w0.d0) * 60 * 60 * 1000) {
                     arrayList.add(Long.valueOf(bVar.b()));
                 }
@@ -763,9 +762,9 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
                 if (!bVar.Y()) {
                     if (l.b(bVar)) {
                         if (bVar.K() == 4) {
-                            i2 = bVar.K();
+                            i = bVar.K();
                         }
-                        com.ss.android.downloadlib.d.a.a().a(a(bVar, bVar.e(), i2), bVar);
+                        com.ss.android.downloadlib.d.a.a().a(a(bVar, bVar.e(), i), bVar);
                         arrayList.add(Long.valueOf(bVar.b()));
                         com.ss.android.downloadlib.addownload.c.d.a(bVar);
                     } else if (currentTimeMillis - bVar.H() >= com.ss.android.socialbase.downloader.g.a.a(bVar.s()).a("finish_event_expire_hours", w0.d0) * 60 * 60 * 1000) {
@@ -788,7 +787,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
             return;
         }
         JSONArray e2 = com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).e("ah_report_config");
-        if (aVar.f58262b != 0) {
+        if (aVar.f43002b != 0) {
             downloadInfo.getTempCacheData().remove("intent");
         }
         if (e2 == null || (b2 = b(downloadInfo, aVar)) == null) {
@@ -834,12 +833,12 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         d.a().a(new c(bVar));
     }
 
-    private JSONObject a(com.ss.android.downloadad.api.a.b bVar, String str, int i2) {
+    private JSONObject a(com.ss.android.downloadad.api.a.b bVar, String str, int i) {
         com.ss.android.socialbase.appdownloader.a a2;
         JSONObject jSONObject = new JSONObject();
         try {
             DownloadInfo downloadInfo = Downloader.getInstance(j.getContext()).getDownloadInfo(bVar.s());
-            jSONObject.putOpt("scene", Integer.valueOf(i2));
+            jSONObject.putOpt("scene", Integer.valueOf(i));
             com.ss.android.downloadlib.g.f.a(jSONObject, bVar.s());
             com.ss.android.downloadlib.g.f.a(bVar, jSONObject);
             jSONObject.put("is_update_download", bVar.V() ? 1 : 2);
@@ -874,7 +873,7 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         return jSONObject;
     }
 
-    public void a(DownloadInfo downloadInfo, long j2, long j3, long j4, long j5, long j6, boolean z) {
+    public void a(DownloadInfo downloadInfo, long j, long j2, long j3, long j4, long j5, boolean z) {
         com.ss.android.downloadad.api.a.b a2 = com.ss.android.downloadlib.addownload.b.f.a().a(downloadInfo);
         if (a2 == null) {
             com.ss.android.downloadlib.e.c.a().a("trySendClearSpaceEvent nativeModel null");
@@ -882,13 +881,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC2192
         }
         try {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("space_before", Double.valueOf(j2 / 1048576.0d));
-            jSONObject.putOpt("space_cleaned", Double.valueOf((j3 - j2) / 1048576.0d));
-            jSONObject.putOpt("clean_up_time_cost", Long.valueOf(j5));
+            jSONObject.putOpt("space_before", Double.valueOf(j / 1048576.0d));
+            jSONObject.putOpt("space_cleaned", Double.valueOf((j2 - j) / 1048576.0d));
+            jSONObject.putOpt("clean_up_time_cost", Long.valueOf(j4));
             jSONObject.putOpt("is_download_restarted", Integer.valueOf(z ? 1 : 0));
-            jSONObject.putOpt("byte_required", Long.valueOf(j4));
-            jSONObject.putOpt("byte_required_after", Double.valueOf((j4 - j3) / 1048576.0d));
-            jSONObject.putOpt("clear_sleep_time", Long.valueOf(j6));
+            jSONObject.putOpt("byte_required", Long.valueOf(j3));
+            jSONObject.putOpt("byte_required_after", Double.valueOf((j3 - j2) / 1048576.0d));
+            jSONObject.putOpt("clear_sleep_time", Long.valueOf(j5));
             com.ss.android.downloadlib.g.f.c(downloadInfo, jSONObject);
             com.ss.android.downloadlib.d.a.a().a("cleanup", jSONObject, a2);
         } catch (Exception e2) {

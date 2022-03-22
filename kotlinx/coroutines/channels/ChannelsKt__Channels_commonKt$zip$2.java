@@ -10,7 +10,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003\"\u0004\b\u0002\u0010\u0004*\b\u0012\u0004\u0012\u0002H\u00040\u0005H\u008a@¢\u0006\u0004\b\u0006\u0010\u0007"}, d2 = {"<anonymous>", "", "E", "R", "V", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$zip$2", f = "Channels.common.kt", i = {0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2}, l = {2201, 2191, 2193}, m = "invokeSuspend", n = {"$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", "element1", "$this$produce", "otherIterator", "$this$consumeEach$iv", "$this$consume$iv$iv", "cause$iv$iv", "$this$consume$iv", "e$iv", "element1", "element2"}, s = {"L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$8", "L$9", "L$0", "L$1", "L$2", "L$4", "L$5", "L$6", "L$8", "L$9", "L$10"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda implements Function2<ProducerScope<? super V>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ ReceiveChannel $other;
     public final /* synthetic */ ReceiveChannel $this_zip;
@@ -81,11 +81,11 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
         ChannelsKt__Channels_commonKt$zip$2 channelsKt__Channels_commonKt$zip$24;
         Object obj5;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        int i3 = 2;
-        int i4 = 1;
+        int i = this.label;
+        int i2 = 2;
+        int i3 = 1;
         try {
-            if (i2 == 0) {
+            if (i == 0) {
                 ResultKt.throwOnFailure(obj);
                 ProducerScope producerScope2 = this.p$;
                 ChannelIterator it2 = this.$other.iterator();
@@ -106,13 +106,13 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                 channelsKt__Channels_commonKt$zip$2.L$5 = th2;
                 channelsKt__Channels_commonKt$zip$2.L$6 = receiveChannel2;
                 channelsKt__Channels_commonKt$zip$2.L$7 = it;
-                channelsKt__Channels_commonKt$zip$2.label = i4;
+                channelsKt__Channels_commonKt$zip$2.label = i3;
                 obj5 = it.hasNext(channelsKt__Channels_commonKt$zip$22);
                 if (obj5 == coroutine_suspended) {
                 }
                 if (((Boolean) obj5).booleanValue()) {
                 }
-            } else if (i2 == 1) {
+            } else if (i == 1) {
                 it = (ChannelIterator) this.L$7;
                 receiveChannel2 = (ReceiveChannel) this.L$6;
                 th2 = (Throwable) this.L$5;
@@ -126,7 +126,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                 channelsKt__Channels_commonKt$zip$2 = this;
                 if (((Boolean) obj5).booleanValue()) {
                 }
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 Object obj6 = this.L$9;
                 Object obj7 = this.L$8;
                 ChannelIterator channelIterator3 = (ChannelIterator) this.L$7;
@@ -160,7 +160,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                         throw th5;
                     }
                 }
-            } else if (i2 != 3) {
+            } else if (i != 3) {
                 throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
             } else {
                 it = (ChannelIterator) this.L$7;
@@ -173,8 +173,8 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                 producerScope = (ProducerScope) this.L$0;
                 ResultKt.throwOnFailure(obj);
                 channelsKt__Channels_commonKt$zip$2 = this;
-                i3 = 2;
-                i4 = 1;
+                i2 = 2;
+                i3 = 1;
                 channelsKt__Channels_commonKt$zip$2.L$0 = producerScope;
                 channelsKt__Channels_commonKt$zip$2.L$1 = channelIterator;
                 channelsKt__Channels_commonKt$zip$2.L$2 = receiveChannel3;
@@ -183,7 +183,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                 channelsKt__Channels_commonKt$zip$2.L$5 = th2;
                 channelsKt__Channels_commonKt$zip$2.L$6 = receiveChannel2;
                 channelsKt__Channels_commonKt$zip$2.L$7 = it;
-                channelsKt__Channels_commonKt$zip$2.label = i4;
+                channelsKt__Channels_commonKt$zip$2.label = i3;
                 obj5 = it.hasNext(channelsKt__Channels_commonKt$zip$22);
                 if (obj5 == coroutine_suspended) {
                     return coroutine_suspended;
@@ -200,7 +200,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                     channelsKt__Channels_commonKt$zip$2.L$7 = it;
                     channelsKt__Channels_commonKt$zip$2.L$8 = obj3;
                     channelsKt__Channels_commonKt$zip$2.L$9 = obj3;
-                    channelsKt__Channels_commonKt$zip$2.label = i3;
+                    channelsKt__Channels_commonKt$zip$2.label = i2;
                     obj2 = channelIterator.hasNext(channelsKt__Channels_commonKt$zip$2);
                     if (obj2 == coroutine_suspended) {
                         return coroutine_suspended;
@@ -215,7 +215,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                         channelsKt__Channels_commonKt$zip$22 = channelsKt__Channels_commonKt$zip$23;
                         channelIterator = channelIterator2;
                         channelsKt__Channels_commonKt$zip$2 = channelsKt__Channels_commonKt$zip$24;
-                        i3 = 2;
+                        i2 = 2;
                         channelsKt__Channels_commonKt$zip$2.L$0 = producerScope;
                         channelsKt__Channels_commonKt$zip$2.L$1 = channelIterator;
                         channelsKt__Channels_commonKt$zip$2.L$2 = receiveChannel3;
@@ -224,7 +224,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                         channelsKt__Channels_commonKt$zip$2.L$5 = th2;
                         channelsKt__Channels_commonKt$zip$2.L$6 = receiveChannel2;
                         channelsKt__Channels_commonKt$zip$2.L$7 = it;
-                        channelsKt__Channels_commonKt$zip$2.label = i4;
+                        channelsKt__Channels_commonKt$zip$2.label = i3;
                         obj5 = it.hasNext(channelsKt__Channels_commonKt$zip$22);
                         if (obj5 == coroutine_suspended) {
                         }
@@ -255,8 +255,8 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                         channelsKt__Channels_commonKt$zip$22 = channelsKt__Channels_commonKt$zip$23;
                         channelIterator = channelIterator2;
                         channelsKt__Channels_commonKt$zip$2 = channelsKt__Channels_commonKt$zip$24;
-                        i3 = 2;
-                        i4 = 1;
+                        i2 = 2;
+                        i3 = 1;
                         channelsKt__Channels_commonKt$zip$2.L$0 = producerScope;
                         channelsKt__Channels_commonKt$zip$2.L$1 = channelIterator;
                         channelsKt__Channels_commonKt$zip$2.L$2 = receiveChannel3;
@@ -265,7 +265,7 @@ public final class ChannelsKt__Channels_commonKt$zip$2 extends SuspendLambda imp
                         channelsKt__Channels_commonKt$zip$2.L$5 = th2;
                         channelsKt__Channels_commonKt$zip$2.L$6 = receiveChannel2;
                         channelsKt__Channels_commonKt$zip$2.L$7 = it;
-                        channelsKt__Channels_commonKt$zip$2.label = i4;
+                        channelsKt__Channels_commonKt$zip$2.label = i3;
                         obj5 = it.hasNext(channelsKt__Channels_commonKt$zip$22);
                         if (obj5 == coroutine_suspended) {
                         }

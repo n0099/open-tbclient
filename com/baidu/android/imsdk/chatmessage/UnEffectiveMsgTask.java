@@ -29,9 +29,9 @@ public class UnEffectiveMsgTask implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,20 +40,20 @@ public class UnEffectiveMsgTask implements Runnable {
         this.mContext = context;
     }
 
-    private void sendStatusChangeBroadcast(long j2, int i2) {
+    private void sendStatusChangeBroadcast(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
             Intent intent = new Intent(IMConstants.MESSAGE_STATUS_CHANGE);
             intent.setPackage(this.mContext.getApplicationContext().getPackageName());
-            intent.putExtra("_id", j2);
-            intent.putExtra(IMConstants.MSG_STATUS, i2);
+            intent.putExtra("_id", j);
+            intent.putExtra(IMConstants.MSG_STATUS, i);
             this.mContext.sendBroadcast(intent);
         }
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || DBManager.getInstance(this.mContext).setCentainTypeIDel(new int[]{2}) < 0) {
             return;
@@ -67,14 +67,14 @@ public class UnEffectiveMsgTask implements Runnable {
                 String body = cmdQueueMsg.getBody();
                 String extra = cmdQueueMsg.getExtra();
                 try {
-                    j2 = Long.parseLong(body);
+                    j = Long.parseLong(body);
                 } catch (Exception unused) {
-                    j2 = -1;
+                    j = -1;
                 }
-                if (j2 != -1 && !TextUtils.isEmpty(extra)) {
+                if (j != -1 && !TextUtils.isEmpty(extra)) {
                     ChatObject parseTokenToChatObject = IMConfigInternal.getInstance().getIMConfig(this.mContext).parseTokenToChatObject(this.mContext, extra);
-                    ChatMessageDBManager.getInstance(this.mContext).updateMsgStatus(j2, 2);
-                    sendStatusChangeBroadcast(j2, 2);
+                    ChatMessageDBManager.getInstance(this.mContext).updateMsgStatus(j, 2);
+                    sendStatusChangeBroadcast(j, 2);
                     ChatMessageDBManager.getInstance(this.mContext).updateSession(1, parseTokenToChatObject);
                     DBManager.getInstance(this.mContext).deleteCmdMsg(cmdQueueMsg.getUuid());
                 } else {

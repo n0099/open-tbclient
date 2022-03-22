@@ -24,21 +24,19 @@ import java.util.List;
 public class FunAdNativePicView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TbImageView f33093b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TbImageView f33094c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbImageView f33095d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f42639e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbImageView f42640f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TbImageView f42641g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TbImageView f42642h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TbImageView f42643i;
+    public TbImageView f33096e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FunAdNativePicView(Context context) {
@@ -49,9 +47,9 @@ public class FunAdNativePicView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -66,31 +64,31 @@ public class FunAdNativePicView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(65538, this, list) == null) {
             if (ListUtils.getCount(list) != 0) {
                 if (list.size() == 1) {
-                    this.f42639e.setVisibility(8);
-                    this.f42643i.setVisibility(0);
+                    this.a.setVisibility(8);
+                    this.f33096e.setVisibility(0);
                     c((String) ListUtils.getItem(list, 0));
                     return;
                 }
-                this.f42643i.setVisibility(8);
-                this.f42639e.setVisibility(0);
+                this.f33096e.setVisibility(8);
+                this.a.setVisibility(0);
                 if (ListUtils.getCount(list) == 2) {
-                    d((String) ListUtils.getItem(list, 0), this.f42640f);
-                    d((String) ListUtils.getItem(list, 1), this.f42641g);
-                    this.f42642h.reset();
+                    e((String) ListUtils.getItem(list, 0), this.f33093b);
+                    e((String) ListUtils.getItem(list, 1), this.f33094c);
+                    this.f33095d.F();
                     return;
                 } else if (ListUtils.getCount(list) >= 3) {
-                    this.f42641g.setVisibility(0);
-                    d((String) ListUtils.getItem(list, 0), this.f42640f);
-                    d((String) ListUtils.getItem(list, 1), this.f42641g);
-                    d((String) ListUtils.getItem(list, 2), this.f42642h);
+                    this.f33094c.setVisibility(0);
+                    e((String) ListUtils.getItem(list, 0), this.f33093b);
+                    e((String) ListUtils.getItem(list, 1), this.f33094c);
+                    e((String) ListUtils.getItem(list, 2), this.f33095d);
                     return;
                 } else {
-                    this.f42639e.setVisibility(8);
+                    this.a.setVisibility(8);
                     return;
                 }
             }
-            this.f42643i.setVisibility(8);
-            this.f42639e.setVisibility(8);
+            this.f33096e.setVisibility(8);
+            this.a.setVisibility(8);
         }
     }
 
@@ -111,92 +109,82 @@ public class FunAdNativePicView extends FrameLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.fun_ad_native_pic, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0363, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            this.f42639e = findViewById(R.id.fun_ad_img_more_container);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.fun_ad_img_more_one);
-            this.f42640f = tbImageView;
+            this.a = findViewById(R.id.obfuscated_res_0x7f090c13);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c14);
+            this.f33093b = tbImageView;
             tbImageView.setDrawCorner(true);
-            this.f42640f.setPlaceHolder(2);
-            this.f42640f.setRadiusById(R.string.J_X12);
-            this.f42640f.setConrers(15);
-            a(this.f42640f);
-            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.fun_ad_img_more_two);
-            this.f42641g = tbImageView2;
+            this.f33093b.setPlaceHolder(2);
+            this.f33093b.setRadiusById(R.string.J_X12);
+            this.f33093b.setConrers(15);
+            a(this.f33093b);
+            TbImageView tbImageView2 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c16);
+            this.f33094c = tbImageView2;
             tbImageView2.setDrawCorner(false);
-            this.f42641g.setPlaceHolder(2);
-            this.f42641g.setRadiusById(R.string.J_X02);
-            this.f42641g.setConrers(15);
-            a(this.f42641g);
-            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.fun_ad_img_more_three);
-            this.f42642h = tbImageView3;
+            this.f33094c.setPlaceHolder(2);
+            this.f33094c.setRadiusById(R.string.J_X02);
+            this.f33094c.setConrers(15);
+            a(this.f33094c);
+            TbImageView tbImageView3 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c15);
+            this.f33095d = tbImageView3;
             tbImageView3.setDrawCorner(true);
-            this.f42642h.setPlaceHolder(2);
-            this.f42642h.setRadiusById(R.string.J_X11);
-            this.f42642h.setConrers(15);
-            a(this.f42642h);
-            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.fun_ad_img_big_one);
-            this.f42643i = tbImageView4;
+            this.f33095d.setPlaceHolder(2);
+            this.f33095d.setRadiusById(R.string.J_X11);
+            this.f33095d.setConrers(15);
+            a(this.f33095d);
+            TbImageView tbImageView4 = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c12);
+            this.f33096e = tbImageView4;
             tbImageView4.setDrawCorner(true);
-            this.f42643i.setPlaceHolder(3);
-            this.f42643i.setRadiusById(R.string.J_X05);
-            this.f42643i.setConrers(15);
-            a(this.f42643i);
+            this.f33096e.setPlaceHolder(3);
+            this.f33096e.setRadiusById(R.string.J_X05);
+            this.f33096e.setConrers(15);
+            a(this.f33096e);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (!StringHelper.equals(str, this.f42643i.getUrl())) {
-                this.f42643i.reset();
+            if (!StringHelper.equals(str, this.f33096e.getUrl())) {
+                this.f33096e.F();
             }
-            this.f42643i.startLoad(str, 10, false);
+            this.f33096e.J(str, 10, false);
         }
     }
 
-    public final void d(String str, TbImageView tbImageView) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, tbImageView) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
+            this.f33096e.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f33093b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f33093b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            this.f33093b.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+        }
+    }
+
+    public final void e(String str, TbImageView tbImageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, tbImageView) == null) {
             if (!StringHelper.equals(str, tbImageView.getUrl())) {
-                tbImageView.reset();
+                tbImageView.F();
             }
-            tbImageView.startLoad(str, 10, false);
-        }
-    }
-
-    public void onChangedSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            SkinManager.setBackgroundColor(this.f42639e, R.color.CAM_X0205);
-            this.f42643i.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f42640f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f42640f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            this.f42640f.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
+            tbImageView.J(str, 10, false);
         }
     }
 
     @Override // android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-        }
-    }
-
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f42640f.reset();
-            this.f42641g.reset();
-            this.f42642h.reset();
-            this.f42643i.reset();
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            super.onMeasure(i, i2);
         }
     }
 
     public void setFunNativeAd(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
             if (ListUtils.isEmpty(list)) {
                 setVisibility(8);
                 return;
@@ -215,9 +203,9 @@ public class FunAdNativePicView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

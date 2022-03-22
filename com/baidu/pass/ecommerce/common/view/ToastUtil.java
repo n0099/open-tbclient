@@ -28,9 +28,9 @@ public class ToastUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,25 +47,25 @@ public class ToastUtil {
         }
     }
 
-    public static View createView(Context context, int i2, String str) {
+    public static View createView(Context context, int i, String str) {
         InterceptResult invokeLIL;
         View inflate;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, context, i, str)) == null) {
             LayoutInflater from = LayoutInflater.from(context);
             SapiConfiguration confignation = SapiAccountManager.getInstance().getConfignation();
             if (confignation != null && (confignation.isDarkMode || confignation.isNightMode)) {
-                inflate = from.inflate(R.layout.layout_sapi_sdk_common_night_toast, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04ca, (ViewGroup) null);
             } else {
-                inflate = from.inflate(R.layout.layout_sapi_sdk_common_toast, (ViewGroup) null);
+                inflate = from.inflate(R.layout.obfuscated_res_0x7f0d04cc, (ViewGroup) null);
             }
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.sapi_sdk_toast_msg_icon);
-            TextView textView = (TextView) inflate.findViewById(R.id.sapi_sdk_toast_msg_tv);
-            if (-1 == i2) {
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd7);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091bd8);
+            if (-1 == i) {
                 imageView.setVisibility(8);
             } else {
                 imageView.setVisibility(0);
-                imageView.setImageResource(i2);
+                imageView.setImageResource(i);
             }
             textView.setText(str);
             return inflate;
@@ -89,10 +89,10 @@ public class ToastUtil {
         mToast.show();
     }
 
-    public static void show(int i2, String str) {
+    public static void show(int i, String str) {
         SapiConfiguration confignation;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(65539, null, i2, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) || (confignation = SapiAccountManager.getInstance().getConfignation()) == null) {
             return;
         }
         Toast toast = mToast;
@@ -101,7 +101,7 @@ public class ToastUtil {
         }
         Context context = confignation.getContext();
         createToast(context);
-        mToast.setView(createView(context, i2, str));
+        mToast.setView(createView(context, i, str));
         mToast.show();
     }
 }

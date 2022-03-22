@@ -43,13 +43,13 @@ public class n extends b<String> {
         a(optString);
     }
 
-    public boolean a(long j2) {
+    public boolean a(long j) {
         String[] strArr;
         if (a == null) {
             return false;
         }
         for (String str : a) {
-            if (str != null && String.valueOf(j2).equals(str.trim())) {
+            if (str != null && String.valueOf(j).equals(str.trim())) {
                 return true;
             }
         }

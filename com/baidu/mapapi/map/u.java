@@ -20,9 +20,9 @@ public class u implements View.OnClickListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {textureMapView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,9 +38,9 @@ public class u implements View.OnClickListener {
         ac acVar3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-            acVar = this.a.f34059b;
-            float f2 = acVar.b().f34496b;
-            acVar2 = this.a.f34059b;
+            acVar = this.a.f26299b;
+            float f2 = acVar.b().f26700b;
+            acVar2 = this.a.f26299b;
             ab E = acVar2.b().E();
             float f3 = E.a - 1.0f;
             E.a = f3;
@@ -49,7 +49,7 @@ public class u implements View.OnClickListener {
             }
             E.a = f2;
             BaiduMap.mapStatusReason |= 16;
-            acVar3 = this.a.f34059b;
+            acVar3 = this.a.f26299b;
             acVar3.b().a(E, 300);
         }
     }

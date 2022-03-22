@@ -21,9 +21,9 @@ public class MessageUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,39 +37,39 @@ public class MessageUtils {
             if (liveMessageBean == null) {
                 return false;
             }
-            int i2 = -1;
+            int i = -1;
             try {
-                i2 = Integer.parseInt(liveMessageBean.message_type);
+                i = Integer.parseInt(liveMessageBean.message_type);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return i2 == 0 || i2 == 2 || i2 == 3;
+            return i == 0 || i == 2 || i == 3;
         }
         return invokeL.booleanValue;
     }
 
     public static String convertToText(Context context, LiveMessageBean liveMessageBean) {
-        int i2;
+        int i;
         LiveMessageBean.Txt txt;
         LiveMessageBean.Txt txt2;
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, liveMessageBean)) == null) {
             try {
-                i2 = Integer.parseInt(liveMessageBean.message_type);
+                i = Integer.parseInt(liveMessageBean.message_type);
             } catch (NumberFormatException e2) {
                 e2.printStackTrace();
-                i2 = -1;
+                i = -1;
             }
             String str = "";
-            if (i2 != 0) {
-                if (i2 != 1 && i2 != 2) {
-                    if (i2 != 3) {
-                        if (i2 != 4) {
-                            if (i2 != 5) {
-                                return "" + context.getString(R.string.livesdk_not_support_msg_type);
+            if (i != 0) {
+                if (i != 1 && i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return "" + context.getString(R.string.obfuscated_res_0x7f0f0a1e);
                             }
-                            return "" + context.getString(R.string.livesdk_voice);
+                            return "" + context.getString(R.string.obfuscated_res_0x7f0f0a21);
                         }
                     }
                 }
@@ -77,7 +77,7 @@ public class MessageUtils {
                 if (messageBody != null && (txt2 = messageBody.txt) != null && !TextUtils.isEmpty(txt2.word)) {
                     str = liveMessageBean.message_body.txt.word;
                 }
-                return str + context.getString(R.string.livesdk_pic);
+                return str + context.getString(R.string.obfuscated_res_0x7f0f0a1f);
             }
             LiveMessageBean.MessageBody messageBody2 = liveMessageBean.message_body;
             if (messageBody2 == null || (txt = messageBody2.txt) == null || TextUtils.isEmpty(txt.word)) {
@@ -112,32 +112,32 @@ public class MessageUtils {
             if (liveMessageBean == null || TextUtils.isEmpty(liveMessageBean.at_uid)) {
                 return "";
             }
-            return context.getString(R.string.livesdk_reply) + liveMessageBean.at_name + " ";
+            return context.getString(R.string.obfuscated_res_0x7f0f0a20) + liveMessageBean.at_name + " ";
         }
         return (String) invokeLL.objValue;
     }
 
-    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j2) {
+    public static int halfSearch(List<LiveMessageBean> list, boolean z, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{list, Boolean.valueOf(z), Long.valueOf(j)})) == null) {
             int size = list.size() - 1;
-            int i2 = 0;
-            while (i2 <= size) {
-                int i3 = (i2 + size) / 2;
-                if (j2 < list.get(i3).msgId) {
+            int i = 0;
+            while (i <= size) {
+                int i2 = (i + size) / 2;
+                if (j < list.get(i2).msgId) {
                     if (z) {
-                        size = i3 - 1;
+                        size = i2 - 1;
                     } else {
-                        i2 = i3 + 1;
+                        i = i2 + 1;
                     }
-                } else if (j2 <= list.get(i3).msgId) {
-                    return i3;
+                } else if (j <= list.get(i2).msgId) {
+                    return i2;
                 } else {
                     if (z) {
-                        i2 = i3 + 1;
+                        i = i2 + 1;
                     } else {
-                        size = i3 - 1;
+                        size = i2 - 1;
                     }
                 }
             }

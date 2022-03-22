@@ -20,7 +20,7 @@ import com.xiaomi.push.ge;
 import com.xiaomi.push.service.av;
 import java.util.Collection;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -48,13 +48,13 @@ public class e {
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bVar)) == null) {
-            if ("9".equals(bVar.f59985g)) {
+            if ("9".equals(bVar.f44551g)) {
                 sb = new StringBuilder();
-                sb.append(bVar.f916a);
+                sb.append(bVar.f892a);
                 str = ".permission.MIMC_RECEIVE";
             } else {
                 sb = new StringBuilder();
-                sb.append(bVar.f916a);
+                sb.append(bVar.f892a);
                 str = ".permission.MIPUSH_RECEIVE";
             }
             sb.append(str);
@@ -78,18 +78,18 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, faVar)) == null) {
-            Collection<av.b> m664a = av.a().m664a(Integer.toString(faVar.a()));
-            if (m664a.isEmpty()) {
+            Collection<av.b> m643a = av.a().m643a(Integer.toString(faVar.a()));
+            if (m643a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m664a.iterator();
-            if (m664a.size() == 1) {
+            Iterator<av.b> it = m643a.iterator();
+            if (m643a.size() == 1) {
                 return it.next();
             }
             String g2 = faVar.g();
             while (it.hasNext()) {
                 av.b next = it.next();
-                if (TextUtils.equals(g2, next.f919b)) {
+                if (TextUtils.equals(g2, next.f895b)) {
                     return next;
                 }
             }
@@ -106,19 +106,19 @@ public class e {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gcVar)) == null) {
-            Collection<av.b> m664a = av.a().m664a(gcVar.k());
-            if (m664a.isEmpty()) {
+            Collection<av.b> m643a = av.a().m643a(gcVar.k());
+            if (m643a.isEmpty()) {
                 return null;
             }
-            Iterator<av.b> it = m664a.iterator();
-            if (m664a.size() == 1) {
+            Iterator<av.b> it = m643a.iterator();
+            if (m643a.size() == 1) {
                 return it.next();
             }
             String m = gcVar.m();
             String l = gcVar.l();
             while (it.hasNext()) {
                 av.b next = it.next();
-                if (TextUtils.equals(m, next.f919b) || TextUtils.equals(l, next.f919b)) {
+                if (TextUtils.equals(m, next.f895b) || TextUtils.equals(l, next.f895b)) {
                     return next;
                 }
                 while (it.hasNext()) {
@@ -142,73 +142,73 @@ public class e {
         }
     }
 
-    public void a(Context context, av.b bVar, int i2) {
+    public void a(Context context, av.b bVar, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i2) == null) || "5".equalsIgnoreCase(bVar.f59985g)) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048579, this, context, bVar, i) == null) || "5".equalsIgnoreCase(bVar.f44551g)) {
             return;
         }
         Intent intent = new Intent();
         intent.setAction("com.xiaomi.push.channel_closed");
-        intent.setPackage(bVar.f916a);
-        intent.putExtra(az.s, bVar.f59985g);
-        intent.putExtra("ext_reason", i2);
-        intent.putExtra(az.p, bVar.f919b);
-        intent.putExtra(az.D, bVar.f59987i);
-        if (bVar.f910a == null || !"9".equals(bVar.f59985g)) {
+        intent.setPackage(bVar.f892a);
+        intent.putExtra(az.s, bVar.f44551g);
+        intent.putExtra("ext_reason", i);
+        intent.putExtra(az.p, bVar.f895b);
+        intent.putExtra(az.D, bVar.i);
+        if (bVar.f886a == null || !"9".equals(bVar.f44551g)) {
             a(context, intent, bVar);
             return;
         }
         try {
-            bVar.f910a.send(Message.obtain(null, 17, intent));
+            bVar.f886a.send(Message.obtain(null, 17, intent));
         } catch (RemoteException unused) {
-            bVar.f910a = null;
+            bVar.f886a = null;
             StringBuilder sb = new StringBuilder();
             sb.append("peer may died: ");
-            String str = bVar.f919b;
+            String str = bVar.f895b;
             sb.append(str.substring(str.lastIndexOf(64)));
-            com.xiaomi.channel.commonutils.logger.b.m133a(sb.toString());
+            com.xiaomi.channel.commonutils.logger.b.m112a(sb.toString());
         }
     }
 
     public void a(Context context, av.b bVar, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, bVar, str, str2) == null) {
-            if ("5".equalsIgnoreCase(bVar.f59985g)) {
+            if ("5".equalsIgnoreCase(bVar.f44551g)) {
                 com.xiaomi.channel.commonutils.logger.b.d("mipush kicked by server");
                 return;
             }
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.kicked");
-            intent.setPackage(bVar.f916a);
+            intent.setPackage(bVar.f892a);
             intent.putExtra("ext_kick_type", str);
             intent.putExtra("ext_kick_reason", str2);
-            intent.putExtra("ext_chid", bVar.f59985g);
-            intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f59987i);
+            intent.putExtra("ext_chid", bVar.f44551g);
+            intent.putExtra(az.p, bVar.f895b);
+            intent.putExtra(az.D, bVar.i);
             a(context, intent, bVar);
         }
     }
 
-    public void a(Context context, av.b bVar, boolean z, int i2, String str) {
+    public void a(Context context, av.b bVar, boolean z, int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i2), str}) == null) {
-            if ("5".equalsIgnoreCase(bVar.f59985g)) {
-                this.a.a(context, bVar, z, i2, str);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, bVar, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if ("5".equalsIgnoreCase(bVar.f44551g)) {
+                this.a.a(context, bVar, z, i, str);
                 return;
             }
             Intent intent = new Intent();
             intent.setAction("com.xiaomi.push.channel_opened");
-            intent.setPackage(bVar.f916a);
+            intent.setPackage(bVar.f892a);
             intent.putExtra("ext_succeeded", z);
             if (!z) {
-                intent.putExtra("ext_reason", i2);
+                intent.putExtra("ext_reason", i);
             }
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra("ext_reason_msg", str);
             }
-            intent.putExtra("ext_chid", bVar.f59985g);
-            intent.putExtra(az.p, bVar.f919b);
-            intent.putExtra(az.D, bVar.f59987i);
+            intent.putExtra("ext_chid", bVar.f44551g);
+            intent.putExtra(az.p, bVar.f895b);
+            intent.putExtra(az.D, bVar.i);
             a(context, intent, bVar);
         }
     }
@@ -222,32 +222,32 @@ public class e {
             } else if ("5".equalsIgnoreCase(str)) {
                 this.a.a(xMPushService, faVar, a);
             } else {
-                String str2 = a.f916a;
+                String str2 = a.f892a;
                 Intent intent = new Intent();
                 intent.setAction("com.xiaomi.push.new_msg");
                 intent.setPackage(str2);
                 intent.putExtra("ext_chid", str);
-                intent.putExtra("ext_raw_packet", faVar.m370a(a.f59986h));
-                intent.putExtra(az.D, a.f59987i);
-                intent.putExtra(az.w, a.f59986h);
-                if (a.f910a != null) {
+                intent.putExtra("ext_raw_packet", faVar.m349a(a.f44552h));
+                intent.putExtra(az.D, a.i);
+                intent.putExtra(az.w, a.f44552h);
+                if (a.f886a != null) {
                     try {
-                        a.f910a.send(Message.obtain(null, 17, intent));
-                        com.xiaomi.channel.commonutils.logger.b.m133a("message was sent by messenger for chid=" + str);
+                        a.f886a.send(Message.obtain(null, 17, intent));
+                        com.xiaomi.channel.commonutils.logger.b.m112a("message was sent by messenger for chid=" + str);
                         return;
                     } catch (RemoteException unused) {
-                        a.f910a = null;
+                        a.f886a = null;
                         StringBuilder sb = new StringBuilder();
                         sb.append("peer may died: ");
-                        String str3 = a.f919b;
+                        String str3 = a.f895b;
                         sb.append(str3.substring(str3.lastIndexOf(64)));
-                        com.xiaomi.channel.commonutils.logger.b.m133a(sb.toString());
+                        com.xiaomi.channel.commonutils.logger.b.m112a(sb.toString());
                     }
                 }
                 if ("com.xiaomi.xmsf".equals(str2)) {
                     return;
                 }
-                com.xiaomi.channel.commonutils.logger.b.m133a("broadcast message to " + str2 + ", chid=" + str);
+                com.xiaomi.channel.commonutils.logger.b.m112a("broadcast message to " + str2 + ", chid=" + str);
                 a(xMPushService, intent, a);
             }
         }
@@ -264,7 +264,7 @@ public class e {
                     this.a.a(xMPushService, gcVar, a);
                     return;
                 }
-                String str4 = a.f916a;
+                String str4 = a.f892a;
                 if (gcVar instanceof gb) {
                     str3 = "com.xiaomi.push.new_msg";
                 } else if (gcVar instanceof ga) {
@@ -279,8 +279,8 @@ public class e {
                 intent.setPackage(str4);
                 intent.putExtra("ext_chid", str);
                 intent.putExtra("ext_packet", gcVar.a());
-                intent.putExtra(az.D, a.f59987i);
-                intent.putExtra(az.w, a.f59986h);
+                intent.putExtra(az.D, a.i);
+                intent.putExtra(az.w, a.f44552h);
                 a(xMPushService, intent, a);
                 return;
             }

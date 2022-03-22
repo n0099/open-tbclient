@@ -4,7 +4,7 @@ import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface IUpdateContext {
-    void doStatistics(int i2, JSONObject jSONObject);
+    void doStatistics(int i, JSONObject jSONObject);
 
     List<String> getCustomUpdateBlackList();
 }

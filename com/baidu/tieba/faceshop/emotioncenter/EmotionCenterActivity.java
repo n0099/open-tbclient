@@ -57,17 +57,17 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         public final /* synthetic */ EmotionCenterActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(EmotionCenterActivity emotionCenterActivity, int i2) {
-            super(i2);
+        public a(EmotionCenterActivity emotionCenterActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {emotionCenterActivity, Integer.valueOf(i2)};
+                Object[] objArr = {emotionCenterActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -107,9 +107,9 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {emotionCenterActivity, fragmentManager};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((FragmentManager) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -133,23 +133,23 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         }
 
         @Override // androidx.fragment.app.FragmentPagerAdapter
-        public Fragment getItem(int i2) {
+        public Fragment getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (ListUtils.isEmpty(this.a.fragments) || this.a.fragments.size() <= i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (ListUtils.isEmpty(this.a.fragments) || this.a.fragments.size() <= i) {
                     return null;
                 }
-                return (Fragment) this.a.fragments.get(i2);
+                return (Fragment) this.a.fragments.get(i);
             }
             return (Fragment) invokeI.objValue;
         }
 
         @Override // androidx.viewpager.widget.PagerAdapter
-        public CharSequence getPageTitle(int i2) {
+        public CharSequence getPageTitle(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i2) : (CharSequence) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? ListUtils.isEmpty(this.a.mTitles) ? "" : (CharSequence) this.a.mTitles.get(i) : (CharSequence) invokeI.objValue;
         }
     }
 
@@ -158,9 +158,9 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -182,37 +182,37 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     private void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            this.mTitles.add(getPageContext().getResources().getString(R.string.emotion_center_quality_recommend));
+            this.mTitles.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0528));
             EmotionRecommendFragment emotionRecommendFragment = new EmotionRecommendFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean("need_check_login", true);
             emotionRecommendFragment.setArguments(bundle);
             this.fragments.add(emotionRecommendFragment);
-            this.mTitles.add(getPageContext().getResources().getString(R.string.emotion_center_single_bar));
+            this.mTitles.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0529));
             ForumEmotionFragment forumEmotionFragment = new ForumEmotionFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.mSingleForumTabUrl);
             forumEmotionFragment.setArguments(bundle2);
             this.fragments.add(forumEmotionFragment);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091519);
             this.mNavigationBar = navigationBar;
-            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.cancel));
+            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f036c));
             this.mBackBtn = addTextButtonByDefTextColor;
-            addTextButtonByDefTextColor.setTextSize(0, n.f(this, R.dimen.ds34));
+            addTextButtonByDefTextColor.setTextSize(0, n.f(this, R.dimen.obfuscated_res_0x7f07020f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             ImageView imageView = new ImageView(getPageContext().getPageActivity());
             this.mSettingImg = imageView;
             this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
-            this.mSettingImg.setPadding(0, n.f(this, R.dimen.ds20), n.f(this, R.dimen.ds31), n.f(this, R.dimen.ds20));
+            this.mSettingImg.setPadding(0, n.f(this, R.dimen.obfuscated_res_0x7f0701d5), n.f(this, R.dimen.obfuscated_res_0x7f070294), n.f(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.mSettingImg.setLayoutParams(layoutParams);
-            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.emotion_navigation_bar, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.emotion_center_nav);
+            this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0265, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f09086f);
             this.mTabStrip = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.build(n.f(this, R.dimen.ds32), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds24), n.f(this, R.dimen.ds4), n.f(this, R.dimen.ds64), R.color.CAM_X0107, R.color.CAM_X0105);
+            commonPagerSlidingTabStrip.k(n.f(this, R.dimen.obfuscated_res_0x7f070207), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f0701e8), n.f(this, R.dimen.obfuscated_res_0x7f070224), n.f(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
             this.mBackBtn.setOnClickListener(this);
             this.mSettingImg.setOnClickListener(this);
-            this.mEmotionRootView = (LinearLayout) findViewById(R.id.emotion_root_view);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.emotion_center_viewpager);
+            this.mEmotionRootView = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908a9);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090870);
             this.mViewPager = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.mAdapter = new b(this, getSupportFragmentManager());
@@ -227,14 +227,14 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mSkinType = i2;
-            getLayoutMode().k(i2 == 1);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mSkinType = i;
+            getLayoutMode().k(i == 1);
             CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = this.mTabStrip;
             if (commonPagerSlidingTabStrip != null) {
-                commonPagerSlidingTabStrip.onChangeSkinType(i2);
+                commonPagerSlidingTabStrip.n(i);
             }
             if (this.mSettingImg != null) {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mSettingImg, R.drawable.icon_pure_topbar_set44_svg, R.color.CAM_X0105, null);
@@ -258,11 +258,11 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             if (view == this.mBackBtn) {
                 finish();
             } else if (view == this.mSettingImg) {
-                int i2 = 0;
+                int i = 0;
                 if (!ListUtils.isEmpty(this.fragments) && (this.fragments.get(0) instanceof EmotionRecommendFragment)) {
-                    i2 = ((EmotionRecommendFragment) this.fragments.get(0)).getIsBazhu();
+                    i = ((EmotionRecommendFragment) this.fragments.get(0)).H0();
                 }
-                sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i2)));
+                sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i)));
             }
         }
     }
@@ -273,7 +273,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.emotion_center_layout);
+            setContentView(R.layout.obfuscated_res_0x7f0d0257);
             initView();
             initData();
             registerListener(this.mShowSingleBarFragment);

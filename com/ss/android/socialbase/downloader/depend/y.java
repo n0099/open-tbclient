@@ -6,15 +6,15 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface y extends IInterface {
     String a() throws RemoteException;
 
-    void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException;
+    void a(int i, DownloadInfo downloadInfo, String str, String str2) throws RemoteException;
 
     boolean a(boolean z) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements y {
         public a() {
             attachInterface(this, "com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
@@ -28,11 +28,11 @@ public interface y extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof y)) {
                 return (y) queryLocalInterface;
             }
-            return new C2210a(iBinder);
+            return new C2071a(iBinder);
         }
 
         public static y b() {
-            return C2210a.a;
+            return C2071a.a;
         }
 
         @Override // android.os.IInterface
@@ -41,21 +41,21 @@ public interface y extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 == 1) {
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i == 1) {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                 a(parcel.readInt(), parcel.readInt() != 0 ? DownloadInfo.CREATOR.createFromParcel(parcel) : null, parcel.readString(), parcel.readString());
                 parcel2.writeNoException();
                 return true;
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 parcel.enforceInterface("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                 boolean a = a(parcel.readInt() != 0);
                 parcel2.writeNoException();
                 parcel2.writeInt(a ? 1 : 0);
                 return true;
-            } else if (i2 != 3) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+            } else if (i != 3) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                 return true;
@@ -69,24 +69,24 @@ public interface y extends IInterface {
         }
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.y$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2210a implements y {
+        /* loaded from: classes7.dex */
+        public static class C2071a implements y {
             public static y a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58503b;
+            public IBinder f43231b;
 
-            public C2210a(IBinder iBinder) {
-                this.f58503b = iBinder;
+            public C2071a(IBinder iBinder) {
+                this.f43231b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
-            public void a(int i2, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
+            public void a(int i, DownloadInfo downloadInfo, String str, String str2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    obtain.writeInt(i2);
+                    obtain.writeInt(i);
                     if (downloadInfo != null) {
                         obtain.writeInt(1);
                         downloadInfo.writeToParcel(obtain, 0);
@@ -95,8 +95,8 @@ public interface y extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    if (!this.f58503b.transact(1, obtain, obtain2, 0) && a.b() != null) {
-                        a.b().a(i2, downloadInfo, str, str2);
+                    if (!this.f43231b.transact(1, obtain, obtain2, 0) && a.b() != null) {
+                        a.b().a(i, downloadInfo, str, str2);
                     } else {
                         obtain2.readException();
                     }
@@ -108,7 +108,7 @@ public interface y extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58503b;
+                return this.f43231b;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.y
@@ -118,7 +118,7 @@ public interface y extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                     obtain.writeInt(z ? 1 : 0);
-                    if (!this.f58503b.transact(2, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43231b.transact(2, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a(z);
                     }
                     obtain2.readException();
@@ -135,7 +135,7 @@ public interface y extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    if (!this.f58503b.transact(3, obtain, obtain2, 0) && a.b() != null) {
+                    if (!this.f43231b.transact(3, obtain, obtain2, 0) && a.b() != null) {
                         return a.b().a();
                     }
                     obtain2.readException();

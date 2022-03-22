@@ -12,9 +12,9 @@ public class LimitedAgeMemoryCache implements MemoryCache {
     public final Map<String, Long> loadingDates = Collections.synchronizedMap(new HashMap());
     public final long maxAge;
 
-    public LimitedAgeMemoryCache(MemoryCache memoryCache, long j2) {
+    public LimitedAgeMemoryCache(MemoryCache memoryCache, long j) {
         this.cache = memoryCache;
-        this.maxAge = j2 * 1000;
+        this.maxAge = j * 1000;
     }
 
     @Override // com.kwad.sdk.core.imageloader.cache.memory.MemoryCache

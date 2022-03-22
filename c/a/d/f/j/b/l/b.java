@@ -1,6 +1,7 @@
 package c.a.d.f.j.b.l;
 
 import c.a.d.f.p.m;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -24,7 +25,7 @@ public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f2638b;
+    public static b f2177b;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, c.a.d.f.j.b.l.a> a;
 
@@ -41,9 +42,9 @@ public class b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bVar, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,9 +88,9 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -102,14 +103,14 @@ public class b {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2638b == null) {
+            if (f2177b == null) {
                 synchronized (b.class) {
-                    if (f2638b == null) {
-                        f2638b = new b();
+                    if (f2177b == null) {
+                        f2177b = new b();
                     }
                 }
             }
-            return f2638b;
+            return f2177b;
         }
         return (b) invokeV.objValue;
     }
@@ -248,7 +249,7 @@ public class b {
                 th = th2;
             }
             try {
-                inputStream2 = new InputStreamReader(inputStream3, "utf-8");
+                inputStream2 = new InputStreamReader(inputStream3, IMAudioTransRequest.CHARSET);
             } catch (Exception e3) {
                 e = e3;
                 inputStream2 = null;
@@ -382,33 +383,33 @@ public class b {
             }
             c.a.d.f.j.b.l.a aVar = this.a.get(str);
             if (aVar != null && !aVar.c(System.currentTimeMillis()) && aVar.a() != null && aVar.a().size() > 0) {
-                for (int i2 = 0; i2 < aVar.a().size(); i2++) {
-                    if (!m.isEquals(str2, aVar.a().get(i2))) {
-                        cVar.j(i2);
-                        cVar.g(aVar.a().get(i2));
+                for (int i = 0; i < aVar.a().size(); i++) {
+                    if (!m.isEquals(str2, aVar.a().get(i))) {
+                        cVar.j(i);
+                        cVar.g(aVar.a().get(i));
                         return cVar;
-                    } else if (i2 == aVar.a().size() - 1) {
+                    } else if (i == aVar.a().size() - 1) {
                         cVar.j(0);
                         cVar.g(aVar.a().get(0));
                         return cVar;
                     }
                 }
             }
-            for (int i3 = 0; i3 < 3; i3++) {
+            for (int i2 = 0; i2 < 3; i2++) {
                 cVar.d();
-                cVar.l(i3);
+                cVar.l(i2);
                 long currentTimeMillis = System.currentTimeMillis();
                 c.a.d.f.j.b.l.a c2 = c(str, cVar);
                 cVar.f(System.currentTimeMillis() - currentTimeMillis);
                 if (c2 != null && c2.a() != null && c2.a().size() > 0) {
                     c2.d(300L);
                     this.a.put(str, c2);
-                    for (int i4 = 0; i4 < c2.a().size(); i4++) {
-                        if (!m.isEquals(str2, c2.a().get(i3))) {
-                            cVar.j(i4);
-                            cVar.g(c2.a().get(i4));
+                    for (int i3 = 0; i3 < c2.a().size(); i3++) {
+                        if (!m.isEquals(str2, c2.a().get(i2))) {
+                            cVar.j(i3);
+                            cVar.g(c2.a().get(i3));
                             return cVar;
-                        } else if (i4 == c2.a().size() - 1) {
+                        } else if (i3 == c2.a().size() - 1) {
                             cVar.j(0);
                             cVar.g(c2.a().get(0));
                             return cVar;

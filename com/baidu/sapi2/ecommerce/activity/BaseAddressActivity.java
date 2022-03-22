@@ -11,6 +11,7 @@ import com.baidu.sapi2.ecommerce.EcommerceRouter;
 import com.baidu.sapi2.ecommerce.callback.AddressManageCallback;
 import com.baidu.sapi2.ecommerce.dto.AddressManageDTO;
 import com.baidu.sapi2.ecommerce.result.AddressManageResult;
+import com.baidu.sapi2.stat.AddressManagerStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,9 +32,9 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -60,6 +61,7 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
             AddressManageCallback addressManageCallback2 = this.addressManageCallback;
             if (addressManageCallback2 != null) {
                 addressManageCallback2.onFinish(addressManageResult);
+                AddressManagerStat.upload();
             }
             finish();
         }
@@ -73,12 +75,13 @@ public abstract class BaseAddressActivity<P extends IPresenter> extends BaseMvpA
             AddressManageCallback addressManageCallback = this.addressManageCallback;
             if (addressManageCallback != null) {
                 addressManageCallback.onFinish(addressManageResult);
+                AddressManagerStat.upload();
             }
             EcommerceRouter.getInstance().release();
         }
     }
 
-    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, com.baidu.sapi2.activity.NaSlideActiviy, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    @Override // com.baidu.pass.ecommerce.common.mvp.BaseMvpActivity, com.baidu.sapi2.activity.BaseOptionActivity, androidx.appcompat.app.AppCompatActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {

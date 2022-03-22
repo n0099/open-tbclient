@@ -18,9 +18,9 @@ public class UUIDConverter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,11 +34,11 @@ public class UUIDConverter {
             long mostSignificantBits = uuid.getMostSignificantBits();
             long leastSignificantBits = uuid.getLeastSignificantBits();
             byte[] bArr = new byte[16];
-            for (int i2 = 0; i2 < 8; i2++) {
-                bArr[i2] = (byte) (mostSignificantBits >>> ((7 - i2) * 8));
+            for (int i = 0; i < 8; i++) {
+                bArr[i] = (byte) (mostSignificantBits >>> ((7 - i) * 8));
             }
-            for (int i3 = 8; i3 < 16; i3++) {
-                bArr[i3] = (byte) (leastSignificantBits >>> ((7 - i3) * 8));
+            for (int i2 = 8; i2 < 16; i2++) {
+                bArr[i2] = (byte) (leastSignificantBits >>> ((7 - i2) * 8));
             }
             return bArr;
         }

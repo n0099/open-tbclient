@@ -15,43 +15,41 @@ import java.nio.FloatBuffer;
 public class j implements l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.b.b.n.j a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public FloatBuffer f22691b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ByteBuffer f22692c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f22693d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.b.b.n.j f27468e;
+    public int f22694e;
 
     /* renamed from: f  reason: collision with root package name */
-    public FloatBuffer f27469f;
+    public boolean f22695f;
 
-    /* renamed from: g  reason: collision with root package name */
-    public ByteBuffer f27470g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f27471h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f27472i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f27473j;
-
-    public j(boolean z, int i2, c.b.b.n.j jVar) {
+    public j(boolean z, int i, c.b.b.n.j jVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), jVar};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), jVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27473j = false;
-        this.f27472i = c.b.b.f.f27078f.n();
-        ByteBuffer e2 = BufferUtils.e(jVar.f27237f * i2);
+        this.f22695f = false;
+        this.f22694e = c.b.b.f.f22335f.n();
+        ByteBuffer e2 = BufferUtils.e(jVar.f22486b * i);
         e2.limit(0);
         a(e2, true, jVar);
         f(z ? 35044 : 35048);
@@ -61,21 +59,21 @@ public class j implements l {
         ByteBuffer byteBuffer;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{buffer, Boolean.valueOf(z), jVar}) == null) {
-            if (!this.f27473j) {
-                if (this.f27471h && (byteBuffer = this.f27470g) != null) {
+            if (!this.f22695f) {
+                if (this.f22693d && (byteBuffer = this.f22692c) != null) {
                     BufferUtils.b(byteBuffer);
                 }
-                this.f27468e = jVar;
+                this.a = jVar;
                 if (buffer instanceof ByteBuffer) {
                     ByteBuffer byteBuffer2 = (ByteBuffer) buffer;
-                    this.f27470g = byteBuffer2;
-                    this.f27471h = z;
+                    this.f22692c = byteBuffer2;
+                    this.f22693d = z;
                     int limit = byteBuffer2.limit();
-                    ByteBuffer byteBuffer3 = this.f27470g;
+                    ByteBuffer byteBuffer3 = this.f22692c;
                     byteBuffer3.limit(byteBuffer3.capacity());
-                    this.f27469f = this.f27470g.asFloatBuffer();
-                    this.f27470g.limit(limit);
-                    this.f27469f.limit(limit / 4);
+                    this.f22691b = this.f22692c.asFloatBuffer();
+                    this.f22692c.limit(limit);
+                    this.f22691b.limit(limit / 4);
                     return;
                 }
                 throw new GdxRuntimeException("Only ByteBuffer is currently supported");
@@ -88,33 +86,33 @@ public class j implements l {
     public c.b.b.n.j b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f27468e : (c.b.b.n.j) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (c.b.b.n.j) invokeV.objValue;
     }
 
     @Override // c.b.b.n.m.l
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f27469f.limit() * 4) / this.f27468e.f27237f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.f22691b.limit() * 4) / this.a.f22486b : invokeV.intValue;
     }
 
     @Override // c.b.b.n.m.l, c.b.b.q.h
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c.b.b.n.c cVar = c.b.b.f.f27078f;
+            c.b.b.n.c cVar = c.b.b.f.f22335f;
             cVar.E(34962, 0);
-            cVar.b(this.f27472i);
-            this.f27472i = 0;
-            if (this.f27471h) {
-                BufferUtils.b(this.f27470g);
+            cVar.b(this.f22694e);
+            this.f22694e = 0;
+            if (this.f22693d) {
+                BufferUtils.b(this.f22692c);
             }
         }
     }
 
-    public void f(int i2) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i2) == null) && this.f27473j) {
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && this.f22695f) {
             throw new GdxRuntimeException("Cannot change usage while VBO is bound");
         }
     }
@@ -123,14 +121,14 @@ public class j implements l {
     public FloatBuffer getBuffer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f27469f : (FloatBuffer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f22691b : (FloatBuffer) invokeV.objValue;
     }
 
     @Override // c.b.b.n.m.l
     public void invalidate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f27472i = c.b.b.f.f27078f.n();
+            this.f22694e = c.b.b.f.f22335f.n();
         }
     }
 }

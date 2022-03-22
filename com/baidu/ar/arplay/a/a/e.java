@@ -24,9 +24,9 @@ public class e {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -70,10 +70,10 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.eg : invokeV.intValue;
     }
 
-    public void d(long j2) {
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.dS = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.dS = j;
         }
     }
 
@@ -96,17 +96,17 @@ public class e {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
-    public void i(int i2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            this.dO = i2;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.dO = i;
         }
     }
 
-    public void k(int i2) {
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.eg = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.eg = i;
         }
     }
 

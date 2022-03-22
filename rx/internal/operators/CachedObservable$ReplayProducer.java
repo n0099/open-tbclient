@@ -6,14 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
-import i.j;
-import i.k;
-import i.m.a;
-import i.o.a.b;
+import g.f;
+import g.j;
+import g.k;
+import g.m.a;
+import g.o.a.b;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.exceptions.OnErrorThrowable;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class CachedObservable$ReplayProducer<T> extends AtomicLong implements f, k {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -2557562030197141021L;
@@ -33,9 +33,9 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
             newInitContext.initArgs = r2;
             Object[] objArr = {jVar, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -45,17 +45,17 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         this.state = bVar;
     }
 
-    @Override // i.k
+    @Override // g.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? get() < 0 : invokeV.booleanValue;
     }
 
-    public long produced(long j2) {
+    public long produced(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? addAndGet(-j2) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? addAndGet(-j) : invokeJ.longValue;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:89:0x00df  */
@@ -78,9 +78,9 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
             try {
                 j<? super T> jVar = this.child;
                 while (true) {
-                    long j2 = get();
-                    int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                    if (i2 < 0) {
+                    long j = get();
+                    int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                    if (i < 0) {
                         return;
                     }
                     int b2 = this.state.b();
@@ -91,11 +91,11 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                             this.currentBuffer = objArr;
                         }
                         int length = objArr.length - 1;
-                        int i3 = this.index;
-                        int i4 = this.currentIndexInBuffer;
+                        int i2 = this.index;
+                        int i3 = this.currentIndexInBuffer;
                         try {
-                            if (i2 == 0) {
-                                Object obj = objArr[i4];
+                            if (i == 0) {
+                                Object obj = objArr[i3];
                                 if (NotificationLite.f(obj)) {
                                     jVar.onCompleted();
                                     unsubscribe();
@@ -105,17 +105,17 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                     unsubscribe();
                                     return;
                                 }
-                            } else if (i2 > 0) {
-                                int i5 = 0;
-                                while (i3 < b2 && j2 > 0) {
+                            } else if (i > 0) {
+                                int i4 = 0;
+                                while (i2 < b2 && j > 0) {
                                     if (jVar.isUnsubscribed()) {
                                         return;
                                     }
-                                    if (i4 == length) {
+                                    if (i3 == length) {
                                         objArr = (Object[]) objArr[length];
-                                        i4 = 0;
+                                        i3 = 0;
                                     }
-                                    Object obj2 = objArr[i4];
+                                    Object obj2 = objArr[i3];
                                     try {
                                         if (NotificationLite.a(jVar, obj2)) {
                                             try {
@@ -143,10 +143,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                                 }
                                             }
                                         }
-                                        i4++;
                                         i3++;
-                                        j2--;
-                                        i5++;
+                                        i2++;
+                                        j--;
+                                        i4++;
                                     } catch (Throwable th3) {
                                         th = th3;
                                         z = false;
@@ -155,10 +155,10 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
                                 if (jVar.isUnsubscribed()) {
                                     return;
                                 }
-                                this.index = i3;
-                                this.currentIndexInBuffer = i4;
+                                this.index = i2;
+                                this.currentIndexInBuffer = i3;
                                 this.currentBuffer = objArr;
-                                produced(i5);
+                                produced(i4);
                             }
                         } catch (Throwable th4) {
                             th = th4;
@@ -198,27 +198,27 @@ public final class CachedObservable$ReplayProducer<T> extends AtomicLong impleme
         }
     }
 
-    @Override // i.f
-    public void request(long j2) {
+    @Override // g.f
+    public void request(long j) {
+        long j2;
         long j3;
-        long j4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             do {
-                j3 = get();
-                if (j3 < 0) {
+                j2 = get();
+                if (j2 < 0) {
                     return;
                 }
-                j4 = j3 + j2;
-                if (j4 < 0) {
-                    j4 = Long.MAX_VALUE;
+                j3 = j2 + j;
+                if (j3 < 0) {
+                    j3 = Long.MAX_VALUE;
                 }
-            } while (!compareAndSet(j3, j4));
+            } while (!compareAndSet(j2, j3));
             replay();
         }
     }
 
-    @Override // i.k
+    @Override // g.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || get() < 0 || getAndSet(-1L) < 0) {

@@ -1,6 +1,7 @@
 package com.google.android.exoplayer2.upstream.cache;
 
 import android.os.ConditionVariable;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.util.Iterator;
 import java.util.NavigableSet;
 import java.util.Set;
 import java.util.TreeSet;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SimpleCache implements Cache {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "SimpleCache";
@@ -40,9 +41,9 @@ public final class SimpleCache implements Cache {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, cacheEvictor};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], (CacheEvictor) objArr2[1], (byte[]) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -61,17 +62,17 @@ public final class SimpleCache implements Cache {
         }
     }
 
-    private SimpleCacheSpan getSpan(String str, long j2) throws Cache.CacheException {
+    private SimpleCacheSpan getSpan(String str, long j) throws Cache.CacheException {
         InterceptResult invokeLJ;
         SimpleCacheSpan span;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, this, str, j)) == null) {
             CachedContent cachedContent = this.index.get(str);
             if (cachedContent == null) {
-                return SimpleCacheSpan.createOpenHole(str, j2);
+                return SimpleCacheSpan.createOpenHole(str, j);
             }
             while (true) {
-                span = cachedContent.getSpan(j2);
+                span = cachedContent.getSpan(j);
                 if (!span.isCached || span.file.exists()) {
                     break;
                 }
@@ -108,7 +109,8 @@ public final class SimpleCache implements Cache {
             this.index.removeEmpty();
             try {
                 this.index.store();
-            } catch (Cache.CacheException unused) {
+            } catch (Cache.CacheException e2) {
+                Log.e(TAG, "Storing index file failed", e2);
             }
         }
     }
@@ -183,8 +185,8 @@ public final class SimpleCache implements Cache {
                     }
                 }
             }
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                removeSpan((CacheSpan) arrayList.get(i2), false);
+            for (int i = 0; i < arrayList.size(); i++) {
+                removeSpan((CacheSpan) arrayList.get(i), false);
             }
             this.index.removeEmpty();
             this.index.store();
@@ -243,26 +245,26 @@ public final class SimpleCache implements Cache {
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
     public synchronized long getCacheSpace() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             synchronized (this) {
-                j2 = this.totalSpace;
+                j = this.totalSpace;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized long getCachedBytes(String str, long j2, long j3) {
+    public synchronized long getCachedBytes(String str, long j, long j2) {
         InterceptResult invokeCommon;
         long cachedBytes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 CachedContent cachedContent = this.index.get(str);
-                cachedBytes = cachedContent != null ? cachedContent.getCachedBytes(j2, j3) : -j3;
+                cachedBytes = cachedContent != null ? cachedContent.getCachedBytes(j, j2) : -j2;
             }
             return cachedBytes;
         }
@@ -313,15 +315,15 @@ public final class SimpleCache implements Cache {
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized boolean isCached(String str, long j2, long j3) {
+    public synchronized boolean isCached(String str, long j, long j2) {
         InterceptResult invokeCommon;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 CachedContent cachedContent = this.index.get(str);
                 if (cachedContent != null) {
-                    z = cachedContent.getCachedBytes(j2, j3) >= j3;
+                    z = cachedContent.getCachedBytes(j, j2) >= j2;
                 }
             }
             return z;
@@ -357,30 +359,30 @@ public final class SimpleCache implements Cache {
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized void setContentLength(String str, long j2) throws Cache.CacheException {
+    public synchronized void setContentLength(String str, long j) throws Cache.CacheException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
             synchronized (this) {
-                this.index.setContentLength(str, j2);
+                this.index.setContentLength(str, j);
                 this.index.store();
             }
         }
     }
 
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized File startFile(String str, long j2, long j3) throws Cache.CacheException {
+    public synchronized File startFile(String str, long j, long j2) throws Cache.CacheException {
         InterceptResult invokeCommon;
         File cacheFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             synchronized (this) {
                 Assertions.checkState(this.lockedSpans.containsKey(str));
                 if (!this.cacheDir.exists()) {
                     removeStaleSpansAndCachedContents();
                     this.cacheDir.mkdirs();
                 }
-                this.evictor.onStartFile(this, str, j2, j3);
-                cacheFile = SimpleCacheSpan.getCacheFile(this.cacheDir, this.index.assignIdForKey(str), j2, System.currentTimeMillis());
+                this.evictor.onStartFile(this, str, j, j2);
+                cacheFile = SimpleCacheSpan.getCacheFile(this.cacheDir, this.index.assignIdForKey(str), j, System.currentTimeMillis());
             }
             return cacheFile;
         }
@@ -396,9 +398,9 @@ public final class SimpleCache implements Cache {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, cacheEvictor, bArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], (CacheEvictor) objArr2[1], (byte[]) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
@@ -410,14 +412,14 @@ public final class SimpleCache implements Cache {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized SimpleCacheSpan startReadWrite(String str, long j2) throws InterruptedException, Cache.CacheException {
+    public synchronized SimpleCacheSpan startReadWrite(String str, long j) throws InterruptedException, Cache.CacheException {
         InterceptResult invokeLJ;
         SimpleCacheSpan startReadWriteNonBlocking;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) {
             synchronized (this) {
                 while (true) {
-                    startReadWriteNonBlocking = startReadWriteNonBlocking(str, j2);
+                    startReadWriteNonBlocking = startReadWriteNonBlocking(str, j);
                     if (startReadWriteNonBlocking == null) {
                         wait();
                     }
@@ -430,12 +432,12 @@ public final class SimpleCache implements Cache {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.cache.Cache
-    public synchronized SimpleCacheSpan startReadWriteNonBlocking(String str, long j2) throws Cache.CacheException {
+    public synchronized SimpleCacheSpan startReadWriteNonBlocking(String str, long j) throws Cache.CacheException {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048592, this, str, j)) == null) {
             synchronized (this) {
-                SimpleCacheSpan span = getSpan(str, j2);
+                SimpleCacheSpan span = getSpan(str, j);
                 if (span.isCached) {
                     SimpleCacheSpan simpleCacheSpan = this.index.get(str).touch(span);
                     notifySpanTouched(span, simpleCacheSpan);
@@ -460,9 +462,9 @@ public final class SimpleCache implements Cache {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, cacheEvictor, bArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], (CacheEvictor) objArr2[1], (CachedContentIndex) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -479,9 +481,9 @@ public final class SimpleCache implements Cache {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, cacheEvictor, cachedContentIndex};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -509,9 +511,9 @@ public final class SimpleCache implements Cache {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, r8, conditionVariable};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super((String) newInitContext2.callArgs[0]);
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);

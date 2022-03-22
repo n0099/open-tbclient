@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DecodeHelper<Transcode> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,9 +53,9 @@ public final class DecodeHelper<Transcode> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -99,14 +99,14 @@ public final class DecodeHelper<Transcode> {
                 this.cacheKeys.clear();
                 List<ModelLoader.LoadData<?>> loadData = getLoadData();
                 int size = loadData.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ModelLoader.LoadData<?> loadData2 = loadData.get(i2);
+                for (int i = 0; i < size; i++) {
+                    ModelLoader.LoadData<?> loadData2 = loadData.get(i);
                     if (!this.cacheKeys.contains(loadData2.sourceKey)) {
                         this.cacheKeys.add(loadData2.sourceKey);
                     }
-                    for (int i3 = 0; i3 < loadData2.alternateKeys.size(); i3++) {
-                        if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i3))) {
-                            this.cacheKeys.add(loadData2.alternateKeys.get(i3));
+                    for (int i2 = 0; i2 < loadData2.alternateKeys.size(); i2++) {
+                        if (!this.cacheKeys.contains(loadData2.alternateKeys.get(i2))) {
+                            this.cacheKeys.add(loadData2.alternateKeys.get(i2));
                         }
                     }
                 }
@@ -143,8 +143,8 @@ public final class DecodeHelper<Transcode> {
                 this.loadData.clear();
                 List modelLoaders = this.glideContext.getRegistry().getModelLoaders(this.model);
                 int size = modelLoaders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i2)).buildLoadData(this.model, this.width, this.height, this.options);
+                for (int i = 0; i < size; i++) {
+                    ModelLoader.LoadData<?> buildLoadData = ((ModelLoader) modelLoaders.get(i)).buildLoadData(this.model, this.width, this.height, this.options);
                     if (buildLoadData != null) {
                         this.loadData.add(buildLoadData);
                     }
@@ -259,14 +259,14 @@ public final class DecodeHelper<Transcode> {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, cls)) == null) ? getLoadPath(cls) != null : invokeL.booleanValue;
     }
 
-    public <R> void init(GlideContext glideContext, Object obj, Key key, int i2, int i3, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
+    public <R> void init(GlideContext glideContext, Object obj, Key key, int i, int i2, DiskCacheStrategy diskCacheStrategy, Class<?> cls, Class<R> cls2, Priority priority, Options options, Map<Class<?>, Transformation<?>> map, boolean z, boolean z2, DecodeJob.DiskCacheProvider diskCacheProvider) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{glideContext, obj, key, Integer.valueOf(i2), Integer.valueOf(i3), diskCacheStrategy, cls, cls2, priority, options, map, Boolean.valueOf(z), Boolean.valueOf(z2), diskCacheProvider}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{glideContext, obj, key, Integer.valueOf(i), Integer.valueOf(i2), diskCacheStrategy, cls, cls2, priority, options, map, Boolean.valueOf(z), Boolean.valueOf(z2), diskCacheProvider}) == null) {
             this.glideContext = glideContext;
             this.model = obj;
             this.signature = key;
-            this.width = i2;
-            this.height = i3;
+            this.width = i;
+            this.height = i2;
             this.diskCacheStrategy = diskCacheStrategy;
             this.resourceClass = cls;
             this.diskCacheProvider = diskCacheProvider;
@@ -297,8 +297,8 @@ public final class DecodeHelper<Transcode> {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, key)) == null) {
             List<ModelLoader.LoadData<?>> loadData = getLoadData();
             int size = loadData.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (loadData.get(i2).sourceKey.equals(key)) {
+            for (int i = 0; i < size; i++) {
+                if (loadData.get(i).sourceKey.equals(key)) {
                     return true;
                 }
             }

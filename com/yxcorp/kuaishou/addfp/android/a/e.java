@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public SharedPreferences a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SharedPreferences.Editor f60104b;
+    public SharedPreferences.Editor f44667b;
 
     public e(Context context) {
         Interceptable interceptable = $ic;
@@ -24,9 +24,9 @@ public final class e {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,7 +35,7 @@ public final class e {
         try {
             SharedPreferences sharedPreferences = context.getSharedPreferences("kscfg_outdfp", 0);
             this.a = sharedPreferences;
-            this.f60104b = sharedPreferences.edit();
+            this.f44667b = sharedPreferences.edit();
         } catch (Throwable th) {
             th.printStackTrace();
         }
@@ -44,8 +44,8 @@ public final class e {
     public final void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.f60104b.putString("kwtk", str);
-            this.f60104b.commit();
+            this.f44667b.putString("kwtk", str);
+            this.f44667b.commit();
         }
     }
 
@@ -64,8 +64,8 @@ public final class e {
     public final void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f60104b.putString("oai_ll_sn_d", str);
-            this.f60104b.commit();
+            this.f44667b.putString("oai_ll_sn_d", str);
+            this.f44667b.commit();
         }
     }
 

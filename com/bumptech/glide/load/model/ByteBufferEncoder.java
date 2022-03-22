@@ -14,7 +14,7 @@ import com.bumptech.glide.util.ByteBufferUtil;
 import java.io.File;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ByteBufferEncoder implements Encoder<ByteBuffer> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ByteBufferEncoder";
@@ -25,9 +25,9 @@ public class ByteBufferEncoder implements Encoder<ByteBuffer> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -43,8 +43,10 @@ public class ByteBufferEncoder implements Encoder<ByteBuffer> {
             try {
                 ByteBufferUtil.toFile(byteBuffer, file);
                 return true;
-            } catch (IOException unused) {
-                Log.isLoggable(TAG, 3);
+            } catch (IOException e2) {
+                if (Log.isLoggable(TAG, 3)) {
+                    Log.d(TAG, "Failed to write data", e2);
+                }
                 return false;
             }
         }

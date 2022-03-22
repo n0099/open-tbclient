@@ -9,29 +9,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.kwad.v8.V8;
 import com.kwad.v8.V8ArrayBuffer;
 import com.kwad.v8.V8TypedArray;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TypedArray {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public V8TypedArray typedArray;
 
-    public TypedArray(V8 v8, ArrayBuffer arrayBuffer, int i2, int i3, int i4) {
+    public TypedArray(V8 v8, ArrayBuffer arrayBuffer, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v8, arrayBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {v8, arrayBuffer, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         V8ArrayBuffer v8ArrayBuffer = arrayBuffer.getV8ArrayBuffer();
-        V8TypedArray v8TypedArray = new V8TypedArray(v8, v8ArrayBuffer, i2, i3, i4);
+        V8TypedArray v8TypedArray = new V8TypedArray(v8, v8ArrayBuffer, i, i2, i3);
         try {
             this.typedArray = (V8TypedArray) v8TypedArray.twin().setWeak();
         } finally {
@@ -47,9 +47,9 @@ public class TypedArray {
             newInitContext.initArgs = r2;
             Object[] objArr = {v8TypedArray};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

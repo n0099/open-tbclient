@@ -7,11 +7,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.yoga.YogaNodeJNIBase;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import kotlin.jvm.internal.ByteCompanionObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class WireInput {
     public static /* synthetic */ int[] $SWITCH_TABLE$com$squareup$wire$WireType = null;
     public static /* synthetic */ Interceptable $ic = null;
@@ -75,9 +76,9 @@ public final class WireInput {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -96,16 +97,16 @@ public final class WireInput {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) ? this.limit - this.pos : invokeV.intValue;
     }
 
-    public static int decodeZigZag32(int i2) {
+    public static int decodeZigZag32(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? (-(i2 & 1)) ^ (i2 >>> 1) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? (-(i & 1)) ^ (i >>> 1) : invokeI.intValue;
     }
 
-    public static long decodeZigZag64(long j2) {
+    public static long decodeZigZag64(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j2)) == null) ? (-(j2 & 1)) ^ (j2 >>> 1) : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
     }
 
     public static WireInput newInstance(byte[] bArr) {
@@ -114,34 +115,34 @@ public final class WireInput {
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bArr)) == null) ? new WireInput(bArr, 0, bArr.length) : (WireInput) invokeL.objValue;
     }
 
-    private void refillBuffer(int i2) throws IOException {
-        int i3;
+    private void refillBuffer(int i) throws IOException {
+        int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65545, this, i2) == null) || (i3 = this.pos) < this.limit || this.inputStreamAtEof) {
+        if (!(interceptable == null || interceptable.invokeI(65545, this, i) == null) || (i2 = this.pos) < this.limit || this.inputStreamAtEof) {
             return;
         }
-        this.bufferOffset += i3;
+        this.bufferOffset += i2;
         this.pos = 0;
-        int min = Math.min(i2, 1024);
-        int i4 = 0;
-        while (i4 < min) {
-            int read = this.input.read(this.buffer, i4, 1024 - i4);
+        int min = Math.min(i, 1024);
+        int i3 = 0;
+        while (i3 < min) {
+            int read = this.input.read(this.buffer, i3, 1024 - i3);
             if (read == -1) {
-                this.limit = i4;
+                this.limit = i3;
                 this.inputStreamAtEof = true;
                 return;
             }
-            i4 += read;
+            i3 += read;
         }
-        this.limit = i4;
+        this.limit = i3;
         this.inputStreamAtEof = false;
     }
 
-    private boolean skipField(int i2) throws IOException {
+    private boolean skipField(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i2)) == null) {
-            switch ($SWITCH_TABLE$com$squareup$wire$WireType()[WireType.valueOf(i2).ordinal()]) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, this, i)) == null) {
+            switch ($SWITCH_TABLE$com$squareup$wire$WireType()[WireType.valueOf(i).ordinal()]) {
                 case 1:
                     readVarint64();
                     return false;
@@ -153,7 +154,7 @@ public final class WireInput {
                     return false;
                 case 4:
                     skipGroup();
-                    checkLastTagWas((i2 & (-8)) | WireType.END_GROUP.value());
+                    checkLastTagWas((i & (-8)) | WireType.END_GROUP.value());
                     return false;
                 case 5:
                     return true;
@@ -167,9 +168,9 @@ public final class WireInput {
         return invokeI.booleanValue;
     }
 
-    public void checkLastTagWas(int i2) throws IOException {
+    public void checkLastTagWas(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i2) == null) && this.lastTag != i2) {
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.lastTag != i) {
             throw new IOException(PROTOCOL_MESSAGE_END_GROUP_TAG_DID_NOT_MATCH_EXPECTED_TAG);
         }
     }
@@ -193,23 +194,23 @@ public final class WireInput {
         return invokeV.booleanValue;
     }
 
-    public void popLimit(int i2) {
+    public void popLimit(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.currentLimit = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.currentLimit = i;
         }
     }
 
-    public int pushLimit(int i2) throws IOException {
+    public int pushLimit(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            if (i2 >= 0) {
-                int i3 = (int) (i2 + this.bufferOffset + this.pos);
-                int i4 = this.currentLimit;
-                if (i3 <= i4) {
-                    this.currentLimit = i3;
-                    return i4;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i >= 0) {
+                int i2 = (int) (i + this.bufferOffset + this.pos);
+                int i3 = this.currentLimit;
+                if (i2 <= i3) {
+                    this.currentLimit = i2;
+                    return i3;
                 }
                 throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
             }
@@ -247,30 +248,30 @@ public final class WireInput {
             refillBuffer(1);
             if (bytesRemaining() != 0) {
                 byte[] bArr = this.buffer;
-                int i2 = this.pos;
-                this.pos = i2 + 1;
-                return bArr[i2];
+                int i = this.pos;
+                this.pos = i + 1;
+                return bArr[i];
             }
             throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
         }
         return invokeV.byteValue;
     }
 
-    public byte[] readRawBytes(int i2) throws IOException {
+    public byte[] readRawBytes(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (i2 >= 0) {
-                byte[] bArr = new byte[i2];
-                int i3 = 0;
-                while (i3 < i2) {
-                    int i4 = i2 - i3;
-                    refillBuffer(i4);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (i >= 0) {
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                while (i2 < i) {
+                    int i3 = i - i2;
+                    refillBuffer(i3);
                     if (bytesRemaining() != 0) {
-                        int min = Math.min(i4, bytesRemaining());
-                        System.arraycopy(this.buffer, this.pos, bArr, i3, min);
+                        int min = Math.min(i3, bytesRemaining());
+                        System.arraycopy(this.buffer, this.pos, bArr, i2, min);
                         this.pos += min;
-                        i3 += min;
+                        i2 += min;
                     } else {
                         throw new EOFException(INPUT_ENDED_UNEXPECTEDLY);
                     }
@@ -317,43 +318,43 @@ public final class WireInput {
 
     public int readVarint32() throws IOException {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             byte readRawByte = readRawByte();
             if (readRawByte >= 0) {
                 return readRawByte;
             }
-            int i3 = readRawByte & ByteCompanionObject.MAX_VALUE;
+            int i2 = readRawByte & ByteCompanionObject.MAX_VALUE;
             byte readRawByte2 = readRawByte();
             if (readRawByte2 >= 0) {
-                i2 = readRawByte2 << 7;
+                i = readRawByte2 << 7;
             } else {
-                i3 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+                i2 |= (readRawByte2 & ByteCompanionObject.MAX_VALUE) << 7;
                 byte readRawByte3 = readRawByte();
                 if (readRawByte3 >= 0) {
-                    i2 = readRawByte3 << 14;
+                    i = readRawByte3 << YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX;
                 } else {
-                    i3 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                    i2 |= (readRawByte3 & ByteCompanionObject.MAX_VALUE) << 14;
                     byte readRawByte4 = readRawByte();
                     if (readRawByte4 < 0) {
-                        int i4 = i3 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                        int i3 = i2 | ((readRawByte4 & ByteCompanionObject.MAX_VALUE) << 21);
                         byte readRawByte5 = readRawByte();
-                        int i5 = i4 | (readRawByte5 << 28);
+                        int i4 = i3 | (readRawByte5 << 28);
                         if (readRawByte5 < 0) {
-                            for (int i6 = 0; i6 < 5; i6++) {
+                            for (int i5 = 0; i5 < 5; i5++) {
                                 if (readRawByte() >= 0) {
-                                    return i5;
+                                    return i4;
                                 }
                             }
                             throw new IOException(ENCOUNTERED_A_MALFORMED_VARINT);
                         }
-                        return i5;
+                        return i4;
                     }
-                    i2 = readRawByte4 << 21;
+                    i = readRawByte4 << 21;
                 }
             }
-            return i3 | i2;
+            return i2 | i;
         }
         return invokeV.intValue;
     }
@@ -362,12 +363,12 @@ public final class WireInput {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            long j2 = 0;
-            for (int i2 = 0; i2 < 64; i2 += 7) {
+            long j = 0;
+            for (int i = 0; i < 64; i += 7) {
                 byte readRawByte = readRawByte();
-                j2 |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i2;
+                j |= (readRawByte & ByteCompanionObject.MAX_VALUE) << i;
                 if ((readRawByte & 128) == 0) {
-                    return j2;
+                    return j;
                 }
             }
             throw new IOException(ENCOUNTERED_A_MALFORMED_VARINT);
@@ -388,10 +389,10 @@ public final class WireInput {
         }
     }
 
-    public static WireInput newInstance(byte[] bArr, int i2, int i3) {
+    public static WireInput newInstance(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i2, i3)) == null) ? new WireInput(bArr, i2, i3) : (WireInput) invokeLII.objValue;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(65544, null, bArr, i, i2)) == null) ? new WireInput(bArr, i, i2) : (WireInput) invokeLII.objValue;
     }
 
     public static WireInput newInstance(InputStream inputStream) {
@@ -400,30 +401,30 @@ public final class WireInput {
         return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, inputStream)) == null) ? new WireInput(inputStream) : (WireInput) invokeL.objValue;
     }
 
-    public ByteString readBytes(int i2) throws IOException {
+    public ByteString readBytes(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            if (bytesRemaining() >= i2) {
-                ByteString of = ByteString.of(this.buffer, this.pos, i2);
-                this.pos += i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (bytesRemaining() >= i) {
+                ByteString of = ByteString.of(this.buffer, this.pos, i);
+                this.pos += i;
                 return of;
             }
-            return ByteString.of(readRawBytes(i2));
+            return ByteString.of(readRawBytes(i));
         }
         return (ByteString) invokeI.objValue;
     }
 
-    public WireInput(byte[] bArr, int i2, int i3) {
+    public WireInput(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {bArr, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -434,9 +435,9 @@ public final class WireInput {
         this.currentLimit = Integer.MAX_VALUE;
         this.input = null;
         this.buffer = bArr;
-        this.bufferOffset = -i2;
-        this.pos = i2;
-        this.limit = i2 + i3;
+        this.bufferOffset = -i;
+        this.pos = i;
+        this.limit = i + i2;
         this.inputStreamAtEof = true;
     }
 }

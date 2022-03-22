@@ -3,6 +3,7 @@ package androidx.media;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.SparseIntArray;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -97,9 +98,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -136,9 +137,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -178,11 +179,11 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return (interceptable == null || (invokeZL = interceptable.invokeZL(65542, null, z, audioAttributesCompat)) == null) ? toVolumeStreamType(z, audioAttributesCompat.getFlags(), audioAttributesCompat.getUsage()) : invokeZL.intValue;
     }
 
-    public static int usageForStreamType(int i2) {
+    public static int usageForStreamType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            switch (i) {
                 case 0:
                     return 2;
                 case 1:
@@ -210,11 +211,11 @@ public class AudioAttributesCompat implements VersionedParcelable {
         return invokeI.intValue;
     }
 
-    public static String usageToString(int i2) {
+    public static String usageToString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            switch (i) {
                 case 0:
                     return "USAGE_UNKNOWN";
                 case 1:
@@ -247,7 +248,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
                     return "USAGE_GAME";
                 case 15:
                 default:
-                    return "unknown usage " + i2;
+                    return "unknown usage " + i;
                 case 16:
                     return "USAGE_ASSISTANT";
             }
@@ -358,9 +359,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {audioAttributesImpl};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -369,16 +370,16 @@ public class AudioAttributesCompat implements VersionedParcelable {
         this.mImpl = audioAttributesImpl;
     }
 
-    public static int toVolumeStreamType(boolean z, int i2, int i3) {
+    public static int toVolumeStreamType(boolean z, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if ((i2 & 1) == 1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if ((i & 1) == 1) {
                 return z ? 1 : 7;
-            } else if ((i2 & 4) == 4) {
+            } else if ((i & 4) == 4) {
                 return z ? 0 : 6;
             } else {
-                switch (i3) {
+                switch (i2) {
                     case 0:
                         return z ? Integer.MIN_VALUE : 3;
                     case 1:
@@ -407,7 +408,7 @@ public class AudioAttributesCompat implements VersionedParcelable {
                     case 15:
                     default:
                         if (z) {
-                            throw new IllegalArgumentException("Unknown usage value " + i3 + " in audio attributes");
+                            throw new IllegalArgumentException("Unknown usage value " + i2 + " in audio attributes");
                         }
                         return 3;
                 }
@@ -430,9 +431,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -451,9 +452,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (!AudioAttributesCompat.sForceLegacyBehavior && Build.VERSION.SDK_INT >= 21) {
                     AudioAttributes.Builder usage = new AudioAttributes.Builder().setContentType(this.mContentType).setFlags(this.mFlags).setUsage(this.mUsage);
-                    int i2 = this.mLegacyStream;
-                    if (i2 != -1) {
-                        usage.setLegacyStreamType(i2);
+                    int i = this.mLegacyStream;
+                    if (i != -1) {
+                        usage.setLegacyStreamType(i);
                     }
                     audioAttributesImplBase = new AudioAttributesImplApi21(usage.build(), this.mLegacyStream);
                 } else {
@@ -464,36 +465,36 @@ public class AudioAttributesCompat implements VersionedParcelable {
             return (AudioAttributesCompat) invokeV.objValue;
         }
 
-        public Builder setContentType(int i2) {
+        public Builder setContentType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-                if (i2 != 0 && i2 != 1 && i2 != 2 && i2 != 3 && i2 != 4) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                if (i != 0 && i != 1 && i != 2 && i != 3 && i != 4) {
                     this.mUsage = 0;
                 } else {
-                    this.mContentType = i2;
+                    this.mContentType = i;
                 }
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setFlags(int i2) {
+        public Builder setFlags(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-                this.mFlags = (i2 & 1023) | this.mFlags;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                this.mFlags = (i & 1023) | this.mFlags;
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
         /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-        public Builder setInternalLegacyStreamType(int i2) {
+        public Builder setInternalLegacyStreamType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-                switch (i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                switch (i) {
                     case 0:
                         this.mContentType = 1;
                         break;
@@ -530,33 +531,33 @@ public class AudioAttributesCompat implements VersionedParcelable {
                         this.mContentType = 1;
                         break;
                     default:
-                        String str = "Invalid stream type " + i2 + " for AudioAttributesCompat";
+                        Log.e(AudioAttributesCompat.TAG, "Invalid stream type " + i + " for AudioAttributesCompat");
                         break;
                 }
-                this.mUsage = AudioAttributesCompat.usageForStreamType(i2);
+                this.mUsage = AudioAttributesCompat.usageForStreamType(i);
                 return this;
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setLegacyStreamType(int i2) {
+        public Builder setLegacyStreamType(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-                if (i2 != 10) {
-                    this.mLegacyStream = i2;
-                    return Build.VERSION.SDK_INT >= 21 ? setInternalLegacyStreamType(i2) : this;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                if (i != 10) {
+                    this.mLegacyStream = i;
+                    return Build.VERSION.SDK_INT >= 21 ? setInternalLegacyStreamType(i) : this;
                 }
                 throw new IllegalArgumentException("STREAM_ACCESSIBILITY is not a legacy stream type that was used for audio playback");
             }
             return (Builder) invokeI.objValue;
         }
 
-        public Builder setUsage(int i2) {
+        public Builder setUsage(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-                switch (i2) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                switch (i) {
                     case 0:
                     case 1:
                     case 2:
@@ -573,11 +574,11 @@ public class AudioAttributesCompat implements VersionedParcelable {
                     case 13:
                     case 14:
                     case 15:
-                        this.mUsage = i2;
+                        this.mUsage = i;
                         break;
                     case 16:
                         if (!AudioAttributesCompat.sForceLegacyBehavior && Build.VERSION.SDK_INT > 25) {
-                            this.mUsage = i2;
+                            this.mUsage = i;
                             break;
                         } else {
                             this.mUsage = 12;
@@ -599,9 +600,9 @@ public class AudioAttributesCompat implements VersionedParcelable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {audioAttributesCompat};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

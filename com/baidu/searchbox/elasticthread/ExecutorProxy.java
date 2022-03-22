@@ -13,22 +13,22 @@ public abstract class ExecutorProxy implements Executor {
     public int mDefaultPriority;
     public String mDefaultTaskName;
 
-    public ExecutorProxy(String str, int i2) {
+    public ExecutorProxy(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mDefaultPriority = i2;
+        this.mDefaultPriority = i;
         this.mDefaultTaskName = str;
     }
 
@@ -37,12 +37,12 @@ public abstract class ExecutorProxy implements Executor {
 
     public abstract void execute(@NonNull Runnable runnable, @NonNull String str);
 
-    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i2);
+    public abstract void execute(@NonNull Runnable runnable, @NonNull String str, int i);
 
-    public void setDefaultPriority(int i2) {
+    public void setDefaultPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.mDefaultPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.mDefaultPriority = i;
         }
     }
 

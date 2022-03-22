@@ -89,16 +89,16 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             $VALUES = new HttpMethod[]{METHOD_GET, METHOD_POST, METHOD_RESUME, httpMethod};
         }
 
-        public HttpMethod(String str, int i2) {
+        public HttpMethod(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -163,16 +163,16 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             $VALUES = new NetError[]{ERROR_RUN_START, ERROR_RUN_EXCEPTION, ERROR_RUN_STOP, ERROR_HTTP, ERROR_REDIRECT, ERROR_MALFORMEDURL, ERROR_CONNECT_TIMEOUT, ERROR_IO, netError};
         }
 
-        public NetError(String str, int i2) {
+        public NetError(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -227,16 +227,16 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             $VALUES = new NetState[]{STATE_CONNECT_START, STATE_CONNECT_SETUP, STATE_DISCONNECT, netState};
         }
 
-        public NetState(String str, int i2) {
+        public NetState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -266,7 +266,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         public X509TrustManager a;
 
         /* renamed from: b  reason: collision with root package name */
-        public X509TrustManager f51484b;
+        public X509TrustManager f37936b;
 
         public a(KeyStore keyStore) throws KeyStoreException {
             Interceptable interceptable = $ic;
@@ -275,9 +275,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {keyStore};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -285,7 +285,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             }
             try {
                 this.a = a(null);
-                this.f51484b = a(keyStore);
+                this.f37936b = a(keyStore);
             } catch (NoSuchAlgorithmException e2) {
                 e2.printStackTrace();
             }
@@ -309,7 +309,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 try {
                     this.a.checkClientTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f51484b.checkClientTrusted(x509CertificateArr, str);
+                    this.f37936b.checkClientTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -321,7 +321,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                 try {
                     this.a.checkServerTrusted(x509CertificateArr, str);
                 } catch (CertificateException unused) {
-                    this.f51484b.checkServerTrusted(x509CertificateArr, str);
+                    this.f37936b.checkServerTrusted(x509CertificateArr, str);
                 }
             }
         }
@@ -332,7 +332,7 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 X509Certificate[] acceptedIssuers = this.a.getAcceptedIssuers();
-                X509Certificate[] acceptedIssuers2 = this.f51484b.getAcceptedIssuers();
+                X509Certificate[] acceptedIssuers2 = this.f37936b.getAcceptedIssuers();
                 X509Certificate[] x509CertificateArr = (X509Certificate[]) Arrays.copyOf(acceptedIssuers, acceptedIssuers.length + acceptedIssuers2.length);
                 System.arraycopy(acceptedIssuers2, 0, x509CertificateArr, acceptedIssuers.length, acceptedIssuers2.length);
                 return x509CertificateArr;
@@ -348,9 +348,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -359,8 +359,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         this.mPriority = 1;
         this.mPoolSize = 2;
         this.mContext = new WeakReference<>(context);
-        if (com.baidu.webkit.net.a.a().f51500c == null) {
-            com.baidu.webkit.net.a.a().f51500c = getContext().getApplicationContext();
+        if (com.baidu.webkit.net.a.a().f37952c == null) {
+            com.baidu.webkit.net.a.a().f37952c = getContext().getApplicationContext();
         }
         this.mTaskList = new Vector<>();
         this.mWorkerList = new Vector<>();
@@ -384,8 +384,8 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
             int size = this.mWorkerList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (this.mWorkerList.get(i2).a()) {
+            for (int i = 0; i < size; i++) {
+                if (this.mWorkerList.get(i).a()) {
                     return false;
                 }
             }
@@ -451,11 +451,11 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                                 a2.a.clear();
                                 a2.a = null;
                             }
-                            int size = a2.f51499b.size();
-                            for (int i2 = 0; i2 < size; i2++) {
-                                a2.f51499b.get(i2).stopDownload();
+                            int size = a2.f37951b.size();
+                            for (int i = 0; i < size; i++) {
+                                a2.f37951b.get(i).stopDownload();
                             }
-                            a2.f51499b.clear();
+                            a2.f37951b.clear();
                             releaseSSLContext();
                             BdNetTask.clearTaskPool();
                             com.baidu.webkit.net.a.c();
@@ -546,13 +546,13 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetDownloadError(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetError netError, int i2) {
+    public void onNetDownloadError(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetError netError, int i) {
         INetListener iNetListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048582, this, bdNetEngine, bdNetTask, netError, i2) == null) || (iNetListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048582, this, bdNetEngine, bdNetTask, netError, i) == null) || (iNetListener = this.mListener) == null) {
             return;
         }
-        iNetListener.onNetDownloadError(this, bdNetTask, netError, i2);
+        iNetListener.onNetDownloadError(this, bdNetTask, netError, i);
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
@@ -566,13 +566,13 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetReceiveData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, byte[] bArr, int i2) {
+    public void onNetReceiveData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, byte[] bArr, int i) {
         INetListener iNetListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNetEngine, bdNetTask, bArr, i2) == null) || (iNetListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdNetEngine, bdNetTask, bArr, i) == null) || (iNetListener = this.mListener) == null) {
             return;
         }
-        iNetListener.onNetReceiveData(this, bdNetTask, bArr, i2);
+        iNetListener.onNetReceiveData(this, bdNetTask, bArr, i);
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
@@ -586,13 +586,13 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public boolean onNetRedirect(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2) {
+    public boolean onNetRedirect(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, bdNetEngine, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048586, this, bdNetEngine, bdNetTask, i)) == null) {
             INetListener iNetListener = this.mListener;
             if (iNetListener != null) {
-                return iNetListener.onNetRedirect(this, bdNetTask, i2);
+                return iNetListener.onNetRedirect(this, bdNetTask, i);
             }
             return true;
         }
@@ -600,23 +600,23 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetResponseCode(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2) {
+    public void onNetResponseCode(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i) {
         INetListener iNetListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048587, this, bdNetEngine, bdNetTask, i2) == null) || (iNetListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(1048587, this, bdNetEngine, bdNetTask, i) == null) || (iNetListener = this.mListener) == null) {
             return;
         }
-        iNetListener.onNetResponseCode(this, bdNetTask, i2);
+        iNetListener.onNetResponseCode(this, bdNetTask, i);
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetStateChanged(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetState netState, int i2) {
+    public void onNetStateChanged(BdNetEngine bdNetEngine, BdNetTask bdNetTask, NetState netState, int i) {
         INetListener iNetListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(1048588, this, bdNetEngine, bdNetTask, netState, i2) == null) || (iNetListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLLLI(1048588, this, bdNetEngine, bdNetTask, netState, i) == null) || (iNetListener = this.mListener) == null) {
             return;
         }
-        iNetListener.onNetStateChanged(this, bdNetTask, netState, i2);
+        iNetListener.onNetStateChanged(this, bdNetTask, netState, i);
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
@@ -630,13 +630,13 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
     }
 
     @Override // com.baidu.webkit.net.BdNetEngine.b
-    public void onNetUploadData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i2, int i3) {
+    public void onNetUploadData(BdNetEngine bdNetEngine, BdNetTask bdNetTask, int i, int i2) {
         INetListener iNetListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLII(1048590, this, bdNetEngine, bdNetTask, i2, i3) == null) || (iNetListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLLII(1048590, this, bdNetEngine, bdNetTask, i, i2) == null) || (iNetListener = this.mListener) == null) {
             return;
         }
-        iNetListener.onNetUploadData(this, bdNetTask, i2, i3);
+        iNetListener.onNetUploadData(this, bdNetTask, i, i2);
     }
 
     public BdNetTask peekTask() {
@@ -670,20 +670,20 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
         }
     }
 
-    public void setPoolSize(int i2) {
+    public void setPoolSize(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048594, this, i2) == null) || i2 <= 0 || i2 > 3) {
+        if (!(interceptable == null || interceptable.invokeI(1048594, this, i) == null) || i <= 0 || i > 3) {
             return;
         }
-        this.mPoolSize = i2;
+        this.mPoolSize = i;
     }
 
-    public void setPriority(int i2) {
+    public void setPriority(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048595, this, i2) == null) || i2 < 0 || i2 > 3) {
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || i < 0 || i > 3) {
             return;
         }
-        this.mPriority = i2;
+        this.mPriority = i;
     }
 
     public void start(BdNetTask bdNetTask) throws NullPointerException {
@@ -745,9 +745,9 @@ public class BdNet implements INoProGuard, BdNetEngine.b {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, r8};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 super((Looper) newInitContext.callArgs[0]);
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);

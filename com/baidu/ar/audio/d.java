@@ -34,9 +34,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -47,8 +47,8 @@ public class d {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Byte.valueOf(b2), Byte.valueOf(b3)})) == null) {
-            int i2 = (b2 & 255) + ((b3 & 255) << 8);
-            return i2 >= 32768 ? i2 - 65535 : i2;
+            int i = (b2 & 255) + ((b3 & 255) << 8);
+            return i >= 32768 ? i - 65535 : i;
         }
         return invokeCommon.intValue;
     }
@@ -56,19 +56,19 @@ public class d {
     public static void a(byte[] bArr, double d2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{bArr, Double.valueOf(d2)}) == null) {
-            for (int i2 = 0; i2 < bArr.length; i2 += 2) {
-                int i3 = i2 + 1;
-                int a = a(bArr[i2], bArr[i3]);
-                int i4 = (int) (a * d2);
-                if (i4 < 32767 && i4 > -32768) {
-                    a = (short) i4;
-                } else if (i4 > 32767) {
+            for (int i = 0; i < bArr.length; i += 2) {
+                int i2 = i + 1;
+                int a = a(bArr[i], bArr[i2]);
+                int i3 = (int) (a * d2);
+                if (i3 < 32767 && i3 > -32768) {
+                    a = (short) i3;
+                } else if (i3 > 32767) {
                     a = 32767;
-                } else if (i4 < -32768) {
+                } else if (i3 < -32768) {
                     a = -32768;
                 }
-                bArr[i2] = (byte) (a & 255);
-                bArr[i3] = (byte) ((a >> 8) & 255);
+                bArr[i] = (byte) (a & 255);
+                bArr[i2] = (byte) ((a >> 8) & 255);
             }
         }
     }
@@ -78,8 +78,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
             double d2 = 0.0d;
-            for (int i2 = 0; i2 < bArr.length; i2 += 2) {
-                d2 += Math.abs(a(bArr[i2], bArr[i2 + 1]));
+            for (int i = 0; i < bArr.length; i += 2) {
+                d2 += Math.abs(a(bArr[i], bArr[i + 1]));
             }
             return Math.log10(((d2 / bArr.length) / 2.0d) + 1.0d) * 10.0d;
         }
@@ -91,8 +91,8 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
             double d2 = 0.0d;
-            for (int i2 = 0; i2 < bArr.length; i2 += 2) {
-                int a = a(bArr[i2], bArr[i2 + 1]);
+            for (int i = 0; i < bArr.length; i += 2) {
+                int a = a(bArr[i], bArr[i + 1]);
                 d2 += a * a;
             }
             return Math.min(5000.0d, Math.sqrt((d2 / bArr.length) / 2.0d)) / 50.0d;

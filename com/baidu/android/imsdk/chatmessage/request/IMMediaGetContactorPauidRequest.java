@@ -30,16 +30,16 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     public int mContactorType;
     public String mKey;
 
-    public IMMediaGetContactorPauidRequest(Context context, long j2, String str) {
+    public IMMediaGetContactorPauidRequest(Context context, long j, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str};
+            Object[] objArr = {context, Long.valueOf(j), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -48,7 +48,7 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str;
     }
 
@@ -112,10 +112,10 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             LogUtils.d(TAG, "onFailure error = " + transErrorCode.first + " errormsg = " + ((String) transErrorCode.second));
             IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iMediaGetContactorPauidListener != null) {
@@ -125,13 +125,13 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
-        long j2;
+    public void onSuccess(int i, byte[] bArr) {
+        long j;
         String str;
+        int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d(TAG, "onSuccess resultContent = " + str2);
             try {
@@ -139,20 +139,20 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
                 int optInt = jSONObject.optInt("error_code", 0);
                 String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 long optLong = jSONObject.optLong("pa_uid", -1L);
-                i4 = jSONObject.optInt("is_buser", -1);
+                i3 = jSONObject.optInt("is_buser", -1);
                 str = optString;
-                j2 = optLong;
-                i3 = optInt;
+                j = optLong;
+                i2 = optInt;
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "IMMediaSetSessionReadRequest JSONException", e2);
-                j2 = -1;
+                j = -1;
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                i3 = 1010;
-                i4 = -1;
+                i2 = 1010;
+                i3 = -1;
             }
             IMediaGetContactorPauidListener iMediaGetContactorPauidListener = (IMediaGetContactorPauidListener) ListenerManager.getInstance().removeListener(this.mKey);
             if (iMediaGetContactorPauidListener != null) {
-                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i3, j2, i4, str);
+                iMediaGetContactorPauidListener.onMediaGetContactorPauidResult(i2, j, i3, str);
             }
         }
     }
@@ -164,16 +164,16 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? AccountManager.isCuidLogin(this.mContext) : invokeV.booleanValue;
     }
 
-    public IMMediaGetContactorPauidRequest(Context context, long j2, int i2, long j3, String str, String str2) {
+    public IMMediaGetContactorPauidRequest(Context context, long j, int i, long j2, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(i2), Long.valueOf(j3), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -182,10 +182,10 @@ public class IMMediaGetContactorPauidRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = -1;
         this.mContactorPauid = -1L;
         this.mContext = context;
-        this.mContacter = j2;
+        this.mContacter = j;
         this.mKey = str2;
-        this.mContactorType = i2;
-        this.mContactorPauid = j3;
+        this.mContactorType = i;
+        this.mContactorPauid = j2;
         this.mContactorThirdid = str;
     }
 }

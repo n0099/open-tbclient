@@ -14,11 +14,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.text.cea.Cea608Decoder;
 import com.kwad.yoga.YogaNodeJNIBase;
-import io.flutter.plugin.common.StandardMessageCodec;
 import java.math.BigInteger;
 import org.apache.commons.codec.binary4util.BaseNCodec;
 @SuppressLint({"BDThrowableCheck"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Base64 extends BaseNCodec {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BITS_PER_ENCODED_BYTE = 6;
@@ -52,7 +51,7 @@ public class Base64 extends BaseNCodec {
         CHUNK_SEPARATOR = new byte[]{13, 10};
         STANDARD_ENCODE_TABLE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 43, Cea608Decoder.CTRL_END_OF_CAPTION};
         URL_SAFE_ENCODE_TABLE = new byte[]{65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, ContentUtil.GZIP_HEAD_1, 118, 119, 120, 121, 122, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 45, 95};
-        DECODE_TABLE = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, StandardMessageCodec.LIST, 13, 14, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51};
+        DECODE_TABLE = new byte[]{-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 62, -1, 62, -1, 63, 52, 53, 54, 55, 56, 57, 58, 59, 60, BaseNCodec.PAD_DEFAULT, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, Constants.GZIP_CAST_TYPE, 12, 13, YogaNodeJNIBase.LAYOUT_BORDER_START_INDEX, 15, YogaNodeJNIBase.HAS_NEW_LAYOUT, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, 63, -1, 26, 27, 28, 29, 30, 31, 32, 33, 34, com.baidu.webkit.internal.Base64.INTERNAL_PADDING, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_2_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 40, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 42, 43, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, 45, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, Cea608Decoder.CTRL_END_OF_CAPTION, 48, 49, 50, 51};
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -62,9 +61,9 @@ public class Base64 extends BaseNCodec {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -157,18 +156,18 @@ public class Base64 extends BaseNCodec {
         if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, bigInteger)) == null) {
             int bitLength = ((bigInteger.bitLength() + 7) >> 3) << 3;
             byte[] byteArray = bigInteger.toByteArray();
-            int i2 = 1;
+            int i = 1;
             if (bigInteger.bitLength() % 8 == 0 || (bigInteger.bitLength() / 8) + 1 != bitLength / 8) {
                 int length = byteArray.length;
                 if (bigInteger.bitLength() % 8 == 0) {
                     length--;
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
-                int i3 = bitLength / 8;
-                int i4 = i3 - length;
-                byte[] bArr = new byte[i3];
-                System.arraycopy(byteArray, i2, bArr, i4, length);
+                int i2 = bitLength / 8;
+                int i3 = i2 - length;
+                byte[] bArr = new byte[i2];
+                System.arraycopy(byteArray, i, bArr, i3, length);
                 return bArr;
             }
             return byteArray;
@@ -177,23 +176,23 @@ public class Base64 extends BaseNCodec {
     }
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
-    public void decode(byte[] bArr, int i2, int i3, BaseNCodec.Context context) {
+    public void decode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
         byte b2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), context}) == null) || context.eof) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context}) == null) || context.eof) {
             return;
         }
-        if (i3 < 0) {
+        if (i2 < 0) {
             context.eof = true;
         }
-        int i4 = 0;
+        int i3 = 0;
         while (true) {
-            if (i4 >= i3) {
+            if (i3 >= i2) {
                 break;
             }
             byte[] ensureBufferSize = ensureBufferSize(this.decodeSize, context);
-            int i5 = i2 + 1;
-            byte b3 = bArr[i2];
+            int i4 = i + 1;
+            byte b3 = bArr[i];
             if (b3 == this.pad) {
                 context.eof = true;
                 break;
@@ -201,47 +200,47 @@ public class Base64 extends BaseNCodec {
             if (b3 >= 0) {
                 byte[] bArr2 = DECODE_TABLE;
                 if (b3 < bArr2.length && (b2 = bArr2[b3]) >= 0) {
-                    int i6 = (context.modulus + 1) % 4;
-                    context.modulus = i6;
-                    int i7 = (context.ibitWorkArea << 6) + b2;
-                    context.ibitWorkArea = i7;
-                    if (i6 == 0) {
-                        int i8 = context.pos;
+                    int i5 = (context.modulus + 1) % 4;
+                    context.modulus = i5;
+                    int i6 = (context.ibitWorkArea << 6) + b2;
+                    context.ibitWorkArea = i6;
+                    if (i5 == 0) {
+                        int i7 = context.pos;
+                        int i8 = i7 + 1;
+                        context.pos = i8;
+                        ensureBufferSize[i7] = (byte) ((i6 >> 16) & 255);
                         int i9 = i8 + 1;
                         context.pos = i9;
-                        ensureBufferSize[i8] = (byte) ((i7 >> 16) & 255);
-                        int i10 = i9 + 1;
-                        context.pos = i10;
-                        ensureBufferSize[i9] = (byte) ((i7 >> 8) & 255);
-                        context.pos = i10 + 1;
-                        ensureBufferSize[i10] = (byte) (i7 & 255);
+                        ensureBufferSize[i8] = (byte) ((i6 >> 8) & 255);
+                        context.pos = i9 + 1;
+                        ensureBufferSize[i9] = (byte) (i6 & 255);
                     }
                 }
             }
-            i4++;
-            i2 = i5;
+            i3++;
+            i = i4;
         }
         if (!context.eof || context.modulus == 0) {
             return;
         }
         byte[] ensureBufferSize2 = ensureBufferSize(this.decodeSize, context);
-        int i11 = context.modulus;
-        if (i11 != 1) {
-            if (i11 == 2) {
-                int i12 = context.ibitWorkArea >> 4;
-                context.ibitWorkArea = i12;
-                int i13 = context.pos;
-                context.pos = i13 + 1;
-                ensureBufferSize2[i13] = (byte) (i12 & 255);
-            } else if (i11 == 3) {
-                int i14 = context.ibitWorkArea >> 2;
-                context.ibitWorkArea = i14;
-                int i15 = context.pos;
-                int i16 = i15 + 1;
-                context.pos = i16;
-                ensureBufferSize2[i15] = (byte) ((i14 >> 8) & 255);
-                context.pos = i16 + 1;
-                ensureBufferSize2[i16] = (byte) (i14 & 255);
+        int i10 = context.modulus;
+        if (i10 != 1) {
+            if (i10 == 2) {
+                int i11 = context.ibitWorkArea >> 4;
+                context.ibitWorkArea = i11;
+                int i12 = context.pos;
+                context.pos = i12 + 1;
+                ensureBufferSize2[i12] = (byte) (i11 & 255);
+            } else if (i10 == 3) {
+                int i13 = context.ibitWorkArea >> 2;
+                context.ibitWorkArea = i13;
+                int i14 = context.pos;
+                int i15 = i14 + 1;
+                context.pos = i15;
+                ensureBufferSize2[i14] = (byte) ((i13 >> 8) & 255);
+                context.pos = i15 + 1;
+                ensureBufferSize2[i15] = (byte) (i13 & 255);
             } else {
                 throw new IllegalStateException("Impossible modulus " + context.modulus);
             }
@@ -249,50 +248,50 @@ public class Base64 extends BaseNCodec {
     }
 
     @Override // org.apache.commons.codec.binary4util.BaseNCodec
-    public void encode(byte[] bArr, int i2, int i3, BaseNCodec.Context context) {
+    public void encode(byte[] bArr, int i, int i2, BaseNCodec.Context context) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i2), Integer.valueOf(i3), context}) == null) || context.eof) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), context}) == null) || context.eof) {
             return;
         }
-        if (i3 >= 0) {
-            int i4 = 0;
-            while (i4 < i3) {
+        if (i2 >= 0) {
+            int i3 = 0;
+            while (i3 < i2) {
                 byte[] ensureBufferSize = ensureBufferSize(this.encodeSize, context);
                 context.modulus = (context.modulus + 1) % 3;
-                int i5 = i2 + 1;
-                int i6 = bArr[i2];
-                if (i6 < 0) {
-                    i6 += 256;
+                int i4 = i + 1;
+                int i5 = bArr[i];
+                if (i5 < 0) {
+                    i5 += 256;
                 }
-                int i7 = (context.ibitWorkArea << 8) + i6;
-                context.ibitWorkArea = i7;
+                int i6 = (context.ibitWorkArea << 8) + i5;
+                context.ibitWorkArea = i6;
                 if (context.modulus == 0) {
-                    int i8 = context.pos;
+                    int i7 = context.pos;
+                    int i8 = i7 + 1;
+                    context.pos = i8;
+                    byte[] bArr2 = this.encodeTable;
+                    ensureBufferSize[i7] = bArr2[(i6 >> 18) & 63];
                     int i9 = i8 + 1;
                     context.pos = i9;
-                    byte[] bArr2 = this.encodeTable;
-                    ensureBufferSize[i8] = bArr2[(i7 >> 18) & 63];
+                    ensureBufferSize[i8] = bArr2[(i6 >> 12) & 63];
                     int i10 = i9 + 1;
                     context.pos = i10;
-                    ensureBufferSize[i9] = bArr2[(i7 >> 12) & 63];
+                    ensureBufferSize[i9] = bArr2[(i6 >> 6) & 63];
                     int i11 = i10 + 1;
                     context.pos = i11;
-                    ensureBufferSize[i10] = bArr2[(i7 >> 6) & 63];
-                    int i12 = i11 + 1;
-                    context.pos = i12;
-                    ensureBufferSize[i11] = bArr2[i7 & 63];
-                    int i13 = context.currentLinePos + 4;
-                    context.currentLinePos = i13;
-                    int i14 = this.lineLength;
-                    if (i14 > 0 && i14 <= i13) {
+                    ensureBufferSize[i10] = bArr2[i6 & 63];
+                    int i12 = context.currentLinePos + 4;
+                    context.currentLinePos = i12;
+                    int i13 = this.lineLength;
+                    if (i13 > 0 && i13 <= i12) {
                         byte[] bArr3 = this.lineSeparator;
-                        System.arraycopy(bArr3, 0, ensureBufferSize, i12, bArr3.length);
+                        System.arraycopy(bArr3, 0, ensureBufferSize, i11, bArr3.length);
                         context.pos += this.lineSeparator.length;
                         context.currentLinePos = 0;
                     }
                 }
-                i4++;
-                i2 = i5;
+                i3++;
+                i = i4;
             }
             return;
         }
@@ -301,55 +300,55 @@ public class Base64 extends BaseNCodec {
             return;
         }
         byte[] ensureBufferSize2 = ensureBufferSize(this.encodeSize, context);
-        int i15 = context.pos;
-        int i16 = context.modulus;
-        if (i16 != 0) {
-            if (i16 == 1) {
-                int i17 = i15 + 1;
-                context.pos = i17;
+        int i14 = context.pos;
+        int i15 = context.modulus;
+        if (i15 != 0) {
+            if (i15 == 1) {
+                int i16 = i14 + 1;
+                context.pos = i16;
                 byte[] bArr4 = this.encodeTable;
-                int i18 = context.ibitWorkArea;
-                ensureBufferSize2[i15] = bArr4[(i18 >> 2) & 63];
-                int i19 = i17 + 1;
-                context.pos = i19;
-                ensureBufferSize2[i17] = bArr4[(i18 << 4) & 63];
+                int i17 = context.ibitWorkArea;
+                ensureBufferSize2[i14] = bArr4[(i17 >> 2) & 63];
+                int i18 = i16 + 1;
+                context.pos = i18;
+                ensureBufferSize2[i16] = bArr4[(i17 << 4) & 63];
                 if (bArr4 == STANDARD_ENCODE_TABLE) {
-                    int i20 = i19 + 1;
-                    context.pos = i20;
+                    int i19 = i18 + 1;
+                    context.pos = i19;
                     byte b2 = this.pad;
+                    ensureBufferSize2[i18] = b2;
+                    context.pos = i19 + 1;
                     ensureBufferSize2[i19] = b2;
-                    context.pos = i20 + 1;
-                    ensureBufferSize2[i20] = b2;
                 }
-            } else if (i16 == 2) {
-                int i21 = i15 + 1;
-                context.pos = i21;
+            } else if (i15 == 2) {
+                int i20 = i14 + 1;
+                context.pos = i20;
                 byte[] bArr5 = this.encodeTable;
-                int i22 = context.ibitWorkArea;
-                ensureBufferSize2[i15] = bArr5[(i22 >> 10) & 63];
-                int i23 = i21 + 1;
+                int i21 = context.ibitWorkArea;
+                ensureBufferSize2[i14] = bArr5[(i21 >> 10) & 63];
+                int i22 = i20 + 1;
+                context.pos = i22;
+                ensureBufferSize2[i20] = bArr5[(i21 >> 4) & 63];
+                int i23 = i22 + 1;
                 context.pos = i23;
-                ensureBufferSize2[i21] = bArr5[(i22 >> 4) & 63];
-                int i24 = i23 + 1;
-                context.pos = i24;
-                ensureBufferSize2[i23] = bArr5[(i22 << 2) & 63];
+                ensureBufferSize2[i22] = bArr5[(i21 << 2) & 63];
                 if (bArr5 == STANDARD_ENCODE_TABLE) {
-                    context.pos = i24 + 1;
-                    ensureBufferSize2[i24] = this.pad;
+                    context.pos = i23 + 1;
+                    ensureBufferSize2[i23] = this.pad;
                 }
             } else {
                 throw new IllegalStateException("Impossible modulus " + context.modulus);
             }
         }
-        int i25 = context.currentLinePos;
-        int i26 = context.pos;
-        int i27 = i25 + (i26 - i15);
-        context.currentLinePos = i27;
-        if (this.lineLength <= 0 || i27 <= 0) {
+        int i24 = context.currentLinePos;
+        int i25 = context.pos;
+        int i26 = i24 + (i25 - i14);
+        context.currentLinePos = i26;
+        if (this.lineLength <= 0 || i26 <= 0) {
             return;
         }
         byte[] bArr6 = this.lineSeparator;
-        System.arraycopy(bArr6, 0, ensureBufferSize2, i26, bArr6.length);
+        System.arraycopy(bArr6, 0, ensureBufferSize2, i25, bArr6.length);
         context.pos += this.lineSeparator.length;
     }
 
@@ -384,9 +383,9 @@ public class Base64 extends BaseNCodec {
             newInitContext.initArgs = r2;
             Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -415,17 +414,17 @@ public class Base64 extends BaseNCodec {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Base64(int i2) {
-        this(i2, CHUNK_SEPARATOR);
+    public Base64(int i) {
+        this(i, CHUNK_SEPARATOR);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -445,8 +444,8 @@ public class Base64 extends BaseNCodec {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65557, null, bArr)) == null) {
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (!isBase64(bArr[i2]) && !BaseNCodec.isWhiteSpace(bArr[i2])) {
+            for (int i = 0; i < bArr.length; i++) {
+                if (!isBase64(bArr[i]) && !BaseNCodec.isWhiteSpace(bArr[i])) {
                     return false;
                 }
             }
@@ -456,17 +455,17 @@ public class Base64 extends BaseNCodec {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Base64(int i2, byte[] bArr) {
-        this(i2, bArr, false);
+    public Base64(int i, byte[] bArr) {
+        this(i, bArr, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr};
+            Object[] objArr = {Integer.valueOf(i), bArr};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this(((Integer) objArr2[0]).intValue(), (byte[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -476,35 +475,35 @@ public class Base64 extends BaseNCodec {
         }
     }
 
-    public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2, int i2) {
+    public static byte[] encodeBase64(byte[] bArr, boolean z, boolean z2, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bArr, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{bArr, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
             if (bArr == null || bArr.length == 0) {
                 return bArr;
             }
             Base64 base64 = z ? new Base64(z2) : new Base64(0, CHUNK_SEPARATOR, z2);
             long encodedLength = base64.getEncodedLength(bArr);
-            if (encodedLength <= i2) {
+            if (encodedLength <= i) {
                 return base64.encode(bArr);
             }
-            throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + encodedLength + ") than the specified maximum size of " + i2);
+            throw new IllegalArgumentException("Input array too big, the output array would be bigger (" + encodedLength + ") than the specified maximum size of " + i);
         }
         return (byte[]) invokeCommon.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public Base64(int i2, byte[] bArr, boolean z) {
-        super(3, 4, i2, bArr == null ? 0 : bArr.length);
+    public Base64(int i, byte[] bArr, boolean z) {
+        super(3, 4, i, bArr == null ? 0 : bArr.length);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), bArr, Boolean.valueOf(z)};
+            Object[] objArr = {Integer.valueOf(i), bArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -517,7 +516,7 @@ public class Base64 extends BaseNCodec {
             if (containsAlphabetOrPad(bArr)) {
                 String newStringUtf8 = org.apache.commons.base.binary4util.CodecStringUtils.newStringUtf8(bArr);
                 throw new IllegalArgumentException("lineSeparator must not contain base64 characters: [" + newStringUtf8 + PreferencesUtil.RIGHT_MOUNT);
-            } else if (i2 > 0) {
+            } else if (i > 0) {
                 this.encodeSize = bArr.length + 4;
                 byte[] bArr2 = new byte[bArr.length];
                 this.lineSeparator = bArr2;

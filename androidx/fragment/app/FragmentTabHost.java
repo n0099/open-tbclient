@@ -51,9 +51,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -105,9 +105,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -126,10 +126,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // android.os.Parcelable.Creator
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
             };
         }
@@ -143,9 +143,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -165,10 +165,10 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeString(this.curTab);
             }
         }
@@ -182,9 +182,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcel) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -214,9 +214,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, cls, bundle};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -238,9 +238,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -323,8 +323,8 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, str)) == null) {
             int size = this.mTabs.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                TabInfo tabInfo = this.mTabs.get(i2);
+            for (int i = 0; i < size; i++) {
+                TabInfo tabInfo = this.mTabs.get(i);
                 if (tabInfo.tag.equals(str)) {
                     return tabInfo;
                 }
@@ -374,8 +374,8 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             String currentTabTag = getCurrentTabTag();
             int size = this.mTabs.size();
             FragmentTransaction fragmentTransaction = null;
-            for (int i2 = 0; i2 < size; i2++) {
-                TabInfo tabInfo = this.mTabs.get(i2);
+            for (int i = 0; i < size; i++) {
+                TabInfo tabInfo = this.mTabs.get(i);
                 Fragment findFragmentByTag = this.mFragmentManager.findFragmentByTag(tabInfo.tag);
                 tabInfo.fragment = findFragmentByTag;
                 if (findFragmentByTag != null && !findFragmentByTag.isDetached()) {
@@ -493,9 +493,9 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -508,16 +508,16 @@ public class FragmentTabHost extends TabHost implements TabHost.OnTabChangeListe
     }
 
     @Deprecated
-    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager, int i2) {
+    public void setup(@NonNull Context context, @NonNull FragmentManager fragmentManager, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, fragmentManager, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, fragmentManager, i) == null) {
             ensureHierarchy(context);
             super.setup();
             this.mContext = context;
             this.mFragmentManager = fragmentManager;
-            this.mContainerId = i2;
+            this.mContainerId = i;
             ensureContent();
-            this.mRealTabContent.setId(i2);
+            this.mRealTabContent.setId(i);
             if (getId() == -1) {
                 setId(16908306);
             }

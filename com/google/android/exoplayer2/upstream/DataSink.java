@@ -1,10 +1,10 @@
 package com.google.android.exoplayer2.upstream;
 
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface DataSink {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Factory {
         DataSink createDataSink();
     }
@@ -13,5 +13,5 @@ public interface DataSink {
 
     void open(DataSpec dataSpec) throws IOException;
 
-    void write(byte[] bArr, int i2, int i3) throws IOException;
+    void write(byte[] bArr, int i, int i2) throws IOException;
 }

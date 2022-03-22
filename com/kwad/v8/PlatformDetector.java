@@ -1,6 +1,7 @@
 package com.kwad.v8;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,12 +16,12 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Locale;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PlatformDetector {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Arch {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +31,9 @@ public class PlatformDetector {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -54,7 +55,7 @@ public class PlatformDetector {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class OS {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +65,9 @@ public class PlatformDetector {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -140,7 +141,7 @@ public class PlatformDetector {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Vendor {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LINUX_ID_PREFIX = "ID=";
@@ -169,9 +170,9 @@ public class PlatformDetector {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -245,7 +246,7 @@ public class PlatformDetector {
             BufferedReader bufferedReader2 = null;
             String str = null;
             try {
-                bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
+                bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), IMAudioTransRequest.CHARSET));
                 while (true) {
                     try {
                         String readLine = bufferedReader.readLine();
@@ -283,7 +284,7 @@ public class PlatformDetector {
                 String str = "centos";
                 BufferedReader bufferedReader2 = null;
                 try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "utf-8"));
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file), IMAudioTransRequest.CHARSET));
                     try {
                         String readLine = bufferedReader.readLine();
                         if (readLine != null) {
@@ -325,9 +326,9 @@ public class PlatformDetector {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

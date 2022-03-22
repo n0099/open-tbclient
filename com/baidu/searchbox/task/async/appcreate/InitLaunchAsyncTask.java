@@ -2,12 +2,12 @@ package com.baidu.searchbox.task.async.appcreate;
 
 import c.a.d.f.j.b.c;
 import c.a.d.f.m.e;
-import c.a.q0.c1.j;
-import c.a.q0.c1.p;
-import c.a.q0.r0.k;
-import c.a.r0.h3.b;
-import c.a.r0.i3.a;
-import c.a.r0.y3.q0.d;
+import c.a.o0.c1.j;
+import c.a.o0.c1.p;
+import c.a.o0.r0.k;
+import c.a.p0.a4.q0.d;
+import c.a.p0.j3.b;
+import c.a.p0.k3.a;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,9 +41,9 @@ public class InitLaunchAsyncTask extends LaunchTask {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,21 +53,21 @@ public class InitLaunchAsyncTask extends LaunchTask {
     private void initICDN() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            c.f2596f = UseHttpdnsSdkSwitch.isOn();
+            c.f2138f = UseHttpdnsSdkSwitch.isOn();
             if (UseHttpdnsSdkSwitch.isOn()) {
-                BDHttpDns j2 = BDHttpDns.j(TbadkCoreApplication.getInst().getApplicationContext());
-                j2.n(false);
+                BDHttpDns j = BDHttpDns.j(TbadkCoreApplication.getInst().getApplicationContext());
+                j.n(false);
                 try {
-                    j2.k("119799");
-                    j2.q("87JNTZjGacgUzuMBYvid");
+                    j.k("119799");
+                    j.q("87JNTZjGacgUzuMBYvid");
                 } catch (Exception e2) {
                     BdLog.e(e2);
                 }
-                j2.m(true);
-                j2.o(true, true);
-                j2.l(BDHttpDns.CachePolicy.POLICY_TOLERANT);
+                j.m(true);
+                j.o(true, true);
+                j.l(BDHttpDns.CachePolicy.POLICY_TOLERANT);
                 if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                    e.a().postDelayed(new Runnable(this, j2) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
+                    e.a().postDelayed(new Runnable(this, j) { // from class: com.baidu.searchbox.task.async.appcreate.InitLaunchAsyncTask.3
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ InitLaunchAsyncTask this$0;
@@ -78,18 +78,18 @@ public class InitLaunchAsyncTask extends LaunchTask {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, j2};
+                                Object[] objArr = {this, j};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$0 = this;
-                            this.val$httpDns = j2;
+                            this.val$httpDns = j;
                         }
 
                         @Override // java.lang.Runnable
@@ -134,9 +134,9 @@ public class InitLaunchAsyncTask extends LaunchTask {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -161,9 +161,9 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -172,7 +172,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
                                 this.this$1 = this;
                             }
 
-                            @Override // c.a.q0.c1.p.b
+                            @Override // c.a.o0.c1.p.b
                             public void onResult(boolean z) {
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || interceptable3.invokeZ(1048576, this, z) == null) {
@@ -196,10 +196,10 @@ public class InitLaunchAsyncTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setServiceOnCreateCallBack();
             a.g().j();
-            c.a.q0.u.a.k().n(TbadkCoreApplication.getInst().isMainProcess(false));
+            c.a.o0.u.a.k().n(TbadkCoreApplication.getInst().isMainProcess(false));
             intReadThreadHistory();
-            c.a.q0.s.a.a.c();
-            c.a.q0.r.m.b.t().C();
+            c.a.o0.s.a.a.c();
+            c.a.o0.r.m.b.t().C();
             j.m().t(TbadkCoreApplication.getInst());
             initICDN();
             initQuickWebViewManager();
@@ -220,9 +220,9 @@ public class InitLaunchAsyncTask extends LaunchTask {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -271,7 +271,7 @@ public class InitLaunchAsyncTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
             TbadkApplication.getInst().mReadThreadHistory = new d(300);
-            TbadkApplication.getInst().mPhotoLiveReadHistory = new c.a.r0.y3.q0.c(300);
+            TbadkApplication.getInst().mPhotoLiveReadHistory = new c.a.p0.a4.q0.c(300);
             c.a.d.a.b.g().s(TbadkApplication.getInst());
         }
     }

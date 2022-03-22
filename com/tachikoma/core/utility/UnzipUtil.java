@@ -30,7 +30,7 @@ import java.util.Enumeration;
 import java.util.UUID;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class UnzipUtil {
     public static /* synthetic */ Interceptable $ic;
     public static final byte[] PNG_END_CODE;
@@ -59,9 +59,9 @@ public class UnzipUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -226,10 +226,10 @@ public class UnzipUtil {
             String[] split = str2.split("/");
             File file = new File(str);
             if (split.length >= 1) {
-                int i2 = 0;
-                while (i2 < split.length - 1) {
-                    i2++;
-                    file = new File(file, getTextWithCharset(split[i2], charset));
+                int i = 0;
+                while (i < split.length - 1) {
+                    i++;
+                    file = new File(file, getTextWithCharset(split[i], charset));
                 }
                 if (!file.exists()) {
                     file.mkdirs();
@@ -289,7 +289,7 @@ public class UnzipUtil {
         File file2;
         String str3;
         ZipFile zipFile;
-        int i2;
+        int i;
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65547, null, file, str, str2, charset) == null) {

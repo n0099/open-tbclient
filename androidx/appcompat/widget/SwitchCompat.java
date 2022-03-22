@@ -123,9 +123,9 @@ public class SwitchCompat extends CompoundButton {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -164,9 +164,9 @@ public class SwitchCompat extends CompoundButton {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -306,12 +306,12 @@ public class SwitchCompat extends CompoundButton {
             }
             int thumbOffset = getThumbOffset();
             this.mThumbDrawable.getPadding(this.mTempRect);
-            int i2 = this.mSwitchTop;
-            int i3 = this.mTouchSlop;
-            int i4 = i2 - i3;
-            int i5 = (this.mSwitchLeft + thumbOffset) - i3;
+            int i = this.mSwitchTop;
+            int i2 = this.mTouchSlop;
+            int i3 = i - i2;
+            int i4 = (this.mSwitchLeft + thumbOffset) - i2;
             Rect rect = this.mTempRect;
-            return f2 > ((float) i5) && f2 < ((float) ((((this.mThumbWidth + i5) + rect.left) + rect.right) + i3)) && f3 > ((float) i4) && f3 < ((float) (this.mSwitchBottom + i3));
+            return f2 > ((float) i4) && f2 < ((float) ((((this.mThumbWidth + i4) + rect.left) + rect.right) + i2)) && f3 > ((float) i3) && f3 < ((float) (this.mSwitchBottom + i2));
         }
         return invokeCommon.booleanValue;
     }
@@ -331,18 +331,18 @@ public class SwitchCompat extends CompoundButton {
         return (Layout) invokeL.objValue;
     }
 
-    private void setSwitchTypefaceByIndex(int i2, int i3) {
+    private void setSwitchTypefaceByIndex(int i, int i2) {
         Typeface typeface;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65551, this, i2, i3) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeII(65551, this, i, i2) == null) {
+            if (i == 1) {
                 typeface = Typeface.SANS_SERIF;
-            } else if (i2 != 2) {
-                typeface = i2 != 3 ? null : Typeface.MONOSPACE;
+            } else if (i != 2) {
+                typeface = i != 3 ? null : Typeface.MONOSPACE;
             } else {
                 typeface = Typeface.SERIF;
             }
-            setSwitchTypeface(typeface, i3);
+            setSwitchTypeface(typeface, i2);
         }
     }
 
@@ -377,16 +377,16 @@ public class SwitchCompat extends CompoundButton {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         Rect rect;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
             Rect rect2 = this.mTempRect;
-            int i4 = this.mSwitchLeft;
-            int i5 = this.mSwitchTop;
-            int i6 = this.mSwitchRight;
-            int i7 = this.mSwitchBottom;
-            int thumbOffset = getThumbOffset() + i4;
+            int i3 = this.mSwitchLeft;
+            int i4 = this.mSwitchTop;
+            int i5 = this.mSwitchRight;
+            int i6 = this.mSwitchBottom;
+            int thumbOffset = getThumbOffset() + i3;
             Drawable drawable = this.mThumbDrawable;
             if (drawable != null) {
                 rect = DrawableUtils.getOpticalBounds(drawable);
@@ -396,42 +396,42 @@ public class SwitchCompat extends CompoundButton {
             Drawable drawable2 = this.mTrackDrawable;
             if (drawable2 != null) {
                 drawable2.getPadding(rect2);
-                int i8 = rect2.left;
-                thumbOffset += i8;
+                int i7 = rect2.left;
+                thumbOffset += i7;
                 if (rect != null) {
-                    int i9 = rect.left;
-                    if (i9 > i8) {
-                        i4 += i9 - i8;
+                    int i8 = rect.left;
+                    if (i8 > i7) {
+                        i3 += i8 - i7;
                     }
-                    int i10 = rect.top;
-                    int i11 = rect2.top;
-                    i2 = i10 > i11 ? (i10 - i11) + i5 : i5;
-                    int i12 = rect.right;
-                    int i13 = rect2.right;
-                    if (i12 > i13) {
-                        i6 -= i12 - i13;
+                    int i9 = rect.top;
+                    int i10 = rect2.top;
+                    i = i9 > i10 ? (i9 - i10) + i4 : i4;
+                    int i11 = rect.right;
+                    int i12 = rect2.right;
+                    if (i11 > i12) {
+                        i5 -= i11 - i12;
                     }
-                    int i14 = rect.bottom;
-                    int i15 = rect2.bottom;
-                    if (i14 > i15) {
-                        i3 = i7 - (i14 - i15);
-                        this.mTrackDrawable.setBounds(i4, i2, i6, i3);
+                    int i13 = rect.bottom;
+                    int i14 = rect2.bottom;
+                    if (i13 > i14) {
+                        i2 = i6 - (i13 - i14);
+                        this.mTrackDrawable.setBounds(i3, i, i5, i2);
                     }
                 } else {
-                    i2 = i5;
+                    i = i4;
                 }
-                i3 = i7;
-                this.mTrackDrawable.setBounds(i4, i2, i6, i3);
+                i2 = i6;
+                this.mTrackDrawable.setBounds(i3, i, i5, i2);
             }
             Drawable drawable3 = this.mThumbDrawable;
             if (drawable3 != null) {
                 drawable3.getPadding(rect2);
-                int i16 = thumbOffset - rect2.left;
-                int i17 = thumbOffset + this.mThumbWidth + rect2.right;
-                this.mThumbDrawable.setBounds(i16, i5, i17, i7);
+                int i15 = thumbOffset - rect2.left;
+                int i16 = thumbOffset + this.mThumbWidth + rect2.right;
+                this.mThumbDrawable.setBounds(i15, i4, i16, i6);
                 Drawable background = getBackground();
                 if (background != null) {
-                    DrawableCompat.setHotspotBounds(background, i16, i5, i17, i7);
+                    DrawableCompat.setHotspotBounds(background, i15, i4, i16, i6);
                 }
             }
             super.draw(canvas);
@@ -610,11 +610,11 @@ public class SwitchCompat extends CompoundButton {
     }
 
     @Override // android.widget.CompoundButton, android.widget.TextView, android.view.View
-    public int[] onCreateDrawableState(int i2) {
+    public int[] onCreateDrawableState(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i2)) == null) {
-            int[] onCreateDrawableState = super.onCreateDrawableState(i2 + 1);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            int[] onCreateDrawableState = super.onCreateDrawableState(i + 1);
             if (isChecked()) {
                 CompoundButton.mergeDrawableStates(onCreateDrawableState, CHECKED_STATE_SET);
             }
@@ -636,10 +636,10 @@ public class SwitchCompat extends CompoundButton {
             } else {
                 rect.setEmpty();
             }
-            int i2 = this.mSwitchTop;
-            int i3 = this.mSwitchBottom;
-            int i4 = i2 + rect.top;
-            int i5 = i3 - rect.bottom;
+            int i = this.mSwitchTop;
+            int i2 = this.mSwitchBottom;
+            int i3 = i + rect.top;
+            int i4 = i2 - rect.bottom;
             Drawable drawable2 = this.mThumbDrawable;
             if (drawable != null) {
                 if (this.mSplitTrack && drawable2 != null) {
@@ -673,7 +673,7 @@ public class SwitchCompat extends CompoundButton {
                 } else {
                     width = getWidth();
                 }
-                canvas.translate((width / 2) - (layout.getWidth() / 2), ((i4 + i5) / 2) - (layout.getHeight() / 2));
+                canvas.translate((width / 2) - (layout.getWidth() / 2), ((i3 + i4) / 2) - (layout.getHeight() / 2));
                 layout.draw(canvas);
             }
             canvas.restoreToCount(save2);
@@ -713,17 +713,17 @@ public class SwitchCompat extends CompoundButton {
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int i6;
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
         int width;
+        int i6;
         int i7;
-        int i8;
         int paddingTop;
-        int i9;
+        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
-            int i10 = 0;
+        if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
+            int i9 = 0;
             if (this.mThumbDrawable != null) {
                 Rect rect = this.mTempRect;
                 Drawable drawable = this.mTrackDrawable;
@@ -733,47 +733,47 @@ public class SwitchCompat extends CompoundButton {
                     rect.setEmpty();
                 }
                 Rect opticalBounds = DrawableUtils.getOpticalBounds(this.mThumbDrawable);
-                i6 = Math.max(0, opticalBounds.left - rect.left);
-                i10 = Math.max(0, opticalBounds.right - rect.right);
+                i5 = Math.max(0, opticalBounds.left - rect.left);
+                i9 = Math.max(0, opticalBounds.right - rect.right);
             } else {
-                i6 = 0;
+                i5 = 0;
             }
             if (ViewUtils.isLayoutRtl(this)) {
-                i7 = getPaddingLeft() + i6;
-                width = ((this.mSwitchWidth + i7) - i6) - i10;
+                i6 = getPaddingLeft() + i5;
+                width = ((this.mSwitchWidth + i6) - i5) - i9;
             } else {
-                width = (getWidth() - getPaddingRight()) - i10;
-                i7 = (width - this.mSwitchWidth) + i6 + i10;
+                width = (getWidth() - getPaddingRight()) - i9;
+                i6 = (width - this.mSwitchWidth) + i5 + i9;
             }
             int gravity = getGravity() & 112;
             if (gravity == 16) {
-                i8 = this.mSwitchHeight;
-                paddingTop = (((getPaddingTop() + getHeight()) - getPaddingBottom()) / 2) - (i8 / 2);
+                i7 = this.mSwitchHeight;
+                paddingTop = (((getPaddingTop() + getHeight()) - getPaddingBottom()) / 2) - (i7 / 2);
             } else if (gravity != 80) {
                 paddingTop = getPaddingTop();
-                i8 = this.mSwitchHeight;
+                i7 = this.mSwitchHeight;
             } else {
-                i9 = getHeight() - getPaddingBottom();
-                paddingTop = i9 - this.mSwitchHeight;
-                this.mSwitchLeft = i7;
+                i8 = getHeight() - getPaddingBottom();
+                paddingTop = i8 - this.mSwitchHeight;
+                this.mSwitchLeft = i6;
                 this.mSwitchTop = paddingTop;
-                this.mSwitchBottom = i9;
+                this.mSwitchBottom = i8;
                 this.mSwitchRight = width;
             }
-            i9 = i8 + paddingTop;
-            this.mSwitchLeft = i7;
+            i8 = i7 + paddingTop;
+            this.mSwitchLeft = i6;
             this.mSwitchTop = paddingTop;
-            this.mSwitchBottom = i9;
+            this.mSwitchBottom = i8;
             this.mSwitchRight = width;
         }
     }
 
     @Override // android.widget.TextView, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048600, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048600, this, i, i2) == null) {
             if (this.mShowText) {
                 if (this.mOnLayout == null) {
                     this.mOnLayout = makeLayout(this.mTextOn);
@@ -784,36 +784,36 @@ public class SwitchCompat extends CompoundButton {
             }
             Rect rect = this.mTempRect;
             Drawable drawable = this.mThumbDrawable;
-            int i6 = 0;
+            int i5 = 0;
             if (drawable != null) {
                 drawable.getPadding(rect);
-                i4 = (this.mThumbDrawable.getIntrinsicWidth() - rect.left) - rect.right;
-                i5 = this.mThumbDrawable.getIntrinsicHeight();
+                i3 = (this.mThumbDrawable.getIntrinsicWidth() - rect.left) - rect.right;
+                i4 = this.mThumbDrawable.getIntrinsicHeight();
             } else {
+                i3 = 0;
                 i4 = 0;
-                i5 = 0;
             }
-            this.mThumbWidth = Math.max(this.mShowText ? Math.max(this.mOnLayout.getWidth(), this.mOffLayout.getWidth()) + (this.mThumbTextPadding * 2) : 0, i4);
+            this.mThumbWidth = Math.max(this.mShowText ? Math.max(this.mOnLayout.getWidth(), this.mOffLayout.getWidth()) + (this.mThumbTextPadding * 2) : 0, i3);
             Drawable drawable2 = this.mTrackDrawable;
             if (drawable2 != null) {
                 drawable2.getPadding(rect);
-                i6 = this.mTrackDrawable.getIntrinsicHeight();
+                i5 = this.mTrackDrawable.getIntrinsicHeight();
             } else {
                 rect.setEmpty();
             }
-            int i7 = rect.left;
-            int i8 = rect.right;
+            int i6 = rect.left;
+            int i7 = rect.right;
             Drawable drawable3 = this.mThumbDrawable;
             if (drawable3 != null) {
                 Rect opticalBounds = DrawableUtils.getOpticalBounds(drawable3);
-                i7 = Math.max(i7, opticalBounds.left);
-                i8 = Math.max(i8, opticalBounds.right);
+                i6 = Math.max(i6, opticalBounds.left);
+                i7 = Math.max(i7, opticalBounds.right);
             }
-            int max = Math.max(this.mSwitchMinWidth, (this.mThumbWidth * 2) + i7 + i8);
-            int max2 = Math.max(i6, i5);
+            int max = Math.max(this.mSwitchMinWidth, (this.mThumbWidth * 2) + i6 + i7);
+            int max2 = Math.max(i5, i4);
             this.mSwitchWidth = max;
             this.mSwitchHeight = max2;
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
             if (getMeasuredHeight() < max2) {
                 setMeasuredDimension(getMeasuredWidthAndState(), max2);
             }
@@ -848,8 +848,8 @@ public class SwitchCompat extends CompoundButton {
             if (actionMasked != 0) {
                 if (actionMasked != 1) {
                     if (actionMasked == 2) {
-                        int i2 = this.mTouchMode;
-                        if (i2 == 1) {
+                        int i = this.mTouchMode;
+                        if (i == 1) {
                             float x = motionEvent.getX();
                             float y = motionEvent.getY();
                             if (Math.abs(x - this.mTouchX) > this.mTouchSlop || Math.abs(y - this.mTouchY) > this.mTouchSlop) {
@@ -859,7 +859,7 @@ public class SwitchCompat extends CompoundButton {
                                 this.mTouchY = y;
                                 return true;
                             }
-                        } else if (i2 == 2) {
+                        } else if (i == 2) {
                             float x2 = motionEvent.getX();
                             int thumbScrollRange = getThumbScrollRange();
                             float f2 = x2 - this.mTouchX;
@@ -937,26 +937,26 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setSwitchMinWidth(int i2) {
+    public void setSwitchMinWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mSwitchMinWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mSwitchMinWidth = i;
             requestLayout();
         }
     }
 
-    public void setSwitchPadding(int i2) {
+    public void setSwitchPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048608, this, i2) == null) {
-            this.mSwitchPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048608, this, i) == null) {
+            this.mSwitchPadding = i;
             requestLayout();
         }
     }
 
-    public void setSwitchTextAppearance(Context context, int i2) {
+    public void setSwitchTextAppearance(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048609, this, context, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i2, R$styleable.TextAppearance);
+        if (interceptable == null || interceptable.invokeLI(1048609, this, context, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i, R$styleable.TextAppearance);
             ColorStateList colorStateList = obtainStyledAttributes.getColorStateList(R$styleable.TextAppearance_android_textColor);
             if (colorStateList != null) {
                 this.mTextColors = colorStateList;
@@ -981,20 +981,20 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setSwitchTypeface(Typeface typeface, int i2) {
+    public void setSwitchTypeface(Typeface typeface, int i) {
         Typeface create;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048611, this, typeface, i2) == null) {
-            if (i2 > 0) {
+        if (interceptable == null || interceptable.invokeLI(1048611, this, typeface, i) == null) {
+            if (i > 0) {
                 if (typeface == null) {
-                    create = Typeface.defaultFromStyle(i2);
+                    create = Typeface.defaultFromStyle(i);
                 } else {
-                    create = Typeface.create(typeface, i2);
+                    create = Typeface.create(typeface, i);
                 }
                 setSwitchTypeface(create);
-                int i3 = (~(create != null ? create.getStyle() : 0)) & i2;
-                this.mTextPaint.setFakeBoldText((i3 & 1) != 0);
-                this.mTextPaint.setTextSkewX((i3 & 2) != 0 ? -0.25f : 0.0f);
+                int i2 = (~(create != null ? create.getStyle() : 0)) & i;
+                this.mTextPaint.setFakeBoldText((i2 & 1) != 0);
+                this.mTextPaint.setTextSkewX((i2 & 2) != 0 ? -0.25f : 0.0f);
                 return;
             }
             this.mTextPaint.setFakeBoldText(false);
@@ -1042,17 +1042,17 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setThumbResource(int i2) {
+    public void setThumbResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            setThumbDrawable(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            setThumbDrawable(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
-    public void setThumbTextPadding(int i2) {
+    public void setThumbTextPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.mThumbTextPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mThumbTextPadding = i;
             requestLayout();
         }
     }
@@ -1090,10 +1090,10 @@ public class SwitchCompat extends CompoundButton {
         }
     }
 
-    public void setTrackResource(int i2) {
+    public void setTrackResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048621, this, i2) == null) {
-            setTrackDrawable(AppCompatResources.getDrawable(getContext(), i2));
+        if (interceptable == null || interceptable.invokeI(1048621, this, i) == null) {
+            setTrackDrawable(AppCompatResources.getDrawable(getContext(), i));
         }
     }
 
@@ -1132,16 +1132,16 @@ public class SwitchCompat extends CompoundButton {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R$attr.switchStyle);
+        this(context, attributeSet, R$attr.obfuscated);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1152,17 +1152,17 @@ public class SwitchCompat extends CompoundButton {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SwitchCompat(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1183,8 +1183,8 @@ public class SwitchCompat extends CompoundButton {
         ThemeUtils.checkAppCompatTheme(this, getContext());
         this.mTextPaint = new TextPaint(1);
         this.mTextPaint.density = getResources().getDisplayMetrics().density;
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.SwitchCompat, i2, 0);
-        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.SwitchCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.SwitchCompat, i, 0);
+        ViewCompat.saveAttributeDataForStyleable(this, context, R$styleable.SwitchCompat, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
         Drawable drawable = obtainStyledAttributes.getDrawable(R$styleable.SwitchCompat_android_thumb);
         this.mThumbDrawable = drawable;
         if (drawable != null) {
@@ -1234,7 +1234,7 @@ public class SwitchCompat extends CompoundButton {
         }
         AppCompatTextHelper appCompatTextHelper = new AppCompatTextHelper(this);
         this.mTextHelper = appCompatTextHelper;
-        appCompatTextHelper.loadFromAttributes(attributeSet, i2);
+        appCompatTextHelper.loadFromAttributes(attributeSet, i);
         obtainStyledAttributes.recycle();
         ViewConfiguration viewConfiguration = ViewConfiguration.get(context);
         this.mTouchSlop = viewConfiguration.getScaledTouchSlop();

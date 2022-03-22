@@ -37,9 +37,9 @@ public final class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -50,13 +50,13 @@ public final class d {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, uniqueId)) == null) {
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.a.f3668c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.a.f3156c.a())) {
                 return new c.a.j.g.f.a(taskInfo);
             }
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.b.f3670c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.b.f3158c.a())) {
                 return new c.a.j.g.f.b(taskInfo);
             }
-            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.c.f3672c.a())) {
+            if (Intrinsics.areEqual(uniqueId, c.a.j.g.f.c.f3160c.a())) {
                 return new c.a.j.g.f.c(taskInfo);
             }
             return null;

@@ -16,23 +16,23 @@ public final class ExpandedRow {
     public final int rowNumber;
     public final boolean wasReversed;
 
-    public ExpandedRow(List<ExpandedPair> list, int i2, boolean z) {
+    public ExpandedRow(List<ExpandedPair> list, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {list, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.pairs = new ArrayList(list);
-        this.rowNumber = i2;
+        this.rowNumber = i;
         this.wasReversed = z;
     }
 

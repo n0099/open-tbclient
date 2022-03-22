@@ -14,18 +14,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DisableScrollLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f38990e;
+    /* renamed from: b  reason: collision with root package name */
+    public double f29984b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public double f38991f;
+    /* renamed from: c  reason: collision with root package name */
+    public double f29985c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public double f38992g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f38993h;
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f29986d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DisableScrollLayout(Context context) {
@@ -36,18 +34,18 @@ public class DisableScrollLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f38991f = 0.0d;
-        this.f38992g = 0.0d;
-        this.f38993h = true;
+        this.f29984b = 0.0d;
+        this.f29985c = 0.0d;
+        this.f29986d = true;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -56,13 +54,13 @@ public class DisableScrollLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 0) {
-                this.f38991f = motionEvent.getX();
-                this.f38992g = motionEvent.getY();
+                this.f29984b = motionEvent.getX();
+                this.f29985c = motionEvent.getY();
             }
-            if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.f38990e) {
+            if (motionEvent.getAction() == 2 && motionEvent.getY() <= this.a) {
                 double y = motionEvent.getY();
-                if (Math.abs(motionEvent.getX() - this.f38991f) <= Math.abs(y - this.f38992g)) {
-                    if (y <= this.f38992g || this.f38993h) {
+                if (Math.abs(motionEvent.getX() - this.f29984b) <= Math.abs(y - this.f29985c)) {
+                    if (y <= this.f29985c || this.f29986d) {
                         return super.dispatchTouchEvent(motionEvent);
                     }
                     return true;
@@ -74,17 +72,10 @@ public class DisableScrollLayout extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void enableHeaderMoveDown(boolean z) {
+    public void setHeaderViewHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.f38993h = z;
-        }
-    }
-
-    public void setHeaderViewHeight(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f38990e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a = i;
         }
     }
 
@@ -97,9 +88,9 @@ public class DisableScrollLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -107,8 +98,8 @@ public class DisableScrollLayout extends FrameLayout {
                 return;
             }
         }
-        this.f38991f = 0.0d;
-        this.f38992g = 0.0d;
-        this.f38993h = true;
+        this.f29984b = 0.0d;
+        this.f29985c = 0.0d;
+        this.f29986d = true;
     }
 }

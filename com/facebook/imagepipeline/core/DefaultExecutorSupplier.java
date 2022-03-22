@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultExecutorSupplier implements ExecutorSupplier {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUM_IO_BOUND_THREADS = 2;
@@ -19,24 +19,24 @@ public class DefaultExecutorSupplier implements ExecutorSupplier {
     public final Executor mIoBoundExecutor;
     public final Executor mLightWeightBackgroundExecutor;
 
-    public DefaultExecutorSupplier(int i2) {
+    public DefaultExecutorSupplier(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mIoBoundExecutor = Executors.newFixedThreadPool(2, new PriorityThreadFactory(10, "FrescoIoBoundExecutor", true));
-        this.mDecodeExecutor = Executors.newFixedThreadPool(i2, new PriorityThreadFactory(10, "FrescoDecodeExecutor", true));
-        this.mBackgroundExecutor = Executors.newFixedThreadPool(i2, new PriorityThreadFactory(10, "FrescoBackgroundExecutor", true));
+        this.mDecodeExecutor = Executors.newFixedThreadPool(i, new PriorityThreadFactory(10, "FrescoDecodeExecutor", true));
+        this.mBackgroundExecutor = Executors.newFixedThreadPool(i, new PriorityThreadFactory(10, "FrescoBackgroundExecutor", true));
         this.mLightWeightBackgroundExecutor = Executors.newFixedThreadPool(1, new PriorityThreadFactory(10, "FrescoLightWeightBackgroundExecutor", true));
     }
 

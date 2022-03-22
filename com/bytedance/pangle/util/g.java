@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,8 +20,8 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 >= 21 && i2 <= 23;
+            int i = Build.VERSION.SDK_INT;
+            return i >= 21 && i <= 23;
         }
         return invokeV.booleanValue;
     }
@@ -36,9 +36,9 @@ public final class g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 < 28) {
-                return i2 == 27 && Build.VERSION.PREVIEW_SDK_INT > 0;
+            int i = Build.VERSION.SDK_INT;
+            if (i < 28) {
+                return i == 27 && Build.VERSION.PREVIEW_SDK_INT > 0;
             }
             return true;
         }

@@ -14,29 +14,29 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.vivo.identifier.DataBaseOperation;
 import com.vivo.identifier.IdentifierIdClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bc implements ar {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "content://com.vivo.vms.IdProvider/IdentifierId/";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f59496b;
+    public static String f44114b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f59497c;
+    public static String f44115c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f59498d;
+    public static String f44116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f59499e;
+    public static String f44117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f59500f;
+    public static String f44118f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f153a;
+    public Context f129a;
 
     static {
         InterceptResult invokeClinit;
@@ -51,11 +51,11 @@ public class bc implements ar {
                 return;
             }
         }
-        f59496b = a + "OAID";
-        f59497c = a + "VAID_";
-        f59498d = a + "AAID_";
-        f59499e = a + DataBaseOperation.OAIDSTATUS_FLAG;
-        f59500f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
+        f44114b = a + "OAID";
+        f44115c = a + "VAID_";
+        f44116d = a + "AAID_";
+        f44117e = a + DataBaseOperation.OAIDSTATUS_FLAG;
+        f44118f = IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED;
     }
 
     public bc(Context context) {
@@ -65,15 +65,15 @@ public class bc implements ar {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f153a = context;
+        this.f129a = context;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
@@ -101,7 +101,7 @@ public class bc implements ar {
         }
         String str2 = null;
         try {
-            cursor = this.f153a.getContentResolver().query(Uri.parse(str), null, null, null, null);
+            cursor = this.f129a.getContentResolver().query(Uri.parse(str), null, null, null, null);
             if (cursor != null) {
                 try {
                     if (cursor.moveToNext()) {
@@ -156,15 +156,15 @@ public class bc implements ar {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f59500f, "0")) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "1".equals(s.a(f44118f, "0")) : invokeV.booleanValue;
     }
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo212b() {
+    public String mo191b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f59496b) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a(f44114b) : (String) invokeV.objValue;
     }
 
     @Override // com.xiaomi.push.ar

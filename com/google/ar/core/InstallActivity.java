@@ -6,14 +6,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.ContextThemeWrapper;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.i.b.a.h;
-import c.i.b.a.i;
-import c.i.b.a.k;
-import c.i.b.a.m;
+import c.f.b.a.h;
+import c.f.b.a.i;
+import c.f.b.a.k;
+import c.f.b.a.m;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,7 +28,7 @@ import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationExceptio
 import com.google.protobuf.CodedInputStream;
 import java.util.concurrent.atomic.AtomicReference;
 @TargetApi(24)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class InstallActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BOX_SIZE_DP = 280;
@@ -49,39 +50,39 @@ public class InstallActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.themeWrapper = new ContextThemeWrapper(this, 16974394);
-        this.lastEvent = p.f52964b;
+        this.lastEvent = p.f38710b;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [c.i.b.a.m.a(com.google.ar.core.p):void, c.i.b.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.f.b.a.m.a(com.google.ar.core.p):void, c.f.b.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ void access$000(InstallActivity installActivity, Exception exc) {
         installActivity.finishWithFailure(exc);
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [c.i.b.a.m.a(com.google.ar.core.p):void, c.i.b.a.m.b(java.lang.Exception):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.f.b.a.m.a(com.google.ar.core.p):void, c.f.b.a.m.b(java.lang.Exception):void] */
     public static /* synthetic */ p access$402(InstallActivity installActivity, p pVar) {
         installActivity.lastEvent = pVar;
         return pVar;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [c.i.b.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.f.b.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ boolean access$500(InstallActivity installActivity) {
         return installActivity.waitingForCompletion;
     }
 
     /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [c.i.b.a.m.a(com.google.ar.core.p):void] */
+    /* JADX DEBUG: Method not inlined, still used in: [c.f.b.a.m.a(com.google.ar.core.p):void] */
     public static /* synthetic */ void access$600(InstallActivity installActivity) {
         installActivity.closeInstaller();
     }
@@ -92,14 +93,14 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            int i2 = (int) (displayMetrics.density * 280.0f);
+            int i = (int) (displayMetrics.density * 280.0f);
             int width = getWindow().getDecorView().getWidth();
             int height = getWindow().getDecorView().getHeight();
             setContentView(new RelativeLayout(this));
-            getWindow().getDecorView().setMinimumWidth(i2);
+            getWindow().getDecorView().setMinimumWidth(i);
             ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
             ofFloat.setDuration(300L);
-            ofFloat.addUpdateListener(new c.i.b.a.j(this, width, i2, height));
+            ofFloat.addUpdateListener(new c.f.b.a.j(this, width, i, height));
             ofFloat.addListener(new k(this));
             ofFloat.start();
         }
@@ -117,8 +118,8 @@ public class InstallActivity extends Activity {
     public void finishWithFailure(Exception exc) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65546, this, exc) == null) {
-            c.i.b.a.f.d().a = exc;
-            c.i.b.a.f.d().g();
+            c.f.b.a.f.d().a = exc;
+            c.f.b.a.f.d().g();
             this.finished = true;
             super.finish();
         }
@@ -154,8 +155,8 @@ public class InstallActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            int i2 = (int) (displayMetrics.density * 280.0f);
-            getWindow().setLayout(i2, i2);
+            int i = (int) (displayMetrics.density * 280.0f);
+            getWindow().setLayout(i, i);
             RelativeLayout relativeLayout = new RelativeLayout(this.themeWrapper);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
@@ -172,7 +173,7 @@ public class InstallActivity extends Activity {
             textView.setLayoutParams(layoutParams2);
             relativeLayout.addView(textView);
             setContentView(relativeLayout);
-            getWindow().setLayout(i2, i2);
+            getWindow().setLayout(i, i);
         }
     }
 
@@ -181,8 +182,8 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65550, this) == null) {
             this.installStarted = true;
-            this.lastEvent = p.f52964b;
-            c.i.b.a.f.d().e(this).c(this, new m(this));
+            this.lastEvent = p.f38710b;
+            c.f.b.a.f.d().e(this).c(this, new m(this));
         }
     }
 
@@ -195,14 +196,14 @@ public class InstallActivity extends Activity {
     }
 
     @Override // android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
             StringBuilder sb = new StringBuilder(27);
             sb.append("activityResult: ");
-            sb.append(i3);
-            sb.toString();
+            sb.append(i2);
+            Log.i(TAG, sb.toString());
         }
     }
 
@@ -228,15 +229,18 @@ public class InstallActivity extends Activity {
                         return;
                     }
                     AtomicReference atomicReference = new AtomicReference(ArCoreApk.Availability.UNKNOWN_CHECKING);
-                    c.i.b.a.f.d().e(this).e(this, new c.i.b.a.d(atomicReference));
+                    c.f.b.a.f.d().e(this).e(this, new c.f.b.a.d(atomicReference));
                     int ordinal = ((ArCoreApk.Availability) atomicReference.get()).ordinal();
-                    if (ordinal != 0 && ordinal == 3) {
+                    if (ordinal == 0) {
+                        Log.w(TAG, "Preliminary compatibility check failed.");
+                    } else if (ordinal == 3) {
                         finishWithFailure(new UnavailableDeviceNotCompatibleException());
                         return;
                     }
                     showEducationDialog();
                     return;
                 }
+                Log.e(TAG, "missing intent data.");
                 finishWithFailure(new FatalException("Install activity launched without config data."));
             } catch (RuntimeException e2) {
                 finishWithFailure(new FatalException("Exception starting install flow", e2));
@@ -249,7 +253,7 @@ public class InstallActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (!this.finished) {
-                c.i.b.a.f.d().g();
+                c.f.b.a.f.d().g();
             }
             super.onDestroy();
         }
@@ -274,12 +278,12 @@ public class InstallActivity extends Activity {
             } else if (this.finished) {
             } else {
                 synchronized (this) {
-                    if (this.lastEvent == p.f52964b) {
+                    if (this.lastEvent == p.f38710b) {
                         finish();
                     } else if (this.lastEvent == p.a) {
                         this.waitingForCompletion = true;
                     } else {
-                        finishWithFailure(c.i.b.a.f.d().a);
+                        finishWithFailure(c.f.b.a.f.d().a);
                     }
                 }
             }

@@ -13,7 +13,7 @@ import com.google.android.exoplayer2.mediacodec.MediaCodecUtil;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class Sniffer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int[] COMPATIBLE_BRANDS;
@@ -41,24 +41,24 @@ public final class Sniffer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean isCompatibleBrand(int i2) {
+    public static boolean isCompatibleBrand(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if ((i2 >>> 8) == Util.getIntegerCodeForString("3gp")) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if ((i >>> 8) == Util.getIntegerCodeForString("3gp")) {
                 return true;
             }
-            for (int i3 : COMPATIBLE_BRANDS) {
-                if (i3 == i2) {
+            for (int i2 : COMPATIBLE_BRANDS) {
+                if (i2 == i) {
                     return true;
                 }
             }
@@ -79,20 +79,20 @@ public final class Sniffer {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, extractorInput, z)) == null) {
             long length = extractorInput.getLength();
-            long j2 = -1;
+            long j = -1;
             if (length == -1 || length > 4096) {
                 length = 4096;
             }
-            int i2 = (int) length;
+            int i = (int) length;
             ParsableByteArray parsableByteArray = new ParsableByteArray(64);
-            int i3 = 0;
+            int i2 = 0;
             boolean z3 = false;
-            while (i3 < i2) {
+            while (i2 < i) {
                 parsableByteArray.reset(8);
                 extractorInput.peekFully(parsableByteArray.data, 0, 8);
                 long readUnsignedInt = parsableByteArray.readUnsignedInt();
                 int readInt = parsableByteArray.readInt();
-                int i4 = 16;
+                int i3 = 16;
                 if (readUnsignedInt == 1) {
                     extractorInput.peekFully(parsableByteArray.data, 8, 8);
                     parsableByteArray.setLimit(16);
@@ -100,53 +100,53 @@ public final class Sniffer {
                 } else {
                     if (readUnsignedInt == 0) {
                         long length2 = extractorInput.getLength();
-                        if (length2 != j2) {
+                        if (length2 != j) {
                             readUnsignedInt = 8 + (length2 - extractorInput.getPosition());
                         }
                     }
-                    i4 = 8;
+                    i3 = 8;
                 }
-                long j3 = i4;
-                if (readUnsignedInt < j3) {
+                long j2 = i3;
+                if (readUnsignedInt < j2) {
                     return false;
                 }
-                i3 += i4;
+                i2 += i3;
                 if (readInt != Atom.TYPE_moov) {
                     if (readInt == Atom.TYPE_moof || readInt == Atom.TYPE_mvex) {
                         z2 = true;
                         break;
-                    } else if ((i3 + readUnsignedInt) - j3 >= i2) {
+                    } else if ((i2 + readUnsignedInt) - j2 >= i) {
                         break;
                     } else {
-                        int i5 = (int) (readUnsignedInt - j3);
-                        i3 += i5;
+                        int i4 = (int) (readUnsignedInt - j2);
+                        i2 += i4;
                         if (readInt == Atom.TYPE_ftyp) {
-                            if (i5 < 8) {
+                            if (i4 < 8) {
                                 return false;
                             }
-                            parsableByteArray.reset(i5);
-                            extractorInput.peekFully(parsableByteArray.data, 0, i5);
-                            int i6 = i5 / 4;
-                            int i7 = 0;
+                            parsableByteArray.reset(i4);
+                            extractorInput.peekFully(parsableByteArray.data, 0, i4);
+                            int i5 = i4 / 4;
+                            int i6 = 0;
                             while (true) {
-                                if (i7 >= i6) {
+                                if (i6 >= i5) {
                                     break;
                                 }
-                                if (i7 == 1) {
+                                if (i6 == 1) {
                                     parsableByteArray.skipBytes(4);
                                 } else if (isCompatibleBrand(parsableByteArray.readInt())) {
                                     z3 = true;
                                     break;
                                 }
-                                i7++;
+                                i6++;
                             }
                             if (!z3) {
                                 return false;
                             }
-                        } else if (i5 != 0) {
-                            extractorInput.advancePeekPosition(i5);
+                        } else if (i4 != 0) {
+                            extractorInput.advancePeekPosition(i4);
                         }
-                        j2 = -1;
+                        j = -1;
                     }
                 }
             }

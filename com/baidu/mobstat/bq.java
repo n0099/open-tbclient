@@ -18,7 +18,7 @@ public class bq extends bn {
     public static final String a = "__Baidu_Stat_SDK_SendRem";
 
     /* renamed from: b  reason: collision with root package name */
-    public static bq f35195b;
+    public static bq f27332b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,7 +34,7 @@ public class bq extends bn {
                 return;
             }
         }
-        f35195b = new bq();
+        f27332b = new bq();
     }
 
     public bq() {
@@ -42,9 +42,9 @@ public class bq extends bn {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -54,7 +54,7 @@ public class bq extends bn {
     public static bq a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f35195b : (bq) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f27332b : (bq) invokeV.objValue;
     }
 
     public int b(Context context) {
@@ -172,10 +172,10 @@ public class bq extends bn {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context.getSharedPreferences(a, 0) : (SharedPreferences) invokeL.objValue;
     }
 
-    public void b(Context context, int i2) {
+    public void b(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i2) == null) {
-            b(context, "timeinterval", i2);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, context, i) == null) {
+            b(context, "timeinterval", i);
         }
     }
 
@@ -245,10 +245,10 @@ public class bq extends bn {
         }
     }
 
-    public void a(Context context, int i2) {
+    public void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i2) == null) {
-            b(context, "sendLogtype", i2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            b(context, "sendLogtype", i);
         }
     }
 
@@ -265,10 +265,10 @@ public class bq extends bn {
         }
     }
 
-    public void c(Context context, long j2) {
+    public void c(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, context, j2) == null) {
-            b(context, "autotrace_config_fetch_time", j2);
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, context, j) == null) {
+            b(context, "autotrace_config_fetch_time", j);
         }
     }
 
@@ -293,10 +293,10 @@ public class bq extends bn {
         }
     }
 
-    public void a(Context context, long j2) {
+    public void a(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j2) == null) {
-            b(context, "autotrace_track_js_fetch_time", j2);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j) == null) {
+            b(context, "autotrace_track_js_fetch_time", j);
         }
     }
 
@@ -307,10 +307,10 @@ public class bq extends bn {
         }
     }
 
-    public void b(Context context, long j2) {
+    public void b(Context context, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j2) == null) {
-            b(context, "autotrace_track_js_fetch_interval", j2);
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, context, j) == null) {
+            b(context, "autotrace_track_js_fetch_interval", j);
         }
     }
 }

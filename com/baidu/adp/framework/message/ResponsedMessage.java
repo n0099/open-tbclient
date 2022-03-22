@@ -24,16 +24,16 @@ public abstract class ResponsedMessage<T> {
     public long mStartTime;
     public a performanceData;
 
-    public ResponsedMessage(int i2) {
+    public ResponsedMessage(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,22 +46,22 @@ public abstract class ResponsedMessage<T> {
         this.mDownSize = 0;
         this.mCostTime = 0L;
         this.performanceData = new a();
-        this.mCmd = i2;
+        this.mCmd = i;
     }
 
-    public void afterDispatchInBackGround(int i2, T t) {
+    public void afterDispatchInBackGround(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
         }
     }
 
-    public void beforeDispatchInBackGround(int i2, T t) {
+    public void beforeDispatchInBackGround(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, t) == null) {
         }
     }
 
-    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
     public int getCmd() {
         InterceptResult invokeV;
@@ -119,31 +119,31 @@ public abstract class ResponsedMessage<T> {
 
     public abstract boolean hasError();
 
-    public void onDecodeFailedInBackGround(int i2, T t, int i3) throws Exception {
+    public void onDecodeFailedInBackGround(int i, T t, int i2) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), t, Integer.valueOf(i3)}) == null) && i3 == h.f2414c) {
+        if ((interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), t, Integer.valueOf(i2)}) == null) && i2 == h.f1981c) {
             setError(TbErrInfo.ERR_SOKCET_SWITCH_HTTP);
         }
     }
 
-    public void setCostTime(long j2) {
+    public void setCostTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.mCostTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.mCostTime = j;
         }
     }
 
-    public void setDownSize(int i2) {
+    public void setDownSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mDownSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mDownSize = i;
         }
     }
 
-    public void setError(int i2) {
+    public void setError(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.mError = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.mError = i;
         }
     }
 
@@ -161,17 +161,17 @@ public abstract class ResponsedMessage<T> {
         }
     }
 
-    public void setProcessTime(long j2) {
+    public void setProcessTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j2) == null) {
-            this.mProcessTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            this.mProcessTime = j;
         }
     }
 
-    public void setStartTime(long j2) {
+    public void setStartTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048596, this, j2) == null) {
-            this.mStartTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048596, this, j) == null) {
+            this.mStartTime = j;
         }
     }
 

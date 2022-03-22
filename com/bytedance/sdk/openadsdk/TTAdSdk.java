@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
 import com.bytedance.sdk.openadsdk.api.b.d;
 import com.bytedance.sdk.openadsdk.api.plugin.g;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TTAdSdk {
     public static final String INITIALIZER_CLASS_NAME = "com.bytedance.sdk.openadsdk.core.AdSdkInitializerHolder";
     public static final TTInitializer a = new g();
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface InitCallback {
-        void fail(int i2, String str);
+        void fail(int i, String str);
 
         void success();
     }
@@ -67,7 +68,7 @@ public final class TTAdSdk {
         }
         Bundle bundle = new Bundle();
         if (!TextUtils.isEmpty(tTAdConfig.getData())) {
-            bundle.putString("extra_data", tTAdConfig.getData());
+            bundle.putString(WriteVoteActivityConfig.EXTRA_DATA_KEY, tTAdConfig.getData());
         }
         if (!TextUtils.isEmpty(tTAdConfig.getKeywords())) {
             bundle.putString("keywords", tTAdConfig.getKeywords());

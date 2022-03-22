@@ -5,87 +5,87 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 /* loaded from: classes3.dex */
 public interface c {
-    void B(int i2, int i3, int i4, int i5, int i6);
+    void B(int i, int i2, int i3, int i4, int i5);
 
-    void C(int i2, IntBuffer intBuffer);
+    void C(int i, IntBuffer intBuffer);
 
-    String D(int i2, int i3, IntBuffer intBuffer, IntBuffer intBuffer2);
+    String D(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
 
-    void E(int i2, int i3);
+    void E(int i, int i2);
 
-    void F(int i2);
+    void F(int i);
 
-    void G(int i2);
+    void G(int i);
 
-    void H(int i2);
+    void H(int i);
 
-    void I(int i2, int i3, IntBuffer intBuffer);
+    void I(int i, int i2, IntBuffer intBuffer);
 
-    String J(int i2);
+    String J(int i);
 
-    void K(int i2);
+    void K(int i);
 
-    void L(int i2, int i3);
+    void L(int i, int i2);
 
     int M();
 
-    void N(int i2, int i3);
+    void N(int i, int i2);
 
     int P();
 
     int Q();
 
-    int R(int i2, String str);
+    int R(int i, String str);
 
-    void S(int i2);
+    void S(int i);
 
-    int T(int i2);
+    int T(int i);
 
     int a();
 
-    void b(int i2);
+    void b(int i);
 
-    void d(int i2);
+    void d(int i);
 
-    void e(int i2, int i3, int i4, int i5);
+    void e(int i, int i2, int i3, int i4);
 
-    void f(int i2, int i3);
+    void f(int i, int i2);
 
-    void g(int i2, int i3);
+    void g(int i, int i2);
 
-    void h(int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer);
+    void h(int i, int i2, int i3, int i4, int i5, int i6, int i7, Buffer buffer);
 
-    void i(int i2, FloatBuffer floatBuffer);
+    void i(int i, FloatBuffer floatBuffer);
 
-    void j(int i2, int i3, int i4);
+    void j(int i, int i2, int i3);
 
-    void k(int i2, int i3, int i4, int i5);
+    void k(int i, int i2, int i3, int i4);
 
-    void l(int i2, int i3, IntBuffer intBuffer);
+    void l(int i, int i2, IntBuffer intBuffer);
 
-    void m(int i2, int i3);
+    void m(int i, int i2);
 
     int n();
 
-    String o(int i2);
+    String o(int i);
 
-    void p(int i2);
+    void p(int i);
 
-    void q(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer);
+    void q(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer);
 
-    void r(int i2);
+    void r(int i);
 
-    void s(int i2);
+    void s(int i);
 
-    int t(int i2);
+    int t(int i);
 
-    void u(int i2, int i3, float f2);
+    void u(int i, int i2, float f2);
 
-    int w(int i2, String str);
+    int w(int i, String str);
 
-    String x(int i2);
+    String x(int i);
 
-    void y(int i2, String str);
+    void y(int i, String str);
 
-    String z(int i2, int i3, IntBuffer intBuffer, IntBuffer intBuffer2);
+    String z(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
 }

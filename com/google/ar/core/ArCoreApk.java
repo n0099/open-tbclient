@@ -11,13 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ArCoreApk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InstallBehavior {
         public static final /* synthetic */ InstallBehavior[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -45,16 +45,16 @@ public class ArCoreApk {
             $VALUES = new InstallBehavior[]{REQUIRED, installBehavior};
         }
 
-        public InstallBehavior(String str, int i2, int i3) {
+        public InstallBehavior(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -63,22 +63,22 @@ public class ArCoreApk {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static InstallBehavior forNumber(int i2) {
+        public static InstallBehavior forNumber(int i) {
             InterceptResult invokeI;
             InstallBehavior[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (InstallBehavior installBehavior : values()) {
-                    if (installBehavior.nativeCode == i2) {
+                    if (installBehavior.nativeCode == i) {
                         return installBehavior;
                     }
                 }
                 StringBuilder sb = new StringBuilder(62);
                 sb.append("Unexpected value for native InstallBehavior, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (InstallBehavior) invokeI.objValue;
@@ -98,7 +98,7 @@ public class ArCoreApk {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class InstallStatus {
         public static final /* synthetic */ InstallStatus[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -126,16 +126,16 @@ public class ArCoreApk {
             $VALUES = new InstallStatus[]{INSTALLED, installStatus};
         }
 
-        public InstallStatus(String str, int i2, int i3) {
+        public InstallStatus(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -144,22 +144,22 @@ public class ArCoreApk {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static InstallStatus forNumber(int i2) {
+        public static InstallStatus forNumber(int i) {
             InterceptResult invokeI;
             InstallStatus[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (InstallStatus installStatus : values()) {
-                    if (installStatus.nativeCode == i2) {
+                    if (installStatus.nativeCode == i) {
                         return installStatus;
                     }
                 }
                 StringBuilder sb = new StringBuilder(60);
                 sb.append("Unexpected value for native InstallStatus, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (InstallStatus) invokeI.objValue;
@@ -179,7 +179,7 @@ public class ArCoreApk {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class UserMessageType {
         public static final /* synthetic */ UserMessageType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -209,16 +209,16 @@ public class ArCoreApk {
             $VALUES = new UserMessageType[]{APPLICATION, FEATURE, userMessageType};
         }
 
-        public UserMessageType(String str, int i2, int i3) {
+        public UserMessageType(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -227,22 +227,22 @@ public class ArCoreApk {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static UserMessageType forNumber(int i2) {
+        public static UserMessageType forNumber(int i) {
             InterceptResult invokeI;
             UserMessageType[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (UserMessageType userMessageType : values()) {
-                    if (userMessageType.nativeCode == i2) {
+                    if (userMessageType.nativeCode == i) {
                         return userMessageType;
                     }
                 }
                 StringBuilder sb = new StringBuilder(62);
                 sb.append("Unexpected value for native UserMessageType, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (UserMessageType) invokeI.objValue;
@@ -261,7 +261,7 @@ public class ArCoreApk {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(Availability availability);
     }
@@ -271,9 +271,9 @@ public class ArCoreApk {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -283,13 +283,13 @@ public class ArCoreApk {
     public static ArCoreApk b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.i.b.a.f.d() : (ArCoreApk) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? c.f.b.a.f.d() : (ArCoreApk) invokeV.objValue;
     }
 
     public abstract Availability a(Context context);
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Availability {
         public static final /* synthetic */ Availability[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -327,16 +327,16 @@ public class ArCoreApk {
             $VALUES = new Availability[]{UNKNOWN_ERROR, UNKNOWN_CHECKING, UNKNOWN_TIMED_OUT, UNSUPPORTED_DEVICE_NOT_CAPABLE, SUPPORTED_NOT_INSTALLED, SUPPORTED_APK_TOO_OLD, gVar};
         }
 
-        public Availability(String str, int i2, int i3) {
+        public Availability(String str, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -345,22 +345,22 @@ public class ArCoreApk {
                     return;
                 }
             }
-            this.nativeCode = i3;
+            this.nativeCode = i2;
         }
 
-        public static Availability forNumber(int i2) {
+        public static Availability forNumber(int i) {
             InterceptResult invokeI;
             Availability[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
                 for (Availability availability : values()) {
-                    if (availability.nativeCode == i2) {
+                    if (availability.nativeCode == i) {
                         return availability;
                     }
                 }
                 StringBuilder sb = new StringBuilder(59);
                 sb.append("Unexpected value for native Availability, value=");
-                sb.append(i2);
+                sb.append(i);
                 throw new FatalException(sb.toString());
             }
             return (Availability) invokeI.objValue;
@@ -414,8 +414,8 @@ public class ArCoreApk {
             return invokeV.booleanValue;
         }
 
-        public /* synthetic */ Availability(String str, int i2, int i3, c.i.b.a.e eVar) {
-            this(str, i2, i3);
+        public /* synthetic */ Availability(String str, int i, int i2, c.f.b.a.e eVar) {
+            this(str, i, i2);
         }
     }
 }

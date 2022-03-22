@@ -22,7 +22,7 @@ public class t {
     public static final String a = "tun";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f53818b = "ppp";
+    public static final String f38989b = "ppp";
     public transient /* synthetic */ FieldHolder $fh;
 
     public t() {
@@ -30,9 +30,9 @@ public class t {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -93,7 +93,7 @@ public class t {
                         break;
                     }
                     String a2 = c1.a(readLine);
-                    if (a2.contains(a) || a2.contains(f53818b)) {
+                    if (a2.contains(a) || a2.contains(f38989b)) {
                         hashSet.add(a2.split("\t")[0]);
                     }
                 }

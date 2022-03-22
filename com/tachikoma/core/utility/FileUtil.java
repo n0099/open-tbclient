@@ -18,8 +18,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final char SYSTEM_SEPARATOR;
@@ -47,9 +46,9 @@ public class FileUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -98,7 +97,7 @@ public class FileUtil {
                 return sb.toString();
             }
             sb.append(readLine);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
         }
     }
 

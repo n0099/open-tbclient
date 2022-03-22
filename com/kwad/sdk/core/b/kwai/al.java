@@ -11,21 +11,21 @@ public class al implements com.kwad.sdk.core.d<j.a> {
             return;
         }
         aVar.a = jSONObject.optInt("style");
-        aVar.f55857b = jSONObject.optString("title");
+        aVar.f40825b = jSONObject.optString("title");
         if (jSONObject.opt("title") == JSONObject.NULL) {
-            aVar.f55857b = "";
+            aVar.f40825b = "";
         }
-        aVar.f55858c = jSONObject.optString("closeBtnText");
+        aVar.f40826c = jSONObject.optString("closeBtnText");
         if (jSONObject.opt("closeBtnText") == JSONObject.NULL) {
-            aVar.f55858c = "";
+            aVar.f40826c = "";
         }
-        aVar.f55859d = jSONObject.optString("continueBtnText");
+        aVar.f40827d = jSONObject.optString("continueBtnText");
         if (jSONObject.opt("continueBtnText") == JSONObject.NULL) {
-            aVar.f55859d = "";
+            aVar.f40827d = "";
         }
-        aVar.f55862g = jSONObject.optString("iconUrl");
+        aVar.f40830g = jSONObject.optString("iconUrl");
         if (jSONObject.opt("iconUrl") == JSONObject.NULL) {
-            aVar.f55862g = "";
+            aVar.f40830g = "";
         }
     }
 
@@ -36,10 +36,10 @@ public class al implements com.kwad.sdk.core.d<j.a> {
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "style", aVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, "title", aVar.f55857b);
-        com.kwad.sdk.utils.t.a(jSONObject, "closeBtnText", aVar.f55858c);
-        com.kwad.sdk.utils.t.a(jSONObject, "continueBtnText", aVar.f55859d);
-        com.kwad.sdk.utils.t.a(jSONObject, "iconUrl", aVar.f55862g);
+        com.kwad.sdk.utils.t.a(jSONObject, "title", aVar.f40825b);
+        com.kwad.sdk.utils.t.a(jSONObject, "closeBtnText", aVar.f40826c);
+        com.kwad.sdk.utils.t.a(jSONObject, "continueBtnText", aVar.f40827d);
+        com.kwad.sdk.utils.t.a(jSONObject, "iconUrl", aVar.f40830g);
         return jSONObject;
     }
 }

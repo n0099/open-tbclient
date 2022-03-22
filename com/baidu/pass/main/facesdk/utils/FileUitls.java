@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +30,9 @@ public class FileUitls {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -103,9 +104,13 @@ public class FileUitls {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
             try {
-                return new File(str).exists();
+                if (new File(str).exists()) {
+                    return true;
+                }
+                Log.i("wtf", "file_state->file not exits");
+                return false;
             } catch (Exception e2) {
-                String str2 = "file_state->" + e2.getMessage();
+                Log.i("wtf", "file_state->" + e2.getMessage());
                 return false;
             }
         }
@@ -202,7 +207,7 @@ public class FileUitls {
                 open.close();
                 return bArr;
             } catch (IOException e2) {
-                String str2 = "e-->" + e2.getMessage();
+                Log.e("zq", "e-->" + e2.getMessage());
                 e2.printStackTrace();
                 return bArr;
             }
@@ -367,9 +372,11 @@ public class FileUitls {
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
                 } catch (IOException e2) {
-                    e2.getMessage();
+                    Log.d("TestFile", e2.getMessage());
                 }
+                return str2;
             }
+            Log.d("TestFile", "The File doesn't not exist.");
             return str2;
         }
         return (String) invokeL.objValue;
@@ -395,9 +402,11 @@ public class FileUitls {
                     fileInputStream.close();
                 } catch (FileNotFoundException unused) {
                 } catch (IOException e2) {
-                    e2.getMessage();
+                    Log.d("TestFile", e2.getMessage());
                 }
+                return arrayList;
             }
+            Log.d("TestFile", "The File doesn't not exist.");
             return arrayList;
         }
         return (ArrayList) invokeL.objValue;
@@ -422,11 +431,10 @@ public class FileUitls {
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
                 try {
                     fileOutputStream.close();
-                    return true;
                 } catch (Exception e3) {
                     e3.printStackTrace();
-                    return true;
                 }
+                return true;
             } catch (Exception e4) {
                 e = e4;
                 fileOutputStream2 = fileOutputStream;

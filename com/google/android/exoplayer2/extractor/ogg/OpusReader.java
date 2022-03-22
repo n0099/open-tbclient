@@ -22,7 +22,7 @@ import java.nio.ByteOrder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class OpusReader extends StreamReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_SEEK_PRE_ROLL_SAMPLES = 3840;
@@ -54,9 +54,9 @@ public final class OpusReader extends StreamReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,25 +67,25 @@ public final class OpusReader extends StreamReader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, bArr)) == null) {
-            int i2 = bArr[0] & 255;
-            int i3 = i2 & 3;
-            int i4 = 2;
-            if (i3 == 0) {
-                i4 = 1;
-            } else if (i3 != 1 && i3 != 2) {
-                i4 = bArr[1] & 63;
+            int i = bArr[0] & 255;
+            int i2 = i & 3;
+            int i3 = 2;
+            if (i2 == 0) {
+                i3 = 1;
+            } else if (i2 != 1 && i2 != 2) {
+                i3 = bArr[1] & 63;
             }
-            int i5 = i2 >> 3;
-            int i6 = i5 & 3;
-            return i4 * (i5 >= 16 ? 2500 << i6 : i5 >= 12 ? 10000 << (i6 & 1) : i6 == 3 ? 60000 : 10000 << i6);
+            int i4 = i >> 3;
+            int i5 = i4 & 3;
+            return i3 * (i4 >= 16 ? 2500 << i5 : i4 >= 12 ? 10000 << (i5 & 1) : i5 == 3 ? 60000 : 10000 << i5);
         }
         return invokeL.longValue;
     }
 
-    private void putNativeOrderLong(List<byte[]> list, int i2) {
+    private void putNativeOrderLong(List<byte[]> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, this, list, i2) == null) {
-            list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i2 * C.NANOS_PER_SECOND) / 48000).array());
+        if (interceptable == null || interceptable.invokeLI(65539, this, list, i) == null) {
+            list.add(ByteBuffer.allocate(8).order(ByteOrder.nativeOrder()).putLong((i * C.NANOS_PER_SECOND) / 48000).array());
         }
     }
 
@@ -113,18 +113,18 @@ public final class OpusReader extends StreamReader {
     }
 
     @Override // com.google.android.exoplayer2.extractor.ogg.StreamReader
-    public boolean readHeaders(ParsableByteArray parsableByteArray, long j2, StreamReader.SetupData setupData) throws IOException, InterruptedException {
+    public boolean readHeaders(ParsableByteArray parsableByteArray, long j, StreamReader.SetupData setupData) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j2), setupData})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{parsableByteArray, Long.valueOf(j), setupData})) == null) {
             if (!this.headerRead) {
                 byte[] copyOf = Arrays.copyOf(parsableByteArray.data, parsableByteArray.limit());
-                int i2 = copyOf[9] & 255;
+                int i = copyOf[9] & 255;
                 ArrayList arrayList = new ArrayList(3);
                 arrayList.add(copyOf);
                 putNativeOrderLong(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
                 putNativeOrderLong(arrayList, 3840);
-                setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i2, 48000, arrayList, null, 0, null);
+                setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i, 48000, arrayList, null, 0, null);
                 this.headerRead = true;
                 return true;
             }

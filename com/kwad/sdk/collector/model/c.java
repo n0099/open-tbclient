@@ -65,11 +65,11 @@ public class c {
         }
     }
 
-    public static void a(b bVar, long j2) {
+    public static void a(b bVar, long j) {
         if (bVar instanceof AppRunningInfoNative) {
-            AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j2);
+            AppStatusNative.appRunningInfoSetLastRunningTime((AppRunningInfoNative) bVar, j);
         } else if (bVar instanceof com.kwad.sdk.collector.model.kwai.b) {
-            ((com.kwad.sdk.collector.model.kwai.b) bVar).b(j2);
+            ((com.kwad.sdk.collector.model.kwai.b) bVar).b(j);
         }
     }
 
@@ -90,10 +90,10 @@ public class c {
     public static ArrayList<d> b(@NonNull JSONArray jSONArray) {
         ArrayList<d> arrayList = new ArrayList<>();
         int length = jSONArray.length();
-        for (int i2 = 0; i2 < length; i2++) {
+        for (int i = 0; i < length; i++) {
             JSONObject jSONObject = null;
             try {
-                jSONObject = jSONArray.getJSONObject(i2);
+                jSONObject = jSONArray.getJSONObject(i);
             } catch (JSONException unused) {
             }
             if (jSONObject != null) {
@@ -131,9 +131,9 @@ public class c {
             return arrayList;
         }
         int length = jSONArray.length();
-        for (int i2 = 0; i2 < length; i2++) {
+        for (int i = 0; i < length; i++) {
             try {
-                JSONObject jSONObject = jSONArray.getJSONObject(i2);
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
                 com.kwad.sdk.collector.model.kwai.c cVar = new com.kwad.sdk.collector.model.kwai.c();
                 cVar.parseJson(jSONObject);
                 arrayList.add(cVar);

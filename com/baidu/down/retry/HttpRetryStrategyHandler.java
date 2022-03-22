@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.apache.http.conn.ConnectTimeoutException;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpRetryStrategyHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -42,7 +42,7 @@ public class HttpRetryStrategyHandler {
     public AbstractTask mtask;
     public boolean requestRetryStrategyData;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnFetchDataResultListener {
         void onResult(boolean z);
     }
@@ -54,9 +54,9 @@ public class HttpRetryStrategyHandler {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, abstractTask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -79,23 +79,23 @@ public class HttpRetryStrategyHandler {
     }
 
     @SuppressLint({"LongLogTag"})
-    public void appendDownDetail(int i2, String str) {
+    public void appendDownDetail(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            if (this.mDownDetail.containsKey(Integer.valueOf(i2))) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            if (this.mDownDetail.containsKey(Integer.valueOf(i))) {
                 ConcurrentHashMap<Integer, String> concurrentHashMap = this.mDownDetail;
-                Integer valueOf = Integer.valueOf(i2);
-                concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i2)) + str);
+                Integer valueOf = Integer.valueOf(i);
+                concurrentHashMap.put(valueOf, this.mDownDetail.get(Integer.valueOf(i)) + str);
                 return;
             }
-            this.mDownDetail.put(Integer.valueOf(i2), str);
+            this.mDownDetail.put(Integer.valueOf(i), str);
         }
     }
 
-    public boolean continueRetryStrategy(int i2) {
+    public boolean continueRetryStrategy(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? !Utils.isEmpty(this.mRetryRequestInfoList) && i2 < this.mRetryRequestInfoList.size() : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? !Utils.isEmpty(this.mRetryRequestInfoList) && i < this.mRetryRequestInfoList.size() : invokeI.booleanValue;
     }
 
     public ConcurrentHashMap<Integer, String> getDownDetail() {
@@ -168,10 +168,10 @@ public class HttpRetryStrategyHandler {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.mRetryType : invokeV.intValue;
     }
 
-    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i2) {
+    public boolean isAcquireRetryStrategy(boolean z, Exception exc, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), exc, Integer.valueOf(i2)})) == null) ? TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i2)) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), exc, Integer.valueOf(i)})) == null) ? TaskFacade.getInstance(null).getBinaryTaskMng().getDownConfig().mHttpRetryStrategyEnable && ((z && this.mHostIsMatch && ((exc instanceof UnknownHostException) || (exc instanceof ConnectException) || (exc instanceof SocketException) || (exc instanceof SocketTimeoutException) || (exc instanceof ConnectTimeoutException) || (exc instanceof ProtocolException) || (exc instanceof RetryStrategyException))) || continueRetryStrategy(i)) : invokeCommon.booleanValue;
     }
 
     @SuppressLint({"LongLogTag"})
@@ -202,9 +202,9 @@ public class HttpRetryStrategyHandler {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, exc};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -215,9 +215,9 @@ public class HttpRetryStrategyHandler {
                     }
 
                     @Override // com.baidu.down.retry.HttpRetryStrategyDataParse.OnFetchRetryDataRequestListener
-                    public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i2) {
+                    public void afterRequest(boolean z, HttpDNSCacheInfo httpDNSCacheInfo, int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), httpDNSCacheInfo, Integer.valueOf(i2)}) == null) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), httpDNSCacheInfo, Integer.valueOf(i)}) == null) {
                             this.this$0.requestRetryStrategyData = false;
                             if (z) {
                                 this.this$0.mHttpDNSCacheInfo = httpDNSCacheInfo;
@@ -230,11 +230,11 @@ public class HttpRetryStrategyHandler {
                             if (z) {
                                 this.this$0.mRetryType = 1;
                             } else {
-                                this.this$0.mRetryType = i2;
+                                this.this$0.mRetryType = i;
                             }
                             synchronized (this.this$0.mOnFetchDataRequestListener) {
-                                for (int i3 = 0; i3 < this.this$0.mOnFetchDataRequestListener.size(); i3++) {
-                                    ((OnFetchDataResultListener) this.this$0.mOnFetchDataRequestListener.get(i3)).onResult(z);
+                                for (int i2 = 0; i2 < this.this$0.mOnFetchDataRequestListener.size(); i2++) {
+                                    ((OnFetchDataResultListener) this.this$0.mOnFetchDataRequestListener.get(i2)).onResult(z);
                                 }
                                 this.this$0.mOnFetchDataRequestListener.clear();
                             }
@@ -266,10 +266,10 @@ public class HttpRetryStrategyHandler {
         }
     }
 
-    public void setRetryType(int i2) {
+    public void setRetryType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mRetryType = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mRetryType = i;
         }
     }
 }

@@ -1,20 +1,20 @@
 package com.ss.android.downloadlib.addownload;
 
 import com.ss.android.download.api.model.DownloadShortInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class i {
-    public static int a(int i2, int i3) {
-        return (i3 <= 0 || i3 >= 100 || !a(i2)) ? i3 : (int) (Math.sqrt(i3) * 10.0d);
+    public static int a(int i, int i2) {
+        return (i2 <= 0 || i2 >= 100 || !a(i)) ? i2 : (int) (Math.sqrt(i2) * 10.0d);
     }
 
-    public static long a(int i2, long j2, long j3) {
-        if (a(i2)) {
-            if (j2 <= 0) {
+    public static long a(int i, long j, long j2) {
+        if (a(i)) {
+            if (j <= 0) {
                 return 0L;
             }
-            return j3 <= 0 ? j2 : (j3 * a(i2, (int) ((j2 * 100) / j3))) / 100;
+            return j2 <= 0 ? j : (j2 * a(i, (int) ((j * 100) / j2))) / 100;
         }
-        return j2;
+        return j;
     }
 
     public static DownloadShortInfo a(DownloadShortInfo downloadShortInfo) {
@@ -24,7 +24,7 @@ public class i {
         return downloadShortInfo;
     }
 
-    public static boolean a(int i2) {
-        return com.ss.android.socialbase.downloader.g.a.a(i2).a("pause_optimise_pretend_download_percent_switch", 0) == 1 && com.ss.android.socialbase.downloader.g.a.a(i2).a("pause_optimise_switch", 0) == 1;
+    public static boolean a(int i) {
+        return com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_pretend_download_percent_switch", 0) == 1 && com.ss.android.socialbase.downloader.g.a.a(i).a("pause_optimise_switch", 0) == 1;
     }
 }

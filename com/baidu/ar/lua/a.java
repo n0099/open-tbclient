@@ -21,9 +21,9 @@ public class a implements c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,12 +34,12 @@ public class a implements c {
     }
 
     @Override // com.baidu.ar.lua.c
-    public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+    public void a(int i, int i2, HashMap<String, Object> hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
-            if (i2 == 103) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, hashMap) == null) {
+            if (i == 103) {
                 this.sU = true;
-            } else if (i2 != 104) {
+            } else if (i != 104) {
             } else {
                 this.sT = true;
             }

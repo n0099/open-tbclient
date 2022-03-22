@@ -32,38 +32,38 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class WriteEvaluationHeaderView extends FrameLayout implements View.OnClickListener, RankStarView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public EMTextView f37391b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EMTextView f37392c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f37393d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48341e;
+    public View f37394e;
 
     /* renamed from: f  reason: collision with root package name */
-    public EMTextView f48342f;
+    public View f37395f;
 
     /* renamed from: g  reason: collision with root package name */
-    public EMTextView f48343g;
+    public ItemCardView f37396g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f48344h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f48345i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public View f48346j;
-    public ItemCardView k;
-    public RankStarView l;
-    public c m;
-    public b n;
-    public TbRichTextEvaluateItemInfo o;
-    public boolean p;
+    public RankStarView f37397h;
+    public c i;
+    public b j;
+    public TbRichTextEvaluateItemInfo k;
+    public boolean l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteEvaluationHeaderView f48347e;
+        public final /* synthetic */ WriteEvaluationHeaderView a;
 
         public a(WriteEvaluationHeaderView writeEvaluationHeaderView) {
             Interceptable interceptable = $ic;
@@ -72,29 +72,29 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
                 newInitContext.initArgs = r2;
                 Object[] objArr = {writeEvaluationHeaderView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f48347e = writeEvaluationHeaderView;
+            this.a = writeEvaluationHeaderView;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f48347e.gotoItemSearch();
+                this.a.b();
             }
         }
     }
 
     /* loaded from: classes6.dex */
     public interface b {
-        void onStarChange(float f2);
+        void a(float f2);
     }
 
     /* loaded from: classes6.dex */
@@ -111,9 +111,9 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -123,173 +123,173 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
         }
     }
 
-    public final void a() {
+    @Override // com.baidu.tbadk.widget.RankStarView.a
+    public void a(float f2) {
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.write_evaluation_header_view, (ViewGroup) this, true);
-            this.f48343g = (EMTextView) findViewById(R.id.item_relevance_desc);
-            this.f48342f = (EMTextView) findViewById(R.id.item_relevance_tip);
-            this.f48345i = findViewById(R.id.write_select_item_relevance);
-            this.f48344h = (ImageView) findViewById(R.id.item_relevance_arrow);
-            this.f48346j = findViewById(R.id.item_relevance_line);
-            this.k = (ItemCardView) findViewById(R.id.item_star_info);
-            RankStarView rankStarView = (RankStarView) findViewById(R.id.item_set_new_star);
-            this.l = rankStarView;
-            rankStarView.setStarSpacing(n.f(getContext(), R.dimen.tbds30));
-            this.l.setClickable(true);
-            this.l.setStarChangListener(this);
-            this.k.showCloseButton();
-            this.k.setOnCloseListener(this);
-            this.k.setSizeStyle(1);
-            b();
+        if (!(interceptable == null || interceptable.invokeF(1048576, this, f2) == null) || (bVar = this.j) == null) {
+            return;
+        }
+        bVar.a(f2);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RelevanceItemSearchActivityConfig(getContext(), 25048)));
         }
     }
 
-    public final void b() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f48345i.setOnClickListener(new a(this));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e4, (ViewGroup) this, true);
+            this.f37392c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f96);
+            this.f37391b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090f98);
+            this.f37394e = findViewById(R.id.obfuscated_res_0x7f0924a8);
+            this.f37393d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f95);
+            this.f37395f = findViewById(R.id.obfuscated_res_0x7f090f97);
+            this.f37396g = (ItemCardView) findViewById(R.id.obfuscated_res_0x7f090fa3);
+            RankStarView rankStarView = (RankStarView) findViewById(R.id.obfuscated_res_0x7f090fa0);
+            this.f37397h = rankStarView;
+            rankStarView.setStarSpacing(n.f(getContext(), R.dimen.tbds30));
+            this.f37397h.setClickable(true);
+            this.f37397h.setStarChangListener(this);
+            this.f37396g.N();
+            this.f37396g.setOnCloseListener(this);
+            this.f37396g.setSizeStyle(1);
+            d();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.f37394e.setOnClickListener(new a(this));
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f37397h.c() : invokeV.booleanValue;
+    }
+
+    public void f() {
+        int skinType;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
+            return;
+        }
+        this.a = skinType;
+        EMTextView eMTextView = this.f37391b;
+        if (eMTextView != null) {
+            SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
+            c.a.o0.r.v.c d2 = c.a.o0.r.v.c.d(this.f37391b);
+            d2.n(R.string.J_X06);
+            d2.f(R.color.CAM_X0206);
+        }
+        if (this.f37393d != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f37393d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        }
+        View view = this.f37395f;
+        if (view != null) {
+            SkinManager.setBackgroundColor(view, R.color.CAM_X0210);
+        }
+        ItemCardView itemCardView = this.f37396g;
+        if (itemCardView != null) {
+            SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
+        }
+        EMTextView eMTextView2 = this.f37392c;
+        if (eMTextView2 != null) {
+            SkinManager.setViewTextColor(eMTextView2, (int) R.color.CAM_X0105);
+        }
+        RankStarView rankStarView = this.f37397h;
+        if (rankStarView != null) {
+            rankStarView.e(skinType);
+        }
+        RankStarView rankStarView2 = this.f37397h;
+        if (rankStarView2 != null) {
+            rankStarView2.e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     public TbRichTextEvaluateItemInfo getEvaluateItemInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.o : (TbRichTextEvaluateItemInfo) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.k : (TbRichTextEvaluateItemInfo) invokeV.objValue;
     }
 
     public ItemCardView getItemStarInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.k : (ItemCardView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f37396g : (ItemCardView) invokeV.objValue;
     }
 
     public int getStarCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.l.getStarCount() : invokeV.intValue;
-    }
-
-    public void gotoItemSearch() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new RelevanceItemSearchActivityConfig(getContext(), 25048)));
-        }
-    }
-
-    public boolean isAllFillIn() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.l.hasStarSelected() : invokeV.booleanValue;
-    }
-
-    public void onChangeSkinType() {
-        int skinType;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48341e) {
-            return;
-        }
-        this.f48341e = skinType;
-        EMTextView eMTextView = this.f48342f;
-        if (eMTextView != null) {
-            SkinManager.setViewTextColor(eMTextView, (int) R.color.CAM_X0109);
-            c.a.q0.r.v.c d2 = c.a.q0.r.v.c.d(this.f48342f);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0206);
-        }
-        if (this.f48344h != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48344h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        }
-        View view = this.f48346j;
-        if (view != null) {
-            SkinManager.setBackgroundColor(view, R.color.CAM_X0210);
-        }
-        ItemCardView itemCardView = this.k;
-        if (itemCardView != null) {
-            SkinManager.setBackgroundColor(itemCardView, R.color.CAM_X0206);
-        }
-        EMTextView eMTextView2 = this.f48343g;
-        if (eMTextView2 != null) {
-            SkinManager.setViewTextColor(eMTextView2, (int) R.color.CAM_X0105);
-        }
-        RankStarView rankStarView = this.l;
-        if (rankStarView != null) {
-            rankStarView.onChangeSkinType(skinType);
-        }
-        RankStarView rankStarView2 = this.l;
-        if (rankStarView2 != null) {
-            rankStarView2.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f37397h.getStarCount() : invokeV.intValue;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) {
-            this.k.setVisibility(8);
-            this.f48346j.setVisibility(0);
-            this.l.setVisibility(8);
-            this.f48342f.setVisibility(0);
-            c cVar = this.m;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view) == null) {
+            this.f37396g.setVisibility(8);
+            this.f37395f.setVisibility(0);
+            this.f37397h.setVisibility(8);
+            this.f37391b.setVisibility(0);
+            c cVar = this.i;
             if (cVar != null) {
                 cVar.onClose();
             }
         }
     }
 
-    @Override // com.baidu.tbadk.widget.RankStarView.a
-    public void onStarChange(float f2) {
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeF(1048585, this, f2) == null) || (bVar = this.n) == null) {
-            return;
-        }
-        bVar.onStarChange(f2);
-    }
-
     public void setItemCloseListener(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
-            this.m = cVar;
+            this.i = cVar;
         }
     }
 
     public void setItemInfo(TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, tbRichTextEvaluateItemInfo) == null) {
-            this.o = tbRichTextEvaluateItemInfo;
-            if (this.p) {
-                this.k.setVisibility(0);
-                this.f48346j.setVisibility(8);
+            this.k = tbRichTextEvaluateItemInfo;
+            if (this.l) {
+                this.f37396g.setVisibility(0);
+                this.f37395f.setVisibility(8);
             }
-            this.l.setVisibility(0);
-            this.l.setStarCount(0.0f);
-            this.f48342f.setVisibility(8);
-            this.k.setData(tbRichTextEvaluateItemInfo, 10, "");
+            this.f37397h.setVisibility(0);
+            this.f37397h.setStarCount(0.0f);
+            this.f37391b.setVisibility(8);
+            this.f37396g.setData(tbRichTextEvaluateItemInfo, 10, "");
         }
     }
 
     public void setShowItemInfo(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.p = z;
-            this.k.setVisibility(8);
-            this.f48346j.setVisibility(0);
-            this.f48345i.setVisibility(8);
+            this.l = z;
+            this.f37396g.setVisibility(8);
+            this.f37395f.setVisibility(0);
+            this.f37394e.setVisibility(8);
         }
     }
 
     public void setStarChangeListener(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) {
-            this.n = bVar;
+            this.j = bVar;
         }
     }
 
-    public void setStarCount(int i2) {
+    public void setStarCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.l.setStarCount(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.f37397h.setStarCount(i);
         }
     }
 
@@ -302,9 +302,9 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -315,17 +315,17 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public WriteEvaluationHeaderView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -333,8 +333,8 @@ public class WriteEvaluationHeaderView extends FrameLayout implements View.OnCli
                 return;
             }
         }
-        this.f48341e = 3;
-        this.p = true;
-        a();
+        this.a = 3;
+        this.l = true;
+        c();
     }
 }

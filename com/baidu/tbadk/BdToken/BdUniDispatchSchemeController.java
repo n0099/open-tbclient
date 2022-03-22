@@ -6,9 +6,9 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.n.g;
 import c.a.d.f.p.m;
-import c.a.q0.a.d;
-import c.a.q0.a.v;
-import c.a.q0.c1.j;
+import c.a.o0.a.d;
+import c.a.o0.a.w;
+import c.a.o0.c1.j;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
@@ -28,7 +28,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class BdUniDispatchSchemeController {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BAIDU_BOX_APP = "shoubai";
@@ -107,18 +107,18 @@ public class BdUniDispatchSchemeController {
     public static String SCHEME_FROM_TB_TOKEN = "from_tb_token";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface b {
-        void onCallBack(HashMap<String, Object> hashMap);
+        void a(HashMap<String, Object> hashMap);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public static final BdUniDispatchSchemeController a;
@@ -197,11 +197,11 @@ public class BdUniDispatchSchemeController {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(65542, this, str, str2, str3, uri) == null) {
-            c.a.q0.a.e0.c.f().i(uri);
+            c.a.o0.a.f0.c.f().i(uri);
             if (m.isEmpty(str)) {
                 return;
             }
-            c.a.q0.a.c cVar = new c.a.q0.a.c(str);
+            c.a.o0.a.c cVar = new c.a.o0.a.c(str);
             cVar.l0(str3);
             if (cVar.d() == 0 || cVar.q() == 0) {
                 return;
@@ -209,7 +209,7 @@ public class BdUniDispatchSchemeController {
             TbSingleton.getInstance().setInvokeSource(cVar.e());
             g.f(String.valueOf(cVar.d()));
             g.i(String.valueOf(cVar.q()));
-            int i2 = StringHelper.equals(str2, SCHEME_FROM_TB_TOKEN) ? 2 : 1;
+            int i = StringHelper.equals(str2, SCHEME_FROM_TB_TOKEN) ? 2 : 1;
             String str8 = "";
             if (uri != null) {
                 str8 = uri.getQueryParameter(PARAM_KW);
@@ -230,14 +230,14 @@ public class BdUniDispatchSchemeController {
                     ((BaseActivity) currentActivity).showFloatingWindow();
                 }
             }
-            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", cVar.e()).param("obj_type", cVar.d()).param("obj_param1", cVar.q()).param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_PARAM3, cVar.s()).param("extra", cVar.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param(TiebaStatic.Params.REFER, str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_NEW_SCHEME_PULL_UP).param("obj_source", cVar.e()).param("obj_type", cVar.d()).param("obj_param1", cVar.q()).param(TiebaStatic.Params.OBJ_PARAM2, i).param(TiebaStatic.Params.OBJ_PARAM3, cVar.s()).param("extra", cVar.v()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("fname", str8).param("tid", str5).param("query", str6).param("pid", str7).param(TiebaStatic.Params.REFER, str4).param("obj_locate", TbadkCoreApplication.getInst().getStartType()).param("obj_name", 1));
             d.y().m(cVar);
         }
     }
 
     private void processSchemeFrom(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && BAIDU_BOX_APP.equals(str)) {
+        if ((interceptable == null || interceptable.invokeL(65543, this, str) == null) && !TextUtils.isEmpty(str) && "shoubai".equals(str)) {
             j.m().v(true);
             j.m().k();
         }
@@ -249,7 +249,7 @@ public class BdUniDispatchSchemeController {
             HashMap<String, Object> hashMap = new HashMap<>();
             String str = PARAM_TAB_NAME;
             hashMap.put(str, uri.getQueryParameter(str));
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -268,7 +268,7 @@ public class BdUniDispatchSchemeController {
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -284,7 +284,7 @@ public class BdUniDispatchSchemeController {
             processActivityMissionInfo(queryParameter, queryParameter2, queryParameter3, uri);
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             addStaticForShemeFormH5("", uri, queryParameter2);
-            v.c(uri);
+            w.c(uri);
             if (PATH_HOMEPAGE.equals(uri.getPath())) {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 String str = PARAM_NEW_GOD_FROM;
@@ -312,7 +312,7 @@ public class BdUniDispatchSchemeController {
                 hashMap.put(NATIVE_PARAM_MAINTAB_LOCATE, 2);
                 hashMap.put(PARAM_TAB_CODE, queryParameter5);
             }
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -335,7 +335,7 @@ public class BdUniDispatchSchemeController {
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5("", uri, queryParameter2);
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -347,7 +347,7 @@ public class BdUniDispatchSchemeController {
             hashMap.put(str, uri.getQueryParameter(str));
             processSchemeFrom(uri.getQueryParameter(PARAM_FROM));
             processActivityMissionInfo(uri.getQueryParameter(PARAM_EXT_DATA), uri.getQueryParameter(PARAM_SCHEME_FROM), uri.getQueryParameter(PARAM_TOKEN), uri);
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -360,7 +360,7 @@ public class BdUniDispatchSchemeController {
             String str2 = PARAM_USE_MAIN_STATE;
             hashMap.put(str2, Boolean.valueOf(uri.getBooleanQueryParameter(str2, false)));
             processActivityMissionInfo(uri.getQueryParameter(PARAM_EXT_DATA), uri.getQueryParameter(PARAM_SCHEME_FROM), uri.getQueryParameter(PARAM_TOKEN), uri);
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -376,7 +376,7 @@ public class BdUniDispatchSchemeController {
             String queryParameter2 = uri.getQueryParameter(PARAM_SCHEME_FROM);
             processActivityMissionInfo(queryParameter, queryParameter2, uri.getQueryParameter(PARAM_TOKEN), uri);
             addStaticForShemeFormH5(str, uri, queryParameter2);
-            bVar.onCallBack(hashMap);
+            bVar.a(hashMap);
         }
     }
 
@@ -385,9 +385,9 @@ public class BdUniDispatchSchemeController {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

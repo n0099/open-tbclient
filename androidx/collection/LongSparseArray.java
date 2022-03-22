@@ -3,7 +3,6 @@ package androidx.collection;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.encrypt.a;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes.dex */
 public class LongSparseArray<E> implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
@@ -47,9 +45,9 @@ public class LongSparseArray<E> implements Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -61,40 +59,40 @@ public class LongSparseArray<E> implements Cloneable {
     private void gc() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            int i2 = this.mSize;
+            int i = this.mSize;
             long[] jArr = this.mKeys;
             Object[] objArr = this.mValues;
-            int i3 = 0;
-            for (int i4 = 0; i4 < i2; i4++) {
-                Object obj = objArr[i4];
+            int i2 = 0;
+            for (int i3 = 0; i3 < i; i3++) {
+                Object obj = objArr[i3];
                 if (obj != DELETED) {
-                    if (i4 != i3) {
-                        jArr[i3] = jArr[i4];
-                        objArr[i3] = obj;
-                        objArr[i4] = null;
+                    if (i3 != i2) {
+                        jArr[i2] = jArr[i3];
+                        objArr[i2] = obj;
+                        objArr[i3] = null;
                     }
-                    i3++;
+                    i2++;
                 }
             }
             this.mGarbage = false;
-            this.mSize = i3;
+            this.mSize = i2;
         }
     }
 
-    public void append(long j2, E e2) {
+    public void append(long j, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, e2) == null) {
-            int i2 = this.mSize;
-            if (i2 != 0 && j2 <= this.mKeys[i2 - 1]) {
-                put(j2, e2);
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, e2) == null) {
+            int i = this.mSize;
+            if (i != 0 && j <= this.mKeys[i - 1]) {
+                put(j, e2);
                 return;
             }
             if (this.mGarbage && this.mSize >= this.mKeys.length) {
                 gc();
             }
-            int i3 = this.mSize;
-            if (i3 >= this.mKeys.length) {
-                int idealLongArraySize = ContainerHelpers.idealLongArraySize(i3 + 1);
+            int i2 = this.mSize;
+            if (i2 >= this.mKeys.length) {
+                int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2 + 1);
                 long[] jArr = new long[idealLongArraySize];
                 Object[] objArr = new Object[idealLongArraySize];
                 long[] jArr2 = this.mKeys;
@@ -104,29 +102,29 @@ public class LongSparseArray<E> implements Cloneable {
                 this.mKeys = jArr;
                 this.mValues = objArr;
             }
-            this.mKeys[i3] = j2;
-            this.mValues[i3] = e2;
-            this.mSize = i3 + 1;
+            this.mKeys[i2] = j;
+            this.mValues[i2] = e2;
+            this.mSize = i2 + 1;
         }
     }
 
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i2 = this.mSize;
+            int i = this.mSize;
             Object[] objArr = this.mValues;
-            for (int i3 = 0; i3 < i2; i3++) {
-                objArr[i3] = null;
+            for (int i2 = 0; i2 < i; i2++) {
+                objArr[i2] = null;
             }
             this.mSize = 0;
             this.mGarbage = false;
         }
     }
 
-    public boolean containsKey(long j2) {
+    public boolean containsKey(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j2)) == null) ? indexOfKey(j2) >= 0 : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) ? indexOfKey(j) >= 0 : invokeJ.booleanValue;
     }
 
     public boolean containsValue(E e2) {
@@ -136,28 +134,28 @@ public class LongSparseArray<E> implements Cloneable {
     }
 
     @Deprecated
-    public void delete(long j2) {
+    public void delete(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            remove(j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            remove(j);
         }
     }
 
     @Nullable
-    public E get(long j2) {
+    public E get(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) ? get(j2, null) : (E) invokeJ.objValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) ? get(j, null) : (E) invokeJ.objValue;
     }
 
-    public int indexOfKey(long j2) {
+    public int indexOfKey(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
             if (this.mGarbage) {
                 gc();
             }
-            return ContainerHelpers.binarySearch(this.mKeys, this.mSize, j2);
+            return ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
         }
         return invokeJ.intValue;
     }
@@ -169,9 +167,9 @@ public class LongSparseArray<E> implements Cloneable {
             if (this.mGarbage) {
                 gc();
             }
-            for (int i2 = 0; i2 < this.mSize; i2++) {
-                if (this.mValues[i2] == e2) {
-                    return i2;
+            for (int i = 0; i < this.mSize; i++) {
+                if (this.mValues[i] == e2) {
+                    return i;
                 }
             }
             return -1;
@@ -185,42 +183,42 @@ public class LongSparseArray<E> implements Cloneable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? size() == 0 : invokeV.booleanValue;
     }
 
-    public long keyAt(int i2) {
+    public long keyAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
             if (this.mGarbage) {
                 gc();
             }
-            return this.mKeys[i2];
+            return this.mKeys[i];
         }
         return invokeI.longValue;
     }
 
-    public void put(long j2, E e2) {
+    public void put(long j, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048589, this, j2, e2) == null) {
-            int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j2);
+        if (interceptable == null || interceptable.invokeJL(1048589, this, j, e2) == null) {
+            int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
             if (binarySearch >= 0) {
                 this.mValues[binarySearch] = e2;
                 return;
             }
-            int i2 = ~binarySearch;
-            if (i2 < this.mSize) {
+            int i = ~binarySearch;
+            if (i < this.mSize) {
                 Object[] objArr = this.mValues;
-                if (objArr[i2] == DELETED) {
-                    this.mKeys[i2] = j2;
-                    objArr[i2] = e2;
+                if (objArr[i] == DELETED) {
+                    this.mKeys[i] = j;
+                    objArr[i] = e2;
                     return;
                 }
             }
             if (this.mGarbage && this.mSize >= this.mKeys.length) {
                 gc();
-                i2 = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j2);
+                i = ~ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
             }
-            int i3 = this.mSize;
-            if (i3 >= this.mKeys.length) {
-                int idealLongArraySize = ContainerHelpers.idealLongArraySize(i3 + 1);
+            int i2 = this.mSize;
+            if (i2 >= this.mKeys.length) {
+                int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2 + 1);
                 long[] jArr = new long[idealLongArraySize];
                 Object[] objArr2 = new Object[idealLongArraySize];
                 long[] jArr2 = this.mKeys;
@@ -230,16 +228,16 @@ public class LongSparseArray<E> implements Cloneable {
                 this.mKeys = jArr;
                 this.mValues = objArr2;
             }
-            int i4 = this.mSize;
-            if (i4 - i2 != 0) {
+            int i3 = this.mSize;
+            if (i3 - i != 0) {
                 long[] jArr3 = this.mKeys;
-                int i5 = i2 + 1;
-                System.arraycopy(jArr3, i2, jArr3, i5, i4 - i2);
+                int i4 = i + 1;
+                System.arraycopy(jArr3, i, jArr3, i4, i3 - i);
                 Object[] objArr4 = this.mValues;
-                System.arraycopy(objArr4, i2, objArr4, i5, this.mSize - i2);
+                System.arraycopy(objArr4, i, objArr4, i4, this.mSize - i);
             }
-            this.mKeys[i2] = j2;
-            this.mValues[i2] = e2;
+            this.mKeys[i] = j;
+            this.mValues[i] = e2;
             this.mSize++;
         }
     }
@@ -248,30 +246,30 @@ public class LongSparseArray<E> implements Cloneable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, longSparseArray) == null) {
             int size = longSparseArray.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                put(longSparseArray.keyAt(i2), longSparseArray.valueAt(i2));
+            for (int i = 0; i < size; i++) {
+                put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
             }
         }
     }
 
     @Nullable
-    public E putIfAbsent(long j2, E e2) {
+    public E putIfAbsent(long j, E e2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048591, this, j2, e2)) == null) {
-            E e3 = get(j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048591, this, j, e2)) == null) {
+            E e3 = get(j);
             if (e3 == null) {
-                put(j2, e2);
+                put(j, e2);
             }
             return e3;
         }
         return (E) invokeJL.objValue;
     }
 
-    public void remove(long j2) {
+    public void remove(long j) {
         int binarySearch;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j2) == null) || (binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j2)) < 0) {
+        if (!(interceptable == null || interceptable.invokeJ(1048592, this, j) == null) || (binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j)) < 0) {
             return;
         }
         Object[] objArr = this.mValues;
@@ -283,25 +281,25 @@ public class LongSparseArray<E> implements Cloneable {
         }
     }
 
-    public void removeAt(int i2) {
+    public void removeAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             Object[] objArr = this.mValues;
-            Object obj = objArr[i2];
+            Object obj = objArr[i];
             Object obj2 = DELETED;
             if (obj != obj2) {
-                objArr[i2] = obj2;
+                objArr[i] = obj2;
                 this.mGarbage = true;
             }
         }
     }
 
     @Nullable
-    public E replace(long j2, E e2) {
+    public E replace(long j, E e2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j2, e2)) == null) {
-            int indexOfKey = indexOfKey(j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048595, this, j, e2)) == null) {
+            int indexOfKey = indexOfKey(j);
             if (indexOfKey >= 0) {
                 Object[] objArr = this.mValues;
                 E e3 = (E) objArr[indexOfKey];
@@ -313,13 +311,13 @@ public class LongSparseArray<E> implements Cloneable {
         return (E) invokeJL.objValue;
     }
 
-    public void setValueAt(int i2, E e2) {
+    public void setValueAt(int i, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i2, e2) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, e2) == null) {
             if (this.mGarbage) {
                 gc();
             }
-            this.mValues[i2] = e2;
+            this.mValues[i] = e2;
         }
     }
 
@@ -343,60 +341,60 @@ public class LongSparseArray<E> implements Cloneable {
                 return StringUtil.EMPTY_ARRAY;
             }
             StringBuilder sb = new StringBuilder(this.mSize * 28);
-            sb.append(ExtendedMessageFormat.START_FE);
-            for (int i2 = 0; i2 < this.mSize; i2++) {
-                if (i2 > 0) {
+            sb.append('{');
+            for (int i = 0; i < this.mSize; i++) {
+                if (i > 0) {
                     sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
                 }
-                sb.append(keyAt(i2));
-                sb.append(a.f29503h);
-                E valueAt = valueAt(i2);
+                sb.append(keyAt(i));
+                sb.append('=');
+                E valueAt = valueAt(i);
                 if (valueAt != this) {
                     sb.append(valueAt);
                 } else {
                     sb.append("(this Map)");
                 }
             }
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public E valueAt(int i2) {
+    public E valueAt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) {
             if (this.mGarbage) {
                 gc();
             }
-            return (E) this.mValues[i2];
+            return (E) this.mValues[i];
         }
         return (E) invokeI.objValue;
     }
 
-    public LongSparseArray(int i2) {
+    public LongSparseArray(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
         this.mGarbage = false;
-        if (i2 == 0) {
+        if (i == 0) {
             this.mKeys = ContainerHelpers.EMPTY_LONGS;
             this.mValues = ContainerHelpers.EMPTY_OBJECTS;
             return;
         }
-        int idealLongArraySize = ContainerHelpers.idealLongArraySize(i2);
+        int idealLongArraySize = ContainerHelpers.idealLongArraySize(i);
         this.mKeys = new long[idealLongArraySize];
         this.mValues = new Object[idealLongArraySize];
     }
@@ -419,11 +417,11 @@ public class LongSparseArray<E> implements Cloneable {
         return (LongSparseArray) invokeV.objValue;
     }
 
-    public E get(long j2, E e2) {
+    public E get(long j, E e2) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2, e2)) == null) {
-            int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j, e2)) == null) {
+            int binarySearch = ContainerHelpers.binarySearch(this.mKeys, this.mSize, j);
             if (binarySearch >= 0) {
                 Object[] objArr = this.mValues;
                 if (objArr[binarySearch] != DELETED) {
@@ -435,11 +433,11 @@ public class LongSparseArray<E> implements Cloneable {
         return (E) invokeJL.objValue;
     }
 
-    public boolean replace(long j2, E e2, E e3) {
+    public boolean replace(long j, E e2, E e3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j2), e2, e3})) == null) {
-            int indexOfKey = indexOfKey(j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{Long.valueOf(j), e2, e3})) == null) {
+            int indexOfKey = indexOfKey(j);
             if (indexOfKey >= 0) {
                 Object obj = this.mValues[indexOfKey];
                 if (obj == e2 || (e2 != null && e2.equals(obj))) {
@@ -453,11 +451,11 @@ public class LongSparseArray<E> implements Cloneable {
         return invokeCommon.booleanValue;
     }
 
-    public boolean remove(long j2, Object obj) {
+    public boolean remove(long j, Object obj) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048593, this, j2, obj)) == null) {
-            int indexOfKey = indexOfKey(j2);
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048593, this, j, obj)) == null) {
+            int indexOfKey = indexOfKey(j);
             if (indexOfKey >= 0) {
                 E valueAt = valueAt(indexOfKey);
                 if (obj == valueAt || (obj != null && obj.equals(valueAt))) {

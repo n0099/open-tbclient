@@ -28,9 +28,9 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
             newInitContext.initArgs = r2;
             Object[] objArr = {mapView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,22 +57,22 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
         com.baidu.mapsdkplatform.comapi.map.j jVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            jVar = this.a.f33960e;
+            jVar = this.a.f26218e;
             if (jVar != null) {
-                jVar2 = this.a.f33960e;
+                jVar2 = this.a.f26218e;
                 if (jVar2.a() == null) {
                     return;
                 }
-                jVar3 = this.a.f33960e;
+                jVar3 = this.a.f26218e;
                 float f3 = jVar3.a().E().a;
-                jVar4 = this.a.f33960e;
-                if (f3 < jVar4.a().f34496b) {
-                    jVar8 = this.a.f33960e;
-                    f3 = jVar8.a().f34496b;
+                jVar4 = this.a.f26218e;
+                if (f3 < jVar4.a().f26700b) {
+                    jVar8 = this.a.f26218e;
+                    f3 = jVar8.a().f26700b;
                 } else {
-                    jVar5 = this.a.f33960e;
+                    jVar5 = this.a.f26218e;
                     if (f3 > jVar5.a().a) {
-                        jVar6 = this.a.f33960e;
+                        jVar6 = this.a.f26218e;
                         f3 = jVar6.a().a;
                     }
                 }
@@ -80,10 +80,10 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = MapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    jVar7 = this.a.f33960e;
+                    jVar7 = this.a.f26218e;
                     imageView = this.a.o;
-                    int i2 = ((int) (intValue / jVar7.a().E().m)) / 2;
-                    imageView.setPadding(i2, 0, i2, 0);
+                    int i = ((int) (intValue / jVar7.a().E().m)) / 2;
+                    imageView.setPadding(i, 0, i, 0);
                     Object[] objArr = new Object[1];
                     if (intValue >= 1000) {
                         objArr[0] = Integer.valueOf(intValue / 1000);
@@ -154,9 +154,9 @@ public class l implements com.baidu.mapsdkplatform.comapi.map.l {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(boolean z, int i2) {
+    public void a(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
         }
     }
 

@@ -45,7 +45,7 @@ import okio.ForwardingSource;
 import okio.Okio;
 import okio.Sink;
 import okio.Source;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class Cache implements Closeable, Flushable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ENTRY_BODY = 1;
@@ -61,7 +61,7 @@ public final class Cache implements Closeable, Flushable {
     public int writeAbortCount;
     public int writeSuccessCount;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public final class CacheRequestImpl implements CacheRequest {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -78,9 +78,9 @@ public final class Cache implements Closeable, Flushable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cache, editor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -106,9 +106,9 @@ public final class Cache implements Closeable, Flushable {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, newSink, cache, editor};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             super((Sink) newInitContext2.callArgs[0]);
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
@@ -165,7 +165,7 @@ public final class Cache implements Closeable, Flushable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class CacheResponseBody extends ResponseBody {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -183,9 +183,9 @@ public final class Cache implements Closeable, Flushable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {snapshot, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -209,9 +209,9 @@ public final class Cache implements Closeable, Flushable {
                         newInitContext2.initArgs = r2;
                         Object[] objArr2 = {this, r8, snapshot};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i4 = newInitContext2.flag;
-                        if ((i4 & 1) != 0) {
-                            int i5 = i4 & 2;
+                        int i3 = newInitContext2.flag;
+                        if ((i3 & 1) != 0) {
+                            int i4 = i3 & 2;
                             super((Source) newInitContext2.callArgs[0]);
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
@@ -273,17 +273,17 @@ public final class Cache implements Closeable, Flushable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public Cache(File file, long j2) {
-        this(file, j2, FileSystem.SYSTEM);
+    public Cache(File file, long j) {
+        this(file, j, FileSystem.SYSTEM);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j2)};
+            Object[] objArr = {file, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], ((Long) objArr2[1]).longValue(), (FileSystem) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -394,13 +394,13 @@ public final class Cache implements Closeable, Flushable {
 
     public synchronized int hitCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             synchronized (this) {
-                i2 = this.hitCount;
+                i = this.hitCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -426,13 +426,13 @@ public final class Cache implements Closeable, Flushable {
 
     public synchronized int networkCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             synchronized (this) {
-                i2 = this.networkCount;
+                i = this.networkCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -483,13 +483,13 @@ public final class Cache implements Closeable, Flushable {
 
     public synchronized int requestCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             synchronized (this) {
-                i2 = this.requestCount;
+                i = this.requestCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
@@ -564,9 +564,9 @@ public final class Cache implements Closeable, Flushable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -633,40 +633,40 @@ public final class Cache implements Closeable, Flushable {
 
     public synchronized int writeAbortCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             synchronized (this) {
-                i2 = this.writeAbortCount;
+                i = this.writeAbortCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     public synchronized int writeSuccessCount() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             synchronized (this) {
-                i2 = this.writeSuccessCount;
+                i = this.writeSuccessCount;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public Cache(File file, long j2, FileSystem fileSystem) {
+    public Cache(File file, long j, FileSystem fileSystem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {file, Long.valueOf(j2), fileSystem};
+            Object[] objArr = {file, Long.valueOf(j), fileSystem};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -684,9 +684,9 @@ public final class Cache implements Closeable, Flushable {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -741,10 +741,10 @@ public final class Cache implements Closeable, Flushable {
                 }
             }
         };
-        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j2);
+        this.cache = DiskLruCache.create(fileSystem, file, VERSION, 2, j);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Entry {
         public static /* synthetic */ Interceptable $ic;
         public static final String RECEIVED_MILLIS;
@@ -787,9 +787,9 @@ public final class Cache implements Closeable, Flushable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {source};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
@@ -801,7 +801,7 @@ public final class Cache implements Closeable, Flushable {
                 this.requestMethod = buffer.readUtf8LineStrict();
                 Headers.Builder builder = new Headers.Builder();
                 int readInt = Cache.readInt(buffer);
-                for (int i4 = 0; i4 < readInt; i4++) {
+                for (int i3 = 0; i3 < readInt; i3++) {
                     builder.addLenient(buffer.readUtf8LineStrict());
                 }
                 this.varyHeaders = builder.build();
@@ -811,7 +811,7 @@ public final class Cache implements Closeable, Flushable {
                 this.message = parse.message;
                 Headers.Builder builder2 = new Headers.Builder();
                 int readInt2 = Cache.readInt(buffer);
-                for (int i5 = 0; i5 < readInt2; i5++) {
+                for (int i4 = 0; i4 < readInt2; i4++) {
                     builder2.addLenient(buffer.readUtf8LineStrict());
                 }
                 String str = builder2.get(SENT_MILLIS);
@@ -861,7 +861,7 @@ public final class Cache implements Closeable, Flushable {
                 try {
                     CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
                     ArrayList arrayList = new ArrayList(readInt);
-                    for (int i2 = 0; i2 < readInt; i2++) {
+                    for (int i = 0; i < readInt; i++) {
                         String readUtf8LineStrict = bufferedSource.readUtf8LineStrict();
                         Buffer buffer = new Buffer();
                         buffer.write(ByteString.decodeBase64(readUtf8LineStrict));
@@ -881,8 +881,8 @@ public final class Cache implements Closeable, Flushable {
                 try {
                     bufferedSink.writeDecimalLong(list.size()).writeByte(10);
                     int size = list.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        bufferedSink.writeUtf8(ByteString.of(list.get(i2).getEncoded()).base64()).writeByte(10);
+                    for (int i = 0; i < size; i++) {
+                        bufferedSink.writeUtf8(ByteString.of(list.get(i).getEncoded()).base64()).writeByte(10);
                     }
                 } catch (CertificateEncodingException e2) {
                     throw new IOException(e2.getMessage());
@@ -913,14 +913,14 @@ public final class Cache implements Closeable, Flushable {
                 buffer.writeUtf8(this.requestMethod).writeByte(10);
                 buffer.writeDecimalLong(this.varyHeaders.size()).writeByte(10);
                 int size = this.varyHeaders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    buffer.writeUtf8(this.varyHeaders.name(i2)).writeUtf8(": ").writeUtf8(this.varyHeaders.value(i2)).writeByte(10);
+                for (int i = 0; i < size; i++) {
+                    buffer.writeUtf8(this.varyHeaders.name(i)).writeUtf8(": ").writeUtf8(this.varyHeaders.value(i)).writeByte(10);
                 }
                 buffer.writeUtf8(new StatusLine(this.protocol, this.code, this.message).toString()).writeByte(10);
                 buffer.writeDecimalLong(this.responseHeaders.size() + 2).writeByte(10);
                 int size2 = this.responseHeaders.size();
-                for (int i3 = 0; i3 < size2; i3++) {
-                    buffer.writeUtf8(this.responseHeaders.name(i3)).writeUtf8(": ").writeUtf8(this.responseHeaders.value(i3)).writeByte(10);
+                for (int i2 = 0; i2 < size2; i2++) {
+                    buffer.writeUtf8(this.responseHeaders.name(i2)).writeUtf8(": ").writeUtf8(this.responseHeaders.value(i2)).writeByte(10);
                 }
                 buffer.writeUtf8(SENT_MILLIS).writeUtf8(": ").writeDecimalLong(this.sentRequestMillis).writeByte(10);
                 buffer.writeUtf8(RECEIVED_MILLIS).writeUtf8(": ").writeDecimalLong(this.receivedResponseMillis).writeByte(10);
@@ -942,9 +942,9 @@ public final class Cache implements Closeable, Flushable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {response};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;

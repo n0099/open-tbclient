@@ -1,5 +1,6 @@
 package com.sina.weibo.sdk.utils;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LogUtil {
     public static /* synthetic */ Interceptable $ic;
     public static boolean sIsLogEnable;
@@ -34,9 +35,9 @@ public class LogUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -47,7 +48,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
+            Log.d(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 
@@ -62,7 +63,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
+            Log.e(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 
@@ -87,7 +88,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
+            Log.i(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 
@@ -95,7 +96,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
+            Log.v(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 
@@ -103,7 +104,7 @@ public class LogUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) && sIsLogEnable) {
             StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[3];
-            String str3 = (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2;
+            Log.w(str, (stackTraceElement.getFileName() + "(" + stackTraceElement.getLineNumber() + ") " + stackTraceElement.getMethodName()) + ": " + str2);
         }
     }
 }

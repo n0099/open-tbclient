@@ -4,7 +4,9 @@ import android.content.Context;
 import android.text.ClipboardManager;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +34,7 @@ public class c {
         int identifier;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (context != null && (identifier = context.getResources().getIdentifier("navigation_bar_height", "dimen", "android")) > 0) {
+            if (context != null && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android")) > 0) {
                 return context.getResources().getDimensionPixelSize(identifier);
             }
             return 0;

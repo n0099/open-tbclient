@@ -16,226 +16,163 @@ public class l0<T> {
     public T[] a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Comparator<? super T> f27566b;
+    public Comparator<? super T> f22776b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f27567c;
+    public int f22777c;
 
     /* renamed from: d  reason: collision with root package name */
-    public T[] f27568d;
+    public T[] f22778d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f27569e;
+    public int f22779e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f27570f;
+    public int f22780f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final int[] f27571g;
+    public final int[] f22781g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final int[] f27572h;
+    public final int[] f22782h;
 
     public l0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27567c = 7;
-        this.f27570f = 0;
-        this.f27568d = (T[]) new Object[256];
-        this.f27571g = new int[40];
-        this.f27572h = new int[40];
+        this.f22777c = 7;
+        this.f22780f = 0;
+        this.f22778d = (T[]) new Object[256];
+        this.f22781g = new int[40];
+        this.f22782h = new int[40];
     }
 
     /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003d -> B:5:0x0006 */
-    public static <T> void a(T[] tArr, int i2, int i3, int i4, Comparator<? super T> comparator) {
+    public static <T> void a(T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), comparator}) == null) {
-            if (i4 == i2) {
-                i4++;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator}) == null) {
+            if (i3 == i) {
+                i3++;
             }
-            while (i4 < i3) {
-                T t = tArr[i4];
-                int i5 = i2;
-                int i6 = i4;
-                while (i5 < i6) {
-                    int i7 = (i5 + i6) >>> 1;
-                    if (comparator.compare(t, tArr[i7]) < 0) {
-                        i6 = i7;
+            while (i3 < i2) {
+                T t = tArr[i3];
+                int i4 = i;
+                int i5 = i3;
+                while (i4 < i5) {
+                    int i6 = (i4 + i5) >>> 1;
+                    if (comparator.compare(t, tArr[i6]) < 0) {
+                        i5 = i6;
                     } else {
-                        i5 = i7 + 1;
+                        i4 = i6 + 1;
                     }
                 }
-                int i8 = i4 - i5;
-                if (i8 != 1) {
-                    if (i8 != 2) {
-                        System.arraycopy(tArr, i5, tArr, i5 + 1, i8);
-                        tArr[i5] = t;
-                        i4++;
+                int i7 = i3 - i4;
+                if (i7 != 1) {
+                    if (i7 != 2) {
+                        System.arraycopy(tArr, i4, tArr, i4 + 1, i7);
+                        tArr[i4] = t;
+                        i3++;
                     } else {
-                        tArr[i5 + 2] = tArr[i5 + 1];
+                        tArr[i4 + 2] = tArr[i4 + 1];
                     }
                 }
-                tArr[i5 + 1] = tArr[i5];
-                tArr[i5] = t;
-                i4++;
+                tArr[i4 + 1] = tArr[i4];
+                tArr[i4] = t;
+                i3++;
             }
         }
     }
 
-    public static <T> int b(T[] tArr, int i2, int i3, Comparator<? super T> comparator) {
+    public static <T> int b(T[] tArr, int i, int i2, Comparator<? super T> comparator) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tArr, Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
-            int i4 = i2 + 1;
-            if (i4 == i3) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), comparator})) == null) {
+            int i3 = i + 1;
+            if (i3 == i2) {
                 return 1;
             }
-            int i5 = i4 + 1;
-            if (comparator.compare(tArr[i4], tArr[i2]) < 0) {
-                while (i5 < i3 && comparator.compare(tArr[i5], tArr[i5 - 1]) < 0) {
-                    i5++;
+            int i4 = i3 + 1;
+            if (comparator.compare(tArr[i3], tArr[i]) < 0) {
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) < 0) {
+                    i4++;
                 }
-                o(tArr, i2, i5);
+                o(tArr, i, i4);
             } else {
-                while (i5 < i3 && comparator.compare(tArr[i5], tArr[i5 - 1]) >= 0) {
-                    i5++;
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) >= 0) {
+                    i4++;
                 }
             }
-            return i5 - i2;
+            return i4 - i;
         }
         return invokeCommon.intValue;
     }
 
-    public static <T> int e(T t, T[] tArr, int i2, int i3, int i4, Comparator<? super T> comparator) {
+    public static <T> int e(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         InterceptResult invokeCommon;
+        int i4;
         int i5;
-        int i6;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{t, tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), comparator})) == null) {
-            int i7 = i2 + i4;
-            if (comparator.compare(t, tArr[i7]) > 0) {
-                int i8 = i3 - i4;
-                int i9 = 0;
-                int i10 = 1;
-                while (i10 < i8 && comparator.compare(t, tArr[i7 + i10]) > 0) {
-                    int i11 = (i10 << 1) + 1;
-                    if (i11 <= 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+            int i6 = i + i3;
+            if (comparator.compare(t, tArr[i6]) > 0) {
+                int i7 = i2 - i3;
+                int i8 = 0;
+                int i9 = 1;
+                while (i9 < i7 && comparator.compare(t, tArr[i6 + i9]) > 0) {
+                    int i10 = (i9 << 1) + 1;
+                    if (i10 <= 0) {
+                        i8 = i9;
+                        i9 = i7;
+                    } else {
+                        int i11 = i9;
                         i9 = i10;
-                        i10 = i8;
-                    } else {
-                        int i12 = i10;
-                        i10 = i11;
-                        i9 = i12;
+                        i8 = i11;
                     }
                 }
-                if (i10 <= i8) {
-                    i8 = i10;
+                if (i9 <= i7) {
+                    i7 = i9;
                 }
-                i5 = i9 + i4;
-                i6 = i8 + i4;
+                i4 = i8 + i3;
+                i5 = i7 + i3;
             } else {
-                int i13 = i4 + 1;
-                int i14 = 0;
-                int i15 = 1;
-                while (i15 < i13 && comparator.compare(t, tArr[i7 - i15]) <= 0) {
-                    int i16 = (i15 << 1) + 1;
-                    if (i16 <= 0) {
-                        i14 = i15;
-                        i15 = i13;
+                int i12 = i3 + 1;
+                int i13 = 0;
+                int i14 = 1;
+                while (i14 < i12 && comparator.compare(t, tArr[i6 - i14]) <= 0) {
+                    int i15 = (i14 << 1) + 1;
+                    if (i15 <= 0) {
+                        i13 = i14;
+                        i14 = i12;
                     } else {
-                        int i17 = i15;
-                        i15 = i16;
-                        i14 = i17;
+                        int i16 = i14;
+                        i14 = i15;
+                        i13 = i16;
                     }
                 }
-                if (i15 <= i13) {
-                    i13 = i15;
+                if (i14 <= i12) {
+                    i12 = i14;
                 }
-                int i18 = i4 - i13;
-                int i19 = i4 - i14;
+                int i17 = i3 - i12;
+                int i18 = i3 - i13;
+                i4 = i17;
                 i5 = i18;
-                i6 = i19;
             }
-            int i20 = i5 + 1;
-            while (i20 < i6) {
-                int i21 = ((i6 - i20) >>> 1) + i20;
-                if (comparator.compare(t, tArr[i2 + i21]) > 0) {
-                    i20 = i21 + 1;
-                } else {
-                    i6 = i21;
-                }
-            }
-            return i6;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static <T> int f(T t, T[] tArr, int i2, int i3, int i4, Comparator<? super T> comparator) {
-        InterceptResult invokeCommon;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{t, tArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), comparator})) == null) {
-            int i7 = i2 + i4;
-            if (comparator.compare(t, tArr[i7]) < 0) {
-                int i8 = i4 + 1;
-                int i9 = 0;
-                int i10 = 1;
-                while (i10 < i8 && comparator.compare(t, tArr[i7 - i10]) < 0) {
-                    int i11 = (i10 << 1) + 1;
-                    if (i11 <= 0) {
-                        i9 = i10;
-                        i10 = i8;
-                    } else {
-                        int i12 = i10;
-                        i10 = i11;
-                        i9 = i12;
-                    }
-                }
-                if (i10 <= i8) {
-                    i8 = i10;
-                }
-                i6 = i4 - i8;
-                i5 = i4 - i9;
-            } else {
-                int i13 = i3 - i4;
-                int i14 = 0;
-                int i15 = 1;
-                while (i15 < i13 && comparator.compare(t, tArr[i7 + i15]) >= 0) {
-                    int i16 = (i15 << 1) + 1;
-                    if (i16 <= 0) {
-                        i14 = i15;
-                        i15 = i13;
-                    } else {
-                        int i17 = i15;
-                        i15 = i16;
-                        i14 = i17;
-                    }
-                }
-                if (i15 <= i13) {
-                    i13 = i15;
-                }
-                int i18 = i14 + i4;
-                i5 = i4 + i13;
-                i6 = i18;
-            }
-            int i19 = i6 + 1;
+            int i19 = i4 + 1;
             while (i19 < i5) {
                 int i20 = ((i5 - i19) >>> 1) + i19;
-                if (comparator.compare(t, tArr[i2 + i20]) < 0) {
-                    i5 = i20;
-                } else {
+                if (comparator.compare(t, tArr[i + i20]) > 0) {
                     i19 = i20 + 1;
+                } else {
+                    i5 = i20;
                 }
             }
             return i5;
@@ -243,146 +180,209 @@ public class l0<T> {
         return invokeCommon.intValue;
     }
 
-    public static int l(int i2) {
+    public static <T> int f(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
+        InterceptResult invokeCommon;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+            int i6 = i + i3;
+            if (comparator.compare(t, tArr[i6]) < 0) {
+                int i7 = i3 + 1;
+                int i8 = 0;
+                int i9 = 1;
+                while (i9 < i7 && comparator.compare(t, tArr[i6 - i9]) < 0) {
+                    int i10 = (i9 << 1) + 1;
+                    if (i10 <= 0) {
+                        i8 = i9;
+                        i9 = i7;
+                    } else {
+                        int i11 = i9;
+                        i9 = i10;
+                        i8 = i11;
+                    }
+                }
+                if (i9 <= i7) {
+                    i7 = i9;
+                }
+                i5 = i3 - i7;
+                i4 = i3 - i8;
+            } else {
+                int i12 = i2 - i3;
+                int i13 = 0;
+                int i14 = 1;
+                while (i14 < i12 && comparator.compare(t, tArr[i6 + i14]) >= 0) {
+                    int i15 = (i14 << 1) + 1;
+                    if (i15 <= 0) {
+                        i13 = i14;
+                        i14 = i12;
+                    } else {
+                        int i16 = i14;
+                        i14 = i15;
+                        i13 = i16;
+                    }
+                }
+                if (i14 <= i12) {
+                    i12 = i14;
+                }
+                int i17 = i13 + i3;
+                i4 = i3 + i12;
+                i5 = i17;
+            }
+            int i18 = i5 + 1;
+            while (i18 < i4) {
+                int i19 = ((i4 - i18) >>> 1) + i18;
+                if (comparator.compare(t, tArr[i + i19]) < 0) {
+                    i4 = i19;
+                } else {
+                    i18 = i19 + 1;
+                }
+            }
+            return i4;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int l(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i2)) == null) {
-            int i3 = 0;
-            while (i2 >= 32) {
-                i3 |= i2 & 1;
-                i2 >>= 1;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            int i2 = 0;
+            while (i >= 32) {
+                i2 |= i & 1;
+                i >>= 1;
             }
-            return i2 + i3;
+            return i + i2;
         }
         return invokeI.intValue;
     }
 
-    public static void n(int i2, int i3, int i4) {
+    public static void n(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(65542, null, i2, i3, i4) == null) {
-            if (i3 <= i4) {
-                if (i3 < 0) {
-                    throw new ArrayIndexOutOfBoundsException(i3);
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            if (i2 <= i3) {
+                if (i2 < 0) {
+                    throw new ArrayIndexOutOfBoundsException(i2);
                 }
-                if (i4 > i2) {
-                    throw new ArrayIndexOutOfBoundsException(i4);
+                if (i3 > i) {
+                    throw new ArrayIndexOutOfBoundsException(i3);
                 }
                 return;
             }
-            throw new IllegalArgumentException("fromIndex(" + i3 + ") > toIndex(" + i4 + SmallTailInfo.EMOTION_SUFFIX);
+            throw new IllegalArgumentException("fromIndex(" + i2 + ") > toIndex(" + i3 + SmallTailInfo.EMOTION_SUFFIX);
         }
     }
 
-    public static void o(Object[] objArr, int i2, int i3) {
+    public static void o(Object[] objArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65543, null, objArr, i2, i3) == null) {
-            int i4 = i3 - 1;
-            while (i2 < i4) {
-                Object obj = objArr[i2];
-                objArr[i2] = objArr[i4];
-                objArr[i4] = obj;
-                i4--;
-                i2++;
+        if (interceptable == null || interceptable.invokeLII(65543, null, objArr, i, i2) == null) {
+            int i3 = i2 - 1;
+            while (i < i3) {
+                Object obj = objArr[i];
+                objArr[i] = objArr[i3];
+                objArr[i3] = obj;
+                i3--;
+                i++;
             }
         }
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.util.Comparator<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    public void c(T[] tArr, Comparator<T> comparator, int i2, int i3) {
+    public void c(T[] tArr, Comparator<T> comparator, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i2, i3) == null) {
-            this.f27570f = 0;
-            n(tArr.length, i2, i3);
-            int i4 = i3 - i2;
-            if (i4 < 2) {
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
+            this.f22780f = 0;
+            n(tArr.length, i, i2);
+            int i3 = i2 - i;
+            if (i3 < 2) {
                 return;
             }
-            if (i4 < 32) {
-                a(tArr, i2, i3, b(tArr, i2, i3, comparator) + i2, comparator);
+            if (i3 < 32) {
+                a(tArr, i, i2, b(tArr, i, i2, comparator) + i, comparator);
                 return;
             }
             this.a = tArr;
-            this.f27566b = comparator;
-            this.f27569e = 0;
-            int l = l(i4);
+            this.f22776b = comparator;
+            this.f22779e = 0;
+            int l = l(i3);
             do {
-                int b2 = b(tArr, i2, i3, comparator);
+                int b2 = b(tArr, i, i2, comparator);
                 if (b2 < l) {
-                    int i5 = i4 <= l ? i4 : l;
-                    a(tArr, i2, i2 + i5, b2 + i2, comparator);
-                    b2 = i5;
+                    int i4 = i3 <= l ? i3 : l;
+                    a(tArr, i, i + i4, b2 + i, comparator);
+                    b2 = i4;
                 }
-                m(i2, b2);
+                m(i, b2);
                 h();
-                i2 += b2;
-                i4 -= b2;
-            } while (i4 != 0);
+                i += b2;
+                i3 -= b2;
+            } while (i3 != 0);
             i();
             this.a = null;
-            this.f27566b = null;
-            T[] tArr2 = this.f27568d;
-            int i6 = this.f27569e;
-            for (int i7 = 0; i7 < i6; i7++) {
-                tArr2[i7] = null;
+            this.f22776b = null;
+            T[] tArr2 = this.f22778d;
+            int i5 = this.f22779e;
+            for (int i6 = 0; i6 < i5; i6++) {
+                tArr2[i6] = null;
             }
         }
     }
 
-    public final T[] d(int i2) {
+    public final T[] d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            this.f27569e = Math.max(this.f27569e, i2);
-            if (this.f27568d.length < i2) {
-                int i3 = (i2 >> 1) | i2;
-                int i4 = i3 | (i3 >> 2);
-                int i5 = i4 | (i4 >> 4);
-                int i6 = i5 | (i5 >> 8);
-                int i7 = (i6 | (i6 >> 16)) + 1;
-                if (i7 >= 0) {
-                    i2 = Math.min(i7, this.a.length >>> 1);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f22779e = Math.max(this.f22779e, i);
+            if (this.f22778d.length < i) {
+                int i2 = (i >> 1) | i;
+                int i3 = i2 | (i2 >> 2);
+                int i4 = i3 | (i3 >> 4);
+                int i5 = i4 | (i4 >> 8);
+                int i6 = (i5 | (i5 >> 16)) + 1;
+                if (i6 >= 0) {
+                    i = Math.min(i6, this.a.length >>> 1);
                 }
-                this.f27568d = (T[]) new Object[i2];
+                this.f22778d = (T[]) new Object[i];
             }
-            return this.f27568d;
+            return this.f22778d;
         }
         return (T[]) ((Object[]) invokeI.objValue);
     }
 
-    public final void g(int i2) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            int[] iArr = this.f27571g;
-            int i3 = iArr[i2];
-            int[] iArr2 = this.f27572h;
-            int i4 = iArr2[i2];
-            int i5 = i2 + 1;
-            int i6 = iArr[i5];
-            int i7 = iArr2[i5];
-            iArr2[i2] = i4 + i7;
-            if (i2 == this.f27570f - 3) {
-                int i8 = i2 + 2;
-                iArr[i5] = iArr[i8];
-                iArr2[i5] = iArr2[i8];
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int[] iArr = this.f22781g;
+            int i2 = iArr[i];
+            int[] iArr2 = this.f22782h;
+            int i3 = iArr2[i];
+            int i4 = i + 1;
+            int i5 = iArr[i4];
+            int i6 = iArr2[i4];
+            iArr2[i] = i3 + i6;
+            if (i == this.f22780f - 3) {
+                int i7 = i + 2;
+                iArr[i4] = iArr[i7];
+                iArr2[i4] = iArr2[i7];
             }
-            this.f27570f--;
+            this.f22780f--;
             T[] tArr = this.a;
-            int f2 = f(tArr[i6], tArr, i3, i4, 0, this.f27566b);
-            int i9 = i3 + f2;
-            int i10 = i4 - f2;
-            if (i10 == 0) {
+            int f2 = f(tArr[i5], tArr, i2, i3, 0, this.f22776b);
+            int i8 = i2 + f2;
+            int i9 = i3 - f2;
+            if (i9 == 0) {
                 return;
             }
             T[] tArr2 = this.a;
-            int e2 = e(tArr2[(i9 + i10) - 1], tArr2, i6, i7, i7 - 1, this.f27566b);
+            int e2 = e(tArr2[(i8 + i9) - 1], tArr2, i5, i6, i6 - 1, this.f22776b);
             if (e2 == 0) {
                 return;
             }
-            if (i10 <= e2) {
-                k(i9, i10, i6, e2);
+            if (i9 <= e2) {
+                k(i8, i9, i5, e2);
             } else {
-                j(i9, i10, i6, e2);
+                j(i8, i9, i5, e2);
             }
         }
     }
@@ -391,7 +391,7 @@ public class l0<T> {
         if (r1[r0 - 2] <= (r1[r0] + r1[r0 - 1])) goto L14;
      */
     /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
-        r1 = r5.f27572h;
+        r1 = r5.f22782h;
      */
     /* JADX WARN: Code restructure failed: missing block: B:15:0x0038, code lost:
         if (r1[r0 - 1] >= r1[r0 + 1]) goto L19;
@@ -411,22 +411,22 @@ public class l0<T> {
             return;
         }
         while (true) {
-            int i2 = this.f27570f;
-            if (i2 <= 1) {
+            int i = this.f22780f;
+            if (i <= 1) {
                 return;
             }
-            int i3 = i2 - 2;
-            if (i3 >= 1) {
-                int[] iArr = this.f27572h;
+            int i2 = i - 2;
+            if (i2 >= 1) {
+                int[] iArr = this.f22782h;
             }
-            if (i3 >= 2) {
-                int[] iArr2 = this.f27572h;
+            if (i2 >= 2) {
+                int[] iArr2 = this.f22782h;
             }
-            int[] iArr3 = this.f27572h;
-            if (iArr3[i3] > iArr3[i3 + 1]) {
+            int[] iArr3 = this.f22782h;
+            if (iArr3[i2] > iArr3[i2 + 1]) {
                 return;
             }
-            g(i3);
+            g(i2);
         }
     }
 
@@ -436,18 +436,18 @@ public class l0<T> {
             return;
         }
         while (true) {
-            int i2 = this.f27570f;
-            if (i2 <= 1) {
+            int i = this.f22780f;
+            if (i <= 1) {
                 return;
             }
-            int i3 = i2 - 2;
-            if (i3 > 0) {
-                int[] iArr = this.f27572h;
-                if (iArr[i3 - 1] < iArr[i3 + 1]) {
-                    i3--;
+            int i2 = i - 2;
+            if (i2 > 0) {
+                int[] iArr = this.f22782h;
+                if (iArr[i2 - 1] < iArr[i2 + 1]) {
+                    i2--;
                 }
             }
-            g(i3);
+            g(i2);
         }
     }
 
@@ -584,93 +584,93 @@ public class l0<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void j(int i2, int i3, int i4, int i5) {
+    public final void j(int i, int i2, int i3, int i4) {
+        int i5;
         int i6;
         int i7;
         int i8;
         int i9;
         int i10;
         int i11;
-        int i12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048581, this, i2, i3, i4, i5) == null) {
-            int i13 = i5;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            int i12 = i4;
             T[] tArr = this.a;
-            T[] d2 = d(i13);
-            System.arraycopy(tArr, i4, d2, 0, i13);
-            int i14 = (i2 + i3) - 1;
-            int i15 = i13 - 1;
-            int i16 = (i4 + i13) - 1;
-            int i17 = i16 - 1;
-            int i18 = i14 - 1;
-            tArr[i16] = tArr[i14];
-            int i19 = i3 - 1;
-            if (i19 == 0) {
-                System.arraycopy(d2, 0, tArr, i17 - i15, i13);
-            } else if (i13 == 1) {
-                int i20 = i17 - i19;
-                System.arraycopy(tArr, (i18 - i19) + 1, tArr, i20 + 1, i19);
-                tArr[i20] = d2[i15];
+            T[] d2 = d(i12);
+            System.arraycopy(tArr, i3, d2, 0, i12);
+            int i13 = (i + i2) - 1;
+            int i14 = i12 - 1;
+            int i15 = (i3 + i12) - 1;
+            int i16 = i15 - 1;
+            int i17 = i13 - 1;
+            tArr[i15] = tArr[i13];
+            int i18 = i2 - 1;
+            if (i18 == 0) {
+                System.arraycopy(d2, 0, tArr, i16 - i14, i12);
+            } else if (i12 == 1) {
+                int i19 = i16 - i18;
+                System.arraycopy(tArr, (i17 - i18) + 1, tArr, i19 + 1, i18);
+                tArr[i19] = d2[i14];
             } else {
-                Comparator<? super T> comparator = this.f27566b;
-                int i21 = this.f27567c;
+                Comparator<? super T> comparator = this.f22776b;
+                int i20 = this.f22777c;
                 loop0: while (true) {
+                    int i21 = 0;
                     int i22 = 0;
-                    int i23 = 0;
                     while (true) {
-                        if (comparator.compare(d2[i15], tArr[i18]) < 0) {
-                            i6 = i17 - 1;
-                            int i24 = i18 - 1;
-                            tArr[i17] = tArr[i18];
-                            i23++;
-                            i19--;
-                            if (i19 != 0) {
-                                i17 = i6;
-                                i18 = i24;
-                                i22 = 0;
-                                if ((i23 | i22) >= i21) {
+                        if (comparator.compare(d2[i14], tArr[i17]) < 0) {
+                            i5 = i16 - 1;
+                            int i23 = i17 - 1;
+                            tArr[i16] = tArr[i17];
+                            i22++;
+                            i18--;
+                            if (i18 != 0) {
+                                i16 = i5;
+                                i17 = i23;
+                                i21 = 0;
+                                if ((i22 | i21) >= i20) {
                                     break;
                                 }
                             } else {
-                                i18 = i24;
+                                i17 = i23;
                                 break loop0;
                             }
                         } else {
-                            int i25 = i17 - 1;
-                            int i26 = i15 - 1;
-                            tArr[i17] = d2[i15];
-                            i22++;
-                            i13--;
-                            if (i13 == 1) {
-                                i6 = i25;
-                                i15 = i26;
+                            int i24 = i16 - 1;
+                            int i25 = i14 - 1;
+                            tArr[i16] = d2[i14];
+                            i21++;
+                            i12--;
+                            if (i12 == 1) {
+                                i5 = i24;
+                                i14 = i25;
                                 break loop0;
                             }
-                            i17 = i25;
-                            i15 = i26;
-                            i23 = 0;
-                            if ((i23 | i22) >= i21) {
+                            i16 = i24;
+                            i14 = i25;
+                            i22 = 0;
+                            if ((i22 | i21) >= i20) {
                             }
                         }
                     }
-                    i21 = i9 + 2;
-                    i18 = i12;
-                    i19 = i7;
-                    i13 = i8;
-                    i17 = i10;
-                    i15 = i11;
+                    i20 = i8 + 2;
+                    i17 = i11;
+                    i18 = i6;
+                    i12 = i7;
+                    i16 = i9;
+                    i14 = i10;
                 }
-                i15 = i11;
-                if (i21 < 1) {
-                    i21 = 1;
+                i14 = i10;
+                if (i20 < 1) {
+                    i20 = 1;
                 }
-                this.f27567c = i21;
-                if (i13 == 1) {
-                    int i27 = i6 - i19;
-                    System.arraycopy(tArr, (i18 - i19) + 1, tArr, i27 + 1, i19);
-                    tArr[i27] = d2[i15];
-                } else if (i13 != 0) {
-                    System.arraycopy(d2, 0, tArr, i6 - (i13 - 1), i13);
+                this.f22777c = i20;
+                if (i12 == 1) {
+                    int i26 = i5 - i18;
+                    System.arraycopy(tArr, (i17 - i18) + 1, tArr, i26 + 1, i18);
+                    tArr[i26] = d2[i14];
+                } else if (i12 != 0) {
+                    System.arraycopy(d2, 0, tArr, i5 - (i12 - 1), i12);
                 } else {
                     throw new IllegalArgumentException("Comparison method violates its general contract!");
                 }
@@ -823,105 +823,105 @@ public class l0<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void k(int i2, int i3, int i4, int i5) {
+    public final void k(int i, int i2, int i3, int i4) {
+        int i5;
         int i6;
         int i7;
         int i8;
         int i9;
         int i10;
         int i11;
-        int i12;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) {
-            int i13 = i3;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            int i12 = i2;
             T[] tArr = this.a;
-            T[] d2 = d(i13);
-            System.arraycopy(tArr, i2, d2, 0, i13);
-            int i14 = i2 + 1;
-            int i15 = i4 + 1;
-            tArr[i2] = tArr[i4];
-            int i16 = i5 - 1;
-            if (i16 == 0) {
-                System.arraycopy(d2, 0, tArr, i14, i13);
+            T[] d2 = d(i12);
+            System.arraycopy(tArr, i, d2, 0, i12);
+            int i13 = i + 1;
+            int i14 = i3 + 1;
+            tArr[i] = tArr[i3];
+            int i15 = i4 - 1;
+            if (i15 == 0) {
+                System.arraycopy(d2, 0, tArr, i13, i12);
                 return;
             }
-            int i17 = 1;
-            if (i13 == 1) {
-                System.arraycopy(tArr, i15, tArr, i14, i16);
-                tArr[i14 + i16] = d2[0];
+            int i16 = 1;
+            if (i12 == 1) {
+                System.arraycopy(tArr, i14, tArr, i13, i15);
+                tArr[i13 + i15] = d2[0];
                 return;
             }
-            Comparator<? super T> comparator = this.f27566b;
-            int i18 = this.f27567c;
-            int i19 = 0;
+            Comparator<? super T> comparator = this.f22776b;
+            int i17 = this.f22777c;
+            int i18 = 0;
             loop0: while (true) {
+                int i19 = 0;
                 int i20 = 0;
-                int i21 = 0;
                 while (true) {
-                    if (comparator.compare(tArr[i15], d2[i19]) < 0) {
-                        i6 = i14 + 1;
-                        int i22 = i15 + 1;
-                        tArr[i14] = tArr[i15];
-                        i21 += i17;
-                        i16--;
-                        if (i16 == 0) {
-                            i15 = i22;
+                    if (comparator.compare(tArr[i14], d2[i18]) < 0) {
+                        i5 = i13 + 1;
+                        int i21 = i14 + 1;
+                        tArr[i13] = tArr[i14];
+                        i20 += i16;
+                        i15--;
+                        if (i15 == 0) {
+                            i14 = i21;
                             break loop0;
                         }
-                        i14 = i6;
-                        i15 = i22;
-                        i20 = 0;
-                        if ((i20 | i21) < i18) {
+                        i13 = i5;
+                        i14 = i21;
+                        i19 = 0;
+                        if ((i19 | i20) < i17) {
                             break;
                         }
                     } else {
-                        int i23 = i14 + 1;
-                        int i24 = i19 + 1;
-                        tArr[i14] = d2[i19];
-                        i20 += i17;
-                        i13--;
-                        if (i13 == i17) {
-                            i6 = i23;
-                            i19 = i24;
+                        int i22 = i13 + 1;
+                        int i23 = i18 + 1;
+                        tArr[i13] = d2[i18];
+                        i19 += i16;
+                        i12--;
+                        if (i12 == i16) {
+                            i5 = i22;
+                            i18 = i23;
                             break loop0;
                         }
-                        i14 = i23;
-                        i19 = i24;
-                        i21 = 0;
-                        if ((i20 | i21) < i18) {
+                        i13 = i22;
+                        i18 = i23;
+                        i20 = 0;
+                        if ((i19 | i20) < i17) {
                         }
                     }
                 }
-                i18 = i11 + 2;
-                i14 = i12;
-                i16 = i8;
-                i13 = i9;
-                i15 = i10;
+                i17 = i10 + 2;
+                i13 = i11;
+                i15 = i7;
+                i12 = i8;
+                i14 = i9;
+                i16 = 1;
+            }
+            if (i17 < i6) {
                 i17 = 1;
             }
-            if (i18 < i7) {
-                i18 = 1;
-            }
-            this.f27567c = i18;
-            if (i13 == i7) {
-                System.arraycopy(tArr, i15, tArr, i6, i16);
-                tArr[i6 + i16] = d2[i19];
-            } else if (i13 != 0) {
-                System.arraycopy(d2, i19, tArr, i6, i13);
+            this.f22777c = i17;
+            if (i12 == i6) {
+                System.arraycopy(tArr, i14, tArr, i5, i15);
+                tArr[i5 + i15] = d2[i18];
+            } else if (i12 != 0) {
+                System.arraycopy(d2, i18, tArr, i5, i12);
             } else {
                 throw new IllegalArgumentException("Comparison method violates its general contract!");
             }
         }
     }
 
-    public final void m(int i2, int i3) {
+    public final void m(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            int[] iArr = this.f27571g;
-            int i4 = this.f27570f;
-            iArr[i4] = i2;
-            this.f27572h[i4] = i3;
-            this.f27570f = i4 + 1;
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            int[] iArr = this.f22781g;
+            int i3 = this.f22780f;
+            iArr[i3] = i;
+            this.f22782h[i3] = i2;
+            this.f22780f = i3 + 1;
         }
     }
 }

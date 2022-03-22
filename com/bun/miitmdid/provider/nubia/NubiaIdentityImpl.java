@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e0;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "NubiaIdentityImpl";
@@ -43,9 +43,9 @@ public class NubiaIdentityImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,15 +58,15 @@ public class NubiaIdentityImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, context, str, str2, str3, cls)) == null) {
             try {
-                int i2 = Build.VERSION.SDK_INT;
-                if (i2 >= 17) {
+                int i = Build.VERSION.SDK_INT;
+                if (i >= 17) {
                     ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(uri);
                     if (acquireContentProviderClient == null) {
                         e0.d(TAG, "generalMethod: contentResolver is null");
                         return null;
                     }
                     call = acquireContentProviderClient.call(str, str2, null);
-                    if (i2 >= 24) {
+                    if (i >= 24) {
                         acquireContentProviderClient.close();
                     } else {
                         acquireContentProviderClient.release();

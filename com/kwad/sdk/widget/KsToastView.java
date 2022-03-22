@@ -6,92 +6,92 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class KsToastView extends LinearLayout {
     public TextView a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f56614b;
+    public int f41493b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f56615c;
+    public String f41494c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Runnable f56616d;
+    public Runnable f41495d;
 
     public KsToastView(Context context) {
         super(context);
-        this.f56614b = 3;
-        this.f56615c = "%ss后自动进入";
-        this.f56616d = null;
+        this.f41493b = 3;
+        this.f41494c = "%ss后自动进入";
+        this.f41495d = null;
         a(context);
     }
 
     public KsToastView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f56614b = 3;
-        this.f56615c = "%ss后自动进入";
-        this.f56616d = null;
+        this.f41493b = 3;
+        this.f41494c = "%ss后自动进入";
+        this.f41495d = null;
         a(context);
     }
 
-    public KsToastView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
-        this.f56614b = 3;
-        this.f56615c = "%ss后自动进入";
-        this.f56616d = null;
+    public KsToastView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
+        this.f41493b = 3;
+        this.f41494c = "%ss后自动进入";
+        this.f41495d = null;
         a(context);
     }
 
     public KsToastView(Context context, boolean z) {
         super(context);
-        this.f56614b = 3;
-        this.f56615c = "%ss后自动进入";
-        this.f56616d = null;
+        this.f41493b = 3;
+        this.f41494c = "%ss后自动进入";
+        this.f41495d = null;
         a(context);
     }
 
     private void a(Context context) {
-        LinearLayout.inflate(context, R.layout.ksad_interstitial_toast_layout, this);
-        this.a = (TextView) findViewById(R.id.ksad_total_count_down_text);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d044b, this);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091158);
     }
 
     public static /* synthetic */ int b(KsToastView ksToastView) {
-        int i2 = ksToastView.f56614b;
-        ksToastView.f56614b = i2 - 1;
-        return i2;
+        int i = ksToastView.f41493b;
+        ksToastView.f41493b = i - 1;
+        return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(int i2) {
-        this.a.setText(String.format(this.f56615c, Integer.valueOf(i2)));
+    public void b(int i) {
+        this.a.setText(String.format(this.f41494c, Integer.valueOf(i)));
     }
 
-    public void a(int i2) {
-        if (i2 <= 0) {
+    public void a(int i) {
+        if (i <= 0) {
             return;
         }
-        if (this.f56616d == null) {
-            this.f56616d = new Runnable() { // from class: com.kwad.sdk.widget.KsToastView.1
+        if (this.f41495d == null) {
+            this.f41495d = new Runnable() { // from class: com.kwad.sdk.widget.KsToastView.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (KsToastView.this.f56614b == 0) {
+                    if (KsToastView.this.f41493b == 0) {
                         return;
                     }
                     KsToastView ksToastView = KsToastView.this;
-                    ksToastView.b(ksToastView.f56614b);
+                    ksToastView.b(ksToastView.f41493b);
                     KsToastView.b(KsToastView.this);
                     KsToastView.this.postDelayed(this, 1000L);
                 }
             };
         }
-        this.f56614b = i2;
-        post(this.f56616d);
+        this.f41493b = i;
+        post(this.f41495d);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        removeCallbacks(this.f56616d);
+        removeCallbacks(this.f41495d);
     }
 }

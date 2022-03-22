@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.source.MediaSource;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class MediaPeriodInfoSequence {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -21,13 +21,13 @@ public final class MediaPeriodInfoSequence {
     public final Timeline.Window window;
 
     /* renamed from: com.google.android.exoplayer2.MediaPeriodInfoSequence$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class MediaPeriodInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,42 +39,42 @@ public final class MediaPeriodInfoSequence {
         public final boolean isLastInTimelinePeriod;
         public final long startPositionUs;
 
-        public /* synthetic */ MediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j2, long j3, long j4, long j5, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
-            this(mediaPeriodId, j2, j3, j4, j5, z, z2);
+        public /* synthetic */ MediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j, long j2, long j3, long j4, boolean z, boolean z2, AnonymousClass1 anonymousClass1) {
+            this(mediaPeriodId, j, j2, j3, j4, z, z2);
         }
 
-        public MediaPeriodInfo copyWithPeriodIndex(int i2) {
+        public MediaPeriodInfo copyWithPeriodIndex(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? new MediaPeriodInfo(this.id.copyWithPeriodIndex(i2), this.startPositionUs, this.endPositionUs, this.contentPositionUs, this.durationUs, this.isLastInTimelinePeriod, this.isFinal) : (MediaPeriodInfo) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? new MediaPeriodInfo(this.id.copyWithPeriodIndex(i), this.startPositionUs, this.endPositionUs, this.contentPositionUs, this.durationUs, this.isLastInTimelinePeriod, this.isFinal) : (MediaPeriodInfo) invokeI.objValue;
         }
 
-        public MediaPeriodInfo copyWithStartPositionUs(long j2) {
+        public MediaPeriodInfo copyWithStartPositionUs(long j) {
             InterceptResult invokeJ;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2)) == null) ? new MediaPeriodInfo(this.id, j2, this.endPositionUs, this.contentPositionUs, this.durationUs, this.isLastInTimelinePeriod, this.isFinal) : (MediaPeriodInfo) invokeJ.objValue;
+            return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) ? new MediaPeriodInfo(this.id, j, this.endPositionUs, this.contentPositionUs, this.durationUs, this.isLastInTimelinePeriod, this.isFinal) : (MediaPeriodInfo) invokeJ.objValue;
         }
 
-        public MediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j2, long j3, long j4, long j5, boolean z, boolean z2) {
+        public MediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j, long j2, long j3, long j4, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {mediaPeriodId, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Boolean.valueOf(z), Boolean.valueOf(z2)};
+                Object[] objArr = {mediaPeriodId, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Boolean.valueOf(z), Boolean.valueOf(z2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.id = mediaPeriodId;
-            this.startPositionUs = j2;
-            this.endPositionUs = j3;
-            this.contentPositionUs = j4;
-            this.durationUs = j5;
+            this.startPositionUs = j;
+            this.endPositionUs = j2;
+            this.contentPositionUs = j3;
+            this.durationUs = j4;
             this.isLastInTimelinePeriod = z;
             this.isFinal = z2;
         }
@@ -85,9 +85,9 @@ public final class MediaPeriodInfoSequence {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,69 +97,69 @@ public final class MediaPeriodInfoSequence {
         this.window = new Timeline.Window();
     }
 
-    private MediaPeriodInfo getMediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j2, long j3) {
+    private MediaPeriodInfo getMediaPeriodInfo(MediaSource.MediaPeriodId mediaPeriodId, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{mediaPeriodId, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, this, new Object[]{mediaPeriodId, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period);
             if (mediaPeriodId.isAd()) {
                 if (this.period.isAdAvailable(mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup)) {
-                    return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup, j2);
+                    return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup, j);
                 }
                 return null;
             }
-            int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(j3);
-            return getMediaPeriodInfoForContent(mediaPeriodId.periodIndex, j3, adGroupIndexAfterPositionUs == -1 ? Long.MIN_VALUE : this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs));
+            int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(j2);
+            return getMediaPeriodInfoForContent(mediaPeriodId.periodIndex, j2, adGroupIndexAfterPositionUs == -1 ? Long.MIN_VALUE : this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs));
         }
         return (MediaPeriodInfo) invokeCommon.objValue;
     }
 
-    private MediaPeriodInfo getMediaPeriodInfoForAd(int i2, int i3, int i4, long j2) {
+    private MediaPeriodInfo getMediaPeriodInfoForAd(int i, int i2, int i3, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2)})) == null) {
-            MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(i2, i3, i4);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)})) == null) {
+            MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(i, i2, i3);
             boolean isLastInPeriod = isLastInPeriod(mediaPeriodId, Long.MIN_VALUE);
             boolean isLastInTimeline = isLastInTimeline(mediaPeriodId, isLastInPeriod);
-            return new MediaPeriodInfo(mediaPeriodId, i4 == this.period.getPlayedAdCount(i3) ? this.period.getAdResumePositionUs() : 0L, Long.MIN_VALUE, j2, this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period).getAdDurationUs(mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup), isLastInPeriod, isLastInTimeline, null);
+            return new MediaPeriodInfo(mediaPeriodId, i3 == this.period.getPlayedAdCount(i2) ? this.period.getAdResumePositionUs() : 0L, Long.MIN_VALUE, j, this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period).getAdDurationUs(mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup), isLastInPeriod, isLastInTimeline, null);
         }
         return (MediaPeriodInfo) invokeCommon.objValue;
     }
 
-    private MediaPeriodInfo getMediaPeriodInfoForContent(int i2, long j2, long j3) {
+    private MediaPeriodInfo getMediaPeriodInfoForContent(int i, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(i2);
-            boolean isLastInPeriod = isLastInPeriod(mediaPeriodId, j3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            MediaSource.MediaPeriodId mediaPeriodId = new MediaSource.MediaPeriodId(i);
+            boolean isLastInPeriod = isLastInPeriod(mediaPeriodId, j2);
             boolean isLastInTimeline = isLastInTimeline(mediaPeriodId, isLastInPeriod);
             this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period);
-            return new MediaPeriodInfo(mediaPeriodId, j2, j3, C.TIME_UNSET, j3 == Long.MIN_VALUE ? this.period.getDurationUs() : j3, isLastInPeriod, isLastInTimeline, null);
+            return new MediaPeriodInfo(mediaPeriodId, j, j2, C.TIME_UNSET, j2 == Long.MIN_VALUE ? this.period.getDurationUs() : j2, isLastInPeriod, isLastInTimeline, null);
         }
         return (MediaPeriodInfo) invokeCommon.objValue;
     }
 
-    private boolean isLastInPeriod(MediaSource.MediaPeriodId mediaPeriodId, long j2) {
+    private boolean isLastInPeriod(MediaSource.MediaPeriodId mediaPeriodId, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, mediaPeriodId, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, this, mediaPeriodId, j)) == null) {
             int adGroupCount = this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period).getAdGroupCount();
             if (adGroupCount == 0) {
                 return true;
             }
-            int i2 = adGroupCount - 1;
+            int i = adGroupCount - 1;
             boolean isAd = mediaPeriodId.isAd();
-            if (this.period.getAdGroupTimeUs(i2) != Long.MIN_VALUE) {
-                return !isAd && j2 == Long.MIN_VALUE;
+            if (this.period.getAdGroupTimeUs(i) != Long.MIN_VALUE) {
+                return !isAd && j == Long.MIN_VALUE;
             }
-            int adCountInAdGroup = this.period.getAdCountInAdGroup(i2);
+            int adCountInAdGroup = this.period.getAdCountInAdGroup(i);
             if (adCountInAdGroup == -1) {
                 return false;
             }
-            if (isAd && mediaPeriodId.adGroupIndex == i2 && mediaPeriodId.adIndexInAdGroup == adCountInAdGroup + (-1)) {
+            if (isAd && mediaPeriodId.adGroupIndex == i && mediaPeriodId.adIndexInAdGroup == adCountInAdGroup + (-1)) {
                 return true;
             }
-            return !isAd && this.period.getPlayedAdCount(i2) == adCountInAdGroup;
+            return !isAd && this.period.getPlayedAdCount(i) == adCountInAdGroup;
         }
         return invokeLJ.booleanValue;
     }
@@ -176,48 +176,48 @@ public final class MediaPeriodInfoSequence {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, playbackInfo)) == null) ? getMediaPeriodInfo(playbackInfo.periodId, playbackInfo.contentPositionUs, playbackInfo.startPositionUs) : (MediaPeriodInfo) invokeL.objValue;
     }
 
-    public MediaPeriodInfo getNextMediaPeriodInfo(MediaPeriodInfo mediaPeriodInfo, long j2, long j3) {
+    public MediaPeriodInfo getNextMediaPeriodInfo(MediaPeriodInfo mediaPeriodInfo, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaPeriodInfo, Long.valueOf(j2), Long.valueOf(j3)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaPeriodInfo, Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (mediaPeriodInfo.isLastInTimelinePeriod) {
                 int nextPeriodIndex = this.timeline.getNextPeriodIndex(mediaPeriodInfo.id.periodIndex, this.period, this.window, this.repeatMode, this.shuffleModeEnabled);
                 if (nextPeriodIndex == -1) {
                     return null;
                 }
-                int i2 = this.timeline.getPeriod(nextPeriodIndex, this.period).windowIndex;
-                long j4 = 0;
-                if (this.timeline.getWindow(i2, this.window).firstPeriodIndex == nextPeriodIndex) {
-                    Pair<Integer, Long> periodPosition = this.timeline.getPeriodPosition(this.window, this.period, i2, C.TIME_UNSET, Math.max(0L, (j2 + mediaPeriodInfo.durationUs) - j3));
+                int i = this.timeline.getPeriod(nextPeriodIndex, this.period).windowIndex;
+                long j3 = 0;
+                if (this.timeline.getWindow(i, this.window).firstPeriodIndex == nextPeriodIndex) {
+                    Pair<Integer, Long> periodPosition = this.timeline.getPeriodPosition(this.window, this.period, i, C.TIME_UNSET, Math.max(0L, (j + mediaPeriodInfo.durationUs) - j2));
                     if (periodPosition == null) {
                         return null;
                     }
                     nextPeriodIndex = ((Integer) periodPosition.first).intValue();
-                    j4 = ((Long) periodPosition.second).longValue();
+                    j3 = ((Long) periodPosition.second).longValue();
                 }
-                return getMediaPeriodInfo(resolvePeriodPositionForAds(nextPeriodIndex, j4), j4, j4);
+                return getMediaPeriodInfo(resolvePeriodPositionForAds(nextPeriodIndex, j3), j3, j3);
             }
             MediaSource.MediaPeriodId mediaPeriodId = mediaPeriodInfo.id;
             if (mediaPeriodId.isAd()) {
-                int i3 = mediaPeriodId.adGroupIndex;
+                int i2 = mediaPeriodId.adGroupIndex;
                 this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period);
-                int adCountInAdGroup = this.period.getAdCountInAdGroup(i3);
+                int adCountInAdGroup = this.period.getAdCountInAdGroup(i2);
                 if (adCountInAdGroup == -1) {
                     return null;
                 }
-                int i4 = mediaPeriodId.adIndexInAdGroup + 1;
-                if (i4 < adCountInAdGroup) {
-                    if (this.period.isAdAvailable(i3, i4)) {
-                        return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, i3, i4, mediaPeriodInfo.contentPositionUs);
+                int i3 = mediaPeriodId.adIndexInAdGroup + 1;
+                if (i3 < adCountInAdGroup) {
+                    if (this.period.isAdAvailable(i2, i3)) {
+                        return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, i2, i3, mediaPeriodInfo.contentPositionUs);
                     }
                     return null;
                 }
                 int adGroupIndexAfterPositionUs = this.period.getAdGroupIndexAfterPositionUs(mediaPeriodInfo.contentPositionUs);
                 return getMediaPeriodInfoForContent(mediaPeriodId.periodIndex, mediaPeriodInfo.contentPositionUs, adGroupIndexAfterPositionUs == -1 ? Long.MIN_VALUE : this.period.getAdGroupTimeUs(adGroupIndexAfterPositionUs));
             }
-            long j5 = mediaPeriodInfo.endPositionUs;
-            if (j5 != Long.MIN_VALUE) {
-                int adGroupIndexForPositionUs = this.period.getAdGroupIndexForPositionUs(j5);
+            long j4 = mediaPeriodInfo.endPositionUs;
+            if (j4 != Long.MIN_VALUE) {
+                int adGroupIndexForPositionUs = this.period.getAdGroupIndexForPositionUs(j4);
                 if (this.period.isAdAvailable(adGroupIndexForPositionUs, 0)) {
                     return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, adGroupIndexForPositionUs, 0, mediaPeriodInfo.endPositionUs);
                 }
@@ -225,9 +225,9 @@ public final class MediaPeriodInfoSequence {
             }
             int adGroupCount = this.period.getAdGroupCount();
             if (adGroupCount != 0) {
-                int i5 = adGroupCount - 1;
-                if (this.period.getAdGroupTimeUs(i5) == Long.MIN_VALUE && !this.period.hasPlayedAdGroup(i5) && this.period.isAdAvailable(i5, 0)) {
-                    return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, i5, 0, this.period.getDurationUs());
+                int i4 = adGroupCount - 1;
+                if (this.period.getAdGroupTimeUs(i4) == Long.MIN_VALUE && !this.period.hasPlayedAdGroup(i4) && this.period.isAdAvailable(i4, 0)) {
+                    return getMediaPeriodInfoForAd(mediaPeriodId.periodIndex, i4, 0, this.period.getDurationUs());
                 }
             }
             return null;
@@ -241,24 +241,24 @@ public final class MediaPeriodInfoSequence {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaPeriodInfo)) == null) ? getUpdatedMediaPeriodInfo(mediaPeriodInfo, mediaPeriodInfo.id) : (MediaPeriodInfo) invokeL.objValue;
     }
 
-    public MediaSource.MediaPeriodId resolvePeriodPositionForAds(int i2, long j2) {
+    public MediaSource.MediaPeriodId resolvePeriodPositionForAds(int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)})) == null) {
-            this.timeline.getPeriod(i2, this.period);
-            int adGroupIndexForPositionUs = this.period.getAdGroupIndexForPositionUs(j2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            this.timeline.getPeriod(i, this.period);
+            int adGroupIndexForPositionUs = this.period.getAdGroupIndexForPositionUs(j);
             if (adGroupIndexForPositionUs == -1) {
-                return new MediaSource.MediaPeriodId(i2);
+                return new MediaSource.MediaPeriodId(i);
             }
-            return new MediaSource.MediaPeriodId(i2, adGroupIndexForPositionUs, this.period.getPlayedAdCount(adGroupIndexForPositionUs));
+            return new MediaSource.MediaPeriodId(i, adGroupIndexForPositionUs, this.period.getPlayedAdCount(adGroupIndexForPositionUs));
         }
         return (MediaSource.MediaPeriodId) invokeCommon.objValue;
     }
 
-    public void setRepeatMode(int i2) {
+    public void setRepeatMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.repeatMode = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.repeatMode = i;
         }
     }
 
@@ -276,33 +276,33 @@ public final class MediaPeriodInfoSequence {
         }
     }
 
-    public MediaPeriodInfo getUpdatedMediaPeriodInfo(MediaPeriodInfo mediaPeriodInfo, int i2) {
+    public MediaPeriodInfo getUpdatedMediaPeriodInfo(MediaPeriodInfo mediaPeriodInfo, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, mediaPeriodInfo, i2)) == null) ? getUpdatedMediaPeriodInfo(mediaPeriodInfo, mediaPeriodInfo.id.copyWithPeriodIndex(i2)) : (MediaPeriodInfo) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, mediaPeriodInfo, i)) == null) ? getUpdatedMediaPeriodInfo(mediaPeriodInfo, mediaPeriodInfo.id.copyWithPeriodIndex(i)) : (MediaPeriodInfo) invokeLI.objValue;
     }
 
     private MediaPeriodInfo getUpdatedMediaPeriodInfo(MediaPeriodInfo mediaPeriodInfo, MediaSource.MediaPeriodId mediaPeriodId) {
         InterceptResult invokeLL;
-        long j2;
+        long j;
         long durationUs;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, mediaPeriodInfo, mediaPeriodId)) == null) {
-            long j3 = mediaPeriodInfo.startPositionUs;
-            long j4 = mediaPeriodInfo.endPositionUs;
-            boolean isLastInPeriod = isLastInPeriod(mediaPeriodId, j4);
+            long j2 = mediaPeriodInfo.startPositionUs;
+            long j3 = mediaPeriodInfo.endPositionUs;
+            boolean isLastInPeriod = isLastInPeriod(mediaPeriodId, j3);
             boolean isLastInTimeline = isLastInTimeline(mediaPeriodId, isLastInPeriod);
             this.timeline.getPeriod(mediaPeriodId.periodIndex, this.period);
             if (mediaPeriodId.isAd()) {
                 durationUs = this.period.getAdDurationUs(mediaPeriodId.adGroupIndex, mediaPeriodId.adIndexInAdGroup);
-            } else if (j4 == Long.MIN_VALUE) {
+            } else if (j3 == Long.MIN_VALUE) {
                 durationUs = this.period.getDurationUs();
             } else {
-                j2 = j4;
-                return new MediaPeriodInfo(mediaPeriodId, j3, j4, mediaPeriodInfo.contentPositionUs, j2, isLastInPeriod, isLastInTimeline, null);
+                j = j3;
+                return new MediaPeriodInfo(mediaPeriodId, j2, j3, mediaPeriodInfo.contentPositionUs, j, isLastInPeriod, isLastInTimeline, null);
             }
-            j2 = durationUs;
-            return new MediaPeriodInfo(mediaPeriodId, j3, j4, mediaPeriodInfo.contentPositionUs, j2, isLastInPeriod, isLastInTimeline, null);
+            j = durationUs;
+            return new MediaPeriodInfo(mediaPeriodId, j2, j3, mediaPeriodInfo.contentPositionUs, j, isLastInPeriod, isLastInTimeline, null);
         }
         return (MediaPeriodInfo) invokeLL.objValue;
     }

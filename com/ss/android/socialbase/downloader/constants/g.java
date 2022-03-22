@@ -1,5 +1,5 @@
 package com.ss.android.socialbase.downloader.constants;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public enum g {
     DELAY_RETRY_NONE,
     DELAY_RETRY_WAITING,

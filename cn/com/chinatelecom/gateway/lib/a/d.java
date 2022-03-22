@@ -2,6 +2,7 @@ package cn.com.chinatelecom.gateway.lib.a;
 
 import androidx.core.view.InputDeviceCompat;
 import cn.com.chinatelecom.gateway.lib.CtAuth;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +21,7 @@ public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f29218b = "RSA/ECB/PKCS1Padding";
+    public static String f23647b = "RSA/ECB/PKCS1Padding";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -43,9 +44,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -65,7 +66,7 @@ public class d {
     public static PublicKey a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(b.a(str))) : (PublicKey) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(b.a(str))) : (PublicKey) invokeL.objValue;
     }
 
     public static RSAPublicKey a() {
@@ -87,7 +88,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, rSAPublicKey, bArr)) == null) {
             try {
-                Cipher cipher = Cipher.getInstance(f29218b);
+                Cipher cipher = Cipher.getInstance(f23647b);
                 cipher.init(1, rSAPublicKey);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {

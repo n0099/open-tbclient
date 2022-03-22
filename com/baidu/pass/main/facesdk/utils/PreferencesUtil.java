@@ -29,9 +29,9 @@ public class PreferencesUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -62,16 +62,16 @@ public class PreferencesUtil {
         return (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TRACKBALL, null, str, f2)) == null) ? getPreferences().getFloat(str, f2) : invokeLF.floatValue;
     }
 
-    public static int getInt(String str, int i2) {
+    public static int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) ? getPreferences().getInt(str, i2) : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) ? getPreferences().getInt(str, i) : invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j2) {
+    public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j2)) == null) ? getPreferences().getLong(str, j2) : invokeLJ.longValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) ? getPreferences().getLong(str, j) : invokeLJ.longValue;
     }
 
     public static SharedPreferences getPreferences() {
@@ -104,10 +104,10 @@ public class PreferencesUtil {
             }
             if (preferences.contains(str + LENGTH_SUFFIX)) {
                 set = new HashSet<>();
-                int i2 = preferences.getInt(str + LENGTH_SUFFIX, -1);
-                if (i2 >= 0) {
-                    for (int i3 = 0; i3 < i2; i3++) {
-                        preferences.getString(str + LEFT_MOUNT + i3 + RIGHT_MOUNT, null);
+                int i = preferences.getInt(str + LENGTH_SUFFIX, -1);
+                if (i >= 0) {
+                    for (int i2 = 0; i2 < i; i2++) {
+                        preferences.getString(str + LEFT_MOUNT + i2 + RIGHT_MOUNT, null);
                     }
                 }
             }
@@ -120,11 +120,10 @@ public class PreferencesUtil {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65546, null, context) == null) && mPrefs == null) {
             String packageName = context.getPackageName();
-            if (packageName != null) {
-                mPrefs = context.getSharedPreferences(packageName, 4);
-                return;
+            if (packageName == null) {
+                throw new NullPointerException("Prefs key may not be null");
             }
-            throw new NullPointerException("Prefs key may not be null");
+            mPrefs = context.getSharedPreferences(packageName, 4);
         }
     }
 
@@ -154,11 +153,11 @@ public class PreferencesUtil {
         }
     }
 
-    public static void putInt(String str, int i2) {
+    public static void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65549, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
             SharedPreferences.Editor edit = getPreferences().edit();
-            edit.putInt(str, i2);
+            edit.putInt(str, i);
             if (Build.VERSION.SDK_INT < 9) {
                 edit.commit();
             } else {
@@ -167,11 +166,11 @@ public class PreferencesUtil {
         }
     }
 
-    public static void putLong(String str, long j2) {
+    public static void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65550, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) {
             SharedPreferences.Editor edit = getPreferences().edit();
-            edit.putLong(str, j2);
+            edit.putLong(str, j);
             if (Build.VERSION.SDK_INT < 9) {
                 edit.commit();
             } else {
@@ -195,7 +194,7 @@ public class PreferencesUtil {
 
     @TargetApi(11)
     public static void putStringSet(String str, Set<String> set) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65552, null, str, set) == null) {
             SharedPreferences.Editor edit = getPreferences().edit();
@@ -204,21 +203,21 @@ public class PreferencesUtil {
             } else {
                 SharedPreferences sharedPreferences = mPrefs;
                 boolean contains = sharedPreferences.contains(str + LENGTH_SUFFIX);
-                int i3 = 0;
+                int i2 = 0;
                 if (contains) {
                     SharedPreferences sharedPreferences2 = mPrefs;
-                    i2 = sharedPreferences2.getInt(str + LENGTH_SUFFIX, -1);
+                    i = sharedPreferences2.getInt(str + LENGTH_SUFFIX, -1);
                 } else {
-                    i2 = 0;
+                    i = 0;
                 }
                 edit.putInt(str + LENGTH_SUFFIX, set.size());
                 for (String str2 : set) {
-                    edit.putString(str + LEFT_MOUNT + i3 + RIGHT_MOUNT, str2);
-                    i3++;
+                    edit.putString(str + LEFT_MOUNT + i2 + RIGHT_MOUNT, str2);
+                    i2++;
                 }
-                while (i3 < i2) {
-                    edit.remove(str + LEFT_MOUNT + i3 + RIGHT_MOUNT);
-                    i3++;
+                while (i2 < i) {
+                    edit.remove(str + LEFT_MOUNT + i2 + RIGHT_MOUNT);
+                    i2++;
                 }
             }
             if (Build.VERSION.SDK_INT < 9) {
@@ -236,11 +235,10 @@ public class PreferencesUtil {
             return;
         }
         String packageName = context.getPackageName();
-        if (packageName != null) {
-            mPrefs = context.getSharedPreferences(packageName, 4);
-            return;
+        if (packageName == null) {
+            throw new NullPointerException("Prefs key may not be null");
         }
-        throw new NullPointerException("Prefs key may not be null");
+        mPrefs = context.getSharedPreferences(packageName, 4);
     }
 
     public static void remove(String str) {
@@ -249,11 +247,11 @@ public class PreferencesUtil {
             SharedPreferences preferences = getPreferences();
             SharedPreferences.Editor edit = preferences.edit();
             if (preferences.contains(str + LENGTH_SUFFIX)) {
-                int i2 = preferences.getInt(str + LENGTH_SUFFIX, -1);
-                if (i2 >= 0) {
+                int i = preferences.getInt(str + LENGTH_SUFFIX, -1);
+                if (i >= 0) {
                     edit.remove(str + LENGTH_SUFFIX);
-                    for (int i3 = 0; i3 < i2; i3++) {
-                        edit.remove(str + LEFT_MOUNT + i3 + RIGHT_MOUNT);
+                    for (int i2 = 0; i2 < i; i2++) {
+                        edit.remove(str + LEFT_MOUNT + i2 + RIGHT_MOUNT);
                     }
                 }
             }

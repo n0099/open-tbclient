@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.extractor.ExtractorInput;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class VarintReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int STATE_BEGIN_READING = 0;
@@ -42,9 +42,9 @@ public final class VarintReader {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -53,38 +53,38 @@ public final class VarintReader {
         this.scratch = new byte[8];
     }
 
-    public static long assembleVarint(byte[] bArr, int i2, boolean z) {
+    public static long assembleVarint(byte[] bArr, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            long j2 = bArr[0] & 255;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{bArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            long j = bArr[0] & 255;
             if (z) {
-                j2 &= ~VARINT_LENGTH_MASKS[i2 - 1];
+                j &= ~VARINT_LENGTH_MASKS[i - 1];
             }
-            for (int i3 = 1; i3 < i2; i3++) {
-                j2 = (j2 << 8) | (bArr[i3] & 255);
+            for (int i2 = 1; i2 < i; i2++) {
+                j = (j << 8) | (bArr[i2] & 255);
             }
-            return j2;
+            return j;
         }
         return invokeCommon.longValue;
     }
 
-    public static int parseUnsignedVarintLength(int i2) {
+    public static int parseUnsignedVarintLength(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65539, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65539, null, i)) != null) {
             return invokeI.intValue;
         }
-        int i3 = 0;
+        int i2 = 0;
         while (true) {
             long[] jArr = VARINT_LENGTH_MASKS;
-            if (i3 >= jArr.length) {
+            if (i2 >= jArr.length) {
                 return -1;
             }
-            if ((jArr[i3] & i2) != 0) {
-                return i3 + 1;
+            if ((jArr[i2] & i) != 0) {
+                return i2 + 1;
             }
-            i3++;
+            i2++;
         }
     }
 
@@ -94,10 +94,10 @@ public final class VarintReader {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.length : invokeV.intValue;
     }
 
-    public long readUnsignedVarint(ExtractorInput extractorInput, boolean z, boolean z2, int i2) throws IOException, InterruptedException {
+    public long readUnsignedVarint(ExtractorInput extractorInput, boolean z, boolean z2, int i) throws IOException, InterruptedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{extractorInput, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{extractorInput, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)})) == null) {
             if (this.state == 0) {
                 if (!extractorInput.readFully(this.scratch, 0, 1, z)) {
                     return -1L;
@@ -110,13 +110,13 @@ public final class VarintReader {
                     throw new IllegalStateException("No valid varint length mask found");
                 }
             }
-            int i3 = this.length;
-            if (i3 > i2) {
+            int i2 = this.length;
+            if (i2 > i) {
                 this.state = 0;
                 return -2L;
             }
-            if (i3 != 1) {
-                extractorInput.readFully(this.scratch, 1, i3 - 1);
+            if (i2 != 1) {
+                extractorInput.readFully(this.scratch, 1, i2 - 1);
             }
             this.state = 0;
             return assembleVarint(this.scratch, this.length, z2);

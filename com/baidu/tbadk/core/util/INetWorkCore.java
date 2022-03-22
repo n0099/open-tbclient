@@ -3,7 +3,7 @@ package com.baidu.tbadk.core.util;
 import android.os.Handler;
 import java.util.ArrayList;
 import org.apache.http.message.BasicNameValuePair;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public interface INetWorkCore {
     public static final int DEFAULT_MAX_RETRY_COUNT = 5;
     public static final int DEFAULT_RETRY_INTERVAL = 100;
@@ -16,7 +16,7 @@ public interface INetWorkCore {
 
     void cancelNetConnect();
 
-    boolean downloadFile(String str, Handler handler, int i2, int i3, int i4, boolean z);
+    boolean downloadFile(String str, Handler handler, int i, int i2, int i3, boolean z);
 
     byte[] getNetData();
 

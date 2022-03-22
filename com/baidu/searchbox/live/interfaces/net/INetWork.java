@@ -12,15 +12,15 @@ public interface INetWork {
 
     NetResponse postSync(Map<String, Object> map);
 
-    void setConnectTimeout(int i2);
+    void setConnectTimeout(int i);
 
     void setExtra(Map<String, Object> map);
 
     void setHeaderData(HashMap<String, String> hashMap);
 
-    void setReadTimeout(int i2);
+    void setReadTimeout(int i);
 
-    void setRetryCount(int i2);
+    void setRetryCount(int i);
 
     void setUrl(String str);
 }

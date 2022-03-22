@@ -1,7 +1,7 @@
 package com.baidu.tbadk.coreExtra.data;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.p;
+import c.a.o0.r.r.p;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,9 +27,9 @@ public class NewGodData extends p implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,8 +76,8 @@ public class NewGodData extends p implements Serializable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.mStatus;
-            return i2 == 2 || i2 == 4;
+            int i = this.mStatus;
+            return i == 2 || i == 4;
         }
         return invokeV.booleanValue;
     }
@@ -100,7 +100,7 @@ public class NewGodData extends p implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mType == 2 : invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.r.r.p
+    @Override // c.a.o0.r.r.p
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) || jSONObject == null) {
@@ -143,10 +143,10 @@ public class NewGodData extends p implements Serializable {
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.mStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.mStatus = i;
         }
     }
 }

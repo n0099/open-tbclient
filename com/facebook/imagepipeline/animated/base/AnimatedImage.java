@@ -1,5 +1,5 @@
 package com.facebook.imagepipeline.animated.base;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AnimatedImage {
     public static final int LOOP_COUNT_INFINITE = 0;
 
@@ -9,13 +9,13 @@ public interface AnimatedImage {
 
     int getDuration();
 
-    AnimatedImageFrame getFrame(int i2);
+    AnimatedImageFrame getFrame(int i);
 
     int getFrameCount();
 
     int[] getFrameDurations();
 
-    AnimatedDrawableFrameInfo getFrameInfo(int i2);
+    AnimatedDrawableFrameInfo getFrameInfo(int i);
 
     int getHeight();
 

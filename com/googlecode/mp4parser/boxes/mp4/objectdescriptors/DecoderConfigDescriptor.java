@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {4})
 /* loaded from: classes7.dex */
 public class DecoderConfigDescriptor extends BaseDescriptor {
@@ -58,9 +57,9 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -216,45 +215,45 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setAvgBitRate(long j2) {
+    public void setAvgBitRate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048589, this, j2) == null) {
-            this.avgBitRate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
+            this.avgBitRate = j;
         }
     }
 
-    public void setBufferSizeDB(int i2) {
+    public void setBufferSizeDB(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.bufferSizeDB = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.bufferSizeDB = i;
         }
     }
 
-    public void setMaxBitRate(long j2) {
+    public void setMaxBitRate(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.maxBitRate = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.maxBitRate = j;
         }
     }
 
-    public void setObjectTypeIndication(int i2) {
+    public void setObjectTypeIndication(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            this.objectTypeIndication = i2;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.objectTypeIndication = i;
         }
     }
 
-    public void setStreamType(int i2) {
+    public void setStreamType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.streamType = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.streamType = i;
         }
     }
 
-    public void setUpStream(int i2) {
+    public void setUpStream(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.upStream = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.upStream = i;
         }
     }
 
@@ -290,7 +289,7 @@ public class DecoderConfigDescriptor extends BaseDescriptor {
             sb.append(", profileLevelIndicationDescriptors=");
             List<ProfileLevelIndicationDescriptor> list = this.profileLevelIndicationDescriptors;
             sb.append(list == null ? StringUtil.NULL_STRING : Arrays.asList(list).toString());
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

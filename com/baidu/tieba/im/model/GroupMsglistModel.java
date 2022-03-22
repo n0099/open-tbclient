@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import c.a.r0.s1.f.c;
+import c.a.p0.u1.f.c;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -38,9 +38,9 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {msglistActivity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((MsglistActivity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -61,9 +61,9 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this, Integer.valueOf(r8)};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         super(((Integer) newInitContext2.callArgs[0]).intValue());
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
@@ -163,10 +163,10 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f43632c = 20;
+            aVar.f33853c = 20;
             aVar.a = null;
-            aVar.f43631b = null;
-            aVar.f43633d = this.mGroup.getGroupId() + "";
+            aVar.f33852b = null;
+            aVar.f33854d = this.mGroup.getGroupId() + "";
             LoadGroupHistoryMessage loadGroupHistoryMessage = new LoadGroupHistoryMessage(aVar);
             loadGroupHistoryMessage.setCallback(cVar);
             super.sendMessage(loadGroupHistoryMessage);
@@ -178,25 +178,25 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
     @Override // com.baidu.tieba.im.model.MsglistModel
     public boolean loadPrepage() {
         InterceptResult invokeV;
-        long j2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (this.mGroup == null) {
                 return false;
             }
             LoadHistoryMessage.a aVar = new LoadHistoryMessage.a();
-            aVar.f43632c = 20;
+            aVar.f33853c = 20;
             MsgPageData msgPageData = this.mDatas;
-            long j3 = 0;
+            long j2 = 0;
             if (msgPageData == null || msgPageData.getChatMessages() == null || this.mDatas.getChatMessages().size() <= 0 || this.mDatas.getChatMessages().get(0) == null) {
-                j2 = 0;
+                j = 0;
             } else {
-                j3 = this.mDatas.getChatMessages().get(0).getMsgId();
-                j2 = this.mDatas.getChatMessages().get(0).getRecordId();
+                j2 = this.mDatas.getChatMessages().get(0).getMsgId();
+                j = this.mDatas.getChatMessages().get(0).getRecordId();
             }
-            aVar.a = String.valueOf(j3);
-            aVar.f43631b = String.valueOf(j2);
-            aVar.f43633d = this.mGroup.getGroupId() + "";
+            aVar.a = String.valueOf(j2);
+            aVar.f33852b = String.valueOf(j);
+            aVar.f33854d = this.mGroup.getGroupId() + "";
             super.sendMessage(new LoadGroupHistoryMessage(aVar));
             return false;
         }
@@ -222,7 +222,7 @@ public class GroupMsglistModel extends CommonGroupMsglistModel {
             if (groupData == null || groupData.getGroupId() == 0) {
                 return false;
             }
-            aVar.f43646b = String.valueOf(this.mGroup.getGroupId());
+            aVar.f33867b = String.valueOf(this.mGroup.getGroupId());
             aVar.a = str;
             super.sendMessage(new GroupSaveDraftMessage(aVar));
             return true;

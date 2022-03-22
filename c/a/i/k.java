@@ -1,5 +1,6 @@
 package c.a.i;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,7 @@ public final class k {
     public static void a(String str, Object... objArr) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65537, null, str, objArr) == null) && a) {
-            String.format(str, objArr);
+            Log.v("BDHttpDns", String.format(str, objArr));
         }
     }
 

@@ -12,8 +12,8 @@ import java.io.IOException;
 public class CircleShapeParser {
     public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", "hd", "d");
 
-    public static CircleShape parse(JsonReader jsonReader, LottieComposition lottieComposition, int i2) throws IOException {
-        boolean z = i2 == 3;
+    public static CircleShape parse(JsonReader jsonReader, LottieComposition lottieComposition, int i) throws IOException {
+        boolean z = i == 3;
         String str = null;
         AnimatableValue<PointF, PointF> animatableValue = null;
         AnimatablePointValue animatablePointValue = null;

@@ -32,7 +32,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SingleDateSelector implements DateSelector<Long> {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<SingleDateSelector> CREATOR;
@@ -62,9 +62,9 @@ public class SingleDateSelector implements DateSelector<Long> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -90,10 +90,10 @@ public class SingleDateSelector implements DateSelector<Long> {
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // android.os.Parcelable.Creator
             @NonNull
-            public SingleDateSelector[] newArray(int i2) {
+            public SingleDateSelector[] newArray(int i) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? new SingleDateSelector[i2] : (SingleDateSelector[]) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? new SingleDateSelector[i] : (SingleDateSelector[]) invokeI.objValue;
             }
         };
     }
@@ -103,9 +103,9 @@ public class SingleDateSelector implements DateSelector<Long> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -134,14 +134,14 @@ public class SingleDateSelector implements DateSelector<Long> {
     public int getDefaultThemeResId(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? MaterialAttributes.resolveOrThrow(context, R.attr.materialCalendarTheme, MaterialDatePicker.class.getCanonicalName()) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f040413, MaterialDatePicker.class.getCanonicalName()) : invokeL.intValue;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
     public int getDefaultTitleResId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.mtrl_picker_date_header_title : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.string.obfuscated_res_0x7f0f0aed : invokeV.intValue;
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
@@ -177,9 +177,9 @@ public class SingleDateSelector implements DateSelector<Long> {
             Resources resources = context.getResources();
             Long l = this.selectedItem;
             if (l == null) {
-                return resources.getString(R.string.mtrl_picker_date_header_unselected);
+                return resources.getString(R.string.obfuscated_res_0x7f0f0aee);
             }
-            return resources.getString(R.string.mtrl_picker_date_header_selected, DateStrings.getYearMonthDay(l.longValue()));
+            return resources.getString(R.string.obfuscated_res_0x7f0f0aec, DateStrings.getYearMonthDay(l.longValue()));
         }
         return (String) invokeL.objValue;
     }
@@ -196,8 +196,8 @@ public class SingleDateSelector implements DateSelector<Long> {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048585, this, layoutInflater, viewGroup, bundle, calendarConstraints, onSelectionChangedListener)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.mtrl_picker_text_input_date, viewGroup, false);
-            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.mtrl_picker_text_input_date);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0589, viewGroup, false);
+            TextInputLayout textInputLayout = (TextInputLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091472);
             EditText editText = textInputLayout.getEditText();
             if (ManufacturerUtils.isDateInputKeyboardMissingSeparatorCharacters()) {
                 editText.setInputType(17);
@@ -223,9 +223,9 @@ public class SingleDateSelector implements DateSelector<Long> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, textInputHint, textInputFormat, textInputLayout, calendarConstraints, onSelectionChangedListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             Object[] objArr2 = newInitContext.callArgs;
                             super((String) objArr2[0], (DateFormat) objArr2[1], (TextInputLayout) objArr2[2], (CalendarConstraints) objArr2[3]);
                             newInitContext.thisArg = this;
@@ -265,17 +265,17 @@ public class SingleDateSelector implements DateSelector<Long> {
     }
 
     @Override // com.google.android.material.datepicker.DateSelector
-    public void select(long j2) {
+    public void select(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.selectedItem = Long.valueOf(j2);
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.selectedItem = Long.valueOf(j);
         }
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(@NonNull Parcel parcel, int i2) {
+    public void writeToParcel(@NonNull Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
             parcel.writeValue(this.selectedItem);
         }
     }

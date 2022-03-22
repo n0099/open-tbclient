@@ -1,8 +1,8 @@
 package com.baidu.tieba.homepage.topic.topictab.message;
 
 import c.a.d.o.e.n;
-import c.a.r0.o1.l.c.c.a;
-import c.a.r0.o1.l.c.c.c;
+import c.a.p0.q1.l.c.c.a;
+import c.a.p0.q1.l.c.c.c;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -33,9 +33,9 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,11 +52,11 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         NewTopicListResIdl newTopicListResIdl;
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (newTopicListResIdl = (NewTopicListResIdl) new Wire(new Class[0]).parseFrom(bArr, NewTopicListResIdl.class)) == null) {
             return;
         }
         setError(newTopicListResIdl.error.errorno.intValue());
@@ -65,21 +65,21 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             return;
         }
         this.mTopicDataList = new ArrayList();
-        int i3 = 1;
+        int i2 = 1;
         for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
             if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
                 a aVar = new a();
-                aVar.V = i3;
-                aVar.P(newTopicList);
+                aVar.R = i2;
+                aVar.O(newTopicList);
                 this.mTopicDataList.add(aVar);
                 c cVar = new c();
-                cVar.f20274e = R.dimen.tbds1;
-                cVar.f20275f = R.color.CAM_X0203;
+                cVar.a = R.dimen.tbds1;
+                cVar.f17601b = R.color.CAM_X0203;
                 this.mTopicDataList.add(cVar);
-                i3++;
+                i2++;
             }
         }
         List<n> list = this.mTopicDataList;
-        ((c) ListUtils.getItem(list, list.size() - 1)).f20274e = 0;
+        ((c) ListUtils.getItem(list, list.size() - 1)).a = 0;
     }
 }

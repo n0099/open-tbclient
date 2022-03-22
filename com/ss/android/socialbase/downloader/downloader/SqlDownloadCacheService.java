@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
-/* loaded from: classes8.dex */
+import android.util.Log;
+/* loaded from: classes7.dex */
 public class SqlDownloadCacheService extends Service {
     public static final String a = SqlDownloadCacheService.class.getSimpleName();
 
@@ -18,7 +19,8 @@ public class SqlDownloadCacheService extends Service {
                     context.bindService(intent, serviceConnection, 1);
                 }
                 context.startService(intent);
-            } catch (Throwable unused) {
+            } catch (Throwable th) {
+                Log.w(a, "startServiceAndBind fail", th);
             }
         }
     }
@@ -45,8 +47,8 @@ public class SqlDownloadCacheService extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
-        int onStartCommand = super.onStartCommand(intent, i2, i3);
+    public int onStartCommand(Intent intent, int i, int i2) {
+        int onStartCommand = super.onStartCommand(intent, i, i2);
         if (c.j()) {
             return 2;
         }

@@ -23,7 +23,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.internal.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class HttpHeaders {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Pattern PARAMETER;
@@ -52,9 +52,9 @@ public final class HttpHeaders {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -125,10 +125,10 @@ public final class HttpHeaders {
         return (List) invokeLL.objValue;
     }
 
-    public static int parseSeconds(String str, int i2) {
+    public static int parseSeconds(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, str, i)) == null) {
             try {
                 long parseLong = Long.parseLong(str);
                 if (parseLong > 2147483647L) {
@@ -139,7 +139,7 @@ public final class HttpHeaders {
                 }
                 return (int) parseLong;
             } catch (NumberFormatException unused) {
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
@@ -157,27 +157,27 @@ public final class HttpHeaders {
         cookieJar.saveFromResponse(httpUrl, parseAll);
     }
 
-    public static int skipUntil(String str, int i2, String str2) {
+    public static int skipUntil(String str, int i, String str2) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, str, i2, str2)) == null) {
-            while (i2 < str.length() && str2.indexOf(str.charAt(i2)) == -1) {
-                i2++;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, str, i, str2)) == null) {
+            while (i < str.length() && str2.indexOf(str.charAt(i)) == -1) {
+                i++;
             }
-            return i2;
+            return i;
         }
         return invokeLIL.intValue;
     }
 
-    public static int skipWhitespace(String str, int i2) {
+    public static int skipWhitespace(String str, int i) {
         char charAt;
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i2)) == null) {
-            while (i2 < str.length() && ((charAt = str.charAt(i2)) == ' ' || charAt == '\t')) {
-                i2++;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, str, i)) == null) {
+            while (i < str.length() && ((charAt = str.charAt(i)) == ' ' || charAt == '\t')) {
+                i++;
             }
-            return i2;
+            return i;
         }
         return invokeLI.intValue;
     }
@@ -242,9 +242,9 @@ public final class HttpHeaders {
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, headers)) == null) {
             Set<String> emptySet = Collections.emptySet();
             int size = headers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if ("Vary".equalsIgnoreCase(headers.name(i2))) {
-                    String value = headers.value(i2);
+            for (int i = 0; i < size; i++) {
+                if ("Vary".equalsIgnoreCase(headers.name(i))) {
+                    String value = headers.value(i);
                     if (emptySet.isEmpty()) {
                         emptySet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
                     }
@@ -268,10 +268,10 @@ public final class HttpHeaders {
             }
             Headers.Builder builder = new Headers.Builder();
             int size = headers.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                String name = headers.name(i2);
+            for (int i = 0; i < size; i++) {
+                String name = headers.name(i);
                 if (varyFields.contains(name)) {
-                    builder.add(name, headers.value(i2));
+                    builder.add(name, headers.value(i));
                 }
             }
             return builder.build();

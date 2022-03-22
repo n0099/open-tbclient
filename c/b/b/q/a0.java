@@ -33,13 +33,13 @@ public class a0 {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) ? b(cls, 100) : (z) invokeL.objValue;
     }
 
-    public static <T> z<T> b(Class<T> cls, int i2) {
+    public static <T> z<T> b(Class<T> cls, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cls, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, cls, i)) == null) {
             z<T> c2 = a.c(cls);
             if (c2 == null) {
-                d0 d0Var = new d0(cls, 4, i2);
+                d0 d0Var = new d0(cls, 4, i);
                 a.i(cls, d0Var);
                 return d0Var;
             }

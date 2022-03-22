@@ -22,9 +22,9 @@ public class GroupIdTypeData implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,31 +57,31 @@ public class GroupIdTypeData implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.userType : invokeV.intValue;
     }
 
-    public void setCustomType(int i2) {
+    public void setCustomType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mCustomType = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mCustomType = i;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.groupId = j;
         }
     }
 
-    public void setGroupType(int i2) {
+    public void setGroupType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.groupType = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.groupType = i;
         }
     }
 
-    public void setUserType(int i2) {
+    public void setUserType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.userType = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.userType = i;
         }
     }
 }

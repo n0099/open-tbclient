@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ENCODED_IMAGE_SIZE = "encodedImageSize";
@@ -45,7 +45,7 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
     public final Producer<EncodedImage> mInputProducer;
     public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class PartialDiskCacheConsumer extends DelegatingConsumer<EncodedImage, EncodedImage> {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int READ_SIZE = 16384;
@@ -57,26 +57,26 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
         public final CacheKey mPartialImageCacheKey;
         public final PooledByteBufferFactory mPooledByteBufferFactory;
 
-        private void copy(InputStream inputStream, OutputStream outputStream, int i2) throws IOException {
+        private void copy(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(65538, this, inputStream, outputStream, i2) == null) {
+            if (interceptable == null || interceptable.invokeLLI(65538, this, inputStream, outputStream, i) == null) {
                 byte[] bArr = this.mByteArrayPool.get(16384);
-                int i3 = i2;
-                while (i3 > 0) {
+                int i2 = i;
+                while (i2 > 0) {
                     try {
-                        int read = inputStream.read(bArr, 0, Math.min(16384, i3));
+                        int read = inputStream.read(bArr, 0, Math.min(16384, i2));
                         if (read < 0) {
                             break;
                         } else if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            i3 -= read;
+                            i2 -= read;
                         }
                     } finally {
                         this.mByteArrayPool.release(bArr);
                     }
                 }
-                if (i3 > 0) {
-                    throw new IOException(String.format(null, "Failed to read %d bytes - finished %d short", Integer.valueOf(i2), Integer.valueOf(i3)));
+                if (i2 > 0) {
+                    throw new IOException(String.format(null, "Failed to read %d bytes - finished %d short", Integer.valueOf(i), Integer.valueOf(i2)));
                 }
             }
         }
@@ -129,9 +129,9 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {consumer, bufferedDiskCache, cacheKey, pooledByteBufferFactory, byteArrayPool, encodedImage};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Consumer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -147,9 +147,9 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.facebook.imagepipeline.producers.BaseConsumer
-        public void onNewResultImpl(EncodedImage encodedImage, int i2) {
+        public void onNewResultImpl(EncodedImage encodedImage, int i) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i2) == null) || BaseConsumer.isNotLast(i2)) {
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, encodedImage, i) == null) || BaseConsumer.isNotLast(i)) {
                 return;
             }
             if (this.mPartialEncodedImageFromCache != null && encodedImage.getBytesRange() != null) {
@@ -165,11 +165,11 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                     encodedImage.close();
                     this.mPartialEncodedImageFromCache.close();
                 }
-            } else if (BaseConsumer.statusHasFlag(i2, 8) && BaseConsumer.isLast(i2) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
+            } else if (BaseConsumer.statusHasFlag(i, 8) && BaseConsumer.isLast(i) && encodedImage.getImageFormat() != ImageFormat.UNKNOWN) {
                 this.mDefaultBufferedDiskCache.put(this.mPartialImageCacheKey, encodedImage);
-                getConsumer().onNewResult(encodedImage, i2);
+                getConsumer().onNewResult(encodedImage, i);
             } else {
-                getConsumer().onNewResult(encodedImage, i2);
+                getConsumer().onNewResult(encodedImage, i);
             }
         }
     }
@@ -181,9 +181,9 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
             newInitContext.initArgs = r2;
             Object[] objArr = {bufferedDiskCache, cacheKeyFactory, pooledByteBufferFactory, byteArrayPool, producer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -204,13 +204,13 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
 
     @VisibleForTesting
     @Nullable
-    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i2) {
+    public static Map<String, String> getExtraMap(ProducerListener producerListener, String str, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{producerListener, str, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (producerListener.requiresExtraMap(str)) {
                 if (z) {
-                    return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i2));
+                    return ImmutableMap.of("cached_value_found", String.valueOf(z), "encodedImageSize", String.valueOf(i));
                 }
                 return ImmutableMap.of("cached_value_found", String.valueOf(z));
             }
@@ -245,9 +245,9 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, r7, r8, consumer, producerContext, cacheKey};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -328,9 +328,9 @@ public class PartialDiskCacheProducer implements Producer<EncodedImage> {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, atomicBoolean};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

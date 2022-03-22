@@ -24,32 +24,28 @@ import java.util.List;
 public class UserIconBox extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public c.a.d.f.k.b<TbImageView> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public Context f30196b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f30197c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f30198d;
 
     /* renamed from: e  reason: collision with root package name */
-    public c.a.d.f.k.b<TbImageView> f39226e;
+    public int f30199e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f39227f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f39228g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f39229h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f39230i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public boolean f39231j;
+    public boolean f30200f;
 
     /* loaded from: classes5.dex */
     public class a implements ViewGroup.OnHierarchyChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ UserIconBox f39232e;
+        public final /* synthetic */ UserIconBox a;
 
         public a(UserIconBox userIconBox) {
             Interceptable interceptable = $ic;
@@ -58,15 +54,15 @@ public class UserIconBox extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {userIconBox};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f39232e = userIconBox;
+            this.a = userIconBox;
         }
 
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
@@ -79,8 +75,8 @@ public class UserIconBox extends LinearLayout {
         @Override // android.view.ViewGroup.OnHierarchyChangeListener
         public void onChildViewRemoved(View view, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.f39232e.f39226e != null) {
-                this.f39232e.f39226e.e((TbImageView) view2);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view, view2) == null) && (view2 instanceof TbImageView) && this.a.a != null) {
+                this.a.a.e((TbImageView) view2);
             }
         }
     }
@@ -98,9 +94,9 @@ public class UserIconBox extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -183,128 +179,135 @@ public class UserIconBox extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f39226e = null;
-        this.f39228g = true;
-        e(context);
+        this.a = null;
+        this.f30197c = true;
+        f(context);
     }
 
-    public static c.a.d.f.k.b<TbImageView> createUserIconPool(Context context, int i2) {
+    public static c.a.d.f.k.b<TbImageView> c(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i2)) == null) ? new c.a.d.f.k.b<>(new b(context), i2, 0) : (c.a.d.f.k.b) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) ? new c.a.d.f.k.b<>(new b(context), i, 0) : (c.a.d.f.k.b) invokeLI.objValue;
     }
 
-    public final boolean b(int i2) {
+    public final boolean b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            if (i2 <= 0) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
                 return false;
             }
             int childCount = getChildCount();
-            if (i2 == childCount) {
+            if (i == childCount) {
                 return true;
             }
-            int i3 = i2 - childCount;
-            if (i3 > 0) {
-                for (int i4 = 0; i4 < i3; i4++) {
-                    addView(c(this.f39227f));
+            int i2 = i - childCount;
+            if (i2 > 0) {
+                for (int i3 = 0; i3 < i2; i3++) {
+                    addView(d(this.f30196b));
                 }
             } else {
-                removeViews(i2, Math.abs(i3));
+                removeViews(i, Math.abs(i2));
             }
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    public final TbImageView c(Context context) {
+    public final TbImageView d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            c.a.d.f.k.b<TbImageView> bVar = this.f39226e;
+            c.a.d.f.k.b<TbImageView> bVar = this.a;
             TbImageView b2 = bVar != null ? bVar.b() : null;
             return (b2 == null || b2.getParent() != null) ? new TbImageView(context) : b2;
         }
         return (TbImageView) invokeL.objValue;
     }
 
-    public final LinearLayout.LayoutParams d(int i2, int i3, int i4) {
+    public final LinearLayout.LayoutParams e(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4)) == null) {
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, i3);
-            layoutParams.leftMargin = i4;
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3)) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i, i2);
+            layoutParams.leftMargin = i3;
             return layoutParams;
         }
         return (LinearLayout.LayoutParams) invokeIII.objValue;
     }
 
-    public final void e(Context context) {
+    public final void f(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f39227f = context;
+            this.f30196b = context;
             setOrientation(0);
             setGravity(16);
-            Context context2 = this.f39227f;
+            Context context2 = this.f30196b;
             if (context2 instanceof c) {
-                this.f39226e = ((c) context2).getUserIconPool();
+                this.a = ((c) context2).getUserIconPool();
             }
             setOnHierarchyChangeListener(new a(this));
         }
     }
 
-    public void loadIcon(List<IconData> list, int i2, int i3, int i4, int i5, boolean z) {
+    public void g(List<IconData> list, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            h(list, i, i2, i3, i4, false);
+        }
+    }
+
+    public void h(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{list, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z)}) == null) {
             if (list == null) {
                 setVisibility(8);
                 return;
             }
-            int min = Math.min(i2, ListUtils.getCount(list));
+            int min = Math.min(i, ListUtils.getCount(list));
             if (min == 1 && TextUtils.isEmpty(list.get(0).getIcon())) {
                 setVisibility(8);
                 return;
             }
-            this.f39229h = i3;
-            this.f39230i = i5;
-            this.f39231j = z;
-            this.f39229h = i3;
+            this.f30198d = i2;
+            this.f30199e = i4;
+            this.f30200f = z;
+            this.f30198d = i2;
             if (!b(min)) {
                 setVisibility(8);
             } else if (min > 0) {
                 setVisibility(0);
-                for (int i6 = 0; i6 < min; i6++) {
-                    View childAt = getChildAt(i6);
+                for (int i5 = 0; i5 < min; i5++) {
+                    View childAt = getChildAt(i5);
                     if (childAt instanceof TbImageView) {
-                        if (StringUtils.isNull(list.get(i6).getIcon())) {
+                        if (StringUtils.isNull(list.get(i5).getIcon())) {
                             childAt.setVisibility(8);
                         } else {
                             childAt.setVisibility(0);
                             TbImageView tbImageView = (TbImageView) childAt;
                             tbImageView.setDefaultResource(R.drawable.icon_moren);
-                            if (i6 == 0 && z) {
-                                tbImageView.setLayoutParams(d(i3, i4, 0));
+                            if (i5 == 0 && z) {
+                                tbImageView.setLayoutParams(e(i2, i3, 0));
                             } else {
-                                tbImageView.setLayoutParams(d(i3, i4, i5));
+                                tbImageView.setLayoutParams(e(i2, i3, i4));
                             }
-                            tbImageView.setTag(list.get(i6).getIcon());
-                            if (!StringUtils.isNull(list.get(i6).getIconName())) {
-                                tbImageView.setContentDescription(list.get(i6).getIconName());
+                            tbImageView.setTag(list.get(i5).getIcon());
+                            if (!StringUtils.isNull(list.get(i5).getIconName())) {
+                                tbImageView.setContentDescription(list.get(i5).getIconName());
                             }
                             tbImageView.setClickable(false);
-                            tbImageView.setAutoChangeStyle(this.f39228g);
+                            tbImageView.setAutoChangeStyle(this.f30197c);
                             tbImageView.setImageDrawable(null);
-                            tbImageView.startLoad(list.get(i6).getIcon(), 21, i3, i4, false);
+                            tbImageView.G(list.get(i5).getIcon(), 21, i2, i3, false);
                         }
                     }
                 }
@@ -314,12 +317,12 @@ public class UserIconBox extends LinearLayout {
         }
     }
 
-    public void onChangeSkin(int i2) {
+    public void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             int childCount = getChildCount();
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = getChildAt(i3);
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = getChildAt(i2);
                 if (childAt instanceof TbImageView) {
                     ((TbImageView) childAt).setSkinType(TbadkCoreApplication.getInst().getSkinType());
                 }
@@ -328,25 +331,25 @@ public class UserIconBox extends LinearLayout {
     }
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
-        int i6;
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             int measuredWidth = getMeasuredWidth();
             int childCount = getChildCount();
             boolean z2 = false;
-            int i7 = 0;
-            for (int i8 = 0; i8 < childCount; i8++) {
-                View childAt = getChildAt(i8);
+            int i6 = 0;
+            for (int i7 = 0; i7 < childCount; i7++) {
+                View childAt = getChildAt(i7);
                 if (!z2) {
-                    if (i8 == 0 && this.f39231j) {
-                        i6 = this.f39229h;
+                    if (i7 == 0 && this.f30200f) {
+                        i5 = this.f30198d;
                     } else {
-                        i6 = this.f39229h + this.f39230i;
+                        i5 = this.f30198d + this.f30199e;
                     }
-                    i7 += i6;
-                    if (i7 > measuredWidth) {
+                    i6 += i5;
+                    if (i6 > measuredWidth) {
                         z2 = true;
                     }
                 }
@@ -360,7 +363,7 @@ public class UserIconBox extends LinearLayout {
     public void setAutoChangedStyle(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f39228g = z;
+            this.f30197c = z;
         }
     }
 
@@ -373,9 +376,9 @@ public class UserIconBox extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -383,15 +386,8 @@ public class UserIconBox extends LinearLayout {
                 return;
             }
         }
-        this.f39226e = null;
-        this.f39228g = true;
-        e(context);
-    }
-
-    public void loadIcon(List<IconData> list, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{list, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            loadIcon(list, i2, i3, i4, i5, false);
-        }
+        this.a = null;
+        this.f30197c = true;
+        f(context);
     }
 }

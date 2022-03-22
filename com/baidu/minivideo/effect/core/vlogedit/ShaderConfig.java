@@ -37,9 +37,9 @@ public class ShaderConfig implements Parcelable, Cloneable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,10 +58,10 @@ public class ShaderConfig implements Parcelable, Cloneable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ShaderConfig[] newArray(int i2) {
+        public ShaderConfig[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ShaderConfig[i2] : (ShaderConfig[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ShaderConfig[i] : (ShaderConfig[]) invokeI.objValue;
         }
     }
 
@@ -86,9 +86,9 @@ public class ShaderConfig implements Parcelable, Cloneable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -190,14 +190,14 @@ public class ShaderConfig implements Parcelable, Cloneable {
                 if (this.fParams != null) {
                     ArrayList arrayList = new ArrayList();
                     for (ShaderParams shaderParams : this.fParams) {
-                        arrayList.add(shaderParams.m39clone());
+                        arrayList.add(shaderParams.m37clone());
                     }
                     shaderConfig.fParams = arrayList;
                 }
                 if (this.vParams != null) {
                     ArrayList arrayList2 = new ArrayList();
                     for (ShaderParams shaderParams2 : this.vParams) {
-                        arrayList2.add(shaderParams2.m39clone());
+                        arrayList2.add(shaderParams2.m37clone());
                     }
                     shaderConfig.vParams = arrayList2;
                 }
@@ -242,9 +242,9 @@ public class ShaderConfig implements Parcelable, Cloneable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048579, this, parcel, i) == null) {
             parcel.writeString(this.resourcePath);
             parcel.writeString(this.fragmentShader);
             parcel.writeString(this.vertexShader);
@@ -261,9 +261,9 @@ public class ShaderConfig implements Parcelable, Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

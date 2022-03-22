@@ -10,7 +10,7 @@ import com.bumptech.glide.load.engine.cache.DiskCache;
 import com.bumptech.glide.load.engine.cache.DiskLruCacheFactory;
 import java.io.File;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -37,17 +37,17 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ExternalCacheDiskCacheFactory(Context context, int i2) {
-        this(context, "image_manager_disk_cache", i2);
+    public ExternalCacheDiskCacheFactory(Context context, int i) {
+        this(context, "image_manager_disk_cache", i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i2)};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -58,7 +58,7 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ExternalCacheDiskCacheFactory(Context context, String str, int i2) {
+    public ExternalCacheDiskCacheFactory(Context context, String str, int i) {
         super(new DiskLruCacheFactory.CacheDirectoryGetter(context, str) { // from class: com.bumptech.glide.load.engine.cache.ExternalCacheDiskCacheFactory.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -72,9 +72,9 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {context, str};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i3 = newInitContext.flag;
-                    if ((i3 & 1) != 0) {
-                        int i4 = i3 & 2;
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -97,16 +97,16 @@ public final class ExternalCacheDiskCacheFactory extends DiskLruCacheFactory {
                 }
                 return (File) invokeV.objValue;
             }
-        }, i2);
+        }, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((DiskLruCacheFactory.CacheDirectoryGetter) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;

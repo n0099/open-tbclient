@@ -3,19 +3,26 @@ package com.fun.ad.sdk.internal.api;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
-import c.g.i;
+import c.d.n0;
 import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAd2;
 import com.fun.ad.sdk.FunNativeAdInflater;
 import com.fun.ad.sdk.FunSplashAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface PidLoader {
-    void addListener(i iVar);
+    void addListener(n0 n0Var);
 
     void destroy();
+
+    void destroy(boolean z);
+
+    int getAdCount();
+
+    FunAdType getAdType();
 
     @Deprecated
     FunNativeAd getNativeAd(Context context, String str);
@@ -30,7 +37,7 @@ public interface PidLoader {
 
     boolean load(Context context, FunAdSlot funAdSlot);
 
-    void removeListener(i iVar);
+    void removeListener(n0 n0Var);
 
     boolean show(Activity activity, ViewGroup viewGroup, String str, FunNativeAdInflater funNativeAdInflater);
 

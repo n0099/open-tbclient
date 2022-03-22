@@ -23,15 +23,15 @@ public class h {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static h f2380d;
+    public static h f1952d;
     public transient /* synthetic */ FieldHolder $fh;
     public Resources a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<String> f2381b;
+    public ArrayList<String> f1953b;
 
     /* renamed from: c  reason: collision with root package name */
-    public HashSet<String> f2382c;
+    public HashSet<String> f1954c;
 
     static {
         InterceptResult invokeClinit;
@@ -53,31 +53,31 @@ public class h {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2381b = null;
-        this.f2382c = null;
+        this.f1953b = null;
+        this.f1954c = null;
     }
 
     public static h a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f2380d == null) {
+            if (f1952d == null) {
                 synchronized (h.class) {
-                    if (f2380d == null) {
-                        f2380d = new h();
+                    if (f1952d == null) {
+                        f1952d = new h();
                     }
                 }
             }
-            return f2380d;
+            return f1952d;
         }
         return (h) invokeV.objValue;
     }
@@ -89,26 +89,26 @@ public class h {
                 if (!TextUtils.isEmpty(str2)) {
                     if (this.a != null) {
                         if (!TextUtils.isEmpty(str)) {
-                            if (this.f2382c == null) {
-                                this.f2382c = new HashSet<>();
+                            if (this.f1954c == null) {
+                                this.f1954c = new HashSet<>();
                             }
-                            if (this.f2382c.contains(str)) {
+                            if (this.f1954c.contains(str)) {
                                 c.a.d.j.h.a.b().m("plugin_load", "repeat_inject_res", str, str2);
                             }
-                            this.f2382c.add(str);
+                            this.f1954c.add(str);
                         }
-                        if (this.f2381b == null) {
-                            this.f2381b = new ArrayList<>();
+                        if (this.f1953b == null) {
+                            this.f1953b = new ArrayList<>();
                         }
-                        if (this.f2381b.contains(str2)) {
+                        if (this.f1953b.contains(str2)) {
                             return;
                         }
                         if (Build.VERSION.SDK_INT >= 20) {
                             c.a.d.j.k.d.a(this.a.getAssets(), V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{str2});
                         } else {
                             AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                            if (this.f2381b.size() > 0) {
-                                Iterator<String> it = this.f2381b.iterator();
+                            if (this.f1953b.size() > 0) {
+                                Iterator<String> it = this.f1953b.iterator();
                                 while (it.hasNext()) {
                                     c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{it.next()});
                                 }
@@ -117,7 +117,7 @@ public class h {
                             c.a.d.j.k.d.a(assetManager, V8Engine.ALTERNATIVE_ADD_ASSET_PATH_METHOD, new Object[]{BdBaseApplication.getInst().getApp().getPackageCodePath()});
                             this.a = new Resources(assetManager, this.a.getDisplayMetrics(), this.a.getConfiguration());
                         }
-                        this.f2381b.add(str2);
+                        this.f1953b.add(str2);
                         return;
                     }
                     throw new RuntimeException("hostResources is null");

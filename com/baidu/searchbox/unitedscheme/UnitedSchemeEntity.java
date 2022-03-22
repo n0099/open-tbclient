@@ -57,9 +57,9 @@ public class UnitedSchemeEntity implements Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Uri) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -132,11 +132,11 @@ public class UnitedSchemeEntity implements Cloneable {
                 if (z) {
                     this.mPathLevel++;
                 }
-                int i2 = this.mPathLevel;
-                if (i2 >= 0) {
+                int i = this.mPathLevel;
+                if (i >= 0) {
                     String[] strArr = this.mPaths;
-                    if (i2 < strArr.length) {
-                        return strArr[i2];
+                    if (i < strArr.length) {
+                        return strArr[i];
                     }
                     return null;
                 }
@@ -267,9 +267,9 @@ public class UnitedSchemeEntity implements Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -289,7 +289,7 @@ public class UnitedSchemeEntity implements Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public UnitedSchemeEntity m43clone() {
+    public UnitedSchemeEntity m41clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -310,9 +310,9 @@ public class UnitedSchemeEntity implements Cloneable {
             newInitContext.initArgs = r2;
             Object[] objArr = {uri, str, strArr, hashMap};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

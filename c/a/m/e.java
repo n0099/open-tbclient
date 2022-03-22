@@ -2,6 +2,7 @@ package c.a.m;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -19,29 +20,29 @@ public class e {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f4133b;
+    public String f3721b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f4134c;
+    public int f3722c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f4135d;
+    public int f3723d;
 
     public e() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f4134c = 2;
-        this.f4135d = 0;
+        this.f3722c = 2;
+        this.f3723d = 0;
     }
 
     public static e a(String str) {
@@ -60,22 +61,22 @@ public class e {
             e eVar = new e();
             eVar.a = str;
             int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
-            eVar.f4135d = length;
+            eVar.f3723d = length;
             if (length < 14) {
                 if (TextUtils.isEmpty(str2)) {
                     str2 = "0";
                 }
-                eVar.f4133b = str2;
+                eVar.f3721b = str2;
             }
             return eVar;
         }
         return (e) invokeLL.objValue;
     }
 
-    public static boolean d(int i2) {
+    public static boolean d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) ? i2 >= 14 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
     }
 
     public static e e(String str) {
@@ -97,18 +98,18 @@ public class e {
                     }
                 }
                 String string = jSONObject.getString(k("ZGV2aWNlaWQ="));
-                int i2 = jSONObject.getInt(k("dmVy"));
+                int i = jSONObject.getInt(k("dmVy"));
                 int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
                 if (!TextUtils.isEmpty(string)) {
                     e eVar = new e();
                     eVar.a = string;
-                    eVar.f4134c = i2;
-                    eVar.f4135d = length;
+                    eVar.f3722c = i;
+                    eVar.f3723d = length;
                     if (length < 14) {
                         if (!TextUtils.isEmpty(str3)) {
                             str2 = str3;
                         }
-                        eVar.f4133b = str2;
+                        eVar.f3721b = str2;
                     }
                     eVar.c();
                     return eVar;
@@ -148,7 +149,7 @@ public class e {
             }
             try {
                 byte[] a = c.a.m.j.a.g.a();
-                return c.a.m.k.a.a(c.a.m.j.a.c.d(a, a, str.getBytes()), "utf-8");
+                return c.a.m.k.a.a(c.a.m.j.a.c.d(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException | Exception e2) {
                 c.a.m.m.c.c(e2);
                 return "";
@@ -181,7 +182,7 @@ public class e {
             } else {
                 str = "0";
             }
-            this.f4133b = str;
+            this.f3721b = str;
             return true;
         }
         return invokeV.booleanValue;
@@ -190,13 +191,13 @@ public class e {
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f4135d) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d(this.f3723d) : invokeV.booleanValue;
     }
 
     public boolean i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(this.f4133b) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(this.f3721b) : invokeV.booleanValue;
     }
 
     public String j() {
@@ -210,7 +211,7 @@ public class e {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
-                return new JSONObject().put(k("ZGV2aWNlaWQ="), this.a).put(k("aW1laQ=="), this.f4133b).put(k("dmVy"), this.f4134c).toString();
+                return new JSONObject().put(k("ZGV2aWNlaWQ="), this.a).put(k("aW1laQ=="), this.f3721b).put(k("dmVy"), this.f3722c).toString();
             } catch (JSONException e2) {
                 c.a.m.m.c.c(e2);
                 return null;

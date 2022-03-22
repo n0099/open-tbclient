@@ -23,17 +23,17 @@ public class RequestHistoryMessage extends TbSocketMessage {
     public int width;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestHistoryMessage(int i2, long j2, int i3) {
+    public RequestHistoryMessage(int i, long j, int i2) {
         super(208002);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Long.valueOf(j2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,9 +47,9 @@ public class RequestHistoryMessage extends TbSocketMessage {
         this.height = 0;
         this.sWidth = 0;
         this.sHeight = 0;
-        this.forum_id = i2;
-        this.user_id = j2;
-        this.id = i3;
+        this.forum_id = i;
+        this.user_id = j;
+        this.id = i2;
         LocalViewSize.ImageSize msgBPicMaxSize = LocalViewSize.getInstance().getMsgBPicMaxSize();
         this.width = msgBPicMaxSize.width;
         this.height = msgBPicMaxSize.height;

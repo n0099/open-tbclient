@@ -22,7 +22,7 @@ import com.facebook.imagepipeline.platform.PlatformDecoder;
 import com.facebook.imagepipeline.transformation.BitmapTransformation;
 import java.util.Map;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultImageDecoder implements ImageDecoder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public class DefaultImageDecoder implements ImageDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageDecoder, imageDecoder2, platformDecoder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ImageDecoder) objArr2[0], (ImageDecoder) objArr2[1], (PlatformDecoder) objArr2[2], (Map) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -67,14 +67,14 @@ public class DefaultImageDecoder implements ImageDecoder {
     }
 
     @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-    public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeLILL;
         ImageDecoder imageDecoder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
             ImageDecoder imageDecoder2 = imageDecodeOptions.customImageDecoder;
             if (imageDecoder2 != null) {
-                return imageDecoder2.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
+                return imageDecoder2.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
             }
             ImageFormat imageFormat = encodedImage.getImageFormat();
             if (imageFormat == null || imageFormat == ImageFormat.UNKNOWN) {
@@ -83,37 +83,37 @@ public class DefaultImageDecoder implements ImageDecoder {
             }
             Map<ImageFormat, ImageDecoder> map = this.mCustomDecoders;
             if (map != null && (imageDecoder = map.get(imageFormat)) != null) {
-                return imageDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
+                return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
             }
-            return this.mDefaultDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
+            return this.mDefaultDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
         }
         return (CloseableImage) invokeLILL.objValue;
     }
 
-    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableImage decodeAnimatedWebp(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) ? this.mAnimatedWebPDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions) : (CloseableImage) invokeLILL.objValue;
+        return (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) ? this.mAnimatedWebPDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions) : (CloseableImage) invokeLILL.objValue;
     }
 
-    public CloseableImage decodeGif(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableImage decodeGif(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeLILL;
         ImageDecoder imageDecoder;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) {
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
             if (!imageDecodeOptions.forceStaticImage && (imageDecoder = this.mAnimatedGifDecoder) != null) {
-                return imageDecoder.decode(encodedImage, i2, qualityInfo, imageDecodeOptions);
+                return imageDecoder.decode(encodedImage, i, qualityInfo, imageDecodeOptions);
             }
             return decodeStaticImage(encodedImage, imageDecodeOptions);
         }
         return (CloseableImage) invokeLILL.objValue;
     }
 
-    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+    public CloseableStaticBitmap decodeJpeg(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
         InterceptResult invokeLILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) {
-            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i2, imageDecodeOptions.transformToSRGB);
+        if (interceptable == null || (invokeLILL = interceptable.invokeLILL(1048579, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) {
+            CloseableReference<Bitmap> decodeJPEGFromEncodedImageWithColorSpace = this.mPlatformDecoder.decodeJPEGFromEncodedImageWithColorSpace(encodedImage, imageDecodeOptions.bitmapConfig, null, i, imageDecodeOptions.transformToSRGB);
             try {
                 maybeApplyTransformation(imageDecodeOptions.bitmapTransformation, decodeJPEGFromEncodedImageWithColorSpace);
                 return new CloseableStaticBitmap(decodeJPEGFromEncodedImageWithColorSpace, qualityInfo, encodedImage.getRotationAngle(), encodedImage.getExifOrientation());
@@ -146,9 +146,9 @@ public class DefaultImageDecoder implements ImageDecoder {
             newInitContext.initArgs = r2;
             Object[] objArr = {imageDecoder, imageDecoder2, platformDecoder, map};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -166,9 +166,9 @@ public class DefaultImageDecoder implements ImageDecoder {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -178,19 +178,19 @@ public class DefaultImageDecoder implements ImageDecoder {
             }
 
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i4, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i3, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 InterceptResult invokeLILL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i4, qualityInfo, imageDecodeOptions)) == null) {
+                if (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i3, qualityInfo, imageDecodeOptions)) == null) {
                     ImageFormat imageFormat = encodedImage.getImageFormat();
                     if (imageFormat == DefaultImageFormats.JPEG) {
-                        return this.this$0.decodeJpeg(encodedImage, i4, qualityInfo, imageDecodeOptions);
+                        return this.this$0.decodeJpeg(encodedImage, i3, qualityInfo, imageDecodeOptions);
                     }
                     if (imageFormat == DefaultImageFormats.GIF) {
-                        return this.this$0.decodeGif(encodedImage, i4, qualityInfo, imageDecodeOptions);
+                        return this.this$0.decodeGif(encodedImage, i3, qualityInfo, imageDecodeOptions);
                     }
                     if (imageFormat == DefaultImageFormats.WEBP_ANIMATED) {
-                        return this.this$0.decodeAnimatedWebp(encodedImage, i4, qualityInfo, imageDecodeOptions);
+                        return this.this$0.decodeAnimatedWebp(encodedImage, i3, qualityInfo, imageDecodeOptions);
                     }
                     if (imageFormat != ImageFormat.UNKNOWN) {
                         return this.this$0.decodeStaticImage(encodedImage, imageDecodeOptions);

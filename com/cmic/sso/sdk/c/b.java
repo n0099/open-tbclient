@@ -1,184 +1,138 @@
 package com.cmic.sso.sdk.c;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.cmic.sso.sdk.b.c.d;
-import com.cmic.sso.sdk.d.c;
-import com.cmic.sso.sdk.d.f;
-import com.cmic.sso.sdk.d.h;
-import com.cmic.sso.sdk.d.j;
-import com.cmic.sso.sdk.d.k;
-import com.cmic.sso.sdk.d.n;
-import com.cmic.sso.sdk.d.q;
-import java.util.Iterator;
-import org.apache.commons.lang3.StringUtils;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
-public class b {
+import com.cmic.sso.sdk.e.c;
+import java.net.InetAddress;
+import java.net.Socket;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+/* loaded from: classes6.dex */
+public class b extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public com.cmic.sso.sdk.a a;
 
-    public b() {
+    /* renamed from: b  reason: collision with root package name */
+    public static final String[] f38431b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final SSLSocketFactory a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1436849845, "Lcom/cmic/sso/sdk/c/b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-1436849845, "Lcom/cmic/sso/sdk/c/b;");
+                return;
+            }
+        }
+        f38431b = new String[]{"TLSv1.2"};
+    }
+
+    public b(SSLSocketFactory sSLSocketFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sSLSocketFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = sSLSocketFactory;
     }
 
-    public static void a(a aVar, com.cmic.sso.sdk.a aVar2) {
+    private Socket a(Socket socket) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, aVar, aVar2) == null) || aVar == null || aVar2 == null) {
-            return;
-        }
-        aVar.b(aVar2.b("appid", ""));
-        aVar.f(h.a() ? "1" : "0");
-        aVar.g(n.a());
-        aVar.j(aVar2.b("interfaceType", ""));
-        aVar.i(aVar2.b("interfaceCode", ""));
-        aVar.h(aVar2.b("interfaceElasped", ""));
-        aVar.m(aVar2.b("timeOut"));
-        aVar.t(aVar2.b("traceId"));
-        aVar.v(aVar2.b("networkClass"));
-        aVar.o(aVar2.b("simCardNum"));
-        aVar.p(aVar2.b("operatortype"));
-        aVar.q(n.b());
-        aVar.r(n.c());
-        aVar.z(String.valueOf(aVar2.b("networktype", 0)));
-        aVar.u(aVar2.b(LaunchedTaskSpeedStats.KEY_START_TIME));
-        aVar.x(aVar2.b("endtime"));
-        aVar.n(String.valueOf(aVar2.b("systemEndTime", 0L) - aVar2.b("systemStartTime", 0L)));
-        aVar.d(aVar2.b("imsiState"));
-        aVar.A(k.b("AID", ""));
-        aVar.B(j.a().f());
-        aVar.C(aVar2.b("scripType"));
-        aVar.D(aVar2.b("eipKey"));
-        c.a("SendLog", "traceId" + aVar2.b("traceId"));
-    }
-
-    public void a(Context context, String str, com.cmic.sso.sdk.a aVar) {
-        StackTraceElement[] stackTrace;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, context, str, aVar) == null) {
-            String str2 = "";
-            try {
-                a a = aVar.a();
-                String b2 = f.b(context);
-                a.e(str);
-                a.y(aVar.b("loginMethod", ""));
-                if (aVar.b("isCacheScrip", false)) {
-                    a.s("scrip");
-                } else {
-                    a.s("pgw");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, socket)) == null) {
+            if (socket instanceof SSLSocket) {
+                SSLSocket sSLSocket = (SSLSocket) socket;
+                for (String str : sSLSocket.getEnabledProtocols()) {
+                    c.a("enableProtocol", str);
                 }
-                a.k(f.a(context));
-                if (!TextUtils.isEmpty(b2)) {
-                    str2 = b2;
-                }
-                a.l(str2);
-                a.c(aVar.b("hsaReadPhoneStatePermission", false) ? "1" : "0");
-                a(a, aVar);
-                JSONArray jSONArray = null;
-                if (a.a.size() > 0) {
-                    jSONArray = new JSONArray();
-                    Iterator<Throwable> it = a.a.iterator();
-                    while (it.hasNext()) {
-                        Throwable next = it.next();
-                        StringBuffer stringBuffer = new StringBuffer();
-                        JSONObject jSONObject = new JSONObject();
-                        for (StackTraceElement stackTraceElement : next.getStackTrace()) {
-                            stringBuffer.append(StringUtils.LF);
-                            stringBuffer.append(stackTraceElement.toString());
-                        }
-                        jSONObject.put("message", next.toString());
-                        jSONObject.put("stack", stringBuffer.toString());
-                        jSONArray.put(jSONObject);
-                    }
-                    a.a.clear();
-                }
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    a.a(jSONArray);
-                }
-                c.a("SendLog", "登录日志");
-                a(a.b(), aVar);
-            } catch (Exception e2) {
-                e2.printStackTrace();
+                sSLSocket.setEnabledProtocols(f38431b);
+                sSLSocket.setEnabledCipherSuites(new String[]{"TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA"});
             }
+            return socket;
         }
+        return (Socket) invokeL.objValue;
     }
 
-    private void a(JSONObject jSONObject, com.cmic.sso.sdk.a aVar) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, this, jSONObject, aVar) == null) {
-            this.a = aVar;
-            a(jSONObject);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a(this.a.createSocket()) : (Socket) invokeV.objValue;
     }
 
-    private void a(JSONObject jSONObject) {
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, this, jSONObject) == null) {
-            if (q.o() == 0 || q.n() == 0 || System.currentTimeMillis() > k.a("logCloseTime", 0L) + q.o()) {
-                com.cmic.sso.sdk.b.c.a.a().a(jSONObject, this.a, new d(this) { // from class: com.cmic.sso.sdk.c.b.1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ b a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a.getDefaultCipherSuites() : (String[]) invokeV.objValue;
+    }
 
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.a = this;
-                    }
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.getSupportedCipherSuites() : (String[]) invokeV.objValue;
+    }
 
-                    @Override // com.cmic.sso.sdk.b.c.d
-                    public void a(String str, String str2, JSONObject jSONObject2) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLLL(1048576, this, str, str2, jSONObject2) == null) {
-                            if (!str.equals("103000")) {
-                                if (q.o() != 0 && q.n() != 0) {
-                                    int a = k.a("logFailTimes", 0) + 1;
-                                    k.a a2 = k.a();
-                                    if (a >= q.n()) {
-                                        a2.a("logFailTimes", 0);
-                                        a2.a("logCloseTime", System.currentTimeMillis());
-                                    } else {
-                                        a2.a("logFailTimes", a);
-                                    }
-                                    a2.b();
-                                }
-                                c.a("SendLog", "request failed , url : " + q.i() + ">>>>>errorMsg : " + jSONObject2.toString());
-                                return;
-                            }
-                            c.b("SendLog", "request success , url : " + q.i() + ">>>>result : " + jSONObject2.toString());
-                        }
-                    }
-                });
-            }
-        }
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? "Tls12SocketFactory" : (String) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? a(this.a.createSocket(socket, str, i, z)) : (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) ? a(this.a.createSocket(str, i)) : (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) ? a(this.a.createSocket(str, i, inetAddress, i2)) : (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i)) == null) ? a(this.a.createSocket(inetAddress, i)) : (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) ? a(this.a.createSocket(inetAddress, i, inetAddress2, i2)) : (Socket) invokeCommon.objValue;
     }
 }

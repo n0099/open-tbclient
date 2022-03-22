@@ -4,8 +4,8 @@ import c.a.d.f.l.b;
 import c.a.d.f.l.e;
 import c.a.d.f.p.n;
 import c.a.d.o.d.a;
-import c.a.q0.b0.c;
-import c.a.q0.c0.i.d;
+import c.a.o0.b0.c;
+import c.a.o0.c0.i.d;
 import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,9 +29,9 @@ public class LocalFileImageLoaderProc implements e<a> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -52,7 +52,7 @@ public class LocalFileImageLoaderProc implements e<a> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: decodeToResource */
-    public a m50decodeToResource(byte[] bArr, Object... objArr) {
+    public a m48decodeToResource(byte[] bArr, Object... objArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bArr, objArr)) == null) {
@@ -81,15 +81,15 @@ public class LocalFileImageLoaderProc implements e<a> {
         return invokeV.intValue;
     }
 
-    public a getBitmapFromFile(String str, int i2, int i3) {
+    public a getBitmapFromFile(String str, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048580, this, str, i, i2)) == null) {
             try {
                 if (str.toLowerCase().endsWith(".gif")) {
                     return new a(BitmapHelper.loadBitmap(str), true, str);
                 }
-                return new a(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i2, i3), false, str);
+                return new a(BitmapHelper.checkBitmapSize(BitmapHelper.loadResizedBitmap(str, this.width, this.height), i, i2), false, str);
             } catch (Throwable unused) {
                 return null;
             }
@@ -100,10 +100,10 @@ public class LocalFileImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             return null;
         }
         return (a) invokeCommon.objValue;
@@ -130,19 +130,19 @@ public class LocalFileImageLoaderProc implements e<a> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             ImageOperation g2 = d.g(this.width, this.height);
-            return "image_" + str + ':' + g2.actionName + com.alipay.sdk.encrypt.a.f29503h + g2.actionParam;
+            return "image_" + str + ':' + g2.actionName + '=' + g2.actionParam;
         }
         return (String) invokeL.objValue;
     }
 
     @Override // c.a.d.f.l.e
-    public void updateMemory(String str, Object obj, int i2, int i3, Object... objArr) {
+    public void updateMemory(String str, Object obj, int i, int i2, Object... objArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i2), Integer.valueOf(i3), objArr}) == null) && obj != null && (obj instanceof a)) {
+        if ((interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof a)) {
             a aVar = (a) obj;
             if (aVar.u()) {
-                aVar.A(i2);
-                aVar.z(i3);
+                aVar.A(i);
+                aVar.z(i2);
                 c.k().d(toCacheKey(str), aVar);
             }
         }
@@ -151,14 +151,14 @@ public class LocalFileImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            return getBitmapFromFile(str, i2, i3);
+            return getBitmapFromFile(str, i, i2);
         }
         return (a) invokeCommon.objValue;
     }
@@ -166,11 +166,11 @@ public class LocalFileImageLoaderProc implements e<a> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
-            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), c.k().m(toCacheKey(str)), i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
+            a checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), c.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
@@ -179,16 +179,16 @@ public class LocalFileImageLoaderProc implements e<a> {
         return (a) invokeCommon.objValue;
     }
 
-    public LocalFileImageLoaderProc(int i2, int i3) {
+    public LocalFileImageLoaderProc(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -196,9 +196,9 @@ public class LocalFileImageLoaderProc implements e<a> {
         }
         this.width = 0;
         this.height = 0;
-        if (i2 > 0 && i3 > 0) {
-            this.width = i2;
-            this.height = i3;
+        if (i > 0 && i2 > 0) {
+            this.width = i;
+            this.height = i2;
             return;
         }
         initDefalutMaxSize();

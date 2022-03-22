@@ -16,15 +16,15 @@ public final class MapPoi {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33935d = "MapPoi";
+    public static final String f26196d = "MapPoi";
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public LatLng f33936b;
+    public LatLng f26197b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33937c;
+    public String f26198c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,9 +46,9 @@ public final class MapPoi {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -63,8 +63,8 @@ public final class MapPoi {
             if (optString != null && !optString.equals("")) {
                 this.a = this.a.replaceAll("\\\\", "").replaceAll("/?[a-zA-Z]{1,10};", "").replaceAll("<[^>]*>", "").replaceAll("[(/>)<]", "");
             }
-            this.f33936b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
-            this.f33937c = jSONObject.optString("ud");
+            this.f26197b = CoordUtil.decodeNodeLocation(jSONObject.optString("geo"));
+            this.f26198c = jSONObject.optString("ud");
         }
     }
 
@@ -77,12 +77,12 @@ public final class MapPoi {
     public LatLng getPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33936b : (LatLng) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f26197b : (LatLng) invokeV.objValue;
     }
 
     public String getUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33937c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f26198c : (String) invokeV.objValue;
     }
 }

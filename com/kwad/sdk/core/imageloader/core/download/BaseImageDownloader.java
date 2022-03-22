@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 import android.webkit.MimeTypeMap;
+import com.baidubce.http.Headers;
 import com.kwad.sdk.core.imageloader.core.assist.ContentLengthInputStream;
 import com.kwad.sdk.core.imageloader.core.download.ImageDownloader;
 import com.kwad.sdk.core.imageloader.utils.IoUtils;
@@ -77,10 +78,10 @@ public class BaseImageDownloader implements ImageDownloader {
         this(context, 5000, 20000);
     }
 
-    public BaseImageDownloader(Context context, int i2, int i3) {
+    public BaseImageDownloader(Context context, int i, int i2) {
         this.context = context.getApplicationContext();
-        this.connectTimeout = i2;
-        this.readTimeout = i3;
+        this.connectTimeout = i;
+        this.readTimeout = i2;
     }
 
     @TargetApi(8)
@@ -157,8 +158,8 @@ public class BaseImageDownloader implements ImageDownloader {
 
     public InputStream getStreamFromNetwork(String str, Object obj) {
         HttpURLConnection createConnection = createConnection(str, obj);
-        for (int i2 = 0; createConnection.getResponseCode() / 100 == 3 && i2 < 5; i2++) {
-            createConnection = createConnection(createConnection.getHeaderField("Location"), obj);
+        for (int i = 0; createConnection.getResponseCode() / 100 == 3 && i < 5; i++) {
+            createConnection = createConnection(createConnection.getHeaderField(Headers.LOCATION), obj);
         }
         try {
             InputStream inputStream = createConnection.getInputStream();

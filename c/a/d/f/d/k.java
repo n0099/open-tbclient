@@ -13,7 +13,7 @@ public interface k<T> {
 
     l.b<T> e(String str, String str2);
 
-    void f(String str, String str2, T t, long j2);
+    void f(String str, String str2, T t, long j);
 
     void g(String str);
 }

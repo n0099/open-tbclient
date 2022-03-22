@@ -40,9 +40,9 @@ public class GiftCommonList implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -93,10 +93,10 @@ public class GiftCommonList implements Serializable {
             }
         }
 
-        public void setVersion(int i2) {
+        public void setVersion(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.version = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.version = i;
             }
         }
     }
@@ -117,9 +117,9 @@ public class GiftCommonList implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -156,10 +156,10 @@ public class GiftCommonList implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.thumbnail_url : (String) invokeV.objValue;
         }
 
-        public void setGiftId(int i2) {
+        public void setGiftId(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-                this.gift_id = i2;
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                this.gift_id = i;
             }
         }
 
@@ -177,10 +177,10 @@ public class GiftCommonList implements Serializable {
             }
         }
 
-        public void setPrice(int i2) {
+        public void setPrice(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.price = i2;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.price = i;
             }
         }
 
@@ -205,9 +205,9 @@ public class GiftCommonList implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -233,10 +233,10 @@ public class GiftCommonList implements Serializable {
             }
         }
 
-        public void setNum(int i2) {
+        public void setNum(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.num = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.num = i;
             }
         }
     }
@@ -255,9 +255,9 @@ public class GiftCommonList implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -295,10 +295,10 @@ public class GiftCommonList implements Serializable {
             }
         }
 
-        public void setTypeId(int i2) {
+        public void setTypeId(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-                this.type_id = i2;
+            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+                this.type_id = i;
             }
         }
 
@@ -315,9 +315,9 @@ public class GiftCommonList implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -409,10 +409,10 @@ public class GiftCommonList implements Serializable {
         }
     }
 
-    public void setErrorNo(int i2) {
+    public void setErrorNo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.errorno = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.errorno = i;
         }
     }
 

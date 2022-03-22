@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.CancellationSignal;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -66,7 +67,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
             method = Typeface.class.getMethod("createFromFamiliesWithDefault", Array.newInstance(cls, 1).getClass());
             constructor = constructor2;
         } catch (ClassNotFoundException | NoSuchMethodException e2) {
-            e2.getClass().getName();
+            Log.e(TAG, e2.getClass().getName(), e2);
             cls = null;
             method = null;
             method2 = null;
@@ -82,21 +83,21 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean addFontWeightStyle(Object obj, ByteBuffer byteBuffer, int i2, int i3, boolean z) {
+    public static boolean addFontWeightStyle(Object obj, ByteBuffer byteBuffer, int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{obj, byteBuffer, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{obj, byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
             try {
-                return ((Boolean) sAddFontWeightStyle.invoke(obj, byteBuffer, Integer.valueOf(i2), null, Integer.valueOf(i3), Boolean.valueOf(z))).booleanValue();
+                return ((Boolean) sAddFontWeightStyle.invoke(obj, byteBuffer, Integer.valueOf(i), null, Integer.valueOf(i2), Boolean.valueOf(z))).booleanValue();
             } catch (IllegalAccessException | InvocationTargetException unused) {
                 return false;
             }
@@ -123,7 +124,9 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Method method = sAddFontWeightStyle;
+            if (sAddFontWeightStyle == null) {
+                Log.w(TAG, "Unable to collect necessary private methods.Fallback to legacy implementation.");
+            }
             return sAddFontWeightStyle != null;
         }
         return invokeV.booleanValue;
@@ -144,11 +147,11 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
     @Nullable
-    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i2) {
+    public Typeface createFromFontFamilyFilesResourceEntry(Context context, FontResourcesParserCompat.FontFamilyFilesResourceEntry fontFamilyFilesResourceEntry, Resources resources, int i) {
         InterceptResult invokeLLLI;
         FontResourcesParserCompat.FontFileResourceEntry[] entries;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048576, this, context, fontFamilyFilesResourceEntry, resources, i)) == null) {
             Object newFamily = newFamily();
             if (newFamily == null) {
                 return null;
@@ -166,10 +169,10 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
 
     @Override // androidx.core.graphics.TypefaceCompatBaseImpl
     @Nullable
-    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i2) {
+    public Typeface createFromFontInfo(Context context, @Nullable CancellationSignal cancellationSignal, @NonNull FontsContractCompat.FontInfo[] fontInfoArr, int i) {
         InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i2)) == null) {
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, cancellationSignal, fontInfoArr, i)) == null) {
             Object newFamily = newFamily();
             if (newFamily == null) {
                 return null;
@@ -190,7 +193,7 @@ public class TypefaceCompatApi24Impl extends TypefaceCompatBaseImpl {
             if (createFromFamiliesWithDefault == null) {
                 return null;
             }
-            return Typeface.create(createFromFamiliesWithDefault, i2);
+            return Typeface.create(createFromFamiliesWithDefault, i);
         }
         return (Typeface) invokeLLLI.objValue;
     }

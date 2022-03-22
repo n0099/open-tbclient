@@ -32,9 +32,9 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
             newInitContext.initArgs = r2;
             Object[] objArr = {breakpointSQLiteHelper, breakpointStoreOnCache};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -81,18 +81,18 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
     @Nullable
-    public BreakpointInfo get(int i2) {
+    public BreakpointInfo get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? this.onCache.get(i2) : (BreakpointInfo) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? this.onCache.get(i) : (BreakpointInfo) invokeI.objValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
     @Nullable
-    public BreakpointInfo getAfterCompleted(int i2) {
+    public BreakpointInfo getAfterCompleted(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             return null;
         }
         return (BreakpointInfo) invokeI.objValue;
@@ -107,10 +107,10 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public boolean isFileDirty(int i2) {
+    public boolean isFileDirty(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.onCache.isFileDirty(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.onCache.isFileDirty(i) : invokeI.booleanValue;
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
@@ -124,12 +124,12 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public boolean markFileClear(int i2) {
+    public boolean markFileClear(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            if (this.onCache.markFileClear(i2)) {
-                this.helper.markFileClear(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (this.onCache.markFileClear(i)) {
+                this.helper.markFileClear(i);
                 return true;
             }
             return false;
@@ -138,12 +138,12 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public boolean markFileDirty(int i2) {
+    public boolean markFileDirty(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
-            if (this.onCache.markFileDirty(i2)) {
-                this.helper.markFileDirty(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (this.onCache.markFileDirty(i)) {
+                this.helper.markFileDirty(i);
                 return true;
             }
             return false;
@@ -152,39 +152,39 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i2, long j2) throws IOException {
+    public void onSyncToFilesystemSuccess(@NonNull BreakpointInfo breakpointInfo, int i, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.onCache.onSyncToFilesystemSuccess(breakpointInfo, i2, j2);
-            this.helper.updateBlockIncrease(breakpointInfo, i2, breakpointInfo.getBlock(i2).getCurrentOffset());
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{breakpointInfo, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.onCache.onSyncToFilesystemSuccess(breakpointInfo, i, j);
+            this.helper.updateBlockIncrease(breakpointInfo, i, breakpointInfo.getBlock(i).getCurrentOffset());
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskEnd(int i2, @NonNull EndCause endCause, @Nullable Exception exc) {
+    public void onTaskEnd(int i, @NonNull EndCause endCause, @Nullable Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048588, this, i2, endCause, exc) == null) {
-            this.onCache.onTaskEnd(i2, endCause, exc);
+        if (interceptable == null || interceptable.invokeILL(1048588, this, i, endCause, exc) == null) {
+            this.onCache.onTaskEnd(i, endCause, exc);
             if (endCause == EndCause.COMPLETED) {
-                this.helper.removeInfo(i2);
+                this.helper.removeInfo(i);
             }
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.DownloadStore
-    public void onTaskStart(int i2) {
+    public void onTaskStart(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.onCache.onTaskStart(i2);
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.onCache.onTaskStart(i);
         }
     }
 
     @Override // com.baidu.searchbox.bddownload.core.breakpoint.BreakpointStore
-    public void remove(int i2) {
+    public void remove(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.onCache.remove(i2);
-            this.helper.removeInfo(i2);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.onCache.remove(i);
+            this.helper.removeInfo(i);
         }
     }
 
@@ -212,9 +212,9 @@ public class BreakpointStoreOnSQLite implements DownloadStore {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

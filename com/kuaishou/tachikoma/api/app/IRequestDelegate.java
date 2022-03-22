@@ -13,7 +13,7 @@ public interface IRequestDelegate {
 
     void setHost(String str);
 
-    void setInterval(int i2);
+    void setInterval(int i);
 
     void setParams(Map<String, String> map);
 

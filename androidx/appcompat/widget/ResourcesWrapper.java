@@ -39,9 +39,9 @@ public class ResourcesWrapper extends Resources {
             newInitContext.initArgs = r2;
             Object[] objArr = {resources};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((AssetManager) objArr2[0], (DisplayMetrics) objArr2[1], (Configuration) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -53,31 +53,31 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getAnimation(int i2) throws Resources.NotFoundException {
+    public XmlResourceParser getAnimation(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.mResources.getAnimation(i2) : (XmlResourceParser) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.mResources.getAnimation(i) : (XmlResourceParser) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public boolean getBoolean(int i2) throws Resources.NotFoundException {
+    public boolean getBoolean(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.mResources.getBoolean(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.mResources.getBoolean(i) : invokeI.booleanValue;
     }
 
     @Override // android.content.res.Resources
-    public int getColor(int i2) throws Resources.NotFoundException {
+    public int getColor(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mResources.getColor(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mResources.getColor(i) : invokeI.intValue;
     }
 
     @Override // android.content.res.Resources
-    public ColorStateList getColorStateList(int i2) throws Resources.NotFoundException {
+    public ColorStateList getColorStateList(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.mResources.getColorStateList(i2) : (ColorStateList) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.mResources.getColorStateList(i) : (ColorStateList) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -88,24 +88,24 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public float getDimension(int i2) throws Resources.NotFoundException {
+    public float getDimension(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) ? this.mResources.getDimension(i2) : invokeI.floatValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? this.mResources.getDimension(i) : invokeI.floatValue;
     }
 
     @Override // android.content.res.Resources
-    public int getDimensionPixelOffset(int i2) throws Resources.NotFoundException {
+    public int getDimensionPixelOffset(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? this.mResources.getDimensionPixelOffset(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.mResources.getDimensionPixelOffset(i) : invokeI.intValue;
     }
 
     @Override // android.content.res.Resources
-    public int getDimensionPixelSize(int i2) throws Resources.NotFoundException {
+    public int getDimensionPixelSize(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) ? this.mResources.getDimensionPixelSize(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? this.mResources.getDimensionPixelSize(i) : invokeI.intValue;
     }
 
     @Override // android.content.res.Resources
@@ -116,25 +116,25 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public Drawable getDrawable(int i2) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) ? this.mResources.getDrawable(i2) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) ? this.mResources.getDrawable(i) : (Drawable) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(15)
-    public Drawable getDrawableForDensity(int i2, int i3) throws Resources.NotFoundException {
+    public Drawable getDrawableForDensity(int i, int i2) throws Resources.NotFoundException {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i2, i3)) == null) ? this.mResources.getDrawableForDensity(i2, i3) : (Drawable) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048587, this, i, i2)) == null) ? this.mResources.getDrawableForDensity(i, i2) : (Drawable) invokeII.objValue;
     }
 
     @Override // android.content.res.Resources
-    public float getFraction(int i2, int i3, int i4) {
+    public float getFraction(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(1048589, this, i2, i3, i4)) == null) ? this.mResources.getFraction(i2, i3, i4) : invokeIII.floatValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(1048589, this, i, i2, i3)) == null) ? this.mResources.getFraction(i, i2, i3) : invokeIII.floatValue;
     }
 
     @Override // android.content.res.Resources
@@ -145,125 +145,125 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public int[] getIntArray(int i2) throws Resources.NotFoundException {
+    public int[] getIntArray(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i2)) == null) ? this.mResources.getIntArray(i2) : (int[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) ? this.mResources.getIntArray(i) : (int[]) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public int getInteger(int i2) throws Resources.NotFoundException {
+    public int getInteger(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i2)) == null) ? this.mResources.getInteger(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? this.mResources.getInteger(i) : invokeI.intValue;
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getLayout(int i2) throws Resources.NotFoundException {
+    public XmlResourceParser getLayout(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.mResources.getLayout(i2) : (XmlResourceParser) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mResources.getLayout(i) : (XmlResourceParser) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public Movie getMovie(int i2) throws Resources.NotFoundException {
+    public Movie getMovie(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i2)) == null) ? this.mResources.getMovie(i2) : (Movie) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? this.mResources.getMovie(i) : (Movie) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getQuantityString(int i2, int i3, Object... objArr) throws Resources.NotFoundException {
+    public String getQuantityString(int i, int i2, Object... objArr) throws Resources.NotFoundException {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i2, i3, objArr)) == null) ? this.mResources.getQuantityString(i2, i3, objArr) : (String) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, objArr)) == null) ? this.mResources.getQuantityString(i, i2, objArr) : (String) invokeIIL.objValue;
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getQuantityText(int i2, int i3) throws Resources.NotFoundException {
+    public CharSequence getQuantityText(int i, int i2) throws Resources.NotFoundException {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i2, i3)) == null) ? this.mResources.getQuantityText(i2, i3) : (CharSequence) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048597, this, i, i2)) == null) ? this.mResources.getQuantityText(i, i2) : (CharSequence) invokeII.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getResourceEntryName(int i2) throws Resources.NotFoundException {
+    public String getResourceEntryName(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i2)) == null) ? this.mResources.getResourceEntryName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) ? this.mResources.getResourceEntryName(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getResourceName(int i2) throws Resources.NotFoundException {
+    public String getResourceName(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i2)) == null) ? this.mResources.getResourceName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) ? this.mResources.getResourceName(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getResourcePackageName(int i2) throws Resources.NotFoundException {
+    public String getResourcePackageName(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i2)) == null) ? this.mResources.getResourcePackageName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048600, this, i)) == null) ? this.mResources.getResourcePackageName(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getResourceTypeName(int i2) throws Resources.NotFoundException {
+    public String getResourceTypeName(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i2)) == null) ? this.mResources.getResourceTypeName(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) ? this.mResources.getResourceTypeName(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getString(int i2) throws Resources.NotFoundException {
+    public String getString(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i2)) == null) ? this.mResources.getString(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) ? this.mResources.getString(i) : (String) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String[] getStringArray(int i2) throws Resources.NotFoundException {
+    public String[] getStringArray(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) ? this.mResources.getStringArray(i2) : (String[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) ? this.mResources.getStringArray(i) : (String[]) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getText(int i2) throws Resources.NotFoundException {
+    public CharSequence getText(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i2)) == null) ? this.mResources.getText(i2) : (CharSequence) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048605, this, i)) == null) ? this.mResources.getText(i) : (CharSequence) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public CharSequence[] getTextArray(int i2) throws Resources.NotFoundException {
+    public CharSequence[] getTextArray(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i2)) == null) ? this.mResources.getTextArray(i2) : (CharSequence[]) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) ? this.mResources.getTextArray(i) : (CharSequence[]) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public void getValue(int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
+    public void getValue(int i, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {
-            this.mResources.getValue(i2, typedValue, z);
+        if (interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{Integer.valueOf(i), typedValue, Boolean.valueOf(z)}) == null) {
+            this.mResources.getValue(i, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(15)
-    public void getValueForDensity(int i2, int i3, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
+    public void getValueForDensity(int i, int i2, TypedValue typedValue, boolean z) throws Resources.NotFoundException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), typedValue, Boolean.valueOf(z)}) == null) {
-            this.mResources.getValueForDensity(i2, i3, typedValue, z);
+        if (interceptable == null || interceptable.invokeCommon(1048610, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), typedValue, Boolean.valueOf(z)}) == null) {
+            this.mResources.getValueForDensity(i, i2, typedValue, z);
         }
     }
 
     @Override // android.content.res.Resources
-    public XmlResourceParser getXml(int i2) throws Resources.NotFoundException {
+    public XmlResourceParser getXml(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i2)) == null) ? this.mResources.getXml(i2) : (XmlResourceParser) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048611, this, i)) == null) ? this.mResources.getXml(i) : (XmlResourceParser) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -274,24 +274,24 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public TypedArray obtainTypedArray(int i2) throws Resources.NotFoundException {
+    public TypedArray obtainTypedArray(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) ? this.mResources.obtainTypedArray(i2) : (TypedArray) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) ? this.mResources.obtainTypedArray(i) : (TypedArray) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i2) throws Resources.NotFoundException {
+    public InputStream openRawResource(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? this.mResources.openRawResource(i2) : (InputStream) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) ? this.mResources.openRawResource(i) : (InputStream) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
-    public AssetFileDescriptor openRawResourceFd(int i2) throws Resources.NotFoundException {
+    public AssetFileDescriptor openRawResourceFd(int i) throws Resources.NotFoundException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i2)) == null) ? this.mResources.openRawResourceFd(i2) : (AssetFileDescriptor) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048616, this, i)) == null) ? this.mResources.openRawResourceFd(i) : (AssetFileDescriptor) invokeI.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -324,39 +324,39 @@ public class ResourcesWrapper extends Resources {
 
     @Override // android.content.res.Resources
     @RequiresApi(21)
-    public Drawable getDrawable(int i2, Resources.Theme theme) throws Resources.NotFoundException {
+    public Drawable getDrawable(int i, Resources.Theme theme) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, theme)) == null) ? this.mResources.getDrawable(i2, theme) : (Drawable) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, theme)) == null) ? this.mResources.getDrawable(i, theme) : (Drawable) invokeIL.objValue;
     }
 
     @Override // android.content.res.Resources
     @RequiresApi(21)
-    public Drawable getDrawableForDensity(int i2, int i3, Resources.Theme theme) {
+    public Drawable getDrawableForDensity(int i, int i2, Resources.Theme theme) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i2, i3, theme)) == null) ? this.mResources.getDrawableForDensity(i2, i3, theme) : (Drawable) invokeIIL.objValue;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048588, this, i, i2, theme)) == null) ? this.mResources.getDrawableForDensity(i, i2, theme) : (Drawable) invokeIIL.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getQuantityString(int i2, int i3) throws Resources.NotFoundException {
+    public String getQuantityString(int i, int i2) throws Resources.NotFoundException {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i2, i3)) == null) ? this.mResources.getQuantityString(i2, i3) : (String) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048595, this, i, i2)) == null) ? this.mResources.getQuantityString(i, i2) : (String) invokeII.objValue;
     }
 
     @Override // android.content.res.Resources
-    public String getString(int i2, Object... objArr) throws Resources.NotFoundException {
+    public String getString(int i, Object... objArr) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i2, objArr)) == null) ? this.mResources.getString(i2, objArr) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048603, this, i, objArr)) == null) ? this.mResources.getString(i, objArr) : (String) invokeIL.objValue;
     }
 
     @Override // android.content.res.Resources
-    public CharSequence getText(int i2, CharSequence charSequence) {
+    public CharSequence getText(int i, CharSequence charSequence) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i2, charSequence)) == null) ? this.mResources.getText(i2, charSequence) : (CharSequence) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048606, this, i, charSequence)) == null) ? this.mResources.getText(i, charSequence) : (CharSequence) invokeIL.objValue;
     }
 
     @Override // android.content.res.Resources
@@ -368,9 +368,9 @@ public class ResourcesWrapper extends Resources {
     }
 
     @Override // android.content.res.Resources
-    public InputStream openRawResource(int i2, TypedValue typedValue) throws Resources.NotFoundException {
+    public InputStream openRawResource(int i, TypedValue typedValue) throws Resources.NotFoundException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i2, typedValue)) == null) ? this.mResources.openRawResource(i2, typedValue) : (InputStream) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048615, this, i, typedValue)) == null) ? this.mResources.openRawResource(i, typedValue) : (InputStream) invokeIL.objValue;
     }
 }

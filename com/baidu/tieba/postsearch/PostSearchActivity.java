@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import androidx.viewpager.widget.ViewPager;
-import c.a.r0.e3.b;
-import c.a.r0.e3.d;
-import c.a.r0.e3.g;
+import c.a.p0.g3.b;
+import c.a.p0.g3.d;
+import c.a.p0.g3.g;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FORUM_SEARCH_CLICK = "c12842";
@@ -32,13 +32,11 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public String mSearchKey;
     public g mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PostSearchActivity f46014e;
+        public final /* synthetic */ PostSearchActivity a;
 
         public a(PostSearchActivity postSearchActivity) {
             Interceptable interceptable = $ic;
@@ -47,36 +45,36 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {postSearchActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f46014e = postSearchActivity;
+            this.a = postSearchActivity;
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i2) {
+        public void onPageScrollStateChanged(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i2, float f2, int i3) {
+        public void onPageScrolled(int i, float f2, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2), Integer.valueOf(i3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2), Integer.valueOf(i2)}) == null) {
             }
         }
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i2) {
+        public void onPageSelected(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.f46014e.stateTabClick(i2);
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.a.stateTabClick(i);
             }
         }
     }
@@ -86,9 +84,9 @@ public class PostSearchActivity extends BaseFragmentActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,18 +108,18 @@ public class PostSearchActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void stateTabClick(int i2) {
+    public void stateTabClick(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, this, i2) == null) {
-            int i3 = 2;
-            if (i2 == 0) {
-                i3 = 1;
-            } else if (i2 != 1) {
-                i3 = i2 != 2 ? 0 : 3;
+        if (interceptable == null || interceptable.invokeI(65539, this, i) == null) {
+            int i2 = 2;
+            if (i == 0) {
+                i2 = 1;
+            } else if (i != 1) {
+                i2 = i != 2 ? 0 : 3;
             }
             StatisticItem param = new StatisticItem("c12404").param("fid", this.mForumId).param("fname", this.mForumName).param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (i3 != 0) {
-                param.param("tab_id", i3);
+            if (i2 != 0) {
+                param.param("tab_id", i2);
             }
             TiebaStatic.log(param);
         }
@@ -153,10 +151,10 @@ public class PostSearchActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mView.g(i2);
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mView.g(i);
         }
     }
 
@@ -190,21 +188,21 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public void refreshHistoryList() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.mView.i(this.mModel.f17224j);
+            this.mView.i(this.mModel.j);
         }
     }
 
-    public void refreshResultListByTab(int i2, b bVar, boolean z) {
+    public void refreshResultListByTab(int i, b bVar, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), bVar, Boolean.valueOf(z)}) == null) {
-            if (i2 == 1 && (bVar == null || !bVar.a())) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), bVar, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (bVar == null || !bVar.a())) {
                 this.mView.c();
                 this.mView.n();
                 return;
             }
             this.mView.c();
             this.mView.b();
-            this.mView.j(i2, bVar, z);
+            this.mView.j(i, bVar, z);
         }
     }
 

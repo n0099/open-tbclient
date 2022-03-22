@@ -16,7 +16,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {3})
 /* loaded from: classes7.dex */
 public class ESDescriptor extends BaseDescriptor {
@@ -58,9 +57,9 @@ public class ESDescriptor extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -185,9 +184,9 @@ public class ESDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i2 = ((((((((((this.esId * 31) + this.streamDependenceFlag) * 31) + this.URLFlag) * 31) + this.oCRstreamFlag) * 31) + this.streamPriority) * 31) + this.URLLength) * 31;
+            int i = ((((((((((this.esId * 31) + this.streamDependenceFlag) * 31) + this.URLFlag) * 31) + this.oCRstreamFlag) * 31) + this.streamPriority) * 31) + this.URLLength) * 31;
             String str = this.URLString;
-            int hashCode = (((((((i2 + (str != null ? str.hashCode() : 0)) * 31) + this.remoteODFlag) * 31) + this.dependsOnEsId) * 31) + this.oCREsId) * 31;
+            int hashCode = (((((((i + (str != null ? str.hashCode() : 0)) * 31) + this.remoteODFlag) * 31) + this.dependsOnEsId) * 31) + this.oCREsId) * 31;
             DecoderConfigDescriptor decoderConfigDescriptor = this.decoderConfigDescriptor;
             int hashCode2 = (hashCode + (decoderConfigDescriptor != null ? decoderConfigDescriptor.hashCode() : 0)) * 31;
             SLConfigDescriptor sLConfigDescriptor = this.slConfigDescriptor;
@@ -204,12 +203,12 @@ public class ESDescriptor extends BaseDescriptor {
         if (interceptable == null || interceptable.invokeL(1048591, this, byteBuffer) == null) {
             this.esId = IsoTypeReader.readUInt16(byteBuffer);
             int readUInt8 = IsoTypeReader.readUInt8(byteBuffer);
-            int i2 = readUInt8 >>> 7;
-            this.streamDependenceFlag = i2;
+            int i = readUInt8 >>> 7;
+            this.streamDependenceFlag = i;
             this.URLFlag = (readUInt8 >>> 6) & 1;
             this.oCRstreamFlag = (readUInt8 >>> 5) & 1;
             this.streamPriority = readUInt8 & 31;
-            if (i2 == 1) {
+            if (i == 1) {
                 this.dependsOnEsId = IsoTypeReader.readUInt16(byteBuffer);
             }
             if (this.URLFlag == 1) {
@@ -325,14 +324,14 @@ public class ESDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            int i2 = this.streamDependenceFlag > 0 ? 7 : 5;
+            int i = this.streamDependenceFlag > 0 ? 7 : 5;
             if (this.URLFlag > 0) {
-                i2 += this.URLLength + 1;
+                i += this.URLLength + 1;
             }
             if (this.oCRstreamFlag > 0) {
-                i2 += 2;
+                i += 2;
             }
-            return i2 + this.decoderConfigDescriptor.serializedSize() + this.slConfigDescriptor.serializedSize();
+            return i + this.decoderConfigDescriptor.serializedSize() + this.slConfigDescriptor.serializedSize();
         }
         return invokeV.intValue;
     }
@@ -344,24 +343,24 @@ public class ESDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setDependsOnEsId(int i2) {
+    public void setDependsOnEsId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.dependsOnEsId = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.dependsOnEsId = i;
         }
     }
 
-    public void setEsId(int i2) {
+    public void setEsId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-            this.esId = i2;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.esId = i;
         }
     }
 
-    public void setRemoteODFlag(int i2) {
+    public void setRemoteODFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.remoteODFlag = i2;
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.remoteODFlag = i;
         }
     }
 
@@ -372,31 +371,31 @@ public class ESDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setStreamDependenceFlag(int i2) {
+    public void setStreamDependenceFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.streamDependenceFlag = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.streamDependenceFlag = i;
         }
     }
 
-    public void setStreamPriority(int i2) {
+    public void setStreamPriority(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i2) == null) {
-            this.streamPriority = i2;
+        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+            this.streamPriority = i;
         }
     }
 
-    public void setURLFlag(int i2) {
+    public void setURLFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048601, this, i2) == null) {
-            this.URLFlag = i2;
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+            this.URLFlag = i;
         }
     }
 
-    public void setURLLength(int i2) {
+    public void setURLLength(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.URLLength = i2;
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.URLLength = i;
         }
     }
 
@@ -407,17 +406,17 @@ public class ESDescriptor extends BaseDescriptor {
         }
     }
 
-    public void setoCREsId(int i2) {
+    public void setoCREsId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            this.oCREsId = i2;
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            this.oCREsId = i;
         }
     }
 
-    public void setoCRstreamFlag(int i2) {
+    public void setoCRstreamFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            this.oCRstreamFlag = i2;
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            this.oCRstreamFlag = i;
         }
     }
 
@@ -426,7 +425,7 @@ public class ESDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return "ESDescriptor{esId=" + this.esId + ", streamDependenceFlag=" + this.streamDependenceFlag + ", URLFlag=" + this.URLFlag + ", oCRstreamFlag=" + this.oCRstreamFlag + ", streamPriority=" + this.streamPriority + ", URLLength=" + this.URLLength + ", URLString='" + this.URLString + ExtendedMessageFormat.QUOTE + ", remoteODFlag=" + this.remoteODFlag + ", dependsOnEsId=" + this.dependsOnEsId + ", oCREsId=" + this.oCREsId + ", decoderConfigDescriptor=" + this.decoderConfigDescriptor + ", slConfigDescriptor=" + this.slConfigDescriptor + ExtendedMessageFormat.END_FE;
+            return "ESDescriptor{esId=" + this.esId + ", streamDependenceFlag=" + this.streamDependenceFlag + ", URLFlag=" + this.URLFlag + ", oCRstreamFlag=" + this.oCRstreamFlag + ", streamPriority=" + this.streamPriority + ", URLLength=" + this.URLLength + ", URLString='" + this.URLString + "', remoteODFlag=" + this.remoteODFlag + ", dependsOnEsId=" + this.dependsOnEsId + ", oCREsId=" + this.oCREsId + ", decoderConfigDescriptor=" + this.decoderConfigDescriptor + ", slConfigDescriptor=" + this.slConfigDescriptor + '}';
         }
         return (String) invokeV.objValue;
     }

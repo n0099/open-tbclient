@@ -25,7 +25,7 @@ import com.yy.hiidostatis.inner.util.ThreadPool;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SensorController implements SensorEventListener, SensorListener {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHE_HEAD_LENGTH = 5;
@@ -61,7 +61,7 @@ public class SensorController implements SensorEventListener, SensorListener {
     public int saveTime;
     public SensorManager sensorManager;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class BatteryInfo {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +75,9 @@ public class SensorController implements SensorEventListener, SensorListener {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -114,30 +114,30 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class SensorRecord {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public long time;
         public float[] value;
 
-        public SensorRecord(float[] fArr, long j2) {
+        public SensorRecord(float[] fArr, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fArr, Long.valueOf(j2)};
+                Object[] objArr = {fArr, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.value = fArr;
-            this.time = j2;
+            this.time = j;
         }
     }
 
@@ -163,9 +163,9 @@ public class SensorController implements SensorEventListener, SensorListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -216,16 +216,16 @@ public class SensorController implements SensorEventListener, SensorListener {
             if (fArr.length != fArr2.length) {
                 return true;
             }
-            for (int i2 = 0; i2 < fArr.length; i2++) {
+            for (int i = 0; i < fArr.length; i++) {
                 if (f2 > 0.0f) {
-                    if (Math.abs(fArr[i2] - fArr2[i2]) > f2) {
+                    if (Math.abs(fArr[i] - fArr2[i]) > f2) {
                         return true;
                     }
-                } else if (fArr[i2] != 0.0f) {
-                    if ((Math.abs(fArr2[i2] - fArr[i2]) * 100.0f) / Math.abs(fArr[i2]) > (-f2)) {
+                } else if (fArr[i] != 0.0f) {
+                    if ((Math.abs(fArr2[i] - fArr[i]) * 100.0f) / Math.abs(fArr[i]) > (-f2)) {
                         return true;
                     }
-                } else if (fArr2[i2] != 0.0f) {
+                } else if (fArr2[i] != 0.0f) {
                     return true;
                 }
             }
@@ -294,11 +294,11 @@ public class SensorController implements SensorEventListener, SensorListener {
         return (StatisContent) invokeL.objValue;
     }
 
-    private void recordToString(int i2, List<SensorRecord> list, StringBuilder sb) {
+    private void recordToString(int i, List<SensorRecord> list, StringBuilder sb) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65544, this, i2, list, sb) == null) {
-            sb.append(i2);
-            if (i2 > 0) {
+        if (interceptable == null || interceptable.invokeILL(65544, this, i, list, sb) == null) {
+            sb.append(i);
+            if (i > 0) {
                 sb.append("|");
                 for (SensorRecord sensorRecord : list) {
                     for (float f2 : sensorRecord.value) {
@@ -354,12 +354,12 @@ public class SensorController implements SensorEventListener, SensorListener {
         if (interceptable == null || interceptable.invokeLZ(65546, this, context, z) == null) {
             synchronized (this) {
                 try {
-                    int i2 = this.saveCount * 5;
-                    if (i2 > 300) {
-                        i2 = 300;
+                    int i = this.saveCount * 5;
+                    if (i > 300) {
+                        i = 300;
                     }
                     if (!z) {
-                        if ((System.currentTimeMillis() / 1000) - this.saveTime < i2) {
+                        if ((System.currentTimeMillis() / 1000) - this.saveTime < i) {
                             return;
                         }
                     }
@@ -413,9 +413,9 @@ public class SensorController implements SensorEventListener, SensorListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, Boolean.valueOf(z)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -476,36 +476,36 @@ public class SensorController implements SensorEventListener, SensorListener {
         }
     }
 
-    private void valueChanged(int i2, float[] fArr) {
+    private void valueChanged(int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65550, this, i2, fArr) == null) {
-            if (i2 == 1) {
+        if (interceptable == null || interceptable.invokeIL(65550, this, i, fArr) == null) {
+            if (i == 1) {
                 if (this.accelerometerCache.isEmpty()) {
                     this.accelerometerCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                     this.countAccelerometer++;
                     saveAsyn(this.context, true);
                 } else if (compareFloats(this.accelerometerCache.getLast().value, fArr, this.accelerometerThreshold)) {
                     addCache(fArr, this.accelerometerCache);
-                    int i3 = this.countAccelerometer + 1;
-                    this.countAccelerometer = i3;
-                    if (i3 - this.preSaveCountAcce > 10) {
+                    int i2 = this.countAccelerometer + 1;
+                    this.countAccelerometer = i2;
+                    if (i2 - this.preSaveCountAcce > 10) {
                         saveAsyn(this.context, false);
                     }
                 }
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 if (this.gyroscopeCache.isEmpty()) {
                     this.gyroscopeCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
                     this.countGvroscope++;
                     saveAsyn(this.context, true);
                 } else if (compareFloats(this.gyroscopeCache.getLast().value, fArr, this.gyroscopeThreshold)) {
                     addCache(fArr, this.gyroscopeCache);
-                    int i4 = this.countGvroscope + 1;
-                    this.countGvroscope = i4;
-                    if (i4 - this.preSaveCountGyro > 10) {
+                    int i3 = this.countGvroscope + 1;
+                    this.countGvroscope = i3;
+                    if (i3 - this.preSaveCountGyro > 10) {
                         saveAsyn(this.context, false);
                     }
                 }
-            } else if (i2 != 5) {
+            } else if (i != 5) {
             } else {
                 if (this.lightCache.isEmpty()) {
                     this.lightCache.add(new SensorRecord(copyFloatArray(fArr), System.currentTimeMillis()));
@@ -513,9 +513,9 @@ public class SensorController implements SensorEventListener, SensorListener {
                     saveAsyn(this.context, true);
                 } else if (compareFloats(this.lightCache.getLast().value, fArr, this.lightThreshold)) {
                     addCache(fArr, this.lightCache);
-                    int i5 = this.countLight + 1;
-                    this.countLight = i5;
-                    if (i5 - this.preSaveCountLight > 10) {
+                    int i4 = this.countLight + 1;
+                    this.countLight = i4;
+                    if (i4 - this.preSaveCountLight > 10) {
                         saveAsyn(this.context, false);
                     }
                 }
@@ -524,16 +524,16 @@ public class SensorController implements SensorEventListener, SensorListener {
     }
 
     @Override // android.hardware.SensorListener
-    public void onAccuracyChanged(int i2, int i3) {
+    public void onAccuracyChanged(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
         }
     }
 
     @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i2) {
+    public void onAccuracyChanged(Sensor sensor, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensor, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensor, i) == null) {
         }
     }
 
@@ -581,11 +581,11 @@ public class SensorController implements SensorEventListener, SensorListener {
     }
 
     @Override // android.hardware.SensorListener
-    public void onSensorChanged(int i2, float[] fArr) {
+    public void onSensorChanged(int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, fArr) == null) && this.enable) {
+        if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, fArr) == null) && this.enable) {
             try {
-                valueChanged(i2, fArr);
+                valueChanged(i, fArr);
             } catch (Throwable th) {
                 L.debug(this, th.getMessage(), new Object[0]);
             }

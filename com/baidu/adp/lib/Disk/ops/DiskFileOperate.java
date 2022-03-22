@@ -83,16 +83,16 @@ public class DiskFileOperate {
             $VALUES = new Action[]{READ, WRITE, WRITE_FORCE, APPEND, APPEND_MORE, DELETE, DELETE_FILES, INFO, RENAME, action};
         }
 
-        public Action(String str, int i2) {
+        public Action(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -143,16 +143,16 @@ public class DiskFileOperate {
             $VALUES = new OperateType[]{MUST_SUCCESS, operateType};
         }
 
-        public OperateType(String str, int i2) {
+        public OperateType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -182,9 +182,9 @@ public class DiskFileOperate {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -228,11 +228,11 @@ public class DiskFileOperate {
                 if (hashCode < 0) {
                     hashCode *= -1;
                 }
-                int i2 = (hashCode % 100) + 1;
+                int i = (hashCode % 100) + 1;
                 if (this.mDesPath == null) {
-                    return String.valueOf(i2);
+                    return String.valueOf(i);
                 }
-                return this.mDesPath + "/" + i2;
+                return this.mDesPath + "/" + i;
             }
             return this.mDesPath;
         }
@@ -258,11 +258,11 @@ public class DiskFileOperate {
                 if (hashCode < 0) {
                     hashCode *= -1;
                 }
-                int i2 = (hashCode % 100) + 1;
+                int i = (hashCode % 100) + 1;
                 if (this.mPath == null) {
-                    return String.valueOf(i2);
+                    return String.valueOf(i);
                 }
-                return this.mPath + "/" + i2;
+                return this.mPath + "/" + i;
             }
             return this.mPath;
         }
@@ -515,10 +515,10 @@ public class DiskFileOperate {
         }
     }
 
-    public void setTrySuccessWeight(int i2) {
+    public void setTrySuccessWeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.mTrySuccessWeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mTrySuccessWeight = i;
         }
     }
 
@@ -549,9 +549,9 @@ public class DiskFileOperate {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3, str4, action};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

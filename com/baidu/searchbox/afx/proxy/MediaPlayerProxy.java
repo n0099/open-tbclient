@@ -80,9 +80,9 @@ public class MediaPlayerProxy extends PlayerProxy {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -103,9 +103,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -133,9 +133,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                                     newInitContext2.initArgs = r2;
                                     Object[] objArr = {this};
                                     interceptable3.invokeUnInit(65536, newInitContext2);
-                                    int i4 = newInitContext2.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext2.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext2.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext2);
                                         return;
@@ -175,9 +175,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -187,15 +187,15 @@ public class MediaPlayerProxy extends PlayerProxy {
             }
 
             @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer2, int i4, int i5) {
+            public boolean onError(MediaPlayer mediaPlayer2, int i3, int i4) {
                 InterceptResult invokeLII;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i4, i5)) == null) {
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
                     String valueOf = mediaPlayer2 != null ? String.valueOf(mediaPlayer2.getCurrentPosition()) : "-1";
                     String glVersion = this.this$0.getGlVersion();
                     String sourcePath = this.this$0.getSourcePath();
                     String valueOf2 = String.valueOf(System.currentTimeMillis() / 1000);
-                    RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i4 + "," + i5 + SmallTailInfo.EMOTION_SUFFIX);
+                    RuntimeException runtimeException = new RuntimeException("MediaPlayer Error (" + i3 + "," + i4 + SmallTailInfo.EMOTION_SUFFIX);
                     OnReportListener onReportListener = this.this$0.mOnReportListener;
                     if (onReportListener != null) {
                         onReportListener.onError(new ErrorInfo(16, ErrorInfo.MEDIAPLAYER_DECODING_ERROR_ERRORMSG, runtimeException, valueOf, glVersion, sourcePath, valueOf2));
@@ -218,9 +218,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -230,12 +230,12 @@ public class MediaPlayerProxy extends PlayerProxy {
             }
 
             @Override // android.media.MediaPlayer.OnInfoListener
-            public boolean onInfo(MediaPlayer mediaPlayer2, int i4, int i5) {
+            public boolean onInfo(MediaPlayer mediaPlayer2, int i3, int i4) {
                 InterceptResult invokeLII;
                 OnVideoStartedListener onVideoStartedListener;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i4, i5)) == null) {
-                    if (i4 == 3 && (onVideoStartedListener = this.this$0.mOnVideoStartedListener) != null) {
+                if (interceptable2 == null || (invokeLII = interceptable2.invokeLII(1048576, this, mediaPlayer2, i3, i4)) == null) {
+                    if (i3 == 3 && (onVideoStartedListener = this.this$0.mOnVideoStartedListener) != null) {
                         onVideoStartedListener.onVideoStarted();
                         return false;
                     }
@@ -350,8 +350,8 @@ public class MediaPlayerProxy extends PlayerProxy {
             return;
         }
         try {
-            int i2 = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
-            if (i2 == 1 || i2 == 2) {
+            int i = AnonymousClass6.$SwitchMap$com$baidu$searchbox$afx$proxy$PlayerProxy$PlayerState[this.mPlayerState.ordinal()];
+            if (i == 1 || i == 2) {
                 prepareAsync(new MediaPlayer.OnPreparedListener(this) { // from class: com.baidu.searchbox.afx.proxy.MediaPlayerProxy.4
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -364,9 +364,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -390,7 +390,7 @@ public class MediaPlayerProxy extends PlayerProxy {
                         }
                     }
                 });
-            } else if (i2 == 3 || i2 == 4) {
+            } else if (i == 3 || i == 4) {
                 if (this.mGLTextureView != null) {
                     this.mGLTextureView.setRenderMode(1);
                 }
@@ -423,13 +423,13 @@ public class MediaPlayerProxy extends PlayerProxy {
         super.reset();
     }
 
-    public void seekTo(int i2) {
+    public void seekTo(int i) {
         MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i2) == null) || (mediaPlayer = this.mMediaPlayer) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (mediaPlayer = this.mMediaPlayer) == null) {
             return;
         }
-        mediaPlayer.seekTo(i2);
+        mediaPlayer.seekTo(i);
     }
 
     @Override // com.baidu.searchbox.afx.proxy.IPlayer
@@ -501,9 +501,9 @@ public class MediaPlayerProxy extends PlayerProxy {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -526,13 +526,13 @@ public class MediaPlayerProxy extends PlayerProxy {
     }
 
     @Override // com.baidu.searchbox.afx.proxy.PlayerProxy
-    public void setSourceFD(FileDescriptor fileDescriptor, long j2, long j3) {
+    public void setSourceFD(FileDescriptor fileDescriptor, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{fileDescriptor, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{fileDescriptor, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             try {
                 reset();
                 if (this.mMediaPlayer != null) {
-                    this.mMediaPlayer.setDataSource(fileDescriptor, j2, j3);
+                    this.mMediaPlayer.setDataSource(fileDescriptor, j, j2);
                 }
             } catch (IOException e2) {
                 e2.printStackTrace();

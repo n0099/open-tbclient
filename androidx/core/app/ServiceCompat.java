@@ -29,22 +29,22 @@ public final class ServiceCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void stopForeground(@NonNull Service service, int i2) {
+    public static void stopForeground(@NonNull Service service, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, service, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65537, null, service, i) == null) {
             if (Build.VERSION.SDK_INT >= 24) {
-                service.stopForeground(i2);
+                service.stopForeground(i);
             } else {
-                service.stopForeground((i2 & 1) != 0);
+                service.stopForeground((i & 1) != 0);
             }
         }
     }

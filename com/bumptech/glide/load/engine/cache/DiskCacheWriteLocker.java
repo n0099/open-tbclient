@@ -13,14 +13,14 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class DiskCacheWriteLocker {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Map<String, WriteLock> locks;
     public final WriteLockPool writeLockPool;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class WriteLock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +32,9 @@ public final class DiskCacheWriteLocker {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -44,7 +44,7 @@ public final class DiskCacheWriteLocker {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class WriteLockPool {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int MAX_POOL_SIZE = 10;
@@ -56,9 +56,9 @@ public final class DiskCacheWriteLocker {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,9 +97,9 @@ public final class DiskCacheWriteLocker {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -132,9 +132,9 @@ public final class DiskCacheWriteLocker {
             synchronized (this) {
                 writeLock = (WriteLock) Preconditions.checkNotNull(this.locks.get(str));
                 if (writeLock.interestedThreads >= 1) {
-                    int i2 = writeLock.interestedThreads - 1;
-                    writeLock.interestedThreads = i2;
-                    if (i2 == 0) {
+                    int i = writeLock.interestedThreads - 1;
+                    writeLock.interestedThreads = i;
+                    if (i == 0) {
                         WriteLock remove = this.locks.remove(str);
                         if (remove.equals(writeLock)) {
                             this.writeLockPool.offer(remove);

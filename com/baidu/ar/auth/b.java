@@ -4,20 +4,22 @@ import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.auth.k;
 import com.baidu.ar.bean.DuMixARConfig;
 import com.baidu.ar.constants.HttpConstants;
+import com.baidu.ar.h.s;
 import com.baidu.ar.ihttp.HttpException;
 import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -49,9 +51,9 @@ public class b implements k {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -66,9 +68,9 @@ public class b implements k {
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -95,7 +97,7 @@ public class b implements k {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
             try {
-                return URLEncoder.encode(str, "utf-8");
+                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
             } catch (UnsupportedEncodingException unused) {
                 return str;
             }
@@ -121,9 +123,9 @@ public class b implements k {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, iAuthCallback};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -205,9 +207,9 @@ public class b implements k {
     public void b(IAuthCallback iAuthCallback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65545, this, iAuthCallback) == null) {
-            int i2 = this.jv + 1;
-            this.jv = i2;
-            if (i2 > 5) {
+            int i = this.jv + 1;
+            this.jv = i;
+            if (i > 5) {
                 if (iAuthCallback != null) {
                     iAuthCallback.onSuccess();
                     return;
@@ -253,8 +255,8 @@ public class b implements k {
             JSONArray optJSONArray = jSONObject.optJSONArray("features");
             if (optJSONArray != null) {
                 int length = optJSONArray.length();
-                for (int i2 = 0; i2 < length; i2++) {
-                    hashSet.add(Integer.valueOf(optJSONArray.optInt(i2)));
+                for (int i = 0; i < length; i++) {
+                    hashSet.add(Integer.valueOf(optJSONArray.optInt(i)));
                 }
             }
         }
@@ -271,7 +273,7 @@ public class b implements k {
             String gx = com.baidu.ar.h.c.gx();
             a(sb, "app_id", TextUtils.isEmpty(this.js) ? DuMixARConfig.getAipAppId() : this.js);
             a(sb, "brand", Build.BRAND);
-            a(sb, "device", Build.DEVICE);
+            a(sb, Config.DEVICE_PART, Build.DEVICE);
             a(sb, "dumix_type", gx);
             a(sb, "fr", "-1");
             a(sb, HttpConstants.HTTP_MANUFACTURER, Build.MANUFACTURER);
@@ -290,8 +292,8 @@ public class b implements k {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, context)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            String cw = i2 > 28 ? cw() : (i2 <= 27 || context.checkSelfPermission(s.f53804c) != 0) ? Build.SERIAL : Build.getSerial();
+            int i = Build.VERSION.SDK_INT;
+            String cw = i > 28 ? cw() : (i <= 27 || context.checkSelfPermission("android.permission.READ_PHONE_STATE") != 0) ? Build.SERIAL : Build.getSerial();
             return "unknown".equals(cw) ? "" : cw;
         }
         return (String) invokeL.objValue;
@@ -315,7 +317,7 @@ public class b implements k {
             }
             long[] a2 = m.a(10, 50L);
             if (a2[0] == 1) {
-                String gP = com.baidu.ar.h.s.gP();
+                String gP = s.gP();
                 this.bR.setMethod("POST").setUrl(gP).addHeader("Content-Type: application/x-www-form-urlencoded").setBody(i(context));
                 a(iAuthCallback);
                 return;

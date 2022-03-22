@@ -4,6 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -55,9 +56,9 @@ public class MusicData extends MusicBaseBean implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -86,7 +87,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 e = e2;
             }
             try {
-                musicData.id = jSONObject.optString("music_id");
+                musicData.id = jSONObject.optString(CloudMusicActivityConfig.MUSIC_ID);
                 musicData.title = jSONObject.optString("music_title");
                 musicData.singer = jSONObject.optString("music_singer");
                 musicData.icon = jSONObject.optString("music_icon");
@@ -129,8 +130,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        MusicData parseNetBean = parseNetBean(jSONArray.getJSONObject(i2));
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        MusicData parseNetBean = parseNetBean(jSONArray.getJSONObject(i));
                         if (parseNetBean != null) {
                             parseNetBean.category = 2;
                             arrayList.add(parseNetBean);
@@ -142,8 +143,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
                 }
                 if (arrayList.size() == 0) {
                     JSONArray jSONArray2 = jSONObject.getJSONArray("recommendList");
-                    for (int i3 = 0; i3 < jSONArray2.length(); i3++) {
-                        MusicData parseNetBean2 = parseNetBean(jSONArray2.getJSONObject(i3));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        MusicData parseNetBean2 = parseNetBean(jSONArray2.getJSONObject(i2));
                         if (parseNetBean2 != null) {
                             parseNetBean2.category = 1;
                             arrayList.add(parseNetBean2);
@@ -190,8 +191,8 @@ public class MusicData extends MusicBaseBean implements Serializable {
             try {
                 JSONArray jSONArray = jSONObject.getJSONArray("musicList");
                 if (jSONArray != null && jSONArray.length() > 0) {
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                        MusicData parseNetBean = parseNetBean(jSONArray.getJSONObject(i2));
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        MusicData parseNetBean = parseNetBean(jSONArray.getJSONObject(i));
                         if (parseNetBean != null) {
                             parseNetBean.category = 2;
                             arrayList.add(parseNetBean);
@@ -219,7 +220,7 @@ public class MusicData extends MusicBaseBean implements Serializable {
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("music_id", musicData.id);
+                jSONObject.put(CloudMusicActivityConfig.MUSIC_ID, musicData.id);
                 jSONObject.put("music_title", musicData.title);
                 jSONObject.put("music_singer", musicData.singer);
                 jSONObject.put("music_icon", musicData.icon);

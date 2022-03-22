@@ -6,8 +6,8 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import c.a.w.b.f.a;
-import c.a.w.i.f;
+import c.a.v.b.f.a;
+import c.a.v.i.f;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
@@ -16,16 +16,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class EmptyView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SimpleDraweeView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public SimpleDraweeView f33450e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public AppCompatTextView f33451f;
+    /* renamed from: b  reason: collision with root package name */
+    public AppCompatTextView f25780b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public EmptyView(Context context) {
@@ -36,9 +34,9 @@ public class EmptyView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -48,42 +46,45 @@ public class EmptyView extends LinearLayout {
         }
     }
 
-    public void onDarkModeChange(boolean z) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f33450e.getLayoutParams();
-            layoutParams.width = a.a(getContext(), c.a.w.b.g.b.a.a().f26338i);
-            layoutParams.height = a.a(getContext(), c.a.w.b.g.b.a.a().f26339j);
-            this.f33450e.setLayoutParams(layoutParams);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.a.getLayoutParams();
+            layoutParams.width = a.a(getContext(), c.a.v.b.g.b.a.a().i);
+            layoutParams.height = a.a(getContext(), c.a.v.b.g.b.a.a().j);
+            this.a.setLayoutParams(layoutParams);
             setImageResource(f.e().b(z));
             if ("quanmin".equals(LiveFeedPageSdk.f().e())) {
-                this.f33451f.setText(R.string.live_feed_no_data_qm);
+                this.f25780b.setText(R.string.obfuscated_res_0x7f0f09f4);
             } else {
-                this.f33451f.setText(R.string.live_feed_no_data);
+                this.f25780b.setText(R.string.obfuscated_res_0x7f0f09f3);
             }
-            this.f33451f.setTextColor(f.e().a(getContext(), z, "color_8585852"));
+            this.f25780b.setTextColor(f.e().a(getContext(), z, "color_8585852"));
         }
     }
 
-    public void setImageResource(int i2) {
+    public void b(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) || i2 == -1) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            super.setVisibility(i);
+            if (i == 0) {
+                a(z);
+            }
+        }
+    }
+
+    public void setImageResource(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || i == -1) {
             return;
         }
-        this.f33450e.setActualImageResource(i2);
+        this.a.setActualImageResource(i);
     }
 
     public void setText(CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, charSequence) == null) {
-            this.f33451f.setText(charSequence);
-        }
-    }
-
-    public void toggleVisible(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            toggleVisible(i2, false);
+        if (interceptable == null || interceptable.invokeL(1048580, this, charSequence) == null) {
+            this.f25780b.setText(charSequence);
         }
     }
 
@@ -96,9 +97,9 @@ public class EmptyView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -108,35 +109,25 @@ public class EmptyView extends LinearLayout {
         }
     }
 
-    public void setText(int i2) {
+    public void setText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f33451f.setText(i2);
-        }
-    }
-
-    public void toggleVisible(int i2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            super.setVisibility(i2);
-            if (i2 == 0) {
-                onDarkModeChange(z);
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f25780b.setText(i);
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public EmptyView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public EmptyView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -144,10 +135,10 @@ public class EmptyView extends LinearLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.live_feed_page_empty_view, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0510, this);
         setOrientation(1);
         setGravity(17);
-        this.f33450e = (SimpleDraweeView) findViewById(R.id.empty_image);
-        this.f33451f = (AppCompatTextView) findViewById(R.id.empty_text);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f0908bd);
+        this.f25780b = (AppCompatTextView) findViewById(R.id.obfuscated_res_0x7f0908bf);
     }
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.aideviceperformance.utils.Config;
@@ -25,7 +26,7 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     /* loaded from: classes4.dex */
     public interface OnSqliteUpdateListener {
-        void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i2, int i3);
+        void onSqliteUpdateListener(SQLiteDatabase sQLiteDatabase, int i, int i2);
     }
 
     static {
@@ -45,17 +46,17 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DataBaseOpenHelper(Context context, String str, int i2) {
-        super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+    public DataBaseOpenHelper(Context context, String str, int i) {
+        super(context, str, (SQLiteDatabase.CursorFactory) null, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -76,8 +77,10 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.delete(str, str2, strArr);
                     }
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e2) {
+                    if (DEBUG) {
+                        Log.w(TAG, "", e2);
+                    }
                     if (sQLiteDatabase == null) {
                         return;
                     }
@@ -112,8 +115,10 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.execSQL(str, objArr);
                     }
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e2) {
+                    if (DEBUG) {
+                        Log.w(TAG, "", e2);
+                    }
                     if (sQLiteDatabase == null) {
                         return;
                     }
@@ -134,16 +139,16 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
 
     public abstract int getRestrictionNum();
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x009e */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:48:0x00b4 */
     /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: android.database.sqlite.SQLiteDatabase */
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00a9, code lost:
         if (r9 != null) goto L12;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x0095, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00ab, code lost:
         r9.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:50:0x00a8, code lost:
-        if (r9 == null) goto L13;
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x00c8, code lost:
+        if (r9 != null) goto L12;
      */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r0v2, types: [android.database.Cursor] */
@@ -173,14 +178,14 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                                 try {
                                     cursor = sQLiteDatabase.query(str, new String[]{"count(*)"}, null, null, null, null, null);
                                     cursor.moveToFirst();
-                                    int i2 = cursor.getInt(0);
+                                    int i = cursor.getInt(0);
                                     if (DEBUG) {
-                                        String str2 = "db name: " + getDatabaseName() + " total count: " + i2;
+                                        Log.d(TAG, "db name: " + getDatabaseName() + " total count: " + i);
                                     }
-                                    if (i2 > getRestrictionNum()) {
+                                    if (i > getRestrictionNum()) {
                                         String batchDeleteSqlStr = getBatchDeleteSqlStr();
                                         if (DEBUG) {
-                                            String str3 = "delete sql str: " + batchDeleteSqlStr;
+                                            Log.d(TAG, "delete sql str: " + batchDeleteSqlStr);
                                         }
                                         sQLiteDatabase.execSQL(batchDeleteSqlStr);
                                     }
@@ -192,13 +197,15 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                                             e.printStackTrace();
                                         }
                                     }
-                                } catch (Exception unused) {
-                                    boolean z = DEBUG;
+                                } catch (Exception e3) {
+                                    if (DEBUG) {
+                                        Log.w(TAG, "", e3);
+                                    }
                                     if (cursor != null) {
                                         try {
                                             cursor.close();
-                                        } catch (Exception e3) {
-                                            e = e3;
+                                        } catch (Exception e4) {
+                                            e = e4;
                                             e.printStackTrace();
                                         }
                                     }
@@ -207,20 +214,24 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                                 if (cursor != null) {
                                     try {
                                         cursor.close();
-                                    } catch (Exception e4) {
-                                        e4.printStackTrace();
+                                    } catch (Exception e5) {
+                                        e5.printStackTrace();
                                     }
                                 }
                                 throw th2;
                             }
                         }
-                    } catch (Exception unused2) {
+                    } catch (Exception e6) {
+                        e = e6;
                         if (0 != 0) {
                             sQLiteDatabase2.close();
                         }
-                        boolean z2 = DEBUG;
+                        if (DEBUG) {
+                            Log.w(TAG, "", e);
+                        }
                     }
-                } catch (Exception unused3) {
+                } catch (Exception e7) {
+                    e = e7;
                     sQLiteDatabase = null;
                 } catch (Throwable th3) {
                     th = th3;
@@ -240,13 +251,13 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         OnSqliteUpdateListener onSqliteUpdateListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i2, i3) == null) || (onSqliteUpdateListener = this.onSqliteUpdateListener) == null) {
+        if (!(interceptable == null || interceptable.invokeLII(1048583, this, sQLiteDatabase, i, i2) == null) || (onSqliteUpdateListener = this.onSqliteUpdateListener) == null) {
             return;
         }
-        onSqliteUpdateListener.onSqliteUpdateListener(sQLiteDatabase, i2, i3);
+        onSqliteUpdateListener.onSqliteUpdateListener(sQLiteDatabase, i, i2);
     }
 
     public Cursor query(String str, String[] strArr, String str2, String[] strArr2, String str3, String str4, String str5) {
@@ -259,8 +270,11 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5);
                 }
                 return query;
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e2);
+                    return null;
+                }
                 return null;
             }
         }
@@ -277,8 +291,11 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     rawQuery = getReadableDatabase().rawQuery(str, strArr);
                 }
                 return rawQuery;
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e2);
+                    return null;
+                }
                 return null;
             }
         }
@@ -303,8 +320,10 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                         sQLiteDatabase = getWritableDatabase();
                         sQLiteDatabase.update(str, contentValues, str2, strArr);
                     }
-                } catch (Exception unused) {
-                    boolean z = DEBUG;
+                } catch (Exception e2) {
+                    if (DEBUG) {
+                        Log.w(TAG, "", e2);
+                    }
                     if (sQLiteDatabase == null) {
                         return;
                     }
@@ -331,8 +350,11 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, strArr, str2, strArr2, str3, str4, str5, str6);
                 }
                 return query;
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e2);
+                    return null;
+                }
                 return null;
             }
         }
@@ -349,8 +371,11 @@ public abstract class DataBaseOpenHelper extends SQLiteOpenHelper {
                     query = getReadableDatabase().query(str, null, str2, null, null, null, null);
                 }
                 return query;
-            } catch (Exception unused) {
-                boolean z = DEBUG;
+            } catch (Exception e2) {
+                if (DEBUG) {
+                    Log.w(TAG, "", e2);
+                    return null;
+                }
                 return null;
             }
         }

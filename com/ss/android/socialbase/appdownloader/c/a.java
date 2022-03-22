@@ -1,7 +1,7 @@
 package com.ss.android.socialbase.appdownloader.c;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements c {
     @Override // com.ss.android.socialbase.appdownloader.c.c
     public l a(Context context) {

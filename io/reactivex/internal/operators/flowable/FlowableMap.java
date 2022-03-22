@@ -21,7 +21,7 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
     public transient /* synthetic */ FieldHolder $fh;
     public final Function<? super T, ? extends U> mapper;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class MapConditionalSubscriber<T, U> extends BasicFuseableConditionalSubscriber<T, U> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {conditionalSubscriber, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((ConditionalSubscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -81,10 +81,10 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? transitiveBoundaryFusion(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
         }
 
         @Override // io.reactivex.internal.fuseable.ConditionalSubscriber
@@ -121,9 +121,9 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, function};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Subscriber) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -166,10 +166,10 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
         }
 
         @Override // io.reactivex.internal.fuseable.QueueFuseable
-        public int requestFusion(int i2) {
+        public int requestFusion(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? transitiveBoundaryFusion(i2) : invokeI.intValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? transitiveBoundaryFusion(i) : invokeI.intValue;
         }
     }
 
@@ -182,9 +182,9 @@ public final class FlowableMap<T, U> extends AbstractFlowableWithUpstream<T, U> 
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, function};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

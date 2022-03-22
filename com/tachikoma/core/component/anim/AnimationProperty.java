@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AnimationProperty {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String BACKGROUND_COLOR = "backgroundColor";
@@ -47,9 +47,9 @@ public class AnimationProperty {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -73,7 +73,7 @@ public class AnimationProperty {
             arrayList.add("width");
             arrayList.add("height");
             arrayList.add("left");
-            arrayList.add("top");
+            arrayList.add(TOP);
             arrayList.add(MARGIN);
             arrayList.add(MARGIN_LEFT);
             arrayList.add(MARGIN_RIGHT);

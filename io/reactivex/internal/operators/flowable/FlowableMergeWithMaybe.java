@@ -66,9 +66,9 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                     newInitContext.initArgs = r2;
                     Object[] objArr = {mergeWithObserver};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -117,9 +117,9 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -233,16 +233,16 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                 return;
             }
             Subscriber<? super T> subscriber = this.actual;
-            long j2 = this.emitted;
-            int i2 = this.consumed;
-            int i3 = this.limit;
+            long j = this.emitted;
+            int i = this.consumed;
+            int i2 = this.limit;
+            int i3 = 1;
             int i4 = 1;
-            int i5 = 1;
             while (true) {
-                long j3 = this.requested.get();
+                long j2 = this.requested.get();
                 while (true) {
-                    int i6 = (j2 > j3 ? 1 : (j2 == j3 ? 0 : -1));
-                    if (i6 == 0) {
+                    int i5 = (j > j2 ? 1 : (j == j2 ? 0 : -1));
+                    if (i5 == 0) {
                         break;
                     } else if (this.cancelled) {
                         this.singleItem = null;
@@ -254,18 +254,18 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                         subscriber.onError(this.error.terminate());
                         return;
                     } else {
-                        int i7 = this.otherState;
-                        if (i7 == i4) {
+                        int i6 = this.otherState;
+                        if (i6 == i3) {
                             this.singleItem = null;
                             this.otherState = 2;
                             subscriber.onNext((T) this.singleItem);
-                            j2++;
+                            j++;
                         } else {
                             boolean z = this.mainDone;
                             SimplePlainQueue<T> simplePlainQueue = this.queue;
                             T poll = simplePlainQueue != null ? simplePlainQueue.poll() : (Object) null;
                             boolean z2 = poll == null;
-                            if (z && z2 && i7 == 2) {
+                            if (z && z2 && i6 == 2) {
                                 this.queue = null;
                                 subscriber.onComplete();
                                 return;
@@ -273,18 +273,18 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
                                 break;
                             } else {
                                 subscriber.onNext(poll);
-                                j2++;
-                                i2++;
-                                if (i2 == i3) {
-                                    this.mainSubscription.get().request(i3);
-                                    i2 = 0;
+                                j++;
+                                i++;
+                                if (i == i2) {
+                                    this.mainSubscription.get().request(i2);
+                                    i = 0;
                                 }
-                                i4 = 1;
+                                i3 = 1;
                             }
                         }
                     }
                 }
-                i4 = 1;
+                i3 = 1;
             }
         }
 
@@ -330,20 +330,20 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    long j2 = this.emitted;
-                    if (this.requested.get() != j2) {
+                    long j = this.emitted;
+                    if (this.requested.get() != j) {
                         SimplePlainQueue<T> simplePlainQueue = this.queue;
                         if (simplePlainQueue != null && !simplePlainQueue.isEmpty()) {
                             simplePlainQueue.offer(t);
                         } else {
-                            this.emitted = j2 + 1;
+                            this.emitted = j + 1;
                             this.actual.onNext(t);
-                            int i2 = this.consumed + 1;
-                            if (i2 == this.limit) {
+                            int i = this.consumed + 1;
+                            if (i == this.limit) {
                                 this.consumed = 0;
-                                this.mainSubscription.get().request(i2);
+                                this.mainSubscription.get().request(i);
                             } else {
-                                this.consumed = i2;
+                                this.consumed = i;
                             }
                         }
                     } else {
@@ -394,9 +394,9 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048586, this, t) == null) {
                 if (compareAndSet(0, 1)) {
-                    long j2 = this.emitted;
-                    if (this.requested.get() != j2) {
-                        this.emitted = j2 + 1;
+                    long j = this.emitted;
+                    if (this.requested.get() != j) {
+                        this.emitted = j + 1;
                         this.actual.onNext(t);
                         this.otherState = 2;
                     } else {
@@ -418,10 +418,10 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-                BackpressureHelper.add(this.requested, j2);
+            if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+                BackpressureHelper.add(this.requested, j);
                 drain();
             }
         }
@@ -436,9 +436,9 @@ public final class FlowableMergeWithMaybe<T> extends AbstractFlowableWithUpstrea
             newInitContext.initArgs = r2;
             Object[] objArr = {flowable, maybeSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Flowable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

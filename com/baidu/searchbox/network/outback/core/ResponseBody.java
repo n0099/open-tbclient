@@ -44,9 +44,9 @@ public abstract class ResponseBody implements Closeable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {inputStream, charset};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,10 +71,10 @@ public abstract class ResponseBody implements Closeable {
         }
 
         @Override // java.io.Reader
-        public int read(char[] cArr, int i2, int i3) throws IOException {
+        public int read(char[] cArr, int i, int i2) throws IOException {
             InterceptResult invokeLII;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cArr, i2, i3)) == null) {
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cArr, i, i2)) == null) {
                 if (!this.closed) {
                     Reader reader = this.delegate;
                     if (reader == null) {
@@ -86,7 +86,7 @@ public abstract class ResponseBody implements Closeable {
                         this.delegate = inputStreamReader;
                         reader = inputStreamReader;
                     }
-                    return reader.read(cArr, i2, i3);
+                    return reader.read(cArr, i, i2);
                 }
                 throw new IOException("Stream closed");
             }
@@ -99,9 +99,9 @@ public abstract class ResponseBody implements Closeable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -213,12 +213,12 @@ public abstract class ResponseBody implements Closeable {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaType, bArr)) == null) ? create(mediaType, bArr.length, new ByteArrayInputStream(bArr)) : (ResponseBody) invokeLL.objValue;
     }
 
-    public static ResponseBody create(@Nullable MediaType mediaType, long j2, InputStream inputStream) {
+    public static ResponseBody create(@Nullable MediaType mediaType, long j, InputStream inputStream) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j2), inputStream})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{mediaType, Long.valueOf(j), inputStream})) == null) {
             if (inputStream != null) {
-                return new ResponseBody(mediaType, j2, inputStream) { // from class: com.baidu.searchbox.network.outback.core.ResponseBody.1
+                return new ResponseBody(mediaType, j, inputStream) { // from class: com.baidu.searchbox.network.outback.core.ResponseBody.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ long val$contentLength;
@@ -230,18 +230,18 @@ public abstract class ResponseBody implements Closeable {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {mediaType, Long.valueOf(j2), inputStream};
+                            Object[] objArr = {mediaType, Long.valueOf(j), inputStream};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.val$contentType = mediaType;
-                        this.val$contentLength = j2;
+                        this.val$contentLength = j;
                         this.val$inputStream = inputStream;
                     }
 

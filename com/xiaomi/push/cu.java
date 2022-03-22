@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class cu extends co {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public co a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ cs f213a;
+    public final /* synthetic */ cs f189a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ co f59529b;
+    public final /* synthetic */ co f44145b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public cu(cs csVar, String str, co coVar) {
@@ -29,22 +29,22 @@ public class cu extends co {
             newInitContext.initArgs = r2;
             Object[] objArr = {csVar, str, coVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f213a = csVar;
-        this.f59529b = coVar;
-        co coVar2 = this.f59529b;
+        this.f189a = csVar;
+        this.f44145b = coVar;
+        co coVar2 = this.f44145b;
         this.a = coVar2;
-        ((co) this).f199b = ((co) this).f199b;
+        ((co) this).f175b = ((co) this).f175b;
         if (coVar2 != null) {
-            this.f59521f = coVar2.f59521f;
+            this.f44139f = coVar2.f44139f;
         }
     }
 
@@ -59,8 +59,8 @@ public class cu extends co {
                 if (this.a != null) {
                     arrayList.addAll(this.a.a(true));
                 }
-                synchronized (cs.f59526b) {
-                    co coVar = cs.f59526b.get(((co) this).f199b);
+                synchronized (cs.f44142b) {
+                    co coVar = cs.f44142b.get(((co) this).f175b);
                     if (coVar != null) {
                         Iterator<String> it = coVar.a(true).iterator();
                         while (it.hasNext()) {
@@ -69,8 +69,8 @@ public class cu extends co {
                                 arrayList.add(next);
                             }
                         }
-                        arrayList.remove(((co) this).f199b);
-                        arrayList.add(((co) this).f199b);
+                        arrayList.remove(((co) this).f175b);
+                        arrayList.add(((co) this).f175b);
                     }
                 }
             }

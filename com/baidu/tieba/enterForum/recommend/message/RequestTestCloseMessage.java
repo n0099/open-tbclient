@@ -1,6 +1,6 @@
 package com.baidu.tieba.enterForum.recommend.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -19,7 +19,7 @@ public class RequestTestCloseMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f41289common;
+    public CommonReq f31926common;
     public long fromPage;
     public long testId;
 
@@ -30,9 +30,9 @@ public class RequestTestCloseMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -48,7 +48,7 @@ public class RequestTestCloseMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f61453common = this.f41289common;
+            builder.f45793common = this.f31926common;
             builder.test_id = Long.valueOf(this.testId);
             builder.from_page = Long.valueOf(this.fromPage);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
@@ -64,21 +64,21 @@ public class RequestTestCloseMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f41289common = commonReq;
+            this.f31926common = commonReq;
         }
     }
 
-    public void setFromPage(long j2) {
+    public void setFromPage(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.fromPage = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.fromPage = j;
         }
     }
 
-    public void setTestId(long j2) {
+    public void setTestId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.testId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.testId = j;
         }
     }
 }

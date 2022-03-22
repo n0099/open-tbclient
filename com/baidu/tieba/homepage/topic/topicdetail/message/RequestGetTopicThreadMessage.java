@@ -1,6 +1,6 @@
 package com.baidu.tieba.homepage.topic.topicdetail.message;
 
-import c.a.q0.c1.b0;
+import c.a.o0.c1.b0;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
@@ -20,7 +20,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f43186common;
+    public CommonReq f33523common;
     public long lastFeedId;
     public long pageNo;
     public long topicId;
@@ -32,9 +32,9 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 super(((Integer) objArr[0]).intValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
@@ -50,7 +50,7 @@ public class RequestGetTopicThreadMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f61381common = this.f43186common;
+            builder.f45719common = this.f33523common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.page_no = Long.valueOf(this.pageNo);
             builder.last_feed_id = Long.valueOf(this.lastFeedId);
@@ -75,28 +75,28 @@ public class RequestGetTopicThreadMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f43186common = commonReq;
+            this.f33523common = commonReq;
         }
     }
 
-    public void setLastFeedId(long j2) {
+    public void setLastFeedId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            this.lastFeedId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.lastFeedId = j;
         }
     }
 
-    public void setPageNo(long j2) {
+    public void setPageNo(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j2) == null) {
-            this.pageNo = j2;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.pageNo = j;
         }
     }
 
-    public void setTopicId(long j2) {
+    public void setTopicId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.topicId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.topicId = j;
         }
     }
 }

@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class HttpURLExecutorRunnable implements Runnable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -38,7 +38,7 @@ public class HttpURLExecutorRunnable implements Runnable {
     public String mUrl;
     public boolean mUsingDNSProxy;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface OnWebRequestListener {
         void onFailed();
 
@@ -68,9 +68,9 @@ public class HttpURLExecutorRunnable implements Runnable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, Boolean.valueOf(z), str, list, onWebRequestListener};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -122,7 +122,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                 }
                 return;
             }
-            for (int i2 = 0; i2 < this.mTryCount; i2++) {
+            for (int i = 0; i < this.mTryCount; i++) {
                 InputStream inputStream2 = null;
                 BufferedReader bufferedReader2 = null;
                 inputStream2 = null;
@@ -150,7 +150,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                                     inputStream2 = inputStream;
                                     try {
                                         e.printStackTrace();
-                                        if (i2 != 0 && URLUtil.isHttpsUrl(this.mUrl)) {
+                                        if (i != 0 && URLUtil.isHttpsUrl(this.mUrl)) {
                                             this.mUrl = this.mUrl.replaceFirst("https://", "http://");
                                         } else {
                                             try {
@@ -207,7 +207,7 @@ public class HttpURLExecutorRunnable implements Runnable {
                             bufferedReader = null;
                             inputStream2 = inputStream;
                             e.printStackTrace();
-                            if (i2 != 0) {
+                            if (i != 0) {
                             }
                             Thread.sleep(1000L);
                             if (inputStream2 != null) {
@@ -278,17 +278,17 @@ public class HttpURLExecutorRunnable implements Runnable {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i2) {
+    public HttpURLExecutorRunnable(Context context, boolean z, String str, List<NameValuePair> list, OnWebRequestListener onWebRequestListener, int i) {
         this(context, z, str, list, onWebRequestListener);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, Boolean.valueOf(z), str, list, onWebRequestListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, Boolean.valueOf(z), str, list, onWebRequestListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2], (List) objArr2[3], (OnWebRequestListener) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -296,6 +296,6 @@ public class HttpURLExecutorRunnable implements Runnable {
                 return;
             }
         }
-        this.mTryCount = i2;
+        this.mTryCount = i;
     }
 }

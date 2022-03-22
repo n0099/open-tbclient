@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.c1.o0;
-import c.a.q0.r.r.e2;
+import c.a.o0.c1.o0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
@@ -42,9 +42,9 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -57,11 +57,11 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     private void init(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.ala_card_bottom_user_info_layout, (ViewGroup) this, true);
-            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.ala_card_user_head_img);
-            this.alaCardUserName = (TextView) inflate.findViewById(R.id.ala_card_user_name);
-            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.ala_play_anim);
-            this.alaWatchCount = (TextView) inflate.findViewById(R.id.ala_watch_count);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ed, (ViewGroup) this, true);
+            this.alaCardUserHeadImg = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0901c5);
+            this.alaCardUserName = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0901c6);
+            this.alaPlayAnim = (AlaPlayAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f09021b);
+            this.alaWatchCount = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090228);
             initHeaderImg();
         }
     }
@@ -85,35 +85,35 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         }
     }
 
-    public void setData(e2 e2Var) {
+    public void setData(ThreadData threadData) {
         String str;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e2Var) == null) || e2Var == null || e2Var.p1() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) || threadData == null || threadData.getThreadAlaInfo() == null) {
             return;
         }
-        AlaUserInfoData alaUserInfoData = e2Var.p1().user_info;
-        if (e2Var.J() != null) {
-            str = e2Var.J().getName_show();
+        AlaUserInfoData alaUserInfoData = threadData.getThreadAlaInfo().user_info;
+        if (threadData.getAuthor() != null) {
+            str = threadData.getAuthor().getName_show();
         } else {
             str = alaUserInfoData != null ? alaUserInfoData.user_name : "";
         }
         if (o0.d(str) > 10) {
-            str = o0.n(str, 10) + "...";
+            str = o0.n(str, 10) + StringHelper.STRING_MORE;
         }
         if (alaUserInfoData != null) {
-            this.alaCardUserHeadImg.startLoad(alaUserInfoData.portrait, 28, false);
+            this.alaCardUserHeadImg.J(alaUserInfoData.portrait, 28, false);
         }
         this.alaCardUserName.setText(str);
-        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.ala_card_watch_num_text), StringHelper.numFormatOverWan(e2Var.p1().audience_count)));
+        this.alaWatchCount.setText(String.format(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f01fd), StringHelper.numFormatOverWan(threadData.getThreadAlaInfo().audience_count)));
     }
 
-    public void setUserHeadImgVisible(int i2) {
+    public void setUserHeadImgVisible(int i) {
         HeadImageView headImageView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (headImageView = this.alaCardUserHeadImg) == null) {
             return;
         }
-        headImageView.setVisibility(i2);
+        headImageView.setVisibility(i);
     }
 
     public void startPlayAnimation() {
@@ -122,7 +122,7 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (alaPlayAnimationView = this.alaPlayAnim) == null) {
             return;
         }
-        alaPlayAnimationView.startPlayAnimation();
+        alaPlayAnimationView.b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -134,9 +134,9 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -148,17 +148,17 @@ public class AlaCardBottomUserInfoLayout extends LinearLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public AlaCardBottomUserInfoLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

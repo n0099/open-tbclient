@@ -10,10 +10,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import c.a.q0.r.r.j0;
-import c.a.q0.r.r.k0;
-import c.a.q0.r.t.a;
-import c.a.r0.h1.b.f;
+import c.a.o0.r.r.j0;
+import c.a.o0.r.r.k0;
+import c.a.o0.r.t.a;
+import c.a.p0.j1.b.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -55,7 +55,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public boolean mHasShowAnim;
     public GiftTabView.o mLoadCategoryListCallback;
     public GiftTabView.n mLoadDefaultListCallback;
-    public c.a.r0.h1.b.f mModelController;
+    public c.a.p0.j1.b.f mModelController;
     public String mReferPage;
     public f.e mRefreshCallback;
     public SendGiftModel mSendGiftModel;
@@ -67,7 +67,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public long postId;
     public int sendCount;
     public j0 sendGift;
-    public c.a.r0.h1.d.a sendOrder;
+    public c.a.p0.j1.d.a sendOrder;
     public boolean shouldRefreshFreechance;
     public long threadId;
 
@@ -75,37 +75,35 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class a implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.o0.r.t.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.r.t.a f42677e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GiftTabActivity f33113b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42678f;
-
-        public a(GiftTabActivity giftTabActivity, c.a.q0.r.t.a aVar) {
+        public a(GiftTabActivity giftTabActivity, c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42678f = giftTabActivity;
-            this.f42677e = aVar;
+            this.f33113b = giftTabActivity;
+            this.a = aVar;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f42677e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -114,37 +112,35 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class b implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.o0.r.t.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.r.t.a f42679e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GiftTabActivity f33114b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42680f;
-
-        public b(GiftTabActivity giftTabActivity, c.a.q0.r.t.a aVar) {
+        public b(GiftTabActivity giftTabActivity, c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42680f = giftTabActivity;
-            this.f42679e = aVar;
+            this.f33114b = giftTabActivity;
+            this.a = aVar;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f42679e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -153,38 +149,36 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class c implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.o0.r.t.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.r.t.a f42681e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GiftTabActivity f33115b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42682f;
-
-        public c(GiftTabActivity giftTabActivity, c.a.q0.r.t.a aVar) {
+        public c(GiftTabActivity giftTabActivity, c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42682f = giftTabActivity;
-            this.f42681e = aVar;
+            this.f33115b = giftTabActivity;
+            this.a = aVar;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f42681e.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f42682f.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
+                this.a.dismiss();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.f33115b.getActivity(), TbadkCoreApplication.getCurrentMemberType(), "", 17)));
             }
         }
     }
@@ -193,37 +187,35 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class d implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.o0.r.t.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.r.t.a f42683e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GiftTabActivity f33116b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42684f;
-
-        public d(GiftTabActivity giftTabActivity, c.a.q0.r.t.a aVar) {
+        public d(GiftTabActivity giftTabActivity, c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42684f = giftTabActivity;
-            this.f42683e = aVar;
+            this.f33116b = giftTabActivity;
+            this.a = aVar;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f42683e.dismiss();
+                this.a.dismiss();
             }
         }
     }
@@ -232,42 +224,40 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class e implements a.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c.a.o0.r.t.a a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c.a.q0.r.t.a f42685e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ GiftTabActivity f33117b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42686f;
-
-        public e(GiftTabActivity giftTabActivity, c.a.q0.r.t.a aVar) {
+        public e(GiftTabActivity giftTabActivity, c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42686f = giftTabActivity;
-            this.f42685e = aVar;
+            this.f33117b = giftTabActivity;
+            this.a = aVar;
         }
 
-        @Override // c.a.q0.r.t.a.e
-        public void onClick(c.a.q0.r.t.a aVar) {
+        @Override // c.a.o0.r.t.a.e
+        public void onClick(c.a.o0.r.t.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-                this.f42685e.dismiss();
-                if (StringUtils.isNull(this.f42686f.addFreeUrl)) {
+                this.a.dismiss();
+                if (StringUtils.isNull(this.f33117b.addFreeUrl)) {
                     return;
                 }
-                this.f42686f.shouldRefreshFreechance = true;
-                UrlManager.getInstance().dealOneLink(this.f42686f.getPageContext(), new String[]{this.f42686f.addFreeUrl});
+                this.f33117b.shouldRefreshFreechance = true;
+                UrlManager.getInstance().dealOneLink(this.f33117b.getPageContext(), new String[]{this.f33117b.addFreeUrl});
             }
         }
     }
@@ -276,9 +266,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     public class f implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ GiftTabActivity f42687e;
+        public final /* synthetic */ GiftTabActivity a;
 
         public f(GiftTabActivity giftTabActivity) {
             Interceptable interceptable = $ic;
@@ -287,15 +275,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f42687e = giftTabActivity;
+            this.a = giftTabActivity;
         }
 
         @Override // android.view.View.OnClickListener
@@ -304,38 +292,38 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || view == null) {
                 return;
             }
-            c.a.d.f.p.n.w(this.f42687e.getActivity(), this.f42687e.mView.gift_count_input);
-            if (view == this.f42687e.mView.gift_button) {
-                if (this.f42687e.mSendGiftModel == null || this.f42687e.mView.getCurrentSendCount() <= 0 || this.f42687e.mView.getCurrentSendGift() == null) {
+            c.a.d.f.p.n.w(this.a.getActivity(), this.a.mView.f33123g);
+            if (view == this.a.mView.m) {
+                if (this.a.mSendGiftModel == null || this.a.mView.B() <= 0 || this.a.mView.C() == null) {
                     return;
                 }
                 if (!c.a.d.f.p.n.C()) {
-                    this.f42687e.showToast(R.string.neterror);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                 } else if (!TbadkCoreApplication.isLogin()) {
-                    TbadkCoreApplication.getInst().login(this.f42687e.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.f42687e.getPageContext().getPageActivity())));
+                    TbadkCoreApplication.getInst().login(this.a.getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(this.a.getPageContext().getPageActivity())));
                 } else {
-                    GiftTabActivity giftTabActivity = this.f42687e;
-                    if (giftTabActivity.resetSendButtonState(giftTabActivity.mView.getCurrentSendGift(), this.f42687e.mView.getCurrentSendCount())) {
-                        this.f42687e.mView.showWaittingDialog();
-                        GiftTabActivity giftTabActivity2 = this.f42687e;
-                        giftTabActivity2.sendGift = giftTabActivity2.mView.getCurrentSendGift();
-                        GiftTabActivity giftTabActivity3 = this.f42687e;
-                        giftTabActivity3.sendCount = giftTabActivity3.mView.getCurrentSendCount();
-                        this.f42687e.sendGift.l = this.f42687e.sendCount;
-                        this.f42687e.sendGift.m = this.f42687e.threadId;
-                        this.f42687e.sendGift.n = this.f42687e.postId;
-                        this.f42687e.sendGift.p = this.f42687e.mToUserId;
-                        this.f42687e.sendGift.o = this.f42687e.mToUserName;
-                        j0 j0Var = this.f42687e.sendGift;
-                        GiftTabActivity giftTabActivity4 = this.f42687e;
+                    GiftTabActivity giftTabActivity = this.a;
+                    if (giftTabActivity.resetSendButtonState(giftTabActivity.mView.C(), this.a.mView.B())) {
+                        this.a.mView.R();
+                        GiftTabActivity giftTabActivity2 = this.a;
+                        giftTabActivity2.sendGift = giftTabActivity2.mView.C();
+                        GiftTabActivity giftTabActivity3 = this.a;
+                        giftTabActivity3.sendCount = giftTabActivity3.mView.B();
+                        this.a.sendGift.l = this.a.sendCount;
+                        this.a.sendGift.m = this.a.threadId;
+                        this.a.sendGift.n = this.a.postId;
+                        this.a.sendGift.p = this.a.mToUserId;
+                        this.a.sendGift.o = this.a.mToUserName;
+                        j0 j0Var = this.a.sendGift;
+                        GiftTabActivity giftTabActivity4 = this.a;
                         j0Var.r = giftTabActivity4.accountType;
-                        giftTabActivity4.mSendGiftModel.x(this.f42687e.mView.getCurrentSendGift(), this.f42687e.mView.getCurrentSendCount(), this.f42687e.mFrom, this.f42687e.mToUserId, this.f42687e.mToUserName, this.f42687e.threadId, this.f42687e.postId);
+                        giftTabActivity4.mSendGiftModel.z(this.a.mView.C(), this.a.mView.B(), this.a.mFrom, this.a.mToUserId, this.a.mToUserName, this.a.threadId, this.a.postId);
                     }
                 }
-            } else if (view != this.f42687e.mView.get_free_chance_view || StringUtils.isNull(this.f42687e.addFreeUrl)) {
+            } else if (view != this.a.mView.o || StringUtils.isNull(this.a.addFreeUrl)) {
             } else {
-                this.f42687e.shouldRefreshFreechance = true;
-                UrlManager.getInstance().dealOneLink(this.f42687e.getPageContext(), new String[]{this.f42687e.addFreeUrl});
+                this.a.shouldRefreshFreechance = true;
+                UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{this.a.addFreeUrl});
             }
         }
     }
@@ -353,9 +341,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -365,11 +353,11 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.giftTab.GiftTabView.o
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.mModelController.p(i2);
-                this.a.mView.showWaittingDialog();
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.mModelController.p(i);
+                this.a.mView.R();
             }
         }
     }
@@ -387,9 +375,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -403,7 +391,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 this.a.mModelController.o(this.a.mFrom, this.a.mToUserId);
-                this.a.mView.showWaittingDialog();
+                this.a.mView.R();
             }
         }
     }
@@ -421,9 +409,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -432,12 +420,12 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // c.a.r0.h1.b.f.d
-        public void a(int i2) {
+        @Override // c.a.p0.j1.b.f.d
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.a.freeChance = i2;
-                this.a.mView.setFreeChance(i2);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.freeChance = i;
+                this.a.mView.N(i);
                 this.a.shouldRefreshFreechance = false;
             }
         }
@@ -456,9 +444,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -467,19 +455,19 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             this.a = giftTabActivity;
         }
 
-        @Override // c.a.r0.h1.b.f.e
-        public void a(int i2, String str, boolean z, String str2, int i3, k0 k0Var, ArrayList<c.a.r0.h1.b.c> arrayList, ArrayList<c.a.r0.h1.b.a> arrayList2, ArrayList<c.a.r0.h1.b.e> arrayList3) {
+        @Override // c.a.p0.j1.b.f.e
+        public void a(int i, String str, boolean z, String str2, int i2, k0 k0Var, ArrayList<c.a.p0.j1.b.c> arrayList, ArrayList<c.a.p0.j1.b.a> arrayList2, ArrayList<c.a.p0.j1.b.e> arrayList3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, Boolean.valueOf(z), str2, Integer.valueOf(i3), k0Var, arrayList, arrayList2, arrayList3}) == null) {
-                if (i2 != 0 && !StringUtils.isNull(str)) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z), str2, Integer.valueOf(i2), k0Var, arrayList, arrayList2, arrayList3}) == null) {
+                if (i != 0 && !StringUtils.isNull(str)) {
                     this.a.showToast(str);
                 }
                 this.a.addFreeUrl = str2;
                 if (this.a.mView != null) {
-                    this.a.mView.currencyType = i3;
-                    this.a.mView.urlTitleData = k0Var;
-                    this.a.mView.showGiftListView(z, arrayList, arrayList2, arrayList3);
-                    this.a.mView.setAddFreeUrl(str2);
+                    this.a.mView.I = i2;
+                    this.a.mView.J = k0Var;
+                    this.a.mView.Q(z, arrayList, arrayList2, arrayList3);
+                    this.a.mView.M(str2);
                 }
             }
         }
@@ -498,9 +486,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -510,13 +498,13 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void a(int i2, String str, c.a.r0.h1.d.a aVar) {
+        public void a(int i, String str, c.a.p0.j1.d.a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i2, str, aVar) == null) {
-                this.a.mView.hideWattingDialog();
-                if (i2 != 0) {
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, aVar) == null) {
+                this.a.mView.G();
+                if (i != 0) {
                     if (StringUtils.isNull(str)) {
-                        this.a.showToast(R.string.neterror);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0c15);
                     } else {
                         this.a.showToast(str);
                     }
@@ -534,21 +522,21 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mView.hideWattingDialog();
-                this.a.showToast(R.string.gift_send_data_illegal);
+                this.a.mView.G();
+                this.a.showToast(R.string.obfuscated_res_0x7f0f079e);
             }
         }
 
         @Override // com.baidu.tieba.gift.send.SendGiftModel.c
-        public void c(int i2, String str, int i3) {
+        public void c(int i, String str, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-                this.a.mView.hideWattingDialog();
-                if (i2 != 0) {
-                    new c.a.q0.r.l0.c().b(this.a.getResources().getString(R.string.send_gift_fail));
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+                this.a.mView.G();
+                if (i != 0) {
+                    new c.a.o0.r.l0.c().b(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10dd));
                     return;
                 }
-                new c.a.q0.r.l0.c().c(this.a.getResources().getString(R.string.send_gift_succeed));
+                new c.a.o0.r.l0.c().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10de));
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.sendGift));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
@@ -565,17 +553,17 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public final /* synthetic */ GiftTabActivity a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public l(GiftTabActivity giftTabActivity, int i2) {
-            super(i2);
+        public l(GiftTabActivity giftTabActivity, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {giftTabActivity, Integer.valueOf(i2)};
+                Object[] objArr = {giftTabActivity, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -594,7 +582,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 if (this.a.sendOrder != null && str.equalsIgnoreCase(this.a.sendOrder.b())) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001369, this.a.sendGift));
                 }
-                new c.a.q0.r.l0.c().c(this.a.getResources().getString(R.string.send_gift_succeed));
+                new c.a.o0.r.l0.c().c(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f10de));
                 Intent intent = new Intent();
                 intent.putExtra("success", true);
                 this.a.setResult(-1, intent);
@@ -616,9 +604,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -631,10 +619,10 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.mView.gift_list_layout.setVisibility(0);
+                this.a.mView.f33121e.setVisibility(0);
                 this.a.mModelController.o(this.a.mFrom, this.a.mToUserId);
                 this.a.mModelController.n(this.a.mFrom);
-                this.a.mView.showWaittingDialog();
+                this.a.mView.R();
             }
         }
 
@@ -666,9 +654,9 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {giftTabActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -728,16 +716,16 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     private void hideAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65558, this) == null) {
-            this.mView.empty_layout.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.mView.f33120d.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.9f, 0.0f);
             alphaAnimation.setDuration(300L);
             alphaAnimation.setFillAfter(true);
-            this.mView.empty_layout.startAnimation(alphaAnimation);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_down);
+            this.mView.f33120d.startAnimation(alphaAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010041);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new n(this));
-            this.mView.gift_list_layout.startAnimation(loadAnimation);
+            this.mView.f33121e.startAnimation(loadAnimation);
         }
     }
 
@@ -749,29 +737,29 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             if (j0Var == null || i2 <= 0) {
                 return false;
             }
-            int i3 = j0Var.f13310f;
+            int i3 = j0Var.f10894f;
             if (i3 == 1) {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                if (currentTimeMillis < j0Var.f13312h) {
-                    new c.a.q0.r.l0.c().b(getResources().getString(R.string.gift_limit_time_not_start));
+                if (currentTimeMillis < j0Var.f10896h) {
+                    new c.a.o0.r.l0.c().b(getResources().getString(R.string.obfuscated_res_0x7f0f0797));
                     return false;
-                } else if (currentTimeMillis > j0Var.f13313i) {
-                    new c.a.q0.r.l0.c().b(getResources().getString(R.string.gift_limit_time_has_over));
+                } else if (currentTimeMillis > j0Var.i) {
+                    new c.a.o0.r.l0.c().b(getResources().getString(R.string.obfuscated_res_0x7f0f0796));
                     return false;
                 }
             } else if (i3 != 2) {
                 if (i3 != 4) {
                     if (i3 == 5 && this.freeChance < i2) {
-                        c.a.q0.r.t.a aVar = new c.a.q0.r.t.a(getActivity());
+                        c.a.o0.r.t.a aVar = new c.a.o0.r.t.a(getActivity());
                         aVar.setMessageShowCenter(true);
                         if (this.freeChance <= 0) {
-                            aVar.setTitle(R.string.have_no_free_chance);
+                            aVar.setTitle(R.string.obfuscated_res_0x7f0f0814);
                         } else {
-                            aVar.setTitle(String.format(getPageContext().getString(R.string.most_free_gift), Integer.valueOf(this.freeChance)));
+                            aVar.setTitle(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ad3), Integer.valueOf(this.freeChance)));
                         }
-                        aVar.setMessageId(R.string.go_to_get_more_free_chance);
-                        aVar.setNegativeButton(R.string.cancel, new d(this, aVar));
-                        aVar.setPositiveButton(R.string.get_more_chance, new e(this, aVar));
+                        aVar.setMessageId(R.string.obfuscated_res_0x7f0f07ad);
+                        aVar.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new d(this, aVar));
+                        aVar.setPositiveButton(R.string.obfuscated_res_0x7f0f078a, new e(this, aVar));
                         aVar.create(getPageContext());
                         aVar.show();
                         return false;
@@ -779,21 +767,21 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
                 } else if (TbadkCoreApplication.getCurrentMemberType() >= 2) {
                     return true;
                 } else {
-                    c.a.q0.r.t.a aVar2 = new c.a.q0.r.t.a(getActivity());
+                    c.a.o0.r.t.a aVar2 = new c.a.o0.r.t.a(getActivity());
                     aVar2.setButtonTextColor(R.color.CAM_X0305);
-                    aVar2.setTitle(R.string.open_vip_can_send_gift);
-                    aVar2.setNegativeButton(R.string.cancel, new b(this, aVar2));
-                    aVar2.setPositiveButton(R.string.open_now, new c(this, aVar2));
+                    aVar2.setTitle(R.string.obfuscated_res_0x7f0f0cce);
+                    aVar2.setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new b(this, aVar2));
+                    aVar2.setPositiveButton(R.string.obfuscated_res_0x7f0f0cc9, new c(this, aVar2));
                     aVar2.create(getPageContext());
                     aVar2.show();
                     return false;
                 }
             } else if (j0Var.k < i2) {
-                c.a.q0.r.t.a aVar3 = new c.a.q0.r.t.a(getActivity());
+                c.a.o0.r.t.a aVar3 = new c.a.o0.r.t.a(getActivity());
                 aVar3.setMessageShowCenter(true);
-                aVar3.setTitle(R.string.gift_limit_number_not_enough);
-                aVar3.setMessage(String.format(getPageContext().getString(R.string.limit_number_gift_has_left), Integer.valueOf(j0Var.k)));
-                aVar3.setNegativeButton(R.string.know, new a(this, aVar3));
+                aVar3.setTitle(R.string.obfuscated_res_0x7f0f0794);
+                aVar3.setMessage(String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f09e2), Integer.valueOf(j0Var.k)));
+                aVar3.setNegativeButton(R.string.obfuscated_res_0x7f0f0984, new a(this, aVar3));
                 aVar3.create(getPageContext());
                 aVar3.show();
                 return false;
@@ -806,15 +794,15 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
     private void showAnimation() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65560, this) == null) {
-            this.mView.empty_layout.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
+            this.mView.f33120d.setBackgroundColor(SkinManager.getColor(R.color.common_color_10175));
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 0.9f);
             alphaAnimation.setDuration(300L);
-            this.mView.empty_layout.startAnimation(alphaAnimation);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.bottom_fold_up);
+            this.mView.f33120d.startAnimation(alphaAnimation);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), R.anim.obfuscated_res_0x7f010042);
             loadAnimation.setDuration(300L);
             loadAnimation.setFillAfter(true);
             loadAnimation.setAnimationListener(new m(this));
-            this.mView.gift_list_layout.startAnimation(loadAnimation);
+            this.mView.f33121e.startAnimation(loadAnimation);
             this.mHasShowAnim = true;
         }
     }
@@ -856,7 +844,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
             super.onChangeSkinType(i2);
-            this.mView.onChangeSkinType(i2);
+            this.mView.K(i2);
         }
     }
 
@@ -881,20 +869,20 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
             }
             GiftTabView giftTabView = new GiftTabView(this, this.mCommenClickListener);
             this.mView = giftTabView;
-            TextView textView = giftTabView.text_view_gift_to;
-            String string = getResources().getString(R.string.gift_to);
+            TextView textView = giftTabView.p;
+            String string = getResources().getString(R.string.obfuscated_res_0x7f0f07a0);
             Object[] objArr = new Object[1];
             objArr[0] = TextUtils.isEmpty(this.mToNameShow) ? this.mToUserName : this.mToNameShow;
             textView.setText(String.format(string, objArr));
-            this.mView.setLoadDataByCategoryCallback(this.mLoadCategoryListCallback);
-            this.mView.setLoadDefaultListCallback(this.mLoadDefaultListCallback);
-            c.a.r0.h1.b.f fVar = new c.a.r0.h1.b.f(getPageContext());
+            this.mView.O(this.mLoadCategoryListCallback);
+            this.mView.P(this.mLoadDefaultListCallback);
+            c.a.p0.j1.b.f fVar = new c.a.p0.j1.b.f(getPageContext());
             this.mModelController = fVar;
             fVar.s(this.mRefreshCallback);
             this.mModelController.r(this.mFreeCountCallback);
             SendGiftModel sendGiftModel = new SendGiftModel(getPageContext());
             this.mSendGiftModel = sendGiftModel;
-            sendGiftModel.y(this.mGiftSendCallback);
+            sendGiftModel.A(this.mGiftSendCallback);
             registerListener(this.mSendGiftResultListener);
         }
     }
@@ -904,7 +892,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            this.mView.destroyRefreshHandler();
+            this.mView.A();
         }
     }
 
@@ -913,8 +901,8 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048583, this, i2, keyEvent)) == null) {
-            if (i2 == 4 && this.mView.gift_num_layout.getVisibility() == 0) {
-                this.mView.gift_num_layout.setVisibility(8);
+            if (i2 == 4 && this.mView.x.getVisibility() == 0) {
+                this.mView.x.setVisibility(8);
                 return true;
             }
             return super.onKeyDown(i2, keyEvent);
@@ -940,7 +928,7 @@ public class GiftTabActivity extends BaseActivity<GiftTabActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
-        c.a.r0.h1.b.f fVar;
+        c.a.p0.j1.b.f fVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();

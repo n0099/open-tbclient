@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BadgeUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean USE_COMPAT_PARENT;
@@ -47,9 +47,9 @@ public class BadgeUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -74,9 +74,9 @@ public class BadgeUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, parcelableSparseArray)) == null) {
             SparseArray<BadgeDrawable> sparseArray = new SparseArray<>(parcelableSparseArray.size());
-            for (int i2 = 0; i2 < parcelableSparseArray.size(); i2++) {
-                int keyAt = parcelableSparseArray.keyAt(i2);
-                BadgeDrawable.SavedState savedState = (BadgeDrawable.SavedState) parcelableSparseArray.valueAt(i2);
+            for (int i = 0; i < parcelableSparseArray.size(); i++) {
+                int keyAt = parcelableSparseArray.keyAt(i);
+                BadgeDrawable.SavedState savedState = (BadgeDrawable.SavedState) parcelableSparseArray.valueAt(i);
                 if (savedState != null) {
                     sparseArray.put(keyAt, BadgeDrawable.createFromSavedState(context, savedState));
                 } else {
@@ -94,9 +94,9 @@ public class BadgeUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sparseArray)) == null) {
             ParcelableSparseArray parcelableSparseArray = new ParcelableSparseArray();
-            for (int i2 = 0; i2 < sparseArray.size(); i2++) {
-                int keyAt = sparseArray.keyAt(i2);
-                BadgeDrawable valueAt = sparseArray.valueAt(i2);
+            for (int i = 0; i < sparseArray.size(); i++) {
+                int keyAt = sparseArray.keyAt(i);
+                BadgeDrawable valueAt = sparseArray.valueAt(i);
                 if (valueAt != null) {
                     parcelableSparseArray.put(keyAt, valueAt.getSavedState());
                 } else {

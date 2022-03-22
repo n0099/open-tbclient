@@ -13,9 +13,7 @@ import java.util.concurrent.FutureTask;
 public abstract class b<V> extends FutureTask<V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public BdAsyncTask<?, ?, ?> f2509e;
+    public BdAsyncTask<?, ?, ?> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b(Callable<V> callable, BdAsyncTask<?, ?, ?> bdAsyncTask) {
@@ -26,17 +24,17 @@ public abstract class b<V> extends FutureTask<V> {
             newInitContext.initArgs = r2;
             Object[] objArr = {callable, bdAsyncTask};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Callable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2509e = null;
-        this.f2509e = bdAsyncTask;
+        this.a = null;
+        this.a = bdAsyncTask;
     }
 
     public abstract void a();
@@ -44,6 +42,6 @@ public abstract class b<V> extends FutureTask<V> {
     public BdAsyncTask<?, ?, ?> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2509e : (BdAsyncTask) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (BdAsyncTask) invokeV.objValue;
     }
 }

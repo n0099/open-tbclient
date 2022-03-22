@@ -9,7 +9,7 @@ import com.facebook.common.util.SecureHashUtil;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CacheKeyUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public final class CacheKeyUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,8 +52,8 @@ public final class CacheKeyUtil {
                 if (cacheKey instanceof MultiCacheKey) {
                     List<CacheKey> cacheKeys = ((MultiCacheKey) cacheKey).getCacheKeys();
                     ArrayList arrayList = new ArrayList(cacheKeys.size());
-                    for (int i2 = 0; i2 < cacheKeys.size(); i2++) {
-                        arrayList.add(secureHashKey(cacheKeys.get(i2)));
+                    for (int i = 0; i < cacheKeys.size(); i++) {
+                        arrayList.add(secureHashKey(cacheKeys.get(i)));
                     }
                     return arrayList;
                 }

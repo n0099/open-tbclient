@@ -9,10 +9,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PSCIMessageSendRequest extends RequestPacket {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PSCIMessageRequest";
@@ -24,28 +23,28 @@ public class PSCIMessageSendRequest extends RequestPacket {
     public String requestJson;
     public int version;
 
-    public PSCIMessageSendRequest(ProtocolType protocolType, int i2, int i3, int i4, String str) {
+    public PSCIMessageSendRequest(ProtocolType protocolType, int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {protocolType, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str};
+            Object[] objArr = {protocolType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.protocolType = ProtocolType.UNKNOW;
-        this.cmd = i2;
-        this.appId = i3;
-        this.version = i4;
+        this.cmd = i;
+        this.appId = i2;
+        this.version = i3;
         this.jsonMsg = str;
         this.protocolType = protocolType;
-        RLog.debug("PSCIMessageRequest", "request info: cmd = %d, appId = %d, version = %d, jsonMsg = %s", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str);
+        RLog.debug("PSCIMessageRequest", "request info: cmd = %d, appId = %d, version = %d, jsonMsg = %s", Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str);
         packageRequestJson();
     }
 
@@ -136,7 +135,7 @@ public class PSCIMessageSendRequest extends RequestPacket {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", jsonMsg='" + this.jsonMsg + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+            return "PSCIMessageRequest{cmd=" + this.cmd + ", appId=" + this.appId + ", version=" + this.version + ", jsonMsg='" + this.jsonMsg + "'}";
         }
         return (String) invokeV.objValue;
     }
@@ -148,9 +147,9 @@ public class PSCIMessageSendRequest extends RequestPacket {
             newInitContext.initArgs = r2;
             Object[] objArr = {bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -15,7 +15,7 @@ import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableByteArray;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SeiReader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class SeiReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,20 +41,20 @@ public final class SeiReader {
         this.outputs = new TrackOutput[list.size()];
     }
 
-    public void consume(long j2, ParsableByteArray parsableByteArray) {
+    public void consume(long j, ParsableByteArray parsableByteArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j2, parsableByteArray) == null) {
-            CeaUtil.consume(j2, parsableByteArray, this.outputs);
+        if (interceptable == null || interceptable.invokeJL(1048576, this, j, parsableByteArray) == null) {
+            CeaUtil.consume(j, parsableByteArray, this.outputs);
         }
     }
 
     public void createTracks(ExtractorOutput extractorOutput, TsPayloadReader.TrackIdGenerator trackIdGenerator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, extractorOutput, trackIdGenerator) == null) {
-            for (int i2 = 0; i2 < this.outputs.length; i2++) {
+            for (int i = 0; i < this.outputs.length; i++) {
                 trackIdGenerator.generateNewId();
                 TrackOutput track = extractorOutput.track(trackIdGenerator.getTrackId(), 3);
-                Format format = this.closedCaptionFormats.get(i2);
+                Format format = this.closedCaptionFormats.get(i);
                 String str = format.sampleMimeType;
                 boolean z = MimeTypes.APPLICATION_CEA608.equals(str) || MimeTypes.APPLICATION_CEA708.equals(str);
                 Assertions.checkArgument(z, "Invalid closed caption mime type provided: " + str);
@@ -63,7 +63,7 @@ public final class SeiReader {
                     str2 = trackIdGenerator.getFormatId();
                 }
                 track.format(Format.createTextSampleFormat(str2, str, (String) null, -1, format.selectionFlags, format.language, format.accessibilityChannel, (DrmInitData) null));
-                this.outputs[i2] = track;
+                this.outputs[i] = track;
             }
         }
     }

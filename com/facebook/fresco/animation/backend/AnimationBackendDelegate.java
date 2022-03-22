@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.fresco.animation.backend.AnimationBackend;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimationBackendDelegate<T extends AnimationBackend> implements AnimationBackend {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALPHA_UNSET = -1;
@@ -36,9 +36,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
             newInitContext.initArgs = r2;
             Object[] objArr = {t};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,9 +56,9 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
             if (rect != null) {
                 animationBackend.setBounds(rect);
             }
-            int i2 = this.mAlpha;
-            if (i2 >= 0 && i2 <= 255) {
-                animationBackend.setAlpha(i2);
+            int i = this.mAlpha;
+            if (i >= 0 && i <= 255) {
+                animationBackend.setAlpha(i);
             }
             ColorFilter colorFilter = this.mColorFilter;
             if (colorFilter != null) {
@@ -78,12 +78,12 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public boolean drawFrame(Drawable drawable, Canvas canvas, int i2) {
+    public boolean drawFrame(Drawable drawable, Canvas canvas, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, canvas, i)) == null) {
             T t = this.mAnimationBackend;
-            return t != null && t.drawFrame(drawable, canvas, i2);
+            return t != null && t.drawFrame(drawable, canvas, i);
         }
         return invokeLLI.booleanValue;
     }
@@ -110,15 +110,15 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationInformation
-    public int getFrameDurationMs(int i2) {
+    public int getFrameDurationMs(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             T t = this.mAnimationBackend;
             if (t == null) {
                 return 0;
             }
-            return t.getFrameDurationMs(i2);
+            return t.getFrameDurationMs(i);
         }
         return invokeI.intValue;
     }
@@ -180,14 +180,14 @@ public class AnimationBackendDelegate<T extends AnimationBackend> implements Ani
     }
 
     @Override // com.facebook.fresco.animation.backend.AnimationBackend
-    public void setAlpha(@IntRange(from = 0, to = 255) int i2) {
+    public void setAlpha(@IntRange(from = 0, to = 255) int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
             T t = this.mAnimationBackend;
             if (t != null) {
-                t.setAlpha(i2);
+                t.setAlpha(i);
             }
-            this.mAlpha = i2;
+            this.mAlpha = i;
         }
     }
 

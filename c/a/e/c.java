@@ -16,49 +16,49 @@ public class c implements h {
     public final int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f3198b;
+    public final int f2665b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f3199c;
+    public int f2666c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HashMap f3200d;
+    public HashMap f2667d;
 
-    public c(int i2, int i3, int i4, String str, String str2, int i5) {
+    public c(int i, int i2, int i3, String str, String str2, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, Integer.valueOf(i5)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Integer.valueOf(i4)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i2;
-        this.f3198b = i3;
-        this.f3199c = i5;
+        this.a = i;
+        this.f2665b = i2;
+        this.f2666c = i4;
     }
 
-    public static h f(int i2, int i3, int i4, String str, String str2, int i5) {
+    public static h f(int i, int i2, int i3, String str, String str2, int i4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, str2, Integer.valueOf(i5)})) == null) ? new c(i2, i3, i4, str, str2, i5) : (h) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, str2, Integer.valueOf(i4)})) == null) ? new c(i, i2, i3, str, str2, i4) : (h) invokeCommon.objValue;
     }
 
     @Override // c.a.e.h
     public void a(HashMap hashMap) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.f3200d = hashMap;
+            this.f2667d = hashMap;
             if (hashMap.containsKey(AdExtParam.KEY_IADEX)) {
                 return;
             }
-            hashMap.put(AdExtParam.KEY_IADEX, c.a.q0.c1.h.e());
+            hashMap.put(AdExtParam.KEY_IADEX, c.a.o0.c1.h.e());
         }
     }
 
@@ -66,7 +66,7 @@ public class c implements h {
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3199c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f2666c : invokeV.intValue;
     }
 
     @Override // c.a.e.h
@@ -80,13 +80,13 @@ public class c implements h {
     public Map<String, String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f3200d : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f2667d : (Map) invokeV.objValue;
     }
 
     @Override // c.a.e.h
     public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3198b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2665b : invokeV.intValue;
     }
 }

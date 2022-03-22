@@ -3,8 +3,9 @@ package com.baidu.sapi2.utils.enums;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.sapi2.SapiOptions;
 import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.tieba.flutter.plugin.passprovider.PassProviderPlugin;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,9 +30,9 @@ public class Enums {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -44,6 +45,7 @@ public class Enums {
     public static final class LastLoginType {
         public static final /* synthetic */ LastLoginType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
+        public static final LastLoginType CFO;
         public static final LastLoginType CHOICE_SHARE;
         public static final LastLoginType CHOICE_SHARE_V2;
         public static final LastLoginType FACE;
@@ -87,42 +89,43 @@ public class Enums {
             }
             NONE = new LastLoginType("NONE", 0, "none", 0);
             PWD = new LastLoginType("PWD", 1, "pwd", 1);
-            SMS = new LastLoginType("SMS", 2, "sms", 2);
+            SMS = new LastLoginType("SMS", 2, LoginConstants.SMS_LOGIN, 2);
             FACE = new LastLoginType("FACE", 3, "face", 3);
-            TOUCHID = new LastLoginType("TOUCHID", 4, "finger", 15);
+            TOUCHID = new LastLoginType("TOUCHID", 4, SapiOptions.Gray.FUN_NAME_GINGER, 15);
             WECHAT = new LastLoginType("WECHAT", 5, "wechat", 4);
-            WEIBO = new LastLoginType("WEIBO", 6, PassProviderPlugin.LOGIN_TYPE_WEIBO, 5);
-            QQ = new LastLoginType(Constants.SOURCE_QQ, 7, "qq", 6);
+            WEIBO = new LastLoginType("WEIBO", 6, "weibo", 5);
+            QQ = new LastLoginType(Constants.SOURCE_QQ, 7, LoginConstants.QQ_LOGIN, 6);
             HUAWEI = new LastLoginType("HUAWEI", 8, RomUtils.MANUFACTURER_HUAWEI, 10);
             GLORY = new LastLoginType("GLORY", 9, "huawei_glory", 23);
-            YY = new LastLoginType("YY", 10, "yy", 100);
-            XIAOMI = new LastLoginType("XIAOMI", 11, RomUtils.MANUFACTURER_XIAOMI, 13);
-            MEIZU = new LastLoginType("MEIZU", 12, "meizu", 14);
-            SLIENT_SHARE = new LastLoginType("SLIENT_SHARE", 13, "slient_share", 7);
-            CHOICE_SHARE = new LastLoginType("CHOICE_SHARE", 14, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);
-            CHOICE_SHARE_V2 = new LastLoginType("CHOICE_SHARE_V2", 15, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE, 9);
-            ONEKEYLOGIN_CM = new LastLoginType("ONEKEYLOGIN_CM", 16, "onekeylogin_cm", 16);
-            ONEKEYLOGIN_CU = new LastLoginType("ONEKEYLOGIN_CU", 17, "onekeylogin_cu", 17);
-            ONEKEYLOGIN_CT = new LastLoginType("ONEKEYLOGIN_CT", 18, "onekeylogin_ct", 18);
-            SWITCH = new LastLoginType("SWITCH", 19, "switch", 19);
-            QR = new LastLoginType("QR", 20, "qr", 20);
-            HISTORY = new LastLoginType("HISTORY", 21, "history", 21);
-            IQIYI = new LastLoginType("IQIYI", 22, "iqiyi", 22);
-            LastLoginType lastLoginType = new LastLoginType("OTHER", 23, "other", -1);
+            CFO = new LastLoginType("CFO", 10, "cfo", 60);
+            YY = new LastLoginType("YY", 11, "yy", 100);
+            XIAOMI = new LastLoginType("XIAOMI", 12, RomUtils.MANUFACTURER_XIAOMI, 13);
+            MEIZU = new LastLoginType("MEIZU", 13, "meizu", 14);
+            SLIENT_SHARE = new LastLoginType("SLIENT_SHARE", 14, "slient_share", 7);
+            CHOICE_SHARE = new LastLoginType("CHOICE_SHARE", 15, ShareCallPacking.LOGIN_TYPE_SHARE_V1_CHOICE, 8);
+            CHOICE_SHARE_V2 = new LastLoginType("CHOICE_SHARE_V2", 16, ShareCallPacking.LOGIN_TYPE_SHARE_V2_CHOICE, 9);
+            ONEKEYLOGIN_CM = new LastLoginType("ONEKEYLOGIN_CM", 17, "onekeylogin_cm", 16);
+            ONEKEYLOGIN_CU = new LastLoginType("ONEKEYLOGIN_CU", 18, "onekeylogin_cu", 17);
+            ONEKEYLOGIN_CT = new LastLoginType("ONEKEYLOGIN_CT", 19, "onekeylogin_ct", 18);
+            SWITCH = new LastLoginType("SWITCH", 20, "switch", 19);
+            QR = new LastLoginType("QR", 21, "qr", 20);
+            HISTORY = new LastLoginType("HISTORY", 22, "history", 21);
+            IQIYI = new LastLoginType("IQIYI", 23, "iqiyi", 22);
+            LastLoginType lastLoginType = new LastLoginType("OTHER", 24, "other", -1);
             OTHER = lastLoginType;
-            $VALUES = new LastLoginType[]{NONE, PWD, SMS, FACE, TOUCHID, WECHAT, WEIBO, QQ, HUAWEI, GLORY, YY, XIAOMI, MEIZU, SLIENT_SHARE, CHOICE_SHARE, CHOICE_SHARE_V2, ONEKEYLOGIN_CM, ONEKEYLOGIN_CU, ONEKEYLOGIN_CT, SWITCH, QR, HISTORY, IQIYI, lastLoginType};
+            $VALUES = new LastLoginType[]{NONE, PWD, SMS, FACE, TOUCHID, WECHAT, WEIBO, QQ, HUAWEI, GLORY, CFO, YY, XIAOMI, MEIZU, SLIENT_SHARE, CHOICE_SHARE, CHOICE_SHARE_V2, ONEKEYLOGIN_CM, ONEKEYLOGIN_CU, ONEKEYLOGIN_CT, SWITCH, QR, HISTORY, IQIYI, lastLoginType};
         }
 
-        public LastLoginType(String str, int i2, String str2, int i3) {
+        public LastLoginType(String str, int i, String str2, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3)};
+                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -132,16 +135,16 @@ public class Enums {
                 }
             }
             this.key = str2;
-            this.value = i3;
+            this.value = i2;
         }
 
-        public static String getNameByValue(int i2) {
+        public static String getNameByValue(int i) {
             InterceptResult invokeI;
             LastLoginType[] values;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
+            if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
                 for (LastLoginType lastLoginType : values()) {
-                    if (lastLoginType.getValue() == i2) {
+                    if (lastLoginType.getValue() == i) {
                         return lastLoginType.getName();
                     }
                 }
@@ -207,9 +210,9 @@ public class Enums {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -227,7 +230,9 @@ public class Enums {
         public static final int CT = 18;
         public static final int CU = 17;
         public static final int FACE = 3;
+        public static final int HISTORY = 21;
         public static final int HUAWEI = 10;
+        public static final int IQIYI = 22;
         public static final int MEIZU = 14;
         public static final int NA_QR_LOGIN = 20;
         public static final int NONE = 0;
@@ -249,9 +254,9 @@ public class Enums {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -264,9 +269,9 @@ public class Enums {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

@@ -11,7 +11,7 @@ import com.google.android.exoplayer2.upstream.Loader;
 import com.google.android.exoplayer2.util.Util;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class ParsingLoadable<T> implements Loader.Loadable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,23 +23,23 @@ public final class ParsingLoadable<T> implements Loader.Loadable {
     public volatile T result;
     public final int type;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface Parser<T> {
         T parse(Uri uri, InputStream inputStream) throws IOException;
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ParsingLoadable(DataSource dataSource, Uri uri, int i2, Parser<? extends T> parser) {
-        this(dataSource, new DataSpec(uri, 1), i2, parser);
+    public ParsingLoadable(DataSource dataSource, Uri uri, int i, Parser<? extends T> parser) {
+        this(dataSource, new DataSpec(uri, 1), i, parser);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, uri, Integer.valueOf(i2), parser};
+            Object[] objArr = {dataSource, uri, Integer.valueOf(i), parser};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((DataSource) objArr2[0], (DataSpec) objArr2[1], ((Integer) objArr2[2]).intValue(), (Parser) objArr2[3]);
                 newInitContext.thisArg = this;
@@ -91,16 +91,16 @@ public final class ParsingLoadable<T> implements Loader.Loadable {
         }
     }
 
-    public ParsingLoadable(DataSource dataSource, DataSpec dataSpec, int i2, Parser<? extends T> parser) {
+    public ParsingLoadable(DataSource dataSource, DataSpec dataSpec, int i, Parser<? extends T> parser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dataSource, dataSpec, Integer.valueOf(i2), parser};
+            Object[] objArr = {dataSource, dataSpec, Integer.valueOf(i), parser};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -108,7 +108,7 @@ public final class ParsingLoadable<T> implements Loader.Loadable {
         }
         this.dataSource = dataSource;
         this.dataSpec = dataSpec;
-        this.type = i2;
+        this.type = i;
         this.parser = parser;
     }
 }

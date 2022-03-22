@@ -34,9 +34,9 @@ public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -79,7 +79,7 @@ public class SimpleErrorLayer extends ElementLayer<FrameLayout, AbsElement> {
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) {
-            if (view.getId() == R.id.bt_retry || view.getId() == R.id.play_error_layout_retry) {
+            if (view.getId() == R.id.obfuscated_res_0x7f0903f7 || view.getId() == R.id.obfuscated_res_0x7f09185b) {
                 onRetryClick();
             }
         }

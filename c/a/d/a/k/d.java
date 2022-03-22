@@ -15,21 +15,21 @@ import java.io.File;
 public abstract class d implements a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a.InterfaceC0099a callback;
+    public a.InterfaceC0088a callback;
     public SQLiteDatabase database;
     public final String dbFileFullPath;
     public int mVersion;
 
-    public d(String str, int i2) {
+    public d(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,17 +37,17 @@ public abstract class d implements a {
         }
         this.mVersion = 1;
         this.database = null;
-        this.mVersion = i2;
+        this.mVersion = i;
         this.dbFileFullPath = str;
     }
 
     private void exeCallback(SQLiteDatabase sQLiteDatabase) {
-        a.InterfaceC0099a interfaceC0099a;
+        a.InterfaceC0088a interfaceC0088a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0099a = this.callback) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65537, this, sQLiteDatabase) == null) || (interfaceC0088a = this.callback) == null) {
             return;
         }
-        interfaceC0099a.onDatabaseCreated(sQLiteDatabase);
+        interfaceC0088a.onDatabaseCreated(sQLiteDatabase);
     }
 
     private void onCreateDatabase(SQLiteDatabase sQLiteDatabase) {
@@ -58,13 +58,13 @@ public abstract class d implements a {
         }
     }
 
-    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    private void onUpdateDatabase(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i2, i3) == null) {
-            if (i3 > i2) {
-                onUpgrade(sQLiteDatabase, i2, i3);
+        if (interceptable == null || interceptable.invokeLII(65539, this, sQLiteDatabase, i, i2) == null) {
+            if (i2 > i) {
+                onUpgrade(sQLiteDatabase, i, i2);
             } else {
-                onDowngrade(sQLiteDatabase, i2, i3);
+                onDowngrade(sQLiteDatabase, i, i2);
             }
             exeCallback(sQLiteDatabase);
         }
@@ -119,9 +119,9 @@ public abstract class d implements a {
                         this.database.setVersion(this.mVersion);
                     } else {
                         int version = openOrCreateDatabase.getVersion();
-                        int i2 = this.mVersion;
-                        if (version != i2) {
-                            onUpdateDatabase(this.database, version, i2);
+                        int i = this.mVersion;
+                        if (version != i) {
+                            onUpdateDatabase(this.database, version, i);
                             this.database.setVersion(this.mVersion);
                         }
                     }
@@ -139,19 +139,19 @@ public abstract class d implements a {
         }
     }
 
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, sQLiteDatabase, i, i2) == null) {
             clearAllTables(sQLiteDatabase);
             createAllTables(sQLiteDatabase);
         }
     }
 
     @Override // c.a.d.a.k.a
-    public void setOnCreateCallback(a.InterfaceC0099a interfaceC0099a) {
+    public void setOnCreateCallback(a.InterfaceC0088a interfaceC0088a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0099a) == null) {
-            this.callback = interfaceC0099a;
+        if (interceptable == null || interceptable.invokeL(1048583, this, interfaceC0088a) == null) {
+            this.callback = interfaceC0088a;
         }
     }
 }

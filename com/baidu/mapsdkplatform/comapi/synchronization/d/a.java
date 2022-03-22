@@ -1,5 +1,6 @@
 package com.baidu.mapsdkplatform.comapi.synchronization.d;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -39,15 +40,15 @@ public final class a {
 
     public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            boolean z = a;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a) {
+            Log.d(str, str2);
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
-            boolean z = a;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && a) {
+            Log.e(str, str2, th);
         }
     }
 
@@ -66,15 +67,15 @@ public final class a {
 
     public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
-            boolean z = a;
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
+            Log.e(str, str2);
         }
     }
 
     public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            String str3 = str + "-" + b() + "-" + a();
+            Log.d(str + "-" + b() + "-" + a(), str2);
         }
     }
 }

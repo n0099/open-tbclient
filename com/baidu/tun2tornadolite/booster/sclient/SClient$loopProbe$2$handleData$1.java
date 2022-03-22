@@ -28,17 +28,17 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
     public final /* synthetic */ int $size;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SClient$loopProbe$2$handleData$1(byte[] bArr, InetSocketAddress inetSocketAddress, Integer[] numArr, int i2) {
+    public SClient$loopProbe$2$handleData$1(byte[] bArr, InetSocketAddress inetSocketAddress, Integer[] numArr, int i) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bArr, inetSocketAddress, numArr, Integer.valueOf(i2)};
+            Object[] objArr = {bArr, inetSocketAddress, numArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -48,20 +48,20 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
         this.$buf = bArr;
         this.$address = inetSocketAddress;
         this.$cache = numArr;
-        this.$size = i2;
+        this.$size = i;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // kotlin.jvm.functions.Function1
     public /* bridge */ /* synthetic */ Long invoke(UByte uByte) {
-        return m90invoke7apg3OU(uByte.m780unboximpl());
+        return m84invoke7apg3OU(uByte.m759unboximpl());
     }
 
     /* renamed from: invoke-7apg3OU  reason: not valid java name */
-    public final Long m90invoke7apg3OU(byte b2) {
+    public final Long m84invoke7apg3OU(byte b2) {
         InterceptResult invokeB;
-        long j2;
+        long j;
         DatagramSocket datagramSocket;
         DatagramSocket datagramSocket2;
         Interceptable interceptable = $ic;
@@ -77,16 +77,16 @@ public final class SClient$loopProbe$2$handleData$1 extends Lambda implements Fu
                 datagramSocket2 = SClient.udpSocket;
                 Intrinsics.checkNotNull(datagramSocket2);
                 datagramSocket2.receive(datagramPacket2);
-                j2 = System.currentTimeMillis() - currentTimeMillis;
-                this.$cache[UByte.m731constructorimpl(this.$buf[0]) & 255] = 1;
+                j = System.currentTimeMillis() - currentTimeMillis;
+                this.$cache[UByte.m710constructorimpl(this.$buf[0]) & 255] = 1;
                 LogTo logTo = LogTo.INSTANCE;
-                logTo.d("*****", "[Probe time] " + ((Object) UByte.m774toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j2);
+                logTo.d("*****", "[Probe time] " + ((Object) UByte.m753toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet time:" + j);
             } catch (Exception unused) {
-                j2 = -1;
+                j = -1;
                 LogTo logTo2 = LogTo.INSTANCE;
-                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m774toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
+                logTo2.d("*****", "[Probe timeout] " + ((Object) UByte.m753toStringimpl(b2)) + WebvttCueParser.CHAR_SLASH + this.$size + " packet timeout");
             }
-            return Long.valueOf(j2);
+            return Long.valueOf(j);
         }
         return (Long) invokeB.objValue;
     }

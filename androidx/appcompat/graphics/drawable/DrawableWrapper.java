@@ -30,9 +30,9 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {drawable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -164,25 +164,25 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public boolean onLevelChange(int i2) {
+    public boolean onLevelChange(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i2)) == null) ? this.mDrawable.setLevel(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) ? this.mDrawable.setLevel(i) : invokeI.booleanValue;
     }
 
     @Override // android.graphics.drawable.Drawable.Callback
-    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j2) {
+    public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j2)}) == null) {
-            scheduleSelf(runnable, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+            scheduleSelf(runnable, j);
         }
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mDrawable.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mDrawable.setAlpha(i);
         }
     }
 
@@ -195,10 +195,10 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setChangingConfigurations(int i2) {
+    public void setChangingConfigurations(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mDrawable.setChangingConfigurations(i2);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mDrawable.setChangingConfigurations(i);
         }
     }
 
@@ -235,10 +235,10 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setHotspotBounds(int i2, int i3, int i4, int i5) {
+    public void setHotspotBounds(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048602, this, i2, i3, i4, i5) == null) {
-            DrawableCompat.setHotspotBounds(this.mDrawable, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048602, this, i, i2, i3, i4) == null) {
+            DrawableCompat.setHotspotBounds(this.mDrawable, i, i2, i3, i4);
         }
     }
 
@@ -250,10 +250,10 @@ public class DrawableWrapper extends Drawable implements Drawable.Callback {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setTint(int i2) {
+    public void setTint(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-            DrawableCompat.setTint(this.mDrawable, i2);
+        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+            DrawableCompat.setTint(this.mDrawable, i);
         }
     }
 

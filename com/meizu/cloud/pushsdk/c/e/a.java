@@ -6,43 +6,39 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a {
     public static String a = "a";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57289b;
+    public String f42120b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57290c;
+    public String f42121c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57291d;
+    public String f42122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f57292e;
+    public int f42123e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f57293f = "SQLITE";
+    public String f42124f = "SQLITE";
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicBoolean f57294g = new AtomicBoolean(false);
+    public AtomicBoolean f42125g = new AtomicBoolean(false);
 
     /* renamed from: h  reason: collision with root package name */
-    public long f57295h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public long f57296i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f57297j;
+    public long f42126h;
+    public long i;
+    public long j;
     public Context k;
 
-    public a(long j2, long j3, TimeUnit timeUnit, Context context) {
-        this.f57290c = null;
-        this.f57292e = 0;
-        this.f57296i = timeUnit.toMillis(j2);
-        this.f57297j = timeUnit.toMillis(j3);
+    public a(long j, long j2, TimeUnit timeUnit, Context context) {
+        this.f42121c = null;
+        this.f42123e = 0;
+        this.i = timeUnit.toMillis(j);
+        this.j = timeUnit.toMillis(j2);
         this.k = context;
         Map f2 = f();
         if (f2 != null) {
@@ -50,9 +46,9 @@ public class a {
                 String obj = f2.get("userId").toString();
                 String obj2 = f2.get("sessionId").toString();
                 int intValue = ((Integer) f2.get("sessionIndex")).intValue();
-                this.f57289b = obj;
-                this.f57292e = intValue;
-                this.f57290c = obj2;
+                this.f42120b = obj;
+                this.f42123e = intValue;
+                this.f42121c = obj2;
             } catch (Exception e2) {
                 com.meizu.cloud.pushsdk.c.f.c.a(a, "Exception occurred retrieving session info from file: %s", e2.getMessage());
             }
@@ -60,20 +56,20 @@ public class a {
             g();
             com.meizu.cloud.pushsdk.c.f.c.c(a, "Tracker Session Object created.", new Object[0]);
         }
-        this.f57289b = e.b();
+        this.f42120b = e.b();
         d();
         g();
         com.meizu.cloud.pushsdk.c.f.c.c(a, "Tracker Session Object created.", new Object[0]);
     }
 
     private void d() {
-        this.f57291d = this.f57290c;
-        this.f57290c = e.b();
-        this.f57292e++;
+        this.f42122d = this.f42121c;
+        this.f42121c = e.b();
+        this.f42123e++;
         com.meizu.cloud.pushsdk.c.f.c.b(a, "Session information is updated:", new Object[0]);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session ID: %s", this.f57290c);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Previous Session ID: %s", this.f57291d);
-        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session Index: %s", Integer.valueOf(this.f57292e));
+        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session ID: %s", this.f42121c);
+        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Previous Session ID: %s", this.f42122d);
+        com.meizu.cloud.pushsdk.c.f.c.b(a, " + Session Index: %s", Integer.valueOf(this.f42123e));
         e();
     }
 
@@ -86,7 +82,7 @@ public class a {
     }
 
     private void g() {
-        this.f57295h = System.currentTimeMillis();
+        this.f42126h = System.currentTimeMillis();
     }
 
     public com.meizu.cloud.pushsdk.c.a.b a() {
@@ -97,7 +93,7 @@ public class a {
 
     public void b() {
         com.meizu.cloud.pushsdk.c.f.c.b(a, "Checking and updating session information.", new Object[0]);
-        if (e.a(this.f57295h, System.currentTimeMillis(), this.f57294g.get() ? this.f57297j : this.f57296i)) {
+        if (e.a(this.f42126h, System.currentTimeMillis(), this.f42125g.get() ? this.j : this.i)) {
             return;
         }
         d();
@@ -106,11 +102,11 @@ public class a {
 
     public Map c() {
         HashMap hashMap = new HashMap();
-        hashMap.put("userId", this.f57289b);
-        hashMap.put("sessionId", this.f57290c);
-        hashMap.put("previousSessionId", this.f57291d);
-        hashMap.put("sessionIndex", Integer.valueOf(this.f57292e));
-        hashMap.put("storageMechanism", this.f57293f);
+        hashMap.put("userId", this.f42120b);
+        hashMap.put("sessionId", this.f42121c);
+        hashMap.put("previousSessionId", this.f42122d);
+        hashMap.put("sessionIndex", Integer.valueOf(this.f42123e));
+        hashMap.put("storageMechanism", this.f42124f);
         return hashMap;
     }
 }

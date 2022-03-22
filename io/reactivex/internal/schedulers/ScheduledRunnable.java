@@ -55,9 +55,9 @@ public final class ScheduledRunnable extends AtomicReferenceArray<Object> implem
             newInitContext.initArgs = r2;
             Object[] objArr = {runnable, disposableContainer};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

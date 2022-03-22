@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.RevenueConfig;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IMonitorReporter;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MonitorReporter implements IMonitorReporter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class MonitorReporter implements IMonitorReporter {
             newInitContext.initArgs = r2;
             Object[] objArr = {revenueConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,37 +54,37 @@ public class MonitorReporter implements IMonitorReporter {
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IMonitorReporter
-    public void reportCount(int i2, String str, String str2, long j2) {
+    public void reportCount(int i, String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2)}) == null) {
-            RLog.info("MonitorReporter", "reportReturnCode uri:" + str + " count:" + j2);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j)}) == null) {
+            RLog.info("MonitorReporter", "reportReturnCode uri:" + str + " count:" + j);
             StatisAPI statisAPI = HiidoSDKApi.mStatisAPI;
             if (statisAPI != null) {
-                statisAPI.reportCount(i2, str, str2, j2);
+                statisAPI.reportCount(i, str, str2, j);
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IMonitorReporter
-    public void reportReturnCode(int i2, String str, long j2, String str2) {
+    public void reportReturnCode(int i, String str, long j, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), str2}) == null) {
             RLog.info("MonitorReporter", "reportReturnCode uri:" + str + " code:" + str2);
             StatisAPI statisAPI = HiidoSDKApi.mStatisAPI;
             if (statisAPI != null) {
-                statisAPI.reportReturnCode(i2, str, j2, str2, null);
+                statisAPI.reportReturnCode(i, str, j, str2, null);
             }
         }
     }
 
     @Override // com.yy.mobile.framework.revenuesdk.baseapi.reporter.IMonitorReporter
-    public void reportCount(int i2, String str, String str2, long j2, int i3) {
+    public void reportCount(int i, String str, String str2, long j, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, str2, Long.valueOf(j2), Integer.valueOf(i3)}) == null) {
-            RLog.info("MonitorReporter", "reportReturnCode uri:" + str + " count:" + j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            RLog.info("MonitorReporter", "reportReturnCode uri:" + str + " count:" + j);
             StatisAPI statisAPI = HiidoSDKApi.mStatisAPI;
             if (statisAPI != null) {
-                statisAPI.reportCount(i2, str, str2, j2);
+                statisAPI.reportCount(i, str, str2, j);
             }
         }
     }

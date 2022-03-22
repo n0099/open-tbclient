@@ -10,7 +10,6 @@ import com.coremedia.iso.IsoTypeReader;
 import com.coremedia.iso.IsoTypeWriter;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {6})
 /* loaded from: classes7.dex */
 public class SLConfigDescriptor extends BaseDescriptor {
@@ -23,9 +22,9 @@ public class SLConfigDescriptor extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -86,10 +85,10 @@ public class SLConfigDescriptor extends BaseDescriptor {
         return invokeV.intValue;
     }
 
-    public void setPredefined(int i2) {
+    public void setPredefined(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.predefined = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.predefined = i;
         }
     }
 
@@ -98,7 +97,7 @@ public class SLConfigDescriptor extends BaseDescriptor {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "SLConfigDescriptor{predefined=" + this.predefined + ExtendedMessageFormat.END_FE;
+            return "SLConfigDescriptor{predefined=" + this.predefined + '}';
         }
         return (String) invokeV.objValue;
     }

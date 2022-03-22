@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.media.AudioAttributes;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -29,9 +30,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -107,19 +108,19 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i2 = this.mLegacyStreamType;
-            if (i2 != -1) {
-                return i2;
+            int i = this.mLegacyStreamType;
+            if (i != -1) {
+                return i;
             }
             Method audioAttributesToLegacyStreamTypeMethod = getAudioAttributesToLegacyStreamTypeMethod();
             if (audioAttributesToLegacyStreamTypeMethod == null) {
-                String str = "No AudioAttributes#toLegacyStreamType() on API: " + Build.VERSION.SDK_INT;
+                Log.w(TAG, "No AudioAttributes#toLegacyStreamType() on API: " + Build.VERSION.SDK_INT);
                 return -1;
             }
             try {
                 return ((Integer) audioAttributesToLegacyStreamTypeMethod.invoke(null, this.mAudioAttributes)).intValue();
-            } catch (IllegalAccessException | InvocationTargetException unused) {
-                String str2 = "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT;
+            } catch (IllegalAccessException | InvocationTargetException e2) {
+                Log.w(TAG, "getLegacyStreamType() failed on API: " + Build.VERSION.SDK_INT, e2);
                 return -1;
             }
         }
@@ -167,9 +168,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             Bundle bundle = new Bundle();
             bundle.putParcelable(AudioAttributesCompat.AUDIO_ATTRIBUTES_FRAMEWORKS, this.mAudioAttributes);
-            int i2 = this.mLegacyStreamType;
-            if (i2 != -1) {
-                bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i2);
+            int i = this.mLegacyStreamType;
+            if (i != -1) {
+                bundle.putInt(AudioAttributesCompat.AUDIO_ATTRIBUTES_LEGACY_STREAM_TYPE, i);
             }
             return bundle;
         }
@@ -194,9 +195,9 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
             newInitContext.initArgs = r2;
             Object[] objArr = {audioAttributes};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((AudioAttributes) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -206,16 +207,16 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         }
     }
 
-    public AudioAttributesImplApi21(AudioAttributes audioAttributes, int i2) {
+    public AudioAttributesImplApi21(AudioAttributes audioAttributes, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {audioAttributes, Integer.valueOf(i2)};
+            Object[] objArr = {audioAttributes, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -223,6 +224,6 @@ public class AudioAttributesImplApi21 implements AudioAttributesImpl {
         }
         this.mLegacyStreamType = -1;
         this.mAudioAttributes = audioAttributes;
-        this.mLegacyStreamType = i2;
+        this.mLegacyStreamType = i;
     }
 }

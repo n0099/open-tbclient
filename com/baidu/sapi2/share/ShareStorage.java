@@ -33,7 +33,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,10 +45,22 @@ import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ShareStorage {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int CODE_APP_IS_NOT_ONLINE = -102;
+    public static final int CODE_APP_SHARE_IS_DISABLED = -103;
+    public static final int CODE_DEVICE_DO_NOT_FIND_OTHER_BAIDU_APP = -104;
+    public static final int CODE_DEVICE_DO_NOT_FIND_SHARE_DATA = -105;
+    public static final int CODE_GET_DATA_FROM_CLOUD_TIMEOUT = -106;
+    public static final int CODE_PASS_HAS_NOT_INIT = -101;
     public static final String DEFAULT_PORTRAIT;
     public static final String KEY_SHARE_MODELS_AES_IV = "key_pass_share_models_iv";
     public static final String KEY_SHARE_MODELS_AES_KEY = "key_pass_hare_models_key";
     public static int MODE = 5;
+    public static final String MSG_APP_IS_NOT_ONLINE = "当前APP不是Release线上";
+    public static final String MSG_APP_SHARE_IS_DISABLED = "当前APP配置不支持互通";
+    public static final String MSG_DEVICE_DO_NOT_FIND_OTHER_BAIDU_APP = "当前设备未安装其他支持互通的百度产品";
+    public static final String MSG_DEVICE_DO_NOT_FIND_SHARE_DATA = "当前设备存在互通产品但是获取不到互通信息(1、互通APP未登录 2、互通APP 或 当前APP未打开文件权限)";
+    public static final String MSG_GET_DATA_FROM_CLOUD_TIMEOUT = "云端互通获取超时";
+    public static final String MSG_PASS_HAS_NOT_INIT = "Pass SDK未初始化";
     public static final String SD_FILE_NAME = ".BD_SAPI_CACHE/.sapi_temp/";
     public static final int SHARE_ACCOUNT_BACKGROUND_TO_FOREGROUND = 1;
     public static final int SHARE_ACCOUNT_GET_TPL_STOKEN = 5;
@@ -85,15 +96,15 @@ public class ShareStorage {
         public String uuid;
         public int where;
 
-        public static void buildFromSystem(Context context, int i2, CallBack callBack) {
+        public static void buildFromSystem(Context context, int i, CallBack callBack) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(65538, null, context, i2, callBack) == null) {
+            if (interceptable == null || interceptable.invokeLIL(65538, null, context, i, callBack) == null) {
                 SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
                 if (currentAccount == null || currentAccount.isGuestAccount()) {
                     StorageModel storageModel = new StorageModel();
                     storageModel.flag = 1;
                     callBack.call(storageModel);
-                } else if (i2 != 0 && i2 != 1) {
+                } else if (i != 0 && i != 1) {
                     SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(callBack, context) { // from class: com.baidu.sapi2.share.ShareStorage.StorageModel.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
@@ -107,9 +118,9 @@ public class ShareStorage {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {callBack, context};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -225,9 +236,9 @@ public class ShareStorage {
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
                 if (jSONArray != null && jSONArray.length() != 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
                         try {
-                            StorageModel fromJSON = fromJSON(jSONArray.getJSONObject(i2));
+                            StorageModel fromJSON = fromJSON(jSONArray.getJSONObject(i));
                             if (fromJSON != null && !TextUtils.isEmpty(fromJSON.displayname) && !TextUtils.isEmpty(fromJSON.url)) {
                                 arrayList.add(fromJSON);
                             }
@@ -289,9 +300,9 @@ public class ShareStorage {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -320,9 +331,9 @@ public class ShareStorage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -360,30 +371,30 @@ public class ShareStorage {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            int i2 = SapiContext.getInstance().getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
-            if (i2 == -1) {
+            int i = SapiContext.getInstance().getInt(SapiContext.KEY_SHARE_INTERNAL_GRAY, -1);
+            if (i == -1) {
                 Random random = new Random();
                 random.setSeed(System.currentTimeMillis());
-                i2 = random.nextInt(100);
-                SapiContext.getInstance().put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i2);
+                i = random.nextInt(100);
+                SapiContext.getInstance().put(SapiContext.KEY_SHARE_INTERNAL_GRAY, i);
             }
-            return i2 <= SapiContext.getInstance().getShareInternalGray();
+            return i <= SapiContext.getInstance().getShareInternalGray();
         }
         return invokeV.booleanValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setCloud(int i2, StorageModel storageModel) {
+    public void setCloud(int i, StorageModel storageModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65545, this, i2, storageModel) == null) {
-            SapiAccountManager.getInstance().getAccountService().setCloudShareAccount(i2, storageModel);
+        if (interceptable == null || interceptable.invokeIL(65545, this, i, storageModel) == null) {
+            SapiAccountManager.getInstance().getAccountService().setCloudShareAccount(i, storageModel);
         }
     }
 
-    public void asyncSet(int i2) {
+    public void asyncSet(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            ThreadPoolService.getInstance().run(new TPRunnable(new Runnable(this, i2) { // from class: com.baidu.sapi2.share.ShareStorage.1
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ThreadPoolService.getInstance().run(new TPRunnable(new Runnable(this, i) { // from class: com.baidu.sapi2.share.ShareStorage.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ShareStorage this$0;
@@ -394,18 +405,18 @@ public class ShareStorage {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$shareEvent = i2;
+                    this.val$shareEvent = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -494,7 +505,7 @@ public class ShareStorage {
             } catch (Exception e2) {
                 Log.e(ShareUtils.TAG, e2.getMessage());
             }
-            if (!SapiUtils.checkRequestPermission(s.f53810i, this.context)) {
+            if (!SapiUtils.checkRequestPermission("android.permission.READ_EXTERNAL_STORAGE", this.context)) {
                 Log.d(ShareUtils.TAG, "getSd is not has READ_EXTERNAL_STORAGE permission");
                 return null;
             }
@@ -588,10 +599,10 @@ public class ShareStorage {
         return invokeLL.booleanValue;
     }
 
-    public void syncSet(int i2) {
+    public void syncSet(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            StorageModel.buildFromSystem(this.context, i2, new CallBack(this, i2) { // from class: com.baidu.sapi2.share.ShareStorage.2
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            StorageModel.buildFromSystem(this.context, i, new CallBack(this, i) { // from class: com.baidu.sapi2.share.ShareStorage.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ ShareStorage this$0;
@@ -602,18 +613,18 @@ public class ShareStorage {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2)};
+                        Object[] objArr = {this, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$shareEvent = i2;
+                    this.val$shareEvent = i;
                 }
 
                 @Override // com.baidu.sapi2.share.ShareStorage.CallBack
@@ -633,8 +644,8 @@ public class ShareStorage {
                         }
                         this.this$0.setSp(md5, str);
                         this.this$0.setSd(md5, str);
-                        int i3 = this.val$shareEvent;
-                        if (i3 == 2 || i3 == 3 || i3 == 4) {
+                        int i2 = this.val$shareEvent;
+                        if (i2 == 2 || i2 == 3 || i2 == 4) {
                             this.this$0.setCloud(this.val$shareEvent, storageModel);
                         }
                     }

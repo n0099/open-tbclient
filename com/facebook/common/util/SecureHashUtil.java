@@ -2,6 +2,7 @@ package com.facebook.common.util;
 
 import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,7 +16,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SecureHashUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BUFFER_SIZE = 4096;
@@ -43,9 +44,9 @@ public class SecureHashUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,9 +59,9 @@ public class SecureHashUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             StringBuilder sb = new StringBuilder(bArr.length);
             for (byte b2 : bArr) {
-                int i2 = b2 & 255;
-                sb.append((char) HEX_CHAR_TABLE[i2 >>> 4]);
-                sb.append((char) HEX_CHAR_TABLE[i2 & 15]);
+                int i = b2 & 255;
+                sb.append((char) HEX_CHAR_TABLE[i >>> 4]);
+                sb.append((char) HEX_CHAR_TABLE[i & 15]);
             }
             return sb.toString();
         }
@@ -89,7 +90,7 @@ public class SecureHashUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
             try {
-                return makeMD5Hash(str.getBytes("utf-8"));
+                return makeMD5Hash(str.getBytes(IMAudioTransRequest.CHARSET));
             } catch (UnsupportedEncodingException e2) {
                 throw new RuntimeException(e2);
             }
@@ -102,7 +103,7 @@ public class SecureHashUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
             try {
-                return makeSHA1Hash(str.getBytes("utf-8"));
+                return makeSHA1Hash(str.getBytes(IMAudioTransRequest.CHARSET));
             } catch (UnsupportedEncodingException e2) {
                 throw new RuntimeException(e2);
             }

@@ -9,23 +9,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static b f51641d;
+    public static b f38067d;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<a> f51642b;
+    public List<a> f38068b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f51643c;
+    public boolean f38069c;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f51644e;
+    public int f38070e;
 
     static {
         InterceptResult invokeClinit;
@@ -47,44 +47,44 @@ public class b {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f51644e = 0;
+        this.f38070e = 0;
         this.a = true;
-        this.f51642b = new ArrayList();
-        this.f51643c = false;
+        this.f38068b = new ArrayList();
+        this.f38069c = false;
     }
 
     public static /* synthetic */ int c(b bVar) {
-        int i2 = bVar.f51644e;
-        bVar.f51644e = i2 + 1;
-        return i2;
+        int i = bVar.f38070e;
+        bVar.f38070e = i + 1;
+        return i;
     }
 
     public static /* synthetic */ int d(b bVar) {
-        int i2 = bVar.f51644e;
-        bVar.f51644e = i2 - 1;
-        return i2;
+        int i = bVar.f38070e;
+        bVar.f38070e = i - 1;
+        return i;
     }
 
     public static b a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (f51641d == null) {
+            if (f38067d == null) {
                 synchronized (b.class) {
-                    if (f51641d == null) {
-                        f51641d = new b();
+                    if (f38067d == null) {
+                        f38067d = new b();
                     }
                 }
             }
-            return f51641d;
+            return f38067d;
         }
         return (b) invokeV.objValue;
     }

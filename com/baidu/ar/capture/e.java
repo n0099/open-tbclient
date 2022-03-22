@@ -27,20 +27,20 @@ public class e implements ICaptureResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private Bitmap a(byte[] bArr, int i2, int i3) {
+    private Bitmap a(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, bArr, i2, i3)) == null) {
-            Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, this, bArr, i, i2)) == null) {
+            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
             createBitmap.copyPixelsFromBuffer(ByteBuffer.wrap(bArr));
             return createBitmap;
         }

@@ -17,10 +17,10 @@ public final class i {
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public f f3697b;
+    public f f3185b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f3698c;
+    public byte[] f3186c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public i() {
@@ -29,9 +29,9 @@ public final class i {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((c) objArr[0], (f) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
                 newInitContext.thisArg = this;
@@ -48,23 +48,23 @@ public final class i {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar, fVar, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = cVar;
-        this.f3697b = fVar;
-        this.f3698c = bArr;
+        this.f3185b = fVar;
+        this.f3186c = bArr;
     }
 
     public final void a(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, fVar) == null) {
-            this.f3697b = fVar;
+            this.f3185b = fVar;
         }
     }
 
@@ -75,7 +75,7 @@ public final class i {
             if (this != obj) {
                 if (obj instanceof i) {
                     i iVar = (i) obj;
-                    return Intrinsics.areEqual(this.a, iVar.a) && Intrinsics.areEqual(this.f3697b, iVar.f3697b) && Intrinsics.areEqual(this.f3698c, iVar.f3698c);
+                    return Intrinsics.areEqual(this.a, iVar.a) && Intrinsics.areEqual(this.f3185b, iVar.f3185b) && Intrinsics.areEqual(this.f3186c, iVar.f3186c);
                 }
                 return false;
             }
@@ -90,9 +90,9 @@ public final class i {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             c cVar = this.a;
             int hashCode = (cVar != null ? cVar.hashCode() : 0) * 31;
-            f fVar = this.f3697b;
+            f fVar = this.f3185b;
             int hashCode2 = (hashCode + (fVar != null ? fVar.hashCode() : 0)) * 31;
-            byte[] bArr = this.f3698c;
+            byte[] bArr = this.f3186c;
             return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
         }
         return invokeV.intValue;
@@ -102,12 +102,12 @@ public final class i {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.f3697b + ", encodeDHPublicKey=" + Arrays.toString(this.f3698c) + SmallTailInfo.EMOTION_SUFFIX;
+            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.f3185b + ", encodeDHPublicKey=" + Arrays.toString(this.f3186c) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ i(c cVar, f fVar, byte[] bArr, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? null : cVar, (i2 & 2) != 0 ? null : fVar, (i2 & 4) != 0 ? null : bArr);
+    public /* synthetic */ i(c cVar, f fVar, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : cVar, (i & 2) != 0 ? null : fVar, (i & 4) != 0 ? null : bArr);
     }
 }

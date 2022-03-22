@@ -31,16 +31,16 @@ public class ChainHead {
     public int mWidgetsCount;
     public int mWidgetsMatchCount;
 
-    public ChainHead(ConstraintWidget constraintWidget, int i2, boolean z) {
+    public ChainHead(ConstraintWidget constraintWidget, int i, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {constraintWidget, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {constraintWidget, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,14 +49,14 @@ public class ChainHead {
         this.mTotalWeight = 0.0f;
         this.mIsRtl = false;
         this.mFirst = constraintWidget;
-        this.mOrientation = i2;
+        this.mOrientation = i;
         this.mIsRtl = z;
     }
 
     private void defineChainProperties() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
-            int i2 = this.mOrientation * 2;
+            int i = this.mOrientation * 2;
             ConstraintWidget constraintWidget = this.mFirst;
             boolean z = false;
             ConstraintWidget constraintWidget2 = constraintWidget;
@@ -64,26 +64,26 @@ public class ChainHead {
             while (!z2) {
                 this.mWidgetsCount++;
                 ConstraintWidget[] constraintWidgetArr = constraintWidget.mNextChainWidget;
-                int i3 = this.mOrientation;
+                int i2 = this.mOrientation;
                 ConstraintWidget constraintWidget3 = null;
-                constraintWidgetArr[i3] = null;
-                constraintWidget.mListNextMatchConstraintsWidget[i3] = null;
+                constraintWidgetArr[i2] = null;
+                constraintWidget.mListNextMatchConstraintsWidget[i2] = null;
                 if (constraintWidget.getVisibility() != 8) {
                     if (this.mFirstVisibleWidget == null) {
                         this.mFirstVisibleWidget = constraintWidget;
                     }
                     this.mLastVisibleWidget = constraintWidget;
                     ConstraintWidget.DimensionBehaviour[] dimensionBehaviourArr = constraintWidget.mListDimensionBehaviors;
-                    int i4 = this.mOrientation;
-                    if (dimensionBehaviourArr[i4] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+                    int i3 = this.mOrientation;
+                    if (dimensionBehaviourArr[i3] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
                         int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
-                        if (iArr[i4] == 0 || iArr[i4] == 3 || iArr[i4] == 2) {
+                        if (iArr[i3] == 0 || iArr[i3] == 3 || iArr[i3] == 2) {
                             this.mWidgetsMatchCount++;
                             float[] fArr = constraintWidget.mWeight;
-                            int i5 = this.mOrientation;
-                            float f2 = fArr[i5];
+                            int i4 = this.mOrientation;
+                            float f2 = fArr[i4];
                             if (f2 > 0.0f) {
-                                this.mTotalWeight += fArr[i5];
+                                this.mTotalWeight += fArr[i4];
                             }
                             if (isMatchConstraintEqualityCandidate(constraintWidget, this.mOrientation)) {
                                 if (f2 < 0.0f) {
@@ -110,11 +110,11 @@ public class ChainHead {
                 if (constraintWidget2 != constraintWidget) {
                     constraintWidget2.mNextChainWidget[this.mOrientation] = constraintWidget;
                 }
-                ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i2 + 1].mTarget;
+                ConstraintAnchor constraintAnchor = constraintWidget.mListAnchors[i + 1].mTarget;
                 if (constraintAnchor != null) {
                     ConstraintWidget constraintWidget5 = constraintAnchor.mOwner;
                     ConstraintAnchor[] constraintAnchorArr = constraintWidget5.mListAnchors;
-                    if (constraintAnchorArr[i2].mTarget != null && constraintAnchorArr[i2].mTarget.mOwner == constraintWidget) {
+                    if (constraintAnchorArr[i].mTarget != null && constraintAnchorArr[i].mTarget.mOwner == constraintWidget) {
                         constraintWidget3 = constraintWidget5;
                     }
                 }
@@ -138,13 +138,13 @@ public class ChainHead {
         }
     }
 
-    public static boolean isMatchConstraintEqualityCandidate(ConstraintWidget constraintWidget, int i2) {
+    public static boolean isMatchConstraintEqualityCandidate(ConstraintWidget constraintWidget, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, constraintWidget, i2)) == null) {
-            if (constraintWidget.getVisibility() != 8 && constraintWidget.mListDimensionBehaviors[i2] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, constraintWidget, i)) == null) {
+            if (constraintWidget.getVisibility() != 8 && constraintWidget.mListDimensionBehaviors[i] == ConstraintWidget.DimensionBehaviour.MATCH_CONSTRAINT) {
                 int[] iArr = constraintWidget.mResolvedMatchConstraintDefault;
-                if (iArr[i2] == 0 || iArr[i2] == 3) {
+                if (iArr[i] == 0 || iArr[i] == 3) {
                     return true;
                 }
             }

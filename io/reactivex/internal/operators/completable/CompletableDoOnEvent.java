@@ -12,14 +12,14 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.exceptions.CompositeException;
 import io.reactivex.exceptions.Exceptions;
 import io.reactivex.functions.Consumer;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableDoOnEvent extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Consumer<? super Throwable> onEvent;
     public final CompletableSource source;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public final class DoOnEvent implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public final class CompletableDoOnEvent extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableDoOnEvent, completableObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,9 +89,9 @@ public final class CompletableDoOnEvent extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSource, consumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

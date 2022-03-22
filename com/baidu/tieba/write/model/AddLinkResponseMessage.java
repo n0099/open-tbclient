@@ -1,6 +1,6 @@
 package com.baidu.tieba.write.model;
 
-import c.a.r0.q4.l.a;
+import c.a.p0.s4.l.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
@@ -22,17 +22,17 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     public int errno;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AddLinkResponseMessage(int i2) {
-        super(i2);
+    public AddLinkResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -43,9 +43,9 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) || jSONObject == null) {
             return;
         }
         this.addLinkResponseData = new a();
@@ -58,20 +58,20 @@ public class AddLinkResponseMessage extends JsonHttpResponsedMessage {
             if (optJSONObject == null) {
                 return;
             }
-            this.addLinkResponseData.f21282b = optJSONObject.optString("link_url");
-            this.addLinkResponseData.f21283c = optJSONObject.optString("link_url_code");
+            this.addLinkResponseData.f18384b = optJSONObject.optString("link_url");
+            this.addLinkResponseData.f18385c = optJSONObject.optString("link_url_code");
             JSONArray optJSONArray = optJSONObject.optJSONArray("link_content");
             if (optJSONArray == null || optJSONArray.length() == 0) {
                 return;
             }
             JSONObject jSONObject2 = (JSONObject) optJSONArray.get(0);
-            this.addLinkResponseData.f21284d = jSONObject2.optInt("link_type");
-            this.addLinkResponseData.f21285e = jSONObject2.optString("link_title");
-            this.addLinkResponseData.f21286f = jSONObject2.optString("link_abstract");
-            this.addLinkResponseData.f21287g = jSONObject2.optString("link_head_pic");
-            this.addLinkResponseData.f21288h = jSONObject2.optString("link_head_small_pic");
-            this.addLinkResponseData.f21289i = jSONObject2.optString("link_head_big_pic");
-            this.addLinkResponseData.f21290j = jSONObject2.optString("video_url");
+            this.addLinkResponseData.f18386d = jSONObject2.optInt("link_type");
+            this.addLinkResponseData.f18387e = jSONObject2.optString("link_title");
+            this.addLinkResponseData.f18388f = jSONObject2.optString("link_abstract");
+            this.addLinkResponseData.f18389g = jSONObject2.optString("link_head_pic");
+            this.addLinkResponseData.f18390h = jSONObject2.optString("link_head_small_pic");
+            this.addLinkResponseData.i = jSONObject2.optString("link_head_big_pic");
+            this.addLinkResponseData.j = jSONObject2.optString("video_url");
             this.addLinkResponseData.l = jSONObject2.optInt(AdWebVideoActivityConfig.KEY_VIDEO_DURATION, 0);
             this.addLinkResponseData.m = jSONObject2.optString("video_format");
             this.addLinkResponseData.n = jSONObject2.optInt("video_from", 0);

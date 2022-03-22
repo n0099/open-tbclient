@@ -42,9 +42,9 @@ public class ClassesInfoCache {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {map};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,22 +89,22 @@ public class ClassesInfoCache {
         public final int mCallType;
         public final Method mMethod;
 
-        public MethodReference(int i2, Method method) {
+        public MethodReference(int i, Method method) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), method};
+                Object[] objArr = {Integer.valueOf(i), method};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mCallType = i2;
+            this.mCallType = i;
             this.mMethod = method;
             method.setAccessible(true);
         }
@@ -135,12 +135,12 @@ public class ClassesInfoCache {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, lifecycleOwner, event, obj) == null) {
                 try {
-                    int i2 = this.mCallType;
-                    if (i2 == 0) {
+                    int i = this.mCallType;
+                    if (i == 0) {
                         this.mMethod.invoke(obj, new Object[0]);
-                    } else if (i2 == 1) {
+                    } else if (i == 1) {
                         this.mMethod.invoke(obj, lifecycleOwner);
-                    } else if (i2 != 2) {
+                    } else if (i != 2) {
                     } else {
                         this.mMethod.invoke(obj, lifecycleOwner, event);
                     }
@@ -174,9 +174,9 @@ public class ClassesInfoCache {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -188,7 +188,7 @@ public class ClassesInfoCache {
 
     private CallbackInfo createInfo(Class<?> cls, @Nullable Method[] methodArr) {
         InterceptResult invokeLL;
-        int i2;
+        int i;
         CallbackInfo info;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, cls, methodArr)) == null) {
@@ -211,11 +211,11 @@ public class ClassesInfoCache {
                 if (onLifecycleEvent != null) {
                     Class<?>[] parameterTypes = method.getParameterTypes();
                     if (parameterTypes.length <= 0) {
-                        i2 = 0;
+                        i = 0;
                     } else if (!parameterTypes[0].isAssignableFrom(LifecycleOwner.class)) {
                         throw new IllegalArgumentException("invalid parameter type. Must be one and instanceof LifecycleOwner");
                     } else {
-                        i2 = 1;
+                        i = 1;
                     }
                     Lifecycle.Event value = onLifecycleEvent.value();
                     if (parameterTypes.length > 1) {
@@ -223,13 +223,13 @@ public class ClassesInfoCache {
                             if (value != Lifecycle.Event.ON_ANY) {
                                 throw new IllegalArgumentException("Second arg is supported only for ON_ANY value");
                             }
-                            i2 = 2;
+                            i = 2;
                         } else {
                             throw new IllegalArgumentException("invalid parameter type. second arg must be an event");
                         }
                     }
                     if (parameterTypes.length <= 2) {
-                        verifyAndPutHandler(hashMap, new MethodReference(i2, method), value, cls);
+                        verifyAndPutHandler(hashMap, new MethodReference(i, method), value, cls);
                         z = true;
                     } else {
                         throw new IllegalArgumentException("cannot have more than 2 params");

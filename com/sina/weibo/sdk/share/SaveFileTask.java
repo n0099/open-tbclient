@@ -15,7 +15,7 @@ import com.sina.weibo.sdk.api.StoryMessage;
 import com.sina.weibo.sdk.api.StoryObject;
 import com.sina.weibo.sdk.utils.FileUtils;
 import java.lang.ref.WeakReference;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, transResourceCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,17 +41,17 @@ public class SaveFileTask extends AsyncTask<StoryMessage, Object, StoryObject> {
         this.mCallback = transResourceCallback;
     }
 
-    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i2) {
+    private StoryObject copyFileToWeiboTem(Context context, Uri uri, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, context, uri, i2)) == null) {
-            String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, this, context, uri, i)) == null) {
+            String copyFileToWeiboTem = ShareUtils.copyFileToWeiboTem(context, uri, i);
             if (TextUtils.isEmpty(copyFileToWeiboTem)) {
                 return null;
             }
             StoryObject storyObject = new StoryObject();
             storyObject.sourcePath = copyFileToWeiboTem;
-            storyObject.sourceType = i2;
+            storyObject.sourceType = i;
             storyObject.appId = WbSdk.getAuthInfo().getAppKey();
             storyObject.appPackage = context.getPackageName();
             return storyObject;

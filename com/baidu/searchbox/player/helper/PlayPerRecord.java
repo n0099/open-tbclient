@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes4.dex */
 public class PlayPerRecord {
     public static /* synthetic */ Interceptable $ic;
@@ -29,26 +28,26 @@ public class PlayPerRecord {
         public String page;
         public long startTime;
 
-        public PerRecord(long j2, long j3, String str, String str2) {
+        public PerRecord(long j, long j2, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str, str2};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.startTime = j2;
-            this.endTime = j3;
+            this.startTime = j;
+            this.endTime = j2;
             this.from = str;
             this.page = str2;
-            this.duration = j3 - j2;
+            this.duration = j2 - j;
         }
 
         public long getDuration() {
@@ -61,7 +60,7 @@ public class PlayPerRecord {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "PerRecord{startTime=" + this.startTime + ", endTime=" + this.endTime + ", from='" + this.from + ExtendedMessageFormat.QUOTE + ", page='" + this.page + ExtendedMessageFormat.QUOTE + ", duration=" + this.duration + ExtendedMessageFormat.END_FE;
+                return "PerRecord{startTime=" + this.startTime + ", endTime=" + this.endTime + ", from='" + this.from + "', page='" + this.page + "', duration=" + this.duration + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -88,9 +87,9 @@ public class PlayPerRecord {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

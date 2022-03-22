@@ -31,17 +31,17 @@ public class IMDatabase {
         public Context mContext;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public DbOpenHelper(Context context, String str, int i2) {
-            super(context, str, (SQLiteDatabase.CursorFactory) null, i2);
+        public DbOpenHelper(Context context, String str, int i) {
+            super(context, str, (SQLiteDatabase.CursorFactory) null, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, Integer.valueOf(i2)};
+                Object[] objArr = {context, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                     newInitContext.thisArg = this;
@@ -62,18 +62,18 @@ public class IMDatabase {
 
         @Override // android.database.sqlite.SQLiteOpenHelper
         @TargetApi(11)
-        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
-                DBVersionManager.getInstance(this.mContext).onDowngrade(sQLiteDatabase, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+                DBVersionManager.getInstance(this.mContext).onDowngrade(sQLiteDatabase, i, i2);
             }
         }
 
         @Override // android.database.sqlite.SQLiteOpenHelper
-        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i2, i3) == null) {
-                DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i2, i3);
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, i, i2) == null) {
+                DBVersionManager.getInstance(this.mContext).onUpgrade(sQLiteDatabase, i, i2);
             }
         }
     }
@@ -98,23 +98,23 @@ public class IMDatabase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j2) {
+    public static synchronized DbOpenHelper getDBOpenHelper(Context context, String str, long j) {
         InterceptResult invokeCommon;
         String path;
         DbOpenHelper dbOpenHelper;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             synchronized (IMDatabase.class) {
-                String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j2 + ".db").getPath();
+                String path2 = context.getDatabasePath(TableDefine.DB_NAME_PREFIX + str + "_" + j + ".db").getPath();
                 if (mDbHelper == null) {
                     mDbHelper = new DbOpenHelper(context, path2, 50);
                 } else {
@@ -137,12 +137,12 @@ public class IMDatabase {
         return (DbOpenHelper) invokeCommon.objValue;
     }
 
-    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j2) {
+    public static synchronized SQLiteDatabase getReadableDb(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             synchronized (IMDatabase.class) {
-                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j2);
+                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
                 SQLiteDatabase sQLiteDatabase = null;
                 if (dBOpenHelper == null) {
                     return null;
@@ -160,12 +160,12 @@ public class IMDatabase {
         return (SQLiteDatabase) invokeCommon.objValue;
     }
 
-    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j2) {
+    public static synchronized SQLiteDatabase getWritableDb(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             synchronized (IMDatabase.class) {
-                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j2);
+                DbOpenHelper dBOpenHelper = getDBOpenHelper(context, str, j);
                 SQLiteDatabase sQLiteDatabase = null;
                 if (dBOpenHelper == null) {
                     return null;

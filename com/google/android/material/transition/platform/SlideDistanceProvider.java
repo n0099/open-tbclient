@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_DISTANCE = -1;
@@ -34,79 +34,79 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
 
     @Retention(RetentionPolicy.SOURCE)
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public @interface GravityFlag {
     }
 
-    public SlideDistanceProvider(int i2) {
+    public SlideDistanceProvider(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.slideDistance = -1;
-        this.slideEdge = i2;
+        this.slideEdge = i;
     }
 
-    public static Animator createTranslationAppearAnimator(View view, View view2, int i2, @Px int i3) {
+    public static Animator createTranslationAppearAnimator(View view, View view2, int i, @Px int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, view, view2, i2, i3)) == null) {
-            if (i2 != 3) {
-                if (i2 != 5) {
-                    if (i2 != 48) {
-                        if (i2 != 80) {
-                            if (i2 == 8388611) {
-                                return createTranslationXAnimator(view2, isRtl(view) ? i3 : -i3, 0.0f);
-                            } else if (i2 == 8388613) {
-                                return createTranslationXAnimator(view2, isRtl(view) ? -i3 : i3, 0.0f);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, view, view2, i, i2)) == null) {
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 48) {
+                        if (i != 80) {
+                            if (i == 8388611) {
+                                return createTranslationXAnimator(view2, isRtl(view) ? i2 : -i2, 0.0f);
+                            } else if (i == 8388613) {
+                                return createTranslationXAnimator(view2, isRtl(view) ? -i2 : i2, 0.0f);
                             } else {
-                                throw new IllegalArgumentException("Invalid slide direction: " + i2);
+                                throw new IllegalArgumentException("Invalid slide direction: " + i);
                             }
                         }
-                        return createTranslationYAnimator(view2, i3, 0.0f);
+                        return createTranslationYAnimator(view2, i2, 0.0f);
                     }
-                    return createTranslationYAnimator(view2, -i3, 0.0f);
+                    return createTranslationYAnimator(view2, -i2, 0.0f);
                 }
-                return createTranslationXAnimator(view2, -i3, 0.0f);
+                return createTranslationXAnimator(view2, -i2, 0.0f);
             }
-            return createTranslationXAnimator(view2, i3, 0.0f);
+            return createTranslationXAnimator(view2, i2, 0.0f);
         }
         return (Animator) invokeLLII.objValue;
     }
 
-    public static Animator createTranslationDisappearAnimator(View view, View view2, int i2, @Px int i3) {
+    public static Animator createTranslationDisappearAnimator(View view, View view2, int i, @Px int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, view, view2, i2, i3)) == null) {
-            if (i2 != 3) {
-                if (i2 != 5) {
-                    if (i2 != 48) {
-                        if (i2 != 80) {
-                            if (i2 == 8388611) {
-                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? -i3 : i3);
-                            } else if (i2 == 8388613) {
-                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? i3 : -i3);
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, view, view2, i, i2)) == null) {
+            if (i != 3) {
+                if (i != 5) {
+                    if (i != 48) {
+                        if (i != 80) {
+                            if (i == 8388611) {
+                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? -i2 : i2);
+                            } else if (i == 8388613) {
+                                return createTranslationXAnimator(view2, 0.0f, isRtl(view) ? i2 : -i2);
                             } else {
-                                throw new IllegalArgumentException("Invalid slide direction: " + i2);
+                                throw new IllegalArgumentException("Invalid slide direction: " + i);
                             }
                         }
-                        return createTranslationYAnimator(view2, 0.0f, -i3);
+                        return createTranslationYAnimator(view2, 0.0f, -i2);
                     }
-                    return createTranslationYAnimator(view2, 0.0f, i3);
+                    return createTranslationYAnimator(view2, 0.0f, i2);
                 }
-                return createTranslationXAnimator(view2, 0.0f, i3);
+                return createTranslationXAnimator(view2, 0.0f, i2);
             }
-            return createTranslationXAnimator(view2, 0.0f, -i3);
+            return createTranslationXAnimator(view2, 0.0f, -i2);
         }
         return (Animator) invokeLLII.objValue;
     }
@@ -127,8 +127,8 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, this, context)) == null) {
-            int i2 = this.slideDistance;
-            return i2 != -1 ? i2 : context.getResources().getDimensionPixelSize(R.dimen.mtrl_transition_shared_axis_slide_distance);
+            int i = this.slideDistance;
+            return i != -1 ? i : context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070478);
         }
         return invokeL.intValue;
     }
@@ -168,21 +168,21 @@ public final class SlideDistanceProvider implements VisibilityAnimatorProvider {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.slideEdge : invokeV.intValue;
     }
 
-    public void setSlideDistance(@Px int i2) {
+    public void setSlideDistance(@Px int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            if (i2 >= 0) {
-                this.slideDistance = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (i >= 0) {
+                this.slideDistance = i;
                 return;
             }
             throw new IllegalArgumentException("Slide distance must be positive. If attempting to reverse the direction of the slide, use setSlideEdge(int) instead.");
         }
     }
 
-    public void setSlideEdge(int i2) {
+    public void setSlideEdge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.slideEdge = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.slideEdge = i;
         }
     }
 }

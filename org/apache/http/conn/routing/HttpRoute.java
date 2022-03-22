@@ -11,7 +11,7 @@ import java.net.InetAddress;
 import org.apache.http.HttpHost;
 import org.apache.http.conn.routing.RouteInfo;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class HttpRoute implements RouteInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public final class HttpRoute implements RouteInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost, inetAddress, httpHostArr, Boolean.valueOf(z), tunnelType, layerType};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -63,10 +63,10 @@ public final class HttpRoute implements RouteInfo {
     }
 
     @Override // org.apache.http.conn.routing.RouteInfo
-    public final HttpHost getHopTarget(int i2) {
+    public final HttpHost getHopTarget(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return (HttpHost) invokeI.objValue;
@@ -177,9 +177,9 @@ public final class HttpRoute implements RouteInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost, inetAddress, httpHost2, Boolean.valueOf(z), tunnelType, layerType};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -195,9 +195,9 @@ public final class HttpRoute implements RouteInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost, inetAddress, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -213,9 +213,9 @@ public final class HttpRoute implements RouteInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -231,9 +231,9 @@ public final class HttpRoute implements RouteInfo {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpHost, inetAddress, httpHost2, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

@@ -97,9 +97,9 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -309,10 +309,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setAlpha(int i2) {
+        public void setAlpha(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-                this.mAlpha = i2;
+            if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+                this.mAlpha = i;
             }
         }
 
@@ -332,10 +332,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             this.mArrowScale = f2;
         }
 
-        public void setBackgroundColor(int i2) {
+        public void setBackgroundColor(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-                this.mCirclePaint.setColor(i2);
+            if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+                this.mCirclePaint.setColor(i);
             }
         }
 
@@ -346,10 +346,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setColor(int i2) {
+        public void setColor(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048604, this, i2) == null) {
-                this.mCurrentColor = i2;
+            if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+                this.mCurrentColor = i;
             }
         }
 
@@ -360,11 +360,11 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             }
         }
 
-        public void setColorIndex(int i2) {
+        public void setColorIndex(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048606, this, i2) == null) {
-                this.mColorIndex = i2;
-                this.mCurrentColor = this.mColors[i2];
+            if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
+                this.mColorIndex = i;
+                this.mCurrentColor = this.mColors[i];
             }
         }
 
@@ -455,9 +455,9 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -481,15 +481,15 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    private int evaluateColorChange(float f2, int i2, int i3) {
+    private int evaluateColorChange(float f2, int i, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            int i4 = (i2 >> 24) & 255;
-            int i5 = (i2 >> 16) & 255;
-            int i6 = (i2 >> 8) & 255;
-            int i7 = i2 & 255;
-            return ((i4 + ((int) ((((i3 >> 24) & 255) - i4) * f2))) << 24) | ((i5 + ((int) ((((i3 >> 16) & 255) - i5) * f2))) << 16) | ((i6 + ((int) ((((i3 >> 8) & 255) - i6) * f2))) << 8) | (i7 + ((int) (f2 * ((i3 & 255) - i7))));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{Float.valueOf(f2), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int i3 = (i >> 24) & 255;
+            int i4 = (i >> 16) & 255;
+            int i5 = (i >> 8) & 255;
+            int i6 = i & 255;
+            return ((i3 + ((int) ((((i2 >> 24) & 255) - i3) * f2))) << 24) | ((i4 + ((int) ((((i2 >> 16) & 255) - i4) * f2))) << 16) | ((i5 + ((int) ((((i2 >> 8) & 255) - i5) * f2))) << 8) | (i6 + ((int) (f2 * ((i2 & 255) - i6))));
         }
         return invokeCommon.intValue;
     }
@@ -537,9 +537,9 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, ring};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -576,9 +576,9 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, ring};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -770,10 +770,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
     }
 
     @Override // android.graphics.drawable.Drawable
-    public void setAlpha(int i2) {
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mRing.setAlpha(i2);
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mRing.setAlpha(i);
             invalidateSelf();
         }
     }
@@ -802,10 +802,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setBackgroundColor(int i2) {
+    public void setBackgroundColor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
-            this.mRing.setBackgroundColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+            this.mRing.setBackgroundColor(i);
             invalidateSelf();
         }
     }
@@ -869,10 +869,10 @@ public class CircularProgressDrawable extends Drawable implements Animatable {
         }
     }
 
-    public void setStyle(int i2) {
+    public void setStyle(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
-            if (i2 == 0) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+            if (i == 0) {
                 setSizeParameters(11.0f, 3.0f, 12.0f, 6.0f);
             } else {
                 setSizeParameters(7.5f, 2.5f, 10.0f, 5.0f);

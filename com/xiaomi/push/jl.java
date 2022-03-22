@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class jl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,9 @@ public abstract class jl {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -34,19 +34,19 @@ public abstract class jl {
         return invokeV.intValue;
     }
 
-    public abstract int a(byte[] bArr, int i2, int i3);
+    public abstract int a(byte[] bArr, int i, int i2);
 
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public abstract void m593a(byte[] bArr, int i2, int i3);
+    public abstract void m572a(byte[] bArr, int i, int i2);
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m594a() {
+    public byte[] m573a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -64,19 +64,19 @@ public abstract class jl {
         return invokeV.intValue;
     }
 
-    public int b(byte[] bArr, int i2, int i3) {
+    public int b(byte[] bArr, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i2, i3)) == null) {
-            int i4 = 0;
-            while (i4 < i3) {
-                int a = a(bArr, i2 + i4, i3 - i4);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int a = a(bArr, i + i3, i2 - i3);
                 if (a <= 0) {
-                    throw new jm("Cannot read. Remote side has closed. Tried to read " + i3 + " bytes, but only got " + i4 + " bytes.");
+                    throw new jm("Cannot read. Remote side has closed. Tried to read " + i2 + " bytes, but only got " + i3 + " bytes.");
                 }
-                i4 += a;
+                i3 += a;
             }
-            return i4;
+            return i3;
         }
         return invokeLII.intValue;
     }

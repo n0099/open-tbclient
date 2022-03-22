@@ -29,7 +29,7 @@ import com.google.android.exoplayer2.util.MediaClock;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.TraceUtil;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements MediaClock {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int REINITIALIZATION_STATE_NONE = 0;
@@ -61,13 +61,13 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     public boolean waitingForKeys;
 
     /* renamed from: com.google.android.exoplayer2.audio.SimpleDecoderAudioRenderer$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class AudioSinkListener implements AudioSink.Listener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,9 +80,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 newInitContext.initArgs = r2;
                 Object[] objArr = {simpleDecoderAudioRenderer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,11 +92,11 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.Listener
-        public void onAudioSessionId(int i2) {
+        public void onAudioSessionId(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                this.this$0.eventDispatcher.audioSessionId(i2);
-                this.this$0.onAudioSessionId(i2);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.this$0.eventDispatcher.audioSessionId(i);
+                this.this$0.onAudioSessionId(i);
             }
         }
 
@@ -110,11 +110,11 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         }
 
         @Override // com.google.android.exoplayer2.audio.AudioSink.Listener
-        public void onUnderrun(int i2, long j2, long j3) {
+        public void onUnderrun(int i, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-                this.this$0.eventDispatcher.audioTrackUnderrun(i2, j2, j3);
-                this.this$0.onAudioTrackUnderrun(i2, j2, j3);
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+                this.this$0.eventDispatcher.audioTrackUnderrun(i, j, j2);
+                this.this$0.onAudioTrackUnderrun(i, j, j2);
             }
         }
 
@@ -130,9 +130,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((Handler) objArr[0], (AudioRendererEventListener) objArr[1], (AudioProcessor[]) objArr[2]);
                 newInitContext.thisArg = this;
@@ -310,13 +310,13 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
                 maybeInitDecoder();
                 this.audioTrackNeedsConfigure = true;
             }
-            int i2 = format.encoderDelay;
-            if (i2 == -1) {
-                i2 = 0;
+            int i = format.encoderDelay;
+            if (i == -1) {
+                i = 0;
             }
-            this.encoderDelay = i2;
-            int i3 = format.encoderPadding;
-            this.encoderPadding = i3 != -1 ? i3 : 0;
+            this.encoderDelay = i;
+            int i2 = format.encoderPadding;
+            this.encoderPadding = i2 != -1 ? i2 : 0;
             this.eventDispatcher.inputFormatChanged(format);
         }
     }
@@ -409,13 +409,13 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer, com.google.android.exoplayer2.ExoPlayer.ExoPlayerComponent
-    public void handleMessage(int i2, Object obj) throws ExoPlaybackException {
+    public void handleMessage(int i, Object obj) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, obj) == null) {
-            if (i2 == 2) {
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, obj) == null) {
+            if (i == 2) {
                 this.audioSink.setVolume(((Float) obj).floatValue());
-            } else if (i2 != 3) {
-                super.handleMessage(i2, obj);
+            } else if (i != 3) {
+                super.handleMessage(i, obj);
             } else {
                 this.audioSink.setAudioAttributes((AudioAttributes) obj);
             }
@@ -436,9 +436,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.audioSink.hasPendingData() || !(this.inputFormat == null || this.waitingForKeys || (!isSourceReady() && this.outputBuffer == null)) : invokeV.booleanValue;
     }
 
-    public void onAudioSessionId(int i2) {
+    public void onAudioSessionId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
         }
     }
 
@@ -448,9 +448,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
         }
     }
 
-    public void onAudioTrackUnderrun(int i2, long j2, long j3) {
+    public void onAudioTrackUnderrun(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
         }
     }
 
@@ -517,9 +517,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             DecoderCounters decoderCounters = new DecoderCounters();
             this.decoderCounters = decoderCounters;
             this.eventDispatcher.enabled(decoderCounters);
-            int i2 = getConfiguration().tunnelingAudioSessionId;
-            if (i2 != 0) {
-                this.audioSink.enableTunnelingV21(i2);
+            int i = getConfiguration().tunnelingAudioSessionId;
+            if (i != 0) {
+                this.audioSink.enableTunnelingV21(i);
             } else {
                 this.audioSink.disableTunneling();
             }
@@ -527,11 +527,11 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     @Override // com.google.android.exoplayer2.BaseRenderer
-    public void onPositionReset(long j2, boolean z) throws ExoPlaybackException {
+    public void onPositionReset(long j, boolean z) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z)}) == null) {
             this.audioSink.reset();
-            this.currentPositionUs = j2;
+            this.currentPositionUs = j;
             this.allowPositionDiscontinuity = true;
             this.inputStreamEnded = false;
             this.outputStreamEnded = false;
@@ -558,9 +558,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
     }
 
     @Override // com.google.android.exoplayer2.Renderer
-    public void render(long j2, long j3) throws ExoPlaybackException {
+    public void render(long j, long j2) throws ExoPlaybackException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048592, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             if (this.outputStreamEnded) {
                 try {
                     this.audioSink.playToEndOfStream();
@@ -632,9 +632,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, audioRendererEventListener, audioProcessorArr};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Handler) objArr2[0], (AudioRendererEventListener) objArr2[1], (AudioCapabilities) objArr2[2], (DrmSessionManager) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (AudioProcessor[]) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -653,9 +653,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, audioRendererEventListener, audioCapabilities};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Handler) objArr2[0], (AudioRendererEventListener) objArr2[1], (AudioCapabilities) objArr2[2], (DrmSessionManager) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (AudioProcessor[]) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -674,9 +674,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             newInitContext.initArgs = r3;
             Object[] objArr = {handler, audioRendererEventListener, audioCapabilities, drmSessionManager, Boolean.valueOf(z), audioProcessorArr};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Handler) objArr2[0], (AudioRendererEventListener) objArr2[1], (DrmSessionManager) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (AudioSink) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -695,9 +695,9 @@ public abstract class SimpleDecoderAudioRenderer extends BaseRenderer implements
             newInitContext.initArgs = r2;
             Object[] objArr = {handler, audioRendererEventListener, drmSessionManager, Boolean.valueOf(z), audioSink};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);

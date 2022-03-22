@@ -1,9 +1,10 @@
 package com.baidu.searchbox.logsystem.basic.track;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import c.a.i0.b.a.a;
+import c.a.g0.b.a.a;
 import com.baidu.android.util.io.FileUtils;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
@@ -60,9 +61,9 @@ public class LokiTrackUISaver {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -86,9 +87,9 @@ public class LokiTrackUISaver {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, trackUI};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
@@ -116,9 +117,9 @@ public class LokiTrackUISaver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -159,17 +160,17 @@ public class LokiTrackUISaver {
 
     public static void saveToFile(TrackUI trackUI) {
         LinkedList<TrackUI> allTrackUIs;
-        TrackUI trackUI2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, trackUI) == null) {
             File tempTraceFile = getTempTraceFile();
             if (mFirstSaveTempFile) {
                 mFirstSaveTempFile = false;
                 if (Utility.createNewEmptyFile(tempTraceFile) && (allTrackUIs = Track.getInstance().getAllTrackUIs()) != null && allTrackUIs.size() > 0) {
-                    for (int i2 = 0; i2 < allTrackUIs.size(); i2++) {
-                        if (allTrackUIs.get(i2) != trackUI) {
+                    for (int i = 0; i < allTrackUIs.size(); i++) {
+                        TrackUI trackUI2 = allTrackUIs.get(i);
+                        if (trackUI2 != trackUI) {
                             if (AppConfig.isDebug()) {
-                                String str = "perTrack = " + trackUI2String(trackUI2);
+                                Log.d(TAG, "perTrack = " + trackUI2String(trackUI2));
                             }
                             FileUtils.saveToFile(trackUI2String(trackUI2) + '\n', tempTraceFile, true);
                         }
@@ -177,7 +178,7 @@ public class LokiTrackUISaver {
                 }
             }
             if (AppConfig.isDebug()) {
-                String str2 = "uitrackStr = " + trackUI2String(trackUI);
+                Log.d(TAG, "uitrackStr = " + trackUI2String(trackUI));
             }
             FileUtils.saveToFile(trackUI2String(trackUI) + '\n', tempTraceFile, true);
         }

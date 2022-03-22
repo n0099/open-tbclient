@@ -26,9 +26,9 @@ public class PushCountMessage extends TbSocketMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -77,31 +77,31 @@ public class PushCountMessage extends TbSocketMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.upFlowSize : invokeV.longValue;
     }
 
-    public void setDownFlowSize(long j2) {
+    public void setDownFlowSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
-            this.downFlowSize = j2;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.downFlowSize = j;
         }
     }
 
-    public void setEnterForeCount(int i2) {
+    public void setEnterForeCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.enterForeCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.enterForeCount = i;
         }
     }
 
-    public void setPusherCount(int i2) {
+    public void setPusherCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.pusherCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.pusherCount = i;
         }
     }
 
-    public void setUpFlowSize(long j2) {
+    public void setUpFlowSize(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.upFlowSize = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.upFlowSize = j;
         }
     }
 }

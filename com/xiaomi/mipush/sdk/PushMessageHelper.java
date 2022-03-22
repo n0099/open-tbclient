@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ii;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class PushMessageHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_MESSAGE = "error_message";
@@ -54,23 +54,23 @@ public class PushMessageHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j2, String str2, String str3) {
+    public static MiPushCommandMessage generateCommandMessage(String str, List<String> list, long j, String str2, String str3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j2), str2, str3})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, list, Long.valueOf(j), str2, str3})) == null) {
             MiPushCommandMessage miPushCommandMessage = new MiPushCommandMessage();
             miPushCommandMessage.setCommand(str);
             miPushCommandMessage.setCommandArguments(list);
-            miPushCommandMessage.setResultCode(j2);
+            miPushCommandMessage.setResultCode(j);
             miPushCommandMessage.setReason(str2);
             miPushCommandMessage.setCategory(str3);
             return miPushCommandMessage;
@@ -83,7 +83,7 @@ public class PushMessageHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, iiVar, hsVar, z)) == null) {
             MiPushMessage miPushMessage = new MiPushMessage();
-            miPushMessage.setMessageId(iiVar.m549a());
+            miPushMessage.setMessageId(iiVar.m528a());
             if (!TextUtils.isEmpty(iiVar.d())) {
                 miPushMessage.setMessageType(1);
                 miPushMessage.setAlias(iiVar.d());
@@ -102,17 +102,17 @@ public class PushMessageHelper {
             }
             if (hsVar != null) {
                 if (TextUtils.isEmpty(miPushMessage.getMessageId())) {
-                    miPushMessage.setMessageId(hsVar.m470a());
+                    miPushMessage.setMessageId(hsVar.m449a());
                 }
                 if (TextUtils.isEmpty(miPushMessage.getTopic())) {
-                    miPushMessage.setTopic(hsVar.m475b());
+                    miPushMessage.setTopic(hsVar.m454b());
                 }
                 miPushMessage.setDescription(hsVar.d());
-                miPushMessage.setTitle(hsVar.m478c());
+                miPushMessage.setTitle(hsVar.m457c());
                 miPushMessage.setNotifyType(hsVar.a());
                 miPushMessage.setNotifyId(hsVar.c());
                 miPushMessage.setPassThrough(hsVar.b());
-                miPushMessage.setExtra(hsVar.m471a());
+                miPushMessage.setExtra(hsVar.m450a());
             }
             miPushMessage.setNotified(z);
             return miPushMessage;
@@ -201,10 +201,10 @@ public class PushMessageHelper {
         }
     }
 
-    public static void setPushMode(int i2) {
+    public static void setPushMode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65546, null, i2) == null) {
-            pushMode = i2;
+        if (interceptable == null || interceptable.invokeI(65546, null, i) == null) {
+            pushMode = i;
         }
     }
 }

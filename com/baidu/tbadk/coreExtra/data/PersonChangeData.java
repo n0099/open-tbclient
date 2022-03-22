@@ -57,9 +57,9 @@ public class PersonChangeData extends OrmObject implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {personChangeData, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -76,9 +76,9 @@ public class PersonChangeData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -155,8 +155,8 @@ public class PersonChangeData extends OrmObject implements Serializable {
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(this.mInterestedForums)) {
-                for (int i2 = 0; i2 < this.mInterestedForums.size(); i2++) {
-                    SelectForumData selectForumData = this.mInterestedForums.get(i2);
+                for (int i = 0; i < this.mInterestedForums.size(); i++) {
+                    SelectForumData selectForumData = this.mInterestedForums.get(i);
                     if (selectForumData != null) {
                         arrayList.add(new Forum(this, selectForumData.forumId, selectForumData.forumName));
                     }
@@ -245,24 +245,24 @@ public class PersonChangeData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) ? this.mTiebaId : (String) invokeV.objValue;
     }
 
-    public void setAlaId(long j2) {
+    public void setAlaId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048598, this, j2) == null) {
-            this.mAlaId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048598, this, j) == null) {
+            this.mAlaId = j;
         }
     }
 
-    public void setBirthdayShowStatus(int i2) {
+    public void setBirthdayShowStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048599, this, i2) == null) {
-            this.mBirthdayShowStatus = i2;
+        if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {
+            this.mBirthdayShowStatus = i;
         }
     }
 
-    public void setBirthdayTime(long j2) {
+    public void setBirthdayTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048600, this, j2) == null) {
-            this.mBirthdayTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048600, this, j) == null) {
+            this.mBirthdayTime = j;
         }
     }
 
@@ -296,8 +296,8 @@ public class PersonChangeData extends OrmObject implements Serializable {
         if (arrayList2 != null) {
             arrayList2.clear();
         }
-        for (int i2 = 0; i2 < arrayList.size(); i2++) {
-            addInterestForums(arrayList.get(i2));
+        for (int i = 0; i < arrayList.size(); i++) {
+            addInterestForums(arrayList.get(i));
         }
     }
 
@@ -315,10 +315,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setMem(int i2) {
+    public void setMem(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.isMem = i2;
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.isMem = i;
         }
     }
 
@@ -336,10 +336,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setNickNameLeftDays(int i2) {
+    public void setNickNameLeftDays(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            this.mNickNameLeftDays = i2;
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            this.mNickNameLeftDays = i;
         }
     }
 
@@ -357,10 +357,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setSex(int i2) {
+    public void setSex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.mSex = i2;
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.mSex = i;
         }
     }
 
@@ -378,10 +378,10 @@ public class PersonChangeData extends OrmObject implements Serializable {
         }
     }
 
-    public void setUserAge(int i2) {
+    public void setUserAge(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.mUserAge = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.mUserAge = i;
         }
     }
 

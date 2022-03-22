@@ -60,9 +60,9 @@ public class AppCompatTextHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {textView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -82,11 +82,11 @@ public class AppCompatTextHelper {
         AppCompatDrawableManager.tintDrawable(drawable, tintInfo, this.mView.getDrawableState());
     }
 
-    public static TintInfo createTintInfo(Context context, AppCompatDrawableManager appCompatDrawableManager, int i2) {
+    public static TintInfo createTintInfo(Context context, AppCompatDrawableManager appCompatDrawableManager, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, appCompatDrawableManager, i2)) == null) {
-            ColorStateList tintList = appCompatDrawableManager.getTintList(context, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, appCompatDrawableManager, i)) == null) {
+            ColorStateList tintList = appCompatDrawableManager.getTintList(context, i);
             if (tintList != null) {
                 TintInfo tintInfo = new TintInfo();
                 tintInfo.mHasTintList = true;
@@ -167,37 +167,37 @@ public class AppCompatTextHelper {
         }
     }
 
-    private void setTextSizeInternal(int i2, float f2) {
+    private void setTextSizeInternal(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) {
-            this.mAutoSizeTextHelper.setTextSizeInternal(i2, f2);
+        if (interceptable == null || interceptable.invokeCommon(65541, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
+            this.mAutoSizeTextHelper.setTextSizeInternal(i, f2);
         }
     }
 
     private void updateTypefaceAndStyle(Context context, TintTypedArray tintTypedArray) {
-        int i2;
+        int i;
         String string;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, context, tintTypedArray) == null) {
             this.mStyle = tintTypedArray.getInt(R$styleable.TextAppearance_android_textStyle, this.mStyle);
             if (Build.VERSION.SDK_INT >= 28) {
-                int i3 = tintTypedArray.getInt(R$styleable.TextAppearance_android_textFontWeight, -1);
-                this.mFontWeight = i3;
-                if (i3 != -1) {
+                int i2 = tintTypedArray.getInt(R$styleable.TextAppearance_android_textFontWeight, -1);
+                this.mFontWeight = i2;
+                if (i2 != -1) {
                     this.mStyle = (this.mStyle & 2) | 0;
                 }
             }
             if (!tintTypedArray.hasValue(R$styleable.TextAppearance_android_fontFamily) && !tintTypedArray.hasValue(R$styleable.TextAppearance_fontFamily)) {
                 if (tintTypedArray.hasValue(R$styleable.TextAppearance_android_typeface)) {
                     this.mAsyncFontPending = false;
-                    int i4 = tintTypedArray.getInt(R$styleable.TextAppearance_android_typeface, 1);
-                    if (i4 == 1) {
+                    int i3 = tintTypedArray.getInt(R$styleable.TextAppearance_android_typeface, 1);
+                    if (i3 == 1) {
                         this.mFontTypeface = Typeface.SANS_SERIF;
                         return;
-                    } else if (i4 == 2) {
+                    } else if (i3 == 2) {
                         this.mFontTypeface = Typeface.SERIF;
                         return;
-                    } else if (i4 != 3) {
+                    } else if (i3 != 3) {
                         return;
                     } else {
                         this.mFontTypeface = Typeface.MONOSPACE;
@@ -208,15 +208,15 @@ public class AppCompatTextHelper {
             }
             this.mFontTypeface = null;
             if (tintTypedArray.hasValue(R$styleable.TextAppearance_fontFamily)) {
-                i2 = R$styleable.TextAppearance_fontFamily;
+                i = R$styleable.TextAppearance_fontFamily;
             } else {
-                i2 = R$styleable.TextAppearance_android_fontFamily;
+                i = R$styleable.TextAppearance_android_fontFamily;
             }
-            int i5 = this.mFontWeight;
-            int i6 = this.mStyle;
+            int i4 = this.mFontWeight;
+            int i5 = this.mStyle;
             if (!context.isRestricted()) {
                 try {
-                    Typeface font = tintTypedArray.getFont(i2, this.mStyle, new ResourcesCompat.FontCallback(this, i5, i6, new WeakReference(this.mView)) { // from class: androidx.appcompat.widget.AppCompatTextHelper.1
+                    Typeface font = tintTypedArray.getFont(i, this.mStyle, new ResourcesCompat.FontCallback(this, i4, i5, new WeakReference(this.mView)) { // from class: androidx.appcompat.widget.AppCompatTextHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AppCompatTextHelper this$0;
@@ -229,36 +229,36 @@ public class AppCompatTextHelper {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i5), Integer.valueOf(i6), r9};
+                                Object[] objArr = {this, Integer.valueOf(i4), Integer.valueOf(i5), r9};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i7 = newInitContext.flag;
-                                if ((i7 & 1) != 0) {
-                                    int i8 = i7 & 2;
+                                int i6 = newInitContext.flag;
+                                if ((i6 & 1) != 0) {
+                                    int i7 = i6 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.this$0 = this;
-                            this.val$fontWeight = i5;
-                            this.val$style = i6;
+                            this.val$fontWeight = i4;
+                            this.val$style = i5;
                             this.val$textViewWeak = r9;
                         }
 
                         @Override // androidx.core.content.res.ResourcesCompat.FontCallback
-                        public void onFontRetrievalFailed(int i7) {
+                        public void onFontRetrievalFailed(int i6) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeI(1048576, this, i7) == null) {
+                            if (interceptable2 == null || interceptable2.invokeI(1048576, this, i6) == null) {
                             }
                         }
 
                         @Override // androidx.core.content.res.ResourcesCompat.FontCallback
                         public void onFontRetrieved(@NonNull Typeface typeface) {
-                            int i7;
+                            int i6;
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, typeface) == null) {
-                                if (Build.VERSION.SDK_INT >= 28 && (i7 = this.val$fontWeight) != -1) {
-                                    typeface = Typeface.create(typeface, i7, (this.val$style & 2) != 0);
+                                if (Build.VERSION.SDK_INT >= 28 && (i6 = this.val$fontWeight) != -1) {
+                                    typeface = Typeface.create(typeface, i6, (this.val$style & 2) != 0);
                                 }
                                 this.this$0.onAsyncTypefaceReceived(this.val$textViewWeak, typeface);
                             }
@@ -275,7 +275,7 @@ public class AppCompatTextHelper {
                 } catch (Resources.NotFoundException | UnsupportedOperationException unused) {
                 }
             }
-            if (this.mFontTypeface != null || (string = tintTypedArray.getString(i2)) == null) {
+            if (this.mFontTypeface != null || (string = tintTypedArray.getString(i)) == null) {
                 return;
             }
             if (Build.VERSION.SDK_INT >= 28 && this.mFontWeight != -1) {
@@ -381,7 +381,7 @@ public class AppCompatTextHelper {
     }
 
     @SuppressLint({"NewApi"})
-    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(@Nullable AttributeSet attributeSet, int i) {
         ColorStateList colorStateList;
         String str;
         boolean z;
@@ -390,14 +390,14 @@ public class AppCompatTextHelper {
         String str2;
         ColorStateList colorStateList3;
         boolean z3;
-        int i3;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, attributeSet, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048586, this, attributeSet, i) == null) {
             Context context = this.mView.getContext();
             AppCompatDrawableManager appCompatDrawableManager = AppCompatDrawableManager.get();
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.AppCompatTextHelper, i2, 0);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.AppCompatTextHelper, i, 0);
             TextView textView = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R$styleable.AppCompatTextHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(textView, textView.getContext(), R$styleable.AppCompatTextHelper, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             int resourceId = obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_textAppearance, -1);
             if (obtainStyledAttributes.hasValue(R$styleable.AppCompatTextHelper_android_drawableLeft)) {
                 this.mDrawableLeftTint = createTintInfo(context, appCompatDrawableManager, obtainStyledAttributes.getResourceId(R$styleable.AppCompatTextHelper_android_drawableLeft, 0));
@@ -452,7 +452,7 @@ public class AppCompatTextHelper {
                 str2 = null;
                 colorStateList3 = null;
             }
-            TintTypedArray obtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.TextAppearance, i2, 0);
+            TintTypedArray obtainStyledAttributes3 = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.TextAppearance, i, 0);
             if (z4 || !obtainStyledAttributes3.hasValue(R$styleable.TextAppearance_textAllCaps)) {
                 z3 = z2;
             } else {
@@ -505,14 +505,14 @@ public class AppCompatTextHelper {
                 this.mView.setFontVariationSettings(str);
             }
             if (str2 != null) {
-                int i4 = Build.VERSION.SDK_INT;
-                if (i4 >= 24) {
+                int i3 = Build.VERSION.SDK_INT;
+                if (i3 >= 24) {
                     this.mView.setTextLocales(LocaleList.forLanguageTags(str2));
-                } else if (i4 >= 21) {
+                } else if (i3 >= 21) {
                     this.mView.setTextLocale(Locale.forLanguageTag(str2.substring(0, str2.indexOf(44))));
                 }
             }
-            this.mAutoSizeTextHelper.loadFromAttributes(attributeSet, i2);
+            this.mAutoSizeTextHelper.loadFromAttributes(attributeSet, i);
             if (AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE && this.mAutoSizeTextHelper.getAutoSizeTextType() != 0) {
                 int[] autoSizeTextAvailableSizes = this.mAutoSizeTextHelper.getAutoSizeTextAvailableSizes();
                 if (autoSizeTextAvailableSizes.length > 0) {
@@ -540,22 +540,22 @@ public class AppCompatTextHelper {
                 TextViewCompat.setCompoundDrawableTintList(this.mView, obtainStyledAttributes4.getColorStateList(R$styleable.AppCompatTextView_drawableTint));
             }
             if (obtainStyledAttributes4.hasValue(R$styleable.AppCompatTextView_drawableTintMode)) {
-                i3 = -1;
+                i2 = -1;
                 TextViewCompat.setCompoundDrawableTintMode(this.mView, DrawableUtils.parseTintMode(obtainStyledAttributes4.getInt(R$styleable.AppCompatTextView_drawableTintMode, -1), null));
             } else {
-                i3 = -1;
+                i2 = -1;
             }
-            int dimensionPixelSize = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_firstBaselineToTopHeight, i3);
-            int dimensionPixelSize2 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lastBaselineToBottomHeight, i3);
-            int dimensionPixelSize3 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lineHeight, i3);
+            int dimensionPixelSize = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_firstBaselineToTopHeight, i2);
+            int dimensionPixelSize2 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lastBaselineToBottomHeight, i2);
+            int dimensionPixelSize3 = obtainStyledAttributes4.getDimensionPixelSize(R$styleable.AppCompatTextView_lineHeight, i2);
             obtainStyledAttributes4.recycle();
-            if (dimensionPixelSize != i3) {
+            if (dimensionPixelSize != i2) {
                 TextViewCompat.setFirstBaselineToTopHeight(this.mView, dimensionPixelSize);
             }
-            if (dimensionPixelSize2 != i3) {
+            if (dimensionPixelSize2 != i2) {
                 TextViewCompat.setLastBaselineToBottomHeight(this.mView, dimensionPixelSize2);
             }
-            if (dimensionPixelSize3 != i3) {
+            if (dimensionPixelSize3 != i2) {
                 TextViewCompat.setLineHeight(this.mView, dimensionPixelSize3);
             }
         }
@@ -573,9 +573,9 @@ public class AppCompatTextHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE) {
             return;
         }
         autoSizeText();
@@ -588,12 +588,12 @@ public class AppCompatTextHelper {
         }
     }
 
-    public void onSetTextAppearance(Context context, int i2) {
+    public void onSetTextAppearance(Context context, int i) {
         String string;
         ColorStateList colorStateList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, context, i2) == null) {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i2, R$styleable.TextAppearance);
+        if (interceptable == null || interceptable.invokeLI(1048590, this, context, i) == null) {
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, i, R$styleable.TextAppearance);
             if (obtainStyledAttributes.hasValue(R$styleable.TextAppearance_textAllCaps)) {
                 setAllCaps(obtainStyledAttributes.getBoolean(R$styleable.TextAppearance_textAllCaps, false));
             }
@@ -622,24 +622,24 @@ public class AppCompatTextHelper {
         }
     }
 
-    public void setAutoSizeTextTypeUniformWithConfiguration(int i2, int i3, int i4, int i5) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithConfiguration(int i, int i2, int i3, int i4) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048592, this, i2, i3, i4, i5) == null) {
-            this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048592, this, i, i2, i3, i4) == null) {
+            this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithConfiguration(i, i2, i3, i4);
         }
     }
 
-    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i2) throws IllegalArgumentException {
+    public void setAutoSizeTextTypeUniformWithPresetSizes(@NonNull int[] iArr, int i) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048593, this, iArr, i2) == null) {
-            this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i2);
+        if (interceptable == null || interceptable.invokeLI(1048593, this, iArr, i) == null) {
+            this.mAutoSizeTextHelper.setAutoSizeTextTypeUniformWithPresetSizes(iArr, i);
         }
     }
 
-    public void setAutoSizeTextTypeWithDefaults(int i2) {
+    public void setAutoSizeTextTypeWithDefaults(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mAutoSizeTextHelper.setAutoSizeTextTypeWithDefaults(i2);
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mAutoSizeTextHelper.setAutoSizeTextTypeWithDefaults(i);
         }
     }
 
@@ -670,11 +670,11 @@ public class AppCompatTextHelper {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP_PREFIX})
-    public void setTextSize(int i2, float f2) {
+    public void setTextSize(int i, float f2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || isAutoSizeEnabled()) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048597, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) || AutoSizeableTextView.PLATFORM_SUPPORTS_AUTOSIZE || isAutoSizeEnabled()) {
             return;
         }
-        setTextSizeInternal(i2, f2);
+        setTextSizeInternal(i, f2);
     }
 }

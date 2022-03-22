@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -45,9 +46,9 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -205,47 +206,52 @@ public class a {
             ZipFile zipFile2 = null;
             try {
                 try {
-                    zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
-                } catch (IOException unused) {
+                    try {
+                        zipFile = new ZipFile(a ? context.getPackageCodePath() : "");
+                    } catch (IOException unused) {
+                    }
+                } catch (Exception e2) {
+                    e = e2;
                 }
-                try {
-                    int lastIndexOf = str2.lastIndexOf("/");
-                    if (lastIndexOf > 0) {
-                        file = new File(context.getFilesDir().getAbsolutePath());
-                        String substring = str2.substring(0, lastIndexOf);
-                        String substring2 = str2.substring(lastIndexOf + 1, str2.length());
-                        file2 = new File(file.getAbsolutePath() + "/" + substring, substring2);
-                    } else {
-                        file = new File(context.getFilesDir(), "assets");
-                        file2 = new File(file.getAbsolutePath(), str2);
-                    }
-                    file.mkdirs();
-                    entry = zipFile.getEntry(str);
-                } catch (Exception unused2) {
-                    zipFile2 = zipFile;
-                    if (zipFile2 != null) {
-                        zipFile2.close();
-                    }
-                    return sb.toString();
-                } catch (Throwable th) {
-                    th = th;
-                    zipFile2 = zipFile;
-                    if (zipFile2 != null) {
-                        try {
-                            zipFile2.close();
-                        } catch (IOException unused3) {
-                        }
-                    }
-                    throw th;
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                int lastIndexOf = str2.lastIndexOf("/");
+                if (lastIndexOf > 0) {
+                    file = new File(context.getFilesDir().getAbsolutePath());
+                    String substring = str2.substring(0, lastIndexOf);
+                    String substring2 = str2.substring(lastIndexOf + 1, str2.length());
+                    file2 = new File(file.getAbsolutePath() + "/" + substring, substring2);
+                } else {
+                    file = new File(context.getFilesDir(), "assets");
+                    file2 = new File(file.getAbsolutePath(), str2);
                 }
-            } catch (Exception unused4) {
+                file.mkdirs();
+                entry = zipFile.getEntry(str);
+            } catch (Exception e3) {
+                e = e3;
+                zipFile2 = zipFile;
+                Log.e(a.class.getSimpleName(), "copyAssetsError", e);
+                if (zipFile2 != null) {
+                    zipFile2.close();
+                }
+                return sb.toString();
             } catch (Throwable th2) {
                 th = th2;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException unused2) {
+                    }
+                }
+                throw th;
             }
             if (entry == null) {
                 try {
                     zipFile.close();
-                } catch (IOException unused5) {
+                } catch (IOException unused3) {
                 }
                 return null;
             }

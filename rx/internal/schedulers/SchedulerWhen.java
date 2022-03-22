@@ -8,88 +8,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.b;
-import i.e;
-import i.g;
-import i.k;
-import i.n.f;
+import g.b;
+import g.e;
+import g.g;
+import g.k;
+import g.n.f;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class SchedulerWhen extends g implements k {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final k f61084h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final k f61085i;
-    public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: d  reason: collision with root package name */
+    public static final k f45445d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final g f61086e;
+    public static final k f45446e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final g a;
 
-    /* renamed from: f  reason: collision with root package name */
-    public final e<i.d<i.b>> f61087f;
+    /* renamed from: b  reason: collision with root package name */
+    public final e<g.d<g.b>> f45447b;
 
-    /* renamed from: g  reason: collision with root package name */
-    public final k f61088g;
+    /* renamed from: c  reason: collision with root package name */
+    public final k f45448c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class DelayedAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final i.n.a action;
+        public final g.n.a action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(i.n.a aVar, long j2, TimeUnit timeUnit) {
+        public DelayedAction(g.n.a aVar, long j, TimeUnit timeUnit) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {aVar, Long.valueOf(j2), timeUnit};
+                Object[] objArr = {aVar, Long.valueOf(j), timeUnit};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.action = aVar;
-            this.delayTime = j2;
+            this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public k callActual(g.a aVar, i.c cVar) {
+        public k callActual(g.a aVar, g.c cVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, cVar)) == null) ? aVar.c(new d(this.action, cVar), this.delayTime, this.unit) : (k) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class ImmediateAction extends ScheduledAction {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final i.n.a action;
+        public final g.n.a action;
 
-        public ImmediateAction(i.n.a aVar) {
+        public ImmediateAction(g.n.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -99,28 +97,28 @@ public class SchedulerWhen extends g implements k {
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public k callActual(g.a aVar, i.c cVar) {
+        public k callActual(g.a aVar, g.c cVar) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, aVar, cVar)) == null) ? aVar.b(new d(this.action, cVar)) : (k) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static abstract class ScheduledAction extends AtomicReference<k> implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public ScheduledAction() {
-            super(SchedulerWhen.f61084h);
+            super(SchedulerWhen.f45445d);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -130,92 +128,88 @@ public class SchedulerWhen extends g implements k {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(g.a aVar, i.c cVar) {
+        public void call(g.a aVar, g.c cVar) {
             k kVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65538, this, aVar, cVar) == null) && (kVar = get()) != SchedulerWhen.f61085i && kVar == SchedulerWhen.f61084h) {
+            if ((interceptable == null || interceptable.invokeLL(65538, this, aVar, cVar) == null) && (kVar = get()) != SchedulerWhen.f45446e && kVar == SchedulerWhen.f45445d) {
                 k callActual = callActual(aVar, cVar);
-                if (compareAndSet(SchedulerWhen.f61084h, callActual)) {
+                if (compareAndSet(SchedulerWhen.f45445d, callActual)) {
                     return;
                 }
                 callActual.unsubscribe();
             }
         }
 
-        public abstract k callActual(g.a aVar, i.c cVar);
+        public abstract k callActual(g.a aVar, g.c cVar);
 
-        @Override // i.k
+        @Override // g.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? get().isUnsubscribed() : invokeV.booleanValue;
         }
 
-        @Override // i.k
+        @Override // g.k
         public void unsubscribe() {
             k kVar;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                k kVar2 = SchedulerWhen.f61085i;
+                k kVar2 = SchedulerWhen.f45446e;
                 do {
                     kVar = get();
-                    if (kVar == SchedulerWhen.f61085i) {
+                    if (kVar == SchedulerWhen.f45446e) {
                         return;
                     }
                 } while (!compareAndSet(kVar, kVar2));
-                if (kVar != SchedulerWhen.f61084h) {
+                if (kVar != SchedulerWhen.f45445d) {
                     kVar.unsubscribe();
                 }
             }
         }
     }
 
-    /* loaded from: classes9.dex */
-    public class a implements f<ScheduledAction, i.b> {
+    /* loaded from: classes8.dex */
+    public class a implements f<ScheduledAction, g.b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ g.a f61089e;
+        public final /* synthetic */ g.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
-        /* loaded from: classes9.dex */
-        public class C2312a implements b.f {
+        /* loaded from: classes8.dex */
+        public class C2161a implements b.f {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ScheduledAction a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ ScheduledAction f61090e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ a f45449b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ a f61091f;
-
-            public C2312a(a aVar, ScheduledAction scheduledAction) {
+            public C2161a(a aVar, ScheduledAction scheduledAction) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, scheduledAction};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f61091f = aVar;
-                this.f61090e = scheduledAction;
+                this.f45449b = aVar;
+                this.a = scheduledAction;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // i.b.f, i.n.b
-            public void call(i.c cVar) {
+            @Override // g.b.f, g.n.b
+            public void call(g.c cVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-                    cVar.onSubscribe(this.f61090e);
-                    this.f61090e.call(this.f61091f.f61089e, cVar);
+                    cVar.onSubscribe(this.a);
+                    this.a.call(this.f45449b.a, cVar);
                 }
             }
         }
@@ -227,39 +221,37 @@ public class SchedulerWhen extends g implements k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {schedulerWhen, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61089e = aVar;
+            this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // i.n.f
-        public i.b call(ScheduledAction scheduledAction) {
+        @Override // g.n.f
+        public g.b call(ScheduledAction scheduledAction) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) ? i.b.b(new C2312a(this, scheduledAction)) : (i.b) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, scheduledAction)) == null) ? g.b.b(new C2161a(this, scheduledAction)) : (g.b) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class b extends g.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final AtomicBoolean a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final AtomicBoolean f61092e;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ g.a f45450b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ g.a f61093f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ e f61094g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ e f45451c;
 
         public b(SchedulerWhen schedulerWhen, g.a aVar, e eVar) {
             Interceptable interceptable = $ic;
@@ -268,61 +260,61 @@ public class SchedulerWhen extends g implements k {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {schedulerWhen, aVar, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61093f = aVar;
-            this.f61094g = eVar;
-            this.f61092e = new AtomicBoolean();
+            this.f45450b = aVar;
+            this.f45451c = eVar;
+            this.a = new AtomicBoolean();
         }
 
-        @Override // i.g.a
-        public k b(i.n.a aVar) {
+        @Override // g.g.a
+        public k b(g.n.a aVar) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 ImmediateAction immediateAction = new ImmediateAction(aVar);
-                this.f61094g.onNext(immediateAction);
+                this.f45451c.onNext(immediateAction);
                 return immediateAction;
             }
             return (k) invokeL.objValue;
         }
 
-        @Override // i.g.a
-        public k c(i.n.a aVar, long j2, TimeUnit timeUnit) {
+        @Override // g.g.a
+        public k c(g.n.a aVar, long j, TimeUnit timeUnit) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j2), timeUnit})) == null) {
-                DelayedAction delayedAction = new DelayedAction(aVar, j2, timeUnit);
-                this.f61094g.onNext(delayedAction);
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{aVar, Long.valueOf(j), timeUnit})) == null) {
+                DelayedAction delayedAction = new DelayedAction(aVar, j, timeUnit);
+                this.f45451c.onNext(delayedAction);
                 return delayedAction;
             }
             return (k) invokeCommon.objValue;
         }
 
-        @Override // i.k
+        @Override // g.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f61092e.get() : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get() : invokeV.booleanValue;
         }
 
-        @Override // i.k
+        @Override // g.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.f61092e.compareAndSet(false, true)) {
-                this.f61093f.unsubscribe();
-                this.f61094g.onCompleted();
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.compareAndSet(false, true)) {
+                this.f45450b.unsubscribe();
+                this.f45451c.onCompleted();
             }
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static class c implements k {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -332,16 +324,16 @@ public class SchedulerWhen extends g implements k {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @Override // i.k
+        @Override // g.k
         public boolean isUnsubscribed() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -351,7 +343,7 @@ public class SchedulerWhen extends g implements k {
             return invokeV.booleanValue;
         }
 
-        @Override // i.k
+        @Override // g.k
         public void unsubscribe() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -359,44 +351,42 @@ public class SchedulerWhen extends g implements k {
         }
     }
 
-    /* loaded from: classes9.dex */
-    public static class d implements i.n.a {
+    /* loaded from: classes8.dex */
+    public static class d implements g.n.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public g.c a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public i.c f61095e;
+        /* renamed from: b  reason: collision with root package name */
+        public g.n.a f45452b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public i.n.a f61096f;
-
-        public d(i.n.a aVar, i.c cVar) {
+        public d(g.n.a aVar, g.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61096f = aVar;
-            this.f61095e = cVar;
+            this.f45452b = aVar;
+            this.a = cVar;
         }
 
-        @Override // i.n.a
+        @Override // g.n.a
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.f61096f.call();
+                    this.f45452b.call();
                 } finally {
-                    this.f61095e.onCompleted();
+                    this.a.onCompleted();
                 }
             }
         }
@@ -415,61 +405,61 @@ public class SchedulerWhen extends g implements k {
                 return;
             }
         }
-        f61084h = new c();
-        f61085i = i.u.e.c();
+        f45445d = new c();
+        f45446e = g.u.e.c();
     }
 
-    public SchedulerWhen(f<i.d<i.d<i.b>>, i.b> fVar, g gVar) {
+    public SchedulerWhen(f<g.d<g.d<g.b>>, g.b> fVar, g gVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {fVar, gVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f61086e = gVar;
+        this.a = gVar;
         PublishSubject F = PublishSubject.F();
-        this.f61087f = new i.q.d(F);
-        this.f61088g = fVar.call(F.n()).f();
+        this.f45447b = new g.q.d(F);
+        this.f45448c = fVar.call(F.n()).f();
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: i.e<i.d<i.b>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: g.e<g.d<g.b>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // i.g
+    @Override // g.g
     public g.a createWorker() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g.a createWorker = this.f61086e.createWorker();
+            g.a createWorker = this.a.createWorker();
             BufferUntilSubscriber F = BufferUntilSubscriber.F();
-            i.q.d dVar = new i.q.d(F);
+            g.q.d dVar = new g.q.d(F);
             Object h2 = F.h(new a(this, createWorker));
             b bVar = new b(this, createWorker, dVar);
-            this.f61087f.onNext(h2);
+            this.f45447b.onNext(h2);
             return bVar;
         }
         return (g.a) invokeV.objValue;
     }
 
-    @Override // i.k
+    @Override // g.k
     public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f61088g.isUnsubscribed() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f45448c.isUnsubscribed() : invokeV.booleanValue;
     }
 
-    @Override // i.k
+    @Override // g.k
     public void unsubscribe() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f61088g.unsubscribe();
+            this.f45448c.unsubscribe();
         }
     }
 }

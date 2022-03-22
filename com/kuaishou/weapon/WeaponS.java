@@ -29,7 +29,7 @@ public class WeaponS extends Service {
         public final /* synthetic */ Intent a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ WeaponS f53587b;
+        public final /* synthetic */ WeaponS f38792b;
 
         public a(WeaponS weaponS, Intent intent) {
             Interceptable interceptable = $ic;
@@ -38,15 +38,15 @@ public class WeaponS extends Service {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {weaponS, intent};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f53587b = weaponS;
+            this.f38792b = weaponS;
             this.a = intent;
         }
 
@@ -56,22 +56,22 @@ public class WeaponS extends Service {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 String stringExtra = this.a.getStringExtra("from_plugin_apk");
                 if (TextUtils.isEmpty(stringExtra)) {
-                    this.f53587b.a();
-                } else if (this.f53587b.getPackageName().equals(stringExtra)) {
-                    WeaponS weaponS = this.f53587b;
+                    this.f38792b.a();
+                } else if (this.f38792b.getPackageName().equals(stringExtra)) {
+                    WeaponS weaponS = this.f38792b;
                     weaponS.a(weaponS.getClassLoader(), this.a);
-                    this.f53587b.a();
+                    this.f38792b.a();
                 } else {
                     o c2 = o.c();
                     if (c2 == null) {
-                        this.f53587b.a();
+                        this.f38792b.a();
                         return;
                     }
                     p a = c2.a(stringExtra);
                     if (a == null) {
-                        this.f53587b.a();
+                        this.f38792b.a();
                     } else {
-                        this.f53587b.a(a.f53760g, this.a);
+                        this.f38792b.a(a.f38940g, this.a);
                     }
                 }
             }
@@ -83,9 +83,9 @@ public class WeaponS extends Service {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -132,22 +132,22 @@ public class WeaponS extends Service {
     }
 
     @Override // android.app.Service
-    public int onStartCommand(Intent intent, int i2, int i3) {
+    public int onStartCommand(Intent intent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             try {
             } catch (Throwable th) {
                 l1.a(th);
                 a();
             }
             if (intent == null) {
-                return super.onStartCommand(intent, i2, i3);
+                return super.onStartCommand(intent, i, i2);
             }
             this.a++;
             t1.a().a(new a(this, intent));
             a();
-            return super.onStartCommand(intent, i2, i3);
+            return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;
     }

@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.auth.BceCredentials;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ListPartsRequest extends GenericUploadRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class ListPartsRequest extends GenericUploadRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -49,35 +49,35 @@ public class ListPartsRequest extends GenericUploadRequest {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.partNumberMarker : invokeV.intValue;
     }
 
-    public void setMaxParts(int i2) {
+    public void setMaxParts(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.maxParts = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.maxParts = i;
         }
     }
 
-    public void setPartNumberMarker(int i2) {
+    public void setPartNumberMarker(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.partNumberMarker = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.partNumberMarker = i;
         }
     }
 
-    public ListPartsRequest withMaxParts(int i2) {
+    public ListPartsRequest withMaxParts(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.maxParts = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.maxParts = i;
             return this;
         }
         return (ListPartsRequest) invokeI.objValue;
     }
 
-    public ListPartsRequest withPartNumberMarker(int i2) {
+    public ListPartsRequest withPartNumberMarker(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
-            setPartNumberMarker(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            setPartNumberMarker(i);
             return this;
         }
         return (ListPartsRequest) invokeI.objValue;

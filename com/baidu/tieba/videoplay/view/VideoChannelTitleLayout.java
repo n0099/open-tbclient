@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import c.a.d.f.p.n;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.expandable.ExpandableTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,15 +20,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VideoChannelTitleLayout extends ViewGroup {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f47596e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f36788b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f47597f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f47598g;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f36789c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VideoChannelTitleLayout(Context context) {
@@ -38,22 +37,22 @@ public class VideoChannelTitleLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f47598g = false;
+        this.f36789c = false;
     }
 
-    public final void a(int i2) {
+    public final void a(int i) {
         StaticLayout staticLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i2) == null) || i2 <= 0) {
+        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i <= 0) {
             return;
         }
         int f2 = n.f(getContext(), R.dimen.tbds8);
@@ -61,26 +60,26 @@ public class VideoChannelTitleLayout extends ViewGroup {
         ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
         View childAt = getChildAt(1);
         CharSequence text = expandableTextView.getContentView().getText();
-        StaticLayout staticLayout2 = new StaticLayout(text, expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        StaticLayout staticLayout2 = new StaticLayout(text, expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         int lineCount = staticLayout2.getLineCount();
         if (lineCount < 3) {
-            int i3 = lineCount - 1;
-            StaticLayout staticLayout3 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i3), staticLayout2.getLineEnd(i3)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i2) {
-                this.f47596e = staticLayout2.getLineTop(i3) + (i3 * f2);
-                this.f47597f = ((int) staticLayout2.getLineRight(i3)) + f3;
+            int i2 = lineCount - 1;
+            StaticLayout staticLayout3 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i2), staticLayout2.getLineEnd(i2)), expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            if (staticLayout3.getLineRight(staticLayout3.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i) {
+                this.a = staticLayout2.getLineTop(i2) + (i2 * f2);
+                this.f36788b = ((int) staticLayout2.getLineRight(i2)) + f3;
                 return;
             }
-            this.f47596e = staticLayout2.getHeight() + ((lineCount + 1) * f2);
-            this.f47597f = 0;
+            this.a = staticLayout2.getHeight() + ((lineCount + 1) * f2);
+            this.f36788b = 0;
             return;
         }
         if (lineCount == 3) {
-            int i4 = lineCount - 1;
-            StaticLayout staticLayout4 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i4), staticLayout2.getLineEnd(i4)), expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-            if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i2) {
-                this.f47596e = staticLayout2.getLineTop(i4) + (lineCount * f2);
-                this.f47597f = (int) staticLayout2.getLineRight(i4);
+            int i3 = lineCount - 1;
+            StaticLayout staticLayout4 = new StaticLayout(text.subSequence(staticLayout2.getLineStart(i3), staticLayout2.getLineEnd(i3)), expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+            if (staticLayout4.getLineRight(staticLayout4.getLineCount() - 1) + f3 + childAt.getMeasuredWidth() <= i) {
+                this.a = staticLayout2.getLineTop(i3) + (lineCount * f2);
+                this.f36788b = (int) staticLayout2.getLineRight(i3);
                 return;
             }
             staticLayout = staticLayout2;
@@ -89,49 +88,49 @@ public class VideoChannelTitleLayout extends ViewGroup {
         }
         int lineStart = staticLayout.getLineStart(2);
         int lineEnd = staticLayout.getLineEnd(2);
-        int measuredWidth = i2 - childAt.getMeasuredWidth();
-        StaticLayout staticLayout5 = new StaticLayout("..." + ((Object) text.subSequence(lineStart, lineEnd)), expandableTextView.getContentView().getPaint(), measuredWidth <= 0 ? i2 : measuredWidth, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        int measuredWidth = i - childAt.getMeasuredWidth();
+        StaticLayout staticLayout5 = new StaticLayout(StringHelper.STRING_MORE + ((Object) text.subSequence(lineStart, lineEnd)), expandableTextView.getContentView().getPaint(), measuredWidth <= 0 ? i : measuredWidth, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(text.subSequence(0, lineStart + (staticLayout5.getLineEnd(0) - staticLayout5.getLineStart(0)) + (-3)));
-        spannableStringBuilder.append((CharSequence) "...");
+        spannableStringBuilder.append((CharSequence) StringHelper.STRING_MORE);
         expandableTextView.getContentView().setText(spannableStringBuilder);
-        StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
-        this.f47597f = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
-        this.f47596e = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * f2);
+        StaticLayout staticLayout6 = new StaticLayout(spannableStringBuilder, expandableTextView.getContentView().getPaint(), i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false);
+        this.f36788b = staticLayout6.getLineStart(staticLayout6.getLineCount() - 1);
+        this.a = staticLayout.getLineEnd(staticLayout6.getLineCount() - 1) + (staticLayout6.getLineCount() * f2);
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
             expandableTextView.layout(0, 0, expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
-            if (!this.f47598g) {
+            if (!this.f36789c) {
                 childAt.layout(0, 0, childAt.getMeasuredWidth(), childAt.getMeasuredHeight());
                 return;
             }
-            int i6 = this.f47597f;
-            childAt.layout(i6, this.f47596e, childAt.getMeasuredWidth() + i6, this.f47596e + childAt.getMeasuredHeight());
+            int i5 = this.f36788b;
+            childAt.layout(i5, this.a, childAt.getMeasuredWidth() + i5, this.a + childAt.getMeasuredHeight());
         }
     }
 
     @Override // android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int size = View.MeasureSpec.getSize(i2);
-            measureChildren(i2, i3);
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            int size = View.MeasureSpec.getSize(i);
+            measureChildren(i, i2);
             a(size);
             ExpandableTextView expandableTextView = (ExpandableTextView) getChildAt(0);
             View childAt = getChildAt(1);
-            this.f47598g = childAt.getVisibility() == 0;
-            measureChildren(i2, i3);
-            if (!this.f47598g) {
+            this.f36789c = childAt.getVisibility() == 0;
+            measureChildren(i, i2);
+            if (!this.f36789c) {
                 setMeasuredDimension(expandableTextView.getMeasuredWidth(), expandableTextView.getMeasuredHeight());
                 return;
             }
             a(size);
-            setMeasuredDimension(size, this.f47596e + childAt.getMeasuredHeight());
+            setMeasuredDimension(size, this.a + childAt.getMeasuredHeight());
         }
     }
 
@@ -144,9 +143,9 @@ public class VideoChannelTitleLayout extends ViewGroup {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -154,21 +153,21 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f47598g = false;
+        this.f36789c = false;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public VideoChannelTitleLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public VideoChannelTitleLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -176,6 +175,6 @@ public class VideoChannelTitleLayout extends ViewGroup {
                 return;
             }
         }
-        this.f47598g = false;
+        this.f36789c = false;
     }
 }

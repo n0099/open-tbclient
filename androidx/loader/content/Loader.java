@@ -45,9 +45,9 @@ public class Loader<D> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Handler) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -93,9 +93,9 @@ public class Loader<D> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -290,12 +290,12 @@ public class Loader<D> {
     }
 
     @MainThread
-    public void registerListener(int i2, @NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
+    public void registerListener(int i, @NonNull OnLoadCompleteListener<D> onLoadCompleteListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048596, this, i2, onLoadCompleteListener) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i, onLoadCompleteListener) == null) {
             if (this.mListener == null) {
                 this.mListener = onLoadCompleteListener;
-                this.mId = i2;
+                this.mId = i;
                 return;
             }
             throw new IllegalStateException("There is already a listener registered");

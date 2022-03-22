@@ -1,7 +1,7 @@
 package c.a.d.k;
 
 import android.text.TextUtils;
-import c.a.d.n.g;
+import c.a.d.n.i;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
@@ -27,9 +27,9 @@ public class b implements IPmsContext {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -80,7 +80,7 @@ public class b implements IPmsContext {
             requestParams.setRunNode(str2);
             if ("0".equals(str)) {
                 requestParams.addChannel(c.a.d.i.c.e().d());
-                requestParams.addChannel(new g());
+                requestParams.addChannel(new i());
                 requestParams.addChannel(new c.a.d.m.d());
             }
             return requestParams;

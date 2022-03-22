@@ -1,4 +1,4 @@
 package com.kwad.sdk.fullscreen;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends KsFullScreenVideoActivityProxy {
 }

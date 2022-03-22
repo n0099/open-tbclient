@@ -3,6 +3,7 @@ package com.baidu.webkit.internal.daemon;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -56,9 +57,9 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -67,15 +68,15 @@ public class HttpDnsCache implements INoProGuard, INetListener {
         this.mData = null;
     }
 
-    private void addRawLogItem(StringBuilder sb, String str, long j2) {
+    private void addRawLogItem(StringBuilder sb, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{sb, str, Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{sb, str, Long.valueOf(j)}) == null) {
             if (sb.length() > 0) {
                 sb.append("&");
             }
             sb.append(str);
             sb.append("=");
-            sb.append(j2);
+            sb.append(j);
         }
     }
 
@@ -309,21 +310,21 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i) == null) {
             Log.w(LOG_TAG, "onNetDownloadError  " + bdNetTask.getUrl());
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i) == null) {
             if (this.mData == null) {
                 this.mData = new ByteArrayOutputStream();
             }
-            this.mData.write(bArr, 0, i2);
+            this.mData.write(bArr, 0, i);
         }
     }
 
@@ -335,27 +336,27 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i)) == null) {
             return false;
         }
         return invokeLLI.booleanValue;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i2) == null) {
-            Log.w(LOG_TAG, "onNetResponseCode  " + i2 + " url " + bdNetTask.getUrl());
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i) == null) {
+            Log.w(LOG_TAG, "onNetResponseCode  " + i + " url " + bdNetTask.getUrl());
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i) == null) {
         }
     }
 
@@ -372,7 +373,7 @@ public class HttpDnsCache implements INoProGuard, INetListener {
             Log.w(LOG_TAG, "onNetDownloadComplete " + byteArray.length);
             Log.w(LOG_TAG, "onNetDownloadComplete url " + bdNetTask.getUrl());
             try {
-                String str = new String(byteArray, "utf-8");
+                String str = new String(byteArray, IMAudioTransRequest.CHARSET);
                 if (!TextUtils.isEmpty(str)) {
                     WebSettingsGlobalBlink.setHttpDnsCache(str, 2);
                 }
@@ -404,9 +405,9 @@ public class HttpDnsCache implements INoProGuard, INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i, i2) == null) {
         }
     }
 }

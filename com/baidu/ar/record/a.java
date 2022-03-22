@@ -103,9 +103,9 @@ public class a implements FrameRenderListener, IRecord {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, lVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -134,9 +134,9 @@ public class a implements FrameRenderListener, IRecord {
             }
             Orientation globalOrientation = OrientationManager.getGlobalOrientation();
             if (globalOrientation == Orientation.LANDSCAPE || globalOrientation == Orientation.LANDSCAPE_REVERSE) {
-                int i2 = videoHeight;
+                int i = videoHeight;
                 videoHeight = videoWidth;
-                videoWidth = i2;
+                videoWidth = i;
             }
             if (videoWidth % 2 == 1) {
                 videoWidth++;
@@ -152,13 +152,13 @@ public class a implements FrameRenderListener, IRecord {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void a(ByteBuffer byteBuffer, int i2) {
+    public synchronized void a(ByteBuffer byteBuffer, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, this, byteBuffer, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, this, byteBuffer, i) == null) {
             synchronized (this) {
                 long nanoTime = System.nanoTime() - this.ud;
-                if (this.tV != null && byteBuffer != null && i2 > 0 && !this.ub) {
-                    this.tV.onAudioFrameAvailable(byteBuffer, i2, nanoTime);
+                if (this.tV != null && byteBuffer != null && i > 0 && !this.ub) {
+                    this.tV.onAudioFrameAvailable(byteBuffer, i, nanoTime);
                 }
             }
         }
@@ -228,9 +228,9 @@ public class a implements FrameRenderListener, IRecord {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -240,10 +240,10 @@ public class a implements FrameRenderListener, IRecord {
                     }
 
                     @Override // com.baidu.ar.audio.EasyAudioCallback
-                    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i2, long j2) {
+                    public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-                            this.ue.a(byteBuffer, i2);
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                            this.ue.a(byteBuffer, i);
                         }
                     }
 
@@ -292,9 +292,9 @@ public class a implements FrameRenderListener, IRecord {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -318,11 +318,11 @@ public class a implements FrameRenderListener, IRecord {
                     }
 
                     @Override // com.baidu.ar.record.MovieRecorderCallback
-                    public void onRecorderError(int i2) {
+                    public void onRecorderError(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
                             String str = a.TAG;
-                            com.baidu.ar.h.b.b(str, "onRecorderError error = " + i2);
+                            com.baidu.ar.h.b.b(str, "onRecorderError error = " + i);
                         }
                     }
 
@@ -345,15 +345,15 @@ public class a implements FrameRenderListener, IRecord {
                     }
 
                     @Override // com.baidu.ar.record.MovieRecorderCallback
-                    public void onRecorderProcess(int i2) {
+                    public void onRecorderProcess(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048579, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048579, this, i) == null) {
                             String str = a.TAG;
-                            com.baidu.ar.h.b.c(str, "onRecorderProcess process = " + i2);
-                            if (i2 > 100) {
+                            com.baidu.ar.h.b.c(str, "onRecorderProcess process = " + i);
+                            if (i > 100) {
                                 this.ue.stopRecord();
                             } else if (this.ue.tU != null) {
-                                this.ue.tU.onRecorderProcess(i2);
+                                this.ue.tU.onRecorderProcess(i);
                             }
                         }
                     }
@@ -384,33 +384,33 @@ public class a implements FrameRenderListener, IRecord {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, this)) == null) {
             RotationType rotationType = RotationType.ROTATE_0;
-            int i2 = AnonymousClass3.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[OrientationManager.getGlobalOrientation().ordinal()];
-            return i2 != 1 ? i2 != 2 ? i2 != 3 ? rotationType : RotationType.ROTATE_180 : RotationType.ROTATE_270 : RotationType.ROTATE_90;
+            int i = AnonymousClass3.$SwitchMap$com$baidu$ar$arplay$core$engine$rotate$Orientation[OrientationManager.getGlobalOrientation().ordinal()];
+            return i != 1 ? i != 2 ? i != 3 ? rotationType : RotationType.ROTATE_180 : RotationType.ROTATE_270 : RotationType.ROTATE_90;
         }
         return (RotationType) invokeV.objValue;
     }
 
-    public void j(int i2, int i3) {
+    public void j(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            this.mWindowWidth = i2;
-            this.mWindowHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            this.mWindowWidth = i;
+            this.mWindowHeight = i2;
         }
     }
 
     @Override // com.baidu.ar.arrender.FrameRenderListener
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) || this.tV == null || this.ub) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.tV == null || this.ub) {
             return;
         }
         this.tV.onVideoFrameAvailable(System.nanoTime() - this.ud);
     }
 
     @Override // com.baidu.ar.arrender.FrameRenderListener
-    public void onRenderStarted(long j2) {
+    public void onRenderStarted(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
         }
     }
 
@@ -441,16 +441,16 @@ public class a implements FrameRenderListener, IRecord {
     }
 
     @Override // com.baidu.ar.record.IRecord
-    public void startRecord(String str, long j2, RecordCallback recordCallback) {
+    public void startRecord(String str, long j, RecordCallback recordCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j2), recordCallback}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, Long.valueOf(j), recordCallback}) == null) {
             ft();
             fu();
             this.tU = recordCallback;
             EncoderParams encoderParams = this.tW;
             if (encoderParams != null) {
                 encoderParams.setOutputFile(str);
-                this.tW.setOutputTotalMs(j2);
+                this.tW.setOutputTotalMs(j);
             }
             IEasyAudio iEasyAudio = this.tY;
             if (iEasyAudio != null) {

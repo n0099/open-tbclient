@@ -24,9 +24,9 @@ public final class MbmsHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,10 +49,10 @@ public final class MbmsHelper {
                 return null;
             }
             String[] strArr = new String[size];
-            int i2 = 0;
+            int i = 0;
             for (Locale locale : serviceInfo.getNamedContentLocales()) {
-                strArr[i2] = locale.toLanguageTag();
-                i2++;
+                strArr[i] = locale.toLanguageTag();
+                i++;
             }
             Locale firstMatch = locales.getFirstMatch(strArr);
             if (firstMatch == null) {

@@ -15,7 +15,7 @@ import com.qq.e.comm.constants.Constants;
 import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class AdResponseInfo implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<AdResponseInfo> CREATOR;
@@ -26,7 +26,7 @@ public class AdResponseInfo implements Parcelable {
     public String mErrorCode;
     public String mRequestId;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<AdResponseInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -36,9 +36,9 @@ public class AdResponseInfo implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -57,10 +57,10 @@ public class AdResponseInfo implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public AdResponseInfo[] newArray(int i2) {
+        public AdResponseInfo[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new AdResponseInfo[i2] : (AdResponseInfo[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new AdResponseInfo[i] : (AdResponseInfo[]) invokeI.objValue;
         }
     }
 
@@ -87,9 +87,9 @@ public class AdResponseInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -107,9 +107,9 @@ public class AdResponseInfo implements Parcelable {
             this.mErrorCode = jSONObject.optString("error_code", "");
             JSONArray jSONArray = jSONObject.getJSONArray("ad");
             if (jSONArray != null) {
-                for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
                     try {
-                        this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i4)));
+                        this.mAdInstanceList.add(new AdElementInfo(jSONArray.getJSONObject(i3)));
                     } catch (Exception unused) {
                         this.mAdInstanceList = new ArrayList<>();
                     }
@@ -167,9 +167,9 @@ public class AdResponseInfo implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
             parcel.writeInt(this.mAdsNum);
             parcel.writeString(this.mRequestId);
             parcel.writeString(this.mErrorCode);
@@ -184,9 +184,9 @@ public class AdResponseInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -205,8 +205,8 @@ public class AdResponseInfo implements Parcelable {
                 this.mRequestId = optJSONObject.optString("id");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("ads");
                 if (optJSONArray != null) {
-                    for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i4);
+                    for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                        JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
                         if (optJSONObject2 != null) {
                             this.mAdInstanceList.add(new AdElementInfo(optJSONObject2, z));
                         }
@@ -225,9 +225,9 @@ public class AdResponseInfo implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

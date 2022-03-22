@@ -2,17 +2,17 @@ package okhttp3;
 
 import javax.annotation.Nullable;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface WebSocket {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface Factory {
         WebSocket newWebSocket(Request request, WebSocketListener webSocketListener);
     }
 
     void cancel();
 
-    boolean close(int i2, @Nullable String str);
+    boolean close(int i, @Nullable String str);
 
     long queueSize();
 

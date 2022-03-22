@@ -4,7 +4,7 @@ import com.google.android.exoplayer2.ExoPlayer;
 import com.google.android.exoplayer2.source.SampleStream;
 import com.google.android.exoplayer2.util.MediaClock;
 import java.io.IOException;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface Renderer extends ExoPlayer.ExoPlayerComponent {
     public static final int STATE_DISABLED = 0;
     public static final int STATE_ENABLED = 1;
@@ -12,7 +12,7 @@ public interface Renderer extends ExoPlayer.ExoPlayerComponent {
 
     void disable();
 
-    void enable(RendererConfiguration rendererConfiguration, Format[] formatArr, SampleStream sampleStream, long j2, boolean z, long j3) throws ExoPlaybackException;
+    void enable(RendererConfiguration rendererConfiguration, Format[] formatArr, SampleStream sampleStream, long j, boolean z, long j2) throws ExoPlaybackException;
 
     RendererCapabilities getCapabilities();
 
@@ -34,15 +34,15 @@ public interface Renderer extends ExoPlayer.ExoPlayerComponent {
 
     void maybeThrowStreamError() throws IOException;
 
-    void render(long j2, long j3) throws ExoPlaybackException;
+    void render(long j, long j2) throws ExoPlaybackException;
 
-    void replaceStream(Format[] formatArr, SampleStream sampleStream, long j2) throws ExoPlaybackException;
+    void replaceStream(Format[] formatArr, SampleStream sampleStream, long j) throws ExoPlaybackException;
 
-    void resetPosition(long j2) throws ExoPlaybackException;
+    void resetPosition(long j) throws ExoPlaybackException;
 
     void setCurrentStreamFinal();
 
-    void setIndex(int i2);
+    void setIndex(int i);
 
     void start() throws ExoPlaybackException;
 

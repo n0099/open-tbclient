@@ -29,9 +29,9 @@ public class HttpRequestPublishModule {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -53,9 +53,9 @@ public class HttpRequestPublishModule {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -139,9 +139,9 @@ public class HttpRequestPublishModule {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpRequestPublishModule};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -169,9 +169,9 @@ public class HttpRequestPublishModule {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpRequestPublishModule};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -205,9 +205,9 @@ public class HttpRequestPublishModule {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {httpRequestPublishModule};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -249,20 +249,20 @@ public class HttpRequestPublishModule {
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 try {
                     jSONObject = new JSONObject();
-                } catch (Exception e3) {
-                    jSONObject = null;
-                    e2 = e3;
-                }
-                try {
-                    jSONObject.put("title", this.title);
-                    jSONObject.put("content", this.content);
-                    jSONObject.put("link", this.link);
-                    jSONObject.put("icon", this.icon);
-                    jSONObject.put("shareText", this.shareText);
+                    try {
+                        jSONObject.put("title", this.title);
+                        jSONObject.put("content", this.content);
+                        jSONObject.put("link", this.link);
+                        jSONObject.put("icon", this.icon);
+                        jSONObject.put("shareText", this.shareText);
+                    } catch (Exception e3) {
+                        e2 = e3;
+                        e2.printStackTrace();
+                        return jSONObject;
+                    }
                 } catch (Exception e4) {
+                    jSONObject = null;
                     e2 = e4;
-                    e2.printStackTrace();
-                    return jSONObject;
                 }
                 return jSONObject;
             }
@@ -286,9 +286,9 @@ public class HttpRequestPublishModule {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -301,9 +301,9 @@ public class HttpRequestPublishModule {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

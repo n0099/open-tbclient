@@ -7,37 +7,36 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class LoadAdParams {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LoginType a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f57616b;
+    public String f42401b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f57617c;
+    public String f42402c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f57618d;
+    public String f42403d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Map<String, String> f57619e;
+    public Map<String, String> f42404e;
 
     /* renamed from: f  reason: collision with root package name */
-    public JSONObject f57620f;
+    public JSONObject f42405f;
 
     public LoadAdParams() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,7 +46,7 @@ public class LoadAdParams {
     public Map getDevExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f57619e : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f42404e : (Map) invokeV.objValue;
     }
 
     public String getDevExtraJsonString() {
@@ -55,7 +54,7 @@ public class LoadAdParams {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             try {
-                return (this.f57619e == null || this.f57619e.size() <= 0) ? "" : new JSONObject(this.f57619e).toString();
+                return (this.f42404e == null || this.f42404e.size() <= 0) ? "" : new JSONObject(this.f42404e).toString();
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -67,19 +66,19 @@ public class LoadAdParams {
     public JSONObject getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f57620f : (JSONObject) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42405f : (JSONObject) invokeV.objValue;
     }
 
     public String getLoginAppId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f57616b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42401b : (String) invokeV.objValue;
     }
 
     public String getLoginOpenid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f57617c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f42402c : (String) invokeV.objValue;
     }
 
     public LoginType getLoginType() {
@@ -91,34 +90,34 @@ public class LoadAdParams {
     public String getUin() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f57618d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f42403d : (String) invokeV.objValue;
     }
 
     public void setDevExtra(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
-            this.f57619e = map;
+            this.f42404e = map;
         }
     }
 
     public void setExtraInfo(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
-            this.f57620f = jSONObject;
+            this.f42405f = jSONObject;
         }
     }
 
     public void setLoginAppId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f57616b = str;
+            this.f42401b = str;
         }
     }
 
     public void setLoginOpenid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.f57617c = str;
+            this.f42402c = str;
         }
     }
 
@@ -132,7 +131,7 @@ public class LoadAdParams {
     public void setUin(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.f57618d = str;
+            this.f42403d = str;
         }
     }
 
@@ -140,7 +139,7 @@ public class LoadAdParams {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return "LoadAdParams{, loginType=" + this.a + ", loginAppId=" + this.f57616b + ", loginOpenid=" + this.f57617c + ", uin=" + this.f57618d + ", passThroughInfo=" + this.f57619e + ", extraInfo=" + this.f57620f + ExtendedMessageFormat.END_FE;
+            return "LoadAdParams{, loginType=" + this.a + ", loginAppId=" + this.f42401b + ", loginOpenid=" + this.f42402c + ", uin=" + this.f42403d + ", passThroughInfo=" + this.f42404e + ", extraInfo=" + this.f42405f + '}';
         }
         return (String) invokeV.objValue;
     }

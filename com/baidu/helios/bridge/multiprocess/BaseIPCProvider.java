@@ -8,9 +8,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.text.TextUtils;
-import c.a.q.e.a;
-import c.a.q.e.d.c;
-import c.a.q.e.d.d;
+import android.util.Log;
+import c.a.p.e.a;
+import c.a.p.e.d.c;
+import c.a.p.e.d.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,55 +19,55 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseIPCProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f33133c = "Helios";
+    public static final String f25498c = "Helios";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f33134d = "ipc/method/get_bridge";
+    public static final String f25499d = "ipc/method/get_bridge";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f33135e = 0;
+    public static final int f25500e = 0;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f33136f = "_method_get_bridge";
+    public static final String f25501f = "_method_get_bridge";
     public transient /* synthetic */ FieldHolder $fh;
     public e a;
 
     /* renamed from: b  reason: collision with root package name */
-    public UriMatcher f33137b;
+    public UriMatcher f25502b;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public class a extends e.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: f  reason: collision with root package name */
-        public d f33138f;
+        public d f25503f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ BaseIPCProvider f33139g;
+        public final /* synthetic */ BaseIPCProvider f25504g;
 
         /* renamed from: com.baidu.helios.bridge.multiprocess.BaseIPCProvider$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C1800a implements a.c<String> {
+        /* loaded from: classes3.dex */
+        public class C1754a implements a.c<String> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ f a;
 
-            public C1800a(a aVar, f fVar) {
+            public C1754a(a aVar, f fVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {aVar, fVar};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -75,19 +76,19 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 this.a = fVar;
             }
 
-            @Override // c.a.q.e.a.c
-            public void a(int i2, Exception exc, Bundle bundle) {
+            @Override // c.a.p.e.a.c
+            public void a(int i, Exception exc, Bundle bundle) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeILL(1048576, this, i2, exc, bundle) == null) {
+                if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
                     try {
-                        this.a.a(i2, bundle);
+                        this.a.a(i, bundle);
                     } catch (RemoteException unused) {
                     }
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // c.a.q.e.a.c
+            @Override // c.a.p.e.a.c
             /* renamed from: b */
             public void onResult(String str, Bundle bundle) {
                 Interceptable interceptable = $ic;
@@ -107,16 +108,16 @@ public abstract class BaseIPCProvider extends ContentProvider {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {baseIPCProvider};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f33139g = baseIPCProvider;
-            this.f33138f = new d(this.f33139g.getContext().getApplicationContext());
+            this.f25504g = baseIPCProvider;
+            this.f25503f = new d(this.f25504g.getContext().getApplicationContext());
         }
 
         @Override // com.baidu.helios.bridge.multiprocess.e
@@ -124,7 +125,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bundle)) == null) {
-                a.d g2 = this.f33138f.a().g(str, bundle);
+                a.d g2 = this.f25503f.a().g(str, bundle);
                 if (g2 == null) {
                     return null;
                 }
@@ -137,7 +138,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
         public void a() throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.f33138f.a().d();
+                this.f25503f.a().d();
             }
         }
 
@@ -145,7 +146,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
         public void a(String str, Bundle bundle, f fVar) throws RemoteException {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, bundle, fVar) == null) {
-                this.f33138f.a().a(str, bundle, new C1800a(this, fVar));
+                this.f25503f.a().a(str, bundle, new C1754a(this, fVar));
             }
         }
 
@@ -153,7 +154,7 @@ public abstract class BaseIPCProvider extends ContentProvider {
         public boolean a(String str) throws RemoteException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f33138f.a().e(str) : invokeL.booleanValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? this.f25503f.a().e(str) : invokeL.booleanValue;
         }
     }
 
@@ -162,15 +163,15 @@ public abstract class BaseIPCProvider extends ContentProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33137b = new UriMatcher(-1);
+        this.f25502b = new UriMatcher(-1);
     }
 
     private String a(String str) {
@@ -198,12 +199,13 @@ public abstract class BaseIPCProvider extends ContentProvider {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, bundle)) == null) {
+            Log.i(f25498c, "provider call");
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             Bundle bundle2 = new Bundle();
             char c2 = 65535;
-            if (str.hashCode() == -1722610639 && str.equals(f33136f)) {
+            if (str.hashCode() == -1722610639 && str.equals(f25501f)) {
                 c2 = 0;
             }
             if (c2 != 0) {
@@ -253,7 +255,8 @@ public abstract class BaseIPCProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            this.f33137b.addURI(a(getContext().getPackageName()), f33134d, 0);
+            this.f25502b.addURI(a(getContext().getPackageName()), f25499d, 0);
+            Log.i(f25498c, "provider onCreate");
             return true;
         }
         return invokeV.booleanValue;
@@ -264,8 +267,8 @@ public abstract class BaseIPCProvider extends ContentProvider {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, uri, strArr, str, strArr2, str2)) == null) {
-            int match = this.f33137b.match(uri);
-            String str3 = "provider query, code = " + match;
+            int match = this.f25502b.match(uri);
+            Log.i(f25498c, "provider query, code = " + match);
             if (match != 0) {
                 return null;
             }

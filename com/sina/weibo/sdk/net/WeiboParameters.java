@@ -14,7 +14,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.LinkedHashMap;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WeiboParameters {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_CHARSET = "UTF-8";
@@ -30,9 +30,9 @@ public class WeiboParameters {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -179,32 +179,32 @@ public class WeiboParameters {
     }
 
     @Deprecated
-    public void add(String str, int i2) {
+    public void add(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i2) == null) {
-            this.mParams.put(str, String.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            this.mParams.put(str, String.valueOf(i));
         }
     }
 
-    public void put(String str, int i2) {
+    public void put(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i2) == null) {
-            this.mParams.put(str, String.valueOf(i2));
+        if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {
+            this.mParams.put(str, String.valueOf(i));
         }
     }
 
     @Deprecated
-    public void add(String str, long j2) {
+    public void add(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j2) == null) {
-            this.mParams.put(str, String.valueOf(j2));
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            this.mParams.put(str, String.valueOf(j));
         }
     }
 
-    public void put(String str, long j2) {
+    public void put(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j2) == null) {
-            this.mParams.put(str, String.valueOf(j2));
+        if (interceptable == null || interceptable.invokeLJ(1048590, this, str, j) == null) {
+            this.mParams.put(str, String.valueOf(j));
         }
     }
 

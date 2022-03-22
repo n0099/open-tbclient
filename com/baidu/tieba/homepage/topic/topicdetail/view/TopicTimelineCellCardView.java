@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import c.a.d.f.p.n;
-import c.a.r0.o1.l.b.c.e;
+import c.a.p0.q1.l.b.c.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -29,25 +29,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TopicTimelineCellCardView extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public LinearLayout f33548b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f33549c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f33550d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f43218e;
+    public int f33551e;
 
     /* renamed from: f  reason: collision with root package name */
-    public LinearLayout f43219f;
+    public int f33552f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f43220g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f43221h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f43222i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public int f43223j;
-    public e k;
+    public e f33553g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TopicTimelineCellCardView(Context context) {
@@ -58,16 +58,16 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f43218e = 3;
+        this.a = 3;
         a(context);
     }
 
@@ -75,45 +75,45 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.card_topic_timeline_cell_view, (ViewGroup) this, true);
-            this.f43219f = (LinearLayout) findViewById(R.id.card_topic_timeline_cell_date);
-            this.f43220g = (TextView) findViewById(R.id.card_topic_timeline_cell_time);
-            this.f43221h = (TextView) findViewById(R.id.card_topic_timeline_cell_title);
-            this.f43222i = n.f(context, R.dimen.tbds340);
-            this.f43223j = n.f(context, R.dimen.tbds230);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01c2, (ViewGroup) this, true);
+            this.f33548b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090585);
+            this.f33549c = (TextView) findViewById(R.id.obfuscated_res_0x7f090586);
+            this.f33550d = (TextView) findViewById(R.id.obfuscated_res_0x7f090587);
+            this.f33551e = n.f(context, R.dimen.tbds340);
+            this.f33552f = n.f(context, R.dimen.tbds230);
             setOnClickListener(this);
-            onChangeSkinType();
+            b();
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f43218e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        this.f43218e = skinType;
-        SkinManager.setViewTextColor(this.f43220g, (int) R.color.cp_cont_m);
-        SkinManager.setBackgroundResource(this.f43221h, R.drawable.topic_timeline_shade_bg);
-        SkinManager.setViewTextColor(this.f43221h, (int) R.color.CAM_X0106);
+        this.a = skinType;
+        SkinManager.setViewTextColor(this.f33549c, (int) R.color.cp_cont_m);
+        SkinManager.setBackgroundResource(this.f33550d, R.drawable.topic_timeline_shade_bg);
+        SkinManager.setViewTextColor(this.f33550d, (int) R.color.CAM_X0106);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || this.k == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view) == null) || this.f33553g == null) {
             return;
         }
-        TiebaStatic.log(new StatisticItem("c13353").param("tid", this.k.f20237b).param("topic_id", this.k.a).param("obj_locate", this.k.f20241f + 1));
-        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.k.f20237b), "", "")));
+        TiebaStatic.log(new StatisticItem("c13353").param("tid", this.f33553g.f17569b).param("topic_id", this.f33553g.a).param("obj_locate", this.f33553g.f17573f + 1));
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, new PbActivityConfig(getContext()).createNormalCfg(String.valueOf(this.f33553g.f17569b), "", "")));
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i2, i3) == null) {
-            super.onMeasure(i2, i3);
-            setMeasuredDimension(this.f43222i, this.f43223j);
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            super.onMeasure(i, i2);
+            setMeasuredDimension(this.f33551e, this.f33552f);
         }
     }
 
@@ -125,34 +125,34 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 return;
             }
             setVisibility(0);
-            this.k = eVar;
-            this.f43220g.setText(eVar.f20239d);
-            this.f43221h.setText(eVar.f20238c);
-            if (StringUtils.isNull(eVar.f20240e)) {
-                int i2 = eVar.f20241f;
-                if (i2 == 0) {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_one);
+            this.f33553g = eVar;
+            this.f33549c.setText(eVar.f17571d);
+            this.f33550d.setText(eVar.f17570c);
+            if (StringUtils.isNull(eVar.f17572e)) {
+                int i = eVar.f17573f;
+                if (i == 0) {
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_one);
                     return;
-                } else if (i2 == 1) {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_two);
+                } else if (i == 1) {
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_two);
                     return;
                 } else {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_three);
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_three);
                     return;
                 }
             }
             try {
-                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.topic_timeline_bg);
-                gradientDrawable.setColor(Color.parseColor(eVar.f20240e));
-                this.f43219f.setBackgroundDrawable(gradientDrawable);
+                GradientDrawable gradientDrawable = (GradientDrawable) getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811f6);
+                gradientDrawable.setColor(Color.parseColor(eVar.f17572e));
+                this.f33548b.setBackgroundDrawable(gradientDrawable);
             } catch (Exception unused) {
-                int i3 = eVar.f20241f;
-                if (i3 == 0) {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_one);
-                } else if (i3 == 1) {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_two);
+                int i2 = eVar.f17573f;
+                if (i2 == 0) {
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_one);
+                } else if (i2 == 1) {
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_two);
                 } else {
-                    SkinManager.setBackgroundResource(this.f43219f, R.drawable.topic_timeline_bg_three);
+                    SkinManager.setBackgroundResource(this.f33548b, R.drawable.topic_timeline_bg_three);
                 }
             }
         }
@@ -167,9 +167,9 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -177,22 +177,22 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f43218e = 3;
+        this.a = 3;
         a(context);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TopicTimelineCellCardView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TopicTimelineCellCardView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -200,7 +200,7 @@ public class TopicTimelineCellCardView extends LinearLayout implements View.OnCl
                 return;
             }
         }
-        this.f43218e = 3;
+        this.a = 3;
         a(context);
     }
 }

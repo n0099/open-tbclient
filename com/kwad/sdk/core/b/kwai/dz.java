@@ -15,9 +15,9 @@ public class dz implements com.kwad.sdk.core.d<AdMatrixInfo.Styles> {
         styles.templateList = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("templates");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 AdMatrixInfo.MatrixTemplate matrixTemplate = new AdMatrixInfo.MatrixTemplate();
-                matrixTemplate.parseJson(optJSONArray.optJSONObject(i2));
+                matrixTemplate.parseJson(optJSONArray.optJSONObject(i));
                 styles.templateList.add(matrixTemplate);
             }
         }

@@ -14,7 +14,7 @@ import java.nio.Buffer;
 import java.nio.FloatBuffer;
 import javax.annotation.Nullable;
 import org.webrtc.RendererCommon;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEFAULT_VERTEX_SHADER_STRING = "varying vec2 tc;\nattribute vec4 in_pos;\nattribute vec4 in_tc;\nuniform mat4 tex_mat;\nvoid main() {\n  gl_Position = in_pos;\n  tc = (tex_mat * in_tc).xy;\n}\n";
@@ -35,15 +35,15 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     public int texMatrixLocation;
     public final String vertexShader;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface ShaderCallbacks {
         void onNewShader(GlShader glShader);
 
-        void onPrepareShader(GlShader glShader, float[] fArr, int i2, int i3, int i4, int i5);
+        void onPrepareShader(GlShader glShader, float[] fArr, int i, int i2, int i3, int i4);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class ShaderType {
         public static final /* synthetic */ ShaderType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -72,16 +72,16 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             $VALUES = new ShaderType[]{OES, RGB, shaderType};
         }
 
-        public ShaderType(String str, int i2) {
+        public ShaderType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -130,9 +130,9 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, shaderCallbacks};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], (String) objArr2[1], (ShaderCallbacks) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -177,10 +177,10 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
         return (String) invokeLL.objValue;
     }
 
-    private void prepareShader(ShaderType shaderType, float[] fArr, int i2, int i3, int i4, int i5) {
+    private void prepareShader(ShaderType shaderType, float[] fArr, int i, int i2, int i3, int i4) {
         GlShader glShader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{shaderType, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{shaderType, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (shaderType.equals(this.currentShaderType)) {
                 glShader = this.currentShader;
             } else {
@@ -212,7 +212,7 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             GLES20.glEnableVertexAttribArray(this.inTcLocation);
             GLES20.glVertexAttribPointer(this.inTcLocation, 2, 5126, false, 0, (Buffer) FULL_RECTANGLE_TEXTURE_BUFFER);
             GLES20.glUniformMatrix4fv(this.texMatrixLocation, 1, false, fArr, 0);
-            this.shaderCallbacks.onPrepareShader(glShader, fArr, i2, i3, i4, i5);
+            this.shaderCallbacks.onPrepareShader(glShader, fArr, i, i2, i3, i4);
             GlUtil.checkNoGLES2Error("Prepare shader");
         }
     }
@@ -224,44 +224,44 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawOes(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
+    public void drawOes(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            prepareShader(ShaderType.OES, fArr, i3, i4, i7, i8);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            prepareShader(ShaderType.OES, fArr, i2, i3, i6, i7);
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(36197, i2);
-            GLES20.glViewport(i5, i6, i7, i8);
+            GLES20.glBindTexture(36197, i);
+            GLES20.glViewport(i4, i5, i6, i7);
             GLES20.glDrawArrays(5, 0, 4);
             GLES20.glBindTexture(36197, 0);
         }
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawRgb(int i2, float[] fArr, int i3, int i4, int i5, int i6, int i7, int i8) {
+    public void drawRgb(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), fArr, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            prepareShader(ShaderType.RGB, fArr, i3, i4, i7, i8);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
+            prepareShader(ShaderType.RGB, fArr, i2, i3, i6, i7);
             GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(3553, i2);
-            GLES20.glViewport(i5, i6, i7, i8);
+            GLES20.glBindTexture(3553, i);
+            GLES20.glViewport(i4, i5, i6, i7);
             GLES20.glDrawArrays(5, 0, 4);
             GLES20.glBindTexture(3553, 0);
         }
     }
 
     @Override // org.webrtc.RendererCommon.GlDrawer
-    public void drawYuv(int[] iArr, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7) {
+    public void drawYuv(int[] iArr, float[] fArr, int i, int i2, int i3, int i4, int i5, int i6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{iArr, fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)}) == null) {
-            prepareShader(ShaderType.YUV, fArr, i2, i3, i6, i7);
-            for (int i8 = 0; i8 < 3; i8++) {
-                GLES20.glActiveTexture(33984 + i8);
-                GLES20.glBindTexture(3553, iArr[i8]);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{iArr, fArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
+            prepareShader(ShaderType.YUV, fArr, i, i2, i5, i6);
+            for (int i7 = 0; i7 < 3; i7++) {
+                GLES20.glActiveTexture(33984 + i7);
+                GLES20.glBindTexture(3553, iArr[i7]);
             }
-            GLES20.glViewport(i4, i5, i6, i7);
+            GLES20.glViewport(i3, i4, i5, i6);
             GLES20.glDrawArrays(5, 0, 4);
-            for (int i9 = 0; i9 < 3; i9++) {
-                GLES20.glActiveTexture(i9 + 33984);
+            for (int i8 = 0; i8 < 3; i8++) {
+                GLES20.glActiveTexture(i8 + 33984);
                 GLES20.glBindTexture(3553, 0);
             }
         }
@@ -286,9 +286,9 @@ public class GlGenericDrawer implements RendererCommon.GlDrawer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2, shaderCallbacks};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

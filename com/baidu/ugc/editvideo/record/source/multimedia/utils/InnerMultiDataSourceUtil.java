@@ -10,10 +10,10 @@ import android.opengl.GLUtils;
 import android.opengl.Matrix;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.a0.b.a.g;
-import c.a.a0.b.a.k.c;
-import c.a.y0.b;
-import c.a.y0.r.h;
+import c.a.v0.b;
+import c.a.v0.r.h;
+import c.a.z.b.a.g;
+import c.a.z.b.a.k.c;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
@@ -35,6 +35,7 @@ import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUti
 import com.baidu.ugc.editvideo.subtitle.SubtitleLog;
 import com.baidu.ugc.utils.FileUtils;
 import com.faceunity.gles.GeneratedTexture;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -57,9 +58,9 @@ public class InnerMultiDataSourceUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -68,25 +69,25 @@ public class InnerMultiDataSourceUtil {
 
     /* JADX DEBUG: Multi-variable search result rejected for r5v4, resolved type: boolean */
     /* JADX WARN: Multi-variable type inference failed */
-    public static int addMultiMediaData(MultiMediaDataTrack multiMediaDataTrack, int i2, MultiMediaData multiMediaData) {
+    public static int addMultiMediaData(MultiMediaDataTrack multiMediaDataTrack, int i, MultiMediaData multiMediaData) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, multiMediaDataTrack, i2, multiMediaData)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, multiMediaDataTrack, i, multiMediaData)) == null) {
             if (multiMediaData == null || multiMediaDataTrack == null) {
                 return -1;
             }
             int size = multiMediaDataTrack.multiMediaDataList.size();
-            int i3 = i2;
-            if (i2 <= 0) {
-                i3 = hasHeader(multiMediaDataTrack);
-            } else if (i2 >= size) {
+            int i2 = i;
+            if (i <= 0) {
+                i2 = hasHeader(multiMediaDataTrack);
+            } else if (i >= size) {
                 if (hasFooter(multiMediaDataTrack)) {
                     size--;
                 }
-                i3 = size;
+                i2 = size;
             }
-            multiMediaDataTrack.multiMediaDataList.add(i3, multiMediaData);
-            return i3;
+            multiMediaDataTrack.multiMediaDataList.add(i2, multiMediaData);
+            return i2;
         }
         return invokeLIL.intValue;
     }
@@ -128,22 +129,22 @@ public class InnerMultiDataSourceUtil {
         }
         MediaSegment mediaSegment = null;
         MediaSegment mediaSegment2 = null;
+        int i = 0;
         int i2 = 0;
-        int i3 = 0;
         loop1: for (MediaTrack mediaTrack : mediaTrackConfig.mediaTracks) {
             if (mediaTrack.mediaSegments != null) {
-                for (int i4 = 0; i4 < mediaTrack.mediaSegments.size(); i4++) {
-                    MediaSegment mediaSegment3 = mediaTrack.mediaSegments.get(i4);
+                for (int i3 = 0; i3 < mediaTrack.mediaSegments.size(); i3++) {
+                    MediaSegment mediaSegment3 = mediaTrack.mediaSegments.get(i3);
                     if (TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_HEADER, mediaSegment3.type)) {
                         if (TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE)) {
-                            i2 = i4;
+                            i = i3;
                             mediaSegment = mediaSegment3;
                         } else {
                             mediaSegment = mediaSegment3;
-                            i2 = 0;
+                            i = 0;
                         }
                     } else if (TextUtils.equals(MediaSegment.SEG_TYPE_INPUT_FOOTER, mediaSegment3.type)) {
-                        i3 = TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE) ? i4 : mediaTrack.mediaSegments.size() + 1;
+                        i2 = TextUtils.equals(mediaTrackConfig.importType, MediaTrackConfig.AE_IMPORT_TEMPLATE) ? i3 : mediaTrack.mediaSegments.size() + 1;
                         mediaSegment2 = mediaSegment3;
                     }
                     if (mediaSegment != null && mediaSegment2 != null) {
@@ -153,41 +154,41 @@ public class InnerMultiDataSourceUtil {
                 continue;
             }
         }
-        applyHeaderOrFooter(map, list, mediaSegment, i2, onInitMultiMediaListener);
-        applyHeaderOrFooter(map, list, mediaSegment2, i3, onInitMultiMediaListener);
+        applyHeaderOrFooter(map, list, mediaSegment, i, onInitMultiMediaListener);
+        applyHeaderOrFooter(map, list, mediaSegment2, i2, onInitMultiMediaListener);
     }
 
-    public static void applyHeaderOrFooter(Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list, MediaSegment mediaSegment, int i2, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
+    public static void applyHeaderOrFooter(Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list, MediaSegment mediaSegment, int i, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
         ShaderConfig shaderConfig;
         MultiMediaData transSegment2Data;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{map, list, mediaSegment, Integer.valueOf(i2), onInitMultiMediaListener}) == null) || mediaSegment == null || map == null || TextUtils.isEmpty(mediaSegment.shaderConfigKey) || (shaderConfig = map.get(mediaSegment.shaderConfigKey)) == null || h.e(shaderConfig.textures) || (transSegment2Data = transSegment2Data(mediaSegment, (MediaTextureData) h.c(shaderConfig.textures, 0))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{map, list, mediaSegment, Integer.valueOf(i), onInitMultiMediaListener}) == null) || mediaSegment == null || map == null || TextUtils.isEmpty(mediaSegment.shaderConfigKey) || (shaderConfig = map.get(mediaSegment.shaderConfigKey)) == null || h.e(shaderConfig.textures) || (transSegment2Data = transSegment2Data(mediaSegment, (MediaTextureData) h.c(shaderConfig.textures, 0))) == null) {
             return;
         }
-        list.get(0).multiMediaDataList.add(i2, transSegment2Data);
+        list.get(0).multiMediaDataList.add(i, transSegment2Data);
         if (onInitMultiMediaListener != null) {
             onInitMultiMediaListener.onInitMultiMedia(transSegment2Data);
         }
     }
 
-    public static void applyOtherTrack(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, long j2, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
+    public static void applyOtherTrack(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, long j, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{list, map, list2, Long.valueOf(j2), onInitMultiMediaListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{list, map, list2, Long.valueOf(j), onInitMultiMediaListener}) == null) {
             MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) h.c(list2, 0);
             List<MultiMediaData> list3 = multiMediaDataTrack != null ? multiMediaDataTrack.multiMediaDataList : null;
-            int i2 = 0;
+            int i = 0;
             boolean z = false;
-            for (int i3 = 1; i3 < list.size(); i3++) {
-                MediaTrack mediaTrack = list.get(i3);
+            for (int i2 = 1; i2 < list.size(); i2++) {
+                MediaTrack mediaTrack = list.get(i2);
                 int b2 = h.b(mediaTrack.mediaSegments);
                 ArrayList arrayList = new ArrayList();
-                for (int i4 = 0; i4 < b2; i4++) {
-                    MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i4);
+                for (int i3 = 0; i3 < b2; i3++) {
+                    MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i3);
                     if (mediaSegment.start == 0 && mediaSegment.end == 0) {
-                        mediaSegment.end = j2;
+                        mediaSegment.end = j;
                     }
                     if (c.m(mediaTrack, "multi_input") && list3 != null) {
-                        MultiMediaData multiMediaData = (MultiMediaData) h.c(list3, i2);
+                        MultiMediaData multiMediaData = (MultiMediaData) h.c(list3, i);
                         if (multiMediaData == null) {
                             z = true;
                         } else {
@@ -199,7 +200,7 @@ public class InnerMultiDataSourceUtil {
                             if (onInitMultiMediaListener != null) {
                                 onInitMultiMediaListener.onInitMultiMedia(multiMediaData2);
                             }
-                            i2++;
+                            i++;
                             z = false;
                         }
                     } else if (!c.m(mediaTrack, "edit_sticker")) {
@@ -212,7 +213,7 @@ public class InnerMultiDataSourceUtil {
                 multiMediaDataTrack2.multiMediaDataList = arrayList;
                 list2.add(multiMediaDataTrack2);
                 if (z) {
-                    i2++;
+                    i++;
                     z = false;
                 }
             }
@@ -221,7 +222,7 @@ public class InnerMultiDataSourceUtil {
 
     public static void applySuperpositionSegment(List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, MultiDataSourceUtil.OnInitMultiMediaListener onInitMultiMediaListener, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, list, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener) == null) || h.e(list) || h.e(list2) || list.get(0).mediaSegments.size() < c.f1281j) {
+        if (!(interceptable == null || interceptable.invokeLLLLL(65542, null, list, map, list2, onInitMultiMediaListener, onReleaseMultiMediaListener) == null) || h.e(list) || h.e(list2) || list.get(0).mediaSegments.size() < c.j) {
             return;
         }
         MultiMediaData multiMediaData = list2.get(0).multiMediaDataSuperpositionHeader;
@@ -332,11 +333,11 @@ public class InnerMultiDataSourceUtil {
         }
         MediaTrack mediaTrack = new MediaTrack();
         ArrayList arrayList = new ArrayList();
-        long j2 = 0;
+        long j = 0;
         for (MultiMediaData multiMediaData : list) {
-            MediaSegment transData2Segment = transData2Segment(j2, multiMediaData);
+            MediaSegment transData2Segment = transData2Segment(j, multiMediaData);
             arrayList.add(transData2Segment);
-            j2 = transData2Segment.end;
+            j = transData2Segment.end;
         }
         mediaTrack.mediaSegments = arrayList;
         if (list2.size() > 0) {
@@ -347,7 +348,7 @@ public class InnerMultiDataSourceUtil {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:34:0x0083, code lost:
-        if (c.a.y0.r.h.b(r7) != c.a.y0.r.h.b(r2.mediaSegments)) goto L40;
+        if (c.a.v0.r.h.b(r7) != c.a.v0.r.h.b(r2.mediaSegments)) goto L40;
      */
     /* JADX WARN: Removed duplicated region for block: B:38:0x008e  */
     /* JADX WARN: Removed duplicated region for block: B:41:0x009f  */
@@ -407,14 +408,14 @@ public class InnerMultiDataSourceUtil {
                 it = map.entrySet().iterator();
                 while (it.hasNext()) {
                     Map.Entry<String, ShaderConfig> next2 = it.next();
-                    if (!TextUtils.equals(next2.getKey(), c.f1276e) && !TextUtils.equals(next2.getKey(), c.f1274c) && !next2.getKey().contains(c.f1275d)) {
+                    if (!TextUtils.equals(next2.getKey(), c.f22279e) && !TextUtils.equals(next2.getKey(), c.f22277c) && !next2.getKey().contains(c.f22278d)) {
                         next2.getValue().destroy();
                         it.remove();
                     }
                 }
                 if (mediaTrackConfig != null && (map2 = mediaTrackConfig.shaderConfigMapDebug) != null) {
                     for (Map.Entry<String, ShaderConfig> entry : map2.entrySet()) {
-                        if ((!TextUtils.equals(entry.getKey(), c.f1274c) && !TextUtils.equals(entry.getKey(), c.f1276e) && !entry.getKey().contains(c.f1275d)) || !map.containsKey(entry.getKey())) {
+                        if ((!TextUtils.equals(entry.getKey(), c.f22277c) && !TextUtils.equals(entry.getKey(), c.f22279e) && !entry.getKey().contains(c.f22278d)) || !map.containsKey(entry.getKey())) {
                             map.put(entry.getKey(), entry.getValue());
                         }
                     }
@@ -442,9 +443,9 @@ public class InnerMultiDataSourceUtil {
             map.putAll(mediaTrackConfig.shaderConfigMapDebug);
         }
         int min = Math.min(h.b(list), h.c(list3, 0) != null ? h.b(((MediaTrack) h.c(list3, 0)).mediaSegments) : 0);
-        for (int i2 = 0; i2 < min; i2++) {
-            MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i2);
-            MediaSegment mediaSegment = h.c(list3, 0) != null ? (MediaSegment) h.c(((MediaTrack) h.c(list3, 0)).mediaSegments, i2) : null;
+        for (int i = 0; i < min; i++) {
+            MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i);
+            MediaSegment mediaSegment = h.c(list3, 0) != null ? (MediaSegment) h.c(((MediaTrack) h.c(list3, 0)).mediaSegments, i) : null;
             if (mediaSegment != null && multiMediaData != null && !TextUtils.isEmpty(mediaSegment.scaleType)) {
                 multiMediaData.scaleType = mediaSegment.scaleType;
             }
@@ -538,8 +539,8 @@ public class InnerMultiDataSourceUtil {
                 ShaderConfig shaderConfig = map.get(str);
                 int b2 = h.b(shaderConfig.textures);
                 if (b2 != 0) {
-                    for (int i2 = 0; i2 < b2; i2++) {
-                        MediaTextureData mediaTextureData = shaderConfig.textures.get(i2);
+                    for (int i = 0; i < b2; i++) {
+                        MediaTextureData mediaTextureData = shaderConfig.textures.get(i);
                         if (mediaTextureData != null) {
                             MultiMediaData multiMediaData2 = new MultiMediaData();
                             if (TextUtils.equals(mediaTextureData.type, MediaTextureData.TEXTURE_VIDEO)) {
@@ -593,24 +594,24 @@ public class InnerMultiDataSourceUtil {
         return (MultiMediaData) invokeLL.objValue;
     }
 
-    public static int calculateInSampleSize(BitmapFactory.Options options, int i2, int i3) {
+    public static int calculateInSampleSize(BitmapFactory.Options options, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, options, i2, i3)) == null) {
-            int i4 = options.outHeight;
-            int i5 = options.outWidth;
-            if (i4 == i5) {
-                i3 = i2;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65553, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 == i4) {
+                i2 = i;
             }
-            int i6 = 1;
-            if (i4 > i3 || i5 > i2) {
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
                 int i7 = i4 / 2;
-                int i8 = i5 / 2;
-                while (i7 / i6 > i3 && i8 / i6 > i2) {
-                    i6 *= 2;
+                while (i6 / i5 > i2 && i7 / i5 > i) {
+                    i5 *= 2;
                 }
             }
-            return i6;
+            return i5;
         }
         return invokeLII.intValue;
     }
@@ -635,19 +636,19 @@ public class InnerMultiDataSourceUtil {
         return (Bitmap) invokeL.objValue;
     }
 
-    public static int deleteMultiMediaData(List<MultiMediaDataTrack> list, int i2, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
+    public static int deleteMultiMediaData(List<MultiMediaDataTrack> list, int i, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65555, null, list, i2, onReleaseMultiMediaListener)) == null) {
-            if (i2 < 0 || list == null || list.size() == 0 || list.get(0) == null || list.get(0).multiMediaDataList == null || i2 >= list.get(0).multiMediaDataList.size()) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65555, null, list, i, onReleaseMultiMediaListener)) == null) {
+            if (i < 0 || list == null || list.size() == 0 || list.get(0) == null || list.get(0).multiMediaDataList == null || i >= list.get(0).multiMediaDataList.size()) {
                 return -1;
             }
-            MultiMediaData remove = list.get(0).multiMediaDataList.remove(i2);
+            MultiMediaData remove = list.get(0).multiMediaDataList.remove(i);
             if (onReleaseMultiMediaListener != null) {
                 onReleaseMultiMediaListener.onReleaseMultiMedia(remove);
-                return i2;
+                return i;
             }
-            return i2;
+            return i;
         }
         return invokeLIL.intValue;
     }
@@ -668,29 +669,29 @@ public class InnerMultiDataSourceUtil {
         return (MultiMediaData) invokeLL.objValue;
     }
 
-    public static int[] findIndexInSegments(List<MediaSegment> list, long j2) {
+    public static int[] findIndexInSegments(List<MediaSegment> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65557, null, list, j)) == null) {
             if (list == null || list.size() <= 0) {
                 return new int[0];
             }
             int size = list.size();
             ArrayList arrayList = new ArrayList();
-            for (int i2 = 0; i2 < size; i2++) {
-                MediaSegment mediaSegment = (MediaSegment) h.c(list, i2);
+            for (int i = 0; i < size; i++) {
+                MediaSegment mediaSegment = (MediaSegment) h.c(list, i);
                 if (mediaSegment == null || TextUtils.equals("input_blank", mediaSegment.type)) {
                     break;
                 }
-                if (mediaSegment.start <= j2 && mediaSegment.end >= j2) {
-                    arrayList.add(Integer.valueOf(i2));
+                if (mediaSegment.start <= j && mediaSegment.end >= j) {
+                    arrayList.add(Integer.valueOf(i));
                 }
             }
             int size2 = arrayList.size();
             int[] iArr = new int[size2];
             if (arrayList.size() != 0 && size2 != 0) {
-                for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                    iArr[i3] = ((Integer) arrayList.get(i3)).intValue();
+                for (int i2 = 0; i2 < arrayList.size(); i2++) {
+                    iArr[i2] = ((Integer) arrayList.get(i2)).intValue();
                 }
             }
             return iArr;
@@ -698,17 +699,17 @@ public class InnerMultiDataSourceUtil {
         return (int[]) invokeLJ.objValue;
     }
 
-    public static int findInputIndexInSegments(List<MediaSegment> list, long j2) {
+    public static int findInputIndexInSegments(List<MediaSegment> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65558, null, list, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65558, null, list, j)) == null) {
             if (h.e(list)) {
                 return 0;
             }
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                MediaSegment mediaSegment = list.get(i2);
-                if (mediaSegment.start <= j2 && mediaSegment.end >= j2) {
-                    return i2;
+            for (int i = 0; i < list.size(); i++) {
+                MediaSegment mediaSegment = list.get(i);
+                if (mediaSegment.start <= j && mediaSegment.end >= j) {
+                    return i;
                 }
             }
             return 0;
@@ -722,29 +723,29 @@ public class InnerMultiDataSourceUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65559, null, multiMediaData, list, list2)) == null) {
             if (multiMediaData != null && list != null && list2 != null && (b2 = h.b(list)) == h.b(list2) && b2 != 0) {
-                for (int i2 = 0; i2 < b2; i2++) {
-                    MediaTrack mediaTrack = (MediaTrack) h.c(list, i2);
-                    MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) h.c(list2, i2);
+                for (int i = 0; i < b2; i++) {
+                    MediaTrack mediaTrack = (MediaTrack) h.c(list, i);
+                    MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) h.c(list2, i);
                     if (mediaTrack != null && multiMediaDataTrack != null) {
                         List<MultiMediaData> list3 = multiMediaDataTrack.multiMediaDataList;
                         List<MediaSegment> list4 = mediaTrack.mediaSegments;
                         if (h.b(list3) != h.b(list4)) {
                             continue;
                         } else {
-                            int i3 = -1;
-                            int i4 = 0;
+                            int i2 = -1;
+                            int i3 = 0;
                             while (true) {
-                                if (i4 >= list3.size()) {
+                                if (i3 >= list3.size()) {
                                     break;
-                                } else if (multiMediaData == list3.get(i4)) {
-                                    i3 = i4;
+                                } else if (multiMediaData == list3.get(i3)) {
+                                    i2 = i3;
                                     break;
                                 } else {
-                                    i4++;
+                                    i3++;
                                 }
                             }
-                            if (i3 >= 0) {
-                                return list4.get(i3);
+                            if (i2 >= 0) {
+                                return list4.get(i2);
                             }
                         }
                     }
@@ -842,9 +843,9 @@ public class InnerMultiDataSourceUtil {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65564, null, str, context)) == null) {
             try {
                 String[] strArr = {getAppPackageName(), context.getPackageName(), "com.baidu.capture"};
-                for (int i2 = 0; i2 < 3; i2++) {
-                    String str2 = strArr[i2];
-                    int identifier = context.getResources().getIdentifier(str, "drawable", str2);
+                for (int i = 0; i < 3; i++) {
+                    String str2 = strArr[i];
+                    int identifier = context.getResources().getIdentifier(str, ResourceManager.DRAWABLE, str2);
                     if (identifier == 0) {
                         identifier = context.getResources().getIdentifier(str, "mipmap", str2);
                     }
@@ -866,16 +867,16 @@ public class InnerMultiDataSourceUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65565, null, mediaSegment)) == null) ? !TextUtils.isEmpty(mediaSegment.scaleType) ? mediaSegment.scaleType : MultiDataSourceUtil.sDefaultScaleType : (String) invokeL.objValue;
     }
 
-    public static long getMultiMediaDataSeekTime(MultiMediaData multiMediaData, MediaSegment mediaSegment, long j2) {
+    public static long getMultiMediaDataSeekTime(MultiMediaData multiMediaData, MediaSegment mediaSegment, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, null, new Object[]{multiMediaData, mediaSegment, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65566, null, new Object[]{multiMediaData, mediaSegment, Long.valueOf(j)})) == null) {
             if (multiMediaData == null || mediaSegment == null) {
                 return 0L;
             }
-            long j3 = multiMediaData.start + (j2 - mediaSegment.start);
-            if (j3 >= 0) {
-                return j3;
+            long j2 = multiMediaData.start + (j - mediaSegment.start);
+            if (j2 >= 0) {
+                return j2;
             }
             return 0L;
         }
@@ -942,12 +943,12 @@ public class InnerMultiDataSourceUtil {
         return (MediaTrack) invokeLL.objValue;
     }
 
-    public static void glDeleteTextures(int i2) {
+    public static void glDeleteTextures(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65572, null, i2) == null) || i2 == 0) {
+        if (!(interceptable == null || interceptable.invokeI(65572, null, i) == null) || i == 0) {
             return;
         }
-        GLES20.glDeleteTextures(1, new int[]{i2}, 0);
+        GLES20.glDeleteTextures(1, new int[]{i}, 0);
     }
 
     public static void glDeleteTextures(MultiMediaData multiMediaData) {
@@ -955,14 +956,14 @@ public class InnerMultiDataSourceUtil {
         if (!(interceptable == null || interceptable.invokeL(65573, null, multiMediaData) == null) || multiMediaData == null) {
             return;
         }
-        int i2 = multiMediaData.textureId;
-        if (i2 != 0) {
-            GLES20.glDeleteTextures(1, new int[]{i2}, 0);
+        int i = multiMediaData.textureId;
+        if (i != 0) {
+            GLES20.glDeleteTextures(1, new int[]{i}, 0);
             multiMediaData.textureId = 0;
         }
-        int i3 = multiMediaData.backupFrameTextureId;
-        if (i3 != 0) {
-            GLES20.glDeleteTextures(1, new int[]{i3}, 0);
+        int i2 = multiMediaData.backupFrameTextureId;
+        if (i2 != 0) {
+            GLES20.glDeleteTextures(1, new int[]{i2}, 0);
             multiMediaData.backupFrameTextureId = 0;
         }
     }
@@ -985,10 +986,10 @@ public class InnerMultiDataSourceUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65575, null, mediaTrack)) == null) {
             if (mediaTrack != null && !h.e(mediaTrack.mediaSegments)) {
                 int size = mediaTrack.mediaSegments.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i2);
-                    if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(c.f1275d)) {
-                        return i2;
+                for (int i = 0; i < size; i++) {
+                    MediaSegment mediaSegment = mediaTrack.mediaSegments.get(i);
+                    if (mediaSegment != null && !TextUtils.isEmpty(mediaSegment.lutConfigKey) && !mediaSegment.lutConfigKey.contains(c.f22278d)) {
+                        return i;
                     }
                 }
             }
@@ -1022,11 +1023,11 @@ public class InnerMultiDataSourceUtil {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                i2 = (i2 * 16) + hexCharToDecimal(str.charAt(i3));
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = (i * 16) + hexCharToDecimal(str.charAt(i2));
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -1072,12 +1073,12 @@ public class InnerMultiDataSourceUtil {
         try {
             try {
                 mediaMetadataRetriever.setDataSource(multiMediaData.path);
-                multiMediaData.rotation = c.a.y0.r.g.c(mediaMetadataRetriever.extractMetadata(24), 0);
-                multiMediaData.width = c.a.y0.r.g.c(mediaMetadataRetriever.extractMetadata(18), 0);
-                multiMediaData.height = c.a.y0.r.g.c(mediaMetadataRetriever.extractMetadata(19), 0);
-                multiMediaData.originalDuration = c.a.y0.r.g.d(mediaMetadataRetriever.extractMetadata(9), 0L);
+                multiMediaData.rotation = c.a.v0.r.g.c(mediaMetadataRetriever.extractMetadata(24), 0);
+                multiMediaData.width = c.a.v0.r.g.c(mediaMetadataRetriever.extractMetadata(18), 0);
+                multiMediaData.height = c.a.v0.r.g.c(mediaMetadataRetriever.extractMetadata(19), 0);
+                multiMediaData.originalDuration = c.a.v0.r.g.d(mediaMetadataRetriever.extractMetadata(9), 0L);
             } catch (Exception e2) {
-                c.a.y0.r.c.d(e2.getMessage());
+                c.a.v0.r.c.d(e2.getMessage());
             }
         } finally {
             mediaMetadataRetriever.release();
@@ -1095,7 +1096,7 @@ public class InnerMultiDataSourceUtil {
             if (readText == null || "".equals(readText)) {
                 return null;
             }
-            c.a.y0.j.b bVar = new c.a.y0.j.b();
+            c.a.v0.j.b bVar = new c.a.v0.j.b();
             MediaAEffect mediaAEffect = (MediaAEffect) bVar.b(readText, MediaAEffect.class);
             if (mediaAEffect == null) {
                 return null;
@@ -1142,7 +1143,7 @@ public class InnerMultiDataSourceUtil {
                                 } catch (Exception e2) {
                                     e2.printStackTrace();
                                 }
-                                mediaTransition = (MediaTransition) new c.a.y0.j.b().b(sb.toString(), MediaTransition.class);
+                                mediaTransition = (MediaTransition) new c.a.v0.j.b().b(sb.toString(), MediaTransition.class);
                             } else {
                                 StringBuilder sb2 = new StringBuilder();
                                 try {
@@ -1158,7 +1159,7 @@ public class InnerMultiDataSourceUtil {
                                 } catch (Exception e3) {
                                     e3.printStackTrace();
                                 }
-                                shaderConfig = (ShaderConfig) new c.a.y0.j.b().b(sb2.toString(), ShaderConfig.class);
+                                shaderConfig = (ShaderConfig) new c.a.v0.j.b().b(sb2.toString(), ShaderConfig.class);
                                 shaderConfig.resourcePath = file3.getParentFile().getAbsolutePath();
                             }
                         }
@@ -1179,22 +1180,22 @@ public class InnerMultiDataSourceUtil {
         return (MediaTransitionConfig) invokeL.objValue;
     }
 
-    public static void modifyTimeByRange(List<MediaTrack> list, MediaTrack mediaTrack, long j2, long j3) {
+    public static void modifyTimeByRange(List<MediaTrack> list, MediaTrack mediaTrack, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65583, null, new Object[]{list, mediaTrack, Long.valueOf(j2), Long.valueOf(j3)}) == null) || h.e(list)) {
+        if (!(interceptable == null || interceptable.invokeCommon(65583, null, new Object[]{list, mediaTrack, Long.valueOf(j), Long.valueOf(j2)}) == null) || h.e(list)) {
             return;
         }
         MediaTrack mediaTrack2 = (MediaTrack) h.c(list, 0);
         if (mediaTrack2 != null) {
             MediaSegment mediaSegment = mediaTrack2.superpositionHeader;
             if (mediaSegment != null) {
-                mediaSegment.start = j2;
-                mediaSegment.end = (mediaSegment.end - mediaSegment.start) + j2;
+                mediaSegment.start = j;
+                mediaSegment.end = (mediaSegment.end - mediaSegment.start) + j;
             }
             MediaSegment mediaSegment2 = mediaTrack2.superpositionFooter;
             if (mediaSegment2 != null) {
-                mediaSegment2.end = j3;
-                mediaSegment2.start = j3 - (mediaSegment2.end - mediaSegment2.start);
+                mediaSegment2.end = j2;
+                mediaSegment2.start = j2 - (mediaSegment2.end - mediaSegment2.start);
             }
         }
         MediaTrack effectTrack = getEffectTrack(list);
@@ -1206,14 +1207,14 @@ public class InnerMultiDataSourceUtil {
         if (h.e(list2) || h.e(list3)) {
             return;
         }
-        for (int i2 = 0; i2 < list2.size(); i2++) {
-            MediaSegment mediaSegment3 = list2.get(i2);
-            MediaSegment mediaSegment4 = list3.get(i2);
+        for (int i = 0; i < list2.size(); i++) {
+            MediaSegment mediaSegment3 = list2.get(i);
+            MediaSegment mediaSegment4 = list3.get(i);
             if (mediaSegment3 != null && mediaSegment4 != null) {
-                long j4 = mediaSegment3.end - mediaSegment3.start;
-                long j5 = mediaSegment4.start + j2;
-                mediaSegment3.start = j5;
-                mediaSegment3.end = j5 + j4;
+                long j3 = mediaSegment3.end - mediaSegment3.start;
+                long j4 = mediaSegment4.start + j;
+                mediaSegment3.start = j4;
+                mediaSegment3.end = j4 + j3;
             }
         }
     }
@@ -1235,35 +1236,35 @@ public class InnerMultiDataSourceUtil {
     }
 
     public static void releaseOtherTrack(List<MediaTrack> list, List<MultiMediaDataTrack> list2, MultiDataSourceUtil.OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65585, null, list, list2, onReleaseMultiMediaListener) == null) {
-            int i3 = 1;
+            int i2 = 1;
             if (list.size() <= 1 || list2.size() != list.size()) {
                 return;
             }
             ArrayList arrayList = new ArrayList();
             while (true) {
-                i2 = 0;
-                if (i3 >= list2.size()) {
+                i = 0;
+                if (i2 >= list2.size()) {
                     break;
                 }
-                MultiMediaDataTrack multiMediaDataTrack = list2.get(i3);
+                MultiMediaDataTrack multiMediaDataTrack = list2.get(i2);
                 arrayList.add(multiMediaDataTrack);
                 if (multiMediaDataTrack != null && !h.e(multiMediaDataTrack.multiMediaDataList)) {
-                    while (i2 < h.b(multiMediaDataTrack.multiMediaDataList)) {
-                        MultiMediaData multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.multiMediaDataList, i2);
+                    while (i < h.b(multiMediaDataTrack.multiMediaDataList)) {
+                        MultiMediaData multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.multiMediaDataList, i);
                         if (multiMediaData != null && onReleaseMultiMediaListener != null) {
                             onReleaseMultiMediaListener.onReleaseMultiMedia(multiMediaData);
                         }
-                        i2++;
+                        i++;
                     }
                 }
-                i3++;
-            }
-            while (i2 < arrayList.size()) {
-                list2.remove(arrayList.get(i2));
                 i2++;
+            }
+            while (i < arrayList.size()) {
+                list2.remove(arrayList.get(i));
+                i++;
             }
         }
     }
@@ -1273,21 +1274,21 @@ public class InnerMultiDataSourceUtil {
         if (!(interceptable == null || interceptable.invokeLLLL(65586, null, mediaTrack, list, list2, onReleaseMultiMediaListener) == null) || mediaTrack == null) {
             return;
         }
-        int i2 = -1;
+        int i = -1;
         if (list != null) {
-            i2 = list.indexOf(mediaTrack);
+            i = list.indexOf(mediaTrack);
             list.remove(mediaTrack);
         }
-        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) h.c(list2, i2);
+        MultiMediaDataTrack multiMediaDataTrack = (MultiMediaDataTrack) h.c(list2, i);
         if (multiMediaDataTrack != null && multiMediaDataTrack.multiMediaDataList != null) {
-            for (int i3 = 0; i3 < h.b(multiMediaDataTrack.multiMediaDataList); i3++) {
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.multiMediaDataList, i3);
+            for (int i2 = 0; i2 < h.b(multiMediaDataTrack.multiMediaDataList); i2++) {
+                MultiMediaData multiMediaData = (MultiMediaData) h.c(multiMediaDataTrack.multiMediaDataList, i2);
                 if (multiMediaData != null && onReleaseMultiMediaListener != null) {
                     onReleaseMultiMediaListener.onReleaseMultiMedia(multiMediaData);
                 }
             }
         }
-        h.g(list2, i2);
+        h.g(list2, i);
     }
 
     public static void resetInputTrackTimeline(List<MultiMediaData> list, MediaTrack mediaTrack) {
@@ -1295,39 +1296,39 @@ public class InnerMultiDataSourceUtil {
         if (!(interceptable == null || interceptable.invokeLL(65587, null, list, mediaTrack) == null) || h.e(list) || mediaTrack == null || h.e(mediaTrack.mediaSegments)) {
             return;
         }
-        long j2 = 0;
-        for (int i2 = 0; i2 < mediaTrack.mediaSegments.size(); i2++) {
-            MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i2);
-            MediaSegment mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, i2);
+        long j = 0;
+        for (int i = 0; i < mediaTrack.mediaSegments.size(); i++) {
+            MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i);
+            MediaSegment mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, i);
             if (multiMediaData != null && mediaSegment != null && !multiMediaData.isHeader() && !multiMediaData.isFooter()) {
-                mediaSegment.start = j2;
-                j2 += (((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed();
-                mediaSegment.end = j2;
+                mediaSegment.start = j;
+                j += (((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed();
+                mediaSegment.end = j;
             }
         }
     }
 
-    public static Bitmap saveOffscreenBitmap(int i2, int i3, boolean z) {
+    public static Bitmap saveOffscreenBitmap(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int i4 = i2 * i3 * 4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65588, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            int i3 = i * i2 * 4;
             try {
-                IntBuffer allocate = IntBuffer.allocate(i4);
-                GLES20.glReadPixels(0, 0, i2, i3, GeneratedTexture.FORMAT, 5121, allocate);
+                IntBuffer allocate = IntBuffer.allocate(i3);
+                GLES20.glReadPixels(0, 0, i, i2, GeneratedTexture.FORMAT, 5121, allocate);
                 if (!z) {
-                    Bitmap createBitmap = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                    Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                     createBitmap.copyPixelsFromBuffer(allocate);
                     return createBitmap;
                 }
-                int[] iArr = new int[i4];
+                int[] iArr = new int[i3];
                 int[] array = allocate.array();
-                for (int i5 = 0; i5 < i3; i5++) {
-                    for (int i6 = 0; i6 < i2; i6++) {
-                        iArr[(((i3 - i5) - 1) * i2) + i6] = array[(i5 * i2) + i6];
+                for (int i4 = 0; i4 < i2; i4++) {
+                    for (int i5 = 0; i5 < i; i5++) {
+                        iArr[(((i2 - i4) - 1) * i) + i5] = array[(i4 * i) + i5];
                     }
                 }
-                Bitmap createBitmap2 = Bitmap.createBitmap(i2, i3, Bitmap.Config.ARGB_8888);
+                Bitmap createBitmap2 = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
                 createBitmap2.copyPixelsFromBuffer(IntBuffer.wrap(iArr));
                 return createBitmap2;
             } catch (OutOfMemoryError unused) {
@@ -1337,20 +1338,20 @@ public class InnerMultiDataSourceUtil {
         return (Bitmap) invokeCommon.objValue;
     }
 
-    public static Buffer saveOffscreenBuffer(int i2, int i3, boolean z) {
+    public static Buffer saveOffscreenBuffer(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) {
-            int i4 = i2 * i3 * 4;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65589, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            int i3 = i * i2 * 4;
             try {
-                IntBuffer allocate = IntBuffer.allocate(i4);
-                GLES20.glReadPixels(0, 0, i2, i3, GeneratedTexture.FORMAT, 5121, allocate);
+                IntBuffer allocate = IntBuffer.allocate(i3);
+                GLES20.glReadPixels(0, 0, i, i2, GeneratedTexture.FORMAT, 5121, allocate);
                 if (z) {
-                    int[] iArr = new int[i4];
+                    int[] iArr = new int[i3];
                     int[] array = allocate.array();
-                    for (int i5 = 0; i5 < i3; i5++) {
-                        for (int i6 = 0; i6 < i2; i6++) {
-                            iArr[(((i3 - i5) - 1) * i2) + i6] = array[(i5 * i2) + i6];
+                    for (int i4 = 0; i4 < i2; i4++) {
+                        for (int i5 = 0; i5 < i; i5++) {
+                            iArr[(((i2 - i4) - 1) * i) + i5] = array[(i4 * i) + i5];
                         }
                     }
                     return IntBuffer.wrap(iArr);
@@ -1363,17 +1364,17 @@ public class InnerMultiDataSourceUtil {
         return (Buffer) invokeCommon.objValue;
     }
 
-    public static MediaSegment transData2Segment(long j2, MultiMediaData multiMediaData) {
+    public static MediaSegment transData2Segment(long j, MultiMediaData multiMediaData) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65590, null, j2, multiMediaData)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65590, null, j, multiMediaData)) == null) {
             MediaSegment mediaSegment = new MediaSegment();
             mediaSegment.type = multiMediaData.type == 0 ? "image" : "video";
-            mediaSegment.start = j2;
-            long currentSpeed = j2 + ((((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed());
+            mediaSegment.start = j;
+            long currentSpeed = j + ((((float) (multiMediaData.end - multiMediaData.start)) * 1.0f) / multiMediaData.getCurrentSpeed());
             mediaSegment.end = currentSpeed;
             if (multiMediaData.addDefaultEffect) {
-                mediaSegment.mediaAEffect = c.a.a0.b.a.k.b.b(currentSpeed - mediaSegment.start);
+                mediaSegment.mediaAEffect = c.a.z.b.a.k.b.b(currentSpeed - mediaSegment.start);
             }
             return mediaSegment;
         }
@@ -1395,21 +1396,21 @@ public class InnerMultiDataSourceUtil {
         return (MultiMediaData) invokeLL.objValue;
     }
 
-    public static int updateTimeline(MediaTrack mediaTrack, List<MultiMediaData> list, long j2) {
+    public static int updateTimeline(MediaTrack mediaTrack, List<MultiMediaData> list, long j) {
         InterceptResult invokeCommon;
         List<MediaSegment> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65592, null, new Object[]{mediaTrack, list, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65592, null, new Object[]{mediaTrack, list, Long.valueOf(j)})) == null) {
             if (mediaTrack == null || (list2 = mediaTrack.mediaSegments) == null) {
                 return -1;
             }
-            int[] findIndexInSegments = findIndexInSegments(list2, j2);
-            int i2 = -1;
-            for (int i3 : findIndexInSegments) {
-                if (i2 == -1 || i2 > i3) {
-                    i2 = i3;
+            int[] findIndexInSegments = findIndexInSegments(list2, j);
+            int i = -1;
+            for (int i2 : findIndexInSegments) {
+                if (i == -1 || i > i2) {
+                    i = i2;
                 }
-                MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i3);
+                MultiMediaData multiMediaData = (MultiMediaData) h.c(list, i2);
                 if (multiMediaData != null) {
                     VLogSimplePlayer vLogSimplePlayer = multiMediaData.player;
                     if (multiMediaData.type == 1 && vLogSimplePlayer != null) {
@@ -1426,9 +1427,9 @@ public class InnerMultiDataSourceUtil {
                     }
                 }
             }
-            if (i2 > 0) {
-                for (int i4 = 0; i4 < i2; i4++) {
-                    MultiMediaData multiMediaData2 = (MultiMediaData) h.c(list, i4);
+            if (i > 0) {
+                for (int i3 = 0; i3 < i; i3++) {
+                    MultiMediaData multiMediaData2 = (MultiMediaData) h.c(list, i3);
                     VLogSimplePlayer vLogSimplePlayer2 = multiMediaData2 != null ? multiMediaData2.player : null;
                     if (multiMediaData2 != null && multiMediaData2.type == 1 && vLogSimplePlayer2 != null && vLogSimplePlayer2.isPlaying()) {
                         vLogSimplePlayer2.pause();
@@ -1436,7 +1437,7 @@ public class InnerMultiDataSourceUtil {
                     }
                 }
             }
-            return i2;
+            return i;
         }
         return invokeCommon.intValue;
     }

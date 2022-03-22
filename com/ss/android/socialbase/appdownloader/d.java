@@ -22,36 +22,32 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class d {
     public static final String a = "d";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d f58293b;
+    public static volatile d f43032b;
 
     /* renamed from: f  reason: collision with root package name */
-    public static boolean f58294f;
+    public static boolean f43033f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static boolean f58295g;
+    public static boolean f43034g;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f58296c;
+    public String f43035c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f58297d;
+    public String f43036d;
 
     /* renamed from: e  reason: collision with root package name */
-    public DownloadReceiver f58298e;
+    public DownloadReceiver f43037e;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f58299h = false;
-
-    /* renamed from: i  reason: collision with root package name */
-    public com.ss.android.socialbase.appdownloader.c.c f58300i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public com.ss.android.socialbase.appdownloader.c.d f58301j;
+    public boolean f43038h = false;
+    public com.ss.android.socialbase.appdownloader.c.c i;
+    public com.ss.android.socialbase.appdownloader.c.d j;
     public com.ss.android.socialbase.appdownloader.c.h k;
     public com.ss.android.socialbase.appdownloader.c.g l;
     public m m;
@@ -61,22 +57,22 @@ public class d {
     public ag q;
 
     public static d j() {
-        if (f58293b == null) {
+        if (f43032b == null) {
             synchronized (d.class) {
-                if (f58293b == null) {
-                    f58293b = new d();
+                if (f43032b == null) {
+                    f43032b = new d();
                 }
             }
         }
-        return f58293b;
+        return f43032b;
     }
 
     private void q() {
-        if (f58295g) {
+        if (f43034g) {
             return;
         }
-        if (this.f58298e == null) {
-            this.f58298e = new DownloadReceiver();
+        if (this.f43037e == null) {
+            this.f43037e = new DownloadReceiver();
         }
         try {
             IntentFilter intentFilter = new IntentFilter();
@@ -90,10 +86,10 @@ public class d {
             IntentFilter intentFilter3 = new IntentFilter();
             intentFilter3.addAction("android.intent.action.MEDIA_MOUNTED");
             intentFilter3.addDataScheme("file");
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f58298e, intentFilter);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f58298e, intentFilter2);
-            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f58298e, intentFilter3);
-            f58295g = true;
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter2);
+            com.ss.android.socialbase.downloader.downloader.c.N().registerReceiver(this.f43037e, intentFilter3);
+            f43034g = true;
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -103,15 +99,15 @@ public class d {
         if (Build.VERSION.SDK_INT >= 21) {
             r.a(new r.b() { // from class: com.ss.android.socialbase.appdownloader.d.1
                 @Override // com.ss.android.socialbase.downloader.impls.r.b
-                public void a(DownloadInfo downloadInfo, long j2, boolean z, int i2) {
-                    RetryJobSchedulerService.a(downloadInfo, j2, z, i2);
+                public void a(DownloadInfo downloadInfo, long j, boolean z, int i) {
+                    RetryJobSchedulerService.a(downloadInfo, j, z, i);
                 }
             });
         }
     }
 
     public com.ss.android.socialbase.appdownloader.c.d b() {
-        return this.f58301j;
+        return this.j;
     }
 
     public com.ss.android.socialbase.appdownloader.c.h c() {
@@ -119,7 +115,7 @@ public class d {
     }
 
     public String d() {
-        return this.f58297d;
+        return this.f43036d;
     }
 
     public com.ss.android.socialbase.appdownloader.c.f e() {
@@ -139,7 +135,7 @@ public class d {
     }
 
     public String i() {
-        return this.f58296c;
+        return this.f43035c;
     }
 
     public m k() {
@@ -163,7 +159,7 @@ public class d {
     }
 
     private void c(Context context) {
-        if (context == null || f58294f) {
+        if (context == null || f43033f) {
             return;
         }
         com.ss.android.socialbase.downloader.constants.e.a("application/vnd.android.package-archive");
@@ -171,7 +167,7 @@ public class d {
         com.ss.android.socialbase.downloader.downloader.c.a(new com.ss.android.socialbase.appdownloader.d.b());
         q();
         r();
-        f58294f = true;
+        f43033f = true;
     }
 
     public void b(String str) {
@@ -192,14 +188,14 @@ public class d {
     }
 
     public com.ss.android.socialbase.appdownloader.c.c a() {
-        return this.f58300i;
+        return this.i;
     }
 
     public void a(String str) {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f58297d = str;
+        this.f43036d = str;
     }
 
     public void a(j jVar) {
@@ -213,10 +209,10 @@ public class d {
     @Deprecated
     public void a(Context context, String str, com.ss.android.socialbase.appdownloader.c.c cVar, com.ss.android.socialbase.appdownloader.c.d dVar, com.ss.android.socialbase.appdownloader.c.h hVar) {
         if (cVar != null) {
-            this.f58300i = cVar;
+            this.i = cVar;
         }
         if (dVar != null) {
-            this.f58301j = dVar;
+            this.j = dVar;
         }
         if (hVar != null) {
             this.k = hVar;
@@ -224,22 +220,22 @@ public class d {
         c(context);
     }
 
-    public static boolean a(Context context, int i2) {
-        return c.a(context, i2, true) == 1;
+    public static boolean a(Context context, int i) {
+        return c.a(context, i, true) == 1;
     }
 
-    public void a(Context context, int i2, int i3) {
+    public void a(Context context, int i, int i2) {
         try {
-            switch (i3) {
+            switch (i2) {
                 case -4:
                 case -1:
-                    Downloader.getInstance(context).restart(i2);
+                    Downloader.getInstance(context).restart(i);
                     break;
                 case -3:
-                    c.a(context, i2, true);
+                    c.a(context, i, true);
                     break;
                 case -2:
-                    Downloader.getInstance(context).resume(i2);
+                    Downloader.getInstance(context).resume(i);
                     break;
                 case 0:
                 case 6:
@@ -252,7 +248,7 @@ public class d {
                 case 5:
                 case 7:
                 case 8:
-                    Downloader.getInstance(context).pause(i2);
+                    Downloader.getInstance(context).pause(i);
                     break;
             }
         } catch (Exception e2) {
@@ -272,13 +268,13 @@ public class d {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public int a(f fVar) {
-        int i2;
+        int i;
         String str;
         n N;
         List<com.ss.android.socialbase.downloader.depend.m> A;
         String k;
         boolean z;
-        int i3;
+        int i2;
         final DownloadTask autoInstall;
         JSONObject jSONObject;
         DownloadInfo downloadInfo;
@@ -324,21 +320,21 @@ public class d {
                 com.ss.android.socialbase.downloader.g.a.a(a4, fVar.ad());
                 boolean K = fVar.K();
                 boolean z3 = (com.ss.android.socialbase.downloader.g.a.a(a4).a("modify_force", 1) == 1 && !K && com.ss.android.socialbase.downloader.i.f.d(str2, L) && Downloader.getInstance(fVar.getContext()).getDownloadInfo(a4) == null) ? true : K;
-                com.ss.android.socialbase.appdownloader.e.b j2 = fVar.j();
-                if (j2 == null && (fVar.e() || fVar.f())) {
+                com.ss.android.socialbase.appdownloader.e.b j = fVar.j();
+                if (j == null && (fVar.e() || fVar.f())) {
                     if (fVar.n() != null) {
-                        j2 = new com.ss.android.socialbase.appdownloader.e.b(fVar.n());
+                        j = new com.ss.android.socialbase.appdownloader.e.b(fVar.n());
                     } else {
-                        i2 = a4;
+                        i = a4;
                         str = str2;
-                        j2 = new com.ss.android.socialbase.appdownloader.e.b(fVar.getContext(), a4, b2, str, L, fVar.k());
+                        j = new com.ss.android.socialbase.appdownloader.e.b(fVar.getContext(), a4, b2, str, L, fVar.k());
                         N = fVar.N();
                         if (N == null) {
                             N = new n() { // from class: com.ss.android.socialbase.appdownloader.d.2
                                 @Override // com.ss.android.socialbase.downloader.depend.n
-                                public void a(DownloadInfo downloadInfo2, BaseException baseException, int i4) {
+                                public void a(DownloadInfo downloadInfo2, BaseException baseException, int i3) {
                                     if (d.this.k != null) {
-                                        d.this.k.a(downloadInfo2, baseException, i4);
+                                        d.this.k.a(downloadInfo2, baseException, i3);
                                     }
                                 }
                             };
@@ -360,13 +356,13 @@ public class d {
                         String jSONObject2 = jSONObject.toString();
                         if (!fVar.e() && !fVar.f()) {
                             z = false;
-                            if (z || com.ss.android.socialbase.downloader.g.a.a(i2).b("enable_notification_ui") < 1) {
-                                i3 = i2;
+                            if (z || com.ss.android.socialbase.downloader.g.a.a(i).b("enable_notification_ui") < 1) {
+                                i2 = i;
                             } else {
-                                i3 = i2;
-                                com.ss.android.socialbase.appdownloader.e.c.a().a(i3, fVar.aa());
+                                i2 = i;
+                                com.ss.android.socialbase.appdownloader.e.c.a().a(i2, fVar.aa());
                             }
-                            autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject2).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j2).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
+                            autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject2).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
                             if (autoInstall != null && !fVar.R().isEmpty()) {
                                 autoInstall.setDownloadCompleteHandlers(fVar.R());
                             }
@@ -394,22 +390,22 @@ public class d {
                                     autoInstall.getDownloadInfo();
                                 }
                             }
-                            return i3;
+                            return i2;
                         }
                         z = true;
                         if (z) {
                         }
-                        i3 = i2;
-                        autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject2).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j2).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
+                        i2 = i;
+                        autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject2).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
                         if (autoInstall != null) {
                             autoInstall.setDownloadCompleteHandlers(fVar.R());
                         }
                         if (autoInstall != null) {
                         }
-                        return i3;
+                        return i2;
                     }
                 }
-                i2 = a4;
+                i = a4;
                 str = str2;
                 N = fVar.N();
                 if (N == null) {
@@ -427,24 +423,24 @@ public class d {
                     z = false;
                     if (z) {
                     }
-                    i3 = i2;
-                    autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject22).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j2).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
+                    i2 = i;
+                    autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject22).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
                     if (autoInstall != null) {
                     }
                     if (autoInstall != null) {
                     }
-                    return i3;
+                    return i2;
                 }
                 z = true;
                 if (z) {
                 }
-                i3 = i2;
-                autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject22).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j2).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
+                i2 = i;
+                autoInstall = com.ss.android.socialbase.downloader.downloader.b.with(fVar.getContext()).url(a3).backUpUrls(fVar.ab()).name(L).title(b2).savePath(str).onlyWifi(fVar.h()).extraHeaders(a2).depend(N).retryCount(fVar.w()).backUpUrlRetryCount(fVar.x()).showNotification(z).extra(jSONObject22).mimeType(l).minProgressTimeMsInterval(fVar.D()).maxProgressCount(fVar.E()).mainThreadListener(fVar.i()).notificationListener(j).notificationEventListener(a(fVar.O())).force(z3).autoResumed(fVar.q()).showNotificationForAutoResumed(fVar.r()).chunkStategy(fVar.o()).chunkAdjustCalculator(fVar.p()).needHttpsToHttpRetry(fVar.m()).packageName(fVar.t()).md5(fVar.u()).expectFileLength(fVar.v()).needRetryDelay(fVar.y()).retryDelayTimeArray(fVar.z()).needDefaultHttpServiceBackUp(fVar.A()).needReuseFirstConnection(fVar.B()).needReuseChunkRunnable(fVar.F()).needIndependentProcess(fVar.G()).enqueueType(fVar.J()).monitorDepend(fVar.M()).retryDelayTimeCalculator(fVar.C()).headConnectionAvailable(fVar.H()).fileUriProvider(fVar.P()).diskSpaceHandler(fVar.ac()).needChunkDowngradeRetry(fVar.I()).notificationClickCallback(fVar.Q()).downloadSetting(fVar.ad()).iconUrl(fVar.aa()).needSDKMonitor(fVar.V()).monitorScene(fVar.W()).extraMonitorStatus(fVar.X()).executorGroup(fVar.T()).throttleNetSpeed(fVar.U()).distinctDirectory(fVar.Y()).setAutoInstall(fVar.Z());
                 if (autoInstall != null) {
                 }
                 if (autoInstall != null) {
                 }
-                return i3;
+                return i2;
             }
             return 0;
         } catch (Throwable th) {
@@ -455,14 +451,14 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(DownloadTask downloadTask, int i2, boolean z) {
+    public void a(DownloadTask downloadTask, int i, boolean z) {
         if (downloadTask == null) {
             return;
         }
         downloadTask.download();
         DownloadInfo downloadInfo = downloadTask.getDownloadInfo();
         if (downloadInfo != null) {
-            downloadInfo.setAntiHijackErrorCode(i2);
+            downloadInfo.setAntiHijackErrorCode(i);
         }
         if (downloadInfo == null || !z) {
             return;
@@ -499,15 +495,15 @@ public class d {
         }
         return new z() { // from class: com.ss.android.socialbase.appdownloader.d.4
             @Override // com.ss.android.socialbase.downloader.depend.z
-            public void a(int i2, DownloadInfo downloadInfo, String str, String str2) {
-                if (i2 != 1 && i2 != 3) {
-                    switch (i2) {
+            public void a(int i, DownloadInfo downloadInfo, String str, String str2) {
+                if (i != 1 && i != 3) {
+                    switch (i) {
                         case 5:
                         case 6:
                         case 7:
                             break;
                         case 8:
-                            eVar.a(i2, downloadInfo.getPackageName(), str, str2);
+                            eVar.a(i, downloadInfo.getPackageName(), str, str2);
                             return;
                         case 9:
                             eVar.a(com.ss.android.socialbase.downloader.downloader.c.N(), str);
@@ -519,7 +515,7 @@ public class d {
                             return;
                     }
                 }
-                eVar.a(i2, str, downloadInfo.getStatus(), downloadInfo.getDownloadTime());
+                eVar.a(i, str, downloadInfo.getStatus(), downloadInfo.getDownloadTime());
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.z

@@ -6,48 +6,48 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Hashtable;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class j implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ boolean f33249b;
+    public final /* synthetic */ boolean f25602b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ String f33250c;
+    public final /* synthetic */ String f25603c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ String f33251d;
+    public final /* synthetic */ String f25604d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final /* synthetic */ Hashtable f33252e;
+    public final /* synthetic */ Hashtable f25605e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final /* synthetic */ LBSAuthManager f33253f;
+    public final /* synthetic */ LBSAuthManager f25606f;
 
-    public j(LBSAuthManager lBSAuthManager, int i2, boolean z, String str, String str2, Hashtable hashtable) {
+    public j(LBSAuthManager lBSAuthManager, int i, boolean z, String str, String str2, Hashtable hashtable) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {lBSAuthManager, Integer.valueOf(i2), Boolean.valueOf(z), str, str2, hashtable};
+            Object[] objArr = {lBSAuthManager, Integer.valueOf(i), Boolean.valueOf(z), str, str2, hashtable};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f33253f = lBSAuthManager;
-        this.a = i2;
-        this.f33249b = z;
-        this.f33250c = str;
-        this.f33251d = str2;
-        this.f33252e = hashtable;
+        this.f25606f = lBSAuthManager;
+        this.a = i;
+        this.f25602b = z;
+        this.f25603c = str;
+        this.f25604d = str2;
+        this.f25605e = hashtable;
     }
 
     @Override // java.lang.Runnable
@@ -63,26 +63,26 @@ public class j implements Runnable {
             sb.append("status = ");
             sb.append(this.a);
             sb.append("; forced = ");
-            sb.append(this.f33249b);
+            sb.append(this.f25602b);
             sb.append("checkAK = ");
-            b2 = this.f33253f.b(this.f33250c);
+            b2 = this.f25606f.b(this.f25603c);
             sb.append(b2);
             a.a(sb.toString());
-            int i2 = this.a;
-            if (i2 != 601 && !this.f33249b && i2 != -1) {
-                b3 = this.f33253f.b(this.f33250c);
+            int i = this.a;
+            if (i != 601 && !this.f25602b && i != -1) {
+                b3 = this.f25606f.b(this.f25603c);
                 if (!b3) {
                     if (602 == this.a) {
                         a.a("authenticate wait ");
-                        mVar = LBSAuthManager.f33233d;
+                        mVar = LBSAuthManager.f25587d;
                         if (mVar != null) {
-                            mVar2 = LBSAuthManager.f33233d;
+                            mVar2 = LBSAuthManager.f25587d;
                             mVar2.b();
                         }
                     } else {
                         a.a("authenticate else");
                     }
-                    this.f33253f.a((String) null, this.f33250c);
+                    this.f25606f.a((String) null, this.f25603c);
                     return;
                 }
             }
@@ -91,11 +91,11 @@ public class j implements Runnable {
             String[] b4 = b.b(context);
             a.a("authStrings.length:" + b4.length);
             if (b4 == null || b4.length <= 1) {
-                this.f33253f.a(this.f33249b, this.f33251d, this.f33252e, this.f33250c);
+                this.f25606f.a(this.f25602b, this.f25604d, this.f25605e, this.f25603c);
                 return;
             }
             a.a("more sha1 auth");
-            this.f33253f.a(this.f33249b, this.f33251d, this.f33252e, b4, this.f33250c);
+            this.f25606f.a(this.f25602b, this.f25604d, this.f25605e, b4, this.f25603c);
         }
     }
 }

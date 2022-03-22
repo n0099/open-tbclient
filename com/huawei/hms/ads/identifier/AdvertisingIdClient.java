@@ -7,6 +7,7 @@ import android.os.Build;
 import android.os.RemoteException;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -41,9 +42,9 @@ public class AdvertisingIdClient {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -73,9 +74,9 @@ public class AdvertisingIdClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -133,18 +134,20 @@ public class AdvertisingIdClient {
                 try {
                     if (context.bindService(intent, aVar, 1)) {
                         try {
-                            OpenDeviceIdentifierService asInterface = OpenDeviceIdentifierService.Stub.asInterface(aVar.a());
-                            Info info = new Info(asInterface.getOaid(), asInterface.isOaidTrackLimited());
                             try {
-                                context.unbindService(aVar);
-                            } catch (Throwable th) {
-                                String str = "unbind " + th.getClass().getSimpleName();
+                                OpenDeviceIdentifierService asInterface = OpenDeviceIdentifierService.Stub.asInterface(aVar.a());
+                                Info info = new Info(asInterface.getOaid(), asInterface.isOaidTrackLimited());
+                                try {
+                                    context.unbindService(aVar);
+                                } catch (Throwable th) {
+                                    Log.w("AdIdClient", "unbind " + th.getClass().getSimpleName());
+                                }
+                                return info;
+                            } catch (InterruptedException unused) {
+                                throw new IOException("bind hms service InterruptedException");
                             }
-                            return info;
-                        } catch (RemoteException unused) {
+                        } catch (RemoteException unused2) {
                             throw new IOException("bind hms service RemoteException");
-                        } catch (InterruptedException unused2) {
-                            throw new IOException("bind hms service InterruptedException");
                         }
                     }
                     throw new IOException("bind failed");
@@ -152,7 +155,7 @@ public class AdvertisingIdClient {
                     try {
                         context.unbindService(aVar);
                     } catch (Throwable th3) {
-                        String str2 = "unbind " + th3.getClass().getSimpleName();
+                        Log.w("AdIdClient", "unbind " + th3.getClass().getSimpleName());
                     }
                     throw th2;
                 }
@@ -178,9 +181,9 @@ public class AdvertisingIdClient {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -209,10 +212,11 @@ public class AdvertisingIdClient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65542, null, context, str, z)) == null) {
             Info requestAdvertisingIdInfo = requestAdvertisingIdInfo(context);
-            if (requestAdvertisingIdInfo == null || !TextUtils.equals(str, requestAdvertisingIdInfo.getId())) {
-                return false;
+            if (requestAdvertisingIdInfo != null) {
+                return TextUtils.equals(str, requestAdvertisingIdInfo.getId()) && z == requestAdvertisingIdInfo.isLimitAdTrackingEnabled();
             }
-            return z == requestAdvertisingIdInfo.isLimitAdTrackingEnabled();
+            Log.w("AdIdClient", "info is null");
+            return false;
         }
         return invokeLLZ.booleanValue;
     }

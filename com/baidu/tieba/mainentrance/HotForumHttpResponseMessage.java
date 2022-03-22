@@ -1,7 +1,7 @@
 package com.baidu.tieba.mainentrance;
 
-import c.a.r0.e2.b;
-import c.a.r0.e2.c;
+import c.a.p0.g2.b;
+import c.a.p0.g2.c;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
@@ -27,17 +27,17 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public HotForumHttpResponseMessage(int i2) {
-        super(i2);
+    public HotForumHttpResponseMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -72,10 +72,10 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         HotForumResIdl hotForumResIdl;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || (hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || (hotForumResIdl = (HotForumResIdl) new Wire(new Class[0]).parseFrom(bArr, HotForumResIdl.class)) == null) {
             return;
         }
         Error error = hotForumResIdl.error;
@@ -100,7 +100,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (hotForumResIdl.data.hot_search != null) {
             HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
             this.mHotSearchInfo = hotSearchInfoData;
-            hotSearchInfoData.x(hotForumResIdl.data.hot_search);
+            hotSearchInfoData.z(hotForumResIdl.data.hot_search);
         }
         if (hotForumResIdl.data.hot_topic != null) {
             this.mTopicInfoList = new ArrayList();

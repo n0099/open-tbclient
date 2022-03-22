@@ -36,18 +36,18 @@ public class FingerprintManagerCompat {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public void onAuthenticationError(int i2, CharSequence charSequence) {
+        public void onAuthenticationError(int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i2, charSequence) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, charSequence) == null) {
             }
         }
 
@@ -57,9 +57,9 @@ public class FingerprintManagerCompat {
             }
         }
 
-        public void onAuthenticationHelp(int i2, CharSequence charSequence) {
+        public void onAuthenticationHelp(int i, CharSequence charSequence) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, charSequence) == null) {
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, charSequence) == null) {
             }
         }
 
@@ -83,9 +83,9 @@ public class FingerprintManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cryptoObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -108,9 +108,9 @@ public class FingerprintManagerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -132,11 +132,11 @@ public class FingerprintManagerCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 == 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 23) {
                 return (FingerprintManager) context.getSystemService(FingerprintManager.class);
             }
-            if (i2 <= 23 || !context.getPackageManager().hasSystemFeature("android.hardware.fingerprint")) {
+            if (i <= 23 || !context.getPackageManager().hasSystemFeature("android.hardware.fingerprint")) {
                 return null;
             }
             return (FingerprintManager) context.getSystemService(FingerprintManager.class);
@@ -182,9 +182,9 @@ public class FingerprintManagerCompat {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {authenticationCallback};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -194,10 +194,10 @@ public class FingerprintManagerCompat {
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-            public void onAuthenticationError(int i2, CharSequence charSequence) {
+            public void onAuthenticationError(int i, CharSequence charSequence) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, charSequence) == null) {
-                    this.val$callback.onAuthenticationError(i2, charSequence);
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, charSequence) == null) {
+                    this.val$callback.onAuthenticationError(i, charSequence);
                 }
             }
 
@@ -210,10 +210,10 @@ public class FingerprintManagerCompat {
             }
 
             @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
-            public void onAuthenticationHelp(int i2, CharSequence charSequence) {
+            public void onAuthenticationHelp(int i, CharSequence charSequence) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, charSequence) == null) {
-                    this.val$callback.onAuthenticationHelp(i2, charSequence);
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, charSequence) == null) {
+                    this.val$callback.onAuthenticationHelp(i, charSequence);
                 }
             }
 
@@ -250,13 +250,13 @@ public class FingerprintManagerCompat {
     }
 
     @RequiresPermission("android.permission.USE_FINGERPRINT")
-    public void authenticate(@Nullable CryptoObject cryptoObject, int i2, @Nullable CancellationSignal cancellationSignal, @NonNull AuthenticationCallback authenticationCallback, @Nullable Handler handler) {
+    public void authenticate(@Nullable CryptoObject cryptoObject, int i, @Nullable CancellationSignal cancellationSignal, @NonNull AuthenticationCallback authenticationCallback, @Nullable Handler handler) {
         FingerprintManager fingerprintManagerOrNull;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{cryptoObject, Integer.valueOf(i2), cancellationSignal, authenticationCallback, handler}) == null) || Build.VERSION.SDK_INT < 23 || (fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext)) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{cryptoObject, Integer.valueOf(i), cancellationSignal, authenticationCallback, handler}) == null) || Build.VERSION.SDK_INT < 23 || (fingerprintManagerOrNull = getFingerprintManagerOrNull(this.mContext)) == null) {
             return;
         }
-        fingerprintManagerOrNull.authenticate(wrapCryptoObject(cryptoObject), cancellationSignal != null ? (android.os.CancellationSignal) cancellationSignal.getCancellationSignalObject() : null, i2, wrapCallback(authenticationCallback), handler);
+        fingerprintManagerOrNull.authenticate(wrapCryptoObject(cryptoObject), cancellationSignal != null ? (android.os.CancellationSignal) cancellationSignal.getCancellationSignalObject() : null, i, wrapCallback(authenticationCallback), handler);
     }
 
     @RequiresPermission("android.permission.USE_FINGERPRINT")
@@ -290,9 +290,9 @@ public class FingerprintManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {signature};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -331,9 +331,9 @@ public class FingerprintManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cipher};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -351,9 +351,9 @@ public class FingerprintManagerCompat {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {mac};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;

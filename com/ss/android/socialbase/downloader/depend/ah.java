@@ -5,35 +5,35 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface ah extends IInterface {
-    long a(int i2, int i3) throws RemoteException;
+    long a(int i, int i2) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements ah {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ah$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2197a implements ah {
+        /* loaded from: classes7.dex */
+        public static class C2058a implements ah {
             public static ah a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58490b;
+            public IBinder f43218b;
 
-            public C2197a(IBinder iBinder) {
-                this.f58490b = iBinder;
+            public C2058a(IBinder iBinder) {
+                this.f43218b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.ah
-            public long a(int i2, int i3) throws RemoteException {
+            public long a(int i, int i2) throws RemoteException {
                 Parcel obtain = Parcel.obtain();
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
+                    obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    obtain.writeInt(i3);
-                    if (!this.f58490b.transact(1, obtain, obtain2, 0) && a.a() != null) {
-                        return a.a().a(i2, i3);
+                    if (!this.f43218b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                        return a.a().a(i, i2);
                     }
                     obtain2.readException();
                     return obtain2.readLong();
@@ -45,7 +45,7 @@ public interface ah extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58490b;
+                return this.f43218b;
             }
         }
 
@@ -61,7 +61,7 @@ public interface ah extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ah)) {
                 return (ah) queryLocalInterface;
             }
-            return new C2197a(iBinder);
+            return new C2058a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -70,10 +70,10 @@ public interface ah extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                 return true;
@@ -86,7 +86,7 @@ public interface ah extends IInterface {
         }
 
         public static ah a() {
-            return C2197a.a;
+            return C2058a.a;
         }
     }
 }

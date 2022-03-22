@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SessionReportWrapperImpl implements SessionReportWrapper, SessionReport.AfterFlush, SessionReport.Processor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     public SessionReport sessionReport;
     public Set<String> sessions;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class OnTimer extends SharedTimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -43,9 +43,9 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sessionReportWrapperImpl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -117,9 +117,9 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
             newInitContext.initArgs = r2;
             Object[] objArr = {sessionReport};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -155,23 +155,23 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
     }
 
     @Override // com.yy.hiidostatis.message.SessionReportWrapper
-    public synchronized void beginSession(String str, String str2, long j2, Map<String, Long> map) {
+    public synchronized void beginSession(String str, String str2, long j, Map<String, Long> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2), map}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j), map}) == null) {
             synchronized (this) {
                 this.sessionReport.beginSession(str, str2, this, this);
                 this.sessions.add(str);
-                int i2 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-                if (i2 > 0) {
-                    OnTimer onTimer = this.cache.get(Long.valueOf(j2));
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i > 0) {
+                    OnTimer onTimer = this.cache.get(Long.valueOf(j));
                     if (onTimer == null) {
                         OnTimer onTimer2 = new OnTimer(this);
                         onTimer2.addGlobe(str);
-                        this.cache.put(Long.valueOf(j2), onTimer2);
+                        this.cache.put(Long.valueOf(j), onTimer2);
                         if (this.globeTimer == null) {
                             this.globeTimer = new SharedThreadTimer();
                         }
-                        this.globeTimer.schedule(onTimer2, j2, j2);
+                        this.globeTimer.schedule(onTimer2, j, j);
                     } else {
                         onTimer.addGlobe(str);
                     }
@@ -189,7 +189,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
                         onTimer3.addEventId(str, entry.getKey());
                         hashSet.add(entry.getKey());
                     }
-                    if (i2 > 0) {
+                    if (i > 0) {
                         this.exclude.put(str, hashSet);
                     }
                     if (this.globeTimer == null) {

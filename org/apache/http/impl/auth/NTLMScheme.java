@@ -13,7 +13,7 @@ import org.apache.http.auth.Credentials;
 import org.apache.http.auth.MalformedChallengeException;
 import org.apache.http.util.CharArrayBuffer;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class NTLMScheme extends AuthSchemeBase {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,9 +25,9 @@ public class NTLMScheme extends AuthSchemeBase {
             newInitContext.initArgs = r2;
             Object[] objArr = {nTLMEngine};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -97,9 +97,9 @@ public class NTLMScheme extends AuthSchemeBase {
     }
 
     @Override // org.apache.http.impl.auth.AuthSchemeBase
-    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i2, int i3) throws MalformedChallengeException {
+    public void parseChallenge(CharArrayBuffer charArrayBuffer, int i, int i2) throws MalformedChallengeException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048582, this, charArrayBuffer, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(1048582, this, charArrayBuffer, i, i2) == null) {
             throw new RuntimeException("Stub!");
         }
     }

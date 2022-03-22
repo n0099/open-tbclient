@@ -66,9 +66,9 @@ public class PluginPackageParser {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -244,9 +244,9 @@ public class PluginPackageParser {
             if (Build.VERSION.SDK_INT >= 21 && applicationInfo.splitPublicSourceDirs == null) {
                 applicationInfo.splitPublicSourceDirs = new String[]{this.mPluginFile.getPath()};
             }
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 24) {
-                if (i2 < 26) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 24) {
+                if (i < 26) {
                     try {
                         FieldUtils.writeField(applicationInfo, "deviceEncryptedDataDir", applicationInfo.dataDir);
                         FieldUtils.writeField(applicationInfo, "credentialEncryptedDataDir", applicationInfo.dataDir);
@@ -276,10 +276,10 @@ public class PluginPackageParser {
         return (PackageInfo) invokeL.objValue;
     }
 
-    public void collectCertificates(int i2) {
+    public void collectCertificates(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            this.mParser.collectCertificates(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.mParser.collectCertificates(i);
         }
     }
 
@@ -289,16 +289,16 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.mActivityInfoCache.values()) : (List) invokeV.objValue;
     }
 
-    public ActivityInfo getActivityInfo(ComponentName componentName, int i2) {
+    public ActivityInfo getActivityInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, componentName, i)) == null) {
             synchronized (this.mActivityObjCache) {
                 obj = this.mActivityObjCache.get(componentName);
             }
             if (obj != null) {
-                ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i2);
+                ActivityInfo generateActivityInfo = this.mParser.generateActivityInfo(obj, i);
                 fixApplicationInfo(generateActivityInfo.applicationInfo);
                 if (TextUtils.isEmpty(generateActivityInfo.processName)) {
                     generateActivityInfo.processName = generateActivityInfo.packageName;
@@ -323,11 +323,11 @@ public class PluginPackageParser {
         return (List) invokeL.objValue;
     }
 
-    public ApplicationInfo getApplicationInfo(int i2) {
+    public ApplicationInfo getApplicationInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) {
-            ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ApplicationInfo generateApplicationInfo = this.mParser.generateApplicationInfo(i);
             fixApplicationInfo(generateApplicationInfo);
             if (TextUtils.isEmpty(generateApplicationInfo.processName)) {
                 generateApplicationInfo.processName = generateApplicationInfo.packageName;
@@ -337,16 +337,16 @@ public class PluginPackageParser {
         return (ApplicationInfo) invokeI.objValue;
     }
 
-    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i2) {
+    public InstrumentationInfo getInstrumentationInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, componentName, i)) == null) {
             synchronized (this.mInstrumentationObjCache) {
                 obj = this.mInstrumentationObjCache.get(componentName);
             }
             if (obj != null) {
-                return this.mParser.generateInstrumentationInfo(obj, i2);
+                return this.mParser.generateInstrumentationInfo(obj, i);
             }
             return null;
         }
@@ -359,11 +359,11 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new ArrayList(this.mInstrumentationInfoCache.values()) : (List) invokeV.objValue;
     }
 
-    public PackageInfo getPackageInfo(int i2) {
+    public PackageInfo getPackageInfo(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i2, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            PackageInfo generatePackageInfo = this.mParser.generatePackageInfo(this.mHostPackageInfo.gids, i, this.mPluginFile.lastModified(), this.mPluginFile.lastModified(), new HashSet<>(getRequestedPermissions()));
             fixPackageInfo(generatePackageInfo);
             return generatePackageInfo;
         }
@@ -376,16 +376,16 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.mPackageName : (String) invokeV.objValue;
     }
 
-    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i2) {
+    public PermissionGroupInfo getPermissionGroupInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, componentName, i)) == null) {
             synchronized (this.mPermissionGroupObjCache) {
                 obj = this.mPermissionGroupObjCache.get(componentName);
             }
             if (obj != null) {
-                return this.mParser.generatePermissionGroupInfo(obj, i2);
+                return this.mParser.generatePermissionGroupInfo(obj, i);
             }
             return null;
         }
@@ -398,16 +398,16 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? new ArrayList(this.mPermissionGroupInfoCache.values()) : (List) invokeV.objValue;
     }
 
-    public PermissionInfo getPermissionInfo(ComponentName componentName, int i2) {
+    public PermissionInfo getPermissionInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, componentName, i)) == null) {
             synchronized (this.mPermissionsObjCache) {
                 obj = this.mPermissionsObjCache.get(componentName);
             }
             if (obj != null) {
-                return this.mParser.generatePermissionInfo(obj, i2);
+                return this.mParser.generatePermissionInfo(obj, i);
             }
             return null;
         }
@@ -426,16 +426,16 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.mPluginFile : (File) invokeV.objValue;
     }
 
-    public ProviderInfo getProviderInfo(ComponentName componentName, int i2) {
+    public ProviderInfo getProviderInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048590, this, componentName, i)) == null) {
             synchronized (this.mProviderObjCache) {
                 obj = this.mProviderObjCache.get(componentName);
             }
             if (obj != null) {
-                ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i2);
+                ProviderInfo generateProviderInfo = this.mParser.generateProviderInfo(obj, i);
                 fixApplicationInfo(generateProviderInfo.applicationInfo);
                 if (TextUtils.isEmpty(generateProviderInfo.processName)) {
                     generateProviderInfo.processName = generateProviderInfo.packageName;
@@ -466,16 +466,16 @@ public class PluginPackageParser {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? new ArrayList(this.mProviderInfoCache.values()) : (List) invokeV.objValue;
     }
 
-    public ActivityInfo getReceiverInfo(ComponentName componentName, int i2) {
+    public ActivityInfo getReceiverInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048593, this, componentName, i)) == null) {
             synchronized (this.mReceiversObjCache) {
                 obj = this.mReceiversObjCache.get(componentName);
             }
             if (obj != null) {
-                ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i2);
+                ActivityInfo generateReceiverInfo = this.mParser.generateReceiverInfo(obj, i);
                 fixApplicationInfo(generateReceiverInfo.applicationInfo);
                 if (TextUtils.isEmpty(generateReceiverInfo.processName)) {
                     generateReceiverInfo.processName = generateReceiverInfo.packageName;
@@ -522,16 +522,16 @@ public class PluginPackageParser {
         return (List) invokeV.objValue;
     }
 
-    public ServiceInfo getServiceInfo(ComponentName componentName, int i2) {
+    public ServiceInfo getServiceInfo(ComponentName componentName, int i) {
         InterceptResult invokeLI;
         Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, componentName, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048598, this, componentName, i)) == null) {
             synchronized (this.mServiceObjCache) {
                 obj = this.mServiceObjCache.get(componentName);
             }
             if (obj != null) {
-                ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i2);
+                ServiceInfo generateServiceInfo = this.mParser.generateServiceInfo(obj, i);
                 fixApplicationInfo(generateServiceInfo.applicationInfo);
                 if (TextUtils.isEmpty(generateServiceInfo.processName)) {
                     generateServiceInfo.processName = generateServiceInfo.packageName;

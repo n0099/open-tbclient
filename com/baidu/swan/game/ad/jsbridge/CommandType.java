@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class CommandType {
     public static final /* synthetic */ CommandType[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -58,16 +58,16 @@ public final class CommandType {
         $VALUES = new CommandType[]{ACTION_URL, GET_CONFS, PRINT_LOG, PAUSE_DOWNLOAD, GET_DOWNLOAD_STATUS, INSTALL_APP, GET_APP_STATUS, OPEN_APP, BANNER_VIEW, DOWNLOAD_PERMISSION_CLICK, DOWNLOAD_PRIVACY_CLICK, commandType};
     }
 
-    public CommandType(String str, int i2, String str2) {
+    public CommandType(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2};
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

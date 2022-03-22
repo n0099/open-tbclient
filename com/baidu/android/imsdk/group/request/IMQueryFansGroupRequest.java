@@ -54,9 +54,9 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMQueryFansGroupRequest, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -75,29 +75,29 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         */
         public void run() {
             String str;
-            int i2;
+            int i;
             IMListener removeListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
-                    int i3 = jSONObject.getInt("error_code");
+                    int i2 = jSONObject.getInt("error_code");
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i3 == 0 && jSONObject.has("response_params")) {
+                    if (i2 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("group_info");
-                        int i4 = 0;
-                        while (i4 < jSONArray.length()) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i4);
+                        int i3 = 0;
+                        while (i3 < jSONArray.length()) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
                             long optLong = jSONObject2.optLong("group_id");
                             String optString2 = jSONObject2.optString("group_name");
                             int optInt = jSONObject2.optInt("group_type");
                             int optInt2 = jSONObject2.optInt("group_num");
                             long optLong2 = jSONObject2.optLong("create_time");
-                            int i5 = i3;
+                            int i4 = i2;
                             long optLong3 = jSONObject2.optLong("bd_uid");
                             String str2 = optString;
-                            int i6 = i4;
+                            int i5 = i3;
                             long optLong4 = jSONObject2.optLong("uk");
                             JSONArray jSONArray2 = jSONArray;
                             int optInt3 = jSONObject2.optInt("status", -1);
@@ -133,21 +133,21 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                                     this.this$0.updateGroupInfo(optLong, optInt3, optInt6, groupInfo);
                                     arrayList = arrayList2;
                                     arrayList.add(groupInfo);
-                                    i4 = i6 + 1;
-                                    i3 = i5;
+                                    i3 = i5 + 1;
+                                    i2 = i4;
                                     optString = str2;
                                     jSONArray = jSONArray2;
                                 }
                                 arrayList = arrayList2;
-                                i4 = i6 + 1;
-                                i3 = i5;
+                                i3 = i5 + 1;
+                                i2 = i4;
                                 optString = str2;
                                 jSONArray = jSONArray2;
                             } catch (JSONException e2) {
                                 e = e2;
                                 arrayList = arrayList2;
                                 LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                                i2 = 1010;
+                                i = 1010;
                                 new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e)).build();
                                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                 removeListener = ListenerManager.getInstance().removeListener(this.this$0.mKey);
@@ -156,7 +156,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                             }
                         }
                     }
-                    i2 = i3;
+                    i = i2;
                     str = optString;
                 } catch (JSONException e3) {
                     e = e3;
@@ -165,7 +165,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                 if (removeListener instanceof BIMValueCallBack) {
                     return;
                 }
-                ((BIMValueCallBack) removeListener).onResult(i2, str, arrayList);
+                ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
             }
         }
     }
@@ -177,9 +177,9 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -191,27 +191,27 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateGroupInfo(long j2, int i2, int i3, GroupInfo groupInfo) {
+    public void updateGroupInfo(long j, int i, int i2, GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), groupInfo}) == null) && i2 == 0) {
-            String valueOf = String.valueOf(j2);
-            if (i3 == 1) {
+        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) == null) && i == 0) {
+            String valueOf = String.valueOf(j);
+            if (i2 == 1) {
                 GroupInfoDAOImpl.quitGroup(this.mContext, valueOf);
-                DialogRecordDBManager.getInstance(this.mContext).delete(1, j2);
+                DialogRecordDBManager.getInstance(this.mContext).delete(1, j);
                 ConversationManagerImpl.getInstance(this.mContext).deleteConversation(1, valueOf);
                 return;
             }
             GroupInfoDAOImpl.modifyGroupInfoVersion(this.mContext, valueOf, groupInfo.getInfoVersion(), groupInfo.getLocalInfoVersion());
             if (GroupInfoDAOImpl.updateGroupInfo(this.mContext, groupInfo) > 0) {
-                updateGroupSession(j2, groupInfo.getGroupName(), groupInfo.getHeadUrl());
+                updateGroupSession(j, groupInfo.getGroupName(), groupInfo.getHeadUrl());
             }
         }
     }
 
-    private void updateGroupSession(long j2, String str, String str2) {
+    private void updateGroupSession(long j, String str, String str2) {
         ChatSession chatRecordByContacter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j2), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j2))) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), str, str2}) == null) || (chatRecordByContacter = ChatMessageDBManager.getInstance(this.mContext).getChatRecordByContacter(new ChatObject(this.mContext, 1, j))) == null) {
             return;
         }
         if (TextUtils.equals(str, chatRecordByContacter.getName()) && TextUtils.equals(str2, chatRecordByContacter.getIconUrl())) {
@@ -255,10 +255,10 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener instanceof BIMValueCallBack) {
                 ((BIMValueCallBack) removeListener).onResult(((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, null);
@@ -267,9 +267,9 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str = new String(bArr);
             LogUtils.d(TAG, "IMQueryFansGroupRequest " + this.mGroupIds + " json is " + str);
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));

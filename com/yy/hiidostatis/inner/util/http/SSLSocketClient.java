@@ -26,7 +26,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SSLSocketClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALT_DNS_NAME = 2;
@@ -54,9 +54,9 @@ public class SSLSocketClient {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -75,9 +75,9 @@ public class SSLSocketClient {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -114,12 +114,12 @@ public class SSLSocketClient {
         return (SSLSocketFactory) invokeV.objValue;
     }
 
-    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i2) {
+    public static List<String> getSubjectAltNames(X509Certificate x509Certificate, int i) {
         InterceptResult invokeLI;
         Integer num;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, x509Certificate, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, x509Certificate, i)) == null) {
             ArrayList arrayList = new ArrayList();
             try {
                 Collection<List<?>> subjectAlternativeNames = x509Certificate.getSubjectAlternativeNames();
@@ -127,7 +127,7 @@ public class SSLSocketClient {
                     return Collections.emptyList();
                 }
                 for (List<?> list : subjectAlternativeNames) {
-                    if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i2 && (str = (String) list.get(1)) != null) {
+                    if (list != null && list.size() >= 2 && (num = (Integer) list.get(0)) != null && num.intValue() == i && (str = (String) list.get(1)) != null) {
                         arrayList.add(str);
                     }
                 }
@@ -151,10 +151,10 @@ public class SSLSocketClient {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
             if (str != null && str.length() != 0 && !str.startsWith(".") && !str.endsWith(IStringUtil.TOP_PATH) && str2 != null && str2.length() != 0 && !str2.startsWith(".") && !str2.endsWith(IStringUtil.TOP_PATH)) {
                 if (!str.endsWith(".")) {
-                    str = str + '.';
+                    str = str + IStringUtil.EXTENSION_SEPARATOR;
                 }
                 if (!str2.endsWith(".")) {
-                    str2 = str2 + '.';
+                    str2 = str2 + IStringUtil.EXTENSION_SEPARATOR;
                 }
                 String lowerCase = str2.toLowerCase(Locale.US);
                 if (!lowerCase.contains("*")) {

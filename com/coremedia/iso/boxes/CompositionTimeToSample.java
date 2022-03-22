@@ -17,10 +17,9 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.runtime.reflect.Factory;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
@@ -30,30 +29,30 @@ public class CompositionTimeToSample extends AbstractFullBox {
     public transient /* synthetic */ FieldHolder $fh;
     public List<Entry> entries;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static class Entry {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int count;
         public int offset;
 
-        public Entry(int i2, int i3) {
+        public Entry(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.count = i2;
-            this.offset = i3;
+            this.count = i;
+            this.offset = i2;
         }
 
         public int getCount() {
@@ -68,17 +67,17 @@ public class CompositionTimeToSample extends AbstractFullBox {
             return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.offset : invokeV.intValue;
         }
 
-        public void setCount(int i2) {
+        public void setCount(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-                this.count = i2;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+                this.count = i;
             }
         }
 
-        public void setOffset(int i2) {
+        public void setOffset(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-                this.offset = i2;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                this.offset = i;
             }
         }
 
@@ -86,7 +85,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return "Entry{count=" + this.count + ", offset=" + this.offset + ExtendedMessageFormat.END_FE;
+                return "Entry{count=" + this.count + ", offset=" + this.offset + '}';
             }
             return (String) invokeV.objValue;
         }
@@ -115,9 +114,9 @@ public class CompositionTimeToSample extends AbstractFullBox {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -137,18 +136,18 @@ public class CompositionTimeToSample extends AbstractFullBox {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            long j2 = 0;
+            long j = 0;
             for (Entry entry : list) {
-                j2 += entry.getCount();
+                j += entry.getCount();
             }
-            int[] iArr = new int[(int) j2];
-            int i2 = 0;
+            int[] iArr = new int[(int) j];
+            int i = 0;
             for (Entry entry2 : list) {
-                int i3 = 0;
-                while (i3 < entry2.getCount()) {
-                    iArr[i2] = entry2.getOffset();
-                    i3++;
+                int i2 = 0;
+                while (i2 < entry2.getCount()) {
+                    iArr[i] = entry2.getOffset();
                     i2++;
+                    i++;
                 }
             }
             return iArr;
@@ -163,7 +162,7 @@ public class CompositionTimeToSample extends AbstractFullBox {
             parseVersionAndFlags(byteBuffer);
             int l2i = CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer));
             this.entries = new ArrayList(l2i);
-            for (int i2 = 0; i2 < l2i; i2++) {
+            for (int i = 0; i < l2i; i++) {
                 this.entries.add(new Entry(CastUtils.l2i(IsoTypeReader.readUInt32(byteBuffer)), byteBuffer.getInt()));
             }
         }

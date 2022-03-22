@@ -3,7 +3,7 @@ package com.baidu.ar.arplay.core.engine.engine3d;
 public interface IARPScene {
     IARPCamera getActiveCamera();
 
-    String getName(long j2);
+    String getName(long j);
 
     IARPNode getNodeByName(String str);
 
@@ -13,7 +13,7 @@ public interface IARPScene {
 
     float[] sceneProject(float[] fArr);
 
-    void setInternal(long j2);
+    void setInternal(long j);
 
     void setOffScreenGuideWork(boolean z);
 

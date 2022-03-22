@@ -42,7 +42,7 @@ public final class MatrixUtil {
         }
         POSITION_DETECTION_PATTERN = new int[][]{new int[]{1, 1, 1, 1, 1, 1, 1}, new int[]{1, 0, 0, 0, 0, 0, 1}, new int[]{1, 0, 1, 1, 1, 0, 1}, new int[]{1, 0, 1, 1, 1, 0, 1}, new int[]{1, 0, 1, 1, 1, 0, 1}, new int[]{1, 0, 0, 0, 0, 0, 1}, new int[]{1, 1, 1, 1, 1, 1, 1}};
         POSITION_ADJUSTMENT_PATTERN = new int[][]{new int[]{1, 1, 1, 1, 1}, new int[]{1, 0, 0, 0, 1}, new int[]{1, 0, 1, 0, 1}, new int[]{1, 0, 0, 0, 1}, new int[]{1, 1, 1, 1, 1}};
-        POSITION_ADJUSTMENT_PATTERN_COORDINATE_TABLE = new int[][]{new int[]{-1, -1, -1, -1, -1, -1, -1}, new int[]{6, 18, -1, -1, -1, -1, -1}, new int[]{6, 22, -1, -1, -1, -1, -1}, new int[]{6, 26, -1, -1, -1, -1, -1}, new int[]{6, 30, -1, -1, -1, -1, -1}, new int[]{6, 34, -1, -1, -1, -1, -1}, new int[]{6, 22, 38, -1, -1, -1, -1}, new int[]{6, 24, 42, -1, -1, -1, -1}, new int[]{6, 26, 46, -1, -1, -1, -1}, new int[]{6, 28, 50, -1, -1, -1, -1}, new int[]{6, 30, 54, -1, -1, -1, -1}, new int[]{6, 32, 58, -1, -1, -1, -1}, new int[]{6, 34, 62, -1, -1, -1, -1}, new int[]{6, 26, 46, 66, -1, -1, -1}, new int[]{6, 26, 48, 70, -1, -1, -1}, new int[]{6, 26, 50, 74, -1, -1, -1}, new int[]{6, 30, 54, 78, -1, -1, -1}, new int[]{6, 30, 56, 82, -1, -1, -1}, new int[]{6, 30, 58, 86, -1, -1, -1}, new int[]{6, 34, 62, 90, -1, -1, -1}, new int[]{6, 28, 50, 72, 94, -1, -1}, new int[]{6, 26, 50, 74, 98, -1, -1}, new int[]{6, 30, 54, 78, 102, -1, -1}, new int[]{6, 28, 54, 80, 106, -1, -1}, new int[]{6, 32, 58, 84, 110, -1, -1}, new int[]{6, 30, 58, 86, 114, -1, -1}, new int[]{6, 34, 62, 90, 118, -1, -1}, new int[]{6, 26, 50, 74, 98, 122, -1}, new int[]{6, 30, 54, 78, 102, 126, -1}, new int[]{6, 26, 52, 78, 104, 130, -1}, new int[]{6, 30, 56, 82, 108, 134, -1}, new int[]{6, 34, 60, 86, 112, 138, -1}, new int[]{6, 30, 58, 86, 114, Cea708Decoder.COMMAND_DLC, -1}, new int[]{6, 34, 62, 90, 118, Cea708Decoder.COMMAND_SPL, -1}, new int[]{6, 30, 54, 78, 102, 126, 150}, new int[]{6, 24, 50, 76, 102, 128, 154}, new int[]{6, 28, 54, 80, 106, 132, 158}, new int[]{6, 32, 58, 84, 110, 136, 162}, new int[]{6, 26, 54, 82, 110, 138, 166}, new int[]{6, 30, 58, 86, 114, Cea708Decoder.COMMAND_DLC, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}};
+        POSITION_ADJUSTMENT_PATTERN_COORDINATE_TABLE = new int[][]{new int[]{-1, -1, -1, -1, -1, -1, -1}, new int[]{6, 18, -1, -1, -1, -1, -1}, new int[]{6, 22, -1, -1, -1, -1, -1}, new int[]{6, 26, -1, -1, -1, -1, -1}, new int[]{6, 30, -1, -1, -1, -1, -1}, new int[]{6, 34, -1, -1, -1, -1, -1}, new int[]{6, 22, 38, -1, -1, -1, -1}, new int[]{6, 24, 42, -1, -1, -1, -1}, new int[]{6, 26, 46, -1, -1, -1, -1}, new int[]{6, 28, 50, -1, -1, -1, -1}, new int[]{6, 30, 54, -1, -1, -1, -1}, new int[]{6, 32, 58, -1, -1, -1, -1}, new int[]{6, 34, 62, -1, -1, -1, -1}, new int[]{6, 26, 46, 66, -1, -1, -1}, new int[]{6, 26, 48, 70, -1, -1, -1}, new int[]{6, 26, 50, 74, -1, -1, -1}, new int[]{6, 30, 54, 78, -1, -1, -1}, new int[]{6, 30, 56, 82, -1, -1, -1}, new int[]{6, 30, 58, 86, -1, -1, -1}, new int[]{6, 34, 62, 90, -1, -1, -1}, new int[]{6, 28, 50, 72, 94, -1, -1}, new int[]{6, 26, 50, 74, 98, -1, -1}, new int[]{6, 30, 54, 78, 102, -1, -1}, new int[]{6, 28, 54, 80, 106, -1, -1}, new int[]{6, 32, 58, 84, 110, -1, -1}, new int[]{6, 30, 58, 86, 114, -1, -1}, new int[]{6, 34, 62, 90, 118, -1, -1}, new int[]{6, 26, 50, 74, 98, 122, -1}, new int[]{6, 30, 54, 78, 102, 126, -1}, new int[]{6, 26, 52, 78, 104, 130, -1}, new int[]{6, 30, 56, 82, 108, 134, -1}, new int[]{6, 34, 60, 86, 112, 138, -1}, new int[]{6, 30, 58, 86, 114, Cea708Decoder.COMMAND_DLC, -1}, new int[]{6, 34, 62, 90, 118, Cea708Decoder.COMMAND_SPL, -1}, new int[]{6, 30, 54, 78, 102, 126, 150}, new int[]{6, 24, 50, 76, 102, 128, Cea708Decoder.COMMAND_DF2}, new int[]{6, 28, 54, 80, 106, 132, 158}, new int[]{6, 32, 58, 84, 110, 136, 162}, new int[]{6, 26, 54, 82, 110, 138, 166}, new int[]{6, 30, 58, 86, 114, Cea708Decoder.COMMAND_DLC, Constants.METHOD_IM_GET_USER_PROFILE_BY_BAIDU_UID}};
         TYPE_INFO_COORDINATES = new int[][]{new int[]{8, 0}, new int[]{8, 1}, new int[]{8, 2}, new int[]{8, 3}, new int[]{8, 4}, new int[]{8, 5}, new int[]{8, 7}, new int[]{8, 8}, new int[]{7, 8}, new int[]{5, 8}, new int[]{4, 8}, new int[]{3, 8}, new int[]{2, 8}, new int[]{1, 8}, new int[]{0, 8}};
     }
 
@@ -51,37 +51,37 @@ public final class MatrixUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void buildMatrix(BitArray bitArray, ErrorCorrectionLevel errorCorrectionLevel, Version version, int i2, ByteMatrix byteMatrix) throws WriterException {
+    public static void buildMatrix(BitArray bitArray, ErrorCorrectionLevel errorCorrectionLevel, Version version, int i, ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bitArray, errorCorrectionLevel, version, Integer.valueOf(i2), byteMatrix}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{bitArray, errorCorrectionLevel, version, Integer.valueOf(i), byteMatrix}) == null) {
             clearMatrix(byteMatrix);
             embedBasicPatterns(version, byteMatrix);
-            embedTypeInfo(errorCorrectionLevel, i2, byteMatrix);
+            embedTypeInfo(errorCorrectionLevel, i, byteMatrix);
             maybeEmbedVersionInfo(version, byteMatrix);
-            embedDataBits(bitArray, i2, byteMatrix);
+            embedDataBits(bitArray, i, byteMatrix);
         }
     }
 
-    public static int calculateBCHCode(int i2, int i3) {
+    public static int calculateBCHCode(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i2, i3)) == null) {
-            if (i3 != 0) {
-                int findMSBSet = findMSBSet(i3);
-                int i4 = i2 << (findMSBSet - 1);
-                while (findMSBSet(i4) >= findMSBSet) {
-                    i4 ^= i3 << (findMSBSet(i4) - findMSBSet);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i2 != 0) {
+                int findMSBSet = findMSBSet(i2);
+                int i3 = i << (findMSBSet - 1);
+                while (findMSBSet(i3) >= findMSBSet) {
+                    i3 ^= i2 << (findMSBSet(i3) - findMSBSet);
                 }
-                return i4;
+                return i3;
             }
             throw new IllegalArgumentException("0 polynomial");
         }
@@ -116,54 +116,54 @@ public final class MatrixUtil {
         }
     }
 
-    public static void embedDataBits(BitArray bitArray, int i2, ByteMatrix byteMatrix) throws WriterException {
+    public static void embedDataBits(BitArray bitArray, int i, ByteMatrix byteMatrix) throws WriterException {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65543, null, bitArray, i2, byteMatrix) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65543, null, bitArray, i, byteMatrix) == null) {
             int width = byteMatrix.getWidth() - 1;
             int height = byteMatrix.getHeight() - 1;
-            int i3 = 0;
-            int i4 = -1;
+            int i2 = 0;
+            int i3 = -1;
             while (width > 0) {
                 if (width == 6) {
                     width--;
                 }
                 while (height >= 0 && height < byteMatrix.getHeight()) {
-                    for (int i5 = 0; i5 < 2; i5++) {
-                        int i6 = width - i5;
-                        if (isEmpty(byteMatrix.get(i6, height))) {
-                            if (i3 < bitArray.getSize()) {
-                                z = bitArray.get(i3);
-                                i3++;
+                    for (int i4 = 0; i4 < 2; i4++) {
+                        int i5 = width - i4;
+                        if (isEmpty(byteMatrix.get(i5, height))) {
+                            if (i2 < bitArray.getSize()) {
+                                z = bitArray.get(i2);
+                                i2++;
                             } else {
                                 z = false;
                             }
-                            if (i2 != -1 && MaskUtil.getDataMaskBit(i2, i6, height)) {
+                            if (i != -1 && MaskUtil.getDataMaskBit(i, i5, height)) {
                                 z = !z;
                             }
-                            byteMatrix.set(i6, height, z);
+                            byteMatrix.set(i5, height, z);
                         }
                     }
-                    height += i4;
+                    height += i3;
                 }
-                i4 = -i4;
-                height += i4;
+                i3 = -i3;
+                height += i3;
                 width -= 2;
             }
-            if (i3 == bitArray.getSize()) {
+            if (i2 == bitArray.getSize()) {
                 return;
             }
-            throw new WriterException("Not all bits consumed: " + i3 + WebvttCueParser.CHAR_SLASH + bitArray.getSize());
+            throw new WriterException("Not all bits consumed: " + i2 + WebvttCueParser.CHAR_SLASH + bitArray.getSize());
         }
     }
 
-    public static void embedHorizontalSeparationPattern(int i2, int i3, ByteMatrix byteMatrix) throws WriterException {
+    public static void embedHorizontalSeparationPattern(int i, int i2, ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65544, null, i2, i3, byteMatrix) == null) {
-            for (int i4 = 0; i4 < 8; i4++) {
-                int i5 = i2 + i4;
-                if (isEmpty(byteMatrix.get(i5, i3))) {
-                    byteMatrix.set(i5, i3, 0);
+        if (interceptable == null || interceptable.invokeIIL(65544, null, i, i2, byteMatrix) == null) {
+            for (int i3 = 0; i3 < 8; i3++) {
+                int i4 = i + i3;
+                if (isEmpty(byteMatrix.get(i4, i2))) {
+                    byteMatrix.set(i4, i2, 0);
                 } else {
                     throw new WriterException();
                 }
@@ -171,23 +171,23 @@ public final class MatrixUtil {
         }
     }
 
-    public static void embedPositionAdjustmentPattern(int i2, int i3, ByteMatrix byteMatrix) {
+    public static void embedPositionAdjustmentPattern(int i, int i2, ByteMatrix byteMatrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65545, null, i2, i3, byteMatrix) == null) {
-            for (int i4 = 0; i4 < 5; i4++) {
-                for (int i5 = 0; i5 < 5; i5++) {
-                    byteMatrix.set(i2 + i5, i3 + i4, POSITION_ADJUSTMENT_PATTERN[i4][i5]);
+        if (interceptable == null || interceptable.invokeIIL(65545, null, i, i2, byteMatrix) == null) {
+            for (int i3 = 0; i3 < 5; i3++) {
+                for (int i4 = 0; i4 < 5; i4++) {
+                    byteMatrix.set(i + i4, i2 + i3, POSITION_ADJUSTMENT_PATTERN[i3][i4]);
                 }
             }
         }
     }
 
-    public static void embedPositionDetectionPattern(int i2, int i3, ByteMatrix byteMatrix) {
+    public static void embedPositionDetectionPattern(int i, int i2, ByteMatrix byteMatrix) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65546, null, i2, i3, byteMatrix) == null) {
-            for (int i4 = 0; i4 < 7; i4++) {
-                for (int i5 = 0; i5 < 7; i5++) {
-                    byteMatrix.set(i2 + i5, i3 + i4, POSITION_DETECTION_PATTERN[i4][i5]);
+        if (interceptable == null || interceptable.invokeIIL(65546, null, i, i2, byteMatrix) == null) {
+            for (int i3 = 0; i3 < 7; i3++) {
+                for (int i4 = 0; i4 < 7; i4++) {
+                    byteMatrix.set(i + i4, i2 + i3, POSITION_DETECTION_PATTERN[i3][i4]);
                 }
             }
         }
@@ -212,46 +212,46 @@ public final class MatrixUtil {
     public static void embedTimingPatterns(ByteMatrix byteMatrix) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, null, byteMatrix) == null) {
-            int i2 = 8;
-            while (i2 < byteMatrix.getWidth() - 8) {
-                int i3 = i2 + 1;
-                int i4 = i3 % 2;
-                if (isEmpty(byteMatrix.get(i2, 6))) {
-                    byteMatrix.set(i2, 6, i4);
+            int i = 8;
+            while (i < byteMatrix.getWidth() - 8) {
+                int i2 = i + 1;
+                int i3 = i2 % 2;
+                if (isEmpty(byteMatrix.get(i, 6))) {
+                    byteMatrix.set(i, 6, i3);
                 }
-                if (isEmpty(byteMatrix.get(6, i2))) {
-                    byteMatrix.set(6, i2, i4);
+                if (isEmpty(byteMatrix.get(6, i))) {
+                    byteMatrix.set(6, i, i3);
                 }
-                i2 = i3;
+                i = i2;
             }
         }
     }
 
-    public static void embedTypeInfo(ErrorCorrectionLevel errorCorrectionLevel, int i2, ByteMatrix byteMatrix) throws WriterException {
+    public static void embedTypeInfo(ErrorCorrectionLevel errorCorrectionLevel, int i, ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65549, null, errorCorrectionLevel, i2, byteMatrix) == null) {
+        if (interceptable == null || interceptable.invokeLIL(65549, null, errorCorrectionLevel, i, byteMatrix) == null) {
             BitArray bitArray = new BitArray();
-            makeTypeInfoBits(errorCorrectionLevel, i2, bitArray);
-            for (int i3 = 0; i3 < bitArray.getSize(); i3++) {
-                boolean z = bitArray.get((bitArray.getSize() - 1) - i3);
+            makeTypeInfoBits(errorCorrectionLevel, i, bitArray);
+            for (int i2 = 0; i2 < bitArray.getSize(); i2++) {
+                boolean z = bitArray.get((bitArray.getSize() - 1) - i2);
                 int[][] iArr = TYPE_INFO_COORDINATES;
-                byteMatrix.set(iArr[i3][0], iArr[i3][1], z);
-                if (i3 < 8) {
-                    byteMatrix.set((byteMatrix.getWidth() - i3) - 1, 8, z);
+                byteMatrix.set(iArr[i2][0], iArr[i2][1], z);
+                if (i2 < 8) {
+                    byteMatrix.set((byteMatrix.getWidth() - i2) - 1, 8, z);
                 } else {
-                    byteMatrix.set(8, (byteMatrix.getHeight() - 7) + (i3 - 8), z);
+                    byteMatrix.set(8, (byteMatrix.getHeight() - 7) + (i2 - 8), z);
                 }
             }
         }
     }
 
-    public static void embedVerticalSeparationPattern(int i2, int i3, ByteMatrix byteMatrix) throws WriterException {
+    public static void embedVerticalSeparationPattern(int i, int i2, ByteMatrix byteMatrix) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65550, null, i2, i3, byteMatrix) == null) {
-            for (int i4 = 0; i4 < 7; i4++) {
-                int i5 = i3 + i4;
-                if (isEmpty(byteMatrix.get(i2, i5))) {
-                    byteMatrix.set(i2, i5, 0);
+        if (interceptable == null || interceptable.invokeIIL(65550, null, i, i2, byteMatrix) == null) {
+            for (int i3 = 0; i3 < 7; i3++) {
+                int i4 = i2 + i3;
+                if (isEmpty(byteMatrix.get(i, i4))) {
+                    byteMatrix.set(i, i4, 0);
                 } else {
                     throw new WriterException();
                 }
@@ -259,23 +259,23 @@ public final class MatrixUtil {
         }
     }
 
-    public static int findMSBSet(int i2) {
+    public static int findMSBSet(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i2)) == null) ? 32 - Integer.numberOfLeadingZeros(i2) : invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65551, null, i)) == null) ? 32 - Integer.numberOfLeadingZeros(i) : invokeI.intValue;
     }
 
-    public static boolean isEmpty(int i2) {
+    public static boolean isEmpty(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i2)) == null) ? i2 == -1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65552, null, i)) == null) ? i == -1 : invokeI.booleanValue;
     }
 
-    public static void makeTypeInfoBits(ErrorCorrectionLevel errorCorrectionLevel, int i2, BitArray bitArray) throws WriterException {
+    public static void makeTypeInfoBits(ErrorCorrectionLevel errorCorrectionLevel, int i, BitArray bitArray) throws WriterException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65553, null, errorCorrectionLevel, i2, bitArray) == null) {
-            if (QRCode.isValidMaskPattern(i2)) {
-                int bits = (errorCorrectionLevel.getBits() << 3) | i2;
+        if (interceptable == null || interceptable.invokeLIL(65553, null, errorCorrectionLevel, i, bitArray) == null) {
+            if (QRCode.isValidMaskPattern(i)) {
+                int bits = (errorCorrectionLevel.getBits() << 3) | i;
                 bitArray.appendBits(bits, 5);
                 bitArray.appendBits(calculateBCHCode(bits, 1335), 10);
                 BitArray bitArray2 = new BitArray();
@@ -311,12 +311,12 @@ public final class MatrixUtil {
         int[][] iArr = POSITION_ADJUSTMENT_PATTERN_COORDINATE_TABLE;
         int[] iArr2 = iArr[versionNumber];
         int length = iArr[versionNumber].length;
-        for (int i2 = 0; i2 < length; i2++) {
-            for (int i3 = 0; i3 < length; i3++) {
+        for (int i = 0; i < length; i++) {
+            for (int i2 = 0; i2 < length; i2++) {
+                int i3 = iArr2[i];
                 int i4 = iArr2[i2];
-                int i5 = iArr2[i3];
-                if (i5 != -1 && i4 != -1 && isEmpty(byteMatrix.get(i5, i4))) {
-                    embedPositionAdjustmentPattern(i5 - 2, i4 - 2, byteMatrix);
+                if (i4 != -1 && i3 != -1 && isEmpty(byteMatrix.get(i4, i3))) {
+                    embedPositionAdjustmentPattern(i4 - 2, i3 - 2, byteMatrix);
                 }
             }
         }
@@ -329,13 +329,13 @@ public final class MatrixUtil {
         }
         BitArray bitArray = new BitArray();
         makeVersionInfoBits(version, bitArray);
-        int i2 = 17;
-        for (int i3 = 0; i3 < 6; i3++) {
-            for (int i4 = 0; i4 < 3; i4++) {
-                boolean z = bitArray.get(i2);
-                i2--;
-                byteMatrix.set(i3, (byteMatrix.getHeight() - 11) + i4, z);
-                byteMatrix.set((byteMatrix.getHeight() - 11) + i4, i3, z);
+        int i = 17;
+        for (int i2 = 0; i2 < 6; i2++) {
+            for (int i3 = 0; i3 < 3; i3++) {
+                boolean z = bitArray.get(i);
+                i--;
+                byteMatrix.set(i2, (byteMatrix.getHeight() - 11) + i3, z);
+                byteMatrix.set((byteMatrix.getHeight() - 11) + i3, i2, z);
             }
         }
     }

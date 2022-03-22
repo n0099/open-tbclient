@@ -4,9 +4,10 @@ import android.app.Application;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import c.a.p0.a.p1.b;
+import c.a.n0.a.p1.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,7 +21,7 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class ReplyEditorParams implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<ReplyEditorParams> CREATOR;
@@ -36,7 +37,7 @@ public class ReplyEditorParams implements Parcelable {
     public final int sendTextColor;
     public List<String> showList;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static class a implements Parcelable.Creator<ReplyEditorParams> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -46,9 +47,9 @@ public class ReplyEditorParams implements Parcelable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -67,10 +68,10 @@ public class ReplyEditorParams implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: b */
-        public ReplyEditorParams[] newArray(int i2) {
+        public ReplyEditorParams[] newArray(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new ReplyEditorParams[i2] : (ReplyEditorParams[]) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new ReplyEditorParams[i] : (ReplyEditorParams[]) invokeI.objValue;
         }
     }
 
@@ -91,16 +92,16 @@ public class ReplyEditorParams implements Parcelable {
         CREATOR = new a();
     }
 
-    public ReplyEditorParams(String str, String str2, String str3, String str4, int i2, int i3, List<String> list) {
+    public ReplyEditorParams(String str, String str2, String str3, String str4, int i, int i2, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i2), Integer.valueOf(i3), list};
+            Object[] objArr = {str, str2, str3, str4, Integer.valueOf(i), Integer.valueOf(i2), list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -110,15 +111,15 @@ public class ReplyEditorParams implements Parcelable {
         this.emojiPath = str2;
         this.callback = str3;
         this.sendText = str4;
-        this.sendTextColor = i2;
-        this.sendTextBgColor = i3;
+        this.sendTextColor = i;
+        this.sendTextBgColor = i2;
         this.showList = list;
     }
 
     public static ReplyEditorParams fromJson(JSONObject jSONObject) {
         InterceptResult invokeL;
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
             if (jSONObject == null) {
@@ -128,8 +129,8 @@ public class ReplyEditorParams implements Parcelable {
             JSONArray optJSONArray = jSONObject.optJSONArray("moduleList");
             if (optJSONArray != null) {
                 arrayList.clear();
-                for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
-                    String optString = optJSONArray.optString(i4);
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    String optString = optJSONArray.optString(i3);
                     if (optString != null && !arrayList.contains(optString)) {
                         arrayList.add(optString);
                     }
@@ -141,30 +142,30 @@ public class ReplyEditorParams implements Parcelable {
             }
             String str = c2;
             try {
-                i2 = SwanAppConfigData.t(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
+                i = SwanAppConfigData.t(b.c(jSONObject, "sendTextColor", "#FFFFFF"));
             } catch (Exception e2) {
-                if (c.a.p0.a.a.a) {
+                if (c.a.n0.a.a.a) {
                     e2.printStackTrace();
                 }
-                i2 = -1;
+                i = -1;
             }
-            Application c3 = c.a.p0.a.s0.a.c();
+            Application c3 = c.a.n0.a.s0.a.c();
             String c4 = b.c(jSONObject, "sendBackgroundColor", "#3388FF");
-            int color = c3.getResources().getColor(R.color.swanapp_publish_btn_enable_color);
+            int color = c3.getResources().getColor(R.color.obfuscated_res_0x7f060a75);
             try {
-                i3 = SwanAppConfigData.t(c4);
+                i2 = SwanAppConfigData.t(c4);
             } catch (Exception e3) {
-                if (c.a.p0.a.a.a) {
+                if (c.a.n0.a.a.a) {
                     e3.printStackTrace();
                 }
-                i3 = color;
+                i2 = color;
             }
-            String d2 = b.d(jSONObject.optString("contentPlaceholder", c3.getResources().getString(R.string.swanapp_reply_editor_place_holder)), 20, "...");
+            String d2 = b.d(jSONObject.optString("contentPlaceholder", c3.getResources().getString(R.string.obfuscated_res_0x7f0f12bd)), 20, StringHelper.STRING_MORE);
             String optString2 = jSONObject.optString("emojiPath");
             if (TextUtils.isEmpty(optString2)) {
                 arrayList.remove(MODULE_EMOJI);
             }
-            return new ReplyEditorParams(d2, optString2, jSONObject.optString("cb"), str, i2, i3, arrayList);
+            return new ReplyEditorParams(d2, optString2, jSONObject.optString("cb"), str, i, i2, arrayList);
         }
         return (ReplyEditorParams) invokeL.objValue;
     }
@@ -210,9 +211,9 @@ public class ReplyEditorParams implements Parcelable {
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048580, this, parcel, i) == null) {
             parcel.writeString(this.contentHint);
             parcel.writeString(this.sendText);
             parcel.writeInt(this.sendTextColor);
@@ -230,9 +231,9 @@ public class ReplyEditorParams implements Parcelable {
             newInitContext.initArgs = r2;
             Object[] objArr = {parcel};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

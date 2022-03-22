@@ -7,9 +7,9 @@ public interface IABTestInterface {
 
     double getSwitch(String str, double d2);
 
-    int getSwitch(String str, int i2);
+    int getSwitch(String str, int i);
 
-    long getSwitch(String str, long j2);
+    long getSwitch(String str, long j);
 
     String getSwitch(String str, String str2);
 

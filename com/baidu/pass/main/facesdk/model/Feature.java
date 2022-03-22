@@ -30,9 +30,9 @@ public class Feature {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,6 +44,31 @@ public class Feature {
         this.imageName = "";
         this.userName = "";
         this.cropImageName = "";
+    }
+
+    public Feature(int i, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.faceToken = "";
+        this.userId = "";
+        this.groupId = "";
+        this.imageName = "";
+        this.userName = "";
+        this.cropImageName = "";
+        this.id = i;
+        this.score = f2;
     }
 
     public String getCropImageName() {
@@ -139,10 +164,10 @@ public class Feature {
         }
     }
 
-    public void setCtime(long j2) {
+    public void setCtime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j2) == null) {
-            this.ctime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            this.ctime = j;
         }
     }
 
@@ -167,10 +192,10 @@ public class Feature {
         }
     }
 
-    public void setId(int i2) {
+    public void setId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.id = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.id = i;
         }
     }
 
@@ -188,10 +213,10 @@ public class Feature {
         }
     }
 
-    public void setUpdateTime(long j2) {
+    public void setUpdateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048597, this, j2) == null) {
-            this.updateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.updateTime = j;
         }
     }
 
@@ -207,30 +232,5 @@ public class Feature {
         if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
             this.userName = str;
         }
-    }
-
-    public Feature(int i2, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), Float.valueOf(f2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.faceToken = "";
-        this.userId = "";
-        this.groupId = "";
-        this.imageName = "";
-        this.userName = "";
-        this.cropImageName = "";
-        this.id = i2;
-        this.score = f2;
     }
 }

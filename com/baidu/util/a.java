@@ -14,7 +14,7 @@ public class a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f48939b;
+    public Context f37825b;
 
     public a(Context context) {
         Interceptable interceptable = $ic;
@@ -23,15 +23,15 @@ public class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48939b = context;
+        this.f37825b = context;
     }
 
     public static synchronized a a(Context context) {
@@ -50,12 +50,12 @@ public class a {
         return (a) invokeL.objValue;
     }
 
-    public long a(String str, String str2, long j2) {
+    public long a(String str, String str2, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
             try {
-                return this.f48939b.getSharedPreferences(str, 0).getLong(str2, j2);
+                return this.f37825b.getSharedPreferences(str, 0).getLong(str2, j);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return System.currentTimeMillis();
@@ -69,7 +69,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3)) == null) {
             try {
-                return this.f48939b.getSharedPreferences(str, 0).getString(str2, str3);
+                return this.f37825b.getSharedPreferences(str, 0).getString(str2, str3);
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return "";
@@ -78,17 +78,17 @@ public class a {
         return (String) invokeLLL.objValue;
     }
 
-    public void b(String str, String str2, long j2) {
+    public void b(String str, String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) {
-            this.f48939b.getSharedPreferences(str, 0).edit().putLong(str2, j2).commit();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
+            this.f37825b.getSharedPreferences(str, 0).edit().putLong(str2, j).commit();
         }
     }
 
     public void b(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, str3) == null) {
-            this.f48939b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
+            this.f37825b.getSharedPreferences(str, 0).edit().putString(str2, str3).commit();
         }
     }
 }

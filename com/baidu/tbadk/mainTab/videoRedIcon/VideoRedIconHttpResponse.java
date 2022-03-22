@@ -1,6 +1,6 @@
 package com.baidu.tbadk.mainTab.videoRedIcon;
 
-import c.a.q0.h0.g.a;
+import c.a.o0.h0.h.a;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
@@ -28,9 +28,9 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,14 +39,14 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
         }
     }
 
-    @Override // c.a.q0.h0.g.a
+    @Override // c.a.o0.h0.h.a
     public List<RedIcon> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.redIcons : (List) invokeV.objValue;
     }
 
-    @Override // c.a.q0.h0.g.a
+    @Override // c.a.o0.h0.h.a
     public VideoRedIconResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -55,10 +55,10 @@ public class VideoRedIconHttpResponse extends TbHttpResponsedMessage implements 
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.http.TbHttpResponsedMessage, com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             VideoRedIconResIdl videoRedIconResIdl = (VideoRedIconResIdl) new Wire(new Class[0]).parseFrom(bArr, VideoRedIconResIdl.class);
             this.mData = videoRedIconResIdl;
             if (videoRedIconResIdl == null) {

@@ -82,53 +82,53 @@ public abstract class FragmentTransaction {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public Op(int i2, Fragment fragment) {
+        public Op(int i, Fragment fragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), fragment};
+                Object[] objArr = {Integer.valueOf(i), fragment};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
-            this.mCmd = i2;
+            this.mCmd = i;
             this.mFragment = fragment;
             Lifecycle.State state = Lifecycle.State.RESUMED;
             this.mOldMaxState = state;
             this.mCurrentMaxState = state;
         }
 
-        public Op(int i2, @NonNull Fragment fragment, Lifecycle.State state) {
+        public Op(int i, @NonNull Fragment fragment, Lifecycle.State state) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), fragment, state};
+                Object[] objArr = {Integer.valueOf(i), fragment, state};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
                     return;
                 }
             }
-            this.mCmd = i2;
+            this.mCmd = i;
             this.mFragment = fragment;
             this.mOldMaxState = fragment.mMaxState;
             this.mCurrentMaxState = state;
@@ -141,9 +141,9 @@ public abstract class FragmentTransaction {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -284,9 +284,9 @@ public abstract class FragmentTransaction {
         return (FragmentTransaction) invokeV.objValue;
     }
 
-    public void doAddOp(int i2, Fragment fragment, @Nullable String str, int i3) {
+    public void doAddOp(int i, Fragment fragment, @Nullable String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), fragment, str, Integer.valueOf(i3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), fragment, str, Integer.valueOf(i2)}) == null) {
             Class<?> cls = fragment.getClass();
             int modifiers = cls.getModifiers();
             if (!cls.isAnonymousClass() && Modifier.isPublic(modifiers) && (!cls.isMemberClass() || Modifier.isStatic(modifiers))) {
@@ -297,19 +297,19 @@ public abstract class FragmentTransaction {
                     }
                     fragment.mTag = str;
                 }
-                if (i2 != 0) {
-                    if (i2 != -1) {
-                        int i4 = fragment.mFragmentId;
-                        if (i4 != 0 && i4 != i2) {
-                            throw new IllegalStateException("Can't change container ID of fragment " + fragment + ": was " + fragment.mFragmentId + " now " + i2);
+                if (i != 0) {
+                    if (i != -1) {
+                        int i3 = fragment.mFragmentId;
+                        if (i3 != 0 && i3 != i) {
+                            throw new IllegalStateException("Can't change container ID of fragment " + fragment + ": was " + fragment.mFragmentId + " now " + i);
                         }
-                        fragment.mFragmentId = i2;
-                        fragment.mContainerId = i2;
+                        fragment.mFragmentId = i;
+                        fragment.mContainerId = i;
                     } else {
                         throw new IllegalArgumentException("Can't add fragment " + fragment + " with tag " + str + " to container view with no id");
                     }
                 }
-                addOp(new Op(i3, fragment));
+                addOp(new Op(i2, fragment));
                 return;
             }
             throw new IllegalStateException("Fragment " + cls.getCanonicalName() + " must be a public static class to be  properly recreated from instance state.");
@@ -351,10 +351,10 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public final FragmentTransaction replace(@IdRes int i2, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
+    public final FragmentTransaction replace(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048600, this, i2, cls, bundle)) == null) ? replace(i2, cls, bundle, null) : (FragmentTransaction) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(1048600, this, i, cls, bundle)) == null) ? replace(i, cls, bundle, null) : (FragmentTransaction) invokeILL.objValue;
     }
 
     @NonNull
@@ -382,11 +382,11 @@ public abstract class FragmentTransaction {
 
     @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbShortTitle(@StringRes int i2) {
+    public FragmentTransaction setBreadCrumbShortTitle(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i2)) == null) {
-            this.mBreadCrumbShortTitleRes = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            this.mBreadCrumbShortTitleRes = i;
             this.mBreadCrumbShortTitleText = null;
             return this;
         }
@@ -395,11 +395,11 @@ public abstract class FragmentTransaction {
 
     @NonNull
     @Deprecated
-    public FragmentTransaction setBreadCrumbTitle(@StringRes int i2) {
+    public FragmentTransaction setBreadCrumbTitle(@StringRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i2)) == null) {
-            this.mBreadCrumbTitleRes = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+            this.mBreadCrumbTitleRes = i;
             this.mBreadCrumbTitleText = null;
             return this;
         }
@@ -407,10 +407,10 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i2, @AnimRes @AnimatorRes int i3) {
+    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i, @AnimRes @AnimatorRes int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i2, i3)) == null) ? setCustomAnimations(i2, i3, 0, 0) : (FragmentTransaction) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(1048608, this, i, i2)) == null) ? setCustomAnimations(i, i2, 0, 0) : (FragmentTransaction) invokeII.objValue;
     }
 
     @NonNull
@@ -447,11 +447,11 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public FragmentTransaction setTransition(int i2) {
+    public FragmentTransaction setTransition(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i2)) == null) {
-            this.mTransition = i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048613, this, i)) == null) {
+            this.mTransition = i;
             return this;
         }
         return (FragmentTransaction) invokeI.objValue;
@@ -459,10 +459,10 @@ public abstract class FragmentTransaction {
 
     @NonNull
     @Deprecated
-    public FragmentTransaction setTransitionStyle(@StyleRes int i2) {
+    public FragmentTransaction setTransitionStyle(@StyleRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i2)) == null) ? this : (FragmentTransaction) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048614, this, i)) == null) ? this : (FragmentTransaction) invokeI.objValue;
     }
 
     @NonNull
@@ -488,38 +488,38 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public FragmentTransaction replace(@IdRes int i2, @NonNull Fragment fragment) {
+    public FragmentTransaction replace(@IdRes int i, @NonNull Fragment fragment) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i2, fragment)) == null) ? replace(i2, fragment, (String) null) : (FragmentTransaction) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048598, this, i, fragment)) == null) ? replace(i, fragment, (String) null) : (FragmentTransaction) invokeIL.objValue;
     }
 
     @NonNull
-    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i2, @AnimRes @AnimatorRes int i3, @AnimRes @AnimatorRes int i4, @AnimRes @AnimatorRes int i5) {
+    public FragmentTransaction setCustomAnimations(@AnimRes @AnimatorRes int i, @AnimRes @AnimatorRes int i2, @AnimRes @AnimatorRes int i3, @AnimRes @AnimatorRes int i4) {
         InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048609, this, i2, i3, i4, i5)) == null) {
-            this.mEnterAnim = i2;
-            this.mExitAnim = i3;
-            this.mPopEnterAnim = i4;
-            this.mPopExitAnim = i5;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048609, this, i, i2, i3, i4)) == null) {
+            this.mEnterAnim = i;
+            this.mExitAnim = i2;
+            this.mPopEnterAnim = i3;
+            this.mPopExitAnim = i4;
             return this;
         }
         return (FragmentTransaction) invokeIIII.objValue;
     }
 
     @NonNull
-    public final FragmentTransaction add(@IdRes int i2, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
+    public final FragmentTransaction add(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i2, cls, bundle)) == null) ? add(i2, createFragment(cls, bundle)) : (FragmentTransaction) invokeILL.objValue;
+        return (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, cls, bundle)) == null) ? add(i, createFragment(cls, bundle)) : (FragmentTransaction) invokeILL.objValue;
     }
 
     @NonNull
-    public final FragmentTransaction replace(@IdRes int i2, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
+    public final FragmentTransaction replace(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i2), cls, bundle, str})) == null) ? replace(i2, createFragment(cls, bundle), str) : (FragmentTransaction) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), cls, bundle, str})) == null) ? replace(i, createFragment(cls, bundle), str) : (FragmentTransaction) invokeCommon.objValue;
     }
 
     @NonNull
@@ -549,23 +549,23 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public FragmentTransaction add(@IdRes int i2, @NonNull Fragment fragment) {
+    public FragmentTransaction add(@IdRes int i, @NonNull Fragment fragment) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i2, fragment)) == null) {
-            doAddOp(i2, fragment, null, 1);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, fragment)) == null) {
+            doAddOp(i, fragment, null, 1);
             return this;
         }
         return (FragmentTransaction) invokeIL.objValue;
     }
 
     @NonNull
-    public FragmentTransaction replace(@IdRes int i2, @NonNull Fragment fragment, @Nullable String str) {
+    public FragmentTransaction replace(@IdRes int i, @NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048599, this, i2, fragment, str)) == null) {
-            if (i2 != 0) {
-                doAddOp(i2, fragment, str, 2);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048599, this, i, fragment, str)) == null) {
+            if (i != 0) {
+                doAddOp(i, fragment, str, 2);
                 return this;
             }
             throw new IllegalArgumentException("Must use non-zero containerViewId");
@@ -574,18 +574,18 @@ public abstract class FragmentTransaction {
     }
 
     @NonNull
-    public final FragmentTransaction add(@IdRes int i2, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
+    public final FragmentTransaction add(@IdRes int i, @NonNull Class<? extends Fragment> cls, @Nullable Bundle bundle, @Nullable String str) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), cls, bundle, str})) == null) ? add(i2, createFragment(cls, bundle), str) : (FragmentTransaction) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), cls, bundle, str})) == null) ? add(i, createFragment(cls, bundle), str) : (FragmentTransaction) invokeCommon.objValue;
     }
 
     @NonNull
-    public FragmentTransaction add(@IdRes int i2, @NonNull Fragment fragment, @Nullable String str) {
+    public FragmentTransaction add(@IdRes int i, @NonNull Fragment fragment, @Nullable String str) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, fragment, str)) == null) {
-            doAddOp(i2, fragment, str, 1);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, fragment, str)) == null) {
+            doAddOp(i, fragment, str, 1);
             return this;
         }
         return (FragmentTransaction) invokeILL.objValue;
@@ -598,9 +598,9 @@ public abstract class FragmentTransaction {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentFactory, classLoader};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

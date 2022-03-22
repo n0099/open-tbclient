@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.gslbsdk.control.NetworkStatus;
 import com.yy.gslbsdk.util.GlobalTools;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class NetStatusInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class NetStatusInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -84,8 +84,8 @@ public class NetStatusInfo {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.netType;
-            return (i2 == 0 || i2 == 1 || i2 == 2 || this.isp == 0) ? false : true;
+            int i = this.netType;
+            return (i == 0 || i == 1 || i == 2 || this.isp == 0) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -96,21 +96,21 @@ public class NetStatusInfo {
             this.netType = netStatusInfo.netType;
             this.isp = netStatusInfo.isp;
             this.ssid = netStatusInfo.ssid;
-            this.networkStatus = netStatusInfo.networkStatus.m707clone();
+            this.networkStatus = netStatusInfo.networkStatus.m686clone();
         }
     }
 
-    public void setIsp(int i2) {
+    public void setIsp(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.isp = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.isp = i;
         }
     }
 
-    public void setNetType(int i2) {
+    public void setNetType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.netType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.netType = i;
         }
     }
 

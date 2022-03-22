@@ -27,9 +27,9 @@ public class CAVLCReader extends BitstreamReader {
             newInitContext.initArgs = r2;
             Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((InputStream) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -42,12 +42,12 @@ public class CAVLCReader extends BitstreamReader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            int i2 = 0;
+            int i = 0;
             while (read1Bit() == 0) {
-                i2++;
+                i++;
             }
-            if (i2 > 0) {
-                return (int) (((1 << i2) - 1) + readNBit(i2));
+            if (i > 0) {
+                return (int) (((1 << i) - 1) + readNBit(i));
             }
             return 0;
         }
@@ -61,12 +61,12 @@ public class CAVLCReader extends BitstreamReader {
             String valueOf = String.valueOf(BitstreamReader.bitsRead - this.debugBits.length());
             int length = 8 - valueOf.length();
             sb.append("@" + valueOf);
-            for (int i2 = 0; i2 < length; i2++) {
+            for (int i = 0; i < length; i++) {
                 sb.append(WebvttCueParser.CHAR_SPACE);
             }
             sb.append(str);
             int length2 = (100 - sb.length()) - this.debugBits.length();
-            for (int i3 = 0; i3 < length2; i3++) {
+            for (int i2 = 0; i2 < length2; i2++) {
                 sb.append(WebvttCueParser.CHAR_SPACE);
             }
             sb.append(this.debugBits);
@@ -76,13 +76,13 @@ public class CAVLCReader extends BitstreamReader {
         }
     }
 
-    public byte[] read(int i2) throws IOException {
+    public byte[] read(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            byte[] bArr = new byte[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                bArr[i3] = (byte) readByte();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            byte[] bArr = new byte[i];
+            for (int i2 = 0; i2 < i; i2++) {
+                bArr[i2] = (byte) readByte();
             }
             return bArr;
         }
@@ -143,11 +143,11 @@ public class CAVLCReader extends BitstreamReader {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? readUE(str) : invokeL.intValue;
     }
 
-    public long readNBit(int i2, String str) throws IOException {
+    public long readNBit(int i, String str) throws IOException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, str)) == null) {
-            long readNBit = readNBit(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, str)) == null) {
+            long readNBit = readNBit(i);
             trace(str, String.valueOf(readNBit));
             return readNBit;
         }
@@ -159,19 +159,19 @@ public class CAVLCReader extends BitstreamReader {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             int readUE = readUE();
-            int i2 = readUE & 1;
-            int i3 = ((readUE >> 1) + i2) * ((i2 << 1) - 1);
-            trace(str, String.valueOf(i3));
-            return i3;
+            int i = readUE & 1;
+            int i2 = ((readUE >> 1) + i) * ((i << 1) - 1);
+            trace(str, String.valueOf(i2));
+            return i2;
         }
         return invokeL.intValue;
     }
 
-    public int readTE(int i2) throws IOException {
+    public int readTE(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            if (i2 > 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (i > 1) {
                 return readUE();
             }
             return (~read1Bit()) & 1;
@@ -187,22 +187,22 @@ public class CAVLCReader extends BitstreamReader {
         }
     }
 
-    public int readU(int i2, String str) throws IOException {
+    public int readU(int i, String str) throws IOException {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i2, str)) == null) ? (int) readNBit(i2, str) : invokeIL.intValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, str)) == null) ? (int) readNBit(i, str) : invokeIL.intValue;
     }
 
     public int readZeroBitCount(String str) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            int i2 = 0;
+            int i = 0;
             while (read1Bit() == 0) {
-                i2++;
+                i++;
             }
-            trace(str, String.valueOf(i2));
-            return i2;
+            trace(str, String.valueOf(i));
+            return i;
         }
         return invokeL.intValue;
     }

@@ -1,7 +1,7 @@
 package com.baidu.down.common;
 
 import android.content.Context;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface IDownloadWrapper {
     void addObserver(TaskObserver taskObserver);
 
@@ -9,17 +9,17 @@ public interface IDownloadWrapper {
 
     int getDownloadCommonVersion();
 
-    StatisticInfo getStatisticInfo(long j2);
+    StatisticInfo getStatisticInfo(long j);
 
     void pauseAllTask();
 
-    void pauseDownload(String str, long j2);
+    void pauseDownload(String str, long j);
 
-    void setMaxDownloadThread(int i2);
+    void setMaxDownloadThread(int i);
 
     void setup(Context context, TaskManagerConfiguration taskManagerConfiguration);
 
     long startDownload(FileMsg fileMsg);
 
-    void stopDownload(String str, long j2, boolean z);
+    void stopDownload(String str, long j, boolean z);
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import com.yy.hiidostatis.api.HiidoSDK;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class FindEmulator {
     public static /* synthetic */ Interceptable $ic;
     public static int emurs;
@@ -37,7 +37,7 @@ public class FindEmulator {
     public static final String[] known_qemu_drivers;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class Property {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -51,9 +51,9 @@ public class FindEmulator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,7 +64,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class tcp {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,9 +81,9 @@ public class FindEmulator {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, str10, str11, str12, str13, str14};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -128,9 +128,9 @@ public class FindEmulator {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -168,7 +168,7 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             try {
-                if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass("android.os.SystemProperties")) == null || (method = loadClass.getMethod("get", String.class)) == null) {
+                if (Build.VERSION.SDK_INT > 27 || (classLoader = context.getClassLoader()) == null || (loadClass = classLoader.loadClass("android.os.SystemProperties")) == null || (method = loadClass.getMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class)) == null) {
                     return null;
                 }
                 return (String) method.invoke(loadClass, str);
@@ -190,7 +190,7 @@ public class FindEmulator {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
         Throwable th;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             boolean z = false;
@@ -209,20 +209,20 @@ public class FindEmulator {
                     Iterator it = arrayList.iterator();
                     while (true) {
                         if (!it.hasNext()) {
-                            i2 = -1;
+                            i = -1;
                             break;
                         }
                         tcp tcpVar = (tcp) it.next();
                         if (tcpVar.localIp == 0) {
-                            i2 = tcpVar.localPort;
+                            i = tcpVar.localPort;
                             break;
                         }
                     }
-                    if (i2 != -1) {
+                    if (i != -1) {
                         Iterator it2 = arrayList.iterator();
                         while (it2.hasNext()) {
                             tcp tcpVar2 = (tcp) it2.next();
-                            if (tcpVar2.localIp != 0 && tcpVar2.localPort == i2) {
+                            if (tcpVar2.localIp != 0 && tcpVar2.localPort == i) {
                                 z = true;
                             }
                         }
@@ -283,7 +283,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f53804c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, "android.permission.READ_PHONE_STATE")) {
                 String deviceId = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
                 for (String str : known_device_ids) {
                     if (str.equalsIgnoreCase(deviceId)) {
@@ -300,7 +300,7 @@ public class FindEmulator {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, s.f53804c)) {
+            if (HiidoSDK.instance().isUserAgreed() && ArdUtil.checkPermissions(context, "android.permission.READ_PHONE_STATE")) {
                 String subscriberId = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
                 for (String str : known_imsi_ids) {
                     if (str.equalsIgnoreCase(subscriberId)) {
@@ -337,8 +337,8 @@ public class FindEmulator {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             File[] fileArr = {new File("/proc/tty/drivers"), new File("/proc/cpuinfo")};
-            for (int i2 = 0; i2 < 2; i2++) {
-                File file = fileArr[i2];
+            for (int i = 0; i < 2; i++) {
+                File file = fileArr[i];
                 if (file.exists() && file.canRead()) {
                     byte[] bArr = new byte[1024];
                     FileInputStream fileInputStream2 = null;

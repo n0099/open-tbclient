@@ -2,7 +2,7 @@ package com.kwad.sdk.utils;
 
 import androidx.annotation.NonNull;
 import java.security.MessageDigest;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class aa {
     public static final char[] a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
@@ -18,15 +18,15 @@ public class aa {
             byte[] digest = messageDigest.digest();
             StringBuilder sb = new StringBuilder();
             int length = digest.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = digest[i2];
-                if (i3 < 0) {
-                    i3 += 256;
+            for (int i = 0; i < length; i++) {
+                int i2 = digest[i];
+                if (i2 < 0) {
+                    i2 += 256;
                 }
-                if (i3 < 16) {
+                if (i2 < 16) {
                     sb.append("0");
                 }
-                sb.append(Integer.toHexString(i3));
+                sb.append(Integer.toHexString(i2));
             }
             return sb.toString();
         } catch (Exception unused) {
@@ -34,23 +34,23 @@ public class aa {
         }
     }
 
-    public static String a(byte[] bArr, int i2, int i3) {
+    public static String a(byte[] bArr, int i, int i2) {
         if (bArr != null) {
-            if (i2 < 0 || i2 + i3 > bArr.length) {
+            if (i < 0 || i + i2 > bArr.length) {
                 throw new IndexOutOfBoundsException();
             }
-            int i4 = i3 * 2;
-            char[] cArr = new char[i4];
-            int i5 = 0;
-            for (int i6 = 0; i6 < i3; i6++) {
-                int i7 = bArr[i6 + i2] & 255;
-                int i8 = i5 + 1;
+            int i3 = i2 * 2;
+            char[] cArr = new char[i3];
+            int i4 = 0;
+            for (int i5 = 0; i5 < i2; i5++) {
+                int i6 = bArr[i5 + i] & 255;
+                int i7 = i4 + 1;
                 char[] cArr2 = a;
-                cArr[i5] = cArr2[i7 >> 4];
-                i5 = i8 + 1;
-                cArr[i8] = cArr2[i7 & 15];
+                cArr[i4] = cArr2[i6 >> 4];
+                i4 = i7 + 1;
+                cArr[i7] = cArr2[i6 & 15];
             }
-            return new String(cArr, 0, i4);
+            return new String(cArr, 0, i3);
         }
         throw new NullPointerException("bytes is null");
     }

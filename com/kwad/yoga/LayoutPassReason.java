@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class LayoutPassReason {
     public static final /* synthetic */ LayoutPassReason[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -49,16 +49,16 @@ public final class LayoutPassReason {
         $VALUES = new LayoutPassReason[]{INITIAL, ABS_LAYOUT, STRETCH, MULTILINE_STRETCH, FLEX_LAYOUT, MEASURE, ABS_MEASURE, layoutPassReason};
     }
 
-    public LayoutPassReason(String str, int i2, int i3) {
+    public LayoutPassReason(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -67,14 +67,14 @@ public final class LayoutPassReason {
                 return;
             }
         }
-        this.mIntValue = i3;
+        this.mIntValue = i2;
     }
 
-    public static LayoutPassReason fromInt(int i2) {
+    public static LayoutPassReason fromInt(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
                 case 0:
                     return INITIAL;
                 case 1:
@@ -92,7 +92,7 @@ public final class LayoutPassReason {
                 case 7:
                     return FLEX_MEASURE;
                 default:
-                    throw new IllegalArgumentException("Unknown enum value: " + i2);
+                    throw new IllegalArgumentException("Unknown enum value: " + i);
             }
         }
         return (LayoutPassReason) invokeI.objValue;

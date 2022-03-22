@@ -18,21 +18,21 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void onError(int i2, int i3, Object obj) {
+    public void onError(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i2, i3, obj) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
             VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_ERROR);
             obtainEvent.putExtra(2, String.valueOf(obj));
-            obtainEvent.putExtra(4, Integer.valueOf(i3));
+            obtainEvent.putExtra(4, Integer.valueOf(i2));
             triggerEvent(obtainEvent);
         }
     }
@@ -82,25 +82,25 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void onInfo(int i2, int i3, Object obj) {
+    public void onInfo(int i, int i2, Object obj) {
         VideoEvent obtainEvent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i2, i3, obj) == null) {
-            if (i2 == 701) {
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, obj) == null) {
+            if (i == 701) {
                 obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_START);
-            } else if (i2 == 702) {
+            } else if (i == 702) {
                 obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_BUFFER_END);
-            } else if (i2 == 904 || i2 == 956) {
+            } else if (i == 904 || i == 956) {
                 obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
                 obtainEvent.putExtra(2, String.valueOf(obj));
-            } else if (i2 == 10009) {
+            } else if (i == 10009) {
                 obtainEvent = StatisticsEvent.obtainEvent("statistics_player_carlton");
                 obtainEvent.putExtra(2, String.valueOf(obj));
-            } else if (i2 != 11004) {
-                obtainEvent = i2 != 11005 ? null : StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_END);
+            } else if (i != 11004) {
+                obtainEvent = i != 11005 ? null : StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_END);
             } else {
                 obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_ERROR_RETRY_START);
-                obtainEvent.putExtra(4, Integer.valueOf(i3));
+                obtainEvent.putExtra(4, Integer.valueOf(i2));
             }
             if (obtainEvent != null) {
                 triggerEvent(obtainEvent);
@@ -117,11 +117,11 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void onPlayerComplete(int i2) {
+    public void onPlayerComplete(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_COMPLETE);
-            obtainEvent.putExtra(1, Integer.valueOf(i2));
+            obtainEvent.putExtra(1, Integer.valueOf(i));
             triggerEvent(obtainEvent);
         }
     }
@@ -147,11 +147,11 @@ public class StatisticsEventTrigger extends SingleTargetTrigger {
         }
     }
 
-    public void onPlayerStop(int i2) {
+    public void onPlayerStop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             VideoEvent obtainEvent = StatisticsEvent.obtainEvent(StatisticsEvent.ACTION_PLAYER_STOP);
-            obtainEvent.putExtra(1, Integer.valueOf(i2));
+            obtainEvent.putExtra(1, Integer.valueOf(i));
             triggerEvent(obtainEvent);
         }
     }

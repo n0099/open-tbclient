@@ -35,9 +35,9 @@ public class RemitSyncExecutor implements Handler.Callback {
 
     /* loaded from: classes4.dex */
     public interface RemitAgent {
-        void removeInfo(int i2);
+        void removeInfo(int i);
 
-        void syncCacheToDB(int i2) throws IOException;
+        void syncCacheToDB(int i) throws IOException;
 
         void syncCacheToDB(List<Integer> list) throws IOException;
     }
@@ -49,9 +49,9 @@ public class RemitSyncExecutor implements Handler.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {remitAgent};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,31 +69,31 @@ public class RemitSyncExecutor implements Handler.Callback {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            int i2 = message.what;
-            if (i2 == -3) {
+            int i = message.what;
+            if (i == -3) {
+                int i2 = message.arg1;
+                this.freeToDBIdList.remove(Integer.valueOf(i2));
+                this.agent.removeInfo(i2);
+                Util.d(TAG, "remove info " + i2);
+                return true;
+            } else if (i == -2) {
                 int i3 = message.arg1;
                 this.freeToDBIdList.remove(Integer.valueOf(i3));
-                this.agent.removeInfo(i3);
-                Util.d(TAG, "remove info " + i3);
+                Util.d(TAG, "remove free bunch id " + i3);
                 return true;
-            } else if (i2 == -2) {
-                int i4 = message.arg1;
-                this.freeToDBIdList.remove(Integer.valueOf(i4));
-                Util.d(TAG, "remove free bunch id " + i4);
-                return true;
-            } else if (i2 == -1) {
+            } else if (i == -1) {
                 List list = (List) message.obj;
                 this.freeToDBIdList.removeAll(list);
                 Util.d(TAG, "remove free bunch ids " + list);
                 return true;
-            } else if (i2 != 0) {
+            } else if (i != 0) {
                 try {
-                    this.agent.syncCacheToDB(i2);
-                    this.freeToDBIdList.add(Integer.valueOf(i2));
-                    Util.d(TAG, "sync info with id: " + i2);
+                    this.agent.syncCacheToDB(i);
+                    this.freeToDBIdList.add(Integer.valueOf(i));
+                    Util.d(TAG, "sync info with id: " + i);
                     return true;
                 } catch (IOException unused) {
-                    Util.w(TAG, "sync cache to db failed for id: " + i2);
+                    Util.w(TAG, "sync cache to db failed for id: " + i);
                     return true;
                 }
             } else {
@@ -112,17 +112,17 @@ public class RemitSyncExecutor implements Handler.Callback {
         return invokeL.booleanValue;
     }
 
-    public boolean isFreeToDatabase(int i2) {
+    public boolean isFreeToDatabase(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.freeToDBIdList.contains(Integer.valueOf(i2)) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.freeToDBIdList.contains(Integer.valueOf(i)) : invokeI.booleanValue;
     }
 
-    public void postRemoveFreeId(int i2) {
+    public void postRemoveFreeId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             Message obtainMessage = this.handler.obtainMessage(-2);
-            obtainMessage.arg1 = i2;
+            obtainMessage.arg1 = i;
             this.handler.sendMessage(obtainMessage);
         }
     }
@@ -136,41 +136,41 @@ public class RemitSyncExecutor implements Handler.Callback {
         }
     }
 
-    public void postRemoveInfo(int i2) {
+    public void postRemoveInfo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             Message obtainMessage = this.handler.obtainMessage(-3);
-            obtainMessage.arg1 = i2;
+            obtainMessage.arg1 = i;
             this.handler.sendMessage(obtainMessage);
         }
     }
 
-    public void postSync(int i2) {
+    public void postSync(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.handler.sendEmptyMessage(i2);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.handler.sendEmptyMessage(i);
         }
     }
 
-    public void postSyncInfoDelay(int i2, long j2) {
+    public void postSyncInfoDelay(int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            this.handler.sendEmptyMessageDelayed(i2, j2);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.handler.sendEmptyMessageDelayed(i, j);
         }
     }
 
-    public void removePostWithId(int i2) {
+    public void removePostWithId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.handler.removeMessages(i2);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.handler.removeMessages(i);
         }
     }
 
     public void removePostWithIds(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, iArr) == null) {
-            for (int i2 : iArr) {
-                this.handler.removeMessages(i2);
+            for (int i : iArr) {
+                this.handler.removeMessages(i);
             }
         }
     }
@@ -198,9 +198,9 @@ public class RemitSyncExecutor implements Handler.Callback {
             newInitContext.initArgs = r2;
             Object[] objArr = {remitAgent, handler, set};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

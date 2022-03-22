@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.e.a;
 import com.baidu.android.imsdk.internal.Constants;
@@ -36,7 +37,6 @@ import java.io.OutputStreamWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -99,9 +99,9 @@ public class SpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -141,9 +141,9 @@ public class SpeedStats {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -185,7 +185,7 @@ public class SpeedStats {
                             }
                             String calculateStage = this.this$0.calculateStage();
                             if (SpeedStats.DEBUG) {
-                                String str = "stage:\n" + calculateStage;
+                                Log.d(SpeedStats.TAG, "stage:\n" + calculateStage);
                             }
                             JSONObject jSONObject = new JSONObject();
                             try {
@@ -259,9 +259,9 @@ public class SpeedStats {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, map};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -271,7 +271,7 @@ public class SpeedStats {
                 this.val$map = map;
             }
 
-            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0091 -> B:39:0x0094). Please submit an issue!!! */
+            /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:26:0x0098 -> B:37:0x009b). Please submit an issue!!! */
             @Override // java.lang.Runnable
             public void run() {
                 BufferedWriter bufferedWriter;
@@ -286,23 +286,23 @@ public class SpeedStats {
                                     file.createNewFile();
                                 }
                                 bufferedWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(file, true)));
-                            } catch (Throwable th) {
-                                th = th;
+                            } catch (IOException e2) {
+                                e2.printStackTrace();
                             }
-                        } catch (IOException e2) {
-                            e = e2;
+                        } catch (IOException e3) {
+                            e = e3;
                         }
-                    } catch (IOException e3) {
-                        e3.printStackTrace();
+                    } catch (Throwable th) {
+                        th = th;
                     }
                     try {
-                        bufferedWriter.write("starttime：" + System.currentTimeMillis() + StringUtils.LF);
+                        bufferedWriter.write("starttime：" + System.currentTimeMillis() + "\n");
                         StringBuilder sb = new StringBuilder();
                         sb.append(this.val$map.toString());
-                        sb.append(StringUtils.LF);
+                        sb.append("\n");
                         bufferedWriter.write(sb.toString());
                         if (SpeedStats.DEBUG) {
-                            String str = "write info to cold_start.txt: " + this.val$map.toString();
+                            Log.d(SpeedStats.TAG, "write info to cold_start.txt: " + this.val$map.toString());
                         }
                         bufferedWriter.close();
                     } catch (IOException e4) {
@@ -349,9 +349,9 @@ public class SpeedStats {
         long mainActivityCreateStartTimeStamp;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, this)) == null) {
-            int i2 = this.mStartMainActivityType;
-            if (i2 != 6 && i2 != 5 && i2 != 3 && i2 != 1) {
-                mainActivityCreateStartTimeStamp = (i2 == 4 || i2 == 2 || i2 == 0) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : -1L;
+            int i = this.mStartMainActivityType;
+            if (i != 6 && i != 5 && i != 3 && i != 1) {
+                mainActivityCreateStartTimeStamp = (i == 4 || i == 2 || i == 0) ? this.mSpeedStatsManager.getAppLaunchStartTimeStamp() : -1L;
             } else {
                 mainActivityCreateStartTimeStamp = this.mSpeedStatsManager.getMainActivityCreateStartTimeStamp();
             }
@@ -372,7 +372,7 @@ public class SpeedStats {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) {
-            if (TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE) && TextUtils.equals(this.mUbcPage, SpeedStatsUtils.UBC_PAGE_ALLCACHE))) {
+            if ((TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_COLD_DIRECT) || TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_NEW_INSTALL_DIRECT) || TextUtils.equals(this.mUbcType, SpeedStatsUtils.UBC_TYPE_UPGRADE_DIRECT)) && ((TextUtils.equals(this.mUbcValue, "none") || TextUtils.equals(this.mUbcValue, "skin")) && TextUtils.equals(this.mUbcFrom, SpeedStatsUtils.UBC_FROM_MAINLINE) && TextUtils.equals(this.mUbcPage, SpeedStatsUtils.UBC_PAGE_ALLCACHE))) {
                 JSONObject jSONObject = new JSONObject();
                 if (this.mSpeedStatsManager.packData(jSONObject)) {
                     return jSONObject.toString();
@@ -440,8 +440,8 @@ public class SpeedStats {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, this)) == null) {
-            int i2 = this.mIntroductionType;
-            if (i2 == -1) {
+            int i = this.mIntroductionType;
+            if (i == -1) {
                 if (this.mHasBanner && this.mHasSkin) {
                     return SpeedStatsUtils.UBC_VALUE_BANNER_SKIN;
                 }
@@ -455,7 +455,7 @@ public class SpeedStats {
                     return "skin";
                 }
                 return SpeedStatsUtils.UBC_VALUE_BANNER;
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 if (this.mHasBanner && this.mHasSkin) {
                     return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER_SKIN;
                 }
@@ -469,7 +469,7 @@ public class SpeedStats {
                     return SpeedStatsUtils.UBC_VALUE_INTRO_SKIN;
                 }
                 return SpeedStatsUtils.UBC_VALUE_INTRO_BANNER;
-            } else if (i2 != 1) {
+            } else if (i != 1) {
                 return null;
             } else {
                 if (this.mHasBanner && this.mHasSkin) {
@@ -528,7 +528,7 @@ public class SpeedStats {
                 this.mHasDetectStartAppFromLauncher = true;
             }
         }
-        String str = "detectStartAppFrom hasDetect=" + this.mHasDetectStartAppFromLauncher + ",isStartAppFromLauncher=" + this.mIsStartAppFromLauncher;
+        Log.d(TAG, "detectStartAppFrom hasDetect=" + this.mHasDetectStartAppFromLauncher + ",isStartAppFromLauncher=" + this.mIsStartAppFromLauncher);
     }
 
     public static SpeedStats getInstance() {
@@ -546,14 +546,14 @@ public class SpeedStats {
     private void getMainActivityStartType() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65573, this) == null) {
-            int i2 = this.mLaunchType;
-            if (i2 == 0) {
+            int i = this.mLaunchType;
+            if (i == 0) {
                 this.mStartMainActivityType = this.mIsStartAppFromLauncher ? 4 : 5;
                 return;
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 this.mStartMainActivityType = this.mIsStartAppFromLauncher ? 2 : 3;
-            } else if (i2 != 2) {
+            } else if (i != 2) {
             } else {
                 this.mStartMainActivityType = !this.mIsStartAppFromLauncher ? 1 : 0;
             }
@@ -574,12 +574,14 @@ public class SpeedStats {
     public void printUBCFlow(Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65575, this, map) == null) {
-            String str = "************" + map.get(SpeedStatsUtils.UBC_KEY_OPTION) + "*************";
-            String str2 = "************duration:" + map.get("duration") + "*************";
-            String str3 = "************version:" + map.get("version") + "*************";
-            String str4 = "************stage:" + map.get("stage") + "*************";
-            String str5 = "************cpu:" + map.get("cpu") + "*************";
-            String str6 = "************drawCount:" + map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT) + "*************";
+            Log.d(TAG, "*****************UBC start*****************");
+            Log.d(TAG, "************" + map.get(SpeedStatsUtils.UBC_KEY_OPTION) + "*************");
+            Log.d(TAG, "************duration:" + map.get("duration") + "*************");
+            Log.d(TAG, "************version:" + map.get("version") + "*************");
+            Log.d(TAG, "************stage:" + map.get("stage") + "*************");
+            Log.d(TAG, "************cpu:" + map.get("cpu") + "*************");
+            Log.d(TAG, "************drawCount:" + map.get(SpeedStatsUtils.UBC_KEY_DRAW_COUNT) + "*************");
+            Log.d(TAG, "*****************UBC end*****************");
         }
     }
 
@@ -633,8 +635,8 @@ public class SpeedStats {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i2 = this.mStartMainActivityType;
-            return i2 == 6 || i2 == 7;
+            int i = this.mStartMainActivityType;
+            return i == 6 || i == 7;
         }
         return invokeV.booleanValue;
     }
@@ -652,10 +654,10 @@ public class SpeedStats {
         }
     }
 
-    public void onAppProcessUpgrade(int i2) {
+    public void onAppProcessUpgrade(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mLaunchType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mLaunchType = i;
         }
     }
 
@@ -674,7 +676,7 @@ public class SpeedStats {
                             StringBuilder sb = new StringBuilder();
                             sb.append("onBaseActivityCreate******有效统计一次*******isFirstEnterMainActivity=");
                             sb.append(!this.mHasMainActivityLaunched);
-                            sb.toString();
+                            Log.d(TAG, sb.toString());
                             if (SpeedRuntime.getSpeedContext().isAgreePrivacyPolicy()) {
                                 this.mSpeedStatsManager.setStatsFlag(true);
                             }
@@ -707,6 +709,7 @@ public class SpeedStats {
         a.b().c();
         if (this.mSpeedStatsManager.getStatsFlag()) {
             this.mSpeedStatsManager.addStatsTimeStamp(6000);
+            Log.d(TAG, "*****************统计终点*****************");
             if (!checkValid()) {
                 resetMainActivityStatsPeriod();
                 return;
@@ -721,9 +724,25 @@ public class SpeedStats {
         SmartLaunchStats.tryToFindFirstIdleTimeStamp();
     }
 
+    @DebugTrace
+    @TimeSpendTrace(isEnd = true)
+    public void onSchemeOrPushStatsEnd(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048587, this, context, z) == null) {
+            a.b().c();
+            if (z) {
+                this.mStartMainActivityType = 0;
+            } else {
+                this.mStartMainActivityType = 2;
+            }
+            this.mSpeedStatsManager.addStatsTimeStamp(6000);
+            asyncUploadSpeedInfo();
+        }
+    }
+
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, context) == null) {
             this.mContext = context;
         }
     }

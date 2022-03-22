@@ -1,9 +1,9 @@
 package com.baidu.tieba.h5power;
 
 import c.a.d.f.p.m;
-import c.a.r0.y3.o0.d.a;
-import c.a.r0.y3.o0.d.c;
-import c.a.r0.y3.o0.d.e;
+import c.a.p0.a4.o0.d.a;
+import c.a.p0.a4.o0.d.c;
+import c.a.p0.a4.o0.d.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.SearchJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,9 +30,9 @@ public class SearchJsBridge_Proxy extends a {
             newInitContext.initArgs = r2;
             Object[] objArr = {searchJsBridge};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,7 +43,7 @@ public class SearchJsBridge_Proxy extends a {
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // c.a.r0.y3.o0.d.a
+    @Override // c.a.p0.a4.o0.d.a
     public c dispatch(e eVar, c cVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -109,7 +109,7 @@ public class SearchJsBridge_Proxy extends a {
         return (c) invokeLL.objValue;
     }
 
-    @Override // c.a.r0.y3.o0.d.a
+    @Override // c.a.p0.a4.o0.d.a
     public List<c> processNotification(String str, HashMap hashMap) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;

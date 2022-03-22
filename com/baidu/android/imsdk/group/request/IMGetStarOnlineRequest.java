@@ -46,9 +46,9 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {iMGetStarOnlineRequest, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -61,21 +61,21 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
 
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         public void run() {
-            int i2;
+            int i;
             String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i3 = 0;
+                int i2 = 0;
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
-                    i2 = jSONObject.getInt("error_code");
+                    i = jSONObject.getInt("error_code");
                     str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i2 == 0 && jSONObject.has("response_params")) {
-                        i3 = jSONObject.getJSONObject("response_params").getInt("online_count");
+                    if (i == 0 && jSONObject.has("response_params")) {
+                        i2 = jSONObject.getJSONObject("response_params").getInt("online_count");
                     }
                 } catch (JSONException e2) {
                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e2);
-                    i2 = 1010;
+                    i = 1010;
                     new IMTrack.CrashBuilder(this.this$0.mContext).exception(Log.getStackTraceString(e2)).build();
                     str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                 }
@@ -83,7 +83,7 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
                 if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                     return;
                 }
-                ((BIMValueCallBack) removeListener).onResult(i2, str, Integer.valueOf(i3));
+                ((BIMValueCallBack) removeListener).onResult(i, str, Integer.valueOf(i2));
             }
         }
     }
@@ -103,23 +103,23 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
         }
     }
 
-    public IMGetStarOnlineRequest(Context context, String str, long j2, String str2) {
+    public IMGetStarOnlineRequest(Context context, String str, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, Long.valueOf(j2), str2};
+            Object[] objArr = {context, str, Long.valueOf(j), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.mContext = context;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mKey = str;
         this.mGroupId = str2;
     }
@@ -157,10 +157,10 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
             if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
                 return;
@@ -170,9 +170,9 @@ public class IMGetStarOnlineRequest extends GroupBaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bArr) == null) {
             String str = new String(bArr);
             String str2 = TAG;
             LogUtils.d(str2, "json is " + str);

@@ -22,9 +22,9 @@ public final class UPCEWriter extends UPCEANWriter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,12 +32,12 @@ public final class UPCEWriter extends UPCEANWriter {
     }
 
     @Override // com.google.zxing.oned.OneDimensionalCodeWriter, com.google.zxing.Writer
-    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i2, int i3, Map<EncodeHintType, ?> map) throws WriterException {
+    public BitMatrix encode(String str, BarcodeFormat barcodeFormat, int i, int i2, Map<EncodeHintType, ?> map) throws WriterException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i2), Integer.valueOf(i3), map})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, barcodeFormat, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) {
             if (barcodeFormat == BarcodeFormat.UPC_E) {
-                return super.encode(str, barcodeFormat, i2, i3, map);
+                return super.encode(str, barcodeFormat, i, i2, map);
             }
             throw new IllegalArgumentException("Can only encode UPC_E, but got " + barcodeFormat);
         }
@@ -50,18 +50,18 @@ public final class UPCEWriter extends UPCEANWriter {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (str.length() == 8) {
-                int i2 = UPCEReader.CHECK_DIGIT_ENCODINGS[Integer.parseInt(str.substring(7, 8))];
+                int i = UPCEReader.CHECK_DIGIT_ENCODINGS[Integer.parseInt(str.substring(7, 8))];
                 boolean[] zArr = new boolean[51];
                 int appendPattern = OneDimensionalCodeWriter.appendPattern(zArr, 0, UPCEANReader.START_END_PATTERN, true) + 0;
-                int i3 = 1;
-                while (i3 <= 6) {
-                    int i4 = i3 + 1;
-                    int parseInt = Integer.parseInt(str.substring(i3, i4));
-                    if (((i2 >> (6 - i3)) & 1) == 1) {
+                int i2 = 1;
+                while (i2 <= 6) {
+                    int i3 = i2 + 1;
+                    int parseInt = Integer.parseInt(str.substring(i2, i3));
+                    if (((i >> (6 - i2)) & 1) == 1) {
                         parseInt += 10;
                     }
                     appendPattern += OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, UPCEANReader.L_AND_G_PATTERNS[parseInt], false);
-                    i3 = i4;
+                    i2 = i3;
                 }
                 OneDimensionalCodeWriter.appendPattern(zArr, appendPattern, UPCEANReader.END_PATTERN, false);
                 return zArr;

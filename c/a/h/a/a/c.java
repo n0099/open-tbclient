@@ -13,27 +13,27 @@ public class c {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: e  reason: collision with root package name */
-    public static c f3517e;
+    public static c f2968e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static int[] f3518f;
+    public static int[] f2969f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static short[] f3519g;
+    public static short[] f2970g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static short[] f3520h;
+    public static short[] f2971h;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public short f3521b;
+    public short f2972b;
 
     /* renamed from: c  reason: collision with root package name */
-    public short f3522c;
+    public short f2973c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f3523d;
+    public int f2974d;
 
     static {
         InterceptResult invokeClinit;
@@ -48,9 +48,9 @@ public class c {
                 return;
             }
         }
-        f3518f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
-        f3519g = new short[]{2, 3};
-        f3520h = new short[]{2, 16, 12, 3};
+        f2969f = new int[]{8000, 11025, 16000, 22050, 32000, 44100, 47250, 48000};
+        f2970g = new short[]{2, 3};
+        f2971h = new short[]{2, 16, 12, 3};
     }
 
     public c() {
@@ -58,15 +58,15 @@ public class c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f3523d = -2;
+        this.f2974d = -2;
     }
 
     public static c b() {
@@ -74,13 +74,13 @@ public class c {
         c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            c cVar2 = f3517e;
+            c cVar2 = f2968e;
             if (cVar2 == null) {
                 synchronized (c.class) {
-                    if (f3517e == null) {
-                        f3517e = new c();
+                    if (f2968e == null) {
+                        f2968e = new c();
                     }
-                    cVar = f3517e;
+                    cVar = f2968e;
                 }
                 return cVar;
             }
@@ -97,77 +97,77 @@ public class c {
     public AudioRecord a() throws IllegalArgumentException {
         InterceptResult invokeV;
         int[] iArr;
+        int i;
         int i2;
-        int i3;
         short[] sArr;
         short s;
+        int i3;
         int i4;
-        int i5;
         int minBufferSize;
         AudioRecord audioRecord;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a > 0 && this.f3521b > 0 && this.f3522c > 0) {
-                return new AudioRecord(1, this.a, this.f3522c, this.f3521b, this.f3523d);
+            if (this.a > 0 && this.f2972b > 0 && this.f2973c > 0) {
+                return new AudioRecord(1, this.a, this.f2973c, this.f2972b, this.f2974d);
             }
-            int[] iArr2 = f3518f;
+            int[] iArr2 = f2969f;
             int length = iArr2.length;
             AudioRecord audioRecord2 = null;
-            for (int i6 = 0; i6 < length; i6++) {
-                int i7 = iArr2[i6];
-                short[] sArr2 = f3519g;
+            for (int i5 = 0; i5 < length; i5++) {
+                int i6 = iArr2[i5];
+                short[] sArr2 = f2970g;
                 int length2 = sArr2.length;
-                int i8 = 0;
-                while (i8 < length2) {
-                    short s2 = sArr2[i8];
-                    short[] sArr3 = f3520h;
+                int i7 = 0;
+                while (i7 < length2) {
+                    short s2 = sArr2[i7];
+                    short[] sArr3 = f2971h;
                     int length3 = sArr3.length;
                     AudioRecord audioRecord3 = audioRecord2;
-                    int i9 = 0;
-                    while (i9 < length3) {
-                        short s3 = sArr3[i9];
+                    int i8 = 0;
+                    while (i8 < length3) {
+                        short s3 = sArr3[i8];
                         try {
-                            minBufferSize = AudioRecord.getMinBufferSize(i7, s3, s2);
-                            this.f3523d = minBufferSize;
+                            minBufferSize = AudioRecord.getMinBufferSize(i6, s3, s2);
+                            this.f2974d = minBufferSize;
                         } catch (Throwable th) {
                             th = th;
                             iArr = iArr2;
-                            i2 = i9;
-                            i3 = length3;
+                            i = i8;
+                            i2 = length3;
                             sArr = sArr3;
                             s = s2;
-                            i4 = i8;
-                            i5 = 1;
+                            i3 = i7;
+                            i4 = 1;
                         }
                         if (minBufferSize == -2) {
                             if (audioRecord3 == null || audioRecord3.getState() == 1) {
                                 iArr = iArr2;
-                                i2 = i9;
-                                i3 = length3;
+                                i = i8;
+                                i2 = length3;
                                 sArr = sArr3;
                                 s = s2;
-                                i4 = i8;
+                                i3 = i7;
                             } else {
                                 audioRecord3.release();
                                 iArr = iArr2;
-                                i2 = i9;
-                                i3 = length3;
+                                i = i8;
+                                i2 = length3;
                                 sArr = sArr3;
                                 s = s2;
-                                i4 = i8;
+                                i3 = i7;
                                 audioRecord3 = null;
                             }
                         } else {
                             int min = Math.min(minBufferSize * 8, 4096);
                             iArr = iArr2;
-                            i5 = 1;
-                            i2 = i9;
-                            i3 = length3;
+                            i4 = 1;
+                            i = i8;
+                            i2 = length3;
                             sArr = sArr3;
                             short s4 = s2;
-                            i4 = i8;
+                            i3 = i7;
                             try {
-                                audioRecord = new AudioRecord(1, i7, s3, s2, min);
+                                audioRecord = new AudioRecord(1, i6, s3, s2, min);
                                 try {
                                 } catch (Throwable th2) {
                                     th = th2;
@@ -179,11 +179,11 @@ public class c {
                             try {
                                 if (audioRecord.getState() == 1) {
                                     try {
-                                        this.a = i7;
+                                        this.a = i6;
                                         try {
-                                            this.f3521b = s4;
-                                            this.f3522c = s3;
-                                            this.f3523d = min;
+                                            this.f2972b = s4;
+                                            this.f2973c = s3;
+                                            this.f2974d = min;
                                             if (audioRecord.getState() != 1) {
                                                 audioRecord.release();
                                             }
@@ -200,12 +200,12 @@ public class c {
                                         th.printStackTrace();
                                         if (audioRecord3 != null) {
                                         }
-                                        i9 = i2 + 1;
+                                        i8 = i + 1;
                                         s2 = s;
-                                        length3 = i3;
+                                        length3 = i2;
                                         iArr2 = iArr;
                                         sArr3 = sArr;
-                                        i8 = i4;
+                                        i7 = i3;
                                     }
                                 } else {
                                     try {
@@ -215,7 +215,7 @@ public class c {
                                         s = s4;
                                     }
                                     try {
-                                        audioRecord3 = new AudioRecord(1, i7, s3, s4, this.f3523d);
+                                        audioRecord3 = new AudioRecord(1, i6, s3, s4, this.f2974d);
                                         try {
                                         } catch (Throwable th7) {
                                             th = th7;
@@ -228,19 +228,19 @@ public class c {
                                         th.printStackTrace();
                                         if (audioRecord3 != null) {
                                         }
-                                        i9 = i2 + 1;
+                                        i8 = i + 1;
                                         s2 = s;
-                                        length3 = i3;
+                                        length3 = i2;
                                         iArr2 = iArr;
                                         sArr3 = sArr;
-                                        i8 = i4;
+                                        i7 = i3;
                                     }
                                     if (audioRecord3.getState() == 1) {
-                                        this.a = i7;
+                                        this.a = i6;
                                         s = s4;
                                         try {
-                                            this.f3521b = s;
-                                            this.f3522c = s3;
+                                            this.f2972b = s;
+                                            this.f2973c = s3;
                                             if (audioRecord3.getState() != 1) {
                                                 audioRecord3.release();
                                             }
@@ -258,26 +258,26 @@ public class c {
                                 }
                                 th.printStackTrace();
                                 if (audioRecord3 != null) {
-                                    if (audioRecord3.getState() == i5) {
+                                    if (audioRecord3.getState() == i4) {
                                     }
                                     audioRecord3.release();
                                     audioRecord3 = null;
                                 }
                             } catch (Throwable th10) {
-                                if (audioRecord3 != null && audioRecord3.getState() != i5) {
+                                if (audioRecord3 != null && audioRecord3.getState() != i4) {
                                     audioRecord3.release();
                                 }
                                 throw th10;
                             }
                         }
-                        i9 = i2 + 1;
+                        i8 = i + 1;
                         s2 = s;
-                        length3 = i3;
+                        length3 = i2;
                         iArr2 = iArr;
                         sArr3 = sArr;
-                        i8 = i4;
+                        i7 = i3;
                     }
-                    i8++;
+                    i7++;
                     audioRecord2 = audioRecord3;
                 }
             }

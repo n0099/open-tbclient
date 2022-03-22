@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class hk {
     public static /* synthetic */ Interceptable $ic;
     public static final hk A;
@@ -40,7 +40,7 @@ public final class hk {
     public static final hk a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hk[] f497a;
+    public static final /* synthetic */ hk[] f473a;
     public static final hk aA;
     public static final hk aB;
     public static final hk aC;
@@ -95,7 +95,7 @@ public final class hk {
     public static final hk az;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hk f59749b;
+    public static final hk f44344b;
     public static final hk ba;
     public static final hk bb;
     public static final hk bc;
@@ -113,28 +113,24 @@ public final class hk {
     public static final hk bo;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hk f59750c;
+    public static final hk f44345c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hk f59751d;
+    public static final hk f44346d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hk f59752e;
+    public static final hk f44347e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hk f59753f;
+    public static final hk f44348f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hk f59754g;
+    public static final hk f44349g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hk f59755h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final hk f59756i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final hk f59757j;
+    public static final hk f44350h;
+    public static final hk i;
+    public static final hk j;
     public static final hk k;
     public static final hk l;
     public static final hk m;
@@ -154,7 +150,7 @@ public final class hk {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f498a;
+    public final int f474a;
 
     static {
         InterceptResult invokeClinit;
@@ -170,15 +166,15 @@ public final class hk {
             }
         }
         a = new hk("UploadSwitch", 0, 1);
-        f59749b = new hk("UploadFrequency", 1, 2);
-        f59750c = new hk("ScreenSizeCollectionSwitch", 2, 3);
-        f59751d = new hk("MacCollectionSwitch", 3, 4);
-        f59752e = new hk("IMSICollectionSwitch", 4, 5);
-        f59753f = new hk("AndroidVnCollectionSwitch", 5, 6);
-        f59754g = new hk("AndroidVcCollectionSwitch", 6, 7);
-        f59755h = new hk("AndroidIdCollectionSwitch", 7, 8);
-        f59756i = new hk("DeviceInfoCollectionFrequency", 8, 9);
-        f59757j = new hk("AppInstallListCollectionSwitch", 9, 10);
+        f44344b = new hk("UploadFrequency", 1, 2);
+        f44345c = new hk("ScreenSizeCollectionSwitch", 2, 3);
+        f44346d = new hk("MacCollectionSwitch", 3, 4);
+        f44347e = new hk("IMSICollectionSwitch", 4, 5);
+        f44348f = new hk("AndroidVnCollectionSwitch", 5, 6);
+        f44349g = new hk("AndroidVcCollectionSwitch", 6, 7);
+        f44350h = new hk("AndroidIdCollectionSwitch", 7, 8);
+        i = new hk("DeviceInfoCollectionFrequency", 8, 9);
+        j = new hk("AppInstallListCollectionSwitch", 9, 10);
         k = new hk("AppInstallListCollectionFrequency", 10, 11);
         l = new hk("AppActiveListCollectionSwitch", 11, 12);
         m = new hk("AppActiveListCollectionFrequency", 12, 13);
@@ -289,7 +285,7 @@ public final class hk {
         bn = new hk("CollectionPluginMd5", 117, 1003);
         hk hkVar = new hk("CollectionPluginForceStop", 118, 1004);
         bo = hkVar;
-        f497a = new hk[]{a, f59749b, f59750c, f59751d, f59752e, f59753f, f59754g, f59755h, f59756i, f59757j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
+        f473a = new hk[]{a, f44344b, f44345c, f44346d, f44347e, f44348f, f44349g, f44350h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, as, at, au, av, aw, ax, ay, az, aA, aB, aC, aD, aE, aF, aG, aH, aI, aJ, aK, aL, aM, aN, aO, aP, aQ, aR, aS, aT, aU, aV, aW, aX, aY, aZ, ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, hkVar};
     }
 
     public hk(String str, int i2, int i3) {
@@ -310,7 +306,7 @@ public final class hk {
                 return;
             }
         }
-        this.f498a = i3;
+        this.f474a = i3;
     }
 
     public static hk valueOf(String str) {
@@ -322,12 +318,12 @@ public final class hk {
     public static hk[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hk[]) f497a.clone() : (hk[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hk[]) f473a.clone() : (hk[]) invokeV.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f498a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f474a : invokeV.intValue;
     }
 }

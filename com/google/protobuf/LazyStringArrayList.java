@@ -43,9 +43,9 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -83,14 +83,14 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
     }
 
     @Override // com.google.protobuf.LazyStringList
-    public ByteString getByteString(int i2) {
+    public ByteString getByteString(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            Object obj = this.list.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            Object obj = this.list.get(i);
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.list.set(i2, copyFromUtf8);
+                this.list.set(i, copyFromUtf8);
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -114,23 +114,23 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public void add(int i2, String str) {
+    public void add(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
-            this.list.add(i2, str);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            this.list.add(i, str);
             ((AbstractList) this).modCount++;
         }
     }
 
     @Override // java.util.AbstractList, java.util.List
-    public boolean addAll(int i2, Collection<? extends String> collection) {
+    public boolean addAll(int i, Collection<? extends String> collection) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, collection)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, collection)) == null) {
             if (collection instanceof LazyStringList) {
                 collection = ((LazyStringList) collection).getUnderlyingElements();
             }
-            boolean addAll = this.list.addAll(i2, collection);
+            boolean addAll = this.list.addAll(i, collection);
             ((AbstractList) this).modCount++;
             return addAll;
         }
@@ -139,18 +139,18 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String get(int i2) {
+    public String get(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            Object obj = this.list.get(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            Object obj = this.list.get(i);
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.list.set(i2, stringUtf8);
+                this.list.set(i, stringUtf8);
             }
             return stringUtf8;
         }
@@ -159,11 +159,11 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String remove(int i2) {
+    public String remove(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i2)) == null) {
-            Object remove = this.list.remove(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            Object remove = this.list.remove(i);
             ((AbstractList) this).modCount++;
             return asString(remove);
         }
@@ -172,10 +172,10 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.AbstractList, java.util.List
-    public String set(int i2, String str) {
+    public String set(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i2, str)) == null) ? asString(this.list.set(i2, str)) : (String) invokeIL.objValue;
+        return (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, str)) == null) ? asString(this.list.set(i, str)) : (String) invokeIL.objValue;
     }
 
     public LazyStringArrayList(LazyStringList lazyStringList) {
@@ -185,9 +185,9 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
             newInitContext.initArgs = r2;
             Object[] objArr = {lazyStringList};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -213,9 +213,9 @@ public class LazyStringArrayList extends AbstractList<String> implements LazyStr
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;

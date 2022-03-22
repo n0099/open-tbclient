@@ -17,18 +17,18 @@ public class Debug {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void print(int i2) {
+    public static void print(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
         }
     }
 
@@ -41,11 +41,11 @@ public class Debug {
     public static void print(short[] sArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, sArr) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < 8; i3++) {
-                for (int i4 = 0; i4 < 8; i4++) {
-                    System.out.printf("%3d, ", Short.valueOf(sArr[i2]));
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < 8; i2++) {
+                for (int i3 = 0; i3 < 8; i3++) {
+                    System.out.printf("%3d, ", Short.valueOf(sArr[i]));
+                    i++;
                 }
                 System.out.println();
             }
@@ -55,11 +55,11 @@ public class Debug {
     public static final void print8x8(int[] iArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, iArr) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < 8; i3++) {
-                for (int i4 = 0; i4 < 8; i4++) {
-                    System.out.printf("%3d, ", Integer.valueOf(iArr[i2]));
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < 8; i2++) {
+                for (int i3 = 0; i3 < 8; i3++) {
+                    System.out.printf("%3d, ", Integer.valueOf(iArr[i]));
+                    i++;
                 }
                 System.out.println();
             }
@@ -81,11 +81,11 @@ public class Debug {
     public static final void print8x8(short[] sArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, null, sArr) == null) {
-            int i2 = 0;
-            for (int i3 = 0; i3 < 8; i3++) {
-                for (int i4 = 0; i4 < 8; i4++) {
-                    System.out.printf("%3d, ", Short.valueOf(sArr[i2]));
-                    i2++;
+            int i = 0;
+            for (int i2 = 0; i2 < 8; i2++) {
+                for (int i3 = 0; i3 < 8; i3++) {
+                    System.out.printf("%3d, ", Short.valueOf(sArr[i]));
+                    i++;
                 }
                 System.out.println();
             }
@@ -95,8 +95,8 @@ public class Debug {
     public static final void print8x8(ShortBuffer shortBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, shortBuffer) == null) {
-            for (int i2 = 0; i2 < 8; i2++) {
-                for (int i3 = 0; i3 < 8; i3++) {
+            for (int i = 0; i < 8; i++) {
+                for (int i2 = 0; i2 < 8; i2++) {
                     System.out.printf("%3d, ", Short.valueOf(shortBuffer.get()));
                 }
                 System.out.println();

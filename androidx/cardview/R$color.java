@@ -7,10 +7,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public final class R$color {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int cardview_dark_background = 2131100838;
-    public static final int cardview_light_background = 2131100839;
-    public static final int cardview_shadow_end_color = 2131100840;
-    public static final int cardview_shadow_start_color = 2131100841;
+    public static final int cardview_dark_background = 2131100721;
+    public static final int cardview_light_background = 2131100722;
+    public static final int cardview_shadow_end_color = 2131100723;
+    public static final int cardview_shadow_start_color = 2131100724;
     public transient /* synthetic */ FieldHolder $fh;
 
     public R$color() {
@@ -18,9 +18,9 @@ public final class R$color {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

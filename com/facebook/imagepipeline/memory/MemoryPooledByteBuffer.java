@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.GuardedBy;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,25 +24,25 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
     public CloseableReference<MemoryChunk> mBufRef;
     public final int mSize;
 
-    public MemoryPooledByteBuffer(CloseableReference<MemoryChunk> closeableReference, int i2) {
+    public MemoryPooledByteBuffer(CloseableReference<MemoryChunk> closeableReference, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {closeableReference, Integer.valueOf(i2)};
+            Object[] objArr = {closeableReference, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         Preconditions.checkNotNull(closeableReference);
-        Preconditions.checkArgument(i2 >= 0 && i2 <= closeableReference.get().getSize());
-        this.mBufRef = closeableReference.m111clone();
-        this.mSize = i2;
+        Preconditions.checkArgument(i >= 0 && i <= closeableReference.get().getSize());
+        this.mBufRef = closeableReference.m104clone();
+        this.mSize = i;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer, java.io.Closeable, java.lang.AutoCloseable
@@ -112,20 +112,20 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized byte read(int i2) {
+    public synchronized byte read(int i) {
         InterceptResult invokeI;
         byte read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             synchronized (this) {
                 ensureValid();
                 boolean z = true;
-                Preconditions.checkArgument(i2 >= 0);
-                if (i2 >= this.mSize) {
+                Preconditions.checkArgument(i >= 0);
+                if (i >= this.mSize) {
                     z = false;
                 }
                 Preconditions.checkArgument(z);
-                read = this.mBufRef.get().read(i2);
+                read = this.mBufRef.get().read(i);
             }
             return read;
         }
@@ -135,28 +135,28 @@ public class MemoryPooledByteBuffer implements PooledByteBuffer {
     @Override // com.facebook.common.memory.PooledByteBuffer
     public synchronized int size() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             synchronized (this) {
                 ensureValid();
-                i2 = this.mSize;
+                i = this.mSize;
             }
-            return i2;
+            return i;
         }
         return invokeV.intValue;
     }
 
     @Override // com.facebook.common.memory.PooledByteBuffer
-    public synchronized int read(int i2, byte[] bArr, int i3, int i4) {
+    public synchronized int read(int i, byte[] bArr, int i2, int i3) {
         InterceptResult invokeCommon;
         int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), bArr, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), bArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             synchronized (this) {
                 ensureValid();
-                Preconditions.checkArgument(i2 + i4 <= this.mSize);
-                read = this.mBufRef.get().read(i2, bArr, i3, i4);
+                Preconditions.checkArgument(i + i3 <= this.mSize);
+                read = this.mBufRef.get().read(i, bArr, i2, i3);
             }
             return read;
         }

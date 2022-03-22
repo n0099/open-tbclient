@@ -1,5 +1,5 @@
 package com.baidu.lbsapi.auth;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public interface LBSAuthManagerListener {
-    void onAuthResult(int i2, String str);
+    void onAuthResult(int i, String str);
 }

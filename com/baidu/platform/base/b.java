@@ -15,10 +15,10 @@ public class b extends HttpClient.ProtoResultCallback {
     public final /* synthetic */ d a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ Object f36366b;
+    public final /* synthetic */ Object f28183b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ a f36367c;
+    public final /* synthetic */ a f28184c;
 
     public b(a aVar, d dVar, Object obj) {
         Interceptable interceptable = $ic;
@@ -27,24 +27,24 @@ public class b extends HttpClient.ProtoResultCallback {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, dVar, obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f36367c = aVar;
+        this.f28184c = aVar;
         this.a = dVar;
-        this.f36366b = obj;
+        this.f28183b = obj;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, httpStateError) == null) {
-            this.f36367c.a(httpStateError, this.a, this.f36366b);
+            this.f28184c.a(httpStateError, this.a, this.f28183b);
         }
     }
 
@@ -53,13 +53,13 @@ public class b extends HttpClient.ProtoResultCallback {
         AsyncHttpClient asyncHttpClient;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f36367c.a(str) : "";
+            String a = this.a instanceof com.baidu.platform.core.b.e ? this.f28184c.a(str) : "";
             String str2 = !TextUtils.isEmpty(a) ? a : str;
-            this.f36367c.c(str2);
-            a aVar = this.f36367c;
+            this.f28184c.c(str2);
+            a aVar = this.f28184c;
             d dVar = this.a;
-            Object obj = this.f36366b;
-            asyncHttpClient = aVar.f36361b;
+            Object obj = this.f28183b;
+            asyncHttpClient = aVar.f28178b;
             aVar.a(str2, dVar, obj, asyncHttpClient, this);
         }
     }

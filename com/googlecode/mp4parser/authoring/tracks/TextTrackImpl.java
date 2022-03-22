@@ -45,23 +45,23 @@ public class TextTrackImpl extends AbstractTrack {
         public String text;
         public long to;
 
-        public Line(long j2, long j3, String str) {
+        public Line(long j, long j2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), Long.valueOf(j3), str};
+                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.from = j2;
-            this.to = j3;
+            this.from = j;
+            this.to = j2;
             this.text = str;
         }
 
@@ -89,9 +89,9 @@ public class TextTrackImpl extends AbstractTrack {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -153,23 +153,23 @@ public class TextTrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             ArrayList<Long> arrayList = new ArrayList();
-            long j2 = 0;
+            long j = 0;
             for (Line line : this.subs) {
-                long j3 = line.from - j2;
-                int i2 = (j3 > 0L ? 1 : (j3 == 0L ? 0 : -1));
-                if (i2 > 0) {
-                    arrayList.add(Long.valueOf(j3));
-                } else if (i2 < 0) {
+                long j2 = line.from - j;
+                int i = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                if (i > 0) {
+                    arrayList.add(Long.valueOf(j2));
+                } else if (i < 0) {
                     throw new Error("Subtitle display times may not intersect");
                 }
                 arrayList.add(Long.valueOf(line.to - line.from));
-                j2 = line.to;
+                j = line.to;
             }
             long[] jArr = new long[arrayList.size()];
-            int i3 = 0;
+            int i2 = 0;
             for (Long l : arrayList) {
-                jArr[i3] = l.longValue();
-                i3++;
+                jArr[i2] = l.longValue();
+                i2++;
             }
             return jArr;
         }
@@ -182,12 +182,12 @@ public class TextTrackImpl extends AbstractTrack {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             LinkedList linkedList = new LinkedList();
-            long j2 = 0;
+            long j = 0;
             for (Line line : this.subs) {
-                int i2 = ((line.from - j2) > 0L ? 1 : ((line.from - j2) == 0L ? 0 : -1));
-                if (i2 > 0) {
+                int i = ((line.from - j) > 0L ? 1 : ((line.from - j) == 0L ? 0 : -1));
+                if (i > 0) {
                     linkedList.add(new SampleImpl(ByteBuffer.wrap(new byte[2])));
-                } else if (i2 < 0) {
+                } else if (i < 0) {
                     throw new Error("Subtitle display times may not intersect");
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -197,7 +197,7 @@ public class TextTrackImpl extends AbstractTrack {
                     dataOutputStream.write(line.text.getBytes("UTF-8"));
                     dataOutputStream.close();
                     linkedList.add(new SampleImpl(ByteBuffer.wrap(byteArrayOutputStream.toByteArray())));
-                    j2 = line.to;
+                    j = line.to;
                 } catch (IOException unused) {
                     throw new Error("VM is broken. Does not support UTF-8");
                 }

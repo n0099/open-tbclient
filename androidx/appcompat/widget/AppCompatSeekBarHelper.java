@@ -38,9 +38,9 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {seekBar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ProgressBar) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -83,13 +83,13 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
         if (max > 1) {
             int intrinsicWidth = this.mTickMark.getIntrinsicWidth();
             int intrinsicHeight = this.mTickMark.getIntrinsicHeight();
-            int i2 = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
-            int i3 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
-            this.mTickMark.setBounds(-i2, -i3, i2, i3);
+            int i = intrinsicWidth >= 0 ? intrinsicWidth / 2 : 1;
+            int i2 = intrinsicHeight >= 0 ? intrinsicHeight / 2 : 1;
+            this.mTickMark.setBounds(-i, -i2, i, i2);
             float width = ((this.mView.getWidth() - this.mView.getPaddingLeft()) - this.mView.getPaddingRight()) / max;
             int save = canvas.save();
             canvas.translate(this.mView.getPaddingLeft(), this.mView.getHeight() / 2);
-            for (int i4 = 0; i4 <= max; i4++) {
+            for (int i3 = 0; i3 <= max; i3++) {
                 this.mTickMark.draw(canvas);
                 canvas.translate(width, 0.0f);
             }
@@ -136,13 +136,13 @@ public class AppCompatSeekBarHelper extends AppCompatProgressBarHelper {
     }
 
     @Override // androidx.appcompat.widget.AppCompatProgressBarHelper
-    public void loadFromAttributes(AttributeSet attributeSet, int i2) {
+    public void loadFromAttributes(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, attributeSet, i2) == null) {
-            super.loadFromAttributes(attributeSet, i2);
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.AppCompatSeekBar, i2, 0);
+        if (interceptable == null || interceptable.invokeLI(1048582, this, attributeSet, i) == null) {
+            super.loadFromAttributes(attributeSet, i);
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(this.mView.getContext(), attributeSet, R$styleable.AppCompatSeekBar, i, 0);
             SeekBar seekBar = this.mView;
-            ViewCompat.saveAttributeDataForStyleable(seekBar, seekBar.getContext(), R$styleable.AppCompatSeekBar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i2, 0);
+            ViewCompat.saveAttributeDataForStyleable(seekBar, seekBar.getContext(), R$styleable.AppCompatSeekBar, attributeSet, obtainStyledAttributes.getWrappedTypeArray(), i, 0);
             Drawable drawableIfKnown = obtainStyledAttributes.getDrawableIfKnown(R$styleable.AppCompatSeekBar_android_thumb);
             if (drawableIfKnown != null) {
                 this.mView.setThumb(drawableIfKnown);

@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Counter implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public static final Callback NONE;
@@ -23,9 +23,9 @@ public class Counter implements Runnable {
     public final Handler mHandler;
     public boolean mRunning;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface Callback {
-        void onCount(int i2);
+        void onCount(int i);
     }
 
     static {
@@ -50,9 +50,9 @@ public class Counter implements Runnable {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -60,24 +60,24 @@ public class Counter implements Runnable {
             }
 
             @Override // com.yy.hiidostatis.inner.util.Counter.Callback
-            public void onCount(int i2) {
+            public void onCount(int i) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i2) == null) {
+                if (interceptable2 == null || interceptable2.invokeI(1048576, this, i) == null) {
                 }
             }
         };
     }
 
-    public Counter(Handler handler, int i2, long j2, boolean z) {
+    public Counter(Handler handler, int i, long j, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {handler, Integer.valueOf(i2), Long.valueOf(j2), Boolean.valueOf(z)};
+            Object[] objArr = {handler, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -86,8 +86,8 @@ public class Counter implements Runnable {
         this.mCallback = NONE;
         this.mRunning = false;
         this.mHandler = handler;
-        this.counter = i2;
-        this.INTERVAL = j2;
+        this.counter = i;
+        this.INTERVAL = j;
         this.STEP = z ? 1 : -1;
         L.verbose(this, "create counter, from %d, interval %d, step %d", Integer.valueOf(this.counter), Long.valueOf(this.INTERVAL), Integer.valueOf(this.STEP));
     }
@@ -139,24 +139,24 @@ public class Counter implements Runnable {
         }
     }
 
-    public Counter setCounter(int i2) {
+    public Counter setCounter(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
-            this.counter = i2;
-            L.verbose(this, "set to %d", Integer.valueOf(i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.counter = i;
+            L.verbose(this, "set to %d", Integer.valueOf(i));
             return this;
         }
         return (Counter) invokeI.objValue;
     }
 
-    public Counter start(long j2) {
+    public Counter start(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j2)) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
             this.mHandler.removeCallbacks(this);
             this.mRunning = true;
-            this.mHandler.postDelayed(this, j2);
+            this.mHandler.postDelayed(this, j);
             L.verbose(this, "counter start,hashCode =[%d],mRunning = %b", Integer.valueOf(hashCode()), Boolean.valueOf(this.mRunning));
             return this;
         }

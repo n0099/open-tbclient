@@ -4,5 +4,5 @@ import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.utils.NoProGuard;
 /* loaded from: classes3.dex */
 public interface IAudioTransListener extends IMListener, NoProGuard {
-    void onAudioTransListener(int i2, String str, String str2);
+    void onAudioTransListener(int i, String str, String str2);
 }

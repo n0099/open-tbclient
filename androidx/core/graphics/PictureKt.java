@@ -18,11 +18,11 @@ public final class PictureKt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final Picture record(Picture picture, int i2, int i3, Function1<? super Canvas, Unit> function1) {
+    public static final Picture record(Picture picture, int i, int i2, Function1<? super Canvas, Unit> function1) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{picture, Integer.valueOf(i2), Integer.valueOf(i3), function1})) == null) {
-            Canvas c2 = picture.beginRecording(i2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{picture, Integer.valueOf(i), Integer.valueOf(i2), function1})) == null) {
+            Canvas c2 = picture.beginRecording(i, i2);
             try {
                 Intrinsics.checkExpressionValueIsNotNull(c2, "c");
                 function1.invoke(c2);

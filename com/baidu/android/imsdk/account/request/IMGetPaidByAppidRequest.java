@@ -27,16 +27,16 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     public String mBduss;
     public String mKey;
 
-    public IMGetPaidByAppidRequest(Context context, long j2, String str, String str2) {
+    public IMGetPaidByAppidRequest(Context context, long j, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Long.valueOf(j2), str, str2};
+            Object[] objArr = {context, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -44,7 +44,7 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
         }
         this.mContext = context;
         this.mKey = str2;
-        this.mAppid = j2;
+        this.mAppid = j;
         this.mBduss = str;
     }
 
@@ -111,47 +111,47 @@ public class IMGetPaidByAppidRequest extends BaseHttpRequest {
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onFailure(int i2, byte[] bArr, Throwable th) {
+    public void onFailure(int i, byte[] bArr, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i2, bArr, th) == null) {
-            Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, bArr, th) == null) {
+            Pair<Integer, String> transErrorCode = transErrorCode(i, bArr, th);
             AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, ((Integer) transErrorCode.first).intValue(), (String) transErrorCode.second, this.mAppid, -1L);
         }
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
-    public void onSuccess(int i2, byte[] bArr) {
+    public void onSuccess(int i, byte[] bArr) {
         String str;
-        long j2;
+        long j;
+        int i2;
         int i3;
-        int i4;
         String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, bArr) == null) {
             String str2 = new String(bArr);
             LogUtils.d("IMGetPaidByAppidRequest", str2);
             try {
                 JSONObject jSONObject = new JSONObject(str2);
                 if (jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    i4 = jSONObject2.getInt("error_code");
-                    r1 = i4 == 0 ? jSONObject2.getLong("pa_uid") : -1L;
+                    i3 = jSONObject2.getInt("error_code");
+                    r1 = i3 == 0 ? jSONObject2.getLong("pa_uid") : -1L;
                     string = Constants.ERROR_MSG_SUCCESS;
                 } else {
-                    i4 = jSONObject.getInt("error_code");
+                    i3 = jSONObject.getInt("error_code");
                     string = jSONObject.getString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 }
                 str = string;
-                i3 = i4;
-                j2 = r1;
+                i2 = i3;
+                j = r1;
             } catch (JSONException e2) {
                 LogUtils.e("IMGetPaidByAppidRequest", e2.getMessage(), e2);
                 new IMTrack.CrashBuilder(this.mContext).exception(Log.getStackTraceString(e2)).build();
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                j2 = -1;
-                i3 = 1010;
+                j = -1;
+                i2 = 1010;
             }
-            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i3, str, this.mAppid, j2);
+            AccountManagerImpl.getInstance(this.mContext).onSetZhidaAppidResult(this.mKey, i2, str, this.mAppid, j);
         }
     }
 

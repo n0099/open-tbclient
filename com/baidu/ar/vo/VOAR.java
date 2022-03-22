@@ -55,9 +55,9 @@ public class VOAR extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -80,9 +80,9 @@ public class VOAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -92,10 +92,10 @@ public class VOAR extends c {
                 }
 
                 @Override // com.baidu.ar.vo.a
-                public void b(int i2, HashMap<String, Object> hashMap) {
+                public void b(int i, HashMap<String, Object> hashMap) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, hashMap) == null) {
-                        this.yr.b(i2, hashMap);
+                    if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, hashMap) == null) {
+                        this.yr.b(i, hashMap);
                     }
                 }
 
@@ -114,23 +114,23 @@ public class VOAR extends c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void c(int i2, int i3, HashMap<String, Object> hashMap) {
+    public void c(int i, int i2, HashMap<String, Object> hashMap) {
         b bVar;
         com.baidu.ar.vo.c.b s;
         boolean z;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIL(65546, this, i2, i3, hashMap) == null) || (bVar = this.yo) == null) {
+        if (!(interceptable == null || interceptable.invokeIIL(65546, this, i, i2, hashMap) == null) || (bVar = this.yo) == null) {
             return;
         }
-        if (i2 == 401) {
+        if (i == 401) {
             if (bVar == null || hashMap == null || !(hashMap.get("app_type") instanceof String)) {
                 return;
             }
             this.yo.U("None".equals((String) hashMap.get("app_type")));
             return;
         }
-        if (i2 != 1901) {
-            if (i2 != 4100) {
+        if (i != 1901) {
+            if (i != 4100) {
                 return;
             }
             s = s(hashMap);
@@ -172,9 +172,9 @@ public class VOAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -246,9 +246,9 @@ public class VOAR extends c {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -258,10 +258,10 @@ public class VOAR extends c {
             }
 
             @Override // com.baidu.ar.lua.c
-            public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+            public void a(int i, int i2, HashMap<String, Object> hashMap) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
-                    r.runOnUiThread(new Runnable(this, i2, i3, hashMap) { // from class: com.baidu.ar.vo.VOAR.5.1
+                if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
+                    r.runOnUiThread(new Runnable(this, i, i2, hashMap) { // from class: com.baidu.ar.vo.VOAR.5.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ int ys;
@@ -274,19 +274,19 @@ public class VOAR extends c {
                             if (interceptable3 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), hashMap};
+                                Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2), hashMap};
                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable3.invokeInitBody(65536, newInitContext);
                                     return;
                                 }
                             }
                             this.yv = this;
-                            this.ys = i2;
-                            this.yt = i3;
+                            this.ys = i;
+                            this.yt = i2;
                             this.yu = hashMap;
                         }
 
@@ -337,9 +337,9 @@ public class VOAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -422,9 +422,9 @@ public class VOAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -484,9 +484,9 @@ public class VOAR extends c {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -502,9 +502,9 @@ public class VOAR extends c {
                     if (!(interceptable2 == null || interceptable2.invokeL(1048576, this, bVar) == null) || this.yr.yo == null || bVar == null || !(bVar instanceof com.baidu.ar.vo.b.f)) {
                         return;
                     }
-                    int i2 = this.yq;
-                    if (i2 < 3) {
-                        this.yq = i2 + 1;
+                    int i = this.yq;
+                    if (i < 3) {
+                        this.yq = i + 1;
                         return;
                     }
                     this.yr.yo.a((com.baidu.ar.vo.b.f) bVar, this.yr.hb());

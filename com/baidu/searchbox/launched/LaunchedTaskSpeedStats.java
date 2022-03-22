@@ -1,6 +1,7 @@
 package com.baidu.searchbox.launched;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
@@ -65,9 +66,9 @@ public class LaunchedTaskSpeedStats {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -117,7 +118,7 @@ public class LaunchedTaskSpeedStats {
                 jSONObject.put("stage", getSpeedNodeParts(getStatisticsRule().getChildParts()));
             } catch (JSONException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.e(TAG, e2.getMessage());
                 }
             }
             return jSONObject;
@@ -144,7 +145,7 @@ public class LaunchedTaskSpeedStats {
                 return jSONObject;
             } catch (JSONException e2) {
                 if (DEBUG) {
-                    e2.getMessage();
+                    Log.e(TAG, e2.getMessage());
                     return null;
                 }
                 return null;
@@ -168,7 +169,7 @@ public class LaunchedTaskSpeedStats {
                         jSONObject.put(ruleNode.getName(), speedNodeJson);
                     } catch (JSONException e2) {
                         if (DEBUG) {
-                            e2.getMessage();
+                            Log.e(TAG, e2.getMessage());
                         }
                     }
                 }
@@ -269,11 +270,10 @@ public class LaunchedTaskSpeedStats {
     }
 
     public void upload() {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (DEBUG) {
-                r0 = "endStatistics canStats:" + this.canStats;
+                Log.w(TAG, "endStatistics canStats:" + this.canStats);
             }
             if (this.canStats) {
                 JSONObject jSONObject = new JSONObject();
@@ -291,7 +291,7 @@ public class LaunchedTaskSpeedStats {
                     uBCManager.onEvent(UBC_ID, jSONObject);
                 }
                 if (DEBUG) {
-                    str = "endStatistics ubc:" + jSONObject.toString();
+                    Log.e(TAG, "endStatistics ubc:" + jSONObject.toString());
                 }
                 reset();
             }

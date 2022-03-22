@@ -26,14 +26,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import org.reactivestreams.Publisher;
 import org.reactivestreams.Subscription;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableConcat extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int prefetch;
     public final Publisher<? extends CompletableSource> sources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class CompletableConcatSubscriber extends AtomicInteger implements FlowableSubscriber<CompletableSource>, Disposable {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 9032184911934499404L;
@@ -50,7 +50,7 @@ public final class CompletableConcat extends Completable {
         public Subscription s;
         public int sourceFused;
 
-        /* loaded from: classes8.dex */
+        /* loaded from: classes7.dex */
         public static final class ConcatInnerObserver extends AtomicReference<Disposable> implements CompletableObserver {
             public static /* synthetic */ Interceptable $ic = null;
             public static final long serialVersionUID = -5454794857847146511L;
@@ -64,9 +64,9 @@ public final class CompletableConcat extends Completable {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {completableConcatSubscriber};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -100,26 +100,26 @@ public final class CompletableConcat extends Completable {
             }
         }
 
-        public CompletableConcatSubscriber(CompletableObserver completableObserver, int i2) {
+        public CompletableConcatSubscriber(CompletableObserver completableObserver, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {completableObserver, Integer.valueOf(i2)};
+                Object[] objArr = {completableObserver, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.actual = completableObserver;
-            this.prefetch = i2;
+            this.prefetch = i;
             this.inner = new ConcatInnerObserver(this);
             this.once = new AtomicBoolean();
-            this.limit = i2 - (i2 >> 2);
+            this.limit = i - (i >> 2);
         }
 
         @Override // io.reactivex.disposables.Disposable
@@ -218,8 +218,8 @@ public final class CompletableConcat extends Completable {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048585, this, subscription) == null) && SubscriptionHelper.validate(this.s, subscription)) {
                 this.s = subscription;
-                int i2 = this.prefetch;
-                long j2 = i2 == Integer.MAX_VALUE ? Long.MAX_VALUE : i2;
+                int i = this.prefetch;
+                long j = i == Integer.MAX_VALUE ? Long.MAX_VALUE : i;
                 if (subscription instanceof QueueSubscription) {
                     QueueSubscription queueSubscription = (QueueSubscription) subscription;
                     int requestFusion = queueSubscription.requestFusion(3);
@@ -234,7 +234,7 @@ public final class CompletableConcat extends Completable {
                         this.sourceFused = requestFusion;
                         this.queue = queueSubscription;
                         this.actual.onSubscribe(this);
-                        subscription.request(j2);
+                        subscription.request(j);
                         return;
                     }
                 }
@@ -244,7 +244,7 @@ public final class CompletableConcat extends Completable {
                     this.queue = new SpscArrayQueue(this.prefetch);
                 }
                 this.actual.onSubscribe(this);
-                subscription.request(j2);
+                subscription.request(j);
             }
         }
 
@@ -253,13 +253,13 @@ public final class CompletableConcat extends Completable {
             if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.sourceFused == 1) {
                 return;
             }
-            int i2 = this.consumed + 1;
-            if (i2 == this.limit) {
+            int i = this.consumed + 1;
+            if (i == this.limit) {
                 this.consumed = 0;
-                this.s.request(i2);
+                this.s.request(i);
                 return;
             }
-            this.consumed = i2;
+            this.consumed = i;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -276,23 +276,23 @@ public final class CompletableConcat extends Completable {
         }
     }
 
-    public CompletableConcat(Publisher<? extends CompletableSource> publisher, int i2) {
+    public CompletableConcat(Publisher<? extends CompletableSource> publisher, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {publisher, Integer.valueOf(i2)};
+            Object[] objArr = {publisher, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.sources = publisher;
-        this.prefetch = i2;
+        this.prefetch = i;
     }
 
     @Override // io.reactivex.Completable

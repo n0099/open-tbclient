@@ -12,7 +12,7 @@ public class j extends b<Pixmap, a> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public Pixmap f27126b;
+    public Pixmap f22382b;
 
     /* loaded from: classes3.dex */
     public static class a extends c.b.b.j.c<Pixmap> {
@@ -24,9 +24,9 @@ public class j extends b<Pixmap, a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -43,9 +43,9 @@ public class j extends b<Pixmap, a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((e) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -72,8 +72,8 @@ public class j extends b<Pixmap, a> {
     public void c(c.b.b.j.e eVar, String str, c.b.b.m.a aVar, a aVar2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048580, this, eVar, str, aVar, aVar2) == null) {
-            this.f27126b = null;
-            this.f27126b = new Pixmap(aVar);
+            this.f22382b = null;
+            this.f22382b = new Pixmap(aVar);
         }
     }
 
@@ -84,8 +84,8 @@ public class j extends b<Pixmap, a> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, eVar, str, aVar, aVar2)) == null) {
-            Pixmap pixmap = this.f27126b;
-            this.f27126b = null;
+            Pixmap pixmap = this.f22382b;
+            this.f22382b = null;
             return pixmap;
         }
         return (Pixmap) invokeLLLL.objValue;

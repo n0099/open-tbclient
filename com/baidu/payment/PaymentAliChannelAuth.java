@@ -1,7 +1,7 @@
 package com.baidu.payment;
 
 import android.app.Activity;
-import c.a.f0.c.a;
+import c.a.e0.c.a;
 import com.baidu.poly.wallet.paychannel.IChannelAuth;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,9 +18,9 @@ public class PaymentAliChannelAuth implements IChannelAuth {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,7 +31,7 @@ public class PaymentAliChannelAuth implements IChannelAuth {
     public void aLiAuth(Activity activity, String str, a<JSONObject> aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, aVar) == null) {
-            c.a.d0.a.a().aLiAuth(activity, str, aVar);
+            c.a.c0.a.a().aLiAuth(activity, str, aVar);
         }
     }
 }

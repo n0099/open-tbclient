@@ -10,10 +10,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.utils.StatHelper;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class PayStatus {
     public static final /* synthetic */ PayStatus[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -44,7 +43,7 @@ public final class PayStatus {
                 return;
             }
         }
-        OK = new PayStatus(StatHelper.SENSOR_OK, 0, 1, "请求成功");
+        OK = new PayStatus("OK", 0, 1, "请求成功");
         VALIDATE_FAIL = new PayStatus("VALIDATE_FAIL", 1, -1, "账号验证失败");
         CAN_NOT_USE = new PayStatus("CAN_NOT_USE", 2, -5, "账户已冻结");
         APPLE_PAY_FAIL = new PayStatus("APPLE_PAY_FAIL", 3, -14, "苹果支付凭证重复验证");
@@ -58,16 +57,16 @@ public final class PayStatus {
         $VALUES = new PayStatus[]{OK, VALIDATE_FAIL, CAN_NOT_USE, APPLE_PAY_FAIL, WRONG_ARGS, SEVER_ERROR, ORDER_RISK_ERROR, UNKNOWN, CANCEL, payStatus};
     }
 
-    public PayStatus(String str, int i2, int i3, String str2) {
+    public PayStatus(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3), str2};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -76,7 +75,7 @@ public final class PayStatus {
                 return;
             }
         }
-        this.code = i3;
+        this.code = i2;
         this.msg = str2;
     }
 
@@ -104,17 +103,17 @@ public final class PayStatus {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.msg : (String) invokeV.objValue;
     }
 
-    public static PayStatus valueOf(int i2) {
+    public static PayStatus valueOf(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != -500) {
-                if (i2 != -400) {
-                    if (i2 != -18) {
-                        if (i2 != -14) {
-                            if (i2 != -5) {
-                                if (i2 != -1) {
-                                    if (i2 != 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != -500) {
+                if (i != -400) {
+                    if (i != -18) {
+                        if (i != -14) {
+                            if (i != -5) {
+                                if (i != -1) {
+                                    if (i != 1) {
                                         return UNKNOWN;
                                     }
                                     return OK;

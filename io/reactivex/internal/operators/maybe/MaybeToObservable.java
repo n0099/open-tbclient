@@ -28,7 +28,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f60714d;
+        public Disposable f45324d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public MaybeToObservableObserver(Observer<? super T> observer) {
@@ -39,9 +39,9 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Observer) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -55,7 +55,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 super.dispose();
-                this.f60714d.dispose();
+                this.f45324d.dispose();
             }
         }
 
@@ -78,8 +78,8 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f60714d, disposable)) {
-                this.f60714d = disposable;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, disposable) == null) && DisposableHelper.validate(this.f45324d, disposable)) {
+                this.f45324d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
@@ -100,9 +100,9 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
             newInitContext.initArgs = r2;
             Object[] objArr = {maybeSource};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

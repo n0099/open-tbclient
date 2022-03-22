@@ -12,7 +12,7 @@ import com.qq.e.ads.interstitial2.ADRewardListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
 import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class BaseInterstitialAd {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEFAULT_PRIORITY = -1;
@@ -25,9 +25,9 @@ public abstract class BaseInterstitialAd {
             newInitContext.initArgs = r2;
             Object[] objArr = {activity, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -65,11 +65,11 @@ public abstract class BaseInterstitialAd {
 
     public abstract void setDownAPPConfirmPolicy(DownAPPConfirmPolicy downAPPConfirmPolicy);
 
-    public abstract void setMaxVideoDuration(int i2);
+    public abstract void setMaxVideoDuration(int i);
 
     public abstract void setMediaListener(UnifiedInterstitialMediaListener unifiedInterstitialMediaListener);
 
-    public abstract void setMinVideoDuration(int i2);
+    public abstract void setMinVideoDuration(int i);
 
     public abstract void setRewardListener(ADRewardListener aDRewardListener);
 
@@ -77,7 +77,7 @@ public abstract class BaseInterstitialAd {
 
     public abstract void setVideoOption(VideoOption videoOption);
 
-    public abstract void setVideoPlayPolicy(int i2);
+    public abstract void setVideoPlayPolicy(int i);
 
     public abstract void show();
 

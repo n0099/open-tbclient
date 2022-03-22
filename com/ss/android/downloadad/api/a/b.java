@@ -12,7 +12,7 @@ import com.ss.android.downloadlib.addownload.j;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class b implements a {
     public long A;
     public long B;
@@ -50,31 +50,27 @@ public class b implements a {
     public boolean af;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f57924b;
+    public boolean f42679b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final AtomicBoolean f57925c;
+    public final AtomicBoolean f42680c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final AtomicBoolean f57926d;
+    public final AtomicBoolean f42681d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f57927e;
+    public long f42682e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f57928f;
+    public long f42683f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f57929g;
+    public String f42684g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f57930h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public String f57931i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public String f57932j;
+    public int f42685h;
+    public String i;
+    public String j;
     public String k;
     public String l;
     public int m;
@@ -93,7 +89,7 @@ public class b implements a {
     public int z;
 
     public b() {
-        this.f57930h = 1;
+        this.f42685h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -103,9 +99,9 @@ public class b implements a {
         this.J = true;
         this.K = true;
         this.a = true;
-        this.f57924b = true;
-        this.f57925c = new AtomicBoolean(false);
-        this.f57926d = new AtomicBoolean(false);
+        this.f42679b = true;
+        this.f42680c = new AtomicBoolean(false);
+        this.f42681d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
@@ -116,8 +112,8 @@ public class b implements a {
     }
 
     public long B() {
-        long j2 = this.A;
-        return j2 == 0 ? this.u : j2;
+        long j = this.A;
+        return j == 0 ? this.u : j;
     }
 
     public long C() {
@@ -137,7 +133,7 @@ public class b implements a {
     }
 
     public int G() {
-        return this.f57930h;
+        return this.f42685h;
     }
 
     public long H() {
@@ -216,8 +212,8 @@ public class b implements a {
         return this.ab;
     }
 
-    public void a(int i2) {
-        this.y = i2;
+    public void a(int i) {
+        this.y = i;
     }
 
     public boolean aa() {
@@ -239,11 +235,11 @@ public class b implements a {
     public JSONObject ae() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mId", this.f57927e);
-            jSONObject.put("mExtValue", this.f57928f);
-            jSONObject.put("mLogExtra", this.f57929g);
-            jSONObject.put("mDownloadStatus", this.f57930h);
-            jSONObject.put("mPackageName", this.f57931i);
+            jSONObject.put("mId", this.f42682e);
+            jSONObject.put("mExtValue", this.f42683f);
+            jSONObject.put("mLogExtra", this.f42684g);
+            jSONObject.put("mDownloadStatus", this.f42685h);
+            jSONObject.put("mPackageName", this.i);
             jSONObject.put("mIsAd", this.t);
             jSONObject.put("mTimeStamp", this.u);
             jSONObject.put("mExtras", this.v);
@@ -254,10 +250,10 @@ public class b implements a {
             jSONObject.put("mScene", this.P);
             jSONObject.put("mEventTag", this.L);
             jSONObject.put("mEventRefer", this.M);
-            jSONObject.put("mDownloadUrl", this.f57932j);
+            jSONObject.put("mDownloadUrl", this.j);
             jSONObject.put("mEnableBackDialog", this.x);
-            jSONObject.put("hasSendInstallFinish", this.f57925c.get());
-            jSONObject.put("hasSendDownloadFailedFinally", this.f57926d.get());
+            jSONObject.put("hasSendInstallFinish", this.f42680c.get());
+            jSONObject.put("hasSendDownloadFailedFinally", this.f42681d.get());
             jSONObject.put("mLastFailedErrCode", this.E);
             jSONObject.put("mLastFailedErrMsg", this.F);
             jSONObject.put("mOpenUrl", this.k);
@@ -283,14 +279,14 @@ public class b implements a {
             jSONObject.put("webUrl", this.l);
             jSONObject.put("enableShowComplianceDialog", this.T);
             jSONObject.put("isAutoDownloadOnCardShow", this.U);
-            int i2 = 1;
+            int i = 1;
             jSONObject.put("enable_new_activity", this.J ? 1 : 0);
             jSONObject.put("enable_pause", this.K ? 1 : 0);
             jSONObject.put("enable_ah", this.a ? 1 : 0);
-            if (!this.f57924b) {
-                i2 = 0;
+            if (!this.f42679b) {
+                i = 0;
             }
-            jSONObject.put("enable_am", i2);
+            jSONObject.put("enable_am", i);
         } catch (Exception e2) {
             j.s().a(e2, "NativeDownloadModel toJson");
         }
@@ -298,7 +294,7 @@ public class b implements a {
     }
 
     public AdDownloadModel af() {
-        return new AdDownloadModel.Builder().setAdId(this.f57927e).setExtraValue(this.f57928f).setLogExtra(this.f57929g).setPackageName(this.f57931i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.f57932j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.k, this.l, null)).build();
+        return new AdDownloadModel.Builder().setAdId(this.f42682e).setExtraValue(this.f42683f).setLogExtra(this.f42684g).setPackageName(this.i).setExtra(this.v).setIsAd(this.t).setVersionCode(this.p).setVersionName(this.q).setDownloadUrl(this.j).setModelType(this.m).setMimeType(this.H).setAppName(this.r).setAppIcon(this.s).setDeepLink(new DeepLink(this.k, this.l, null)).build();
     }
 
     public AdDownloadEventConfig ag() {
@@ -306,28 +302,28 @@ public class b implements a {
     }
 
     public AdDownloadController ah() {
-        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f57924b).build();
+        return new AdDownloadController.Builder().setIsEnableBackDialog(this.x).setLinkMode(this.n).setDownloadMode(this.o).setEnableShowComplianceDialog(this.T).setEnableAH(this.a).setEnableAM(this.f42679b).build();
     }
 
-    public void b(int i2) {
-        this.z = i2;
+    public void b(int i) {
+        this.z = i;
     }
 
-    public void c(long j2) {
-        this.C = j2;
+    public void c(long j) {
+        this.C = j;
     }
 
-    public void d(int i2) {
-        this.E = i2;
+    public void d(int i) {
+        this.E = i;
     }
 
-    public void e(long j2) {
-        this.f57928f = j2;
+    public void e(long j) {
+        this.f42683f = j;
     }
 
-    public void f(long j2) {
-        if (j2 > 0) {
-            this.u = j2;
+    public void f(long j) {
+        if (j > 0) {
+            this.u = j;
         }
     }
 
@@ -336,12 +332,12 @@ public class b implements a {
         return this.v;
     }
 
-    public void h(int i2) {
-        this.P = i2;
+    public void h(int i) {
+        this.P = i;
     }
 
-    public void i(int i2) {
-        this.Q = i2;
+    public void i(int i) {
+        this.Q = i;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -360,7 +356,7 @@ public class b implements a {
 
     @Override // com.ss.android.downloadad.api.a.a
     public long l() {
-        return this.f57928f;
+        return this.f42683f;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -423,7 +419,7 @@ public class b implements a {
     }
 
     public void u(boolean z) {
-        this.f57924b = z;
+        this.f42679b = z;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -448,32 +444,32 @@ public class b implements a {
         return this.z;
     }
 
-    public void a(long j2) {
-        this.A = j2;
+    public void a(long j) {
+        this.A = j;
     }
 
-    public void b(long j2) {
-        this.B = j2;
+    public void b(long j) {
+        this.B = j;
     }
 
-    public void c(int i2) {
-        this.D = i2;
+    public void c(int i) {
+        this.D = i;
     }
 
-    public void d(long j2) {
-        this.f57927e = j2;
+    public void d(long j) {
+        this.f42682e = j;
     }
 
-    public void e(int i2) {
-        this.f57930h = i2;
+    public void e(int i) {
+        this.f42685h = i;
     }
 
-    public void f(int i2) {
-        this.p = i2;
+    public void f(int i) {
+        this.p = i;
     }
 
-    public void g(int i2) {
-        this.w = i2;
+    public void g(int i) {
+        this.w = i;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -490,12 +486,12 @@ public class b implements a {
         this.r = str;
     }
 
-    public void k(int i2) {
-        this.o = i2;
+    public void k(int i) {
+        this.o = i;
     }
 
-    public void l(int i2) {
-        this.m = i2;
+    public void l(int i) {
+        this.m = i;
     }
 
     public void m(String str) {
@@ -522,21 +518,21 @@ public class b implements a {
 
     @Override // com.ss.android.downloadad.api.a.a
     public long b() {
-        return this.f57927e;
+        return this.f42682e;
     }
 
     public void c(String str) {
-        this.f57929g = str;
+        this.f42684g = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String d() {
-        return this.f57929g;
+        return this.f42684g;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
     public String e() {
-        return this.f57931i;
+        return this.i;
     }
 
     public void f(String str) {
@@ -548,15 +544,15 @@ public class b implements a {
     }
 
     public void h(String str) {
-        this.f57932j = str;
+        this.j = str;
     }
 
     public void i(String str) {
         this.k = str;
     }
 
-    public void j(int i2) {
-        this.n = i2;
+    public void j(int i) {
+        this.n = i;
     }
 
     public void k(boolean z) {
@@ -576,7 +572,7 @@ public class b implements a {
     }
 
     public void b(String str) {
-        this.f57931i = str;
+        this.i = str;
     }
 
     @Override // com.ss.android.downloadad.api.a.a
@@ -597,16 +593,16 @@ public class b implements a {
         return this.k;
     }
 
-    public void g(long j2) {
-        this.Z = j2;
+    public void g(long j) {
+        this.Z = j;
     }
 
-    public void h(long j2) {
-        this.R = j2;
+    public void h(long j) {
+        this.R = j;
     }
 
-    public void i(long j2) {
-        this.S = j2;
+    public void i(long j) {
+        this.S = j;
     }
 
     public void j(boolean z) {
@@ -676,8 +672,8 @@ public class b implements a {
             bVar.g(jSONObject.optString("mEventRefer"));
             bVar.h(jSONObject.optString("mDownloadUrl"));
             bVar.c(jSONObject.optBoolean("mEnableBackDialog"));
-            bVar.f57925c.set(jSONObject.optBoolean("hasSendInstallFinish"));
-            bVar.f57926d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
+            bVar.f42680c.set(jSONObject.optBoolean("hasSendInstallFinish"));
+            bVar.f42681d.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
             bVar.d(jSONObject.optInt("mLastFailedErrCode"));
             bVar.a(jSONObject.optString("mLastFailedErrMsg"));
             bVar.i(jSONObject.optString("mOpenUrl"));
@@ -719,15 +715,15 @@ public class b implements a {
 
     @Override // com.ss.android.downloadad.api.a.a
     public String a() {
-        return this.f57932j;
+        return this.j;
     }
 
     public b(DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController) {
         this(downloadModel, downloadEventConfig, downloadController, 0);
     }
 
-    public b(DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, int i2) {
-        this.f57930h = 1;
+    public b(DownloadModel downloadModel, DownloadEventConfig downloadEventConfig, DownloadController downloadController, int i) {
+        this.f42685h = 1;
         this.t = true;
         this.x = false;
         this.y = 0;
@@ -737,21 +733,21 @@ public class b implements a {
         this.J = true;
         this.K = true;
         this.a = true;
-        this.f57924b = true;
-        this.f57925c = new AtomicBoolean(false);
-        this.f57926d = new AtomicBoolean(false);
+        this.f42679b = true;
+        this.f42680c = new AtomicBoolean(false);
+        this.f42681d = new AtomicBoolean(false);
         this.Q = 1;
         this.T = true;
         this.Z = -1L;
-        this.f57927e = downloadModel.getId();
-        this.f57928f = downloadModel.getExtraValue();
-        this.f57929g = downloadModel.getLogExtra();
-        this.f57931i = downloadModel.getPackageName();
+        this.f42682e = downloadModel.getId();
+        this.f42683f = downloadModel.getExtraValue();
+        this.f42684g = downloadModel.getLogExtra();
+        this.i = downloadModel.getPackageName();
         this.v = downloadModel.getExtra();
         this.t = downloadModel.isAd();
         this.p = downloadModel.getVersionCode();
         this.q = downloadModel.getVersionName();
-        this.f57932j = downloadModel.getDownloadUrl();
+        this.j = downloadModel.getDownloadUrl();
         if (downloadModel.getDeepLink() != null) {
             this.k = downloadModel.getDeepLink().getOpenUrl();
             this.l = downloadModel.getDeepLink().getWebUrl();
@@ -770,8 +766,8 @@ public class b implements a {
         this.U = downloadController.isAutoDownloadOnCardShow();
         this.J = downloadController.enableNewActivity();
         this.a = downloadController.enableAH();
-        this.f57924b = downloadController.enableAM();
-        this.w = i2;
+        this.f42679b = downloadController.enableAM();
+        this.w = i;
         long currentTimeMillis = System.currentTimeMillis();
         this.u = currentTimeMillis;
         this.A = currentTimeMillis;

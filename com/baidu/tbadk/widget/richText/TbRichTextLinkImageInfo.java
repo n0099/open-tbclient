@@ -8,76 +8,73 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.dxmpay.wallet.core.Domains;
 import tbclient.PbContent;
 /* loaded from: classes5.dex */
 public class TbRichTextLinkImageInfo extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public int f30960b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public String f30961c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public String f30962d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f40135e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public int f40136f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public String f40137g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public String f40138h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f40139i;
+    public boolean f30963e;
 
     public TbRichTextLinkImageInfo() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f40135e = 1;
-        this.f40136f = 1;
-        this.f40137g = null;
-        this.f40138h = null;
-        this.f40139i = true;
+        this.a = 1;
+        this.f30960b = 1;
+        this.f30961c = null;
+        this.f30962d = null;
+        this.f30963e = true;
     }
 
     public int getHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f40136f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f30960b : invokeV.intValue;
     }
 
     public String getLink() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f40138h : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f30962d : (String) invokeV.objValue;
     }
 
     public int getWidth() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f40135e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public String w() {
+    public String y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f40137g : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f30961c : (String) invokeV.objValue;
     }
 
-    public boolean x() {
+    public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f40139i : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f30963e : invokeV.booleanValue;
     }
 
     public TbRichTextLinkImageInfo(PbContent pbContent) {
@@ -87,40 +84,40 @@ public class TbRichTextLinkImageInfo extends OrmObject {
             newInitContext.initArgs = r2;
             Object[] objArr = {pbContent};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f40135e = 1;
-        this.f40136f = 1;
-        this.f40137g = null;
-        this.f40138h = null;
-        this.f40139i = true;
-        this.f40137g = pbContent.cdn_src;
-        this.f40138h = pbContent.link;
+        this.a = 1;
+        this.f30960b = 1;
+        this.f30961c = null;
+        this.f30962d = null;
+        this.f30963e = true;
+        this.f30961c = pbContent.cdn_src;
+        this.f30962d = pbContent.link;
         String str = pbContent.bsize;
         if (str != null) {
             try {
                 String[] split = str.split(",");
-                this.f40135e = Integer.valueOf(split[0]).intValue();
-                this.f40136f = Integer.valueOf(split[1]).intValue();
+                this.a = Integer.valueOf(split[0]).intValue();
+                this.f30960b = Integer.valueOf(split[1]).intValue();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
         }
-        if (this.f40135e <= 0) {
-            this.f40135e = 1;
+        if (this.a <= 0) {
+            this.a = 1;
         }
-        if (this.f40136f <= 0) {
-            this.f40136f = 1;
+        if (this.f30960b <= 0) {
+            this.f30960b = 1;
         }
-        String str2 = this.f40137g;
+        String str2 = this.f30961c;
         if (str2 != null) {
-            str2.indexOf(Domains.BAIDU);
+            str2.indexOf(".baidu.com");
         }
     }
 }

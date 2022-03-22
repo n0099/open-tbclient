@@ -1,5 +1,6 @@
 package com.yy.hiidostatis.defs.obj;
 
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class Counter implements IJsonSerialize, Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,22 +21,22 @@ public class Counter implements IJsonSerialize, Cloneable {
     public String uri;
     public long value;
 
-    public Counter(int i2, String str, String str2) {
+    public Counter(int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2};
+            Object[] objArr = {Integer.valueOf(i), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.scode = i2;
+        this.scode = i;
         this.uri = str;
         this.counterName = str2;
     }
@@ -52,12 +53,12 @@ public class Counter implements IJsonSerialize, Cloneable {
         return invokeV.objValue;
     }
 
-    public synchronized void count(long j2, int i2) {
+    public synchronized void count(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j2), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
             synchronized (this) {
-                this.value += j2;
-                this.invokeCount += i2;
+                this.value += j;
+                this.invokeCount += i;
             }
         }
     }
@@ -83,24 +84,24 @@ public class Counter implements IJsonSerialize, Cloneable {
     @Override // com.yy.hiidostatis.defs.obj.IJsonSerialize
     public JSONObject toJson() {
         InterceptResult invokeV;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             synchronized (this) {
-                j2 = this.value;
-                j3 = this.invokeCount;
+                j = this.value;
+                j2 = this.invokeCount;
             }
-            if (j2 == 0 && j3 == 0) {
+            if (j == 0 && j2 == 0) {
                 return null;
             }
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("scode", this.scode);
-                jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
-                jSONObject.put("counterName", URLEncoder.encode(this.counterName, "utf-8"));
-                jSONObject.put("value", j2);
-                jSONObject.put("invokecount", (int) j3);
+                jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
+                jSONObject.put("counterName", URLEncoder.encode(this.counterName, IMAudioTransRequest.CHARSET));
+                jSONObject.put("value", j);
+                jSONObject.put("invokecount", (int) j2);
                 return jSONObject;
             } catch (UnsupportedEncodingException e2) {
                 e2.printStackTrace();

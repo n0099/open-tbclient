@@ -5,16 +5,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends SQLiteOpenHelper {
     public static volatile a a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f58398b;
+    public boolean f43131b;
 
     public a() {
         super(com.ss.android.socialbase.downloader.downloader.c.N(), "downloader.db", (SQLiteDatabase.CursorFactory) null, 15);
-        this.f58398b = false;
+        this.f43131b = false;
     }
 
     public static a a() {
@@ -31,14 +31,14 @@ public class a extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper
     public SQLiteDatabase getReadableDatabase() {
         Context N = com.ss.android.socialbase.downloader.downloader.c.N();
-        if (!this.f58398b && N != null) {
+        if (!this.f43131b && N != null) {
             try {
                 File file = new File("/data/data/" + N.getPackageName() + "/database/main/");
                 if (!file.exists()) {
                     file.mkdir();
                 }
                 super.getReadableDatabase().execSQL("PRAGMA temp_store_directory = tempDir");
-                this.f58398b = true;
+                this.f43131b = true;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -64,15 +64,15 @@ public class a extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         if (com.ss.android.socialbase.downloader.c.a.a()) {
             com.ss.android.socialbase.downloader.c.a.a("onDowngrade");
         }
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
-        switch (i2) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        switch (i) {
             case 1:
                 sQLiteDatabase.execSQL("ALTER TABLE downloader ADD mimeType TEXT");
                 sQLiteDatabase.execSQL("ALTER TABLE downloader ADD title TEXT");

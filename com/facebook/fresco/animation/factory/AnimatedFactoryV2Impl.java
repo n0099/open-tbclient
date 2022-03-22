@@ -37,7 +37,7 @@ import javax.annotation.Nullable;
 import javax.annotation.concurrent.NotThreadSafe;
 @DoNotStrip
 @NotThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedFactoryV2Impl implements AnimatedFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NUMBER_OF_FRAMES_TO_PREPARE = 3;
@@ -63,9 +63,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
             newInitContext.initArgs = r2;
             Object[] objArr = {platformBitmapFactory, executorSupplier, countingMemoryCache, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -92,9 +92,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -128,9 +128,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -162,9 +162,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -206,9 +206,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -287,9 +287,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, config};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -300,10 +300,10 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
             }
 
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 InterceptResult invokeLILL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) ? this.this$0.getAnimatedImageFactory().decodeGif(encodedImage, imageDecodeOptions, this.val$bitmapConfig) : (CloseableImage) invokeLILL.objValue;
+                return (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) ? this.this$0.getAnimatedImageFactory().decodeGif(encodedImage, imageDecodeOptions, this.val$bitmapConfig) : (CloseableImage) invokeLILL.objValue;
             }
         } : (ImageDecoder) invokeL.objValue;
     }
@@ -325,9 +325,9 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, config};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -338,10 +338,10 @@ public class AnimatedFactoryV2Impl implements AnimatedFactory {
             }
 
             @Override // com.facebook.imagepipeline.decoder.ImageDecoder
-            public CloseableImage decode(EncodedImage encodedImage, int i2, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
+            public CloseableImage decode(EncodedImage encodedImage, int i, QualityInfo qualityInfo, ImageDecodeOptions imageDecodeOptions) {
                 InterceptResult invokeLILL;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i2, qualityInfo, imageDecodeOptions)) == null) ? this.this$0.getAnimatedImageFactory().decodeWebP(encodedImage, imageDecodeOptions, this.val$bitmapConfig) : (CloseableImage) invokeLILL.objValue;
+                return (interceptable2 == null || (invokeLILL = interceptable2.invokeLILL(1048576, this, encodedImage, i, qualityInfo, imageDecodeOptions)) == null) ? this.this$0.getAnimatedImageFactory().decodeWebP(encodedImage, imageDecodeOptions, this.val$bitmapConfig) : (CloseableImage) invokeLILL.objValue;
             }
         } : (ImageDecoder) invokeL.objValue;
     }

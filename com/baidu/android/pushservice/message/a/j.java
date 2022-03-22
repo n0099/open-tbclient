@@ -37,35 +37,35 @@ public class j {
             int[] iArr = new int[k.a().length];
             a = iArr;
             try {
-                iArr[k.f30920b.ordinal()] = 1;
+                iArr[k.f24761b.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                a[k.f30921c.ordinal()] = 2;
+                a[k.f24762c.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                a[k.f30925g.ordinal()] = 3;
+                a[k.f24766g.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                a[k.f30922d.ordinal()] = 4;
+                a[k.f24763d.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                a[k.f30923e.ordinal()] = 5;
+                a[k.f24764e.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
             try {
-                a[k.f30924f.ordinal()] = 6;
+                a[k.f24765f.ordinal()] = 6;
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[k.f30926h.ordinal()] = 7;
+                a[k.f24767h.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                a[k.f30927i.ordinal()] = 8;
+                a[k.i.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
         }
@@ -78,9 +78,9 @@ public class j {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

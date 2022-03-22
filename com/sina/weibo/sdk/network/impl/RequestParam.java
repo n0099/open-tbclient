@@ -15,7 +15,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestParam implements IRequestParam {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_PARAM_BODY_BYTE_ARRAY = "body_byte_array";
@@ -37,7 +37,7 @@ public class RequestParam implements IRequestParam {
     public int responseTimeout;
     public String shortUrl;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public class RequestParam implements IRequestParam {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,10 +150,10 @@ public class RequestParam implements IRequestParam {
             }
         }
 
-        public void setRequestTimeout(int i2) {
+        public void setRequestTimeout(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048596, this, i2) == null) {
-                this.requestTimeout = i2;
+            if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+                this.requestTimeout = i;
             }
         }
 
@@ -164,10 +164,10 @@ public class RequestParam implements IRequestParam {
             }
         }
 
-        public void setResponseTimeout(int i2) {
+        public void setResponseTimeout(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-                this.responseTimeout = i2;
+            if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+                this.responseTimeout = i;
             }
         }
 
@@ -200,45 +200,45 @@ public class RequestParam implements IRequestParam {
             return (Builder) invokeLLL.objValue;
         }
 
-        public void addExtParam(String str, int i2) {
+        public void addExtParam(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i2) == null) {
-                this.extraBundle.putInt(str, i2);
+            if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
+                this.extraBundle.putInt(str, i);
             }
         }
 
-        public void addGetParam(String str, int i2) {
+        public void addGetParam(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i2) == null) {
-                this.getBundle.putInt(str, i2);
+            if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i) == null) {
+                this.getBundle.putInt(str, i);
             }
         }
 
-        public void addPostParam(String str, int i2) {
+        public void addPostParam(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048590, this, str, i2) == null) {
-                this.postBundle.putInt(str, i2);
+            if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
+                this.postBundle.putInt(str, i);
             }
         }
 
-        public void addExtParam(String str, long j2) {
+        public void addExtParam(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j2) == null) {
-                this.extraBundle.putLong(str, j2);
+            if (interceptable == null || interceptable.invokeLJ(1048581, this, str, j) == null) {
+                this.extraBundle.putLong(str, j);
             }
         }
 
-        public void addGetParam(String str, long j2) {
+        public void addGetParam(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j2) == null) {
-                this.getBundle.putLong(str, j2);
+            if (interceptable == null || interceptable.invokeLJ(1048585, this, str, j) == null) {
+                this.getBundle.putLong(str, j);
             }
         }
 
-        public void addPostParam(String str, long j2) {
+        public void addPostParam(String str, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048591, this, str, j2) == null) {
-                this.postBundle.putLong(str, j2);
+            if (interceptable == null || interceptable.invokeLJ(1048591, this, str, j) == null) {
+                this.postBundle.putLong(str, j);
             }
         }
 
@@ -281,9 +281,9 @@ public class RequestParam implements IRequestParam {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

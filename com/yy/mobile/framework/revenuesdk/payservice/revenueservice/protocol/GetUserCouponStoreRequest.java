@@ -11,7 +11,7 @@ import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.RevenueServe
 import com.yy.mobile.framework.revenuesdk.payservice.revenueservice.request.IRequestProtocol;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetUserCouponStoreRequest implements IRequestProtocol {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,28 +24,28 @@ public class GetUserCouponStoreRequest implements IRequestProtocol {
     public String seq;
     public long uid;
 
-    public GetUserCouponStoreRequest(String str, long j2, int i2, String str2, int i3, boolean z, int i4, int i5, boolean z2) {
+    public GetUserCouponStoreRequest(String str, long j, int i, String str2, int i2, boolean z, int i3, int i4, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Long.valueOf(j2), Integer.valueOf(i2), str2, Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z2)};
+            Object[] objArr = {str, Long.valueOf(j), Integer.valueOf(i), str2, Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3), Integer.valueOf(i4), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.seq = str;
-        this.uid = j2;
-        this.appId = i2;
-        this.goodsType = i3;
+        this.uid = j;
+        this.appId = i;
+        this.goodsType = i2;
         this.hasUsed = z;
-        this.page = i4;
-        this.pageSize = i5;
+        this.page = i3;
+        this.pageSize = i4;
         this.includeExpire = z2;
     }
 

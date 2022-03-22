@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c extends c.b.b.n.l.a {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: i  reason: collision with root package name */
-    public static final long f27338i;
+    /* renamed from: e  reason: collision with root package name */
+    public static final long f22570e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* renamed from: h  reason: collision with root package name */
-    public float f27339h;
+    /* renamed from: d  reason: collision with root package name */
+    public float f22571d;
 
     static {
         InterceptResult invokeClinit;
@@ -33,29 +33,29 @@ public class c extends c.b.b.n.l.a {
                 return;
             }
         }
-        f27338i = c.b.b.n.l.a.d("shininess");
+        f22570e = c.b.b.n.l.a.d("shininess");
         c.b.b.n.l.a.d("alphaTest");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(long j2, float f2) {
-        super(j2);
+    public c(long j, float f2) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), Float.valueOf(f2)};
+            Object[] objArr = {Long.valueOf(j), Float.valueOf(f2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f27339h = f2;
+        this.f22571d = f2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -65,16 +65,16 @@ public class c extends c.b.b.n.l.a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            long j2 = this.f27319e;
-            long j3 = aVar.f27319e;
-            if (j2 != j3) {
-                return (int) (j2 - j3);
+            long j = this.a;
+            long j2 = aVar.a;
+            if (j != j2) {
+                return (int) (j - j2);
             }
-            float f2 = ((c) aVar).f27339h;
-            if (com.badlogic.gdx.math.d.e(this.f27339h, f2)) {
+            float f2 = ((c) aVar).f22571d;
+            if (com.badlogic.gdx.math.d.e(this.f22571d, f2)) {
                 return 0;
             }
-            return this.f27339h < f2 ? -1 : 1;
+            return this.f22571d < f2 ? -1 : 1;
         }
         return invokeL.intValue;
     }
@@ -83,6 +83,6 @@ public class c extends c.b.b.n.l.a {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f27339h) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (super.hashCode() * 977) + t.b(this.f22571d) : invokeV.intValue;
     }
 }

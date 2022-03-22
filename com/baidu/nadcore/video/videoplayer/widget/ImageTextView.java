@@ -1,13 +1,11 @@
 package com.baidu.nadcore.video.videoplayer.widget;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import c.a.b0.i0.a.d.b;
+import c.a.a0.i0.a.d.b;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -20,18 +18,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageTextView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: h  reason: collision with root package name */
-    public static final int f35841h;
+    /* renamed from: d  reason: collision with root package name */
+    public static final int f27709d;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f35842e;
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f27710b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f35843f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f35844g;
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f27711c;
 
     static {
         InterceptResult invokeClinit;
@@ -46,7 +42,7 @@ public class ImageTextView extends LinearLayout {
                 return;
             }
         }
-        f35841h = b.a(4.0f);
+        f27709d = b.a(4.0f);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -58,9 +54,9 @@ public class ImageTextView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -76,111 +72,50 @@ public class ImageTextView extends LinearLayout {
             setOrientation(1);
             setGravity(17);
             ImageView imageView = new ImageView(getContext());
-            this.f35843f = imageView;
+            this.f27710b = imageView;
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            addView(this.f35843f, new LinearLayout.LayoutParams(-2, -2));
+            addView(this.f27710b, new LinearLayout.LayoutParams(-2, -2));
             TextView textView = new TextView(getContext());
-            this.f35844g = textView;
+            this.f27711c = textView;
             textView.setTextColor(-1);
-            this.f35844g.setTextSize(12.0f);
+            this.f27711c.setTextSize(12.0f);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(0, f35841h, 0, 0);
-            addView(this.f35844g, layoutParams);
+            layoutParams.setMargins(0, f27709d, 0, 0);
+            addView(this.f27711c, layoutParams);
         }
     }
 
-    public void clearTitle() {
+    public ImageTextView b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f35844g.setText((CharSequence) null);
-        }
-    }
-
-    public ImageTextView setIcon(Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, drawable)) == null) {
-            this.f35843f.setImageDrawable(drawable);
-            this.f35843f.setVisibility(0);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f27711c.setTextColor(getResources().getColorStateList(i));
             return this;
         }
-        return (ImageTextView) invokeL.objValue;
+        return (ImageTextView) invokeI.objValue;
     }
 
-    public void setIconAndTitle(int i2, int i3) {
+    public void setIconAndTitle(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-            if (i2 != 0) {
-                if (this.f35842e != i2) {
-                    this.f35843f.setImageResource(i2);
-                    this.f35843f.setVisibility(0);
-                    this.f35842e = i2;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (i != 0) {
+                if (this.a != i) {
+                    this.f27710b.setImageResource(i);
+                    this.f27710b.setVisibility(0);
+                    this.a = i;
                 }
             } else {
-                this.f35843f.setImageDrawable(null);
-                this.f35843f.setVisibility(8);
+                this.f27710b.setImageDrawable(null);
+                this.f27710b.setVisibility(8);
             }
-            if (i3 != 0) {
-                this.f35844g.setText(i3);
-                this.f35844g.setVisibility(0);
+            if (i2 != 0) {
+                this.f27711c.setText(i2);
+                this.f27711c.setVisibility(0);
                 return;
             }
-            this.f35844g.setText((CharSequence) null);
-            this.f35844g.setVisibility(8);
+            this.f27711c.setText((CharSequence) null);
+            this.f27711c.setVisibility(8);
         }
-    }
-
-    public ImageTextView setIconBackground(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i2)) == null) {
-            this.f35843f.setBackgroundResource(i2);
-            this.f35843f.setVisibility(0);
-            return this;
-        }
-        return (ImageTextView) invokeI.objValue;
-    }
-
-    public ImageTextView setIconSize(int i2, int i3) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048582, this, i2, i3)) == null) {
-            this.f35843f.setLayoutParams(new LinearLayout.LayoutParams(i2, i3));
-            return this;
-        }
-        return (ImageTextView) invokeII.objValue;
-    }
-
-    public ImageTextView setTextColor(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            this.f35844g.setTextColor(getResources().getColorStateList(i2));
-            return this;
-        }
-        return (ImageTextView) invokeI.objValue;
-    }
-
-    public ImageTextView setTitle(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) ? setTitle(getContext().getString(i2)) : (ImageTextView) invokeI.objValue;
-    }
-
-    public ImageTextView setTitle(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (str != null) {
-                this.f35844g.setText(str);
-                this.f35844g.setVisibility(0);
-            } else {
-                this.f35844g.setText((CharSequence) null);
-                this.f35844g.setVisibility(8);
-            }
-            return this;
-        }
-        return (ImageTextView) invokeL.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -192,9 +127,9 @@ public class ImageTextView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -205,29 +140,18 @@ public class ImageTextView extends LinearLayout {
         a();
     }
 
-    public ImageTextView setIcon(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
-            this.f35843f.setImageResource(i2);
-            this.f35843f.setVisibility(0);
-            return this;
-        }
-        return (ImageTextView) invokeI.objValue;
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageTextView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ImageTextView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

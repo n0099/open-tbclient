@@ -17,7 +17,7 @@ public class ActivityCompatApi23 {
 
     /* loaded from: classes4.dex */
     public interface RequestPermissionsRequestCodeValidator {
-        void validateRequestPermissionsRequestCode(int i2);
+        void validateRequestPermissionsRequestCode(int i);
     }
 
     public ActivityCompatApi23() {
@@ -25,22 +25,22 @@ public class ActivityCompatApi23 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i2) {
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
             if (activity instanceof RequestPermissionsRequestCodeValidator) {
-                ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i2);
+                ((RequestPermissionsRequestCodeValidator) activity).validateRequestPermissionsRequestCode(i);
             }
-            activity.requestPermissions(strArr, i2);
+            activity.requestPermissions(strArr, i);
         }
     }
 

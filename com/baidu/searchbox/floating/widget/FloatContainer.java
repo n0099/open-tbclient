@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.floating.config.Config;
+import com.baidu.mobstat.Config;
 import com.baidu.searchbox.floating.widget.FloatContainer;
 import com.baidu.searchbox.updateprocessor.UpdateCloudControlProcessor;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
@@ -18,11 +18,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.core.config.item.TipsConfigItem;
+import com.tachikoma.core.component.anim.AnimationProperty;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u00002\u00020\u0001:\u000389:B-\u0012\u0006\u0010\u001a\u001a\u00020\u0019\u0012\u0006\u00102\u001a\u000201\u0012\n\b\u0002\u00104\u001a\u0004\u0018\u000103\u0012\b\b\u0002\u00105\u001a\u00020\b¢\u0006\u0004\b6\u00107J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J7\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0011\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0002H\u0017¢\u0006\u0004\b\u0011\u0010\u0006R$\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0019\u0010\u001a\u001a\u00020\u00198\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R$\u0010$\u001a\u0004\u0018\u00010#8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R$\u0010+\u001a\u0004\u0018\u00010*8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.\"\u0004\b/\u00100¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/floating/widget/FloatContainer;", "Landroid/widget/FrameLayout;", "Landroid/view/MotionEvent;", "ev", "", "onInterceptTouchEvent", "(Landroid/view/MotionEvent;)Z", "changed", "", "left", "top", "right", "bottom", "", "onLayout", "(ZIIII)V", "event", "onTouchEvent", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "clickListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "getClickListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "setClickListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;)V", "Lcom/baidu/searchbox/floating/config/Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "Landroid/view/GestureDetector;", "gestureDetector", "Landroid/view/GestureDetector;", "isCreate", "Z", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "layoutListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "getLayoutListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "setLayoutListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;)V", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "touchListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "getTouchListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "setTouchListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Lcom/baidu/searchbox/floating/config/Config;Landroid/content/Context;Landroid/util/AttributeSet;I)V", "ClickListener", "LayoutListener", "TouchListener", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u00002\u00020\u0001:\u000389:B-\u0012\u0006\u0010\u001a\u001a\u00020\u0019\u0012\u0006\u00102\u001a\u000201\u0012\n\b\u0002\u00104\u001a\u0004\u0018\u000103\u0012\b\b\u0002\u00105\u001a\u00020\b¢\u0006\u0004\b6\u00107J\u0019\u0010\u0005\u001a\u00020\u00042\b\u0010\u0003\u001a\u0004\u0018\u00010\u0002H\u0016¢\u0006\u0004\b\u0005\u0010\u0006J7\u0010\u000e\u001a\u00020\r2\u0006\u0010\u0007\u001a\u00020\u00042\u0006\u0010\t\u001a\u00020\b2\u0006\u0010\n\u001a\u00020\b2\u0006\u0010\u000b\u001a\u00020\b2\u0006\u0010\f\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000e\u0010\u000fJ\u0019\u0010\u0011\u001a\u00020\u00042\b\u0010\u0010\u001a\u0004\u0018\u00010\u0002H\u0017¢\u0006\u0004\b\u0011\u0010\u0006R$\u0010\u0013\u001a\u0004\u0018\u00010\u00128\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0019\u0010\u001a\u001a\u00020\u00198\u0006@\u0006¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u001c\u0010\u001dR\u0016\u0010\u001f\u001a\u00020\u001e8\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b\u001f\u0010 R\u0016\u0010!\u001a\u00020\u00048\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b!\u0010\"R$\u0010$\u001a\u0004\u0018\u00010#8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'\"\u0004\b(\u0010)R$\u0010+\u001a\u0004\u0018\u00010*8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b+\u0010,\u001a\u0004\b-\u0010.\"\u0004\b/\u00100¨\u0006;"}, d2 = {"Lcom/baidu/searchbox/floating/widget/FloatContainer;", "Landroid/widget/FrameLayout;", "Landroid/view/MotionEvent;", Config.EVENT_PART, "", "onInterceptTouchEvent", "(Landroid/view/MotionEvent;)Z", "changed", "", "left", AnimationProperty.TOP, "right", TipsConfigItem.TipConfigData.BOTTOM, "", "onLayout", "(ZIIII)V", "event", "onTouchEvent", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "clickListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "getClickListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;", "setClickListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$ClickListener;)V", "Lcom/baidu/searchbox/floating/config/Config;", UpdateCloudControlProcessor.CLOUD_UPDATE_ACTION_NAME, "Lcom/baidu/searchbox/floating/config/Config;", "getConfig", "()Lcom/baidu/searchbox/floating/config/Config;", "Landroid/view/GestureDetector;", "gestureDetector", "Landroid/view/GestureDetector;", "isCreate", "Z", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "layoutListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "getLayoutListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;", "setLayoutListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$LayoutListener;)V", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "touchListener", "Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "getTouchListener", "()Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;", "setTouchListener", "(Lcom/baidu/searchbox/floating/widget/FloatContainer$TouchListener;)V", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attrs", "defStyleAttr", "<init>", "(Lcom/baidu/searchbox/floating/config/Config;Landroid/content/Context;Landroid/util/AttributeSet;I)V", "ClickListener", "LayoutListener", "TouchListener", "floating-view_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
 public final class FloatContainer extends FrameLayout {
@@ -30,7 +32,7 @@ public final class FloatContainer extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap _$_findViewCache;
     public ClickListener clickListener;
-    public final Config config;
+    public final com.baidu.searchbox.floating.config.Config config;
     public final GestureDetector gestureDetector;
     public boolean isCreate;
     public LayoutListener layoutListener;
@@ -54,8 +56,8 @@ public final class FloatContainer extends FrameLayout {
         void onTouch(MotionEvent motionEvent);
     }
 
-    public /* synthetic */ FloatContainer(Config config, Context context, AttributeSet attributeSet, int i2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(config, context, (i3 & 4) != 0 ? null : attributeSet, (i3 & 8) != 0 ? 0 : i2);
+    public /* synthetic */ FloatContainer(com.baidu.searchbox.floating.config.Config config, Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(config, context, (i2 & 4) != 0 ? null : attributeSet, (i2 & 8) != 0 ? 0 : i);
     }
 
     public void _$_clearFindViewByIdCache() {
@@ -67,17 +69,17 @@ public final class FloatContainer extends FrameLayout {
         hashMap.clear();
     }
 
-    public View _$_findCachedViewById(int i2) {
+    public View _$_findCachedViewById(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             if (this._$_findViewCache == null) {
                 this._$_findViewCache = new HashMap();
             }
-            View view = (View) this._$_findViewCache.get(Integer.valueOf(i2));
+            View view = (View) this._$_findViewCache.get(Integer.valueOf(i));
             if (view == null) {
-                View findViewById = findViewById(i2);
-                this._$_findViewCache.put(Integer.valueOf(i2), findViewById);
+                View findViewById = findViewById(i);
+                this._$_findViewCache.put(Integer.valueOf(i), findViewById);
                 return findViewById;
             }
             return view;
@@ -91,10 +93,10 @@ public final class FloatContainer extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.clickListener : (ClickListener) invokeV.objValue;
     }
 
-    public final Config getConfig() {
+    public final com.baidu.searchbox.floating.config.Config getConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.config : (Config) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.config : (com.baidu.searchbox.floating.config.Config) invokeV.objValue;
     }
 
     public final LayoutListener getLayoutListener() {
@@ -124,10 +126,10 @@ public final class FloatContainer extends FrameLayout {
     }
 
     @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (this.isCreate) {
                 return;
             }
@@ -176,17 +178,17 @@ public final class FloatContainer extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FloatContainer(Config config, Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public FloatContainer(com.baidu.searchbox.floating.config.Config config, Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {config, context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {config, context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -210,9 +212,9 @@ public final class FloatContainer extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;

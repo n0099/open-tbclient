@@ -22,42 +22,42 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f43943b;
+        public String f34102b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ArrayList<String> f43944c;
+        public ArrayList<String> f34103c;
 
         public TBCdnMobileListData() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = null;
-            this.f43943b = null;
-            this.f43944c = new ArrayList<>();
+            this.f34102b = null;
+            this.f34103c = new ArrayList<>();
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TbMobileCdnGetIPListHttpResponseMsg(int i2) {
-        super(i2);
+    public TbMobileCdnGetIPListHttpResponseMsg(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -67,10 +67,10 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
-    public void decodeLogicInBackGround(int i2, JSONObject jSONObject) throws Exception {
+    public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, jSONObject) == null) {
-            super.decodeLogicInBackGround(i2, jSONObject);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
+            super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject == null) {
                 return;
             }
@@ -84,15 +84,15 @@ public class TbMobileCdnGetIPListHttpResponseMsg extends JsonHttpResponsedMessag
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 JSONArray optJSONArray = optJSONObject.optJSONArray("vips");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i3 = 0; i3 < optJSONArray.length() && this.mobileCdnData.f43944c.size() <= 5; i3++) {
-                        String string = optJSONArray.getString(i3);
+                    for (int i2 = 0; i2 < optJSONArray.length() && this.mobileCdnData.f34103c.size() <= 5; i2++) {
+                        String string = optJSONArray.getString(i2);
                         if (string != null) {
-                            this.mobileCdnData.f43944c.add(string);
+                            this.mobileCdnData.f34103c.add(string);
                         }
                     }
                 }
                 this.mobileCdnData.a = optJSONObject.optString("testimg_url");
-                this.mobileCdnData.f43943b = optJSONObject.optString("testimg_md5");
+                this.mobileCdnData.f34102b = optJSONObject.optString("testimg_md5");
             } catch (Exception e2) {
                 BdLog.e(e2);
             }

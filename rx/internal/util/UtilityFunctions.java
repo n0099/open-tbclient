@@ -7,14 +7,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.n.f;
-/* loaded from: classes9.dex */
+import g.n.f;
+/* loaded from: classes8.dex */
 public final class UtilityFunctions {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AlwaysFalse implements f<Object, Boolean> {
         public static final /* synthetic */ AlwaysFalse[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -39,16 +39,16 @@ public final class UtilityFunctions {
             $VALUES = new AlwaysFalse[]{alwaysFalse};
         }
 
-        public AlwaysFalse(String str, int i2) {
+        public AlwaysFalse(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -72,7 +72,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // i.n.f
+        @Override // g.n.f
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public final class UtilityFunctions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class AlwaysTrue implements f<Object, Boolean> {
         public static final /* synthetic */ AlwaysTrue[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,16 +106,16 @@ public final class UtilityFunctions {
             $VALUES = new AlwaysTrue[]{alwaysTrue};
         }
 
-        public AlwaysTrue(String str, int i2) {
+        public AlwaysTrue(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -139,7 +139,7 @@ public final class UtilityFunctions {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // i.n.f
+        @Override // g.n.f
         public Boolean call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -148,7 +148,7 @@ public final class UtilityFunctions {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Identity implements f<Object, Object> {
         public static final /* synthetic */ Identity[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -173,16 +173,16 @@ public final class UtilityFunctions {
             $VALUES = new Identity[]{identity};
         }
 
-        public Identity(String str, int i2) {
+        public Identity(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -204,7 +204,7 @@ public final class UtilityFunctions {
             return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (Identity[]) $VALUES.clone() : (Identity[]) invokeV.objValue;
         }
 
-        @Override // i.n.f
+        @Override // g.n.f
         public Object call(Object obj) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;

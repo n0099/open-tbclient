@@ -12,7 +12,7 @@ public interface IMConversation {
 
     void sendMessage(Object obj, SendMessageStatusListener sendMessageStatusListener, SendMessageListener sendMessageListener);
 
-    void setPullInterval(int i2);
+    void setPullInterval(int i);
 
     void unregisterMsgReceiveListener(String str);
 }

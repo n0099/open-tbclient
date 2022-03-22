@@ -72,9 +72,9 @@ public final class SoLoader implements NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -91,9 +91,9 @@ public final class SoLoader implements NoProGuard {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new File(getNativeLibraryDir(context)));
             arrayList.add(new File(context.getFilesDir(), "lib"));
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                if (!soSources.contains(arrayList.get(i2))) {
-                    soSources.add(arrayList.get(i2));
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (!soSources.contains(arrayList.get(i))) {
+                    soSources.add(arrayList.get(i));
                 }
             }
         }
@@ -130,12 +130,12 @@ public final class SoLoader implements NoProGuard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean executeRelease(Context context, ZipFile zipFile, String str, String str2, long j2) {
+    private boolean executeRelease(Context context, ZipFile zipFile, String str, String str2, long j) {
         FileChannel fileChannel;
         InterceptResult invokeCommon;
         FileChannel fileChannel2;
         Interceptable interceptable = $ic;
-        if (interceptable == 0 || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, (fileChannel = new Object[]{context, zipFile, str, str2, Long.valueOf(j2)}))) == null) {
+        if (interceptable == 0 || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, (fileChannel = new Object[]{context, zipFile, str, str2, Long.valueOf(j)}))) == null) {
             boolean z = false;
             if (zipFile == null) {
                 return false;
@@ -176,7 +176,7 @@ public final class SoLoader implements NoProGuard {
                                 e = e6;
                                 e.printStackTrace();
                                 if (fileLock != null) {
-                                    saveCrc(j2, str, releaseSoFilePath);
+                                    saveCrc(j, str, releaseSoFilePath);
                                 }
                                 if (fileLock != null) {
                                 }
@@ -186,7 +186,7 @@ public final class SoLoader implements NoProGuard {
                             }
                         }
                         if (fileLock != null && fileLock.isValid() && (z = releaseFileFromApk(zipFile, file, str2))) {
-                            saveCrc(j2, str, releaseSoFilePath);
+                            saveCrc(j, str, releaseSoFilePath);
                         }
                         if (fileLock != null) {
                             try {
@@ -362,12 +362,12 @@ public final class SoLoader implements NoProGuard {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean isValidFile(String str, long j2, long j3) {
+    private boolean isValidFile(String str, long j, long j2) {
         InterceptResult invokeCommon;
         BufferedReader bufferedReader;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) != null) {
             return invokeCommon.booleanValue;
         }
         File file = new File(str);
@@ -397,7 +397,7 @@ public final class SoLoader implements NoProGuard {
                                 e3.printStackTrace();
                             }
                         }
-                        return !TextUtils.equals(String.valueOf(j2), str3) ? false : false;
+                        return !TextUtils.equals(String.valueOf(j), str3) ? false : false;
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -431,7 +431,7 @@ public final class SoLoader implements NoProGuard {
             }
             throw th;
         }
-        if (!TextUtils.equals(String.valueOf(j2), str3) && j3 == file.length()) {
+        if (!TextUtils.equals(String.valueOf(j), str3) && j2 == file.length()) {
             return true;
         }
     }
@@ -444,21 +444,21 @@ public final class SoLoader implements NoProGuard {
         load(context, str, (ICallingSoLoader) null);
     }
 
-    private boolean loadFromNativeLibDir(Context context, ICallingSoLoader iCallingSoLoader, String str, long j2, String str2) {
+    private boolean loadFromNativeLibDir(Context context, ICallingSoLoader iCallingSoLoader, String str, long j, String str2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{context, iCallingSoLoader, str, Long.valueOf(j2), str2})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, this, new Object[]{context, iCallingSoLoader, str, Long.valueOf(j), str2})) == null) {
             File file = new File(getNativeLibraryDir(context), str);
-            return file.exists() && file.length() == j2 && load(iCallingSoLoader, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD");
+            return file.exists() && file.length() == j && load(iCallingSoLoader, file.getAbsolutePath(), "SO_NATIVE_LIB_LOAD");
         }
         return invokeCommon.booleanValue;
     }
 
-    private boolean loadFromReleaseApk(Context context, ICallingSoLoader iCallingSoLoader, String str, ZipFile zipFile, String str2, long j2) {
+    private boolean loadFromReleaseApk(Context context, ICallingSoLoader iCallingSoLoader, String str, ZipFile zipFile, String str2, long j) {
         InterceptResult invokeCommon;
         long soCrc;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{context, iCallingSoLoader, str, zipFile, str2, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65555, this, new Object[]{context, iCallingSoLoader, str, zipFile, str2, Long.valueOf(j)})) == null) {
             String absolutePath = new File(getReleaseSoFilePath(context), str).getAbsolutePath();
             Lock lock = getLock(str);
             lock.lock();
@@ -468,11 +468,11 @@ public final class SoLoader implements NoProGuard {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                if (loadFromReleaseCache(iCallingSoLoader, absolutePath, soCrc, j2)) {
+                if (loadFromReleaseCache(iCallingSoLoader, absolutePath, soCrc, j)) {
                     return true;
                 }
                 if (executeRelease(context, zipFile, str, str2, soCrc)) {
-                    if (loadFromReleaseCache(iCallingSoLoader, absolutePath, soCrc, j2)) {
+                    if (loadFromReleaseCache(iCallingSoLoader, absolutePath, soCrc, j)) {
                         return true;
                     }
                 }
@@ -485,10 +485,10 @@ public final class SoLoader implements NoProGuard {
         return invokeCommon.booleanValue;
     }
 
-    private boolean loadFromReleaseCache(ICallingSoLoader iCallingSoLoader, String str, long j2, long j3) {
+    private boolean loadFromReleaseCache(ICallingSoLoader iCallingSoLoader, String str, long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{iCallingSoLoader, str, Long.valueOf(j2), Long.valueOf(j3)})) == null) ? isValidFile(str, j2, j3) && load(iCallingSoLoader, str, "SO_RELEASE_LIB_LOAD") : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65556, this, new Object[]{iCallingSoLoader, str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? isValidFile(str, j, j2) && load(iCallingSoLoader, str, "SO_RELEASE_LIB_LOAD") : invokeCommon.booleanValue;
     }
 
     private boolean loadInternal(Context context, String str, ICallingSoLoader iCallingSoLoader) {
@@ -552,8 +552,8 @@ public final class SoLoader implements NoProGuard {
                     }
                     return false;
                 }
-                int i2 = !SoUtils.is64Bit() ? 1 : 0;
-                String str2 = SoUtils.uris[i2] + File.separator + fullName;
+                int i = !SoUtils.is64Bit() ? 1 : 0;
+                String str2 = SoUtils.uris[i] + File.separator + fullName;
                 long soSize = getSoSize(zipFile, str2);
                 if (loadFromNativeLibDir(context, iCallingSoLoader, fullName, soSize, str2)) {
                     if (zipFile != null) {
@@ -716,11 +716,11 @@ public final class SoLoader implements NoProGuard {
         return invokeLLL.booleanValue;
     }
 
-    private boolean saveCrc(long j2, String str, File file) {
+    private boolean saveCrc(long j, String str, File file) {
         InterceptResult invokeCommon;
         BufferedWriter bufferedWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, this, new Object[]{Long.valueOf(j2), str, file})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65561, this, new Object[]{Long.valueOf(j), str, file})) == null) {
             BufferedWriter bufferedWriter2 = null;
             try {
                 try {
@@ -732,7 +732,7 @@ public final class SoLoader implements NoProGuard {
                 th = th;
             }
             try {
-                bufferedWriter.write(String.valueOf(j2));
+                bufferedWriter.write(String.valueOf(j));
                 try {
                     bufferedWriter.close();
                     return true;

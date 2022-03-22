@@ -5,7 +5,7 @@ import com.kwad.sdk.core.diskcache.a.c;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.aa;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class n {
     public static boolean a(@NonNull AdTemplate adTemplate) {
         if (b(adTemplate)) {

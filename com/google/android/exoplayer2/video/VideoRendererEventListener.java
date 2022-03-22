@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface VideoRendererEventListener {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class EventDispatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public interface VideoRendererEventListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {handler, videoRendererEventListener};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -42,12 +42,12 @@ public interface VideoRendererEventListener {
             this.listener = videoRendererEventListener;
         }
 
-        public void decoderInitialized(String str, long j2, long j3) {
+        public void decoderInitialized(String str, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, str, j2, j3) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.2
+            this.handler.post(new Runnable(this, str, j, j2) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -60,11 +60,11 @@ public interface VideoRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, str, Long.valueOf(j2), Long.valueOf(j3)};
+                        Object[] objArr = {this, str, Long.valueOf(j), Long.valueOf(j2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -72,8 +72,8 @@ public interface VideoRendererEventListener {
                     }
                     this.this$0 = this;
                     this.val$decoderName = str;
-                    this.val$initializedTimestampMs = j2;
-                    this.val$initializationDurationMs = j3;
+                    this.val$initializedTimestampMs = j;
+                    this.val$initializationDurationMs = j2;
                 }
 
                 @Override // java.lang.Runnable
@@ -104,9 +104,9 @@ public interface VideoRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, decoderCounters};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -127,12 +127,12 @@ public interface VideoRendererEventListener {
             });
         }
 
-        public void droppedFrames(int i2, long j2) {
+        public void droppedFrames(int i, long j) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2, j2) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.4
+            this.handler.post(new Runnable(this, i, j) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -144,19 +144,19 @@ public interface VideoRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Long.valueOf(j2)};
+                        Object[] objArr = {this, Integer.valueOf(i), Long.valueOf(j)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$droppedFrameCount = i2;
-                    this.val$elapsedMs = j2;
+                    this.val$droppedFrameCount = i;
+                    this.val$elapsedMs = j;
                 }
 
                 @Override // java.lang.Runnable
@@ -187,9 +187,9 @@ public interface VideoRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, decoderCounters};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -227,9 +227,9 @@ public interface VideoRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, format};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -267,9 +267,9 @@ public interface VideoRendererEventListener {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, surface};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -289,12 +289,12 @@ public interface VideoRendererEventListener {
             });
         }
 
-        public void videoSizeChanged(int i2, int i3, int i4, float f2) {
+        public void videoSizeChanged(int i, int i2, int i3, float f2) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)}) == null) || this.listener == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)}) == null) || this.listener == null) {
                 return;
             }
-            this.handler.post(new Runnable(this, i2, i3, i4, f2) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.5
+            this.handler.post(new Runnable(this, i, i2, i3, f2) { // from class: com.google.android.exoplayer2.video.VideoRendererEventListener.EventDispatcher.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ EventDispatcher this$0;
@@ -308,20 +308,20 @@ public interface VideoRendererEventListener {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Float.valueOf(f2)};
+                        Object[] objArr = {this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f2)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i5 = newInitContext.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
                         }
                     }
                     this.this$0 = this;
-                    this.val$width = i2;
-                    this.val$height = i3;
-                    this.val$unappliedRotationDegrees = i4;
+                    this.val$width = i;
+                    this.val$height = i2;
+                    this.val$unappliedRotationDegrees = i3;
                     this.val$pixelWidthHeightRatio = f2;
                 }
 
@@ -336,11 +336,11 @@ public interface VideoRendererEventListener {
         }
     }
 
-    void onDroppedFrames(int i2, long j2);
+    void onDroppedFrames(int i, long j);
 
     void onRenderedFirstFrame(Surface surface);
 
-    void onVideoDecoderInitialized(String str, long j2, long j3);
+    void onVideoDecoderInitialized(String str, long j, long j2);
 
     void onVideoDisabled(DecoderCounters decoderCounters);
 
@@ -348,5 +348,5 @@ public interface VideoRendererEventListener {
 
     void onVideoInputFormatChanged(Format format);
 
-    void onVideoSizeChanged(int i2, int i3, int i4, float f2);
+    void onVideoSizeChanged(int i, int i2, int i3, float f2);
 }

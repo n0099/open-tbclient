@@ -6,27 +6,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class v extends s {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f59216b;
+    public long f43851b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v(int i2) {
-        super(i2);
+    public v(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,7 +41,7 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
             super.c(aVar);
             aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.a);
-            aVar.a("notify_id", this.f59216b);
+            aVar.a("notify_id", this.f43851b);
         }
     }
 
@@ -51,14 +51,14 @@ public abstract class v extends s {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             super.d(aVar);
             this.a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-            this.f59216b = aVar.b("notify_id", -1L);
+            this.f43851b = aVar.b("notify_id", -1L);
         }
     }
 
     public final long f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f59216b : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f43851b : invokeV.longValue;
     }
 
     public final String i() {

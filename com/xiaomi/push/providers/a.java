@@ -14,16 +14,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.channel.commonutils.logger.b;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static int a = 1;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Object f831a;
+    public static final Object f807a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String[] f832a;
+    public static final String[] f808a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -39,8 +39,8 @@ public class a extends SQLiteOpenHelper {
                 return;
             }
         }
-        f831a = new Object();
-        f832a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
+        f807a = new Object();
+        f808a = new String[]{"package_name", "TEXT", "message_ts", " LONG DEFAULT 0 ", "bytes", " LONG DEFAULT 0 ", "network_type", " INT DEFAULT -1 ", "rcv", " INT DEFAULT -1 ", BaseStatisContent.IMSI, "TEXT"};
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -52,9 +52,9 @@ public class a extends SQLiteOpenHelper {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -68,13 +68,13 @@ public class a extends SQLiteOpenHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, sQLiteDatabase) == null) {
             StringBuilder sb = new StringBuilder("CREATE TABLE traffic(_id INTEGER  PRIMARY KEY ,");
-            for (int i2 = 0; i2 < f832a.length - 1; i2 += 2) {
-                if (i2 != 0) {
+            for (int i = 0; i < f808a.length - 1; i += 2) {
+                if (i != 0) {
                     sb.append(",");
                 }
-                sb.append(f832a[i2]);
+                sb.append(f808a[i]);
                 sb.append(" ");
-                sb.append(f832a[i2 + 1]);
+                sb.append(f808a[i + 1]);
             }
             sb.append(");");
             sQLiteDatabase.execSQL(sb.toString());
@@ -85,7 +85,7 @@ public class a extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            synchronized (f831a) {
+            synchronized (f807a) {
                 try {
                     a(sQLiteDatabase);
                 } catch (SQLException e2) {
@@ -96,9 +96,9 @@ public class a extends SQLiteOpenHelper {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
         }
     }
 }

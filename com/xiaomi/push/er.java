@@ -12,26 +12,26 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class er {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static a f338a;
+    public static a f314a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f339a;
+    public static final String f315a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a();
 
         void a(boolean z);
 
         /* renamed from: a  reason: collision with other method in class */
-        boolean m360a();
+        boolean m339a();
     }
 
     static {
@@ -47,7 +47,7 @@ public final class er {
                 return;
             }
         }
-        f339a = XMJobService.class.getCanonicalName();
+        f315a = XMJobService.class.getCanonicalName();
         a = 0;
     }
 
@@ -55,17 +55,17 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
             synchronized (er.class) {
-                if (f338a == null) {
+                if (f314a == null) {
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("stop alarm.");
-                f338a.a();
+                f314a.a();
             }
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:20:0x0062, code lost:
-        if (com.xiaomi.push.er.f339a.equals(com.xiaomi.push.t.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L21;
+        if (com.xiaomi.push.er.f315a.equals(com.xiaomi.push.t.a(r9, r6.name).getSuperclass().getCanonicalName()) != false) goto L21;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -78,73 +78,73 @@ public final class er {
             if ("com.xiaomi.xmsf".equals(applicationContext.getPackageName())) {
                 esVar = new es(applicationContext);
             } else {
-                int i2 = 0;
+                int i = 0;
                 try {
                     PackageInfo packageInfo = applicationContext.getPackageManager().getPackageInfo(applicationContext.getPackageName(), 4);
                     if (packageInfo.services != null) {
                         ServiceInfo[] serviceInfoArr = packageInfo.services;
                         int length = serviceInfoArr.length;
-                        int i3 = 0;
-                        while (i2 < length) {
+                        int i2 = 0;
+                        while (i < length) {
                             try {
-                                ServiceInfo serviceInfo = serviceInfoArr[i2];
+                                ServiceInfo serviceInfo = serviceInfoArr[i];
                                 if ("android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                                    if (!f339a.equals(serviceInfo.name)) {
+                                    if (!f315a.equals(serviceInfo.name)) {
                                         try {
                                         } catch (Exception unused) {
                                         }
                                     }
-                                    i3 = 1;
-                                    if (i3 == 1) {
+                                    i2 = 1;
+                                    if (i2 == 1) {
                                         break;
                                     }
                                 }
-                                if (f339a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
-                                    i2 = 1;
+                                if (f315a.equals(serviceInfo.name) && "android.permission.BIND_JOB_SERVICE".equals(serviceInfo.permission)) {
+                                    i = 1;
                                     break;
                                 }
-                                i2++;
+                                i++;
                             } catch (Exception e2) {
                                 e = e2;
-                                i2 = i3;
-                                com.xiaomi.channel.commonutils.logger.b.m133a("check service err : " + e.getMessage());
-                                if (i2 != 0) {
+                                i = i2;
+                                com.xiaomi.channel.commonutils.logger.b.m112a("check service err : " + e.getMessage());
+                                if (i != 0) {
                                 }
-                                int i4 = Build.VERSION.SDK_INT;
+                                int i3 = Build.VERSION.SDK_INT;
                                 esVar = new es(applicationContext);
-                                f338a = esVar;
+                                f314a = esVar;
                             }
                         }
-                        i2 = i3;
+                        i = i2;
                     }
                 } catch (Exception e3) {
                     e = e3;
                 }
-                if (i2 != 0 && t.m703a(applicationContext)) {
-                    throw new RuntimeException("Should export service: " + f339a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
+                if (i != 0 && t.m682a(applicationContext)) {
+                    throw new RuntimeException("Should export service: " + f315a + " with permission android.permission.BIND_JOB_SERVICE in AndroidManifest.xml file");
                 }
-                int i42 = Build.VERSION.SDK_INT;
+                int i32 = Build.VERSION.SDK_INT;
                 esVar = new es(applicationContext);
             }
-            f338a = esVar;
+            f314a = esVar;
         }
     }
 
-    public static synchronized void a(Context context, int i2) {
+    public static synchronized void a(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, context, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) {
             synchronized (er.class) {
-                int i3 = a;
+                int i2 = a;
                 if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
-                    if (i2 == 2) {
+                    if (i == 2) {
                         a = 2;
                     } else {
                         a = 0;
                     }
                 }
-                if (i3 != a && a == 2) {
+                if (i2 != a && a == 2) {
                     a();
-                    f338a = new eu(context);
+                    f314a = new eu(context);
                 }
             }
         }
@@ -154,26 +154,26 @@ public final class er {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
             synchronized (er.class) {
-                if (f338a == null) {
-                    com.xiaomi.channel.commonutils.logger.b.m133a("timer is not initialized");
+                if (f314a == null) {
+                    com.xiaomi.channel.commonutils.logger.b.m112a("timer is not initialized");
                     return;
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("register alarm. (" + z + SmallTailInfo.EMOTION_SUFFIX);
-                f338a.a(z);
+                f314a.a(z);
             }
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static synchronized boolean m359a() {
+    public static synchronized boolean m338a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             synchronized (er.class) {
-                if (f338a == null) {
+                if (f314a == null) {
                     return false;
                 }
-                return f338a.m360a();
+                return f314a.m339a();
             }
         }
         return invokeV.booleanValue;

@@ -13,7 +13,7 @@ import com.kwad.v8.V8;
 import com.kwad.v8.V8Array;
 import com.kwad.v8.V8Object;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class V8Executor extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,7 +28,7 @@ public class V8Executor extends Thread {
     public volatile boolean shuttingDown;
     public volatile boolean terminated;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ExecutorTermination implements JavaVoidCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -41,9 +41,9 @@ public class V8Executor extends Thread {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {v8Executor};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -70,9 +70,9 @@ public class V8Executor extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((String) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -89,9 +89,9 @@ public class V8Executor extends Thread {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Boolean.valueOf(z), str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

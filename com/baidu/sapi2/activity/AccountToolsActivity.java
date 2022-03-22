@@ -30,16 +30,16 @@ public class AccountToolsActivity extends Activity {
     public AccountToolsResult a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AccountToolsCallback f36639b;
+    public AccountToolsCallback f28400b;
 
     public AccountToolsActivity() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -54,7 +54,7 @@ public class AccountToolsActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             int intExtra = getIntent().getIntExtra(EXTRA_ACCOUNT_TOOLS_TYPE, -1);
-            this.f36639b = CoreViewRouter.getInstance().getAccountToolsCallback();
+            this.f28400b = CoreViewRouter.getInstance().getAccountToolsCallback();
             AccountCenterDTO accountCenterDTO = new AccountCenterDTO();
             accountCenterDTO.accountToolsUrl = a(intExtra);
             accountCenterDTO.sweepLightLoading = getIntent().getBooleanExtra(EXTRA_SWEEP_LIGHT_LOADING, false);
@@ -70,9 +70,9 @@ public class AccountToolsActivity extends Activity {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -106,7 +106,7 @@ public class AccountToolsActivity extends Activity {
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            AccountToolsCallback accountToolsCallback = this.f36639b;
+            AccountToolsCallback accountToolsCallback = this.f28400b;
             if (accountToolsCallback != null) {
                 accountToolsCallback.onFinish(this.a);
             }
@@ -114,21 +114,21 @@ public class AccountToolsActivity extends Activity {
         }
     }
 
-    private String a(int i2) {
+    private String a(int i) {
         InterceptResult invokeI;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, this, i)) == null) {
             HashMap hashMap = new HashMap();
-            if (i2 == 1) {
+            if (i == 1) {
                 str = "/wp/v3/ucenter/accountfreezeapply";
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 str = "/wp/v3/ucenter/findaccback";
-            } else if (i2 == 3) {
+            } else if (i == 3) {
                 str = "/wp/v3/ucenter/accountcancelpage";
-            } else if (i2 == 4) {
+            } else if (i == 4) {
                 str = "/v4/appeal/";
-            } else if (i2 == 5) {
+            } else if (i == 5) {
                 hashMap.put("u", SapiHost.getHost(SapiHost.DOMAIN_BAIDU_HTTPS_URL) + "?__wp-action=modify-pwd");
                 hashMap.put(SpeedStatsUtils.UBC_VALUE_BANNER, "1");
                 str = "/wp/wappassword";

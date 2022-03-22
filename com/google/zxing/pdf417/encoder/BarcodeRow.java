@@ -13,61 +13,61 @@ public final class BarcodeRow {
     public int currentLocation;
     public final byte[] row;
 
-    public BarcodeRow(int i2) {
+    public BarcodeRow(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.row = new byte[i2];
+        this.row = new byte[i];
         this.currentLocation = 0;
     }
 
-    public void addBar(boolean z, int i2) {
+    public void addBar(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                int i4 = this.currentLocation;
-                this.currentLocation = i4 + 1;
-                set(i4, z);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int i3 = this.currentLocation;
+                this.currentLocation = i3 + 1;
+                set(i3, z);
             }
         }
     }
 
-    public byte[] getScaledRow(int i2) {
+    public byte[] getScaledRow(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
-            int length = this.row.length * i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int length = this.row.length * i;
             byte[] bArr = new byte[length];
-            for (int i3 = 0; i3 < length; i3++) {
-                bArr[i3] = this.row[i3 / i2];
+            for (int i2 = 0; i2 < length; i2++) {
+                bArr[i2] = this.row[i2 / i];
             }
             return bArr;
         }
         return (byte[]) invokeI.objValue;
     }
 
-    public void set(int i2, byte b2) {
+    public void set(int i, byte b2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Byte.valueOf(b2)}) == null) {
-            this.row[i2] = b2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Byte.valueOf(b2)}) == null) {
+            this.row[i] = b2;
         }
     }
 
-    private void set(int i2, boolean z) {
+    private void set(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            this.row[i2] = z ? (byte) 1 : (byte) 0;
+        if (interceptable == null || interceptable.invokeCommon(65537, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            this.row[i] = z ? (byte) 1 : (byte) 0;
         }
     }
 }

@@ -60,9 +60,9 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flowLiveDataConversions$asFlow$1, observer, continuation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -132,9 +132,9 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                 newInitContext.initArgs = r2;
                 Object[] objArr = {flowLiveDataConversions$asFlow$1, observer, continuation};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -192,9 +192,9 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
             newInitContext.initArgs = r2;
             Object[] objArr = {liveData, continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -259,11 +259,11 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
             return invokeL.objValue;
         }
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
+        int i = this.label;
         ?? r5 = 1;
         try {
             try {
-                if (i2 == 0) {
+                if (i == 0) {
                     ResultKt.throwOnFailure(obj);
                     flowCollector = this.p$;
                     final Channel Channel = ChannelKt.Channel(-1);
@@ -279,9 +279,9 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {Channel};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i3 = newInitContext.flag;
-                                if ((i3 & 1) != 0) {
-                                    int i4 = i3 & 2;
+                                int i2 = newInitContext.flag;
+                                if ((i2 & 1) != 0) {
+                                    int i3 = i2 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -309,9 +309,9 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                     }
                     channel = Channel;
                     observer = observer2;
-                } else if (i2 != 1) {
+                } else if (i != 1) {
                     try {
-                        if (i2 == 2) {
+                        if (i == 2) {
                             channelIterator = (ChannelIterator) this.L$3;
                             Observer observer3 = (Observer) this.L$2;
                             channel2 = (Channel) this.L$1;
@@ -322,7 +322,7 @@ public final class FlowLiveDataConversions$asFlow$1 extends SuspendLambda implem
                             r5 = observer3;
                             if (((Boolean) obj2).booleanValue()) {
                             }
-                        } else if (i2 != 3) {
+                        } else if (i != 3) {
                             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
                         } else {
                             channelIterator = (ChannelIterator) this.L$4;

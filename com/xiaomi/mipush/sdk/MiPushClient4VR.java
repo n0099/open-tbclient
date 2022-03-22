@@ -9,7 +9,7 @@ import com.xiaomi.push.hf;
 import com.xiaomi.push.hp;
 import com.xiaomi.push.hs;
 import com.xiaomi.push.ie;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MiPushClient4VR {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,9 +19,9 @@ public class MiPushClient4VR {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -32,12 +32,12 @@ public class MiPushClient4VR {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
             ie ieVar = new ie();
-            ieVar.c(hp.O.f514a);
-            ieVar.b(b.m174a(context).m175a());
+            ieVar.c(hp.O.f490a);
+            ieVar.b(b.m153a(context).m154a());
             ieVar.d(context.getPackageName());
             ieVar.a("data", str);
             ieVar.a(com.xiaomi.push.service.at.a());
-            an.a(context).a((an) ieVar, hf.f59728i, (hs) null);
+            an.a(context).a((an) ieVar, hf.i, (hs) null);
         }
     }
 }

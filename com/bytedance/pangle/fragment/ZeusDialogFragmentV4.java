@@ -20,7 +20,7 @@ import com.bytedance.pangle.util.MethodUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 @Keep
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ZeusDialogFragmentV4 extends DialogFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class ZeusDialogFragmentV4 extends DialogFragment {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

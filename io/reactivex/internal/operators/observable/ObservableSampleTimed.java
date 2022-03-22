@@ -33,17 +33,17 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         public final AtomicInteger wip;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedEmitLast(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(observer, j2, timeUnit, scheduler);
+        public SampleTimedEmitLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(observer, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -84,17 +84,17 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SampleTimedNoLast(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
-            super(observer, j2, timeUnit, scheduler);
+        public SampleTimedNoLast(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
+            super(observer, j, timeUnit, scheduler);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r8;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Observer) objArr2[0], ((Long) objArr2[1]).longValue(), (TimeUnit) objArr2[2], (Scheduler) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -133,16 +133,16 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
         public final AtomicReference<Disposable> timer;
         public final TimeUnit unit;
 
-        public SampleTimedObserver(Observer<? super T> observer, long j2, TimeUnit timeUnit, Scheduler scheduler) {
+        public SampleTimedObserver(Observer<? super T> observer, long j, TimeUnit timeUnit, Scheduler scheduler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {observer, Long.valueOf(j2), timeUnit, scheduler};
+                Object[] objArr = {observer, Long.valueOf(j), timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -150,7 +150,7 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
             }
             this.timer = new AtomicReference<>();
             this.actual = observer;
-            this.period = j2;
+            this.period = j;
             this.unit = timeUnit;
             this.scheduler = scheduler;
         }
@@ -222,31 +222,31 @@ public final class ObservableSampleTimed<T> extends AbstractObservableWithUpstre
                 this.s = disposable;
                 this.actual.onSubscribe(this);
                 Scheduler scheduler = this.scheduler;
-                long j2 = this.period;
-                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j2, j2, this.unit));
+                long j = this.period;
+                DisposableHelper.replace(this.timer, scheduler.schedulePeriodicallyDirect(this, j, j, this.unit));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ObservableSampleTimed(ObservableSource<T> observableSource, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public ObservableSampleTimed(ObservableSource<T> observableSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         super(observableSource);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {observableSource, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {observableSource, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.period = j2;
+        this.period = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.emitLast = z;

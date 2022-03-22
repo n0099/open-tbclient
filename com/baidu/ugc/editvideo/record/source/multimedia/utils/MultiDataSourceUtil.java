@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.source.multimedia.utils;
 
 import android.graphics.Bitmap;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.h;
+import c.a.v0.r.h;
 import com.baidu.minivideo.effect.core.vlogedit.MediaAEffectConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
@@ -59,19 +59,19 @@ public class MultiDataSourceUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static int addMultiMediaData(MultiMediaDataTrack multiMediaDataTrack, int i2, MultiMediaData multiMediaData) {
+    public static int addMultiMediaData(MultiMediaDataTrack multiMediaDataTrack, int i, MultiMediaData multiMediaData) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, multiMediaDataTrack, i2, multiMediaData)) == null) ? InnerMultiDataSourceUtil.addMultiMediaData(multiMediaDataTrack, i2, multiMediaData) : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, multiMediaDataTrack, i, multiMediaData)) == null) ? InnerMultiDataSourceUtil.addMultiMediaData(multiMediaDataTrack, i, multiMediaData) : invokeLIL.intValue;
     }
 
     public static void addOneTrack(MediaTrack mediaTrack, List<MediaTrack> list, Map<String, ShaderConfig> map, List<MultiMediaDataTrack> list2, OnInitMultiMediaListener onInitMultiMediaListener) {
@@ -139,10 +139,10 @@ public class MultiDataSourceUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) ? InnerMultiDataSourceUtil.decodeBitmap(str) : (Bitmap) invokeL.objValue;
     }
 
-    public static int deleteMultiMediaData(List<MultiMediaDataTrack> list, int i2, OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
+    public static int deleteMultiMediaData(List<MultiMediaDataTrack> list, int i, OnReleaseMultiMediaListener onReleaseMultiMediaListener) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, list, i2, onReleaseMultiMediaListener)) == null) ? InnerMultiDataSourceUtil.deleteMultiMediaData(list, i2, onReleaseMultiMediaListener) : invokeLIL.intValue;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(65549, null, list, i, onReleaseMultiMediaListener)) == null) ? InnerMultiDataSourceUtil.deleteMultiMediaData(list, i, onReleaseMultiMediaListener) : invokeLIL.intValue;
     }
 
     public static MultiMediaData findDataByUuid(List<MultiMediaData> list, String str) {
@@ -151,16 +151,16 @@ public class MultiDataSourceUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, list, str)) == null) ? InnerMultiDataSourceUtil.findDataByUuid(list, str) : (MultiMediaData) invokeLL.objValue;
     }
 
-    public static int[] findIndexInSegments(List<MediaSegment> list, long j2) {
+    public static int[] findIndexInSegments(List<MediaSegment> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65551, null, list, j2)) == null) ? InnerMultiDataSourceUtil.findIndexInSegments(list, j2) : (int[]) invokeLJ.objValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65551, null, list, j)) == null) ? InnerMultiDataSourceUtil.findIndexInSegments(list, j) : (int[]) invokeLJ.objValue;
     }
 
-    public static int findInputIndexInSegments(List<MediaSegment> list, long j2) {
+    public static int findInputIndexInSegments(List<MediaSegment> list, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65552, null, list, j2)) == null) ? InnerMultiDataSourceUtil.findInputIndexInSegments(list, j2) : invokeLJ.intValue;
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(65552, null, list, j)) == null) ? InnerMultiDataSourceUtil.findInputIndexInSegments(list, j) : invokeLJ.intValue;
     }
 
     public static MediaSegment findSegmentByMultiMediaData(MultiMediaData multiMediaData, List<MediaTrack> list, List<MultiMediaDataTrack> list2) {
@@ -181,24 +181,24 @@ public class MultiDataSourceUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65555, null, mediaSegment)) == null) ? InnerMultiDataSourceUtil.getInputScaleType(mediaSegment) : (String) invokeL.objValue;
     }
 
-    public static long getMultiMediaDataRealEnd(MediaTrack mediaTrack, int i2) {
+    public static long getMultiMediaDataRealEnd(MediaTrack mediaTrack, int i) {
         InterceptResult invokeLI;
         MediaSegment mediaSegment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, mediaTrack, i2)) == null) {
-            if (i2 < 0 || mediaTrack == null || h.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, mediaTrack, i)) == null) {
+            if (i < 0 || mediaTrack == null || h.e(mediaTrack.mediaSegments) || (mediaSegment = (MediaSegment) h.c(mediaTrack.mediaSegments, i)) == null) {
                 return 0L;
             }
-            MediaTransition mediaTransition = (MediaTransition) h.c(mediaTrack.mediaTransitions, i2);
+            MediaTransition mediaTransition = (MediaTransition) h.c(mediaTrack.mediaTransitions, i);
             return (mediaSegment.end - mediaSegment.start) - (mediaTransition != null ? mediaTransition.duration : 0L);
         }
         return invokeLI.longValue;
     }
 
-    public static long getMultiMediaDataSeekTime(MultiMediaData multiMediaData, MediaSegment mediaSegment, long j2) {
+    public static long getMultiMediaDataSeekTime(MultiMediaData multiMediaData, MediaSegment mediaSegment, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{multiMediaData, mediaSegment, Long.valueOf(j2)})) == null) ? InnerMultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData, mediaSegment, j2) : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65557, null, new Object[]{multiMediaData, mediaSegment, Long.valueOf(j)})) == null) ? InnerMultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData, mediaSegment, j) : invokeCommon.longValue;
     }
 
     public static long getSegmentsDuration(MediaTrack mediaTrack) {
@@ -225,10 +225,10 @@ public class MultiDataSourceUtil {
         return (interceptable == null || (invokeLL = interceptable.invokeLL(65561, null, list, str)) == null) ? InnerMultiDataSourceUtil.getTrackByType(list, str) : (MediaTrack) invokeLL.objValue;
     }
 
-    public static void glDeleteTextures(int i2) {
+    public static void glDeleteTextures(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65562, null, i2) == null) {
-            InnerMultiDataSourceUtil.glDeleteTextures(i2);
+        if (interceptable == null || interceptable.invokeI(65562, null, i) == null) {
+            InnerMultiDataSourceUtil.glDeleteTextures(i);
         }
     }
 
@@ -270,10 +270,10 @@ public class MultiDataSourceUtil {
         return (interceptable == null || (invokeL = interceptable.invokeL(65568, null, str)) == null) ? InnerMultiDataSourceUtil.loadMediaTransitionConfig(str) : (MediaTransitionConfig) invokeL.objValue;
     }
 
-    public static void modifyTimeByRange(List<MediaTrack> list, MediaTrack mediaTrack, long j2, long j3) {
+    public static void modifyTimeByRange(List<MediaTrack> list, MediaTrack mediaTrack, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{list, mediaTrack, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            InnerMultiDataSourceUtil.modifyTimeByRange(list, mediaTrack, j2, j3);
+        if (interceptable == null || interceptable.invokeCommon(65569, null, new Object[]{list, mediaTrack, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            InnerMultiDataSourceUtil.modifyTimeByRange(list, mediaTrack, j, j2);
         }
     }
 
@@ -291,39 +291,39 @@ public class MultiDataSourceUtil {
         }
     }
 
-    public static Bitmap saveOffscreenBitmap(int i2, int i3) {
+    public static Bitmap saveOffscreenBitmap(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65572, null, i2, i3)) == null) ? saveOffscreenBitmap(i2, i3, true) : (Bitmap) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65572, null, i, i2)) == null) ? saveOffscreenBitmap(i, i2, true) : (Bitmap) invokeII.objValue;
     }
 
-    public static Bitmap saveOffscreenBitmap(int i2, int i3, boolean z) {
+    public static Bitmap saveOffscreenBitmap(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? InnerMultiDataSourceUtil.saveOffscreenBitmap(i2, i3, z) : (Bitmap) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65573, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? InnerMultiDataSourceUtil.saveOffscreenBitmap(i, i2, z) : (Bitmap) invokeCommon.objValue;
     }
 
-    public static Buffer saveOffscreenBuffer(int i2, int i3) {
+    public static Buffer saveOffscreenBuffer(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65574, null, i2, i3)) == null) ? saveOffscreenBuffer(i2, i3, true) : (Buffer) invokeII.objValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65574, null, i, i2)) == null) ? saveOffscreenBuffer(i, i2, true) : (Buffer) invokeII.objValue;
     }
 
-    public static Buffer saveOffscreenBuffer(int i2, int i3, boolean z) {
+    public static Buffer saveOffscreenBuffer(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)})) == null) ? InnerMultiDataSourceUtil.saveOffscreenBuffer(i2, i3, z) : (Buffer) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? InnerMultiDataSourceUtil.saveOffscreenBuffer(i, i2, z) : (Buffer) invokeCommon.objValue;
     }
 
-    public static MediaSegment transData2Segment(long j2, MultiMediaData multiMediaData) {
+    public static MediaSegment transData2Segment(long j, MultiMediaData multiMediaData) {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJL = interceptable.invokeJL(65576, null, j2, multiMediaData)) == null) ? InnerMultiDataSourceUtil.transData2Segment(j2, multiMediaData) : (MediaSegment) invokeJL.objValue;
+        return (interceptable == null || (invokeJL = interceptable.invokeJL(65576, null, j, multiMediaData)) == null) ? InnerMultiDataSourceUtil.transData2Segment(j, multiMediaData) : (MediaSegment) invokeJL.objValue;
     }
 
-    public static int updateTimeline(MediaTrack mediaTrack, List<MultiMediaData> list, long j2) {
+    public static int updateTimeline(MediaTrack mediaTrack, List<MultiMediaData> list, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{mediaTrack, list, Long.valueOf(j2)})) == null) ? InnerMultiDataSourceUtil.updateTimeline(mediaTrack, list, j2) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{mediaTrack, list, Long.valueOf(j)})) == null) ? InnerMultiDataSourceUtil.updateTimeline(mediaTrack, list, j) : invokeCommon.intValue;
     }
 }

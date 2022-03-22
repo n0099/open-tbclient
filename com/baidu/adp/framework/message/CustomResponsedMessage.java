@@ -13,17 +13,17 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     public T mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomResponsedMessage(int i2) {
-        super(i2);
+    public CustomResponsedMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,9 +34,9 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, T t) throws Exception {
+    public void decodeInBackGround(int i, T t) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, t) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
             this.mData = t;
         }
     }
@@ -55,17 +55,17 @@ public class CustomResponsedMessage<T> extends ResponsedMessage<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomResponsedMessage(int i2, T t) {
-        super(i2);
+    public CustomResponsedMessage(int i, T t) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), t};
+            Object[] objArr = {Integer.valueOf(i), t};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

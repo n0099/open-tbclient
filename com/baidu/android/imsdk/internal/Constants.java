@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kuaishou.weapon.un.s;
 import java.util.Random;
 /* loaded from: classes3.dex */
 public final class Constants {
@@ -322,7 +321,7 @@ public final class Constants {
         URL_SOCKET_SERVER = "pimc.baidu.com";
         URL_SOCKET_PORT = 8100;
         IM_ENV = 0;
-        mSdkPermissions = new String[]{s.a, s.f53804c, "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", s.f53809h, s.f53805d};
+        mSdkPermissions = new String[]{"android.permission.INTERNET", "android.permission.READ_PHONE_STATE", "android.permission.ACCESS_NETWORK_STATE", "android.permission.RECEIVE_BOOT_COMPLETED", "android.permission.VIBRATE", "android.permission.ACCESS_COARSE_LOCATION", "android.permission.ACCESS_WIFI_STATE"};
     }
 
     public Constants() {
@@ -330,19 +329,19 @@ public final class Constants {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static boolean dispatchToPimc2(long j2) {
+    public static boolean dispatchToPimc2(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j2)) == null) ? j2 == APPID_HAOKAN || j2 == APPID_HAOKAN_JISU || j2 == APPID_QUANMIN || j2 == APPID_YIMEI || j2 == APPID_TIEBA : invokeJ.booleanValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? j == APPID_HAOKAN || j == APPID_HAOKAN_JISU || j == APPID_QUANMIN || j == APPID_YIMEI || j == APPID_TIEBA : invokeJ.booleanValue;
     }
 
     public static int getEnv(Context context) {
@@ -378,19 +377,19 @@ public final class Constants {
         return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? IMSettings.isDebugMode() : invokeV.booleanValue;
     }
 
-    public static boolean setEnv(Context context, int i2) {
+    public static boolean setEnv(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
             long appid = AccountManager.getAppid(context);
-            if (i2 != 0) {
-                if (i2 == 1) {
+            if (i != 0) {
+                if (i == 1) {
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_RD;
                     URL_SOCKET_PORT = 8100;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     URL_SOCKET_SERVER = URL_SOCKET_SERVER_QA;
                     URL_SOCKET_PORT = 8100;
-                } else if (i2 == 3) {
+                } else if (i == 3) {
                     if (dispatchToPimc2(appid)) {
                         URL_SOCKET_SERVER = URL_SOCKET_SERVER_OL_HQ;
                         URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
@@ -406,9 +405,9 @@ public final class Constants {
                 URL_SOCKET_SERVER = "pimc.baidu.com";
                 URL_SOCKET_PORT = URL_SOCKET_PORT_OL_SSL;
             }
-            IM_ENV = i2;
-            if (i2 != getEnv(context)) {
-                Utility.writeIntData(context, KEY_ENV, i2);
+            IM_ENV = i;
+            if (i != getEnv(context)) {
+                Utility.writeIntData(context, KEY_ENV, i);
             }
             return true;
         }

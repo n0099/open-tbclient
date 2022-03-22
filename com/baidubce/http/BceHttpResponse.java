@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import okhttp3.Response;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class BceHttpResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,9 +28,9 @@ public class BceHttpResponse {
             newInitContext.initArgs = r2;
             Object[] objArr = {response};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,8 +98,8 @@ public class BceHttpResponse {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             okhttp3.Headers headers = getHttpResponse().headers();
             HashMap hashMap = new HashMap();
-            for (int i2 = 0; i2 < headers.size(); i2++) {
-                hashMap.put(headers.name(i2), headers.value(i2));
+            for (int i = 0; i < headers.size(); i++) {
+                hashMap.put(headers.name(i), headers.value(i));
             }
             return hashMap;
         }

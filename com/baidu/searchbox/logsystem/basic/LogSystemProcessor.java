@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -106,9 +107,9 @@ public class LogSystemProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this((ForwardingDeviceEventSceneHandler) objArr[0], (List) objArr[1]);
                 newInitContext.thisArg = this;
@@ -125,13 +126,13 @@ public class LogSystemProcessor {
             if (logObject.getLogBasicDataFile() != null) {
                 logObject.getLogBasicDataFile().delete();
                 if (LLog.sDebug) {
-                    String str = "logBasicDataFile = " + logObject.getLogBasicDataFile();
+                    Log.d(TAG, "logBasicDataFile = " + logObject.getLogBasicDataFile());
                 }
             }
             if (logObject.getLogExtraPathNameKeeper() != null) {
                 logObject.getLogExtraPathNameKeeper().delete();
                 if (LLog.sDebug) {
-                    String str2 = "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper();
+                    Log.d(TAG, "pathNameKeeper = " + logObject.getLogExtraPathNameKeeper());
                 }
             }
             if (arrayList != null && arrayList.size() > 0) {
@@ -141,7 +142,7 @@ public class LogSystemProcessor {
                     if (next != null && next.mCanDelete) {
                         next.mFile.delete();
                         if (LLog.sDebug) {
-                            String str3 = "processLogFile = " + next.mFile.getAbsolutePath();
+                            Log.d(TAG, "processLogFile = " + next.mFile.getAbsolutePath());
                         }
                     }
                 }
@@ -151,7 +152,7 @@ public class LogSystemProcessor {
                     if (logFile != null && logFile.mCanDelete) {
                         logFile.mFile.delete();
                         if (LLog.sDebug) {
-                            String str4 = "deviceLogFile = " + logFile.mFile.getAbsolutePath();
+                            Log.d(TAG, "deviceLogFile = " + logFile.mFile.getAbsolutePath());
                         }
                     }
                 }
@@ -204,7 +205,7 @@ public class LogSystemProcessor {
             for (File file2 : listFiles) {
                 LogFile logFile = new LogFile(file2, true, true);
                 if (LLog.sDebug) {
-                    String str = logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary;
+                    Log.d(TAG, logFile.mFile.getAbsolutePath() + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mCanDelete + StringUtil.ARRAY_ELEMENT_SEPARATOR + logFile.mNecessary);
                 }
                 linkedList.add(logFile);
             }
@@ -217,7 +218,6 @@ public class LogSystemProcessor {
     @Nullable
     public ArrayList<LogFile> obtainProcessLogFiles(@NonNull File file) {
         InterceptResult invokeL;
-        LogFile logFile;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeL = interceptable.invokeL(65549, this, file)) != null) {
             return (ArrayList) invokeL.objValue;
@@ -237,15 +237,16 @@ public class LogSystemProcessor {
                             break;
                         } else if (!TextUtils.isEmpty(readLine)) {
                             if (LLog.sDebug) {
-                                String str = "pathNameKeep line = " + readLine;
+                                Log.d(TAG, "pathNameKeep line = " + readLine);
                             }
                             String[] split = readLine.split("=");
                             if (split != null && split.length == 3 && split[0] != null && split[1] != null && split[2] != null) {
                                 File file2 = new File(split[0].trim());
                                 if (file2.exists() && file2.isFile()) {
-                                    arrayList.add(new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue()));
+                                    LogFile logFile = new LogFile(file2, Boolean.valueOf(split[1].trim()).booleanValue(), Boolean.valueOf(split[2].trim()).booleanValue());
+                                    arrayList.add(logFile);
                                     if (LLog.sDebug) {
-                                        String str2 = "LogFile = " + logFile.toString();
+                                        Log.d(TAG, "LogFile = " + logFile.toString());
                                     }
                                 }
                             }
@@ -274,10 +275,10 @@ public class LogSystemProcessor {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void stopSelfIfNeed(@NonNull Service service, int i2) {
+    public void stopSelfIfNeed(@NonNull Service service, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65550, this, service, i2) == null) {
-            this.mHandler.postDelayed(new Runnable(this, service, i2) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.3
+        if (interceptable == null || interceptable.invokeLI(65550, this, service, i) == null) {
+            this.mHandler.postDelayed(new Runnable(this, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.3
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LogSystemProcessor this$0;
@@ -289,11 +290,11 @@ public class LogSystemProcessor {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, service, Integer.valueOf(i2)};
+                        Object[] objArr = {this, service, Integer.valueOf(i)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -301,7 +302,7 @@ public class LogSystemProcessor {
                     }
                     this.this$0 = this;
                     this.val$service = service;
-                    this.val$startID = i2;
+                    this.val$startID = i;
                 }
 
                 @Override // java.lang.Runnable
@@ -309,8 +310,8 @@ public class LogSystemProcessor {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
                         boolean z = true;
-                        for (int i3 = 0; i3 < this.this$0.mUploaderStrategies.size(); i3++) {
-                            z = z && ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i3)).canStopService();
+                        for (int i2 = 0; i2 < this.this$0.mUploaderStrategies.size(); i2++) {
+                            z = z && ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i2)).canStopService();
                             if (!z) {
                                 break;
                             }
@@ -326,28 +327,28 @@ public class LogSystemProcessor {
         }
     }
 
-    public void process(@NonNull Service service, int i2, @NonNull LogBaseObject logBaseObject) {
+    public void process(@NonNull Service service, int i, @NonNull LogBaseObject logBaseObject) {
         Runnable runnable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, service, i2, logBaseObject) == null) {
-            int i3 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
-            if (i3 == 1 || i3 == 2) {
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, service, i, logBaseObject) == null) {
+            int i2 = AnonymousClass4.$SwitchMap$com$baidu$searchbox$logsystem$logsys$LogType[logBaseObject.mLogType.ordinal()];
+            if (i2 == 1 || i2 == 2) {
                 if (logBaseObject instanceof LogObject) {
                     LogObject logObject = (LogObject) logBaseObject;
                     if (TextUtils.isEmpty(logObject.getLogBasicData()) && logObject.getLogBasicDataFile() == null) {
                         if (!LLog.sDebug) {
-                            stopSelfIfNeed(service, i2);
+                            stopSelfIfNeed(service, i);
                             return;
                         }
                         throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + ", mLogBasicData should not be empty and mLogBasicDataFile should not be null");
                     } else if (TextUtils.isEmpty(logObject.getProcessName())) {
                         if (!LLog.sDebug) {
-                            stopSelfIfNeed(service, i2);
+                            stopSelfIfNeed(service, i);
                             return;
                         }
                         throw new RuntimeException("if the logType = " + logObject.mLogType.getTypeName() + "mProcessName should not be null or its length = 0");
                     } else {
-                        runnable = new Runnable(this, logObject, service, i2) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.1
+                        runnable = new Runnable(this, logObject, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ LogSystemProcessor this$0;
@@ -360,11 +361,11 @@ public class LogSystemProcessor {
                                 if (interceptable2 != null) {
                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                     newInitContext.initArgs = r2;
-                                    Object[] objArr = {this, logObject, service, Integer.valueOf(i2)};
+                                    Object[] objArr = {this, logObject, service, Integer.valueOf(i)};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i4 = newInitContext.flag;
-                                    if ((i4 & 1) != 0) {
-                                        int i5 = i4 & 2;
+                                    int i3 = newInitContext.flag;
+                                    if ((i3 & 1) != 0) {
+                                        int i4 = i3 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -373,7 +374,7 @@ public class LogSystemProcessor {
                                 this.this$0 = this;
                                 this.val$logObject = logObject;
                                 this.val$service = service;
-                                this.val$serviceStartID = i2;
+                                this.val$serviceStartID = i;
                             }
 
                             @Override // java.lang.Runnable
@@ -410,7 +411,7 @@ public class LogSystemProcessor {
                                         StringBuilder sb = new StringBuilder();
                                         sb.append("processFiles.size = ");
                                         sb.append(obtainProcessLogFiles != null ? Integer.valueOf(obtainProcessLogFiles.size()) : StringUtil.NULL_STRING);
-                                        sb.toString();
+                                        Log.d(LogSystemProcessor.TAG, sb.toString());
                                     }
                                     LogSystemProcessor logSystemProcessor = this.this$0;
                                     LogObject logObject2 = this.val$logObject;
@@ -419,7 +420,7 @@ public class LogSystemProcessor {
                                         StringBuilder sb2 = new StringBuilder();
                                         sb2.append("devicesLogFiles.size = ");
                                         sb2.append(generateDeviceUploadFile != null ? Integer.valueOf(generateDeviceUploadFile.size()) : StringUtil.NULL_STRING);
-                                        sb2.toString();
+                                        Log.d(LogSystemProcessor.TAG, sb2.toString());
                                     }
                                     if (this.val$logObject.mLogType == LogType.NATIVE_CRASH) {
                                         File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir(this.val$logObject.getCrashTAG());
@@ -436,12 +437,12 @@ public class LogSystemProcessor {
                                             obj2 = Integer.valueOf(list.size());
                                         }
                                         sb3.append(obj2);
-                                        sb3.toString();
+                                        Log.d(LogSystemProcessor.TAG, sb3.toString());
                                     }
-                                    for (int i4 = 0; i4 < this.this$0.mUploaderStrategies.size(); i4++) {
-                                        BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i4);
+                                    for (int i3 = 0; i3 < this.this$0.mUploaderStrategies.size(); i3++) {
+                                        BaseUploaderStrategy baseUploaderStrategy = (BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i3);
                                         if (LLog.sDebug) {
-                                            String str = "uploaderStrategy = " + baseUploaderStrategy.getClass().getName();
+                                            Log.d(LogSystemProcessor.TAG, "uploaderStrategy = " + baseUploaderStrategy.getClass().getName());
                                         }
                                         try {
                                             baseUploaderStrategy.upload(applicationContext, this.val$logObject, obtainProcessLogFiles, generateDeviceUploadFile, list);
@@ -460,8 +461,8 @@ public class LogSystemProcessor {
                 }
                 runnable = null;
             } else {
-                if (i3 == 3) {
-                    runnable = new Runnable(this, service, i2) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
+                if (i2 == 3) {
+                    runnable = new Runnable(this, service, i) { // from class: com.baidu.searchbox.logsystem.basic.LogSystemProcessor.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ LogSystemProcessor this$0;
@@ -473,11 +474,11 @@ public class LogSystemProcessor {
                             if (interceptable2 != null) {
                                 InitContext newInitContext = TitanRuntime.newInitContext();
                                 newInitContext.initArgs = r2;
-                                Object[] objArr = {this, service, Integer.valueOf(i2)};
+                                Object[] objArr = {this, service, Integer.valueOf(i)};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
+                                int i3 = newInitContext.flag;
+                                if ((i3 & 1) != 0) {
+                                    int i4 = i3 & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -485,15 +486,15 @@ public class LogSystemProcessor {
                             }
                             this.this$0 = this;
                             this.val$service = service;
-                            this.val$serviceStartID = i2;
+                            this.val$serviceStartID = i;
                         }
 
                         @Override // java.lang.Runnable
                         public void run() {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                for (int i4 = 0; i4 < this.this$0.mUploaderStrategies.size(); i4++) {
-                                    ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i4)).upload(this.val$service.getApplicationContext());
+                                for (int i3 = 0; i3 < this.this$0.mUploaderStrategies.size(); i3++) {
+                                    ((BaseUploaderStrategy) this.this$0.mUploaderStrategies.get(i3)).upload(this.val$service.getApplicationContext());
                                 }
                                 this.this$0.stopSelfIfNeed(this.val$service, this.val$serviceStartID);
                             }
@@ -517,9 +518,9 @@ public class LogSystemProcessor {
             newInitContext.initArgs = r2;
             Object[] objArr = {forwardingDeviceEventSceneHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((ForwardingDeviceEventSceneHandler) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -536,9 +537,9 @@ public class LogSystemProcessor {
             newInitContext.initArgs = r2;
             Object[] objArr = {forwardingDeviceEventSceneHandler, list};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;

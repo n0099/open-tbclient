@@ -24,9 +24,9 @@ public class d0 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {d0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -46,14 +46,14 @@ public class d0 {
                         long a = dVar.a();
                         long currentTimeMillis = System.currentTimeMillis();
                         long a2 = dVar.a(d.r0, 6) * 3600000;
-                        long j2 = currentTimeMillis - a;
-                        if (j2 >= a2) {
+                        long j = currentTimeMillis - a;
+                        if (j >= a2) {
                             this.a.b();
                             dVar.a(currentTimeMillis);
                             context = this.a.a;
                         } else {
                             context = this.a.a;
-                            a2 -= j2;
+                            a2 -= j;
                         }
                         j1.b(context, Long.valueOf(a2));
                     }
@@ -71,9 +71,9 @@ public class d0 {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.material.internal.ThemeEnforcement;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ViewUtilsLollipop {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] STATE_LIST_ANIM_ATTRS;
@@ -48,9 +48,9 @@ public class ViewUtilsLollipop {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -67,21 +67,21 @@ public class ViewUtilsLollipop {
     public static void setDefaultAppBarLayoutStateListAnimator(@NonNull View view, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLF(65539, null, view, f2) == null) {
-            int integer = view.getResources().getInteger(R.integer.app_bar_elevation_anim_duration);
+            int integer = view.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005);
             StateListAnimator stateListAnimator = new StateListAnimator();
-            long j2 = integer;
-            stateListAnimator.addState(new int[]{16842766, R.attr.state_liftable, -2130970035}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j2));
-            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j2));
+            long j = integer;
+            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f04058a, -2130969995}, ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view, "elevation", f2).setDuration(j));
             stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view, "elevation", 0.0f).setDuration(0L));
             view.setStateListAnimator(stateListAnimator);
         }
     }
 
-    public static void setStateListAnimatorFromAttrs(@NonNull View view, AttributeSet attributeSet, int i2, int i3) {
+    public static void setStateListAnimatorFromAttrs(@NonNull View view, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view, attributeSet, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(InputDeviceCompat.SOURCE_TRACKBALL, null, view, attributeSet, i, i2) == null) {
             Context context = view.getContext();
-            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, STATE_LIST_ANIM_ATTRS, i2, i3, new int[0]);
+            TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context, attributeSet, STATE_LIST_ANIM_ATTRS, i, i2, new int[0]);
             try {
                 if (obtainStyledAttributes.hasValue(0)) {
                     view.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));

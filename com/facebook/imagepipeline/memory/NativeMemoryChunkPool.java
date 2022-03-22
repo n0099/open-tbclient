@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.memory.MemoryTrimmableRegistry;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class NativeMemoryChunkPool extends MemoryChunkPool {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -23,9 +23,9 @@ public class NativeMemoryChunkPool extends MemoryChunkPool {
             newInitContext.initArgs = r2;
             Object[] objArr = {memoryTrimmableRegistry, poolParams, poolStatsTracker};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((MemoryTrimmableRegistry) objArr2[0], (PoolParams) objArr2[1], (PoolStatsTracker) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -38,9 +38,9 @@ public class NativeMemoryChunkPool extends MemoryChunkPool {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX DEBUG: Return type fixed from 'com.facebook.imagepipeline.memory.NativeMemoryChunk' to match base method */
     @Override // com.facebook.imagepipeline.memory.MemoryChunkPool, com.facebook.imagepipeline.memory.BasePool
-    public MemoryChunk alloc(int i2) {
+    public MemoryChunk alloc(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? new NativeMemoryChunk(i2) : (NativeMemoryChunk) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? new NativeMemoryChunk(i) : (NativeMemoryChunk) invokeI.objValue;
     }
 }

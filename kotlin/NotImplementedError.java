@@ -15,7 +15,7 @@ public final class NotImplementedError extends Error {
         Intrinsics.checkNotNullParameter(message, "message");
     }
 
-    public /* synthetic */ NotImplementedError(String str, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i2 & 1) != 0 ? "An operation is not implemented." : str);
+    public /* synthetic */ NotImplementedError(String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? "An operation is not implemented." : str);
     }
 }

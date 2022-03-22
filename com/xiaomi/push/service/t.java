@@ -10,34 +10,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.push.fw;
 import com.xiaomi.push.ib;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class t extends XMPushService.i {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final /* synthetic */ ib a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f981a;
+    public final /* synthetic */ XMPushService f957a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t(int i2, XMPushService xMPushService, ib ibVar) {
-        super(i2);
+    public t(int i, XMPushService xMPushService, ib ibVar) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), xMPushService, ibVar};
+            Object[] objArr = {Integer.valueOf(i), xMPushService, ibVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f981a = xMPushService;
+        this.f957a = xMPushService;
         this.a = ibVar;
     }
 
@@ -53,12 +53,12 @@ public final class t extends XMPushService.i {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                ib a = q.a((Context) this.f981a, this.a);
-                a.m513a().a("message_obsleted", "1");
-                y.a(this.f981a, a);
+                ib a = q.a((Context) this.f957a, this.a);
+                a.m492a().a("message_obsleted", "1");
+                y.a(this.f957a, a);
             } catch (fw e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
-                this.f981a.a(10, e2);
+                this.f957a.a(10, e2);
             }
         }
     }

@@ -1,6 +1,6 @@
 package com.baidu.tieba.im.model;
 
-import c.a.r0.s1.k.b;
+import c.a.p0.u1.k.b;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
@@ -24,26 +24,26 @@ public class AddMsgRecordModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    private MsgRecord generateMsgRecord(int i2, String str) {
+    private MsgRecord generateMsgRecord(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i2, str)) == null) {
-            if ((i2 != 1 && i2 != 2 && i2 != 3) || str == null || str.length() == 0) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, this, i, str)) == null) {
+            if ((i != 1 && i != 2 && i != 3) || str == null || str.length() == 0) {
                 return null;
             }
             MsgRecord.Builder builder = new MsgRecord.Builder();
-            builder.type = Integer.valueOf(i2);
+            builder.type = Integer.valueOf(i);
             builder.task_ids = str;
-            BdLog.e("type is " + i2 + ", taskId is " + str);
+            BdLog.e("type is " + i + ", taskId is " + str);
             return builder.build(false);
         }
         return (MsgRecord) invokeIL.objValue;

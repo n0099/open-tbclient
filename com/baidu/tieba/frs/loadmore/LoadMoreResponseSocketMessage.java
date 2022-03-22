@@ -2,15 +2,15 @@ package com.baidu.tieba.frs.loadmore;
 
 import android.text.TextUtils;
 import c.a.d.o.e.n;
-import c.a.q0.r.r.e2;
-import c.a.q0.r.r.p0;
-import c.a.r0.j3.k0.a;
-import c.a.r0.j3.m0.b;
+import c.a.o0.r.r.o0;
+import c.a.p0.l3.k0.a;
+import c.a.p0.l3.m0.b;
 import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,9 +40,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -65,11 +65,11 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         boolean z;
         Message<?> orginalMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             ThreadListResIdl threadListResIdl = (ThreadListResIdl) new Wire(new Class[0]).parseFrom(bArr, ThreadListResIdl.class);
             setError(threadListResIdl.error.errorno.intValue());
             setErrorString(threadListResIdl.error.usermsg);
@@ -79,9 +79,9 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
             this.userMap = new HashMap<>();
             List<User> list = threadListResIdl.data.user_list;
             if (list != null) {
-                for (int i3 = 0; i3 < list.size(); i3++) {
+                for (int i2 = 0; i2 < list.size(); i2++) {
                     MetaData metaData = new MetaData();
-                    metaData.parserProtobuf(list.get(i3));
+                    metaData.parserProtobuf(list.get(i2));
                     String userId = metaData.getUserId();
                     if (userId != null && !userId.equals("0")) {
                         this.userMap.put(metaData.getUserId(), metaData);
@@ -89,7 +89,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 }
             }
             a.e().h(threadListResIdl.data.asp_shown_info);
-            long j2 = 0;
+            long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
                 z = false;
@@ -98,26 +98,26 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                 boolean isBrandForum = loadMoreRequestMessage.isBrandForum();
                 long forumId = loadMoreRequestMessage.getForumId();
                 z = isBrandForum;
-                j2 = forumId;
+                j = forumId;
             }
             this.threadList = new ArrayList<>();
             List<ThreadInfo> list2 = threadListResIdl.data.thread_list;
             if (list2 != null) {
                 ArrayList arrayList = new ArrayList();
-                for (int i4 = 0; i4 < list2.size(); i4++) {
-                    ThreadInfo threadInfo = list2.get(i4);
-                    e2 e2Var = new e2();
-                    SpecHotTopicHelper.setSpecTopicIcon(j2, e2Var);
-                    e2Var.J4(this.userMap);
-                    e2Var.d3(threadInfo);
-                    e2Var.h3();
-                    e2Var.K1 = z;
-                    if (!TextUtils.isEmpty(e2Var.A0())) {
-                        p0 p0Var = new p0();
-                        p0Var.k(e2Var.A0());
-                        this.threadList.add(p0Var);
+                for (int i3 = 0; i3 < list2.size(); i3++) {
+                    ThreadInfo threadInfo = list2.get(i3);
+                    ThreadData threadData = new ThreadData();
+                    SpecHotTopicHelper.setSpecTopicIcon(j, threadData);
+                    threadData.setUserMap(this.userMap);
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.isFromBrandForum = z;
+                    if (!TextUtils.isEmpty(threadData.getLegoCard())) {
+                        o0 o0Var = new o0();
+                        o0Var.i(threadData.getLegoCard());
+                        this.threadList.add(o0Var);
                     } else {
-                        this.threadList.add(e2Var);
+                        this.threadList.add(threadData);
                         JSONObject b2 = b.b(threadInfo);
                         if (b2 != null) {
                             arrayList.add(b2);

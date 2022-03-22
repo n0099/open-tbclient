@@ -22,13 +22,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 @Keep
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic;
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32055b;
+    public static String f25311b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -51,9 +51,9 @@ public class DeviceInfoUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -311,7 +311,7 @@ public class DeviceInfoUtils {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53880b).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39039b).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -385,12 +385,12 @@ public class DeviceInfoUtils {
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            String str2 = f32055b;
+            String str2 = f25311b;
             if (str2 != null) {
                 return str2;
             }
             try {
-                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f53881c).start().getInputStream();
+                InputStream inputStream = new ProcessBuilder("/system/bin/cat", z.f39040c).start().getInputStream();
                 String str3 = "";
                 while (inputStream.read(new byte[24]) != -1) {
                     str3 = str3 + new String(bArr);
@@ -402,7 +402,7 @@ public class DeviceInfoUtils {
                 str = null;
             }
             if (str != null) {
-                f32055b = str;
+                f25311b = str;
             }
             return str;
         }

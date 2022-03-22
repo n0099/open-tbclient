@@ -14,7 +14,7 @@ import kotlin.coroutines.jvm.internal.SuspendLambda;
 import kotlin.jvm.functions.Function2;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\u0010\u0000\u001a\u00020\u0001\"\u0004\b\u0000\u0010\u0002\"\u0004\b\u0001\u0010\u0003*\b\u0012\u0004\u0012\u0002H\u00020\u0004H\u008a@¢\u0006\u0004\b\u0005\u0010\u0006"}, d2 = {"<anonymous>", "", "E", "K", "Lkotlinx/coroutines/channels/ProducerScope;", "invoke", "(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;"}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
 @DebugMetadata(c = "kotlinx.coroutines.channels.ChannelsKt__Channels_commonKt$distinctBy$1", f = "Channels.common.kt", i = {0, 0, 1, 1, 1, 2, 2, 2, 2}, l = {FeatureCodes.BODY_SEG, CyberVideoDownloader.DMDownloadError.Sys101, 1703}, m = "invokeSuspend", n = {"$this$produce", SavedStateHandle.KEYS, "$this$produce", SavedStateHandle.KEYS, "e", "$this$produce", SavedStateHandle.KEYS, "e", "k"}, s = {"L$0", "L$1", "L$0", "L$1", "L$2", "L$0", "L$1", "L$2", "L$4"})
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLambda implements Function2<ProducerScope<? super E>, Continuation<? super Unit>, Object> {
     public final /* synthetic */ Function2 $selector;
     public final /* synthetic */ ReceiveChannel $this_distinctBy;
@@ -73,8 +73,8 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
         HashSet hashSet3;
         Object hasNext;
         Object coroutine_suspended = IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED();
-        int i2 = this.label;
-        if (i2 == 0) {
+        int i = this.label;
+        if (i == 0) {
             ResultKt.throwOnFailure(obj);
             ProducerScope producerScope4 = this.p$;
             HashSet hashSet4 = new HashSet();
@@ -89,7 +89,7 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
             hasNext = it.hasNext(channelsKt__Channels_commonKt$distinctBy$1);
             if (hasNext != coroutine_suspended) {
             }
-        } else if (i2 == 1) {
+        } else if (i == 1) {
             ResultKt.throwOnFailure(obj);
             producerScope3 = (ProducerScope) this.L$0;
             hashSet3 = (HashSet) this.L$1;
@@ -98,7 +98,7 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
             channelsKt__Channels_commonKt$distinctBy$12 = this;
             if (!((Boolean) obj).booleanValue()) {
             }
-        } else if (i2 == 2) {
+        } else if (i == 2) {
             Object obj4 = this.L$2;
             ResultKt.throwOnFailure(obj);
             producerScope2 = (ProducerScope) this.L$0;
@@ -109,7 +109,7 @@ public final class ChannelsKt__Channels_commonKt$distinctBy$1 extends SuspendLam
             channelsKt__Channels_commonKt$distinctBy$12 = this;
             if (hashSet2.contains(obj)) {
             }
-        } else if (i2 != 3) {
+        } else if (i != 3) {
             throw new IllegalStateException("call to 'resume' before 'invoke' with coroutine");
         } else {
             Object obj5 = this.L$4;

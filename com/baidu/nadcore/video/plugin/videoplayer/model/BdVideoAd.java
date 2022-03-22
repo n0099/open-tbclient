@@ -34,8 +34,8 @@ public class BdVideoAd implements Serializable {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public /* synthetic */ BdVideoAd(boolean z, String str, String str2, JSONObject jSONObject, String str3, String str4, String str5, String str6, String str7, int i2, Object obj, Object obj2, a aVar) {
-        this(z, str, str2, jSONObject, str3, str4, str5, str6, str7, i2, obj, obj2);
+    public /* synthetic */ BdVideoAd(boolean z, String str, String str2, JSONObject jSONObject, String str3, String str4, String str5, String str6, String str7, int i, Object obj, Object obj2, a aVar) {
+        this(z, str, str2, jSONObject, str3, str4, str5, str6, str7, i, obj, obj2);
     }
 
     public b builder() {
@@ -44,16 +44,16 @@ public class BdVideoAd implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new b(this) : (b) invokeV.objValue;
     }
 
-    public BdVideoAd(boolean z, String str, String str2, JSONObject jSONObject, String str3, String str4, String str5, String str6, String str7, int i2, Object obj, Object obj2) {
+    public BdVideoAd(boolean z, String str, String str2, JSONObject jSONObject, String str3, String str4, String str5, String str6, String str7, int i, Object obj, Object obj2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {Boolean.valueOf(z), str, str2, jSONObject, str3, str4, str5, str6, str7, Integer.valueOf(i2), obj, obj2};
+            Object[] objArr = {Boolean.valueOf(z), str, str2, jSONObject, str3, str4, str5, str6, str7, Integer.valueOf(i), obj, obj2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -68,7 +68,7 @@ public class BdVideoAd implements Serializable {
         this.channelId = str5;
         this.channelTitle = str6;
         this.source = str7;
-        this.pos = i2;
+        this.pos = i;
         this.mAdVideoTailFrameData = obj;
         this.userInfoData = obj2;
     }
@@ -80,31 +80,27 @@ public class BdVideoAd implements Serializable {
         public boolean a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35781b;
+        public String f27653b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35782c;
+        public String f27654c;
 
         /* renamed from: d  reason: collision with root package name */
-        public JSONObject f35783d;
+        public JSONObject f27655d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f35784e;
+        public String f27656e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f35785f;
+        public String f27657f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f35786g;
+        public String f27658g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f35787h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public String f35788i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public int f35789j;
+        public String f27659h;
+        public String i;
+        public int j;
         public Object k;
         public Object l;
 
@@ -113,31 +109,31 @@ public class BdVideoAd implements Serializable {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.a = false;
-            this.f35781b = "";
-            this.f35782c = "";
-            this.f35783d = null;
-            this.f35784e = "";
-            this.f35785f = "";
-            this.f35786g = "";
-            this.f35787h = "";
-            this.f35788i = "detail";
-            this.f35789j = -1;
+            this.f27653b = "";
+            this.f27654c = "";
+            this.f27655d = null;
+            this.f27656e = "";
+            this.f27657f = "";
+            this.f27658g = "";
+            this.f27659h = "";
+            this.i = "detail";
+            this.j = -1;
             this.k = null;
         }
 
         public BdVideoAd a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f35781b, this.f35782c, this.f35783d, this.f35784e, this.f35785f, this.f35786g, this.f35787h, this.f35788i, this.f35789j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new BdVideoAd(this.a, this.f27653b, this.f27654c, this.f27655d, this.f27656e, this.f27657f, this.f27658g, this.f27659h, this.i, this.j, this.k, this.l, null) : (BdVideoAd) invokeV.objValue;
         }
 
         public b b(Object obj) {
@@ -167,24 +163,24 @@ public class BdVideoAd implements Serializable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {bdVideoAd};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
                 }
             }
             this.a = bdVideoAd.suffixAdEnable;
-            this.f35781b = bdVideoAd.tpl;
-            this.f35782c = bdVideoAd.pd;
-            this.f35783d = bdVideoAd.extRequest;
-            this.f35784e = bdVideoAd.page;
-            this.f35785f = bdVideoAd.type;
-            this.f35786g = bdVideoAd.channelId;
-            this.f35787h = bdVideoAd.channelTitle;
-            this.f35788i = bdVideoAd.source;
-            this.f35789j = bdVideoAd.pos;
+            this.f27653b = bdVideoAd.tpl;
+            this.f27654c = bdVideoAd.pd;
+            this.f27655d = bdVideoAd.extRequest;
+            this.f27656e = bdVideoAd.page;
+            this.f27657f = bdVideoAd.type;
+            this.f27658g = bdVideoAd.channelId;
+            this.f27659h = bdVideoAd.channelTitle;
+            this.i = bdVideoAd.source;
+            this.j = bdVideoAd.pos;
             this.k = bdVideoAd.mAdVideoTailFrameData;
             this.l = bdVideoAd.userInfoData;
         }

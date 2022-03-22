@@ -23,9 +23,9 @@ public class i extends c.a.d.a.k.c {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -59,9 +59,9 @@ public class i extends c.a.d.a.k.c {
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper, c.a.d.a.k.a
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i2, int i3) {
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i2, i3) == null) || i2 >= 1) {
+        if (!(interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) || i >= 1) {
             return;
         }
         a(sQLiteDatabase);

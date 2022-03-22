@@ -16,15 +16,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TableLineGridView extends BdGridView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f42709e;
+    /* renamed from: b  reason: collision with root package name */
+    public int f33126b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public int f42710f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public int f42711g;
+    /* renamed from: c  reason: collision with root package name */
+    public int f33127c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TableLineGridView(Context context) {
@@ -35,9 +33,9 @@ public class TableLineGridView extends BdGridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -55,17 +53,17 @@ public class TableLineGridView extends BdGridView {
         }
         Paint paint = new Paint();
         paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(this.f42711g);
-        int width = childAt.getWidth() * this.f42710f;
-        int height = childAt.getHeight() * this.f42709e;
+        paint.setColor(this.f33127c);
+        int width = childAt.getWidth() * this.f33126b;
+        int height = childAt.getHeight() * this.a;
         int width2 = childAt.getWidth();
         int height2 = childAt.getHeight();
-        for (int i2 = 1; i2 < this.f42709e; i2++) {
-            float f2 = height2 * i2;
+        for (int i = 1; i < this.a; i++) {
+            float f2 = height2 * i;
             canvas.drawLine(0.0f, f2, width, f2, paint);
         }
-        for (int i3 = 1; i3 < this.f42710f; i3++) {
-            float f3 = width2 * i3;
+        for (int i2 = 1; i2 < this.f33126b; i2++) {
+            float f3 = width2 * i2;
             canvas.drawLine(f3, 0.0f, f3, height, paint);
         }
         super.dispatchDraw(canvas);
@@ -74,54 +72,54 @@ public class TableLineGridView extends BdGridView {
     public int getBackgroundLineResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f42711g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33127c : invokeV.intValue;
     }
 
     public int getColumnCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f42710f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33126b : invokeV.intValue;
     }
 
     public int getRowCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f42709e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public void setBackgroundLineResource(int i2) {
+    public void setBackgroundLineResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f42711g = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.f33127c = i;
         }
     }
 
-    public void setColumnCount(int i2) {
+    public void setColumnCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.f42710f = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f33126b = i;
         }
     }
 
-    public void setRowCount(int i2) {
+    public void setRowCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.f42709e = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a = i;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TableLineGridView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public TableLineGridView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -140,9 +138,9 @@ public class TableLineGridView extends BdGridView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

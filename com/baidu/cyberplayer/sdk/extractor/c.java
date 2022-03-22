@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class c extends a.AbstractBinderC1788a {
+/* loaded from: classes3.dex */
+public class c extends a.AbstractBinderC1749a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CyberExtractor a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RemotePlayerService f32124b;
+    public RemotePlayerService f25372b;
 
     public c(RemotePlayerService remotePlayerService) {
         Interceptable interceptable = $ic;
@@ -29,15 +29,15 @@ public class c extends a.AbstractBinderC1788a {
             newInitContext.initArgs = r2;
             Object[] objArr = {remotePlayerService};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f32124b = remotePlayerService;
+        this.f25372b = remotePlayerService;
     }
 
     private CyberExtractor c() {
@@ -64,10 +64,10 @@ public class c extends a.AbstractBinderC1788a {
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.a
-    public void a(int i2, String str, long j2) {
+    public void a(int i, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
-            c().setOption(i2, str, j2);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            c().setOption(i, str, j);
         }
     }
 
@@ -90,7 +90,7 @@ public class c extends a.AbstractBinderC1788a {
                     this.a = null;
                 }
             }
-            this.f32124b = null;
+            this.f25372b = null;
         }
     }
 }

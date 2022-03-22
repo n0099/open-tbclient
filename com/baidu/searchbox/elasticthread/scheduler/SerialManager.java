@@ -23,9 +23,9 @@ public class SerialManager implements Recordable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -41,10 +41,10 @@ public class SerialManager implements Recordable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ((SerialExecutorCell) this.mCurrentWorkingExecutor).checkBlockAndDredge() : invokeV.booleanValue;
     }
 
-    public void insertTask(Runnable runnable, String str, int i2) {
+    public void insertTask(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i2) == null) {
-            this.mElasticQueue.insertTask(runnable, str, i2);
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str, i) == null) {
+            this.mElasticQueue.insertTask(runnable, str, i);
         }
     }
 

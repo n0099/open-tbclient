@@ -25,21 +25,19 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LocalChannelTopicSelectView extends RelativeLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f37371b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f37372c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f37373d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f48316e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public ImageView f48317f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public TextView f48318g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ImageView f48319h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public View f48320i;
+    public View f37374e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public LocalChannelTopicSelectView(Context context) {
@@ -50,9 +48,9 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -65,42 +63,42 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.cell_local_channel_topic_layout, (ViewGroup) this, true);
-            this.f48317f = (ImageView) findViewById(R.id.cell_local_channel_topic_icon);
-            this.f48318g = (TextView) findViewById(R.id.cell_local_channel_topic_name);
-            this.f48319h = (ImageView) findViewById(R.id.cell_local_channel_topic_arrow);
-            this.f48320i = findViewById(R.id.cell_local_channel_topic_line);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01d4, (ViewGroup) this, true);
+            this.f37371b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905b3);
+            this.f37372c = (TextView) findViewById(R.id.obfuscated_res_0x7f0905b5);
+            this.f37373d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0905b2);
+            this.f37374e = findViewById(R.id.obfuscated_res_0x7f0905b4);
             setOnClickListener(this);
-            onChangeSkinType();
+            b();
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TiebaStatic.log(new StatisticItem("c14525"));
-        }
-    }
-
-    public void onChangeSkinType() {
+    public void b() {
         int skinType;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.f48316e) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (skinType = TbadkCoreApplication.getInst().getSkinType()) == this.a) {
             return;
         }
-        this.f48316e = skinType;
+        this.a = skinType;
         SkinManager.setBackgroundResource(this, R.drawable.forum_selected_view_bg);
-        this.f48317f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topic16, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
-        SkinManager.setViewTextColor(this.f48318g, (int) R.color.CAM_X0105);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f48319h, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        SkinManager.setBackgroundColor(this.f48320i, R.color.CAM_X0210);
+        this.f37371b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809c7, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL));
+        SkinManager.setViewTextColor(this.f37372c, (int) R.color.CAM_X0105);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f37373d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setBackgroundColor(this.f37374e, R.color.CAM_X0210);
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TiebaStatic.log(new StatisticItem("c14525"));
+        }
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, view) == null) {
-            b();
+            c();
             LocalChannelTopicListActivityConfig.forResult(getContext(), 25068).start();
         }
     }
@@ -108,7 +106,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     public void setLocalChannelTopic(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.f48318g.setText(getContext().getString(R.string.local_channel_topic_wrap, str));
+            this.f37372c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0a35, str));
         }
     }
 
@@ -121,9 +119,9 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -134,17 +132,17 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LocalChannelTopicSelectView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LocalChannelTopicSelectView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -152,7 +150,7 @@ public class LocalChannelTopicSelectView extends RelativeLayout implements View.
                 return;
             }
         }
-        this.f48316e = 3;
+        this.a = 3;
         a();
     }
 }

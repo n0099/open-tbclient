@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     public static /* synthetic */ Interceptable $ic;
     public static final Property<ViewGroup, Float> CHILDREN_ALPHA;
@@ -43,9 +43,9 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Class) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -62,7 +62,7 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            Float f2 = (Float) viewGroup.getTag(R.id.mtrl_internal_children_alpha_tag);
+            Float f2 = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f09146b);
             return f2 != null ? f2 : Float.valueOf(1.0f);
         }
         return (Float) invokeL.objValue;
@@ -74,10 +74,10 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, f2) == null) {
             float floatValue = f2.floatValue();
-            viewGroup.setTag(R.id.mtrl_internal_children_alpha_tag, Float.valueOf(floatValue));
+            viewGroup.setTag(R.id.obfuscated_res_0x7f09146b, Float.valueOf(floatValue));
             int childCount = viewGroup.getChildCount();
-            for (int i2 = 0; i2 < childCount; i2++) {
-                viewGroup.getChildAt(i2).setAlpha(floatValue);
+            for (int i = 0; i < childCount; i++) {
+                viewGroup.getChildAt(i).setAlpha(floatValue);
             }
         }
     }

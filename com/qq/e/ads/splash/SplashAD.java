@@ -21,7 +21,7 @@ import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdErrorConvertor;
 import com.qq.e.comm.util.GDTLogger;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class SplashAD extends LiteAbstractAD<NSPVI> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_TYPE_AD_CLICKED = 4;
@@ -36,16 +36,12 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile ViewGroup f57601g;
+    public volatile ViewGroup f42388g;
 
     /* renamed from: h  reason: collision with root package name */
-    public volatile SplashADListener f57602h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public volatile LoadAdParams f57603i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public volatile boolean f57604j;
+    public volatile SplashADListener f42389h;
+    public volatile LoadAdParams i;
+    public volatile boolean j;
     public volatile boolean k;
     public volatile boolean l;
     public volatile int m;
@@ -55,13 +51,13 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     public View q;
 
     /* renamed from: com.qq.e.ads.splash.SplashAD$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class ADListenerAdapter implements ADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +70,9 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {splashAD};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -93,57 +89,57 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         public void onADEvent(ADEvent aDEvent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, aDEvent) == null) {
-                if (this.a.f57602h == null) {
+                if (this.a.f42389h == null) {
                     GDTLogger.d("SplashADListener == null");
                     return;
                 }
                 Object[] paras = aDEvent.getParas();
                 switch (aDEvent.getType()) {
                     case 1:
-                        this.a.f57602h.onADDismissed();
+                        this.a.f42389h.onADDismissed();
                         return;
                     case 2:
                         if (paras.length <= 0 || !(paras[0] instanceof Integer)) {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         } else {
-                            this.a.f57602h.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
+                            this.a.f42389h.onNoAD(AdErrorConvertor.formatErrorCode(((Integer) paras[0]).intValue()));
                             return;
                         }
                     case 3:
-                        this.a.f57602h.onADPresent();
+                        this.a.f42389h.onADPresent();
                         return;
                     case 4:
-                        this.a.f57602h.onADClicked();
+                        this.a.f42389h.onADClicked();
                         return;
                     case 5:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.a.f57602h.onADTick(((Long) paras[0]).longValue());
+                            this.a.f42389h.onADTick(((Long) paras[0]).longValue());
                             return;
                         } else {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         }
                     case 6:
-                        this.a.f57602h.onADExposure();
+                        this.a.f42389h.onADExposure();
                         return;
                     case 7:
                         if (paras.length == 1 && (paras[0] instanceof Long)) {
-                            this.a.f57602h.onADLoaded(((Long) paras[0]).longValue());
+                            this.a.f42389h.onADLoaded(((Long) paras[0]).longValue());
                             return;
                         } else {
                             AbstractAD.a(SplashAD.class, aDEvent);
                             return;
                         }
                     case 8:
-                        if (this.a.f57602h instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.a.f57602h).onZoomOut();
+                        if (this.a.f42389h instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.a.f42389h).onZoomOut();
                             return;
                         }
                         return;
                     case 9:
-                        if (this.a.f57602h instanceof SplashADZoomOutListener) {
-                            ((SplashADZoomOutListener) this.a.f57602h).onZoomOutPlayFinish();
+                        if (this.a.f42389h instanceof SplashADZoomOutListener) {
+                            ((SplashADZoomOutListener) this.a.f42389h).onZoomOutPlayFinish();
                             return;
                         }
                         return;
@@ -156,17 +152,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2) {
-        this(context, view, str, splashADListener, i2, (View) null);
+    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i) {
+        this(context, view, str, splashADListener, i, (View) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (View) objArr2[5]);
                 newInitContext.thisArg = this;
@@ -178,17 +174,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2, View view2) {
-        this(context, view, str, splashADListener, i2, (Map) null, view2);
+    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i, View view2) {
+        this(context, view, str, splashADListener, i, (Map) null, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i2), view2};
+            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -199,42 +195,42 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     @Deprecated
-    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i2, Map map, View view2) {
+    public SplashAD(Context context, View view, String str, SplashADListener splashADListener, int i, Map map, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i2), map, view2};
+            Object[] objArr = {context, view, str, splashADListener, Integer.valueOf(i), map, view2};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f57604j = false;
-        this.f57602h = splashADListener;
+        this.j = false;
+        this.f42389h = splashADListener;
         this.o = view;
-        this.p = i2;
+        this.p = i;
         this.q = view2;
         a(context, str);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i2) {
-        this(context, view, str, str2, splashADListener, i2, (View) null);
+    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i) {
+        this(context, view, str, str2, splashADListener, i, (View) null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (String) objArr2[3], (SplashADListener) objArr2[4], ((Integer) objArr2[5]).intValue(), (View) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -246,17 +242,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i2, View view2) {
-        this(context, view, str, str2, splashADListener, i2, null, view2);
+    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i, View view2) {
+        this(context, view, str, str2, splashADListener, i, null, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i2), view2};
+            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i), view2};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (String) objArr2[3], (SplashADListener) objArr2[4], ((Integer) objArr2[5]).intValue(), (Map) objArr2[6], (View) objArr2[7]);
                 newInitContext.thisArg = this;
@@ -268,17 +264,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i2, Map map, View view2) {
-        this(context, view, str2, splashADListener, i2, map, view2);
+    public SplashAD(Context context, View view, String str, String str2, SplashADListener splashADListener, int i, Map map, View view2) {
+        this(context, view, str2, splashADListener, i, map, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i2), map, view2};
+            Object[] objArr = {context, view, str, str2, splashADListener, Integer.valueOf(i), map, view2};
             interceptable.invokeUnInit(65541, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -298,9 +294,9 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, splashADListener};
             interceptable.invokeUnInit(65542, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (SplashADListener) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -311,17 +307,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2) {
-        this(context, (View) null, str, splashADListener, i2);
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i) {
+        this(context, (View) null, str, splashADListener, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65543, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -332,17 +328,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2, View view) {
-        this(context, (View) null, str, splashADListener, i2, (Map) null, view);
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i, View view) {
+        this(context, (View) null, str, splashADListener, i, (Map) null, view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2), view};
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i), view};
             interceptable.invokeUnInit(65544, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -353,17 +349,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2, Map map, View view) {
-        this(context, (View) null, str, splashADListener, i2, map, view);
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i, Map map, View view) {
+        this(context, (View) null, str, splashADListener, i, map, view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2), map, view};
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i), map, view};
             interceptable.invokeUnInit(65545, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue(), (Map) objArr2[5], (View) objArr2[6]);
                 newInitContext.thisArg = this;
@@ -373,24 +369,24 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         }
     }
 
-    public SplashAD(Context context, String str, SplashADListener splashADListener, int i2, Map map, View view, String str2) {
+    public SplashAD(Context context, String str, SplashADListener splashADListener, int i, Map map, View view, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i2), map, view, str2};
+            Object[] objArr = {context, str, splashADListener, Integer.valueOf(i), map, view, str2};
             interceptable.invokeUnInit(65546, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65546, newInitContext);
                 return;
             }
         }
-        this.f57604j = false;
-        this.f57602h = splashADListener;
-        this.p = i2;
+        this.j = false;
+        this.f42389h = splashADListener;
+        this.p = i;
         this.q = view;
         a(context, str, str2);
     }
@@ -405,9 +401,9 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, splashADListener};
             interceptable.invokeUnInit(65547, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], (SplashADListener) objArr2[3], ((Integer) objArr2[4]).intValue());
                 newInitContext.thisArg = this;
@@ -419,17 +415,17 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @Deprecated
-    public SplashAD(Context context, String str, String str2, SplashADListener splashADListener, int i2) {
-        this(context, (View) null, str, str2, splashADListener, i2);
+    public SplashAD(Context context, String str, String str2, SplashADListener splashADListener, int i) {
+        this(context, (View) null, str, str2, splashADListener, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, str2, splashADListener, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, str2, splashADListener, Integer.valueOf(i)};
             interceptable.invokeUnInit(65548, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (View) objArr2[1], (String) objArr2[2], (String) objArr2[3], (SplashADListener) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -450,7 +446,7 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             T t = this.a;
             if (t == 0) {
                 this.l = z;
-                this.f57601g = viewGroup;
+                this.f42388g = viewGroup;
                 return;
             }
             NSPVI nspvi = (NSPVI) t;
@@ -494,7 +490,7 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             }
             T t = this.a;
             if (t == 0) {
-                this.f57601g = viewGroup;
+                this.f42388g = viewGroup;
                 return;
             }
             NSPVI nspvi = (NSPVI) t;
@@ -514,12 +510,12 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     @Override // com.qq.e.ads.AbstractAD
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) || this.f57602h == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.f42389h == null) {
             return;
         }
-        this.f57602h.onNoAD(AdErrorConvertor.formatErrorCode(i2));
+        this.f42389h.onNoAD(AdErrorConvertor.formatErrorCode(i));
     }
 
     public void fetchAdOnly() {
@@ -597,7 +593,7 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && a()) {
             if (!b()) {
-                this.f57604j = true;
+                this.j = true;
                 return;
             }
             T t = this.a;
@@ -610,20 +606,20 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
     }
 
     @Deprecated
-    public void setAdLogoMargin(int i2, int i3) {
+    public void setAdLogoMargin(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
         }
     }
 
-    public void setDeveloperLogo(int i2) {
+    public void setDeveloperLogo(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
             T t = this.a;
             if (t == 0) {
-                this.m = i2;
+                this.m = i;
             } else {
-                ((NSPVI) t).setDeveloperLogo(i2);
+                ((NSPVI) t).setDeveloperLogo(i);
             }
         }
     }
@@ -647,7 +643,7 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             if (t != 0) {
                 ((NSPVI) t).setLoadAdParams(loadAdParams);
             } else {
-                this.f57603i = loadAdParams;
+                this.i = loadAdParams;
             }
         }
     }
@@ -690,8 +686,8 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
             NSPVI nspvi = (NSPVI) obj;
-            if (this.f57603i != null) {
-                nspvi.setLoadAdParams(this.f57603i);
+            if (this.i != null) {
+                nspvi.setLoadAdParams(this.i);
             }
             if (this.m != 0) {
                 nspvi.setDeveloperLogo(this.m);
@@ -703,19 +699,19 @@ public final class SplashAD extends LiteAbstractAD<NSPVI> {
             nspvi.setAdListener(new ADListenerAdapter(this, null));
             nspvi.setSkipView(this.o);
             nspvi.setFloatView(this.q);
-            if ((this.f57602h instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f57602h).isSupportZoomOut()) {
+            if ((this.f42389h instanceof SplashADZoomOutListener) && ((SplashADZoomOutListener) this.f42389h).isSupportZoomOut()) {
                 nspvi.setSupportZoomOut(true);
             }
-            if (this.f57601g != null) {
+            if (this.f42388g != null) {
                 if (this.l) {
-                    fetchFullScreenAndShowIn(this.f57601g);
+                    fetchFullScreenAndShowIn(this.f42388g);
                 } else {
-                    fetchAndShowIn(this.f57601g);
+                    fetchAndShowIn(this.f42388g);
                 }
             }
-            if (this.f57604j) {
+            if (this.j) {
                 nspvi.preload();
-                this.f57604j = false;
+                this.j = false;
             }
             if (this.k) {
                 if (this.l) {

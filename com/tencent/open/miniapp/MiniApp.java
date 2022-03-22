@@ -22,7 +22,7 @@ import com.tencent.open.utils.i;
 import com.tencent.open.utils.l;
 import java.util.Arrays;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MiniApp extends BaseApi {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MINIAPP_CONTEXT_NULL = -6;
@@ -66,9 +66,9 @@ public class MiniApp extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, cVar, qQToken};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((c) objArr2[0], (QQToken) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -92,8 +92,8 @@ public class MiniApp extends BaseApi {
                 SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_ID_EMPTY : -1");
                 return -1;
             } else {
-                for (int i2 = 0; i2 < str2.length(); i2++) {
-                    if (!Character.isDigit(str2.charAt(i2))) {
+                for (int i = 0; i < str2.length(); i++) {
+                    if (!Character.isDigit(str2.charAt(i))) {
                         SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_ID_NOT_DIGIT : -4");
                         return -4;
                     }
@@ -106,14 +106,14 @@ public class MiniApp extends BaseApi {
                     return -7;
                 } else if (l.e(activity)) {
                     Intent intent = new Intent("android.intent.action.VIEW");
-                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.f58993c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.f58993c.getOpenId()))));
+                    intent.setData(Uri.parse(String.format("mqqapi://connect_miniapp/launch?app_type=%1$s&mini_app_id=%2$s&version=1&src_type=app&app_name=%3$s&app_id=%4$s&src_id=%5$s&mini_app_path=%6$s&mini_app_type=%7$s&open_id=%8$s", str, str2, l.l(i.a((Context) activity)), l.l(this.f43645c.getAppId()), str3, l.l(str4), l.l(str5), l.l(this.f43645c.getOpenId()))));
                     intent.putExtra(EmotionResourceInfo.JSON_KEY_PKG_NAME, activity.getPackageName());
                     activity.startActivity(intent);
                     SLog.i("openSDK_LOG.MiniApp", "Result is MINIAPP_SUCCESS : 0");
                     return 0;
                 } else {
                     try {
-                        new TDialog(activity, "", a(""), null, this.f58993c).show();
+                        new TDialog(activity, "", a(""), null, this.f43645c).show();
                     } catch (RuntimeException e2) {
                         SLog.e("openSDK_LOG.MiniApp", "Show download dialog exception:" + e2.getMessage());
                     }
@@ -134,9 +134,9 @@ public class MiniApp extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, qQToken};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -154,9 +154,9 @@ public class MiniApp extends BaseApi {
             newInitContext.initArgs = r2;
             Object[] objArr = {qQToken};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((QQToken) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);

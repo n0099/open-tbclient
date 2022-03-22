@@ -7,8 +7,8 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
-import c.a.b0.l0.i;
-import c.a.b0.l0.j;
+import c.a.a0.l0.j;
+import c.a.a0.l0.k;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -20,15 +20,15 @@ import java.lang.ref.WeakReference;
 public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean F;
-    public boolean G;
-    public double H;
-    public SlideInterceptor I;
-    public WeakReference<Activity> J;
-    public i K;
+    public boolean B;
+    public boolean C;
+    public double D;
+    public SlideInterceptor E;
+    public WeakReference<Activity> F;
+    public j G;
 
     /* loaded from: classes4.dex */
-    public class a implements i {
+    public class a implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -40,9 +40,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {customSlidingPanelLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -51,20 +51,20 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.b0.l0.i
+        @Override // c.a.a0.l0.j
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.setActivityIsTranslucent(z);
-                if (this.a.K != null) {
-                    this.a.K.onTranslucent(z);
+                if (this.a.G != null) {
+                    this.a.G.onTranslucent(z);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements i {
+    public class b implements j {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -76,9 +76,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {customSlidingPanelLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -87,13 +87,13 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // c.a.b0.l0.i
+        @Override // c.a.a0.l0.j
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 this.a.setActivityIsTranslucent(z);
-                if (this.a.K != null) {
-                    this.a.K.onTranslucent(z);
+                if (this.a.G != null) {
+                    this.a.G.onTranslucent(z);
                 }
             }
         }
@@ -108,98 +108,58 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.F = true;
-        this.G = false;
-        this.H = 1.0d;
-        init();
+        this.B = true;
+        this.C = false;
+        this.D = 1.0d;
+        L();
     }
 
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void attachActivity(Activity activity) {
+    public void L() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || Build.VERSION.SDK_INT < 21 || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
-            return;
-        }
-        this.J = new WeakReference<>(activity);
-        activity.getWindow().getDecorView().setBackgroundColor(0);
-        if (this.G) {
-            return;
-        }
-        convertActivityFromTranslucent();
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void convertActivityFromTranslucent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            WeakReference<Activity> weakReference = this.J;
-            if (weakReference != null && weakReference.get() != null) {
-                j.c(this.J.get(), new b(this));
-                return;
-            }
-            i iVar = this.K;
-            if (iVar != null) {
-                iVar.onTranslucent(true);
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void convertActivityToTranslucent() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            WeakReference<Activity> weakReference = this.J;
-            if (weakReference != null && weakReference.get() != null) {
-                j.d(this.J.get(), new a(this));
-                return;
-            }
-            i iVar = this.K;
-            if (iVar != null) {
-                iVar.onTranslucent(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
-    public void forceActivityTransparent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.G = z;
-        }
-    }
-
-    public void init() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setCanSlideRegionFactor(this.H);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setCanSlideRegionFactor(this.D);
             setActivityIsTranslucent(true);
         }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void m(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || Build.VERSION.SDK_INT < 21 || activity == null || activity.getWindow() == null || activity.getWindow().getDecorView() == null) {
+            return;
+        }
+        this.F = new WeakReference<>(activity);
+        activity.getWindow().getDecorView().setBackgroundColor(0);
+        if (this.C) {
+            return;
+        }
+        q();
     }
 
     @Override // com.baidu.nadcore.widget.SlidingPaneLayout, android.view.ViewGroup
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
             if (motionEvent.getPointerCount() > 1) {
                 return false;
             }
             if (MotionEventCompat.getActionMasked(motionEvent) == 2) {
-                if (!this.F) {
+                if (!this.B) {
                     return false;
                 }
                 try {
-                    if (this.I != null) {
-                        if (!this.I.isSlidable(motionEvent)) {
+                    if (this.E != null) {
+                        if (!this.E.isSlidable(motionEvent)) {
                             return false;
                         }
                     }
@@ -212,30 +172,70 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         return invokeL.booleanValue;
     }
 
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            WeakReference<Activity> weakReference = this.F;
+            if (weakReference != null && weakReference.get() != null) {
+                k.c(this.F.get(), new b(this));
+                return;
+            }
+            j jVar = this.G;
+            if (jVar != null) {
+                jVar.onTranslucent(true);
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            WeakReference<Activity> weakReference = this.F;
+            if (weakReference != null && weakReference.get() != null) {
+                k.d(this.F.get(), new a(this));
+                return;
+            }
+            j jVar = this.G;
+            if (jVar != null) {
+                jVar.onTranslucent(false);
+            }
+        }
+    }
+
     public void setCanSlidable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.F = z;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.B = z;
         }
     }
 
     public void setNightMode(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
         }
     }
 
-    public void setOnTransparentListener(i iVar) {
+    public void setOnTransparentListener(j jVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iVar) == null) {
-            this.K = iVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jVar) == null) {
+            this.G = jVar;
         }
     }
 
     public void setSlideInterceptor(SlideInterceptor slideInterceptor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, slideInterceptor) == null) {
-            this.I = slideInterceptor;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, slideInterceptor) == null) {
+            this.E = slideInterceptor;
+        }
+    }
+
+    @Override // com.baidu.nadcore.widget.SlidingPaneLayout
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.C = z;
         }
     }
 
@@ -248,9 +248,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -258,24 +258,24 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
                 return;
             }
         }
-        this.F = true;
-        this.G = false;
-        this.H = 1.0d;
-        init();
+        this.B = true;
+        this.C = false;
+        this.D = 1.0d;
+        L();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CustomSlidingPanelLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CustomSlidingPanelLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -283,9 +283,9 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
                 return;
             }
         }
-        this.F = true;
-        this.G = false;
-        this.H = 1.0d;
-        init();
+        this.B = true;
+        this.C = false;
+        this.D = 1.0d;
+        L();
     }
 }

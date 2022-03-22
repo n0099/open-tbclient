@@ -20,27 +20,27 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes3.dex */
     public interface a {
-        void a(String str, long j2);
+        void a(String str, long j);
 
-        void a(String str, long j2, long j3);
+        void a(String str, long j, long j2);
 
-        void a(String str, long j2, String str2);
+        void a(String str, long j, String str2);
 
-        void b(String str, long j2);
+        void b(String str, long j);
     }
 
     public static long a(String str, OutputStream outputStream, a aVar) throws Exception {
         InterceptResult invokeLLL;
         Throwable th;
         HttpURLConnection httpURLConnection;
-        int i2;
+        int i;
         byte[] bArr;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65536, null, str, outputStream, aVar)) != null) {
@@ -70,26 +70,26 @@ public class b {
                     InputStream inputStream2 = httpURLConnection.getInputStream();
                     try {
                         byte[] bArr2 = new byte[51200];
+                        int i2 = 0;
                         int i3 = 0;
-                        int i4 = 0;
                         while (true) {
                             int read = inputStream2.read(bArr2);
                             if (read == -1) {
                                 break;
                             }
-                            int i5 = i4 + read;
-                            outputStream.write(bArr2, i3, read);
+                            int i4 = i3 + read;
+                            outputStream.write(bArr2, i2, read);
                             if (aVar != null) {
-                                i2 = i5;
+                                i = i4;
                                 bArr = bArr2;
-                                aVar.a(str, i5, contentLength);
+                                aVar.a(str, i4, contentLength);
                             } else {
-                                i2 = i5;
+                                i = i4;
                                 bArr = bArr2;
                             }
                             bArr2 = bArr;
-                            i4 = i2;
-                            i3 = 0;
+                            i3 = i;
+                            i2 = 0;
                         }
                         CyberLog.d("Downloader", "download finished. use time=" + (System.currentTimeMillis() - currentTimeMillis));
                         if (inputStream2 != null) {
@@ -149,10 +149,10 @@ public class b {
                     public final /* synthetic */ String a;
 
                     /* renamed from: b  reason: collision with root package name */
-                    public final /* synthetic */ String f32113b;
+                    public final /* synthetic */ String f25363b;
 
                     /* renamed from: c  reason: collision with root package name */
-                    public final /* synthetic */ a f32114c;
+                    public final /* synthetic */ a f25364c;
 
                     {
                         Interceptable interceptable2 = $ic;
@@ -161,24 +161,24 @@ public class b {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {str4, str, aVar};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.a = str4;
-                        this.f32113b = str;
-                        this.f32114c = aVar;
+                        this.f25363b = str;
+                        this.f25364c = aVar;
                     }
 
                     @Override // java.lang.Runnable
                     public void run() {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            b.b(this.a, this.f32113b, this.f32114c);
+                            b.b(this.a, this.f25363b, this.f25364c);
                         }
                     }
                 });

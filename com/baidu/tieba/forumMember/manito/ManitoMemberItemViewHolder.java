@@ -13,12 +13,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View dividerLine;
-    public TextView fans;
-    public GodHeadImageView head;
-    public TextView intro;
-    public int mSkinType;
-    public TextView name;
+    public GodHeadImageView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f32194b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32195c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f32196d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f32197e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public int f32198f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ManitoMemberItemViewHolder(View view) {
@@ -29,24 +39,24 @@ public class ManitoMemberItemViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mSkinType = 3;
-        GodHeadImageView godHeadImageView = (GodHeadImageView) view.findViewById(R.id.item_head);
-        this.head = godHeadImageView;
+        this.f32198f = 3;
+        GodHeadImageView godHeadImageView = (GodHeadImageView) view.findViewById(R.id.obfuscated_res_0x7f090f75);
+        this.a = godHeadImageView;
         godHeadImageView.setShapeType(0);
-        this.head.setShowType(1);
-        this.head.setRadius(14);
-        this.name = (TextView) view.findViewById(R.id.item_manito_name);
-        this.intro = (TextView) view.findViewById(R.id.item_manito_intro);
-        this.fans = (TextView) view.findViewById(R.id.item_manito_fans);
-        this.dividerLine = view.findViewById(R.id.divider_line);
+        this.a.setShowType(1);
+        this.a.setRadius(14);
+        this.f32194b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f84);
+        this.f32195c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f83);
+        this.f32196d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f090f82);
+        this.f32197e = view.findViewById(R.id.obfuscated_res_0x7f0907f4);
     }
 }

@@ -8,6 +8,7 @@ import android.graphics.drawable.PictureDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
@@ -23,21 +24,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class SVGImageView extends ImageView {
     public static /* synthetic */ Interceptable $ic;
-
-    /* renamed from: e  reason: collision with root package name */
-    public static Method f51953e;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class b extends AsyncTask<String, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +49,9 @@ public class SVGImageView extends ImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sVGImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -71,13 +70,13 @@ public class SVGImageView extends ImageView {
                 try {
                     return SVG.f(this.a.getContext().getAssets(), strArr[0]).l();
                 } catch (SVGParseException e2) {
-                    String str = "Error loading file " + strArr + ": " + e2.getMessage();
+                    Log.e("SVGImageView", "Error loading file " + strArr + ": " + e2.getMessage());
                     return null;
                 } catch (FileNotFoundException unused) {
-                    String str2 = "File not found: " + strArr;
+                    Log.e("SVGImageView", "File not found: " + strArr);
                     return null;
-                } catch (IOException unused2) {
-                    String str3 = "Unable to load asset file: " + strArr;
+                } catch (IOException e3) {
+                    Log.e("SVGImageView", "Unable to load asset file: " + strArr, e3);
                     return null;
                 }
             }
@@ -101,7 +100,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class c extends AsyncTask<Integer, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -114,9 +113,9 @@ public class SVGImageView extends ImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sVGImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -135,7 +134,7 @@ public class SVGImageView extends ImageView {
                 try {
                     return SVG.h(this.a.getContext(), numArr[0].intValue()).l();
                 } catch (SVGParseException e2) {
-                    String.format("Error loading resource 0x%x: %s", numArr, e2.getMessage());
+                    Log.e("SVGImageView", String.format("Error loading resource 0x%x: %s", numArr, e2.getMessage()));
                     return null;
                 }
             }
@@ -159,7 +158,7 @@ public class SVGImageView extends ImageView {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class d extends AsyncTask<InputStream, Integer, Picture> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -172,9 +171,9 @@ public class SVGImageView extends ImageView {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {sVGImageView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -199,7 +198,7 @@ public class SVGImageView extends ImageView {
                         }
                         return l;
                     } catch (SVGParseException e2) {
-                        String str = "Parse error loading URI: " + e2.getMessage();
+                        Log.e("SVGImageView", "Parse error loading URI: " + e2.getMessage());
                         try {
                             inputStreamArr[0].close();
                             return null;
@@ -259,9 +258,9 @@ public class SVGImageView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -269,17 +268,17 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f51953e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
     }
 
-    public final void b(AttributeSet attributeSet, int i2) {
+    public final void b(AttributeSet attributeSet, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i2) == null) || isInEditMode()) {
+        if (!(interceptable == null || interceptable.invokeLI(1048576, this, attributeSet, i) == null) || isInEditMode()) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.svg}, i2, 0);
+        TypedArray obtainStyledAttributes = getContext().getTheme().obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04059e}, i, 0);
         try {
             int resourceId = obtainStyledAttributes.getResourceId(0, -1);
             if (resourceId != -1) {
@@ -307,7 +306,7 @@ public class SVGImageView extends ImageView {
                 return true;
             } catch (FileNotFoundException unused) {
                 if (z) {
-                    String str = "File not found: " + uri;
+                    Log.e("SVGImageView", "File not found: " + uri);
                 }
                 return false;
             }
@@ -317,12 +316,13 @@ public class SVGImageView extends ImageView {
 
     public final void d() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || f51953e == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || a == null) {
             return;
         }
         try {
-            f51953e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
-        } catch (Exception unused) {
+            a.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+        } catch (Exception e2) {
+            Log.w("SVGImageView", "Unexpected failure calling setLayerType", e2);
         }
     }
 
@@ -334,10 +334,10 @@ public class SVGImageView extends ImageView {
     }
 
     @Override // android.widget.ImageView
-    public void setImageResource(int i2) {
+    public void setImageResource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            new c(this, null).execute(Integer.valueOf(i2));
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            new c(this, null).execute(Integer.valueOf(i));
         }
     }
 
@@ -370,9 +370,9 @@ public class SVGImageView extends ImageView {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -381,24 +381,24 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f51953e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, 0);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SVGImageView(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SVGImageView(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -407,9 +407,9 @@ public class SVGImageView extends ImageView {
             }
         }
         try {
-            f51953e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            a = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
-        b(attributeSet, i2);
+        b(attributeSet, i);
     }
 }

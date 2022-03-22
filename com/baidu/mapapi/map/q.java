@@ -16,29 +16,29 @@ public class q extends AnimatorListenerAdapter {
     public final /* synthetic */ ViewGroup.LayoutParams a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ int f34108b;
+    public final /* synthetic */ int f26344b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f34109c;
+    public final /* synthetic */ SwipeDismissTouchListener f26345c;
 
-    public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i2) {
+    public q(SwipeDismissTouchListener swipeDismissTouchListener, ViewGroup.LayoutParams layoutParams, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {swipeDismissTouchListener, layoutParams, Integer.valueOf(i2)};
+            Object[] objArr = {swipeDismissTouchListener, layoutParams, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f34109c = swipeDismissTouchListener;
+        this.f26345c = swipeDismissTouchListener;
         this.a = layoutParams;
-        this.f34108b = i2;
+        this.f26344b = i;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -50,14 +50,14 @@ public class q extends AnimatorListenerAdapter {
         View view3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            dismissCallbacks = this.f34109c.f34032f;
-            view = this.f34109c.f34031e;
-            obj = this.f34109c.l;
+            dismissCallbacks = this.f26345c.f26280f;
+            view = this.f26345c.f26279e;
+            obj = this.f26345c.l;
             dismissCallbacks.onDismiss(view, obj);
-            view2 = this.f34109c.f34031e;
+            view2 = this.f26345c.f26279e;
             view2.setTranslationX(0.0f);
-            this.a.height = this.f34108b;
-            view3 = this.f34109c.f34031e;
+            this.a.height = this.f26344b;
+            view3 = this.f26345c.f26279e;
             view3.setLayoutParams(this.a);
         }
     }

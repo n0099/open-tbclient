@@ -71,9 +71,9 @@ public class ConnectTrial {
             newInitContext.initArgs = r2;
             Object[] objArr = {downloadTask, breakpointInfo};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -265,12 +265,12 @@ public class ConnectTrial {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.info.getEtag() == null || this.info.getEtag().equals(this.responseEtag)) ? false : true : invokeV.booleanValue;
     }
 
-    public boolean isNeedTrialHeadMethodForInstanceLength(long j2, @NonNull DownloadConnection.Connected connected) {
+    public boolean isNeedTrialHeadMethodForInstanceLength(long j, @NonNull DownloadConnection.Connected connected) {
         InterceptResult invokeJL;
         String responseHeaderField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j2, connected)) == null) {
-            if (j2 != -1) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, connected)) == null) {
+            if (j != -1) {
                 return false;
             }
             String responseHeaderField2 = connected.getResponseHeaderField("Content-Range");

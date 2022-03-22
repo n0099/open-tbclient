@@ -13,12 +13,12 @@ import com.ss.android.socialbase.downloader.downloader.Downloader;
 import com.ss.android.socialbase.downloader.exception.BaseException;
 import com.ss.android.socialbase.downloader.model.DownloadInfo;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String a = DownloadReceiver.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f58256b = new Handler(Looper.getMainLooper());
+    public Handler f42996b = new Handler(Looper.getMainLooper());
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(final Context context, final Intent intent) {
@@ -68,7 +68,7 @@ public class DownloadReceiver extends BroadcastReceiver {
                                 if (com.ss.android.socialbase.downloader.g.a.a(downloadInfo.getId()).a("install_queue_enable", 0) == 1) {
                                     h.a().a(downloadInfo, schemeSpecificPart);
                                 }
-                                DownloadReceiver.this.f58256b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
+                                DownloadReceiver.this.f42996b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1
                                     @Override // java.lang.Runnable
                                     public void run() {
                                         com.ss.android.socialbase.downloader.downloader.c.l().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.1.1.1
@@ -96,7 +96,7 @@ public class DownloadReceiver extends BroadcastReceiver {
 
     private void a(final Context context, final String str) {
         if (com.ss.android.socialbase.downloader.downloader.c.G()) {
-            this.f58256b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
+            this.f42996b.postDelayed(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadReceiver.2
                 @Override // java.lang.Runnable
                 public void run() {
                     try {

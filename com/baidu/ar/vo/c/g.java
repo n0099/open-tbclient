@@ -37,9 +37,9 @@ public class g implements d {
             newInitContext.initArgs = r2;
             Object[] objArr = {lVar, bVar, aVar, aVar2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -65,13 +65,13 @@ public class g implements d {
         return invokeV.booleanValue;
     }
 
-    private void k(int i2, int i3) {
+    private void k(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
             HashMap<String, Object> hashMap = new HashMap<>();
             hashMap.put("id", 4101);
-            hashMap.put("guideDirection", Integer.valueOf(i3));
-            hashMap.put("switchGuide", Integer.valueOf(i2));
+            hashMap.put("guideDirection", Integer.valueOf(i2));
+            hashMap.put("switchGuide", Integer.valueOf(i));
             this.ze.d(hashMap);
         }
     }
@@ -122,8 +122,8 @@ public class g implements d {
             f3 = bVar.y;
         }
         String a = a(this.zb);
-        int i2 = bVar.type;
-        if (i2 == 3) {
+        int i = bVar.type;
+        if (i == 3) {
             this.zc.hi();
             a(a, (int) f2, (int) f3, null, (int) bVar.yZ);
             runnable = new Runnable(this) { // from class: com.baidu.ar.vo.c.g.1
@@ -138,9 +138,9 @@ public class g implements d {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -158,7 +158,7 @@ public class g implements d {
                     this.zi.zd.sceneRotateToCamera();
                 }
             };
-        } else if (i2 != 2) {
+        } else if (i != 2) {
             return;
         } else {
             this.zc.hi();
@@ -175,9 +175,9 @@ public class g implements d {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -200,13 +200,13 @@ public class g implements d {
     }
 
     @Override // com.baidu.ar.vo.c.d
-    public void a(String str, int i2, int i3, float[] fArr, float f2) {
+    public void a(String str, int i, int i2, float[] fArr, float f2) {
         com.baidu.ar.vo.b.a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), fArr, Float.valueOf(f2)}) == null) || (aVar = this.zc) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), fArr, Float.valueOf(f2)}) == null) || (aVar = this.zc) == null) {
             return;
         }
-        aVar.insertModel(str, i2, i3, fArr, f2);
+        aVar.insertModel(str, i, i2, fArr, f2);
     }
 
     @Override // com.baidu.ar.vo.c.d
@@ -294,11 +294,11 @@ public class g implements d {
         }
     }
 
-    public void setPreviewSize(int i2, int i3) {
+    public void setPreviewSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
-            this.mPreviewWidth = i2;
-            this.mPreviewHeight = i3;
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
+            this.mPreviewWidth = i;
+            this.mPreviewHeight = i2;
         }
     }
 }

@@ -72,9 +72,9 @@ public class ChangeBounds extends Transition {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -97,9 +97,9 @@ public class ChangeBounds extends Transition {
             if (interceptable == null || interceptable.invokeL(1048576, this, pointF) == null) {
                 this.mRight = Math.round(pointF.x);
                 this.mBottom = Math.round(pointF.y);
-                int i2 = this.mBottomRightCalls + 1;
-                this.mBottomRightCalls = i2;
-                if (this.mTopLeftCalls == i2) {
+                int i = this.mBottomRightCalls + 1;
+                this.mBottomRightCalls = i;
+                if (this.mTopLeftCalls == i) {
                     setLeftTopRightBottom();
                 }
             }
@@ -110,9 +110,9 @@ public class ChangeBounds extends Transition {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pointF) == null) {
                 this.mLeft = Math.round(pointF.x);
                 this.mTop = Math.round(pointF.y);
-                int i2 = this.mTopLeftCalls + 1;
-                this.mTopLeftCalls = i2;
-                if (i2 == this.mBottomRightCalls) {
+                int i = this.mTopLeftCalls + 1;
+                this.mTopLeftCalls = i;
+                if (i == this.mBottomRightCalls) {
                     setLeftTopRightBottom();
                 }
             }
@@ -147,9 +147,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -197,9 +197,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -242,9 +242,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -287,9 +287,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -332,9 +332,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -377,9 +377,9 @@ public class ChangeBounds extends Transition {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r8, r9};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((Class) objArr2[0], (String) objArr2[1]);
                         newInitContext.thisArg = this;
@@ -419,9 +419,9 @@ public class ChangeBounds extends Transition {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -492,9 +492,9 @@ public class ChangeBounds extends Transition {
     @Nullable
     public Animator createAnimator(@NonNull ViewGroup viewGroup, @Nullable TransitionValues transitionValues, @Nullable TransitionValues transitionValues2) {
         InterceptResult invokeLLL;
-        int i2;
+        int i;
         View view;
-        int i3;
+        int i2;
         Rect rect;
         ObjectAnimator objectAnimator;
         Animator mergeAnimators;
@@ -514,42 +514,42 @@ public class ChangeBounds extends Transition {
             if (parentMatches(viewGroup2, viewGroup3)) {
                 Rect rect2 = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
                 Rect rect3 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);
-                int i4 = rect2.left;
-                int i5 = rect3.left;
-                int i6 = rect2.top;
-                int i7 = rect3.top;
-                int i8 = rect2.right;
-                int i9 = rect3.right;
-                int i10 = rect2.bottom;
-                int i11 = rect3.bottom;
-                int i12 = i8 - i4;
-                int i13 = i10 - i6;
-                int i14 = i9 - i5;
-                int i15 = i11 - i7;
+                int i3 = rect2.left;
+                int i4 = rect3.left;
+                int i5 = rect2.top;
+                int i6 = rect3.top;
+                int i7 = rect2.right;
+                int i8 = rect3.right;
+                int i9 = rect2.bottom;
+                int i10 = rect3.bottom;
+                int i11 = i7 - i3;
+                int i12 = i9 - i5;
+                int i13 = i8 - i4;
+                int i14 = i10 - i6;
                 Rect rect4 = (Rect) transitionValues.values.get(PROPNAME_CLIP);
                 Rect rect5 = (Rect) transitionValues2.values.get(PROPNAME_CLIP);
-                if ((i12 == 0 || i13 == 0) && (i14 == 0 || i15 == 0)) {
-                    i2 = 0;
+                if ((i11 == 0 || i12 == 0) && (i13 == 0 || i14 == 0)) {
+                    i = 0;
                 } else {
-                    i2 = (i4 == i5 && i6 == i7) ? 0 : 1;
-                    if (i8 != i9 || i10 != i11) {
-                        i2++;
+                    i = (i3 == i4 && i5 == i6) ? 0 : 1;
+                    if (i7 != i8 || i9 != i10) {
+                        i++;
                     }
                 }
                 if ((rect4 != null && !rect4.equals(rect5)) || (rect4 == null && rect5 != null)) {
-                    i2++;
+                    i++;
                 }
-                if (i2 > 0) {
+                if (i > 0) {
                     if (!this.mResizeClip) {
                         view = view2;
-                        ViewUtils.setLeftTopRightBottom(view, i4, i6, i8, i10);
-                        if (i2 == 2) {
-                            if (i12 == i14 && i13 == i15) {
-                                mergeAnimators = ObjectAnimatorUtils.ofPointF(view, POSITION_PROPERTY, getPathMotion().getPath(i4, i6, i5, i7));
+                        ViewUtils.setLeftTopRightBottom(view, i3, i5, i7, i9);
+                        if (i == 2) {
+                            if (i11 == i13 && i12 == i14) {
+                                mergeAnimators = ObjectAnimatorUtils.ofPointF(view, POSITION_PROPERTY, getPathMotion().getPath(i3, i5, i4, i6));
                             } else {
                                 ViewBounds viewBounds = new ViewBounds(view);
-                                ObjectAnimator ofPointF = ObjectAnimatorUtils.ofPointF(viewBounds, TOP_LEFT_PROPERTY, getPathMotion().getPath(i4, i6, i5, i7));
-                                ObjectAnimator ofPointF2 = ObjectAnimatorUtils.ofPointF(viewBounds, BOTTOM_RIGHT_PROPERTY, getPathMotion().getPath(i8, i10, i9, i11));
+                                ObjectAnimator ofPointF = ObjectAnimatorUtils.ofPointF(viewBounds, TOP_LEFT_PROPERTY, getPathMotion().getPath(i3, i5, i4, i6));
+                                ObjectAnimator ofPointF2 = ObjectAnimatorUtils.ofPointF(viewBounds, BOTTOM_RIGHT_PROPERTY, getPathMotion().getPath(i7, i9, i8, i10));
                                 AnimatorSet animatorSet = new AnimatorSet();
                                 animatorSet.playTogether(ofPointF, ofPointF2);
                                 animatorSet.addListener(new AnimatorListenerAdapter(this, viewBounds) { // from class: androidx.transition.ChangeBounds.7
@@ -566,9 +566,9 @@ public class ChangeBounds extends Transition {
                                             newInitContext.initArgs = r2;
                                             Object[] objArr = {this, viewBounds};
                                             interceptable2.invokeUnInit(65536, newInitContext);
-                                            int i16 = newInitContext.flag;
-                                            if ((i16 & 1) != 0) {
-                                                int i17 = i16 & 2;
+                                            int i15 = newInitContext.flag;
+                                            if ((i15 & 1) != 0) {
+                                                int i16 = i15 & 2;
                                                 newInitContext.thisArg = this;
                                                 interceptable2.invokeInitBody(65536, newInitContext);
                                                 return;
@@ -581,33 +581,33 @@ public class ChangeBounds extends Transition {
                                 });
                                 mergeAnimators = animatorSet;
                             }
-                        } else if (i4 == i5 && i6 == i7) {
-                            mergeAnimators = ObjectAnimatorUtils.ofPointF(view, BOTTOM_RIGHT_ONLY_PROPERTY, getPathMotion().getPath(i8, i10, i9, i11));
+                        } else if (i3 == i4 && i5 == i6) {
+                            mergeAnimators = ObjectAnimatorUtils.ofPointF(view, BOTTOM_RIGHT_ONLY_PROPERTY, getPathMotion().getPath(i7, i9, i8, i10));
                         } else {
-                            mergeAnimators = ObjectAnimatorUtils.ofPointF(view, TOP_LEFT_ONLY_PROPERTY, getPathMotion().getPath(i4, i6, i5, i7));
+                            mergeAnimators = ObjectAnimatorUtils.ofPointF(view, TOP_LEFT_ONLY_PROPERTY, getPathMotion().getPath(i3, i5, i4, i6));
                         }
                     } else {
                         view = view2;
-                        ViewUtils.setLeftTopRightBottom(view, i4, i6, Math.max(i12, i14) + i4, Math.max(i13, i15) + i6);
-                        ObjectAnimator ofPointF3 = (i4 == i5 && i6 == i7) ? null : ObjectAnimatorUtils.ofPointF(view, POSITION_PROPERTY, getPathMotion().getPath(i4, i6, i5, i7));
+                        ViewUtils.setLeftTopRightBottom(view, i3, i5, Math.max(i11, i13) + i3, Math.max(i12, i14) + i5);
+                        ObjectAnimator ofPointF3 = (i3 == i4 && i5 == i6) ? null : ObjectAnimatorUtils.ofPointF(view, POSITION_PROPERTY, getPathMotion().getPath(i3, i5, i4, i6));
                         if (rect4 == null) {
-                            i3 = 0;
-                            rect = new Rect(0, 0, i12, i13);
+                            i2 = 0;
+                            rect = new Rect(0, 0, i11, i12);
                         } else {
-                            i3 = 0;
+                            i2 = 0;
                             rect = rect4;
                         }
-                        Rect rect6 = rect5 == null ? new Rect(i3, i3, i14, i15) : rect5;
+                        Rect rect6 = rect5 == null ? new Rect(i2, i2, i13, i14) : rect5;
                         if (rect.equals(rect6)) {
                             objectAnimator = null;
                         } else {
                             ViewCompat.setClipBounds(view, rect);
                             RectEvaluator rectEvaluator = sRectEvaluator;
                             Object[] objArr = new Object[2];
-                            objArr[i3] = rect;
+                            objArr[i2] = rect;
                             objArr[1] = rect6;
                             ObjectAnimator ofObject = ObjectAnimator.ofObject(view, "clipBounds", rectEvaluator, objArr);
-                            ofObject.addListener(new AnimatorListenerAdapter(this, view, rect5, i5, i7, i9, i11) { // from class: androidx.transition.ChangeBounds.8
+                            ofObject.addListener(new AnimatorListenerAdapter(this, view, rect5, i4, i6, i8, i10) { // from class: androidx.transition.ChangeBounds.8
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public boolean mIsCanceled;
@@ -624,11 +624,11 @@ public class ChangeBounds extends Transition {
                                     if (interceptable2 != null) {
                                         InitContext newInitContext = TitanRuntime.newInitContext();
                                         newInitContext.initArgs = r2;
-                                        Object[] objArr2 = {this, view, rect5, Integer.valueOf(i5), Integer.valueOf(i7), Integer.valueOf(i9), Integer.valueOf(i11)};
+                                        Object[] objArr2 = {this, view, rect5, Integer.valueOf(i4), Integer.valueOf(i6), Integer.valueOf(i8), Integer.valueOf(i10)};
                                         interceptable2.invokeUnInit(65536, newInitContext);
-                                        int i16 = newInitContext.flag;
-                                        if ((i16 & 1) != 0) {
-                                            int i17 = i16 & 2;
+                                        int i15 = newInitContext.flag;
+                                        if ((i15 & 1) != 0) {
+                                            int i16 = i15 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable2.invokeInitBody(65536, newInitContext);
                                             return;
@@ -637,10 +637,10 @@ public class ChangeBounds extends Transition {
                                     this.this$0 = this;
                                     this.val$view = view;
                                     this.val$finalClip = rect5;
-                                    this.val$endLeft = i5;
-                                    this.val$endTop = i7;
-                                    this.val$endRight = i9;
-                                    this.val$endBottom = i11;
+                                    this.val$endLeft = i4;
+                                    this.val$endTop = i6;
+                                    this.val$endRight = i8;
+                                    this.val$endBottom = i10;
                                 }
 
                                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -682,9 +682,9 @@ public class ChangeBounds extends Transition {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr2 = {this, viewGroup4};
                                     interceptable2.invokeUnInit(65536, newInitContext);
-                                    int i16 = newInitContext.flag;
-                                    if ((i16 & 1) != 0) {
-                                        int i17 = i16 & 2;
+                                    int i15 = newInitContext.flag;
+                                    if ((i15 & 1) != 0) {
+                                        int i16 = i15 & 2;
                                         newInitContext.thisArg = this;
                                         interceptable2.invokeInitBody(65536, newInitContext);
                                         return;
@@ -769,9 +769,9 @@ public class ChangeBounds extends Transition {
                         newInitContext.initArgs = r2;
                         Object[] objArr2 = {this, viewGroup, bitmapDrawable, view2, Float.valueOf(transitionAlpha)};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i16 = newInitContext.flag;
-                        if ((i16 & 1) != 0) {
-                            int i17 = i16 & 2;
+                        int i15 = newInitContext.flag;
+                        if ((i15 & 1) != 0) {
+                            int i16 = i15 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -829,9 +829,9 @@ public class ChangeBounds extends Transition {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

@@ -28,9 +28,9 @@ public class NetErrorElement extends AbsElement {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,11 +41,11 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBtnRetry.getLayoutParams();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_14dp));
-            this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_14dp));
-            layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_102dp);
-            layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_32dp);
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_31dp);
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070194));
+            this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070194));
+            layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07018f);
+            layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a0);
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07019f);
             this.mBtnRetry.setLayoutParams(layoutParams);
         }
     }
@@ -54,11 +54,11 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, this) == null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mBtnRetry.getLayoutParams();
-            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_12dp));
-            this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_12dp));
-            layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_66dp);
-            layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_24_33dp);
-            layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.bdvideoplayer_dimens_24dp);
+            this.mTextNetError.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
+            this.mBtnRetry.setTextSize(0, getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070192));
+            layoutParams.width = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f0701a6);
+            layoutParams.height = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070199);
+            layoutParams.topMargin = getContext().getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07019b);
             this.mBtnRetry.setLayoutParams(layoutParams);
         }
     }
@@ -86,10 +86,10 @@ public class NetErrorElement extends AbsElement {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.mRootView == null) {
-                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.bdvideoplayer_layout_net_error, null);
+                this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0155, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.tv_error);
-            Button button = (Button) this.mRootView.findViewById(R.id.bt_retry);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0921a9);
+            Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0903f7);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);
         }

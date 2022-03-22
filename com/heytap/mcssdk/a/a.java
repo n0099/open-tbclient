@@ -23,9 +23,9 @@ public final class a extends c {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -33,11 +33,11 @@ public final class a extends c {
     }
 
     @Override // com.heytap.mcssdk.a.d
-    public final Message a(Context context, int i2, Intent intent) {
+    public final Message a(Context context, int i, Intent intent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i2, intent)) == null) {
-            if (4098 == i2) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, context, i, intent)) == null) {
+            if (4098 == i) {
                 Message a = a(intent);
                 PushManager.statisticMessage(context, (AppMessage) a, PushManager.EVENT_ID_PUSH_TRANSMIT);
                 return a;

@@ -179,13 +179,13 @@ public class g {
         return invokeLL.booleanValue;
     }
 
-    public static final boolean l(PopupWindow popupWindow, View view, int i2, int i3) {
+    public static final boolean l(PopupWindow popupWindow, View view, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view, i, i2)) == null) {
             if (popupWindow != null && view != null && !g(view.getContext()) && h(view)) {
                 try {
-                    popupWindow.showAsDropDown(view, i2, i3);
+                    popupWindow.showAsDropDown(view, i, i2);
                     return true;
                 } catch (Exception unused) {
                 }
@@ -195,13 +195,13 @@ public class g {
         return invokeLLII.booleanValue;
     }
 
-    public static final boolean m(PopupWindow popupWindow, View view, int i2, int i3, int i4) {
+    public static final boolean m(PopupWindow popupWindow, View view, int i, int i2, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
             if (popupWindow != null && view != null && !g(view.getContext()) && h(view)) {
                 try {
-                    popupWindow.showAtLocation(view, i2, i3, i4);
+                    popupWindow.showAtLocation(view, i, i2, i3);
                     return true;
                 } catch (Exception unused) {
                 }

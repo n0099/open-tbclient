@@ -29,9 +29,9 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
             newInitContext.initArgs = r2;
             Object[] objArr = {textureMapView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,22 +58,22 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
         ac acVar8;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            acVar = this.a.f34059b;
+            acVar = this.a.f26299b;
             if (acVar != null) {
-                acVar2 = this.a.f34059b;
+                acVar2 = this.a.f26299b;
                 if (acVar2.b() == null) {
                     return;
                 }
-                acVar3 = this.a.f34059b;
+                acVar3 = this.a.f26299b;
                 float f3 = acVar3.b().E().a;
-                acVar4 = this.a.f34059b;
-                if (f3 < acVar4.b().f34496b) {
-                    acVar8 = this.a.f34059b;
-                    f3 = acVar8.b().f34496b;
+                acVar4 = this.a.f26299b;
+                if (f3 < acVar4.b().f26700b) {
+                    acVar8 = this.a.f26299b;
+                    f3 = acVar8.b().f26700b;
                 } else {
-                    acVar5 = this.a.f34059b;
+                    acVar5 = this.a.f26299b;
                     if (f3 > acVar5.b().a) {
-                        acVar6 = this.a.f34059b;
+                        acVar6 = this.a.f26299b;
                         f3 = acVar6.b().a;
                     }
                 }
@@ -81,10 +81,10 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
                 if (Math.abs(f2 - f3) > 0.0f) {
                     sparseArray = TextureMapView.q;
                     int intValue = ((Integer) sparseArray.get(Math.round(f3))).intValue();
-                    acVar7 = this.a.f34059b;
+                    acVar7 = this.a.f26299b;
                     imageView = this.a.o;
-                    int i2 = ((int) (intValue / acVar7.b().E().m)) / 2;
-                    imageView.setPadding(i2, 0, i2, 0);
+                    int i = ((int) (intValue / acVar7.b().E().m)) / 2;
+                    imageView.setPadding(i, 0, i, 0);
                     Object[] objArr = new Object[1];
                     if (intValue >= 1000) {
                         objArr[0] = Integer.valueOf(intValue / 1000);
@@ -155,9 +155,9 @@ public class t implements com.baidu.mapsdkplatform.comapi.map.l {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.map.l
-    public void a(boolean z, int i2) {
+    public void a(boolean z, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
         }
     }
 

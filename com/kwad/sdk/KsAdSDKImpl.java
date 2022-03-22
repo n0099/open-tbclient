@@ -2,6 +2,7 @@ package com.kwad.sdk;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -166,15 +167,15 @@ public class KsAdSDKImpl implements IKsAdSDK {
         com.kwad.sdk.core.request.c.a(this.mAppContext, new c.a() { // from class: com.kwad.sdk.KsAdSDKImpl.2
 
             /* renamed from: c  reason: collision with root package name */
-            public AtomicBoolean f53920c = new AtomicBoolean(false);
+            public AtomicBoolean f39074c = new AtomicBoolean(false);
 
             @Override // com.kwad.sdk.core.request.c.a
             public void a() {
                 com.kwad.sdk.core.d.a.a("cf read");
                 com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onCacheLoaded()");
-                if (com.kwad.sdk.core.config.b.h() && !this.f53920c.get()) {
+                if (com.kwad.sdk.core.config.b.h() && !this.f39074c.get()) {
                     com.kwad.sdk.core.video.kwai.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f53920c.set(true);
+                    this.f39074c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {
@@ -183,7 +184,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
                 com.kwad.sdk.core.kwai.a.a(KsAdSDKImpl.this.mAppContext, sdkConfig);
                 try {
                     boolean n = com.kwad.sdk.core.config.b.n();
-                    if (n || b.f54002c.booleanValue()) {
+                    if (n || b.f39154c.booleanValue()) {
                         com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "DynamicInstallReceiver registerToApp, dyEnable:" + n);
                         DynamicInstallReceiver.registerToApp(KsAdSDKImpl.this.mAppContext);
                     }
@@ -197,9 +198,9 @@ public class KsAdSDKImpl implements IKsAdSDK {
             public void a(@NonNull SdkConfigData sdkConfigData) {
                 com.kwad.sdk.core.d.a.a("cf load");
                 com.kwad.sdk.core.d.a.c(KsAdSDKImpl.TAG, "onConfigRefresh()");
-                if (com.kwad.sdk.core.config.b.h() && !this.f53920c.get()) {
+                if (com.kwad.sdk.core.config.b.h() && !this.f39074c.get()) {
                     com.kwad.sdk.core.video.kwai.e.a(KsAdSDKImpl.this.mAppContext);
-                    this.f53920c.set(true);
+                    this.f39074c.set(true);
                 }
                 com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
                 if (bVar != null) {
@@ -263,6 +264,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
 
     private void initKSRemoteProcess(Context context, SdkConfig sdkConfig) {
         if (context == null || sdkConfig == null || TextUtils.isEmpty(sdkConfig.appId)) {
+            Log.e(TAG, "KSAdSDK SDKInit:intKSRemoteProcess error,please check appID and config item");
             return;
         }
         com.kwad.sdk.core.d.a.a("SDK intKSRemoteProcess appId=" + sdkConfig.appId);
@@ -449,6 +451,7 @@ public class KsAdSDKImpl implements IKsAdSDK {
     @Override // com.kwad.sdk.api.core.IKsAdSDK
     public void init(Context context, SdkConfig sdkConfig) {
         if (context == null || sdkConfig == null || TextUtils.isEmpty(sdkConfig.appId)) {
+            Log.e(TAG, "KSAdSDK SDKInit:init error,please check appID and config item");
             return;
         }
         String a2 = al.a(context);
@@ -558,18 +561,18 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void reportBatchEvent(int i2, Map<String, Object> map) {
-        long j2 = 0;
+    public void reportBatchEvent(int i, Map<String, Object> map) {
+        long j = 0;
         if (map != null) {
             try {
                 if (map.containsKey(ReportAction.KEY_DOWNLOAD_DURATION)) {
-                    j2 = ((Long) map.get(ReportAction.KEY_DOWNLOAD_DURATION)).longValue();
+                    j = ((Long) map.get(ReportAction.KEY_DOWNLOAD_DURATION)).longValue();
                 }
             } catch (Exception e2) {
                 com.kwad.sdk.core.d.a.a(e2);
             }
         }
-        com.kwad.sdk.core.report.d.a(i2, j2);
+        com.kwad.sdk.core.report.d.a(i, j);
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -591,8 +594,8 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void setApiVersionCode(int i2) {
-        this.mApiVersionCode = i2;
+    public void setApiVersionCode(int i) {
+        this.mApiVersionCode = i;
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
@@ -616,10 +619,10 @@ public class KsAdSDKImpl implements IKsAdSDK {
     }
 
     @Override // com.kwad.sdk.api.core.IKsAdSDK
-    public void setThemeMode(int i2) {
+    public void setThemeMode(int i) {
         com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.f.a(com.kwad.sdk.plugin.b.class);
         if (bVar != null) {
-            bVar.a(i2);
+            bVar.a(i);
         }
     }
 

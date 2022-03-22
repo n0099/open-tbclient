@@ -2,8 +2,8 @@ package com.baidu.tieba.enterForum.model;
 
 import android.content.Context;
 import c.a.d.a.j;
-import c.a.r0.u0.d.b;
-import c.a.r0.x3.c;
+import c.a.p0.w0.e.d;
+import c.a.p0.z3.c;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.MessageManager;
@@ -21,15 +21,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public b f41271e;
+    /* renamed from: b  reason: collision with root package name */
+    public boolean f31896b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public boolean f41272f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f41273g;
+    /* renamed from: c  reason: collision with root package name */
+    public HttpMessageListener f31897c;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -38,17 +36,17 @@ public class EnterForumAdModel extends BdBaseModel {
         public final /* synthetic */ EnterForumAdModel a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(EnterForumAdModel enterForumAdModel, int i2) {
-            super(i2);
+        public a(EnterForumAdModel enterForumAdModel, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {enterForumAdModel, Integer.valueOf(i2)};
+                Object[] objArr = {enterForumAdModel, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -65,14 +63,14 @@ public class EnterForumAdModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof EnterForumAdResponsedMessage)) {
                 EnterForumAdResponsedMessage enterForumAdResponsedMessage = (EnterForumAdResponsedMessage) httpResponsedMessage;
                 if (enterForumAdResponsedMessage.hasError()) {
-                    this.a.f41271e = null;
+                    this.a.a = null;
                 } else {
-                    this.a.f41271e = enterForumAdResponsedMessage.getAdData();
+                    this.a.a = enterForumAdResponsedMessage.getAdData();
                     if (this.a.mLoadDataCallBack != null) {
-                        this.a.mLoadDataCallBack.c(this.a.f41271e);
+                        this.a.mLoadDataCallBack.c(this.a.a);
                     }
                 }
-                this.a.f41272f = false;
+                this.a.f31896b = false;
             }
         }
     }
@@ -82,41 +80,41 @@ public class EnterForumAdModel extends BdBaseModel {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f41272f = false;
-        this.f41273g = new a(this, CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
+        this.f31896b = false;
+        this.f31897c = new a(this, CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST);
         this.unique_id = BdUniqueId.gen();
-        MessageManager.getInstance().registerListener(this.f41273g);
+        MessageManager.getInstance().registerListener(this.f31897c);
     }
 
-    public b B() {
+    public d D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f41271e : (b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (d) invokeV.objValue;
     }
 
-    public void C() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
         }
     }
 
-    public void D(Context context) {
-        b bVar;
+    public void F(Context context) {
+        d dVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.f41272f || (bVar = this.f41271e) == null || !bVar.a()) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) || this.f31896b || (dVar = this.a) == null || !dVar.a()) {
             return;
         }
-        c.g().c(j.a(context).getUniqueId(), c.a.r0.x3.a.i("a025", "common_fill", true, 1, 5));
-        this.f41272f = true;
+        c.g().c(j.a(context).getUniqueId(), c.a.p0.z3.a.i("a025", "common_fill", true, 1, 5));
+        this.f31896b = true;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

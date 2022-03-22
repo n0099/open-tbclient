@@ -16,51 +16,47 @@ public final class b extends c.a.j.h.b.b implements a {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public final c.a.j.h.b.d.a f3767d;
+    public final c.a.j.h.b.d.a f3242d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final c.a.j.h.b.e.a f3768e;
+    public final c.a.j.h.b.e.a f3243e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final c.a.j.h.b.h.a f3769f;
+    public final c.a.j.h.b.h.a f3244f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final c f3770g;
+    public final c f3245g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final c.a.j.h.b.f.b f3771h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public final c.a.j.h.b.c.a f3772i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public final c.a.j.h.b.g.a f3773j;
+    public final c.a.j.h.b.f.b f3246h;
+    public final c.a.j.h.b.c.a i;
+    public final c.a.j.h.b.g.a j;
     public final c.a.j.j.e.a.a k;
     public final c.a.j.j.i.a l;
 
-    public /* synthetic */ b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(aVar, aVar2, aVar3, cVar, bVar, aVar4, aVar5, (i2 & 128) != 0 ? new c.a.j.j.e.a.b() : aVar6, (i2 & 256) != 0 ? new c.a.j.j.i.c() : aVar7);
+    public /* synthetic */ b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(aVar, aVar2, aVar3, cVar, bVar, aVar4, aVar5, (i & 128) != 0 ? new c.a.j.j.e.a.b() : aVar6, (i & 256) != 0 ? new c.a.j.j.i.c() : aVar7);
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.g.a a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3773j : (c.a.j.h.b.g.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (c.a.j.h.b.g.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.h.a b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3769f : (c.a.j.h.b.h.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f3244f : (c.a.j.h.b.h.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.c.a c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f3772i : (c.a.j.h.b.c.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.i : (c.a.j.h.b.c.a) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
@@ -74,7 +70,7 @@ public final class b extends c.a.j.h.b.b implements a {
     public c e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3770g : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f3245g : (c) invokeV.objValue;
     }
 
     @Override // c.a.j.j.d.a
@@ -88,21 +84,21 @@ public final class b extends c.a.j.h.b.b implements a {
     public c.a.j.h.b.e.a g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3768e : (c.a.j.h.b.e.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.f3243e : (c.a.j.h.b.e.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.d.a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3767d : (c.a.j.h.b.d.a) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f3242d : (c.a.j.h.b.d.a) invokeV.objValue;
     }
 
     @Override // c.a.j.h.b.a
     public c.a.j.h.b.f.b i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3771h : (c.a.j.h.b.f.b) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f3246h : (c.a.j.h.b.f.b) invokeV.objValue;
     }
 
     public b(c.a.j.h.b.d.a aVar, c.a.j.h.b.e.a aVar2, c.a.j.h.b.h.a aVar3, c cVar, c.a.j.h.b.f.b bVar, c.a.j.h.b.c.a aVar4, c.a.j.h.b.g.a aVar5, c.a.j.j.e.a.a aVar6, c.a.j.j.i.a aVar7) {
@@ -112,21 +108,21 @@ public final class b extends c.a.j.h.b.b implements a {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar, aVar2, aVar3, cVar, bVar, aVar4, aVar5, aVar6, aVar7};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3767d = aVar;
-        this.f3768e = aVar2;
-        this.f3769f = aVar3;
-        this.f3770g = cVar;
-        this.f3771h = bVar;
-        this.f3772i = aVar4;
-        this.f3773j = aVar5;
+        this.f3242d = aVar;
+        this.f3243e = aVar2;
+        this.f3244f = aVar3;
+        this.f3245g = cVar;
+        this.f3246h = bVar;
+        this.i = aVar4;
+        this.j = aVar5;
         this.k = aVar6;
         this.l = aVar7;
     }

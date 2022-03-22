@@ -27,8 +27,7 @@ import java.net.URL;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
-import org.apache.commons.lang3.StringUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class RequestConnectionDelegate implements IRequestDelegateInner {
     public static /* synthetic */ Interceptable $ic = null;
     public static String METHOD_GET = "GET";
@@ -63,9 +62,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -103,7 +102,7 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                         break;
                     }
                     sb.append(readLine);
-                    sb.append(StringUtils.LF);
+                    sb.append("\n");
                 } catch (IOException e2) {
                     e2.printStackTrace();
                 }
@@ -131,10 +130,10 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
         return (String) invokeL.objValue;
     }
 
-    private void sendHttpGetRequest(String str, String str2, int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
+    private void sendHttpGetRequest(String str, String str2, int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Integer.valueOf(i2), hashMap, hashMap2, responseCallBackInner}) == null) {
-            new Thread(new Runnable(this, str + param2String(hashMap2), i2, hashMap, responseCallBackInner) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1
+        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{str, str2, Integer.valueOf(i), hashMap, hashMap2, responseCallBackInner}) == null) {
+            new Thread(new Runnable(this, str + param2String(hashMap2), i, hashMap, responseCallBackInner) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RequestConnectionDelegate this$0;
@@ -148,11 +147,11 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r7, Integer.valueOf(i2), hashMap, responseCallBackInner};
+                        Object[] objArr = {this, r7, Integer.valueOf(i), hashMap, responseCallBackInner};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -160,7 +159,7 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                     }
                     this.this$0 = this;
                     this.val$urlString = r7;
-                    this.val$timeout = i2;
+                    this.val$timeout = i;
                     this.val$header = hashMap;
                     this.val$callback = responseCallBackInner;
                 }
@@ -222,9 +221,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -266,9 +265,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, convertInputStreamToString};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -307,9 +306,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, e3};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -350,9 +349,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, e2};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i3 = newInitContext.flag;
-                                        if ((i3 & 1) != 0) {
-                                            int i4 = i3 & 2;
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -386,10 +385,10 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
         }
     }
 
-    private void sendHttpPostRequest(String str, String str2, int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
+    private void sendHttpPostRequest(String str, String str2, int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, str2, Integer.valueOf(i2), hashMap, hashMap2, responseCallBackInner}) == null) {
-            new Thread(new Runnable(this, str + param2String(hashMap2), i2, hashMap, responseCallBackInner) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{str, str2, Integer.valueOf(i), hashMap, hashMap2, responseCallBackInner}) == null) {
+            new Thread(new Runnable(this, str + param2String(hashMap2), i, hashMap, responseCallBackInner) { // from class: com.tachikoma.core.component.network.delegate.RequestConnectionDelegate.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ RequestConnectionDelegate this$0;
@@ -403,11 +402,11 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         newInitContext.initArgs = r2;
-                        Object[] objArr = {this, r7, Integer.valueOf(i2), hashMap, responseCallBackInner};
+                        Object[] objArr = {this, r7, Integer.valueOf(i), hashMap, responseCallBackInner};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -415,7 +414,7 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                     }
                     this.this$0 = this;
                     this.val$urlString = r7;
-                    this.val$timeout = i2;
+                    this.val$timeout = i;
                     this.val$header = hashMap;
                     this.val$callback = responseCallBackInner;
                 }
@@ -465,9 +464,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                         newInitContext.initArgs = r2;
                                                         Object[] objArr = {this};
                                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                                        int i3 = newInitContext.flag;
-                                                        if ((i3 & 1) != 0) {
-                                                            int i4 = i3 & 2;
+                                                        int i2 = newInitContext.flag;
+                                                        if ((i2 & 1) != 0) {
+                                                            int i3 = i2 & 2;
                                                             newInitContext.thisArg = this;
                                                             interceptable3.invokeInitBody(65536, newInitContext);
                                                             return;
@@ -509,9 +508,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, convertInputStreamToString};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -550,9 +549,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, e3};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -593,9 +592,9 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this, e2};
                                                 interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i3 = newInitContext.flag;
-                                                if ((i3 & 1) != 0) {
-                                                    int i4 = i3 & 2;
+                                                int i2 = newInitContext.flag;
+                                                if ((i2 & 1) != 0) {
+                                                    int i3 = i2 & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable3.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -670,13 +669,13 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
         }
     }
 
-    public void send(String str, String str2, int i2, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
+    public void send(String str, String str2, int i, HashMap<String, Object> hashMap, HashMap<String, Object> hashMap2, ResponseCallBackInner responseCallBackInner) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i2), hashMap, hashMap2, responseCallBackInner}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Integer.valueOf(i), hashMap, hashMap2, responseCallBackInner}) == null) {
             if (METHOD_GET.equals(str2)) {
-                sendHttpGetRequest(str, str2, i2, hashMap, hashMap2, responseCallBackInner);
+                sendHttpGetRequest(str, str2, i, hashMap, hashMap2, responseCallBackInner);
             } else if (METHOD_POST.equals(str2)) {
-                sendHttpPostRequest(str, str2, i2, hashMap, hashMap2, responseCallBackInner);
+                sendHttpPostRequest(str, str2, i, hashMap, hashMap2, responseCallBackInner);
             }
         }
     }
@@ -706,10 +705,10 @@ public class RequestConnectionDelegate implements IRequestDelegateInner {
     }
 
     @Override // com.tachikoma.core.api.IRequestDelegateInner
-    public void setInterval(int i2) {
+    public void setInterval(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.timeout = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.timeout = i;
         }
     }
 

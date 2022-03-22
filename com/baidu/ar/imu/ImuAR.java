@@ -4,7 +4,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.ARType;
 import com.baidu.ar.arplay.core.engine.ARPScriptEnvironment;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
 import com.baidu.ar.arplay.representation.Matrix;
 import com.baidu.ar.arplay.representation.Matrixf4x4;
 import com.baidu.ar.arplay.representation.Quaternion;
@@ -65,9 +64,9 @@ public class ImuAR extends com.baidu.ar.c implements g {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -192,13 +191,13 @@ public class ImuAR extends com.baidu.ar.c implements g {
         }
     }
 
-    private void a(float[] fArr, int i2) {
+    private void a(float[] fArr, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65543, this, fArr, i2) == null) && fArr != null && fArr.length == 16) {
+        if ((interceptable == null || interceptable.invokeLI(65543, this, fArr, i) == null) && fArr != null && fArr.length == 16) {
             System.arraycopy(fArr, 0, this.rU, 0, 16);
             this.rP.setMatrixValues(this.rU);
             this.rV = true;
-            this.rW = i2;
+            this.rW = i;
             System.arraycopy(fArr, 0, this.rU, 0, 16);
             this.rP.setMatrixValues(this.rU);
             l r = r();
@@ -206,7 +205,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
                 r.a(ARPScriptEnvironment.KEY_DATA_PIP_IMU, this.rP);
             }
             this.rV = true;
-            this.rW = i2;
+            this.rW = i;
             eT();
         }
     }
@@ -273,9 +272,9 @@ public class ImuAR extends com.baidu.ar.c implements g {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -285,11 +284,11 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     }
 
                     @Override // com.baidu.ar.lua.c
-                    public void a(int i2, int i3, HashMap<String, Object> hashMap) {
+                    public void a(int i, int i2, HashMap<String, Object> hashMap) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i2, i3, hashMap) == null) {
-                            if (i2 != 305) {
-                                if (i2 == 306 && (hashMap.get("is_mirrored") instanceof Integer)) {
+                        if (interceptable2 == null || interceptable2.invokeIIL(1048576, this, i, i2, hashMap) == null) {
+                            if (i != 305) {
+                                if (i == 306 && (hashMap.get("is_mirrored") instanceof Integer)) {
                                     int intValue = ((Integer) hashMap.get("is_mirrored")).intValue();
                                     this.sb.sa = intValue == 1;
                                     return;
@@ -311,7 +310,7 @@ public class ImuAR extends com.baidu.ar.c implements g {
                     public List<Integer> n() {
                         InterceptResult invokeV;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Arrays.asList(Integer.valueOf((int) ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA), 305) : (List) invokeV.objValue;
+                        return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Arrays.asList(306, 305) : (List) invokeV.objValue;
                     }
                 };
             }
@@ -383,20 +382,20 @@ public class ImuAR extends com.baidu.ar.c implements g {
                 String str = TAG;
                 com.baidu.ar.h.b.c(str, "setup() luaParams = " + hashMap.toString());
                 Object obj = hashMap.get("type");
-                int i2 = 0;
+                int i = 0;
                 int intValue = obj instanceof Integer ? ((Integer) obj).intValue() : obj instanceof Float ? (int) ((Float) obj).floatValue() : 0;
                 if (hashMap.containsKey("init_pos")) {
                     Object obj2 = hashMap.get("init_pos");
                     if (obj2 instanceof Integer) {
-                        i2 = ((Integer) obj2).intValue();
+                        i = ((Integer) obj2).intValue();
                     } else if (obj2 instanceof Float) {
-                        i2 = (int) ((Float) obj2).floatValue();
+                        i = (int) ((Float) obj2).floatValue();
                     }
                 }
                 i iVar = new i();
                 this.rO = iVar;
                 iVar.b(b.L(intValue));
-                this.rO.N(i2);
+                this.rO.N(i);
                 a(this.rO, this);
                 eS();
                 l r = r();

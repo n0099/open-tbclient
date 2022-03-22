@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class hp {
     public static /* synthetic */ Interceptable $ic;
     public static final hp A;
@@ -39,34 +39,30 @@ public final class hp {
     public static final hp a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final /* synthetic */ hp[] f513a;
+    public static final /* synthetic */ hp[] f489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final hp f59766b;
+    public static final hp f44359b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final hp f59767c;
+    public static final hp f44360c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final hp f59768d;
+    public static final hp f44361d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final hp f59769e;
+    public static final hp f44362e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final hp f59770f;
+    public static final hp f44363f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final hp f59771g;
+    public static final hp f44364g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final hp f59772h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static final hp f59773i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public static final hp f59774j;
+    public static final hp f44365h;
+    public static final hp i;
+    public static final hp j;
     public static final hp k;
     public static final hp l;
     public static final hp m;
@@ -86,7 +82,7 @@ public final class hp {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f514a;
+    public final String f490a;
 
     static {
         InterceptResult invokeClinit;
@@ -102,15 +98,15 @@ public final class hp {
             }
         }
         a = new hp("Invalid", 0, "INVALID");
-        f59766b = new hp("BarClick", 1, "bar:click");
-        f59767c = new hp("BarCancel", 2, "bar:cancel");
-        f59768d = new hp("AppOpen", 3, "app:open");
-        f59769e = new hp("PackageUninstall", 4, "package uninstalled");
-        f59770f = new hp("AppUninstall", 5, "app_uninstalled");
-        f59771g = new hp("ClientInfoUpdate", 6, "client_info_update");
-        f59772h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
-        f59773i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
-        f59774j = new hp("PullOfflineMessage", 9, "pull");
+        f44359b = new hp("BarClick", 1, "bar:click");
+        f44360c = new hp("BarCancel", 2, "bar:cancel");
+        f44361d = new hp("AppOpen", 3, "app:open");
+        f44362e = new hp("PackageUninstall", 4, "package uninstalled");
+        f44363f = new hp("AppUninstall", 5, "app_uninstalled");
+        f44364g = new hp("ClientInfoUpdate", 6, "client_info_update");
+        f44365h = new hp("ClientInfoUpdateOk", 7, "client_info_update_ok");
+        i = new hp("ClientMIIDUpdate", 8, "client_miid_update");
+        j = new hp("PullOfflineMessage", 9, "pull");
         k = new hp("IosSleep", 10, "ios_sleep");
         l = new hp("IosWakeUp", 11, "ios_wakeup");
         m = new hp("AwakeApp", 12, "awake_app");
@@ -152,7 +148,7 @@ public final class hp {
         W = new hp("ScenePushRuleDelete", 48, "scene_push_rule_delete");
         hp hpVar = new hp("ScenePushRuleTrigger", 49, "scene_push_rule_trigger");
         X = hpVar;
-        f513a = new hp[]{a, f59766b, f59767c, f59768d, f59769e, f59770f, f59771g, f59772h, f59773i, f59774j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
+        f489a = new hp[]{a, f44359b, f44360c, f44361d, f44362e, f44363f, f44364g, f44365h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, hpVar};
     }
 
     public hp(String str, int i2, String str2) {
@@ -173,7 +169,7 @@ public final class hp {
                 return;
             }
         }
-        this.f514a = str2;
+        this.f490a = str2;
     }
 
     public static hp valueOf(String str) {
@@ -185,13 +181,13 @@ public final class hp {
     public static hp[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hp[]) f513a.clone() : (hp[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (hp[]) f489a.clone() : (hp[]) invokeV.objValue;
     }
 
     @Override // java.lang.Enum
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f514a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f490a : (String) invokeV.objValue;
     }
 }

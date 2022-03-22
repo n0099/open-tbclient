@@ -3,16 +3,17 @@ package com.kwad.sdk.utils;
 import android.annotation.SuppressLint;
 import android.os.Build;
 import android.text.TextUtils;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.InvocationTargetException;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class an {
     public static String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f56459b;
+    public static String f41350b;
 
     public static boolean a() {
         return a("EMUI");
@@ -25,31 +26,31 @@ public class an {
             return str2.contains(str);
         }
         String b2 = b("ro.build.version.opporom");
-        f56459b = b2;
+        f41350b = b2;
         if (TextUtils.isEmpty(b2)) {
             String b3 = b("ro.vivo.os.version");
-            f56459b = b3;
+            f41350b = b3;
             if (TextUtils.isEmpty(b3)) {
                 String b4 = b("ro.build.version.emui");
-                f56459b = b4;
+                f41350b = b4;
                 if (TextUtils.isEmpty(b4)) {
                     String b5 = b("ro.miui.ui.version.name");
-                    f56459b = b5;
+                    f41350b = b5;
                     if (TextUtils.isEmpty(b5)) {
                         String b6 = b(com.kuaishou.weapon.un.g.p);
-                        f56459b = b6;
+                        f41350b = b6;
                         if (TextUtils.isEmpty(b6)) {
                             String b7 = b("ro.smartisan.version");
-                            f56459b = b7;
+                            f41350b = b7;
                             if (TextUtils.isEmpty(b7)) {
                                 String upperCase2 = b(com.kuaishou.weapon.un.g.q).toUpperCase();
-                                String str3 = com.kuaishou.weapon.un.g.f53624j;
-                                if (!upperCase2.contains(com.kuaishou.weapon.un.g.f53624j)) {
+                                String str3 = com.kuaishou.weapon.un.g.j;
+                                if (!upperCase2.contains(com.kuaishou.weapon.un.g.j)) {
                                     String str4 = Build.DISPLAY;
-                                    f56459b = str4;
+                                    f41350b = str4;
                                     str3 = "FLYME";
                                     if (!str4.toUpperCase().contains("FLYME")) {
-                                        f56459b = "unknown";
+                                        f41350b = "unknown";
                                         upperCase = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
@@ -58,7 +59,7 @@ public class an {
                             }
                             upperCase = "SMARTISAN";
                         } else {
-                            upperCase = com.kuaishou.weapon.un.g.f53623i;
+                            upperCase = com.kuaishou.weapon.un.g.i;
                         }
                     } else {
                         upperCase = "MIUI";
@@ -89,7 +90,7 @@ public class an {
         try {
             try {
                 Class<?> cls = Class.forName("android.os.SystemProperties");
-                str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
+                str2 = (String) cls.getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class).invoke(cls, str);
             } catch (ClassNotFoundException e2) {
                 e2.printStackTrace();
                 str2 = null;
@@ -166,9 +167,9 @@ public class an {
     }
 
     public static String e() {
-        if (f56459b == null) {
+        if (f41350b == null) {
             a("");
         }
-        return f56459b;
+        return f41350b;
     }
 }

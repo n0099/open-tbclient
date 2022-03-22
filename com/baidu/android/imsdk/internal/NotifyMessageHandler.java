@@ -33,9 +33,9 @@ public abstract class NotifyMessageHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -51,8 +51,8 @@ public abstract class NotifyMessageHandler {
             JSONArray jSONArray = new JSONArray();
             try {
                 JSONArray jSONArray2 = jSONObject.getJSONArray(NotificationCompat.CarExtender.KEY_MESSAGES);
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    jSONArray.put(jSONArray2.getJSONObject(i2));
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    jSONArray.put(jSONArray2.getJSONObject(i));
                 }
             } catch (JSONException e2) {
                 LogUtils.e(TAG, "Exception ", e2);
@@ -75,25 +75,25 @@ public abstract class NotifyMessageHandler {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void handleDeliverMessage(Context context, JSONObject jSONObject) throws JSONException {
-        long j2;
+        long j;
         SyncStrategy generate;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLL(65538, null, context, jSONObject) != null) {
             return;
         }
         LogUtils.i(TAG, "handleMessage Deliver:" + jSONObject.toString());
-        int i2 = jSONObject.getInt("category");
-        if (i2 == 0 && jSONObject.has("msgid")) {
+        int i = jSONObject.getInt("category");
+        if (i == 0 && jSONObject.has("msgid")) {
             try {
-                j2 = jSONObject.getLong("msgid");
+                j = jSONObject.getLong("msgid");
             } catch (JSONException e2) {
                 LogUtils.i(TAG, "JSONException:" + e2.getMessage());
             }
-            if (i2 != 0 || i2 == 2) {
+            if (i != 0 || i == 2) {
                 generate = Generator.generate(context, 5);
                 if (generate == null) {
-                    if (j2 != -1) {
-                        generate.start(2, j2);
+                    if (j != -1) {
+                        generate.start(2, j);
                         return;
                     } else {
                         generate.start(2);
@@ -101,20 +101,20 @@ public abstract class NotifyMessageHandler {
                     }
                 }
                 return;
-            } else if (i2 == 1) {
-                long j3 = jSONObject.getLong("contacter");
-                long j4 = jSONObject.getLong("msgid");
-                LogUtils.i(TAG, "msgid : " + j4);
-                SyncGroupMessageService.getInstance().execute(context, i2, j3, j4, 2);
-                Utility.transformGroupMediaNotify(context, i2, j3, 2, -1L);
+            } else if (i == 1) {
+                long j2 = jSONObject.getLong("contacter");
+                long j3 = jSONObject.getLong("msgid");
+                LogUtils.i(TAG, "msgid : " + j3);
+                SyncGroupMessageService.getInstance().execute(context, i, j2, j3, 2);
+                Utility.transformGroupMediaNotify(context, i, j2, 2, -1L);
                 return;
             } else {
                 LogUtils.e(TAG, "handleDeliverMessage category error!!");
                 return;
             }
         }
-        j2 = -1;
-        if (i2 != 0) {
+        j = -1;
+        if (i != 0) {
         }
         generate = Generator.generate(context, 5);
         if (generate == null) {
@@ -143,9 +143,9 @@ public abstract class NotifyMessageHandler {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {context, jSONObject};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

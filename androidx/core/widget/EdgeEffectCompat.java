@@ -25,9 +25,9 @@ public final class EdgeEffectCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -59,11 +59,11 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public boolean onAbsorb(int i2) {
+    public boolean onAbsorb(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) {
-            this.mEdgeEffect.onAbsorb(i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.mEdgeEffect.onAbsorb(i);
             return true;
         }
         return invokeI.booleanValue;
@@ -92,10 +92,10 @@ public final class EdgeEffectCompat {
     }
 
     @Deprecated
-    public void setSize(int i2, int i3) {
+    public void setSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i2, i3) == null) {
-            this.mEdgeEffect.setSize(i2, i3);
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            this.mEdgeEffect.setSize(i, i2);
         }
     }
 

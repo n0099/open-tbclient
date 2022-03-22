@@ -26,9 +26,9 @@ public class HttpRequestEntity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -83,10 +83,10 @@ public class HttpRequestEntity {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.url : (String) invokeV.objValue;
     }
 
-    public void setConnectTimeout(int i2) {
+    public void setConnectTimeout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.connectTimeout = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.connectTimeout = i;
         }
     }
 
@@ -104,10 +104,10 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setMethod(int i2) {
+    public void setMethod(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.method = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.method = i;
         }
     }
 
@@ -118,17 +118,17 @@ public class HttpRequestEntity {
         }
     }
 
-    public void setReadTimeout(int i2) {
+    public void setReadTimeout(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.readTimeout = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.readTimeout = i;
         }
     }
 
-    public void setRetryCount(int i2) {
+    public void setRetryCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.retryCount = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.retryCount = i;
         }
     }
 

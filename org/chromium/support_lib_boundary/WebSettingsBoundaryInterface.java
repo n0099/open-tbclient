@@ -1,5 +1,5 @@
 package org.chromium.support_lib_boundary;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface WebSettingsBoundaryInterface {
     int getDisabledActionModeMenuItems();
 
@@ -11,9 +11,9 @@ public interface WebSettingsBoundaryInterface {
 
     boolean getWillSuppressErrorPage();
 
-    void setDisabledActionModeMenuItems(int i2);
+    void setDisabledActionModeMenuItems(int i);
 
-    void setForceDark(int i2);
+    void setForceDark(int i);
 
     void setOffscreenPreRaster(boolean z);
 

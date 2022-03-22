@@ -121,16 +121,16 @@ public class ScrollLayout extends FrameLayout {
             $VALUES = new InnerStatus[]{EXIT, HALF, OPENED, MOVING, innerStatus};
         }
 
-        public InnerStatus(String str, int i2) {
+        public InnerStatus(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -155,7 +155,7 @@ public class ScrollLayout extends FrameLayout {
 
     /* loaded from: classes4.dex */
     public interface OnScrollChangedListener {
-        void onChildScroll(int i2);
+        void onChildScroll(int i);
 
         void onScrollFinished(Status status);
 
@@ -192,16 +192,16 @@ public class ScrollLayout extends FrameLayout {
             $VALUES = new Status[]{EXIT, HALF, status};
         }
 
-        public Status(String str, int i2) {
+        public Status(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -233,9 +233,9 @@ public class ScrollLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -265,9 +265,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -291,9 +291,9 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i4 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                    if (i4 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        if (i4 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
+                    int i3 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    if (i3 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
+                        if (i3 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;
                         }
                         this.this$0.scrollToOpened();
@@ -319,9 +319,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -331,19 +331,19 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i4) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i4) == null) {
-                    super.onScrollStateChanged(recyclerView, i4);
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i3) == null) {
+                    super.onScrollStateChanged(recyclerView, i3);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i4, int i5) {
+            public void onScrolled(RecyclerView recyclerView, int i3, int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i4, i5) == null) {
-                    super.onScrolled(recyclerView, i4, i5);
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i3, i4) == null) {
+                    super.onScrolled(recyclerView, i3, i4);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }
@@ -359,9 +359,9 @@ public class ScrollLayout extends FrameLayout {
             if (getScrollY() > f2) {
                 scrollToOpened();
             } else if (this.isSupportExit) {
-                int i2 = this.exitOffset;
-                int i3 = this.maxOffset;
-                float f3 = -(((i2 - i3) * 0.8f) + i3);
+                int i = this.exitOffset;
+                int i2 = this.maxOffset;
+                float f3 = -(((i - i2) * 0.8f) + i2);
                 if (getScrollY() <= f2 && getScrollY() > f3) {
                     scrollToHalf();
                 } else {
@@ -373,17 +373,17 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    private boolean disposeEdgeValue(int i2) {
+    private boolean disposeEdgeValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, this, i)) == null) {
             if (this.isSupportExit) {
-                if (i2 > 0 || getScrollY() < (-this.openedOffset)) {
-                    return i2 >= 0 && getScrollY() <= (-this.exitOffset);
+                if (i > 0 || getScrollY() < (-this.openedOffset)) {
+                    return i >= 0 && getScrollY() <= (-this.exitOffset);
                 }
                 return true;
-            } else if (i2 > 0 || getScrollY() < (-this.openedOffset)) {
-                return i2 >= 0 && getScrollY() <= (-this.maxOffset);
+            } else if (i > 0 || getScrollY() < (-this.openedOffset)) {
+                return i >= 0 && getScrollY() <= (-this.maxOffset);
             } else {
                 return true;
             }
@@ -395,7 +395,7 @@ public class ScrollLayout extends FrameLayout {
         int dimensionPixelOffset;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65545, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.SapiSdkAllowHorizontalScroll, R.attr.SapiSdkExitOffset, R.attr.SapiSdkHalfOffset, R.attr.SapiSdkIsSupportExit, R.attr.SapiSdkMode, R.attr.SapiSdkOpenedOffset});
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040015, R.attr.obfuscated_res_0x7f040019, R.attr.obfuscated_res_0x7f04001a, R.attr.obfuscated_res_0x7f04002c, R.attr.obfuscated_res_0x7f04002f, R.attr.obfuscated_res_0x7f040030});
             if (obtainStyledAttributes.hasValue(2) && (dimensionPixelOffset = obtainStyledAttributes.getDimensionPixelOffset(2, this.maxOffset)) != getContentHeight()) {
                 this.maxOffset = getContentHeight() - dimensionPixelOffset;
             }
@@ -489,9 +489,9 @@ public class ScrollLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i2 = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
-            if (i2 != 1) {
-                if (i2 != 2) {
+            int i = AnonymousClass3.$SwitchMap$com$baidu$pass$ecommerce$view$ScrollLayout$InnerStatus[this.currentInnerStatus.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
                     return Status.HALF;
                 }
                 return Status.EXIT;
@@ -607,13 +607,13 @@ public class ScrollLayout extends FrameLayout {
                             }
                             this.currentInnerStatus = InnerStatus.MOVING;
                             int scrollY = getScrollY() - signum;
-                            int i2 = -this.openedOffset;
-                            if (scrollY >= i2) {
-                                scrollTo(0, i2);
+                            int i = -this.openedOffset;
+                            if (scrollY >= i) {
+                                scrollTo(0, i);
                             } else {
-                                int i3 = -this.maxOffset;
-                                if (scrollY <= i3 && !this.isSupportExit) {
-                                    scrollTo(0, i3);
+                                int i2 = -this.maxOffset;
+                                if (scrollY <= i2 && !this.isSupportExit) {
+                                    scrollTo(0, i2);
                                 } else {
                                     scrollTo(0, scrollY);
                                 }
@@ -639,36 +639,36 @@ public class ScrollLayout extends FrameLayout {
     }
 
     @Override // android.view.View
-    public void scrollTo(int i2, int i3) {
+    public void scrollTo(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, i3) == null) {
-            super.scrollTo(i2, i3);
-            int i4 = this.maxOffset;
-            int i5 = this.openedOffset;
-            if (i4 == i5) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
+            super.scrollTo(i, i2);
+            int i3 = this.maxOffset;
+            int i4 = this.openedOffset;
+            if (i3 == i4) {
                 return;
             }
-            int i6 = -i3;
-            if (i6 <= i4) {
-                onScrollProgressChanged((i6 - i5) / (i4 - i5));
+            int i5 = -i2;
+            if (i5 <= i3) {
+                onScrollProgressChanged((i5 - i4) / (i3 - i4));
             } else {
-                onScrollProgressChanged((i6 - i4) / (i4 - this.exitOffset));
+                onScrollProgressChanged((i5 - i3) / (i3 - this.exitOffset));
             }
-            if (i3 == (-this.openedOffset)) {
+            if (i2 == (-this.openedOffset)) {
                 InnerStatus innerStatus = this.currentInnerStatus;
                 InnerStatus innerStatus2 = InnerStatus.OPENED;
                 if (innerStatus != innerStatus2) {
                     this.currentInnerStatus = innerStatus2;
                     onScrollFinished(Status.OPENED);
                 }
-            } else if (i3 == (-this.maxOffset)) {
+            } else if (i2 == (-this.maxOffset)) {
                 InnerStatus innerStatus3 = this.currentInnerStatus;
                 InnerStatus innerStatus4 = InnerStatus.HALF;
                 if (innerStatus3 != innerStatus4) {
                     this.currentInnerStatus = innerStatus4;
                     onScrollFinished(Status.HALF);
                 }
-            } else if (this.isSupportExit && i3 == (-this.exitOffset)) {
+            } else if (this.isSupportExit && i2 == (-this.exitOffset)) {
                 InnerStatus innerStatus5 = this.currentInnerStatus;
                 InnerStatus innerStatus6 = InnerStatus.EXIT;
                 if (innerStatus5 != innerStatus6) {
@@ -680,38 +680,38 @@ public class ScrollLayout extends FrameLayout {
     }
 
     public void scrollToExit() {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || !this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i3 = (-getScrollY()) - (i2 = this.exitOffset)) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || !this.isSupportExit || this.currentInnerStatus == InnerStatus.EXIT || this.exitOffset == this.maxOffset || (i2 = (-getScrollY()) - (i = this.exitOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (i2 - this.maxOffset)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.maxOffset)) + 100);
         invalidate();
     }
 
     public void scrollToHalf() {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i3 = (-getScrollY()) - (i2 = this.maxOffset)) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || this.currentInnerStatus == InnerStatus.HALF || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.maxOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (i2 - this.openedOffset)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (i - this.openedOffset)) + 100);
         invalidate();
     }
 
     public void scrollToOpened() {
+        int i;
         int i2;
-        int i3;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i3 = (-getScrollY()) - (i2 = this.openedOffset)) == 0) {
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.currentInnerStatus == InnerStatus.OPENED || this.maxOffset == this.openedOffset || (i2 = (-getScrollY()) - (i = this.openedOffset)) == 0) {
             return;
         }
         this.currentInnerStatus = InnerStatus.SCROLLING;
-        this.scroller.startScroll(0, getScrollY(), 0, i3, Math.abs((i3 * 300) / (this.maxOffset - i2)) + 100);
+        this.scroller.startScroll(0, getScrollY(), 0, i2, Math.abs((i2 * 300) / (this.maxOffset - i)) + 100);
         invalidate();
     }
 
@@ -730,10 +730,10 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    public void setContentHeight(int i2) {
+    public void setContentHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.contentHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.contentHeight = i;
         }
     }
 
@@ -751,10 +751,10 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    public void setExitOffset(int i2) {
+    public void setExitOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.exitOffset = getContentHeight() - i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.exitOffset = getContentHeight() - i;
         }
     }
 
@@ -767,10 +767,10 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    public void setHalfOffset(int i2) {
+    public void setHalfOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.maxOffset = getContentHeight() - i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.maxOffset = getContentHeight() - i;
         }
     }
 
@@ -788,10 +788,10 @@ public class ScrollLayout extends FrameLayout {
         }
     }
 
-    public void setOpenedOffset(int i2) {
+    public void setOpenedOffset(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i2) == null) {
-            this.openedOffset = i2;
+        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+            this.openedOffset = i;
         }
     }
 
@@ -833,9 +833,9 @@ public class ScrollLayout extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -866,9 +866,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -892,9 +892,9 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i4 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                    if (i4 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        if (i4 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
+                    int i3 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    if (i3 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
+                        if (i3 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;
                         }
                         this.this$0.scrollToOpened();
@@ -920,9 +920,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = objArr2;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -932,19 +932,19 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i4) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int i3) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i4) == null) {
-                    super.onScrollStateChanged(recyclerView, i4);
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i3) == null) {
+                    super.onScrollStateChanged(recyclerView, i3);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i4, int i5) {
+            public void onScrolled(RecyclerView recyclerView, int i3, int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i4, i5) == null) {
-                    super.onScrolled(recyclerView, i4, i5);
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i3, i4) == null) {
+                    super.onScrolled(recyclerView, i3, i4);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }
@@ -955,17 +955,17 @@ public class ScrollLayout extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ScrollLayout(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public ScrollLayout(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -996,9 +996,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1022,9 +1022,9 @@ public class ScrollLayout extends FrameLayout {
                         }
                         return true;
                     }
-                    int i42 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
-                    if (i42 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
-                        if (i42 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
+                    int i32 = (f3 > 80.0f ? 1 : (f3 == 80.0f ? 0 : -1));
+                    if (i32 >= 0 || this.this$0.getScrollY() > (-this.this$0.maxOffset)) {
+                        if (i32 >= 0 || this.this$0.getScrollY() <= (-this.this$0.maxOffset)) {
                             return false;
                         }
                         this.this$0.scrollToOpened();
@@ -1050,9 +1050,9 @@ public class ScrollLayout extends FrameLayout {
                     newInitContext2.initArgs = objArr22;
                     Object[] objArr22 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i42 = newInitContext2.flag;
-                    if ((i42 & 1) != 0) {
-                        int i5 = i42 & 2;
+                    int i32 = newInitContext2.flag;
+                    if ((i32 & 1) != 0) {
+                        int i4 = i32 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1062,19 +1062,19 @@ public class ScrollLayout extends FrameLayout {
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrollStateChanged(RecyclerView recyclerView, int i42) {
+            public void onScrollStateChanged(RecyclerView recyclerView, int i32) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i42) == null) {
-                    super.onScrollStateChanged(recyclerView, i42);
+                if (interceptable2 == null || interceptable2.invokeLI(1048576, this, recyclerView, i32) == null) {
+                    super.onScrollStateChanged(recyclerView, i32);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }
 
             @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-            public void onScrolled(RecyclerView recyclerView, int i42, int i5) {
+            public void onScrolled(RecyclerView recyclerView, int i32, int i4) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i42, i5) == null) {
-                    super.onScrolled(recyclerView, i42, i5);
+                if (interceptable2 == null || interceptable2.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recyclerView, i32, i4) == null) {
+                    super.onScrolled(recyclerView, i32, i4);
                     this.this$0.updateRecyclerViewScrollState(recyclerView);
                 }
             }

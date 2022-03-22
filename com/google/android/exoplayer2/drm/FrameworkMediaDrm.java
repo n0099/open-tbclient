@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 @TargetApi(23)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,9 +42,9 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
             newInitContext.initArgs = r2;
             Object[] objArr = {uuid};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -83,11 +83,11 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
     }
 
     @Override // com.google.android.exoplayer2.drm.ExoMediaDrm
-    public ExoMediaDrm.KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i2, HashMap<String, String> hashMap) throws NotProvisionedException {
+    public ExoMediaDrm.KeyRequest getKeyRequest(byte[] bArr, byte[] bArr2, String str, int i, HashMap<String, String> hashMap) throws NotProvisionedException {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, bArr2, str, Integer.valueOf(i2), hashMap})) == null) {
-            MediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(bArr, bArr2, str, i2, hashMap);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{bArr, bArr2, str, Integer.valueOf(i), hashMap})) == null) {
+            MediaDrm.KeyRequest keyRequest = this.mediaDrm.getKeyRequest(bArr, bArr2, str, i, hashMap);
             return new ExoMediaDrm.DefaultKeyRequest(keyRequest.getData(), keyRequest.getDefaultUrl());
         }
         return (ExoMediaDrm.KeyRequest) invokeCommon.objValue;
@@ -180,9 +180,9 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, onEventListener};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -193,10 +193,10 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
                 }
 
                 @Override // android.media.MediaDrm.OnEventListener
-                public void onEvent(@NonNull MediaDrm mediaDrm, @Nullable byte[] bArr, int i2, int i3, byte[] bArr2) {
+                public void onEvent(@NonNull MediaDrm mediaDrm, @Nullable byte[] bArr, int i, int i2, byte[] bArr2) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{mediaDrm, bArr, Integer.valueOf(i2), Integer.valueOf(i3), bArr2}) == null) {
-                        this.val$listener.onEvent(this.this$0, bArr, i2, i3, bArr2);
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{mediaDrm, bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2}) == null) {
+                        this.val$listener.onEvent(this.this$0, bArr, i, i2, bArr2);
                     }
                 }
             });
@@ -221,9 +221,9 @@ public final class FrameworkMediaDrm implements ExoMediaDrm<FrameworkMediaCrypto
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this, onKeyStatusChangeListener};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;

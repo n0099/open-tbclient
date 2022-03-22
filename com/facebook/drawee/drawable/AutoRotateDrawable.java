@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
 import com.facebook.common.internal.VisibleForTesting;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, CloneableDrawable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DEGREES_IN_FULL_ROTATION = 360;
@@ -25,17 +25,17 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     public float mRotationAngle;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public AutoRotateDrawable(Drawable drawable, int i2) {
-        this(drawable, i2, true);
+    public AutoRotateDrawable(Drawable drawable, int i) {
+        this(drawable, i, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i2)};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Drawable) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -66,13 +66,13 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             int save = canvas.save();
             Rect bounds = getBounds();
-            int i2 = bounds.right - bounds.left;
-            int i3 = bounds.bottom - bounds.top;
+            int i = bounds.right - bounds.left;
+            int i2 = bounds.bottom - bounds.top;
             float f2 = this.mRotationAngle;
             if (!this.mClockwise) {
                 f2 = 360.0f - f2;
             }
-            canvas.rotate(f2, bounds.left + (i2 / 2), bounds.top + (i3 / 2));
+            canvas.rotate(f2, bounds.left + (i / 2), bounds.top + (i2 / 2));
             super.draw(canvas);
             canvas.restoreToCount(save);
             scheduleNextFrame();
@@ -107,17 +107,17 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AutoRotateDrawable(Drawable drawable, int i2, boolean z) {
+    public AutoRotateDrawable(Drawable drawable, int i, boolean z) {
         super((Drawable) Preconditions.checkNotNull(drawable));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i2), Boolean.valueOf(z)};
+            Object[] objArr = {drawable, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -126,7 +126,7 @@ public class AutoRotateDrawable extends ForwardingDrawable implements Runnable, 
         }
         this.mRotationAngle = 0.0f;
         this.mIsScheduled = false;
-        this.mInterval = i2;
+        this.mInterval = i;
         this.mClockwise = z;
     }
 

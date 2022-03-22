@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class BuilderAdapter<B extends Message.Builder> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<Field> ORDER_BY_FIELD_NAME;
@@ -45,9 +45,9 @@ public final class BuilderAdapter<B extends Message.Builder> {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -72,9 +72,9 @@ public final class BuilderAdapter<B extends Message.Builder> {
             newInitContext.initArgs = r2;
             Object[] objArr = {cls};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -106,8 +106,8 @@ public final class BuilderAdapter<B extends Message.Builder> {
                 int size = this.requiredFields.size();
                 StringBuilder sb = null;
                 String str = "";
-                for (int i2 = 0; i2 < size; i2++) {
-                    Field field = this.requiredFields.get(i2);
+                for (int i = 0; i < size; i++) {
+                    Field field = this.requiredFields.get(i);
                     if (field.get(b2) == null) {
                         if (sb == null) {
                             sb = new StringBuilder();

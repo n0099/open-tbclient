@@ -33,7 +33,7 @@ public class LottieCompositionCache {
         this.cache.put(str, lottieComposition);
     }
 
-    public void resize(int i2) {
-        this.cache.resize(i2);
+    public void resize(int i) {
+        this.cache.resize(i);
     }
 }

@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.lightapp.business.LightappBusinessClient;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
@@ -17,12 +16,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class cw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a extends cv {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -34,9 +33,9 @@ public abstract class cw {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -66,16 +65,16 @@ public abstract class cw {
         }
     }
 
-    public static int a(int i2, int i3) {
+    public static int a(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i2, i3)) == null) ? (((i3 + LightappBusinessClient.REQUEST_PERMISSION_SELECT_PHONE_FROM_ADDRESSBOOK) / 1448) * 132) + 1080 + i2 + i3 : invokeII.intValue;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) ? (((i2 + 243) / 1448) * 132) + 1080 + i + i2 : invokeII.intValue;
     }
 
-    public static int a(int i2, int i3, int i4) {
+    public static int a(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i2, i3, i4)) == null) ? (((i3 + 200) / 1448) * 132) + 1011 + i3 + i2 + i4 : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? (((i2 + 200) / 1448) * 132) + 1011 + i2 + i + i3 : invokeIII.intValue;
     }
 
     public static int a(cv cvVar, String str, List<bf> list, String str2) {
@@ -113,16 +112,16 @@ public abstract class cw {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            int i2 = 0;
+            int i = 0;
             for (bf bfVar : list) {
                 if (!TextUtils.isEmpty(bfVar.a())) {
-                    i2 += bfVar.a().length();
+                    i += bfVar.a().length();
                 }
                 if (!TextUtils.isEmpty(bfVar.b())) {
-                    i2 += bfVar.b().length();
+                    i += bfVar.b().length();
                 }
             }
-            return i2 * 2;
+            return i * 2;
         }
         return invokeL.intValue;
     }
@@ -149,11 +148,11 @@ public abstract class cw {
                 try {
                     ArrayList<String> arrayList = new ArrayList<>();
                     if (z) {
-                        co m292a = cs.a().m292a(str);
-                        if (m292a != null) {
-                            arrayList = m292a.a(str);
+                        co m271a = cs.a().m271a(str);
+                        if (m271a != null) {
+                            arrayList = m271a.a(str);
                         }
-                        coVar = m292a;
+                        coVar = m271a;
                     } else {
                         coVar = null;
                     }
@@ -171,7 +170,7 @@ public abstract class cw {
                             iOException = e2;
                             str2 = str4;
                         }
-                        if (!cvVar.m301a(context, next, (List<bf>) arrayList2)) {
+                        if (!cvVar.m280a(context, next, (List<bf>) arrayList2)) {
                             return str4;
                         }
                         String a2 = cvVar.a(context, next, (List<bf>) arrayList2);

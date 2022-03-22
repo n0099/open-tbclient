@@ -72,16 +72,16 @@ public class SpeechRecognitionDialog extends Dialog {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpeechRecognitionDialog(Activity activity) {
-        super(activity, R.style.sapi_sdk_speech_dialog);
+        super(activity, R.style.obfuscated_res_0x7f1003e0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -113,15 +113,15 @@ public class SpeechRecognitionDialog extends Dialog {
         }
     }
 
-    private List<Point> getLineStartAndEnd(TextPaint textPaint, CharSequence charSequence, int i2) {
+    private List<Point> getLineStartAndEnd(TextPaint textPaint, CharSequence charSequence, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, textPaint, charSequence, i2)) == null) {
-            StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, i2, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(InputDeviceCompat.SOURCE_TRACKBALL, this, textPaint, charSequence, i)) == null) {
+            StaticLayout staticLayout = new StaticLayout(charSequence, textPaint, i, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, true);
             int lineCount = staticLayout.getLineCount();
             ArrayList arrayList = new ArrayList();
-            for (int i3 = 0; i3 < lineCount; i3++) {
-                arrayList.add(new Point(staticLayout.getLineStart(i3), staticLayout.getLineEnd(i3)));
+            for (int i2 = 0; i2 < lineCount; i2++) {
+                arrayList.add(new Point(staticLayout.getLineStart(i2), staticLayout.getLineEnd(i2)));
             }
             return arrayList;
         }
@@ -136,20 +136,20 @@ public class SpeechRecognitionDialog extends Dialog {
             super.onCreate(bundle);
             Window window = getWindow();
             window.setGravity(80);
-            window.setWindowAnimations(R.style.sapi_sdk_anim_speech);
-            setContentView(R.layout.layout_sapi_sdk_dialog_speech_recognition);
+            window.setWindowAnimations(R.style.obfuscated_res_0x7f1003d5);
+            setContentView(R.layout.obfuscated_res_0x7f0d04d1);
             Display defaultDisplay = this.activity.getWindowManager().getDefaultDisplay();
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.width = defaultDisplay.getWidth();
             attributes.height = SapiUtils.dip2px(getContext(), 297.0f);
             getWindow().setAttributes(attributes);
-            this.tipsTextView = (TextView) findViewById(R.id.tips_tx);
-            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.voice_parent_layout);
-            this.closeButton = (ImageView) findViewById(R.id.close_button);
-            this.stopSpeechLayout = (RelativeLayout) findViewById(R.id.stop_speech_background_layout);
-            this.tipsAreaLayout = (RelativeLayout) findViewById(R.id.tips_area_layout);
-            this.microphoneImage = (ImageView) findViewById(R.id.microphone_icon);
-            this.stopSpeechTx = (TextView) findViewById(R.id.stop_speech_tx);
+            this.tipsTextView = (TextView) findViewById(R.id.obfuscated_res_0x7f092029);
+            this.voiceParentLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092402);
+            this.closeButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f09066b);
+            this.stopSpeechLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091db3);
+            this.tipsAreaLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f092027);
+            this.microphoneImage = (ImageView) findViewById(R.id.obfuscated_res_0x7f091412);
+            this.stopSpeechTx = (TextView) findViewById(R.id.obfuscated_res_0x7f091db4);
             VoiceSinWaveView voiceSinWaveView = new VoiceSinWaveView(getContext());
             this.voiceSinWaveView = voiceSinWaveView;
             voiceSinWaveView.showInParentView(this.voiceParentLayout);
@@ -166,9 +166,9 @@ public class SpeechRecognitionDialog extends Dialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -198,9 +198,9 @@ public class SpeechRecognitionDialog extends Dialog {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -251,9 +251,9 @@ public class SpeechRecognitionDialog extends Dialog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -272,7 +272,7 @@ public class SpeechRecognitionDialog extends Dialog {
                     }
                 });
             }
-            this.stopSpeechTx.setText(R.string.sapi_sdk_speech_recognition_stop_speech);
+            this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1041);
             ResetCallback resetCallback = this.resetCallback;
             if (resetCallback != null) {
                 resetCallback.onReset();
@@ -296,21 +296,21 @@ public class SpeechRecognitionDialog extends Dialog {
         }
     }
 
-    public void setRippleAmplitude(int i2) {
+    public void setRippleAmplitude(int i) {
         VoiceSinWaveView voiceSinWaveView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (voiceSinWaveView = this.voiceSinWaveView) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (voiceSinWaveView = this.voiceSinWaveView) == null) {
             return;
         }
-        voiceSinWaveView.changeVolume(i2);
+        voiceSinWaveView.changeVolume(i);
     }
 
-    public void setStopSpeechLayout(int i2) {
+    public void setStopSpeechLayout(int i) {
         RelativeLayout relativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            if (i2 == 0) {
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.sapi_sdk_stop_speech_layout_rounded_coener);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i == 0) {
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105e);
                 this.stopSpeechLayout.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -323,9 +323,9 @@ public class SpeechRecognitionDialog extends Dialog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -342,14 +342,14 @@ public class SpeechRecognitionDialog extends Dialog {
                         }
                     }
                 });
-                this.stopSpeechTx.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_content);
+                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1033);
                 this.stopSpeechTx.setVisibility(0);
-            } else if (i2 != 1) {
-                if (i2 != 2 || (relativeLayout = this.stopSpeechLayout) == null || this.microphoneImage == null || this.stopSpeechTx == null) {
+            } else if (i != 1) {
+                if (i != 2 || (relativeLayout = this.stopSpeechLayout) == null || this.microphoneImage == null || this.stopSpeechTx == null) {
                     return;
                 }
                 relativeLayout.setClickable(false);
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.sapi_sdk_stop_speech_gray_layout_rounded_coener);
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105d);
                 this.stopSpeechTx.setVisibility(8);
             } else {
                 RelativeLayout relativeLayout2 = this.stopSpeechLayout;
@@ -357,8 +357,8 @@ public class SpeechRecognitionDialog extends Dialog {
                     return;
                 }
                 relativeLayout2.setClickable(false);
-                this.stopSpeechLayout.setBackgroundResource(R.drawable.sapi_sdk_stop_speech_pressed_layout_rounded_coener);
-                this.stopSpeechTx.setText(R.string.sapi_sdk_speech_recognition_is_identifying);
+                this.stopSpeechLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08105f);
+                this.stopSpeechTx.setText(R.string.obfuscated_res_0x7f0f1040);
                 this.stopSpeechTx.setVisibility(0);
             }
         }
@@ -371,15 +371,15 @@ public class SpeechRecognitionDialog extends Dialog {
         }
     }
 
-    public void showErrorPage(int i2) {
+    public void showErrorPage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             RelativeLayout relativeLayout = this.tipsAreaLayout;
             if (relativeLayout != null && this.voiceParentLayout != null) {
                 relativeLayout.setVisibility(8);
                 this.voiceParentLayout.setVisibility(8);
             }
-            ViewStub viewStub = (ViewStub) findViewById(R.id.voice_error_parent_view);
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f092400);
             this.viewStub = viewStub;
             View inflate = viewStub != null ? viewStub.inflate() : this.errorParentView;
             this.errorParentView = inflate;
@@ -387,11 +387,11 @@ public class SpeechRecognitionDialog extends Dialog {
                 if (4 != inflate.getVisibility()) {
                     this.errorParentView.setVisibility(0);
                 }
-                ImageView imageView = (ImageView) this.errorParentView.findViewById(R.id.error_icon);
-                TextView textView = (TextView) this.errorParentView.findViewById(R.id.error_title);
-                TextView textView2 = (TextView) this.errorParentView.findViewById(R.id.error_content);
-                TextView textView3 = (TextView) this.errorParentView.findViewById(R.id.error_desc);
-                Button button = (Button) this.errorParentView.findViewById(R.id.error_btn);
+                ImageView imageView = (ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090904);
+                TextView textView = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090908);
+                TextView textView2 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090902);
+                TextView textView3 = (TextView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090903);
+                Button button = (Button) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f090900);
                 button.setVisibility(8);
                 textView3.setVisibility(8);
                 button.setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.4
@@ -406,9 +406,9 @@ public class SpeechRecognitionDialog extends Dialog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -427,7 +427,7 @@ public class SpeechRecognitionDialog extends Dialog {
                         }
                     }
                 });
-                ((ImageView) this.errorParentView.findViewById(R.id.close_button_stub)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.5
+                ((ImageView) this.errorParentView.findViewById(R.id.obfuscated_res_0x7f09066c)).setOnClickListener(new View.OnClickListener(this) { // from class: com.baidu.pass.ecommerce.view.SpeechRecognitionDialog.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ SpeechRecognitionDialog this$0;
@@ -439,9 +439,9 @@ public class SpeechRecognitionDialog extends Dialog {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -458,34 +458,34 @@ public class SpeechRecognitionDialog extends Dialog {
                         }
                     }
                 });
-                switch (i2) {
+                switch (i) {
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_INTERRUPT /* -506 */:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_title);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_interrupt_tips);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1035);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f1034);
                         setStopSpeechLayout(0);
-                        setActualTimeWord(getContext().getString(R.string.sapi_sdk_speech_recognition_tips_text));
+                        setActualTimeWord(getContext().getString(R.string.obfuscated_res_0x7f0f1042));
                         return;
                     case -505:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_net_time_out_title);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_net_time_out_content);
+                        textView.setText(R.string.obfuscated_res_0x7f0f103d);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f103c);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_MICRO_OFF /* -504 */:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_microphone_title);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_microphone_content);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1039);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f1036);
                         button.setVisibility(0);
                         textView3.setVisibility(0);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_NET_OFF /* -503 */:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_net_off_title);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_net_off_content);
+                        textView.setText(R.string.obfuscated_res_0x7f0f103b);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f103a);
                         break;
                     case AddressManageCallback.VoiceRecognitionResult.ERROR_CODE_VOICE_RECOGNITION_INIT_FAIL /* -502 */:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_init_fail);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_retry);
+                        textView.setText(R.string.obfuscated_res_0x7f0f1032);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f103e);
                         break;
                     default:
-                        textView.setText(R.string.sapi_sdk_speech_recognition_error_unkown);
-                        textView2.setText(R.string.sapi_sdk_speech_recognition_error_retry);
+                        textView.setText(R.string.obfuscated_res_0x7f0f103f);
+                        textView2.setText(R.string.obfuscated_res_0x7f0f103e);
                         break;
                 }
             }

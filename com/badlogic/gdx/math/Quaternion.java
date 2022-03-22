@@ -48,9 +48,9 @@ public class Quaternion implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -488,8 +488,8 @@ public class Quaternion implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLF = interceptable.invokeLF(1048630, this, quaternion, f2)) == null) {
             float f3 = (this.x * quaternion.x) + (this.y * quaternion.y) + (this.z * quaternion.z) + (this.w * quaternion.w);
-            int i2 = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
-            if (i2 < 0) {
+            int i = (f3 > 0.0f ? 1 : (f3 == 0.0f ? 0 : -1));
+            if (i < 0) {
                 f3 = -f3;
             }
             float f4 = 1.0f - f2;
@@ -499,7 +499,7 @@ public class Quaternion implements Serializable {
                 f4 = ((float) Math.sin(f4 * acos)) * sin;
                 f2 = ((float) Math.sin(f2 * acos)) * sin;
             }
-            if (i2 < 0) {
+            if (i < 0) {
                 f2 = -f2;
             }
             this.x = (this.x * f4) + (quaternion.x * f2);
@@ -690,9 +690,9 @@ public class Quaternion implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -730,9 +730,9 @@ public class Quaternion implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {quaternion};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -820,9 +820,9 @@ public class Quaternion implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {vector3, Float.valueOf(f2)};
             interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
                 return;
@@ -837,8 +837,8 @@ public class Quaternion implements Serializable {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, quaternionArr)) == null) {
             float length = 1.0f / quaternionArr.length;
             set(quaternionArr[0]).exp(length);
-            for (int i2 = 1; i2 < quaternionArr.length; i2++) {
-                mul(tmp1.set(quaternionArr[i2]).exp(length));
+            for (int i = 1; i < quaternionArr.length; i++) {
+                mul(tmp1.set(quaternionArr[i]).exp(length));
             }
             nor();
             return this;
@@ -864,8 +864,8 @@ public class Quaternion implements Serializable {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048632, this, quaternionArr, fArr)) == null) {
             set(quaternionArr[0]).exp(fArr[0]);
-            for (int i2 = 1; i2 < quaternionArr.length; i2++) {
-                mul(tmp1.set(quaternionArr[i2]).exp(fArr[i2]));
+            for (int i = 1; i < quaternionArr.length; i++) {
+                mul(tmp1.set(quaternionArr[i]).exp(fArr[i]));
             }
             nor();
             return this;

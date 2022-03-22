@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 import okhttp3.internal.Util;
 import okio.Buffer;
 import okio.BufferedSink;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class FormBody extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public static final MediaType CONTENT_TYPE;
@@ -24,7 +24,7 @@ public final class FormBody extends RequestBody {
     public final List<String> encodedNames;
     public final List<String> encodedValues;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -39,9 +39,9 @@ public final class FormBody extends RequestBody {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     this((Charset) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -97,9 +97,9 @@ public final class FormBody extends RequestBody {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {charset};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -134,9 +134,9 @@ public final class FormBody extends RequestBody {
             newInitContext.initArgs = r2;
             Object[] objArr = {list, list2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -157,13 +157,13 @@ public final class FormBody extends RequestBody {
                 buffer = bufferedSink.buffer();
             }
             int size = this.encodedNames.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                if (i2 > 0) {
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
                     buffer.writeByte(38);
                 }
-                buffer.writeUtf8(this.encodedNames.get(i2));
+                buffer.writeUtf8(this.encodedNames.get(i));
                 buffer.writeByte(61);
-                buffer.writeUtf8(this.encodedValues.get(i2));
+                buffer.writeUtf8(this.encodedValues.get(i));
             }
             if (z) {
                 long size2 = buffer.size();
@@ -189,22 +189,22 @@ public final class FormBody extends RequestBody {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CONTENT_TYPE : (MediaType) invokeV.objValue;
     }
 
-    public String encodedName(int i2) {
+    public String encodedName(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.encodedNames.get(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.encodedNames.get(i) : (String) invokeI.objValue;
     }
 
-    public String encodedValue(int i2) {
+    public String encodedValue(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? this.encodedValues.get(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? this.encodedValues.get(i) : (String) invokeI.objValue;
     }
 
-    public String name(int i2) {
+    public String name(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i2)) == null) ? HttpUrl.percentDecode(encodedName(i2), true) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? HttpUrl.percentDecode(encodedName(i), true) : (String) invokeI.objValue;
     }
 
     public int size() {
@@ -213,10 +213,10 @@ public final class FormBody extends RequestBody {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.encodedNames.size() : invokeV.intValue;
     }
 
-    public String value(int i2) {
+    public String value(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? HttpUrl.percentDecode(encodedValue(i2), true) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? HttpUrl.percentDecode(encodedValue(i), true) : (String) invokeI.objValue;
     }
 
     @Override // okhttp3.RequestBody

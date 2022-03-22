@@ -9,7 +9,7 @@ import java.io.IOException;
 import okio.Buffer;
 import okio.ForwardingSink;
 import okio.Sink;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class FaultHidingSink extends ForwardingSink {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +24,9 @@ public class FaultHidingSink extends ForwardingSink {
             newInitContext.initArgs = r2;
             Object[] objArr = {sink};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Sink) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,15 +70,15 @@ public class FaultHidingSink extends ForwardingSink {
     }
 
     @Override // okio.ForwardingSink, okio.Sink
-    public void write(Buffer buffer, long j2) throws IOException {
+    public void write(Buffer buffer, long j) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, buffer, j) == null) {
             if (this.hasErrors) {
-                buffer.skip(j2);
+                buffer.skip(j);
                 return;
             }
             try {
-                super.write(buffer, j2);
+                super.write(buffer, j);
             } catch (IOException e2) {
                 this.hasErrors = true;
                 onException(e2);

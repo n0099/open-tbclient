@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.util.Log;
 import android.widget.CompoundButton;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -27,9 +28,9 @@ public final class CompoundButtonCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -49,7 +50,8 @@ public final class CompoundButtonCompat {
                     Field declaredField = CompoundButton.class.getDeclaredField("mButtonDrawable");
                     sButtonDrawableField = declaredField;
                     declaredField.setAccessible(true);
-                } catch (NoSuchFieldException unused) {
+                } catch (NoSuchFieldException e2) {
+                    Log.i(TAG, "Failed to retrieve mButtonDrawable field", e2);
                 }
                 sButtonDrawableFieldFetched = true;
             }
@@ -57,7 +59,8 @@ public final class CompoundButtonCompat {
             if (field != null) {
                 try {
                     return (Drawable) field.get(compoundButton);
-                } catch (IllegalAccessException unused2) {
+                } catch (IllegalAccessException e3) {
+                    Log.i(TAG, "Failed to get button drawable via reflection", e3);
                     sButtonDrawableField = null;
                 }
             }

@@ -37,9 +37,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -64,21 +64,21 @@ public class d {
         return (d) invokeV.objValue;
     }
 
-    public c b(int i2, int i3, int i4) {
+    public c b(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(1048576, this, i, i2, i3)) == null) {
             List<c> list = this.gB;
             if (list != null) {
                 for (c cVar : list) {
-                    if (cVar != null && cVar.mTextureId == i2) {
-                        cVar.f(i3, i4);
+                    if (cVar != null && cVar.mTextureId == i) {
+                        cVar.f(i2, i3);
                         return cVar;
                     }
                 }
             }
             c cVar2 = new c();
-            cVar2.a(i2, i3, i4);
+            cVar2.a(i, i2, i3);
             List<c> list2 = this.gB;
             if (list2 != null) {
                 list2.add(cVar2);
@@ -88,14 +88,14 @@ public class d {
         return (c) invokeIII.objValue;
     }
 
-    public c p(int i2) {
+    public c p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             List<c> list = this.gB;
             if (list != null) {
                 for (c cVar : list) {
-                    if (cVar != null && cVar.mTextureId == i2) {
+                    if (cVar != null && cVar.mTextureId == i) {
                         return cVar;
                     }
                 }

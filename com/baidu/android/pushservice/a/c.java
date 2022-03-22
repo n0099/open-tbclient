@@ -14,10 +14,10 @@ public final class c {
     public static final c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final c f30273b;
+    public static final c f24175b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final /* synthetic */ c[] f30274c;
+    public static final /* synthetic */ c[] f24176c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,20 +35,20 @@ public final class c {
         }
         a = new c("PUSH_CLIENT", 0);
         c cVar = new c("UNKNOWN_CLIENT", 1);
-        f30273b = cVar;
-        f30274c = new c[]{a, cVar};
+        f24175b = cVar;
+        f24176c = new c[]{a, cVar};
     }
 
-    public c(String str, int i2) {
+    public c(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -61,6 +61,6 @@ public final class c {
     public static c[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (c[]) f30274c.clone() : (c[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (c[]) f24176c.clone() : (c[]) invokeV.objValue;
     }
 }

@@ -6,8 +6,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ReportData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -20,9 +19,9 @@ public class ReportData {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -47,10 +46,10 @@ public class ReportData {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.interName : (String) invokeV.objValue;
     }
 
-    public void setCode(int i2) {
+    public void setCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
-            this.code = i2;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.code = i;
         }
     }
 
@@ -72,21 +71,21 @@ public class ReportData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "ReportData{interName='" + this.interName + ExtendedMessageFormat.QUOTE + ", desc='" + this.desc + ExtendedMessageFormat.QUOTE + ", code=" + this.code + ExtendedMessageFormat.END_FE;
+            return "ReportData{interName='" + this.interName + "', desc='" + this.desc + "', code=" + this.code + '}';
         }
         return (String) invokeV.objValue;
     }
 
-    public ReportData(String str, String str2, int i2) {
+    public ReportData(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i2)};
+            Object[] objArr = {str, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -94,6 +93,6 @@ public class ReportData {
         }
         this.interName = str;
         this.desc = str2;
-        this.code = i2;
+        this.code = i;
     }
 }

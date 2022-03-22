@@ -19,13 +19,13 @@ public class o<T extends a> {
     public final h a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f34103b;
+    public final int f26339b;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<T> f34104c;
+    public List<T> f26340c;
 
     /* renamed from: d  reason: collision with root package name */
-    public List<o<T>> f34105d;
+    public List<o<T>> f26341d;
 
     /* loaded from: classes4.dex */
     public static abstract class a {
@@ -37,9 +37,9 @@ public class o<T extends a> {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -50,17 +50,17 @@ public class o<T extends a> {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o(double d2, double d3, double d4, double d5, int i2) {
-        this(new h(d2, d3, d4, d5), i2);
+    public o(double d2, double d3, double d4, double d5, int i) {
+        this(new h(d2, d3, d4, d5), i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Integer.valueOf(i2)};
+            Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((h) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -79,9 +79,9 @@ public class o<T extends a> {
             newInitContext.initArgs = r2;
             Object[] objArr = {hVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((h) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
@@ -91,44 +91,44 @@ public class o<T extends a> {
         }
     }
 
-    public o(h hVar, int i2) {
+    public o(h hVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hVar, Integer.valueOf(i2)};
+            Object[] objArr = {hVar, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f34105d = null;
+        this.f26341d = null;
         this.a = hVar;
-        this.f34103b = i2;
+        this.f26339b = i;
     }
 
     private void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             ArrayList arrayList = new ArrayList(4);
-            this.f34105d = arrayList;
+            this.f26341d = arrayList;
             h hVar = this.a;
-            arrayList.add(new o(hVar.a, hVar.f34098e, hVar.f34095b, hVar.f34099f, this.f34103b + 1));
-            List<o<T>> list = this.f34105d;
+            arrayList.add(new o(hVar.a, hVar.f26334e, hVar.f26331b, hVar.f26335f, this.f26339b + 1));
+            List<o<T>> list = this.f26341d;
             h hVar2 = this.a;
-            list.add(new o<>(hVar2.f34098e, hVar2.f34096c, hVar2.f34095b, hVar2.f34099f, this.f34103b + 1));
-            List<o<T>> list2 = this.f34105d;
+            list.add(new o<>(hVar2.f26334e, hVar2.f26332c, hVar2.f26331b, hVar2.f26335f, this.f26339b + 1));
+            List<o<T>> list2 = this.f26341d;
             h hVar3 = this.a;
-            list2.add(new o<>(hVar3.a, hVar3.f34098e, hVar3.f34099f, hVar3.f34097d, this.f34103b + 1));
-            List<o<T>> list3 = this.f34105d;
+            list2.add(new o<>(hVar3.a, hVar3.f26334e, hVar3.f26335f, hVar3.f26333d, this.f26339b + 1));
+            List<o<T>> list3 = this.f26341d;
             h hVar4 = this.a;
-            list3.add(new o<>(hVar4.f34098e, hVar4.f34096c, hVar4.f34099f, hVar4.f34097d, this.f34103b + 1));
-            List<T> list4 = this.f34104c;
-            this.f34104c = null;
+            list3.add(new o<>(hVar4.f26334e, hVar4.f26332c, hVar4.f26335f, hVar4.f26333d, this.f26339b + 1));
+            List<T> list4 = this.f26340c;
+            this.f26340c = null;
             for (T t : list4) {
                 a(t.a().x, t.a().y, t);
             }
@@ -138,19 +138,19 @@ public class o<T extends a> {
     private void a(double d2, double d3, T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), t}) == null) {
-            List<o<T>> list = this.f34105d;
+            List<o<T>> list = this.f26341d;
             if (list != null) {
                 h hVar = this.a;
-                int i2 = (d3 > hVar.f34099f ? 1 : (d3 == hVar.f34099f ? 0 : -1));
-                int i3 = (d2 > hVar.f34098e ? 1 : (d2 == hVar.f34098e ? 0 : -1));
-                list.get(i2 < 0 ? i3 < 0 ? 0 : 1 : i3 < 0 ? 2 : 3).a(d2, d3, t);
+                int i = (d3 > hVar.f26335f ? 1 : (d3 == hVar.f26335f ? 0 : -1));
+                int i2 = (d2 > hVar.f26334e ? 1 : (d2 == hVar.f26334e ? 0 : -1));
+                list.get(i < 0 ? i2 < 0 ? 0 : 1 : i2 < 0 ? 2 : 3).a(d2, d3, t);
                 return;
             }
-            if (this.f34104c == null) {
-                this.f34104c = new ArrayList();
+            if (this.f26340c == null) {
+                this.f26340c = new ArrayList();
             }
-            this.f34104c.add(t);
-            if (this.f34104c.size() <= 40 || this.f34103b >= 40) {
+            this.f26340c.add(t);
+            if (this.f26340c.size() <= 40 || this.f26339b >= 40) {
                 return;
             }
             a();
@@ -160,17 +160,17 @@ public class o<T extends a> {
     private void a(h hVar, Collection<T> collection) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(65541, this, hVar, collection) == null) && this.a.a(hVar)) {
-            List<o<T>> list = this.f34105d;
+            List<o<T>> list = this.f26341d;
             if (list != null) {
                 for (o<T> oVar : list) {
                     oVar.a(hVar, collection);
                 }
-            } else if (this.f34104c != null) {
+            } else if (this.f26340c != null) {
                 if (hVar.b(this.a)) {
-                    collection.addAll(this.f34104c);
+                    collection.addAll(this.f26340c);
                     return;
                 }
-                for (T t : this.f34104c) {
+                for (T t : this.f26340c) {
                     if (hVar.a(t.a())) {
                         collection.add(t);
                     }

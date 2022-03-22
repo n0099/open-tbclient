@@ -1,6 +1,7 @@
 package com.fun.ad.sdk.channel.model.ks;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,25 +23,25 @@ import com.fun.module.ks.x;
 import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.api.KsNativeAd;
 import java.util.ArrayList;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class KSNativeAdVideoH5OpenView extends x {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f52845b;
+    public TextView f38589b;
 
     /* renamed from: c  reason: collision with root package name */
-    public FrameLayout f52846c;
+    public FrameLayout f38590c;
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f52847d;
+    public ImageView f38591d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f52848e;
+    public TextView f38592e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f52849f;
+    public Button f38593f;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public KSNativeAdVideoH5OpenView(Context context) {
@@ -51,9 +52,9 @@ public class KSNativeAdVideoH5OpenView extends x {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -72,9 +73,9 @@ public class KSNativeAdVideoH5OpenView extends x {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -85,17 +86,17 @@ public class KSNativeAdVideoH5OpenView extends x {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public KSNativeAdVideoH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public KSNativeAdVideoH5OpenView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -119,13 +120,17 @@ public class KSNativeAdVideoH5OpenView extends x {
                 ((ViewGroup) videoView.getParent()).removeView(videoView);
             }
             if (videoView != null) {
-                this.f52846c.removeAllViews();
-                this.f52846c.addView(videoView);
+                this.f38590c.removeAllViews();
+                this.f38590c.addView(videoView);
             }
-            this.f52847d.setImageBitmap(getSdkLogo());
-            this.f52845b.setText(ksNativeAd.getAdDescription());
-            this.f52848e.setText(ksNativeAd.getAdSource());
-            this.f52849f.setText(ksNativeAd.getActionDescription());
+            this.f38591d.setImageBitmap(getSdkLogo());
+            this.f38589b.setText(ksNativeAd.getAdDescription());
+            String adSource = ksNativeAd.getAdSource();
+            if (TextUtils.isEmpty(adSource)) {
+                adSource = "快手广告";
+            }
+            this.f38592e.setText(adSource);
+            this.f38593f.setText(ksNativeAd.getActionDescription());
         }
     }
 
@@ -134,24 +139,24 @@ public class KSNativeAdVideoH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.f52845b = (TextView) findViewById(R.id.ad_description);
-            this.f52846c = (FrameLayout) findViewById(R.id.ad_video);
-            this.f52847d = (ImageView) findViewById(R.id.ad_logo);
-            this.f52848e = (TextView) findViewById(R.id.ad_h5_description);
-            this.f52849f = (Button) findViewById(R.id.ad_h5_open);
+            this.f38589b = (TextView) findViewById(R.id.obfuscated_res_0x7f09009d);
+            this.f38590c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0900f8);
+            this.f38591d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900d1);
+            this.f38592e = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a3);
+            this.f38593f = (Button) findViewById(R.id.obfuscated_res_0x7f0900a4);
         }
     }
 
     @Override // android.view.View
-    public void onSizeChanged(int i2, int i3, int i4, int i5) {
+    public void onSizeChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-            super.onSizeChanged(i2, i3, i4, i5);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f52846c.getLayoutParams();
-            int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-            layoutParams.width = i6;
-            layoutParams.height = (int) (i6 / 1.78f);
-            this.f52846c.setLayoutParams(layoutParams);
+        if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+            super.onSizeChanged(i, i2, i3, i4);
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f38590c.getLayoutParams();
+            int i5 = (i - layoutParams.leftMargin) - layoutParams.rightMargin;
+            layoutParams.width = i5;
+            layoutParams.height = (int) (i5 / 1.78f);
+            this.f38590c.setLayoutParams(layoutParams);
         }
     }
 }

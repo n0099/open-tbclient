@@ -1,7 +1,7 @@
 package com.facebook.fresco.animation.drawable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface AnimationListener {
-    void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i2);
+    void onAnimationFrame(AnimatedDrawable2 animatedDrawable2, int i);
 
     void onAnimationRepeat(AnimatedDrawable2 animatedDrawable2);
 

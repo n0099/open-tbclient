@@ -17,18 +17,18 @@ public class ContextCompatApi21 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static Drawable getDrawable(Context context, int i2) {
+    public static Drawable getDrawable(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) ? context.getDrawable(i2) : (Drawable) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) ? context.getDrawable(i) : (Drawable) invokeLI.objValue;
     }
 }

@@ -17,7 +17,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.animated.base.AnimatedDrawableBackend;
 import com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor;
 import javax.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -50,9 +50,9 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
             newInitContext.initArgs = r2;
             Object[] objArr = {bitmapFrameCache, animatedDrawableBackend};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -70,9 +70,9 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -83,16 +83,16 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
             @Nullable
-            public CloseableReference<Bitmap> getCachedBitmap(int i4) {
+            public CloseableReference<Bitmap> getCachedBitmap(int i3) {
                 InterceptResult invokeI;
                 Interceptable interceptable2 = $ic;
-                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i4)) == null) ? this.this$0.mBitmapFrameCache.getCachedFrame(i4) : (CloseableReference) invokeI.objValue;
+                return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048576, this, i3)) == null) ? this.this$0.mBitmapFrameCache.getCachedFrame(i3) : (CloseableReference) invokeI.objValue;
             }
 
             @Override // com.facebook.imagepipeline.animated.impl.AnimatedImageCompositor.Callback
-            public void onIntermediateResult(int i4, Bitmap bitmap) {
+            public void onIntermediateResult(int i3, Bitmap bitmap) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, bitmap) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, bitmap) == null) {
                 }
             }
         };
@@ -117,15 +117,15 @@ public class AnimatedDrawableBackendFrameRenderer implements BitmapFrameRenderer
     }
 
     @Override // com.facebook.fresco.animation.bitmap.BitmapFrameRenderer
-    public boolean renderFrame(int i2, Bitmap bitmap) {
+    public boolean renderFrame(int i, Bitmap bitmap) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, bitmap)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bitmap)) == null) {
             try {
-                this.mAnimatedImageCompositor.renderFrame(i2, bitmap);
+                this.mAnimatedImageCompositor.renderFrame(i, bitmap);
                 return true;
             } catch (IllegalStateException e2) {
-                FLog.e(TAG, e2, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i2));
+                FLog.e(TAG, e2, "Rendering of frame unsuccessful. Frame number: %d", Integer.valueOf(i));
                 return false;
             }
         }

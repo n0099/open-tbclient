@@ -18,35 +18,35 @@ public class a {
     public static int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static b f3505b;
+    public static b f2956b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f3506c;
+    public static String f2957c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static g f3507d;
+    public static g f2958d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static long f3508e;
+    public static long f2959e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f3509f;
+    public static Handler f2960f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: c.a.h.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0151a implements Handler.Callback {
+    public static class C0142a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public C0151a() {
+        public C0142a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -58,85 +58,85 @@ public class a {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                int i2 = message.what;
-                if (i2 != 100) {
-                    switch (i2) {
+                int i = message.what;
+                if (i != 100) {
+                    switch (i) {
                         case 0:
-                            if (a.f3507d != null) {
-                                a.f3507d.c(a.f3506c, message.arg1);
-                                g unused = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.c(a.f2957c, message.arg1);
+                                g unused = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 1:
                         case 3:
-                            if (a.f3507d != null) {
+                            if (a.f2958d != null) {
                                 if (h.d()) {
-                                    a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_create_file_fail));
+                                    a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1513));
                                 } else {
-                                    a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_sdcard_nospace));
+                                    a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f151c));
                                 }
-                                g unused2 = a.f3507d = null;
+                                g unused2 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 2:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_file_fail));
-                                g unused3 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1514));
+                                g unused3 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 4:
-                            if (a.f3507d != null) {
-                                a.f3507d.b(message.arg1);
+                            if (a.f2958d != null) {
+                                a.f2958d.b(message.arg1);
                                 break;
                             }
                             break;
                         case 5:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_load_lib_fail));
-                                g unused4 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1518));
+                                g unused4 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 6:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_init_fail));
-                                g unused5 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1515));
+                                g unused5 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 7:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_timeout_tip));
-                                g unused6 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1523));
+                                g unused6 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 8:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_record_short_tip));
-                                g unused7 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f1522));
+                                g unused7 = a.f2958d = null;
                                 break;
                             }
                             break;
                         case 9:
-                            if (a.f3507d != null) {
-                                a.f3507d.a(message.arg1);
+                            if (a.f2958d != null) {
+                                a.f2958d.a(message.arg1);
                                 break;
                             }
                             break;
                         default:
-                            if (a.f3507d != null) {
-                                a.f3507d.error(message.what, c.a.d.f.q.h.a(R.string.voice_err_other));
-                                g unused8 = a.f3507d = null;
+                            if (a.f2958d != null) {
+                                a.f2958d.error(message.what, c.a.d.f.q.h.a(R.string.obfuscated_res_0x7f0f151a));
+                                g unused8 = a.f2958d = null;
                                 break;
                             }
                             break;
                     }
-                } else if (a.f3507d != null) {
-                    a.f3507d.e();
+                } else if (a.f2958d != null) {
+                    a.f2958d.e();
                 }
                 int unused9 = a.a = 0;
                 return false;
@@ -158,13 +158,13 @@ public class a {
                 return;
             }
         }
-        f3509f = new Handler(new C0151a());
+        f2960f = new Handler(new C0142a());
     }
 
     public static void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            b bVar = f3505b;
+            b bVar = f2956b;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -172,26 +172,26 @@ public class a {
         }
     }
 
-    public static boolean f(String str, int i2, g gVar) {
+    public static boolean f(String str, int i, g gVar) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, str, i2, gVar)) == null) {
-            if (System.currentTimeMillis() - f3508e < 1000) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65542, null, str, i, gVar)) == null) {
+            if (System.currentTimeMillis() - f2959e < 1000) {
                 return false;
             }
-            f3508e = System.currentTimeMillis();
+            f2959e = System.currentTimeMillis();
             if (a == 0) {
-                if (f3505b == null) {
-                    f3505b = new b(f3509f);
+                if (f2956b == null) {
+                    f2956b = new b(f2960f);
                 }
-                f3506c = str;
-                f3507d = gVar;
-                if (f3505b.i(str, i2)) {
+                f2957c = str;
+                f2958d = gVar;
+                if (f2956b.i(str, i)) {
                     a = 3;
-                    new Thread(f3505b).start();
+                    new Thread(f2956b).start();
                     return true;
                 }
-                f3505b = null;
+                f2956b = null;
             }
             return false;
         }
@@ -201,7 +201,7 @@ public class a {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            b bVar = f3505b;
+            b bVar = f2956b;
             if (bVar != null) {
                 bVar.j();
             }

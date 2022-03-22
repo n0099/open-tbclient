@@ -5,7 +5,7 @@ import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class dl {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,12 +19,12 @@ public class dl {
         bArr[1] = 100;
     }
 
-    public static boolean a(Context context, String str, long j2) {
+    public static boolean a(Context context, String str, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, str, Long.valueOf(j)})) == null) {
             if (com.xiaomi.push.service.aq.a(context).a(hk.aY.a(), false)) {
-                return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j2);
+                return (Build.VERSION.SDK_INT < 29 || context.getApplicationInfo().targetSdkVersion < 29) && !ag.a(context, str, j);
             }
             return false;
         }
@@ -35,10 +35,10 @@ public class dl {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, bArr)) == null) {
-            byte[] m243a = bj.m243a(str);
+            byte[] m222a = bj.m222a(str);
             try {
-                a(m243a);
-                return h.a(m243a, bArr);
+                a(m222a);
+                return h.a(m222a, bArr);
             } catch (Exception unused) {
                 return null;
             }
@@ -50,10 +50,10 @@ public class dl {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, bArr)) == null) {
-            byte[] m243a = bj.m243a(str);
+            byte[] m222a = bj.m222a(str);
             try {
-                a(m243a);
-                return h.b(m243a, bArr);
+                a(m222a);
+                return h.b(m222a, bArr);
             } catch (Exception unused) {
                 return null;
             }

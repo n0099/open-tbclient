@@ -19,49 +19,49 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
     public b a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final long f3784b;
+    public final long f3257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f3785c;
+    public final int f3258c;
 
     /* renamed from: c.a.j.l.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0176a<T> implements c.a.j.h.c.c.c.c<TaskToastViewData> {
+    public static final class C0182a<T> implements c.a.j.h.c.c.c.c<TaskToastViewData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* renamed from: c.a.j.l.a.d.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
-        public static final class C0177a implements b.a {
+        public static final class C0183a implements b.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ TaskToastViewData f3786b;
+            public final /* synthetic */ TaskToastViewData f3259b;
 
             /* renamed from: c  reason: collision with root package name */
-            public final /* synthetic */ C0176a f3787c;
+            public final /* synthetic */ C0182a f3260c;
 
-            public C0177a(String str, TaskToastViewData taskToastViewData, C0176a c0176a, TaskToastViewData taskToastViewData2) {
+            public C0183a(String str, TaskToastViewData taskToastViewData, C0182a c0182a, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {str, taskToastViewData, c0176a, taskToastViewData2};
+                    Object[] objArr = {str, taskToastViewData, c0182a, taskToastViewData2};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.a = str;
-                this.f3786b = taskToastViewData;
-                this.f3787c = c0176a;
+                this.f3259b = taskToastViewData;
+                this.f3260c = c0182a;
             }
 
             @Override // c.a.j.l.a.d.b.a
@@ -73,17 +73,17 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     c.a.j.j.d.a v = BDPTask.m.v();
                     if (v != null && (d3 = v.d()) != null) {
-                        d3.b(this.f3786b.getTaskInfoSingleKey(), c.a.j.g.f.b.f3670c.a());
+                        d3.b(this.f3259b.getTaskInfoSingleKey(), c.a.j.g.f.b.f3158c.a());
                     }
                     c.a.j.j.d.a v2 = BDPTask.m.v();
                     if (v2 != null && (d2 = v2.d()) != null) {
-                        d2.a(this.f3786b.getTaskInfoSingleKey());
+                        d2.a(this.f3259b.getTaskInfoSingleKey());
                     }
                     c.a.j.j.d.a v3 = BDPTask.m.v();
                     if (v3 != null && (b2 = v3.b()) != null) {
                         b2.a(this.a, 2);
                     }
-                    this.f3787c.a.h(this.f3786b.getTaskInfo());
+                    this.f3260c.a.h(this.f3259b.getTaskInfo());
                 }
             }
         }
@@ -93,51 +93,49 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
         public static final class b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Context a;
 
-            /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Context f3788e;
+            /* renamed from: b  reason: collision with root package name */
+            public final /* synthetic */ C0182a f3261b;
 
-            /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ C0176a f3789f;
-
-            public b(Context context, C0176a c0176a, TaskToastViewData taskToastViewData) {
+            public b(Context context, C0182a c0182a, TaskToastViewData taskToastViewData) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {context, c0176a, taskToastViewData};
+                    Object[] objArr = {context, c0182a, taskToastViewData};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
-                this.f3788e = context;
-                this.f3789f = c0176a;
+                this.a = context;
+                this.f3261b = c0182a;
             }
 
             @Override // java.lang.Runnable
             public final void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.f3789f.a.a.k(this.f3788e);
+                    this.f3261b.a.a.k(this.a);
                 }
             }
         }
 
-        public C0176a(a aVar) {
+        public C0182a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -156,7 +154,7 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, taskToastViewData) == null) || taskToastViewData == null) {
                 return;
             }
-            this.a.a.a(this.a.f3785c);
+            this.a.a.a(this.a.f3258c);
             this.a.a.d(taskToastViewData.getMessage());
             this.a.a.e(taskToastViewData.getBackColor());
             this.a.a.h(taskToastViewData.getDuration());
@@ -173,7 +171,7 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
             }
             String backBtnSchema = taskToastViewData.getBackBtnSchema();
             if (backBtnSchema != null) {
-                this.a.a.c(new C0177a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                this.a.a.c(new C0183a(backBtnSchema, taskToastViewData, this, taskToastViewData));
             }
             String backBtnTxt = taskToastViewData.getBackBtnTxt();
             if (backBtnTxt != null) {
@@ -197,7 +195,7 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
                 int showType = taskToastViewData.getShowType();
                 if (showType != 1) {
                     if (showType == 2) {
-                        c.a.j.h.d.e.d(new b(activity, this, taskToastViewData), this.a.f3784b);
+                        c.a.j.h.d.e.d(new b(activity, this, taskToastViewData), this.a.f3257b);
                     }
                 } else if (appContext != null) {
                     this.a.a.g(appContext);
@@ -212,17 +210,17 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new b();
-        this.f3784b = 100L;
-        this.f3785c = 2;
+        this.f3257b = 100L;
+        this.f3258c = 2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -231,7 +229,7 @@ public final class a extends c.a.j.h.c.d.b<c.a.j.e.d.a> {
     public void a(c.a.j.e.d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            aVar.a().l(new C0176a(this));
+            aVar.a().l(new C0182a(this));
         }
     }
 

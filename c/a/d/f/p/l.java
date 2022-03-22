@@ -35,31 +35,27 @@ public class l {
     public NetworkInfo a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f2813b;
+    public boolean f2335b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f2814c;
+    public boolean f2336c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f2815d;
+    public boolean f2337d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f2816e;
+    public int f2338e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f2817f;
+    public int f2339f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f2818g;
+    public int f2340g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f2819h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public int f2820i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public long f2821j;
+    public String f2341h;
+    public int i;
+    public long j;
     public boolean k;
     public Runnable l;
 
@@ -75,9 +71,9 @@ public class l {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {lVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -119,9 +115,9 @@ public class l {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -173,23 +169,23 @@ public class l {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f2813b = true;
-        this.f2814c = false;
-        this.f2815d = true;
-        this.f2816e = 0;
-        this.f2817f = 0;
-        this.f2818g = -1;
-        this.f2819h = null;
-        this.f2820i = -1;
+        this.f2335b = true;
+        this.f2336c = false;
+        this.f2337d = true;
+        this.f2338e = 0;
+        this.f2339f = 0;
+        this.f2340g = -1;
+        this.f2341h = null;
+        this.i = -1;
         this.k = true;
         this.l = new a(this);
     }
@@ -290,7 +286,7 @@ public class l {
     public static int L() {
         InterceptResult invokeV;
         String substring;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
             String networkOperator = ((TelephonyManager) BdBaseApplication.getInst().getContext().getSystemService("phone")).getNetworkOperator();
@@ -298,17 +294,17 @@ public class l {
                 return 0;
             }
             try {
-                i2 = Integer.parseInt(networkOperator.substring(3));
+                i = Integer.parseInt(networkOperator.substring(3));
             } catch (NumberFormatException unused) {
-                i2 = 0;
+                i = 0;
             }
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 != 3 && i2 != 5) {
-                            if (i2 != 6) {
-                                if (i2 != 7) {
-                                    if (i2 != 11) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3 && i != 5) {
+                            if (i != 6) {
+                                if (i != 7) {
+                                    if (i != 11) {
                                         return 0;
                                     }
                                 }
@@ -324,10 +320,10 @@ public class l {
         return invokeV.intValue;
     }
 
-    public static void N(long j2) {
+    public static void N(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65548, null, j2) == null) {
-            k().M(j2);
+        if (interceptable == null || interceptable.invokeJ(65548, null, j) == null) {
+            k().M(j);
         }
     }
 
@@ -384,11 +380,11 @@ public class l {
         return (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) ? !z() ? "N" : H() ? CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING : v() ? "4G" : u() ? "3G" : t() ? "2G" : "N" : (String) invokeV.objValue;
     }
 
-    public static int n(int i2) {
+    public static int n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i2)) == null) {
-            switch (i2) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65558, null, i)) == null) {
+            switch (i) {
                 case 1:
                 case 2:
                 case 4:
@@ -472,15 +468,15 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2813b;
+            return this.f2335b;
         }
         return invokeV.booleanValue;
     }
 
-    public final void M(long j2) {
+    public final void M(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) {
-            this.f2821j = j2;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            this.j = j;
         }
     }
 
@@ -494,7 +490,7 @@ public class l {
     public final long g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f2821j : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.j : invokeV.longValue;
     }
 
     public final NetworkInfo h() {
@@ -518,7 +514,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2817f;
+            return this.f2339f;
         }
         return invokeV.intValue;
     }
@@ -530,33 +526,33 @@ public class l {
             this.a = h2;
             if (h2 != null) {
                 if (h2.getType() == 1) {
-                    this.f2813b = true;
-                    this.f2814c = false;
+                    this.f2335b = true;
+                    this.f2336c = false;
                 } else if (h2.getType() == 0) {
-                    this.f2813b = false;
-                    this.f2814c = true;
+                    this.f2335b = false;
+                    this.f2336c = true;
                 } else {
-                    this.f2813b = false;
-                    this.f2814c = false;
+                    this.f2335b = false;
+                    this.f2336c = false;
                 }
-                this.f2815d = true;
+                this.f2337d = true;
                 int subtype = h2.getSubtype();
-                this.f2816e = subtype;
-                if (this.f2814c) {
-                    this.f2817f = n(subtype);
+                this.f2338e = subtype;
+                if (this.f2336c) {
+                    this.f2339f = n(subtype);
                 } else {
-                    this.f2817f = 0;
+                    this.f2339f = 0;
                 }
             } else {
-                this.f2813b = false;
-                this.f2814c = false;
-                this.f2815d = false;
-                this.f2816e = 0;
-                this.f2816e = 0;
+                this.f2335b = false;
+                this.f2336c = false;
+                this.f2337d = false;
+                this.f2338e = 0;
+                this.f2338e = 0;
             }
-            this.f2818g = L();
-            this.f2819h = Proxy.getDefaultHost();
-            this.f2820i = Proxy.getDefaultPort();
+            this.f2340g = L();
+            this.f2341h = Proxy.getDefaultHost();
+            this.i = Proxy.getDefaultPort();
         }
     }
 
@@ -564,14 +560,14 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f2818g == -1) {
+            if (this.f2340g == -1) {
                 try {
-                    this.f2818g = L();
+                    this.f2340g = L();
                 } catch (Exception unused) {
-                    this.f2818g = 0;
+                    this.f2340g = 0;
                 }
             }
-            return this.f2818g;
+            return this.f2340g;
         }
         return invokeV.intValue;
     }
@@ -580,10 +576,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (this.f2819h == null) {
-                this.f2819h = Proxy.getDefaultHost();
+            if (this.f2341h == null) {
+                this.f2341h = Proxy.getDefaultHost();
             }
-            return this.f2819h;
+            return this.f2341h;
         }
         return (String) invokeV.objValue;
     }
@@ -592,10 +588,10 @@ public class l {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (-1 == this.f2820i) {
-                this.f2820i = Proxy.getDefaultPort();
+            if (-1 == this.i) {
+                this.i = Proxy.getDefaultPort();
             }
-            return this.f2820i;
+            return this.i;
         }
         return invokeV.intValue;
     }
@@ -607,7 +603,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2814c;
+            return this.f2336c;
         }
         return invokeV.booleanValue;
     }
@@ -619,7 +615,7 @@ public class l {
             if (this.a == null) {
                 j();
             }
-            return this.f2815d;
+            return this.f2337d;
         }
         return invokeV.booleanValue;
     }

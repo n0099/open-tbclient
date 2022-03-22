@@ -1,6 +1,6 @@
 package com.baidu.tieba.ala.personcenter;
 
-import c.a.r0.d1.j0;
+import c.a.p0.f1.j0;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -32,17 +32,17 @@ public class AlaPersonCenterActivityStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -61,12 +61,12 @@ public class AlaPersonCenterActivityStatic {
             Object data = customResponsedMessage.getData();
             if (data instanceof j0) {
                 j0 j0Var = (j0) data;
-                c.a.r0.a0.l.a aVar = new c.a.r0.a0.l.a();
-                aVar.c(j0Var.c());
-                aVar.d(j0Var.d());
-                aVar.b(j0Var.b());
-                aVar.e(j0Var.e());
-                aVar.a(j0Var);
+                c.a.p0.c0.l.a aVar = new c.a.p0.c0.l.a();
+                aVar.i(j0Var.c());
+                aVar.j(j0Var.d());
+                aVar.h(j0Var.b());
+                aVar.k(j0Var.e());
+                aVar.g(j0Var);
             }
         }
     }
@@ -96,9 +96,9 @@ public class AlaPersonCenterActivityStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

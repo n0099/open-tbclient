@@ -1,5 +1,6 @@
 package com.google.android.exoplayer2.upstream.cache;
 
+import android.util.Log;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -35,7 +36,7 @@ import javax.crypto.CipherOutputStream;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class CachedContentIndex {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String FILE_NAME = "cached_content_index.exi";
@@ -61,9 +62,9 @@ public class CachedContentIndex {
             newInitContext.initArgs = r2;
             Object[] objArr = {file};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], (byte[]) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -93,94 +94,110 @@ public class CachedContentIndex {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, sparseArray)) == null) {
             int size = sparseArray.size();
-            int i2 = 0;
+            int i = 0;
             int keyAt = size == 0 ? 0 : sparseArray.keyAt(size - 1) + 1;
             if (keyAt < 0) {
-                while (i2 < size && i2 == sparseArray.keyAt(i2)) {
-                    i2++;
+                while (i < size && i == sparseArray.keyAt(i)) {
+                    i++;
                 }
-                return i2;
+                return i;
             }
             return keyAt;
         }
         return invokeL.intValue;
     }
 
+    /* JADX WARN: Not initialized variable reg: 3, insn: 0x009e: MOVE  (r1 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:51:0x009e */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x00a1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean readFile() {
         InterceptResult invokeV;
+        DataInputStream dataInputStream;
+        IOException e2;
+        DataInputStream dataInputStream2;
         Interceptable interceptable = $ic;
         if (interceptable != null && (invokeV = interceptable.invokeV(65543, this)) != null) {
             return invokeV.booleanValue;
         }
-        DataInputStream dataInputStream = null;
+        DataInputStream dataInputStream3 = null;
         try {
-            BufferedInputStream bufferedInputStream = new BufferedInputStream(this.atomicFile.openRead());
-            DataInputStream dataInputStream2 = new DataInputStream(bufferedInputStream);
             try {
-                if (dataInputStream2.readInt() != 1) {
-                    Util.closeQuietly(dataInputStream2);
-                    return false;
-                }
-                if ((dataInputStream2.readInt() & 1) != 0) {
-                    if (this.cipher == null) {
-                        Util.closeQuietly(dataInputStream2);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(this.atomicFile.openRead());
+                dataInputStream = new DataInputStream(bufferedInputStream);
+                try {
+                    if (dataInputStream.readInt() != 1) {
+                        Util.closeQuietly(dataInputStream);
                         return false;
                     }
-                    byte[] bArr = new byte[16];
-                    dataInputStream2.readFully(bArr);
-                    try {
-                        this.cipher.init(2, this.secretKeySpec, new IvParameterSpec(bArr));
-                        dataInputStream = new DataInputStream(new CipherInputStream(bufferedInputStream, this.cipher));
-                    } catch (InvalidAlgorithmParameterException e2) {
-                        e = e2;
-                        throw new IllegalStateException(e);
-                    } catch (InvalidKeyException e3) {
-                        e = e3;
-                        throw new IllegalStateException(e);
+                    if ((dataInputStream.readInt() & 1) != 0) {
+                        if (this.cipher == null) {
+                            Util.closeQuietly(dataInputStream);
+                            return false;
+                        }
+                        byte[] bArr = new byte[16];
+                        dataInputStream.readFully(bArr);
+                        try {
+                            this.cipher.init(2, this.secretKeySpec, new IvParameterSpec(bArr));
+                            dataInputStream3 = new DataInputStream(new CipherInputStream(bufferedInputStream, this.cipher));
+                        } catch (InvalidAlgorithmParameterException e3) {
+                            e = e3;
+                            throw new IllegalStateException(e);
+                        } catch (InvalidKeyException e4) {
+                            e = e4;
+                            throw new IllegalStateException(e);
+                        }
+                    } else {
+                        if (this.encrypt) {
+                            this.changed = true;
+                        }
+                        dataInputStream3 = dataInputStream;
                     }
-                } else {
-                    if (this.encrypt) {
-                        this.changed = true;
+                    int readInt = dataInputStream3.readInt();
+                    int i = 0;
+                    for (int i2 = 0; i2 < readInt; i2++) {
+                        CachedContent cachedContent = new CachedContent(dataInputStream3);
+                        add(cachedContent);
+                        i += cachedContent.headerHashCode();
                     }
-                    dataInputStream = dataInputStream2;
-                }
-                int readInt = dataInputStream.readInt();
-                int i2 = 0;
-                for (int i3 = 0; i3 < readInt; i3++) {
-                    CachedContent cachedContent = new CachedContent(dataInputStream);
-                    add(cachedContent);
-                    i2 += cachedContent.headerHashCode();
-                }
-                if (dataInputStream.readInt() != i2) {
-                    Util.closeQuietly(dataInputStream);
+                    if (dataInputStream3.readInt() != i) {
+                        Util.closeQuietly(dataInputStream3);
+                        return false;
+                    }
+                    Util.closeQuietly(dataInputStream3);
+                    return true;
+                } catch (FileNotFoundException unused) {
+                    dataInputStream3 = dataInputStream;
+                    if (dataInputStream3 != null) {
+                        Util.closeQuietly(dataInputStream3);
+                    }
+                    return false;
+                } catch (IOException e5) {
+                    e2 = e5;
+                    Log.e(TAG, "Error reading cache content index file.", e2);
+                    if (dataInputStream != null) {
+                        Util.closeQuietly(dataInputStream);
+                    }
                     return false;
                 }
-                Util.closeQuietly(dataInputStream);
-                return true;
-            } catch (FileNotFoundException unused) {
-                dataInputStream = dataInputStream2;
-                if (dataInputStream != null) {
-                    Util.closeQuietly(dataInputStream);
-                }
-                return false;
-            } catch (IOException unused2) {
-                dataInputStream = dataInputStream2;
-                if (dataInputStream != null) {
-                    Util.closeQuietly(dataInputStream);
-                }
-                return false;
             } catch (Throwable th) {
                 th = th;
-                dataInputStream = dataInputStream2;
-                if (dataInputStream != null) {
-                    Util.closeQuietly(dataInputStream);
+                dataInputStream3 = dataInputStream2;
+                if (dataInputStream3 != null) {
+                    Util.closeQuietly(dataInputStream3);
                 }
                 throw th;
             }
-        } catch (FileNotFoundException unused3) {
-        } catch (IOException unused4) {
+        } catch (FileNotFoundException unused2) {
+        } catch (IOException e6) {
+            dataInputStream = dataInputStream3;
+            e2 = e6;
         } catch (Throwable th2) {
             th = th2;
+            if (dataInputStream3 != null) {
+            }
+            throw th;
         }
     }
 
@@ -206,7 +223,7 @@ public class CachedContentIndex {
             }
             try {
                 dataOutputStream.writeInt(1);
-                int i2 = 0;
+                int i = 0;
                 dataOutputStream.writeInt(this.encrypt ? 1 : 0);
                 if (this.encrypt) {
                     byte[] bArr = new byte[16];
@@ -227,9 +244,9 @@ public class CachedContentIndex {
                 dataOutputStream.writeInt(this.keyToContent.size());
                 for (CachedContent cachedContent : this.keyToContent.values()) {
                     cachedContent.writeToStream(dataOutputStream);
-                    i2 += cachedContent.headerHashCode();
+                    i += cachedContent.headerHashCode();
                 }
-                dataOutputStream.writeInt(i2);
+                dataOutputStream.writeInt(i);
                 this.atomicFile.endWrite(dataOutputStream);
                 Util.closeQuietly((Closeable) null);
             } catch (IOException e5) {
@@ -293,10 +310,10 @@ public class CachedContentIndex {
         return invokeL.longValue;
     }
 
-    public String getKeyForId(int i2) {
+    public String getKeyForId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) ? this.idToKey.get(i2) : (String) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.idToKey.get(i) : (String) invokeI.objValue;
     }
 
     public Set<String> getKeys() {
@@ -329,19 +346,19 @@ public class CachedContentIndex {
         this.changed = true;
     }
 
-    public void setContentLength(String str, long j2) {
+    public void setContentLength(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(1048587, this, str, j) == null) {
             CachedContent cachedContent = get(str);
             if (cachedContent != null) {
-                if (cachedContent.getLength() != j2) {
-                    cachedContent.setLength(j2);
+                if (cachedContent.getLength() != j) {
+                    cachedContent.setLength(j);
                     this.changed = true;
                     return;
                 }
                 return;
             }
-            addNew(str, j2);
+            addNew(str, j);
         }
     }
 
@@ -362,9 +379,9 @@ public class CachedContentIndex {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((File) objArr2[0], (byte[]) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
@@ -381,9 +398,9 @@ public class CachedContentIndex {
             newInitContext.initArgs = r2;
             Object[] objArr = {file, bArr, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -416,11 +433,11 @@ public class CachedContentIndex {
         }
     }
 
-    private CachedContent addNew(String str, long j2) {
+    private CachedContent addNew(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j2)) == null) {
-            CachedContent cachedContent = new CachedContent(getNewId(this.idToKey), str, j2);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, this, str, j)) == null) {
+            CachedContent cachedContent = new CachedContent(getNewId(this.idToKey), str, j);
             addNew(cachedContent);
             return cachedContent;
         }
@@ -436,8 +453,8 @@ public class CachedContentIndex {
                     arrayList.add(cachedContent.key);
                 }
             }
-            for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                removeEmpty((String) arrayList.get(i2));
+            for (int i = 0; i < arrayList.size(); i++) {
+                removeEmpty((String) arrayList.get(i));
             }
         }
     }

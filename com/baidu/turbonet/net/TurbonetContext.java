@@ -1,6 +1,7 @@
 package com.baidu.turbonet.net;
 
 import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -16,13 +17,13 @@ public final class TurbonetContext {
     public TurbonetEngine a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f48873b;
+    public Context f37769b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f48874c;
+    public String f37770c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f48875d;
+    public String f37771d;
 
     public TurbonetContext(Context context, String str, String str2, TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
@@ -31,44 +32,45 @@ public final class TurbonetContext {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, str2, turbonetConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f48873b = context;
-        this.f48874c = str;
-        this.f48875d = str2;
+        this.f37769b = context;
+        this.f37770c = str;
+        this.f37771d = str2;
         a(turbonetConfig);
     }
 
     public final void a(TurbonetConfig turbonetConfig) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, turbonetConfig) == null) {
-            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f48873b);
+            TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.f37769b);
             if (turbonetConfig == null) {
-                builder.q(this.f48874c);
-                builder.p(this.f48875d);
+                builder.q(this.f37770c);
+                builder.p(this.f37771d);
                 this.a = builder.b();
-                return;
-            }
-            if (turbonetConfig.h()) {
-                builder.t(turbonetConfig.l());
-            }
-            try {
-                if (turbonetConfig.g().has("nq") && turbonetConfig.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
-                    builder.e(true, "");
+            } else {
+                if (turbonetConfig.h()) {
+                    builder.t(turbonetConfig.l());
                 }
-            } catch (JSONException e2) {
-                String str = "JSON expcetion: " + e2;
+                try {
+                    if (turbonetConfig.g().has("nq") && turbonetConfig.g().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                        builder.e(true, "");
+                    }
+                } catch (JSONException e2) {
+                    Log.e("cr_TurbonetContext", "JSON expcetion: " + e2);
+                }
+                builder.q(this.f37770c);
+                builder.p(this.f37771d);
+                builder.a(turbonetConfig.g().toString());
+                this.a = builder.b();
             }
-            builder.q(this.f48874c);
-            builder.p(this.f48875d);
-            builder.a(turbonetConfig.g().toString());
-            this.a = builder.b();
+            Log.v("cr_TurbonetContext", "Turbonet init context success.");
         }
     }
 

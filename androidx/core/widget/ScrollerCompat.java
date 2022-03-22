@@ -24,9 +24,9 @@ public final class ScrollerCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, interpolator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,10 +58,10 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void fling(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9) {
+    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9)}) == null) {
-            this.mScroller.fling(i2, i3, i4, i5, i6, i7, i8, i9);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+            this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8);
         }
     }
 
@@ -115,33 +115,33 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void notifyHorizontalEdgeReached(int i2, int i3, int i4) {
+    public void notifyHorizontalEdgeReached(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048587, this, i2, i3, i4) == null) {
-            this.mScroller.notifyHorizontalEdgeReached(i2, i3, i4);
+        if (interceptable == null || interceptable.invokeIII(1048587, this, i, i2, i3) == null) {
+            this.mScroller.notifyHorizontalEdgeReached(i, i2, i3);
         }
     }
 
     @Deprecated
-    public void notifyVerticalEdgeReached(int i2, int i3, int i4) {
+    public void notifyVerticalEdgeReached(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048588, this, i2, i3, i4) == null) {
-            this.mScroller.notifyVerticalEdgeReached(i2, i3, i4);
+        if (interceptable == null || interceptable.invokeIII(1048588, this, i, i2, i3) == null) {
+            this.mScroller.notifyVerticalEdgeReached(i, i2, i3);
         }
     }
 
     @Deprecated
-    public boolean springBack(int i2, int i3, int i4, int i5, int i6, int i7) {
+    public boolean springBack(int i, int i2, int i3, int i4, int i5, int i6) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7)})) == null) ? this.mScroller.springBack(i2, i3, i4, i5, i6, i7) : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) ? this.mScroller.springBack(i, i2, i3, i4, i5, i6) : invokeCommon.booleanValue;
     }
 
     @Deprecated
-    public void startScroll(int i2, int i3, int i4, int i5) {
+    public void startScroll(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048590, this, i2, i3, i4, i5) == null) {
-            this.mScroller.startScroll(i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeIIII(1048590, this, i, i2, i3, i4) == null) {
+            this.mScroller.startScroll(i, i2, i3, i4);
         }
     }
 
@@ -153,18 +153,18 @@ public final class ScrollerCompat {
     }
 
     @Deprecated
-    public void fling(int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10, int i11) {
+    public void fling(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11)}) == null) {
-            this.mScroller.fling(i2, i3, i4, i5, i6, i7, i8, i9, i10, i11);
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
+            this.mScroller.fling(i, i2, i3, i4, i5, i6, i7, i8, i9, i10);
         }
     }
 
     @Deprecated
-    public void startScroll(int i2, int i3, int i4, int i5, int i6) {
+    public void startScroll(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            this.mScroller.startScroll(i2, i3, i4, i5, i6);
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
+            this.mScroller.startScroll(i, i2, i3, i4, i5);
         }
     }
 }

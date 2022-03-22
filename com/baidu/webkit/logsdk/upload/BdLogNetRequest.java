@@ -14,7 +14,6 @@ import com.baidu.webkit.net.BdNet;
 import com.baidu.webkit.net.BdNetTask;
 import com.baidu.webkit.net.INetListener;
 import com.baidu.webkit.sdk.WebKitFactory;
-import com.dxmpay.wallet.utils.StatHelper;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.HashMap;
@@ -35,9 +34,9 @@ public class BdLogNetRequest implements INetListener {
             newInitContext.initArgs = r2;
             Object[] objArr = {dVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -96,23 +95,23 @@ public class BdLogNetRequest implements INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i2) {
+    public void onNetDownloadError(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetError netError, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdNet, bdNetTask, netError, i) == null) {
             c.e("BdLogSDK", "onNetDownloadError  " + bdNetTask.getUrl());
             this.mCallback.a(null);
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i2) {
+    public void onNetReceiveData(BdNet bdNet, BdNetTask bdNetTask, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i2) == null) {
-            c.e("BdLogSDK", "onNetReceiveData  ".concat(String.valueOf(i2)));
+        if (interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, bdNet, bdNetTask, bArr, i) == null) {
+            c.e("BdLogSDK", "onNetReceiveData  ".concat(String.valueOf(i)));
             if (this.mData == null) {
                 this.mData = new ByteArrayOutputStream();
             }
-            this.mData.write(bArr, 0, i2);
+            this.mData.write(bArr, 0, i);
         }
     }
 
@@ -124,26 +123,26 @@ public class BdLogNetRequest implements INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public boolean onNetRedirect(BdNet bdNet, BdNetTask bdNetTask, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, bdNet, bdNetTask, i)) == null) {
             return false;
         }
         return invokeLLI.booleanValue;
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i2) {
+    public void onNetResponseCode(BdNet bdNet, BdNetTask bdNetTask, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLI(1048581, this, bdNet, bdNetTask, i) == null) {
         }
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i2) {
+    public void onNetStateChanged(BdNet bdNet, BdNetTask bdNetTask, BdNet.NetState netState, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLLI(1048582, this, bdNet, bdNetTask, netState, i) == null) {
         }
     }
 
@@ -158,7 +157,7 @@ public class BdLogNetRequest implements INetListener {
                 return;
             }
             c.e("BdLogSDK", "onNetTaskComplete2  " + bdNetTask.getUrl());
-            this.mCallback.a(new String(StatHelper.SENSOR_OK).getBytes());
+            this.mCallback.a(new String("OK").getBytes());
         }
     }
 
@@ -177,9 +176,9 @@ public class BdLogNetRequest implements INetListener {
     }
 
     @Override // com.baidu.webkit.net.INetListener
-    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i2, int i3) {
+    public void onNetUploadData(BdNet bdNet, BdNetTask bdNetTask, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeLLII(1048586, this, bdNet, bdNetTask, i, i2) == null) {
         }
     }
 }

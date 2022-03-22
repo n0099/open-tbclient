@@ -3,10 +3,9 @@ package com.meizu.cloud.pushsdk.notification.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class AppIconSetting implements Parcelable {
     public static final String APP_ICON_SETTING = "is";
     public static final Parcelable.Creator<AppIconSetting> CREATOR = new Parcelable.Creator<AppIconSetting>() { // from class: com.meizu.cloud.pushsdk.notification.model.AppIconSetting.1
@@ -20,8 +19,8 @@ public class AppIconSetting implements Parcelable {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
         /* renamed from: a */
-        public AppIconSetting[] newArray(int i2) {
-            return new AppIconSetting[i2];
+        public AppIconSetting[] newArray(int i) {
+            return new AppIconSetting[i];
         }
     };
     public static final String DEFAULT_LARGE_ICON = "di";
@@ -46,7 +45,7 @@ public class AppIconSetting implements Parcelable {
             try {
                 jSONObject = new JSONObject(str);
             } catch (JSONException e2) {
-                c.k.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
+                c.h.a.a.a.b(TAG, "parse json string error " + e2.getMessage());
             }
             return parse(jSONObject);
         }
@@ -71,7 +70,7 @@ public class AppIconSetting implements Parcelable {
             return appIconSetting;
         }
         str = "no such tag app_icon_setting";
-        c.k.a.a.a.b(TAG, str);
+        c.h.a.a.a.b(TAG, str);
         return appIconSetting;
     }
 
@@ -97,11 +96,11 @@ public class AppIconSetting implements Parcelable {
     }
 
     public String toString() {
-        return "AppIconSetting{defaultLargeIcon=" + this.defaultLargeIcon + ", largeIconUrl='" + this.largeIconUrl + ExtendedMessageFormat.QUOTE + ExtendedMessageFormat.END_FE;
+        return "AppIconSetting{defaultLargeIcon=" + this.defaultLargeIcon + ", largeIconUrl='" + this.largeIconUrl + "'}";
     }
 
     @Override // android.os.Parcelable
-    public void writeToParcel(Parcel parcel, int i2) {
+    public void writeToParcel(Parcel parcel, int i) {
         parcel.writeByte(this.defaultLargeIcon ? (byte) 1 : (byte) 0);
         parcel.writeString(this.largeIconUrl);
     }

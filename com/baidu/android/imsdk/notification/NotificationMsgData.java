@@ -34,9 +34,9 @@ public class NotificationMsgData {
             newInitContext.initArgs = r2;
             Object[] objArr = {chatMsg};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,8 +56,8 @@ public class NotificationMsgData {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mMsg.getJsonContent());
                     if (!jSONObject.optBoolean("is_merged", false) && (optJSONArray = jSONObject.optJSONArray("user_info")) != null && optJSONArray.length() > 0) {
-                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                             if (jSONObject2 != null && jSONObject2.has("uk")) {
                                 String transBDUK = Utility.transBDUK(jSONObject2.getString("uk"));
                                 if (!TextUtils.isEmpty(transBDUK)) {
@@ -113,10 +113,10 @@ public class NotificationMsgData {
         }
     }
 
-    public void setType(int i2) {
+    public void setType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mType = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mType = i;
         }
     }
 
@@ -131,8 +131,8 @@ public class NotificationMsgData {
             if (jSONObject.optBoolean("is_merged", false) || (optJSONArray = jSONObject.optJSONArray("user_info")) == null || optJSONArray.length() <= 0) {
                 return;
             }
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
                 if (jSONObject2 != null && jSONObject2.has("uk")) {
                     String transBDUK = Utility.transBDUK(jSONObject2.getString("uk"));
                     if (!TextUtils.isEmpty(transBDUK) && chatUser.getBuid() == Long.parseLong(transBDUK)) {

@@ -2,11 +2,11 @@ package com.kwad.sdk.core.webview.jshandler;
 
 import androidx.annotation.NonNull;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class o implements com.kwad.sdk.core.webview.kwai.a {
     public a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface a {
         void a(com.kwad.sdk.core.webview.kwai.i iVar);
     }

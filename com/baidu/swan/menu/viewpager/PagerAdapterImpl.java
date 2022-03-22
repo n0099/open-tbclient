@@ -5,23 +5,23 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-import c.a.p0.n.j.c;
+import c.a.n0.n.j.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public c<View> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SparseArray<View> f38596b;
+    public SparseArray<View> f29680b;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void recycle();
     }
@@ -31,29 +31,33 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = new c<>(5);
-        this.f38596b = new SparseArray<>();
+        this.f29680b = new SparseArray<>();
     }
 
+    public abstract void b(View view, int i);
+
+    public abstract View c(ViewGroup viewGroup, int i);
+
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i, obj) == null) {
             View view = (View) obj;
             if (view instanceof a) {
                 ((a) view).recycle();
             }
             viewGroup.removeView(view);
             this.a.b(view);
-            this.f38596b.remove(i2);
+            this.f29680b.remove(i);
         }
     }
 
@@ -61,30 +65,24 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
-    public View getCurrentView(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.f38596b.get(i2) : (View) invokeI.objValue;
-    }
-
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
             View a2 = this.a.a();
             if (a2 == null) {
-                a2 = onInstantiateItem(viewGroup, i2);
+                a2 = c(viewGroup, i);
             }
-            this.f38596b.put(i2, a2);
+            this.f29680b.put(i, a2);
             viewGroup.addView(a2);
-            onConfigItem(a2, i2);
+            b(a2, i);
             return a2;
         }
         return invokeLI.objValue;
@@ -94,17 +92,13 @@ public abstract class PagerAdapterImpl extends PagerAdapter {
     public boolean isViewFromObject(View view, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view, obj)) == null) ? view == obj : invokeLL.booleanValue;
     }
-
-    public abstract void onConfigItem(View view, int i2);
-
-    public abstract View onInstantiateItem(ViewGroup viewGroup, int i2);
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, dataSetObserver) == null) || dataSetObserver == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, dataSetObserver) == null) || dataSetObserver == null) {
             return;
         }
         super.unregisterDataSetObserver(dataSetObserver);

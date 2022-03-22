@@ -72,9 +72,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 newInitContext.initArgs = r2;
                 Object[] objArr = {scrollingTabContainerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -91,28 +91,28 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i2) {
+        public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? ((TabView) this.this$0.mTabLayout.getChildAt(i2)).getTab() : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? ((TabView) this.this$0.mTabLayout.getChildAt(i)).getTab() : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view, viewGroup)) == null) {
                 if (view == null) {
-                    return this.this$0.createTabView((ActionBar.Tab) getItem(i2), true);
+                    return this.this$0.createTabView((ActionBar.Tab) getItem(i), true);
                 }
-                ((TabView) view).bindTab((ActionBar.Tab) getItem(i2));
+                ((TabView) view).bindTab((ActionBar.Tab) getItem(i));
                 return view;
             }
             return (View) invokeILL.objValue;
@@ -132,9 +132,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 newInitContext.initArgs = r2;
                 Object[] objArr = {scrollingTabContainerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -149,8 +149,8 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
                 ((TabView) view).getTab().select();
                 int childCount = this.this$0.mTabLayout.getChildCount();
-                for (int i2 = 0; i2 < childCount; i2++) {
-                    View childAt = this.this$0.mTabLayout.getChildAt(i2);
+                for (int i = 0; i < childCount; i++) {
+                    View childAt = this.this$0.mTabLayout.getChildAt(i);
                     childAt.setSelected(childAt == view);
                 }
             }
@@ -178,9 +178,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 newInitContext.initArgs = r2;
                 Object[] objArr = {scrollingTabContainerView, context, tab, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -236,15 +236,15 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
 
         @Override // android.widget.LinearLayout, android.view.View
-        public void onMeasure(int i2, int i3) {
+        public void onMeasure(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048580, this, i2, i3) == null) {
-                super.onMeasure(i2, i3);
+            if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+                super.onMeasure(i, i2);
                 if (this.this$0.mMaxTabWidth > 0) {
                     int measuredWidth = getMeasuredWidth();
-                    int i4 = this.this$0.mMaxTabWidth;
-                    if (measuredWidth > i4) {
-                        super.onMeasure(View.MeasureSpec.makeMeasureSpec(i4, 1073741824), i3);
+                    int i3 = this.this$0.mMaxTabWidth;
+                    if (measuredWidth > i3) {
+                        super.onMeasure(View.MeasureSpec.makeMeasureSpec(i3, 1073741824), i2);
                     }
                 }
             }
@@ -357,9 +357,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 newInitContext.initArgs = r2;
                 Object[] objArr = {scrollingTabContainerView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -397,11 +397,11 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             }
         }
 
-        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimator viewPropertyAnimator, int i2) {
+        public VisibilityAnimListener withFinalVisibility(ViewPropertyAnimator viewPropertyAnimator, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewPropertyAnimator, i2)) == null) {
-                this.mFinalVisibility = i2;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewPropertyAnimator, i)) == null) {
+                this.mFinalVisibility = i;
                 this.this$0.mVisibilityAnim = viewPropertyAnimator;
                 return this;
             }
@@ -434,9 +434,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -542,10 +542,10 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void animateToTab(int i2) {
+    public void animateToTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            View childAt = this.mTabLayout.getChildAt(i2);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            View childAt = this.mTabLayout.getChildAt(i);
             Runnable runnable = this.mTabSelector;
             if (runnable != null) {
                 removeCallbacks(runnable);
@@ -563,9 +563,9 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, childAt};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -589,28 +589,28 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void animateToVisibility(int i2) {
+    public void animateToVisibility(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             ViewPropertyAnimator viewPropertyAnimator = this.mVisibilityAnim;
             if (viewPropertyAnimator != null) {
                 viewPropertyAnimator.cancel();
             }
-            if (i2 == 0) {
+            if (i == 0) {
                 if (getVisibility() != 0) {
                     setAlpha(0.0f);
                 }
                 ViewPropertyAnimator alpha = animate().alpha(1.0f);
                 alpha.setDuration(200L);
                 alpha.setInterpolator(sAlphaInterpolator);
-                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i2));
+                alpha.setListener(this.mVisAnimListener.withFinalVisibility(alpha, i));
                 alpha.start();
                 return;
             }
             ViewPropertyAnimator alpha2 = animate().alpha(0.0f);
             alpha2.setDuration(200L);
             alpha2.setInterpolator(sAlphaInterpolator);
-            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i2));
+            alpha2.setListener(this.mVisAnimListener.withFinalVisibility(alpha2, i));
             alpha2.start();
         }
     }
@@ -671,27 +671,27 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) {
             ((TabView) view).getTab().select();
         }
     }
 
     @Override // android.widget.HorizontalScrollView, android.widget.FrameLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
-            int mode = View.MeasureSpec.getMode(i2);
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+            int mode = View.MeasureSpec.getMode(i);
             boolean z = true;
             boolean z2 = mode == 1073741824;
             setFillViewport(z2);
             int childCount = this.mTabLayout.getChildCount();
             if (childCount > 1 && (mode == 1073741824 || mode == Integer.MIN_VALUE)) {
                 if (childCount > 2) {
-                    this.mMaxTabWidth = (int) (View.MeasureSpec.getSize(i2) * 0.4f);
+                    this.mMaxTabWidth = (int) (View.MeasureSpec.getSize(i) * 0.4f);
                 } else {
-                    this.mMaxTabWidth = View.MeasureSpec.getSize(i2) / 2;
+                    this.mMaxTabWidth = View.MeasureSpec.getSize(i) / 2;
                 }
                 this.mMaxTabWidth = Math.min(this.mMaxTabWidth, this.mStackedTabMaxWidth);
             } else {
@@ -700,7 +700,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
             int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(this.mContentHeight, 1073741824);
             if ((z2 || !this.mAllowCollapse) ? false : false) {
                 this.mTabLayout.measure(0, makeMeasureSpec);
-                if (this.mTabLayout.getMeasuredWidth() > View.MeasureSpec.getSize(i2)) {
+                if (this.mTabLayout.getMeasuredWidth() > View.MeasureSpec.getSize(i)) {
                     performCollapse();
                 } else {
                     performExpand();
@@ -709,7 +709,7 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
                 performExpand();
             }
             int measuredWidth = getMeasuredWidth();
-            super.onMeasure(i2, makeMeasureSpec);
+            super.onMeasure(i, makeMeasureSpec);
             int measuredWidth2 = getMeasuredWidth();
             if (!z2 || measuredWidth == measuredWidth2) {
                 return;
@@ -739,10 +739,10 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void removeTabAt(int i2) {
+    public void removeTabAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.mTabLayout.removeViewAt(i2);
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.mTabLayout.removeViewAt(i);
             Spinner spinner = this.mTabSpinner;
             if (spinner != null) {
                 ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
@@ -760,41 +760,41 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void setContentHeight(int i2) {
+    public void setContentHeight(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mContentHeight = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mContentHeight = i;
             requestLayout();
         }
     }
 
-    public void setTabSelected(int i2) {
+    public void setTabSelected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i2) == null) {
-            this.mSelectedTabIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+            this.mSelectedTabIndex = i;
             int childCount = this.mTabLayout.getChildCount();
-            int i3 = 0;
-            while (i3 < childCount) {
-                View childAt = this.mTabLayout.getChildAt(i3);
-                boolean z = i3 == i2;
+            int i2 = 0;
+            while (i2 < childCount) {
+                View childAt = this.mTabLayout.getChildAt(i2);
+                boolean z = i2 == i;
                 childAt.setSelected(z);
                 if (z) {
-                    animateToTab(i2);
+                    animateToTab(i);
                 }
-                i3++;
+                i2++;
             }
             Spinner spinner = this.mTabSpinner;
-            if (spinner == null || i2 < 0) {
+            if (spinner == null || i < 0) {
                 return;
             }
-            spinner.setSelection(i2);
+            spinner.setSelection(i);
         }
     }
 
-    public void updateTab(int i2) {
+    public void updateTab(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i2) == null) {
-            ((TabView) this.mTabLayout.getChildAt(i2)).update();
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            ((TabView) this.mTabLayout.getChildAt(i)).update();
             Spinner spinner = this.mTabSpinner;
             if (spinner != null) {
                 ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();
@@ -805,11 +805,11 @@ public class ScrollingTabContainerView extends HorizontalScrollView implements A
         }
     }
 
-    public void addTab(ActionBar.Tab tab, int i2, boolean z) {
+    public void addTab(ActionBar.Tab tab, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tab, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tab, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             TabView createTabView = createTabView(tab, false);
-            this.mTabLayout.addView(createTabView, i2, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
+            this.mTabLayout.addView(createTabView, i, new LinearLayoutCompat.LayoutParams(0, -1, 1.0f));
             Spinner spinner = this.mTabSpinner;
             if (spinner != null) {
                 ((TabAdapter) spinner.getAdapter()).notifyDataSetChanged();

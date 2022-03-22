@@ -24,7 +24,7 @@ public class ETC1 {
     public static int a = 16;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f29756b = 36196;
+    public static int f23777b = 36196;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -47,9 +47,9 @@ public class ETC1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -58,25 +58,25 @@ public class ETC1 {
 
     public static Pixmap a(a aVar, Pixmap.Format format) {
         InterceptResult invokeLL;
+        int i;
         int i2;
         int i3;
-        int i4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, format)) == null) {
             if (aVar.f()) {
-                int widthPKM = getWidthPKM(aVar.f29759g, 0);
-                i2 = getHeightPKM(aVar.f29759g, 0);
-                i3 = widthPKM;
-                i4 = 16;
+                int widthPKM = getWidthPKM(aVar.f23779c, 0);
+                i = getHeightPKM(aVar.f23779c, 0);
+                i2 = widthPKM;
+                i3 = 16;
             } else {
-                int i5 = aVar.f29757e;
-                i2 = aVar.f29758f;
-                i3 = i5;
-                i4 = 0;
+                int i4 = aVar.a;
+                i = aVar.f23778b;
+                i2 = i4;
+                i3 = 0;
             }
             int b2 = b(format);
-            Pixmap pixmap = new Pixmap(i3, i2, format);
-            decodeImage(aVar.f29759g, i4, pixmap.m(), 0, i3, i2, b2);
+            Pixmap pixmap = new Pixmap(i2, i, format);
+            decodeImage(aVar.f23779c, i3, pixmap.m(), 0, i2, i, b2);
             return pixmap;
         }
         return (Pixmap) invokeLL.objValue;
@@ -97,65 +97,63 @@ public class ETC1 {
         return invokeL.intValue;
     }
 
-    public static native void decodeImage(ByteBuffer byteBuffer, int i2, ByteBuffer byteBuffer2, int i3, int i4, int i5, int i6);
+    public static native void decodeImage(ByteBuffer byteBuffer, int i, ByteBuffer byteBuffer2, int i2, int i3, int i4, int i5);
 
-    public static native ByteBuffer encodeImage(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5);
+    public static native ByteBuffer encodeImage(ByteBuffer byteBuffer, int i, int i2, int i3, int i4);
 
-    public static native ByteBuffer encodeImagePKM(ByteBuffer byteBuffer, int i2, int i3, int i4, int i5);
+    public static native ByteBuffer encodeImagePKM(ByteBuffer byteBuffer, int i, int i2, int i3, int i4);
 
-    public static native void formatHeader(ByteBuffer byteBuffer, int i2, int i3, int i4);
+    public static native void formatHeader(ByteBuffer byteBuffer, int i, int i2, int i3);
 
-    public static native int getCompressedDataSize(int i2, int i3);
+    public static native int getCompressedDataSize(int i, int i2);
 
-    public static native int getHeightPKM(ByteBuffer byteBuffer, int i2);
+    public static native int getHeightPKM(ByteBuffer byteBuffer, int i);
 
-    public static native int getWidthPKM(ByteBuffer byteBuffer, int i2);
+    public static native int getWidthPKM(ByteBuffer byteBuffer, int i);
 
-    public static native boolean isValidPKM(ByteBuffer byteBuffer, int i2);
+    public static native boolean isValidPKM(ByteBuffer byteBuffer, int i);
 
     /* loaded from: classes3.dex */
     public static final class a implements h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final int f29757e;
+        /* renamed from: b  reason: collision with root package name */
+        public final int f23778b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public final int f29758f;
+        /* renamed from: c  reason: collision with root package name */
+        public final ByteBuffer f23779c;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final ByteBuffer f29759g;
+        /* renamed from: d  reason: collision with root package name */
+        public final int f23780d;
 
-        /* renamed from: h  reason: collision with root package name */
-        public final int f29760h;
-
-        public a(int i2, int i3, ByteBuffer byteBuffer, int i4) {
+        public a(int i, int i2, ByteBuffer byteBuffer, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), Integer.valueOf(i3), byteBuffer, Integer.valueOf(i4)};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f29757e = i2;
-            this.f29758f = i3;
-            this.f29759g = byteBuffer;
-            this.f29760h = i4;
+            this.a = i;
+            this.f23778b = i2;
+            this.f23779c = byteBuffer;
+            this.f23780d = i3;
             a();
         }
 
         public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (d.g(this.f29757e) && d.g(this.f29758f)) {
+                if (d.g(this.a) && d.g(this.f23778b)) {
                     return;
                 }
                 System.out.println("ETC1Data warning: non-power-of-two ETC1 textures may crash the driver of PowerVR GPUs");
@@ -166,14 +164,14 @@ public class ETC1 {
         public void dispose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                BufferUtils.b(this.f29759g);
+                BufferUtils.b(this.f23779c);
             }
         }
 
         public boolean f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f29760h == 16 : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f23780d == 16 : invokeV.booleanValue;
         }
 
         public String toString() {
@@ -182,16 +180,16 @@ public class ETC1 {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (f()) {
                     StringBuilder sb = new StringBuilder();
-                    sb.append(ETC1.isValidPKM(this.f29759g, 0) ? "valid" : "invalid");
+                    sb.append(ETC1.isValidPKM(this.f23779c, 0) ? "valid" : "invalid");
                     sb.append(" pkm [");
-                    sb.append(ETC1.getWidthPKM(this.f29759g, 0));
+                    sb.append(ETC1.getWidthPKM(this.f23779c, 0));
                     sb.append("x");
-                    sb.append(ETC1.getHeightPKM(this.f29759g, 0));
+                    sb.append(ETC1.getHeightPKM(this.f23779c, 0));
                     sb.append("], compressed: ");
-                    sb.append(this.f29759g.capacity() - ETC1.a);
+                    sb.append(this.f23779c.capacity() - ETC1.a);
                     return sb.toString();
                 }
-                return "raw [" + this.f29757e + "x" + this.f29758f + "], compressed: " + (this.f29759g.capacity() - ETC1.a);
+                return "raw [" + this.a + "x" + this.f23778b + "], compressed: " + (this.f23779c.capacity() - ETC1.a);
             }
             return (String) invokeV.objValue;
         }
@@ -204,9 +202,9 @@ public class ETC1 {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -224,20 +222,20 @@ public class ETC1 {
                 th = th;
             }
             try {
-                this.f29759g = BufferUtils.e(dataInputStream.readInt());
+                this.f23779c = BufferUtils.e(dataInputStream.readInt());
                 while (true) {
                     int read = dataInputStream.read(bArr);
                     if (read != -1) {
-                        this.f29759g.put(bArr, 0, read);
+                        this.f23779c.put(bArr, 0, read);
                     } else {
-                        this.f29759g.position(0);
-                        this.f29759g.limit(this.f29759g.capacity());
+                        this.f23779c.position(0);
+                        this.f23779c.limit(this.f23779c.capacity());
                         i0.a(dataInputStream);
-                        this.f29757e = ETC1.getWidthPKM(this.f29759g, 0);
-                        this.f29758f = ETC1.getHeightPKM(this.f29759g, 0);
-                        int i4 = ETC1.a;
-                        this.f29760h = i4;
-                        this.f29759g.position(i4);
+                        this.a = ETC1.getWidthPKM(this.f23779c, 0);
+                        this.f23778b = ETC1.getHeightPKM(this.f23779c, 0);
+                        int i3 = ETC1.a;
+                        this.f23780d = i3;
+                        this.f23779c.position(i3);
                         a();
                         return;
                     }

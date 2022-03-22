@@ -23,6 +23,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -53,6 +54,7 @@ import androidx.core.view.ViewCompat;
 import androidx.cursoradapter.widget.CursorAdapter;
 import androidx.customview.view.AbsSavedState;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -135,9 +137,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
     /* loaded from: classes.dex */
     public interface OnSuggestionListener {
-        boolean onSuggestionClick(int i2);
+        boolean onSuggestionClick(int i);
 
-        boolean onSuggestionSelect(int i2);
+        boolean onSuggestionSelect(int i);
     }
 
     /* loaded from: classes.dex */
@@ -154,9 +156,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -265,9 +267,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -276,10 +278,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // android.os.Parcelable.Creator
-                public SavedState[] newArray(int i2) {
+                public SavedState[] newArray(int i) {
                     InterceptResult invokeI;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i2)) == null) ? new SavedState[i2] : (SavedState[]) invokeI.objValue;
+                    return (interceptable2 == null || (invokeI = interceptable2.invokeI(1048580, this, i)) == null) ? new SavedState[i] : (SavedState[]) invokeI.objValue;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -310,9 +312,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcelable};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Parcelable) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65538, newInitContext);
@@ -331,10 +333,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
 
         @Override // androidx.customview.view.AbsSavedState, android.os.Parcelable
-        public void writeToParcel(Parcel parcel, int i2) {
+        public void writeToParcel(Parcel parcel, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i2) == null) {
-                super.writeToParcel(parcel, i2);
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parcel, i) == null) {
+                super.writeToParcel(parcel, i);
                 parcel.writeValue(Boolean.valueOf(this.isIconified));
             }
         }
@@ -348,9 +350,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {parcel, classLoader};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Parcel) objArr2[0], (ClassLoader) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -381,9 +383,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -398,11 +400,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
                 Configuration configuration = getResources().getConfiguration();
-                int i2 = configuration.screenWidthDp;
-                int i3 = configuration.screenHeightDp;
-                if (i2 < 960 || i3 < 720 || configuration.orientation != 2) {
-                    if (i2 < 600) {
-                        return (i2 < 640 || i3 < 480) ? 160 : 192;
+                int i = configuration.screenWidthDp;
+                int i2 = configuration.screenHeightDp;
+                if (i < 960 || i2 < 720 || configuration.orientation != 2) {
+                    if (i < 600) {
+                        return (i < 640 || i2 < 480) ? 160 : 192;
                     }
                     return 192;
                 }
@@ -464,20 +466,20 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
 
         @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
-        public void onFocusChanged(boolean z, int i2, Rect rect) {
+        public void onFocusChanged(boolean z, int i, Rect rect) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), rect}) == null) {
-                super.onFocusChanged(z, i2, rect);
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), rect}) == null) {
+                super.onFocusChanged(z, i, rect);
                 this.mSearchView.onTextFocusChanged();
             }
         }
 
         @Override // android.widget.AutoCompleteTextView, android.widget.TextView, android.view.View
-        public boolean onKeyPreIme(int i2, KeyEvent keyEvent) {
+        public boolean onKeyPreIme(int i, KeyEvent keyEvent) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i2, keyEvent)) == null) {
-                if (i2 == 4) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, keyEvent)) == null) {
+                if (i == 4) {
                     if (keyEvent.getAction() == 0 && keyEvent.getRepeatCount() == 0) {
                         KeyEvent.DispatcherState keyDispatcherState = getKeyDispatcherState();
                         if (keyDispatcherState != null) {
@@ -496,7 +498,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                         }
                     }
                 }
-                return super.onKeyPreIme(i2, keyEvent);
+                return super.onKeyPreIme(i, keyEvent);
             }
             return invokeIL.booleanValue;
         }
@@ -555,11 +557,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
 
         @Override // android.widget.AutoCompleteTextView
-        public void setThreshold(int i2) {
+        public void setThreshold(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-                super.setThreshold(i2);
-                this.mThreshold = i2;
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                super.setThreshold(i);
+                this.mThreshold = i;
             }
         }
 
@@ -580,9 +582,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, attributeSet};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -593,17 +595,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public SearchAutoComplete(Context context, AttributeSet attributeSet, int i2) {
-            super(context, attributeSet, i2);
+        public SearchAutoComplete(Context context, AttributeSet attributeSet, int i) {
+            super(context, attributeSet, i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+                Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65538, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                     newInitContext.thisArg = this;
@@ -623,9 +625,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                         newInitContext2.initArgs = r2;
                         Object[] objArr3 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i5 = newInitContext2.flag;
-                        if ((i5 & 1) != 0) {
-                            int i6 = i5 & 2;
+                        int i4 = newInitContext2.flag;
+                        if ((i4 & 1) != 0) {
+                            int i5 = i4 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -666,9 +668,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 newInitContext.initArgs = r2;
                 Object[] objArr = {rect, rect2, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Rect) objArr2[0], (View) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -740,8 +742,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 this.mTargetBounds.set(rect);
                 this.mSlopBounds.set(rect);
                 Rect rect3 = this.mSlopBounds;
-                int i2 = this.mSlop;
-                rect3.inset(-i2, -i2);
+                int i = this.mSlop;
+                rect3.inset(-i, -i);
                 this.mActualBounds.set(rect2);
             }
         }
@@ -772,9 +774,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -784,12 +786,12 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    private Intent createIntent(String str, Uri uri, String str2, String str3, int i2, String str4) {
+    private Intent createIntent(String str, Uri uri, String str2, String str3, int i, String str4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i2), str4})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, uri, str2, str3, Integer.valueOf(i), str4})) == null) {
             Intent intent = new Intent(str);
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             if (uri != null) {
                 intent.setData(uri);
             }
@@ -804,8 +806,8 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             if (bundle != null) {
                 intent.putExtra("app_data", bundle);
             }
-            if (i2 != 0) {
-                intent.putExtra("action_key", i2);
+            if (i != 0) {
+                intent.putExtra("action_key", i);
                 intent.putExtra("action_msg", str4);
             }
             intent.setComponent(this.mSearchable.getSearchActivity());
@@ -814,38 +816,36 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return (Intent) invokeCommon.objValue;
     }
 
-    private Intent createIntentFromSuggestion(Cursor cursor, int i2, String str) {
+    private Intent createIntentFromSuggestion(Cursor cursor, int i, String str) {
         InterceptResult invokeLIL;
-        int i3;
+        int i2;
         String columnString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, cursor, i2, str)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65541, this, cursor, i, str)) == null) {
             try {
-                try {
-                    String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
-                    if (columnString2 == null) {
-                        columnString2 = this.mSearchable.getSuggestIntentAction();
-                    }
-                    if (columnString2 == null) {
-                        columnString2 = "android.intent.action.SEARCH";
-                    }
-                    String str2 = columnString2;
-                    String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
-                    if (columnString3 == null) {
-                        columnString3 = this.mSearchable.getSuggestIntentData();
-                    }
-                    if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
-                        columnString3 = columnString3 + "/" + Uri.encode(columnString);
-                    }
-                    return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i2, str);
-                } catch (RuntimeException unused) {
-                    i3 = cursor.getPosition();
-                    String str3 = "Search suggestions cursor at row " + i3 + " returned exception.";
-                    return null;
+                String columnString2 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_action");
+                if (columnString2 == null) {
+                    columnString2 = this.mSearchable.getSuggestIntentAction();
                 }
-            } catch (RuntimeException unused2) {
-                i3 = -1;
-                String str32 = "Search suggestions cursor at row " + i3 + " returned exception.";
+                if (columnString2 == null) {
+                    columnString2 = "android.intent.action.SEARCH";
+                }
+                String str2 = columnString2;
+                String columnString3 = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data");
+                if (columnString3 == null) {
+                    columnString3 = this.mSearchable.getSuggestIntentData();
+                }
+                if (columnString3 != null && (columnString = SuggestionsAdapter.getColumnString(cursor, "suggest_intent_data_id")) != null) {
+                    columnString3 = columnString3 + "/" + Uri.encode(columnString);
+                }
+                return createIntent(str2, columnString3 == null ? null : Uri.parse(columnString3), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_extra_data"), SuggestionsAdapter.getColumnString(cursor, "suggest_intent_query"), i, str);
+            } catch (RuntimeException e2) {
+                try {
+                    i2 = cursor.getPosition();
+                } catch (RuntimeException unused) {
+                    i2 = -1;
+                }
+                Log.w(LOG_TAG, "Search suggestions cursor at row " + i2 + " returned exception.", e2);
                 return null;
             }
         }
@@ -908,11 +908,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             view.getLocationInWindow(this.mTemp);
             getLocationInWindow(this.mTemp2);
             int[] iArr = this.mTemp;
-            int i2 = iArr[1];
+            int i = iArr[1];
             int[] iArr2 = this.mTemp2;
-            int i3 = i2 - iArr2[1];
-            int i4 = iArr[0] - iArr2[0];
-            rect.set(i4, i3, view.getWidth() + i4, view.getHeight() + i3);
+            int i2 = i - iArr2[1];
+            int i3 = iArr[0] - iArr2[0];
+            rect.set(i3, i2, view.getWidth() + i3, view.getHeight() + i2);
         }
     }
 
@@ -983,20 +983,20 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
         try {
             getContext().startActivity(intent);
-        } catch (RuntimeException unused) {
-            String str = "Failed launch activity: " + intent;
+        } catch (RuntimeException e2) {
+            Log.e(LOG_TAG, "Failed launch activity: " + intent, e2);
         }
     }
 
-    private boolean launchSuggestion(int i2, int i3, String str) {
+    private boolean launchSuggestion(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65553, this, i2, i3, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65553, this, i, i2, str)) == null) {
             Cursor cursor = this.mSuggestionsAdapter.getCursor();
-            if (cursor == null || !cursor.moveToPosition(i2)) {
+            if (cursor == null || !cursor.moveToPosition(i)) {
                 return false;
             }
-            launchIntent(createIntentFromSuggestion(cursor, i3, str));
+            launchIntent(createIntentFromSuggestion(cursor, i2, str));
             return true;
         }
         return invokeIIL.booleanValue;
@@ -1009,15 +1009,15 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    private void rewriteQueryFromSuggestion(int i2) {
+    private void rewriteQueryFromSuggestion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65555, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65555, this, i) == null) {
             Editable text = this.mSearchSrcTextView.getText();
             Cursor cursor = this.mSuggestionsAdapter.getCursor();
             if (cursor == null) {
                 return;
             }
-            if (cursor.moveToPosition(i2)) {
+            if (cursor.moveToPosition(i)) {
                 CharSequence convertToString = this.mSuggestionsAdapter.convertToString(cursor);
                 if (convertToString != null) {
                     setQuery(convertToString);
@@ -1103,10 +1103,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65562, this, z) == null) {
             this.mIconified = z;
-            int i2 = 0;
-            int i3 = z ? 0 : 8;
+            int i = 0;
+            int i2 = z ? 0 : 8;
             boolean z2 = !TextUtils.isEmpty(this.mSearchSrcTextView.getText());
-            this.mSearchButton.setVisibility(i3);
+            this.mSearchButton.setVisibility(i2);
             updateSubmitButton(z2);
             this.mSearchEditFrame.setVisibility(z ? 8 : 0);
             this.mCollapsedIcon.setVisibility((this.mCollapsedIcon.getDrawable() == null || this.mIconifiedByDefault) ? 8 : 8);
@@ -1119,17 +1119,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     private void updateVoiceButton(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(65563, this, z) == null) {
-            int i2 = 8;
+            int i = 8;
             if (this.mVoiceButtonEnabled && !isIconified() && z) {
                 this.mGoButton.setVisibility(8);
-                i2 = 0;
+                i = 0;
             }
-            this.mVoiceButton.setVisibility(i2);
+            this.mVoiceButton.setVisibility(i);
         }
     }
 
     public void adjustDropDownSizeAndPosition() {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.mDropDownAnchor.getWidth() <= 1) {
             return;
@@ -1141,11 +1141,11 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         int dimensionPixelSize = this.mIconifiedByDefault ? resources.getDimensionPixelSize(R$dimen.abc_dropdownitem_icon_width) + resources.getDimensionPixelSize(R$dimen.abc_dropdownitem_text_padding_left) : 0;
         this.mSearchSrcTextView.getDropDownBackground().getPadding(rect);
         if (isLayoutRtl) {
-            i2 = -rect.left;
+            i = -rect.left;
         } else {
-            i2 = paddingLeft - (rect.left + dimensionPixelSize);
+            i = paddingLeft - (rect.left + dimensionPixelSize);
         }
-        this.mSearchSrcTextView.setDropDownHorizontalOffset(i2);
+        this.mSearchSrcTextView.setDropDownHorizontalOffset(i);
         this.mSearchSrcTextView.setDropDownWidth((((this.mDropDownAnchor.getWidth() + rect.left) + rect.right) + dimensionPixelSize) - paddingLeft);
     }
 
@@ -1257,10 +1257,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.mSubmitButtonEnabled : invokeV.booleanValue;
     }
 
-    public void launchQuerySearch(int i2, String str, String str2) {
+    public void launchQuerySearch(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048591, this, i2, str, str2) == null) {
-            getContext().startActivity(createIntent("android.intent.action.SEARCH", null, null, str2, i2, str));
+        if (interceptable == null || interceptable.invokeILL(1048591, this, i, str, str2) == null) {
+            getContext().startActivity(createIntent("android.intent.action.SEARCH", null, null, str2, i, str));
         }
     }
 
@@ -1321,13 +1321,13 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    public boolean onItemClicked(int i2, int i3, String str) {
+    public boolean onItemClicked(int i, int i2, String str) {
         InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i2, i3, str)) == null) {
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048596, this, i, i2, str)) == null) {
             OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
-            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionClick(i2)) {
-                launchSuggestion(i2, 0, null);
+            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionClick(i)) {
+                launchSuggestion(i, 0, null);
                 this.mSearchSrcTextView.setImeVisibility(false);
                 dismissSuggestions();
                 return true;
@@ -1337,13 +1337,13 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         return invokeIIL.booleanValue;
     }
 
-    public boolean onItemSelected(int i2) {
+    public boolean onItemSelected(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
             OnSuggestionListener onSuggestionListener = this.mOnSuggestionListener;
-            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionSelect(i2)) {
-                rewriteQueryFromSuggestion(i2);
+            if (onSuggestionListener == null || !onSuggestionListener.onSuggestionSelect(i)) {
+                rewriteQueryFromSuggestion(i);
                 return true;
             }
             return false;
@@ -1352,15 +1352,15 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.ViewGroup, android.view.View
-    public void onLayout(boolean z, int i2, int i3, int i4, int i5) {
+    public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            super.onLayout(z, i2, i3, i4, i5);
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            super.onLayout(z, i, i2, i3, i4);
             if (z) {
                 getChildBoundsWithinSearchView(this.mSearchSrcTextView, this.mSearchSrcTextViewBounds);
                 Rect rect = this.mSearchSrtTextViewBoundsExpanded;
                 Rect rect2 = this.mSearchSrcTextViewBounds;
-                rect.set(rect2.left, 0, rect2.right, i5 - i3);
+                rect.set(rect2.left, 0, rect2.right, i4 - i2);
                 UpdatableTouchDelegate updatableTouchDelegate = this.mTouchDelegate;
                 if (updatableTouchDelegate == null) {
                     UpdatableTouchDelegate updatableTouchDelegate2 = new UpdatableTouchDelegate(this.mSearchSrtTextViewBoundsExpanded, this.mSearchSrcTextViewBounds, this.mSearchSrcTextView);
@@ -1374,29 +1374,29 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     @Override // androidx.appcompat.widget.LinearLayoutCompat, android.view.View
-    public void onMeasure(int i2, int i3) {
-        int i4;
+    public void onMeasure(int i, int i2) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048599, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048599, this, i, i2) == null) {
             if (isIconified()) {
-                super.onMeasure(i2, i3);
+                super.onMeasure(i, i2);
                 return;
             }
-            int mode = View.MeasureSpec.getMode(i2);
-            int size = View.MeasureSpec.getSize(i2);
+            int mode = View.MeasureSpec.getMode(i);
+            int size = View.MeasureSpec.getSize(i);
             if (mode == Integer.MIN_VALUE) {
-                int i5 = this.mMaxWidth;
-                size = i5 > 0 ? Math.min(i5, size) : Math.min(getPreferredWidth(), size);
+                int i4 = this.mMaxWidth;
+                size = i4 > 0 ? Math.min(i4, size) : Math.min(getPreferredWidth(), size);
             } else if (mode == 0) {
                 size = this.mMaxWidth;
                 if (size <= 0) {
                     size = getPreferredWidth();
                 }
-            } else if (mode == 1073741824 && (i4 = this.mMaxWidth) > 0) {
-                size = Math.min(i4, size);
+            } else if (mode == 1073741824 && (i3 = this.mMaxWidth) > 0) {
+                size = Math.min(i3, size);
             }
-            int mode2 = View.MeasureSpec.getMode(i3);
-            int size2 = View.MeasureSpec.getSize(i3);
+            int mode2 = View.MeasureSpec.getMode(i2);
+            int size2 = View.MeasureSpec.getSize(i2);
             if (mode2 == Integer.MIN_VALUE) {
                 size2 = Math.min(getPreferredHeight(), size2);
             } else if (mode2 == 0) {
@@ -1469,20 +1469,20 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
     }
 
-    public boolean onSuggestionsKey(View view, int i2, KeyEvent keyEvent) {
+    public boolean onSuggestionsKey(View view, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, view, i2, keyEvent)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048605, this, view, i, keyEvent)) == null) {
             if (this.mSearchable != null && this.mSuggestionsAdapter != null && keyEvent.getAction() == 0 && keyEvent.hasNoModifiers()) {
-                if (i2 == 66 || i2 == 84 || i2 == 61) {
+                if (i == 66 || i == 84 || i == 61) {
                     return onItemClicked(this.mSearchSrcTextView.getListSelection(), 0, null);
                 }
-                if (i2 != 21 && i2 != 22) {
-                    if (i2 != 19 || this.mSearchSrcTextView.getListSelection() == 0) {
+                if (i != 21 && i != 22) {
+                    if (i != 19 || this.mSearchSrcTextView.getListSelection() == 0) {
                         return false;
                     }
                 } else {
-                    this.mSearchSrcTextView.setSelection(i2 == 21 ? 0 : this.mSearchSrcTextView.length());
+                    this.mSearchSrcTextView.setSelection(i == 21 ? 0 : this.mSearchSrcTextView.length());
                     this.mSearchSrcTextView.setListSelection(0);
                     this.mSearchSrcTextView.clearListSelection();
                     this.mSearchSrcTextView.ensureImeVisible();
@@ -1535,6 +1535,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 getContext().startActivity(createVoiceAppSearchIntent(this.mVoiceAppSearchIntent, searchableInfo));
             }
         } catch (ActivityNotFoundException unused) {
+            Log.w(LOG_TAG, "Could not find voice search activity");
         }
     }
 
@@ -1548,19 +1549,19 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     @Override // android.view.ViewGroup, android.view.View
-    public boolean requestFocus(int i2, Rect rect) {
+    public boolean requestFocus(int i, Rect rect) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i2, rect)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, rect)) == null) {
             if (!this.mClearingFocus && isFocusable()) {
                 if (!isIconified()) {
-                    boolean requestFocus = this.mSearchSrcTextView.requestFocus(i2, rect);
+                    boolean requestFocus = this.mSearchSrcTextView.requestFocus(i, rect);
                     if (requestFocus) {
                         updateViewsVisibility(false);
                     }
                     return requestFocus;
                 }
-                return super.requestFocus(i2, rect);
+                return super.requestFocus(i, rect);
             }
             return false;
         }
@@ -1596,24 +1597,24 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         updateQueryHint();
     }
 
-    public void setImeOptions(int i2) {
+    public void setImeOptions(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.mSearchSrcTextView.setImeOptions(i2);
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.mSearchSrcTextView.setImeOptions(i);
         }
     }
 
-    public void setInputType(int i2) {
+    public void setInputType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048615, this, i2) == null) {
-            this.mSearchSrcTextView.setInputType(i2);
+        if (interceptable == null || interceptable.invokeI(1048615, this, i) == null) {
+            this.mSearchSrcTextView.setInputType(i);
         }
     }
 
-    public void setMaxWidth(int i2) {
+    public void setMaxWidth(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.mMaxWidth = i2;
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.mMaxWidth = i;
             requestLayout();
         }
     }
@@ -1746,9 +1747,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1759,17 +1760,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -1793,9 +1794,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1824,9 +1825,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1859,9 +1860,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1901,9 +1902,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1913,18 +1914,18 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.view.View.OnKeyListener
-            public boolean onKey(View view, int i5, KeyEvent keyEvent) {
+            public boolean onKey(View view, int i4, KeyEvent keyEvent) {
                 InterceptResult invokeLIL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i5, keyEvent)) == null) {
+                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, view, i4, keyEvent)) == null) {
                     SearchView searchView = this.this$0;
                     if (searchView.mSearchable == null) {
                         return false;
                     }
                     if (searchView.mSearchSrcTextView.isPopupShowing() && this.this$0.mSearchSrcTextView.getListSelection() != -1) {
-                        return this.this$0.onSuggestionsKey(view, i5, keyEvent);
+                        return this.this$0.onSuggestionsKey(view, i4, keyEvent);
                     }
-                    if (!this.this$0.mSearchSrcTextView.isEmpty() && keyEvent.hasNoModifiers() && keyEvent.getAction() == 1 && i5 == 66) {
+                    if (!this.this$0.mSearchSrcTextView.isEmpty() && keyEvent.hasNoModifiers() && keyEvent.getAction() == 1 && i4 == 66) {
                         view.cancelLongPress();
                         SearchView searchView2 = this.this$0;
                         searchView2.launchQuerySearch(0, null, searchView2.mSearchSrcTextView.getText().toString());
@@ -1947,9 +1948,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1959,10 +1960,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.TextView.OnEditorActionListener
-            public boolean onEditorAction(TextView textView, int i5, KeyEvent keyEvent) {
+            public boolean onEditorAction(TextView textView, int i4, KeyEvent keyEvent) {
                 InterceptResult invokeLIL;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, textView, i5, keyEvent)) == null) {
+                if (interceptable2 == null || (invokeLIL = interceptable2.invokeLIL(1048576, this, textView, i4, keyEvent)) == null) {
                     this.this$0.onSubmitQuery();
                     return true;
                 }
@@ -1981,9 +1982,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -1993,10 +1994,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemClickListener
-            public void onItemClick(AdapterView<?> adapterView, View view, int i5, long j2) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int i4, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
-                    this.this$0.onItemClicked(i5, 0, null);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                    this.this$0.onItemClicked(i4, 0, null);
                 }
             }
         };
@@ -2012,9 +2013,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2024,10 +2025,10 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.widget.AdapterView.OnItemSelectedListener
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i5, long j2) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i4, long j) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i5), Long.valueOf(j2)}) == null) {
-                    this.this$0.onItemSelected(i5);
+                if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i4), Long.valueOf(j)}) == null) {
+                    this.this$0.onItemSelected(i4);
                 }
             }
 
@@ -2050,9 +2051,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2069,21 +2070,21 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
             }
 
             @Override // android.text.TextWatcher
-            public void beforeTextChanged(CharSequence charSequence, int i5, int i6, int i7) {
+            public void beforeTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i5, i6, i7) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i4, i5, i6) == null) {
                 }
             }
 
             @Override // android.text.TextWatcher
-            public void onTextChanged(CharSequence charSequence, int i5, int i6, int i7) {
+            public void onTextChanged(CharSequence charSequence, int i4, int i5, int i6) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i5, i6, i7) == null) {
+                if (interceptable2 == null || interceptable2.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i4, i5, i6) == null) {
                     this.this$0.onTextChanged(charSequence);
                 }
             }
         };
-        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.SearchView, i2, 0);
+        TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, R$styleable.SearchView, i, 0);
         LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(R$styleable.SearchView_layout, R$layout.abc_search_view), (ViewGroup) this, true);
         SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R$id.search_src_text);
         this.mSearchSrcTextView = searchAutoComplete;
@@ -2129,9 +2130,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                     newInitContext2.initArgs = r2;
                     Object[] objArr3 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i5 = newInitContext2.flag;
-                    if ((i5 & 1) != 0) {
-                        int i6 = i5 & 2;
+                    int i4 = newInitContext2.flag;
+                    if ((i4 & 1) != 0) {
+                        int i5 = i4 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -2158,23 +2159,23 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         }
         this.mDefaultQueryHint = obtainStyledAttributes.getText(R$styleable.SearchView_defaultQueryHint);
         this.mQueryHint = obtainStyledAttributes.getText(R$styleable.SearchView_queryHint);
-        int i5 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_imeOptions, -1);
-        if (i5 != -1) {
-            setImeOptions(i5);
+        int i4 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_imeOptions, -1);
+        if (i4 != -1) {
+            setImeOptions(i4);
         }
-        int i6 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_inputType, -1);
-        if (i6 != -1) {
-            setInputType(i6);
+        int i5 = obtainStyledAttributes.getInt(R$styleable.SearchView_android_inputType, -1);
+        if (i5 != -1) {
+            setInputType(i5);
         }
         setFocusable(obtainStyledAttributes.getBoolean(R$styleable.SearchView_android_focusable, true));
         obtainStyledAttributes.recycle();
         Intent intent = new Intent("android.speech.action.WEB_SEARCH");
         this.mVoiceWebSearchIntent = intent;
-        intent.addFlags(268435456);
+        intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         this.mVoiceWebSearchIntent.putExtra("android.speech.extra.LANGUAGE_MODEL", "web_search");
         Intent intent2 = new Intent("android.speech.action.RECOGNIZE_SPEECH");
         this.mVoiceAppSearchIntent = intent2;
-        intent2.addFlags(268435456);
+        intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
         View findViewById = findViewById(this.mSearchSrcTextView.getDropDownAnchor());
         this.mDropDownAnchor = findViewById;
         if (findViewById != null) {
@@ -2190,9 +2191,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                         newInitContext2.initArgs = r2;
                         Object[] objArr3 = {this};
                         interceptable2.invokeUnInit(65536, newInitContext2);
-                        int i7 = newInitContext2.flag;
-                        if ((i7 & 1) != 0) {
-                            int i8 = i7 & 2;
+                        int i6 = newInitContext2.flag;
+                        if ((i6 & 1) != 0) {
+                            int i7 = i6 & 2;
                             newInitContext2.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext2);
                             return;
@@ -2202,9 +2203,9 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
                 }
 
                 @Override // android.view.View.OnLayoutChangeListener
-                public void onLayoutChange(View view, int i7, int i8, int i9, int i10, int i11, int i12, int i13, int i14) {
+                public void onLayoutChange(View view, int i6, int i7, int i8, int i9, int i10, int i11, int i12, int i13) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13), Integer.valueOf(i14)}) == null) {
+                    if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{view, Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10), Integer.valueOf(i11), Integer.valueOf(i12), Integer.valueOf(i13)}) == null) {
                         this.this$0.adjustDropDownSizeAndPosition();
                     }
                 }

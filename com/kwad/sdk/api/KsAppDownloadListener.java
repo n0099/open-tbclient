@@ -28,5 +28,5 @@ public interface KsAppDownloadListener {
 
     @KsAdSdkApi
     @Keep
-    void onProgressUpdate(int i2);
+    void onProgressUpdate(int i);
 }

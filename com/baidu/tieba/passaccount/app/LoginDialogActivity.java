@@ -8,8 +8,8 @@ import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.m.e;
 import c.a.d.f.m.h;
-import c.a.q0.a.d;
-import c.a.q0.r.m.a;
+import c.a.o0.a.d;
+import c.a.o0.r.m.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
@@ -17,6 +17,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiAccount;
 import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.ala.ILoginListener;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -36,17 +37,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes6.dex */
-public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.b {
+/* loaded from: classes5.dex */
+public class LoginDialogActivity extends SuspendedActivity implements c.a.o0.x0.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup contentView;
-    public c.a.r0.s2.c.a dialogControl;
+    public c.a.p0.u2.c.a dialogControl;
     public String dialogType;
     public String locate;
     public ILoginListener loginListener;
     public BdAsyncTask<?, ?, ?> mAccountLoginTask;
-    public final a.InterfaceC0867a mReLoginCallback;
+    public final a.InterfaceC0834a mReLoginCallback;
     public String minePageStatisticKey;
     public String minePageStatisticLocate;
     public String operator;
@@ -55,8 +56,8 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
     public String shareModelJSONStr;
     public String sign;
 
-    /* loaded from: classes6.dex */
-    public class a implements a.InterfaceC0867a {
+    /* loaded from: classes5.dex */
+    public class a implements a.InterfaceC0834a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LoginDialogActivity a;
@@ -68,9 +69,9 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loginDialogActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,25 +80,25 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
             this.a = loginDialogActivity;
         }
 
-        @Override // c.a.q0.r.m.a.InterfaceC0867a
-        public void onBeforeLogin(String str) {
+        @Override // c.a.o0.r.m.a.InterfaceC0834a
+        public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.showLoading();
-            }
-        }
-
-        @Override // c.a.q0.r.m.a.InterfaceC0867a
-        public void onFailure(String str, int i2, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2, str2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
                 this.a.closeLoadingDialog();
                 this.a.showToast(str2);
             }
         }
 
-        @Override // c.a.q0.r.m.a.InterfaceC0867a
-        public void onSuccess(AccountData accountData) {
+        @Override // c.a.o0.r.m.a.InterfaceC0834a
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.showLoading();
+            }
+        }
+
+        @Override // c.a.o0.r.m.a.InterfaceC0834a
+        public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
                 this.a.closeLoadingDialog();
@@ -106,13 +107,11 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ LoginDialogActivity f44920e;
+        public final /* synthetic */ LoginDialogActivity a;
 
         public b(LoginDialogActivity loginDialogActivity) {
             Interceptable interceptable = $ic;
@@ -121,37 +120,35 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loginDialogActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44920e = loginDialogActivity;
+            this.a = loginDialogActivity;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.f44920e.searchUrl)) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || StringUtils.isNull(this.a.searchUrl)) {
                 return;
             }
-            UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.f44920e.getPageContext(), new String[]{this.f44920e.searchUrl});
+            UrlManager.getInstance().dealOneLinkWithOutJumpWebView(this.a.getPageContext(), new String[]{this.a.searchUrl});
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AccountData f44921e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ LoginDialogActivity f44922f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ LoginDialogActivity f34815b;
 
         public c(LoginDialogActivity loginDialogActivity, AccountData accountData) {
             Interceptable interceptable = $ic;
@@ -160,24 +157,24 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loginDialogActivity, accountData};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44922f = loginDialogActivity;
-            this.f44921e = accountData;
+            this.f34815b = loginDialogActivity;
+            this.a = accountData;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                c.a.q0.r.m.c.g(this.f44921e);
-                c.a.q0.r.d0.a.a("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+                c.a.o0.r.m.c.g(this.a);
+                c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
             }
         }
     }
@@ -187,9 +184,9 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -229,7 +226,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, accountData) == null) {
             saveAccountInfo(accountData);
-            c.a.q0.r.d0.a.a("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
             TbadkCoreApplication.getInst().onUserChanged(getIntent());
             finishForResult(-1);
             if (UbsABTestHelper.isBackUserTest()) {
@@ -243,9 +240,9 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65542, this, accountData) == null) {
             h.a().c(new c(this, accountData));
-            c.a.q0.r.d0.a.a("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            c.a.o0.r.d0.a.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
-            c.a.q0.l.a.f(TbadkCoreApplication.getInst());
+            c.a.o0.l.a.f(TbadkCoreApplication.getInst());
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
@@ -259,14 +256,14 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         DialogLoginHelper.addMinePageLoginDialogSuccessLog(this.minePageStatisticKey, this.minePageStatisticLocate);
     }
 
-    public void finishForResult(int i2) {
+    public void finishForResult(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             ILoginListener iLoginListener = this.loginListener;
             if (iLoginListener != null) {
-                if (i2 == 0) {
+                if (i == 0) {
                     iLoginListener.onFail();
-                } else if (i2 == -1) {
+                } else if (i == -1) {
                     iLoginListener.onSuccess();
                 } else {
                     iLoginListener.onCancel();
@@ -275,7 +272,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
             }
             Intent intent = new Intent();
             intent.putExtra(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
-            setResult(i2, intent);
+            setResult(i, intent);
             finish();
         }
     }
@@ -286,12 +283,12 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.loginListener : (ILoginListener) invokeV.objValue;
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            c.a.r0.s2.c.a aVar = this.dialogControl;
+            c.a.p0.u2.c.a aVar = this.dialogControl;
             if (aVar != null) {
                 return aVar.getResultIntent();
             }
@@ -301,7 +298,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public c.a.q0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public c.a.o0.x0.b getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, linearLayout, navigationBar)) == null) {
@@ -313,17 +310,17 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
             }
             initData();
             if (TextUtils.isEmpty(this.shareModelJSONStr)) {
-                this.dialogControl = new c.a.r0.s2.c.b(this.phoneNum, this.operator, this.sign);
+                this.dialogControl = new c.a.p0.u2.c.b(this.phoneNum, this.operator, this.sign);
             } else {
-                this.dialogControl = new c.a.r0.s2.c.c(this.shareModelJSONStr);
+                this.dialogControl = new c.a.p0.u2.c.c(this.shareModelJSONStr);
             }
             this.dialogControl.a(this, linearLayout);
             return this;
         }
-        return (c.a.q0.x0.b) invokeLL.objValue;
+        return (c.a.o0.x0.b) invokeLL.objValue;
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public boolean isOnViewCancel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -333,7 +330,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
         return invokeV.booleanValue;
     }
 
-    @Override // c.a.q0.x0.b
+    @Override // c.a.o0.x0.b
     public boolean isOnViewTop() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -344,21 +341,21 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
-    public void onActivityResult(int i2, int i3, Intent intent) {
+    public void onActivityResult(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048583, this, i2, i3, intent) == null) {
-            super.onActivityResult(i2, i3, intent);
+        if (interceptable == null || interceptable.invokeIIL(1048583, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
         }
     }
 
-    @Override // c.a.q0.x0.b
-    public void onViewChangeSkinType(int i2) {
+    @Override // c.a.o0.x0.b
+    public void onViewChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
             this.contentView.setBackgroundResource(R.color.transparent);
-            c.a.r0.s2.c.a aVar = this.dialogControl;
+            c.a.p0.u2.c.a aVar = this.dialogControl;
             if (aVar != null) {
-                aVar.onViewChangeSkinType(i2);
+                aVar.onViewChangeSkinType(i);
             }
         }
     }
@@ -394,7 +391,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
                 if (bdAsyncTask != null) {
                     bdAsyncTask.cancel();
                 }
-                this.mAccountLoginTask = c.a.q0.r.m.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
+                this.mAccountLoginTask = c.a.o0.r.m.a.b().a(session.username, session.bduss, "", null, this.mReLoginCallback);
                 return;
             }
             closeLoadingDialog();
@@ -415,7 +412,7 @@ public class LoginDialogActivity extends SuspendedActivity implements c.a.q0.x0.
             return;
         }
         if (getLoadingDialog() == null || !getLoadingDialog().c()) {
-            showLoadingDialog(getPageContext().getString(R.string.sapi_logining));
+            showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f0ff8));
             if (getLoadingDialog() != null) {
                 getLoadingDialog().f(false);
                 getLoadingDialog().g(false);

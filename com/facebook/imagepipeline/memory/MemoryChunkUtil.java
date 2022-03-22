@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class MemoryChunkUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,29 +16,29 @@ public class MemoryChunkUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int adjustByteCount(int i2, int i3, int i4) {
+    public static int adjustByteCount(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i2, i3, i4)) == null) ? Math.min(Math.max(0, i4 - i2), i3) : invokeIII.intValue;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65537, null, i, i2, i3)) == null) ? Math.min(Math.max(0, i3 - i), i2) : invokeIII.intValue;
     }
 
-    public static void checkBounds(int i2, int i3, int i4, int i5, int i6) {
+    public static void checkBounds(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) == null) {
-            Preconditions.checkArgument(i5 >= 0);
-            Preconditions.checkArgument(i2 >= 0);
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             Preconditions.checkArgument(i4 >= 0);
-            Preconditions.checkArgument(i2 + i5 <= i6);
-            Preconditions.checkArgument(i4 + i5 <= i3);
+            Preconditions.checkArgument(i >= 0);
+            Preconditions.checkArgument(i3 >= 0);
+            Preconditions.checkArgument(i + i4 <= i5);
+            Preconditions.checkArgument(i3 + i4 <= i2);
         }
     }
 }

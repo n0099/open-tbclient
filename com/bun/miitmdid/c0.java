@@ -7,17 +7,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.lib.MsaIdInterface;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class c0 extends l {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: j  reason: collision with root package name */
-    public Context f51514j;
+    public Context j;
     public String k;
     public z l;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class a implements a0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +28,9 @@ public class c0 extends l {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {c0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,33 +47,33 @@ public class c0 extends l {
             }
             try {
                 c0 c0Var = this.a;
-                c0Var.f51541f = c0Var.l.d();
+                c0Var.f37986f = c0Var.l.d();
                 String b2 = this.a.l.b();
                 String c2 = this.a.l.c();
                 String a = this.a.l.a();
                 if (b2 == null) {
                     b2 = "";
                 }
-                this.a.f51538c = b2;
+                this.a.f37983c = b2;
                 c0 c0Var2 = this.a;
                 if (c2 == null) {
                     c2 = "";
                 }
-                c0Var2.f51539d = c2;
+                c0Var2.f37984d = c2;
                 c0 c0Var3 = this.a;
                 if (a == null) {
                     a = "";
                 }
-                c0Var3.f51540e = a;
+                c0Var3.f37985e = a;
                 synchronized (c0.class) {
-                    this.a.f51544i = true;
+                    this.a.i = true;
                     this.a.e();
                 }
             } catch (Exception e2) {
                 synchronized (c0.class) {
                     e0.d("ZteProvider", "doStart: Exception: " + e2.getMessage());
                     this.a.a();
-                    this.a.f51544i = true;
+                    this.a.i = true;
                     this.a.e();
                 }
             }
@@ -89,16 +87,16 @@ public class c0 extends l {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         e0.c("ZteProvider", "ZteProvider(Context)");
-        this.f51514j = context;
+        this.j = context;
         this.k = context.getPackageName();
         try {
         } catch (Exception unused) {
@@ -109,7 +107,7 @@ public class c0 extends l {
             throw new NullPointerException("Constructor: getPackageInfo is null");
         }
         try {
-            z.a(this.f51514j, this.k);
+            z.a(this.j, this.k);
             e0.c("ZteProvider", "Constructor: MsaService start success");
         } catch (Exception e2) {
             e0.b("ZteProvider", "Constructor: MsaService start Exception: " + e2.getMessage());
@@ -122,9 +120,9 @@ public class c0 extends l {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             e0.c("ZteProvider", "doStart()");
             try {
-                this.f51514j = a(this.f51514j);
+                this.j = a(this.j);
                 c();
-                z zVar = new z(this.f51514j, new a(this));
+                z zVar = new z(this.j, new a(this));
                 this.l = zVar;
                 zVar.a(this.k);
                 e0.c("ZteProvider", "doStart: BindService success");

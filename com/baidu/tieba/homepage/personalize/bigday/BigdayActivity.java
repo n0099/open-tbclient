@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import c.a.q0.r.j0.b;
+import c.a.o0.r.j0.b;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
@@ -39,9 +39,9 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -94,22 +94,22 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.bigday_activity);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.bigday_img);
+            setContentView(R.layout.obfuscated_res_0x7f0d0159);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09036e);
             this.bigdayImg = tbImageView;
             tbImageView.setAutoChangeStyle(false);
-            this.bigdayClose = (ImageView) findViewById(R.id.bigday_close);
+            this.bigdayClose = (ImageView) findViewById(R.id.obfuscated_res_0x7f09036d);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
-                ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.ds25));
+                ((FrameLayout.LayoutParams) this.bigdayClose.getLayoutParams()).topMargin = (int) (UtilHelper.getStatusBarHeight() + getResources().getDimension(R.dimen.obfuscated_res_0x7f07027e));
             }
             Intent intent = getIntent();
             if (intent != null) {
                 this.imgUrl = intent.getStringExtra(BigdayActivityConfig.IMG_URL);
-                this.jumpUrl = intent.getStringExtra("jump_url");
+                this.jumpUrl = intent.getStringExtra(BigdayActivityConfig.JUMP_URL);
                 this.bigdayId = intent.getLongExtra(BigdayActivityConfig.BIGDAY_ID, 0L);
             }
             this.bigdayImg.setTag(getPageContext().getUniqueId());
-            this.bigdayImg.startLoad(this.imgUrl, 41, false);
+            this.bigdayImg.J(this.imgUrl, 41, false);
             this.bigdayImg.setOnClickListener(this);
             this.bigdayClose.setOnClickListener(this);
             TiebaStatic.log(new StatisticItem("c13111").param("obj_id", this.bigdayId).param(TiebaStatic.Params.OBJ_TO, this.jumpUrl));

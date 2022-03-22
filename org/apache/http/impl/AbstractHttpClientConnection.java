@@ -23,7 +23,7 @@ import org.apache.http.io.SessionInputBuffer;
 import org.apache.http.io.SessionOutputBuffer;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class AbstractHttpClientConnection implements HttpClientConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,9 +33,9 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -124,10 +124,10 @@ public abstract class AbstractHttpClientConnection implements HttpClientConnecti
     }
 
     @Override // org.apache.http.HttpClientConnection
-    public boolean isResponseAvailable(int i2) throws IOException {
+    public boolean isResponseAvailable(int i) throws IOException {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
             throw new RuntimeException("Stub!");
         }
         return invokeI.booleanValue;

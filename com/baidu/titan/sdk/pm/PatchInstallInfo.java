@@ -23,7 +23,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes6.dex */
 public class PatchInstallInfo {
     public File mPatchDir;
@@ -145,15 +144,15 @@ public class PatchInstallInfo {
         if (file.exists()) {
             arrayList.add(file);
         }
-        int i2 = 2;
+        int i = 2;
         while (true) {
             File file2 = this.mPatchDir;
-            File file3 = new File(file2, MultiDexExtractor.DEX_PREFIX + i2 + ".jar");
+            File file3 = new File(file2, MultiDexExtractor.DEX_PREFIX + i + ".jar");
             if (!file3.exists()) {
                 return arrayList;
             }
             arrayList.add(file3);
-            i2++;
+            i++;
         }
     }
 
@@ -250,7 +249,7 @@ public class PatchInstallInfo {
         return false;
     }
 
-    public boolean saveDexCount(int i2) {
+    public boolean saveDexCount(int i) {
         DataOutputStream dataOutputStream;
         DataOutputStream dataOutputStream2 = null;
         try {
@@ -265,7 +264,7 @@ public class PatchInstallInfo {
             e = e3;
         }
         try {
-            dataOutputStream.writeInt(i2);
+            dataOutputStream.writeInt(i);
             Closes.closeQuiet((OutputStream) dataOutputStream);
             return true;
         } catch (FileNotFoundException e4) {
@@ -308,7 +307,7 @@ public class PatchInstallInfo {
                     fileWriter.write(file2.getName());
                     fileWriter.write(":");
                     fileWriter.write(bytesToHex);
-                    fileWriter.write(StringUtils.LF);
+                    fileWriter.write("\n");
                 }
             }
             fileWriter.flush();

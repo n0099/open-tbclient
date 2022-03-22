@@ -27,9 +27,9 @@ public class AccessibilityRecordCompat {
             newInitContext.initArgs = r2;
             Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -254,10 +254,10 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setAddedCount(int i2) {
+    public void setAddedCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i2) == null) {
-            this.mRecord.setAddedCount(i2);
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+            this.mRecord.setAddedCount(i);
         }
     }
 
@@ -294,10 +294,10 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setCurrentItemIndex(int i2) {
+    public void setCurrentItemIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.mRecord.setCurrentItemIndex(i2);
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.mRecord.setCurrentItemIndex(i);
         }
     }
 
@@ -310,10 +310,10 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setFromIndex(int i2) {
+    public void setFromIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i2) == null) {
-            this.mRecord.setFromIndex(i2);
+        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
+            this.mRecord.setFromIndex(i);
         }
     }
 
@@ -326,26 +326,26 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setItemCount(int i2) {
+    public void setItemCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
-            this.mRecord.setItemCount(i2);
+        if (interceptable == null || interceptable.invokeI(1048611, this, i) == null) {
+            this.mRecord.setItemCount(i);
         }
     }
 
     @Deprecated
-    public void setMaxScrollX(int i2) {
+    public void setMaxScrollX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048612, this, i2) == null) {
-            setMaxScrollX(this.mRecord, i2);
+        if (interceptable == null || interceptable.invokeI(1048612, this, i) == null) {
+            setMaxScrollX(this.mRecord, i);
         }
     }
 
     @Deprecated
-    public void setMaxScrollY(int i2) {
+    public void setMaxScrollY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            setMaxScrollY(this.mRecord, i2);
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            setMaxScrollY(this.mRecord, i);
         }
     }
 
@@ -366,26 +366,26 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setRemovedCount(int i2) {
+    public void setRemovedCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048616, this, i2) == null) {
-            this.mRecord.setRemovedCount(i2);
+        if (interceptable == null || interceptable.invokeI(1048616, this, i) == null) {
+            this.mRecord.setRemovedCount(i);
         }
     }
 
     @Deprecated
-    public void setScrollX(int i2) {
+    public void setScrollX(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048617, this, i2) == null) {
-            this.mRecord.setScrollX(i2);
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            this.mRecord.setScrollX(i);
         }
     }
 
     @Deprecated
-    public void setScrollY(int i2) {
+    public void setScrollY(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048618, this, i2) == null) {
-            this.mRecord.setScrollY(i2);
+        if (interceptable == null || interceptable.invokeI(1048618, this, i) == null) {
+            this.mRecord.setScrollY(i);
         }
     }
 
@@ -406,10 +406,10 @@ public class AccessibilityRecordCompat {
     }
 
     @Deprecated
-    public void setToIndex(int i2) {
+    public void setToIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048622, this, i2) == null) {
-            this.mRecord.setToIndex(i2);
+        if (interceptable == null || interceptable.invokeI(1048622, this, i) == null) {
+            this.mRecord.setToIndex(i);
         }
     }
 
@@ -444,35 +444,35 @@ public class AccessibilityRecordCompat {
         return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new AccessibilityRecordCompat(AccessibilityRecord.obtain()) : (AccessibilityRecordCompat) invokeV.objValue;
     }
 
-    public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i2) {
+    public static void setMaxScrollX(AccessibilityRecord accessibilityRecord, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65541, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, accessibilityRecord, i) == null) || Build.VERSION.SDK_INT < 15) {
             return;
         }
-        accessibilityRecord.setMaxScrollX(i2);
+        accessibilityRecord.setMaxScrollX(i);
     }
 
-    public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i2) {
+    public static void setMaxScrollY(AccessibilityRecord accessibilityRecord, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65542, null, accessibilityRecord, i2) == null) || Build.VERSION.SDK_INT < 15) {
+        if (!(interceptable == null || interceptable.invokeLI(65542, null, accessibilityRecord, i) == null) || Build.VERSION.SDK_INT < 15) {
             return;
         }
-        accessibilityRecord.setMaxScrollY(i2);
+        accessibilityRecord.setMaxScrollY(i);
     }
 
     @Deprecated
-    public void setSource(View view, int i2) {
+    public void setSource(View view, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048621, this, view, i2) == null) {
-            setSource(this.mRecord, view, i2);
+        if (interceptable == null || interceptable.invokeLI(1048621, this, view, i) == null) {
+            setSource(this.mRecord, view, i);
         }
     }
 
-    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i2) {
+    public static void setSource(@NonNull AccessibilityRecord accessibilityRecord, View view, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view, i2) == null) || Build.VERSION.SDK_INT < 16) {
+        if (!(interceptable == null || interceptable.invokeLLI(65543, null, accessibilityRecord, view, i) == null) || Build.VERSION.SDK_INT < 16) {
             return;
         }
-        accessibilityRecord.setSource(view, i2);
+        accessibilityRecord.setSource(view, i);
     }
 }

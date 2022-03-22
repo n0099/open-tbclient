@@ -2,13 +2,13 @@ package com.baidu.searchbox.dns.c;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sofire.rp.service.Service;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.newbindcard.NewBindCardEntry;
 /* loaded from: classes4.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
@@ -26,7 +26,7 @@ public class a {
 
     /* renamed from: com.baidu.searchbox.dns.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1843a {
+    public static class C1796a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final long A;
@@ -36,16 +36,16 @@ public class a {
         public final com.baidu.searchbox.dns.d.a x;
         public final com.baidu.searchbox.dns.d.a.a z;
 
-        public C1843a(long j2, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
+        public C1796a(long j, com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j2), aVar, aVar2};
+                Object[] objArr = {Long.valueOf(j), aVar, aVar2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -53,7 +53,7 @@ public class a {
             }
             this.B = -1;
             this.D = -1L;
-            this.A = j2;
+            this.A = j;
             this.z = aVar2;
             this.x = aVar;
             if (aVar2 != null) {
@@ -73,16 +73,16 @@ public class a {
                 if (TextUtils.isEmpty(this.C)) {
                     return new a(this.x, null, 1005, null);
                 }
-                if (this.C.equals(NewBindCardEntry.BING_CARD_SUCCESS_MSG)) {
-                    int i2 = this.B;
-                    if (i2 >= 0) {
-                        long j2 = this.D;
-                        if (j2 > 0) {
-                            long j3 = this.A;
-                            if (j3 - j2 > i2) {
+                if (this.C.equals("ok")) {
+                    int i = this.B;
+                    if (i >= 0) {
+                        long j = this.D;
+                        if (j > 0) {
+                            long j2 = this.A;
+                            if (j2 - j > i) {
                                 return new a(this.x, null, 1003, null);
                             }
-                            if (j3 - j2 >= 180000) {
+                            if (j2 - j >= Service.TRIGGER_INTERVAL) {
                                 com.baidu.searchbox.dns.d.a aVar = this.x;
                                 if (aVar != null) {
                                     return new a(aVar, this.z, 1001, null);
@@ -93,9 +93,9 @@ public class a {
                         }
                     }
                     if (this.B < 0) {
-                        long j4 = this.D;
-                        if (j4 > 0) {
-                            if (this.A - j4 > 60000) {
+                        long j3 = this.D;
+                        if (j3 > 0) {
+                            if (this.A - j3 > 60000) {
                                 return new a(this.x, null, 1007, null);
                             }
                             return new a(null, this.z, 2003, null);
@@ -120,8 +120,8 @@ public class a {
         }
     }
 
-    public /* synthetic */ a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i2, AnonymousClass1 anonymousClass1) {
-        this(aVar, aVar2, i2);
+    public /* synthetic */ a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i, AnonymousClass1 anonymousClass1) {
+        this(aVar, aVar2, i);
     }
 
     public com.baidu.searchbox.dns.d.a.a h() {
@@ -142,16 +142,16 @@ public class a {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.y : invokeV.intValue;
     }
 
-    public a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i2) {
+    public a(com.baidu.searchbox.dns.d.a aVar, com.baidu.searchbox.dns.d.a.a aVar2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, aVar2, Integer.valueOf(i2)};
+            Object[] objArr = {aVar, aVar2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -159,6 +159,6 @@ public class a {
         }
         this.x = aVar;
         this.w = aVar2;
-        this.y = i2;
+        this.y = i;
     }
 }

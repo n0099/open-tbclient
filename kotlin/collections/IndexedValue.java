@@ -10,21 +10,21 @@ public final class IndexedValue<T> {
     public final int index;
     public final T value;
 
-    public IndexedValue(int i2, T t) {
-        this.index = i2;
+    public IndexedValue(int i, T t) {
+        this.index = i;
         this.value = t;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: kotlin.collections.IndexedValue */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ IndexedValue copy$default(IndexedValue indexedValue, int i2, Object obj, int i3, Object obj2) {
-        if ((i3 & 1) != 0) {
-            i2 = indexedValue.index;
+    public static /* synthetic */ IndexedValue copy$default(IndexedValue indexedValue, int i, Object obj, int i2, Object obj2) {
+        if ((i2 & 1) != 0) {
+            i = indexedValue.index;
         }
-        if ((i3 & 2) != 0) {
+        if ((i2 & 2) != 0) {
             obj = indexedValue.value;
         }
-        return indexedValue.copy(i2, obj);
+        return indexedValue.copy(i, obj);
     }
 
     public final int component1() {
@@ -35,8 +35,8 @@ public final class IndexedValue<T> {
         return this.value;
     }
 
-    public final IndexedValue<T> copy(int i2, T t) {
-        return new IndexedValue<>(i2, t);
+    public final IndexedValue<T> copy(int i, T t) {
+        return new IndexedValue<>(i, t);
     }
 
     public boolean equals(Object obj) {
@@ -59,9 +59,9 @@ public final class IndexedValue<T> {
     }
 
     public int hashCode() {
-        int i2 = this.index * 31;
+        int i = this.index * 31;
         T t = this.value;
-        return i2 + (t != null ? t.hashCode() : 0);
+        return i + (t != null ? t.hashCode() : 0);
     }
 
     public String toString() {

@@ -47,9 +47,9 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {asyncTaskLoader};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,9 +130,9 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (Executor) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -294,11 +294,11 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? loadInBackground() : (D) invokeV.objValue;
     }
 
-    public void setUpdateThrottle(long j2) {
+    public void setUpdateThrottle(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j2) == null) {
-            this.mUpdateThrottle = j2;
-            if (j2 != 0) {
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.mUpdateThrottle = j;
+            if (j != 0) {
                 this.mHandler = new Handler();
             }
         }
@@ -323,9 +323,9 @@ public abstract class AsyncTaskLoader<D> extends Loader<D> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, executor};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);

@@ -6,7 +6,6 @@ import androidx.annotation.RestrictTo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 /* loaded from: classes3.dex */
 public class KeyPath {
     public static final KeyPath COMPOSITION = new KeyPath("COMPOSITION");
@@ -36,25 +35,25 @@ public class KeyPath {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean fullyResolvesTo(String str, int i2) {
-        if (i2 >= this.keys.size()) {
+    public boolean fullyResolvesTo(String str, int i) {
+        if (i >= this.keys.size()) {
             return false;
         }
-        boolean z = i2 == this.keys.size() - 1;
-        String str2 = this.keys.get(i2);
+        boolean z = i == this.keys.size() - 1;
+        String str2 = this.keys.get(i);
         if (!str2.equals("**")) {
-            return (z || (i2 == this.keys.size() + (-2) && endsWithGlobstar())) && (str2.equals(str) || str2.equals("*"));
+            return (z || (i == this.keys.size() + (-2) && endsWithGlobstar())) && (str2.equals(str) || str2.equals("*"));
         }
-        if (!z && this.keys.get(i2 + 1).equals(str)) {
-            return i2 == this.keys.size() + (-2) || (i2 == this.keys.size() + (-3) && endsWithGlobstar());
+        if (!z && this.keys.get(i + 1).equals(str)) {
+            return i == this.keys.size() + (-2) || (i == this.keys.size() + (-3) && endsWithGlobstar());
         } else if (z) {
             return true;
         } else {
-            int i3 = i2 + 1;
-            if (i3 < this.keys.size() - 1) {
+            int i2 = i + 1;
+            if (i2 < this.keys.size() - 1) {
                 return false;
             }
-            return this.keys.get(i3).equals(str);
+            return this.keys.get(i2).equals(str);
         }
     }
 
@@ -65,12 +64,12 @@ public class KeyPath {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public int incrementDepthBy(String str, int i2) {
+    public int incrementDepthBy(String str, int i) {
         if (isContainer(str)) {
             return 0;
         }
-        if (this.keys.get(i2).equals("**")) {
-            return (i2 != this.keys.size() - 1 && this.keys.get(i2 + 1).equals(str)) ? 2 : 0;
+        if (this.keys.get(i).equals("**")) {
+            return (i != this.keys.size() - 1 && this.keys.get(i + 1).equals(str)) ? 2 : 0;
         }
         return 1;
     }
@@ -80,19 +79,19 @@ public class KeyPath {
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean matches(String str, int i2) {
+    public boolean matches(String str, int i) {
         if (isContainer(str)) {
             return true;
         }
-        if (i2 >= this.keys.size()) {
+        if (i >= this.keys.size()) {
             return false;
         }
-        return this.keys.get(i2).equals(str) || this.keys.get(i2).equals("**") || this.keys.get(i2).equals("*");
+        return this.keys.get(i).equals(str) || this.keys.get(i).equals("**") || this.keys.get(i).equals("*");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
-    public boolean propagateToChildren(String str, int i2) {
-        return "__container".equals(str) || i2 < this.keys.size() - 1 || this.keys.get(i2).equals("**");
+    public boolean propagateToChildren(String str, int i) {
+        return "__container".equals(str) || i < this.keys.size() - 1 || this.keys.get(i).equals("**");
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -108,7 +107,7 @@ public class KeyPath {
         sb.append(this.keys);
         sb.append(",resolved=");
         sb.append(this.resolvedElement != null);
-        sb.append(ExtendedMessageFormat.END_FE);
+        sb.append('}');
         return sb.toString();
     }
 

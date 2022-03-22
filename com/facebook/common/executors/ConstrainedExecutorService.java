@@ -17,7 +17,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ConstrainedExecutorService extends AbstractExecutorService {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -31,13 +31,13 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
     public final BlockingQueue<Runnable> mWorkQueue;
 
     /* renamed from: com.facebook.common.executors.ConstrainedExecutorService$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class Worker implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -50,9 +50,9 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {constrainedExecutorService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -111,25 +111,25 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         TAG = ConstrainedExecutorService.class;
     }
 
-    public ConstrainedExecutorService(String str, int i2, Executor executor, BlockingQueue<Runnable> blockingQueue) {
+    public ConstrainedExecutorService(String str, int i, Executor executor, BlockingQueue<Runnable> blockingQueue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), executor, blockingQueue};
+            Object[] objArr = {str, Integer.valueOf(i), executor, blockingQueue};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (i2 > 0) {
+        if (i > 0) {
             this.mName = str;
             this.mExecutor = executor;
-            this.mMaxConcurrency = i2;
+            this.mMaxConcurrency = i;
             this.mWorkQueue = blockingQueue;
             this.mTaskRunner = new Worker(this, null);
             this.mPendingWorkers = new AtomicInteger(0);
@@ -139,35 +139,35 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
         throw new IllegalArgumentException("max concurrency must be > 0");
     }
 
-    public static ConstrainedExecutorService newConstrainedExecutor(String str, int i2, int i3, Executor executor) {
+    public static ConstrainedExecutorService newConstrainedExecutor(String str, int i, int i2, Executor executor) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), executor})) == null) ? new ConstrainedExecutorService(str, i2, executor, new LinkedBlockingQueue(i3)) : (ConstrainedExecutorService) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), executor})) == null) ? new ConstrainedExecutorService(str, i, executor, new LinkedBlockingQueue(i2)) : (ConstrainedExecutorService) invokeCommon.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startWorkerIfNeeded() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, this) == null) {
-            int i2 = this.mPendingWorkers.get();
-            while (i2 < this.mMaxConcurrency) {
-                int i3 = i2 + 1;
-                if (this.mPendingWorkers.compareAndSet(i2, i3)) {
-                    FLog.v(TAG, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i3), Integer.valueOf(this.mMaxConcurrency));
+            int i = this.mPendingWorkers.get();
+            while (i < this.mMaxConcurrency) {
+                int i2 = i + 1;
+                if (this.mPendingWorkers.compareAndSet(i, i2)) {
+                    FLog.v(TAG, "%s: starting worker %d of %d", this.mName, Integer.valueOf(i2), Integer.valueOf(this.mMaxConcurrency));
                     this.mExecutor.execute(this.mTaskRunner);
                     return;
                 }
                 FLog.v(TAG, "%s: race in startWorkerIfNeeded; retrying", this.mName);
-                i2 = this.mPendingWorkers.get();
+                i = this.mPendingWorkers.get();
             }
         }
     }
 
     @Override // java.util.concurrent.ExecutorService
-    public boolean awaitTermination(long j2, TimeUnit timeUnit) throws InterruptedException {
+    public boolean awaitTermination(long j, TimeUnit timeUnit) throws InterruptedException {
         InterceptResult invokeJL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j2, timeUnit)) == null) {
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
             throw new UnsupportedOperationException();
         }
         return invokeJL.booleanValue;
@@ -180,8 +180,8 @@ public class ConstrainedExecutorService extends AbstractExecutorService {
             if (runnable != null) {
                 if (this.mWorkQueue.offer(runnable)) {
                     int size = this.mWorkQueue.size();
-                    int i2 = this.mMaxQueueSize.get();
-                    if (size > i2 && this.mMaxQueueSize.compareAndSet(i2, size)) {
+                    int i = this.mMaxQueueSize.get();
+                    if (size > i && this.mMaxQueueSize.compareAndSet(i, size)) {
                         FLog.v(TAG, "%s: max pending work in queue = %d", this.mName, Integer.valueOf(size));
                     }
                     startWorkerIfNeeded();

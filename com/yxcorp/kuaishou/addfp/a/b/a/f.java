@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.CountDownLatch;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class f implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,9 +22,9 @@ public final class f implements ServiceConnection {
             newInitContext.initArgs = r2;
             Object[] objArr = {eVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,17 +42,17 @@ public final class f implements ServiceConnection {
         if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
             try {
                 this.a.a = c.a(iBinder);
-                countDownLatch3 = this.a.f60045d;
+                countDownLatch3 = this.a.f44608d;
                 if (countDownLatch3 == null) {
                     return;
                 }
             } catch (Throwable unused) {
-                countDownLatch = this.a.f60045d;
+                countDownLatch = this.a.f44608d;
                 if (countDownLatch == null) {
                     return;
                 }
             }
-            countDownLatch2 = this.a.f60045d;
+            countDownLatch2 = this.a.f44608d;
             countDownLatch2.countDown();
         }
     }

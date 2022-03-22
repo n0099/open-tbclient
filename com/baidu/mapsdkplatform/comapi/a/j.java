@@ -21,50 +21,50 @@ public class j extends c {
     public Animator a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f34402b;
+    public long f26615b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Interpolator f34403c;
+    public Interpolator f26616c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Animation.AnimationListener f34404d;
+    public Animation.AnimationListener f26617d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f34405e;
+    public int f26618e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f34406f;
+    public int f26619f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float[] f34407g;
+    public float[] f26620g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f34408h;
+    public int f26621h;
 
-    public j(int i2, float... fArr) {
+    public j(int i, float... fArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), fArr};
+            Object[] objArr = {Integer.valueOf(i), fArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = null;
-        this.f34402b = 0L;
-        this.f34403c = null;
-        this.f34404d = null;
-        this.f34405e = 1;
-        this.f34406f = 0;
-        this.f34408h = 1;
-        this.f34407g = fArr;
-        this.f34408h = i2;
+        this.f26615b = 0L;
+        this.f26616c = null;
+        this.f26617d = null;
+        this.f26618e = 1;
+        this.f26619f = 0;
+        this.f26621h = 1;
+        this.f26620g = fArr;
+        this.f26621h = i;
     }
 
     @TargetApi(11)
@@ -72,13 +72,13 @@ public class j extends c {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, marker)) == null) {
-            int i2 = this.f34408h;
-            ObjectAnimator ofFloat = i2 == 1 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_X, this.f34407g) : i2 == 2 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_Y, this.f34407g) : null;
+            int i = this.f26621h;
+            ObjectAnimator ofFloat = i == 1 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_X, this.f26620g) : i == 2 ? ObjectAnimator.ofFloat(marker, AnimationProperty.SCALE_Y, this.f26620g) : null;
             if (ofFloat != null) {
-                ofFloat.setRepeatCount(this.f34406f);
+                ofFloat.setRepeatCount(this.f26619f);
                 ofFloat.setRepeatMode(c());
-                ofFloat.setDuration(this.f34402b);
-                Interpolator interpolator = this.f34403c;
+                ofFloat.setDuration(this.f26615b);
+                Interpolator interpolator = this.f26616c;
                 if (interpolator != null) {
                     ofFloat.setInterpolator(interpolator);
                 }
@@ -100,21 +100,21 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void a(int i2) {
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f34405e = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f26618e = i;
         }
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void a(long j2) {
+    public void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            if (j2 < 0) {
-                j2 = 0;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j < 0) {
+                j = 0;
             }
-            this.f34402b = j2;
+            this.f26615b = j;
         }
     }
 
@@ -132,7 +132,7 @@ public class j extends c {
     public void a(Interpolator interpolator) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, interpolator) == null) {
-            this.f34403c = interpolator;
+            this.f26616c = interpolator;
         }
     }
 
@@ -140,7 +140,7 @@ public class j extends c {
     public void a(Animation.AnimationListener animationListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, animationListener) == null) {
-            this.f34404d = animationListener;
+            this.f26617d = animationListener;
         }
     }
 
@@ -168,11 +168,11 @@ public class j extends c {
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void b(int i2) {
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            if (i2 > 0 || i2 == -1) {
-                this.f34406f = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (i > 0 || i == -1) {
+                this.f26619f = i;
             }
         }
     }
@@ -180,13 +180,13 @@ public class j extends c {
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f34405e : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.f26618e : invokeV.intValue;
     }
 
     @Override // com.baidu.mapsdkplatform.comapi.a.c
-    public void c(int i2) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
         }
     }
 }

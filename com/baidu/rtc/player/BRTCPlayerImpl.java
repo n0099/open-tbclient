@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -34,7 +35,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import f.c.i0;
 import java.lang.ref.WeakReference;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
@@ -107,9 +108,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -143,9 +144,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -169,12 +170,12 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             }
 
             @Override // org.webrtc.RendererCommon.RendererEvents
-            public void onFrameResolutionChanged(int i4, int i5, int i6) {
+            public void onFrameResolutionChanged(int i3, int i4, int i5) {
                 Interceptable interceptable2 = $ic;
-                if (!(interceptable2 == null || interceptable2.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i4, i5, i6) == null) || this.this$0.mEventObserver == null) {
+                if (!(interceptable2 == null || interceptable2.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i3, i4, i5) == null) || this.this$0.mEventObserver == null) {
                     return;
                 }
-                this.this$0.mEventObserver.onResolutionChanged(i4, i5);
+                this.this$0.mEventObserver.onResolutionChanged(i3, i4);
             }
         };
         this.mLoadListener = new RTCLoadManager.LoadListener(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.4
@@ -189,9 +190,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -201,11 +202,11 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             }
 
             @Override // com.baidu.rtc.RTCLoadManager.LoadListener
-            public void onLoadError(int i4, String str) {
+            public void onLoadError(int i3, String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i4, str) == null) {
+                if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i3, str) == null) {
                     BRTCPlayerImpl bRTCPlayerImpl = this.this$0;
-                    bRTCPlayerImpl.reportError(10010, i4 + " / " + str);
+                    bRTCPlayerImpl.reportError(10010, i3 + " / " + str);
                 }
             }
 
@@ -243,9 +244,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -289,9 +290,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, bigInteger};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -340,9 +341,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, bigInteger};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -365,10 +366,10 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         }
     }
 
-    private void prepareSdp(long j2, String str) {
+    private void prepareSdp(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65561, this, j2, str) == null) {
-            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j2, this.mStreamUrl);
+        if (interceptable == null || interceptable.invokeJL(65561, this, j, str) == null) {
+            RemoteSdpRequest remoteSdpRequest = new RemoteSdpRequest(str, j, this.mStreamUrl);
             Logging.d(TAG, "Connecting to signaling server: " + this.mPullUrl + "\n offer sdp:" + str);
             AsyncHttpRequest asyncHttpRequest = new AsyncHttpRequest("POST", this.mPullUrl, remoteSdpRequest.toJSONString(), "application/json", new AsyncHttpRequest.AsyncHttpEvents(this) { // from class: com.baidu.rtc.player.BRTCPlayerImpl.6
                 public static /* synthetic */ Interceptable $ic;
@@ -382,9 +383,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -451,19 +452,19 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void reportError(int i2, String str) {
+    public void reportError(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65562, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(65562, this, i, str) == null) {
             this.mTimeStatistician.updateStepTime(PlayTimeStatistician.PlayStep.PLAY_ERROR);
             Logging.d(TAG, "report error: " + str + " time statistic:" + this.mTimeStatistician.toString());
             if (getPlayerState() != BRTCPlayer.PlayerState.STATE_ERROR && getPlayerState() != BRTCPlayer.PlayerState.STATE_IDLE) {
                 BRTCPlayerEvents bRTCPlayerEvents = this.mEventObserver;
                 if (bRTCPlayerEvents != null) {
                     bRTCPlayerEvents.onInfoUpdated(1008, this.mTimeStatistician);
-                    this.mEventObserver.onError(i2, str);
+                    this.mEventObserver.onError(i, str);
                 }
                 if (this.mIsEnableErrorInfoMonitor) {
-                    this.mReportHandler.reportError(i2, str);
+                    this.mReportHandler.reportError(i, str);
                 }
                 setCurrentState(BRTCPlayer.PlayerState.STATE_ERROR);
                 return;
@@ -533,17 +534,17 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
             this.mRemoteSamplesInterceptor = new RemoteAudioSamplesInterceptor();
             WeakReference weakReference = new WeakReference(this.mContext);
             RtcParameterSettings rtcParameterSettings = this.mDefaultSettings;
-            int i2 = rtcParameterSettings.VideoFps;
+            int i = rtcParameterSettings.VideoFps;
             String upperCase = rtcParameterSettings.VideoCodec.toUpperCase();
             RtcParameterSettings rtcParameterSettings2 = this.mDefaultSettings;
-            this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, -1, -1, i2, upperCase, true, 0, "", false, false, rtcParameterSettings2.DisableBuiltInAEC, true, true, rtcParameterSettings2.VideoMaxkbps, rtcParameterSettings2.VideoMinkbps, rtcParameterSettings2.MicPhoneMuted, rtcParameterSettings2.CameraMuted, true, rtcParameterSettings2.EnableFixedResolution, rtcParameterSettings2.EnableRequiredResolutionAligment32, rtcParameterSettings2.EnableHighProfile, rtcParameterSettings2.AudioMaxkbps, rtcParameterSettings2.audioBitrateMode, rtcParameterSettings2.TransportAudioChannel, rtcParameterSettings2.EncodeBitrateMode, rtcParameterSettings2.EnableHisiH264HW, rtcParameterSettings2.EnableMTKH264Decode, 0, rtcParameterSettings2.AudioBufferPackets, rtcParameterSettings2.AudioPlayoutDelay, rtcParameterSettings2.AudioCodecComplex, true, 2);
+            this.peerConnectionParameters = new PeerConnectionClient.PeerConnectionParameters(false, -1, -1, i, upperCase, true, 0, "", false, false, rtcParameterSettings2.DisableBuiltInAEC, true, true, rtcParameterSettings2.VideoMaxkbps, rtcParameterSettings2.VideoMinkbps, rtcParameterSettings2.MicPhoneMuted, rtcParameterSettings2.CameraMuted, true, rtcParameterSettings2.EnableFixedResolution, rtcParameterSettings2.EnableRequiredResolutionAligment32, rtcParameterSettings2.EnableHighProfile, rtcParameterSettings2.AudioMaxkbps, rtcParameterSettings2.audioBitrateMode, rtcParameterSettings2.TransportAudioChannel, rtcParameterSettings2.EncodeBitrateMode, rtcParameterSettings2.EnableHisiH264HW, rtcParameterSettings2.EnableMTKH264Decode, 0, rtcParameterSettings2.AudioBufferPackets, rtcParameterSettings2.AudioPlayoutDelay, rtcParameterSettings2.AudioCodecComplex, true, 2);
             this.peerConnectionClient.createPeerConnectionFactory((Context) weakReference.get(), this.peerConnectionParameters, this);
             PeerConnectionClient peerConnectionClient = this.peerConnectionClient;
             RtcReportHandle rtcReportHandle = this.mReportHandler;
             Objects.requireNonNull(rtcReportHandle);
             peerConnectionClient.setStuckEventListener(new RtcReportHandle.AudioStuckEvent(rtcReportHandle));
             this.peerConnectionClient.setEnableSLIReport(this.mEnablePullQualityMonitor);
-            String str = "Rtc Sdk Version  " + Constraints.sdkVersion();
+            Log.d(TAG, "Rtc Sdk Version  " + Constraints.sdkVersion());
             return true;
         }
         return invokeV.booleanValue;
@@ -695,26 +696,26 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
         }
         if (statsEventsType == PeerConnectionClient.StatsEventsType.GET_AUDIOLEVEL_EVENT) {
             if (this.mEventObserver != null) {
-                int i2 = updateStatsData.mAudioJitterBufferMs;
-                if (i2 < this.mAudioBufferUnderLoadLevel) {
+                int i = updateStatsData.mAudioJitterBufferMs;
+                if (i < this.mAudioBufferUnderLoadLevel) {
                     this.mBufferingDetectCount++;
                     if (this.mBufferingDetectCount >= this.mBufferingDetectPeriod && !this.mIsBuffing) {
                         this.mIsBuffing = true;
                         this.mBufferingDetectCount = 0;
-                        this.mEventObserver.onInfoUpdated(1004, "Buffering start with buffer capacity " + i2);
+                        this.mEventObserver.onInfoUpdated(1004, "Buffering start with buffer capacity " + i);
                     } else {
-                        Logging.d(TAG, "Audio jitter buffer underflow " + i2 + " ms times " + this.mBufferingDetectCount);
+                        Logging.d(TAG, "Audio jitter buffer underflow " + i + " ms times " + this.mBufferingDetectCount);
                     }
-                } else if (i2 > this.mAudioBufferMaintainableLevel) {
+                } else if (i > this.mAudioBufferMaintainableLevel) {
                     if (this.mIsBuffing) {
                         this.mIsBuffing = false;
-                        this.mEventObserver.onInfoUpdated(1005, "Buffering end with buffer capacity " + i2);
+                        this.mEventObserver.onInfoUpdated(1005, "Buffering end with buffer capacity " + i);
                     }
                     this.mBufferingDetectCount = 0;
                 }
-                int i3 = this.mStatsReportCount + 1;
-                this.mStatsReportCount = i3;
-                if (i3 >= this.mStatsReportPeriod) {
+                int i2 = this.mStatsReportCount + 1;
+                this.mStatsReportCount = i2;
+                if (i2 >= this.mStatsReportPeriod) {
                     RTCCommStatesReport rTCCommStatesReport = new RTCCommStatesReport(this.mPlayTransactionId, this.mRoomId, this.mUserId, this.mRemoteHandleId, updateStatsData);
                     rTCCommStatesReport.setDebugFlag(19);
                     this.mEventObserver.onInfoUpdated(1003, rTCCommStatesReport);
@@ -726,9 +727,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                 if (bRTCPlayerEvents != null) {
                     bRTCPlayerEvents.onInfoUpdated(1007, "No streaming detected count " + this.mStreamingValidityDetectCount);
                 }
-                int i4 = this.mStreamingValidityDetectCount + 1;
-                this.mStreamingValidityDetectCount = i4;
-                if (i4 != this.mStreamingInterruptDetectPeriod || getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR || getPlayerState() == BRTCPlayer.PlayerState.STATE_STOP) {
+                int i3 = this.mStreamingValidityDetectCount + 1;
+                this.mStreamingValidityDetectCount = i3;
+                if (i3 != this.mStreamingInterruptDetectPeriod || getPlayerState() == BRTCPlayer.PlayerState.STATE_ERROR || getPlayerState() == BRTCPlayer.PlayerState.STATE_STOP) {
                     return;
                 }
                 Logging.d(TAG, "streaming interrupt error appeared!");
@@ -958,9 +959,9 @@ public class BRTCPlayerImpl implements BRTCPlayer, PeerConnectionClient.PeerConn
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

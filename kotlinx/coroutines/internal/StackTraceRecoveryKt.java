@@ -15,7 +15,7 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import kotlinx.coroutines.DebugKt;
 import kotlinx.coroutines.InternalCoroutinesApi;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000d\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0003\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0011\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\u0001\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0010\u001a\u0017\u0010\u0003\u001a\u00020\u00022\u0006\u0010\u0001\u001a\u00020\u0000H\u0007¢\u0006\u0004\b\u0003\u0010\u0004\u001a;\u0010\f\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0007\u001a\u00028\u00002\u0006\u0010\b\u001a\u00028\u00002\u0010\u0010\u000b\u001a\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\tH\u0002¢\u0006\u0004\b\f\u0010\r\u001a%\u0010\u0011\u001a\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\t2\n\u0010\u0010\u001a\u00060\u000ej\u0002`\u000fH\u0002¢\u0006\u0004\b\u0011\u0010\u0012\u001a3\u0010\u0016\u001a\u00020\u00152\u0010\u0010\u0014\u001a\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\u00132\u0010\u0010\b\u001a\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\tH\u0002¢\u0006\u0004\b\u0016\u0010\u0017\u001a\u001b\u0010\u001a\u001a\u00020\u00192\u0006\u0010\u0018\u001a\u00020\u0005H\u0080Hø\u0001\u0000¢\u0006\u0004\b\u001a\u0010\u001b\u001a-\u0010\u001c\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0018\u001a\u00028\u00002\n\u0010\u0010\u001a\u00060\u000ej\u0002`\u000fH\u0002¢\u0006\u0004\b\u001c\u0010\u001d\u001a!\u0010\u001e\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0018\u001a\u00028\u0000H\u0000¢\u0006\u0004\b\u001e\u0010\u001f\u001a.\u0010\u001e\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0018\u001a\u00028\u00002\n\u0010\u0010\u001a\u0006\u0012\u0002\b\u00030 H\u0080\b¢\u0006\u0004\b\u001e\u0010!\u001a\"\u0010\"\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0018\u001a\u00028\u0000H\u0080\b¢\u0006\u0004\b\"\u0010\u001f\u001a!\u0010#\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u00052\u0006\u0010\u0018\u001a\u00028\u0000H\u0000¢\u0006\u0004\b#\u0010\u001f\u001a3\u0010%\u001a\u0018\u0012\u0004\u0012\u00028\u0000\u0012\u000e\u0012\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\u00130$\"\b\b\u0000\u0010\u0006*\u00020\u0005*\u00028\u0000H\u0002¢\u0006\u0004\b%\u0010&\u001a#\u0010)\u001a\u00020(*\u00060\u0002j\u0002`\n2\n\u0010'\u001a\u00060\u0002j\u0002`\nH\u0002¢\u0006\u0004\b)\u0010*\u001a%\u0010-\u001a\u00020,*\f\u0012\b\u0012\u00060\u0002j\u0002`\n0\u00132\u0006\u0010+\u001a\u00020\u0000H\u0002¢\u0006\u0004\b-\u0010.\u001a\u001b\u0010/\u001a\u00020\u0015*\u00020\u00052\u0006\u0010\u0007\u001a\u00020\u0005H\u0000¢\u0006\u0004\b/\u00100\u001a\u0017\u00101\u001a\u00020(*\u00060\u0002j\u0002`\nH\u0000¢\u0006\u0004\b1\u00102\u001a\u001d\u00103\u001a\u00028\u0000\"\b\b\u0000\u0010\u0006*\u00020\u0005*\u00028\u0000H\u0002¢\u0006\u0004\b3\u0010\u001f\"\u0016\u00104\u001a\u00020\u00008\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b4\u00105\"\u001e\u00107\u001a\n 6*\u0004\u0018\u00010\u00000\u00008\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b7\u00105\"\u0016\u00108\u001a\u00020\u00008\u0002@\u0002X\u0082T¢\u0006\u0006\n\u0004\b8\u00105\"\u001e\u00109\u001a\n 6*\u0004\u0018\u00010\u00000\u00008\u0002@\u0002X\u0082\u0004¢\u0006\u0006\n\u0004\b9\u00105*\f\b\u0000\u0010:\"\u00020\u000e2\u00020\u000e*\f\b\u0000\u0010;\"\u00020\u00022\u00020\u0002\u0082\u0002\u0004\n\u0002\b\u0019¨\u0006<"}, d2 = {"", "message", "Ljava/lang/StackTraceElement;", "artificialFrame", "(Ljava/lang/String;)Ljava/lang/StackTraceElement;", "", "E", "cause", "result", "Ljava/util/ArrayDeque;", "Lkotlinx/coroutines/internal/StackTraceElement;", "resultStackTrace", "createFinalException", "(Ljava/lang/Throwable;Ljava/lang/Throwable;Ljava/util/ArrayDeque;)Ljava/lang/Throwable;", "Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;", "Lkotlinx/coroutines/internal/CoroutineStackFrame;", "continuation", "createStackTrace", "(Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/util/ArrayDeque;", "", "recoveredStacktrace", "", "mergeRecoveredTraces", "([Ljava/lang/StackTraceElement;Ljava/util/ArrayDeque;)V", "exception", "", "recoverAndThrow", "(Ljava/lang/Throwable;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;", "recoverFromStackFrame", "(Ljava/lang/Throwable;Lkotlin/coroutines/jvm/internal/CoroutineStackFrame;)Ljava/lang/Throwable;", "recoverStackTrace", "(Ljava/lang/Throwable;)Ljava/lang/Throwable;", "Lkotlin/coroutines/Continuation;", "(Ljava/lang/Throwable;Lkotlin/coroutines/Continuation;)Ljava/lang/Throwable;", "unwrap", "unwrapImpl", "Lkotlin/Pair;", "causeAndStacktrace", "(Ljava/lang/Throwable;)Lkotlin/Pair;", "e", "", "elementWiseEquals", "(Ljava/lang/StackTraceElement;Ljava/lang/StackTraceElement;)Z", "methodName", "", "frameIndex", "([Ljava/lang/StackTraceElement;Ljava/lang/String;)I", "initCause", "(Ljava/lang/Throwable;Ljava/lang/Throwable;)V", "isArtificial", "(Ljava/lang/StackTraceElement;)Z", "sanitizeStackTrace", "baseContinuationImplClass", "Ljava/lang/String;", "kotlin.jvm.PlatformType", "baseContinuationImplClassName", "stackTraceRecoveryClass", "stackTraceRecoveryClassName", "CoroutineStackFrame", "StackTraceElement", "kotlinx-coroutines-core"}, k = 2, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class StackTraceRecoveryKt {
     public static final String baseContinuationImplClass = "kotlin.coroutines.jvm.internal.BaseContinuationImpl";
     public static final String baseContinuationImplClassName;
@@ -23,30 +23,30 @@ public final class StackTraceRecoveryKt {
     public static final String stackTraceRecoveryClassName;
 
     static {
-        Object m713constructorimpl;
-        Object m713constructorimpl2;
+        Object m692constructorimpl;
+        Object m692constructorimpl2;
         try {
             Result.Companion companion = Result.Companion;
-            m713constructorimpl = Result.m713constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
+            m692constructorimpl = Result.m692constructorimpl(Class.forName(baseContinuationImplClass).getCanonicalName());
         } catch (Throwable th) {
             Result.Companion companion2 = Result.Companion;
-            m713constructorimpl = Result.m713constructorimpl(ResultKt.createFailure(th));
+            m692constructorimpl = Result.m692constructorimpl(ResultKt.createFailure(th));
         }
-        if (Result.m716exceptionOrNullimpl(m713constructorimpl) != null) {
-            m713constructorimpl = baseContinuationImplClass;
+        if (Result.m695exceptionOrNullimpl(m692constructorimpl) != null) {
+            m692constructorimpl = baseContinuationImplClass;
         }
-        baseContinuationImplClassName = (String) m713constructorimpl;
+        baseContinuationImplClassName = (String) m692constructorimpl;
         try {
             Result.Companion companion3 = Result.Companion;
-            m713constructorimpl2 = Result.m713constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
+            m692constructorimpl2 = Result.m692constructorimpl(Class.forName(stackTraceRecoveryClass).getCanonicalName());
         } catch (Throwable th2) {
             Result.Companion companion4 = Result.Companion;
-            m713constructorimpl2 = Result.m713constructorimpl(ResultKt.createFailure(th2));
+            m692constructorimpl2 = Result.m692constructorimpl(ResultKt.createFailure(th2));
         }
-        if (Result.m716exceptionOrNullimpl(m713constructorimpl2) != null) {
-            m713constructorimpl2 = stackTraceRecoveryClass;
+        if (Result.m695exceptionOrNullimpl(m692constructorimpl2) != null) {
+            m692constructorimpl2 = stackTraceRecoveryClass;
         }
-        stackTraceRecoveryClassName = (String) m713constructorimpl2;
+        stackTraceRecoveryClassName = (String) m692constructorimpl2;
     }
 
     public static /* synthetic */ void CoroutineStackFrame$annotations() {
@@ -71,16 +71,16 @@ public final class StackTraceRecoveryKt {
         if (cause != null && Intrinsics.areEqual(cause.getClass(), e2.getClass())) {
             StackTraceElement[] stackTrace = e2.getStackTrace();
             int length = stackTrace.length;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     z = false;
                     break;
-                } else if (isArtificial(stackTrace[i2])) {
+                } else if (isArtificial(stackTrace[i])) {
                     z = true;
                     break;
                 } else {
-                    i2++;
+                    i++;
                 }
             }
             if (z) {
@@ -95,7 +95,7 @@ public final class StackTraceRecoveryKt {
         arrayDeque.addFirst(artificialFrame("Coroutine boundary"));
         StackTraceElement[] stackTrace = e2.getStackTrace();
         int frameIndex = frameIndex(stackTrace, baseContinuationImplClassName);
-        int i2 = 0;
+        int i = 0;
         if (frameIndex == -1) {
             Object[] array = arrayDeque.toArray(new StackTraceElement[0]);
             if (array != null) {
@@ -105,12 +105,12 @@ public final class StackTraceRecoveryKt {
             throw new TypeCastException("null cannot be cast to non-null type kotlin.Array<T>");
         }
         StackTraceElement[] stackTraceElementArr = new StackTraceElement[arrayDeque.size() + frameIndex];
-        for (int i3 = 0; i3 < frameIndex; i3++) {
-            stackTraceElementArr[i3] = stackTrace[i3];
+        for (int i2 = 0; i2 < frameIndex; i2++) {
+            stackTraceElementArr[i2] = stackTrace[i2];
         }
         for (StackTraceElement stackTraceElement : arrayDeque) {
-            stackTraceElementArr[frameIndex + i2] = stackTraceElement;
-            i2++;
+            stackTraceElementArr[frameIndex + i] = stackTraceElement;
+            i++;
         }
         e3.setStackTrace(stackTraceElementArr);
         return e3;
@@ -143,9 +143,9 @@ public final class StackTraceRecoveryKt {
 
     public static final int frameIndex(StackTraceElement[] stackTraceElementArr, String str) {
         int length = stackTraceElementArr.length;
-        for (int i2 = 0; i2 < length; i2++) {
-            if (Intrinsics.areEqual(str, stackTraceElementArr[i2].getClassName())) {
-                return i2;
+        for (int i = 0; i < length; i++) {
+            if (Intrinsics.areEqual(str, stackTraceElementArr[i].getClassName())) {
+                return i;
             }
         }
         return -1;
@@ -161,20 +161,20 @@ public final class StackTraceRecoveryKt {
 
     public static final void mergeRecoveredTraces(StackTraceElement[] stackTraceElementArr, ArrayDeque<StackTraceElement> arrayDeque) {
         int length = stackTraceElementArr.length;
-        int i2 = 0;
+        int i = 0;
         while (true) {
-            if (i2 >= length) {
-                i2 = -1;
+            if (i >= length) {
+                i = -1;
                 break;
-            } else if (isArtificial(stackTraceElementArr[i2])) {
+            } else if (isArtificial(stackTraceElementArr[i])) {
                 break;
             } else {
-                i2++;
+                i++;
             }
         }
-        int i3 = i2 + 1;
+        int i2 = i + 1;
         int length2 = stackTraceElementArr.length - 1;
-        if (length2 < i3) {
+        if (length2 < i2) {
             return;
         }
         while (true) {
@@ -182,7 +182,7 @@ public final class StackTraceRecoveryKt {
                 arrayDeque.removeLast();
             }
             arrayDeque.addFirst(stackTraceElementArr[length2]);
-            if (length2 == i3) {
+            if (length2 == i2) {
                 return;
             }
             length2--;
@@ -238,17 +238,17 @@ public final class StackTraceRecoveryKt {
         StackTraceElement[] stackTrace = e2.getStackTrace();
         int length = stackTrace.length;
         int frameIndex = frameIndex(stackTrace, stackTraceRecoveryClassName);
-        int i2 = frameIndex + 1;
+        int i = frameIndex + 1;
         int frameIndex2 = frameIndex(stackTrace, baseContinuationImplClassName);
-        int i3 = (length - frameIndex) - (frameIndex2 == -1 ? 0 : length - frameIndex2);
-        StackTraceElement[] stackTraceElementArr = new StackTraceElement[i3];
-        for (int i4 = 0; i4 < i3; i4++) {
-            if (i4 == 0) {
+        int i2 = (length - frameIndex) - (frameIndex2 == -1 ? 0 : length - frameIndex2);
+        StackTraceElement[] stackTraceElementArr = new StackTraceElement[i2];
+        for (int i3 = 0; i3 < i2; i3++) {
+            if (i3 == 0) {
                 stackTraceElement = artificialFrame("Coroutine boundary");
             } else {
-                stackTraceElement = stackTrace[(i2 + i4) - 1];
+                stackTraceElement = stackTrace[(i + i3) - 1];
             }
-            stackTraceElementArr[i4] = stackTraceElement;
+            stackTraceElementArr[i3] = stackTraceElement;
         }
         e2.setStackTrace(stackTraceElementArr);
         return e2;
@@ -265,15 +265,15 @@ public final class StackTraceRecoveryKt {
             if (!(!Intrinsics.areEqual(e3.getClass(), e2.getClass()))) {
                 StackTraceElement[] stackTrace = e2.getStackTrace();
                 int length = stackTrace.length;
-                int i2 = 0;
+                int i = 0;
                 while (true) {
-                    if (i2 >= length) {
+                    if (i >= length) {
                         z = false;
                         break;
-                    } else if (isArtificial(stackTrace[i2])) {
+                    } else if (isArtificial(stackTrace[i])) {
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
                 if (z) {

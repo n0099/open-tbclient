@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import okio.Buffer;
 import okio.ByteString;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class WebSocketProtocol {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ACCEPT_MAGIC = "258EAFA5-E914-47DA-95CA-C5AB0DC85B11";
@@ -40,9 +40,9 @@ public final class WebSocketProtocol {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -60,16 +60,16 @@ public final class WebSocketProtocol {
         return (String) invokeL.objValue;
     }
 
-    public static String closeCodeExceptionMessage(int i2) {
+    public static String closeCodeExceptionMessage(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 < 1000 || i2 >= 5000) {
-                return "Code must be in range [1000,5000): " + i2;
-            } else if ((i2 < 1004 || i2 > 1006) && (i2 < 1012 || i2 > 2999)) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i < 1000 || i >= 5000) {
+                return "Code must be in range [1000,5000): " + i;
+            } else if ((i < 1004 || i > 1006) && (i < 1012 || i > 2999)) {
                 return null;
             } else {
-                return "Code " + i2 + " is reserved and may not be used.";
+                return "Code " + i + " is reserved and may not be used.";
             }
         }
         return (String) invokeI.objValue;
@@ -79,25 +79,25 @@ public final class WebSocketProtocol {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, unsafeCursor, bArr) == null) {
             int length = bArr.length;
-            int i2 = 0;
+            int i = 0;
             do {
                 byte[] bArr2 = unsafeCursor.data;
-                int i3 = unsafeCursor.start;
-                int i4 = unsafeCursor.end;
-                while (i3 < i4) {
-                    int i5 = i2 % length;
-                    bArr2[i3] = (byte) (bArr2[i3] ^ bArr[i5]);
-                    i3++;
-                    i2 = i5 + 1;
+                int i2 = unsafeCursor.start;
+                int i3 = unsafeCursor.end;
+                while (i2 < i3) {
+                    int i4 = i % length;
+                    bArr2[i2] = (byte) (bArr2[i2] ^ bArr[i4]);
+                    i2++;
+                    i = i4 + 1;
                 }
             } while (unsafeCursor.next() != -1);
         }
     }
 
-    public static void validateCloseCode(int i2) {
+    public static void validateCloseCode(int i) {
         String closeCodeExceptionMessage;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2) == null) && (closeCodeExceptionMessage = closeCodeExceptionMessage(i2)) != null) {
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (closeCodeExceptionMessage = closeCodeExceptionMessage(i)) != null) {
             throw new IllegalArgumentException(closeCodeExceptionMessage);
         }
     }

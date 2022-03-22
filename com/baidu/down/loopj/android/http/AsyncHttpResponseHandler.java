@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class AsyncHttpResponseHandler {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int DOWNLOAD_MESSAGE = 4;
@@ -29,9 +29,9 @@ public class AsyncHttpResponseHandler {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -42,24 +42,24 @@ public class AsyncHttpResponseHandler {
         this.mTrunked = false;
     }
 
-    public void handleFailureMessage(Throwable th, String str, int i2) {
+    public void handleFailureMessage(Throwable th, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, th, str, i2) == null) {
-            onFailure(th, str, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, th, str, i) == null) {
+            onFailure(th, str, i);
         }
     }
 
     public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-            int i2 = message.what;
-            if (i2 == 0) {
+            int i = message.what;
+            if (i == 0) {
                 Object[] objArr = (Object[]) message.obj;
                 handleSuccessMessage(((Integer) objArr[0]).intValue(), (String) objArr[2]);
-            } else if (i2 != 1) {
-                if (i2 == 2) {
+            } else if (i != 1) {
+                if (i == 2) {
                     onStart();
-                } else if (i2 != 3) {
+                } else if (i != 3) {
                 } else {
                     onFinish();
                 }
@@ -78,19 +78,19 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void handleSuccessMessage(int i2, String str) {
+    public void handleSuccessMessage(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i2, str) == null) {
-            onSuccess(i2, str);
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
+            onSuccess(i, str);
         }
     }
 
-    public Message obtainMessage(int i2, Object obj) {
+    public Message obtainMessage(int i, Object obj) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, obj)) == null) {
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, obj)) == null) {
             Message obtain = Message.obtain();
-            obtain.what = i2;
+            obtain.what = i;
             obtain.obj = obj;
             return obtain;
         }
@@ -103,16 +103,16 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void onFailure(Throwable th, int i2) {
+    public void onFailure(Throwable th, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, th, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048581, this, th, i) == null) {
         }
     }
 
-    public void onFailure(Throwable th, String str, int i2) {
+    public void onFailure(Throwable th, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, th, str, i2) == null) {
-            onFailure(th, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, th, str, i) == null) {
+            onFailure(th, i);
         }
     }
 
@@ -128,9 +128,9 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void onSuccess(int i2, String str) {
+    public void onSuccess(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) {
             onSuccess(str);
         }
     }
@@ -176,17 +176,17 @@ public class AsyncHttpResponseHandler {
         }
     }
 
-    public void sendSuccessMessage(int i2, String str, long j2) {
+    public void sendSuccessMessage(int i, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i2), str, Long.valueOf(j2)}) == null) {
-            sendMessage(obtainMessage(0, new Object[]{new Integer(i2), str, Long.valueOf(j2)}));
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            sendMessage(obtainMessage(0, new Object[]{new Integer(i), str, Long.valueOf(j)}));
         }
     }
 
-    public void sendFailureMessage(Throwable th, byte[] bArr, int i2) {
+    public void sendFailureMessage(Throwable th, byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048588, this, th, bArr, i2) == null) {
-            sendMessage(obtainMessage(1, new Object[]{th, bArr, Integer.valueOf(i2)}));
+        if (interceptable == null || interceptable.invokeLLI(1048588, this, th, bArr, i) == null) {
+            sendMessage(obtainMessage(1, new Object[]{th, bArr, Integer.valueOf(i)}));
         }
     }
 }

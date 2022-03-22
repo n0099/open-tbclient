@@ -113,16 +113,16 @@ public class Drawable2d {
             $VALUES = new Prefab[]{TRIANGLE, RECTANGLE, FULL_RECTANGLE, prefab};
         }
 
-        public Prefab(String str, int i2) {
+        public Prefab(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -185,35 +185,35 @@ public class Drawable2d {
             newInitContext.initArgs = r2;
             Object[] objArr = {prefab};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        int i4 = AnonymousClass1.$SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab[prefab.ordinal()];
-        if (i4 == 1) {
+        int i3 = AnonymousClass1.$SwitchMap$com$baidu$ugc$editvideo$faceunity$gles$Drawable2d$Prefab[prefab.ordinal()];
+        if (i3 == 1) {
             this.mVertexArray = TRIANGLE_BUF;
             this.mTexCoordArray = TRIANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = TRIANGLE_COORDS.length / 2;
-        } else if (i4 == 2) {
+        } else if (i3 == 2) {
             this.mVertexArray = RECTANGLE_BUF;
             this.mTexCoordArray = RECTANGLE_TEX_BUF;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = RECTANGLE_COORDS.length / 2;
-        } else if (i4 == 3) {
+        } else if (i3 == 3) {
             this.mVertexArray = FULL_RECTANGLE_BUF;
             this.mTexCoordArray = FULL_RECTANGLE_TEX_BUF;
             this.mTexCoordArray2 = FULL_RECTANGLE_TEX_BUF2;
             this.mCoordsPerVertex = 2;
             this.mVertexStride = 2 * 4;
             this.mVertexCount = FULL_RECTANGLE_COORDS.length / 2;
-        } else if (i4 == 4) {
+        } else if (i3 == 4) {
             this.mVertexArray = FULL_RECTANGLE_LINE_BUF;
         } else {
             throw new RuntimeException("Unknown shape " + prefab);
@@ -292,13 +292,13 @@ public class Drawable2d {
             fArr[5] = f9;
             fArr[6] = f8;
             fArr[7] = f9;
-            for (int i2 = 0; i2 < 8; i2++) {
-                if (i2 % 2 == 0) {
-                    fArr[i2] = fArr[i2] + f4;
-                } else if (i2 != 1 && i2 != 3) {
-                    fArr[i2] = fArr[i2] + f5;
+            for (int i = 0; i < 8; i++) {
+                if (i % 2 == 0) {
+                    fArr[i] = fArr[i] + f4;
+                } else if (i != 1 && i != 3) {
+                    fArr[i] = fArr[i] + f5;
                 } else {
-                    fArr[i2] = fArr[i2] + f5;
+                    fArr[i] = fArr[i] + f5;
                 }
             }
             this.mVertexArray.put(fArr);

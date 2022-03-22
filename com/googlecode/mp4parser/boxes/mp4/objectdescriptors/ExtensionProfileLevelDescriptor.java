@@ -10,7 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.coremedia.iso.Hex;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Descriptor(tags = {19})
 /* loaded from: classes7.dex */
 public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
@@ -23,9 +22,9 @@ public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,7 +52,7 @@ public class ExtensionProfileLevelDescriptor extends BaseDescriptor {
             sb.append("{bytes=");
             byte[] bArr = this.bytes;
             sb.append(bArr == null ? StringUtil.NULL_STRING : Hex.encodeHex(bArr));
-            sb.append(ExtendedMessageFormat.END_FE);
+            sb.append('}');
             return sb.toString();
         }
         return (String) invokeV.objValue;

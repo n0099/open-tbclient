@@ -46,17 +46,17 @@ public class BIMConversationStudio extends BIMConversation {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BIMConversationStudio(Context context, BIMManager.CATEGORY category, String str, boolean z, ChatSession chatSession, String str2, int i2) {
-        super(context, category, str, chatSession, str2, i2);
+    public BIMConversationStudio(Context context, BIMManager.CATEGORY category, String str, boolean z, ChatSession chatSession, String str2, int i) {
+        super(context, category, str, chatSession, str2, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {context, category, str, Boolean.valueOf(z), chatSession, str2, Integer.valueOf(i2)};
+            Object[] objArr = {context, category, str, Boolean.valueOf(z), chatSession, str2, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BIMManager.CATEGORY) objArr2[1], (String) objArr2[2], (ChatSession) objArr2[3], (String) objArr2[4], ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
@@ -69,7 +69,7 @@ public class BIMConversationStudio extends BIMConversation {
         this.mIsReliable = false;
         this.mCastService = null;
         this.mCastUrl = str2;
-        this.mCastType = i2;
+        this.mCastType = i;
         this.mCastId = str;
         this.mIsReliable = z;
     }
@@ -145,21 +145,21 @@ public class BIMConversationStudio extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void seekCastMessage(int i2) {
+    public void seekCastMessage(int i) {
         UnLoginCastService unLoginCastService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048580, this, i2) == null) || (unLoginCastService = this.mCastService) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (unLoginCastService = this.mCastService) == null) {
             return;
         }
-        unLoginCastService.seek(i2);
+        unLoginCastService.seek(i);
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void sendQuizOpts(long j2, long j3, int i2, String str, IMcastSetListener iMcastSetListener) {
+    public void sendQuizOpts(long j, long j2, int i, String str, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i2), str, iMcastSetListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), str, iMcastSetListener}) == null) {
             if (this.mCastType == 2) {
-                ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j2, j3, i2, str, iMcastSetListener);
+                ConversationStudioManImpl.getInstance(this.mContext).sendQuizOpts(j, j2, i, str, iMcastSetListener);
                 return;
             }
             UnLoginCastService unLoginCastService = this.mCastService;
@@ -171,22 +171,22 @@ public class BIMConversationStudio extends BIMConversation {
     }
 
     @Override // com.baidu.android.imsdk.BIMConversation
-    public void setPullInterval(int i2) {
+    public void setPullInterval(int i) {
         UnLoginCastService unLoginCastService;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048582, this, i2) == null) || (unLoginCastService = this.mCastService) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048582, this, i) == null) || (unLoginCastService = this.mCastService) == null) {
             return;
         }
-        unLoginCastService.setPullInterval(i2);
+        unLoginCastService.setPullInterval(i);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beginWithCompletion(long j2, boolean z, IMcastSetListener iMcastSetListener) {
+    public void beginWithCompletion(long j, boolean z, IMcastSetListener iMcastSetListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j2), Boolean.valueOf(z), iMcastSetListener}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Boolean.valueOf(z), iMcastSetListener}) == null) {
             this.mCastListener = iMcastSetListener;
             if (this.mCastType == 2) {
-                ConversationStudioManImpl.getInstance(this.mContext).beginWithCompletion(j2, z, new IMcastSetListener(this, j2, z) { // from class: com.baidu.android.imsdk.BIMConversationStudio.1
+                ConversationStudioManImpl.getInstance(this.mContext).beginWithCompletion(j, z, new IMcastSetListener(this, j, z) { // from class: com.baidu.android.imsdk.BIMConversationStudio.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ BIMConversationStudio this$0;
@@ -198,32 +198,32 @@ public class BIMConversationStudio extends BIMConversation {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, Long.valueOf(j2), Boolean.valueOf(z)};
+                            Object[] objArr = {this, Long.valueOf(j), Boolean.valueOf(z)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
                             }
                         }
                         this.this$0 = this;
-                        this.val$castId = j2;
+                        this.val$castId = j;
                         this.val$isReliable = z;
                     }
 
                     @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
-                    public void onResult(int i2, long j3, long j4) {
+                    public void onResult(int i, long j2, long j3) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                            if (i2 == 1316) {
+                        if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+                            if (i == 1316) {
                                 this.this$0.mCastType = 0;
                                 BIMConversationStudio bIMConversationStudio = this.this$0;
                                 bIMConversationStudio.beginWithCompletion(this.val$castId, this.val$isReliable, bIMConversationStudio.mCastListener);
                             }
                             if (this.this$0.mCastListener != null) {
-                                this.this$0.mCastListener.onResult(i2, j3, j4);
+                                this.this$0.mCastListener.onResult(i, j2, j3);
                             }
                         }
                     }

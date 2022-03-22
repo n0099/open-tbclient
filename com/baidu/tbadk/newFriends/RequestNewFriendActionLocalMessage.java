@@ -19,24 +19,24 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
     public String st_type;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RequestNewFriendActionLocalMessage(long j2, String str, String str2, String str3, String str4) {
+    public RequestNewFriendActionLocalMessage(long j, String str, String str2, String str3, String str4) {
         super(2001169);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j2), str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j), str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.id = j2;
+        this.id = j;
         this.name = str;
         this.portrait = str2;
         this.content = str3;
@@ -80,10 +80,10 @@ public class RequestNewFriendActionLocalMessage extends CustomResponsedMessage<O
         }
     }
 
-    public void setId(long j2) {
+    public void setId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j2) == null) {
-            this.id = j2;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.id = j;
         }
     }
 

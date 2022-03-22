@@ -8,23 +8,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.xiaomi.clientreport.processor.IEventProcessor;
 import com.xiaomi.clientreport.processor.IPerfProcessor;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class bp implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public com.xiaomi.clientreport.processor.c f163a;
+    public com.xiaomi.clientreport.processor.c f139a;
 
     public bp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -41,7 +41,7 @@ public class bp implements Runnable {
     public void a(com.xiaomi.clientreport.processor.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f163a = cVar;
+            this.f139a = cVar;
         }
     }
 
@@ -53,22 +53,22 @@ public class bp implements Runnable {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
-                if (this.f163a != null) {
-                    this.f163a.a();
+                if (this.f139a != null) {
+                    this.f139a.a();
                 }
                 com.xiaomi.channel.commonutils.logger.b.c("begin read and send perf / event");
-                if (this.f163a instanceof IEventProcessor) {
+                if (this.f139a instanceof IEventProcessor) {
                     a = bt.a(this.a);
                     str = "event_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
-                } else if (!(this.f163a instanceof IPerfProcessor)) {
+                } else if (!(this.f139a instanceof IPerfProcessor)) {
                     return;
                 } else {
                     a = bt.a(this.a);
                     str = "perf_last_upload_time";
                     currentTimeMillis = System.currentTimeMillis();
                 }
-                a.m251a("sp_client_report_status", str, currentTimeMillis);
+                a.m230a("sp_client_report_status", str, currentTimeMillis);
             } catch (Exception e2) {
                 com.xiaomi.channel.commonutils.logger.b.a(e2);
             }

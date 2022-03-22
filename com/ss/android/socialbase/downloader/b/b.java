@@ -6,23 +6,23 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public interface b extends IInterface {
     void a(Map map, Map map2) throws RemoteException;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static abstract class a extends Binder implements b {
 
         /* renamed from: com.ss.android.socialbase.downloader.b.b$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class C2193a implements b {
+        /* loaded from: classes7.dex */
+        public static class C2054a implements b {
             public static b a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f58399b;
+            public IBinder f43132b;
 
-            public C2193a(IBinder iBinder) {
-                this.f58399b = iBinder;
+            public C2054a(IBinder iBinder) {
+                this.f43132b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.b.b
@@ -33,7 +33,7 @@ public interface b extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                     obtain.writeMap(map);
                     obtain.writeMap(map2);
-                    if (!this.f58399b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f43132b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         a.a().a(map, map2);
                     } else {
                         obtain2.readException();
@@ -46,7 +46,7 @@ public interface b extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f58399b;
+                return this.f43132b;
             }
         }
 
@@ -62,7 +62,7 @@ public interface b extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof b)) {
                 return (b) queryLocalInterface;
             }
-            return new C2193a(iBinder);
+            return new C2054a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -71,10 +71,10 @@ public interface b extends IInterface {
         }
 
         @Override // android.os.Binder
-        public boolean onTransact(int i2, Parcel parcel, Parcel parcel2, int i3) throws RemoteException {
-            if (i2 != 1) {
-                if (i2 != 1598968902) {
-                    return super.onTransact(i2, parcel, parcel2, i3);
+        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) throws RemoteException {
+            if (i != 1) {
+                if (i != 1598968902) {
+                    return super.onTransact(i, parcel, parcel2, i2);
                 }
                 parcel2.writeString("com.ss.android.socialbase.downloader.db.ISqlCacheLoadCompleteCallbackAidl");
                 return true;
@@ -87,7 +87,7 @@ public interface b extends IInterface {
         }
 
         public static b a() {
-            return C2193a.a;
+            return C2054a.a;
         }
     }
 }

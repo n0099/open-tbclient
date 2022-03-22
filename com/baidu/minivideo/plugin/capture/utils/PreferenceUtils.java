@@ -21,9 +21,9 @@ public class PreferenceUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -131,22 +131,22 @@ public class PreferenceUtils {
         }
     }
 
-    public static void putInt(String str, int i2) {
+    public static void putInt(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65554, null, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65554, null, str, i) == null) {
             try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i2));
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putInt(str, i));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public static void putLong(String str, long j2) {
+    public static void putLong(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, null, str, j) == null) {
             try {
-                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j2));
+                commitEditor(PreferenceManager.getDefaultSharedPreferences(Application.get()).edit().putLong(str, j));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -203,29 +203,29 @@ public class PreferenceUtils {
         return invokeLF.floatValue;
     }
 
-    public static int getInt(String str, int i2) {
+    public static int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, str, i)) == null) {
             try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getInt(str, i2);
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getInt(str, i);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return i2;
+                return i;
             }
         }
         return invokeLI.intValue;
     }
 
-    public static long getLong(String str, long j2) {
+    public static long getLong(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j2)) == null) {
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65547, null, str, j)) == null) {
             try {
-                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j2);
+                return PreferenceManager.getDefaultSharedPreferences(Application.get()).getLong(str, j);
             } catch (Exception e2) {
                 e2.printStackTrace();
-                return j2;
+                return j;
             }
         }
         return invokeLJ.longValue;

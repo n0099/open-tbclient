@@ -15,17 +15,17 @@ public abstract class NoLocalModeSQLiteOpenHelper extends SQLiteOpenHelper {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoLocalModeSQLiteOpenHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2) {
-        super(new NoLocalModeContextWrapper(context), str, cursorFactory, i2);
+    public NoLocalModeSQLiteOpenHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i) {
+        super(new NoLocalModeContextWrapper(context), str, cursorFactory, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i2)};
+            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
@@ -36,17 +36,17 @@ public abstract class NoLocalModeSQLiteOpenHelper extends SQLiteOpenHelper {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NoLocalModeSQLiteOpenHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i2, DatabaseErrorHandler databaseErrorHandler) {
-        super(new NoLocalModeContextWrapper(context), str, cursorFactory, i2, databaseErrorHandler);
+    public NoLocalModeSQLiteOpenHelper(Context context, String str, SQLiteDatabase.CursorFactory cursorFactory, int i, DatabaseErrorHandler databaseErrorHandler) {
+        super(new NoLocalModeContextWrapper(context), str, cursorFactory, i, databaseErrorHandler);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i2), databaseErrorHandler};
+            Object[] objArr = {context, str, cursorFactory, Integer.valueOf(i), databaseErrorHandler};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
                 newInitContext.thisArg = this;

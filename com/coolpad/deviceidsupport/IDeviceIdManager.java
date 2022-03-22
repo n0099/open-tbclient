@@ -10,34 +10,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface IDeviceIdManager extends IInterface {
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements IDeviceIdManager {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* renamed from: com.coolpad.deviceidsupport.IDeviceIdManager$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public static class C2042a implements IDeviceIdManager {
+        /* loaded from: classes6.dex */
+        public static class C1929a implements IDeviceIdManager {
             public static /* synthetic */ Interceptable $ic;
 
             /* renamed from: b  reason: collision with root package name */
-            public static IDeviceIdManager f52098b;
+            public static IDeviceIdManager f38497b;
             public transient /* synthetic */ FieldHolder $fh;
             public IBinder a;
 
-            public C2042a(IBinder iBinder) {
+            public C1929a(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
                     Object[] objArr = {iBinder};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -234,7 +234,7 @@ public interface IDeviceIdManager extends IInterface {
         public static IDeviceIdManager a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C2042a.f52098b : (IDeviceIdManager) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? C1929a.f38497b : (IDeviceIdManager) invokeV.objValue;
         }
 
         public static IDeviceIdManager a(IBinder iBinder) {
@@ -245,7 +245,7 @@ public interface IDeviceIdManager extends IInterface {
                     return null;
                 }
                 IInterface queryLocalInterface = iBinder.queryLocalInterface("com.coolpad.deviceidsupport.IDeviceIdManager");
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C2042a(iBinder) : (IDeviceIdManager) queryLocalInterface;
+                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceIdManager)) ? new C1929a(iBinder) : (IDeviceIdManager) queryLocalInterface;
             }
             return (IDeviceIdManager) invokeL.objValue;
         }

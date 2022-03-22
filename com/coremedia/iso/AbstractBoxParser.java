@@ -15,7 +15,7 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.logging.Logger;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class AbstractBoxParser implements BoxParser {
     public static /* synthetic */ Interceptable $ic;
     public static Logger LOG;
@@ -43,9 +43,9 @@ public abstract class AbstractBoxParser implements BoxParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -63,9 +63,9 @@ public abstract class AbstractBoxParser implements BoxParser {
                     newInitContext2.initArgs = r2;
                     Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -89,15 +89,15 @@ public abstract class AbstractBoxParser implements BoxParser {
     @Override // com.coremedia.iso.BoxParser
     public Box parseBox(DataSource dataSource, Container container) throws IOException {
         InterceptResult invokeLL;
+        long j;
         long j2;
-        long j3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource, container)) == null) {
             this.header.get().rewind().limit(8);
-            int i2 = 0;
+            int i = 0;
             do {
-                i2 += dataSource.read(this.header.get());
-                if (i2 == 8) {
+                i += dataSource.read(this.header.get());
+                if (i == 8) {
                     this.header.get().rewind();
                     long readUInt32 = IsoTypeReader.readUInt32(this.header.get());
                     byte[] bArr = null;
@@ -111,7 +111,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                         this.header.get().limit(16);
                         dataSource.read(this.header.get());
                         this.header.get().position(8);
-                        j2 = IsoTypeReader.readUInt64(this.header.get()) - 16;
+                        j = IsoTypeReader.readUInt64(this.header.get()) - 16;
                     } else if (readUInt32 == 0) {
                         dataSource.size();
                         dataSource.position();
@@ -122,7 +122,7 @@ public abstract class AbstractBoxParser implements BoxParser {
                         sb.append("' as parent has length == 0. That's not supported");
                         throw new RuntimeException(sb.toString());
                     } else {
-                        j2 = readUInt32 - 8;
+                        j = readUInt32 - 8;
                     }
                     if ("uuid".equals(read4cc)) {
                         this.header.get().limit(this.header.get().limit() + 16);
@@ -131,18 +131,18 @@ public abstract class AbstractBoxParser implements BoxParser {
                         for (int position = this.header.get().position() - 16; position < this.header.get().position(); position++) {
                             bArr2[position - (this.header.get().position() - 16)] = this.header.get().get(position);
                         }
-                        j3 = j2 - 16;
+                        j2 = j - 16;
                         bArr = bArr2;
                     } else {
-                        j3 = j2;
+                        j2 = j;
                     }
                     Box createBox = createBox(read4cc, bArr, container instanceof Box ? ((Box) container).getType() : "");
                     createBox.setParent(container);
                     this.header.get().rewind();
-                    createBox.parse(dataSource, this.header.get(), j3, this);
+                    createBox.parse(dataSource, this.header.get(), j2, this);
                     return createBox;
                 }
-            } while (i2 >= 0);
+            } while (i >= 0);
             throw new EOFException();
         }
         return (Box) invokeLL.objValue;

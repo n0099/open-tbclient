@@ -2,7 +2,8 @@ package com.baidu.searchbox.block.impl;
 
 import android.content.Context;
 import android.text.TextUtils;
-import c.a.i0.a.b.d;
+import android.util.Log;
+import c.a.g0.a.b.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.aperf.param.CommonUtils;
@@ -47,9 +48,9 @@ public class BlockContext {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -60,13 +61,15 @@ public class BlockContext {
             public void onAppBlock(Context context, BlockInfo blockInfo) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeLL(1048576, this, context, blockInfo) == null) {
-                    AppConfig.isDebug();
+                    if (AppConfig.isDebug()) {
+                        Log.d(BlockMonitor.TAG, "onAppBlock");
+                    }
                     d<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
                     if (iBlockUploadList == null || iBlockUploadList.getList() == null || blockInfo == null) {
                         return;
                     }
                     if (AppConfig.isDebug()) {
-                        String str = "blockInfo = " + blockInfo.getStackTrace();
+                        Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());
                     }
                     TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
                     if (lastTrackUI != null) {
@@ -91,9 +94,9 @@ public class BlockContext {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

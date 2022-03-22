@@ -26,7 +26,6 @@ import com.airbnb.lottie.model.content.GradientType;
 import com.airbnb.lottie.model.layer.BaseLayer;
 import com.airbnb.lottie.utils.MiscUtils;
 import com.airbnb.lottie.value.LottieValueCallback;
-import com.baidu.wallet.paysdk.beans.PayBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
@@ -84,17 +83,17 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
         ValueCallbackKeyframeAnimation valueCallbackKeyframeAnimation = this.colorCallbackAnimation;
         if (valueCallbackKeyframeAnimation != null) {
             Integer[] numArr = (Integer[]) valueCallbackKeyframeAnimation.getValue();
-            int i2 = 0;
+            int i = 0;
             if (iArr.length == numArr.length) {
-                while (i2 < iArr.length) {
-                    iArr[i2] = numArr[i2].intValue();
-                    i2++;
+                while (i < iArr.length) {
+                    iArr[i] = numArr[i].intValue();
+                    i++;
                 }
             } else {
                 iArr = new int[numArr.length];
-                while (i2 < numArr.length) {
-                    iArr[i2] = numArr[i2].intValue();
-                    i2++;
+                while (i < numArr.length) {
+                    iArr[i] = numArr[i].intValue();
+                    i++;
                 }
             }
         }
@@ -105,11 +104,11 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
         int round = Math.round(this.startPointAnimation.getProgress() * this.cacheSteps);
         int round2 = Math.round(this.endPointAnimation.getProgress() * this.cacheSteps);
         int round3 = Math.round(this.colorAnimation.getProgress() * this.cacheSteps);
-        int i2 = round != 0 ? PayBeanFactory.BEAN_ID_WIDTHDRAW * round : 17;
+        int i = round != 0 ? 527 * round : 17;
         if (round2 != 0) {
-            i2 = i2 * 31 * round2;
+            i = i * 31 * round2;
         }
-        return round3 != 0 ? i2 * 31 * round3 : i2;
+        return round3 != 0 ? i * 31 * round3 : i;
     }
 
     private LinearGradient getLinearGradient() {
@@ -183,15 +182,15 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
     }
 
     @Override // com.airbnb.lottie.animation.content.DrawingContent
-    public void draw(Canvas canvas, Matrix matrix, int i2) {
+    public void draw(Canvas canvas, Matrix matrix, int i) {
         Shader radialGradient;
         if (this.hidden) {
             return;
         }
         L.beginSection("GradientFillContent#draw");
         this.path.reset();
-        for (int i3 = 0; i3 < this.paths.size(); i3++) {
-            this.path.addPath(this.paths.get(i3).getPath(), matrix);
+        for (int i2 = 0; i2 < this.paths.size(); i2++) {
+            this.path.addPath(this.paths.get(i2).getPath(), matrix);
         }
         this.path.computeBounds(this.boundsRect, false);
         if (this.type == GradientType.LINEAR) {
@@ -205,7 +204,7 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
         if (baseKeyframeAnimation != null) {
             this.paint.setColorFilter(baseKeyframeAnimation.getValue());
         }
-        this.paint.setAlpha(MiscUtils.clamp((int) ((((i2 / 255.0f) * this.opacityAnimation.getValue().intValue()) / 100.0f) * 255.0f), 0, 255));
+        this.paint.setAlpha(MiscUtils.clamp((int) ((((i / 255.0f) * this.opacityAnimation.getValue().intValue()) / 100.0f) * 255.0f), 0, 255));
         canvas.drawPath(this.path, this.paint);
         L.endSection("GradientFillContent#draw");
     }
@@ -213,8 +212,8 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
     @Override // com.airbnb.lottie.animation.content.DrawingContent
     public void getBounds(RectF rectF, Matrix matrix, boolean z) {
         this.path.reset();
-        for (int i2 = 0; i2 < this.paths.size(); i2++) {
-            this.path.addPath(this.paths.get(i2).getPath(), matrix);
+        for (int i = 0; i < this.paths.size(); i++) {
+            this.path.addPath(this.paths.get(i).getPath(), matrix);
         }
         this.path.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
@@ -231,14 +230,14 @@ public class GradientFillContent implements DrawingContent, BaseKeyframeAnimatio
     }
 
     @Override // com.airbnb.lottie.model.KeyPathElement
-    public void resolveKeyPath(KeyPath keyPath, int i2, List<KeyPath> list, KeyPath keyPath2) {
-        MiscUtils.resolveKeyPath(keyPath, i2, list, keyPath2, this);
+    public void resolveKeyPath(KeyPath keyPath, int i, List<KeyPath> list, KeyPath keyPath2) {
+        MiscUtils.resolveKeyPath(keyPath, i, list, keyPath2, this);
     }
 
     @Override // com.airbnb.lottie.animation.content.Content
     public void setContents(List<Content> list, List<Content> list2) {
-        for (int i2 = 0; i2 < list2.size(); i2++) {
-            Content content = list2.get(i2);
+        for (int i = 0; i < list2.size(); i++) {
+            Content content = list2.get(i);
             if (content instanceof PathContent) {
                 this.paths.add((PathContent) content);
             }

@@ -16,7 +16,6 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ImageLogger;
 import com.baidu.tbadk.core.util.TbMd5;
@@ -37,16 +36,16 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     public boolean isNeedFormat;
     public int procType;
 
-    public FlutterLoaderProc(boolean z, int i2, boolean z2) {
+    public FlutterLoaderProc(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)};
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,20 +55,20 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         this.procType = 0;
         this.isNeedFormat = true;
         this.isFromCDN = z;
-        this.procType = i2;
+        this.procType = i;
         this.isNeedFormat = z2;
     }
 
-    public a createImageByteFromDiskPicOperate(c cVar, String str, int i2, int i3) {
+    public a createImageByteFromDiskPicOperate(c cVar, String str, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, cVar, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, cVar, str, i, i2)) == null) {
             if (cVar == null) {
                 return null;
             }
             a aVar = new a((Bitmap) null, false, str, cVar.getData());
             cVar.formatData(cVar.getData());
-            Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i2, i3);
+            Bitmap checkBitmapSize = checkBitmapSize(cVar.getBitmap(), i, i2);
             return checkBitmapSize != null ? new a(checkBitmapSize, cVar.isGif(), str) : aVar;
         }
         return (a) invokeLLII.objValue;
@@ -78,10 +77,10 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.d.f.l.e
-    public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
+    public a getFromMemory(String str, String str2, int i, int i2, boolean z, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             return null;
         }
         return (a) invokeCommon.objValue;
@@ -147,10 +146,10 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.baidu.tbadk.core.util.resourceLoaderProc.AbstractImageLoaderProc, c.a.d.f.l.e
-    public a getFromLocal(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromLocal(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) == null) {
             byte[] bArr = new byte[0];
             c createDiskPicOperate = createDiskPicOperate(TbMd5.getNameMd5FromUrl(str2));
             if (createDiskPicOperate == null) {
@@ -169,15 +168,15 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             }
             boolean H = l.H();
             if (d.f().a(createDiskPicOperate)) {
-                int i4 = H ? 300 : 2000;
+                int i3 = H ? 300 : 2000;
                 synchronized (bArr) {
                     try {
-                        bArr.wait(i4);
+                        bArr.wait(i3);
                     } catch (InterruptedException unused) {
                     }
                 }
                 if (createDiskPicOperate.isSuccess()) {
-                    return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i2, i3);
+                    return createImageByteFromDiskPicOperate(createDiskPicOperate, str2, i, i2);
                 }
                 return null;
             }
@@ -197,14 +196,14 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public a getFromRemote(String str, String str2, int i2, int i3, b bVar, Object... objArr) {
+    public a getFromRemote(String str, String str2, int i, int i2, b bVar, Object... objArr) {
         InterceptResult invokeCommon;
         boolean z;
         WebClient webClient;
         byte[] downloadImageBytes;
         boolean z2;
         WebClient webClient2;
-        int i4;
+        int i3;
         byte[] bArr;
         boolean z3;
         char c2;
@@ -213,15 +212,15 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
         boolean z5;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i2), Integer.valueOf(i3), bVar, objArr})) != null) {
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), bVar, objArr})) != null) {
             return (a) invokeCommon.objValue;
         }
         if (StringUtils.isNull(str)) {
             return null;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        int suggestWidth = i2 == 0 ? getSuggestWidth() : i2;
-        int suggestHeight = i3 == 0 ? getSuggestHeight() : i3;
+        int suggestWidth = i == 0 ? getSuggestWidth() : i;
+        int suggestHeight = i2 == 0 ? getSuggestHeight() : i2;
         if (suggestWidth == 0) {
             suggestWidth = n.d(TbadkCoreApplication.getInst().getApp(), 105.0f);
         }
@@ -235,7 +234,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
             if (indexOf <= 0) {
                 indexOf = urlbyClientServerAddr.indexOf("tiebapic.baidu.com");
             }
-            if (indexOf > 0 && (lastIndexOf = urlbyClientServerAddr.lastIndexOf(ThreadAchievementShareDialogView.THREAD_IMG_SUFFIX)) > 0) {
+            if (indexOf > 0 && (lastIndexOf = urlbyClientServerAddr.lastIndexOf(".jpg")) > 0) {
                 urlbyClientServerAddr = urlbyClientServerAddr.substring(0, lastIndexOf) + ".webp" + urlbyClientServerAddr.substring(lastIndexOf + 4, urlbyClientServerAddr.length());
                 z = true;
                 webClient = new WebClient();
@@ -247,7 +246,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 if (!webClient.IsRequestSuccess()) {
                     z2 = needCache;
                     webClient2 = webClient;
-                    i4 = 1;
+                    i3 = 1;
                 } else if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                     if (webClient.mStat != null) {
                         webClient3 = webClient;
@@ -258,7 +257,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                         webClient3 = webClient;
                     }
                     try {
-                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.img_default_delete, new TypedValue());
+                        InputStream openRawResource = TbadkCoreApplication.getInst().getResources().openRawResource(R.drawable.obfuscated_res_0x7f080b76, new TypedValue());
                         byte[] d2 = c.a.d.f.j.c.b.d(openRawResource);
                         if (!webClient3.isGif && !n.A(d2)) {
                             z5 = false;
@@ -283,7 +282,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                 } else {
                     z2 = needCache;
                     webClient2 = webClient;
-                    i4 = 1;
+                    i3 = 1;
                     if (!webClient2.getResponse().a) {
                         ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
@@ -296,7 +295,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     return null;
                 }
                 long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
-                if (downloadImageBytes.length > i4) {
+                if (downloadImageBytes.length > i3) {
                     ImageLoadSpeedRecorder.sharedInstance().addSpeedRecordItem(downloadImageBytes.length, currentTimeMillis2);
                     c2 = 1;
                     z3 = z2;
@@ -308,7 +307,7 @@ public class FlutterLoaderProc extends AbstractImageLoaderProc {
                     c2 = 1;
                     ImageLogger.imagePerfNetLog(str, false, urlbyClientServerAddr, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
-                c.a.q0.b0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
+                c.a.o0.b0.c.k().i(TbConfig.getPbImageSize() + bArr.length);
                 boolean z7 = webClient2.isGif || n.A(bArr);
                 a aVar3 = new a((Bitmap) null, z7, str, bArr);
                 boolean z8 = z3;

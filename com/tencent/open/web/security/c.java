@@ -10,26 +10,26 @@ import com.tencent.open.a;
 import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class c extends a.C2249a {
+/* loaded from: classes7.dex */
+public class c extends a.C2107a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f59179d;
+    public String f43816d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c(WebView webView, long j2, String str, String str2) {
-        super(webView, j2, str);
+    public c(WebView webView, long j, String str, String str2) {
+        super(webView, j, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, Long.valueOf(j2), str, str2};
+            Object[] objArr = {webView, Long.valueOf(j), str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((WebView) objArr2[0], ((Long) objArr2[1]).longValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -37,7 +37,7 @@ public class c extends a.C2249a {
                 return;
             }
         }
-        this.f59179d = str2;
+        this.f43816d = str2;
     }
 
     private void b(String str) {
@@ -48,9 +48,9 @@ public class c extends a.C2249a {
         }
         StringBuffer stringBuffer = new StringBuffer("javascript:");
         stringBuffer.append("if(!!");
-        stringBuffer.append(this.f59179d);
+        stringBuffer.append(this.f43816d);
         stringBuffer.append("){");
-        stringBuffer.append(this.f59179d);
+        stringBuffer.append(this.f43816d);
         stringBuffer.append("(");
         stringBuffer.append(str);
         stringBuffer.append(")}");
@@ -59,7 +59,7 @@ public class c extends a.C2249a {
         webView.loadUrl(stringBuffer2);
     }
 
-    @Override // com.tencent.open.a.C2249a
+    @Override // com.tencent.open.a.C2107a
     public void a(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
@@ -67,7 +67,7 @@ public class c extends a.C2249a {
         }
     }
 
-    @Override // com.tencent.open.a.C2249a
+    @Override // com.tencent.open.a.C2107a
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -75,7 +75,7 @@ public class c extends a.C2249a {
         }
     }
 
-    @Override // com.tencent.open.a.C2249a
+    @Override // com.tencent.open.a.C2107a
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -83,7 +83,7 @@ public class c extends a.C2249a {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("result", !com.tencent.open.b.c.a ? -4 : 0);
-                jSONObject.put("sn", this.f59062b);
+                jSONObject.put("sn", this.f43707b);
                 jSONObject.put("data", str);
             } catch (JSONException e2) {
                 e2.printStackTrace();

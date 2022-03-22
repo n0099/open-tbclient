@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.util.Base64;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
@@ -46,9 +47,9 @@ public class RtcLogReport {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,11 +122,11 @@ public class RtcLogReport {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void sendGet(String str, int i2) {
+    public void sendGet(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65541, this, str, i2) == null) {
-            String str2 = i2 == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
-            if (i2 == 4) {
+        if (interceptable == null || interceptable.invokeLI(65541, this, str, i) == null) {
+            String str2 = i == 3 ? UPLOAD_SLI_PERFFIX : UPLOAD_PERFFIX;
+            if (i == 4) {
                 str2 = UPLOAD_ERROR_PERFFIX;
             }
             String encodeToString = Base64.encodeToString((str2 + str).getBytes(), 2);
@@ -142,9 +143,9 @@ public class RtcLogReport {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -157,7 +158,7 @@ public class RtcLogReport {
                 public void onFailure(Call call, IOException iOException) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeLL(1048576, this, call, iOException) == null) {
-                        String str3 = "qualityinfo send fail: " + iOException;
+                        Log.e(RtcLogReport.LOG, "qualityinfo send fail: " + iOException);
                     }
                 }
 
@@ -181,11 +182,11 @@ public class RtcLogReport {
         this.executor = null;
     }
 
-    public synchronized void report(String str, int i2) {
+    public synchronized void report(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i) == null) {
             synchronized (this) {
-                this.executor.execute(new Runnable(this, str, i2) { // from class: com.baidu.rtc.logreport.RtcLogReport.1
+                this.executor.execute(new Runnable(this, str, i) { // from class: com.baidu.rtc.logreport.RtcLogReport.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ RtcLogReport this$0;
@@ -197,11 +198,11 @@ public class RtcLogReport {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, Integer.valueOf(i2)};
+                            Object[] objArr = {this, str, Integer.valueOf(i)};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i3 = newInitContext.flag;
-                            if ((i3 & 1) != 0) {
-                                int i4 = i3 & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -209,7 +210,7 @@ public class RtcLogReport {
                         }
                         this.this$0 = this;
                         this.val$log = str;
-                        this.val$infoType = i2;
+                        this.val$infoType = i;
                     }
 
                     @Override // java.lang.Runnable

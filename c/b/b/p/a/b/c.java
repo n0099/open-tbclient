@@ -12,16 +12,16 @@ public class c extends a implements b {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: h  reason: collision with root package name */
-    public c.b.b.n.k.c f27494h;
+    public c.b.b.n.k.c f22714h;
 
     public c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -31,13 +31,13 @@ public class c extends a implements b {
     public c.b.b.n.k.c o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f27494h : (c.b.b.n.k.c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f22714h : (c.b.b.n.k.c) invokeV.objValue;
     }
 
     public void p(c.b.b.n.k.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.f27494h = cVar;
+            this.f22714h = cVar;
             if (cVar != null) {
                 j(cVar.k());
                 h(cVar.j());
@@ -54,7 +54,7 @@ public class c extends a implements b {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
             c cVar = new c(this);
-            cVar.f27494h = new c.b.b.n.k.c(cVar.o(), aVar);
+            cVar.f22714h = new c.b.b.n.k.c(cVar.o(), aVar);
             return cVar;
         }
         return (c) invokeL.objValue;
@@ -67,9 +67,9 @@ public class c extends a implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -87,15 +87,15 @@ public class c extends a implements b {
             newInitContext.initArgs = r2;
             Object[] objArr = {cVar};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        this.f27494h = cVar.f27494h;
+        this.f22714h = cVar.f22714h;
     }
 }

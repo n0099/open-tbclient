@@ -2,7 +2,7 @@ package com.baidu.tieba.square.flist;
 
 import c.a.d.a.f;
 import c.a.d.f.d.l;
-import c.a.q0.r.s.a;
+import c.a.o0.r.s.a;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,6 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import java.io.Serializable;
 /* loaded from: classes6.dex */
 public class ForumListModel extends BdBaseModel<ForumListActivity> implements Serializable {
@@ -49,9 +50,9 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -81,9 +82,9 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -121,9 +122,9 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -136,13 +137,13 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
 
     public static ForumListModel new_fetch(RequestParams requestParams) {
         InterceptResult invokeL;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, requestParams)) == null) {
             if (requestParams.menu_id == 0) {
-                i2 = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
+                i = requestParams.menu_name.equals(requestParams.parent_menu_name) ? 9 : 10;
             } else {
-                i2 = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? 137 : 136;
+                i = (requestParams.menu_type == 2 || !requestParams.menu_name.equals(requestParams.parent_menu_name)) ? Cea708Decoder.COMMAND_DSW : 136;
             }
             menu_name = requestParams.menu_name;
             NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/f/forum/forumrank");
@@ -150,11 +151,11 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             netWork.addPostData("offset", String.valueOf(requestParams.offset));
             netWork.addPostData("recommend_type", String.valueOf(requestParams.recommend_type));
             netWork.addPostData(ForumListActivity.KEY_MENU_NAME, requestParams.menu_name);
-            netWork.addPostData("menu_type", String.valueOf(i2));
+            netWork.addPostData("menu_type", String.valueOf(i));
             String postNetData = netWork.postNetData();
             isOk = netWork.isNetSuccess();
             ForumListModel forumListModel = (ForumListModel) OrmObject.objectWithJsonStr(postNetData, ForumListModel.class);
-            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i2 == 9 || i2 == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
+            if (requestParams.rn == 200 && requestParams.recommend_type == 0 && ((i == 9 || i == 136 || requestParams.menu_type == 2) && forumListModel != null && forumListModel.recommend_list_left != null && forumListModel.recommend_list_right != null && forumListModel.editor_recommend != null && forumListModel.forum_class != null)) {
                 a.f();
                 l<String> g2 = a.g("tb.my_posts");
                 if (g2 != null) {
@@ -201,9 +202,9 @@ public class ForumListModel extends BdBaseModel<ForumListActivity> implements Se
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);

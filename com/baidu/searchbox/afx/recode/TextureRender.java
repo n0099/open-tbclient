@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.SurfaceTexture;
 import android.opengl.GLES20;
 import android.opengl.Matrix;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,9 +45,9 @@ public class TextureRender {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -74,6 +75,9 @@ public class TextureRender {
             }
             int glCreateProgram = GLES20.glCreateProgram();
             checkGlError("glCreateProgram");
+            if (glCreateProgram == 0) {
+                Log.e(TAG, "Could not create program");
+            }
             GLES20.glAttachShader(glCreateProgram, loadShader2);
             checkGlError("glAttachShader");
             GLES20.glAttachShader(glCreateProgram, loadShader);
@@ -82,7 +86,8 @@ public class TextureRender {
             int[] iArr = new int[1];
             GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
             if (iArr[0] != 1) {
-                GLES20.glGetProgramInfoLog(glCreateProgram);
+                Log.e(TAG, "Could not link program: ");
+                Log.e(TAG, GLES20.glGetProgramInfoLog(glCreateProgram));
                 GLES20.glDeleteProgram(glCreateProgram);
                 return 0;
             }
@@ -91,19 +96,22 @@ public class TextureRender {
         return invokeLL.intValue;
     }
 
-    private int loadShader(int i2, String str) {
+    private int loadShader(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i2, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i2);
-            checkGlError("glCreateShader type=" + i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, this, i, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i);
+            checkGlError("glCreateShader type=" + i);
             GLES20.glShaderSource(glCreateShader, str);
             GLES20.glCompileShader(glCreateShader);
             int[] iArr = new int[1];
             GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
             if (iArr[0] == 0) {
-                String str2 = "Could not compile shader " + i2 + ":";
-                String str3 = " " + GLES20.glGetShaderInfoLog(glCreateShader);
+                Log.e(TAG, "Could not compile shader " + i + ":");
+                StringBuilder sb = new StringBuilder();
+                sb.append(" ");
+                sb.append(GLES20.glGetShaderInfoLog(glCreateShader));
+                Log.e(TAG, sb.toString());
                 GLES20.glDeleteShader(glCreateShader);
                 return 0;
             }
@@ -112,20 +120,20 @@ public class TextureRender {
         return invokeIL.intValue;
     }
 
-    public static void saveFrame(String str, int i2, int i3) {
+    public static void saveFrame(String str, int i, int i2) {
         FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65539, null, str, i2, i3) == null) {
-            int i4 = i2 * i3;
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i4 * 4);
+        if (interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) {
+            int i3 = i * i2;
+            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(i3 * 4);
             allocateDirect.order(ByteOrder.LITTLE_ENDIAN);
-            GLES20.glReadPixels(0, 0, i2, i3, GeneratedTexture.FORMAT, 5121, allocateDirect);
+            GLES20.glReadPixels(0, 0, i, i2, GeneratedTexture.FORMAT, 5121, allocateDirect);
             allocateDirect.rewind();
-            int[] iArr = new int[i4];
+            int[] iArr = new int[i3];
             allocateDirect.asIntBuffer().get(iArr);
-            for (int i5 = 0; i5 < i4; i5++) {
-                int i6 = iArr[i5];
-                iArr[i5] = ((i6 & 255) << 16) | ((-16711936) & i6) | ((16711680 & i6) >> 16);
+            for (int i4 = 0; i4 < i3; i4++) {
+                int i5 = iArr[i4];
+                iArr[i4] = ((i5 & 255) << 16) | ((-16711936) & i5) | ((16711680 & i5) >> 16);
             }
             FileOutputStream fileOutputStream2 = null;
             try {
@@ -138,7 +146,7 @@ public class TextureRender {
                 e = e2;
             }
             try {
-                Bitmap createBitmap = Bitmap.createBitmap(iArr, i2, i3, Bitmap.Config.ARGB_8888);
+                Bitmap createBitmap = Bitmap.createBitmap(iArr, i, i2, Bitmap.Config.ARGB_8888);
                 createBitmap.compress(Bitmap.CompressFormat.PNG, 90, fileOutputStream);
                 createBitmap.recycle();
                 try {
@@ -182,7 +190,7 @@ public class TextureRender {
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
             return;
         }
-        String str2 = str + ": glError " + glGetError;
+        Log.e(TAG, str + ": glError " + glGetError);
         throw new RuntimeException(str + ": glError " + glGetError);
     }
 
@@ -242,9 +250,9 @@ public class TextureRender {
                             if (this.muSTMatrixHandle != -1) {
                                 int[] iArr = new int[1];
                                 GLES20.glGenTextures(1, iArr, 0);
-                                int i2 = iArr[0];
-                                this.mTextureID = i2;
-                                GLES20.glBindTexture(36197, i2);
+                                int i = iArr[0];
+                                this.mTextureID = i;
+                                GLES20.glBindTexture(36197, i);
                                 checkGlError("glBindTexture mTextureID");
                                 GLES20.glTexParameterf(36197, 10241, 9728.0f);
                                 GLES20.glTexParameterf(36197, 10240, 9729.0f);

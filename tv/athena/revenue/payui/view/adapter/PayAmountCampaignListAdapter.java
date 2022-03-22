@@ -21,31 +21,29 @@ import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import java.util.List;
 import tv.athena.revenue.payui.model.ImageLoaderSupplier;
 import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public List<GiftBagItemInfo> a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayUIKitConfig f61566b;
+    public PayUIKitConfig f45910b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f61567c;
+    public Context f45911c;
 
     /* renamed from: d  reason: collision with root package name */
-    public b f61568d;
+    public b f45912d;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ c f61569e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ PayAmountCampaignListAdapter f61570f;
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ PayAmountCampaignListAdapter f45913b;
 
         public a(PayAmountCampaignListAdapter payAmountCampaignListAdapter, c cVar) {
             Interceptable interceptable = $ic;
@@ -54,47 +52,47 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payAmountCampaignListAdapter, cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f61570f = payAmountCampaignListAdapter;
-            this.f61569e = cVar;
+            this.f45913b = payAmountCampaignListAdapter;
+            this.a = cVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f61570f.f61568d == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view) == null) || this.f45913b.f45912d == null) {
                 return;
             }
-            this.f61570f.f61568d.onClick(this.f61569e.getAdapterPosition());
+            this.f45913b.f45912d.onClick(this.a.getAdapterPosition());
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface b {
-        void onClick(int i2);
+        void onClick(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public class c extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public TextView a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f61571b;
+        public TextView f45914b;
 
         /* renamed from: c  reason: collision with root package name */
-        public ImageView f61572c;
+        public ImageView f45915c;
 
         /* renamed from: d  reason: collision with root package name */
-        public TextView f61573d;
+        public TextView f45916d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(PayAmountCampaignListAdapter payAmountCampaignListAdapter, View view) {
@@ -105,19 +103,19 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {payAmountCampaignListAdapter, view};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((View) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = (TextView) view.findViewById(R.id.tv_name);
-            this.f61571b = (TextView) view.findViewById(R.id.tv_num);
-            this.f61572c = (ImageView) view.findViewById(R.id.img);
-            this.f61573d = (TextView) view.findViewById(R.id.tv_type);
+            this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921db);
+            this.f45914b = (TextView) view.findViewById(R.id.obfuscated_res_0x7f0921e1);
+            this.f45915c = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f090e94);
+            this.f45916d = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092224);
         }
     }
 
@@ -128,74 +126,61 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list, payUIKitConfig};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = list;
-        this.f61567c = context;
-        this.f61566b = payUIKitConfig;
+        this.f45911c = context;
+        this.f45910b = payUIKitConfig;
     }
 
-    public GiftBagItemInfo getItem(int i2) {
+    public GiftBagItemInfo e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
             List<GiftBagItemInfo> list = this.a;
-            if (list == null || list.isEmpty() || i2 < 0 || i2 >= this.a.size()) {
+            if (list == null || list.isEmpty() || i < 0 || i >= this.a.size()) {
                 return null;
             }
-            return this.a.get(i2);
+            return this.a.get(i);
         }
         return (GiftBagItemInfo) invokeI.objValue;
     }
 
-    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public int getItemCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.size() : invokeV.intValue;
-    }
-
-    public void setOnItemClickListener(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.f61568d = bVar;
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public void onBindViewHolder(c cVar, int i2) {
+    /* renamed from: f */
+    public void onBindViewHolder(c cVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, cVar, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, i) == null) {
             cVar.itemView.setOnClickListener(new a(this, cVar));
-            GiftBagItemInfo item = getItem(cVar.getAdapterPosition());
-            if (TextUtils.isEmpty(item.name)) {
+            GiftBagItemInfo e2 = e(cVar.getAdapterPosition());
+            if (TextUtils.isEmpty(e2.name)) {
                 cVar.a.setVisibility(4);
             } else {
                 cVar.a.setVisibility(0);
-                cVar.a.setText(item.name);
+                cVar.a.setText(e2.name);
             }
-            if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                cVar.f61571b.setVisibility(0);
-                cVar.f61571b.setText(item.countDisplay);
+            if (!TextUtils.isEmpty(e2.countDisplay) && !StringUtil.NULL_STRING.equals(e2.countDisplay)) {
+                cVar.f45914b.setVisibility(0);
+                cVar.f45914b.setText(e2.countDisplay);
             } else {
-                cVar.f61571b.setVisibility(4);
+                cVar.f45914b.setVisibility(4);
             }
-            if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                cVar.f61573d.setVisibility(0);
-                cVar.f61573d.setText(item.typeName);
+            if (!TextUtils.isEmpty(e2.typeName) && !StringUtil.NULL_STRING.equals(e2.typeName)) {
+                cVar.f45916d.setVisibility(0);
+                cVar.f45916d.setText(e2.typeName);
             } else {
-                cVar.f61573d.setVisibility(4);
+                cVar.f45916d.setVisibility(4);
             }
-            PayUIKitConfig payUIKitConfig = this.f61566b;
+            PayUIKitConfig payUIKitConfig = this.f45910b;
             if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.f61566b.imageLoaderSupplier.onLoad(this.f61567c, cVar.f61572c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
+                this.f45910b.imageLoaderSupplier.onLoad(this.f45911c, cVar.f45915c, new ImageLoaderSupplier.ImageParam(e2.imgUrl, -1, -1));
                 return;
             }
             RLog.error("PayAmountCampaignListAdapter", "onBindViewHolder error mPayUIKitConfig null", new Object[0]);
@@ -204,9 +189,17 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
-    public c onCreateViewHolder(ViewGroup viewGroup, int i2) {
+    /* renamed from: g */
+    public c onCreateViewHolder(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i2)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.pay_ui_item_pay_amount_campaign_list_item, viewGroup, false)) : (c) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new c(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0662, viewGroup, false)) : (c) invokeLI.objValue;
+    }
+
+    @Override // androidx.recyclerview.widget.RecyclerView.Adapter
+    public int getItemCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.size() : invokeV.intValue;
     }
 }

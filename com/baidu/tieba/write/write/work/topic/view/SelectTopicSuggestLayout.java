@@ -6,7 +6,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import c.a.r0.r1.f;
+import c.a.p0.t1.f;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -26,15 +26,13 @@ import java.util.List;
 public class SelectTopicSuggestLayout extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
 
-    /* renamed from: g  reason: collision with root package name */
-    public static final int f48654g;
+    /* renamed from: c  reason: collision with root package name */
+    public static final int f37596c;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecyclerView a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public RecyclerView f48655e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public VideoHotTopicSearchAdapter f48656f;
+    /* renamed from: b  reason: collision with root package name */
+    public VideoHotTopicSearchAdapter f37597b;
 
     /* loaded from: classes6.dex */
     public class a implements VideoHotTopicSearchAdapter.a {
@@ -49,9 +47,9 @@ public class SelectTopicSuggestLayout extends LinearLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {selectTopicSuggestLayout};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -82,7 +80,7 @@ public class SelectTopicSuggestLayout extends LinearLayout {
                 return;
             }
         }
-        f48654g = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
+        f37596c = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -94,58 +92,58 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a();
+        b();
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RecyclerView recyclerView = new RecyclerView(getContext());
-            this.f48655e = recyclerView;
-            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-            RecyclerView recyclerView2 = this.f48655e;
-            int i2 = f48654g;
-            recyclerView2.setPadding(i2, 0, i2, 0);
-            VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = new VideoHotTopicSearchAdapter(TbadkApplication.getInst().getCurrentPageContext(getContext()));
-            this.f48656f = videoHotTopicSearchAdapter;
-            videoHotTopicSearchAdapter.setmAdapterType(1);
-            this.f48656f.setOnClickItemListener(new a(this));
-            this.f48655e.setAdapter(this.f48656f);
-            addView(this.f48655e, new LinearLayout.LayoutParams(-1, -1));
-        }
-    }
-
-    public void bindData(String str, List<f> list) {
+    public void a(String str, List<f> list) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, list) == null) || (videoHotTopicSearchAdapter = this.f48656f) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, list) == null) || (videoHotTopicSearchAdapter = this.f37597b) == null) {
             return;
         }
-        videoHotTopicSearchAdapter.setList(str, list);
+        videoHotTopicSearchAdapter.d(str, list);
     }
 
-    public void onChangeSkin() {
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            RecyclerView recyclerView = new RecyclerView(getContext());
+            this.a = recyclerView;
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            RecyclerView recyclerView2 = this.a;
+            int i = f37596c;
+            recyclerView2.setPadding(i, 0, i, 0);
+            VideoHotTopicSearchAdapter videoHotTopicSearchAdapter = new VideoHotTopicSearchAdapter(TbadkApplication.getInst().getCurrentPageContext(getContext()));
+            this.f37597b = videoHotTopicSearchAdapter;
+            videoHotTopicSearchAdapter.g(1);
+            this.f37597b.e(new a(this));
+            this.a.setAdapter(this.f37597b);
+            addView(this.a, new LinearLayout.LayoutParams(-1, -1));
+        }
+    }
+
+    public void c() {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoHotTopicSearchAdapter = this.f48656f) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (videoHotTopicSearchAdapter = this.f37597b) == null) {
             return;
         }
         videoHotTopicSearchAdapter.notifyDataSetChanged();
     }
 
-    public void onClose() {
+    public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f48656f.getItemCount();
+            this.f37597b.getItemCount();
         }
     }
 
@@ -158,9 +156,9 @@ public class SelectTopicSuggestLayout extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -168,21 +166,21 @@ public class SelectTopicSuggestLayout extends LinearLayout {
                 return;
             }
         }
-        a();
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectTopicSuggestLayout(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public SelectTopicSuggestLayout(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -190,6 +188,6 @@ public class SelectTopicSuggestLayout extends LinearLayout {
                 return;
             }
         }
-        a();
+        b();
     }
 }

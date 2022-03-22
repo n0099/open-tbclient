@@ -10,8 +10,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             return;
         }
         fVar.a = jSONObject.optInt("currentTime");
-        fVar.f54901b = jSONObject.optBoolean(com.alipay.sdk.util.f.f29566j);
-        fVar.f54902c = jSONObject.optBoolean("finished");
+        fVar.f39991b = jSONObject.optBoolean("failed");
+        fVar.f39992c = jSONObject.optBoolean("finished");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,8 +21,8 @@ public class er implements com.kwad.sdk.core.d<com.kwad.sdk.core.webview.a.kwai.
             jSONObject = new JSONObject();
         }
         com.kwad.sdk.utils.t.a(jSONObject, "currentTime", fVar.a);
-        com.kwad.sdk.utils.t.a(jSONObject, com.alipay.sdk.util.f.f29566j, fVar.f54901b);
-        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f54902c);
+        com.kwad.sdk.utils.t.a(jSONObject, "failed", fVar.f39991b);
+        com.kwad.sdk.utils.t.a(jSONObject, "finished", fVar.f39992c);
         return jSONObject;
     }
 }

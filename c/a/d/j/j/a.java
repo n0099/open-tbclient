@@ -17,42 +17,42 @@ public class a {
     public static /* synthetic */ Interceptable $ic;
 
     /* renamed from: d  reason: collision with root package name */
-    public static a f2992d;
+    public static a f2493d;
     public transient /* synthetic */ FieldHolder $fh;
     public c a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<b> f2993b;
+    public ArrayList<b> f2494b;
 
     /* renamed from: c  reason: collision with root package name */
-    public C0117a f2994c;
+    public C0106a f2495c;
 
     /* renamed from: c.a.d.j.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class C0117a extends BdAsyncTask<String, Integer, Boolean> {
+    public class C0106a extends BdAsyncTask<String, Integer, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public b a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ a f2995b;
+        public final /* synthetic */ a f2496b;
 
-        public C0117a(a aVar, b bVar) {
+        public C0106a(a aVar, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2995b = aVar;
+            this.f2496b = aVar;
             this.a = bVar;
         }
 
@@ -91,6 +91,7 @@ public class a {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
         public Boolean doInBackground(String... strArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -109,27 +110,27 @@ public class a {
         public void onPostExecute(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
-                super.onPostExecute((C0117a) bool);
-                this.f2995b.f2994c = null;
-                if (this.f2995b.f2993b.size() > 0) {
-                    Iterator it = this.f2995b.f2993b.iterator();
+                super.onPostExecute((C0106a) bool);
+                this.f2496b.f2495c = null;
+                if (this.f2496b.f2494b.size() > 0) {
+                    Iterator it = this.f2496b.f2494b.iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         b bVar = (b) it.next();
-                        if (this.f2995b.g(this.a, bVar)) {
-                            this.f2995b.f2993b.remove(bVar);
+                        if (this.f2496b.g(this.a, bVar)) {
+                            this.f2496b.f2494b.remove(bVar);
                             break;
                         }
                     }
                 }
-                if (bool != null && bool.booleanValue() && this.f2995b.a != null) {
-                    c cVar = this.f2995b.a;
+                if (bool != null && bool.booleanValue() && this.f2496b.a != null) {
+                    c cVar = this.f2496b.a;
                     b bVar2 = this.a;
-                    cVar.a(bVar2.f2996b, bVar2.a);
+                    cVar.a(bVar2.f2497b, bVar2.a);
                 }
-                this.f2995b.i();
+                this.f2496b.i();
             }
         }
     }
@@ -141,7 +142,7 @@ public class a {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2996b;
+        public String f2497b;
 
         public b(String str, String str2) {
             Interceptable interceptable = $ic;
@@ -150,15 +151,15 @@ public class a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2996b = str;
+            this.f2497b = str;
             this.a = str2;
         }
     }
@@ -173,29 +174,29 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f2993b = new ArrayList<>();
+        this.f2494b = new ArrayList<>();
     }
 
     public static a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (f2992d == null) {
+            if (f2493d == null) {
                 synchronized (a.class) {
-                    if (f2992d == null) {
-                        f2992d = new a();
+                    if (f2493d == null) {
+                        f2493d = new a();
                     }
                 }
             }
-            return f2992d;
+            return f2493d;
         }
         return (a) invokeV.objValue;
     }
@@ -209,9 +210,9 @@ public class a {
         Iterator<b> it = arrayList.iterator();
         while (it.hasNext()) {
             b next = it.next();
-            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f2996b)) {
+            if (next != null && !TextUtils.isEmpty(next.a) && !TextUtils.isEmpty(next.f2497b)) {
                 boolean z = false;
-                Iterator<b> it2 = this.f2993b.iterator();
+                Iterator<b> it2 = this.f2494b.iterator();
                 while (true) {
                     if (!it2.hasNext()) {
                         break;
@@ -221,7 +222,7 @@ public class a {
                     }
                 }
                 if (!z) {
-                    this.f2993b.add(next);
+                    this.f2494b.add(next);
                 }
             }
         }
@@ -231,15 +232,15 @@ public class a {
     public final boolean g(b bVar, b bVar2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f2996b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f2996b) || !bVar2.f2996b.equals(bVar.f2996b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar, bVar2)) == null) ? (bVar == null || bVar2 == null || TextUtils.isEmpty(bVar2.a) || TextUtils.isEmpty(bVar2.f2497b) || TextUtils.isEmpty(bVar.a) || TextUtils.isEmpty(bVar.f2497b) || !bVar2.f2497b.equals(bVar.f2497b) || !bVar2.a.equals(bVar.a)) ? false : true : invokeLL.booleanValue;
     }
 
     public final void i() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f2993b.size() != 0 && this.f2994c == null) {
-            C0117a c0117a = new C0117a(this, this.f2993b.get(0));
-            this.f2994c = c0117a;
-            c0117a.execute(new String[0]);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.f2494b.size() != 0 && this.f2495c == null) {
+            C0106a c0106a = new C0106a(this, this.f2494b.get(0));
+            this.f2495c = c0106a;
+            c0106a.execute(new String[0]);
         }
     }
 }

@@ -128,16 +128,16 @@ public interface FilterParam {
             $VALUES = new FaceFilter[]{babyFace, webCelebrityFace, normalFace, eye, thinFace, chinHeight, chinWidth, faceWidth, jawAngleWidth, eyeDistance, eyeAngle, eyebrowDistance, mouthWidth, threeCounts, upCount, middleCount, downCount, noseWingWidth, noseBridgeWidth, noseWidth, noseLength, cheekboneWidth, beautyJsonPath, beautyJsonStr, beautyDebugDrawMode, beautyReset, faceThinLR, faceThinC, faceThinLRC, faceThinLRCU, faceThinCRadius, faceThinLRRadius, faceThinCCloseRadius, faceThinCUpRadius, faceWidthRatio, faceWidth1Ratio, faceWidth2Ratio, faceWidthCURatio, faceWidthCRatio, faceWidthRadius, faceWidth1Radius, faceWidth2Radius, faceWidthCURadius, faceWidthCRadius, customLandmarkIndex, faceFilter};
         }
 
-        public FaceFilter(String str, int i2, String str2) {
+        public FaceFilter(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -205,16 +205,16 @@ public interface FilterParam {
             $VALUES = new LutFilter[]{lutFile, lutFilter};
         }
 
-        public LutFilter(String str, int i2, String str2) {
+        public LutFilter(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -300,16 +300,16 @@ public interface FilterParam {
             $VALUES = new MakeupFilter[]{lipsMask, cheeks, eyebrow, eyelash, eyeliner, eyeshadow, highlight, eyeball, lips, allMakeups, makeupFilter};
         }
 
-        public MakeupFilter(String str, int i2, String str2) {
+        public MakeupFilter(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -387,16 +387,16 @@ public interface FilterParam {
             $VALUES = new SkinFilter[]{whitenFile, smooth, whiten, enableFaceSmooth, enableFaceWhiten, blackEyeCircle, skinFilter};
         }
 
-        public SkinFilter(String str, int i2, String str2) {
+        public SkinFilter(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -482,16 +482,16 @@ public interface FilterParam {
             $VALUES = new TuneColorFilter[]{toneFile, brightness, contrast, saturation, rgbPoints, redPoints, greenPoints, bluePoints, curve, hazeAtom, tuneColorFilter};
         }
 
-        public TuneColorFilter(String str, int i2, String str2) {
+        public TuneColorFilter(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2), str2};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str3 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();

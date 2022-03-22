@@ -13,7 +13,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 import kotlin.jvm.internal.Ref;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u000e\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class BuoyComponent$taskSignCheck$1 extends Lambda implements Function0<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,9 +29,9 @@ public final class BuoyComponent$taskSignCheck$1 extends Lambda implements Funct
             newInitContext.initArgs = r2;
             Object[] objArr = {buoyComponent, objectRef};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -51,13 +51,13 @@ public final class BuoyComponent$taskSignCheck$1 extends Lambda implements Funct
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             String singleKey = ((TaskInfo) this.$tempCurTaskInfo.element).getSingleKey();
-            taskInfo = this.this$0.f31577h;
+            taskInfo = this.this$0.f24917h;
             if (!Intrinsics.areEqual(singleKey, taskInfo.getSingleKey())) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("taskSignCheck fail:curTaskInfo:");
                 sb.append((TaskInfo) this.$tempCurTaskInfo.element);
                 sb.append(" bindTaskInfo:");
-                taskInfo2 = this.this$0.f31577h;
+                taskInfo2 = this.this$0.f24917h;
                 sb.append(taskInfo2);
                 return sb.toString();
             }

@@ -24,9 +24,9 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -56,7 +56,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setStyle(1, R.style.poly_sdk_dialog_fragment_theme);
+            setStyle(1, R.style.obfuscated_res_0x7f1003c9);
         }
     }
 
@@ -66,7 +66,7 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-            getDialog().getWindow().getAttributes().windowAnimations = R.style.poly_sdk_dialog_fragment_anim;
+            getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003c8;
             return inflate;
         }
         return (View) invokeLLL.objValue;

@@ -11,9 +11,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.text.ExtendedMessageFormat;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class GetChargeOrderStatusResult {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +31,9 @@ public class GetChargeOrderStatusResult {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -85,24 +84,24 @@ public class GetChargeOrderStatusResult {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.finish : invokeV.booleanValue;
     }
 
-    public void setAmount(long j2) {
+    public void setAmount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            this.amount = j2;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.amount = j;
         }
     }
 
-    public void setCurrencyAmount(long j2) {
+    public void setCurrencyAmount(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j2) == null) {
-            this.currencyAmount = j2;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            this.currencyAmount = j;
         }
     }
 
-    public void setCurrencyType(int i2) {
+    public void setCurrencyType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i2) == null) {
-            this.currencyType = i2;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.currencyType = i;
         }
     }
 
@@ -120,17 +119,17 @@ public class GetChargeOrderStatusResult {
         }
     }
 
-    public void setHasGotSalePromotion(int i2) {
+    public void setHasGotSalePromotion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            this.hasGotSalePromotion = i2;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.hasGotSalePromotion = i;
         }
     }
 
-    public void setStatus(int i2) {
+    public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i2) == null) {
-            this.status = i2;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.status = i;
         }
     }
 
@@ -138,21 +137,21 @@ public class GetChargeOrderStatusResult {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return "GetChargeOrderStatusResult{status=" + this.status + ", hasGotSalePromotion=" + this.hasGotSalePromotion + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", finish=" + this.finish + ", message=" + this.message + ", giftbags=" + this.giftbags + ExtendedMessageFormat.END_FE;
+            return "GetChargeOrderStatusResult{status=" + this.status + ", hasGotSalePromotion=" + this.hasGotSalePromotion + ", currencyType=" + this.currencyType + ", amount=" + this.amount + ", currencyAmount=" + this.currencyAmount + ", finish=" + this.finish + ", message=" + this.message + ", giftbags=" + this.giftbags + '}';
         }
         return (String) invokeV.objValue;
     }
 
-    public GetChargeOrderStatusResult(String str, int i2, String str2, int i3, int i4, long j2, long j3, boolean z, List<GiftBagsInfo> list) {
+    public GetChargeOrderStatusResult(String str, int i, String str2, int i2, int i3, long j, long j2, boolean z, List<GiftBagsInfo> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, Integer.valueOf(i3), Integer.valueOf(i4), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z), list};
+            Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z), list};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -160,12 +159,12 @@ public class GetChargeOrderStatusResult {
         }
         this.giftbags = new ArrayList();
         this.expand = str;
-        this.status = i2;
+        this.status = i;
         this.message = str2;
-        this.hasGotSalePromotion = i3;
-        this.currencyType = i4;
-        this.amount = j2;
-        this.currencyAmount = j3;
+        this.hasGotSalePromotion = i2;
+        this.currencyType = i3;
+        this.amount = j;
+        this.currencyAmount = j2;
         this.finish = z;
         this.giftbags = list;
     }

@@ -25,8 +25,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
+import androidx.print.PrintHelper;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,35 +43,32 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.regex.Pattern;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes.dex */
 public class n {
     public static /* synthetic */ Interceptable $ic;
     public static boolean a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static float f2822b;
+    public static float f2342b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f2823c;
+    public static int f2343c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f2824d;
+    public static int f2344d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Toast f2825e;
+    public static Toast f2345e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static c f2826f;
+    public static c f2346f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f2827g;
+    public static String f2347g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static Handler f2828h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public static Runnable f2829i;
+    public static Handler f2348h;
+    public static Runnable i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -81,9 +81,9 @@ public class n {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -93,10 +93,10 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || n.f2825e == null) {
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || n.f2345e == null) {
                 return;
             }
-            n.f2825e.cancel();
+            n.f2345e.cancel();
         }
     }
 
@@ -104,46 +104,44 @@ public class n {
     public static class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        /* renamed from: b  reason: collision with root package name */
+        public final /* synthetic */ int f2349b;
+
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ int f2350c;
+
+        /* renamed from: d  reason: collision with root package name */
+        public final /* synthetic */ int f2351d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f2830e;
+        public final /* synthetic */ int f2352e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f2831f;
+        public final /* synthetic */ View f2353f;
 
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ int f2832g;
-
-        /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ int f2833h;
-
-        /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ int f2834i;
-
-        /* renamed from: j  reason: collision with root package name */
-        public final /* synthetic */ View f2835j;
-
-        public b(View view, int i2, int i3, int i4, int i5, View view2) {
+        public b(View view, int i, int i2, int i3, int i4, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), view2};
+                Object[] objArr = {view, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), view2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i6 = newInitContext.flag;
-                if ((i6 & 1) != 0) {
-                    int i7 = i6 & 2;
+                int i5 = newInitContext.flag;
+                if ((i5 & 1) != 0) {
+                    int i6 = i5 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2830e = view;
-            this.f2831f = i2;
-            this.f2832g = i3;
-            this.f2833h = i4;
-            this.f2834i = i5;
-            this.f2835j = view2;
+            this.a = view;
+            this.f2349b = i;
+            this.f2350c = i2;
+            this.f2351d = i3;
+            this.f2352e = i4;
+            this.f2353f = view2;
         }
 
         @Override // java.lang.Runnable
@@ -151,12 +149,12 @@ public class n {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Rect rect = new Rect();
-                this.f2830e.getHitRect(rect);
-                rect.right += this.f2831f;
-                rect.left -= this.f2832g;
-                rect.bottom += this.f2833h;
-                rect.top -= this.f2834i;
-                this.f2835j.setTouchDelegate(new TouchDelegate(rect, this.f2830e));
+                this.a.getHitRect(rect);
+                rect.right += this.f2349b;
+                rect.left -= this.f2350c;
+                rect.bottom += this.f2351d;
+                rect.top -= this.f2352e;
+                this.f2353f.setTouchDelegate(new TouchDelegate(rect, this.a));
             }
         }
     }
@@ -183,8 +181,8 @@ public class n {
                 return;
             }
         }
-        f2828h = new Handler(Looper.getMainLooper());
-        f2829i = new a();
+        f2348h = new Handler(Looper.getMainLooper());
+        i = new a();
     }
 
     public static boolean A(byte[] bArr) {
@@ -243,7 +241,7 @@ public class n {
                     PackageManager packageManager = context.getPackageManager();
                     if (packageManager != null && (launchIntentForPackage = packageManager.getLaunchIntentForPackage(context.getPackageName())) != null) {
                         launchIntentForPackage.addFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-                        ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).set(1, System.currentTimeMillis() + 100, PendingIntent.getActivity(context, 950731, launchIntentForPackage, 268435456));
+                        ((AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM)).set(1, System.currentTimeMillis() + 100, PendingIntent.getActivity(context, 950731, launchIntentForPackage, LaunchTaskConstants.OTHER_PROCESS));
                     }
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -257,7 +255,7 @@ public class n {
     public static void H(c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, cVar) == null) {
-            f2826f = cVar;
+            f2346f = cVar;
         }
     }
 
@@ -266,19 +264,19 @@ public class n {
         if (!(interceptable == null || interceptable.invokeLLLI(65545, null, context, str, spannableString, i2) == null) || TextUtils.isEmpty(spannableString) || TextUtils.isEmpty(spannableString)) {
             return;
         }
-        f2828h.removeCallbacks(f2829i);
-        if (f2825e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f2826f;
+        f2348h.removeCallbacks(i);
+        if (f2345e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f2346f;
             if (cVar != null) {
                 cVar.createToastView();
             }
-            if (!spannableString.equals(f2827g)) {
-                c cVar2 = f2826f;
+            if (!spannableString.equals(f2347g)) {
+                c cVar2 = f2346f;
                 if (cVar2 != null && cVar2.getToastContentView() != null) {
-                    f2826f.setToastString(str);
-                    f2825e.setView(f2826f.getToastContentView());
+                    f2346f.setToastString(str);
+                    f2345e.setView(f2346f.getToastContentView());
                 } else {
-                    f2825e.setText(spannableString);
+                    f2345e.setText(spannableString);
                 }
             }
             int d2 = d(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -286,53 +284,53 @@ public class n {
                 d2 = 0;
             }
             if (i2 == 3500) {
-                f2825e.setDuration(1);
+                f2345e.setDuration(1);
             } else {
-                f2825e.setDuration(0);
+                f2345e.setDuration(0);
             }
-            f2825e.setGravity(17, 0, d2);
+            f2345e.setGravity(17, 0, d2);
         } else {
-            Toast toast = f2825e;
+            Toast toast = f2345e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f2826f;
+            c cVar3 = f2346f;
             if (cVar3 != null) {
                 cVar3.createToastView();
             }
-            c cVar4 = f2826f;
+            c cVar4 = f2346f;
             if (cVar4 != null && cVar4.getToastContentView() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f2825e = toast2;
+                f2345e = toast2;
                 x.a(toast2);
                 if (i2 == 3500) {
-                    f2825e.setDuration(1);
+                    f2345e.setDuration(1);
                 } else {
-                    f2825e.setDuration(0);
+                    f2345e.setDuration(0);
                 }
-                f2826f.setToastString(str);
-                f2825e.setView(f2826f.getToastContentView());
+                f2346f.setToastString(str);
+                f2345e.setView(f2346f.getToastContentView());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), spannableString, 1);
-                    f2825e = makeText;
+                    f2345e = makeText;
                     x.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), spannableString, 0);
-                    f2825e = makeText2;
+                    f2345e = makeText2;
                     x.a(makeText2);
                 }
-                f2825e.setText(spannableString);
+                f2345e.setText(spannableString);
             }
-            f2825e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
+            f2345e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        c cVar5 = f2826f;
+        c cVar5 = f2346f;
         if (cVar5 != null && (cVar5.getToastContentView() instanceof TextView)) {
-            ((TextView) f2826f.getToastContentView()).setText(spannableString);
+            ((TextView) f2346f.getToastContentView()).setText(spannableString);
         }
-        f2827g = str;
-        f2828h.postDelayed(f2829i, i2);
-        f2825e.show();
+        f2347g = str;
+        f2348h.postDelayed(i, i2);
+        f2345e.show();
     }
 
     public static void J(Context context, int i2) {
@@ -345,7 +343,7 @@ public class n {
     public static void K(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65547, null, context, str) == null) {
-            O(context, str, 3500);
+            O(context, str, PrintHelper.MAX_PRINT_SIZE);
         }
     }
 
@@ -379,19 +377,19 @@ public class n {
         if (!(interceptable == null || interceptable.invokeLLI(65551, null, context, str, i2) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str)) {
             return;
         }
-        f2828h.removeCallbacks(f2829i);
-        if (f2825e != null && Build.VERSION.SDK_INT < 28) {
-            c cVar = f2826f;
+        f2348h.removeCallbacks(i);
+        if (f2345e != null && Build.VERSION.SDK_INT < 28) {
+            c cVar = f2346f;
             if (cVar != null) {
                 cVar.createToastView();
             }
-            if (!str.equals(f2827g)) {
-                c cVar2 = f2826f;
+            if (!str.equals(f2347g)) {
+                c cVar2 = f2346f;
                 if (cVar2 != null && cVar2.getToastContentView() != null) {
-                    f2826f.setToastString(str);
-                    f2825e.setView(f2826f.getToastContentView());
+                    f2346f.setToastString(str);
+                    f2345e.setView(f2346f.getToastContentView());
                 } else {
-                    f2825e.setText(str);
+                    f2345e.setText(str);
                 }
             }
             int d2 = d(BdBaseApplication.getInst().getApp(), 100.0f);
@@ -399,49 +397,49 @@ public class n {
                 d2 = 0;
             }
             if (i2 == 3500) {
-                f2825e.setDuration(1);
+                f2345e.setDuration(1);
             } else {
-                f2825e.setDuration(0);
+                f2345e.setDuration(0);
             }
-            f2825e.setGravity(17, 0, d2);
+            f2345e.setGravity(17, 0, d2);
         } else {
-            Toast toast = f2825e;
+            Toast toast = f2345e;
             if (toast != null) {
                 toast.cancel();
             }
-            c cVar3 = f2826f;
+            c cVar3 = f2346f;
             if (cVar3 != null) {
                 cVar3.createToastView();
             }
-            c cVar4 = f2826f;
+            c cVar4 = f2346f;
             if (cVar4 != null && cVar4.getToastContentView() != null) {
                 Toast toast2 = new Toast(BdBaseApplication.getInst().getApp());
-                f2825e = toast2;
+                f2345e = toast2;
                 x.a(toast2);
                 if (i2 == 3500) {
-                    f2825e.setDuration(1);
+                    f2345e.setDuration(1);
                 } else {
-                    f2825e.setDuration(0);
+                    f2345e.setDuration(0);
                 }
-                f2826f.setToastString(str);
-                f2825e.setView(f2826f.getToastContentView());
+                f2346f.setToastString(str);
+                f2345e.setView(f2346f.getToastContentView());
             } else {
                 if (i2 == 3500) {
                     Toast makeText = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 1);
-                    f2825e = makeText;
+                    f2345e = makeText;
                     x.a(makeText);
                 } else {
                     Toast makeText2 = Toast.makeText(BdBaseApplication.getInst().getApp(), str, 0);
-                    f2825e = makeText2;
+                    f2345e = makeText2;
                     x.a(makeText2);
                 }
-                f2825e.setText(str);
+                f2345e.setText(str);
             }
-            f2825e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
+            f2345e.setGravity(17, 0, d(BdBaseApplication.getInst().getApp(), 100.0f));
         }
-        f2827g = str;
-        f2828h.postDelayed(f2829i, i2);
-        f2825e.show();
+        f2347g = str;
+        f2348h.postDelayed(i, i2);
+        f2345e.show();
     }
 
     public static void b(Context context, View view, int i2, int i3, int i4, int i5) {
@@ -468,7 +466,7 @@ public class n {
                     sb.append(stackTrace[i2].getMethodName());
                     sb.append("  lines = ");
                     sb.append(stackTrace[i2].getLineNumber());
-                    sb.append(StringUtils.LF);
+                    sb.append("\n");
                 }
                 BdLog.e("can not be call not thread! trace = \n" + sb.toString());
                 throw new Error("can not be call not thread! trace = " + sb.toString());
@@ -483,7 +481,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return (int) ((f2 * f2822b) + 0.5f);
+            return (int) ((f2 * f2342b) + 0.5f);
         }
         return invokeLF.intValue;
     }
@@ -530,7 +528,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f2822b;
+            return f2342b;
         }
         return invokeL.floatValue;
     }
@@ -542,7 +540,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f2824d;
+            return f2344d;
         }
         return invokeL.intValue;
     }
@@ -554,7 +552,7 @@ public class n {
             if (!a || z) {
                 x(context);
             }
-            return f2824d;
+            return f2344d;
         }
         return invokeLZ.intValue;
     }
@@ -566,7 +564,7 @@ public class n {
             if (!a) {
                 x(context);
             }
-            return f2823c;
+            return f2343c;
         }
         return invokeL.intValue;
     }
@@ -749,7 +747,7 @@ public class n {
             if (i2 == 0) {
                 try {
                     Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                    return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
+                    return activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField(SapiSystemBarTintManager.SystemBarConfig.f27942g).get(cls.newInstance()).toString()));
                 } catch (ClassNotFoundException e2) {
                     e2.printStackTrace();
                     return i2;
@@ -813,7 +811,7 @@ public class n {
     public static c u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? f2826f : (c) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? f2346f : (c) invokeV.objValue;
     }
 
     public static String v() {
@@ -863,13 +861,13 @@ public class n {
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
             int orientation = windowManager.getDefaultDisplay().getOrientation();
             if (orientation != 1 && orientation != 3) {
-                f2823c = displayMetrics.widthPixels;
-                f2824d = displayMetrics.heightPixels;
+                f2343c = displayMetrics.widthPixels;
+                f2344d = displayMetrics.heightPixels;
             } else {
-                f2823c = displayMetrics.heightPixels;
-                f2824d = displayMetrics.widthPixels;
+                f2343c = displayMetrics.heightPixels;
+                f2344d = displayMetrics.widthPixels;
             }
-            f2822b = displayMetrics.density;
+            f2342b = displayMetrics.density;
             a = true;
         }
     }
@@ -883,7 +881,7 @@ public class n {
             }
             try {
                 String str = new String(bArr, 0, 16, "UTF-8");
-                if (str.indexOf(com.baidu.wallet.base.audio.b.f49100e) == 0) {
+                if (str.indexOf("RIFF") == 0) {
                     return 8 == str.indexOf("WEBPVP8 ");
                 }
                 return false;

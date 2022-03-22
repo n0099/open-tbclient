@@ -1,6 +1,5 @@
 package com.kwad.sdk.core.b.kwai;
 
-import com.dxmpay.wallet.paysdk.entrance.EnterDxmPayServiceAction;
 import com.kwad.sdk.contentalliance.coupon.model.CouponStatusInfo;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
@@ -11,7 +10,7 @@ public class ar implements com.kwad.sdk.core.d<CouponStatusInfo> {
         if (jSONObject == null) {
             return;
         }
-        couponStatusInfo.statusCode = jSONObject.optInt(EnterDxmPayServiceAction.SERVICE_STATUS_CODE, new Integer("-1").intValue());
+        couponStatusInfo.statusCode = jSONObject.optInt("statusCode", new Integer("-1").intValue());
         couponStatusInfo.statusName = jSONObject.optString("statusName");
         if (jSONObject.opt("statusName") == JSONObject.NULL) {
             couponStatusInfo.statusName = "";
@@ -27,7 +26,7 @@ public class ar implements com.kwad.sdk.core.d<CouponStatusInfo> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.t.a(jSONObject, EnterDxmPayServiceAction.SERVICE_STATUS_CODE, couponStatusInfo.statusCode);
+        com.kwad.sdk.utils.t.a(jSONObject, "statusCode", couponStatusInfo.statusCode);
         com.kwad.sdk.utils.t.a(jSONObject, "statusName", couponStatusInfo.statusName);
         com.kwad.sdk.utils.t.a(jSONObject, "currTotalAmount", couponStatusInfo.currTotalAmount);
         com.kwad.sdk.utils.t.a(jSONObject, "couponLeftTimes", couponStatusInfo.couponLeftTimes);

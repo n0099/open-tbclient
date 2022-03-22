@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import com.tachikoma.core.component.anim.TimeFunctionConst;
 import com.tachikoma.core.component.listview.TKPagerIndicatorDecoration;
 import java.util.List;
 @TK_EXPORT_CLASS
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKIndicator extends TKBase<View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -37,9 +38,9 @@ public class TKIndicator extends TKBase<View> {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (List) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -57,7 +58,7 @@ public class TKIndicator extends TKBase<View> {
             String str = this.mType;
             int hashCode = str.hashCode();
             if (hashCode == -1360216880) {
-                if (str.equals("circle")) {
+                if (str.equals(Config.TRACE_CIRCLE)) {
                     c2 = 2;
                 }
                 c2 = 65535;
@@ -109,31 +110,31 @@ public class TKIndicator extends TKBase<View> {
         }
     }
 
-    public void setMarginTop(int i2) {
+    public void setMarginTop(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mMarginTop = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mMarginTop = i;
         }
     }
 
-    public void setPadding(int i2) {
+    public void setPadding(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            this.mPadding = i2;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.mPadding = i;
         }
     }
 
-    public void setSize(int i2) {
+    public void setSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.mSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.mSize = i;
         }
     }
 
-    public void setTextSize(int i2) {
+    public void setTextSize(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
-            this.mTextSize = i2;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mTextSize = i;
         }
     }
 

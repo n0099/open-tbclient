@@ -3,11 +3,11 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 public interface OnGenFilterVideoListener {
     void onGenFilterVideoAbort();
 
-    void onGenFilterVideoFail(int i2, String str);
+    void onGenFilterVideoFail(int i, String str);
 
-    void onGenFilterVideoProgress(int i2);
+    void onGenFilterVideoProgress(int i);
 
-    void onGenFilterVideoRecordError(int i2, String str);
+    void onGenFilterVideoRecordError(int i, String str);
 
     void onGenFilterVideoSuccess(String str);
 }

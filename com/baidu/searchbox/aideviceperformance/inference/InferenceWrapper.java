@@ -1,6 +1,7 @@
 package com.baidu.searchbox.aideviceperformance.inference;
 
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.ai.AlgorithmType;
@@ -32,9 +33,9 @@ public class InferenceWrapper implements AutoCloseable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -117,14 +118,14 @@ public class InferenceWrapper implements AutoCloseable {
                 if (Common.getSDKVersion() != null) {
                     if (TextUtils.isEmpty(devicePerformanceModelInfo.modelPath)) {
                         if (InferenceConfig.DEBUG) {
-                            String str = "has no model for id: " + devicePerformanceModelInfo.modelPath;
+                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
                         }
                         throw new ModelLoadException(-1, "has no model");
                     } else if (new File(devicePerformanceModelInfo.modelPath).exists()) {
                         return true;
                     } else {
                         if (InferenceConfig.DEBUG) {
-                            String str2 = "has no model for id: " + devicePerformanceModelInfo.modelPath;
+                            Log.d(TAG, "has no model for id: " + devicePerformanceModelInfo.modelPath);
                         }
                         throw new ModelLoadException(-1, "has no model");
                     }

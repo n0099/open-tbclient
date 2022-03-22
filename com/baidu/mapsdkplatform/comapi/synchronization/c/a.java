@@ -18,32 +18,32 @@ public class a {
     public int a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34603b;
+    public int f26794b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f34604c;
+    public ExecutorService f26795c;
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static abstract class AbstractRunnableC1814a implements Runnable {
+    public static abstract class AbstractRunnableC1768a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public AbstractRunnableC1814a() {
+        public AbstractRunnableC1768a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public /* synthetic */ AbstractRunnableC1814a(b bVar) {
+        public /* synthetic */ AbstractRunnableC1768a(b bVar) {
             this();
         }
 
@@ -81,17 +81,17 @@ public class a {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = 4000;
-        this.f34603b = 4000;
-        this.f34604c = Executors.newCachedThreadPool();
+        this.f26794b = 4000;
+        this.f26795c = Executors.newCachedThreadPool();
     }
 
     public void a(String str, e eVar) {
@@ -100,7 +100,7 @@ public class a {
             if (str == null || str.isEmpty()) {
                 throw new IllegalArgumentException("Request URL cannot be null");
             }
-            this.f34604c.submit(new b(this, eVar, str));
+            this.f26795c.submit(new b(this, eVar, str));
         }
     }
 }

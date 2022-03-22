@@ -21,9 +21,9 @@ public class NavItemSelectedListener implements AdapterView.OnItemSelectedListen
             newInitContext.initArgs = r2;
             Object[] objArr = {onNavigationListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,13 +33,13 @@ public class NavItemSelectedListener implements AdapterView.OnItemSelectedListen
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i2, long j2) {
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long j) {
         ActionBar.OnNavigationListener onNavigationListener;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i2), Long.valueOf(j2)}) == null) || (onNavigationListener = this.mListener) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view, Integer.valueOf(i), Long.valueOf(j)}) == null) || (onNavigationListener = this.mListener) == null) {
             return;
         }
-        onNavigationListener.onNavigationItemSelected(i2, j2);
+        onNavigationListener.onNavigationItemSelected(i, j);
     }
 
     @Override // android.widget.AdapterView.OnItemSelectedListener

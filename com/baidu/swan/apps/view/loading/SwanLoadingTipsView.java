@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import c.a.p0.a.p2.q0;
+import c.a.n0.a.p2.q0;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,33 +23,29 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0003\b\u0007\u0018\u00002\u00020\u0001B\u0011\b\u0016\u0012\u0006\u0010\u0006\u001a\u00020\u0005¢\u0006\u0004\b\u001f\u0010\bB\u0019\b\u0016\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010!\u001a\u00020 ¢\u0006\u0004\b\u001f\u0010\"J\r\u0010\u0003\u001a\u00020\u0002¢\u0006\u0004\b\u0003\u0010\u0004J\u0017\u0010\u0007\u001a\u00020\u00022\u0006\u0010\u0006\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0017\u0010\u000b\u001a\u00020\u00022\b\u0010\n\u001a\u0004\u0018\u00010\t¢\u0006\u0004\b\u000b\u0010\fJ\u000f\u0010\r\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\r\u0010\u0004R\u0018\u0010\u000f\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u000f\u0010\u0010R\u0018\u0010\u0011\u001a\u0004\u0018\u00010\u000e8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u0011\u0010\u0010R*\u0010\u0013\u001a\n\u0012\u0004\u0012\u00020\u0002\u0018\u00010\u00128\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0013\u0010\u0014\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018R\u0016\u0010\u001a\u001a\u00020\u00198\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001a\u0010\u001bR\u0018\u0010\u001d\u001a\u0004\u0018\u00010\u001c8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b\u001d\u0010\u001e¨\u0006#"}, d2 = {"Lcom/baidu/swan/apps/view/loading/SwanLoadingTipsView;", "Landroid/widget/RelativeLayout;", "", "doDestroy", "()V", "Landroid/content/Context;", "context", "init", "(Landroid/content/Context;)V", "", "tips", "startTipsAppearAnimation", "(Ljava/lang/String;)V", "startTipsDisAppearAnimation", "Landroid/animation/ObjectAnimator;", "appearAnimator", "Landroid/animation/ObjectAnimator;", "disAppearAnimator", "Lkotlin/Function0;", "tipsAnimationFinishCallback", "Lkotlin/Function0;", "getTipsAnimationFinishCallback", "()Lkotlin/jvm/functions/Function0;", "setTipsAnimationFinishCallback", "(Lkotlin/jvm/functions/Function0;)V", "Ljava/lang/Runnable;", "tipsDismissRunnable", "Ljava/lang/Runnable;", "Landroid/widget/TextView;", "tipsView", "Landroid/widget/TextView;", "<init>", "Landroid/util/AttributeSet;", "attrs", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 @SuppressLint({"SwanCommentErr"})
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class SwanLoadingTipsView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Function0<Unit> a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public TextView f29351b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public ObjectAnimator f29352c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ObjectAnimator f29353d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Function0<Unit> f38127e;
+    public Runnable f29354e;
 
-    /* renamed from: f  reason: collision with root package name */
-    public TextView f38128f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public ObjectAnimator f38129g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public ObjectAnimator f38130h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public Runnable f38131i;
-
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f38132e;
+        public final /* synthetic */ SwanLoadingTipsView a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public a(SwanLoadingTipsView swanLoadingTipsView) {
@@ -59,15 +55,15 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanLoadingTipsView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38132e = swanLoadingTipsView;
+            this.a = swanLoadingTipsView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -81,7 +77,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                q0.b0(this.f38132e.f38131i, 2000L);
+                q0.b0(this.a.f29354e, 2000L);
             }
         }
 
@@ -96,18 +92,16 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationStart(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-                this.f38132e.setVisibility(0);
+                this.a.setVisibility(0);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class b implements Animator.AnimatorListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f38133e;
+        public final /* synthetic */ SwanLoadingTipsView a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
         public b(SwanLoadingTipsView swanLoadingTipsView) {
@@ -117,15 +111,15 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanLoadingTipsView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38133e = swanLoadingTipsView;
+            this.a = swanLoadingTipsView;
         }
 
         @Override // android.animation.Animator.AnimatorListener
@@ -139,8 +133,8 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.f38133e.setVisibility(8);
-                Function0<Unit> tipsAnimationFinishCallback = this.f38133e.getTipsAnimationFinishCallback();
+                this.a.setVisibility(8);
+                Function0<Unit> tipsAnimationFinishCallback = this.a.getTipsAnimationFinishCallback();
                 if (tipsAnimationFinishCallback != null) {
                     tipsAnimationFinishCallback.invoke();
                 }
@@ -162,13 +156,11 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     public static final class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ SwanLoadingTipsView f38134e;
+        public final /* synthetic */ SwanLoadingTipsView a;
 
         public c(SwanLoadingTipsView swanLoadingTipsView) {
             Interceptable interceptable = $ic;
@@ -177,22 +169,22 @@ public final class SwanLoadingTipsView extends RelativeLayout {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {swanLoadingTipsView};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f38134e = swanLoadingTipsView;
+            this.a = swanLoadingTipsView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.f38134e.b();
+                this.a.f();
             }
         }
     }
@@ -206,9 +198,9 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -216,76 +208,117 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             }
         }
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f38131i = new c(this);
-        a(context);
+        this.f29354e = new c(this);
+        d(context);
     }
 
-    public final void a(Context context) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View.inflate(context, R.layout.aiapps_games_loading_tips_view, this);
-            this.f38128f = (TextView) findViewById(R.id.aiapps_games_loading_tips_message);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ObjectAnimator objectAnimator = this.f38130h;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            Runnable runnable = this.f29354e;
+            if (runnable != null) {
+                q0.d0(runnable);
+            }
+            ObjectAnimator objectAnimator = this.f29352c;
             if (objectAnimator != null) {
                 if (objectAnimator != null) {
                     objectAnimator.removeAllListeners();
                 }
-                ObjectAnimator objectAnimator2 = this.f38130h;
+                ObjectAnimator objectAnimator2 = this.f29352c;
+                if (objectAnimator2 != null) {
+                    objectAnimator2.cancel();
+                }
+                this.f29352c = null;
+            }
+            ObjectAnimator objectAnimator3 = this.f29353d;
+            if (objectAnimator3 != null) {
+                if (objectAnimator3 != null) {
+                    objectAnimator3.removeAllListeners();
+                }
+                ObjectAnimator objectAnimator4 = this.f29353d;
+                if (objectAnimator4 != null) {
+                    objectAnimator4.cancel();
+                }
+                this.f29353d = null;
+            }
+        }
+    }
+
+    public final void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            View.inflate(context, R.layout.obfuscated_res_0x7f0d00b2, this);
+            this.f29351b = (TextView) findViewById(R.id.obfuscated_res_0x7f090193);
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (str == null || str.length() == 0) {
+                return;
+            }
+            TextView textView = this.f29351b;
+            if (textView != null) {
+                textView.setText(str);
+            }
+            setVisibility(8);
+            ObjectAnimator objectAnimator = this.f29352c;
+            if (objectAnimator != null) {
+                if (objectAnimator != null) {
+                    objectAnimator.removeAllListeners();
+                }
+                ObjectAnimator objectAnimator2 = this.f29352c;
+                if (objectAnimator2 != null) {
+                    objectAnimator2.cancel();
+                }
+            }
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 1.0f);
+            this.f29352c = ofFloat;
+            if (ofFloat != null) {
+                ofFloat.setDuration(500L);
+            }
+            ObjectAnimator objectAnimator3 = this.f29352c;
+            if (objectAnimator3 != null) {
+                objectAnimator3.setStartDelay(1000L);
+            }
+            ObjectAnimator objectAnimator4 = this.f29352c;
+            if (objectAnimator4 != null) {
+                objectAnimator4.addListener(new a(this));
+            }
+            ObjectAnimator objectAnimator5 = this.f29352c;
+            if (objectAnimator5 != null) {
+                objectAnimator5.start();
+            }
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ObjectAnimator objectAnimator = this.f29353d;
+            if (objectAnimator != null) {
+                if (objectAnimator != null) {
+                    objectAnimator.removeAllListeners();
+                }
+                ObjectAnimator objectAnimator2 = this.f29353d;
                 if (objectAnimator2 != null) {
                     objectAnimator2.cancel();
                 }
             }
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 1.0f, 0.0f);
-            this.f38130h = ofFloat;
+            this.f29353d = ofFloat;
             if (ofFloat != null) {
                 ofFloat.setDuration(500L);
             }
-            ObjectAnimator objectAnimator3 = this.f38130h;
+            ObjectAnimator objectAnimator3 = this.f29353d;
             if (objectAnimator3 != null) {
                 objectAnimator3.addListener(new b(this));
             }
-            ObjectAnimator objectAnimator4 = this.f38130h;
+            ObjectAnimator objectAnimator4 = this.f29353d;
             if (objectAnimator4 != null) {
                 objectAnimator4.start();
-            }
-        }
-    }
-
-    public final void doDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f38127e = null;
-            Runnable runnable = this.f38131i;
-            if (runnable != null) {
-                q0.d0(runnable);
-            }
-            ObjectAnimator objectAnimator = this.f38129g;
-            if (objectAnimator != null) {
-                if (objectAnimator != null) {
-                    objectAnimator.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator2 = this.f38129g;
-                if (objectAnimator2 != null) {
-                    objectAnimator2.cancel();
-                }
-                this.f38129g = null;
-            }
-            ObjectAnimator objectAnimator3 = this.f38130h;
-            if (objectAnimator3 != null) {
-                if (objectAnimator3 != null) {
-                    objectAnimator3.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator4 = this.f38130h;
-                if (objectAnimator4 != null) {
-                    objectAnimator4.cancel();
-                }
-                this.f38130h = null;
             }
         }
     }
@@ -293,54 +326,13 @@ public final class SwanLoadingTipsView extends RelativeLayout {
     public final Function0<Unit> getTipsAnimationFinishCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f38127e : (Function0) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (Function0) invokeV.objValue;
     }
 
     public final void setTipsAnimationFinishCallback(Function0<Unit> function0) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, function0) == null) {
-            this.f38127e = function0;
-        }
-    }
-
-    public final void startTipsAppearAnimation(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (str == null || str.length() == 0) {
-                return;
-            }
-            TextView textView = this.f38128f;
-            if (textView != null) {
-                textView.setText(str);
-            }
-            setVisibility(8);
-            ObjectAnimator objectAnimator = this.f38129g;
-            if (objectAnimator != null) {
-                if (objectAnimator != null) {
-                    objectAnimator.removeAllListeners();
-                }
-                ObjectAnimator objectAnimator2 = this.f38129g;
-                if (objectAnimator2 != null) {
-                    objectAnimator2.cancel();
-                }
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this, AnimationProperty.OPACITY, 0.0f, 1.0f);
-            this.f38129g = ofFloat;
-            if (ofFloat != null) {
-                ofFloat.setDuration(500L);
-            }
-            ObjectAnimator objectAnimator3 = this.f38129g;
-            if (objectAnimator3 != null) {
-                objectAnimator3.setStartDelay(1000L);
-            }
-            ObjectAnimator objectAnimator4 = this.f38129g;
-            if (objectAnimator4 != null) {
-                objectAnimator4.addListener(new a(this));
-            }
-            ObjectAnimator objectAnimator5 = this.f38129g;
-            if (objectAnimator5 != null) {
-                objectAnimator5.start();
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, function0) == null) {
+            this.a = function0;
         }
     }
 
@@ -353,9 +345,9 @@ public final class SwanLoadingTipsView extends RelativeLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attrs};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -365,7 +357,7 @@ public final class SwanLoadingTipsView extends RelativeLayout {
         }
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(attrs, "attrs");
-        this.f38131i = new c(this);
-        a(context);
+        this.f29354e = new c(this);
+        d(context);
     }
 }

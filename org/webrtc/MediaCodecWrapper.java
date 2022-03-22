@@ -6,15 +6,15 @@ import android.media.MediaFormat;
 import android.os.Bundle;
 import android.view.Surface;
 import java.nio.ByteBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public interface MediaCodecWrapper {
-    void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i2);
+    void configure(MediaFormat mediaFormat, Surface surface, MediaCrypto mediaCrypto, int i);
 
     Surface createInputSurface();
 
-    int dequeueInputBuffer(long j2);
+    int dequeueInputBuffer(long j);
 
-    int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j2);
+    int dequeueOutputBuffer(MediaCodec.BufferInfo bufferInfo, long j);
 
     void flush();
 
@@ -26,11 +26,11 @@ public interface MediaCodecWrapper {
 
     MediaFormat getOutputFormat();
 
-    void queueInputBuffer(int i2, int i3, int i4, long j2, int i5);
+    void queueInputBuffer(int i, int i2, int i3, long j, int i4);
 
     void release();
 
-    void releaseOutputBuffer(int i2, boolean z);
+    void releaseOutputBuffer(int i, boolean z);
 
     void setParameters(Bundle bundle);
 

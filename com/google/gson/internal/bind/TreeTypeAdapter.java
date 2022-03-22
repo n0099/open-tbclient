@@ -23,7 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,13 +36,13 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
     public final TypeToken<T> typeToken;
 
     /* renamed from: com.google.gson.internal.bind.TreeTypeAdapter$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class GsonContextImpl implements JsonSerializationContext, JsonDeserializationContext {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -55,9 +55,9 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {treeTypeAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -92,7 +92,7 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class SingleTypeFactory implements TypeAdapterFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -109,9 +109,9 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {obj, typeToken, Boolean.valueOf(z), cls};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -154,9 +154,9 @@ public final class TreeTypeAdapter<T> extends TypeAdapter<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {jsonSerializer, jsonDeserializer, gson, typeToken, typeAdapterFactory};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

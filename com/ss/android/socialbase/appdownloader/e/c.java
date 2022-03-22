@@ -12,23 +12,23 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c {
     public static int a = 8;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile c f58322b;
+    public static volatile c f43059b;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<Integer, Bitmap> f58323c;
+    public a<Integer, Bitmap> f43060c;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a<K, T> extends LinkedHashMap<K, T> {
         public final int a;
 
-        public a(int i2, int i3) {
-            super(i3, 0.75f, true);
-            this.a = i2;
+        public a(int i, int i2) {
+            super(i2, 0.75f, true);
+            this.a = i;
         }
 
         @Override // java.util.LinkedHashMap
@@ -38,9 +38,9 @@ public class c {
     }
 
     public c() {
-        this.f58323c = null;
-        int i2 = a;
-        this.f58323c = new a<>(i2, i2 / 2);
+        this.f43060c = null;
+        int i = a;
+        this.f43060c = new a<>(i, i / 2);
     }
 
     public static ByteArrayOutputStream b(InputStream inputStream) throws IOException {
@@ -58,22 +58,22 @@ public class c {
     }
 
     public static c a() {
-        if (f58322b == null) {
+        if (f43059b == null) {
             synchronized (c.class) {
-                if (f58322b == null) {
-                    f58322b = new c();
+                if (f43059b == null) {
+                    f43059b = new c();
                 }
             }
         }
-        return f58322b;
+        return f43059b;
     }
 
-    public Bitmap a(int i2) {
-        return this.f58323c.get(Integer.valueOf(i2));
+    public Bitmap a(int i) {
+        return this.f43060c.get(Integer.valueOf(i));
     }
 
-    public void a(final int i2, final String str) {
-        if (TextUtils.isEmpty(str) || a(i2) != null) {
+    public void a(final int i, final String str) {
+        if (TextUtils.isEmpty(str) || a(i) != null) {
             return;
         }
         com.ss.android.socialbase.downloader.downloader.c.m().submit(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.e.c.1
@@ -96,11 +96,11 @@ public class c {
                 Throwable th;
                 InputStream inputStream;
                 Exception e2;
-                int i3 = 4;
-                i3 = 4;
-                i3 = 4;
-                i3 = 4;
-                i3 = 4;
+                int i2 = 4;
+                i2 = 4;
+                i2 = 4;
+                i2 = 4;
+                i2 = 4;
                 try {
                     try {
                         i a2 = com.ss.android.socialbase.downloader.downloader.c.a(true, 0, str, null);
@@ -142,13 +142,13 @@ public class c {
                                 int a3 = com.ss.android.socialbase.appdownloader.c.a(com.ss.android.socialbase.downloader.downloader.c.N(), 44.0f);
                                 options.inSampleSize = c.a(a3, a3, options);
                                 options.inJustDecodeBounds = false;
-                                c.this.f58323c.put(Integer.valueOf(i2), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
+                                c.this.f43060c.put(Integer.valueOf(i), BitmapFactory.decodeStream(byteArrayInputStream2, null, options));
                                 f.a(inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2);
                             } catch (Exception e5) {
                                 e2 = e5;
                                 e2.printStackTrace();
-                                i3 = new Closeable[]{inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2};
-                                f.a((Closeable[]) i3);
+                                i2 = new Closeable[]{inputStream, byteArrayOutputStream, byteArrayInputStream, byteArrayInputStream2};
+                                f.a((Closeable[]) i2);
                             }
                         } catch (Exception e6) {
                             byteArrayInputStream2 = null;
@@ -156,7 +156,7 @@ public class c {
                         } catch (Throwable th4) {
                             byteArrayInputStream2 = null;
                             th = th4;
-                            Closeable[] closeableArr = new Closeable[i3];
+                            Closeable[] closeableArr = new Closeable[i2];
                             closeableArr[0] = inputStream;
                             closeableArr[1] = byteArrayOutputStream;
                             closeableArr[2] = byteArrayInputStream;
@@ -184,9 +184,9 @@ public class c {
         });
     }
 
-    public static int a(int i2, int i3, BitmapFactory.Options options) {
-        if (options.outWidth > i2 || options.outHeight > i3) {
-            return Math.min(Math.round(options.outWidth / i2), Math.round(options.outHeight / i3));
+    public static int a(int i, int i2, BitmapFactory.Options options) {
+        if (options.outWidth > i || options.outHeight > i2) {
+            return Math.min(Math.round(options.outWidth / i), Math.round(options.outHeight / i2));
         }
         return 1;
     }

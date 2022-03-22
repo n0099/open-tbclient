@@ -69,8 +69,8 @@ public class NumbersKt__BigDecimalsKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(int i2) {
-        BigDecimal valueOf = BigDecimal.valueOf(i2);
+    public static final BigDecimal toBigDecimal(int i) {
+        BigDecimal valueOf = BigDecimal.valueOf(i);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this.toLong())");
         return valueOf;
     }
@@ -85,22 +85,22 @@ public class NumbersKt__BigDecimalsKt {
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(int i2, MathContext mathContext) {
-        return new BigDecimal(i2, mathContext);
+    public static final BigDecimal toBigDecimal(int i, MathContext mathContext) {
+        return new BigDecimal(i, mathContext);
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(long j2) {
-        BigDecimal valueOf = BigDecimal.valueOf(j2);
+    public static final BigDecimal toBigDecimal(long j) {
+        BigDecimal valueOf = BigDecimal.valueOf(j);
         Intrinsics.checkNotNullExpressionValue(valueOf, "BigDecimal.valueOf(this)");
         return valueOf;
     }
 
     @SinceKotlin(version = "1.2")
     @InlineOnly
-    public static final BigDecimal toBigDecimal(long j2, MathContext mathContext) {
-        return new BigDecimal(j2, mathContext);
+    public static final BigDecimal toBigDecimal(long j, MathContext mathContext) {
+        return new BigDecimal(j, mathContext);
     }
 
     @SinceKotlin(version = "1.2")

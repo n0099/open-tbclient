@@ -31,7 +31,7 @@ import okhttp3.internal.tls.BasicTrustRootIndex;
 import okhttp3.internal.tls.CertificateChainCleaner;
 import okhttp3.internal.tls.TrustRootIndex;
 import okio.Buffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class Platform {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INFO = 4;
@@ -62,9 +62,9 @@ public class Platform {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -77,8 +77,8 @@ public class Platform {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
             ArrayList arrayList = new ArrayList(list.size());
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Protocol protocol = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                Protocol protocol = list.get(i);
                 if (protocol != Protocol.HTTP_1_0) {
                     arrayList.add(protocol.toString());
                 }
@@ -94,8 +94,8 @@ public class Platform {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
             Buffer buffer = new Buffer();
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                Protocol protocol = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                Protocol protocol = list.get(i);
                 if (protocol != Protocol.HTTP_1_0) {
                     buffer.writeByte(protocol.toString().length());
                     buffer.writeUtf8(protocol.toString());
@@ -203,10 +203,10 @@ public class Platform {
         }
     }
 
-    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i2) throws IOException {
+    public void connectSocket(Socket socket, InetSocketAddress inetSocketAddress, int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, socket, inetSocketAddress, i2) == null) {
-            socket.connect(inetSocketAddress, i2);
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, socket, inetSocketAddress, i) == null) {
+            socket.connect(inetSocketAddress, i);
         }
     }
 
@@ -266,10 +266,10 @@ public class Platform {
         return invokeL.booleanValue;
     }
 
-    public void log(int i2, String str, Throwable th) {
+    public void log(int i, String str, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048588, this, i2, str, th) == null) {
-            logger.log(i2 == 5 ? Level.WARNING : Level.INFO, str, th);
+        if (interceptable == null || interceptable.invokeILL(1048588, this, i, str, th) == null) {
+            logger.log(i == 5 ? Level.WARNING : Level.INFO, str, th);
         }
     }
 

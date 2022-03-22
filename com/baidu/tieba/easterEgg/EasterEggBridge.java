@@ -2,9 +2,9 @@ package com.baidu.tieba.easterEgg;
 
 import android.webkit.JsPromptResult;
 import c.a.d.f.p.m;
-import c.a.r0.r0.f.a.a;
-import c.a.r0.r0.f.a.c;
-import c.a.r0.y3.o0.b;
+import c.a.p0.a4.o0.b;
+import c.a.p0.t0.f.a.a;
+import c.a.p0.t0.f.a.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,29 +24,29 @@ public class EasterEggBridge implements b {
     public static final String KEY_INTERFACE_NAME = "EasterEggBridge";
     public static final String KEY_METHOD_NAME = "method_name";
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c.a.r0.r0.b> mListener;
+    public List<c.a.p0.t0.b> mListener;
 
     public EasterEggBridge() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.mListener = new ArrayList();
-        addListener(new c.a.r0.r0.f.a.b());
+        addListener(new c.a.p0.t0.f.a.b());
         addListener(new c());
         addListener(new a());
     }
 
-    public void addListener(c.a.r0.r0.b bVar) {
-        List<c.a.r0.r0.b> list;
+    public void addListener(c.a.p0.t0.b bVar) {
+        List<c.a.p0.t0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null || (list = this.mListener) == null) {
             return;
@@ -55,7 +55,7 @@ public class EasterEggBridge implements b {
     }
 
     public void clearListener() {
-        List<c.a.r0.r0.b> list;
+        List<c.a.p0.t0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (list = this.mListener) == null) {
             return;
@@ -63,7 +63,7 @@ public class EasterEggBridge implements b {
         list.clear();
     }
 
-    @Override // c.a.r0.y3.o0.b
+    @Override // c.a.p0.a4.o0.b
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,12 +71,12 @@ public class EasterEggBridge implements b {
             if (KEY_INTERFACE_NAME.equals(str2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(str3);
-                    String optString = jSONObject.optString("method_name");
+                    String optString = jSONObject.optString(KEY_METHOD_NAME);
                     if (m.isEmpty(str2)) {
                         return false;
                     }
                     String trim = optString.trim();
-                    for (c.a.r0.r0.b bVar : this.mListener) {
+                    for (c.a.p0.t0.b bVar : this.mListener) {
                         if (trim.equals(bVar.b())) {
                             bVar.a(trim, jSONObject.optString("args"), jSONObject.optString(KEY_ARGS_EXT), jSONObject.optString(KEY_CALLBACK), jsPromptResult);
                         }
@@ -89,8 +89,8 @@ public class EasterEggBridge implements b {
         return invokeLLLL.booleanValue;
     }
 
-    public void removeListener(c.a.r0.r0.b bVar) {
-        List<c.a.r0.r0.b> list;
+    public void removeListener(c.a.p0.t0.b bVar) {
+        List<c.a.p0.t0.b> list;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) || bVar == null || (list = this.mListener) == null) {
             return;

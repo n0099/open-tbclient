@@ -1,7 +1,7 @@
 package com.baidu.tieba.danmu.layout.retainer;
 
-import c.a.r0.l0.e.a;
-import c.a.r0.l0.j.b;
+import c.a.p0.n0.e.a;
+import c.a.p0.n0.j.b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ public final class AkTopRetainer$layout$holder$1 extends Lambda implements Funct
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AkTopRetainer$layout$holder$1(a aVar, b bVar, long j2, long j3) {
+    public AkTopRetainer$layout$holder$1(a aVar, b bVar, long j, long j2) {
         super(1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar, Long.valueOf(j2), Long.valueOf(j3)};
+            Object[] objArr = {aVar, bVar, Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -41,8 +41,8 @@ public final class AkTopRetainer$layout$holder$1 extends Lambda implements Funct
         }
         this.$drawItem = aVar;
         this.$displayer = bVar;
-        this.$currentTimeMills = j2;
-        this.$duration = j3;
+        this.$currentTimeMills = j;
+        this.$duration = j2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,7 +51,7 @@ public final class AkTopRetainer$layout$holder$1 extends Lambda implements Funct
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            return Boolean.valueOf(aVar == null || !c.a.r0.l0.g.b.f(aVar, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration));
+            return Boolean.valueOf(aVar == null || !c.a.p0.n0.g.b.f(aVar, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration));
         }
         return (Boolean) invokeL.objValue;
     }

@@ -30,22 +30,22 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f43492b;
+        public int f33755b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f43493c;
+        public String f33756c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f43494d;
+        public int f33757d;
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -60,9 +60,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -87,9 +87,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tbadk.message.websockt.TbSocketReponsedMessage, com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
             setError(queryHistoryMsgResIdl.error.errorno.intValue());
             setErrorString(queryHistoryMsgResIdl.error.usermsg);
@@ -102,9 +102,9 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                         Date date = new Date();
                         date.setTime(msgInfo.sendTime.longValue() * 1000);
                         aVar.a = m.getDateStringMouth(date);
-                        aVar.f43492b = msgInfo.type.intValue();
-                        aVar.f43493c = msgInfo.content;
-                        aVar.f43494d = msgInfo.id.intValue();
+                        aVar.f33755b = msgInfo.type.intValue();
+                        aVar.f33756c = msgInfo.content;
+                        aVar.f33757d = msgInfo.id.intValue();
                         this.msg.add(aVar);
                     }
                 }
@@ -112,8 +112,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
             if (this.msg.isEmpty()) {
                 return;
             }
-            c.a.q0.r.s.a.f();
-            l<byte[]> d2 = c.a.q0.r.s.a.d("tb.im_official_history");
+            c.a.o0.r.s.a.f();
+            l<byte[]> d2 = c.a.o0.r.s.a.d("tb.im_official_history");
             RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
             if (requestHistoryMessage == null || requestHistoryMessage.getRequestId() != 0) {
                 return;

@@ -30,9 +30,9 @@ public class d extends c implements IGLRenderer {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, looper, bVar, eGLContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (Looper) objArr2[1], (com.baidu.ar.lua.b) objArr2[2], (EGLContext) objArr2[3], (String) objArr2[4]);
                 newInitContext.thisArg = this;
@@ -57,19 +57,19 @@ public class d extends c implements IGLRenderer {
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
-    public Texture createTexture(int i2, int i3, int i4) {
+    public Texture createTexture(int i, int i2, int i3) {
         InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4)) == null) {
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3)) == null) {
             ARPEngine aRPEngine = this.hx;
             if (aRPEngine == null || aRPEngine.getARPRenderer() == null) {
                 return null;
             }
             Texture texture = new Texture();
-            long createTexture = this.hx.getARPRenderer().createTexture(i2, i3, i4);
+            long createTexture = this.hx.getARPRenderer().createTexture(i, i2, i3);
             texture.setHandle(createTexture);
             texture.setId(this.hx.getARPRenderer().getTextureId(createTexture));
-            texture.setType(i2);
+            texture.setType(i);
             return texture;
         }
         return (Texture) invokeIII.objValue;
@@ -86,10 +86,10 @@ public class d extends c implements IGLRenderer {
     }
 
     @Override // com.baidu.ar.arrender.c, com.baidu.ar.arrender.e, com.baidu.ar.arplay.core.renderer.OnRenderFinishedListener
-    public void onRenderFinished(long j2) {
+    public void onRenderFinished(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            super.onRenderFinished(j2);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            super.onRenderFinished(j);
             if (TextUtils.isEmpty(this.hb) || !this.hb.contains("qcom") || TextUtils.isEmpty(this.hc)) {
                 return;
             }
@@ -118,13 +118,13 @@ public class d extends c implements IGLRenderer {
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer
-    public void setInputTexture(int i2, int i3, int i4, int i5) {
+    public void setInputTexture(int i, int i2, int i3, int i4) {
         ARPEngine aRPEngine;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(1048582, this, i2, i3, i4, i5) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
+        if (!(interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) || (aRPEngine = this.hx) == null || aRPEngine.getARPRenderer() == null) {
             return;
         }
-        this.hx.getARPRenderer().setInputTexture(i2, i3, i4, i5);
+        this.hx.getARPRenderer().setInputTexture(i, i2, i3, i4);
     }
 
     @Override // com.baidu.ar.arrender.IGLRenderer

@@ -17,26 +17,26 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
     public TaskBuoyViewModel a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c.a.j.h.c.a.d f3593b;
+    public final c.a.j.h.c.a.d f3089b;
 
     /* renamed from: c.a.j.e.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static final class C0154a implements c.a.j.h.c.a.d {
+    public static final class C0160a implements c.a.j.h.c.a.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
         /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public C0154a(a aVar) {
+        public C0160a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -79,21 +79,21 @@ public abstract class a extends c.a.j.h.c.a.a<TaskBuoyViewData, TaskBuoyViewMode
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f3593b = new C0154a(this);
+        this.f3089b = new C0160a(this);
     }
 
     public c.a.j.h.c.a.d c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3593b : (c.a.j.h.c.a.d) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f3089b : (c.a.j.h.c.a.d) invokeV.objValue;
     }
 
     @CallSuper

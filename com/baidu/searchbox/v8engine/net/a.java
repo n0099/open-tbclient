@@ -39,41 +39,41 @@ public class a {
         return invokeCommon.intValue;
     }
 
-    public static boolean a(String str, int i2, int i3, byte[] bArr, int i4) {
+    public static boolean a(String str, int i, int i2, byte[] bArr, int i3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), bArr, Integer.valueOf(i4)})) == null) {
-            int i5 = i4;
-            while (i2 < i3) {
-                if (i5 == bArr.length) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bArr, Integer.valueOf(i3)})) == null) {
+            int i4 = i3;
+            while (i < i2) {
+                if (i4 == bArr.length) {
                     return false;
                 }
-                if (i5 != i4) {
-                    if (str.charAt(i2) != '.') {
+                if (i4 != i3) {
+                    if (str.charAt(i) != '.') {
                         return false;
                     }
-                    i2++;
+                    i++;
                 }
-                int i6 = i2;
-                int i7 = 0;
-                while (i6 < i3) {
-                    char charAt = str.charAt(i6);
+                int i5 = i;
+                int i6 = 0;
+                while (i5 < i2) {
+                    char charAt = str.charAt(i5);
                     if (charAt < '0' || charAt > '9') {
                         break;
-                    } else if ((i7 == 0 && i2 != i6) || (i7 = ((i7 * 10) + charAt) - 48) > 255) {
+                    } else if ((i6 == 0 && i != i5) || (i6 = ((i6 * 10) + charAt) - 48) > 255) {
                         return false;
                     } else {
-                        i6++;
+                        i5++;
                     }
                 }
-                if (i6 - i2 == 0) {
+                if (i5 - i == 0) {
                     return false;
                 }
-                bArr[i5] = (byte) i7;
-                i5++;
-                i2 = i6;
+                bArr[i4] = (byte) i6;
+                i4++;
+                i = i5;
             }
-            return i5 == i4 + 4;
+            return i4 == i3 + 4;
         }
         return invokeCommon.booleanValue;
     }
@@ -85,15 +85,15 @@ public class a {
             char[] charArray = str.toCharArray();
             int length = charArray.length;
             boolean z = false;
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= length) {
+                if (i >= length) {
                     break;
-                } else if (charArray[i2] > 127) {
+                } else if (charArray[i] > 127) {
                     z = true;
                     break;
                 } else {
-                    i2++;
+                    i++;
                 }
             }
             return !z ? str : a(str);
@@ -155,8 +155,8 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            for (int i2 = 0; i2 < str.length(); i2++) {
-                char charAt = str.charAt(i2);
+            for (int i = 0; i < str.length(); i++) {
+                char charAt = str.charAt(i);
                 if (charAt <= 31 || charAt >= 127 || " #%/:?@[\\]".indexOf(charAt) != -1) {
                     return true;
                 }
@@ -196,31 +196,31 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static InetAddress a(String str, int i2, int i3) {
+    public static InetAddress a(String str, int i, int i2) {
         InterceptResult invokeLII;
-        int i4;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i2, i3)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, str, i, i2)) == null) {
             byte[] bArr = new byte[16];
-            int i5 = 0;
+            int i4 = 0;
+            int i5 = -1;
             int i6 = -1;
-            int i7 = -1;
             while (true) {
-                if (i2 < i3) {
-                    if (i5 != 16) {
-                        int i8 = i2 + 2;
-                        if (i8 <= i3 && str.regionMatches(i2, "::", 0, 2)) {
-                            if (i6 == -1) {
-                                i5 += 2;
-                                i6 = i5;
-                                if (i8 != i3) {
-                                    i7 = i8;
-                                    i2 = i7;
-                                    int i9 = 0;
-                                    while (i2 < i3) {
+                if (i < i2) {
+                    if (i4 != 16) {
+                        int i7 = i + 2;
+                        if (i7 <= i2 && str.regionMatches(i, "::", 0, 2)) {
+                            if (i5 == -1) {
+                                i4 += 2;
+                                i5 = i4;
+                                if (i7 != i2) {
+                                    i6 = i7;
+                                    i = i6;
+                                    int i8 = 0;
+                                    while (i < i2) {
                                     }
-                                    i4 = i2 - i7;
-                                    if (i4 == 0) {
+                                    i3 = i - i6;
+                                    if (i3 == 0) {
                                         break;
                                     }
                                     break;
@@ -229,34 +229,34 @@ public class a {
                             }
                             return null;
                         }
-                        if (i5 != 0) {
-                            if (str.regionMatches(i2, ":", 0, 1)) {
-                                i2++;
-                            } else if (!str.regionMatches(i2, ".", 0, 1) || !a(str, i7, i3, bArr, i5 - 2)) {
+                        if (i4 != 0) {
+                            if (str.regionMatches(i, ":", 0, 1)) {
+                                i++;
+                            } else if (!str.regionMatches(i, ".", 0, 1) || !a(str, i6, i2, bArr, i4 - 2)) {
                                 return null;
                             } else {
-                                i5 += 2;
+                                i4 += 2;
                             }
                         }
-                        i7 = i2;
-                        i2 = i7;
-                        int i92 = 0;
-                        while (i2 < i3) {
-                            int a = a(str.charAt(i2));
+                        i6 = i;
+                        i = i6;
+                        int i82 = 0;
+                        while (i < i2) {
+                            int a = a(str.charAt(i));
                             if (a == -1) {
                                 break;
                             }
-                            i92 = (i92 << 4) + a;
-                            i2++;
+                            i82 = (i82 << 4) + a;
+                            i++;
                         }
-                        i4 = i2 - i7;
-                        if (i4 == 0 || i4 > 4) {
+                        i3 = i - i6;
+                        if (i3 == 0 || i3 > 4) {
                             break;
                         }
-                        int i10 = i5 + 1;
-                        bArr[i5] = (byte) ((i92 >>> 8) & 255);
-                        i5 = i10 + 1;
-                        bArr[i10] = (byte) (i92 & 255);
+                        int i9 = i4 + 1;
+                        bArr[i4] = (byte) ((i82 >>> 8) & 255);
+                        i4 = i9 + 1;
+                        bArr[i9] = (byte) (i82 & 255);
                     } else {
                         return null;
                     }
@@ -264,13 +264,13 @@ public class a {
                     break;
                 }
             }
-            if (i5 != 16) {
-                if (i6 == -1) {
+            if (i4 != 16) {
+                if (i5 == -1) {
                     return null;
                 }
-                int i11 = i5 - i6;
-                System.arraycopy(bArr, i6, bArr, 16 - i11, i11);
-                Arrays.fill(bArr, i6, (16 - i5) + i6, (byte) 0);
+                int i10 = i4 - i5;
+                System.arraycopy(bArr, i5, bArr, 16 - i10, i10);
+                Arrays.fill(bArr, i5, (16 - i4) + i5, (byte) 0);
             }
             try {
                 return InetAddress.getByAddress(bArr);
@@ -321,36 +321,36 @@ public class a {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            int i2 = 0;
-            int i3 = -1;
+            int i = 0;
+            int i2 = -1;
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < bArr.length) {
-                int i6 = i4;
-                while (i6 < 16 && bArr[i6] == 0 && bArr[i6 + 1] == 0) {
-                    i6 += 2;
+            while (i3 < bArr.length) {
+                int i5 = i3;
+                while (i5 < 16 && bArr[i5] == 0 && bArr[i5 + 1] == 0) {
+                    i5 += 2;
                 }
-                int i7 = i6 - i4;
-                if (i7 > i5 && i7 >= 4) {
-                    i3 = i4;
-                    i5 = i7;
+                int i6 = i5 - i3;
+                if (i6 > i4 && i6 >= 4) {
+                    i2 = i3;
+                    i4 = i6;
                 }
-                i4 = i6 + 2;
+                i3 = i5 + 2;
             }
             Buffer buffer = new Buffer();
-            while (i2 < bArr.length) {
-                if (i2 == i3) {
+            while (i < bArr.length) {
+                if (i == i2) {
                     buffer.writeByte(58);
-                    i2 += i5;
-                    if (i2 == 16) {
+                    i += i4;
+                    if (i == 16) {
                         buffer.writeByte(58);
                     }
                 } else {
-                    if (i2 > 0) {
+                    if (i > 0) {
                         buffer.writeByte(58);
                     }
-                    buffer.writeHexadecimalUnsignedLong(((bArr[i2] & 255) << 8) | (bArr[i2 + 1] & 255));
-                    i2 += 2;
+                    buffer.writeHexadecimalUnsignedLong(((bArr[i] & 255) << 8) | (bArr[i + 1] & 255));
+                    i += 2;
                 }
             }
             return buffer.readUtf8();
@@ -366,12 +366,12 @@ public class a {
         }
         try {
             Uri.Builder builder = new Uri.Builder();
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                int i3 = i2 + 1;
-                if (i3 < strArr.length) {
-                    builder.appendQueryParameter(strArr[i2], strArr[i3]);
-                    i2 += 2;
+                int i2 = i + 1;
+                if (i2 < strArr.length) {
+                    builder.appendQueryParameter(strArr[i], strArr[i2]);
+                    i += 2;
                 } else {
                     return builder.build().toString();
                 }

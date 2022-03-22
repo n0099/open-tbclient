@@ -6,11 +6,12 @@ import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class p extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,9 +25,9 @@ public final class p extends Handler {
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -36,7 +37,8 @@ public final class p extends Handler {
     }
 
     /* JADX WARN: Removed duplicated region for block: B:23:0x0065  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x0080 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x007a  */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0088 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     @Override // android.os.Handler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -48,31 +50,37 @@ public final class p extends Handler {
         StringBuilder sb;
         String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, message) != null) || message.what != 11) {
+        if (interceptable != null && interceptable.invokeL(1048576, this, message) != null) {
             return;
         }
-        int i2 = message.getData().getInt("type");
+        if (message.what != 11) {
+            Log.e("VMS_IDLG_SDK_Client", "message type valid");
+            return;
+        }
+        int i = message.getData().getInt("type");
         String string = message.getData().getString("appid");
-        o oVar = q.f52918j;
+        o oVar = q.j;
         oVar.getClass();
-        if (i2 != 0) {
-            if (i2 == 1) {
+        if (i != 0) {
+            if (i == 1) {
                 sb = new StringBuilder();
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-            } else if (i2 == 2) {
+            } else if (i == 2) {
                 sb = new StringBuilder();
                 str2 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-            } else if (i2 != 4) {
+            } else if (i != 4) {
                 parse = null;
                 query = oVar.a.getContentResolver().query(parse, null, null, null, null);
-                if (query != null) {
+                if (query == null) {
                     r2 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
                     query.close();
+                } else {
+                    Log.d("VMS_IDLG_SDK_DB", "return cursor is null,return");
                 }
-                q.f52915g = r2;
+                q.f38676g = r2;
                 Context context = q.a;
-                synchronized (q.f52912d) {
-                    q.f52912d.notify();
+                synchronized (q.f38673d) {
+                    q.f38673d.notify();
                 }
                 return;
             } else {
@@ -86,11 +94,11 @@ public final class p extends Handler {
         }
         parse = Uri.parse(str);
         query = oVar.a.getContentResolver().query(parse, null, null, null, null);
-        if (query != null) {
+        if (query == null) {
         }
-        q.f52915g = r2;
+        q.f38676g = r2;
         Context context2 = q.a;
-        synchronized (q.f52912d) {
+        synchronized (q.f38673d) {
         }
     }
 }

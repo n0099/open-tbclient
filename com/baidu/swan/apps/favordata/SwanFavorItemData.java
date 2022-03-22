@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.a.v0.e.c;
+import c.a.n0.a.v0.e.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.NoProGuard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int IS_NEW_FAVOR = 1;
@@ -35,9 +35,9 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -141,10 +141,10 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? TextUtils.isEmpty(str) ? "" : c.h1(getAppKey(), str, getAppFrameType()) : (String) invokeL.objValue;
     }
 
-    public void setAppFrameType(int i2) {
+    public void setAppFrameType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i2) == null) {
-            this.mAppFrameType = i2;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.mAppFrameType = i;
         }
     }
 
@@ -162,17 +162,17 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         }
     }
 
-    public void setAppType(int i2) {
+    public void setAppType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
-            this.mAppType = i2;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.mAppType = i;
         }
     }
 
-    public void setCreateTime(long j2) {
+    public void setCreateTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j2) == null) {
-            this.mCreateTime = j2;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            this.mCreateTime = j;
         }
     }
 
@@ -183,24 +183,24 @@ public class SwanFavorItemData implements Serializable, NoProGuard {
         }
     }
 
-    public void setIndex(int i2) {
+    public void setIndex(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i2) == null) {
-            this.mIndex = i2;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.mIndex = i;
         }
     }
 
-    public void setIsNewFavor(int i2) {
+    public void setIsNewFavor(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
-            this.mIsNewFavor = i2;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.mIsNewFavor = i;
         }
     }
 
-    public void setPayProtected(int i2) {
+    public void setPayProtected(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
-            this.mAppPayProtected = i2;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.mAppPayProtected = i;
         }
     }
 }

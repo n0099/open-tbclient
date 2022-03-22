@@ -46,9 +46,9 @@ public final class SoUtils implements NoProGuard {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -82,31 +82,31 @@ public final class SoUtils implements NoProGuard {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i2) {
+    public static long copyStream(InputStream inputStream, OutputStream outputStream, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, inputStream, outputStream, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, inputStream, outputStream, i)) == null) {
             if (inputStream != null && outputStream != null) {
                 try {
-                    byte[] bArr = new byte[i2 * 1024];
-                    long j2 = 0;
+                    byte[] bArr = new byte[i * 1024];
+                    long j = 0;
                     while (true) {
                         int read = inputStream.read(bArr);
                         if (read > 0) {
                             outputStream.write(bArr, 0, read);
-                            j2 += read;
+                            j += read;
                         } else {
                             outputStream.flush();
-                            return j2;
+                            return j;
                         }
                     }
                 } catch (IOException e2) {
@@ -143,11 +143,11 @@ public final class SoUtils implements NoProGuard {
         return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? (!TextUtils.isEmpty(str) && str.startsWith("lib") && str.endsWith(".so") && (split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX)) != null && split.length == 2) ? split[0].substring(3) : str : (String) invokeL.objValue;
     }
 
-    public static String getUriName(String str, int i2) {
+    public static String getUriName(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i2)) == null) {
-            return uris[i2] + File.separator + str;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
+            return uris[i] + File.separator + str;
         }
         return (String) invokeLI.objValue;
     }
@@ -171,11 +171,11 @@ public final class SoUtils implements NoProGuard {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 23) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 23) {
                 return Process.is64Bit();
             }
-            if (i2 >= 21) {
+            if (i >= 21) {
                 String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
                 if (strArr.length > 0) {
                     return Build.CPU_ABI.equals(strArr[0]);

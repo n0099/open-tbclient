@@ -1,7 +1,7 @@
 package com.baidu.searchbox.unitedscheme;
 
-import c.a.p0.g.l.b;
-import c.a.p0.g.l.d;
+import c.a.n0.g.l.b;
+import c.a.n0.g.l.d;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
@@ -22,9 +22,9 @@ public class SchemeRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

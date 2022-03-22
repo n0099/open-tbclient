@@ -1,6 +1,6 @@
 package com.baidu.tbadk.coreExtra.message;
 
-import c.a.q0.e0.a;
+import c.a.o0.e0.a;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,9 +33,9 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -77,9 +77,9 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             UpdateClientInfoResIdl updateClientInfoResIdl = (UpdateClientInfoResIdl) new Wire(new Class[0]).parseFrom(bArr, UpdateClientInfoResIdl.class);
             setError(updateClientInfoResIdl.error.errorno.intValue());
             setErrorString(updateClientInfoResIdl.error.usermsg);
@@ -93,8 +93,8 @@ public class ResponseOnlineMessage extends SocketResponsedMessage {
             if (dataRes != null) {
                 List<GroupInfo> list = dataRes.groupInfo;
                 int size = list == null ? 0 : list.size();
-                for (int i3 = 0; i3 < size; i3++) {
-                    GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i3);
+                for (int i2 = 0; i2 < size; i2++) {
+                    GroupInfo groupInfo = updateClientInfoResIdl.data.groupInfo.get(i2);
                     GroupUpdateMessage groupUpdateMessage = new GroupUpdateMessage();
                     groupUpdateMessage.setGroupId(groupInfo.groupId.longValue());
                     groupUpdateMessage.setGroupType(groupInfo.groupType.intValue());

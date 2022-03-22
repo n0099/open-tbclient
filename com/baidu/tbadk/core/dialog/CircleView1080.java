@@ -15,29 +15,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class CircleView1080 extends View {
     public static /* synthetic */ Interceptable $ic = null;
 
-    /* renamed from: j  reason: collision with root package name */
-    public static int f38834j = 360;
-    public static int k = 100;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    /* renamed from: e  reason: collision with root package name */
-    public int f38835e;
-
     /* renamed from: f  reason: collision with root package name */
-    public int f38836f;
+    public static int f29847f = 360;
 
     /* renamed from: g  reason: collision with root package name */
-    public Paint f38837g;
+    public static int f29848g = 100;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: h  reason: collision with root package name */
-    public RectF f38838h;
+    /* renamed from: b  reason: collision with root package name */
+    public int f29849b;
 
-    /* renamed from: i  reason: collision with root package name */
-    public int f38839i;
+    /* renamed from: c  reason: collision with root package name */
+    public Paint f29850c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public RectF f29851d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public int f29852e;
 
     static {
         InterceptResult invokeClinit;
@@ -55,17 +55,17 @@ public class CircleView1080 extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public CircleView1080(Context context, AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public CircleView1080(Context context, AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -73,25 +73,25 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f38839i = 0;
-        init();
+        this.f29852e = 0;
+        a();
     }
 
-    public void init() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.f38835e = getResources().getDimensionPixelSize(R.dimen.tbds122);
-            this.f38836f = getResources().getDimensionPixelSize(R.dimen.tbds6);
+            this.a = getResources().getDimensionPixelSize(R.dimen.tbds122);
+            this.f29849b = getResources().getDimensionPixelSize(R.dimen.tbds6);
             Paint paint = new Paint();
-            this.f38837g = paint;
-            paint.setStrokeWidth(this.f38836f);
-            this.f38837g.setColor(getResources().getColor(R.color.CAM_X0111));
-            this.f38837g.setStyle(Paint.Style.STROKE);
-            this.f38837g.setAntiAlias(true);
-            this.f38837g.setStrokeCap(Paint.Cap.ROUND);
-            int i2 = this.f38836f;
-            int i3 = this.f38835e;
-            this.f38838h = new RectF(i2 / 2, i2 / 2, (i2 / 2) + i3, i3 + (i2 / 2));
+            this.f29850c = paint;
+            paint.setStrokeWidth(this.f29849b);
+            this.f29850c.setColor(getResources().getColor(R.color.CAM_X0111));
+            this.f29850c.setStyle(Paint.Style.STROKE);
+            this.f29850c.setAntiAlias(true);
+            this.f29850c.setStrokeCap(Paint.Cap.ROUND);
+            int i = this.f29849b;
+            int i2 = this.a;
+            this.f29851d = new RectF(i / 2, i / 2, (i / 2) + i2, i2 + (i / 2));
         }
     }
 
@@ -99,14 +99,14 @@ public class CircleView1080 extends View {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            canvas.drawArc(this.f38838h, 270.0f, (f38834j * this.f38839i) / k, false, this.f38837g);
+            canvas.drawArc(this.f29851d, 270.0f, (f29847f * this.f29852e) / f29848g, false, this.f29850c);
         }
     }
 
-    public void setProgress(int i2) {
+    public void setProgress(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            this.f38839i = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f29852e = i;
             invalidate();
         }
     }
@@ -120,9 +120,9 @@ public class CircleView1080 extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -130,8 +130,8 @@ public class CircleView1080 extends View {
                 return;
             }
         }
-        this.f38839i = 0;
-        init();
+        this.f29852e = 0;
+        a();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -143,16 +143,16 @@ public class CircleView1080 extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f38839i = 0;
-        init();
+        this.f29852e = 0;
+        a();
     }
 }

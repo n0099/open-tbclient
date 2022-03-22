@@ -29,9 +29,9 @@ public class InviteMsgData extends OrmObject implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -92,17 +92,17 @@ public class InviteMsgData extends OrmObject implements Serializable {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.toUid : invokeV.longValue;
     }
 
-    public void setFromUid(long j2) {
+    public void setFromUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.fromUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.fromUid = j;
         }
     }
 
-    public void setGroupId(long j2) {
+    public void setGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j2) == null) {
-            this.groupId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+            this.groupId = j;
         }
     }
 
@@ -113,10 +113,10 @@ public class InviteMsgData extends OrmObject implements Serializable {
         }
     }
 
-    public void setGroupOwnerId(long j2) {
+    public void setGroupOwnerId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048588, this, j2) == null) {
-            this.groupOwnerId = j2;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.groupOwnerId = j;
         }
     }
 
@@ -148,10 +148,10 @@ public class InviteMsgData extends OrmObject implements Serializable {
         }
     }
 
-    public void setToUid(long j2) {
+    public void setToUid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048593, this, j2) == null) {
-            this.toUid = j2;
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
+            this.toUid = j;
         }
     }
 }

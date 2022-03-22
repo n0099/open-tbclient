@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class MainTabActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static boolean ENTER_FORUM_DELEGATE_AVAILABLE = true;
@@ -61,9 +62,9 @@ public class MainTabActivityConfig extends IntentConfig {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
@@ -91,17 +92,17 @@ public class MainTabActivityConfig extends IntentConfig {
         return (MainTabActivityConfig) invokeL.objValue;
     }
 
-    public MainTabActivityConfig createNewUserCfg(int i2, boolean z, boolean z2) {
+    public MainTabActivityConfig createNewUserCfg(int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             Intent intent = getIntent();
             intent.setFlags(603979776);
             if (!(getContext() instanceof Activity)) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-            if (i2 >= 0) {
-                intent.putExtra("locate_type", i2);
+            if (i >= 0) {
+                intent.putExtra("locate_type", i);
             }
             intent.putExtra("is_new_user", z);
             intent.putExtra("close_dialog", true);
@@ -111,28 +112,28 @@ public class MainTabActivityConfig extends IntentConfig {
         return (MainTabActivityConfig) invokeCommon.objValue;
     }
 
-    public MainTabActivityConfig createNormalCfg(int i2) {
+    public MainTabActivityConfig createNormalCfg(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? createNewUserCfg(i2, false, false) : (MainTabActivityConfig) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? createNewUserCfg(i, false, false) : (MainTabActivityConfig) invokeI.objValue;
     }
 
-    public MainTabActivityConfig createRefreshCfg(int i2, boolean z) {
+    public MainTabActivityConfig createRefreshCfg(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             Intent intent = getIntent();
             intent.setFlags(603979776);
-            if (i2 != 200 && i2 != 12) {
-                intent.putExtra("refresh_all", true);
+            if (i != 200 && i != 12) {
+                intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
             } else {
-                intent.putExtra("refresh_all", false);
+                intent.putExtra(FrsActivityConfig.KEY_REFRESH, false);
             }
-            if (i2 >= 0) {
-                intent.putExtra("locate_type", i2);
+            if (i >= 0) {
+                intent.putExtra("locate_type", i);
             }
             if (z) {
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
             intent.putExtra("close_dialog", true);
             return this;
@@ -158,21 +159,21 @@ public class MainTabActivityConfig extends IntentConfig {
         getIntent().putExtra(PUSH_DES_PAGE, str);
     }
 
-    public void setPushFollowUpAction(int i2) {
+    public void setPushFollowUpAction(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || getIntent() == null) {
             return;
         }
-        getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i2);
+        getIntent().putExtra(PUSH_FOLLOW_UP_ACTION, i);
     }
 
-    public void setSubTab(int i2, String str) {
+    public void setSubTab(int i, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i2, str) == null) || getIntent() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(1048585, this, i, str) == null) || getIntent() == null) {
             return;
         }
         if (str == null) {
-            getIntent().putExtra("sub_locate_type", i2);
+            getIntent().putExtra("sub_locate_type", i);
         } else {
             getIntent().putExtra("sub_locate_type", str);
         }
@@ -193,15 +194,15 @@ public class MainTabActivityConfig extends IntentConfig {
         }
     }
 
-    public MainTabActivityConfig createNormalCfg(int i2, boolean z) {
+    public MainTabActivityConfig createNormalCfg(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i2, false, z) : (MainTabActivityConfig) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i, false, z) : (MainTabActivityConfig) invokeCommon.objValue;
     }
 
-    public MainTabActivityConfig createNewUserCfg(int i2, boolean z) {
+    public MainTabActivityConfig createNewUserCfg(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i2, z, false) : (MainTabActivityConfig) invokeCommon.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? createNewUserCfg(i, z, false) : (MainTabActivityConfig) invokeCommon.objValue;
     }
 }

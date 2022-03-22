@@ -37,9 +37,9 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
                 newInitContext.initArgs = r2;
                 Object[] objArr = {observer, timeUnit, scheduler};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,9 +86,9 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
                 long now = this.scheduler.now(this.unit);
-                long j2 = this.lastTime;
+                long j = this.lastTime;
                 this.lastTime = now;
-                this.actual.onNext(new Timed(t, now - j2, this.unit));
+                this.actual.onNext(new Timed(t, now - j, this.unit));
             }
         }
 
@@ -112,9 +112,9 @@ public final class ObservableTimeInterval<T> extends AbstractObservableWithUpstr
             newInitContext.initArgs = r2;
             Object[] objArr = {observableSource, timeUnit, scheduler};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((ObservableSource) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);

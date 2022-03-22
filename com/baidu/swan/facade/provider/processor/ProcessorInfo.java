@@ -1,10 +1,10 @@
 package com.baidu.swan.facade.provider.processor;
 
 import androidx.core.view.InputDeviceCompat;
-import c.a.p0.g.j.a.a;
-import c.a.p0.g.j.a.b;
-import c.a.p0.g.j.a.c;
-import c.a.p0.g.j.a.d;
+import c.a.n0.g.j.a.a;
+import c.a.n0.g.j.a.b;
+import c.a.n0.g.j.a.c;
+import c.a.n0.g.j.a.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public final class ProcessorInfo {
     public static final /* synthetic */ ProcessorInfo[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
@@ -46,16 +46,16 @@ public final class ProcessorInfo {
         $VALUES = new ProcessorInfo[]{PARAMS, FAVORITE, processorInfo};
     }
 
-    public ProcessorInfo(String str, int i2, Class cls, String str2) {
+    public ProcessorInfo(String str, int i, Class cls, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), cls, str2};
+            Object[] objArr = {str, Integer.valueOf(i), cls, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str3 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -69,13 +69,13 @@ public final class ProcessorInfo {
         this.mMatcherCode = ordinal();
     }
 
-    public static Class<? extends a> getProcessorClass(int i2) {
+    public static Class<? extends a> getProcessorClass(int i) {
         InterceptResult invokeI;
         ProcessorInfo[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             for (ProcessorInfo processorInfo : values()) {
-                if (processorInfo != null && processorInfo.getMatcherCode() == i2) {
+                if (processorInfo != null && processorInfo.getMatcherCode() == i) {
                     return processorInfo.getProcessorClass();
                 }
             }

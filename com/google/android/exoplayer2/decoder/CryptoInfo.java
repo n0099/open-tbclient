@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.util.Util;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class CryptoInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,14 +25,14 @@ public final class CryptoInfo {
     public final PatternHolderV24 patternHolder;
 
     /* renamed from: com.google.android.exoplayer2.decoder.CryptoInfo$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     @TargetApi(24)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PatternHolderV24 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -44,10 +44,10 @@ public final class CryptoInfo {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void set(int i2, int i3) {
+        public void set(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(65539, this, i2, i3) == null) {
-                this.pattern.set(i2, i3);
+            if (interceptable == null || interceptable.invokeII(65539, this, i, i2) == null) {
+                this.pattern.set(i, i2);
                 this.frameworkCryptoInfo.setPattern(this.pattern);
             }
         }
@@ -59,9 +59,9 @@ public final class CryptoInfo {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cryptoInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -77,9 +77,9 @@ public final class CryptoInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -121,17 +121,17 @@ public final class CryptoInfo {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.frameworkCryptoInfo : (MediaCodec.CryptoInfo) invokeV.objValue;
     }
 
-    public void set(int i2, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i3, int i4, int i5) {
+    public void set(int i, int[] iArr, int[] iArr2, byte[] bArr, byte[] bArr2, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), iArr, iArr2, bArr, bArr2, Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.numSubSamples = i2;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), iArr, iArr2, bArr, bArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            this.numSubSamples = i;
             this.numBytesOfClearData = iArr;
             this.numBytesOfEncryptedData = iArr2;
             this.key = bArr;
             this.iv = bArr2;
-            this.mode = i3;
-            this.encryptedBlocks = i4;
-            this.clearBlocks = i5;
+            this.mode = i2;
+            this.encryptedBlocks = i3;
+            this.clearBlocks = i4;
             if (Util.SDK_INT >= 16) {
                 updateFrameworkCryptoInfoV16();
             }

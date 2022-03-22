@@ -4,7 +4,7 @@ import android.view.ViewGroup;
 import java.util.List;
 /* loaded from: classes.dex */
 public interface s<V extends ViewGroup> {
-    void addAdapters(List<a> list);
+    void a(List<a> list);
 
     List<n> getData();
 

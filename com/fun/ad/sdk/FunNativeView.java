@@ -15,14 +15,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 import com.qq.e.ads.nativ.widget.NativeAdContainer;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class FunNativeView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NativeAdContainer a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f52775b;
+    public boolean f38522b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FunNativeView(@NonNull Context context) {
@@ -33,9 +33,9 @@ public final class FunNativeView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -45,12 +45,12 @@ public final class FunNativeView extends FrameLayout {
         a(context);
     }
 
-    public static FunNativeView inflate(Context context, int i2) {
+    public static FunNativeView inflate(Context context, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
             FunNativeView funNativeView = new FunNativeView(context);
-            funNativeView.a.addView(LayoutInflater.from(context).inflate(i2, (ViewGroup) funNativeView, false));
+            funNativeView.a.addView(LayoutInflater.from(context).inflate(i, (ViewGroup) funNativeView, false));
             return funNativeView;
         }
         return (FunNativeView) invokeLI.objValue;
@@ -69,7 +69,7 @@ public final class FunNativeView extends FrameLayout {
 
     public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f52775b) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.f38522b) {
             IllegalStateException illegalStateException = new IllegalStateException("Forbid add/rm view from FunNativeAdView.");
             if (FunAdSdk.isLogEnabled()) {
                 throw illegalStateException;
@@ -84,16 +84,16 @@ public final class FunNativeView extends FrameLayout {
             NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
             this.a = nativeAdContainer;
             addView(nativeAdContainer);
-            this.f52775b = true;
+            this.f38522b = true;
         }
     }
 
     @Override // android.view.ViewGroup
-    public void addView(View view, int i2, ViewGroup.LayoutParams layoutParams) {
+    public void addView(View view, int i, ViewGroup.LayoutParams layoutParams) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i2, layoutParams) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, view, i, layoutParams) == null) {
             a();
-            super.addView(view, i2, layoutParams);
+            super.addView(view, i, layoutParams);
         }
     }
 
@@ -131,11 +131,11 @@ public final class FunNativeView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewAt(int i2) {
+    public void removeViewAt(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             a();
-            super.removeViewAt(i2);
+            super.removeViewAt(i);
         }
     }
 
@@ -149,20 +149,20 @@ public final class FunNativeView extends FrameLayout {
     }
 
     @Override // android.view.ViewGroup
-    public void removeViews(int i2, int i3) {
+    public void removeViews(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
             a();
-            super.removeViews(i2, i3);
+            super.removeViews(i, i2);
         }
     }
 
     @Override // android.view.ViewGroup
-    public void removeViewsInLayout(int i2, int i3) {
+    public void removeViewsInLayout(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048586, this, i2, i3) == null) {
+        if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             a();
-            super.removeViewsInLayout(i2, i3);
+            super.removeViewsInLayout(i, i2);
         }
     }
 }

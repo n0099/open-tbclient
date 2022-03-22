@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class WriteThreadMng {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -23,16 +23,16 @@ public class WriteThreadMng {
     public WriteThread[] mWriteThread;
     public ExecutorService mWriteThreadPool;
 
-    public WriteThreadMng(int i2) {
+    public WriteThreadMng(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,12 +43,12 @@ public class WriteThreadMng {
         this.mWriteThread = null;
         this.mThreadMap = null;
         this.mLock = new Object();
-        this.mWritePoolSize = i2;
-        this.mWriteThreadPool = Executors.newFixedThreadPool(i2, new NamingThreadFactory(WriteThread.TAG));
+        this.mWritePoolSize = i;
+        this.mWriteThreadPool = Executors.newFixedThreadPool(i, new NamingThreadFactory(WriteThread.TAG));
         this.mWriteThread = new WriteThread[this.mWritePoolSize];
-        for (int i5 = 0; i5 < this.mWritePoolSize; i5++) {
-            this.mWriteThread[i5] = new WriteThread();
-            this.mWriteThreadPool.execute(this.mWriteThread[i5]);
+        for (int i4 = 0; i4 < this.mWritePoolSize; i4++) {
+            this.mWriteThread[i4] = new WriteThread();
+            this.mWriteThreadPool.execute(this.mWriteThread[i4]);
         }
         this.mThreadMap = new HashMap();
     }

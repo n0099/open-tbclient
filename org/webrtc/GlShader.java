@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
 import java.nio.FloatBuffer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class GlShader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "GlShader";
@@ -23,9 +23,9 @@ public class GlShader {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -53,11 +53,11 @@ public class GlShader {
         throw new RuntimeException("glCreateProgram() failed. GLES20 error: " + GLES20.glGetError());
     }
 
-    public static int compileShader(int i2, String str) {
+    public static int compileShader(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            int glCreateShader = GLES20.glCreateShader(i);
             if (glCreateShader != 0) {
                 GLES20.glShaderSource(glCreateShader, str);
                 GLES20.glCompileShader(glCreateShader);
@@ -79,9 +79,9 @@ public class GlShader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            int i2 = this.program;
-            if (i2 != -1) {
-                int glGetAttribLocation = GLES20.glGetAttribLocation(i2, str);
+            int i = this.program;
+            if (i != -1) {
+                int glGetAttribLocation = GLES20.glGetAttribLocation(i, str);
                 if (glGetAttribLocation >= 0) {
                     return glGetAttribLocation;
                 }
@@ -96,9 +96,9 @@ public class GlShader {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int i2 = this.program;
-            if (i2 != -1) {
-                int glGetUniformLocation = GLES20.glGetUniformLocation(i2, str);
+            int i = this.program;
+            if (i != -1) {
+                int glGetUniformLocation = GLES20.glGetUniformLocation(i, str);
                 if (glGetUniformLocation >= 0) {
                     return glGetUniformLocation;
                 }
@@ -113,27 +113,27 @@ public class GlShader {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Logging.d(TAG, "Deleting shader.");
-            int i2 = this.program;
-            if (i2 != -1) {
-                GLES20.glDeleteProgram(i2);
+            int i = this.program;
+            if (i != -1) {
+                GLES20.glDeleteProgram(i);
                 this.program = -1;
             }
         }
     }
 
-    public void setVertexAttribArray(String str, int i2, FloatBuffer floatBuffer) {
+    public void setVertexAttribArray(String str, int i, FloatBuffer floatBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i2, floatBuffer) == null) {
-            setVertexAttribArray(str, i2, 0, floatBuffer);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, floatBuffer) == null) {
+            setVertexAttribArray(str, i, 0, floatBuffer);
         }
     }
 
     public void useProgram() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            int i2 = this.program;
-            if (i2 != -1) {
-                GLES20.glUseProgram(i2);
+            int i = this.program;
+            if (i != -1) {
+                GLES20.glUseProgram(i);
                 GlUtil.checkNoGLES2Error("glUseProgram");
                 return;
             }
@@ -141,13 +141,13 @@ public class GlShader {
         }
     }
 
-    public void setVertexAttribArray(String str, int i2, int i3, FloatBuffer floatBuffer) {
+    public void setVertexAttribArray(String str, int i, int i2, FloatBuffer floatBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), floatBuffer}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), floatBuffer}) == null) {
             if (this.program != -1) {
                 int attribLocation = getAttribLocation(str);
                 GLES20.glEnableVertexAttribArray(attribLocation);
-                GLES20.glVertexAttribPointer(attribLocation, i2, 5126, false, i3, (Buffer) floatBuffer);
+                GLES20.glVertexAttribPointer(attribLocation, i, 5126, false, i2, (Buffer) floatBuffer);
                 GlUtil.checkNoGLES2Error("setVertexAttribArray");
                 return;
             }

@@ -2,6 +2,7 @@ package androidx.core.os;
 
 import android.os.Build;
 import android.os.Environment;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +23,9 @@ public final class EnvironmentCompat {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -36,17 +37,17 @@ public final class EnvironmentCompat {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            int i2 = Build.VERSION.SDK_INT;
-            if (i2 >= 21) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 21) {
                 return Environment.getExternalStorageState(file);
             }
-            if (i2 >= 19) {
+            if (i >= 19) {
                 return Environment.getStorageState(file);
             }
             try {
                 return file.getCanonicalPath().startsWith(Environment.getExternalStorageDirectory().getCanonicalPath()) ? Environment.getExternalStorageState() : "unknown";
             } catch (IOException e2) {
-                String str = "Failed to resolve canonical path: " + e2;
+                Log.w(TAG, "Failed to resolve canonical path: " + e2);
                 return "unknown";
             }
         }

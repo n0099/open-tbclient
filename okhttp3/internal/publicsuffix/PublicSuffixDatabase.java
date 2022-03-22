@@ -1,6 +1,7 @@
 package okhttp3.internal.publicsuffix;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.IStringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -21,7 +22,7 @@ import okhttp3.internal.platform.Platform;
 import okio.BufferedSource;
 import okio.GzipSource;
 import okio.Okio;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class PublicSuffixDatabase {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String[] EMPTY_RULE;
@@ -60,9 +61,9 @@ public final class PublicSuffixDatabase {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -72,82 +73,82 @@ public final class PublicSuffixDatabase {
         this.readCompleteLatch = new CountDownLatch(1);
     }
 
-    public static String binarySearchBytes(byte[] bArr, byte[][] bArr2, int i2) {
+    public static String binarySearchBytes(byte[] bArr, byte[][] bArr2, int i) {
         InterceptResult invokeLLI;
-        int i3;
+        int i2;
         boolean z;
+        int i3;
         int i4;
-        int i5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bArr, bArr2, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, bArr, bArr2, i)) == null) {
             int length = bArr.length;
-            int i6 = 0;
-            while (i6 < length) {
-                int i7 = (i6 + length) / 2;
-                while (i7 > -1 && bArr[i7] != 10) {
-                    i7--;
+            int i5 = 0;
+            while (i5 < length) {
+                int i6 = (i5 + length) / 2;
+                while (i6 > -1 && bArr[i6] != 10) {
+                    i6--;
                 }
-                int i8 = i7 + 1;
-                int i9 = 1;
+                int i7 = i6 + 1;
+                int i8 = 1;
                 while (true) {
-                    i3 = i8 + i9;
-                    if (bArr[i3] == 10) {
+                    i2 = i7 + i8;
+                    if (bArr[i2] == 10) {
                         break;
                     }
-                    i9++;
+                    i8++;
                 }
-                int i10 = i3 - i8;
-                int i11 = i2;
+                int i9 = i2 - i7;
+                int i10 = i;
                 boolean z2 = false;
+                int i11 = 0;
                 int i12 = 0;
-                int i13 = 0;
                 while (true) {
                     if (z2) {
-                        i4 = 46;
+                        i3 = 46;
                         z = false;
                     } else {
                         z = z2;
-                        i4 = bArr2[i11][i12] & 255;
+                        i3 = bArr2[i10][i11] & 255;
                     }
-                    i5 = i4 - (bArr[i8 + i13] & 255);
-                    if (i5 == 0) {
-                        i13++;
+                    i4 = i3 - (bArr[i7 + i12] & 255);
+                    if (i4 == 0) {
                         i12++;
-                        if (i13 == i10) {
+                        i11++;
+                        if (i12 == i9) {
                             break;
-                        } else if (bArr2[i11].length != i12) {
+                        } else if (bArr2[i10].length != i11) {
                             z2 = z;
-                        } else if (i11 == bArr2.length - 1) {
+                        } else if (i10 == bArr2.length - 1) {
                             break;
                         } else {
-                            i11++;
+                            i10++;
                             z2 = true;
-                            i12 = -1;
+                            i11 = -1;
                         }
                     } else {
                         break;
                     }
                 }
-                if (i5 >= 0) {
-                    if (i5 <= 0) {
-                        int i14 = i10 - i13;
-                        int length2 = bArr2[i11].length - i12;
+                if (i4 >= 0) {
+                    if (i4 <= 0) {
+                        int i13 = i9 - i12;
+                        int length2 = bArr2[i10].length - i11;
                         while (true) {
-                            i11++;
-                            if (i11 >= bArr2.length) {
+                            i10++;
+                            if (i10 >= bArr2.length) {
                                 break;
                             }
-                            length2 += bArr2[i11].length;
+                            length2 += bArr2[i10].length;
                         }
-                        if (length2 >= i14) {
-                            if (length2 <= i14) {
-                                return new String(bArr, i8, i10, Util.UTF_8);
+                        if (length2 >= i13) {
+                            if (length2 <= i13) {
+                                return new String(bArr, i7, i9, Util.UTF_8);
                             }
                         }
                     }
-                    i6 = i3 + 1;
+                    i5 = i2 + 1;
                 }
-                length = i8 - 1;
+                length = i7 - 1;
             }
             return null;
         }
@@ -163,7 +164,7 @@ public final class PublicSuffixDatabase {
         String[] strArr3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, strArr)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (!this.listRead.get() && this.listRead.compareAndSet(false, true)) {
                 readTheListUninterruptibly();
             } else {
@@ -180,27 +181,27 @@ public final class PublicSuffixDatabase {
             }
             int length = strArr.length;
             byte[][] bArr = new byte[length];
-            for (int i3 = 0; i3 < strArr.length; i3++) {
-                bArr[i3] = strArr[i3].getBytes(Util.UTF_8);
+            for (int i2 = 0; i2 < strArr.length; i2++) {
+                bArr[i2] = strArr[i2].getBytes(Util.UTF_8);
             }
-            int i4 = 0;
+            int i3 = 0;
             while (true) {
                 str = null;
-                if (i4 >= length) {
+                if (i3 >= length) {
                     str2 = null;
                     break;
                 }
-                str2 = binarySearchBytes(this.publicSuffixListBytes, bArr, i4);
+                str2 = binarySearchBytes(this.publicSuffixListBytes, bArr, i3);
                 if (str2 != null) {
                     break;
                 }
-                i4++;
+                i3++;
             }
             if (length > 1) {
                 byte[][] bArr2 = (byte[][]) bArr.clone();
-                for (int i5 = 0; i5 < bArr2.length - 1; i5++) {
-                    bArr2[i5] = WILDCARD_LABEL;
-                    str3 = binarySearchBytes(this.publicSuffixListBytes, bArr2, i5);
+                for (int i4 = 0; i4 < bArr2.length - 1; i4++) {
+                    bArr2[i4] = WILDCARD_LABEL;
+                    str3 = binarySearchBytes(this.publicSuffixListBytes, bArr2, i4);
                     if (str3 != null) {
                         break;
                     }
@@ -209,15 +210,15 @@ public final class PublicSuffixDatabase {
             str3 = null;
             if (str3 != null) {
                 while (true) {
-                    if (i2 >= length - 1) {
+                    if (i >= length - 1) {
                         break;
                     }
-                    String binarySearchBytes = binarySearchBytes(this.publicSuffixExceptionListBytes, bArr, i2);
+                    String binarySearchBytes = binarySearchBytes(this.publicSuffixExceptionListBytes, bArr, i);
                     if (binarySearchBytes != null) {
                         str = binarySearchBytes;
                         break;
                     }
-                    i2++;
+                    i++;
                 }
             }
             if (str != null) {
@@ -320,9 +321,9 @@ public final class PublicSuffixDatabase {
                     }
                     StringBuilder sb = new StringBuilder();
                     String[] split2 = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-                    for (int i2 = length - length2; i2 < split2.length; i2++) {
-                        sb.append(split2[i2]);
-                        sb.append('.');
+                    for (int i = length - length2; i < split2.length; i++) {
+                        sb.append(split2[i]);
+                        sb.append(IStringUtil.EXTENSION_SEPARATOR);
                     }
                     sb.deleteCharAt(sb.length() - 1);
                     return sb.toString();

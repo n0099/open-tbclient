@@ -38,9 +38,9 @@ public class FragmentLifecycleCallbacksDispatcher {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {fragmentLifecycleCallbacks, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,9 +58,9 @@ public class FragmentLifecycleCallbacksDispatcher {
             newInitContext.initArgs = r2;
             Object[] objArr = {fragmentManager};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -319,16 +319,16 @@ public class FragmentLifecycleCallbacksDispatcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, fragmentLifecycleCallbacks) == null) {
             synchronized (this.mLifecycleCallbacks) {
-                int i2 = 0;
+                int i = 0;
                 int size = this.mLifecycleCallbacks.size();
                 while (true) {
-                    if (i2 >= size) {
+                    if (i >= size) {
                         break;
-                    } else if (this.mLifecycleCallbacks.get(i2).mCallback == fragmentLifecycleCallbacks) {
-                        this.mLifecycleCallbacks.remove(i2);
+                    } else if (this.mLifecycleCallbacks.get(i).mCallback == fragmentLifecycleCallbacks) {
+                        this.mLifecycleCallbacks.remove(i);
                         break;
                     } else {
-                        i2++;
+                        i++;
                     }
                 }
             }

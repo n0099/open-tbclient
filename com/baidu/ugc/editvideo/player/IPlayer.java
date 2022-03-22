@@ -13,12 +13,12 @@ public interface IPlayer {
 
     /* loaded from: classes6.dex */
     public interface OnPlayerErrorListener {
-        boolean onError(IPlayer iPlayer, int i2, int i3, Exception exc);
+        boolean onError(IPlayer iPlayer, int i, int i2, Exception exc);
     }
 
     /* loaded from: classes6.dex */
     public interface OnPlayerInfoListener {
-        boolean onInfo(IPlayer iPlayer, int i2, int i3);
+        boolean onInfo(IPlayer iPlayer, int i, int i2);
     }
 
     /* loaded from: classes6.dex */
@@ -26,7 +26,7 @@ public interface IPlayer {
         public static final int STATE_PAUSE = 2;
         public static final int STATE_PLAY = 1;
 
-        void onStateChange(IPlayer iPlayer, int i2);
+        void onStateChange(IPlayer iPlayer, int i);
     }
 
     /* loaded from: classes6.dex */
@@ -36,7 +36,7 @@ public interface IPlayer {
 
     /* loaded from: classes6.dex */
     public interface OnPlayerVideoSizeChangedListener {
-        void onVideoSizeChanged(int i2, int i3);
+        void onVideoSizeChanged(int i, int i2);
     }
 
     long getCurrentPosition();
@@ -57,11 +57,11 @@ public interface IPlayer {
 
     void reset();
 
-    void seekTo(long j2);
+    void seekTo(long j);
 
     void seekToEnd();
 
-    void seekToForce(long j2);
+    void seekToForce(long j);
 
     void setAudioDataSource(List<AudioPlayData> list);
 

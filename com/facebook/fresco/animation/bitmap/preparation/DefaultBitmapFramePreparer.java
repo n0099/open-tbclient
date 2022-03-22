@@ -16,7 +16,7 @@ import com.facebook.fresco.animation.bitmap.BitmapFrameCache;
 import com.facebook.fresco.animation.bitmap.BitmapFrameRenderer;
 import com.facebook.imagepipeline.bitmaps.PlatformBitmapFactory;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public static /* synthetic */ Interceptable $ic;
     public static final Class<?> TAG;
@@ -27,7 +27,7 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
     public final SparseArray<Runnable> mPendingFrameDecodeJobs;
     public final PlatformBitmapFactory mPlatformBitmapFactory;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public class FrameDecodeRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -37,16 +37,16 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
         public final int mHashCode;
         public final /* synthetic */ DefaultBitmapFramePreparer this$0;
 
-        public FrameDecodeRunnable(DefaultBitmapFramePreparer defaultBitmapFramePreparer, AnimationBackend animationBackend, BitmapFrameCache bitmapFrameCache, int i2, int i3) {
+        public FrameDecodeRunnable(DefaultBitmapFramePreparer defaultBitmapFramePreparer, AnimationBackend animationBackend, BitmapFrameCache bitmapFrameCache, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {defaultBitmapFramePreparer, animationBackend, bitmapFrameCache, Integer.valueOf(i2), Integer.valueOf(i3)};
+                Object[] objArr = {defaultBitmapFramePreparer, animationBackend, bitmapFrameCache, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -55,28 +55,28 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
             this.this$0 = defaultBitmapFramePreparer;
             this.mAnimationBackend = animationBackend;
             this.mBitmapFrameCache = bitmapFrameCache;
-            this.mFrameNumber = i2;
-            this.mHashCode = i3;
+            this.mFrameNumber = i;
+            this.mHashCode = i2;
         }
 
-        private boolean prepareFrameAndCache(int i2, int i3) {
+        private boolean prepareFrameAndCache(int i, int i2) {
             InterceptResult invokeII;
             CloseableReference<Bitmap> bitmapToReuseForFrame;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i2, i3)) == null) {
-                int i4 = 2;
+            if (interceptable == null || (invokeII = interceptable.invokeII(65537, this, i, i2)) == null) {
+                int i3 = 2;
                 try {
-                    if (i3 == 1) {
-                        bitmapToReuseForFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i2, this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight());
-                    } else if (i3 != 2) {
+                    if (i2 == 1) {
+                        bitmapToReuseForFrame = this.mBitmapFrameCache.getBitmapToReuseForFrame(i, this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight());
+                    } else if (i2 != 2) {
                         return false;
                     } else {
                         bitmapToReuseForFrame = this.this$0.mPlatformBitmapFactory.createBitmap(this.mAnimationBackend.getIntrinsicWidth(), this.mAnimationBackend.getIntrinsicHeight(), this.this$0.mBitmapConfig);
-                        i4 = -1;
+                        i3 = -1;
                     }
-                    boolean renderFrameAndCache = renderFrameAndCache(i2, bitmapToReuseForFrame, i3);
+                    boolean renderFrameAndCache = renderFrameAndCache(i, bitmapToReuseForFrame, i2);
                     CloseableReference.closeSafely(bitmapToReuseForFrame);
-                    return (renderFrameAndCache || i4 == -1) ? renderFrameAndCache : prepareFrameAndCache(i2, i4);
+                    return (renderFrameAndCache || i3 == -1) ? renderFrameAndCache : prepareFrameAndCache(i, i3);
                 } catch (RuntimeException e2) {
                     FLog.w(DefaultBitmapFramePreparer.TAG, "Failed to create frame bitmap", e2);
                     return false;
@@ -87,14 +87,14 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
             return invokeII.booleanValue;
         }
 
-        private boolean renderFrameAndCache(int i2, CloseableReference<Bitmap> closeableReference, int i3) {
+        private boolean renderFrameAndCache(int i, CloseableReference<Bitmap> closeableReference, int i2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), closeableReference, Integer.valueOf(i3)})) == null) {
-                if (CloseableReference.isValid(closeableReference) && this.this$0.mBitmapFrameRenderer.renderFrame(i2, closeableReference.get())) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), closeableReference, Integer.valueOf(i2)})) == null) {
+                if (CloseableReference.isValid(closeableReference) && this.this$0.mBitmapFrameRenderer.renderFrame(i, closeableReference.get())) {
                     FLog.v(DefaultBitmapFramePreparer.TAG, "Frame %d ready.", Integer.valueOf(this.mFrameNumber));
                     synchronized (this.this$0.mPendingFrameDecodeJobs) {
-                        this.mBitmapFrameCache.onFramePrepared(this.mFrameNumber, closeableReference, i3);
+                        this.mBitmapFrameCache.onFramePrepared(this.mFrameNumber, closeableReference, i2);
                     }
                     return true;
                 }
@@ -157,9 +157,9 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
             newInitContext.initArgs = r2;
             Object[] objArr = {platformBitmapFactory, bitmapFrameRenderer, config, executorService};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -172,27 +172,27 @@ public class DefaultBitmapFramePreparer implements BitmapFramePreparer {
         this.mPendingFrameDecodeJobs = new SparseArray<>();
     }
 
-    public static int getUniqueId(AnimationBackend animationBackend, int i2) {
+    public static int getUniqueId(AnimationBackend animationBackend, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, animationBackend, i2)) == null) ? (animationBackend.hashCode() * 31) + i2 : invokeLI.intValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, animationBackend, i)) == null) ? (animationBackend.hashCode() * 31) + i : invokeLI.intValue;
     }
 
     @Override // com.facebook.fresco.animation.bitmap.preparation.BitmapFramePreparer
-    public boolean prepareFrame(BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i2) {
+    public boolean prepareFrame(BitmapFrameCache bitmapFrameCache, AnimationBackend animationBackend, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, bitmapFrameCache, animationBackend, i2)) == null) {
-            int uniqueId = getUniqueId(animationBackend, i2);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, bitmapFrameCache, animationBackend, i)) == null) {
+            int uniqueId = getUniqueId(animationBackend, i);
             synchronized (this.mPendingFrameDecodeJobs) {
                 if (this.mPendingFrameDecodeJobs.get(uniqueId) != null) {
-                    FLog.v(TAG, "Already scheduled decode job for frame %d", Integer.valueOf(i2));
+                    FLog.v(TAG, "Already scheduled decode job for frame %d", Integer.valueOf(i));
                     return true;
-                } else if (bitmapFrameCache.contains(i2)) {
-                    FLog.v(TAG, "Frame %d is cached already.", Integer.valueOf(i2));
+                } else if (bitmapFrameCache.contains(i)) {
+                    FLog.v(TAG, "Frame %d is cached already.", Integer.valueOf(i));
                     return true;
                 } else {
-                    FrameDecodeRunnable frameDecodeRunnable = new FrameDecodeRunnable(this, animationBackend, bitmapFrameCache, i2, uniqueId);
+                    FrameDecodeRunnable frameDecodeRunnable = new FrameDecodeRunnable(this, animationBackend, bitmapFrameCache, i, uniqueId);
                     this.mPendingFrameDecodeJobs.put(uniqueId, frameDecodeRunnable);
                     this.mExecutorService.execute(frameDecodeRunnable);
                     return true;

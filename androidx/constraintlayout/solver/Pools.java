@@ -18,7 +18,7 @@ public final class Pools {
 
         boolean release(T t);
 
-        void releaseAll(T[] tArr, int i2);
+        void releaseAll(T[] tArr, int i);
     }
 
     /* loaded from: classes.dex */
@@ -28,23 +28,23 @@ public final class Pools {
         public final Object[] mPool;
         public int mPoolSize;
 
-        public SimplePool(int i2) {
+        public SimplePool(int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (i2 > 0) {
-                this.mPool = new Object[i2];
+            if (i > 0) {
+                this.mPool = new Object[i];
                 return;
             }
             throw new IllegalArgumentException("The max pool size must be > 0");
@@ -54,8 +54,8 @@ public final class Pools {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, t)) == null) {
-                for (int i2 = 0; i2 < this.mPoolSize; i2++) {
-                    if (this.mPool[i2] == t) {
+                for (int i = 0; i < this.mPoolSize; i++) {
+                    if (this.mPool[i] == t) {
                         return true;
                     }
                 }
@@ -69,13 +69,13 @@ public final class Pools {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i2 = this.mPoolSize;
-                if (i2 > 0) {
-                    int i3 = i2 - 1;
+                int i = this.mPoolSize;
+                if (i > 0) {
+                    int i2 = i - 1;
                     Object[] objArr = this.mPool;
-                    T t = (T) objArr[i3];
-                    objArr[i3] = null;
-                    this.mPoolSize = i2 - 1;
+                    T t = (T) objArr[i2];
+                    objArr[i2] = null;
+                    this.mPoolSize = i - 1;
                     return t;
                 }
                 return null;
@@ -88,11 +88,11 @@ public final class Pools {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-                int i2 = this.mPoolSize;
+                int i = this.mPoolSize;
                 Object[] objArr = this.mPool;
-                if (i2 < objArr.length) {
-                    objArr[i2] = t;
-                    this.mPoolSize = i2 + 1;
+                if (i < objArr.length) {
+                    objArr[i] = t;
+                    this.mPoolSize = i + 1;
                     return true;
                 }
                 return false;
@@ -101,19 +101,19 @@ public final class Pools {
         }
 
         @Override // androidx.constraintlayout.solver.Pools.Pool
-        public void releaseAll(T[] tArr, int i2) {
+        public void releaseAll(T[] tArr, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tArr, i2) == null) {
-                if (i2 > tArr.length) {
-                    i2 = tArr.length;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tArr, i) == null) {
+                if (i > tArr.length) {
+                    i = tArr.length;
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
-                    T t = tArr[i3];
-                    int i4 = this.mPoolSize;
+                for (int i2 = 0; i2 < i; i2++) {
+                    T t = tArr[i2];
+                    int i3 = this.mPoolSize;
                     Object[] objArr = this.mPool;
-                    if (i4 < objArr.length) {
-                        objArr[i4] = t;
-                        this.mPoolSize = i4 + 1;
+                    if (i3 < objArr.length) {
+                        objArr[i3] = t;
+                        this.mPoolSize = i3 + 1;
                     }
                 }
             }
@@ -125,9 +125,9 @@ public final class Pools {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }

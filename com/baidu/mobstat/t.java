@@ -20,20 +20,20 @@ public abstract class t {
     public static final t a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final t f35541b;
+    public static final t f27423b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final t f35542c;
+    public static final t f27424c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final t f35543d;
+    public static final t f27425d;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final /* synthetic */ t[] f35544f;
+    public static final /* synthetic */ t[] f27426f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f35545e;
+    public int f27427e;
 
     static {
         InterceptResult invokeClinit;
@@ -61,9 +61,9 @@ public abstract class t {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -87,7 +87,7 @@ public abstract class t {
                 }
             }
         };
-        f35541b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
+        f27423b = new t("NO_SERVICE", 1, 2) { // from class: com.baidu.mobstat.t.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -100,9 +100,9 @@ public abstract class t {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -120,13 +120,13 @@ public abstract class t {
                     a a2 = u.a(context);
                     ac acVar = new ac();
                     acVar.a = false;
-                    acVar.f35005b = "M";
-                    acVar.f35006c = false;
+                    acVar.f27160b = "M";
+                    acVar.f27161c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f35542c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
+        f27424c = new t("RECEIVER", 2, 3) { // from class: com.baidu.mobstat.t.3
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -139,9 +139,9 @@ public abstract class t {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -159,8 +159,8 @@ public abstract class t {
                     a a2 = u.a(context);
                     ac acVar = new ac();
                     acVar.a = false;
-                    acVar.f35005b = "R";
-                    acVar.f35006c = false;
+                    acVar.f27160b = "R";
+                    acVar.f27161c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
@@ -178,9 +178,9 @@ public abstract class t {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {r10, Integer.valueOf(r11), Integer.valueOf(r12)};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         Object[] objArr2 = newInitContext.callArgs;
                         super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue());
                         newInitContext.thisArg = this;
@@ -198,27 +198,27 @@ public abstract class t {
                     a a2 = u.a(context);
                     ac acVar = new ac();
                     acVar.a = false;
-                    acVar.f35005b = "E";
-                    acVar.f35006c = false;
+                    acVar.f27160b = "E";
+                    acVar.f27161c = false;
                     a2.a(applicationContext, acVar.a());
                 }
             }
         };
-        f35543d = tVar;
-        f35544f = new t[]{a, f35541b, f35542c, tVar};
+        f27425d = tVar;
+        f27426f = new t[]{a, f27423b, f27424c, tVar};
     }
 
-    public static t a(int i2) {
+    public static t a(int i) {
         InterceptResult invokeI;
         t[] values;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
             for (t tVar : values()) {
-                if (tVar.f35545e == i2) {
+                if (tVar.f27427e == i) {
                     return tVar;
                 }
             }
-            return f35541b;
+            return f27423b;
         }
         return (t) invokeI.objValue;
     }
@@ -231,14 +231,14 @@ public abstract class t {
             if (activityManager != null) {
                 try {
                     List<ActivityManager.RunningServiceInfo> runningServices = activityManager.getRunningServices(Integer.MAX_VALUE);
-                    int i2 = 0;
+                    int i = 0;
                     while (runningServices != null) {
-                        if (i2 >= runningServices.size()) {
+                        if (i >= runningServices.size()) {
                             break;
-                        } else if ("com.baidu.bottom.service.BottomService".equals(runningServices.get(i2).service.getClassName())) {
+                        } else if ("com.baidu.bottom.service.BottomService".equals(runningServices.get(i).service.getClassName())) {
                             return true;
                         } else {
-                            i2++;
+                            i++;
                         }
                     }
                 } catch (Exception e2) {
@@ -265,7 +265,7 @@ public abstract class t {
     public static t[] values() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f35544f.clone() : (t[]) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? (t[]) f27426f.clone() : (t[]) invokeV.objValue;
     }
 
     public abstract void a(Context context);
@@ -274,19 +274,19 @@ public abstract class t {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f35545e) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? String.valueOf(this.f27427e) : (String) invokeV.objValue;
     }
 
-    public t(String str, int i2, int i3) {
+    public t(String str, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -295,6 +295,6 @@ public abstract class t {
                 return;
             }
         }
-        this.f35545e = i3;
+        this.f27427e = i2;
     }
 }

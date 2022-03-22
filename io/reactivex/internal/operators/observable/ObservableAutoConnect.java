@@ -19,23 +19,23 @@ public final class ObservableAutoConnect<T> extends Observable<T> {
     public final int numberOfObservers;
     public final ConnectableObservable<? extends T> source;
 
-    public ObservableAutoConnect(ConnectableObservable<? extends T> connectableObservable, int i2, Consumer<? super Disposable> consumer) {
+    public ObservableAutoConnect(ConnectableObservable<? extends T> connectableObservable, int i, Consumer<? super Disposable> consumer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {connectableObservable, Integer.valueOf(i2), consumer};
+            Object[] objArr = {connectableObservable, Integer.valueOf(i), consumer};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = connectableObservable;
-        this.numberOfObservers = i2;
+        this.numberOfObservers = i;
         this.connection = consumer;
         this.clients = new AtomicInteger();
     }

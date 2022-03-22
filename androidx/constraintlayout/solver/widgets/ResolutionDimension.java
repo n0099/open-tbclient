@@ -16,9 +16,9 @@ public class ResolutionDimension extends ResolutionNode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,11 +43,11 @@ public class ResolutionDimension extends ResolutionNode {
         }
     }
 
-    public void resolve(int i2) {
+    public void resolve(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
-            if (this.state == 0 || this.value != i2) {
-                this.value = i2;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.state == 0 || this.value != i) {
+                this.value = i;
                 if (this.state == 1) {
                     invalidate();
                 }

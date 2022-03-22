@@ -1,7 +1,8 @@
 package com.baidu.searchbox.block.impl;
 
-import c.a.i0.a.b.b;
-import c.a.i0.a.b.d;
+import android.util.Log;
+import c.a.g0.a.b.b;
+import c.a.g0.a.b.d;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
@@ -25,9 +26,9 @@ public class BlockRuntime {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -62,7 +63,10 @@ public class BlockRuntime {
             }
             for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
                 if (iBlockRegister != null && iBlockRegister.checkEnable()) {
-                    AppConfig.isDebug();
+                    if (AppConfig.isDebug()) {
+                        Log.d(BlockMonitor.TAG, "enableBlock = true");
+                        return true;
+                    }
                     return true;
                 }
             }

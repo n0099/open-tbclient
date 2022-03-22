@@ -48,9 +48,9 @@ public interface BdTextSelectProxyService {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                 }
@@ -70,9 +70,9 @@ public interface BdTextSelectProxyService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static /* synthetic */ IBdTextSelectHelper buildBdTextSelectHelper$default(BdTextSelectProxyService bdTextSelectProxyService, TextView textView, View view, int i2, Object obj) {
+        public static /* synthetic */ IBdTextSelectHelper buildBdTextSelectHelper$default(BdTextSelectProxyService bdTextSelectProxyService, TextView textView, View view, int i, Object obj) {
             if (obj == null) {
-                if ((i2 & 2) != 0) {
+                if ((i & 2) != 0) {
                     view = null;
                 }
                 return bdTextSelectProxyService.buildBdTextSelectHelper(textView, view);

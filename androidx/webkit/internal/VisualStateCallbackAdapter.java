@@ -19,9 +19,9 @@ public class VisualStateCallbackAdapter implements VisualStateCallbackBoundaryIn
             newInitContext.initArgs = r2;
             Object[] objArr = {visualStateCallback};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,10 +31,10 @@ public class VisualStateCallbackAdapter implements VisualStateCallbackBoundaryIn
     }
 
     @Override // org.chromium.support_lib_boundary.VisualStateCallbackBoundaryInterface
-    public void onComplete(long j2) {
+    public void onComplete(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j2) == null) {
-            this.mVisualStateCallback.onComplete(j2);
+        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            this.mVisualStateCallback.onComplete(j);
         }
     }
 }

@@ -16,7 +16,7 @@ public final class a {
     public String a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Vector<String> f51464b;
+    public Vector<String> f37917b;
 
     public a(String str) {
         Interceptable interceptable = $ic;
@@ -25,16 +25,16 @@ public final class a {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.f51464b = new Vector<>();
+        this.f37917b = new Vector<>();
     }
 
     public final int a(String str) {
@@ -42,9 +42,9 @@ public final class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (str != null) {
-                this.f51464b.add(str);
+                this.f37917b.add(str);
             }
-            return this.f51464b.size();
+            return this.f37917b.size();
         }
         return invokeL.intValue;
     }
@@ -52,6 +52,6 @@ public final class a {
     public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f51464b).toString() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new JSONArray((Collection) this.f37917b).toString() : (String) invokeV.objValue;
     }
 }

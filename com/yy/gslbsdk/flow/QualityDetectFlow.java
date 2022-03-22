@@ -41,7 +41,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class QualityDetectFlow {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "QualityDetectFlow";
@@ -68,9 +68,9 @@ public class QualityDetectFlow {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -86,9 +86,9 @@ public class QualityDetectFlow {
             HashMap<String, StatsInfo> stats1 = reportInfo.getStats1();
             if (stats1 != null) {
                 for (StatsInfo statsInfo : stats1.values()) {
-                    for (int i2 = 0; i2 < statsInfo.getIts().size(); i2++) {
-                        if (statsInfo.getIts().get(i2)[1] != 0) {
-                            statsInfo.getIts().get(i2)[0] = statsInfo.getIts().get(i2)[2] / statsInfo.getIts().get(i2)[1];
+                    for (int i = 0; i < statsInfo.getIts().size(); i++) {
+                        if (statsInfo.getIts().get(i)[1] != 0) {
+                            statsInfo.getIts().get(i)[0] = statsInfo.getIts().get(i)[2] / statsInfo.getIts().get(i)[1];
                         }
                     }
                 }
@@ -96,9 +96,9 @@ public class QualityDetectFlow {
             HashMap<String, StatsInfo> stats15 = reportInfo.getStats15();
             if (stats15 != null) {
                 for (StatsInfo statsInfo2 : stats15.values()) {
-                    for (int i3 = 0; i3 < statsInfo2.getIts().size(); i3++) {
-                        if (statsInfo2.getIts().get(i3)[1] != 0) {
-                            statsInfo2.getIts().get(i3)[0] = statsInfo2.getIts().get(i3)[2] / statsInfo2.getIts().get(i3)[1];
+                    for (int i2 = 0; i2 < statsInfo2.getIts().size(); i2++) {
+                        if (statsInfo2.getIts().get(i2)[1] != 0) {
+                            statsInfo2.getIts().get(i2)[0] = statsInfo2.getIts().get(i2)[2] / statsInfo2.getIts().get(i2)[1];
                         }
                     }
                 }
@@ -167,11 +167,11 @@ public class QualityDetectFlow {
                 }
                 StatsInfo statsInfo2 = reportInfo2.getStats15().get(delayTB.getIp());
                 long delay = delayTB.getDelay();
-                int i2 = (delay < 0 || delay > 50) ? (delay <= 50 || delay > 100) ? (delay <= 100 || delay > 200) ? (delay <= 200 || delay > 300) ? (delay <= 300 || delay >= 500) ? -1 : 4 : 3 : 2 : 1 : 0;
-                if (i2 != -1) {
-                    long[] jArr = statsInfo2.getIts().get(i2);
+                int i = (delay < 0 || delay > 50) ? (delay <= 50 || delay > 100) ? (delay <= 100 || delay > 200) ? (delay <= 200 || delay > 300) ? (delay <= 300 || delay >= 500) ? -1 : 4 : 3 : 2 : 1 : 0;
+                if (i != -1) {
+                    long[] jArr = statsInfo2.getIts().get(i);
                     jArr[1] = jArr[1] + 1;
-                    long[] jArr2 = statsInfo2.getIts().get(i2);
+                    long[] jArr2 = statsInfo2.getIts().get(i);
                     jArr2[2] = jArr2[2] + delay;
                 }
             }
@@ -207,11 +207,11 @@ public class QualityDetectFlow {
                 }
                 StatsInfo statsInfo2 = reportInfo2.getStats1().get(delayTB.getIp());
                 long delay = delayTB.getDelay();
-                int i2 = (delay < 500 || delay > 600) ? (delay <= 600 || delay > 800) ? (delay <= 800 || delay > 1000) ? (delay <= 1000 || delay > 2000) ? delay > 2000 ? 4 : -1 : 3 : 2 : 1 : 0;
-                if (i2 != -1) {
-                    long[] jArr = statsInfo2.getIts().get(i2);
+                int i = (delay < 500 || delay > 600) ? (delay <= 600 || delay > 800) ? (delay <= 800 || delay > 1000) ? (delay <= 1000 || delay > 2000) ? delay > 2000 ? 4 : -1 : 3 : 2 : 1 : 0;
+                if (i != -1) {
+                    long[] jArr = statsInfo2.getIts().get(i);
                     jArr[1] = jArr[1] + 1;
-                    long[] jArr2 = statsInfo2.getIts().get(i2);
+                    long[] jArr2 = statsInfo2.getIts().get(i);
                     jArr2[2] = jArr2[2] + delay;
                 }
             }
@@ -240,23 +240,23 @@ public class QualityDetectFlow {
             statsInfo.setSip("0.0.0.0");
             Iterator<Long> it = listDnsCost.iterator();
             while (true) {
-                int i2 = 0;
+                int i = 0;
                 if (!it.hasNext()) {
                     break;
                 }
                 long longValue = it.next().longValue();
                 if (longValue < 0 || longValue > 20) {
-                    i2 = (longValue <= 20 || longValue > 100) ? (longValue <= 100 || longValue > 200) ? (longValue <= 200 || longValue > 500) ? longValue > 500 ? 4 : -1 : 3 : 2 : 1;
+                    i = (longValue <= 20 || longValue > 100) ? (longValue <= 100 || longValue > 200) ? (longValue <= 200 || longValue > 500) ? longValue > 500 ? 4 : -1 : 3 : 2 : 1;
                 }
-                if (i2 != -1) {
-                    long[] jArr = statsInfo.getIts().get(i2);
+                if (i != -1) {
+                    long[] jArr = statsInfo.getIts().get(i);
                     jArr[1] = jArr[1] + 1;
-                    long[] jArr2 = statsInfo.getIts().get(i2);
+                    long[] jArr2 = statsInfo.getIts().get(i);
                     jArr2[2] = jArr2[2] + longValue;
                 }
             }
-            for (int i3 = 0; i3 < statsInfo.getIts().size(); i3++) {
-                long[] jArr3 = statsInfo.getIts().get(i3);
+            for (int i2 = 0; i2 < statsInfo.getIts().size(); i2++) {
+                long[] jArr3 = statsInfo.getIts().get(i2);
                 if (jArr3[1] != 0) {
                     jArr3[0] = jArr3[2] / jArr3[1];
                 }
@@ -286,13 +286,13 @@ public class QualityDetectFlow {
             NetStatusInfo networkInfo = DeviceMgr.getNetworkInfo(GlobalTools.APP_CONTEXT);
             ConcurrentHashMap<String, DnsInfo> allLocalDNSFromCache = IpVersionController.getInstance().getAllLocalDNSFromCache();
             LinkedList linkedList = new LinkedList();
+            int i = 0;
             int i2 = 0;
-            int i3 = 0;
             for (String str : allLocalDNSFromCache.keySet()) {
                 linkedList.add(str);
-                if (linkedList.size() == 5 || i3 == allLocalDNSFromCache.size() - 1) {
+                if (linkedList.size() == 5 || i2 == allLocalDNSFromCache.size() - 1) {
                     ResInfo resInfo = new ResInfo();
-                    DnsResolveFlow.getInstance().handleHttpDNSIgnoreCache(networkInfo, (String[]) linkedList.toArray(new String[i2]), resInfo, true);
+                    DnsResolveFlow.getInstance().handleHttpDNSIgnoreCache(networkInfo, (String[]) linkedList.toArray(new String[i]), resInfo, true);
                     if (resInfo.getStatus() == 0) {
                         Iterator it = linkedList.iterator();
                         while (it.hasNext()) {
@@ -317,8 +317,8 @@ public class QualityDetectFlow {
                     }
                     linkedList.clear();
                 }
-                i3++;
-                i2 = 0;
+                i2++;
+                i = 0;
             }
         }
     }
@@ -349,9 +349,9 @@ public class QualityDetectFlow {
                         }
                         long currentTimeMillis2 = System.currentTimeMillis();
                         if (canReport) {
-                            long j2 = currentTimeMillis2 - currentTimeMillis;
-                            addReportData(host, next, j2);
-                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j2 + "ms");
+                            long j = currentTimeMillis2 - currentTimeMillis;
+                            addReportData(host, next, j);
+                            LogTools.printDebug(TAG, "Probe success: " + host + " " + next + " " + j + "ms");
                         }
                     }
                 }
@@ -371,9 +371,9 @@ public class QualityDetectFlow {
         ReportInfo collectStats0Data = collectStats0Data(networkInfo);
         if (collectStats0Data != null) {
             String reportProtocol = ReportProtocolMgr.reportProtocol(collectStats0Data);
-            int i2 = 0;
+            int i = 0;
             while (true) {
-                if (i2 >= 2) {
+                if (i >= 2) {
                     break;
                 }
                 String[] post = HTTPMgr.post(ServerIPMgr.reportUrl, reportProtocol, null, GlobalTools.HTTPS_LEVEL == 2);
@@ -384,7 +384,7 @@ public class QualityDetectFlow {
                     LogTools.printDebug(TAG, "Report stats0 success: " + reportProtocol);
                     break;
                 }
-                i2++;
+                i++;
             }
         }
         HashMap<String, ReportInfo> collectMin1Data = collectMin1Data(DataCacheMgr.INSTANCE.getAllDelayUpper(), networkInfo);
@@ -429,15 +429,15 @@ public class QualityDetectFlow {
         }
     }
 
-    public synchronized void addHijackData(String str, int i2, String str2, String str3) {
+    public synchronized void addHijackData(String str, int i, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048576, this, str, i2, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLILL(1048576, this, str, i, str2, str3) == null) {
             synchronized (this) {
                 if (GlobalTools.APP_CONTEXT != null) {
                     DBAccessMgr dBAccessMgr = DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
                     HijackTB hijackTB = new HijackTB();
                     hijackTB.setHost(str);
-                    hijackTB.setNt(i2);
+                    hijackTB.setNt(i);
                     hijackTB.setUip(str2);
                     hijackTB.setHip(str3);
                     hijackTB.setDnsip(ServerIPMgr.curLocalDNSIp);
@@ -448,17 +448,17 @@ public class QualityDetectFlow {
         }
     }
 
-    public void addReportData(String str, String str2, long j2) {
+    public void addReportData(String str, String str2, long j) {
         Context context;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j2)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)}) == null) || (context = GlobalTools.APP_CONTEXT) == null) {
             return;
         }
         DBAccessMgr.getInstance(context);
         DelayTB delayTB = new DelayTB();
         delayTB.setHost(str);
         delayTB.setIp(str2);
-        delayTB.setDelay(j2);
+        delayTB.setDelay(j);
         DataCacheMgr.INSTANCE.addDelay(delayTB);
     }
 
@@ -482,9 +482,9 @@ public class QualityDetectFlow {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -531,9 +531,9 @@ public class QualityDetectFlow {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -580,9 +580,9 @@ public class QualityDetectFlow {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -655,16 +655,16 @@ public class QualityDetectFlow {
         return invokeV.intValue;
     }
 
-    public synchronized void updateDectorList(String str, int i2, int i3, String str2) {
+    public synchronized void updateDectorList(String str, int i, int i2, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) == null) {
             synchronized (this) {
                 if (GlobalTools.APP_CONTEXT != null) {
                     DBAccessMgr.getInstance(GlobalTools.APP_CONTEXT);
                     ProbeTB probeTB = new ProbeTB();
                     probeTB.setHost(str);
-                    probeTB.setProtocol(i2);
-                    probeTB.setMethod(i3);
+                    probeTB.setProtocol(i);
+                    probeTB.setMethod(i2);
                     probeTB.setUrl(str2);
                     DataCacheMgr.INSTANCE.addProbe(probeTB);
                 }

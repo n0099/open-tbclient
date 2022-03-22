@@ -35,9 +35,9 @@ public class EmotionIntefaceStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -48,7 +48,7 @@ public class EmotionIntefaceStatic {
         public void onReceive(Context context, Intent intent) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                c.a.r0.t0.d.e.j().r();
+                c.a.p0.v0.d.e.j().r();
             }
         }
     }
@@ -59,17 +59,17 @@ public class EmotionIntefaceStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -86,10 +86,10 @@ public class EmotionIntefaceStatic {
                 EditorTools editorTools = (EditorTools) customResponsedMessage.getData();
                 int indexOf = editorTools.getCollectTools().indexOf(5);
                 if (indexOf != -1) {
-                    if (editorTools.isHideBigEmotion()) {
-                        editorTools.addTool(new c.a.r0.t0.d.a(editorTools.getContext(), indexOf + 1, false));
+                    if (editorTools.s()) {
+                        editorTools.d(new c.a.p0.v0.d.a(editorTools.getContext(), indexOf + 1, false));
                     } else {
-                        editorTools.addTool(new c.a.r0.t0.d.a(editorTools.getContext(), indexOf + 1));
+                        editorTools.d(new c.a.p0.v0.d.a(editorTools.getContext(), indexOf + 1));
                     }
                 }
             }
@@ -102,17 +102,17 @@ public class EmotionIntefaceStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i2) {
-            super(i2);
+        public c(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -127,13 +127,13 @@ public class EmotionIntefaceStatic {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof List)) {
-                    List<c.a.q0.w.p.b> list = (List) customResponsedMessage.getData();
-                    list.add(c.a.r0.t0.d.d.f());
-                    for (c.a.q0.w.p.b bVar : list) {
-                        c.a.r0.t0.d.e.j().q(bVar);
+                    List<c.a.o0.w.p.b> list = (List) customResponsedMessage.getData();
+                    list.add(c.a.p0.v0.d.d.f());
+                    for (c.a.o0.w.p.b bVar : list) {
+                        c.a.p0.v0.d.e.j().q(bVar);
                     }
                 }
-                c.a.r0.t0.d.e.j().r();
+                c.a.p0.v0.d.e.j().r();
             }
         }
     }
@@ -148,9 +148,9 @@ public class EmotionIntefaceStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -162,7 +162,7 @@ public class EmotionIntefaceStatic {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                c.a.r0.t0.d.e.j().r();
+                c.a.p0.v0.d.e.j().r();
                 return null;
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -179,9 +179,9 @@ public class EmotionIntefaceStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -197,7 +197,7 @@ public class EmotionIntefaceStatic {
                     return null;
                 }
                 RequestStaticEmotionMessage requestStaticEmotionMessage = (RequestStaticEmotionMessage) customMessage;
-                return new CustomResponsedMessage<>(customMessage.getCmd(), c.a.r0.t0.d.e.j().o(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
+                return new CustomResponsedMessage<>(customMessage.getCmd(), c.a.p0.v0.d.e.j().o(requestStaticEmotionMessage.getGroupID(), requestStaticEmotionMessage.getSharpText()));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -213,9 +213,9 @@ public class EmotionIntefaceStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -230,7 +230,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(c.a.r0.t0.d.e.j().k(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004608, Boolean.valueOf(c.a.p0.v0.d.e.j().k(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -246,9 +246,9 @@ public class EmotionIntefaceStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -263,7 +263,7 @@ public class EmotionIntefaceStatic {
                 if (customMessage == null) {
                     return null;
                 }
-                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(c.a.r0.t0.d.e.j().l(customMessage.getData())));
+                return new CustomResponsedMessage<>(2004609, Boolean.valueOf(c.a.p0.v0.d.e.j().l(customMessage.getData())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -282,7 +282,7 @@ public class EmotionIntefaceStatic {
                 return;
             }
         }
-        c.a.d.f.l.d.h().o(20, new c.a.r0.t0.c.a());
+        c.a.d.f.l.d.h().o(20, new c.a.p0.v0.c.a());
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
         intentFilter.addAction("android.intent.action.MEDIA_EJECT");
@@ -311,9 +311,9 @@ public class EmotionIntefaceStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

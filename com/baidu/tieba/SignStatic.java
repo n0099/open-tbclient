@@ -5,8 +5,8 @@ import android.location.Address;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
-import c.a.q0.r.r.z1;
-import c.a.r0.u3.e;
+import c.a.o0.r.r.w1;
+import c.a.p0.w3.e;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -56,9 +56,9 @@ public class SignStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -137,7 +137,7 @@ public class SignStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<c.a.r0.u3.h.c> {
+    public static class b implements CustomMessageTask.CustomRunnable<c.a.p0.w3.h.c> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -146,9 +146,9 @@ public class SignStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -156,12 +156,12 @@ public class SignStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<c.a.r0.u3.h.c> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<c.a.p0.w3.h.c> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof z1)) {
-                    new e().f((z1) customMessage.getData());
+                if (customMessage != null && (customMessage.getData() instanceof w1)) {
+                    new e().f((w1) customMessage.getData());
                 }
                 return null;
             }
@@ -179,9 +179,9 @@ public class SignStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -238,9 +238,9 @@ public class SignStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -248,14 +248,14 @@ public class SignStatic {
     }
 
     public static void a(NetWork netWork) {
-        Address j2;
+        Address j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, netWork) == null) {
             String locationLng = TbadkCoreApplication.getInst().getLocationLng();
             String locationLat = TbadkCoreApplication.getInst().getLocationLat();
-            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j2 = c.a.d.f.i.a.n().j(false)) != null) {
-                locationLng = String.valueOf(j2.getLongitude());
-                locationLat = String.valueOf(j2.getLatitude());
+            if ((TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) && (j = c.a.d.f.i.a.n().j(false)) != null) {
+                locationLng = String.valueOf(j.getLongitude());
+                locationLat = String.valueOf(j.getLatitude());
             }
             if (TextUtils.isEmpty(locationLat) || TextUtils.isEmpty(locationLng)) {
                 return;

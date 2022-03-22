@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.i0;
+import f.c.i0;
 import org.webrtc.EglBase;
 import org.webrtc.GlRectDrawer;
 import org.webrtc.Logging;
@@ -40,17 +40,17 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
     public int videoWidth;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCVideoExternalRenderImp(BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate, long j2) {
-        super(null, j2);
+    public RTCVideoExternalRenderImp(BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate, long j) {
+        super(null, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baiduRtcRoomDelegate, Long.valueOf(j2)};
+            Object[] objArr = {baiduRtcRoomDelegate, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BaiduRtcRoom.BaiduRtcRoomVideoObserver) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;
@@ -64,15 +64,15 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         this.isGetDimension = false;
         this.hasSurface = Boolean.FALSE;
         this.roomDelegate = baiduRtcRoomDelegate;
-        this.userId = j2;
-        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j2));
+        this.userId = j;
+        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j));
     }
 
     @Override // com.baidu.rtc.RTCVideoExternalRender
-    public void changeSurfaceSize(int i2, int i3) {
+    public void changeSurfaceSize(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048576, this, i2, i3) == null) {
-            setLayoutAspect(i2 / i3);
+        if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+            setLayoutAspect(i / i2);
         }
     }
 
@@ -158,19 +158,19 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
     }
 
     @Override // org.webrtc.RendererCommon.RendererEvents
-    public void onFrameResolutionChanged(int i2, int i3, int i4) {
+    public void onFrameResolutionChanged(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048589, this, i2, i3, i4) == null) {
-            this.videoWidth = i2;
-            this.videoHeight = i3;
-            this.videoRotation = i4;
+        if (interceptable == null || interceptable.invokeIII(1048589, this, i, i2, i3) == null) {
+            this.videoWidth = i;
+            this.videoHeight = i2;
+            this.videoRotation = i3;
             BaiduRtcRoom.BaiduRtcRoomDelegate baiduRtcRoomDelegate = this.roomDelegate;
             if (baiduRtcRoomDelegate != null) {
                 baiduRtcRoomDelegate.onRoomEventUpdate(500, this.userId, null);
             }
             RendererCommon.RendererEvents rendererEvents = this.rendererEvents;
             if (rendererEvents != null) {
-                rendererEvents.onFrameResolutionChanged(i2, i3, i4);
+                rendererEvents.onFrameResolutionChanged(i, i2, i3);
             }
         }
     }
@@ -251,9 +251,9 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -324,16 +324,16 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                     }
 
                     @Override // android.view.SurfaceHolder
-                    public void setFixedSize(int i2, int i3) {
+                    public void setFixedSize(int i, int i2) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeII(1048583, this, i2, i3) == null) {
+                        if (interceptable2 == null || interceptable2.invokeII(1048583, this, i, i2) == null) {
                         }
                     }
 
                     @Override // android.view.SurfaceHolder
-                    public void setFormat(int i2) {
+                    public void setFormat(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
                         }
                     }
 
@@ -352,9 +352,9 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
                     }
 
                     @Override // android.view.SurfaceHolder
-                    public void setType(int i2) {
+                    public void setType(int i) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeI(1048587, this, i2) == null) {
+                        if (interceptable2 == null || interceptable2.invokeI(1048587, this, i) == null) {
                         }
                     }
 
@@ -394,17 +394,17 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RTCVideoExternalRenderImp(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, long j2) {
-        super(null, j2);
+    public RTCVideoExternalRenderImp(EglBase.Context context, RendererCommon.RendererEvents rendererEvents, long j) {
+        super(null, j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, rendererEvents, Long.valueOf(j2)};
+            Object[] objArr = {context, rendererEvents, Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((BaiduRtcRoom.BaiduRtcRoomVideoObserver) objArr2[0], ((Long) objArr2[1]).longValue());
                 newInitContext.thisArg = this;
@@ -417,8 +417,8 @@ public class RTCVideoExternalRenderImp extends RTCVideoExternalRender implements
         this.videoRotation = 0;
         this.isGetDimension = false;
         this.hasSurface = Boolean.FALSE;
-        this.userId = j2;
-        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j2));
+        this.userId = j;
+        this.eglRenderer = new SurfaceEglRenderer(String.valueOf(j));
         init(context, rendererEvents);
     }
 }

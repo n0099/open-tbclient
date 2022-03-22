@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Arrays;
 @TargetApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class AudioCapabilities {
     public static /* synthetic */ Interceptable $ic;
     public static final AudioCapabilities DEFAULT_AUDIO_CAPABILITIES;
@@ -40,16 +40,16 @@ public final class AudioCapabilities {
         DEFAULT_AUDIO_CAPABILITIES = new AudioCapabilities(new int[]{2}, 2);
     }
 
-    public AudioCapabilities(int[] iArr, int i2) {
+    public AudioCapabilities(int[] iArr, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {iArr, Integer.valueOf(i2)};
+            Object[] objArr = {iArr, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -62,7 +62,7 @@ public final class AudioCapabilities {
         } else {
             this.supportedEncodings = new int[0];
         }
-        this.maxChannelCount = i2;
+        this.maxChannelCount = i;
     }
 
     public static AudioCapabilities getCapabilities(Context context) {
@@ -99,10 +99,10 @@ public final class AudioCapabilities {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.maxChannelCount + (Arrays.hashCode(this.supportedEncodings) * 31) : invokeV.intValue;
     }
 
-    public boolean supportsEncoding(int i2) {
+    public boolean supportsEncoding(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i2)) == null) ? Arrays.binarySearch(this.supportedEncodings, i2) >= 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? Arrays.binarySearch(this.supportedEncodings, i) >= 0 : invokeI.booleanValue;
     }
 
     public String toString() {

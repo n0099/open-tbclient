@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
@@ -20,25 +19,25 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class VoteCountDownView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public View f37004b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public View f37005c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TextView f37006d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f47843e;
+    public TextView f37007e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f47844f;
+    public CountDownTimer f37008f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f47845g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public TextView f47846h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public TextView f47847i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public CountDownTimer f47848j;
-    public b k;
+    public b f37009g;
 
     /* loaded from: classes6.dex */
     public class a extends CountDownTimer {
@@ -47,17 +46,17 @@ public class VoteCountDownView extends LinearLayout {
         public final /* synthetic */ VoteCountDownView a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(VoteCountDownView voteCountDownView, long j2, long j3) {
-            super(j2, j3);
+        public a(VoteCountDownView voteCountDownView, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {voteCountDownView, Long.valueOf(j2), Long.valueOf(j3)};
+                Object[] objArr = {voteCountDownView, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
@@ -78,11 +77,11 @@ public class VoteCountDownView extends LinearLayout {
         }
 
         @Override // android.os.CountDownTimer
-        public void onTick(long j2) {
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2) == null) {
-                long j3 = j2 + 60000;
-                this.a.setContent(j3 / 3600000, (j3 % 3600000) / 60000);
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                long j2 = j + 60000;
+                this.a.setContent(j2 / 3600000, (j2 % 3600000) / 60000);
             }
         }
     }
@@ -101,9 +100,9 @@ public class VoteCountDownView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -116,7 +115,7 @@ public class VoteCountDownView extends LinearLayout {
     public final void b() {
         b bVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.k) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (bVar = this.f37009g) == null) {
             return;
         }
         bVar.a();
@@ -125,76 +124,66 @@ public class VoteCountDownView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f47844f = findViewById(R.id.hour_num_container);
-            this.f47845g = findViewById(R.id.minute_num_container);
-            this.f47846h = (TextView) findViewById(R.id.hour_num_count_down_view);
-            this.f47847i = (TextView) findViewById(R.id.minute_num_count_down_view);
+            this.f37004b = findViewById(R.id.obfuscated_res_0x7f090df3);
+            this.f37005c = findViewById(R.id.obfuscated_res_0x7f091427);
+            this.f37006d = (TextView) findViewById(R.id.obfuscated_res_0x7f090df4);
+            this.f37007e = (TextView) findViewById(R.id.obfuscated_res_0x7f091428);
         }
     }
 
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f47843e = getContext();
+            this.a = getContext();
             setOrientation(0);
             setClipToPadding(false);
             setClipChildren(false);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.vote_count_down_view, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b6, (ViewGroup) this, true);
             c();
         }
     }
 
-    public final void e(long j2) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) && this.f47848j == null) {
-            a aVar = new a(this, j2, 1000L);
-            this.f47848j = aVar;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundResource(this.f37004b, R.drawable.bg_gradient_round, i);
+            SkinManager.setBackgroundResource(this.f37005c, R.drawable.bg_gradient_round, i);
+            SkinManager.setViewTextColor(this.f37006d, R.color.CAM_X0101, 1, i);
+            SkinManager.setViewTextColor(this.f37006d, R.color.CAM_X0101, 1, i);
+        }
+    }
+
+    public final void f(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048580, this, j) == null) && this.f37008f == null) {
+            a aVar = new a(this, j, 1000L);
+            this.f37008f = aVar;
             aVar.start();
         }
     }
 
-    public void onDestroy() {
-        CountDownTimer countDownTimer;
+    public void setContent(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (countDownTimer = this.f47848j) == null) {
-            return;
-        }
-        countDownTimer.cancel();
-        this.f47848j = null;
-    }
-
-    public void onSkinChange(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i2) == null) {
-            SkinManager.setBackgroundResource(this.f47844f, R.drawable.bg_gradient_round, i2);
-            SkinManager.setBackgroundResource(this.f47845g, R.drawable.bg_gradient_round, i2);
-            SkinManager.setViewTextColor(this.f47846h, R.color.CAM_X0101, 1, i2);
-            SkinManager.setViewTextColor(this.f47846h, R.color.CAM_X0101, 1, i2);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            this.f37007e.setText(String.valueOf(j2));
+            this.f37006d.setText(String.valueOf(j));
         }
     }
 
-    public void setContent(long j2, long j3) {
+    public void setData(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            this.f47847i.setText(String.valueOf(j3));
-            this.f47846h.setText(String.valueOf(j2));
-        }
-    }
-
-    public void setData(long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j2) == null) {
-            long j3 = j2 + 60000;
-            setContent(j3 / 3600000, (j3 % 3600000) / 60000);
-            e(j2);
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            long j2 = j + 60000;
+            setContent(j2 / 3600000, (j2 % 3600000) / 60000);
+            f(j);
         }
     }
 
     public void setOnCountDownFinished(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
-            this.k = bVar;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.f37009g = bVar;
         }
     }
 
@@ -207,9 +196,9 @@ public class VoteCountDownView extends LinearLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;

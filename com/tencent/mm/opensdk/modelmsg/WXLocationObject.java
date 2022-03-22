@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class WXLocationObject implements WXMediaMessage.IMediaObject {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MicroMsg.SDK.WXLocationObject";
@@ -23,9 +23,9 @@ public class WXLocationObject implements WXMediaMessage.IMediaObject {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr = newInitContext.callArgs;
                 this(((Double) objArr[0]).doubleValue(), ((Double) objArr[1]).doubleValue());
                 newInitContext.thisArg = this;
@@ -42,9 +42,9 @@ public class WXLocationObject implements WXMediaMessage.IMediaObject {
             newInitContext.initArgs = r2;
             Object[] objArr = {Double.valueOf(d2), Double.valueOf(d3)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;

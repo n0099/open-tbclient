@@ -16,7 +16,7 @@ import com.bumptech.glide.load.Transformation;
 import com.bumptech.glide.load.engine.Resource;
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool;
 import java.security.MessageDigest;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class DrawableTransformation implements Transformation<Drawable> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,9 +30,9 @@ public class DrawableTransformation implements Transformation<Drawable> {
             newInitContext.initArgs = r2;
             Object[] objArr = {transformation, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -76,20 +76,20 @@ public class DrawableTransformation implements Transformation<Drawable> {
 
     @Override // com.bumptech.glide.load.Transformation
     @NonNull
-    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i2, int i3) {
+    public Resource<Drawable> transform(@NonNull Context context, @NonNull Resource<Drawable> resource, int i, int i2) {
         InterceptResult invokeLLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, context, resource, i2, i3)) == null) {
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048579, this, context, resource, i, i2)) == null) {
             BitmapPool bitmapPool = Glide.get(context).getBitmapPool();
             Drawable drawable = resource.get();
-            Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i2, i3);
+            Resource<Bitmap> convert = DrawableToBitmapConverter.convert(bitmapPool, drawable, i, i2);
             if (convert == null) {
                 if (this.isRequired) {
                     throw new IllegalArgumentException("Unable to convert " + drawable + " to a Bitmap");
                 }
                 return resource;
             }
-            Resource<Bitmap> transform = this.wrapped.transform(context, convert, i2, i3);
+            Resource<Bitmap> transform = this.wrapped.transform(context, convert, i, i2);
             if (transform.equals(convert)) {
                 transform.recycle();
                 return resource;

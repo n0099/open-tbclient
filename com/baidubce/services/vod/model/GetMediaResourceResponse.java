@@ -1,8 +1,8 @@
 package com.baidubce.services.vod.model;
 
 import androidx.core.view.InputDeviceCompat;
-import com.alipay.sdk.util.f;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,10 +11,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.model.AbstractBceResponse;
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class GetMediaResourceResponse extends AbstractBceResponse {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +34,9 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -55,17 +54,17 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                 getMediaResourceResponse.setStatus(jSONObject.getString("status"));
                 getMediaResourceResponse.setAttributes(Attributes.formatFromJson(jSONObject.getJSONObject("attributes")));
                 getMediaResourceResponse.setMeta(MediaMeta.formatFromJson(jSONObject.getJSONObject("meta")));
-                if (getMediaResourceResponse.getStatus().equalsIgnoreCase(f.f29566j)) {
+                if (getMediaResourceResponse.getStatus().equalsIgnoreCase("failed")) {
                     getMediaResourceResponse.setError(VodError.formatFromJson(jSONObject.getJSONObject("error")));
                 }
                 getMediaResourceResponse.setPublishTime(jSONObject.optString("publishTime"));
-                getMediaResourceResponse.setCreateTime(jSONObject.getString("createTime"));
+                getMediaResourceResponse.setCreateTime(jSONObject.getString(FileMetaUtil.CREATE_TIME));
                 getMediaResourceResponse.setTranscodingPresetGroupName(jSONObject.getString("transcodingPresetGroupName"));
                 JSONArray optJSONArray = jSONObject.optJSONArray("playableUrlList");
                 if (optJSONArray != null && optJSONArray.length() > 0) {
                     ArrayList arrayList = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        arrayList.add(PlayableUrl.formatFromJson(optJSONArray.getJSONObject(i2)));
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        arrayList.add(PlayableUrl.formatFromJson(optJSONArray.getJSONObject(i)));
                     }
                     getMediaResourceResponse.setPlayableUrlList(arrayList);
                 }
@@ -74,8 +73,8 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
                     return;
                 }
                 ArrayList arrayList2 = new ArrayList();
-                for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                    arrayList2.add(optJSONArray2.getString(i3));
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    arrayList2.add(optJSONArray2.getString(i2));
                 }
                 getMediaResourceResponse.setThumbnailList(arrayList2);
             } catch (Exception e2) {
@@ -234,46 +233,46 @@ public class GetMediaResourceResponse extends AbstractBceResponse {
             StringBuilder sb = new StringBuilder("GetMediaResourceResponse { \n");
             sb.append("  mediaId = ");
             sb.append(this.mediaId);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  status = ");
             sb.append(this.status);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  attributes = ");
             sb.append(this.attributes);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  meta = ");
             sb.append(this.meta);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  createTime = ");
             sb.append(this.createTime);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  publishTime = ");
             sb.append(this.publishTime);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  transcodingPresetGroupName = ");
             sb.append(this.transcodingPresetGroupName);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  source = ");
             sb.append(this.source);
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             sb.append("  playableUrlList = [");
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             for (PlayableUrl playableUrl : this.playableUrlList) {
                 sb.append(playableUrl.toString());
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("] \n");
             sb.append("  thumbnailList = [");
-            sb.append(StringUtils.LF);
+            sb.append("\n");
             for (String str : this.thumbnailList) {
                 sb.append("    thumbnail =");
                 sb.append(str);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             VodError vodError = this.error;
             if (vodError != null) {
                 sb.append(vodError);
-                sb.append(StringUtils.LF);
+                sb.append("\n");
             }
             sb.append("}\n");
             return sb.toString();

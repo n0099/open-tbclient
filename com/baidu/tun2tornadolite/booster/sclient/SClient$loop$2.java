@@ -41,9 +41,9 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
             newInitContext.initArgs = r2;
             Object[] objArr = {continuation};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super(((Integer) objArr2[0]).intValue(), (Continuation) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -93,7 +93,7 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                     Intrinsics.checkNotNull(socket2);
                     DataInputStream dataInputStream = new DataInputStream(new BufferedInputStream(socket2.getInputStream()));
                     byte[] bArr = new byte[4];
-                    long j2 = 0;
+                    long j = 0;
                     while (z) {
                         try {
                             bArr[0] = dataInputStream.readByte();
@@ -105,51 +105,51 @@ public final class SClient$loop$2 extends SuspendLambda implements Function2<Cor
                             createPacketByHeader.encodeHeader2Buffer(byteBuffer);
                             byteBuffer2 = SClient.bodyBuffer;
                             byteBuffer2.clear();
-                            int m91getBodyLengthpVg5ArA = createPacketByHeader.m91getBodyLengthpVg5ArA();
+                            int m85getBodyLengthpVg5ArA = createPacketByHeader.m85getBodyLengthpVg5ArA();
+                            int i = 0;
                             int i2 = 0;
                             int i3 = 0;
-                            int i4 = 0;
                             while (true) {
-                                if (i2 >= createPacketByHeader.m91getBodyLengthpVg5ArA()) {
+                                if (i >= createPacketByHeader.m85getBodyLengthpVg5ArA()) {
                                     break;
                                 }
                                 byteBuffer4 = SClient.bodyBuffer;
-                                int read = dataInputStream.read(byteBuffer4.array(), i3, m91getBodyLengthpVg5ArA);
+                                int read = dataInputStream.read(byteBuffer4.array(), i2, m85getBodyLengthpVg5ArA);
                                 if (read < 0) {
                                     SClient sClient = SClient.INSTANCE;
                                     SClient.looping = false;
                                     break;
                                 }
+                                i += read;
                                 i2 += read;
-                                i3 += read;
-                                m91getBodyLengthpVg5ArA -= read;
+                                m85getBodyLengthpVg5ArA -= read;
                                 LogTo logTo = LogTo.INSTANCE;
                                 StringBuilder sb = new StringBuilder();
                                 sb.append("[Socket ");
-                                sb.append(i4);
+                                sb.append(i3);
                                 sb.append("] read socket len:");
                                 sb.append(read);
                                 sb.append(" mustLen:");
-                                sb.append(i2);
+                                sb.append(i);
                                 sb.append(" offset:");
-                                sb.append(i3);
+                                sb.append(i2);
                                 sb.append(" left:");
-                                sb.append(m91getBodyLengthpVg5ArA);
+                                sb.append(m85getBodyLengthpVg5ArA);
                                 sb.append(" all:");
-                                sb.append(createPacketByHeader.m91getBodyLengthpVg5ArA());
+                                sb.append(createPacketByHeader.m85getBodyLengthpVg5ArA());
                                 sb.append(" from:");
                                 str = SClient.address;
                                 sb.append((Object) str);
                                 logTo.d("*****", sb.toString());
-                                if (m91getBodyLengthpVg5ArA == 0) {
+                                if (m85getBodyLengthpVg5ArA == 0) {
                                     break;
                                 }
-                                i4++;
+                                i3++;
                             }
                             byteBuffer3 = SClient.bodyBuffer;
                             createPacketByHeader.writeBodyBuffer(byteBuffer3);
-                            SClient.INSTANCE.processPacket(j2, createPacketByHeader);
-                            j2++;
+                            SClient.INSTANCE.processPacket(j, createPacketByHeader);
+                            j++;
                         } catch (EOFException e2) {
                             SClient sClient2 = SClient.INSTANCE;
                             SClient.looping = false;

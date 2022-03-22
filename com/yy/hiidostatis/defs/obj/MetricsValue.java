@@ -1,6 +1,7 @@
 package com.yy.hiidostatis.defs.obj;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +12,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.net.URLEncoder;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class MetricsValue implements IJsonSerialize {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -26,9 +27,9 @@ public class MetricsValue implements IJsonSerialize {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -72,10 +73,10 @@ public class MetricsValue implements IJsonSerialize {
         }
     }
 
-    public void setScode(int i2) {
+    public void setScode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            this.scode = i2;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.scode = i;
         }
     }
 
@@ -93,10 +94,10 @@ public class MetricsValue implements IJsonSerialize {
         }
     }
 
-    public void setVal(long j2) {
+    public void setVal(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j2) == null) {
-            this.val = j2;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.val = j;
         }
     }
 
@@ -108,13 +109,13 @@ public class MetricsValue implements IJsonSerialize {
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("scode", this.scode);
-                jSONObject.put("uri", URLEncoder.encode(this.uri, "utf-8"));
-                jSONObject.put("topic", URLEncoder.encode(this.topic, "utf-8"));
+                jSONObject.put("uri", URLEncoder.encode(this.uri, IMAudioTransRequest.CHARSET));
+                jSONObject.put("topic", URLEncoder.encode(this.topic, IMAudioTransRequest.CHARSET));
                 jSONObject.put("val", this.val);
                 if (this.extra != null && !this.extra.isEmpty()) {
                     JSONObject jSONObject2 = new JSONObject();
                     for (Map.Entry<String, String> entry : this.extra.entrySet()) {
-                        jSONObject2.put(URLEncoder.encode(entry.getKey(), "utf-8"), URLEncoder.encode(entry.getValue(), "utf-8"));
+                        jSONObject2.put(URLEncoder.encode(entry.getKey(), IMAudioTransRequest.CHARSET), URLEncoder.encode(entry.getValue(), IMAudioTransRequest.CHARSET));
                     }
                     jSONObject.put("extra", jSONObject2);
                 } else {
@@ -129,25 +130,25 @@ public class MetricsValue implements IJsonSerialize {
         return (JSONObject) invokeV.objValue;
     }
 
-    public MetricsValue(int i2, String str, String str2, long j2, Map<String, String> map) {
+    public MetricsValue(int i, String str, String str2, long j, Map<String, String> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str, str2, Long.valueOf(j2), map};
+            Object[] objArr = {Integer.valueOf(i), str, str2, Long.valueOf(j), map};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.scode = i2;
+        this.scode = i;
         this.uri = str;
         this.topic = str2;
-        this.val = j2;
+        this.val = j;
         this.extra = map;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class XorUtil {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -17,9 +17,9 @@ public class XorUtil {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -46,8 +46,8 @@ public class XorUtil {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
             byte[] bytes = "yypayxorsdk123".getBytes();
             byte[] bArr2 = new byte[bArr.length];
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                bArr2[i2] = (byte) (bArr[i2] ^ bytes[i2 % bytes.length]);
+            for (int i = 0; i < bArr.length; i++) {
+                bArr2[i] = (byte) (bArr[i] ^ bytes[i % bytes.length]);
             }
             return bArr2;
         }

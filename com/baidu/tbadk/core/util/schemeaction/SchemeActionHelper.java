@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.util.schemeaction;
 
 import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import c.a.d.f.p.m;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -22,9 +23,9 @@ public class SchemeActionHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -145,8 +146,8 @@ public class SchemeActionHelper {
 
     public static void printLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            TbadkCoreApplication.getInst().isDebugMode();
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && TbadkCoreApplication.getInst().isDebugMode()) {
+            Log.d("TiebaSchemeAction", str);
         }
     }
 

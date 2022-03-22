@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.adModel;
 
-import c.a.r0.d1.i1.c;
+import c.a.p0.f1.i1.c;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,9 +28,9 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -60,12 +60,12 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
-    public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeInBackGround(int i, byte[] bArr) throws Exception {
         GetADListResIdl getADListResIdl;
         String str;
         Integer num;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, bArr) == null) || bArr == null || (getADListResIdl = (GetADListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetADListResIdl.class)) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) || bArr == null || (getADListResIdl = (GetADListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetADListResIdl.class)) == null) {
             return;
         }
         Error error = getADListResIdl.error;
@@ -79,15 +79,15 @@ public class ADSocketResponseMessage extends SocketResponsedMessage {
         if (getADListResIdl.data == null) {
             return;
         }
-        for (int i3 = 0; i3 < getADListResIdl.data.ad_list.size(); i3++) {
+        for (int i2 = 0; i2 < getADListResIdl.data.ad_list.size(); i2++) {
             c cVar = new c();
-            cVar.w(getADListResIdl.data.ad_list.get(i3));
-            if (getADListResIdl.data.ad_list.size() - 1 == i3) {
-                cVar.x(true);
+            cVar.s(getADListResIdl.data.ad_list.get(i2));
+            if (getADListResIdl.data.ad_list.size() - 1 == i2) {
+                cVar.v(true);
             } else {
-                cVar.x(false);
+                cVar.v(false);
             }
-            if (cVar.t() == 0 || cVar.t() == 2) {
+            if (cVar.r() == 0 || cVar.r() == 2) {
                 this.list.add(cVar);
             }
         }

@@ -14,17 +14,17 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
     public long sequenceID;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SocketResponsedMessage(int i2) {
-        super(i2);
+    public SocketResponsedMessage(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,14 +34,14 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         this.mRetry = 0;
     }
 
-    public void decodeExtraDataInBackGround(int i2, byte[] bArr) throws Exception {
+    public void decodeExtraDataInBackGround(int i, byte[] bArr) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, bArr) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bArr) == null) {
         }
     }
 
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public abstract /* synthetic */ void decodeInBackGround(int i2, T t) throws Exception;
+    public abstract /* synthetic */ void decodeInBackGround(int i, T t) throws Exception;
 
     public int getRetry() {
         InterceptResult invokeV;
@@ -56,10 +56,10 @@ public abstract class SocketResponsedMessage extends ResponsedMessage<byte[]> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getError() != 0 : invokeV.booleanValue;
     }
 
-    public void setRetry(int i2) {
+    public void setRetry(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.mRetry = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.mRetry = i;
         }
     }
 }

@@ -23,9 +23,9 @@ public abstract class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder 
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -34,10 +34,10 @@ public abstract class BaseRecyclerViewHolder<T> extends RecyclerView.ViewHolder 
         }
     }
 
-    public void bindData2View(int i2, T t) {
+    public void bindData2View(int i, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i2, t) == null) {
-            this.position = i2;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, t) == null) {
+            this.position = i;
             this.t = t;
         }
     }

@@ -12,12 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import h.c.h0;
+import f.c.h0;
 import java.util.Arrays;
 import javax.annotation.Nullable;
 import org.webrtc.CameraSession;
 import org.webrtc.CameraVideoCapturer;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public abstract class CameraCapturer implements CameraVideoCapturer {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int MAX_OPEN_CAMERA_ATTEMPTS = 3;
@@ -57,7 +57,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     public int width;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public static final class SwitchState {
         public static final /* synthetic */ SwitchState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -86,16 +86,16 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
             $VALUES = new SwitchState[]{IDLE, PENDING, switchState};
         }
 
-        public SwitchState(String str, int i2) {
+        public SwitchState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -125,9 +125,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, cameraEventsHandler, cameraEnumerator};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -145,9 +145,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -231,9 +231,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -336,9 +336,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -369,9 +369,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                     newInitContext2.initArgs = r2;
                     Object[] objArr2 = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
-                    int i4 = newInitContext2.flag;
-                    if ((i4 & 1) != 0) {
-                        int i5 = i4 & 2;
+                    int i3 = newInitContext2.flag;
+                    if ((i3 & 1) != 0) {
+                        int i4 = i3 & 2;
                         newInitContext2.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext2);
                         return;
@@ -436,9 +436,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     public static /* synthetic */ int access$1610(CameraCapturer cameraCapturer) {
-        int i2 = cameraCapturer.openAttemptsRemaining;
-        cameraCapturer.openAttemptsRemaining = i2 - 1;
-        return i2;
+        int i = cameraCapturer.openAttemptsRemaining;
+        cameraCapturer.openAttemptsRemaining = i - 1;
+        return i;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -452,10 +452,10 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void createSessionInternal(int i2) {
+    public void createSessionInternal(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65568, this, i2) == null) {
-            this.uiThreadHandler.postDelayed(this.openCameraTimeoutRunnable, i2 + 10000);
+        if (interceptable == null || interceptable.invokeI(65568, this, i) == null) {
+            this.uiThreadHandler.postDelayed(this.openCameraTimeoutRunnable, i + 10000);
             this.cameraThreadHandler.postDelayed(new Runnable(this) { // from class: org.webrtc.CameraCapturer.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -468,9 +468,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i3 = newInitContext.flag;
-                        if ((i3 & 1) != 0) {
-                            int i4 = i3 & 2;
+                        int i2 = newInitContext.flag;
+                        if ((i2 & 1) != 0) {
+                            int i3 = i2 & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -487,7 +487,7 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                         cameraCapturer.createCameraSession(cameraCapturer.createSessionCallback, this.this$0.cameraSessionEventsHandler, this.this$0.applicationContext, this.this$0.surfaceHelper, this.this$0.cameraName, this.this$0.width, this.this$0.height, this.this$0.framerate);
                     }
                 }
-            }, i2);
+            }, i);
         }
     }
 
@@ -542,9 +542,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, r7};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -580,18 +580,18 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void changeCaptureFormat(int i2, int i3, int i4) {
+    public void changeCaptureFormat(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, i3, i4) == null) {
-            Logging.d(TAG, "changeCaptureFormat: " + i2 + "x" + i3 + "@" + i4);
+        if (interceptable == null || interceptable.invokeIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3) == null) {
+            Logging.d(TAG, "changeCaptureFormat: " + i + "x" + i2 + "@" + i3);
             synchronized (this.stateLock) {
                 stopCapture();
-                startCapture(i2, i3, i4);
+                startCapture(i, i2, i3);
             }
         }
     }
 
-    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i2, int i3, int i4);
+    public abstract void createCameraSession(CameraSession.CreateSessionCallback createSessionCallback, CameraSession.Events events, Context context, SurfaceTextureHelper surfaceTextureHelper, String str, int i, int i2, int i3);
 
     @Override // org.webrtc.VideoCapturer
     public void dispose() {
@@ -660,16 +660,16 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
     }
 
     @Override // org.webrtc.VideoCapturer
-    public void startCapture(int i2, int i3, int i4) {
+    public void startCapture(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048585, this, i2, i3, i4) == null) {
-            Logging.d(TAG, "startCapture: " + i2 + "x" + i3 + "@" + i4);
+        if (interceptable == null || interceptable.invokeIII(1048585, this, i, i2, i3) == null) {
+            Logging.d(TAG, "startCapture: " + i + "x" + i2 + "@" + i3);
             if (this.applicationContext != null) {
                 synchronized (this.stateLock) {
                     if (!this.sessionOpening && this.currentSession == null) {
-                        this.width = i2;
-                        this.height = i3;
-                        this.framerate = i4;
+                        this.width = i;
+                        this.height = i2;
+                        this.framerate = i3;
                         this.sessionOpening = true;
                         this.openAttemptsRemaining = 3;
                         createSessionInternal(0);
@@ -716,9 +716,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, r7};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -764,9 +764,9 @@ public abstract class CameraCapturer implements CameraVideoCapturer {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, cameraSwitchHandler};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

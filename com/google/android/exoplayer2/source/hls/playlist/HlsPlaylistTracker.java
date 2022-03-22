@@ -24,7 +24,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable<HlsPlaylist>> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final double PLAYLIST_STUCK_TARGET_DURATION_COEFFICIENT = 3.5d;
@@ -45,13 +45,13 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
     public HlsMediaPlaylist primaryUrlSnapshot;
 
     /* renamed from: com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistTracker$1  reason: invalid class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public final class MediaPlaylistBundle implements Loader.Callback<ParsingLoadable<HlsPlaylist>>, Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -74,9 +74,9 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {hlsPlaylistTracker, hlsUrl};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -130,11 +130,11 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                     }
                 }
                 HlsMediaPlaylist hlsMediaPlaylist4 = this.playlistSnapshot;
-                long j2 = hlsMediaPlaylist4.targetDurationUs;
+                long j = hlsMediaPlaylist4.targetDurationUs;
                 if (hlsMediaPlaylist4 == hlsMediaPlaylist2) {
-                    j2 /= 2;
+                    j /= 2;
                 }
-                this.earliestNextLoadTimeMs = elapsedRealtime + C.usToMs(j2);
+                this.earliestNextLoadTimeMs = elapsedRealtime + C.usToMs(j);
                 if (this.playlistUrl != this.this$0.primaryHlsUrl || this.playlistSnapshot.hasEndTag) {
                     return;
                 }
@@ -150,7 +150,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
 
         public boolean isSnapshotValid() {
             InterceptResult invokeV;
-            int i2;
+            int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 if (this.playlistSnapshot == null) {
@@ -159,7 +159,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 long elapsedRealtime = SystemClock.elapsedRealtime();
                 long max = Math.max(30000L, C.usToMs(this.playlistSnapshot.durationUs));
                 HlsMediaPlaylist hlsMediaPlaylist = this.playlistSnapshot;
-                return hlsMediaPlaylist.hasEndTag || (i2 = hlsMediaPlaylist.playlistType) == 2 || i2 == 1 || this.lastSnapshotLoadMs + max > elapsedRealtime;
+                return hlsMediaPlaylist.hasEndTag || (i = hlsMediaPlaylist.playlistType) == 2 || i == 1 || this.lastSnapshotLoadMs + max > elapsedRealtime;
             }
             return invokeV.booleanValue;
         }
@@ -210,22 +210,22 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCanceled(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3, boolean z) {
+        public void onLoadCanceled(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-                this.this$0.eventDispatcher.loadCanceled(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded());
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+                this.this$0.eventDispatcher.loadCanceled(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded());
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public void onLoadCompleted(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3) {
+        public void onLoadCompleted(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
                 HlsPlaylist result = parsingLoadable.getResult();
                 if (result instanceof HlsMediaPlaylist) {
                     processLoadedPlaylist((HlsMediaPlaylist) result);
-                    this.this$0.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded());
+                    this.this$0.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded());
                     return;
                 }
                 this.playlistError = new ParserException("Loaded playlist has unexpected type.");
@@ -234,12 +234,12 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-        public int onLoadError(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3, IOException iOException) {
+        public int onLoadError(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2, IOException iOException) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), iOException})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
                 boolean z = iOException instanceof ParserException;
-                this.this$0.eventDispatcher.loadError(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded(), iOException, z);
+                this.this$0.eventDispatcher.loadError(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded(), iOException, z);
                 if (z) {
                     return 3;
                 }
@@ -249,14 +249,14 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface PlaylistEventListener {
-        void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j2);
+        void onPlaylistBlacklisted(HlsMasterPlaylist.HlsUrl hlsUrl, long j);
 
         void onPlaylistChanged();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PlaylistResetException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -273,9 +273,9 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -285,7 +285,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public static final class PlaylistStuckException extends IOException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -302,9 +302,9 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -314,21 +314,21 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes6.dex */
     public interface PrimaryPlaylistListener {
         void onPrimaryPlaylistRefreshed(HlsMediaPlaylist hlsMediaPlaylist);
     }
 
-    public HlsPlaylistTracker(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, int i2, PrimaryPlaylistListener primaryPlaylistListener, ParsingLoadable.Parser<HlsPlaylist> parser) {
+    public HlsPlaylistTracker(Uri uri, HlsDataSourceFactory hlsDataSourceFactory, AdaptiveMediaSourceEventListener.EventDispatcher eventDispatcher, int i, PrimaryPlaylistListener primaryPlaylistListener, ParsingLoadable.Parser<HlsPlaylist> parser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {uri, hlsDataSourceFactory, eventDispatcher, Integer.valueOf(i2), primaryPlaylistListener, parser};
+            Object[] objArr = {uri, hlsDataSourceFactory, eventDispatcher, Integer.valueOf(i), primaryPlaylistListener, parser};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -337,7 +337,7 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         this.initialPlaylistUri = uri;
         this.dataSourceFactory = hlsDataSourceFactory;
         this.eventDispatcher = eventDispatcher;
-        this.minRetryCount = i2;
+        this.minRetryCount = i;
         this.primaryPlaylistListener = primaryPlaylistListener;
         this.playlistParser = parser;
         this.listeners = new ArrayList();
@@ -350,8 +350,8 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, list) == null) {
             int size = list.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                HlsMasterPlaylist.HlsUrl hlsUrl = list.get(i2);
+            for (int i = 0; i < size; i++) {
+                HlsMasterPlaylist.HlsUrl hlsUrl = list.get(i);
                 this.playlistBundles.put(hlsUrl, new MediaPlaylistBundle(this, hlsUrl));
             }
         }
@@ -361,10 +361,10 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, hlsMediaPlaylist, hlsMediaPlaylist2)) == null) {
-            int i2 = hlsMediaPlaylist2.mediaSequence - hlsMediaPlaylist.mediaSequence;
+            int i = hlsMediaPlaylist2.mediaSequence - hlsMediaPlaylist.mediaSequence;
             List<HlsMediaPlaylist.Segment> list = hlsMediaPlaylist.segments;
-            if (i2 < list.size()) {
-                return list.get(i2);
+            if (i < list.size()) {
+                return list.get(i);
             }
             return null;
         }
@@ -393,8 +393,8 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 return hlsMediaPlaylist2.discontinuitySequence;
             }
             HlsMediaPlaylist hlsMediaPlaylist3 = this.primaryUrlSnapshot;
-            int i2 = hlsMediaPlaylist3 != null ? hlsMediaPlaylist3.discontinuitySequence : 0;
-            return (hlsMediaPlaylist == null || (firstOldOverlappingSegment = getFirstOldOverlappingSegment(hlsMediaPlaylist, hlsMediaPlaylist2)) == null) ? i2 : (hlsMediaPlaylist.discontinuitySequence + firstOldOverlappingSegment.relativeDiscontinuitySequence) - hlsMediaPlaylist2.segments.get(0).relativeDiscontinuitySequence;
+            int i = hlsMediaPlaylist3 != null ? hlsMediaPlaylist3.discontinuitySequence : 0;
+            return (hlsMediaPlaylist == null || (firstOldOverlappingSegment = getFirstOldOverlappingSegment(hlsMediaPlaylist, hlsMediaPlaylist2)) == null) ? i : (hlsMediaPlaylist.discontinuitySequence + firstOldOverlappingSegment.relativeDiscontinuitySequence) - hlsMediaPlaylist2.segments.get(0).relativeDiscontinuitySequence;
         }
         return invokeLL.intValue;
     }
@@ -407,16 +407,16 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 return hlsMediaPlaylist2.startTimeUs;
             }
             HlsMediaPlaylist hlsMediaPlaylist3 = this.primaryUrlSnapshot;
-            long j2 = hlsMediaPlaylist3 != null ? hlsMediaPlaylist3.startTimeUs : 0L;
+            long j = hlsMediaPlaylist3 != null ? hlsMediaPlaylist3.startTimeUs : 0L;
             if (hlsMediaPlaylist == null) {
-                return j2;
+                return j;
             }
             int size = hlsMediaPlaylist.segments.size();
             HlsMediaPlaylist.Segment firstOldOverlappingSegment = getFirstOldOverlappingSegment(hlsMediaPlaylist, hlsMediaPlaylist2);
             if (firstOldOverlappingSegment != null) {
                 return hlsMediaPlaylist.startTimeUs + firstOldOverlappingSegment.relativeStartTimeUs;
             }
-            return size == hlsMediaPlaylist2.mediaSequence - hlsMediaPlaylist.mediaSequence ? hlsMediaPlaylist.getEndTimeUs() : j2;
+            return size == hlsMediaPlaylist2.mediaSequence - hlsMediaPlaylist.mediaSequence ? hlsMediaPlaylist.getEndTimeUs() : j;
         }
         return invokeLL.longValue;
     }
@@ -429,8 +429,8 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
             List<HlsMasterPlaylist.HlsUrl> list = this.masterPlaylist.variants;
             int size = list.size();
             long elapsedRealtime = SystemClock.elapsedRealtime();
-            for (int i2 = 0; i2 < size; i2++) {
-                MediaPlaylistBundle mediaPlaylistBundle = this.playlistBundles.get(list.get(i2));
+            for (int i = 0; i < size; i++) {
+                MediaPlaylistBundle mediaPlaylistBundle = this.playlistBundles.get(list.get(i));
                 if (elapsedRealtime > mediaPlaylistBundle.blacklistUntilMs) {
                     this.primaryHlsUrl = mediaPlaylistBundle.playlistUrl;
                     mediaPlaylistBundle.loadPlaylist();
@@ -454,12 +454,12 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyPlaylistBlacklisting(HlsMasterPlaylist.HlsUrl hlsUrl, long j2) {
+    public void notifyPlaylistBlacklisting(HlsMasterPlaylist.HlsUrl hlsUrl, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65555, this, hlsUrl, j2) == null) {
+        if (interceptable == null || interceptable.invokeLJ(65555, this, hlsUrl, j) == null) {
             int size = this.listeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.listeners.get(i2).onPlaylistBlacklisted(hlsUrl, j2);
+            for (int i = 0; i < size; i++) {
+                this.listeners.get(i).onPlaylistBlacklisted(hlsUrl, j);
             }
         }
     }
@@ -476,8 +476,8 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
                 this.primaryPlaylistListener.onPrimaryPlaylistRefreshed(hlsMediaPlaylist);
             }
             int size = this.listeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                this.listeners.get(i2).onPlaylistChanged();
+            for (int i = 0; i < size; i++) {
+                this.listeners.get(i).onPlaylistChanged();
             }
         }
     }
@@ -573,19 +573,19 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCanceled(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3, boolean z) {
+    public void onLoadCanceled(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z)}) == null) {
-            this.eventDispatcher.loadCanceled(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded());
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.eventDispatcher.loadCanceled(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public void onLoadCompleted(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3) {
+    public void onLoadCompleted(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2) {
         HlsMasterPlaylist hlsMasterPlaylist;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2)}) == null) {
             HlsPlaylist result = parsingLoadable.getResult();
             boolean z = result instanceof HlsMediaPlaylist;
             if (z) {
@@ -606,18 +606,18 @@ public final class HlsPlaylistTracker implements Loader.Callback<ParsingLoadable
             } else {
                 mediaPlaylistBundle.loadPlaylist();
             }
-            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded());
+            this.eventDispatcher.loadCompleted(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded());
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.google.android.exoplayer2.upstream.Loader.Callback
-    public int onLoadError(ParsingLoadable<HlsPlaylist> parsingLoadable, long j2, long j3, IOException iOException) {
+    public int onLoadError(ParsingLoadable<HlsPlaylist> parsingLoadable, long j, long j2, IOException iOException) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{parsingLoadable, Long.valueOf(j2), Long.valueOf(j3), iOException})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{parsingLoadable, Long.valueOf(j), Long.valueOf(j2), iOException})) == null) {
             boolean z = iOException instanceof ParserException;
-            this.eventDispatcher.loadError(parsingLoadable.dataSpec, 4, j2, j3, parsingLoadable.bytesLoaded(), iOException, z);
+            this.eventDispatcher.loadError(parsingLoadable.dataSpec, 4, j, j2, parsingLoadable.bytesLoaded(), iOException, z);
             return z ? 3 : 0;
         }
         return invokeCommon.intValue;

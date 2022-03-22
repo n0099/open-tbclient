@@ -2,8 +2,8 @@ package com.baidu.tieba.imMessageCenter.im.stranger;
 
 import android.text.TextUtils;
 import c.a.d.a.f;
-import c.a.r0.s1.f.i.b;
-import c.a.r0.s1.t.e;
+import c.a.p0.u1.f.i.b;
+import c.a.p0.u1.t.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -32,9 +32,9 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((f) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -83,11 +83,11 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
     public void processMsg(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) {
-            x(imMessageCenterPojo, imMessageCenterShowItemData);
+            z(imMessageCenterPojo, imMessageCenterShowItemData);
         }
     }
 
-    public void w(b bVar) {
+    public void y(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
             ListIterator<ImMessageCenterShowItemData> listIterator = this.mList.listIterator();
@@ -102,7 +102,7 @@ public class StrangerListModel extends ImBaseMessageCenterModel {
         }
     }
 
-    public final void x(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    public final void z(ImMessageCenterPojo imMessageCenterPojo, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         ImMessageCenterShowItemData buildNormalItem;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048581, this, imMessageCenterPojo, imMessageCenterShowItemData) == null) || (buildNormalItem = buildNormalItem(imMessageCenterPojo, imMessageCenterShowItemData)) == null) {

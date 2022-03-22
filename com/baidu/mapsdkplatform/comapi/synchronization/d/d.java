@@ -20,9 +20,9 @@ public final class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -52,10 +52,10 @@ public final class d {
                 return null;
             }
             String str = new String();
-            int i2 = 0;
+            int i = 0;
             for (String str2 : this.a.keySet()) {
                 String encodeUrlParamsValue = AppMD5.encodeUrlParamsValue(this.a.get(str2));
-                if (i2 == 0) {
+                if (i == 0) {
                     sb = new StringBuilder();
                 } else {
                     sb = new StringBuilder();
@@ -67,7 +67,7 @@ public final class d {
                 sb.append("=");
                 sb.append(encodeUrlParamsValue);
                 str = sb.toString();
-                i2++;
+                i++;
             }
             return str;
         }

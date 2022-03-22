@@ -10,36 +10,34 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PluginInstallTask extends OrmObject {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public String f29854e;
+    /* renamed from: b  reason: collision with root package name */
+    public String f23862b;
 
-    /* renamed from: f  reason: collision with root package name */
-    public String f29855f;
+    /* renamed from: c  reason: collision with root package name */
+    public boolean f23863c;
 
-    /* renamed from: g  reason: collision with root package name */
-    public boolean f29856g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public long f29857h;
+    /* renamed from: d  reason: collision with root package name */
+    public long f23864d;
 
     public PluginInstallTask() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public long w() {
+    public long y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f29857h * 80, 240000L), 60000L) : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Math.max(Math.min(this.f23864d * 80, 240000L), 60000L) : invokeV.longValue;
     }
 }

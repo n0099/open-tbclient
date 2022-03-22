@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.filter;
 
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import c.a.y0.r.w;
+import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.arface.bean.Filter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,9 +36,9 @@ public class FilterValue implements Serializable {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -50,16 +50,16 @@ public class FilterValue implements Serializable {
         this.mComplex = 0;
     }
 
-    public FilterValue(int i2, String str) {
+    public FilterValue(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i2), str};
+            Object[] objArr = {Integer.valueOf(i), str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -69,7 +69,7 @@ public class FilterValue implements Serializable {
         this.mLevel = 0.4f;
         this.mFilterType = 1;
         this.mComplex = 0;
-        this.mFilterType = i2;
+        this.mFilterType = i;
         this.mFilterPath = str;
     }
 
@@ -80,9 +80,9 @@ public class FilterValue implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -102,9 +102,9 @@ public class FilterValue implements Serializable {
             newInitContext.initArgs = r2;
             Object[] objArr = {str, Float.valueOf(f2)};
             interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
@@ -213,10 +213,10 @@ public class FilterValue implements Serializable {
         }
     }
 
-    public void setFilterType(int i2) {
+    public void setFilterType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-            this.mFilterType = i2;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mFilterType = i;
         }
     }
 

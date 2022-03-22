@@ -8,7 +8,7 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-import c.a.y0.r.c;
+import c.a.v0.r.c;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -38,9 +38,9 @@ public class InputSurface {
             newInitContext.initArgs = r2;
             Object[] objArr = {surface};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -138,10 +138,10 @@ public class InputSurface {
         }
     }
 
-    public void setPresentationTime(long j2) {
+    public void setPresentationTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j2) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, this.mEGLSurface, j2);
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            EGLExt.eglPresentationTimeANDROID(this.mEGLDisplay, this.mEGLSurface, j);
         }
     }
 

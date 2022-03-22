@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.config.AppConfig;
@@ -61,9 +62,9 @@ public class GrowthCollectProcessor {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -95,7 +96,7 @@ public class GrowthCollectProcessor {
                     jSONObject.put("ext", extend);
                 }
                 if (DEBUG) {
-                    String str2 = "active content: " + jSONObject;
+                    Log.d(TAG, "active content: " + jSONObject);
                 }
                 this.ubcManager.onEvent(GrowthConstant.UBC_ID_ACTIVE, jSONObject);
             } catch (JSONException e2) {
@@ -156,7 +157,7 @@ public class GrowthCollectProcessor {
                 jSONObject.put(GrowthConstant.UBC_KEY_AES_KEY, encryptByRSAAndAESMixed.encryptedAESKeys);
                 jSONObject.put(GrowthConstant.UBC_KEY_USS, encryptByRSAAndAESMixed.encryptedInput);
                 if (DEBUG) {
-                    String str2 = "device content: " + jSONObject;
+                    Log.d(TAG, "device content: " + jSONObject);
                 }
                 this.ubcManager.onEvent(GrowthConstant.UBC_ID_DEVICE, jSONObject);
                 SharedPreferences.Editor edit = context.getSharedPreferences(GrowthConstant.PREF_NAME, 0).edit();
@@ -165,7 +166,7 @@ public class GrowthCollectProcessor {
                 edit.apply();
                 this.mLastDeviceRecordTime = currentTimeMillis;
                 if (DEBUG) {
-                    String str3 = "update device record time: " + currentTimeMillis;
+                    Log.d(TAG, "update device record time: " + currentTimeMillis);
                 }
             } catch (JSONException e2) {
                 if (DEBUG) {
@@ -219,9 +220,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, activeData, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -236,7 +237,9 @@ public class GrowthCollectProcessor {
             public void onFail() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    boolean unused = GrowthCollectProcessor.DEBUG;
+                    if (GrowthCollectProcessor.DEBUG) {
+                        Log.d(GrowthCollectProcessor.TAG, "oaid fail: ");
+                    }
                     this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, "");
                 }
             }
@@ -246,7 +249,7 @@ public class GrowthCollectProcessor {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
                     if (GrowthCollectProcessor.DEBUG) {
-                        String str2 = "oaid: " + str;
+                        Log.d(GrowthCollectProcessor.TAG, "oaid: " + str);
                     }
                     this.this$0.invokeGenerateActiveStatistic(this.val$activeData, this.val$context, str);
                 }
@@ -272,7 +275,7 @@ public class GrowthCollectProcessor {
                 jSONObject.put("ext", extend);
             }
             if (DEBUG) {
-                String str = "channel content: " + jSONObject;
+                Log.d(TAG, "channel content: " + jSONObject);
             }
             this.ubcManager.onEvent(GrowthConstant.UBC_ID_CHANNEL, jSONObject);
         } catch (JSONException e2) {
@@ -300,7 +303,7 @@ public class GrowthCollectProcessor {
                 jSONObject.put("ext", extend);
             }
             if (DEBUG) {
-                String str = "clip board content: " + jSONObject;
+                Log.d(TAG, "clip board content: " + jSONObject);
             }
             this.ubcManager.onEvent(GrowthConstant.UBC_ID_CLIP_BOARD, jSONObject);
         } catch (JSONException e2) {
@@ -322,7 +325,7 @@ public class GrowthCollectProcessor {
         long currentTimeMillis = System.currentTimeMillis() - this.mLastDeviceRecordTime;
         if (currentTimeMillis <= 86400000) {
             if (DEBUG) {
-                String str = "diffTime: " + currentTimeMillis + ", not record this data";
+                Log.d(TAG, "diffTime: " + currentTimeMillis + ", not record this data");
                 return;
             }
             return;
@@ -340,9 +343,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -361,10 +364,10 @@ public class GrowthCollectProcessor {
             }
 
             @Override // com.baidu.searchbox.datacollector.growth.utils.IDeviceCallback
-            public void onSuccess(String str2) {
+            public void onSuccess(String str) {
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2) == null) {
-                    this.this$0.invokeGenerateDeviceStatistic(this.val$context, str2);
+                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                    this.this$0.invokeGenerateDeviceStatistic(this.val$context, str);
                 }
             }
         });
@@ -389,9 +392,9 @@ public class GrowthCollectProcessor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, activeData, context, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -432,9 +435,9 @@ public class GrowthCollectProcessor {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, context, str};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -475,9 +478,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, activeData, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -516,9 +519,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, channelData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -556,9 +559,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, clipBoardData};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -596,9 +599,9 @@ public class GrowthCollectProcessor {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {this, context};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;

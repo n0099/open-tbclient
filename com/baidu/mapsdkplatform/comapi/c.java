@@ -2,6 +2,7 @@ package com.baidu.mapsdkplatform.comapi;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 import com.baidu.mapapi.JNIInitializer;
 import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -58,7 +59,8 @@ public class c {
                     return true;
                 }
                 return true;
-            } catch (IOException unused) {
+            } catch (IOException e2) {
+                Log.e("SDKInitializer", "SDCard cache path invalid", e2);
                 throw new IllegalArgumentException("BDMapSDKException: Provided sdcard cache path invalid can not used.");
             }
         }

@@ -7,7 +7,7 @@ import com.kwad.sdk.core.d;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class a implements b {
     public List<d<a>> mHolders;
 

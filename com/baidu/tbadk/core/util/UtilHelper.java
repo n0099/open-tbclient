@@ -62,14 +62,14 @@ import c.a.d.f.p.o;
 import c.a.d.f.p.t;
 import c.a.d.m.d;
 import c.a.d.m.e;
-import c.a.q0.b0.c;
-import c.a.q0.c1.q;
-import c.a.q0.c1.s0;
-import c.a.q0.l.a;
-import c.a.q0.r.f0.b;
-import c.a.q0.r.r.z0;
-import c.a.q0.r.t.a;
-import c.a.r0.j3.a0;
+import c.a.o0.b0.c;
+import c.a.o0.c1.q;
+import c.a.o0.c1.s0;
+import c.a.o0.l.a;
+import c.a.o0.r.f0.b;
+import c.a.o0.r.r.x0;
+import c.a.o0.r.t.a;
+import c.a.p0.l3.a0;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
@@ -78,10 +78,14 @@ import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.util.devices.RomUtils;
+import com.baidu.mobstat.Config;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
 import com.baidu.searchbox.pms.init.PmsManager;
 import com.baidu.searchbox.pms.init.RequestParams;
+import com.baidu.sofire.sharedpreferences.SharedPreferenceManager;
 import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.GrowthStatsUtil;
@@ -95,6 +99,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
 import com.baidu.tbadk.core.atomData.AiAppGuideActivityConfig;
 import com.baidu.tbadk.core.atomData.AtMessageActivityConfig;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.GroupInfoActivityConfig;
 import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
@@ -133,7 +138,6 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
-import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -207,9 +211,9 @@ public class UtilHelper {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -249,16 +253,16 @@ public class UtilHelper {
             $VALUES = new NativePageType[]{NONE, FRS, nativePageType};
         }
 
-        public NativePageType(String str, int i2) {
+        public NativePageType(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -304,9 +308,9 @@ public class UtilHelper {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -332,7 +336,7 @@ public class UtilHelper {
         if (!(interceptable == null || interceptable.invokeL(65539, null, tBSpecificationButtonConfig) == null) || tBSpecificationButtonConfig == null) {
             return;
         }
-        tBSpecificationButtonConfig.i(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+        tBSpecificationButtonConfig.i(R.drawable.obfuscated_res_0x7f080900, 0, TBSpecificationButtonConfig.IconType.WEBP);
         tBSpecificationButtonConfig.h(R.color.CAM_X0304);
         tBSpecificationButtonConfig.g(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
         tBSpecificationButtonConfig.f(n.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
@@ -383,7 +387,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
             Intent intent = new Intent("android.intent.action.DIAL", Uri.parse("tel:" + str));
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e2) {
@@ -432,7 +436,7 @@ public class UtilHelper {
     }
 
     public static void changeStatusBarIconAndTextColor(boolean z, Activity activity) {
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeZL(65545, null, z, activity) == null) || activity == null || activity.getWindow() == null || isMeizuM355()) {
             return;
@@ -451,16 +455,16 @@ public class UtilHelper {
         }
         int systemUiVisibility = decorView.getSystemUiVisibility();
         if (z) {
-            i2 = systemUiVisibility & (-8193);
+            i = systemUiVisibility & (-8193);
         } else {
             if (TbadkCoreApplication.getInst().isMIUIRom()) {
                 Window window = activity.getWindow();
                 window.addFlags(Integer.MIN_VALUE);
                 window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
             }
-            i2 = systemUiVisibility | 8192;
+            i = systemUiVisibility | 8192;
         }
-        decorView.setSystemUiVisibility(i2);
+        decorView.setSystemUiVisibility(i);
     }
 
     public static boolean checkAiAppGuideResource() {
@@ -505,17 +509,17 @@ public class UtilHelper {
         InterceptResult invokeLL;
         String str;
         PbActivityConfig createNormalCfg;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65549, null, context, intent)) == null) {
             boolean z = false;
             if (intent == null || intent.getExtras() == null) {
                 return false;
             }
-            int i3 = intent.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
+            int i2 = intent.getExtras().getInt(DealIntentService.KEY_CLASS, -1);
             TbPageContext<BaseFragmentActivity> tbPageContext = null;
             String str2 = "";
-            switch (i3) {
+            switch (i2) {
                 case 0:
                     str = DealIntentService.KEY_CLASS;
                     a.m(context, intent.getExtras().getString("url"));
@@ -533,13 +537,13 @@ public class UtilHelper {
                         TbadkCoreApplication.getInst().setTaskId(stringExtra4);
                     }
                     boolean booleanExtra = intent.getBooleanExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, false);
-                    long j2 = intent.getExtras().getLong("message_id");
-                    int i4 = intent.getExtras().getInt("video_channel_id", 0);
-                    if (i4 > 0) {
-                        TiebaStatic.log(new StatisticItem("c11918").param("obj_id", i4));
+                    long j = intent.getExtras().getLong("message_id");
+                    int i3 = intent.getExtras().getInt("video_channel_id", 0);
+                    if (i3 > 0) {
+                        TiebaStatic.log(new StatisticItem("c11918").param("obj_id", i3));
                     }
                     if (intent.getBooleanExtra("is_message_pv", false)) {
-                        createNormalCfg = new PbActivityConfig(context).createMessageCfg(stringExtra, null, stringExtra2, j2, stringExtra3, string, "op");
+                        createNormalCfg = new PbActivityConfig(context).createMessageCfg(stringExtra, null, stringExtra2, j, stringExtra3, string, Config.OPERATOR);
                     } else {
                         createNormalCfg = new PbActivityConfig(context).createNormalCfg(stringExtra, null, stringExtra2);
                     }
@@ -569,7 +573,7 @@ public class UtilHelper {
                     if (b.b() != null) {
                         intent.setClass(context, b.b());
                         if (!(context instanceof Activity) && intent != null) {
-                            intent.addFlags(268435456);
+                            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                         }
                         intent.addFlags(603979776);
                         context.startActivity(intent);
@@ -602,41 +606,41 @@ public class UtilHelper {
                     int intExtra8 = intent.getIntExtra("officialbar_msg", 0);
                     str = DealIntentService.KEY_CLASS;
                     int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                    int u = c.a.q0.s.d.b.g0().u();
-                    int A = c.a.q0.s.d.b.g0().A();
-                    int v = c.a.q0.s.d.b.g0().v();
-                    int t = c.a.q0.s.d.b.g0().t();
-                    int y = c.a.q0.s.d.b.g0().y();
-                    int z2 = c.a.q0.s.d.b.g0().z();
-                    c.a.q0.s.d.b.g0().W(u, A, v, t, y, z2);
+                    int u = c.a.o0.s.d.b.g0().u();
+                    int A = c.a.o0.s.d.b.g0().A();
+                    int v = c.a.o0.s.d.b.g0().v();
+                    int t = c.a.o0.s.d.b.g0().t();
+                    int y = c.a.o0.s.d.b.g0().y();
+                    int z2 = c.a.o0.s.d.b.g0().z();
+                    c.a.o0.s.d.b.g0().W(u, A, v, t, y, z2);
                     boolean z3 = intExtra4 > 0 || intExtra7 > 0 || intExtra6 > 0 || intExtra5 > 0 || intExtra8 > 0;
                     boolean z4 = intExtra9 == 29 && intExtra > 0;
                     boolean z5 = intExtra9 == 24 && intExtra3 > 0;
                     boolean z6 = intExtra9 == 25 && intExtra2 > 0;
                     if (z4) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                        c.a.q0.s.d.b.g0().Y(0);
+                        c.a.o0.s.d.b.g0().Y(0);
                     } else if (z5) {
-                        c.a.q0.s.d.b.g0().e0(0);
+                        c.a.o0.s.d.b.g0().e0(0);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ReplyMeActivityConfig(context)));
-                        c.a.q0.s.d.b.g0().e0(0);
+                        c.a.o0.s.d.b.g0().e0(0);
                     } else if (z6) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMessageActivityConfig(context)));
-                        c.a.q0.s.d.b.g0().Z(0);
-                    } else if (i3 == 35) {
+                        c.a.o0.s.d.b.g0().Z(0);
+                    } else if (i2 == 35) {
                         if (!z3 && intExtra <= 0 && intExtra3 <= 0 && intExtra2 <= 0 && z2 <= 0 && t <= 0) {
                             String currentAccount = TbadkCoreApplication.getCurrentAccount();
                             int sex = TbadkCoreApplication.getCurrentAccountInfo() != null ? TbadkCoreApplication.getCurrentAccountInfo().getSex() : 0;
                             if (currentAccount != null && currentAccount.length() > 0) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, false, currentAccount, sex)));
-                                c.a.q0.s.d.b.g0().c0(0);
+                                c.a.o0.s.d.b.g0().c0(0);
                             }
                         } else {
                             goToMessageCenterFromNotifyCenter(intExtra9);
                         }
                     } else if (z3) {
                         TiebaStatic.log(TbadkCoreStatisticKey.PUSH_MESSAGE_CLICK);
-                        if (i3 == 5 && b.a() == 3) {
+                        if (i2 == 5 && b.a() == 3) {
                             goToMessageCenterFromNotifyCenter(intExtra9);
                         } else {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new MessageCenterActivityConfig(context, intent.getIntExtra("tab_id", -1))));
@@ -670,7 +674,7 @@ public class UtilHelper {
                     if (b.a() == 8) {
                         MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(8)));
                     } else if (!TextUtils.isEmpty(currentAccount2) && !TextUtils.isEmpty(currentAccountName)) {
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, c.a.q0.s.d.b.g0().y())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, c.a.o0.s.d.b.g0().y())));
                     }
                     str = DealIntentService.KEY_CLASS;
                     z = true;
@@ -686,7 +690,7 @@ public class UtilHelper {
                     z = true;
                     break;
                 case 15:
-                    c.a.q0.q0.e.c().a(new PayConfig(c.a.d.f.m.b.e(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
+                    c.a.o0.q0.e.c().a(new PayConfig(c.a.d.f.m.b.e(intent.getStringExtra("pay_type"), 0), intent.getStringExtra("is_left"), intent.getStringExtra("props_id"), intent.getStringExtra("quan_num"), intent.getStringExtra("props_mon"), true, intent.getStringExtra(MemberPayStatistic.REFER_PAGE), intent.getStringExtra(MemberPayStatistic.CLICK_ZONE)), context);
                     str = DealIntentService.KEY_CLASS;
                     break;
                 case 18:
@@ -720,19 +724,19 @@ public class UtilHelper {
                     int parseInt = Integer.parseInt(stringExtra9);
                     if (!StringUtils.isNull(stringExtra10)) {
                         if (stringExtra10.equals(TbadkCoreStatisticKey.TAIL_PAY_MEMBER_SUCCESS)) {
-                            i2 = 6;
+                            i = 6;
                         } else if (stringExtra10.equals(TbadkCoreStatisticKey.BUBBLE_PAY_MEMBER_SUCCESS)) {
-                            i2 = 7;
+                            i = 7;
                         }
-                        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(context, parseInt, false, i2);
+                        MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(context, parseInt, false, i);
                         memberPayActivityConfig.setReferPageClickZone(stringExtra11, stringExtra12);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
                         str = DealIntentService.KEY_CLASS;
                         z = true;
                         break;
                     }
-                    i2 = 0;
-                    MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig(context, parseInt, false, i2);
+                    i = 0;
+                    MemberPayActivityConfig memberPayActivityConfig2 = new MemberPayActivityConfig(context, parseInt, false, i);
                     memberPayActivityConfig2.setReferPageClickZone(stringExtra11, stringExtra12);
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig2));
                     str = DealIntentService.KEY_CLASS;
@@ -767,7 +771,7 @@ public class UtilHelper {
                     z = true;
                     break;
                 case 30:
-                    String string2 = intent.getExtras().getString("jump_url");
+                    String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                     boolean z7 = intent.getExtras().getBoolean("is_ad", false);
                     if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
                         a0.d(TbadkCoreApplication.getInst(), string2, t.c(string2), intent.getExtras().getString("ext_info", ""), null);
@@ -834,7 +838,7 @@ public class UtilHelper {
                     break;
                 case 38:
                     if (checkAiAppGuideResource()) {
-                        c.a.q0.r.j0.b.k().u("key_ai_app_guide_display", false);
+                        c.a.o0.r.j0.b.k().u("key_ai_app_guide_display", false);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AiAppGuideActivityConfig(context)));
                     }
                     str = DealIntentService.KEY_CLASS;
@@ -908,7 +912,7 @@ public class UtilHelper {
             if (context != null && !m.isEmpty(str)) {
                 Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
                 if (!(context instanceof Activity)) {
-                    intent.addFlags(268435456);
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 }
                 if (isIntentAvailable(context, intent)) {
                     try {
@@ -952,13 +956,13 @@ public class UtilHelper {
                         ((GifView) view).getImageMatrix().mapRect(rectF);
                     }
                     float f2 = rectF.left;
-                    int i2 = rect.left;
-                    rectF.left = f2 + i2;
-                    rectF.right += i2;
+                    int i = rect.left;
+                    rectF.left = f2 + i;
+                    rectF.right += i;
                     float f3 = rectF.top;
-                    int i3 = rect.top;
-                    rectF.top = f3 + i3;
-                    rectF.bottom += i3;
+                    int i2 = rect.top;
+                    rectF.top = f3 + i2;
+                    rectF.bottom += i2;
                     return rectF;
                 }
                 return null;
@@ -980,13 +984,13 @@ public class UtilHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
             StringBuilder sb = new StringBuilder("");
             if (str != null) {
-                int i2 = 0;
+                int i = 0;
                 for (int length = str.length() - 1; length >= 0; length--) {
                     sb.insert(0, str.charAt(length));
-                    i2++;
-                    if (i2 % 3 == 0 && length != 0) {
+                    i++;
+                    if (i % 3 == 0 && length != 0) {
                         sb.insert(0, ",");
-                        i2 = 0;
+                        i = 0;
                     }
                 }
             }
@@ -995,17 +999,17 @@ public class UtilHelper {
         return (String) invokeL.objValue;
     }
 
-    public static String formatOverStep(String str, int i2) {
+    public static String formatOverStep(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65557, null, str, i)) == null) {
             if (StringUtils.isNull(str)) {
                 return "";
             }
-            if (str.length() <= i2) {
+            if (str.length() <= i) {
                 return str;
             }
-            return str.substring(0, i2) + "...";
+            return str.substring(0, i) + StringHelper.STRING_MORE;
         }
         return (String) invokeLI.objValue;
     }
@@ -1017,7 +1021,7 @@ public class UtilHelper {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return StringHelper.cutChineseAndEnglishWithSuffix(str, 18, "...");
+            return StringHelper.cutChineseAndEnglishWithSuffix(str, 18, StringHelper.STRING_MORE);
         }
         return (String) invokeL.objValue;
     }
@@ -1046,18 +1050,18 @@ public class UtilHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65562, null, context)) == null) ? CompatibleUtile.getInstance().getBitmapMaxMemory(context) : invokeL.intValue;
     }
 
-    public static Drawable getBjhBigVIconDrawable(int i2) {
+    public static Drawable getBjhBigVIconDrawable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i2)) == null) ? SvgManager.getInstance().getMaskDrawable(i2, SvgManager.SvgResourceStateType.NORMAL) : (Drawable) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65563, null, i)) == null) ? SvgManager.getInstance().getMaskDrawable(i, SvgManager.SvgResourceStateType.NORMAL) : (Drawable) invokeI.objValue;
     }
 
-    public static int getBjhBigVIconId(int i2, int i3) {
+    public static int getBjhBigVIconId(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65564, null, i2, i3)) == null) {
-            if (i2 > 0) {
-                return (i3 == 0 || i3 == 4) ? R.drawable.ic_icon_mask_v14_n_svg : i3 == 1 ? R.drawable.ic_icon_mask_v12_n_svg : i3 == 2 ? R.drawable.ic_icon_mask_v16_n_svg : i3 == 3 ? R.drawable.ic_icon_mask_v20_n_svg : R.drawable.ic_icon_mask_v14_n_svg;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65564, null, i, i2)) == null) {
+            if (i > 0) {
+                return (i2 == 0 || i2 == 4) ? R.drawable.obfuscated_res_0x7f0805f3 : i2 == 1 ? R.drawable.obfuscated_res_0x7f0805f2 : i2 == 2 ? R.drawable.obfuscated_res_0x7f0805f4 : i2 == 3 ? R.drawable.ic_icon_mask_v20_n_svg : R.drawable.obfuscated_res_0x7f0805f3;
             }
             return 0;
         }
@@ -1121,10 +1125,10 @@ public class UtilHelper {
         return (String) invokeV.objValue;
     }
 
-    public static long getCorrectUserIdAfterOverflowCut(long j2) {
+    public static long getCorrectUserIdAfterOverflowCut(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65568, null, j2)) == null) ? j2 >= 0 ? j2 : j2 + 4294967296L : invokeJ.longValue;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(65568, null, j)) == null) ? j >= 0 ? j : j + 4294967296L : invokeJ.longValue;
     }
 
     public static String getCurrentDay() {
@@ -1147,10 +1151,10 @@ public class UtilHelper {
         return (String) invokeL.objValue;
     }
 
-    public static long getDayBetweenTime(long j2, long j3) {
+    public static long getDayBetweenTime(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? ((j3 - j2) / 1000) / 86400 : invokeCommon.longValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65571, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? ((j2 - j) / 1000) / 86400 : invokeCommon.longValue;
     }
 
     public static String getDeviceId() {
@@ -1160,11 +1164,11 @@ public class UtilHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65572, null)) == null) ? (!PermissionUtil.checkReadPhoneState(TbadkCoreApplication.getInst()) || (telephonyManager = (TelephonyManager) TbadkCoreApplication.getInst().getSystemService("phone")) == null) ? "" : telephonyManager.getDeviceId() : (String) invokeV.objValue;
     }
 
-    public static int getDimenPixelSize(int i2) {
+    public static int getDimenPixelSize(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65573, null, i2)) == null) {
-            int idByABTest = EMABTest.getIdByABTest(i2, "dimen");
+        if (interceptable == null || (invokeI = interceptable.invokeI(65573, null, i)) == null) {
+            int idByABTest = EMABTest.getIdByABTest(i, EMABTest.TYPE_DIMEN);
             if (idByABTest == 0) {
                 return 0;
             }
@@ -1173,28 +1177,28 @@ public class UtilHelper {
         return invokeI.intValue;
     }
 
-    public static String getFixedBarText(String str, int i2, boolean z) {
+    public static String getFixedBarText(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65574, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             double d2 = 0.0d;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= str.length()) {
+                if (i2 >= str.length()) {
                     break;
                 }
-                char charAt = str.charAt(i3);
+                char charAt = str.charAt(i2);
                 d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-                if (d2 <= i2) {
+                if (d2 <= i) {
                     sb.append(charAt);
-                    i3++;
+                    i2++;
                 } else if (z) {
-                    sb.deleteCharAt(i3 - 1);
-                    sb.append("...");
+                    sb.deleteCharAt(i2 - 1);
+                    sb.append(StringHelper.STRING_MORE);
                 }
             }
             return sb.toString();
@@ -1202,10 +1206,10 @@ public class UtilHelper {
         return (String) invokeCommon.objValue;
     }
 
-    public static String getFixedText(String str, int i2) {
+    public static String getFixedText(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65576, null, str, i2)) == null) ? getFixedText(str, i2, true) : (String) invokeLI.objValue;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65576, null, str, i)) == null) ? getFixedText(str, i, true) : (String) invokeLI.objValue;
     }
 
     public static int getFixedTextSize(String str) {
@@ -1215,11 +1219,11 @@ public class UtilHelper {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
-            int i2 = 0;
-            for (int i3 = 0; i3 < str.length(); i3++) {
-                i2 = str.charAt(i3) > 255 ? i2 + 2 : i2 + 1;
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                i = str.charAt(i2) > 255 ? i + 2 : i + 1;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -1230,18 +1234,18 @@ public class UtilHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65579, null, str)) == null) ? getForumNameWithGodBar(str, -1, false) : (String) invokeL.objValue;
     }
 
-    public static String getForumNameWithGodBar(String str, int i2, boolean z) {
+    public static String getForumNameWithGodBar(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65581, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 <= -1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65581, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i <= -1) {
                 if (m.byteLength(str) > 14) {
-                    str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...");
+                    str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
                 }
             } else {
-                str = getFixedBarText(str, i2, z);
+                str = getFixedBarText(str, i, z);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_god_bar, new Object[]{str});
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03c1, new Object[]{str});
         }
         return (String) invokeCommon.objValue;
     }
@@ -1250,10 +1254,10 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65582, null, tbPageContext)) == null) {
-            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof c.a.q0.p0.a)) {
+            if (tbPageContext == null || !(tbPageContext.getPageActivity() instanceof c.a.o0.p0.a)) {
                 return null;
             }
-            c.a.q0.p0.a aVar = (c.a.q0.p0.a) tbPageContext.getPageActivity();
+            c.a.o0.p0.a aVar = (c.a.o0.p0.a) tbPageContext.getPageActivity();
             if (aVar.getCurrentPageSourceKeyList() == null) {
                 return null;
             }
@@ -1375,7 +1379,7 @@ public class UtilHelper {
                 e = e2;
             }
             try {
-                intent.setFlags(268435456);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 return intent;
             } catch (Exception e3) {
                 e = e3;
@@ -1410,7 +1414,7 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65590, null)) == null) {
             if (canUseStyleImmersiveSticky()) {
                 try {
-                    return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+                    return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField(SapiSystemBarTintManager.SystemBarConfig.f27942g).get(null).toString(), 0));
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
@@ -1449,7 +1453,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65592, null)) == null) {
             try {
-                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod("get", String.class);
+                Method declaredMethod = Class.forName("android.os.SystemProperties").getDeclaredMethod(SharedPreferenceManager.OPERATION_GET_PERFIX, String.class);
                 declaredMethod.setAccessible(true);
                 return (String) declaredMethod.invoke(null, "qemu.hw.mainkeys");
             } catch (Throwable unused) {
@@ -1465,7 +1469,7 @@ public class UtilHelper {
         int identifier;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65593, null, context)) == null) {
-            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier("navigation_bar_height", "dimen", "android")) <= 0) {
+            if (!hasNavBar(context) || (identifier = (resources = context.getResources()).getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27943h, EMABTest.TYPE_DIMEN, "android")) <= 0) {
                 return 0;
             }
             return resources.getDimensionPixelSize(identifier);
@@ -1550,12 +1554,12 @@ public class UtilHelper {
         return invokeV.objValue;
     }
 
-    public static int getRandom(Random random, int i2, int i3) {
+    public static int getRandom(Random random, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65597, null, random, i2, i3)) == null) {
-            int nextInt = random.nextInt(i2);
-            return nextInt == i3 ? (nextInt + 1) % i2 : nextInt;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65597, null, random, i, i2)) == null) {
+            int nextInt = random.nextInt(i);
+            return nextInt == i2 ? (nextInt + 1) % i : nextInt;
         }
         return invokeLII.intValue;
     }
@@ -1565,9 +1569,9 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65598, null, context)) == null) {
             int[] p = n.p(context);
-            int i2 = context.getResources().getConfiguration().orientation;
-            if (i2 == 2 || p[0] <= p[1]) {
-                return i2;
+            int i = context.getResources().getConfiguration().orientation;
+            if (i == 2 || p[0] <= p[1]) {
+                return i;
             }
             return 2;
         }
@@ -1578,7 +1582,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65599, null, context)) == null) {
-            int i2 = 0;
+            int i = 0;
             if (context == null) {
                 return 0;
             }
@@ -1586,21 +1590,21 @@ public class UtilHelper {
                 Display defaultDisplay = ((WindowManager) context.getSystemService("window")).getDefaultDisplay();
                 DisplayMetrics displayMetrics = new DisplayMetrics();
                 Class.forName("android.view.Display").getMethod("getRealMetrics", DisplayMetrics.class).invoke(defaultDisplay, displayMetrics);
-                i2 = displayMetrics.heightPixels;
+                i = displayMetrics.heightPixels;
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
-            return i2 == 0 ? n.i(context) : i2;
+            return i == 0 ? n.i(context) : i;
         }
         return invokeL.intValue;
     }
 
-    public static Drawable getSelectorDrawableByAlpha(@DrawableRes int i2, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
+    public static Drawable getSelectorDrawableByAlpha(@DrawableRes int i, @FloatRange(from = 0.0d, to = 1.0d) float f2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65600, null, new Object[]{Integer.valueOf(i2), Float.valueOf(f2)})) == null) {
-            Drawable drawable = SkinManager.getDrawable(i2);
-            Drawable drawable2 = SkinManager.getDrawable(i2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65600, null, new Object[]{Integer.valueOf(i), Float.valueOf(f2)})) == null) {
+            Drawable drawable = SkinManager.getDrawable(i);
+            Drawable drawable2 = SkinManager.getDrawable(i);
             drawable2.mutate();
             drawable2.setAlpha((int) (f2 * 255.0f));
             StateListDrawable stateListDrawable = new StateListDrawable();
@@ -1611,21 +1615,21 @@ public class UtilHelper {
         return (Drawable) invokeCommon.objValue;
     }
 
-    public static SpannableStringBuilder getSpannableIcon(Context context, String str, int i2, boolean z) {
+    public static SpannableStringBuilder getSpannableIcon(Context context, String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (m.isEmpty(str) || context == null || i2 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65601, null, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (m.isEmpty(str) || context == null || i == 0) {
                 return null;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            Bitmap bitmap = SkinManager.getBitmap(i2);
+            Bitmap bitmap = SkinManager.getBitmap(i);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.q0.r.l0.j jVar = new c.a.q0.r.l0.j(bitmapDrawable);
-            jVar.b(n.f(context, R.dimen.ds4));
+            c.a.o0.r.l0.j jVar = new c.a.o0.r.l0.j(bitmapDrawable);
+            jVar.b(n.f(context, R.dimen.obfuscated_res_0x7f070224));
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
             if (z) {
@@ -1642,20 +1646,20 @@ public class UtilHelper {
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    public static SpannableStringBuilder getSpannableIconByVertical(Context context, String str, int i2, boolean z) {
+    public static SpannableStringBuilder getSpannableIconByVertical(Context context, String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65602, null, new Object[]{context, str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (m.isEmpty(str) || context == null || i2 == 0) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65602, null, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (m.isEmpty(str) || context == null || i == 0) {
                 return null;
             }
             SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            Bitmap bitmap = SkinManager.getBitmap(i2);
+            Bitmap bitmap = SkinManager.getBitmap(i);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
             if (bitmap != null) {
                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
             }
-            c.a.q0.r.l0.m mVar = new c.a.q0.r.l0.m(bitmapDrawable);
+            c.a.o0.r.l0.m mVar = new c.a.o0.r.l0.m(bitmapDrawable);
             int length = spannableStringBuilder.length();
             spannableStringBuilder.append((CharSequence) " ");
             if (z) {
@@ -1675,7 +1679,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65603, null)) == null) {
             try {
-                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField(SapiSystemBarTintManager.SystemBarConfig.f27942g).get(null).toString(), 0));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return 0;
@@ -1688,7 +1692,7 @@ public class UtilHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65604, null)) == null) {
-            int identifier = TbadkCoreApplication.getInst().getResources().getIdentifier("status_bar_height", "dimen", "android");
+            int identifier = TbadkCoreApplication.getInst().getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.f27942g, EMABTest.TYPE_DIMEN, "android");
             if (identifier > 0) {
                 return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(identifier);
             }
@@ -1702,7 +1706,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65605, null)) == null) {
             try {
-                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField("status_bar_height").get(null).toString(), 0));
+                return TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(c.a.d.f.m.b.e(Class.forName("com.android.internal.R$dimen").getField(SapiSystemBarTintManager.SystemBarConfig.f27942g).get(null).toString(), 0));
             } catch (Exception e2) {
                 e2.printStackTrace();
                 return 0;
@@ -1776,16 +1780,16 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65608, null)) == null) {
             try {
                 String versionName = TbadkCoreApplication.getInst().getVersionName();
-                String q = c.a.q0.r.j0.b.k().q("version_name", "");
+                String q = c.a.o0.r.j0.b.k().q("version_name", "");
                 if (TextUtils.isEmpty(versionName)) {
                     return null;
                 }
                 if (versionName.equals(q)) {
-                    return c.a.q0.r.j0.b.k().q("apk_md5", "");
+                    return c.a.o0.r.j0.b.k().q("apk_md5", "");
                 }
-                c.a.q0.r.j0.b.k().y("version_name", versionName);
+                c.a.o0.r.j0.b.k().y("version_name", versionName);
                 String aPKMd5 = TbMd5.getAPKMd5(TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(TbadkCoreApplication.getInst().getPackageName(), 0));
-                c.a.q0.r.j0.b.k().y("apk_md5", aPKMd5);
+                c.a.o0.r.j0.b.k().y("apk_md5", aPKMd5);
                 return aPKMd5;
             } catch (PackageManager.NameNotFoundException e2) {
                 BdLog.detailException(e2);
@@ -1898,12 +1902,12 @@ public class UtilHelper {
         return (String) invokeL.objValue;
     }
 
-    public static final Intent getYYNotificationIntent(Context context, z0 z0Var, String str) {
+    public static final Intent getYYNotificationIntent(Context context, x0 x0Var, String str) {
         InterceptResult invokeLLL;
         String substring;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65616, null, context, z0Var, str)) == null) {
-            if (context != null && z0Var != null && !TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65616, null, context, x0Var, str)) == null) {
+            if (context != null && x0Var != null && !TextUtils.isEmpty(str)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_FRS)) {
                     try {
                         return Intent.parseUri(str, 1);
@@ -1921,7 +1925,7 @@ public class UtilHelper {
                 } else if (str.equals("tab://1")) {
                     intent.putExtra(DealIntentService.KEY_CLASS, 3);
                     intent.putExtra("is_message_pv", true);
-                    intent.putExtra("refresh_all", true);
+                    intent.putExtra(FrsActivityConfig.KEY_REFRESH, true);
                     intent.putExtra("close_dialog", true);
                     intent.putExtra("locate_type", 0);
                     intent.setFlags(603979776);
@@ -1979,10 +1983,10 @@ public class UtilHelper {
                 }
                 intent.putExtra("is_notify", true);
                 intent.putExtra("link", str);
-                intent.putExtra("message_id", z0Var.c());
-                intent.putExtra("task_id", z0Var.e());
-                if (!TextUtils.isEmpty(z0Var.d())) {
-                    intent.putExtra("stat", z0Var.d());
+                intent.putExtra("message_id", x0Var.c());
+                intent.putExtra("task_id", x0Var.e());
+                if (!TextUtils.isEmpty(x0Var.d())) {
+                    intent.putExtra("stat", x0Var.d());
                 }
                 return intent;
             }
@@ -1991,25 +1995,25 @@ public class UtilHelper {
         return (Intent) invokeLLL.objValue;
     }
 
-    public static void goToMessageCenterFromNotifyCenter(int i2) {
+    public static void goToMessageCenterFromNotifyCenter(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65617, null, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(65617, null, i) == null) {
             Intent intent = new Intent();
-            intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i2);
+            intent.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, i);
             intent.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent));
             b.e(TbadkCoreApplication.getInst().getApplicationContext(), 3);
         }
     }
 
-    public static boolean hasAvaiableSDCardSpace(int i2) {
+    public static boolean hasAvaiableSDCardSpace(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65618, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65618, null, i)) == null) {
             try {
                 if (Environment.getExternalStorageState().equals("mounted")) {
                     StatFs statFs = new StatFs(Environment.getExternalStorageDirectory().getPath());
-                    return (((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024 > ((long) i2);
+                    return (((long) statFs.getAvailableBlocks()) * ((long) statFs.getBlockSize())) / 1024 > ((long) i);
                 }
                 return false;
             } catch (Throwable th) {
@@ -2025,7 +2029,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65619, null, context)) == null) {
             Resources resources = context.getResources();
-            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
             if (identifier != 0) {
                 boolean z = resources.getBoolean(identifier);
                 String navBarOverride = getNavBarOverride();
@@ -2149,7 +2153,7 @@ public class UtilHelper {
             Intent intent = new Intent();
             intent.setAction("android.intent.action.VIEW");
             intent.setDataAndType(getUriFromFile(GetFile, intent, context), "application/vnd.android.package-archive");
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             if (isHaveActivityCanHandleIntent(intent)) {
                 context.startActivity(intent);
             }
@@ -2157,20 +2161,20 @@ public class UtilHelper {
         }
     }
 
-    public static String int2ver(int i2) {
+    public static String int2ver(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65627, null, i2)) == null) {
-            return ((i2 >> 24) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 8) & 255) + "." + (i2 & 255);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65627, null, i)) == null) {
+            return ((i >> 24) & 255) + "." + ((i >> 16) & 255) + "." + ((i >> 8) & 255) + "." + (i & 255);
         }
         return (String) invokeI.objValue;
     }
 
-    public static String intToIp(int i2) {
+    public static String intToIp(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65628, null, i2)) == null) {
-            return (i2 & 255) + "." + ((i2 >> 8) & 255) + "." + ((i2 >> 16) & 255) + "." + ((i2 >> 24) & 255);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65628, null, i)) == null) {
+            return (i & 255) + "." + ((i >> 8) & 255) + "." + ((i >> 16) & 255) + "." + ((i >> 24) & 255);
         }
         return (String) invokeI.objValue;
     }
@@ -2316,7 +2320,7 @@ public class UtilHelper {
         if (interceptable == null || (invokeL = interceptable.invokeL(65636, null, activity)) == null) {
             try {
                 Resources resources = activity.getResources();
-                int identifier = resources.getIdentifier("config_mainBuiltInDisplayCutout", "string", "android");
+                int identifier = resources.getIdentifier("config_mainBuiltInDisplayCutout", EMABTest.TYPE_STRING, "android");
                 String string = identifier > 0 ? resources.getString(identifier) : null;
                 if (string != null) {
                     return !TextUtils.isEmpty(string);
@@ -2563,7 +2567,7 @@ public class UtilHelper {
                         e2.printStackTrace();
                     }
                 }
-                int i2 = 0;
+                int i = 0;
                 String str3 = null;
                 if (str != null) {
                     str = str.toLowerCase();
@@ -2577,16 +2581,16 @@ public class UtilHelper {
                     }
                     String[] split = substring2.split("&");
                     if (!substring2.startsWith("kz=")) {
-                        int i3 = 0;
+                        int i2 = 0;
                         while (true) {
-                            if (i3 >= split.length) {
+                            if (i2 >= split.length) {
                                 str2 = null;
                                 break;
-                            } else if (split[i3] != null && split[i3].startsWith("kz=")) {
-                                str2 = split[i3].substring(3);
+                            } else if (split[i2] != null && split[i2].startsWith("kz=")) {
+                                str2 = split[i2].substring(3);
                                 break;
                             } else {
-                                i3++;
+                                i2++;
                             }
                         }
                     } else {
@@ -2608,14 +2612,14 @@ public class UtilHelper {
                         return nativePage;
                     }
                     String[] split2 = substring.split("&");
-                    if (!substring.startsWith(FrsFragment.FORUM_KW)) {
+                    if (!substring.startsWith("kw=")) {
                         while (true) {
-                            if (i2 < split2.length) {
-                                if (split2[i2] != null && split2[i2].startsWith(FrsFragment.FORUM_KW)) {
-                                    str3 = split2[i2].substring(3);
+                            if (i < split2.length) {
+                                if (split2[i] != null && split2[i].startsWith("kw=")) {
+                                    str3 = split2[i].substring(3);
                                     break;
                                 }
-                                i2++;
+                                i++;
                             } else {
                                 break;
                             }
@@ -2638,7 +2642,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65655, null, resources)) == null) {
-            int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
+            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
             return identifier > 0 && resources.getBoolean(identifier);
         }
         return invokeL.booleanValue;
@@ -2678,7 +2682,7 @@ public class UtilHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65659, null)) == null) {
-            return g.f53623i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
+            return g.i.equalsIgnoreCase(Build.BRAND) && "ONEPLUS A6000".equalsIgnoreCase(Build.MODEL);
         }
         return invokeV.booleanValue;
     }
@@ -2690,8 +2694,8 @@ public class UtilHelper {
             if (TbadkCoreApplication.getInst().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism")) {
                 String str = Build.MODEL;
                 String[] strArr = {"PAAM00", "PAAT00", "PACM00", "PACT00", "CPH1831", "CPH1833"};
-                for (int i2 = 0; i2 < 6; i2++) {
-                    if (str.equalsIgnoreCase(strArr[i2])) {
+                for (int i = 0; i < 6; i++) {
+                    if (str.equalsIgnoreCase(strArr[i])) {
                         return true;
                     }
                 }
@@ -2727,10 +2731,10 @@ public class UtilHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(65663, null)) == null) ? Build.MODEL.equalsIgnoreCase("SM-F9000") : invokeV.booleanValue;
     }
 
-    public static boolean isSameDay(long j2, long j3) {
+    public static boolean isSameDay(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65664, null, new Object[]{Long.valueOf(j2), Long.valueOf(j3)})) == null) ? j2 <= j3 && j2 / 86400000 == j3 / 86400000 : invokeCommon.booleanValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65664, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? j <= j2 && j / 86400000 == j2 / 86400000 : invokeCommon.booleanValue;
     }
 
     public static boolean isSelf(MetaData metaData) {
@@ -2798,10 +2802,10 @@ public class UtilHelper {
         return invokeL.booleanValue;
     }
 
-    public static boolean isUgcThreadType(int i2) {
+    public static boolean isUgcThreadType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65670, null, i2)) == null) ? i2 == 1 || i2 == 2 || i2 == 3 || i2 == 4 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65670, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
     }
 
     public static boolean isUseSingleGod(UserData userData) {
@@ -2810,10 +2814,10 @@ public class UtilHelper {
         return (interceptable == null || (invokeL = interceptable.invokeL(65671, null, userData)) == null) ? (userData == null || userData.getGodUserData() == null || userData.getGodUserData().getType() != 2) ? false : true : invokeL.booleanValue;
     }
 
-    public static boolean isVideoThread(int i2) {
+    public static boolean isVideoThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65672, null, i2)) == null) ? i2 == 2 || i2 == 6 || i2 == 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65672, null, i)) == null) ? i == 2 || i == 6 || i == 8 : invokeI.booleanValue;
     }
 
     public static boolean isVivoDevice() {
@@ -2875,7 +2879,7 @@ public class UtilHelper {
     public static void quitDialog(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65676, null, activity) == null) {
-            new c.a.q0.r.t.a(activity).setTitle(R.string.inform).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new a.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+            new c.a.o0.r.t.a(activity).setTitle(R.string.obfuscated_res_0x7f0f08db).setCancelable(false).setMessageId(R.string.obfuscated_res_0x7f0f0259).setPositiveButton(R.string.obfuscated_res_0x7f0f025c, new a.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Activity val$activity;
@@ -2887,9 +2891,9 @@ public class UtilHelper {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {activity};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -2898,8 +2902,8 @@ public class UtilHelper {
                     this.val$activity = activity;
                 }
 
-                @Override // c.a.q0.r.t.a.e
-                public void onClick(c.a.q0.r.t.a aVar) {
+                @Override // c.a.o0.r.t.a.e
+                public void onClick(c.a.o0.r.t.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                         aVar.dismiss();
@@ -2907,7 +2911,7 @@ public class UtilHelper {
                         this.val$activity.finish();
                     }
                 }
-            }).setNegativeButton(R.string.cancel, new a.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f036c, new a.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -2916,17 +2920,17 @@ public class UtilHelper {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
                     }
                 }
 
-                @Override // c.a.q0.r.t.a.e
-                public void onClick(c.a.q0.r.t.a aVar) {
+                @Override // c.a.o0.r.t.a.e
+                public void onClick(c.a.o0.r.t.a aVar) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, aVar) == null) {
                         aVar.dismiss();
@@ -2950,8 +2954,8 @@ public class UtilHelper {
         }
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
-            for (int i2 = 0; i2 < viewGroup.getChildCount(); i2++) {
-                View childAt = viewGroup.getChildAt(i2);
+            for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                View childAt = viewGroup.getChildAt(i);
                 if (childAt != null) {
                     setBitmapByTag(childAt, str, aVar);
                 }
@@ -2967,8 +2971,8 @@ public class UtilHelper {
                 try {
                     Field declaredField = attributes.getClass().getDeclaredField("meizuFlags");
                     declaredField.setAccessible(true);
-                    int i2 = declaredField.getInt(attributes);
-                    declaredField.setInt(attributes, z ? i2 | 64 : i2 & (-65));
+                    int i = declaredField.getInt(attributes);
+                    declaredField.setInt(attributes, z ? i | 64 : i & (-65));
                     return;
                 } catch (Exception e2) {
                     BdLog.e(e2);
@@ -2980,57 +2984,57 @@ public class UtilHelper {
         }
     }
 
-    public static void setNavigationBarBackground(Activity activity, int i2) {
+    public static void setNavigationBarBackground(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65679, null, activity, i2) == null) && activity != null && DeviceInfoUtil.isfullScreen()) {
+        if ((interceptable == null || interceptable.invokeLI(65679, null, activity, i) == null) && activity != null && DeviceInfoUtil.isfullScreen()) {
             if (Build.VERSION.SDK_INT > 21) {
-                setNavigationBarBackground_L(activity, i2);
+                setNavigationBarBackground_L(activity, i);
             } else {
-                setNavigationBarBackground_K(activity, i2);
+                setNavigationBarBackground_K(activity, i);
             }
         }
     }
 
-    public static void setNavigationBarBackgroundForVivoX20(Activity activity, int i2) {
+    public static void setNavigationBarBackgroundForVivoX20(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65680, null, activity, i2) == null) && activity != null && DeviceInfoUtil.isVivoX20A() && isNavigationbarShown(activity.getResources())) {
+        if ((interceptable == null || interceptable.invokeLI(65680, null, activity, i) == null) && activity != null && DeviceInfoUtil.isVivoX20A() && isNavigationbarShown(activity.getResources())) {
             if (Build.VERSION.SDK_INT > 21) {
-                setNavigationBarBackground_L(activity, i2);
+                setNavigationBarBackground_L(activity, i);
             } else {
-                setNavigationBarBackground_K(activity, i2);
+                setNavigationBarBackground_K(activity, i);
             }
         }
     }
 
-    public static void setNavigationBarBackground_K(Activity activity, int i2) {
+    public static void setNavigationBarBackground_K(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65681, null, activity, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(65681, null, activity, i) == null) {
             activity.getWindow().addFlags(134217728);
             View view = new View(activity);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, c.a.d.f.p.c.b(activity));
             layoutParams.gravity = 80;
             view.setLayoutParams(layoutParams);
-            view.setBackgroundColor(i2);
+            view.setBackgroundColor(i);
             ((ViewGroup) activity.getWindow().getDecorView()).addView(view);
         }
     }
 
-    public static void setNavigationBarBackground_L(Activity activity, int i2) {
+    public static void setNavigationBarBackground_L(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65682, null, activity, i2) == null) {
-            activity.getWindow().setNavigationBarColor(i2);
+        if (interceptable == null || interceptable.invokeLI(65682, null, activity, i) == null) {
+            activity.getWindow().setNavigationBarColor(i);
         }
     }
 
-    public static void setNavigationBarBg(Activity activity, int i2) {
+    public static void setNavigationBarBg(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65683, null, activity, i2) == null) || activity == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65683, null, activity, i) == null) || activity == null) {
             return;
         }
         if (Build.VERSION.SDK_INT > 21) {
-            setNavigationBarBackground_L(activity, i2);
+            setNavigationBarBackground_L(activity, i);
         } else {
-            setNavigationBarBackground_K(activity, i2);
+            setNavigationBarBackground_K(activity, i);
         }
     }
 
@@ -3042,15 +3046,15 @@ public class UtilHelper {
         int indexOf = str.indexOf(str2);
         int length = str2.length();
         while (indexOf >= 0) {
-            int i2 = indexOf + length;
-            spannableString.setSpan(characterStyle, indexOf, i2, 33);
-            indexOf = str.indexOf(str2, i2);
+            int i = indexOf + length;
+            spannableString.setSpan(characterStyle, indexOf, i, 33);
+            indexOf = str.indexOf(str2, i);
         }
     }
 
-    public static void setStatusBarBackground(View view, int i2) {
+    public static void setStatusBarBackground(View view, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65686, null, view, i2) == null) || view == null) {
+        if (!(interceptable == null || interceptable.invokeLI(65686, null, view, i) == null) || view == null) {
             return;
         }
         SkinManager.setBackgroundColor(view, R.color.CAM_X0201);
@@ -3087,9 +3091,9 @@ public class UtilHelper {
                     str2 = str2.substring(0, 140);
                 }
                 intent.putExtra("android.intent.extra.TEXT", str2);
-                intent.setFlags(268435456);
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.share_to)));
+                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f113d)));
             } catch (Exception e2) {
                 BdLog.e(e2.toString());
             }
@@ -3110,10 +3114,10 @@ public class UtilHelper {
                 TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), str, null, 1, "st_param", str2);
             }
             Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
-            intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.share_format), str3, str4, str5));
-            intent.setFlags(268435456);
+            intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.obfuscated_res_0x7f0f1114), str3, str4, str5));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
             intent.setType("text/plain");
-            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.share_to)));
+            context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f113d)));
         } catch (Exception e2) {
             BdLog.e(e2.toString());
         }
@@ -3134,14 +3138,14 @@ public class UtilHelper {
         return invokeLLZ.booleanValue;
     }
 
-    public static boolean showHeadBjhBigVIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData, int i2) {
+    public static boolean showHeadBjhBigVIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65692, null, imageView, metaData, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65692, null, imageView, metaData, i)) == null) {
             if (imageView == null || metaData == null || metaData.getBaijiahaoInfo() == null || !isShowBjhBigV(metaData.getBaijiahaoInfo())) {
                 return false;
             }
-            int bjhBigVIconId = getBjhBigVIconId(metaData.getBaijiahaoInfo().auth_id.intValue(), i2);
+            int bjhBigVIconId = getBjhBigVIconId(metaData.getBaijiahaoInfo().auth_id.intValue(), i);
             imageView.setVisibility(0);
             SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(imageView, bjhBigVIconId, SvgManager.SvgResourceStateType.NORMAL);
             return true;
@@ -3178,7 +3182,7 @@ public class UtilHelper {
                 return false;
             }
             imageView.setVisibility(0);
-            WebPManager.setMaskDrawable(imageView, R.drawable.ic_icon_mask_shang22_n, null);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0805ed, null);
             return true;
         }
         return invokeLL.booleanValue;
@@ -3192,7 +3196,7 @@ public class UtilHelper {
                 return false;
             }
             imageView.setVisibility(0);
-            WebPManager.setMaskDrawable(imageView, R.drawable.ic_icon_mask_videov14, null);
+            WebPManager.setMaskDrawable(imageView, R.drawable.obfuscated_res_0x7f0805f6, null);
             return true;
         }
         return invokeLL.booleanValue;
@@ -3227,9 +3231,9 @@ public class UtilHelper {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {decorView, view, cacheBitmapFromView};
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                         return;
@@ -3281,21 +3285,21 @@ public class UtilHelper {
         }
     }
 
-    public static void showYYNotification(Context context, z0 z0Var, int i2) {
+    public static void showYYNotification(Context context, x0 x0Var, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65703, null, context, z0Var, i2) == null) {
-            String a = z0Var.a();
-            String b2 = z0Var.b();
+        if (interceptable == null || interceptable.invokeLLI(65703, null, context, x0Var, i) == null) {
+            String a = x0Var.a();
+            String b2 = x0Var.b();
             if (b2 == null || b2.length() <= 0) {
                 return;
             }
-            Intent yYNotificationIntent = getYYNotificationIntent(context, z0Var, b2);
+            Intent yYNotificationIntent = getYYNotificationIntent(context, x0Var, b2);
             if (yYNotificationIntent != null && yYNotificationIntent.getDataString() != null && yYNotificationIntent.getDataString().contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                 yYNotificationIntent.setFlags(276824064);
-                NotificationHelper.showNotification(context, i2, null, a, a, PendingIntent.getActivity(context, i2, yYNotificationIntent, 134217728), false);
+                NotificationHelper.showNotification(context, i, null, a, a, PendingIntent.getActivity(context, i, yYNotificationIntent, 134217728), false);
             } else if (yYNotificationIntent == null) {
             } else {
-                NotificationHelper.showNotification(context, i2, null, a, a, PendingIntent.getService(context, 0, yYNotificationIntent, 134217728), false);
+                NotificationHelper.showNotification(context, i, null, a, a, PendingIntent.getService(context, 0, yYNotificationIntent, 134217728), false);
             }
         }
     }
@@ -3305,7 +3309,7 @@ public class UtilHelper {
         if (interceptable == null || interceptable.invokeLL(65704, null, context, str) == null) {
             Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
             intent.putExtra("sms_body", "");
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e2) {
@@ -3321,7 +3325,7 @@ public class UtilHelper {
         if (interceptable == null || interceptable.invokeLLL(65705, null, context, str, str2) == null) {
             Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
             intent.putExtra("sms_body", str2 + "");
-            intent.addFlags(268435456);
+            intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             try {
                 context.startActivity(intent);
             } catch (ActivityNotFoundException e2) {
@@ -3341,12 +3345,12 @@ public class UtilHelper {
                     Intent intent = new Intent("android.intent.action.MAIN");
                     intent.addCategory("android.intent.category.LAUNCHER");
                     intent.setComponent(new ComponentName(str, str2));
-                    intent.addFlags(268435456);
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                     context.startActivity(intent);
                     return true;
                 } catch (Throwable th) {
                     th.printStackTrace();
-                    n.M(context, R.string.game_start_fail);
+                    n.M(context, R.string.obfuscated_res_0x7f0f077e);
                 }
             }
             return false;
@@ -3371,7 +3375,7 @@ public class UtilHelper {
                 intent.putExtra("BROWSER_RESTART", true);
                 intent.putExtra("EXTRA_URL_NEW_WINDOW", true);
                 intent.putExtra("isBackToLauncher", true);
-                intent.addFlags(268435456);
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
                 if (TbConfig.IS_START_BAIDU_KUANG_CLOSE_SELF) {
                     c.a.d.a.b.g().p();
                 }
@@ -3386,10 +3390,10 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65708, null, context, str) == null) {
             if (str != null && str.length() > 0) {
-                c.a.q0.l.a.l(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
+                c.a.o0.l.a.l(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
                 return;
             }
-            c.a.q0.l.a.l(context, "http://m.baidu.com/?from=1001157a");
+            c.a.o0.l.a.l(context, "http://m.baidu.com/?from=1001157a");
         }
     }
 
@@ -3401,8 +3405,8 @@ public class UtilHelper {
         try {
             Field declaredField = WindowManager.LayoutParams.class.getDeclaredField("FLAG_HARDWARE_ACCELERATED");
             declaredField.setAccessible(true);
-            int i2 = declaredField.getInt(null);
-            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(window, Integer.valueOf(i2), Integer.valueOf(i2));
+            int i = declaredField.getInt(null);
+            Window.class.getMethod("setFlags", Integer.TYPE, Integer.TYPE).invoke(window, Integer.valueOf(i), Integer.valueOf(i));
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -3434,14 +3438,14 @@ public class UtilHelper {
                 String substring2 = str.substring(indexOf + 2);
                 int length = !StringUtils.isNull(substring) ? substring.split(":").length : 0;
                 int length2 = !StringUtils.isNull(substring2) ? substring2.split(":").length : 0;
-                int i2 = (8 - length) - length2;
+                int i = (8 - length) - length2;
                 if (length > 0) {
                     stringBuffer.append(transforIPV6(substring));
                     stringBuffer.append(".");
                 }
-                for (int i3 = 0; i3 < i2; i3++) {
+                for (int i2 = 0; i2 < i; i2++) {
                     stringBuffer.append("0");
-                    if (i3 < i2 - 1) {
+                    if (i2 < i - 1) {
                         stringBuffer.append(".");
                     }
                 }
@@ -3451,9 +3455,9 @@ public class UtilHelper {
                 }
             } else {
                 String[] split = str.split(":");
-                for (int i4 = 0; i4 < split.length; i4++) {
-                    stringBuffer.append(String.valueOf(c.a.d.f.m.b.f(split[i4], 0, 16)));
-                    if (i4 < split.length - 1) {
+                for (int i3 = 0; i3 < split.length; i3++) {
+                    stringBuffer.append(String.valueOf(c.a.d.f.m.b.f(split[i3], 0, 16)));
+                    if (i3 < split.length - 1) {
                         stringBuffer.append(".");
                     }
                 }
@@ -3484,12 +3488,12 @@ public class UtilHelper {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65715, null, activity, z)) == null) {
-            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.q0.r.j0.b.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
+            if (Build.VERSION.SDK_INT < 19 || activity == null || !c.a.o0.r.j0.b.k().h("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
                 return false;
             }
             for (AccessibilityServiceInfo accessibilityServiceInfo : ((AccessibilityManager) activity.getSystemService("accessibility")).getEnabledAccessibilityServiceList(1)) {
                 if (!StringUtils.isNull(accessibilityServiceInfo.getSettingsActivityName()) && accessibilityServiceInfo.getSettingsActivityName().contains("talkback")) {
-                    c.a.q0.r.j0.b.k().u("switch_immersive_sticky_status", false);
+                    c.a.o0.r.j0.b.k().u("switch_immersive_sticky_status", false);
                     TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                     return false;
                 }
@@ -3500,7 +3504,7 @@ public class UtilHelper {
                 StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process();
                 return true;
             } else if (!StatusBarUtil.from(activity).setTransparentStatusbar(z2).setLightStatusBar(z2).process()) {
-                c.a.q0.r.j0.b.k().u("switch_immersive_sticky_status", false);
+                c.a.o0.r.j0.b.k().u("switch_immersive_sticky_status", false);
                 TbadkCoreApplication.getInst().resetIsImmersiveStickyPrefHasRead(false);
                 return false;
             } else if (Build.VERSION.SDK_INT < 21) {
@@ -3520,18 +3524,18 @@ public class UtilHelper {
             return;
         }
         boolean z = false;
-        int i2 = -1;
+        int i = -1;
         try {
             Field field = WindowManager.LayoutParams.class.getField("FLAG_TRANSLUCENT_STATUS");
             if (field != null) {
-                i2 = field.getInt(null);
+                i = field.getInt(null);
                 z = true;
             }
         } catch (Exception e2) {
             e2.printStackTrace();
         }
         if (z) {
-            activity.getWindow().setFlags(i2, i2);
+            activity.getWindow().setFlags(i, i);
         }
     }
 
@@ -3558,11 +3562,11 @@ public class UtilHelper {
                 return 0;
             }
             String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            int i2 = 0;
-            for (int i3 = 0; i3 < split.length; i3++) {
-                i2 |= Integer.valueOf(split[i3]).intValue() << ((3 - i3) * 8);
+            int i = 0;
+            for (int i2 = 0; i2 < split.length; i2++) {
+                i |= Integer.valueOf(split[i2]).intValue() << ((3 - i2) * 8);
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -3593,10 +3597,10 @@ public class UtilHelper {
         return invokeL.booleanValue;
     }
 
-    public static String getAuthInfo(MetaData metaData, boolean z, int i2) {
+    public static String getAuthInfo(MetaData metaData, boolean z, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{metaData, Boolean.valueOf(z), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65560, null, new Object[]{metaData, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
             if (metaData == null) {
                 return "";
             }
@@ -3614,7 +3618,7 @@ public class UtilHelper {
                         return metaData.getNewGodData().getFieldName() + s0.c(metaData.isVideoGod());
                     }
                 } else if (metaData.getAuthType() == 4 && !z && metaData.showBazhuGrade()) {
-                    return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i2, "...");
+                    return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i, StringHelper.STRING_MORE);
                 }
             }
             if (TextUtils.isEmpty("") && metaData.isOfficial()) {
@@ -3624,7 +3628,7 @@ public class UtilHelper {
                 return metaData.getCreatorInfo().authDesc;
             }
             if (!TextUtils.isEmpty("") || !metaData.isNewGod()) {
-                return (TextUtils.isEmpty("") && !z && metaData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i2, "...") : "";
+                return (TextUtils.isEmpty("") && !z && metaData.showBazhuGrade()) ? StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i, StringHelper.STRING_MORE) : "";
             }
             return metaData.getNewGodData().getFieldName() + s0.c(metaData.isVideoGod());
         }
@@ -3632,27 +3636,27 @@ public class UtilHelper {
     }
 
     @Deprecated
-    public static String getFixedText(String str, int i2, boolean z) {
+    public static String getFixedText(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65577, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             double d2 = 0.0d;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= str.length()) {
+                if (i2 >= str.length()) {
                     break;
                 }
-                char charAt = str.charAt(i3);
+                char charAt = str.charAt(i2);
                 d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-                if (d2 <= i2) {
+                if (d2 <= i) {
                     sb.append(charAt);
-                    i3++;
+                    i2++;
                 } else if (z) {
-                    sb.append("...");
+                    sb.append(StringHelper.STRING_MORE);
                 }
             }
             return sb.toString();
@@ -3660,25 +3664,25 @@ public class UtilHelper {
         return (String) invokeCommon.objValue;
     }
 
-    public static String getForumNameWithBar(String str, int i2, boolean z) {
+    public static String getForumNameWithBar(String str, int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i2 <= -1) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65580, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i <= -1) {
                 if (m.byteLength(str) > 14) {
-                    str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...");
+                    str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
                 }
             } else {
-                str = getFixedBarText(str, i2, z);
+                str = getFixedBarText(str, i, z);
             }
-            return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{str});
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03c0, new Object[]{str});
         }
         return (String) invokeCommon.objValue;
     }
 
-    public static void showHeadImageViewBigV(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData, int i2) {
+    public static void showHeadImageViewBigV(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65695, null, headImageView, metaData, i2) == null) || headImageView == null || metaData == null) {
+        if (!(interceptable == null || interceptable.invokeLLI(65695, null, headImageView, metaData, i) == null) || headImageView == null || metaData == null) {
             return;
         }
         boolean z = false;
@@ -3690,13 +3694,13 @@ public class UtilHelper {
         if (isFllowByPriorty(metaData)) {
             if (metaData.getAuthType() == 1) {
                 if (metaData.isOfficial()) {
-                    headImageView.setOfficialIconResId(R.drawable.ic_icon_mask_shang22_n);
+                    headImageView.setOfficialIconResId(R.drawable.obfuscated_res_0x7f0805ed);
                     headImageView.setShowV(true);
                     return;
                 }
             } else if (metaData.getAuthType() == 2) {
                 if (metaData.getIsOriginalAuthor() == 1 && metaData.isOriginal()) {
-                    headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
+                    headImageView.setOriginatorResId(R.drawable.obfuscated_res_0x7f0805f6);
                     headImageView.setShowV(true);
                     return;
                 }
@@ -3717,7 +3721,7 @@ public class UtilHelper {
             }
         }
         if (metaData.isOfficial()) {
-            headImageView.setOfficialIconResId(R.drawable.ic_icon_mask_shang22_n);
+            headImageView.setOfficialIconResId(R.drawable.obfuscated_res_0x7f0805ed);
             headImageView.setShowV(true);
         } else if (!metaData.isOriginal() && metaData.getIsOriginalAuthor() == 0) {
             if (metaData.isNewGod()) {
@@ -3738,15 +3742,15 @@ public class UtilHelper {
                 headImageView.setShowV(z);
             }
         } else {
-            headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
+            headImageView.setOriginatorResId(R.drawable.obfuscated_res_0x7f0805f6);
             headImageView.setShowV(true);
         }
     }
 
-    public static void showToast(Context context, int i2) {
+    public static void showToast(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65701, null, context, i2) == null) {
-            CustomToast2.showToast(context, i2);
+        if (interceptable == null || interceptable.invokeLI(65701, null, context, i) == null) {
+            CustomToast2.showToast(context, i);
         }
     }
 
@@ -3763,26 +3767,26 @@ public class UtilHelper {
             Method method = window.getClass().getMethod("setStatusBarColor", Integer.TYPE);
             Method method2 = View.class.getMethod("setSystemUiVisibility", Integer.TYPE);
             if (field != null && field2 != null && field3 != null && field4 != null && method != null && method2 != null) {
-                int i2 = field.getInt(null);
-                int i3 = field2.getInt(null);
-                int i4 = field3.getInt(null);
-                int i5 = field4.getInt(null);
-                window.clearFlags(i3);
+                int i = field.getInt(null);
+                int i2 = field2.getInt(null);
+                int i3 = field3.getInt(null);
+                int i4 = field4.getInt(null);
+                window.clearFlags(i2);
                 if (z2) {
                     Field field5 = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR");
                     if (field5 != null) {
-                        window.getDecorView().setSystemUiVisibility(field5.getInt(null) | i4 | i5);
+                        window.getDecorView().setSystemUiVisibility(field5.getInt(null) | i3 | i4);
                     }
                 } else {
-                    method2.invoke(window.getDecorView(), Integer.valueOf(i4 | i5));
+                    method2.invoke(window.getDecorView(), Integer.valueOf(i3 | i4));
                 }
-                window.addFlags(i2);
+                window.addFlags(i);
                 method.invoke(window, 0);
                 if (z) {
                     Field field6 = WindowManager.LayoutParams.class.getField("FLAG_FULLSCREEN");
                     Method method3 = window.getClass().getMethod("setFlags", Integer.TYPE, Integer.TYPE);
-                    int i6 = field6.getInt(null);
-                    method3.invoke(window, Integer.valueOf(i6), Integer.valueOf(i6));
+                    int i5 = field6.getInt(null);
+                    method3.invoke(window, Integer.valueOf(i5), Integer.valueOf(i5));
                 }
             }
         } catch (Exception e2) {
@@ -3790,14 +3794,14 @@ public class UtilHelper {
         }
     }
 
-    public static boolean showHeadBjhBigVIcon(HeadPendantView headPendantView, com.baidu.tbadk.data.MetaData metaData, int i2) {
+    public static boolean showHeadBjhBigVIcon(HeadPendantView headPendantView, com.baidu.tbadk.data.MetaData metaData, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65693, null, headPendantView, metaData, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65693, null, headPendantView, metaData, i)) == null) {
             if (headPendantView == null || metaData == null || metaData.getBaijiahaoInfo() == null || !isShowBjhBigV(metaData.getBaijiahaoInfo())) {
                 return false;
             }
-            headPendantView.showHeadPendantAndBigV(metaData, i2);
+            headPendantView.j(metaData, i);
             return true;
         }
         return invokeLLI.booleanValue;
@@ -3811,36 +3815,36 @@ public class UtilHelper {
         int indexOf = str.indexOf(str2);
         int length = str2.length();
         while (indexOf >= 0) {
-            int i2 = indexOf + length;
-            spannableStringBuilder.setSpan(characterStyle, indexOf, i2, 33);
-            indexOf = str.indexOf(str2, i2);
+            int i = indexOf + length;
+            spannableStringBuilder.setSpan(characterStyle, indexOf, i, 33);
+            indexOf = str.indexOf(str2, i);
         }
     }
 
-    public static String getFixedBarText(String str, int i2, boolean z, boolean z2) {
+    public static String getFixedBarText(String str, int i, boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{str, Integer.valueOf(i2), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65575, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
             if (TextUtils.isEmpty(str)) {
                 return "";
             }
             StringBuilder sb = new StringBuilder();
             double d2 = 0.0d;
-            int i3 = 0;
+            int i2 = 0;
             while (true) {
-                if (i3 >= str.length()) {
+                if (i2 >= str.length()) {
                     break;
                 }
-                char charAt = str.charAt(i3);
+                char charAt = str.charAt(i2);
                 d2 += ((charAt < 'a' || charAt > 'z') && (charAt < 'A' || charAt > 'Z') && (charAt < '0' || charAt > '9')) ? 1.0d : 0.5d;
-                if (d2 <= i2) {
+                if (d2 <= i) {
                     sb.append(charAt);
-                    i3++;
+                    i2++;
                 } else if (z && z2) {
-                    sb.deleteCharAt(i3 - 1);
-                    sb.append("...");
+                    sb.deleteCharAt(i2 - 1);
+                    sb.append(StringHelper.STRING_MORE);
                 } else if (z) {
-                    sb.append("...");
+                    sb.append(StringHelper.STRING_MORE);
                 }
             }
             return sb.toString();

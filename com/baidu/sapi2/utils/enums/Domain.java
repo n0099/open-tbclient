@@ -45,16 +45,16 @@ public final class Domain {
         $VALUES = new Domain[]{DOMAIN_ONLINE, domain};
     }
 
-    public Domain(String str, int i2, String str2, String str3, String str4, String str5, String str6) {
+    public Domain(String str, int i, String str2, String str3, String str4, String str5, String str6) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2), str2, str3, str4, str5, str6};
+            Object[] objArr = {str, Integer.valueOf(i), str2, str3, str4, str5, str6};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str7 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();

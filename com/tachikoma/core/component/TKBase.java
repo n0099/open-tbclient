@@ -69,7 +69,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class TKBase<T extends View> implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DISPLAY_INLINE = "inline";
@@ -100,7 +100,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public ViewBackgroundManager viewBackgroundManager;
     public String viewID;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public interface IJS2NativeInvoker {
         Object onJSInvokeNativeWithJSONString(String str, String str2, IV8Function iV8Function);
     }
@@ -112,9 +112,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -129,7 +129,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         T createView = createView(context);
         this.mTargetView = createView;
         if (createView != null) {
-            createView.setTag(R.id.tk_node, this);
+            createView.setTag(R.id.obfuscated_res_0x7f09207d, this);
         }
         this.mNode = TKDomNode.nodeForView(this, list);
         this.viewBackgroundManager = new ViewBackgroundManager(getView());
@@ -144,7 +144,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         ViewParent parent = view.getParent();
         if (parent instanceof View) {
             View view2 = (View) parent;
-            Object tag = view2.getTag(R.id.tk_node);
+            Object tag = view2.getTag(R.id.obfuscated_res_0x7f09207d);
             if (tag instanceof TKBase) {
                 this.rootTkBase = (TKBase) tag;
             }
@@ -189,9 +189,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -227,7 +227,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
     public static <T extends View> TKBase<T> getTKBaseFromView(View view) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view)) == null) ? (TKBase) view.getTag(R.id.tk_node) : (TKBase) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65547, null, view)) == null) ? (TKBase) view.getTag(R.id.obfuscated_res_0x7f09207d) : (TKBase) invokeL.objValue;
     }
 
     @SuppressLint({"ClickableViewAccessibility"})
@@ -246,9 +246,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -275,9 +275,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, motionEvent};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -305,9 +305,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -347,9 +347,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -388,9 +388,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -430,9 +430,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, motionEvent};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -460,9 +460,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -500,9 +500,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, motionEvent, motionEvent2, Float.valueOf(f2), Float.valueOf(f3)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -540,9 +540,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -586,9 +586,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, motionEvent};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -607,7 +607,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     iBaseEvent.configWithData(new HashMap<String, Object>(this) { // from class: com.tachikoma.core.component.TKBase.2.2.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ C22282 this$2;
+                                        public final /* synthetic */ C20862 this$2;
 
                                         {
                                             Interceptable interceptable4 = $ic;
@@ -616,9 +616,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -649,9 +649,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -678,9 +678,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                     newInitContext.initArgs = r2;
                                     Object[] objArr = {this, Float.valueOf(r7)};
                                     interceptable3.invokeUnInit(65536, newInitContext);
-                                    int i2 = newInitContext.flag;
-                                    if ((i2 & 1) != 0) {
-                                        int i3 = i2 & 2;
+                                    int i = newInitContext.flag;
+                                    if ((i & 1) != 0) {
+                                        int i2 = i & 2;
                                         newInitContext.thisArg = this;
                                         interceptable3.invokeInitBody(65536, newInitContext);
                                         return;
@@ -708,9 +708,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                 newInitContext.initArgs = r2;
                                                 Object[] objArr = {this};
                                                 interceptable4.invokeUnInit(65536, newInitContext);
-                                                int i2 = newInitContext.flag;
-                                                if ((i2 & 1) != 0) {
-                                                    int i3 = i2 & 2;
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
                                                     newInitContext.thisArg = this;
                                                     interceptable4.invokeInitBody(65536, newInitContext);
                                                     return;
@@ -740,9 +740,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -772,9 +772,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this, motionEvent};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -802,9 +802,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this};
                                                     interceptable4.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable4.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -934,9 +934,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -961,9 +961,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         newInitContext.initArgs = r2;
                                         Object[] objArr = {this};
                                         interceptable3.invokeUnInit(65536, newInitContext);
-                                        int i2 = newInitContext.flag;
-                                        if ((i2 & 1) != 0) {
-                                            int i3 = i2 & 2;
+                                        int i = newInitContext.flag;
+                                        if ((i & 1) != 0) {
+                                            int i2 = i & 2;
                                             newInitContext.thisArg = this;
                                             interceptable3.invokeInitBody(65536, newInitContext);
                                             return;
@@ -981,7 +981,7 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                         tKTapEvent.setPosition(new HashMap<String, Float>(this) { // from class: com.tachikoma.core.component.TKBase.1.1.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ C22251 this$2;
+                                            public final /* synthetic */ C20831 this$2;
 
                                             {
                                                 Interceptable interceptable4 = $ic;
@@ -990,9 +990,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                                                     newInitContext.initArgs = r2;
                                                     Object[] objArr = {this};
                                                     interceptable4.invokeUnInit(65536, newInitContext);
-                                                    int i2 = newInitContext.flag;
-                                                    if ((i2 & 1) != 0) {
-                                                        int i3 = i2 & 2;
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
                                                         newInitContext.thisArg = this;
                                                         interceptable4.invokeInitBody(65536, newInitContext);
                                                         return;
@@ -1347,9 +1347,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1379,9 +1379,9 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -1549,10 +1549,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setBackgroundColorInt(@ColorInt int i2) {
+    public void setBackgroundColorInt(@ColorInt int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048607, this, i2) == null) {
-            this.viewBackgroundManager.setBackgroundColor(i2);
+        if (interceptable == null || interceptable.invokeI(1048607, this, i) == null) {
+            this.viewBackgroundManager.setBackgroundColor(i);
         }
     }
 
@@ -1573,10 +1573,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setBorderRadius(int i2) {
+    public void setBorderRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048610, this, i2) == null) {
-            float dp2px = TKConverter.dp2px(Tachikoma.sApplication, i2);
+        if (interceptable == null || interceptable.invokeI(1048610, this, i) == null) {
+            float dp2px = TKConverter.dp2px(Tachikoma.sApplication, i);
             this.mBorderRadius = dp2px;
             this.viewBackgroundManager.setBorderRadius(dp2px);
         }
@@ -1597,17 +1597,17 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setBottomLeftRadius(int i2) {
+    public void setBottomLeftRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048613, this, i2) == null) {
-            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i2), TKViewBackgroundDrawable.BorderRadiusLocation.BOTTOM_LEFT.ordinal());
+        if (interceptable == null || interceptable.invokeI(1048613, this, i) == null) {
+            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i), TKViewBackgroundDrawable.BorderRadiusLocation.BOTTOM_LEFT.ordinal());
         }
     }
 
-    public void setBottomRightRadius(int i2) {
+    public void setBottomRightRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048614, this, i2) == null) {
-            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i2), TKViewBackgroundDrawable.BorderRadiusLocation.BOTTOM_RIGHT.ordinal());
+        if (interceptable == null || interceptable.invokeI(1048614, this, i) == null) {
+            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i), TKViewBackgroundDrawable.BorderRadiusLocation.BOTTOM_RIGHT.ordinal());
         }
     }
 
@@ -1629,12 +1629,12 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
         try {
             V8Array makeV8Array = this.mTKJSContext.context().makeV8Array();
-            int i2 = 0;
-            while (i2 < objArr.length) {
+            int i = 0;
+            while (i < objArr.length) {
                 try {
-                    Object v8Value3 = TKConverter.toV8Value(objArr[i2], this.mTKJSContext.context());
+                    Object v8Value3 = TKConverter.toV8Value(objArr[i], this.mTKJSContext.context());
                     makeV8Array.push(v8Value3);
-                    i2++;
+                    i++;
                     v8Value2 = v8Value3;
                 } catch (Throwable th) {
                     th = th;
@@ -1685,16 +1685,16 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
             int[] iArr = new int[split.length - 1];
             float[] fArr = new float[split.length - 1];
             boolean z = false;
-            for (int i2 = 1; i2 < split.length; i2++) {
-                String trim = split[i2].trim();
+            for (int i = 1; i < split.length; i++) {
+                String trim = split[i].trim();
                 if (trim.contains(" ")) {
                     String[] split2 = trim.split(" ");
-                    int i3 = i2 - 1;
-                    iArr[i3] = Color.parseColor(TKColorUtil.rgba2argb(split2[0].trim()));
-                    fArr[i3] = Float.parseFloat(split2[1]);
+                    int i2 = i - 1;
+                    iArr[i2] = Color.parseColor(TKColorUtil.rgba2argb(split2[0].trim()));
+                    fArr[i2] = Float.parseFloat(split2[1]);
                     z = true;
                 } else {
-                    iArr[i2 - 1] = Color.parseColor(TKColorUtil.rgba2argb(trim));
+                    iArr[i - 1] = Color.parseColor(TKColorUtil.rgba2argb(trim));
                 }
             }
             if (z) {
@@ -1763,11 +1763,11 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
                 return;
             }
             float[] fArr = new float[3];
-            for (int i2 = 0; i2 < 3; i2++) {
-                if (split[i2].toLowerCase().contains("px")) {
-                    fArr[i2] = Float.parseFloat(split[i2].replace("px", ""));
+            for (int i = 0; i < 3; i++) {
+                if (split[i].toLowerCase().contains("px")) {
+                    fArr[i] = Float.parseFloat(split[i].replace("px", ""));
                 } else {
-                    fArr[i2] = TKConverter.dp2px(getContext(), Float.parseFloat(split[i2]));
+                    fArr[i] = TKConverter.dp2px(getContext(), Float.parseFloat(split[i]));
                 }
             }
             this.viewBackgroundManager.setShadow(fArr[2], fArr[0], fArr[1], Color.parseColor(TKColorUtil.rgba2argb(split[3])));
@@ -1797,17 +1797,17 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void setTopLeftRadius(int i2) {
+    public void setTopLeftRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048629, this, i2) == null) {
-            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i2), TKViewBackgroundDrawable.BorderRadiusLocation.TOP_LEFT.ordinal());
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i), TKViewBackgroundDrawable.BorderRadiusLocation.TOP_LEFT.ordinal());
         }
     }
 
-    public void setTopRightRadius(int i2) {
+    public void setTopRightRadius(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048630, this, i2) == null) {
-            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i2), TKViewBackgroundDrawable.BorderRadiusLocation.TOP_RIGHT.ordinal());
+        if (interceptable == null || interceptable.invokeI(1048630, this, i) == null) {
+            this.viewBackgroundManager.setBorderRadius(TKConverter.dp2px(Tachikoma.sApplication, i), TKViewBackgroundDrawable.BorderRadiusLocation.TOP_RIGHT.ordinal());
         }
     }
 
@@ -1840,10 +1840,10 @@ public abstract class TKBase<T extends View> implements ILifeCycle {
         }
     }
 
-    public void startViewAnimation(String str, long j2, float f2, float f3) {
+    public void startViewAnimation(String str, long j, float f2, float f3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Long.valueOf(j2), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
-            new CustomViewPropertyAnimator(this, str, j2, f2, f3).start();
+        if (interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{str, Long.valueOf(j), Float.valueOf(f2), Float.valueOf(f3)}) == null) {
+            new CustomViewPropertyAnimator(this, str, j, f2, f3).start();
         }
     }
 

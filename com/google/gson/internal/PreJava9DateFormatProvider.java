@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class PreJava9DateFormatProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -19,26 +19,26 @@ public class PreJava9DateFormatProvider {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String getDateFormatPattern(int i2) {
+    public static String getDateFormatPattern(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 == 3) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
                             return "M/d/yy";
                         }
-                        throw new IllegalArgumentException("Unknown DateFormat style: " + i2);
+                        throw new IllegalArgumentException("Unknown DateFormat style: " + i);
                     }
                     return "MMM d, y";
                 }
@@ -49,17 +49,17 @@ public class PreJava9DateFormatProvider {
         return (String) invokeI.objValue;
     }
 
-    public static String getDatePartOfDateTimePattern(int i2) {
+    public static String getDatePartOfDateTimePattern(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i2)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        if (i2 == 3) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
                             return "M/d/yy";
                         }
-                        throw new IllegalArgumentException("Unknown DateFormat style: " + i2);
+                        throw new IllegalArgumentException("Unknown DateFormat style: " + i);
                     }
                     return "MMM d, yyyy";
                 }
@@ -70,35 +70,35 @@ public class PreJava9DateFormatProvider {
         return (String) invokeI.objValue;
     }
 
-    public static String getTimePartOfDateTimePattern(int i2) {
+    public static String getTimePartOfDateTimePattern(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i2)) == null) {
-            if (i2 == 0 || i2 == 1) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i == 0 || i == 1) {
                 return "h:mm:ss a z";
             }
-            if (i2 != 2) {
-                if (i2 == 3) {
+            if (i != 2) {
+                if (i == 3) {
                     return "h:mm a";
                 }
-                throw new IllegalArgumentException("Unknown DateFormat style: " + i2);
+                throw new IllegalArgumentException("Unknown DateFormat style: " + i);
             }
             return "h:mm:ss a";
         }
         return (String) invokeI.objValue;
     }
 
-    public static DateFormat getUSDateFormat(int i2) {
+    public static DateFormat getUSDateFormat(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i2)) == null) ? new SimpleDateFormat(getDateFormatPattern(i2), Locale.US) : (DateFormat) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new SimpleDateFormat(getDateFormatPattern(i), Locale.US) : (DateFormat) invokeI.objValue;
     }
 
-    public static DateFormat getUSDateTimeFormat(int i2, int i3) {
+    public static DateFormat getUSDateTimeFormat(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i2, i3)) == null) {
-            return new SimpleDateFormat(getDatePartOfDateTimePattern(i2) + " " + getTimePartOfDateTimePattern(i3), Locale.US);
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            return new SimpleDateFormat(getDatePartOfDateTimePattern(i) + " " + getTimePartOfDateTimePattern(i2), Locale.US);
         }
         return (DateFormat) invokeII.objValue;
     }

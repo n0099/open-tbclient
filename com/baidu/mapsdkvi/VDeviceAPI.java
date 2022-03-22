@@ -36,7 +36,7 @@ public class VDeviceAPI {
     public static PowerManager.WakeLock a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static BroadcastReceiver f34753b;
+    public static BroadcastReceiver f26929b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,9 +59,9 @@ public class VDeviceAPI {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -141,27 +141,27 @@ public class VDeviceAPI {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static c getNetworkInfo(int i2) {
+    public static c getNetworkInfo(int i) {
         InterceptResult invokeI;
-        int i3;
+        int i2;
         NetworkInfo networkInfo;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeI = interceptable.invokeI(65544, null, i2)) != null) {
+        if (interceptable != null && (invokeI = interceptable.invokeI(65544, null, i)) != null) {
             return (c) invokeI.objValue;
         }
         ConnectivityManager connectivityManager = (ConnectivityManager) b.a().getSystemService("connectivity");
-        if (i2 == 2) {
-            i3 = 1;
-        } else if (i2 != 3) {
+        if (i == 2) {
+            i2 = 1;
+        } else if (i != 3) {
             networkInfo = null;
             if (networkInfo == null) {
                 return new c(networkInfo);
             }
             return null;
         } else {
-            i3 = 0;
+            i2 = 0;
         }
-        networkInfo = connectivityManager.getNetworkInfo(i3);
+        networkInfo = connectivityManager.getNetworkInfo(i2);
         if (networkInfo == null) {
         }
     }
@@ -174,16 +174,16 @@ public class VDeviceAPI {
 
     public static int getScreenBrightness() {
         InterceptResult invokeV;
-        int i2;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             ContentResolver contentResolver = b.a().getContentResolver();
             try {
-                i2 = Settings.System.getInt(contentResolver, "screen_brightness_mode");
+                i = Settings.System.getInt(contentResolver, "screen_brightness_mode");
             } catch (Settings.SettingNotFoundException unused) {
-                i2 = 0;
+                i = 0;
             }
-            if (i2 == 1) {
+            if (i == 1) {
                 return -1;
             }
             try {
@@ -388,8 +388,8 @@ public class VDeviceAPI {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65562, null) == null) {
             unsetNetworkChangedCallback();
-            f34753b = new a();
-            b.a().registerReceiver(f34753b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            f26929b = new a();
+            b.a().registerReceiver(f26929b, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
         }
     }
 
@@ -423,10 +423,10 @@ public class VDeviceAPI {
 
     public static void unsetNetworkChangedCallback() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f34753b == null) {
+        if (!(interceptable == null || interceptable.invokeV(65565, null) == null) || f26929b == null) {
             return;
         }
-        b.a().unregisterReceiver(f34753b);
-        f34753b = null;
+        b.a().unregisterReceiver(f26929b);
+        f26929b = null;
     }
 }

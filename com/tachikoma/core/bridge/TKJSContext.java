@@ -54,7 +54,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class TKJSContext implements ILifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public static Integer fileIndex;
@@ -79,7 +79,7 @@ public class TKJSContext implements ILifeCycle {
     public JSContext.V8AssociateReference mRootViewReference;
     public Context mViewCreateContext;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class V8ClassRegisterSlot {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -93,9 +93,9 @@ public class TKJSContext implements ILifeCycle {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {jSContext};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -129,9 +129,9 @@ public class TKJSContext implements ILifeCycle {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, viewGroup, tKExportManager};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -157,9 +157,9 @@ public class TKJSContext implements ILifeCycle {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, tKExportManager};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (ViewGroup) objArr2[1], (TKExportManager) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -185,14 +185,14 @@ public class TKJSContext implements ILifeCycle {
             return;
         }
         if (view instanceof ViewGroup) {
-            int i2 = 0;
+            int i = 0;
             while (true) {
                 ViewGroup viewGroup = (ViewGroup) view;
-                if (i2 >= viewGroup.getChildCount()) {
+                if (i >= viewGroup.getChildCount()) {
                     break;
                 }
-                dfsDestroyChildren(viewGroup.getChildAt(i2));
-                i2++;
+                dfsDestroyChildren(viewGroup.getChildAt(i));
+                i++;
             }
         }
         TKBase tKBaseFromView = TKBase.getTKBaseFromView(view);
@@ -310,9 +310,9 @@ public class TKJSContext implements ILifeCycle {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this, entry, key};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -332,17 +332,17 @@ public class TKJSContext implements ILifeCycle {
                                 Object obj = associateReference.nativeObject;
                                 associateReference.close();
                                 Object[] transferV8Function = this.this$0.transferV8Function((Class[]) this.val$methodEntry.getValue(), v8Array);
-                                int i2 = 0;
+                                int i = 0;
                                 try {
                                     return this.this$0.invokeMethod(obj, this.val$javaMethodName, (Class[]) this.val$methodEntry.getValue(), transferV8Function);
                                 } finally {
                                     int length = transferV8Function.length;
-                                    while (i2 < length) {
-                                        Object obj2 = transferV8Function[i2];
+                                    while (i < length) {
+                                        Object obj2 = transferV8Function[i];
                                         if (obj2 instanceof V8Value) {
                                             V8Proxy.release((V8Value) obj2);
                                         }
-                                        i2++;
+                                        i++;
                                     }
                                 }
                             }
@@ -364,9 +364,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, r7};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -468,9 +468,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, str2, v8};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -530,9 +530,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -566,9 +566,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -612,9 +612,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -646,9 +646,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -680,9 +680,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -712,9 +712,9 @@ public class TKJSContext implements ILifeCycle {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;
@@ -743,11 +743,11 @@ public class TKJSContext implements ILifeCycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65563, this, clsArr, v8Array)) == null) {
             Object[] objArr = new Object[v8Array.length()];
-            for (int i2 = 0; i2 < v8Array.length(); i2++) {
-                if (clsArr[i2].isAssignableFrom(IV8Function.class) && (v8Array.get(i2) instanceof V8Function)) {
-                    objArr[i2] = new V8FunctionImpl((V8Function) v8Array.get(i2), this);
+            for (int i = 0; i < v8Array.length(); i++) {
+                if (clsArr[i].isAssignableFrom(IV8Function.class) && (v8Array.get(i) instanceof V8Function)) {
+                    objArr[i] = new V8FunctionImpl((V8Function) v8Array.get(i), this);
                 } else {
-                    objArr[i2] = v8Array.get(i2);
+                    objArr[i] = v8Array.get(i);
                 }
             }
             return objArr;

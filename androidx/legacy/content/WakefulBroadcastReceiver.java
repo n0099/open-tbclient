@@ -5,6 +5,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.PowerManager;
+import android.util.Log;
 import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -44,9 +45,9 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -68,7 +69,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
                     sActiveWakeLocks.remove(intExtra);
                     return true;
                 }
-                String str = "No active wake lock id #" + intExtra;
+                Log.w("WakefulBroadcastReceiv.", "No active wake lock id #" + intExtra);
                 return true;
             }
         }
@@ -80,13 +81,13 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
             synchronized (sActiveWakeLocks) {
-                int i2 = mNextId;
-                int i3 = mNextId + 1;
-                mNextId = i3;
-                if (i3 <= 0) {
+                int i = mNextId;
+                int i2 = mNextId + 1;
+                mNextId = i2;
+                if (i2 <= 0) {
                     mNextId = 1;
                 }
-                intent.putExtra(EXTRA_WAKE_LOCK_ID, i2);
+                intent.putExtra(EXTRA_WAKE_LOCK_ID, i);
                 ComponentName startService = context.startService(intent);
                 if (startService == null) {
                     return null;
@@ -94,7 +95,7 @@ public abstract class WakefulBroadcastReceiver extends BroadcastReceiver {
                 PowerManager.WakeLock newWakeLock = ((PowerManager) context.getSystemService("power")).newWakeLock(1, "androidx.core:wake:" + startService.flattenToShortString());
                 newWakeLock.setReferenceCounted(false);
                 newWakeLock.acquire(60000L);
-                sActiveWakeLocks.put(i2, newWakeLock);
+                sActiveWakeLocks.put(i, newWakeLock);
                 return startService;
             }
         }

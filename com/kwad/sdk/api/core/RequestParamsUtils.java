@@ -17,8 +17,8 @@ public final class RequestParamsUtils {
         }
         StringBuffer stringBuffer = new StringBuffer();
         int length = property.length();
-        for (int i2 = 0; i2 < length; i2++) {
-            char charAt = property.charAt(i2);
+        for (int i = 0; i < length; i++) {
+            char charAt = property.charAt(i);
             if (charAt <= 31 || charAt >= 127) {
                 stringBuffer.append(String.format("\\u%04x", Integer.valueOf(charAt)));
             } else {

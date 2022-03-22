@@ -7,13 +7,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class SharedThreadTimer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean canceled;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class InnerRun implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -21,16 +21,16 @@ public class SharedThreadTimer {
         public SharedTimerTask task;
         public final /* synthetic */ SharedThreadTimer this$0;
 
-        public InnerRun(SharedThreadTimer sharedThreadTimer, SharedTimerTask sharedTimerTask, long j2) {
+        public InnerRun(SharedThreadTimer sharedThreadTimer, SharedTimerTask sharedTimerTask, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sharedThreadTimer, sharedTimerTask, Long.valueOf(j2)};
+                Object[] objArr = {sharedThreadTimer, sharedTimerTask, Long.valueOf(j)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -38,7 +38,7 @@ public class SharedThreadTimer {
             }
             this.this$0 = sharedThreadTimer;
             this.task = sharedTimerTask;
-            this.period = j2;
+            this.period = j;
         }
 
         @Override // java.lang.Runnable
@@ -70,9 +70,9 @@ public class SharedThreadTimer {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -81,15 +81,15 @@ public class SharedThreadTimer {
         this.canceled = false;
     }
 
-    private void sched(SharedTimerTask sharedTimerTask, long j2, long j3) {
+    private void sched(SharedTimerTask sharedTimerTask, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{sharedTimerTask, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            InnerRun innerRun = new InnerRun(this, sharedTimerTask, j3);
+        if (interceptable == null || interceptable.invokeCommon(65538, this, new Object[]{sharedTimerTask, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            InnerRun innerRun = new InnerRun(this, sharedTimerTask, j2);
             synchronized (sharedTimerTask.lock) {
-                sharedTimerTask.nextExecutionTime = System.currentTimeMillis() + j2;
-                sharedTimerTask.period = j3;
+                sharedTimerTask.nextExecutionTime = System.currentTimeMillis() + j;
+                sharedTimerTask.period = j2;
             }
-            ThreadPool.getPool().execute(innerRun, j2);
+            ThreadPool.getPool().execute(innerRun, j);
         }
     }
 
@@ -100,11 +100,11 @@ public class SharedThreadTimer {
         }
     }
 
-    public void schedule(SharedTimerTask sharedTimerTask, long j2) {
+    public void schedule(SharedTimerTask sharedTimerTask, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedTimerTask, j2) == null) {
-            if (j2 >= 0) {
-                sched(sharedTimerTask, j2, 0L);
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sharedTimerTask, j) == null) {
+            if (j >= 0) {
+                sched(sharedTimerTask, j, 0L);
                 return;
             }
             throw new IllegalArgumentException("Negative delay.");
@@ -119,26 +119,26 @@ public class SharedThreadTimer {
         }
     }
 
-    public void schedule(SharedTimerTask sharedTimerTask, long j2, long j3) {
+    public void schedule(SharedTimerTask sharedTimerTask, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sharedTimerTask, Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (j2 < 0) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{sharedTimerTask, Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            if (j < 0) {
                 throw new IllegalArgumentException("Negative delay.");
             }
-            if (j3 > 0) {
-                sched(sharedTimerTask, j2, j3);
+            if (j2 > 0) {
+                sched(sharedTimerTask, j, j2);
                 return;
             }
             throw new IllegalArgumentException("Non-positive period.");
         }
     }
 
-    public void schedule(SharedTimerTask sharedTimerTask, Date date, long j2) {
+    public void schedule(SharedTimerTask sharedTimerTask, Date date, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{sharedTimerTask, date, Long.valueOf(j2)}) == null) {
-            if (j2 > 0) {
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{sharedTimerTask, date, Long.valueOf(j)}) == null) {
+            if (j > 0) {
                 long time = date.getTime() - System.currentTimeMillis();
-                sched(sharedTimerTask, time < 0 ? 0L : time, j2);
+                sched(sharedTimerTask, time < 0 ? 0L : time, j);
                 return;
             }
             throw new IllegalArgumentException("Non-positive period.");

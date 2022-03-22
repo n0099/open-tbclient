@@ -7,7 +7,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import c.a.d.f.p.n;
-import c.a.q0.t0.a;
+import c.a.o0.t0.a;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
@@ -25,16 +25,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class PbTopicContainer extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public int f45581e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public TbPageContext f45582f;
+    /* renamed from: b  reason: collision with root package name */
+    public TbPageContext f35289b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public PbTopicContainer(Context context) {
@@ -45,9 +43,9 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -84,48 +82,48 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) && (view.getTag() instanceof RecommendTopicData.RecommendTopicListData)) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view.getTag();
-            TbPageContext tbPageContext = this.f45582f;
+            TbPageContext tbPageContext = this.f35289b;
             if (tbPageContext != null && !a.c(tbPageContext, false, true)) {
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, hotTopicActivityConfig.createNormalConfig(recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName(), "2")));
                 return;
             }
             Context context = getContext();
-            c.a.q0.l.a.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            c.a.o0.l.a.m(context, "http://tieba.baidu.com/mo/q/hotMessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 
     @Override // android.widget.LinearLayout, android.view.View
-    public void onMeasure(int i2, int i3) {
+    public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i2, i3) == null) {
-            int size = (View.MeasureSpec.getSize(i2) - getPaddingRight()) - getPaddingLeft();
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            int size = (View.MeasureSpec.getSize(i) - getPaddingRight()) - getPaddingLeft();
             int childCount = getChildCount();
-            if (childCount > this.f45581e) {
+            if (childCount > this.a) {
                 while (true) {
                     childCount--;
-                    if (childCount <= this.f45581e) {
+                    if (childCount <= this.a) {
                         break;
                     }
                     removeViewAt(childCount);
                 }
             }
+            int i3 = 0;
             int i4 = 0;
-            int i5 = 0;
-            while (i4 < getChildCount()) {
-                View childAt = getChildAt(i4);
+            while (i3 < getChildCount()) {
+                View childAt = getChildAt(i3);
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) childAt.getLayoutParams();
-                childAt.measure(LinearLayout.getChildMeasureSpec(i2, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i3, getPaddingTop() + getPaddingBottom(), layoutParams.height));
-                i5 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
-                if (i5 > size) {
+                childAt.measure(LinearLayout.getChildMeasureSpec(i, getPaddingLeft() + getPaddingRight(), layoutParams.width), LinearLayout.getChildMeasureSpec(i2, getPaddingTop() + getPaddingBottom(), layoutParams.height));
+                i4 += childAt.getMeasuredWidth() + layoutParams.leftMargin + layoutParams.rightMargin;
+                if (i4 > size) {
                     break;
                 }
-                i4++;
+                i3++;
             }
-            for (int childCount2 = getChildCount() - 1; childCount2 >= i4; childCount2--) {
+            for (int childCount2 = getChildCount() - 1; childCount2 >= i3; childCount2--) {
                 removeViewAt(childCount2);
             }
-            super.onMeasure(i2, i3);
+            super.onMeasure(i, i2);
         }
     }
 
@@ -138,8 +136,8 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             }
             setVisibility(0);
             removeAllViews();
-            for (int i2 = 0; i2 < 3 && i2 < list.size(); i2++) {
-                RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i2);
+            for (int i = 0; i < 3 && i < list.size(); i++) {
+                RecommendTopicData.RecommendTopicListData recommendTopicListData = list.get(i);
                 if (recommendTopicListData != null) {
                     a(recommendTopicListData);
                 }
@@ -147,17 +145,17 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
     }
 
-    public void setMaxChildCount(int i2) {
+    public void setMaxChildCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i2) == null) {
-            this.f45581e = i2;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.a = i;
         }
     }
 
     public void setPageContext(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, tbPageContext) == null) {
-            this.f45582f = tbPageContext;
+            this.f35289b = tbPageContext;
         }
     }
 
@@ -170,9 +168,9 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -180,7 +178,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
         }
-        this.f45581e = 3;
+        this.a = 3;
         setOrientation(0);
     }
 }

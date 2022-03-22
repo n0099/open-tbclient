@@ -24,9 +24,9 @@ public class GiftPagerAdapter extends PagerAdapter {
             newInitContext.initArgs = r2;
             Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -37,12 +37,12 @@ public class GiftPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public void destroyItem(ViewGroup viewGroup, int i2, Object obj) {
+    public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i2, obj) == null) || i2 < 0 || i2 >= getCount()) {
+        if (!(interceptable == null || interceptable.invokeLIL(1048576, this, viewGroup, i, obj) == null) || i < 0 || i >= getCount()) {
             return;
         }
-        viewGroup.removeView(this.a.get(i2));
+        viewGroup.removeView(this.a.get(i));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -60,14 +60,14 @@ public class GiftPagerAdapter extends PagerAdapter {
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
-    public Object instantiateItem(ViewGroup viewGroup, int i2) {
+    public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i2)) == null) {
-            if (i2 < 0 || i2 >= getCount()) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
+            if (i < 0 || i >= getCount()) {
                 return null;
             }
-            View view = this.a.get(i2);
+            View view = this.a.get(i);
             viewGroup.addView(view);
             return view;
         }

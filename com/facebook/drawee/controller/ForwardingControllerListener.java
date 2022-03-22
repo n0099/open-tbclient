@@ -1,6 +1,7 @@
 package com.facebook.drawee.controller;
 
 import android.graphics.drawable.Animatable;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public class ForwardingControllerListener<INFO> implements ControllerListener<INFO> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "FdingControllerListener";
@@ -25,9 +26,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -57,6 +58,7 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, this, str, th) == null) {
             synchronized (this) {
+                Log.e(TAG, str, th);
             }
         }
     }
@@ -85,9 +87,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, th) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
+                for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onFailure(str, th);
                         }
@@ -105,9 +107,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         if (interceptable == null || interceptable.invokeLLL(1048579, this, str, info, animatable) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
+                for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onFinalImageSet(str, info, animatable);
                         }
@@ -124,9 +126,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, str, th) == null) {
             int size = this.mListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                     if (controllerListener != null) {
                         controllerListener.onIntermediateImageFailed(str, th);
                     }
@@ -142,9 +144,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, str, info) == null) {
             int size = this.mListeners.size();
-            for (int i2 = 0; i2 < size; i2++) {
+            for (int i = 0; i < size; i++) {
                 try {
-                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                    ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                     if (controllerListener != null) {
                         controllerListener.onIntermediateImageSet(str, info);
                     }
@@ -161,9 +163,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
+                for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onRelease(str);
                         }
@@ -181,9 +183,9 @@ public class ForwardingControllerListener<INFO> implements ControllerListener<IN
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, obj) == null) {
             synchronized (this) {
                 int size = this.mListeners.size();
-                for (int i2 = 0; i2 < size; i2++) {
+                for (int i = 0; i < size; i++) {
                     try {
-                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i2);
+                        ControllerListener<? super INFO> controllerListener = this.mListeners.get(i);
                         if (controllerListener != null) {
                             controllerListener.onSubmit(str, obj);
                         }

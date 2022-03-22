@@ -8,10 +8,10 @@ import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.media.MediaMetadataRetriever;
 import android.view.Surface;
-import c.a.y0.r.g;
-import c.a.y0.r.m;
-import c.a.y0.r.t;
-import c.a.y0.r.w;
+import c.a.v0.r.g;
+import c.a.v0.r.m;
+import c.a.v0.r.t;
+import c.a.v0.r.w;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,9 +44,9 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, str, innerMuxerWrapper, onGenFilterVideoListener};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -70,14 +70,14 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void doExtractDecodeEditEncodeMux(MediaExtractor mediaExtractor, MediaCodec mediaCodec, MediaCodec mediaCodec2, InputSurface inputSurface, BaseOutputSurface baseOutputSurface) {
+        long j;
+        int i;
+        MediaCodec mediaCodec3;
         long j2;
         int i2;
-        MediaCodec mediaCodec3;
-        long j3;
-        int i3;
         MediaFormat mediaFormat;
         boolean z;
-        int i4;
+        int i3;
         int dequeueOutputBuffer;
         boolean z2;
         boolean z3;
@@ -90,34 +90,34 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
             ByteBuffer[] outputBuffers2 = mediaCodec2.getOutputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
             MediaCodec.BufferInfo bufferInfo2 = new MediaCodec.BufferInfo();
-            long j4 = 1000;
-            int i5 = 0;
+            long j3 = 1000;
+            int i4 = 0;
             mediaExtractor.seekTo(this.mClipPoint * 1000, 0);
             boolean z4 = this.mClipPoint + this.mClipDuration != 0;
-            int i6 = -1;
+            int i5 = -1;
             ByteBuffer[] byteBufferArr = outputBuffers;
             ByteBuffer[] byteBufferArr2 = outputBuffers2;
             MediaFormat mediaFormat2 = null;
-            int i7 = -1;
+            int i6 = -1;
             boolean z5 = false;
             boolean z6 = false;
             boolean z7 = false;
             while (!z5 && isUnInterrupted()) {
-                if (z6 || !((mediaFormat2 == null || this.mMuxer.isStarted()) && isUnInterrupted() && (dequeueInputBuffer = mediaCodec4.dequeueInputBuffer(10000L)) != i6)) {
-                    j2 = 10000;
-                    i2 = i7;
+                if (z6 || !((mediaFormat2 == null || this.mMuxer.isStarted()) && isUnInterrupted() && (dequeueInputBuffer = mediaCodec4.dequeueInputBuffer(10000L)) != i5)) {
+                    j = 10000;
+                    i = i6;
                 } else {
-                    int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i5);
+                    int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i4);
                     long sampleTime = mediaExtractor.getSampleTime();
-                    boolean z8 = z4 && sampleTime <= ((this.mClipPoint + this.mClipDuration) * j4) + 100000;
+                    boolean z8 = z4 && sampleTime <= ((this.mClipPoint + this.mClipDuration) * j3) + 100000;
                     if (readSampleData >= 0 && (!z4 || z8)) {
-                        j2 = 10000;
-                        i2 = i7;
+                        j = 10000;
+                        i = i6;
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime + 0, mediaExtractor.getSampleFlags());
                         mediaExtractor.advance();
                     } else {
-                        i2 = i7;
-                        j2 = 10000;
+                        i = i6;
+                        j = 10000;
                         boolean z9 = !mediaExtractor.advance() || (z4 && !z8);
                         if (z9) {
                             mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
@@ -129,42 +129,42 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                     mediaCodec3 = mediaCodec;
                 } else {
                     mediaCodec3 = mediaCodec;
-                    int dequeueOutputBuffer2 = mediaCodec3.dequeueOutputBuffer(bufferInfo, j2);
+                    int dequeueOutputBuffer2 = mediaCodec3.dequeueOutputBuffer(bufferInfo, j);
                     if (dequeueOutputBuffer2 != -1) {
                         if (dequeueOutputBuffer2 == -3) {
                             byteBufferArr = mediaCodec.getOutputBuffers();
-                            j3 = 1000;
-                            if (z5 && ((mediaFormat2 == null || this.mMuxer.isStarted()) && isUnInterrupted() && (dequeueOutputBuffer = mediaCodec2.dequeueOutputBuffer(bufferInfo2, j2)) != -1)) {
+                            j2 = 1000;
+                            if (z5 && ((mediaFormat2 == null || this.mMuxer.isStarted()) && isUnInterrupted() && (dequeueOutputBuffer = mediaCodec2.dequeueOutputBuffer(bufferInfo2, j)) != -1)) {
                                 if (dequeueOutputBuffer == -3) {
                                     byteBufferArr2 = mediaCodec2.getOutputBuffers();
                                     mediaFormat = mediaFormat2;
-                                    i3 = i2;
+                                    i2 = i;
                                 } else if (dequeueOutputBuffer == -2) {
-                                    i3 = i2;
-                                    if (i3 >= 0) {
+                                    i2 = i;
+                                    if (i2 >= 0) {
                                         return;
                                     }
                                     mediaFormat = mediaCodec2.getOutputFormat();
                                 } else {
-                                    i3 = i2;
+                                    i2 = i;
                                     ByteBuffer byteBuffer = byteBufferArr2[dequeueOutputBuffer];
                                     if ((bufferInfo2.flags & 2) != 0) {
                                         mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer, false);
                                     } else {
                                         if (bufferInfo2.size != 0) {
-                                            long j5 = bufferInfo2.presentationTimeUs;
-                                            if (j5 > this.mLastPresentationTimeStamp) {
-                                                this.mLastPresentationTimeStamp = j5;
-                                                i3 = i3;
-                                                this.mMuxer.writeSampleData(i3, byteBuffer, bufferInfo2);
+                                            long j4 = bufferInfo2.presentationTimeUs;
+                                            if (j4 > this.mLastPresentationTimeStamp) {
+                                                this.mLastPresentationTimeStamp = j4;
+                                                i2 = i2;
+                                                this.mMuxer.writeSampleData(i2, byteBuffer, bufferInfo2);
                                             } else {
-                                                i3 = i3;
+                                                i2 = i2;
                                             }
                                         }
-                                        int i8 = (int) (bufferInfo2.presentationTimeUs / ((z4 ? this.mClipDuration : this.mSourceVideoDuration) * 10));
-                                        if (i8 > 0 && i8 <= 100 && this.mLastProgressPercent < i8) {
-                                            onProgress(i8);
-                                            this.mLastProgressPercent = i8;
+                                        int i7 = (int) (bufferInfo2.presentationTimeUs / ((z4 ? this.mClipDuration : this.mSourceVideoDuration) * 10));
+                                        if (i7 > 0 && i7 <= 100 && this.mLastProgressPercent < i7) {
+                                            onProgress(i7);
+                                            this.mLastProgressPercent = i7;
                                         }
                                         if ((bufferInfo2.flags & 4) != 0) {
                                             onProgress(100);
@@ -172,53 +172,53 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                         } else {
                                             z2 = z5;
                                         }
-                                        i5 = 0;
+                                        i4 = 0;
                                         mediaCodec2.releaseOutputBuffer(dequeueOutputBuffer, false);
                                         z5 = z2;
                                         mediaFormat = mediaFormat2;
                                         if (mediaFormat != null || this.mAddTrack) {
                                             z = true;
-                                            i4 = i3;
+                                            i3 = i2;
                                         } else {
                                             log(TAG, "muxer: adding video track.");
-                                            i4 = this.mMuxer.addTrack(mediaFormat);
+                                            i3 = this.mMuxer.addTrack(mediaFormat);
                                             z = true;
                                             this.mAddTrack = true;
                                         }
                                         checkMuxerStart(z);
                                         mediaCodec4 = mediaCodec3;
                                         mediaFormat2 = mediaFormat;
-                                        i7 = i4;
-                                        j4 = j3;
-                                        i6 = -1;
+                                        i6 = i3;
+                                        j3 = j2;
+                                        i5 = -1;
                                     }
                                 }
-                                i5 = 0;
+                                i4 = 0;
                                 if (mediaFormat != null) {
                                 }
                                 z = true;
-                                i4 = i3;
+                                i3 = i2;
                                 checkMuxerStart(z);
                                 mediaCodec4 = mediaCodec3;
                                 mediaFormat2 = mediaFormat;
-                                i7 = i4;
-                                j4 = j3;
-                                i6 = -1;
+                                i6 = i3;
+                                j3 = j2;
+                                i5 = -1;
                             } else {
-                                i3 = i2;
+                                i2 = i;
                             }
-                            i5 = 0;
+                            i4 = 0;
                             mediaFormat = mediaFormat2;
                             if (mediaFormat != null) {
                             }
                             z = true;
-                            i4 = i3;
+                            i3 = i2;
                             checkMuxerStart(z);
                             mediaCodec4 = mediaCodec3;
                             mediaFormat2 = mediaFormat;
-                            i7 = i4;
-                            j4 = j3;
-                            i6 = -1;
+                            i6 = i3;
+                            j3 = j2;
+                            i5 = -1;
                         } else if (dequeueOutputBuffer2 == -2) {
                             mediaCodec.getOutputFormat();
                         } else {
@@ -227,14 +227,14 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 mediaCodec3.releaseOutputBuffer(dequeueOutputBuffer2, false);
                             } else {
                                 if (bufferInfo.size != 0) {
-                                    j3 = 1000;
+                                    j2 = 1000;
                                     if (bufferInfo.presentationTimeUs >= this.mClipPoint * 1000) {
                                         z3 = true;
                                         mediaCodec3.releaseOutputBuffer(dequeueOutputBuffer2, z3);
                                         if (!z3) {
                                             baseOutputSurface.awaitNewImage();
-                                            baseOutputSurface.drawImage((int) (bufferInfo.presentationTimeUs / j3));
-                                            inputSurface.setPresentationTime((bufferInfo.presentationTimeUs - (this.mClipPoint * j3)) * j3);
+                                            baseOutputSurface.drawImage((int) (bufferInfo.presentationTimeUs / j2));
+                                            inputSurface.setPresentationTime((bufferInfo.presentationTimeUs - (this.mClipPoint * j2)) * j2);
                                             inputSurface.swapBuffers();
                                         }
                                         if ((bufferInfo.flags & 4) != 0) {
@@ -243,22 +243,22 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                         }
                                         if (z5) {
                                         }
-                                        i3 = i2;
-                                        i5 = 0;
+                                        i2 = i;
+                                        i4 = 0;
                                         mediaFormat = mediaFormat2;
                                         if (mediaFormat != null) {
                                         }
                                         z = true;
-                                        i4 = i3;
+                                        i3 = i2;
                                         checkMuxerStart(z);
                                         mediaCodec4 = mediaCodec3;
                                         mediaFormat2 = mediaFormat;
-                                        i7 = i4;
-                                        j4 = j3;
-                                        i6 = -1;
+                                        i6 = i3;
+                                        j3 = j2;
+                                        i5 = -1;
                                     }
                                 } else {
-                                    j3 = 1000;
+                                    j2 = 1000;
                                 }
                                 z3 = false;
                                 mediaCodec3.releaseOutputBuffer(dequeueOutputBuffer2, z3);
@@ -268,39 +268,39 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                                 }
                                 if (z5) {
                                 }
-                                i3 = i2;
-                                i5 = 0;
+                                i2 = i;
+                                i4 = 0;
                                 mediaFormat = mediaFormat2;
                                 if (mediaFormat != null) {
                                 }
                                 z = true;
-                                i4 = i3;
+                                i3 = i2;
                                 checkMuxerStart(z);
                                 mediaCodec4 = mediaCodec3;
                                 mediaFormat2 = mediaFormat;
-                                i7 = i4;
-                                j4 = j3;
-                                i6 = -1;
+                                i6 = i3;
+                                j3 = j2;
+                                i5 = -1;
                             }
                         }
                     }
                 }
-                j3 = 1000;
+                j2 = 1000;
                 if (z5) {
                 }
-                i3 = i2;
-                i5 = 0;
+                i2 = i;
+                i4 = 0;
                 mediaFormat = mediaFormat2;
                 if (mediaFormat != null) {
                 }
                 z = true;
-                i4 = i3;
+                i3 = i2;
                 checkMuxerStart(z);
                 mediaCodec4 = mediaCodec3;
                 mediaFormat2 = mediaFormat;
-                i7 = i4;
-                j4 = j3;
-                i6 = -1;
+                i6 = i3;
+                j3 = j2;
+                i5 = -1;
             }
             if (isUnInterrupted()) {
                 return;
@@ -391,15 +391,15 @@ public class InnerVideoProcessor extends InnerMediaProcessor {
                             MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
                             mediaMetadataRetriever.setDataSource(this.mSourcePath);
                             int c2 = ((int) (g.c(mediaMetadataRetriever.extractMetadata(24), 0) + this.mRotation)) % 360;
-                            if (t.f26965b) {
+                            if (t.f21842b) {
                                 trackFormat.setInteger("rotation-degrees", c2);
                             } else {
                                 trackFormat.setInteger("rotation-degrees", c2);
                             }
                             if ((this.mOutWidth == 0 || this.mOutHeight == 0) && (c2 == 90 || c2 == 270)) {
-                                int i2 = integer2;
+                                int i = integer2;
                                 integer2 = integer;
-                                integer = i2;
+                                integer = i;
                             }
                             String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
                             if (!w.a(extractMetadata)) {

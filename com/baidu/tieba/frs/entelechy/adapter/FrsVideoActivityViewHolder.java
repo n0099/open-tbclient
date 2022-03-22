@@ -13,12 +13,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View bottomDivider;
-    public ImageView mMoreImageView;
-    public ImageView mTipImageView;
-    public TextView mTitleTv;
-    public TextView mTypeTv;
-    public View topDivider;
+    public TextView a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public ImageView f32452b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public TextView f32453c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public ImageView f32454d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public View f32455e;
+
+    /* renamed from: f  reason: collision with root package name */
+    public View f32456f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FrsVideoActivityViewHolder(View view) {
@@ -29,9 +39,9 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -39,12 +49,12 @@ public class FrsVideoActivityViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         if (view != null) {
-            this.mTitleTv = (TextView) view.findViewById(R.id.video_activity_item_title);
-            this.mTipImageView = (ImageView) view.findViewById(R.id.video_activity_item_tip);
-            this.mTypeTv = (TextView) view.findViewById(R.id.video_activity_item_type);
-            this.mMoreImageView = (ImageView) view.findViewById(R.id.video_activity_item_more);
-            this.topDivider = view.findViewById(R.id.top_divider_line);
-            this.bottomDivider = view.findViewById(R.id.bottom_divider_line);
+            this.a = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092305);
+            this.f32452b = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092304);
+            this.f32453c = (TextView) view.findViewById(R.id.obfuscated_res_0x7f092306);
+            this.f32454d = (ImageView) view.findViewById(R.id.obfuscated_res_0x7f092303);
+            this.f32455e = view.findViewById(R.id.obfuscated_res_0x7f0920b2);
+            this.f32456f = view.findViewById(R.id.obfuscated_res_0x7f0903c2);
         }
     }
 }

@@ -6,9 +6,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import i.f;
+import g.f;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public final class BackpressureDrainManager extends AtomicLong implements f {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 2826241102729529449L;
@@ -18,7 +18,7 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
     public Throwable exception;
     public volatile boolean terminated;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes8.dex */
     public interface a {
         void a(Throwable th);
 
@@ -36,9 +36,9 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
             newInitContext.initArgs = r2;
             Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -137,15 +137,15 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
             boolean z = true;
             this.emitting = true;
             boolean z2 = this.terminated;
-            long j2 = get();
+            long j = get();
             try {
                 a aVar = this.actual;
                 while (true) {
-                    int i2 = 0;
+                    int i = 0;
                     while (true) {
-                        int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                        int i2 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
                         try {
-                            if (i3 > 0 || z2) {
+                            if (i2 > 0 || z2) {
                                 if (z2) {
                                     if (aVar.peek() == null) {
                                         aVar.a(this.exception);
@@ -157,8 +157,8 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
                                     if (aVar.accept(poll)) {
                                         return;
                                     }
-                                    j2--;
-                                    i2++;
+                                    j--;
+                                    i++;
                                 }
                             }
                             try {
@@ -190,28 +190,28 @@ public final class BackpressureDrainManager extends AtomicLong implements f {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.terminated : invokeV.booleanValue;
     }
 
-    @Override // i.f
-    public void request(long j2) {
+    @Override // g.f
+    public void request(long j) {
         boolean z;
-        long j3;
+        long j2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j2) == null) || j2 == 0) {
+        if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) || j == 0) {
             return;
         }
         while (true) {
-            long j4 = get();
+            long j3 = get();
             boolean z2 = true;
-            z = j4 == 0;
-            if (j4 == Long.MAX_VALUE) {
+            z = j3 == 0;
+            if (j3 == Long.MAX_VALUE) {
                 break;
             }
-            if (j2 == Long.MAX_VALUE) {
-                j3 = j2;
+            if (j == Long.MAX_VALUE) {
+                j2 = j;
             } else {
-                j3 = j4 <= Long.MAX_VALUE - j2 ? j4 + j2 : Long.MAX_VALUE;
+                j2 = j3 <= Long.MAX_VALUE - j ? j3 + j : Long.MAX_VALUE;
                 z2 = z;
             }
-            if (compareAndSet(j4, j3)) {
+            if (compareAndSet(j3, j2)) {
                 z = z2;
                 break;
             }

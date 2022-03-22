@@ -23,13 +23,13 @@ public class SecurityChecker {
         void a(boolean z, State state);
     }
 
-    public static void a(final File file, final a.C2083a c2083a, final a aVar) {
+    public static void a(final File file, final a.C1944a c1944a, final a aVar) {
         i.a(new Runnable() { // from class: com.kwad.sdk.api.loader.SecurityChecker.1
             @Override // java.lang.Runnable
             public void run() {
                 State unused = SecurityChecker.a = State.INIT;
                 try {
-                    boolean z = a.C2083a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C2083a.this.f53947c);
+                    boolean z = a.C1944a.this != null && SecurityChecker.b(file) && SecurityChecker.b(file, a.C1944a.this.f39099c);
                     if (z) {
                         State unused2 = SecurityChecker.a = State.SUCCESS;
                     }

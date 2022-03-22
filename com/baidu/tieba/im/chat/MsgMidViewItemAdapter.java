@@ -2,7 +2,7 @@ package com.baidu.tieba.im.chat;
 
 import android.view.View;
 import android.view.ViewGroup;
-import c.a.r0.s1.f.d;
+import c.a.p0.u1.f.d;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
@@ -33,9 +33,9 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {msgMidViewItemAdapter, view, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((View) objArr2[0], objArr2[1]);
                     newInitContext.thisArg = this;
@@ -55,9 +55,9 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -69,20 +69,20 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, c.a.d.o.e.a
-    public /* bridge */ /* synthetic */ View S(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
-        c0(i2, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
+    public /* bridge */ /* synthetic */ View S(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, TypeAdapter.ViewHolder viewHolder) {
+        c0(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) viewHolder);
         return view;
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View c0(int i2, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
+    public View c0(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<d> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), view, viewGroup, chatMessage, msgViewHolder})) == null) {
-            super.S(i2, view, viewGroup, chatMessage, msgViewHolder);
-            msgViewHolder.getMsgItemView().h(chatMessage);
-            this.m.getLayoutMode().k(false);
-            this.m.getLayoutMode().j(view);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view, viewGroup, chatMessage, msgViewHolder})) == null) {
+            super.S(i, view, viewGroup, chatMessage, msgViewHolder);
+            msgViewHolder.c().j(chatMessage);
+            this.i.getLayoutMode().k(false);
+            this.i.getLayoutMode().j(view);
             return view;
         }
         return (View) invokeCommon.objValue;
@@ -95,7 +95,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<d> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            d dVar = new d(this.m);
+            d dVar = new d(this.i);
             return new a(this, dVar.d(), dVar);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;

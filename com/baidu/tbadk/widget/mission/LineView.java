@@ -20,12 +20,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LineView extends View {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Paint a;
 
-    /* renamed from: e  reason: collision with root package name */
-    public Paint f40037e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public Path f40038f;
+    /* renamed from: b  reason: collision with root package name */
+    public Path f30856b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LineView(Context context) {
@@ -36,9 +34,9 @@ public class LineView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -52,20 +50,20 @@ public class LineView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             Paint paint = new Paint();
-            this.f40037e = paint;
+            this.a = paint;
             paint.setAntiAlias(true);
-            this.f40037e.setColor(SkinManager.getColor(R.color.CAM_X0203));
-            this.f40037e.setStyle(Paint.Style.STROKE);
-            this.f40037e.setStrokeWidth(n.f(getContext(), R.dimen.tbds2));
-            this.f40037e.setPathEffect(new DashPathEffect(new float[]{n.f(getContext(), R.dimen.tbds8), n.f(getContext(), R.dimen.tbds8)}, 0.0f));
-            this.f40038f = new Path();
+            this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
+            this.a.setStyle(Paint.Style.STROKE);
+            this.a.setStrokeWidth(n.f(getContext(), R.dimen.tbds2));
+            this.a.setPathEffect(new DashPathEffect(new float[]{n.f(getContext(), R.dimen.tbds8), n.f(getContext(), R.dimen.tbds8)}, 0.0f));
+            this.f30856b = new Path();
         }
     }
 
-    public void onChangeSkinType() {
+    public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.f40037e.setColor(SkinManager.getColor(R.color.CAM_X0203));
+            this.a.setColor(SkinManager.getColor(R.color.CAM_X0203));
             invalidate();
         }
     }
@@ -75,11 +73,11 @@ public class LineView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.onDraw(canvas);
-            this.f40038f.reset();
+            this.f30856b.reset();
             float height = getHeight() / 2;
-            this.f40038f.moveTo(0.0f, height);
-            this.f40038f.lineTo(getWidth(), height);
-            canvas.drawPath(this.f40038f, this.f40037e);
+            this.f30856b.moveTo(0.0f, height);
+            this.f30856b.lineTo(getWidth(), height);
+            canvas.drawPath(this.f30856b, this.a);
         }
     }
 
@@ -92,9 +90,9 @@ public class LineView extends View {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -106,17 +104,17 @@ public class LineView extends View {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public LineView(Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public LineView(Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;

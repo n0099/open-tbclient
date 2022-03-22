@@ -73,9 +73,9 @@ public class JSONParser {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -131,9 +131,9 @@ public class JSONParser {
                     return jsonReader.nextString();
                 case 4:
                     double nextDouble = jsonReader.nextDouble();
-                    int i2 = (int) nextDouble;
-                    if (i2 == nextDouble) {
-                        return Integer.valueOf(i2);
+                    int i = (int) nextDouble;
+                    if (i == nextDouble) {
+                        return Integer.valueOf(i);
                     }
                     return Double.valueOf(nextDouble);
                 case 5:

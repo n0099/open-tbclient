@@ -4,15 +4,15 @@ import android.os.Bundle;
 import com.bytedance.sdk.openadsdk.TTAdBridge;
 import com.bytedance.sdk.openadsdk.TTAdEvent;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public abstract class a implements TTAdBridge {
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public String call(int i2, Bundle bundle) {
+    public String call(int i, Bundle bundle) {
         return null;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T callMethod(Class<T> cls, int i2, Map<String, Object> map) {
+    public <T> T callMethod(Class<T> cls, int i, Map<String, Object> map) {
         return null;
     }
 
@@ -22,7 +22,7 @@ public abstract class a implements TTAdBridge {
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdBridge
-    public <T> T getObj(Class<T> cls, int i2, Map<String, Object> map) {
+    public <T> T getObj(Class<T> cls, int i, Map<String, Object> map) {
         return null;
     }
 

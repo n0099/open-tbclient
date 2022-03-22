@@ -36,13 +36,13 @@ public class d {
         public String a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f35250b;
+        public String f27383b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f35251c;
+        public String f27384c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f35252d;
+        public String f27385d;
 
         public a(String str, String str2, String str3, String str4) {
             Interceptable interceptable = $ic;
@@ -51,9 +51,9 @@ public class d {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str, str2, str3, str4};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -64,9 +64,9 @@ public class d {
             str3 = str3 == null ? "" : str3;
             str4 = str4 == null ? "" : str4;
             this.a = str;
-            this.f35250b = str2;
-            this.f35251c = str3;
-            this.f35252d = str4;
+            this.f27383b = str2;
+            this.f27384c = str3;
+            this.f27385d = str4;
         }
 
         public JSONObject a() {
@@ -76,9 +76,9 @@ public class d {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("n", this.a);
-                    jSONObject.put("v", this.f35250b);
-                    jSONObject.put("c", this.f35251c);
-                    jSONObject.put("a", this.f35252d);
+                    jSONObject.put("v", this.f27383b);
+                    jSONObject.put("c", this.f27384c);
+                    jSONObject.put("a", this.f27385d);
                     return jSONObject;
                 } catch (JSONException e2) {
                     bb.c().b(e2);
@@ -110,9 +110,9 @@ public class d {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -211,7 +211,7 @@ public class d {
             if (TextUtils.isEmpty(str)) {
                 return;
             }
-            k.f35533e.a(System.currentTimeMillis(), str);
+            k.f27415e.a(System.currentTimeMillis(), str);
         }
     }
 }

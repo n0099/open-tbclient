@@ -142,15 +142,15 @@ public abstract class BaseDiskCache implements DiskCache {
         }
     }
 
-    public void setBufferSize(int i2) {
-        this.bufferSize = i2;
+    public void setBufferSize(int i) {
+        this.bufferSize = i;
     }
 
     public void setCompressFormat(Bitmap.CompressFormat compressFormat) {
         this.compressFormat = compressFormat;
     }
 
-    public void setCompressQuality(int i2) {
-        this.compressQuality = i2;
+    public void setCompressQuality(int i) {
+        this.compressQuality = i;
     }
 }

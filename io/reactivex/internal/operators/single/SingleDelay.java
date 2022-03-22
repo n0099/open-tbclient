@@ -36,7 +36,7 @@ public final class SingleDelay<T> extends Single<T> {
             public transient /* synthetic */ FieldHolder $fh;
 
             /* renamed from: e  reason: collision with root package name */
-            public final Throwable f60739e;
+            public final Throwable f45348e;
             public final /* synthetic */ Delay this$1;
 
             public OnError(Delay delay, Throwable th) {
@@ -46,23 +46,23 @@ public final class SingleDelay<T> extends Single<T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delay, th};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
                 }
                 this.this$1 = delay;
-                this.f60739e = th;
+                this.f45348e = th;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.this$1.s.onError(this.f60739e);
+                    this.this$1.s.onError(this.f45348e);
                 }
             }
         }
@@ -81,9 +81,9 @@ public final class SingleDelay<T> extends Single<T> {
                     newInitContext.initArgs = r2;
                     Object[] objArr = {delay, t};
                     interceptable.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable.invokeInitBody(65536, newInitContext);
                         return;
@@ -110,9 +110,9 @@ public final class SingleDelay<T> extends Single<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {singleDelay, sequentialDisposable, singleObserver};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -156,23 +156,23 @@ public final class SingleDelay<T> extends Single<T> {
         }
     }
 
-    public SingleDelay(SingleSource<? extends T> singleSource, long j2, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
+    public SingleDelay(SingleSource<? extends T> singleSource, long j, TimeUnit timeUnit, Scheduler scheduler, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {singleSource, Long.valueOf(j2), timeUnit, scheduler, Boolean.valueOf(z)};
+            Object[] objArr = {singleSource, Long.valueOf(j), timeUnit, scheduler, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
         this.source = singleSource;
-        this.time = j2;
+        this.time = j;
         this.unit = timeUnit;
         this.scheduler = scheduler;
         this.delayError = z;

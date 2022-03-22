@@ -6,6 +6,7 @@ import android.os.Process;
 import android.text.TextUtils;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -45,7 +46,6 @@ import java.nio.channels.FileLock;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.apache.commons.lang3.StringUtils;
 /* loaded from: classes6.dex */
 public final class WebKitFactory {
     public static /* synthetic */ Interceptable $ic = null;
@@ -119,9 +119,9 @@ public final class WebKitFactory {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -156,9 +156,9 @@ public final class WebKitFactory {
                                 newInitContext.initArgs = r2;
                                 Object[] objArr = {this};
                                 interceptable2.invokeUnInit(65536, newInitContext);
-                                int i2 = newInitContext.flag;
-                                if ((i2 & 1) != 0) {
-                                    int i3 = i2 & 2;
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
                                     newInitContext.thisArg = this;
                                     interceptable2.invokeInitBody(65536, newInitContext);
                                     return;
@@ -168,9 +168,9 @@ public final class WebKitFactory {
                         }
 
                         @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-                        public void onInstallFinish(int i2, String str) {
+                        public void onInstallFinish(int i, String str) {
                             Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i2, str) == null) {
+                            if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, str) == null) {
                                 Log.i(EngineManager.LOG_TAG, " RetryInstallZeus onInstallFinish");
                             }
                         }
@@ -217,7 +217,7 @@ public final class WebKitFactory {
                             fileInputStream.read(bArr);
                         }
                         fileInputStream.close();
-                        str2 = new String(bArr, "utf-8");
+                        str2 = new String(bArr, IMAudioTransRequest.CHARSET);
                     }
                     Statistics.init(str + "error.log", str + "phoenix_ad.log", str2);
                 } catch (FileNotFoundException e2) {
@@ -338,16 +338,16 @@ public final class WebKitFactory {
             $VALUES = new SwitchState[]{Invalid, On, switchState};
         }
 
-        public SwitchState(String str, int i2) {
+        public SwitchState(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i2)};
+                Object[] objArr = {str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     String str2 = (String) objArr2[0];
                     ((Integer) objArr2[1]).intValue();
@@ -387,7 +387,7 @@ public final class WebKitFactory {
         public static final int RET_NO_NEW_PACKAGE = 1;
         public static final int RET_STOPPED = 2;
 
-        void onInstallFinish(int i2, String str);
+        void onInstallFinish(int i, String str);
 
         void onInstallStart();
     }
@@ -414,9 +414,9 @@ public final class WebKitFactory {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }
@@ -528,11 +528,11 @@ public final class WebKitFactory {
         }
     }
 
-    public static void forceInitT7(int i2) {
+    public static void forceInitT7(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i2) == null) {
-            if (i2 == 0 || 1 == i2 || 2 == i2) {
-                mInitWebkitType = i2;
+        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
+            if (i == 0 || 1 == i || 2 == i) {
+                mInitWebkitType = i;
             }
         }
     }
@@ -544,12 +544,12 @@ public final class WebKitFactory {
                 notifyForceInitZeusListener(false);
                 return;
             }
-            int i2 = sForceInitedState;
-            if (i2 != 0) {
-                if (i2 == 1) {
+            int i = sForceInitedState;
+            if (i != 0) {
+                if (i == 1) {
                     notifyForceInitZeusListener(true);
                     return;
-                } else if (i2 != 2) {
+                } else if (i != 2) {
                     return;
                 } else {
                     notifyForceInitZeusListener(false);
@@ -856,15 +856,15 @@ public final class WebKitFactory {
                 }
                 ArrayList arrayList22 = new ArrayList();
                 if (bArr != null) {
-                    String[] split = new String(bArr).split(StringUtils.LF);
+                    String[] split = new String(bArr).split("\n");
                     long parseLong = Long.parseLong(sStatisticsSessionId);
-                    for (int i2 = 0; i2 < split.length; i2++) {
+                    for (int i = 0; i < split.length; i++) {
                         try {
-                            if (Long.parseLong(split[i2]) >= parseLong - 86400000 && split.length - i2 < 100) {
-                                arrayList22.add(split[i2]);
+                            if (Long.parseLong(split[i]) >= parseLong - 86400000 && split.length - i < 100) {
+                                arrayList22.add(split[i]);
                             }
                         } catch (NumberFormatException unused2) {
-                            Log.e(TAG, "parseLong err: " + split[i2]);
+                            Log.e(TAG, "parseLong err: " + split[i]);
                         }
                     }
                 }
@@ -875,7 +875,7 @@ public final class WebKitFactory {
                 FileOutputStream fileOutputStream22 = new FileOutputStream(str3, false);
                 it = arrayList22.iterator();
                 while (it.hasNext()) {
-                    fileOutputStream22.write((((String) it.next()) + StringUtils.LF).getBytes());
+                    fileOutputStream22.write((((String) it.next()) + "\n").getBytes());
                 }
                 fileOutputStream22.close();
                 int size22 = arrayList22.size();
@@ -984,10 +984,10 @@ public final class WebKitFactory {
         }
     }
 
-    public static boolean isEngineAvailable(int i2) {
+    public static boolean isEngineAvailable(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65592, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65592, null, i)) == null) {
             return true;
         }
         return invokeI.booleanValue;
@@ -997,8 +997,8 @@ public final class WebKitFactory {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65593, null)) == null) {
-            int i2 = mInitWebkitType;
-            return 1 == i2 || 2 == i2;
+            int i = mInitWebkitType;
+            return 1 == i || 2 == i;
         }
         return invokeV.booleanValue;
     }
@@ -1023,12 +1023,12 @@ public final class WebKitFactory {
             } catch (Exception e2) {
                 Log.e(TAG, "in isPlatformSupported, cloudSetting is not digit", e2);
             }
-            int i2 = Build.VERSION.SDK_INT;
-            return i2 >= 14 && i2 <= intValue;
+            int i = Build.VERSION.SDK_INT;
+            return i >= 14 && i <= intValue;
         }
         intValue = 30;
-        int i22 = Build.VERSION.SDK_INT;
-        if (i22 >= 14) {
+        int i2 = Build.VERSION.SDK_INT;
+        if (i2 >= 14) {
             return false;
         }
     }
@@ -1161,9 +1161,9 @@ public final class WebKitFactory {
                 if (interceptable2 != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     interceptable2.invokeUnInit(65536, newInitContext);
-                    int i2 = newInitContext.flag;
-                    if ((i2 & 1) != 0) {
-                        int i3 = i2 & 2;
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
                         newInitContext.thisArg = this;
                         interceptable2.invokeInitBody(65536, newInitContext);
                     }
@@ -1230,12 +1230,12 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setBlockedAdCountJs(int i2) {
+    public static void setBlockedAdCountJs(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65609, null, i2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeI(65609, null, i) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setBlockedAdCount(i2);
+        JsUploadTask.setBlockedAdCount(i);
     }
 
     public static void setCUIDString(String str) {
@@ -1317,16 +1317,16 @@ public final class WebKitFactory {
         }
     }
 
-    public static synchronized boolean setEngine(int i2) {
+    public static synchronized boolean setEngine(int i) {
         InterceptResult invokeI;
         int curEngine;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65620, null, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65620, null, i)) == null) {
             synchronized (WebKitFactory.class) {
                 WebViewFactory.installZesEngineIfNeeded(!ZeusSDK.usingZeusSDK(), false);
                 lockUpdateZeus();
-                WebViewFactory.setUseSystemWebView(1 != i2);
-                if (1 == i2) {
+                WebViewFactory.setUseSystemWebView(1 != i);
+                if (1 == i) {
                     WebViewFactory.unzip();
                 }
                 WebViewFactory.getProvider();
@@ -1343,21 +1343,21 @@ public final class WebKitFactory {
         return invokeI.booleanValue;
     }
 
-    public static void setEngineJs(int i2) {
+    public static void setEngineJs(int i) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65621, null, i2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65621, null, i) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setEngine(i2);
+        jsUploadTask.setEngine(i);
     }
 
-    public static void setErrorCodeJs(int i2) {
+    public static void setErrorCodeJs(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65622, null, i2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeI(65622, null, i) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setErrorCode(i2);
+        JsUploadTask.setErrorCode(i);
     }
 
     public static void setFirstJumpTypeJs(JsUploadTask.JumpType jumpType) {
@@ -1376,13 +1376,13 @@ public final class WebKitFactory {
         JsUploadTask.setFirstJumpUrl(str);
     }
 
-    public static void setFirstScreenTimeJs(long j2) {
+    public static void setFirstScreenTimeJs(long j) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65625, null, j2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65625, null, j) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setFirstScreenTime(j2);
+        jsUploadTask.setFirstScreenTime(j);
     }
 
     public static void setGpuTypeJs(String str) {
@@ -1393,13 +1393,13 @@ public final class WebKitFactory {
         JsUploadTask.setGpuType(str);
     }
 
-    public static void setHttpCacheMbSize(int i2) {
+    public static void setHttpCacheMbSize(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65627, null, i2) == null) || i2 == sHttpCacheMbSize) {
+        if (!(interceptable == null || interceptable.invokeI(65627, null, i) == null) || i == sHttpCacheMbSize) {
             return;
         }
-        Log.i("httpcache-size", " WebKitFactory setHttpCacheSize size is ".concat(String.valueOf(i2)));
-        sHttpCacheMbSize = i2;
+        Log.i("httpcache-size", " WebKitFactory setHttpCacheSize size is ".concat(String.valueOf(i)));
+        sHttpCacheMbSize = i;
     }
 
     public static void setHttpDnsJs(boolean z) {
@@ -1410,13 +1410,13 @@ public final class WebKitFactory {
         JsUploadTask.setHttpDns(z);
     }
 
-    public static void setHttpcode(int i2) {
+    public static void setHttpcode(int i) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65629, null, i2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65629, null, i) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setHttpcode(i2);
+        jsUploadTask.setHttpcode(i);
     }
 
     public static void setIsMobileSiteJs(boolean z) {
@@ -1460,12 +1460,12 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setNetErrorJs(int i2) {
+    public static void setNetErrorJs(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65635, null, i2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeI(65635, null, i) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setNetError(i2);
+        JsUploadTask.setNetError(i);
     }
 
     public static void setNetTypeJs(String str) {
@@ -1476,37 +1476,37 @@ public final class WebKitFactory {
         JsUploadTask.setNetType(str);
     }
 
-    public static void setNetcode(int i2) {
+    public static void setNetcode(int i) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65637, null, i2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65637, null, i) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setNetcode(i2);
+        jsUploadTask.setNetcode(i);
     }
 
-    public static void setPageFinishedTimeJs(long j2) {
+    public static void setPageFinishedTimeJs(long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(65638, null, j2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeJ(65638, null, j) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setPageFinishedTime(j2);
+        JsUploadTask.setPageFinishedTime(j);
     }
 
-    public static void setPageStartTimeStamp(long j2) {
+    public static void setPageStartTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65639, null, j2) == null) {
-            sPageStartTimeStamp = j2;
-            mJavaScriptInterface.setPageStartTime(j2);
+        if (interceptable == null || interceptable.invokeJ(65639, null, j) == null) {
+            sPageStartTimeStamp = j;
+            mJavaScriptInterface.setPageStartTime(j);
         }
     }
 
-    public static void setParsedTokensJs(int i2) {
+    public static void setParsedTokensJs(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65640, null, i2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeI(65640, null, i) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setParsedTokens(i2);
+        JsUploadTask.setParsedTokens(i);
     }
 
     public static void setProcessType(String str) {
@@ -1516,12 +1516,12 @@ public final class WebKitFactory {
         }
     }
 
-    public static void setReceivedDataSizeJs(int i2) {
+    public static void setReceivedDataSizeJs(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65642, null, i2) == null) || mJavaScriptInterface == null) {
+        if (!(interceptable == null || interceptable.invokeI(65642, null, i) == null) || mJavaScriptInterface == null) {
             return;
         }
-        JsUploadTask.setReceivedDataSize(i2);
+        JsUploadTask.setReceivedDataSize(i);
     }
 
     public static void setSdkVerJs(String str) {
@@ -1580,13 +1580,13 @@ public final class WebKitFactory {
         provider.setWebviewNumber(str);
     }
 
-    public static void setWiseLandingPageType(int i2) {
+    public static void setWiseLandingPageType(int i) {
         JsUploadTask jsUploadTask;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65650, null, i2) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65650, null, i) == null) || (jsUploadTask = mJavaScriptInterface) == null) {
             return;
         }
-        jsUploadTask.setWiseLandingPageType(i2);
+        jsUploadTask.setWiseLandingPageType(i);
     }
 
     public static void setZID(String str) {

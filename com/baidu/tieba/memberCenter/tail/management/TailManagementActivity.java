@@ -2,9 +2,9 @@ package com.baidu.tieba.memberCenter.tail.management;
 
 import android.os.Bundle;
 import android.view.View;
-import c.a.r0.h2.h.c.a;
-import c.a.r0.h2.h.c.d;
-import c.a.r0.h2.h.c.e;
+import c.a.p0.j2.h.c.a;
+import c.a.p0.j2.h.c.d;
+import c.a.p0.j2.h.c.e;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
@@ -12,17 +12,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class TailManagementActivity extends BaseActivity<TailManagementActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c.a.r0.h2.h.c.a mAdapter;
+    public c.a.p0.j2.h.c.a mAdapter;
     public d mModel;
     public View.OnClickListener mNavBtnClickListener;
     public a.f mRefreshCallbackListener;
     public e mView;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class a implements a.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -35,9 +35,9 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tailManagementActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -46,8 +46,8 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
             this.a = tailManagementActivity;
         }
 
-        @Override // c.a.r0.h2.h.c.a.f
-        public void callback() {
+        @Override // c.a.p0.j2.h.c.a.f
+        public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 boolean g2 = this.a.mModel.g();
@@ -61,13 +61,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TailManagementActivity f44547e;
+        public final /* synthetic */ TailManagementActivity a;
 
         public b(TailManagementActivity tailManagementActivity) {
             Interceptable interceptable = $ic;
@@ -76,29 +74,29 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
                 newInitContext.initArgs = r2;
                 Object[] objArr = {tailManagementActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f44547e = tailManagementActivity;
+            this.a = tailManagementActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                if (view == this.f44547e.mView.a()) {
-                    this.f44547e.finish();
-                } else if (view == this.f44547e.mView.b()) {
-                    boolean z = !this.f44547e.mModel.g();
-                    this.f44547e.mModel.l(z);
-                    TailManagementActivity tailManagementActivity = this.f44547e;
+                if (view == this.a.mView.a()) {
+                    this.a.finish();
+                } else if (view == this.a.mView.b()) {
+                    boolean z = !this.a.mModel.g();
+                    this.a.mModel.l(z);
+                    TailManagementActivity tailManagementActivity = this.a;
                     tailManagementActivity.mView.e(z, tailManagementActivity.mModel.h().size() == 0);
-                    this.f44547e.mAdapter.j();
+                    this.a.mAdapter.j();
                 }
             }
         }
@@ -109,9 +107,9 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -122,11 +120,11 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
-            this.mView.c(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
+            this.mView.c(i);
             this.mAdapter.notifyDataSetChanged();
         }
     }
@@ -136,9 +134,9 @@ public class TailManagementActivity extends BaseActivity<TailManagementActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.tail_management_activity);
+            setContentView(R.layout.obfuscated_res_0x7f0d080b);
             this.mModel = new d(getPageContext());
-            this.mAdapter = new c.a.r0.h2.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
+            this.mAdapter = new c.a.p0.j2.h.c.a(getPageContext(), this.mModel, this.mRefreshCallbackListener);
             e eVar = new e(this, this.mNavBtnClickListener);
             this.mView = eVar;
             eVar.d(this.mAdapter);

@@ -23,9 +23,9 @@ public class c1 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -53,7 +53,7 @@ public class c1 {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            long j2 = -1;
+            long j = -1;
             try {
                 dataInputStream = new DataInputStream(Runtime.getRuntime().exec("cat /proc/uptime").getInputStream());
                 try {
@@ -91,7 +91,7 @@ public class c1 {
                             }
                         }
                     }
-                    j2 = System.currentTimeMillis() - ((long) (d2 * 1000.0d));
+                    j = System.currentTimeMillis() - ((long) (d2 * 1000.0d));
                     try {
                         dataInputStream.close();
                     } catch (IOException e4) {
@@ -106,7 +106,7 @@ public class c1 {
                 th = th4;
                 bufferedReader = null;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }
@@ -132,7 +132,7 @@ public class c1 {
         BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            long j2 = -1;
+            long j = -1;
             try {
                 dataInputStream = new DataInputStream(Runtime.getRuntime().exec("cat /proc/uptime").getInputStream());
                 try {
@@ -170,7 +170,7 @@ public class c1 {
                             }
                         }
                     }
-                    j2 = (long) (d2 * 1000.0d);
+                    j = (long) (d2 * 1000.0d);
                     try {
                         dataInputStream.close();
                     } catch (IOException e4) {
@@ -185,7 +185,7 @@ public class c1 {
                 th = th4;
                 bufferedReader = null;
             }
-            return j2;
+            return j;
         }
         return invokeV.longValue;
     }

@@ -1,5 +1,6 @@
 package com.baidu.pass.main.facesdk.utils;
 
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -27,17 +28,19 @@ public class ZipUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void addEntry(String str, File file, ZipOutputStream zipOutputStream) throws IOException {
+    public static void addEntry(String str, File file, ZipOutputStream zipOutputStream) {
         FileInputStream fileInputStream;
+        byte[] bArr;
+        BufferedInputStream bufferedInputStream;
         Interceptable interceptable = $ic;
         if (interceptable != null && interceptable.invokeLLL(65537, null, str, file, zipOutputStream) != null) {
             return;
@@ -49,36 +52,35 @@ public class ZipUtils {
             }
             return;
         }
-        BufferedInputStream bufferedInputStream = null;
+        BufferedInputStream bufferedInputStream2 = null;
         try {
-            byte[] bArr = new byte[10240];
+            bArr = new byte[10240];
             fileInputStream = new FileInputStream(file);
             try {
-                BufferedInputStream bufferedInputStream2 = new BufferedInputStream(fileInputStream, 10240);
-                try {
-                    zipOutputStream.putNextEntry(new ZipEntry(str2));
-                    while (true) {
-                        int read = bufferedInputStream2.read(bArr, 0, 10240);
-                        if (read != -1) {
-                            zipOutputStream.write(bArr, 0, read);
-                        } else {
-                            zipOutputStream.closeEntry();
-                            IOUtil.closeQuietly(bufferedInputStream2, fileInputStream);
-                            return;
-                        }
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedInputStream = bufferedInputStream2;
+                bufferedInputStream = new BufferedInputStream(fileInputStream, 10240);
+            } catch (Throwable th) {
+                th = th;
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            fileInputStream = null;
+        }
+        try {
+            zipOutputStream.putNextEntry(new ZipEntry(str2));
+            while (true) {
+                int read = bufferedInputStream.read(bArr, 0, 10240);
+                if (read == -1) {
+                    zipOutputStream.closeEntry();
                     IOUtil.closeQuietly(bufferedInputStream, fileInputStream);
-                    throw th;
+                    return;
                 }
-            } catch (Throwable th2) {
-                th = th2;
+                zipOutputStream.write(bArr, 0, read);
             }
         } catch (Throwable th3) {
             th = th3;
-            fileInputStream = null;
+            bufferedInputStream2 = bufferedInputStream;
+            IOUtil.closeQuietly(bufferedInputStream2, fileInputStream);
+            throw th;
         }
     }
 
@@ -92,36 +94,36 @@ public class ZipUtils {
             ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(str));
             while (true) {
                 ZipEntry nextEntry = zipInputStream.getNextEntry();
-                if (nextEntry != null) {
-                    String name = nextEntry.getName();
-                    if (nextEntry.isDirectory()) {
-                        new File(str2 + File.separator + name.substring(0, name.length() - 1)).mkdirs();
-                    } else {
-                        String str3 = str2 + File.separator + name;
-                        File file = new File(str2 + File.separator + name);
-                        if (!file.exists()) {
-                            file.getParentFile().mkdirs();
-                            file.createNewFile();
-                        }
-                        FileOutputStream fileOutputStream = new FileOutputStream(file);
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = zipInputStream.read(bArr);
-                            if (read == -1) {
-                                break;
-                            }
-                            fileOutputStream.write(bArr, 0, read);
-                            fileOutputStream.flush();
-                        }
-                        fileOutputStream.close();
-                    }
-                } else {
+                if (nextEntry == null) {
                     zipInputStream.close();
                     return true;
                 }
+                String name = nextEntry.getName();
+                if (nextEntry.isDirectory()) {
+                    String substring = name.substring(0, name.length() - 1);
+                    new File(str2 + File.separator + substring).mkdirs();
+                } else {
+                    Log.e(com.baidu.android.util.io.ZipUtils.TAG, str2 + File.separator + name);
+                    File file = new File(str2 + File.separator + name);
+                    if (!file.exists()) {
+                        file.getParentFile().mkdirs();
+                        file.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    byte[] bArr = new byte[1024];
+                    while (true) {
+                        int read = zipInputStream.read(bArr);
+                        if (read == -1) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                        fileOutputStream.flush();
+                    }
+                    fileOutputStream.close();
+                }
             }
         } catch (Exception e2) {
-            String str4 = "e = " + e2.getMessage();
+            Log.e(com.baidu.android.util.io.ZipUtils.TAG, "e = " + e2.getMessage());
             e2.printStackTrace();
             return false;
         }
@@ -138,26 +140,24 @@ public class ZipUtils {
             SafeZipInputStream safeZipInputStream = new SafeZipInputStream(new BufferedInputStream(new FileInputStream(file)));
             while (true) {
                 SafeZipEntry safeZipEntry = (SafeZipEntry) safeZipInputStream.getNextEntry();
-                if (safeZipEntry != null) {
-                    if (!safeZipEntry.isDirectory()) {
-                        File file2 = new File(file.getParent(), safeZipEntry.getName());
-                        if (!file2.getParentFile().exists()) {
-                            file2.getParentFile().mkdirs();
-                        }
-                        BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new BufferedOutputStream(new FileOutputStream(file2)));
-                        byte[] bArr = new byte[10240];
-                        while (true) {
-                            int read = safeZipInputStream.read(bArr, 0, 10240);
-                            if (read == -1) {
-                                break;
-                            }
-                            bufferedOutputStream.write(bArr, 0, read);
-                        }
-                        bufferedOutputStream.flush();
-                    }
-                } else {
+                if (safeZipEntry == null) {
                     safeZipInputStream.close();
                     return true;
+                } else if (!safeZipEntry.isDirectory()) {
+                    File file2 = new File(file.getParent(), safeZipEntry.getName());
+                    if (!file2.getParentFile().exists()) {
+                        file2.getParentFile().mkdirs();
+                    }
+                    BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new BufferedOutputStream(new FileOutputStream(file2)));
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = safeZipInputStream.read(bArr, 0, 10240);
+                        if (read == -1) {
+                            break;
+                        }
+                        bufferedOutputStream.write(bArr, 0, read);
+                    }
+                    bufferedOutputStream.flush();
                 }
             }
         } catch (IOException e2) {

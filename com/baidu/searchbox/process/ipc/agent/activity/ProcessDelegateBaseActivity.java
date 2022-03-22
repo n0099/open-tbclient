@@ -32,9 +32,9 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -134,7 +134,7 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
                     LogUtil.logActivity(this, "onCreate");
                     return;
                 }
-                Bundle bundleExtra = intent.getBundleExtra("extra_params");
+                Bundle bundleExtra = intent.getBundleExtra(DelegateDef.EXTRA_PARAMS);
                 if (bundleExtra != null && !bundleExtra.isEmpty()) {
                     this.mDelegation.mParams.putAll(bundleExtra);
                 }
@@ -161,12 +161,12 @@ public class ProcessDelegateBaseActivity extends Activity implements Agent, Dele
         }
     }
 
-    public void exit(int i2, String str) {
+    public void exit(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2, str) == null) {
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
             Intent intent = new Intent();
             intent.putExtra(DelegateDef.EXTRA_DELEGATION_NAME, this.mDelegationName);
-            intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i2);
+            intent.putExtra(DelegateDef.EXTRA_RESULT_CODE, i);
             if (!TextUtils.isEmpty(str)) {
                 intent.putExtra(DelegateDef.EXTRA_RESULT_DESC, str);
             }

@@ -16,7 +16,7 @@ import org.apache.http.conn.routing.HttpRoute;
 import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.params.HttpParams;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes8.dex */
 public class ThreadSafeClientConnManager implements ClientConnectionManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -31,9 +31,9 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {httpParams, schemeRegistry};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -51,9 +51,9 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void closeIdleConnections(long j2, TimeUnit timeUnit) {
+    public void closeIdleConnections(long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j2, timeUnit) == null) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, timeUnit) == null) {
             throw new RuntimeException("Stub!");
         }
     }
@@ -103,9 +103,9 @@ public class ThreadSafeClientConnManager implements ClientConnectionManager {
     }
 
     @Override // org.apache.http.conn.ClientConnectionManager
-    public void releaseConnection(ManagedClientConnection managedClientConnection, long j2, TimeUnit timeUnit) {
+    public void releaseConnection(ManagedClientConnection managedClientConnection, long j, TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{managedClientConnection, Long.valueOf(j2), timeUnit}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{managedClientConnection, Long.valueOf(j), timeUnit}) == null) {
             throw new RuntimeException("Stub!");
         }
     }

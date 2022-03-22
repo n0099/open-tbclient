@@ -9,7 +9,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.wallet.base.iddetect.UrlOcrConfig;
 import com.xiaomi.push.co;
 import com.xiaomi.push.cr;
 import com.xiaomi.push.cs;
@@ -26,16 +25,16 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class ba extends bi.a implements cs.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f927a;
+    public XMPushService f903a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class a implements cs.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -45,9 +44,9 @@ public class ba extends bi.a implements cs.a {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -62,7 +61,7 @@ public class ba extends bi.a implements cs.a {
                 Uri.Builder buildUpon = Uri.parse(str).buildUpon();
                 buildUpon.appendQueryParameter(BaseStatisContent.SDKVER, String.valueOf(43));
                 buildUpon.appendQueryParameter("osver", String.valueOf(Build.VERSION.SDK_INT));
-                buildUpon.appendQueryParameter(UrlOcrConfig.IdCardKey.OS, gn.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
+                buildUpon.appendQueryParameter("os", gn.a(Build.MODEL + ":" + Build.VERSION.INCREMENTAL));
                 buildUpon.appendQueryParameter("mi", String.valueOf(com.xiaomi.push.t.a()));
                 String builder = buildUpon.toString();
                 com.xiaomi.channel.commonutils.logger.b.c("fetch bucket from : " + builder);
@@ -70,7 +69,7 @@ public class ba extends bi.a implements cs.a {
                 int port = url.getPort() == -1 ? 80 : url.getPort();
                 try {
                     long currentTimeMillis = System.currentTimeMillis();
-                    String a = com.xiaomi.push.bg.a(com.xiaomi.push.t.m699a(), url);
+                    String a = com.xiaomi.push.bg.a(com.xiaomi.push.t.m678a(), url);
                     long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
                     gz.a(url.getHost() + ":" + port, (int) currentTimeMillis2, null);
                     return a;
@@ -83,7 +82,7 @@ public class ba extends bi.a implements cs.a {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static class b extends cs {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -97,9 +96,9 @@ public class ba extends bi.a implements cs.a {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {context, crVar, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((Context) objArr2[0], (cr) objArr2[1], (cs.b) objArr2[2], (String) objArr2[3]);
                     newInitContext.thisArg = this;
@@ -115,8 +114,8 @@ public class ba extends bi.a implements cs.a {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{arrayList, str, str2, Boolean.valueOf(z)})) == null) {
                 try {
-                    if (gx.m426a().m431a()) {
-                        str2 = bi.m675a();
+                    if (gx.m405a().m410a()) {
+                        str2 = bi.m654a();
                     }
                     return super.a(arrayList, str, str2, z);
                 } catch (IOException e2) {
@@ -135,15 +134,15 @@ public class ba extends bi.a implements cs.a {
             newInitContext.initArgs = r2;
             Object[] objArr = {xMPushService};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f927a = xMPushService;
+        this.f903a = xMPushService;
     }
 
     public static void a(XMPushService xMPushService) {
@@ -177,32 +176,32 @@ public class ba extends bi.a implements cs.a {
         co b2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) && bVar.b() && bVar.a() && System.currentTimeMillis() - this.a > 3600000) {
-            com.xiaomi.channel.commonutils.logger.b.m133a("fetch bucket :" + bVar.a());
+            com.xiaomi.channel.commonutils.logger.b.m112a("fetch bucket :" + bVar.a());
             this.a = System.currentTimeMillis();
             cs a2 = cs.a();
-            a2.m294a();
-            a2.m297b();
-            fl m623a = this.f927a.m623a();
-            if (m623a == null || (b2 = a2.b(m623a.m383a().c())) == null) {
+            a2.m273a();
+            a2.m276b();
+            fl m602a = this.f903a.m602a();
+            if (m602a == null || (b2 = a2.b(m602a.m362a().c())) == null) {
                 return;
             }
-            ArrayList<String> m282a = b2.m282a();
+            ArrayList<String> m261a = b2.m261a();
             boolean z = true;
-            Iterator<String> it = m282a.iterator();
+            Iterator<String> it = m261a.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
-                } else if (it.next().equals(m623a.m384a())) {
+                } else if (it.next().equals(m602a.m363a())) {
                     z = false;
                     break;
                 }
             }
-            if (!z || m282a.isEmpty()) {
+            if (!z || m261a.isEmpty()) {
                 return;
             }
-            com.xiaomi.channel.commonutils.logger.b.m133a("bucket changed, force reconnect");
-            this.f927a.a(0, (Exception) null);
-            this.f927a.a(false);
+            com.xiaomi.channel.commonutils.logger.b.m112a("bucket changed, force reconnect");
+            this.f903a.a(0, (Exception) null);
+            this.f903a.a(false);
         }
     }
 }

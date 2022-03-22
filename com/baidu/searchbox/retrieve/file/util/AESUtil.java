@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.util.Base64;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,9 +65,9 @@ public class AESUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -124,9 +125,9 @@ public class AESUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -156,9 +157,9 @@ public class AESUtil {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
@@ -174,9 +175,9 @@ public class AESUtil {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {str};
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
@@ -214,11 +215,11 @@ public class AESUtil {
         return (byte[]) invokeLL.objValue;
     }
 
-    private CryptResult doCrypt(byte[] bArr, int i2) {
+    private CryptResult doCrypt(byte[] bArr, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i2)) == null) {
-            if (i2 != 2 && i2 != 1) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, this, bArr, i)) == null) {
+            if (i != 2 && i != 1) {
                 throw new IllegalArgumentException("mode must be Cipher.DECRYPT_MODE or Cipher.ENCRYPT_MODE");
             }
             CryptResult cryptResult = new CryptResult();
@@ -228,7 +229,7 @@ public class AESUtil {
             } else if (this.context != null && !TextUtils.isEmpty(this.nameSpace)) {
                 try {
                     Cipher cipher = Cipher.getInstance("AES");
-                    cipher.init(i2, this.mSecretKey);
+                    cipher.init(i, this.mSecretKey);
                     cryptResult.result = cipher.doFinal(bArr);
                     cryptResult.statusCode = 0;
                 } catch (Exception unused) {
@@ -278,7 +279,7 @@ public class AESUtil {
                 KeyPairGeneratorSpec.Builder builder = new KeyPairGeneratorSpec.Builder(context);
                 KeyPairGeneratorSpec.Builder alias = builder.setAlias("default" + this.nameSpace);
                 KeyPairGeneratorSpec build = alias.setSubject(new X500Principal("C=CN,ST=BJ,L=BJ,O=BaiDu,OU=BaiDu,CN=default" + this.nameSpace)).setSerialNumber(BigInteger.ONE).setStartDate(gregorianCalendar.getTime()).setEndDate(gregorianCalendar2.getTime()).build();
-                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance("RSA", "AndroidKeyStore");
+                KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(RSAUtil.ALGORITHM_RSA, "AndroidKeyStore");
                 keyPairGenerator.initialize(build);
                 keyPairGenerator.generateKeyPair();
             }
@@ -335,13 +336,13 @@ public class AESUtil {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, bArr)) == null) {
             SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this.context);
-            int i2 = defaultSharedPreferences.getInt("sk_mode_" + this.nameSpace, 1);
+            int i = defaultSharedPreferences.getInt("sk_mode_" + this.nameSpace, 1);
             if (Build.VERSION.SDK_INT >= 18) {
-                if (i2 == 1) {
+                if (i == 1) {
                     return unwrap(bArr);
                 }
                 return SecretKeyFactory.getInstance("AES").generateSecret(new SecretKeySpec(bArr, "AES"));
-            } else if (i2 == 0) {
+            } else if (i == 0) {
                 return SecretKeyFactory.getInstance("AES").generateSecret(new SecretKeySpec(bArr, "AES"));
             } else {
                 return null;
@@ -360,15 +361,15 @@ public class AESUtil {
         if (interceptable == null || interceptable.invokeL(65548, this, secretKey) == null) {
             String str = "sk_mode_";
             String str2 = "sk_";
-            int i2 = 0;
-            i2 = 0;
-            i2 = 0;
+            int i = 0;
+            i = 0;
+            i = 0;
             if (Build.VERSION.SDK_INT >= 18) {
                 byte[] bArr = null;
                 bArr = null;
-                int i3 = 1;
-                i3 = 1;
-                i3 = 1;
+                int i2 = 1;
+                i2 = 1;
+                i2 = 1;
                 try {
                     try {
                         String encodeToString = Base64.encodeToString(wrap(secretKey), 0);
@@ -385,7 +386,7 @@ public class AESUtil {
                         String sb3 = sb2.toString();
                         putInt = putString.putInt(sb3, 1);
                         bArr = sb3;
-                        i2 = sb;
+                        i = sb;
                     } catch (Exception unused) {
                         String encodeToString2 = Base64.encodeToString(secretKey.getEncoded(), 0);
                         SharedPreferences.Editor edit2 = PreferenceManager.getDefaultSharedPreferences(this.context).edit();
@@ -401,15 +402,15 @@ public class AESUtil {
                         String sb6 = sb5.toString();
                         putInt = putString2.putInt(sb6, 0);
                         bArr = sb6;
-                        i3 = sb4;
+                        i2 = sb4;
                     }
                     putInt.commit();
                     return;
                 } catch (Throwable th) {
-                    String encodeToString3 = Base64.encodeToString(bArr, i2);
+                    String encodeToString3 = Base64.encodeToString(bArr, i);
                     SharedPreferences.Editor edit3 = PreferenceManager.getDefaultSharedPreferences(this.context).edit();
                     SharedPreferences.Editor putString3 = edit3.putString(str2 + this.nameSpace, encodeToString3);
-                    putString3.putInt(str + this.nameSpace, i3).commit();
+                    putString3.putInt(str + this.nameSpace, i2).commit();
                     throw th;
                 }
             }
@@ -467,9 +468,9 @@ public class AESUtil {
             newInitContext.initArgs = r2;
             Object[] objArr = {builder};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

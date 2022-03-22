@@ -2,8 +2,8 @@ package com.baidu.tieba.frs.forumRule.adapter;
 
 import android.content.Context;
 import android.view.View;
-import c.a.q0.e1.n.a;
-import c.a.q0.r.v.c;
+import c.a.o0.e1.n.a;
+import c.a.o0.r.v.c;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
@@ -13,7 +13,6 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -23,10 +22,16 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
     public Context a;
 
     /* renamed from: b  reason: collision with root package name */
-    public View f41982b;
-    public TbRichTextView mContent;
-    public boolean mCurrentStatus;
-    public EMTextView mTitle;
+    public View f32499b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public EMTextView f32500c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public TbRichTextView f32501d;
+
+    /* renamed from: e  reason: collision with root package name */
+    public boolean f32502e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumRuleDetailItemVH(Context context, View view) {
@@ -37,9 +42,9 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, view};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -47,52 +52,46 @@ public class ForumRuleDetailItemVH extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.f41982b = view;
-        initView(view);
+        this.f32499b = view;
+        c(view);
     }
 
-    public boolean getCurrentStatus() {
-        InterceptResult invokeV;
+    public final void c(View view) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mCurrentStatus : invokeV.booleanValue;
-    }
-
-    public final void initView(View view) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view) == null) {
-            this.mTitle = (EMTextView) view.findViewById(R.id.forum_rule_item_title);
-            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.forum_rule_item_content);
-            this.mContent = tbRichTextView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
+            this.f32500c = (EMTextView) view.findViewById(R.id.obfuscated_res_0x7f090a70);
+            TbRichTextView tbRichTextView = (TbRichTextView) view.findViewById(R.id.obfuscated_res_0x7f090a6f);
+            this.f32501d = tbRichTextView;
             tbRichTextView.setTextSize(TbadkApplication.getInst().getResources().getDimension(R.dimen.T_X07));
-            a layoutStrategy = this.mContent.getLayoutStrategy();
+            a layoutStrategy = this.f32501d.getLayoutStrategy();
             layoutStrategy.o(TbadkApplication.getInst().getResources().getDimension(R.dimen.tbds28), 1.0f);
-            this.mContent.setLayoutStrategy(layoutStrategy);
-            onChangeSkinType();
+            this.f32501d.setLayoutStrategy(layoutStrategy);
+            d();
         }
     }
 
-    public void onChangeSkinType() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.mCurrentStatus) {
-                c d2 = c.d(this.mTitle);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.f32502e) {
+                c d2 = c.d(this.f32500c);
                 d2.A(R.string.F_X02);
                 d2.v(R.color.CAM_X0301);
-                this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
+                this.f32501d.setTextColor(SkinManager.getColor(R.color.CAM_X0301));
                 return;
             }
-            c d3 = c.d(this.mTitle);
+            c d3 = c.d(this.f32500c);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            this.mContent.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.f32501d.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 
-    public void setCurrentStatus(boolean z) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.mCurrentStatus = z;
-            onChangeSkinType();
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.f32502e = z;
+            d();
         }
     }
 }

@@ -15,9 +15,9 @@ public class en implements com.kwad.sdk.core.d<LiveInfo.User> {
         user.headurls = new ArrayList();
         JSONArray optJSONArray = jSONObject.optJSONArray("headurls");
         if (optJSONArray != null) {
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
                 LiveInfo.User.HeadUrl headUrl = new LiveInfo.User.HeadUrl();
-                headUrl.parseJson(optJSONArray.optJSONObject(i2));
+                headUrl.parseJson(optJSONArray.optJSONObject(i));
                 user.headurls.add(headUrl);
             }
         }

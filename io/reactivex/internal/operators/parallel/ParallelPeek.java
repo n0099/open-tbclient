@@ -49,9 +49,9 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {subscriber, parallelPeek};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -161,16 +161,16 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
         }
 
         @Override // org.reactivestreams.Subscription
-        public void request(long j2) {
+        public void request(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048581, this, j2) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
                 try {
-                    this.parent.onRequest.accept(j2);
+                    this.parent.onRequest.accept(j);
                 } catch (Throwable th) {
                     Exceptions.throwIfFatal(th);
                     RxJavaPlugins.onError(th);
                 }
-                this.s.request(j2);
+                this.s.request(j);
             }
         }
     }
@@ -182,9 +182,9 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
             newInitContext.initArgs = r2;
             Object[] objArr = {parallelFlowable, consumer, consumer2, consumer3, action, action2, consumer4, longConsumer, action3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -214,8 +214,8 @@ public final class ParallelPeek<T> extends ParallelFlowable<T> {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, subscriberArr) == null) && validate(subscriberArr)) {
             int length = subscriberArr.length;
             Subscriber<? super T>[] subscriberArr2 = new Subscriber[length];
-            for (int i2 = 0; i2 < length; i2++) {
-                subscriberArr2[i2] = new ParallelPeekSubscriber(subscriberArr[i2], this);
+            for (int i = 0; i < length; i++) {
+                subscriberArr2[i] = new ParallelPeekSubscriber(subscriberArr[i], this);
             }
             this.source.subscribe(subscriberArr2);
         }

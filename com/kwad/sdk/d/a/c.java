@@ -13,48 +13,48 @@ import com.kwad.sdk.utils.bb;
 import com.kwad.sdk.utils.bc;
 import java.util.concurrent.atomic.AtomicBoolean;
 @SuppressLint({"ViewConstructor"})
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public class c extends com.kwad.sdk.core.video.videoview.a implements bc.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f55168e;
+    public View f40239e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final bc f55169f;
+    public final bc f40240f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final AtomicBoolean f55170g;
+    public final AtomicBoolean f40241g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f55171h;
+    public boolean f40242h;
 
     public c(Context context, AdTemplate adTemplate, @NonNull com.kwad.sdk.core.video.videoview.d dVar) {
         super(context, adTemplate, dVar);
-        this.f55169f = new bc(this);
-        this.f55170g = new AtomicBoolean(true);
-        this.f55171h = false;
-        this.f55168e = this;
+        this.f40240f = new bc(this);
+        this.f40241g = new AtomicBoolean(true);
+        this.f40242h = false;
+        this.f40239e = this;
     }
 
     private void n() {
-        this.f55171h = false;
+        this.f40242h = false;
     }
 
     private void o() {
-        if (this.f55170g.getAndSet(false)) {
+        if (this.f40241g.getAndSet(false)) {
             com.kwad.sdk.core.d.a.c("InterstitialVideoPlayerController", "onViewAttached");
-            this.f55169f.sendEmptyMessage(1);
+            this.f40240f.sendEmptyMessage(1);
         }
     }
 
     @Override // com.kwad.sdk.core.video.videoview.a
     public void a() {
         super.a();
-        ImageView imageView = ((com.kwad.sdk.core.video.videoview.a) this).f54803b;
+        ImageView imageView = ((com.kwad.sdk.core.video.videoview.a) this).f39902b;
         if (imageView != null) {
-            imageView.setImageResource(R.drawable.ksad_interstitial_video_play);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080bbe);
         }
-        TextView textView = ((com.kwad.sdk.core.video.videoview.a) this).f54804c;
+        TextView textView = ((com.kwad.sdk.core.video.videoview.a) this).f39903c;
         if (textView != null) {
             textView.setVisibility(8);
         }
@@ -62,13 +62,13 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements bc.a {
 
     @Override // com.kwad.sdk.utils.bc.a
     public void a(Message message) {
-        if (!this.f55171h && message.what == 1) {
-            if (bb.a(this.f55168e, 30)) {
+        if (!this.f40242h && message.what == 1) {
+            if (bb.a(this.f40239e, 30)) {
                 f();
             } else {
                 g();
             }
-            this.f55169f.sendEmptyMessageDelayed(1, 500L);
+            this.f40240f.sendEmptyMessageDelayed(1, 500L);
         }
     }
 
@@ -79,15 +79,15 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements bc.a {
     @Override // com.kwad.sdk.core.video.videoview.a
     public void h() {
         super.h();
-        this.f55171h = true;
+        this.f40242h = true;
     }
 
     public void m() {
-        if (this.f55170g.getAndSet(true)) {
+        if (this.f40241g.getAndSet(true)) {
             return;
         }
         com.kwad.sdk.core.d.a.c("InterstitialVideoPlayerController", "onViewDetached");
-        this.f55169f.removeCallbacksAndMessages(null);
+        this.f40240f.removeCallbacksAndMessages(null);
         h();
     }
 
@@ -126,7 +126,7 @@ public class c extends com.kwad.sdk.core.video.videoview.a implements bc.a {
     }
 
     @Override // android.view.View
-    public void onWindowVisibilityChanged(int i2) {
-        super.onWindowVisibilityChanged(i2);
+    public void onWindowVisibilityChanged(int i) {
+        super.onWindowVisibilityChanged(i);
     }
 }

@@ -11,13 +11,13 @@ import io.reactivex.CompletableSource;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class CompletableConcatArray extends Completable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CompletableSource[] sources;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public static final class ConcatInnerObserver extends AtomicInteger implements CompletableObserver {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -7965400327305809232L;
@@ -34,9 +34,9 @@ public final class CompletableConcatArray extends Completable {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {completableObserver, completableSourceArr};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -52,13 +52,13 @@ public final class CompletableConcatArray extends Completable {
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.sd.isDisposed() && getAndIncrement() == 0) {
                 CompletableSource[] completableSourceArr = this.sources;
                 while (!this.sd.isDisposed()) {
-                    int i2 = this.index;
-                    this.index = i2 + 1;
-                    if (i2 == completableSourceArr.length) {
+                    int i = this.index;
+                    this.index = i + 1;
+                    if (i == completableSourceArr.length) {
                         this.actual.onComplete();
                         return;
                     }
-                    completableSourceArr[i2].subscribe(this);
+                    completableSourceArr[i].subscribe(this);
                     if (decrementAndGet() == 0) {
                         return;
                     }
@@ -98,9 +98,9 @@ public final class CompletableConcatArray extends Completable {
             newInitContext.initArgs = r2;
             Object[] objArr = {completableSourceArr};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

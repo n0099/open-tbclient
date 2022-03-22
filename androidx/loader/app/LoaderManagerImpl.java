@@ -2,6 +2,7 @@ package androidx.loader.app;
 
 import android.os.Bundle;
 import android.os.Looper;
+import android.util.Log;
 import androidx.annotation.MainThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,26 +54,26 @@ public class LoaderManagerImpl extends LoaderManager {
         public LoaderObserver<D> mObserver;
         public Loader<D> mPriorLoader;
 
-        public LoaderInfo(int i2, @Nullable Bundle bundle, @NonNull Loader<D> loader, @Nullable Loader<D> loader2) {
+        public LoaderInfo(int i, @Nullable Bundle bundle, @NonNull Loader<D> loader, @Nullable Loader<D> loader2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2), bundle, loader, loader2};
+                Object[] objArr = {Integer.valueOf(i), bundle, loader, loader2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.mId = i2;
+            this.mId = i;
             this.mArgs = bundle;
             this.mLoader = loader;
             this.mPriorLoader = loader2;
-            loader.registerListener(i2, this);
+            loader.registerListener(i, this);
         }
 
         @MainThread
@@ -81,7 +82,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "  Destroying: " + this;
+                    Log.v("LoaderManager", "  Destroying: " + this);
                 }
                 this.mLoader.cancelLoad();
                 this.mLoader.abandon();
@@ -163,7 +164,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "  Starting: " + this;
+                    Log.v("LoaderManager", "  Starting: " + this);
                 }
                 this.mLoader.startLoading();
             }
@@ -174,7 +175,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "  Stopping: " + this;
+                    Log.v("LoaderManager", "  Stopping: " + this);
                 }
                 this.mLoader.stopLoading();
             }
@@ -185,13 +186,15 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048583, this, loader, d2) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "onLoadComplete: " + this;
+                    Log.v("LoaderManager", "onLoadComplete: " + this);
                 }
                 if (Looper.myLooper() == Looper.getMainLooper()) {
                     setValue(d2);
                     return;
                 }
-                boolean z = LoaderManagerImpl.DEBUG;
+                if (LoaderManagerImpl.DEBUG) {
+                    Log.w("LoaderManager", "onLoadComplete was incorrectly called on a background thread");
+                }
                 postValue(d2);
             }
         }
@@ -275,9 +278,9 @@ public class LoaderManagerImpl extends LoaderManager {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {loader, loaderCallbacks};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -308,7 +311,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d2) == null) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d2);
+                    Log.v("LoaderManager", "  onLoadFinished in " + this.mLoader + ": " + this.mLoader.dataToString(d2));
                 }
                 this.mCallback.onLoadFinished(this.mLoader, d2);
                 this.mDeliveredData = true;
@@ -320,7 +323,7 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.mDeliveredData) {
                 if (LoaderManagerImpl.DEBUG) {
-                    String str = "  Resetting: " + this.mLoader;
+                    Log.v("LoaderManager", "  Resetting: " + this.mLoader);
                 }
                 this.mCallback.onLoaderReset(this.mLoader);
             }
@@ -363,9 +366,9 @@ public class LoaderManagerImpl extends LoaderManager {
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                         }
@@ -387,9 +390,9 @@ public class LoaderManagerImpl extends LoaderManager {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65537, newInitContext);
                     return;
@@ -414,11 +417,11 @@ public class LoaderManagerImpl extends LoaderManager {
             printWriter.print(str);
             printWriter.println("Loaders:");
             String str2 = str + "    ";
-            for (int i2 = 0; i2 < this.mLoaders.size(); i2++) {
-                LoaderInfo valueAt = this.mLoaders.valueAt(i2);
+            for (int i = 0; i < this.mLoaders.size(); i++) {
+                LoaderInfo valueAt = this.mLoaders.valueAt(i);
                 printWriter.print(str);
                 printWriter.print("  #");
-                printWriter.print(this.mLoaders.keyAt(i2));
+                printWriter.print(this.mLoaders.keyAt(i));
                 printWriter.print(": ");
                 printWriter.println(valueAt.toString());
                 valueAt.dump(str2, fileDescriptor, printWriter, strArr);
@@ -432,10 +435,10 @@ public class LoaderManagerImpl extends LoaderManager {
             }
         }
 
-        public <D> LoaderInfo<D> getLoader(int i2) {
+        public <D> LoaderInfo<D> getLoader(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? this.mLoaders.get(i2) : (LoaderInfo) invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? this.mLoaders.get(i) : (LoaderInfo) invokeI.objValue;
         }
 
         public boolean hasRunningLoaders() {
@@ -443,8 +446,8 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 int size = this.mLoaders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    if (this.mLoaders.valueAt(i2).isCallbackWaitingForData()) {
+                for (int i = 0; i < size; i++) {
+                    if (this.mLoaders.valueAt(i).isCallbackWaitingForData()) {
                         return true;
                     }
                 }
@@ -463,8 +466,8 @@ public class LoaderManagerImpl extends LoaderManager {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 int size = this.mLoaders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mLoaders.valueAt(i2).markForRedelivery();
+                for (int i = 0; i < size; i++) {
+                    this.mLoaders.valueAt(i).markForRedelivery();
                 }
             }
         }
@@ -475,24 +478,24 @@ public class LoaderManagerImpl extends LoaderManager {
             if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
                 super.onCleared();
                 int size = this.mLoaders.size();
-                for (int i2 = 0; i2 < size; i2++) {
-                    this.mLoaders.valueAt(i2).destroy(true);
+                for (int i = 0; i < size; i++) {
+                    this.mLoaders.valueAt(i).destroy(true);
                 }
                 this.mLoaders.clear();
             }
         }
 
-        public void putLoader(int i2, @NonNull LoaderInfo loaderInfo) {
+        public void putLoader(int i, @NonNull LoaderInfo loaderInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048583, this, i2, loaderInfo) == null) {
-                this.mLoaders.put(i2, loaderInfo);
+            if (interceptable == null || interceptable.invokeIL(1048583, this, i, loaderInfo) == null) {
+                this.mLoaders.put(i, loaderInfo);
             }
         }
 
-        public void removeLoader(int i2) {
+        public void removeLoader(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2) == null) {
-                this.mLoaders.remove(i2);
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.mLoaders.remove(i);
             }
         }
 
@@ -526,9 +529,9 @@ public class LoaderManagerImpl extends LoaderManager {
             newInitContext.initArgs = r2;
             Object[] objArr = {lifecycleOwner, viewModelStore};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -540,22 +543,22 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @NonNull
     @MainThread
-    private <D> Loader<D> createAndInstallLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks, @Nullable Loader<D> loader) {
+    private <D> Loader<D> createAndInstallLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks, @Nullable Loader<D> loader) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i2), bundle, loaderCallbacks, loader})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, this, new Object[]{Integer.valueOf(i), bundle, loaderCallbacks, loader})) == null) {
             try {
                 this.mLoaderViewModel.startCreatingLoader();
-                Loader<D> onCreateLoader = loaderCallbacks.onCreateLoader(i2, bundle);
+                Loader<D> onCreateLoader = loaderCallbacks.onCreateLoader(i, bundle);
                 if (onCreateLoader != null) {
                     if (onCreateLoader.getClass().isMemberClass() && !Modifier.isStatic(onCreateLoader.getClass().getModifiers())) {
                         throw new IllegalArgumentException("Object returned from onCreateLoader must not be a non-static inner member class: " + onCreateLoader);
                     }
-                    LoaderInfo loaderInfo = new LoaderInfo(i2, bundle, onCreateLoader, loader);
+                    LoaderInfo loaderInfo = new LoaderInfo(i, bundle, onCreateLoader, loader);
                     if (DEBUG) {
-                        String str = "  Created new loader " + loaderInfo;
+                        Log.v("LoaderManager", "  Created new loader " + loaderInfo);
                     }
-                    this.mLoaderViewModel.putLoader(i2, loaderInfo);
+                    this.mLoaderViewModel.putLoader(i, loaderInfo);
                     this.mLoaderViewModel.finishCreatingLoader();
                     return loaderInfo.setCallback(this.mLifecycleOwner, loaderCallbacks);
                 }
@@ -570,18 +573,18 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @Override // androidx.loader.app.LoaderManager
     @MainThread
-    public void destroyLoader(int i2) {
+    public void destroyLoader(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
                     if (DEBUG) {
-                        String str = "destroyLoader in " + this + " of " + i2;
+                        Log.v("LoaderManager", "destroyLoader in " + this + " of " + i);
                     }
-                    LoaderInfo loader = this.mLoaderViewModel.getLoader(i2);
+                    LoaderInfo loader = this.mLoaderViewModel.getLoader(i);
                     if (loader != null) {
                         loader.destroy(true);
-                        this.mLoaderViewModel.removeLoader(i2);
+                        this.mLoaderViewModel.removeLoader(i);
                         return;
                     }
                     return;
@@ -603,12 +606,12 @@ public class LoaderManagerImpl extends LoaderManager {
 
     @Override // androidx.loader.app.LoaderManager
     @Nullable
-    public <D> Loader<D> getLoader(int i2) {
+    public <D> Loader<D> getLoader(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
-                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
+                LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
                 if (loader != null) {
                     return loader.getLoader();
                 }
@@ -629,21 +632,21 @@ public class LoaderManagerImpl extends LoaderManager {
     @Override // androidx.loader.app.LoaderManager
     @NonNull
     @MainThread
-    public <D> Loader<D> initLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    public <D> Loader<D> initLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i2, bundle, loaderCallbacks)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, bundle, loaderCallbacks)) == null) {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
-                    LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
+                    LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
                     if (DEBUG) {
-                        String str = "initLoader in " + this + ": args=" + bundle;
+                        Log.v("LoaderManager", "initLoader in " + this + ": args=" + bundle);
                     }
                     if (loader == null) {
-                        return createAndInstallLoader(i2, bundle, loaderCallbacks, null);
+                        return createAndInstallLoader(i, bundle, loaderCallbacks, null);
                     }
                     if (DEBUG) {
-                        String str2 = "  Re-using existing loader " + loader;
+                        Log.v("LoaderManager", "  Re-using existing loader " + loader);
                     }
                     return loader.setCallback(this.mLifecycleOwner, loaderCallbacks);
                 }
@@ -665,17 +668,17 @@ public class LoaderManagerImpl extends LoaderManager {
     @Override // androidx.loader.app.LoaderManager
     @NonNull
     @MainThread
-    public <D> Loader<D> restartLoader(int i2, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
+    public <D> Loader<D> restartLoader(int i, @Nullable Bundle bundle, @NonNull LoaderManager.LoaderCallbacks<D> loaderCallbacks) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i2, bundle, loaderCallbacks)) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, bundle, loaderCallbacks)) == null) {
             if (!this.mLoaderViewModel.isCreatingLoader()) {
                 if (Looper.getMainLooper() == Looper.myLooper()) {
                     if (DEBUG) {
-                        String str = "restartLoader in " + this + ": args=" + bundle;
+                        Log.v("LoaderManager", "restartLoader in " + this + ": args=" + bundle);
                     }
-                    LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i2);
-                    return createAndInstallLoader(i2, bundle, loaderCallbacks, loader != null ? loader.destroy(false) : null);
+                    LoaderInfo<D> loader = this.mLoaderViewModel.getLoader(i);
+                    return createAndInstallLoader(i, bundle, loaderCallbacks, loader != null ? loader.destroy(false) : null);
                 }
                 throw new IllegalStateException("restartLoader must be called on the main thread");
             }

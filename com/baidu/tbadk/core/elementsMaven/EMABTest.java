@@ -1,13 +1,13 @@
 package com.baidu.tbadk.core.elementsMaven;
 
 import android.text.TextUtils;
-import c.a.q0.r.v.a;
+import c.a.o0.r.v.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class EMABTest {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_ARRAY = "array";
@@ -21,24 +21,24 @@ public class EMABTest {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static int getIdByABTest(int i2, String str) {
+    public static int getIdByABTest(int i, String str) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i2, str)) == null) {
-            String o = a.o(i2);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            String o = a.o(i);
             if (TextUtils.isEmpty(o)) {
                 return 0;
             }
-            String a = c.a.r0.s0.a.a(o);
+            String a = c.a.p0.u0.a.a(o);
             if (TextUtils.isEmpty(a)) {
                 return 0;
             }

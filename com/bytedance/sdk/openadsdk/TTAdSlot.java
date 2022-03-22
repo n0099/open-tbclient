@@ -1,5 +1,5 @@
 package com.bytedance.sdk.openadsdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes6.dex */
 public interface TTAdSlot {
     public static final int TYPE_BANNER = 1;
     public static final int TYPE_CACHED_SPLASH = 4;
@@ -69,9 +69,9 @@ public interface TTAdSlot {
 
     boolean isSupportRenderConrol();
 
-    void setAdCount(int i2);
+    void setAdCount(int i);
 
-    void setDurationSlotType(int i2);
+    void setDurationSlotType(int i);
 
-    void setNativeAdType(int i2);
+    void setNativeAdType(int i);
 }

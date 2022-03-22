@@ -6,7 +6,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import javax.annotation.Nullable;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public abstract class YogaNode {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -16,9 +16,9 @@ public abstract class YogaNode {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -37,7 +37,7 @@ public abstract class YogaNode {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, yogaConfig)) == null) ? new YogaNodeJNIFinalizer(yogaConfig) : (YogaNode) invokeL.objValue;
     }
 
-    public abstract void addChildAt(YogaNode yogaNode, int i2);
+    public abstract void addChildAt(YogaNode yogaNode, int i);
 
     public abstract void calculateLayout(float f2, float f3);
 
@@ -57,7 +57,7 @@ public abstract class YogaNode {
 
     public abstract float getBorder(YogaEdge yogaEdge);
 
-    public abstract YogaNode getChildAt(int i2);
+    public abstract YogaNode getChildAt(int i);
 
     public abstract int getChildCount();
 
@@ -143,7 +143,7 @@ public abstract class YogaNode {
 
     public abstract void print();
 
-    public abstract YogaNode removeChildAt(int i2);
+    public abstract YogaNode removeChildAt(int i);
 
     public abstract void reset();
 
@@ -225,7 +225,7 @@ public abstract class YogaNode {
 
     public abstract void setPositionType(YogaPositionType yogaPositionType);
 
-    public abstract void setStyleInputs(float[] fArr, int i2);
+    public abstract void setStyleInputs(float[] fArr, int i);
 
     public abstract void setWidth(float f2);
 

@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.subtablist.mvc;
 
 import android.content.Intent;
 import android.os.Bundle;
-import c.a.r0.a0.f.h.c.a;
+import c.a.p0.c0.f.h.c.a;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.ala.atomdata.AlaNewSquareSubListActivityConfig;
 import com.baidu.ala.data.AlaSquareTabInfo;
@@ -29,9 +29,9 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -48,10 +48,10 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
             this.mSubTypeList = intent.getStringArrayListExtra(AlaNewSquareSubListActivityConfig.ALA_SQUARE_SUB_LIST_ACTIVITY_SUB_TYPE_LIST);
             AlaSquareTabInfo alaSquareTabInfo = this.mTabInfo;
             if (alaSquareTabInfo != null) {
-                int i2 = alaSquareTabInfo.iconType;
-                if (i2 == 1) {
+                int i = alaSquareTabInfo.iconType;
+                if (i == 1) {
                     this.mEntryName = alaSquareTabInfo.name;
-                } else if (i2 == 2) {
+                } else if (i == 2) {
                     this.mEntryName = "游戏";
                     this.mLableName = alaSquareTabInfo.name;
                 }
@@ -71,13 +71,13 @@ public class AlaNewSquareSubListActivity extends BaseActivity<AlaNewSquareSubLis
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public void onChangeSkinType(int i2) {
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-            super.onChangeSkinType(i2);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.onChangeSkinType(i);
             a aVar = this.mAlaNewSquareSubListController;
             if (aVar != null) {
-                aVar.h(getPageContext(), i2);
+                aVar.h(getPageContext(), i);
             }
         }
     }

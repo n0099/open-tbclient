@@ -12,6 +12,7 @@ import c.a.d.f.g.d;
 import com.baidu.adp.lib.guide.Configuration;
 import com.baidu.adp.lib.guide.MaskView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,24 +24,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class c implements View.OnKeyListener, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Configuration a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public MaskView f2114b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public c.a.d.f.g.b[] f2115c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public boolean f2116d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Configuration f2564e;
+    public boolean f2117e;
 
     /* renamed from: f  reason: collision with root package name */
-    public MaskView f2565f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public c.a.d.f.g.b[] f2566g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public boolean f2567h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f2568i;
-
-    /* renamed from: j  reason: collision with root package name */
-    public d.a f2569j;
+    public d.a f2118f;
 
     /* loaded from: classes.dex */
     public class a implements Animation.AnimationListener {
@@ -55,9 +54,9 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -69,10 +68,10 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f2569j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f2118f == null) {
                 return;
             }
-            this.a.f2569j.onShown();
+            this.a.f2118f.onShown();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -97,7 +96,7 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         public final /* synthetic */ ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f2570b;
+        public final /* synthetic */ c f2119b;
 
         public b(c cVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -106,15 +105,15 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2570b = cVar;
+            this.f2119b = cVar;
             this.a = viewGroup;
         }
 
@@ -123,10 +122,10 @@ public class c implements View.OnKeyListener, View.OnClickListener {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
                 this.a.removeAllViews();
-                if (this.f2570b.f2569j != null) {
-                    this.f2570b.f2569j.onDismiss();
+                if (this.f2119b.f2118f != null) {
+                    this.f2119b.f2118f.onDismiss();
                 }
-                this.f2570b.j();
+                this.f2119b.g();
             }
         }
 
@@ -147,21 +146,21 @@ public class c implements View.OnKeyListener, View.OnClickListener {
 
     /* renamed from: c.a.d.f.g.c$c  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class animation.Animation$AnimationListenerC0104c implements Animation.AnimationListener {
+    public class animation.Animation$AnimationListenerC0093c implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ c a;
 
-        public animation.Animation$AnimationListenerC0104c(c cVar) {
+        public animation.Animation$AnimationListenerC0093c(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -173,10 +172,10 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f2569j == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, animation) == null) || this.a.f2118f == null) {
                 return;
             }
-            this.a.f2569j.onShown();
+            this.a.f2118f.onShown();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -201,7 +200,7 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         public final /* synthetic */ ViewGroup a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ c f2571b;
+        public final /* synthetic */ c f2120b;
 
         public d(c cVar, ViewGroup viewGroup) {
             Interceptable interceptable = $ic;
@@ -210,15 +209,15 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {cVar, viewGroup};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f2571b = cVar;
+            this.f2120b = cVar;
             this.a = viewGroup;
         }
 
@@ -226,11 +225,11 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                this.a.removeView(this.f2571b.f2565f);
-                if (this.f2571b.f2569j != null) {
-                    this.f2571b.f2569j.onDismiss();
+                this.a.removeView(this.f2120b.f2114b);
+                if (this.f2120b.f2118f != null) {
+                    this.f2120b.f2118f.onDismiss();
                 }
-                this.f2571b.j();
+                this.f2120b.g();
             }
         }
 
@@ -268,73 +267,73 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f2567h = true;
-        this.f2568i = false;
+        this.f2116d = true;
+        this.f2117e = false;
     }
 
-    public void e() {
+    public void d() {
         MaskView maskView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maskView = this.f2565f) != null && (maskView.getParent() instanceof ViewGroup)) {
-            ViewGroup viewGroup = (ViewGroup) this.f2565f.getParent();
-            if (this.f2564e.mExitAnimationId != -1) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.f2565f.getContext(), this.f2564e.mExitAnimationId);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (maskView = this.f2114b) != null && (maskView.getParent() instanceof ViewGroup)) {
+            ViewGroup viewGroup = (ViewGroup) this.f2114b.getParent();
+            if (this.a.mExitAnimationId != -1) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.f2114b.getContext(), this.a.mExitAnimationId);
                 loadAnimation.setAnimationListener(new d(this, viewGroup));
-                this.f2565f.startAnimation(loadAnimation);
+                this.f2114b.startAnimation(loadAnimation);
                 return;
             }
-            viewGroup.removeView(this.f2565f);
-            d.a aVar = this.f2569j;
+            viewGroup.removeView(this.f2114b);
+            d.a aVar = this.f2118f;
             if (aVar != null) {
                 aVar.onDismiss();
             }
-            j();
+            g();
         }
     }
 
-    public void f(ViewGroup viewGroup) {
+    public void e(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) || viewGroup == null) {
             return;
         }
-        if (this.f2564e.mExitAnimationId != -1) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(viewGroup.getContext(), this.f2564e.mExitAnimationId);
+        if (this.a.mExitAnimationId != -1) {
+            Animation loadAnimation = AnimationUtils.loadAnimation(viewGroup.getContext(), this.a.mExitAnimationId);
             loadAnimation.setAnimationListener(new b(this, viewGroup));
             viewGroup.startAnimation(loadAnimation);
             return;
         }
         viewGroup.removeAllViews();
-        d.a aVar = this.f2569j;
+        d.a aVar = this.f2118f;
         if (aVar != null) {
             aVar.onDismiss();
         }
-        j();
+        g();
     }
 
-    public final MaskView i(Activity activity) {
+    public final MaskView f(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
             MaskView maskView = new MaskView(activity);
-            maskView.e(activity.getResources().getColor(this.f2564e.mFullingColorId));
-            maskView.d(this.f2564e.mAlpha);
-            maskView.g(this.f2564e.mOverlayTarget);
+            maskView.e(activity.getResources().getColor(this.a.mFullingColorId));
+            maskView.d(this.a.mAlpha);
+            maskView.g(this.a.mOverlayTarget);
             maskView.setOnKeyListener(this);
             int[] iArr = new int[2];
             ((ViewGroup) activity.findViewById(16908290)).getLocationInWindow(iArr);
-            int i2 = iArr[1];
-            if (this.f2567h && i2 == 0) {
+            int i = iArr[1];
+            if (this.f2116d && i == 0) {
                 try {
                     Class<?> cls = Class.forName("com.android.internal.R$dimen");
-                    i2 = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField("status_bar_height").get(cls.newInstance()).toString()));
+                    i = activity.getResources().getDimensionPixelSize(Integer.parseInt(cls.getField(SapiSystemBarTintManager.SystemBarConfig.f27942g).get(cls.newInstance()).toString()));
                 } catch (ClassNotFoundException e2) {
                     e2.printStackTrace();
                 } catch (IllegalAccessException e3) {
@@ -351,26 +350,26 @@ public class c implements View.OnKeyListener, View.OnClickListener {
                     e8.printStackTrace();
                 }
             }
-            Configuration configuration = this.f2564e;
+            Configuration configuration = this.a;
             View view = configuration.mTargetView;
             if (view != null) {
-                maskView.h(c.a.d.f.g.a.b(view, 0, i2));
+                maskView.h(c.a.d.f.g.a.b(view, 0, i));
             } else {
                 View findViewById = activity.findViewById(configuration.mTargetViewId);
                 if (findViewById != null) {
-                    maskView.h(c.a.d.f.g.a.b(findViewById, 0, i2));
+                    maskView.h(c.a.d.f.g.a.b(findViewById, 0, i));
                 }
             }
-            View findViewById2 = activity.findViewById(this.f2564e.mFullingViewId);
+            View findViewById2 = activity.findViewById(this.a.mFullingViewId);
             if (findViewById2 != null) {
-                maskView.f(c.a.d.f.g.a.b(findViewById2, 0, i2));
+                maskView.f(c.a.d.f.g.a.b(findViewById2, 0, i));
             }
-            if (this.f2564e.mOutsideTouchable) {
+            if (this.a.mOutsideTouchable) {
                 maskView.setClickable(false);
             } else {
                 maskView.setOnClickListener(this);
             }
-            for (c.a.d.f.g.b bVar : this.f2566g) {
+            for (c.a.d.f.g.b bVar : this.f2115c) {
                 maskView.addView(c.a.d.f.g.a.a(activity.getLayoutInflater(), bVar));
             }
             return maskView;
@@ -378,40 +377,61 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         return (MaskView) invokeL.objValue;
     }
 
-    public final void j() {
+    public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.f2564e = null;
-            this.f2566g = null;
-            this.f2569j = null;
+            this.a = null;
+            this.f2115c = null;
+            this.f2118f = null;
         }
     }
 
-    public void k(d.a aVar) {
+    public void h(d.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.f2569j = aVar;
+            this.f2118f = aVar;
         }
     }
 
-    public void l(c.a.d.f.g.b[] bVarArr) {
+    public void j(c.a.d.f.g.b[] bVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, bVarArr) == null) {
-            this.f2566g = bVarArr;
+            this.f2115c = bVarArr;
         }
     }
 
-    public void n(Configuration configuration) {
+    public void k(Configuration configuration) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, configuration) == null) {
-            this.f2564e = configuration;
+            this.a = configuration;
         }
     }
 
-    public void o(boolean z) {
+    public void l(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f2567h = z;
+            this.f2116d = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.f2117e = z;
+        }
+    }
+
+    public void n(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            o(activity, true);
+        }
+    }
+
+    public void o(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048586, this, activity, z) == null) {
+            p((ViewGroup) activity.findViewById(16908290), activity, z);
         }
     }
 
@@ -419,19 +439,19 @@ public class c implements View.OnKeyListener, View.OnClickListener {
     public void onClick(View view) {
         Configuration configuration;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view) == null) && (configuration = this.f2564e) != null && configuration.mAutoDismiss) {
-            e();
+        if ((interceptable == null || interceptable.invokeL(1048587, this, view) == null) && (configuration = this.a) != null && configuration.mAutoDismiss) {
+            d();
         }
     }
 
     @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view, int i2, KeyEvent keyEvent) {
+    public boolean onKey(View view, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Configuration configuration;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048585, this, view, i2, keyEvent)) == null) {
-            if (i2 == 4 && keyEvent.getAction() == 1 && (configuration = this.f2564e) != null && configuration.mAutoDismiss) {
-                e();
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, view, i, keyEvent)) == null) {
+            if (i == 4 && keyEvent.getAction() == 1 && (configuration = this.a) != null && configuration.mAutoDismiss) {
+                d();
                 return true;
             }
             return false;
@@ -439,50 +459,29 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         return invokeLIL.booleanValue;
     }
 
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.f2568i = z;
-        }
-    }
-
-    public void q(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, activity) == null) {
-            r(activity, true);
-        }
-    }
-
-    public void r(Activity activity, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048588, this, activity, z) == null) {
-            s((ViewGroup) activity.findViewById(16908290), activity, z);
-        }
-    }
-
-    public final void s(ViewGroup viewGroup, Activity activity, boolean z) {
+    public final void p(ViewGroup viewGroup, Activity activity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048589, this, viewGroup, activity, z) == null) {
-            if (this.f2565f == null) {
-                MaskView i2 = i(activity);
-                this.f2565f = i2;
-                i2.i(this.f2568i);
+            if (this.f2114b == null) {
+                MaskView f2 = f(activity);
+                this.f2114b = f2;
+                f2.i(this.f2117e);
                 if (!z) {
-                    this.f2565f.setFocusable(false);
-                    this.f2565f.setFocusableInTouchMode(false);
-                    this.f2565f.clearFocus();
+                    this.f2114b.setFocusable(false);
+                    this.f2114b.setFocusableInTouchMode(false);
+                    this.f2114b.clearFocus();
                 }
             }
-            if (this.f2565f.getParent() == null) {
-                viewGroup.addView(this.f2565f);
-                int i3 = this.f2564e.mEnterAnimationId;
-                if (i3 != -1) {
-                    Animation loadAnimation = AnimationUtils.loadAnimation(activity, i3);
-                    loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0104c(this));
-                    this.f2565f.startAnimation(loadAnimation);
+            if (this.f2114b.getParent() == null) {
+                viewGroup.addView(this.f2114b);
+                int i = this.a.mEnterAnimationId;
+                if (i != -1) {
+                    Animation loadAnimation = AnimationUtils.loadAnimation(activity, i);
+                    loadAnimation.setAnimationListener(new animation.Animation$AnimationListenerC0093c(this));
+                    this.f2114b.startAnimation(loadAnimation);
                     return;
                 }
-                d.a aVar = this.f2569j;
+                d.a aVar = this.f2118f;
                 if (aVar != null) {
                     aVar.onShown();
                 }
@@ -490,14 +489,14 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         }
     }
 
-    public void t(Activity activity) {
+    public void q(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, activity) == null) {
-            s((ViewGroup) activity.getWindow().getDecorView(), activity, true);
+            p((ViewGroup) activity.getWindow().getDecorView(), activity, true);
         }
     }
 
-    public void u(Activity activity, ViewGroup viewGroup, boolean z) {
+    public void r(Activity activity, ViewGroup viewGroup, boolean z) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLLZ(1048591, this, activity, viewGroup, z) == null) || viewGroup == null) {
             return;
@@ -507,15 +506,15 @@ public class c implements View.OnKeyListener, View.OnClickListener {
             viewGroup.setFocusableInTouchMode(false);
             viewGroup.clearFocus();
         }
-        for (c.a.d.f.g.b bVar : this.f2566g) {
+        for (c.a.d.f.g.b bVar : this.f2115c) {
             View c2 = bVar.c(activity.getLayoutInflater());
             if (c2.getParent() == null) {
                 viewGroup.addView(c2);
             }
         }
-        int i2 = this.f2564e.mEnterAnimationId;
-        if (i2 == -1) {
-            d.a aVar = this.f2569j;
+        int i = this.a.mEnterAnimationId;
+        if (i == -1) {
+            d.a aVar = this.f2118f;
             if (aVar != null) {
                 aVar.onShown();
                 return;
@@ -524,11 +523,11 @@ public class c implements View.OnKeyListener, View.OnClickListener {
         }
         Animation animation = null;
         try {
-            animation = AnimationUtils.loadAnimation(activity, i2);
+            animation = AnimationUtils.loadAnimation(activity, i);
         } catch (Resources.NotFoundException unused) {
         }
         if (animation == null) {
-            d.a aVar2 = this.f2569j;
+            d.a aVar2 = this.f2118f;
             if (aVar2 != null) {
                 aVar2.onShown();
                 return;

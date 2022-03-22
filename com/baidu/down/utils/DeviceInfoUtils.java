@@ -16,7 +16,7 @@ import java.io.FileFilter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.regex.Pattern;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public final class DeviceInfoUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final boolean DEBUG = false;
@@ -31,9 +31,9 @@ public final class DeviceInfoUtils {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
@@ -54,9 +54,9 @@ public final class DeviceInfoUtils {
                         if (interceptable2 != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i2 = newInitContext.flag;
-                            if ((i2 & 1) != 0) {
-                                int i3 = i2 & 2;
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                             }
@@ -82,15 +82,15 @@ public final class DeviceInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences(SF_FILENAME, 0);
-            int i2 = sharedPreferences.getInt(SF_KEY_CPU_CORES, 0);
-            if (i2 == 0) {
+            int i = sharedPreferences.getInt(SF_KEY_CPU_CORES, 0);
+            if (i == 0) {
                 int cpuCores = getCpuCores();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putInt(SF_KEY_CPU_CORES, cpuCores);
                 edit.commit();
                 return cpuCores;
             }
-            return i2;
+            return i;
         }
         return invokeL.intValue;
     }
@@ -120,7 +120,7 @@ public final class DeviceInfoUtils {
         }
         BufferedReader bufferedReader2 = null;
         try {
-            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f53880b).start().getInputStream()));
+            bufferedReader = new BufferedReader(new InputStreamReader(new ProcessBuilder("/system/bin/cat", z.f39039b).start().getInputStream()));
             try {
                 long parseLong = Long.parseLong(bufferedReader.readLine());
                 try {
@@ -156,15 +156,15 @@ public final class DeviceInfoUtils {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             SharedPreferences sharedPreferences = context.getSharedPreferences(SF_FILENAME, 0);
-            long j2 = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
-            if (j2 == -1) {
+            long j = sharedPreferences.getLong(SF_KEY_CPU_FREQ, -1L);
+            if (j == -1) {
                 long cpuFreq = getCpuFreq();
                 SharedPreferences.Editor edit = sharedPreferences.edit();
                 edit.putLong(SF_KEY_CPU_FREQ, cpuFreq);
                 edit.commit();
                 return cpuFreq;
             }
-            return j2;
+            return j;
         }
         return invokeL.longValue;
     }
@@ -175,9 +175,9 @@ public final class DeviceInfoUtils {
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
             String str = Build.MODEL;
             String str2 = Build.VERSION.RELEASE;
-            int i2 = Build.VERSION.SDK_INT;
+            int i = Build.VERSION.SDK_INT;
             String str3 = Build.MANUFACTURER;
-            return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i2 + "_" + str3.replace("_", "-");
+            return str.replace("_", "-") + "_" + str2.replace("_", "-") + "_" + i + "_" + str3.replace("_", "-");
         }
         return (String) invokeV.objValue;
     }

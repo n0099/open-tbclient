@@ -12,53 +12,51 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class b implements Input {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean[] a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public final boolean[] f22327b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public final n f22328c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f22329d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean[] f27069e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public final boolean[] f27070f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public final n f27071g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public int f27072h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public boolean f27073i;
+    public boolean f22330e;
 
     public b() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f27071g = new n();
-        this.f27069e = new boolean[256];
-        this.f27070f = new boolean[256];
+        this.f22328c = new n();
+        this.a = new boolean[256];
+        this.f22327b = new boolean[256];
     }
 
-    public boolean a(int i2) {
+    public boolean a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) ? this.f27071g.c(i2) : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.f22328c.c(i) : invokeI.booleanValue;
     }
 
-    public void b(int i2, boolean z) {
+    public void b(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (!z) {
-                this.f27071g.f(i2);
+                this.f22328c.f(i);
             } else {
-                this.f27071g.a(i2);
+                this.f22328c.a(i);
             }
         }
     }

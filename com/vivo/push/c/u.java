@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +19,7 @@ import com.vivo.push.model.UPSNotificationMessage;
 import com.vivo.push.util.NotifyAdapterUtil;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class u extends z {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,9 +33,9 @@ public final class u extends z {
             newInitContext.initArgs = r2;
             Object[] objArr = {oVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 super((com.vivo.push.o) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
@@ -106,7 +107,7 @@ public final class u extends z {
                     if (z) {
                         Uri parse = Uri.parse(skipContent);
                         Intent intent = new Intent("android.intent.action.VIEW", parse);
-                        intent.setFlags(268435456);
+                        intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                         b(intent, a.getParams());
                         try {
                             this.a.startActivity(intent);

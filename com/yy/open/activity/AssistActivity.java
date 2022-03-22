@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.DownloadListener;
@@ -33,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class AssistActivity extends Activity {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTRA_TYPE = "type";
@@ -49,13 +50,11 @@ public final class AssistActivity extends Activity {
     public WebView mWebView;
     public WebViewClient webviewClient;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f60115e;
+        public final /* synthetic */ AssistActivity a;
 
         public a(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -64,34 +63,32 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f60115e = assistActivity;
+            this.a = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                AssistActivity assistActivity = this.f60115e;
+                AssistActivity assistActivity = this.a;
                 assistActivity.mWebView.loadUrl(assistActivity.mURL);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f60116e;
+        public final /* synthetic */ AssistActivity a;
 
         public b(AssistActivity assistActivity) {
             Interceptable interceptable = $ic;
@@ -100,27 +97,27 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f60116e = assistActivity;
+            this.a = assistActivity;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view) == null) {
-                this.f60116e.finish();
+                this.a.finish();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,9 +130,9 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -165,9 +162,9 @@ public final class AssistActivity extends Activity {
         }
 
         @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i2, String str, String str2) {
+        public void onReceivedError(WebView webView, int i, String str, String str2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i2, str, str2) == null) && this.a.mURL.equals(str2)) {
+            if ((interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) && this.a.mURL.equals(str2)) {
                 this.a.mTextView.setVisibility(0);
                 this.a.mWebView.setVisibility(4);
             }
@@ -193,7 +190,7 @@ public final class AssistActivity extends Activity {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (str.startsWith(c.r.b.e.d.g(false))) {
+                if (str.startsWith(c.n.b.e.d.g(false))) {
                     try {
                         Intent intent = new Intent();
                         String queryParameter = Uri.parse(str).getQueryParameter("resCode");
@@ -236,7 +233,7 @@ public final class AssistActivity extends Activity {
                         e2.printStackTrace();
                         return true;
                     }
-                } else if (str.startsWith(c.r.b.e.d.g(true))) {
+                } else if (str.startsWith(c.n.b.e.d.g(true))) {
                     try {
                         Intent intent2 = new Intent();
                         String queryParameter8 = Uri.parse(str).getQueryParameter("resCode");
@@ -271,7 +268,7 @@ public final class AssistActivity extends Activity {
                                 this.a.setResult(444222110, intent2);
                             }
                         } else {
-                            String str2 = "appType:" + queryParameter10;
+                            Log.e("chenqiang", "appType:" + queryParameter10);
                             String queryParameter14 = Uri.parse(str).getQueryParameter("access_code");
                             String queryParameter15 = Uri.parse(str).getQueryParameter("openid");
                             JSONObject jSONObject5 = new JSONObject();
@@ -300,7 +297,7 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class d extends WebChromeClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -313,9 +310,9 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -325,16 +322,16 @@ public final class AssistActivity extends Activity {
         }
 
         @Override // android.webkit.WebChromeClient
-        public void onProgressChanged(WebView webView, int i2) {
+        public void onProgressChanged(WebView webView, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i2) == null) {
-                super.onProgressChanged(webView, i2);
-                this.a.mProgressView.a(i2);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, webView, i) == null) {
+                super.onProgressChanged(webView, i);
+                this.a.mProgressView.a(i);
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class e implements DownloadListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,9 +344,9 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -359,9 +356,9 @@ public final class AssistActivity extends Activity {
         }
 
         @Override // android.webkit.DownloadListener
-        public void onDownloadStart(String str, String str2, String str3, String str4, long j2) {
+        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j2)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) {
                 try {
                     this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                 } catch (Exception e2) {
@@ -371,19 +368,17 @@ public final class AssistActivity extends Activity {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class f extends View {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
 
-        /* renamed from: e  reason: collision with root package name */
-        public int f60117e;
+        /* renamed from: b  reason: collision with root package name */
+        public Paint f44678b;
 
-        /* renamed from: f  reason: collision with root package name */
-        public Paint f60118f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ AssistActivity f60119g;
+        /* renamed from: c  reason: collision with root package name */
+        public final /* synthetic */ AssistActivity f44679c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public f(AssistActivity assistActivity, Context context) {
@@ -394,32 +389,32 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity, context};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.f60119g = assistActivity;
+            this.f44679c = assistActivity;
             Paint paint = new Paint();
-            this.f60118f = paint;
+            this.f44678b = paint;
             paint.setColor(-731575);
-            this.f60118f.setAntiAlias(true);
-            this.f60118f.setStyle(Paint.Style.FILL);
+            this.f44678b.setAntiAlias(true);
+            this.f44678b.setStyle(Paint.Style.FILL);
         }
 
-        public void a(int i2) {
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i2) == null) {
-                if (i2 > 100) {
-                    i2 = 100;
-                } else if (i2 < 0) {
-                    i2 = 0;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i > 100) {
+                    i = 100;
+                } else if (i < 0) {
+                    i = 0;
                 }
-                this.f60117e = i2;
+                this.a = i;
                 invalidate();
             }
         }
@@ -429,22 +424,22 @@ public final class AssistActivity extends Activity {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
                 canvas.drawColor(-5657689);
-                canvas.drawRect(0.0f, 0.0f, (this.f60117e / 100.0f) * getWidth(), getHeight(), this.f60118f);
+                canvas.drawRect(0.0f, 0.0f, (this.a / 100.0f) * getWidth(), getHeight(), this.f44678b);
                 super.onDraw(canvas);
             }
         }
 
         @Override // android.view.View
-        public void onSizeChanged(int i2, int i3, int i4, int i5) {
+        public void onSizeChanged(int i, int i2, int i3, int i4) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i2, i3, i4, i5) == null) {
-                super.onSizeChanged(i2, i3, i4, i5);
+            if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
+                super.onSizeChanged(i, i2, i3, i4);
                 invalidate();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -457,9 +452,9 @@ public final class AssistActivity extends Activity {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {assistActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -481,9 +476,9 @@ public final class AssistActivity extends Activity {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -504,13 +499,13 @@ public final class AssistActivity extends Activity {
             this.mProgressView = fVar;
             fVar.setLayoutParams(new FrameLayout.LayoutParams(-1, (int) (getResources().getDisplayMetrics().density * 4.0d), 48));
             this.mProgressView.a(50);
-            int i2 = (int) (getResources().getDisplayMetrics().density * 5.0d);
+            int i = (int) (getResources().getDisplayMetrics().density * 5.0d);
             TextView textView = new TextView(this);
             this.mTextView = textView;
             textView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 17));
-            int i3 = i2 * 2;
-            int i4 = i2 * 3;
-            this.mTextView.setPadding(i3, i4, i3, i4);
+            int i2 = i * 2;
+            int i3 = i * 3;
+            this.mTextView.setPadding(i2, i3, i2, i3);
             this.mTextView.setBackgroundColor(-1728053248);
             this.mTextView.setTextColor(-1);
             this.mTextView.setText("无法访问，请稍候重试");
@@ -523,7 +518,7 @@ public final class AssistActivity extends Activity {
             this.mFrameLayout.addView(this.mProgressView);
             this.mFrameLayout.addView(this.mTextView);
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(R.drawable.ic_back);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f0805e1);
             imageView.setOnClickListener(new b(this));
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.setMargins(convertDipToPixels(5.0f), convertDipToPixels(5.0f), 0, 0);
@@ -575,9 +570,10 @@ public final class AssistActivity extends Activity {
             try {
                 this.mURL = getIntent().getStringExtra("url");
             } catch (Exception e2) {
-                String str = "URL getStringExtra exception " + e2;
+                Log.e("YYOpenSdk", "URL getStringExtra exception " + e2);
             }
             if (this.mURL == null) {
+                Log.e("YYOpenSdk", "URL Cannot Be NULL");
                 finish();
                 LogUtil.logActivity(this, "onCreate");
                 return;

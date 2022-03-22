@@ -16,25 +16,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.facebook.drawee.view.SimpleDraweeView;
-/* loaded from: classes4.dex */
+/* loaded from: classes3.dex */
 public class BannerWrapFrameView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public SimpleDraweeView f25769b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public FrameLayout f25770c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public View f25771d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f33439e;
-
-    /* renamed from: f  reason: collision with root package name */
-    public SimpleDraweeView f33440f;
-
-    /* renamed from: g  reason: collision with root package name */
-    public FrameLayout f33441g;
-
-    /* renamed from: h  reason: collision with root package name */
-    public View f33442h;
-
-    /* renamed from: i  reason: collision with root package name */
-    public LiveBannerEntity f33443i;
+    public LiveBannerEntity f25772e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public BannerWrapFrameView(@NonNull Context context) {
@@ -45,9 +43,9 @@ public class BannerWrapFrameView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -60,41 +58,41 @@ public class BannerWrapFrameView extends FrameLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.f33439e).inflate(R.layout.live_feed_page_banner_wrapper_layout, this);
-            this.f33442h = inflate;
-            this.f33440f = (SimpleDraweeView) inflate.findViewById(R.id.live_feed_page_banner_img_id);
-            this.f33441g = (FrameLayout) this.f33442h.findViewById(R.id.live_feed_page_banner_status_id);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d050f, this);
+            this.f25771d = inflate;
+            this.f25769b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091298);
+            this.f25770c = (FrameLayout) this.f25771d.findViewById(R.id.obfuscated_res_0x7f09129a);
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
     public LiveBannerEntity getLiveBannerEntity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f33443i : (LiveBannerEntity) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f25772e : (LiveBannerEntity) invokeV.objValue;
     }
 
     public SimpleDraweeView getSimpleDraweeView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f33440f : (SimpleDraweeView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f25769b : (SimpleDraweeView) invokeV.objValue;
     }
 
     public FrameLayout getStatusViewContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f33441g : (FrameLayout) invokeV.objValue;
-    }
-
-    public void onDarkModeChange(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f25770c : (FrameLayout) invokeV.objValue;
     }
 
     public void setData(LiveBannerEntity liveBannerEntity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, liveBannerEntity) == null) {
-            this.f33443i = liveBannerEntity;
+            this.f25772e = liveBannerEntity;
         }
     }
 
@@ -113,9 +111,9 @@ public class BannerWrapFrameView extends FrameLayout {
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -126,17 +124,17 @@ public class BannerWrapFrameView extends FrameLayout {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BannerWrapFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i2) {
-        super(context, attributeSet, i2);
+    public BannerWrapFrameView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
+        super(context, attributeSet, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i2)};
+            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
             interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
@@ -144,7 +142,7 @@ public class BannerWrapFrameView extends FrameLayout {
                 return;
             }
         }
-        this.f33439e = context;
+        this.a = context;
         a();
     }
 }

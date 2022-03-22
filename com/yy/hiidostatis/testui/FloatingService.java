@@ -28,7 +28,7 @@ import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-/* loaded from: classes8.dex */
+/* loaded from: classes7.dex */
 public final class FloatingService {
     public static final /* synthetic */ FloatingService[] $VALUES;
     public static /* synthetic */ Interceptable $ic = null;
@@ -47,7 +47,7 @@ public final class FloatingService {
     public boolean movingState;
     public WindowManager windowManager;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -64,9 +64,9 @@ public final class FloatingService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -86,12 +86,12 @@ public final class FloatingService {
                     this.y = (int) motionEvent.getRawY();
                     int[] iArr = new int[2];
                     this.this$0.listView.getLocationOnScreen(iArr);
-                    int i2 = iArr[0];
-                    int i3 = this.x;
-                    if (i2 < i3 && i3 < iArr[0] + this.this$0.listView.getWidth()) {
-                        int i4 = iArr[1];
-                        int i5 = this.y;
-                        if (i4 < i5 && i5 < iArr[1] + this.this$0.listView.getHeight()) {
+                    int i = iArr[0];
+                    int i2 = this.x;
+                    if (i < i2 && i2 < iArr[0] + this.this$0.listView.getWidth()) {
+                        int i3 = iArr[1];
+                        int i4 = this.y;
+                        if (i3 < i4 && i4 < iArr[1] + this.this$0.listView.getHeight()) {
                             this.hasDown = true;
                             this.downTime = System.currentTimeMillis();
                         }
@@ -105,12 +105,12 @@ public final class FloatingService {
                     if (this.this$0.movingState) {
                         int rawX = (int) motionEvent.getRawX();
                         int rawY = (int) motionEvent.getRawY();
-                        int i6 = rawX - this.x;
-                        int i7 = rawY - this.y;
+                        int i5 = rawX - this.x;
+                        int i6 = rawY - this.y;
                         this.x = rawX;
                         this.y = rawY;
-                        this.this$0.layoutParams.x += i6;
-                        this.this$0.layoutParams.y += i7;
+                        this.this$0.layoutParams.x += i5;
+                        this.this$0.layoutParams.y += i6;
                         this.this$0.windowManager.updateViewLayout(view, this.this$0.layoutParams);
                     } else if (System.currentTimeMillis() - this.downTime > 1500) {
                         this.this$0.movingState = true;
@@ -131,7 +131,7 @@ public final class FloatingService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes7.dex */
     public class LogAdapter extends BaseAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -144,9 +144,9 @@ public final class FloatingService {
                 newInitContext.initArgs = r2;
                 Object[] objArr = {floatingService};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -163,26 +163,26 @@ public final class FloatingService {
         }
 
         @Override // android.widget.Adapter
-        public Object getItem(int i2) {
+        public Object getItem(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2)) == null) ? this.this$0.logs.get(i2) : invokeI.objValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? this.this$0.logs.get(i) : invokeI.objValue;
         }
 
         @Override // android.widget.Adapter
-        public long getItemId(int i2) {
+        public long getItemId(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2)) == null) ? i2 : invokeI.longValue;
+            return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? i : invokeI.longValue;
         }
 
         @Override // android.widget.Adapter
-        public View getView(int i2, View view, ViewGroup viewGroup) {
+        public View getView(int i, View view, ViewGroup viewGroup) {
             InterceptResult invokeILL;
             TextView textView;
             LinearLayout linearLayout;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i2, view, viewGroup)) == null) {
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view, viewGroup)) == null) {
                 if (view == null) {
                     LinearLayout linearLayout2 = new LinearLayout(viewGroup.getContext());
                     linearLayout2.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
@@ -198,7 +198,7 @@ public final class FloatingService {
                     textView = (TextView) view.findViewWithTag(TbConfig.TMP_LOG_DIR_NAME);
                     linearLayout = view;
                 }
-                textView.setText((CharSequence) this.this$0.logs.get(i2));
+                textView.setText((CharSequence) this.this$0.logs.get(i));
                 return linearLayout;
             }
             return (View) invokeILL.objValue;
@@ -223,16 +223,16 @@ public final class FloatingService {
         $VALUES = new FloatingService[]{floatingService};
     }
 
-    public FloatingService(String str, int i2) {
+    public FloatingService(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i2)};
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 String str2 = (String) objArr2[0];
                 ((Integer) objArr2[1]).intValue();
@@ -313,9 +313,9 @@ public final class FloatingService {
                         newInitContext.initArgs = r2;
                         Object[] objArr = {this, format};
                         interceptable2.invokeUnInit(65536, newInitContext);
-                        int i2 = newInitContext.flag;
-                        if ((i2 & 1) != 0) {
-                            int i3 = i2 & 2;
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
                             newInitContext.thisArg = this;
                             interceptable2.invokeInitBody(65536, newInitContext);
                             return;

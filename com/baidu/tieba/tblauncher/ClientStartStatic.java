@@ -36,17 +36,17 @@ public class ClientStartStatic {
         public long a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i2) {
-            super(i2);
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -79,17 +79,17 @@ public class ClientStartStatic {
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i2) {
-            super(i2);
+        public b(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i2)};
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
@@ -122,9 +122,9 @@ public class ClientStartStatic {
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -147,23 +147,23 @@ public class ClientStartStatic {
                         List<String> list = netWork.getNetContext().getResponse().mHeader.get("Set-Cookie");
                         if (!ListUtils.isEmpty(list)) {
                             boolean z = false;
-                            for (int i2 = 0; i2 < list.size(); i2++) {
-                                if (list.get(i2) != null && list.get(i2).contains("BAIDUID=")) {
-                                    String[] split = list.get(i2).split(";");
+                            for (int i = 0; i < list.size(); i++) {
+                                if (list.get(i) != null && list.get(i).contains("BAIDUID=")) {
+                                    String[] split = list.get(i).split(";");
                                     if (split != null) {
                                         int length = split.length;
-                                        int i3 = 0;
+                                        int i2 = 0;
                                         while (true) {
-                                            if (i3 >= length) {
+                                            if (i2 >= length) {
                                                 break;
                                             }
-                                            String str = split[i3];
+                                            String str = split[i2];
                                             if (str != null && str.contains("BAIDUID=")) {
                                                 TbSingleton.getInstance().setBaiduIdForAnti(str.trim().substring(8));
                                                 z = true;
                                                 break;
                                             }
-                                            i3++;
+                                            i2++;
                                         }
                                     }
                                     if (z) {
@@ -206,9 +206,9 @@ public class ClientStartStatic {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
             }

@@ -1,5 +1,6 @@
 package androidx.fragment.app;
 
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.IdRes;
@@ -34,9 +35,9 @@ public class FragmentStore {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -73,19 +74,19 @@ public class FragmentStore {
         return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.mActive.containsKey(str) : invokeL.booleanValue;
     }
 
-    public void dispatchStateChange(int i2) {
+    public void dispatchStateChange(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i2) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             Iterator<Fragment> it = this.mAdded.iterator();
             while (it.hasNext()) {
                 FragmentStateManager fragmentStateManager = this.mActive.get(it.next().mWho);
                 if (fragmentStateManager != null) {
-                    fragmentStateManager.setFragmentManagerState(i2);
+                    fragmentStateManager.setFragmentManagerState(i);
                 }
             }
             for (FragmentStateManager fragmentStateManager2 : this.mActive.values()) {
                 if (fragmentStateManager2 != null) {
-                    fragmentStateManager2.setFragmentManagerState(i2);
+                    fragmentStateManager2.setFragmentManagerState(i);
                 }
             }
         }
@@ -113,12 +114,12 @@ public class FragmentStore {
             if (size > 0) {
                 printWriter.print(str);
                 printWriter.println("Added Fragments:");
-                for (int i2 = 0; i2 < size; i2++) {
+                for (int i = 0; i < size; i++) {
                     printWriter.print(str);
                     printWriter.print("  #");
-                    printWriter.print(i2);
+                    printWriter.print(i);
                     printWriter.print(": ");
-                    printWriter.println(this.mAdded.get(i2).toString());
+                    printWriter.println(this.mAdded.get(i).toString());
                 }
             }
         }
@@ -139,20 +140,20 @@ public class FragmentStore {
     }
 
     @Nullable
-    public Fragment findFragmentById(@IdRes int i2) {
+    public Fragment findFragmentById(@IdRes int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i2)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
             for (int size = this.mAdded.size() - 1; size >= 0; size--) {
                 Fragment fragment = this.mAdded.get(size);
-                if (fragment != null && fragment.mFragmentId == i2) {
+                if (fragment != null && fragment.mFragmentId == i) {
                     return fragment;
                 }
             }
             for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
                 if (fragmentStateManager != null) {
                     Fragment fragment2 = fragmentStateManager.getFragment();
-                    if (fragment2.mFragmentId == i2) {
+                    if (fragment2.mFragmentId == i) {
                         return fragment2;
                     }
                 }
@@ -328,7 +329,7 @@ public class FragmentStore {
                     Fragment findActiveFragment = findActiveFragment(str);
                     if (findActiveFragment != null) {
                         if (FragmentManager.isLoggingEnabled(2)) {
-                            String str2 = "restoreSaveState: added (" + str + "): " + findActiveFragment;
+                            Log.v("FragmentManager", "restoreSaveState: added (" + str + "): " + findActiveFragment);
                         }
                         addFragment(findActiveFragment);
                     } else {
@@ -342,16 +343,16 @@ public class FragmentStore {
     @NonNull
     public ArrayList<FragmentState> saveActiveFragments() {
         InterceptResult invokeV;
-        FragmentState saveState;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             ArrayList<FragmentState> arrayList = new ArrayList<>(this.mActive.size());
             for (FragmentStateManager fragmentStateManager : this.mActive.values()) {
                 if (fragmentStateManager != null) {
                     Fragment fragment = fragmentStateManager.getFragment();
-                    arrayList.add(fragmentStateManager.saveState());
+                    FragmentState saveState = fragmentStateManager.saveState();
+                    arrayList.add(saveState);
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        String str = "Saved state of " + fragment + ": " + saveState.mSavedFragmentState;
+                        Log.v("FragmentManager", "Saved state of " + fragment + ": " + saveState.mSavedFragmentState);
                     }
                 }
             }
@@ -375,7 +376,7 @@ public class FragmentStore {
                     Fragment next = it.next();
                     arrayList.add(next.mWho);
                     if (FragmentManager.isLoggingEnabled(2)) {
-                        String str = "saveAllState: adding fragment (" + next.mWho + "): " + next;
+                        Log.v("FragmentManager", "saveAllState: adding fragment (" + next.mWho + "): " + next);
                     }
                 }
                 return arrayList;
